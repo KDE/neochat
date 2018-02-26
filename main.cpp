@@ -20,13 +20,14 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
 
-    qmlRegisterType<SyncJob>(); qRegisterMetaType<SyncJob*> ("SyncJob*");
-    qmlRegisterType<Room>();    qRegisterMetaType<Room*>    ("Room*");
-    qmlRegisterType<User>(); qRegisterMetaType<User*> ("User*");
+    qmlRegisterType<SyncJob>();
+    qRegisterMetaType<SyncJob*> ("SyncJob*");
+    qmlRegisterType<Room>();
+    qRegisterMetaType<Room*>("Room*");
+    qmlRegisterType<User>();
+    qRegisterMetaType<User*>("User*");
 
-    qmlRegisterType<Connection>        ("Matrique", 0, 1, "Connection");
-//    qmlRegisterType<MessageEventModel> ("Matrique", 0, 1, "MessageEventModel");
-//    qmlRegisterType<RoomListModel>     ("Matrique", 0, 1, "RoomListModel");
+    qmlRegisterType<Connection>("Matrique", 0, 1, "Connection");
 
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));

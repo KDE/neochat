@@ -17,47 +17,77 @@ ApplicationWindow {
     height: 640
     title: qsTr("Matrique")
 
-    Connection { id: connection }
+    Connection {
+        id: connection
+        homeserver: settings.homeserver
+    }
 
     Settings {
         id: settings
 
-        property alias user: loginPage.username
-        property alias pass: loginPage.password
-        property var token
+        property string homeserver
+
+        property string userID
+        property string token
+        property string deviceID
     }
 
     FontLoader { id: materialFont; source: "qrc:/asset/font/material.ttf" }
 
-    function login() {
-        console.info("Login is invoked.")
-
-        var connect = connection.connectToServer
-
+    function init() {
         connection.connected.connect(function() {
-            settings.user = connection.userId()
-            settings.token = connection.accessToken
+            console.info("Matrix connected.")
 
-            connection.connectionError.connect(connection.reconnect)
+            connection.syncError.connect(reconnect)
+            connection.resolveError.connect(reconnect)
             connection.syncDone.connect(resync)
-            connection.reconnected.connect(resync)
-
-            connection.sync()
         })
+    }
 
-        var userParts = settings.user.split(':')
-        if(userParts.length === 1 || userParts[1] === "matrix.org") { // If this user uses default server.
-            console.info("Matrix server is used.")
-            connect(settings.user, settings.pass, "Device")
-        } else {
-            connection.resolved.connect(function() {
-                connect(settings.user, settings.pass, "Device")
-            })
-            connection.resolveError.connect(function() {
-                console.info("Couldn't resolve server!")
-            })
-            connection.resolveServer(userParts[1])
+    function resync() {
+        if(!initialised) {
         }
+        connection.sync(30000)
+    }
+
+    function reconnect() {
+        connection.connectWithToken(connection.localUserId,
+                                    connection.accessToken,
+                                    connection.deviceId)
+    }
+
+    function login() {
+        if(!settings.homeserver) settings.homeserver = "https://matrix.org"
+
+        console.info("Homeserver:", connection.homeserver)
+        console.info("UserID:", settings.userID)
+        console.info("Token:", settings.token)
+        console.info("DeviceID:", settings.deviceID)
+
+        if(!settings.token || !settings.userID) {
+            console.info("Using server address.")
+            settings.homeserver = loginPage.homeserver
+
+            function saveCredentials() {
+                settings.userID = connection.localUserId
+                settings.token = connection.accessToken
+
+                connection.connected.disconnect(saveCredentials)
+            }
+
+            connection.connected.connect(saveCredentials)
+
+            connection.connectToServer(loginPage.username, loginPage.password, connection.deviceId)
+        } else {
+            console.info("Using token")
+            connection.connectWithToken(settings.userID, settings.token, connection.deviceId)
+        }
+    }
+
+    function logout() {
+        settings.homeserver = null;
+        settings.userID = null;
+        settings.token = null;
     }
 
     SideNav {
@@ -164,5 +194,9 @@ ApplicationWindow {
         Setting {
 
         }
+    }
+
+    Component.onCompleted: {
+        init()
     }
 }

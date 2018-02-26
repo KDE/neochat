@@ -3,12 +3,23 @@ import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 import QtQuick.Controls 2.3
 import QtQuick.Controls.Material 2.3
+import Qt.labs.settings 1.0
 import "qrc:/qml/component"
 
 Page {
     property var window
-    property alias username: usernameField.text
-    property alias password: passwordField.text
+
+    property alias homeserver: settings.server
+    property alias username: settings.user
+    property alias password: settings.pass
+
+    Settings {
+        id: settings
+
+        property alias server: serverField.text
+        property alias user: usernameField.text
+        property alias pass: passwordField.text
+    }
 
     Row {
         anchors.fill: parent
@@ -123,6 +134,15 @@ Page {
                     width: parent.width
 
                     onClicked: window.login()
+                }
+
+                Button {
+                    id: logoutButton
+                    text: "LOGOUT"
+                    flat: true
+                    width: parent.width
+
+                    onClicked: window.logout()
                 }
             }
         }
