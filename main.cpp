@@ -1,16 +1,8 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
-#include "connection.h"
-#include "room.h"
-#include "user.h"
-#include "jobs/syncjob.h"
-#include "settings.h"
+#include "matrix/controller.h"
 using namespace QMatrixClient;
-
-// https://forum.qt.io/topic/57809
-Q_DECLARE_METATYPE(SyncJob*)
-Q_DECLARE_METATYPE(Room*)
 
 int main(int argc, char *argv[])
 {
@@ -20,14 +12,7 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
 
-    qmlRegisterType<SyncJob>();
-    qRegisterMetaType<SyncJob*> ("SyncJob*");
-    qmlRegisterType<Room>();
-    qRegisterMetaType<Room*>("Room*");
-    qmlRegisterType<User>();
-    qRegisterMetaType<User*>("User*");
-
-    qmlRegisterType<Connection>("Matrique", 0, 1, "Connection");
+    qmlRegisterType<Controller>("Matrique", 0, 1, "Controller");
 
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));

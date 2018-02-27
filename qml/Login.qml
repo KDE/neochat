@@ -8,6 +8,7 @@ import "qrc:/qml/component"
 
 Page {
     property var window
+    property var controller
 
     property alias homeserver: settings.server
     property alias username: settings.user
@@ -79,35 +80,53 @@ Page {
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
 
-                TextField {
-                    id: serverField
+                RowLayout {
                     width: parent.width
                     height: 48
-                    placeholderText: "Server"
-                    leftPadding: 16
-                    topPadding: 0
-                    bottomPadding: 0
+                    spacing: 0
 
-                    background: Rectangle {
-                        color: "#eaeaea"
-                        border.color: parent.activeFocus ? Material.accent : "transparent"
-                        border.width: 2
+                    Text {
+                        text: "@"
+                        horizontalAlignment: Text.AlignHCenter
+                        Layout.preferredWidth: parent.width * 0.05
                     }
-                }
 
-                TextField {
-                    id: usernameField
-                    width: parent.width
-                    height: 48
-                    placeholderText: "Username"
-                    leftPadding: 16
-                    topPadding: 0
-                    bottomPadding: 0
+                    TextField {
+                        id: usernameField
+                        Layout.preferredWidth: parent.width * 0.45
+                        Layout.fillHeight: true
+                        placeholderText: "Username"
+                        leftPadding: 16
+                        topPadding: 0
+                        bottomPadding: 0
 
-                    background: Rectangle {
-                        color: "#eaeaea"
-                        border.color: parent.activeFocus ? Material.accent : "transparent"
-                        border.width: 2
+                        background: Rectangle {
+                            color: "#eaeaea"
+                            border.color: parent.activeFocus ? Material.accent : "transparent"
+                            border.width: 2
+                        }
+                    }
+
+                    Text {
+                        text: ":"
+                        horizontalAlignment: Text.AlignHCenter
+                        Layout.preferredWidth: parent.width * 0.05
+                    }
+
+                    TextField {
+                        id: serverField
+                        Layout.preferredWidth: parent.width * 0.45
+                        Layout.fillHeight: true
+                        placeholderText: "Server"
+                        leftPadding: 16
+                        topPadding: 0
+                        bottomPadding: 0
+
+                        background: Rectangle {
+                            color: "#eaeaea"
+                            border.color: parent.activeFocus ? Material.accent : "transparent"
+                            border.width: 2
+                        }
                     }
                 }
 
@@ -133,7 +152,7 @@ Page {
                     highlighted: true
                     width: parent.width
 
-                    onClicked: window.login()
+                    onClicked: controller.login(homeserver, username, password)
                 }
 
                 Button {
@@ -142,7 +161,7 @@ Page {
                     flat: true
                     width: parent.width
 
-                    onClicked: window.logout()
+                    onClicked: controller.logout()
                 }
             }
         }

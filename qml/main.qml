@@ -17,78 +17,18 @@ ApplicationWindow {
     height: 640
     title: qsTr("Matrique")
 
-    Connection {
-        id: connection
-        homeserver: settings.homeserver
+    Controller {
+        id: controller
     }
 
     Settings {
         id: settings
 
-        property string homeserver
-
-        property string userID
-        property string token
-        property string deviceID
+        property alias userID: controller.userID
+        property alias token: controller.token
     }
 
     FontLoader { id: materialFont; source: "qrc:/asset/font/material.ttf" }
-
-    function init() {
-        connection.connected.connect(function() {
-            console.info("Matrix connected.")
-
-            connection.syncError.connect(reconnect)
-            connection.resolveError.connect(reconnect)
-            connection.syncDone.connect(resync)
-        })
-    }
-
-    function resync() {
-        if(!initialised) {
-        }
-        connection.sync(30000)
-    }
-
-    function reconnect() {
-        connection.connectWithToken(connection.localUserId,
-                                    connection.accessToken,
-                                    connection.deviceId)
-    }
-
-    function login() {
-        if(!settings.homeserver) settings.homeserver = "https://matrix.org"
-
-        console.info("Homeserver:", connection.homeserver)
-        console.info("UserID:", settings.userID)
-        console.info("Token:", settings.token)
-        console.info("DeviceID:", settings.deviceID)
-
-        if(!settings.token || !settings.userID) {
-            console.info("Using server address.")
-            settings.homeserver = loginPage.homeserver
-
-            function saveCredentials() {
-                settings.userID = connection.localUserId
-                settings.token = connection.accessToken
-
-                connection.connected.disconnect(saveCredentials)
-            }
-
-            connection.connected.connect(saveCredentials)
-
-            connection.connectToServer(loginPage.username, loginPage.password, connection.deviceId)
-        } else {
-            console.info("Using token")
-            connection.connectWithToken(settings.userID, settings.token, connection.deviceId)
-        }
-    }
-
-    function logout() {
-        settings.homeserver = null;
-        settings.userID = null;
-        settings.token = null;
-    }
 
     SideNav {
         id: sideNav
@@ -185,6 +125,7 @@ ApplicationWindow {
         Login {
             id: loginPage
             window: window
+            controller: controller
         }
 
         Contact {
@@ -197,6 +138,6 @@ ApplicationWindow {
     }
 
     Component.onCompleted: {
-        init()
+        controller.init()
     }
 }
