@@ -11,6 +11,7 @@ class Controller : public QObject
 {
     Q_OBJECT
 
+    Q_PROPERTY(bool isLogin READ getIsLogin WRITE setIsLogin NOTIFY isLoginChanged)
     Q_PROPERTY(QString userID READ getUserID WRITE setUserID NOTIFY userIDChanged)
     Q_PROPERTY(QByteArray token READ getToken WRITE setToken NOTIFY tokenChanged)
 public:
@@ -18,13 +19,21 @@ public:
     ~Controller();
 
     // All the Q_INVOKABLEs.
-    Q_INVOKABLE void init();
     Q_INVOKABLE void login(QString, QString, QString);
     Q_INVOKABLE void logout();
 
     // All the non-Q_INVOKABLE functions.
 
     // All the Q_PROPERTYs.
+    bool isLogin = false;
+    bool getIsLogin() { return isLogin; }
+    void setIsLogin(bool n) {
+        if(n != isLogin) {
+            isLogin = n;
+            emit isLoginChanged();
+        }
+    }
+
     QString userID;
     QString getUserID() { return userID; }
     void setUserID(QString n) {
@@ -45,10 +54,12 @@ public:
 
 private:
     QMatrixClient::Connection *connection = new QMatrixClient::Connection();
+    void connected();
     void resync();
     void reconnect();
 
 signals:
+    void isLoginChanged();
     void userIDChanged();
     void tokenChanged();
     void homeServerChanged();

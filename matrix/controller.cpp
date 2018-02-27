@@ -3,39 +3,30 @@
 #include "libqmatrixclient/connection.h"
 
 Controller::Controller(QObject *parent) : QObject(parent) {
-
+    connect(connection, &Connection::connected, this, &Controller::connected);
+    connect(connection, &Connection::resolveError, this, &Controller::reconnect);
+    connect(connection, &Connection::syncError, this, &Controller::reconnect);
+    connect(connection, &Connection::syncDone, this, &Controller::resync);
 }
 
 Controller::~Controller() {
 
 }
 
-void Controller::init() {
-    connect(connection, &Connection::connected,
-        [=](){
-            qInfo() << "Matrix connected.";
-            setUserID(connection->userId());
-            setToken(connection->accessToken());
-        }
-    );
-
-    connect(connection, &Connection::resolveError, this, &Controller::reconnect);
-    connect(connection, &Connection::syncError, this, &Controller::reconnect);
-    connect(connection, &Connection::syncDone, this, &Controller::resync);
-}
-
 void Controller::login(QString home, QString user, QString pass) {
-    qInfo() << "UserID:" << userID;
-    qInfo() << "Token:" << token;
-    qInfo() << "Home:" << home;
-    qInfo() << "User:" << user;
-    qInfo() << "Pass:" << pass;
-    if(!userID.isEmpty() && !token.isEmpty()) {
-        qInfo() << "Using token.";
-        connection->connectWithToken(userID, token, "");
+    if(home.isEmpty()) home = "matrix.org";
 
+    qDebug() << "UserID:" << userID;
+    qDebug() << "Token:" << token;
+    qDebug() << "Home:" << home;
+    qDebug() << "User:" << user;
+    qDebug() << "Pass:" << pass;
+
+    if(!userID.isEmpty() && !token.isEmpty()) {
+        qDebug() << "Using token.";
+        connection->connectWithToken(userID, token, "");
     } else if(!user.isEmpty() && !pass.isEmpty()) {
-        qInfo() << "Using given credential.";
+        qDebug() << "Using given credential.";
         connection->connectToServer("@"+user+":"+home, pass, "");
     }
 }
@@ -43,6 +34,13 @@ void Controller::login(QString home, QString user, QString pass) {
 void Controller::logout() {
     userID = "";
     token = "";
+    setIsLogin(false);
+}
+
+void Controller::connected() {
+    setUserID(connection->userId());
+    setToken(connection->accessToken());
+    setIsLogin(true);
 }
 
 void Controller::resync() {

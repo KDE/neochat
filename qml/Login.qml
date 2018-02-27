@@ -80,53 +80,35 @@ Page {
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
 
-                RowLayout {
+                TextField {
+                    id: serverField
                     width: parent.width
                     height: 48
-                    spacing: 0
+                    placeholderText: "Server"
+                    leftPadding: 16
+                    topPadding: 0
+                    bottomPadding: 0
 
-                    Text {
-                        text: "@"
-                        horizontalAlignment: Text.AlignHCenter
-                        Layout.preferredWidth: parent.width * 0.05
+                    background: Rectangle {
+                        color: "#eaeaea"
+                        border.color: parent.activeFocus ? Material.accent : "transparent"
+                        border.width: 2
                     }
+                }
 
-                    TextField {
-                        id: usernameField
-                        Layout.preferredWidth: parent.width * 0.45
-                        Layout.fillHeight: true
-                        placeholderText: "Username"
-                        leftPadding: 16
-                        topPadding: 0
-                        bottomPadding: 0
+                TextField {
+                    id: usernameField
+                    width: parent.width
+                    height: 48
+                    placeholderText: "Username"
+                    leftPadding: 16
+                    topPadding: 0
+                    bottomPadding: 0
 
-                        background: Rectangle {
-                            color: "#eaeaea"
-                            border.color: parent.activeFocus ? Material.accent : "transparent"
-                            border.width: 2
-                        }
-                    }
-
-                    Text {
-                        text: ":"
-                        horizontalAlignment: Text.AlignHCenter
-                        Layout.preferredWidth: parent.width * 0.05
-                    }
-
-                    TextField {
-                        id: serverField
-                        Layout.preferredWidth: parent.width * 0.45
-                        Layout.fillHeight: true
-                        placeholderText: "Server"
-                        leftPadding: 16
-                        topPadding: 0
-                        bottomPadding: 0
-
-                        background: Rectangle {
-                            color: "#eaeaea"
-                            border.color: parent.activeFocus ? Material.accent : "transparent"
-                            border.width: 2
-                        }
+                    background: Rectangle {
+                        color: "#eaeaea"
+                        border.color: parent.activeFocus ? Material.accent : "transparent"
+                        border.width: 2
                     }
                 }
 

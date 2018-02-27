@@ -19,6 +19,8 @@ ApplicationWindow {
 
     Controller {
         id: controller
+
+        onIsLoginChanged: console.log("Status:", isLogin)
     }
 
     Settings {
@@ -135,9 +137,5 @@ ApplicationWindow {
         Setting {
 
         }
-    }
-
-    Component.onCompleted: {
-        controller.init()
     }
 }
