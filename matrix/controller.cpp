@@ -3,10 +3,10 @@
 #include "libqmatrixclient/connection.h"
 
 Controller::Controller(QObject *parent) : QObject(parent) {
-    connect(connection, &Connection::connected, this, &Controller::connected);
-    connect(connection, &Connection::resolveError, this, &Controller::reconnect);
-    connect(connection, &Connection::syncError, this, &Controller::reconnect);
-    connect(connection, &Connection::syncDone, this, &Controller::resync);
+    connect(m_connection, &QMatrixClient::Connection::connected, this, &Controller::connected);
+    connect(m_connection, &QMatrixClient::Connection::resolveError, this, &Controller::reconnect);
+    connect(m_connection, &QMatrixClient::Connection::syncError, this, &Controller::reconnect);
+    connect(m_connection, &QMatrixClient::Connection::syncDone, this, &Controller::resync);
 }
 
 Controller::~Controller() {
@@ -24,10 +24,10 @@ void Controller::login(QString home, QString user, QString pass) {
 
     if(!userID.isEmpty() && !token.isEmpty()) {
         qDebug() << "Using token.";
-        connection->connectWithToken(userID, token, "");
+        m_connection->connectWithToken(userID, token, "");
     } else if(!user.isEmpty() && !pass.isEmpty()) {
         qDebug() << "Using given credential.";
-        connection->connectToServer("@"+user+":"+home, pass, "");
+        m_connection->connectToServer("@"+user+":"+home, pass, "");
     }
 }
 
@@ -38,15 +38,17 @@ void Controller::logout() {
 }
 
 void Controller::connected() {
-    setUserID(connection->userId());
-    setToken(connection->accessToken());
+    setUserID(m_connection->userId());
+    setToken(m_connection->accessToken());
+    roomListModel->init(m_connection);
+    resync();
     setIsLogin(true);
 }
 
 void Controller::resync() {
-    connection->sync(30000);
+    m_connection->sync(30000);
 }
 
 void Controller::reconnect() {
-    Controller::connection->connectWithToken(userID, token, "");
+    m_connection->connectWithToken(userID, token, "");
 }

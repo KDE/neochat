@@ -130,8 +130,8 @@ ApplicationWindow {
             controller: controller
         }
 
-        Contact {
-
+        Room {
+            roomListModel: controller.roomListModel
         }
 
         Setting {

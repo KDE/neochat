@@ -3,7 +3,9 @@ import QtQuick.Controls 2.3
 import "qrc:/qml/form"
 
 Page {
-    ContactListForm {
+    property var roomListModel
+
+    RoomListForm {
         id: contactListForm
         height: parent.height
         width: 320

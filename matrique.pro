@@ -15,7 +15,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += main.cpp \
-    matrix/controller.cpp
+    matrix/controller.cpp \
+    matrix/roomlistmodel.cpp
 
 RESOURCES += \
     res.qrc
@@ -40,10 +41,11 @@ DISTFILES += \
     ImageStatus.qml \
     ButtonDelegate.qml \
     SideNav.qml \
-    ContactListForm.qml \
-    ContactDetailForm.qml \
-    Contact.qml \
+    RoomListForm.qml \
+    RoomDetailForm.qml \
+    Room.qml \
     Setting.qml
 
 HEADERS += \
-    matrix/controller.h
+    matrix/controller.h \
+    matrix/roomlistmodel.h

@@ -4,13 +4,17 @@
 #include <QObject>
 
 #include "libqmatrixclient/connection.h"
+#include "roomlistmodel.h"
 
-using namespace QMatrixClient;
+namespace QMatrixClient {
+    class Connection;
+}
 
 class Controller : public QObject
 {
     Q_OBJECT
 
+    Q_PROPERTY(RoomListModel *roomListModel READ getRoomListModel NOTIFY roomListModelChanged)
     Q_PROPERTY(bool isLogin READ getIsLogin WRITE setIsLogin NOTIFY isLoginChanged)
     Q_PROPERTY(QString userID READ getUserID WRITE setUserID NOTIFY userIDChanged)
     Q_PROPERTY(QByteArray token READ getToken WRITE setToken NOTIFY tokenChanged)
@@ -25,6 +29,9 @@ public:
     // All the non-Q_INVOKABLE functions.
 
     // All the Q_PROPERTYs.
+    RoomListModel *roomListModel = new RoomListModel(this);
+    RoomListModel* getRoomListModel() { return roomListModel; }
+
     bool isLogin = false;
     bool getIsLogin() { return isLogin; }
     void setIsLogin(bool n) {
@@ -53,12 +60,14 @@ public:
     }
 
 private:
-    QMatrixClient::Connection *connection = new QMatrixClient::Connection();
+    QMatrixClient::Connection *m_connection = new QMatrixClient::Connection();
+
     void connected();
     void resync();
     void reconnect();
 
 signals:
+    void roomListModelChanged();
     void isLoginChanged();
     void userIDChanged();
     void tokenChanged();
