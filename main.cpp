@@ -15,11 +15,11 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
 //    Enable this if you need proxy.
-//    QNetworkProxy proxy;
-//    proxy.setType(QNetworkProxy::HttpProxy);
-//    proxy.setHostName("localhost");
-//    proxy.setPort(1082);
-//    QNetworkProxy::setApplicationProxy(proxy);
+    QNetworkProxy proxy;
+    proxy.setType(QNetworkProxy::HttpProxy);
+    proxy.setHostName("localhost");
+    proxy.setPort(1082);
+    QNetworkProxy::setApplicationProxy(proxy);
 
     qmlRegisterType<Controller>("Matrique", 0, 1, "Controller");
     qmlRegisterType<RoomListModel>("Matrique", 0, 1, "RoomListModel");

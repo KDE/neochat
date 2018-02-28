@@ -7,6 +7,7 @@ import "qrc:/qml/component"
 Item {
     ColumnLayout {
         anchors.fill: parent
+        spacing: 0
 
         Pane {
             Layout.fillWidth: true

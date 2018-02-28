@@ -70,21 +70,21 @@ ApplicationWindow {
                 }
             }
 
+//            ButtonDelegate {
+//                index: 2
+
+//                contentItem: Text {
+//                    text: "\ue5d2"
+//                    font.pointSize: 16
+//                    font.family: materialFont.name
+//                    color: "white"
+//                    horizontalAlignment: Text.AlignHCenter
+//                    verticalAlignment: Text.AlignVCenter
+//                }
+//            }
+
             ButtonDelegate {
                 index: 2
-
-                contentItem: Text {
-                    text: "\ue5d2"
-                    font.pointSize: 16
-                    font.family: materialFont.name
-                    color: "white"
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                }
-            }
-
-            ButtonDelegate {
-                index: 3
 
                 contentItem: Text {
                     text: "\ue8b8"
@@ -97,7 +97,7 @@ ApplicationWindow {
             }
 
             ButtonDelegate {
-                index: 4
+                index: 3
 
                 contentItem: Text {
                     text: "\ue879"
@@ -120,18 +120,14 @@ ApplicationWindow {
         interactive: false
         orientation: Qt.Vertical
 
-        Home {
-
+        Room {
+            roomListModel: controller.roomListModel
         }
 
         Login {
             id: loginPage
             window: window
             controller: controller
-        }
-
-        Room {
-            roomListModel: controller.roomListModel
         }
 
         Setting {

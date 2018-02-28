@@ -29,7 +29,7 @@ public:
     // All the non-Q_INVOKABLE functions.
 
     // All the Q_PROPERTYs.
-    RoomListModel *roomListModel = new RoomListModel(this);
+    RoomListModel *roomListModel = new RoomListModel();
     RoomListModel* getRoomListModel() { return roomListModel; }
 
     bool isLogin = false;

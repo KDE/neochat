@@ -2,6 +2,7 @@
 #define ROOMLISTMODEL_H
 
 #include <QObject>
+#include <QtCore/QAbstractListModel>
 
 #include "libqmatrixclient/connection.h"
 #include "libqmatrixclient/room.h"
@@ -11,16 +12,48 @@ namespace QMatrixClient {
     class Room;
 }
 
-class RoomListModel : public QObject
+class RoomModel : public QObject
 {
     Q_OBJECT
+
+    Q_PROPERTY(QString name READ getName)
+    Q_PROPERTY(QString value READ getValue)
+
+public:
+    explicit RoomModel(QString name, QString value);
+
+    QString getName() { return m_name; }
+    QString getValue() { return m_value; }
+
+signals:
+    void nameChanged();
+    void valueChanged();
+
+private:
+    QString m_name;
+    QString m_value;
+};
+
+class RoomListModel : public QAbstractListModel
+{
+    Q_OBJECT
+
 public:
     explicit RoomListModel(QObject *parent = nullptr);
     ~RoomListModel();
 
+    enum RoomModelRoles {
+        NameRole, ValueRole
+    };
+
+    QHash<int, QByteArray> roleNames() const;
+
     void init(QMatrixClient::Connection*);
 
     Q_INVOKABLE QMatrixClient::Room* roomAt(int row);
+
+    QVariant data(const QModelIndex& index, int role) const override;
+    Q_INVOKABLE int rowCount(const QModelIndex& parent=QModelIndex()) const override;
 
 signals:
 

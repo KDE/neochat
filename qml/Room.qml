@@ -6,14 +6,15 @@ Page {
     property var roomListModel
 
     RoomListForm {
-        id: contactListForm
+        id: roomListForm
         height: parent.height
         width: 320
+        listModel: roomListModel
     }
 
-    ContactDetailForm {
-        id: contactDetailForm
+    RoomForm {
+        id: roomForm
         anchors.fill: parent
-        anchors.leftMargin: contactListForm.width
+        anchors.leftMargin: roomListForm.width
     }
 }

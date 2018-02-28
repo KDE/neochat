@@ -46,9 +46,11 @@ void Controller::connected() {
 }
 
 void Controller::resync() {
+    qDebug() << "Syncing Matrix.";
     m_connection->sync(30000);
 }
 
 void Controller::reconnect() {
+    qDebug() << "Connection lost. Reconnecting...";
     m_connection->connectWithToken(userID, token, "");
 }

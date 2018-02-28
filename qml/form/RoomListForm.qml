@@ -6,6 +6,7 @@ import QtQuick.Controls.Material 2.3
 import "qrc:/qml/component"
 
 Item {
+    property var listModel
     ColumnLayout {
         anchors.fill: parent
         spacing: 0
@@ -74,58 +75,6 @@ Item {
                 color: "#eaeaea"
             }
 
-            ListModel {
-                id: listModel
-                ListElement {
-                    name: "Bill Smith"
-                    number: "555 3264"
-                }
-                ListElement {
-                    name: "John Brown"
-                    number: "555 8426"
-                }
-                ListElement {
-                    name: "Sam Wise"
-                    number: "555 0473"
-                }
-                ListElement {
-                    name: "Bill Smith"
-                    number: "555 3264"
-                }
-                ListElement {
-                    name: "John Brown"
-                    number: "555 8426"
-                }
-                ListElement {
-                    name: "Sam Wise"
-                    number: "555 0473"
-                }
-                ListElement {
-                    name: "Bill Smith"
-                    number: "555 3264"
-                }
-                ListElement {
-                    name: "John Brown"
-                    number: "555 8426"
-                }
-                ListElement {
-                    name: "Sam Wise"
-                    number: "555 0473"
-                }
-                ListElement {
-                    name: "Bill Smith"
-                    number: "555 3264"
-                }
-                ListElement {
-                    name: "John Brown"
-                    number: "555 8426"
-                }
-                ListElement {
-                    name: "Sam Wise"
-                    number: "555 0473"
-                }
-            }
-
             ListView {
                 id: listView
                 width: parent.width
@@ -145,25 +94,29 @@ Item {
                     height: 80
                     onClicked: listView.currentIndex = index
 
-                    contentItem: Item {
-                        Row {
-                            spacing: 16
+                    contentItem:  Row {
+                        width: parent.width - 32
+                        height: parent.height - 32
+                        spacing: 16
 
-                            ImageStatus {
-                                width: parent.height
-                                height: parent.height
-                                source: "qrc:/asset/img/avatar.png"
+                        ImageStatus {
+                            width: parent.height
+                            height: parent.height
+                            source: "qrc:/asset/img/avatar.png"
+                        }
+
+                        Column {
+                            width: parent.width
+                            height: parent.height
+                            Text {
+                                width: parent.width
+                                text: name
+                                color: "#424242"
                             }
-
-                            Column {
-                                Text {
-                                    text: name
-                                    color: "#424242"
-                                }
-                                Text {
-                                    text: number
-                                    color: "#424242"
-                                }
+                            Text {
+                                width: parent.width
+                                text: value
+                                color: "#424242"
                             }
                         }
                     }
