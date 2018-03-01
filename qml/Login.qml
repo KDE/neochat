@@ -39,7 +39,8 @@ Page {
                 ColorOverlay {
                     anchors.fill: background
                     source: background
-                    color: "#b000796b"
+                    color: Material.accent
+                    opacity: 0.7
                 }
             }
 
