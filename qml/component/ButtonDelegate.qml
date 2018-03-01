@@ -29,7 +29,7 @@ Item {
         anchors.fill: parent
 
         onClicked: {
-            if(page != null) {
+            if(page != null && stackView.currentItem != page) {
                 if(stackView.depth === 1) {
                     stackView.replace(page)
                 } else {

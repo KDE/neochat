@@ -71,8 +71,19 @@ Item {
             Layout.fillHeight: true
             padding: 0
 
-            background: Rectangle {
-                color: "#eaeaea"
+            background: Item {
+                anchors.fill: parent
+                Rectangle {
+                    anchors.fill: parent
+                    color: "#eaeaea"
+                }
+
+                Text {
+                    z: 10
+                    text: "Here? No, not here."
+                    anchors.centerIn: parent
+                    visible: listView.count === 0
+                }
             }
 
             ListView {
