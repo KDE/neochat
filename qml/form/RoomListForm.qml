@@ -106,17 +106,22 @@ Item {
                         }
 
                         Column {
-                            width: parent.width
+                            width: parent.width - parent.height - parent.spacing
                             height: parent.height
                             Text {
                                 width: parent.width
                                 text: name
                                 color: "#424242"
+                                font.pointSize: 16
+                                elide: Text.ElideRight
+                                wrapMode: Text.NoWrap
                             }
                             Text {
                                 width: parent.width
                                 text: value
                                 color: "#424242"
+                                elide: Text.ElideRight
+                                wrapMode: Text.NoWrap
                             }
                         }
                     }
