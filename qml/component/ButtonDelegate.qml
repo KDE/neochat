@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.3
 
 Item {
-    property int index
+    property Item page
     property alias contentItem: itemDelegate.contentItem
     signal clicked
 
@@ -14,13 +14,13 @@ Item {
     Layout.preferredHeight: width
 
     Rectangle {
-        width: swipeView.currentIndex === index ?  parent.width : 0
+        width: stackView.currentItem === page ?  parent.width : 0
         height: parent.height
         anchors.bottom:  itemDelegate.bottom
         color: Qt.lighter(Material.accent)
 
         Behavior on width {
-            PropertyAnimation { easing.type: Easing.InOutQuad; duration: 200 }
+            PropertyAnimation { easing.type: Easing.InOutCubic; duration: 200 }
         }
     }
 
@@ -29,7 +29,14 @@ Item {
         anchors.fill: parent
 
         onClicked: {
-            swipeView.currentIndex = index
+            if(page != null) {
+                if(stackView.depth === 1) {
+                    stackView.replace(page)
+                } else {
+                    stackView.clear()
+                    stackView.push(page)
+                }
+            }
             buttonDelegate.clicked()
         }
     }

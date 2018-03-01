@@ -5,19 +5,8 @@
 
 #include "controller.h"
 
-RoomListModel::RoomListModel(QObject *parent)
-{
-
-}
-
-RoomListModel::~RoomListModel() {
-
-}
-
-void RoomListModel::init(QMatrixClient::Connection *conn) {
-    qDebug() << "Registering connection.";
+RoomListModel::RoomListModel(QMatrixClient::Connection* m_connection) : m_connection(m_connection) {
     beginResetModel();
-    m_connection = conn;
     m_rooms.clear();
     connect(m_connection, &QMatrixClient::Connection::newRoom, this, &RoomListModel::addRoom);
     for(QMatrixClient::Room* room: m_connection->roomMap().values()) {
@@ -27,13 +16,15 @@ void RoomListModel::init(QMatrixClient::Connection *conn) {
     endResetModel();
 }
 
-QMatrixClient::Room* RoomListModel::roomAt(int row)
-{
+RoomListModel::~RoomListModel() {
+
+}
+
+QMatrixClient::Room* RoomListModel::roomAt(int row) {
     return m_rooms.at(row);
 }
 
-void RoomListModel::addRoom(QMatrixClient::Room* room)
-{
+void RoomListModel::addRoom(QMatrixClient::Room* room) {
     qDebug() << "Adding room.";
     beginInsertRows(QModelIndex(), m_rooms.count(), m_rooms.count());
     connect(room, &QMatrixClient::Room::namesChanged, this, &RoomListModel::namesChanged );
@@ -41,31 +32,29 @@ void RoomListModel::addRoom(QMatrixClient::Room* room)
     endInsertRows();
 }
 
-int RoomListModel::rowCount(const QModelIndex& parent) const
-{
+int RoomListModel::rowCount(const QModelIndex& parent) const {
     if( parent.isValid() )
         return 0;
     return m_rooms.count();
 }
 
-QVariant RoomListModel::data(const QModelIndex& index, int role) const
-{
+QVariant RoomListModel::data(const QModelIndex& index, int role) const {
     if(!index.isValid())
         return QVariant();
 
-    if(index.row() >= m_rooms.count())
-    {
+    if(index.row() >= m_rooms.count()) {
         qDebug() << "UserListModel: something wrong here...";
         return QVariant();
     }
     QMatrixClient::Room* room = m_rooms.at(index.row());
-    if( role == NameRole )
-    {
+    if(role == NameRole) {
         return room->displayName();
     }
-    if( role == ValueRole )
-    {
+    if(role == ValueRole) {
         return room->topic();
+    }
+    if(role == IconRole) {
+        return room->avatar(48);
     }
     return QVariant();
 }
@@ -74,17 +63,16 @@ QHash<int, QByteArray> RoomListModel::roleNames() const {
     QHash<int, QByteArray> roles;
     roles[NameRole] = "name";
     roles[ValueRole] = "value";
+    roles[IconRole] = "icon";
     return roles;
 }
 
-void RoomListModel::namesChanged(QMatrixClient::Room* room)
-{
+void RoomListModel::namesChanged(QMatrixClient::Room* room) {
     int row = m_rooms.indexOf(room);
     emit dataChanged(index(row), index(row));
 }
 
-void RoomListModel::unreadMessagesChanged(QMatrixClient::Room* room)
-{
+void RoomListModel::unreadMessagesChanged(QMatrixClient::Room* room) {
 
 }
 

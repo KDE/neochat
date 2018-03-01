@@ -18,6 +18,10 @@ class Controller : public QObject
     Q_PROPERTY(bool isLogin READ getIsLogin WRITE setIsLogin NOTIFY isLoginChanged)
     Q_PROPERTY(QString userID READ getUserID WRITE setUserID NOTIFY userIDChanged)
     Q_PROPERTY(QByteArray token READ getToken WRITE setToken NOTIFY tokenChanged)
+
+private:
+    QMatrixClient::Connection* m_connection = new QMatrixClient::Connection();
+
 public:
     explicit Controller(QObject *parent = nullptr);
     ~Controller();
@@ -29,7 +33,7 @@ public:
     // All the non-Q_INVOKABLE functions.
 
     // All the Q_PROPERTYs.
-    RoomListModel *roomListModel = new RoomListModel();
+    RoomListModel* roomListModel = new RoomListModel(m_connection);
     RoomListModel* getRoomListModel() { return roomListModel; }
 
     bool isLogin = false;
@@ -60,8 +64,6 @@ public:
     }
 
 private:
-    QMatrixClient::Connection *m_connection = new QMatrixClient::Connection();
-
     void connected();
     void resync();
     void reconnect();

@@ -39,16 +39,14 @@ class RoomListModel : public QAbstractListModel
     Q_OBJECT
 
 public:
-    explicit RoomListModel(QObject *parent = nullptr);
+    explicit RoomListModel(QMatrixClient::Connection* m_connection = 0);
     ~RoomListModel();
 
     enum RoomModelRoles {
-        NameRole, ValueRole
+        NameRole, ValueRole, IconRole
     };
 
     QHash<int, QByteArray> roleNames() const;
-
-    void init(QMatrixClient::Connection*);
 
     Q_INVOKABLE QMatrixClient::Room* roomAt(int row);
 
@@ -65,7 +63,7 @@ private slots:
     void addRoom(QMatrixClient::Room* room);
 
 private:
-    QMatrixClient::Connection *m_connection;
+    QMatrixClient::Connection* m_connection;
     QList<QMatrixClient::Room*> m_rooms;
 };
 

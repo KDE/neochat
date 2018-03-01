@@ -40,7 +40,6 @@ void Controller::logout() {
 void Controller::connected() {
     setUserID(m_connection->userId());
     setToken(m_connection->accessToken());
-    roomListModel->init(m_connection);
     resync();
     setIsLogin(true);
 }

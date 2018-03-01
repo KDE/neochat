@@ -42,13 +42,16 @@ ApplicationWindow {
             spacing: 0
 
             ButtonDelegate {
-                index: 0
-
                 contentItem: ImageStatus {
                     width: parent.width
                     height: parent.width
                     source: "qrc:/asset/img/avatar.png"
                     anchors.horizontalCenter: parent.horizontalCenter
+                }
+
+                page: Room {
+                    id: roomPage
+                    roomListModel: controller.roomListModel
                 }
             }
 
@@ -58,8 +61,6 @@ ApplicationWindow {
             }
 
             ButtonDelegate {
-                index: 1
-
                 contentItem: Text {
                     text: "\ue853"
                     font.pointSize: 16
@@ -68,24 +69,14 @@ ApplicationWindow {
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                 }
+
+                page: Login {
+                    id: loginPage
+                    controller: controller
+                }
             }
 
-//            ButtonDelegate {
-//                index: 2
-
-//                contentItem: Text {
-//                    text: "\ue5d2"
-//                    font.pointSize: 16
-//                    font.family: materialFont.name
-//                    color: "white"
-//                    horizontalAlignment: Text.AlignHCenter
-//                    verticalAlignment: Text.AlignVCenter
-//                }
-//            }
-
             ButtonDelegate {
-                index: 2
-
                 contentItem: Text {
                     text: "\ue8b8"
                     font.pointSize: 16
@@ -94,11 +85,13 @@ ApplicationWindow {
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                 }
+
+                page: Setting {
+
+                }
             }
 
             ButtonDelegate {
-                index: 3
-
                 contentItem: Text {
                     text: "\ue879"
                     font.pointSize: 16
@@ -113,25 +106,10 @@ ApplicationWindow {
         }
     }
 
-    SwipeView {
-        id: swipeView
+    StackView {
+        id: stackView
         anchors.fill: parent
         anchors.leftMargin: sideNav.width
-        interactive: false
-        orientation: Qt.Vertical
-
-        Room {
-            roomListModel: controller.roomListModel
-        }
-
-        Login {
-            id: loginPage
-            window: window
-            controller: controller
-        }
-
-        Setting {
-
-        }
+        initialItem: roomPage
     }
 }

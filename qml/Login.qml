@@ -7,7 +7,6 @@ import Qt.labs.settings 1.0
 import "qrc:/qml/component"
 
 Page {
-    property var window
     property var controller
 
     property alias homeserver: settings.server
