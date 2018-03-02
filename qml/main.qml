@@ -51,6 +51,7 @@ ApplicationWindow {
                     height: parent.width
                     source: "qrc:/asset/img/avatar.png"
                     anchors.horizontalCenter: parent.horizontalCenter
+                    statusIndicator: true
                 }
 
                 page: Room {
@@ -77,6 +78,21 @@ ApplicationWindow {
                 page: Login {
                     id: loginPage
                     controller: matrixController
+                }
+            }
+
+            ButtonDelegate {
+                contentItem: Text {
+                    text: "\ue5d2"
+                    font.pointSize: 16
+                    font.family: materialFont.name
+                    color: "white"
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                }
+
+                page: Contact {
+                    id: contactPage
                 }
             }
 

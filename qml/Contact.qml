@@ -3,7 +3,7 @@ import QtQuick.Controls 2.3
 import "qrc:/qml/form"
 
 Page {
-    property var roomListModel
+    property var contactListModel
 
     ListForm {
         id: roomListForm
@@ -12,8 +12,8 @@ Page {
         listModel: roomListModel
     }
 
-    RoomForm {
-        id: roomForm
+    DetailForm {
+        id: detailForm
         anchors.fill: parent
         anchors.leftMargin: roomListForm.width
     }

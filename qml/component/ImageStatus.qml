@@ -3,6 +3,8 @@ import QtQuick.Controls 2.3
 import QtGraphicalEffects 1.0
 
 Image {
+    property bool statusIndicator
+
     id: avatar
 
     mipmap: true
@@ -30,5 +32,6 @@ Image {
         color: "transparent"
         border.color: "#4caf50"
         border.width: 4
+        visible: statusIndicator
     }
 }
