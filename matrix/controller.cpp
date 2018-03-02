@@ -29,10 +29,7 @@ void Controller::login(QString home, QString user, QString pass) {
 }
 
 void Controller::setConnection(QMatrixClient::Connection* conn) {
-    qDebug() << "Setting controller connection.";
     m_connection = conn;
-    roomListModel = new RoomListModel(m_connection);
-    emit roomListModelChanged();
     connect(m_connection, &QMatrixClient::Connection::connected, this, &Controller::connected);
     connect(m_connection, &QMatrixClient::Connection::resolveError, this, &Controller::reconnect);
     connect(m_connection, &QMatrixClient::Connection::syncError, this, &Controller::reconnect);

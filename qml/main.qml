@@ -22,12 +22,17 @@ ApplicationWindow {
         connection: m_connection
     }
 
-//    Settings {
-//        id: settings
+    RoomListModel {
+        id: roomListModel
+        connection: m_connection
+    }
 
-//        property var userID
-//        property var token
-//    }
+    Settings {
+        id: settings
+
+        property alias userID: matrixController.userID
+        property alias token: matrixController.token
+    }
 
     FontLoader { id: materialFont; source: "qrc:/asset/font/material.ttf" }
 
@@ -50,7 +55,7 @@ ApplicationWindow {
 
                 page: Room {
                     id: roomPage
-                    roomListModel: matrixController.roomListModel//BUG: It will cause random crash as roomListModel may not be initialized.
+                    roomListModel: roomListModel
                 }
             }
 

@@ -5,7 +5,16 @@
 
 #include "controller.h"
 
-RoomListModel::RoomListModel(QMatrixClient::Connection* m_connection) : m_connection(m_connection) {
+RoomListModel::RoomListModel() {
+
+}
+
+RoomListModel::~RoomListModel() {
+
+}
+
+void RoomListModel::setConnection(QMatrixClient::Connection *conn) {
+    m_connection = conn;
     beginResetModel();
     m_rooms.clear();
     connect(m_connection, &QMatrixClient::Connection::newRoom, this, &RoomListModel::addRoom);
@@ -14,10 +23,6 @@ RoomListModel::RoomListModel(QMatrixClient::Connection* m_connection) : m_connec
         m_rooms.append(room);
     }
     endResetModel();
-}
-
-RoomListModel::~RoomListModel() {
-
 }
 
 QMatrixClient::Room* RoomListModel::roomAt(int row) {
