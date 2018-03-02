@@ -12,28 +12,6 @@ namespace QMatrixClient {
     class Room;
 }
 
-class RoomModel : public QObject
-{
-    Q_OBJECT
-
-    Q_PROPERTY(QString name READ getName)
-    Q_PROPERTY(QString value READ getValue)
-
-public:
-    explicit RoomModel(QString name, QString value);
-
-    QString getName() { return m_name; }
-    QString getValue() { return m_value; }
-
-signals:
-    void nameChanged();
-    void valueChanged();
-
-private:
-    QString m_name;
-    QString m_value;
-};
-
 class RoomListModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -43,7 +21,7 @@ public:
     ~RoomListModel();
 
     enum RoomModelRoles {
-        NameRole, ValueRole, IconRole
+        NameRole, ValueRole, AvatarRole
     };
 
     QHash<int, QByteArray> roleNames() const;

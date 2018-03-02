@@ -81,6 +81,7 @@ Item {
                 Text {
                     z: 10
                     text: "Here? No, not here."
+                    color: "#424242"
                     anchors.centerIn: parent
                     visible: listView.count === 0
                 }
@@ -113,7 +114,7 @@ Item {
                         ImageStatus {
                             width: parent.height
                             height: parent.height
-                            source: "qrc:/asset/img/avatar.png"
+                            source: "image://mxc/" + avatar
                         }
 
                         Column {

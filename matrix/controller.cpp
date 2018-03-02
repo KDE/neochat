@@ -3,10 +3,7 @@
 #include "libqmatrixclient/connection.h"
 
 Controller::Controller(QObject *parent) : QObject(parent) {
-    connect(m_connection, &QMatrixClient::Connection::connected, this, &Controller::connected);
-    connect(m_connection, &QMatrixClient::Connection::resolveError, this, &Controller::reconnect);
-    connect(m_connection, &QMatrixClient::Connection::syncError, this, &Controller::reconnect);
-    connect(m_connection, &QMatrixClient::Connection::syncDone, this, &Controller::resync);
+
 }
 
 Controller::~Controller() {
@@ -29,6 +26,18 @@ void Controller::login(QString home, QString user, QString pass) {
         qDebug() << "Using given credential.";
         m_connection->connectToServer("@"+user+":"+home, pass, "");
     }
+}
+
+void Controller::setConnection(QMatrixClient::Connection* conn) {
+    qDebug() << "Setting controller connection.";
+    m_connection = conn;
+    roomListModel = new RoomListModel(m_connection);
+    emit roomListModelChanged();
+    connect(m_connection, &QMatrixClient::Connection::connected, this, &Controller::connected);
+    connect(m_connection, &QMatrixClient::Connection::resolveError, this, &Controller::reconnect);
+    connect(m_connection, &QMatrixClient::Connection::syncError, this, &Controller::reconnect);
+    connect(m_connection, &QMatrixClient::Connection::syncDone, this, &Controller::resync);
+    emit connectionChanged();
 }
 
 void Controller::logout() {

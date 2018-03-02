@@ -18,17 +18,16 @@ ApplicationWindow {
     title: qsTr("Matrique")
 
     Controller {
-        id: controller
-
-        onIsLoginChanged: console.log("Status:", isLogin)
+        id: matrixController
+        connection: m_connection
     }
 
-    Settings {
-        id: settings
+//    Settings {
+//        id: settings
 
-        property alias userID: controller.userID
-        property alias token: controller.token
-    }
+//        property var userID
+//        property var token
+//    }
 
     FontLoader { id: materialFont; source: "qrc:/asset/font/material.ttf" }
 
@@ -51,7 +50,7 @@ ApplicationWindow {
 
                 page: Room {
                     id: roomPage
-                    roomListModel: controller.roomListModel
+                    roomListModel: matrixController.roomListModel//BUG: It will cause random crash as roomListModel may not be initialized.
                 }
             }
 
@@ -72,7 +71,7 @@ ApplicationWindow {
 
                 page: Login {
                     id: loginPage
-                    controller: controller
+                    controller: matrixController
                 }
             }
 

@@ -53,8 +53,8 @@ QVariant RoomListModel::data(const QModelIndex& index, int role) const {
     if(role == ValueRole) {
         return room->topic();
     }
-    if(role == IconRole) {
-        return room->avatar(48);
+    if(role == AvatarRole) {
+        return room->avatarUrl();
     }
     return QVariant();
 }
@@ -63,7 +63,7 @@ QHash<int, QByteArray> RoomListModel::roleNames() const {
     QHash<int, QByteArray> roles;
     roles[NameRole] = "name";
     roles[ValueRole] = "value";
-    roles[IconRole] = "icon";
+    roles[AvatarRole] = "avatar";
     return roles;
 }
 
@@ -74,9 +74,4 @@ void RoomListModel::namesChanged(QMatrixClient::Room* room) {
 
 void RoomListModel::unreadMessagesChanged(QMatrixClient::Room* room) {
 
-}
-
-RoomModel::RoomModel(QString name, QString value) {
-    m_name = name;
-    m_value = value;
 }
