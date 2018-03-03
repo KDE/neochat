@@ -46,6 +46,7 @@ void Controller::logout() {
 void Controller::connected() {
     setUserID(m_connection->userId());
     setToken(m_connection->accessToken());
+    m_connection->loadState();
     resync();
     setIsLogin(true);
 }
@@ -53,6 +54,7 @@ void Controller::connected() {
 void Controller::resync() {
     qDebug() << "Syncing Matrix.";
     m_connection->sync(30000);
+    m_connection->saveState();
 }
 
 void Controller::reconnect() {
