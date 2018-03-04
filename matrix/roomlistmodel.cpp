@@ -2,8 +2,8 @@
 #include <QtGui/QColor>
 
 #include "roomlistmodel.h"
-
 #include "controller.h"
+#include "user.h"
 
 RoomListModel::RoomListModel() {
 
@@ -59,7 +59,12 @@ QVariant RoomListModel::data(const QModelIndex& index, int role) const {
         return room->topic();
     }
     if(role == AvatarRole) {
-        return room->avatarUrl();
+        if(room->avatarUrl().toString() != "") {
+            return room->avatarUrl();
+        } else if(room->users().length() == 2) {
+            QMatrixClient::User* user = room->users().at(0);
+            return user->avatarUrl();
+        }
     }
     return QVariant();
 }

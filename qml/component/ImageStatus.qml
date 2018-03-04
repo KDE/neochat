@@ -2,36 +2,47 @@ import QtQuick 2.10
 import QtQuick.Controls 2.3
 import QtGraphicalEffects 1.0
 
-Image {
+Item {
     property bool statusIndicator
-
-    id: avatar
-
-    mipmap: true
-    layer.enabled: true
-    fillMode: Image.PreserveAspectCrop
-
-    layer.effect: OpacityMask {
-        maskSource: Item {
-            width: avatar.width
-            height: avatar.width
-            Rectangle {
-                anchors.centerIn: parent
-                width: avatar.width
-                height: avatar.width
-                radius: avatar.width / 2
-            }
-        }
-    }
+    property alias source: avatar.source
 
     Rectangle {
-        id: circle
-        width: avatar.width
-        height: avatar.width
-        radius: avatar.width / 2
-        color: "transparent"
-        border.color: "#4caf50"
-        border.width: 4
-        visible: statusIndicator
+        width: parent.width
+        height: parent.width
+        radius: parent.width / 2
+        color: "white"
+    }
+
+    Image {
+        id: avatar
+        width: parent.width
+        height: parent.width
+
+        mipmap: true
+        layer.enabled: true
+        fillMode: Image.PreserveAspectCrop
+
+        layer.effect: OpacityMask {
+            maskSource: Item {
+                width: avatar.width
+                height: avatar.width
+                Rectangle {
+                    anchors.centerIn: parent
+                    width: avatar.width
+                    height: avatar.width
+                    radius: avatar.width / 2
+                }
+            }
+        }
+
+        Rectangle {
+            width: parent.width
+            height: parent.width
+            radius: parent.width / 2
+            color: "transparent"
+            border.color: "#4caf50"
+            border.width: 4
+            visible: statusIndicator
+        }
     }
 }
