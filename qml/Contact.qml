@@ -9,7 +9,7 @@ Page {
         id: roomListForm
         height: parent.height
         width: 320
-        listModel: roomListModel
+        listModel: contactListModel
     }
 
     DetailForm {

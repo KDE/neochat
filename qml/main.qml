@@ -52,6 +52,7 @@ ApplicationWindow {
                     source: "qrc:/asset/img/avatar.png"
                     anchors.horizontalCenter: parent.horizontalCenter
                     statusIndicator: true
+                    opaqueBackground: false
                 }
 
                 page: Room {
@@ -93,6 +94,7 @@ ApplicationWindow {
 
                 page: Contact {
                     id: contactPage
+                    contactListModel: roomListModel
                 }
             }
 

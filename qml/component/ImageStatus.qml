@@ -3,7 +3,8 @@ import QtQuick.Controls 2.3
 import QtGraphicalEffects 1.0
 
 Item {
-    property bool statusIndicator
+    property bool statusIndicator: false
+    property bool opaqueBackground: false
     property alias source: avatar.source
 
     Rectangle {
@@ -11,6 +12,7 @@ Item {
         height: parent.width
         radius: parent.width / 2
         color: "white"
+        visible: opaqueBackground
     }
 
     Image {
@@ -21,6 +23,8 @@ Item {
         mipmap: true
         layer.enabled: true
         fillMode: Image.PreserveAspectCrop
+        sourceSize.width: parent.width
+        sourceSize.height: parent.width
 
         layer.effect: OpacityMask {
             maskSource: Item {
