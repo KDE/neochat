@@ -17,7 +17,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp \
     matrix/controller.cpp \
     matrix/roomlistmodel.cpp \
-    matrix/imageprovider.cpp
+    matrix/imageprovider.cpp \
+    matrix/messageeventmodel.cpp
 
 RESOURCES += \
     res.qrc
@@ -50,4 +51,5 @@ DISTFILES += \
 HEADERS += \
     matrix/controller.h \
     matrix/roomlistmodel.h \
-    matrix/imageprovider.h
+    matrix/imageprovider.h \
+    matrix/messageeventmodel.h

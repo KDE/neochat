@@ -7,6 +7,8 @@ import "qrc:/qml/component"
 
 Item {
     property var listModel
+    property alias currentIndex: listView.currentIndex
+
     ColumnLayout {
         anchors.fill: parent
         spacing: 0

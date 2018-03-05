@@ -11,9 +11,15 @@ Page {
         TabButton {
             text: qsTr("Overview")
         }
+
+        TabButton {
+            text: qsTr("Interface")
+        }
+
         TabButton {
             text: qsTr("Network")
         }
+
         TabButton {
             text: qsTr("Sync")
         }
@@ -24,6 +30,10 @@ Page {
 
         currentIndex: settingBar.currentIndex
         anchors.fill: parent
+
+        Page {
+
+        }
 
         Page {
 

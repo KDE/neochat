@@ -11,20 +11,24 @@ Controller::~Controller() {
 }
 
 void Controller::login(QString home, QString user, QString pass) {
-    if(home.isEmpty()) home = "matrix.org";
+    if(!isLogin) {
+        if(home.isEmpty()) home = "matrix.org";
 
-    qDebug() << "UserID:" << userID;
-    qDebug() << "Token:" << token;
-    qDebug() << "Home:" << home;
-    qDebug() << "User:" << user;
-    qDebug() << "Pass:" << pass;
+        qDebug() << "UserID:" << userID;
+        qDebug() << "Token:" << token;
+        qDebug() << "Home:" << home;
+        qDebug() << "User:" << user;
+        qDebug() << "Pass:" << pass;
 
-    if(!userID.isEmpty() && !token.isEmpty()) {
-        qDebug() << "Using token.";
-        m_connection->connectWithToken(userID, token, "");
-    } else if(!user.isEmpty() && !pass.isEmpty()) {
-        qDebug() << "Using given credential.";
-        m_connection->connectToServer("@"+user+":"+home, pass, "");
+        if(!userID.isEmpty() && !token.isEmpty()) {
+            qDebug() << "Using token.";
+            m_connection->connectWithToken(userID, token, "");
+        } else if(!user.isEmpty() && !pass.isEmpty()) {
+            qDebug() << "Using given credential.";
+            m_connection->connectToServer("@"+user+":"+home, pass, "");
+        }
+    } else {
+        qDebug() << "You are already logged in.";
     }
 }
 

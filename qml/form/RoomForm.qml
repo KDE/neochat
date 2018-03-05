@@ -6,6 +6,8 @@ import QtGraphicalEffects 1.0
 import "qrc:/qml/component"
 
 Item {
+    property int roomIndex
+
     ColumnLayout {
         anchors.fill: parent
         spacing: 0
