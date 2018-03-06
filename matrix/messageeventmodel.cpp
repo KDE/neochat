@@ -11,21 +11,6 @@
 #include "events/simplestateevents.h"
 #include "events/redactionevent.h"
 
-enum EventRoles {
-    EventTypeRole = Qt::UserRole + 1,
-    EventIdRole,
-    TimeRole,
-    SectionRole,
-    AboveSectionRole,
-    AuthorRole,
-    ContentRole,
-    ContentTypeRole,
-    HighlightRole,
-    ReadMarkerRole,
-    SpecialMarksRole,
-    LongOperationRole,
-};
-
 QHash<int, QByteArray> MessageEventModel::roleNames() const
 {
     QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
@@ -52,7 +37,7 @@ MessageEventModel::MessageEventModel(QObject* parent)
     qRegisterMetaType<QMatrixClient::FileTransferInfo>();
 }
 
-void MessageEventModel::changeRoom(QuaternionRoom* room)
+void MessageEventModel::changeRoom(MatriqueRoom* room)
 {
     if (room == m_currentRoom)
         return;
@@ -128,7 +113,7 @@ inline bool hasValidTimestamp(const QMatrixClient::TimelineItem& ti)
     return ti->timestamp().isValid();
 }
 
-QDateTime MessageEventModel::makeMessageTimestamp(QuaternionRoom::rev_iter_t baseIt) const
+QDateTime MessageEventModel::makeMessageTimestamp(MatriqueRoom::rev_iter_t baseIt) const
 {
     const auto& timeline = m_currentRoom->messageEvents();
     auto ts = baseIt->event()->timestamp();
@@ -151,7 +136,7 @@ QDateTime MessageEventModel::makeMessageTimestamp(QuaternionRoom::rev_iter_t bas
     return {};
 }
 
-QString MessageEventModel::makeDateString(QuaternionRoom::rev_iter_t baseIt) const
+QString MessageEventModel::makeDateString(MatriqueRoom::rev_iter_t baseIt) const
 {
     auto date = makeMessageTimestamp(baseIt).toLocalTime().date();
     if (QMatrixClient::SettingsGroup("UI")
@@ -280,8 +265,8 @@ QVariant MessageEventModel::data(const QModelIndex& index, int role) const
                         return tr("self-banned from the room");
                 case MembershipType::Knock:
                     return tr("knocked");
-                case MembershipType::Undefined:
-                    return tr("made something unknown");
+//                case MembershipType::Unknown;
+//                    return tr("made something unknown");
             }
         }
         if( event->type() == EventType::RoomAliases )

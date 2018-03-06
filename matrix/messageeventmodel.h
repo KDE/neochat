@@ -1,9 +1,9 @@
 #ifndef MESSAGEEVENTMODEL_H
 #define MESSAGEEVENTMODEL_H
 
-#pragma once
-
 #include <QtCore/QAbstractListModel>
+
+#include "matriqueroom.h"
 
 class MessageEventModel: public QAbstractListModel
 {
@@ -13,11 +13,26 @@ class MessageEventModel: public QAbstractListModel
         // has to be re-calculated anyway).
         // XXX: A better way would be to make [Room::]Timeline a list model
         // itself, leaving only representation of the model to a client.
-        Q_PROPERTY(QuaternionRoom* room MEMBER m_currentRoom CONSTANT)
+        Q_PROPERTY(MatriqueRoom* room MEMBER m_currentRoom CONSTANT)
     public:
+        enum EventRoles {
+            EventTypeRole = Qt::UserRole + 1,
+            EventIdRole,
+            TimeRole,
+            SectionRole,
+            AboveSectionRole,
+            AuthorRole,
+            ContentRole,
+            ContentTypeRole,
+            HighlightRole,
+            ReadMarkerRole,
+            SpecialMarksRole,
+            LongOperationRole,
+        };
+
         explicit MessageEventModel(QObject* parent = nullptr);
 
-        void changeRoom(QuaternionRoom* room);
+        void changeRoom(MatriqueRoom* room);
 
         int rowCount(const QModelIndex& parent = QModelIndex()) const override;
         QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
@@ -27,11 +42,11 @@ class MessageEventModel: public QAbstractListModel
         void refreshEvent(const QString& eventId);
 
     private:
-        QuaternionRoom* m_currentRoom;
+        MatriqueRoom* m_currentRoom;
         QString lastReadEventId;
 
-        QDateTime makeMessageTimestamp(QuaternionRoom::rev_iter_t baseIt) const;
-        QString makeDateString(QuaternionRoom::rev_iter_t baseIt) const;
+        QDateTime makeMessageTimestamp(MatriqueRoom::rev_iter_t baseIt) const;
+        QString makeDateString(MatriqueRoom::rev_iter_t baseIt) const;
         void refreshEventRoles(const QString& eventId, const QVector<int> roles);
 };
 
