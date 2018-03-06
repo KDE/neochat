@@ -19,61 +19,61 @@ class Controller : public QObject
     Q_PROPERTY(QString userID READ getUserID WRITE setUserID NOTIFY userIDChanged)
     Q_PROPERTY(QByteArray token READ getToken WRITE setToken NOTIFY tokenChanged)
 
-public:
-    explicit Controller(QObject *parent = nullptr);
-    ~Controller();
+    public:
+        explicit Controller(QObject *parent = nullptr);
+        ~Controller();
 
-    // All the Q_INVOKABLEs.
-    Q_INVOKABLE void login(QString, QString, QString);
-    Q_INVOKABLE void logout();
+        // All the Q_INVOKABLEs.
+        Q_INVOKABLE void login(QString, QString, QString);
+        Q_INVOKABLE void logout();
 
-    // All the non-Q_INVOKABLE functions.
+        // All the non-Q_INVOKABLE functions.
 
-    // All the Q_PROPERTYs.
-    QMatrixClient::Connection* m_connection;
-    QMatrixClient::Connection* getConnection() { return m_connection; }
-    void setConnection(QMatrixClient::Connection* conn);
+        // All the Q_PROPERTYs.
+        QMatrixClient::Connection* m_connection;
+        QMatrixClient::Connection* getConnection() { return m_connection; }
+        void setConnection(QMatrixClient::Connection* conn);
 
-    bool isLogin = false;
-    bool getIsLogin() { return isLogin; }
-    void setIsLogin(bool n) {
-        if(n != isLogin) {
-            isLogin = n;
-            emit isLoginChanged();
+        bool isLogin = false;
+        bool getIsLogin() { return isLogin; }
+        void setIsLogin(bool n) {
+            if(n != isLogin) {
+                isLogin = n;
+                emit isLoginChanged();
+            }
         }
-    }
 
-    QString userID;
-    QString getUserID() { return userID; }
-    void setUserID(QString n) {
-        if(n != userID) {
-            userID = n;
-            emit userIDChanged();
+        QString userID;
+        QString getUserID() { return userID; }
+        void setUserID(QString n) {
+            if(n != userID) {
+                userID = n;
+                emit userIDChanged();
+            }
         }
-    }
 
-    QByteArray token;
-    QByteArray getToken() { return token; }
-    void setToken(QByteArray n) {
-        if(n != token) {
-            token = n;
-            emit tokenChanged();
+        QByteArray token;
+        QByteArray getToken() { return token; }
+        void setToken(QByteArray n) {
+            if(n != token) {
+                token = n;
+                emit tokenChanged();
+            }
         }
-    }
 
-private:
-    void connected();
-    void resync();
-    void reconnect();
+    private:
+        void connected();
+        void resync();
+        void reconnect();
 
-signals:
-    void connectionChanged();
-    void isLoginChanged();
-    void userIDChanged();
-    void tokenChanged();
-    void homeServerChanged();
+    signals:
+        void connectionChanged();
+        void isLoginChanged();
+        void userIDChanged();
+        void tokenChanged();
+        void homeServerChanged();
 
-public slots:
+    public slots:
 };
 
 #endif // CONTROLLER_H

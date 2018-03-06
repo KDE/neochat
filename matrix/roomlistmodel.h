@@ -18,37 +18,37 @@ class RoomListModel : public QAbstractListModel
 
     Q_PROPERTY(QMatrixClient::Connection *connection READ getConnection WRITE setConnection NOTIFY connectionChanged)
 
-public:
-    explicit RoomListModel();
-    ~RoomListModel();
+    public:
+        explicit RoomListModel();
+        ~RoomListModel();
 
-    enum RoomModelRoles {
-        NameRole, ValueRole, AvatarRole
-    };
+        enum RoomModelRoles {
+            NameRole, ValueRole, AvatarRole
+        };
 
-    QMatrixClient::Connection* m_connection;
-    QMatrixClient::Connection* getConnection() { return m_connection; }
-    void setConnection(QMatrixClient::Connection* conn);
+        QMatrixClient::Connection* m_connection;
+        QMatrixClient::Connection* getConnection() { return m_connection; }
+        void setConnection(QMatrixClient::Connection* conn);
 
-    QHash<int, QByteArray> roleNames() const;
+        QHash<int, QByteArray> roleNames() const;
 
-    Q_INVOKABLE QMatrixClient::Room* roomAt(int row);
+        Q_INVOKABLE QMatrixClient::Room* roomAt(int row);
 
-    QVariant data(const QModelIndex& index, int role) const override;
-    Q_INVOKABLE int rowCount(const QModelIndex& parent=QModelIndex()) const override;
+        QVariant data(const QModelIndex& index, int role) const override;
+        Q_INVOKABLE int rowCount(const QModelIndex& parent=QModelIndex()) const override;
 
-signals:
-    void connectionChanged();
+    signals:
+        void connectionChanged();
 
-public slots:
+    public slots:
 
-private slots:
-    void namesChanged(QMatrixClient::Room* room);
-    void unreadMessagesChanged(QMatrixClient::Room* room);
-    void addRoom(QMatrixClient::Room* room);
+    private slots:
+        void namesChanged(QMatrixClient::Room* room);
+        void unreadMessagesChanged(QMatrixClient::Room* room);
+        void addRoom(QMatrixClient::Room* room);
 
-private:
-    QList<QMatrixClient::Room*> m_rooms;
+    private:
+        QList<QMatrixClient::Room*> m_rooms;
 };
 
 #endif // ROOMLISTMODEL_H

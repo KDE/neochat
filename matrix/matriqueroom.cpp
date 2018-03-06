@@ -9,8 +9,8 @@ MatriqueRoom::MatriqueRoom(Connection* connection, QString roomId,
                                JoinState joinState)
     : Room(connection, roomId, joinState)
 {
-    connect( this, &MatriqueRoom::notificationCountChanged, this, &MatriqueRoom::countChanged );
-    connect( this, &MatriqueRoom::highlightCountChanged, this, &MatriqueRoom::countChanged );
+    connect(this, &MatriqueRoom::notificationCountChanged, this, &MatriqueRoom::countChanged);
+    connect(this, &MatriqueRoom::highlightCountChanged, this, &MatriqueRoom::countChanged);
 }
 
 const QString& MatriqueRoom::cachedInput() const
@@ -58,7 +58,7 @@ void MatriqueRoom::saveViewport(int topIndex, int bottomIndex)
 
 void MatriqueRoom::countChanged()
 {
-    if( displayed() && !hasUnreadMessages() )
+    if(displayed() && !hasUnreadMessages())
     {
         resetNotificationCount();
         resetHighlightCount();

@@ -57,7 +57,7 @@ QImage ImageProvider::requestImage(const QString& id,
         condition.wait(&m_lock);
     }
 
-    if( pSize != nullptr )
+    if(pSize != nullptr)
         *pSize = result.size();
 
     return result;

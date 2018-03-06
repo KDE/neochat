@@ -43,14 +43,14 @@ void MessageEventModel::changeRoom(MatriqueRoom* room)
         return;
 
     beginResetModel();
-    if( m_currentRoom )
+    if(m_currentRoom)
     {
-        m_currentRoom->disconnect( this );
+        m_currentRoom->disconnect(this);
         qDebug() << "Disconnected from" << m_currentRoom->id();
     }
 
     m_currentRoom = room;
-    if( room )
+    if(room)
     {
         using namespace QMatrixClient;
         connect(m_currentRoom, &Room::aboutToAddNewMessages, this,
@@ -156,14 +156,14 @@ QString MessageEventModel::makeDateString(MatriqueRoom::rev_iter_t baseIt) const
 
 int MessageEventModel::rowCount(const QModelIndex& parent) const
 {
-    if( !m_currentRoom || parent.isValid() )
+    if(!m_currentRoom || parent.isValid())
         return 0;
     return m_currentRoom->timelineSize();
 }
 
 QVariant MessageEventModel::data(const QModelIndex& index, int role) const
 {
-    if( !m_currentRoom ||
+    if(!m_currentRoom ||
             index.row() < 0 || index.row() >= m_currentRoom->timelineSize())
         return QVariant();
 
@@ -173,7 +173,7 @@ QVariant MessageEventModel::data(const QModelIndex& index, int role) const
     QString senderName = m_currentRoom->roomMembername(event->senderId());
 
     using namespace QMatrixClient;
-    if( role == Qt::DisplayRole )
+    if(role == Qt::DisplayRole)
     {
         if (event->isRedacted())
         {
@@ -185,7 +185,7 @@ QVariant MessageEventModel::data(const QModelIndex& index, int role) const
                     .arg(event->redactedBecause()->reason());
         }
 
-        if( event->type() == EventType::RoomMessage )
+        if(event->type() == EventType::RoomMessage)
         {
             using namespace MessageEventContent;
 
@@ -202,13 +202,13 @@ QVariant MessageEventModel::data(const QModelIndex& index, int role) const
             }
             return m_currentRoom->prettyPrint(e->plainBody());
         }
-        if( event->type() == EventType::RoomMember )
+        if(event->type() == EventType::RoomMember)
         {
             auto* e = static_cast<const RoomMemberEvent*>(event);
             // FIXME: Rewind to the name that was at the time of this event
             QString subjectName = m_currentRoom->roomMembername(e->userId());
             // The below code assumes senderName output in AuthorRole
-            switch( e->membership() )
+            switch(e->membership())
             {
                 case MembershipType::Invite:
                     if (e->repeatsState())
@@ -269,43 +269,43 @@ QVariant MessageEventModel::data(const QModelIndex& index, int role) const
 //                    return tr("made something unknown");
             }
         }
-        if( event->type() == EventType::RoomAliases )
+        if(event->type() == EventType::RoomAliases)
         {
             auto* e = static_cast<const RoomAliasesEvent*>(event);
             return tr("set aliases to: %1").arg(e->aliases().join(", "));
         }
-        if( event->type() == EventType::RoomCanonicalAlias )
+        if(event->type() == EventType::RoomCanonicalAlias)
         {
             auto* e = static_cast<const RoomCanonicalAliasEvent*>(event);
             return tr("set the room main alias to: %1").arg(e->alias());
         }
-        if( event->type() == EventType::RoomName )
+        if(event->type() == EventType::RoomName)
         {
             auto* e = static_cast<const RoomNameEvent*>(event);
             return tr("set the room name to: %1").arg(e->name());
         }
-        if( event->type() == EventType::RoomTopic )
+        if(event->type() == EventType::RoomTopic)
         {
             auto* e = static_cast<const RoomTopicEvent*>(event);
             return tr("set the topic to: %1").arg(e->topic());
         }
-        if( event->type() == EventType::RoomAvatar )
+        if(event->type() == EventType::RoomAvatar)
         {
             return tr("changed the room avatar");
         }
-        if( event->type() == EventType::RoomEncryption )
+        if(event->type() == EventType::RoomEncryption)
         {
             return tr("activated End-to-End Encryption");
         }
         return tr("Unknown Event");
     }
 
-    if( role == Qt::ToolTipRole )
+    if(role == Qt::ToolTipRole)
     {
         return event->originalJson();
     }
 
-    if( role == EventTypeRole )
+    if(role == EventTypeRole)
     {
         if (event->isStateEvent())
             return "state";
@@ -332,20 +332,20 @@ QVariant MessageEventModel::data(const QModelIndex& index, int role) const
         return "other";
     }
 
-    if( role == TimeRole )
+    if(role == TimeRole)
         return makeMessageTimestamp(eventIt);
 
-    if( role == SectionRole )
+    if(role == SectionRole)
         return makeDateString(eventIt); // FIXME: move date rendering to QML
 
-    if( role == AboveSectionRole ) // FIXME: shouldn't be here, because #312
+    if(role == AboveSectionRole) // FIXME: shouldn't be here, because #312
     {
         auto aboveEventIt = eventIt + 1;
         if (aboveEventIt != m_currentRoom->timelineEdge())
             return makeDateString(aboveEventIt);
     }
 
-    if( role == AuthorRole )
+    if(role == AuthorRole)
     {
         auto userId = event->senderId();
         // FIXME: This will go away after senderName is generated correctly
@@ -383,7 +383,7 @@ QVariant MessageEventModel::data(const QModelIndex& index, int role) const
                     .arg(event->redactedBecause()->reason());
         }
 
-        if( event->type() == EventType::RoomMessage )
+        if(event->type() == EventType::RoomMessage)
         {
             using namespace MessageEventContent;
 
@@ -401,13 +401,13 @@ QVariant MessageEventModel::data(const QModelIndex& index, int role) const
         }
     }
 
-    if( role == HighlightRole )
+    if(role == HighlightRole)
         return m_currentRoom->isEventHighlighted(event);
 
-    if( role == ReadMarkerRole )
+    if(role == ReadMarkerRole)
         return event->id() == lastReadEventId;
 
-    if( role == SpecialMarksRole )
+    if(role == SpecialMarksRole)
     {
         if (event->isStateEvent() &&
                 static_cast<const StateEventBase*>(event)->repeatsState())
@@ -415,10 +415,10 @@ QVariant MessageEventModel::data(const QModelIndex& index, int role) const
         return event->isRedacted() ? "redacted" : "";
     }
 
-    if( role == EventIdRole )
+    if(role == EventIdRole)
         return event->id();
 
-    if( role == LongOperationRole )
+    if(role == LongOperationRole)
     {
         if (event->type() == EventType::RoomMessage &&
                 static_cast<const RoomMessageEvent*>(event)->hasFileContent())
