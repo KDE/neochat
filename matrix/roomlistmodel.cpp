@@ -18,21 +18,28 @@ void RoomListModel::setConnection(QMatrixClient::Connection *conn) {
     beginResetModel();
     m_rooms.clear();
     connect(m_connection, &QMatrixClient::Connection::newRoom, this, &RoomListModel::addRoom);
-    for(QMatrixClient::Room* room: m_connection->roomMap().values()) {
-        connect(room, &QMatrixClient::Room::namesChanged, this, &RoomListModel::namesChanged);
-        m_rooms.append(room);
+    for(QMatrixClient::Room* r: m_connection->roomMap().values()) {
+        if (auto* room = static_cast<MatriqueRoom*>(r))
+        {
+            connect(room, &MatriqueRoom::namesChanged, this, &RoomListModel::namesChanged);
+            m_rooms.append(room);
+        } else
+        {
+            qCritical() << "Attempt to add nullptr to the room list";
+            Q_ASSERT(false);
+        }
     }
     endResetModel();
 }
 
-QMatrixClient::Room* RoomListModel::roomAt(int row) {
+MatriqueRoom* RoomListModel::roomAt(int row) {
     return m_rooms.at(row);
 }
 
-void RoomListModel::addRoom(QMatrixClient::Room* room) {
+void RoomListModel::addRoom(MatriqueRoom* room) {
     qDebug() << "Adding room.";
     beginInsertRows(QModelIndex(), m_rooms.count(), m_rooms.count());
-    connect(room, &QMatrixClient::Room::namesChanged, this, &RoomListModel::namesChanged );
+    connect(room, &MatriqueRoom::namesChanged, this, &RoomListModel::namesChanged );
     m_rooms.append(room);
     endInsertRows();
 }
@@ -51,7 +58,7 @@ QVariant RoomListModel::data(const QModelIndex& index, int role) const {
         qDebug() << "UserListModel: something wrong here...";
         return QVariant();
     }
-    QMatrixClient::Room* room = m_rooms.at(index.row());
+    MatriqueRoom* room = m_rooms.at(index.row());
     if(role == NameRole) {
         return room->displayName();
     }
@@ -69,6 +76,11 @@ QVariant RoomListModel::data(const QModelIndex& index, int role) const {
     return QVariant();
 }
 
+QModelIndex RoomListModel::indexOf(MatriqueRoom* room) const
+{
+    return index(m_rooms.indexOf(room), 0);
+}
+
 QHash<int, QByteArray> RoomListModel::roleNames() const {
     QHash<int, QByteArray> roles;
     roles[NameRole] = "name";
@@ -77,11 +89,11 @@ QHash<int, QByteArray> RoomListModel::roleNames() const {
     return roles;
 }
 
-void RoomListModel::namesChanged(QMatrixClient::Room* room) {
+void RoomListModel::namesChanged(MatriqueRoom* room) {
     int row = m_rooms.indexOf(room);
     emit dataChanged(index(row), index(row));
 }
 
-void RoomListModel::unreadMessagesChanged(QMatrixClient::Room* room) {
+void RoomListModel::unreadMessagesChanged(MatriqueRoom* room) {
 
 }

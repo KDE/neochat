@@ -7,6 +7,8 @@
 #include "libqmatrixclient/connection.h"
 #include "libqmatrixclient/room.h"
 
+#include "matriqueroom.h"
+
 namespace QMatrixClient {
     class Connection;
     class Room;
@@ -32,9 +34,10 @@ class RoomListModel : public QAbstractListModel
 
         QHash<int, QByteArray> roleNames() const;
 
-        Q_INVOKABLE QMatrixClient::Room* roomAt(int row);
+        Q_INVOKABLE MatriqueRoom* roomAt(int row);
 
         QVariant data(const QModelIndex& index, int role) const override;
+        QModelIndex indexOf(MatriqueRoom* room) const;
         Q_INVOKABLE int rowCount(const QModelIndex& parent=QModelIndex()) const override;
 
     signals:
@@ -43,12 +46,12 @@ class RoomListModel : public QAbstractListModel
     public slots:
 
     private slots:
-        void namesChanged(QMatrixClient::Room* room);
-        void unreadMessagesChanged(QMatrixClient::Room* room);
-        void addRoom(QMatrixClient::Room* room);
+        void namesChanged(MatriqueRoom* room);
+        void unreadMessagesChanged(MatriqueRoom* room);
+        void addRoom(MatriqueRoom* room);
 
     private:
-        QList<QMatrixClient::Room*> m_rooms;
+        QList<MatriqueRoom*> m_rooms;
 };
 
 #endif // ROOMLISTMODEL_H
