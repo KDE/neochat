@@ -1,57 +1,56 @@
 #ifndef ROOMLISTMODEL_H
 #define ROOMLISTMODEL_H
 
-#include <QObject>
 #include <QtCore/QAbstractListModel>
-
-#include "libqmatrixclient/connection.h"
-#include "libqmatrixclient/room.h"
 
 #include "matriqueroom.h"
 
-namespace QMatrixClient {
+namespace QMatrixClient
+{
     class Connection;
     class Room;
 }
 
-class RoomListModel : public QAbstractListModel
+class RoomListModel: public QAbstractListModel
 {
     Q_OBJECT
 
-    Q_PROPERTY(QMatrixClient::Connection *connection READ getConnection WRITE setConnection NOTIFY connectionChanged)
+    Q_PROPERTY(QMatrixClient::Connection *connection READ getConnection WRITE setConnection)
 
     public:
-        explicit RoomListModel();
-        ~RoomListModel();
-
-        enum RoomModelRoles {
-            NameRole, ValueRole, AvatarRole
+        enum Roles {
+            HasUnreadRole = Qt::UserRole + 1,
+            HighlightCountRole, JoinStateRole
         };
 
-        QMatrixClient::Connection* m_connection;
+        explicit RoomListModel(QObject* parent = nullptr);
+
         QMatrixClient::Connection* getConnection() { return m_connection; }
-        void setConnection(QMatrixClient::Connection* conn);
+        void setConnection(QMatrixClient::Connection* connection);
+        void deleteConnection(QMatrixClient::Connection* connection);
 
-        QHash<int, QByteArray> roleNames() const;
-
-        Q_INVOKABLE MatriqueRoom* roomAt(int row);
+        MatriqueRoom* roomAt(QModelIndex index) const;
+        QModelIndex indexOf(MatriqueRoom* room) const;
 
         QVariant data(const QModelIndex& index, int role) const override;
-        QModelIndex indexOf(MatriqueRoom* room) const;
-        Q_INVOKABLE int rowCount(const QModelIndex& parent=QModelIndex()) const override;
-
-    signals:
-        void connectionChanged();
-
-    public slots:
+        QHash<int, QByteArray> roleNames() const;
+        int rowCount(const QModelIndex& parent) const override;
 
     private slots:
-        void namesChanged(MatriqueRoom* room);
+        void displaynameChanged(MatriqueRoom* room);
         void unreadMessagesChanged(MatriqueRoom* room);
-        void addRoom(MatriqueRoom* room);
+        void refresh(MatriqueRoom* room, const QVector<int>& roles = {});
+
+        void updateRoom(QMatrixClient::Room* room,
+                        QMatrixClient::Room* prev);
+        void deleteRoom(QMatrixClient::Room* room);
 
     private:
+        QMatrixClient::Connection* m_connection;
         QList<MatriqueRoom*> m_rooms;
+
+        void doAddRoom(QMatrixClient::Room* r);
+        void connectRoomSignals(MatriqueRoom* room);
 };
 
 #endif // ROOMLISTMODEL_H

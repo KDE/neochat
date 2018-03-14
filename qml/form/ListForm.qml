@@ -116,7 +116,7 @@ Item {
                         ImageStatus {
                             width: parent.height
                             height: parent.height
-                            source: avatar == null ? "qrc:/asset/img/avatar.png" : "image://mxc/" + avatar
+                            source: avatar == "" ? "qrc:/asset/img/avatar.png" : "image://mxc/" + avatar
                             opaqueBackground: true
                         }
 
