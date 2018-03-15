@@ -6,6 +6,7 @@
 #include "matrix/controller.h"
 #include "matrix/roomlistmodel.h"
 #include "matrix/imageprovider.h"
+#include "matrix/messageeventmodel.h"
 
 using namespace QMatrixClient;
 
@@ -26,6 +27,7 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<Controller>("Matrique", 0, 1, "Controller");
     qmlRegisterType<RoomListModel>("Matrique", 0, 1, "RoomListModel");
+    qmlRegisterType<MessageEventModel>("Matrique", 0, 1, "MessageEventModel");
 
     QQmlApplicationEngine engine;
 

@@ -1,9 +1,10 @@
 #include "roomlistmodel.h"
+
+#include <QtGui/QIcon>
+
 #include "matriqueroom.h"
 #include "connection.h"
 #include "user.h"
-
-#include <QtGui/QIcon>
 
 RoomListModel::RoomListModel(QObject* parent)
     : QAbstractListModel(parent)
@@ -165,9 +166,11 @@ QVariant RoomListModel::data(const QModelIndex& index, int role) const
 //                    return QIcon(":/irc-channel-parted.svg");
 //            }
             if(room->avatarUrl().toString() != "") {
+                qInfo() << "Room avatar:" << room->avatarUrl();
                 return room->avatarUrl();
             } else if(room->users().length() == 2) {
                 QMatrixClient::User* user = room->users().at(0);
+                qInfo() << "User avatar:" << user->avatarUrl();
                 return user->avatarUrl();
             }
         }

@@ -1,11 +1,12 @@
 #include "imageprovider.h"
 
-#include "connection.h"
-#include "jobs/mediathumbnailjob.h"
-
 #include <QtCore/QWaitCondition>
 #include <QtCore/QDebug>
 #include <QMetaObject>
+
+#include "jobs/mediathumbnailjob.h"
+
+#include "connection.h"
 
 using QMatrixClient::MediaThumbnailJob;
 

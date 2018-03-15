@@ -4,6 +4,7 @@
 #include <QObject>
 
 #include "libqmatrixclient/connection.h"
+
 #include "roomlistmodel.h"
 
 namespace QMatrixClient {

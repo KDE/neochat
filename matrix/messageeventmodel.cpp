@@ -4,12 +4,13 @@
 #include <QtCore/QDebug>
 #include <QtQml> // for qmlRegisterType()
 
-#include "connection.h"
-#include "user.h"
-#include "settings.h"
 #include "events/roommemberevent.h"
 #include "events/simplestateevents.h"
 #include "events/redactionevent.h"
+
+#include "connection.h"
+#include "user.h"
+#include "settings.h"
 
 QHash<int, QByteArray> MessageEventModel::roleNames() const
 {

@@ -1,7 +1,8 @@
 #include "matriqueroom.h"
 
-#include "user.h"
 #include "events/roommessageevent.h"
+
+#include "user.h"
 
 using namespace QMatrixClient;
 
