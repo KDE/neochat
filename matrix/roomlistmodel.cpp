@@ -153,18 +153,6 @@ QVariant RoomListModel::data(const QModelIndex& index, int role) const
             return room->displayName();
         case Qt::DecorationRole:
         {
-//            auto avatar = room->avatar(16, 16);
-//            if (!avatar.isNull())
-//                return avatar;
-//            switch( room->joinState() )
-//            {
-//                case JoinState::Join:
-//                    return QIcon(":/irc-channel-joined.svg");
-//                case JoinState::Invite:
-//                    return QIcon(":/irc-channel-invited.svg");
-//                case JoinState::Leave:
-//                    return QIcon(":/irc-channel-parted.svg");
-//            }
             if(room->avatarUrl().toString() != "") {
                 qInfo() << "Room avatar:" << room->avatarUrl();
                 return room->avatarUrl();

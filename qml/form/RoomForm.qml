@@ -70,7 +70,7 @@ Item {
 
                     contentItem: Text {
                         text: "\ue226"
-                        color: "#424242"
+//                        color: "#424242"
                         font.pointSize: 16
                         font.family: materialFont.name
                         horizontalAlignment: Text.AlignHCenter
@@ -97,7 +97,7 @@ Item {
 
                     contentItem: Text {
                         text: "\ue24e"
-                        color: parent.pressed ? Material.accent : "#424242"
+//                        color: parent.pressed ? Material.accent : "#424242"
                         font.pointSize: 16
                         font.family: materialFont.name
                         horizontalAlignment: Text.AlignHCenter
@@ -115,7 +115,7 @@ Item {
 
                     contentItem: Text {
                         text: "\ue163"
-                        color: "#424242"
+//                        color: "#424242"
                         font.pointSize: 16
                         font.family: materialFont.name
                         horizontalAlignment: Text.AlignHCenter

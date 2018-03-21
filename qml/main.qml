@@ -16,6 +16,7 @@ ApplicationWindow {
     width: 960
     height: 640
     title: qsTr("Matrique")
+    Material.theme: settingPage.theme ? Material.Dark : Material.Light
 
     Controller {
         id: matrixController
@@ -45,7 +46,7 @@ ApplicationWindow {
             anchors.fill: parent
             spacing: 0
 
-            ButtonDelegate {
+            SideNavButton {
                 contentItem: ImageStatus {
                     width: parent.width
                     height: parent.width
@@ -66,7 +67,7 @@ ApplicationWindow {
                 Layout.fillHeight: true
             }
 
-            ButtonDelegate {
+            SideNavButton {
                 contentItem: Text {
                     text: "\ue853"
                     font.pointSize: 16
@@ -82,7 +83,7 @@ ApplicationWindow {
                 }
             }
 
-            ButtonDelegate {
+            SideNavButton {
                 contentItem: Text {
                     text: "\ue5d2"
                     font.pointSize: 16
@@ -98,7 +99,7 @@ ApplicationWindow {
                 }
             }
 
-            ButtonDelegate {
+            SideNavButton {
                 contentItem: Text {
                     text: "\ue8b8"
                     font.pointSize: 16
@@ -109,11 +110,11 @@ ApplicationWindow {
                 }
 
                 page: Setting {
-
+                    id: settingPage
                 }
             }
 
-            ButtonDelegate {
+            SideNavButton {
                 contentItem: Text {
                     text: "\ue879"
                     font.pointSize: 16

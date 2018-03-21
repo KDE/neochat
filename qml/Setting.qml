@@ -1,8 +1,10 @@
 import QtQuick 2.10
 import QtQuick.Controls 2.3
+import QtQuick.Controls.Material 2.3
 
 Page {
-    TabBar {
+    property alias theme: themeSwitch.checked
+    header: TabBar {
         id: settingBar
         width: parent.width
         z: 10
@@ -36,7 +38,13 @@ Page {
         }
 
         Page {
-
+            Column {
+                width: parent.width
+                Switch {
+                    id: themeSwitch
+                    text: qsTr("Dark Theme")
+                }
+            }
         }
 
         Page {
