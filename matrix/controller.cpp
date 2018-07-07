@@ -10,7 +10,7 @@ Controller::Controller(QObject *parent) : QObject(parent) {
 }
 
 Controller::~Controller() {
-
+    m_connection->stopSync();
 }
 
 void Controller::login() {

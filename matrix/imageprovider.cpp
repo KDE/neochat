@@ -10,14 +10,6 @@
 
 using QMatrixClient::MediaThumbnailJob;
 
-ImageProviderConnection::ImageProviderConnection(QObject* parent) : QObject(parent) {
-
-}
-
-ImageProviderConnection::~ImageProviderConnection() {
-
-}
-
 ImageProvider::ImageProvider(QObject* parent)
     : QQuickImageProvider(QQmlImageProviderBase::Image,
                           QQmlImageProviderBase::ForceAsynchronousImageLoading)

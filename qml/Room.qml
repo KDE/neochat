@@ -22,14 +22,13 @@ Page {
             id: roomListForm
 
             Layout.fillHeight: true
-//            Layout.preferredWidth:  {
-//                if (page.width > 560) {
-//                    return page.width * 0.4;
-//                } else {
-//                    return 80;
-//                }
-//            }
-            Layout.preferredWidth: 320
+            Layout.preferredWidth:  {
+                if (page.width > 560) {
+                    return page.width * 0.4;
+                } else {
+                    return 80;
+                }
+            }
             Layout.maximumWidth: 360
 
             listModel: roomListModel

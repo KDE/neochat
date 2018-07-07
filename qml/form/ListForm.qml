@@ -45,6 +45,8 @@ Item {
                     Layout.fillHeight: true
                     Layout.alignment: Qt.AlignHCenter
 
+                    visible: parent.width > 80
+
                     Label {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
@@ -79,9 +81,9 @@ Item {
             var roomCount = listModel.rowCount();
             for (var i = 0; i < roomCount; i++){
                 var roomName = "";
-                if (listModel.roomAt(i).name != "") {
+                if (listModel.roomAt(i).name !== "") {
                     roomName = listModel.roomAt(i).name;
-                } else if (model.alias != "") {
+                } else if (model.alias !== "") {
                     roomName = listModel.roomAt(i).alias;
                 } else {
                     roomName = listModel.roomAt(i).id;

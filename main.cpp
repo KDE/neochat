@@ -37,7 +37,9 @@ int main(int argc, char *argv[])
     ImageProvider* m_provider = new ImageProvider();
 
     engine.rootContext()->setContextProperty("imageProvider", m_provider->getConnection());
+
     engine.addImageProvider(QLatin1String("mxc"), m_provider);
+
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
 
     if (engine.rootObjects().isEmpty())

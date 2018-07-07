@@ -70,12 +70,12 @@ QVariant RoomListModel::data(const QModelIndex& index, int role) const
     }
     if( role == Qt::DecorationRole )
     {
-        if(room->avatarUrl().toString() != "") {
+        if ( room->avatarUrl().toString() != "" ) {
             return room->avatarUrl();
         }
         return QVariant();
     }
-    if (role == Qt::StatusTipRole )
+    if ( role == Qt::StatusTipRole )
     {
         return room->topic();
     }

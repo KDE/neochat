@@ -138,7 +138,9 @@ ApplicationWindow {
 
                 SideNavButton {
                     contentItem: MaterialIcon { icon: "\ue879"; color: "white" }
-                    onClicked: Qt.quit()
+                    onClicked: {
+                        Qt.quit();
+                    }
                 }
             }
         }
@@ -153,7 +155,6 @@ ApplicationWindow {
     }
 
     Component.onCompleted: {
-        imageProvider.setConnection(matriqueController.connection)
         imageProvider.connection = matriqueController.connection
 
         console.log(matriqueController.homeserver, matriqueController.userID, matriqueController.token)
