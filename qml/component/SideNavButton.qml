@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.3
 
 Item {
-    property Item page
+    property var page
     property alias contentItem: buttonDelegate.contentItem
     signal clicked
 

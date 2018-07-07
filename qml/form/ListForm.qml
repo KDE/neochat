@@ -1,13 +1,97 @@
-import QtQuick 2.10
-import QtQuick.Controls 2.3
-import QtQuick.Layouts 1.3
+import QtQuick 2.11
+import QtQuick.Controls 2.4
+import QtQuick.Layouts 1.11
 import QtGraphicalEffects 1.0
 import QtQuick.Controls.Material 2.3
+import QtQml.Models 2.3
+import Matrique 0.1
+
 import "qrc:/qml/component"
 
 Item {
-    property var listModel
+    property alias listModel: delegateModel.model
     property alias currentIndex: listView.currentIndex
+    readonly property bool mini: width <= 80 // Used as an indicator of whether the listform should be displayed as "Mini mode".
+
+    DelegateModel {
+        id: delegateModel
+        groups: [
+            DelegateModelGroup {
+                name: "filterGroup"; includeByDefault: true
+            }
+        ]
+        filterOnGroup: "filterGroup"
+
+        delegate: ItemDelegate {
+            width: parent.width
+            height: 80
+            onClicked: listView.currentIndex = index
+
+            contentItem:  RowLayout {
+                anchors.fill: parent
+                anchors.margins: 16
+                spacing: 16
+
+                ImageStatus {
+                    Layout.preferredWidth: height
+                    Layout.fillHeight: true
+
+                    source: avatar == null || avatar == "" ? "qrc:/asset/img/avatar.png" : "image://mxc/" + avatar
+                    opaqueBackground: true
+                }
+
+                ColumnLayout {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    Layout.alignment: Qt.AlignHCenter
+
+                    Label {
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+
+                        text: {
+                            if (name != "") {
+                                return name;
+                            }
+                            if (alias != "") {
+                                return alias;
+                            }
+                            return id
+                        }
+                        font.pointSize: 16
+                        elide: Text.ElideRight
+                        wrapMode: Text.NoWrap
+                    }
+
+                    Label {
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+
+                        text: topic === "" ? "No topic yet." : topic
+                        elide: Text.ElideRight
+                        wrapMode: Text.NoWrap
+                    }
+                }
+            }
+        }
+
+        function applyFilter(filterName){
+            var roomCount = listModel.rowCount();
+            for (var i = 0; i < roomCount; i++){
+                var roomName = "";
+                if (listModel.roomAt(i).name != "") {
+                    roomName = listModel.roomAt(i).name;
+                } else if (model.alias != "") {
+                    roomName = listModel.roomAt(i).alias;
+                } else {
+                    roomName = listModel.roomAt(i).id;
+                }
+                if (roomName.toLowerCase().indexOf(filterName.toLowerCase()) !== -1) {
+                    items.addGroups(i, 1, "filterGroup");
+                } else {items.removeGroups(i, 1, "filterGroup");}
+            }
+        }
+    }
 
     ColumnLayout {
         anchors.fill: parent
@@ -22,10 +106,10 @@ Item {
             }
 
             TextField {
-                id: serverField
+                id: searchField
                 width: parent.width
                 height: 36
-                leftPadding: 16
+                leftPadding: mini ? 4 : 16
                 topPadding: 0
                 bottomPadding: 0
                 anchors.verticalCenter: parent.verticalCenter
@@ -34,19 +118,17 @@ Item {
                     Row {
                         anchors.fill: parent
 
-                        Text {
-                            width: parent.height
-                            height: parent.height
-                            text: "\ue8b6"
-                            font.pointSize: 16
-                            font.family: materialFont.name
+                        MaterialIcon {
+                            icon: "\ue8b6"
                             color: "white"
-                            horizontalAlignment: Text.AlignHCenter
-                            verticalAlignment: Text.AlignVCenter
+
+                            width: mini ? parent.width : parent.height
+                            height: parent.height
                         }
 
                         Text {
                             height: parent.height
+                            visible: !mini
                             text: "Search"
                             color: "white"
                             font.pointSize: 12
@@ -56,14 +138,18 @@ Item {
                     }
 
                     Rectangle {
-                        width: serverField.activeFocus || serverField.text != "" ? parent.width : 0
+                        width: searchField.activeFocus || searchField.text != "" ? parent.width : 0
                         height: parent.height
                         color: "white"
 
                         Behavior on width {
-                            PropertyAnimation { easing.type: Easing.InOutQuad; duration: 200 }
+                            PropertyAnimation { easing.type: Easing.InOutCubic; duration: 200 }
                         }
                     }
+                }
+
+                onTextChanged: {
+                    delegateModel.applyFilter(text);
                 }
             }
         }
@@ -77,13 +163,12 @@ Item {
                 anchors.fill: parent
                 Rectangle {
                     anchors.fill: parent
-                    color: "#eaeaea"
+                    color: Material.theme == Material.Light ? "#eaeaea" : "#242424"
                 }
 
-                Text {
+                Label {
                     z: 10
-                    text: "Here? No, not here."
-                    color: "#424242"
+                    text: mini ? "Empty" : "Here? No, not here."
                     anchors.centerIn: parent
                     visible: listView.count === 0
                 }
@@ -94,53 +179,15 @@ Item {
                 width: parent.width
                 height: parent.height
 
-                model: listModel
-
                 highlight: Rectangle {
                     color: Material.accent
                     opacity: 0.2
                 }
+                highlightMoveDuration: 250
 
                 ScrollBar.vertical: ScrollBar { id: scrollBar }
 
-                delegate: ItemDelegate {
-                    width: parent.width
-                    height: 80
-                    onClicked: listView.currentIndex = index
-
-                    contentItem:  Row {
-                        width: parent.width - 32
-                        height: parent.height - 32
-                        spacing: 16
-
-                        ImageStatus {
-                            width: parent.height
-                            height: parent.height
-                            source: avatar == "" ? "qrc:/asset/img/avatar.png" : "image://mxc/" + avatar
-                            opaqueBackground: true
-                        }
-
-                        Column {
-                            width: parent.width - parent.height - parent.spacing
-                            height: parent.height
-                            Text {
-                                width: parent.width
-                                text: name
-                                color: "#424242"
-                                font.pointSize: 16
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                            }
-                            Text {
-                                width: parent.width
-                                text: value
-                                color: "#424242"
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                            }
-                        }
-                    }
-                }
+                model: delegateModel
             }
         }
     }

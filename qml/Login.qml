@@ -9,18 +9,6 @@ import "qrc:/qml/component"
 Page {
     property var controller
 
-    property alias homeserver: settings.server
-    property alias username: settings.user
-    property alias password: settings.pass
-
-    Settings {
-        id: settings
-
-        property alias server: serverField.text
-        property alias user: usernameField.text
-        property alias pass: passwordField.text
-    }
-
     Row {
         anchors.fill: parent
 
@@ -68,29 +56,33 @@ Page {
             height: parent.height
             padding: 64
 
-            Column {
-                id: main_col
-                spacing: 8
-                anchors.fill: parent
+            ColumnLayout {
+                id: mainCol
+                width: parent.width
 
                 ImageStatus {
-                    width: 96
-                    height: width
+                    Layout.preferredWidth: 96
+                    Layout.preferredHeight: 96
+                    Layout.alignment: Qt.AlignHCenter
+
                     source: "qrc:/asset/img/avatar.png"
-                    anchors.horizontalCenter: parent.horizontalCenter
                 }
 
                 TextField {
                     id: serverField
-                    width: parent.width
-                    height: 48
-                    placeholderText: "Server"
+
+                    Layout.fillWidth: true
+
                     leftPadding: 16
                     topPadding: 0
                     bottomPadding: 0
 
+                    placeholderText: "Server"
+
                     background: Rectangle {
-                        color: "#eaeaea"
+                        implicitHeight: 48
+
+                        color: Material.theme == Material.Light ? "#eaeaea" : "#242424"
                         border.color: parent.activeFocus ? Material.accent : "transparent"
                         border.width: 2
                     }
@@ -98,15 +90,19 @@ Page {
 
                 TextField {
                     id: usernameField
-                    width: parent.width
-                    height: 48
-                    placeholderText: "Username"
+
+                    Layout.fillWidth: true
+
                     leftPadding: 16
                     topPadding: 0
                     bottomPadding: 0
 
+                    placeholderText: "Username"
+
                     background: Rectangle {
-                        color: "#eaeaea"
+                        implicitHeight: 48
+
+                        color: Material.theme == Material.Light ? "#eaeaea" : "#242424"
                         border.color: parent.activeFocus ? Material.accent : "transparent"
                         border.width: 2
                     }
@@ -114,15 +110,20 @@ Page {
 
                 TextField {
                     id: passwordField
-                    width: parent.width
-                    height: 48
-                    placeholderText: "Password"
+
+                    Layout.fillWidth: true
+
                     leftPadding: 16
                     topPadding: 0
                     bottomPadding: 0
 
+                    placeholderText: "Password"
+                    echoMode: TextInput.Password
+
                     background: Rectangle {
-                        color: "#eaeaea"
+                        implicitHeight: 48
+
+                        color: Material.theme == Material.Light ? "#eaeaea" : "#242424"
                         border.color: parent.activeFocus ? Material.accent : "transparent"
                         border.width: 2
                     }
@@ -130,20 +131,13 @@ Page {
 
                 Button {
                     id: loginButton
+
+                    Layout.fillWidth: true
+
                     text: "LOGIN"
                     highlighted: true
-                    width: parent.width
 
-                    onClicked: controller.login(homeserver, username, password)
-                }
-
-                Button {
-                    id: logoutButton
-                    text: "LOGOUT"
-                    flat: true
-                    width: parent.width
-
-                    onClicked: controller.logout()
+                    onClicked: controller.loginWithCredentials(serverField.text, usernameField.text, passwordField.text)
                 }
             }
         }

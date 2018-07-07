@@ -3,6 +3,7 @@
 #include <QNetworkProxy>
 #include <QQmlContext>
 
+#include "room.h"
 #include "matrix/controller.h"
 #include "matrix/roomlistmodel.h"
 #include "matrix/imageprovider.h"
@@ -19,11 +20,13 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
 //    Enable this if you need proxy.
-    QNetworkProxy proxy;
-    proxy.setType(QNetworkProxy::HttpProxy);
-    proxy.setHostName("localhost");
-    proxy.setPort(1082);
-    QNetworkProxy::setApplicationProxy(proxy);
+//    QNetworkProxy proxy;
+//    proxy.setType(QNetworkProxy::HttpProxy);
+//    proxy.setHostName("localhost");
+//    proxy.setPort(1082);
+//    QNetworkProxy::setApplicationProxy(proxy);
+
+    qmlRegisterType<Room>(); qRegisterMetaType<Room*> ("Room*");
 
     qmlRegisterType<Controller>("Matrique", 0, 1, "Controller");
     qmlRegisterType<RoomListModel>("Matrique", 0, 1, "RoomListModel");
@@ -31,13 +34,12 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
 
-    Connection* m_connection = new Connection();
     ImageProvider* m_provider = new ImageProvider();
-    m_provider->setConnection(m_connection);
 
-    engine.rootContext()->setContextProperty("m_connection", m_connection);
+    engine.rootContext()->setContextProperty("imageProvider", m_provider->getConnection());
     engine.addImageProvider(QLatin1String("mxc"), m_provider);
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
+
     if (engine.rootObjects().isEmpty())
         return -1;
 

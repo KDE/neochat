@@ -1,24 +1,47 @@
 import QtQuick 2.10
 import QtQuick.Controls 2.3
+import QtQuick.Layouts 1.3
+import Matrique 0.1
 
 import "qrc:/qml/form"
 
-import Matrique 0.1
-
 Page {
-    property RoomListModel roomListModel
+    property alias connection: roomListModel.connection
 
-    ListForm {
-        id: roomListForm
-        height: parent.height
-        width: 320
-        listModel: roomListModel
+    id: page
+
+    RoomListModel {
+        id: roomListModel
     }
 
-    RoomForm {
-        id: roomForm
+    RowLayout {
         anchors.fill: parent
-        anchors.leftMargin: roomListForm.width
-        roomIndex: roomListForm.currentIndex
+        spacing: 0
+
+        ListForm {
+            id: roomListForm
+
+            Layout.fillHeight: true
+//            Layout.preferredWidth:  {
+//                if (page.width > 560) {
+//                    return page.width * 0.4;
+//                } else {
+//                    return 80;
+//                }
+//            }
+            Layout.preferredWidth: 320
+            Layout.maximumWidth: 360
+
+            listModel: roomListModel
+        }
+
+        RoomForm {
+            id: roomForm
+
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+
+            currentRoom: roomListForm.currentIndex != -1 ? roomListModel.roomAt(roomListForm.currentIndex) : null
+        }
     }
 }

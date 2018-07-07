@@ -3,51 +3,52 @@
 #include "libqmatrixclient/connection.h"
 
 Controller::Controller(QObject *parent) : QObject(parent) {
-
+    connect(m_connection, &QMatrixClient::Connection::connected, this, &Controller::connected);
+    connect(m_connection, &QMatrixClient::Connection::resolveError, this, &Controller::reconnect);
+    connect(m_connection, &QMatrixClient::Connection::syncError, this, &Controller::reconnect);
+    connect(m_connection, &QMatrixClient::Connection::syncDone, this, &Controller::resync);
 }
 
 Controller::~Controller() {
 
 }
 
-void Controller::login(QString home, QString user, QString pass) {
-    if(!isLogin) {
-        if(home.isEmpty()) home = "matrix.org";
-
+void Controller::login() {
+    if (!isLogin) {
         qDebug() << "UserID:" << userID;
         qDebug() << "Token:" << token;
-        qDebug() << "Home:" << home;
+
+        m_connection->setHomeserver(QUrl(homeserver));
+        m_connection->connectWithToken(userID, token, "");
+    }
+}
+
+void Controller::loginWithCredentials(QString serverAddr, QString user, QString pass) {
+    if(!isLogin) {
+        qDebug() << "Server:" << serverAddr;
         qDebug() << "User:" << user;
         qDebug() << "Pass:" << pass;
 
-        if(!userID.isEmpty() && !token.isEmpty()) {
-            qDebug() << "Using token.";
-            m_connection->connectWithToken(userID, token, "");
-        } else if(!user.isEmpty() && !pass.isEmpty()) {
+        if(!user.isEmpty() && !pass.isEmpty()) {
             qDebug() << "Using given credential.";
-            m_connection->connectToServer("@"+user+":"+home, pass, "");
+            m_connection->setHomeserver(QUrl(serverAddr));
+            m_connection->connectToServer(user, pass, "");
         }
     } else {
         qDebug() << "You are already logged in.";
     }
 }
 
-void Controller::setConnection(QMatrixClient::Connection* conn) {
-    m_connection = conn;
-    connect(m_connection, &QMatrixClient::Connection::connected, this, &Controller::connected);
-    connect(m_connection, &QMatrixClient::Connection::resolveError, this, &Controller::reconnect);
-    connect(m_connection, &QMatrixClient::Connection::syncError, this, &Controller::reconnect);
-    connect(m_connection, &QMatrixClient::Connection::syncDone, this, &Controller::resync);
-    emit connectionChanged();
-}
-
 void Controller::logout() {
-    userID = "";
-    token = "";
+    qDebug() << "Logging out.";
+    setUserID("");
+    setToken("");
     setIsLogin(false);
 }
 
 void Controller::connected() {
+    qDebug() << "Logged in.";
+    setHomeserver(m_connection->homeserver().toString());
     setUserID(m_connection->userId());
     setToken(m_connection->accessToken());
     m_connection->loadState();

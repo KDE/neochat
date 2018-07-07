@@ -50,28 +50,14 @@ Item {
                         width: parent.height
                         height: parent.height
 
-                        contentItem: Text {
-                            text: "\ue0b7"
-                            font.pointSize: 16
-                            font.family: materialFont.name
-                            color: "white"
-                            horizontalAlignment: Text.AlignHCenter
-                            verticalAlignment: Text.AlignVCenter
-                        }
+                        contentItem: MaterialIcon { icon: "\ue0b7" }
                     }
 
                     ItemDelegate {
                         width: parent.height
                         height: parent.height
 
-                        contentItem: Text {
-                            text: "\ue62e"
-                            font.pointSize: 16
-                            font.family: materialFont.name
-                            color: "white"
-                            horizontalAlignment: Text.AlignHCenter
-                            verticalAlignment: Text.AlignVCenter
-                        }
+                        contentItem: MaterialIcon { icon: "\ue62e" }
                     }
                 }
             }

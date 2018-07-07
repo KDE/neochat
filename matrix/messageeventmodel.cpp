@@ -23,7 +23,6 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[AuthorRole] = "author";
     roles[ContentRole] = "content";
     roles[ContentTypeRole] = "contentType";
-    roles[HighlightRole] = "highlight";
     roles[ReadMarkerRole] = "readMarker";
     roles[SpecialMarksRole] = "marks";
     roles[LongOperationRole] = "progressInfo";
@@ -38,7 +37,7 @@ MessageEventModel::MessageEventModel(QObject* parent)
     qRegisterMetaType<QMatrixClient::FileTransferInfo>();
 }
 
-void MessageEventModel::changeRoom(MatriqueRoom* room)
+void MessageEventModel::changeRoom(QMatrixClient::Room* room)
 {
     if (room == m_currentRoom)
         return;
@@ -114,7 +113,7 @@ inline bool hasValidTimestamp(const QMatrixClient::TimelineItem& ti)
     return ti->timestamp().isValid();
 }
 
-QDateTime MessageEventModel::makeMessageTimestamp(MatriqueRoom::rev_iter_t baseIt) const
+QDateTime MessageEventModel::makeMessageTimestamp(QMatrixClient::Room::rev_iter_t baseIt) const
 {
     const auto& timeline = m_currentRoom->messageEvents();
     auto ts = baseIt->event()->timestamp();
@@ -137,7 +136,7 @@ QDateTime MessageEventModel::makeMessageTimestamp(MatriqueRoom::rev_iter_t baseI
     return {};
 }
 
-QString MessageEventModel::makeDateString(MatriqueRoom::rev_iter_t baseIt) const
+QString MessageEventModel::makeDateString(QMatrixClient::Room::rev_iter_t baseIt) const
 {
     auto date = makeMessageTimestamp(baseIt).toLocalTime().date();
     if (QMatrixClient::SettingsGroup("UI")
@@ -401,9 +400,6 @@ QVariant MessageEventModel::data(const QModelIndex& index, int role) const
             }
         }
     }
-
-    if(role == HighlightRole)
-        return m_currentRoom->isEventHighlighted(event);
 
     if(role == ReadMarkerRole)
         return event->id() == lastReadEventId;

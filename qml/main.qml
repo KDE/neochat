@@ -1,138 +1,167 @@
-import QtQuick 2.10
-import QtQuick.Controls 2.3
-import QtQuick.Layouts 1.3
-import QtQuick.Controls.Material 2.2
+import QtQuick 2.11
+import QtQuick.Controls 2.4
+import QtQuick.Layouts 1.4
+import QtQuick.Controls.Material 2.4
 import QtGraphicalEffects 1.0
 import Qt.labs.settings 1.0
-
-import "qrc:/qml/component"
-import "qrc:/qml/form"
-
+import Qt.labs.platform 1.0 as Platform
 import Matrique 0.1
+
+import "component"
+import "form"
 
 ApplicationWindow {
     id: window
     visible: true
     width: 960
     height: 640
+    minimumWidth: 320
+    minimumHeight: 320
     title: qsTr("Matrique")
-    Material.theme: settingPage.theme ? Material.Dark : Material.Light
-
-    Controller {
-        id: matrixController
-        connection: m_connection
-    }
-
-    RoomListModel {
-        id: roomListModel
-        connection: m_connection
-    }
-
-    Settings {
-        id: settings
-
-        property alias userID: matrixController.userID
-        property alias token: matrixController.token
-    }
 
     FontLoader { id: materialFont; source: "qrc:/asset/font/material.ttf" }
 
-    SideNav {
-        id: sideNav
-        width: 80
-        height: window.height
+    Settings {
+        id: setting
+        property alias homeserver: matriqueController.homeserver
+        property alias userID: matriqueController.userID
+        property alias token: matriqueController.token
+    }
 
-        ColumnLayout {
-            anchors.fill: parent
-            spacing: 0
+//    Platform.SystemTrayIcon {
+//        visible: true
+//        iconSource: "qrc:/asset/img/icon.png"
 
-            SideNavButton {
-                contentItem: ImageStatus {
-                    width: parent.width
-                    height: parent.width
-                    source: "qrc:/asset/img/avatar.png"
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    statusIndicator: true
-                    opaqueBackground: false
-                }
+//        onActivated: {
+//            window.show()
+//            window.raise()
+//            window.requestActivate()
+//        }
+//    }
 
-                page: Room {
-                    id: roomPage
-                    roomListModel: roomListModel
-                }
-            }
-
-            Rectangle {
-                color: "transparent"
-                Layout.fillHeight: true
-            }
-
-            SideNavButton {
-                contentItem: Text {
-                    text: "\ue853"
-                    font.pointSize: 16
-                    font.family: materialFont.name
-                    color: "white"
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                }
-
-                page: Login {
-                    id: loginPage
-                    controller: matrixController
-                }
-            }
-
-            SideNavButton {
-                contentItem: Text {
-                    text: "\ue5d2"
-                    font.pointSize: 16
-                    font.family: materialFont.name
-                    color: "white"
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                }
-
-                page: Contact {
-                    id: contactPage
-                    contactListModel: roomListModel
-                }
-            }
-
-            SideNavButton {
-                contentItem: Text {
-                    text: "\ue8b8"
-                    font.pointSize: 16
-                    font.family: materialFont.name
-                    color: "white"
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                }
-
-                page: Setting {
-                    id: settingPage
-                }
-            }
-
-            SideNavButton {
-                contentItem: Text {
-                    text: "\ue879"
-                    font.pointSize: 16
-                    font.family: materialFont.name
-                    color: "white"
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                }
-
-                onClicked: Qt.quit()
-            }
+    Controller {
+        id: matriqueController
+        onErrorOccured: {
+            errorDialog.text = err;
+            errorDialog.open();
         }
     }
 
-    StackView {
-        id: stackView
+    Popup {
+        property bool busy: matriqueController.busy
+
+        id: busyPopup
+
+        x: (window.width - width) / 2
+        y: (window.height - height) / 2
+        modal: true
+        focus: true
+
+        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
+
+        BusyIndicator { running: true }
+
+        onBusyChanged: {
+            if(busyPopup.busy) { busyPopup.open(); }
+            else { busyPopup.close(); }
+        }
+    }
+
+    Dialog {
+        property alias text: errorLabel.text
+
+        id: errorDialog
+        width: 360
+        modal: true
+        title: "ERROR"
+
+        x: (window.width - width) / 2
+        y: (window.height - height) / 2
+
+        standardButtons: Dialog.Ok
+
+        Label {
+            id: errorLabel
+            width: parent.width
+            text: "Label"
+            wrapMode: Text.Wrap
+        }
+    }
+
+    Component {
+        id: loginPage
+
+        Login { controller: matriqueController }
+    }
+
+    Room {
+        id: roomPage
+        connection: matriqueController.connection
+    }
+
+    RowLayout {
         anchors.fill: parent
-        anchors.leftMargin: sideNav.width
-        initialItem: roomPage
+        spacing: 0
+
+        SideNav {
+            id: sideNav
+            Layout.preferredWidth: 80
+            Layout.fillHeight: true
+
+            ColumnLayout {
+                anchors.fill: parent
+                spacing: 0
+
+                SideNavButton {
+                    id: statusNavButton
+                    contentItem: ImageStatus {
+                        anchors.fill: parent
+                        anchors.margins: 15
+
+                        source: "qrc:/asset/img/avatar.png"
+                        opaqueBackground: false
+                    }
+
+                    page: roomPage
+                }
+
+                Rectangle {
+                    color: "transparent"
+                    Layout.fillHeight: true
+                }
+
+                SideNavButton {
+                    contentItem: MaterialIcon { icon: "\ue8b8"; color: "white" }
+
+                    onClicked: matriqueController.logout()
+                }
+
+                SideNavButton {
+                    contentItem: MaterialIcon { icon: "\ue879"; color: "white" }
+                    onClicked: Qt.quit()
+                }
+            }
+        }
+
+        StackView {
+            id: stackView
+            initialItem: roomPage
+
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+        }
+    }
+
+    Component.onCompleted: {
+        imageProvider.setConnection(matriqueController.connection)
+        imageProvider.connection = matriqueController.connection
+
+        console.log(matriqueController.homeserver, matriqueController.userID, matriqueController.token)
+        if (matriqueController.userID != "" && matriqueController.token != "") {
+            console.log("Perform auto-login.");
+            matriqueController.login();
+        } else {
+            stackView.replace(loginPage);
+        }
     }
 }
