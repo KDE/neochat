@@ -104,6 +104,7 @@ Item {
                         id: avatar
                         width: height
                         height: 40
+                        mipmap: true
                         visible: !sentByMe
                         source: author.avatarUrl != "" ? "image://mxc/" + author.avatarUrl : "qrc:/asset/img/avatar.png"
                     }
