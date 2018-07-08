@@ -80,14 +80,7 @@ Item {
         function applyFilter(filterName){
             var roomCount = listModel.rowCount();
             for (var i = 0; i < roomCount; i++){
-                var roomName = "";
-                if (listModel.roomAt(i).name !== "") {
-                    roomName = listModel.roomAt(i).name;
-                } else if (model.alias !== "") {
-                    roomName = listModel.roomAt(i).alias;
-                } else {
-                    roomName = listModel.roomAt(i).id;
-                }
+                var roomName = listModel.roomAt(i).displayName;
                 if (roomName.toLowerCase().indexOf(filterName.toLowerCase()) !== -1) {
                     items.addGroups(i, 1, "filterGroup");
                 } else {items.removeGroups(i, 1, "filterGroup");}

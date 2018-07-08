@@ -7,12 +7,7 @@
 class MessageEventModel: public QAbstractListModel
 {
     Q_OBJECT
-    // The below property is marked constant because it only changes
-    // when the whole model is reset (so anything that depends on the model
-    // has to be re-calculated anyway).
-    // XXX: A better way would be to make [Room::]Timeline a list model
-    // itself, leaving only representation of the model to a client.
-    Q_PROPERTY(QMatrixClient::Room* room MEMBER m_currentRoom CONSTANT)
+    Q_PROPERTY(QMatrixClient::Room* room READ getRoom WRITE setRoom NOTIFY roomChanged)
 
     public:
         enum EventRoles {
@@ -22,31 +17,40 @@ class MessageEventModel: public QAbstractListModel
             SectionRole,
             AboveSectionRole,
             AuthorRole,
+            AboveAuthorRole,
             ContentRole,
             ContentTypeRole,
+            HighlightRole,
             ReadMarkerRole,
             SpecialMarksRole,
             LongOperationRole,
+            // For debugging
+            EventResolvedTypeRole,
         };
 
         explicit MessageEventModel(QObject* parent = nullptr);
+        ~MessageEventModel();
 
-        void changeRoom(QMatrixClient::Room* room);
+        QMatrixClient::Room* getRoom() { return m_currentRoom; }
+        void setRoom(QMatrixClient::Room* room);
 
-        int rowCount(const QModelIndex& parent = QModelIndex()) const override;
-        QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
-        QHash<int, QByteArray> roleNames() const override;
+        Q_INVOKABLE int rowCount(const QModelIndex& parent = QModelIndex()) const override;
+        QVariant data(const QModelIndex& index, int role) const override;
+        QHash<int, QByteArray> roleNames() const;
 
     private slots:
         void refreshEvent(const QString& eventId);
 
     private:
-        QMatrixClient::Room* m_currentRoom;
+        QMatrixClient::Room* m_currentRoom = nullptr;
         QString lastReadEventId;
 
         QDateTime makeMessageTimestamp(QMatrixClient::Room::rev_iter_t baseIt) const;
         QString makeDateString(QMatrixClient::Room::rev_iter_t baseIt) const;
         void refreshEventRoles(const QString& eventId, const QVector<int> roles);
+
+    signals:
+        void roomChanged();
 };
 
 #endif // MESSAGEEVENTMODEL_H

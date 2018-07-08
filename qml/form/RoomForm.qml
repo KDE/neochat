@@ -52,7 +52,7 @@ Item {
                     ImageStatus {
                         Layout.preferredWidth: parent.height
                         Layout.fillHeight: true
-                        source: "qrc:/asset/img/avatar.png"
+                        source: currentRoom != null && currentRoom.avatarUrl != "" ? "image://mxc/" + currentRoom.avatarUrl : "qrc:/asset/img/avatar.png"
                     }
 
                     ColumnLayout {
@@ -88,34 +88,35 @@ Item {
                 displayMarginEnd: 40
                 verticalLayoutDirection: ListView.BottomToTop
                 spacing: 12
-//                model: MessageEventModel{ currentRoom: item.currentRoom }
-                model: 10
+                model: MessageEventModel{
+                    id: messageEventModel
+                    room: currentRoom
+                }
                 delegate: Row {
-                    readonly property bool sentByMe: index % 2 == 0
+                    readonly property bool sentByMe: author === currentRoom.localUser
 
                     id: messageRow
 
-                    height: 40
                     anchors.right: sentByMe ? parent.right : undefined
                     spacing: 6
 
-                    Rectangle {
+                    Image {
                         id: avatar
                         width: height
-                        height: parent.height
-                        color: "grey"
+                        height: 40
                         visible: !sentByMe
+                        source: author.avatarUrl != "" ? "image://mxc/" + author.avatarUrl : "qrc:/asset/img/avatar.png"
                     }
 
                     Rectangle {
                         width: Math.min(messageText.implicitWidth + 24,
                                                            messageListView.width - (!sentByMe ? avatar.width + messageRow.spacing : 0))
-                        height: parent.height
+                        height: messageText.implicitHeight + 24
                         color: sentByMe ? "lightgrey" : Material.accent
 
                         Label {
                             id: messageText
-                            text: index
+                            text: display
                             color: sentByMe ? "black" : "white"
                             anchors.fill: parent
                             anchors.margins: 12
@@ -146,6 +147,7 @@ Item {
                     }
 
                     TextField {
+                        id: inputField
                         Layout.fillWidth: true
                         Layout.fillHeight: true
                         placeholderText: "Send a Message"
@@ -156,6 +158,11 @@ Item {
 
                         background: Rectangle {
                             color: Material.theme == Material.Light ? "#eaeaea" : "#242424"
+                        }
+
+                        Keys.onReturnPressed: {
+                            currentRoom.postMessage("text", inputField.text)
+                            inputField.text = ""
                         }
                     }
 

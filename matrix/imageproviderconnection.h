@@ -3,7 +3,7 @@
 
 #include <QObject>
 
-#include "libqmatrixclient/connection.h"
+#include "connection.h"
 
 class ImageProviderConnection : public QObject
 {

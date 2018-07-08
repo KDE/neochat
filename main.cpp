@@ -31,6 +31,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<Controller>("Matrique", 0, 1, "Controller");
     qmlRegisterType<RoomListModel>("Matrique", 0, 1, "RoomListModel");
     qmlRegisterType<MessageEventModel>("Matrique", 0, 1, "MessageEventModel");
+    qRegisterMetaType<User*>("User*");
 
     QQmlApplicationEngine engine;
 

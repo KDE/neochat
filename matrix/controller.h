@@ -2,7 +2,8 @@
 #define CONTROLLER_H
 
 #include <QObject>
-#include "libqmatrixclient/connection.h"
+#include "connection.h"
+#include "user.h"
 #include "roomlistmodel.h"
 
 namespace QMatrixClient {

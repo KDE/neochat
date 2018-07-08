@@ -1,12 +1,13 @@
 #include "controller.h"
 
-#include "libqmatrixclient/connection.h"
+#include "connection.h"
 
 Controller::Controller(QObject *parent) : QObject(parent) {
     connect(m_connection, &QMatrixClient::Connection::connected, this, &Controller::connected);
     connect(m_connection, &QMatrixClient::Connection::resolveError, this, &Controller::reconnect);
     connect(m_connection, &QMatrixClient::Connection::syncError, this, &Controller::reconnect);
     connect(m_connection, &QMatrixClient::Connection::syncDone, this, &Controller::resync);
+    connect(m_connection, &QMatrixClient::Connection::connected, this, &Controller::connectionChanged);
 }
 
 Controller::~Controller() {

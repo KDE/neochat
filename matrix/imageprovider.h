@@ -5,7 +5,7 @@
 #include <QtCore/QReadWriteLock>
 #include <QObject>
 
-#include "libqmatrixclient/connection.h"
+#include "connection.h"
 #include "imageproviderconnection.h"
 
 class ImageProvider: public QQuickImageProvider

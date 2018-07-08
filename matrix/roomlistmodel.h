@@ -30,7 +30,7 @@ class RoomListModel: public QAbstractListModel
         void addRoom(QMatrixClient::Room* room);
 
     private:
-        QMatrixClient::Connection* m_connection;
+        QMatrixClient::Connection* m_connection = nullptr;
         QList<QMatrixClient::Room*> m_rooms;
 
     signals:

@@ -7,7 +7,7 @@
 RoomListModel::RoomListModel(QObject* parent)
     : QAbstractListModel(parent)
 {
-    m_connection = 0;
+
 }
 
 RoomListModel::~RoomListModel()
