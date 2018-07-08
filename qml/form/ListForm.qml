@@ -180,6 +180,8 @@ Item {
                 }
                 highlightMoveDuration: 250
 
+                currentIndex: -1
+
                 ScrollBar.vertical: ScrollBar { id: scrollBar }
 
                 model: delegateModel

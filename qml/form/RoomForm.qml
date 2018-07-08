@@ -16,7 +16,7 @@ Item {
 
         background: Item {
             anchors.fill: parent
-            visible: currentRoom === null
+            visible: currentRoom == null
             Pane {
                 anchors.fill: parent
             }
@@ -32,7 +32,7 @@ Item {
             anchors.fill: parent
             spacing: 0
 
-            visible: currentRoom !== null
+            visible: currentRoom != null
 
             Pane {
                 z: 10
@@ -61,7 +61,7 @@ Item {
 
                         Label {
                             Layout.fillWidth: true
-                            text: currentRoom !== null ? currentRoom.displayName : ""
+                            text: currentRoom != null ? currentRoom.displayName : ""
                             font.pointSize: 16
                             elide: Text.ElideRight
                             wrapMode: Text.NoWrap
@@ -69,7 +69,7 @@ Item {
 
                         Label {
                             Layout.fillWidth: true
-                            text: currentRoom !== null ? currentRoom.topic : ""
+                            text: currentRoom != null ? currentRoom.topic : ""
                             elide: Text.ElideRight
                             wrapMode: Text.NoWrap
                         }
@@ -91,6 +91,8 @@ Item {
                 model: MessageEventModel{
                     id: messageEventModel
                     room: currentRoom
+
+                    onModelReset: currentRoom.getPreviousContent(50)
                 }
                 delegate: Row {
                     readonly property bool sentByMe: author === currentRoom.localUser
@@ -127,6 +129,10 @@ Item {
                 }
 
                 ScrollBar.vertical: ScrollBar { /*anchors.left: messageListView.right*/ }
+
+                onAtYBeginningChanged: {
+                    if(currentRoom && atYBeginning) currentRoom.getPreviousContent(50)
+                }
             }
 
             Pane {

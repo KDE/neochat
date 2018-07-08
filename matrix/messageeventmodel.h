@@ -44,6 +44,7 @@ class MessageEventModel: public QAbstractListModel
     private:
         QMatrixClient::Room* m_currentRoom = nullptr;
         QString lastReadEventId;
+        int nextNewerRow = -1;
 
         QDateTime makeMessageTimestamp(QMatrixClient::Room::rev_iter_t baseIt) const;
         QString makeDateString(QMatrixClient::Room::rev_iter_t baseIt) const;
