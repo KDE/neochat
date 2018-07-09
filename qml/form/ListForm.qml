@@ -2,8 +2,8 @@ import QtQuick 2.11
 import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.11
 import QtGraphicalEffects 1.0
-import QtQuick.Controls.Material 2.3
-import QtQml.Models 2.3
+import QtQuick.Controls.Material 2.4
+import QtQml.Models 2.4
 import Matrique 0.1
 
 import "qrc:/qml/component"
@@ -27,6 +27,10 @@ Item {
             height: 80
             onClicked: listView.currentIndex = index
 
+            ToolTip.visible: pressed
+            ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
+            ToolTip.text: name
+
             contentItem:  RowLayout {
                 anchors.fill: parent
                 anchors.margins: 16
@@ -36,7 +40,8 @@ Item {
                     Layout.preferredWidth: height
                     Layout.fillHeight: true
 
-                    source: avatar == null || avatar == "" ? "qrc:/asset/img/avatar.png" : "image://mxc/" + avatar
+                    source: avatar ? "image://mxc/" + avatar : ""
+                    displayText: name
                     opaqueBackground: true
                 }
 
@@ -52,10 +57,10 @@ Item {
                         Layout.fillHeight: true
 
                         text: {
-                            if (name != "") {
+                            if (name) {
                                 return name;
                             }
-                            if (alias != "") {
+                            if (alias) {
                                 return alias;
                             }
                             return id
@@ -69,7 +74,7 @@ Item {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
 
-                        text: topic === "" ? "No topic yet." : topic
+                        text: topic ? topic : "No topic yet."
                         elide: Text.ElideRight
                         wrapMode: Text.NoWrap
                     }
@@ -133,7 +138,7 @@ Item {
                     }
 
                     Rectangle {
-                        width: searchField.activeFocus || searchField.text != "" ? parent.width : 0
+                        width: searchField.activeFocus || searchField.text ? parent.width : 0
                         height: parent.height
                         color: "white"
 

@@ -1,7 +1,7 @@
-import QtQuick 2.10
-import QtQuick.Controls 2.3
-import QtQuick.Layouts 1.3
-import QtQuick.Controls.Material 2.3
+import QtQuick 2.11
+import QtQuick.Controls 2.4
+import QtQuick.Layouts 1.11
+import QtQuick.Controls.Material 2.4
 import QtGraphicalEffects 1.0
 import Matrique 0.1
 import "qrc:/qml/component"
@@ -16,7 +16,7 @@ Item {
 
         background: Item {
             anchors.fill: parent
-            visible: currentRoom == null
+            visible: !currentRoom
             Pane {
                 anchors.fill: parent
             }
@@ -32,7 +32,7 @@ Item {
             anchors.fill: parent
             spacing: 0
 
-            visible: currentRoom != null
+            visible: currentRoom
 
             Pane {
                 z: 10
@@ -52,7 +52,8 @@ Item {
                     ImageStatus {
                         Layout.preferredWidth: parent.height
                         Layout.fillHeight: true
-                        source: currentRoom != null && currentRoom.avatarUrl != "" ? "image://mxc/" + currentRoom.avatarUrl : "qrc:/asset/img/avatar.png"
+                        source: currentRoom && currentRoom.avatarUrl != "" ? "image://mxc/" + currentRoom.avatarUrl : null
+                        displayText: currentRoom ? currentRoom.displayName : ""
                     }
 
                     ColumnLayout {
@@ -61,7 +62,7 @@ Item {
 
                         Label {
                             Layout.fillWidth: true
-                            text: currentRoom != null ? currentRoom.displayName : ""
+                            text: currentRoom ? currentRoom.displayName : ""
                             font.pointSize: 16
                             elide: Text.ElideRight
                             wrapMode: Text.NoWrap
@@ -69,7 +70,7 @@ Item {
 
                         Label {
                             Layout.fillWidth: true
-                            text: currentRoom != null ? currentRoom.topic : ""
+                            text: currentRoom ? currentRoom.topic : ""
                             elide: Text.ElideRight
                             wrapMode: Text.NoWrap
                         }
@@ -88,12 +89,14 @@ Item {
                 displayMarginEnd: 40
                 verticalLayoutDirection: ListView.BottomToTop
                 spacing: 12
+
                 model: MessageEventModel{
                     id: messageEventModel
                     room: currentRoom
 
                     onModelReset: currentRoom.getPreviousContent(50)
                 }
+
                 delegate: Row {
                     readonly property bool sentByMe: author === currentRoom.localUser
 
@@ -102,18 +105,28 @@ Item {
                     anchors.right: sentByMe ? parent.right : undefined
                     spacing: 6
 
-                    Image {
+                    ImageStatus {
                         id: avatar
                         width: height
                         height: 40
-                        mipmap: true
+                        round: false
                         visible: !sentByMe
-                        source: author.avatarUrl != "" ? "image://mxc/" + author.avatarUrl : "qrc:/asset/img/avatar.png"
+                        source: author.avatarUrl != "" ? "image://mxc/" + author.avatarUrl : null
+                        displayText: author.displayName
+
+                        MouseArea {
+                            id: mouseArea
+                            anchors.fill: parent
+
+                            ToolTip.visible: pressed
+                            ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
+                            ToolTip.text: author.displayName
+                        }
                     }
 
                     Rectangle {
                         width: Math.min(messageText.implicitWidth + 24,
-                                                           messageListView.width - (!sentByMe ? avatar.width + messageRow.spacing : 0))
+                                        messageListView.width - (!sentByMe ? avatar.width + messageRow.spacing : 0))
                         height: messageText.implicitHeight + 24
                         color: sentByMe ? "lightgrey" : Material.accent
 
@@ -121,6 +134,7 @@ Item {
                             id: messageText
                             text: display
                             color: sentByMe ? "black" : "white"
+                            linkColor: sentByMe ? Material.accent : "white"
                             anchors.fill: parent
                             anchors.margins: 12
                             wrapMode: Label.Wrap

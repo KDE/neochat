@@ -1,8 +1,8 @@
-import QtQuick 2.10
-import QtQuick.Layouts 1.3
+import QtQuick 2.11
+import QtQuick.Layouts 1.11
 import QtGraphicalEffects 1.0
-import QtQuick.Controls 2.3
-import QtQuick.Controls.Material 2.3
+import QtQuick.Controls 2.4
+import QtQuick.Controls.Material 2.4
 import Qt.labs.settings 1.0
 import "qrc:/qml/component"
 
@@ -60,13 +60,13 @@ Page {
                 id: mainCol
                 width: parent.width
 
-                ImageStatus {
-                    Layout.preferredWidth: 96
-                    Layout.preferredHeight: 96
-                    Layout.alignment: Qt.AlignHCenter
+                //                ImageStatus {
+                //                    Layout.preferredWidth: 96
+                //                    Layout.preferredHeight: 96
+                //                    Layout.alignment: Qt.AlignHCenter
 
-                    source: "qrc:/asset/img/avatar.png"
-                }
+                //                    source: "qrc:/asset/img/avatar.png"
+                //                }
 
                 TextField {
                     id: serverField

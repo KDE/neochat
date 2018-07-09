@@ -1,6 +1,6 @@
 import QtQuick 2.11
 import QtQuick.Controls 2.4
-import QtQuick.Layouts 1.4
+import QtQuick.Layouts 1.11
 import QtQuick.Controls.Material 2.4
 import QtGraphicalEffects 1.0
 import Qt.labs.settings 1.0
@@ -28,16 +28,16 @@ ApplicationWindow {
         property alias token: matriqueController.token
     }
 
-//    Platform.SystemTrayIcon {
-//        visible: true
-//        iconSource: "qrc:/asset/img/icon.png"
+    //    Platform.SystemTrayIcon {
+    //        visible: true
+    //        iconSource: "qrc:/asset/img/icon.png"
 
-//        onActivated: {
-//            window.show()
-//            window.raise()
-//            window.requestActivate()
-//        }
-//    }
+    //        onActivated: {
+    //            window.show()
+    //            window.raise()
+    //            window.requestActivate()
+    //        }
+    //    }
 
     Controller {
         id: matriqueController
@@ -118,7 +118,8 @@ ApplicationWindow {
                         anchors.fill: parent
                         anchors.margins: 15
 
-                        source: matriqueController.connection.localUser != null ? "image://mxc/" + matriqueController.connection.localUser.avatarUrl : "qrc:/asset/img/avatar.png"
+                        source: matriqueController.connection.localUser && matriqueController.connection.localUser.avatarUrl ? "image://mxc/" + matriqueController.connection.localUser.avatarUrl : ""
+                        displayText: matriqueController.connection.localUser && matriqueController.connection.localUser.displayText ? matriqueController.connection.localUser.displayText : "N"
                         opaqueBackground: false
                     }
 
@@ -158,7 +159,7 @@ ApplicationWindow {
         imageProvider.connection = matriqueController.connection
 
         console.log(matriqueController.homeserver, matriqueController.userID, matriqueController.token)
-        if (matriqueController.userID != "" && matriqueController.token != "") {
+        if (matriqueController.userID && matriqueController.token) {
             console.log("Perform auto-login.");
             matriqueController.login();
         } else {
