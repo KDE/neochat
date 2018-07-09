@@ -27,8 +27,7 @@ Item {
             height: 80
             onClicked: listView.currentIndex = index
 
-            ToolTip.visible: pressed
-            ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
+            ToolTip.visible: mini && hovered
             ToolTip.text: name
 
             contentItem:  RowLayout {

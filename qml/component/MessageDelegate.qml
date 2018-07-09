@@ -18,6 +18,7 @@ Item {
     }
 
     MouseArea {
+        id: baseMouseArea
         anchors.fill: parent
 
         ToolTip.visible: pressed
@@ -42,12 +43,10 @@ Item {
             displayText: author.displayName
 
             MouseArea {
-                id: mouseArea
-
                 anchors.fill: parent
 
-                ToolTip.visible: pressed
-                ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
+                hoverEnabled: true
+                ToolTip.visible: containsMouse
                 ToolTip.text: author.displayName
             }
         }
@@ -103,8 +102,9 @@ Item {
                 MouseArea {
                     anchors.fill: parent
 
-                    ToolTip.visible: pressed
-                    ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
+                    hoverEnabled: true
+                    propagateComposedEvents: true
+                    ToolTip.visible: containsMouse
                     ToolTip.text: visible ? content.body : ""
                 }
             }
