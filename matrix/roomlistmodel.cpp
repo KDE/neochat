@@ -9,16 +9,23 @@ RoomListModel::RoomListModel(QObject* parent) : QAbstractListModel(parent) {}
 RoomListModel::~RoomListModel() {}
 
 void RoomListModel::setConnection(QMatrixClient::Connection* connection) {
+  Q_ASSERT(connection);
+
+  using QMatrixClient::Connection;
+  using QMatrixClient::Room;
   beginResetModel();
   m_connection = connection;
-  m_rooms.clear();
-  connect(connection, &QMatrixClient::Connection::newRoom, this,
-          &RoomListModel::addRoom);
-  for (QMatrixClient::Room* room : connection->roomMap().values()) {
-    connect(room, &QMatrixClient::Room::namesChanged, this,
-            &RoomListModel::namesChanged);
-    m_rooms.append(room);
-  }
+  connect(connection, &Connection::loggedOut, this,
+          [=] { setConnection(connection); });
+//  connect(connection, &Connection::invitedRoom, this,
+//          &RoomListModel::updateRoom);
+//  connect(connection, &Connection::joinedRoom, this,
+//          &RoomListModel::updateRoom);
+//  connect(connection, &Connection::leftRoom, this, &RoomListModel::updateRoom);
+  connect(connection, &Connection::aboutToDeleteRoom, this,
+          &RoomListModel::deleteRoom);
+
+  for (auto r : connection->roomMap()) addRoom(r);
   endResetModel();
 }
 
@@ -30,6 +37,15 @@ void RoomListModel::addRoom(QMatrixClient::Room* room) {
           &RoomListModel::namesChanged);
   m_rooms.append(room);
   endInsertRows();
+}
+
+void RoomListModel::deleteRoom(QMatrixClient::Room* room) {
+  const auto it = std::find(m_rooms.begin(), m_rooms.end(), room);
+  if (it == m_rooms.end()) return;  // Already deleted, nothing to do
+  const int row = it - m_rooms.begin();
+  beginRemoveRows(QModelIndex(), row, row);
+  m_rooms.erase(it);
+  endRemoveRows();
 }
 
 int RoomListModel::rowCount(const QModelIndex& parent) const {

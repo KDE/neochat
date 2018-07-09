@@ -144,8 +144,37 @@ Item {
 
                 ScrollBar.vertical: ScrollBar { /*anchors.left: messageListView.right*/ }
 
-                onAtYBeginningChanged: {
-                    if(currentRoom && atYBeginning) currentRoom.getPreviousContent(50)
+                Behavior on contentY {
+                    PropertyAnimation { easing.type: Easing.InOutCubic; duration: 200 }
+                }
+
+                RoundButton {
+                    id: goTopFab
+                    width: height
+                    height: !parent.atYEnd ? 64 : 0
+
+                    anchors.verticalCenter: parent.bottom
+                    anchors.verticalCenterOffset: -48
+                    anchors.horizontalCenter: parent.right
+                    anchors.horizontalCenterOffset: -48
+
+                    contentItem: MaterialIcon {
+                        anchors.fill: parent
+                        icon: "\ue313"
+                        color: "white"
+                    }
+
+                    opacity: hovered ? 1 : 0.5
+                    Material.background: Qt.lighter(Material.accent)
+
+                    onClicked: parent.positionViewAtBeginning()
+
+                    Behavior on height {
+                        PropertyAnimation { easing.type: Easing.InOutCubic; duration: 200 }
+                    }
+                    Behavior on opacity {
+                        PropertyAnimation { easing.type: Easing.InOutCubic; duration: 200 }
+                    }
                 }
             }
 
