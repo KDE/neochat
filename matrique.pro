@@ -47,7 +47,8 @@ DISTFILES += \
     RoomListForm.qml \
     RoomDetailForm.qml \
     Room.qml \
-    Setting.qml
+    Setting.qml \
+    qml/js/md.js
 
 HEADERS += \
     matrix/controller.h \

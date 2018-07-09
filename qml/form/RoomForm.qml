@@ -5,6 +5,7 @@ import QtQuick.Controls.Material 2.4
 import QtGraphicalEffects 1.0
 import Matrique 0.1
 import "qrc:/qml/component"
+import "qrc:/js/md.js" as Markdown
 
 Item {
     id: item
@@ -97,50 +98,8 @@ Item {
                     onRoomChanged: if (room.timelineSize === 0) room.getPreviousContent(50)
                 }
 
-                delegate: Row {
-                    readonly property bool sentByMe: author === currentRoom.localUser
+                delegate: MessageDelegate {
 
-                    id: messageRow
-
-                    anchors.right: sentByMe ? parent.right : undefined
-                    spacing: 6
-
-                    ImageStatus {
-                        id: avatar
-                        width: height
-                        height: 40
-                        round: false
-                        visible: !sentByMe
-                        source: author.avatarUrl != "" ? "image://mxc/" + author.avatarUrl : null
-                        displayText: author.displayName
-
-                        MouseArea {
-                            id: mouseArea
-                            anchors.fill: parent
-
-                            ToolTip.visible: pressed
-                            ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
-                            ToolTip.text: author.displayName
-                        }
-                    }
-
-                    Rectangle {
-                        width: Math.min(messageText.implicitWidth + 24,
-                                        messageListView.width - (!sentByMe ? avatar.width + messageRow.spacing : 0))
-                        height: messageText.implicitHeight + 24
-                        color: sentByMe ? "lightgrey" : Material.accent
-
-                        Label {
-                            id: messageText
-                            text: display
-                            color: sentByMe ? "black" : "white"
-                            linkColor: sentByMe ? Material.accent : "white"
-                            anchors.fill: parent
-                            anchors.margins: 12
-                            wrapMode: Label.Wrap
-                            textFormat: Text.RichText
-                        }
-                    }
                 }
 
                 onAtYBeginningChanged: if (atYBeginning && currentRoom) currentRoom.getPreviousContent(50)
@@ -154,12 +113,11 @@ Item {
                 RoundButton {
                     id: goTopFab
                     width: height
-                    height: !parent.atYEnd ? 64 : 0
+                    height: 64
+                    visible: !parent.atYEnd
 
-                    anchors.verticalCenter: parent.bottom
-                    anchors.verticalCenterOffset: -48
-                    anchors.horizontalCenter: parent.right
-                    anchors.horizontalCenterOffset: -48
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
 
                     contentItem: MaterialIcon {
                         anchors.fill: parent
@@ -167,16 +125,13 @@ Item {
                         color: "white"
                     }
 
-                    opacity: hovered ? 1 : 0.5
+                    opacity: hovered ? 0.7 : 0.4
                     Material.background: Qt.lighter(Material.accent)
 
                     onClicked: parent.positionViewAtBeginning()
 
-                    Behavior on height {
-                        PropertyAnimation { easing.type: Easing.InOutCubic; duration: 200 }
-                    }
                     Behavior on opacity {
-                        PropertyAnimation { easing.type: Easing.InOutCubic; duration: 200 }
+                        PropertyAnimation { easing.type: Easing.Linear; duration: 200 }
                     }
                 }
             }
@@ -214,8 +169,27 @@ Item {
                         }
 
                         Keys.onReturnPressed: {
-                            currentRoom.postMessage("text", inputField.text)
+                            postMessage(inputField.text)
                             inputField.text = ""
+                        }
+
+                        function postMessage(text) {
+                            if (text.trim().length === 0) {
+                                return
+                            }
+                            if(!currentRoom) {
+                                return
+                            }
+
+                            var type = "m.text"
+                            var PREFIX_ME = '/me '
+                            if (text.indexOf(PREFIX_ME) === 0) {
+                                text = text.substr(PREFIX_ME.length)
+                                type = "m.emote"
+                            }
+
+//                            var parsedText = Markdown.markdown_parser(text)
+                            currentRoom.postMessage(type, text)
                         }
                     }
 
