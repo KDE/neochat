@@ -94,7 +94,7 @@ Item {
                     id: messageEventModel
                     room: currentRoom
 
-                    onModelReset: currentRoom.getPreviousContent(50)
+                    onRoomChanged: if (room.timelineSize === 0) room.getPreviousContent(50)
                 }
 
                 delegate: Row {
@@ -138,9 +138,12 @@ Item {
                             anchors.fill: parent
                             anchors.margins: 12
                             wrapMode: Label.Wrap
+                            textFormat: Text.RichText
                         }
                     }
                 }
+
+                onAtYBeginningChanged: if (atYBeginning && currentRoom) currentRoom.getPreviousContent(50)
 
                 ScrollBar.vertical: ScrollBar { /*anchors.left: messageListView.right*/ }
 
