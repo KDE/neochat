@@ -89,6 +89,7 @@ Item {
                 displayMarginBeginning: 40
                 displayMarginEnd: 40
                 verticalLayoutDirection: ListView.BottomToTop
+                maximumFlickVelocity: 1024
                 spacing: 12
 
                 model: MessageEventModel{
@@ -98,13 +99,11 @@ Item {
                     onRoomChanged: if (room.timelineSize === 0) room.getPreviousContent(50)
                 }
 
-                delegate: MessageDelegate {
-
-                }
+                delegate: MessageDelegate {}
 
                 onAtYBeginningChanged: if (atYBeginning && currentRoom) currentRoom.getPreviousContent(50)
 
-                ScrollBar.vertical: ScrollBar { /*anchors.left: messageListView.right*/ }
+                ScrollBar.vertical: ScrollBar {}
 
                 Behavior on contentY {
                     PropertyAnimation { easing.type: Easing.InOutCubic; duration: 200 }
@@ -125,7 +124,7 @@ Item {
                         color: "white"
                     }
 
-                    opacity: hovered ? 0.7 : 0.4
+                    opacity: pressed ? 1 : hovered ? 0.7 : 0.4
                     Material.background: Qt.lighter(Material.accent)
 
                     onClicked: parent.positionViewAtBeginning()
@@ -188,7 +187,7 @@ Item {
                                 type = "m.emote"
                             }
 
-//                            var parsedText = Markdown.markdown_parser(text)
+                            //                            var parsedText = Markdown.markdown_parser(text)
                             currentRoom.postMessage(type, text)
                         }
                     }

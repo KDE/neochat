@@ -125,7 +125,7 @@ Item {
                             height: parent.height
                         }
 
-                        Text {
+                        Label {
                             height: parent.height
                             visible: !mini
                             text: "Search"

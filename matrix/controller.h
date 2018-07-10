@@ -32,6 +32,8 @@ class Controller : public QObject {
   Q_INVOKABLE void loginWithCredentials(QString, QString, QString);
   Q_INVOKABLE void logout();
 
+  Q_INVOKABLE void uploadFile(QString);
+
   // All the non-Q_INVOKABLE functions.
 
   // All the Q_PROPERTYs.

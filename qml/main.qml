@@ -118,7 +118,7 @@ ApplicationWindow {
                         anchors.fill: parent
                         anchors.margins: 15
 
-                        source: matriqueController.connection.localUser && matriqueController.connection.localUser.avatarUrl ? "image://mxc/" + matriqueController.connection.localUser.avatarUrl : ""
+                        source: matriqueController.isLogin ? matriqueController.connection.localUser && matriqueController.connection.localUser.avatarUrl ? "image://mxc/" + matriqueController.connection.localUser.avatarUrl : "" : "qrc:/asset/img/avatar.png"
                         displayText: matriqueController.connection.localUser && matriqueController.connection.localUser.displayText ? matriqueController.connection.localUser.displayText : "N"
                         opaqueBackground: false
                     }

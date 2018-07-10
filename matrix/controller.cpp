@@ -51,6 +51,10 @@ void Controller::logout() {
   setIsLogin(false);
 }
 
+void Controller::uploadFile(QString filename) {
+  m_connection->uploadFile(filename);
+}
+
 void Controller::connected() {
   qDebug() << "Logged in.";
   setHomeserver(m_connection->homeserver().toString());
