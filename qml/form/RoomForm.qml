@@ -195,13 +195,34 @@ Item {
 
                             var type = "m.text"
                             var PREFIX_ME = '/me '
+                            var PREFIX_RAINBOW = '/rainbow'
                             if (text.indexOf(PREFIX_ME) === 0) {
                                 text = text.substr(PREFIX_ME.length)
                                 type = "m.emote"
                             }
+                            if (text.indexOf(PREFIX_RAINBOW) === 0) {
+                                text = text.substr(PREFIX_RAINBOW.length)
+                            }
 
-                            //                            var parsedText = Markdown.markdown_parser(text)
-                            currentRoom.postMessage(type, text)
+                            var result = parse(text)
+                            var parsedText = result[0]
+                            var isMarkdown = result [1]
+
+                            if (isMarkdown) currentRoom.postHtmlMessage(text, parsedText, type)
+                            else currentRoom.postMessage(type, text)
+                        }
+
+                        function parse(text) {
+                            if (!testHTML(text)) {
+                                var parsedText = Markdown.markdown_parser(text)
+                                if (testHTML(parsedText)) return [parsedText, true]
+                            }
+                            return [text, false]
+                        }
+
+                        function testHTML(text) {
+                            var re = new RegExp("(<([^>]+)>)")
+                            return re.test(text)
                         }
                     }
 

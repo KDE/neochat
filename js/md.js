@@ -48,7 +48,7 @@ var markdown_parser = function(str){
             return '<h'+level+'>'+header.trim()+'</h'+level+'>';
         }],
         // images
-        ['/\\!\\[([^\\[]+)\\]\\(([^\\(]+)\\)/g', '<img src=\"\\2\" alt=\"\\1\" />'],
+//        ['/\\!\\[([^\\[]+)\\]\\(([^\\(]+)\\)/g', '<img src=\"\\2\" alt=\"\\1\" />'],
         // link
         ['/\\[([^\\[]+)\\]\\(([^\\(]+)\\)/g', '<a href=\"\\2\">\\1</a>'],
         // bold
@@ -60,25 +60,25 @@ var markdown_parser = function(str){
         // quote
         ['/\\:\\"(.*?)\\"\\:/g', '<q>\\1</q>'],
         // unordered list
-        ['/\\n\\*(.*)/g', function(item){
-            return '<ul>\n<li>'+item.trim()+'</li>\n</ul>';
-        }],
+//        ['/\\n\\*(.*)/g', function(item){
+//            return '<ul>\n<li>'+item.trim()+'</li>\n</ul>';
+//        }],
         // ordered list
-        ['/\\n[0-9]+\\.(.*)/g', function(item){
-            return '<ol>\n<li>'+item.trim()+'</li>\n</ol>';
-        }],
+//        ['/\\n[0-9]+\\.(.*)/g', function(item){
+//            return '<ol>\n<li>'+item.trim()+'</li>\n</ol>';
+//        }],
         // blockquote
         ['/\\n\\>(.*)/g', function(str){
             return '<blockquote>'+str.trim()+'</blockquote>';
-        }],
-        // paragraphs
-        ['/\\n[^\\n]+\\n/g', function(line){
-            line = line.trim();
-            if(line[0] === '<'){
-                return line;
-            }
-            return '\n<p>'+line+'</p>\n';
         }]
+        // paragraphs
+//        ['/\\n[^\\n]+\\n/g', function(line){
+//            line = line.trim();
+//            if(line[0] === '<'){
+//                return line;
+//            }
+//            return '\n<p>'+line+'</p>\n';
+//        }]
     ], fixes = [
         ['/<\\/ul>\n<ul>/g', '\n'],
         ['/<\\/ol>\n<ol>/g', '\n'],
