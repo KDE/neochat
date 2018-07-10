@@ -10,7 +10,7 @@ Item {
     width: delegateLoader.width
     height: delegateLoader.height
 
-    anchors.right: (eventType === "message" || eventType === "image") && sentByMe ? parent.right : undefined
+    anchors.right: (eventType === "message" || eventType === "image" || eventType === "file" || eventType === "video" || eventType === "audio") && sentByMe ? parent.right : undefined
     anchors.horizontalCenter: (eventType === "state" || eventType === "emote") ? parent.horizontalCenter : undefined
 
     MouseArea {
@@ -34,7 +34,12 @@ Item {
             case "emote":
             case "state":
                 return "StateBubble.qml"
+            case "video":
+            case "audio":
+            case "file":
+                return "FileBubble.qml"
             }
+            return ""
         }
     }
 }

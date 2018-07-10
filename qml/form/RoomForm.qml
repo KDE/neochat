@@ -1,5 +1,6 @@
 import QtQuick 2.11
 import QtQuick.Controls 2.4
+import QtQuick.Dialogs 1.3
 import QtQuick.Layouts 1.11
 import QtQuick.Controls.Material 2.4
 import QtGraphicalEffects 1.0
@@ -151,6 +152,18 @@ Item {
                         Layout.fillHeight: true
 
                         contentItem: MaterialIcon { icon: "\ue226" }
+
+                        onClicked: fileDialog.visible = true
+
+                        FileDialog {
+                            id: fileDialog
+                            title: "Please choose a file"
+                            folder: shortcuts.home
+                            onAccepted: {
+                                console.log("You chose: " + fileDialog.fileUrls)
+                                matriqueController.uploadFile(fileDialog.fileUrls)
+                            }
+                        }
                     }
 
                     TextField {

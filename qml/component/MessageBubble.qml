@@ -2,43 +2,15 @@ import QtQuick 2.11
 import QtQuick.Controls 2.4
 import QtQuick.Controls.Material 2.4
 
-Row {
+AvatarContainer {
     readonly property bool isNotice: eventType === "notice"
 
     id: messageRow
 
-    spacing: 6
-
-    ImageStatus {
-        id: avatar
-
-        width: height
-        height: 40
-        round: false
-        visible: !sentByMe && aboveAuthor !== author
-        source: author.avatarUrl != "" ? "image://mxc/" + author.avatarUrl : null
-        displayText: author.displayName
-
-        MouseArea {
-            anchors.fill: parent
-
-            hoverEnabled: true
-            ToolTip.visible: containsMouse
-            ToolTip.text: author.displayName
-        }
-    }
-
-    Rectangle {
-        width: height
-        height: 40
-        color: "transparent"
-        visible: !sentByMe && aboveAuthor === author
-    }
-
     Rectangle {
         id: messageRect
 
-        width: Math.min(messageText.implicitWidth + 24, messageListView.width - (!sentByMe ? avatar.width + messageRow.spacing : 0))
+        width: Math.min(messageText.implicitWidth + 24, messageListView.width - (!sentByMe ? 40 + messageRow.spacing : 0))
         height: messageText.implicitHeight + 24
 
         color: isNotice ? "transparent" : sentByMe ? "lightgrey" : Material.accent
