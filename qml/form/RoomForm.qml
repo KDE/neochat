@@ -193,36 +193,42 @@ Item {
                                 return
                             }
 
-                            var type = "m.text"
                             var PREFIX_ME = '/me '
-                            var PREFIX_RAINBOW = '/rainbow'
+                            var PREFIX_RAINBOW = '/rainbow '
+                            var PREFIX_HTML = '/html '
+                            var PREFIX_MARKDOWN = '/md '
+
                             if (text.indexOf(PREFIX_ME) === 0) {
                                 text = text.substr(PREFIX_ME.length)
-                                type = "m.emote"
+                                currentRoom.postMessage("m.emote", text)
+                                return
                             }
                             if (text.indexOf(PREFIX_RAINBOW) === 0) {
                                 text = text.substr(PREFIX_RAINBOW.length)
+
+                                var parsedText = ""
+                                var rainbowColor = ["#ee0000", "#ff7700", "#eeee00", "#00bb00", "#0000ee", "#dd00dd", "#880088"]
+                                for (var i = 0; i < text.length; i++) {
+                                    parsedText = parsedText + "<font color='" + rainbowColor[i % 7] + "'>" + text.charAt(i) + "</font>"
+                                }
+                                currentRoom.postHtmlMessage(text, parsedText, "m.text")
+                                return
                             }
-
-                            var result = parse(text)
-                            var parsedText = result[0]
-                            var isMarkdown = result [1]
-
-                            if (isMarkdown) currentRoom.postHtmlMessage(text, parsedText, type)
-                            else currentRoom.postMessage(type, text)
-                        }
-
-                        function parse(text) {
-                            if (!testHTML(text)) {
+                            if (text.indexOf(PREFIX_HTML) === 0) {
+                                text = text.substr(PREFIX_HTML.length)
+                                var re = new RegExp("<.*?>")
+                                var plainText = text.replace(re, "")
+                                currentRoom.postHtmlMessage(plainText, text, "m.text")
+                                return
+                            }
+                            if (text.indexOf(PREFIX_MARKDOWN) === 0) {
+                                text = text.substr(PREFIX_MARKDOWN.length)
                                 var parsedText = Markdown.markdown_parser(text)
-                                if (testHTML(parsedText)) return [parsedText, true]
+                                currentRoom.postHtmlMessage(text, parsedText, "m.text")
+                                return
                             }
-                            return [text, false]
-                        }
 
-                        function testHTML(text) {
-                            var re = new RegExp("(<([^>]+)>)")
-                            return re.test(text)
+                            currentRoom.postMessage("m.text", text)
                         }
                     }
 

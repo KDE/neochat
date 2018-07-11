@@ -28,16 +28,18 @@ ApplicationWindow {
         property alias token: matriqueController.token
     }
 
-    //    Platform.SystemTrayIcon {
-    //        visible: true
-    //        iconSource: "qrc:/asset/img/icon.png"
+//    Platform.SystemTrayIcon {
+//        id: trayIcon
 
-    //        onActivated: {
-    //            window.show()
-    //            window.raise()
-    //            window.requestActivate()
-    //        }
-    //    }
+//        visible: true
+//        iconSource: "qrc:/asset/img/icon.png"
+
+//        onActivated: {
+//            window.show()
+//            window.raise()
+//            window.requestActivate()
+//        }
+//    }
 
     Controller {
         id: matriqueController
