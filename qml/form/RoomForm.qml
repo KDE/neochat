@@ -1,8 +1,8 @@
-import QtQuick 2.11
-import QtQuick.Controls 2.4
-import QtQuick.Dialogs 1.3
-import QtQuick.Layouts 1.11
-import QtQuick.Controls.Material 2.4
+import QtQuick 2.9
+import QtQuick.Controls 2.2
+import QtQuick.Dialogs 1.2
+import QtQuick.Layouts 1.3
+import QtQuick.Controls.Material 2.2
 import QtGraphicalEffects 1.0
 import Matrique 0.1
 import "qrc:/qml/component"
@@ -97,7 +97,9 @@ Item {
                     id: messageEventModel
                     room: currentRoom
 
-                    onRoomChanged: if (room.timelineSize === 0) room.getPreviousContent(50)
+                    onRoomChanged: {
+                        if (room.timelineSize === 0) room.getPreviousContent(50)
+                    }
                 }
 
                 delegate: MessageDelegate {}
@@ -109,6 +111,20 @@ Item {
                 Behavior on contentY {
                     PropertyAnimation { easing.type: Easing.InOutCubic; duration: 200 }
                 }
+
+//                Popup {
+//                    id: loadingPopup
+
+//                    x: item.x + (item.width - width) / 2
+//                    y: 90
+
+//                    modal: true
+//                    focus: true
+
+//                    closePolicy: Popup.CloseOnEscape
+
+//                    BusyIndicator { running: true }
+//                }
 
                 RoundButton {
                     id: goTopFab

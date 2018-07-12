@@ -25,7 +25,6 @@ int main(int argc, char *argv[]) {
   //    proxy.setPort(1082);
   //    QNetworkProxy::setApplicationProxy(proxy);
 
-  qmlRegisterType<Room>();
   qRegisterMetaType<Room *>("Room*");
 
   qmlRegisterType<Controller>("Matrique", 0, 1, "Controller");
