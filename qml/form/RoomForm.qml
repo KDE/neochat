@@ -108,24 +108,6 @@ Item {
 
                 ScrollBar.vertical: ScrollBar {}
 
-                Behavior on contentY {
-                    PropertyAnimation { easing.type: Easing.InOutCubic; duration: 200 }
-                }
-
-//                Popup {
-//                    id: loadingPopup
-
-//                    x: item.x + (item.width - width) / 2
-//                    y: 90
-
-//                    modal: true
-//                    focus: true
-
-//                    closePolicy: Popup.CloseOnEscape
-
-//                    BusyIndicator { running: true }
-//                }
-
                 RoundButton {
                     id: goTopFab
                     width: height
@@ -177,7 +159,7 @@ Item {
                             folder: shortcuts.home
                             onAccepted: {
                                 console.log("You chose: " + fileDialog.fileUrls)
-                                matriqueController.uploadFile(fileDialog.fileUrls)
+                                currentRoom.uploadFile(fileDialog.fileUrls)
                             }
                         }
                     }
@@ -192,12 +174,35 @@ Item {
                         bottomPadding: 0
                         selectByMouse: true
 
-                        background: Rectangle {
-                            color: Material.theme == Material.Light ? "#eaeaea" : "#242424"
+                        background: Item{
+                            Rectangle {
+                                anchors.fill: parent
+                                color: Material.theme == Material.Light ? "#eaeaea" : "#242424"
+                            }
+
+                            Rectangle {
+                                id:progressIndicator
+
+                                height: parent.height
+                                width: 0
+                                color: Material.accent
+                                opacity: 1 - width / inputField.width
+
+                                NumberAnimation on width {
+                                    id: animation
+                                    from: 0
+                                    to: inputField.width
+                                    duration: 300
+                                    easing.type: Easing.Linear
+                                }
+
+                                function animate() { animation.start() }
+                            }
                         }
 
                         Keys.onReturnPressed: {
                             postMessage(inputField.text)
+                            progressIndicator.animate()
                             inputField.text = ""
                         }
 
