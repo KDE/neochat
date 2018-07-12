@@ -13,6 +13,11 @@ Controller::Controller(QObject *parent) : QObject(parent) {
           &Controller::resync);
   connect(m_connection, &QMatrixClient::Connection::connected, this,
           &Controller::connectionChanged);
+
+  connect(m_connection, &QMatrixClient::Connection::connected,
+          [=] { setBusy(true); });
+  connect(m_connection, &QMatrixClient::Connection::syncDone,
+          [=] { setBusy(false); });
 }
 
 Controller::~Controller() { m_connection->stopSync(); }

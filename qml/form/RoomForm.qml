@@ -91,7 +91,7 @@ Item {
                 displayMarginEnd: 40
                 verticalLayoutDirection: ListView.BottomToTop
                 maximumFlickVelocity: 1024
-                spacing: 12
+                spacing: 8
 
                 model: MessageEventModel{
                     id: messageEventModel
