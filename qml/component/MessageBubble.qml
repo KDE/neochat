@@ -25,7 +25,8 @@ AvatarContainer {
             anchors.margins: 12
             wrapMode: Label.Wrap
             linkColor: isNotice ? Material.accent : sentByMe ? Material.accent : "white"
-            textFormat: contentType === "text/html" ? Text.RichText : Text.StyledText
+//            textFormat: contentType === "text/html" ? Text.RichText : Text.StyledText
+            textFormat: Text.StyledText
         }
     }
 }

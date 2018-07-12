@@ -174,47 +174,23 @@ Item {
                         bottomPadding: 0
                         selectByMouse: true
 
-                        background: Item{
-                            Rectangle {
-                                anchors.fill: parent
-                                color: Material.theme == Material.Light ? "#eaeaea" : "#242424"
-                            }
-
-                            Rectangle {
-                                id:progressIndicator
-
-                                height: parent.height
-                                width: 0
-                                color: Material.accent
-                                opacity: 1 - width / inputField.width
-
-                                NumberAnimation on width {
-                                    id: animation
-                                    from: 0
-                                    to: inputField.width
-                                    duration: 300
-                                    easing.type: Easing.Linear
-                                }
-
-                                function animate() { animation.start() }
-                            }
+                        background: Rectangle {
+                            color: Material.theme == Material.Light ? "#eaeaea" : "#242424"
                         }
 
                         Keys.onReturnPressed: {
-                            postMessage(inputField.text)
-                            progressIndicator.animate()
-                            inputField.text = ""
+                            if (inputField.text) {
+                                postMessage(inputField.text)
+                                inputField.text = ""
+                            }
                         }
 
                         function postMessage(text) {
-                            if (text.trim().length === 0) {
-                                return
-                            }
-                            if(!currentRoom) {
-                                return
-                            }
+                            if (text.trim().length === 0) { return }
+                            if(!currentRoom) { return }
 
                             var PREFIX_ME = '/me '
+                            var PREFIX_NOTICE = '/notice '
                             var PREFIX_RAINBOW = '/rainbow '
                             var PREFIX_HTML = '/html '
                             var PREFIX_MARKDOWN = '/md '
@@ -222,6 +198,11 @@ Item {
                             if (text.indexOf(PREFIX_ME) === 0) {
                                 text = text.substr(PREFIX_ME.length)
                                 currentRoom.postMessage("m.emote", text)
+                                return
+                            }
+                            if (text.indexOf(PREFIX_NOTICE) === 0) {
+                                text = text.substr(PREFIX_NOTICE.length)
+                                currentRoom.postMessage("m.notice", text)
                                 return
                             }
                             if (text.indexOf(PREFIX_RAINBOW) === 0) {

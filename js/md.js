@@ -54,7 +54,7 @@ var markdown_parser = function(str){
         // bold
         ['/(\\*\\*|__)(.*?)\\1/g', '<strong>\\2</strong>'],
         // emphasis
-        ['/(\\*|_)(.*?)\\1/g', '<em>\\2</em>'],
+        ['/(\\*|_)(.*?)\\1/g', '<i>\\2</i>'],
         // strike
         ['/(\\~\\~)(.*?)\\1/g', '<del>\\2</del>'],
         // quote
