@@ -11,7 +11,7 @@ import "qrc:/qml/component"
 
 Item {
     property alias listModel: roomListProxyModel.sourceModel
-    property alias currentIndex: listView.currentIndex
+    property int currentIndex: roomListProxyModel.mapToSource(listView.currentIndex)
     readonly property bool mini: width <= 80 // Used as an indicator of whether the listform should be displayed as "Mini mode".
 
     ColumnLayout {
@@ -188,9 +188,14 @@ Item {
 
                 section.property: "category"
                 section.criteria: ViewSection.FullString
-                section.delegate: Rectangle {
+                section.delegate: Label {
                     width: parent.width
-                    height: 16
+                    height: 24
+                    text: section
+                    color: "grey"
+                    leftPadding: 16
+                    verticalAlignment: Text.AlignVCenter
+                    background: Rectangle { anchors.fill:parent; color: "#dbdbdb" }
                 }
             }
         }
