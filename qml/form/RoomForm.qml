@@ -19,12 +19,9 @@ Item {
         background: Item {
             anchors.fill: parent
             visible: !currentRoom
-            Pane {
-                anchors.fill: parent
-            }
+            Pane { anchors.fill: parent }
 
             Label {
-                z: 10
                 text: "Please choose a room."
                 anchors.centerIn: parent
             }
@@ -43,9 +40,7 @@ Item {
                 Layout.fillWidth: true
                 Layout.preferredHeight: 80
 
-                background: Rectangle {
-                    color: Material.theme == Material.Light ? "#eaeaea" : "#242424"
-                }
+                background: Rectangle { color: Material.theme == Material.Light ? "#eaeaea" : "#242424" }
 
                 RowLayout {
                     anchors.fill: parent
@@ -97,14 +92,12 @@ Item {
                     id: messageEventModel
                     room: currentRoom
 
-                    onRoomChanged: {
-                        if (room.timelineSize === 0) room.getPreviousContent(50)
-                    }
+                    onRoomChanged: room.timelineSize === 0 ? room.getPreviousContent(50) : {}
                 }
 
                 delegate: MessageDelegate {}
 
-                onAtYBeginningChanged: if (atYBeginning && currentRoom) currentRoom.getPreviousContent(50)
+                onAtYBeginningChanged: atYBeginning && currentRoom ? currentRoom.getPreviousContent(50) : {}
 
                 ScrollBar.vertical: ScrollBar {}
 
@@ -128,9 +121,7 @@ Item {
 
                     onClicked: parent.positionViewAtBeginning()
 
-                    Behavior on opacity {
-                        PropertyAnimation { easing.type: Easing.Linear; duration: 200 }
-                    }
+                    Behavior on opacity { NumberAnimation { duration: 200 } }
                 }
             }
 
@@ -174,9 +165,7 @@ Item {
                         bottomPadding: 0
                         selectByMouse: true
 
-                        background: Rectangle {
-                            color: Material.theme == Material.Light ? "#eaeaea" : "#242424"
-                        }
+                        background: Rectangle { color: Material.theme == Material.Light ? "#eaeaea" : "#242424" }
 
                         Keys.onReturnPressed: {
                             if (inputField.text) {
@@ -240,9 +229,7 @@ Item {
 
                         contentItem: MaterialIcon { icon: "\ue24e" }
 
-                        background: Rectangle {
-                            color: Material.theme == Material.Light ? "#eaeaea" : "#242424"
-                        }
+                        background: Rectangle { color: Material.theme == Material.Light ? "#eaeaea" : "#242424" }
                     }
                 }
             }

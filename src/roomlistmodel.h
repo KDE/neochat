@@ -11,6 +11,14 @@ class RoomListModel : public QAbstractListModel {
                  setConnection)
 
  public:
+  enum EventRoles {
+    NameRole = Qt::UserRole + 1,
+    AvatarRole,
+    TopicRole,
+    CategoryRole,
+    HighlightRole,
+  };
+
   RoomListModel(QObject* parent = 0);
   virtual ~RoomListModel();
 

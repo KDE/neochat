@@ -3,10 +3,10 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 
-#include "matrix/controller.h"
-#include "matrix/imageprovider.h"
-#include "matrix/messageeventmodel.h"
-#include "matrix/roomlistmodel.h"
+#include "controller.h"
+#include "imageprovider.h"
+#include "messageeventmodel.h"
+#include "roomlistmodel.h"
 #include "room.h"
 
 using namespace QMatrixClient;

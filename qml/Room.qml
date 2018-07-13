@@ -18,7 +18,7 @@ Page {
         anchors.fill: parent
         spacing: 0
 
-        ListForm {
+        RoomListForm {
             id: roomListForm
 
             Layout.fillHeight: true

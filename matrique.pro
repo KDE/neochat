@@ -1,7 +1,9 @@
 QT += quick
 CONFIG += c++14
+CONFIG += object_parallel_to_source
 
-include(matrix/libqmatrixclient/libqmatrixclient.pri)
+include(include/SortFilterProxyModel/SortFilterProxyModel.pri)
+include(include/libqmatrixclient/libqmatrixclient.pri)
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked deprecated (the exact warnings
@@ -14,12 +16,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-SOURCES += main.cpp \
-    matrix/controller.cpp \
-    matrix/roomlistmodel.cpp \
-    matrix/imageprovider.cpp \
-    matrix/messageeventmodel.cpp \
-    matrix/imageproviderconnection.cpp
+SOURCES += src/main.cpp \
+    src/controller.cpp \
+    src/roomlistmodel.cpp \
+    src/imageprovider.cpp \
+    src/messageeventmodel.cpp \
+    src/imageproviderconnection.cpp
 
 RESOURCES += \
     res.qrc
@@ -51,8 +53,8 @@ DISTFILES += \
     qml/js/md.js
 
 HEADERS += \
-    matrix/controller.h \
-    matrix/roomlistmodel.h \
-    matrix/imageprovider.h \
-    matrix/messageeventmodel.h \
-    matrix/imageproviderconnection.h
+    src/controller.h \
+    src/roomlistmodel.h \
+    src/imageprovider.h \
+    src/messageeventmodel.h \
+    src/imageproviderconnection.h

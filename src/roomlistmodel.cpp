@@ -17,11 +17,12 @@ void RoomListModel::setConnection(QMatrixClient::Connection* connection) {
   m_connection = connection;
   connect(connection, &Connection::loggedOut, this,
           [=] { setConnection(connection); });
-//  connect(connection, &Connection::invitedRoom, this,
-//          &RoomListModel::updateRoom);
-//  connect(connection, &Connection::joinedRoom, this,
-//          &RoomListModel::updateRoom);
-//  connect(connection, &Connection::leftRoom, this, &RoomListModel::updateRoom);
+  //  connect(connection, &Connection::invitedRoom, this,
+  //          &RoomListModel::updateRoom);
+  //  connect(connection, &Connection::joinedRoom, this,
+  //          &RoomListModel::updateRoom);
+  //  connect(connection, &Connection::leftRoom, this,
+  //  &RoomListModel::updateRoom);
   connect(connection, &Connection::aboutToDeleteRoom, this,
           &RoomListModel::deleteRoom);
 
@@ -61,21 +62,26 @@ QVariant RoomListModel::data(const QModelIndex& index, int role) const {
     return QVariant();
   }
   QMatrixClient::Room* room = m_rooms.at(index.row());
-  if (role == Qt::DisplayRole) {
+  if (role == NameRole) {
     return room->displayName();
   }
-  if (role == Qt::ForegroundRole) {
-    if (room->highlightCount() > 0) return QBrush(QColor("orange"));
-    return QVariant();
-  }
-  if (role == Qt::DecorationRole) {
+  if (role == AvatarRole) {
     if (room->avatarUrl().toString() != "") {
       return room->avatarUrl();
     }
     return QVariant();
   }
-  if (role == Qt::StatusTipRole) {
+  if (role == TopicRole) {
     return room->topic();
+  }
+  if (role == CategoryRole) {
+    if (room->isFavourite()) return "Favorites";
+    if (room->isLowPriority()) return "Low Priorities";
+    return "Rooms";
+  }
+  if (role == HighlightRole) {
+    if (room->highlightCount() > 0) return QBrush(QColor("orange"));
+    return QVariant();
   }
   return QVariant();
 }
@@ -92,8 +98,10 @@ void RoomListModel::unreadMessagesChanged(QMatrixClient::Room* room) {
 
 QHash<int, QByteArray> RoomListModel::roleNames() const {
   QHash<int, QByteArray> roles;
-  roles[Qt::DisplayRole] = "name";
-  roles[Qt::DecorationRole] = "avatar";
-  roles[Qt::StatusTipRole] = "topic";
+  roles[NameRole] = "name";
+  roles[AvatarRole] = "avatar";
+  roles[TopicRole] = "topic";
+  roles[CategoryRole] = "category";
+  roles[HighlightRole] = "highlight";
   return roles;
 }
