@@ -13,8 +13,8 @@ AvatarContainer {
             id: downloadButton
 
             text: content.body
-
             highlighted: !sentByMe
+            flat: true
 
             onClicked: downloadable.downloadAndOpen()
         }

@@ -194,6 +194,7 @@ Item {
                     text: section
                     color: "grey"
                     leftPadding: 16
+                    elide: Text.ElideRight
                     verticalAlignment: Text.AlignVCenter
                     background: Rectangle { anchors.fill:parent; color: "#dbdbdb" }
                 }
