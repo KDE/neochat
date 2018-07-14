@@ -77,7 +77,6 @@ void RoomListModel::updateRoom(QMatrixClient::Room* room,
       m_rooms.begin(), m_rooms.end(),
       [=](const QMatrixClient::Room* r) { return r == prev || r == newRoom; });
   if (it != m_rooms.end()) {
-    qDebug() << "Room found in m_rooms.";
     const int row = it - m_rooms.begin();
     // There's no guarantee that prev != newRoom
     if (*it == prev && *it != newRoom) {
@@ -87,7 +86,6 @@ void RoomListModel::updateRoom(QMatrixClient::Room* room,
     }
     emit dataChanged(index(row), index(row));
   } else {
-    qDebug() << "Room missing in m_rooms.";
     beginInsertRows(QModelIndex(), m_rooms.count(), m_rooms.count());
     doAddRoom(newRoom);
     endInsertRows();
