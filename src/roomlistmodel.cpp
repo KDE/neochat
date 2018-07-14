@@ -52,7 +52,7 @@ void RoomListModel::connectRoomSignals(QMatrixClient::Room* room) {
   connect(room, &QMatrixClient::Room::joinStateChanged, this,
           [=] { refresh(room); });
   connect(room, &QMatrixClient::Room::avatarChanged, this,
-          [=] { refresh(room, {Qt::DecorationRole}); });
+          [=] { refresh(room, {AvatarRole}); });
 }
 
 void RoomListModel::updateRoom(QMatrixClient::Room* room,

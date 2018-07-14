@@ -1,12 +1,18 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
+import QtQuick.Controls.Material 2.2
 
 Item {
-    width: parent.width
-    height: visible ? childrenRect.height : 0
-
     property bool openOnFinished: false
     readonly property bool downloaded: progressInfo && progressInfo.completed
+
+    Rectangle {
+        z: 5
+        height: parent.height
+        width: progressInfo.active && !progressInfo.completed ? progressInfo.progress / progressInfo.total * parent.width : 0
+        color: Material.accent
+        opacity: 0.4
+    }
 
     onDownloadedChanged: {
         if (downloaded && openOnFinished)
