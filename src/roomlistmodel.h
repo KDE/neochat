@@ -37,12 +37,16 @@ class RoomListModel : public QAbstractListModel {
  private slots:
   void namesChanged(QMatrixClient::Room* room);
   void unreadMessagesChanged(QMatrixClient::Room* room);
-  void addRoom(QMatrixClient::Room* room);
+
+  void doAddRoom(QMatrixClient::Room* room);
+  void updateRoom(QMatrixClient::Room* room, QMatrixClient::Room* prev);
   void deleteRoom(QMatrixClient::Room* room);
+  void refresh(QMatrixClient::Room* room, const QVector<int>& roles = {});
 
  private:
   QMatrixClient::Connection* m_connection = nullptr;
   QList<QMatrixClient::Room*> m_rooms;
+  void connectRoomSignals(QMatrixClient::Room* room);
 
  signals:
   void connectionChanged();
