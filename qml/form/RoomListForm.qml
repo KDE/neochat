@@ -146,7 +146,6 @@ Item {
 
                             source: avatar ? "image://mxc/" + avatar : ""
                             displayText: name
-                            opaqueBackground: true
                         }
 
                         ColumnLayout {
@@ -160,15 +159,7 @@ Item {
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
 
-                                text: {
-                                    if (name) {
-                                        return name;
-                                    }
-                                    if (alias) {
-                                        return alias;
-                                    }
-                                    return id
-                                }
+                                text: name ? name : alias ? alias : id
                                 font.pointSize: 16
                                 elide: Text.ElideRight
                                 wrapMode: Text.NoWrap

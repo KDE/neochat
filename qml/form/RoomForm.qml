@@ -148,9 +148,13 @@ Item {
                             id: fileDialog
                             title: "Please choose a file"
                             folder: shortcuts.home
+                            selectMultiple: false
                             onAccepted: {
-                                console.log("You chose: " + fileDialog.fileUrls)
-                                currentRoom.uploadFile(fileDialog.fileUrls)
+                                console.log("You chose: " + fileDialog.fileUrl)
+                                currentRoom.uploadFile(fileDialog.fileUrl, fileDialog.fileUrl)
+                                currentRoom.fileTransferCompleted.connect(function(id, localFile, mxcUrl) {
+                                    console.log("File transferred: " + id + ":" + mxcUrl)
+                                })
                             }
                         }
                     }

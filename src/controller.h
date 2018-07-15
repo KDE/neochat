@@ -13,8 +13,7 @@ class Connection;
 class Controller : public QObject {
   Q_OBJECT
 
-  Q_PROPERTY(QMatrixClient::Connection* connection READ getConnection NOTIFY
-                 connectionChanged)
+  Q_PROPERTY(QMatrixClient::Connection* connection READ getConnection CONSTANT)
   Q_PROPERTY(
       bool isLogin READ getIsLogin WRITE setIsLogin NOTIFY isLoginChanged)
   Q_PROPERTY(QString homeserver READ getHomeserver WRITE setHomeserver NOTIFY
@@ -31,8 +30,6 @@ class Controller : public QObject {
   Q_INVOKABLE void login();
   Q_INVOKABLE void loginWithCredentials(QString, QString, QString);
   Q_INVOKABLE void logout();
-
-  Q_INVOKABLE void uploadFile(QString);
 
   // All the non-Q_INVOKABLE functions.
 
@@ -100,6 +97,7 @@ class Controller : public QObject {
   void errorOccured();
 
  public slots:
+  void postFile(QMatrixClient::Room* room, const QUrl& localFilename);
 };
 
 #endif  // CONTROLLER_H

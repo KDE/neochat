@@ -137,7 +137,12 @@ Page {
                     text: "LOGIN"
                     highlighted: true
 
-                    onClicked: controller.loginWithCredentials(serverField.text, usernameField.text, passwordField.text)
+                    onClicked: {
+                        matriqueController.isLoginChanged.connect( function() {
+                            if (matriqueController.isLogin) stackView.replace(roomPage)
+                        })
+                        controller.loginWithCredentials(serverField.text, usernameField.text, passwordField.text)
+                    }
                 }
             }
         }

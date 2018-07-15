@@ -1,8 +1,10 @@
 #include "controller.h"
 
 #include "connection.h"
+#include "events/eventcontent.h"
+#include "events/roommessageevent.h"
 
-Controller::Controller(QObject *parent) : QObject(parent) {
+Controller::Controller(QObject* parent) : QObject(parent) {
   connect(m_connection, &QMatrixClient::Connection::connected, this,
           &Controller::connected);
   connect(m_connection, &QMatrixClient::Connection::resolveError, this,
@@ -56,10 +58,6 @@ void Controller::logout() {
   setIsLogin(false);
 }
 
-void Controller::uploadFile(QString filename) {
-  m_connection->uploadFile(filename);
-}
-
 void Controller::connected() {
   qDebug() << "Logged in.";
   setHomeserver(m_connection->homeserver().toString());
@@ -79,4 +77,10 @@ void Controller::resync() {
 void Controller::reconnect() {
   qDebug() << "Connection lost. Reconnecting...";
   m_connection->connectWithToken(userID, token, "");
+}
+
+void Controller::postFile(QMatrixClient::Room* room,
+                          const QUrl& localFilename) {
+//  auto job = m_connection->uploadFile(localFilename.toLocalFile());
+//  room->fileTransferInfo(localFilename.fileName())
 }
