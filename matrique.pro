@@ -2,8 +2,8 @@ QT += quick
 CONFIG += c++14
 CONFIG += object_parallel_to_source
 
-include(include/SortFilterProxyModel/SortFilterProxyModel.pri)
 include(include/libqmatrixclient/libqmatrixclient.pri)
+include(include/SortFilterProxyModel/SortFilterProxyModel.pri)
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked deprecated (the exact warnings
