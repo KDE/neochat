@@ -79,8 +79,12 @@ void Controller::reconnect() {
   m_connection->connectWithToken(userID, token, "");
 }
 
-void Controller::postFile(QMatrixClient::Room* room,
-                          const QUrl& localFilename) {
-//  auto job = m_connection->uploadFile(localFilename.toLocalFile());
-//  room->fileTransferInfo(localFilename.fileName())
+void Controller::postFile(QMatrixClient::Room* room, const QUrl& localFile,
+                          const QUrl& mxcUrl) {
+  QJsonObject json{{"body", localFile.fileName()},
+                   {"filename", localFile.fileName()},
+                   {"url", mxcUrl.url()}};
+  room->postMessage(QMatrixClient::RoomMessageEvent{
+      localFile.fileName(), "m.file",
+      new QMatrixClient::EventContent::FileContent(json)});
 }

@@ -154,6 +154,7 @@ Item {
                                 currentRoom.uploadFile(fileDialog.fileUrl, fileDialog.fileUrl)
                                 currentRoom.fileTransferCompleted.connect(function(id, localFile, mxcUrl) {
                                     console.log("File transferred: " + id + ":" + mxcUrl)
+                                    matriqueController.postFile(currentRoom, localFile, mxcUrl)
                                 })
                             }
                         }

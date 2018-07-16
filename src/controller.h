@@ -97,7 +97,8 @@ class Controller : public QObject {
   void errorOccured();
 
  public slots:
-  void postFile(QMatrixClient::Room* room, const QUrl& localFilename);
+  void postFile(QMatrixClient::Room* room, const QUrl& localFile,
+                const QUrl& mxcUrl);
 };
 
 #endif  // CONTROLLER_H
