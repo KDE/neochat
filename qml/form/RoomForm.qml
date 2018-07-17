@@ -150,17 +150,28 @@ Item {
                             folder: shortcuts.home
                             selectMultiple: false
                             onAccepted: {
-                                console.log("You chose: " + fileDialog.fileUrl)
                                 currentRoom.uploadFile(fileDialog.fileUrl, fileDialog.fileUrl)
-                                currentRoom.fileTransferCompleted.connect(function(id, localFile, mxcUrl) {
-                                    console.log("File transferred: " + id + ":" + mxcUrl)
-                                    matriqueController.postFile(currentRoom, localFile, mxcUrl)
-                                })
+                                var fileTransferProgressCallback = function(id, sent, total) {
+                                    if (id == fileDialog.fileUrl) { inputField.progress = sent / total }
+                                }
+                                var completedCallback = function(id, localFile, mxcUrl) {
+                                    if (id == fileDialog.fileUrl) {
+                                        matriqueController.postFile(currentRoom, localFile, mxcUrl)
+                                        inputField.progress = 0
+                                        currentRoom.fileTransferCompleted.disconnect(fileTransferProgressCallback)
+                                        currentRoom.fileTransferCompleted.disconnect(completedCallback)
+                                    }
+                                }
+
+                                currentRoom.fileTransferProgress.connect(fileTransferProgressCallback)
+                                currentRoom.fileTransferCompleted.connect(completedCallback)
                             }
                         }
                     }
 
                     TextField {
+                        property real progress: 0
+
                         id: inputField
                         Layout.fillWidth: true
                         Layout.fillHeight: true
@@ -170,7 +181,16 @@ Item {
                         bottomPadding: 0
                         selectByMouse: true
 
-                        background: Rectangle { color: Material.theme == Material.Light ? "#eaeaea" : "#242424" }
+                        background: Item {
+                            Rectangle {
+                                width: inputField.width * inputField.progress
+                                height: parent.height
+                                z: 5
+                                color: Material.accent
+                                opacity: 0.4
+                            }
+                            Rectangle { anchors.fill: parent; color: Material.theme == Material.Light ? "#eaeaea" : "#242424" }
+                        }
 
                         Keys.onReturnPressed: {
                             if (inputField.text) {

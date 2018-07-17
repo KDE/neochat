@@ -6,8 +6,8 @@
 #include "controller.h"
 #include "imageprovider.h"
 #include "messageeventmodel.h"
-#include "roomlistmodel.h"
 #include "room.h"
+#include "roomlistmodel.h"
 
 using namespace QMatrixClient;
 
@@ -26,11 +26,11 @@ int main(int argc, char *argv[]) {
   //    QNetworkProxy::setApplicationProxy(proxy);
 
   qRegisterMetaType<Room *>("Room*");
+  qRegisterMetaType<User *>("User*");
 
   qmlRegisterType<Controller>("Matrique", 0, 1, "Controller");
   qmlRegisterType<RoomListModel>("Matrique", 0, 1, "RoomListModel");
   qmlRegisterType<MessageEventModel>("Matrique", 0, 1, "MessageEventModel");
-  qRegisterMetaType<User *>("User*");
 
   QQmlApplicationEngine engine;
 
