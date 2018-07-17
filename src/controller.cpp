@@ -105,6 +105,6 @@ void Controller::postFile(QMatrixClient::Room* room, const QUrl& localFile,
 QString Controller::getMIME(const QUrl& fileUrl) const {
   QMimeDatabase* db = new QMimeDatabase();
   const QString mime = db->mimeTypeForFile(fileUrl.toLocalFile()).name();
-  free(db);
+  delete db;
   return mime;
 }
