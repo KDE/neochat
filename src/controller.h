@@ -99,6 +99,7 @@ class Controller : public QObject {
  public slots:
   void postFile(QMatrixClient::Room* room, const QUrl& localFile,
                 const QUrl& mxcUrl);
+  QString getMIME(const QUrl& fileUrl) const;
 };
 
 #endif  // CONTROLLER_H

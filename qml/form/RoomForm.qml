@@ -150,12 +150,12 @@ Item {
                             folder: shortcuts.home
                             selectMultiple: false
                             onAccepted: {
-                                currentRoom.uploadFile(fileDialog.fileUrl, fileDialog.fileUrl)
+                                currentRoom.uploadFile(fileUrl, fileUrl, matriqueController.getMIME(fileUrl))
                                 var fileTransferProgressCallback = function(id, sent, total) {
-                                    if (id == fileDialog.fileUrl) { inputField.progress = sent / total }
+                                    if (id == fileUrl) { inputField.progress = sent / total }
                                 }
                                 var completedCallback = function(id, localFile, mxcUrl) {
-                                    if (id == fileDialog.fileUrl) {
+                                    if (id == fileUrl) {
                                         matriqueController.postFile(currentRoom, localFile, mxcUrl)
                                         inputField.progress = 0
                                         currentRoom.fileTransferCompleted.disconnect(fileTransferProgressCallback)

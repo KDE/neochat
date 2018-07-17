@@ -4,6 +4,10 @@
 #include "events/eventcontent.h"
 #include "events/roommessageevent.h"
 
+#include <QFile>
+#include <QImage>
+#include <QMimeDatabase>
+
 Controller::Controller(QObject* parent) : QObject(parent) {
   connect(m_connection, &QMatrixClient::Connection::connected, this,
           &Controller::connected);
@@ -22,7 +26,11 @@ Controller::Controller(QObject* parent) : QObject(parent) {
           [=] { setBusy(false); });
 }
 
-Controller::~Controller() { m_connection->stopSync(); }
+Controller::~Controller() {
+  m_connection->saveState();
+  m_connection->stopSync();
+  m_connection->deleteLater();
+}
 
 void Controller::login() {
   if (!isLogin) {
@@ -81,10 +89,22 @@ void Controller::reconnect() {
 
 void Controller::postFile(QMatrixClient::Room* room, const QUrl& localFile,
                           const QUrl& mxcUrl) {
-  QJsonObject json{{"body", localFile.fileName()},
-                   {"filename", localFile.fileName()},
-                   {"url", mxcUrl.url()}};
-  room->postMessage(QMatrixClient::RoomMessageEvent{
-      localFile.fileName(), "m.file",
-      new QMatrixClient::EventContent::FileContent(json)});
+  const QString mime = getMIME(localFile);
+  const QString fileName = localFile.toLocalFile();
+  QString msgType = "m.file";
+  if (mime.startsWith("image")) msgType = "m.image";
+  if (mime.startsWith("video")) msgType = "m.video";
+  if (mime.startsWith("audio")) msgType = "m.audio";
+  QJsonObject json{{"content", QJsonObject{{"msgtype", msgType},
+                                           {"body", fileName},
+                                           {"filename", fileName},
+                                           {"url", mxcUrl.url()}}}};
+  room->postMessage(QMatrixClient::RoomMessageEvent(json));
+}
+
+QString Controller::getMIME(const QUrl& fileUrl) const {
+  QMimeDatabase* db = new QMimeDatabase();
+  const QString mime = db->mimeTypeForFile(fileUrl.toLocalFile()).name();
+  free(db);
+  return mime;
 }

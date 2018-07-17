@@ -20,7 +20,7 @@ AvatarContainer {
 
             Image {
                 id: messageImage
-                source: "image://mxc/" + content.url
+                source: "image://mxc/" + (content.thumbnail_url ? content.thumbnail_url : content.url)
 
                 MouseArea {
                     anchors.fill: parent
