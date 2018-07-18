@@ -24,6 +24,7 @@ class RoomListModel : public QAbstractListModel {
 
   QMatrixClient::Connection* getConnection() { return m_connection; }
   void setConnection(QMatrixClient::Connection* connection);
+  void doResetModel();
 
   Q_INVOKABLE QMatrixClient::Room* roomAt(int row);
 

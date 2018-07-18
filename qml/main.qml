@@ -3,7 +3,7 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.2
 import QtGraphicalEffects 1.0
-import Qt.labs.settings 1.0
+import Qt.labs.settings 1.0 as Settings
 import Qt.labs.platform 1.0 as Platform
 import Matrique 0.1
 
@@ -21,7 +21,7 @@ ApplicationWindow {
 
     FontLoader { id: materialFont; source: "qrc:/asset/font/material.ttf" }
 
-    Settings {
+    Settings.Settings {
         id: setting
         property alias homeserver: matriqueController.homeserver
         property alias userID: matriqueController.userID

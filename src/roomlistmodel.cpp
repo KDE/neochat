@@ -12,10 +12,10 @@ void RoomListModel::setConnection(QMatrixClient::Connection* connection) {
   Q_ASSERT(connection);
 
   using QMatrixClient::Room;
-  beginResetModel();
   m_connection = connection;
-  m_rooms.clear();
 
+  connect(connection, &QMatrixClient::Connection::connected, this,
+          &RoomListModel::doResetModel);
   connect(connection, &QMatrixClient::Connection::invitedRoom, this,
           &RoomListModel::updateRoom);
   connect(connection, &QMatrixClient::Connection::joinedRoom, this,
@@ -25,8 +25,13 @@ void RoomListModel::setConnection(QMatrixClient::Connection* connection) {
   connect(connection, &QMatrixClient::Connection::aboutToDeleteRoom, this,
           &RoomListModel::deleteRoom);
 
-  for (auto r : connection->roomMap()) doAddRoom(r);
+  doResetModel();
+}
 
+void RoomListModel::doResetModel() {
+  beginResetModel();
+  m_rooms.clear();
+  for (auto r : m_connection->roomMap()) doAddRoom(r);
   endResetModel();
 }
 
@@ -129,7 +134,10 @@ QVariant RoomListModel::data(const QModelIndex& index, int role) const {
     return room->topic();
   }
   if (role == CategoryRole) {
+    //    if (!room->isDirectChat())
+    //      qDebug() << room->displayName() << "is not direct.";
     if (room->isFavourite()) return "Favorites";
+    if (room->isDirectChat()) return "People";
     if (room->isLowPriority()) return "Low Priorities";
     return "Rooms";
   }

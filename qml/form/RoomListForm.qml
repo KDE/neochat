@@ -100,11 +100,13 @@ Item {
                 }
                 proxyRoles: [
                     ExpressionRole { name: "isFavorite"; expression: category === "Favorites" },
+                    ExpressionRole { name: "isDirectChat"; expression: category === "People" },
                     ExpressionRole { name: "isLowPriority"; expression: category === "Low Priorities" }
                 ]
                 sorters: [
                     RoleSorter { roleName: "isFavorite"; sortOrder: Qt.DescendingOrder },
                     RoleSorter { roleName: "isLowPriority" },
+                    RoleSorter { roleName: "isDirectChat" },
                     StringSorter { roleName: "name" }
                 ]
             }
