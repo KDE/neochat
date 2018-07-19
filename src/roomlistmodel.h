@@ -51,7 +51,7 @@ class RoomListModel : public QAbstractListModel {
 
  signals:
   void connectionChanged();
-  void highlightCountChanged(QMatrixClient::Room* room);
+  void newMessage(QMatrixClient::Room* room);
 };
 
 #endif  // ROOMLISTMODEL_H

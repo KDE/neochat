@@ -6,12 +6,16 @@ import Matrique 0.1
 import "qrc:/qml/form"
 
 Page {
-    property alias connection: roomListModel.connection
+    property var connection
 
     id: page
 
     RoomListModel {
         id: roomListModel
+
+        connection: matriqueController.isLogin ? page.connection : undefined
+
+        onNewMessage: console.log("New message in room " + room.displayName)
     }
 
     RowLayout {
@@ -31,7 +35,7 @@ Page {
             }
             Layout.maximumWidth: 360
 
-            listModel: roomListModel
+            listModel:  roomListModel
         }
 
         RoomForm {

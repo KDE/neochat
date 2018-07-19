@@ -101,6 +101,10 @@ ApplicationWindow {
         connection: matriqueController.connection
     }
 
+    Setting {
+        id: settingPage
+    }
+
     RowLayout {
         anchors.fill: parent
         spacing: 0
@@ -135,8 +139,7 @@ ApplicationWindow {
 
                 SideNavButton {
                     contentItem: MaterialIcon { icon: "\ue8b8"; color: "white" }
-
-                    onClicked: matriqueController.logout()
+                    page: settingPage
                 }
 
                 SideNavButton {

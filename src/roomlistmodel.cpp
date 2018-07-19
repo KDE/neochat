@@ -14,6 +14,8 @@ void RoomListModel::setConnection(QMatrixClient::Connection* connection) {
   using QMatrixClient::Room;
   m_connection = connection;
 
+  if (!connection->accessToken().isEmpty()) doResetModel();
+
   connect(connection, &QMatrixClient::Connection::connected, this,
           &RoomListModel::doResetModel);
   connect(connection, &QMatrixClient::Connection::invitedRoom, this,
@@ -24,11 +26,10 @@ void RoomListModel::setConnection(QMatrixClient::Connection* connection) {
           &RoomListModel::updateRoom);
   connect(connection, &QMatrixClient::Connection::aboutToDeleteRoom, this,
           &RoomListModel::deleteRoom);
-
-  if (!connection->accessToken().isEmpty()) doResetModel();
 }
 
 void RoomListModel::doResetModel() {
+  qDebug() << "Resetting room list model.";
   beginResetModel();
   m_rooms.clear();
   for (auto r : m_connection->roomMap()) doAddRoom(r);
@@ -48,18 +49,22 @@ void RoomListModel::doAddRoom(QMatrixClient::Room* r) {
 }
 
 void RoomListModel::connectRoomSignals(QMatrixClient::Room* room) {
+  qDebug() << "Connecting signal for room" << room->displayName();
+
   connect(room, &QMatrixClient::Room::displaynameChanged, this,
           [=] { namesChanged(room); });
   connect(room, &QMatrixClient::Room::unreadMessagesChanged, this,
           [=] { unreadMessagesChanged(room); });
   connect(room, &QMatrixClient::Room::notificationCountChanged, this,
           [=] { unreadMessagesChanged(room); });
-  //  connect(room, &QMatrixClient::Room::unreadMessagesChanged, this,
-  //          &RoomListModel::highlightCountChanged);
   connect(room, &QMatrixClient::Room::joinStateChanged, this,
           [=] { refresh(room); });
   connect(room, &QMatrixClient::Room::avatarChanged, this,
           [=] { refresh(room, {AvatarRole}); });
+
+  connect(
+      room, &QMatrixClient::Room::aboutToAddNewMessages, this,
+      [=](QMatrixClient::RoomEventsRange events) { emit newMessage(room); });
 }
 
 void RoomListModel::updateRoom(QMatrixClient::Room* room,
