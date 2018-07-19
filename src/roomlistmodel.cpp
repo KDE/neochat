@@ -31,7 +31,6 @@ void RoomListModel::setConnection(QMatrixClient::Connection* connection) {
 }
 
 void RoomListModel::doResetModel() {
-  qDebug() << "Resetting room list model.";
   beginResetModel();
   m_rooms.clear();
   for (auto r : m_connection->roomMap()) doAddRoom(r);
@@ -51,8 +50,6 @@ void RoomListModel::doAddRoom(QMatrixClient::Room* r) {
 }
 
 void RoomListModel::connectRoomSignals(QMatrixClient::Room* room) {
-  qDebug() << "Connecting signal for room" << room->displayName();
-
   connect(room, &QMatrixClient::Room::displaynameChanged, this,
           [=] { namesChanged(room); });
   connect(room, &QMatrixClient::Room::unreadMessagesChanged, this,

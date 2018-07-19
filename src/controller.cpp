@@ -34,9 +34,6 @@ Controller::~Controller() {
 
 void Controller::login() {
   if (!isLogin) {
-    qDebug() << "UserID:" << userID;
-    qDebug() << "Token:" << token;
-
     m_connection->setHomeserver(QUrl(homeserver));
     m_connection->connectWithToken(userID, token, "");
   }
@@ -45,29 +42,22 @@ void Controller::login() {
 void Controller::loginWithCredentials(QString serverAddr, QString user,
                                       QString pass) {
   if (!isLogin) {
-    qDebug() << "Server:" << serverAddr;
-    qDebug() << "User:" << user;
-    qDebug() << "Pass:" << pass;
-
     if (!user.isEmpty() && !pass.isEmpty()) {
-      qDebug() << "Using given credential.";
       m_connection->setHomeserver(QUrl(serverAddr));
       m_connection->connectToServer(user, pass, "");
     }
   } else {
-    qDebug() << "You are already logged in.";
+    qCritical() << "You are already logged in.";
   }
 }
 
 void Controller::logout() {
-  qDebug() << "Logging out.";
   setUserID("");
   setToken("");
   setIsLogin(false);
 }
 
 void Controller::connected() {
-  qDebug() << "Logged in.";
   setHomeserver(m_connection->homeserver().toString());
   setUserID(m_connection->userId());
   setToken(m_connection->accessToken());
@@ -77,7 +67,6 @@ void Controller::connected() {
 }
 
 void Controller::resync() {
-  qDebug() << "Syncing Matrix.";
   m_connection->sync(30000);
   m_connection->saveState();
 }
