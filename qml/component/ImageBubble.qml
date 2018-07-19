@@ -26,11 +26,12 @@ AvatarContainer {
                     anchors.fill: parent
 
                     hoverEnabled: true
+                    acceptedButtons: Qt.LeftButton | Qt.RightButton
                     propagateComposedEvents: true
                     ToolTip.visible: containsMouse
                     ToolTip.text: content.body
 
-                    onClicked: downloadable.downloadAndOpen()
+                    onClicked: mouse.button & Qt.LeftButton ? downloadable.downloadAndOpen() : downloadable.saveFileAs()
                 }
             }
         }

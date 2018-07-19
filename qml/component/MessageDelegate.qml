@@ -10,7 +10,7 @@ Item {
     width: delegateLoader.width
     height: delegateLoader.height
 
-    anchors.right: (eventType === "message" || eventType === "image" || eventType === "file" || eventType === "video" || eventType === "audio" || eventType === "notice") && sentByMe ? parent.right : undefined
+    anchors.right: !(eventType === "state" || eventType === "emote") && sentByMe ? parent.right : undefined
     anchors.horizontalCenter: (eventType === "state" || eventType === "emote") ? parent.horizontalCenter : undefined
 
     MouseArea {

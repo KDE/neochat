@@ -16,7 +16,7 @@ AvatarContainer {
             highlighted: !sentByMe
             flat: true
 
-            onClicked: downloadable.downloadAndOpen()
+            onClicked: downloadable.saveFileAs()
         }
     }
 }
