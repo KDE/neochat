@@ -1,5 +1,7 @@
 #include "roomlistmodel.h"
 
+#include "events/roomevent.h"
+
 #include <QtCore/QDebug>
 #include <QtGui/QBrush>
 #include <QtGui/QColor>
@@ -62,9 +64,20 @@ void RoomListModel::connectRoomSignals(QMatrixClient::Room* room) {
   connect(room, &QMatrixClient::Room::avatarChanged, this,
           [=] { refresh(room, {AvatarRole}); });
 
-  connect(
-      room, &QMatrixClient::Room::aboutToAddNewMessages, this,
-      [=](QMatrixClient::RoomEventsRange events) { emit newMessage(room); });
+  connect(room, &QMatrixClient::Room::unreadMessagesChanged, this,
+          [=](QMatrixClient::Room* r) {
+            if (r->hasUnreadMessages()) emit newMessage(r);
+          });
+  //  connect(
+  //      room, &QMatrixClient::Room::aboutToAddNewMessages, this,
+  //      [=](QMatrixClient::RoomEventsRange eventsRange) {
+  //      for (QMatrixClient::RoomEvents events : eventsRange.const_iterator) {
+  //          for (QMatrixClient::RoomEvent event : events) {
+  //              qDebug() << event.fullJson();
+  //          }
+  //      }
+  //      emit newMessage(room);
+  //  });
 }
 
 void RoomListModel::updateRoom(QMatrixClient::Room* room,

@@ -15,7 +15,7 @@ Page {
 
         connection: matriqueController.isLogin ? page.connection : undefined
 
-        onNewMessage: console.log("New message in room " + room.displayName)
+        onNewMessage:  trayIcon.showMessage("New message", "New message for room " + room.displayName)
     }
 
     RowLayout {

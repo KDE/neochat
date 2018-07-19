@@ -98,6 +98,7 @@ Item {
                 delegate: MessageDelegate {}
 
                 onAtYBeginningChanged: atYBeginning && currentRoom ? currentRoom.getPreviousContent(50) : {}
+                onAtYEndChanged: atYEnd && currentRoom ? currentRoom.markAllMessagesAsRead() : {}
 
                 ScrollBar.vertical: ScrollBar {}
 

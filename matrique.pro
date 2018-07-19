@@ -1,4 +1,4 @@
-QT += quick
+QT += quick widgets
 CONFIG += c++14
 CONFIG += object_parallel_to_source
 

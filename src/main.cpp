@@ -1,4 +1,4 @@
-#include <QGuiApplication>
+#include <QApplication>
 #include <QNetworkProxy>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
   QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
 
-  QGuiApplication app(argc, argv);
+  QApplication app(argc, argv);
 
   //    Enable this if you need proxy.
   //    QNetworkProxy proxy;

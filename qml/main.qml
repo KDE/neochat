@@ -28,18 +28,18 @@ ApplicationWindow {
         property alias token: matriqueController.token
     }
 
-//    Platform.SystemTrayIcon {
-//        id: trayIcon
+    Platform.SystemTrayIcon {
+        id: trayIcon
 
-//        visible: true
-//        iconSource: "qrc:/asset/img/icon.png"
+        visible: true
+        iconSource: "qrc:/asset/img/icon.png"
 
-//        onActivated: {
-//            window.show()
-//            window.raise()
-//            window.requestActivate()
-//        }
-//    }
+        onActivated: {
+            window.show()
+            window.raise()
+            window.requestActivate()
+        }
+    }
 
     Controller {
         id: matriqueController
@@ -163,7 +163,6 @@ ApplicationWindow {
     Component.onCompleted: {
         imageProvider.connection = matriqueController.connection
 
-        console.log(matriqueController.homeserver, matriqueController.userID, matriqueController.token)
         if (matriqueController.userID && matriqueController.token) {
             console.log("Perform auto-login.");
             matriqueController.login();
