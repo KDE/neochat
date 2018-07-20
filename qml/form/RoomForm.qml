@@ -92,8 +92,6 @@ Item {
                 model: MessageEventModel{
                     id: messageEventModel
                     room: currentRoom
-
-                    onRoomChanged: room.timelineSize === 0 ? room.getPreviousContent(50) : {}
                 }
 
                 delegate: MessageDelegate {}

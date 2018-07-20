@@ -26,7 +26,7 @@ Page {
             id: roomListForm
 
             Layout.fillHeight: true
-            Layout.preferredWidth: settingPage.miniMode ? 80 : page.width * 0.4
+            Layout.preferredWidth: setting.miniMode ? 80 : page.width * 0.35
             Layout.minimumWidth: 80
             Layout.maximumWidth: 360
 

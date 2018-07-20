@@ -12,7 +12,7 @@ import "qrc:/qml/component"
 Item {
     property alias listModel: roomListProxyModel.sourceModel
     property int currentIndex: roomListProxyModel.mapToSource(listView.currentIndex)
-    readonly property bool mini: settingPage.miniMode // Used as an indicator of whether the listform should be displayed as "Mini mode".
+    readonly property bool mini: setting.miniMode // Used as an indicator of whether the listform should be displayed as "Mini mode".
 
     ColumnLayout {
         anchors.fill: parent

@@ -15,19 +15,26 @@ ApplicationWindow {
     visible: true
     width: 960
     height: 640
-    minimumWidth: 480
-    minimumHeight: 320
+    minimumWidth: 640
+    minimumHeight: 480
     title: qsTr("Matrique")
 
-    Material.theme: settingPage.darkTheme ? Material.Dark : Material.Light
+    Material.theme: setting.darkTheme ? Material.Dark : Material.Light
 
     FontLoader { id: materialFont; source: "qrc:/asset/font/material.ttf" }
 
     Settings.Settings {
         id: setting
+
+        property alias windowWidth: window.width
+        property alias windowHeight: window.height
+
         property alias homeserver: matriqueController.homeserver
         property alias userID: matriqueController.userID
         property alias token: matriqueController.token
+
+        property alias darkTheme: settingPage.darkTheme
+        property alias miniMode: settingPage.miniMode
     }
 
     Platform.SystemTrayIcon {
@@ -36,7 +43,21 @@ ApplicationWindow {
         visible: true
         iconSource: "qrc:/asset/img/icon.png"
 
-        onActivated: {
+        menu: Platform.Menu {
+            MenuItem {
+                text: "Hide/Show"
+                onTriggered: window.active ? window.hide() : raiseWindow()
+            }
+
+            MenuItem {
+                text: "Quit"
+                onTriggered: Qt.quit()
+            }
+        }
+
+        onActivated: window.active ? window.hide() :  raiseWindow()
+
+        function raiseWindow() {
             window.show()
             window.raise()
             window.requestActivate()
