@@ -182,6 +182,7 @@ Item {
 
                         background: Item {
                             Rectangle {
+                                z: 5
                                 width: inputField.width * inputField.progress
                                 height: parent.height
                                 color: Material.accent
@@ -190,10 +191,13 @@ Item {
                             Rectangle { anchors.fill: parent; color: Material.theme == Material.Light ? "#eaeaea" : "#242424" }
                         }
 
-                        Keys.onReturnPressed: {
-                            if (inputField.text) {
-                                postMessage(inputField.text)
-                                inputField.text = ""
+                        Shortcut {
+                            sequence: "Ctrl+Return"
+                            onActivated: {
+                                if (inputField.text) {
+                                    inputField.postMessage(inputField.text)
+                                    inputField.text = ""
+                                }
                             }
                         }
 

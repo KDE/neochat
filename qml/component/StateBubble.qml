@@ -21,5 +21,6 @@ Rectangle {
         anchors.margins: 12
         wrapMode: Label.Wrap
         textFormat: Text.StyledText
+        onLinkActivated: Qt.openUrlExternally(link)
     }
 }

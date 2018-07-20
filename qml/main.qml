@@ -11,6 +11,8 @@ import "component"
 import "form"
 
 ApplicationWindow {
+    readonly property var connection: matriqueController.isLogin ? matriqueController.connection : undefined
+
     id: window
     visible: true
     width: 960
@@ -121,11 +123,12 @@ ApplicationWindow {
 
     Room {
         id: roomPage
-        connection: matriqueController.connection
+        connection: window.connection
     }
 
     Setting {
         id: settingPage
+        connection: window.connection
     }
 
     RowLayout {
@@ -147,8 +150,8 @@ ApplicationWindow {
                         anchors.fill: parent
                         anchors.margins: 15
 
-                        source: matriqueController.isLogin ? matriqueController.connection.localUser && matriqueController.connection.localUser.avatarUrl ? "image://mxc/" + matriqueController.connection.localUser.avatarUrl : "" : "qrc:/asset/img/avatar.png"
-                        displayText: matriqueController.connection.localUser && matriqueController.connection.localUser.displayText ? matriqueController.connection.localUser.displayText : "N"
+                        source: connection ? connection.localUser && connection.localUser.avatarUrl ? "image://mxc/" + connection.localUser.avatarUrl : "" : "qrc:/asset/img/avatar.png"
+                        displayText: connection && connection.localUser.displayName ? connection.localUser.displayName : "N"
                         opaqueBackground: false
                     }
 

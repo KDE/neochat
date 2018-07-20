@@ -27,6 +27,7 @@ AvatarContainer {
             linkColor: isNotice || sentByMe ? Material.accent : "white"
 //            textFormat: contentType === "text/html" ? Text.RichText : Text.StyledText
             textFormat: Text.StyledText
+            onLinkActivated: Qt.openUrlExternally(link)
         }
     }
 }

@@ -13,7 +13,7 @@ Page {
     RoomListModel {
         id: roomListModel
 
-        connection: matriqueController.isLogin ? page.connection : undefined
+        connection: page.connection
 
         onNewMessage:  trayIcon.showMessage("New message", "New message for room " + room.displayName)
     }
