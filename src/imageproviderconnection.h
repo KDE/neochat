@@ -17,8 +17,8 @@ class ImageProviderConnection : public QObject {
 
   QMatrixClient::Connection* getConnection() { return m_connection; }
   void setConnection(QMatrixClient::Connection* connection) {
-    emit connectionChanged();
     m_connection = connection;
+    emit connectionChanged();
   }
 
  private:

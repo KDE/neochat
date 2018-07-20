@@ -15,9 +15,11 @@ ApplicationWindow {
     visible: true
     width: 960
     height: 640
-    minimumWidth: 320
+    minimumWidth: 480
     minimumHeight: 320
     title: qsTr("Matrique")
+
+    Material.theme: settingPage.darkTheme ? Material.Dark : Material.Light
 
     FontLoader { id: materialFont; source: "qrc:/asset/font/material.ttf" }
 
@@ -164,7 +166,6 @@ ApplicationWindow {
         imageProvider.connection = matriqueController.connection
 
         if (matriqueController.userID && matriqueController.token) {
-            console.log("Perform auto-login.");
             matriqueController.login();
         } else {
             stackView.replace(loginPage);

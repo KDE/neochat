@@ -3,23 +3,8 @@ import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.2
 
 Page {
-    SwipeView {
-        id: settingView
-
-        currentIndex: 1
-        anchors.fill: parent
-
-        Item {
-            id: accountPage
-        }
-        Item {
-            id: secondPage
-        }
-        Item {
-            id: thirdPage
-        }
-    }
-
+    property alias darkTheme: themeSwitch.checked
+    property alias miniMode: miniModeSwitch.checked
 
     header: TabBar {
         id: tabBar
@@ -30,10 +15,41 @@ Page {
             text: qsTr("Account")
         }
         TabButton {
-            text: qsTr("Call History")
+            text: qsTr("Appearance")
         }
         TabButton {
-            text: qsTr("Dail Pad")
+            text: qsTr("About")
+        }
+    }
+
+    SwipeView {
+        id: settingView
+
+        currentIndex: tabBar.currentIndex
+        anchors.fill: parent
+
+        Item {
+            id: accountPage
+        }
+
+        Item {
+            id: appearancePage
+
+            Column {
+                Switch {
+                    id: themeSwitch
+                    text: "Dark theme"
+                }
+
+                Switch {
+                    id: miniModeSwitch
+                    text: "Mini Room List"
+                }
+            }
+        }
+
+        Item {
+            id: thirdPage
         }
     }
 }

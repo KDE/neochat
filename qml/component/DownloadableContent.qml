@@ -8,7 +8,7 @@ Item {
     readonly property bool downloaded: progressInfo && progressInfo.completed
 
     Rectangle {
-        z: 5
+        z: -2
         height: parent.height
         width: progressInfo.active && !progressInfo.completed ? progressInfo.progress / progressInfo.total * parent.width : 0
         color: Material.accent
@@ -25,9 +25,7 @@ Item {
 
     }
 
-    onDownloadedChanged: {
-        if (downloaded && openOnFinished) openSavedFile()
-    }
+    onDownloadedChanged: downloaded && openOnFinished ? openSavedFile() : {}
 
     function saveFileAs() {
         locationDialog.open()

@@ -6,7 +6,10 @@ Item {
     id: messageDelegate
 
     readonly property bool sentByMe: author === currentRoom.localUser
+    readonly property bool darkTheme: Material.theme == Material.Dark
+    readonly property color background: darkTheme ? "#242424" : "lightgrey"
 
+    z: -5
     width: delegateLoader.width
     height: delegateLoader.height
 

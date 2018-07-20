@@ -26,13 +26,8 @@ Page {
             id: roomListForm
 
             Layout.fillHeight: true
-            Layout.preferredWidth:  {
-                if (page.width > 560) {
-                    return page.width * 0.4;
-                } else {
-                    return 80;
-                }
-            }
+            Layout.preferredWidth: settingPage.miniMode ? 80 : page.width * 0.4
+            Layout.minimumWidth: 80
             Layout.maximumWidth: 360
 
             listModel:  roomListModel

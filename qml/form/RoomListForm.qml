@@ -12,7 +12,7 @@ import "qrc:/qml/component"
 Item {
     property alias listModel: roomListProxyModel.sourceModel
     property int currentIndex: roomListProxyModel.mapToSource(listView.currentIndex)
-    readonly property bool mini: width <= 80 // Used as an indicator of whether the listform should be displayed as "Mini mode".
+    readonly property bool mini: settingPage.miniMode // Used as an indicator of whether the listform should be displayed as "Mini mode".
 
     ColumnLayout {
         anchors.fill: parent
@@ -124,6 +124,7 @@ Item {
                     opacity: 0.2
                 }
                 highlightMoveDuration: 250
+                maximumFlickVelocity: 1024
 
                 currentIndex: -1
 
@@ -161,7 +162,7 @@ Item {
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
 
-                                text: name ? name : alias ? alias : id
+                                text: name ? name : ""
                                 font.pointSize: 16
                                 elide: Text.ElideRight
                                 wrapMode: Text.NoWrap
@@ -186,10 +187,14 @@ Item {
                     height: 24
                     text: section
                     color: "grey"
-                    leftPadding: 16
+                    leftPadding: mini ? undefined : 16
                     elide: Text.ElideRight
                     verticalAlignment: Text.AlignVCenter
-                    background: Rectangle { anchors.fill:parent; color: "#dbdbdb" }
+                    horizontalAlignment: mini ? Text.AlignHCenter : undefined
+                    background: Rectangle {
+                        anchors.fill:parent
+                        color: Material.theme == Material.Light ? "#dbdbdb" : "#363636"
+                    }
                 }
             }
         }

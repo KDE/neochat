@@ -9,7 +9,7 @@ AvatarContainer {
         width: messageImage.implicitWidth + 24
         height: messageImage.implicitHeight + 24
 
-        color: sentByMe ? "lightgrey" : Material.accent
+        color: sentByMe ? background : Material.accent
 
         DownloadableContent {
             id: downloadable
@@ -20,6 +20,7 @@ AvatarContainer {
 
             Image {
                 id: messageImage
+                z: -4
                 source: "image://mxc/" + (content.thumbnail_url ? content.thumbnail_url : content.url)
 
                 MouseArea {

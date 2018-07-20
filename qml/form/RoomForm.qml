@@ -34,7 +34,6 @@ Item {
             visible: currentRoom
 
             Pane {
-                z: 10
                 padding: 16
 
                 Layout.fillWidth: true
@@ -77,6 +76,8 @@ Item {
 
             ListView {
                 id: messageListView
+
+                z: -10
 
                 Layout.fillWidth: true
                 Layout.fillHeight: true
@@ -127,7 +128,6 @@ Item {
             }
 
             Pane {
-                z: 10
                 padding: 16
 
                 Layout.fillWidth: true
@@ -186,7 +186,6 @@ Item {
                             Rectangle {
                                 width: inputField.width * inputField.progress
                                 height: parent.height
-                                z: 5
                                 color: Material.accent
                                 opacity: 0.4
                             }
