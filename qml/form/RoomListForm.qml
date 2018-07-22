@@ -11,7 +11,8 @@ import "qrc:/qml/component"
 
 Item {
     property alias listModel: roomListProxyModel.sourceModel
-    property int currentIndex: roomListProxyModel.mapToSource(listView.currentIndex)
+    readonly property int currentIndex: roomListProxyModel.mapToSource(listView.currentIndex)
+    readonly property var currentRoom: currentIndex != -1 ? listModel.roomAt(currentIndex) : null
     readonly property bool mini: setting.miniMode // Used as an indicator of whether the listform should be displayed as "Mini mode".
 
     ColumnLayout {
@@ -124,7 +125,7 @@ Item {
                     opacity: 0.2
                 }
                 highlightMoveDuration: 250
-                maximumFlickVelocity: 1024
+                maximumFlickVelocity: 2048
 
                 currentIndex: -1
 
@@ -134,6 +135,10 @@ Item {
                     width: parent.width
                     height: 80
                     onClicked: listView.currentIndex = index
+                    onPressAndHold: {
+                        roomListMenu.roomIndex = index
+                        roomListMenu.popup()
+                    }
 
                     ToolTip.visible: mini && hovered
                     ToolTip.text: name
@@ -194,6 +199,36 @@ Item {
                     background: Rectangle {
                         anchors.fill:parent
                         color: Material.theme == Material.Light ? "#dbdbdb" : "#363636"
+                    }
+                }
+
+                Menu {
+                    property int roomIndex: -1
+                    readonly property int roomProxyIndex: roomListProxyModel.mapToSource(roomIndex)
+                    readonly property var room: roomProxyIndex != -1 ? listModel.roomAt(roomProxyIndex) : null
+
+                    id: roomListMenu
+
+                    MenuItem {
+                        text: "Priorize"
+                        onTriggered: {
+                            roomListMenu.room.removeTag("m.lowpriority")
+                            roomListMenu.room.addTag("m.favourite")
+                        }
+                    }
+                    MenuItem {
+                        text: "Depriorize"
+                        onTriggered: {
+                            console.log("Index:" + roomListMenu.roomIndex)
+                            console.log("Proxy:" + roomListMenu.roomProxyIndex)
+                            console.log("Room:" + roomListMenu.room.displayName)
+                            roomListMenu.room.removeTag("m.favourite")
+                            roomListMenu.room.addTag("m.lowpriority")
+                        }
+                    }
+                    MenuItem {
+                        text: "Direct Chat"
+                        onTriggered: saveDialog.open()
                     }
                 }
             }

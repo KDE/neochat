@@ -28,9 +28,6 @@ ApplicationWindow {
     Settings.Settings {
         id: setting
 
-        property alias windowWidth: window.width
-        property alias windowHeight: window.height
-
         property alias homeserver: matriqueController.homeserver
         property alias userID: matriqueController.userID
         property alias token: matriqueController.token

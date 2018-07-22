@@ -46,7 +46,7 @@ Item {
                     spacing: 16
 
                     ImageStatus {
-                        Layout.preferredWidth: parent.height
+                        Layout.preferredWidth: height
                         Layout.fillHeight: true
                         source: currentRoom && currentRoom.avatarUrl != "" ? "image://mxc/" + currentRoom.avatarUrl : null
                         displayText: currentRoom ? currentRoom.displayName : ""
@@ -86,7 +86,7 @@ Item {
                 displayMarginBeginning: 40
                 displayMarginEnd: 40
                 verticalLayoutDirection: ListView.BottomToTop
-                maximumFlickVelocity: 1024
+                maximumFlickVelocity: 2048
                 spacing: 8
 
                 model: MessageEventModel{

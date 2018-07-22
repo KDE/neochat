@@ -39,7 +39,7 @@ Page {
             Layout.fillWidth: true
             Layout.fillHeight: true
 
-            currentRoom: roomListForm.currentIndex != -1 ? roomListModel.roomAt(roomListForm.currentIndex) : null
+            currentRoom: roomListForm.currentRoom
         }
     }
 }
