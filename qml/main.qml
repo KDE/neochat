@@ -120,11 +120,17 @@ ApplicationWindow {
 
     Room {
         id: roomPage
+
+        parent: null
+
         connection: window.connection
     }
 
     Setting {
         id: settingPage
+
+        parent: null
+
         connection: window.connection
     }
 
