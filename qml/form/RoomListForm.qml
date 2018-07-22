@@ -213,22 +213,18 @@ Item {
                         text: "Priorize"
                         onTriggered: {
                             roomListMenu.room.removeTag("m.lowpriority")
-                            roomListMenu.room.addTag("m.favourite")
+                            roomListMenu.room.addTag("m.favourite", "")
                         }
                     }
                     MenuItem {
                         text: "Depriorize"
                         onTriggered: {
-                            console.log("Index:" + roomListMenu.roomIndex)
-                            console.log("Proxy:" + roomListMenu.roomProxyIndex)
-                            console.log("Room:" + roomListMenu.room.displayName)
                             roomListMenu.room.removeTag("m.favourite")
-                            roomListMenu.room.addTag("m.lowpriority")
+                            roomListMenu.room.addTag("m.lowpriority", "")
                         }
                     }
                     MenuItem {
                         text: "Direct Chat"
-                        onTriggered: saveDialog.open()
                     }
                 }
             }

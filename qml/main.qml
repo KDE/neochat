@@ -11,7 +11,7 @@ import "component"
 import "form"
 
 ApplicationWindow {
-    readonly property var connection: matriqueController.isLogin ? matriqueController.connection : undefined
+    readonly property var connection: matriqueController.connection
 
     id: window
     visible: true
