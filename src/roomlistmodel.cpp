@@ -57,6 +57,8 @@ void RoomListModel::connectRoomSignals(QMatrixClient::Room* room) {
           [=] { unreadMessagesChanged(room); });
   connect(room, &QMatrixClient::Room::notificationCountChanged, this,
           [=] { unreadMessagesChanged(room); });
+  connect(room, &QMatrixClient::Room::tagsChanged, this,
+          [=] { refresh(room); });
   connect(room, &QMatrixClient::Room::joinStateChanged, this,
           [=] { refresh(room); });
   connect(room, &QMatrixClient::Room::avatarChanged, this,

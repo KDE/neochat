@@ -210,18 +210,12 @@ Item {
                     id: roomListMenu
 
                     MenuItem {
-                        text: "Priorize"
-                        onTriggered: {
-                            roomListMenu.room.removeTag("m.lowpriority")
-                            roomListMenu.room.addTag("m.favourite", "")
-                        }
+                        text: "Prioritize"
+                        onTriggered: roomListMenu.room.isFavourite ? roomListMenu.room.removeTag("m.favourite") : roomListMenu.room.addTag("m.favourite", "1")
                     }
                     MenuItem {
-                        text: "Depriorize"
-                        onTriggered: {
-                            roomListMenu.room.removeTag("m.favourite")
-                            roomListMenu.room.addTag("m.lowpriority", "")
-                        }
+                        text: "Deprioritize"
+                        onTriggered: roomListMenu.room.isLowPriority ? roomListMenu.room.removeTag("m.lowpriority") : roomListMenu.room.addTag("m.lowpriority", "1")
                     }
                     MenuItem {
                         text: "Direct Chat"

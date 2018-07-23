@@ -15,8 +15,8 @@ Page {
                 Layout.preferredWidth: height
                 Layout.fillHeight: true
 
-                source: connection ? connection.localUser && connection.localUser.avatarUrl ? "image://mxc/" + connection.localUser.avatarUrl : "" : "qrc:/asset/img/avatar.png"
-                displayText: connection && connection.localUser.displayName ? connection.localUser.displayName : "N"
+                source: matriqueController.isLogin ? connection.localUser && connection.localUser.avatarUrl ? "image://mxc/" + connection.localUser.avatarUrl : "" : "qrc:/asset/img/avatar.png"
+                displayText: matriqueController.isLogin && connection.localUser.displayName ? connection.localUser.displayName : "N"
                 opaqueBackground: false
             }
 
@@ -26,12 +26,12 @@ Page {
 
                 Label {
                     font.pointSize: 18
-                    text: connection ? connection.localUser.displayName : ""
+                    text: matriqueController.isLogin ? connection.localUser.displayName : ""
                 }
 
                 Label {
                     font.pointSize: 12
-                    text: connection ? connection.localUser.id : ""
+                    text: matriqueController.isLogin ? connection.localUser.id : ""
                 }
             }
         }
