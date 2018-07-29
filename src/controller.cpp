@@ -84,11 +84,11 @@ void Controller::postFile(QMatrixClient::Room* room, const QUrl& localFile,
   if (mime.startsWith("image")) msgType = "m.image";
   if (mime.startsWith("video")) msgType = "m.video";
   if (mime.startsWith("audio")) msgType = "m.audio";
-  QJsonObject json{{"content", QJsonObject{{"msgtype", msgType},
-                                           {"body", fileName},
-                                           {"filename", fileName},
-                                           {"url", mxcUrl.url()}}}};
-  room->postMessage(QMatrixClient::RoomMessageEvent(json));
+  QJsonObject json{QJsonObject{{"msgtype", msgType},
+                               {"body", fileName},
+                               {"filename", fileName},
+                               {"url", mxcUrl.url()}}};
+  room->postMessage("m.room.message", json);
 }
 
 QString Controller::getMIME(const QUrl& fileUrl) const {
