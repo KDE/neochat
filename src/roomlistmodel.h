@@ -5,10 +5,11 @@
 #include "connection.h"
 #include "room.h"
 
+using namespace QMatrixClient;
+
 class RoomListModel : public QAbstractListModel {
   Q_OBJECT
-  Q_PROPERTY(QMatrixClient::Connection* connection READ getConnection WRITE
-                 setConnection)
+  Q_PROPERTY(Connection* connection READ getConnection WRITE setConnection)
 
  public:
   enum EventRoles {
@@ -22,11 +23,11 @@ class RoomListModel : public QAbstractListModel {
   RoomListModel(QObject* parent = 0);
   virtual ~RoomListModel();
 
-  QMatrixClient::Connection* getConnection() { return m_connection; }
-  void setConnection(QMatrixClient::Connection* connection);
+  Connection* getConnection() { return m_connection; }
+  void setConnection(Connection* connection);
   void doResetModel();
 
-  Q_INVOKABLE QMatrixClient::Room* roomAt(int row);
+  Q_INVOKABLE Room* roomAt(int row);
 
   QVariant data(const QModelIndex& index,
                 int role = Qt::DisplayRole) const override;
@@ -36,22 +37,22 @@ class RoomListModel : public QAbstractListModel {
   QHash<int, QByteArray> roleNames() const;
 
  private slots:
-  void namesChanged(QMatrixClient::Room* room);
-  void unreadMessagesChanged(QMatrixClient::Room* room);
+  void namesChanged(Room* room);
+  void unreadMessagesChanged(Room* room);
 
-  void doAddRoom(QMatrixClient::Room* room);
-  void updateRoom(QMatrixClient::Room* room, QMatrixClient::Room* prev);
-  void deleteRoom(QMatrixClient::Room* room);
-  void refresh(QMatrixClient::Room* room, const QVector<int>& roles = {});
+  void doAddRoom(Room* room);
+  void updateRoom(Room* room, Room* prev);
+  void deleteRoom(Room* room);
+  void refresh(Room* room, const QVector<int>& roles = {});
 
  private:
-  QMatrixClient::Connection* m_connection = nullptr;
-  QList<QMatrixClient::Room*> m_rooms;
-  void connectRoomSignals(QMatrixClient::Room* room);
+  Connection* m_connection = nullptr;
+  QList<Room*> m_rooms;
+  void connectRoomSignals(Room* room);
 
  signals:
   void connectionChanged();
-  void newMessage(QMatrixClient::Room* room);
+  void newMessage(Room* room);
 };
 
 #endif  // ROOMLISTMODEL_H
