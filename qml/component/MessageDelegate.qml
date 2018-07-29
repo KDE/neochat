@@ -16,14 +16,6 @@ Item {
     anchors.right: !(eventType === "state" || eventType === "emote") && sentByMe ? parent.right : undefined
     anchors.horizontalCenter: (eventType === "state" || eventType === "emote") ? parent.horizontalCenter : undefined
 
-    MouseArea {
-        anchors.fill: parent
-
-        ToolTip.visible: pressed
-        ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
-        ToolTip.text: time
-    }
-
     Loader {
         id: delegateLoader
 

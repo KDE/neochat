@@ -9,20 +9,20 @@
 #include <QMimeDatabase>
 
 Controller::Controller(QObject* parent) : QObject(parent) {
-  connect(m_connection, &QMatrixClient::Connection::connected, this,
+  connect(m_connection, &Connection::connected, this,
           &Controller::connected);
-  connect(m_connection, &QMatrixClient::Connection::resolveError, this,
+  connect(m_connection, &Connection::resolveError, this,
           &Controller::reconnect);
-  connect(m_connection, &QMatrixClient::Connection::syncError, this,
+  connect(m_connection, &Connection::syncError, this,
           &Controller::reconnect);
-  connect(m_connection, &QMatrixClient::Connection::syncDone, this,
+  connect(m_connection, &Connection::syncDone, this,
           &Controller::resync);
-  connect(m_connection, &QMatrixClient::Connection::connected, this,
+  connect(m_connection, &Connection::connected, this,
           &Controller::connectionChanged);
 
-  connect(m_connection, &QMatrixClient::Connection::connected,
+  connect(m_connection, &Connection::connected,
           [=] { setBusy(true); });
-  connect(m_connection, &QMatrixClient::Connection::syncDone,
+  connect(m_connection, &Connection::syncDone,
           [=] { setBusy(false); });
 }
 
@@ -76,7 +76,7 @@ void Controller::reconnect() {
   m_connection->connectWithToken(userID, token, "");
 }
 
-void Controller::postFile(QMatrixClient::Room* room, const QUrl& localFile,
+void Controller::postFile(Room* room, const QUrl& localFile,
                           const QUrl& mxcUrl) {
   const QString mime = getMIME(localFile);
   const QString fileName = localFile.toLocalFile();

@@ -6,14 +6,12 @@
 #include "roomlistmodel.h"
 #include "user.h"
 
-namespace QMatrixClient {
-class Connection;
-}
+using namespace QMatrixClient;
 
 class Controller : public QObject {
   Q_OBJECT
 
-  Q_PROPERTY(QMatrixClient::Connection* connection READ getConnection CONSTANT)
+  Q_PROPERTY(Connection* connection READ getConnection CONSTANT)
   Q_PROPERTY(
       bool isLogin READ getIsLogin WRITE setIsLogin NOTIFY isLoginChanged)
   Q_PROPERTY(QString homeserver READ getHomeserver WRITE setHomeserver NOTIFY
@@ -34,8 +32,8 @@ class Controller : public QObject {
   // All the non-Q_INVOKABLE functions.
 
   // All the Q_PROPERTYs.
-  QMatrixClient::Connection* m_connection = new QMatrixClient::Connection();
-  QMatrixClient::Connection* getConnection() { return m_connection; }
+  Connection* m_connection = new Connection();
+  Connection* getConnection() { return m_connection; }
 
   bool isLogin = false;
   bool getIsLogin() { return isLogin; }
@@ -97,7 +95,7 @@ class Controller : public QObject {
   void errorOccured();
 
  public slots:
-  void postFile(QMatrixClient::Room* room, const QUrl& localFile,
+  void postFile(Room* room, const QUrl& localFile,
                 const QUrl& mxcUrl);
   QString getMIME(const QUrl& fileUrl) const;
 };

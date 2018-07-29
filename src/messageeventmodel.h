@@ -14,6 +14,7 @@ class MessageEventModel : public QAbstractListModel {
     EventTypeRole = Qt::UserRole + 1,
     EventIdRole,
     TimeRole,
+    AboveTimeRole,
     SectionRole,
     AboveSectionRole,
     AuthorRole,
@@ -45,11 +46,13 @@ class MessageEventModel : public QAbstractListModel {
  private:
   QMatrixClient::Room* m_currentRoom = nullptr;
   QString lastReadEventId;
+  bool mergingEcho = 0;
   int nextNewerRow = -1;
 
   QDateTime makeMessageTimestamp(QMatrixClient::Room::rev_iter_t baseIt) const;
   QString makeDateString(QMatrixClient::Room::rev_iter_t baseIt) const;
-  void refreshEventRoles(const QString& eventId, const QVector<int> roles);
+  void refreshEventRoles(const int row, const QVector<int>& roles);
+  void refreshEventRoles(const QString& eventId, const QVector<int>& roles);
 
  signals:
   void roomChanged();

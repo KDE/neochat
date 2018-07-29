@@ -96,6 +96,21 @@ Item {
 
                 delegate: MessageDelegate {}
 
+                section.property: "section"
+                section.criteria: ViewSection.FullString
+                section.delegate: Label {
+                    text: section
+                    color: "grey"
+                    padding: 16
+                    verticalAlignment: Text.AlignVCenter
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    background: Rectangle {
+                        anchors.fill: parent
+                        anchors.margins: 4
+                        color: Material.theme == Material.Light ? "#dbdbdb" : "#363636"
+                    }
+                }
+
                 onAtYBeginningChanged: atYBeginning && currentRoom ? currentRoom.getPreviousContent(50) : {}
                 onAtYEndChanged: atYEnd && currentRoom ? currentRoom.markAllMessagesAsRead() : {}
 
@@ -180,6 +195,13 @@ Item {
                         bottomPadding: 0
                         selectByMouse: true
 
+                        Keys.onReturnPressed: {
+                            if (inputField.text) {
+                                inputField.postMessage(inputField.text)
+                                inputField.text = ""
+                            }
+                        }
+
                         background: Item {
                             Rectangle {
                                 z: 5
@@ -189,16 +211,6 @@ Item {
                                 opacity: 0.4
                             }
                             Rectangle { anchors.fill: parent; color: Material.theme == Material.Light ? "#eaeaea" : "#242424" }
-                        }
-
-                        Shortcut {
-                            sequence: "Ctrl+Return"
-                            onActivated: {
-                                if (inputField.text) {
-                                    inputField.postMessage(inputField.text)
-                                    inputField.text = ""
-                                }
-                            }
                         }
 
                         function postMessage(text) {
