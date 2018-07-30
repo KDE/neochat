@@ -98,16 +98,21 @@ Item {
 
                 section.property: "section"
                 section.criteria: ViewSection.FullString
-                section.delegate: Label {
-                    text: section
-                    color: "grey"
-                    padding: 16
-                    verticalAlignment: Text.AlignVCenter
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    background: Rectangle {
-                        anchors.fill: parent
-                        anchors.margins: 4
-                        color: Material.theme == Material.Light ? "#dbdbdb" : "#363636"
+                section.delegate: RowLayout {
+                    width: parent.width * 0.6
+                    anchors.right: parent.right
+
+                    Rectangle {
+                        Layout.fillWidth: true
+                        height:2
+                        color: Material.accent
+                    }
+
+                    Label {
+                        padding: 4
+                        text: section
+                        color: Material.accent
+                        verticalAlignment: Text.AlignVCenter
                     }
                 }
 
