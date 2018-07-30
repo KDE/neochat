@@ -217,6 +217,10 @@ Item {
                         text: "Deprioritize"
                         onTriggered: roomListMenu.room.isLowPriority ? roomListMenu.room.removeTag("m.lowpriority") : roomListMenu.room.addTag("m.lowpriority", "1")
                     }
+                    MenuItem {
+                        text: "Leave Room"
+                        onTriggered: listModel.connection.forgetRoom(roomListMenu.room.id)
+                    }
                 }
             }
         }
