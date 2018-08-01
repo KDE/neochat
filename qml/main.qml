@@ -17,7 +17,7 @@ ApplicationWindow {
     visible: true
     width: 960
     height: 640
-    minimumWidth: 640
+    minimumWidth: 800
     minimumHeight: 480
     title: qsTr("Matrique")
 
@@ -167,15 +167,101 @@ ApplicationWindow {
                 }
 
                 SideNavButton {
+                    contentItem: MaterialIcon { icon: "\ue145"; color: "white" }
+                    onClicked: addRoomMenu.popup()
+
+                    Menu {
+                        id: addRoomMenu
+                        MenuItem {
+                            text:"New Room"
+                            onTriggered: addRoomDialog.open()
+
+                            Dialog {
+                                id: addRoomDialog
+                                parent: ApplicationWindow.overlay
+
+                                x: (window.width - width) / 2
+                                y: (window.height - height) / 2
+                                width: 360
+
+                                title: "New Room"
+                                modal: true
+                                standardButtons: Dialog.Ok | Dialog.Cancel
+
+                                contentItem: Column {
+                                    TextField {
+                                        id: addRoomDialogNameTextField
+                                        width: parent.width
+
+                                        placeholderText: "Name"
+                                    }
+                                    TextField {
+                                        id: addRoomDialogTopicTextField
+                                        width: parent.width
+                                        placeholderText: "Topic"
+                                    }
+                                }
+
+                                onAccepted: matriqueController.createRoom(addRoomDialogNameTextField.text, addRoomDialogTopicTextField.text)
+                            }
+                        }
+                        MenuItem {
+                            text: "Join Room"
+                            onTriggered: joinRoomDialog.open()
+
+                            Dialog {
+                                id: joinRoomDialog
+                                parent: ApplicationWindow.overlay
+
+                                x: (window.width - width) / 2
+                                y: (window.height - height) / 2
+                                width: 360
+
+                                title: "Input Room Alias or ID"
+                                modal: true
+                                standardButtons: Dialog.Ok | Dialog.Cancel
+
+                                contentItem: TextField {
+                                    id: joinRoomDialogTextField
+                                }
+
+                                onAccepted: matriqueController.joinRoom(joinRoomDialogTextField.text)
+                            }
+                        }
+                        MenuItem {
+                            text: "Direct Chat"
+                            onTriggered: directChatDialog.open()
+
+                            Dialog {
+                                id: directChatDialog
+                                parent: ApplicationWindow.overlay
+
+                                x: (window.width - width) / 2
+                                y: (window.height - height) / 2
+                                width: 360
+
+                                title: "Input User ID"
+                                modal: true
+                                standardButtons: Dialog.Ok | Dialog.Cancel
+
+                                contentItem: TextField {
+                                    id: directChatDialogTextField
+                                }
+
+                                onAccepted: matriqueController.createDirectChat(directChatDialogTextField.text)
+                            }
+                        }
+                    }
+                }
+
+                SideNavButton {
                     contentItem: MaterialIcon { icon: "\ue8b8"; color: "white" }
                     page: settingPage
                 }
 
                 SideNavButton {
                     contentItem: MaterialIcon { icon: "\ue879"; color: "white" }
-                    onClicked: {
-                        Qt.quit();
-                    }
+                    onClicked: Qt.quit()
                 }
             }
         }

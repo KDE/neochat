@@ -16,7 +16,7 @@ Page {
         parent: null
     }
 
-    SettingAppearancePage {
+    SettingAppearanceForm {
         id: appearanceForm
         parent: null
     }

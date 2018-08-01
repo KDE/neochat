@@ -95,9 +95,12 @@ class Controller : public QObject {
   void errorOccured();
 
  public slots:
-  void postFile(Room* room, const QUrl& localFile,
-                const QUrl& mxcUrl);
+  void postFile(Room* room, const QUrl& localFile, const QUrl& mxcUrl);
   QString getMIME(const QUrl& fileUrl) const;
+  void forgetRoom(const QString& roomID);
+  void joinRoom(const QString& alias);
+  void createRoom(const QString& name, const QString& topic);
+  void createDirectChat(const QString& userID);
 };
 
 #endif  // CONTROLLER_H

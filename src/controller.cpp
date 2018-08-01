@@ -4,26 +4,25 @@
 #include "events/eventcontent.h"
 #include "events/roommessageevent.h"
 
+#include "csapi/create_room.h"
+#include "csapi/joining.h"
+#include "csapi/leaving.h"
+
 #include <QFile>
 #include <QImage>
 #include <QMimeDatabase>
 
 Controller::Controller(QObject* parent) : QObject(parent) {
-  connect(m_connection, &Connection::connected, this,
-          &Controller::connected);
+  connect(m_connection, &Connection::connected, this, &Controller::connected);
   connect(m_connection, &Connection::resolveError, this,
           &Controller::reconnect);
-  connect(m_connection, &Connection::syncError, this,
-          &Controller::reconnect);
-  connect(m_connection, &Connection::syncDone, this,
-          &Controller::resync);
+  connect(m_connection, &Connection::syncError, this, &Controller::reconnect);
+  connect(m_connection, &Connection::syncDone, this, &Controller::resync);
   connect(m_connection, &Connection::connected, this,
           &Controller::connectionChanged);
 
-  connect(m_connection, &Connection::connected,
-          [=] { setBusy(true); });
-  connect(m_connection, &Connection::syncDone,
-          [=] { setBusy(false); });
+  connect(m_connection, &Connection::connected, [=] { setBusy(true); });
+  connect(m_connection, &Connection::syncDone, [=] { setBusy(false); });
 }
 
 Controller::~Controller() {
@@ -52,6 +51,7 @@ void Controller::loginWithCredentials(QString serverAddr, QString user,
 }
 
 void Controller::logout() {
+  m_connection->logout();
   setUserID("");
   setToken("");
   setIsLogin(false);
@@ -66,10 +66,7 @@ void Controller::connected() {
   setIsLogin(true);
 }
 
-void Controller::resync() {
-  m_connection->sync(30000);
-  m_connection->saveState();
-}
+void Controller::resync() { m_connection->sync(30000); }
 
 void Controller::reconnect() {
   qDebug() << "Connection lost. Reconnecting...";
@@ -96,4 +93,30 @@ QString Controller::getMIME(const QUrl& fileUrl) const {
   const QString mime = db->mimeTypeForFile(fileUrl.toLocalFile()).name();
   delete db;
   return mime;
+}
+
+void Controller::forgetRoom(const QString& roomID) {
+  ForgetRoomJob* forgetRoomJob = m_connection->forgetRoom(roomID);
+  setBusy(true);
+  forgetRoomJob->connect(forgetRoomJob, &ForgetRoomJob::finished,
+                         [=] { setBusy(false); });
+}
+
+void Controller::joinRoom(const QString& alias) {
+  JoinRoomJob* joinRoomJob = m_connection->joinRoom(alias);
+  setBusy(true);
+  joinRoomJob->connect(joinRoomJob, &JoinRoomJob::finished,
+                       [=] { setBusy(false); });
+}
+
+void Controller::createRoom(const QString& name, const QString& topic) {
+  CreateRoomJob* createRoomJob = m_connection->createRoom(
+      Connection::PublishRoom, "", name, topic, QStringList());
+  setBusy(true);
+  createRoomJob->connect(createRoomJob, &CreateRoomJob::finished,
+                         [=] { setBusy(false); });
+}
+
+void Controller::createDirectChat(const QString& userID) {
+  m_connection->requestDirectChat(userID);
 }

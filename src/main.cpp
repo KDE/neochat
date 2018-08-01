@@ -9,6 +9,7 @@
 #include "room.h"
 #include "roomlistmodel.h"
 
+#include "csapi/joining.h"
 #include "csapi/leaving.h"
 
 using namespace QMatrixClient;
@@ -28,8 +29,6 @@ int main(int argc, char *argv[]) {
   //    QNetworkProxy::setApplicationProxy(proxy);
 
   qRegisterMetaType<Room *>("Room*");
-  qRegisterMetaType<LeaveRoomJob *>("LeaveRoomJob*");
-  qRegisterMetaType<ForgetRoomJob *>("ForgetRoomJob*");
 
   qRegisterMetaType<User *>("User*");
 

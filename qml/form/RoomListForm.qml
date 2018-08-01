@@ -219,7 +219,7 @@ Item {
                     }
                     MenuItem {
                         text: "Leave Room"
-                        onTriggered: listModel.connection.forgetRoom(roomListMenu.room.id)
+                        onTriggered: matriqueController.forgetRoom(roomListMenu.room.id)
                     }
                 }
             }

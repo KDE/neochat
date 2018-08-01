@@ -42,7 +42,7 @@ AvatarContainer {
                 id: timeText
                 visible: Math.abs(time - aboveTime) > 600000 || index == 0
                 Layout.alignment: Qt.AlignRight
-                text: Qt.formatDateTime(time, "d MMM hh:mm")
+                text: Qt.formatTime(time, "hh:mm")
                 color: isNotice || sentByMe ? "grey" : "white"
                 font.pointSize: 8
 

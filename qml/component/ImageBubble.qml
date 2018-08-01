@@ -21,8 +21,7 @@ AvatarContainer {
             Image {
                 id: messageImage
                 z: -4
-                sourceSize.width: width
-                sourceSize.height: height
+                sourceSize.width: 128
                 source: "image://mxc/" + (content.thumbnail_url ? content.thumbnail_url : content.url)
 
                 MouseArea {
