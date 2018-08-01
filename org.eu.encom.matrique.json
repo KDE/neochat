@@ -1,6 +1,6 @@
 
 {
-    "id": "com.gitlab.matrique",
+    "id": "org.eu.encom.matrique",
     "rename-icon": "matrique",
     "rename-desktop-file": "matrique.desktop",
     "runtime": "org.kde.Platform",
@@ -19,7 +19,7 @@
             "name": "matrique",
             "buildsystem": "simple",
             "build-commands": [
-                "qmake .",
+                "qmake matrique.pro -spec linux-g++ CONFIG+=qtquickcompiler",
 		"make -j4",
 		"ls -l",
 		"install -D matrique /app/bin/matrique",
