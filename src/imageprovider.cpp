@@ -42,7 +42,7 @@ QImage ImageProvider::requestImage(const QString& id, QSize* pSize,
       },
       Qt::BlockingQueuedConnection, &job);
 #else
-  QMetaObject::invokeMethod(m_connection, "getThumbnail",
+  QMetaObject::invokeMethod(m_connection->getConnection(), "getThumbnail",
                             Qt::BlockingQueuedConnection,
                             Q_RETURN_ARG(MediaThumbnailJob*, job),
                             Q_ARG(QUrl, mxcUri), Q_ARG(QSize, requestedSize));

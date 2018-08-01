@@ -38,7 +38,7 @@ Page {
 
                 Label {
                     text: "MATRIX LOGIN."
-                    font.pointSize: 36
+                    font.pointSize: 28
                     font.bold: true
                     color: "white"
                 }

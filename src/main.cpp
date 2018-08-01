@@ -21,13 +21,6 @@ int main(int argc, char *argv[]) {
 
   QApplication app(argc, argv);
 
-  //    Enable this if you need proxy.
-  //    QNetworkProxy proxy;
-  //    proxy.setType(QNetworkProxy::HttpProxy);
-  //    proxy.setHostName("localhost");
-  //    proxy.setPort(1082);
-  //    QNetworkProxy::setApplicationProxy(proxy);
-
   qRegisterMetaType<Room *>("Room*");
 
   qRegisterMetaType<User *>("User*");
