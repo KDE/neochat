@@ -210,11 +210,11 @@ Item {
                     id: roomListMenu
 
                     MenuItem {
-                        text: "Favourite"
+                        text: "Favourite" + (roomListMenu.room && roomListMenu.room.isFavourite ? "    \u2713" : "")
                         onTriggered: roomListMenu.room.isFavourite ? roomListMenu.room.removeTag("m.favourite") : roomListMenu.room.addTag("m.favourite", "1")
                     }
                     MenuItem {
-                        text: "Deprioritize"
+                        text: "Deprioritize"  + (roomListMenu.room && roomListMenu.room.isLowPriority ? "    \u2713" : "")
                         onTriggered: roomListMenu.room.isLowPriority ? roomListMenu.room.removeTag("m.lowpriority") : roomListMenu.room.addTag("m.lowpriority", "1")
                     }
                     MenuItem {
