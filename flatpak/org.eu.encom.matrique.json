@@ -14,7 +14,9 @@
         "--socket=wayland",
         "--device=dri",
 	"--filesystem=home:rw",
-	"--filesystem=/tmp:rw"
+	"--filesystem=/tmp:rw",
+	"--talk-name=org.freedesktop.Notifications",
+	"--talk-name=org.kde.StatusNotifierWatcher"
     ],
     "modules": [
         {
