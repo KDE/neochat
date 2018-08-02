@@ -6,16 +6,16 @@ stages:
 preparation-flatpak:
   image: alpine/git
   stage: preparation
-  cache:
-    untracked: true
-    paths:
-      - tmp/
   before_script:
     - mkdir tmp
   script:
     - cd tmp
     - git clone "https://$GIT_USERNAME:$GIT_PASSWORD@gitlab.com/b0/matrique-repo"
     - cd ../
+  cache:
+    untracked: true
+    paths:
+      - tmp/
   
 build-native:
   image: rabits/qt:5.11-desktop
