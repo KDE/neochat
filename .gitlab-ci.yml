@@ -4,10 +4,12 @@ stages:
   - deploy
 
 preparation-flatpak:
-  image: alpine/git
+  image: debian:latest
   stage: preparation
   before_script:
     - mkdir tmp
+    - apt update
+    - apt install git
   script:
     - cd tmp
     - git clone "https://$GIT_USERNAME:$GIT_PASSWORD@gitlab.com/b0/matrique-repo"
