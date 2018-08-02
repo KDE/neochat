@@ -2,13 +2,7 @@ stages:
   - preparation
   - build
   - deploy
-  
-cache:
-  untracked: true
-  key: "$CI_PROJECT_ID"
-  paths:
-    - /tmp/matrique-repo
-  
+
 preparation-flatpak:
   image: fedora:latest
   stage: preparation
@@ -16,7 +10,12 @@ preparation-flatpak:
     - cd /tmp
     - git clone "https://$GIT_USERNAME:$GIT_PASSWORD@gitlab.com/b0/matrique-repo"
     - cd /builds/b0/matrique
-
+  
+  artifacts:
+    untracked: true
+    paths:
+    - /tmp/matrique-repo
+  
 build-native:
   image: rabits/qt:5.11-desktop
   stage: build
@@ -40,6 +39,10 @@ build-flatpak:
     - gpg2 -v --import <(echo "$GPG_SECRET_KEY")
     - cd flatpak
     - flatpak-builder --repo=/tmp/matrique-repo/public build-dir org.eu.encom.matrique.json --force-clean --gpg-sign=52986BF4D61350EC249F2E891B0DB3358FC5E4B2
+  artifacts:
+    untracked: true
+    paths:
+    - /tmp/matrique-repo
 
 deploy-flatpak:
   image: fedora:latest
