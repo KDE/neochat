@@ -11,7 +11,7 @@ preparation-flatpak:
   image: debian:latest
   stage: preparation
   before_script:
-    - mkdir tmp
+    - mkdir -p tmp
     - apt-get update
     - apt-get install -y git
   script:
@@ -26,7 +26,7 @@ build-native:
   before_script:
     - git submodule update --init --recursive
   script:
-    - mkdir build && cd build
+    - mkdir -p build && cd build
     - qmake ../matrique.pro -spec linux-g++ CONFIG+=qtquickcompiler
     - make -j4
 
