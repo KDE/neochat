@@ -2,6 +2,10 @@ stages:
   - preparation
   - build
   - deploy
+  
+cache:
+  paths:
+    - tmp/
 
 preparation-flatpak:
   image: alpine/git
@@ -12,10 +16,6 @@ preparation-flatpak:
     - cd tmp
     - git clone "https://$GIT_USERNAME:$GIT_PASSWORD@gitlab.com/b0/matrique-repo"
     - cd ../
-  cache:
-    untracked: true
-    paths:
-      - tmp/
   
 build-native:
   image: rabits/qt:5.11-desktop
@@ -44,12 +44,8 @@ build-flatpak:
     - cd ../
     
 deploy-flatpak:
-  image: fedora:latest
+  image: alpine/git
   stage: deploy
-  cache:
-    untracked: true
-    paths:
-      - tmp/
   before_script:
     - git config --global user.name "$GIT_NAME"
     - git config --global user.email "$GIT_EMAIL"
