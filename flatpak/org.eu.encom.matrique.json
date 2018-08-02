@@ -12,13 +12,16 @@
         "--share=network",
         "--socket=x11",
         "--socket=wayland",
-        "--device=dri"
+        "--device=dri",
+	"--filesystem=home:rw",
+	"--filesystem=/tmp:rw"
     ],
     "modules": [
         {
             "name": "matrique",
             "buildsystem": "simple",
             "build-commands": [
+		"ls -l",
                 "qmake matrique.pro -spec linux-g++ CONFIG+=qtquickcompiler",
 		"make -j4",
 		"ls -l",
@@ -29,7 +32,7 @@
             "sources": [
                 {
                     "type": "dir",
-                    "path": "./"
+                    "path": "../"
                 }
             ]
         }
