@@ -16,11 +16,20 @@ build-native:
     - build/
 
 build-flatpak:
-  image: fedora:latest
+  image: black0/flatpak
   stage: build
-  before-script: dnf install flatpak 
+  before_script:
+    - git submodule update --init --recursive
+    - cd /tmp
+    - git config --global user.name "$GIT_NAME"
+    - git config --global user.email "$GIT_EMAIL"
+    - git clone "https://$GIT_USERNAME:$GIT_PASSWORD@gitlab.com/b0/matrique-repo"
+    - cd /builds/b0/matrique
   script:
-    - flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub
-    - flatpak install flathub org.kde.Platform//5.11
-    - gpg2 -v --import <(echo $GPG_SECRET_KEY)
-
+    - gpg2 -v --import <(echo "$GPG_SECRET_KEY")
+    - cd flatpak
+    - flatpak-builder --repo=/tmp/matrique-repo/public build-dir org.eu.encom.matrique.json --force-clean --gpg-sign=52986BF4D61350EC249F2E891B0DB3358FC5E4B2
+    - cd /tmp/matrique-repo
+    - git add -A
+    - git commit -m "$CI_COMMIT_MESSAGE"
+    - git push origin master
