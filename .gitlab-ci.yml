@@ -2,10 +2,6 @@ stages:
   - preparation
   - build
   - deploy
-  
-cache:
-  paths:
-    - tmp/
 
 preparation-flatpak:
   image: alpine/git
@@ -16,11 +12,13 @@ preparation-flatpak:
     - cd tmp
     - git clone "https://$GIT_USERNAME:$GIT_PASSWORD@gitlab.com/b0/matrique-repo"
     - cd ../
+  artifacts:
+    paths:
+    - tmp/
   
 build-native:
   image: rabits/qt:5.11-desktop
   stage: build
-  cache: {}
   before_script:
     - git submodule update --init --recursive
   script:
@@ -42,6 +40,9 @@ build-flatpak:
     - cd flatpak
     - flatpak-builder --repo=../tmp/matrique-repo/public build-dir org.eu.encom.matrique.json --force-clean --gpg-sign=52986BF4D61350EC249F2E891B0DB3358FC5E4B2
     - cd ../
+  artifacts:
+    paths:
+    - tmp/
     
 deploy-flatpak:
   image: alpine/git
