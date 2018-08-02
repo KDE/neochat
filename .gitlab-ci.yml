@@ -7,14 +7,14 @@ preparation-flatpak:
   image: black0/flatpak
   stage: preparation
   script:
-    - cd /tmp
+    - cd ../
     - git clone "https://$GIT_USERNAME:$GIT_PASSWORD@gitlab.com/b0/matrique-repo"
-    - cd /builds/b0/matrique
+    - cd matrique
   
   artifacts:
     untracked: true
     paths:
-    - /tmp/matrique-repo/
+    - ../matrique-repo
   
 build-native:
   image: rabits/qt:5.11-desktop
@@ -38,12 +38,13 @@ build-flatpak:
   script:
     - gpg2 -v --import <(echo "$GPG_SECRET_KEY")
     - cd flatpak
-    - flatpak-builder --repo=/tmp/matrique-repo/public build-dir org.eu.encom.matrique.json --force-clean --gpg-sign=52986BF4D61350EC249F2E891B0DB3358FC5E4B2
+    - flatpak-builder --repo=../../matrique-repo/public build-dir org.eu.encom.matrique.json --force-clean --gpg-sign=52986BF4D61350EC249F2E891B0DB3358FC5E4B2
+    - cd ../
   artifacts:
     untracked: true
     paths:
-    - /tmp/matrique-repo/
-
+    - ../matrique-repo
+    
 deploy-flatpak:
   image: fedora:latest
   stage: deploy
@@ -51,7 +52,7 @@ deploy-flatpak:
     - git config --global user.name "$GIT_NAME"
     - git config --global user.email "$GIT_EMAIL"
   script:
-    - cd /tmp/matrique-repo
+    - cd ../matrique-repo
     - git add -A
     - git commit -m "$CI_COMMIT_MESSAGE"
     - git push origin master
