@@ -2,14 +2,14 @@ stages:
   - preparation
   - build
   - deploy
-  
-cache:
-  paths:
-    - tmp/
 
 preparation-flatpak:
   image: alpine/git
   stage: preparation
+  cache:
+    untracked: true
+    paths:
+      - tmp/
   before_script:
     - mkdir tmp
   script:
@@ -46,6 +46,10 @@ build-flatpak:
 deploy-flatpak:
   image: fedora:latest
   stage: deploy
+  cache:
+    untracked: true
+    paths:
+      - tmp/
   before_script:
     - git config --global user.name "$GIT_NAME"
     - git config --global user.email "$GIT_EMAIL"
