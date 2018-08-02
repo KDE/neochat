@@ -14,7 +14,7 @@ preparation-flatpak:
   artifacts:
     untracked: true
     paths:
-    - /tmp/matrique-repo
+    - /tmp/matrique-repo/
   
 build-native:
   image: rabits/qt:5.11-desktop
@@ -42,7 +42,7 @@ build-flatpak:
   artifacts:
     untracked: true
     paths:
-    - /tmp/matrique-repo
+    - /tmp/matrique-repo/
 
 deploy-flatpak:
   image: fedora:latest
