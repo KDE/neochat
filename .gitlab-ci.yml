@@ -1,26 +1,60 @@
 stages:
+  - preparation
   - build
+  - deploy
 
+preparation-flatpak:
+  image: debian:latest
+  stage: preparation
+  before_script:
+    - mkdir -p tmp
+    - apt-get update
+    - apt-get install -y git
+  script:
+    - cd tmp
+    - git clone "https://$GIT_USERNAME:$GIT_PASSWORD@gitlab.com/b0/matrique-repo"
+    - cd ../
+  artifacts:
+    paths:
+    - tmp/
+  
 build-native:
   image: rabits/qt:5.11-desktop
+  stage: build
+  cache: {}
+  before_script:
+    - git submodule update --init --recursive
+  script:
+    - mkdir -p build && cd build
+    - qmake ../matrique.pro -spec linux-g++ CONFIG+=qtquickcompiler
+    - make -j4
+
+build-flatpak:
+  image: black0/flatpak
   stage: build
   before_script:
     - git submodule update --init --recursive
   script:
-    - mkdir build && cd build
-    - qmake ../matrique.pro -spec linux-g++ CONFIG+=qtquickcompiler
-    - make -j4
-    
+    - gpg2 -v --import <(echo "$GPG_SECRET_KEY")
+    - cd flatpak
+    - flatpak-builder --repo=../tmp/matrique-repo/public build-dir org.eu.encom.matrique.json --force-clean --gpg-sign=52986BF4D61350EC249F2E891B0DB3358FC5E4B2
+    - cd ../
   artifacts:
     paths:
-    - build/
-
-build-flatpak:
-  image: fedora:latest
-  stage: build
-  before-script: dnf install flatpak 
+    - tmp/
+    
+deploy-flatpak:
+  only:
+  - master
+  image: debian:latest
+  stage: deploy
+  before_script:
+    - apt-get update
+    - apt-get install -y git
+    - git config --global user.name "$GIT_NAME"
+    - git config --global user.email "$GIT_EMAIL"
   script:
-    - flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub
-    - flatpak install flathub org.kde.Platform//5.11
-    - gpg2 -v --import <(echo $GPG_SECRET_KEY)
-
+    - cd tmp/matrique-repo
+    - git add -A
+    - git commit -m "$CI_COMMIT_MESSAGE"
+    - git push origin master
