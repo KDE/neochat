@@ -44,6 +44,7 @@ build-flatpak:
     - tmp/
     
 deploy-flatpak:
+  only: master
   image: debian:latest
   stage: deploy
   before_script:
