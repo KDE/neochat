@@ -37,7 +37,7 @@ build-flatpak:
   script:
     - gpg2 -v --import <(echo "$GPG_SECRET_KEY")
     - cd flatpak
-    - flatpak-builder --repo=../tmp/matrique-repo/public build-dir org.eu.encom.matrique.json --force-clean --gpg-sign=52986BF4D61350EC249F2E891B0DB3358FC5E4B2 -s "$CI_COMMIT_TITLE" -b "$CI_COMMIT_DESCRIPTION"
+    - flatpak-builder --repo=../tmp/matrique-repo/public build-dir org.eu.encom.matrique.json --force-clean --gpg-sign=52986BF4D61350EC249F2E891B0DB3358FC5E4B2
     - cd ../
   artifacts:
     paths:
