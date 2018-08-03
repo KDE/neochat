@@ -13,6 +13,8 @@ Item {
     readonly property bool isMessage: eventType === "message" || eventType === "notice"
     readonly property bool isFile: eventType === "video" || eventType === "audio" || eventType === "file" || eventType === "image"
 
+    visible: eventType != "redaction"
+
     z: -5
     width: delegateLoader.width
     height: delegateLoader.height
@@ -23,6 +25,6 @@ Item {
     Loader {
         id: delegateLoader
 
-        source: isMessage ? "MessageBubble.qml" : isState ? "StateBubble.qml" : isFile ? eventType === "image" ? "ImageBubble.qml" : "FileBubble.qml" : ""
+        source: eventType != "redaction" ? isMessage ? "MessageBubble.qml" : isState ? "StateBubble.qml" : isFile ? eventType === "image" ? "ImageBubble.qml" : "FileBubble.qml" : "" : ""
     }
 }

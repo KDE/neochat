@@ -82,7 +82,7 @@ void Controller::postMessage(Room* room, const QString& type,
 void Controller::postFile(Room* room, const QUrl& localFile,
                           const QUrl& mxcUrl) {
   const QString mime = getMIME(localFile);
-  const QString fileName = localFile.toLocalFile();
+  const QString fileName = localFile.fileName();
   QString msgType = "m.file";
   if (mime.startsWith("image")) msgType = "m.image";
   if (mime.startsWith("video")) msgType = "m.video";

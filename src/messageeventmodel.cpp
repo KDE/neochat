@@ -4,17 +4,35 @@
 #include <QtCore/QSettings>
 #include <QtQml>  // for qmlRegisterType()
 
-#include "events/redactionevent.h"
-#include "events/roomavatarevent.h"
-#include "events/roommemberevent.h"
-#include "events/simplestateevents.h"
+#include <connection.h>
+#include <events/redactionevent.h>
+#include <events/roomavatarevent.h>
+#include <events/roommemberevent.h>
+#include <events/simplestateevents.h>
+#include <settings.h>
+#include <user.h>
 
-#include "connection.h"
-#include "settings.h"
-#include "user.h"
+QHash<int, QByteArray> MessageEventModel::roleNames() const {
+  QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
+  roles[EventTypeRole] = "eventType";
+  roles[EventIdRole] = "eventId";
+  roles[TimeRole] = "time";
+  roles[AboveTimeRole] = "aboveTime";
+  roles[SectionRole] = "section";
+  roles[AboveSectionRole] = "aboveSection";
+  roles[AuthorRole] = "author";
+  roles[AboveAuthorRole] = "aboveAuthor";
+  roles[ContentRole] = "content";
+  roles[ContentTypeRole] = "contentType";
+  roles[ReadMarkerRole] = "readMarker";
+  roles[SpecialMarksRole] = "marks";
+  roles[LongOperationRole] = "progressInfo";
+  roles[EventResolvedTypeRole] = "eventResolvedType";
+  return roles;
+}
 
 MessageEventModel::MessageEventModel(QObject* parent)
-    : QAbstractListModel(parent) {
+    : QAbstractListModel(parent), m_currentRoom(nullptr) {
   qmlRegisterType<QMatrixClient::FileTransferInfo>();
   qRegisterMetaType<QMatrixClient::FileTransferInfo>();
 }
@@ -122,7 +140,7 @@ inline bool hasValidTimestamp(const QMatrixClient::TimelineItem& ti) {
 }
 
 QDateTime MessageEventModel::makeMessageTimestamp(
-    QMatrixClient::Room::rev_iter_t baseIt) const {
+    const QMatrixClient::Room::rev_iter_t& baseIt) const {
   const auto& timeline = m_currentRoom->messageEvents();
   auto ts = baseIt->event()->timestamp();
   if (ts.isValid()) return ts;
@@ -143,7 +161,7 @@ QDateTime MessageEventModel::makeMessageTimestamp(
 }
 
 QString MessageEventModel::makeDateString(
-    QMatrixClient::Room::rev_iter_t baseIt) const {
+    const QMatrixClient::Room::rev_iter_t& baseIt) const {
   auto date = makeMessageTimestamp(baseIt).toLocalTime().date();
   if (QMatrixClient::SettingsGroup("UI")
           .value("banner_human_friendly_date", true)
@@ -344,8 +362,6 @@ QVariant MessageEventModel::data(const QModelIndex& index, int role) const {
     };
   }
 
-  // HighlightRole is missing. This will be fixed soon.
-
   if (role == ReadMarkerRole) return evt.id() == lastReadEventId;
 
   if (role == SpecialMarksRole) {
@@ -392,24 +408,4 @@ QVariant MessageEventModel::data(const QModelIndex& index, int role) const {
   }
 
   return QVariant();
-}
-
-QHash<int, QByteArray> MessageEventModel::roleNames() const {
-  QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
-  roles[EventTypeRole] = "eventType";
-  roles[EventIdRole] = "eventId";
-  roles[TimeRole] = "time";
-  roles[AboveTimeRole] = "aboveTime";
-  roles[SectionRole] = "section";
-  roles[AboveSectionRole] = "aboveSection";
-  roles[AuthorRole] = "author";
-  roles[AboveAuthorRole] = "aboveAuthor";
-  roles[ContentRole] = "content";
-  roles[ContentTypeRole] = "contentType";
-  roles[HighlightRole] = "highlight";
-  roles[ReadMarkerRole] = "readMarker";
-  roles[SpecialMarksRole] = "marks";
-  roles[LongOperationRole] = "progressInfo";
-  roles[EventResolvedTypeRole] = "eventResolvedType";
-  return roles;
 }
