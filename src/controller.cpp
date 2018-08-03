@@ -73,6 +73,12 @@ void Controller::reconnect() {
   m_connection->connectWithToken(userID, token, "");
 }
 
+void Controller::postMessage(Room* room, const QString& type,
+                             const QString& text) {
+  room->postMessage("m.room.message",
+                    QJsonObject{{"msgtype", type}, {"body", text}});
+}
+
 void Controller::postFile(Room* room, const QUrl& localFile,
                           const QUrl& mxcUrl) {
   const QString mime = getMIME(localFile);
