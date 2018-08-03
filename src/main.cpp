@@ -22,7 +22,6 @@ int main(int argc, char *argv[]) {
   QApplication app(argc, argv);
 
   qRegisterMetaType<Room *>("Room*");
-
   qRegisterMetaType<User *>("User*");
 
   qmlRegisterType<Controller>("Matrique", 0, 1, "Controller");
