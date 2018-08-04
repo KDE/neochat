@@ -86,8 +86,9 @@ Item {
                 displayMarginBeginning: 40
                 displayMarginEnd: 40
                 verticalLayoutDirection: ListView.BottomToTop
-                maximumFlickVelocity: 1024
                 spacing: 8
+
+                boundsBehavior: Flickable.DragOverBounds
 
                 model: MessageEventModel{
                     id: messageEventModel
@@ -230,12 +231,12 @@ Item {
 
                             if (text.indexOf(PREFIX_ME) === 0) {
                                 text = text.substr(PREFIX_ME.length)
-                                matriqueController.postMessage(currentRoom, "m.emote", text)
+                                currentRoom.postMessage(text, RoomMessageEvent.Emote)
                                 return
                             }
                             if (text.indexOf(PREFIX_NOTICE) === 0) {
                                 text = text.substr(PREFIX_NOTICE.length)
-                                matriqueController.postMessage(currentRoom, "m.notice", text)
+                                currentRoom.postMessage(text, RoomMessageEvent.Notice)
                                 return
                             }
                             if (text.indexOf(PREFIX_RAINBOW) === 0) {
@@ -246,24 +247,24 @@ Item {
                                 for (var i = 0; i < text.length; i++) {
                                     parsedText = parsedText + "<font color='" + rainbowColor[i % 7] + "'>" + text.charAt(i) + "</font>"
                                 }
-                                currentRoom.postHtmlMessage(text, parsedText)
+                                currentRoom.postHtmlMessage(text, parsedText, RoomMessageEvent.Text)
                                 return
                             }
                             if (text.indexOf(PREFIX_HTML) === 0) {
                                 text = text.substr(PREFIX_HTML.length)
                                 var re = new RegExp("<.*?>")
                                 var plainText = text.replace(re, "")
-                                currentRoom.postHtmlMessage(plainText, text, "m.text")
+                                currentRoom.postHtmlMessage(plainText, text, RoomMessageEvent.Text)
                                 return
                             }
                             if (text.indexOf(PREFIX_MARKDOWN) === 0) {
                                 text = text.substr(PREFIX_MARKDOWN.length)
                                 var parsedText = Markdown.markdown_parser(text)
-                                currentRoom.postHtmlMessage(text, parsedText)
+                                currentRoom.postHtmlMessage(text, parsedText, RoomMessageEvent.Text)
                                 return
                             }
 
-                            matriqueController.postMessage(currentRoom, "m.text", text)
+                            currentRoom.postPlainText(text)
                         }
                     }
 

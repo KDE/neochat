@@ -125,9 +125,10 @@ Item {
                     opacity: 0.2
                 }
                 highlightMoveDuration: 250
-                maximumFlickVelocity: 2048
 
                 currentIndex: -1
+
+                boundsBehavior: Flickable.DragOverBounds
 
                 ScrollBar.vertical: ScrollBar { id: scrollBar }
 

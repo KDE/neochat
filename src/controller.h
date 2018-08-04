@@ -95,7 +95,6 @@ class Controller : public QObject {
   void errorOccured();
 
  public slots:
-  void postMessage(Room* room, const QString& type, const QString& text);
   void postFile(Room* room, const QUrl& localFile, const QUrl& mxcUrl);
   QString getMIME(const QUrl& fileUrl) const;
   void forgetRoom(const QString& roomID);

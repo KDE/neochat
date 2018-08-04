@@ -23,10 +23,12 @@ int main(int argc, char *argv[]) {
 
   qRegisterMetaType<Room *>("Room*");
   qRegisterMetaType<User *>("User*");
+  qRegisterMetaType<MessageEventType>("MessageEventType");
 
   qmlRegisterType<Controller>("Matrique", 0, 1, "Controller");
   qmlRegisterType<RoomListModel>("Matrique", 0, 1, "RoomListModel");
   qmlRegisterType<MessageEventModel>("Matrique", 0, 1, "MessageEventModel");
+  qmlRegisterUncreatableType<RoomMessageEvent>("Matrique", 0, 1, "RoomMessageEvent", "ENUM");
 
   QQmlApplicationEngine engine;
 

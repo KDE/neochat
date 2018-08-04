@@ -73,12 +73,6 @@ void Controller::reconnect() {
   m_connection->connectWithToken(userID, token, "");
 }
 
-void Controller::postMessage(Room* room, const QString& type,
-                             const QString& text) {
-  room->postMessage("m.room.message",
-                    QJsonObject{{"msgtype", type}, {"body", text}});
-}
-
 void Controller::postFile(Room* room, const QUrl& localFile,
                           const QUrl& mxcUrl) {
   const QString mime = getMIME(localFile);
@@ -91,7 +85,7 @@ void Controller::postFile(Room* room, const QUrl& localFile,
                                {"body", fileName},
                                {"filename", fileName},
                                {"url", mxcUrl.url()}}};
-  room->postMessage("m.room.message", json);
+  room->postJson("m.room.message", json);
 }
 
 QString Controller::getMIME(const QUrl& fileUrl) const {

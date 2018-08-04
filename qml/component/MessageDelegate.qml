@@ -22,6 +22,19 @@ Item {
     anchors.right: !isState && sentByMe ? parent.right : undefined
     anchors.horizontalCenter: isState ? parent.horizontalCenter : undefined
 
+    MouseArea {
+        anchors.fill: parent
+        onPressAndHold: messageContextMenu.popup()
+
+        Menu {
+            id: messageContextMenu
+            MenuItem {
+                text: "Redact"
+                onTriggered: currentRoom.redactEvent(eventId)
+            }
+        }
+    }
+
     Loader {
         id: delegateLoader
 
