@@ -211,13 +211,18 @@ Item {
                     id: roomListMenu
 
                     MenuItem {
-                        text: "Favourite" + (roomListMenu.room && roomListMenu.room.isFavourite ? "    \u2713" : "")
+                        text: "Favourite"
+                        checkable: true
+                        checked: roomListMenu.room && roomListMenu.room.isFavourite
                         onTriggered: roomListMenu.room.isFavourite ? roomListMenu.room.removeTag("m.favourite") : roomListMenu.room.addTag("m.favourite", "1")
                     }
                     MenuItem {
-                        text: "Deprioritize"  + (roomListMenu.room && roomListMenu.room.isLowPriority ? "    \u2713" : "")
+                        text: "Deprioritize"
+                        checkable: true
+                        checked: roomListMenu.room && roomListMenu.room.isLowPriority
                         onTriggered: roomListMenu.room.isLowPriority ? roomListMenu.room.removeTag("m.lowpriority") : roomListMenu.room.addTag("m.lowpriority", "1")
                     }
+                    MenuSeparator {}
                     MenuItem {
                         text: "Leave Room"
                         onTriggered: matriqueController.forgetRoom(roomListMenu.room.id)

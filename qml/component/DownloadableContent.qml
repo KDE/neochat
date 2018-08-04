@@ -22,7 +22,6 @@ Item {
         selectFolder: true
 
         onAccepted: currentRoom.downloadFile(eventId, folder + "/" + currentRoom.fileNameToDownload(eventId))
-
     }
 
     onDownloadedChanged: downloaded && openOnFinished ? openSavedFile() : {}

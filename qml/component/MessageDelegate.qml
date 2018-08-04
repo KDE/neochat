@@ -24,15 +24,45 @@ Item {
 
     MouseArea {
         anchors.fill: parent
-        onPressAndHold: messageContextMenu.popup()
+        onPressAndHold: {
+            menuLoader.sourceComponent = menuComponent
+            menuLoader.item.popup()
+        }
 
-        Menu {
-            id: messageContextMenu
-            MenuItem {
-                text: "Redact"
-                onTriggered: currentRoom.redactEvent(eventId)
+        Component {
+            id: menuComponent
+            Menu {
+                id: messageContextMenu
+
+                MenuItem {
+                    text: "Copy"
+                    onTriggered: matriqueController.copyToClipboard(plainText)
+                }
+
+                MenuItem {
+                    visible: isFile
+                    height: visible ? undefined : 0
+                    text: "Open Externally"
+                    onTriggered: delegateLoader.item.downloadAndOpen()
+                }
+                MenuItem {
+                    visible: isFile
+                    height: visible ? undefined : 0
+                    text: "Save As"
+                    onTriggered: delegateLoader.item.saveFileAs()
+                }
+                MenuItem {
+                    visible: sentByMe
+                    height: visible ? undefined : 0
+                    text: "Redact"
+                    onTriggered: currentRoom.redactEvent(eventId)
+                }
             }
         }
+    }
+
+    Loader {
+        id: menuLoader
     }
 
     Loader {
