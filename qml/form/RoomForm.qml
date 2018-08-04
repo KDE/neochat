@@ -74,75 +74,89 @@ Item {
                 }
             }
 
-            ListView {
-                id: messageListView
 
-                z: -10
-
+            RowLayout {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 Layout.leftMargin: 16
-                Layout.rightMargin: 16
-                displayMarginBeginning: 40
-                displayMarginEnd: 40
-                verticalLayoutDirection: ListView.BottomToTop
-                spacing: 8
 
-                boundsBehavior: Flickable.DragOverBounds
+                z: -10
 
-                model: MessageEventModel{
-                    id: messageEventModel
-                    room: currentRoom
+                spacing: 0
+
+                ListView {
+                    id: messageListView
+
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    displayMarginBeginning: 40
+                    displayMarginEnd: 40
+                    verticalLayoutDirection: ListView.BottomToTop
+                    spacing: 8
+
+                    boundsBehavior: Flickable.DragOverBounds
+
+                    model: MessageEventModel{
+                        id: messageEventModel
+                        room: currentRoom
+                    }
+
+                    delegate: MessageDelegate {}
+
+                    section.property: "section"
+                    section.criteria: ViewSection.FullString
+                    section.delegate: RowLayout {
+                        width: parent.width * 0.6
+                        anchors.right: parent.right
+
+                        Rectangle {
+                            Layout.fillWidth: true
+                            height:2
+                            color: Material.accent
+                        }
+
+                        Label {
+                            padding: 4
+                            text: section
+                            color: Material.accent
+                            verticalAlignment: Text.AlignVCenter
+                        }
+                    }
+
+                    ScrollBar.vertical: messageListViewScrollBar
+
+                    onAtYBeginningChanged: atYBeginning && currentRoom ? currentRoom.getPreviousContent(50) : {}
+                    onAtYEndChanged: atYEnd && currentRoom ? currentRoom.markAllMessagesAsRead() : {}
+
+                    RoundButton {
+                        id: goTopFab
+                        width: height
+                        height: 64
+                        visible: !parent.atYEnd
+
+                        anchors.right: parent.right
+                        anchors.bottom: parent.bottom
+
+                        contentItem: MaterialIcon {
+                            anchors.fill: parent
+                            icon: "\ue313"
+                            color: "white"
+                        }
+
+                        opacity: pressed ? 1 : hovered ? 0.7 : 0.4
+                        Material.background: Qt.lighter(Material.accent)
+
+                        onClicked: parent.positionViewAtBeginning()
+
+                        Behavior on opacity { NumberAnimation { duration: 200 } }
+                    }
                 }
 
-                delegate: MessageDelegate {}
+                ScrollBar {
+                    id: messageListViewScrollBar
 
-                section.property: "section"
-                section.criteria: ViewSection.FullString
-                section.delegate: RowLayout {
-                    width: parent.width * 0.6
-                    anchors.right: parent.right
-
-                    Rectangle {
-                        Layout.fillWidth: true
-                        height:2
-                        color: Material.accent
-                    }
-
-                    Label {
-                        padding: 4
-                        text: section
-                        color: Material.accent
-                        verticalAlignment: Text.AlignVCenter
-                    }
-                }
-
-                onAtYBeginningChanged: atYBeginning && currentRoom ? currentRoom.getPreviousContent(50) : {}
-                onAtYEndChanged: atYEnd && currentRoom ? currentRoom.markAllMessagesAsRead() : {}
-
-                ScrollBar.vertical: ScrollBar {}
-
-                RoundButton {
-                    id: goTopFab
-                    width: height
-                    height: 64
-                    visible: !parent.atYEnd
-
-                    anchors.right: parent.right
-                    anchors.bottom: parent.bottom
-
-                    contentItem: MaterialIcon {
-                        anchors.fill: parent
-                        icon: "\ue313"
-                        color: "white"
-                    }
-
-                    opacity: pressed ? 1 : hovered ? 0.7 : 0.4
-                    Material.background: Qt.lighter(Material.accent)
-
-                    onClicked: parent.positionViewAtBeginning()
-
-                    Behavior on opacity { NumberAnimation { duration: 200 } }
+                    Layout.preferredWidth: 16
+                    Layout.fillHeight: true
                 }
             }
 
