@@ -28,6 +28,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const {
   roles[SpecialMarksRole] = "marks";
   roles[LongOperationRole] = "progressInfo";
   roles[EventResolvedTypeRole] = "eventResolvedType";
+  roles[PlainTextRole] = "plainText";
   return roles;
 }
 
@@ -218,6 +219,106 @@ QVariant MessageEventModel::data(const QModelIndex& index, int role) const {
             if (fileCaption.isEmpty()) return tr("a file");
           }
           return m_currentRoom->prettyPrint(e.plainBody());
+        },
+        [this](const RoomMemberEvent& e) {
+          // FIXME: Rewind to the name that was at the time of this event
+          QString subjectName = m_currentRoom->roomMembername(e.userId());
+          // The below code assumes senderName output in AuthorRole
+          switch (e.membership()) {
+            case MembershipType::Invite:
+              if (e.repeatsState())
+                return tr("reinvited %1 to the room").arg(subjectName);
+              FALLTHROUGH;
+            case MembershipType::Join: {
+              if (e.repeatsState()) return tr("joined the room (repeated)");
+              if (!e.prevContent() ||
+                  e.membership() != e.prevContent()->membership) {
+                return e.membership() == MembershipType::Invite
+                           ? tr("invited %1 to the room").arg(subjectName)
+                           : tr("joined the room");
+              }
+              QString text{};
+              if (e.displayName() != e.prevContent()->displayName) {
+                if (e.displayName().isEmpty())
+                  text = tr("cleared the display name");
+                else
+                  text =
+                      tr("changed the display name to %1").arg(e.displayName());
+              }
+              if (e.avatarUrl() != e.prevContent()->avatarUrl) {
+                if (!text.isEmpty()) text += " and ";
+                if (e.avatarUrl().isEmpty())
+                  text += tr("cleared the avatar");
+                else
+                  text += tr("updated the avatar");
+              }
+              return text;
+            }
+            case MembershipType::Leave:
+              if (e.prevContent() &&
+                  e.prevContent()->membership == MembershipType::Ban) {
+                return (e.senderId() != e.userId())
+                           ? tr("unbanned %1").arg(subjectName)
+                           : tr("self-unbanned");
+              }
+              return (e.senderId() != e.userId())
+                         ? tr("has put %1 out of the room").arg(subjectName)
+                         : tr("left the room");
+            case MembershipType::Ban:
+              return (e.senderId() != e.userId())
+                         ? tr("banned %1 from the room").arg(subjectName)
+                         : tr("self-banned from the room");
+            case MembershipType::Knock:
+              return tr("knocked");
+            default:;
+          }
+          return tr("made something unknown");
+        },
+        [](const RoomAliasesEvent& e) {
+          return tr("set aliases to: %1").arg(e.aliases().join(", "));
+        },
+        [](const RoomCanonicalAliasEvent& e) {
+          return (e.alias().isEmpty())
+                     ? tr("cleared the room main alias")
+                     : tr("set the room main alias to: %1").arg(e.alias());
+        },
+        [](const RoomNameEvent& e) {
+          return (e.name().isEmpty())
+                     ? tr("cleared the room name")
+                     : tr("set the room name to: %1").arg(e.name());
+        },
+        [](const RoomTopicEvent& e) {
+          return (e.topic().isEmpty())
+                     ? tr("cleared the topic")
+                     : tr("set the topic to: %1").arg(e.topic());
+        },
+        [](const RoomAvatarEvent&) { return tr("changed the room avatar"); },
+        [](const EncryptionEvent&) {
+          return tr("activated End-to-End Encryption");
+        },
+        tr("Unknown Event"));
+  }
+
+  if (role == PlainTextRole) {
+    if (evt.isRedacted()) {
+      auto reason = evt.redactedBecause()->reason();
+      if (reason.isEmpty()) return tr("Redacted");
+
+      return tr("Redacted: %1").arg(evt.redactedBecause()->reason());
+    }
+
+    return visit(
+        evt,
+        [this](const RoomMessageEvent& e) {
+          using namespace MessageEventContent;
+
+          if (e.hasFileContent()) {
+            auto fileCaption = e.content()->fileInfo()->originalName;
+            if (fileCaption.isEmpty())
+              fileCaption = e.plainBody();
+            if (fileCaption.isEmpty()) return tr("a file");
+          }
+          return e.plainBody();
         },
         [this](const RoomMemberEvent& e) {
           // FIXME: Rewind to the name that was at the time of this event

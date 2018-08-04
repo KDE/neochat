@@ -1,10 +1,12 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
-#include <QObject>
 #include "connection.h"
 #include "roomlistmodel.h"
 #include "user.h"
+
+#include <QObject>
+#include <QApplication>
 
 using namespace QMatrixClient;
 
@@ -81,6 +83,8 @@ class Controller : public QObject {
   }
 
  private:
+  QClipboard* m_clipboard = QApplication::clipboard();
+
   void connected();
   void resync();
   void reconnect();
@@ -101,6 +105,7 @@ class Controller : public QObject {
   void joinRoom(const QString& alias);
   void createRoom(const QString& name, const QString& topic);
   void createDirectChat(const QString& userID);
+  void copyToClipboard(const QString& text);
 };
 
 #endif  // CONTROLLER_H
