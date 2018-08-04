@@ -35,7 +35,10 @@ Item {
                     text: "Copy"
                     onTriggered: matriqueController.copyToClipboard(plainText)
                 }
-
+                MenuItem {
+                    text: "Copy Source"
+                    onTriggered: matriqueController.copyToClipboard(toolTip)
+                }
                 MenuItem {
                     visible: isFile
                     height: visible ? undefined : 0
