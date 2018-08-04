@@ -8,6 +8,7 @@
 #include "csapi/joining.h"
 #include "csapi/leaving.h"
 
+#include <QClipboard>
 #include <QFile>
 #include <QImage>
 #include <QMimeDatabase>
@@ -119,4 +120,8 @@ void Controller::createRoom(const QString& name, const QString& topic) {
 
 void Controller::createDirectChat(const QString& userID) {
   m_connection->requestDirectChat(userID);
+}
+
+void Controller::copyToClipboard(const QString& text) {
+  m_clipboard->setText(text);
 }

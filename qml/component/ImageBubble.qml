@@ -3,6 +3,9 @@ import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.2
 
 AvatarContainer {
+    readonly property var downloadAndOpen: downloadable.downloadAndOpen
+    readonly property var saveFileAs: downloadable.saveFileAs
+
     Rectangle {
         id: messageRect
 
@@ -33,20 +36,6 @@ AvatarContainer {
                     ToolTip.text: content.body
 
                     onClicked: downloadable.downloadAndOpen()
-                    onPressAndHold: messageImageMenu.popup()
-                }
-
-                Menu {
-                    id: messageImageMenu
-
-                    MenuItem {
-                        text: "View"
-                        onTriggered: downloadable.downloadAndOpen()
-                    }
-                    MenuItem {
-                        text: "Save as..."
-                        onTriggered: downloadable.saveFileAs()
-                    }
                 }
             }
         }
