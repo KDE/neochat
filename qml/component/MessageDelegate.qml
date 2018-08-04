@@ -24,10 +24,7 @@ Item {
 
     MouseArea {
         anchors.fill: parent
-        onPressAndHold: {
-            menuLoader.sourceComponent = menuComponent
-            menuLoader.item.popup()
-        }
+        onPressAndHold: menuComponent.createObject(this)
 
         Component {
             id: menuComponent
@@ -57,12 +54,10 @@ Item {
                     text: "Redact"
                     onTriggered: currentRoom.redactEvent(eventId)
                 }
+
+                Component.onCompleted: popup()
             }
         }
-    }
-
-    Loader {
-        id: menuLoader
     }
 
     Loader {

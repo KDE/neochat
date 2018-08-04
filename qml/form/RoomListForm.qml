@@ -112,7 +112,6 @@ Item {
                 ]
             }
 
-
             ListView {
                 id: listView
                 width: parent.width
@@ -125,6 +124,7 @@ Item {
                     opacity: 0.2
                 }
                 highlightMoveDuration: 250
+                highlightResizeDuration: 0
 
                 currentIndex: -1
 
@@ -135,16 +135,13 @@ Item {
                 delegate: ItemDelegate {
                     width: parent.width
                     height: 80
-                    onClicked: listView.currentIndex = index
-                    onPressAndHold: {
-                        roomListMenu.roomIndex = index
-                        roomListMenu.popup()
-                    }
+                    onPressed: listView.currentIndex = index
+                    onPressAndHold: menuComponent.createObject(this)
 
                     ToolTip.visible: mini && hovered
                     ToolTip.text: name
 
-                    contentItem:  RowLayout {
+                    contentItem: RowLayout {
                         anchors.fill: parent
                         anchors.margins: 16
                         spacing: 16
@@ -184,6 +181,33 @@ Item {
                             }
                         }
                     }
+
+                    Component {
+                        id: menuComponent
+                        Menu {
+                            id: roomListMenu
+
+                            MenuItem {
+                                text: "Favourite"
+                                checkable: true
+                                checked: currentRoom.isFavourite
+                                onTriggered: currentRoom.isFavourite ? currentRoom.removeTag("m.favourite") : currentRoom.addTag("m.favourite", "1")
+                            }
+                            MenuItem {
+                                text: "Deprioritize"
+                                checkable: true
+                                checked: currentRoom.isLowPriority
+                                onTriggered: currentRoom.isLowPriority ? currentRoom.removeTag("m.lowpriority") : currentRoom.addTag("m.lowpriority", "1")
+                            }
+                            MenuSeparator {}
+                            MenuItem {
+                                text: "Leave Room"
+                                onTriggered: matriqueController.forgetRoom(currentRoom.id)
+                            }
+
+                            Component.onCompleted: popup()
+                        }
+                    }
                 }
 
                 section.property: "category"
@@ -200,32 +224,6 @@ Item {
                     background: Rectangle {
                         anchors.fill:parent
                         color: Material.theme == Material.Light ? "#dbdbdb" : "#363636"
-                    }
-                }
-
-                Menu {
-                    property int roomIndex: -1
-                    readonly property int roomProxyIndex: roomListProxyModel.mapToSource(roomIndex)
-                    readonly property var room: roomProxyIndex != -1 ? listModel.roomAt(roomProxyIndex) : null
-
-                    id: roomListMenu
-
-                    MenuItem {
-                        text: "Favourite"
-                        checkable: true
-                        checked: roomListMenu.room && roomListMenu.room.isFavourite
-                        onTriggered: roomListMenu.room.isFavourite ? roomListMenu.room.removeTag("m.favourite") : roomListMenu.room.addTag("m.favourite", "1")
-                    }
-                    MenuItem {
-                        text: "Deprioritize"
-                        checkable: true
-                        checked: roomListMenu.room && roomListMenu.room.isLowPriority
-                        onTriggered: roomListMenu.room.isLowPriority ? roomListMenu.room.removeTag("m.lowpriority") : roomListMenu.room.addTag("m.lowpriority", "1")
-                    }
-                    MenuSeparator {}
-                    MenuItem {
-                        text: "Leave Room"
-                        onTriggered: matriqueController.forgetRoom(roomListMenu.room.id)
                     }
                 }
             }
