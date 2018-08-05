@@ -338,8 +338,7 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
 
           if (e.hasFileContent()) {
             auto fileCaption = e.content()->fileInfo()->originalName;
-            if (fileCaption.isEmpty())
-              fileCaption = e.plainBody();
+            if (fileCaption.isEmpty()) fileCaption = e.plainBody();
             if (fileCaption.isEmpty()) return tr("a file");
           }
           return e.plainBody();
@@ -422,7 +421,6 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
         },
         tr("Unknown Event"));
   }
-
 
   if (role == Qt::ToolTipRole) {
     return evt.originalJson();
@@ -515,11 +513,14 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
     return role == TimeRole ? QVariant(ts) : renderDate(ts);
   }
 
-  if (role == AboveSectionRole || role == AboveAuthorRole || role == AboveTimeRole)
+  if (role == AboveSectionRole || role == AboveAuthorRole ||
+      role == AboveTimeRole)
     for (auto r = row + 1; r < rowCount(); ++r) {
       auto i = index(r);
       if (data(i, SpecialMarksRole) != EventStatus::Hidden)
-        return data(i, role == AboveSectionRole ? SectionRole : role == AboveAuthorRole ? AuthorRole : TimeRole);
+        return data(i, role == AboveSectionRole
+                           ? SectionRole
+                           : role == AboveAuthorRole ? AuthorRole : TimeRole);
     }
 
   return {};
