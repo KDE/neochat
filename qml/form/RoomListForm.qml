@@ -31,6 +31,7 @@ Item {
                 id: searchField
                 width: parent.width
                 height: 36
+                color: "black"
                 leftPadding: mini ? 4 : 16
                 topPadding: 0
                 bottomPadding: 0

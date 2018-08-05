@@ -101,26 +101,38 @@ Item {
                         room: currentRoom
                     }
 
-                    delegate: MessageDelegate {}
+                    delegate: Column {
+                        width: parent.width
+                        spacing: 8
 
-                    section.property: "section"
-                    section.criteria: ViewSection.FullString
-                    section.delegate: RowLayout {
-                        width: parent.width * 0.6
-                        anchors.right: parent.right
+                        RowLayout {
+                            readonly property bool sectionVisible: section !== aboveSection
 
-                        Rectangle {
-                            Layout.fillWidth: true
-                            height:2
-                            color: Material.accent
+                            width: parent.width * 0.8
+                            visible: sectionVisible
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            spacing: 8
+
+                            Rectangle {
+                                Layout.fillWidth: true
+                                height:2
+                                color: Material.accent
+                            }
+
+                            Label {
+                                text: section
+                                color: Material.accent
+                                verticalAlignment: Text.AlignVCenter
+                            }
+
+                            Rectangle {
+                                Layout.fillWidth: true
+                                height:2
+                                color: Material.accent
+                            }
                         }
 
-                        Label {
-                            padding: 4
-                            text: section
-                            color: Material.accent
-                            verticalAlignment: Text.AlignVCenter
-                        }
+                        MessageDelegate {}
                     }
 
                     ScrollBar.vertical: messageListViewScrollBar
