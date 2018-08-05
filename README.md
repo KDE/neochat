@@ -1,7 +1,7 @@
 # Matrique
 
 [![pipeline status](https://gitlab.com/b0/matrique/badges/master/pipeline.svg)](https://gitlab.com/b0/matrique/commits/master)
-[![flatpak status](https://gitlab.com/b0/matrique/badges/master/pipeline.svg)](https://gitlab.com/b0/matrique-repo/commits/master)
+[![flatpak status](https://gitlab.com/b0/matrique-repo/badges/master/pipeline.svg)](https://gitlab.com/b0/matrique-repo/commits/master)
 [![coverage report](https://gitlab.com/b0/matrique/badges/master/coverage.svg)](https://gitlab.com/b0/matrique/commits/master)
 
 > "Nobody can be told what the matrix is, you have to see it for yourself. "
