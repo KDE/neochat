@@ -3,20 +3,23 @@ import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.2
 
 AvatarContainer {
+    readonly property var downloadAndOpen: downloadable.downloadAndOpen
+    readonly property var saveFileAs: downloadable.saveFileAs
+
     DownloadableContent {
         id: downloadable
 
-        width: downloadButton.width
-        height: downloadButton.height
+        width: downloadDelegate.width
+        height: downloadDelegate.height
 
-        Button {
-            id: downloadButton
+        TextDelegate {
+            id: downloadDelegate
 
-            text: content.body
+            maximumWidth: messageListView.width
             highlighted: !sentByMe
-            flat: true
+            timeLabelVisible: false
 
-            onClicked: downloadable.saveFileAs()
+            displayText: "<b>File: </b>" + content.body
         }
     }
 }
