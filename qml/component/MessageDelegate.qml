@@ -1,6 +1,7 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.2
+import Matrique 0.1
 
 Item {
     id: messageDelegate
@@ -13,7 +14,7 @@ Item {
     readonly property bool isMessage: eventType === "message" || eventType === "notice"
     readonly property bool isFile: eventType === "video" || eventType === "audio" || eventType === "file" || eventType === "image"
 
-    visible: eventType != "redaction"
+    visible: marks !== EventStatus.Hidden
 
     z: -5
     width: delegateLoader.width
