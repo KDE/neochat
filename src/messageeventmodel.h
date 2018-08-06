@@ -38,7 +38,8 @@ class MessageEventModel : public QAbstractListModel {
   void setRoom(QMatrixClient::Room* room);
 
   int rowCount(const QModelIndex& parent = QModelIndex()) const override;
-  QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
+  QVariant data(const QModelIndex& index,
+                int role = Qt::DisplayRole) const override;
   QHash<int, QByteArray> roleNames() const;
 
  private slots:
@@ -55,6 +56,8 @@ class MessageEventModel : public QAbstractListModel {
   QDateTime makeMessageTimestamp(
       const QMatrixClient::Room::rev_iter_t& baseIt) const;
   QString renderDate(QDateTime timestamp) const;
+  bool isUserActivityNotable(const QMatrixClient::Room::rev_iter_t& baseIt) const;
+
   void refreshEventRoles(int row, const QVector<int>& roles = {});
   void refreshEventRoles(const QString& eventId,
                          const QVector<int>& roles = {});
