@@ -37,7 +37,7 @@ Item {
                 bottomPadding: 0
                 anchors.verticalCenter: parent.verticalCenter
 
-                background: Item {
+                background: Item {                    
                     Row {
                         anchors.fill: parent
 
@@ -141,6 +141,13 @@ Item {
 
                     ToolTip.visible: mini && hovered
                     ToolTip.text: name
+
+                    Rectangle {
+                        width: 4
+                        height: parent.height
+                        color: Qt.tint(Material.accent, "#20FFFFFF")
+                        visible: unreadCount > 0
+                    }
 
                     contentItem: RowLayout {
                         anchors.fill: parent
