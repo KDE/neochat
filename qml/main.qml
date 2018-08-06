@@ -91,27 +91,6 @@ ApplicationWindow {
         }
     }
 
-    Dialog {
-        property alias text: errorLabel.text
-
-        id: errorDialog
-        width: 360
-        modal: true
-        title: "ERROR"
-
-        x: (window.width - width) / 2
-        y: (window.height - height) / 2
-
-        standardButtons: Dialog.Ok
-
-        Label {
-            id: errorLabel
-            width: parent.width
-            text: "Label"
-            wrapMode: Text.Wrap
-        }
-    }
-
     Component {
         id: loginPage
 

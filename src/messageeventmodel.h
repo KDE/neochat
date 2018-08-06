@@ -25,6 +25,7 @@ class MessageEventModel : public QAbstractListModel {
     ReadMarkerRole,
     SpecialMarksRole,
     LongOperationRole,
+    AnnotationRole,
     PlainTextRole,
     // For debugging
     EventResolvedTypeRole,
@@ -36,25 +37,31 @@ class MessageEventModel : public QAbstractListModel {
   QMatrixClient::Room* getRoom() { return m_currentRoom; }
   void setRoom(QMatrixClient::Room* room);
 
-  Q_INVOKABLE int rowCount(
-      const QModelIndex& parent = QModelIndex()) const override;
-  QVariant data(const QModelIndex& index, int role) const override;
+  int rowCount(const QModelIndex& parent = QModelIndex()) const override;
+  QVariant data(const QModelIndex& index,
+                int role = Qt::DisplayRole) const override;
   QHash<int, QByteArray> roleNames() const;
 
  private slots:
-  void refreshEvent(const QString& eventId);
+  int refreshEvent(const QString& eventId);
+  void refreshRow(int row);
 
  private:
   QMatrixClient::Room* m_currentRoom = nullptr;
   QString lastReadEventId;
-  bool mergingEcho = 0;
-  int nextNewerRow = -1;
+  int rowBelowInserted = -1;
+  bool movingEvent = 0;
 
+  int timelineBaseIndex() const;
   QDateTime makeMessageTimestamp(
       const QMatrixClient::Room::rev_iter_t& baseIt) const;
-  QString makeDateString(const QMatrixClient::Room::rev_iter_t& baseIt) const;
-  void refreshEventRoles(const int row, const QVector<int>& roles);
-  void refreshEventRoles(const QString& eventId, const QVector<int>& roles);
+  QString renderDate(QDateTime timestamp) const;
+  bool isUserActivityNotable(
+      const QMatrixClient::Room::rev_iter_t& baseIt) const;
+
+  void refreshLastUserEvents(int baseRow);
+  void refreshEventRoles(int row, const QVector<int>& roles = {});
+  int refreshEventRoles(const QString& eventId, const QVector<int>& roles = {});
 
  signals:
   void roomChanged();

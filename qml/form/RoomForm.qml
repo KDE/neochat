@@ -10,7 +10,7 @@ import "qrc:/js/md.js" as Markdown
 
 Item {
     id: item
-    property var currentRoom
+    property var currentRoom: null
 
     Pane {
         anchors.fill: parent
@@ -269,9 +269,9 @@ Item {
                                 text = text.substr(PREFIX_RAINBOW.length)
 
                                 var parsedText = ""
-                                var rainbowColor = ["#ee0000", "#ff7700", "#eeee00", "#00bb00", "#0000ee", "#dd00dd", "#880088"]
+                                var rainbowColor = ["#ff2b00", "#ff5500", "#ff8000", "#ffaa00", "#ffd500", "#ffff00", "#d4ff00", "#aaff00", "#80ff00", "#55ff00", "#2bff00", "#00ff00", "#00ff2b", "#00ff55", "#00ff80", "#00ffaa", "#00ffd5", "#00ffff", "#00d4ff", "#00aaff", "#007fff", "#0055ff", "#002bff", "#0000ff", "#2a00ff", "#5500ff", "#7f00ff", "#aa00ff", "#d400ff", "#ff00ff", "#ff00d4", "#ff00aa", "#ff0080", "#ff0055", "#ff002b", "#ff0000"]
                                 for (var i = 0; i < text.length; i++) {
-                                    parsedText = parsedText + "<font color='" + rainbowColor[i % 7] + "'>" + text.charAt(i) + "</font>"
+                                    parsedText = parsedText + "<font color='" + rainbowColor[i % rainbowColor.length] + "'>" + text.charAt(i) + "</font>"
                                 }
                                 currentRoom.postHtmlMessage(text, parsedText, RoomMessageEvent.Text)
                                 return

@@ -1,7 +1,6 @@
 #include "messageeventmodel.h"
 
 #include <QtCore/QDebug>
-#include <QtCore/QSettings>
 #include <QtQml>  // for qmlRegisterType()
 
 #include <connection.h>
@@ -24,21 +23,26 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const {
   roles[AboveAuthorRole] = "aboveAuthor";
   roles[ContentRole] = "content";
   roles[ContentTypeRole] = "contentType";
+  roles[HighlightRole] = "highlight";
   roles[ReadMarkerRole] = "readMarker";
   roles[SpecialMarksRole] = "marks";
   roles[LongOperationRole] = "progressInfo";
+  roles[AnnotationRole] = "annotation";
   roles[EventResolvedTypeRole] = "eventResolvedType";
   roles[PlainTextRole] = "plainText";
   return roles;
 }
 
+MessageEventModel::~MessageEventModel() {}
+
 MessageEventModel::MessageEventModel(QObject* parent)
     : QAbstractListModel(parent), m_currentRoom(nullptr) {
-  qmlRegisterType<QMatrixClient::FileTransferInfo>();
-  qRegisterMetaType<QMatrixClient::FileTransferInfo>();
+  using namespace QMatrixClient;
+  qmlRegisterType<FileTransferInfo>();
+  qRegisterMetaType<FileTransferInfo>();
+  qmlRegisterUncreatableType<EventStatus>(
+      "Matrique", 0, 1, "EventStatus", "EventStatus is not an creatable type");
 }
-
-MessageEventModel::~MessageEventModel() {}
 
 void MessageEventModel::setRoom(QMatrixClient::Room* room) {
   if (room == m_currentRoom) return;
@@ -52,58 +56,76 @@ void MessageEventModel::setRoom(QMatrixClient::Room* room) {
   m_currentRoom = room;
   if (room) {
     lastReadEventId = room->readMarkerEventId();
+
     using namespace QMatrixClient;
     connect(m_currentRoom, &Room::aboutToAddNewMessages, this,
             [=](RoomEventsRange events) {
-              const auto pos = m_currentRoom->pendingEvents().size();
-              beginInsertRows(QModelIndex(), int(pos),
-                              int(pos + events.size() - 1));
+              beginInsertRows({}, timelineBaseIndex(),
+                              timelineBaseIndex() + int(events.size()) - 1);
             });
     connect(m_currentRoom, &Room::aboutToAddHistoricalMessages, this,
             [=](RoomEventsRange events) {
-              if (rowCount() > 0) nextNewerRow = rowCount() - 1;  // See #312
-              beginInsertRows(QModelIndex(), rowCount(),
+              if (rowCount() > 0)
+                rowBelowInserted = rowCount() - 1;  // See #312
+              beginInsertRows({}, rowCount(),
                               rowCount() + int(events.size()) - 1);
             });
-    connect(m_currentRoom, &Room::addedMessages, this, [=] {
-      if (nextNewerRow > -1) {
-        const auto idx = index(nextNewerRow);
-        emit dataChanged(idx, idx);
-        nextNewerRow = -1;
-      }
-      endInsertRows();
-    });
+    connect(m_currentRoom, &Room::addedMessages, this,
+            [=](int lowest, int biggest) {
+              endInsertRows();
+              if (biggest < m_currentRoom->maxTimelineIndex()) {
+                auto rowBelowInserted = m_currentRoom->maxTimelineIndex() -
+                                        biggest + timelineBaseIndex() - 1;
+                refreshEventRoles(rowBelowInserted,
+                                  {AboveAuthorRole, AboveSectionRole});
+              }
+              for (auto i = m_currentRoom->maxTimelineIndex() - biggest;
+                   i <= m_currentRoom->maxTimelineIndex() - lowest; ++i)
+                refreshLastUserEvents(i);
+            });
     connect(m_currentRoom, &Room::pendingEventAboutToAdd, this,
             [this] { beginInsertRows({}, 0, 0); });
     connect(m_currentRoom, &Room::pendingEventAdded, this,
             &MessageEventModel::endInsertRows);
     connect(m_currentRoom, &Room::pendingEventAboutToMerge, this,
             [this](RoomEvent*, int i) {
-              const auto timelineBaseIdx =
-                  int(m_currentRoom->pendingEvents().size());
-              if (i + 1 == timelineBaseIdx) return;  // No need to move anything
-              mergingEcho = true;
-              Q_ASSERT(beginMoveRows({}, i, i, {}, timelineBaseIdx));
+              if (i == 0) return;  // No need to move anything, just refresh
+
+              movingEvent = true;
+              // Reverse i because row 0 is bottommost in the model
+              const auto row = timelineBaseIndex() - i - 1;
+              Q_ASSERT(beginMoveRows({}, row, row, {}, timelineBaseIndex()));
             });
     connect(m_currentRoom, &Room::pendingEventMerged, this, [this] {
-      if (mergingEcho) {
+      if (movingEvent) {
         endMoveRows();
-        mergingEcho = false;
+        movingEvent = false;
       }
-      refreshEventRoles(int(m_currentRoom->pendingEvents().size()),
-                        {SpecialMarksRole});
+      refreshRow(timelineBaseIndex());  // Refresh the looks
+      refreshLastUserEvents(0);
+      if (m_currentRoom->timelineSize() > 1)  // Refresh above
+        refreshEventRoles(timelineBaseIndex() + 1, {ReadMarkerRole});
+      if (timelineBaseIndex() > 0)  // Refresh below, see #312
+        refreshEventRoles(timelineBaseIndex() - 1,
+                          {AboveAuthorRole, AboveSectionRole});
     });
     connect(m_currentRoom, &Room::pendingEventChanged, this,
-            [this](int i) { refreshEventRoles(i, {SpecialMarksRole}); });
+            &MessageEventModel::refreshRow);
+    connect(m_currentRoom, &Room::pendingEventAboutToDiscard, this,
+            [this](int i) { beginRemoveRows({}, i, i); });
+    connect(m_currentRoom, &Room::pendingEventDiscarded, this,
+            &MessageEventModel::endRemoveRows);
     connect(m_currentRoom, &Room::readMarkerMoved, this, [this] {
       refreshEventRoles(
           std::exchange(lastReadEventId, m_currentRoom->readMarkerEventId()),
           {ReadMarkerRole});
       refreshEventRoles(lastReadEventId, {ReadMarkerRole});
     });
-    connect(
-        m_currentRoom, &Room::replacedEvent, this,
-        [this](const RoomEvent* newEvent) { refreshEvent(newEvent->id()); });
+    connect(m_currentRoom, &Room::replacedEvent, this,
+            [this](const RoomEvent* newEvent) {
+              refreshLastUserEvents(refreshEvent(newEvent->id()) -
+                                    timelineBaseIndex());
+            });
     connect(m_currentRoom, &Room::fileTransferProgress, this,
             &MessageEventModel::refreshEvent);
     connect(m_currentRoom, &Room::fileTransferCompleted, this,
@@ -119,21 +141,32 @@ void MessageEventModel::setRoom(QMatrixClient::Room* room) {
   endResetModel();
 }
 
-void MessageEventModel::refreshEvent(const QString& eventId) {
-  refreshEventRoles(eventId, {});
+int MessageEventModel::refreshEvent(const QString& eventId) {
+  return refreshEventRoles(eventId);
 }
 
-void MessageEventModel::refreshEventRoles(const int row,
-                                          const QVector<int>& roles) {
+void MessageEventModel::refreshRow(int row) { refreshEventRoles(row); }
+
+int MessageEventModel::timelineBaseIndex() const {
+  return m_currentRoom ? int(m_currentRoom->pendingEvents().size()) : 0;
+}
+
+void MessageEventModel::refreshEventRoles(int row, const QVector<int>& roles) {
   const auto idx = index(row);
   emit dataChanged(idx, idx, roles);
 }
 
-void MessageEventModel::refreshEventRoles(const QString& eventId,
-                                          const QVector<int>& roles) {
+int MessageEventModel::refreshEventRoles(const QString& eventId,
+                                         const QVector<int>& roles) {
   const auto it = m_currentRoom->findInTimeline(eventId);
-  if (it != m_currentRoom->timelineEdge())
-    refreshEventRoles(it - m_currentRoom->messageEvents().rbegin(), roles);
+  if (it == m_currentRoom->timelineEdge()) {
+    qWarning() << "Trying to refresh inexistent event:" << eventId;
+    return -1;
+  }
+  const auto row =
+      it - m_currentRoom->messageEvents().rbegin() + timelineBaseIndex();
+  refreshEventRoles(row, roles);
+  return row;
 }
 
 inline bool hasValidTimestamp(const QMatrixClient::TimelineItem& ti) {
@@ -161,9 +194,8 @@ QDateTime MessageEventModel::makeMessageTimestamp(
   return {};
 }
 
-QString MessageEventModel::makeDateString(
-    const QMatrixClient::Room::rev_iter_t& baseIt) const {
-  auto date = makeMessageTimestamp(baseIt).toLocalTime().date();
+QString MessageEventModel::renderDate(QDateTime timestamp) const {
+  auto date = timestamp.toLocalTime().date();
   if (QMatrixClient::SettingsGroup("UI")
           .value("banner_human_friendly_date", true)
           .toBool()) {
@@ -176,25 +208,101 @@ QString MessageEventModel::makeDateString(
   return date.toString(Qt::DefaultLocaleShortDate);
 }
 
+bool MessageEventModel::isUserActivityNotable(
+    const QMatrixClient::Room::rev_iter_t& baseIt) const {
+  const auto& senderId = (*baseIt)->senderId();
+  // TODO: Go up and down the timeline (limit to 100 events for
+  // the sake of performance) and collect all messages of
+  // this author; find out if there's anything besides joins, leaves
+  // and redactions; if not, double-check whether the current event is
+  // a part of a re-join without following redactions.
+  using namespace QMatrixClient;
+  bool joinFound = false, redactionsFound = false;
+  // Find the nearest join of this user above, or a no-nonsense event.
+  for (auto it = baseIt,
+            limit = baseIt +
+                    std::min(int(m_currentRoom->timelineEdge() - baseIt), 100);
+       it != limit; ++it) {
+    const auto& e = **it;
+    if (e.senderId() != senderId) continue;
+    if (e.isRedacted()) {
+      redactionsFound = true;
+      continue;
+    }
+    if (auto* me = it->viewAs<QMatrixClient::RoomMemberEvent>()) {
+      if (me->isJoin()) {
+        joinFound = true;
+        break;
+      }
+      continue;
+    }
+    return true;  // Consider all other events notable
+  }
+  // Find the nearest leave of this user below, or a no-nonsense event
+  bool leaveFound = false;
+  for (auto it = baseIt.base() - 1,
+            limit = baseIt.base() +
+                    std::min(int(m_currentRoom->messageEvents().end() -
+                                 baseIt.base()),
+                             100);
+       it != limit; ++it) {
+    const auto& e = **it;
+    if (e.senderId() != senderId) continue;
+    if (e.isRedacted()) {
+      redactionsFound = true;
+      continue;
+    }
+    if (auto* me = it->viewAs<RoomMemberEvent>()) {
+      if (me->isLeave() || me->membership() == MembershipType::Ban) {
+        leaveFound = true;
+        break;
+      }
+      continue;
+    }
+    return true;
+  }
+  // If we are here, it means that no notable events have been found in
+  // the timeline vicinity, and probably redactions are there. Doesn't look
+  // notable but let's give some benefit of doubt.
+  if (redactionsFound) return false;  // Join + redactions or redactions + leave
+  return !(joinFound && leaveFound);  // Join + (maybe profile changes) + leave
+}
+
+void MessageEventModel::refreshLastUserEvents(int baseTimelineRow) {
+  if (!m_currentRoom || m_currentRoom->timelineSize() <= baseTimelineRow)
+    return;
+  const auto& timelineBottom = m_currentRoom->messageEvents().rbegin();
+  const auto& lastSender = (*(timelineBottom + baseTimelineRow))->senderId();
+  const auto limit = timelineBottom + std::min(baseTimelineRow + 100,
+                                               m_currentRoom->timelineSize());
+  for (auto it = timelineBottom + std::max(baseTimelineRow - 100, 0);
+       it != limit; ++it) {
+    if ((*it)->senderId() == lastSender) {
+      auto idx = index(it - timelineBottom);
+      emit dataChanged(idx, idx);
+    }
+  }
+}
+
 int MessageEventModel::rowCount(const QModelIndex& parent) const {
   if (!m_currentRoom || parent.isValid()) return 0;
   return m_currentRoom->timelineSize();
 }
 
-QVariant MessageEventModel::data(const QModelIndex& index, int role) const {
-  const auto row = index.row();
+QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
+  const auto row = idx.row();
 
   if (!m_currentRoom || row < 0 ||
       row >= int(m_currentRoom->pendingEvents().size()) +
                  m_currentRoom->timelineSize())
     return {};
 
-  const auto timelineBaseIdx = int(m_currentRoom->pendingEvents().size());
+  bool isPending = row < timelineBaseIndex();
   const auto timelineIt = m_currentRoom->messageEvents().crbegin() +
-                          std::max(-1, row - timelineBaseIdx);
-  const auto& evt = row < timelineBaseIdx
-                        ? *m_currentRoom->pendingEvents()[size_t(row)]
-                        : *timelineIt->event();
+                          std::max(0, row - timelineBaseIndex());
+  const auto pendingIt = m_currentRoom->pendingEvents().crbegin() +
+                         std::min(row, timelineBaseIndex());
+  const auto& evt = isPending ? **pendingIt : **timelineIt;
 
   using namespace QMatrixClient;
   if (role == Qt::DisplayRole) {
@@ -238,14 +346,14 @@ QVariant MessageEventModel::data(const QModelIndex& index, int role) const {
                            : tr("joined the room");
               }
               QString text{};
-              if (e.displayName() != e.prevContent()->displayName) {
+              if (e.isRename()) {
                 if (e.displayName().isEmpty())
                   text = tr("cleared the display name");
                 else
                   text =
                       tr("changed the display name to %1").arg(e.displayName());
               }
-              if (e.avatarUrl() != e.prevContent()->avatarUrl) {
+              if (e.isAvatarUpdate()) {
                 if (!text.isEmpty()) text += " and ";
                 if (e.avatarUrl().isEmpty())
                   text += tr("cleared the avatar");
@@ -314,8 +422,7 @@ QVariant MessageEventModel::data(const QModelIndex& index, int role) const {
 
           if (e.hasFileContent()) {
             auto fileCaption = e.content()->fileInfo()->originalName;
-            if (fileCaption.isEmpty())
-              fileCaption = e.plainBody();
+            if (fileCaption.isEmpty()) fileCaption = e.plainBody();
             if (fileCaption.isEmpty()) return tr("a file");
           }
           return e.plainBody();
@@ -412,15 +519,10 @@ QVariant MessageEventModel::data(const QModelIndex& index, int role) const {
           return "notice";
         case MessageEventType::Image:
           return "image";
-        case MessageEventType::File:
-        case MessageEventType::Audio:
-        case MessageEventType::Video:
-          return "file";
         default:
-          return "message";
+          return e->hasFileContent() ? "file" : "message";
       }
     }
-    if (is<RedactionEvent>(evt)) return "redaction";
     if (evt.isStateEvent()) return "state";
 
     return "other";
@@ -431,9 +533,8 @@ QVariant MessageEventModel::data(const QModelIndex& index, int role) const {
 
   if (role == AuthorRole) {
     // FIXME: It shouldn't be User, it should be its state "as of event"
-    return QVariant::fromValue(row < timelineBaseIdx
-                                   ? m_currentRoom->localUser()
-                                   : m_currentRoom->user(evt.senderId()));
+    return QVariant::fromValue(isPending ? m_currentRoom->localUser()
+                                         : m_currentRoom->user(evt.senderId()));
   }
 
   if (role == ContentTypeRole) {
@@ -466,16 +567,39 @@ QVariant MessageEventModel::data(const QModelIndex& index, int role) const {
   if (role == ReadMarkerRole) return evt.id() == lastReadEventId;
 
   if (role == SpecialMarksRole) {
-    if (row < timelineBaseIdx)
-      return evt.id().isEmpty() ? "unsent" : "unsynced";
+    if (isPending) return pendingIt->deliveryStatus();
+
+    if (is<RedactionEvent>(evt)) return EventStatus::Hidden;
+    auto* memberEvent = timelineIt->viewAs<RoomMemberEvent>();
+    if (memberEvent) {
+      if ((memberEvent->isJoin() || memberEvent->isLeave()) &&
+          !Settings().value("UI/show_joinleave", true).toBool())
+        return EventStatus::Hidden;
+    }
+    if (memberEvent || evt.isRedacted()) {
+      if (evt.senderId() == m_currentRoom->localUser()->id() ||
+          Settings().value("UI/show_spammy").toBool()) {
+        //            QElapsedTimer et; et.start();
+        auto hide = !isUserActivityNotable(timelineIt);
+        //            qDebug() << "Checked user activity for" << evt.id() <<
+        //            "in" << et;
+        if (hide) return EventStatus::Hidden;
+      }
+    }
+    if (evt.isRedacted())
+        return Settings().value("UI/show_redacted").toBool()
+                ? EventStatus::Redacted : EventStatus::Hidden;
 
     if (evt.isStateEvent() &&
-        static_cast<const StateEventBase&>(evt).repeatsState())
-      return "noop";
-    return evt.isRedacted() ? "redacted" : "";
+        static_cast<const StateEventBase&>(evt).repeatsState() &&
+        !Settings().value("UI/show_noop_events").toBool())
+      return EventStatus::Hidden;
+
+    return EventStatus::Normal;
   }
 
-  if (role == EventIdRole) return evt.id();
+  if (role == EventIdRole)
+    return !evt.id().isEmpty() ? evt.id() : evt.transactionId();
 
   if (role == LongOperationRole) {
     if (auto e = eventCast<const RoomMessageEvent>(&evt))
@@ -483,30 +607,24 @@ QVariant MessageEventModel::data(const QModelIndex& index, int role) const {
         return QVariant::fromValue(m_currentRoom->fileTransferInfo(e->id()));
   }
 
-  if (row >= timelineBaseIdx - 1)  // The timeline and the topmost unsynced
-  {
-    if (role == TimeRole)
-      return row < timelineBaseIdx ? QDateTime::currentDateTimeUtc()
-                                   : makeMessageTimestamp(timelineIt);
+  if (role == AnnotationRole)
+    if (isPending) return pendingIt->annotation();
 
-    if (role == SectionRole)
-      return row < timelineBaseIdx
-                 ? tr("Today")
-                 : makeDateString(
-                       timelineIt);  // FIXME: move date rendering to QML
-
-    // FIXME: shouldn't be here, because #312
-    auto aboveEventIt = timelineIt + 1;
-    if (aboveEventIt != m_currentRoom->timelineEdge()) {
-      if (role == AboveSectionRole) return makeDateString(aboveEventIt);
-
-      if (role == AboveAuthorRole)
-        return QVariant::fromValue(
-            m_currentRoom->user((*aboveEventIt)->senderId()));
-
-      if (role == AboveTimeRole) return makeMessageTimestamp(aboveEventIt);
-    }
+  if (role == TimeRole || role == SectionRole) {
+    auto ts =
+        isPending ? pendingIt->lastUpdated() : makeMessageTimestamp(timelineIt);
+    return role == TimeRole ? QVariant(ts) : renderDate(ts);
   }
 
-  return QVariant();
+  if (role == AboveSectionRole || role == AboveAuthorRole ||
+      role == AboveTimeRole)
+    for (auto r = row + 1; r < rowCount(); ++r) {
+      auto i = index(r);
+      if (data(i, SpecialMarksRole) != EventStatus::Hidden)
+        return data(i, role == AboveSectionRole
+                           ? SectionRole
+                           : role == AboveAuthorRole ? AuthorRole : TimeRole);
+    }
+
+  return {};
 }
