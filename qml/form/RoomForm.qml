@@ -10,7 +10,7 @@ import "qrc:/js/md.js" as Markdown
 
 Item {
     id: item
-    property var currentRoom
+    property var currentRoom: null
 
     Pane {
         anchors.fill: parent

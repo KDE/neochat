@@ -60,19 +60,20 @@ void RoomListModel::connectRoomSignals(Room* room) {
   connect(room, &Room::avatarChanged, this,
           [=] { refresh(room, {AvatarRole}); });
 
-    connect(room, &Room::unreadMessagesChanged, this, [=](Room* r) {
-      if (r->hasUnreadMessages()) emit newMessage(r);
-    });
-//  connect(
-//      room, &QMatrixClient::Room::aboutToAddNewMessages, this,
-//      [=](QMatrixClient::RoomEventsRange eventsRange) {
-//        for (QMatrixClient::RoomEvents events : eventsRange.const_iterator) {
-//          for (QMatrixClient::RoomEvent event : events) {
-//            qDebug() << event.fullJson();
-//          }
-//        }
-//        emit newMessage(room);
-//      });
+  connect(room, &Room::unreadMessagesChanged, this, [=](Room* r) {
+    if (r->hasUnreadMessages()) emit newMessage(r);
+  });
+  //  connect(
+  //      room, &QMatrixClient::Room::aboutToAddNewMessages, this,
+  //      [=](QMatrixClient::RoomEventsRange eventsRange) {
+  //        for (QMatrixClient::RoomEvents events : eventsRange.const_iterator)
+  //        {
+  //          for (QMatrixClient::RoomEvent event : events) {
+  //            qDebug() << event.fullJson();
+  //          }
+  //        }
+  //        emit newMessage(room);
+  //      });
 }
 
 void RoomListModel::updateRoom(Room* room, Room* prev) {
@@ -160,7 +161,7 @@ QVariant RoomListModel::data(const QModelIndex& index, int role) const {
     return QVariant();
   }
   if (role == UnreadCountRole) {
-      return room->unreadCount();
+    return room->unreadCount();
   }
   return QVariant();
 }

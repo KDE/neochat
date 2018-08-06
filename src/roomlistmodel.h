@@ -18,7 +18,7 @@ class RoomListModel : public QAbstractListModel {
     TopicRole,
     CategoryRole,
     HighlightRole,
-    UnreadCountRole,
+    UnreadCountRole
   };
 
   RoomListModel(QObject* parent = 0);

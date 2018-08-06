@@ -14,6 +14,7 @@ Item {
     readonly property int currentIndex: roomListProxyModel.mapToSource(listView.currentIndex)
     readonly property var currentRoom: currentIndex != -1 ? listModel.roomAt(currentIndex) : null
     readonly property bool mini: setting.miniMode // Used as an indicator of whether the listform should be displayed as "Mini mode".
+    signal enterRoom()
 
     ColumnLayout {
         anchors.fill: parent
@@ -37,7 +38,7 @@ Item {
                 bottomPadding: 0
                 anchors.verticalCenter: parent.verticalCenter
 
-                background: Item {                    
+                background: Item {
                     Row {
                         anchors.fill: parent
 
@@ -137,6 +138,7 @@ Item {
                     width: parent.width
                     height: 80
                     onPressed: listView.currentIndex = index
+                    onClicked: enterRoom()
                     onPressAndHold: menuComponent.createObject(this)
 
                     ToolTip.visible: mini && hovered
@@ -208,6 +210,10 @@ Item {
                                 onTriggered: currentRoom.isLowPriority ? currentRoom.removeTag("m.lowpriority") : currentRoom.addTag("m.lowpriority", "1")
                             }
                             MenuSeparator {}
+                            MenuItem {
+                                text: "Mark as Read"
+                                onTriggered: currentRoom.markAllMessagesAsRead()
+                            }
                             MenuItem {
                                 text: "Leave Room"
                                 onTriggered: matriqueController.forgetRoom(currentRoom.id)

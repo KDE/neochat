@@ -31,6 +31,8 @@ Page {
             Layout.maximumWidth: 360
 
             listModel:  roomListModel
+
+            onEnterRoom: roomForm.currentRoom = currentRoom
         }
 
         RoomForm {
@@ -38,8 +40,6 @@ Page {
 
             Layout.fillWidth: true
             Layout.fillHeight: true
-
-            currentRoom: roomListForm.currentRoom
         }
     }
 }
