@@ -43,7 +43,7 @@ class MessageEventModel : public QAbstractListModel {
   QHash<int, QByteArray> roleNames() const;
 
  private slots:
-  void refreshEvent(const QString& eventId);
+  int refreshEvent(const QString& eventId);
   void refreshRow(int row);
 
  private:
@@ -56,11 +56,12 @@ class MessageEventModel : public QAbstractListModel {
   QDateTime makeMessageTimestamp(
       const QMatrixClient::Room::rev_iter_t& baseIt) const;
   QString renderDate(QDateTime timestamp) const;
-  bool isUserActivityNotable(const QMatrixClient::Room::rev_iter_t& baseIt) const;
+  bool isUserActivityNotable(
+      const QMatrixClient::Room::rev_iter_t& baseIt) const;
 
+  void refreshLastUserEvents(int baseRow);
   void refreshEventRoles(int row, const QVector<int>& roles = {});
-  void refreshEventRoles(const QString& eventId,
-                         const QVector<int>& roles = {});
+  int refreshEventRoles(const QString& eventId, const QVector<int>& roles = {});
 
  signals:
   void roomChanged();
