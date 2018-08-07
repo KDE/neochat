@@ -42,7 +42,6 @@ void RoomListModel::doAddRoom(Room* r) {
   if (auto* room = r) {
     m_rooms.append(room);
     connectRoomSignals(room);
-    if (room->timelineSize() == 0) room->getPreviousContent(50);
   } else {
     qCritical() << "Attempt to add nullptr to the room list";
     Q_ASSERT(false);

@@ -15,7 +15,7 @@ Page {
 
         connection: page.connection
 
-        onNewMessage:  trayIcon.showMessage("New message", "New message for room " + room.displayName)
+//        onNewMessage:  trayIcon.showMessage("New message", "New message for room " + room.displayName)
     }
 
     RowLayout {

@@ -139,7 +139,7 @@ Item {
                     height: 80
                     onPressed: listView.currentIndex = index
                     onClicked: enterRoom()
-                    onPressAndHold: menuComponent.createObject(this)
+                    onPressAndHold: roomListMenu.popup()
 
                     ToolTip.visible: mini && hovered
                     ToolTip.text: name
@@ -191,37 +191,6 @@ Item {
                             }
                         }
                     }
-
-                    Component {
-                        id: menuComponent
-                        Menu {
-                            id: roomListMenu
-
-                            MenuItem {
-                                text: "Favourite"
-                                checkable: true
-                                checked: currentRoom.isFavourite
-                                onTriggered: currentRoom.isFavourite ? currentRoom.removeTag("m.favourite") : currentRoom.addTag("m.favourite", "1")
-                            }
-                            MenuItem {
-                                text: "Deprioritize"
-                                checkable: true
-                                checked: currentRoom.isLowPriority
-                                onTriggered: currentRoom.isLowPriority ? currentRoom.removeTag("m.lowpriority") : currentRoom.addTag("m.lowpriority", "1")
-                            }
-                            MenuSeparator {}
-                            MenuItem {
-                                text: "Mark as Read"
-                                onTriggered: currentRoom.markAllMessagesAsRead()
-                            }
-                            MenuItem {
-                                text: "Leave Room"
-                                onTriggered: matriqueController.forgetRoom(currentRoom.id)
-                            }
-
-                            Component.onCompleted: popup()
-                        }
-                    }
                 }
 
                 section.property: "category"
@@ -240,7 +209,35 @@ Item {
                         color: Material.theme == Material.Light ? "#dbdbdb" : "#363636"
                     }
                 }
+
+                Menu {
+                    id: roomListMenu
+
+                    MenuItem {
+                        text: "Favourite"
+                        checkable: true
+                        checked: currentRoom && currentRoom.isFavourite
+                        onTriggered: currentRoom.isFavourite ? currentRoom.removeTag("m.favourite") : currentRoom.addTag("m.favourite", "1")
+                    }
+                    MenuItem {
+                        text: "Deprioritize"
+                        checkable: true
+                        checked: currentRoom && currentRoom.isLowPriority
+                        onTriggered: currentRoom.isLowPriority ? currentRoom.removeTag("m.lowpriority") : currentRoom.addTag("m.lowpriority", "1")
+                    }
+                    MenuSeparator {}
+                    MenuItem {
+                        text: "Mark as Read"
+                        onTriggered: currentRoom.markAllMessagesAsRead()
+                    }
+                    MenuItem {
+                        text: "Leave Room"
+                        onTriggered: matriqueController.forgetRoom(currentRoom.id)
+                    }
+                }
             }
         }
     }
+
+    onCurrentRoomChanged: if (currentRoom && !currentRoom.timelineSize) currentRoom.getPreviousContent(50)
 }

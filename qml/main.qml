@@ -42,18 +42,6 @@ ApplicationWindow {
         visible: true
         iconSource: "qrc:/asset/img/icon.png"
 
-        menu: Platform.Menu {
-            MenuItem {
-                text: "Hide/Show"
-                onTriggered: window.active ? window.hide() : raiseWindow()
-            }
-
-            MenuItem {
-                text: "Quit"
-                onTriggered: Qt.quit()
-            }
-        }
-
         onActivated: window.active ? window.hide() :  raiseWindow()
 
         function raiseWindow() {
@@ -65,10 +53,6 @@ ApplicationWindow {
 
     Controller {
         id: matriqueController
-        onErrorOccured: {
-            errorDialog.text = err;
-            errorDialog.open();
-        }
     }
 
     Popup {
@@ -85,10 +69,7 @@ ApplicationWindow {
 
         BusyIndicator { running: true }
 
-        onBusyChanged: {
-            if(busyPopup.busy) { busyPopup.open(); }
-            else { busyPopup.close(); }
-        }
+        onBusyChanged: busyPopup.busy ? busyPopup.open() : busyPopup.close()
     }
 
     Component {
