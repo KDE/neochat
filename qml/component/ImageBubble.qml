@@ -26,6 +26,12 @@ AvatarContainer {
                 z: -4
                 sourceSize.width: 128
                 source: "image://mxc/" + (content.thumbnail_url ? content.thumbnail_url : content.url)
+
+                MouseArea {
+                    anchors.fill: parent
+                    propagateComposedEvents: true
+                    onClicked: downloadAndOpen()
+                }
             }
         }
     }
