@@ -12,19 +12,89 @@ Item {
     id: item
     property var currentRoom: null
 
+    Drawer {
+        id: roomDrawer
+
+        width: Math.min(item.width * 0.7, 480)
+        height: item.height
+
+        edge: Qt.RightEdge
+        interactive: false
+
+        ToolButton {
+            contentItem: MaterialIcon { icon: "\ue5c4" }
+
+            onClicked: roomDrawer.close()
+        }
+
+        Column {
+            anchors.fill: parent
+            anchors.margins: 32
+            spacing: 16
+
+            ImageStatus {
+                width: 64
+                height: 64
+                anchors.horizontalCenter: parent.horizontalCenter
+
+                source: currentRoom && currentRoom.avatarUrl != "" ? "image://mxc/" + currentRoom.avatarUrl : null
+                displayText: currentRoom ? currentRoom.displayName : ""
+            }
+
+            Label {
+                width: parent.width
+                text: currentRoom && currentRoom.id ? currentRoom.id : ""
+            }
+
+            RowLayout {
+                width: parent.width
+
+                TextField {
+                    id: roomNameField
+                    Layout.fillWidth: true
+                    text: currentRoom && currentRoom.name ? currentRoom.name : ""
+                }
+
+                ItemDelegate {
+                    Layout.preferredWidth: height
+                    Layout.fillHeight: true
+
+                    contentItem: MaterialIcon { icon: "\ue5ca" }
+
+                    onClicked: currentRoom.setName(roomNameField.text)
+                }
+            }
+
+            RowLayout {
+                width: parent.width
+
+                TextField {
+                    id: roomTopicField
+
+                    Layout.fillWidth: true
+                    text: currentRoom && currentRoom.topic ? currentRoom.topic : ""
+                }
+
+                ItemDelegate {
+                    Layout.preferredWidth: height
+                    Layout.fillHeight: true
+
+                    contentItem: MaterialIcon { icon: "\ue5ca" }
+
+                    onClicked: currentRoom.setTopic(roomTopicField.text)
+                }
+            }
+        }
+    }
+
     Pane {
         anchors.fill: parent
         padding: 0
 
-        background: Item {
-            anchors.fill: parent
+        background: Label {
+            anchors.centerIn: parent
             visible: !currentRoom
-            Pane { anchors.fill: parent }
-
-            Label {
-                text: "Please choose a room."
-                anchors.centerIn: parent
-            }
+            text: "Please choose a room."
         }
 
         ColumnLayout {
@@ -33,16 +103,16 @@ Item {
 
             visible: currentRoom
 
-            Pane {
-                padding: 16
-
+            Rectangle {
                 Layout.fillWidth: true
                 Layout.preferredHeight: 80
 
-                background: Rectangle { color: Material.theme == Material.Light ? "#eaeaea" : "#242424" }
+                color: Material.theme == Material.Light ? "#eaeaea" : "#242424"
 
                 RowLayout {
                     anchors.fill: parent
+                    anchors.margins: 16
+
                     spacing: 16
 
                     ImageStatus {
@@ -52,12 +122,12 @@ Item {
                         displayText: currentRoom ? currentRoom.displayName : ""
                     }
 
-                    ColumnLayout {
+                    Column {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
 
                         Label {
-                            Layout.fillWidth: true
+                            width: parent.width
                             text: currentRoom ? currentRoom.displayName : ""
                             font.pointSize: 16
                             elide: Text.ElideRight
@@ -65,15 +135,20 @@ Item {
                         }
 
                         Label {
-                            Layout.fillWidth: true
+                            width: parent.width
                             text: currentRoom ? currentRoom.topic : ""
                             elide: Text.ElideRight
                             wrapMode: Text.NoWrap
                         }
                     }
+
+                    ToolButton {
+                        contentItem: MaterialIcon { icon: "\ue5d2" }
+
+                        onClicked: roomDrawer.open()
+                    }
                 }
             }
-
 
             RowLayout {
                 Layout.fillWidth: true
@@ -137,7 +212,7 @@ Item {
 
                     ScrollBar.vertical: messageListViewScrollBar
 
-                    onAtYBeginningChanged: atYBeginning && currentRoom ? currentRoom.getPreviousContent(50) : {}
+                    onAtYBeginningChanged: atYBeginning && currentRoom ? currentRoom.getPreviousContent(20) : {}
                     onAtYEndChanged: atYEnd && currentRoom ? currentRoom.markAllMessagesAsRead() : {}
 
                     RoundButton {
@@ -234,7 +309,9 @@ Item {
                             }
                         }
 
-                        background: Item {
+                        background: Rectangle {
+                            color: Material.theme == Material.Light ? "#eaeaea" : "#242424"
+
                             Rectangle {
                                 z: 5
                                 width: inputField.width * inputField.progress
@@ -242,7 +319,6 @@ Item {
                                 color: Material.accent
                                 opacity: 0.4
                             }
-                            Rectangle { anchors.fill: parent; color: Material.theme == Material.Light ? "#eaeaea" : "#242424" }
                         }
 
                         function postMessage(text) {

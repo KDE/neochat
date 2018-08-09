@@ -6,7 +6,7 @@ import QtQuick.Layouts 1.3
 Rectangle {
     property bool flat: false
     property bool highlighted: false
-    property string displayText
+    property string displayText: ""
     property alias timeLabelVisible: timeText.visible
 
     property int maximumWidth

@@ -20,78 +20,65 @@ Item {
         anchors.fill: parent
         spacing: 0
 
-        Pane {
+        Rectangle {
             z: 10
             Layout.fillWidth: true
             Layout.preferredHeight: 80
-            background: Rectangle {
-                color: Qt.tint(Material.accent, "#20FFFFFF")
-            }
+            color: Qt.tint(Material.accent, "#20FFFFFF")
 
             TextField {
                 id: searchField
-                width: parent.width
+                width: parent.width - 18
                 height: 36
                 color: "black"
                 leftPadding: mini ? 4 : 16
                 topPadding: 0
                 bottomPadding: 0
-                anchors.verticalCenter: parent.verticalCenter
+                anchors.centerIn: parent
 
-                background: Item {
-                    Row {
-                        anchors.fill: parent
-
-                        MaterialIcon {
-                            icon: "\ue8b6"
-                            color: "white"
-
-                            width: mini ? parent.width : parent.height
-                            height: parent.height
-                        }
-
-                        Label {
-                            height: parent.height
-                            visible: !mini
-                            text: "Search"
-                            color: "white"
-                            font.pointSize: 12
-                            horizontalAlignment: Text.AlignHCenter
-                            verticalAlignment: Text.AlignVCenter
-                        }
-                    }
-
-                    Rectangle {
-                        width: searchField.activeFocus || searchField.text ? parent.width : 0
-                        height: parent.height
+                background: Row {
+                    MaterialIcon {
+                        icon: "\ue8b6"
                         color: "white"
 
-                        Behavior on width {
-                            PropertyAnimation { easing.type: Easing.InOutCubic; duration: 200 }
-                        }
+                        width: mini ? parent.width : parent.height
+                        height: parent.height
+                    }
+
+                    Label {
+                        height: parent.height
+                        visible: !mini
+                        text: "Search"
+                        color: "white"
+                        font.pointSize: 12
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                    }
+                }
+
+                Rectangle {
+                    width: searchField.activeFocus || searchField.text ? parent.width : 0
+                    height: parent.height
+                    color: "white"
+
+                    Behavior on width {
+                        PropertyAnimation { easing.type: Easing.InOutCubic; duration: 200 }
                     }
                 }
             }
         }
 
-        Pane {
+        Rectangle {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            padding: 0
 
-            background: Item {
-                anchors.fill: parent
-                Rectangle {
-                    anchors.fill: parent
-                    color: Material.theme == Material.Light ? "#eaeaea" : "#242424"
-                }
+            color: Material.theme == Material.Light ? "#eaeaea" : "#242424"
 
-                Label {
-                    z: 10
-                    text: mini ? "Empty" : "Here? No, not here."
-                    anchors.centerIn: parent
-                    visible: listView.count === 0
-                }
+            Label {
+                z: 10
+                text: mini ? "Empty" : "Here? No, not here."
+                anchors.centerIn: parent
+                visible: listView.count === 0
             }
 
             SortFilterProxyModel {
@@ -116,8 +103,7 @@ Item {
 
             ListView {
                 id: listView
-                width: parent.width
-                height: parent.height
+                anchors.fill: parent
 
                 model: roomListProxyModel
 
@@ -138,8 +124,8 @@ Item {
                     width: parent.width
                     height: 80
                     onPressed: listView.currentIndex = index
-                    onClicked: enterRoom()
                     onPressAndHold: roomListMenu.popup()
+                    onClicked: enterRoom()
 
                     ToolTip.visible: mini && hovered
                     ToolTip.text: name
@@ -239,5 +225,5 @@ Item {
         }
     }
 
-    onCurrentRoomChanged: if (currentRoom && !currentRoom.timelineSize) currentRoom.getPreviousContent(50)
+    onCurrentRoomChanged: if (currentRoom && !currentRoom.timelineSize) currentRoom.getPreviousContent(20)
 }

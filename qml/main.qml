@@ -115,7 +115,6 @@ ApplicationWindow {
 
                         source: matriqueController.isLogin ? connection.localUser && connection.localUser.avatarUrl ? "image://mxc/" + connection.localUser.avatarUrl : "" : "qrc:/asset/img/avatar.png"
                         displayText: matriqueController.isLogin && connection.localUser.displayName ? connection.localUser.displayName : "N"
-                        opaqueBackground: false
                     }
 
                     page: roomPage
@@ -183,6 +182,7 @@ ApplicationWindow {
 
                                 contentItem: TextField {
                                     id: joinRoomDialogTextField
+                                    placeholderText: "#matrix:matrix.org"
                                 }
 
                                 onAccepted: matriqueController.joinRoom(joinRoomDialogTextField.text)
@@ -206,6 +206,7 @@ ApplicationWindow {
 
                                 contentItem: TextField {
                                     id: directChatDialogTextField
+                                    placeholderText: "@bot:matrix.org"
                                 }
 
                                 onAccepted: matriqueController.createDirectChat(directChatDialogTextField.text)

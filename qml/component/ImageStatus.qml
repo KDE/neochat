@@ -4,7 +4,6 @@ import QtGraphicalEffects 1.0
 import QtQuick.Controls.Material 2.2
 
 Item {
-    property bool opaqueBackground: false
     property bool round: true
     property string source: ""
     property string displayText: ""
@@ -12,14 +11,6 @@ Item {
     readonly property bool showInitial: !showImage && displayText
 
     id: item
-
-    Rectangle {
-        width: item.width
-        height: item.width
-        radius: round ? item.width / 2 : 0
-        color: "white"
-        visible: opaqueBackground
-    }
 
     Image {
         id: avatar

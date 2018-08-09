@@ -24,7 +24,7 @@ Item {
         }
     }
 
-    ButtonDelegate {
+    ItemDelegate {
         id: buttonDelegate
         anchors.fill: parent
 
