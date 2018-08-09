@@ -57,6 +57,7 @@ Item {
                 }
 
                 Rectangle {
+                    z: -2
                     width: searchField.activeFocus || searchField.text ? parent.width : 0
                     height: parent.height
                     color: "white"
