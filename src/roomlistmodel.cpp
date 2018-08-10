@@ -42,6 +42,7 @@ void RoomListModel::doAddRoom(Room* r) {
   if (auto* room = r) {
     m_rooms.append(room);
     connectRoomSignals(room);
+    emit roomAdded(room);
   } else {
     qCritical() << "Attempt to add nullptr to the room list";
     Q_ASSERT(false);

@@ -43,7 +43,14 @@ Item {
 
             Label {
                 width: parent.width
+                horizontalAlignment: Text.AlignHCenter
                 text: currentRoom && currentRoom.id ? currentRoom.id : ""
+            }
+
+            Label {
+                width: parent.width
+                horizontalAlignment: Text.AlignHCenter
+                text: currentRoom && currentRoom.canonicalAlias ? currentRoom.canonicalAlias : "No Canonical Alias"
             }
 
             RowLayout {
@@ -109,6 +116,12 @@ Item {
 
                 color: Material.theme == Material.Light ? "#eaeaea" : "#242424"
 
+                MouseArea {
+                    anchors.fill: parent
+
+                    onClicked: roomDrawer.open()
+                }
+
                 RowLayout {
                     anchors.fill: parent
                     anchors.margins: 16
@@ -122,12 +135,17 @@ Item {
                         displayText: currentRoom ? currentRoom.displayName : ""
                     }
 
-                    Column {
+                    ColumnLayout {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
+                        Layout.alignment: Qt.AlignHCenter
+
+                        visible: parent.width > 80
 
                         Label {
-                            width: parent.width
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+
                             text: currentRoom ? currentRoom.displayName : ""
                             font.pointSize: 16
                             elide: Text.ElideRight
@@ -135,17 +153,13 @@ Item {
                         }
 
                         Label {
-                            width: parent.width
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+
                             text: currentRoom ? currentRoom.topic : ""
                             elide: Text.ElideRight
                             wrapMode: Text.NoWrap
                         }
-                    }
-
-                    ToolButton {
-                        contentItem: MaterialIcon { icon: "\ue5d2" }
-
-                        onClicked: roomDrawer.open()
                     }
                 }
             }

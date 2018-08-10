@@ -7,12 +7,19 @@ import "component"
 import "form"
 
 Page {
+    property alias lazyLoad: generalForm.lazyLoad
     property alias darkTheme: appearanceForm.darkTheme
     property alias miniMode: appearanceForm.miniMode
+
     property var connection
 
     SettingAccountForm {
         id: accountForm
+        parent: null
+    }
+
+    SettingGeneralForm {
+        id: generalForm
         parent: null
     }
 
@@ -34,6 +41,13 @@ Page {
 
                 text: "Account"
                 onClicked: pushToStack(accountForm)
+            }
+
+            ItemDelegate {
+                Layout.fillWidth: true
+
+                text: "General"
+                onClicked: pushToStack(generalForm)
             }
 
             ItemDelegate {

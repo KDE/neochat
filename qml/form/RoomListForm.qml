@@ -226,5 +226,5 @@ Item {
         }
     }
 
-    onCurrentRoomChanged: if (currentRoom && !currentRoom.timelineSize) currentRoom.getPreviousContent(20)
+    onCurrentRoomChanged: setting.lazyLoad && currentRoom && !currentRoom.timelineSize ? currentRoom.getPreviousContent(20) : {}
 }

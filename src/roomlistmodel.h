@@ -53,6 +53,7 @@ class RoomListModel : public QAbstractListModel {
 
  signals:
   void connectionChanged();
+  void roomAdded(Room* room);
   void newMessage(Room* room);
 };
 

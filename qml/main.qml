@@ -32,6 +32,8 @@ ApplicationWindow {
         property alias userID: matriqueController.userID
         property alias token: matriqueController.token
 
+        property alias lazyLoad: settingPage.lazyLoad
+
         property alias darkTheme: settingPage.darkTheme
         property alias miniMode: settingPage.miniMode
     }
