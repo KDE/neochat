@@ -21,7 +21,8 @@ SOURCES += src/main.cpp \
     src/roomlistmodel.cpp \
     src/imageprovider.cpp \
     src/messageeventmodel.cpp \
-    src/imageproviderconnection.cpp
+    src/imageproviderconnection.cpp \
+    src/emojimodel.cpp
 
 RESOURCES += \
     res.qrc
@@ -57,4 +58,5 @@ HEADERS += \
     src/roomlistmodel.h \
     src/imageprovider.h \
     src/messageeventmodel.h \
-    src/imageproviderconnection.h
+    src/imageproviderconnection.h \
+    src/emojimodel.h

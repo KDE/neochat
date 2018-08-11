@@ -8,6 +8,7 @@
 #include "messageeventmodel.h"
 #include "room.h"
 #include "roomlistmodel.h"
+#include "emojimodel.h"
 
 #include "csapi/joining.h"
 #include "csapi/leaving.h"
@@ -28,6 +29,7 @@ int main(int argc, char *argv[]) {
   qmlRegisterType<Controller>("Matrique", 0, 1, "Controller");
   qmlRegisterType<RoomListModel>("Matrique", 0, 1, "RoomListModel");
   qmlRegisterType<MessageEventModel>("Matrique", 0, 1, "MessageEventModel");
+  qmlRegisterType<EmojiModel>("Matrique", 0, 1, "EmojiModel");
   qmlRegisterUncreatableType<RoomMessageEvent>("Matrique", 0, 1, "RoomMessageEvent", "ENUM");
 
   QQmlApplicationEngine engine;

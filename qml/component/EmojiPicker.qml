@@ -2,11 +2,16 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.2
-import QtQuick.XmlListModel 2.0
+import Matrique 0.1
 
 Popup {
     property var textArea
-    property string emojiCategory: "faces"
+    property string emojiCategory: "people"
+
+    EmojiModel {
+        id: emojiModel
+        category: emojiCategory
+    }
 
     ColumnLayout {
         anchors.fill: parent
@@ -22,14 +27,9 @@ Popup {
 
             clip: true
 
-            model: XmlListModel {
-                source: "qrc:/asset/xml/emoji.xml"
-                query: "/root/emoji_by_category/" +emojiCategory + "/element"
+            model: emojiModel.model
 
-                XmlRole { name: "emoji"; query: "string()" }
-            }
-
-            delegate: Label {
+            delegate: Text {
                 width: 36
                 height: 36
 
@@ -37,11 +37,12 @@ Popup {
                 verticalAlignment: Text.AlignVCenter
 
                 font.pointSize: 20
-                text: emoji
+                font.family: "Noto Color Emoji"
+                text: modelData
 
                 MouseArea {
                     anchors.fill: parent
-                    onClicked: textArea.insert(textArea.cursorPosition, emoji)
+                    onClicked: textArea.insert(textArea.cursorPosition, modelData)
                 }
             }
 
@@ -54,41 +55,15 @@ Popup {
             color: Material.theme == Material.Dark ? "white" : "black"
         }
 
-        ListView {
-            Layout.fillWidth: true
-            Layout.preferredHeight: 48
-
-            orientation: ListView.Horizontal
-
-            boundsBehavior: Flickable.DragOverBounds
-
-            clip: true
-
-            model: XmlListModel {
-                source: "qrc:/asset/xml/emoji.xml"
-                query: "/root/emoji_categories/element"
-
-                XmlRole { name: "emoji_unified"; query: "emoji_unified/string()" }
-                XmlRole { name: "name"; query: "name/string()" }
-            }
-
-            delegate: Label {
-                width: 48
-                height: 48
-
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-
-                font.pointSize: 20
-                text: emoji_unified
-
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: emojiCategory = name
-                }
-            }
-
-            ScrollBar.horizontal: ScrollBar {}
+        Row {
+            EmojiButton { text: "😏"; category: "people" }
+            EmojiButton { text: "🌲"; category: "nature" }
+            EmojiButton { text: "🍛"; category: "food"}
+            EmojiButton { text: "🚁"; category: "activity" }
+            EmojiButton { text: "🚅"; category: "travel" }
+            EmojiButton { text: "💡"; category: "objects" }
+            EmojiButton { text: "🔣"; category: "symbols" }
+            EmojiButton { text: "🏁"; category: "flags" }
         }
     }
 }
