@@ -385,12 +385,30 @@ Item {
                     }
 
                     ItemDelegate {
+                        id: emojiButton
+
                         Layout.preferredWidth: height
                         Layout.fillHeight: true
 
                         contentItem: MaterialIcon { icon: "\ue24e" }
 
                         background: Rectangle { color: Material.theme == Material.Light ? "#eaeaea" : "#242424" }
+
+                        onClicked: emojiPicker.visible ? emojiPicker.close() : emojiPicker.open()
+
+                        EmojiPicker {
+                            id: emojiPicker
+
+                            parent: ApplicationWindow.overlay
+
+                            x: window.width - 370
+                            y: window.height - 440
+
+                            width: 360
+                            height: 360
+
+                            textArea: inputField
+                        }
                     }
                 }
             }
