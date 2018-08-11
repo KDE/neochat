@@ -1,6 +1,7 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
+import QtQuick.Controls.Material 2.2
 import QtQuick.XmlListModel 2.0
 
 Popup {
@@ -50,7 +51,7 @@ Popup {
         Rectangle {
             Layout.fillWidth: true
             Layout.preferredHeight: 2
-            color: "white"
+            color: Material.theme == Material.Dark ? "white" : "black"
         }
 
         ListView {
