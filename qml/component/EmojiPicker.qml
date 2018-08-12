@@ -52,7 +52,7 @@ Popup {
         Rectangle {
             Layout.fillWidth: true
             Layout.preferredHeight: 2
-            color: Material.theme == Material.Dark ? "white" : "black"
+            color: Material.accent
         }
 
         Row {
