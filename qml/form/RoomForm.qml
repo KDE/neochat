@@ -195,10 +195,8 @@ Item {
                         spacing: 8
 
                         RowLayout {
-                            readonly property bool sectionVisible: section !== aboveSection
-
                             width: parent.width * 0.8
-                            visible: sectionVisible
+                            visible: section !== aboveSection
                             anchors.horizontalCenter: parent.horizontalCenter
                             spacing: 8
 
@@ -210,6 +208,31 @@ Item {
 
                             Label {
                                 text: section
+                                color: Material.accent
+                                verticalAlignment: Text.AlignVCenter
+                            }
+
+                            Rectangle {
+                                Layout.fillWidth: true
+                                height:2
+                                color: Material.accent
+                            }
+                        }
+
+                        RowLayout {
+                            width: parent.width * 0.8
+                            visible: readMarker === true && index !== 0
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            spacing: 8
+
+                            Rectangle {
+                                Layout.fillWidth: true
+                                height:2
+                                color: Material.accent
+                            }
+
+                            Label {
+                                text: "And Now"
                                 color: Material.accent
                                 verticalAlignment: Text.AlignVCenter
                             }
