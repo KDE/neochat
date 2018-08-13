@@ -4,7 +4,7 @@ stages:
   - deploy
 
 preparation-flatpak:
-  image: black0/alpine
+  image: registry.gitlab.com/b0/matrique/alpine
   stage: preparation
   before_script:
     - mkdir -p tmp
@@ -17,7 +17,7 @@ preparation-flatpak:
     - tmp/
   
 build-native:
-  image: rabits/qt:5.11-desktop
+  image: registry.gitlab.com/b0/matrique/qt
   stage: build
   cache: {}
   before_script:
@@ -28,7 +28,7 @@ build-native:
     - make -j4
 
 build-flatpak:
-  image: black0/flatpak
+  image: registry.gitlab.com/b0/matrique/flatpak
   stage: build
   before_script:
     - git submodule update --init --recursive
@@ -44,7 +44,7 @@ build-flatpak:
 deploy-flatpak:
   only:
   - master
-  image: black0/alpine
+  image: registry.gitlab.com/b0/matrique/alpine
   stage: deploy
   before_script:
     - git config --global user.name "$GIT_NAME"
