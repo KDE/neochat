@@ -9,5 +9,10 @@ Page {
             id: lazyLoadSwitch
             text: "Lazy Load at Initial Sync"
         }
+        Button {
+            text: "Invoke GC"
+            highlighted: true
+            onClicked: gc()
+        }
     }
 }

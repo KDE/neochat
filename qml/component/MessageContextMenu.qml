@@ -2,6 +2,10 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 
 Menu {
+    readonly property bool isFile: eventType === "video" || eventType === "audio" || eventType === "file" || eventType === "image"
+
+    id: messageContextMenu
+
     MenuItem {
         text: "Copy"
         onTriggered: matriqueController.copyToClipboard(plainText)
@@ -30,4 +34,5 @@ Menu {
     }
 
     Component.onCompleted: popup()
+    onClosed: messageContextMenu.destroy()
 }

@@ -11,8 +11,6 @@ Item {
 
     readonly property bool sentByMe: author === currentRoom.localUser
     readonly property bool isState: eventType === "state" || eventType === "emote"
-    readonly property bool isMessage: eventType === "message" || eventType === "notice"
-    readonly property bool isFile: eventType === "video" || eventType === "audio" || eventType === "file" || eventType === "image"
 
     visible: marks !== EventStatus.Hidden
 
@@ -31,6 +29,23 @@ Item {
     Loader {
         id: delegateLoader
 
-        source: eventType != "redaction" ? isMessage ? "MessageBubble.qml" : isState ? "StateBubble.qml" : isFile ? eventType === "image" ? "ImageBubble.qml" : "FileBubble.qml" : "" : ""
+        source: {
+            if (eventType == "redaction") return ""
+            switch (eventType) {
+            case "state":
+            case "emote":
+                return "StateBubble.qml"
+            case "message":
+            case "notice":
+                return "MessageBubble.qml"
+            case "image":
+                return "ImageBubble.qml"
+            case "video":
+            case "audio":
+            case "file":
+                return "FileBubble.qml"
+            }
+            return ""
+        }
     }
 }

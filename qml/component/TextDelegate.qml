@@ -8,6 +8,7 @@ Rectangle {
     property bool highlighted: false
     property string displayText: ""
     property alias timeLabelVisible: timeText.visible
+    property alias authorLabelVisible: authorText.visible
 
     property int maximumWidth
 
@@ -15,8 +16,8 @@ Rectangle {
 
     id: messageRect
 
-    width: Math.min(Math.max(messageText.implicitWidth, (timeText.visible ? timeText.implicitWidth : 0)) + 24, maximumWidth)
-    height: messageText.implicitHeight + (timeText.visible ? timeText.implicitHeight : 0) + 24
+    width: Math.min(Math.max(messageText.implicitWidth, (timeText.visible ? timeText.implicitWidth : 0), (authorLabelVisible ? authorText.implicitWidth : 0)) + 24, maximumWidth)
+    height: (authorText.visible ? authorText.implicitHeight : 0) + messageText.implicitHeight + (timeText.visible ? timeText.implicitHeight : 0) + 24
 
     color: flat ? "transparent" : highlighted ? Material.accent : background
     border.color: Material.accent
@@ -28,6 +29,13 @@ Rectangle {
         anchors.fill: parent
         anchors.margins: 12
         spacing: 0
+
+        Label {
+            id: authorText
+            text: author.displayName
+            color: darkBackground ? "white" : Material.accent
+            font.bold: true
+        }
 
         Label {
             id: messageText

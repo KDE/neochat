@@ -13,6 +13,7 @@ AvatarContainer {
         flat: isNotice
         highlighted: !sentByMe
         timeLabelVisible: Math.abs(time - aboveTime) > 600000 || index == 0
+        authorLabelVisible: messageRow.avatarVisible
 
         displayText: display
     }

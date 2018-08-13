@@ -6,6 +6,7 @@ TextDelegate {
     maximumWidth: messageListView.width
     highlighted: eventType === "emote"
     timeLabelVisible: false
+    authorLabelVisible: false
 
     displayText: "<b>" + author.displayName + "</b> " + display
 }

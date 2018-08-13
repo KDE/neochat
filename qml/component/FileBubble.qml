@@ -18,6 +18,7 @@ AvatarContainer {
             maximumWidth: messageListView.width
             highlighted: !sentByMe
             timeLabelVisible: false
+            authorLabelVisible: messageRow.avatarVisible
 
             displayText: "<b>File: </b>" + content.body
         }
