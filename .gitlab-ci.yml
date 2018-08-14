@@ -22,11 +22,12 @@ build-flatpak:
     - git submodule update --init --recursive
   script:
     - cd flatpak
-    - flatpak-builder build-dir org.eu.encom.matrique.json --force-clean
+    - flatpak-builder --force-clean --repo=repo build-dir org.eu.encom.matrique.json
+    - flatpak build-bundle repo matrique.flatpak org.eu.encom.matrique
     - cd ../
   artifacts:
     paths:
-    - flatpak/build-dir
+    - flatpak/matrique.flatpak
     
 deploy-flatpak:
   stage: deploy
