@@ -34,5 +34,9 @@ deploy-flatpak:
   - master
   tags:
   - deploy-flatpak
+  dependencies: []
+  before_script:
+    - git submodule update --init --recursive
   script:
-  - echo "Nothing to do..."
+    - cd flatpak
+    - flatpak-builder --repo=/var/www/matrique-flatpak build-dir org.eu.encom.matrique.json --force-clean --gpg-sign=52986BF4D61350EC249F2E891B0DB3358FC5E4B2
