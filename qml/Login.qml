@@ -136,7 +136,7 @@ Page {
                     }
 
                     onClicked: {
-                        if (!serverField.text.startsWith("http")) {
+                        if (!(serverField.text.startsWith("http") && serverField.text.includes("://"))) {
                             loginButtonTooltip.text = "Server address should start with http(s)://"
                             loginButtonTooltip.open()
                             return
