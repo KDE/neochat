@@ -4,7 +4,7 @@ import QtQuick.Controls.Material 2.2
 import Matrique 0.1
 
 Item {
-    id: messageDelegate
+    readonly property bool hidden: marks === EventStatus.Redacted || marks === EventStatus.Hidden
 
     readonly property bool darkTheme: Material.theme == Material.Dark
     readonly property color background: darkTheme ? "#242424" : "lightgrey"
@@ -12,7 +12,7 @@ Item {
     readonly property bool sentByMe: author === currentRoom.localUser
     readonly property bool isState: eventType === "state" || eventType === "emote"
 
-    visible: marks !== EventStatus.Hidden
+    id: messageDelegate
 
     z: -5
     width: delegateLoader.width
@@ -29,8 +29,10 @@ Item {
     Loader {
         id: delegateLoader
 
+        asynchronous: setting.asyncMessageDelegate
+
         source: {
-            if (eventType == "redaction") return ""
+            if (eventType == "redaction" || hidden) return ""
             switch (eventType) {
             case "state":
             case "emote":

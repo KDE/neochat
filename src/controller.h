@@ -7,6 +7,7 @@
 
 #include <QObject>
 #include <QApplication>
+#include <QMimeDatabase>
 
 using namespace QMatrixClient;
 
@@ -84,10 +85,14 @@ class Controller : public QObject {
 
  private:
   QClipboard* m_clipboard = QApplication::clipboard();
+  QMimeDatabase m_db;
 
   void connected();
   void resync();
   void reconnect();
+
+  QString getMIME(const QUrl& fileUrl) const;
+  void postFile(Room* room, const QUrl& localFile, const QUrl& mxcUrl);
 
  signals:
   void connectionChanged();
@@ -99,13 +104,13 @@ class Controller : public QObject {
   void errorOccured();
 
  public slots:
-  void postFile(Room* room, const QUrl& localFile, const QUrl& mxcUrl);
-  QString getMIME(const QUrl& fileUrl) const;
+  void uploadFile(Room* room);
   void forgetRoom(const QString& roomID);
   void joinRoom(const QString& alias);
   void createRoom(const QString& name, const QString& topic);
   void createDirectChat(const QString& userID);
   void copyToClipboard(const QString& text);
+  void saveFileAs(Room* room, QString eventId);
 };
 
 #endif  // CONTROLLER_H

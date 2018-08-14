@@ -191,12 +191,15 @@ Item {
                     }
 
                     delegate: Column {
+                        readonly property bool hidden: marks === EventStatus.Redacted || marks === EventStatus.Hidden
+
                         width: parent.width
+                        height: hidden ? -8 : undefined
                         spacing: 8
 
                         RowLayout {
                             width: parent.width * 0.8
-                            visible: section !== aboveSection
+                            visible: section !== aboveSection && !hidden
                             anchors.horizontalCenter: parent.horizontalCenter
                             spacing: 8
 
@@ -300,30 +303,19 @@ Item {
 
                         contentItem: MaterialIcon { icon: "\ue226" }
 
-                        onClicked: fileDialog.visible = true
-
-                        FileDialog {
-                            id: fileDialog
-                            title: "Please choose a file"
-                            folder: shortcuts.home
-                            selectMultiple: false
-                            onAccepted: {
-                                currentRoom.uploadFile(fileUrl, fileUrl, matriqueController.getMIME(fileUrl))
-                                var fileTransferProgressCallback = function(id, sent, total) {
-                                    if (id == fileUrl) { inputField.progress = sent / total }
-                                }
-                                var completedCallback = function(id, localFile, mxcUrl) {
-                                    if (id == fileUrl) {
-                                        matriqueController.postFile(currentRoom, localFile, mxcUrl)
-                                        inputField.progress = 0
-                                        currentRoom.fileTransferCompleted.disconnect(fileTransferProgressCallback)
-                                        currentRoom.fileTransferCompleted.disconnect(completedCallback)
-                                    }
-                                }
-
-                                currentRoom.fileTransferProgress.connect(fileTransferProgressCallback)
-                                currentRoom.fileTransferCompleted.connect(completedCallback)
+                        onClicked: {
+                            var fileTransferProgressCallback = function(id, sent, total) {
+                                inputField.progress = sent / total
                             }
+                            var completedCallback = function(id, localFile, mxcUrl) {
+                                inputField.progress = 0
+                                currentRoom.fileTransferCompleted.disconnect(fileTransferProgressCallback)
+                                currentRoom.fileTransferCompleted.disconnect(completedCallback)
+                            }
+
+                            currentRoom.fileTransferProgress.connect(fileTransferProgressCallback)
+                            currentRoom.fileTransferCompleted.connect(completedCallback)
+                            matriqueController.uploadFile(currentRoom)
                         }
                     }
 

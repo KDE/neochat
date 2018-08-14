@@ -17,7 +17,7 @@ Item {
     onDownloadedChanged: downloaded && openOnFinished ? openSavedFile() : {}
 
     function saveFileAs() {
-        Qt.createComponent("DownloadDialog.qml").createObject(this).open()
+        matriqueController.saveFileAs(currentRoom, eventId)
     }
 
     function downloadAndOpen()

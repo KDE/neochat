@@ -33,6 +33,7 @@ ApplicationWindow {
         property alias token: matriqueController.token
 
         property alias lazyLoad: settingPage.lazyLoad
+        property alias asyncMessageDelegate: settingPage.asyncMessageDelegate
 
         property alias darkTheme: settingPage.darkTheme
         property alias miniMode: settingPage.miniMode

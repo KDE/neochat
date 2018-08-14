@@ -10,8 +10,8 @@
 
 #include <QClipboard>
 #include <QFile>
+#include <QFileDialog>
 #include <QImage>
-#include <QMimeDatabase>
 
 Controller::Controller(QObject* parent) : QObject(parent) {
   connect(m_connection, &Connection::connected, this, &Controller::connected);
@@ -74,6 +74,20 @@ void Controller::reconnect() {
   m_connection->connectWithToken(userID, token, "");
 }
 
+void Controller::uploadFile(Room* room) {
+  if (!room) return;
+  auto localFile = QFileDialog::getOpenFileUrl(Q_NULLPTR, tr("Save File as"));
+  if (!localFile.isEmpty()) {
+    room->uploadFile(localFile.toString(), localFile, getMIME(localFile));
+    QMetaObject::Connection* const connection = new QMetaObject::Connection;
+    *connection = connect(room, &Room::fileTransferCompleted,
+                          [=](QString id, QUrl localFile, QUrl mxcUrl) {
+                            disconnect(*connection);
+                            postFile(room, localFile, mxcUrl);
+                          });
+  }
+}
+
 void Controller::postFile(Room* room, const QUrl& localFile,
                           const QUrl& mxcUrl) {
   const QString mime = getMIME(localFile);
@@ -90,9 +104,7 @@ void Controller::postFile(Room* room, const QUrl& localFile,
 }
 
 QString Controller::getMIME(const QUrl& fileUrl) const {
-  QMimeDatabase* db = new QMimeDatabase();
-  const QString mime = db->mimeTypeForFile(fileUrl.toLocalFile()).name();
-  delete db;
+  const QString mime = m_db.mimeTypeForFile(fileUrl.toLocalFile()).name();
   return mime;
 }
 
@@ -124,4 +136,12 @@ void Controller::createDirectChat(const QString& userID) {
 
 void Controller::copyToClipboard(const QString& text) {
   m_clipboard->setText(text);
+}
+
+void Controller::saveFileAs(Room* room, QString eventId) {
+  if (!room) return;
+  auto fileName = QFileDialog::getSaveFileName(
+      Q_NULLPTR, tr("Save File as"), room->fileNameToDownload(eventId));
+  if (!fileName.isEmpty())
+    room->downloadFile(eventId, QUrl::fromLocalFile(fileName));
 }
