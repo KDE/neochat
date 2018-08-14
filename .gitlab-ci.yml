@@ -29,6 +29,7 @@ build-flatpak:
     - flatpak/build-dir
     
 deploy-flatpak:
+  stage: deploy
   only:
   - master
   tags:
