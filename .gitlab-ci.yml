@@ -1,31 +1,19 @@
 stages:
-  - preparation
   - build
   - deploy
-
-preparation-flatpak:
-  image: registry.gitlab.com/b0/matrique/alpine
-  stage: preparation
-  before_script:
-    - mkdir -p tmp
-  script:
-    - cd tmp
-    - git clone "https://$GIT_USERNAME:$GIT_PASSWORD@gitlab.com/b0/matrique-repo"
-    - cd ../
-  artifacts:
-    paths:
-    - tmp/
   
 build-native:
   image: registry.gitlab.com/b0/matrique/qt
   stage: build
-  cache: {}
   before_script:
     - git submodule update --init --recursive
   script:
     - mkdir -p build && cd build
     - qmake ../matrique.pro -spec linux-g++ CONFIG+=qtquickcompiler
     - make -j4
+  artifacts:
+    paths:
+    - build
 
 build-flatpak:
   image: registry.gitlab.com/b0/matrique/flatpak
@@ -33,24 +21,17 @@ build-flatpak:
   before_script:
     - git submodule update --init --recursive
   script:
-    - gpg2 -v --import <(echo "$GPG_SECRET_KEY")
     - cd flatpak
-    - flatpak-builder --repo=../tmp/matrique-repo/public build-dir org.eu.encom.matrique.json --force-clean --gpg-sign=52986BF4D61350EC249F2E891B0DB3358FC5E4B2
+    - flatpak-builder build-dir org.eu.encom.matrique.json --force-clean
     - cd ../
   artifacts:
     paths:
-    - tmp/
+    - flatpak/build-dir
     
 deploy-flatpak:
   only:
   - master
-  image: registry.gitlab.com/b0/matrique/alpine
-  stage: deploy
-  before_script:
-    - git config --global user.name "$GIT_NAME"
-    - git config --global user.email "$GIT_EMAIL"
+  tags:
+  - deploy-flatpak
   script:
-    - cd tmp/matrique-repo
-    - git add -A
-    - git commit -m "$CI_COMMIT_MESSAGE"
-    - git push origin master
+  - echo "Nothing to do..."
