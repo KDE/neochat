@@ -60,14 +60,6 @@ Page {
                 id: mainCol
                 width: parent.width
 
-                //                ImageStatus {
-                //                    Layout.preferredWidth: 96
-                //                    Layout.preferredHeight: 96
-                //                    Layout.alignment: Qt.AlignHCenter
-
-                //                    source: "qrc:/asset/img/avatar.png"
-                //                }
-
                 TextField {
                     id: serverField
 
@@ -77,6 +69,7 @@ Page {
                     topPadding: 0
                     bottomPadding: 0
 
+                    text: "https://matrix.org"
                     placeholderText: "Server"
 
                     background: Rectangle {
