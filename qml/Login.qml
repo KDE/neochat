@@ -22,6 +22,7 @@ Page {
                     anchors.fill: parent
                     source: "qrc:/asset/img/background.jpg"
                     fillMode: Image.PreserveAspectCrop
+                    cache: false
                 }
 
                 ColorOverlay {
@@ -130,10 +131,27 @@ Page {
                     text: "LOGIN"
                     highlighted: true
 
+                    ToolTip {
+                        id: loginButtonTooltip
+                    }
+
                     onClicked: {
-                        matriqueController.isLoginChanged.connect( function() {
+                        if (!serverField.text.startsWith("http")) {
+                            loginButtonTooltip.text = "Server address should start with http(s)://"
+                            loginButtonTooltip.open()
+                            return
+                        }
+                        if (!(usernameField.text.startsWith("@") && usernameField.text.includes(":"))) {
+                            loginButtonTooltip.text = "Username should be in format of @example:example.com"
+                            loginButtonTooltip.open()
+                            return
+                        }
+
+                        var replaceViewFunction = function() {
                             if (matriqueController.isLogin) stackView.replace(roomPage)
-                        })
+                            matriqueController.isLoginChanged.disconnect(replaceViewFunction)
+                        }
+                        matriqueController.isLoginChanged.connect(replaceViewFunction)
                         controller.loginWithCredentials(serverField.text, usernameField.text, passwordField.text)
                     }
                 }
