@@ -1,6 +1,7 @@
 QT += quick widgets
 CONFIG += c++14
 CONFIG += object_parallel_to_source
+CONFIG += qtquickcompiler
 
 include(include/libqmatrixclient/libqmatrixclient.pri)
 include(include/SortFilterProxyModel/SortFilterProxyModel.pri)
@@ -66,7 +67,7 @@ unix:!mac {
     metainfo.path = $$PREFIX/share/metainfo
     desktop.files = $$PWD/matrique.desktop
     desktop.path = $$PREFIX/share/applications
-    icons.files = $$PWD/icons/64x64.png
+    icons.files = $$PWD/icons/matrique.png
     icons.path = $$PREFIX/share/icons/hicolor/64x64/apps
     INSTALLS += metainfo desktop mime icons
 }
