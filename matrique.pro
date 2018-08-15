@@ -60,3 +60,13 @@ HEADERS += \
     src/messageeventmodel.h \
     src/imageproviderconnection.h \
     src/emojimodel.h
+
+unix:!mac {
+    metainfo.files = $$PWD/matrique.appdata.xml
+    metainfo.path = $$PREFIX/share/metainfo
+    desktop.files = $$PWD/matrique.desktop
+    desktop.path = $$PREFIX/share/applications
+    icons.files = $$PWD/icons/64x64.png
+    icons.path = $$PREFIX/share/icons/hicolor/64x64/apps
+    INSTALLS += metainfo desktop mime icons
+}

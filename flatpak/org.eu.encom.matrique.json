@@ -3,8 +3,9 @@
     "id": "org.eu.encom.matrique",
     "rename-icon": "matrique",
     "rename-desktop-file": "matrique.desktop",
+    "rename-appdata-file": "matrique.appdata.xml",
     "runtime": "org.kde.Platform",
-    "runtime-version": "5.10",
+    "runtime-version": "5.11",
     "sdk": "org.kde.Sdk",
     "command": "matrique",
     "finish-args": [
@@ -21,14 +22,12 @@
     "modules": [
         {
             "name": "matrique",
-            "buildsystem": "simple",
-            "build-commands": [
-		"ls -l",
-                "qmake matrique.pro -spec linux-g++ CONFIG+=qtquickcompiler",
-		"make -j4",
-		"ls -l",
+            "buildsystem": "qmake",
+            "post-install": [
 		"install -D matrique /app/bin/matrique",
 		"install -D matrique.desktop /app/share/applications/matrique.desktop",
+		"mkdir -p /app/share/appdata",
+		"install -D matrique.appdata.xml /app/share/appdata/",
 		 "for i in 16x16 32x32 128x128 256x256 512x512; do install -Dm644 icons/${i}.png /app/share/icons/hicolor/${i}/apps/matrique.png; done"
             ],
             "sources": [

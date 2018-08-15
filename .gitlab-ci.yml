@@ -13,7 +13,7 @@ build-native:
     - make -j4
   artifacts:
     paths:
-    - build
+    - build/matrique
 
 build-flatpak:
   image: registry.gitlab.com/b0/matrique/flatpak
@@ -28,16 +28,3 @@ build-flatpak:
   artifacts:
     paths:
     - flatpak/matrique.flatpak
-    
-deploy-flatpak:
-  stage: deploy
-  only:
-  - master
-  tags:
-  - deploy-flatpak
-  dependencies: []
-  before_script:
-    - git submodule update --init --recursive
-  script:
-    - cd flatpak
-    - flatpak-builder --repo=/var/www/matrique-flatpak build-dir org.eu.encom.matrique.json --force-clean --gpg-sign=52986BF4D61350EC249F2E891B0DB3358FC5E4B2
