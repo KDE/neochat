@@ -74,6 +74,6 @@ unix:!mac {
     desktop.files = $$PWD/matrique.desktop
     desktop.path = $$PREFIX/share/applications
     icons.files = $$PWD/icons/matrique.png
-    icons.path = $$PREFIX/share/icons/hicolor/64x64/apps
+    icons.path = $$PREFIX/share/icons/hicolor/128x128/apps
     INSTALLS += metainfo desktop mime icons
 }
