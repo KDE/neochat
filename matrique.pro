@@ -3,6 +3,8 @@ CONFIG += c++14
 CONFIG += object_parallel_to_source
 CONFIG += qtquickcompiler
 
+TARGET = matrique
+
 include(include/libqmatrixclient/libqmatrixclient.pri)
 include(include/SortFilterProxyModel/SortFilterProxyModel.pri)
 
@@ -35,8 +37,12 @@ QML_IMPORT_PATH =
 QML_DESIGNER_IMPORT_PATH =
 
 # Default rules for deployment.
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
+unix:!mac:isEmpty(PREFIX) {
+    message("Install PREFIX not set; using /usr/local. You can change this with 'qmake PREFIX=...'")
+    PREFIX = /usr/local
+}
+unix:target.path = $$PREFIX/bin
+win32:target.path = $$PREFIX
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
