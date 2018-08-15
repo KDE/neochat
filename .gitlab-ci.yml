@@ -13,7 +13,7 @@ build-native:
     - make -j4
   artifacts:
     paths:
-    - build
+    - build/matrique
 
 build-flatpak:
   image: registry.gitlab.com/b0/matrique/flatpak
