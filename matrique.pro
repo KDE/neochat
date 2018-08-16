@@ -69,11 +69,11 @@ HEADERS += \
     src/emojimodel.h
 
 unix:!mac {
-    metainfo.files = $$PWD/matrique.appdata.xml
+    metainfo.files = $$PWD/org.eu.encom.matrique.appdata.xml
     metainfo.path = $$PREFIX/share/metainfo
-    desktop.files = $$PWD/matrique.desktop
+    desktop.files = $$PWD/org.eu.encom.matrique.desktop
     desktop.path = $$PREFIX/share/applications
-    icons.files = $$PWD/icons/matrique.png
+    icons.files = $$PWD/icons/org.eu.encom.matrique.png
     icons.path = $$PREFIX/share/icons/hicolor/128x128/apps
     INSTALLS += metainfo desktop mime icons
 }
