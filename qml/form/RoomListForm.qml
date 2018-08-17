@@ -89,15 +89,36 @@ Item {
                     pattern: searchField.text
                     caseSensitivity: Qt.CaseInsensitive
                 }
-                proxyRoles: [
-                    ExpressionRole { name: "isFavorite"; expression: category === "Favorites" },
-                    ExpressionRole { name: "isDirectChat"; expression: category === "People" },
-                    ExpressionRole { name: "isLowPriority"; expression: category === "Low Priorities" }
-                ]
+                proxyRoles: ExpressionRole {
+                    name: "display"
+                    expression: {
+                        switch (category) {
+                        case 1: return "Invited"
+                        case 2: return "Favorites"
+                        case 3: return "Rooms"
+                        case 4: return "People"
+                        case 5: return "Low Priorities"
+                        }
+                    }
+                }
+
                 sorters: [
-                    RoleSorter { roleName: "isFavorite"; sortOrder: Qt.DescendingOrder },
-                    RoleSorter { roleName: "isLowPriority" },
-                    RoleSorter { roleName: "isDirectChat" },
+                    ExpressionSorter {
+                        expression: {
+                            var leftCategory = modelLeft.category
+                            var rightCategory = modelRight.category
+                            if (leftCategory === 1) return true
+                            if (rightCategory === 1) return false
+                            if (leftCategory === 2) return true
+                            if (rightCategory === 2) return false
+                            if (leftCategory === 5) return false
+                            if (rightCategory === 5) return true
+                            if (leftCategory === 4) return false
+                            if (rightCategory === 4) return true
+                            return true
+                        }
+                    },
+
                     StringSorter { roleName: "name" }
                 ]
             }
@@ -126,7 +147,7 @@ Item {
                     height: 80
                     onPressed: listView.currentIndex = index
                     onPressAndHold: roomListMenu.popup()
-                    onClicked: enterRoom()
+                    onClicked: category === RoomType.Invited ? inviteDialog.open() : enterRoom()
 
                     ToolTip.visible: mini && hovered
                     ToolTip.text: name
@@ -180,7 +201,7 @@ Item {
                     }
                 }
 
-                section.property: "category"
+                section.property: "display"
                 section.criteria: ViewSection.FullString
                 section.delegate: Label {
                     width: parent.width
@@ -192,9 +213,27 @@ Item {
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: mini ? Text.AlignHCenter : undefined
                     background: Rectangle {
-                        anchors.fill:parent
+                        anchors.fill: parent
                         color: Material.theme == Material.Light ? "#dbdbdb" : "#363636"
                     }
+                }
+
+                Dialog {
+                    id: inviteDialog
+                    parent: ApplicationWindow.overlay
+
+                    x: (window.width - width) / 2
+                    y: (window.height - height) / 2
+                    width: 360
+
+                    title: "Action Required"
+                    modal: true
+                    standardButtons: Dialog.Ok | Dialog.Cancel
+
+                    contentItem: Label { text: "Accept this invitation?" }
+
+                    onAccepted: matriqueController.acceptRoom(currentRoom)
+                    onRejected: matriqueController.rejectRoom(currentRoom)
                 }
 
                 Menu {

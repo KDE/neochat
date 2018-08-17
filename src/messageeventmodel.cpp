@@ -33,8 +33,6 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const {
   return roles;
 }
 
-MessageEventModel::~MessageEventModel() {}
-
 MessageEventModel::MessageEventModel(QObject* parent)
     : QAbstractListModel(parent), m_currentRoom(nullptr) {
   using namespace QMatrixClient;
@@ -43,6 +41,8 @@ MessageEventModel::MessageEventModel(QObject* parent)
   qmlRegisterUncreatableType<EventStatus>(
       "Matrique", 0, 1, "EventStatus", "EventStatus is not an creatable type");
 }
+
+MessageEventModel::~MessageEventModel() {}
 
 void MessageEventModel::setRoom(QMatrixClient::Room* room) {
   if (room == m_currentRoom) return;
@@ -587,8 +587,9 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
       }
     }
     if (evt.isRedacted())
-        return Settings().value("UI/show_redacted").toBool()
-                ? EventStatus::Redacted : EventStatus::Hidden;
+      return Settings().value("UI/show_redacted").toBool()
+                 ? EventStatus::Redacted
+                 : EventStatus::Hidden;
 
     if (evt.isStateEvent() &&
         static_cast<const StateEventBase&>(evt).repeatsState() &&

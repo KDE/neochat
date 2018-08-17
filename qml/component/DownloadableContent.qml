@@ -1,6 +1,7 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.2
+import Qt.labs.platform 1.0
 
 Item {
     property bool openOnFinished: false
@@ -27,7 +28,7 @@ Item {
         else
         {
             openOnFinished = true
-            currentRoom.downloadFile(eventId)
+            currentRoom.downloadFile(eventId, StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_") + ".tmp")
         }
     }
 

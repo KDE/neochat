@@ -5,9 +5,9 @@
 #include "roomlistmodel.h"
 #include "user.h"
 
-#include <QObject>
 #include <QApplication>
 #include <QMimeDatabase>
+#include <QObject>
 
 using namespace QMatrixClient;
 
@@ -111,6 +111,8 @@ class Controller : public QObject {
   void createDirectChat(const QString& userID);
   void copyToClipboard(const QString& text);
   void saveFileAs(Room* room, QString eventId);
+  void acceptRoom(Room* room);
+  void rejectRoom(Room* room);
 };
 
 #endif  // CONTROLLER_H

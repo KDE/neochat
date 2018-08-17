@@ -5,6 +5,7 @@
 #include <QtCore/QDebug>
 #include <QtGui/QBrush>
 #include <QtGui/QColor>
+#include <QtQuick>
 
 RoomListModel::RoomListModel(QObject* parent) : QAbstractListModel(parent) {}
 
@@ -136,33 +137,22 @@ QVariant RoomListModel::data(const QModelIndex& index, int role) const {
     return QVariant();
   }
   Room* room = m_rooms.at(index.row());
-  if (role == NameRole) {
-    return room->displayName();
-  }
+  if (role == NameRole) return room->displayName();
   if (role == AvatarRole) {
     if (room->avatarUrl().toString() != "") {
       return room->avatarUrl();
     }
     return QVariant();
   }
-  if (role == TopicRole) {
-    return room->topic();
-  }
+  if (role == TopicRole) return room->topic();
   if (role == CategoryRole) {
-    //    if (!room->isDirectChat())
-    //      qDebug() << room->displayName() << "is not direct.";
-    if (room->isFavourite()) return "Favorites";
-    if (room->isDirectChat()) return "People";
-    if (room->isLowPriority()) return "Low Priorities";
-    return "Rooms";
+    if (room->joinState() == JoinState::Invite) return RoomType::Invited;
+    if (room->isFavourite()) return RoomType::Favorite;
+    if (room->isDirectChat()) return RoomType::Direct;
+    if (room->isLowPriority()) return RoomType::Deprioritized;
+    return RoomType::Normal;
   }
-  if (role == HighlightRole) {
-    if (room->highlightCount() > 0) return QBrush(QColor("orange"));
-    return QVariant();
-  }
-  if (role == UnreadCountRole) {
-    return room->unreadCount();
-  }
+  if (role == UnreadCountRole) return room->unreadCount();
   return QVariant();
 }
 
@@ -192,7 +182,6 @@ QHash<int, QByteArray> RoomListModel::roleNames() const {
   roles[AvatarRole] = "avatar";
   roles[TopicRole] = "topic";
   roles[CategoryRole] = "category";
-  roles[HighlightRole] = "highlight";
   roles[UnreadCountRole] = "unreadCount";
   return roles;
 }

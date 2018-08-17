@@ -7,6 +7,20 @@
 
 using namespace QMatrixClient;
 
+class RoomType : public QObject {
+  Q_OBJECT
+
+ public:
+  enum Types {
+    Invited = 1,
+    Favorite,
+    Normal,
+    Direct,
+    Deprioritized,
+  };
+  REGISTER_ENUM(Types)
+};
+
 class RoomListModel : public QAbstractListModel {
   Q_OBJECT
   Q_PROPERTY(Connection* connection READ getConnection WRITE setConnection)
@@ -17,8 +31,7 @@ class RoomListModel : public QAbstractListModel {
     AvatarRole,
     TopicRole,
     CategoryRole,
-    HighlightRole,
-    UnreadCountRole
+    UnreadCountRole,
   };
 
   RoomListModel(QObject* parent = 0);

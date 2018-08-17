@@ -145,3 +145,10 @@ void Controller::saveFileAs(Room* room, QString eventId) {
   if (!fileName.isEmpty())
     room->downloadFile(eventId, QUrl::fromLocalFile(fileName));
 }
+
+void Controller::acceptRoom(Room* room) { room->setJoinState(JoinState::Join); }
+
+void Controller::rejectRoom(Room* room) {
+  room->setJoinState(JoinState::Leave);
+  forgetRoom(room->id());
+}
