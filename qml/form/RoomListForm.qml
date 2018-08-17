@@ -103,22 +103,7 @@ Item {
                 }
 
                 sorters: [
-                    ExpressionSorter {
-                        expression: {
-                            var leftCategory = modelLeft.category
-                            var rightCategory = modelRight.category
-                            if (leftCategory === 1) return true
-                            if (rightCategory === 1) return false
-                            if (leftCategory === 2) return true
-                            if (rightCategory === 2) return false
-                            if (leftCategory === 5) return false
-                            if (rightCategory === 5) return true
-                            if (leftCategory === 4) return false
-                            if (rightCategory === 4) return true
-                            return true
-                        }
-                    },
-
+                    RoleSorter { roleName: "category" },
                     StringSorter { roleName: "name" }
                 ]
             }

@@ -6,6 +6,8 @@ AvatarContainer {
     readonly property var downloadAndOpen: downloadable.downloadAndOpen
     readonly property var saveFileAs: downloadable.saveFileAs
 
+    id: messageRow
+
     DownloadableContent {
         id: downloadable
 

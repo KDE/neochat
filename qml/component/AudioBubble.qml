@@ -1,19 +1,54 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
-import QtMultimedia 5.8
+import QtQuick.Controls.Material 2.2
+import QtMultimedia 5.9
+import Qt.labs.platform 1.0
 
 AvatarContainer {
-    Button {
-        id: downloadButton
+    readonly property var downloadAndOpen: downloadable.downloadAndOpen
+    readonly property var saveFileAs: downloadable.saveFileAs
 
-        text: content.body
-        highlighted: !sentByMe
-        flat: true
+    property bool playOnFinished: false
 
-        onClicked: downloadable.downloadAndOpen()
+    id: messageRow
 
-        Audio {
-            audioRole: Audio.VoiceCommunicationRole
+    Audio {
+        id: audioPlayer
+        source: progressInfo.localPath
+    }
+
+    DownloadableContent {
+        id: downloadable
+
+        width: downloadDelegate.width
+        height: downloadDelegate.height
+
+        TextDelegate {
+            id: downloadDelegate
+
+            maximumWidth: messageListView.width
+            highlighted: !sentByMe
+            timeLabelVisible: false
+            authorLabelVisible: messageRow.avatarVisible
+
+            displayText: content.info.duration / 1000 + '"'
+
+            MouseArea {
+                anchors.fill: parent
+
+                propagateComposedEvents: true
+
+                onClicked: {
+                    if (downloadable.downloaded)
+                        audioPlayer.play()
+                    else
+                    {
+                        playOnFinished = true
+                        currentRoom.downloadFile(eventId, StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_") + ".tmp")
+                    }
+                }
+            }
         }
+        onDownloadedChanged: downloaded && playOnFinished ? audioPlayer.play() : {}
     }
 }

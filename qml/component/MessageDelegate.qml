@@ -42,8 +42,9 @@ Item {
                 return "MessageBubble.qml"
             case "image":
                 return "ImageBubble.qml"
-            case "video":
             case "audio":
+                return "AudioBubble.qml"
+            case "video":
             case "file":
                 return "FileBubble.qml"
             }
