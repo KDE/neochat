@@ -12,10 +12,7 @@ AvatarContainer {
 
     id: messageRow
 
-    Audio {
-        id: audioPlayer
-        source: progressInfo.localPath
-    }
+    Audio { id: audioPlayer }
 
     DownloadableContent {
         id: downloadable
@@ -29,7 +26,7 @@ AvatarContainer {
             maximumWidth: messageListView.width
             highlighted: !sentByMe
             timeLabelVisible: false
-            authorLabelVisible: messageRow.avatarVisible
+            authorLabelVisible: false
 
             displayText: content.info.duration / 1000 + '"'
 
@@ -40,7 +37,7 @@ AvatarContainer {
 
                 onClicked: {
                     if (downloadable.downloaded)
-                        audioPlayer.play()
+                        play()
                     else
                     {
                         playOnFinished = true
@@ -49,6 +46,11 @@ AvatarContainer {
                 }
             }
         }
-        onDownloadedChanged: downloaded && playOnFinished ? audioPlayer.play() : {}
+        onDownloadedChanged: downloaded && playOnFinished ? play() : {}
+    }
+
+    function play() {
+        audioPlayer.source = progressInfo.localPath
+        audioPlayer.play()
     }
 }
