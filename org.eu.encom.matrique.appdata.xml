@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component type="desktop-application">
+<component type="desktop">
   <id>org.eu.encom.matrique</id>
+  <launchable type="desktop-id">org.eu.encom.matrique.desktop</launchable>
   <metadata_license>GFDL</metadata_license>
   <project_license>GPL-3.0</project_license>
   <name>Matrique</name>
@@ -13,7 +14,6 @@
       The source code is generally available at <a href="https://gitlab.com/b0/matrique" target="_blank">Gitlab</a>
     </p>
   </description>
-  <launchable type="desktop-id">org.eu.encom.matrique</launchable>
   <screenshots>
     <screenshot type="default">
       <caption>Overview</caption>
@@ -32,7 +32,14 @@
       <image>https://raw.githubusercontent.com/encombhat/flathub/org.eu.encom.matrique/screenshots/4.png</image>
     </screenshot>
   </screenshots>
+  <developer_name>Black Hat</developer_name>
+  <categories>
+    <category>Matrix</category>
+    <category>Internet</category>
+    <category>Qt</category>
+  </categories>
   <url type="homepage">https://gitlab.com/b0/matrique</url>
+  <url type="bugtracker">https://gitlab.com/b0/matrique/issues</url>
   <content_rating type="oars-1.0">
     <content_attribute id="social-chat">intense</content_attribute>
     <content_attribute id="social-audio">intense</content_attribute>
