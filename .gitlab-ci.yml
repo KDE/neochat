@@ -1,19 +1,6 @@
 stages:
   - build
   - deploy
-  
-build-native:
-  image: registry.gitlab.com/b0/matrique/qt
-  stage: build
-  before_script:
-    - git submodule update --init --recursive
-  script:
-    - mkdir -p build && cd build
-    - qmake ../matrique.pro -spec linux-g++ CONFIG+=qtquickcompiler
-    - make -j4
-  artifacts:
-    paths:
-    - build/matrique
 
 build-flatpak:
   image: registry.gitlab.com/b0/matrique/flatpak
