@@ -9,8 +9,8 @@ AvatarContainer {
     Rectangle {
         id: messageRect
 
-        width: messageImage.implicitWidth + 24
-        height: messageImage.implicitHeight + 24
+        width: messageImage.width + 24
+        height: messageImage.height + 24
 
         color: sentByMe ? background : Material.accent
 
@@ -21,17 +21,13 @@ AvatarContainer {
             height: messageImage.height
             anchors.centerIn: parent
 
-            Image {
+            AutoImage {
                 id: messageImage
                 z: -4
-                sourceSize.width: 128
+                sourceSize: 128
                 source: "image://mxc/" + (content.thumbnail_url ? content.thumbnail_url : content.url)
 
-                MouseArea {
-                    anchors.fill: parent
-                    propagateComposedEvents: true
-                    onClicked: downloadAndOpen()
-                }
+                onClicked: downloadAndOpen()
             }
         }
     }
