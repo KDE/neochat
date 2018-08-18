@@ -25,7 +25,8 @@ SOURCES += src/main.cpp \
     src/imageprovider.cpp \
     src/messageeventmodel.cpp \
     src/imageproviderconnection.cpp \
-    src/emojimodel.cpp
+    src/emojimodel.cpp \
+    src/matriqueroom.cpp
 
 RESOURCES += \
     res.qrc
@@ -66,7 +67,8 @@ HEADERS += \
     src/imageprovider.h \
     src/messageeventmodel.h \
     src/imageproviderconnection.h \
-    src/emojimodel.h
+    src/emojimodel.h \
+    src/matriqueroom.h
 
 unix:!mac {
     metainfo.files = $$PWD/org.eu.encom.matrique.appdata.xml

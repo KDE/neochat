@@ -1,8 +1,9 @@
 #ifndef MESSAGEEVENTMODEL_H
 #define MESSAGEEVENTMODEL_H
 
-#include <QtCore/QAbstractListModel>
 #include "room.h"
+
+#include <QtCore/QAbstractListModel>
 
 class MessageEventModel : public QAbstractListModel {
   Q_OBJECT

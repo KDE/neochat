@@ -36,10 +36,13 @@ Page {
         }
 
         Button {
-           text: "Logout"
-           highlighted: true
+            text: "Logout"
+            highlighted: true
 
-           onClicked: matriqueController.logout()
+            onClicked: {
+                matriqueController.logout()
+                Qt.quit()
+            }
         }
     }
 }

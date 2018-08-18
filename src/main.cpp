@@ -9,6 +9,7 @@
 #include "messageeventmodel.h"
 #include "room.h"
 #include "roomlistmodel.h"
+#include "matriqueroom.h"
 
 #include "csapi/joining.h"
 #include "csapi/leaving.h"
@@ -22,7 +23,7 @@ int main(int argc, char *argv[]) {
 
   QApplication app(argc, argv);
 
-  qRegisterMetaType<Room *>("Room*");
+  qRegisterMetaType<MatriqueRoom *>("MatriqueRoom*");
   qRegisterMetaType<User *>("User*");
   qRegisterMetaType<MessageEventType>("MessageEventType");
 

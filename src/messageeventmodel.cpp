@@ -1,15 +1,16 @@
 #include "messageeventmodel.h"
 
-#include <QtCore/QDebug>
-#include <QtQml>  // for qmlRegisterType()
-
 #include <connection.h>
+#include <settings.h>
+#include <user.h>
+
 #include <events/redactionevent.h>
 #include <events/roomavatarevent.h>
 #include <events/roommemberevent.h>
 #include <events/simplestateevents.h>
-#include <settings.h>
-#include <user.h>
+
+#include <QtCore/QDebug>
+#include <QtQml>  // for qmlRegisterType()
 
 QHash<int, QByteArray> MessageEventModel::roleNames() const {
   QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();

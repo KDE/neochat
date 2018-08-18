@@ -217,8 +217,8 @@ Item {
 
                     contentItem: Label { text: "Accept this invitation?" }
 
-                    onAccepted: matriqueController.acceptRoom(currentRoom)
-                    onRejected: matriqueController.rejectRoom(currentRoom)
+                    onAccepted: currentRoom.acceptInvitation()
+                    onRejected: currentRoom.rejectInvitation()
                 }
 
                 Menu {
@@ -243,7 +243,7 @@ Item {
                     }
                     MenuItem {
                         text: "Leave Room"
-                        onTriggered: matriqueController.forgetRoom(currentRoom.id)
+                        onTriggered: currentRoom.forget()
                     }
                 }
             }

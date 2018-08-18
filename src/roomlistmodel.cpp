@@ -37,12 +37,13 @@ void RoomListModel::doResetModel() {
   endResetModel();
 }
 
-Room* RoomListModel::roomAt(int row) { return m_rooms.at(row); }
+MatriqueRoom* RoomListModel::roomAt(int row) { return m_rooms.at(row); }
 
 void RoomListModel::doAddRoom(Room* r) {
-  if (auto* room = r) {
+  if (auto* room = static_cast<MatriqueRoom*>(r)) {
     m_rooms.append(room);
     connectRoomSignals(room);
+//    qCritical() << room->cachedInput();
     emit roomAdded(room);
   } else {
     qCritical() << "Attempt to add nullptr to the room list";
@@ -50,7 +51,7 @@ void RoomListModel::doAddRoom(Room* r) {
   }
 }
 
-void RoomListModel::connectRoomSignals(Room* room) {
+void RoomListModel::connectRoomSignals(MatriqueRoom* room) {
   connect(room, &Room::displaynameChanged, this, [=] { namesChanged(room); });
   connect(room, &Room::unreadMessagesChanged, this,
           [=] { unreadMessagesChanged(room); });
@@ -62,7 +63,7 @@ void RoomListModel::connectRoomSignals(Room* room) {
           [=] { refresh(room, {AvatarRole}); });
 
   connect(room, &Room::unreadMessagesChanged, this, [=](Room* r) {
-    if (r->hasUnreadMessages()) emit newMessage(r);
+    if (r->hasUnreadMessages()) emit newMessage(static_cast<MatriqueRoom*>(r));
   });
   //  connect(
   //      room, &QMatrixClient::Room::aboutToAddNewMessages, this,
@@ -84,7 +85,7 @@ void RoomListModel::updateRoom(Room* room, Room* prev) {
   //    the previously left room (in both cases prev has the previous state).
   if (prev == room) {
     qCritical() << "RoomListModel::updateRoom: room tried to replace itself";
-    refresh(static_cast<Room*>(room));
+    refresh(static_cast<MatriqueRoom*>(room));
     return;
   }
   if (prev && room->id() != prev->id()) {
@@ -93,10 +94,10 @@ void RoomListModel::updateRoom(Room* room, Room* prev) {
     // That doesn't look right but technically we still can do it.
   }
   // Ok, we're through with pre-checks, now for the real thing.
-  auto* newRoom = room;
-  const auto it =
-      std::find_if(m_rooms.begin(), m_rooms.end(),
-                   [=](const Room* r) { return r == prev || r == newRoom; });
+  auto* newRoom = static_cast<MatriqueRoom*>(room);
+  const auto it = std::find_if(
+      m_rooms.begin(), m_rooms.end(),
+      [=](const MatriqueRoom* r) { return r == prev || r == newRoom; });
   if (it != m_rooms.end()) {
     const int row = it - m_rooms.begin();
     // There's no guarantee that prev != newRoom
@@ -136,7 +137,7 @@ QVariant RoomListModel::data(const QModelIndex& index, int role) const {
     qDebug() << "UserListModel: something wrong here...";
     return QVariant();
   }
-  Room* room = m_rooms.at(index.row());
+  MatriqueRoom* room = m_rooms.at(index.row());
   if (role == NameRole) return room->displayName();
   if (role == AvatarRole) {
     if (room->avatarUrl().toString() != "") {
@@ -156,12 +157,12 @@ QVariant RoomListModel::data(const QModelIndex& index, int role) const {
   return QVariant();
 }
 
-void RoomListModel::namesChanged(Room* room) {
+void RoomListModel::namesChanged(MatriqueRoom* room) {
   int row = m_rooms.indexOf(room);
   emit dataChanged(index(row), index(row));
 }
 
-void RoomListModel::refresh(Room* room, const QVector<int>& roles) {
+void RoomListModel::refresh(MatriqueRoom* room, const QVector<int>& roles) {
   const auto it = std::find(m_rooms.begin(), m_rooms.end(), room);
   if (it == m_rooms.end()) {
     qCritical() << "Room" << room->id() << "not found in the room list";
@@ -171,7 +172,7 @@ void RoomListModel::refresh(Room* room, const QVector<int>& roles) {
   emit dataChanged(idx, idx, roles);
 }
 
-void RoomListModel::unreadMessagesChanged(Room* room) {
+void RoomListModel::unreadMessagesChanged(MatriqueRoom* room) {
   int row = m_rooms.indexOf(room);
   emit dataChanged(index(row), index(row));
 }

@@ -303,20 +303,7 @@ Item {
 
                         contentItem: MaterialIcon { icon: "\ue226" }
 
-                        onClicked: {
-                            var fileTransferProgressCallback = function(id, sent, total) {
-                                inputField.progress = sent / total
-                            }
-                            var completedCallback = function(id, localFile, mxcUrl) {
-                                inputField.progress = 0
-                                currentRoom.fileTransferCompleted.disconnect(fileTransferProgressCallback)
-                                currentRoom.fileTransferCompleted.disconnect(completedCallback)
-                            }
-
-                            currentRoom.fileTransferProgress.connect(fileTransferProgressCallback)
-                            currentRoom.fileTransferCompleted.connect(completedCallback)
-                            matriqueController.uploadFile(currentRoom)
-                        }
+                        onClicked: currentRoom.chooseAndUploadFile()
                     }
 
                     TextField {
@@ -340,14 +327,6 @@ Item {
 
                         background: Rectangle {
                             color: Material.theme == Material.Light ? "#eaeaea" : "#242424"
-
-                            Rectangle {
-                                z: 5
-                                width: inputField.width * inputField.progress
-                                height: parent.height
-                                color: Material.accent
-                                opacity: 0.4
-                            }
                         }
 
                         function postMessage(text) {

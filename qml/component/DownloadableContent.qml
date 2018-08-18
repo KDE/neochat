@@ -18,7 +18,7 @@ Item {
     onDownloadedChanged: downloaded && openOnFinished ? openSavedFile() : {}
 
     function saveFileAs() {
-        matriqueController.saveFileAs(currentRoom, eventId)
+        currentRoom.saveFileAs(eventId)
     }
 
     function downloadAndOpen()

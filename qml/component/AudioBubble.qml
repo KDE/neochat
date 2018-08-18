@@ -12,8 +12,6 @@ AvatarContainer {
 
     id: messageRow
 
-    Audio { id: audioPlayer }
-
     DownloadableContent {
         id: downloadable
 
@@ -37,7 +35,7 @@ AvatarContainer {
 
                 onClicked: {
                     if (downloadable.downloaded)
-                        play()
+                        matriqueController.playAudio(progressInfo.localPath)
                     else
                     {
                         playOnFinished = true
@@ -46,11 +44,7 @@ AvatarContainer {
                 }
             }
         }
-        onDownloadedChanged: downloaded && playOnFinished ? play() : {}
+        onDownloadedChanged: downloaded && playOnFinished ? matriqueController.playAudio(progressInfo.localPath) : {}
     }
 
-    function play() {
-        audioPlayer.source = progressInfo.localPath
-        audioPlayer.play()
-    }
 }

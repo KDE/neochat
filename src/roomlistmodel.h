@@ -1,9 +1,11 @@
 #ifndef ROOMLISTMODEL_H
 #define ROOMLISTMODEL_H
 
-#include <QtCore/QAbstractListModel>
 #include "connection.h"
 #include "room.h"
+#include "matriqueroom.h"
+
+#include <QtCore/QAbstractListModel>
 
 using namespace QMatrixClient;
 
@@ -23,7 +25,7 @@ class RoomType : public QObject {
 
 class RoomListModel : public QAbstractListModel {
   Q_OBJECT
-  Q_PROPERTY(Connection* connection READ getConnection WRITE setConnection)
+  Q_PROPERTY(Connection* connection READ connection WRITE setConnection)
 
  public:
   enum EventRoles {
@@ -37,11 +39,11 @@ class RoomListModel : public QAbstractListModel {
   RoomListModel(QObject* parent = 0);
   virtual ~RoomListModel();
 
-  Connection* getConnection() { return m_connection; }
+  Connection* connection() { return m_connection; }
   void setConnection(Connection* connection);
   void doResetModel();
 
-  Q_INVOKABLE Room* roomAt(int row);
+  Q_INVOKABLE MatriqueRoom* roomAt(int row);
 
   QVariant data(const QModelIndex& index,
                 int role = Qt::DisplayRole) const override;
@@ -51,23 +53,23 @@ class RoomListModel : public QAbstractListModel {
   QHash<int, QByteArray> roleNames() const;
 
  private slots:
-  void namesChanged(Room* room);
-  void unreadMessagesChanged(Room* room);
+  void namesChanged(MatriqueRoom* room);
+  void unreadMessagesChanged(MatriqueRoom* room);
 
   void doAddRoom(Room* room);
   void updateRoom(Room* room, Room* prev);
   void deleteRoom(Room* room);
-  void refresh(Room* room, const QVector<int>& roles = {});
+  void refresh(MatriqueRoom* room, const QVector<int>& roles = {});
 
  private:
   Connection* m_connection = nullptr;
-  QList<Room*> m_rooms;
-  void connectRoomSignals(Room* room);
+  QList<MatriqueRoom*> m_rooms;
+  void connectRoomSignals(MatriqueRoom* room);
 
  signals:
   void connectionChanged();
-  void roomAdded(Room* room);
-  void newMessage(Room* room);
+  void roomAdded(MatriqueRoom* room);
+  void newMessage(MatriqueRoom* room);
 };
 
 #endif  // ROOMLISTMODEL_H
