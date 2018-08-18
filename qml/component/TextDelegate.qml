@@ -45,7 +45,7 @@ Rectangle {
 
             wrapMode: Label.Wrap
             linkColor: darkBackground ? "white" : Material.accent
-            textFormat: Text.StyledText
+            textFormat: setting.richText ? Text.RichText : Text.StyledText
             onLinkActivated: Qt.openUrlExternally(link)
         }
 

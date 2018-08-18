@@ -34,6 +34,7 @@ ApplicationWindow {
 
         property alias lazyLoad: settingPage.lazyLoad
         property alias asyncMessageDelegate: settingPage.asyncMessageDelegate
+        property alias richText: settingPage.richText
 
         property alias darkTheme: settingPage.darkTheme
         property alias miniMode: settingPage.miniMode
