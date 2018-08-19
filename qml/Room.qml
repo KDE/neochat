@@ -6,14 +6,12 @@ import Matrique 0.1
 import "qrc:/qml/form"
 
 Page {
-    property var connection
+    property alias connection: roomListModel.connection
 
     id: page
 
     RoomListModel {
         id: roomListModel
-
-        connection: page.connection
 
         onRoomAdded: setting.lazyLoad ? {} : room.getPreviousContent(20)
         onNewMessage: window.active ? {} : matriqueController.showMessage(roomName, content, icon)

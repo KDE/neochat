@@ -240,6 +240,4 @@ Item {
             }
         }
     }
-
-    onCurrentRoomChanged: setting.lazyLoad && currentRoom && !currentRoom.timelineSize ? currentRoom.getPreviousContent(20) : {}
 }

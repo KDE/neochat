@@ -14,9 +14,7 @@ RoomListModel::RoomListModel(QObject* parent) : QAbstractListModel(parent) {}
 RoomListModel::~RoomListModel() {}
 
 void RoomListModel::setConnection(Connection* connection) {
-  Q_ASSERT(connection);
-
-  if (connection == m_connection) return;
+  if (!connection && connection == m_connection) return;
 
   using QMatrixClient::Room;
   m_connection = connection;

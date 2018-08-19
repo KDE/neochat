@@ -73,7 +73,7 @@ ApplicationWindow {
 
         parent: null
 
-        connection: matriqueController.isLogin ? window.connection : undefined
+        connection: matriqueController.isLogin ? window.connection : null
     }
 
     Setting {

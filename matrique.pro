@@ -46,6 +46,24 @@ unix:target.path = $$PREFIX/bin
 win32:target.path = $$PREFIX
 !isEmpty(target.path): INSTALLS += target
 
+unix:!mac {
+    metainfo.files = $$PWD/org.eu.encom.matrique.appdata.xml
+    metainfo.path = $$PREFIX/share/metainfo
+    desktop.files = $$PWD/org.eu.encom.matrique.desktop
+    desktop.path = $$PREFIX/share/applications
+    icons.files = $$PWD/icons/org.eu.encom.matrique.png
+    icons.path = $$PREFIX/share/icons/hicolor/128x128/apps
+    INSTALLS += metainfo desktop icons
+}
+
+win32 {
+    RC_ICONS = asset/img/icon.ico
+}
+
+mac {
+    ICON = asset/img/icon.icns
+}
+
 DISTFILES += \
     ChatForm.qml \
     LoginForm.qml \
@@ -69,13 +87,3 @@ HEADERS += \
     src/imageproviderconnection.h \
     src/emojimodel.h \
     src/matriqueroom.h
-
-unix:!mac {
-    metainfo.files = $$PWD/org.eu.encom.matrique.appdata.xml
-    metainfo.path = $$PREFIX/share/metainfo
-    desktop.files = $$PWD/org.eu.encom.matrique.desktop
-    desktop.path = $$PREFIX/share/applications
-    icons.files = $$PWD/icons/org.eu.encom.matrique.png
-    icons.path = $$PREFIX/share/icons/hicolor/128x128/apps
-    INSTALLS += metainfo desktop mime icons
-}

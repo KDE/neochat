@@ -10,6 +10,7 @@ Page {
         Switch {
             id: lazyLoadSwitch
             text: "Lazy load at initial sync"
+            checked: true
         }
         Switch {
             id: asyncMessageDelegateSwitch
