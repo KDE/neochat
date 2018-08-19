@@ -22,6 +22,7 @@ build_script:
   
 after_build:
   - nmake install
+  - windeployqt --release --no-translations --no-angle --no-opengl-sw "%DEPLOY_DIR%\matrique.exe"
   - 7z a matrique.zip "%DEPLOY_DIR%\"
 
 artifacts:
