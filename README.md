@@ -1,7 +1,8 @@
 # Matrique
 
-[![pipeline status](https://gitlab.com/b0/matrique/badges/master/pipeline.svg)](https://gitlab.com/b0/matrique/commits/master)
-[![coverage report](https://gitlab.com/b0/matrique/badges/master/coverage.svg)](https://gitlab.com/b0/matrique/commits/master)
+[![Pipeline Status](https://gitlab.com/b0/matrique/badges/master/pipeline.svg)](https://gitlab.com/b0/matrique/commits/master)
+[![Build Status](https://ci.appveyor.com/api/projects/status/idt149cdxwurbukh?svg=true)](https://ci.appveyor.com/project/BlackHat/matrique)
+[![Coverage Report](https://gitlab.com/b0/matrique/badges/master/coverage.svg)](https://gitlab.com/b0/matrique/commits/master)
 
 <a href='https://flathub.org/apps/details/org.eu.encom.matrique'><img width='240' alt='Get it on Flathub' src='https://flathub.org/assets/badges/flathub-badge-i-en.png'/></a>
 
@@ -15,23 +16,22 @@ You can reach the maintainer at #matrique:matrix.org, if you are already on Matr
 
 Also, you can file an issue at this project if anything goes wrong.
 
-## Download
+## Install
+
+### GNU/Linux
 
 You can fetch the release of Matrique on Flathub. The link is at the beginning of this README.
 
-Alternatively, you can download the Flatpak nightly build bundle from here: ![Download Bundle](https://gitlab.com/b0/matrique/-/jobs/artifacts/dev/raw/flatpak/matrique.flatpak?job=build-flatpak)
+Alternatively, you can download the Flatpak nightly build bundle from ![Gitlab CI](https://gitlab.com/b0/matrique/-/jobs/artifacts/dev/raw/flatpak/matrique.flatpak?job=build-flatpak).
 
 Open the bundle using your preferred software center.
 
-### Requirements
+#### Requirements
 
 An operating system with Flatpak installed.
 Fedora 28 is known to work, other GNU/Linux distributions should work as well if they have Flatpak installed.
 
-*P.S. In case if you haven't figured it out, the instruction above only works on Master OS. 
-No precompiled binary for MacOS and Microsoft Windows yet.*
-
-## Run
+#### Run
 
 If you install Matrique through Flatpak, you should already be able to run it from the app launcher.
 
@@ -40,6 +40,16 @@ If not,
 ```bash
 flatpak run org.eu.encom.matrique
 ```
+
+### Windows
+
+There are no tested builds on Windows yet, but you can fetch the nightly builds from ![AppVeyor](https://ci.appveyor.com/api/projects/BlackHat/matrique/artifacts/matrique.zip).
+
+Most functions should work fine, but things are expected to go wrong. Open an issue if you find any bugs.
+
+### MacOS
+
+I suggest you to check out ![Seaglass](https://github.com/neilalexander/seaglass).
 
 ## Compile from Source
 
