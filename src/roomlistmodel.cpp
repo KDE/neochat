@@ -1,5 +1,7 @@
 #include "roomlistmodel.h"
 
+#include "user.h"
+
 #include "events/roomevent.h"
 
 #include <QtCore/QDebug>
@@ -14,10 +16,12 @@ RoomListModel::~RoomListModel() {}
 void RoomListModel::setConnection(Connection* connection) {
   Q_ASSERT(connection);
 
+  if (connection == m_connection) return;
+
   using QMatrixClient::Room;
   m_connection = connection;
 
-  if (!connection->accessToken().isEmpty()) doResetModel();
+  doResetModel();
 
   connect(connection, &Connection::connected, this,
           &RoomListModel::doResetModel);
@@ -43,7 +47,6 @@ void RoomListModel::doAddRoom(Room* r) {
   if (auto* room = static_cast<MatriqueRoom*>(r)) {
     m_rooms.append(room);
     connectRoomSignals(room);
-//    qCritical() << room->cachedInput();
     emit roomAdded(room);
   } else {
     qCritical() << "Attempt to add nullptr to the room list";
@@ -61,21 +64,16 @@ void RoomListModel::connectRoomSignals(MatriqueRoom* room) {
   connect(room, &Room::joinStateChanged, this, [=] { refresh(room); });
   connect(room, &Room::avatarChanged, this,
           [=] { refresh(room, {AvatarRole}); });
-
-  connect(room, &Room::unreadMessagesChanged, this, [=](Room* r) {
-    if (r->hasUnreadMessages()) emit newMessage(static_cast<MatriqueRoom*>(r));
-  });
-  //  connect(
-  //      room, &QMatrixClient::Room::aboutToAddNewMessages, this,
-  //      [=](QMatrixClient::RoomEventsRange eventsRange) {
-  //        for (QMatrixClient::RoomEvents events : eventsRange.const_iterator)
-  //        {
-  //          for (QMatrixClient::RoomEvent event : events) {
-  //            qDebug() << event.fullJson();
-  //          }
-  //        }
-  //        emit newMessage(room);
-  //      });
+  connect(room, &QMatrixClient::Room::aboutToAddNewMessages, this,
+          [=](QMatrixClient::RoomEventsRange eventsRange) {
+            RoomEvent* event = (eventsRange.end() - 1)->get();
+            User* sender = room->user(event->senderId());
+            if (sender == room->localUser()) return;
+            emit newMessage(room->displayName(),
+                            sender->displayname() + ": " +
+                                event->contentJson().value("body").toString(),
+                            QPixmap::fromImage(room->avatar(64)));
+          });
 }
 
 void RoomListModel::updateRoom(Room* room, Room* prev) {

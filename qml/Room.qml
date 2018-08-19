@@ -16,7 +16,7 @@ Page {
         connection: page.connection
 
         onRoomAdded: setting.lazyLoad ? {} : room.getPreviousContent(20)
-        onNewMessage: trayIcon.showMessage("New message", "New message for room " + room.displayName)
+        onNewMessage: matriqueController.showMessage(roomName, content, icon)
     }
 
     RowLayout {

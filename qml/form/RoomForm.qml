@@ -318,6 +318,9 @@ Item {
                         bottomPadding: 0
                         selectByMouse: true
 
+                        text: currentRoom ? currentRoom.cachedInput : ""
+                        onTextChanged: currentRoom.cachedInput = text
+
                         Keys.onReturnPressed: {
                             if (inputField.text) {
                                 inputField.postMessage(inputField.text)

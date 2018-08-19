@@ -4,7 +4,6 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.2
 import QtGraphicalEffects 1.0
 import Qt.labs.settings 1.0 as Settings
-import Qt.labs.platform 1.0 as Platform
 import Matrique 0.1
 
 import "component"
@@ -40,21 +39,6 @@ ApplicationWindow {
         property alias miniMode: settingPage.miniMode
     }
 
-    Platform.SystemTrayIcon {
-        id: trayIcon
-
-        visible: true
-        iconSource: "qrc:/asset/img/icon.png"
-
-        onActivated: window.active ? window.hide() :  raiseWindow()
-
-        function raiseWindow() {
-            window.show()
-            window.raise()
-            window.requestActivate()
-        }
-    }
-
     Controller {
         id: matriqueController
     }
@@ -87,7 +71,7 @@ ApplicationWindow {
 
         parent: null
 
-        connection: window.connection
+        connection: matriqueController.isLogin ? window.connection : undefined
     }
 
     Setting {

@@ -2,8 +2,9 @@
 #define ROOMLISTMODEL_H
 
 #include "connection.h"
-#include "room.h"
+#include "events/roomevent.h"
 #include "matriqueroom.h"
+#include "room.h"
 
 #include <QtCore/QAbstractListModel>
 
@@ -69,7 +70,7 @@ class RoomListModel : public QAbstractListModel {
  signals:
   void connectionChanged();
   void roomAdded(MatriqueRoom* room);
-  void newMessage(MatriqueRoom* room);
+  void newMessage(const QString& roomName, const QString& content, const QIcon& icon);
 };
 
 #endif  // ROOMLISTMODEL_H

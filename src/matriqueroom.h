@@ -24,7 +24,7 @@ class MatriqueRoom : public Room {
   }
 
  private:
-  QString m_cachedInput = "";
+  QString m_cachedInput;
 
   QString getMIME(const QUrl& fileUrl) const;
   void postFile(const QUrl& localFile, const QUrl& mxcUrl);

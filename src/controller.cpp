@@ -8,8 +8,15 @@
 #include "csapi/joining.h"
 
 #include <QClipboard>
+#include <QSystemTrayIcon>
 
 Controller::Controller(QObject* parent) : QObject(parent) {
+  tray->setIcon(QIcon(":/asset/img/icon.png"));
+  tray->setToolTip("Matrique");
+  trayMenu->addAction("Quit", [=] { QApplication::quit(); });
+  tray->setContextMenu(trayMenu);
+  tray->show();
+
   Connection::setRoomType<MatriqueRoom>();
 
   connect(m_connection, &Connection::connected, this, &Controller::connected);
@@ -101,4 +108,9 @@ void Controller::playAudio(QUrl localFile) {
   player->setMedia(localFile);
   player->play();
   connect(player, &QMediaPlayer::stateChanged, [=] { player->deleteLater(); });
+}
+
+void Controller::showMessage(const QString& title, const QString& msg,
+                             const QIcon& icon) {
+  tray->showMessage(title, msg, icon);
 }

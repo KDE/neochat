@@ -7,6 +7,8 @@
 #include <QApplication>
 #include <QMediaPlayer>
 #include <QObject>
+#include <QSystemTrayIcon>
+#include <QMenu>
 
 using namespace QMatrixClient;
 
@@ -78,6 +80,8 @@ class Controller : public QObject {
 
  private:
   QClipboard* m_clipboard = QApplication::clipboard();
+  QSystemTrayIcon* tray = new QSystemTrayIcon();
+  QMenu* trayMenu = new QMenu();
 
   bool m_isLogin = false;
   QString m_userID;
@@ -104,6 +108,7 @@ class Controller : public QObject {
   void createDirectChat(const QString& userID);
   void copyToClipboard(const QString& text);
   void playAudio(QUrl localFile);
+  void showMessage(const QString& title, const QString& msg, const QIcon& icon);
 };
 
 #endif  // CONTROLLER_H

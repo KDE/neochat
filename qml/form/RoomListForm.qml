@@ -30,13 +30,15 @@ Item {
                 id: searchField
                 width: parent.width - 18
                 height: 36
-                color: "black"
-                leftPadding: mini ? 4 : 16
+                color: "white"
+                leftPadding: mini ? 4 : 32
                 topPadding: 0
                 bottomPadding: 0
                 anchors.centerIn: parent
 
                 background: Row {
+                    visible: !parent.text
+
                     MaterialIcon {
                         icon: "\ue8b6"
                         color: "white"
@@ -53,17 +55,6 @@ Item {
                         font.pointSize: 12
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
-                    }
-                }
-
-                Rectangle {
-                    z: -2
-                    width: searchField.activeFocus || searchField.text ? parent.width : 0
-                    height: parent.height
-                    color: "white"
-
-                    Behavior on width {
-                        PropertyAnimation { easing.type: Easing.InOutCubic; duration: 200 }
                     }
                 }
             }
