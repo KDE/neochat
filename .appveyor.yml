@@ -1,0 +1,22 @@
+image: Visual Studio 2017
+
+environment:
+  matrix:
+  - QT: C:\Qt\5.11\msvc2017_64
+  
+init:
+  - call "%QTDIR%\bin\qtenv2.bat"
+  - set PATH=C:\Qt\Tools\QtCreator\bin;%PATH%
+  - call "%VCVARS%" %platform%
+  - cd /D "%APPVEYOR_BUILD_FOLDER%"
+
+before_build:
+  - git submodule update --init --recursive
+
+build_script:
+  - qmake matrique.pro
+  - make
+
+artifacts:
+  - path: matrique.exe
+    name: portable
