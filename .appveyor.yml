@@ -1,6 +1,7 @@
 image: Visual Studio 2017
 
 environment:
+  DEPLOY_DIR: Matrique-%APPVEYOR_BUILD_VERSION%
   matrix:
   - QTDIR: C:\Qt\5.11\msvc2017_64
     VCVARS: "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\VC\\Auxiliary\\Build\\vcvars64.bat"
@@ -16,9 +17,13 @@ before_build:
   - git submodule update --init --recursive
 
 build_script:
-  - qmake matrique.pro
+  - qmake matrique.pro PREFIX="%DEPLOY_DIR%"
   - nmake
+  
+after_build:
+  - nmake install
+  - 7z a matrique.zip "%DEPLOY_DIR%\"
 
 artifacts:
-  - path: matrique.exe
+  - path: matrique.zip
     name: portable
