@@ -17,7 +17,7 @@ before_build:
 
 build_script:
   - qmake matrique.pro
-  - make
+  - nmake
 
 artifacts:
   - path: matrique.exe
