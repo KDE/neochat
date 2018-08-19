@@ -6,9 +6,9 @@
 
 #include <QApplication>
 #include <QMediaPlayer>
+#include <QMenu>
 #include <QObject>
 #include <QSystemTrayIcon>
-#include <QMenu>
 
 using namespace QMatrixClient;
 
@@ -101,6 +101,7 @@ class Controller : public QObject {
   void homeserverChanged();
   void busyChanged();
   void errorOccured();
+  void toggleWindow();
 
  public slots:
   void joinRoom(const QString& alias);

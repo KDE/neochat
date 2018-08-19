@@ -23,6 +23,8 @@ int main(int argc, char *argv[]) {
 
   QApplication app(argc, argv);
 
+  app.setQuitOnLastWindowClosed(false);
+
   qRegisterMetaType<MatriqueRoom *>("MatriqueRoom*");
   qRegisterMetaType<User *>("User*");
   qRegisterMetaType<MessageEventType>("MessageEventType");

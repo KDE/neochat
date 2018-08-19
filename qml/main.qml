@@ -41,6 +41,8 @@ ApplicationWindow {
 
     Controller {
         id: matriqueController
+
+        onToggleWindow: window.visible ? window.hide() : window.show()
     }
 
     Popup {

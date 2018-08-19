@@ -13,6 +13,7 @@
 Controller::Controller(QObject* parent) : QObject(parent) {
   tray->setIcon(QIcon(":/asset/img/icon.png"));
   tray->setToolTip("Matrique");
+  trayMenu->addAction("Toggle Window", [=] { emit toggleWindow(); });
   trayMenu->addAction("Quit", [=] { QApplication::quit(); });
   tray->setContextMenu(trayMenu);
   tray->show();
