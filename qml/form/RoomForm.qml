@@ -319,7 +319,10 @@ Item {
                         selectByMouse: true
 
                         text: currentRoom ? currentRoom.cachedInput : ""
-                        onTextChanged: currentRoom.cachedInput = text
+                        onTextChanged: {
+                            currentRoom.isTyping = true
+                            currentRoom.cachedInput = text
+                        }
 
                         Keys.onReturnPressed: {
                             if (inputField.text) {
@@ -331,6 +334,9 @@ Item {
                         background: Rectangle {
                             color: Material.theme == Material.Light ? "#eaeaea" : "#242424"
                         }
+
+                        ToolTip.visible: currentRoom && currentRoom.hasUsersTyping
+                        ToolTip.text: currentRoom ? currentRoom.usersTyping : ""
 
                         function postMessage(text) {
                             if (text.trim().length === 0) { return }

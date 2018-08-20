@@ -1,14 +1,36 @@
 #include "matriqueroom.h"
 
 #include "connection.h"
+#include "user.h"
+
 #include "csapi/leaving.h"
+#include "csapi/typing.h"
+#include "events/typingevent.h"
 
 #include <QFileDialog>
 #include <QMimeDatabase>
 
 MatriqueRoom::MatriqueRoom(Connection* connection, QString roomId,
                            JoinState joinState)
-    : Room(connection, std::move(roomId), joinState) {}
+    : Room(connection, std::move(roomId), joinState) {
+  m_timeoutTimer->setSingleShot(true);
+  m_timeoutTimer->setInterval(2000);
+  m_repeatTimer->setInterval(5000);
+  connect(m_timeoutTimer, &QTimer::timeout, [=] { setIsTyping(false); });
+  connect(m_repeatTimer, &QTimer::timeout,
+          [=] { sendTypingNotification(true); });
+  connect(this, &MatriqueRoom::isTypingChanged, [=] {
+    if (m_isTyping) {
+      m_timeoutTimer->start();
+      m_repeatTimer->start();
+      sendTypingNotification(true);
+    } else {
+      m_timeoutTimer->stop();
+      m_repeatTimer->stop();
+      sendTypingNotification(false);
+    }
+  });
+}
 
 void MatriqueRoom::chooseAndUploadFile() {
   auto localFile = QFileDialog::getOpenFileUrl(Q_NULLPTR, tr("Save File as"));
@@ -55,3 +77,28 @@ void MatriqueRoom::rejectInvitation() {
 }
 
 void MatriqueRoom::forget() { connection()->forgetRoom(id()); }
+
+bool MatriqueRoom::hasUsersTyping() {
+  QList<User*> users = usersTyping();
+  if (users.isEmpty()) return false;
+  int count = users.length();
+  if (users.contains(localUser())) count--;
+  return count != 0;
+}
+
+QString MatriqueRoom::getUsersTyping() {
+  QString usersTypingStr;
+  QList<User*> users = usersTyping();
+  users.removeOne(localUser());
+  for (User* user : users) {
+    usersTypingStr += user->displayname() + " ";
+  }
+  usersTypingStr += users.count() == 1 ? "is" : "are";
+  usersTypingStr += " typing.";
+  return usersTypingStr;
+}
+
+void MatriqueRoom::sendTypingNotification(bool isTyping) {
+  connection()->callApi<SetTypingJob>(BackgroundRequest, localUser()->id(),
+                                      id(), isTyping, 10000);
+}
