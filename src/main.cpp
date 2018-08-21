@@ -38,6 +38,7 @@ int main(int argc, char *argv[]) {
   qmlRegisterUncreatableType<RoomType>("Matrique", 0, 1, "RoomType", "ENUM");
 
   QQmlApplicationEngine engine;
+  engine.addImportPath("qrc:/qml");
 
   ImageProvider *m_provider = new ImageProvider();
 

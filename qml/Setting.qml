@@ -7,13 +7,6 @@ import "component"
 import "form"
 
 Page {
-    property alias lazyLoad: generalForm.lazyLoad
-    property alias asyncMessageDelegate: generalForm.asyncMessageDelegate
-    property alias richText: generalForm.richText
-
-    property alias darkTheme: appearanceForm.darkTheme
-    property alias miniMode: appearanceForm.miniMode
-
     property var connection
 
     SettingAccountForm {

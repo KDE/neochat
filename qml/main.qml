@@ -2,9 +2,10 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.2
+import Qt.labs.settings 1.0 as Labs
 import QtGraphicalEffects 1.0
-import Qt.labs.settings 1.0 as Settings
 import Matrique 0.1
+import MatriqueSettings 0.1
 
 import "component"
 import "form"
@@ -20,24 +21,15 @@ ApplicationWindow {
     minimumHeight: 480
     title: qsTr("Matrique")
 
-    Material.theme: setting.darkTheme ? Material.Dark : Material.Light
+    Material.theme: MatriqueSettings.darkTheme ? Material.Dark : Material.Light
 
-    FontLoader { id: materialFont; source: "qrc:/asset/font/material.ttf" }
-
-    Settings.Settings {
-        id: setting
-
+    Labs.Settings {
         property alias homeserver: matriqueController.homeserver
         property alias userID: matriqueController.userID
         property alias token: matriqueController.token
-
-        property alias lazyLoad: settingPage.lazyLoad
-        property alias asyncMessageDelegate: settingPage.asyncMessageDelegate
-        property alias richText: settingPage.richText
-
-        property alias darkTheme: settingPage.darkTheme
-        property alias miniMode: settingPage.miniMode
     }
+
+    FontLoader { id: materialFont; source: "qrc:/asset/font/material.ttf" }
 
     Controller {
         id: matriqueController

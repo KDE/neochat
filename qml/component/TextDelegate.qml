@@ -2,6 +2,7 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.2
 import QtQuick.Layouts 1.3
+import MatriqueSettings 0.1
 
 Rectangle {
     property bool flat: false
@@ -45,7 +46,7 @@ Rectangle {
 
             wrapMode: Label.Wrap
             linkColor: darkBackground ? "white" : Material.accent
-            textFormat: setting.richText ? Text.RichText : Text.StyledText
+            textFormat: MatriqueSettings.richText ? Text.RichText : Text.StyledText
             onLinkActivated: Qt.openUrlExternally(link)
         }
 

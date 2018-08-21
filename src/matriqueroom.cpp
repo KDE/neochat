@@ -69,12 +69,7 @@ void MatriqueRoom::saveFileAs(QString eventId) {
   if (!fileName.isEmpty()) downloadFile(eventId, QUrl::fromLocalFile(fileName));
 }
 
-void MatriqueRoom::acceptInvitation() { setJoinState(JoinState::Join); }
-
-void MatriqueRoom::rejectInvitation() {
-  setJoinState(JoinState::Leave);
-  forget();
-}
+void MatriqueRoom::acceptInvitation() { connection()->joinRoom(id()); }
 
 void MatriqueRoom::forget() { connection()->forgetRoom(id()); }
 

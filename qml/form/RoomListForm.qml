@@ -6,6 +6,7 @@ import QtQuick.Controls.Material 2.2
 import QtQml.Models 2.3
 import Matrique 0.1
 import SortFilterProxyModel 0.2
+import MatriqueSettings 0.1
 
 import "qrc:/qml/component"
 
@@ -13,7 +14,7 @@ Item {
     property alias listModel: roomListProxyModel.sourceModel
     readonly property int currentIndex: roomListProxyModel.mapToSource(listView.currentIndex)
     readonly property var currentRoom: currentIndex != -1 ? listModel.roomAt(currentIndex) : null
-    readonly property bool mini: setting.miniMode // Used as an indicator of whether the listform should be displayed as "Mini mode".
+    readonly property bool mini: MatriqueSettings.miniMode // Used as an indicator of whether the listform should be displayed as "Mini mode".
     signal enterRoom()
 
     ColumnLayout {
@@ -121,9 +122,14 @@ Item {
                 delegate: ItemDelegate {
                     width: parent.width
                     height: 80
-                    onPressed: listView.currentIndex = index
-                    onPressAndHold: roomListMenu.popup()
-                    onClicked: category === RoomType.Invited ? inviteDialog.open() : enterRoom()
+
+                    AutoMouseArea {
+                        anchors.fill: parent
+
+                        onPressed: listView.currentIndex = index
+                        onSecondaryClicked: roomListMenu.popup()
+                        onPrimaryClicked: category === RoomType.Invited ? inviteDialog.open() : enterRoom()
+                    }
 
                     ToolTip.visible: mini && hovered
                     ToolTip.text: name
@@ -209,7 +215,7 @@ Item {
                     contentItem: Label { text: "Accept this invitation?" }
 
                     onAccepted: currentRoom.acceptInvitation()
-                    onRejected: currentRoom.rejectInvitation()
+                    onRejected: currentRoom.forget()
                 }
 
                 Menu {

@@ -2,6 +2,7 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import Matrique 0.1
+import MatriqueSettings 0.1
 
 import "qrc:/qml/form"
 
@@ -13,7 +14,7 @@ Page {
     RoomListModel {
         id: roomListModel
 
-        onRoomAdded: setting.lazyLoad ? {} : room.getPreviousContent(20)
+        onRoomAdded: MatriqueSettings.lazyLoad ? {} : room.getPreviousContent(20)
         onNewMessage: window.active ? {} : matriqueController.showMessage(roomName, content, icon)
     }
 
@@ -25,7 +26,7 @@ Page {
             id: roomListForm
 
             Layout.fillHeight: true
-            Layout.preferredWidth: setting.miniMode ? 80 : page.width * 0.35
+            Layout.preferredWidth: MatriqueSettings.miniMode ? 80 : page.width * 0.35
             Layout.minimumWidth: 80
             Layout.maximumWidth: 360
 

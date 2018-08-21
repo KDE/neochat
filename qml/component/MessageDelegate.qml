@@ -2,6 +2,7 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.2
 import Matrique 0.1
+import MatriqueSettings 0.1
 
 Item {
     readonly property bool hidden: marks === EventStatus.Redacted || marks === EventStatus.Hidden
@@ -21,15 +22,15 @@ Item {
     anchors.right: !isState && sentByMe ? parent.right : undefined
     anchors.horizontalCenter: isState ? parent.horizontalCenter : undefined
 
-    MouseArea {
+    AutoMouseArea {
         anchors.fill: parent
-        onPressAndHold: Qt.createComponent("MessageContextMenu.qml").createObject(this)
+        onSecondaryClicked: Qt.createComponent("MessageContextMenu.qml").createObject(this)
     }
 
     Loader {
         id: delegateLoader
 
-        asynchronous: setting.asyncMessageDelegate
+        asynchronous: MatriqueSettings.asyncMessageDelegate
 
         source: {
             if (eventType == "redaction" || hidden) return ""

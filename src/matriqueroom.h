@@ -57,7 +57,6 @@ class MatriqueRoom : public Room {
   void chooseAndUploadFile();
   void saveFileAs(QString eventId);
   void acceptInvitation();
-  void rejectInvitation();
   void forget();
   void sendTypingNotification(bool isTyping);
 };
