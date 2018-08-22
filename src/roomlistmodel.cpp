@@ -62,6 +62,8 @@ void RoomListModel::connectRoomSignals(MatriqueRoom* room) {
   connect(room, &Room::joinStateChanged, this, [=] { refresh(room); });
   connect(room, &Room::avatarChanged, this,
           [=] { refresh(room, {AvatarRole}); });
+  connect(room, &Room::addedMessages, this,
+          [=] { refresh(room, {LastEventRole}); });
   connect(room, &QMatrixClient::Room::aboutToAddNewMessages, this,
           [=](QMatrixClient::RoomEventsRange eventsRange) {
             RoomEvent* event = (eventsRange.end() - 1)->get();
@@ -150,6 +152,7 @@ QVariant RoomListModel::data(const QModelIndex& index, int role) const {
     return RoomType::Normal;
   }
   if (role == UnreadCountRole) return room->unreadCount();
+  if (role == LastEventRole) return room->lastEvent();
   return QVariant();
 }
 
@@ -180,5 +183,6 @@ QHash<int, QByteArray> RoomListModel::roleNames() const {
   roles[TopicRole] = "topic";
   roles[CategoryRole] = "category";
   roles[UnreadCountRole] = "unreadCount";
+  roles[LastEventRole] = "lastEvent";
   return roles;
 }

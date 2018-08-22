@@ -16,6 +16,8 @@ Page {
 
         onRoomAdded: MatriqueSettings.lazyLoad ? {} : room.getPreviousContent(20)
         onNewMessage: window.active ? {} : matriqueController.showMessage(roomName, content, icon)
+
+        onDataChanged: roomListForm.rawCurrentIndex = -1
     }
 
     RowLayout {

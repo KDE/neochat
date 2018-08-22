@@ -12,6 +12,7 @@ import "qrc:/qml/component"
 
 Item {
     property alias listModel: roomListProxyModel.sourceModel
+    property alias rawCurrentIndex: listView.currentIndex
     readonly property int currentIndex: roomListProxyModel.mapToSource(listView.currentIndex)
     readonly property var currentRoom: currentIndex != -1 ? listModel.roomAt(currentIndex) : null
     readonly property bool mini: MatriqueSettings.miniMode // Used as an indicator of whether the listform should be displayed as "Mini mode".
@@ -96,6 +97,10 @@ Item {
 
                 sorters: [
                     RoleSorter { roleName: "category" },
+                    RoleSorter {
+                        roleName: "unreadCount"
+                        sortOrder: Qt.DescendingOrder
+                    },
                     StringSorter { roleName: "name" }
                 ]
             }
@@ -165,7 +170,7 @@ Item {
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
 
-                                text: name ? name : ""
+                                text: name || "No Name"
                                 font.pointSize: 16
                                 elide: Text.ElideRight
                                 wrapMode: Text.NoWrap
@@ -175,7 +180,7 @@ Item {
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
 
-                                text: topic ? topic : "No topic yet."
+                                text: lastEvent || topic
                                 elide: Text.ElideRight
                                 wrapMode: Text.NoWrap
                             }

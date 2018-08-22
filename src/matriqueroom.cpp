@@ -97,3 +97,10 @@ void MatriqueRoom::sendTypingNotification(bool isTyping) {
   connection()->callApi<SetTypingJob>(BackgroundRequest, localUser()->id(),
                                       id(), isTyping, 10000);
 }
+
+QString MatriqueRoom::lastEvent() {
+  if (timelineSize() == 0) return "";
+  const RoomEvent* lastEvent = messageEvents().rbegin()->get();
+  return user(lastEvent->senderId())->displayname() + ": " +
+         lastEvent->contentJson().value("body").toString();
+}

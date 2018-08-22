@@ -40,6 +40,8 @@ class MatriqueRoom : public Room {
   bool hasUsersTyping();
   QString getUsersTyping();
 
+  QString lastEvent();
+
  private:
   QString m_cachedInput;
   bool m_isTyping;

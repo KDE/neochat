@@ -35,6 +35,7 @@ class RoomListModel : public QAbstractListModel {
     TopicRole,
     CategoryRole,
     UnreadCountRole,
+    LastEventRole
   };
 
   RoomListModel(QObject* parent = 0);
@@ -70,7 +71,8 @@ class RoomListModel : public QAbstractListModel {
  signals:
   void connectionChanged();
   void roomAdded(MatriqueRoom* room);
-  void newMessage(const QString& roomName, const QString& content, const QIcon& icon);
+  void newMessage(const QString& roomName, const QString& content,
+                  const QIcon& icon);
 };
 
 #endif  // ROOMLISTMODEL_H
