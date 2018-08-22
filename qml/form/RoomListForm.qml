@@ -124,7 +124,7 @@ Item {
 
                 ScrollBar.vertical: ScrollBar { id: scrollBar }
 
-                delegate: ItemDelegate {
+                delegate: Item {
                     width: parent.width
                     height: 80
 
@@ -146,7 +146,7 @@ Item {
                         visible: unreadCount > 0
                     }
 
-                    contentItem: RowLayout {
+                    RowLayout {
                         anchors.fill: parent
                         anchors.margins: 16
                         spacing: 16
