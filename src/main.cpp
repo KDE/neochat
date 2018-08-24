@@ -23,6 +23,10 @@ int main(int argc, char *argv[]) {
 
   QApplication app(argc, argv);
 
+  app.setOrganizationName("ENCOM");
+  app.setOrganizationDomain("encom.eu.org");
+  app.setApplicationName("Matrique");
+
   app.setQuitOnLastWindowClosed(false);
 
   qRegisterMetaType<MatriqueRoom *>("MatriqueRoom*");
