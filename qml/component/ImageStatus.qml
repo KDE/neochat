@@ -8,7 +8,7 @@ Item {
     property string source: ""
     property string displayText: ""
     readonly property bool showImage: source
-    readonly property bool showInitial: !showImage && displayText
+    readonly property bool showInitial: !showImage && displayText  || avatar.status != Image.Ready
 
     id: item
 
@@ -55,6 +55,7 @@ Item {
     }
 
     function getInitials(text) {
+        if (!text) return "N"
         return text.toUpperCase().replace(/[^a-zA-Z- ]/g, "").match(/\b\w/g);
     }
 

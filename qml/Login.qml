@@ -4,6 +4,8 @@ import QtGraphicalEffects 1.0
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.2
 import Qt.labs.settings 1.0
+import Matrique.Settings 0.1
+
 import "qrc:/qml/component"
 
 Page {
@@ -76,7 +78,7 @@ Page {
                     background: Rectangle {
                         implicitHeight: 48
 
-                        color: Material.theme == Material.Light ? "#eaeaea" : "#242424"
+                        color: MSettings.darkTheme ? "#242424" : "#eaeaea"
                         border.color: parent.activeFocus ? Material.accent : "transparent"
                         border.width: 2
                     }
@@ -96,7 +98,7 @@ Page {
                     background: Rectangle {
                         implicitHeight: 48
 
-                        color: Material.theme == Material.Light ? "#eaeaea" : "#242424"
+                        color: MSettings.darkTheme ? "#242424" : "#eaeaea"
                         border.color: parent.activeFocus ? Material.accent : "transparent"
                         border.width: 2
                     }
@@ -117,7 +119,7 @@ Page {
                     background: Rectangle {
                         implicitHeight: 48
 
-                        color: Material.theme == Material.Light ? "#eaeaea" : "#242424"
+                        color: MSettings.darkTheme ? "#242424" : "#eaeaea"
                         border.color: parent.activeFocus ? Material.accent : "transparent"
                         border.width: 2
                     }

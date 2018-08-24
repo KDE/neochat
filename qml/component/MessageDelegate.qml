@@ -2,14 +2,11 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.2
 import Matrique 0.1
-import MatriqueSettings 0.1
+import Matrique.Settings 0.1
 
 Item {
     readonly property bool hidden: marks === EventStatus.Redacted || marks === EventStatus.Hidden
-
-    readonly property bool darkTheme: Material.theme == Material.Dark
-    readonly property color background: darkTheme ? "#242424" : "lightgrey"
-
+    readonly property color background: MSettings.darkTheme ? "#242424" : "lightgrey"
     readonly property bool sentByMe: author === currentRoom.localUser
     readonly property bool isState: eventType === "state" || eventType === "emote"
 
@@ -24,13 +21,15 @@ Item {
 
     AutoMouseArea {
         anchors.fill: parent
-        onSecondaryClicked: Qt.createComponent("MessageContextMenu.qml").createObject(this)
+
+        propagateComposedEvents: true
+        onSecondaryClicked: Qt.createComponent("qrc:/qml/menu/MessageContextMenu.qml").createObject(this)
     }
 
     Loader {
         id: delegateLoader
 
-        asynchronous: MatriqueSettings.asyncMessageDelegate
+        asynchronous: MSettings.asyncMessageDelegate
 
         source: {
             if (eventType == "redaction" || hidden) return ""

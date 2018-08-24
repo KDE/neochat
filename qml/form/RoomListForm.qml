@@ -6,17 +6,13 @@ import QtQuick.Controls.Material 2.2
 import QtQml.Models 2.3
 import Matrique 0.1
 import SortFilterProxyModel 0.2
-import MatriqueSettings 0.1
+import Matrique.Settings 0.1
 
 import "qrc:/qml/component"
 
 Item {
     property alias listModel: roomListProxyModel.sourceModel
-    property alias rawCurrentIndex: listView.currentIndex
-    readonly property int currentIndex: roomListProxyModel.mapToSource(listView.currentIndex)
-    readonly property var currentRoom: currentIndex != -1 ? listModel.roomAt(currentIndex) : null
-    readonly property bool mini: MatriqueSettings.miniMode // Used as an indicator of whether the listform should be displayed as "Mini mode".
-    signal enterRoom()
+    property var enteredRoom: null
 
     ColumnLayout {
         anchors.fill: parent
@@ -33,7 +29,7 @@ Item {
                 width: parent.width - 18
                 height: 36
                 color: "white"
-                leftPadding: mini ? 4 : 32
+                leftPadding: MSettings.miniMode ? 4 : 32
                 topPadding: 0
                 bottomPadding: 0
                 anchors.centerIn: parent
@@ -45,13 +41,13 @@ Item {
                         icon: "\ue8b6"
                         color: "white"
 
-                        width: mini ? parent.width : parent.height
+                        width: MSettings.miniMode ? parent.width : parent.height
                         height: parent.height
                     }
 
                     Label {
                         height: parent.height
-                        visible: !mini
+                        visible: !MSettings.miniMode
                         text: "Search"
                         color: "white"
                         font.pointSize: 12
@@ -66,11 +62,11 @@ Item {
             Layout.fillWidth: true
             Layout.fillHeight: true
 
-            color: Material.theme == Material.Light ? "#eaeaea" : "#242424"
+            color: MSettings.darkTheme ? "#242424" : "#eaeaea"
 
             Label {
                 z: 10
-                text: mini ? "Empty" : "Here? No, not here."
+                text: MSettings.miniMode ? "Empty" : "Here? No, not here."
                 anchors.centerIn: parent
                 visible: listView.count === 0
             }
@@ -98,6 +94,7 @@ Item {
                 sorters: [
                     RoleSorter { roleName: "category" },
                     RoleSorter {
+                        enabled: MSettings.rearrangeByActivity
                         roleName: "unreadCount"
                         sortOrder: Qt.DescendingOrder
                     },
@@ -111,33 +108,25 @@ Item {
 
                 model: roomListProxyModel
 
-                highlight: Rectangle {
-                    color: Material.accent
-                    opacity: 0.2
-                }
-                highlightMoveDuration: 250
-                highlightResizeDuration: 0
-
                 currentIndex: -1
 
                 boundsBehavior: Flickable.DragOverBounds
 
                 ScrollBar.vertical: ScrollBar { id: scrollBar }
 
-                delegate: Item {
+                delegate: Rectangle {
+                    id: swipeDelegate
                     width: parent.width
                     height: 80
+
+                    color: currentRoom === enteredRoom ? Material.background : "transparent"
 
                     AutoMouseArea {
                         anchors.fill: parent
 
-                        onPressed: listView.currentIndex = index
-                        onSecondaryClicked: roomListMenu.popup()
-                        onPrimaryClicked: category === RoomType.Invited ? inviteDialog.open() : enterRoom()
+                        onSecondaryClicked: Qt.createComponent("qrc:/qml/menu/RoomContextMenu.qml").createObject(this)
+                        onPrimaryClicked: category === RoomType.Invited ? inviteDialog.open() : enteredRoom = currentRoom
                     }
-
-                    ToolTip.visible: mini && hovered
-                    ToolTip.text: name
 
                     Rectangle {
                         width: 4
@@ -186,6 +175,9 @@ Item {
                             }
                         }
                     }
+
+                    ToolTip.visible: MSettings.miniMode && hovered
+                    ToolTip.text: name
                 }
 
                 section.property: "display"
@@ -195,13 +187,13 @@ Item {
                     height: 24
                     text: section
                     color: "grey"
-                    leftPadding: mini ? undefined : 16
+                    leftPadding: MSettings.miniMode ? undefined : 16
                     elide: Text.ElideRight
                     verticalAlignment: Text.AlignVCenter
-                    horizontalAlignment: mini ? Text.AlignHCenter : undefined
+                    horizontalAlignment: MSettings.miniMode ? Text.AlignHCenter : undefined
                     background: Rectangle {
                         anchors.fill: parent
-                        color: Material.theme == Material.Light ? "#dbdbdb" : "#363636"
+                        color: MSettings.darkTheme ? "#363636" : "#dbdbdb"
                     }
                 }
 
@@ -221,32 +213,6 @@ Item {
 
                     onAccepted: currentRoom.acceptInvitation()
                     onRejected: currentRoom.forget()
-                }
-
-                Menu {
-                    id: roomListMenu
-
-                    MenuItem {
-                        text: "Favourite"
-                        checkable: true
-                        checked: currentRoom && currentRoom.isFavourite
-                        onTriggered: currentRoom.isFavourite ? currentRoom.removeTag("m.favourite") : currentRoom.addTag("m.favourite", "1")
-                    }
-                    MenuItem {
-                        text: "Deprioritize"
-                        checkable: true
-                        checked: currentRoom && currentRoom.isLowPriority
-                        onTriggered: currentRoom.isLowPriority ? currentRoom.removeTag("m.lowpriority") : currentRoom.addTag("m.lowpriority", "1")
-                    }
-                    MenuSeparator {}
-                    MenuItem {
-                        text: "Mark as Read"
-                        onTriggered: currentRoom.markAllMessagesAsRead()
-                    }
-                    MenuItem {
-                        text: "Leave Room"
-                        onTriggered: currentRoom.forget()
-                    }
                 }
             }
         }

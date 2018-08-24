@@ -6,10 +6,10 @@
 #include "controller.h"
 #include "emojimodel.h"
 #include "imageprovider.h"
+#include "matriqueroom.h"
 #include "messageeventmodel.h"
 #include "room.h"
 #include "roomlistmodel.h"
-#include "matriqueroom.h"
 
 #include "csapi/joining.h"
 #include "csapi/leaving.h"
@@ -28,6 +28,7 @@ int main(int argc, char *argv[]) {
   qRegisterMetaType<MatriqueRoom *>("MatriqueRoom*");
   qRegisterMetaType<User *>("User*");
   qRegisterMetaType<MessageEventType>("MessageEventType");
+  qRegisterMetaType<MatriqueRoom *>("MatriqueRoom");
 
   qmlRegisterType<Controller>("Matrique", 0, 1, "Controller");
   qmlRegisterType<RoomListModel>("Matrique", 0, 1, "RoomListModel");
@@ -36,9 +37,10 @@ int main(int argc, char *argv[]) {
   qmlRegisterUncreatableType<RoomMessageEvent>("Matrique", 0, 1,
                                                "RoomMessageEvent", "ENUM");
   qmlRegisterUncreatableType<RoomType>("Matrique", 0, 1, "RoomType", "ENUM");
+  qmlRegisterSingletonType(QUrl("qrc:/qml/MatriqueSettings.qml"),
+                           "Matrique.Settings", 0, 1, "MSettings");
 
   QQmlApplicationEngine engine;
-  engine.addImportPath("qrc:/qml");
 
   ImageProvider *m_provider = new ImageProvider();
 

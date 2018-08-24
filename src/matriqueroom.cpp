@@ -12,25 +12,7 @@
 
 MatriqueRoom::MatriqueRoom(Connection* connection, QString roomId,
                            JoinState joinState)
-    : Room(connection, std::move(roomId), joinState) {
-  m_timeoutTimer->setSingleShot(true);
-  m_timeoutTimer->setInterval(2000);
-  m_repeatTimer->setInterval(5000);
-  connect(m_timeoutTimer, &QTimer::timeout, [=] { setIsTyping(false); });
-  connect(m_repeatTimer, &QTimer::timeout,
-          [=] { sendTypingNotification(true); });
-  connect(this, &MatriqueRoom::isTypingChanged, [=] {
-    if (m_isTyping) {
-      m_timeoutTimer->start();
-      m_repeatTimer->start();
-      sendTypingNotification(true);
-    } else {
-      m_timeoutTimer->stop();
-      m_repeatTimer->stop();
-      sendTypingNotification(false);
-    }
-  });
-}
+    : Room(connection, std::move(roomId), joinState) {}
 
 void MatriqueRoom::chooseAndUploadFile() {
   auto localFile = QFileDialog::getOpenFileUrl(Q_NULLPTR, tr("Save File as"));
@@ -88,7 +70,7 @@ QString MatriqueRoom::getUsersTyping() {
   for (User* user : users) {
     usersTypingStr += user->displayname() + " ";
   }
-  usersTypingStr += users.count() == 1 ? "is" : "are";
+  usersTypingStr += users.count() < 2 ? "is" : "are";
   usersTypingStr += " typing.";
   return usersTypingStr;
 }

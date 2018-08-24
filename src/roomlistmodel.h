@@ -35,7 +35,8 @@ class RoomListModel : public QAbstractListModel {
     TopicRole,
     CategoryRole,
     UnreadCountRole,
-    LastEventRole
+    LastEventRole,
+    CurrentRoomRole,
   };
 
   RoomListModel(QObject* parent = 0);

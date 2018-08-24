@@ -5,12 +5,15 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.2
 import QtGraphicalEffects 1.0
 import Matrique 0.1
+import Matrique.Settings 0.1
+
 import "qrc:/qml/component"
 import "qrc:/js/md.js" as Markdown
 
 Item {
-    id: item
     property var currentRoom: null
+
+    id: item
 
     Drawer {
         id: roomDrawer
@@ -114,7 +117,7 @@ Item {
                 Layout.fillWidth: true
                 Layout.preferredHeight: 80
 
-                color: Material.theme == Material.Light ? "#eaeaea" : "#242424"
+                color: MSettings.darkTheme ? "#242424" : "#eaeaea"
 
                 MouseArea {
                     anchors.fill: parent
@@ -185,7 +188,7 @@ Item {
 
                     boundsBehavior: Flickable.DragOverBounds
 
-                    model: MessageEventModel{
+                    model: MessageEventModel {
                         id: messageEventModel
                         room: currentRoom
                     }
@@ -293,6 +296,26 @@ Item {
                 Layout.fillWidth: true
                 Layout.preferredHeight: 80
 
+                Timer {
+                    id: timeoutTimer
+
+                    repeat: false
+                    interval: 2000
+                    onTriggered: {
+                        repeatTimer.stop()
+                        currentRoom.sendTypingNotification(false)
+                    }
+                }
+
+                Timer {
+                    id: repeatTimer
+
+                    repeat: true
+                    interval: 5000
+                    triggeredOnStart: true
+                    onTriggered: currentRoom.sendTypingNotification(true)
+                }
+
                 RowLayout {
                     anchors.fill: parent
                     spacing: 0
@@ -320,7 +343,8 @@ Item {
 
                         text: currentRoom ? currentRoom.cachedInput : ""
                         onTextChanged: {
-                            currentRoom.isTyping = true
+                            timeoutTimer.restart()
+                            repeatTimer.start()
                             currentRoom.cachedInput = text
                         }
 
@@ -332,7 +356,7 @@ Item {
                         }
 
                         background: Rectangle {
-                            color: Material.theme == Material.Light ? "#eaeaea" : "#242424"
+                            color: MSettings.darkTheme ? "#242424" : "#eaeaea"
                         }
 
                         ToolTip.visible: currentRoom && currentRoom.hasUsersTyping
@@ -395,7 +419,7 @@ Item {
 
                         contentItem: MaterialIcon { icon: "\ue24e" }
 
-                        background: Rectangle { color: Material.theme == Material.Light ? "#eaeaea" : "#242424" }
+                        background: Rectangle { color: MSettings.darkTheme ? "#242424" : "#eaeaea" }
 
                         onClicked: emojiPicker.visible ? emojiPicker.close() : emojiPicker.open()
 
@@ -417,4 +441,6 @@ Item {
             }
         }
     }
+
+    onCurrentRoomChanged: if (currentRoom && currentRoom.timelineSize === 0) currentRoom.getPreviousContent(20)
 }

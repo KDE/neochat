@@ -7,6 +7,7 @@ Settings {
     property bool asyncMessageDelegate
     property bool richText
     property bool pressAndHold
+    property bool rearrangeByActivity
 
     property bool darkTheme
     property bool miniMode

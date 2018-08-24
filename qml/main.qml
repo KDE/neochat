@@ -2,10 +2,10 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.2
-import Qt.labs.settings 1.0 as Labs
+import Qt.labs.settings 1.0
 import QtGraphicalEffects 1.0
 import Matrique 0.1
-import MatriqueSettings 0.1
+import Matrique.Settings 0.1
 
 import "component"
 import "form"
@@ -21,9 +21,9 @@ ApplicationWindow {
     minimumHeight: 480
     title: qsTr("Matrique")
 
-    Material.theme: MatriqueSettings.darkTheme ? Material.Dark : Material.Light
+    Material.theme: MSettings.darkTheme ? Material.Dark : Material.Light
 
-    Labs.Settings {
+    Settings {
         property alias homeserver: matriqueController.homeserver
         property alias userID: matriqueController.userID
         property alias token: matriqueController.token
@@ -80,10 +80,11 @@ ApplicationWindow {
         anchors.fill: parent
         spacing: 0
 
-        SideNav {
+        Rectangle {
             id: sideNav
             Layout.preferredWidth: 80
             Layout.fillHeight: true
+            color: Material.accent
 
             ColumnLayout {
                 anchors.fill: parent
@@ -96,7 +97,7 @@ ApplicationWindow {
                         anchors.margins: 15
 
                         source: matriqueController.isLogin ? connection.localUser && connection.localUser.avatarUrl ? "image://mxc/" + connection.localUser.avatarUrl : "" : "qrc:/asset/img/avatar.png"
-                        displayText: matriqueController.isLogin && connection.localUser.displayName ? connection.localUser.displayName : "N"
+                        displayText: matriqueController.isLogin && connection.localUser.displayName ? connection.localUser.displayName : ""
                     }
 
                     page: roomPage

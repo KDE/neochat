@@ -1,11 +1,11 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
-import QtQuick.Controls.Material 2.2
+import Matrique.Settings 0.1
 
 Item {
     property alias icon: iconText.text
-    property var color: Material.theme == Material.Light ? "black" : "white"
+    property var color: MSettings.darkTheme ? "white" : "black"
 
     id: item
 
