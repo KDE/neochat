@@ -124,8 +124,13 @@ Item {
                     AutoMouseArea {
                         anchors.fill: parent
 
+                        hoverEnabled: MSettings.miniMode
+
                         onSecondaryClicked: Qt.createComponent("qrc:/qml/menu/RoomContextMenu.qml").createObject(this)
                         onPrimaryClicked: category === RoomType.Invited ? inviteDialog.open() : enteredRoom = currentRoom
+
+                        ToolTip.visible: MSettings.miniMode && containsMouse
+                        ToolTip.text: name
                     }
 
                     Rectangle {
@@ -175,9 +180,6 @@ Item {
                             }
                         }
                     }
-
-                    ToolTip.visible: MSettings.miniMode && hovered
-                    ToolTip.text: name
                 }
 
                 section.property: "display"
