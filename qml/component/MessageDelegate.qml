@@ -22,7 +22,6 @@ Item {
     AutoMouseArea {
         anchors.fill: parent
 
-        propagateComposedEvents: true
         onSecondaryClicked: Qt.createComponent("qrc:/qml/menu/MessageContextMenu.qml").createObject(this)
     }
 
