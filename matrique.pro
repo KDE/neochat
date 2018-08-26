@@ -52,8 +52,8 @@ unix:!mac {
     metainfo.path = $$PREFIX/share/metainfo
     desktop.files = $$PWD/org.eu.encom.matrique.desktop
     desktop.path = $$PREFIX/share/applications
-    icons.files = $$PWD/icons/org.eu.encom.matrique.png
-    icons.path = $$PREFIX/share/icons/hicolor/128x128/apps
+    icons.files = $$PWD/icons/hicolor/*
+    icons.path = $$PREFIX/share/icons/hicolor
     INSTALLS += metainfo desktop icons
 }
 
