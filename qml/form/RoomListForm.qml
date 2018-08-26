@@ -55,6 +55,11 @@ Item {
                         verticalAlignment: Text.AlignVCenter
                     }
                 }
+
+                Shortcut {
+                    sequence: StandardKey.Find
+                    onActivated: searchField.forceActiveFocus()
+                }
             }
         }
 

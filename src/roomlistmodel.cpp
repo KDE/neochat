@@ -67,6 +67,7 @@ void RoomListModel::connectRoomSignals(MatriqueRoom* room) {
   connect(room, &QMatrixClient::Room::aboutToAddNewMessages, this,
           [=](QMatrixClient::RoomEventsRange eventsRange) {
             RoomEvent* event = (eventsRange.end() - 1)->get();
+            if (event->isStateEvent()) return;
             User* sender = room->user(event->senderId());
             if (sender == room->localUser()) return;
             emit newMessage(room->displayName(),
