@@ -7,13 +7,19 @@ import QtGraphicalEffects 1.0
 import Matrique 0.1
 import Matrique.Settings 0.1
 
-import "qrc:/qml/component"
+import "../component"
 import "qrc:/js/md.js" as Markdown
 
 Item {
     property var currentRoom: null
 
     id: item
+
+    UserListModel {
+        id: userListModel
+
+        room: currentRoom
+    }
 
     Drawer {
         id: roomDrawer
@@ -30,34 +36,34 @@ Item {
             onClicked: roomDrawer.close()
         }
 
-        Column {
+        ColumnLayout {
             anchors.fill: parent
             anchors.margins: 32
             spacing: 16
 
             ImageStatus {
-                width: 64
-                height: 64
-                anchors.horizontalCenter: parent.horizontalCenter
+                Layout.preferredWidth: 64
+                Layout.preferredHeight: 64
+                Layout.alignment: Qt.AlignHCenter
 
                 source: currentRoom && currentRoom.avatarUrl != "" ? "image://mxc/" + currentRoom.avatarUrl : null
                 displayText: currentRoom ? currentRoom.displayName : ""
             }
 
             Label {
-                width: parent.width
+                Layout.fillWidth: true
                 horizontalAlignment: Text.AlignHCenter
                 text: currentRoom && currentRoom.id ? currentRoom.id : ""
             }
 
             Label {
-                width: parent.width
+                Layout.fillWidth: true
                 horizontalAlignment: Text.AlignHCenter
                 text: currentRoom && currentRoom.canonicalAlias ? currentRoom.canonicalAlias : "No Canonical Alias"
             }
 
             RowLayout {
-                width: parent.width
+                Layout.fillWidth: true
 
                 TextField {
                     id: roomNameField
@@ -67,7 +73,7 @@ Item {
 
                 ItemDelegate {
                     Layout.preferredWidth: height
-                    Layout.fillHeight: true
+                    Layout.preferredHeight: parent.height
 
                     contentItem: MaterialIcon { icon: "\ue5ca" }
 
@@ -76,7 +82,7 @@ Item {
             }
 
             RowLayout {
-                width: parent.width
+                Layout.fillWidth: true
 
                 TextField {
                     id: roomTopicField
@@ -87,12 +93,50 @@ Item {
 
                 ItemDelegate {
                     Layout.preferredWidth: height
-                    Layout.fillHeight: true
+                    Layout.preferredHeight: parent.height
 
                     contentItem: MaterialIcon { icon: "\ue5ca" }
 
                     onClicked: currentRoom.setTopic(roomTopicField.text)
                 }
+            }
+
+            ListView {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+
+                clip: true
+
+                boundsBehavior: Flickable.DragOverBounds
+
+                delegate: ItemDelegate {
+                    width: parent.width
+                    height: 48
+
+                    RowLayout {
+                        anchors.fill: parent
+                        anchors.margins: 8
+                        spacing: 16
+
+                        ImageStatus {
+                            Layout.preferredWidth: height
+                            Layout.fillHeight: true
+
+                            source: avatar != "" ? "image://mxc/" + avatar : ""
+                            displayText: name
+                        }
+
+                        Label {
+                            Layout.fillWidth: true
+
+                            text: name
+                        }
+                    }
+                }
+
+                model: userListModel
+
+                ScrollBar.vertical: ScrollBar {}
             }
         }
     }
@@ -119,49 +163,49 @@ Item {
 
                 color: MSettings.darkTheme ? "#242424" : "#eaeaea"
 
-                MouseArea {
+                ItemDelegate {
                     anchors.fill: parent
 
                     onClicked: roomDrawer.open()
-                }
 
-                RowLayout {
-                    anchors.fill: parent
-                    anchors.margins: 16
+                    RowLayout {
+                        anchors.fill: parent
+                        anchors.margins: 16
 
-                    spacing: 16
+                        spacing: 16
 
-                    ImageStatus {
-                        Layout.preferredWidth: height
-                        Layout.fillHeight: true
-                        source: currentRoom && currentRoom.avatarUrl != "" ? "image://mxc/" + currentRoom.avatarUrl : null
-                        displayText: currentRoom ? currentRoom.displayName : ""
-                    }
-
-                    ColumnLayout {
-                        Layout.fillWidth: true
-                        Layout.fillHeight: true
-                        Layout.alignment: Qt.AlignHCenter
-
-                        visible: parent.width > 80
-
-                        Label {
-                            Layout.fillWidth: true
+                        ImageStatus {
+                            Layout.preferredWidth: height
                             Layout.fillHeight: true
-
-                            text: currentRoom ? currentRoom.displayName : ""
-                            font.pointSize: 16
-                            elide: Text.ElideRight
-                            wrapMode: Text.NoWrap
+                            source: currentRoom && currentRoom.avatarUrl != "" ? "image://mxc/" + currentRoom.avatarUrl : null
+                            displayText: currentRoom ? currentRoom.displayName : ""
                         }
 
-                        Label {
+                        ColumnLayout {
                             Layout.fillWidth: true
                             Layout.fillHeight: true
+                            Layout.alignment: Qt.AlignHCenter
 
-                            text: currentRoom ? currentRoom.topic : ""
-                            elide: Text.ElideRight
-                            wrapMode: Text.NoWrap
+                            visible: parent.width > 80
+
+                            Label {
+                                Layout.fillWidth: true
+                                Layout.fillHeight: true
+
+                                text: currentRoom ? currentRoom.displayName : ""
+                                font.pointSize: 16
+                                elide: Text.ElideRight
+                                wrapMode: Text.NoWrap
+                            }
+
+                            Label {
+                                Layout.fillWidth: true
+                                Layout.fillHeight: true
+
+                                text: currentRoom ? currentRoom.topic : ""
+                                elide: Text.ElideRight
+                                wrapMode: Text.NoWrap
+                            }
                         }
                     }
                 }

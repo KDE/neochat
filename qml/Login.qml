@@ -6,7 +6,7 @@ import QtQuick.Controls.Material 2.2
 import Qt.labs.settings 1.0
 import Matrique.Settings 0.1
 
-import "qrc:/qml/component"
+import "component"
 
 Page {
     property var controller

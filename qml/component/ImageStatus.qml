@@ -56,7 +56,9 @@ Item {
 
     function getInitials(text) {
         if (!text) return "N"
-        return text.toUpperCase().replace(/[^a-zA-Z- ]/g, "").match(/\b\w/g);
+        var initial = text.toUpperCase().replace(/[^a-zA-Z- ]/g, "").match(/\b\w/g);
+        if (!initial) return "N"
+        return initial
     }
 
     function stringToColor(str) {

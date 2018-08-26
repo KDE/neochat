@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.3
 import Matrique 0.1
 import Matrique.Settings 0.1
 
-import "qrc:/qml/form"
+import "form"
 
 Page {
     property alias connection: roomListModel.connection

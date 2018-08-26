@@ -8,7 +8,7 @@ import Matrique 0.1
 import SortFilterProxyModel 0.2
 import Matrique.Settings 0.1
 
-import "qrc:/qml/component"
+import "../component"
 
 Item {
     property alias listModel: roomListProxyModel.sourceModel
@@ -115,11 +115,13 @@ Item {
                 ScrollBar.vertical: ScrollBar { id: scrollBar }
 
                 delegate: Rectangle {
+                    readonly property bool highlighted: currentRoom === enteredRoom
+
                     id: swipeDelegate
                     width: parent.width
                     height: 80
 
-                    color: currentRoom === enteredRoom ? Material.background : "transparent"
+                    color: highlighted ? Material.background : "transparent"
 
                     AutoMouseArea {
                         anchors.fill: parent
@@ -137,7 +139,7 @@ Item {
                         width: 4
                         height: parent.height
                         color: Qt.tint(Material.accent, "#20FFFFFF")
-                        visible: unreadCount > 0
+                        visible: unreadCount > 0 || highlighted
                     }
 
                     RowLayout {
