@@ -1,6 +1,8 @@
 #include "imageprovider.h"
 
+#include <QFile>
 #include <QMetaObject>
+#include <QStandardPaths>
 #include <QtCore/QDebug>
 #include <QtCore/QWaitCondition>
 
@@ -29,6 +31,14 @@ QImage ImageProvider::requestImage(const QString& id, QSize* pSize,
   }
 
   QUrl mxcUri{id};
+
+  QUrl tempfilePath = QUrl::fromLocalFile(
+      QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + "/" +
+      mxcUri.fileName() + "-" + QString::number(requestedSize.width()) +
+      "x" + QString::number(requestedSize.height()) + ".png");
+
+  QImage cachedImage;
+  if (cachedImage.load(tempfilePath.toLocalFile())) return cachedImage;
 
   MediaThumbnailJob* job = nullptr;
   QReadLocker locker(&m_lock);
@@ -62,6 +72,8 @@ QImage ImageProvider::requestImage(const QString& id, QSize* pSize,
   }
 
   if (pSize != nullptr) *pSize = result.size();
+
+  result.save(tempfilePath.toLocalFile());
 
   return result;
 }
