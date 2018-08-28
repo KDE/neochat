@@ -34,11 +34,14 @@ QImage ImageProvider::requestImage(const QString& id, QSize* pSize,
 
   QUrl tempfilePath = QUrl::fromLocalFile(
       QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + "/" +
-      mxcUri.fileName() + "-" + QString::number(requestedSize.width()) +
-      "x" + QString::number(requestedSize.height()) + ".png");
+      mxcUri.fileName() + "-" + QString::number(requestedSize.width()) + "x" +
+      QString::number(requestedSize.height()) + ".png");
 
   QImage cachedImage;
-  if (cachedImage.load(tempfilePath.toLocalFile())) return cachedImage;
+  if (cachedImage.load(tempfilePath.toLocalFile())) {
+    if (pSize != nullptr) *pSize = cachedImage.size();
+    return cachedImage;
+  }
 
   MediaThumbnailJob* job = nullptr;
   QReadLocker locker(&m_lock);
