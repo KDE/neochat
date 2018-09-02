@@ -82,19 +82,21 @@ ApplicationWindow {
 
         Rectangle {
             id: sideNav
-            Layout.preferredWidth: 80
+            Layout.preferredWidth: 64
             Layout.fillHeight: true
-            color: Material.accent
+            color: Material.primary
 
             ColumnLayout {
                 anchors.fill: parent
                 spacing: 0
 
                 SideNavButton {
-                    id: statusNavButton
-                    contentItem: ImageStatus {
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: width
+
+                    ImageStatus {
                         anchors.fill: parent
-                        anchors.margins: 15
+                        anchors.margins: 12
 
                         source: matriqueController.isLogin ? connection.localUser && connection.localUser.avatarUrl ? "image://mxc/" + connection.localUser.avatarUrl : "" : "qrc:/asset/img/avatar.png"
                         displayText: matriqueController.isLogin && connection.localUser.displayName ? connection.localUser.displayName : ""
@@ -109,7 +111,16 @@ ApplicationWindow {
                 }
 
                 SideNavButton {
-                    contentItem: MaterialIcon { icon: "\ue145"; color: "white" }
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: width
+
+                    MaterialIcon {
+                        anchors.fill: parent
+
+                        icon: "\ue145"
+                        color:  "white"
+                    }
+
                     onClicked: addRoomMenu.popup()
 
                     Menu {
@@ -171,6 +182,7 @@ ApplicationWindow {
                                 onAccepted: matriqueController.joinRoom(joinRoomDialogTextField.text)
                             }
                         }
+
                         MenuItem {
                             text: "Direct Chat"
                             onTriggered: directChatDialog.open()
@@ -199,12 +211,29 @@ ApplicationWindow {
                 }
 
                 SideNavButton {
-                    contentItem: MaterialIcon { icon: "\ue8b8"; color: "white" }
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: width
+
+                    MaterialIcon {
+                        anchors.fill: parent
+
+                        icon: "\ue8b8"
+                        color: parent.highlighted ? Material.accent : "white"
+                    }
                     page: settingPage
                 }
 
                 SideNavButton {
-                    contentItem: MaterialIcon { icon: "\ue879"; color: "white" }
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: width
+
+                    MaterialIcon {
+                        anchors.fill: parent
+
+                        icon: "\ue879"
+                        color: "white"
+                    }
+
                     onClicked: Qt.quit()
                 }
             }

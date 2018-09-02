@@ -20,8 +20,8 @@ Rectangle {
     width: Math.min(Math.max(messageText.implicitWidth, (timeText.visible ? timeText.implicitWidth : 0), (authorLabelVisible ? authorText.implicitWidth : 0)) + 24, maximumWidth)
     height: (authorText.visible ? authorText.implicitHeight : 0) + messageText.implicitHeight + (timeText.visible ? timeText.implicitHeight : 0) + 24
 
-    color: flat ? "transparent" : highlighted ? Material.accent : background
-    border.color: Material.accent
+    color: flat ? "transparent" : highlighted ? Material.primary : background
+    border.color: Material.primary
     border.width: flat ? 2 : 0
 
     ColumnLayout {

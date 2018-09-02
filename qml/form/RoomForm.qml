@@ -39,7 +39,6 @@ Item {
         ColumnLayout {
             anchors.fill: parent
             anchors.margins: 32
-            spacing: 16
 
             ImageStatus {
                 Layout.preferredWidth: 64
@@ -116,7 +115,7 @@ Item {
                     RowLayout {
                         anchors.fill: parent
                         anchors.margins: 8
-                        spacing: 16
+                        spacing: 12
 
                         ImageStatus {
                             Layout.preferredWidth: height
@@ -159,9 +158,9 @@ Item {
 
             Rectangle {
                 Layout.fillWidth: true
-                Layout.preferredHeight: 80
+                Layout.preferredHeight: 64
 
-                color: MSettings.darkTheme ? "#242424" : "#eaeaea"
+                color: Material.accent
 
                 ItemDelegate {
                     anchors.fill: parent
@@ -170,9 +169,9 @@ Item {
 
                     RowLayout {
                         anchors.fill: parent
-                        anchors.margins: 16
+                        anchors.margins: 12
 
-                        spacing: 16
+                        spacing: 12
 
                         ImageStatus {
                             Layout.preferredWidth: height
@@ -186,14 +185,15 @@ Item {
                             Layout.fillHeight: true
                             Layout.alignment: Qt.AlignHCenter
 
-                            visible: parent.width > 80
+                            visible: parent.width > 64
 
                             Label {
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
 
                                 text: currentRoom ? currentRoom.displayName : ""
-                                font.pointSize: 16
+                                color: "white"
+                                font.pointSize: 12
                                 elide: Text.ElideRight
                                 wrapMode: Text.NoWrap
                             }
@@ -203,6 +203,7 @@ Item {
                                 Layout.fillHeight: true
 
                                 text: currentRoom ? currentRoom.topic : ""
+                                color: "white"
                                 elide: Text.ElideRight
                                 wrapMode: Text.NoWrap
                             }
@@ -304,7 +305,7 @@ Item {
 
                     RoundButton {
                         id: goTopFab
-                        width: height
+                        width: 64
                         height: 64
                         visible: !parent.atYEnd
 
@@ -313,12 +314,12 @@ Item {
 
                         contentItem: MaterialIcon {
                             anchors.fill: parent
+
                             icon: "\ue313"
                             color: "white"
                         }
 
-                        opacity: pressed ? 1 : hovered ? 0.7 : 0.4
-                        Material.background: Qt.lighter(Material.accent)
+                        Material.background: Material.accent
 
                         onClicked: parent.positionViewAtBeginning()
 
@@ -334,152 +335,149 @@ Item {
                 }
             }
 
-            Pane {
-                padding: 16
-
+            RowLayout {
                 Layout.fillWidth: true
-                Layout.preferredHeight: 80
+                Layout.preferredHeight: 48
+                Layout.margins: 16
 
-                Timer {
-                    id: timeoutTimer
+                spacing: 0
 
-                    repeat: false
-                    interval: 2000
-                    onTriggered: {
-                        repeatTimer.stop()
-                        currentRoom.sendTypingNotification(false)
+                ItemDelegate {
+                    Layout.preferredWidth: 48
+                    Layout.preferredHeight: 48
+
+                    contentItem: MaterialIcon { icon: "\ue226" }
+
+                    onClicked: currentRoom.chooseAndUploadFile()
+                }
+
+                TextField {
+                    property real progress: 0
+
+                    id: inputField
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 48
+                    placeholderText: "Send a Message"
+                    leftPadding: 16
+                    topPadding: 0
+                    bottomPadding: 0
+                    selectByMouse: true
+
+                    text: currentRoom ? currentRoom.cachedInput : ""
+
+                    onTextChanged: {
+                        timeoutTimer.restart()
+                        repeatTimer.start()
+                        currentRoom.cachedInput = text
+                    }
+
+                    Keys.onReturnPressed: {
+                        if (inputField.text) {
+                            inputField.postMessage(inputField.text)
+                            inputField.text = ""
+                        }
+                    }
+
+                    background: Rectangle {
+                        color: MSettings.darkTheme ? "#242424" : "#eaeaea"
+                    }
+
+                    ToolTip.visible: currentRoom && currentRoom.hasUsersTyping
+                    ToolTip.text: currentRoom ? currentRoom.usersTyping : ""
+
+                    Timer {
+                        id: timeoutTimer
+
+                        repeat: false
+                        interval: 2000
+                        onTriggered: {
+                            repeatTimer.stop()
+                            currentRoom.sendTypingNotification(false)
+                        }
+                    }
+
+                    Timer {
+                        id: repeatTimer
+
+                        repeat: true
+                        interval: 5000
+                        triggeredOnStart: true
+                        onTriggered: currentRoom.sendTypingNotification(true)
+                    }
+
+                    function postMessage(text) {
+                        if (text.trim().length === 0) { return }
+                        if(!currentRoom) { return }
+
+                        var PREFIX_ME = '/me '
+                        var PREFIX_NOTICE = '/notice '
+                        var PREFIX_RAINBOW = '/rainbow '
+                        var PREFIX_HTML = '/html '
+                        var PREFIX_MARKDOWN = '/md '
+
+                        if (text.indexOf(PREFIX_ME) === 0) {
+                            text = text.substr(PREFIX_ME.length)
+                            currentRoom.postMessage(text, RoomMessageEvent.Emote)
+                            return
+                        }
+                        if (text.indexOf(PREFIX_NOTICE) === 0) {
+                            text = text.substr(PREFIX_NOTICE.length)
+                            currentRoom.postMessage(text, RoomMessageEvent.Notice)
+                            return
+                        }
+                        if (text.indexOf(PREFIX_RAINBOW) === 0) {
+                            text = text.substr(PREFIX_RAINBOW.length)
+
+                            var parsedText = ""
+                            var rainbowColor = ["#ff2b00", "#ff5500", "#ff8000", "#ffaa00", "#ffd500", "#ffff00", "#d4ff00", "#aaff00", "#80ff00", "#55ff00", "#2bff00", "#00ff00", "#00ff2b", "#00ff55", "#00ff80", "#00ffaa", "#00ffd5", "#00ffff", "#00d4ff", "#00aaff", "#007fff", "#0055ff", "#002bff", "#0000ff", "#2a00ff", "#5500ff", "#7f00ff", "#aa00ff", "#d400ff", "#ff00ff", "#ff00d4", "#ff00aa", "#ff0080", "#ff0055", "#ff002b", "#ff0000"]
+                            for (var i = 0; i < text.length; i++) {
+                                parsedText = parsedText + "<font color='" + rainbowColor[i % rainbowColor.length] + "'>" + text.charAt(i) + "</font>"
+                            }
+                            currentRoom.postHtmlMessage(text, parsedText, RoomMessageEvent.Text)
+                            return
+                        }
+                        if (text.indexOf(PREFIX_HTML) === 0) {
+                            text = text.substr(PREFIX_HTML.length)
+                            var re = new RegExp("<.*?>")
+                            var plainText = text.replace(re, "")
+                            currentRoom.postHtmlMessage(plainText, text, RoomMessageEvent.Text)
+                            return
+                        }
+                        if (text.indexOf(PREFIX_MARKDOWN) === 0) {
+                            text = text.substr(PREFIX_MARKDOWN.length)
+                            var parsedText = Markdown.markdown_parser(text)
+                            currentRoom.postHtmlMessage(text, parsedText, RoomMessageEvent.Text)
+                            return
+                        }
+
+                        currentRoom.postPlainText(text)
                     }
                 }
 
-                Timer {
-                    id: repeatTimer
+                ItemDelegate {
+                    id: emojiButton
 
-                    repeat: true
-                    interval: 5000
-                    triggeredOnStart: true
-                    onTriggered: currentRoom.sendTypingNotification(true)
-                }
+                    Layout.preferredWidth: 48
+                    Layout.preferredHeight: 48
 
-                RowLayout {
-                    anchors.fill: parent
-                    spacing: 0
+                    contentItem: MaterialIcon { icon: "\ue24e" }
 
-                    ItemDelegate {
-                        Layout.preferredWidth: height
-                        Layout.fillHeight: true
+                    background: Rectangle { color: MSettings.darkTheme ? "#242424" : "#eaeaea" }
 
-                        contentItem: MaterialIcon { icon: "\ue226" }
+                    onClicked: emojiPicker.visible ? emojiPicker.close() : emojiPicker.open()
 
-                        onClicked: currentRoom.chooseAndUploadFile()
-                    }
+                    EmojiPicker {
+                        id: emojiPicker
 
-                    TextField {
-                        property real progress: 0
+                        parent: ApplicationWindow.overlay
 
-                        id: inputField
-                        Layout.fillWidth: true
-                        Layout.fillHeight: true
-                        placeholderText: "Send a Message"
-                        leftPadding: 16
-                        topPadding: 0
-                        bottomPadding: 0
-                        selectByMouse: true
+                        x: window.width - 370
+                        y: window.height - 440
 
-                        text: currentRoom ? currentRoom.cachedInput : ""
-                        onTextChanged: {
-                            timeoutTimer.restart()
-                            repeatTimer.start()
-                            currentRoom.cachedInput = text
-                        }
+                        width: 360
+                        height: 360
 
-                        Keys.onReturnPressed: {
-                            if (inputField.text) {
-                                inputField.postMessage(inputField.text)
-                                inputField.text = ""
-                            }
-                        }
-
-                        background: Rectangle {
-                            color: MSettings.darkTheme ? "#242424" : "#eaeaea"
-                        }
-
-                        ToolTip.visible: currentRoom && currentRoom.hasUsersTyping
-                        ToolTip.text: currentRoom ? currentRoom.usersTyping : ""
-
-                        function postMessage(text) {
-                            if (text.trim().length === 0) { return }
-                            if(!currentRoom) { return }
-
-                            var PREFIX_ME = '/me '
-                            var PREFIX_NOTICE = '/notice '
-                            var PREFIX_RAINBOW = '/rainbow '
-                            var PREFIX_HTML = '/html '
-                            var PREFIX_MARKDOWN = '/md '
-
-                            if (text.indexOf(PREFIX_ME) === 0) {
-                                text = text.substr(PREFIX_ME.length)
-                                currentRoom.postMessage(text, RoomMessageEvent.Emote)
-                                return
-                            }
-                            if (text.indexOf(PREFIX_NOTICE) === 0) {
-                                text = text.substr(PREFIX_NOTICE.length)
-                                currentRoom.postMessage(text, RoomMessageEvent.Notice)
-                                return
-                            }
-                            if (text.indexOf(PREFIX_RAINBOW) === 0) {
-                                text = text.substr(PREFIX_RAINBOW.length)
-
-                                var parsedText = ""
-                                var rainbowColor = ["#ff2b00", "#ff5500", "#ff8000", "#ffaa00", "#ffd500", "#ffff00", "#d4ff00", "#aaff00", "#80ff00", "#55ff00", "#2bff00", "#00ff00", "#00ff2b", "#00ff55", "#00ff80", "#00ffaa", "#00ffd5", "#00ffff", "#00d4ff", "#00aaff", "#007fff", "#0055ff", "#002bff", "#0000ff", "#2a00ff", "#5500ff", "#7f00ff", "#aa00ff", "#d400ff", "#ff00ff", "#ff00d4", "#ff00aa", "#ff0080", "#ff0055", "#ff002b", "#ff0000"]
-                                for (var i = 0; i < text.length; i++) {
-                                    parsedText = parsedText + "<font color='" + rainbowColor[i % rainbowColor.length] + "'>" + text.charAt(i) + "</font>"
-                                }
-                                currentRoom.postHtmlMessage(text, parsedText, RoomMessageEvent.Text)
-                                return
-                            }
-                            if (text.indexOf(PREFIX_HTML) === 0) {
-                                text = text.substr(PREFIX_HTML.length)
-                                var re = new RegExp("<.*?>")
-                                var plainText = text.replace(re, "")
-                                currentRoom.postHtmlMessage(plainText, text, RoomMessageEvent.Text)
-                                return
-                            }
-                            if (text.indexOf(PREFIX_MARKDOWN) === 0) {
-                                text = text.substr(PREFIX_MARKDOWN.length)
-                                var parsedText = Markdown.markdown_parser(text)
-                                currentRoom.postHtmlMessage(text, parsedText, RoomMessageEvent.Text)
-                                return
-                            }
-
-                            currentRoom.postPlainText(text)
-                        }
-                    }
-
-                    ItemDelegate {
-                        id: emojiButton
-
-                        Layout.preferredWidth: height
-                        Layout.fillHeight: true
-
-                        contentItem: MaterialIcon { icon: "\ue24e" }
-
-                        background: Rectangle { color: MSettings.darkTheme ? "#242424" : "#eaeaea" }
-
-                        onClicked: emojiPicker.visible ? emojiPicker.close() : emojiPicker.open()
-
-                        EmojiPicker {
-                            id: emojiPicker
-
-                            parent: ApplicationWindow.overlay
-
-                            x: window.width - 370
-                            y: window.height - 440
-
-                            width: 360
-                            height: 360
-
-                            textArea: inputField
-                        }
+                        textArea: inputField
                     }
                 }
             }
