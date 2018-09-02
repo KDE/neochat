@@ -21,7 +21,7 @@ Page {
     Rectangle {
         anchors.fill: parent
 
-        color: MSettings.darkTheme ? "#363636" : "#f3f3f3"
+        color: MSettings.darkTheme ? "#323232" : "#f3f3f3"
 
         RowLayout {
             anchors.fill: parent
@@ -37,6 +37,12 @@ Page {
                 Layout.maximumWidth: 360
 
                 listModel:  roomListModel
+            }
+
+            Rectangle {
+                Layout.preferredWidth: 1
+                Layout.fillHeight: true
+                color: MSettings.darkTheme ? "#363636" : "#ececec"
             }
 
             RoomForm {

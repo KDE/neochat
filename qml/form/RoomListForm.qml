@@ -36,7 +36,7 @@ Item {
             placeholderText: "Search..."
 
             background: Rectangle {
-                color: MSettings.darkTheme ? "#242424" : "#fafafa"
+                color: MSettings.darkTheme ? "#282828" : "#fafafa"
             }
 
             Shortcut {
@@ -89,6 +89,11 @@ Item {
 
             currentIndex: -1
 
+            highlightFollowsCurrentItem: true
+
+            highlightMoveDuration: 200
+            highlightResizeDuration: 0
+
             boundsBehavior: Flickable.DragOverBounds
 
             ScrollBar.vertical: ScrollBar {}
@@ -99,7 +104,7 @@ Item {
                 width: parent.width
                 height: 64
 
-                color: "#fafafa"
+                color: MSettings.darkTheme ? "#282828" : "#fafafa"
 
                 AutoMouseArea {
                     anchors.fill: parent
@@ -111,6 +116,13 @@ Item {
 
                     ToolTip.visible: MSettings.miniMode && containsMouse
                     ToolTip.text: name
+                }
+
+                Rectangle {
+                    anchors.fill: parent
+                    visible: highlighted
+                    color: Material.accent
+                    opacity: 0.1
                 }
 
                 Rectangle {

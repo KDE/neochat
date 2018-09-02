@@ -226,6 +226,7 @@ Item {
 
                     Layout.fillWidth: true
                     Layout.fillHeight: true
+                    clip: true
                     displayMarginBeginning: 40
                     displayMarginEnd: 40
                     verticalLayoutDirection: ListView.BottomToTop
@@ -379,7 +380,7 @@ Item {
                     }
 
                     background: Rectangle {
-                        color: MSettings.darkTheme ? "#242424" : "#eaeaea"
+                        color: MSettings.darkTheme ? "#282828" : "#eaeaea"
                     }
 
                     ToolTip.visible: currentRoom && currentRoom.hasUsersTyping
@@ -462,7 +463,7 @@ Item {
 
                     contentItem: MaterialIcon { icon: "\ue24e" }
 
-                    background: Rectangle { color: MSettings.darkTheme ? "#242424" : "#eaeaea" }
+                    background: Rectangle { color: MSettings.darkTheme ? "#282828" : "#eaeaea" }
 
                     onClicked: emojiPicker.visible ? emojiPicker.close() : emojiPicker.open()
 
