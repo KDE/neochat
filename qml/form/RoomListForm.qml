@@ -166,7 +166,7 @@ Item {
                             Layout.fillWidth: true
                             Layout.fillHeight: true
 
-                            text: (lastEvent || topic).replace(/(\r\n\t|\n|\r\t)/gm,"");
+                            text: (lastEvent == "" ? topic : lastEvent).replace(/(\r\n\t|\n|\r\t)/gm,"");
                             elide: Text.ElideRight
                             wrapMode: Text.NoWrap
                         }

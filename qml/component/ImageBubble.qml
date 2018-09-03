@@ -12,7 +12,7 @@ AvatarContainer {
         width: messageImage.width + 24
         height: messageImage.height + 24
 
-        color: sentByMe ? background : Material.accent
+        color: sentByMe ? background : Material.primary
 
         DownloadableContent {
             id: downloadable
