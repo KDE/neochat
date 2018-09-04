@@ -248,6 +248,8 @@ Item {
                         width: parent.width
                         height: hidden ? -8 : undefined
 
+                        clip: true
+
                         spacing: 8
 
                         Label {
