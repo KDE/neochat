@@ -57,16 +57,18 @@ Page {
         Pane {
             width: parent.width / 2
             height: parent.height
+
             padding: 64
 
             ColumnLayout {
-                id: mainCol
                 width: parent.width
 
-                TextField {
-                    id: serverField
+                id: mainCol
 
+                TextField {
                     Layout.fillWidth: true
+
+                    id: serverField
 
                     leftPadding: 16
                     topPadding: 0
@@ -85,9 +87,9 @@ Page {
                 }
 
                 TextField {
-                    id: usernameField
-
                     Layout.fillWidth: true
+
+                    id: usernameField
 
                     leftPadding: 16
                     topPadding: 0
@@ -105,9 +107,9 @@ Page {
                 }
 
                 TextField {
-                    id: passwordField
-
                     Layout.fillWidth: true
+
+                    id: passwordField
 
                     leftPadding: 16
                     topPadding: 0
@@ -126,9 +128,9 @@ Page {
                 }
 
                 Button {
-                    id: loginButton
-
                     Layout.fillWidth: true
+
+                    id: loginButton
 
                     text: "LOGIN"
                     highlighted: true

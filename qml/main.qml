@@ -13,12 +13,14 @@ import "form"
 ApplicationWindow {
     readonly property var connection: matriqueController.connection
 
-    id: window
-    visible: true
     width: 960
     height: 640
     minimumWidth: 800
     minimumHeight: 480
+
+    id: window
+
+    visible: true
     title: qsTr("Matrique")
 
     Material.theme: MSettings.darkTheme ? Material.Dark : Material.Light
@@ -40,10 +42,11 @@ ApplicationWindow {
     Popup {
         property bool busy: matriqueController.busy
 
-        id: busyPopup
-
         x: (window.width - width) / 2
         y: (window.height - height) / 2
+
+        id: busyPopup
+
         modal: true
         focus: true
 
@@ -81,9 +84,11 @@ ApplicationWindow {
         spacing: 0
 
         Rectangle {
-            id: sideNav
             Layout.preferredWidth: 64
             Layout.fillHeight: true
+
+            id: sideNav
+
             color: Material.primary
 
             ColumnLayout {
@@ -106,8 +111,9 @@ ApplicationWindow {
                 }
 
                 Rectangle {
-                    color: "transparent"
                     Layout.fillHeight: true
+
+                    color: "transparent"
                 }
 
                 SideNavButton {
@@ -125,6 +131,7 @@ ApplicationWindow {
 
                     Menu {
                         id: addRoomMenu
+
                         MenuItem {
                             text:"New Room"
                             onTriggered: addRoomDialog.open()
@@ -143,14 +150,17 @@ ApplicationWindow {
 
                                 contentItem: Column {
                                     TextField {
-                                        id: addRoomDialogNameTextField
                                         width: parent.width
+
+                                        id: addRoomDialogNameTextField
 
                                         placeholderText: "Name"
                                     }
                                     TextField {
-                                        id: addRoomDialogTopicTextField
                                         width: parent.width
+
+                                        id: addRoomDialogTopicTextField
+
                                         placeholderText: "Topic"
                                     }
                                 }
@@ -160,15 +170,17 @@ ApplicationWindow {
                         }
                         MenuItem {
                             text: "Join Room"
+
                             onTriggered: joinRoomDialog.open()
 
                             Dialog {
-                                id: joinRoomDialog
-                                parent: ApplicationWindow.overlay
-
                                 x: (window.width - width) / 2
                                 y: (window.height - height) / 2
                                 width: 360
+
+                                id: joinRoomDialog
+
+                                parent: ApplicationWindow.overlay
 
                                 title: "Input Room Alias or ID"
                                 modal: true
@@ -185,15 +197,17 @@ ApplicationWindow {
 
                         MenuItem {
                             text: "Direct Chat"
+
                             onTriggered: directChatDialog.open()
 
                             Dialog {
-                                id: directChatDialog
-                                parent: ApplicationWindow.overlay
-
                                 x: (window.width - width) / 2
                                 y: (window.height - height) / 2
                                 width: 360
+
+                                id: directChatDialog
+
+                                parent: ApplicationWindow.overlay
 
                                 title: "Input User ID"
                                 modal: true
@@ -240,11 +254,12 @@ ApplicationWindow {
         }
 
         StackView {
-            id: stackView
-            initialItem: roomPage
-
             Layout.fillWidth: true
             Layout.fillHeight: true
+
+            id: stackView
+
+            initialItem: roomPage
         }
     }
 

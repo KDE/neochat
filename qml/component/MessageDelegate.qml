@@ -14,9 +14,9 @@ RowLayout {
     signal saveFileAs()
     signal openExternally()
 
-    id: messageRow
-
     z: -5
+
+    id: messageRow
 
     Layout.alignment: sentByMe ? Qt.AlignRight : Qt.AlignLeft
 
@@ -100,14 +100,16 @@ RowLayout {
             id: imageComponent
 
             DownloadableContent {
-                id: downloadable
-
                 width: messageImage.width
                 height: messageImage.height
 
+                id: downloadable
+
                 AutoImage {
-                    id: messageImage
                     z: -4
+
+                    id: messageImage
+
                     sourceSize: 128
                     source: "image://mxc/" + (content.thumbnail_url ? content.thumbnail_url : content.url)
 

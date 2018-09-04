@@ -22,10 +22,10 @@ Item {
     }
 
     Drawer {
-        id: roomDrawer
-
         width: Math.min(item.width * 0.7, 480)
         height: item.height
+
+        id: roomDrawer
 
         edge: Qt.RightEdge
         interactive: false
@@ -51,12 +51,14 @@ Item {
 
             Label {
                 Layout.fillWidth: true
+
                 horizontalAlignment: Text.AlignHCenter
                 text: currentRoom && currentRoom.id ? currentRoom.id : ""
             }
 
             Label {
                 Layout.fillWidth: true
+
                 horizontalAlignment: Text.AlignHCenter
                 text: currentRoom && currentRoom.canonicalAlias ? currentRoom.canonicalAlias : "No Canonical Alias"
             }
@@ -65,8 +67,9 @@ Item {
                 Layout.fillWidth: true
 
                 TextField {
-                    id: roomNameField
                     Layout.fillWidth: true
+
+                    id: roomNameField
                     text: currentRoom && currentRoom.name ? currentRoom.name : ""
                 }
 
@@ -84,9 +87,10 @@ Item {
                 Layout.fillWidth: true
 
                 TextField {
+                    Layout.fillWidth: true
+
                     id: roomTopicField
 
-                    Layout.fillWidth: true
                     text: currentRoom && currentRoom.topic ? currentRoom.topic : ""
                 }
 
@@ -176,6 +180,7 @@ Item {
                         ImageStatus {
                             Layout.preferredWidth: height
                             Layout.fillHeight: true
+
                             source: currentRoom && currentRoom.avatarUrl != "" ? "image://mxc/" + currentRoom.avatarUrl : null
                             displayText: currentRoom ? currentRoom.displayName : ""
                         }
@@ -222,10 +227,11 @@ Item {
                 spacing: 0
 
                 ListView {
-                    id: messageListView
-
                     Layout.fillWidth: true
                     Layout.fillHeight: true
+
+                    id: messageListView
+
                     clip: true
                     displayMarginBeginning: 40
                     displayMarginEnd: 40
@@ -243,13 +249,12 @@ Item {
                     delegate: ColumnLayout {
                         readonly property bool hidden: marks === EventStatus.Redacted || marks === EventStatus.Hidden
 
-                        id: delegateColumn
-
                         width: parent.width
                         height: hidden ? -8 : undefined
 
-                        clip: true
+                        id: delegateColumn
 
+                        clip: true
                         spacing: 8
 
                         Label {
@@ -283,9 +288,7 @@ Item {
                             topPadding: 4
                             bottomPadding: 4
 
-                            background: Rectangle {
-                                color: MSettings.darkTheme ? "#484848" : "grey"
-                            }
+                            background: Rectangle { color: MSettings.darkTheme ? "#484848" : "grey" }
                         }
 
                         MessageDelegate {
@@ -294,6 +297,7 @@ Item {
 
                         StateDelegate {
                             Layout.maximumWidth: messageListView.width * 0.8
+
                             visible: eventType === "emote" || eventType === "state"
                         }
                     }
@@ -304,9 +308,11 @@ Item {
                     onAtYEndChanged: atYEnd && currentRoom ? currentRoom.markAllMessagesAsRead() : {}
 
                     RoundButton {
-                        id: goTopFab
                         width: 64
                         height: 64
+
+                        id: goTopFab
+
                         visible: !parent.atYEnd
 
                         anchors.right: parent.right
@@ -328,10 +334,10 @@ Item {
                 }
 
                 ScrollBar {
-                    id: messageListViewScrollBar
-
                     Layout.preferredWidth: 16
                     Layout.fillHeight: true
+
+                    id: messageListViewScrollBar
                 }
             }
 
@@ -354,9 +360,11 @@ Item {
                 TextField {
                     property real progress: 0
 
-                    id: inputField
                     Layout.fillWidth: true
                     Layout.preferredHeight: 48
+
+                    id: inputField
+
                     placeholderText: "Send a Message"
                     leftPadding: 16
                     topPadding: 0
@@ -455,10 +463,10 @@ Item {
                 }
 
                 ItemDelegate {
-                    id: emojiButton
-
                     Layout.preferredWidth: 48
                     Layout.preferredHeight: 48
+
+                    id: emojiButton
 
                     contentItem: MaterialIcon { icon: "\ue24e" }
 
@@ -467,15 +475,15 @@ Item {
                     onClicked: emojiPicker.visible ? emojiPicker.close() : emojiPicker.open()
 
                     EmojiPicker {
-                        id: emojiPicker
-
-                        parent: ApplicationWindow.overlay
-
                         x: window.width - 370
                         y: window.height - 440
 
                         width: 360
                         height: 360
+
+                        id: emojiPicker
+
+                        parent: ApplicationWindow.overlay
 
                         textArea: inputField
                     }

@@ -29,12 +29,12 @@ Page {
             spacing: 0
 
             RoomListForm {
-                id: roomListForm
-
                 Layout.fillHeight: true
                 Layout.preferredWidth: MSettings.miniMode ? 64 : page.width * 0.35
                 Layout.minimumWidth: 64
                 Layout.maximumWidth: 360
+
+                id: roomListForm
 
                 listModel:  roomListModel
             }
@@ -42,14 +42,15 @@ Page {
             Rectangle {
                 Layout.preferredWidth: 1
                 Layout.fillHeight: true
+
                 color: MSettings.darkTheme ? "#363636" : "#ececec"
             }
 
             RoomForm {
-                id: roomForm
-
                 Layout.fillWidth: true
                 Layout.fillHeight: true
+
+                id: roomForm
 
                 currentRoom: roomListForm.enteredRoom
             }

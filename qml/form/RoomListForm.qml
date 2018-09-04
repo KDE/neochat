@@ -16,6 +16,7 @@ Item {
 
     Label {
         z: 10
+
         text: MSettings.miniMode ? "Empty" : "Here? No, not here."
         anchors.centerIn: parent
         visible: listView.count === 0
@@ -26,18 +27,18 @@ Item {
         spacing: 0
 
         TextField {
-            id: searchField
             Layout.fillWidth: true
             Layout.preferredHeight: 40
             Layout.margins: 12
+
+            id: searchField
+
             leftPadding: MSettings.miniMode ? 4 : 32
             topPadding: 0
             bottomPadding: 0
             placeholderText: "Search..."
 
-            background: Rectangle {
-                color: MSettings.darkTheme ? "#282828" : "#fafafa"
-            }
+            background: Rectangle { color: MSettings.darkTheme ? "#282828" : "#fafafa" }
 
             Shortcut {
                 sequence: StandardKey.Find
@@ -47,6 +48,7 @@ Item {
 
         SortFilterProxyModel {
             id: roomListProxyModel
+
             filters: RegExpFilter {
                 roleName: "name"
                 pattern: searchField.text
@@ -120,6 +122,7 @@ Item {
 
                 Rectangle {
                     anchors.fill: parent
+
                     visible: highlighted
                     color: Material.accent
                     opacity: 0.1
@@ -128,6 +131,7 @@ Item {
                 Rectangle {
                     width: 4
                     height: parent.height
+
                     color: Material.accent
                     visible: unreadCount > 0 || highlighted
                 }
@@ -135,6 +139,7 @@ Item {
                 RowLayout {
                     anchors.fill: parent
                     anchors.margins: 12
+
                     spacing: 12
 
                     ImageStatus {
@@ -179,6 +184,7 @@ Item {
             section.delegate: Label {
                 width: parent.width
                 height: 24
+
                 text: section
                 color: "grey"
                 leftPadding: MSettings.miniMode ? undefined : 16

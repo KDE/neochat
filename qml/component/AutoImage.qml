@@ -6,21 +6,21 @@ Item {
     property alias sourceSize: baseImage.sourceSize.width
 
     readonly property bool loading: baseImage.status == Image.Loading
-    signal clicked()
 
-    id: rekt
+    signal clicked()
 
     width: loading ? 128 : baseImage.implicitWidth
     height: loading ? progressBar.height : baseImage.implicitHeight
 
-    Image {
-        id: baseImage
-    }
+    id: rekt
+
+    Image { id: baseImage }
 
     ProgressBar {
-        id: progressBar
         width: parent.width
         visible: loading
+
+        id: progressBar
 
         indeterminate: true
     }

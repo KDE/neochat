@@ -11,5 +11,6 @@ Label {
     wrapMode: Label.Wrap
     linkColor: coloredBackground ? "white" : Material.accent
     textFormat: MSettings.richText ? Text.RichText : Text.StyledText
+
     onLinkActivated: Qt.openUrlExternally(link)
 }

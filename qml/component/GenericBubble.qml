@@ -12,13 +12,11 @@ Control {
 
     padding: 12
 
-    background: Rectangle {
-        color: colored ? Material.accent : highlighted ? Material.primary : backgroundColor
-    }
-
     AutoMouseArea {
         anchors.fill: parent
 
         onSecondaryClicked: Qt.createComponent("qrc:/qml/menu/MessageContextMenu.qml").createObject(this)
     }
+
+    background: Rectangle { color: colored ? Material.accent : highlighted ? Material.primary : backgroundColor }
 }
