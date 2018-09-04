@@ -65,7 +65,7 @@ ApplicationWindow {
 
         parent: null
 
-        connection: matriqueController.isLogin ? window.connection : null
+        connection: window.connection
     }
 
     Setting {

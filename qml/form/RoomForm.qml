@@ -233,70 +233,67 @@ Item {
                     spacing: 8
 
                     boundsBehavior: Flickable.DragOverBounds
+                    maximumFlickVelocity: 2048
 
                     model: MessageEventModel {
                         id: messageEventModel
                         room: currentRoom
                     }
 
-                    delegate: Column {
+                    delegate: ColumnLayout {
                         readonly property bool hidden: marks === EventStatus.Redacted || marks === EventStatus.Hidden
+
+                        id: delegateColumn
 
                         width: parent.width
                         height: hidden ? -8 : undefined
+
                         spacing: 8
 
-                        RowLayout {
-                            width: parent.width * 0.8
+                        Label {
+                            Layout.alignment: Qt.AlignHCenter
+
                             visible: section !== aboveSection && !hidden
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            spacing: 8
 
-                            Rectangle {
-                                Layout.fillWidth: true
-                                height:2
-                                color: Material.accent
-                            }
+                            text: section
+                            color: "white"
+                            verticalAlignment: Text.AlignVCenter
+                            leftPadding: 8
+                            rightPadding: 8
+                            topPadding: 4
+                            bottomPadding: 4
 
-                            Label {
-                                text: section
-                                color: Material.accent
-                                verticalAlignment: Text.AlignVCenter
-                            }
-
-                            Rectangle {
-                                Layout.fillWidth: true
-                                height:2
-                                color: Material.accent
+                            background: Rectangle {
+                                color: MSettings.darkTheme ? "#484848" : "grey"
                             }
                         }
 
-                        RowLayout {
-                            width: parent.width * 0.8
+                        Label {
+                            Layout.alignment: Qt.AlignHCenter
+
                             visible: readMarker === true && index !== 0
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            spacing: 8
 
-                            Rectangle {
-                                Layout.fillWidth: true
-                                height:2
-                                color: Material.accent
-                            }
+                            text: "And Now"
+                            color: "white"
+                            verticalAlignment: Text.AlignVCenter
+                            leftPadding: 8
+                            rightPadding: 8
+                            topPadding: 4
+                            bottomPadding: 4
 
-                            Label {
-                                text: "And Now"
-                                color: Material.accent
-                                verticalAlignment: Text.AlignVCenter
-                            }
-
-                            Rectangle {
-                                Layout.fillWidth: true
-                                height:2
-                                color: Material.accent
+                            background: Rectangle {
+                                color: MSettings.darkTheme ? "#484848" : "grey"
                             }
                         }
 
-                        MessageDelegate {}
+                        MessageDelegate {
+                            visible: eventType === "notice" || eventType === "message" || eventType === "image" || eventType === "video" || eventType === "audio" || eventType === "file"
+                        }
+
+                        StateDelegate {
+                            Layout.maximumWidth: messageListView.width * 0.8
+                            visible: eventType === "emote" || eventType === "state"
+                        }
                     }
 
                     ScrollBar.vertical: messageListViewScrollBar

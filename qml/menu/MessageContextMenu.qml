@@ -18,13 +18,13 @@ Menu {
         visible: isFile
         height: visible ? undefined : 0
         text: "Open Externally"
-        onTriggered: delegateLoader.item.downloadAndOpen()
+        onTriggered: messageRow.openExternally()
     }
     MenuItem {
         visible: isFile
         height: visible ? undefined : 0
         text: "Save As"
-        onTriggered: delegateLoader.item.saveFileAs()
+        onTriggered: messageRow.saveFileAs()
     }
     MenuItem {
         visible: sentByMe

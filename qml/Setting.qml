@@ -67,12 +67,6 @@ Page {
             }
 
             Switch {
-                text: "Force loading message delegates asynchronously"
-                checked: MSettings.asyncMessageDelegate
-                onCheckedChanged: MSettings.asyncMessageDelegate = checked
-            }
-
-            Switch {
                 text: "Use RichText instead of StyledText"
                 checked: MSettings.richText
                 onCheckedChanged: MSettings.richText = checked
