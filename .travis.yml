@@ -14,7 +14,7 @@ script:
 - make
 - make install
 - macdeployqt ${DEPLOY_DIR}/bin/matrique.app -dmg -qmldir=qml
-- tar czvf matrique.tar.gz ${DEPLOY_DIR}
+- mv ${DEPLOY_DIR}/bin/matrique.dmg ./
 
 deploy:
   - provider: bintray
