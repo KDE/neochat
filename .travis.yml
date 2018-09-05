@@ -1,0 +1,16 @@
+language: cpp
+
+matrix:
+  include:
+  - os: osx
+    env: [ 'ENV_EVAL="brew update && brew install qt5 && PATH=/usr/local/opt/qt/bin:$PATH"', 'DEPLOY_DIR="deploy"' ]
+
+install:
+- eval "${ENV_EVAL}"
+- git submodule update --init --recursive
+
+script:
+- qmake matrique.pro PREFIX="${DEPLOY_DIR}"
+- make
+- make install
+- macdeployqt --release --qmldir qml "${DEPLOY_DIR}/matrique"
