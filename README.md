@@ -10,69 +10,18 @@
 
 Matrique is a glossy cross-platform client for Matrix, the decentralized communication protocol for instant messaging.
 
+## Document
+
+There is a separate document for Matrique, including installing, compiling, etc.
+
+It is at ![Matrique Doc](https://doc.matrique.encom.eu.org/)
+
 ## Contact
 
 You can reach the maintainer at #matrique:matrix.org, if you are already on Matrix.
 
 Also, you can file an issue at this project if anything goes wrong.
 
-## Install
-
-### GNU/Linux
-
-You can fetch the release of Matrique on Flathub. The link is at the beginning of this README.
-
-Alternatively, you can download the Flatpak nightly build bundle from ![Gitlab CI](https://gitlab.com/b0/matrique/-/jobs/artifacts/dev/raw/flatpak/matrique.flatpak?job=build-flatpak).
-
-Open the bundle using your preferred software center.
-
-#### Requirements
-
-An operating system with Flatpak installed.
-Fedora 28 is known to work, other GNU/Linux distributions should work as well if they have Flatpak installed.
-
-#### Run
-
-If you install Matrique through Flatpak, you should already be able to run it from the app launcher.
-
-If not, 
-
-```bash
-flatpak run org.eu.encom.matrique
-```
-
-### Windows
-
-There are no tested builds on Windows yet, but you can fetch the nightly builds from ![AppVeyor](https://ci.appveyor.com/api/projects/BlackHat/matrique/artifacts/matrique.zip).
-
-Most functions should work fine, but things are expected to go wrong. Open an issue if you find any bugs.
-
-### MacOS
-
-I suggest you to check out ![Seaglass](https://github.com/neilalexander/seaglass).
-
-## Compile from Source
-
-You can compile Matrique from source if you want to.
-
-The requirements are Qt, QMake, Qt Quick, Qt Quick Controls 2, Qt Multimedia, and several others.
-
-* Fetch the code.
-
-```bash
-git clone --recursive https://gitlab.com/b0/matrique
-```
-
-* Open in Qt Creator using the default config.
-* Run.
-
-*Still prefer commands?*
-
-```bash
-mkdir build && cd build
-qmake ..
-make
-sudo make install
 ```
 
 ## Acknowledgement
