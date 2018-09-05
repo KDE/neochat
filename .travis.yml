@@ -20,6 +20,5 @@ deploy:
   - provider: bintray
     file: .ci/bintray-release.json
     user: $BINTRAY_USER
-    key:
-      secure: $BINTRAY_TOKEN
+    key: $BINTRAY_TOKEN
     skip_cleanup: true
