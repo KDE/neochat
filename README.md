@@ -22,8 +22,6 @@ You can reach the maintainer at #matrique:matrix.org, if you are already on Matr
 
 Also, you can file an issue at this project if anything goes wrong.
 
-```
-
 ## Acknowledgement
 
 This program uses libqmatrixclient library and C++ models from Quaternion. 
