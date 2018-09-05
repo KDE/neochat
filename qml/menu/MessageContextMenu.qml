@@ -8,28 +8,33 @@ Menu {
 
     MenuItem {
         text: "Copy"
+
         onTriggered: matriqueController.copyToClipboard(plainText)
     }
     MenuItem {
         text: "Copy Source"
+
         onTriggered: matriqueController.copyToClipboard(toolTip)
     }
     MenuItem {
         visible: isFile
         height: visible ? undefined : 0
         text: "Open Externally"
-        onTriggered: delegateLoader.item.downloadAndOpen()
+
+        onTriggered: messageRow.openExternally()
     }
     MenuItem {
         visible: isFile
         height: visible ? undefined : 0
         text: "Save As"
-        onTriggered: delegateLoader.item.saveFileAs()
+
+        onTriggered: messageRow.saveFileAs()
     }
     MenuItem {
         visible: sentByMe
         height: visible ? undefined : 0
         text: "Redact"
+
         onTriggered: currentRoom.redactEvent(eventId)
     }
 

@@ -1,7 +1,9 @@
 QT += quick widgets multimedia
 CONFIG += c++14
 CONFIG += object_parallel_to_source
-CONFIG += qtquickcompiler
+
+# Enable this to use QtQuick Compiler.
+#CONFIG += qtquickcompiler
 
 TARGET = matrique
 
@@ -75,10 +77,9 @@ DISTFILES += \
     ButtonDelegate.qml \
     SideNav.qml \
     RoomListForm.qml \
-    RoomDetailForm.qml \
     Room.qml \
     Setting.qml \
-    qml/js/md.js
+    qml/js/md.js \
 
 HEADERS += \
     src/controller.h \

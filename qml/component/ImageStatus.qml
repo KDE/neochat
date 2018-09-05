@@ -13,9 +13,11 @@ Item {
     id: item
 
     Image {
-        id: avatar
         width: item.width
         height: item.width
+
+        id: avatar
+
         visible: showImage
         source: item.source
 
@@ -40,6 +42,7 @@ Item {
 
     Label {
         anchors.fill: parent
+
         color: "white"
         visible: showInitial
         text: showInitial ? getInitials(displayText)[0] : ""

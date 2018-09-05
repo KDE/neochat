@@ -83,6 +83,7 @@ void MatriqueRoom::sendTypingNotification(bool isTyping) {
 QString MatriqueRoom::lastEvent() {
   if (timelineSize() == 0) return "";
   const RoomEvent* lastEvent = messageEvents().rbegin()->get();
+  if (lastEvent->contentJson().value("body").toString() == "") return "";
   return user(lastEvent->senderId())->displayname() + ": " +
          lastEvent->contentJson().value("body").toString();
 }

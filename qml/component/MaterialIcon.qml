@@ -10,8 +10,9 @@ Item {
     id: item
 
     Text {
-        id: iconText
         anchors.fill: parent
+
+        id: iconText
         font.pointSize: 16
         font.family: materialFont.name
         color: item.color

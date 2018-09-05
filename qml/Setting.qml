@@ -58,56 +58,58 @@ Page {
 
     Page {
         id: generalForm
+
         parent: null
+
         Column {
             Switch {
                 text: "Lazy load at initial sync"
                 checked: MSettings.lazyLoad
+
                 onCheckedChanged: MSettings.lazyLoad = checked
             }
-            Switch {
-                text: "Force loading message delegates asynchronously"
-                checked: MSettings.asyncMessageDelegate
-                onCheckedChanged: MSettings.asyncMessageDelegate = checked
-            }
+
             Switch {
                 text: "Use RichText instead of StyledText"
                 checked: MSettings.richText
+
                 onCheckedChanged: MSettings.richText = checked
             }
+
             Switch {
                 text: "Use press and hold instead of right click"
                 checked: MSettings.pressAndHold
-                onCheckedChanged: MSettings.pressAndHold = checked
-            }
-            Switch {
-                text: "Rearrange rooms by activity"
-                checked: MSettings.rearrangeByActivity
-                onCheckedChanged: MSettings.rearrangeByActivity = checked
-            }
 
-            Button {
-                text: "Invoke GC"
-                highlighted: true
-                onClicked: gc()
+                onCheckedChanged: MSettings.pressAndHold = checked
             }
         }
     }
 
     Page {
         id: appearanceForm
+
         parent: null
+
         Column {
             Switch {
                 text: "Dark theme"
                 checked: MSettings.darkTheme
+
                 onCheckedChanged: MSettings.darkTheme = checked
             }
 
             Switch {
                 text: "Mini Room List"
                 checked: MSettings.miniMode
+
                 onCheckedChanged: MSettings.miniMode = checked
+            }
+
+            Switch {
+                text: "Rearrange rooms by activity"
+                checked: MSettings.rearrangeByActivity
+
+                onCheckedChanged: MSettings.rearrangeByActivity = checked
             }
         }
     }
@@ -126,12 +128,8 @@ Page {
 
                 source: "qrc:/asset/img/icon.png"
             }
-            Label {
-                text: "Matrique, an IM client for the Matrix protocol."
-            }
-            Label {
-                text: "Released under GNU General Public License, version 3."
-            }
+            Label { text: "Matrique, an IM client for the Matrix protocol." }
+            Label { text: "Released under GNU General Public License, version 3." }
         }
     }
 

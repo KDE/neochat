@@ -52,6 +52,7 @@ Popup {
         Rectangle {
             Layout.fillWidth: true
             Layout.preferredHeight: 2
+
             color: Material.accent
         }
 

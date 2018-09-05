@@ -3,41 +3,29 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.2
 
-Item {
+ItemDelegate {
     property var page
-    property alias contentItem: buttonDelegate.contentItem
-    signal clicked
-
-    id: sideNavButton
-
-    Layout.fillWidth: true
-    Layout.preferredHeight: width
+    readonly property bool selected: stackView.currentItem === page
 
     Rectangle {
-        width: stackView.currentItem === page ?  parent.width : 0
+        width: selected ? 4 : 0
         height: parent.height
-        anchors.bottom:  buttonDelegate.bottom
-        color: Qt.lighter(Material.accent)
+
+        color: Material.accent
 
         Behavior on width {
             PropertyAnimation { easing.type: Easing.InOutCubic; duration: 200 }
         }
     }
 
-    ItemDelegate {
-        id: buttonDelegate
-        anchors.fill: parent
-
-        onClicked: {
-            if(page && stackView.currentItem !== page) {
-                if(stackView.depth === 1) {
-                    stackView.replace(page)
-                } else {
-                    stackView.clear()
-                    stackView.push(page)
-                }
+    onClicked: {
+        if(page && stackView.currentItem !== page) {
+            if(stackView.depth === 1) {
+                stackView.replace(page)
+            } else {
+                stackView.clear()
+                stackView.push(page)
             }
-            sideNavButton.clicked()
         }
     }
 }

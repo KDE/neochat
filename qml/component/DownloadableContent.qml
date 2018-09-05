@@ -11,20 +11,18 @@ Item {
         z: -2
         height: parent.height
         width: progressInfo.active && !progressInfo.completed ? progressInfo.progress / progressInfo.total * parent.width : 0
+
         color: Material.accent
         opacity: 0.4
     }
 
-    onDownloadedChanged: downloaded && openOnFinished ? openSavedFile() : {}
+    onDownloadedChanged: if (downloaded && openOnFinished) openSavedFile()
 
-    function saveFileAs() {
-        currentRoom.saveFileAs(eventId)
-    }
+    function saveFileAs() { currentRoom.saveFileAs(eventId) }
 
     function downloadAndOpen()
     {
-        if (downloaded)
-            openSavedFile()
+        if (downloaded) openSavedFile()
         else
         {
             openOnFinished = true
@@ -34,10 +32,7 @@ Item {
 
     function openSavedFile()
     {
-        if (Qt.openUrlExternally(progressInfo.localPath))
-            return;
-
-        if (Qt.openUrlExternally(progressInfo.localDir))
-            return;
+        if (Qt.openUrlExternally(progressInfo.localPath)) return;
+        if (Qt.openUrlExternally(progressInfo.localDir)) return;
     }
 }
