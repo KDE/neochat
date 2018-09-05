@@ -13,4 +13,4 @@ script:
 - qmake matrique.pro PREFIX="${DEPLOY_DIR}"
 - make
 - make install
-- macdeployqt --release --qmldir qml "${DEPLOY_DIR}/matrique"
+- macdeployqt -dmg --qmldir qml "${DEPLOY_DIR}/bin/matrique.app"
