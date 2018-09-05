@@ -17,7 +17,9 @@ script:
 - tar czvf matrique.tar.gz ${DEPLOY_DIR}
 
 deploy:
-  provider: releases
-  api_key: "${GITHUB_OAUTH_TOKEN}"
-  file: matrique.tar.gz
-  skip_cleanup: true
+  - provider: bintray
+    file: .ci/bintray-release.json
+    user: $BINTRAY_USER
+    key:
+      secure: $BINTRAY_TOKEN
+    skip_cleanup: true
