@@ -14,3 +14,10 @@ script:
 - make
 - make install
 - macdeployqt ${DEPLOY_DIR}/bin/matrique.app -dmg -qmldir=qml
+- tar czvf matrique.tar.gz ${DEPLOY_DIR}
+
+deploy:
+  provider: releases
+  api_key: "3271b1cdd3c3615e42e503e08feb9498c4800aae"
+  file: "matrique.tar.gz"
+  skip_cleanup: true
