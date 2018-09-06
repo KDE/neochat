@@ -139,10 +139,8 @@ QVariant RoomListModel::data(const QModelIndex& index, int role) const {
   MatriqueRoom* room = m_rooms.at(index.row());
   if (role == NameRole) return room->displayName();
   if (role == AvatarRole) {
-    if (room->avatarUrl().toString() != "") {
-      return room->avatarUrl();
-    }
-    return QVariant();
+    if (room->avatarUrl().toString() != "") return room->avatar(64, 64);
+    return QImage();
   }
   if (role == TopicRole) return room->topic();
   if (role == CategoryRole) {

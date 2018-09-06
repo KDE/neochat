@@ -29,7 +29,8 @@ SOURCES += src/main.cpp \
     src/imageproviderconnection.cpp \
     src/emojimodel.cpp \
     src/matriqueroom.cpp \
-    src/userlistmodel.cpp
+    src/userlistmodel.cpp \
+    src/imageitem.cpp
 
 RESOURCES += \
     res.qrc
@@ -89,4 +90,5 @@ HEADERS += \
     src/imageproviderconnection.h \
     src/emojimodel.h \
     src/matriqueroom.h \
-    src/userlistmodel.h
+    src/userlistmodel.h \
+    src/imageitem.h
