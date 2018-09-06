@@ -119,7 +119,7 @@ Item {
                     spacing: 8
 
                     boundsBehavior: Flickable.DragOverBounds
-                    maximumFlickVelocity: 2048
+                    flickDeceleration: 9001
 
                     cacheBuffer: 200
 
@@ -195,7 +195,7 @@ Item {
 
                         id: goTopFab
 
-                        visible: !parent.atYEnd
+                        visible: !(parent.atYEnd || messageListView.moving)
 
                         anchors.right: parent.right
                         anchors.bottom: parent.bottom
