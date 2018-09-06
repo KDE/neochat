@@ -45,7 +45,7 @@ MessageEventModel::MessageEventModel(QObject* parent)
 
 MessageEventModel::~MessageEventModel() {}
 
-void MessageEventModel::setRoom(QMatrixClient::Room* room) {
+void MessageEventModel::setRoom(MatriqueRoom* room) {
   if (room == m_currentRoom) return;
 
   beginResetModel();
@@ -566,6 +566,8 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
                  : QVariant();
     };
   }
+
+  if (role == HighlightRole) return m_currentRoom->isEventHighlighted(&evt);
 
   if (role == ReadMarkerRole) return evt.id() == lastReadEventId;
 

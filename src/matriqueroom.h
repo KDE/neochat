@@ -30,12 +30,22 @@ class MatriqueRoom : public Room {
   QString getUsersTyping();
 
   QString lastEvent();
+  bool isEventHighlighted(const QMatrixClient::RoomEvent* e) const;
 
  private:
   QString m_cachedInput;
+  QSet<const QMatrixClient::RoomEvent*> highlights;
 
   QString getMIME(const QUrl& fileUrl) const;
   void postFile(const QUrl& localFile, const QUrl& mxcUrl);
+
+  void checkForHighlights(const QMatrixClient::TimelineItem& ti);
+
+  void onAddNewTimelineEvents(timeline_iter_t from) override;
+  void onAddHistoricalTimelineEvents(rev_iter_t from) override;
+
+ private slots:
+  void countChanged();
 
  signals:
   void cachedInputChanged();

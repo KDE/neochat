@@ -241,6 +241,8 @@ Item {
                     boundsBehavior: Flickable.DragOverBounds
                     maximumFlickVelocity: 2048
 
+                    cacheBuffer: 200
+
                     model: MessageEventModel {
                         id: messageEventModel
                         room: currentRoom

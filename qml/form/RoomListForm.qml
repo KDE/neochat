@@ -123,7 +123,7 @@ Item {
                 Rectangle {
                     anchors.fill: parent
 
-                    visible: highlighted
+                    visible: highlightCount > 0 || highlighted
                     color: Material.accent
                     opacity: 0.1
                 }

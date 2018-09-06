@@ -12,7 +12,12 @@
 
 MatriqueRoom::MatriqueRoom(Connection* connection, QString roomId,
                            JoinState joinState)
-    : Room(connection, std::move(roomId), joinState) {}
+    : Room(connection, std::move(roomId), joinState) {
+  connect(this, &MatriqueRoom::notificationCountChanged, this,
+          &MatriqueRoom::countChanged);
+  connect(this, &MatriqueRoom::highlightCountChanged, this,
+          &MatriqueRoom::countChanged);
+}
 
 void MatriqueRoom::chooseAndUploadFile() {
   auto localFile = QFileDialog::getOpenFileUrl(Q_NULLPTR, tr("Save File as"));
@@ -86,4 +91,36 @@ QString MatriqueRoom::lastEvent() {
   if (lastEvent->contentJson().value("body").toString() == "") return "";
   return user(lastEvent->senderId())->displayname() + ": " +
          lastEvent->contentJson().value("body").toString();
+}
+
+bool MatriqueRoom::isEventHighlighted(const RoomEvent* e) const {
+  return highlights.contains(e);
+}
+
+void MatriqueRoom::checkForHighlights(const QMatrixClient::TimelineItem& ti) {
+  auto localUserId = localUser()->id();
+  if (ti->senderId() == localUserId) return;
+  if (auto* e = ti.viewAs<RoomMessageEvent>()) {
+    const auto& text = e->plainBody();
+    if (text.contains(localUserId) ||
+        text.contains(roomMembername(localUserId)))
+      highlights.insert(e);
+  }
+}
+
+void MatriqueRoom::onAddNewTimelineEvents(timeline_iter_t from) {
+  std::for_each(from, messageEvents().cend(),
+                [this](const TimelineItem& ti) { checkForHighlights(ti); });
+}
+
+void MatriqueRoom::onAddHistoricalTimelineEvents(rev_iter_t from) {
+  std::for_each(from, messageEvents().crend(),
+                [this](const TimelineItem& ti) { checkForHighlights(ti); });
+}
+
+void MatriqueRoom::countChanged() {
+  if (displayed() && !hasUnreadMessages()) {
+    resetNotificationCount();
+    resetHighlightCount();
+  }
 }

@@ -153,6 +153,7 @@ QVariant RoomListModel::data(const QModelIndex& index, int role) const {
     return RoomType::Normal;
   }
   if (role == UnreadCountRole) return room->unreadCount();
+  if (role == HighlightCountRole) return room->highlightCount();
   if (role == LastEventRole) return room->lastEvent();
   if (role == CurrentRoomRole) return QVariant::fromValue(room);
   return QVariant();
@@ -185,6 +186,7 @@ QHash<int, QByteArray> RoomListModel::roleNames() const {
   roles[TopicRole] = "topic";
   roles[CategoryRole] = "category";
   roles[UnreadCountRole] = "unreadCount";
+  roles[HighlightCountRole] = "highlightCount";
   roles[LastEventRole] = "lastEvent";
   roles[CurrentRoomRole] = "currentRoom";
   return roles;

@@ -48,7 +48,7 @@ RowLayout {
         id: genericBubble
 
         highlighted: !sentByMe
-        colored: highlighted && eventType === "notice"
+        colored: highlighted && (eventType === "notice" || highlight)
 
         contentItem: ColumnLayout {
             id: messageColumn

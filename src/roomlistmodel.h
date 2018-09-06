@@ -35,6 +35,7 @@ class RoomListModel : public QAbstractListModel {
     TopicRole,
     CategoryRole,
     UnreadCountRole,
+    HighlightCountRole,
     LastEventRole,
     CurrentRoomRole,
   };
