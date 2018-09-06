@@ -59,7 +59,7 @@ ApplicationWindow {
         modal: true
         focus: true
 
-        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
+        closePolicy: Popup.NoAutoClose
 
         BusyIndicator { running: true }
 
