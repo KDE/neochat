@@ -13,6 +13,11 @@
 Controller::Controller(QObject* parent) : QObject(parent) {
   tray->setIcon(QIcon(":/asset/img/icon.png"));
   tray->setToolTip("Matrique");
+  connect(tray, &QSystemTrayIcon::activated,
+          [this](QSystemTrayIcon::ActivationReason r) {
+            if (r != QSystemTrayIcon::Context) emit toggleWindow();
+          });
+  connect(tray, &QSystemTrayIcon::messageClicked, [=] { emit toggleWindow(); });
   trayMenu->addAction("Toggle Window", [=] { emit toggleWindow(); });
   trayMenu->addAction("Quit", [=] { QApplication::quit(); });
   tray->setContextMenu(trayMenu);
