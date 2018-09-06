@@ -15,133 +15,13 @@ Item {
 
     id: item
 
-    UserListModel {
-        id: userListModel
-
-        room: currentRoom
-    }
-
-    Drawer {
+    RoomDrawer {
         width: Math.min(item.width * 0.7, 480)
         height: item.height
 
         id: roomDrawer
 
-        edge: Qt.RightEdge
-        interactive: false
-
-        ToolButton {
-            contentItem: MaterialIcon { icon: "\ue5c4" }
-
-            onClicked: roomDrawer.close()
-        }
-
-        ColumnLayout {
-            anchors.fill: parent
-            anchors.margins: 32
-
-            ImageStatus {
-                Layout.preferredWidth: 64
-                Layout.preferredHeight: 64
-                Layout.alignment: Qt.AlignHCenter
-
-                source: currentRoom && currentRoom.avatarUrl != "" ? "image://mxc/" + currentRoom.avatarUrl : null
-                displayText: currentRoom ? currentRoom.displayName : ""
-            }
-
-            Label {
-                Layout.fillWidth: true
-
-                horizontalAlignment: Text.AlignHCenter
-                text: currentRoom && currentRoom.id ? currentRoom.id : ""
-            }
-
-            Label {
-                Layout.fillWidth: true
-
-                horizontalAlignment: Text.AlignHCenter
-                text: currentRoom && currentRoom.canonicalAlias ? currentRoom.canonicalAlias : "No Canonical Alias"
-            }
-
-            RowLayout {
-                Layout.fillWidth: true
-
-                TextField {
-                    Layout.fillWidth: true
-
-                    id: roomNameField
-                    text: currentRoom && currentRoom.name ? currentRoom.name : ""
-                }
-
-                ItemDelegate {
-                    Layout.preferredWidth: height
-                    Layout.preferredHeight: parent.height
-
-                    contentItem: MaterialIcon { icon: "\ue5ca" }
-
-                    onClicked: currentRoom.setName(roomNameField.text)
-                }
-            }
-
-            RowLayout {
-                Layout.fillWidth: true
-
-                TextField {
-                    Layout.fillWidth: true
-
-                    id: roomTopicField
-
-                    text: currentRoom && currentRoom.topic ? currentRoom.topic : ""
-                }
-
-                ItemDelegate {
-                    Layout.preferredWidth: height
-                    Layout.preferredHeight: parent.height
-
-                    contentItem: MaterialIcon { icon: "\ue5ca" }
-
-                    onClicked: currentRoom.setTopic(roomTopicField.text)
-                }
-            }
-
-            ListView {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-
-                clip: true
-
-                boundsBehavior: Flickable.DragOverBounds
-
-                delegate: ItemDelegate {
-                    width: parent.width
-                    height: 48
-
-                    RowLayout {
-                        anchors.fill: parent
-                        anchors.margins: 8
-                        spacing: 12
-
-                        ImageStatus {
-                            Layout.preferredWidth: height
-                            Layout.fillHeight: true
-
-                            source: avatar != "" ? "image://mxc/" + avatar : ""
-                            displayText: name
-                        }
-
-                        Label {
-                            Layout.fillWidth: true
-
-                            text: name
-                        }
-                    }
-                }
-
-                model: userListModel
-
-                ScrollBar.vertical: ScrollBar {}
-            }
-        }
+        room: currentRoom
     }
 
     Pane {
