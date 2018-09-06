@@ -349,10 +349,10 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
               QString text{};
               if (e.isRename()) {
                 if (e.displayName().isEmpty())
-                  text = tr("cleared the display name");
+                  text = tr("cleared their display name");
                 else
-                  text =
-                      tr("changed the display name to %1").arg(e.displayName());
+                  text = tr("changed their display name to %1")
+                             .arg(e.displayName());
               }
               if (e.isAvatarUpdate()) {
                 if (!text.isEmpty()) text += " and ";
@@ -448,10 +448,10 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
               QString text{};
               if (e.displayName() != e.prevContent()->displayName) {
                 if (e.displayName().isEmpty())
-                  text = tr("cleared the display name");
+                  text = tr("cleared their display name");
                 else
-                  text =
-                      tr("changed the display name to %1").arg(e.displayName());
+                  text = tr("changed their display name to %1")
+                             .arg(e.displayName());
               }
               if (e.avatarUrl() != e.prevContent()->avatarUrl) {
                 if (!text.isEmpty()) text += " and ";
