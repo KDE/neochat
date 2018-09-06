@@ -36,7 +36,16 @@ ApplicationWindow {
     Controller {
         id: matriqueController
 
-        onToggleWindow: window.visible ? window.hide() : window.show()
+        onToggleWindow: {
+            console.log("Activating window...")
+            if (window.visible) {
+                window.hide()
+            } else {
+                window.show()
+                window.raise()
+                window.requestActivate()
+            }
+        }
     }
 
     Popup {

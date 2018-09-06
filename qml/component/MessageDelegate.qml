@@ -7,7 +7,7 @@ import Matrique.Settings 0.1
 
 RowLayout {
     readonly property bool avatarVisible: !(sentByMe || (aboveAuthor === author && section === aboveSection))
-    readonly property bool highlighted: !sentByMe
+    readonly property bool highlighted: !(sentByMe || eventType === "notice" )
     readonly property bool sentByMe: author === currentRoom.localUser
     readonly property bool isText: eventType === "notice" || eventType === "message"
 
@@ -47,7 +47,7 @@ RowLayout {
 
         id: genericBubble
 
-        highlighted: !sentByMe
+        highlighted: messageRow.highlighted
         colored: highlighted && (eventType === "notice" || highlight)
 
         contentItem: ColumnLayout {
