@@ -2,7 +2,7 @@
   "files": [
     {
       "includePattern": "matrique.dmg",
-      "uploadPattern": "matrique.dmg"
+      "uploadPattern": "matrique-TRAVIS_BUILD_NUMBER.dmg"
     }
   ],
   "package": {
@@ -20,7 +20,7 @@
     "website_url": "https://doc.matrique.encom.eu.org"
   },
   "version": {
-    "name": "VERSION_NAME_VALUE"
+    "name": "TRAVIS_BUILD_NUMBER"
   },
   "publish": true
 }
