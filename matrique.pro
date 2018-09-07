@@ -26,7 +26,6 @@ SOURCES += src/main.cpp \
     src/roomlistmodel.cpp \
     src/imageprovider.cpp \
     src/messageeventmodel.cpp \
-    src/imageproviderconnection.cpp \
     src/emojimodel.cpp \
     src/matriqueroom.cpp \
     src/userlistmodel.cpp \
@@ -87,7 +86,6 @@ HEADERS += \
     src/roomlistmodel.h \
     src/imageprovider.h \
     src/messageeventmodel.h \
-    src/imageproviderconnection.h \
     src/emojimodel.h \
     src/matriqueroom.h \
     src/userlistmodel.h \

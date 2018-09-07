@@ -13,13 +13,13 @@
 using QMatrixClient::MediaThumbnailJob;
 
 ImageProvider::ImageProvider(QObject* parent)
-    : QQuickImageProvider(
+    : QObject(parent),
+      QQuickImageProvider(
           QQmlImageProviderBase::Image,
           QQmlImageProviderBase::ForceAsynchronousImageLoading) {
 #if (QT_VERSION < QT_VERSION_CHECK(5, 10, 0))
   qRegisterMetaType<MediaThumbnailJob*>();
 #endif
-  m_connection = new ImageProviderConnection();
 }
 
 QImage ImageProvider::requestImage(const QString& id, QSize* pSize,
@@ -49,13 +49,10 @@ QImage ImageProvider::requestImage(const QString& id, QSize* pSize,
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 10, 0))
   QMetaObject::invokeMethod(
       m_connection,
-      [=] {
-        return m_connection->getConnection()->getThumbnail(mxcUri,
-                                                           requestedSize);
-      },
+      [=] { return m_connection->getThumbnail(mxcUri, requestedSize); },
       Qt::BlockingQueuedConnection, &job);
 #else
-  QMetaObject::invokeMethod(m_connection->getConnection(), "getThumbnail",
+  QMetaObject::invokeMethod(m_connection, "getThumbnail",
                             Qt::BlockingQueuedConnection,
                             Q_RETURN_ARG(MediaThumbnailJob*, job),
                             Q_ARG(QUrl, mxcUri), Q_ARG(QSize, requestedSize));

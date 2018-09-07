@@ -6,9 +6,11 @@
 #include <QtQuick/QQuickImageProvider>
 
 #include "connection.h"
-#include "imageproviderconnection.h"
 
-class ImageProvider : public QQuickImageProvider {
+class ImageProvider : public QObject, public QQuickImageProvider {
+  Q_OBJECT
+  Q_PROPERTY(QMatrixClient::Connection* connection READ connection WRITE
+                 setConnection NOTIFY connectionChanged)
  public:
   explicit ImageProvider(QObject* parent = nullptr);
 
@@ -17,11 +19,20 @@ class ImageProvider : public QQuickImageProvider {
 
   void initializeEngine(QQmlEngine* engine, const char* uri);
 
-  ImageProviderConnection* getConnection() { return m_connection; }
+  QMatrixClient::Connection* connection() { return m_connection; }
+  void setConnection(QMatrixClient::Connection* newConnection) {
+    if (m_connection != newConnection) {
+      m_connection = newConnection;
+      emit connectionChanged();
+    }
+  }
+
+ signals:
+  void connectionChanged();
 
  private:
   QReadWriteLock m_lock;
-  ImageProviderConnection* m_connection;
+  QMatrixClient::Connection* m_connection;
 };
 
 #endif  // IMAGEPROVIDER_H

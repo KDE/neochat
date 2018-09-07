@@ -3,9 +3,9 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 
-#include "imageitem.h"
 #include "controller.h"
 #include "emojimodel.h"
+#include "imageitem.h"
 #include "imageprovider.h"
 #include "matriqueroom.h"
 #include "messageeventmodel.h"
@@ -52,8 +52,7 @@ int main(int argc, char *argv[]) {
 
   ImageProvider *m_provider = new ImageProvider();
 
-  engine.rootContext()->setContextProperty("imageProvider",
-                                           m_provider->getConnection());
+  engine.rootContext()->setContextProperty("imageProvider", m_provider);
 
   engine.addImageProvider(QLatin1String("mxc"), m_provider);
 
