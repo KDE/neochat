@@ -182,6 +182,16 @@ Item {
 
                             visible: eventType === "emote" || eventType === "state"
                         }
+
+                        Label {
+                            Layout.alignment: Qt.AlignHCenter
+
+                            visible: eventType === "other"
+
+                            text: display
+                            color: "grey"
+                            font.italic: true
+                        }
                     }
 
                     ScrollBar.vertical: messageListViewScrollBar
