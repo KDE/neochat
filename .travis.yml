@@ -14,7 +14,10 @@ script:
 - make
 - make install
 - macdeployqt ${DEPLOY_DIR}/bin/matrique.app -dmg -qmldir=qml
+
+before_deploy:
 - mv ${DEPLOY_DIR}/bin/matrique.dmg ./
+- sed -i -e "s/TRAVIS_BUILD_NUMBER/${TRAVIS_BUILD_NUMBER}/g" .ci/bintray-release.json
 
 deploy:
   - provider: bintray
