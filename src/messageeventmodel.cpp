@@ -51,7 +51,6 @@ void MessageEventModel::setRoom(MatriqueRoom* room) {
   beginResetModel();
   if (m_currentRoom) {
     m_currentRoom->disconnect(this);
-    qDebug() << "Disconnected from" << m_currentRoom->id();
   }
 
   m_currentRoom = room;

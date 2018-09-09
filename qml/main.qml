@@ -11,7 +11,7 @@ import "component"
 import "form"
 
 ApplicationWindow {
-    readonly property var connection: matriqueController.connection
+    readonly property var currentConnection: accountListView.currentConnection ? accountListView.currentConnection : null
 
     width: 960
     height: 640
@@ -40,6 +40,11 @@ ApplicationWindow {
                 window.requestActivate()
             }
         }
+    }
+
+    AccountListModel {
+        id: accountListModel
+        controller: matriqueController
     }
 
     Popup {
@@ -71,13 +76,15 @@ ApplicationWindow {
 
         parent: null
 
-        connection: accountListView.currentConnection
+        connection: currentConnection
     }
 
     Setting {
         id: settingPage
 
         parent: null
+
+        listModel: accountListModel
     }
 
     RowLayout {
@@ -104,7 +111,7 @@ ApplicationWindow {
 
                     id: accountListView
 
-                    model: AccountListModel { controller: matriqueController }
+                    model: accountListModel
 
                     spacing: 0
 
@@ -176,7 +183,7 @@ ApplicationWindow {
                                     }
                                 }
 
-                                onAccepted: matriqueController.createRoom(addRoomDialogNameTextField.text, addRoomDialogTopicTextField.text)
+                                onAccepted: matriqueController.createRoom(currentConnection, addRoomDialogNameTextField.text, addRoomDialogTopicTextField.text)
                             }
                         }
                         MenuItem {
@@ -202,7 +209,7 @@ ApplicationWindow {
                                     placeholderText: "#matrix:matrix.org"
                                 }
 
-                                onAccepted: matriqueController.joinRoom(joinRoomDialogTextField.text)
+                                onAccepted: matriqueController.joinRoom(currentConnection, joinRoomDialogTextField.text)
                             }
                         }
 
@@ -229,7 +236,7 @@ ApplicationWindow {
                                     placeholderText: "@bot:matrix.org"
                                 }
 
-                                onAccepted: matriqueController.createDirectChat(directChatDialogTextField.text)
+                                onAccepted: currentConnection.createDirectChat(directChatDialogTextField.text)
                             }
                         }
                     }
@@ -283,13 +290,13 @@ ApplicationWindow {
 
             id: stackView
 
-            initialItem: roomPage
+            //            initialItem: roomPage
         }
     }
 
     Binding {
         target: imageProvider
         property: "connection"
-        value: accountListView.currentConnection
+        value: currentConnection
     }
 }

@@ -49,9 +49,6 @@ class Controller : public QObject {
 
   bool m_busy = false;
 
-  void connected();
-  void resync();
-  void reconnect();
   QByteArray loadAccessToken(const AccountSettings& account);
   bool saveAccessToken(const AccountSettings& account,
                        const QByteArray& accessToken);
@@ -69,9 +66,9 @@ class Controller : public QObject {
   void connectionDropped(Connection* conn);
 
  public slots:
-  void joinRoom(const QString& alias);
-  void createRoom(const QString& name, const QString& topic);
-  void createDirectChat(const QString& userID);
+  void logout(Connection* conn);
+  void joinRoom(Connection* c, const QString& alias);
+  void createRoom(Connection* c, const QString& name, const QString& topic);
   void copyToClipboard(const QString& text);
   void playAudio(QUrl localFile);
   void showMessage(const QString& title, const QString& msg, const QIcon& icon);

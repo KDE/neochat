@@ -11,7 +11,12 @@ class AccountListModel : public QAbstractListModel {
   Q_PROPERTY(Controller* controller READ controller WRITE setController NOTIFY
                  controllerChanged)
  public:
-  enum EventRoles { NameRole = Qt::UserRole + 1, AvatarRole, ConnectionRole };
+  enum EventRoles {
+    NameRole = Qt::UserRole + 1,
+    AccountIDRole,
+    AvatarRole,
+    ConnectionRole
+  };
 
   AccountListModel(QObject* parent = nullptr);
 

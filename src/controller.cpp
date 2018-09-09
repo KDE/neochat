@@ -40,13 +40,17 @@ Controller::Controller(QObject* parent) : QObject(parent) {
 
   Connection::setRoomType<MatriqueRoom>();
 
-  invokeLogin();
+  QTimer::singleShot(0, this, SLOT(invokeLogin()));
 }
 
-Controller::~Controller() {
-  //  m_connection->saveState();
-  //  m_connection->stopSync();
-  //  m_connection->deleteLater();
+Controller::~Controller() {}
+
+inline QString accessTokenFileName(const AccountSettings& account) {
+  QString fileName = account.userId();
+  fileName.replace(':', '_');
+  return QStandardPaths::writableLocation(
+             QStandardPaths::AppLocalDataLocation) +
+         '/' + fileName;
 }
 
 void Controller::loginWithCredentials(QString serverAddr, QString user,
@@ -70,18 +74,24 @@ void Controller::loginWithCredentials(QString serverAddr, QString user,
   }
 }
 
+void Controller::logout(Connection* conn) {
+  if (!conn) {
+    qCritical() << "Attempt to logout null connection";
+    return;
+  }
+
+  SettingsGroup("Accounts").remove(conn->userId());
+  QFile(accessTokenFileName(AccountSettings(conn->userId()))).remove();
+
+  conn->logout();
+}
+
 void Controller::addConnection(Connection* c) {
   Q_ASSERT_X(c, __FUNCTION__, "Attempt to add a null connection");
 
   m_connections.push_back(c);
 
   connect(c, &Connection::syncDone, this, [=] {
-    //        gotEvents(c);
-
-    // Borrowed the logic from Quiark's code in Tensor to cache not too
-    // aggressively and not on the first sync. The static variable instance
-    // is created per-closure, meaning per-connection (which is why this
-    // code is not in gotEvents() ).
     static int counter = 0;
     if (++counter % 17 == 2) c->saveState();
   });
@@ -98,23 +108,13 @@ void Controller::dropConnection(Connection* c) {
   Q_ASSERT_X(c, __FUNCTION__, "Attempt to drop a null connection");
   m_connections.removeOne(c);
 
-  Q_ASSERT(!m_connections.contains(c) && !c->syncJob());
-  emit connectionAdded(c);
+  emit connectionDropped(c);
   c->deleteLater();
-}
-
-inline QString accessTokenFileName(const AccountSettings& account) {
-  QString fileName = account.userId();
-  fileName.replace(':', '_');
-  return QStandardPaths::writableLocation(
-             QStandardPaths::AppLocalDataLocation) +
-         '/' + fileName;
 }
 
 void Controller::invokeLogin() {
   using namespace QMatrixClient;
   const auto accounts = SettingsGroup("Accounts").childGroups();
-  bool autoLoggedIn = false;
   for (const auto& accountId : accounts) {
     AccountSettings account{accountId};
     if (!account.homeserver().isEmpty()) {
@@ -130,7 +130,6 @@ void Controller::invokeLogin() {
         account.clearAccessToken();  // Clean the old place
       }
 
-      autoLoggedIn = true;
       auto c = new Connection(account.homeserver(), this);
       auto deviceName = account.deviceName();
       connect(c, &Connection::connected, this, [=] {
@@ -185,42 +184,20 @@ bool Controller::saveAccessToken(const AccountSettings& account,
   return false;
 }
 
-void Controller::connected() {
-  //  setHomeserver(m_connection->homeserver().toString());
-  //  setUserID(m_connection->userId());
-  //  setToken(m_connection->accessToken());
-  //  m_connection->loadState();
-  //  resync();
-  //  setIsLogin(true);
+void Controller::joinRoom(Connection* c, const QString& alias) {
+  JoinRoomJob* joinRoomJob = c->joinRoom(alias);
+  setBusy(true);
+  joinRoomJob->connect(joinRoomJob, &JoinRoomJob::finished,
+                       [=] { setBusy(false); });
 }
 
-void Controller::resync() { /*m_connection->sync(30000);*/
-}
-
-void Controller::reconnect() {
-  //  qDebug() << "Connection lost. Reconnecting...";
-  //  m_connection->connectWithToken(m_userID, m_token, "");
-}
-
-void Controller::joinRoom(const QString& alias) {
-  //  JoinRoomJob* joinRoomJob = m_connection->joinRoom(alias);
-  //  setBusy(true);
-  //  joinRoomJob->connect(joinRoomJob, &JoinRoomJob::finished,
-  //                       [=] { setBusy(false); });
-}
-
-void Controller::createRoom(const QString& name, const QString& topic) {
-  //  CreateRoomJob* createRoomJob =
-  //      ((Connection*)m_connection)
-  //          ->createRoom(Connection::PublishRoom, "", name, topic,
-  //          QStringList());
-  //  setBusy(true);
-  //  createRoomJob->connect(createRoomJob, &CreateRoomJob::finished,
-  //                         [=] { setBusy(false); });
-}
-
-void Controller::createDirectChat(const QString& userID) {
-  //  m_connection->requestDirectChat(userID);
+void Controller::createRoom(Connection* c, const QString& name,
+                            const QString& topic) {
+  CreateRoomJob* createRoomJob =
+      c->createRoom(Connection::PublishRoom, "", name, topic, QStringList());
+  setBusy(true);
+  createRoomJob->connect(createRoomJob, &CreateRoomJob::finished,
+                         [=] { setBusy(false); });
 }
 
 void Controller::copyToClipboard(const QString& text) {

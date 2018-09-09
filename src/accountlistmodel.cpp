@@ -27,6 +27,8 @@ void AccountListModel::setController(Controller* value) {
 
     connect(m_controller, &Controller::connectionAdded, this,
             [=](Connection* conn) {
+              if (!conn) {
+              }
               beginInsertRows(QModelIndex(), m_connections.count(),
                               m_connections.count());
               m_connections.append(conn);
@@ -34,6 +36,12 @@ void AccountListModel::setController(Controller* value) {
             });
     connect(m_controller, &Controller::connectionDropped, this,
             [=](Connection* conn) {
+              qDebug() << "Dropping connection" << conn->userId();
+              if (!conn) {
+                qDebug() << "Trying to remove null connection";
+                return;
+              }
+              conn->disconnect(this);
               const auto it =
                   std::find(m_connections.begin(), m_connections.end(), conn);
               if (it == m_connections.end())
@@ -50,14 +58,17 @@ void AccountListModel::setController(Controller* value) {
 QVariant AccountListModel::data(const QModelIndex& index, int role) const {
   if (!index.isValid()) return QVariant();
 
-  if (index.row() >= m_controller->connections().count()) {
-    qDebug()
-        << "UserListModel, something's wrong: index.row() >= m_users.count()";
+  if (index.row() >= m_connections.count()) {
+    qDebug() << "AccountListModel, something's wrong: index.row() >= "
+                "m_users.count()";
     return QVariant();
   }
-  auto m_connection = m_controller->connections().at(index.row());
+  auto m_connection = m_connections.at(index.row());
   if (role == NameRole) {
     return m_connection->user()->displayname();
+  }
+  if (role == AccountIDRole) {
+    return m_connection->user()->id();
   }
   if (role == AvatarRole) {
     return m_connection->user()->avatar(64);
@@ -78,6 +89,7 @@ int AccountListModel::rowCount(const QModelIndex& parent) const {
 QHash<int, QByteArray> AccountListModel::roleNames() const {
   QHash<int, QByteArray> roles;
   roles[NameRole] = "name";
+  roles[AccountIDRole] = "accountID";
   roles[AvatarRole] = "avatar";
   roles[ConnectionRole] = "connection";
   return roles;

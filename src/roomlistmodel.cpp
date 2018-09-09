@@ -14,7 +14,16 @@ RoomListModel::RoomListModel(QObject* parent) : QAbstractListModel(parent) {}
 RoomListModel::~RoomListModel() {}
 
 void RoomListModel::setConnection(Connection* connection) {
-  if (!connection && connection == m_connection) return;
+  if (connection == m_connection) return;
+  if (!connection) {
+    qDebug() << "Removing current connection...";
+    m_connection->disconnect(this);
+    m_connection = nullptr;
+    beginResetModel();
+    m_rooms.clear();
+    endResetModel();
+    return;
+  }
 
   using QMatrixClient::Room;
   m_connection = connection;
