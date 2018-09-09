@@ -13,15 +13,7 @@ void AccountListModel::setController(Controller* value) {
     m_controller = value;
 
     for (auto c : m_controller->connections()) {
-      connect(c->user(), &User::avatarChanged, [=] {
-        const auto it =
-            std::find(m_connections.begin(), m_connections.end(), c);
-        if (it == m_connections.end()) {
-          return;
-        }
-        const auto idx = index(it - m_connections.begin());
-        emit dataChanged(idx, idx, {AvatarRole});
-      });
+      connectConnectionSignals(c);
       m_connections.append(c);
     };
 
@@ -31,6 +23,7 @@ void AccountListModel::setController(Controller* value) {
               }
               beginInsertRows(QModelIndex(), m_connections.count(),
                               m_connections.count());
+              connectConnectionSignals(conn);
               m_connections.append(conn);
               endInsertRows();
             });
@@ -71,7 +64,9 @@ QVariant AccountListModel::data(const QModelIndex& index, int role) const {
     return m_connection->user()->id();
   }
   if (role == AvatarRole) {
-    return m_connection->user()->avatar(64);
+    if (!m_connection->user()->avatarUrl().isEmpty())
+      return m_connection->user()->avatar(64);
+    return QImage();
   }
   if (role == ConnectionRole) {
     return QVariant::fromValue(m_connection);
@@ -84,6 +79,17 @@ int AccountListModel::rowCount(const QModelIndex& parent) const {
   if (parent.isValid()) return 0;
 
   return m_connections.count();
+}
+
+void AccountListModel::connectConnectionSignals(Connection* conn) {
+  connect(conn->user(), &User::avatarChanged, [=] {
+    const auto it = std::find(m_connections.begin(), m_connections.end(), conn);
+    if (it == m_connections.end()) {
+      return;
+    }
+    const auto idx = index(it - m_connections.begin());
+    emit dataChanged(idx, idx, {AvatarRole});
+  });
 }
 
 QHash<int, QByteArray> AccountListModel::roleNames() const {

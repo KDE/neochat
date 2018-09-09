@@ -32,6 +32,7 @@ class AccountListModel : public QAbstractListModel {
   Controller* m_controller;
   QVector<Connection*> m_connections;
 
+  void connectConnectionSignals(Connection* conn);
  signals:
   void controllerChanged();
 };
