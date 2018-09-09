@@ -2,6 +2,7 @@
 #define CONTROLLER_H
 
 #include "connection.h"
+#include "settings.h"
 #include "user.h"
 
 #include <QApplication>
@@ -15,12 +16,6 @@ using namespace QMatrixClient;
 class Controller : public QObject {
   Q_OBJECT
 
-  Q_PROPERTY(Connection* connection READ connection CONSTANT)
-  Q_PROPERTY(bool isLogin READ isLogin WRITE setIsLogin NOTIFY isLoginChanged)
-  Q_PROPERTY(QString homeserver READ homeserver WRITE setHomeserver NOTIFY
-                 homeserverChanged)
-  Q_PROPERTY(QString userID READ userID WRITE setUserID NOTIFY userIDChanged)
-  Q_PROPERTY(QByteArray token READ token WRITE setToken NOTIFY tokenChanged)
   Q_PROPERTY(bool busy READ busy WRITE setBusy NOTIFY busyChanged)
 
  public:
@@ -28,80 +23,50 @@ class Controller : public QObject {
   ~Controller();
 
   // All the Q_INVOKABLEs.
-  Q_INVOKABLE void login();
   Q_INVOKABLE void loginWithCredentials(QString, QString, QString);
-  Q_INVOKABLE void logout();
+
+  QVector<Connection*> connections() { return m_connections; }
 
   // All the non-Q_INVOKABLE functions.
+  void addConnection(Connection* c);
+  void dropConnection(Connection* c);
 
   // All the Q_PROPERTYs.
-  Connection* m_connection = new Connection();
-  Connection* connection() { return m_connection; }
-
-  bool isLogin() { return m_isLogin; }
-  void setIsLogin(bool n) {
-    if (n != m_isLogin) {
-      m_isLogin = n;
-      emit isLoginChanged();
-    }
-  }
-
-  QString userID() { return m_userID; }
-  void setUserID(QString n) {
-    if (n != m_userID) {
-      m_userID = n;
-      emit userIDChanged();
-    }
-  }
-
-  QByteArray token() { return m_token; }
-  void setToken(QByteArray n) {
-    if (n != m_token) {
-      m_token = n;
-      emit tokenChanged();
-    }
-  }
-
-  QString homeserver() { return m_homeserver; }
-  void setHomeserver(QString n) {
-    if (n != m_homeserver) {
-      m_homeserver = n;
-      emit homeserverChanged();
-    }
-  }
-
   bool busy() { return m_busy; }
-  void setBusy(bool b) {
-    if (b != m_busy) {
-      m_busy = b;
+  void setBusy(bool value) {
+    if (value != m_busy) {
+      m_busy = value;
       emit busyChanged();
     }
   }
+
+  QVector<Connection*> m_connections;
 
  private:
   QClipboard* m_clipboard = QApplication::clipboard();
   QSystemTrayIcon* tray = new QSystemTrayIcon();
   QMenu* trayMenu = new QMenu();
 
-  bool m_isLogin = false;
-  QString m_userID;
-  QByteArray m_token;
-  QString m_homeserver;
   bool m_busy = false;
 
   void connected();
   void resync();
   void reconnect();
+  QByteArray loadAccessToken(const AccountSettings& account);
+  bool saveAccessToken(const AccountSettings& account,
+                       const QByteArray& accessToken);
+  void loadSettings();
+  void saveSettings() const;
+
+ private slots:
+  void invokeLogin();
 
  signals:
-  void connectionChanged();
-  void isLoginChanged();
-  void userIDChanged();
-  void tokenChanged();
-  void homeserverChanged();
   void busyChanged();
   void errorOccured();
   void toggleWindow();
+  void connectionAdded(Connection* conn);
+  void connectionDropped(Connection* conn);
 
  public slots:
   void joinRoom(const QString& alias);

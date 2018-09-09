@@ -8,52 +8,64 @@ import "component"
 import "form"
 
 Page {
-    property var connection
+//    Page {
+//        id: accountForm
+//        parent: null
 
-    Page {
+//        padding: 64
+
+//        ColumnLayout {
+//            RowLayout {
+//                Layout.preferredHeight: 60
+
+//                ImageStatus {
+//                    Layout.preferredWidth: height
+//                    Layout.fillHeight: true
+
+//                    source: matriqueController.isLogin ? connection.localUser && connection.localUser.avatarUrl ? "image://mxc/" + connection.localUser.avatarUrl : "" : "qrc:/asset/img/avatar.png"
+//                    displayText: matriqueController.isLogin && connection.localUser.displayName ? connection.localUser.displayName : ""
+//                }
+
+//                ColumnLayout {
+//                    Layout.fillWidth: true
+//                    Layout.fillHeight: true
+
+//                    Label {
+//                        font.pointSize: 18
+//                        text: matriqueController.isLogin ? connection.localUser.displayName : ""
+//                    }
+
+//                    Label {
+//                        font.pointSize: 12
+//                        text: matriqueController.isLogin ? connection.localUser.id : ""
+//                    }
+//                }
+//            }
+
+//            Button {
+//                text: "Logout"
+//                highlighted: true
+
+//                onClicked: {
+//                    matriqueController.logout()
+//                    Qt.quit()
+//                }
+//            }
+//        }
+//    }
+
+    Page{
         id: accountForm
+
         parent: null
 
-        padding: 64
+//        Button {
+//            flat: true
+//            highlighted: true
+//            text: "Login"
 
-        ColumnLayout {
-            RowLayout {
-                Layout.preferredHeight: 60
-
-                ImageStatus {
-                    Layout.preferredWidth: height
-                    Layout.fillHeight: true
-
-                    source: matriqueController.isLogin ? connection.localUser && connection.localUser.avatarUrl ? "image://mxc/" + connection.localUser.avatarUrl : "" : "qrc:/asset/img/avatar.png"
-                    displayText: matriqueController.isLogin && connection.localUser.displayName ? connection.localUser.displayName : ""
-                }
-
-                ColumnLayout {
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-
-                    Label {
-                        font.pointSize: 18
-                        text: matriqueController.isLogin ? connection.localUser.displayName : ""
-                    }
-
-                    Label {
-                        font.pointSize: 12
-                        text: matriqueController.isLogin ? connection.localUser.id : ""
-                    }
-                }
-            }
-
-            Button {
-                text: "Logout"
-                highlighted: true
-
-                onClicked: {
-                    matriqueController.logout()
-                    Qt.quit()
-                }
-            }
-        }
+//            onClicked: stackView.push(loginPage)
+//        }
     }
 
     Page {

@@ -3,6 +3,7 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 
+#include "accountlistmodel.h"
 #include "controller.h"
 #include "emojimodel.h"
 #include "imageitem.h"
@@ -38,6 +39,7 @@ int main(int argc, char *argv[]) {
 
   qmlRegisterType<ImageItem>("Matrique", 0, 1, "ImageItem");
   qmlRegisterType<Controller>("Matrique", 0, 1, "Controller");
+  qmlRegisterType<AccountListModel>("Matrique", 0, 1, "AccountListModel");
   qmlRegisterType<RoomListModel>("Matrique", 0, 1, "RoomListModel");
   qmlRegisterType<UserListModel>("Matrique", 0, 1, "UserListModel");
   qmlRegisterType<MessageEventModel>("Matrique", 0, 1, "MessageEventModel");

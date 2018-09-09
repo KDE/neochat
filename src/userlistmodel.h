@@ -17,10 +17,7 @@ class UserListModel : public QAbstractListModel {
   Q_PROPERTY(
       QMatrixClient::Room* room READ room WRITE setRoom NOTIFY roomChanged)
  public:
-  enum EventRoles {
-    NameRole = Qt::UserRole + 1,
-    AvatarRole
-  };
+  enum EventRoles { NameRole = Qt::UserRole + 1, AvatarRole };
 
   using User = QMatrixClient::User;
 
@@ -30,8 +27,7 @@ class UserListModel : public QAbstractListModel {
   void setRoom(QMatrixClient::Room* room);
   User* userAt(QModelIndex index);
 
-  QVariant data(const QModelIndex& index,
-                int role = NameRole) const override;
+  QVariant data(const QModelIndex& index, int role = NameRole) const override;
   int rowCount(const QModelIndex& parent = QModelIndex()) const override;
 
   QHash<int, QByteArray> roleNames() const override;

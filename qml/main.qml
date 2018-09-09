@@ -25,12 +25,6 @@ ApplicationWindow {
 
     Material.theme: MSettings.darkTheme ? Material.Dark : Material.Light
 
-    Settings {
-        property alias homeserver: matriqueController.homeserver
-        property alias userID: matriqueController.userID
-        property alias token: matriqueController.token
-    }
-
     FontLoader { id: materialFont; source: "qrc:/asset/font/material.ttf" }
 
     Controller {
@@ -77,15 +71,13 @@ ApplicationWindow {
 
         parent: null
 
-        connection: window.connection
+        connection: accountListView.currentConnection
     }
 
     Setting {
         id: settingPage
 
         parent: null
-
-        connection: window.connection
     }
 
     RowLayout {
@@ -104,25 +96,34 @@ ApplicationWindow {
                 anchors.fill: parent
                 spacing: 0
 
-                SideNavButton {
+                ListView {
+                    property var currentConnection: null
+
                     Layout.fillWidth: true
-                    Layout.preferredHeight: width
-
-                    ImageStatus {
-                        anchors.fill: parent
-                        anchors.margins: 12
-
-                        source: matriqueController.isLogin ? connection.localUser && connection.localUser.avatarUrl ? "image://mxc/" + connection.localUser.avatarUrl : "" : "qrc:/asset/img/avatar.png"
-                        displayText: matriqueController.isLogin && connection.localUser.displayName ? connection.localUser.displayName : ""
-                    }
-
-                    page: roomPage
-                }
-
-                Rectangle {
                     Layout.fillHeight: true
 
-                    color: "transparent"
+                    id: accountListView
+
+                    model: AccountListModel { controller: matriqueController }
+
+                    spacing: 0
+
+                    delegate: SideNavButton {
+                        width: parent.width
+                        height: width
+
+                        ImageStatus {
+                            anchors.fill: parent
+                            anchors.margins: 12
+
+//                            source: matriqueController.isLogin ? connection.localUser && connection.localUser.avatarUrl ? "image://mxc/" + connection.localUser.avatarUrl : "" : "qrc:/asset/img/avatar.png"
+                            displayText: name
+                        }
+
+                        page: roomPage
+
+                        onClicked: accountListView.currentConnection = connection
+                    }
                 }
 
                 SideNavButton {
@@ -241,7 +242,20 @@ ApplicationWindow {
                         anchors.fill: parent
 
                         icon: "\ue8b8"
-                        color: parent.highlighted ? Material.accent : "white"
+                        color: "white"
+                    }
+                    page: loginPage
+                }
+
+                SideNavButton {
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: width
+
+                    MaterialIcon {
+                        anchors.fill: parent
+
+                        icon: "\ue8b8"
+                        color: "white"
                     }
                     page: settingPage
                 }
@@ -272,13 +286,9 @@ ApplicationWindow {
         }
     }
 
-    Component.onCompleted: {
-        imageProvider.connection = matriqueController.connection
-
-        if (matriqueController.userID && matriqueController.token) {
-            matriqueController.login();
-        } else {
-            stackView.replace(loginPage);
-        }
+    Binding {
+        target: imageProvider
+        property: "connection"
+        value: matriqueController.connection
     }
 }

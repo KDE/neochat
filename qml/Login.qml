@@ -151,11 +151,6 @@ Page {
                             return
                         }
 
-                        var replaceViewFunction = function() {
-                            if (matriqueController.isLogin) stackView.replace(roomPage)
-                            matriqueController.isLoginChanged.disconnect(replaceViewFunction)
-                        }
-                        matriqueController.isLoginChanged.connect(replaceViewFunction)
                         controller.loginWithCredentials(serverField.text, usernameField.text, passwordField.text)
                     }
                 }
