@@ -19,8 +19,6 @@ void RoomListModel::setConnection(Connection* connection) {
   using QMatrixClient::Room;
   m_connection = connection;
 
-  doResetModel();
-
   connect(connection, &Connection::connected, this,
           &RoomListModel::doResetModel);
   connect(connection, &Connection::invitedRoom, this,
@@ -30,6 +28,8 @@ void RoomListModel::setConnection(Connection* connection) {
   connect(connection, &Connection::leftRoom, this, &RoomListModel::updateRoom);
   connect(connection, &Connection::aboutToDeleteRoom, this,
           &RoomListModel::deleteRoom);
+
+  doResetModel();
 }
 
 void RoomListModel::doResetModel() {
@@ -139,7 +139,7 @@ QVariant RoomListModel::data(const QModelIndex& index, int role) const {
   MatriqueRoom* room = m_rooms.at(index.row());
   if (role == NameRole) return room->displayName();
   if (role == AvatarRole) {
-    if (room->avatarUrl().toString() != "") return room->avatar(64, 64);
+    if (!room->avatarUrl().isEmpty()) return room->avatar(64, 64);
     return QImage();
   }
   if (role == TopicRole) return room->topic();

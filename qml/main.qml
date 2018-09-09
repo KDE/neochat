@@ -112,12 +112,13 @@ ApplicationWindow {
                         width: parent.width
                         height: width
 
-                        ImageStatus {
+                        ImageItem {
                             anchors.fill: parent
                             anchors.margins: 12
 
-//                            source: matriqueController.isLogin ? connection.localUser && connection.localUser.avatarUrl ? "image://mxc/" + connection.localUser.avatarUrl : "" : "qrc:/asset/img/avatar.png"
-                            displayText: name
+                            hint: name
+                            image: avatar
+                            defaultColor: Material.accent
                         }
 
                         page: roomPage
@@ -289,6 +290,6 @@ ApplicationWindow {
     Binding {
         target: imageProvider
         property: "connection"
-        value: matriqueController.connection
+        value: accountListView.currentConnection
     }
 }

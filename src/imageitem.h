@@ -35,7 +35,7 @@ class ImageItem : public QQuickPaintedItem {
 
  private:
   QImage m_image;
-  QString m_hint;
+  QString m_hint = "H";
   QString m_color = "#000000";
 };
 

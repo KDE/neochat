@@ -103,12 +103,12 @@ Drawer {
                     anchors.margins: 8
                     spacing: 12
 
-                    ImageStatus {
+                    ImageItem {
                         Layout.preferredWidth: height
                         Layout.fillHeight: true
 
-                        source: avatar != "" ? "image://mxc/" + avatar : ""
-                        displayText: name
+                        image: avatar
+                        hint: name
                     }
 
                     Label {

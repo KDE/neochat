@@ -1,5 +1,7 @@
 #include "accountlistmodel.h"
 
+#include "room.h"
+
 AccountListModel::AccountListModel(QObject* parent)
     : QAbstractListModel(parent) {}
 
@@ -10,7 +12,18 @@ void AccountListModel::setController(Controller* value) {
 
     m_controller = value;
 
-    for (auto c : m_controller->connections()) m_connections.append(c);
+    for (auto c : m_controller->connections()) {
+      connect(c->user(), &User::avatarChanged, [=] {
+        const auto it =
+            std::find(m_connections.begin(), m_connections.end(), c);
+        if (it == m_connections.end()) {
+          return;
+        }
+        const auto idx = index(it - m_connections.begin());
+        emit dataChanged(idx, idx, {AvatarRole});
+      });
+      m_connections.append(c);
+    };
 
     connect(m_controller, &Controller::connectionAdded, this,
             [=](Connection* conn) {
@@ -59,7 +72,7 @@ QVariant AccountListModel::data(const QModelIndex& index, int role) const {
 int AccountListModel::rowCount(const QModelIndex& parent) const {
   if (parent.isValid()) return 0;
 
-  return m_controller->connections().count();
+  return m_connections.count();
 }
 
 QHash<int, QByteArray> AccountListModel::roleNames() const {
