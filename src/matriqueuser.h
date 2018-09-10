@@ -17,7 +17,7 @@ class MatriqueUser : public User {
   QImage getAvatar() { return avatar(64); }
 
  signals:
-  void inheritedAvatarChanged(User* user, const Room* roomContext);
+  void inheritedAvatarChanged(User* user, const Room* roomContext); // https://bugreports.qt.io/browse/QTBUG-7684
 };
 
 #endif  // MATRIQUEUSER_H

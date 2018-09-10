@@ -7,30 +7,83 @@ import Matrique.Settings 0.1
 
 import "component"
 import "form"
+import "qrc:/js/util.js" as Util
 
 Page {
     property alias listModel: accountSettingsListView.model
+
     Page {
         id: accountForm
+
         parent: null
 
         padding: 64
 
-        ListView {
+        ColumnLayout {
             anchors.fill: parent
 
-            id: accountSettingsListView
+            ListView {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
 
-            spacing: 0
+                id: accountSettingsListView
 
-            delegate: RowLayout{
-                Label {
-                    text: accountID
+                delegate: SwipeDelegate {
+                    width: accountSettingsListView.width
+                    height: 64
+
+                    clip: true
+
+                    Row {
+                        anchors.fill: parent
+                        anchors.margins: 8
+
+                        spacing: 8
+
+                        ImageItem {
+                            width: parent.height
+                            height: parent.height
+
+                            hint: name
+                            defaultColor: Util.stringToColor(name)
+                            image: avatar
+                        }
+
+                        ColumnLayout {
+                            Label {
+                                text: name
+                            }
+                            Label {
+                                text: accountID
+                            }
+                        }
+                    }
+
+                    swipe.right: Rectangle {
+                        width: parent.height
+                        height: parent.height
+                        anchors.right: parent.right
+
+                        color: Material.accent
+
+                        MaterialIcon {
+                            anchors.fill: parent
+
+                            icon: "\ue879"
+                            color: "white"
+                        }
+
+                        SwipeDelegate.onClicked: matriqueController.logout(connection)
+                    }
                 }
-                ItemDelegate {
-                    text: "Logout"
-                    onClicked: matriqueController.logout(connection);
-                }
+            }
+
+            Button {
+                text: "Add Account"
+                flat: true
+                highlighted: true
+
+                onClicked: Util.pushToStack(stackView, loginPage)
             }
         }
     }
@@ -39,6 +92,8 @@ Page {
         id: generalForm
 
         parent: null
+
+        padding: 64
 
         Column {
             Switch {
@@ -69,6 +124,8 @@ Page {
 
         parent: null
 
+        padding: 64
+
         Column {
             Switch {
                 text: "Dark theme"
@@ -95,6 +152,7 @@ Page {
 
     Page {
         id: aboutForm
+
         parent: null
 
         padding: 64
@@ -112,48 +170,52 @@ Page {
         }
     }
 
-    RowLayout {
-        ColumnLayout {
-            Layout.preferredWidth: 240
-            Layout.fillHeight: true
+    Rectangle {
+        width: 240
+        height: parent.height
 
-            spacing: 0
+        id: settingDrawer
+
+        color: MSettings.darkTheme ? "#323232" : "#f3f3f3"
+
+        Column {
+            anchors.fill: parent
 
             ItemDelegate {
-                Layout.fillWidth: true
+                width: parent.width
 
                 text: "Account"
                 onClicked: pushToStack(accountForm)
             }
 
             ItemDelegate {
-                Layout.fillWidth: true
+                width: parent.width
 
                 text: "General"
                 onClicked: pushToStack(generalForm)
             }
 
             ItemDelegate {
-                Layout.fillWidth: true
+                width: parent.width
 
                 text: "Appearance"
                 onClicked: pushToStack(appearanceForm)
             }
 
             ItemDelegate {
-                Layout.fillWidth: true
+                width: parent.width
 
                 text: "About"
                 onClicked: pushToStack(aboutForm)
             }
         }
+    }
 
-        StackView {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
+    StackView {
+        anchors.fill: parent
+        anchors.leftMargin: settingDrawer.width
 
-            id: settingStackView
-        }
+        id: settingStackView
     }
 
     function pushToStack(item) {

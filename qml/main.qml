@@ -252,19 +252,6 @@ ApplicationWindow {
                         icon: "\ue8b8"
                         color: "white"
                     }
-                    page: loginPage
-                }
-
-                SideNavButton {
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: width
-
-                    MaterialIcon {
-                        anchors.fill: parent
-
-                        icon: "\ue8b8"
-                        color: "white"
-                    }
                     page: settingPage
                 }
 
