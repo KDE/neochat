@@ -1,19 +1,19 @@
 #ifndef MESSAGEEVENTMODEL_H
 #define MESSAGEEVENTMODEL_H
 
-#include "room.h"
 #include "matriqueroom.h"
+#include "room.h"
 
 #include <QtCore/QAbstractListModel>
 
 class MessageEventModel : public QAbstractListModel {
   Q_OBJECT
-  Q_PROPERTY(
-      MatriqueRoom* room READ getRoom WRITE setRoom NOTIFY roomChanged)
+  Q_PROPERTY(MatriqueRoom* room READ getRoom WRITE setRoom NOTIFY roomChanged)
 
  public:
   enum EventRoles {
     EventTypeRole = Qt::UserRole + 1,
+    AboveEventTypeRole,
     EventIdRole,
     TimeRole,
     AboveTimeRole,

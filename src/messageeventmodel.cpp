@@ -15,6 +15,7 @@
 QHash<int, QByteArray> MessageEventModel::roleNames() const {
   QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
   roles[EventTypeRole] = "eventType";
+  roles[AboveEventTypeRole] = "aboveEventType";
   roles[EventIdRole] = "eventId";
   roles[TimeRole] = "time";
   roles[AboveTimeRole] = "aboveTime";
@@ -77,7 +78,8 @@ void MessageEventModel::setRoom(MatriqueRoom* room) {
                 auto rowBelowInserted = m_currentRoom->maxTimelineIndex() -
                                         biggest + timelineBaseIndex() - 1;
                 refreshEventRoles(rowBelowInserted,
-                                  {AboveAuthorRole, AboveSectionRole});
+                                  {AboveEventTypeRole, AboveAuthorRole,
+                                   AboveSectionRole, AboveTimeRole});
               }
               for (auto i = m_currentRoom->maxTimelineIndex() - biggest;
                    i <= m_currentRoom->maxTimelineIndex() - lowest; ++i)
@@ -107,7 +109,8 @@ void MessageEventModel::setRoom(MatriqueRoom* room) {
         refreshEventRoles(timelineBaseIndex() + 1, {ReadMarkerRole});
       if (timelineBaseIndex() > 0)  // Refresh below, see #312
         refreshEventRoles(timelineBaseIndex() - 1,
-                          {AboveAuthorRole, AboveSectionRole});
+                          {AboveEventTypeRole, AboveAuthorRole,
+                           AboveSectionRole, AboveTimeRole});
     });
     connect(m_currentRoom, &Room::pendingEventChanged, this,
             &MessageEventModel::refreshRow);
@@ -621,14 +624,20 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
     return role == TimeRole ? QVariant(ts) : renderDate(ts);
   }
 
-  if (role == AboveSectionRole || role == AboveAuthorRole ||
-      role == AboveTimeRole)
+  if (role == AboveEventTypeRole || role == AboveSectionRole ||
+      role == AboveAuthorRole || role == AboveTimeRole)
     for (auto r = row + 1; r < rowCount(); ++r) {
       auto i = index(r);
-      if (data(i, SpecialMarksRole) != EventStatus::Hidden)
-        return data(i, role == AboveSectionRole
-                           ? SectionRole
-                           : role == AboveAuthorRole ? AuthorRole : TimeRole);
+      if (data(i, SpecialMarksRole) != EventStatus::Hidden) switch (role) {
+          case AboveEventTypeRole:
+            return data(i, EventTypeRole);
+          case AboveSectionRole:
+            return data(i, SectionRole);
+          case AboveAuthorRole:
+            return data(i, AuthorRole);
+          case AboveTimeRole:
+            return data(i, TimeRole);
+        }
     }
 
   return {};

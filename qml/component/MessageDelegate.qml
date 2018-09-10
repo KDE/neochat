@@ -7,7 +7,7 @@ import Matrique.Settings 0.1
 import "qrc:/js/util.js" as Util
 
 RowLayout {
-    readonly property bool avatarVisible: !(sentByMe || (aboveAuthor === author && section === aboveSection))
+    readonly property bool avatarVisible: !sentByMe && (aboveAuthor !== author || aboveSection !== section || aboveEventType === "state" || aboveEventType === "emote")
     readonly property bool highlighted: !(sentByMe || eventType === "notice" )
     readonly property bool sentByMe: author === currentRoom.localUser
     readonly property bool isText: eventType === "notice" || eventType === "message"
