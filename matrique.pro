@@ -30,7 +30,8 @@ SOURCES += src/main.cpp \
     src/matriqueroom.cpp \
     src/userlistmodel.cpp \
     src/imageitem.cpp \
-    src/accountlistmodel.cpp
+    src/accountlistmodel.cpp \
+    src/matriqueuser.cpp
 
 RESOURCES += \
     res.qrc
@@ -91,4 +92,5 @@ HEADERS += \
     src/matriqueroom.h \
     src/userlistmodel.h \
     src/imageitem.h \
-    src/accountlistmodel.h
+    src/accountlistmodel.h \
+    src/matriqueuser.h

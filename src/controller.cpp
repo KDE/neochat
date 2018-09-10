@@ -1,6 +1,7 @@
 #include "controller.h"
 
 #include "matriqueroom.h"
+#include "matriqueuser.h"
 #include "settings.h"
 
 #include "events/eventcontent.h"
@@ -39,6 +40,7 @@ Controller::Controller(QObject* parent) : QObject(parent) {
   tray->show();
 
   Connection::setRoomType<MatriqueRoom>();
+  Connection::setUserType<MatriqueUser>();
 
   QTimer::singleShot(0, this, SLOT(invokeLogin()));
 }
@@ -214,4 +216,9 @@ void Controller::playAudio(QUrl localFile) {
 void Controller::showMessage(const QString& title, const QString& msg,
                              const QIcon& icon) {
   tray->showMessage(title, msg, icon);
+}
+
+QImage Controller::safeImage(QImage image) {
+  if (image.isNull()) return QImage();
+  return image;
 }

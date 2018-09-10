@@ -13,6 +13,7 @@ class ImageItem : public QQuickPaintedItem {
   Q_PROPERTY(QString hint READ hint WRITE setHint NOTIFY hintChanged)
   Q_PROPERTY(QString defaultColor READ defaultColor WRITE setDefaultColor NOTIFY
                  defaultColorChanged)
+  Q_PROPERTY(bool round READ round WRITE setRound NOTIFY roundChanged)
 
  public:
   ImageItem(QQuickItem *parent = nullptr);
@@ -28,15 +29,20 @@ class ImageItem : public QQuickPaintedItem {
   QString defaultColor() { return m_color; }
   void setDefaultColor(QString color);
 
+  bool round() { return m_round; }
+  void setRound(bool value);
+
  signals:
   void imageChanged();
   void hintChanged();
   void defaultColorChanged();
+  void roundChanged();
 
  private:
   QImage m_image;
   QString m_hint = "H";
   QString m_color = "#000000";
+  bool m_round = true;
 };
 
 #endif  // IMAGEITEM_H

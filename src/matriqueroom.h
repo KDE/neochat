@@ -10,6 +10,7 @@ using namespace QMatrixClient;
 
 class MatriqueRoom : public Room {
   Q_OBJECT
+  Q_PROPERTY(QImage avatar READ getAvatar NOTIFY avatarChanged)
   Q_PROPERTY(bool hasUsersTyping READ hasUsersTyping NOTIFY typingChanged)
   Q_PROPERTY(QString usersTyping READ getUsersTyping NOTIFY typingChanged)
   Q_PROPERTY(QString cachedInput READ cachedInput WRITE setCachedInput NOTIFY
@@ -17,6 +18,8 @@ class MatriqueRoom : public Room {
  public:
   explicit MatriqueRoom(Connection* connection, QString roomId,
                         JoinState joinState = {});
+
+  QImage getAvatar() { return avatar(64); }
 
   const QString& cachedInput() const { return m_cachedInput; }
   void setCachedInput(const QString& input) {

@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.2
 import Matrique 0.1
 import Matrique.Settings 0.1
+import "qrc:/js/util.js" as Util
 
 RowLayout {
     readonly property bool avatarVisible: !(sentByMe || (aboveAuthor === author && section === aboveSection))
@@ -22,15 +23,16 @@ RowLayout {
 
     spacing: 6
 
-    ImageStatus {
+    ImageItem {
         Layout.preferredWidth: 40
         Layout.preferredHeight: 40
         Layout.alignment: Qt.AlignTop
 
         round: false
         visible: avatarVisible
-        source: author.avatarUrl != "" ? "image://mxc/" + author.avatarUrl : null
-        displayText: author.displayName
+        hint: author.displayName
+        defaultColor: Util.stringToColor(author.displayName)
+        image: author.avatar
     }
 
     Rectangle {
@@ -61,6 +63,11 @@ RowLayout {
                 Material.foreground: Material.accent
                 coloredBackground: highlighted
                 font.bold: true
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: inputField.insert(inputField.cursorPosition, author.displayName)
+                }
             }
 
             AutoLabel {

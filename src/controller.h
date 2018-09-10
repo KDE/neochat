@@ -72,6 +72,8 @@ class Controller : public QObject {
   void copyToClipboard(const QString& text);
   void playAudio(QUrl localFile);
   void showMessage(const QString& title, const QString& msg, const QIcon& icon);
+
+  static QImage safeImage(QImage image);
 };
 
 #endif  // CONTROLLER_H

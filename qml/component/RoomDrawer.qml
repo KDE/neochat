@@ -24,13 +24,14 @@ Drawer {
         anchors.fill: parent
         anchors.margins: 32
 
-        ImageStatus {
+        ImageItem {
             Layout.preferredWidth: 64
             Layout.preferredHeight: 64
             Layout.alignment: Qt.AlignHCenter
 
-            source: room && room.avatarUrl != "" ? "image://mxc/" + room.avatarUrl : null
-            displayText: room ? room.displayName : ""
+            hint: room ? room.displayName : "No name"
+            defaultColor: Util.stringToColor(room ? room.displayName : "No name")
+            image: matriqueController.safeImage(room ? room.avatar : null)
         }
 
         Label {

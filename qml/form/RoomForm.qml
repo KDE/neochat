@@ -9,6 +9,7 @@ import Matrique.Settings 0.1
 
 import "../component"
 import "qrc:/js/md.js" as Markdown
+import "qrc:/js/util.js" as Util
 
 Item {
     property var currentRoom: null
@@ -57,12 +58,13 @@ Item {
 
                         spacing: 12
 
-                        ImageStatus {
+                        ImageItem {
                             Layout.preferredWidth: height
                             Layout.fillHeight: true
 
-                            source: currentRoom && currentRoom.avatarUrl != "" ? "image://mxc/" + currentRoom.avatarUrl : null
-                            displayText: currentRoom ? currentRoom.displayName : ""
+                            hint: currentRoom ? currentRoom.displayName : "No name"
+                            defaultColor: Util.stringToColor(currentRoom ? currentRoom.displayName : "No name")
+                            image: matriqueController.safeImage(currentRoom ? currentRoom.avatar : null)
                         }
 
                         ColumnLayout {
