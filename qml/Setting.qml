@@ -104,6 +104,7 @@ Page {
 
                                 text: connection.homeserver
                                 selectByMouse: true
+                                readOnly: true
                             }
                         }
 
@@ -118,6 +119,7 @@ Page {
 
                                 text: connection.deviceId
                                 selectByMouse: true
+                                readOnly: true
                             }
                         }
 
@@ -132,6 +134,7 @@ Page {
 
                                 text: connection.accessToken
                                 selectByMouse: true
+                                readOnly: true
                             }
                         }
                     }
