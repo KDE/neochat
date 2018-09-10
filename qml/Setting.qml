@@ -28,7 +28,13 @@ Page {
 
                 id: accountSettingsListView
 
+                boundsBehavior: Flickable.DragOverBounds
+
+                clip: true
+
                 delegate: Column {
+                    property bool expanded: false
+
                     spacing: 16
 
                     SwipeDelegate {
@@ -79,15 +85,17 @@ Page {
                             SwipeDelegate.onClicked: matriqueController.logout(connection)
                         }
 
-                        onClicked: accountSettingsListView.currentIndex == index ? accountSettingsListView.currentIndex = -1 : accountSettingsListView.currentIndex = index
+                        onClicked: expanded = !expanded
                     }
 
                     ColumnLayout {
-                        visible: accountSettingsListView.currentIndex == index
                         width: parent.width - 32
+                        height: expanded ? implicitHeight : 0
                         anchors.horizontalCenter: parent.horizontalCenter
 
                         spacing: 0
+
+                        clip: true
 
                         ListView {
                             Layout.fillWidth: true
@@ -95,7 +103,7 @@ Page {
 
                             orientation: ListView.Horizontal
 
-                            model: ["#498882", "#2196F3"]
+                            model: ["#498882", "#42a5f5", "#5c6bc0", "#7e57c2", "#ab47bc", "#ff7043"]
 
                             delegate: Rectangle {
                                 width: parent.height
@@ -154,6 +162,10 @@ Page {
                                 selectByMouse: true
                                 readOnly: true
                             }
+                        }
+
+                        Behavior on height {
+                            PropertyAnimation { easing.type: Easing.InOutCubic; duration: 200 }
                         }
                     }
                 }

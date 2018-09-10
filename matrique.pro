@@ -69,19 +69,19 @@ mac {
     ICON = asset/img/icon.icns
 }
 
-DISTFILES += \
-    ChatForm.qml \
-    LoginForm.qml \
-    main.qml \
-    Home.qml \
-    Login.qml \
-    ImageStatus.qml \
-    ButtonDelegate.qml \
-    SideNav.qml \
-    RoomListForm.qml \
-    Room.qml \
-    Setting.qml \
-    qml/js/md.js \
+#DISTFILES += \
+#    ChatForm.qml \
+#    LoginForm.qml \
+#    main.qml \
+#    Home.qml \
+#    Login.qml \
+#    ImageStatus.qml \
+#    ButtonDelegate.qml \
+#    SideNav.qml \
+#    RoomListForm.qml \
+#    Room.qml \
+#    Setting.qml \
+#    qml/js/md.js \
 
 HEADERS += \
     src/controller.h \

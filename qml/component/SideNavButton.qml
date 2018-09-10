@@ -8,12 +8,13 @@ import "qrc:/js/util.js" as Util
 ItemDelegate {
     property var page
     readonly property bool selected: stackView.currentItem === page
+    property color highlightColor: Material.accent
 
     Rectangle {
         width: selected ? 4 : 0
         height: parent.height
 
-        color: Material.accent
+        color: highlightColor
 
         Behavior on width {
             PropertyAnimation { easing.type: Easing.InOutCubic; duration: 200 }

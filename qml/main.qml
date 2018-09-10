@@ -117,6 +117,8 @@ ApplicationWindow {
 
                     spacing: 0
 
+                    clip: true
+
                     delegate: SideNavButton {
                         width: parent.width
                         height: width
@@ -129,6 +131,8 @@ ApplicationWindow {
                             image: user.avatar
                             defaultColor: Material.accent
                         }
+
+                        highlightColor: matriqueController.color(user.id)
 
                         page: roomPage
 
