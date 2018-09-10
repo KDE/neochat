@@ -15,9 +15,9 @@ RoomListModel::~RoomListModel() {}
 
 void RoomListModel::setConnection(Connection* connection) {
   if (connection == m_connection) return;
+  m_connection->disconnect(this);
   if (!connection) {
     qDebug() << "Removing current connection...";
-    m_connection->disconnect(this);
     m_connection = nullptr;
     beginResetModel();
     m_rooms.clear();
@@ -25,8 +25,9 @@ void RoomListModel::setConnection(Connection* connection) {
     return;
   }
 
-  using QMatrixClient::Room;
   m_connection = connection;
+
+  for (MatriqueRoom* room : m_rooms) room->disconnect(this);
 
   connect(connection, &Connection::connected, this,
           &RoomListModel::doResetModel);
@@ -73,7 +74,7 @@ void RoomListModel::connectRoomSignals(MatriqueRoom* room) {
           [=] { refresh(room, {AvatarRole}); });
   connect(room, &Room::addedMessages, this,
           [=] { refresh(room, {LastEventRole}); });
-  connect(room, &QMatrixClient::Room::aboutToAddNewMessages, this,
+  connect(room, &Room::aboutToAddNewMessages, this,
           [=](QMatrixClient::RoomEventsRange eventsRange) {
             RoomEvent* event = (eventsRange.end() - 1)->get();
             if (event->isStateEvent()) return;

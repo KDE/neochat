@@ -82,7 +82,7 @@ int AccountListModel::rowCount(const QModelIndex& parent) const {
 }
 
 void AccountListModel::connectConnectionSignals(Connection* conn) {
-  connect(conn->user(), &User::avatarChanged, [=] {
+  connect(conn->user(), &User::avatarChanged, this, [=] {
     const auto it = std::find(m_connections.begin(), m_connections.end(), conn);
     if (it == m_connections.end()) {
       return;

@@ -290,7 +290,7 @@ ApplicationWindow {
 
             id: stackView
 
-            //            initialItem: roomPage
+            initialItem: roomPage
         }
     }
 

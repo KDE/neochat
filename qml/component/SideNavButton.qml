@@ -3,6 +3,8 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.2
 
+import "qrc:/js/util.js" as Util
+
 ItemDelegate {
     property var page
     readonly property bool selected: stackView.currentItem === page
@@ -18,14 +20,5 @@ ItemDelegate {
         }
     }
 
-    onClicked: {
-        if(page && stackView.currentItem !== page) {
-            if(stackView.depth === 1) {
-                stackView.replace(page)
-            } else {
-                stackView.clear()
-                stackView.push(page)
-            }
-        }
-    }
+    onClicked: Util.pushToStack(stackView, page)
 }

@@ -4,6 +4,8 @@ import QtQuick.Controls.Material 2.2
 import QtQuick.Layouts 1.3
 import Matrique 0.1
 
+import "qrc:/js/util.js" as Util
+
 Drawer {
     property var room
 
@@ -94,6 +96,10 @@ Drawer {
 
             boundsBehavior: Flickable.DragOverBounds
 
+            model: UserListModel {
+                room: roomDrawer.room
+            }
+
             delegate: ItemDelegate {
                 width: parent.width
                 height: 48
@@ -107,6 +113,7 @@ Drawer {
                         Layout.preferredWidth: height
                         Layout.fillHeight: true
 
+                        defaultColor: Util.stringToColor(name)
                         image: avatar
                         hint: name
                     }
@@ -117,12 +124,6 @@ Drawer {
                         text: name
                     }
                 }
-            }
-
-            model: UserListModel {
-                id: userListModel
-
-                room: roomDrawer.room
             }
 
             ScrollBar.vertical: ScrollBar {}

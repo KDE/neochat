@@ -9,6 +9,7 @@ import SortFilterProxyModel 0.2
 import Matrique.Settings 0.1
 
 import "../component"
+import "qrc:/js/util.js" as Util
 
 Item {
     property alias listModel: roomListProxyModel.sourceModel
@@ -142,14 +143,6 @@ Item {
 
                     spacing: 12
 
-                    //                    ImageStatus {
-                    //                        Layout.preferredWidth: height
-                    //                        Layout.fillHeight: true
-
-                    //                        source: avatar ? "image://mxc/" + avatar : ""
-                    //                        displayText: name
-                    //                    }
-
                     ImageItem {
                         id: imageItem
 
@@ -157,7 +150,7 @@ Item {
                         Layout.fillHeight: true
 
                         hint: name || "No Name"
-                        defaultColor: stringToColor(name || "No Name")
+                        defaultColor: Util.stringToColor(name || "No Name")
 
                         image: avatar
                     }
@@ -223,18 +216,5 @@ Item {
                 onRejected: currentRoom.forget()
             }
         }
-    }
-
-    function stringToColor(str) {
-        var hash = 0;
-        for (var i = 0; i < str.length; i++) {
-            hash = str.charCodeAt(i) + ((hash << 5) - hash);
-        }
-        var colour = '#';
-        for (var j = 0; j < 3; j++) {
-            var value = (hash >> (j * 8)) & 0xFF;
-            colour += ('00' + value.toString(16)).substr(-2);
-        }
-        return colour;
     }
 }

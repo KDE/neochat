@@ -92,8 +92,8 @@ void Controller::addConnection(Connection* c) {
   m_connections.push_back(c);
 
   connect(c, &Connection::syncDone, this, [=] {
-    static int counter = 0;
-    if (++counter % 17 == 2) c->saveState();
+    c->saveState();
+    c->sync(30000);
   });
   connect(c, &Connection::loggedOut, this, [=] { dropConnection(c); });
 
