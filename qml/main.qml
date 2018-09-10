@@ -123,8 +123,8 @@ ApplicationWindow {
                             anchors.fill: parent
                             anchors.margins: 12
 
-                            hint: name
-                            image: avatar
+                            hint: user.displayName
+                            image: user.avatar
                             defaultColor: Material.accent
                         }
 

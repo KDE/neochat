@@ -11,16 +11,11 @@ class AccountListModel : public QAbstractListModel {
   Q_PROPERTY(Controller* controller READ controller WRITE setController NOTIFY
                  controllerChanged)
  public:
-  enum EventRoles {
-    NameRole = Qt::UserRole + 1,
-    AccountIDRole,
-    AvatarRole,
-    ConnectionRole
-  };
+  enum EventRoles { UserRole = Qt::UserRole + 1, ConnectionRole };
 
   AccountListModel(QObject* parent = nullptr);
 
-  QVariant data(const QModelIndex& index, int role = NameRole) const override;
+  QVariant data(const QModelIndex& index, int role = UserRole) const override;
   int rowCount(const QModelIndex& parent = QModelIndex()) const override;
 
   QHash<int, QByteArray> roleNames() const override;
@@ -32,7 +27,6 @@ class AccountListModel : public QAbstractListModel {
   Controller* m_controller;
   QVector<Connection*> m_connections;
 
-  void connectConnectionSignals(Connection* conn);
  signals:
   void controllerChanged();
 };

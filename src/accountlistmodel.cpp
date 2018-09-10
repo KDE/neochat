@@ -12,10 +12,7 @@ void AccountListModel::setController(Controller* value) {
 
     m_controller = value;
 
-    for (auto c : m_controller->connections()) {
-      connectConnectionSignals(c);
-      m_connections.append(c);
-    };
+    for (auto c : m_controller->connections()) m_connections.append(c);
 
     connect(m_controller, &Controller::connectionAdded, this,
             [=](Connection* conn) {
@@ -23,7 +20,6 @@ void AccountListModel::setController(Controller* value) {
               }
               beginInsertRows(QModelIndex(), m_connections.count(),
                               m_connections.count());
-              connectConnectionSignals(conn);
               m_connections.append(conn);
               endInsertRows();
             });
@@ -57,16 +53,8 @@ QVariant AccountListModel::data(const QModelIndex& index, int role) const {
     return QVariant();
   }
   auto m_connection = m_connections.at(index.row());
-  if (role == NameRole) {
-    return m_connection->user()->displayname();
-  }
-  if (role == AccountIDRole) {
-    return m_connection->user()->id();
-  }
-  if (role == AvatarRole) {
-    if (!m_connection->user()->avatarUrl().isEmpty())
-      return m_connection->user()->avatar(64);
-    return QImage();
+  if (role == UserRole) {
+    return QVariant::fromValue(m_connection->user());
   }
   if (role == ConnectionRole) {
     return QVariant::fromValue(m_connection);
@@ -81,22 +69,9 @@ int AccountListModel::rowCount(const QModelIndex& parent) const {
   return m_connections.count();
 }
 
-void AccountListModel::connectConnectionSignals(Connection* conn) {
-  connect(conn->user(), &User::avatarChanged, this, [=] {
-    const auto it = std::find(m_connections.begin(), m_connections.end(), conn);
-    if (it == m_connections.end()) {
-      return;
-    }
-    const auto idx = index(it - m_connections.begin());
-    emit dataChanged(idx, idx, {AvatarRole});
-  });
-}
-
 QHash<int, QByteArray> AccountListModel::roleNames() const {
   QHash<int, QByteArray> roles;
-  roles[NameRole] = "name";
-  roles[AccountIDRole] = "accountID";
-  roles[AvatarRole] = "avatar";
+  roles[UserRole] = "user";
   roles[ConnectionRole] = "connection";
   return roles;
 }

@@ -28,52 +28,112 @@ Page {
 
                 id: accountSettingsListView
 
-                delegate: SwipeDelegate {
-                    width: accountSettingsListView.width
-                    height: 64
+                delegate: Column {
+                    SwipeDelegate {
+                        width: accountSettingsListView.width
+                        height: 64
 
-                    clip: true
+                        clip: true
 
-                    Row {
-                        anchors.fill: parent
-                        anchors.margins: 8
+                        Row {
+                            anchors.fill: parent
+                            anchors.margins: 8
 
-                        spacing: 8
+                            spacing: 8
 
-                        ImageItem {
+                            ImageItem {
+                                width: parent.height
+                                height: parent.height
+
+                                hint: user.displayName
+                                defaultColor: Util.stringToColor(user.displayName)
+                                image: user.avatar
+                            }
+
+                            ColumnLayout {
+                                Label {
+                                    text: user.displayName
+                                }
+                                Label {
+                                    text: user.id
+                                }
+                            }
+                        }
+
+                        swipe.right: Rectangle {
                             width: parent.height
                             height: parent.height
+                            anchors.right: parent.right
 
-                            hint: name
-                            defaultColor: Util.stringToColor(name)
-                            image: avatar
+                            color: Material.accent
+
+                            MaterialIcon {
+                                anchors.fill: parent
+
+                                icon: "\ue879"
+                                color: "white"
+                            }
+
+                            SwipeDelegate.onClicked: matriqueController.logout(connection)
                         }
 
-                        ColumnLayout {
-                            Label {
-                                text: name
-                            }
-                            Label {
-                                text: accountID
-                            }
-                        }
+                        onClicked: accountSettingsListView.currentIndex == index ? accountSettingsListView.currentIndex = -1 : accountSettingsListView.currentIndex = index
                     }
 
-                    swipe.right: Rectangle {
-                        width: parent.height
-                        height: parent.height
-                        anchors.right: parent.right
+                    Rectangle {
+                        width: parent.width
+                        height: 2
+                        visible: accountSettingsListView.currentIndex == index
 
                         color: Material.accent
+                    }
 
-                        MaterialIcon {
-                            anchors.fill: parent
+                    ColumnLayout {
+                        visible: accountSettingsListView.currentIndex == index
+                        width: parent.width - 32
+                        anchors.horizontalCenter: parent.horizontalCenter
 
-                            icon: "\ue879"
-                            color: "white"
+                        RowLayout {
+                            Layout.fillWidth: true
+
+                            spacing: 16
+
+                            Label { text: "Homeserver:" }
+                            TextField {
+                                Layout.fillWidth: true
+
+                                text: connection.homeserver
+                                selectByMouse: true
+                            }
                         }
 
-                        SwipeDelegate.onClicked: matriqueController.logout(connection)
+                        RowLayout {
+                            Layout.fillWidth: true
+
+                            spacing: 16
+
+                            Label { text: "Device ID:" }
+                            TextField {
+                                Layout.fillWidth: true
+
+                                text: connection.deviceId
+                                selectByMouse: true
+                            }
+                        }
+
+                        RowLayout {
+                            Layout.fillWidth: true
+
+                            spacing: 16
+
+                            Label { text: "Access Token:" }
+                            TextField {
+                                Layout.fillWidth: true
+
+                                text: connection.accessToken
+                                selectByMouse: true
+                            }
+                        }
                     }
                 }
             }
