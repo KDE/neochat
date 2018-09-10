@@ -14,7 +14,7 @@ class MatriqueUser : public User {
  public:
   MatriqueUser(QString userId, Connection* connection);
 
-  QImage getAvatar() { return avatar(64); }
+  QImage getAvatar() { return avatar(128); }
 
  signals:
   void inheritedAvatarChanged(User* user, const Room* roomContext); // https://bugreports.qt.io/browse/QTBUG-7684

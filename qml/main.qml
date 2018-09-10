@@ -25,6 +25,8 @@ ApplicationWindow {
 
     Material.theme: MSettings.darkTheme ? Material.Dark : Material.Light
 
+    Material.accent: matriqueController.color(currentConnection ? currentConnection.localUserId : "")
+
     FontLoader { id: materialFont; source: "qrc:/asset/font/material.ttf" }
 
     Controller {

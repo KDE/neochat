@@ -15,7 +15,7 @@ RoomListModel::~RoomListModel() {}
 
 void RoomListModel::setConnection(Connection* connection) {
   if (connection == m_connection) return;
-  m_connection->disconnect(this);
+  if (m_connection) m_connection->disconnect(this);
   if (!connection) {
     qDebug() << "Removing current connection...";
     m_connection = nullptr;

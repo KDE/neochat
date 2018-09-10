@@ -69,7 +69,7 @@ QVariant UserListModel::data(const QModelIndex& index, int role) const {
   }
   if (role == AvatarRole) {
     if (!user->avatarUrl(m_currentRoom).isEmpty())
-      return user->avatar(32, m_currentRoom);
+      return user->avatar(64, m_currentRoom);
     return QImage();
   }
 

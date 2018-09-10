@@ -29,6 +29,8 @@ Page {
                 id: accountSettingsListView
 
                 delegate: Column {
+                    spacing: 16
+
                     SwipeDelegate {
                         width: accountSettingsListView.width
                         height: 64
@@ -80,18 +82,34 @@ Page {
                         onClicked: accountSettingsListView.currentIndex == index ? accountSettingsListView.currentIndex = -1 : accountSettingsListView.currentIndex = index
                     }
 
-                    Rectangle {
-                        width: parent.width
-                        height: 2
-                        visible: accountSettingsListView.currentIndex == index
-
-                        color: Material.accent
-                    }
-
                     ColumnLayout {
                         visible: accountSettingsListView.currentIndex == index
                         width: parent.width - 32
                         anchors.horizontalCenter: parent.horizontalCenter
+
+                        spacing: 0
+
+                        ListView {
+                            Layout.fillWidth: true
+                            Layout.preferredHeight: 32
+
+                            orientation: ListView.Horizontal
+
+                            model: ["#498882", "#2196F3"]
+
+                            delegate: Rectangle {
+                                width: parent.height
+                                height: parent.height
+
+                                color: modelData
+
+                                MouseArea {
+                                    anchors.fill: parent
+
+                                    onClicked: matriqueController.setColor(connection.localUserId, modelData)
+                                }
+                            }
+                        }
 
                         RowLayout {
                             Layout.fillWidth: true

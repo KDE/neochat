@@ -19,7 +19,7 @@ class MatriqueRoom : public Room {
   explicit MatriqueRoom(Connection* connection, QString roomId,
                         JoinState joinState = {});
 
-  QImage getAvatar() { return avatar(64); }
+  QImage getAvatar() { return avatar(128); }
 
   const QString& cachedInput() const { return m_cachedInput; }
   void setCachedInput(const QString& input) {

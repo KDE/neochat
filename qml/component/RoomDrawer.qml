@@ -56,6 +56,7 @@ Drawer {
 
                 id: roomNameField
                 text: room && room.name ? room.name : ""
+                selectByMouse: true
             }
 
             ItemDelegate {
@@ -77,6 +78,7 @@ Drawer {
                 id: roomTopicField
 
                 text: room && room.topic ? room.topic : ""
+                selectByMouse: true
             }
 
             ItemDelegate {

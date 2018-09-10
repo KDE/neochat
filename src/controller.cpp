@@ -222,3 +222,11 @@ QImage Controller::safeImage(QImage image) {
   if (image.isNull()) return QImage();
   return image;
 }
+
+QColor Controller::color(QString userId) {
+  return QColor(SettingsGroup("UI/Color").value(userId, "#498882").toString());
+}
+
+void Controller::setColor(QString userId, QColor newColor) {
+  SettingsGroup("UI/Color").setValue(userId, newColor.name());
+}

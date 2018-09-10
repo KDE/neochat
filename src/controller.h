@@ -40,12 +40,14 @@ class Controller : public QObject {
     }
   }
 
-  QVector<Connection*> m_connections;
+  Q_INVOKABLE QColor color(QString userId);
+  Q_INVOKABLE void setColor(QString userId, QColor newColor);
 
  private:
   QClipboard* m_clipboard = QApplication::clipboard();
   QSystemTrayIcon* tray = new QSystemTrayIcon();
   QMenu* trayMenu = new QMenu();
+  QVector<Connection*> m_connections;
 
   bool m_busy = false;
 
