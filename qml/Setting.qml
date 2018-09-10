@@ -172,6 +172,8 @@ Page {
             }
 
             Button {
+                Layout.fillWidth: true
+
                 text: "Add Account"
                 flat: true
                 highlighted: true

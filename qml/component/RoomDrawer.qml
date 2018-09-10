@@ -48,6 +48,13 @@ Drawer {
             text: room && room.canonicalAlias ? room.canonicalAlias : "No Canonical Alias"
         }
 
+        Label {
+            Layout.fillWidth: true
+
+            horizontalAlignment: Text.AlignHCenter
+            text: room ? room.memberCount + " Members" : "No Member Count"
+        }
+
         RowLayout {
             Layout.fillWidth: true
 

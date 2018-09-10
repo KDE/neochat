@@ -39,7 +39,7 @@ Item {
             bottomPadding: 0
             placeholderText: "Search..."
 
-            background: Rectangle { color: MSettings.darkTheme ? "#282828" : "#fafafa" }
+            background: Rectangle { color: MSettings.darkTheme ? "#303030" : "#fafafa" }
 
             Shortcut {
                 sequence: StandardKey.Find
@@ -107,7 +107,7 @@ Item {
                 width: parent.width
                 height: 64
 
-                color: MSettings.darkTheme ? "#282828" : "#fafafa"
+                color: MSettings.darkTheme ? "#303030" : "#fafafa"
 
                 AutoMouseArea {
                     anchors.fill: parent
