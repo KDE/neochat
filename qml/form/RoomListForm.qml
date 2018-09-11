@@ -8,7 +8,8 @@ import Matrique 0.1
 import SortFilterProxyModel 0.2
 import Matrique.Settings 0.1
 
-import "../component"
+import "qrc:/qml/component"
+import "qrc:/qml/menu"
 import "qrc:/js/util.js" as Util
 
 Item {
@@ -114,7 +115,10 @@ Item {
 
                     hoverEnabled: MSettings.miniMode
 
-                    onSecondaryClicked: Qt.createComponent("qrc:/qml/menu/RoomContextMenu.qml").createObject(this)
+                    onSecondaryClicked: {
+                        roomContextMenu.room = currentRoom
+                        roomContextMenu.popup()
+                    }
                     onPrimaryClicked: category === RoomType.Invited ? inviteDialog.open() : enteredRoom = currentRoom
 
                     ToolTip.visible: MSettings.miniMode && containsMouse
@@ -197,6 +201,8 @@ Item {
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: MSettings.miniMode ? Text.AlignHCenter : undefined
             }
+
+            RoomContextMenu { id: roomContextMenu }
 
             Dialog {
                 id: inviteDialog

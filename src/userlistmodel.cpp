@@ -67,6 +67,9 @@ QVariant UserListModel::data(const QModelIndex& index, int role) const {
   if (role == NameRole) {
     return user->displayname(m_currentRoom);
   }
+  if (role == UserIDRole) {
+    return user->id();
+  }
   if (role == AvatarRole) {
     if (!user->avatarUrl(m_currentRoom).isEmpty())
       return user->avatar(64, m_currentRoom);
@@ -126,6 +129,7 @@ int UserListModel::findUserPos(const QString& username) const {
 QHash<int, QByteArray> UserListModel::roleNames() const {
   QHash<int, QByteArray> roles;
   roles[NameRole] = "name";
+  roles[UserIDRole] = "userId";
   roles[AvatarRole] = "avatar";
   return roles;
 }

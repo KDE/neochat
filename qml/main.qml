@@ -123,6 +123,8 @@ ApplicationWindow {
                         width: parent.width
                         height: width
 
+                        selected: stackView.currentItem === page && currentConnection === connection
+
                         ImageItem {
                             anchors.fill: parent
                             anchors.margins: 12

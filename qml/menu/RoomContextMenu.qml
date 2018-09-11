@@ -2,34 +2,33 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 
 Menu {
+    property var room: null
+
     id: roomListMenu
 
     MenuItem {
         text: "Favourite"
         checkable: true
-        checked: currentRoom && currentRoom.isFavourite
+        checked: room && room.isFavourite
 
-        onTriggered: currentRoom.isFavourite ? currentRoom.removeTag("m.favourite") : currentRoom.addTag("m.favourite", "1")
+        onTriggered: room.isFavourite ? room.removeTag("m.favourite") : room.addTag("m.favourite", "1")
     }
     MenuItem {
         text: "Deprioritize"
         checkable: true
-        checked: currentRoom && currentRoom.isLowPriority
+        checked: room && room.isLowPriority
 
-        onTriggered: currentRoom.isLowPriority ? currentRoom.removeTag("m.lowpriority") : currentRoom.addTag("m.lowpriority", "1")
+        onTriggered: room.isLowPriority ? room.removeTag("m.lowpriority") : room.addTag("m.lowpriority", "1")
     }
     MenuSeparator {}
     MenuItem {
         text: "Mark as Read"
 
-        onTriggered: currentRoom.markAllMessagesAsRead()
+        onTriggered: room.markAllMessagesAsRead()
     }
     MenuItem {
         text: "Leave Room"
 
-        onTriggered: currentRoom.forget()
+        onTriggered: room.forget()
     }
-
-    Component.onCompleted: popup()
-    onClosed: roomListMenu.destroy()
 }

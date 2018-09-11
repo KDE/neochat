@@ -7,7 +7,7 @@ import "qrc:/js/util.js" as Util
 
 ItemDelegate {
     property var page
-    readonly property bool selected: stackView.currentItem === page
+    property bool selected: stackView.currentItem === page
     property color highlightColor: Material.accent
 
     Rectangle {

@@ -373,7 +373,7 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
                            : tr("self-unbanned");
               }
               return (e.senderId() != e.userId())
-                         ? tr("has put %1 out of the room").arg(subjectName)
+                         ? tr("has kicked %1 from the room").arg(subjectName)
                          : tr("left the room");
             case MembershipType::Ban:
               return (e.senderId() != e.userId())
@@ -472,7 +472,7 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
                            : tr("self-unbanned");
               }
               return (e.senderId() != e.userId())
-                         ? tr("has put %1 out of the room").arg(subjectName)
+                         ? tr("has kicked %1 from the room").arg(subjectName)
                          : tr("left the room");
             case MembershipType::Ban:
               return (e.senderId() != e.userId())

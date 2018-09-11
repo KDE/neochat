@@ -110,7 +110,7 @@ Drawer {
                 room: roomDrawer.room
             }
 
-            delegate: ItemDelegate {
+            delegate: SwipeDelegate {
                 width: parent.width
                 height: 48
 
@@ -134,6 +134,25 @@ Drawer {
                         text: name
                     }
                 }
+
+                swipe.right: Rectangle {
+                    width: parent.height
+                    height: parent.height
+                    anchors.right: parent.right
+
+                    color: Material.accent
+
+                    MaterialIcon {
+                        anchors.fill: parent
+
+                        icon: "\ue8fb"
+                        color: "white"
+                    }
+
+                    SwipeDelegate.onClicked: room.kickMember(userId)
+                }
+
+                onClicked: inputField.insert(inputField.cursorPosition, name)
             }
 
             ScrollBar.vertical: ScrollBar {}

@@ -2,6 +2,13 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 
 Menu {
+    property var row
+    property bool canRedact
+    property string eventType
+    property string plainText
+    property string toolTip
+    property string eventId
+
     readonly property bool isFile: eventType === "video" || eventType === "audio" || eventType === "file" || eventType === "image"
 
     id: messageContextMenu
@@ -12,32 +19,32 @@ Menu {
         onTriggered: matriqueController.copyToClipboard(plainText)
     }
     MenuItem {
-        text: "Copy Source"
+        text: "View Source"
 
-        onTriggered: matriqueController.copyToClipboard(toolTip)
+        onTriggered: {
+            sourceDialog.sourceText = toolTip
+            sourceDialog.open()
+        }
     }
     MenuItem {
         visible: isFile
         height: visible ? undefined : 0
         text: "Open Externally"
 
-        onTriggered: messageRow.openExternally()
+        onTriggered: row.openExternally()
     }
     MenuItem {
         visible: isFile
         height: visible ? undefined : 0
         text: "Save As"
 
-        onTriggered: messageRow.saveFileAs()
+        onTriggered: row.saveFileAs()
     }
     MenuItem {
-        visible: sentByMe
+        visible: canRedact
         height: visible ? undefined : 0
         text: "Redact"
 
         onTriggered: currentRoom.redactEvent(eventId)
     }
-
-    Component.onCompleted: popup()
-    onClosed: messageContextMenu.destroy()
 }
