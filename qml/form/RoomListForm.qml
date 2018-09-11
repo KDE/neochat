@@ -119,7 +119,14 @@ Item {
                         roomContextMenu.room = currentRoom
                         roomContextMenu.popup()
                     }
-                    onPrimaryClicked: category === RoomType.Invited ? inviteDialog.open() : enteredRoom = currentRoom
+                    onPrimaryClicked: {
+                        if (category === RoomType.Invited) {
+                            inviteDialog.currentRoom = currentRoom
+                            inviteDialog.open()
+                        } else {
+                            enteredRoom = currentRoom
+                        }
+                    }
 
                     ToolTip.visible: MSettings.miniMode && containsMouse
                     ToolTip.text: name
@@ -205,6 +212,8 @@ Item {
             RoomContextMenu { id: roomContextMenu }
 
             Dialog {
+                property var currentRoom
+
                 id: inviteDialog
                 parent: ApplicationWindow.overlay
 
