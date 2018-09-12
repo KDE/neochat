@@ -2,27 +2,23 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 
 Menu {
-    property var row
-    property bool canRedact
-    property string eventType
-    property string plainText
-    property string toolTip
-    property string eventId
+    property var row: null
+    property var model: null
 
-    readonly property bool isFile: eventType === "video" || eventType === "audio" || eventType === "file" || eventType === "image"
+    readonly property bool isFile: model  && (model.eventType === "video" || model.eventType === "audio" || model.eventType === "file" || model.eventType === "image")
 
     id: messageContextMenu
 
     MenuItem {
         text: "Copy"
 
-        onTriggered: matriqueController.copyToClipboard(plainText)
+        onTriggered: matriqueController.copyToClipboard(model.plainText)
     }
     MenuItem {
         text: "View Source"
 
         onTriggered: {
-            sourceDialog.sourceText = toolTip
+            sourceDialog.sourceText = model.toolTip
             sourceDialog.open()
         }
     }
@@ -41,10 +37,10 @@ Menu {
         onTriggered: row.saveFileAs()
     }
     MenuItem {
-        visible: canRedact
+        visible: model && model.author === currentRoom.localUser
         height: visible ? undefined : 0
         text: "Redact"
 
-        onTriggered: currentRoom.redactEvent(eventId)
+        onTriggered: currentRoom.redactEvent(model.eventId)
     }
 }

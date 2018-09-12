@@ -1,34 +1,35 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
+import Matrique 0.1
 
 Menu {
-    property var room: null
+    property var model: null
 
     id: roomListMenu
 
     MenuItem {
         text: "Favourite"
         checkable: true
-        checked: room && room.isFavourite
+        checked: model && model.category === RoomType.Favorite
 
-        onTriggered: room.isFavourite ? room.removeTag("m.favourite") : room.addTag("m.favourite", "1")
+        onTriggered: model.category === RoomType.Favorite ? model.currentRoom.removeTag("m.favourite") : model.currentRoom.addTag("m.favourite", "1")
     }
     MenuItem {
         text: "Deprioritize"
         checkable: true
-        checked: room && room.isLowPriority
+        checked: model && model.category === RoomType.Deprioritized
 
-        onTriggered: room.isLowPriority ? room.removeTag("m.lowpriority") : room.addTag("m.lowpriority", "1")
+        onTriggered: model.category === RoomType.Deprioritized ? model.currentRoom.removeTag("m.lowpriority") : model.currentRoom.addTag("m.lowpriority", "1")
     }
     MenuSeparator {}
     MenuItem {
         text: "Mark as Read"
 
-        onTriggered: room.markAllMessagesAsRead()
+        onTriggered: model.currentRoom.markAllMessagesAsRead()
     }
     MenuItem {
         text: "Leave Room"
 
-        onTriggered: room.forget()
+        onTriggered: model.currentRoom.forget()
     }
 }

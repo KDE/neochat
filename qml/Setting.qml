@@ -35,7 +35,7 @@ Page {
                 delegate: Column {
                     property bool expanded: false
 
-                    spacing: 16
+                    spacing: 8
 
                     SwipeDelegate {
                         width: accountSettingsListView.width
@@ -99,15 +99,18 @@ Page {
 
                         ListView {
                             Layout.fillWidth: true
-                            Layout.preferredHeight: 32
+                            Layout.preferredHeight: 24
 
                             orientation: ListView.Horizontal
+
+                            spacing: 8
 
                             model: ["#498882", "#42a5f5", "#5c6bc0", "#7e57c2", "#ab47bc", "#ff7043"]
 
                             delegate: Rectangle {
                                 width: parent.height
                                 height: parent.height
+                                radius: width / 2
 
                                 color: modelData
 
@@ -121,8 +124,6 @@ Page {
 
                         RowLayout {
                             Layout.fillWidth: true
-
-                            spacing: 16
 
                             Label { text: "Homeserver:" }
                             TextField {

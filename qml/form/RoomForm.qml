@@ -89,7 +89,7 @@ Item {
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
 
-                                text: currentRoom ? currentRoom.topic : ""
+                                text: currentRoom ? (currentRoom.topic).replace(/(\r\n\t|\n|\r\t)/gm,"") : ""
                                 color: "white"
                                 elide: Text.ElideRight
                                 wrapMode: Text.NoWrap

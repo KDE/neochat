@@ -17,11 +17,7 @@ Control {
 
         onSecondaryClicked: {
             messageContextMenu.row = messageRow
-            messageContextMenu.plainText = plainText
-            messageContextMenu.toolTip = toolTip
-            messageContextMenu.eventId = eventId
-            messageContextMenu.eventType = eventType
-            messageContextMenu.canRedact = sentByMe
+            messageContextMenu.model = model
             messageContextMenu.popup()
         }
     }

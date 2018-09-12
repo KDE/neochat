@@ -116,7 +116,7 @@ Item {
                     hoverEnabled: MSettings.miniMode
 
                     onSecondaryClicked: {
-                        roomContextMenu.room = currentRoom
+                        roomContextMenu.model = model
                         roomContextMenu.popup()
                     }
                     onPrimaryClicked: {
@@ -141,11 +141,14 @@ Item {
                 }
 
                 Rectangle {
-                    width: 4
+                    width: unreadCount > 0 || highlighted ? 4 : 0
                     height: parent.height
 
                     color: Material.accent
-                    visible: unreadCount > 0 || highlighted
+
+                    Behavior on width {
+                        PropertyAnimation { easing.type: Easing.InOutCubic; duration: 200 }
+                    }
                 }
 
                 RowLayout {
@@ -187,7 +190,7 @@ Item {
                             Layout.fillWidth: true
                             Layout.fillHeight: true
 
-                            text: (lastEvent == "" ? topic : lastEvent).replace(/(\r\n\t|\n|\r\t)/gm,"");
+                            text: (lastEvent == "" ? topic : lastEvent).replace(/(\r\n\t|\n|\r\t)/gm,"")
                             elide: Text.ElideRight
                             wrapMode: Text.NoWrap
                         }
