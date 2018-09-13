@@ -15,6 +15,7 @@
 QHash<int, QByteArray> MessageEventModel::roleNames() const {
   QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
   roles[EventTypeRole] = "eventType";
+  roles[AboveEventTypeRole] = "aboveEventType";
   roles[EventIdRole] = "eventId";
   roles[TimeRole] = "time";
   roles[AboveTimeRole] = "aboveTime";
@@ -31,6 +32,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const {
   roles[AnnotationRole] = "annotation";
   roles[EventResolvedTypeRole] = "eventResolvedType";
   roles[PlainTextRole] = "plainText";
+  roles[UserMarkerRole] = "userMarker";
   return roles;
 }
 
@@ -51,7 +53,6 @@ void MessageEventModel::setRoom(MatriqueRoom* room) {
   beginResetModel();
   if (m_currentRoom) {
     m_currentRoom->disconnect(this);
-    qDebug() << "Disconnected from" << m_currentRoom->id();
   }
 
   m_currentRoom = room;
@@ -78,7 +79,8 @@ void MessageEventModel::setRoom(MatriqueRoom* room) {
                 auto rowBelowInserted = m_currentRoom->maxTimelineIndex() -
                                         biggest + timelineBaseIndex() - 1;
                 refreshEventRoles(rowBelowInserted,
-                                  {AboveAuthorRole, AboveSectionRole});
+                                  {AboveEventTypeRole, AboveAuthorRole,
+                                   AboveSectionRole, AboveTimeRole});
               }
               for (auto i = m_currentRoom->maxTimelineIndex() - biggest;
                    i <= m_currentRoom->maxTimelineIndex() - lowest; ++i)
@@ -108,7 +110,8 @@ void MessageEventModel::setRoom(MatriqueRoom* room) {
         refreshEventRoles(timelineBaseIndex() + 1, {ReadMarkerRole});
       if (timelineBaseIndex() > 0)  // Refresh below, see #312
         refreshEventRoles(timelineBaseIndex() - 1,
-                          {AboveAuthorRole, AboveSectionRole});
+                          {AboveEventTypeRole, AboveAuthorRole,
+                           AboveSectionRole, AboveTimeRole});
     });
     connect(m_currentRoom, &Room::pendingEventChanged, this,
             &MessageEventModel::refreshRow);
@@ -135,6 +138,11 @@ void MessageEventModel::setRoom(MatriqueRoom* room) {
             &MessageEventModel::refreshEvent);
     connect(m_currentRoom, &Room::fileTransferCancelled, this,
             &MessageEventModel::refreshEvent);
+    connect(m_currentRoom, &Room::readMarkerForUserMoved, this,
+            [=](User* user, QString fromEventId, QString toEventId) {
+              refreshEventRoles(fromEventId, {UserMarkerRole});
+              refreshEventRoles(toEventId, {UserMarkerRole});
+            });
     qDebug() << "Connected to room" << room->id() << "as"
              << room->localUser()->id();
   } else
@@ -371,7 +379,7 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
                            : tr("self-unbanned");
               }
               return (e.senderId() != e.userId())
-                         ? tr("has put %1 out of the room").arg(subjectName)
+                         ? tr("has kicked %1 from the room").arg(subjectName)
                          : tr("left the room");
             case MembershipType::Ban:
               return (e.senderId() != e.userId())
@@ -470,7 +478,7 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
                            : tr("self-unbanned");
               }
               return (e.senderId() != e.userId())
-                         ? tr("has put %1 out of the room").arg(subjectName)
+                         ? tr("has kicked %1 from the room").arg(subjectName)
                          : tr("left the room");
             case MembershipType::Ban:
               return (e.senderId() != e.userId())
@@ -622,14 +630,29 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
     return role == TimeRole ? QVariant(ts) : renderDate(ts);
   }
 
-  if (role == AboveSectionRole || role == AboveAuthorRole ||
-      role == AboveTimeRole)
+  if (role == UserMarkerRole) {
+    QVariantList variantList;
+    for (User* user : m_currentRoom->usersAtEventId(evt.id())) {
+      if (user == m_currentRoom->localUser()) continue;
+      variantList.append(QVariant::fromValue(user));
+    }
+    return variantList;
+  }
+
+  if (role == AboveEventTypeRole || role == AboveSectionRole ||
+      role == AboveAuthorRole || role == AboveTimeRole)
     for (auto r = row + 1; r < rowCount(); ++r) {
       auto i = index(r);
-      if (data(i, SpecialMarksRole) != EventStatus::Hidden)
-        return data(i, role == AboveSectionRole
-                           ? SectionRole
-                           : role == AboveAuthorRole ? AuthorRole : TimeRole);
+      if (data(i, SpecialMarksRole) != EventStatus::Hidden) switch (role) {
+          case AboveEventTypeRole:
+            return data(i, EventTypeRole);
+          case AboveSectionRole:
+            return data(i, SectionRole);
+          case AboveAuthorRole:
+            return data(i, AuthorRole);
+          case AboveTimeRole:
+            return data(i, TimeRole);
+        }
     }
 
   return {};

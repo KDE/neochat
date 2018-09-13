@@ -9,9 +9,10 @@ import Matrique.Settings 0.1
 
 import "component"
 import "form"
+import "qrc:/js/util.js" as Util
 
 ApplicationWindow {
-    readonly property var connection: matriqueController.connection
+    readonly property var currentConnection: accountListView.currentConnection ? accountListView.currentConnection : null
 
     width: 960
     height: 640
@@ -25,11 +26,7 @@ ApplicationWindow {
 
     Material.theme: MSettings.darkTheme ? Material.Dark : Material.Light
 
-    Settings {
-        property alias homeserver: matriqueController.homeserver
-        property alias userID: matriqueController.userID
-        property alias token: matriqueController.token
-    }
+    Material.accent: matriqueController.color(currentConnection ? currentConnection.localUserId : "")
 
     FontLoader { id: materialFont; source: "qrc:/asset/font/material.ttf" }
 
@@ -46,6 +43,11 @@ ApplicationWindow {
                 window.requestActivate()
             }
         }
+    }
+
+    AccountListModel {
+        id: accountListModel
+        controller: matriqueController
     }
 
     Popup {
@@ -77,7 +79,7 @@ ApplicationWindow {
 
         parent: null
 
-        connection: window.connection
+        connection: currentConnection
     }
 
     Setting {
@@ -85,7 +87,7 @@ ApplicationWindow {
 
         parent: null
 
-        connection: window.connection
+        listModel: accountListModel
     }
 
     RowLayout {
@@ -104,25 +106,41 @@ ApplicationWindow {
                 anchors.fill: parent
                 spacing: 0
 
-                SideNavButton {
+                ListView {
+                    property var currentConnection: null
+
                     Layout.fillWidth: true
-                    Layout.preferredHeight: width
-
-                    ImageStatus {
-                        anchors.fill: parent
-                        anchors.margins: 12
-
-                        source: matriqueController.isLogin ? connection.localUser && connection.localUser.avatarUrl ? "image://mxc/" + connection.localUser.avatarUrl : "" : "qrc:/asset/img/avatar.png"
-                        displayText: matriqueController.isLogin && connection.localUser.displayName ? connection.localUser.displayName : ""
-                    }
-
-                    page: roomPage
-                }
-
-                Rectangle {
                     Layout.fillHeight: true
 
-                    color: "transparent"
+                    id: accountListView
+
+                    model: accountListModel
+
+                    spacing: 0
+
+                    clip: true
+
+                    delegate: SideNavButton {
+                        width: parent.width
+                        height: width
+
+                        selected: stackView.currentItem === page && currentConnection === connection
+
+                        ImageItem {
+                            anchors.fill: parent
+                            anchors.margins: 12
+
+                            hint: user.displayName
+                            image: user.avatar
+                            defaultColor: Util.stringToColor(user.displayName)
+                        }
+
+                        highlightColor: matriqueController.color(user.id)
+
+                        page: roomPage
+
+                        onClicked: accountListView.currentConnection = connection
+                    }
                 }
 
                 SideNavButton {
@@ -174,7 +192,7 @@ ApplicationWindow {
                                     }
                                 }
 
-                                onAccepted: matriqueController.createRoom(addRoomDialogNameTextField.text, addRoomDialogTopicTextField.text)
+                                onAccepted: matriqueController.createRoom(currentConnection, addRoomDialogNameTextField.text, addRoomDialogTopicTextField.text)
                             }
                         }
                         MenuItem {
@@ -200,7 +218,7 @@ ApplicationWindow {
                                     placeholderText: "#matrix:matrix.org"
                                 }
 
-                                onAccepted: matriqueController.joinRoom(joinRoomDialogTextField.text)
+                                onAccepted: matriqueController.joinRoom(currentConnection, joinRoomDialogTextField.text)
                             }
                         }
 
@@ -227,7 +245,7 @@ ApplicationWindow {
                                     placeholderText: "@bot:matrix.org"
                                 }
 
-                                onAccepted: matriqueController.createDirectChat(directChatDialogTextField.text)
+                                onAccepted: currentConnection.createDirectChat(directChatDialogTextField.text)
                             }
                         }
                     }
@@ -241,7 +259,7 @@ ApplicationWindow {
                         anchors.fill: parent
 
                         icon: "\ue8b8"
-                        color: parent.highlighted ? Material.accent : "white"
+                        color: "white"
                     }
                     page: settingPage
                 }
@@ -272,13 +290,15 @@ ApplicationWindow {
         }
     }
 
-    Component.onCompleted: {
-        imageProvider.connection = matriqueController.connection
+    Binding {
+        target: imageProvider
+        property: "connection"
+        value: currentConnection
+    }
 
-        if (matriqueController.userID && matriqueController.token) {
-            matriqueController.login();
-        } else {
-            stackView.replace(loginPage);
-        }
+    Component.onCompleted: {
+        matriqueController.initiated.connect(function() {
+            if (matriqueController.accountCount == 0) stackView.push(loginPage)
+        })
     }
 }

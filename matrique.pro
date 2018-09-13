@@ -7,7 +7,13 @@ CONFIG += object_parallel_to_source
 
 TARGET = matrique
 
-include(include/libqmatrixclient/libqmatrixclient.pri)
+packagesExist(QMatrixClient) {
+    message("Found libQMatrixClient via pkg-config.")
+    CONFIG += link_pkgconfig
+    PKGCONFIG += QMatrixClient
+} else {
+    include(include/libqmatrixclient/libqmatrixclient.pri)
+}
 include(include/SortFilterProxyModel/SortFilterProxyModel.pri)
 
 # The following define makes your compiler emit warnings if you use
@@ -29,7 +35,9 @@ SOURCES += src/main.cpp \
     src/emojimodel.cpp \
     src/matriqueroom.cpp \
     src/userlistmodel.cpp \
-    src/imageitem.cpp
+    src/imageitem.cpp \
+    src/accountlistmodel.cpp \
+    src/matriqueuser.cpp
 
 RESOURCES += \
     res.qrc
@@ -67,19 +75,19 @@ mac {
     ICON = asset/img/icon.icns
 }
 
-DISTFILES += \
-    ChatForm.qml \
-    LoginForm.qml \
-    main.qml \
-    Home.qml \
-    Login.qml \
-    ImageStatus.qml \
-    ButtonDelegate.qml \
-    SideNav.qml \
-    RoomListForm.qml \
-    Room.qml \
-    Setting.qml \
-    qml/js/md.js \
+#DISTFILES += \
+#    ChatForm.qml \
+#    LoginForm.qml \
+#    main.qml \
+#    Home.qml \
+#    Login.qml \
+#    ImageStatus.qml \
+#    ButtonDelegate.qml \
+#    SideNav.qml \
+#    RoomListForm.qml \
+#    Room.qml \
+#    Setting.qml \
+#    qml/js/md.js \
 
 HEADERS += \
     src/controller.h \
@@ -89,4 +97,6 @@ HEADERS += \
     src/emojimodel.h \
     src/matriqueroom.h \
     src/userlistmodel.h \
-    src/imageitem.h
+    src/imageitem.h \
+    src/accountlistmodel.h \
+    src/matriqueuser.h

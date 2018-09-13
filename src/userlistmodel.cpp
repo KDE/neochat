@@ -67,8 +67,13 @@ QVariant UserListModel::data(const QModelIndex& index, int role) const {
   if (role == NameRole) {
     return user->displayname(m_currentRoom);
   }
+  if (role == UserIDRole) {
+    return user->id();
+  }
   if (role == AvatarRole) {
-    return user->avatarUrl(m_currentRoom);
+    if (!user->avatarUrl(m_currentRoom).isEmpty())
+      return user->avatar(64, m_currentRoom);
+    return QImage();
   }
 
   return QVariant();
@@ -110,7 +115,7 @@ void UserListModel::refresh(QMatrixClient::User* user, QVector<int> roles) {
 
 void UserListModel::avatarChanged(QMatrixClient::User* user,
                                   const QMatrixClient::Room* context) {
-  if (context == m_currentRoom) refresh(user, {Qt::DecorationRole});
+  if (context == m_currentRoom) refresh(user, {AvatarRole});
 }
 
 int UserListModel::findUserPos(User* user) const {
@@ -124,6 +129,7 @@ int UserListModel::findUserPos(const QString& username) const {
 QHash<int, QByteArray> UserListModel::roleNames() const {
   QHash<int, QByteArray> roles;
   roles[NameRole] = "name";
+  roles[UserIDRole] = "userId";
   roles[AvatarRole] = "avatar";
   return roles;
 }

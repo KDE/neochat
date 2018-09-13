@@ -14,12 +14,20 @@ RoomListModel::RoomListModel(QObject* parent) : QAbstractListModel(parent) {}
 RoomListModel::~RoomListModel() {}
 
 void RoomListModel::setConnection(Connection* connection) {
-  if (!connection && connection == m_connection) return;
+  if (connection == m_connection) return;
+  if (m_connection) m_connection->disconnect(this);
+  if (!connection) {
+    qDebug() << "Removing current connection...";
+    m_connection = nullptr;
+    beginResetModel();
+    m_rooms.clear();
+    endResetModel();
+    return;
+  }
 
-  using QMatrixClient::Room;
   m_connection = connection;
 
-  doResetModel();
+  for (MatriqueRoom* room : m_rooms) room->disconnect(this);
 
   connect(connection, &Connection::connected, this,
           &RoomListModel::doResetModel);
@@ -30,6 +38,8 @@ void RoomListModel::setConnection(Connection* connection) {
   connect(connection, &Connection::leftRoom, this, &RoomListModel::updateRoom);
   connect(connection, &Connection::aboutToDeleteRoom, this,
           &RoomListModel::deleteRoom);
+
+  doResetModel();
 }
 
 void RoomListModel::doResetModel() {
@@ -64,7 +74,7 @@ void RoomListModel::connectRoomSignals(MatriqueRoom* room) {
           [=] { refresh(room, {AvatarRole}); });
   connect(room, &Room::addedMessages, this,
           [=] { refresh(room, {LastEventRole}); });
-  connect(room, &QMatrixClient::Room::aboutToAddNewMessages, this,
+  connect(room, &Room::aboutToAddNewMessages, this,
           [=](QMatrixClient::RoomEventsRange eventsRange) {
             RoomEvent* event = (eventsRange.end() - 1)->get();
             if (event->isStateEvent()) return;
@@ -139,7 +149,7 @@ QVariant RoomListModel::data(const QModelIndex& index, int role) const {
   MatriqueRoom* room = m_rooms.at(index.row());
   if (role == NameRole) return room->displayName();
   if (role == AvatarRole) {
-    if (room->avatarUrl().toString() != "") return room->avatar(64, 64);
+    if (!room->avatarUrl().isEmpty()) return room->avatar(64, 64);
     return QImage();
   }
   if (role == TopicRole) return room->topic();

@@ -1,14 +1,15 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
-import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.2
 import QtGraphicalEffects 1.0
 import Matrique 0.1
 import Matrique.Settings 0.1
 
-import "../component"
+import "qrc:/qml/component"
+import "qrc:/qml/menu"
 import "qrc:/js/md.js" as Markdown
+import "qrc:/js/util.js" as Util
 
 Item {
     property var currentRoom: null
@@ -57,12 +58,13 @@ Item {
 
                         spacing: 12
 
-                        ImageStatus {
+                        ImageItem {
                             Layout.preferredWidth: height
                             Layout.fillHeight: true
 
-                            source: currentRoom && currentRoom.avatarUrl != "" ? "image://mxc/" + currentRoom.avatarUrl : null
-                            displayText: currentRoom ? currentRoom.displayName : ""
+                            hint: currentRoom ? currentRoom.displayName : "No name"
+                            defaultColor: Util.stringToColor(currentRoom ? currentRoom.displayName : "No name")
+                            image: matriqueController.safeImage(currentRoom ? currentRoom.avatar : null)
                         }
 
                         ColumnLayout {
@@ -87,7 +89,7 @@ Item {
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
 
-                                text: currentRoom ? currentRoom.topic : ""
+                                text: currentRoom ? (currentRoom.topic).replace(/(\r\n\t|\n|\r\t)/gm,"") : ""
                                 color: "white"
                                 elide: Text.ElideRight
                                 wrapMode: Text.NoWrap
@@ -222,6 +224,36 @@ Item {
                         onClicked: parent.positionViewAtBeginning()
 
                         Behavior on opacity { NumberAnimation { duration: 200 } }
+                    }
+
+                    MessageContextMenu { id: messageContextMenu }
+
+                    Dialog {
+                        property string sourceText
+
+                        x: (window.width - width) / 2
+                        y: (window.height - height) / 2
+                        width: 480
+
+                        id: sourceDialog
+
+                        parent: ApplicationWindow.overlay
+
+                        modal: true
+                        standardButtons: Dialog.Ok
+
+                        padding: 16
+
+                        title: "View Source"
+
+                        contentItem: ScrollView {
+                            TextArea {
+                                readOnly: true
+                                selectByMouse: true
+
+                                text: sourceDialog.sourceText
+                            }
+                        }
                     }
                 }
 

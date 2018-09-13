@@ -4,6 +4,8 @@ import QtQuick.Controls.Material 2.2
 import QtQuick.Layouts 1.3
 import Matrique 0.1
 
+import "qrc:/js/util.js" as Util
+
 Drawer {
     property var room
 
@@ -22,13 +24,14 @@ Drawer {
         anchors.fill: parent
         anchors.margins: 32
 
-        ImageStatus {
+        ImageItem {
             Layout.preferredWidth: 64
             Layout.preferredHeight: 64
             Layout.alignment: Qt.AlignHCenter
 
-            source: room && room.avatarUrl != "" ? "image://mxc/" + room.avatarUrl : null
-            displayText: room ? room.displayName : ""
+            hint: room ? room.displayName : "No name"
+            defaultColor: Util.stringToColor(room ? room.displayName : "No name")
+            image: matriqueController.safeImage(room ? room.avatar : null)
         }
 
         Label {
@@ -45,6 +48,13 @@ Drawer {
             text: room && room.canonicalAlias ? room.canonicalAlias : "No Canonical Alias"
         }
 
+        Label {
+            Layout.fillWidth: true
+
+            horizontalAlignment: Text.AlignHCenter
+            text: room ? room.memberCount + " Members" : "No Member Count"
+        }
+
         RowLayout {
             Layout.fillWidth: true
 
@@ -53,6 +63,7 @@ Drawer {
 
                 id: roomNameField
                 text: room && room.name ? room.name : ""
+                selectByMouse: true
             }
 
             ItemDelegate {
@@ -74,6 +85,7 @@ Drawer {
                 id: roomTopicField
 
                 text: room && room.topic ? room.topic : ""
+                selectByMouse: true
             }
 
             ItemDelegate {
@@ -94,7 +106,11 @@ Drawer {
 
             boundsBehavior: Flickable.DragOverBounds
 
-            delegate: ItemDelegate {
+            model: UserListModel {
+                room: roomDrawer.room
+            }
+
+            delegate: SwipeDelegate {
                 width: parent.width
                 height: 48
 
@@ -103,12 +119,13 @@ Drawer {
                     anchors.margins: 8
                     spacing: 12
 
-                    ImageStatus {
+                    ImageItem {
                         Layout.preferredWidth: height
                         Layout.fillHeight: true
 
-                        source: avatar != "" ? "image://mxc/" + avatar : ""
-                        displayText: name
+                        defaultColor: Util.stringToColor(name)
+                        image: avatar
+                        hint: name
                     }
 
                     Label {
@@ -117,12 +134,25 @@ Drawer {
                         text: name
                     }
                 }
-            }
 
-            model: UserListModel {
-                id: userListModel
+                swipe.right: Rectangle {
+                    width: parent.height
+                    height: parent.height
+                    anchors.right: parent.right
 
-                room: roomDrawer.room
+                    color: Material.accent
+
+                    MaterialIcon {
+                        anchors.fill: parent
+
+                        icon: "\ue8fb"
+                        color: "white"
+                    }
+
+                    SwipeDelegate.onClicked: room.kickMember(userId)
+                }
+
+                onClicked: inputField.insert(inputField.cursorPosition, name)
             }
 
             ScrollBar.vertical: ScrollBar {}

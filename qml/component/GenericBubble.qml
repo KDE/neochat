@@ -15,7 +15,11 @@ Control {
     AutoMouseArea {
         anchors.fill: parent
 
-        onSecondaryClicked: Qt.createComponent("qrc:/qml/menu/MessageContextMenu.qml").createObject(this)
+        onSecondaryClicked: {
+            messageContextMenu.row = messageRow
+            messageContextMenu.model = model
+            messageContextMenu.popup()
+        }
     }
 
     background: Rectangle { color: colored ? Material.accent : highlighted ? Material.primary : backgroundColor }

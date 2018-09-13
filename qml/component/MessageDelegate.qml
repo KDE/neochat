@@ -4,9 +4,10 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.2
 import Matrique 0.1
 import Matrique.Settings 0.1
+import "qrc:/js/util.js" as Util
 
 RowLayout {
-    readonly property bool avatarVisible: !(sentByMe || (aboveAuthor === author && section === aboveSection))
+    readonly property bool avatarVisible: !sentByMe && (aboveAuthor !== author || aboveSection !== section || aboveEventType === "state" || aboveEventType === "emote")
     readonly property bool highlighted: !(sentByMe || eventType === "notice" )
     readonly property bool sentByMe: author === currentRoom.localUser
     readonly property bool isText: eventType === "notice" || eventType === "message"
@@ -22,15 +23,16 @@ RowLayout {
 
     spacing: 6
 
-    ImageStatus {
+    ImageItem {
         Layout.preferredWidth: 40
         Layout.preferredHeight: 40
         Layout.alignment: Qt.AlignTop
 
         round: false
         visible: avatarVisible
-        source: author.avatarUrl != "" ? "image://mxc/" + author.avatarUrl : null
-        displayText: author.displayName
+        hint: author.displayName
+        defaultColor: Util.stringToColor(author.displayName)
+        image: author.avatar
     }
 
     Rectangle {
@@ -61,6 +63,11 @@ RowLayout {
                 Material.foreground: Material.accent
                 coloredBackground: highlighted
                 font.bold: true
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: inputField.insert(inputField.cursorPosition, author.displayName)
+                }
             }
 
             AutoLabel {
@@ -86,13 +93,29 @@ RowLayout {
                 active: eventType === "image" || eventType === "file" || eventType === "audio"
             }
 
-            AutoLabel {
+            Row {
                 Layout.alignment: Qt.AlignRight
-                visible: Math.abs(time - aboveTime) > 600000 || index == 0
-                text: Qt.formatTime(time, "hh:mm")
-                coloredBackground: highlighted
-                Material.foreground: "grey"
-                font.pointSize: 8
+
+                spacing: 8
+
+                AutoLabel {
+                    id: timeLabel
+
+                    visible: Math.abs(time - aboveTime) > 600000 || index == 0
+                    text: Qt.formatTime(time, "hh:mm")
+                    coloredBackground: highlighted
+                    Material.foreground: "grey"
+                    font.pointSize: 8
+                }
+
+                MaterialIcon {
+                    height: timeLabel.height
+
+                    visible: userMarker.length > 0
+                    icon: "\ue5ca"
+                    color: highlighted ? "white": Material.foreground
+                    font.pointSize: 12
+                }
             }
         }
 

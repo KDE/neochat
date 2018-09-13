@@ -8,7 +8,9 @@ import Matrique 0.1
 import SortFilterProxyModel 0.2
 import Matrique.Settings 0.1
 
-import "../component"
+import "qrc:/qml/component"
+import "qrc:/qml/menu"
+import "qrc:/js/util.js" as Util
 
 Item {
     property alias listModel: roomListProxyModel.sourceModel
@@ -38,7 +40,7 @@ Item {
             bottomPadding: 0
             placeholderText: "Search..."
 
-            background: Rectangle { color: MSettings.darkTheme ? "#282828" : "#fafafa" }
+            background: Rectangle { color: MSettings.darkTheme ? "#303030" : "#fafafa" }
 
             Shortcut {
                 sequence: StandardKey.Find
@@ -106,15 +108,25 @@ Item {
                 width: parent.width
                 height: 64
 
-                color: MSettings.darkTheme ? "#282828" : "#fafafa"
+                color: MSettings.darkTheme ? "#303030" : "#fafafa"
 
                 AutoMouseArea {
                     anchors.fill: parent
 
                     hoverEnabled: MSettings.miniMode
 
-                    onSecondaryClicked: Qt.createComponent("qrc:/qml/menu/RoomContextMenu.qml").createObject(this)
-                    onPrimaryClicked: category === RoomType.Invited ? inviteDialog.open() : enteredRoom = currentRoom
+                    onSecondaryClicked: {
+                        roomContextMenu.model = model
+                        roomContextMenu.popup()
+                    }
+                    onPrimaryClicked: {
+                        if (category === RoomType.Invited) {
+                            inviteDialog.currentRoom = currentRoom
+                            inviteDialog.open()
+                        } else {
+                            enteredRoom = currentRoom
+                        }
+                    }
 
                     ToolTip.visible: MSettings.miniMode && containsMouse
                     ToolTip.text: name
@@ -129,11 +141,14 @@ Item {
                 }
 
                 Rectangle {
-                    width: 4
+                    width: unreadCount > 0 || highlighted ? 4 : 0
                     height: parent.height
 
                     color: Material.accent
-                    visible: unreadCount > 0 || highlighted
+
+                    Behavior on width {
+                        PropertyAnimation { easing.type: Easing.InOutCubic; duration: 200 }
+                    }
                 }
 
                 RowLayout {
@@ -142,14 +157,6 @@ Item {
 
                     spacing: 12
 
-                    //                    ImageStatus {
-                    //                        Layout.preferredWidth: height
-                    //                        Layout.fillHeight: true
-
-                    //                        source: avatar ? "image://mxc/" + avatar : ""
-                    //                        displayText: name
-                    //                    }
-
                     ImageItem {
                         id: imageItem
 
@@ -157,7 +164,7 @@ Item {
                         Layout.fillHeight: true
 
                         hint: name || "No Name"
-                        defaultColor: stringToColor(name || "No Name")
+                        defaultColor: Util.stringToColor(name || "No Name")
 
                         image: avatar
                     }
@@ -183,7 +190,7 @@ Item {
                             Layout.fillWidth: true
                             Layout.fillHeight: true
 
-                            text: (lastEvent == "" ? topic : lastEvent).replace(/(\r\n\t|\n|\r\t)/gm,"");
+                            text: (lastEvent == "" ? topic : lastEvent).replace(/(\r\n\t|\n|\r\t)/gm,"")
                             elide: Text.ElideRight
                             wrapMode: Text.NoWrap
                         }
@@ -205,7 +212,11 @@ Item {
                 horizontalAlignment: MSettings.miniMode ? Text.AlignHCenter : undefined
             }
 
+            RoomContextMenu { id: roomContextMenu }
+
             Dialog {
+                property var currentRoom
+
                 id: inviteDialog
                 parent: ApplicationWindow.overlay
 
@@ -223,18 +234,5 @@ Item {
                 onRejected: currentRoom.forget()
             }
         }
-    }
-
-    function stringToColor(str) {
-        var hash = 0;
-        for (var i = 0; i < str.length; i++) {
-            hash = str.charCodeAt(i) + ((hash << 5) - hash);
-        }
-        var colour = '#';
-        for (var j = 0; j < 3; j++) {
-            var value = (hash >> (j * 8)) & 0xFF;
-            colour += ('00' + value.toString(16)).substr(-2);
-        }
-        return colour;
     }
 }

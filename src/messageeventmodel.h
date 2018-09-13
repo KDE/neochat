@@ -1,19 +1,19 @@
 #ifndef MESSAGEEVENTMODEL_H
 #define MESSAGEEVENTMODEL_H
 
-#include "room.h"
 #include "matriqueroom.h"
+#include "room.h"
 
 #include <QtCore/QAbstractListModel>
 
 class MessageEventModel : public QAbstractListModel {
   Q_OBJECT
-  Q_PROPERTY(
-      MatriqueRoom* room READ getRoom WRITE setRoom NOTIFY roomChanged)
+  Q_PROPERTY(MatriqueRoom* room READ getRoom WRITE setRoom NOTIFY roomChanged)
 
  public:
   enum EventRoles {
     EventTypeRole = Qt::UserRole + 1,
+    AboveEventTypeRole,
     EventIdRole,
     TimeRole,
     AboveTimeRole,
@@ -29,6 +29,7 @@ class MessageEventModel : public QAbstractListModel {
     LongOperationRole,
     AnnotationRole,
     PlainTextRole,
+    UserMarkerRole,
     // For debugging
     EventResolvedTypeRole,
   };
@@ -42,7 +43,7 @@ class MessageEventModel : public QAbstractListModel {
   int rowCount(const QModelIndex& parent = QModelIndex()) const override;
   QVariant data(const QModelIndex& index,
                 int role = Qt::DisplayRole) const override;
-  QHash<int, QByteArray> roleNames() const;
+  QHash<int, QByteArray> roleNames() const override;
 
  private slots:
   int refreshEvent(const QString& eventId);

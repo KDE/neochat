@@ -14,8 +14,12 @@ void ImageItem::paint(QPainter *painter) {
   if (m_image.isNull()) {
     painter->setPen(Qt::NoPen);
     painter->setBrush(QColor(m_color));
-    painter->drawEllipse(0, 0, int(bounding_rect.width()),
-                         int(bounding_rect.height()));
+    if (m_round)
+      painter->drawEllipse(0, 0, int(bounding_rect.width()),
+                           int(bounding_rect.height()));
+    else
+      painter->drawRect(0, 0, int(bounding_rect.width()),
+                        int(bounding_rect.height()));
     painter->setPen(QPen(Qt::white, 2));
     QFont font;
     font.setPixelSize(22);
@@ -33,11 +37,13 @@ void ImageItem::paint(QPainter *painter) {
 
   QPointF center = bounding_rect.center() - scaled.rect().center();
 
-  QPainterPath clip;
-  clip.addEllipse(
-      0, 0, bounding_rect.width(),
-      bounding_rect.height());  // this is the shape we want to clip to
-  painter->setClipPath(clip);
+  if (m_round) {
+    QPainterPath clip;
+    clip.addEllipse(
+        0, 0, bounding_rect.width(),
+        bounding_rect.height());  // this is the shape we want to clip to
+    painter->setClipPath(clip);
+  }
 
   if (center.x() < 0) center.setX(0);
   if (center.y() < 0) center.setY(0);
@@ -63,6 +69,14 @@ void ImageItem::setDefaultColor(QString color) {
   if (color != m_color) {
     m_color = color;
     emit defaultColorChanged();
+    update();
+  }
+}
+
+void ImageItem::setRound(bool value) {
+  if (m_round != value) {
+    m_round = value;
+    emit roundChanged();
     update();
   }
 }

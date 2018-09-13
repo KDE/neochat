@@ -3,20 +3,13 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import Matrique.Settings 0.1
 
-Item {
-    property alias icon: iconText.text
-    property var color: MSettings.darkTheme ? "white" : "black"
+Text {
+    property alias icon: materialLabel.text
 
-    id: item
+    id: materialLabel
 
-    Text {
-        anchors.fill: parent
-
-        id: iconText
-        font.pointSize: 16
-        font.family: materialFont.name
-        color: item.color
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-    }
+    font.pointSize: 16
+    font.family: materialFont.name
+    horizontalAlignment: Text.AlignHCenter
+    verticalAlignment: Text.AlignVCenter
 }
