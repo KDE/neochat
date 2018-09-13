@@ -9,6 +9,7 @@ import Matrique.Settings 0.1
 
 import "component"
 import "form"
+import "qrc:/js/util.js" as Util
 
 ApplicationWindow {
     readonly property var currentConnection: accountListView.currentConnection ? accountListView.currentConnection : null
@@ -131,7 +132,7 @@ ApplicationWindow {
 
                             hint: user.displayName
                             image: user.avatar
-                            defaultColor: Material.accent
+                            defaultColor: Util.stringToColor(user.displayName)
                         }
 
                         highlightColor: matriqueController.color(user.id)
