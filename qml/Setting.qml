@@ -179,7 +179,7 @@ Page {
                 flat: true
                 highlighted: true
 
-                onClicked: Util.pushToStack(stackView, loginPage)
+                onClicked: stackView.push(loginPage)
             }
         }
     }

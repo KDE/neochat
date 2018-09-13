@@ -294,4 +294,10 @@ ApplicationWindow {
         property: "connection"
         value: currentConnection
     }
+
+    Component.onCompleted: {
+        matriqueController.initiated.connect(function() {
+            if (matriqueController.accountCount == 0) stackView.push(loginPage)
+        })
+    }
 }

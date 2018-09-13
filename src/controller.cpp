@@ -141,6 +141,7 @@ void Controller::invokeLogin() {
       c->connectWithToken(account.userId(), accessToken, account.deviceId());
     }
   }
+  emit initiated();
 }
 
 QByteArray Controller::loadAccessToken(const AccountSettings& account) {

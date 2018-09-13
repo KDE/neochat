@@ -152,6 +152,8 @@ Page {
                         }
 
                         controller.loginWithCredentials(serverField.text, usernameField.text, passwordField.text)
+
+                        controller.connectionAdded.connect(function() { stackView.pop() })
                     }
                 }
             }

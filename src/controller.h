@@ -17,6 +17,8 @@ class Controller : public QObject {
   Q_OBJECT
 
   Q_PROPERTY(bool busy READ busy WRITE setBusy NOTIFY busyChanged)
+  Q_PROPERTY(int accountCount READ accountCount NOTIFY connectionAdded NOTIFY
+                 connectionDropped)
 
  public:
   explicit Controller(QObject* parent = nullptr);
@@ -39,6 +41,8 @@ class Controller : public QObject {
       emit busyChanged();
     }
   }
+
+  int accountCount() { return m_connections.count(); }
 
   Q_INVOKABLE QColor color(QString userId);
   Q_INVOKABLE void setColor(QString userId, QColor newColor);
@@ -66,6 +70,7 @@ class Controller : public QObject {
   void toggleWindow();
   void connectionAdded(Connection* conn);
   void connectionDropped(Connection* conn);
+  void initiated();
 
  public slots:
   void logout(Connection* conn);

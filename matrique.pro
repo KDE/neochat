@@ -7,7 +7,13 @@ CONFIG += object_parallel_to_source
 
 TARGET = matrique
 
-include(include/libqmatrixclient/libqmatrixclient.pri)
+packagesExist(QMatrixClient) {
+    message("Found libQMatrixClient via pkg-config.")
+    CONFIG += link_pkgconfig
+    PKGCONFIG += QMatrixClient
+} else {
+    include(include/libqmatrixclient/libqmatrixclient.pri)
+}
 include(include/SortFilterProxyModel/SortFilterProxyModel.pri)
 
 # The following define makes your compiler emit warnings if you use
