@@ -32,6 +32,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const {
   roles[AnnotationRole] = "annotation";
   roles[EventResolvedTypeRole] = "eventResolvedType";
   roles[PlainTextRole] = "plainText";
+  roles[UserMarkerRole] = "userMarker";
   return roles;
 }
 
@@ -137,6 +138,11 @@ void MessageEventModel::setRoom(MatriqueRoom* room) {
             &MessageEventModel::refreshEvent);
     connect(m_currentRoom, &Room::fileTransferCancelled, this,
             &MessageEventModel::refreshEvent);
+    connect(m_currentRoom, &Room::readMarkerForUserMoved, this,
+            [=](User* user, QString fromEventId, QString toEventId) {
+              refreshEventRoles(fromEventId, {UserMarkerRole});
+              refreshEventRoles(toEventId, {UserMarkerRole});
+            });
     qDebug() << "Connected to room" << room->id() << "as"
              << room->localUser()->id();
   } else
@@ -622,6 +628,15 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
     auto ts =
         isPending ? pendingIt->lastUpdated() : makeMessageTimestamp(timelineIt);
     return role == TimeRole ? QVariant(ts) : renderDate(ts);
+  }
+
+  if (role == UserMarkerRole) {
+    QVariantList variantList;
+    for (User* user : m_currentRoom->usersAtEventId(evt.id())) {
+      if (user == m_currentRoom->localUser()) continue;
+      variantList.append(QVariant::fromValue(user));
+    }
+    return variantList;
   }
 
   if (role == AboveEventTypeRole || role == AboveSectionRole ||

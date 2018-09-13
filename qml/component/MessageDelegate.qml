@@ -93,13 +93,29 @@ RowLayout {
                 active: eventType === "image" || eventType === "file" || eventType === "audio"
             }
 
-            AutoLabel {
+            Row {
                 Layout.alignment: Qt.AlignRight
-                visible: Math.abs(time - aboveTime) > 600000 || index == 0
-                text: Qt.formatTime(time, "hh:mm")
-                coloredBackground: highlighted
-                Material.foreground: "grey"
-                font.pointSize: 8
+
+                spacing: 8
+
+                AutoLabel {
+                    id: timeLabel
+
+                    visible: Math.abs(time - aboveTime) > 600000 || index == 0
+                    text: Qt.formatTime(time, "hh:mm")
+                    coloredBackground: highlighted
+                    Material.foreground: "grey"
+                    font.pointSize: 8
+                }
+
+                MaterialIcon {
+                    height: timeLabel.height
+
+                    visible: userMarker.length > 0
+                    icon: "\ue5ca"
+                    color: highlighted ? "white": Material.foreground
+                    font.pointSize: 12
+                }
             }
         }
 

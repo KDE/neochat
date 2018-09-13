@@ -29,6 +29,7 @@ class MessageEventModel : public QAbstractListModel {
     LongOperationRole,
     AnnotationRole,
     PlainTextRole,
+    UserMarkerRole,
     // For debugging
     EventResolvedTypeRole,
   };
@@ -42,7 +43,7 @@ class MessageEventModel : public QAbstractListModel {
   int rowCount(const QModelIndex& parent = QModelIndex()) const override;
   QVariant data(const QModelIndex& index,
                 int role = Qt::DisplayRole) const override;
-  QHash<int, QByteArray> roleNames() const;
+  QHash<int, QByteArray> roleNames() const override;
 
  private slots:
   int refreshEvent(const QString& eventId);
