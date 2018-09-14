@@ -66,8 +66,9 @@ class Controller : public QObject {
 
  signals:
   void busyChanged();
-  void errorOccured();
-  void toggleWindow();
+  void errorOccured(QString error);
+  void showWindow();
+  void hideWindow();
   void connectionAdded(Connection* conn);
   void connectionDropped(Connection* conn);
   void initiated();

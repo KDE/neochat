@@ -409,6 +409,8 @@ Item {
 
                         parent: ApplicationWindow.overlay
 
+                        Material.elevation: 2
+
                         textArea: inputField
                     }
                 }

@@ -31,10 +31,10 @@ Controller::Controller(QObject* parent) : QObject(parent) {
   tray->setToolTip("Matrique");
   connect(tray, &QSystemTrayIcon::activated,
           [this](QSystemTrayIcon::ActivationReason r) {
-            if (r != QSystemTrayIcon::Context) emit toggleWindow();
+            if (r != QSystemTrayIcon::Context) emit showWindow();
           });
-  connect(tray, &QSystemTrayIcon::messageClicked, [=] { emit toggleWindow(); });
-  trayMenu->addAction("Toggle Window", [=] { emit toggleWindow(); });
+  connect(tray, &QSystemTrayIcon::messageClicked, [=] { emit showWindow(); });
+  trayMenu->addAction("Hide Window", [=] { emit hideWindow(); });
   trayMenu->addAction("Quit", [=] { QApplication::quit(); });
   tray->setContextMenu(trayMenu);
   tray->show();
@@ -168,7 +168,7 @@ bool Controller::saveAccessToken(const AccountSettings& account,
   auto fileDir = QFileInfo(accountTokenFile).dir();
   if (!((fileDir.exists() || fileDir.mkpath(".")) &&
         accountTokenFile.open(QFile::WriteOnly))) {
-    emit errorOccured();
+    emit errorOccured("Cannot save access token.");
   } else {
     // Try to restrict access rights to the file. The below is useless
     // on Windows: FAT doesn't control access at all and NTFS is

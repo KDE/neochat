@@ -33,16 +33,12 @@ ApplicationWindow {
     Controller {
         id: matriqueController
 
-        onToggleWindow: {
-            console.log("Activating window...")
-            if (window.visible) {
-                window.hide()
-            } else {
-                window.show()
-                window.raise()
-                window.requestActivate()
-            }
+        onShowWindow: {
+            window.show()
+            window.raise()
+            window.requestActivate()
         }
+        onHideWindow: window.hide()
     }
 
     AccountListModel {
