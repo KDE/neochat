@@ -115,6 +115,15 @@ RowLayout {
                     icon: "\ue5ca"
                     color: highlighted ? "white": Material.foreground
                     font.pointSize: 12
+
+                    MouseArea {
+                        anchors.fill: parent
+
+                        onClicked: {
+                            readMarkerDialog.listModel = userMarker
+                            readMarkerDialog.open()
+                        }
+                    }
                 }
             }
         }

@@ -16,8 +16,8 @@ ApplicationWindow {
 
     width: 960
     height: 640
-    minimumWidth: 800
-    minimumHeight: 480
+    minimumWidth: 720
+    minimumHeight: 360
 
     id: window
 

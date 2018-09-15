@@ -228,7 +228,7 @@ Item {
 
                     MessageContextMenu { id: messageContextMenu }
 
-                    Dialog {
+                    Popup {
                         property string sourceText
 
                         x: (window.width - width) / 2
@@ -240,11 +240,10 @@ Item {
                         parent: ApplicationWindow.overlay
 
                         modal: true
-                        standardButtons: Dialog.Ok
 
                         padding: 16
 
-                        title: "View Source"
+                        closePolicy: Dialog.CloseOnEscape | Dialog.CloseOnPressOutside
 
                         contentItem: ScrollView {
                             TextArea {
@@ -252,6 +251,57 @@ Item {
                                 selectByMouse: true
 
                                 text: sourceDialog.sourceText
+                            }
+                        }
+                    }
+
+                    Popup {
+                        property alias listModel: readMarkerListView.model
+
+                        x: (window.width - width) / 2
+                        y: (window.height - height) / 2
+                        width: 320
+
+                        id: readMarkerDialog
+
+                        parent: ApplicationWindow.overlay
+
+                        modal: true
+                        padding: 16
+
+                        closePolicy: Dialog.CloseOnEscape | Dialog.CloseOnPressOutside
+
+                        contentItem: ListView {
+                            implicitHeight: Math.min(window.height - 64, readMarkerListView.contentHeight)
+
+                            id: readMarkerListView
+
+                            clip: true
+
+                            delegate: ItemDelegate {
+                                width: parent.width
+                                height: 48
+
+                                RowLayout {
+                                    anchors.fill: parent
+                                    anchors.margins: 8
+                                    spacing: 12
+
+                                    ImageItem {
+                                        Layout.preferredWidth: height
+                                        Layout.fillHeight: true
+
+                                        defaultColor: Util.stringToColor(modelData.displayName)
+                                        image: modelData.avatar
+                                        hint: modelData.displayName
+                                    }
+
+                                    Label {
+                                        Layout.fillWidth: true
+
+                                        text: modelData.displayName
+                                    }
+                                }
                             }
                         }
                     }
@@ -400,10 +450,10 @@ Item {
 
                     EmojiPicker {
                         x: window.width - 370
-                        y: window.height - 440
+                        y: window.height - 400
 
                         width: 360
-                        height: 360
+                        height: 320
 
                         id: emojiPicker
 
