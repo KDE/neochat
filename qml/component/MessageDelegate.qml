@@ -98,6 +98,19 @@ RowLayout {
 
                 spacing: 8
 
+                Repeater {
+                    model: userMarker
+
+                    ImageItem {
+                        width: parent.height
+                        height: parent.height
+
+                        hint: modelData.displayName
+                        defaultColor: Util.stringToColor(modelData.displayName)
+                        image: modelData.avatar
+                    }
+                }
+
                 AutoLabel {
                     id: timeLabel
 
@@ -106,24 +119,6 @@ RowLayout {
                     coloredBackground: highlighted
                     Material.foreground: "grey"
                     font.pointSize: 8
-                }
-
-                MaterialIcon {
-                    height: timeLabel.height
-
-                    visible: userMarker.length > 0
-                    icon: "\ue5ca"
-                    color: highlighted ? "white": Material.foreground
-                    font.pointSize: 12
-
-                    MouseArea {
-                        anchors.fill: parent
-
-                        onClicked: {
-                            readMarkerDialog.listModel = userMarker
-                            readMarkerDialog.open()
-                        }
-                    }
                 }
             }
         }

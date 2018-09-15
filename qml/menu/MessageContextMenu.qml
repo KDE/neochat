@@ -23,6 +23,16 @@ Menu {
         }
     }
     MenuItem {
+        visible: model && model.userMarker.length > 0
+        height: visible ? undefined : 0
+        text: "View Receipts"
+
+        onTriggered: {
+            readMarkerDialog.listModel = model.userMarker
+            readMarkerDialog.open()
+        }
+    }
+    MenuItem {
         visible: isFile
         height: visible ? undefined : 0
         text: "Open Externally"

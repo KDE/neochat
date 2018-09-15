@@ -121,7 +121,7 @@ Item {
                     spacing: 8
 
                     boundsBehavior: Flickable.DragOverBounds
-                    flickDeceleration: 9001
+                    flickDeceleration: 2000
 
                     cacheBuffer: 200
 
@@ -277,6 +277,7 @@ Item {
                             id: readMarkerListView
 
                             clip: true
+                            boundsBehavior: Flickable.DragOverBounds
 
                             delegate: ItemDelegate {
                                 width: parent.width
@@ -303,6 +304,8 @@ Item {
                                     }
                                 }
                             }
+
+                            ScrollBar.vertical: ScrollBar {}
                         }
                     }
                 }

@@ -22,7 +22,7 @@ void ImageItem::paint(QPainter *painter) {
                         int(bounding_rect.height()));
     painter->setPen(QPen(Qt::white, 2));
     QFont font;
-    font.setPixelSize(22);
+    font.setPixelSize(bounding_rect.width() / 2);
     font.setBold(true);
     painter->setFont(font);
     painter->drawText(
