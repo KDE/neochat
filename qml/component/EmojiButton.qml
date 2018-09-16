@@ -11,7 +11,7 @@ Text {
     verticalAlignment: Text.AlignVCenter
 
     font.pointSize: 20
-    font.family: "Noto Color Emoji"
+    font.family: "Emoji"
 
     MouseArea {
         anchors.fill: parent

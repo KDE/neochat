@@ -164,7 +164,6 @@ Item {
                         Layout.fillHeight: true
 
                         hint: name || "No Name"
-                        defaultColor: Util.stringToColor(name || "No Name")
 
                         image: avatar
                     }

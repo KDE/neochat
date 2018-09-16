@@ -31,7 +31,6 @@ RowLayout {
         round: false
         visible: avatarVisible
         hint: author.displayName
-        defaultColor: Util.stringToColor(author.displayName)
         image: author.avatar
     }
 
@@ -106,7 +105,6 @@ RowLayout {
                         height: parent.height
 
                         hint: modelData.displayName
-                        defaultColor: Util.stringToColor(modelData.displayName)
                         image: modelData.avatar
                     }
                 }

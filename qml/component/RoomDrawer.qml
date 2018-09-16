@@ -30,7 +30,6 @@ Drawer {
             Layout.alignment: Qt.AlignHCenter
 
             hint: room ? room.displayName : "No name"
-            defaultColor: Util.stringToColor(room ? room.displayName : "No name")
             image: matriqueController.safeImage(room ? room.avatar : null)
         }
 
@@ -123,7 +122,6 @@ Drawer {
                         Layout.preferredWidth: height
                         Layout.fillHeight: true
 
-                        defaultColor: Util.stringToColor(name)
                         image: avatar
                         hint: name
                     }

@@ -13,7 +13,10 @@ void ImageItem::paint(QPainter *painter) {
 
   if (m_image.isNull()) {
     painter->setPen(Qt::NoPen);
-    painter->setBrush(QColor(m_color));
+    if (m_color.isEmpty())
+      painter->setBrush(QColor(stringtoColor(m_hint)));
+    else
+      painter->setBrush(QColor(m_color));
     if (m_round)
       painter->drawEllipse(0, 0, int(bounding_rect.width()),
                            int(bounding_rect.height()));
@@ -22,7 +25,7 @@ void ImageItem::paint(QPainter *painter) {
                         int(bounding_rect.height()));
     painter->setPen(QPen(Qt::white, 2));
     QFont font;
-    font.setPixelSize(bounding_rect.width() / 2);
+    font.setPixelSize(int(bounding_rect.width() / 2));
     font.setBold(true);
     painter->setFont(font);
     painter->drawText(
@@ -79,4 +82,14 @@ void ImageItem::setRound(bool value) {
     emit roundChanged();
     update();
   }
+}
+
+QString ImageItem::stringtoColor(QString string) {
+  int hash = 0;
+  for (int i = 0; i < string.length(); i++)
+    hash = string.at(i).unicode() + ((hash << 5) - hash);
+  QString colour = "#";
+  for (int j = 0; j < 3; j++)
+    colour += ("00" + QString::number((hash >> (j * 8)) & 0xFF, 16)).right(2);
+  return colour;
 }

@@ -37,7 +37,7 @@ Popup {
                 verticalAlignment: Text.AlignVCenter
 
                 font.pointSize: 20
-                font.family: "Noto Color Emoji"
+                font.family: "Emoji"
                 text: modelData
 
                 MouseArea {

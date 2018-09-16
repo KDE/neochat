@@ -41,8 +41,10 @@ class ImageItem : public QQuickPaintedItem {
  private:
   QImage m_image;
   QString m_hint = "H";
-  QString m_color = "#000000";
+  QString m_color;
   bool m_round = true;
+
+  QString stringtoColor(QString string);
 };
 
 #endif  // IMAGEITEM_H

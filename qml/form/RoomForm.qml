@@ -63,7 +63,6 @@ Item {
                             Layout.fillHeight: true
 
                             hint: currentRoom ? currentRoom.displayName : "No name"
-                            defaultColor: Util.stringToColor(currentRoom ? currentRoom.displayName : "No name")
                             image: matriqueController.safeImage(currentRoom ? currentRoom.avatar : null)
                         }
 
@@ -292,7 +291,6 @@ Item {
                                         Layout.preferredWidth: height
                                         Layout.fillHeight: true
 
-                                        defaultColor: Util.stringToColor(modelData.displayName)
                                         image: modelData.avatar
                                         hint: modelData.displayName
                                     }

@@ -128,7 +128,6 @@ ApplicationWindow {
 
                             hint: user.displayName
                             image: user.avatar
-                            defaultColor: Util.stringToColor(user.displayName)
                         }
 
                         highlightColor: matriqueController.color(user.id)

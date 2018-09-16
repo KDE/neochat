@@ -54,7 +54,6 @@ Page {
                                 height: parent.height
 
                                 hint: user.displayName
-                                defaultColor: Util.stringToColor(user.displayName)
                                 image: user.avatar
                             }
 
