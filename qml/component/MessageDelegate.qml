@@ -95,7 +95,7 @@ RowLayout {
             Row {
                 Layout.alignment: Qt.AlignRight
 
-                spacing: 8
+                spacing: 4
 
                 Repeater {
                     model: userMarker
