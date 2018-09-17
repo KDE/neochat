@@ -82,7 +82,8 @@ RowLayout {
                 selectByMouse: true
                 readOnly: true
                 wrapMode: Label.Wrap
-                selectionColor: Material.accent
+                selectedTextColor: highlighted ? Material.accent : "white"
+                selectionColor: highlighted ? "white" : Material.accent
                 textFormat: Text.RichText
 
                 onLinkActivated: Qt.openUrlExternally(link)

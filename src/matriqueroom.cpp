@@ -124,3 +124,18 @@ void MatriqueRoom::countChanged() {
     resetHighlightCount();
   }
 }
+
+void MatriqueRoom::sendReply(QString userId, QString eventId,
+                             QString replyContent, QString sendContent) {
+  QJsonObject json{
+      {"msgtype", "m.text"},
+      {"body", "> <" + userId + "> " + replyContent + "\n\n" + sendContent},
+      {"format", "org.matrix.custom.html"},
+      {"m.relates_to", QJsonObject{{"m.in_reply_to", QJsonObject{{"event_id", eventId}}}}},
+      {"formatted_body",
+       "<mx-reply><blockquote><a href=\"https://matrix.to/#/" + id() + "/" +
+           eventId + "\">In reply to</a> <a href=\"https://matrix.to/#/" +
+           userId + "\">" + userId + "</a><br>" + replyContent +
+           "</blockquote></mx-reply>" + sendContent}};
+  postJson("m.room.message", json);
+}

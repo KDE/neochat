@@ -42,6 +42,16 @@ Menu {
         onTriggered: row.saveFileAs()
     }
     MenuItem {
+        visible: model && model.author !== currentRoom.localUser
+        height: visible ? undefined : 0
+        text: "Reply"
+
+        onTriggered: {
+            inputField.clear()
+            inputField.insert(0, "> <" + model.author.id + "><" + model.eventId + "> " + model.message + "\n\n")
+        }
+    }
+    MenuItem {
         visible: model && model.author === currentRoom.localUser
         height: visible ? undefined : 0
         text: "Redact"

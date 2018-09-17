@@ -15,6 +15,7 @@
 QHash<int, QByteArray> MessageEventModel::roleNames() const {
   QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
   roles[EventTypeRole] = "eventType";
+  roles[MessageRole] = "message";
   roles[AboveEventTypeRole] = "aboveEventType";
   roles[EventIdRole] = "eventId";
   roles[TimeRole] = "time";
@@ -414,6 +415,8 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
         },
         tr("Unknown Event"));
   }
+
+  if (role == MessageRole) return evt.contentJson().value("body");
 
   if (role == Qt::ToolTipRole) {
     return evt.originalJson();

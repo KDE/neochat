@@ -59,6 +59,7 @@ class MatriqueRoom : public Room {
   void acceptInvitation();
   void forget();
   void sendTypingNotification(bool isTyping);
+  void sendReply(QString userId, QString eventId, QString replyContent, QString sendContent);
 };
 
 #endif  // MATRIQUEROOM_H
