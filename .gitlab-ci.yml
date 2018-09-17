@@ -3,15 +3,15 @@ stages:
   - deploy
 
 build-flatpak:
-  image: registry.gitlab.com/b0/matrique/flatpak
+  image: registry.gitlab.com/b0/spectral/flatpak
   stage: build
   before_script:
     - git submodule update --init --recursive
   script:
     - cd flatpak
-    - flatpak-builder --force-clean --repo=repo build-dir org.eu.encom.matrique.yaml
-    - flatpak build-bundle repo matrique.flatpak org.eu.encom.matrique
+    - flatpak-builder --force-clean --repo=repo build-dir org.eu.encom.spectral.yaml
+    - flatpak build-bundle repo spectral.flatpak org.eu.encom.spectral
     - cd ../
   artifacts:
     paths:
-    - flatpak/matrique.flatpak
+    - flatpak/spectral.flatpak
