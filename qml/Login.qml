@@ -4,7 +4,7 @@ import QtGraphicalEffects 1.0
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.2
 import Qt.labs.settings 1.0
-import Matrique.Settings 0.1
+import Spectral.Settings 0.1
 
 import "component"
 

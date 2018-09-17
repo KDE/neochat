@@ -8,7 +8,7 @@
 #include "emojimodel.h"
 #include "imageitem.h"
 #include "imageprovider.h"
-#include "matriqueroom.h"
+#include "spectralroom.h"
 #include "messageeventmodel.h"
 #include "room.h"
 #include "roomlistmodel.h"
@@ -28,27 +28,27 @@ int main(int argc, char *argv[]) {
 
   app.setOrganizationName("ENCOM");
   app.setOrganizationDomain("encom.eu.org");
-  app.setApplicationName("Matrique");
+  app.setApplicationName("Spectral");
 
   app.setQuitOnLastWindowClosed(false);
 
-  qRegisterMetaType<MatriqueRoom *>("MatriqueRoom*");
+  qRegisterMetaType<SpectralRoom *>("SpectralRoom*");
   qRegisterMetaType<User *>("User*");
   qRegisterMetaType<MessageEventType>("MessageEventType");
-  qRegisterMetaType<MatriqueRoom *>("MatriqueRoom");
+  qRegisterMetaType<SpectralRoom *>("SpectralRoom");
 
-  qmlRegisterType<ImageItem>("Matrique", 0, 1, "ImageItem");
-  qmlRegisterType<Controller>("Matrique", 0, 1, "Controller");
-  qmlRegisterType<AccountListModel>("Matrique", 0, 1, "AccountListModel");
-  qmlRegisterType<RoomListModel>("Matrique", 0, 1, "RoomListModel");
-  qmlRegisterType<UserListModel>("Matrique", 0, 1, "UserListModel");
-  qmlRegisterType<MessageEventModel>("Matrique", 0, 1, "MessageEventModel");
-  qmlRegisterType<EmojiModel>("Matrique", 0, 1, "EmojiModel");
-  qmlRegisterUncreatableType<RoomMessageEvent>("Matrique", 0, 1,
+  qmlRegisterType<ImageItem>("Spectral", 0, 1, "ImageItem");
+  qmlRegisterType<Controller>("Spectral", 0, 1, "Controller");
+  qmlRegisterType<AccountListModel>("Spectral", 0, 1, "AccountListModel");
+  qmlRegisterType<RoomListModel>("Spectral", 0, 1, "RoomListModel");
+  qmlRegisterType<UserListModel>("Spectral", 0, 1, "UserListModel");
+  qmlRegisterType<MessageEventModel>("Spectral", 0, 1, "MessageEventModel");
+  qmlRegisterType<EmojiModel>("Spectral", 0, 1, "EmojiModel");
+  qmlRegisterUncreatableType<RoomMessageEvent>("Spectral", 0, 1,
                                                "RoomMessageEvent", "ENUM");
-  qmlRegisterUncreatableType<RoomType>("Matrique", 0, 1, "RoomType", "ENUM");
-  qmlRegisterSingletonType(QUrl("qrc:/qml/MatriqueSettings.qml"),
-                           "Matrique.Settings", 0, 1, "MSettings");
+  qmlRegisterUncreatableType<RoomType>("Spectral", 0, 1, "RoomType", "ENUM");
+  qmlRegisterSingletonType(QUrl("qrc:/qml/SpectralSettings.qml"),
+                           "Spectral.Settings", 0, 1, "MSettings");
 
   QQmlApplicationEngine engine;
 

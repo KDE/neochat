@@ -2,8 +2,8 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.2
 import QtQuick.Layouts 1.3
-import Matrique 0.1
-import Matrique.Settings 0.1
+import Spectral 0.1
+import Spectral.Settings 0.1
 
 import "component"
 import "form"
@@ -81,7 +81,7 @@ Page {
                                 color: "white"
                             }
 
-                            SwipeDelegate.onClicked: matriqueController.logout(connection)
+                            SwipeDelegate.onClicked: spectralController.logout(connection)
                         }
 
                         onClicked: expanded = !expanded
@@ -116,7 +116,7 @@ Page {
                                 MouseArea {
                                     anchors.fill: parent
 
-                                    onClicked: matriqueController.setColor(connection.localUserId, modelData)
+                                    onClicked: spectralController.setColor(connection.localUserId, modelData)
                                 }
                             }
                         }
@@ -246,7 +246,7 @@ Page {
 
                 source: "qrc:/asset/img/icon.png"
             }
-            Label { text: "Matrique, an IM client for the Matrix protocol." }
+            Label { text: "Spectral, an IM client for the Matrix protocol." }
             Label { text: "Released under GNU General Public License, version 3." }
         }
     }

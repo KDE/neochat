@@ -1,4 +1,4 @@
-#include "matriqueroom.h"
+#include "spectralroom.h"
 
 #include "connection.h"
 #include "user.h"
@@ -10,16 +10,16 @@
 #include <QFileDialog>
 #include <QMimeDatabase>
 
-MatriqueRoom::MatriqueRoom(Connection* connection, QString roomId,
+SpectralRoom::SpectralRoom(Connection* connection, QString roomId,
                            JoinState joinState)
     : Room(connection, std::move(roomId), joinState) {
-  connect(this, &MatriqueRoom::notificationCountChanged, this,
-          &MatriqueRoom::countChanged);
-  connect(this, &MatriqueRoom::highlightCountChanged, this,
-          &MatriqueRoom::countChanged);
+  connect(this, &SpectralRoom::notificationCountChanged, this,
+          &SpectralRoom::countChanged);
+  connect(this, &SpectralRoom::highlightCountChanged, this,
+          &SpectralRoom::countChanged);
 }
 
-void MatriqueRoom::chooseAndUploadFile() {
+void SpectralRoom::chooseAndUploadFile() {
   auto localFile = QFileDialog::getOpenFileUrl(Q_NULLPTR, tr("Save File as"));
   if (!localFile.isEmpty()) {
     uploadFile(localFile.toString(), localFile, getMIME(localFile));
@@ -32,7 +32,7 @@ void MatriqueRoom::chooseAndUploadFile() {
   }
 }
 
-void MatriqueRoom::postFile(const QUrl& localFile, const QUrl& mxcUrl) {
+void SpectralRoom::postFile(const QUrl& localFile, const QUrl& mxcUrl) {
   const QString mime = getMIME(localFile);
   const QString fileName = localFile.fileName();
   QString msgType = "m.file";
@@ -46,21 +46,21 @@ void MatriqueRoom::postFile(const QUrl& localFile, const QUrl& mxcUrl) {
   postJson("m.room.message", json);
 }
 
-QString MatriqueRoom::getMIME(const QUrl& fileUrl) const {
+QString SpectralRoom::getMIME(const QUrl& fileUrl) const {
   return QMimeDatabase().mimeTypeForFile(fileUrl.toLocalFile()).name();
 }
 
-void MatriqueRoom::saveFileAs(QString eventId) {
+void SpectralRoom::saveFileAs(QString eventId) {
   auto fileName = QFileDialog::getSaveFileName(Q_NULLPTR, tr("Save File as"),
                                                fileNameToDownload(eventId));
   if (!fileName.isEmpty()) downloadFile(eventId, QUrl::fromLocalFile(fileName));
 }
 
-void MatriqueRoom::acceptInvitation() { connection()->joinRoom(id()); }
+void SpectralRoom::acceptInvitation() { connection()->joinRoom(id()); }
 
-void MatriqueRoom::forget() { connection()->forgetRoom(id()); }
+void SpectralRoom::forget() { connection()->forgetRoom(id()); }
 
-bool MatriqueRoom::hasUsersTyping() {
+bool SpectralRoom::hasUsersTyping() {
   QList<User*> users = usersTyping();
   if (users.isEmpty()) return false;
   int count = users.length();
@@ -68,7 +68,7 @@ bool MatriqueRoom::hasUsersTyping() {
   return count != 0;
 }
 
-QString MatriqueRoom::getUsersTyping() {
+QString SpectralRoom::getUsersTyping() {
   QString usersTypingStr;
   QList<User*> users = usersTyping();
   users.removeOne(localUser());
@@ -80,12 +80,12 @@ QString MatriqueRoom::getUsersTyping() {
   return usersTypingStr;
 }
 
-void MatriqueRoom::sendTypingNotification(bool isTyping) {
+void SpectralRoom::sendTypingNotification(bool isTyping) {
   connection()->callApi<SetTypingJob>(BackgroundRequest, localUser()->id(),
                                       id(), isTyping, 10000);
 }
 
-QString MatriqueRoom::lastEvent() {
+QString SpectralRoom::lastEvent() {
   if (timelineSize() == 0) return "";
   const RoomEvent* lastEvent = messageEvents().rbegin()->get();
   if (lastEvent->contentJson().value("body").toString() == "") return "";
@@ -93,11 +93,11 @@ QString MatriqueRoom::lastEvent() {
          lastEvent->contentJson().value("body").toString();
 }
 
-bool MatriqueRoom::isEventHighlighted(const RoomEvent* e) const {
+bool SpectralRoom::isEventHighlighted(const RoomEvent* e) const {
   return highlights.contains(e);
 }
 
-void MatriqueRoom::checkForHighlights(const QMatrixClient::TimelineItem& ti) {
+void SpectralRoom::checkForHighlights(const QMatrixClient::TimelineItem& ti) {
   auto localUserId = localUser()->id();
   if (ti->senderId() == localUserId) return;
   if (auto* e = ti.viewAs<RoomMessageEvent>()) {
@@ -108,30 +108,31 @@ void MatriqueRoom::checkForHighlights(const QMatrixClient::TimelineItem& ti) {
   }
 }
 
-void MatriqueRoom::onAddNewTimelineEvents(timeline_iter_t from) {
+void SpectralRoom::onAddNewTimelineEvents(timeline_iter_t from) {
   std::for_each(from, messageEvents().cend(),
                 [this](const TimelineItem& ti) { checkForHighlights(ti); });
 }
 
-void MatriqueRoom::onAddHistoricalTimelineEvents(rev_iter_t from) {
+void SpectralRoom::onAddHistoricalTimelineEvents(rev_iter_t from) {
   std::for_each(from, messageEvents().crend(),
                 [this](const TimelineItem& ti) { checkForHighlights(ti); });
 }
 
-void MatriqueRoom::countChanged() {
+void SpectralRoom::countChanged() {
   if (displayed() && !hasUnreadMessages()) {
     resetNotificationCount();
     resetHighlightCount();
   }
 }
 
-void MatriqueRoom::sendReply(QString userId, QString eventId,
+void SpectralRoom::sendReply(QString userId, QString eventId,
                              QString replyContent, QString sendContent) {
   QJsonObject json{
       {"msgtype", "m.text"},
       {"body", "> <" + userId + "> " + replyContent + "\n\n" + sendContent},
       {"format", "org.matrix.custom.html"},
-      {"m.relates_to", QJsonObject{{"m.in_reply_to", QJsonObject{{"event_id", eventId}}}}},
+      {"m.relates_to",
+       QJsonObject{{"m.in_reply_to", QJsonObject{{"event_id", eventId}}}}},
       {"formatted_body",
        "<mx-reply><blockquote><a href=\"https://matrix.to/#/" + id() + "/" +
            eventId + "\">In reply to</a> <a href=\"https://matrix.to/#/" +

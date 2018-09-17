@@ -5,7 +5,7 @@ CONFIG += object_parallel_to_source
 # Enable this to use QtQuick Compiler.
 #CONFIG += qtquickcompiler
 
-TARGET = matrique
+TARGET = spectral
 
 packagesExist(QMatrixClient) {
     message("Found libQMatrixClient via pkg-config.")
@@ -33,11 +33,11 @@ SOURCES += src/main.cpp \
     src/imageprovider.cpp \
     src/messageeventmodel.cpp \
     src/emojimodel.cpp \
-    src/matriqueroom.cpp \
+    src/spectralroom.cpp \
     src/userlistmodel.cpp \
     src/imageitem.cpp \
     src/accountlistmodel.cpp \
-    src/matriqueuser.cpp
+    src/spectraluser.cpp
 
 RESOURCES += \
     res.qrc
@@ -58,9 +58,9 @@ win32:target.path = $$PREFIX
 !isEmpty(target.path): INSTALLS += target
 
 unix:!mac {
-    metainfo.files = $$PWD/org.eu.encom.matrique.appdata.xml
+    metainfo.files = $$PWD/org.eu.encom.spectral.appdata.xml
     metainfo.path = $$PREFIX/share/metainfo
-    desktop.files = $$PWD/org.eu.encom.matrique.desktop
+    desktop.files = $$PWD/org.eu.encom.spectral.desktop
     desktop.path = $$PREFIX/share/applications
     icons.files = $$PWD/icons/hicolor/*
     icons.path = $$PREFIX/share/icons/hicolor
@@ -95,8 +95,8 @@ HEADERS += \
     src/imageprovider.h \
     src/messageeventmodel.h \
     src/emojimodel.h \
-    src/matriqueroom.h \
+    src/spectralroom.h \
     src/userlistmodel.h \
     src/imageitem.h \
     src/accountlistmodel.h \
-    src/matriqueuser.h
+    src/spectraluser.h

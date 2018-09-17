@@ -4,8 +4,8 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.2
 import Qt.labs.settings 1.0
 import QtGraphicalEffects 1.0
-import Matrique 0.1
-import Matrique.Settings 0.1
+import Spectral 0.1
+import Spectral.Settings 0.1
 
 import "component"
 import "form"
@@ -22,16 +22,16 @@ ApplicationWindow {
     id: window
 
     visible: true
-    title: qsTr("Matrique")
+    title: qsTr("Spectral")
 
     Material.theme: MSettings.darkTheme ? Material.Dark : Material.Light
 
-    Material.accent: matriqueController.color(currentConnection ? currentConnection.localUserId : "")
+    Material.accent: spectralController.color(currentConnection ? currentConnection.localUserId : "")
 
     FontLoader { id: materialFont; source: "qrc:/asset/font/material.ttf" }
 
     Controller {
-        id: matriqueController
+        id: spectralController
 
         onShowWindow: {
             window.show()
@@ -43,11 +43,11 @@ ApplicationWindow {
 
     AccountListModel {
         id: accountListModel
-        controller: matriqueController
+        controller: spectralController
     }
 
     Popup {
-        property bool busy: matriqueController.busy
+        property bool busy: spectralController.busy
 
         x: (window.width - width) / 2
         y: (window.height - height) / 2
@@ -67,7 +67,7 @@ ApplicationWindow {
     Component {
         id: loginPage
 
-        Login { controller: matriqueController }
+        Login { controller: spectralController }
     }
 
     Room {
@@ -130,7 +130,7 @@ ApplicationWindow {
                             image: user.avatar
                         }
 
-                        highlightColor: matriqueController.color(user.id)
+                        highlightColor: spectralController.color(user.id)
 
                         page: roomPage
 
@@ -187,7 +187,7 @@ ApplicationWindow {
                                     }
                                 }
 
-                                onAccepted: matriqueController.createRoom(currentConnection, addRoomDialogNameTextField.text, addRoomDialogTopicTextField.text)
+                                onAccepted: spectralController.createRoom(currentConnection, addRoomDialogNameTextField.text, addRoomDialogTopicTextField.text)
                             }
                         }
                         MenuItem {
@@ -213,7 +213,7 @@ ApplicationWindow {
                                     placeholderText: "#matrix:matrix.org"
                                 }
 
-                                onAccepted: matriqueController.joinRoom(currentConnection, joinRoomDialogTextField.text)
+                                onAccepted: spectralController.joinRoom(currentConnection, joinRoomDialogTextField.text)
                             }
                         }
 
@@ -292,8 +292,8 @@ ApplicationWindow {
     }
 
     Component.onCompleted: {
-        matriqueController.initiated.connect(function() {
-            if (matriqueController.accountCount == 0) stackView.push(loginPage)
+        spectralController.initiated.connect(function() {
+            if (spectralController.accountCount == 0) stackView.push(loginPage)
         })
     }
 }

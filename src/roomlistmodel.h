@@ -3,7 +3,7 @@
 
 #include "connection.h"
 #include "events/roomevent.h"
-#include "matriqueroom.h"
+#include "spectralroom.h"
 #include "room.h"
 
 #include <QtCore/QAbstractListModel>
@@ -47,7 +47,7 @@ class RoomListModel : public QAbstractListModel {
   void setConnection(Connection* connection);
   void doResetModel();
 
-  Q_INVOKABLE MatriqueRoom* roomAt(int row);
+  Q_INVOKABLE SpectralRoom* roomAt(int row);
 
   QVariant data(const QModelIndex& index,
                 int role = Qt::DisplayRole) const override;
@@ -57,22 +57,22 @@ class RoomListModel : public QAbstractListModel {
   QHash<int, QByteArray> roleNames() const;
 
  private slots:
-  void namesChanged(MatriqueRoom* room);
-  void unreadMessagesChanged(MatriqueRoom* room);
+  void namesChanged(SpectralRoom* room);
+  void unreadMessagesChanged(SpectralRoom* room);
 
   void doAddRoom(Room* room);
   void updateRoom(Room* room, Room* prev);
   void deleteRoom(Room* room);
-  void refresh(MatriqueRoom* room, const QVector<int>& roles = {});
+  void refresh(SpectralRoom* room, const QVector<int>& roles = {});
 
  private:
   Connection* m_connection = nullptr;
-  QList<MatriqueRoom*> m_rooms;
-  void connectRoomSignals(MatriqueRoom* room);
+  QList<SpectralRoom*> m_rooms;
+  void connectRoomSignals(SpectralRoom* room);
 
  signals:
   void connectionChanged();
-  void roomAdded(MatriqueRoom* room);
+  void roomAdded(SpectralRoom* room);
   void newMessage(const QString& roomName, const QString& content,
                   const QIcon& icon);
 };

@@ -2,7 +2,7 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.2
 import QtQuick.Layouts 1.3
-import Matrique 0.1
+import Spectral 0.1
 
 import "qrc:/js/util.js" as Util
 
@@ -30,7 +30,7 @@ Drawer {
             Layout.alignment: Qt.AlignHCenter
 
             hint: room ? room.displayName : "No name"
-            image: matriqueController.safeImage(room ? room.avatar : null)
+            image: spectralController.safeImage(room ? room.avatar : null)
         }
 
         Label {

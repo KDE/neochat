@@ -1,14 +1,14 @@
 #ifndef MESSAGEEVENTMODEL_H
 #define MESSAGEEVENTMODEL_H
 
-#include "matriqueroom.h"
+#include "spectralroom.h"
 #include "room.h"
 
 #include <QtCore/QAbstractListModel>
 
 class MessageEventModel : public QAbstractListModel {
   Q_OBJECT
-  Q_PROPERTY(MatriqueRoom* room READ getRoom WRITE setRoom NOTIFY roomChanged)
+  Q_PROPERTY(SpectralRoom* room READ getRoom WRITE setRoom NOTIFY roomChanged)
 
  public:
   enum EventRoles {
@@ -37,8 +37,8 @@ class MessageEventModel : public QAbstractListModel {
   explicit MessageEventModel(QObject* parent = nullptr);
   ~MessageEventModel();
 
-  MatriqueRoom* getRoom() { return m_currentRoom; }
-  void setRoom(MatriqueRoom* room);
+  SpectralRoom* getRoom() { return m_currentRoom; }
+  void setRoom(SpectralRoom* room);
 
   int rowCount(const QModelIndex& parent = QModelIndex()) const override;
   QVariant data(const QModelIndex& index,
@@ -50,7 +50,7 @@ class MessageEventModel : public QAbstractListModel {
   void refreshRow(int row);
 
  private:
-  MatriqueRoom* m_currentRoom = nullptr;
+  SpectralRoom* m_currentRoom = nullptr;
   QString lastReadEventId;
   int rowBelowInserted = -1;
   bool movingEvent = 0;

@@ -3,8 +3,8 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.2
 import QtGraphicalEffects 1.0
-import Matrique 0.1
-import Matrique.Settings 0.1
+import Spectral 0.1
+import Spectral.Settings 0.1
 
 import "qrc:/qml/component"
 import "qrc:/qml/menu"
@@ -63,7 +63,7 @@ Item {
                             Layout.fillHeight: true
 
                             hint: currentRoom ? currentRoom.displayName : "No name"
-                            image: matriqueController.safeImage(currentRoom ? currentRoom.avatar : null)
+                            image: spectralController.safeImage(currentRoom ? currentRoom.avatar : null)
                         }
 
                         ColumnLayout {

@@ -42,12 +42,12 @@ MessageEventModel::MessageEventModel(QObject* parent)
   qmlRegisterType<FileTransferInfo>();
   qRegisterMetaType<FileTransferInfo>();
   qmlRegisterUncreatableType<EventStatus>(
-      "Matrique", 0, 1, "EventStatus", "EventStatus is not an creatable type");
+      "Spectral", 0, 1, "EventStatus", "EventStatus is not an creatable type");
 }
 
 MessageEventModel::~MessageEventModel() {}
 
-void MessageEventModel::setRoom(MatriqueRoom* room) {
+void MessageEventModel::setRoom(SpectralRoom* room) {
   if (room == m_currentRoom) return;
 
   beginResetModel();

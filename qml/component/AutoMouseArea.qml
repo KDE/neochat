@@ -1,5 +1,5 @@
 import QtQuick 2.9
-import Matrique.Settings 0.1
+import Spectral.Settings 0.1
 
 MouseArea {
     signal primaryClicked()

@@ -1,5 +1,5 @@
-#ifndef MATRIQUEUSER_H
-#define MATRIQUEUSER_H
+#ifndef SpectralUser_H
+#define SpectralUser_H
 
 #include "user.h"
 #include "room.h"
@@ -8,11 +8,11 @@
 
 using namespace QMatrixClient;
 
-class MatriqueUser : public User {
+class SpectralUser : public User {
   Q_OBJECT
   Q_PROPERTY(QImage avatar READ getAvatar NOTIFY inheritedAvatarChanged)
  public:
-  MatriqueUser(QString userId, Connection* connection);
+  SpectralUser(QString userId, Connection* connection);
 
   QImage getAvatar() { return avatar(128); }
 
@@ -20,4 +20,4 @@ class MatriqueUser : public User {
   void inheritedAvatarChanged(User* user, const Room* roomContext); // https://bugreports.qt.io/browse/QTBUG-7684
 };
 
-#endif  // MATRIQUEUSER_H
+#endif  // SpectralUser_H

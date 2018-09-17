@@ -1,7 +1,7 @@
 #include "controller.h"
 
-#include "matriqueroom.h"
-#include "matriqueuser.h"
+#include "spectralroom.h"
+#include "spectraluser.h"
 #include "settings.h"
 
 #include "events/eventcontent.h"
@@ -28,7 +28,7 @@
 
 Controller::Controller(QObject* parent) : QObject(parent) {
   tray->setIcon(QIcon(":/asset/img/icon.png"));
-  tray->setToolTip("Matrique");
+  tray->setToolTip("Spectral");
   connect(tray, &QSystemTrayIcon::activated,
           [this](QSystemTrayIcon::ActivationReason r) {
             if (r != QSystemTrayIcon::Context) emit showWindow();
@@ -39,8 +39,8 @@ Controller::Controller(QObject* parent) : QObject(parent) {
   tray->setContextMenu(trayMenu);
   tray->show();
 
-  Connection::setRoomType<MatriqueRoom>();
-  Connection::setUserType<MatriqueUser>();
+  Connection::setRoomType<SpectralRoom>();
+  Connection::setUserType<SpectralUser>();
 
   QTimer::singleShot(0, this, SLOT(invokeLogin()));
 }
@@ -67,7 +67,7 @@ void Controller::loginWithCredentials(QString serverAddr, QString user,
       account.clearAccessToken();  // Drop the legacy - just in case
       account.setHomeserver(m_connection->homeserver());
       account.setDeviceId(m_connection->deviceId());
-      account.setDeviceName("Matrique");
+      account.setDeviceName("Spectral");
       if (!saveAccessToken(account, m_connection->accessToken()))
         qWarning() << "Couldn't save access token";
       account.sync();

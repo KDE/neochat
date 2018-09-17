@@ -2,8 +2,8 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.2
-import Matrique 0.1
-import Matrique.Settings 0.1
+import Spectral 0.1
+import Spectral.Settings 0.1
 import "qrc:/js/util.js" as Util
 
 RowLayout {
@@ -206,7 +206,7 @@ RowLayout {
 
                     onClicked: {
                         if (downloadable.downloaded)
-                            matriqueController.playAudio(progressInfo.localPath)
+                            spectralController.playAudio(progressInfo.localPath)
                         else
                         {
                             playOnFinished = true
@@ -218,7 +218,7 @@ RowLayout {
                 background: DownloadableContent {
                     id: downloadable
 
-                    onDownloadedChanged: downloaded && playOnFinished ? matriqueController.playAudio(progressInfo.localPath) : {}
+                    onDownloadedChanged: downloaded && playOnFinished ? spectralController.playAudio(progressInfo.localPath) : {}
 
                     Component.onCompleted: {
                         messageRow.saveFileAs.connect(saveFileAs)

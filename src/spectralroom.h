@@ -1,5 +1,5 @@
-#ifndef MATRIQUEROOM_H
-#define MATRIQUEROOM_H
+#ifndef SpectralRoom_H
+#define SpectralRoom_H
 
 #include "room.h"
 
@@ -8,7 +8,7 @@
 
 using namespace QMatrixClient;
 
-class MatriqueRoom : public Room {
+class SpectralRoom : public Room {
   Q_OBJECT
   Q_PROPERTY(QImage avatar READ getAvatar NOTIFY avatarChanged)
   Q_PROPERTY(bool hasUsersTyping READ hasUsersTyping NOTIFY typingChanged)
@@ -16,7 +16,7 @@ class MatriqueRoom : public Room {
   Q_PROPERTY(QString cachedInput READ cachedInput WRITE setCachedInput NOTIFY
                  cachedInputChanged)
  public:
-  explicit MatriqueRoom(Connection* connection, QString roomId,
+  explicit SpectralRoom(Connection* connection, QString roomId,
                         JoinState joinState = {});
 
   QImage getAvatar() { return avatar(128); }
@@ -62,4 +62,4 @@ class MatriqueRoom : public Room {
   void sendReply(QString userId, QString eventId, QString replyContent, QString sendContent);
 };
 
-#endif  // MATRIQUEROOM_H
+#endif  // SpectralRoom_H

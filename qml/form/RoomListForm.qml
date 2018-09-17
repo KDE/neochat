@@ -4,9 +4,9 @@ import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 import QtQuick.Controls.Material 2.2
 import QtQml.Models 2.3
-import Matrique 0.1
+import Spectral 0.1
 import SortFilterProxyModel 0.2
-import Matrique.Settings 0.1
+import Spectral.Settings 0.1
 
 import "qrc:/qml/component"
 import "qrc:/qml/menu"

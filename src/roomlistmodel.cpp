@@ -27,7 +27,7 @@ void RoomListModel::setConnection(Connection* connection) {
 
   m_connection = connection;
 
-  for (MatriqueRoom* room : m_rooms) room->disconnect(this);
+  for (SpectralRoom* room : m_rooms) room->disconnect(this);
 
   connect(connection, &Connection::connected, this,
           &RoomListModel::doResetModel);
@@ -49,10 +49,10 @@ void RoomListModel::doResetModel() {
   endResetModel();
 }
 
-MatriqueRoom* RoomListModel::roomAt(int row) { return m_rooms.at(row); }
+SpectralRoom* RoomListModel::roomAt(int row) { return m_rooms.at(row); }
 
 void RoomListModel::doAddRoom(Room* r) {
-  if (auto* room = static_cast<MatriqueRoom*>(r)) {
+  if (auto* room = static_cast<SpectralRoom*>(r)) {
     m_rooms.append(room);
     connectRoomSignals(room);
     emit roomAdded(room);
@@ -62,7 +62,7 @@ void RoomListModel::doAddRoom(Room* r) {
   }
 }
 
-void RoomListModel::connectRoomSignals(MatriqueRoom* room) {
+void RoomListModel::connectRoomSignals(SpectralRoom* room) {
   connect(room, &Room::displaynameChanged, this, [=] { namesChanged(room); });
   connect(room, &Room::unreadMessagesChanged, this,
           [=] { unreadMessagesChanged(room); });
@@ -94,7 +94,7 @@ void RoomListModel::updateRoom(Room* room, Room* prev) {
   //    the previously left room (in both cases prev has the previous state).
   if (prev == room) {
     qCritical() << "RoomListModel::updateRoom: room tried to replace itself";
-    refresh(static_cast<MatriqueRoom*>(room));
+    refresh(static_cast<SpectralRoom*>(room));
     return;
   }
   if (prev && room->id() != prev->id()) {
@@ -103,10 +103,10 @@ void RoomListModel::updateRoom(Room* room, Room* prev) {
     // That doesn't look right but technically we still can do it.
   }
   // Ok, we're through with pre-checks, now for the real thing.
-  auto* newRoom = static_cast<MatriqueRoom*>(room);
+  auto* newRoom = static_cast<SpectralRoom*>(room);
   const auto it = std::find_if(
       m_rooms.begin(), m_rooms.end(),
-      [=](const MatriqueRoom* r) { return r == prev || r == newRoom; });
+      [=](const SpectralRoom* r) { return r == prev || r == newRoom; });
   if (it != m_rooms.end()) {
     const int row = it - m_rooms.begin();
     // There's no guarantee that prev != newRoom
@@ -146,7 +146,7 @@ QVariant RoomListModel::data(const QModelIndex& index, int role) const {
     qDebug() << "UserListModel: something wrong here...";
     return QVariant();
   }
-  MatriqueRoom* room = m_rooms.at(index.row());
+  SpectralRoom* room = m_rooms.at(index.row());
   if (role == NameRole) return room->displayName();
   if (role == AvatarRole) {
     if (!room->avatarUrl().isEmpty()) return room->avatar(64, 64);
@@ -167,12 +167,12 @@ QVariant RoomListModel::data(const QModelIndex& index, int role) const {
   return QVariant();
 }
 
-void RoomListModel::namesChanged(MatriqueRoom* room) {
+void RoomListModel::namesChanged(SpectralRoom* room) {
   int row = m_rooms.indexOf(room);
   emit dataChanged(index(row), index(row));
 }
 
-void RoomListModel::refresh(MatriqueRoom* room, const QVector<int>& roles) {
+void RoomListModel::refresh(SpectralRoom* room, const QVector<int>& roles) {
   const auto it = std::find(m_rooms.begin(), m_rooms.end(), room);
   if (it == m_rooms.end()) {
     qCritical() << "Room" << room->id() << "not found in the room list";
@@ -182,7 +182,7 @@ void RoomListModel::refresh(MatriqueRoom* room, const QVector<int>& roles) {
   emit dataChanged(idx, idx, roles);
 }
 
-void RoomListModel::unreadMessagesChanged(MatriqueRoom* room) {
+void RoomListModel::unreadMessagesChanged(SpectralRoom* room) {
   int row = m_rooms.indexOf(room);
   emit dataChanged(index(row), index(row));
 }
