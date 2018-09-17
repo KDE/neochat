@@ -1,16 +1,24 @@
-### Build instructions for OSX
+# Build instructions for OSX
 
-brew install qt5
-# requires 5.10 or later, you may need brew update qt5 instead
+1. Update Qt to v5.10+
 
-git clone https://gitlab.com/b0/matrique
-cd matrique
+        brew install qt5
 
-# pull in libqmatrixclient
-git submodule init
-git submodule update
+2. Download Spectral source
 
-/usr/local/Cellar/qt5/5.10.1/bin/qmake 
-make
+        git clone https://gitlab.com/b0/spectral
+        cd spectral
 
-open matrique.app/Contents/MacOS/matrique 
+3. Pull in the dependencies
+
+        git submodule init
+        git submodule update
+
+4. Build Spectral
+
+        /usr/local/Cellar/qt5/5.10.1/bin/qmake 
+        make
+
+5. Open Spectral
+
+        open spectral.app/Contents/MacOS/spectral
