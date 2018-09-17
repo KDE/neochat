@@ -1,0 +1,20 @@
+id: org.eu.encom.spectral
+runtime: org.kde.Platform
+runtime-version: 5.11
+sdk: org.kde.Sdk
+command: spectral
+finish-args:
+- --share=ipc
+- --share=network
+- --socket=x11
+- --socket=wayland
+- --device=dri
+- --filesystem=home
+- --talk-name=org.freedesktop.Notifications
+- --talk-name=org.kde.StatusNotifierWatcher
+modules:
+- name: spectral
+  buildsystem: qmake
+  sources:
+  - type: dir
+    path: ../
