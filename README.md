@@ -1,24 +1,24 @@
-# Matrique
+# Spectral
 
-[![Pipeline Status](https://gitlab.com/b0/matrique/badges/master/pipeline.svg)](https://gitlab.com/b0/matrique/commits/master)
-[![Build Status](https://ci.appveyor.com/api/projects/status/idt149cdxwurbukh?svg=true)](https://ci.appveyor.com/project/BlackHat/matrique)
-[![Coverage Report](https://gitlab.com/b0/matrique/badges/master/coverage.svg)](https://gitlab.com/b0/matrique/commits/master)
+[![Pipeline Status](https://gitlab.com/b0/spectral/badges/master/pipeline.svg)](https://gitlab.com/b0/spectral/commits/master)
+[![Build Status](https://ci.appveyor.com/api/projects/status/idt149cdxwurbukh?svg=true)](https://ci.appveyor.com/project/BlackHat/spectral)
+[![Coverage Report](https://gitlab.com/b0/spectral/badges/master/coverage.svg)](https://gitlab.com/b0/spectral/commits/master)
 
 <a href='https://flathub.org/apps/details/org.eu.encom.matrique'><img width='240' alt='Get it on Flathub' src='https://flathub.org/assets/badges/flathub-badge-i-en.png'/></a>
 
 > "Nobody can be told what the matrix is, you have to see it for yourself. "
 
-Matrique is a glossy cross-platform client for Matrix, the decentralized communication protocol for instant messaging.
+Spectral is a glossy cross-platform client for Matrix, the decentralized communication protocol for instant messaging.
 
 ## Document
 
-There is a separate document for Matrique, including installing, compiling, etc.
+There is a separate document for Spectral, including installing, compiling, etc.
 
-It is at ![Matrique Doc](https://doc.matrique.encom.eu.org/)
+It is at [Spectral Doc](https://doc.spectral.encom.eu.org/)
 
 ## Contact
 
-You can reach the maintainer at #matrique:matrix.org, if you are already on Matrix.
+You can reach the maintainer at #spectral:matrix.org, if you are already on Matrix.
 
 Also, you can file an issue at this project if anything goes wrong.
 
@@ -26,9 +26,9 @@ Also, you can file an issue at this project if anything goes wrong.
 
 This program uses libqmatrixclient library and C++ models from Quaternion. 
 
-![Quaternion](https://github.com/QMatrixClient/Quaternion)
+[Quaternion](https://github.com/QMatrixClient/Quaternion)
 
-![libqmatrixclient](https://github.com/QMatrixClient/libqmatrixclient)
+[libqmatrixclient](https://github.com/QMatrixClient/libqmatrixclient)
 
 ## License
 
