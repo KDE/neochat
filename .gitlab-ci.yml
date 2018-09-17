@@ -3,7 +3,7 @@ stages:
   - deploy
 
 build-flatpak:
-  image: registry.gitlab.com/b0/spectral/flatpak
+  image: black0/flatpak
   stage: build
   before_script:
     - git submodule update --init --recursive
