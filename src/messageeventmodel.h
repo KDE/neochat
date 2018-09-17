@@ -28,7 +28,6 @@ class MessageEventModel : public QAbstractListModel {
     SpecialMarksRole,
     LongOperationRole,
     AnnotationRole,
-    PlainTextRole,
     UserMarkerRole,
     // For debugging
     EventResolvedTypeRole,

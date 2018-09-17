@@ -199,13 +199,6 @@ Page {
             }
 
             Switch {
-                text: "Use RichText instead of StyledText"
-                checked: MSettings.richText
-
-                onCheckedChanged: MSettings.richText = checked
-            }
-
-            Switch {
                 text: "Use press and hold instead of right click"
                 checked: MSettings.pressAndHold
 

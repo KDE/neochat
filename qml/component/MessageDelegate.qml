@@ -69,12 +69,23 @@ RowLayout {
                 }
             }
 
-            AutoLabel {
+            TextEdit {
                 Layout.fillWidth: true
 
-                text: display
+                text: (highlighted  ? "<style>a{color: white;}</style>" : "") + display
+
                 visible: isText
-                coloredBackground: highlighted
+                color: highlighted ? "white": Material.foreground
+
+                font.family: "Noto Sans"
+                font.pointSize: 10
+                selectByMouse: true
+                readOnly: true
+                wrapMode: Label.Wrap
+                selectionColor: Material.accent
+                textFormat: Text.RichText
+
+                onLinkActivated: Qt.openUrlExternally(link)
             }
 
             Loader {

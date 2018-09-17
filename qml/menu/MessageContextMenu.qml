@@ -10,11 +10,6 @@ Menu {
     id: messageContextMenu
 
     MenuItem {
-        text: "Copy"
-
-        onTriggered: matriqueController.copyToClipboard(model.plainText)
-    }
-    MenuItem {
         text: "View Source"
 
         onTriggered: {
