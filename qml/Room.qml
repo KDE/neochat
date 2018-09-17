@@ -15,7 +15,7 @@ Page {
     RoomListModel {
         id: roomListModel
 
-        onRoomAdded: if (!MSettings.lazyLoad) room.getPreviousContent(20)
+        onRoomAdded: room.getPreviousContent(20)
         onNewMessage: if (!window.active) matriqueController.showMessage(roomName, content, icon)
     }
 

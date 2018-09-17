@@ -192,13 +192,6 @@ Page {
 
         Column {
             Switch {
-                text: "Lazy load at initial sync"
-                checked: MSettings.lazyLoad
-
-                onCheckedChanged: MSettings.lazyLoad = checked
-            }
-
-            Switch {
                 text: "Use press and hold instead of right click"
                 checked: MSettings.pressAndHold
 

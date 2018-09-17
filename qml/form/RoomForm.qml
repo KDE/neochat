@@ -120,7 +120,7 @@ Item {
                     spacing: 8
 
                     boundsBehavior: Flickable.DragOverBounds
-                    flickDeceleration: 2000
+                    flickDeceleration: 4096
 
                     cacheBuffer: 200
 
@@ -479,6 +479,4 @@ Item {
             }
         }
     }
-
-    onCurrentRoomChanged: if (currentRoom && currentRoom.timelineSize === 0) currentRoom.getPreviousContent(20)
 }
