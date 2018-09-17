@@ -1,10 +1,10 @@
 # Spectral
 
 [![Pipeline Status](https://gitlab.com/b0/spectral/badges/master/pipeline.svg)](https://gitlab.com/b0/spectral/commits/master)
-[![Build Status](https://ci.appveyor.com/api/projects/status/idt149cdxwurbukh?svg=true)](https://ci.appveyor.com/project/BlackHat/spectral)
-[![Coverage Report](https://gitlab.com/b0/spectral/badges/master/coverage.svg)](https://gitlab.com/b0/spectral/commits/master)
+[![Build Status](https://ci.appveyor.com/api/projects/status/qxxwgtan9fdookv8?svg=true)](https://ci.appveyor.com/project/BlackHat/spectral)
+[![Build Status](https://travis-ci.org/encombhat/spectral.svg?branch=master)](https://travis-ci.org/encombhat/spectral)
 
-<a href='https://flathub.org/apps/details/org.eu.encom.matrique'><img width='240' alt='Get it on Flathub' src='https://flathub.org/assets/badges/flathub-badge-i-en.png'/></a>
+<a href='https://flathub.org/apps/details/org.eu.encom.spectral'><img width='240' alt='Get it on Flathub' src='https://flathub.org/assets/badges/flathub-badge-i-en.png'/></a>
 
 > "Nobody can be told what the matrix is, you have to see it for yourself. "
 
@@ -24,7 +24,7 @@ Also, you can file an issue at this project if anything goes wrong.
 
 ## Acknowledgement
 
-This program uses libqmatrixclient library and C++ models from Quaternion. 
+This program uses libqmatrixclient library and some C++ models from Quaternion. 
 
 [Quaternion](https://github.com/QMatrixClient/Quaternion)
 
