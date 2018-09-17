@@ -121,16 +121,6 @@ void Controller::invokeLogin() {
     AccountSettings account{accountId};
     if (!account.homeserver().isEmpty()) {
       auto accessToken = loadAccessToken(account);
-      if (accessToken.isEmpty()) {
-        // Try to look in the legacy location (QSettings) and if found,
-        // migrate it from there to a file.
-        accessToken = account.accessToken().toLatin1();
-        if (accessToken.isEmpty())
-          continue;  // No access token anywhere, no autologin
-
-        saveAccessToken(account, accessToken);
-        account.clearAccessToken();  // Clean the old place
-      }
 
       auto c = new Connection(account.homeserver(), this);
       auto deviceName = account.deviceName();
@@ -170,19 +160,8 @@ bool Controller::saveAccessToken(const AccountSettings& account,
         accountTokenFile.open(QFile::WriteOnly))) {
     emit errorOccured("Cannot save access token.");
   } else {
-    // Try to restrict access rights to the file. The below is useless
-    // on Windows: FAT doesn't control access at all and NTFS is
-    // incompatible with the UNIX perms model used by Qt. If the attempt
-    // didn't have the effect, at least ask the user if it's fine to save
-    // the token to a file readable by others.
-    // TODO: use system-specific API to ensure proper access.
-    if ((accountTokenFile.setPermissions(QFile::ReadOwner |
-                                         QFile::WriteOwner) &&
-         !(accountTokenFile.permissions() &
-           (QFile::ReadGroup | QFile::ReadOther)))) {
-      accountTokenFile.write(accessToken);
-      return true;
-    }
+    accountTokenFile.write(accessToken);
+    return true;
   }
   return false;
 }
