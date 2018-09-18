@@ -64,7 +64,7 @@ Item {
                     case 2: return "Favorites"
                     case 3: return "Rooms"
                     case 4: return "People"
-                    case 5: return "Low Priorities"
+                    case 5: return "Low Priority"
                     }
                 }
             }
