@@ -3,8 +3,8 @@
 
 #include "connection.h"
 #include "events/roomevent.h"
-#include "spectralroom.h"
 #include "room.h"
+#include "spectralroom.h"
 
 #include <QtCore/QAbstractListModel>
 
@@ -37,6 +37,7 @@ class RoomListModel : public QAbstractListModel {
     UnreadCountRole,
     HighlightCountRole,
     LastEventRole,
+    LastActiveTimeRole,
     CurrentRoomRole,
   };
 

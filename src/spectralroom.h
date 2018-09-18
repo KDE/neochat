@@ -35,6 +35,8 @@ class SpectralRoom : public Room {
   QString lastEvent();
   bool isEventHighlighted(const QMatrixClient::RoomEvent* e) const;
 
+  QDateTime lastActiveTime();
+
  private:
   QString m_cachedInput;
   QSet<const QMatrixClient::RoomEvent*> highlights;
@@ -59,7 +61,8 @@ class SpectralRoom : public Room {
   void acceptInvitation();
   void forget();
   void sendTypingNotification(bool isTyping);
-  void sendReply(QString userId, QString eventId, QString replyContent, QString sendContent);
+  void sendReply(QString userId, QString eventId, QString replyContent,
+                 QString sendContent);
 };
 
 #endif  // SpectralRoom_H

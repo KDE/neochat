@@ -73,7 +73,7 @@ Item {
                 RoleSorter { roleName: "category" },
                 RoleSorter {
                     enabled: MSettings.rearrangeByActivity
-                    roleName: "unreadCount"
+                    roleName: "lastActiveTime"
                     sortOrder: Qt.DescendingOrder
                 },
                 StringSorter { roleName: "name" }
