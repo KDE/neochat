@@ -37,6 +37,8 @@ class SpectralRoom : public Room {
 
   QDateTime lastActiveTime();
 
+  Q_INVOKABLE float orderForTag(QString name);
+
  private:
   QString m_cachedInput;
   QSet<const QMatrixClient::RoomEvent*> highlights;

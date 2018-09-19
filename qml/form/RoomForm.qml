@@ -336,6 +336,8 @@ Item {
                     Layout.fillWidth: true
                     Layout.preferredHeight: 48
 
+                    ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+
                     clip: true
 
                     TextArea {
@@ -343,6 +345,7 @@ Item {
 
                         id: inputField
 
+                        wrapMode: Text.Wrap
                         placeholderText: "Send a Message"
                         leftPadding: 16
                         topPadding: 0

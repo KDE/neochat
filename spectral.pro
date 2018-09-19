@@ -1,6 +1,7 @@
 QT += quick widgets multimedia
 CONFIG += c++14
 CONFIG += object_parallel_to_source
+CONFIG += link_pkgconfig
 
 # Enable this to use QtQuick Compiler.
 #CONFIG += qtquickcompiler
@@ -9,7 +10,6 @@ TARGET = spectral
 
 packagesExist(QMatrixClient) {
     message("Found libQMatrixClient via pkg-config.")
-    CONFIG += link_pkgconfig
     PKGCONFIG += QMatrixClient
 } else {
     include(include/libqmatrixclient/libqmatrixclient.pri)

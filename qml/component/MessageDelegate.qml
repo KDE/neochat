@@ -109,6 +109,14 @@ RowLayout {
 
                 spacing: 4
 
+                AutoLabel {
+                    visible: userMarker.length > 5
+                    text: userMarker.length - 5 + "+"
+                    coloredBackground: highlighted
+                    Material.foreground: "grey"
+                    font.pointSize: 8
+                }
+
                 Repeater {
                     model: userMarker.length > 5 ? userMarker.slice(0, 5) : userMarker
 
@@ -119,14 +127,6 @@ RowLayout {
                         hint: modelData.displayName
                         image: modelData.avatar
                     }
-                }
-
-                AutoLabel {
-                    visible: userMarker.length > 5
-                    text: userMarker.length - 5 + "+"
-                    coloredBackground: highlighted
-                    Material.foreground: "grey"
-                    font.pointSize: 8
                 }
 
                 AutoLabel {

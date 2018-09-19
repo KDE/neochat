@@ -142,6 +142,8 @@ void SpectralRoom::sendReply(QString userId, QString eventId,
 }
 
 QDateTime SpectralRoom::lastActiveTime() {
-    if (timelineSize() == 0) return QDateTime();
-    return messageEvents().rbegin()->get()->timestamp();
+  if (timelineSize() == 0) return QDateTime();
+  return messageEvents().rbegin()->get()->timestamp();
 }
+
+float SpectralRoom::orderForTag(QString name) { return tag(name).order; }
