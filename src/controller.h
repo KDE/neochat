@@ -66,7 +66,7 @@ class Controller : public QObject {
 
  signals:
   void busyChanged();
-  void errorOccured(QString error);
+  void errorOccured(QString error, QString detail);
   void showWindow();
   void hideWindow();
   void connectionAdded(Connection* conn);

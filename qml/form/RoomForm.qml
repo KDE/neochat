@@ -366,9 +366,10 @@ Item {
                         ToolTip.visible: currentRoom && currentRoom.hasUsersTyping
                         ToolTip.text: currentRoom ? currentRoom.usersTyping : ""
 
-                        Shortcut {
-                            sequence: "Ctrl+Return"
-                            onActivated: {
+                        Keys.onReturnPressed: {
+                            if (event.modifiers & Qt.ShiftModifier) {
+                                inputField.insert(inputField.cursorPosition, "\n")
+                            } else {
                                 inputField.postMessage(inputField.text)
                                 inputField.text = ""
                             }

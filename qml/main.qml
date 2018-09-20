@@ -40,7 +40,8 @@ ApplicationWindow {
         }
         onHideWindow: window.hide()
         onErrorOccured: {
-            errorLabel.text = error
+            errorDialog.error = error
+            errorDialog.detail = detail
             errorDialog.open()
         }
     }
@@ -51,14 +52,16 @@ ApplicationWindow {
     }
 
     Dialog {
+        property string error
+        property string detail
+
         x: (window.width - width) / 2
         y: (window.height - height) / 2
 
         id: errorDialog
-        title: "Error"
-        contentItem: Label {
-            id: errorLabel
-        }
+
+        title: error + " Error"
+        contentItem: Label { text: errorDialog.detail  }
     }
 
     Component {

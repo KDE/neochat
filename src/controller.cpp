@@ -74,7 +74,7 @@ void Controller::loginWithCredentials(QString serverAddr, QString user,
       addConnection(m_connection);
     });
     connect(m_connection, &Connection::loginError, [=] (QString error, QByteArray detail) {
-        emit errorOccured(error);
+        emit errorOccured("Login", error);
     });
   }
 }
@@ -161,7 +161,7 @@ bool Controller::saveAccessToken(const AccountSettings& account,
   auto fileDir = QFileInfo(accountTokenFile).dir();
   if (!((fileDir.exists() || fileDir.mkpath(".")) &&
         accountTokenFile.open(QFile::WriteOnly))) {
-    emit errorOccured("Cannot save access token.");
+    emit errorOccured("Token", "Cannot save access token.");
   } else {
     accountTokenFile.write(accessToken);
     return true;
