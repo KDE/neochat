@@ -39,6 +39,10 @@ ApplicationWindow {
             window.requestActivate()
         }
         onHideWindow: window.hide()
+        onErrorOccured: {
+            errorLabel.text = error
+            errorDialog.open()
+        }
     }
 
     AccountListModel {
@@ -46,22 +50,15 @@ ApplicationWindow {
         controller: spectralController
     }
 
-    Popup {
-        property bool busy: spectralController.busy
-
+    Dialog {
         x: (window.width - width) / 2
         y: (window.height - height) / 2
 
-        id: busyPopup
-
-        modal: true
-        focus: true
-
-        closePolicy: Popup.NoAutoClose
-
-        BusyIndicator { running: true }
-
-        onBusyChanged: busyPopup.busy ? busyPopup.open() : busyPopup.close()
+        id: errorDialog
+        title: "Error"
+        contentItem: Label {
+            id: errorLabel
+        }
     }
 
     Component {

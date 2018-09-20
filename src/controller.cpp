@@ -73,6 +73,9 @@ void Controller::loginWithCredentials(QString serverAddr, QString user,
       account.sync();
       addConnection(m_connection);
     });
+    connect(m_connection, &Connection::loginError, [=] (QString error, QByteArray detail) {
+        emit errorOccured(error);
+    });
   }
 }
 
