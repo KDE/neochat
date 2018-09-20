@@ -8,6 +8,7 @@ Text {
 
     id: materialLabel
 
+    color: MSettings.darkTheme ? "white" : "dark"
     font.pointSize: 16
     font.family: materialFont.name
     horizontalAlignment: Text.AlignHCenter

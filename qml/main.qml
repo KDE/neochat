@@ -61,7 +61,7 @@ ApplicationWindow {
         id: errorDialog
 
         title: error + " Error"
-        contentItem: Label { text: errorDialog.detail  }
+        contentItem: Label { text: errorDialog.detail }
     }
 
     Component {
