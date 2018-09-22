@@ -12,14 +12,14 @@ packagesExist(QMatrixClient) {
     message("Found libQMatrixClient via pkg-config.")
     PKGCONFIG += QMatrixClient
 } else {
-    messge("Build libQMatrixClient from source.")
+    message("Build libQMatrixClient from source.")
     include(include/libqmatrixclient/libqmatrixclient.pri)
 }
 packagesExist(SortFilterProxyModel) {
     message("Found qqmlsortfilterproxymodel via pkg-config.")
     PKGCONFIG += SortFilterProxyModel
 } else {
-    messge("Build qqmlsortfilterproxymodel from source.")
+    message("Build qqmlsortfilterproxymodel from source.")
     include(include/SortFilterProxyModel/SortFilterProxyModel.pri)
 }
 
