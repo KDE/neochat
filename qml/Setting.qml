@@ -37,7 +37,7 @@ Page {
 
                     spacing: 8
 
-                    SwipeDelegate {
+                    ItemDelegate {
                         width: accountSettingsListView.width
                         height: 64
 
@@ -65,23 +65,6 @@ Page {
                                     text: user.id
                                 }
                             }
-                        }
-
-                        swipe.right: Rectangle {
-                            width: parent.height
-                            height: parent.height
-                            anchors.right: parent.right
-
-                            color: Material.accent
-
-                            MaterialIcon {
-                                anchors.fill: parent
-
-                                icon: "\ue879"
-                                color: "white"
-                            }
-
-                            SwipeDelegate.onClicked: spectralController.logout(connection)
                         }
 
                         onClicked: expanded = !expanded
@@ -162,6 +145,15 @@ Page {
                                 selectByMouse: true
                                 readOnly: true
                             }
+                        }
+
+                        Button {
+                            Layout.fillWidth: true
+
+                            highlighted: true
+                            text: "Logout"
+
+                            onClicked: spectralController.logout(connection)
                         }
 
                         Behavior on height {

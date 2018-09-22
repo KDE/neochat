@@ -34,17 +34,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-SOURCES += src/main.cpp \
-    src/controller.cpp \
-    src/roomlistmodel.cpp \
-    src/imageprovider.cpp \
-    src/messageeventmodel.cpp \
-    src/emojimodel.cpp \
-    src/spectralroom.cpp \
-    src/userlistmodel.cpp \
-    src/imageitem.cpp \
-    src/accountlistmodel.cpp \
-    src/spectraluser.cpp
+SOURCES += $$PWD/src/main.cpp \
+    $$PWD/src/controller.cpp \
+    $$PWD/src/roomlistmodel.cpp \
+    $$PWD/src/imageprovider.cpp \
+    $$PWD/src/messageeventmodel.cpp \
+    $$PWD/src/emojimodel.cpp \
+    $$PWD/src/spectralroom.cpp \
+    $$PWD/src/userlistmodel.cpp \
+    $$PWD/src/imageitem.cpp \
+    $$PWD/src/accountlistmodel.cpp \
+    $$PWD/src/spectraluser.cpp
 
 RESOURCES += \
     res.qrc
@@ -82,28 +82,14 @@ mac {
     ICON = asset/img/icon.icns
 }
 
-#DISTFILES += \
-#    ChatForm.qml \
-#    LoginForm.qml \
-#    main.qml \
-#    Home.qml \
-#    Login.qml \
-#    ImageStatus.qml \
-#    ButtonDelegate.qml \
-#    SideNav.qml \
-#    RoomListForm.qml \
-#    Room.qml \
-#    Setting.qml \
-#    qml/js/md.js \
-
 HEADERS += \
-    src/controller.h \
-    src/roomlistmodel.h \
-    src/imageprovider.h \
-    src/messageeventmodel.h \
-    src/emojimodel.h \
-    src/spectralroom.h \
-    src/userlistmodel.h \
-    src/imageitem.h \
-    src/accountlistmodel.h \
-    src/spectraluser.h
+    $$PWD/src/controller.h \
+    $$PWD/src/roomlistmodel.h \
+    $$PWD/src/imageprovider.h \
+    $$PWD/src/messageeventmodel.h \
+    $$PWD/src/emojimodel.h \
+    $$PWD/src/spectralroom.h \
+    $$PWD/src/userlistmodel.h \
+    $$PWD/src/imageitem.h \
+    $$PWD/src/accountlistmodel.h \
+    $$PWD/src/spectraluser.h
