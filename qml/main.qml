@@ -116,25 +116,90 @@ ApplicationWindow {
 
                     clip: true
 
-                    delegate: SideNavButton {
+                    delegate: Column {
+                        property bool expanded: accountListView.currentConnection === connection
+
                         width: parent.width
-                        height: width
 
-                        selected: stackView.currentItem === page && currentConnection === connection
+                        spacing: 0
 
-                        ImageItem {
-                            anchors.fill: parent
-                            anchors.margins: 12
+                        SideNavButton {
+                            width: parent.width
+                            height: width
 
-                            hint: user.displayName
-                            image: user.avatar
+                            selected: stackView.currentItem === page && currentConnection === connection
+
+                            ImageItem {
+                                anchors.fill: parent
+                                anchors.margins: 12
+
+                                hint: user.displayName
+                                image: user.avatar
+                            }
+
+                            highlightColor: spectralController.color(user.id)
+
+                            page: roomPage
+
+                            onClicked: {
+                                accountListView.currentConnection = connection
+                                roomPage.filter = 0
+                            }
                         }
 
-                        highlightColor: spectralController.color(user.id)
+                        Column {
+                            width: parent.width
+                            height: expanded ? implicitHeight : 0
 
-                        page: roomPage
+                            spacing: 0
+                            clip: true
 
-                        onClicked: accountListView.currentConnection = connection
+                            SideNavButton {
+                                width: parent.width
+                                height: width
+
+                                MaterialIcon {
+                                    anchors.fill: parent
+
+                                    icon: "\ue7f7"
+                                    color:  "white"
+                                }
+
+                                onClicked: roomPage.filter = 1
+                            }
+
+                            SideNavButton {
+                                width: parent.width
+                                height: width
+
+                                MaterialIcon {
+                                    anchors.fill: parent
+
+                                    icon: "\ue7fd"
+                                    color:  "white"
+                                }
+
+                                onClicked: roomPage.filter = 2
+                            }
+
+                            SideNavButton {
+                                width: parent.width
+                                height: width
+
+                                MaterialIcon {
+                                    anchors.fill: parent
+
+                                    icon: "\ue886"
+                                    color:  "white"
+                                }
+
+                                onClicked: roomPage.filter = 3
+                            }
+
+                            Behavior on height {
+                                PropertyAnimation { easing.type: Easing.InOutCubic; duration: 200 }
+                            }
+                        }
                     }
                 }
 

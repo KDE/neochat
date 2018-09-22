@@ -9,6 +9,7 @@ import "form"
 
 Page {
     property alias connection: roomListModel.connection
+    property alias filter: roomListForm.filter
 
     id: page
 

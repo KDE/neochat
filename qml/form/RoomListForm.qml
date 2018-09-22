@@ -14,6 +14,7 @@ import "qrc:/js/util.js" as Util
 
 Item {
     property alias listModel: roomListProxyModel.sourceModel
+    property int filter: 0
     property var enteredRoom: null
 
     Label {
@@ -51,11 +52,25 @@ Item {
         SortFilterProxyModel {
             id: roomListProxyModel
 
-            filters: RegExpFilter {
-                roleName: "name"
-                pattern: searchField.text
-                caseSensitivity: Qt.CaseInsensitive
-            }
+            filters: [
+                RegExpFilter {
+                    roleName: "name"
+                    pattern: searchField.text
+                    caseSensitivity: Qt.CaseInsensitive
+                },
+                ExpressionFilter {
+                    enabled: filter === 1
+                    expression: unreadCount > 0
+                },
+                ExpressionFilter {
+                    enabled: filter === 2
+                    expression: category === 1 || category === 2 || category === 4
+                },
+                ExpressionFilter {
+                    enabled: filter === 3
+                    expression: category === 3 || category === 5
+                }
+            ]
             proxyRoles: ExpressionRole {
                 name: "display"
                 expression: {
@@ -72,11 +87,9 @@ Item {
             sorters: [
                 RoleSorter { roleName: "category" },
                 RoleSorter {
-                    enabled: MSettings.rearrangeByActivity
                     roleName: "lastActiveTime"
                     sortOrder: Qt.DescendingOrder
-                },
-                StringSorter { roleName: "name" }
+                }
             ]
         }
 

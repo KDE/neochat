@@ -213,13 +213,6 @@ Page {
 
                 onCheckedChanged: MSettings.miniMode = checked
             }
-
-            Switch {
-                text: "Rearrange rooms by activity"
-                checked: MSettings.rearrangeByActivity
-
-                onCheckedChanged: MSettings.rearrangeByActivity = checked
-            }
         }
     }
 
