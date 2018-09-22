@@ -10,6 +10,11 @@
 
 Spectral is a glossy cross-platform client for Matrix, the decentralized communication protocol for instant messaging.
 
+![Screenshot](https://gitlab.com/b0/spectral/raw/master/screenshots/1.png)
+![Screenshot](https://gitlab.com/b0/spectral/raw/master/screenshots/2.png)
+![Screenshot](https://gitlab.com/b0/spectral/raw/master/screenshots/3.png)
+![Screenshot](https://gitlab.com/b0/spectral/raw/master/screenshots/4.png)
+
 ## Document
 
 There is a separate document for Spectral, including installing, compiling, etc.
