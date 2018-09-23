@@ -158,22 +158,6 @@ Item {
                             }
                         }
 
-                        Label {
-                            Layout.alignment: Qt.AlignHCenter
-
-                            visible: readMarker === true && index !== 0
-
-                            text: "And Now"
-                            color: "white"
-                            verticalAlignment: Text.AlignVCenter
-                            leftPadding: 8
-                            rightPadding: 8
-                            topPadding: 4
-                            bottomPadding: 4
-
-                            background: Rectangle { color: MSettings.darkTheme ? "#484848" : "grey" }
-                        }
-
                         MessageDelegate {
                             visible: eventType === "notice" || eventType === "message" || eventType === "image" || eventType === "video" || eventType === "audio" || eventType === "file"
                         }
@@ -192,6 +176,22 @@ Item {
                             text: display
                             color: "grey"
                             font.italic: true
+                        }
+
+                        Label {
+                            Layout.alignment: Qt.AlignHCenter
+
+                            visible: readMarker === true && index !== 0
+
+                            text: "And Now"
+                            color: "white"
+                            verticalAlignment: Text.AlignVCenter
+                            leftPadding: 8
+                            rightPadding: 8
+                            topPadding: 4
+                            bottomPadding: 4
+
+                            background: Rectangle { color: MSettings.darkTheme ? "#484848" : "grey" }
                         }
                     }
 
