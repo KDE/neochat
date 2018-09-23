@@ -89,10 +89,6 @@ Item {
                     enabled: filter === 1
                     expression: unreadCount > 0
                 },
-                IndexFilter {
-                    enabled: filter === 1
-                    maximumIndex: 16
-                },
                 ExpressionFilter {
                     enabled: filter === 2
                     expression: category === 1 || category === 2 || category === 4
