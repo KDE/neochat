@@ -13,7 +13,7 @@ import "qrc:/qml/menu"
 import "qrc:/js/util.js" as Util
 
 Item {
-    property alias listModel: roomListProxyModel.sourceModel
+    property alias listModel: sortedRoomListModel.sourceModel
     property int filter: 0
     property var enteredRoom: null
 
@@ -50,27 +50,8 @@ Item {
         }
 
         SortFilterProxyModel {
-            id: roomListProxyModel
+            id: sortedRoomListModel
 
-            filters: [
-                RegExpFilter {
-                    roleName: "name"
-                    pattern: searchField.text
-                    caseSensitivity: Qt.CaseInsensitive
-                },
-                ExpressionFilter {
-                    enabled: filter === 1
-                    expression: unreadCount > 0
-                },
-                ExpressionFilter {
-                    enabled: filter === 2
-                    expression: category === 1 || category === 2 || category === 4
-                },
-                ExpressionFilter {
-                    enabled: filter === 3
-                    expression: category === 3 || category === 5
-                }
-            ]
             proxyRoles: ExpressionRole {
                 name: "display"
                 expression: {
@@ -89,6 +70,36 @@ Item {
                 RoleSorter {
                     roleName: "lastActiveTime"
                     sortOrder: Qt.DescendingOrder
+                }
+            ]
+        }
+
+        SortFilterProxyModel {
+            id: roomListProxyModel
+
+            sourceModel: sortedRoomListModel
+
+            filters: [
+                RegExpFilter {
+                    roleName: "name"
+                    pattern: searchField.text
+                    caseSensitivity: Qt.CaseInsensitive
+                },
+                ExpressionFilter {
+                    enabled: filter === 1
+                    expression: unreadCount > 0
+                },
+                IndexFilter {
+                    enabled: filter === 1
+                    maximumIndex: 16
+                },
+                ExpressionFilter {
+                    enabled: filter === 2
+                    expression: category === 1 || category === 2 || category === 4
+                },
+                ExpressionFilter {
+                    enabled: filter === 3
+                    expression: category === 3 || category === 5
                 }
             ]
         }
