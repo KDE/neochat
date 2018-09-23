@@ -35,6 +35,10 @@ This program uses libqmatrixclient library and some C++ models from Quaternion.
 
 [libqmatrixclient](https://github.com/QMatrixClient/libqmatrixclient)
 
+## Donation
+
+Donations are welcome! My Bitcoin wallet address is 1AmNvttxJ6zne8f2GEH8zMAMQuT4cMdnDN
+
 ## License
 
 ![GPLv3](https://www.gnu.org/graphics/gplv3-127x51.png)
