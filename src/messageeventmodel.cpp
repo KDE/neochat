@@ -9,6 +9,7 @@
 #include <events/roommemberevent.h>
 #include <events/simplestateevents.h>
 
+#include <QRegExp>
 #include <QtCore/QDebug>
 #include <QtQml>  // for qmlRegisterType()
 
@@ -327,8 +328,14 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
         [this](const RoomMessageEvent& e) {
           using namespace MessageEventContent;
 
-          if (e.hasTextContent() && e.mimeType().name() != "text/plain")
-            return static_cast<const TextContent*>(e.content())->body;
+          if (e.hasTextContent() && e.mimeType().name() != "text/plain") {
+            static const QRegExp userPillRegExp(
+                "<a (href=\"https://matrix.to/#/@.*:.*\")>(.*)</a>");
+            static const QRegExp replyToRegExp(
+                "<a href=\"https://matrix.to/#/!.*:.*/\\$.*:.*\">In reply to</a>");
+            return QString(static_cast<const TextContent*>(e.content())->body)
+                .replace(userPillRegExp, "<b class=\"user-pill\" \\1>\\2</b>").replace(replyToRegExp, "");
+          }
           if (e.hasFileContent()) {
             auto fileCaption = e.content()->fileInfo()->originalName;
             if (fileCaption.isEmpty())
@@ -416,7 +423,11 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
         tr("Unknown Event"));
   }
 
-  if (role == MessageRole) return evt.contentJson().value("body");
+  if (role == MessageRole) {
+    static const QRegExp rmReplyRegExp("^> <@.*:.*> .*\n\n(.*)");
+    return evt.contentJson().value("body").toString().replace(rmReplyRegExp,
+                                                              "\\1");
+  }
 
   if (role == Qt::ToolTipRole) {
     return evt.originalJson();

@@ -72,7 +72,7 @@ RowLayout {
             TextEdit {
                 Layout.fillWidth: true
 
-                text: (highlighted  ? "<style>a{color: white;}</style>" : "") + display
+                text: (highlighted  ? "<style>a{color: white;} .user-pill{color: white}</style>" : "<style>a{color: " + Material.accent + ";} .user-pill{color: " + Material.accent + "}</style>") + display
 
                 visible: isText
                 color: highlighted ? "white": Material.foreground
