@@ -8,18 +8,23 @@ CONFIG += link_pkgconfig
 
 TARGET = spectral
 
-packagesExist(QMatrixClient) {
-    message("Found libQMatrixClient via pkg-config.")
+isEmpty(USE_SYSTEM_SORTFILTERPROXYMODEL) {
+    USE_SYSTEM_SORTFILTERPROXYMODEL = false
+}
+isEmpty(USE_SYSTEM_QMATRIXCLIENT) {
+    USE_SYSTEM_QMATRIXCLIENT = false
+}
+
+$$USE_SYSTEM_QMATRIXCLIENT {
     PKGCONFIG += QMatrixClient
 } else {
-    message("Build libQMatrixClient from source.")
+    message("Falling back to built-in libQMatrixClient.")
     include(include/libqmatrixclient/libqmatrixclient.pri)
 }
-packagesExist(SortFilterProxyModel) {
-    message("Found qqmlsortfilterproxymodel via pkg-config.")
+$$USE_SYSTEM_SORTFILTERPROXYMODEL {
     PKGCONFIG += SortFilterProxyModel
 } else {
-    message("Build qqmlsortfilterproxymodel from source.")
+    message("Falling back to built-in SortFilterProxyModel.")
     include(include/SortFilterProxyModel/SortFilterProxyModel.pri)
 }
 
