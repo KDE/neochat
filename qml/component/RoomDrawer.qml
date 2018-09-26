@@ -101,6 +101,8 @@ Drawer {
             Layout.fillWidth: true
             Layout.fillHeight: true
 
+            id: userListView
+
             clip: true
 
             boundsBehavior: Flickable.DragOverBounds
@@ -109,48 +111,58 @@ Drawer {
                 room: roomDrawer.room
             }
 
-            delegate: SwipeDelegate {
-                width: parent.width
-                height: 48
+            delegate: Column {
+                property bool expanded: false
 
-                RowLayout {
-                    anchors.fill: parent
-                    anchors.margins: 8
-                    spacing: 12
+                ItemDelegate {
+                    width: userListView.width
+                    height: 48
 
-                    ImageItem {
-                        Layout.preferredWidth: height
-                        Layout.fillHeight: true
+                    RowLayout {
+                        anchors.fill: parent
+                        anchors.margins: 8
+                        spacing: 12
 
-                        image: avatar
-                        hint: name
+                        ImageItem {
+                            Layout.preferredWidth: height
+                            Layout.fillHeight: true
+
+                            image: avatar
+                            hint: name
+                        }
+
+                        Label {
+                            Layout.fillWidth: true
+
+                            text: name
+                        }
                     }
 
-                    Label {
+                    onClicked: expanded = !expanded
+                }
+
+                ColumnLayout {
+                    width: parent.width - 32
+                    height: expanded ? implicitHeight : 0
+                    anchors.horizontalCenter: parent.horizontalCenter
+
+                    spacing: 0
+
+                    clip: true
+
+                    Button {
                         Layout.fillWidth: true
 
-                        text: name
-                    }
-                }
+                        text: "Kick"
+                        highlighted: true
 
-                swipe.right: Rectangle {
-                    width: parent.height
-                    height: parent.height
-                    anchors.right: parent.right
-
-                    color: Material.accent
-
-                    MaterialIcon {
-                        anchors.fill: parent
-
-                        icon: "\ue8fb"
-                        color: "white"
+                        onClicked: room.kickMember(userId)
                     }
 
-                    SwipeDelegate.onClicked: room.kickMember(userId)
+                    Behavior on height {
+                        PropertyAnimation { easing.type: Easing.InOutCubic; duration: 200 }
+                    }
                 }
-
-                onClicked: inputField.insert(inputField.cursorPosition, name)
             }
 
             ScrollBar.vertical: ScrollBar {}

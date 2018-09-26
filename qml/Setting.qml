@@ -41,8 +41,6 @@ Page {
                         width: accountSettingsListView.width
                         height: 64
 
-                        clip: true
-
                         Row {
                             anchors.fill: parent
                             anchors.margins: 8
@@ -239,10 +237,16 @@ Page {
     Rectangle {
         width: 240
         height: parent.height
+        z: 10
 
         id: settingDrawer
 
         color: MSettings.darkTheme ? "#323232" : "#f3f3f3"
+
+        layer.enabled: true
+        layer.effect: ElevationEffect {
+            elevation: 4
+        }
 
         Column {
             anchors.fill: parent

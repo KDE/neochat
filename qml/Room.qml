@@ -6,6 +6,7 @@ import Spectral 0.1
 import Spectral.Settings 0.1
 
 import "form"
+import "component"
 
 Page {
     property alias connection: roomListModel.connection
@@ -16,46 +17,37 @@ Page {
     RoomListModel {
         id: roomListModel
 
-        onRoomAdded: room.getPreviousContent(20)
         onNewMessage: if (!window.active) spectralController.showMessage(roomName, content, icon)
     }
 
-    Rectangle {
+    RowLayout {
         anchors.fill: parent
 
-        color: MSettings.darkTheme ? "#323232" : "#f3f3f3"
+        spacing: 0
 
-        RowLayout {
-            anchors.fill: parent
+        RoomListForm {
+            Layout.fillHeight: true
+            Layout.preferredWidth: MSettings.miniMode ? 64 : page.width * 0.35
+            Layout.minimumWidth: 64
+            Layout.maximumWidth: 360
 
-            spacing: 0
+            id: roomListForm
 
-            RoomListForm {
-                Layout.fillHeight: true
-                Layout.preferredWidth: MSettings.miniMode ? 64 : page.width * 0.35
-                Layout.minimumWidth: 64
-                Layout.maximumWidth: 360
+            listModel:  roomListModel
 
-                id: roomListForm
-
-                listModel:  roomListModel
+            layer.enabled: true
+            layer.effect: ElevationEffect {
+                elevation: 2
             }
+        }
 
-            Rectangle {
-                Layout.preferredWidth: 1
-                Layout.fillHeight: true
+        RoomForm {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
 
-                color: MSettings.darkTheme ? "#363636" : "#ececec"
-            }
+            id: roomForm
 
-            RoomForm {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-
-                id: roomForm
-
-                currentRoom: roomListForm.enteredRoom
-            }
+            currentRoom: roomListForm.enteredRoom
         }
     }
 }

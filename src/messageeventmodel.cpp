@@ -13,6 +13,10 @@
 #include <QtCore/QDebug>
 #include <QtQml>  // for qmlRegisterType()
 
+static QString parseAvatarUrl(QUrl url) {
+  return url.host() + "/" + url.path();
+}
+
 QHash<int, QByteArray> MessageEventModel::roleNames() const {
   QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
   roles[EventTypeRole] = "eventType";
@@ -330,11 +334,12 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
 
           if (e.hasTextContent() && e.mimeType().name() != "text/plain") {
             static const QRegExp userPillRegExp(
-                "<a (href=\"https://matrix.to/#/@.*:.*\")>(.*)</a>");
-            static const QRegExp replyToRegExp(
-                "<a href=\"https://matrix.to/#/!.*:.*/\\$.*:.*\">In reply to</a>");
-            return QString(static_cast<const TextContent*>(e.content())->body)
-                .replace(userPillRegExp, "<b class=\"user-pill\" \\1>\\2</b>").replace(replyToRegExp, "");
+                "<a href=\"https://matrix.to/#/@.*:.*\">(.*)</a>");
+            QString formattedStr(
+                static_cast<const TextContent*>(e.content())->body);
+            formattedStr.replace(userPillRegExp,
+                                 "<b class=\"user-pill\">\\1</b>");
+            return formattedStr;
           }
           if (e.hasFileContent()) {
             auto fileCaption = e.content()->fileInfo()->originalName;

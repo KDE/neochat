@@ -8,7 +8,6 @@ Control {
     property bool colored: false
 
     readonly property bool darkBackground: highlighted  ? true : MSettings.darkTheme
-    readonly property color backgroundColor: MSettings.darkTheme ? "#242424" : "lightgrey"
 
     padding: 12
 
@@ -22,5 +21,12 @@ Control {
         }
     }
 
-    background: Rectangle { color: colored ? Material.accent : highlighted ? Material.primary : backgroundColor }
+    background: Rectangle {
+        color: colored ? Material.accent : highlighted ? Material.primary : Material.background
+
+        layer.enabled: true
+        layer.effect: ElevationEffect {
+            elevation: 2
+        }
+    }
 }

@@ -8,18 +8,18 @@ import Spectral 0.1
 import SortFilterProxyModel 0.2
 import Spectral.Settings 0.1
 
-import "qrc:/qml/component"
-import "qrc:/qml/menu"
+import "../component"
+import "../menu"
 import "qrc:/js/util.js" as Util
 
-Item {
+Rectangle {
     property alias listModel: sortedRoomListModel.sourceModel
     property int filter: 0
     property var enteredRoom: null
 
-    Label {
-        z: 10
+    color: MSettings.darkTheme ? "#323232" : "#f3f3f3"
 
+    Label {
         text: MSettings.miniMode ? "Empty" : "Here? No, not here."
         anchors.centerIn: parent
         visible: listView.count === 0
@@ -41,7 +41,13 @@ Item {
             bottomPadding: 0
             placeholderText: "Search..."
 
-            background: Rectangle { color: MSettings.darkTheme ? "#303030" : "#fafafa" }
+            background: Rectangle {
+                color: MSettings.darkTheme ? "#303030" : "#fafafa"
+                layer.enabled: true
+                layer.effect: ElevationEffect {
+                    elevation: searchField.focus ? 2 : 1
+                }
+            }
 
             Shortcut {
                 sequence: StandardKey.Find
