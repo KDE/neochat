@@ -48,10 +48,10 @@ Item {
 
             color: Material.accent
 
-            layer.enabled: true
-            layer.effect: ElevationEffect {
-                elevation: 2
-            }
+//            layer.enabled: true
+//            layer.effect: ElevationEffect {
+//                elevation: 2
+//            }
 
             ItemDelegate {
                 anchors.fill: parent
