@@ -19,6 +19,23 @@ Item {
     MessageEventModel {
         id: messageEventModel
         room: currentRoom
+
+        onModelReset: {
+            if (currentRoom)
+            {
+                var lastScrollPosition = currentRoom.savedTopVisibleIndex()
+                if (lastScrollPosition === 0)
+                    messageListView.positionViewAtBeginning()
+                else
+                {
+                    console.log("Scrolling to position", lastScrollPosition)
+                    messageListView.positionViewAtIndex(lastScrollPosition, ListView.Contain)
+                }
+                if (messageListView.contentY < messageListView.originY + 10)
+                    currentRoom.getPreviousContent(100)
+            }
+            console.log("Model timeline reset")
+        }
     }
 
     RoomDrawer {
@@ -45,6 +62,8 @@ Item {
         Rectangle {
             Layout.fillWidth: true
             Layout.preferredHeight: 64
+
+            z: 10
 
             color: Material.accent
 
@@ -98,221 +117,215 @@ Item {
             }
         }
 
-        RowLayout {
+        ListView {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.leftMargin: 16
+            Layout.margins: 16
 
-            z: -10
+            id: messageListView
 
-            spacing: 0
+            displayMarginBeginning: 40
+            displayMarginEnd: 40
+            verticalLayoutDirection: ListView.BottomToTop
+            spacing: 8
 
-            ListView {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
+            flickDeceleration: 4096
 
-                id: messageListView
+            boundsBehavior: Flickable.DragOverBounds
 
-                displayMarginBeginning: 40
-                displayMarginEnd: 40
-                verticalLayoutDirection: ListView.BottomToTop
+            property int largestVisibleIndex: count > 0 ? indexAt(contentX, contentY + height - 1) : -1
+
+            onContentYChanged: {
+                // Check whether we're about to bump into the ceiling in 2 seconds
+                var curVelocity = verticalVelocity // Snapshot the current speed
+                if( curVelocity < 0 && contentY + curVelocity*2 < originY)
+                {
+                    // Request the amount of messages enough to scroll at this
+                    // rate for 3 more seconds
+                    var avgHeight = contentHeight / count
+                    currentRoom.getPreviousContent(-curVelocity*3 / avgHeight);
+                }
+            }
+
+            onMovementEnded: currentRoom.saveViewport(indexAt(contentX, contentY), largestVisibleIndex)
+
+            model: SortFilterProxyModel {
+                id: sortedRoomListModel
+
+                sourceModel: messageEventModel
+
+                filters: ExpressionFilter {
+                    expression: marks !== 0x08 && marks !== 0x10
+                }
+            }
+
+            delegate: ColumnLayout {
+                width: parent.width
+
+                id: delegateColumn
+
                 spacing: 8
 
-                boundsBehavior: Flickable.DragOverBounds
-                //                    flickDeceleration: 4096
+                Label {
+                    Layout.alignment: Qt.AlignHCenter
 
-                //                    cacheBuffer: 200
+                    visible: section !== aboveSection
 
-                model: SortFilterProxyModel {
-                    id: sortedRoomListModel
+                    text: section
+                    color: "white"
+                    verticalAlignment: Text.AlignVCenter
+                    leftPadding: 8
+                    rightPadding: 8
+                    topPadding: 4
+                    bottomPadding: 4
 
-                    sourceModel: messageEventModel
-
-                    filters: ExpressionFilter {
-                        expression: marks !== 0x08 && marks !== 0x10
+                    background: Rectangle {
+                        color: MSettings.darkTheme ? "#484848" : "grey"
                     }
                 }
 
-                delegate: ColumnLayout {
-                    width: parent.width
-
-                    id: delegateColumn
-
-                    spacing: 8
-
-                    Label {
-                        Layout.alignment: Qt.AlignHCenter
-
-                        visible: section !== aboveSection
-
-                        text: section
-                        color: "white"
-                        verticalAlignment: Text.AlignVCenter
-                        leftPadding: 8
-                        rightPadding: 8
-                        topPadding: 4
-                        bottomPadding: 4
-
-                        background: Rectangle {
-                            color: MSettings.darkTheme ? "#484848" : "grey"
-                        }
-                    }
-
-                    MessageDelegate {
-                        visible: eventType === "notice" || eventType === "message" || eventType === "image" || eventType === "video" || eventType === "audio" || eventType === "file"
-                    }
-
-                    StateDelegate {
-                        Layout.maximumWidth: messageListView.width * 0.8
-
-                        visible: eventType === "emote" || eventType === "state"
-                    }
-
-                    Label {
-                        Layout.alignment: Qt.AlignHCenter
-
-                        visible: eventType === "other"
-
-                        text: display
-                        color: "grey"
-                        font.italic: true
-                    }
-
-                    Label {
-                        Layout.alignment: Qt.AlignHCenter
-
-                        visible: readMarker === true && index !== 0
-
-                        text: "And Now"
-                        color: "white"
-                        verticalAlignment: Text.AlignVCenter
-                        leftPadding: 8
-                        rightPadding: 8
-                        topPadding: 4
-                        bottomPadding: 4
-
-                        background: Rectangle { color: MSettings.darkTheme ? "#484848" : "grey" }
-                    }
+                MessageDelegate {
+                    visible: eventType === "notice" || eventType === "message" || eventType === "image" || eventType === "video" || eventType === "audio" || eventType === "file"
                 }
 
-                ScrollBar.vertical: messageListViewScrollBar
+                StateDelegate {
+                    Layout.maximumWidth: messageListView.width * 0.8
 
-                onAtYBeginningChanged: atYBeginning && currentRoom ? currentRoom.getPreviousContent(20) : {}
-                onAtYEndChanged: atYEnd && currentRoom ? currentRoom.markAllMessagesAsRead() : {}
-
-                RoundButton {
-                    width: 64
-                    height: 64
-
-                    id: goTopFab
-
-                    visible: !(parent.atYEnd || messageListView.moving)
-
-                    anchors.right: parent.right
-                    anchors.bottom: parent.bottom
-
-                    contentItem: MaterialIcon {
-                        anchors.fill: parent
-
-                        icon: "\ue313"
-                        color: "white"
-                    }
-
-                    Material.background: Material.accent
-
-                    onClicked: parent.positionViewAtBeginning()
-
-                    Behavior on opacity { NumberAnimation { duration: 200 } }
+                    visible: eventType === "emote" || eventType === "state"
                 }
 
-                MessageContextMenu { id: messageContextMenu }
+                Label {
+                    Layout.alignment: Qt.AlignHCenter
 
-                Popup {
-                    property string sourceText
+                    visible: eventType === "other"
 
-                    x: (window.width - width) / 2
-                    y: (window.height - height) / 2
-                    width: 480
-
-                    id: sourceDialog
-
-                    parent: ApplicationWindow.overlay
-
-                    modal: true
-
-                    padding: 16
-
-                    closePolicy: Dialog.CloseOnEscape | Dialog.CloseOnPressOutside
-
-                    contentItem: ScrollView {
-                        TextArea {
-                            readOnly: true
-                            selectByMouse: true
-
-                            text: sourceDialog.sourceText
-                        }
-                    }
+                    text: display
+                    color: "grey"
+                    font.italic: true
                 }
 
-                Popup {
-                    property alias listModel: readMarkerListView.model
+                Label {
+                    Layout.alignment: Qt.AlignHCenter
 
-                    x: (window.width - width) / 2
-                    y: (window.height - height) / 2
-                    width: 320
+                    visible: readMarker === true && index !== 0
 
-                    id: readMarkerDialog
+                    text: "And Now"
+                    color: "white"
+                    verticalAlignment: Text.AlignVCenter
+                    leftPadding: 8
+                    rightPadding: 8
+                    topPadding: 4
+                    bottomPadding: 4
 
-                    parent: ApplicationWindow.overlay
+                    background: Rectangle { color: MSettings.darkTheme ? "#484848" : "grey" }
+                }
+            }
 
-                    modal: true
-                    padding: 16
+            RoundButton {
+                width: 64
+                height: 64
 
-                    closePolicy: Dialog.CloseOnEscape | Dialog.CloseOnPressOutside
+                id: goTopFab
 
-                    contentItem: ListView {
-                        implicitHeight: Math.min(window.height - 64, readMarkerListView.contentHeight)
+                visible: !(parent.atYEnd || messageListView.moving)
 
-                        id: readMarkerListView
+                anchors.right: parent.right
+                anchors.bottom: parent.bottom
 
-                        clip: true
-                        boundsBehavior: Flickable.DragOverBounds
+                contentItem: MaterialIcon {
+                    anchors.fill: parent
 
-                        delegate: ItemDelegate {
-                            width: parent.width
-                            height: 48
+                    icon: "\ue313"
+                    color: "white"
+                }
 
-                            RowLayout {
-                                anchors.fill: parent
-                                anchors.margins: 8
-                                spacing: 12
+                Material.background: Material.accent
 
-                                ImageItem {
-                                    Layout.preferredWidth: height
-                                    Layout.fillHeight: true
+                onClicked: parent.positionViewAtBeginning()
 
-                                    image: modelData.avatar
-                                    hint: modelData.displayName
-                                }
+                Behavior on opacity { NumberAnimation { duration: 200 } }
+            }
 
-                                Label {
-                                    Layout.fillWidth: true
+            MessageContextMenu { id: messageContextMenu }
 
-                                    text: modelData.displayName
-                                }
-                            }
-                        }
+            Popup {
+                property string sourceText
 
-                        ScrollBar.vertical: ScrollBar {}
+                x: (window.width - width) / 2
+                y: (window.height - height) / 2
+                width: 480
+
+                id: sourceDialog
+
+                parent: ApplicationWindow.overlay
+
+                modal: true
+
+                padding: 16
+
+                closePolicy: Dialog.CloseOnEscape | Dialog.CloseOnPressOutside
+
+                contentItem: ScrollView {
+                    TextArea {
+                        readOnly: true
+                        selectByMouse: true
+
+                        text: sourceDialog.sourceText
                     }
                 }
             }
 
-            ScrollBar {
-                Layout.preferredWidth: 16
-                Layout.fillHeight: true
+            Popup {
+                property alias listModel: readMarkerListView.model
 
-                id: messageListViewScrollBar
+                x: (window.width - width) / 2
+                y: (window.height - height) / 2
+                width: 320
+
+                id: readMarkerDialog
+
+                parent: ApplicationWindow.overlay
+
+                modal: true
+                padding: 16
+
+                closePolicy: Dialog.CloseOnEscape | Dialog.CloseOnPressOutside
+
+                contentItem: ListView {
+                    implicitHeight: Math.min(window.height - 64, readMarkerListView.contentHeight)
+
+                    id: readMarkerListView
+
+                    clip: true
+                    boundsBehavior: Flickable.DragOverBounds
+
+                    delegate: ItemDelegate {
+                        width: parent.width
+                        height: 48
+
+                        RowLayout {
+                            anchors.fill: parent
+                            anchors.margins: 8
+                            spacing: 12
+
+                            ImageItem {
+                                Layout.preferredWidth: height
+                                Layout.fillHeight: true
+
+                                image: modelData.avatar
+                                hint: modelData.displayName
+                            }
+
+                            Label {
+                                Layout.fillWidth: true
+
+                                text: modelData.displayName
+                            }
+                        }
+                    }
+
+                    ScrollBar.vertical: ScrollBar {}
+                }
             }
         }
 

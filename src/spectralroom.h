@@ -38,6 +38,9 @@ class SpectralRoom : public Room {
   QDateTime lastActiveTime();
 
   Q_INVOKABLE float orderForTag(QString name);
+  Q_INVOKABLE int savedTopVisibleIndex() const;
+  Q_INVOKABLE int savedBottomVisibleIndex() const;
+  Q_INVOKABLE void saveViewport(int topIndex, int bottomIndex);
 
  private:
   QString m_cachedInput;

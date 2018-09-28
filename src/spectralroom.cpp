@@ -147,3 +147,31 @@ QDateTime SpectralRoom::lastActiveTime() {
 }
 
 float SpectralRoom::orderForTag(QString name) { return tag(name).order; }
+
+int SpectralRoom::savedTopVisibleIndex() const {
+  return firstDisplayedMarker() == timelineEdge()
+             ? 0
+             : firstDisplayedMarker() - messageEvents().rbegin();
+}
+
+int SpectralRoom::savedBottomVisibleIndex() const {
+  return lastDisplayedMarker() == timelineEdge()
+             ? 0
+             : lastDisplayedMarker() - messageEvents().rbegin();
+}
+
+void SpectralRoom::saveViewport(int topIndex, int bottomIndex) {
+  if (topIndex == -1 || bottomIndex == -1 ||
+      (bottomIndex == savedBottomVisibleIndex() &&
+       (bottomIndex == 0 || topIndex == savedTopVisibleIndex())))
+    return;
+  if (bottomIndex == 0) {
+    qDebug() << "Saving viewport as the latest available";
+    setFirstDisplayedEventId({});
+    setLastDisplayedEventId({});
+    return;
+  }
+  qDebug() << "Saving viewport:" << topIndex << "thru" << bottomIndex;
+  setFirstDisplayedEvent(maxTimelineIndex() - topIndex);
+  setLastDisplayedEvent(maxTimelineIndex() - bottomIndex);
+}
