@@ -103,7 +103,8 @@ Item {
         ListView {
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.margins: 16
+            Layout.leftMargin: 16
+            Layout.rightMargin: 16
 
             id: messageListView
 

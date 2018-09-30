@@ -25,6 +25,8 @@ void ImageItem::paint(QPainter *painter) {
                         int(bounding_rect.height()));
     painter->setPen(QPen(Qt::white, 2));
     QFont font;
+    font.setStyleHint(QFont::SansSerif);
+
     font.setPixelSize(int(bounding_rect.width() / 2));
     font.setBold(true);
     painter->setFont(font);
