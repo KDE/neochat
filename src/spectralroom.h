@@ -15,6 +15,8 @@ class SpectralRoom : public Room {
   Q_PROPERTY(QString usersTyping READ getUsersTyping NOTIFY typingChanged)
   Q_PROPERTY(QString cachedInput READ cachedInput WRITE setCachedInput NOTIFY
                  cachedInputChanged)
+  Q_PROPERTY(bool busy READ busy NOTIFY busyChanged)
+
  public:
   explicit SpectralRoom(Connection* connection, QString roomId,
                         JoinState joinState = {});
@@ -26,6 +28,14 @@ class SpectralRoom : public Room {
     if (input != m_cachedInput) {
       m_cachedInput = input;
       emit cachedInputChanged();
+    }
+  }
+
+  bool busy() { return m_busy; }
+  void setBusy(bool value) {
+    if (m_busy != value) {
+      m_busy = value;
+      emit busyChanged();
     }
   }
 
@@ -42,9 +52,13 @@ class SpectralRoom : public Room {
   Q_INVOKABLE int savedBottomVisibleIndex() const;
   Q_INVOKABLE void saveViewport(int topIndex, int bottomIndex);
 
+  Q_INVOKABLE void getPreviousContent(int limit = 10);
+
  private:
   QString m_cachedInput;
   QSet<const QMatrixClient::RoomEvent*> highlights;
+
+  bool m_busy;
 
   QString getMIME(const QUrl& fileUrl) const;
   void postFile(const QUrl& localFile, const QUrl& mxcUrl);
@@ -59,6 +73,7 @@ class SpectralRoom : public Room {
 
  signals:
   void cachedInputChanged();
+  void busyChanged();
 
  public slots:
   void chooseAndUploadFile();

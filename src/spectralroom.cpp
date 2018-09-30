@@ -17,6 +17,8 @@ SpectralRoom::SpectralRoom(Connection* connection, QString roomId,
           &SpectralRoom::countChanged);
   connect(this, &SpectralRoom::highlightCountChanged, this,
           &SpectralRoom::countChanged);
+  connect(this, &Room::addedMessages, this,
+          [=] { setBusy(false); });
 }
 
 void SpectralRoom::chooseAndUploadFile() {
@@ -174,4 +176,9 @@ void SpectralRoom::saveViewport(int topIndex, int bottomIndex) {
   qDebug() << "Saving viewport:" << topIndex << "thru" << bottomIndex;
   setFirstDisplayedEvent(maxTimelineIndex() - topIndex);
   setLastDisplayedEvent(maxTimelineIndex() - bottomIndex);
+}
+
+void SpectralRoom::getPreviousContent(int limit) {
+  setBusy(true);
+  Room::getPreviousContent(limit);
 }

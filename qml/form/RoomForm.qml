@@ -100,6 +100,14 @@ Item {
             }
         }
 
+        ProgressBar {
+            Layout.fillWidth: true
+            z: 10
+
+            visible: currentRoom && currentRoom.busy
+            indeterminate: true
+        }
+
         ListView {
             Layout.fillWidth: true
             Layout.fillHeight: true
@@ -122,11 +130,9 @@ Item {
             onContentYChanged: {
                 // Check whether we're about to bump into the ceiling in 2 seconds
                 var curVelocity = verticalVelocity // Snapshot the current speed
-                if(curVelocity < 0 && contentY + curVelocity*2 < originY)
+                if(curVelocity < 0 && contentY + curVelocity * 2 < originY)
                 {
-                    // Request the amount of messages enough to scroll at this
-                    // rate for 3 more seconds
-                    currentRoom.getPreviousContent(20);
+                    currentRoom.getPreviousContent(50);
                 }
             }
 
@@ -159,8 +165,8 @@ Item {
                             console.log("Scrolling to position", lastScrollPosition)
                             messageListView.currentIndex = lastScrollPosition
                         }
-                        if (messageListView.contentY < messageListView.originY + 10)
-                            currentRoom.getPreviousContent(100)
+                        if (messageListView.contentY < messageListView.originY + 10 || currentRoom.timelineSize === 0)
+                            currentRoom.getPreviousContent(50)
                     }
                     console.log("Model timeline reset")
                 }
