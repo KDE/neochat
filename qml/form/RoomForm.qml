@@ -111,7 +111,6 @@ Item {
             displayMarginEnd: 40
             verticalLayoutDirection: ListView.BottomToTop
             spacing: 8
-            cacheBuffer: 200
 
             flickDeceleration: 4096
 
@@ -126,17 +125,18 @@ Item {
                 {
                     // Request the amount of messages enough to scroll at this
                     // rate for 3 more seconds
-                    var avgHeight = contentHeight / count
-                    currentRoom.getPreviousContent(-curVelocity*3 / avgHeight);
+                    currentRoom.getPreviousContent(20);
                 }
             }
 
             onMovementEnded: currentRoom.saveViewport(sortedMessageEventModel.mapToSource(indexAt(contentX, contentY)), sortedMessageEventModel.mapToSource(largestVisibleIndex))
 
-            displaced: Transition { NumberAnimation {
+            displaced: Transition {
+                NumberAnimation {
                     property: "y"; duration: 200
                     easing.type: Easing.OutQuad
-                }}
+                }
+            }
 
             model: SortFilterProxyModel {
                 id: sortedMessageEventModel

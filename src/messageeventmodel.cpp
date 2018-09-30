@@ -210,15 +210,11 @@ QDateTime MessageEventModel::makeMessageTimestamp(
 
 QString MessageEventModel::renderDate(QDateTime timestamp) const {
   auto date = timestamp.toLocalTime().date();
-  if (QMatrixClient::SettingsGroup("UI")
-          .value("banner_human_friendly_date", true)
-          .toBool()) {
-    if (date == QDate::currentDate()) return tr("Today");
-    if (date == QDate::currentDate().addDays(-1)) return tr("Yesterday");
-    if (date == QDate::currentDate().addDays(-2))
-      return tr("The day before yesterday");
-    if (date > QDate::currentDate().addDays(-7)) return date.toString("dddd");
-  }
+  if (date == QDate::currentDate()) return tr("Today");
+  if (date == QDate::currentDate().addDays(-1)) return tr("Yesterday");
+  if (date == QDate::currentDate().addDays(-2))
+    return tr("The day before yesterday");
+  if (date > QDate::currentDate().addDays(-7)) return date.toString("dddd");
   return date.toString(Qt::DefaultLocaleShortDate);
 }
 
@@ -334,7 +330,7 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
 
           if (e.hasTextContent() && e.mimeType().name() != "text/plain") {
             static const QRegExp userPillRegExp(
-                "<a href=\"https://matrix.to/#/@.*:.*\">(.*)</a>");
+                "<a href =\"https://matrix.to/#/@.*:.*\">(.*)</a>");
             QString formattedStr(
                 static_cast<const TextContent*>(e.content())->body);
             formattedStr.replace(userPillRegExp,
@@ -504,13 +500,11 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
     if (is<RedactionEvent>(evt)) return EventStatus::Hidden;
     auto* memberEvent = timelineIt->viewAs<RoomMemberEvent>();
     if (memberEvent) {
-      if ((memberEvent->isJoin() || memberEvent->isLeave()) &&
-          !Settings().value("UI/show_joinleave", true).toBool())
+      if ((memberEvent->isJoin() || memberEvent->isLeave()))
         return EventStatus::Hidden;
     }
     if (memberEvent || evt.isRedacted()) {
-      if (evt.senderId() == m_currentRoom->localUser()->id() ||
-          Settings().value("UI/show_spammy").toBool()) {
+      if (evt.senderId() == m_currentRoom->localUser()->id()) {
         //            QElapsedTimer et; et.start();
         auto hide = !isUserActivityNotable(timelineIt);
         //            qDebug() << "Checked user activity for" << evt.id() <<
@@ -518,14 +512,10 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
         if (hide) return EventStatus::Hidden;
       }
     }
-    if (evt.isRedacted())
-      return Settings().value("UI/show_redacted").toBool()
-                 ? EventStatus::Redacted
-                 : EventStatus::Hidden;
+    if (evt.isRedacted()) return EventStatus::Redacted;
 
     if (evt.isStateEvent() &&
-        static_cast<const StateEventBase&>(evt).repeatsState() &&
-        !Settings().value("UI/show_noop_events").toBool())
+        static_cast<const StateEventBase&>(evt).repeatsState())
       return EventStatus::Hidden;
 
     return EventStatus::Normal;
