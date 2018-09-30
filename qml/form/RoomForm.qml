@@ -19,23 +19,6 @@ Item {
     MessageEventModel {
         id: messageEventModel
         room: currentRoom
-
-        onModelReset: {
-            if (currentRoom)
-            {
-                var lastScrollPosition = currentRoom.savedTopVisibleIndex()
-                if (lastScrollPosition === 0)
-                    messageListView.positionViewAtBeginning()
-                else
-                {
-                    console.log("Scrolling to position", lastScrollPosition)
-                    messageListView.positionViewAtIndex(lastScrollPosition, ListView.Contain)
-                }
-                if (messageListView.contentY < messageListView.originY + 10)
-                    currentRoom.getPreviousContent(100)
-            }
-            console.log("Model timeline reset")
-        }
     }
 
     RoomDrawer {
@@ -128,6 +111,7 @@ Item {
             displayMarginEnd: 40
             verticalLayoutDirection: ListView.BottomToTop
             spacing: 8
+            cacheBuffer: 200
 
             flickDeceleration: 4096
 
@@ -138,7 +122,7 @@ Item {
             onContentYChanged: {
                 // Check whether we're about to bump into the ceiling in 2 seconds
                 var curVelocity = verticalVelocity // Snapshot the current speed
-                if( curVelocity < 0 && contentY + curVelocity*2 < originY)
+                if(curVelocity < 0 && contentY + curVelocity*2 < originY)
                 {
                     // Request the amount of messages enough to scroll at this
                     // rate for 3 more seconds
@@ -147,15 +131,37 @@ Item {
                 }
             }
 
-            onMovementEnded: currentRoom.saveViewport(indexAt(contentX, contentY), largestVisibleIndex)
+            onMovementEnded: currentRoom.saveViewport(sortedMessageEventModel.mapToSource(indexAt(contentX, contentY)), sortedMessageEventModel.mapToSource(largestVisibleIndex))
+
+            displaced: Transition { NumberAnimation {
+                    property: "y"; duration: 200
+                    easing.type: Easing.OutQuad
+                }}
 
             model: SortFilterProxyModel {
-                id: sortedRoomListModel
+                id: sortedMessageEventModel
 
                 sourceModel: messageEventModel
 
                 filters: ExpressionFilter {
                     expression: marks !== 0x08 && marks !== 0x10
+                }
+
+                onModelReset: {
+                    if (currentRoom)
+                    {
+                        var lastScrollPosition = mapFromSource(currentRoom.savedTopVisibleIndex())
+                        if (lastScrollPosition === 0)
+                            messageListView.positionViewAtBeginning()
+                        else
+                        {
+                            console.log("Scrolling to position", lastScrollPosition)
+                            messageListView.currentIndex = lastScrollPosition
+                        }
+                        if (messageListView.contentY < messageListView.originY + 10)
+                            currentRoom.getPreviousContent(100)
+                    }
+                    console.log("Model timeline reset")
                 }
             }
 

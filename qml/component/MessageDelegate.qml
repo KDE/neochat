@@ -77,8 +77,7 @@ RowLayout {
                 visible: isText
                 color: highlighted ? "white": Material.foreground
 
-                font.family: "Noto Sans"
-                font.pointSize: 10
+                font: Qt.font({pointSize: 10})
                 selectByMouse: true
                 readOnly: true
                 wrapMode: Label.Wrap
