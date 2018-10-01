@@ -27,7 +27,7 @@
 #include <QtNetwork/QNetworkReply>
 
 Controller::Controller(QObject* parent) : QObject(parent) {
-  tray->setIcon(QIcon(":/asset/img/icon.png"));
+  tray->setIcon(QIcon(":/assets/img/icon.png"));
   tray->setToolTip("Spectral");
   connect(tray, &QSystemTrayIcon::activated,
           [this](QSystemTrayIcon::ActivationReason r) {

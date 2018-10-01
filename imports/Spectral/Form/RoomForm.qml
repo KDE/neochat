@@ -2,12 +2,17 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.2
+
+import Spectral.Component 2.0
+import Spectral.Component.Emoji 2.0
+import Spectral.Component.Timeline 2.0
+import Spectral.Menu 2.0
+import Spectral.Effect 2.0
+
 import Spectral 0.1
-import Spectral.Settings 0.1
+import Spectral.Setting 0.1
 import SortFilterProxyModel 0.2
 
-import "../component"
-import "../menu"
 import "qrc:/js/md.js" as Markdown
 import "qrc:/js/util.js" as Util
 
@@ -122,19 +127,14 @@ Item {
             spacing: 8
 
             cacheBuffer: 200
-            flickDeceleration: 4096
 
             boundsBehavior: Flickable.DragOverBounds
 
             property int largestVisibleIndex: count > 0 ? indexAt(contentX, contentY + height - 1) : -1
 
             onContentYChanged: {
-                // Check whether we're about to bump into the ceiling in 2 seconds
-                var curVelocity = verticalVelocity // Snapshot the current speed
-                if(curVelocity < 0 && contentY  - 5000 < originY)
-                {
+                if(verticalVelocity < 0 && contentY  - 5000 < originY)
                     currentRoom.getPreviousContent(50);
-                }
             }
 
             onMovementEnded: currentRoom.saveViewport(sortedMessageEventModel.mapToSource(indexAt(contentX, contentY)), sortedMessageEventModel.mapToSource(largestVisibleIndex))
@@ -167,7 +167,7 @@ Item {
                             messageListView.currentIndex = lastScrollPosition
                         }
                         if (messageListView.contentY < messageListView.originY + 10 || currentRoom.timelineSize === 0)
-                            currentRoom.getPreviousContent(50)
+                            currentRoom.getPreviousContent(100)
                     }
                     console.log("Model timeline reset")
                 }

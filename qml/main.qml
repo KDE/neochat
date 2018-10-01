@@ -3,12 +3,13 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.2
 import Qt.labs.settings 1.0
-import QtGraphicalEffects 1.0
-import Spectral 0.1
-import Spectral.Settings 0.1
 
-import "component"
-import "form"
+import Spectral.Component 2.0
+import Spectral.Page 2.0
+
+import Spectral 0.1
+import Spectral.Setting 0.1
+
 import "qrc:/js/util.js" as Util
 
 ApplicationWindow {
@@ -27,8 +28,6 @@ ApplicationWindow {
     Material.theme: MSettings.darkTheme ? Material.Dark : Material.Light
 
     Material.accent: spectralController.color(currentConnection ? currentConnection.localUserId : "")
-
-    FontLoader { id: materialFont; source: "qrc:/asset/font/material.ttf" }
 
     Controller {
         id: spectralController

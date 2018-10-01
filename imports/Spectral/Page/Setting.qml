@@ -2,11 +2,13 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.2
 import QtQuick.Layouts 1.3
-import Spectral 0.1
-import Spectral.Settings 0.1
 
-import "component"
-import "form"
+import Spectral.Component 2.0
+import Spectral.Effect 2.0
+
+import Spectral 0.1
+import Spectral.Setting 0.1
+
 import "qrc:/js/util.js" as Util
 
 Page {
@@ -227,7 +229,7 @@ Page {
                 Layout.preferredWidth: 64
                 Layout.preferredHeight: 64
 
-                source: "qrc:/asset/img/icon.png"
+                source: "qrc:/assets/img/icon.png"
             }
             Label { text: "Spectral, an IM client for the Matrix protocol." }
             Label { text: "Released under GNU General Public License, version 3." }

@@ -3,10 +3,10 @@ import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.2
-import Qt.labs.settings 1.0
-import Spectral.Settings 0.1
 
-import "component"
+import Spectral.Component 2.0
+
+import Spectral.Setting 0.1
 
 Page {
     property var controller
@@ -22,7 +22,7 @@ Page {
                 Image {
                     id: background
                     anchors.fill: parent
-                    source: "qrc:/asset/img/background.jpg"
+                    source: "qrc:/assets/img/background.jpg"
                     fillMode: Image.PreserveAspectCrop
                     cache: false
                 }

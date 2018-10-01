@@ -4,12 +4,15 @@ import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 import QtQuick.Controls.Material 2.2
 import QtQml.Models 2.3
-import Spectral 0.1
-import SortFilterProxyModel 0.2
-import Spectral.Settings 0.1
 
-import "../component"
-import "../menu"
+import Spectral.Component 2.0
+import Spectral.Menu 2.0
+import Spectral.Effect 2.0
+
+import Spectral 0.1
+import Spectral.Setting 0.1
+import SortFilterProxyModel 0.2
+
 import "qrc:/js/util.js" as Util
 
 Rectangle {

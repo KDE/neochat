@@ -2,11 +2,13 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.2
-import Spectral 0.1
-import Spectral.Settings 0.1
 
-import "form"
-import "component"
+import Spectral.Form 2.0
+import Spectral.Component 2.0
+import Spectral.Effect 2.0
+
+import Spectral 0.1
+import Spectral.Setting 0.1
 
 Page {
     property alias connection: roomListModel.connection

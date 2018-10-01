@@ -8,10 +8,10 @@
 #include "emojimodel.h"
 #include "imageitem.h"
 #include "imageprovider.h"
-#include "spectralroom.h"
 #include "messageeventmodel.h"
 #include "room.h"
 #include "roomlistmodel.h"
+#include "spectralroom.h"
 #include "userlistmodel.h"
 
 #include "csapi/joining.h"
@@ -47,10 +47,17 @@ int main(int argc, char *argv[]) {
   qmlRegisterUncreatableType<RoomMessageEvent>("Spectral", 0, 1,
                                                "RoomMessageEvent", "ENUM");
   qmlRegisterUncreatableType<RoomType>("Spectral", 0, 1, "RoomType", "ENUM");
-  qmlRegisterSingletonType(QUrl("qrc:/qml/SpectralSettings.qml"),
-                           "Spectral.Settings", 0, 1, "MSettings");
+
+  qmlRegisterSingletonType(QUrl("qrc:/imports/Spectral/Setting/Setting.qml"),
+                           "Spectral.Setting", 0, 1, "MSettings");
+  qmlRegisterSingletonType(
+      QUrl("qrc:/imports/Spectral/Font/MaterialFont.qml"), "Spectral.Font",
+      0, 1, "MaterialFont");
+  qmlRegisterModule("qrc:/qml/component", 2, 0);
 
   QQmlApplicationEngine engine;
+
+  engine.addImportPath("qrc:/imports");
 
   ImageProvider *m_provider = new ImageProvider();
 

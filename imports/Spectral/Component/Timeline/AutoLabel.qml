@@ -1,7 +1,8 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.2
-import Spectral.Settings 0.1
+
+import Spectral.Setting 0.1
 
 Label {
     property bool coloredBackground

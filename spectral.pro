@@ -39,26 +39,26 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-SOURCES += $$PWD/src/main.cpp \
-    $$PWD/src/controller.cpp \
-    $$PWD/src/roomlistmodel.cpp \
-    $$PWD/src/imageprovider.cpp \
-    $$PWD/src/messageeventmodel.cpp \
-    $$PWD/src/emojimodel.cpp \
-    $$PWD/src/spectralroom.cpp \
-    $$PWD/src/userlistmodel.cpp \
-    $$PWD/src/imageitem.cpp \
-    $$PWD/src/accountlistmodel.cpp \
-    $$PWD/src/spectraluser.cpp
+SOURCES += src/main.cpp \
+    src/controller.cpp \
+    src/roomlistmodel.cpp \
+    src/imageprovider.cpp \
+    src/messageeventmodel.cpp \
+    src/emojimodel.cpp \
+    src/spectralroom.cpp \
+    src/userlistmodel.cpp \
+    src/imageitem.cpp \
+    src/accountlistmodel.cpp \
+    src/spectraluser.cpp
 
 RESOURCES += \
     res.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
-QML_IMPORT_PATH =
+QML_IMPORT_PATH += imports/
 
 # Additional import path used to resolve QML modules just for Qt Quick Designer
-QML_DESIGNER_IMPORT_PATH =
+QML_DESIGNER_IMPORT_PATH += imports/
 
 # Default rules for deployment.
 unix:!mac:isEmpty(PREFIX) {
@@ -80,11 +80,11 @@ unix:!mac {
 }
 
 win32 {
-    RC_ICONS = asset/img/icon.ico
+    RC_ICONS = assets/img/icon.ico
 }
 
 mac {
-    ICON = asset/img/icon.icns
+    ICON = assets/img/icon.icns
 }
 
 HEADERS += \

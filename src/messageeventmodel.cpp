@@ -87,10 +87,12 @@ void MessageEventModel::setRoom(SpectralRoom* room) {
                                   {AboveEventTypeRole, AboveAuthorRole,
                                    AboveSectionRole, AboveTimeRole});
               }
+
               for (auto i = m_currentRoom->maxTimelineIndex() - biggest;
                    i <= m_currentRoom->maxTimelineIndex() - lowest; ++i)
                 refreshLastUserEvents(i);
-            });
+            },
+            Qt::QueuedConnection);
     connect(m_currentRoom, &Room::pendingEventAboutToAdd, this,
             [this] { beginInsertRows({}, 0, 0); });
     connect(m_currentRoom, &Room::pendingEventAdded, this,
