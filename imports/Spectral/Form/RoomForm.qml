@@ -137,7 +137,11 @@ Item {
                     currentRoom.getPreviousContent(50);
             }
 
-            onMovementEnded: currentRoom.saveViewport(sortedMessageEventModel.mapToSource(indexAt(contentX, contentY)), sortedMessageEventModel.mapToSource(largestVisibleIndex))
+            onMovementEnded: {
+                currentRoom.saveViewport(sortedMessageEventModel.mapToSource(indexAt(contentX, contentY)), sortedMessageEventModel.mapToSource(largestVisibleIndex))
+                var newReadMarker = sortedMessageEventModel.get(largestVisibleIndex).eventId
+                if (newReadMarker) currentRoom.readMarkerEventId = newReadMarker
+            }
 
             displaced: Transition {
                 NumberAnimation {
