@@ -4,6 +4,7 @@ import QtQuick.Controls 2.2
 Menu {
     property var row: null
     property var model: null
+    property string selectedText
 
     readonly property bool isFile: model  && (model.eventType === "video" || model.eventType === "audio" || model.eventType === "file" || model.eventType === "image")
 
@@ -48,7 +49,7 @@ Menu {
 
         onTriggered: {
             inputField.clear()
-            inputField.insert(0, "> <" + model.author.id + "><" + model.eventId + "> " + model.message + "\n\n")
+            inputField.insert(0, "> <" + model.author.id + "><" + model.eventId + "> " + (selectedText != "" ? selectedText : model.message) + "\n\n")
         }
     }
     MenuItem {

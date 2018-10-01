@@ -330,7 +330,7 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
 
           if (e.hasTextContent() && e.mimeType().name() != "text/plain") {
             static const QRegExp userPillRegExp(
-                "<a href =\"https://matrix.to/#/@.*:.*\">(.*)</a>");
+                "<a href=\"https://matrix.to/#/@.*:.*\">(.*)</a>");
             QString formattedStr(
                 static_cast<const TextContent*>(e.content())->body);
             formattedStr.replace(userPillRegExp,

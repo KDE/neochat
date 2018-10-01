@@ -17,6 +17,7 @@ Control {
         onSecondaryClicked: {
             messageContextMenu.row = messageRow
             messageContextMenu.model = model
+            messageContextMenu.selectedText = contentLabel.selectedText
             messageContextMenu.popup()
         }
     }

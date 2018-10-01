@@ -121,6 +121,7 @@ Item {
             verticalLayoutDirection: ListView.BottomToTop
             spacing: 8
 
+            cacheBuffer: 200
             flickDeceleration: 4096
 
             boundsBehavior: Flickable.DragOverBounds
@@ -130,7 +131,7 @@ Item {
             onContentYChanged: {
                 // Check whether we're about to bump into the ceiling in 2 seconds
                 var curVelocity = verticalVelocity // Snapshot the current speed
-                if(curVelocity < 0 && contentY + curVelocity * 2 < originY)
+                if(curVelocity < 0 && contentY  - 5000 < originY)
                 {
                     currentRoom.getPreviousContent(50);
                 }
