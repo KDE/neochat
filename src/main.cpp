@@ -48,25 +48,14 @@ int main(int argc, char *argv[]) {
                                                "RoomMessageEvent", "ENUM");
   qmlRegisterUncreatableType<RoomType>("Spectral", 0, 1, "RoomType", "ENUM");
 
-  qmlRegisterSingletonType(QUrl("qrc:/imports/Spectral/Setting/Setting.qml"),
-                           "Spectral.Setting", 0, 1, "MSettings");
-  qmlRegisterSingletonType(
-      QUrl("qrc:/imports/Spectral/Font/MaterialFont.qml"), "Spectral.Font",
-      0, 1, "MaterialFont");
-  qmlRegisterModule("qrc:/qml/component", 2, 0);
-
   QQmlApplicationEngine engine;
 
   engine.addImportPath("qrc:/imports");
-
   ImageProvider *m_provider = new ImageProvider();
-
   engine.rootContext()->setContextProperty("imageProvider", m_provider);
-
   engine.addImageProvider(QLatin1String("mxc"), m_provider);
 
   engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
-
   if (engine.rootObjects().isEmpty()) return -1;
 
   return app.exec();

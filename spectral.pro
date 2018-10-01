@@ -3,9 +3,6 @@ CONFIG += c++14
 CONFIG += object_parallel_to_source
 CONFIG += link_pkgconfig
 
-# Enable this to use QtQuick Compiler.
-#CONFIG += qtquickcompiler
-
 TARGET = spectral
 
 isEmpty(USE_SYSTEM_SORTFILTERPROXYMODEL) {
