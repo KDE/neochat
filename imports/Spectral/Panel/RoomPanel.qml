@@ -23,7 +23,7 @@ RoomPanelForm {
     }
 
     messageListView {
-        property int largestVisibleIndex: messageListView.count > 0 ? messageListView.indexAt(messageListView.contentX, messageListView.contentY + height - 1) : -1
+        property int largestVisibleIndex: messageListView.count > 0 ? messageListView.indexAt(messageListView.contentX, messageListView.contentY + messageListView.height - 1) : -1
 
         onContentYChanged: {
             if(messageListView.verticalVelocity < 0 && messageListView.contentY  - 5000 < messageListView.originY)
