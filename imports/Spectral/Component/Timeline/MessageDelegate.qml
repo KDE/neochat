@@ -61,6 +61,8 @@ RowLayout {
             spacing: 0
 
             AutoLabel {
+                id: authorLabel
+
                 visible: messageRow.avatarVisible
                 text: author.displayName
                 Material.foreground: Material.accent
@@ -83,7 +85,8 @@ RowLayout {
                 visible: isText
                 color: highlighted ? "white": Material.foreground
 
-                font: Qt.font({pointSize: 10})
+                font.family: authorLabel.font.family
+                font.pointSize: 10
                 selectByMouse: true
                 readOnly: true
                 wrapMode: Label.Wrap
