@@ -9,6 +9,7 @@
 
 #include <QFileDialog>
 #include <QMimeDatabase>
+#include <QMetaObject>
 
 SpectralRoom::SpectralRoom(Connection* connection, QString roomId,
                            JoinState joinState)
@@ -180,5 +181,8 @@ void SpectralRoom::saveViewport(int topIndex, int bottomIndex) {
 
 void SpectralRoom::getPreviousContent(int limit) {
   setBusy(true);
-  Room::getPreviousContent(limit);
+  QMetaObject::invokeMethod(
+      this,
+      [=] { Room::getPreviousContent(limit); },
+      Qt::QueuedConnection);
 }

@@ -6,6 +6,8 @@ import QtQuick.Controls.Material 2.2
 import Spectral 0.1
 import Spectral.Setting 0.1
 
+import Spectral.Component 2.0
+
 import "qrc:/js/util.js" as Util
 
 RowLayout {
