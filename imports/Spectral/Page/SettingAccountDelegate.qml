@@ -131,6 +131,8 @@ Column {
 
             highlighted: true
             text: "Logout"
+
+            onClicked: connection.logout()
         }
     }
 }

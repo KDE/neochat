@@ -12,6 +12,9 @@ Page {
     property var controller
 
     property alias loginButton: loginButton
+    property alias serverField: serverField
+    property alias usernameField: usernameField
+    property alias passwordField: passwordField
 
     Row {
         anchors.fill: parent
@@ -145,3 +148,8 @@ Page {
         }
     }
 }
+
+/*##^## Designer {
+    D{i:0;autoSize:true;height:480;width:640}
+}
+ ##^##*/
