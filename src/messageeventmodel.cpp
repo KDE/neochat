@@ -87,12 +87,7 @@ void MessageEventModel::setRoom(SpectralRoom* room) {
                                   {AboveEventTypeRole, AboveAuthorRole,
                                    AboveSectionRole, AboveTimeRole});
               }
-
-              for (auto i = m_currentRoom->maxTimelineIndex() - biggest;
-                   i <= m_currentRoom->maxTimelineIndex() - lowest; ++i)
-                refreshLastUserEvents(i);
-            },
-            Qt::QueuedConnection);
+            });
     connect(m_currentRoom, &Room::pendingEventAboutToAdd, this,
             [this] { beginInsertRows({}, 0, 0); });
     connect(m_currentRoom, &Room::pendingEventAdded, this,
@@ -111,8 +106,7 @@ void MessageEventModel::setRoom(SpectralRoom* room) {
         endMoveRows();
         movingEvent = false;
       }
-      refreshRow(timelineBaseIndex());  // Refresh the looks
-      refreshLastUserEvents(0);
+      refreshRow(timelineBaseIndex());        // Refresh the looks
       if (m_currentRoom->timelineSize() > 1)  // Refresh above
         refreshEventRoles(timelineBaseIndex() + 1, {ReadMarkerRole});
       if (timelineBaseIndex() > 0)  // Refresh below, see #312
@@ -132,11 +126,6 @@ void MessageEventModel::setRoom(SpectralRoom* room) {
           {ReadMarkerRole});
       refreshEventRoles(lastReadEventId, {ReadMarkerRole});
     });
-    connect(m_currentRoom, &Room::replacedEvent, this,
-            [this](const RoomEvent* newEvent) {
-              refreshLastUserEvents(refreshEvent(newEvent->id()) -
-                                    timelineBaseIndex());
-            });
     connect(m_currentRoom, &Room::fileTransferProgress, this,
             &MessageEventModel::refreshEvent);
     connect(m_currentRoom, &Room::fileTransferCompleted, this,
@@ -218,82 +207,6 @@ QString MessageEventModel::renderDate(QDateTime timestamp) const {
     return tr("The day before yesterday");
   if (date > QDate::currentDate().addDays(-7)) return date.toString("dddd");
   return date.toString(Qt::DefaultLocaleShortDate);
-}
-
-bool MessageEventModel::isUserActivityNotable(
-    const QMatrixClient::Room::rev_iter_t& baseIt) const {
-  const auto& senderId = (*baseIt)->senderId();
-  // TODO: Go up and down the timeline (limit to 100 events for
-  // the sake of performance) and collect all messages of
-  // this author; find out if there's anything besides joins, leaves
-  // and redactions; if not, double-check whether the current event is
-  // a part of a re-join without following redactions.
-  using namespace QMatrixClient;
-  bool joinFound = false, redactionsFound = false;
-  // Find the nearest join of this user above, or a no-nonsense event.
-  for (auto it = baseIt,
-            limit = baseIt +
-                    std::min(int(m_currentRoom->timelineEdge() - baseIt), 100);
-       it != limit; ++it) {
-    const auto& e = **it;
-    if (e.senderId() != senderId) continue;
-    if (e.isRedacted()) {
-      redactionsFound = true;
-      continue;
-    }
-    if (auto* me = it->viewAs<QMatrixClient::RoomMemberEvent>()) {
-      if (me->isJoin()) {
-        joinFound = true;
-        break;
-      }
-      continue;
-    }
-    return true;  // Consider all other events notable
-  }
-  // Find the nearest leave of this user below, or a no-nonsense event
-  bool leaveFound = false;
-  for (auto it = baseIt.base() - 1,
-            limit = baseIt.base() +
-                    std::min(int(m_currentRoom->messageEvents().end() -
-                                 baseIt.base()),
-                             100);
-       it != limit; ++it) {
-    const auto& e = **it;
-    if (e.senderId() != senderId) continue;
-    if (e.isRedacted()) {
-      redactionsFound = true;
-      continue;
-    }
-    if (auto* me = it->viewAs<RoomMemberEvent>()) {
-      if (me->isLeave() || me->membership() == MembershipType::Ban) {
-        leaveFound = true;
-        break;
-      }
-      continue;
-    }
-    return true;
-  }
-  // If we are here, it means that no notable events have been found in
-  // the timeline vicinity, and probably redactions are there. Doesn't look
-  // notable but let's give some benefit of doubt.
-  if (redactionsFound) return false;  // Join + redactions or redactions + leave
-  return !(joinFound && leaveFound);  // Join + (maybe profile changes) + leave
-}
-
-void MessageEventModel::refreshLastUserEvents(int baseTimelineRow) {
-  if (!m_currentRoom || m_currentRoom->timelineSize() <= baseTimelineRow)
-    return;
-  const auto& timelineBottom = m_currentRoom->messageEvents().rbegin();
-  const auto& lastSender = (*(timelineBottom + baseTimelineRow))->senderId();
-  const auto limit = timelineBottom + std::min(baseTimelineRow + 100,
-                                               m_currentRoom->timelineSize());
-  for (auto it = timelineBottom + std::max(baseTimelineRow - 100, 0);
-       it != limit; ++it) {
-    if ((*it)->senderId() == lastSender) {
-      auto idx = index(it - timelineBottom);
-      emit dataChanged(idx, idx);
-    }
-  }
 }
 
 int MessageEventModel::rowCount(const QModelIndex& parent) const {
@@ -500,20 +413,6 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
     if (isPending) return pendingIt->deliveryStatus();
 
     if (is<RedactionEvent>(evt)) return EventStatus::Hidden;
-    auto* memberEvent = timelineIt->viewAs<RoomMemberEvent>();
-    if (memberEvent) {
-      if ((memberEvent->isJoin() || memberEvent->isLeave()))
-        return EventStatus::Hidden;
-    }
-    if (memberEvent || evt.isRedacted()) {
-      if (evt.senderId() == m_currentRoom->localUser()->id()) {
-        //            QElapsedTimer et; et.start();
-        auto hide = !isUserActivityNotable(timelineIt);
-        //            qDebug() << "Checked user activity for" << evt.id() <<
-        //            "in" << et;
-        if (hide) return EventStatus::Hidden;
-      }
-    }
     if (evt.isRedacted()) return EventStatus::Redacted;
 
     if (evt.isStateEvent() &&

@@ -59,10 +59,7 @@ class MessageEventModel : public QAbstractListModel {
   QDateTime makeMessageTimestamp(
       const QMatrixClient::Room::rev_iter_t& baseIt) const;
   QString renderDate(QDateTime timestamp) const;
-  bool isUserActivityNotable(
-      const QMatrixClient::Room::rev_iter_t& baseIt) const;
 
-  void refreshLastUserEvents(int baseRow);
   void refreshEventRoles(int row, const QVector<int>& roles = {});
   int refreshEventRoles(const QString& eventId, const QVector<int>& roles = {});
 

@@ -178,11 +178,3 @@ void SpectralRoom::saveViewport(int topIndex, int bottomIndex) {
   setFirstDisplayedEvent(maxTimelineIndex() - topIndex);
   setLastDisplayedEvent(maxTimelineIndex() - bottomIndex);
 }
-
-void SpectralRoom::getPreviousContent(int limit) {
-  setBusy(true);
-  QMetaObject::invokeMethod(
-      this,
-      [=] { Room::getPreviousContent(limit); },
-      Qt::QueuedConnection);
-}

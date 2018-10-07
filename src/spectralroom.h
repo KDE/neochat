@@ -52,8 +52,6 @@ class SpectralRoom : public Room {
   Q_INVOKABLE int savedBottomVisibleIndex() const;
   Q_INVOKABLE void saveViewport(int topIndex, int bottomIndex);
 
-  Q_INVOKABLE void getPreviousContent(int limit = 10);
-
  private:
   QString m_cachedInput;
   QSet<const QMatrixClient::RoomEvent*> highlights;

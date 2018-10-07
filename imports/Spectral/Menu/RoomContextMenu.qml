@@ -12,14 +12,14 @@ Menu {
         checkable: true
         checked: model && model.category === RoomType.Favorite
 
-        onTriggered: model.category === RoomType.Favorite ? model.currentRoom.removeTag("m.favourite") : model.currentRoom.addTag("m.favourite", "1")
+        onTriggered: model.category === RoomType.Favorite ? model.currentRoom.removeTag("m.favourite") : model.currentRoom.addTag("m.favourite", 1.0)
     }
     MenuItem {
         text: "Deprioritize"
         checkable: true
         checked: model && model.category === RoomType.Deprioritized
 
-        onTriggered: model.category === RoomType.Deprioritized ? model.currentRoom.removeTag("m.lowpriority") : model.currentRoom.addTag("m.lowpriority", "1")
+        onTriggered: model.category === RoomType.Deprioritized ? model.currentRoom.removeTag("m.lowpriority") : model.currentRoom.addTag("m.lowpriority", 1.0)
     }
     MenuSeparator {}
     MenuItem {
