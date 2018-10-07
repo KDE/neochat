@@ -15,6 +15,7 @@ Page {
     property alias serverField: serverField
     property alias usernameField: usernameField
     property alias passwordField: passwordField
+    property alias loginButtonTooltip: loginButtonTooltip
 
     Row {
         anchors.fill: parent
@@ -133,7 +134,13 @@ Page {
                 }
 
                 Button {
-                    Layout.fillWidth: true
+                    LayoTechhead0
+                    263 points ·
+                    1 month ago
+
+                    contraception*
+                    level 4
+ut.fillWidth: true
 
                     id: loginButton
 
