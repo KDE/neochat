@@ -65,14 +65,6 @@ Item {
             id: roomHeader
         }
 
-        ProgressBar {
-            Layout.fillWidth: true
-            z: 10
-
-            visible: currentRoom && currentRoom.busy
-            indeterminate: true
-        }
-
         ListView {
             Layout.fillWidth: true
             Layout.fillHeight: true

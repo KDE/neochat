@@ -66,4 +66,14 @@ Rectangle {
             }
         }
     }
+
+    ProgressBar {
+        width: parent.width
+        z: 10
+        anchors.bottom: parent.bottom
+
+        Material.accent: "white"
+        visible: currentRoom && currentRoom.busy
+        indeterminate: true
+    }
 }
