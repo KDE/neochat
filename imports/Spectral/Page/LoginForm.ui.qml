@@ -134,13 +134,7 @@ Page {
                 }
 
                 Button {
-                    LayoTechhead0
-                    263 points ·
-                    1 month ago
-
-                    contraception*
-                    level 4
-ut.fillWidth: true
+                    Layout.fillWidth: true
 
                     id: loginButton
 
