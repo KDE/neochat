@@ -44,11 +44,7 @@ RoomPanelForm {
         }
     }
 
-    goTopFab {
-        onClicked: messageListView.positionViewAtBeginning()
-
-        Behavior on opacity { NumberAnimation { duration: 200 } }
-    }
+    goTopFab.onClicked: messageListView.positionViewAtBeginning()
 
     uploadButton.onClicked: currentRoom.chooseAndUploadFile()
 

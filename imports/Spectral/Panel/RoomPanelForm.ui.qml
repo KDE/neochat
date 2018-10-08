@@ -159,13 +159,12 @@ Item {
             RoundButton {
                 width: 64
                 height: 64
+                anchors.right: parent.right
+                anchors.bottom: parent.bottom
 
                 id: goTopFab
 
-                visible: !(parent.atYEnd || messageListView.moving)
-
-                anchors.right: parent.right
-                anchors.bottom: parent.bottom
+                visible: !(messageListView.atYEnd || messageListView.moving)
 
                 contentItem: MaterialIcon {
                     anchors.fill: parent
@@ -258,7 +257,8 @@ Item {
                         }
                     }
 
-                    ScrollBar.vertical: ScrollBar {}
+                    ScrollBar.vertical: ScrollBar {
+                    }
                 }
             }
         }
