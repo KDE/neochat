@@ -22,7 +22,7 @@ build_script:
   
 after_build:
   - nmake install
-  - windeployqt --release --qmldir qml "%DEPLOY_DIR%\spectral.exe"
+  - windeployqt --release --qmldir qml --qmldir imports "%DEPLOY_DIR%\spectral.exe"
   - 7z a spectral.zip "%DEPLOY_DIR%\"
 
 artifacts:
