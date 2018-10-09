@@ -132,7 +132,7 @@ Column {
             highlighted: true
             text: "Logout"
 
-            onClicked: connection.logout()
+            onClicked: spectralController.logout(connection)
         }
     }
 }
