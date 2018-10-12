@@ -10,7 +10,7 @@ RoomPanelForm {
         {
             var lastScrollPosition = sortedMessageEventModel.mapFromSource(currentRoom.savedTopVisibleIndex())
             if (lastScrollPosition === 0)
-                messageListView.positionViewAtBeginning()
+                messageListView.positionViewAtEnd()
             else
             {
                 console.log("Scrolling to position", lastScrollPosition)
