@@ -15,8 +15,6 @@ using namespace QMatrixClient;
 
 class Controller : public QObject {
   Q_OBJECT
-
-  Q_PROPERTY(bool busy READ busy WRITE setBusy NOTIFY busyChanged)
   Q_PROPERTY(int accountCount READ accountCount NOTIFY connectionAdded NOTIFY
                  connectionDropped)
 
@@ -34,14 +32,6 @@ class Controller : public QObject {
   void dropConnection(Connection* c);
 
   // All the Q_PROPERTYs.
-  bool busy() { return m_busy; }
-  void setBusy(bool value) {
-    if (value != m_busy) {
-      m_busy = value;
-      emit busyChanged();
-    }
-  }
-
   int accountCount() { return m_connections.count(); }
 
   Q_INVOKABLE QColor color(QString userId);
@@ -52,8 +42,6 @@ class Controller : public QObject {
   QSystemTrayIcon* tray = new QSystemTrayIcon();
   QMenu* trayMenu = new QMenu();
   QVector<Connection*> m_connections;
-
-  bool m_busy = false;
 
   QByteArray loadAccessToken(const AccountSettings& account);
   bool saveAccessToken(const AccountSettings& account,
@@ -77,6 +65,7 @@ class Controller : public QObject {
   void logout(Connection* conn);
   void joinRoom(Connection* c, const QString& alias);
   void createRoom(Connection* c, const QString& name, const QString& topic);
+  void createDirectChat(Connection* c, const QString& userID);
   void copyToClipboard(const QString& text);
   void playAudio(QUrl localFile);
   void showMessage(const QString& title, const QString& msg, const QIcon& icon);

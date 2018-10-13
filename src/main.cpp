@@ -32,11 +32,6 @@ int main(int argc, char *argv[]) {
 
   app.setQuitOnLastWindowClosed(false);
 
-  qRegisterMetaType<SpectralRoom *>("SpectralRoom*");
-  qRegisterMetaType<User *>("User*");
-  qRegisterMetaType<MessageEventType>("MessageEventType");
-  qRegisterMetaType<SpectralRoom *>("SpectralRoom");
-
   qmlRegisterType<ImageItem>("Spectral", 0, 1, "ImageItem");
   qmlRegisterType<Controller>("Spectral", 0, 1, "Controller");
   qmlRegisterType<AccountListModel>("Spectral", 0, 1, "AccountListModel");
@@ -47,6 +42,10 @@ int main(int argc, char *argv[]) {
   qmlRegisterUncreatableType<RoomMessageEvent>("Spectral", 0, 1,
                                                "RoomMessageEvent", "ENUM");
   qmlRegisterUncreatableType<RoomType>("Spectral", 0, 1, "RoomType", "ENUM");
+
+  qRegisterMetaType<User *>("User*");
+  qRegisterMetaType<MessageEventType>("MessageEventType");
+  qRegisterMetaType<SpectralRoom *>("SpectralRoom");
 
   QQmlApplicationEngine engine;
 

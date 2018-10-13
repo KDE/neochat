@@ -8,6 +8,7 @@
 #include "events/roommessageevent.h"
 
 #include "csapi/joining.h"
+#include "csapi/logout.h"
 
 #include <QClipboard>
 #include <QFile>
@@ -75,7 +76,7 @@ void Controller::loginWithCredentials(QString serverAddr, QString user,
     });
     connect(m_connection, &Connection::loginError,
             [=](QString error, QByteArray detail) {
-              emit errorOccured("Login", error);
+              emit errorOccured("Login Failed", error);
             });
   }
 }
@@ -89,7 +90,15 @@ void Controller::logout(Connection* conn) {
   SettingsGroup("Accounts").remove(conn->userId());
   QFile(accessTokenFileName(AccountSettings(conn->userId()))).remove();
 
-  conn->logout();
+  auto job = conn->callApi<LogoutJob>();
+  connect(job, &LogoutJob::finished, conn, [=] {
+    conn->stopSync();
+    emit conn->stateChanged();
+    emit conn->loggedOut();
+  });
+  connect(job, &LogoutJob::failure, this, [=] {
+    emit errorOccured("Server-side Logout Failed", job->errorString());
+  });
 }
 
 void Controller::addConnection(Connection* c) {
@@ -172,18 +181,26 @@ bool Controller::saveAccessToken(const AccountSettings& account,
 
 void Controller::joinRoom(Connection* c, const QString& alias) {
   JoinRoomJob* joinRoomJob = c->joinRoom(alias);
-  setBusy(true);
-  joinRoomJob->connect(joinRoomJob, &JoinRoomJob::finished,
-                       [=] { setBusy(false); });
+  joinRoomJob->connect(joinRoomJob, &JoinRoomJob::failure, [=] {
+    emit errorOccured("Join Room Failed", joinRoomJob->errorString());
+  });
 }
 
 void Controller::createRoom(Connection* c, const QString& name,
                             const QString& topic) {
   CreateRoomJob* createRoomJob =
       c->createRoom(Connection::PublishRoom, "", name, topic, QStringList());
-  setBusy(true);
-  createRoomJob->connect(createRoomJob, &CreateRoomJob::finished,
-                         [=] { setBusy(false); });
+  createRoomJob->connect(createRoomJob, &CreateRoomJob::failure, [=] {
+    emit errorOccured("Create Room Failed", createRoomJob->errorString());
+  });
+}
+
+void Controller::createDirectChat(Connection* c, const QString& userID) {
+  CreateRoomJob* createRoomJob = c->createDirectChat(userID);
+  createRoomJob->connect(createRoomJob, &CreateRoomJob::failure, [=] {
+    emit errorOccured("Create Direct Chat Failed",
+                      createRoomJob->errorString());
+  });
 }
 
 void Controller::copyToClipboard(const QString& text) {

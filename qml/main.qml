@@ -254,6 +254,7 @@ ApplicationWindow {
                                 onAccepted: spectralController.createRoom(currentConnection, addRoomDialogNameTextField.text, addRoomDialogTopicTextField.text)
                             }
                         }
+
                         MenuItem {
                             text: "Join Room"
 
@@ -304,7 +305,7 @@ ApplicationWindow {
                                     placeholderText: "@bot:matrix.org"
                                 }
 
-                                onAccepted: currentConnection.createDirectChat(directChatDialogTextField.text)
+                                onAccepted: spectralController.createDirectChat(currentConnection, directChatDialogTextField.text)
                             }
                         }
                     }
