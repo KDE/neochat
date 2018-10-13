@@ -1,7 +1,14 @@
 import QtQuick 2.9
 
 LoginForm {
-    loginButton.onClicked: {
+    loginButton.onClicked: doLogin()
+
+    Shortcut {
+        sequence: "Return"
+        onActivated: doLogin()
+    }
+
+    function doLogin() {
         if (!(serverField.text.startsWith("http") && serverField.text.includes("://"))) {
             loginButtonTooltip.text = "Server address should start with http(s)://"
             loginButtonTooltip.open()
