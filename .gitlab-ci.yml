@@ -24,7 +24,7 @@ build-appimage:
     - apt-get install software-properties-common -y
     - add-apt-repository ppa:beineri/opt-qt-5.11.1-bionic -y
     - apt-get update
-    - apt-get install qt511base qt511graphicaleffects qt511multimedia qt511quickcontrols2 git wget -y
+    - apt-get install qt511-meta-full git wget -y
     - source /opt/qt*/bin/qt*-env.sh
     - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
     - chmod a+x linuxdeployqt-continuous-x86_64.AppImage
