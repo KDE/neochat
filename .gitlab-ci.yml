@@ -21,7 +21,7 @@ build-appimage:
   stage: build
   before_script:
     - sudo apt-get update
-    - sudo apt-get install -y wget libpulse-dev
+    - sudo apt-get install -y wget libpulse-dev fuse
     - git submodule update --init --recursive
     - wget https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage
     - chmod +x linuxdeployqt-continuous-x86_64.AppImage
