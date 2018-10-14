@@ -21,8 +21,8 @@ build-appimage:
   stage: build
   before_script:
     - git submodule update --init --recursive
-    - /opt/qt511/bin/qt511-env.sh
   script:
+    - /opt/qt511/bin/qt511-env.sh
     - qmake CONFIG+=release PREFIX=deploy
     - make
     - make install
