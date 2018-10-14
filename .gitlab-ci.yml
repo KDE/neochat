@@ -22,8 +22,8 @@ build-appimage:
   before_script:
     - git submodule update --init --recursive
   script:
-    - /opt/qt511/bin/qt511-env.sh
-    - qmake CONFIG+=release PREFIX=deploy
+    - sh /opt/qt511/bin/qt511-env.sh
+    - /opt/qt511/bin/qmake CONFIG+=release PREFIX=deploy
     - make
     - make install
     - /usr/bin/linuxdeployqt-continuous-x86_64.AppImage deploy/share/applications/org.eu.encom.spectral.desktop -appimage -qmldir=qml -qmldir=imports
