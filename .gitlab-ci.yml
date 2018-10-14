@@ -20,9 +20,9 @@ build-appimage:
   image: ubuntu:bionic
   stage: build
   before_script:
-    - sudo add-apt-repository ppa:beineri/opt-qt-5.11.1-bionic -y
-    - sudo apt-get update -qq
-    - sudo apt-get -y install qt511base qt511graphicaleffects qt511multimedia qt511quickcontrols2 git wget
+    - add-apt-repository ppa:beineri/opt-qt-5.11.1-bionic -y
+    - apt-get update -qq
+    - apt-get -y install qt511base qt511graphicaleffects qt511multimedia qt511quickcontrols2 git wget
     - source /opt/qt511/bin/qt511-env.sh
     - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
     - chmod a+x linuxdeployqt-continuous-x86_64.AppImage
