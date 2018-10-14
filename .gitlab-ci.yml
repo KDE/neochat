@@ -20,6 +20,7 @@ build-appimage:
   image: ubuntu:bionic
   stage: build
   before_script:
+    - apt-get install software-properties-common
     - add-apt-repository ppa:beineri/opt-qt-5.11.1-bionic -y
     - apt-get update -qq
     - apt-get -y install qt511base qt511graphicaleffects qt511multimedia qt511quickcontrols2 git wget
