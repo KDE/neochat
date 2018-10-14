@@ -13,7 +13,7 @@ script:
 - qmake spectral.pro PREFIX="${DEPLOY_DIR}"
 - make
 - make install
-- macdeployqt ${DEPLOY_DIR}/bin/spectral.app -dmg -qmldir=qml
+- macdeployqt ${DEPLOY_DIR}/bin/spectral.app -dmg -qmldir=qml -qmldir=imports
 
 before_deploy:
 - mv ${DEPLOY_DIR}/bin/spectral.dmg ./
