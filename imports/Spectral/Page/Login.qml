@@ -20,7 +20,7 @@ LoginForm {
             return
         }
 
-        loginButton.text = "Logining in..."
+        loginButton.text = "Logging in..."
         loginButton.enabled = false
         controller.loginWithCredentials(serverField.text, usernameField.text, passwordField.text)
 
