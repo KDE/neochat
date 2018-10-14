@@ -17,16 +17,18 @@ build-flatpak:
     - flatpak/spectral.flatpak
 
 build-appimage:
-  image: rabits/qt:5.11-desktop
+  image: ubuntu:bionic
   stage: build
   before_script:
-    - sudo apt-get update
-    - sudo apt-get install -y wget libpulse-dev fuse libxi6 libegl1-mesa libgstreamer-plugins-base1.0-0
     - git submodule update --init --recursive
-    - wget https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage
-    - chmod +x linuxdeployqt-continuous-x86_64.AppImage
+    - sudo add-apt-repository ppa:beineri/opt-qt-5.11.1-bionic -y
+    - sudo apt-get update -qq
+    - sudo apt-get -y install qt511base qt511graphicaleffects qt511multimedia qt511quickcontrols2
+    - source /opt/qt511/bin/qt511-env.sh
+    - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
+    - chmod a+x linuxdeployqt-continuous-x86_64.AppImage
   script:
-    - qmake PREFIX=deploy
+    - qmake CONFIG+=release PREFIX=deploy
     - make
     - make install
     - ./linuxdeployqt-continuous-x86_64.AppImage deploy/share/applications/org.eu.encom.spectral.desktop -appimage -qmldir=qml -qmldir=imports
