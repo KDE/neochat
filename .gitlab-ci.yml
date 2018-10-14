@@ -21,7 +21,7 @@ build-appimage:
   stage: build
   before_script:
     - sudo apt-get update
-    - sudo apt-get install -y wget libpulse-dev fuse libxi6 libegl1-mesa
+    - sudo apt-get install -y wget libpulse-dev fuse libxi6 libegl1-mesa gst-plugins-base1.0
     - git submodule update --init --recursive
     - wget https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage
     - chmod +x linuxdeployqt-continuous-x86_64.AppImage
