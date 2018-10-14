@@ -213,6 +213,7 @@ ApplicationWindow {
                         color:  "white"
                     }
 
+                    enabled: !addRoomMenu.opened
                     onClicked: addRoomMenu.popup()
 
                     Menu {
