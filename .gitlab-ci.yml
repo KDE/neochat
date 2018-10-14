@@ -17,7 +17,7 @@ build-flatpak:
     - flatpak/spectral.flatpak
 
 build-appimage:
-  image: rabits/qt
+  image: rabits/qt:5.11-desktop
   stage: build
   before_script:
     - git submodule update --init --recursive
