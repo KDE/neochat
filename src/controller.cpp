@@ -74,6 +74,10 @@ void Controller::loginWithCredentials(QString serverAddr, QString user,
       account.sync();
       addConnection(m_connection);
     });
+    connect(m_connection, &Connection::networkError,
+            [=](QString error, QByteArray detail) {
+              emit errorOccured("Network", error);
+            });
     connect(m_connection, &Connection::loginError,
             [=](QString error, QByteArray detail) {
               emit errorOccured("Login Failed", error);
@@ -141,6 +145,14 @@ void Controller::invokeLogin() {
         c->loadState();
         addConnection(c);
       });
+      connect(c, &Connection::loginError,
+              [=](QString error, QByteArray detail) {
+                emit errorOccured("Login Failed", error);
+              });
+      connect(c, &Connection::networkError,
+              [=](QString error, QByteArray detail) {
+                emit errorOccured("Network", error);
+              });
       c->connectWithToken(account.userId(), accessToken, account.deviceId());
     }
   }

@@ -10,7 +10,7 @@ using namespace QMatrixClient;
 
 class SpectralRoom : public Room {
   Q_OBJECT
-  Q_PROPERTY(QImage avatar READ getAvatar NOTIFY avatarChanged)
+  Q_PROPERTY(QImage avatar READ getAvatar NOTIFY inheritedAvatarChanged)
   Q_PROPERTY(bool hasUsersTyping READ hasUsersTyping NOTIFY typingChanged)
   Q_PROPERTY(QString usersTyping READ getUsersTyping NOTIFY typingChanged)
   Q_PROPERTY(QString cachedInput READ cachedInput WRITE setCachedInput NOTIFY
@@ -74,6 +74,7 @@ class SpectralRoom : public Room {
  signals:
   void cachedInputChanged();
   void busyChanged();
+  void inheritedAvatarChanged();  // https://bugreports.qt.io/browse/QTBUG-7684
 
  public slots:
   void chooseAndUploadFile();
