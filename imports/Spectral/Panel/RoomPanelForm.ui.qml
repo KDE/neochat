@@ -77,6 +77,7 @@ Item {
             displayMarginEnd: 40
             verticalLayoutDirection: ListView.BottomToTop
             spacing: 8
+            interactive: false
 
             boundsBehavior: Flickable.DragOverBounds
 
@@ -154,6 +155,12 @@ Item {
                         color: MSettings.darkTheme ? "#484848" : "grey"
                     }
                 }
+            }
+
+            ScrollHelper {
+                anchors.fill: parent
+
+                flickable: parent
             }
 
             RoundButton {

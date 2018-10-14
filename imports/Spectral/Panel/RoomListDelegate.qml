@@ -9,8 +9,6 @@ import Spectral.Setting 0.1
 import Spectral.Component 2.0
 
 Rectangle {
-    readonly property bool highlighted: currentRoom === enteredRoom
-
     color: MSettings.darkTheme ? "#303030" : "#fafafa"
 
     AutoMouseArea {
@@ -38,13 +36,13 @@ Rectangle {
     Rectangle {
         anchors.fill: parent
 
-        visible: highlightCount > 0 || highlighted
+        visible: highlightCount > 0 || currentRoom === enteredRoom
         color: Material.accent
         opacity: 0.1
     }
 
     Rectangle {
-        width: unreadCount > 0 || highlighted ? 4 : 0
+        width: unreadCount > 0 ? 4 : 0
         height: parent.height
 
         color: Material.accent
