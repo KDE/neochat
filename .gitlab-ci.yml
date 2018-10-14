@@ -26,7 +26,7 @@ build-appimage:
     - qmake CONFIG+=release PREFIX=deploy
     - make
     - make install
-    - ./linuxdeployqt-continuous-x86_64.AppImage deploy/share/applications/org.eu.encom.spectral.desktop -appimage -qmldir=qml -qmldir=imports
+    - /usr/bin/linuxdeployqt-continuous-x86_64.AppImage deploy/share/applications/org.eu.encom.spectral.desktop -appimage -qmldir=qml -qmldir=imports
   artifacts:
     paths:
     - Spectral-x86_64.AppImage
