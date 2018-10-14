@@ -137,7 +137,7 @@ Page {
             Repeater {
                 model: ListModel {
                     ListElement {
-                        category: "Account"
+                        category: "Accounts"
                         form: 0
                     }
                     ListElement {
