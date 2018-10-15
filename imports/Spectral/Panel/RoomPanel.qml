@@ -21,7 +21,8 @@ RoomPanelForm {
         property int largestVisibleIndex: messageListView.count > 0 ? messageListView.indexAt(messageListView.contentX, messageListView.contentY + messageListView.height - 1) : -1
 
         onContentYChanged: {
-            if(messageListView.verticalVelocity < 0 && messageListView.contentY  - 5000 < messageListView.originY)
+            console.log("Content Y changed.")
+            if(currentRoom && messageListView.contentY  - 5000 < messageListView.originY)
                 currentRoom.getPreviousContent(50);
         }
 
