@@ -39,6 +39,7 @@ Drawer {
         Label {
             Layout.fillWidth: true
 
+            wrapMode: Label.Wrap
             horizontalAlignment: Text.AlignHCenter
             text: room && room.id ? room.id : ""
         }
@@ -46,6 +47,7 @@ Drawer {
         Label {
             Layout.fillWidth: true
 
+            wrapMode: Label.Wrap
             horizontalAlignment: Text.AlignHCenter
             text: room && room.canonicalAlias ? room.canonicalAlias : "No Canonical Alias"
         }
@@ -53,6 +55,7 @@ Drawer {
         Label {
             Layout.fillWidth: true
 
+            wrapMode: Label.Wrap
             horizontalAlignment: Text.AlignHCenter
             text: room ? room.memberCount + " Members" : "No Member Count"
         }
