@@ -17,7 +17,7 @@ before_build:
   - git submodule update --init --recursive
 
 build_script:
-  - qmake spectral.pro PREFIX="%DEPLOY_DIR%"
+  - qmake spectral.pro CONFIG+=qtquickcompiler PREFIX="%DEPLOY_DIR%"
   - nmake
   
 after_build:
