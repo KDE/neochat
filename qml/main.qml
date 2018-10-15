@@ -336,7 +336,33 @@ ApplicationWindow {
                         color: "white"
                     }
 
-                    onClicked: Qt.quit()
+                    onClicked: MSettings.confirmOnExit ? confirmExitDialog.open() : Qt.quit()
+
+                    Dialog {
+                        x: (window.width - width) / 2
+                        y: (window.height - height) / 2
+                        width: 360
+
+                        id: confirmExitDialog
+
+                        parent: ApplicationWindow.overlay
+
+                        title: "Exit"
+                        modal: true
+                        standardButtons: Dialog.Ok | Dialog.Cancel
+
+                        contentItem: Column {
+                            Label { text: "Exit?" }
+                            CheckBox {
+                                text: "Do not ask next time"
+                                checked: !MSettings.confirmOnExit
+
+                                onCheckedChanged: MSettings.confirmOnExit = !checked
+                            }
+                        }
+
+                        onAccepted: Qt.quit()
+                    }
                 }
             }
         }

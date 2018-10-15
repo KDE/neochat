@@ -66,6 +66,13 @@ Page {
 
                 onCheckedChanged: MSettings.pressAndHold = checked
             }
+
+            Switch {
+                text: "Confirm on Exit"
+                checked: MSettings.confirmOnExit
+
+                onCheckedChanged: MSettings.confirmOnExit = checked
+            }
         }
     }
 
