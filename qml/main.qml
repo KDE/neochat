@@ -101,7 +101,7 @@ ApplicationWindow {
                 anchors.fill: parent
                 spacing: 0
 
-                ListView {
+                AutoListView {
                     property var currentConnection: null
 
                     Layout.fillWidth: true

@@ -52,7 +52,7 @@ Column {
 
         clip: true
 
-        ListView {
+        AutoListView {
             Layout.fillWidth: true
             Layout.preferredHeight: 24
 

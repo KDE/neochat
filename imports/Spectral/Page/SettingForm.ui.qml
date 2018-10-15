@@ -27,7 +27,7 @@ Page {
         ColumnLayout {
             anchors.fill: parent
 
-            ListView {
+            AutoListView {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
 

@@ -94,7 +94,7 @@ Rectangle {
             ]
         }
 
-        ListView {
+        AutoListView {
             Layout.fillWidth: true
             Layout.fillHeight: true
 
@@ -102,7 +102,6 @@ Rectangle {
 
             spacing: 1
             clip: true
-            interactive: false
 
             model: roomListProxyModel
 
@@ -137,12 +136,6 @@ Rectangle {
             }
 
             RoomContextMenu { id: roomContextMenu }
-
-            ScrollHelper {
-                anchors.fill: parent
-
-                flickable: parent
-            }
         }
     }
 }

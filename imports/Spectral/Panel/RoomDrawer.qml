@@ -100,7 +100,7 @@ Drawer {
             }
         }
 
-        ListView {
+        AutoListView {
             Layout.fillWidth: true
             Layout.fillHeight: true
 

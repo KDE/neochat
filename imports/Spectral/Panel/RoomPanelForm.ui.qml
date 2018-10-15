@@ -65,7 +65,7 @@ Item {
             id: roomHeader
         }
 
-        ListView {
+        AutoListView {
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.leftMargin: 16
@@ -77,7 +77,6 @@ Item {
             displayMarginEnd: 40
             verticalLayoutDirection: ListView.BottomToTop
             spacing: 8
-            interactive: false
 
             boundsBehavior: Flickable.DragOverBounds
 
@@ -157,12 +156,6 @@ Item {
                 }
             }
 
-            ScrollHelper {
-                anchors.fill: parent
-
-                flickable: parent
-            }
-
             RoundButton {
                 width: 64
                 height: 64
@@ -230,7 +223,7 @@ Item {
 
                 closePolicy: Dialog.CloseOnEscape | Dialog.CloseOnPressOutside
 
-                contentItem: ListView {
+                contentItem: AutoListView {
                     implicitHeight: Math.min(window.height - 64,
                                              readMarkerListView.contentHeight)
 

@@ -13,7 +13,6 @@ MouseArea {
         flickable.interactive = false
         flickable.maximumFlickVelocity = 100000
         flickable.boundsBehavior = Flickable.StopAtBounds
-        root.parent = flickable
     }
 
     function scrollByPixelDelta(flickableItem, pixelDelta) {
