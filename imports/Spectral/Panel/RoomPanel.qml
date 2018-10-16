@@ -40,8 +40,4 @@ RoomPanelForm {
     }
 
     goTopFab.onClicked: messageListView.positionViewAtBeginning()
-
-    uploadButton.onClicked: currentRoom.chooseAndUploadFile()
-
-    emojiButton.onClicked: emojiPicker.visible ? emojiPicker.close() : emojiPicker.open()
 }

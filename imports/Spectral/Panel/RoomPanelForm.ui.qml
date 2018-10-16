@@ -22,11 +22,7 @@ Item {
     property alias roomHeader: roomHeader
     property alias messageListView: messageListView
     property alias goTopFab: goTopFab
-    property alias uploadButton: uploadButton
-    property alias emojiButton: emojiButton
-    property alias emojiPicker: emojiPicker
     property alias sortedMessageEventModel: sortedMessageEventModel
-    property alias inputField: inputField
     property alias roomDrawer: roomDrawer
 
     id: root
@@ -276,74 +272,10 @@ Item {
 
             color: Material.background
 
-            Rectangle {
+            RoomPanelInput {
                 anchors.verticalCenter: parent.top
                 width: parent.width
                 height: 48
-
-                color: MSettings.darkTheme ? "#303030" : "#fafafa"
-
-                layer.enabled: true
-                layer.effect: ElevationEffect {
-                    elevation: 2
-                }
-
-                RowLayout {
-                    anchors.fill: parent
-
-                    spacing: 0
-
-                    ItemDelegate {
-                        Layout.preferredWidth: 48
-                        Layout.preferredHeight: 48
-
-                        id: uploadButton
-
-                        contentItem: MaterialIcon {
-                            icon: "\ue226"
-                        }
-                    }
-
-                    ScrollView {
-                        Layout.fillWidth: true
-                        Layout.preferredHeight: 48
-
-                        ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-
-                        clip: true
-
-                        RoomPanelInputField {
-                            id: inputField
-                        }
-                    }
-
-                    ItemDelegate {
-                        Layout.preferredWidth: 48
-                        Layout.preferredHeight: 48
-
-                        id: emojiButton
-
-                        contentItem: MaterialIcon {
-                            icon: "\ue24e"
-                        }
-
-                        EmojiPicker {
-                            x: window.width - 370
-                            y: window.height - 400
-
-                            width: 360
-                            height: 320
-
-                            id: emojiPicker
-
-                            parent: ApplicationWindow.overlay
-
-                            Material.elevation: 2
-
-                            textArea: inputField
-                        }
-                    }
-                }
             }
         }
     }
