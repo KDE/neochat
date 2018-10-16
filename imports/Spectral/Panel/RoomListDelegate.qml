@@ -25,6 +25,7 @@ Rectangle {
                 inviteDialog.currentRoom = currentRoom
                 inviteDialog.open()
             } else {
+                listView.currentIndex = index
                 enteredRoom = currentRoom
             }
         }
