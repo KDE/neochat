@@ -71,7 +71,7 @@ Page {
 
                 id: mainCol
 
-                TextField {
+                AutoTextField {
                     Layout.fillWidth: true
 
                     id: serverField
@@ -92,7 +92,7 @@ Page {
                     }
                 }
 
-                TextField {
+                AutoTextField {
                     Layout.fillWidth: true
 
                     id: usernameField
@@ -112,7 +112,7 @@ Page {
                     }
                 }
 
-                TextField {
+                AutoTextField {
                     Layout.fillWidth: true
 
                     id: passwordField

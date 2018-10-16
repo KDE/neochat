@@ -63,12 +63,11 @@ Drawer {
         RowLayout {
             Layout.fillWidth: true
 
-            TextField {
+            AutoTextField {
                 Layout.fillWidth: true
 
                 id: roomNameField
                 text: room && room.name ? room.name : ""
-                selectByMouse: true
             }
 
             ItemDelegate {
@@ -84,13 +83,12 @@ Drawer {
         RowLayout {
             Layout.fillWidth: true
 
-            TextField {
+            AutoTextField {
                 Layout.fillWidth: true
 
                 id: roomTopicField
 
                 text: room && room.topic ? room.topic : ""
-                selectByMouse: true
             }
 
             ItemDelegate {
@@ -196,7 +194,7 @@ Drawer {
                 modal: true
                 standardButtons: Dialog.Ok | Dialog.Cancel
 
-                contentItem: TextField {
+                contentItem: AutoTextField {
                     id: inviteUserDialogTextField
                     placeholderText: "@bot:matrix.org"
                 }

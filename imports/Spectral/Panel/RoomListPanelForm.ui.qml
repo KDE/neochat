@@ -35,7 +35,7 @@ Rectangle {
         anchors.fill: parent
         spacing: 0
 
-        TextField {
+        AutoTextField {
             Layout.fillWidth: true
             Layout.preferredHeight: 40
             Layout.margins: 12

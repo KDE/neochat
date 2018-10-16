@@ -312,7 +312,7 @@ Item {
 
                         clip: true
 
-                        AutoTextArea {
+                        RoomPanelInputField {
                             id: inputField
                         }
                     }

@@ -83,11 +83,10 @@ Column {
             Label {
                 text: "Homeserver:"
             }
-            TextField {
+            AutoTextField {
                 Layout.fillWidth: true
 
                 text: connection.homeserver
-                selectByMouse: true
                 readOnly: true
             }
         }
@@ -100,11 +99,10 @@ Column {
             Label {
                 text: "Device ID:"
             }
-            TextField {
+            AutoTextField {
                 Layout.fillWidth: true
 
                 text: connection.deviceId
-                selectByMouse: true
                 readOnly: true
             }
         }
@@ -117,11 +115,10 @@ Column {
             Label {
                 text: "Access Token:"
             }
-            TextField {
+            AutoTextField {
                 Layout.fillWidth: true
 
                 text: connection.accessToken
-                selectByMouse: true
                 readOnly: true
             }
         }

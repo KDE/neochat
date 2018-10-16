@@ -236,14 +236,14 @@ ApplicationWindow {
                                 standardButtons: Dialog.Ok | Dialog.Cancel
 
                                 contentItem: Column {
-                                    TextField {
+                                    AutoTextField {
                                         width: parent.width
 
                                         id: addRoomDialogNameTextField
 
                                         placeholderText: "Name"
                                     }
-                                    TextField {
+                                    AutoTextField {
                                         width: parent.width
 
                                         id: addRoomDialogTopicTextField
@@ -274,7 +274,7 @@ ApplicationWindow {
                                 modal: true
                                 standardButtons: Dialog.Ok | Dialog.Cancel
 
-                                contentItem: TextField {
+                                contentItem: AutoTextField {
                                     id: joinRoomDialogTextField
                                     placeholderText: "#matrix:matrix.org"
                                 }
@@ -301,7 +301,7 @@ ApplicationWindow {
                                 modal: true
                                 standardButtons: Dialog.Ok | Dialog.Cancel
 
-                                contentItem: TextField {
+                                contentItem: AutoTextField {
                                     id: directChatDialogTextField
                                     placeholderText: "@bot:matrix.org"
                                 }

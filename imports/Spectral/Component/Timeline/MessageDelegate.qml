@@ -60,7 +60,7 @@ RowLayout {
 
             spacing: 0
 
-            AutoLabel {
+            TimelineLabel {
                 id: authorLabel
 
                 visible: messageRow.avatarVisible
@@ -71,6 +71,7 @@ RowLayout {
 
                 MouseArea {
                     anchors.fill: parent
+                    cursorShape: Qt.PointingHandCursor
                     onClicked: inputField.insert(inputField.cursorPosition, author.displayName)
                 }
             }
@@ -123,7 +124,7 @@ RowLayout {
 
                 spacing: 4
 
-                AutoLabel {
+                TimelineLabel {
                     visible: userMarker.length > 5
                     text: userMarker.length - 5 + "+"
                     coloredBackground: highlighted
@@ -140,10 +141,21 @@ RowLayout {
 
                         hint: modelData.displayName
                         image: modelData.avatar
+
+                        MouseArea {
+                            anchors.fill: parent
+
+                            cursorShape: Qt.PointingHandCursor
+
+                            onClicked: {
+                                readMarkerDialog.listModel = userMarker
+                                readMarkerDialog.open()
+                            }
+                        }
                     }
                 }
 
-                AutoLabel {
+                TimelineLabel {
                     id: timeLabel
 
                     visible: Math.abs(time - aboveTime) > 600000 || index == 0
@@ -164,7 +176,7 @@ RowLayout {
 
                 id: downloadable
 
-                AutoImage {
+                TimelineImage {
                     z: -4
 
                     id: messageImage
@@ -185,7 +197,7 @@ RowLayout {
         Component {
             id: fileComponent
 
-            AutoLabel {
+            TimelineLabel {
                 Layout.fillWidth: true
 
                 id: downloadDelegate
@@ -207,7 +219,7 @@ RowLayout {
         Component {
             id: audioComponent
 
-            AutoLabel {
+            TimelineLabel {
                 id: downloadDelegate
 
                 text: content.info.duration / 1000 + '"'
