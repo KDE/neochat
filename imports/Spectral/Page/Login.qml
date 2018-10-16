@@ -14,11 +14,6 @@ LoginForm {
             loginButtonTooltip.open()
             return
         }
-        if (!(usernameField.text.startsWith("@") && usernameField.text.includes(":"))) {
-            loginButtonTooltip.text = "Username should be in format of @example:example.com"
-            loginButtonTooltip.open()
-            return
-        }
 
         loginButton.text = "Logging in..."
         loginButton.enabled = false

@@ -170,12 +170,10 @@ void SpectralRoom::saveViewport(int topIndex, int bottomIndex) {
        (bottomIndex == 0 || topIndex == savedTopVisibleIndex())))
     return;
   if (bottomIndex == 0) {
-    qDebug() << "Saving viewport as the latest available";
     setFirstDisplayedEventId({});
     setLastDisplayedEventId({});
     return;
   }
-  qDebug() << "Saving viewport:" << topIndex << "thru" << bottomIndex;
   setFirstDisplayedEvent(maxTimelineIndex() - topIndex);
   setLastDisplayedEvent(maxTimelineIndex() - bottomIndex);
 }
