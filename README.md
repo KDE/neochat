@@ -39,4 +39,4 @@ Donations are welcome! My Bitcoin wallet address is 1AmNvttxJ6zne8f2GEH8zMAMQuT4
 
 ![GPLv3](https://www.gnu.org/graphics/gplv3-127x51.png)
 
-This program is licensed undedr GNU General Public License, Version 3. 
+This program is licensed under GNU General Public License, Version 3. 
