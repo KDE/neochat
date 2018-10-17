@@ -189,4 +189,12 @@ Rectangle {
             }
         }
     }
+
+    function insert(str) {
+        inputField.insert(inputField.cursorPosition, str)
+    }
+
+    function clear() {
+        inputField.clear()
+    }
 }

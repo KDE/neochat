@@ -274,6 +274,9 @@ Item {
 
             RoomPanelInput {
                 anchors.verticalCenter: parent.top
+
+                id: roomPanelInput
+
                 width: parent.width
                 height: 48
             }

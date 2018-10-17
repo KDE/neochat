@@ -38,8 +38,8 @@ Menu {
         text: "Reply"
 
         onTriggered: {
-            inputField.clear()
-            inputField.insert(0, "> <" + model.author.id + "><" + model.eventId + "> " + (selectedText != "" ? selectedText : model.message) + "\n\n")
+            roomPanelInput.clear()
+            roomPanelInput.insert("> <" + model.author.id + "><" + model.eventId + "> " + (selectedText != "" ? selectedText : model.message) + "\n\n")
         }
     }
     MenuItem {

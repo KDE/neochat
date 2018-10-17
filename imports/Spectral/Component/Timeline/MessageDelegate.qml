@@ -72,7 +72,7 @@ RowLayout {
                 MouseArea {
                     anchors.fill: parent
                     cursorShape: Qt.PointingHandCursor
-                    onClicked: inputField.insert(inputField.cursorPosition, author.displayName)
+                    onClicked: roomPanelInput.insert(author.displayName)
                 }
             }
 
