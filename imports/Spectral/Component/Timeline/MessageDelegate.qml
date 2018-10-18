@@ -61,6 +61,8 @@ RowLayout {
             spacing: 0
 
             TimelineLabel {
+                Layout.fillWidth: true
+
                 id: authorLabel
 
                 visible: messageRow.avatarVisible
