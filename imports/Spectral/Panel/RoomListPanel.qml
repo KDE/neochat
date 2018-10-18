@@ -4,17 +4,53 @@ import QtQuick.Controls 2.2
 import SortFilterProxyModel 0.2
 
 RoomListPanelForm {
-    sortedRoomListModel.proxyRoles: ExpressionRole {
-        name: "display"
-        expression: {
-            switch (category) {
-            case 1: return "Invited"
-            case 2: return "Favorites"
-            case 3: return "Rooms"
-            case 4: return "People"
-            case 5: return "Low Priority"
+    model: sortedRoomListModel
+
+    SortFilterProxyModel {
+        id: sortedRoomListModel
+
+        sourceModel: listModel
+
+        proxyRoles: ExpressionRole {
+            name: "display"
+            expression: {
+                switch (category) {
+                case 1: return "Invited"
+                case 2: return "Favorites"
+                case 3: return "Rooms"
+                case 4: return "People"
+                case 5: return "Low Priority"
+                }
             }
         }
+
+        sorters: [
+            RoleSorter { roleName: "category" },
+            RoleSorter {
+                roleName: "lastActiveTime"
+                sortOrder: Qt.DescendingOrder
+            }
+        ]
+
+        filters: [
+            RegExpFilter {
+                roleName: "name"
+                pattern: searchField.text
+                caseSensitivity: Qt.CaseInsensitive
+            },
+            ExpressionFilter {
+                enabled: filter === 1
+                expression: unreadCount > 0
+            },
+            ExpressionFilter {
+                enabled: filter === 2
+                expression: category === 1 || category === 2 || category === 4
+            },
+            ExpressionFilter {
+                enabled: filter === 3
+                expression: category === 3 || category === 5
+            }
+        ]
     }
 
     Shortcut {

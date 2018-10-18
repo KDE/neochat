@@ -21,7 +21,6 @@ Rectangle {
             roomContextMenu.popup()
         }
         onPrimaryClicked: {
-            listView.currentIndex = index
             if (category === RoomType.Invited) {
                 inviteDialog.currentRoom = currentRoom
                 inviteDialog.open()

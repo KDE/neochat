@@ -16,12 +16,12 @@ import SortFilterProxyModel 0.2
 import "qrc:/js/util.js" as Util
 
 Rectangle {
-    property alias listModel: sortedRoomListModel.sourceModel
+    property var listModel
     property int filter: 0
     property var enteredRoom: null
 
     property alias searchField: searchField
-    property alias sortedRoomListModel: sortedRoomListModel
+    property alias model: listView.model
 
     color: MSettings.darkTheme ? "#323232" : "#f3f3f3"
 
@@ -56,44 +56,6 @@ Rectangle {
             }
         }
 
-        SortFilterProxyModel {
-            id: sortedRoomListModel
-
-            sorters: [
-                RoleSorter { roleName: "category" },
-                RoleSorter {
-                    roleName: "lastActiveTime"
-                    sortOrder: Qt.DescendingOrder
-                }
-            ]
-        }
-
-        SortFilterProxyModel {
-            id: roomListProxyModel
-
-            sourceModel: sortedRoomListModel
-
-            filters: [
-                RegExpFilter {
-                    roleName: "name"
-                    pattern: searchField.text
-                    caseSensitivity: Qt.CaseInsensitive
-                },
-                ExpressionFilter {
-                    enabled: filter === 1
-                    expression: unreadCount > 0
-                },
-                ExpressionFilter {
-                    enabled: filter === 2
-                    expression: category === 1 || category === 2 || category === 4
-                },
-                ExpressionFilter {
-                    enabled: filter === 3
-                    expression: category === 3 || category === 5
-                }
-            ]
-        }
-
         AutoListView {
             Layout.fillWidth: true
             Layout.fillHeight: true
@@ -102,15 +64,6 @@ Rectangle {
 
             spacing: 1
             clip: true
-
-            model: roomListProxyModel
-
-            currentIndex: -1
-
-            highlightFollowsCurrentItem: true
-
-            highlightMoveDuration: 200
-            highlightResizeDuration: 0
 
             boundsBehavior: Flickable.DragOverBounds
 
