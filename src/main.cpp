@@ -17,6 +17,8 @@
 #include "csapi/joining.h"
 #include "csapi/leaving.h"
 
+#include "qqmlsortfilterproxymodel.h"
+
 using namespace QMatrixClient;
 
 int main(int argc, char *argv[]) {
@@ -32,6 +34,8 @@ int main(int argc, char *argv[]) {
 
   app.setQuitOnLastWindowClosed(false);
 
+  qmlRegisterType<qqsfpm::QQmlSortFilterProxyModel>("SortFilterProxyModel", 0,
+                                                    2, "SortFilterProxyModel");
   qmlRegisterType<ImageItem>("Spectral", 0, 1, "ImageItem");
   qmlRegisterType<Controller>("Spectral", 0, 1, "Controller");
   qmlRegisterType<AccountListModel>("Spectral", 0, 1, "AccountListModel");
