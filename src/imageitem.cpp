@@ -50,9 +50,6 @@ void ImageItem::paint(QPainter *painter) {
     painter->setClipPath(clip);
   }
 
-  if (center.x() < 0) center.setX(0);
-  if (center.y() < 0) center.setY(0);
-
   painter->drawImage(center, scaled);
 }
 
