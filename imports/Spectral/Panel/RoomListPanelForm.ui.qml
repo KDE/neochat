@@ -35,23 +35,57 @@ Rectangle {
         anchors.fill: parent
         spacing: 0
 
-        AutoTextField {
+        Rectangle {
             Layout.fillWidth: true
             Layout.preferredHeight: 40
             Layout.margins: 12
 
-            id: searchField
+            color: MSettings.darkTheme ? "#303030" : "#fafafa"
+            layer.enabled: true
+            layer.effect: ElevationEffect {
+                elevation: searchField.focus ? 2 : 1
+            }
 
-            leftPadding: MSettings.miniMode ? 4 : 32
-            topPadding: 0
-            bottomPadding: 0
-            placeholderText: "Search..."
+            RowLayout {
+                anchors.fill: parent
 
-            background: Rectangle {
-                color: MSettings.darkTheme ? "#303030" : "#fafafa"
-                layer.enabled: true
-                layer.effect: ElevationEffect {
-                    elevation: searchField.focus ? 2 : 1
+                spacing: 0
+
+                MaterialIcon {
+                    Layout.preferredWidth: height
+                    Layout.fillHeight: true
+
+                    visible: !MSettings.miniMode && !searchField.text
+
+                    icon: "\ue8b6"
+                    color: "grey"
+                }
+
+                ItemDelegate {
+                    Layout.preferredWidth: height
+                    Layout.fillHeight: true
+
+                    visible: !MSettings.miniMode && searchField.text
+
+                    contentItem: MaterialIcon {
+                        icon: "\ue5cd"
+                        color: "grey"
+                    }
+
+                    onClicked: searchField.text = ""
+                }
+
+                AutoTextField {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+
+                    id: searchField
+
+                    topPadding: 0
+                    bottomPadding: 0
+                    placeholderText: "Search..."
+
+                    background: Item {}
                 }
             }
         }
