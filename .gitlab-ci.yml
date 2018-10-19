@@ -23,10 +23,10 @@ build-appimage:
     - git submodule update --init --recursive
   script:
     - /opt/qt511/bin/qt511-env.sh
-    - /opt/qt511/bin/qmake CONFIG+=release CONFIG+=qtquickcompiler PREFIX=~/deploy
+    - /opt/qt511/bin/qmake CONFIG+=release CONFIG+=qtquickcompiler PREFIX=/usr
     - make
-    - make install
-    - /usr/bin/linuxdeployqt-continuous-x86_64.AppImage ~/deploy/share/applications/org.eu.encom.spectral.desktop -appimage -qmldir=qml -qmldir=imports -qmake=/opt/qt511/bin/qmake
+    - make INSTALL_ROOT=appdir install
+    - /usr/bin/linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/org.eu.encom.spectral.desktop -appimage -qmldir=qml -qmldir=imports -qmake=/opt/qt511/bin/qmake
   artifacts:
     paths:
     - Spectral-x86_64.AppImage
