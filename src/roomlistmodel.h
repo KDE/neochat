@@ -74,8 +74,9 @@ class RoomListModel : public QAbstractListModel {
  signals:
   void connectionChanged();
   void roomAdded(SpectralRoom* room);
-  void newMessage(const QString& roomName, const QString& content,
-                  const QIcon& icon);
+  void newMessage(const QString& roomId, const QString& eventId,
+                  const QString& roomName, const QString& senderName,
+                  const QString& text, const QImage& icon);
 };
 
 #endif  // ROOMLISTMODEL_H

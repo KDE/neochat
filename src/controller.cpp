@@ -27,18 +27,20 @@
 #include <QtNetwork/QAuthenticator>
 #include <QtNetwork/QNetworkReply>
 
-Controller::Controller(QObject* parent) : QObject(parent) {
-  tray->setIcon(QIcon(":/assets/img/icon.png"));
-  tray->setToolTip("Spectral");
-  connect(tray, &QSystemTrayIcon::activated,
+Controller::Controller(QObject* parent)
+    : QObject(parent), tray(this), notificationsManager(this) {
+  connect(&notificationsManager, &NotificationsManager::notificationClicked,
+          this, &Controller::notificationClicked);
+  tray.setIcon(QIcon(":/assets/img/icon.png"));
+  tray.setToolTip("Spectral");
+  connect(&tray, &QSystemTrayIcon::activated,
           [this](QSystemTrayIcon::ActivationReason r) {
             if (r != QSystemTrayIcon::Context) emit showWindow();
           });
-  connect(tray, &QSystemTrayIcon::messageClicked, [=] { emit showWindow(); });
-  trayMenu->addAction("Hide Window", [=] { emit hideWindow(); });
-  trayMenu->addAction("Quit", [=] { QApplication::quit(); });
-  tray->setContextMenu(trayMenu);
-  tray->show();
+  trayMenu.addAction("Hide Window", [=] { emit hideWindow(); });
+  trayMenu.addAction("Quit", [=] { QApplication::quit(); });
+  tray.setContextMenu(&trayMenu);
+  tray.show();
 
   Connection::setRoomType<SpectralRoom>();
   Connection::setUserType<SpectralUser>();
@@ -226,11 +228,6 @@ void Controller::playAudio(QUrl localFile) {
   connect(player, &QMediaPlayer::stateChanged, [=] { player->deleteLater(); });
 }
 
-void Controller::showMessage(const QString& title, const QString& msg,
-                             const QIcon& icon) {
-  tray->showMessage(title, msg, icon);
-}
-
 QImage Controller::safeImage(QImage image) {
   if (image.isNull()) return QImage();
   return image;
@@ -242,4 +239,12 @@ QColor Controller::color(QString userId) {
 
 void Controller::setColor(QString userId, QColor newColor) {
   SettingsGroup("UI/Color").setValue(userId, newColor.name());
+}
+
+void Controller::postNotification(const QString& roomId, const QString& eventId,
+                                  const QString& roomName,
+                                  const QString& senderName,
+                                  const QString& text, const QImage& icon) {
+  notificationsManager.postNotification(roomId, eventId, roomName, senderName,
+                                        text, icon);
 }

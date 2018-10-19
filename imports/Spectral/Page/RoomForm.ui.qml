@@ -15,6 +15,7 @@ Page {
     property alias filter: roomListForm.filter
 
     property alias roomListModel: roomListModel
+    property alias enteredRoom: roomListForm.enteredRoom
 
     id: page
 

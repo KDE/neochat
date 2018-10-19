@@ -1,4 +1,4 @@
-QT += quick widgets multimedia
+QT += quick widgets multimedia dbus
 CONFIG += c++14
 CONFIG += object_parallel_to_source
 CONFIG += link_pkgconfig
@@ -35,18 +35,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # In order to do so, uncomment the following line.
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
-
-SOURCES += src/main.cpp \
-    src/controller.cpp \
-    src/roomlistmodel.cpp \
-    src/imageprovider.cpp \
-    src/messageeventmodel.cpp \
-    src/emojimodel.cpp \
-    src/spectralroom.cpp \
-    src/userlistmodel.cpp \
-    src/imageitem.cpp \
-    src/accountlistmodel.cpp \
-    src/spectraluser.cpp
 
 RESOURCES += \
     res.qrc
@@ -85,13 +73,40 @@ mac {
 }
 
 HEADERS += \
-    $$PWD/src/controller.h \
-    $$PWD/src/roomlistmodel.h \
-    $$PWD/src/imageprovider.h \
-    $$PWD/src/messageeventmodel.h \
-    $$PWD/src/emojimodel.h \
-    $$PWD/src/spectralroom.h \
-    $$PWD/src/userlistmodel.h \
-    $$PWD/src/imageitem.h \
-    $$PWD/src/accountlistmodel.h \
-    $$PWD/src/spectraluser.h
+    src/controller.h \
+    src/roomlistmodel.h \
+    src/imageprovider.h \
+    src/messageeventmodel.h \
+    src/emojimodel.h \
+    src/spectralroom.h \
+    src/userlistmodel.h \
+    src/imageitem.h \
+    src/accountlistmodel.h \
+    src/spectraluser.h \
+    src/notifications/manager.h
+
+SOURCES += src/main.cpp \
+    src/controller.cpp \
+    src/roomlistmodel.cpp \
+    src/imageprovider.cpp \
+    src/messageeventmodel.cpp \
+    src/emojimodel.cpp \
+    src/spectralroom.cpp \
+    src/userlistmodel.cpp \
+    src/imageitem.cpp \
+    src/accountlistmodel.cpp \
+    src/spectraluser.cpp
+
+unix:!mac {
+    SOURCES += src/notifications/managerlinux.cpp
+}
+
+win32 {
+    HEADERS += src/notifications/wintoastlib.h
+    SOURCES += src/notifications/managerwin.cpp \
+        src/notifications/wintoastlib.cpp
+}
+
+mac {
+    SOURCES += src/notifications/managermac.mm
+}

@@ -80,10 +80,10 @@ void RoomListModel::connectRoomSignals(SpectralRoom* room) {
             if (event->isStateEvent()) return;
             User* sender = room->user(event->senderId());
             if (sender == room->localUser()) return;
-            emit newMessage(room->displayName(),
-                            sender->displayname() + ": " +
-                                event->contentJson().value("body").toString(),
-                            QPixmap::fromImage(room->avatar(64)));
+            emit newMessage(room->id(), event->id(), room->displayName(),
+                            sender->displayname(),
+                            event->contentJson().value("body").toString(),
+                            room->avatar(64));
           });
 }
 

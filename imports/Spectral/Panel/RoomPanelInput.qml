@@ -36,6 +36,12 @@ Rectangle {
             }
 
             onClicked: currentRoom.chooseAndUploadFile()
+
+            BusyIndicator {
+                anchors.fill: parent
+
+                running: false
+            }
         }
 
         ScrollView {

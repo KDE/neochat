@@ -49,8 +49,9 @@ int main(int argc, char *argv[]) {
   qmlRegisterUncreatableType<RoomType>("Spectral", 0, 1, "RoomType", "ENUM");
 
   qRegisterMetaType<User *>("User*");
+  qRegisterMetaType<Room *>("Room*");
   qRegisterMetaType<MessageEventType>("MessageEventType");
-  qRegisterMetaType<SpectralRoom *>("SpectralRoom");
+  qRegisterMetaType<SpectralRoom *>("SpectralRoom*");
 
   QQmlApplicationEngine engine;
 

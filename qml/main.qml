@@ -38,6 +38,10 @@ ApplicationWindow {
             window.requestActivate()
         }
         onHideWindow: window.hide()
+        onNotificationClicked: {
+            roomPage.enteredRoom = currentConnection.room(roomId)
+            showWindow()
+        }
         onErrorOccured: {
             errorDialog.error = error
             errorDialog.detail = detail

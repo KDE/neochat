@@ -2,6 +2,7 @@
 #define CONTROLLER_H
 
 #include "connection.h"
+#include "notifications/manager.h"
 #include "settings.h"
 #include "user.h"
 
@@ -39,8 +40,9 @@ class Controller : public QObject {
 
  private:
   QClipboard* m_clipboard = QApplication::clipboard();
-  QSystemTrayIcon* tray = new QSystemTrayIcon();
-  QMenu* trayMenu = new QMenu();
+  QSystemTrayIcon tray;
+  QMenu trayMenu;
+  NotificationsManager notificationsManager;
   QVector<Connection*> m_connections;
 
   QByteArray loadAccessToken(const AccountSettings& account);
@@ -60,6 +62,7 @@ class Controller : public QObject {
   void connectionAdded(Connection* conn);
   void connectionDropped(Connection* conn);
   void initiated();
+  void notificationClicked(const QString roomId, const QString eventId);
 
  public slots:
   void logout(Connection* conn);
@@ -68,7 +71,9 @@ class Controller : public QObject {
   void createDirectChat(Connection* c, const QString& userID);
   void copyToClipboard(const QString& text);
   void playAudio(QUrl localFile);
-  void showMessage(const QString& title, const QString& msg, const QIcon& icon);
+  void postNotification(const QString& roomId, const QString& eventId,
+                        const QString& roomName, const QString& senderName,
+                        const QString& text, const QImage& icon);
 
   static QImage safeImage(QImage image);
 };
