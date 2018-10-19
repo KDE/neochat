@@ -1,4 +1,13 @@
-QT += quick widgets multimedia dbus
+QT += quick widgets multimedia
+
+unix:!mac {
+    QT += dbus
+}
+
+mac {
+    QT += macextras
+}
+
 CONFIG += c++14
 CONFIG += object_parallel_to_source
 CONFIG += link_pkgconfig
