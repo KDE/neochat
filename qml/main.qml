@@ -188,7 +188,7 @@ ApplicationWindow {
                                 MaterialIcon {
                                     anchors.fill: parent
 
-                                    icon: "\ue886"
+                                    icon: "\ue7fb"
                                     color:  "white"
                                 }
 
