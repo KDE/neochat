@@ -36,10 +36,10 @@ namespace WinToastLib {
             TimedOut = ToastDismissalReason::ToastDismissalReason_TimedOut
         };
         virtual ~IWinToastHandler() {}
-        virtual void toastActivated() const = 0;
-        virtual void toastActivated(int actionIndex) const = 0;
-        virtual void toastDismissed(WinToastDismissalReason state) const = 0;
-        virtual void toastFailed() const = 0;
+        virtual void toastActivated() = 0;
+        virtual void toastActivated(int actionIndex) = 0;
+        virtual void toastDismissed(WinToastDismissalReason state) = 0;
+        virtual void toastFailed() = 0;
     };
 
     class WinToastTemplate {

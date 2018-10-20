@@ -83,7 +83,7 @@ void RoomListModel::connectRoomSignals(SpectralRoom* room) {
             emit newMessage(room->id(), event->id(), room->displayName(),
                             sender->displayname(),
                             event->contentJson().value("body").toString(),
-                            room->avatar(64));
+                            room->avatar(128));
           });
 }
 
