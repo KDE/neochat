@@ -3,23 +3,26 @@
 
 using namespace WinToastLib;
 
-class CustomHandler : public QObject, public IWinToastHandler {
-  Q_OBJECT
+class CustomHandler : public IWinToastHandler {
  public:
-  void toastActivated() { emit activated(notificationID); }
-  void toastActivated(int) { emit activated(notificationID); }
+    CustomHandler(NotificationsManager* parent) : notificationsManager(parent) {}
+  void toastActivated() {
+      notificationsManager->actionInvoked(notificationID, "");
+  }
+  void toastActivated(int) {
+      notificationsManager->actionInvoked(notificationID, "");
+  }
   void toastFailed() {
     std::wcout << L"Error showing current toast" << std::endl;
   }
   void toastDismissed(WinToastDismissalReason) {
-    emit dismissed(notificationID);
+      notificationsManager->notificationClosed(notificationID, 0);
   }
 
   uint notificationID;
 
- signals:
-  void activated(uint id);
-  void dismissed(uint id);
+private:
+  NotificationsManager* notificationsManager;
 };
 
 namespace {
@@ -61,14 +64,10 @@ void NotificationsManager::postNotification(
   // TODO: implement room or user avatar
   // templ.setImagePath(L"C:/example.png");
 
-  CustomHandler *customHandler = new CustomHandler();
+  CustomHandler *customHandler = new CustomHandler(this);
   count++;
   customHandler->notificationID = count;
   notificationIds[count] = roomEventId{room_id, event_id};
-  connect(customHandler, &CustomHandler::activated, this,
-          [=](uint id) { this->actionInvoked(id, ""); });
-  connect(customHandler, &CustomHandler::dismissed, this,
-          [=](uint id) { this->notificationClosed(id, 0); });
 
   WinToast::instance()->showToast(templ, customHandler);
 }
