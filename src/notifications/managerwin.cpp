@@ -3,7 +3,7 @@
 
 using namespace WinToastLib;
 
-class CustomHandler : public IWinToastHandler {
+class CustomHandler : public QObject, public IWinToastHandler {
  public:
   void toastActivated() { emit activated(notificationID); }
   void toastActivated(int) { emit activated(notificationID); }
