@@ -3,6 +3,7 @@
 #include <QImage>
 #include <QObject>
 #include <QString>
+#include <QMap>
 
 #if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
 #include <QtDBus/QDBusArgument>
