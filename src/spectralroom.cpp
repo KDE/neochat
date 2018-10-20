@@ -3,6 +3,7 @@
 #include "connection.h"
 #include "user.h"
 
+#include "csapi/content-repo.h"
 #include "csapi/leaving.h"
 #include "csapi/typing.h"
 #include "events/typingevent.h"
@@ -26,13 +27,25 @@ SpectralRoom::SpectralRoom(Connection* connection, QString roomId,
 void SpectralRoom::chooseAndUploadFile() {
   auto localFile = QFileDialog::getOpenFileUrl(Q_NULLPTR, tr("Save File as"));
   if (!localFile.isEmpty()) {
-    uploadFile(localFile.toString(), localFile, getMIME(localFile));
-    QMetaObject::Connection* const connection = new QMetaObject::Connection;
-    *connection = connect(this, &Room::fileTransferCompleted,
-                          [=](QString id, QUrl localFile, QUrl mxcUrl) {
-                            disconnect(*connection);
-                            postFile(localFile, mxcUrl);
-                          });
+    UploadContentJob* job =
+        connection()->uploadFile(localFile.toLocalFile(), getMIME(localFile));
+    if (isJobRunning(job)) {
+      setHasFileUploading(true);
+      connect(job, &BaseJob::uploadProgress, this,
+              [=](qint64 bytesSent, qint64 bytesTotal) {
+                if (bytesTotal != 0) {
+                  setFileUploadingProgress(bytesSent * 100 / bytesTotal);
+                }
+              });
+      connect(job, &BaseJob::success, this,
+              [=] { postFile(localFile, job->contentUri()); });
+      connect(job, &BaseJob::finished, this, [=] {
+        setHasFileUploading(false);
+        setFileUploadingProgress(0);
+      });
+    } else {
+      qDebug() << "Failed transfer.";
+    }
   }
 }
 

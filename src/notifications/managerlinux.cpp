@@ -25,7 +25,8 @@ NotificationsManager::NotificationsManager(QObject *parent)
 
 void NotificationsManager::postNotification(
     const QString &roomid, const QString &eventid, const QString &roomname,
-    const QString &sender, const QString &text, const QImage &icon, const QUrl &iconPath) {
+    const QString &sender, const QString &text, const QImage &icon,
+    const QUrl &iconPath) {
   uint id = showNotification(roomname, sender + ": " + text, icon);
   notificationIds[id] = roomEventId{roomid, eventid};
 }
@@ -38,10 +39,26 @@ void NotificationsManager::postNotification(
 uint NotificationsManager::showNotification(const QString summary,
                                             const QString text,
                                             const QImage image) {
+  QImage croppedImage;
+  QRect rect = image.rect();
+  if (rect.width() != rect.height()) {
+    if (rect.width() > rect.height()) {
+      QRect crop((rect.width() - rect.height()) / 2, 0, rect.height(),
+                 rect.height());
+      croppedImage = image.copy(crop);
+    } else {
+      QRect crop(0, (rect.height() - rect.width()) / 2, rect.width(),
+                 rect.width());
+      croppedImage = image.copy(crop);
+    }
+  } else {
+    croppedImage = image;
+  }
+
   QVariantMap hints;
-  hints["image-data"] = image;
+  hints["image-data"] = croppedImage;
   QList<QVariant> argumentList;
-  argumentList << "Spectral";                              // app_name
+  argumentList << "Spectral";                           // app_name
   argumentList << uint(0);                              // replace_id
   argumentList << "";                                   // app_icon
   argumentList << summary;                              // summary

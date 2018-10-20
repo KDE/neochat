@@ -28,8 +28,8 @@ Drawer {
         anchors.margins: 32
 
         ImageItem {
-            Layout.preferredWidth: 64
-            Layout.preferredHeight: 64
+            Layout.preferredWidth: 96
+            Layout.preferredHeight: 96
             Layout.alignment: Qt.AlignHCenter
 
             hint: room ? room.displayName : "No name"

@@ -15,6 +15,10 @@ class SpectralRoom : public Room {
   Q_PROPERTY(QString usersTyping READ getUsersTyping NOTIFY typingChanged)
   Q_PROPERTY(QString cachedInput READ cachedInput WRITE setCachedInput NOTIFY
                  cachedInputChanged)
+  Q_PROPERTY(bool hasFileUploading READ hasFileUploading NOTIFY
+                 hasFileUploadingChanged)
+  Q_PROPERTY(int fileUploadingProgress READ fileUploadingProgress NOTIFY
+                 fileUploadingProgressChanged)
   Q_PROPERTY(bool busy READ busy NOTIFY busyChanged)
 
  public:
@@ -47,6 +51,22 @@ class SpectralRoom : public Room {
 
   QDateTime lastActiveTime();
 
+  bool hasFileUploading() { return m_hasFileUploading; }
+  void setHasFileUploading(bool value) {
+    if (m_hasFileUploading != value) {
+      m_hasFileUploading = value;
+      emit hasFileUploadingChanged();
+    }
+  }
+
+  int fileUploadingProgress() { return m_fileUploadingProgress; }
+  void setFileUploadingProgress(int value) {
+    if (m_fileUploadingProgress != value) {
+      m_fileUploadingProgress = value;
+      emit fileUploadingProgressChanged();
+    }
+  }
+
   Q_INVOKABLE float orderForTag(QString name);
   Q_INVOKABLE int savedTopVisibleIndex() const;
   Q_INVOKABLE int savedBottomVisibleIndex() const;
@@ -57,6 +77,9 @@ class SpectralRoom : public Room {
  private:
   QString m_cachedInput;
   QSet<const QMatrixClient::RoomEvent*> highlights;
+
+  bool m_hasFileUploading = false;
+  int m_fileUploadingProgress = 0;
 
   bool m_busy;
 
@@ -75,6 +98,8 @@ class SpectralRoom : public Room {
   void cachedInputChanged();
   void busyChanged();
   void inheritedAvatarChanged();  // https://bugreports.qt.io/browse/QTBUG-7684
+  void hasFileUploadingChanged();
+  void fileUploadingProgressChanged();
 
  public slots:
   void chooseAndUploadFile();

@@ -160,7 +160,7 @@ Item {
 
                 id: goTopFab
 
-                visible: !(messageListView.atYEnd || messageListView.moving)
+                visible: !messageListView.atYEnd
 
                 contentItem: MaterialIcon {
                     anchors.fill: parent

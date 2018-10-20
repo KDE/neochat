@@ -20,6 +20,14 @@ Rectangle {
         elevation: 2
     }
 
+    Rectangle {
+        width: currentRoom && currentRoom.hasFileUploading ? parent.width * currentRoom.fileUploadingProgress / 100 : 0
+        height: parent.height
+
+        opacity: 0.2
+        color: Material.accent
+    }
+
     RowLayout {
         anchors.fill: parent
 
@@ -40,7 +48,7 @@ Rectangle {
             BusyIndicator {
                 anchors.fill: parent
 
-                running: false
+                running: currentRoom && currentRoom.hasFileUploading
             }
         }
 
