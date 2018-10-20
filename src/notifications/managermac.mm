@@ -30,7 +30,6 @@ NotificationsManager::postNotification(
     notif.title           = roomName.toNSString();
     notif.subtitle        = QString("%1 sent a message").arg(senderName).toNSString();
     notif.informativeText = text.toNSString();
-    notif.soundName       = NSUserNotificationDefaultSoundName;
 
     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification: notif];
     [notif autorelease];
