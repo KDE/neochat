@@ -4,17 +4,20 @@
 using namespace WinToastLib;
 
 class CustomHandler : public QObject, public IWinToastHandler {
+  Q_OBJECT
  public:
   void toastActivated() { emit activated(notificationID); }
   void toastActivated(int) { emit activated(notificationID); }
   void toastFailed() {
     std::wcout << L"Error showing current toast" << std::endl;
   }
-  void toastDismissed(WinToastDismissalReason) { emit dismissed(notificationID); }
+  void toastDismissed(WinToastDismissalReason) {
+    emit dismissed(notificationID);
+  }
 
   uint notificationID;
 
-signals:
+ signals:
   void activated(uint id);
   void dismissed(uint id);
 };
@@ -58,27 +61,25 @@ void NotificationsManager::postNotification(
   // TODO: implement room or user avatar
   // templ.setImagePath(L"C:/example.png");
 
-  CustomHandler* customHandler = new CustomHandler();
+  CustomHandler *customHandler = new CustomHandler();
   count++;
   customHandler->notificationID = count;
   notificationIds[count] = roomEventId{room_id, event_id};
-  connect(customHandler, &CustomHandler::activated, this, [=](uint id) {
-        this->actionInvoked(id, "");
-  });
-  connect(customHandler, &CustomHandler::dismissed, this, [=](uint id) {
-        this->notificationClosed(id, 0);
-  });
+  connect(customHandler, &CustomHandler::activated, this,
+          [=](uint id) { this->actionInvoked(id, ""); });
+  connect(customHandler, &CustomHandler::dismissed, this,
+          [=](uint id) { this->notificationClosed(id, 0); });
 
   WinToast::instance()->showToast(templ, customHandler);
 }
 
 void NotificationsManager::actionInvoked(uint id, QString action) {
-    if (notificationIds.contains(id)) {
-      roomEventId idEntry = notificationIds[id];
-      emit notificationClicked(idEntry.roomId, idEntry.eventId);
-    }
+  if (notificationIds.contains(id)) {
+    roomEventId idEntry = notificationIds[id];
+    emit notificationClicked(idEntry.roomId, idEntry.eventId);
+  }
 }
 
 void NotificationsManager::notificationClosed(uint id, uint reason) {
-    notificationIds.remove(id);
+  notificationIds.remove(id);
 }
