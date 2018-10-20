@@ -1,6 +1,8 @@
 #include "manager.h"
 #include "wintoastlib.h"
 
+#include <QDir>
+
 using namespace WinToastLib;
 
 class CustomHandler : public IWinToastHandler {
@@ -62,8 +64,9 @@ void NotificationsManager::postNotification(
                        WinToastTemplate::FirstLine);
   templ.setTextField(QString("%1").arg(text).toStdWString(),
                      WinToastTemplate::SecondLine);
+
   templ.setImagePath(
-      reinterpret_cast<const wchar_t *>(iconPath.toLocalFile().utf16()));
+      reinterpret_cast<const wchar_t *>(QDir::toNativeSeparators(iconPath.toLocalFile()).utf16()));
 
   count++;
   CustomHandler *customHandler = new CustomHandler(count, this);

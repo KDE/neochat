@@ -83,13 +83,11 @@ void RoomListModel::connectRoomSignals(SpectralRoom* room) {
         User* sender = room->user(event->senderId());
         if (sender == room->localUser()) return;
         QUrl _url = room->avatarUrl();
-        qDebug() << QStandardPaths::writableLocation(QStandardPaths::CacheLocation) +
-                    "/avatar/" + _url.authority() + '_' + _url.fileName() + ".png";
         emit newMessage(
             room->id(), event->id(), room->displayName(), sender->displayname(),
             event->contentJson().value("body").toString(), room->avatar(128),
-            QStandardPaths::writableLocation(QStandardPaths::CacheLocation) +
-                "/avatar/" + _url.authority() + '_' + _url.fileName() + ".png");
+            QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::CacheLocation) +
+                "/avatar/" + _url.authority() + '_' + _url.fileName() + ".png"));
       });
 }
 
