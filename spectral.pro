@@ -117,5 +117,6 @@ win32 {
 }
 
 mac {
+    QMAKE_LFLAGS += -framework Foundation -framework Cocoa
     SOURCES += src/notifications/managermac.mm
 }
