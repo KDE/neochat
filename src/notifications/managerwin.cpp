@@ -5,24 +5,24 @@ using namespace WinToastLib;
 
 class CustomHandler : public IWinToastHandler {
  public:
-    CustomHandler(NotificationsManager* parent) : notificationsManager(parent) {}
+  CustomHandler(uint id, NotificationsManager *parent)
+      : notificationID(id), notificationsManager(parent) {}
   void toastActivated() {
-      notificationsManager->actionInvoked(notificationID, "");
+    notificationsManager->actionInvoked(notificationID, "");
   }
   void toastActivated(int) {
-      notificationsManager->actionInvoked(notificationID, "");
+    notificationsManager->actionInvoked(notificationID, "");
   }
   void toastFailed() {
     std::wcout << L"Error showing current toast" << std::endl;
   }
   void toastDismissed(WinToastDismissalReason) {
-      notificationsManager->notificationClosed(notificationID, 0);
+    notificationsManager->notificationClosed(notificationID, 0);
   }
 
+ private:
   uint notificationID;
-
-private:
-  NotificationsManager* notificationsManager;
+  NotificationsManager *notificationsManager;
 };
 
 namespace {
@@ -44,7 +44,8 @@ NotificationsManager::NotificationsManager(QObject *parent) : QObject(parent) {}
 
 void NotificationsManager::postNotification(
     const QString &room_id, const QString &event_id, const QString &room_name,
-    const QString &sender, const QString &text, const QImage &icon) {
+    const QString &sender, const QString &text, const QImage &icon,
+    const QUrl &iconPath) {
   Q_UNUSED(room_id)
   Q_UNUSED(event_id)
   Q_UNUSED(icon)
@@ -61,12 +62,11 @@ void NotificationsManager::postNotification(
                        WinToastTemplate::FirstLine);
   templ.setTextField(QString("%1").arg(text).toStdWString(),
                      WinToastTemplate::SecondLine);
-  // TODO: implement room or user avatar
-  // templ.setImagePath(L"C:/example.png");
+  templ.setImagePath(
+      reinterpret_cast<const wchar_t *>(iconPath.toLocalFile().utf16()));
 
-  CustomHandler *customHandler = new CustomHandler(this);
   count++;
-  customHandler->notificationID = count;
+  CustomHandler *customHandler = new CustomHandler(count, this);
   notificationIds[count] = roomEventId{room_id, event_id};
 
   WinToast::instance()->showToast(templ, customHandler);

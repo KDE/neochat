@@ -76,7 +76,7 @@ class RoomListModel : public QAbstractListModel {
   void roomAdded(SpectralRoom* room);
   void newMessage(const QString& roomId, const QString& eventId,
                   const QString& roomName, const QString& senderName,
-                  const QString& text, const QImage& icon);
+                  const QString& text, const QImage& icon, const QUrl& iconPath);
 };
 
 #endif  // ROOMLISTMODEL_H
