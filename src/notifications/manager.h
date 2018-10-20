@@ -4,6 +4,7 @@
 #include <QMap>
 #include <QObject>
 #include <QString>
+#include <QUrl>
 
 #if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
 #include <QtDBus/QDBusArgument>
@@ -22,7 +23,7 @@ class NotificationsManager : public QObject {
 
   void postNotification(const QString &roomId, const QString &eventId,
                         const QString &roomName, const QString &senderName,
-                        const QString &text, const QImage &icon);
+                        const QString &text, const QImage &icon, const QUrl &iconPath);
 
  signals:
   void notificationClicked(const QString roomId, const QString eventId);
@@ -39,7 +40,7 @@ class NotificationsManager : public QObject {
 
   // these slots are platform specific (D-Bus only)
   // but Qt slot declarations can not be inside an ifdef!
- private slots:
+ public slots:
   void actionInvoked(uint id, QString action);
   void notificationClosed(uint id, uint reason);
 };

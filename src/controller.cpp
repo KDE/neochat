@@ -244,7 +244,8 @@ void Controller::setColor(QString userId, QColor newColor) {
 void Controller::postNotification(const QString& roomId, const QString& eventId,
                                   const QString& roomName,
                                   const QString& senderName,
-                                  const QString& text, const QImage& icon) {
+                                  const QString& text, const QImage& icon,
+                                  const QUrl& iconPath) {
   notificationsManager.postNotification(roomId, eventId, roomName, senderName,
-                                        text, icon);
+                                        text, icon, iconPath);
 }

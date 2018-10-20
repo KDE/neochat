@@ -1,25 +1,30 @@
 #include "manager.h"
 #include "wintoastlib.h"
 
+#include <QDir>
+
 using namespace WinToastLib;
 
-class CustomHandler : public QObject, public IWinToastHandler {
-  Q_OBJECT
+class CustomHandler : public IWinToastHandler {
  public:
-  void toastActivated() { emit activated(notificationID); }
-  void toastActivated(int) { emit activated(notificationID); }
+  CustomHandler(uint id, NotificationsManager *parent)
+      : notificationID(id), notificationsManager(parent) {}
+  void toastActivated() {
+    notificationsManager->actionInvoked(notificationID, "");
+  }
+  void toastActivated(int) {
+    notificationsManager->actionInvoked(notificationID, "");
+  }
   void toastFailed() {
     std::wcout << L"Error showing current toast" << std::endl;
   }
   void toastDismissed(WinToastDismissalReason) {
-    emit dismissed(notificationID);
+    notificationsManager->notificationClosed(notificationID, 0);
   }
 
+ private:
   uint notificationID;
-
- signals:
-  void activated(uint id);
-  void dismissed(uint id);
+  NotificationsManager *notificationsManager;
 };
 
 namespace {
@@ -41,7 +46,8 @@ NotificationsManager::NotificationsManager(QObject *parent) : QObject(parent) {}
 
 void NotificationsManager::postNotification(
     const QString &room_id, const QString &event_id, const QString &room_name,
-    const QString &sender, const QString &text, const QImage &icon) {
+    const QString &sender, const QString &text, const QImage &icon,
+    const QUrl &iconPath) {
   Q_UNUSED(room_id)
   Q_UNUSED(event_id)
   Q_UNUSED(icon)
@@ -58,17 +64,13 @@ void NotificationsManager::postNotification(
                        WinToastTemplate::FirstLine);
   templ.setTextField(QString("%1").arg(text).toStdWString(),
                      WinToastTemplate::SecondLine);
-  // TODO: implement room or user avatar
-  // templ.setImagePath(L"C:/example.png");
 
-  CustomHandler *customHandler = new CustomHandler();
+  templ.setImagePath(
+      reinterpret_cast<const wchar_t *>(QDir::toNativeSeparators(iconPath.toLocalFile()).utf16()));
+
   count++;
-  customHandler->notificationID = count;
+  CustomHandler *customHandler = new CustomHandler(count, this);
   notificationIds[count] = roomEventId{room_id, event_id};
-  connect(customHandler, &CustomHandler::activated, this,
-          [=](uint id) { this->actionInvoked(id, ""); });
-  connect(customHandler, &CustomHandler::dismissed, this,
-          [=](uint id) { this->notificationClosed(id, 0); });
 
   WinToast::instance()->showToast(templ, customHandler);
 }

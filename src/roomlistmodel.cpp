@@ -4,6 +4,7 @@
 
 #include "events/roomevent.h"
 
+#include <QStandardPaths>
 #include <QtCore/QDebug>
 #include <QtGui/QBrush>
 #include <QtGui/QColor>
@@ -74,17 +75,20 @@ void RoomListModel::connectRoomSignals(SpectralRoom* room) {
           [=] { refresh(room, {AvatarRole}); });
   connect(room, &Room::addedMessages, this,
           [=] { refresh(room, {LastEventRole}); });
-  connect(room, &Room::aboutToAddNewMessages, this,
-          [=](QMatrixClient::RoomEventsRange eventsRange) {
-            RoomEvent* event = (eventsRange.end() - 1)->get();
-            if (event->isStateEvent()) return;
-            User* sender = room->user(event->senderId());
-            if (sender == room->localUser()) return;
-            emit newMessage(room->id(), event->id(), room->displayName(),
-                            sender->displayname(),
-                            event->contentJson().value("body").toString(),
-                            room->avatar(128));
-          });
+  connect(
+      room, &Room::aboutToAddNewMessages, this,
+      [=](QMatrixClient::RoomEventsRange eventsRange) {
+        RoomEvent* event = (eventsRange.end() - 1)->get();
+        if (event->isStateEvent()) return;
+        User* sender = room->user(event->senderId());
+        if (sender == room->localUser()) return;
+        QUrl _url = room->avatarUrl();
+        emit newMessage(
+            room->id(), event->id(), room->displayName(), sender->displayname(),
+            event->contentJson().value("body").toString(), room->avatar(128),
+            QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::CacheLocation) +
+                "/avatar/" + _url.authority() + '_' + _url.fileName() + ".png"));
+      });
 }
 
 void RoomListModel::updateRoom(Room* room, Room* prev) {
