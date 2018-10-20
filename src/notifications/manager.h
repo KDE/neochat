@@ -1,9 +1,9 @@
 #pragma once
 
 #include <QImage>
+#include <QMap>
 #include <QObject>
 #include <QString>
-#include <QMap>
 
 #if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
 #include <QtDBus/QDBusArgument>
@@ -27,8 +27,8 @@ class NotificationsManager : public QObject {
  signals:
   void notificationClicked(const QString roomId, const QString eventId);
 
-#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
  private:
+#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
   QDBusInterface dbus;
   uint showNotification(const QString summary, const QString text,
                         const QImage image);
