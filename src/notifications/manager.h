@@ -31,10 +31,10 @@ class NotificationsManager : public QObject {
   QDBusInterface dbus;
   uint showNotification(const QString summary, const QString text,
                         const QImage image);
+#endif
 
   // notification ID to (room ID, event ID)
   QMap<uint, roomEventId> notificationIds;
-#endif
 
   // these slots are platform specific (D-Bus only)
   // but Qt slot declarations can not be inside an ifdef!
