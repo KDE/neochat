@@ -13,6 +13,11 @@ import Spectral 0.1
 import "qrc:/js/md.js" as Markdown
 
 Rectangle {
+    property bool isReply
+    property string replyUserID
+    property string replyEventID
+    property string replyContent
+
     color: MSettings.darkTheme ? "#303030" : "#fafafa"
 
     layer.enabled: true
@@ -38,6 +43,7 @@ Rectangle {
             Layout.preferredHeight: 48
 
             id: uploadButton
+            visible: !isReply
 
             contentItem: MaterialIcon {
                 icon: "\ue226"
@@ -50,6 +56,20 @@ Rectangle {
 
                 running: currentRoom && currentRoom.hasFileUploading
             }
+        }
+
+        ItemDelegate {
+            Layout.preferredWidth: 48
+            Layout.preferredHeight: 48
+
+            id: cancelReplyButton
+            visible: isReply
+
+            contentItem: MaterialIcon {
+                icon: "\ue5cd"
+            }
+
+            onClicked: clearReply()
         }
 
         ScrollView {
@@ -66,7 +86,7 @@ Rectangle {
                 id: inputField
 
                 wrapMode: Text.Wrap
-                placeholderText: "Send a Message"
+                placeholderText: isReply ? "Reply to " + replyUserID : "Send a Message"
                 leftPadding: 16
                 topPadding: 0
                 bottomPadding: 0
@@ -127,10 +147,9 @@ Rectangle {
                     var PREFIX_HTML = '/html '
                     var PREFIX_MARKDOWN = '/md '
 
-                    var replyRe = new RegExp("^> <(.*)><(.*)> (.*)\n\n(.*)")
-                    if (text.match(replyRe)) {
-                        var matches = text.match(replyRe)
-                        currentRoom.sendReply(matches[1], matches[2], matches[3], matches[4])
+                    if (isReply) {
+                        currentRoom.sendReply(replyUserID, replyEventID, replyContent, text)
+                        clearReply()
                         return
                     }
 
@@ -210,5 +229,12 @@ Rectangle {
 
     function clear() {
         inputField.clear()
+    }
+
+    function clearReply() {
+        isReply = false
+        replyUserID = ""
+        replyEventID = ""
+        replyContent = ""
     }
 }

@@ -39,7 +39,10 @@ Menu {
 
         onTriggered: {
             roomPanelInput.clear()
-            roomPanelInput.insert("> <" + model.author.id + "><" + model.eventId + "> " + (selectedText != "" ? selectedText : model.message) + "\n\n")
+            roomPanelInput.isReply = true
+            roomPanelInput.replyUserID = model.author.id
+            roomPanelInput.replyEventID = model.eventId
+            roomPanelInput.replyContent = selectedText != "" ? selectedText : model.message
         }
     }
     MenuItem {
