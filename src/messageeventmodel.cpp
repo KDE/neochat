@@ -108,7 +108,7 @@ void MessageEventModel::setRoom(SpectralRoom* room) {
       }
       refreshRow(timelineBaseIndex());        // Refresh the looks
       if (m_currentRoom->timelineSize() > 1)  // Refresh above
-        refreshEventRoles(timelineBaseIndex() + 1, {ReadMarkerRole});
+        refreshEventRoles(timelineBaseIndex() + 1);
       if (timelineBaseIndex() > 0)  // Refresh below, see #312
         refreshEventRoles(timelineBaseIndex() - 1,
                           {AboveEventTypeRole, AboveAuthorRole,
@@ -126,6 +126,9 @@ void MessageEventModel::setRoom(SpectralRoom* room) {
           {ReadMarkerRole});
       refreshEventRoles(lastReadEventId, {ReadMarkerRole});
     });
+    connect(
+        m_currentRoom, &Room::replacedEvent, this,
+        [this](const RoomEvent* newEvent) { refreshEvent(newEvent->id()); });
     connect(m_currentRoom, &Room::fileTransferProgress, this,
             &MessageEventModel::refreshEvent);
     connect(m_currentRoom, &Room::fileTransferCompleted, this,
