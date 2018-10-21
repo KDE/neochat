@@ -1,4 +1,4 @@
-#include <QApplication>
+#include <QGuiApplication>
 #include <QNetworkProxy>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
@@ -32,8 +32,6 @@ int main(int argc, char *argv[]) {
   app.setOrganizationDomain("encom.eu.org");
   app.setApplicationName("Spectral");
   app.setWindowIcon(QIcon(":/assets/img/icon.png"));
-
-  app.setQuitOnLastWindowClosed(false);
 
   qmlRegisterType<qqsfpm::QQmlSortFilterProxyModel>("SortFilterProxyModel", 0,
                                                     2, "SortFilterProxyModel");

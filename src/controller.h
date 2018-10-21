@@ -18,6 +18,8 @@ class Controller : public QObject {
   Q_OBJECT
   Q_PROPERTY(int accountCount READ accountCount NOTIFY connectionAdded NOTIFY
                  connectionDropped)
+  Q_PROPERTY(bool quitOnLastWindowClosed READ quitOnLastWindowClosed WRITE
+                 setQuitOnLastWindowClosed NOTIFY quitOnLastWindowClosedChanged)
 
  public:
   explicit Controller(QObject* parent = nullptr);
@@ -35,13 +37,21 @@ class Controller : public QObject {
   // All the Q_PROPERTYs.
   int accountCount() { return m_connections.count(); }
 
+  bool quitOnLastWindowClosed() {
+    return QApplication::quitOnLastWindowClosed();
+  }
+  void setQuitOnLastWindowClosed(bool value) {
+    if (quitOnLastWindowClosed() != value) {
+      QApplication::setQuitOnLastWindowClosed(value);
+      emit quitOnLastWindowClosedChanged();
+    }
+  }
+
   Q_INVOKABLE QColor color(QString userId);
   Q_INVOKABLE void setColor(QString userId, QColor newColor);
 
  private:
   QClipboard* m_clipboard = QApplication::clipboard();
-  QSystemTrayIcon tray;
-  QMenu trayMenu;
   NotificationsManager notificationsManager;
   QVector<Connection*> m_connections;
 
@@ -57,12 +67,11 @@ class Controller : public QObject {
  signals:
   void busyChanged();
   void errorOccured(QString error, QString detail);
-  void showWindow();
-  void hideWindow();
   void connectionAdded(Connection* conn);
   void connectionDropped(Connection* conn);
   void initiated();
   void notificationClicked(const QString roomId, const QString eventId);
+  void quitOnLastWindowClosedChanged();
 
  public slots:
   void logout(Connection* conn);
@@ -73,7 +82,8 @@ class Controller : public QObject {
   void playAudio(QUrl localFile);
   void postNotification(const QString& roomId, const QString& eventId,
                         const QString& roomName, const QString& senderName,
-                        const QString& text, const QImage& icon, const QUrl& iconPath);
+                        const QString& text, const QImage& icon,
+                        const QUrl& iconPath);
 
   static QImage safeImage(QImage image);
 };

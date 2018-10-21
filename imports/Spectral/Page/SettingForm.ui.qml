@@ -68,6 +68,13 @@ Page {
             }
 
             Switch {
+                text: "Show tray icon"
+                checked: MSettings.showTray
+
+                onCheckedChanged: MSettings.showTray = checked
+            }
+
+            Switch {
                 text: "Confirm on Exit"
                 checked: MSettings.confirmOnExit
 

@@ -28,19 +28,11 @@
 #include <QtNetwork/QNetworkReply>
 
 Controller::Controller(QObject* parent)
-    : QObject(parent), tray(this), notificationsManager(this) {
+    : QObject(parent), notificationsManager(this) {
+  QApplication::setQuitOnLastWindowClosed(false);
+
   connect(&notificationsManager, &NotificationsManager::notificationClicked,
           this, &Controller::notificationClicked);
-  tray.setIcon(QIcon(":/assets/img/icon.png"));
-  tray.setToolTip("Spectral");
-  connect(&tray, &QSystemTrayIcon::activated,
-          [this](QSystemTrayIcon::ActivationReason r) {
-            if (r != QSystemTrayIcon::Context) emit showWindow();
-          });
-  trayMenu.addAction("Hide Window", [=] { emit hideWindow(); });
-  trayMenu.addAction("Quit", [=] { QApplication::quit(); });
-  tray.setContextMenu(&trayMenu);
-  tray.show();
 
   Connection::setRoomType<SpectralRoom>();
   Connection::setUserType<SpectralUser>();

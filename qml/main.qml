@@ -3,6 +3,7 @@ import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.2
 import Qt.labs.settings 1.0
+import Qt.labs.platform 1.0 as Platform
 
 import Spectral.Component 2.0
 import Spectral.Page 2.0
@@ -29,15 +30,29 @@ ApplicationWindow {
 
     Material.accent: spectralController.color(currentConnection ? currentConnection.localUserId : "")
 
+    Platform.SystemTrayIcon {
+        visible: MSettings.showTray
+        iconSource: "qrc:/assets/img/icon.png"
+
+        menu: Platform.Menu {
+            Platform.MenuItem {
+                text: qsTr("Hide Window")
+                onTriggered: hideWindow()
+            }
+            Platform.MenuItem {
+                text: qsTr("Quit")
+                onTriggered: Qt.quit()
+            }
+        }
+
+        onActivated: showWindow()
+    }
+
     Controller {
         id: spectralController
 
-        onShowWindow: {
-            window.show()
-            window.raise()
-            window.requestActivate()
-        }
-        onHideWindow: window.hide()
+        quitOnLastWindowClosed: !MSettings.showTray
+
         onNotificationClicked: {
             roomPage.enteredRoom = currentConnection.room(roomId)
             showWindow()
@@ -385,6 +400,16 @@ ApplicationWindow {
         target: imageProvider
         property: "connection"
         value: currentConnection
+    }
+
+    function showWindow() {
+        window.show()
+        window.raise()
+        window.requestActivate()
+    }
+
+    function hideWindow() {
+        window.hide()
     }
 
     Component.onCompleted: {
