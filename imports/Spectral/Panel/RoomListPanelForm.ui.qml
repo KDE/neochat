@@ -43,10 +43,10 @@ Rectangle {
             Layout.margins: 12
 
             color: MSettings.darkTheme ? "#303030" : "#fafafa"
-            layer.enabled: true
-            layer.effect: ElevationEffect {
-                elevation: searchField.focus ? 2 : 1
-            }
+//            layer.enabled: true
+//            layer.effect: ElevationEffect {
+//                elevation: searchField.focus ? 2 : 1
+//            }
 
             RowLayout {
                 anchors.fill: parent
