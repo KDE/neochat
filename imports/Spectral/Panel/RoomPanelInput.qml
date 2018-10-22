@@ -177,8 +177,8 @@ Rectangle {
                     if (event.modifiers & Qt.ShiftModifier) {
                         insert(cursorPosition, "\n")
                     } else if (userAutoComplete.visible) {
-                        text = text.substring(0, text.lastIndexOf(" "));
-                        insert(cursorPosition, userAutoCompleteListView.currentItem.displayName)
+                        remove(text.lastIndexOf(" ") + 1, text.length)
+                        insert(cursorPosition, userAutoCompleteListView.currentItem.displayName + " ")
                         userAutoComplete.visible = false
                     } else {
                         postMessage(text)
