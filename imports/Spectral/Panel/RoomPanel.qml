@@ -39,6 +39,7 @@ RoomPanelForm {
         }
     }
 
+    goBottomFab.onClicked: goToEvent(currentRoom.readMarkerEventId)
     goTopFab.onClicked: messageListView.positionViewAtBeginning()
 
     function goToEvent(eventID) {

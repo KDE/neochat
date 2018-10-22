@@ -22,6 +22,7 @@ Item {
     property alias roomHeader: roomHeader
     property alias messageListView: messageListView
     property alias goTopFab: goTopFab
+    property alias goBottomFab: goBottomFab
     property alias messageEventModel: messageEventModel
     property alias sortedMessageEventModel: sortedMessageEventModel
     property alias roomDrawer: roomDrawer
@@ -151,6 +152,26 @@ Item {
                         color: MSettings.darkTheme ? "#484848" : "grey"
                     }
                 }
+            }
+
+            RoundButton {
+                width: 64
+                height: 64
+                anchors.right: parent.right
+                anchors.top: parent.top
+
+                id: goBottomFab
+
+                visible: currentRoom && currentRoom.hasUnreadMessages
+
+                contentItem: MaterialIcon {
+                    anchors.fill: parent
+
+                    icon: "\ue316"
+                    color: "white"
+                }
+
+                Material.background: Material.accent
             }
 
             RoundButton {
