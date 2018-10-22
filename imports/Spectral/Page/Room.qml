@@ -40,13 +40,13 @@ Page {
                 if (width < 240) width = 64
             }
 
-            ElevationEffect {
-                anchors.fill: source
-                z: source.z - 1
+//            ElevationEffect {
+//                anchors.fill: source
+//                z: source.z - 1
 
-                source: parent
-                elevation: 4
-            }
+//                source: parent
+//                elevation: 4
+//            }
         }
 
         RoomPanel {
