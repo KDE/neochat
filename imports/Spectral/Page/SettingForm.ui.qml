@@ -97,13 +97,6 @@ Page {
 
                 onCheckedChanged: MSettings.darkTheme = checked
             }
-
-            Switch {
-                text: "Mini Room List"
-                checked: MSettings.miniMode
-
-                onCheckedChanged: MSettings.miniMode = checked
-            }
         }
     }
 

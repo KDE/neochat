@@ -14,7 +14,7 @@ Rectangle {
     AutoMouseArea {
         anchors.fill: parent
 
-        hoverEnabled: MSettings.miniMode
+        hoverEnabled: miniMode
 
         onSecondaryClicked: {
             roomContextMenu.model = model
@@ -29,7 +29,7 @@ Rectangle {
             }
         }
 
-        ToolTip.visible: MSettings.miniMode && containsMouse
+        ToolTip.visible: miniMode && containsMouse
         ToolTip.text: name
     }
 

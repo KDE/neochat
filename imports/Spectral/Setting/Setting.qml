@@ -8,5 +8,4 @@ Settings {
     property bool confirmOnExit: true
 
     property bool darkTheme
-    property bool miniMode
 }

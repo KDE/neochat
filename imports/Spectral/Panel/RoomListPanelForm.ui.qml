@@ -23,10 +23,12 @@ Rectangle {
     property alias searchField: searchField
     property alias model: listView.model
 
+    property bool miniMode: width == 64
+
     color: MSettings.darkTheme ? "#323232" : "#f3f3f3"
 
     Label {
-        text: MSettings.miniMode ? "Empty" : "Here? No, not here."
+        text: miniMode ? "Empty" : "Here? No, not here."
         anchors.centerIn: parent
         visible: listView.count === 0
     }
@@ -55,7 +57,7 @@ Rectangle {
                     Layout.preferredWidth: height
                     Layout.fillHeight: true
 
-                    visible: !MSettings.miniMode && !searchField.text
+                    visible: !miniMode && !searchField.text
 
                     icon: "\ue8b6"
                     color: "grey"
@@ -65,7 +67,7 @@ Rectangle {
                     Layout.preferredWidth: height
                     Layout.fillHeight: true
 
-                    visible: !MSettings.miniMode && searchField.text
+                    visible: !miniMode && searchField.text
 
                     contentItem: MaterialIcon {
                         icon: "\ue5cd"
@@ -116,10 +118,10 @@ Rectangle {
 
                 text: section
                 color: "grey"
-                leftPadding: MSettings.miniMode ? undefined : 16
+                leftPadding: miniMode ? undefined : 16
                 elide: Text.ElideRight
                 verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: MSettings.miniMode ? Text.AlignHCenter : undefined
+                horizontalAlignment: miniMode ? Text.AlignHCenter : undefined
             }
 
             RoomContextMenu { id: roomContextMenu }
