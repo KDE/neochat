@@ -55,6 +55,7 @@ ApplicationWindow {
 
         onNotificationClicked: {
             roomPage.enteredRoom = currentConnection.room(roomId)
+            roomPage.goToEvent(eventId)
             showWindow()
         }
         onErrorOccured: {

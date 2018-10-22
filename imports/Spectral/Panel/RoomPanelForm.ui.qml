@@ -22,6 +22,7 @@ Item {
     property alias roomHeader: roomHeader
     property alias messageListView: messageListView
     property alias goTopFab: goTopFab
+    property alias messageEventModel: messageEventModel
     property alias sortedMessageEventModel: sortedMessageEventModel
     property alias roomDrawer: roomDrawer
 

@@ -40,4 +40,10 @@ RoomPanelForm {
     }
 
     goTopFab.onClicked: messageListView.positionViewAtBeginning()
+
+    function goToEvent(eventID) {
+        var index = messageEventModel.eventIDToIndex(eventID)
+        if (index === -1) return
+        messageListView.currentIndex = sortedMessageEventModel.mapFromSource(index)
+    }
 }

@@ -29,10 +29,8 @@ Page {
         anchors.fill: parent
 
         RoomListPanel {
-//            Layout.fillHeight: true
             width: page.width * 0.35
             Layout.minimumWidth: 64
-//            Layout.maximumWidth: 360
 
             id: roomListForm
 
@@ -47,18 +45,21 @@ Page {
                 z: source.z - 1
 
                 source: parent
-                elevation: 2
+                elevation: 4
             }
         }
 
         RoomPanel {
             Layout.fillWidth: true
-            Layout.minimumWidth: 360
-//            Layout.fillHeight: true
+            Layout.minimumWidth: 480
 
             id: roomForm
 
             currentRoom: roomListForm.enteredRoom
         }
+    }
+
+    function goToEvent(eventID) {
+        roomForm.goToEvent(eventID)
     }
 }

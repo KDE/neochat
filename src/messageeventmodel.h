@@ -45,6 +45,8 @@ class MessageEventModel : public QAbstractListModel {
                 int role = Qt::DisplayRole) const override;
   QHash<int, QByteArray> roleNames() const override;
 
+  Q_INVOKABLE int eventIDToIndex(const QString& eventID);
+
  private slots:
   int refreshEvent(const QString& eventId);
   void refreshRow(int row);
