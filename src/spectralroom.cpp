@@ -195,3 +195,13 @@ void SpectralRoom::getPreviousContent(int limit) {
   setBusy(true);
   Room::getPreviousContent(limit);
 }
+
+QVariantList SpectralRoom::getUsers(const QString& prefix) {
+  auto userList = users();
+  QVariantList matchedList;
+  for (auto u : userList)
+    if (u->displayname(this).toLower().startsWith(prefix.toLower()))
+      matchedList.append(QVariant::fromValue(u));
+
+  return matchedList;
+}

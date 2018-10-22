@@ -18,11 +18,62 @@ Rectangle {
     property string replyEventID
     property string replyContent
 
+
     color: MSettings.darkTheme ? "#303030" : "#fafafa"
 
     layer.enabled: true
     layer.effect: ElevationEffect {
         elevation: 2
+    }
+
+    Popup {
+        x: 0
+        y: -height - 10
+        width: Math.min(userAutoCompleteListView.contentWidth, parent.width)
+        height: 36
+        padding: 0
+
+        Material.elevation: 2
+
+        id: userAutoComplete
+
+        contentItem: ListView {
+            id: userAutoCompleteListView
+
+            clip: true
+
+            orientation: ListView.Horizontal
+
+            highlightFollowsCurrentItem: true
+
+            highlight: Rectangle {
+                color: Material.accent
+                opacity: 0.4
+            }
+
+            delegate: ItemDelegate {
+                property string displayName: modelData.displayName
+
+                height: parent.height
+                padding: 4
+
+                contentItem: Row {
+                    spacing: 8
+                    ImageItem {
+                        width: parent.height
+                        height: parent.height
+                        image: modelData.avatar
+                    }
+                    Label {
+                        height: parent.height
+                        text: modelData.displayName
+                        verticalAlignment: Text.AlignVCenter
+                    }
+                }
+
+                text: modelData.displayName
+            }
+        }
     }
 
     Rectangle {
@@ -125,9 +176,27 @@ Rectangle {
                 Keys.onReturnPressed: {
                     if (event.modifiers & Qt.ShiftModifier) {
                         insert(cursorPosition, "\n")
+                    } else if (userAutoComplete.visible) {
+                        text = text.substring(0, text.lastIndexOf(" "));
+                        insert(cursorPosition, userAutoCompleteListView.currentItem.displayName)
+                        userAutoComplete.visible = false
                     } else {
                         postMessage(text)
                         text = ""
+                    }
+                }
+
+                Keys.onTabPressed: {
+                    if (userAutoComplete.visible) {
+                        if (userAutoCompleteListView.currentIndex + 1 == userAutoCompleteListView.count) userAutoCompleteListView.currentIndex = 0
+                        else userAutoCompleteListView.currentIndex++
+                    } else {
+                        var lastWord = text.substring(0, cursorPosition).split(" ").pop()
+                        if (!lastWord) return
+                        var model = currentRoom.getUsers(lastWord)
+                        if (model.length === 0) return
+                        userAutoCompleteListView.model = model
+                        userAutoComplete.visible = true
                     }
                 }
 
@@ -135,6 +204,8 @@ Rectangle {
                     timeoutTimer.restart()
                     repeatTimer.start()
                     currentRoom.cachedInput = text
+
+                    if (userAutoComplete.visible) userAutoComplete.visible = false
                 }
 
                 function postMessage(text) {
@@ -206,15 +277,13 @@ Rectangle {
             onClicked: emojiPicker.visible ? emojiPicker.close() : emojiPicker.open()
 
             EmojiPicker {
-                x: window.width - 370
-                y: window.height - 400
+                x: -width + parent.width
+                y: -height - 16
 
                 width: 360
                 height: 320
 
                 id: emojiPicker
-
-                parent: ApplicationWindow.overlay
 
                 Material.elevation: 2
 

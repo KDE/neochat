@@ -2,6 +2,7 @@
 #define SpectralRoom_H
 
 #include "room.h"
+#include "spectraluser.h"
 
 #include <QObject>
 #include <QTimer>
@@ -73,6 +74,8 @@ class SpectralRoom : public Room {
   Q_INVOKABLE void saveViewport(int topIndex, int bottomIndex);
 
   Q_INVOKABLE void getPreviousContent(int limit = 10);
+
+  Q_INVOKABLE QVariantList getUsers(const QString& prefix);
 
  private:
   QString m_cachedInput;

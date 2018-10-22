@@ -12,6 +12,7 @@
 #include "room.h"
 #include "roomlistmodel.h"
 #include "spectralroom.h"
+#include "spectraluser.h"
 #include "userlistmodel.h"
 
 #include "csapi/joining.h"
@@ -50,6 +51,7 @@ int main(int argc, char *argv[]) {
   qRegisterMetaType<Room *>("Room*");
   qRegisterMetaType<MessageEventType>("MessageEventType");
   qRegisterMetaType<SpectralRoom *>("SpectralRoom*");
+    qRegisterMetaType<SpectralUser *>("SpectralUser*");
 
   QQmlApplicationEngine engine;
 
