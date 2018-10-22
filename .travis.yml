@@ -10,7 +10,7 @@ install:
 - git submodule update --init --recursive
 
 script:
-- qmake spectral.pro CONFIG+=qtquickcompiler PREFIX="${DEPLOY_DIR}"
+- qmake spectral.pro CONFIG+=debug CONFIG+=qml_debug PREFIX="${DEPLOY_DIR}"
 - make
 - make install
 - macdeployqt ${DEPLOY_DIR}/bin/spectral.app -dmg -qmldir=qml -qmldir=imports
