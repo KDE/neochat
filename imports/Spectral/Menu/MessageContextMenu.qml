@@ -33,7 +33,6 @@ Menu {
         onTriggered: row.saveFileAs()
     }
     MenuItem {
-        visible: model && model.author !== currentRoom.localUser
         height: visible ? undefined : 0
         text: "Reply"
 
