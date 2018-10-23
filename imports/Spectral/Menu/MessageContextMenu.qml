@@ -37,7 +37,6 @@ Menu {
         text: "Reply"
 
         onTriggered: {
-            roomPanelInput.clear()
             roomPanelInput.isReply = true
             roomPanelInput.replyUserID = model.author.id
             roomPanelInput.replyEventID = model.eventId

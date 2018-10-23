@@ -18,6 +18,10 @@ Rectangle {
     property string replyEventID
     property string replyContent
 
+    property bool isAutoCompleting
+    property var autoCompleteModel
+    property int autoCompleteBeginPosition
+    property int autoCompleteEndPosition
 
     color: MSettings.darkTheme ? "#303030" : "#fafafa"
 
@@ -37,8 +41,12 @@ Rectangle {
 
         id: userAutoComplete
 
+        visible: isAutoCompleting
+
         contentItem: ListView {
             id: userAutoCompleteListView
+
+            model: autoCompleteModel
 
             clip: true
 
@@ -176,10 +184,6 @@ Rectangle {
                 Keys.onReturnPressed: {
                     if (event.modifiers & Qt.ShiftModifier) {
                         insert(cursorPosition, "\n")
-                    } else if (userAutoComplete.visible) {
-                        remove(text.lastIndexOf(" ") + 1, text.length)
-                        insert(cursorPosition, userAutoCompleteListView.currentItem.displayName + " ")
-                        userAutoComplete.visible = false
                     } else {
                         postMessage(text)
                         text = ""
@@ -187,17 +191,21 @@ Rectangle {
                 }
 
                 Keys.onTabPressed: {
-                    if (userAutoComplete.visible) {
+                    if (isAutoCompleting) {
                         if (userAutoCompleteListView.currentIndex + 1 == userAutoCompleteListView.count) userAutoCompleteListView.currentIndex = 0
                         else userAutoCompleteListView.currentIndex++
                     } else {
-                        var lastWord = text.substring(0, cursorPosition).split(" ").pop()
-                        if (!lastWord) return
-                        var model = currentRoom.getUsers(lastWord)
-                        if (model.length === 0) return
-                        userAutoCompleteListView.model = model
-                        userAutoComplete.visible = true
+                        autoCompleteBeginPosition = text.substring(0, cursorPosition).lastIndexOf(" ") + 1
+                        var autoCompletePrefix = text.substring(0, cursorPosition).split(" ").pop()
+                        if (!autoCompletePrefix) return
+                        autoCompleteModel = currentRoom.getUsers(autoCompletePrefix)
+                        if (autoCompleteModel.length === 0) return
+                        isAutoCompleting = true
+                        autoCompleteEndPosition = cursorPosition
                     }
+                    remove(autoCompleteBeginPosition, autoCompleteEndPosition)
+                    autoCompleteEndPosition = autoCompleteBeginPosition + userAutoCompleteListView.currentItem.displayName.length
+                    insert(cursorPosition, userAutoCompleteListView.currentItem.displayName)
                 }
 
                 onTextChanged: {
@@ -205,7 +213,7 @@ Rectangle {
                     repeatTimer.start()
                     currentRoom.cachedInput = text
 
-                    if (userAutoComplete.visible) userAutoComplete.visible = false
+                    if (cursorPosition < autoCompleteBeginPosition || cursorPosition > autoCompleteEndPosition) isAutoCompleting = false
                 }
 
                 function postMessage(text) {
