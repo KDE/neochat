@@ -195,6 +195,13 @@ Rectangle {
                     }
                 }
 
+                Keys.onBacktabPressed: {
+                    if (isAutoCompleting) {
+                        if (userAutoCompleteListView.currentIndex == 0) userAutoCompleteListView.currentIndex = userAutoCompleteListView.count - 1
+                        else userAutoCompleteListView.currentIndex--
+                    }
+                }
+
                 Keys.onTabPressed: {
                     if (isAutoCompleting) {
                         if (userAutoCompleteListView.currentIndex + 1 == userAutoCompleteListView.count) userAutoCompleteListView.currentIndex = 0
