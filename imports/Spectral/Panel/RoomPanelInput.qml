@@ -41,7 +41,7 @@ Rectangle {
 
         id: userAutoComplete
 
-        visible: isAutoCompleting
+        visible: isAutoCompleting && autoCompleteModel.length !== 0
 
         contentItem: ListView {
             id: userAutoCompleteListView
@@ -213,7 +213,9 @@ Rectangle {
                     repeatTimer.start()
                     currentRoom.cachedInput = text
 
-                    if (cursorPosition < autoCompleteBeginPosition || cursorPosition > autoCompleteEndPosition) isAutoCompleting = false
+                    if (cursorPosition !== autoCompleteBeginPosition && cursorPosition !== autoCompleteEndPosition) {
+                        isAutoCompleting = false
+                    }
                 }
 
                 function postMessage(text) {
