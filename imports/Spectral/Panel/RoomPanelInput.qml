@@ -80,6 +80,11 @@ Rectangle {
                 }
 
                 text: modelData.displayName
+
+                onClicked: {
+                    userAutoCompleteListView.currentIndex = index
+                    inputField.replaceAutoComplete(displayName)
+                }
             }
         }
     }
@@ -203,9 +208,8 @@ Rectangle {
                         isAutoCompleting = true
                         autoCompleteEndPosition = cursorPosition
                     }
-                    remove(autoCompleteBeginPosition, autoCompleteEndPosition)
-                    autoCompleteEndPosition = autoCompleteBeginPosition + userAutoCompleteListView.currentItem.displayName.length
-                    insert(cursorPosition, userAutoCompleteListView.currentItem.displayName)
+
+                    replaceAutoComplete(userAutoCompleteListView.currentItem.displayName)
                 }
 
                 onTextChanged: {
@@ -215,7 +219,14 @@ Rectangle {
 
                     if (cursorPosition !== autoCompleteBeginPosition && cursorPosition !== autoCompleteEndPosition) {
                         isAutoCompleting = false
+                        userAutoCompleteListView.currentIndex = 0
                     }
+                }
+
+                function replaceAutoComplete(word) {
+                    remove(autoCompleteBeginPosition, autoCompleteEndPosition)
+                    autoCompleteEndPosition = autoCompleteBeginPosition + word.length
+                    insert(cursorPosition, word)
                 }
 
                 function postMessage(text) {
