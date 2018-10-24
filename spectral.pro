@@ -63,7 +63,8 @@ unix:!mac:isEmpty(BINDIR) {
     message("Install BINDIR not set; using PREFIX/bin. You can change this with 'qmake BINDIR=...'")
     BINDIR = $$PREFIX/bin
 }
-unix:target.path = $$BINDIR
+unix:!mac:target.path = $$BINDIR
+mac:target.path = $$PREFIX/bin
 win32:target.path = $$PREFIX
 !isEmpty(target.path): INSTALLS += target
 
