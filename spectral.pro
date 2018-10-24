@@ -59,7 +59,11 @@ unix:!mac:isEmpty(PREFIX) {
     message("Install PREFIX not set; using /usr/local. You can change this with 'qmake PREFIX=...'")
     PREFIX = /usr/local
 }
-unix:target.path = $$PREFIX/bin
+unix:!mac:isEmpty(BINDIR) {
+    message("Install BINDIR not set; using PREFIX/bin. You can change this with 'qmake BINDIR=...'")
+    BINDIR = $$PREFIX/bin
+}
+unix:target.path = $$BINDIR
 win32:target.path = $$PREFIX
 !isEmpty(target.path): INSTALLS += target
 
