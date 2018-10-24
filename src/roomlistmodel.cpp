@@ -1,6 +1,7 @@
 #include "roomlistmodel.h"
 
 #include "user.h"
+#include "utils.h"
 
 #include "events/roomevent.h"
 
@@ -79,13 +80,12 @@ void RoomListModel::connectRoomSignals(SpectralRoom* room) {
       room, &Room::aboutToAddNewMessages, this,
       [=](QMatrixClient::RoomEventsRange eventsRange) {
         RoomEvent* event = (eventsRange.end() - 1)->get();
-        if (event->isStateEvent()) return;
         User* sender = room->user(event->senderId());
         if (sender == room->localUser()) return;
         QUrl _url = room->avatarUrl();
         emit newMessage(
             room->id(), event->id(), room->displayName(), sender->displayname(),
-            event->contentJson().value("body").toString(), room->avatar(128),
+            utils::eventToString(*event), room->avatar(128),
             QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::CacheLocation) +
                 "/avatar/" + _url.authority() + '_' + _url.fileName() + ".png"));
       });

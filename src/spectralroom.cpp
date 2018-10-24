@@ -12,6 +12,8 @@
 #include <QMetaObject>
 #include <QMimeDatabase>
 
+#include "utils.h"
+
 SpectralRoom::SpectralRoom(Connection* connection, QString roomId,
                            JoinState joinState)
     : Room(connection, std::move(roomId), joinState) {
@@ -105,9 +107,8 @@ void SpectralRoom::sendTypingNotification(bool isTyping) {
 QString SpectralRoom::lastEvent() {
   if (timelineSize() == 0) return "";
   const RoomEvent* lastEvent = messageEvents().rbegin()->get();
-  if (lastEvent->contentJson().value("body").toString() == "") return "";
   return user(lastEvent->senderId())->displayname() + ": " +
-         lastEvent->contentJson().value("body").toString();
+         utils::removeReply(utils::eventToString(*lastEvent, this));
 }
 
 bool SpectralRoom::isEventHighlighted(const RoomEvent* e) const {
