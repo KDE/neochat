@@ -60,7 +60,7 @@ unix:!mac:isEmpty(PREFIX) {
     PREFIX = /usr/local
 }
 unix:!mac:isEmpty(BINDIR) {
-    message("Install BINDIR not set; using /usr/local. You can change this with 'qmake BINDIR=...'")
+    message("Install BINDIR not set; using PREFIX/bin. You can change this with 'qmake BINDIR=...'")
     BINDIR = $$PREFIX/bin
 }
 unix:target.path = $$BINDIR
