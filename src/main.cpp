@@ -51,7 +51,7 @@ int main(int argc, char *argv[]) {
   qRegisterMetaType<Room *>("Room*");
   qRegisterMetaType<MessageEventType>("MessageEventType");
   qRegisterMetaType<SpectralRoom *>("SpectralRoom*");
-    qRegisterMetaType<SpectralUser *>("SpectralUser*");
+  qRegisterMetaType<SpectralUser *>("SpectralUser*");
 
   QQmlApplicationEngine engine;
 
