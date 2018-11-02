@@ -135,21 +135,30 @@ Item {
                     font.italic: true
                 }
 
-                Label {
+                RowLayout {
+                    Layout.fillWidth: true
                     Layout.alignment: Qt.AlignHCenter
 
                     visible: readMarker === true && index !== 0
 
-                    text: "And Now"
-                    color: "white"
-                    verticalAlignment: Text.AlignVCenter
-                    leftPadding: 8
-                    rightPadding: 8
-                    topPadding: 4
-                    bottomPadding: 4
+                    Rectangle {
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: 2
 
-                    background: Rectangle {
-                        color: MSettings.darkTheme ? "#484848" : "grey"
+                        color: Material.accent
+                    }
+
+                    Label {
+                        text: "And Now"
+                        color: Material.accent
+                        verticalAlignment: Text.AlignVCenter
+                    }
+
+                    Rectangle {
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: 2
+
+                        color: Material.accent
                     }
                 }
             }

@@ -6,15 +6,13 @@ RoomPanelForm {
     roomHeader.topic: currentRoom ? (currentRoom.topic).replace(/(\r\n\t|\n|\r\t)/gm,"") : ""
 
     sortedMessageEventModel.onModelReset: {
-        if (currentRoom)
-        {
+        if (currentRoom) {
             var lastScrollPosition = sortedMessageEventModel.mapFromSource(currentRoom.savedTopVisibleIndex())
             console.log("Scrolling to position", lastScrollPosition)
             messageListView.currentIndex = lastScrollPosition
-            if (messageListView.contentY < messageListView.originY + 10 || currentRoom.timelineSize === 0)
+            if (messageListView.contentY < messageListView.originY + 10 || messageListView.contentHeight < messageListView.height || currentRoom.timelineSize === 0)
                 currentRoom.getPreviousContent(100)
         }
-        console.log("Model timeline reset")
     }
 
     messageListView {
@@ -25,11 +23,7 @@ RoomPanelForm {
                 currentRoom.getPreviousContent(50);
         }
 
-        onMovementEnded: {
-            currentRoom.saveViewport(sortedMessageEventModel.mapToSource(messageListView.indexAt(messageListView.contentX, messageListView.contentY)), sortedMessageEventModel.mapToSource(largestVisibleIndex))
-            var newReadMarker = sortedMessageEventModel.get(largestVisibleIndex).eventId
-            if (newReadMarker) currentRoom.readMarkerEventId = newReadMarker
-        }
+        onMovementEnded: currentRoom.saveViewport(sortedMessageEventModel.mapToSource(messageListView.indexAt(messageListView.contentX, messageListView.contentY)), sortedMessageEventModel.mapToSource(largestVisibleIndex))
 
         displaced: Transition {
             NumberAnimation {
@@ -45,6 +39,13 @@ RoomPanelForm {
     function goToEvent(eventID) {
         var index = messageEventModel.eventIDToIndex(eventID)
         if (index === -1) return
+        messageListView.currentIndex = -1
         messageListView.currentIndex = sortedMessageEventModel.mapFromSource(index)
+    }
+
+    function saveReadMarker(room) {
+        var readMarker = sortedMessageEventModel.get(messageListView.largestVisibleIndex).eventId
+        if (!readMarker) return
+        room.readMarkerEventId = readMarker
     }
 }

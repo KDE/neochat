@@ -1,8 +1,8 @@
 #ifndef SpectralUser_H
 #define SpectralUser_H
 
-#include "user.h"
 #include "room.h"
+#include "user.h"
 
 #include <QObject>
 
@@ -17,7 +17,9 @@ class SpectralUser : public User {
   QImage getAvatar() { return avatar(128); }
 
  signals:
-  void inheritedAvatarChanged(User* user, const Room* roomContext); // https://bugreports.qt.io/browse/QTBUG-7684
+  void inheritedAvatarChanged(
+      User* user,
+      const Room* roomContext);  // https://bugreports.qt.io/browse/QTBUG-7684
 };
 
 #endif  // SpectralUser_H

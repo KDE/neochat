@@ -47,6 +47,8 @@ Page {
                 source: parent
                 elevation: 4
             }
+
+            onLeaveRoom: roomForm.saveReadMarker(room)
         }
 
         RoomPanel {

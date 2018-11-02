@@ -25,6 +25,8 @@ Rectangle {
                 inviteDialog.currentRoom = currentRoom
                 inviteDialog.open()
             } else {
+                leaveRoom(enteredRoom)
+                enterRoom(currentRoom)
                 enteredRoom = currentRoom
             }
         }

@@ -25,6 +25,9 @@ Rectangle {
 
     property bool miniMode: width == 64
 
+    signal enterRoom(var room)
+    signal leaveRoom(var room)
+
     color: MSettings.darkTheme ? "#323232" : "#f3f3f3"
 
     Label {
@@ -83,7 +86,8 @@ Rectangle {
                     bottomPadding: 0
                     placeholderText: "Search..."
 
-                    background: Item {}
+                    background: Item {
+                    }
                 }
             }
         }
@@ -99,7 +103,8 @@ Rectangle {
 
             boundsBehavior: Flickable.DragOverBounds
 
-            ScrollBar.vertical: ScrollBar {}
+            ScrollBar.vertical: ScrollBar {
+            }
 
             delegate: RoomListDelegate {
                 width: parent.width
@@ -120,7 +125,14 @@ Rectangle {
                 horizontalAlignment: miniMode ? Text.AlignHCenter : undefined
             }
 
-            RoomContextMenu { id: roomContextMenu }
+            RoomContextMenu {
+                id: roomContextMenu
+            }
         }
     }
 }
+
+/*##^## Designer {
+    D{i:0;autoSize:true;height:480;width:640}
+}
+ ##^##*/
