@@ -6,13 +6,9 @@ import QtQuick.Controls.Material 2.2
 import Spectral 0.1
 
 Popup {
+    property var emojiModel
     property var textArea
     property string emojiCategory: "people"
-
-    EmojiModel {
-        id: emojiModel
-        category: emojiCategory
-    }
 
     ColumnLayout {
         anchors.fill: parent
@@ -28,23 +24,26 @@ Popup {
 
             clip: true
 
-            model: emojiModel.model
+            model: emojiModel.model[emojiCategory]
 
-            delegate: Text {
+            delegate: ItemDelegate {
                 width: 36
                 height: 36
 
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
+                contentItem: Text {
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
 
-                font.pointSize: 20
-                font.family: "Emoji"
-                text: modelData
-
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: textArea.insert(textArea.cursorPosition, modelData)
+                    font.pointSize: 20
+                    font.family: "Emoji"
+                    text: modelData.unicode
                 }
+
+                hoverEnabled: true
+                ToolTip.text: modelData.shortname
+                ToolTip.visible: hovered
+
+                onClicked: textArea.insert(textArea.cursorPosition, modelData.unicode)
             }
 
             ScrollBar.vertical: ScrollBar {}
@@ -58,14 +57,38 @@ Popup {
         }
 
         Row {
-            EmojiButton { text: "😏"; category: "people" }
-            EmojiButton { text: "🌲"; category: "nature" }
-            EmojiButton { text: "🍛"; category: "food"}
-            EmojiButton { text: "🚁"; category: "activity" }
-            EmojiButton { text: "🚅"; category: "travel" }
-            EmojiButton { text: "💡"; category: "objects" }
-            EmojiButton { text: "🔣"; category: "symbols" }
-            EmojiButton { text: "🏁"; category: "flags" }
+            Repeater {
+                model: ListModel {
+                    ListElement { label: "😏"; category: "people" }
+                    ListElement { label: "🌲"; category: "nature" }
+                    ListElement { label: "🍛"; category: "food"}
+                    ListElement { label: "🚁"; category: "activity" }
+                    ListElement { label: "🚅"; category: "travel" }
+                    ListElement { label: "💡"; category: "objects" }
+                    ListElement { label: "🔣"; category: "symbols" }
+                    ListElement { label: "🏁"; category: "flags" }
+                }
+
+                delegate: ItemDelegate {
+                    width: 36
+                    height: 36
+
+                    contentItem: Text {
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+
+                        font.pointSize: 20
+                        font.family: "Emoji"
+                        text: label
+                    }
+
+                    hoverEnabled: true
+                    ToolTip.text: category
+                    ToolTip.visible: hovered
+
+                    onClicked: emojiCategory = category
+                }
+            }
         }
     }
 }

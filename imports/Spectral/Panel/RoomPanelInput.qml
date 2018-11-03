@@ -18,8 +18,10 @@ Rectangle {
     property string replyEventID
     property string replyContent
 
-    property bool isAutoCompleting
-    property var autoCompleteModel
+    property bool isEmojiAutoCompleting
+    property bool isUserAutoCompleting
+    property var userAutoCompleteModel
+    property var emojiAutoCompleteModel
     property int autoCompleteBeginPosition
     property int autoCompleteEndPosition
 
@@ -41,12 +43,12 @@ Rectangle {
 
         id: userAutoComplete
 
-        visible: isAutoCompleting && autoCompleteModel.length !== 0
+        visible: isUserAutoCompleting && userAutoCompleteModel.length !== 0
 
         contentItem: ListView {
             id: userAutoCompleteListView
 
-            model: autoCompleteModel
+            model: userAutoCompleteModel
 
             clip: true
 
@@ -84,6 +86,58 @@ Rectangle {
                 onClicked: {
                     userAutoCompleteListView.currentIndex = index
                     inputField.replaceAutoComplete(displayName)
+                }
+            }
+        }
+    }
+
+    Popup {
+        x: 0
+        y: -height - 10
+        width: Math.min(emojiAutoCompleteListView.contentWidth, parent.width)
+        height: 36
+        padding: 0
+
+        Material.elevation: 2
+
+        id: emojiAutoComplete
+
+        visible: isEmojiAutoCompleting && emojiAutoCompleteModel.length !== 0
+
+        contentItem: ListView {
+            id: emojiAutoCompleteListView
+
+            model: emojiAutoCompleteModel
+
+            clip: true
+
+            orientation: ListView.Horizontal
+
+            highlightFollowsCurrentItem: true
+
+            highlight: Rectangle {
+                color: Material.accent
+                opacity: 0.4
+            }
+
+            delegate: ItemDelegate {
+                property string unicode: modelData.unicode
+
+                width: 36
+                height: 36
+
+                contentItem: Text {
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+
+                    font.pointSize: 20
+                    font.family: "Emoji"
+                    text: modelData.unicode
+                }
+
+                onClicked: {
+                    emojiAutoCompleteListView.currentIndex = index
+                    inputField.replaceAutoComplete(modelData.unicode)
                 }
             }
         }
@@ -196,27 +250,37 @@ Rectangle {
                 }
 
                 Keys.onBacktabPressed: {
-                    if (isAutoCompleting) {
+                    if (isUserAutoCompleting) {
                         if (userAutoCompleteListView.currentIndex == 0) userAutoCompleteListView.currentIndex = userAutoCompleteListView.count - 1
                         else userAutoCompleteListView.currentIndex--
+                    }
+                    if (isEmojiAutoCompleting) {
+                        if (emojiAutoCompleteListView.currentIndex == 0) emojiAutoCompleteListView.currentIndex = emojiAutoCompleteListView.count - 1
+                        else emojiAutoCompleteListView.currentIndex--
                     }
                 }
 
                 Keys.onTabPressed: {
-                    if (isAutoCompleting) {
-                        if (userAutoCompleteListView.currentIndex + 1 == userAutoCompleteListView.count) userAutoCompleteListView.currentIndex = 0
-                        else userAutoCompleteListView.currentIndex++
-                    } else {
-                        autoCompleteBeginPosition = text.substring(0, cursorPosition).lastIndexOf(" ") + 1
-                        var autoCompletePrefix = text.substring(0, cursorPosition).split(" ").pop()
-                        if (!autoCompletePrefix) return
-                        autoCompleteModel = currentRoom.getUsers(autoCompletePrefix)
-                        if (autoCompleteModel.length === 0) return
-                        isAutoCompleting = true
-                        autoCompleteEndPosition = cursorPosition
-                    }
+                    if (isEmojiAutoCompleting) {
+                        if (emojiAutoCompleteListView.currentIndex + 1 == emojiAutoCompleteListView.count) emojiAutoCompleteListView.currentIndex = 0
+                        else emojiAutoCompleteListView.currentIndex++
 
-                    replaceAutoComplete(userAutoCompleteListView.currentItem.displayName)
+                        replaceAutoComplete(emojiAutoCompleteListView.currentItem.unicode)
+                    } else {
+                        if (isUserAutoCompleting) {
+                            if (userAutoCompleteListView.currentIndex + 1 == userAutoCompleteListView.count) userAutoCompleteListView.currentIndex = 0
+                            else userAutoCompleteListView.currentIndex++
+                        } else {
+                            autoCompleteBeginPosition = text.substring(0, cursorPosition).lastIndexOf(" ") + 1
+                            var autoCompletePrefix = text.substring(0, cursorPosition).split(" ").pop()
+                            if (!autoCompletePrefix) return
+                            userAutoCompleteModel = currentRoom.getUsers(autoCompletePrefix)
+                            if (userAutoCompleteModel.length === 0) return
+                            isUserAutoCompleting = true
+                            autoCompleteEndPosition = cursorPosition
+                        }
+                        replaceAutoComplete(userAutoCompleteListView.currentItem.displayName)
+                    }
                 }
 
                 onTextChanged: {
@@ -225,8 +289,21 @@ Rectangle {
                     currentRoom.cachedInput = text
 
                     if (cursorPosition !== autoCompleteBeginPosition && cursorPosition !== autoCompleteEndPosition) {
-                        isAutoCompleting = false
+                        isUserAutoCompleting = false
+                        isEmojiAutoCompleting = false
                         userAutoCompleteListView.currentIndex = 0
+                        emojiAutoCompleteListView.currentIndex = 0
+                    }
+
+                    var autoCompletePrefix = text.substring(0, cursorPosition).split(" ").pop()
+                    if (autoCompletePrefix.startsWith(":")) {
+                        if (autoCompletePrefix.length < 3) return
+                        autoCompleteBeginPosition = text.substring(0, cursorPosition).lastIndexOf(" ") + 1
+                        emojiAutoCompleteModel = emojiModel.filterModel(autoCompletePrefix)
+                        if (emojiAutoCompleteModel.length === 0) return
+                        console.log("Auto completing emoji.")
+                        isEmojiAutoCompleting = true
+                        autoCompleteEndPosition = cursorPosition
                     }
                 }
 
@@ -312,6 +389,10 @@ Rectangle {
                 height: 320
 
                 id: emojiPicker
+
+                emojiModel: EmojiModel {
+                    id: emojiModel
+                }
 
                 Material.elevation: 2
 

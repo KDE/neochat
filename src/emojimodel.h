@@ -3,41 +3,38 @@
 
 #include <QObject>
 #include <QVariant>
+#include <QVector>
+
+struct Emoji {
+  Emoji(const QString& u, const QString& s) : unicode(u), shortname(s) {}
+  Emoji() {}
+
+  QString unicode;
+  QString shortname;
+
+  Q_GADGET
+  Q_PROPERTY(QString unicode MEMBER unicode)
+  Q_PROPERTY(QString shortname MEMBER shortname)
+};
+
+Q_DECLARE_METATYPE(Emoji)
 
 class EmojiModel : public QObject {
   Q_OBJECT
-  Q_PROPERTY(QVariant model READ getModel NOTIFY categoryChanged)
-  Q_PROPERTY(QString category READ getCategory WRITE setCategory NOTIFY
-                 categoryChanged)
+  Q_PROPERTY(QVariantMap model READ getModel CONSTANT)
  public:
-  explicit EmojiModel(QObject *parent = nullptr);
-
-  QVariant getModel();
-
-  QString getCategory() { return m_category; }
-  void setCategory(QString category) {
-    if (category != m_category) {
-      m_category = category;
-      emit categoryChanged();
-    }
-  }
+  Q_INVOKABLE QVariantMap getModel();
+  Q_INVOKABLE QVariantList filterModel(const QString& filter);
 
  private:
-  static const QStringList people;
-  static const QStringList nature;
-  static const QStringList food;
-  static const QStringList activity;
-  static const QStringList travel;
-  static const QStringList objects;
-  static const QStringList symbols;
-  static const QStringList flags;
-
-  QString m_category = "people";
-
- signals:
-  void categoryChanged();
-
- public slots:
+  static const QVariantList people;
+  static const QVariantList nature;
+  static const QVariantList food;
+  static const QVariantList activity;
+  static const QVariantList travel;
+  static const QVariantList objects;
+  static const QVariantList symbols;
+  static const QVariantList flags;
 };
 
 #endif  // EMOJIMODEL_H
