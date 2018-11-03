@@ -26,7 +26,7 @@ Item {
         else
         {
             openOnFinished = true
-            currentRoom.downloadFile(eventId, StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_") + ".tmp")
+            currentRoom.downloadFile(eventId, StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_") + (message || ".tmp"))
         }
     }
 
