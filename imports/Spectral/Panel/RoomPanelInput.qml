@@ -51,6 +51,7 @@ Rectangle {
             clip: true
             orientation: ListView.Horizontal
             highlightFollowsCurrentItem: true
+            keyNavigationWraps: true
 
             highlight: Rectangle {
                 color: Material.accent
@@ -205,17 +206,11 @@ Rectangle {
                     }
                 }
 
-                Keys.onBacktabPressed: {
-                    if (isAutoCompleting) {
-                        if (autoCompleteListView.currentIndex == 0) autoCompleteListView.currentIndex = autoCompleteListView.count - 1
-                        else autoCompleteListView.currentIndex--
-                    }
-                }
+                Keys.onBacktabPressed: if (isAutoCompleting) autoCompleteListView.decrementCurrentIndex()
 
                 Keys.onTabPressed: {
                     if (isAutoCompleting) {
-                        if (autoCompleteListView.currentIndex + 1 == autoCompleteListView.count) autoCompleteListView.currentIndex = 0
-                        else autoCompleteListView.currentIndex++
+                        autoCompleteListView.incrementCurrentIndex()
                     } else {
                         autoCompleteBeginPosition = text.substring(0, cursorPosition).lastIndexOf(" ") + 1
                         var autoCompletePrefix = text.substring(0, cursorPosition).split(" ").pop()

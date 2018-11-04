@@ -1,16 +1,15 @@
 import QtQuick 2.9
 
 RoomPanelForm {
-    roomHeader.onClicked: roomDrawer.open()
     roomHeader.image: spectralController.safeImage(currentRoom ? currentRoom.avatar : null)
     roomHeader.topic: currentRoom ? (currentRoom.topic).replace(/(\r\n\t|\n|\r\t)/gm,"") : ""
+    roomHeader.onClicked: roomDrawer.open()
 
     sortedMessageEventModel.onModelReset: {
         if (currentRoom) {
             var lastScrollPosition = sortedMessageEventModel.mapFromSource(currentRoom.savedTopVisibleIndex())
-            console.log("Scrolling to position", lastScrollPosition)
             messageListView.currentIndex = lastScrollPosition
-            if (messageListView.contentY < messageListView.originY + 10 || messageListView.contentHeight < messageListView.height || currentRoom.timelineSize === 0)
+            if (messageListView.contentY < messageListView.originY + 10 || currentRoom.timelineSize < 20)
                 currentRoom.getPreviousContent(100)
         }
     }
