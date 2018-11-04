@@ -47,7 +47,6 @@ class ImageItem : public QQuickPaintedItem {
   QString m_color;
   bool m_round = true;
 
-  QString stringtoColor(QString string);
   void paintHint(QPainter* painter, QRectF bounding_rect);
 };
 

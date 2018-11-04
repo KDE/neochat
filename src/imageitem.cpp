@@ -6,6 +6,16 @@
 
 ImageItem::ImageItem(QQuickItem *parent) : QQuickPaintedItem(parent) {}
 
+inline QString stringtoColor(QString string) {
+  int hash = 0;
+  for (int i = 0; i < string.length(); i++)
+    hash = string.at(i).unicode() + ((hash << 5) - hash);
+  QString colour = "#";
+  for (int j = 0; j < 3; j++)
+    colour += ("00" + QString::number((hash >> (j * 8)) & 0xFF, 16)).right(2);
+  return colour;
+}
+
 void ImageItem::paint(QPainter *painter) {
   QRectF bounding_rect = boundingRect();
 
@@ -69,9 +79,8 @@ void ImageItem::setPaintable(Paintable *paintable) {
   if (!paintable) return;
   disconnect(m_paintable);
   m_paintable = paintable;
-  connect(m_paintable, &Paintable::paintableChanged, this, [=] {
-    this->update();
-  });
+  connect(m_paintable, &Paintable::paintableChanged, this,
+          [=] { this->update(); });
   emit paintableChanged();
   update();
 }
@@ -98,14 +107,4 @@ void ImageItem::setRound(bool value) {
     emit roundChanged();
     update();
   }
-}
-
-QString ImageItem::stringtoColor(QString string) {
-  int hash = 0;
-  for (int i = 0; i < string.length(); i++)
-    hash = string.at(i).unicode() + ((hash << 5) - hash);
-  QString colour = "#";
-  for (int j = 0; j < 3; j++)
-    colour += ("00" + QString::number((hash >> (j * 8)) & 0xFF, 16)).right(2);
-  return colour;
 }
