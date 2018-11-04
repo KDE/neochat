@@ -139,7 +139,7 @@ Item {
                     Layout.fillWidth: true
                     Layout.alignment: Qt.AlignHCenter
 
-                    visible: readMarker === true && index !== 0
+                    visible: readMarker === true
 
                     Rectangle {
                         Layout.fillWidth: true

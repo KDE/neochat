@@ -306,10 +306,10 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const {
 
   if (role == HighlightRole) return m_currentRoom->isEventHighlighted(&evt);
 
-  if (role == ReadMarkerRole) return evt.id() == lastReadEventId;
+  if (role == ReadMarkerRole) return evt.id() == lastReadEventId && row > timelineBaseIndex();
 
   if (role == SpecialMarksRole) {
-    if (isPending) return EventStatus::Hidden;
+    if (isPending) return pendingIt->deliveryStatus();
 
     if (is<RedactionEvent>(evt)) return EventStatus::Hidden;
     if (evt.isRedacted()) return EventStatus::Redacted;

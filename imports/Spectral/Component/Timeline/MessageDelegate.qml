@@ -8,8 +8,6 @@ import Spectral.Setting 0.1
 
 import Spectral.Component 2.0
 
-import "qrc:/js/util.js" as Util
-
 RowLayout {
     readonly property bool avatarVisible: !sentByMe && (aboveAuthor !== author || aboveSection !== section || aboveEventType === "state" || aboveEventType === "emote" || aboveEventType === "other")
     readonly property bool highlighted: !(sentByMe || eventType === "notice" )
