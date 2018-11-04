@@ -11,34 +11,22 @@ void ImageItem::paint(QPainter *painter) {
 
   painter->setRenderHint(QPainter::Antialiasing, true);
 
-  if (m_image.isNull()) {
-    painter->setPen(Qt::NoPen);
-    if (m_color.isEmpty())
-      painter->setBrush(QColor(stringtoColor(m_hint)));
-    else
-      painter->setBrush(QColor(m_color));
-    if (m_round)
-      painter->drawEllipse(0, 0, int(bounding_rect.width()),
-                           int(bounding_rect.height()));
-    else
-      painter->drawRect(0, 0, int(bounding_rect.width()),
-                        int(bounding_rect.height()));
-    painter->setPen(QPen(Qt::white, 2));
-    QFont font;
-    font.setStyleHint(QFont::SansSerif);
-
-    font.setPixelSize(int(bounding_rect.width() / 2));
-    font.setBold(true);
-    painter->setFont(font);
-    painter->drawText(
-        QRect(0, 0, int(bounding_rect.width()), int(bounding_rect.height())),
-        Qt::AlignCenter, m_hint.at(0).toUpper());
+  if (!m_paintable) {
+    paintHint(painter, bounding_rect);
     return;
   }
 
-  QImage scaled = m_image.scaled(
+  QImage image = m_paintable->image(int(bounding_rect.width()),
+                                    int(bounding_rect.height()));
+
+  if (image.isNull()) {
+    paintHint(painter, bounding_rect);
+    return;
+  }
+
+  QImage scaled = image.scaled(
       int(bounding_rect.width()) + 1, int(bounding_rect.height()) + 1,
-      Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
+      Qt::KeepAspectRatioByExpanding, Qt::FastTransformation);
 
   QPointF center = bounding_rect.center() - scaled.rect().center();
 
@@ -53,9 +41,38 @@ void ImageItem::paint(QPainter *painter) {
   painter->drawImage(center, scaled);
 }
 
-void ImageItem::setImage(const QImage &image) {
-  m_image = image;
-  emit imageChanged();
+void ImageItem::paintHint(QPainter *painter, QRectF bounding_rect) {
+  painter->setPen(Qt::NoPen);
+  if (m_color.isEmpty())
+    painter->setBrush(QColor(stringtoColor(m_hint)));
+  else
+    painter->setBrush(QColor(m_color));
+  if (m_round)
+    painter->drawEllipse(0, 0, int(bounding_rect.width()),
+                         int(bounding_rect.height()));
+  else
+    painter->drawRect(0, 0, int(bounding_rect.width()),
+                      int(bounding_rect.height()));
+  painter->setPen(QPen(Qt::white, 2));
+  QFont font;
+  font.setStyleHint(QFont::SansSerif);
+
+  font.setPixelSize(int(bounding_rect.width() / 2));
+  font.setBold(true);
+  painter->setFont(font);
+  painter->drawText(
+      QRect(0, 0, int(bounding_rect.width()), int(bounding_rect.height())),
+      Qt::AlignCenter, m_hint.at(0).toUpper());
+}
+
+void ImageItem::setPaintable(Paintable *paintable) {
+  if (!paintable) return;
+  disconnect(m_paintable);
+  m_paintable = paintable;
+  connect(m_paintable, &Paintable::paintableChanged, this, [=] {
+    this->update();
+  });
+  emit paintableChanged();
   update();
 }
 

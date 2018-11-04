@@ -17,8 +17,6 @@
 SpectralRoom::SpectralRoom(Connection* connection, QString roomId,
                            JoinState joinState)
     : Room(connection, std::move(roomId), joinState) {
-  connect(this, &Room::avatarChanged, this,
-          &SpectralRoom::inheritedAvatarChanged);
   connect(this, &SpectralRoom::notificationCountChanged, this,
           &SpectralRoom::countChanged);
   connect(this, &SpectralRoom::highlightCountChanged, this,

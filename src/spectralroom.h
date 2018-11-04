@@ -1,6 +1,7 @@
 #ifndef SpectralRoom_H
 #define SpectralRoom_H
 
+#include "paintable.h"
 #include "room.h"
 #include "spectraluser.h"
 
@@ -9,9 +10,29 @@
 
 using namespace QMatrixClient;
 
+class RoomPaintable : public Paintable {
+  Q_OBJECT
+ public:
+  RoomPaintable(Room* parent) : Paintable(parent), m_room(parent) {
+    connect(m_room, &Room::avatarChanged, [=] { emit paintableChanged(); });
+  }
+
+  QImage image(int dimension) override {
+    if (!m_room) return QImage();
+    return m_room->avatar(dimension);
+  }
+  QImage image(int width, int height) override {
+    if (!m_room) return QImage();
+    return m_room->avatar(width, height);
+  }
+
+ private:
+  Room* m_room;
+};
+
 class SpectralRoom : public Room {
   Q_OBJECT
-  Q_PROPERTY(QImage avatar READ getAvatar NOTIFY inheritedAvatarChanged)
+  Q_PROPERTY(Paintable* paintable READ paintable CONSTANT)
   Q_PROPERTY(bool hasUsersTyping READ hasUsersTyping NOTIFY typingChanged)
   Q_PROPERTY(QString usersTyping READ getUsersTyping NOTIFY typingChanged)
   Q_PROPERTY(QString cachedInput READ cachedInput WRITE setCachedInput NOTIFY
@@ -26,7 +47,7 @@ class SpectralRoom : public Room {
   explicit SpectralRoom(Connection* connection, QString roomId,
                         JoinState joinState = {});
 
-  QImage getAvatar() { return avatar(128); }
+  Paintable* paintable() { return new RoomPaintable(this); }
 
   const QString& cachedInput() const { return m_cachedInput; }
   void setCachedInput(const QString& input) {
@@ -100,7 +121,6 @@ class SpectralRoom : public Room {
  signals:
   void cachedInputChanged();
   void busyChanged();
-  void inheritedAvatarChanged();  // https://bugreports.qt.io/browse/QTBUG-7684
   void hasFileUploadingChanged();
   void fileUploadingProgressChanged();
 

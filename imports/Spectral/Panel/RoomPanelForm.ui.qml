@@ -272,7 +272,7 @@ Item {
                                 Layout.preferredWidth: height
                                 Layout.fillHeight: true
 
-                                image: modelData.avatar
+                                source: modelData.paintable
                                 hint: modelData.displayName
                             }
 

@@ -1,7 +1,7 @@
 import QtQuick 2.9
 
 RoomPanelForm {
-    roomHeader.image: spectralController.safeImage(currentRoom ? currentRoom.avatar : null)
+    roomHeader.paintable: currentRoom ? currentRoom.paintable : null
     roomHeader.topic: currentRoom ? (currentRoom.topic).replace(/(\r\n\t|\n|\r\t)/gm,"") : ""
     roomHeader.onClicked: roomDrawer.open()
 

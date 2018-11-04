@@ -27,7 +27,7 @@ Column {
                 height: parent.height
 
                 hint: user.displayName
-                image: user.avatar
+                source: user.paintable
             }
 
             ColumnLayout {

@@ -7,21 +7,24 @@
 #include <QQuickItem>
 #include <QQuickPaintedItem>
 
+#include "paintable.h"
+
 class ImageItem : public QQuickPaintedItem {
   Q_OBJECT
-  Q_PROPERTY(QImage image READ image WRITE setImage NOTIFY imageChanged)
+  Q_PROPERTY(Paintable* source READ paintable WRITE setPaintable NOTIFY
+                 paintableChanged)
   Q_PROPERTY(QString hint READ hint WRITE setHint NOTIFY hintChanged)
   Q_PROPERTY(QString defaultColor READ defaultColor WRITE setDefaultColor NOTIFY
                  defaultColorChanged)
   Q_PROPERTY(bool round READ round WRITE setRound NOTIFY roundChanged)
 
  public:
-  ImageItem(QQuickItem *parent = nullptr);
+  ImageItem(QQuickItem* parent = nullptr);
 
-  void paint(QPainter *painter);
+  void paint(QPainter* painter);
 
-  QImage image() const { return m_image; }
-  void setImage(const QImage &image);
+  Paintable* paintable() { return m_paintable; }
+  void setPaintable(Paintable* paintable);
 
   QString hint() { return m_hint; }
   void setHint(QString hint);
@@ -33,18 +36,19 @@ class ImageItem : public QQuickPaintedItem {
   void setRound(bool value);
 
  signals:
-  void imageChanged();
+  void paintableChanged();
   void hintChanged();
   void defaultColorChanged();
   void roundChanged();
 
  private:
-  QImage m_image;
+  Paintable* m_paintable = nullptr;
   QString m_hint = "H";
   QString m_color;
   bool m_round = true;
 
   QString stringtoColor(QString string);
+  void paintHint(QPainter* painter, QRectF bounding_rect);
 };
 
 #endif  // IMAGEITEM_H

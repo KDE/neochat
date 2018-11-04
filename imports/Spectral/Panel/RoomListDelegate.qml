@@ -66,9 +66,8 @@ Rectangle {
             Layout.preferredWidth: height
             Layout.fillHeight: true
 
+            source: paintable
             hint: name || "No Name"
-
-            image: avatar
         }
 
         ColumnLayout {

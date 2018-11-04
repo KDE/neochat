@@ -33,7 +33,7 @@ Drawer {
             Layout.alignment: Qt.AlignHCenter
 
             hint: room ? room.displayName : "No name"
-            image: spectralController.safeImage(room ? room.avatar : null)
+            source: room ? room.paintable : null
         }
 
         Label {
@@ -131,7 +131,7 @@ Drawer {
                             Layout.preferredWidth: height
                             Layout.fillHeight: true
 
-                            image: avatar
+                            source: paintable
                             hint: name
                         }
 

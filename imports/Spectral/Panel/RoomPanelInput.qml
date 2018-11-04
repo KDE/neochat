@@ -82,7 +82,7 @@ Rectangle {
                         width: parent.height
                         height: parent.height
                         visible: !isEmoji
-                        image: spectralController.safeImage(modelData.avatar)
+                        source: modelData.paintable
                     }
                     Label {
                         height: parent.height

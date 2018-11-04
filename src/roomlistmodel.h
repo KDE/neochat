@@ -31,7 +31,7 @@ class RoomListModel : public QAbstractListModel {
  public:
   enum EventRoles {
     NameRole = Qt::UserRole + 1,
-    AvatarRole,
+    PaintableRole,
     TopicRole,
     CategoryRole,
     UnreadCountRole,

@@ -98,7 +98,8 @@ HEADERS += \
     src/accountlistmodel.h \
     src/spectraluser.h \
     src/notifications/manager.h \
-    src/utils.h
+    src/utils.h \
+    src/paintable.h
 
 SOURCES += src/main.cpp \
     src/controller.cpp \
@@ -111,7 +112,8 @@ SOURCES += src/main.cpp \
     src/imageitem.cpp \
     src/accountlistmodel.cpp \
     src/spectraluser.cpp \
-    src/utils.cpp
+    src/utils.cpp \
+    src/paintable.cpp
 
 unix:!mac {
     SOURCES += src/notifications/managerlinux.cpp

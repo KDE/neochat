@@ -35,7 +35,7 @@ RowLayout {
         round: false
         visible: avatarVisible
         hint: author.displayName
-        image: author.avatar
+        source: author.paintable
     }
 
     Rectangle {
@@ -142,7 +142,7 @@ RowLayout {
                         height: parent.height
 
                         hint: modelData.displayName
-                        image: modelData.avatar
+                        source: modelData.paintable
 
                         MouseArea {
                             anchors.fill: parent

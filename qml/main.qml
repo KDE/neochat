@@ -153,7 +153,7 @@ ApplicationWindow {
                                 anchors.margins: 12
 
                                 hint: user.displayName
-                                image: user.avatar
+                                source: user.paintable
                             }
 
                             highlightColor: spectralController.color(user.id)

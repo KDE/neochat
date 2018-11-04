@@ -84,8 +84,6 @@ class Controller : public QObject {
                         const QString& roomName, const QString& senderName,
                         const QString& text, const QImage& icon,
                         const QUrl& iconPath);
-
-  static QImage safeImage(QImage image);
 };
 
 #endif  // CONTROLLER_H

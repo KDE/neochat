@@ -6,7 +6,7 @@ import QtQuick.Controls.Material 2.2
 import Spectral 0.1
 
 Rectangle {
-    property alias image: headerImage.image
+    property alias paintable: headerImage.source
     property alias topic: headerTopicLabel.text
     signal clicked()
 
@@ -33,6 +33,7 @@ Rectangle {
 
                 id: headerImage
 
+                source: currentRoom.paintable
                 hint: currentRoom ? currentRoom.displayName : "No name"
             }
 

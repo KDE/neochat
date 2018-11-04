@@ -8,6 +8,8 @@
 #include <room.h>
 #include <user.h>
 
+#include "spectraluser.h"
+
 UserListModel::UserListModel(QObject* parent)
     : QAbstractListModel(parent), m_currentRoom(nullptr) {}
 
@@ -70,10 +72,8 @@ QVariant UserListModel::data(const QModelIndex& index, int role) const {
   if (role == UserIDRole) {
     return user->id();
   }
-  if (role == AvatarRole) {
-    if (!user->avatarUrl(m_currentRoom).isEmpty())
-      return user->avatar(64, m_currentRoom);
-    return QImage();
+  if (role == PaintableRole) {
+    return QVariant::fromValue((static_cast<SpectralUser*>(user))->paintable());
   }
 
   return QVariant();
@@ -115,7 +115,7 @@ void UserListModel::refresh(QMatrixClient::User* user, QVector<int> roles) {
 
 void UserListModel::avatarChanged(QMatrixClient::User* user,
                                   const QMatrixClient::Room* context) {
-  if (context == m_currentRoom) refresh(user, {AvatarRole});
+  if (context == m_currentRoom) refresh(user, {PaintableRole});
 }
 
 int UserListModel::findUserPos(User* user) const {
@@ -130,6 +130,6 @@ QHash<int, QByteArray> UserListModel::roleNames() const {
   QHash<int, QByteArray> roles;
   roles[NameRole] = "name";
   roles[UserIDRole] = "userId";
-  roles[AvatarRole] = "avatar";
+  roles[PaintableRole] = "paintable";
   return roles;
 }
