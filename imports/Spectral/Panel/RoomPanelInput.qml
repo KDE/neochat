@@ -18,10 +18,8 @@ Rectangle {
     property string replyEventID
     property string replyContent
 
-    property bool isEmojiAutoCompleting
-    property bool isUserAutoCompleting
-    property var userAutoCompleteModel
-    property var emojiAutoCompleteModel
+    property bool isAutoCompleting
+    property var autoCompleteModel
     property int autoCompleteBeginPosition
     property int autoCompleteEndPosition
 
@@ -35,25 +33,23 @@ Rectangle {
     Popup {
         x: 0
         y: -height - 10
-        width: Math.min(userAutoCompleteListView.contentWidth, parent.width)
+        width: Math.min(autoCompleteListView.contentWidth, parent.width)
         height: 36
         padding: 0
 
         Material.elevation: 2
 
-        id: userAutoComplete
+        id: autoComplete
 
-        visible: isUserAutoCompleting && userAutoCompleteModel.length !== 0
+        visible: isAutoCompleting && autoCompleteModel.length !== 0
 
         contentItem: ListView {
-            id: userAutoCompleteListView
+            id: autoCompleteListView
 
-            model: userAutoCompleteModel
+            model: autoCompleteModel
 
             clip: true
-
             orientation: ListView.Horizontal
-
             highlightFollowsCurrentItem: true
 
             highlight: Rectangle {
@@ -62,82 +58,42 @@ Rectangle {
             }
 
             delegate: ItemDelegate {
-                property string displayName: modelData.displayName
+                property string autoCompleteText: modelData.displayName || modelData.unicode
+                property bool isEmoji: modelData.unicode != null
 
                 height: parent.height
                 padding: 4
 
                 contentItem: Row {
                     spacing: 8
+
+                    Text {
+                        width: parent.height
+                        height: parent.height
+                        visible: isEmoji
+                        text: autoCompleteText
+                        font.pointSize: 16
+                        font.family: "Emoji"
+                        verticalAlignment: Text.AlignVCenter
+                        horizontalAlignment: Text.AlignHCenter
+                    }
                     ImageItem {
                         width: parent.height
                         height: parent.height
-                        image: modelData.avatar
+                        visible: !isEmoji
+                        image: spectralController.safeImage(modelData.avatar)
                     }
                     Label {
                         height: parent.height
-                        text: modelData.displayName
+                        visible: !isEmoji
+                        text: autoCompleteText
                         verticalAlignment: Text.AlignVCenter
                     }
                 }
 
-                text: modelData.displayName
-
                 onClicked: {
-                    userAutoCompleteListView.currentIndex = index
-                    inputField.replaceAutoComplete(displayName)
-                }
-            }
-        }
-    }
-
-    Popup {
-        x: 0
-        y: -height - 10
-        width: Math.min(emojiAutoCompleteListView.contentWidth, parent.width)
-        height: 36
-        padding: 0
-
-        Material.elevation: 2
-
-        id: emojiAutoComplete
-
-        visible: isEmojiAutoCompleting && emojiAutoCompleteModel.length !== 0
-
-        contentItem: ListView {
-            id: emojiAutoCompleteListView
-
-            model: emojiAutoCompleteModel
-
-            clip: true
-
-            orientation: ListView.Horizontal
-
-            highlightFollowsCurrentItem: true
-
-            highlight: Rectangle {
-                color: Material.accent
-                opacity: 0.4
-            }
-
-            delegate: ItemDelegate {
-                property string unicode: modelData.unicode
-
-                width: 36
-                height: 36
-
-                contentItem: Text {
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-
-                    font.pointSize: 20
-                    font.family: "Emoji"
-                    text: modelData.unicode
-                }
-
-                onClicked: {
-                    emojiAutoCompleteListView.currentIndex = index
-                    inputField.replaceAutoComplete(modelData.unicode)
+                    autoCompleteListView.currentIndex = index
+                    inputField.replaceAutoComplete(autoCompleteText)
                 }
             }
         }
@@ -250,37 +206,34 @@ Rectangle {
                 }
 
                 Keys.onBacktabPressed: {
-                    if (isUserAutoCompleting) {
-                        if (userAutoCompleteListView.currentIndex == 0) userAutoCompleteListView.currentIndex = userAutoCompleteListView.count - 1
-                        else userAutoCompleteListView.currentIndex--
-                    }
-                    if (isEmojiAutoCompleting) {
-                        if (emojiAutoCompleteListView.currentIndex == 0) emojiAutoCompleteListView.currentIndex = emojiAutoCompleteListView.count - 1
-                        else emojiAutoCompleteListView.currentIndex--
+                    if (isAutoCompleting) {
+                        if (autoCompleteListView.currentIndex == 0) autoCompleteListView.currentIndex = autoCompleteListView.count - 1
+                        else autoCompleteListView.currentIndex--
                     }
                 }
 
                 Keys.onTabPressed: {
-                    if (isEmojiAutoCompleting) {
-                        if (emojiAutoCompleteListView.currentIndex + 1 == emojiAutoCompleteListView.count) emojiAutoCompleteListView.currentIndex = 0
-                        else emojiAutoCompleteListView.currentIndex++
-
-                        replaceAutoComplete(emojiAutoCompleteListView.currentItem.unicode)
+                    if (isAutoCompleting) {
+                        if (autoCompleteListView.currentIndex + 1 == autoCompleteListView.count) autoCompleteListView.currentIndex = 0
+                        else autoCompleteListView.currentIndex++
                     } else {
-                        if (isUserAutoCompleting) {
-                            if (userAutoCompleteListView.currentIndex + 1 == userAutoCompleteListView.count) userAutoCompleteListView.currentIndex = 0
-                            else userAutoCompleteListView.currentIndex++
-                        } else {
+                        autoCompleteBeginPosition = text.substring(0, cursorPosition).lastIndexOf(" ") + 1
+                        var autoCompletePrefix = text.substring(0, cursorPosition).split(" ").pop()
+                        if (!autoCompletePrefix) return
+                        if (autoCompletePrefix.startsWith(":")) {
                             autoCompleteBeginPosition = text.substring(0, cursorPosition).lastIndexOf(" ") + 1
-                            var autoCompletePrefix = text.substring(0, cursorPosition).split(" ").pop()
-                            if (!autoCompletePrefix) return
-                            userAutoCompleteModel = currentRoom.getUsers(autoCompletePrefix)
-                            if (userAutoCompleteModel.length === 0) return
-                            isUserAutoCompleting = true
+                            autoCompleteModel = emojiModel.filterModel(autoCompletePrefix)
+                            if (autoCompleteModel.length === 0) return
+                            isAutoCompleting = true
+                            autoCompleteEndPosition = cursorPosition
+                        } else {
+                            autoCompleteModel = currentRoom.getUsers(autoCompletePrefix)
+                            if (autoCompleteModel.length === 0) return
+                            isAutoCompleting = true
                             autoCompleteEndPosition = cursorPosition
                         }
-                        replaceAutoComplete(userAutoCompleteListView.currentItem.displayName)
                     }
+                    replaceAutoComplete(autoCompleteListView.currentItem.autoCompleteText)
                 }
 
                 onTextChanged: {
@@ -289,21 +242,8 @@ Rectangle {
                     currentRoom.cachedInput = text
 
                     if (cursorPosition !== autoCompleteBeginPosition && cursorPosition !== autoCompleteEndPosition) {
-                        isUserAutoCompleting = false
-                        isEmojiAutoCompleting = false
-                        userAutoCompleteListView.currentIndex = 0
-                        emojiAutoCompleteListView.currentIndex = 0
-                    }
-
-                    var autoCompletePrefix = text.substring(0, cursorPosition).split(" ").pop()
-                    if (autoCompletePrefix.startsWith(":")) {
-                        if (autoCompletePrefix.length < 3) return
-                        autoCompleteBeginPosition = text.substring(0, cursorPosition).lastIndexOf(" ") + 1
-                        emojiAutoCompleteModel = emojiModel.filterModel(autoCompletePrefix)
-                        if (emojiAutoCompleteModel.length === 0) return
-                        console.log("Auto completing emoji.")
-                        isEmojiAutoCompleting = true
-                        autoCompleteEndPosition = cursorPosition
+                        isAutoCompleting = false
+                        autoCompleteListView.currentIndex = 0
                     }
                 }
 
