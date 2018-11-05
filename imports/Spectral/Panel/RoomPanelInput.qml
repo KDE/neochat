@@ -82,7 +82,7 @@ Rectangle {
                         width: parent.height
                         height: parent.height
                         visible: !isEmoji
-                        source: modelData.paintable
+                        source: modelData.paintable || null
                     }
                     Label {
                         height: parent.height
