@@ -8,6 +8,7 @@ class Paintable : public QObject {
   Q_OBJECT
  public:
   Paintable(QObject* parent = nullptr);
+  virtual ~Paintable() = default;
 
   virtual QImage image(int) = 0;
   virtual QImage image(int, int) = 0;

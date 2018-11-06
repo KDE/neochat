@@ -40,7 +40,12 @@ Controller::Controller(QObject* parent)
   QTimer::singleShot(0, this, SLOT(invokeLogin()));
 }
 
-Controller::~Controller() {}
+Controller::~Controller() {
+  for (auto c : qAsConst(m_connections)) {
+    c->saveState();
+    c->stopSync();
+  }
+}
 
 inline QString accessTokenFileName(const AccountSettings& account) {
   QString fileName = account.userId();
@@ -104,10 +109,7 @@ void Controller::addConnection(Connection* c) {
 
   m_connections.push_back(c);
 
-  connect(c, &Connection::syncDone, this, [=] {
-    c->saveState();
-    c->sync(30000);
-  });
+  connect(c, &Connection::syncDone, this, [=] { c->sync(30000); });
   connect(c, &Connection::loggedOut, this, [=] { dropConnection(c); });
 
   using namespace QMatrixClient;
