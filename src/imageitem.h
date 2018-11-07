@@ -1,6 +1,7 @@
 #ifndef IMAGEITEM_H
 #define IMAGEITEM_H
 
+#include <QPointer>
 #include <QImage>
 #include <QObject>
 #include <QPainter>
@@ -42,12 +43,10 @@ class ImageItem : public QQuickPaintedItem {
   void roundChanged();
 
  private:
-  Paintable* m_paintable = nullptr;
+  QPointer<Paintable> m_paintable;
   QString m_hint = "H";
   QString m_color;
   bool m_round = true;
-
-  void paintHint(QPainter* painter, QRectF bounding_rect);
 };
 
 #endif  // IMAGEITEM_H

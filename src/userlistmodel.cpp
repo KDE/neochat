@@ -18,9 +18,9 @@ void UserListModel::setRoom(QMatrixClient::Room* room) {
 
   using namespace QMatrixClient;
   beginResetModel();
-  if (m_currentRoom && m_currentRoom->connection()) {
-    m_currentRoom->connection()->disconnect(this);
+  if (m_currentRoom) {
     m_currentRoom->disconnect(this);
+//    m_currentRoom->connection()->disconnect(this);
     for (User* user : m_users) user->disconnect(this);
     m_users.clear();
   }

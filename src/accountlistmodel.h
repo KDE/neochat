@@ -24,7 +24,7 @@ class AccountListModel : public QAbstractListModel {
   void setController(Controller* value);
 
  private:
-  Controller* m_controller;
+  Controller* m_controller = nullptr;
   QVector<Connection*> m_connections;
 
  signals:

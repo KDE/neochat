@@ -72,8 +72,6 @@ void RoomListModel::connectRoomSignals(SpectralRoom* room) {
           [=] { unreadMessagesChanged(room); });
   connect(room, &Room::tagsChanged, this, [=] { refresh(room); });
   connect(room, &Room::joinStateChanged, this, [=] { refresh(room); });
-  connect(room, &Room::avatarChanged, this,
-          [=] { refresh(room, {PaintableRole}); });
   connect(room, &Room::addedMessages, this,
           [=] { refresh(room, {LastEventRole}); });
   connect(room, &Room::aboutToAddNewMessages, this,

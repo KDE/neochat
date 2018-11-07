@@ -6,6 +6,7 @@
 #include "spectraluser.h"
 
 #include <QObject>
+#include <QPointer>
 #include <QTimer>
 
 using namespace QMatrixClient;
@@ -18,16 +19,11 @@ class RoomPaintable : public Paintable {
   }
 
   QImage image(int dimension) override {
-    if (!m_room) {
-      qDebug() << "Room is null";
-      return QImage();
-    }
+    if (!m_room) return QImage();
     return m_room->avatar(dimension);
   }
   QImage image(int width, int height) override {
-    if (!m_room) {
-      return QImage();
-    }
+    if (!m_room) return QImage();
     return m_room->avatar(width, height);
   }
 
@@ -52,7 +48,7 @@ class SpectralRoom : public Room {
   explicit SpectralRoom(Connection* connection, QString roomId,
                         JoinState joinState = {});
 
-  Paintable* paintable() { return new RoomPaintable(this); }
+  Paintable* paintable() { return &m_paintable; }
 
   const QString& cachedInput() const { return m_cachedInput; }
   void setCachedInput(const QString& input) {
@@ -110,7 +106,7 @@ class SpectralRoom : public Room {
   bool m_hasFileUploading = false;
   int m_fileUploadingProgress = 0;
 
-  bool m_busy;
+  bool m_busy = false;
 
   QString getMIME(const QUrl& fileUrl) const;
   void postFile(const QUrl& localFile, const QUrl& mxcUrl);
@@ -137,6 +133,9 @@ class SpectralRoom : public Room {
   void sendTypingNotification(bool isTyping);
   void sendReply(QString userId, QString eventId, QString replyContent,
                  QString sendContent);
+
+ private:
+  RoomPaintable m_paintable;
 };
 
 #endif  // SpectralRoom_H

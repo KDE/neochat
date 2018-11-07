@@ -6,7 +6,7 @@
 
 ImageItem::ImageItem(QQuickItem *parent) : QQuickPaintedItem(parent) {}
 
-inline QString stringtoColor(QString string) {
+inline static QString stringtoColor(QString string) {
   int hash = 0;
   for (int i = 0; i < string.length(); i++)
     hash = string.at(i).unicode() + ((hash << 5) - hash);
@@ -16,68 +16,64 @@ inline QString stringtoColor(QString string) {
   return colour;
 }
 
+inline static QImage getImageFromPaintable(QPointer<Paintable> p, QRectF b) {
+  if (p.isNull()) return {};
+  QImage image(p->image(int(b.width()), int(b.height())));
+  if (image.isNull()) return {};
+  return image;
+}
+
 void ImageItem::paint(QPainter *painter) {
   QRectF bounding_rect = boundingRect();
 
   painter->setRenderHint(QPainter::Antialiasing, true);
 
-  if (!m_paintable) {
-    paintHint(painter, bounding_rect);
-    return;
-  }
-
-  QImage image = m_paintable->image(int(bounding_rect.width()),
-                                    int(bounding_rect.height()));
+  QImage image(getImageFromPaintable(m_paintable, bounding_rect));
 
   if (image.isNull()) {
-    paintHint(painter, bounding_rect);
-    return;
+    painter->setPen(Qt::NoPen);
+    if (m_color.isEmpty())
+      painter->setBrush(QColor(stringtoColor(m_hint)));
+    else
+      painter->setBrush(QColor(m_color));
+    if (m_round)
+      painter->drawEllipse(0, 0, int(bounding_rect.width()),
+                           int(bounding_rect.height()));
+    else
+      painter->drawRect(0, 0, int(bounding_rect.width()),
+                        int(bounding_rect.height()));
+    painter->setPen(QPen(Qt::white, 2));
+    QFont font;
+    font.setStyleHint(QFont::SansSerif);
+
+    font.setPixelSize(int(bounding_rect.width() / 2));
+    font.setBold(true);
+    painter->setFont(font);
+    painter->drawText(
+        QRect(0, 0, int(bounding_rect.width()), int(bounding_rect.height())),
+        Qt::AlignCenter, m_hint.at(0).toUpper());
+  } else {
+    QImage scaled = image.scaled(
+        int(bounding_rect.width()) + 1, int(bounding_rect.height()) + 1,
+        Qt::KeepAspectRatioByExpanding, Qt::FastTransformation);
+
+    QPointF center = bounding_rect.center() - scaled.rect().center();
+
+    if (m_round) {
+      QPainterPath clip;
+      clip.addEllipse(
+          0, 0, bounding_rect.width(),
+          bounding_rect.height());  // this is the shape we want to clip to
+      painter->setClipPath(clip);
+    }
+
+    painter->drawImage(center, scaled);
   }
-
-  QImage scaled = image.scaled(
-      int(bounding_rect.width()) + 1, int(bounding_rect.height()) + 1,
-      Qt::KeepAspectRatioByExpanding, Qt::FastTransformation);
-
-  QPointF center = bounding_rect.center() - scaled.rect().center();
-
-  if (m_round) {
-    QPainterPath clip;
-    clip.addEllipse(
-        0, 0, bounding_rect.width(),
-        bounding_rect.height());  // this is the shape we want to clip to
-    painter->setClipPath(clip);
-  }
-
-  painter->drawImage(center, scaled);
-}
-
-void ImageItem::paintHint(QPainter *painter, QRectF bounding_rect) {
-  painter->setPen(Qt::NoPen);
-  if (m_color.isEmpty())
-    painter->setBrush(QColor(stringtoColor(m_hint)));
-  else
-    painter->setBrush(QColor(m_color));
-  if (m_round)
-    painter->drawEllipse(0, 0, int(bounding_rect.width()),
-                         int(bounding_rect.height()));
-  else
-    painter->drawRect(0, 0, int(bounding_rect.width()),
-                      int(bounding_rect.height()));
-  painter->setPen(QPen(Qt::white, 2));
-  QFont font;
-  font.setStyleHint(QFont::SansSerif);
-
-  font.setPixelSize(int(bounding_rect.width() / 2));
-  font.setBold(true);
-  painter->setFont(font);
-  painter->drawText(
-      QRect(0, 0, int(bounding_rect.width()), int(bounding_rect.height())),
-      Qt::AlignCenter, m_hint.at(0).toUpper());
 }
 
 void ImageItem::setPaintable(Paintable *paintable) {
   if (!paintable) return;
-  disconnect(m_paintable);
+  if (!m_paintable.isNull()) m_paintable->disconnect(this);
   m_paintable = paintable;
   connect(m_paintable, &Paintable::paintableChanged, this,
           [=] { this->update(); });

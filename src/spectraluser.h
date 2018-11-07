@@ -6,15 +6,14 @@
 #include "user.h"
 
 #include <QObject>
+#include <QPointer>
 
 using namespace QMatrixClient;
 
 class UserPaintable : public Paintable {
   Q_OBJECT
  public:
-  UserPaintable(User* parent) : Paintable(parent), m_user(parent) {
-    connect(m_user, &User::avatarChanged, [=] { emit paintableChanged(); });
-  }
+  UserPaintable(User* parent) : Paintable(parent), m_user(parent) {}
 
   QImage image(int dimension) override {
     if (!m_user) return QImage();
@@ -34,9 +33,12 @@ class SpectralUser : public User {
   Q_PROPERTY(Paintable* paintable READ paintable CONSTANT)
  public:
   SpectralUser(QString userId, Connection* connection)
-      : User(userId, connection) {}
+      : User(userId, connection), m_paintable(this) {}
 
-  Paintable* paintable() { return new UserPaintable(this); }
+  Paintable* paintable() { return &m_paintable; }
+
+ private:
+  UserPaintable m_paintable;
 };
 
 #endif  // SpectralUser_H

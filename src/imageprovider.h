@@ -32,7 +32,7 @@ class ImageProvider : public QObject, public QQuickImageProvider {
 
  private:
   QReadWriteLock m_lock;
-  QMatrixClient::Connection* m_connection;
+  QMatrixClient::Connection* m_connection = nullptr;
 };
 
 #endif  // IMAGEPROVIDER_H
