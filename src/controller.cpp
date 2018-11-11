@@ -40,6 +40,13 @@ Controller::Controller(QObject* parent)
   QTimer::singleShot(0, this, SLOT(invokeLogin()));
 }
 
+Controller::~Controller() {
+  for (Connection* c : m_connections) {
+    c->saveState();
+    c->stopSync();
+  }
+}
+
 inline QString accessTokenFileName(const AccountSettings& account) {
   QString fileName = account.userId();
   fileName.replace(':', '_');
@@ -103,8 +110,10 @@ void Controller::addConnection(Connection* c) {
   m_connections.push_back(c);
 
   connect(c, &Connection::syncDone, this, [=] {
-    c->saveState();
     c->sync(30000);
+
+    static int counter = 0;
+    if (++counter % 17 == 2) c->saveState();
   });
   connect(c, &Connection::loggedOut, this, [=] { dropConnection(c); });
 

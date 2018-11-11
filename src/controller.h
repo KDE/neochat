@@ -23,7 +23,7 @@ class Controller : public QObject {
 
  public:
   explicit Controller(QObject* parent = nullptr);
-  ~Controller(){};
+  ~Controller();
 
   // All the Q_INVOKABLEs.
   Q_INVOKABLE void loginWithCredentials(QString, QString, QString);

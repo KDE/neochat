@@ -115,58 +115,49 @@ Drawer {
                 room: roomDrawer.room
             }
 
-            delegate: Column {
-                property bool expanded: false
+            delegate: SwipeDelegate {
+                width: userListView.width
+                height: 48
 
-                ItemDelegate {
-                    width: userListView.width
-                    height: 48
+                RowLayout {
+                    anchors.fill: parent
+                    anchors.margins: 8
+                    spacing: 12
 
-                    RowLayout {
-                        anchors.fill: parent
-                        anchors.margins: 8
-                        spacing: 12
+                    ImageItem {
+                        Layout.preferredWidth: height
+                        Layout.fillHeight: true
 
-                        ImageItem {
-                            Layout.preferredWidth: height
-                            Layout.fillHeight: true
-
-                            source: paintable
-                            hint: name
-                        }
-
-                        Label {
-                            Layout.fillWidth: true
-
-                            text: name
-                        }
+                        source: paintable
+                        hint: name
                     }
 
-                    onClicked: expanded = !expanded
-                }
-
-                ColumnLayout {
-                    width: parent.width - 32
-                    height: expanded ? implicitHeight : 0
-                    anchors.horizontalCenter: parent.horizontalCenter
-
-                    spacing: 0
-
-                    clip: true
-
-                    Button {
+                    Label {
                         Layout.fillWidth: true
 
-                        text: "Kick"
-                        highlighted: true
-
-                        onClicked: room.kickMember(userId)
-                    }
-
-                    Behavior on height {
-                        PropertyAnimation { easing.type: Easing.InOutCubic; duration: 200 }
+                        text: name
                     }
                 }
+
+                swipe.right: Rectangle {
+                    width: height
+                    height: parent.height
+                    anchors.right: parent.right
+                    color: Material.accent
+
+                    MaterialIcon {
+                        anchors.fill: parent
+                        icon: "\ue879"
+                        color: "white"
+                    }
+
+                    SwipeDelegate.onClicked: {
+                        room.kickMember(userId)
+                        swipe.close()
+                    }
+                }
+
+                onClicked: swipe.open(SwipeDelegate.Right)
             }
 
             ScrollBar.vertical: ScrollBar {}
