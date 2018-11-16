@@ -82,6 +82,7 @@ Rectangle {
                 Layout.fillHeight: true
 
                 text: name || "No Name"
+                color: "#1D333E"
                 font.pointSize: 12
                 elide: Text.ElideRight
                 wrapMode: Text.NoWrap
@@ -92,6 +93,8 @@ Rectangle {
                 Layout.fillHeight: true
 
                 text: (lastEvent == "" ? topic : lastEvent).replace(/(\r\n\t|\n|\r\t)/gm,"")
+                color: "#5B7480"
+                font.pointSize: 9.75
                 elide: Text.ElideRight
                 wrapMode: Text.NoWrap
             }

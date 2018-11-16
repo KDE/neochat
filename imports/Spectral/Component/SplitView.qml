@@ -64,7 +64,7 @@ Item {
     property Component handleDelegate: Rectangle {
         width: 1
         height: 1
-        visible: false
+        color: "#E1E1E1"
     }
 
     /*!

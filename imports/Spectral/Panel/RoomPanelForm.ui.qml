@@ -49,6 +49,15 @@ Item {
         text: "Please choose a room."
     }
 
+    Image {
+        anchors.fill: parent
+
+        visible: currentRoom
+
+        source: "qrc:/assets/img/roompanel.svg"
+        fillMode: Image.Pad
+    }
+
     ColumnLayout {
         anchors.fill: parent
         spacing: 0
@@ -65,16 +74,18 @@ Item {
 
         AutoListView {
             Layout.fillWidth: true
+            Layout.maximumWidth: 960
             Layout.fillHeight: true
             Layout.leftMargin: 16
             Layout.rightMargin: 16
+            Layout.alignment: Qt.AlignHCenter
 
             id: messageListView
 
-            displayMarginBeginning: 40
-            displayMarginEnd: 40
+            displayMarginBeginning: 100
+            displayMarginEnd: 100
             verticalLayoutDirection: ListView.BottomToTop
-            spacing: 8
+            spacing: 4
 
             boundsBehavior: Flickable.DragOverBounds
 
@@ -84,7 +95,7 @@ Item {
                 sourceModel: messageEventModel
 
                 filters: ExpressionFilter {
-                    expression: marks !== 0x08 && marks !== 0x10
+                    expression: marks !== 0x08 && marks !== 0x10 && eventType !== "other"
                 }
             }
 
@@ -93,24 +104,13 @@ Item {
 
                 id: delegateColumn
 
-                spacing: 8
+                spacing: 4
 
-                Label {
+                SectionDelegate {
                     Layout.alignment: Qt.AlignHCenter
+                    Layout.margins: 4
 
-                    visible: section !== aboveSection
-
-                    text: section
-                    color: "white"
-                    verticalAlignment: Text.AlignVCenter
-                    leftPadding: 8
-                    rightPadding: 8
-                    topPadding: 4
-                    bottomPadding: 4
-
-                    background: Rectangle {
-                        color: MSettings.darkTheme ? "#484848" : "grey"
-                    }
+                    visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
                 }
 
                 MessageDelegate {
@@ -120,7 +120,8 @@ Item {
                 }
 
                 StateDelegate {
-                    Layout.maximumWidth: messageListView.width * 0.8
+                    Layout.maximumWidth: parent.width
+                    Layout.alignment: Qt.AlignHCenter
 
                     visible: eventType === "emote" || eventType === "state"
                 }
@@ -290,27 +291,16 @@ Item {
             }
         }
 
-        Item {
+        RoomPanelInput {
             Layout.fillWidth: true
-            Layout.preferredHeight: 40
-        }
+            Layout.margins: 16
+            Layout.maximumWidth: 960
+            Layout.alignment: Qt.AlignHCenter
 
-        Rectangle {
-            Layout.fillWidth: true
-            Layout.preferredHeight: 40
-            Layout.leftMargin: 16
-            Layout.rightMargin: 16
+            id: roomPanelInput
 
-            color: Material.background
-
-            RoomPanelInput {
-                anchors.verticalCenter: parent.top
-
-                id: roomPanelInput
-
-                width: parent.width
-                height: 48
-            }
+            width: parent.width
+            height: 48
         }
     }
 }

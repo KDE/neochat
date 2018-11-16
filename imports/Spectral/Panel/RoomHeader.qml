@@ -4,15 +4,22 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.2
 
 import Spectral 0.1
+import Spectral.Effect 2.0
 
 Rectangle {
     property alias paintable: headerImage.source
     property alias topic: headerTopicLabel.text
+    property bool atTop: false
     signal clicked()
 
     id: header
 
-    color: Material.accent
+    color: atTop ? "transparent" : "white"
+
+    layer.enabled: !atTop
+    layer.effect: ElevationEffect {
+        elevation: 4
+    }
 
     ItemDelegate {
         anchors.fill: parent
@@ -48,7 +55,7 @@ Rectangle {
                     Layout.fillHeight: true
 
                     text: currentRoom ? currentRoom.displayName : ""
-                    color: "white"
+                    color: "#1D333E"
                     font.pointSize: 12
                     elide: Text.ElideRight
                     wrapMode: Text.NoWrap
@@ -60,21 +67,11 @@ Rectangle {
 
                     id: headerTopicLabel
 
-                    color: "white"
+                    color: "#5B7480"
                     elide: Text.ElideRight
                     wrapMode: Text.NoWrap
                 }
             }
         }
-    }
-
-    ProgressBar {
-        width: parent.width
-        z: 10
-        anchors.bottom: parent.bottom
-
-        Material.accent: "white"
-        visible: currentRoom && currentRoom.busy
-        indeterminate: true
     }
 }

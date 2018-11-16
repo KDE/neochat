@@ -98,7 +98,7 @@ Rectangle {
 
             id: listView
 
-            spacing: 1
+            spacing: 0
             clip: true
 
             boundsBehavior: Flickable.DragOverBounds

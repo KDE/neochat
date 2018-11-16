@@ -25,9 +25,11 @@ Rectangle {
 
     color: MSettings.darkTheme ? "#303030" : "#fafafa"
 
+    radius: height / 2
+
     layer.enabled: true
     layer.effect: ElevationEffect {
-        elevation: 2
+        elevation: 1
     }
 
     Popup {
@@ -113,10 +115,7 @@ Rectangle {
 
         spacing: 0
 
-        ItemDelegate {
-            Layout.preferredWidth: 48
-            Layout.preferredHeight: 48
-
+        ToolButton {
             id: uploadButton
             visible: !isReply
 
@@ -133,10 +132,7 @@ Rectangle {
             }
         }
 
-        ItemDelegate {
-            Layout.preferredWidth: 48
-            Layout.preferredHeight: 48
-
+        ToolButton {
             id: cancelReplyButton
             visible: isReply
 
@@ -304,10 +300,7 @@ Rectangle {
             }
         }
 
-        ItemDelegate {
-            Layout.preferredWidth: 48
-            Layout.preferredHeight: 48
-
+        ToolButton {
             id: emojiButton
 
             contentItem: MaterialIcon {

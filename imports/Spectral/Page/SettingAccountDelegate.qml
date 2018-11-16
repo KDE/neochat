@@ -52,31 +52,6 @@ Column {
 
         clip: true
 
-        AutoListView {
-            Layout.fillWidth: true
-            Layout.preferredHeight: 24
-
-            orientation: ListView.Horizontal
-
-            spacing: 8
-
-            model: ["#498882", "#42a5f5", "#5c6bc0", "#7e57c2", "#ab47bc", "#ff7043"]
-
-            delegate: Rectangle {
-                width: parent.height
-                height: parent.height
-                radius: width / 2
-
-                color: modelData
-
-                MouseArea {
-                    anchors.fill: parent
-
-                    onClicked: spectralController.setColor(connection.localUserId, modelData)
-                }
-            }
-        }
-
         RowLayout {
             Layout.fillWidth: true
 

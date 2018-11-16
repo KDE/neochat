@@ -20,41 +20,28 @@ Page {
     Row {
         anchors.fill: parent
 
-        Pane {
+        Rectangle {
             width: parent.width / 2
             height: parent.height
 
-            background: Item {
-                Image {
-                    id: background
-                    anchors.fill: parent
-                    source: "qrc:/assets/img/background.jpg"
-                    fillMode: Image.PreserveAspectCrop
-                    cache: false
-                }
-
-                ColorOverlay {
-                    anchors.fill: background
-                    source: background
-                    color: Material.accent
-                    opacity: 0.7
-                }
-            }
+            color: Material.accent
 
             Column {
                 x: 32
                 anchors.verticalCenter: parent.verticalCenter
 
                 Label {
-                    text: "MATRIX LOGIN."
+                    text: "Matrix Login."
                     font.pointSize: 28
                     font.bold: true
+                    font.capitalization: Font.AllUppercase
                     color: "white"
                 }
 
                 Label {
-                    text: "A NEW METHOD OF MESSAGING"
+                    text: "A new method of messaging."
                     font.pointSize: 12
+                    font.capitalization: Font.AllUppercase
                     color: "white"
                 }
             }

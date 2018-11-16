@@ -6,19 +6,23 @@ import QtQuick.Controls.Material 2.2
 import Spectral.Setting 0.1
 
 Label {
-    Layout.alignment: Qt.AlignHCenter
-
     text: "<b>" + author.displayName + "</b> " + display
-    color: "white"
+    color: Material.accent
 
-    padding: 8
+    topPadding: 8
+    bottomPadding: 8
+    leftPadding: 16
+    rightPadding: 16
 
     wrapMode: Label.Wrap
-    linkColor: "white"
+    linkColor: Material.accent
     textFormat: MSettings.richText ? Text.RichText : Text.StyledText
     onLinkActivated: Qt.openUrlExternally(link)
 
     background: Rectangle {
-        color: MSettings.darkTheme ? "#484848" : "grey"
+        color: "transparent"
+        border.color: Material.accent
+        border.width: 2
+        radius: 18
     }
 }

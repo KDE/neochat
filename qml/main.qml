@@ -16,6 +16,8 @@ import "qrc:/js/util.js" as Util
 ApplicationWindow {
     readonly property var currentConnection: accountListView.currentConnection ? accountListView.currentConnection : null
 
+    Material.theme: MSettings.darkTheme ? Material.Dark : Material.Light
+
     width: 960
     height: 640
     minimumWidth: 720
@@ -25,10 +27,6 @@ ApplicationWindow {
 
     visible: true
     title: qsTr("Spectral")
-
-    Material.theme: MSettings.darkTheme ? Material.Dark : Material.Light
-
-    Material.accent: spectralController.color(currentConnection ? currentConnection.localUserId : "")
 
     Platform.SystemTrayIcon {
         visible: MSettings.showTray
@@ -156,7 +154,7 @@ ApplicationWindow {
                                 source: user.paintable
                             }
 
-                            highlightColor: spectralController.color(user.id)
+                            highlightColor: Material.accent
 
                             page: roomPage
 

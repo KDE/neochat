@@ -7,6 +7,7 @@ import Spectral 0.1
 import Spectral.Setting 0.1
 
 import Spectral.Component 2.0
+import Spectral.Font 0.1
 
 RowLayout {
     readonly property bool avatarVisible: !sentByMe && (aboveAuthor !== author || aboveSection !== section || aboveEventType === "state" || aboveEventType === "emote" || aboveEventType === "other")
@@ -23,71 +24,86 @@ RowLayout {
 
     Layout.alignment: sentByMe ? Qt.AlignRight : Qt.AlignLeft
 
-    spacing: 6
+    spacing: 4
 
     ImageItem {
-        Layout.preferredWidth: 40
-        Layout.preferredHeight: 40
+        Layout.preferredWidth: 32
+        Layout.preferredHeight: 32
         Layout.alignment: Qt.AlignTop
 
-        round: false
         visible: avatarVisible
         hint: author.displayName
         source: author.paintable
     }
 
     Rectangle {
-        Layout.preferredWidth: 40
-        Layout.preferredHeight: 40
+        Layout.preferredWidth: 32
+        Layout.preferredHeight: 32
         Layout.alignment: Qt.AlignTop
 
         color: "transparent"
         visible: !(sentByMe || avatarVisible)
     }
 
-    GenericBubble {
-        Layout.maximumWidth: messageListView.width - (!sentByMe ? 40 + messageRow.spacing : 0)
+    Control {
+        Layout.maximumWidth: messageListView.width - (!sentByMe ? 40 + messageRow.spacing : 0) - 48
 
-        id: genericBubble
+        topPadding: 8
+        bottomPadding: 8
+        leftPadding: 16
+        rightPadding: 16
 
-        highlighted: messageRow.highlighted
-        colored: highlighted && (eventType === "notice" || highlight)
+        background: Rectangle {
+            color: sentByMe ? "#009DC2" : (highlighted || eventType) === "notice" ? "#4285F4" : "#673AB7"
+            radius: 18
+
+            AutoMouseArea {
+                anchors.fill: parent
+
+                onSecondaryClicked: {
+                    messageContextMenu.row = messageRow
+                    messageContextMenu.model = model
+                    messageContextMenu.selectedText = contentLabel.selectedText
+                    messageContextMenu.popup()
+                }
+            }
+        }
 
         contentItem: ColumnLayout {
             id: messageColumn
 
             spacing: 0
 
-            TimelineLabel {
-                Layout.fillWidth: true
+//            TimelineLabel {
+//                Layout.fillWidth: true
 
-                id: authorLabel
+//                id: authorLabel
 
-                visible: messageRow.avatarVisible
-                text: author.displayName
-                Material.foreground: Material.accent
-                coloredBackground: highlighted
-                font.bold: true
+//                visible: messageRow.avatarVisible
+//                text: author.displayName
+//                Material.foreground: Material.accent
+//                coloredBackground: highlighted
+//                font.bold: true
 
-                MouseArea {
-                    anchors.fill: parent
-                    cursorShape: Qt.PointingHandCursor
-                    onClicked: roomPanelInput.insert(author.displayName)
-                }
-            }
+//                MouseArea {
+//                    anchors.fill: parent
+//                    cursorShape: Qt.PointingHandCursor
+//                    onClicked: roomPanelInput.insert(author.displayName)
+//                }
+//            }
 
             TextEdit {
                 Layout.fillWidth: true
 
                 id: contentLabel
 
-                text: (highlighted  ? "<style>a{color: white;} .user-pill{color: white}</style>" : "<style>a{color: " + Material.accent + ";} .user-pill{color: " + Material.accent + "}</style>") + display
+                text: "<style>a{color: white;} .user-pill{color: white}</style>" + display
 
                 visible: isText
-                color: highlighted ? "white": Material.foreground
+                color: "white"
 
-                font.family: authorLabel.font.family
-                font.pointSize: 10
+                font.family: CommonFont.font.family
+                font.pointSize: 10.5
                 selectByMouse: true
                 readOnly: true
                 wrapMode: Label.Wrap
@@ -119,52 +135,53 @@ RowLayout {
                 active: eventType === "image" || eventType === "file" || eventType === "audio"
             }
 
-            Row {
-                Layout.alignment: Qt.AlignRight
+//            Row {
+//                Layout.alignment: Qt.AlignRight
 
-                spacing: 4
+//                spacing: 4
 
-                TimelineLabel {
-                    visible: userMarker.length > 5
-                    text: userMarker.length - 5 + "+"
-                    coloredBackground: highlighted
-                    Material.foreground: "grey"
-                    font.pointSize: 8
-                }
+//                TimelineLabel {
+//                    visible: userMarker.length > 5
+//                    text: userMarker.length - 5 + "+"
+//                    coloredBackground: highlighted
+//                    Material.foreground: "grey"
+//                    font.pointSize: 8
+//                }
 
-                Repeater {
-                    model: userMarker.length > 5 ? userMarker.slice(0, 5) : userMarker
+//                Repeater {
+//                    model: userMarker.length > 5 ? userMarker.slice(0, 5) : userMarker
 
-                    ImageItem {
-                        width: parent.height
-                        height: parent.height
+//                    ImageItem {
+//                        width: parent.height
+//                        height: parent.height
 
-                        hint: modelData.displayName
-                        source: modelData.paintable
+//                        hint: modelData.displayName
+//                        source: modelData.paintable
 
-                        MouseArea {
-                            anchors.fill: parent
+//                        MouseArea {
+//                            anchors.fill: parent
 
-                            cursorShape: Qt.PointingHandCursor
+//                            cursorShape: Qt.PointingHandCursor
 
-                            onClicked: {
-                                readMarkerDialog.listModel = userMarker
-                                readMarkerDialog.open()
-                            }
-                        }
-                    }
-                }
+//                            onClicked: {
+//                                readMarkerDialog.listModel = userMarker
+//                                readMarkerDialog.open()
+//                            }
+//                        }
+//                    }
+//                }
 
-                TimelineLabel {
-                    id: timeLabel
+//                TimelineLabel {
+//                    id: timeLabel
 
-                    visible: Math.abs(time - aboveTime) > 600000 || index == 0
-                    text: Qt.formatTime(time, "hh:mm")
-                    coloredBackground: highlighted
-                    Material.foreground: "grey"
-                    font.pointSize: 8
-                }
-            }
+//                    visible: Math.abs(time - aboveTime) > 600000 || index == 0
+//                    text: Qt.formatTime(time, "hh:mm")
+//                    coloredBackground: highlighted
+//                    Material.foreground: "grey"
+//                    font.pointSize: 8
+//                }
+//            }
+
         }
 
         Component {

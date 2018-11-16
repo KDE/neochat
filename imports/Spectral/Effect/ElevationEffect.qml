@@ -7,7 +7,8 @@ import QtGraphicalEffects 1.0
 Item {
     id: effect
 
-    property variant source
+    property var source
+    readonly property Item sourceItem: source.sourceItem
 
     property int elevation: 0
 
@@ -134,7 +135,7 @@ Item {
             glowRadius: modelData.blur/2
             spread: 0.05
             color: _shadowColors[index]
-            cornerRadius: modelData.blur + (effect.source.radius || 0)
+            cornerRadius: modelData.blur + (effect.sourceItem.radius || 0)
         }
     }
 

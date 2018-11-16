@@ -3,6 +3,7 @@ import QtQuick 2.9
 RoomPanelForm {
     roomHeader.paintable: currentRoom ? currentRoom.paintable : null
     roomHeader.topic: currentRoom ? (currentRoom.topic).replace(/(\r\n\t|\n|\r\t)/gm,"") : ""
+    roomHeader.atTop: messageListView.atYBeginning
     roomHeader.onClicked: roomDrawer.open()
 
     sortedMessageEventModel.onModelReset: {

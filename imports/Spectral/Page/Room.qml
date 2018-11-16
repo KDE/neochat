@@ -34,18 +34,12 @@ Page {
 
             id: roomListForm
 
+            clip: true
+
             listModel: roomListModel
 
             onWidthChanged: {
                 if (width < 240) width = 64
-            }
-
-            ElevationEffect {
-                anchors.fill: source
-                z: source.z - 1
-
-                source: parent
-                elevation: 4
             }
 
             onLeaveRoom: roomForm.saveReadMarker(room)
@@ -56,6 +50,8 @@ Page {
             Layout.minimumWidth: 480
 
             id: roomForm
+
+            clip: true
 
             currentRoom: roomListForm.enteredRoom
         }
