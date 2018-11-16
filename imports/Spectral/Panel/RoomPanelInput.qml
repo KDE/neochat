@@ -102,14 +102,6 @@ Rectangle {
         }
     }
 
-    Rectangle {
-        width: currentRoom && currentRoom.hasFileUploading ? parent.width * currentRoom.fileUploadingProgress / 100 : 0
-        height: parent.height
-
-        opacity: 0.2
-        color: Material.accent
-    }
-
     RowLayout {
         anchors.fill: parent
 
@@ -167,6 +159,14 @@ Rectangle {
                 text: currentRoom ? currentRoom.cachedInput : ""
 
                 background: Item {
+                }
+
+                Rectangle {
+                    width: currentRoom && currentRoom.hasFileUploading ? parent.width * currentRoom.fileUploadingProgress / 100 : 0
+                    height: parent.height
+
+                    opacity: 0.2
+                    color: Material.accent
                 }
 
                 Timer {

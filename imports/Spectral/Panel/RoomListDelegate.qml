@@ -8,13 +8,9 @@ import Spectral.Setting 0.1
 
 import Spectral.Component 2.0
 
-Rectangle {
-    color: MSettings.darkTheme ? "#303030" : "#fafafa"
-
+Item {
     AutoMouseArea {
         anchors.fill: parent
-
-        hoverEnabled: miniMode
 
         onSecondaryClicked: {
             roomContextMenu.model = model
@@ -30,9 +26,6 @@ Rectangle {
                 enteredRoom = currentRoom
             }
         }
-
-        ToolTip.visible: miniMode && containsMouse
-        ToolTip.text: name
     }
 
     Rectangle {

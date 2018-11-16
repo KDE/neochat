@@ -55,7 +55,7 @@ Item {
         visible: currentRoom
 
         source: "qrc:/assets/img/roompanel.svg"
-        fillMode: Image.Pad
+        fillMode: Image.PreserveAspectCrop
     }
 
     ColumnLayout {

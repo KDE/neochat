@@ -75,7 +75,7 @@ void Controller::loginWithCredentials(QString serverAddr, QString user,
     });
     connect(m_connection, &Connection::networkError,
             [=](QString error, QByteArray detail) {
-              emit errorOccured("Network", error);
+              emit errorOccured("Network Error", error);
             });
     connect(m_connection, &Connection::loginError,
             [=](QString error, QByteArray detail) {
@@ -110,6 +110,7 @@ void Controller::addConnection(Connection* c) {
   m_connections.push_back(c);
 
   connect(c, &Connection::syncDone, this, [=] {
+    emit syncDone();
     c->sync(30000);
 
     static int counter = 0;
@@ -152,11 +153,12 @@ void Controller::invokeLogin() {
               });
       connect(c, &Connection::networkError,
               [=](QString error, QByteArray detail) {
-                emit errorOccured("Network", error);
+                emit errorOccured("Network Error", error);
               });
       c->connectWithToken(account.userId(), accessToken, account.deviceId());
     }
   }
+  if (!m_connections.isEmpty()) setConnection(m_connections[0]);
   emit initiated();
 }
 
@@ -184,7 +186,7 @@ bool Controller::saveAccessToken(const AccountSettings& account,
   auto fileDir = QFileInfo(accountTokenFile).dir();
   if (!((fileDir.exists() || fileDir.mkpath(".")) &&
         accountTokenFile.open(QFile::WriteOnly))) {
-    emit errorOccured("Token", "Cannot save access token.");
+    emit errorOccured("I/O Denied", "Cannot save access token.");
   } else {
     accountTokenFile.write(accessToken);
     return true;
@@ -225,14 +227,6 @@ void Controller::playAudio(QUrl localFile) {
   player->setMedia(localFile);
   player->play();
   connect(player, &QMediaPlayer::stateChanged, [=] { player->deleteLater(); });
-}
-
-QColor Controller::color(QString userId) {
-  return QColor(SettingsGroup("UI/Color").value(userId, "#498882").toString());
-}
-
-void Controller::setColor(QString userId, QColor newColor) {
-  SettingsGroup("UI/Color").setValue(userId, newColor.name());
 }
 
 void Controller::postNotification(const QString& roomId, const QString& eventId,

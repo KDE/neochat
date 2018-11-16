@@ -20,6 +20,8 @@ class Controller : public QObject {
                  connectionDropped)
   Q_PROPERTY(bool quitOnLastWindowClosed READ quitOnLastWindowClosed WRITE
                  setQuitOnLastWindowClosed NOTIFY quitOnLastWindowClosedChanged)
+  Q_PROPERTY(Connection* connection READ connection WRITE setConnection NOTIFY
+                 connectionChanged)
 
  public:
   explicit Controller(QObject* parent = nullptr);
@@ -47,13 +49,23 @@ class Controller : public QObject {
     }
   }
 
-  Q_INVOKABLE QColor color(QString userId);
-  Q_INVOKABLE void setColor(QString userId, QColor newColor);
+  Connection* connection() {
+    if (m_connection.isNull()) return nullptr;
+    return m_connection;
+  }
+
+  void setConnection(Connection* conn) {
+    if (!conn) return;
+    if (conn == m_connection) return;
+    m_connection = conn;
+    emit connectionChanged();
+  }
 
  private:
   QClipboard* m_clipboard = QApplication::clipboard();
   NotificationsManager notificationsManager;
   QVector<Connection*> m_connections;
+  QPointer<Connection> m_connection;
 
   QByteArray loadAccessToken(const AccountSettings& account);
   bool saveAccessToken(const AccountSettings& account,
@@ -67,11 +79,13 @@ class Controller : public QObject {
  signals:
   void busyChanged();
   void errorOccured(QString error, QString detail);
+  void syncDone();
   void connectionAdded(Connection* conn);
   void connectionDropped(Connection* conn);
   void initiated();
   void notificationClicked(const QString roomId, const QString eventId);
   void quitOnLastWindowClosedChanged();
+  void connectionChanged();
 
  public slots:
   void logout(Connection* conn);

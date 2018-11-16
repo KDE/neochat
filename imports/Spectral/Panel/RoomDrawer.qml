@@ -15,13 +15,6 @@ Drawer {
     id: roomDrawer
 
     edge: Qt.RightEdge
-    interactive: false
-
-    ToolButton {
-        contentItem: MaterialIcon { icon: "\ue5c4" }
-
-        onClicked: roomDrawer.close()
-    }
 
     ColumnLayout {
         anchors.fill: parent
