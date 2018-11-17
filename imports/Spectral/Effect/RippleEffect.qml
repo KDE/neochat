@@ -40,7 +40,7 @@ AutoMouseArea {
     QtObject {
         id: __private
 
-        property int startRadius: circular ? width/10 : width/6
+        property int startRadius: 0
         property int endRadius
         property bool showFocus: true
 

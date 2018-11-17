@@ -142,6 +142,8 @@ Rectangle {
 
                     RippleEffect {
                         anchors.fill: parent
+
+                        onClicked: stackView.push(userPage)
                     }
                 }
 
@@ -216,17 +218,222 @@ Rectangle {
         }
 
         Component {
+            id: userPage
+
+            ScrollView {
+                readonly property string title: "User Info"
+
+                id: main
+
+                ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+
+                ColumnLayout {
+                    width: main.width
+                    spacing: 0
+
+                    ItemDelegate {
+                        Layout.fillWidth: true
+
+                        padding: 24
+
+                        contentItem: ColumnLayout {
+                            spacing: 0
+
+                            Label {
+                                Layout.fillWidth: true
+                                Layout.fillHeight: true
+
+                                text: "Matrix ID"
+                                font.pointSize: 12
+                                elide: Text.ElideRight
+                                wrapMode: Text.NoWrap
+                            }
+
+                            Label {
+                                Layout.fillWidth: true
+                                Layout.fillHeight: true
+
+                                text: root.user.id
+                                color: "#5B7480"
+                                font.pointSize: 9.75
+                                elide: Text.ElideRight
+                                wrapMode: Text.NoWrap
+                            }
+                        }
+                    }
+
+                    ItemDelegate {
+                        Layout.fillWidth: true
+
+                        padding: 24
+
+                        contentItem: ColumnLayout {
+                            spacing: 0
+
+                            Label {
+                                Layout.fillWidth: true
+                                Layout.fillHeight: true
+
+                                text: "Name"
+                                font.pointSize: 12
+                                elide: Text.ElideRight
+                                wrapMode: Text.NoWrap
+                            }
+
+                            Label {
+                                Layout.fillWidth: true
+                                Layout.fillHeight: true
+
+                                text: root.user.name
+                                color: "#5B7480"
+                                font.pointSize: 9.75
+                                elide: Text.ElideRight
+                                wrapMode: Text.NoWrap
+                            }
+                        }
+                    }
+
+                    ItemDelegate {
+                        Layout.fillWidth: true
+
+                        padding: 24
+
+                        contentItem: ColumnLayout {
+                            spacing: 0
+
+                            Label {
+                                Layout.fillWidth: true
+                                Layout.fillHeight: true
+
+                                text: "Avatar"
+                                font.pointSize: 12
+                                elide: Text.ElideRight
+                                wrapMode: Text.NoWrap
+                            }
+
+                            Label {
+                                Layout.fillWidth: true
+                                Layout.fillHeight: true
+
+                                text: root.user.avatarMediaId
+                                color: "#5B7480"
+                                font.pointSize: 9.75
+                                elide: Text.ElideRight
+                                wrapMode: Text.NoWrap
+                            }
+                        }
+                    }
+
+                    ItemDelegate {
+                        Layout.fillWidth: true
+
+                        padding: 24
+
+                        contentItem: ColumnLayout {
+                            spacing: 0
+
+                            Label {
+                                Layout.fillWidth: true
+                                Layout.fillHeight: true
+
+                                text: "Server"
+                                font.pointSize: 12
+                                elide: Text.ElideRight
+                                wrapMode: Text.NoWrap
+                            }
+
+                            Label {
+                                Layout.fillWidth: true
+                                Layout.fillHeight: true
+
+                                text: root.controller.connection.accessToken
+                                color: "#5B7480"
+                                font.pointSize: 9.75
+                                elide: Text.ElideRight
+                                wrapMode: Text.NoWrap
+                            }
+                        }
+                    }
+
+                    ItemDelegate {
+                        Layout.fillWidth: true
+
+                        padding: 24
+
+                        contentItem: ColumnLayout {
+                            spacing: 0
+
+                            Label {
+                                Layout.fillWidth: true
+                                Layout.fillHeight: true
+
+                                text: "Device"
+                                font.pointSize: 12
+                                elide: Text.ElideRight
+                                wrapMode: Text.NoWrap
+                            }
+
+                            Label {
+                                Layout.fillWidth: true
+                                Layout.fillHeight: true
+
+                                text: root.controller.connection.deviceId
+                                color: "#5B7480"
+                                font.pointSize: 9.75
+                                elide: Text.ElideRight
+                                wrapMode: Text.NoWrap
+                            }
+                        }
+                    }
+
+                    ItemDelegate {
+                        Layout.fillWidth: true
+
+                        padding: 24
+
+                        contentItem: ColumnLayout {
+                            spacing: 0
+
+                            Label {
+                                Layout.fillWidth: true
+                                Layout.fillHeight: true
+
+                                text: "Token"
+                                font.pointSize: 12
+                                elide: Text.ElideRight
+                                wrapMode: Text.NoWrap
+                            }
+
+                            Label {
+                                Layout.fillWidth: true
+                                Layout.fillHeight: true
+
+                                text: root.controller.connection.accessToken
+                                color: "#5B7480"
+                                font.pointSize: 9.75
+                                elide: Text.ElideRight
+                                wrapMode: Text.NoWrap
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        Component {
             id: settingsPage
 
             ScrollView {
                 readonly property string title: "Settings"
+
+                id: main
 
                 ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
 
                 padding: 16
 
                 ColumnLayout {
-                    width: parent.width
+                    width: main.width
                     spacing: 0
 
                     Switch {
@@ -537,8 +744,6 @@ Rectangle {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
                         Layout.alignment: Qt.AlignHCenter
-
-                        visible: parent.width > 64
 
                         Label {
                             Layout.fillWidth: true

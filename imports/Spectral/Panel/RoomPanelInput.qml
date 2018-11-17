@@ -142,6 +142,7 @@ Control {
             property real progress: 0
 
             Layout.fillWidth: true
+            Layout.minimumHeight: 48
 
             id: inputField
 
@@ -185,9 +186,13 @@ Control {
                 onTriggered: currentRoom.sendTypingNotification(true)
             }
 
-            ToolTip.visible: currentRoom
-                             && currentRoom.hasUsersTyping
-            ToolTip.text: currentRoom ? currentRoom.usersTyping : ""
+            ToolTip {
+                visible: currentRoom
+                         && currentRoom.hasUsersTyping
+                text: currentRoom ? currentRoom.usersTyping : ""
+
+                Material.foreground: "white"
+            }
 
             Keys.onReturnPressed: {
                 if (event.modifiers & Qt.ShiftModifier) {

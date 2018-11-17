@@ -39,10 +39,6 @@ Popup {
                     text: modelData.unicode
                 }
 
-                hoverEnabled: true
-                ToolTip.text: modelData.shortname
-                ToolTip.visible: hovered
-
                 onClicked: textArea.insert(textArea.cursorPosition, modelData.unicode)
             }
 
@@ -81,10 +77,6 @@ Popup {
                         font.family: "Emoji"
                         text: label
                     }
-
-                    hoverEnabled: true
-                    ToolTip.text: category
-                    ToolTip.visible: hovered
 
                     onClicked: emojiCategory = category
                 }
