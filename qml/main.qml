@@ -112,9 +112,9 @@ ApplicationWindow {
 
     }
 
-    Component.onCompleted: {
-        spectralController.initiated.connect(function() {
-            if (spectralController.accountCount == 0) stackView.push(loginPage)
-        })
-    }
+//    Component.onCompleted: {
+//        spectralController.initiated.connect(function() {
+//            if (spectralController.accountCount == 0) stackView.push(loginPage)
+//        })
+//    }
 }

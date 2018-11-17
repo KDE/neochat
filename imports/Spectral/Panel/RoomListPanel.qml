@@ -6,6 +6,7 @@ import QtQuick.Controls.Material 2.2
 
 import Spectral.Component 2.0
 import Spectral.Menu 2.0
+import Spectral.Effect 2.0
 
 import Spectral 0.1
 import Spectral.Setting 0.1
@@ -90,70 +91,205 @@ Rectangle {
 
         edge: Qt.LeftEdge
 
+        Component {
+            id: mainPage
+
+            ColumnLayout {
+                readonly property string title: "Main"
+
+                id: mainColumn
+
+                spacing: 0
+
+                Control {
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 330
+
+                    padding: 24
+
+                    contentItem: ColumnLayout {
+                        spacing: 4
+
+                        ImageItem {
+                            Layout.preferredWidth: 200
+                            Layout.preferredHeight: 200
+                            Layout.margins: 12
+                            Layout.alignment: Qt.AlignHCenter
+
+                            source: root.user ? root.user.paintable : null
+                            hint: root.user ? root.user.displayName : "?"
+                        }
+
+                        Label {
+                            Layout.alignment: Qt.AlignHCenter
+
+                            text: root.user ? root.user.displayName : "No Name"
+                            color: "white"
+                            font.pointSize: 16.5
+                        }
+
+                        Label {
+                            Layout.alignment: Qt.AlignHCenter
+
+                            text: root.user ? root.user.id : "@example:matrix.org"
+                            color: "white"
+                            opacity: 0.7
+                            font.pointSize: 9.75
+                        }
+                    }
+
+                    background: Rectangle { color: Material.primary }
+
+                    ItemDelegate {
+                        anchors.fill: parent
+                    }
+                }
+
+                ScrollView {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+
+                    ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+
+                    ColumnLayout {
+                        width: mainColumn.width
+                        spacing: 0
+
+                        Repeater {
+                            model: AccountListModel {
+                                controller: spectralController
+                            }
+
+                            delegate: ItemDelegate {
+                                Layout.fillWidth: true
+
+                                text: user.displayName
+
+                                onClicked: {
+                                    controller.connection = connection
+                                    drawer.close()
+                                }
+                            }
+                        }
+
+                        Rectangle {
+                            Layout.fillWidth: true
+                            Layout.preferredHeight: 1
+
+                            color: "#e7ebeb"
+                        }
+
+                        ItemDelegate {
+                            Layout.fillWidth: true
+
+                            text: "Settings"
+
+                            onClicked: stackView.push(settingsPage)
+                        }
+
+                        ItemDelegate {
+                            Layout.fillWidth: true
+
+                            text: "Exit"
+
+                            onClicked: Qt.quit()
+                        }
+                    }
+                }
+            }
+        }
+
+        Component {
+            id: settingsPage
+
+            ScrollView {
+                readonly property string title: "Settings"
+
+                ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+
+                padding: 16
+
+                ColumnLayout {
+                    width: parent.width
+                    spacing: 0
+
+                    Switch {
+                        text: "Dark theme"
+                        checked: MSettings.darkTheme
+
+                        onCheckedChanged: MSettings.darkTheme = checked
+                    }
+
+                    Switch {
+                        text: "Use press and hold instead of right click"
+                        checked: MSettings.pressAndHold
+
+                        onCheckedChanged: MSettings.pressAndHold = checked
+                    }
+
+                    Switch {
+                        text: "Show tray icon"
+                        checked: MSettings.showTray
+
+                        onCheckedChanged: MSettings.showTray = checked
+                    }
+
+                    Switch {
+                        text: "Confirm on Exit"
+                        checked: MSettings.confirmOnExit
+
+                        onCheckedChanged: MSettings.confirmOnExit = checked
+                    }
+                }
+            }
+        }
+
         ColumnLayout {
-            width: parent.width
+            anchors.fill: parent
+
             spacing: 0
 
             Control {
                 Layout.fillWidth: true
-                Layout.preferredHeight: 330
+                Layout.preferredHeight: 64
 
-                padding: 24
+                visible: stackView.depth > 1
 
-                contentItem: ColumnLayout {
-                    spacing: 4
+                contentItem: RowLayout {
+                    anchors.fill: parent
+                    ToolButton {
+                        Layout.preferredWidth: height
+                        Layout.fillHeight: true
 
-                    ImageItem {
-                        Layout.preferredWidth: 200
-                        Layout.preferredHeight: 200
-                        Layout.margins: 12
-                        Layout.alignment: Qt.AlignHCenter
+                        contentItem: MaterialIcon {
+                            icon: "\ue5c4"
+                            color: "white"
+                        }
 
-                        source: root.user ? root.user.paintable : null
-                        hint: root.user ? root.user.displayName : "?"
+                        onClicked: stackView.pop()
                     }
-
                     Label {
-                        Layout.alignment: Qt.AlignHCenter
+                        Layout.fillWidth: true
 
-                        text: root.user ? root.user.displayName : "No Name"
+                        text: stackView.currentItem.title
                         color: "white"
-                        font.pointSize: 16.5
-                    }
-
-                    Label {
-                        Layout.alignment: Qt.AlignHCenter
-
-                        text: root.user ? root.user.id : "@example:matrix.org"
-                        color: "white"
-                        opacity: 0.7
-                        font.pointSize: 9.75
+                        font.pointSize: 13.5
+                        elide: Label.ElideRight
                     }
                 }
 
-                background: Rectangle { color: "#455A64" }
-            }
-
-            Repeater {
-                model: AccountListModel {
-                    controller: spectralController
-                }
-
-                delegate: ItemDelegate {
-                    Layout.fillWidth: true
-
-                    text: user.displayName
-
-                    onClicked: controller.connection = connection
+                background: Rectangle {
+                    color: Material.primary
                 }
             }
 
-            ItemDelegate {
+            StackView {
                 Layout.fillWidth: true
+                Layout.fillHeight: true
 
-                text: "Exit"
+                id: stackView
 
-                onClicked: Qt.quit()
+                initialItem: mainPage
             }
         }
     }
@@ -163,8 +299,12 @@ Rectangle {
         spacing: 0
 
         Control {
+            readonly property bool isSearching: searchField.text
+
             Layout.fillWidth: true
             Layout.preferredHeight: 64
+
+            id: roomListHeader
 
             topPadding: 12
             bottomPadding: 12
@@ -177,13 +317,17 @@ Rectangle {
                     Layout.fillHeight: true
 
                     contentItem: MaterialIcon {
-                        icon: searchField.visible ? "\ue5cd" : "\ue8b6"
-                        color: searchField.visible ? "#1D333E" : "#7F7F7F"
+                        icon: roomListHeader.isSearching ? "\ue5cd" : "\ue8b6"
+                        color: roomListHeader.isSearching ? "#1D333E" : "7F7F7F"
                     }
 
                     onClicked: {
-                        if (searchField.visible) searchField.clear()
-                        searchField.visible = !searchField.visible
+                        if (searchField.focus) {
+                            searchField.clear()
+                            searchField.focus = false
+                        } else {
+                            searchField.focus = true
+                        }
                     }
                 }
 
@@ -193,7 +337,6 @@ Rectangle {
 
                     id: searchField
 
-                    visible: false
                     topPadding: 0
                     bottomPadding: 0
                     placeholderText: "Search..."
@@ -201,25 +344,12 @@ Rectangle {
                     background: Item {}
                 }
 
-                Label {
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-
-                    visible: !searchField.visible
-
-                    text: root.user ? root.user.displayName : "No Name"
-                    elide: Text.ElideRight
-                    wrapMode: Text.NoWrap
-                    font.pointSize: 12
-                    color: "#7F7F7F"
-                    verticalAlignment: Text.AlignVCenter
-                }
-
                 ImageItem {
                     Layout.preferredWidth: height
                     Layout.fillHeight: true
+                    Layout.alignment: Qt.AlignRight
 
-                    visible: !searchField.visible
+                    visible: !roomListHeader.isSearching
 
                     source: root.user ? root.user.paintable : null
                     hint: root.user ? root.user.displayName : "?"
@@ -265,17 +395,17 @@ Rectangle {
                     opacity: 0.6
                     wrapMode: Text.Wrap
                 }
-                ItemDelegate {
-                    Layout.preferredHeight: 32
-                    Layout.alignment: Qt.AlignRight
-
-                    text: "Dismiss"
-                    Material.foreground: "white"
-                    onClicked: errorControl.visible = false
-                }
             }
 
-            background: Rectangle { color: "#273338" }
+            background: Rectangle {
+                color: "#273338"
+            }
+
+            ItemDelegate {
+                anchors.fill: parent
+
+                onClicked: errorControl.visible = false
+            }
         }
 
         AutoListView {
