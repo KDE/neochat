@@ -41,6 +41,7 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtQuick.Window 2.1
+import Spectral.Setting 0.1
 
 Item {
     id: root
@@ -64,7 +65,7 @@ Item {
     property Component handleDelegate: Rectangle {
         width: 1
         height: 1
-        color: "#E1E1E1"
+        color: MSettings.darkTheme ? "#424242" : "#E1E1E1"
     }
 
     /*!

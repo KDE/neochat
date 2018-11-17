@@ -74,24 +74,6 @@ RowLayout {
 
             spacing: 0
 
-//            TimelineLabel {
-//                Layout.fillWidth: true
-
-//                id: authorLabel
-
-//                visible: messageRow.avatarVisible
-//                text: author.displayName
-//                Material.foreground: Material.accent
-//                coloredBackground: highlighted
-//                font.bold: true
-
-//                MouseArea {
-//                    anchors.fill: parent
-//                    cursorShape: Qt.PointingHandCursor
-//                    onClicked: roomPanelInput.insert(author.displayName)
-//                }
-//            }
-
             TextEdit {
                 Layout.fillWidth: true
 
@@ -134,54 +116,6 @@ RowLayout {
 
                 active: eventType === "image" || eventType === "file" || eventType === "audio"
             }
-
-//            Row {
-//                Layout.alignment: Qt.AlignRight
-
-//                spacing: 4
-
-//                TimelineLabel {
-//                    visible: userMarker.length > 5
-//                    text: userMarker.length - 5 + "+"
-//                    coloredBackground: highlighted
-//                    Material.foreground: "grey"
-//                    font.pointSize: 8
-//                }
-
-//                Repeater {
-//                    model: userMarker.length > 5 ? userMarker.slice(0, 5) : userMarker
-
-//                    ImageItem {
-//                        width: parent.height
-//                        height: parent.height
-
-//                        hint: modelData.displayName
-//                        source: modelData.paintable
-
-//                        MouseArea {
-//                            anchors.fill: parent
-
-//                            cursorShape: Qt.PointingHandCursor
-
-//                            onClicked: {
-//                                readMarkerDialog.listModel = userMarker
-//                                readMarkerDialog.open()
-//                            }
-//                        }
-//                    }
-//                }
-
-//                TimelineLabel {
-//                    id: timeLabel
-
-//                    visible: Math.abs(time - aboveTime) > 600000 || index == 0
-//                    text: Qt.formatTime(time, "hh:mm")
-//                    coloredBackground: highlighted
-//                    Material.foreground: "grey"
-//                    font.pointSize: 8
-//                }
-//            }
-
         }
 
         Component {

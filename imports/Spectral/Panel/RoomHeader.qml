@@ -6,7 +6,7 @@ import QtQuick.Controls.Material 2.2
 import Spectral 0.1
 import Spectral.Effect 2.0
 
-Rectangle {
+Control {
     property alias paintable: headerImage.source
     property alias topic: headerTopicLabel.text
     property bool atTop: false
@@ -14,64 +14,65 @@ Rectangle {
 
     id: header
 
-    color: atTop ? "transparent" : "white"
+    background: Rectangle {
+        color: Material.background
 
-    layer.enabled: !atTop
-    layer.effect: ElevationEffect {
-        elevation: 4
+        opacity: atTop ? 0 : 1
+
+        layer.enabled: true
+        layer.effect: ElevationEffect {
+            elevation: 2
+        }
     }
 
-    ItemDelegate {
+    RowLayout {
         anchors.fill: parent
+        anchors.margins: 12
 
-        id: roomHeader
+        spacing: 12
 
-        onClicked: header.clicked()
+        ImageItem {
+            Layout.preferredWidth: height
+            Layout.fillHeight: true
 
-        RowLayout {
-            anchors.fill: parent
-            anchors.margins: 12
+            id: headerImage
 
-            spacing: 12
+            source: currentRoom.paintable
+            hint: currentRoom ? currentRoom.displayName : "No name"
+        }
 
-            ImageItem {
-                Layout.preferredWidth: height
-                Layout.fillHeight: true
+        ColumnLayout {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
 
-                id: headerImage
+            visible: parent.width > 64
 
-                source: currentRoom.paintable
-                hint: currentRoom ? currentRoom.displayName : "No name"
-            }
-
-            ColumnLayout {
+            Label {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
 
-                visible: parent.width > 64
+                text: currentRoom ? currentRoom.displayName : ""
+                font.pointSize: 12
+                elide: Text.ElideRight
+                wrapMode: Text.NoWrap
+            }
 
-                Label {
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
+            Label {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
 
-                    text: currentRoom ? currentRoom.displayName : ""
-                    color: "#1D333E"
-                    font.pointSize: 12
-                    elide: Text.ElideRight
-                    wrapMode: Text.NoWrap
-                }
+                id: headerTopicLabel
 
-                Label {
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-
-                    id: headerTopicLabel
-
-                    color: "#5B7480"
-                    elide: Text.ElideRight
-                    wrapMode: Text.NoWrap
-                }
+                color: "#5B7480"
+                elide: Text.ElideRight
+                wrapMode: Text.NoWrap
             }
         }
+    }
+
+    RippleEffect {
+        anchors.fill: parent
+
+        onClicked: header.clicked()
     }
 }

@@ -17,7 +17,7 @@ Rectangle {
     property var controller: null
     readonly property var user: controller.connection ? controller.connection.localUser : null
 
-    readonly property int filter: 0
+    property int filter: 0
     property var enteredRoom: null
     property alias errorControl: errorControl
 
@@ -140,7 +140,7 @@ Rectangle {
 
                     background: Rectangle { color: Material.primary }
 
-                    ItemDelegate {
+                    RippleEffect {
                         anchors.fill: parent
                     }
                 }
@@ -172,11 +172,19 @@ Rectangle {
                             }
                         }
 
+                        ItemDelegate {
+                            Layout.fillWidth: true
+
+                            text: "Add Account"
+
+                            onClicked: loginDialog.open()
+                        }
+
                         Rectangle {
                             Layout.fillWidth: true
                             Layout.preferredHeight: 1
 
-                            color: "#e7ebeb"
+                            color: MSettings.darkTheme ? "#424242" : "#e7ebeb"
                         }
 
                         ItemDelegate {
@@ -185,6 +193,14 @@ Rectangle {
                             text: "Settings"
 
                             onClicked: stackView.push(settingsPage)
+                        }
+
+                        ItemDelegate {
+                            Layout.fillWidth: true
+
+                            text: "Logout"
+
+                            onClicked: controller.logout(controller.connection)
                         }
 
                         ItemDelegate {
@@ -249,14 +265,18 @@ Rectangle {
 
             spacing: 0
 
-            Control {
+            Rectangle {
                 Layout.fillWidth: true
                 Layout.preferredHeight: 64
 
                 visible: stackView.depth > 1
 
-                contentItem: RowLayout {
+                color: Material.primary
+
+                RowLayout {
                     anchors.fill: parent
+                    anchors.margins: 4
+
                     ToolButton {
                         Layout.preferredWidth: height
                         Layout.fillHeight: true
@@ -277,10 +297,6 @@ Rectangle {
                         elide: Label.ElideRight
                     }
                 }
-
-                background: Rectangle {
-                    color: Material.primary
-                }
             }
 
             StackView {
@@ -288,6 +304,8 @@ Rectangle {
                 Layout.fillHeight: true
 
                 id: stackView
+
+                clip: true
 
                 initialItem: mainPage
             }
@@ -299,8 +317,6 @@ Rectangle {
         spacing: 0
 
         Control {
-            readonly property bool isSearching: searchField.text
-
             Layout.fillWidth: true
             Layout.preferredHeight: 64
 
@@ -316,22 +332,66 @@ Rectangle {
                     Layout.preferredWidth: height
                     Layout.fillHeight: true
 
-                    contentItem: MaterialIcon {
-                        icon: roomListHeader.isSearching ? "\ue5cd" : "\ue8b6"
-                        color: roomListHeader.isSearching ? "#1D333E" : "7F7F7F"
-                    }
+                    visible: !searchField.active
 
-                    onClicked: {
-                        if (searchField.focus) {
-                            searchField.clear()
-                            searchField.focus = false
-                        } else {
-                            searchField.focus = true
+                    contentItem: MaterialIcon {
+                        icon: {
+                            switch (filter) {
+                            case 0: return "\ue8b6"
+                            case 1: return "\ue7f5"
+                            case 2: return "\ue7ff"
+                            case 3: return "\ue7fc"
+                            }
                         }
                     }
+
+                    Menu {
+                        id: filterMenu
+
+                        MenuItem {
+                            text: "All"
+
+                            onClicked: filter = 0
+                        }
+
+                        MenuSeparator {}
+
+                        MenuItem {
+                            text: "New"
+
+                            onClicked: filter = 1
+                        }
+
+                        MenuItem {
+                            text: "People"
+
+                            onClicked: filter = 2
+                        }
+
+                        MenuItem {
+                            text: "Group"
+
+                            onClicked: filter = 3
+                        }
+                    }
+
+                    onClicked: filterMenu.popup()
+                }
+
+                ItemDelegate {
+                    Layout.preferredWidth: height
+                    Layout.fillHeight: true
+
+                    visible: searchField.active
+
+                    contentItem: MaterialIcon { icon: "\ue5cd" }
+
+                    onClicked: searchField.clear()
                 }
 
                 AutoTextField {
+                    readonly property bool active: text
+
                     Layout.fillWidth: true
                     Layout.fillHeight: true
 
@@ -349,7 +409,7 @@ Rectangle {
                     Layout.fillHeight: true
                     Layout.alignment: Qt.AlignRight
 
-                    visible: !roomListHeader.isSearching
+                    visible: !searchField.active
 
                     source: root.user ? root.user.paintable : null
                     hint: root.user ? root.user.displayName : "?"
@@ -358,6 +418,17 @@ Rectangle {
                         anchors.fill: parent
                         onClicked: drawer.open()
                     }
+                }
+            }
+
+            background: Rectangle {
+                color: Material.background
+
+                opacity: listView.atYBeginning ? 0 : 1
+
+                layer.enabled: true
+                layer.effect: ElevationEffect {
+                    elevation: 2
                 }
             }
         }
@@ -423,9 +494,93 @@ Rectangle {
 
             ScrollBar.vertical: ScrollBar {}
 
-            delegate: RoomListDelegate {
-                width: parent.width
+            delegate: Item {
+                width: listView.width
                 height: 64
+
+                Rectangle {
+                    anchors.fill: parent
+
+                    visible: highlightCount > 0 || currentRoom === enteredRoom
+                    color: Material.accent
+                    opacity: 0.1
+                }
+
+                Rectangle {
+                    width: unreadCount > 0 ? 4 : 0
+                    height: parent.height
+
+                    color: Material.accent
+
+                    Behavior on width {
+                        PropertyAnimation { easing.type: Easing.InOutCubic; duration: 200 }
+                    }
+                }
+
+                RowLayout {
+                    anchors.fill: parent
+                    anchors.margins: 12
+
+                    spacing: 12
+
+                    ImageItem {
+                        id: imageItem
+
+                        Layout.preferredWidth: height
+                        Layout.fillHeight: true
+
+                        source: paintable
+                        hint: name || "No Name"
+                    }
+
+                    ColumnLayout {
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                        Layout.alignment: Qt.AlignHCenter
+
+                        visible: parent.width > 64
+
+                        Label {
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+
+                            text: name || "No Name"
+                            font.pointSize: 12
+                            elide: Text.ElideRight
+                            wrapMode: Text.NoWrap
+                        }
+
+                        Label {
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+
+                            text: (lastEvent == "" ? topic : lastEvent).replace(/(\r\n\t|\n|\r\t)/gm,"")
+                            color: "#5B7480"
+                            font.pointSize: 9.75
+                            elide: Text.ElideRight
+                            wrapMode: Text.NoWrap
+                        }
+                    }
+                }
+
+                RippleEffect {
+                    anchors.fill: parent
+
+                    onSecondaryClicked: {
+                        roomContextMenu.model = model
+                        roomContextMenu.popup()
+                    }
+                    onPrimaryClicked: {
+                        if (category === RoomType.Invited) {
+                            inviteDialog.currentRoom = currentRoom
+                            inviteDialog.open()
+                        } else {
+                            leaveRoom(enteredRoom)
+                            enterRoom(currentRoom)
+                            enteredRoom = currentRoom
+                        }
+                    }
+                }
             }
 
             section.property: "display"

@@ -54,7 +54,7 @@ Item {
 
         visible: currentRoom
 
-        source: "qrc:/assets/img/roompanel.svg"
+        source: MSettings.darkTheme ? "qrc:/assets/img/roompanel-dark.svg" : "qrc:/assets/img/roompanel.svg"
         fillMode: Image.PreserveAspectCrop
     }
 

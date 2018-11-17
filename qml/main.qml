@@ -28,6 +28,9 @@ ApplicationWindow {
     visible: true
     title: qsTr("Spectral")
 
+    Material.foreground: Material.theme == Material.Dark ? "#FFFFFF" : "#1D333E"
+    Material.background: Material.theme == Material.Dark ? "#303030" : "#FFFFFF"
+
     Platform.SystemTrayIcon {
         visible: MSettings.showTray
         iconSource: "qrc:/assets/img/icon.png"
@@ -52,8 +55,8 @@ ApplicationWindow {
         quitOnLastWindowClosed: !MSettings.showTray
 
         onNotificationClicked: {
-            roomPage.enteredRoom = spectralController.connection.room(roomId)
-            roomPage.goToEvent(eventId)
+            roomForm.enteredRoom = spectralController.connection.room(roomId)
+            roomForm.goToEvent(eventId)
             showWindow()
         }
         onErrorOccured: {
@@ -62,6 +65,95 @@ ApplicationWindow {
             roomListForm.errorControl.visible = true
         }
         onSyncDone: roomListForm.errorControl.visible = false
+    }
+
+    Dialog {
+        property bool busy: false
+
+        width: 360
+        height: 300
+        x: (window.width - width) / 2
+        y: (window.height - height) / 2
+
+        id: loginDialog
+
+        parent: ApplicationWindow.overlay
+
+        title: "Login"
+
+        contentItem: ColumnLayout {
+            AutoTextField {
+                Layout.fillWidth: true
+
+                id: serverField
+
+                placeholderText: "Server Address"
+                text: "https://matrix.org"
+            }
+
+            AutoTextField {
+                Layout.fillWidth: true
+
+                id: usernameField
+
+                placeholderText: "Username"
+            }
+
+            AutoTextField {
+                Layout.fillWidth: true
+
+                id: passwordField
+
+                placeholderText: "Password"
+                echoMode: TextInput.Password
+            }
+        }
+
+        footer: DialogButtonBox {
+            Button {
+                text: "OK"
+                flat: true
+                enabled: !loginDialog.busy
+
+                onClicked: loginDialog.doLogin()
+            }
+
+            Button {
+                text: "Cancel"
+                flat: true
+                enabled: !loginDialog.busy
+
+                onClicked: loginDialog.close()
+            }
+
+            ToolTip {
+                id: loginButtonTooltip
+            }
+        }
+
+        Component.onCompleted: {
+            spectralController.onErrorOccured.connect(function(error, detail) {
+                loginDialog.busy = false
+                loginButtonTooltip.text = error + ": " + detail
+                loginButtonTooltip.open()
+            })
+        }
+
+        function doLogin() {
+            if (!(serverField.text.startsWith("http") && serverField.text.includes("://"))) {
+                loginButtonTooltip.text = "Server address should start with http(s)://"
+                loginButtonTooltip.open()
+                return
+            }
+
+            loginDialog.busy = true
+            spectralController.loginWithCredentials(serverField.text, usernameField.text, passwordField.text)
+
+            spectralController.connectionAdded.connect(function(conn) {
+                busy = false
+                loginDialog.close()
+            })
+        }
     }
 
     SplitView {
@@ -108,13 +200,9 @@ ApplicationWindow {
         window.hide()
     }
 
-    function showError() {
-
-    }
-
-//    Component.onCompleted: {
-//        spectralController.initiated.connect(function() {
-//            if (spectralController.accountCount == 0) stackView.push(loginPage)
-//        })
-//    }
+        Component.onCompleted: {
+            spectralController.initiated.connect(function() {
+                if (spectralController.accountCount == 0) loginDialog.open()
+            })
+        }
 }

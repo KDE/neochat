@@ -58,26 +58,27 @@ inline QString accessTokenFileName(const AccountSettings& account) {
 void Controller::loginWithCredentials(QString serverAddr, QString user,
                                       QString pass) {
   if (!user.isEmpty() && !pass.isEmpty()) {
-    Connection* m_connection = new Connection(this);
-    m_connection->setHomeserver(QUrl(serverAddr));
-    m_connection->connectToServer(user, pass, "");
-    connect(m_connection, &Connection::connected, [=] {
-      AccountSettings account(m_connection->userId());
+    Connection* conn = new Connection(this);
+    conn->setHomeserver(QUrl(serverAddr));
+    conn->connectToServer(user, pass, "");
+    connect(conn, &Connection::connected, [=] {
+      AccountSettings account(conn->userId());
       account.setKeepLoggedIn(true);
       account.clearAccessToken();  // Drop the legacy - just in case
-      account.setHomeserver(m_connection->homeserver());
-      account.setDeviceId(m_connection->deviceId());
+      account.setHomeserver(conn->homeserver());
+      account.setDeviceId(conn->deviceId());
       account.setDeviceName("Spectral");
-      if (!saveAccessToken(account, m_connection->accessToken()))
+      if (!saveAccessToken(account, conn->accessToken()))
         qWarning() << "Couldn't save access token";
       account.sync();
-      addConnection(m_connection);
+      addConnection(conn);
+      setConnection(conn);
     });
-    connect(m_connection, &Connection::networkError,
+    connect(conn, &Connection::networkError,
             [=](QString error, QByteArray detail) {
               emit errorOccured("Network Error", error);
             });
-    connect(m_connection, &Connection::loginError,
+    connect(conn, &Connection::loginError,
             [=](QString error, QByteArray detail) {
               emit errorOccured("Login Failed", error);
             });
@@ -98,6 +99,7 @@ void Controller::logout(Connection* conn) {
     conn->stopSync();
     emit conn->stateChanged();
     emit conn->loggedOut();
+    if (!m_connections.isEmpty()) setConnection(m_connections[0]);
   });
   connect(job, &LogoutJob::failure, this, [=] {
     emit errorOccured("Server-side Logout Failed", job->errorString());
