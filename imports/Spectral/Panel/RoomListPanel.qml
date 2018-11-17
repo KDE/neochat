@@ -472,7 +472,7 @@ Rectangle {
                 color: "#273338"
             }
 
-            ItemDelegate {
+            RippleEffect {
                 anchors.fill: parent
 
                 onClicked: errorControl.visible = false

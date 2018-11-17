@@ -298,9 +298,6 @@ Item {
             Layout.alignment: Qt.AlignHCenter
 
             id: roomPanelInput
-
-            width: parent.width
-            height: 48
         }
     }
 }

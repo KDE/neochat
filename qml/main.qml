@@ -55,7 +55,7 @@ ApplicationWindow {
         quitOnLastWindowClosed: !MSettings.showTray
 
         onNotificationClicked: {
-            roomForm.enteredRoom = spectralController.connection.room(roomId)
+            roomListForm.enteredRoom = spectralController.connection.room(roomId)
             roomForm.goToEvent(eventId)
             showWindow()
         }
@@ -131,12 +131,15 @@ ApplicationWindow {
             }
         }
 
-        Component.onCompleted: {
-            spectralController.onErrorOccured.connect(function(error, detail) {
-                loginDialog.busy = false
-                loginButtonTooltip.text = error + ": " + detail
-                loginButtonTooltip.open()
-            })
+        onVisibleChanged: {
+            if (visible) spectralController.onErrorOccured.connect(showError)
+            else spectralController.onErrorOccured.disconnect(showError)
+        }
+
+        function showError(error, detail) {
+            loginDialog.busy = false
+            loginButtonTooltip.text = error + ": " + detail
+            loginButtonTooltip.open()
         }
 
         function doLogin() {
