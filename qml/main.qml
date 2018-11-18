@@ -28,8 +28,8 @@ ApplicationWindow {
     visible: true
     title: qsTr("Spectral")
 
-    Material.foreground: Material.theme == Material.Dark ? "#FFFFFF" : "#1D333E"
-    Material.background: Material.theme == Material.Dark ? "#303030" : "#FFFFFF"
+    Material.foreground: MSettings.darkTheme ? "#FFFFFF" : "#1D333E"
+    Material.background: MSettings.darkTheme ? "#303030" : "#FFFFFF"
 
     Platform.SystemTrayIcon {
         visible: MSettings.showTray
