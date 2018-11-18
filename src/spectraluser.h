@@ -16,11 +16,11 @@ class UserPaintable : public Paintable {
   UserPaintable(User* parent) : Paintable(parent), m_user(parent) {}
 
   QImage image(int dimension) override {
-    if (!m_user) return QImage();
+    if (!m_user) return {};
     return m_user->avatar(dimension);
   }
   QImage image(int width, int height) override {
-    if (!m_user) return QImage();
+    if (!m_user) return {};
     return m_user->avatar(width, height);
   }
 

@@ -19,11 +19,11 @@ class RoomPaintable : public Paintable {
   }
 
   QImage image(int dimension) override {
-    if (!m_room) return QImage();
+    if (!m_room) return {};
     return m_room->avatar(dimension);
   }
   QImage image(int width, int height) override {
-    if (!m_room) return QImage();
+    if (!m_room) return {};
     return m_room->avatar(width, height);
   }
 

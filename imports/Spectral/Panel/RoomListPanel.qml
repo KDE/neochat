@@ -710,7 +710,7 @@ Rectangle {
                 Rectangle {
                     anchors.fill: parent
 
-                    visible: highlightCount > 0 || currentRoom === enteredRoom
+                    visible: currentRoom === enteredRoom
                     color: Material.accent
                     opacity: 0.1
                 }
