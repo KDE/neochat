@@ -52,7 +52,7 @@ Control {
                 Layout.fillHeight: true
 
                 text: currentRoom ? currentRoom.displayName : ""
-                font.pointSize: 12
+                font.pixelSize: 16
                 elide: Text.ElideRight
                 wrapMode: Text.NoWrap
             }

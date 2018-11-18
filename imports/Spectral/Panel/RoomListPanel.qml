@@ -125,7 +125,7 @@ Rectangle {
 
                             text: root.user ? root.user.displayName : "No Name"
                             color: "white"
-                            font.pointSize: 16.5
+                            font.pixelSize: 22
                         }
 
                         Label {
@@ -134,7 +134,7 @@ Rectangle {
                             text: root.user ? root.user.id : "@example:matrix.org"
                             color: "white"
                             opacity: 0.7
-                            font.pointSize: 9.75
+                            font.pixelSize: 13
                         }
                     }
 
@@ -246,7 +246,7 @@ Rectangle {
                                 Layout.fillHeight: true
 
                                 text: "Matrix ID"
-                                font.pointSize: 12
+                                font.pixelSize: 16
                                 elide: Text.ElideRight
                                 wrapMode: Text.NoWrap
                             }
@@ -257,7 +257,7 @@ Rectangle {
 
                                 text: root.user.id
                                 color: "#5B7480"
-                                font.pointSize: 9.75
+                                font.pixelSize: 13
                                 elide: Text.ElideRight
                                 wrapMode: Text.NoWrap
                             }
@@ -277,7 +277,7 @@ Rectangle {
                                 Layout.fillHeight: true
 
                                 text: "Name"
-                                font.pointSize: 12
+                                font.pixelSize: 16
                                 elide: Text.ElideRight
                                 wrapMode: Text.NoWrap
                             }
@@ -288,7 +288,7 @@ Rectangle {
 
                                 text: root.user.name
                                 color: "#5B7480"
-                                font.pointSize: 9.75
+                                font.pixelSize: 13
                                 elide: Text.ElideRight
                                 wrapMode: Text.NoWrap
                             }
@@ -308,7 +308,7 @@ Rectangle {
                                 Layout.fillHeight: true
 
                                 text: "Avatar"
-                                font.pointSize: 12
+                                font.pixelSize: 16
                                 elide: Text.ElideRight
                                 wrapMode: Text.NoWrap
                             }
@@ -319,7 +319,7 @@ Rectangle {
 
                                 text: root.user.avatarMediaId
                                 color: "#5B7480"
-                                font.pointSize: 9.75
+                                font.pixelSize: 13
                                 elide: Text.ElideRight
                                 wrapMode: Text.NoWrap
                             }
@@ -339,7 +339,7 @@ Rectangle {
                                 Layout.fillHeight: true
 
                                 text: "Server"
-                                font.pointSize: 12
+                                font.pixelSize: 16
                                 elide: Text.ElideRight
                                 wrapMode: Text.NoWrap
                             }
@@ -350,7 +350,7 @@ Rectangle {
 
                                 text: root.controller.connection.accessToken
                                 color: "#5B7480"
-                                font.pointSize: 9.75
+                                font.pixelSize: 13
                                 elide: Text.ElideRight
                                 wrapMode: Text.NoWrap
                             }
@@ -370,7 +370,7 @@ Rectangle {
                                 Layout.fillHeight: true
 
                                 text: "Device"
-                                font.pointSize: 12
+                                font.pixelSize: 16
                                 elide: Text.ElideRight
                                 wrapMode: Text.NoWrap
                             }
@@ -381,7 +381,7 @@ Rectangle {
 
                                 text: root.controller.connection.deviceId
                                 color: "#5B7480"
-                                font.pointSize: 9.75
+                                font.pixelSize: 13
                                 elide: Text.ElideRight
                                 wrapMode: Text.NoWrap
                             }
@@ -401,7 +401,7 @@ Rectangle {
                                 Layout.fillHeight: true
 
                                 text: "Token"
-                                font.pointSize: 12
+                                font.pixelSize: 16
                                 elide: Text.ElideRight
                                 wrapMode: Text.NoWrap
                             }
@@ -412,7 +412,7 @@ Rectangle {
 
                                 text: root.controller.connection.accessToken
                                 color: "#5B7480"
-                                font.pointSize: 9.75
+                                font.pixelSize: 13
                                 elide: Text.ElideRight
                                 wrapMode: Text.NoWrap
                             }
@@ -528,7 +528,7 @@ Rectangle {
 
                         text: stackView.currentItem.title
                         color: "white"
-                        font.pointSize: 13.5
+                        font.pixelSize: 18
                         elide: Label.ElideRight
                     }
                 }
@@ -688,7 +688,7 @@ Rectangle {
                     Layout.fillWidth: true
 
                     text: errorControl.error
-                    font.pointSize: 12
+                    font.pixelSize: 16
                     color: "white"
                     wrapMode: Text.Wrap
                 }
@@ -696,7 +696,7 @@ Rectangle {
                     Layout.fillWidth: true
 
                     text: errorControl.detail
-                    font.pointSize: 10.5
+                    font.pixelSize: 14
                     color: "white"
                     opacity: 0.6
                     wrapMode: Text.Wrap
@@ -778,7 +778,7 @@ Rectangle {
                             Layout.fillHeight: true
 
                             text: name || "No Name"
-                            font.pointSize: 12
+                            font.pixelSize: 16
                             elide: Text.ElideRight
                             wrapMode: Text.NoWrap
                         }
@@ -789,7 +789,7 @@ Rectangle {
 
                             text: (lastEvent == "" ? topic : lastEvent).replace(/(\r\n\t|\n|\r\t)/gm,"")
                             color: "#5B7480"
-                            font.pointSize: 9.75
+                            font.pixelSize: 13
                             elide: Text.ElideRight
                             wrapMode: Text.NoWrap
                         }
