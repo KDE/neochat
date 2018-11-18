@@ -128,6 +128,8 @@ ApplicationWindow {
 
             ToolTip {
                 id: loginButtonTooltip
+
+                Material.foreground: "white"
             }
         }
 

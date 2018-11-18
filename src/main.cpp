@@ -23,9 +23,20 @@
 using namespace QMatrixClient;
 
 int main(int argc, char *argv[]) {
-#if defined(Q_OS_WIN)
-  QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+#if defined(Q_OS_LINUX) || defined(Q_OS_WIN) || defined(Q_OS_FREEBSD)
+  if (qgetenv("QT_SCALE_FACTOR").size() == 0) {
+    QSettings settings("ENCOM", "Spectral");
+    float factor = settings.value("Interface/dpi", 100).toFloat() / 100;
+
+    qDebug() << "DPI:" << factor;
+
+    if (factor != -1)
+      qputenv("QT_SCALE_FACTOR", QString::number(factor).toUtf8());
+  }
 #endif
+
+  QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
+  QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
   QApplication app(argc, argv);
 

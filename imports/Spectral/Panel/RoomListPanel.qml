@@ -432,10 +432,10 @@ Rectangle {
 
                 ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
 
-                padding: 16
+                padding: 32
 
                 ColumnLayout {
-                    width: main.width
+                    width: main.width - 64
                     spacing: 0
 
                     Switch {
@@ -464,6 +464,32 @@ Rectangle {
                         checked: MSettings.confirmOnExit
 
                         onCheckedChanged: MSettings.confirmOnExit = checked
+                    }
+
+                    RowLayout {
+                        Layout.fillWidth: true
+
+                        Label {
+                            text: "DPI"
+                        }
+
+                        Slider {
+                            Layout.fillWidth: true
+
+                            value: controller.dpi()
+                            from: 100
+                            to: 300
+                            stepSize: 25
+                            snapMode: Slider.SnapAlways
+
+                            ToolTip {
+                                Material.foreground: "white"
+                                visible: parent.pressed
+                                text: parent.value
+                            }
+
+                            onMoved: controller.setDpi(value)
+                        }
                     }
                 }
             }

@@ -32,6 +32,9 @@ class Controller : public QObject {
 
   QVector<Connection*> connections() { return m_connections; }
 
+  Q_INVOKABLE int dpi();
+  Q_INVOKABLE void setDpi(int dpi);
+
   // All the non-Q_INVOKABLE functions.
   void addConnection(Connection* c);
   void dropConnection(Connection* c);

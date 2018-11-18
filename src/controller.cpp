@@ -239,3 +239,11 @@ void Controller::postNotification(const QString& roomId, const QString& eventId,
   notificationsManager.postNotification(roomId, eventId, roomName, senderName,
                                         text, icon, iconPath);
 }
+
+int Controller::dpi() {
+  return SettingsGroup("Interface").value("dpi", 100).toInt();
+}
+
+void Controller::setDpi(int dpi) {
+  SettingsGroup("Interface").setValue("dpi", dpi);
+}
