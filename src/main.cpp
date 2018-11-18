@@ -35,9 +35,6 @@ int main(int argc, char *argv[]) {
   }
 #endif
 
-  QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
-  QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-
   QApplication app(argc, argv);
 
   app.setOrganizationName("ENCOM");
