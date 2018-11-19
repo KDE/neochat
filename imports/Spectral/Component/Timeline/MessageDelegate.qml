@@ -85,7 +85,7 @@ RowLayout {
                 color: "white"
 
                 font.family: CommonFont.font.family
-                font.pointSize: 10.5
+                font.pixelSize: 14
                 selectByMouse: true
                 readOnly: true
                 wrapMode: Label.Wrap

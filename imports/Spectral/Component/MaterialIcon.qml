@@ -12,7 +12,7 @@ Text {
     id: materialLabel
 
     color: Material.foreground
-    font.pointSize: 16
+    font.pixelSize: 24
     font.family: MaterialFont.name
     horizontalAlignment: Text.AlignHCenter
     verticalAlignment: Text.AlignVCenter

@@ -46,7 +46,7 @@ ColumnLayout {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
 
-                font.pointSize: 24
+                font.pixelSize: 24
                 font.family: "Emoji"
                 text: label
             }
@@ -94,7 +94,7 @@ ColumnLayout {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
 
-                font.pointSize: 20
+                font.pixelSize: 32
                 font.family: "Emoji"
                 text: modelData.unicode
             }

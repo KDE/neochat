@@ -80,7 +80,7 @@ Control {
                         height: parent.height
                         visible: isEmoji
                         text: autoCompleteText
-                        font.pointSize: 16
+                        font.pixelSize: 20
                         font.family: "Emoji"
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter

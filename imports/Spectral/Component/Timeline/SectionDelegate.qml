@@ -3,7 +3,7 @@ import QtQuick.Controls 2.2
 
 Label {
     text: section + " • " + Qt.formatTime(time, "hh:mm")
-    font.pointSize: 9.75
+    font.pixelSize: 13
     font.weight: Font.Medium
     font.capitalization: Font.AllUppercase
     verticalAlignment: Text.AlignVCenter
