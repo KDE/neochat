@@ -80,10 +80,12 @@ Item {
 
             id: messageListView
 
+            spacing: 4
+
             displayMarginBeginning: 100
             displayMarginEnd: 100
             verticalLayoutDirection: ListView.BottomToTop
-            spacing: 4
+            highlightMoveDuration: 500
 
             boundsBehavior: Flickable.DragOverBounds
 

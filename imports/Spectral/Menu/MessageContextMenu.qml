@@ -2,7 +2,7 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 
 Menu {
-    property var row: null
+    property var root: null
     property var model: null
     property string selectedText
 
@@ -23,14 +23,14 @@ Menu {
         height: visible ? undefined : 0
         text: "Open Externally"
 
-        onTriggered: row.openExternally()
+        onTriggered: root.openExternally()
     }
     MenuItem {
         visible: isFile
         height: visible ? undefined : 0
         text: "Save As"
 
-        onTriggered: row.saveFileAs()
+        onTriggered: root.saveFileAs()
     }
     MenuItem {
         height: visible ? undefined : 0
