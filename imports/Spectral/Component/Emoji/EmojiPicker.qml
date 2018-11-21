@@ -69,6 +69,8 @@ ColumnLayout {
     Rectangle {
         Layout.fillWidth: true
         Layout.preferredHeight: 1
+        Layout.leftMargin: 12
+        Layout.rightMargin: 12
 
         color: MSettings.darkTheme ? "#424242" : "#e7ebeb"
     }

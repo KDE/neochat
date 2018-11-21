@@ -114,6 +114,8 @@ Control {
             Layout.fillWidth: true
             Layout.margins: 8
 
+            id: replyItem
+
             visible: isReply
 
             spacing: 8
@@ -145,13 +147,17 @@ Control {
 
             textArea: inputField
             emojiModel: EmojiModel { id: emojiModel }
+        }
 
-            Rectangle {
-                Layout.fillWidth: true
-                Layout.preferredHeight: 1
+        Rectangle {
+            Layout.fillWidth: true
+            Layout.preferredHeight: 1
+            Layout.leftMargin: 12
+            Layout.rightMargin: 12
 
-                color: MSettings.darkTheme ? "#424242" : "#e7ebeb"
-            }
+            visible: emojiPicker.visible || replyItem.visible
+
+            color: MSettings.darkTheme ? "#424242" : "#e7ebeb"
         }
 
         RowLayout {

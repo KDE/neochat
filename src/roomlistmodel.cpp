@@ -77,6 +77,7 @@ void RoomListModel::connectRoomSignals(SpectralRoom* room) {
   connect(room, &Room::aboutToAddNewMessages, this,
           [=](QMatrixClient::RoomEventsRange eventsRange) {
             RoomEvent* event = (eventsRange.end() - 1)->get();
+            if (event->isStateEvent()) return;
             User* sender = room->user(event->senderId());
             if (sender == room->localUser()) return;
             QUrl _url = room->avatarUrl();
