@@ -82,7 +82,7 @@ void ImageItem::setPaintable(Paintable *paintable) {
 }
 
 void ImageItem::setHint(QString newHint) {
-  if (m_hint != newHint) {
+  if (!m_hint.isNull() && m_hint != newHint) {
     m_hint = newHint;
     emit hintChanged();
     update();

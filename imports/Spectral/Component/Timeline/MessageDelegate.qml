@@ -32,7 +32,6 @@ ColumnLayout {
         visible: avatarVisible
 
         font.pixelSize: 13
-        font.weight: Font.Medium
         verticalAlignment: Text.AlignVCenter
     }
 
@@ -80,7 +79,6 @@ ColumnLayout {
                     anchors.fill: parent
 
                     onSecondaryClicked: {
-                        index === messageListView.currentIndex ? messageListView.currentIndex = -1 : messageListView.currentIndex = index
                         messageContextMenu.root = root
                         messageContextMenu.model = model
                         messageContextMenu.selectedText = contentLabel.selectedText
@@ -227,14 +225,14 @@ ColumnLayout {
         }
     }
 
-    Label {
-        Layout.leftMargin: sentByMe ? 12 : 48
+//    Label {
+//        Layout.leftMargin: sentByMe ? 12 : 48
 
-        text: Qt.formatDateTime(time, "dd/MM/yyyy '-' hh:mm")
+//        text: Qt.formatDateTime(time, "dd/MM/yyyy '-' hh:mm")
 
-        visible: index === messageListView.currentIndex
+//        visible: index === messageListView.currentIndex
 
-        font.pixelSize: 13
-        verticalAlignment: Text.AlignVCenter
-    }
+//        font.pixelSize: 13
+//        verticalAlignment: Text.AlignVCenter
+//    }
 }

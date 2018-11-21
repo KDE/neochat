@@ -14,7 +14,7 @@ import "qrc:/js/md.js" as Markdown
 
 Control {
     property bool isReply
-    property string replyUserID
+    property var replyUser
     property string replyEventID
     property string replyContent
 
@@ -107,15 +107,37 @@ Control {
         }
     }
 
-    contentItem: Column {
+    contentItem: ColumnLayout {
         spacing: 0
 
-        add: Transition {
-            NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 250 }
+        RowLayout {
+            Layout.fillWidth: true
+            Layout.margins: 8
+
+            visible: isReply
+
+            spacing: 8
+
+            ImageItem {
+                Layout.preferredWidth: 32
+                Layout.preferredHeight: 32
+
+                source: replyUser ? replyUser.paintable : null
+                hint: replyUser ? replyUser.displayName : "No name"
+            }
+
+            Label {
+                Layout.fillWidth: true
+
+                text: replyContent
+                font.pixelSize: 16
+
+                wrapMode: Label.Wrap
+            }
         }
 
         EmojiPicker {
-            width: parent.width
+            Layout.fillWidth: true
 
             id: emojiPicker
 
@@ -133,7 +155,7 @@ Control {
         }
 
         RowLayout {
-            width: parent.width
+            Layout.fillWidth: true
 
             spacing: 0
 
@@ -179,7 +201,7 @@ Control {
                 id: inputField
 
                 wrapMode: Text.Wrap
-                placeholderText: isReply ? "Reply to " + replyUserID : "Send a Message"
+                placeholderText: "Send a Message"
                 topPadding: 0
                 bottomPadding: 0
                 selectByMouse: true
@@ -288,7 +310,7 @@ Control {
                     var PREFIX_MARKDOWN = '/md '
 
                     if (isReply) {
-                        currentRoom.sendReply(replyUserID, replyEventID, replyContent, text)
+                        currentRoom.sendReply(replyUser.id, replyEventID, replyContent, text)
                         clearReply()
                         return
                     }
@@ -356,7 +378,7 @@ Control {
 
     function clearReply() {
         isReply = false
-        replyUserID = ""
+        replyUser = null
         replyEventID = ""
         replyContent = ""
     }

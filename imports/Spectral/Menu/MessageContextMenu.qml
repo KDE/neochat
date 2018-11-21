@@ -37,10 +37,10 @@ Menu {
         text: "Reply"
 
         onTriggered: {
-            roomPanelInput.isReply = true
-            roomPanelInput.replyUserID = model.author.id
+            roomPanelInput.replyUser = model.author
             roomPanelInput.replyEventID = model.eventId
             roomPanelInput.replyContent = selectedText != "" ? selectedText : model.message
+            roomPanelInput.isReply = true
         }
     }
     MenuItem {
