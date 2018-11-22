@@ -1,8 +1,10 @@
 #include "imageitem.h"
 
+#include <QApplication>
 #include <QBitmap>
 #include <QGraphicsOpacityEffect>
 #include <QRect>
+#include <QScreen>
 
 ImageItem::ImageItem(QQuickItem *parent) : QQuickPaintedItem(parent) {}
 
@@ -16,19 +18,22 @@ inline static QString stringtoColor(QString string) {
   return colour;
 }
 
-inline static QImage getImageFromPaintable(QPointer<Paintable> p, QRectF b) {
+inline static QImage getImageFromPaintable(QPointer<Paintable> p, int width,
+                                           int height) {
   if (p.isNull()) return {};
-  QImage image(p->image(int(b.width()), int(b.height())));
+  qreal dpi = QApplication::primaryScreen()->devicePixelRatio();
+  QImage image(p->image(width * dpi, height * dpi));
   if (image.isNull()) return {};
   return image;
 }
 
 void ImageItem::paint(QPainter *painter) {
-  QRectF bounding_rect = boundingRect();
+  QRectF bounding_rect(boundingRect());
 
   painter->setRenderHint(QPainter::Antialiasing, true);
 
-  QImage image(getImageFromPaintable(m_paintable, bounding_rect));
+  QImage image(getImageFromPaintable(m_paintable, bounding_rect.width(),
+                                     bounding_rect.height()));
 
   if (image.isNull()) {
     painter->setPen(Qt::NoPen);
@@ -37,11 +42,9 @@ void ImageItem::paint(QPainter *painter) {
     else
       painter->setBrush(QColor(m_color));
     if (m_round)
-      painter->drawEllipse(0, 0, int(bounding_rect.width()),
-                           int(bounding_rect.height()));
+      painter->drawEllipse(bounding_rect);
     else
-      painter->drawRect(0, 0, int(bounding_rect.width()),
-                        int(bounding_rect.height()));
+      painter->drawRect(bounding_rect);
     painter->setPen(QPen(Qt::white, 2));
     QFont font;
     font.setStyleHint(QFont::SansSerif);
@@ -49,25 +52,15 @@ void ImageItem::paint(QPainter *painter) {
     font.setPixelSize(int(bounding_rect.width() / 2));
     font.setBold(true);
     painter->setFont(font);
-    painter->drawText(
-        QRect(0, 0, int(bounding_rect.width()), int(bounding_rect.height())),
-        Qt::AlignCenter, m_hint.at(0).toUpper());
+    painter->drawText(bounding_rect, Qt::AlignCenter, m_hint.at(0).toUpper());
   } else {
-    QImage scaled = image.scaled(
-        int(bounding_rect.width()) + 1, int(bounding_rect.height()) + 1,
-        Qt::KeepAspectRatioByExpanding, Qt::FastTransformation);
-
-    QPointF center = bounding_rect.center() - scaled.rect().center();
-
     if (m_round) {
       QPainterPath clip;
-      clip.addEllipse(
-          0, 0, bounding_rect.width(),
-          bounding_rect.height());  // this is the shape we want to clip to
+      clip.addEllipse(bounding_rect);  // this is the shape we want to clip to
       painter->setClipPath(clip);
     }
 
-    painter->drawImage(center, scaled);
+    painter->drawImage(bounding_rect, image);
   }
 }
 
