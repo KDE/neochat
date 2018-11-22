@@ -107,8 +107,8 @@ ColumnLayout {
                 selectByMouse: true
                 readOnly: true
                 wrapMode: Label.Wrap
-                selectedTextColor: "white"
-                selectionColor: Material.accent
+                selectedTextColor: Material.accent
+                selectionColor: "white"
                 textFormat: Text.RichText
 
                 onLinkActivated: Qt.openUrlExternally(link)

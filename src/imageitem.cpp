@@ -54,13 +54,22 @@ void ImageItem::paint(QPainter *painter) {
     painter->setFont(font);
     painter->drawText(bounding_rect, Qt::AlignCenter, m_hint.at(0).toUpper());
   } else {
+    QImage scaled;
+    if (image.width() > image.height()) {
+      scaled = image.copy((image.width() - image.height()) / 2, 0,
+                          image.height(), image.height());
+    } else {
+      scaled = image.copy(0, (image.height() - image.width()) / 2,
+                          image.width(), image.width());
+    }
+
     if (m_round) {
       QPainterPath clip;
       clip.addEllipse(bounding_rect);  // this is the shape we want to clip to
       painter->setClipPath(clip);
     }
 
-    painter->drawImage(bounding_rect, image);
+    painter->drawImage(bounding_rect, scaled);
   }
 }
 
