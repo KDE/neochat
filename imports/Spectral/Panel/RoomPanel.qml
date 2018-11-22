@@ -103,7 +103,7 @@ Item {
                         var lastScrollPosition = sortedMessageEventModel.mapFromSource(currentRoom.savedTopVisibleIndex())
                         messageListView.currentIndex = lastScrollPosition
                         if (messageListView.contentY < messageListView.originY + 10 || currentRoom.timelineSize < 20)
-                            currentRoom.getPreviousContent(100)
+                            currentRoom.getPreviousContent(50)
                     }
                 }
             }
@@ -112,7 +112,7 @@ Item {
 
             onContentYChanged: {
                 if(currentRoom && contentY  - 5000 < originY)
-                    currentRoom.getPreviousContent(50);
+                    currentRoom.getPreviousContent(20);
             }
 
             onMovementEnded: currentRoom.saveViewport(sortedMessageEventModel.mapToSource(indexAt(contentX, contentY)), sortedMessageEventModel.mapToSource(largestVisibleIndex))
@@ -138,29 +138,27 @@ Item {
                     visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
                 }
 
-                MessageDelegate {
-                    visible: eventType === "notice" || eventType === "message"
-                             || eventType === "image" || eventType === "video"
-                             || eventType === "audio" || eventType === "file"
+                Loader {
+                    Layout.maximumWidth: delegateColumn.width
+                    Layout.alignment: item ? item.alignment : 0
+
+                    source: {
+                        switch (eventType) {
+                        case "message":
+                        case "notice":
+                            return "qrc:/imports/Spectral/Component/Timeline/MessageDelegate.qml"
+                        case "emote":
+                        case "state":
+                            return "qrc:/imports/Spectral/Component/Timeline/StateDelegate.qml"
+                        case "image":
+                            return "qrc:/imports/Spectral/Component/Timeline/ImageDelegate.qml"
+                        default:
+                            return ""
+                        }
+                    }
                 }
 
-                StateDelegate {
-                    Layout.maximumWidth: parent.width
-                    Layout.alignment: Qt.AlignHCenter
-
-                    visible: eventType === "emote" || eventType === "state"
-                }
-
-                Label {
-                    Layout.alignment: Qt.AlignHCenter
-
-                    visible: eventType === "other"
-
-                    text: display
-                    color: "grey"
-                    font.italic: true
-                }
-
+                // Read marker
                 RowLayout {
                     Layout.fillWidth: true
                     Layout.alignment: Qt.AlignHCenter

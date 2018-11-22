@@ -6,6 +6,8 @@ import QtQuick.Controls.Material 2.2
 import Spectral.Setting 0.1
 
 Label {
+    readonly property int alignment: Qt.AlignHCenter
+
     text: "<b>" + author.displayName + "</b> " + display
     color: Material.accent
 

@@ -2,6 +2,7 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.2
+import QtGraphicalEffects 1.0
 
 import Spectral 0.1
 import Spectral.Setting 0.1
@@ -67,56 +68,34 @@ ColumnLayout {
             verticalAlignment: Label.AlignVCenter
         }
 
-        Control {
+        Image {
             Layout.maximumWidth: messageListView.width - (!sentByMe ? 32 + messageRow.spacing : 0) - 48
 
-            topPadding: 8
-            bottomPadding: 8
-            leftPadding: 16
-            rightPadding: 16
+            id: img
 
-            background: Rectangle {
-                color: sentByMe ? "#009DC2" : eventType === "notice" ? "#4285F4" : "#673AB7"
-                radius: 18
+            source: "image://mxc/" + (content.thumbnail_url ? content.thumbnail_url : content.url)
+            sourceSize.width: Math.min(256, messageListView.width)
+            sourceSize.height: 256
 
-                AutoMouseArea {
-                    anchors.fill: parent
-
-                    id: messageMouseArea
-
-                    onSecondaryClicked: {
-                        messageContextMenu.root = root
-                        messageContextMenu.model = model
-                        messageContextMenu.selectedText = contentLabel.selectedText
-                        messageContextMenu.popup()
+            layer.enabled: true
+            layer.effect: OpacityMask {
+                maskSource: Rectangle {
+                        width: img.width
+                        height: img.height
+                        radius: 24
                     }
-                }
             }
 
-            contentItem: TextEdit {
-                Layout.fillWidth: true
+            AutoMouseArea {
+                anchors.fill: parent
 
-                id: contentLabel
+                id: messageMouseArea
 
-                text: "<style>a{color: white;} .user-pill{color: white}</style>" + display
-
-                color: "white"
-
-                font.family: CommonFont.font.family
-                font.pixelSize: 14
-                selectByMouse: true
-                readOnly: true
-                wrapMode: Label.Wrap
-                selectedTextColor: "white"
-                selectionColor: Material.accent
-                textFormat: Text.RichText
-
-                onLinkActivated: Qt.openUrlExternally(link)
-
-                MouseArea {
-                    anchors.fill: parent
-                    acceptedButtons: Qt.NoButton
-                    cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
+                onSecondaryClicked: {
+                    messageContextMenu.root = root
+                    messageContextMenu.model = model
+                    messageContextMenu.selectedText = ""
+                    messageContextMenu.popup()
                 }
             }
         }
