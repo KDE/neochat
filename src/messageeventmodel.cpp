@@ -89,6 +89,9 @@ void MessageEventModel::setRoom(SpectralRoom *room) {
                                   {AboveEventTypeRole, AboveAuthorRole,
                                    AboveSectionRole, AboveTimeRole});
               }
+              for (auto i = m_currentRoom->maxTimelineIndex() - biggest;
+                   i <= m_currentRoom->maxTimelineIndex() - lowest; ++i)
+                refreshLastUserEvents(i);
             });
     connect(m_currentRoom, &Room::pendingEventAboutToAdd, this,
             [this] { beginInsertRows({}, 0, 0); });
@@ -108,9 +111,10 @@ void MessageEventModel::setRoom(SpectralRoom *room) {
         endMoveRows();
         movingEvent = false;
       }
-      refreshRow(timelineBaseIndex());        // Refresh the looks
+      refreshRow(timelineBaseIndex());  // Refresh the looks
+      refreshLastUserEvents(0);
       if (m_currentRoom->timelineSize() > 1)  // Refresh above
-        refreshEventRoles(timelineBaseIndex() + 1);
+        refreshEventRoles(timelineBaseIndex() + 1, {ReadMarkerRole});
       if (timelineBaseIndex() > 0)  // Refresh below, see #312
         refreshEventRoles(timelineBaseIndex() - 1,
                           {AboveEventTypeRole, AboveAuthorRole,
@@ -128,9 +132,11 @@ void MessageEventModel::setRoom(SpectralRoom *room) {
           {ReadMarkerRole});
       refreshEventRoles(lastReadEventId, {ReadMarkerRole});
     });
-    connect(
-        m_currentRoom, &Room::replacedEvent, this,
-        [this](const RoomEvent *newEvent) { refreshEvent(newEvent->id()); });
+    connect(m_currentRoom, &Room::replacedEvent, this,
+            [this](const RoomEvent *newEvent) {
+              refreshLastUserEvents(refreshEvent(newEvent->id()) -
+                                    timelineBaseIndex());
+            });
     connect(m_currentRoom, &Room::fileTransferProgress, this,
             &MessageEventModel::refreshEvent);
     connect(m_currentRoom, &Room::fileTransferCompleted, this,
@@ -140,7 +146,7 @@ void MessageEventModel::setRoom(SpectralRoom *room) {
     connect(m_currentRoom, &Room::fileTransferCancelled, this,
             &MessageEventModel::refreshEvent);
     connect(m_currentRoom, &Room::readMarkerForUserMoved, this,
-            [=](User *user, QString fromEventId, QString toEventId) {
+            [=](User *, QString fromEventId, QString toEventId) {
               refreshEventRoles(fromEventId, {UserMarkerRole});
               refreshEventRoles(toEventId, {UserMarkerRole});
             });
@@ -212,6 +218,23 @@ QString MessageEventModel::renderDate(QDateTime timestamp) const {
     return tr("The day before yesterday");
   if (date > QDate::currentDate().addDays(-7)) return date.toString("dddd");
   return date.toString(Qt::DefaultLocaleShortDate);
+}
+
+void MessageEventModel::refreshLastUserEvents(int baseTimelineRow) {
+  if (!m_currentRoom || m_currentRoom->timelineSize() <= baseTimelineRow)
+    return;
+
+  const auto &timelineBottom = m_currentRoom->messageEvents().rbegin();
+  const auto &lastSender = (*(timelineBottom + baseTimelineRow))->senderId();
+  const auto limit = timelineBottom + std::min(baseTimelineRow + 10,
+                                               m_currentRoom->timelineSize());
+  for (auto it = timelineBottom + std::max(baseTimelineRow - 10, 0);
+       it != limit; ++it) {
+    if ((*it)->senderId() == lastSender) {
+      auto idx = index(it - timelineBottom);
+      emit dataChanged(idx, idx);
+    }
+  }
 }
 
 int MessageEventModel::rowCount(const QModelIndex &parent) const {
@@ -306,13 +329,14 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const {
 
   if (role == HighlightRole) return m_currentRoom->isEventHighlighted(&evt);
 
-  if (role == ReadMarkerRole) return evt.id() == lastReadEventId && row > timelineBaseIndex();
+  if (role == ReadMarkerRole)
+    return evt.id() == lastReadEventId && row > timelineBaseIndex();
 
   if (role == SpecialMarksRole) {
     if (isPending) return pendingIt->deliveryStatus();
 
     if (is<RedactionEvent>(evt)) return EventStatus::Hidden;
-    if (evt.isRedacted()) return EventStatus::Redacted;
+    if (evt.isRedacted()) return EventStatus::Hidden;
 
     if (evt.isStateEvent() &&
         static_cast<const StateEventBase &>(evt).repeatsState())

@@ -95,7 +95,7 @@ Item {
                 sourceModel: messageEventModel
 
                 filters: ExpressionFilter {
-                    expression: marks !== 0x08 && marks !== 0x10 && eventType !== "other"
+                    expression: marks !== 0x10 && eventType !== "other"
                 }
 
                 onModelReset: {

@@ -54,13 +54,19 @@ ColumnLayout {
             source: author.paintable
         }
 
-        Rectangle {
+        Label {
             Layout.preferredWidth: 32
             Layout.preferredHeight: 32
             Layout.alignment: Qt.AlignTop
 
-            color: "transparent"
             visible: !(sentByMe || avatarVisible)
+
+            text: Qt.formatDateTime(time, "hh:mm")
+            color: "#5B7480"
+
+            font.pixelSize: 10
+            horizontalAlignment: Label.AlignHCenter
+            verticalAlignment: Label.AlignVCenter
         }
 
         Control {
@@ -77,6 +83,8 @@ ColumnLayout {
 
                 AutoMouseArea {
                     anchors.fill: parent
+
+                    id: messageMouseArea
 
                     onSecondaryClicked: {
                         messageContextMenu.root = root
@@ -224,15 +232,4 @@ ColumnLayout {
             }
         }
     }
-
-//    Label {
-//        Layout.leftMargin: sentByMe ? 12 : 48
-
-//        text: Qt.formatDateTime(time, "dd/MM/yyyy '-' hh:mm")
-
-//        visible: index === messageListView.currentIndex
-
-//        font.pixelSize: 13
-//        verticalAlignment: Text.AlignVCenter
-//    }
 }

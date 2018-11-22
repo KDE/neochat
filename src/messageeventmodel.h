@@ -1,8 +1,8 @@
 #ifndef MESSAGEEVENTMODEL_H
 #define MESSAGEEVENTMODEL_H
 
-#include "spectralroom.h"
 #include "room.h"
+#include "spectralroom.h"
 
 #include <QtCore/QAbstractListModel>
 
@@ -62,6 +62,7 @@ class MessageEventModel : public QAbstractListModel {
       const QMatrixClient::Room::rev_iter_t& baseIt) const;
   QString renderDate(QDateTime timestamp) const;
 
+  void refreshLastUserEvents(int baseRow);
   void refreshEventRoles(int row, const QVector<int>& roles = {});
   int refreshEventRoles(const QString& eventId, const QVector<int>& roles = {});
 
