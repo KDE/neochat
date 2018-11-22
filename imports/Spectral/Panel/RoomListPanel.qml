@@ -33,7 +33,7 @@ Rectangle {
 
         connection: controller.connection
 
-        onNewMessage: if (!window.active) spectralController.postNotification(roomId, eventId, roomName, senderName, text, icon, iconPath)
+        onNewMessage: if (!window.active && MSettings.showNotification) spectralController.postNotification(roomId, eventId, roomName, senderName, text, icon, iconPath)
     }
 
     SortFilterProxyModel {
@@ -446,6 +446,13 @@ Rectangle {
                     }
 
                     Switch {
+                        text: "Show notifications"
+                        checked: MSettings.showNotification
+
+                        onCheckedChanged: MSettings.showNotification = checked
+                    }
+
+                    Switch {
                         text: "Use press and hold instead of right click"
                         checked: MSettings.pressAndHold
 
@@ -457,13 +464,6 @@ Rectangle {
                         checked: MSettings.showTray
 
                         onCheckedChanged: MSettings.showTray = checked
-                    }
-
-                    Switch {
-                        text: "Confirm on Exit"
-                        checked: MSettings.confirmOnExit
-
-                        onCheckedChanged: MSettings.confirmOnExit = checked
                     }
 
                     RowLayout {

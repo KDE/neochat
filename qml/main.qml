@@ -67,6 +67,11 @@ ApplicationWindow {
         onSyncDone: roomListForm.errorControl.visible = false
     }
 
+    Shortcut {
+        sequence: StandardKey.Quit
+        onActivated: Qt.quit()
+    }
+
     Dialog {
         property bool busy: false
 
