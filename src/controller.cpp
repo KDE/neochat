@@ -42,7 +42,6 @@ Controller::Controller(QObject* parent)
 
 Controller::~Controller() {
   for (Connection* c : m_connections) {
-    c->saveState();
     c->stopSync();
   }
 }
@@ -78,10 +77,9 @@ void Controller::loginWithCredentials(QString serverAddr, QString user,
             [=](QString error, QString, int, int) {
               emit errorOccured("Network Error", error);
             });
-    connect(conn, &Connection::loginError,
-            [=](QString error, QString) {
-              emit errorOccured("Login Failed", error);
-            });
+    connect(conn, &Connection::loginError, [=](QString error, QString) {
+      emit errorOccured("Login Failed", error);
+    });
   }
 }
 
@@ -114,9 +112,7 @@ void Controller::addConnection(Connection* c) {
   connect(c, &Connection::syncDone, this, [=] {
     emit syncDone();
     c->sync(30000);
-
-    static int counter = 0;
-    if (++counter % 17 == 2) c->saveState();
+    c->saveState();
   });
   connect(c, &Connection::loggedOut, this, [=] { dropConnection(c); });
 
@@ -149,10 +145,9 @@ void Controller::invokeLogin() {
         c->loadState();
         addConnection(c);
       });
-      connect(c, &Connection::loginError,
-              [=](QString error, QString) {
-                emit errorOccured("Login Failed", error);
-              });
+      connect(c, &Connection::loginError, [=](QString error, QString) {
+        emit errorOccured("Login Failed", error);
+      });
       connect(c, &Connection::networkError,
               [=](QString error, QString, int, int) {
                 emit errorOccured("Network Error", error);
