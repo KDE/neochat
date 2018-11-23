@@ -42,12 +42,11 @@ ColumnLayout {
             width: 64
             height: 48
 
-            contentItem: Text {
+            contentItem: Label {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
 
                 font.pixelSize: 24
-                font.family: "Emoji"
                 text: label
             }
 
@@ -92,12 +91,11 @@ ColumnLayout {
             width: 48
             height: 48
 
-            contentItem: Text {
+            contentItem: Label {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
 
                 font.pixelSize: 32
-                font.family: "Emoji"
                 text: modelData.unicode
             }
 

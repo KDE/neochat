@@ -108,7 +108,6 @@ class SpectralRoom : public Room {
 
   bool m_busy = false;
 
-  QString getMIME(const QUrl& fileUrl) const;
   void postFile(const QUrl& localFile, const QUrl& mxcUrl);
 
   void checkForHighlights(const QMatrixClient::TimelineItem& ti);

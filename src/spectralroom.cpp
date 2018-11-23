@@ -9,6 +9,8 @@
 #include "events/typingevent.h"
 
 #include <QFileDialog>
+#include <QFileInfo>
+#include <QImageReader>
 #include <QMetaObject>
 #include <QMimeDatabase>
 
@@ -22,6 +24,20 @@ SpectralRoom::SpectralRoom(Connection* connection, QString roomId,
   connect(this, &SpectralRoom::highlightCountChanged, this,
           &SpectralRoom::countChanged);
   connect(this, &Room::addedMessages, this, [=] { setBusy(false); });
+}
+
+inline QString getMIME(const QUrl& fileUrl) {
+  return QMimeDatabase().mimeTypeForFile(fileUrl.toLocalFile()).name();
+}
+
+inline QSize getImageSize(const QUrl& imageUrl) {
+  QImageReader reader(imageUrl.toLocalFile());
+  return reader.size();
+}
+
+inline int getFileSize(const QUrl& url) {
+  QFileInfo info(url.toLocalFile());
+  return int(info.size());
 }
 
 void SpectralRoom::chooseAndUploadFile() {
@@ -53,18 +69,35 @@ void SpectralRoom::postFile(const QUrl& localFile, const QUrl& mxcUrl) {
   const QString mime = getMIME(localFile);
   const QString fileName = localFile.fileName();
   QString msgType = "m.file";
-  if (mime.startsWith("image")) msgType = "m.image";
-  if (mime.startsWith("video")) msgType = "m.video";
-  if (mime.startsWith("audio")) msgType = "m.audio";
-  QJsonObject json{QJsonObject{{"msgtype", msgType},
-                               {"body", fileName},
-                               {"filename", fileName},
-                               {"url", mxcUrl.url()}}};
+  int fileSize = getFileSize(localFile);
+  QJsonObject json;
+  if (mime.startsWith("image")) {
+    msgType = "m.image";
+    QSize imageSize = getImageSize(localFile);
+    json = {{"msgtype", msgType},
+            {"body", fileName},
+            {"filename", fileName},
+            {"url", mxcUrl.url()},
+            {"info", QJsonObject{{"h", imageSize.height()},
+                                 {"w", imageSize.width()},
+                                 {"size", fileSize},
+                                 {"mimetype", mime},
+                                 {"thumbnail_url", mxcUrl.url()},
+                                 {"thumbnail_info",
+                                  QJsonObject{{"h", imageSize.height()},
+                                              {"w", imageSize.width()},
+                                              {"size", fileSize},
+                                              {"mimetype", mime}}}}}};
+  } else {
+    if (mime.startsWith("video")) msgType = "m.video";
+    if (mime.startsWith("audio")) msgType = "m.audio";
+    json = {{"msgtype", msgType},
+            {"body", fileName},
+            {"filename", fileName},
+            {"url", mxcUrl.url()},
+            {"info", QJsonObject{{"size", fileSize}, {"mimetype", mime}}}};
+  }
   postJson("m.room.message", json);
-}
-
-QString SpectralRoom::getMIME(const QUrl& fileUrl) const {
-  return QMimeDatabase().mimeTypeForFile(fileUrl.toLocalFile()).name();
 }
 
 void SpectralRoom::saveFileAs(QString eventId) {
