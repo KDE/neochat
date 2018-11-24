@@ -37,76 +37,6 @@ Control {
         }
     }
 
-    Popup {
-        x: 0
-        y: -height - 10
-        width: Math.min(autoCompleteListView.contentWidth, parent.width)
-        height: 36
-        padding: 0
-
-        Material.elevation: 2
-
-        id: autoComplete
-
-        visible: isAutoCompleting && autoCompleteModel.length !== 0
-
-        contentItem: ListView {
-            id: autoCompleteListView
-
-            model: autoCompleteModel
-
-            clip: true
-            orientation: ListView.Horizontal
-            highlightFollowsCurrentItem: true
-            keyNavigationWraps: true
-
-            highlight: Rectangle {
-                color: Material.accent
-                opacity: 0.4
-            }
-
-            delegate: ItemDelegate {
-                property string autoCompleteText: modelData.displayName || modelData.unicode
-                property bool isEmoji: modelData.unicode != null
-
-                height: parent.height
-                padding: 4
-
-                contentItem: Row {
-                    spacing: 8
-
-                    Text {
-                        width: parent.height
-                        height: parent.height
-                        visible: isEmoji
-                        text: autoCompleteText
-                        font.pixelSize: 20
-                        font.family: "Emoji"
-                        verticalAlignment: Text.AlignVCenter
-                        horizontalAlignment: Text.AlignHCenter
-                    }
-                    ImageItem {
-                        width: parent.height
-                        height: parent.height
-                        visible: !isEmoji
-                        source: modelData.paintable || null
-                    }
-                    Label {
-                        height: parent.height
-                        visible: !isEmoji
-                        text: autoCompleteText
-                        verticalAlignment: Text.AlignVCenter
-                    }
-                }
-
-                onClicked: {
-                    autoCompleteListView.currentIndex = index
-                    inputField.replaceAutoComplete(autoCompleteText)
-                }
-            }
-        }
-    }
-
     contentItem: ColumnLayout {
         spacing: 0
 
@@ -149,13 +79,84 @@ Control {
             emojiModel: EmojiModel { id: emojiModel }
         }
 
+        ListView {
+            Layout.fillWidth: true
+            Layout.preferredHeight: 36
+            Layout.margins: 8
+
+            id: autoCompleteListView
+
+            visible: isAutoCompleting && model.length !== 0
+
+            model: autoCompleteModel
+
+            clip: true
+            spacing: 4
+            orientation: ListView.Horizontal
+            highlightFollowsCurrentItem: true
+            keyNavigationWraps: true
+
+            delegate: Control {
+                property string autoCompleteText: modelData.displayName || modelData.unicode
+                property bool isEmoji: modelData.unicode != null
+                readonly property bool highlighted: autoCompleteListView.currentIndex === index
+
+                height: 36
+                padding: 8
+
+                background: Rectangle {
+                    visible: !isEmoji
+                    color: highlighted ? Material.accent : "transparent"
+                    border.color: Material.accent
+                    border.width: 2
+                    radius: height / 2
+                }
+
+                contentItem: Row {
+                    spacing: 4
+
+                    Text {
+                        width: 20
+                        height: 20
+                        visible: isEmoji
+                        text: autoCompleteText
+                        font.pixelSize: 24
+                        font.family: "Emoji"
+                        verticalAlignment: Text.AlignVCenter
+                        horizontalAlignment: Text.AlignHCenter
+                    }
+                    ImageItem {
+                        width: 20
+                        height: 20
+                        visible: !isEmoji
+                        source: modelData.paintable || null
+                    }
+                    Label {
+                        height: parent.height
+                        visible: !isEmoji
+                        text: autoCompleteText
+                        color: highlighted ? "white" : Material.accent
+                        verticalAlignment: Text.AlignVCenter
+                    }
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        autoCompleteListView.currentIndex = index
+                        inputField.replaceAutoComplete(autoCompleteText)
+                    }
+                }
+            }
+        }
+
         Rectangle {
             Layout.fillWidth: true
             Layout.preferredHeight: 1
             Layout.leftMargin: 12
             Layout.rightMargin: 12
 
-            visible: emojiPicker.visible || replyItem.visible
+            visible: emojiPicker.visible || replyItem.visible || autoCompleteListView.visible
 
             color: MSettings.darkTheme ? "#424242" : "#e7ebeb"
         }
