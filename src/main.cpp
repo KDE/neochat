@@ -1,3 +1,4 @@
+#include <QFontDatabase>
 #include <QGuiApplication>
 #include <QNetworkProxy>
 #include <QQmlApplicationEngine>
@@ -60,6 +61,11 @@ int main(int argc, char *argv[]) {
   qRegisterMetaType<MessageEventType>("MessageEventType");
   qRegisterMetaType<SpectralRoom *>("SpectralRoom*");
   qRegisterMetaType<SpectralUser *>("SpectralUser*");
+
+#if defined(BUNDLE_FONT)
+  QFontDatabase::addApplicationFont(":/assets/font/roboto.ttf");
+  QFontDatabase::addApplicationFont(":/assets/font/twemoji.ttf");
+#endif
 
   QQmlApplicationEngine engine;
 
