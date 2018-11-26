@@ -13,12 +13,12 @@ import Spectral 0.1
 import "qrc:/js/md.js" as Markdown
 
 Control {
-    property bool isReply
+    property alias isReply: replyItem.visible
     property var replyUser
     property string replyEventID
     property string replyContent
 
-    property bool isAutoCompleting
+    property alias isAutoCompleting: autoCompleteListView.visible
     property var autoCompleteModel
     property int autoCompleteBeginPosition
     property int autoCompleteEndPosition
@@ -46,7 +46,7 @@ Control {
 
             id: replyItem
 
-            visible: isReply
+            visible: false
 
             spacing: 8
 
@@ -86,7 +86,7 @@ Control {
 
             id: autoCompleteListView
 
-            visible: isAutoCompleting && model.length !== 0
+            visible: false
 
             model: autoCompleteModel
 
@@ -258,11 +258,14 @@ Control {
                 Keys.onReturnPressed: {
                     if (event.modifiers & Qt.ShiftModifier) {
                         insert(cursorPosition, "\n")
-                    } else {
+                    } else if (text) {
                         postMessage(text)
                         text = ""
+                        closeAll()
                     }
                 }
+
+                Keys.onEscapePressed: closeAll()
 
                 Keys.onBacktabPressed: if (isAutoCompleting) autoCompleteListView.decrementCurrentIndex()
 
@@ -318,7 +321,6 @@ Control {
 
                     if (isReply) {
                         currentRoom.sendReply(replyUser.id, replyEventID, replyContent, text)
-                        clearReply()
                         return
                     }
 
@@ -392,5 +394,11 @@ Control {
 
     function focus() {
         inputField.forceActiveFocus()
+    }
+
+    function closeAll() {
+        replyItem.visible = false
+        autoCompleteListView.visible = false
+        emojiPicker.visible = false
     }
 }
