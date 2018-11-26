@@ -214,7 +214,7 @@ Control {
                 selectByMouse: true
                 verticalAlignment: TextEdit.AlignVCenter
 
-                text: currentRoom ? currentRoom.cachedInput : ""
+                text: currentRoom != null ? currentRoom.cachedInput : ""
 
                 background: Item {
                 }
@@ -388,5 +388,9 @@ Control {
         replyUser = null
         replyEventID = ""
         replyContent = ""
+    }
+
+    function focus() {
+        inputField.forceActiveFocus()
     }
 }

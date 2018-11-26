@@ -41,6 +41,7 @@ Menu {
             roomPanelInput.replyEventID = model.eventId
             roomPanelInput.replyContent = selectedText != "" ? selectedText : model.message
             roomPanelInput.isReply = true
+            roomPanelInput.focus()
         }
     }
     MenuItem {
