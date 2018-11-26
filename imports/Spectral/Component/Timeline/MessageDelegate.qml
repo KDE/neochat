@@ -98,7 +98,7 @@ ColumnLayout {
 
                 id: contentLabel
 
-                text: "<style>a{color: white;} .user-pill{color: white}</style>" + display
+                text: "<style>a{color: white;} .user-pill{}</style>" + display
 
                 color: "white"
 
@@ -111,7 +111,17 @@ ColumnLayout {
                 selectionColor: "white"
                 textFormat: Text.RichText
 
-                onLinkActivated: Qt.openUrlExternally(link)
+                onLinkActivated: {
+                    if (link.startsWith("https://matrix.to/")) {
+                        var result = link.replace(/\?.*/, "").match("https://matrix.to/#/(!.*:.*)/(\\$.*:.*)")
+                        if (result.length < 3) return
+                        if (result[1] != currentRoom.id) return
+                        if (!result[2]) return
+                        goToEvent(result[2])
+                    } else {
+                        Qt.openUrlExternally(link)
+                    }
+                }
 
                 MouseArea {
                     anchors.fill: parent

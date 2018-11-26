@@ -2,6 +2,7 @@
 #define Utils_H
 
 #include "room.h"
+#include "user.h"
 
 #include <QObject>
 #include <QRegExp>
@@ -32,11 +33,18 @@ QString eventToString(const BaseEventT& evt,
         if (prettyPrint && e.hasTextContent() &&
             e.mimeType().name() != "text/plain") {
           static const QRegExp userPillRegExp(
-              "<a href=\"https://matrix.to/#/@.*:.*\">(.*)</a>");
+              "<a href=\"https://matrix.to/#/(@.*:.*)\">.*</a>");
           QString formattedStr(
               static_cast<const TextContent*>(e.content())->body);
-          formattedStr.replace(userPillRegExp,
-                               "<b class=\"user-pill\">\\1</b>");
+          int pos = 0;
+          while ((pos = userPillRegExp.indexIn(formattedStr, pos)) != -1) {
+            QString userId = userPillRegExp.cap(1);
+            formattedStr.remove(pos, userPillRegExp.matchedLength());
+            formattedStr.insert(pos, "<b class=\"user-pill\">" +
+                                         room->user(userId)->displayname() +
+                                         "</b>");
+            pos += userPillRegExp.matchedLength();
+          }
           return formattedStr;
         }
         if (e.hasFileContent()) {
