@@ -9,4 +9,7 @@ Settings {
     property bool showTray: true
 
     property bool darkTheme
+
+    property bool enableTimelineBackground: true
+    property string timelineBackground
 }

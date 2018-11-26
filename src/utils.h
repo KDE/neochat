@@ -45,6 +45,8 @@ QString eventToString(const BaseEventT& evt,
                                          "</b>");
             pos += userPillRegExp.matchedLength();
           }
+          static const QRegExp codePillRegExp("<pre>(.*)</pre>");
+          formattedStr.replace(codePillRegExp, "<i>\\1</i>");
           return formattedStr;
         }
         if (e.hasFileContent()) {

@@ -84,7 +84,7 @@ Rectangle {
     }
 
     Drawer {
-        width: Math.max(root.width, 360)
+        width: Math.max(root.width, 400)
         height: root.height
 
         id: drawer
@@ -464,6 +464,13 @@ Rectangle {
                         checked: MSettings.showTray
 
                         onCheckedChanged: MSettings.showTray = checked
+                    }
+
+                    Switch {
+                        text: "Enable timeline background"
+                        checked: MSettings.enableTimelineBackground
+
+                        onCheckedChanged: MSettings.enableTimelineBackground = checked
                     }
 
                     RowLayout {

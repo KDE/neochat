@@ -44,9 +44,9 @@ Item {
     Image {
         anchors.fill: parent
 
-        visible: currentRoom
+        visible: currentRoom && MSettings.enableTimelineBackground
 
-        source: MSettings.darkTheme ? "qrc:/assets/img/roompanel-dark.svg" : "qrc:/assets/img/roompanel.svg"
+        source: MSettings.timelineBackground || MSettings.darkTheme ? "qrc:/assets/img/roompanel-dark.svg" : "qrc:/assets/img/roompanel.svg"
         fillMode: Image.PreserveAspectCrop
     }
 
