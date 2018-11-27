@@ -93,40 +93,106 @@ ColumnLayout {
                 }
             }
 
-            contentItem: TextEdit {
-                Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                Control {
+                    Layout.fillWidth: true
 
-                id: contentLabel
+                    visible: replyEventId || ""
 
-                text: "<style>a{color: white;} .user-pill{}</style>" + display
+                    background: MouseArea {
+                        onClicked: goToEvent(replyEventId)
+                    }
 
-                color: "white"
+                    contentItem: RowLayout {
+                        spacing: 4
 
-                font.family: CommonFont.font.family
-                font.pixelSize: 14
-                selectByMouse: true
-                readOnly: true
-                wrapMode: Label.Wrap
-                selectedTextColor: Material.accent
-                selectionColor: "white"
-                textFormat: Text.RichText
+                        Rectangle {
+                            Layout.preferredWidth: 2
+                            Layout.fillHeight: true
 
-                onLinkActivated: {
-                    if (link.startsWith("https://matrix.to/")) {
-                        var result = link.replace(/\?.*/, "").match("https://matrix.to/#/(!.*:.*)/(\\$.*:.*)")
-                        if (result.length < 3) return
-                        if (result[1] != currentRoom.id) return
-                        if (!result[2]) return
-                        goToEvent(result[2])
-                    } else {
-                        Qt.openUrlExternally(link)
+                            color: "white"
+                        }
+
+                        ColumnLayout {
+                            Layout.fillWidth: true
+
+                            spacing: 0
+
+                            Control {
+                                padding: 4
+
+                                contentItem: RowLayout {
+                                    spacing: 4
+
+                                    ImageItem {
+                                        Layout.preferredWidth: 16
+                                        Layout.preferredHeight: 16
+
+                                        source: replyAuthor ? replyAuthor.paintable : null
+                                    }
+
+                                    Label {
+                                        color: "white"
+                                        text: replyAuthor ? replyAuthor.displayName : ""
+                                    }
+                                }
+
+                                background: Rectangle {
+                                    color: "black"
+                                    opacity: 0.2
+                                    radius: height / 2
+                                }
+                            }
+
+                            Label {
+                                Layout.fillWidth: true
+
+                                text: "<style>a{color: white;} .user-pill{}</style>" + (replyDisplay ? replyDisplay.replace(/<mx-reply>.*<\/mx-reply>/g, "") : "")
+
+                                color: "white"
+
+                                wrapMode: Label.Wrap
+                                textFormat: Label.RichText
+                            }
+                        }
                     }
                 }
 
-                MouseArea {
-                    anchors.fill: parent
-                    acceptedButtons: Qt.NoButton
-                    cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
+                TextEdit {
+                    Layout.fillWidth: true
+
+                    id: contentLabel
+
+                    text: "<style>a{color: white;} .user-pill{}</style>" + (replyEventId ? display.replace(/<mx-reply>.*<\/mx-reply>/g, "") : display)
+
+                    color: "white"
+
+                    font.family: CommonFont.font.family
+                    font.pixelSize: 14
+                    selectByMouse: true
+                    readOnly: true
+                    wrapMode: Label.Wrap
+                    selectedTextColor: Material.accent
+                    selectionColor: "white"
+                    textFormat: Text.RichText
+
+                    onLinkActivated: {
+                        if (link.startsWith("https://matrix.to/")) {
+                            var result = link.replace(/\?.*/, "").match("https://matrix.to/#/(!.*:.*)/(\\$.*:.*)")
+                            if (result.length < 3) return
+                            if (result[1] != currentRoom.id) return
+                            if (!result[2]) return
+                            goToEvent(result[2])
+                        } else {
+                            Qt.openUrlExternally(link)
+                        }
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        acceptedButtons: Qt.NoButton
+                        cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
+                    }
                 }
             }
         }

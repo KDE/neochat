@@ -30,6 +30,9 @@ class MessageEventModel : public QAbstractListModel {
     LongOperationRole,
     AnnotationRole,
     UserMarkerRole,
+    ReplyEventIdRole,
+    ReplyAuthorRole,
+    ReplyDisplayRole,
     // For debugging
     EventResolvedTypeRole,
   };
