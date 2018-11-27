@@ -10,6 +10,8 @@
 #include "csapi/joining.h"
 #include "csapi/logout.h"
 
+#include "utils.h"
+
 #include <QClipboard>
 #include <QFile>
 #include <QFileInfo>
@@ -241,4 +243,8 @@ int Controller::dpi() {
 
 void Controller::setDpi(int dpi) {
   SettingsGroup("Interface").setValue("dpi", dpi);
+}
+
+QString Controller::removeReply(const QString& text) {
+    return utils::removeReply(text);
 }

@@ -99,18 +99,32 @@ ColumnLayout {
 
                     visible: replyEventId || ""
 
-                    background: MouseArea {
-                        onClicked: goToEvent(replyEventId)
+                    padding: 8
+
+                    background: Item {
+                        Rectangle {
+                            anchors.leftMargin: 0
+                            width: 2
+                            height: parent.height
+
+                            color: "white"
+                        }
+                        MouseArea {
+                            anchors.fill: parent
+
+                            onClicked: goToEvent(replyEventId)
+                        }
                     }
 
                     contentItem: RowLayout {
-                        spacing: 4
+                        spacing: 8
 
-                        Rectangle {
-                            Layout.preferredWidth: 2
-                            Layout.fillHeight: true
+                        ImageItem {
+                            Layout.preferredWidth: 36
+                            Layout.preferredHeight: 36
+                            Layout.alignment: Qt.AlignTop
 
-                            color: "white"
+                            source: replyAuthor ? replyAuthor.paintable : null
                         }
 
                         ColumnLayout {
@@ -118,38 +132,21 @@ ColumnLayout {
 
                             spacing: 0
 
-                            Control {
-                                padding: 4
+                            Label {
+                                Layout.fillWidth: true
 
-                                contentItem: RowLayout {
-                                    spacing: 4
+                                color: "white"
+                                text: replyAuthor ? replyAuthor.displayName : ""
 
-                                    ImageItem {
-                                        Layout.preferredWidth: 16
-                                        Layout.preferredHeight: 16
-
-                                        source: replyAuthor ? replyAuthor.paintable : null
-                                    }
-
-                                    Label {
-                                        color: "white"
-                                        text: replyAuthor ? replyAuthor.displayName : ""
-                                    }
-                                }
-
-                                background: Rectangle {
-                                    color: "black"
-                                    opacity: 0.2
-                                    radius: height / 2
-                                }
+                                font.pixelSize: 13
+                                font.weight: Font.Medium
                             }
 
                             Label {
                                 Layout.fillWidth: true
 
-                                text: "<style>a{color: white;} .user-pill{}</style>" + (replyDisplay ? replyDisplay.replace(/<mx-reply>.*<\/mx-reply>/g, "") : "")
-
                                 color: "white"
+                                text: replyDisplay || ""
 
                                 wrapMode: Label.Wrap
                                 textFormat: Label.RichText

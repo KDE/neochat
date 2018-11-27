@@ -76,6 +76,8 @@ class Controller : public QObject {
   void loadSettings();
   void saveSettings() const;
 
+  Q_INVOKABLE QString removeReply(const QString& text);
+
  private slots:
   void invokeLogin();
 

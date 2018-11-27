@@ -15,6 +15,7 @@
 
 namespace utils {
 const QRegExp removeReplyRegex{"> <.*>.*\\n\\n"};
+const QRegExp removeRichReplyRegex{"<mx-reply>.*</mx-reply>"};
 
 QString removeReply(const QString& text);
 

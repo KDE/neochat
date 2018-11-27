@@ -2,5 +2,7 @@
 
 QString utils::removeReply(const QString& text) {
   QString result(text);
-  return result.remove(utils::removeReplyRegex);
+  result.remove(utils::removeRichReplyRegex);
+  result.remove(utils::removeReplyRegex);
+  return result;
 }

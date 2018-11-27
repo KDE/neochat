@@ -261,7 +261,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const {
   const auto &evt = isPending ? **pendingIt : **timelineIt;
 
   if (role == Qt::DisplayRole) {
-    return utils::eventToString(evt, m_currentRoom, Qt::RichText);
+    return utils::removeReply(utils::eventToString(evt, m_currentRoom, Qt::RichText));
   }
 
   if (role == MessageRole) {
@@ -389,7 +389,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const {
       case ReplyEventIdRole:
         return replyEventId;
       case ReplyDisplayRole:
-        return utils::eventToString(replyEvt, m_currentRoom, Qt::RichText);
+        return utils::removeReply(utils::eventToString(replyEvt, m_currentRoom, Qt::RichText));
       case ReplyAuthorRole:
         return QVariant::fromValue(
             m_currentRoom->user(replyEvt.senderId()));
