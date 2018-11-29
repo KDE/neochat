@@ -854,11 +854,30 @@ Rectangle {
 
         title: "Action Required"
         modal: true
-        standardButtons: Dialog.Ok | Dialog.Cancel
 
         contentItem: Label { text: "Accept this invitation?" }
 
-        onAccepted: currentRoom.acceptInvitation()
-        onRejected: currentRoom.forget()
+        footer: DialogButtonBox {
+            Button {
+                text: "Accept"
+                flat: true
+
+                onClicked: currentRoom.acceptInvitation()
+            }
+
+            Button {
+                text: "Reject"
+                flat: true
+
+                onClicked: currentRoom.forget()
+            }
+
+            Button {
+                text: "Reject"
+                flat: true
+
+                onClicked: inviteDialog.close()
+            }
+        }
     }
 }

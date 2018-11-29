@@ -6,3 +6,10 @@ QString utils::removeReply(const QString& text) {
   result.remove(utils::removeReplyRegex);
   return result;
 }
+
+QString utils::cleanHTML(const QString& text, QMatrixClient::Room* room) {
+  QString result(text);
+  result.replace(codePillRegExp, "<i>\\1</i>");
+  result.replace(userPillRegExp, "<b>\\1</b>");
+  return result;
+}

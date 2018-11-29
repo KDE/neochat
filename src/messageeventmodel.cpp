@@ -9,7 +9,6 @@
 #include <events/roommemberevent.h>
 #include <events/simplestateevents.h>
 
-#include <QRegExp>
 #include <QtCore/QDebug>
 #include <QtQml>  // for qmlRegisterType()
 
@@ -265,9 +264,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const {
   }
 
   if (role == MessageRole) {
-    static const QRegExp rmReplyRegExp("^> <@.*:.*> .*\n\n(.*)");
-    return utils::eventToString(evt, m_currentRoom)
-        .replace(rmReplyRegExp, "\\1");
+    return utils::removeReply(utils::eventToString(evt, m_currentRoom));
   }
 
   if (role == Qt::ToolTipRole) {

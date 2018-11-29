@@ -5,7 +5,7 @@
 #include "user.h"
 
 #include <QObject>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QString>
 
 #include <events/redactionevent.h>
@@ -14,10 +14,18 @@
 #include <events/simplestateevents.h>
 
 namespace utils {
-const QRegExp removeReplyRegex{"> <.*>.*\\n\\n"};
-const QRegExp removeRichReplyRegex{"<mx-reply>.*</mx-reply>"};
+static const QRegularExpression removeReplyRegex{
+    "> <.*?>.*?\\n\\n", QRegularExpression::DotMatchesEverythingOption};
+static const QRegularExpression removeRichReplyRegex{
+    "<mx-reply>.*?</mx-reply>", QRegularExpression::DotMatchesEverythingOption};
+static const QRegularExpression codePillRegExp{
+    "<pre>(.*?)</pre>", QRegularExpression::DotMatchesEverythingOption};
+static const QRegularExpression userPillRegExp{
+    "<a href=\"https://matrix.to/#/@.*?:.*?\">(.*?)</a>",
+    QRegularExpression::DotMatchesEverythingOption};
 
 QString removeReply(const QString& text);
+QString cleanHTML(const QString& text, QMatrixClient::Room* room);
 
 template <typename BaseEventT>
 QString eventToString(const BaseEventT& evt,
@@ -33,22 +41,8 @@ QString eventToString(const BaseEventT& evt,
 
         if (prettyPrint && e.hasTextContent() &&
             e.mimeType().name() != "text/plain") {
-          static const QRegExp userPillRegExp(
-              "<a href=\"https://matrix.to/#/(@.*:.*)\">.*</a>");
-          QString formattedStr(
-              static_cast<const TextContent*>(e.content())->body);
-          int pos = 0;
-          while ((pos = userPillRegExp.indexIn(formattedStr, pos)) != -1) {
-            QString userId = userPillRegExp.cap(1);
-            formattedStr.remove(pos, userPillRegExp.matchedLength());
-            formattedStr.insert(pos, "<b class=\"user-pill\">" +
-                                         room->user(userId)->displayname() +
-                                         "</b>");
-            pos += userPillRegExp.matchedLength();
-          }
-          static const QRegExp codePillRegExp("<pre>(.*)</pre>");
-          formattedStr.replace(codePillRegExp, "<i>\\1</i>");
-          return formattedStr;
+          return cleanHTML(static_cast<const TextContent*>(e.content())->body,
+                           room);
         }
         if (e.hasFileContent()) {
           auto fileCaption = e.content()->fileInfo()->originalName;

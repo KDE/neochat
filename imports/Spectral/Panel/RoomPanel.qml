@@ -115,8 +115,6 @@ Item {
                     currentRoom.getPreviousContent(20);
             }
 
-            onMovementEnded: currentRoom.saveViewport(sortedMessageEventModel.mapToSource(indexAt(contentX, contentY)), sortedMessageEventModel.mapToSource(largestVisibleIndex))
-
             displaced: Transition {
                 NumberAnimation {
                     property: "y"; duration: 200
@@ -126,6 +124,7 @@ Item {
 
             delegate: ColumnLayout {
                 width: parent.width
+                implicitHeight: 32
 
                 id: delegateColumn
 
@@ -330,13 +329,14 @@ Item {
     function goToEvent(eventID) {
         var index = messageEventModel.eventIDToIndex(eventID)
         if (index === -1) return
-        messageListView.currentIndex = -1
-        messageListView.currentIndex = sortedMessageEventModel.mapFromSource(index)
+//        messageListView.currentIndex = sortedMessageEventModel.mapFromSource(index)
+        messageListView.positionViewAtIndex(sortedMessageEventModel.mapFromSource(index), ListView.Contain)
     }
 
     function saveReadMarker(room) {
         var readMarker = sortedMessageEventModel.get(messageListView.largestVisibleIndex).eventId
         if (!readMarker) return
         room.readMarkerEventId = readMarker
+        currentRoom.saveViewport(sortedMessageEventModel.mapToSource(messageListView.indexAt(messageListView.contentX, messageListView.contentY)), sortedMessageEventModel.mapToSource(messageListView.largestVisibleIndex))
     }
 }

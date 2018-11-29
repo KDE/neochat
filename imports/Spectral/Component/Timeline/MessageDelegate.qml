@@ -160,7 +160,7 @@ ColumnLayout {
 
                     id: contentLabel
 
-                    text: "<style>a{color: white;} .user-pill{}</style>" + (replyEventId ? display.replace(/<mx-reply>.*<\/mx-reply>/g, "") : display)
+                    text: "<style>a{color: white;} .user-pill{}</style>" + display
 
                     color: "white"
 
