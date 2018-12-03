@@ -70,6 +70,8 @@ void RoomListModel::connectRoomSignals(SpectralRoom* room) {
           [=] { unreadMessagesChanged(room); });
   connect(room, &Room::notificationCountChanged, this,
           [=] { unreadMessagesChanged(room); });
+  connect(room, &Room::avatarChanged, this,
+          [this, room] { refresh(room, {AvatarRole}); });
   connect(room, &Room::tagsChanged, this, [=] { refresh(room); });
   connect(room, &Room::joinStateChanged, this, [=] { refresh(room); });
   connect(room, &Room::addedMessages, this,
