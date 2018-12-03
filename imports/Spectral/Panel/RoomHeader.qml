@@ -5,9 +5,10 @@ import QtQuick.Controls.Material 2.2
 
 import Spectral 0.1
 import Spectral.Effect 2.0
+import Spectral.Component 2.0
 
 Control {
-    property alias paintable: headerImage.source
+    property alias avatar: headerImage.source
     property alias topic: headerTopicLabel.text
     property bool atTop: false
     signal clicked()
@@ -31,13 +32,13 @@ Control {
 
         spacing: 12
 
-        ImageItem {
+        Avatar {
             Layout.preferredWidth: height
             Layout.fillHeight: true
 
             id: headerImage
 
-            source: currentRoom.paintable
+            source: currentRoom.avatarUrl
             hint: currentRoom ? currentRoom.displayName : "No name"
         }
 

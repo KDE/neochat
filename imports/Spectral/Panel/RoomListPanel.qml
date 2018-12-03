@@ -110,13 +110,13 @@ Rectangle {
                     contentItem: ColumnLayout {
                         spacing: 4
 
-                        ImageItem {
+                        Avatar {
                             Layout.preferredWidth: 200
                             Layout.preferredHeight: 200
                             Layout.margins: 12
                             Layout.alignment: Qt.AlignHCenter
 
-                            source: root.user ? root.user.paintable : null
+                            source: root.user ? root.user.avatarUrl : null
                             hint: root.user ? root.user.displayName : "?"
                         }
 
@@ -646,14 +646,14 @@ Rectangle {
                     background: Item {}
                 }
 
-                ImageItem {
+                Avatar {
                     Layout.preferredWidth: height
                     Layout.fillHeight: true
                     Layout.alignment: Qt.AlignRight
 
                     visible: !searchField.active
 
-                    source: root.user ? root.user.paintable : null
+                    source: root.user ? root.user.avatarUrl : null
                     hint: root.user ? root.user.displayName : "?"
 
                     MouseArea {
@@ -765,13 +765,11 @@ Rectangle {
 
                     spacing: 12
 
-                    ImageItem {
-                        id: imageItem
-
+                    Avatar {
                         Layout.preferredWidth: height
                         Layout.fillHeight: true
 
-                        source: paintable
+                        source: avatar
                         hint: name || "No Name"
                     }
 

@@ -72,8 +72,8 @@ QVariant UserListModel::data(const QModelIndex& index, int role) const {
   if (role == UserIDRole) {
     return user->id();
   }
-  if (role == PaintableRole) {
-    return QVariant::fromValue((static_cast<SpectralUser*>(user))->paintable());
+  if (role == AvatarRole) {
+    return user->avatarUrl();
   }
 
   return QVariant();
@@ -115,7 +115,7 @@ void UserListModel::refresh(QMatrixClient::User* user, QVector<int> roles) {
 
 void UserListModel::avatarChanged(QMatrixClient::User* user,
                                   const QMatrixClient::Room* context) {
-  if (context == m_currentRoom) refresh(user, {PaintableRole});
+  if (context == m_currentRoom) refresh(user, {AvatarRole});
 }
 
 int UserListModel::findUserPos(User* user) const {
@@ -130,6 +130,6 @@ QHash<int, QByteArray> UserListModel::roleNames() const {
   QHash<int, QByteArray> roles;
   roles[NameRole] = "name";
   roles[UserIDRole] = "userId";
-  roles[PaintableRole] = "paintable";
+  roles[AvatarRole] = "avatar";
   return roles;
 }

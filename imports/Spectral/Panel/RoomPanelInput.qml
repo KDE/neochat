@@ -50,11 +50,11 @@ Control {
 
             spacing: 8
 
-            ImageItem {
+            Avatar {
                 Layout.preferredWidth: 32
                 Layout.preferredHeight: 32
 
-                source: replyUser ? replyUser.paintable : null
+                source: replyUser ? replyUser.avatarUrl : ""
                 hint: replyUser ? replyUser.displayName : "No name"
             }
 
@@ -125,11 +125,11 @@ Control {
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
                     }
-                    ImageItem {
+                    Avatar {
                         width: 20
                         height: 20
                         visible: !isEmoji
-                        source: modelData.paintable || null
+                        source: modelData.avatarUrl || null
                     }
                     Label {
                         height: parent.height

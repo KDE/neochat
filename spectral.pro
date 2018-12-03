@@ -103,12 +103,10 @@ HEADERS += \
     src/emojimodel.h \
     src/spectralroom.h \
     src/userlistmodel.h \
-    src/imageitem.h \
     src/accountlistmodel.h \
     src/spectraluser.h \
     src/notifications/manager.h \
-    src/utils.h \
-    src/paintable.h
+    src/utils.h
 
 SOURCES += src/main.cpp \
     src/controller.cpp \
@@ -118,11 +116,9 @@ SOURCES += src/main.cpp \
     src/emojimodel.cpp \
     src/spectralroom.cpp \
     src/userlistmodel.cpp \
-    src/imageitem.cpp \
     src/accountlistmodel.cpp \
     src/spectraluser.cpp \
-    src/utils.cpp \
-    src/paintable.cpp
+    src/utils.cpp
 
 unix:!mac {
     SOURCES += src/notifications/managerlinux.cpp
