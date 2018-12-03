@@ -42,11 +42,7 @@ Controller::Controller(QObject* parent)
   QTimer::singleShot(0, this, SLOT(invokeLogin()));
 }
 
-Controller::~Controller() {
-  for (Connection* c : m_connections) {
-    c->stopSync();
-  }
-}
+Controller::~Controller() {}
 
 inline QString accessTokenFileName(const AccountSettings& account) {
   QString fileName = account.userId();
@@ -246,5 +242,5 @@ void Controller::setDpi(int dpi) {
 }
 
 QString Controller::removeReply(const QString& text) {
-    return utils::removeReply(text);
+  return utils::removeReply(text);
 }
