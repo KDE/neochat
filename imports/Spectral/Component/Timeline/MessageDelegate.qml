@@ -42,14 +42,14 @@ ColumnLayout {
 
         spacing: 4
 
-        ImageItem {
+        Avatar {
             Layout.preferredWidth: 32
             Layout.preferredHeight: 32
             Layout.alignment: Qt.AlignTop
 
             visible: avatarVisible
             hint: author.displayName
-            source: author.paintable
+            source: author.avatarUrl
         }
 
         Label {
@@ -119,12 +119,12 @@ ColumnLayout {
                     contentItem: RowLayout {
                         spacing: 8
 
-                        ImageItem {
+                        Avatar {
                             Layout.preferredWidth: 36
                             Layout.preferredHeight: 36
                             Layout.alignment: Qt.AlignTop
 
-                            source: replyAuthor ? replyAuthor.paintable : null
+                            source: replyAuthor ? replyAuthor.avatarUrl : ""
                         }
 
                         ColumnLayout {

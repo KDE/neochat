@@ -7,7 +7,6 @@
 #include "accountlistmodel.h"
 #include "controller.h"
 #include "emojimodel.h"
-#include "imageitem.h"
 #include "imageprovider.h"
 #include "messageeventmodel.h"
 #include "room.h"
@@ -45,7 +44,6 @@ int main(int argc, char *argv[]) {
 
   qmlRegisterType<qqsfpm::QQmlSortFilterProxyModel>("SortFilterProxyModel", 0,
                                                     2, "SortFilterProxyModel");
-  qmlRegisterType<ImageItem>("Spectral", 0, 1, "ImageItem");
   qmlRegisterType<Controller>("Spectral", 0, 1, "Controller");
   qmlRegisterType<AccountListModel>("Spectral", 0, 1, "AccountListModel");
   qmlRegisterType<RoomListModel>("Spectral", 0, 1, "RoomListModel");

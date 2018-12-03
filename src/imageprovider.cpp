@@ -16,11 +16,7 @@ ImageProvider::ImageProvider(QObject* parent)
     : QObject(parent),
       QQuickImageProvider(
           QQmlImageProviderBase::Image,
-          QQmlImageProviderBase::ForceAsynchronousImageLoading) {
-#if (QT_VERSION < QT_VERSION_CHECK(5, 10, 0))
-  qRegisterMetaType<MediaThumbnailJob*>();
-#endif
-}
+          QQmlImageProviderBase::ForceAsynchronousImageLoading) {}
 
 QImage ImageProvider::requestImage(const QString& id, QSize* pSize,
                                    const QSize& requestedSize) {
@@ -32,31 +28,33 @@ QImage ImageProvider::requestImage(const QString& id, QSize* pSize,
 
   QUrl mxcUri{id};
 
+  QImage result = image(mxcUri, requestedSize);
+  if (!requestedSize.isEmpty() && result.size() != requestedSize) {
+    QImage scaled = result.scaled(requestedSize, Qt::KeepAspectRatio,
+                                  Qt::SmoothTransformation);
+    if (pSize != nullptr) *pSize = scaled.size();
+    return scaled;
+  }
+  if (pSize != nullptr) *pSize = result.size();
+  return result;
+}
+
+QImage ImageProvider::image(const QUrl& mxc, const QSize& size) {
   QUrl tempfilePath = QUrl::fromLocalFile(
       QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + "/" +
-      mxcUri.fileName() + "-" + QString::number(requestedSize.width()) + "x" +
-      QString::number(requestedSize.height()) + ".png");
-
+      mxc.fileName() + ".png");
   QImage cachedImage;
   if (cachedImage.load(tempfilePath.toLocalFile())) {
-    if (pSize != nullptr) *pSize = cachedImage.size();
     return cachedImage;
   }
 
   MediaThumbnailJob* job = nullptr;
   QReadLocker locker(&m_lock);
 
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 10, 0))
   QMetaObject::invokeMethod(
-      m_connection,
-      [=] { return m_connection->getThumbnail(mxcUri, requestedSize); },
+      m_connection, [=] { return m_connection->getThumbnail(mxc, size); },
       Qt::BlockingQueuedConnection, &job);
-#else
-  QMetaObject::invokeMethod(m_connection, "getThumbnail",
-                            Qt::BlockingQueuedConnection,
-                            Q_RETURN_ARG(MediaThumbnailJob*, job),
-                            Q_ARG(QUrl, mxcUri), Q_ARG(QSize, requestedSize));
-#endif
+
   if (!job) {
     qDebug() << "ImageProvider: failed to send a request";
     return {};
@@ -70,8 +68,6 @@ QImage ImageProvider::requestImage(const QString& id, QSize* pSize,
     });
     condition.wait(&m_lock);
   }
-
-  if (pSize != nullptr) *pSize = result.size();
 
   result.save(tempfilePath.toLocalFile());
 

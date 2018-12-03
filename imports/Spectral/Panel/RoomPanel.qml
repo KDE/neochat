@@ -14,7 +14,6 @@ import Spectral.Setting 0.1
 import SortFilterProxyModel 0.2
 
 import "qrc:/js/md.js" as Markdown
-import "qrc:/js/util.js" as Util
 
 Item {
     property var currentRoom: null
@@ -63,7 +62,7 @@ Item {
 
             id: roomHeader
 
-            paintable: currentRoom ? currentRoom.paintable : null
+            avatar: currentRoom ? currentRoom.avatarUrl : ""
             topic: currentRoom ? (currentRoom.topic).replace(/(\r\n\t|\n|\r\t)/gm,"") : ""
             atTop: messageListView.atYBeginning
 
@@ -295,11 +294,11 @@ Item {
                             anchors.margins: 8
                             spacing: 12
 
-                            ImageItem {
+                            Avatar {
                                 Layout.preferredWidth: height
                                 Layout.fillHeight: true
 
-                                source: modelData.paintable
+                                source: modelData.avatar
                                 hint: modelData.displayName
                             }
 

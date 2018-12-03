@@ -43,14 +43,14 @@ ColumnLayout {
 
         spacing: 4
 
-        ImageItem {
+        Avatar {
             Layout.preferredWidth: 32
             Layout.preferredHeight: 32
             Layout.alignment: Qt.AlignTop
 
             visible: avatarVisible
             hint: author.displayName
-            source: author.paintable
+            source: author.avatarUrl
         }
 
         Label {

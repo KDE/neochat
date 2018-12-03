@@ -7,8 +7,6 @@ import Spectral.Component 2.0
 
 import Spectral 0.1
 
-import "qrc:/js/util.js" as Util
-
 Drawer {
     property var room
 
@@ -20,13 +18,13 @@ Drawer {
         anchors.fill: parent
         anchors.margins: 32
 
-        ImageItem {
+        Avatar {
             Layout.preferredWidth: 96
             Layout.preferredHeight: 96
             Layout.alignment: Qt.AlignHCenter
 
             hint: room ? room.displayName : "No name"
-            source: room ? room.paintable : null
+            source: room ? room.avatarUrl : null
         }
 
         Label {
@@ -117,11 +115,11 @@ Drawer {
                     anchors.margins: 8
                     spacing: 12
 
-                    ImageItem {
+                    Avatar {
                         Layout.preferredWidth: height
                         Layout.fillHeight: true
 
-                        source: paintable
+                        source: avatar
                         hint: name
                     }
 

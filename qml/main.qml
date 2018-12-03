@@ -13,8 +13,6 @@ import Spectral.Effect 2.0
 import Spectral 0.1
 import Spectral.Setting 0.1
 
-import "qrc:/js/util.js" as Util
-
 ApplicationWindow {
     Material.theme: MSettings.darkTheme ? Material.Dark : Material.Light
 
