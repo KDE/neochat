@@ -2,6 +2,7 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.2
+import Qt.labs.qmlmodels 1.0
 
 import Spectral.Component 2.0
 import Spectral.Component.Emoji 2.0
@@ -69,6 +70,36 @@ Item {
             onClicked: roomDrawer.open()
         }
 
+        DelegateChooser {
+            id: delegateChooser
+
+            role: "eventType"
+            choices: [
+                DelegateChoice {
+                    roleValue: "state"
+                    delegate: StateDelegate {
+                        width: messageListView.width
+                    }
+                },
+                DelegateChoice {
+                    roleValue: "emote"
+                    delegate: StateDelegate {}
+                },
+                DelegateChoice {
+                    roleValue: "message"
+                    delegate: MessageDelegate {}
+                },
+                DelegateChoice {
+                    roleValue: "notice"
+                    delegate: MessageDelegate {}
+                },
+                DelegateChoice {
+                    roleValue: "image"
+                    delegate: ImageDelegate {}
+                }
+            ]
+        }
+
         AutoListView {
             Layout.fillWidth: true
             Layout.maximumWidth: 960
@@ -121,69 +152,7 @@ Item {
                 }
             }
 
-            delegate: ColumnLayout {
-                width: parent.width
-                implicitHeight: 32
-
-                id: delegateColumn
-
-                spacing: 4
-
-                SectionDelegate {
-                    Layout.alignment: Qt.AlignHCenter
-                    Layout.margins: 4
-
-                    visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
-                }
-
-                Loader {
-                    Layout.maximumWidth: delegateColumn.width
-                    Layout.alignment: item ? item.alignment : 0
-
-                    source: {
-                        switch (eventType) {
-                        case "message":
-                        case "notice":
-                            return "qrc:/imports/Spectral/Component/Timeline/MessageDelegate.qml"
-                        case "emote":
-                        case "state":
-                            return "qrc:/imports/Spectral/Component/Timeline/StateDelegate.qml"
-                        case "image":
-                            return "qrc:/imports/Spectral/Component/Timeline/ImageDelegate.qml"
-                        default:
-                            return ""
-                        }
-                    }
-                }
-
-                // Read marker
-                RowLayout {
-                    Layout.fillWidth: true
-                    Layout.alignment: Qt.AlignHCenter
-
-                    visible: readMarker === true
-
-                    Rectangle {
-                        Layout.fillWidth: true
-                        Layout.preferredHeight: 2
-
-                        color: Material.accent
-                    }
-
-                    Label {
-                        text: "And Now"
-                        color: Material.accent
-                        verticalAlignment: Text.AlignVCenter
-                    }
-
-                    Rectangle {
-                        Layout.fillWidth: true
-                        Layout.preferredHeight: 2
-
-                        color: Material.accent
-                    }
-                }
-            }
+            delegate: delegateChooser
 
             RoundButton {
                 width: 64
@@ -236,21 +205,19 @@ Item {
             Popup {
                 property string sourceText
 
-                x: (window.width - width) / 2
-                y: (window.height - height) / 2
+                anchors.centerIn: parent
                 width: 480
 
                 id: sourceDialog
 
                 parent: ApplicationWindow.overlay
 
-                modal: true
-
                 padding: 16
 
                 closePolicy: Dialog.CloseOnEscape | Dialog.CloseOnPressOutside
 
                 contentItem: ScrollView {
+                    clip: true
                     TextArea {
                         readOnly: true
                         selectByMouse: true
@@ -328,7 +295,7 @@ Item {
     function goToEvent(eventID) {
         var index = messageEventModel.eventIDToIndex(eventID)
         if (index === -1) return
-//        messageListView.currentIndex = sortedMessageEventModel.mapFromSource(index)
+        //        messageListView.currentIndex = sortedMessageEventModel.mapFromSource(index)
         messageListView.positionViewAtIndex(sortedMessageEventModel.mapFromSource(index), ListView.Contain)
     }
 

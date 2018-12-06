@@ -75,7 +75,6 @@ ColumnLayout {
 
             source: "image://mxc/" + (content.thumbnail_url ? content.thumbnail_url : content.url)
             sourceSize.width: Math.min(256, messageListView.width)
-            sourceSize.height: 256
 
             layer.enabled: true
             layer.effect: OpacityMask {
