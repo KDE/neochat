@@ -1,7 +1,7 @@
-import QtQuick 2.9
-import QtQuick.Controls 2.2
+import QtQuick 2.12
+import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
-import QtQuick.Controls.Material 2.2
+import QtQuick.Controls.Material 2.4
 import Qt.labs.qmlmodels 1.0
 
 import Spectral.Component 2.0
@@ -70,36 +70,6 @@ Item {
             onClicked: roomDrawer.open()
         }
 
-        DelegateChooser {
-            id: delegateChooser
-
-            role: "eventType"
-            choices: [
-                DelegateChoice {
-                    roleValue: "state"
-                    delegate: StateDelegate {
-                        width: messageListView.width
-                    }
-                },
-                DelegateChoice {
-                    roleValue: "emote"
-                    delegate: StateDelegate {}
-                },
-                DelegateChoice {
-                    roleValue: "message"
-                    delegate: MessageDelegate {}
-                },
-                DelegateChoice {
-                    roleValue: "notice"
-                    delegate: MessageDelegate {}
-                },
-                DelegateChoice {
-                    roleValue: "image"
-                    delegate: ImageDelegate {}
-                }
-            ]
-        }
-
         AutoListView {
             Layout.fillWidth: true
             Layout.maximumWidth: 960
@@ -152,7 +122,105 @@ Item {
                 }
             }
 
-            delegate: delegateChooser
+            delegate: DelegateChooser {
+                role: "eventType"
+
+                DelegateChoice {
+                    roleValue: "state"
+                    delegate: ColumnLayout {
+                        width: messageListView.width
+                        spacing: 4
+
+                        SectionDelegate {
+                            Layout.alignment: Qt.AlignHCenter
+                            Layout.margins: 4
+
+                            visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
+                        }
+
+                        StateDelegate {
+                            Layout.maximumWidth: parent.width
+                            Layout.alignment: Qt.AlignHCenter
+                        }
+                    }
+                }
+
+                DelegateChoice {
+                    roleValue: "emote"
+                    delegate: ColumnLayout {
+                        width: messageListView.width
+                        spacing: 4
+
+                        SectionDelegate {
+                            Layout.alignment: Qt.AlignHCenter
+                            Layout.margins: 4
+
+                            visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
+                        }
+
+                        StateDelegate {
+                            Layout.maximumWidth: parent.width
+                            Layout.alignment: Qt.AlignHCenter
+                        }
+                    }
+                }
+
+                DelegateChoice {
+                    roleValue: "message"
+                    delegate: ColumnLayout {
+                        width: messageListView.width
+                        spacing: 4
+
+                        SectionDelegate {
+                            Layout.alignment: Qt.AlignHCenter
+                            Layout.margins: 4
+
+                            visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
+                        }
+
+                        MessageDelegate {
+                        }
+                    }
+                }
+
+                DelegateChoice {
+                    roleValue: "notice"
+                    delegate: ColumnLayout {
+                        width: messageListView.width
+                        spacing: 4
+
+                        SectionDelegate {
+                            Layout.alignment: Qt.AlignHCenter
+                            Layout.margins: 4
+
+                            visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
+                        }
+
+                        MessageDelegate {
+                        }
+                    }
+                }
+
+                DelegateChoice {
+                    roleValue: "image"
+                    delegate: ColumnLayout {
+                        width: messageListView.width
+                        spacing: 4
+
+                        SectionDelegate {
+                            Layout.alignment: Qt.AlignHCenter
+                            Layout.margins: 4
+
+                            visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
+                        }
+
+                        ImageDelegate {
+                            Layout.maximumWidth: parent.width
+                            Layout.alignment: Qt.AlignHCenter
+                        }
+                    }
+                }
+            }
 
             RoundButton {
                 width: 64
