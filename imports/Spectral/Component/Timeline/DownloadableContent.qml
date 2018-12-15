@@ -1,6 +1,6 @@
-import QtQuick 2.9
-import QtQuick.Controls 2.2
-import QtQuick.Controls.Material 2.2
+import QtQuick 2.12
+import QtQuick.Controls 2.4
+import QtQuick.Controls.Material 2.4
 import Qt.labs.platform 1.0
 
 Item {

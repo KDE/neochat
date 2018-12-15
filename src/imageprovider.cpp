@@ -29,6 +29,7 @@ QImage ImageProvider::requestImage(const QString& id, QSize* pSize,
   QUrl mxcUri{id};
 
   QImage result = image(mxcUri, requestedSize);
+  if (result.isNull()) return {};
   if (!requestedSize.isEmpty() && result.size() != requestedSize) {
     QImage scaled = result.scaled(requestedSize, Qt::KeepAspectRatio,
                                   Qt::SmoothTransformation);

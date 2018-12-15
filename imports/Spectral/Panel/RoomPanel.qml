@@ -1,7 +1,8 @@
-import QtQuick 2.9
-import QtQuick.Controls 2.2
+import QtQuick 2.12
+import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
-import QtQuick.Controls.Material 2.2
+import QtQuick.Controls.Material 2.4
+import Qt.labs.qmlmodels 1.0
 
 import Spectral.Component 2.0
 import Spectral.Component.Emoji 2.0
@@ -121,66 +122,102 @@ Item {
                 }
             }
 
-            delegate: ColumnLayout {
-                width: parent.width
-                implicitHeight: 32
+            delegate: DelegateChooser {
+                role: "eventType"
 
-                id: delegateColumn
+                DelegateChoice {
+                    roleValue: "state"
+                    delegate: ColumnLayout {
+                        width: messageListView.width
+                        spacing: 4
 
-                spacing: 4
+                        SectionDelegate {
+                            Layout.alignment: Qt.AlignHCenter
+                            Layout.margins: 4
 
-                SectionDelegate {
-                    Layout.alignment: Qt.AlignHCenter
-                    Layout.margins: 4
+                            visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
+                        }
 
-                    visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
-                }
-
-                Loader {
-                    Layout.maximumWidth: delegateColumn.width
-                    Layout.alignment: item ? item.alignment : 0
-
-                    source: {
-                        switch (eventType) {
-                        case "message":
-                        case "notice":
-                            return "qrc:/imports/Spectral/Component/Timeline/MessageDelegate.qml"
-                        case "emote":
-                        case "state":
-                            return "qrc:/imports/Spectral/Component/Timeline/StateDelegate.qml"
-                        case "image":
-                            return "qrc:/imports/Spectral/Component/Timeline/ImageDelegate.qml"
-                        default:
-                            return ""
+                        StateDelegate {
+                            Layout.maximumWidth: parent.width
+                            Layout.alignment: Qt.AlignHCenter
                         }
                     }
                 }
 
-                // Read marker
-                RowLayout {
-                    Layout.fillWidth: true
-                    Layout.alignment: Qt.AlignHCenter
+                DelegateChoice {
+                    roleValue: "emote"
+                    delegate: ColumnLayout {
+                        width: messageListView.width
+                        spacing: 4
 
-                    visible: readMarker === true
+                        SectionDelegate {
+                            Layout.alignment: Qt.AlignHCenter
+                            Layout.margins: 4
 
-                    Rectangle {
-                        Layout.fillWidth: true
-                        Layout.preferredHeight: 2
+                            visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
+                        }
 
-                        color: Material.accent
+                        StateDelegate {
+                            Layout.maximumWidth: parent.width
+                            Layout.alignment: Qt.AlignHCenter
+                        }
                     }
+                }
 
-                    Label {
-                        text: "And Now"
-                        color: Material.accent
-                        verticalAlignment: Text.AlignVCenter
+                DelegateChoice {
+                    roleValue: "message"
+                    delegate: ColumnLayout {
+                        width: messageListView.width
+                        spacing: 4
+
+                        SectionDelegate {
+                            Layout.alignment: Qt.AlignHCenter
+                            Layout.margins: 4
+
+                            visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
+                        }
+
+                        MessageDelegate {
+                        }
                     }
+                }
 
-                    Rectangle {
-                        Layout.fillWidth: true
-                        Layout.preferredHeight: 2
+                DelegateChoice {
+                    roleValue: "notice"
+                    delegate: ColumnLayout {
+                        width: messageListView.width
+                        spacing: 4
 
-                        color: Material.accent
+                        SectionDelegate {
+                            Layout.alignment: Qt.AlignHCenter
+                            Layout.margins: 4
+
+                            visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
+                        }
+
+                        MessageDelegate {
+                        }
+                    }
+                }
+
+                DelegateChoice {
+                    roleValue: "image"
+                    delegate: ColumnLayout {
+                        width: messageListView.width
+                        spacing: 4
+
+                        SectionDelegate {
+                            Layout.alignment: Qt.AlignHCenter
+                            Layout.margins: 4
+
+                            visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
+                        }
+
+                        ImageDelegate {
+                            Layout.maximumWidth: parent.width
+                            Layout.alignment: Qt.AlignHCenter
+                        }
                     }
                 }
             }
@@ -236,21 +273,19 @@ Item {
             Popup {
                 property string sourceText
 
-                x: (window.width - width) / 2
-                y: (window.height - height) / 2
+                anchors.centerIn: parent
                 width: 480
 
                 id: sourceDialog
 
                 parent: ApplicationWindow.overlay
 
-                modal: true
-
                 padding: 16
 
                 closePolicy: Dialog.CloseOnEscape | Dialog.CloseOnPressOutside
 
                 contentItem: ScrollView {
+                    clip: true
                     TextArea {
                         readOnly: true
                         selectByMouse: true
@@ -328,7 +363,7 @@ Item {
     function goToEvent(eventID) {
         var index = messageEventModel.eventIDToIndex(eventID)
         if (index === -1) return
-//        messageListView.currentIndex = sortedMessageEventModel.mapFromSource(index)
+        //        messageListView.currentIndex = sortedMessageEventModel.mapFromSource(index)
         messageListView.positionViewAtIndex(sortedMessageEventModel.mapFromSource(index), ListView.Contain)
     }
 
