@@ -251,13 +251,8 @@ Control {
                     onTriggered: currentRoom.sendTypingNotification(true)
                 }
 
-                ToolTip {
-                    visible: currentRoom
-                             && currentRoom.hasUsersTyping
-                    text: currentRoom ? currentRoom.usersTyping : ""
-
-                    Material.foreground: "white"
-                }
+                ToolTip.visible: currentRoom && currentRoom.hasUsersTyping
+                ToolTip.text: currentRoom ? currentRoom.usersTyping : ""
 
                 Keys.onReturnPressed: {
                     if (event.modifiers & Qt.ShiftModifier) {

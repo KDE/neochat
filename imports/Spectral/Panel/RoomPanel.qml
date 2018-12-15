@@ -7,7 +7,6 @@ import Qt.labs.qmlmodels 1.0
 import Spectral.Component 2.0
 import Spectral.Component.Emoji 2.0
 import Spectral.Component.Timeline 2.0
-import Spectral.Menu 2.0
 import Spectral.Effect 2.0
 
 import Spectral 0.1
@@ -264,10 +263,6 @@ Item {
                 Material.background: Material.accent
 
                 onClicked: messageListView.positionViewAtBeginning()
-            }
-
-            MessageContextMenu {
-                id: messageContextMenu
             }
 
             Popup {

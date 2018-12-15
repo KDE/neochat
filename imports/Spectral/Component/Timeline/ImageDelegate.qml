@@ -3,6 +3,7 @@ import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.4
 import QtGraphicalEffects 1.0
+import Qt.labs.platform 1.0 as Platform
 
 import Spectral 0.1
 import Spectral.Setting 0.1
@@ -14,12 +15,14 @@ ColumnLayout {
     readonly property bool avatarVisible: !sentByMe && (aboveAuthor !== author || aboveSection !== section || aboveEventType === "state" || aboveEventType === "emote" || aboveEventType === "other")
     readonly property bool sentByMe: author === currentRoom.localUser
 
-    signal saveFileAs()
-    signal openExternally()
+    property bool openOnFinished: false
+    readonly property bool downloaded: progressInfo && progressInfo.completed
 
     id: root
 
     spacing: 0
+
+    onDownloadedChanged: if (downloaded && openOnFinished) openSavedFile()
 
     Label {
         Layout.leftMargin: 48
@@ -72,7 +75,6 @@ ColumnLayout {
             id: img
 
             source: "image://mxc/" + (content.thumbnail_url ? content.thumbnail_url : content.url)
-            sourceSize.width: Math.min(256, messageListView.width)
 
             layer.enabled: true
             layer.effect: OpacityMask {
@@ -88,13 +90,65 @@ ColumnLayout {
 
                 id: messageMouseArea
 
-                onSecondaryClicked: {
-                    messageContextMenu.root = root
-                    messageContextMenu.model = model
-                    messageContextMenu.selectedText = ""
-                    messageContextMenu.popup()
+                onSecondaryClicked: messageContextMenu.popup()
+
+                Menu {
+                    id: messageContextMenu
+
+                    MenuItem {
+                        text: "View Source"
+
+                        onTriggered: {
+                            sourceDialog.sourceText = toolTip
+                            sourceDialog.open()
+                        }
+                    }
+                    MenuItem {
+                        text: "Open Externally"
+
+                        onTriggered: downloadAndOpen()
+                    }
+                    MenuItem {
+                        text: "Save As"
+
+                        onTriggered: saveFileAs()
+                    }
+                    MenuItem {
+                        text: "Reply"
+
+                        onTriggered: {
+                            roomPanelInput.replyUser = author
+                            roomPanelInput.replyEventID = eventId
+                            roomPanelInput.replyContent = message
+                            roomPanelInput.isReply = true
+                            roomPanelInput.focus()
+                        }
+                    }
+                    MenuItem {
+                        text: "Redact"
+
+                        onTriggered: currentRoom.redactEvent(eventId)
+                    }
                 }
             }
         }
+    }
+
+    function saveFileAs() { currentRoom.saveFileAs(eventId) }
+
+    function downloadAndOpen()
+    {
+        if (downloaded) openSavedFile()
+        else
+        {
+            openOnFinished = true
+            currentRoom.downloadFile(eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_") + (message || ".tmp"))
+        }
+    }
+
+    function openSavedFile()
+    {
+        if (Qt.openUrlExternally(progressInfo.localPath)) return;
+        if (Qt.openUrlExternally(progressInfo.localDir)) return;
     }
 }

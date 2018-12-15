@@ -26,9 +26,6 @@ ApplicationWindow {
     visible: true
     title: qsTr("Spectral")
 
-    Material.foreground: MSettings.darkTheme ? "#FFFFFF" : "#1D333E"
-    Material.background: MSettings.darkTheme ? "#303030" : "#FFFFFF"
-
     Platform.SystemTrayIcon {
         visible: MSettings.showTray
         iconSource: "qrc:/assets/img/icon.png"
@@ -132,7 +129,6 @@ ApplicationWindow {
             ToolTip {
                 id: loginButtonTooltip
 
-                Material.foreground: "white"
             }
         }
 

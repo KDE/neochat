@@ -5,7 +5,6 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.4
 
 import Spectral.Component 2.0
-import Spectral.Menu 2.0
 import Spectral.Effect 2.0
 
 import Spectral 0.1
@@ -489,11 +488,8 @@ Rectangle {
                             stepSize: 25
                             snapMode: Slider.SnapAlways
 
-                            ToolTip {
-                                Material.foreground: "white"
-                                visible: parent.pressed
-                                text: parent.value
-                            }
+                            ToolTip.visible: pressed
+                            ToolTip.text: value
 
                             onMoved: controller.setDpi(value)
                         }
@@ -804,10 +800,7 @@ Rectangle {
                 RippleEffect {
                     anchors.fill: parent
 
-                    onSecondaryClicked: {
-                        roomContextMenu.model = model
-                        roomContextMenu.popup()
-                    }
+                    onSecondaryClicked: roomContextMenu.popup()
                     onPrimaryClicked: {
                         if (category === RoomType.Invited) {
                             inviteDialog.currentRoom = currentRoom
@@ -823,6 +816,36 @@ Rectangle {
                         }
                     }
                 }
+
+                Menu {
+                    id: roomContextMenu
+
+                    MenuItem {
+                        text: "Favourite"
+                        checkable: true
+                        checked: category === RoomType.Favorite
+
+                        onTriggered: category === RoomType.Favorite ? currentRoom.removeTag("m.favourite") : currentRoom.addTag("m.favourite", 1.0)
+                    }
+                    MenuItem {
+                        text: "Deprioritize"
+                        checkable: true
+                        checked: category === RoomType.Deprioritized
+
+                        onTriggered: category === RoomType.Deprioritized ? currentRoom.removeTag("m.lowpriority") : currentRoom.addTag("m.lowpriority", 1.0)
+                    }
+                    MenuSeparator {}
+                    MenuItem {
+                        text: "Mark as Read"
+
+                        onTriggered: currentRoom.markAllMessagesAsRead()
+                    }
+                    MenuItem {
+                        text: "Leave Room"
+
+                        onTriggered: currentRoom.forget()
+                    }
+                }
             }
 
             section.property: "display"
@@ -836,10 +859,6 @@ Rectangle {
                 leftPadding: 16
                 elide: Text.ElideRight
                 verticalAlignment: Text.AlignVCenter
-            }
-
-            RoomContextMenu {
-                id: roomContextMenu
             }
         }
     }

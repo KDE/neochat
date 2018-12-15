@@ -80,11 +80,37 @@ ColumnLayout {
 
                     id: messageMouseArea
 
-                    onSecondaryClicked: {
-                        messageContextMenu.root = root
-                        messageContextMenu.model = model
-                        messageContextMenu.selectedText = contentLabel.selectedText
-                        messageContextMenu.popup()
+                    onSecondaryClicked: messageContextMenu.popup()
+
+                    Menu {
+                        readonly property string selectedText: contentLabel.selectedText
+
+                        id: messageContextMenu
+
+                        MenuItem {
+                            text: "View Source"
+
+                            onTriggered: {
+                                sourceDialog.sourceText = toolTip
+                                sourceDialog.open()
+                            }
+                        }
+                        MenuItem {
+                            text: "Reply"
+
+                            onTriggered: {
+                                roomPanelInput.replyUser = author
+                                roomPanelInput.replyEventID = eventId
+                                roomPanelInput.replyContent = messageContextMenu.selectedText || message
+                                roomPanelInput.isReply = true
+                                roomPanelInput.focus()
+                            }
+                        }
+                        MenuItem {
+                            text: "Redact"
+
+                            onTriggered: currentRoom.redactEvent(eventId)
+                        }
                     }
                 }
             }
