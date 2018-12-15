@@ -813,7 +813,11 @@ Rectangle {
                             inviteDialog.currentRoom = currentRoom
                             inviteDialog.open()
                         } else {
-                            leaveRoom(enteredRoom)
+                            if (enteredRoom) {
+                                enteredRoom.displayed = false
+                                leaveRoom(enteredRoom)
+                            }
+                            currentRoom.displayed = true
                             enterRoom(currentRoom)
                             enteredRoom = currentRoom
                         }

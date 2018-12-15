@@ -68,10 +68,8 @@ ColumnLayout {
         Control {
             Layout.maximumWidth: messageListView.width - (!sentByMe ? 32 + messageRow.spacing : 0) - 48
 
-            topPadding: 8
-            bottomPadding: 8
-            leftPadding: 16
-            rightPadding: 16
+            verticalPadding: 8
+            horizontalPadding: 16
 
             background: Rectangle {
                 color: sentByMe ? "#009DC2" : eventType === "notice" ? "#4285F4" : "#673AB7"

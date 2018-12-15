@@ -42,7 +42,12 @@ Controller::Controller(QObject* parent)
   QTimer::singleShot(0, this, SLOT(invokeLogin()));
 }
 
-Controller::~Controller() {}
+Controller::~Controller() {
+  for (Connection* c : m_connections) {
+    c->stopSync();
+    c->saveState();
+  }
+}
 
 inline QString accessTokenFileName(const AccountSettings& account) {
   QString fileName = account.userId();
@@ -106,6 +111,8 @@ void Controller::addConnection(Connection* c) {
   Q_ASSERT_X(c, __FUNCTION__, "Attempt to add a null connection");
 
   m_connections.push_back(c);
+
+  c->setLazyLoading(true);
 
   connect(c, &Connection::syncDone, this, [=] {
     emit syncDone();

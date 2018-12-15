@@ -195,8 +195,6 @@ QDateTime SpectralRoom::lastActiveTime() {
   return messageEvents().rbegin()->get()->timestamp();
 }
 
-float SpectralRoom::orderForTag(QString name) { return tag(name).order; }
-
 int SpectralRoom::savedTopVisibleIndex() const {
   return firstDisplayedMarker() == timelineEdge()
              ? 0

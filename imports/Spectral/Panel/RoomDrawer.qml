@@ -48,7 +48,7 @@ Drawer {
 
             wrapMode: Label.Wrap
             horizontalAlignment: Text.AlignHCenter
-            text: room ? room.memberCount + " Members" : "No Member Count"
+            text: room ? room.totalMemberCount + " Members" : "No Member Count"
         }
 
         RowLayout {
