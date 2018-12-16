@@ -58,7 +58,7 @@ ColumnLayout {
             visible: !(sentByMe || avatarVisible)
 
             text: Qt.formatDateTime(time, "hh:mm")
-            color: "#5B7480"
+            color: MPalette.lighter
 
             font.pixelSize: 10
             horizontalAlignment: Label.AlignHCenter

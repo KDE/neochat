@@ -14,7 +14,8 @@ import Spectral 0.1
 import Spectral.Setting 0.1
 
 ApplicationWindow {
-    Material.theme: MSettings.darkTheme ? Material.Dark : Material.Light
+    Material.theme: MPalette.theme
+    Material.background: MPalette.background
 
     width: 960
     height: 640
@@ -25,6 +26,10 @@ ApplicationWindow {
 
     visible: true
     title: qsTr("Spectral")
+
+    background: Rectangle {
+        color: MSettings.darkTheme ? "#303030" : "#FFFFFF"
+    }
 
     Platform.SystemTrayIcon {
         visible: MSettings.showTray

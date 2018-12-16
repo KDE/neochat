@@ -12,7 +12,7 @@ import Spectral.Setting 0.1
 
 import SortFilterProxyModel 0.2
 
-Rectangle {
+Item {
     property var controller: null
     readonly property var user: controller.connection ? controller.connection.localUser : null
 
@@ -24,8 +24,6 @@ Rectangle {
     signal leaveRoom(var room)
 
     id: root
-
-    color: MSettings.darkTheme ? "#303030" : "#FFFFFF"
 
     RoomListModel {
         id: roomListModel
@@ -638,6 +636,7 @@ Rectangle {
                     topPadding: 0
                     bottomPadding: 0
                     placeholderText: "Search..."
+                    color: MPalette.lighter
 
                     background: Item {}
                 }
@@ -779,6 +778,7 @@ Rectangle {
                             Layout.fillHeight: true
 
                             text: name || "No Name"
+                            color: MPalette.foreground
                             font.pixelSize: 16
                             elide: Text.ElideRight
                             wrapMode: Text.NoWrap
@@ -789,7 +789,7 @@ Rectangle {
                             Layout.fillHeight: true
 
                             text: (lastEvent == "" ? topic : lastEvent).replace(/(\r\n\t|\n|\r\t)/gm,"")
-                            color: "#5B7480"
+                            color: MPalette.lighter
                             font.pixelSize: 13
                             elide: Text.ElideRight
                             wrapMode: Text.NoWrap
@@ -855,7 +855,7 @@ Rectangle {
                 height: 24
 
                 text: section
-                color: "#5B7480"
+                color: MPalette.lighter
                 leftPadding: 16
                 elide: Text.ElideRight
                 verticalAlignment: Text.AlignVCenter
@@ -894,7 +894,7 @@ Rectangle {
             }
 
             Button {
-                text: "Reject"
+                text: "Cancel"
                 flat: true
 
                 onClicked: inviteDialog.close()

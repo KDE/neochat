@@ -6,6 +6,7 @@ import QtQuick.Controls.Material 2.4
 import Spectral 0.1
 import Spectral.Effect 2.0
 import Spectral.Component 2.0
+import Spectral.Setting 0.1
 
 Control {
     property alias avatar: headerImage.source
@@ -53,6 +54,7 @@ Control {
                 Layout.fillHeight: true
 
                 text: currentRoom ? currentRoom.displayName : ""
+                color: MPalette.foreground
                 font.pixelSize: 16
                 elide: Text.ElideRight
                 wrapMode: Text.NoWrap
@@ -64,7 +66,7 @@ Control {
 
                 id: headerTopicLabel
 
-                color: "#5B7480"
+                color: MPalette.lighter
                 elide: Text.ElideRight
                 wrapMode: Text.NoWrap
             }
