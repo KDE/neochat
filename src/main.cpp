@@ -1,6 +1,7 @@
 #include <QFontDatabase>
 #include <QGuiApplication>
 #include <QNetworkProxy>
+#include <QNetworkProxyFactory>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 
@@ -34,6 +35,8 @@ int main(int argc, char *argv[]) {
       qputenv("QT_SCALE_FACTOR", QString::number(factor).toUtf8());
   }
 #endif
+
+  QNetworkProxyFactory::setUseSystemConfiguration(true);
 
   QApplication app(argc, argv);
 
