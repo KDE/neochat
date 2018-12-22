@@ -38,8 +38,8 @@
 ****************************************************************************/
 
 import QtQuick 2.12
-import QtQuick.Controls 2.4
-import QtQuick.Layouts 1.3
+import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.12
 import QtQuick.Window 2.1
 import Spectral.Setting 0.1
 
@@ -89,7 +89,7 @@ Item {
 
     /*! \qmlmethod void SplitView::addItem(Item item)
         Add an item to the end of the view.
-        \since QtQuick.Controls 1.3 */
+        \since QtQuick.Controls 1.12 */
     function addItem(item) {
         d.updateLayoutGuard = true
         d.addItem_impl(item)

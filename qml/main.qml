@@ -1,7 +1,7 @@
 import QtQuick 2.12
-import QtQuick.Controls 2.4
-import QtQuick.Layouts 1.3
-import QtQuick.Controls.Material 2.4
+import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.12
+import QtQuick.Controls.Material 2.12
 import Qt.labs.settings 1.0
 import Qt.labs.platform 1.0 as Platform
 
@@ -76,7 +76,6 @@ ApplicationWindow {
         property bool busy: false
 
         width: 360
-        height: 300
         x: (window.width - width) / 2
         y: (window.height - height) / 2
 
@@ -86,9 +85,9 @@ ApplicationWindow {
 
         title: "Login"
 
-        contentItem: ColumnLayout {
+        contentItem: Column {
             AutoTextField {
-                Layout.fillWidth: true
+                width: parent.width
 
                 id: serverField
 
@@ -97,7 +96,7 @@ ApplicationWindow {
             }
 
             AutoTextField {
-                Layout.fillWidth: true
+                width: parent.width
 
                 id: usernameField
 
@@ -105,7 +104,7 @@ ApplicationWindow {
             }
 
             AutoTextField {
-                Layout.fillWidth: true
+                width: parent.width
 
                 id: passwordField
 

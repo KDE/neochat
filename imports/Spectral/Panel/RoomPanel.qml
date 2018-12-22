@@ -1,7 +1,7 @@
 import QtQuick 2.12
-import QtQuick.Controls 2.4
-import QtQuick.Layouts 1.3
-import QtQuick.Controls.Material 2.4
+import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.12
+import QtQuick.Controls.Material 2.12
 import Qt.labs.qmlmodels 1.0
 
 import Spectral.Component 2.0
@@ -132,7 +132,7 @@ Item {
 
                         SectionDelegate {
                             Layout.alignment: Qt.AlignHCenter
-                            Layout.margins: 4
+                            Layout.margins: 16
 
                             visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
                         }
@@ -152,7 +152,7 @@ Item {
 
                         SectionDelegate {
                             Layout.alignment: Qt.AlignHCenter
-                            Layout.margins: 4
+                            Layout.margins: 16
 
                             visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
                         }
@@ -172,7 +172,7 @@ Item {
 
                         SectionDelegate {
                             Layout.alignment: Qt.AlignHCenter
-                            Layout.margins: 4
+                            Layout.margins: 16
 
                             visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
                         }
@@ -190,7 +190,7 @@ Item {
 
                         SectionDelegate {
                             Layout.alignment: Qt.AlignHCenter
-                            Layout.margins: 4
+                            Layout.margins: 16
 
                             visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
                         }
@@ -208,14 +208,32 @@ Item {
 
                         SectionDelegate {
                             Layout.alignment: Qt.AlignHCenter
-                            Layout.margins: 4
+                            Layout.margins: 16
 
                             visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
                         }
 
                         ImageDelegate {
                             Layout.maximumWidth: parent.width
+                        }
+                    }
+                }
+
+                DelegateChoice {
+                    roleValue: "file"
+                    delegate: ColumnLayout {
+                        width: messageListView.width
+                        spacing: 4
+
+                        SectionDelegate {
                             Layout.alignment: Qt.AlignHCenter
+                            Layout.margins: 16
+
+                            visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
+                        }
+
+                        FileDelegate {
+                            Layout.maximumWidth: parent.width
                         }
                     }
                 }

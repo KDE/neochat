@@ -1,6 +1,6 @@
 pragma Singleton
 import QtQuick 2.12
-import QtQuick.Controls.Material 2.3
+import QtQuick.Controls.Material 2.12
 
 QtObject {
     readonly property int theme: MSettings.darkTheme ? Material.Dark : Material.Light
@@ -10,4 +10,5 @@ QtObject {
     readonly property color foreground: MSettings.darkTheme ? "#FFFFFF" : "#1D333E"
     readonly property color background: MSettings.darkTheme ? "#303030" : "#FFFFFF"
     readonly property color lighter: MSettings.darkTheme ? "#FFFFFF" : "#5B7480"
+    readonly property color banner: MSettings.darkTheme ? "#404040" : "#F2F3F4"
 }

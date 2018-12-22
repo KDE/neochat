@@ -69,65 +69,85 @@ ColumnLayout {
             verticalAlignment: Label.AlignVCenter
         }
 
-        Image {
+        Control {
             Layout.maximumWidth: messageListView.width - (!sentByMe ? 32 + messageRow.spacing : 0) - 48
 
-            id: img
+            padding: 12
 
-            source: "image://mxc/" + (content.thumbnail_url ? content.thumbnail_url : content.url)
-
-            layer.enabled: true
-            layer.effect: OpacityMask {
-                maskSource: Rectangle {
-                        width: img.width
-                        height: img.height
-                        radius: 24
+            contentItem: RowLayout {
+                ToolButton {
+                    contentItem: MaterialIcon {
+                        icon: progressInfo.completed ? "\ue5ca" : "\ue2c4"
                     }
+
+                    onClicked: progressInfo.completed ? openSavedFile() : saveFileAs()
+                }
+
+                ColumnLayout {
+                    Label {
+                        Layout.alignment: Qt.AlignVCenter
+
+                        text: display
+                        font.pixelSize: 18
+                        font.weight: Font.Medium
+                        font.capitalization: Font.AllUppercase
+                    }
+
+                    Label {
+                        text: progressInfo.active ? (progressInfo.progress + "/" + progressInfo.total) : content.info.size
+                        color: MPalette.lighter
+                    }
+                }
             }
 
-            AutoMouseArea {
-                anchors.fill: parent
+            background: Rectangle {
+                color: MPalette.banner
+                radius: 18
 
-                id: messageMouseArea
+                AutoMouseArea {
+                    anchors.fill: parent
 
-                onSecondaryClicked: messageContextMenu.popup()
+                    id: messageMouseArea
 
-                Menu {
-                    id: messageContextMenu
+                    onSecondaryClicked: messageContextMenu.popup()
 
-                    MenuItem {
-                        text: "View Source"
+                    Menu {
+                        id: messageContextMenu
 
-                        onTriggered: {
-                            sourceDialog.sourceText = toolTip
-                            sourceDialog.open()
+                        MenuItem {
+                            text: "View Source"
+
+                            onTriggered: {
+                                sourceDialog.sourceText = toolTip
+                                sourceDialog.open()
+                            }
                         }
-                    }
-                    MenuItem {
-                        text: "Open Externally"
+                        MenuItem {
+                            text: "Open Externally"
 
-                        onTriggered: downloadAndOpen()
-                    }
-                    MenuItem {
-                        text: "Save As"
-
-                        onTriggered: saveFileAs()
-                    }
-                    MenuItem {
-                        text: "Reply"
-
-                        onTriggered: {
-                            roomPanelInput.replyUser = author
-                            roomPanelInput.replyEventID = eventId
-                            roomPanelInput.replyContent = message
-                            roomPanelInput.isReply = true
-                            roomPanelInput.focus()
+                            onTriggered: downloadAndOpen()
                         }
-                    }
-                    MenuItem {
-                        text: "Redact"
+                        MenuItem {
+                            text: "Save As"
 
-                        onTriggered: currentRoom.redactEvent(eventId)
+                            onTriggered: saveFileAs()
+                        }
+                        MenuItem {
+                            text: "Reply"
+
+                            onTriggered: {
+                                roomPanelInput.replyUser = author
+                                roomPanelInput.replyEventID = eventId
+                                roomPanelInput.replyContent = message
+                                roomPanelInput.isReply = true
+                                roomPanelInput.focus()
+                            }
+                        }
+                        MenuItem {
+                            text: "Redact"
+
+                            onTriggered: currentRoom.redactEvent(eventId)
+                        }
                     }
                 }
             }
