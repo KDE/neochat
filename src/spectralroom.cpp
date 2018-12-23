@@ -118,16 +118,14 @@ bool SpectralRoom::hasUsersTyping() {
   return count != 0;
 }
 
-QString SpectralRoom::getUsersTyping() {
-  QString usersTypingStr;
+QVariantList SpectralRoom::getUsersTyping() {
   QList<User*> users = usersTyping();
   users.removeOne(localUser());
+  QVariantList out;
   for (User* user : users) {
-    usersTypingStr += user->displayname() + " ";
+    out.append(QVariant::fromValue(user));
   }
-  usersTypingStr += users.count() < 2 ? "is" : "are";
-  usersTypingStr += " typing.";
-  return usersTypingStr;
+  return out;
 }
 
 void SpectralRoom::sendTypingNotification(bool isTyping) {

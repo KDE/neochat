@@ -69,307 +69,368 @@ Item {
             onClicked: roomDrawer.open()
         }
 
-        AutoListView {
+        ColumnLayout {
             Layout.fillWidth: true
-            Layout.maximumWidth: 960
             Layout.fillHeight: true
+            Layout.maximumWidth: 960
             Layout.leftMargin: 16
             Layout.rightMargin: 16
-            Layout.alignment: Qt.AlignHCenter
+            Layout.bottomMargin: 16
 
-            id: messageListView
+            spacing: 16
 
-            spacing: 4
+            AutoListView {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                Layout.alignment: Qt.AlignHCenter
 
-            displayMarginBeginning: 100
-            displayMarginEnd: 100
-            verticalLayoutDirection: ListView.BottomToTop
-            highlightMoveDuration: 500
+                id: messageListView
 
-            boundsBehavior: Flickable.DragOverBounds
+                spacing: 4
 
-            model: SortFilterProxyModel {
-                id: sortedMessageEventModel
+                displayMarginBeginning: 100
+                displayMarginEnd: 100
+                verticalLayoutDirection: ListView.BottomToTop
+                highlightMoveDuration: 500
 
-                sourceModel: messageEventModel
+                boundsBehavior: Flickable.DragOverBounds
 
-                filters: ExpressionFilter {
-                    expression: marks !== 0x10 && eventType !== "other"
-                }
+                model: SortFilterProxyModel {
+                    id: sortedMessageEventModel
 
-                onModelReset: {
-                    if (currentRoom) {
-                        var lastScrollPosition = sortedMessageEventModel.mapFromSource(currentRoom.savedTopVisibleIndex())
-                        messageListView.currentIndex = lastScrollPosition
-                        if (messageListView.contentY < messageListView.originY + 10 || currentRoom.timelineSize < 20)
-                            currentRoom.getPreviousContent(50)
+                    sourceModel: messageEventModel
+
+                    filters: ExpressionFilter {
+                        expression: marks !== 0x10 && eventType !== "other"
                     }
-                }
-            }
 
-            property int largestVisibleIndex: count > 0 ? indexAt(contentX, contentY + height - 1) : -1
-
-            onContentYChanged: {
-                if(currentRoom && contentY  - 5000 < originY)
-                    currentRoom.getPreviousContent(20);
-            }
-
-            displaced: Transition {
-                NumberAnimation {
-                    property: "y"; duration: 200
-                    easing.type: Easing.OutQuad
-                }
-            }
-
-            delegate: DelegateChooser {
-                role: "eventType"
-
-                DelegateChoice {
-                    roleValue: "state"
-                    delegate: ColumnLayout {
-                        width: messageListView.width
-                        spacing: 4
-
-                        SectionDelegate {
-                            Layout.alignment: Qt.AlignHCenter
-                            Layout.margins: 16
-
-                            visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
-                        }
-
-                        StateDelegate {
-                            Layout.maximumWidth: parent.width
-                            Layout.alignment: Qt.AlignHCenter
+                    onModelReset: {
+                        if (currentRoom) {
+                            var lastScrollPosition = sortedMessageEventModel.mapFromSource(currentRoom.savedTopVisibleIndex())
+                            messageListView.currentIndex = lastScrollPosition
+                            if (messageListView.contentY < messageListView.originY + 10 || currentRoom.timelineSize < 20)
+                                currentRoom.getPreviousContent(50)
                         }
                     }
                 }
 
-                DelegateChoice {
-                    roleValue: "emote"
-                    delegate: ColumnLayout {
-                        width: messageListView.width
-                        spacing: 4
+                property int largestVisibleIndex: count > 0 ? indexAt(contentX, contentY + height - 1) : -1
 
-                        SectionDelegate {
-                            Layout.alignment: Qt.AlignHCenter
-                            Layout.margins: 16
+                onContentYChanged: {
+                    if(currentRoom && contentY  - 5000 < originY)
+                        currentRoom.getPreviousContent(20);
+                }
 
-                            visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
-                        }
-
-                        StateDelegate {
-                            Layout.maximumWidth: parent.width
-                            Layout.alignment: Qt.AlignHCenter
-                        }
+                displaced: Transition {
+                    NumberAnimation {
+                        property: "y"; duration: 200
+                        easing.type: Easing.OutQuad
                     }
                 }
 
-                DelegateChoice {
-                    roleValue: "message"
-                    delegate: ColumnLayout {
-                        width: messageListView.width
-                        spacing: 4
+                delegate: DelegateChooser {
+                    role: "eventType"
 
-                        SectionDelegate {
-                            Layout.alignment: Qt.AlignHCenter
-                            Layout.margins: 16
+                    DelegateChoice {
+                        roleValue: "state"
+                        delegate: ColumnLayout {
+                            width: messageListView.width
+                            spacing: 4
 
-                            visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
-                        }
+                            SectionDelegate {
+                                Layout.alignment: Qt.AlignHCenter
+                                Layout.margins: 16
 
-                        MessageDelegate {
-                        }
-                    }
-                }
-
-                DelegateChoice {
-                    roleValue: "notice"
-                    delegate: ColumnLayout {
-                        width: messageListView.width
-                        spacing: 4
-
-                        SectionDelegate {
-                            Layout.alignment: Qt.AlignHCenter
-                            Layout.margins: 16
-
-                            visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
-                        }
-
-                        MessageDelegate {
-                        }
-                    }
-                }
-
-                DelegateChoice {
-                    roleValue: "image"
-                    delegate: ColumnLayout {
-                        width: messageListView.width
-                        spacing: 4
-
-                        SectionDelegate {
-                            Layout.alignment: Qt.AlignHCenter
-                            Layout.margins: 16
-
-                            visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
-                        }
-
-                        ImageDelegate {
-                            Layout.maximumWidth: parent.width
-                        }
-                    }
-                }
-
-                DelegateChoice {
-                    roleValue: "file"
-                    delegate: ColumnLayout {
-                        width: messageListView.width
-                        spacing: 4
-
-                        SectionDelegate {
-                            Layout.alignment: Qt.AlignHCenter
-                            Layout.margins: 16
-
-                            visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
-                        }
-
-                        FileDelegate {
-                            Layout.maximumWidth: parent.width
-                        }
-                    }
-                }
-            }
-
-            RoundButton {
-                width: 64
-                height: 64
-                anchors.right: parent.right
-                anchors.top: parent.top
-
-                id: goBottomFab
-
-                visible: currentRoom && currentRoom.hasUnreadMessages
-
-                contentItem: MaterialIcon {
-                    anchors.fill: parent
-
-                    icon: "\ue316"
-                    color: "white"
-                }
-
-                Material.background: Material.accent
-
-                onClicked: goToEvent(currentRoom.readMarkerEventId)
-            }
-
-            RoundButton {
-                width: 64
-                height: 64
-                anchors.right: parent.right
-                anchors.bottom: parent.bottom
-
-                id: goTopFab
-
-                visible: !messageListView.atYEnd
-
-                contentItem: MaterialIcon {
-                    anchors.fill: parent
-
-                    icon: "\ue313"
-                    color: "white"
-                }
-
-                Material.background: Material.accent
-
-                onClicked: messageListView.positionViewAtBeginning()
-            }
-
-            Popup {
-                property string sourceText
-
-                anchors.centerIn: parent
-                width: 480
-
-                id: sourceDialog
-
-                parent: ApplicationWindow.overlay
-
-                padding: 16
-
-                closePolicy: Dialog.CloseOnEscape | Dialog.CloseOnPressOutside
-
-                contentItem: ScrollView {
-                    clip: true
-                    TextArea {
-                        readOnly: true
-                        selectByMouse: true
-
-                        text: sourceDialog.sourceText
-                    }
-                }
-            }
-
-            Popup {
-                property alias listModel: readMarkerListView.model
-
-                x: (window.width - width) / 2
-                y: (window.height - height) / 2
-                width: 320
-
-                id: readMarkerDialog
-
-                parent: ApplicationWindow.overlay
-
-                modal: true
-                padding: 16
-
-                closePolicy: Dialog.CloseOnEscape | Dialog.CloseOnPressOutside
-
-                contentItem: AutoListView {
-                    implicitHeight: Math.min(window.height - 64,
-                                             readMarkerListView.contentHeight)
-
-                    id: readMarkerListView
-
-                    clip: true
-                    boundsBehavior: Flickable.DragOverBounds
-
-                    delegate: ItemDelegate {
-                        width: parent.width
-                        height: 48
-
-                        RowLayout {
-                            anchors.fill: parent
-                            anchors.margins: 8
-                            spacing: 12
-
-                            Avatar {
-                                Layout.preferredWidth: height
-                                Layout.fillHeight: true
-
-                                source: modelData.avatar
-                                hint: modelData.displayName
+                                visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
                             }
 
-                            Label {
-                                Layout.fillWidth: true
-
-                                text: modelData.displayName
+                            StateDelegate {
+                                Layout.maximumWidth: parent.width
+                                Layout.alignment: Qt.AlignHCenter
                             }
                         }
                     }
 
-                    ScrollBar.vertical: ScrollBar {}
+                    DelegateChoice {
+                        roleValue: "emote"
+                        delegate: ColumnLayout {
+                            width: messageListView.width
+                            spacing: 4
+
+                            SectionDelegate {
+                                Layout.alignment: Qt.AlignHCenter
+                                Layout.margins: 16
+
+                                visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
+                            }
+
+                            StateDelegate {
+                                Layout.maximumWidth: parent.width
+                                Layout.alignment: Qt.AlignHCenter
+                            }
+                        }
+                    }
+
+                    DelegateChoice {
+                        roleValue: "message"
+                        delegate: ColumnLayout {
+                            width: messageListView.width
+                            spacing: 4
+
+                            SectionDelegate {
+                                Layout.alignment: Qt.AlignHCenter
+                                Layout.margins: 16
+
+                                visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
+                            }
+
+                            MessageDelegate {
+                            }
+                        }
+                    }
+
+                    DelegateChoice {
+                        roleValue: "notice"
+                        delegate: ColumnLayout {
+                            width: messageListView.width
+                            spacing: 4
+
+                            SectionDelegate {
+                                Layout.alignment: Qt.AlignHCenter
+                                Layout.margins: 16
+
+                                visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
+                            }
+
+                            MessageDelegate {
+                            }
+                        }
+                    }
+
+                    DelegateChoice {
+                        roleValue: "image"
+                        delegate: ColumnLayout {
+                            width: messageListView.width
+                            spacing: 4
+
+                            SectionDelegate {
+                                Layout.alignment: Qt.AlignHCenter
+                                Layout.margins: 16
+
+                                visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
+                            }
+
+                            ImageDelegate {
+                                Layout.maximumWidth: parent.width
+                            }
+                        }
+                    }
+
+                    DelegateChoice {
+                        roleValue: "file"
+                        delegate: ColumnLayout {
+                            width: messageListView.width
+                            spacing: 4
+
+                            SectionDelegate {
+                                Layout.alignment: Qt.AlignHCenter
+                                Layout.margins: 16
+
+                                visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
+                            }
+
+                            FileDelegate {
+                                Layout.maximumWidth: parent.width
+                            }
+                        }
+                    }
+                }
+
+                RoundButton {
+                    width: 64
+                    height: 64
+                    anchors.right: parent.right
+                    anchors.top: parent.top
+
+                    id: goBottomFab
+
+                    visible: currentRoom && currentRoom.hasUnreadMessages
+
+                    contentItem: MaterialIcon {
+                        anchors.fill: parent
+
+                        icon: "\ue316"
+                        color: "white"
+                    }
+
+                    Material.background: Material.accent
+
+                    onClicked: goToEvent(currentRoom.readMarkerEventId)
+                }
+
+                RoundButton {
+                    width: 64
+                    height: 64
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
+
+                    id: goTopFab
+
+                    visible: !messageListView.atYEnd
+
+                    contentItem: MaterialIcon {
+                        anchors.fill: parent
+
+                        icon: "\ue313"
+                        color: "white"
+                    }
+
+                    Material.background: Material.accent
+
+                    onClicked: messageListView.positionViewAtBeginning()
+                }
+
+                Popup {
+                    property string sourceText
+
+                    anchors.centerIn: parent
+                    width: 480
+
+                    id: sourceDialog
+
+                    parent: ApplicationWindow.overlay
+
+                    padding: 16
+
+                    closePolicy: Dialog.CloseOnEscape | Dialog.CloseOnPressOutside
+
+                    contentItem: ScrollView {
+                        clip: true
+                        TextArea {
+                            readOnly: true
+                            selectByMouse: true
+
+                            text: sourceDialog.sourceText
+                        }
+                    }
+                }
+
+                Popup {
+                    property alias listModel: readMarkerListView.model
+
+                    x: (window.width - width) / 2
+                    y: (window.height - height) / 2
+                    width: 320
+
+                    id: readMarkerDialog
+
+                    parent: ApplicationWindow.overlay
+
+                    modal: true
+                    padding: 16
+
+                    closePolicy: Dialog.CloseOnEscape | Dialog.CloseOnPressOutside
+
+                    contentItem: AutoListView {
+                        implicitHeight: Math.min(window.height - 64,
+                                                 readMarkerListView.contentHeight)
+
+                        id: readMarkerListView
+
+                        clip: true
+                        boundsBehavior: Flickable.DragOverBounds
+
+                        delegate: ItemDelegate {
+                            width: parent.width
+                            height: 48
+
+                            RowLayout {
+                                anchors.fill: parent
+                                anchors.margins: 8
+                                spacing: 12
+
+                                Avatar {
+                                    Layout.preferredWidth: height
+                                    Layout.fillHeight: true
+
+                                    source: modelData.avatar
+                                    hint: modelData.displayName
+                                }
+
+                                Label {
+                                    Layout.fillWidth: true
+
+                                    text: modelData.displayName
+                                }
+                            }
+                        }
+
+                        ScrollBar.vertical: ScrollBar {}
+                    }
                 }
             }
-        }
 
-        RoomPanelInput {
-            Layout.fillWidth: true
-            Layout.margins: 16
-            Layout.maximumWidth: 960
-            Layout.alignment: Qt.AlignHCenter
+            Control {
+                Layout.maximumWidth: parent.width * 0.8
 
-            id: roomPanelInput
+                visible: currentRoom && currentRoom.hasUsersTyping
+                padding: 8
+
+                contentItem: RowLayout {
+                    spacing: 8
+
+                    Repeater {
+                        model: currentRoom && currentRoom.hasUsersTyping ? currentRoom.usersTyping : null
+
+                        delegate: Avatar {
+                            Layout.preferredWidth: 24
+                            Layout.preferredHeight: 24
+
+                            source: modelData.avatarUrl
+                            hint: modelData.displayName
+                        }
+                    }
+
+                    Rectangle {
+                        Layout.preferredWidth: 6
+                        Layout.preferredHeight: 6
+                        Layout.alignment: Qt.AlignCenter
+
+                        color: MPalette.accent
+                        radius: height / 2
+                    }
+
+                    Rectangle {
+                        Layout.preferredWidth: 6
+                        Layout.preferredHeight: 6
+                        Layout.alignment: Qt.AlignCenter
+
+                        color: MPalette.accent
+                        radius: height / 2
+                    }
+
+                    Rectangle {
+                        Layout.preferredWidth: 6
+                        Layout.preferredHeight: 6
+                        Layout.alignment: Qt.AlignCenter
+
+                        color: MPalette.accent
+                        radius: height / 2
+                    }
+                }
+
+                background: Rectangle {
+                    color: MPalette.banner
+                    radius: height / 2
+                }
+            }
+
+            RoomPanelInput {
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignHCenter
+
+                id: roomPanelInput
+            }
         }
     }
 

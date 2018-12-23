@@ -220,8 +220,7 @@ Control {
 
                 text: currentRoom != null ? currentRoom.cachedInput : ""
 
-                background: Item {
-                }
+                background: Item {}
 
                 Rectangle {
                     width: currentRoom && currentRoom.hasFileUploading ? parent.width * currentRoom.fileUploadingProgress / 100 : 0
@@ -250,9 +249,6 @@ Control {
                     triggeredOnStart: true
                     onTriggered: currentRoom.sendTypingNotification(true)
                 }
-
-                ToolTip.visible: currentRoom && currentRoom.hasUsersTyping
-                ToolTip.text: currentRoom ? currentRoom.usersTyping : ""
 
                 Keys.onReturnPressed: {
                     if (event.modifiers & Qt.ShiftModifier) {

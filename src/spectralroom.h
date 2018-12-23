@@ -13,7 +13,7 @@ using namespace QMatrixClient;
 class SpectralRoom : public Room {
   Q_OBJECT
   Q_PROPERTY(bool hasUsersTyping READ hasUsersTyping NOTIFY typingChanged)
-  Q_PROPERTY(QString usersTyping READ getUsersTyping NOTIFY typingChanged)
+  Q_PROPERTY(QVariantList usersTyping READ getUsersTyping NOTIFY typingChanged)
   Q_PROPERTY(QString cachedInput READ cachedInput WRITE setCachedInput NOTIFY
                  cachedInputChanged)
   Q_PROPERTY(bool hasFileUploading READ hasFileUploading NOTIFY
@@ -43,7 +43,7 @@ class SpectralRoom : public Room {
   }
 
   bool hasUsersTyping();
-  QString getUsersTyping();
+  QVariantList getUsersTyping();
 
   QString lastEvent();
   bool isEventHighlighted(const QMatrixClient::RoomEvent* e) const;
