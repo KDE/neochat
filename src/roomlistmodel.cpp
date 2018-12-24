@@ -86,11 +86,7 @@ void RoomListModel::connectRoomSignals(SpectralRoom* room) {
             emit newMessage(
                 room->id(), event->id(), room->displayName(),
                 sender->displayname(), utils::eventToString(*event),
-                room->avatar(128),
-                QUrl::fromLocalFile(QStandardPaths::writableLocation(
-                                        QStandardPaths::CacheLocation) +
-                                    "/avatar/" + _url.authority() + '_' +
-                                    _url.fileName() + ".png"));
+                room->avatar(128));
           });
 }
 

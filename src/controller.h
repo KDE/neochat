@@ -101,8 +101,7 @@ class Controller : public QObject {
   void playAudio(QUrl localFile);
   void postNotification(const QString& roomId, const QString& eventId,
                         const QString& roomName, const QString& senderName,
-                        const QString& text, const QImage& icon,
-                        const QUrl& iconPath);
+                        const QString& text, const QImage& icon);
 };
 
 #endif  // CONTROLLER_H
