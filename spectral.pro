@@ -83,7 +83,10 @@ win32 {
 }
 
 mac {
+	QMAKE_TARGET_BUNDLE_PREFIX = org.eu.encom.spectral
+	VERSION = 0.0.$$system(git rev-list --count HEAD)
     ICON = assets/img/icon.icns
+    QMAKE_INFO_PLIST = macOS/Info.plist
 }
 
 HEADERS += \
