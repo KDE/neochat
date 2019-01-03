@@ -83,7 +83,7 @@ win32 {
 }
 
 mac {
-	QMAKE_TARGET_BUNDLE_PREFIX = org.eu.encom.spectral
+	QMAKE_TARGET_BUNDLE_PREFIX = org.eu.encom
 
 	VERSION = 0.0.0.$$system(git rev-list --count HEAD)
 	INFO_PLIST_PATH = $$shell_quote($${OUT_PWD}/$${TARGET}.app/Contents/Info.plist)
