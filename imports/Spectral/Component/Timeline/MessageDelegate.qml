@@ -47,7 +47,7 @@ ColumnLayout {
 
             visible: avatarVisible
             hint: author.displayName
-            source: author.avatarUrl
+            source: author.avatarMediaId
         }
 
         Label {
@@ -146,7 +146,7 @@ ColumnLayout {
                             Layout.preferredHeight: 36
                             Layout.alignment: Qt.AlignTop
 
-                            source: replyAuthor ? replyAuthor.avatarUrl : ""
+                            source: replyAuthor ? replyAuthor.avatarMediaId : ""
                             hint: replyAuthor ? replyAuthor.displayName : "H"
                         }
 

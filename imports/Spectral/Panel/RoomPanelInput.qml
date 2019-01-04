@@ -54,7 +54,7 @@ Control {
                 Layout.preferredWidth: 32
                 Layout.preferredHeight: 32
 
-                source: replyUser ? replyUser.avatarUrl : ""
+                source: replyUser ? replyUser.avatarMediaId : ""
                 hint: replyUser ? replyUser.displayName : "No name"
             }
 
@@ -129,7 +129,7 @@ Control {
                         width: 20
                         height: 20
                         visible: !isEmoji
-                        source: modelData.avatarUrl || null
+                        source: modelData.avatarMediaId || null
                     }
                     Label {
                         height: parent.height

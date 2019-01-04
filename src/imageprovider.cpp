@@ -1,76 +1,87 @@
 #include "imageprovider.h"
 
-#include <QFile>
-#include <QMetaObject>
-#include <QStandardPaths>
+#include <connection.h>
+#include <jobs/mediathumbnailjob.h>
+
 #include <QtCore/QDebug>
-#include <QtCore/QWaitCondition>
+#include <QtCore/QReadWriteLock>
 
-#include "jobs/mediathumbnailjob.h"
+using QMatrixClient::BaseJob;
+using QMatrixClient::Connection;
 
-#include "connection.h"
-
-using QMatrixClient::MediaThumbnailJob;
-
-ImageProvider::ImageProvider(QObject* parent)
-    : QObject(parent),
-      QQuickImageProvider(
-          QQmlImageProviderBase::Image,
-          QQmlImageProviderBase::ForceAsynchronousImageLoading) {}
-
-QImage ImageProvider::requestImage(const QString& id, QSize* pSize,
-                                   const QSize& requestedSize) {
-  if (!id.startsWith("mxc://")) {
-    qWarning() << "ImageProvider: won't fetch an invalid id:" << id
-               << "doesn't follow server/mediaId pattern";
-    return {};
+ThumbnailResponse::ThumbnailResponse(Connection* c, QString mediaId,
+                                     const QSize& requestedSize)
+    : c(c),
+      mediaId(std::move(mediaId)),
+      requestedSize(requestedSize),
+      errorStr("Image request hasn't started") {
+  moveToThread(c->thread());
+  if (requestedSize.isEmpty()) {
+    errorStr.clear();
+    emit finished();
+    return;
   }
-
-  QUrl mxcUri{id};
-
-  QImage result = image(mxcUri, requestedSize);
-  if (result.isNull()) return {};
-  if (!requestedSize.isEmpty() && result.size() != requestedSize) {
-    QImage scaled = result.scaled(requestedSize, Qt::KeepAspectRatio,
-                                  Qt::SmoothTransformation);
-    if (pSize != nullptr) *pSize = scaled.size();
-    return scaled;
-  }
-  if (pSize != nullptr) *pSize = result.size();
-  return result;
+  // Execute a request on the main thread asynchronously
+  QMetaObject::invokeMethod(this, &ThumbnailResponse::startRequest,
+                            Qt::QueuedConnection);
 }
 
-QImage ImageProvider::image(const QUrl& mxc, const QSize& size) {
-  QUrl tempfilePath = QUrl::fromLocalFile(
-      QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + "/" +
-      mxc.fileName() + ".png");
-  QImage cachedImage;
-  if (cachedImage.load(tempfilePath.toLocalFile())) {
-    return cachedImage;
+void ThumbnailResponse::startRequest() {
+  // Runs in the main thread, not QML thread
+  if (mediaId.count('/') != 1) {
+    errorStr =
+        QStringLiteral("Media id '%1' doesn't follow server/mediaId pattern")
+            .arg(mediaId);
+    emit finished();
+    return;
   }
 
-  MediaThumbnailJob* job = nullptr;
-  QReadLocker locker(&m_lock);
+  QWriteLocker _(&lock);
+  job = c->getThumbnail(mediaId, requestedSize);
+  // Connect to any possible outcome including abandonment
+  // to make sure the QML thread is not left stuck forever.
+  connect(job, &BaseJob::finished, this, &ThumbnailResponse::prepareResult);
+}
 
-  QMetaObject::invokeMethod(
-      m_connection, [=] { return m_connection->getThumbnail(mxc, size); },
-      Qt::BlockingQueuedConnection, &job);
-
-  if (!job) {
-    qDebug() << "ImageProvider: failed to send a request";
-    return {};
-  }
-  QImage result;
+void ThumbnailResponse::prepareResult() {
   {
-    QWaitCondition condition;  // The most compact way to block on a signal
-    job->connect(job, &MediaThumbnailJob::finished, job, [&] {
-      result = job->thumbnail();
-      condition.wakeAll();
-    });
-    condition.wait(&m_lock);
+    QWriteLocker _(&lock);
+    Q_ASSERT(job->error() != BaseJob::Pending);
+
+    if (job->error() == BaseJob::Success) {
+      image = job->thumbnail();
+      errorStr.clear();
+    } else {
+      errorStr = job->errorString();
+      qWarning() << "ThumbnailResponse: no valid image for" << mediaId << "-"
+                 << errorStr;
+    }
+    job = nullptr;
   }
+  emit finished();
+}
 
-  result.save(tempfilePath.toLocalFile());
+QQuickTextureFactory* ThumbnailResponse::textureFactory() const {
+  QReadLocker _(&lock);
+  return QQuickTextureFactory::textureFactoryForImage(image);
+}
 
-  return result;
+QString ThumbnailResponse::errorString() const {
+  QReadLocker _(&lock);
+  return errorStr;
+}
+
+void ThumbnailResponse::cancel() {
+  QWriteLocker _(&lock);
+  if (job) {
+    job->abandon();
+    job = nullptr;
+  }
+  errorStr = "Image request has been cancelled";
+}
+
+QQuickImageResponse* ImageProvider::requestImageResponse(
+    const QString& id, const QSize& requestedSize) {
+  qDebug() << "ImageProvider: requesting " << id;
+  return new ThumbnailResponse(m_connection.load(), id, requestedSize);
 }

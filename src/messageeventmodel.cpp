@@ -14,10 +14,6 @@
 
 #include "utils.h"
 
-static QString parseAvatarUrl(QUrl url) {
-  return url.host() + "/" + url.path();
-}
-
 QHash<int, QByteArray> MessageEventModel::roleNames() const {
   QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
   roles[EventTypeRole] = "eventType";

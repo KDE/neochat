@@ -62,7 +62,7 @@ Item {
 
             id: roomHeader
 
-            avatar: currentRoom ? currentRoom.avatarUrl : ""
+            avatar: currentRoom ? currentRoom.avatarMediaId : ""
             topic: currentRoom ? (currentRoom.topic).replace(/(\r\n\t|\n|\r\t)/gm,"") : ""
             atTop: messageListView.atYBeginning
 
@@ -386,7 +386,7 @@ Item {
                             Layout.preferredWidth: 24
                             Layout.preferredHeight: 24
 
-                            source: modelData.avatarUrl
+                            source: modelData.avatarMediaId
                             hint: modelData.displayName
                         }
                     }

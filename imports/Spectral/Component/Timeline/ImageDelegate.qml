@@ -51,7 +51,7 @@ ColumnLayout {
 
             visible: avatarVisible
             hint: author.displayName
-            source: author.avatarUrl
+            source: author.avatarMediaId
         }
 
         Label {
@@ -74,15 +74,19 @@ ColumnLayout {
 
             id: img
 
-            source: "image://mxc/" + (content.thumbnail_url ? content.thumbnail_url : content.url)
+            source: downloaded ? progressInfo.localPath : "image://mxc/" +
+                                 (content.info && content.info.thumbnail_info ?
+                                     content.thumbnailMediaId : content.mediaId)
+            sourceSize.width: 200
+            sourceSize.height: 200
 
             layer.enabled: true
             layer.effect: OpacityMask {
                 maskSource: Rectangle {
-                        width: img.width
-                        height: img.height
-                        radius: 24
-                    }
+                    width: img.width
+                    height: img.height
+                    radius: 24
+                }
             }
 
             AutoMouseArea {

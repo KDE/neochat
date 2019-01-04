@@ -39,7 +39,7 @@ Control {
 
             id: headerImage
 
-            source: currentRoom.avatarUrl
+            source: currentRoom.avatarMediaId
             hint: currentRoom ? currentRoom.displayName : "No name"
         }
 

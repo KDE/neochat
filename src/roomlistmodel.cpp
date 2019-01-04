@@ -82,7 +82,6 @@ void RoomListModel::connectRoomSignals(SpectralRoom* room) {
             if (event->isStateEvent()) return;
             User* sender = room->user(event->senderId());
             if (sender == room->localUser()) return;
-            QUrl _url = room->avatarUrl();
             emit newMessage(
                 room->id(), event->id(), room->displayName(),
                 sender->displayname(), utils::eventToString(*event),
@@ -151,7 +150,7 @@ QVariant RoomListModel::data(const QModelIndex& index, int role) const {
   }
   SpectralRoom* room = m_rooms.at(index.row());
   if (role == NameRole) return room->displayName();
-  if (role == AvatarRole) return room->avatarUrl();
+  if (role == AvatarRole) return room->avatarMediaId();
   if (role == TopicRole) return room->topic();
   if (role == CategoryRole) {
     if (room->joinState() == JoinState::Invite) return RoomType::Invited;

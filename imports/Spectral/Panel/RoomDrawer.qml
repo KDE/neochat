@@ -24,7 +24,7 @@ Drawer {
             Layout.alignment: Qt.AlignHCenter
 
             hint: room ? room.displayName : "No name"
-            source: room ? room.avatarUrl : null
+            source: room ? room.avatarMediaId : null
         }
 
         Label {

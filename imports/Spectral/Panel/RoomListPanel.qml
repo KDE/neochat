@@ -113,7 +113,7 @@ Item {
                             Layout.margins: 12
                             Layout.alignment: Qt.AlignHCenter
 
-                            source: root.user ? root.user.avatarUrl : null
+                            source: root.user ? root.user.avatarMediaId : null
                             hint: root.user ? root.user.displayName : "?"
                         }
 
@@ -648,7 +648,7 @@ Item {
 
                     visible: !searchField.active
 
-                    source: root.user ? root.user.avatarUrl : null
+                    source: root.user ? root.user.avatarMediaId : null
                     hint: root.user ? root.user.displayName : "?"
 
                     MouseArea {

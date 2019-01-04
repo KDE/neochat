@@ -51,7 +51,7 @@ ColumnLayout {
 
             visible: avatarVisible
             hint: author.displayName
-            source: author.avatarUrl
+            source: author.avatarMediaId
         }
 
         Label {
