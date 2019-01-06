@@ -1,5 +1,8 @@
 language: cpp
 
+git:
+  depth: false
+
 matrix:
   include:
   - os: osx
@@ -17,7 +20,7 @@ script:
 
 before_deploy:
 - mv ${DEPLOY_DIR}/bin/spectral.dmg ./
-- sed -i -e "s/TRAVIS_BUILD_NUMBER/${TRAVIS_BUILD_NUMBER}/g" .ci/bintray-release.json
+- sed -i -e "s/TRAVIS_BUILD_NUMBER/$(git rev-list --count HEAD)/g" .ci/bintray-release.json
 
 deploy:
   - provider: bintray
