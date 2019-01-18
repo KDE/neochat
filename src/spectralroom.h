@@ -74,6 +74,8 @@ class SpectralRoom : public Room {
 
   Q_INVOKABLE QVariantList getUsers(const QString& prefix);
 
+  Q_INVOKABLE QString postMarkdownText(const QString& markdown);
+
  private:
   QString m_cachedInput;
   QSet<const QMatrixClient::RoomEvent*> highlights;

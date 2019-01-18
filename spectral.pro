@@ -20,6 +20,9 @@ isEmpty(USE_SYSTEM_SORTFILTERPROXYMODEL) {
 isEmpty(USE_SYSTEM_QMATRIXCLIENT) {
     USE_SYSTEM_QMATRIXCLIENT = false
 }
+isEmpty(USE_SYSTEM_CMARK) {
+    USE_SYSTEM_CMARK = false
+}
 isEmpty(BUNDLE_FONT) {
     BUNDLE_FONT = false
 }
@@ -34,6 +37,12 @@ $$USE_SYSTEM_SORTFILTERPROXYMODEL {
     PKGCONFIG += SortFilterProxyModel
 } else {
     message("Falling back to built-in SortFilterProxyModel.")
+    include(include/SortFilterProxyModel/SortFilterProxyModel.pri)
+}
+$$USE_SYSTEM_CMARK {
+    PKGCONFIG += libcmark
+} else {
+    message("Falling back to built-in CMark.")
     include(include/SortFilterProxyModel/SortFilterProxyModel.pri)
 }
 

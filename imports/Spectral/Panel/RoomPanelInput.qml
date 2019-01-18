@@ -10,8 +10,6 @@ import Spectral.Setting 0.1
 
 import Spectral 0.1
 
-import "qrc:/js/md.js" as Markdown
-
 Control {
     property alias isReply: replyItem.visible
     property var replyUser
@@ -349,8 +347,7 @@ Control {
                     }
                     if (text.indexOf(PREFIX_MARKDOWN) === 0) {
                         text = text.substr(PREFIX_MARKDOWN.length)
-                        var parsedText = Markdown.markdown_parser(text)
-                        currentRoom.postHtmlMessage(text, parsedText, RoomMessageEvent.Text)
+                        currentRoom.postMarkdownText(text)
                         return
                     }
 

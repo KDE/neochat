@@ -13,8 +13,6 @@ import Spectral 0.1
 import Spectral.Setting 0.1
 import SortFilterProxyModel 0.2
 
-import "qrc:/js/md.js" as Markdown
-
 Item {
     property var currentRoom: null
 

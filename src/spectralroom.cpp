@@ -14,6 +14,8 @@
 #include <QMetaObject>
 #include <QMimeDatabase>
 
+#include "cmark.h"
+
 #include "utils.h"
 
 SpectralRoom::SpectralRoom(Connection* connection, QString roomId,
@@ -232,4 +234,11 @@ QVariantList SpectralRoom::getUsers(const QString& prefix) {
       matchedList.append(QVariant::fromValue(u));
 
   return matchedList;
+}
+
+QString SpectralRoom::postMarkdownText(const QString& markdown) {
+    QByteArray local = markdown.toLocal8Bit();
+    const char* data = local.data();
+    QString html = cmark_markdown_to_html(data, local.length(), 0);
+    return postHtmlText(markdown, html);
 }
