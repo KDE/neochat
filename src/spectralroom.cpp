@@ -26,6 +26,10 @@ SpectralRoom::SpectralRoom(Connection* connection, QString roomId,
   connect(this, &SpectralRoom::highlightCountChanged, this,
           &SpectralRoom::countChanged);
   connect(this, &Room::addedMessages, this, [=] { setBusy(false); });
+  connect(this, &Room::fileTransferCompleted, this, [=] {
+    setFileUploadingProgress(0);
+    setHasFileUploading(false);
+  });
 }
 
 inline QString getMIME(const QUrl& fileUrl) {
@@ -37,69 +41,33 @@ inline QSize getImageSize(const QUrl& imageUrl) {
   return reader.size();
 }
 
-inline int getFileSize(const QUrl& url) {
-  QFileInfo info(url.toLocalFile());
-  return int(info.size());
-}
-
 void SpectralRoom::chooseAndUploadFile() {
   auto localFile = QFileDialog::getOpenFileUrl(Q_NULLPTR, tr("Save File as"));
   if (!localFile.isEmpty()) {
-    UploadContentJob* job =
-        connection()->uploadFile(localFile.toLocalFile(), getMIME(localFile));
-    if (isJobRunning(job)) {
-      setHasFileUploading(true);
-      connect(job, &BaseJob::uploadProgress, this,
-              [=](qint64 bytesSent, qint64 bytesTotal) {
-                if (bytesTotal != 0) {
-                  setFileUploadingProgress(bytesSent * 100 / bytesTotal);
-                }
-              });
-      connect(job, &BaseJob::success, this,
-              [=] { postFile(localFile, job->contentUri()); });
-      connect(job, &BaseJob::finished, this, [=] {
-        setHasFileUploading(false);
+    QString txnID = postFile(localFile.fileName(), localFile, false);
+    setHasFileUploading(true);
+    connect(this, &Room::fileTransferCompleted,
+            [=](QString id, QUrl localFile, QUrl mxcUrl) {
+              if (id == txnID) {
+                setFileUploadingProgress(0);
+                setHasFileUploading(false);
+              }
+            });
+    connect(this, &Room::fileTransferFailed, [=](QString id, QString error) {
+      if (id == txnID) {
         setFileUploadingProgress(0);
-      });
-    } else {
-      qDebug() << "Failed transfer.";
-    }
+        setHasFileUploading(false);
+      }
+    });
+    connect(
+        this, &Room::fileTransferProgress,
+        [=](QString id, qint64 progress, qint64 total) {
+          if (id == txnID) {
+            qDebug() << "Progress:" << progress << total;
+            setFileUploadingProgress(int(float(progress) / float(total) * 100));
+          }
+        });
   }
-}
-
-void SpectralRoom::postFile(const QUrl& localFile, const QUrl& mxcUrl) {
-  const QString mime = getMIME(localFile);
-  const QString fileName = localFile.fileName();
-  QString msgType = "m.file";
-  int fileSize = getFileSize(localFile);
-  QJsonObject json;
-  if (mime.startsWith("image")) {
-    msgType = "m.image";
-    QSize imageSize = getImageSize(localFile);
-    json = {{"msgtype", msgType},
-            {"body", fileName},
-            {"filename", fileName},
-            {"url", mxcUrl.url()},
-            {"info", QJsonObject{{"h", imageSize.height()},
-                                 {"w", imageSize.width()},
-                                 {"size", fileSize},
-                                 {"mimetype", mime},
-                                 {"thumbnail_url", mxcUrl.url()},
-                                 {"thumbnail_info",
-                                  QJsonObject{{"h", imageSize.height()},
-                                              {"w", imageSize.width()},
-                                              {"size", fileSize},
-                                              {"mimetype", mime}}}}}};
-  } else {
-    if (mime.startsWith("video")) msgType = "m.video";
-    if (mime.startsWith("audio")) msgType = "m.audio";
-    json = {{"msgtype", msgType},
-            {"body", fileName},
-            {"filename", fileName},
-            {"url", mxcUrl.url()},
-            {"info", QJsonObject{{"size", fileSize}, {"mimetype", mime}}}};
-  }
-  postJson("m.room.message", json);
 }
 
 void SpectralRoom::saveFileAs(QString eventId) {
@@ -237,8 +205,8 @@ QVariantList SpectralRoom::getUsers(const QString& prefix) {
 }
 
 QString SpectralRoom::postMarkdownText(const QString& markdown) {
-    QByteArray local = markdown.toLocal8Bit();
-    const char* data = local.data();
-    QString html = cmark_markdown_to_html(data, local.length(), 0);
-    return postHtmlText(markdown, html);
+  QByteArray local = markdown.toLocal8Bit();
+  const char* data = local.data();
+  QString html = cmark_markdown_to_html(data, local.length(), 0);
+  return postHtmlText(markdown, html);
 }

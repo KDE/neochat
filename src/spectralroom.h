@@ -85,8 +85,6 @@ class SpectralRoom : public Room {
 
   bool m_busy = false;
 
-  void postFile(const QUrl& localFile, const QUrl& mxcUrl);
-
   void checkForHighlights(const QMatrixClient::TimelineItem& ti);
 
   void onAddNewTimelineEvents(timeline_iter_t from) override;
