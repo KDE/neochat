@@ -43,6 +43,7 @@ $$USE_SYSTEM_CMARK {
     PKGCONFIG += libcmark
 } else {
     message("Falling back to built-in CMark.")
+    INCLUDEPATH += include/cmark
     HEADERS += \
         include/cmark/buffer.h \
         include/cmark/chunk.h \
