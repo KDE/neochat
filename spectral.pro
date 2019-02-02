@@ -43,7 +43,43 @@ $$USE_SYSTEM_CMARK {
     PKGCONFIG += libcmark
 } else {
     message("Falling back to built-in CMark.")
-    include(include/SortFilterProxyModel/SortFilterProxyModel.pri)
+    HEADERS += \
+        include/cmark/buffer.h \
+        include/cmark/chunk.h \
+        include/cmark/cmark.h \
+        include/cmark/cmark_ctype.h \
+        include/cmark/config.h \
+        include/cmark/houdini.h \
+        include/cmark/inlines.h \
+        include/cmark/iterator.h \
+        include/cmark/node.h \
+        include/cmark/parser.h \
+        include/cmark/references.h \
+        include/cmark/render.h \
+        include/cmark/scanners.h \
+        include/cmark/utf8.h
+
+    SOURCES += \
+        include/cmark/blocks.c \
+        include/cmark/buffer.c \
+        include/cmark/cmark.c \
+        include/cmark/cmark_ctype.c \
+        include/cmark/commonmark.c \
+        include/cmark/entities.inc \
+        include/cmark/houdini_href_e.c \
+        include/cmark/houdini_html_e.c \
+        include/cmark/houdini_html_u.c \
+        include/cmark/html.c \
+        include/cmark/inlines.c \
+        include/cmark/iterator.c \
+        include/cmark/latex.c \
+        include/cmark/man.c \
+        include/cmark/node.c \
+        include/cmark/references.c \
+        include/cmark/render.c \
+        include/cmark/scanners.c \
+        include/cmark/utf8.c \
+        include/cmark/xml.c
 }
 
 # The following define makes your compiler emit warnings if you use

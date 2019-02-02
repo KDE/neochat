@@ -389,31 +389,9 @@ Item {
                         }
                     }
 
-                    Rectangle {
-                        Layout.preferredWidth: 6
-                        Layout.preferredHeight: 6
-                        Layout.alignment: Qt.AlignCenter
-
-                        color: MPalette.accent
-                        radius: height / 2
-                    }
-
-                    Rectangle {
-                        Layout.preferredWidth: 6
-                        Layout.preferredHeight: 6
-                        Layout.alignment: Qt.AlignCenter
-
-                        color: MPalette.accent
-                        radius: height / 2
-                    }
-
-                    Rectangle {
-                        Layout.preferredWidth: 6
-                        Layout.preferredHeight: 6
-                        Layout.alignment: Qt.AlignCenter
-
-                        color: MPalette.accent
-                        radius: height / 2
+                    BusyIndicator {
+                        Layout.preferredWidth: 32
+                        Layout.preferredHeight: 32
                     }
                 }
 
