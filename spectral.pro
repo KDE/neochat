@@ -48,6 +48,7 @@ $$USE_SYSTEM_CMARK {
         include/cmark/chunk.h \
         include/cmark/cmark.h \
         include/cmark/cmark_ctype.h \
+        include/cmark/cmark_export.h \
         include/cmark/config.h \
         include/cmark/houdini.h \
         include/cmark/inlines.h \
