@@ -34,12 +34,8 @@ void UserListModel::setRoom(QMatrixClient::Room* room) {
     connect(m_currentRoom, &Room::memberRenamed, this,
             &UserListModel::userAdded);
     {
-      QElapsedTimer et;
-      et.start();
       m_users = m_currentRoom->users();
       std::sort(m_users.begin(), m_users.end(), room->memberSorter());
-      qDebug() << "Sorting" << m_users.size() << "user(s) in"
-               << m_currentRoom->displayName() << "took" << et;
     }
     for (User* user : m_users) {
       connect(user, &User::avatarChanged, this, &UserListModel::avatarChanged);
@@ -72,8 +68,8 @@ QVariant UserListModel::data(const QModelIndex& index, int role) const {
   if (role == UserIDRole) {
     return user->id();
   }
-  if (role == PaintableRole) {
-    return QVariant::fromValue((static_cast<SpectralUser*>(user))->paintable());
+  if (role == AvatarRole) {
+    return user->avatarMediaId();
   }
 
   return QVariant();
@@ -115,7 +111,7 @@ void UserListModel::refresh(QMatrixClient::User* user, QVector<int> roles) {
 
 void UserListModel::avatarChanged(QMatrixClient::User* user,
                                   const QMatrixClient::Room* context) {
-  if (context == m_currentRoom) refresh(user, {PaintableRole});
+  if (context == m_currentRoom) refresh(user, {AvatarRole});
 }
 
 int UserListModel::findUserPos(User* user) const {
@@ -130,6 +126,6 @@ QHash<int, QByteArray> UserListModel::roleNames() const {
   QHash<int, QByteArray> roles;
   roles[NameRole] = "name";
   roles[UserIDRole] = "userId";
-  roles[PaintableRole] = "paintable";
+  roles[AvatarRole] = "avatar";
   return roles;
 }

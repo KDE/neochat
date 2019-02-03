@@ -31,7 +31,7 @@ class RoomListModel : public QAbstractListModel {
  public:
   enum EventRoles {
     NameRole = Qt::UserRole + 1,
-    PaintableRole,
+    AvatarRole,
     TopicRole,
     CategoryRole,
     UnreadCountRole,
@@ -76,7 +76,7 @@ class RoomListModel : public QAbstractListModel {
   void roomAdded(SpectralRoom* room);
   void newMessage(const QString& roomId, const QString& eventId,
                   const QString& roomName, const QString& senderName,
-                  const QString& text, const QImage& icon, const QUrl& iconPath);
+                  const QString& text, const QImage& icon);
 };
 
 #endif  // ROOMLISTMODEL_H

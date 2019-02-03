@@ -1,7 +1,6 @@
 #ifndef SpectralRoom_H
 #define SpectralRoom_H
 
-#include "paintable.h"
 #include "room.h"
 #include "spectraluser.h"
 
@@ -11,31 +10,10 @@
 
 using namespace QMatrixClient;
 
-class RoomPaintable : public Paintable {
-  Q_OBJECT
- public:
-  RoomPaintable(Room* parent) : Paintable(parent), m_room(parent) {
-    connect(m_room, &Room::avatarChanged, [=] { emit paintableChanged(); });
-  }
-
-  QImage image(int dimension) override {
-    if (!m_room) return QImage();
-    return m_room->avatar(dimension);
-  }
-  QImage image(int width, int height) override {
-    if (!m_room) return QImage();
-    return m_room->avatar(width, height);
-  }
-
- private:
-  Room* m_room;
-};
-
 class SpectralRoom : public Room {
   Q_OBJECT
-  Q_PROPERTY(Paintable* paintable READ paintable CONSTANT)
   Q_PROPERTY(bool hasUsersTyping READ hasUsersTyping NOTIFY typingChanged)
-  Q_PROPERTY(QString usersTyping READ getUsersTyping NOTIFY typingChanged)
+  Q_PROPERTY(QVariantList usersTyping READ getUsersTyping NOTIFY typingChanged)
   Q_PROPERTY(QString cachedInput READ cachedInput WRITE setCachedInput NOTIFY
                  cachedInputChanged)
   Q_PROPERTY(bool hasFileUploading READ hasFileUploading NOTIFY
@@ -47,8 +25,6 @@ class SpectralRoom : public Room {
  public:
   explicit SpectralRoom(Connection* connection, QString roomId,
                         JoinState joinState = {});
-
-  Paintable* paintable() { return &m_paintable; }
 
   const QString& cachedInput() const { return m_cachedInput; }
   void setCachedInput(const QString& input) {
@@ -67,7 +43,7 @@ class SpectralRoom : public Room {
   }
 
   bool hasUsersTyping();
-  QString getUsersTyping();
+  QVariantList getUsersTyping();
 
   QString lastEvent();
   bool isEventHighlighted(const QMatrixClient::RoomEvent* e) const;
@@ -90,7 +66,6 @@ class SpectralRoom : public Room {
     }
   }
 
-  Q_INVOKABLE float orderForTag(QString name);
   Q_INVOKABLE int savedTopVisibleIndex() const;
   Q_INVOKABLE int savedBottomVisibleIndex() const;
   Q_INVOKABLE void saveViewport(int topIndex, int bottomIndex);
@@ -98,6 +73,8 @@ class SpectralRoom : public Room {
   Q_INVOKABLE void getPreviousContent(int limit = 10);
 
   Q_INVOKABLE QVariantList getUsers(const QString& prefix);
+
+  Q_INVOKABLE QString postMarkdownText(const QString& markdown);
 
  private:
   QString m_cachedInput;
@@ -107,9 +84,6 @@ class SpectralRoom : public Room {
   int m_fileUploadingProgress = 0;
 
   bool m_busy = false;
-
-  QString getMIME(const QUrl& fileUrl) const;
-  void postFile(const QUrl& localFile, const QUrl& mxcUrl);
 
   void checkForHighlights(const QMatrixClient::TimelineItem& ti);
 
@@ -133,9 +107,6 @@ class SpectralRoom : public Room {
   void sendTypingNotification(bool isTyping);
   void sendReply(QString userId, QString eventId, QString replyContent,
                  QString sendContent);
-
- private:
-  RoomPaintable m_paintable;
 };
 
 #endif  // SpectralRoom_H

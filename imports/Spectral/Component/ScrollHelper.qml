@@ -1,5 +1,5 @@
-import QtQuick 2.9
-import QtQuick.Controls 2.2
+import QtQuick 2.12
+import QtQuick.Controls 2.12
 
 MouseArea {
     id: root
@@ -66,14 +66,13 @@ MouseArea {
     }
 
     onWheel: {
-        var newPos = calculateNewPosition(flickable, wheel);
         // console.warn("Delta: ", wheel.pixelDelta.y);
         // console.warn("Old position: ", flickable.contentY);
         // console.warn("New position: ", newPos);
 
         // Show the scrollbars
         flickable.flick(0, 0);
-        flickable.contentY = newPos;
+        flickable.contentY = calculateNewPosition(flickable, wheel);
         cancelFlickStateTimer.start()
     }
 

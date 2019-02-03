@@ -1,94 +1,107 @@
-import QtQuick 2.9
-import QtQuick.Controls 2.2
-import QtQuick.Layouts 1.3
-import QtQuick.Controls.Material 2.2
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.12
+import QtQuick.Controls.Material 2.12
+
+import Spectral.Component 2.0
 
 import Spectral 0.1
+import Spectral.Setting 0.1
 
-Popup {
-    property var emojiModel
-    property var textArea
+ColumnLayout {
     property string emojiCategory: "people"
+    property var textArea
+    property var emojiModel
 
-    ColumnLayout {
-        anchors.fill: parent
+    spacing: 0
 
-        GridView {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
+    ListView {
+        Layout.fillWidth: true
+        Layout.preferredHeight: 48
+        Layout.leftMargin: 24
+        Layout.rightMargin: 24
 
-            cellWidth: 36
-            cellHeight: 36
+        boundsBehavior: Flickable.DragOverBounds
 
-            boundsBehavior: Flickable.DragOverBounds
+        clip: true
 
-            clip: true
+        orientation: ListView.Horizontal
 
-            model: emojiModel.model[emojiCategory]
+        model: ListModel {
+            ListElement { label: "😏"; category: "people" }
+            ListElement { label: "🌲"; category: "nature" }
+            ListElement { label: "🍛"; category: "food"}
+            ListElement { label: "🚁"; category: "activity" }
+            ListElement { label: "🚅"; category: "travel" }
+            ListElement { label: "💡"; category: "objects" }
+            ListElement { label: "🔣"; category: "symbols" }
+            ListElement { label: "🏁"; category: "flags" }
+        }
 
-            delegate: ItemDelegate {
-                width: 36
-                height: 36
+        delegate: ItemDelegate {
+            width: 64
+            height: 48
 
-                contentItem: Text {
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
+            contentItem: Label {
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
 
-                    font.pointSize: 20
-                    font.family: "Emoji"
-                    text: modelData.unicode
-                }
-
-                hoverEnabled: true
-                ToolTip.text: modelData.shortname
-                ToolTip.visible: hovered
-
-                onClicked: textArea.insert(textArea.cursorPosition, modelData.unicode)
+                font.pixelSize: 24
+                text: label
             }
 
-            ScrollBar.vertical: ScrollBar {}
-        }
+            Rectangle {
+                anchors.bottom: parent.bottom
 
-        Rectangle {
-            Layout.fillWidth: true
-            Layout.preferredHeight: 2
+                width: parent.width
+                height: 2
 
-            color: Material.accent
-        }
+                visible: emojiCategory === category
 
-        Row {
-            Repeater {
-                model: ListModel {
-                    ListElement { label: "😏"; category: "people" }
-                    ListElement { label: "🌲"; category: "nature" }
-                    ListElement { label: "🍛"; category: "food"}
-                    ListElement { label: "🚁"; category: "activity" }
-                    ListElement { label: "🚅"; category: "travel" }
-                    ListElement { label: "💡"; category: "objects" }
-                    ListElement { label: "🔣"; category: "symbols" }
-                    ListElement { label: "🏁"; category: "flags" }
-                }
-
-                delegate: ItemDelegate {
-                    width: 36
-                    height: 36
-
-                    contentItem: Text {
-                        horizontalAlignment: Text.AlignHCenter
-                        verticalAlignment: Text.AlignVCenter
-
-                        font.pointSize: 20
-                        font.family: "Emoji"
-                        text: label
-                    }
-
-                    hoverEnabled: true
-                    ToolTip.text: category
-                    ToolTip.visible: hovered
-
-                    onClicked: emojiCategory = category
-                }
+                color: Material.accent
             }
+
+            onClicked: emojiCategory = category
         }
+    }
+
+    Rectangle {
+        Layout.fillWidth: true
+        Layout.preferredHeight: 1
+        Layout.leftMargin: 12
+        Layout.rightMargin: 12
+
+        color: MSettings.darkTheme ? "#424242" : "#e7ebeb"
+    }
+
+    GridView {
+        Layout.fillWidth: true
+        Layout.preferredHeight: 180
+
+        cellWidth: 48
+        cellHeight: 48
+
+        boundsBehavior: Flickable.DragOverBounds
+
+        clip: true
+
+        model: emojiModel.model[emojiCategory]
+
+        delegate: ItemDelegate {
+            width: 48
+            height: 48
+
+            contentItem: Label {
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+
+                font.pixelSize: 32
+                text: modelData.unicode
+            }
+
+            onClicked: textArea.insert(textArea.cursorPosition, modelData.unicode)
+        }
+
+        ScrollBar.vertical: ScrollBar {}
     }
 }

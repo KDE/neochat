@@ -20,6 +20,12 @@ isEmpty(USE_SYSTEM_SORTFILTERPROXYMODEL) {
 isEmpty(USE_SYSTEM_QMATRIXCLIENT) {
     USE_SYSTEM_QMATRIXCLIENT = false
 }
+isEmpty(USE_SYSTEM_CMARK) {
+    USE_SYSTEM_CMARK = false
+}
+isEmpty(BUNDLE_FONT) {
+    BUNDLE_FONT = false
+}
 
 $$USE_SYSTEM_QMATRIXCLIENT {
     PKGCONFIG += QMatrixClient
@@ -33,6 +39,50 @@ $$USE_SYSTEM_SORTFILTERPROXYMODEL {
     message("Falling back to built-in SortFilterProxyModel.")
     include(include/SortFilterProxyModel/SortFilterProxyModel.pri)
 }
+$$USE_SYSTEM_CMARK {
+    PKGCONFIG += libcmark
+} else {
+    message("Falling back to built-in CMark.")
+    INCLUDEPATH += include/cmark
+    HEADERS += \
+        include/cmark/buffer.h \
+        include/cmark/chunk.h \
+        include/cmark/cmark.h \
+        include/cmark/cmark_ctype.h \
+        include/cmark/cmark_export.h \
+        include/cmark/config.h \
+        include/cmark/houdini.h \
+        include/cmark/inlines.h \
+        include/cmark/iterator.h \
+        include/cmark/node.h \
+        include/cmark/parser.h \
+        include/cmark/references.h \
+        include/cmark/render.h \
+        include/cmark/scanners.h \
+        include/cmark/utf8.h
+
+    SOURCES += \
+        include/cmark/blocks.c \
+        include/cmark/buffer.c \
+        include/cmark/cmark.c \
+        include/cmark/cmark_ctype.c \
+        include/cmark/commonmark.c \
+        include/cmark/entities.inc \
+        include/cmark/houdini_href_e.c \
+        include/cmark/houdini_html_e.c \
+        include/cmark/houdini_html_u.c \
+        include/cmark/html.c \
+        include/cmark/inlines.c \
+        include/cmark/iterator.c \
+        include/cmark/latex.c \
+        include/cmark/man.c \
+        include/cmark/node.c \
+        include/cmark/references.c \
+        include/cmark/render.c \
+        include/cmark/scanners.c \
+        include/cmark/utf8.c \
+        include/cmark/xml.c
+}
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked deprecated (the exact warnings
@@ -45,8 +95,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-RESOURCES += \
-    res.qrc
+RESOURCES += res.qrc
+$$BUNDLE_FONT {
+    message("Bundling fonts.")
+    DEFINES += BUNDLE_FONT
+    RESOURCES += font.qrc
+} else {
+    message("Using fonts from operating system.")
+}
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH += imports/
@@ -94,12 +150,10 @@ HEADERS += \
     src/emojimodel.h \
     src/spectralroom.h \
     src/userlistmodel.h \
-    src/imageitem.h \
     src/accountlistmodel.h \
     src/spectraluser.h \
     src/notifications/manager.h \
-    src/utils.h \
-    src/paintable.h
+    src/utils.h
 
 SOURCES += src/main.cpp \
     src/controller.cpp \
@@ -109,11 +163,9 @@ SOURCES += src/main.cpp \
     src/emojimodel.cpp \
     src/spectralroom.cpp \
     src/userlistmodel.cpp \
-    src/imageitem.cpp \
     src/accountlistmodel.cpp \
     src/spectraluser.cpp \
-    src/utils.cpp \
-    src/paintable.cpp
+    src/utils.cpp
 
 unix:!mac {
     SOURCES += src/notifications/managerlinux.cpp

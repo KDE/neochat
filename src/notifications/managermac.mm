@@ -19,13 +19,11 @@ NotificationsManager::postNotification(
                 const QString &roomName,
                 const QString &senderName,
                 const QString &text,
-                const QImage &icon,
-                const QUrl &iconPath)
+                const QImage &icon)
 {
     Q_UNUSED(roomId);
     Q_UNUSED(eventId);
     Q_UNUSED(icon);
-    Q_UNUSED(iconPath);
 
     NSUserNotification * notif = [[NSUserNotification alloc] init];
 

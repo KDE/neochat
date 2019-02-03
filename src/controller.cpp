@@ -10,6 +10,8 @@
 #include "csapi/joining.h"
 #include "csapi/logout.h"
 
+#include "utils.h"
+
 #include <QClipboard>
 #include <QFile>
 #include <QFileInfo>
@@ -42,8 +44,8 @@ Controller::Controller(QObject* parent)
 
 Controller::~Controller() {
   for (Connection* c : m_connections) {
-    c->saveState();
     c->stopSync();
+    c->saveState();
   }
 }
 
@@ -58,29 +60,29 @@ inline QString accessTokenFileName(const AccountSettings& account) {
 void Controller::loginWithCredentials(QString serverAddr, QString user,
                                       QString pass) {
   if (!user.isEmpty() && !pass.isEmpty()) {
-    Connection* m_connection = new Connection(this);
-    m_connection->setHomeserver(QUrl(serverAddr));
-    m_connection->connectToServer(user, pass, "");
-    connect(m_connection, &Connection::connected, [=] {
-      AccountSettings account(m_connection->userId());
+    Connection* conn = new Connection(this);
+    conn->setHomeserver(QUrl(serverAddr));
+    conn->connectToServer(user, pass, "");
+    connect(conn, &Connection::connected, [=] {
+      AccountSettings account(conn->userId());
       account.setKeepLoggedIn(true);
       account.clearAccessToken();  // Drop the legacy - just in case
-      account.setHomeserver(m_connection->homeserver());
-      account.setDeviceId(m_connection->deviceId());
+      account.setHomeserver(conn->homeserver());
+      account.setDeviceId(conn->deviceId());
       account.setDeviceName("Spectral");
-      if (!saveAccessToken(account, m_connection->accessToken()))
+      if (!saveAccessToken(account, conn->accessToken()))
         qWarning() << "Couldn't save access token";
       account.sync();
-      addConnection(m_connection);
+      addConnection(conn);
+      setConnection(conn);
     });
-    connect(m_connection, &Connection::networkError,
-            [=](QString error, QByteArray detail) {
-              emit errorOccured("Network", error);
+    connect(conn, &Connection::networkError,
+            [=](QString error, QString, int, int) {
+              emit errorOccured("Network Error", error);
             });
-    connect(m_connection, &Connection::loginError,
-            [=](QString error, QByteArray detail) {
-              emit errorOccured("Login Failed", error);
-            });
+    connect(conn, &Connection::loginError, [=](QString error, QString) {
+      emit errorOccured("Login Failed", error);
+    });
   }
 }
 
@@ -98,6 +100,7 @@ void Controller::logout(Connection* conn) {
     conn->stopSync();
     emit conn->stateChanged();
     emit conn->loggedOut();
+    if (!m_connections.isEmpty()) setConnection(m_connections[0]);
   });
   connect(job, &LogoutJob::failure, this, [=] {
     emit errorOccured("Server-side Logout Failed", job->errorString());
@@ -109,11 +112,12 @@ void Controller::addConnection(Connection* c) {
 
   m_connections.push_back(c);
 
-  connect(c, &Connection::syncDone, this, [=] {
-    c->sync(30000);
+  c->setLazyLoading(true);
 
-    static int counter = 0;
-    if (++counter % 17 == 2) c->saveState();
+  connect(c, &Connection::syncDone, this, [=] {
+    emit syncDone();
+    c->sync(30000);
+    c->saveState();
   });
   connect(c, &Connection::loggedOut, this, [=] { dropConnection(c); });
 
@@ -146,17 +150,17 @@ void Controller::invokeLogin() {
         c->loadState();
         addConnection(c);
       });
-      connect(c, &Connection::loginError,
-              [=](QString error, QByteArray detail) {
-                emit errorOccured("Login Failed", error);
-              });
+      connect(c, &Connection::loginError, [=](QString error, QString) {
+        emit errorOccured("Login Failed", error);
+      });
       connect(c, &Connection::networkError,
-              [=](QString error, QByteArray detail) {
-                emit errorOccured("Network", error);
+              [=](QString error, QString, int, int) {
+                emit errorOccured("Network Error", error);
               });
       c->connectWithToken(account.userId(), accessToken, account.deviceId());
     }
   }
+  if (!m_connections.isEmpty()) setConnection(m_connections[0]);
   emit initiated();
 }
 
@@ -184,7 +188,7 @@ bool Controller::saveAccessToken(const AccountSettings& account,
   auto fileDir = QFileInfo(accountTokenFile).dir();
   if (!((fileDir.exists() || fileDir.mkpath(".")) &&
         accountTokenFile.open(QFile::WriteOnly))) {
-    emit errorOccured("Token", "Cannot save access token.");
+    emit errorOccured("I/O Denied", "Cannot save access token.");
   } else {
     accountTokenFile.write(accessToken);
     return true;
@@ -227,19 +231,22 @@ void Controller::playAudio(QUrl localFile) {
   connect(player, &QMediaPlayer::stateChanged, [=] { player->deleteLater(); });
 }
 
-QColor Controller::color(QString userId) {
-  return QColor(SettingsGroup("UI/Color").value(userId, "#498882").toString());
-}
-
-void Controller::setColor(QString userId, QColor newColor) {
-  SettingsGroup("UI/Color").setValue(userId, newColor.name());
-}
-
 void Controller::postNotification(const QString& roomId, const QString& eventId,
                                   const QString& roomName,
                                   const QString& senderName,
-                                  const QString& text, const QImage& icon,
-                                  const QUrl& iconPath) {
+                                  const QString& text, const QImage& icon) {
   notificationsManager.postNotification(roomId, eventId, roomName, senderName,
-                                        text, icon, iconPath);
+                                        text, icon);
+}
+
+int Controller::dpi() {
+  return SettingsGroup("Interface").value("dpi", 100).toInt();
+}
+
+void Controller::setDpi(int dpi) {
+  SettingsGroup("Interface").setValue("dpi", dpi);
+}
+
+QString Controller::removeReply(const QString& text) {
+  return utils::removeReply(text);
 }

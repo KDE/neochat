@@ -9,15 +9,10 @@
 #include <events/roommemberevent.h>
 #include <events/simplestateevents.h>
 
-#include <QRegExp>
 #include <QtCore/QDebug>
 #include <QtQml>  // for qmlRegisterType()
 
 #include "utils.h"
-
-static QString parseAvatarUrl(QUrl url) {
-  return url.host() + "/" + url.path();
-}
 
 QHash<int, QByteArray> MessageEventModel::roleNames() const {
   QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
@@ -39,6 +34,9 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const {
   roles[LongOperationRole] = "progressInfo";
   roles[AnnotationRole] = "annotation";
   roles[EventResolvedTypeRole] = "eventResolvedType";
+  roles[ReplyEventIdRole] = "replyEventId";
+  roles[ReplyAuthorRole] = "replyAuthor";
+  roles[ReplyDisplayRole] = "replyDisplay";
   roles[UserMarkerRole] = "userMarker";
   return roles;
 }
@@ -89,6 +87,9 @@ void MessageEventModel::setRoom(SpectralRoom *room) {
                                   {AboveEventTypeRole, AboveAuthorRole,
                                    AboveSectionRole, AboveTimeRole});
               }
+              for (auto i = m_currentRoom->maxTimelineIndex() - biggest;
+                   i <= m_currentRoom->maxTimelineIndex() - lowest; ++i)
+                refreshLastUserEvents(i);
             });
     connect(m_currentRoom, &Room::pendingEventAboutToAdd, this,
             [this] { beginInsertRows({}, 0, 0); });
@@ -108,9 +109,10 @@ void MessageEventModel::setRoom(SpectralRoom *room) {
         endMoveRows();
         movingEvent = false;
       }
-      refreshRow(timelineBaseIndex());        // Refresh the looks
+      refreshRow(timelineBaseIndex());  // Refresh the looks
+      refreshLastUserEvents(0);
       if (m_currentRoom->timelineSize() > 1)  // Refresh above
-        refreshEventRoles(timelineBaseIndex() + 1);
+        refreshEventRoles(timelineBaseIndex() + 1, {ReadMarkerRole});
       if (timelineBaseIndex() > 0)  // Refresh below, see #312
         refreshEventRoles(timelineBaseIndex() - 1,
                           {AboveEventTypeRole, AboveAuthorRole,
@@ -128,9 +130,11 @@ void MessageEventModel::setRoom(SpectralRoom *room) {
           {ReadMarkerRole});
       refreshEventRoles(lastReadEventId, {ReadMarkerRole});
     });
-    connect(
-        m_currentRoom, &Room::replacedEvent, this,
-        [this](const RoomEvent *newEvent) { refreshEvent(newEvent->id()); });
+    connect(m_currentRoom, &Room::replacedEvent, this,
+            [this](const RoomEvent *newEvent) {
+              refreshLastUserEvents(refreshEvent(newEvent->id()) -
+                                    timelineBaseIndex());
+            });
     connect(m_currentRoom, &Room::fileTransferProgress, this,
             &MessageEventModel::refreshEvent);
     connect(m_currentRoom, &Room::fileTransferCompleted, this,
@@ -140,7 +144,7 @@ void MessageEventModel::setRoom(SpectralRoom *room) {
     connect(m_currentRoom, &Room::fileTransferCancelled, this,
             &MessageEventModel::refreshEvent);
     connect(m_currentRoom, &Room::readMarkerForUserMoved, this,
-            [=](User *user, QString fromEventId, QString toEventId) {
+            [=](User *, QString fromEventId, QString toEventId) {
               refreshEventRoles(fromEventId, {UserMarkerRole});
               refreshEventRoles(toEventId, {UserMarkerRole});
             });
@@ -214,6 +218,23 @@ QString MessageEventModel::renderDate(QDateTime timestamp) const {
   return date.toString(Qt::DefaultLocaleShortDate);
 }
 
+void MessageEventModel::refreshLastUserEvents(int baseTimelineRow) {
+  if (!m_currentRoom || m_currentRoom->timelineSize() <= baseTimelineRow)
+    return;
+
+  const auto &timelineBottom = m_currentRoom->messageEvents().rbegin();
+  const auto &lastSender = (*(timelineBottom + baseTimelineRow))->senderId();
+  const auto limit = timelineBottom + std::min(baseTimelineRow + 10,
+                                               m_currentRoom->timelineSize());
+  for (auto it = timelineBottom + std::max(baseTimelineRow - 10, 0);
+       it != limit; ++it) {
+    if ((*it)->senderId() == lastSender) {
+      auto idx = index(it - timelineBottom);
+      emit dataChanged(idx, idx);
+    }
+  }
+}
+
 int MessageEventModel::rowCount(const QModelIndex &parent) const {
   if (!m_currentRoom || parent.isValid()) return 0;
   return m_currentRoom->timelineSize();
@@ -235,13 +256,11 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const {
   const auto &evt = isPending ? **pendingIt : **timelineIt;
 
   if (role == Qt::DisplayRole) {
-    return utils::eventToString(evt, m_currentRoom, Qt::RichText);
+    return utils::removeReply(utils::eventToString(evt, m_currentRoom, Qt::RichText));
   }
 
   if (role == MessageRole) {
-    static const QRegExp rmReplyRegExp("^> <@.*:.*> .*\n\n(.*)");
-    return utils::eventToString(evt, m_currentRoom)
-        .replace(rmReplyRegExp, "\\1");
+    return utils::removeReply(utils::eventToString(evt, m_currentRoom));
   }
 
   if (role == Qt::ToolTipRole) {
@@ -306,13 +325,14 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const {
 
   if (role == HighlightRole) return m_currentRoom->isEventHighlighted(&evt);
 
-  if (role == ReadMarkerRole) return evt.id() == lastReadEventId && row > timelineBaseIndex();
+  if (role == ReadMarkerRole)
+    return evt.id() == lastReadEventId && row > timelineBaseIndex();
 
   if (role == SpecialMarksRole) {
     if (isPending) return pendingIt->deliveryStatus();
 
     if (is<RedactionEvent>(evt)) return EventStatus::Hidden;
-    if (evt.isRedacted()) return EventStatus::Redacted;
+    if (evt.isRedacted()) return EventStatus::Hidden;
 
     if (evt.isStateEvent() &&
         static_cast<const StateEventBase &>(evt).repeatsState())
@@ -346,6 +366,28 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const {
       variantList.append(QVariant::fromValue(user));
     }
     return variantList;
+  }
+
+  if (role == ReplyEventIdRole || role == ReplyDisplayRole ||
+      role == ReplyAuthorRole) {
+    const QString &replyEventId = evt.contentJson()["m.relates_to"]
+                                      .toObject()["m.in_reply_to"]
+                                      .toObject()["event_id"]
+                                      .toString();
+    if (replyEventId.isEmpty()) return {};
+    const auto replyIt = m_currentRoom->findInTimeline(replyEventId);
+    if (replyIt == m_currentRoom->timelineEdge()) return {};
+    const auto& replyEvt = **replyIt;
+    switch (role) {
+      case ReplyEventIdRole:
+        return replyEventId;
+      case ReplyDisplayRole:
+        return utils::removeReply(utils::eventToString(replyEvt, m_currentRoom, Qt::RichText));
+      case ReplyAuthorRole:
+        return QVariant::fromValue(
+            m_currentRoom->user(replyEvt.senderId()));
+    }
+    return {};
   }
 
   if (role == AboveEventTypeRole || role == AboveSectionRole ||

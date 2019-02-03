@@ -20,6 +20,8 @@ class Controller : public QObject {
                  connectionDropped)
   Q_PROPERTY(bool quitOnLastWindowClosed READ quitOnLastWindowClosed WRITE
                  setQuitOnLastWindowClosed NOTIFY quitOnLastWindowClosedChanged)
+  Q_PROPERTY(Connection* connection READ connection WRITE setConnection NOTIFY
+                 connectionChanged)
 
  public:
   explicit Controller(QObject* parent = nullptr);
@@ -29,6 +31,9 @@ class Controller : public QObject {
   Q_INVOKABLE void loginWithCredentials(QString, QString, QString);
 
   QVector<Connection*> connections() { return m_connections; }
+
+  Q_INVOKABLE int dpi();
+  Q_INVOKABLE void setDpi(int dpi);
 
   // All the non-Q_INVOKABLE functions.
   void addConnection(Connection* c);
@@ -47,13 +52,23 @@ class Controller : public QObject {
     }
   }
 
-  Q_INVOKABLE QColor color(QString userId);
-  Q_INVOKABLE void setColor(QString userId, QColor newColor);
+  Connection* connection() {
+    if (m_connection.isNull()) return nullptr;
+    return m_connection;
+  }
+
+  void setConnection(Connection* conn) {
+    if (!conn) return;
+    if (conn == m_connection) return;
+    m_connection = conn;
+    emit connectionChanged();
+  }
 
  private:
   QClipboard* m_clipboard = QApplication::clipboard();
   NotificationsManager notificationsManager;
   QVector<Connection*> m_connections;
+  QPointer<Connection> m_connection;
 
   QByteArray loadAccessToken(const AccountSettings& account);
   bool saveAccessToken(const AccountSettings& account,
@@ -61,17 +76,21 @@ class Controller : public QObject {
   void loadSettings();
   void saveSettings() const;
 
+  Q_INVOKABLE QString removeReply(const QString& text);
+
  private slots:
   void invokeLogin();
 
  signals:
   void busyChanged();
   void errorOccured(QString error, QString detail);
+  void syncDone();
   void connectionAdded(Connection* conn);
   void connectionDropped(Connection* conn);
   void initiated();
   void notificationClicked(const QString roomId, const QString eventId);
   void quitOnLastWindowClosedChanged();
+  void connectionChanged();
 
  public slots:
   void logout(Connection* conn);
@@ -82,8 +101,7 @@ class Controller : public QObject {
   void playAudio(QUrl localFile);
   void postNotification(const QString& roomId, const QString& eventId,
                         const QString& roomName, const QString& senderName,
-                        const QString& text, const QImage& icon,
-                        const QUrl& iconPath);
+                        const QString& text, const QImage& icon);
 };
 
 #endif  // CONTROLLER_H

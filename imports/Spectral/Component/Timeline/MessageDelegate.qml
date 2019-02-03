@@ -1,254 +1,217 @@
-import QtQuick 2.9
-import QtQuick.Controls 2.2
-import QtQuick.Layouts 1.3
-import QtQuick.Controls.Material 2.2
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.12
+import QtQuick.Controls.Material 2.12
 
 import Spectral 0.1
 import Spectral.Setting 0.1
 
 import Spectral.Component 2.0
+import Spectral.Font 0.1
 
-RowLayout {
+ColumnLayout {
     readonly property bool avatarVisible: !sentByMe && (aboveAuthor !== author || aboveSection !== section || aboveEventType === "state" || aboveEventType === "emote" || aboveEventType === "other")
-    readonly property bool highlighted: !(sentByMe || eventType === "notice" )
     readonly property bool sentByMe: author === currentRoom.localUser
-    readonly property bool isText: eventType === "notice" || eventType === "message"
 
     signal saveFileAs()
     signal openExternally()
 
-    z: -5
-
-    id: messageRow
-
     Layout.alignment: sentByMe ? Qt.AlignRight : Qt.AlignLeft
 
-    spacing: 6
+    id: root
 
-    ImageItem {
-        Layout.preferredWidth: 40
-        Layout.preferredHeight: 40
-        Layout.alignment: Qt.AlignTop
+    spacing: 0
 
-        round: false
+    Label {
+        Layout.leftMargin: 48
+
+        text: author.displayName
+
         visible: avatarVisible
-        hint: author.displayName
-        source: author.paintable
+
+        font.pixelSize: 13
+        verticalAlignment: Text.AlignVCenter
     }
 
-    Rectangle {
-        Layout.preferredWidth: 40
-        Layout.preferredHeight: 40
-        Layout.alignment: Qt.AlignTop
+    RowLayout {
+        z: -5
 
-        color: "transparent"
-        visible: !(sentByMe || avatarVisible)
-    }
+        id: messageRow
 
-    GenericBubble {
-        Layout.maximumWidth: messageListView.width - (!sentByMe ? 40 + messageRow.spacing : 0)
+        spacing: 4
 
-        id: genericBubble
+        Avatar {
+            Layout.preferredWidth: 32
+            Layout.preferredHeight: 32
+            Layout.alignment: Qt.AlignTop
 
-        highlighted: messageRow.highlighted
-        colored: highlighted && (eventType === "notice" || highlight)
+            visible: avatarVisible
+            hint: author.displayName
+            source: author.avatarMediaId
+        }
 
-        contentItem: ColumnLayout {
-            id: messageColumn
+        Label {
+            Layout.preferredWidth: 32
+            Layout.preferredHeight: 32
+            Layout.alignment: Qt.AlignTop
 
-            spacing: 0
+            visible: !(sentByMe || avatarVisible)
 
-            TimelineLabel {
-                Layout.fillWidth: true
+            text: Qt.formatDateTime(time, "hh:mm")
+            color: MPalette.lighter
 
-                id: authorLabel
+            font.pixelSize: 10
+            horizontalAlignment: Label.AlignHCenter
+            verticalAlignment: Label.AlignVCenter
+        }
 
-                visible: messageRow.avatarVisible
-                text: author.displayName
-                Material.foreground: Material.accent
-                coloredBackground: highlighted
-                font.bold: true
+        Control {
+            Layout.maximumWidth: messageListView.width - (!sentByMe ? 32 + messageRow.spacing : 0) - 48
 
-                MouseArea {
+            verticalPadding: 8
+            horizontalPadding: 16
+
+            background: Rectangle {
+                color: sentByMe ? "#009DC2" : eventType === "notice" ? "#4285F4" : "#673AB7"
+                radius: 18
+
+                AutoMouseArea {
                     anchors.fill: parent
-                    cursorShape: Qt.PointingHandCursor
-                    onClicked: roomPanelInput.insert(author.displayName)
-                }
-            }
 
-            TextEdit {
-                Layout.fillWidth: true
+                    id: messageMouseArea
 
-                id: contentLabel
+                    onSecondaryClicked: messageContextMenu.popup()
 
-                text: (highlighted  ? "<style>a{color: white;} .user-pill{color: white}</style>" : "<style>a{color: " + Material.accent + ";} .user-pill{color: " + Material.accent + "}</style>") + display
+                    Menu {
+                        readonly property string selectedText: contentLabel.selectedText
 
-                visible: isText
-                color: highlighted ? "white": Material.foreground
+                        id: messageContextMenu
 
-                font.family: authorLabel.font.family
-                font.pointSize: 10
-                selectByMouse: true
-                readOnly: true
-                wrapMode: Label.Wrap
-                selectedTextColor: highlighted ? Material.accent : "white"
-                selectionColor: highlighted ? "white" : Material.accent
-                textFormat: Text.RichText
+                        MenuItem {
+                            text: "View Source"
 
-                onLinkActivated: Qt.openUrlExternally(link)
+                            onTriggered: {
+                                sourceDialog.sourceText = toolTip
+                                sourceDialog.open()
+                            }
+                        }
+                        MenuItem {
+                            text: "Reply"
 
-                MouseArea {
-                    anchors.fill: parent
-                    acceptedButtons: Qt.NoButton
-                    cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
-                }
-            }
+                            onTriggered: {
+                                roomPanelInput.replyUser = author
+                                roomPanelInput.replyEventID = eventId
+                                roomPanelInput.replyContent = messageContextMenu.selectedText || message
+                                roomPanelInput.isReply = true
+                                roomPanelInput.focus()
+                            }
+                        }
+                        MenuItem {
+                            text: "Redact"
 
-            Loader {
-                sourceComponent: {
-                    switch (eventType) {
-                    case "image":
-                        return imageComponent
-                    case "file":
-                        return fileComponent
-                    case "audio":
-                        return audioComponent
+                            onTriggered: currentRoom.redactEvent(eventId)
+                        }
                     }
                 }
-
-                active: eventType === "image" || eventType === "file" || eventType === "audio"
             }
 
-            Row {
-                Layout.alignment: Qt.AlignRight
+            contentItem: ColumnLayout {
+                Control {
+                    Layout.fillWidth: true
 
-                spacing: 4
+                    visible: replyEventId || ""
 
-                TimelineLabel {
-                    visible: userMarker.length > 5
-                    text: userMarker.length - 5 + "+"
-                    coloredBackground: highlighted
-                    Material.foreground: "grey"
-                    font.pointSize: 8
-                }
+                    padding: 8
 
-                Repeater {
-                    model: userMarker.length > 5 ? userMarker.slice(0, 5) : userMarker
+                    background: Item {
+                        Rectangle {
+                            anchors.leftMargin: 0
+                            width: 2
+                            height: parent.height
 
-                    ImageItem {
-                        width: parent.height
-                        height: parent.height
-
-                        hint: modelData.displayName
-                        source: modelData.paintable
-
+                            color: "white"
+                        }
                         MouseArea {
                             anchors.fill: parent
 
-                            cursorShape: Qt.PointingHandCursor
+                            onClicked: goToEvent(replyEventId)
+                        }
+                    }
 
-                            onClicked: {
-                                readMarkerDialog.listModel = userMarker
-                                readMarkerDialog.open()
+                    contentItem: RowLayout {
+                        spacing: 8
+
+                        Avatar {
+                            Layout.preferredWidth: 36
+                            Layout.preferredHeight: 36
+                            Layout.alignment: Qt.AlignTop
+
+                            source: replyAuthor ? replyAuthor.avatarMediaId : ""
+                            hint: replyAuthor ? replyAuthor.displayName : "H"
+                        }
+
+                        ColumnLayout {
+                            Layout.fillWidth: true
+
+                            spacing: 0
+
+                            Label {
+                                Layout.fillWidth: true
+
+                                color: "white"
+                                text: replyAuthor ? replyAuthor.displayName : ""
+
+                                font.pixelSize: 13
+                                font.weight: Font.Medium
+                            }
+
+                            Label {
+                                Layout.fillWidth: true
+
+                                color: "white"
+                                text: replyDisplay || ""
+
+                                wrapMode: Label.Wrap
+                                textFormat: Label.RichText
                             }
                         }
                     }
                 }
 
-                TimelineLabel {
-                    id: timeLabel
+                TextEdit {
+                    Layout.fillWidth: true
 
-                    visible: Math.abs(time - aboveTime) > 600000 || index == 0
-                    text: Qt.formatTime(time, "hh:mm")
-                    coloredBackground: highlighted
-                    Material.foreground: "grey"
-                    font.pointSize: 8
-                }
-            }
-        }
+                    id: contentLabel
 
-        Component {
-            id: imageComponent
+                    text: "<style>a{color: white;} .user-pill{}</style>" + display
 
-            DownloadableContent {
-                width: messageImage.width
-                height: messageImage.height
+                    color: "white"
 
-                id: downloadable
+                    font.family: CommonFont.font.family
+                    font.pixelSize: 14
+                    selectByMouse: true
+                    readOnly: true
+                    wrapMode: Label.Wrap
+                    selectedTextColor: Material.accent
+                    selectionColor: "white"
+                    textFormat: Text.RichText
 
-                TimelineImage {
-                    z: -4
-
-                    id: messageImage
-
-                    sourceSize: 128
-                    source: "image://mxc/" + (content.thumbnail_url ? content.thumbnail_url : content.url)
-
-                    onClicked: downloadAndOpen()
-                }
-
-                Component.onCompleted: {
-                    messageRow.saveFileAs.connect(saveFileAs)
-                    messageRow.openExternally.connect(downloadAndOpen)
-                }
-            }
-        }
-
-        Component {
-            id: fileComponent
-
-            TimelineLabel {
-                Layout.fillWidth: true
-
-                id: downloadDelegate
-
-                text: "<b>File: </b>" + content.body
-                coloredBackground: highlighted
-
-                background: DownloadableContent {
-                    id: downloadable
-
-                    Component.onCompleted: {
-                        messageRow.saveFileAs.connect(saveFileAs)
-                        messageRow.openExternally.connect(downloadAndOpen)
-                    }
-                }
-            }
-        }
-
-        Component {
-            id: audioComponent
-
-            TimelineLabel {
-                id: downloadDelegate
-
-                text: content.info.duration / 1000 + '"'
-                coloredBackground: highlighted
-
-                MouseArea {
-                    anchors.fill: parent
-
-                    propagateComposedEvents: true
-
-                    onClicked: {
-                        if (downloadable.downloaded)
-                            spectralController.playAudio(progressInfo.localPath)
-                        else
-                        {
-                            playOnFinished = true
-                            currentRoom.downloadFile(eventId, StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_") + ".tmp")
+                    onLinkActivated: {
+                        if (link.startsWith("https://matrix.to/")) {
+                            var result = link.replace(/\?.*/, "").match("https://matrix.to/#/(!.*:.*)/(\\$.*:.*)")
+                            if (result.length < 3) return
+                            if (result[1] != currentRoom.id) return
+                            if (!result[2]) return
+                            goToEvent(result[2])
+                        } else {
+                            Qt.openUrlExternally(link)
                         }
                     }
-                }
 
-                background: DownloadableContent {
-                    id: downloadable
-
-                    onDownloadedChanged: downloaded && playOnFinished ? spectralController.playAudio(progressInfo.localPath) : {}
-
-                    Component.onCompleted: {
-                        messageRow.saveFileAs.connect(saveFileAs)
-                        messageRow.openExternally.connect(downloadAndOpen)
+                    MouseArea {
+                        anchors.fill: parent
+                        acceptedButtons: Qt.NoButton
+                        cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
                     }
                 }
             }

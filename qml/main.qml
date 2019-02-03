@@ -1,20 +1,21 @@
-import QtQuick 2.9
-import QtQuick.Controls 2.2
-import QtQuick.Layouts 1.3
-import QtQuick.Controls.Material 2.2
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.12
+import QtQuick.Controls.Material 2.12
 import Qt.labs.settings 1.0
 import Qt.labs.platform 1.0 as Platform
 
+import Spectral.Panel 2.0
 import Spectral.Component 2.0
 import Spectral.Page 2.0
+import Spectral.Effect 2.0
 
 import Spectral 0.1
 import Spectral.Setting 0.1
 
-import "qrc:/js/util.js" as Util
-
 ApplicationWindow {
-    readonly property var currentConnection: accountListView.currentConnection ? accountListView.currentConnection : null
+    Material.theme: MPalette.theme
+    Material.background: MPalette.background
 
     width: 960
     height: 640
@@ -26,9 +27,9 @@ ApplicationWindow {
     visible: true
     title: qsTr("Spectral")
 
-    Material.theme: MSettings.darkTheme ? Material.Dark : Material.Light
-
-    Material.accent: spectralController.color(currentConnection ? currentConnection.localUserId : "")
+    background: Rectangle {
+        color: MSettings.darkTheme ? "#303030" : "#FFFFFF"
+    }
 
     Platform.SystemTrayIcon {
         visible: MSettings.showTray
@@ -54,353 +55,147 @@ ApplicationWindow {
         quitOnLastWindowClosed: !MSettings.showTray
 
         onNotificationClicked: {
-            roomPage.enteredRoom = currentConnection.room(roomId)
-            roomPage.goToEvent(eventId)
+            roomListForm.enteredRoom = spectralController.connection.room(roomId)
+            roomForm.goToEvent(eventId)
             showWindow()
         }
         onErrorOccured: {
-            errorDialog.error = error
-            errorDialog.detail = detail
-            errorDialog.open()
+            roomListForm.errorControl.error = error
+            roomListForm.errorControl.detail = detail
+            roomListForm.errorControl.visible = true
         }
+        onSyncDone: roomListForm.errorControl.visible = false
     }
 
-    AccountListModel {
-        id: accountListModel
-        controller: spectralController
+    Shortcut {
+        sequence: StandardKey.Quit
+        onActivated: Qt.quit()
     }
 
     Dialog {
-        property string error
-        property string detail
+        property bool busy: false
 
+        width: 360
         x: (window.width - width) / 2
         y: (window.height - height) / 2
 
-        id: errorDialog
+        id: loginDialog
 
-        title: error + " Error"
-        contentItem: Label { text: errorDialog.detail }
-    }
+        parent: ApplicationWindow.overlay
 
-    Component {
-        id: loginPage
+        title: "Login"
 
-        Login { controller: spectralController }
-    }
+        contentItem: Column {
+            AutoTextField {
+                width: parent.width
 
-    Room {
-        id: roomPage
+                id: serverField
 
-        parent: null
+                placeholderText: "Server Address"
+                text: "https://matrix.org"
+            }
 
-        connection: currentConnection
-    }
+            AutoTextField {
+                width: parent.width
 
-    Setting {
-        id: settingPage
+                id: usernameField
 
-        parent: null
+                placeholderText: "Username"
+            }
 
-        listModel: accountListModel
-    }
+            AutoTextField {
+                width: parent.width
 
-    RowLayout {
-        anchors.fill: parent
-        spacing: 0
+                id: passwordField
 
-        Rectangle {
-            Layout.preferredWidth: 64
-            Layout.fillHeight: true
-
-            id: sideNav
-
-            color: Material.primary
-
-            ColumnLayout {
-                anchors.fill: parent
-                spacing: 0
-
-                AutoListView {
-                    property var currentConnection: null
-
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-
-                    id: accountListView
-
-                    model: accountListModel
-
-                    spacing: 0
-
-                    clip: true
-
-                    delegate: Column {
-                        property bool expanded: accountListView.currentConnection === connection
-
-                        width: parent.width
-
-                        spacing: 0
-
-                        SideNavButton {
-                            width: parent.width
-                            height: width
-
-                            selected: stackView.currentItem === page && currentConnection === connection
-
-                            ImageItem {
-                                anchors.fill: parent
-                                anchors.margins: 12
-
-                                hint: user.displayName
-                                source: user.paintable
-                            }
-
-                            highlightColor: spectralController.color(user.id)
-
-                            page: roomPage
-
-                            onClicked: {
-                                accountListView.currentConnection = connection
-                                roomPage.filter = 0
-                            }
-                        }
-
-                        Column {
-                            width: parent.width
-                            height: expanded ? implicitHeight : 0
-
-                            spacing: 0
-                            clip: true
-
-                            SideNavButton {
-                                width: parent.width
-                                height: width
-
-                                MaterialIcon {
-                                    anchors.fill: parent
-
-                                    icon: "\ue7f7"
-                                    color:  "white"
-                                }
-
-                                onClicked: roomPage.filter = 1
-                            }
-
-                            SideNavButton {
-                                width: parent.width
-                                height: width
-
-                                MaterialIcon {
-                                    anchors.fill: parent
-
-                                    icon: "\ue7fd"
-                                    color:  "white"
-                                }
-
-                                onClicked: roomPage.filter = 2
-                            }
-
-                            SideNavButton {
-                                width: parent.width
-                                height: width
-
-                                MaterialIcon {
-                                    anchors.fill: parent
-
-                                    icon: "\ue7fb"
-                                    color:  "white"
-                                }
-
-                                onClicked: roomPage.filter = 3
-                            }
-
-                            Behavior on height {
-                                PropertyAnimation { easing.type: Easing.InOutCubic; duration: 200 }
-                            }
-                        }
-                    }
-                }
-
-                SideNavButton {
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: width
-
-                    MaterialIcon {
-                        anchors.fill: parent
-
-                        icon: "\ue145"
-                        color:  "white"
-                    }
-
-                    enabled: !addRoomMenu.opened
-                    onClicked: addRoomMenu.popup()
-
-                    Menu {
-                        id: addRoomMenu
-
-                        MenuItem {
-                            text:"New Room"
-                            onTriggered: addRoomDialog.open()
-
-                            Dialog {
-                                id: addRoomDialog
-                                parent: ApplicationWindow.overlay
-
-                                x: (window.width - width) / 2
-                                y: (window.height - height) / 2
-                                width: 360
-
-                                title: "New Room"
-                                modal: true
-                                standardButtons: Dialog.Ok | Dialog.Cancel
-
-                                contentItem: Column {
-                                    AutoTextField {
-                                        width: parent.width
-
-                                        id: addRoomDialogNameTextField
-
-                                        placeholderText: "Name"
-                                    }
-                                    AutoTextField {
-                                        width: parent.width
-
-                                        id: addRoomDialogTopicTextField
-
-                                        placeholderText: "Topic"
-                                    }
-                                }
-
-                                onAccepted: spectralController.createRoom(currentConnection, addRoomDialogNameTextField.text, addRoomDialogTopicTextField.text)
-                            }
-                        }
-
-                        MenuItem {
-                            text: "Join Room"
-
-                            onTriggered: joinRoomDialog.open()
-
-                            Dialog {
-                                x: (window.width - width) / 2
-                                y: (window.height - height) / 2
-                                width: 360
-
-                                id: joinRoomDialog
-
-                                parent: ApplicationWindow.overlay
-
-                                title: "Input Room Alias or ID"
-                                modal: true
-                                standardButtons: Dialog.Ok | Dialog.Cancel
-
-                                contentItem: AutoTextField {
-                                    id: joinRoomDialogTextField
-                                    placeholderText: "#matrix:matrix.org"
-                                }
-
-                                onAccepted: spectralController.joinRoom(currentConnection, joinRoomDialogTextField.text)
-                            }
-                        }
-
-                        MenuItem {
-                            text: "Direct Chat"
-
-                            onTriggered: directChatDialog.open()
-
-                            Dialog {
-                                x: (window.width - width) / 2
-                                y: (window.height - height) / 2
-                                width: 360
-
-                                id: directChatDialog
-
-                                parent: ApplicationWindow.overlay
-
-                                title: "Input User ID"
-                                modal: true
-                                standardButtons: Dialog.Ok | Dialog.Cancel
-
-                                contentItem: AutoTextField {
-                                    id: directChatDialogTextField
-                                    placeholderText: "@bot:matrix.org"
-                                }
-
-                                onAccepted: spectralController.createDirectChat(currentConnection, directChatDialogTextField.text)
-                            }
-                        }
-                    }
-                }
-
-                SideNavButton {
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: width
-
-                    MaterialIcon {
-                        anchors.fill: parent
-
-                        icon: "\ue8b8"
-                        color: "white"
-                    }
-                    page: settingPage
-                }
-
-                SideNavButton {
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: width
-
-                    MaterialIcon {
-                        anchors.fill: parent
-
-                        icon: "\ue8ac"
-                        color: "white"
-                    }
-
-                    onClicked: MSettings.confirmOnExit ? confirmExitDialog.open() : Qt.quit()
-
-                    Dialog {
-                        x: (window.width - width) / 2
-                        y: (window.height - height) / 2
-                        width: 360
-
-                        id: confirmExitDialog
-
-                        parent: ApplicationWindow.overlay
-
-                        title: "Exit"
-                        modal: true
-                        standardButtons: Dialog.Ok | Dialog.Cancel
-
-                        contentItem: Column {
-                            Label { text: "Exit?" }
-                            CheckBox {
-                                text: "Do not ask next time"
-                                checked: !MSettings.confirmOnExit
-
-                                onCheckedChanged: MSettings.confirmOnExit = !checked
-                            }
-                        }
-
-                        onAccepted: Qt.quit()
-                    }
-                }
+                placeholderText: "Password"
+                echoMode: TextInput.Password
             }
         }
 
-        StackView {
+        footer: DialogButtonBox {
+            Button {
+                text: "OK"
+                flat: true
+                enabled: !loginDialog.busy
+
+                onClicked: loginDialog.doLogin()
+            }
+
+            Button {
+                text: "Cancel"
+                flat: true
+                enabled: !loginDialog.busy
+
+                onClicked: loginDialog.close()
+            }
+
+            ToolTip {
+                id: loginButtonTooltip
+
+            }
+        }
+
+        onVisibleChanged: {
+            if (visible) spectralController.onErrorOccured.connect(showError)
+            else spectralController.onErrorOccured.disconnect(showError)
+        }
+
+        function showError(error, detail) {
+            loginDialog.busy = false
+            loginButtonTooltip.text = error + ": " + detail
+            loginButtonTooltip.open()
+        }
+
+        function doLogin() {
+            if (!(serverField.text.startsWith("http") && serverField.text.includes("://"))) {
+                loginButtonTooltip.text = "Server address should start with http(s)://"
+                loginButtonTooltip.open()
+                return
+            }
+
+            loginDialog.busy = true
+            spectralController.loginWithCredentials(serverField.text, usernameField.text, passwordField.text)
+
+            spectralController.connectionAdded.connect(function(conn) {
+                busy = false
+                loginDialog.close()
+            })
+        }
+    }
+
+    SplitView {
+        anchors.fill: parent
+
+        RoomListPanel {
+            width: window.width * 0.35
+            Layout.minimumWidth: 180
+
+            id: roomListForm
+
+            clip: true
+
+            controller: spectralController
+
+            onLeaveRoom: roomForm.saveReadMarker(room)
+        }
+
+        RoomPanel {
             Layout.fillWidth: true
-            Layout.fillHeight: true
+            Layout.minimumWidth: 480
 
-            id: stackView
+            id: roomForm
 
-            initialItem: roomPage
+            clip: true
+
+            currentRoom: roomListForm.enteredRoom
         }
     }
 
     Binding {
         target: imageProvider
         property: "connection"
-        value: currentConnection
+        value: spectralController.connection
     }
 
     function showWindow() {
@@ -413,9 +208,9 @@ ApplicationWindow {
         window.hide()
     }
 
-    Component.onCompleted: {
-        spectralController.initiated.connect(function() {
-            if (spectralController.accountCount == 0) stackView.push(loginPage)
-        })
-    }
+        Component.onCompleted: {
+            spectralController.initiated.connect(function() {
+                if (spectralController.accountCount == 0) loginDialog.open()
+            })
+        }
 }

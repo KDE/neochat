@@ -1,80 +1,81 @@
-import QtQuick 2.9
-import QtQuick.Controls 2.2
-import QtQuick.Layouts 1.3
-import QtQuick.Controls.Material 2.2
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.12
+import QtQuick.Controls.Material 2.12
 
 import Spectral 0.1
+import Spectral.Effect 2.0
+import Spectral.Component 2.0
+import Spectral.Setting 0.1
 
-Rectangle {
-    property alias paintable: headerImage.source
+Control {
+    property alias avatar: headerImage.source
     property alias topic: headerTopicLabel.text
+    property bool atTop: false
     signal clicked()
 
     id: header
 
-    color: Material.accent
+    background: Rectangle {
+        color: Material.background
 
-    ItemDelegate {
+        opacity: atTop ? 0 : 1
+
+        layer.enabled: true
+        layer.effect: ElevationEffect {
+            elevation: 2
+        }
+    }
+
+    RowLayout {
         anchors.fill: parent
+        anchors.margins: 12
 
-        id: roomHeader
+        spacing: 12
 
-        onClicked: header.clicked()
+        Avatar {
+            Layout.preferredWidth: height
+            Layout.fillHeight: true
 
-        RowLayout {
-            anchors.fill: parent
-            anchors.margins: 12
+            id: headerImage
 
-            spacing: 12
+            source: currentRoom.avatarMediaId
+            hint: currentRoom ? currentRoom.displayName : "No name"
+        }
 
-            ImageItem {
-                Layout.preferredWidth: height
-                Layout.fillHeight: true
+        ColumnLayout {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
 
-                id: headerImage
+            visible: parent.width > 64
 
-                source: currentRoom.paintable
-                hint: currentRoom ? currentRoom.displayName : "No name"
-            }
-
-            ColumnLayout {
+            Label {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
 
-                visible: parent.width > 64
+                text: currentRoom ? currentRoom.displayName : ""
+                color: MPalette.foreground
+                font.pixelSize: 16
+                elide: Text.ElideRight
+                wrapMode: Text.NoWrap
+            }
 
-                Label {
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
+            Label {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
 
-                    text: currentRoom ? currentRoom.displayName : ""
-                    color: "white"
-                    font.pointSize: 12
-                    elide: Text.ElideRight
-                    wrapMode: Text.NoWrap
-                }
+                id: headerTopicLabel
 
-                Label {
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-
-                    id: headerTopicLabel
-
-                    color: "white"
-                    elide: Text.ElideRight
-                    wrapMode: Text.NoWrap
-                }
+                color: MPalette.lighter
+                elide: Text.ElideRight
+                wrapMode: Text.NoWrap
             }
         }
     }
 
-    ProgressBar {
-        width: parent.width
-        z: 10
-        anchors.bottom: parent.bottom
+    RippleEffect {
+        anchors.fill: parent
 
-        Material.accent: "white"
-        visible: currentRoom && currentRoom.busy
-        indeterminate: true
+        onClicked: header.clicked()
     }
 }
