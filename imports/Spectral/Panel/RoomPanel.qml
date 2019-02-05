@@ -74,13 +74,13 @@ Item {
             Layout.leftMargin: 16
             Layout.rightMargin: 16
             Layout.bottomMargin: 16
+            Layout.alignment: Qt.AlignHCenter
 
             spacing: 16
 
             AutoListView {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                Layout.alignment: Qt.AlignHCenter
 
                 id: messageListView
 
@@ -403,7 +403,6 @@ Item {
 
             RoomPanelInput {
                 Layout.fillWidth: true
-                Layout.alignment: Qt.AlignHCenter
 
                 id: roomPanelInput
             }
