@@ -5,7 +5,6 @@
 
 #include <QtCore/QDebug>
 #include <QtCore/QThread>
-#include <QtCore/QReadWriteLock>
 
 using QMatrixClient::BaseJob;
 

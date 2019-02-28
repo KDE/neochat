@@ -3,6 +3,7 @@
 #pragma once
 
 #include <QtQuick/QQuickAsyncImageProvider>
+#include <QtCore/QReadWriteLock>
 #include <QtCore/QAtomicPointer>
 
 namespace QMatrixClient {
