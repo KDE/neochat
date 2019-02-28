@@ -3,6 +3,10 @@
 #pragma once
 
 #include <QtQuick/QQuickAsyncImageProvider>
+
+#include <connection.h>
+#include <jobs/mediathumbnailjob.h>
+
 #include <QtCore/QReadWriteLock>
 #include <QtCore/QAtomicPointer>
 

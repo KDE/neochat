@@ -1,8 +1,5 @@
 #include "imageprovider.h"
 
-#include <connection.h>
-#include <jobs/mediathumbnailjob.h>
-
 #include <QtCore/QDebug>
 #include <QtCore/QThread>
 
