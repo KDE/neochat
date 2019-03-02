@@ -77,6 +77,7 @@ void RoomListModel::connectRoomSignals(SpectralRoom* room) {
   connect(room, &Room::addedMessages, this,
           [=] { refresh(room, {LastEventRole}); });
   connect(room, &Room::notificationCountChanged, this, [=] {
+      if (room->notificationCount() == 0) return;
       if (room->timelineSize() == 0) return;
       const RoomEvent* lastEvent = room->messageEvents().rbegin()->get();
       if (lastEvent->isStateEvent()) return;
