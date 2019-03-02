@@ -14,7 +14,7 @@ Item {
 
         id: image
         visible: realSource
-        source: realSource
+        source: width < 1 ? "" : realSource
         sourceSize.width: width
         sourceSize.height: width
         fillMode: Image.PreserveAspectCrop

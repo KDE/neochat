@@ -6,10 +6,10 @@
 using QMatrixClient::BaseJob;
 
 ThumbnailResponse::ThumbnailResponse(QMatrixClient::Connection* c,
-    QString mediaId, const QSize& requestedSize)
+    QString id, const QSize& size)
   : c(c),
-    mediaId(std::move(mediaId)),
-    requestedSize(requestedSize),
+    mediaId(std::move(id)),
+    requestedSize(size),
     errorStr("Image request hasn't started") {
   if (requestedSize.isEmpty()) {
     errorStr.clear();
@@ -40,7 +40,7 @@ void ThumbnailResponse::startRequest() {
 
 void ThumbnailResponse::prepareResult() {
   Q_ASSERT(QThread::currentThread() == job->thread());
-  Q_ASSERT(job->error() != BaseJob::Pending);  
+  Q_ASSERT(job->error() != BaseJob::Pending);
   {
     QWriteLocker _(&lock);
     if (job->error() == BaseJob::Success) {
@@ -48,7 +48,7 @@ void ThumbnailResponse::prepareResult() {
       errorStr.clear();
     } else if (job->error() == BaseJob::Abandoned) {
       errorStr = tr("Image request has been cancelled");
-      qDebug() << "ThumbnailResponse: cancelled for" << mediaId;  
+      qDebug() << "ThumbnailResponse: cancelled for" << mediaId;
     } else {
       errorStr = job->errorString();
       qWarning() << "ThumbnailResponse: no valid image for" << mediaId << "-"
@@ -61,9 +61,10 @@ void ThumbnailResponse::prepareResult() {
 
 void ThumbnailResponse::doCancel() {
   // Runs in the main thread, not QML thread
-  Q_ASSERT(QThread::currentThread() == job->thread());
-  if (job)
-    job->abandon();  
+  if (job) {
+    Q_ASSERT(QThread::currentThread() == job->thread());
+    job->abandon();
+  }
 }
 
 QQuickTextureFactory* ThumbnailResponse::textureFactory() const {
@@ -83,6 +84,6 @@ void ThumbnailResponse::cancel() {
 
 QQuickImageResponse* ImageProvider::requestImageResponse(
     const QString& id, const QSize& requestedSize) {
-  qDebug() << "ImageProvider: requesting " << id;
+  qDebug() << "ImageProvider: requesting " << id << "of size" << requestedSize;
   return new ThumbnailResponse(m_connection.load(), id, requestedSize);
 }
