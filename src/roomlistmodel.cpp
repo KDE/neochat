@@ -76,17 +76,17 @@ void RoomListModel::connectRoomSignals(SpectralRoom* room) {
   connect(room, &Room::joinStateChanged, this, [=] { refresh(room); });
   connect(room, &Room::addedMessages, this,
           [=] { refresh(room, {LastEventRole}); });
-  connect(room, &Room::aboutToAddNewMessages, this,
-          [=](QMatrixClient::RoomEventsRange eventsRange) {
-            RoomEvent* event = (eventsRange.end() - 1)->get();
-            if (event->isStateEvent()) return;
-            User* sender = room->user(event->senderId());
-            if (sender == room->localUser()) return;
-            emit newMessage(
-                room->id(), event->id(), room->displayName(),
-                sender->displayname(), utils::eventToString(*event),
-                room->avatar(128));
-          });
+  connect(room, &Room::notificationCountChanged, this, [=] {
+      if (room->timelineSize() == 0) return;
+      const RoomEvent* lastEvent = room->messageEvents().rbegin()->get();
+      if (lastEvent->isStateEvent()) return;
+      User* sender = room->user(lastEvent->senderId());
+      if (sender == room->localUser()) return;
+      emit newMessage(
+          room->id(), lastEvent->id(), room->displayName(),
+          sender->displayname(), utils::eventToString(*lastEvent),
+          room->avatar(128));
+  });
 }
 
 void RoomListModel::updateRoom(Room* room, Room* prev) {
