@@ -795,6 +795,38 @@ Item {
                             wrapMode: Text.NoWrap
                         }
                     }
+
+                    Label {
+                        visible: notificationCount > 0 && highlightCount == 0
+                        color: "white"
+                        text: notificationCount
+                        leftPadding: 12
+                        rightPadding: 12
+                        topPadding: 4
+                        bottomPadding: 4
+                        font.bold: true
+
+                        background: Rectangle {
+                            radius: height / 2
+                            color: MPalette.lighter
+                        }
+                    }
+
+                    Label {
+                        visible: highlightCount > 0
+                        color: "white"
+                        text: highlightCount
+                        leftPadding: 12
+                        rightPadding: 12
+                        topPadding: 4
+                        bottomPadding: 4
+                        font.bold: true
+
+                        background: Rectangle {
+                            radius: height / 2
+                            color: MPalette.accent
+                        }
+                    }
                 }
 
                 RippleEffect {
