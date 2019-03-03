@@ -46,8 +46,7 @@ NotificationsManager::NotificationsManager(QObject *parent) : QObject(parent) {}
 
 void NotificationsManager::postNotification(
     const QString &room_id, const QString &event_id, const QString &room_name,
-    const QString &sender, const QString &text, const QImage &icon,
-    const QUrl &iconPath) {
+    const QString &sender, const QString &text, const QImage &icon) {
   Q_UNUSED(room_id)
   Q_UNUSED(event_id)
   Q_UNUSED(icon)
@@ -64,9 +63,6 @@ void NotificationsManager::postNotification(
                        WinToastTemplate::FirstLine);
   templ.setTextField(QString("%1").arg(text).toStdWString(),
                      WinToastTemplate::SecondLine);
-
-  templ.setImagePath(
-      reinterpret_cast<const wchar_t *>(QDir::toNativeSeparators(iconPath.toLocalFile()).utf16()));
 
   count++;
   CustomHandler *customHandler = new CustomHandler(count, this);

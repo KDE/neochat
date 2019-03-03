@@ -1,12 +1,13 @@
+#include <QFontDatabase>
 #include <QGuiApplication>
 #include <QNetworkProxy>
+#include <QNetworkProxyFactory>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 
 #include "accountlistmodel.h"
 #include "controller.h"
 #include "emojimodel.h"
-#include "imageitem.h"
 #include "imageprovider.h"
 #include "messageeventmodel.h"
 #include "room.h"
@@ -23,7 +24,19 @@
 using namespace QMatrixClient;
 
 int main(int argc, char *argv[]) {
-  QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+#if defined(Q_OS_LINUX) || defined(Q_OS_WIN) || defined(Q_OS_FREEBSD)
+  if (qgetenv("QT_SCALE_FACTOR").size() == 0) {
+    QSettings settings("ENCOM", "Spectral");
+    float factor = settings.value("Interface/dpi", 100).toFloat() / 100;
+
+    qDebug() << "DPI:" << factor;
+
+    if (factor != -1)
+      qputenv("QT_SCALE_FACTOR", QString::number(factor).toUtf8());
+  }
+#endif
+
+  QNetworkProxyFactory::setUseSystemConfiguration(true);
 
   QApplication app(argc, argv);
 
@@ -34,7 +47,6 @@ int main(int argc, char *argv[]) {
 
   qmlRegisterType<qqsfpm::QQmlSortFilterProxyModel>("SortFilterProxyModel", 0,
                                                     2, "SortFilterProxyModel");
-  qmlRegisterType<ImageItem>("Spectral", 0, 1, "ImageItem");
   qmlRegisterType<Controller>("Spectral", 0, 1, "Controller");
   qmlRegisterType<AccountListModel>("Spectral", 0, 1, "AccountListModel");
   qmlRegisterType<RoomListModel>("Spectral", 0, 1, "RoomListModel");
@@ -50,6 +62,11 @@ int main(int argc, char *argv[]) {
   qRegisterMetaType<MessageEventType>("MessageEventType");
   qRegisterMetaType<SpectralRoom *>("SpectralRoom*");
   qRegisterMetaType<SpectralUser *>("SpectralUser*");
+
+#if defined(BUNDLE_FONT)
+  QFontDatabase::addApplicationFont(":/assets/font/roboto.ttf");
+  QFontDatabase::addApplicationFont(":/assets/font/twemoji.ttf");
+#endif
 
   QQmlApplicationEngine engine;
 

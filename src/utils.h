@@ -2,9 +2,10 @@
 #define Utils_H
 
 #include "room.h"
+#include "user.h"
 
 #include <QObject>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QString>
 
 #include <events/redactionevent.h>
@@ -13,9 +14,18 @@
 #include <events/simplestateevents.h>
 
 namespace utils {
-const QRegExp removeReplyRegex{"> <.*>.*\\n\\n"};
+static const QRegularExpression removeReplyRegex{
+    "> <.*?>.*?\\n\\n", QRegularExpression::DotMatchesEverythingOption};
+static const QRegularExpression removeRichReplyRegex{
+    "<mx-reply>.*?</mx-reply>", QRegularExpression::DotMatchesEverythingOption};
+static const QRegularExpression codePillRegExp{
+    "<pre>(.*?)</pre>", QRegularExpression::DotMatchesEverythingOption};
+static const QRegularExpression userPillRegExp{
+    "<a href=\"https://matrix.to/#/@.*?:.*?\">(.*?)</a>",
+    QRegularExpression::DotMatchesEverythingOption};
 
 QString removeReply(const QString& text);
+QString cleanHTML(const QString& text, QMatrixClient::Room* room);
 
 template <typename BaseEventT>
 QString eventToString(const BaseEventT& evt,
@@ -31,13 +41,8 @@ QString eventToString(const BaseEventT& evt,
 
         if (prettyPrint && e.hasTextContent() &&
             e.mimeType().name() != "text/plain") {
-          static const QRegExp userPillRegExp(
-              "<a href=\"https://matrix.to/#/@.*:.*\">(.*)</a>");
-          QString formattedStr(
-              static_cast<const TextContent*>(e.content())->body);
-          formattedStr.replace(userPillRegExp,
-                               "<b class=\"user-pill\">\\1</b>");
-          return formattedStr;
+          return cleanHTML(static_cast<const TextContent*>(e.content())->body,
+                           room);
         }
         if (e.hasFileContent()) {
           auto fileCaption = e.content()->fileInfo()->originalName;

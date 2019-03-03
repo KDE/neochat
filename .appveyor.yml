@@ -3,13 +3,13 @@ image: Visual Studio 2017
 environment:
   DEPLOY_DIR: Spectral-%APPVEYOR_BUILD_VERSION%
   matrix:
-  - QTDIR: C:\Qt\5.11\msvc2017_64
+  - QTDIR: C:\Qt\5.12.1\msvc2017_64
     VCVARS: "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\VC\\Auxiliary\\Build\\vcvars64.bat"
     PLATFORM:
 
 init:
   - call "%QTDIR%\bin\qtenv2.bat"
-  - set PATH=C:\Qt\Tools\QtCreator\bin;%PATH%
+  - set PATH=%PATH%;C:\Qt\Tools\QtCreator\bin
   - call "%VCVARS%" %platform%
   - cd /D "%APPVEYOR_BUILD_FOLDER%"
 
@@ -17,12 +17,12 @@ before_build:
   - git submodule update --init --recursive
 
 build_script:
-  - qmake spectral.pro CONFIG+=debug CONFIG+=qml_debug PREFIX="%DEPLOY_DIR%"
+  - qmake spectral.pro CONFIG+=release CONFIG+=qtquickcompiler PREFIX="%DEPLOY_DIR%"
   - nmake
 
 after_build:
   - nmake install
-  - windeployqt --debug --qmldir qml --qmldir imports "%DEPLOY_DIR%\spectral.exe"
+  - windeployqt --release --qmldir qml --qmldir imports "%DEPLOY_DIR%\spectral.exe"
   - 7z a spectral.zip "%DEPLOY_DIR%\"
 
 artifacts:

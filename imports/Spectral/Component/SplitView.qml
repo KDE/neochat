@@ -37,10 +37,11 @@
 **
 ****************************************************************************/
 
-import QtQuick 2.9
-import QtQuick.Controls 2.2
-import QtQuick.Layouts 1.3
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.12
 import QtQuick.Window 2.1
+import Spectral.Setting 0.1
 
 Item {
     id: root
@@ -64,7 +65,7 @@ Item {
     property Component handleDelegate: Rectangle {
         width: 1
         height: 1
-        visible: false
+        color: MSettings.darkTheme ? "#424242" : "#E1E1E1"
     }
 
     /*!
@@ -88,7 +89,7 @@ Item {
 
     /*! \qmlmethod void SplitView::addItem(Item item)
         Add an item to the end of the view.
-        \since QtQuick.Controls 1.3 */
+        \since QtQuick.Controls 1.12 */
     function addItem(item) {
         d.updateLayoutGuard = true
         d.addItem_impl(item)

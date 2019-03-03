@@ -1,6 +1,6 @@
 id: org.eu.encom.spectral
 runtime: org.kde.Platform
-runtime-version: 5.11
+runtime-version: 5.12
 sdk: org.kde.Sdk
 command: spectral
 finish-args:
@@ -15,6 +15,8 @@ finish-args:
 modules:
 - name: spectral
   buildsystem: qmake
+  config-opts:
+  - "BUNDLE_FONT=true"
   sources:
   - type: dir
     path: ../

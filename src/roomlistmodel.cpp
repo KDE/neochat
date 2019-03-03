@@ -70,25 +70,24 @@ void RoomListModel::connectRoomSignals(SpectralRoom* room) {
           [=] { unreadMessagesChanged(room); });
   connect(room, &Room::notificationCountChanged, this,
           [=] { unreadMessagesChanged(room); });
+  connect(room, &Room::avatarChanged, this,
+          [this, room] { refresh(room, {AvatarRole}); });
   connect(room, &Room::tagsChanged, this, [=] { refresh(room); });
   connect(room, &Room::joinStateChanged, this, [=] { refresh(room); });
   connect(room, &Room::addedMessages, this,
           [=] { refresh(room, {LastEventRole}); });
-  connect(room, &Room::aboutToAddNewMessages, this,
-          [=](QMatrixClient::RoomEventsRange eventsRange) {
-            RoomEvent* event = (eventsRange.end() - 1)->get();
-            User* sender = room->user(event->senderId());
-            if (sender == room->localUser()) return;
-            QUrl _url = room->avatarUrl();
-            emit newMessage(
-                room->id(), event->id(), room->displayName(),
-                sender->displayname(), utils::eventToString(*event),
-                room->avatar(128),
-                QUrl::fromLocalFile(QStandardPaths::writableLocation(
-                                        QStandardPaths::CacheLocation) +
-                                    "/avatar/" + _url.authority() + '_' +
-                                    _url.fileName() + ".png"));
-          });
+  connect(room, &Room::notificationCountChanged, this, [=] {
+      if (room->notificationCount() == 0) return;
+      if (room->timelineSize() == 0) return;
+      const RoomEvent* lastEvent = room->messageEvents().rbegin()->get();
+      if (lastEvent->isStateEvent()) return;
+      User* sender = room->user(lastEvent->senderId());
+      if (sender == room->localUser()) return;
+      emit newMessage(
+          room->id(), lastEvent->id(), room->displayName(),
+          sender->displayname(), utils::eventToString(*lastEvent),
+          room->avatar(128));
+  });
 }
 
 void RoomListModel::updateRoom(Room* room, Room* prev) {
@@ -152,7 +151,7 @@ QVariant RoomListModel::data(const QModelIndex& index, int role) const {
   }
   SpectralRoom* room = m_rooms.at(index.row());
   if (role == NameRole) return room->displayName();
-  if (role == PaintableRole) return QVariant::fromValue(room->paintable());
+  if (role == AvatarRole) return room->avatarMediaId();
   if (role == TopicRole) return room->topic();
   if (role == CategoryRole) {
     if (room->joinState() == JoinState::Invite) return RoomType::Invited;
@@ -162,6 +161,7 @@ QVariant RoomListModel::data(const QModelIndex& index, int role) const {
     return RoomType::Normal;
   }
   if (role == UnreadCountRole) return room->unreadCount();
+  if (role == NotificationCountRole) return room->notificationCount();
   if (role == HighlightCountRole) return room->highlightCount();
   if (role == LastEventRole) return room->lastEvent();
   if (role == LastActiveTimeRole) return room->lastActiveTime();
@@ -192,10 +192,11 @@ void RoomListModel::unreadMessagesChanged(SpectralRoom* room) {
 QHash<int, QByteArray> RoomListModel::roleNames() const {
   QHash<int, QByteArray> roles;
   roles[NameRole] = "name";
-  roles[PaintableRole] = "paintable";
+  roles[AvatarRole] = "avatar";
   roles[TopicRole] = "topic";
   roles[CategoryRole] = "category";
   roles[UnreadCountRole] = "unreadCount";
+  roles[NotificationCountRole] = "notificationCount";
   roles[HighlightCountRole] = "highlightCount";
   roles[LastEventRole] = "lastEvent";
   roles[LastActiveTimeRole] = "lastActiveTime";

@@ -9,62 +9,65 @@
 #include "events/typingevent.h"
 
 #include <QFileDialog>
+#include <QFileInfo>
+#include <QImageReader>
 #include <QMetaObject>
 #include <QMimeDatabase>
+
+#include "html.h"
 
 #include "utils.h"
 
 SpectralRoom::SpectralRoom(Connection* connection, QString roomId,
                            JoinState joinState)
-    : Room(connection, std::move(roomId), joinState), m_paintable(this) {
+    : Room(connection, std::move(roomId), joinState) {
   connect(this, &SpectralRoom::notificationCountChanged, this,
           &SpectralRoom::countChanged);
   connect(this, &SpectralRoom::highlightCountChanged, this,
           &SpectralRoom::countChanged);
   connect(this, &Room::addedMessages, this, [=] { setBusy(false); });
+  connect(this, &Room::fileTransferCompleted, this, [=] {
+    setFileUploadingProgress(0);
+    setHasFileUploading(false);
+  });
+}
+
+inline QString getMIME(const QUrl& fileUrl) {
+  return QMimeDatabase().mimeTypeForFile(fileUrl.toLocalFile()).name();
+}
+
+inline QSize getImageSize(const QUrl& imageUrl) {
+  QImageReader reader(imageUrl.toLocalFile());
+  return reader.size();
 }
 
 void SpectralRoom::chooseAndUploadFile() {
   auto localFile = QFileDialog::getOpenFileUrl(Q_NULLPTR, tr("Save File as"));
   if (!localFile.isEmpty()) {
-    UploadContentJob* job =
-        connection()->uploadFile(localFile.toLocalFile(), getMIME(localFile));
-    if (isJobRunning(job)) {
-      setHasFileUploading(true);
-      connect(job, &BaseJob::uploadProgress, this,
-              [=](qint64 bytesSent, qint64 bytesTotal) {
-                if (bytesTotal != 0) {
-                  setFileUploadingProgress(bytesSent * 100 / bytesTotal);
-                }
-              });
-      connect(job, &BaseJob::success, this,
-              [=] { postFile(localFile, job->contentUri()); });
-      connect(job, &BaseJob::finished, this, [=] {
-        setHasFileUploading(false);
+    QString txnID = postFile(localFile.fileName(), localFile, false);
+    setHasFileUploading(true);
+    connect(this, &Room::fileTransferCompleted,
+            [=](QString id, QUrl localFile, QUrl mxcUrl) {
+              if (id == txnID) {
+                setFileUploadingProgress(0);
+                setHasFileUploading(false);
+              }
+            });
+    connect(this, &Room::fileTransferFailed, [=](QString id, QString error) {
+      if (id == txnID) {
         setFileUploadingProgress(0);
-      });
-    } else {
-      qDebug() << "Failed transfer.";
-    }
+        setHasFileUploading(false);
+      }
+    });
+    connect(
+        this, &Room::fileTransferProgress,
+        [=](QString id, qint64 progress, qint64 total) {
+          if (id == txnID) {
+            qDebug() << "Progress:" << progress << total;
+            setFileUploadingProgress(int(float(progress) / float(total) * 100));
+          }
+        });
   }
-}
-
-void SpectralRoom::postFile(const QUrl& localFile, const QUrl& mxcUrl) {
-  const QString mime = getMIME(localFile);
-  const QString fileName = localFile.fileName();
-  QString msgType = "m.file";
-  if (mime.startsWith("image")) msgType = "m.image";
-  if (mime.startsWith("video")) msgType = "m.video";
-  if (mime.startsWith("audio")) msgType = "m.audio";
-  QJsonObject json{QJsonObject{{"msgtype", msgType},
-                               {"body", fileName},
-                               {"filename", fileName},
-                               {"url", mxcUrl.url()}}};
-  postJson("m.room.message", json);
-}
-
-QString SpectralRoom::getMIME(const QUrl& fileUrl) const {
-  return QMimeDatabase().mimeTypeForFile(fileUrl.toLocalFile()).name();
 }
 
 void SpectralRoom::saveFileAs(QString eventId) {
@@ -85,16 +88,14 @@ bool SpectralRoom::hasUsersTyping() {
   return count != 0;
 }
 
-QString SpectralRoom::getUsersTyping() {
-  QString usersTypingStr;
+QVariantList SpectralRoom::getUsersTyping() {
   QList<User*> users = usersTyping();
   users.removeOne(localUser());
+  QVariantList out;
   for (User* user : users) {
-    usersTypingStr += user->displayname() + " ";
+    out.append(QVariant::fromValue(user));
   }
-  usersTypingStr += users.count() < 2 ? "is" : "are";
-  usersTypingStr += " typing.";
-  return usersTypingStr;
+  return out;
 }
 
 void SpectralRoom::sendTypingNotification(bool isTyping) {
@@ -162,8 +163,6 @@ QDateTime SpectralRoom::lastActiveTime() {
   return messageEvents().rbegin()->get()->timestamp();
 }
 
-float SpectralRoom::orderForTag(QString name) { return tag(name).order; }
-
 int SpectralRoom::savedTopVisibleIndex() const {
   return firstDisplayedMarker() == timelineEdge()
              ? 0
@@ -203,4 +202,23 @@ QVariantList SpectralRoom::getUsers(const QString& prefix) {
       matchedList.append(QVariant::fromValue(u));
 
   return matchedList;
+}
+
+QString SpectralRoom::postMarkdownText(const QString& markdown) {
+  unsigned char *sequence = (unsigned char *) qstrdup(markdown.toUtf8().constData());
+  qint64 length = strlen((char *) sequence);
+
+  hoedown_renderer* renderer = hoedown_html_renderer_new(HOEDOWN_HTML_USE_XHTML, 32);
+  hoedown_extensions extensions = (hoedown_extensions) ((HOEDOWN_EXT_BLOCK | HOEDOWN_EXT_SPAN | HOEDOWN_EXT_MATH_EXPLICIT) & ~HOEDOWN_EXT_QUOTE);
+  hoedown_document* document = hoedown_document_new(renderer, extensions, 32);
+  hoedown_buffer* html = hoedown_buffer_new(length);
+  hoedown_document_render(document, html, sequence, length);
+  QString result = QString::fromUtf8((char *) html->data, html->size);
+
+  free(sequence);
+  hoedown_buffer_free(html);
+  hoedown_document_free(document);
+  hoedown_html_renderer_free(renderer);
+
+  return postHtmlText(markdown, result);
 }

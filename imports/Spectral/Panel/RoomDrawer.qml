@@ -1,13 +1,11 @@
-import QtQuick 2.9
-import QtQuick.Controls 2.2
-import QtQuick.Controls.Material 2.2
-import QtQuick.Layouts 1.3
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+import QtQuick.Controls.Material 2.12
+import QtQuick.Layouts 1.12
 
 import Spectral.Component 2.0
 
 import Spectral 0.1
-
-import "qrc:/js/util.js" as Util
 
 Drawer {
     property var room
@@ -15,25 +13,18 @@ Drawer {
     id: roomDrawer
 
     edge: Qt.RightEdge
-    interactive: false
-
-    ToolButton {
-        contentItem: MaterialIcon { icon: "\ue5c4" }
-
-        onClicked: roomDrawer.close()
-    }
 
     ColumnLayout {
         anchors.fill: parent
         anchors.margins: 32
 
-        ImageItem {
+        Avatar {
             Layout.preferredWidth: 96
             Layout.preferredHeight: 96
             Layout.alignment: Qt.AlignHCenter
 
             hint: room ? room.displayName : "No name"
-            source: room ? room.paintable : null
+            source: room ? room.avatarMediaId : null
         }
 
         Label {
@@ -57,7 +48,7 @@ Drawer {
 
             wrapMode: Label.Wrap
             horizontalAlignment: Text.AlignHCenter
-            text: room ? room.memberCount + " Members" : "No Member Count"
+            text: room ? room.totalMemberCount + " Members" : "No Member Count"
         }
 
         RowLayout {
@@ -124,11 +115,11 @@ Drawer {
                     anchors.margins: 8
                     spacing: 12
 
-                    ImageItem {
+                    Avatar {
                         Layout.preferredWidth: height
                         Layout.fillHeight: true
 
-                        source: paintable
+                        source: avatar
                         hint: name
                     }
 

@@ -1,7 +1,7 @@
-import QtQuick 2.9
-import QtQuick.Controls 2.2
-import QtQuick.Layouts 1.3
-import QtQuick.Controls.Material 2.2
+import QtQuick 2.12
+import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.12
+import QtQuick.Controls.Material 2.12
 
 import Spectral.Component 2.0
 import Spectral.Component.Emoji 2.0
@@ -10,167 +10,222 @@ import Spectral.Setting 0.1
 
 import Spectral 0.1
 
-import "qrc:/js/md.js" as Markdown
-
-Rectangle {
-    property bool isReply
-    property string replyUserID
+Control {
+    property alias isReply: replyItem.visible
+    property var replyUser
     property string replyEventID
     property string replyContent
 
-    property bool isAutoCompleting
+    property alias isAutoCompleting: autoCompleteListView.visible
     property var autoCompleteModel
     property int autoCompleteBeginPosition
     property int autoCompleteEndPosition
 
-    color: MSettings.darkTheme ? "#303030" : "#fafafa"
+    id: root
 
-    layer.enabled: true
-    layer.effect: ElevationEffect {
-        elevation: 2
+    padding: 0
+
+    background: Rectangle {
+        color: MSettings.darkTheme ? "#303030" : "#fafafa"
+        radius: 24
+
+        layer.enabled: true
+        layer.effect: ElevationEffect {
+            elevation: 2
+        }
     }
 
-    Popup {
-        x: 0
-        y: -height - 10
-        width: Math.min(autoCompleteListView.contentWidth, parent.width)
-        height: 36
-        padding: 0
+    contentItem: ColumnLayout {
+        spacing: 0
 
-        Material.elevation: 2
+        RowLayout {
+            Layout.fillWidth: true
+            Layout.margins: 8
 
-        id: autoComplete
+            id: replyItem
 
-        visible: isAutoCompleting && autoCompleteModel.length !== 0
+            visible: false
 
-        contentItem: ListView {
+            spacing: 8
+
+            Avatar {
+                Layout.preferredWidth: 32
+                Layout.preferredHeight: 32
+
+                source: replyUser ? replyUser.avatarMediaId : ""
+                hint: replyUser ? replyUser.displayName : "No name"
+            }
+
+            Label {
+                Layout.fillWidth: true
+
+                text: replyContent
+                font.pixelSize: 16
+
+                wrapMode: Label.Wrap
+            }
+        }
+
+        EmojiPicker {
+            Layout.fillWidth: true
+
+            id: emojiPicker
+
+            visible: false
+
+            textArea: inputField
+            emojiModel: EmojiModel { id: emojiModel }
+        }
+
+        ListView {
+            Layout.fillWidth: true
+            Layout.preferredHeight: 36
+            Layout.margins: 8
+
             id: autoCompleteListView
+
+            visible: false
 
             model: autoCompleteModel
 
             clip: true
+            spacing: 4
             orientation: ListView.Horizontal
             highlightFollowsCurrentItem: true
             keyNavigationWraps: true
 
-            highlight: Rectangle {
-                color: Material.accent
-                opacity: 0.4
-            }
-
-            delegate: ItemDelegate {
+            delegate: Control {
                 property string autoCompleteText: modelData.displayName || modelData.unicode
                 property bool isEmoji: modelData.unicode != null
+                readonly property bool highlighted: autoCompleteListView.currentIndex === index
 
-                height: parent.height
-                padding: 4
+                height: 36
+                padding: 8
+
+                background: Rectangle {
+                    visible: !isEmoji
+                    color: highlighted ? Material.accent : "transparent"
+                    border.color: Material.accent
+                    border.width: 2
+                    radius: height / 2
+                }
 
                 contentItem: Row {
-                    spacing: 8
+                    spacing: 4
 
                     Text {
-                        width: parent.height
-                        height: parent.height
+                        width: 20
+                        height: 20
                         visible: isEmoji
                         text: autoCompleteText
-                        font.pointSize: 16
+                        font.pixelSize: 24
                         font.family: "Emoji"
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
                     }
-                    ImageItem {
-                        width: parent.height
-                        height: parent.height
+                    Avatar {
+                        width: 20
+                        height: 20
                         visible: !isEmoji
-                        source: modelData.paintable || null
+                        source: modelData.avatarMediaId || null
                     }
                     Label {
                         height: parent.height
                         visible: !isEmoji
                         text: autoCompleteText
+                        color: highlighted ? "white" : Material.accent
                         verticalAlignment: Text.AlignVCenter
                     }
                 }
 
-                onClicked: {
-                    autoCompleteListView.currentIndex = index
-                    inputField.replaceAutoComplete(autoCompleteText)
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        autoCompleteListView.currentIndex = index
+                        inputField.replaceAutoComplete(autoCompleteText)
+                    }
                 }
             }
         }
-    }
 
-    Rectangle {
-        width: currentRoom && currentRoom.hasFileUploading ? parent.width * currentRoom.fileUploadingProgress / 100 : 0
-        height: parent.height
-
-        opacity: 0.2
-        color: Material.accent
-    }
-
-    RowLayout {
-        anchors.fill: parent
-
-        spacing: 0
-
-        ItemDelegate {
-            Layout.preferredWidth: 48
-            Layout.preferredHeight: 48
-
-            id: uploadButton
-            visible: !isReply
-
-            contentItem: MaterialIcon {
-                icon: "\ue226"
-            }
-
-            onClicked: currentRoom.chooseAndUploadFile()
-
-            BusyIndicator {
-                anchors.fill: parent
-
-                running: currentRoom && currentRoom.hasFileUploading
-            }
-        }
-
-        ItemDelegate {
-            Layout.preferredWidth: 48
-            Layout.preferredHeight: 48
-
-            id: cancelReplyButton
-            visible: isReply
-
-            contentItem: MaterialIcon {
-                icon: "\ue5cd"
-            }
-
-            onClicked: clearReply()
-        }
-
-        ScrollView {
+        Rectangle {
             Layout.fillWidth: true
-            Layout.preferredHeight: 48
+            Layout.preferredHeight: 1
+            Layout.leftMargin: 12
+            Layout.rightMargin: 12
 
-            ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+            visible: emojiPicker.visible || replyItem.visible || autoCompleteListView.visible
 
-            clip: true
+            color: MSettings.darkTheme ? "#424242" : "#e7ebeb"
+        }
+
+        RowLayout {
+            Layout.fillWidth: true
+
+            spacing: 0
+
+            ToolButton {
+                Layout.preferredWidth: 48
+                Layout.preferredHeight: 48
+                Layout.alignment: Qt.AlignBottom
+
+                id: uploadButton
+                visible: !isReply
+
+                contentItem: MaterialIcon {
+                    icon: "\ue226"
+                }
+
+                onClicked: currentRoom.chooseAndUploadFile()
+
+                BusyIndicator {
+                    anchors.fill: parent
+
+                    running: currentRoom && currentRoom.hasFileUploading
+                }
+            }
+
+            ToolButton {
+                Layout.preferredWidth: 48
+                Layout.preferredHeight: 48
+                Layout.alignment: Qt.AlignBottom
+
+                id: cancelReplyButton
+
+                visible: isReply
+
+                contentItem: MaterialIcon {
+                    icon: "\ue5cd"
+                }
+
+                onClicked: clearReply()
+            }
 
             TextArea {
                 property real progress: 0
 
+                Layout.fillWidth: true
+                Layout.minimumHeight: 48
+
                 id: inputField
 
                 wrapMode: Text.Wrap
-                placeholderText: isReply ? "Reply to " + replyUserID : "Send a Message"
-                leftPadding: 16
+                placeholderText: "Send a Message"
                 topPadding: 0
                 bottomPadding: 0
                 selectByMouse: true
                 verticalAlignment: TextEdit.AlignVCenter
 
-                text: currentRoom ? currentRoom.cachedInput : ""
+                text: currentRoom != null ? currentRoom.cachedInput : ""
 
-                background: Item {
+                background: Item {}
+
+                Rectangle {
+                    width: currentRoom && currentRoom.hasFileUploading ? parent.width * currentRoom.fileUploadingProgress / 100 : 0
+                    height: parent.height
+
+                    opacity: 0.2
+                    color: Material.accent
                 }
 
                 Timer {
@@ -193,18 +248,17 @@ Rectangle {
                     onTriggered: currentRoom.sendTypingNotification(true)
                 }
 
-                ToolTip.visible: currentRoom
-                                 && currentRoom.hasUsersTyping
-                ToolTip.text: currentRoom ? currentRoom.usersTyping : ""
-
                 Keys.onReturnPressed: {
                     if (event.modifiers & Qt.ShiftModifier) {
                         insert(cursorPosition, "\n")
-                    } else {
+                    } else if (text) {
                         postMessage(text)
                         text = ""
+                        closeAll()
                     }
                 }
+
+                Keys.onEscapePressed: closeAll()
 
                 Keys.onBacktabPressed: if (isAutoCompleting) autoCompleteListView.decrementCurrentIndex()
 
@@ -259,8 +313,7 @@ Rectangle {
                     var PREFIX_MARKDOWN = '/md '
 
                     if (isReply) {
-                        currentRoom.sendReply(replyUserID, replyEventID, replyContent, text)
-                        clearReply()
+                        currentRoom.sendReply(replyUser.id, replyEventID, replyContent, text)
                         return
                     }
 
@@ -294,44 +347,26 @@ Rectangle {
                     }
                     if (text.indexOf(PREFIX_MARKDOWN) === 0) {
                         text = text.substr(PREFIX_MARKDOWN.length)
-                        var parsedText = Markdown.markdown_parser(text)
-                        currentRoom.postHtmlMessage(text, parsedText, RoomMessageEvent.Text)
+                        currentRoom.postMarkdownText(text)
                         return
                     }
 
                     currentRoom.postPlainText(text)
                 }
             }
-        }
 
-        ItemDelegate {
-            Layout.preferredWidth: 48
-            Layout.preferredHeight: 48
+            ToolButton {
+                Layout.preferredWidth: 48
+                Layout.preferredHeight: 48
+                Layout.alignment: Qt.AlignBottom
 
-            id: emojiButton
+                id: emojiButton
 
-            contentItem: MaterialIcon {
-                icon: "\ue24e"
-            }
-
-            onClicked: emojiPicker.visible ? emojiPicker.close() : emojiPicker.open()
-
-            EmojiPicker {
-                x: -width + parent.width
-                y: -height - 16
-
-                width: 360
-                height: 320
-
-                id: emojiPicker
-
-                emojiModel: EmojiModel {
-                    id: emojiModel
+                contentItem: MaterialIcon {
+                    icon: "\ue24e"
                 }
 
-                Material.elevation: 2
-
-                textArea: inputField
+                onClicked: emojiPicker.visible = !emojiPicker.visible
             }
         }
     }
@@ -346,8 +381,18 @@ Rectangle {
 
     function clearReply() {
         isReply = false
-        replyUserID = ""
+        replyUser = null
         replyEventID = ""
         replyContent = ""
+    }
+
+    function focus() {
+        inputField.forceActiveFocus()
+    }
+
+    function closeAll() {
+        replyItem.visible = false
+        autoCompleteListView.visible = false
+        emojiPicker.visible = false
     }
 }

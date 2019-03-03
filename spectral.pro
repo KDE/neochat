@@ -20,6 +20,9 @@ isEmpty(USE_SYSTEM_SORTFILTERPROXYMODEL) {
 isEmpty(USE_SYSTEM_QMATRIXCLIENT) {
     USE_SYSTEM_QMATRIXCLIENT = false
 }
+isEmpty(BUNDLE_FONT) {
+    BUNDLE_FONT = false
+}
 
 $$USE_SYSTEM_QMATRIXCLIENT {
     PKGCONFIG += QMatrixClient
@@ -34,6 +37,27 @@ $$USE_SYSTEM_SORTFILTERPROXYMODEL {
     include(include/SortFilterProxyModel/SortFilterProxyModel.pri)
 }
 
+INCLUDEPATH += include/hoedown
+HEADERS += \
+    include/hoedown/autolink.h \
+    include/hoedown/buffer.h \
+    include/hoedown/document.h \
+    include/hoedown/escape.h \
+    include/hoedown/html.h \
+    include/hoedown/stack.h \
+    include/hoedown/version.h
+
+SOURCES += \
+    include/hoedown/autolink.c \
+    include/hoedown/buffer.c \
+    include/hoedown/document.c \
+    include/hoedown/escape.c \
+    include/hoedown/html.c \
+    include/hoedown/html_blocks.c \
+    include/hoedown/html_smartypants.c \
+    include/hoedown/stack.c \
+    include/hoedown/version.c
+
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -45,8 +69,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-RESOURCES += \
-    res.qrc
+RESOURCES += res.qrc
+$$BUNDLE_FONT {
+    message("Bundling fonts.")
+    DEFINES += BUNDLE_FONT
+    RESOURCES += font.qrc
+} else {
+    message("Using fonts from operating system.")
+}
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH += imports/
@@ -102,12 +132,10 @@ HEADERS += \
     src/emojimodel.h \
     src/spectralroom.h \
     src/userlistmodel.h \
-    src/imageitem.h \
     src/accountlistmodel.h \
     src/spectraluser.h \
     src/notifications/manager.h \
-    src/utils.h \
-    src/paintable.h
+    src/utils.h
 
 SOURCES += src/main.cpp \
     src/controller.cpp \
@@ -117,11 +145,9 @@ SOURCES += src/main.cpp \
     src/emojimodel.cpp \
     src/spectralroom.cpp \
     src/userlistmodel.cpp \
-    src/imageitem.cpp \
     src/accountlistmodel.cpp \
     src/spectraluser.cpp \
-    src/utils.cpp \
-    src/paintable.cpp
+    src/utils.cpp
 
 unix:!mac {
     SOURCES += src/notifications/managerlinux.cpp
