@@ -627,6 +627,8 @@ Item {
 
                 AutoTextField {
                     readonly property bool active: text
+                    readonly property bool isRoom: text.match(/#.*:.*\..*/g) || text.match(/!.*:.*\..*/g)
+                    readonly property bool isUser: text.match(/@.*:.*\..*/g)
 
                     Layout.fillWidth: true
                     Layout.fillHeight: true
@@ -639,6 +641,26 @@ Item {
                     color: MPalette.lighter
 
                     background: Item {}
+                }
+
+                ItemDelegate {
+                    Layout.preferredWidth: height
+                    Layout.fillHeight: true
+
+                    visible: searchField.isRoom || searchField.isUser
+
+                    contentItem: MaterialIcon { icon: "\ue145" }
+
+                    onClicked: {
+                        if (searchField.isRoom) {
+                            controller.joinRoom(controller.connection, searchField.text)
+                            return
+                        }
+                        if (searchField.isUser) {
+                            controller.createDirectChat(controller.connection, searchField.text)
+                            return
+                        }
+                    }
                 }
 
                 Avatar {
