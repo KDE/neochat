@@ -89,6 +89,16 @@ ColumnLayout {
                 }
             }
 
+            Rectangle {
+                anchors.fill: parent
+
+                color: "transparent"
+                radius: 24
+
+                border.width: 2
+                border.color: MPalette.banner
+            }
+
             AutoMouseArea {
                 anchors.fill: parent
 
