@@ -101,6 +101,8 @@ ApplicationWindow {
                 id: usernameField
 
                 placeholderText: "Username"
+
+                onAccepted: passwordField.forceActiveFocus()
             }
 
             AutoTextField {
@@ -110,6 +112,8 @@ ApplicationWindow {
 
                 placeholderText: "Password"
                 echoMode: TextInput.Password
+
+                onAccepted: loginDialog.doLogin()
             }
         }
 
