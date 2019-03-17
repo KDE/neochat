@@ -244,24 +244,21 @@ Item {
                     }
                 }
 
-                RoundButton {
-                    width: 64
-                    height: 64
-                    anchors.right: parent.right
+                Button {
                     anchors.top: parent.top
-
-                    id: goBottomFab
+                    anchors.horizontalCenter: parent.horizontalCenter
 
                     visible: currentRoom && currentRoom.hasUnreadMessages
 
-                    contentItem: MaterialIcon {
-                        anchors.fill: parent
+                    topPadding: 8
+                    bottomPadding: 8
+                    leftPadding: 24
+                    rightPadding: 24
 
-                        icon: "\ue316"
-                        color: "white"
-                    }
+                    Material.foreground: MPalette.foreground
+                    Material.background: MPalette.banner
 
-                    Material.background: Material.accent
+                    text: "Go to read marker"
 
                     onClicked: goToEvent(currentRoom.readMarkerEventId)
                 }
