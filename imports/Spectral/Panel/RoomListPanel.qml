@@ -937,14 +937,20 @@ Item {
                 text: "Accept"
                 flat: true
 
-                onClicked: currentRoom.acceptInvitation()
+                onClicked: {
+                    inviteDialog.currentRoom.acceptInvitation()
+                    inviteDialog.close()
+                }
             }
 
             Button {
                 text: "Reject"
                 flat: true
 
-                onClicked: currentRoom.forget()
+                onClicked: {
+                    inviteDialog.currentRoom.forget()
+                    inviteDialog.close()
+                }
             }
 
             Button {
