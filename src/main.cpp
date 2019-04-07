@@ -36,6 +36,8 @@ int main(int argc, char *argv[]) {
   }
 #endif
 
+  QCoreApplication::setAttribute(Qt::AA_UseOpenGLES);
+
   QNetworkProxyFactory::setUseSystemConfiguration(true);
 
   QApplication app(argc, argv);
