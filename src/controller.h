@@ -5,6 +5,7 @@
 #include "notifications/manager.h"
 #include "settings.h"
 #include "user.h"
+#include "room.h"
 
 #include <QApplication>
 #include <QMediaPlayer>

@@ -168,6 +168,15 @@ ApplicationWindow {
         }
     }
 
+    Dialog {
+        anchors.centerIn: parent
+
+        width: 200
+        height: 300
+
+        id: settingsDialog
+    }
+
     SplitView {
         anchors.fill: parent
 
@@ -212,9 +221,9 @@ ApplicationWindow {
         window.hide()
     }
 
-        Component.onCompleted: {
-            spectralController.initiated.connect(function() {
-                if (spectralController.accountCount == 0) loginDialog.open()
-            })
-        }
+    Component.onCompleted: {
+        spectralController.initiated.connect(function() {
+            if (spectralController.accountCount == 0) loginDialog.open()
+        })
+    }
 }

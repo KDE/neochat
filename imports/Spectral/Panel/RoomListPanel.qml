@@ -88,462 +88,123 @@ Item {
 
         edge: Qt.LeftEdge
 
-        Component {
-            id: mainPage
-
-            ColumnLayout {
-                readonly property string title: "Main"
-
-                id: mainColumn
-
-                spacing: 0
-
-                Control {
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: 330
-
-                    padding: 24
-
-                    contentItem: ColumnLayout {
-                        spacing: 4
-
-                        Avatar {
-                            Layout.preferredWidth: 200
-                            Layout.preferredHeight: 200
-                            Layout.margins: 12
-                            Layout.alignment: Qt.AlignHCenter
-
-                            source: root.user ? root.user.avatarMediaId : null
-                            hint: root.user ? root.user.displayName : "?"
-                        }
-
-                        Label {
-                            Layout.alignment: Qt.AlignHCenter
-
-                            text: root.user ? root.user.displayName : "No Name"
-                            color: "white"
-                            font.pixelSize: 22
-                        }
-
-                        Label {
-                            Layout.alignment: Qt.AlignHCenter
-
-                            text: root.user ? root.user.id : "@example:matrix.org"
-                            color: "white"
-                            opacity: 0.7
-                            font.pixelSize: 13
-                        }
-                    }
-
-                    background: Rectangle { color: Material.primary }
-
-                    RippleEffect {
-                        anchors.fill: parent
-
-                        onClicked: stackView.push(userPage)
-                    }
-                }
-
-                ScrollView {
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-
-                    clip: true
-
-                    ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-
-                    ColumnLayout {
-                        width: mainColumn.width
-                        spacing: 0
-
-                        Repeater {
-                            model: AccountListModel {
-                                controller: spectralController
-                            }
-
-                            delegate: ItemDelegate {
-                                Layout.fillWidth: true
-
-                                text: user.displayName
-
-                                onClicked: {
-                                    controller.connection = connection
-                                    drawer.close()
-                                }
-                            }
-                        }
-
-                        ItemDelegate {
-                            Layout.fillWidth: true
-
-                            text: "Add Account"
-
-                            onClicked: loginDialog.open()
-                        }
-
-                        Rectangle {
-                            Layout.fillWidth: true
-                            Layout.preferredHeight: 1
-
-                            color: MSettings.darkTheme ? "#424242" : "#e7ebeb"
-                        }
-
-                        ItemDelegate {
-                            Layout.fillWidth: true
-
-                            text: "Settings"
-
-                            onClicked: stackView.push(settingsPage)
-                        }
-
-                        ItemDelegate {
-                            Layout.fillWidth: true
-
-                            text: "Logout"
-
-                            onClicked: controller.logout(controller.connection)
-                        }
-
-                        ItemDelegate {
-                            Layout.fillWidth: true
-
-                            text: "Exit"
-
-                            onClicked: Qt.quit()
-                        }
-                    }
-                }
-            }
-        }
-
-        Component {
-            id: userPage
-
-            ScrollView {
-                readonly property string title: "User Info"
-
-                id: main
-
-                ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-
-                ColumnLayout {
-                    width: main.width
-                    spacing: 0
-
-                    ItemDelegate {
-                        Layout.fillWidth: true
-
-                        padding: 24
-
-                        contentItem: ColumnLayout {
-                            spacing: 0
-
-                            Label {
-                                Layout.fillWidth: true
-                                Layout.fillHeight: true
-
-                                text: "Matrix ID"
-                                font.pixelSize: 16
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                            }
-
-                            Label {
-                                Layout.fillWidth: true
-                                Layout.fillHeight: true
-
-                                text: root.user.id
-                                color: "#5B7480"
-                                font.pixelSize: 13
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                            }
-                        }
-                    }
-
-                    ItemDelegate {
-                        Layout.fillWidth: true
-
-                        padding: 24
-
-                        contentItem: ColumnLayout {
-                            spacing: 0
-
-                            Label {
-                                Layout.fillWidth: true
-                                Layout.fillHeight: true
-
-                                text: "Name"
-                                font.pixelSize: 16
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                            }
-
-                            Label {
-                                Layout.fillWidth: true
-                                Layout.fillHeight: true
-
-                                text: root.user.name
-                                color: "#5B7480"
-                                font.pixelSize: 13
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                            }
-                        }
-                    }
-
-                    ItemDelegate {
-                        Layout.fillWidth: true
-
-                        padding: 24
-
-                        contentItem: ColumnLayout {
-                            spacing: 0
-
-                            Label {
-                                Layout.fillWidth: true
-                                Layout.fillHeight: true
-
-                                text: "Avatar"
-                                font.pixelSize: 16
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                            }
-
-                            Label {
-                                Layout.fillWidth: true
-                                Layout.fillHeight: true
-
-                                text: root.user.avatarMediaId
-                                color: "#5B7480"
-                                font.pixelSize: 13
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                            }
-                        }
-                    }
-
-                    ItemDelegate {
-                        Layout.fillWidth: true
-
-                        padding: 24
-
-                        contentItem: ColumnLayout {
-                            spacing: 0
-
-                            Label {
-                                Layout.fillWidth: true
-                                Layout.fillHeight: true
-
-                                text: "Server"
-                                font.pixelSize: 16
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                            }
-
-                            Label {
-                                Layout.fillWidth: true
-                                Layout.fillHeight: true
-
-                                text: root.controller.connection.accessToken
-                                color: "#5B7480"
-                                font.pixelSize: 13
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                            }
-                        }
-                    }
-
-                    ItemDelegate {
-                        Layout.fillWidth: true
-
-                        padding: 24
-
-                        contentItem: ColumnLayout {
-                            spacing: 0
-
-                            Label {
-                                Layout.fillWidth: true
-                                Layout.fillHeight: true
-
-                                text: "Device"
-                                font.pixelSize: 16
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                            }
-
-                            Label {
-                                Layout.fillWidth: true
-                                Layout.fillHeight: true
-
-                                text: root.controller.connection.deviceId
-                                color: "#5B7480"
-                                font.pixelSize: 13
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                            }
-                        }
-                    }
-
-                    ItemDelegate {
-                        Layout.fillWidth: true
-
-                        padding: 24
-
-                        contentItem: ColumnLayout {
-                            spacing: 0
-
-                            Label {
-                                Layout.fillWidth: true
-                                Layout.fillHeight: true
-
-                                text: "Token"
-                                font.pixelSize: 16
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                            }
-
-                            Label {
-                                Layout.fillWidth: true
-                                Layout.fillHeight: true
-
-                                text: root.controller.connection.accessToken
-                                color: "#5B7480"
-                                font.pixelSize: 13
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        Component {
-            id: settingsPage
-
-            ScrollView {
-                readonly property string title: "Settings"
-
-                id: main
-
-                ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-
-                padding: 32
-
-                ColumnLayout {
-                    width: main.width - 64
-                    spacing: 0
-
-                    Switch {
-                        text: "Dark theme"
-                        checked: MSettings.darkTheme
-
-                        onCheckedChanged: MSettings.darkTheme = checked
-                    }
-
-                    Switch {
-                        text: "Show notifications"
-                        checked: MSettings.showNotification
-
-                        onCheckedChanged: MSettings.showNotification = checked
-                    }
-
-                    Switch {
-                        text: "Use press and hold instead of right click"
-                        checked: MSettings.pressAndHold
-
-                        onCheckedChanged: MSettings.pressAndHold = checked
-                    }
-
-                    Switch {
-                        text: "Show tray icon"
-                        checked: MSettings.showTray
-
-                        onCheckedChanged: MSettings.showTray = checked
-                    }
-
-                    Switch {
-                        text: "Enable timeline background"
-                        checked: MSettings.enableTimelineBackground
-
-                        onCheckedChanged: MSettings.enableTimelineBackground = checked
-                    }
-
-                    RowLayout {
-                        Layout.fillWidth: true
-
-                        Label {
-                            text: "DPI"
-                        }
-
-                        Slider {
-                            Layout.fillWidth: true
-
-                            value: controller.dpi()
-                            from: 100
-                            to: 300
-                            stepSize: 25
-                            snapMode: Slider.SnapAlways
-
-                            ToolTip.visible: pressed
-                            ToolTip.text: value
-
-                            onMoved: controller.setDpi(value)
-                        }
-                    }
-                }
-            }
-        }
-
         ColumnLayout {
             anchors.fill: parent
 
+            id: mainColumn
+
             spacing: 0
 
-            Rectangle {
+            Control {
                 Layout.fillWidth: true
-                Layout.preferredHeight: 64
+                Layout.preferredHeight: 330
 
-                visible: stackView.depth > 1
+                padding: 24
 
-                color: Material.primary
+                contentItem: ColumnLayout {
+                    spacing: 4
 
-                RowLayout {
-                    anchors.fill: parent
-                    anchors.margins: 4
+                    Avatar {
+                        Layout.preferredWidth: 200
+                        Layout.preferredHeight: 200
+                        Layout.margins: 12
+                        Layout.alignment: Qt.AlignHCenter
 
-                    ToolButton {
-                        Layout.preferredWidth: height
-                        Layout.fillHeight: true
-
-                        contentItem: MaterialIcon {
-                            icon: "\ue5c4"
-                            color: "white"
-                        }
-
-                        onClicked: stackView.pop()
+                        source: root.user ? root.user.avatarMediaId : null
+                        hint: root.user ? root.user.displayName : "?"
                     }
+
                     Label {
-                        Layout.fillWidth: true
+                        Layout.alignment: Qt.AlignHCenter
 
-                        text: stackView.currentItem.title
+                        text: root.user ? root.user.displayName : "No Name"
                         color: "white"
-                        font.pixelSize: 18
-                        elide: Label.ElideRight
+                        font.pixelSize: 22
                     }
+
+                    Label {
+                        Layout.alignment: Qt.AlignHCenter
+
+                        text: root.user ? root.user.id : "@example:matrix.org"
+                        color: "white"
+                        opacity: 0.7
+                        font.pixelSize: 13
+                    }
+                }
+
+                background: Rectangle { color: Material.primary }
+
+                RippleEffect {
+                    anchors.fill: parent
                 }
             }
 
-            StackView {
+            ScrollView {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
 
-                id: stackView
-
                 clip: true
 
-                initialItem: mainPage
+                ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+
+                ColumnLayout {
+                    width: mainColumn.width
+                    spacing: 0
+
+                    Repeater {
+                        model: AccountListModel {
+                            controller: spectralController
+                        }
+
+                        delegate: ItemDelegate {
+                            Layout.fillWidth: true
+
+                            text: user.displayName
+
+                            onClicked: {
+                                controller.connection = connection
+                                drawer.close()
+                            }
+                        }
+                    }
+
+                    ItemDelegate {
+                        Layout.fillWidth: true
+
+                        text: "Add Account"
+
+                        onClicked: loginDialog.open()
+                    }
+
+                    Rectangle {
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: 1
+
+                        color: MSettings.darkTheme ? "#424242" : "#e7ebeb"
+                    }
+
+                    ItemDelegate {
+                        Layout.fillWidth: true
+
+                        text: "Settings"
+                    }
+
+                    ItemDelegate {
+                        Layout.fillWidth: true
+
+                        text: "Logout"
+
+                        onClicked: controller.logout(controller.connection)
+                    }
+
+                    ItemDelegate {
+                        Layout.fillWidth: true
+
+                        text: "Exit"
+
+                        onClicked: Qt.quit()
+                    }
+                }
             }
         }
     }

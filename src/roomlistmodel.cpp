@@ -85,7 +85,7 @@ void RoomListModel::connectRoomSignals(SpectralRoom* room) {
       if (sender == room->localUser()) return;
       emit newMessage(
           room->id(), lastEvent->id(), room->displayName(),
-          sender->displayname(), utils::eventToString(*lastEvent),
+          sender->displayname(), room->eventToString(*lastEvent),
           room->avatar(128));
   });
 }

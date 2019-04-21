@@ -107,7 +107,7 @@ QString SpectralRoom::lastEvent() {
   if (timelineSize() == 0) return "";
   const RoomEvent* lastEvent = messageEvents().rbegin()->get();
   return user(lastEvent->senderId())->displayname() + ": " +
-         utils::removeReply(utils::eventToString(*lastEvent, this));
+         utils::removeReply(eventToString(*lastEvent));
 }
 
 bool SpectralRoom::isEventHighlighted(const RoomEvent* e) const {
