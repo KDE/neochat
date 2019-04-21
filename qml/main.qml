@@ -493,7 +493,7 @@ ApplicationWindow {
         position: inPortrait ? 0 : 1
         visible: !inPortrait
 
-        id: drawer
+        id: roomListDrawer
 
         RoomListPanel {
             anchors.fill: parent
@@ -510,7 +510,7 @@ ApplicationWindow {
 
     RoomPanel {
         anchors.fill: parent
-        anchors.leftMargin: !inPortrait ? drawer.width : undefined
+        anchors.leftMargin: !inPortrait ? roomListDrawer.width : undefined
         anchors.rightMargin: !inPortrait && roomDrawer.visible ? roomDrawer.width : undefined
 
         id: roomForm
