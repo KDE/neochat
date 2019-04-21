@@ -3,7 +3,7 @@ image: Visual Studio 2017
 environment:
   DEPLOY_DIR: Spectral-%APPVEYOR_BUILD_VERSION%
   matrix:
-  - QTDIR: C:\Qt\5.12.1\msvc2017_64
+  - QTDIR: C:\Qt\5.12\msvc2017_64
     VCVARS: "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\VC\\Auxiliary\\Build\\vcvars64.bat"
     PLATFORM:
 
