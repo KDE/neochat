@@ -169,7 +169,7 @@ ColumnLayout {
                                 Layout.fillWidth: true
 
                                 color: "white"
-                                text: replyDisplay || ""
+                                text: "<style>a{color: white;} .user-pill{}</style>" + (replyDisplay || "")
 
                                 wrapMode: Label.Wrap
                                 textFormat: Label.RichText

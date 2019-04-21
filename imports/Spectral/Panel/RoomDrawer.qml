@@ -16,7 +16,7 @@ Drawer {
 
     ColumnLayout {
         anchors.fill: parent
-        anchors.margins: 32
+        anchors.margins: 16
 
         Avatar {
             Layout.preferredWidth: 96

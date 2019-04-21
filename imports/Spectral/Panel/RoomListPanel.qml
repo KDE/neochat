@@ -80,134 +80,134 @@ Item {
         ]
     }
 
-    Drawer {
-        width: Math.max(root.width, 400)
-        height: root.height
+//    Drawer {
+//        width: Math.max(root.width, 400)
+//        height: root.height
 
-        id: drawer
+//        id: drawer
 
-        edge: Qt.LeftEdge
+//        edge: Qt.LeftEdge
 
-        ColumnLayout {
-            anchors.fill: parent
+//        ColumnLayout {
+//            anchors.fill: parent
 
-            id: mainColumn
+//            id: mainColumn
 
-            spacing: 0
+//            spacing: 0
 
-            Control {
-                Layout.fillWidth: true
-                Layout.preferredHeight: 330
+//            Control {
+//                Layout.fillWidth: true
+//                Layout.preferredHeight: 330
 
-                padding: 24
+//                padding: 24
 
-                contentItem: ColumnLayout {
-                    spacing: 4
+//                contentItem: ColumnLayout {
+//                    spacing: 4
 
-                    Avatar {
-                        Layout.preferredWidth: 200
-                        Layout.preferredHeight: 200
-                        Layout.margins: 12
-                        Layout.alignment: Qt.AlignHCenter
+//                    Avatar {
+//                        Layout.preferredWidth: 200
+//                        Layout.preferredHeight: 200
+//                        Layout.margins: 12
+//                        Layout.alignment: Qt.AlignHCenter
 
-                        source: root.user ? root.user.avatarMediaId : null
-                        hint: root.user ? root.user.displayName : "?"
-                    }
+//                        source: root.user ? root.user.avatarMediaId : null
+//                        hint: root.user ? root.user.displayName : "?"
+//                    }
 
-                    Label {
-                        Layout.alignment: Qt.AlignHCenter
+//                    Label {
+//                        Layout.alignment: Qt.AlignHCenter
 
-                        text: root.user ? root.user.displayName : "No Name"
-                        color: "white"
-                        font.pixelSize: 22
-                    }
+//                        text: root.user ? root.user.displayName : "No Name"
+//                        color: "white"
+//                        font.pixelSize: 22
+//                    }
 
-                    Label {
-                        Layout.alignment: Qt.AlignHCenter
+//                    Label {
+//                        Layout.alignment: Qt.AlignHCenter
 
-                        text: root.user ? root.user.id : "@example:matrix.org"
-                        color: "white"
-                        opacity: 0.7
-                        font.pixelSize: 13
-                    }
-                }
+//                        text: root.user ? root.user.id : "@example:matrix.org"
+//                        color: "white"
+//                        opacity: 0.7
+//                        font.pixelSize: 13
+//                    }
+//                }
 
-                background: Rectangle { color: Material.primary }
+//                background: Rectangle { color: Material.primary }
 
-                RippleEffect {
-                    anchors.fill: parent
-                }
-            }
+//                RippleEffect {
+//                    anchors.fill: parent
+//                }
+//            }
 
-            ScrollView {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
+//            ScrollView {
+//                Layout.fillWidth: true
+//                Layout.fillHeight: true
 
-                clip: true
+//                clip: true
 
-                ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+//                ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
 
-                ColumnLayout {
-                    width: mainColumn.width
-                    spacing: 0
+//                ColumnLayout {
+//                    width: mainColumn.width
+//                    spacing: 0
 
-                    Repeater {
-                        model: AccountListModel {
-                            controller: spectralController
-                        }
+//                    Repeater {
+//                        model: AccountListModel {
+//                            controller: spectralController
+//                        }
 
-                        delegate: ItemDelegate {
-                            Layout.fillWidth: true
+//                        delegate: ItemDelegate {
+//                            Layout.fillWidth: true
 
-                            text: user.displayName
+//                            text: user.displayName
 
-                            onClicked: {
-                                controller.connection = connection
-                                drawer.close()
-                            }
-                        }
-                    }
+//                            onClicked: {
+//                                controller.connection = connection
+//                                drawer.close()
+//                            }
+//                        }
+//                    }
 
-                    ItemDelegate {
-                        Layout.fillWidth: true
+//                    ItemDelegate {
+//                        Layout.fillWidth: true
 
-                        text: "Add Account"
+//                        text: "Add Account"
 
-                        onClicked: loginDialog.open()
-                    }
+//                        onClicked: loginDialog.open()
+//                    }
 
-                    Rectangle {
-                        Layout.fillWidth: true
-                        Layout.preferredHeight: 1
+//                    Rectangle {
+//                        Layout.fillWidth: true
+//                        Layout.preferredHeight: 1
 
-                        color: MSettings.darkTheme ? "#424242" : "#e7ebeb"
-                    }
+//                        color: MSettings.darkTheme ? "#424242" : "#e7ebeb"
+//                    }
 
-                    ItemDelegate {
-                        Layout.fillWidth: true
+//                    ItemDelegate {
+//                        Layout.fillWidth: true
 
-                        text: "Settings"
-                    }
+//                        text: "Settings"
+//                    }
 
-                    ItemDelegate {
-                        Layout.fillWidth: true
+//                    ItemDelegate {
+//                        Layout.fillWidth: true
 
-                        text: "Logout"
+//                        text: "Logout"
 
-                        onClicked: controller.logout(controller.connection)
-                    }
+//                        onClicked: controller.logout(controller.connection)
+//                    }
 
-                    ItemDelegate {
-                        Layout.fillWidth: true
+//                    ItemDelegate {
+//                        Layout.fillWidth: true
 
-                        text: "Exit"
+//                        text: "Exit"
 
-                        onClicked: Qt.quit()
-                    }
-                }
-            }
-        }
-    }
+//                        onClicked: Qt.quit()
+//                    }
+//                }
+//            }
+//        }
+//    }
 
     ColumnLayout {
         anchors.fill: parent
@@ -288,8 +288,6 @@ Item {
 
                 AutoTextField {
                     readonly property bool active: text
-                    readonly property bool isRoom: text.match(/#.*:.*\..*/g) || text.match(/!.*:.*\..*/g)
-                    readonly property bool isUser: text.match(/@.*:.*\..*/g)
 
                     Layout.fillWidth: true
                     Layout.fillHeight: true
@@ -304,26 +302,6 @@ Item {
                     background: Item {}
                 }
 
-                ItemDelegate {
-                    Layout.preferredWidth: height
-                    Layout.fillHeight: true
-
-                    visible: searchField.isRoom || searchField.isUser
-
-                    contentItem: MaterialIcon { icon: "\ue145" }
-
-                    onClicked: {
-                        if (searchField.isRoom) {
-                            controller.joinRoom(controller.connection, searchField.text)
-                            return
-                        }
-                        if (searchField.isUser) {
-                            controller.createDirectChat(controller.connection, searchField.text)
-                            return
-                        }
-                    }
-                }
-
                 Avatar {
                     Layout.preferredWidth: height
                     Layout.fillHeight: true
@@ -336,7 +314,7 @@ Item {
 
                     MouseArea {
                         anchors.fill: parent
-                        onClicked: drawer.open()
+                        onClicked: detailDialog.open()
                     }
                 }
             }

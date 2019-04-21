@@ -23,15 +23,6 @@ Item {
         room: currentRoom
     }
 
-    RoomDrawer {
-        width: Math.min(root.width * 0.7, 480)
-        height: root.height
-
-        id: roomDrawer
-
-        room: currentRoom
-    }
-
     Label {
         anchors.centerIn: parent
         visible: !currentRoom
@@ -64,7 +55,7 @@ Item {
             topic: currentRoom ? (currentRoom.topic).replace(/(\r\n\t|\n|\r\t)/gm,"") : ""
             atTop: messageListView.atYBeginning
 
-            onClicked: roomDrawer.open()
+            onClicked: roomDrawer.visible ? roomDrawer.close() : roomDrawer.open()
         }
 
         ColumnLayout {

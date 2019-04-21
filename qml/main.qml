@@ -14,12 +14,14 @@ import Spectral 0.1
 import Spectral.Setting 0.1
 
 ApplicationWindow {
+    readonly property bool inPortrait: window.width < window.height
+
     Material.theme: MPalette.theme
     Material.background: MPalette.background
 
     width: 960
     height: 640
-    minimumWidth: 720
+    minimumWidth: 480
     minimumHeight: 360
 
     id: window
@@ -171,18 +173,330 @@ ApplicationWindow {
     Dialog {
         anchors.centerIn: parent
 
-        width: 200
-        height: 300
+        width: 480
 
-        id: settingsDialog
+        id: detailDialog
+
+        contentItem: Column {
+            id: detailColumn
+
+            spacing: 0
+
+            Repeater {
+                model: AccountListModel{
+                    controller: spectralController
+                }
+
+                delegate: Item {
+                    width: detailColumn.width
+                    height: 72
+
+                    RowLayout {
+                        anchors.fill: parent
+                        anchors.margins: 12
+
+                        spacing: 12
+
+                        Avatar {
+                            Layout.preferredWidth: height
+                            Layout.fillHeight: true
+
+                            source: user.avatarMediaId
+                            hint: user.displayName || "No Name"
+                        }
+
+                        ColumnLayout {
+                            Layout.fillWidth: true
+                            Layout.alignment: Qt.AlignHCenter
+
+                            Label {
+                                Layout.fillWidth: true
+
+                                text: user.displayName || "No Name"
+                                color: MPalette.foreground
+                                font.pixelSize: 16
+                                font.bold: true
+                                elide: Text.ElideRight
+                                wrapMode: Text.NoWrap
+                            }
+
+                            Label {
+                                Layout.fillWidth: true
+
+                                text: connection === spectralController.connection ? "Active" : "Online"
+                                color: MPalette.lighter
+                                font.pixelSize: 13
+                                elide: Text.ElideRight
+                                wrapMode: Text.NoWrap
+                            }
+                        }
+                    }
+
+                    Menu {
+                        id: contextMenu
+
+                        MenuItem {
+                            text: "Logout"
+
+                            onClicked: spectralController.logout(connection)
+                        }
+                    }
+
+                    RippleEffect {
+                        anchors.fill: parent
+
+                        onPrimaryClicked: spectralController.connection = connection
+                        onSecondaryClicked: contextMenu.popup()
+                    }
+                }
+            }
+
+            RowLayout {
+                width: parent.width
+
+                MenuSeparator {
+                    Layout.fillWidth: true
+                }
+
+                ToolButton {
+                    Layout.preferredWidth: 48
+                    Layout.preferredHeight: 48
+
+                    contentItem: MaterialIcon {
+                        icon: "\ue145"
+                        color: MPalette.lighter
+                    }
+
+                    onClicked: loginDialog.open()
+                }
+            }
+
+            Control {
+                width: parent.width
+
+                contentItem: RowLayout {
+                    MaterialIcon {
+                        Layout.preferredWidth: 48
+                        Layout.preferredHeight: 48
+
+                        icon: "\ue7ff"
+                    }
+
+                    Label {
+                        Layout.fillWidth: true
+
+                        text: "Start a Chat"
+                    }
+                }
+
+                RippleEffect {
+                    anchors.fill: parent
+
+                    onPrimaryClicked: joinRoomDialog.open()
+                }
+            }
+
+            Control {
+                width: parent.width
+
+                contentItem: RowLayout {
+                    MaterialIcon {
+                        Layout.preferredWidth: 48
+                        Layout.preferredHeight: 48
+
+                        icon: "\ue7fc"
+                    }
+
+                    Label {
+                        Layout.fillWidth: true
+
+                        text: "Create a Room"
+                    }
+                }
+
+                RippleEffect {
+                    anchors.fill: parent
+
+                    onPrimaryClicked: createRoomDialog.open()
+                }
+            }
+
+            MenuSeparator {
+                width: parent.width
+            }
+
+            Control {
+                width: parent.width
+
+                contentItem: RowLayout {
+                    MaterialIcon {
+                        Layout.preferredWidth: 48
+                        Layout.preferredHeight: 48
+
+                        icon: "\ue3a9"
+                    }
+
+                    Label {
+                        Layout.fillWidth: true
+
+                        text: "Night Mode"
+                    }
+
+                    Switch {
+                        id: darkThemeSwitch
+
+                        checked: MSettings.darkTheme
+                        onCheckedChanged: MSettings.darkTheme = checked
+                    }
+                }
+
+                RippleEffect {
+                    anchors.fill: parent
+
+                    onPrimaryClicked: darkThemeSwitch.checked = !darkThemeSwitch.checked
+                }
+            }
+
+            Control {
+                width: parent.width
+
+                contentItem: RowLayout {
+                    MaterialIcon {
+                        Layout.preferredWidth: 48
+                        Layout.preferredHeight: 48
+
+                        icon: "\ue5d2"
+                    }
+
+                    Label {
+                        Layout.fillWidth: true
+
+                        text: "Enable System Tray"
+                    }
+
+                    Switch {
+                        id: trayIconSwitch
+
+                        checked: MSettings.showTray
+                        onCheckedChanged: MSettings.showTray = checked
+                    }
+                }
+
+                RippleEffect {
+                    anchors.fill: parent
+
+                    onPrimaryClicked: trayIconSwitch.checked = !trayIconSwitch.checked
+                }
+            }
+
+            Control {
+                width: parent.width
+
+                contentItem: RowLayout {
+                    MaterialIcon {
+                        Layout.preferredWidth: 48
+                        Layout.preferredHeight: 48
+
+                        icon: "\ue7f5"
+                    }
+
+                    Label {
+                        Layout.fillWidth: true
+
+                        text: "Enable Notifications"
+                    }
+
+                    Switch {
+                        id: notificationsSwitch
+
+                        checked: MSettings.showNotification
+                        onCheckedChanged: MSettings.showNotification = checked
+                    }
+                }
+
+                RippleEffect {
+                    anchors.fill: parent
+
+                    onPrimaryClicked: notificationsSwitch.checked = !notificationsSwitch.checked
+                }
+            }
+        }
     }
 
-    SplitView {
-        anchors.fill: parent
+    Dialog {
+        anchors.centerIn: parent
+        width: 360
+
+        id: joinRoomDialog
+
+        title: "Start a Chat"
+
+        contentItem: ColumnLayout {
+            TextField {
+                Layout.fillWidth: true
+
+                id: identifierField
+
+                placeholderText: "Room Alias/User ID"
+            }
+        }
+
+        standardButtons: Dialog.Ok | Dialog.Cancel
+
+        onAccepted: {
+            var identifier = identifierField.text
+            var firstChar = identifier.charAt(0)
+            if (firstChar == "@") {
+                spectralController.createDirectChat(spectralController.connection, identifier)
+            } else if (firstChar == "!" || firstChar == "#") {
+                spectralController.joinRoom(spectralController.connection, identifier)
+            }
+        }
+    }
+
+    Dialog {
+        anchors.centerIn: parent
+        width: 360
+
+        id: createRoomDialog
+
+        title: "Create a Room"
+
+        contentItem: ColumnLayout {
+            TextField {
+                Layout.fillWidth: true
+
+                id: roomNameField
+
+                placeholderText: "Room Name"
+            }
+
+            TextField {
+                Layout.fillWidth: true
+
+                id: roomTopicField
+
+                placeholderText: "Room Topic"
+            }
+        }
+
+        standardButtons: Dialog.Ok | Dialog.Cancel
+
+        onAccepted: spectralController.createRoom(spectralController.connection, roomNameField.text, roomTopicField.text)
+    }
+
+    Drawer {
+        width: (inPortrait ? 0.67 : 0.3) * window.width
+        height: window.height
+        modal: inPortrait
+        interactive: inPortrait
+        position: inPortrait ? 0 : 1
+        visible: !inPortrait
+
+        id: drawer
 
         RoomListPanel {
-            width: window.width * 0.35
-            Layout.minimumWidth: 180
+            anchors.fill: parent
 
             id: roomListForm
 
@@ -192,17 +506,31 @@ ApplicationWindow {
 
             onLeaveRoom: roomForm.saveReadMarker(room)
         }
+    }
 
-        RoomPanel {
-            Layout.fillWidth: true
-            Layout.minimumWidth: 480
+    RoomPanel {
+        anchors.fill: parent
+        anchors.leftMargin: !inPortrait ? drawer.width : undefined
+        anchors.rightMargin: !inPortrait && roomDrawer.visible ? roomDrawer.width : undefined
 
-            id: roomForm
+        id: roomForm
 
-            clip: true
+        clip: true
 
-            currentRoom: roomListForm.enteredRoom
-        }
+        currentRoom: roomListForm.enteredRoom
+    }
+
+    RoomDrawer {
+        width: (inPortrait ? 0.67 : 0.3) * window.width
+        height: window.height
+        modal: inPortrait
+        interactive: inPortrait
+
+        edge: Qt.RightEdge
+
+        id: roomDrawer
+
+        room: roomListForm.enteredRoom
     }
 
     Binding {
