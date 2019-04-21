@@ -18,7 +18,8 @@
 
 #include "utils.h"
 
-SpectralRoom::SpectralRoom(Connection* connection, QString roomId,
+SpectralRoom::SpectralRoom(Connection* connection,
+                           QString roomId,
                            JoinState joinState)
     : Room(connection, std::move(roomId), joinState) {
   connect(this, &SpectralRoom::notificationCountChanged, this,
@@ -73,18 +74,25 @@ void SpectralRoom::chooseAndUploadFile() {
 void SpectralRoom::saveFileAs(QString eventId) {
   auto fileName = QFileDialog::getSaveFileName(Q_NULLPTR, tr("Save File as"),
                                                fileNameToDownload(eventId));
-  if (!fileName.isEmpty()) downloadFile(eventId, QUrl::fromLocalFile(fileName));
+  if (!fileName.isEmpty())
+    downloadFile(eventId, QUrl::fromLocalFile(fileName));
 }
 
-void SpectralRoom::acceptInvitation() { connection()->joinRoom(id()); }
+void SpectralRoom::acceptInvitation() {
+  connection()->joinRoom(id());
+}
 
-void SpectralRoom::forget() { connection()->forgetRoom(id()); }
+void SpectralRoom::forget() {
+  connection()->forgetRoom(id());
+}
 
 bool SpectralRoom::hasUsersTyping() {
   QList<User*> users = usersTyping();
-  if (users.isEmpty()) return false;
+  if (users.isEmpty())
+    return false;
   int count = users.length();
-  if (users.contains(localUser())) count--;
+  if (users.contains(localUser()))
+    count--;
   return count != 0;
 }
 
@@ -104,7 +112,8 @@ void SpectralRoom::sendTypingNotification(bool isTyping) {
 }
 
 QString SpectralRoom::lastEvent() {
-  if (timelineSize() == 0) return "";
+  if (timelineSize() == 0)
+    return "";
   const RoomEvent* lastEvent = messageEvents().rbegin()->get();
   return user(lastEvent->senderId())->displayname() + ": " +
          utils::removeReply(eventToString(*lastEvent));
@@ -116,7 +125,8 @@ bool SpectralRoom::isEventHighlighted(const RoomEvent* e) const {
 
 void SpectralRoom::checkForHighlights(const QMatrixClient::TimelineItem& ti) {
   auto localUserId = localUser()->id();
-  if (ti->senderId() == localUserId) return;
+  if (ti->senderId() == localUserId)
+    return;
   if (auto* e = ti.viewAs<RoomMessageEvent>()) {
     const auto& text = e->plainBody();
     if (text.contains(localUserId) ||
@@ -142,8 +152,10 @@ void SpectralRoom::countChanged() {
   }
 }
 
-void SpectralRoom::sendReply(QString userId, QString eventId,
-                             QString replyContent, QString sendContent) {
+void SpectralRoom::sendReply(QString userId,
+                             QString eventId,
+                             QString replyContent,
+                             QString sendContent) {
   QJsonObject json{
       {"msgtype", "m.text"},
       {"body", "> <" + userId + "> " + replyContent + "\n\n" + sendContent},
@@ -159,7 +171,8 @@ void SpectralRoom::sendReply(QString userId, QString eventId,
 }
 
 QDateTime SpectralRoom::lastActiveTime() {
-  if (timelineSize() == 0) return QDateTime();
+  if (timelineSize() == 0)
+    return QDateTime();
   return messageEvents().rbegin()->get()->timestamp();
 }
 
@@ -205,15 +218,19 @@ QVariantList SpectralRoom::getUsers(const QString& prefix) {
 }
 
 QString SpectralRoom::postMarkdownText(const QString& markdown) {
-  unsigned char *sequence = (unsigned char *) qstrdup(markdown.toUtf8().constData());
-  qint64 length = strlen((char *) sequence);
+  unsigned char* sequence =
+      (unsigned char*)qstrdup(markdown.toUtf8().constData());
+  qint64 length = strlen((char*)sequence);
 
-  hoedown_renderer* renderer = hoedown_html_renderer_new(HOEDOWN_HTML_USE_XHTML, 32);
-  hoedown_extensions extensions = (hoedown_extensions) ((HOEDOWN_EXT_BLOCK | HOEDOWN_EXT_SPAN | HOEDOWN_EXT_MATH_EXPLICIT) & ~HOEDOWN_EXT_QUOTE);
+  hoedown_renderer* renderer =
+      hoedown_html_renderer_new(HOEDOWN_HTML_USE_XHTML, 32);
+  hoedown_extensions extensions = (hoedown_extensions)(
+      (HOEDOWN_EXT_BLOCK | HOEDOWN_EXT_SPAN | HOEDOWN_EXT_MATH_EXPLICIT) &
+      ~HOEDOWN_EXT_QUOTE);
   hoedown_document* document = hoedown_document_new(renderer, extensions, 32);
   hoedown_buffer* html = hoedown_buffer_new(length);
   hoedown_document_render(document, html, sequence, length);
-  QString result = QString::fromUtf8((char *) html->data, html->size);
+  QString result = QString::fromUtf8((char*)html->data, html->size);
 
   free(sequence);
   hoedown_buffer_free(html);

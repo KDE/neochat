@@ -26,7 +26,6 @@ static const QRegularExpression userPillRegExp{
 
 QString removeReply(const QString& text);
 QString cleanHTML(const QString& text, QMatrixClient::Room* room);
-
 }  // namespace utils
 
 #endif
