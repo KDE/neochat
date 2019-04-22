@@ -9,6 +9,7 @@ import Spectral 0.1
 import Spectral.Setting 0.1
 
 import Spectral.Component 2.0
+import Spectral.Effect 2.0
 import Spectral.Font 0.1
 
 ColumnLayout {
@@ -69,16 +70,23 @@ ColumnLayout {
             verticalAlignment: Label.AlignVCenter
         }
 
+        BusyIndicator {
+            Layout.preferredWidth: 64
+            Layout.preferredHeight: 64
+
+            visible: img.status == Image.Loading
+        }
+
         Image {
             Layout.maximumWidth: messageListView.width - (!sentByMe ? 32 + messageRow.spacing : 0) - 48
 
             id: img
 
-            source: downloaded ? progressInfo.localPath : "image://mxc/" +
+            source: "image://mxc/" +
                                  (content.info && content.info.thumbnail_info ?
                                      content.thumbnailMediaId : content.mediaId)
-            sourceSize.width: 200
-            sourceSize.height: 200
+            sourceSize.width: messageListView.width * 0.6
+            sourceSize.height: messageListView.height
 
             layer.enabled: true
             layer.effect: OpacityMask {
@@ -94,12 +102,13 @@ ColumnLayout {
 
                 color: "transparent"
                 radius: 24
+                antialiasing: true
 
-                border.width: 2
+                border.width: 4
                 border.color: MPalette.banner
             }
 
-            AutoMouseArea {
+            RippleEffect {
                 anchors.fill: parent
 
                 id: messageMouseArea

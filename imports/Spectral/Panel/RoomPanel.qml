@@ -83,7 +83,6 @@ Item {
                 highlightMoveDuration: 500
 
                 boundsBehavior: Flickable.DragOverBounds
-
                 model: SortFilterProxyModel {
                     id: sortedMessageEventModel
 
@@ -173,8 +172,7 @@ Item {
                                 visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
                             }
 
-                            MessageDelegate {
-                            }
+                            MessageDelegate {}
                         }
                     }
 
@@ -191,8 +189,7 @@ Item {
                                 visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
                             }
 
-                            MessageDelegate {
-                            }
+                            MessageDelegate {}
                         }
                     }
 
@@ -298,60 +295,6 @@ Item {
 
                             text: sourceDialog.sourceText
                         }
-                    }
-                }
-
-                Popup {
-                    property alias listModel: readMarkerListView.model
-
-                    x: (window.width - width) / 2
-                    y: (window.height - height) / 2
-                    width: 320
-
-                    id: readMarkerDialog
-
-                    parent: ApplicationWindow.overlay
-
-                    modal: true
-                    padding: 16
-
-                    closePolicy: Dialog.CloseOnEscape | Dialog.CloseOnPressOutside
-
-                    contentItem: AutoListView {
-                        implicitHeight: Math.min(window.height - 64,
-                                                 readMarkerListView.contentHeight)
-
-                        id: readMarkerListView
-
-                        clip: true
-                        boundsBehavior: Flickable.DragOverBounds
-
-                        delegate: ItemDelegate {
-                            width: parent.width
-                            height: 48
-
-                            RowLayout {
-                                anchors.fill: parent
-                                anchors.margins: 8
-                                spacing: 12
-
-                                Avatar {
-                                    Layout.preferredWidth: height
-                                    Layout.fillHeight: true
-
-                                    source: modelData.avatar
-                                    hint: modelData.displayName
-                                }
-
-                                Label {
-                                    Layout.fillWidth: true
-
-                                    text: modelData.displayName
-                                }
-                            }
-                        }
-
-                        ScrollBar.vertical: ScrollBar {}
                     }
                 }
             }

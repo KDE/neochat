@@ -279,12 +279,14 @@ ApplicationWindow {
                         Layout.preferredWidth: 48
                         Layout.preferredHeight: 48
 
+                        color: MPalette.foreground
                         icon: "\ue7ff"
                     }
 
                     Label {
                         Layout.fillWidth: true
 
+                        color: MPalette.foreground
                         text: "Start a Chat"
                     }
                 }
@@ -304,12 +306,14 @@ ApplicationWindow {
                         Layout.preferredWidth: 48
                         Layout.preferredHeight: 48
 
+                        color: MPalette.foreground
                         icon: "\ue7fc"
                     }
 
                     Label {
                         Layout.fillWidth: true
 
+                        color: MPalette.foreground
                         text: "Create a Room"
                     }
                 }
@@ -333,12 +337,14 @@ ApplicationWindow {
                         Layout.preferredWidth: 48
                         Layout.preferredHeight: 48
 
+                        color: MPalette.foreground
                         icon: "\ue3a9"
                     }
 
                     Label {
                         Layout.fillWidth: true
 
+                        color: MPalette.foreground
                         text: "Night Mode"
                     }
 
@@ -365,12 +371,14 @@ ApplicationWindow {
                         Layout.preferredWidth: 48
                         Layout.preferredHeight: 48
 
+                        color: MPalette.foreground
                         icon: "\ue5d2"
                     }
 
                     Label {
                         Layout.fillWidth: true
 
+                        color: MPalette.foreground
                         text: "Enable System Tray"
                     }
 
@@ -397,12 +405,14 @@ ApplicationWindow {
                         Layout.preferredWidth: 48
                         Layout.preferredHeight: 48
 
+                        color: MPalette.foreground
                         icon: "\ue7f5"
                     }
 
                     Label {
                         Layout.fillWidth: true
 
+                        color: MPalette.foreground
                         text: "Enable Notifications"
                     }
 

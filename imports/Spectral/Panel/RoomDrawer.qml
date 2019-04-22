@@ -4,6 +4,7 @@ import QtQuick.Controls.Material 2.12
 import QtQuick.Layouts 1.12
 
 import Spectral.Component 2.0
+import Spectral.Effect 2.0
 import Spectral.Setting 0.1
 
 import Spectral 0.1
@@ -68,7 +69,7 @@ Drawer {
                 Layout.preferredHeight: 32
                 Layout.alignment: Qt.AlignTop
 
-                icon: "\ue88e"
+                icon: "\ue88f"
                 color: MPalette.lighter
             }
 
@@ -96,7 +97,7 @@ Drawer {
 
                     wrapMode: Label.Wrap
                     text: room && room.topic ? room.topic : "No Topic"
-                    color: MPalette.accent
+                    color: MPalette.foreground
                 }
 
                 Label {
@@ -161,7 +162,7 @@ Drawer {
                 room: roomDrawer.room
             }
 
-            delegate: SwipeDelegate {
+            delegate: Item {
                 width: userListView.width
                 height: 48
 
@@ -185,25 +186,9 @@ Drawer {
                     }
                 }
 
-                swipe.right: Rectangle {
-                    width: height
-                    height: parent.height
-                    anchors.right: parent.right
-                    color: Material.accent
-
-                    MaterialIcon {
-                        anchors.fill: parent
-                        icon: "\ue879"
-                        color: "white"
-                    }
-
-                    SwipeDelegate.onClicked: {
-                        room.kickMember(userId)
-                        swipe.close()
-                    }
+                RippleEffect {
+                    anchors.fill: parent
                 }
-
-                onClicked: swipe.open(SwipeDelegate.Right)
             }
 
             ScrollBar.vertical: ScrollBar {}

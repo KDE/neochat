@@ -7,6 +7,7 @@ import Spectral 0.1
 import Spectral.Setting 0.1
 
 import Spectral.Component 2.0
+import Spectral.Effect 2.0
 import Spectral.Font 0.1
 
 ColumnLayout {
@@ -74,6 +75,7 @@ ColumnLayout {
             background: Rectangle {
                 color: sentByMe ? "#009DC2" : eventType === "notice" ? "#4285F4" : "#673AB7"
                 radius: 18
+                antialiasing: true
 
                 AutoMouseArea {
                     anchors.fill: parent
@@ -123,19 +125,10 @@ ColumnLayout {
 
                     padding: 8
 
-                    background: Item {
-                        Rectangle {
-                            anchors.leftMargin: 0
-                            width: 2
-                            height: parent.height
+                    background: RippleEffect {
+                        anchors.fill: parent
 
-                            color: "white"
-                        }
-                        MouseArea {
-                            anchors.fill: parent
-
-                            onClicked: goToEvent(replyEventId)
-                        }
+                        onPrimaryClicked: goToEvent(replyEventId)
                     }
 
                     contentItem: RowLayout {
@@ -176,6 +169,14 @@ ColumnLayout {
                             }
                         }
                     }
+                }
+
+                Rectangle {
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 1
+
+                    visible: replyEventId || ""
+                    color: "white"
                 }
 
                 TextEdit {
