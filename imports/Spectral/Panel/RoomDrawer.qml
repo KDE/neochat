@@ -43,6 +43,7 @@ Drawer {
                     font.bold: true
                     wrapMode: Label.Wrap
                     text: room ? room.displayName : "No Name"
+                    color: MPalette.foreground
                 }
 
                 Label {
@@ -191,6 +192,7 @@ Drawer {
                         Layout.fillWidth: true
 
                         text: name
+                        color: MPalette.foreground
                     }
                 }
 
