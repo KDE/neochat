@@ -7,8 +7,8 @@
 #include <connection.h>
 #include <jobs/mediathumbnailjob.h>
 
-#include <QtCore/QReadWriteLock>
 #include <QtCore/QAtomicPointer>
+#include <QtCore/QReadWriteLock>
 
 namespace QMatrixClient {
 class Connection;
@@ -17,11 +17,12 @@ class Connection;
 class ThumbnailResponse : public QQuickImageResponse {
   Q_OBJECT
  public:
-  ThumbnailResponse(QMatrixClient::Connection* c, QString mediaId,
+  ThumbnailResponse(QMatrixClient::Connection* c,
+                    QString mediaId,
                     const QSize& requestedSize);
   ~ThumbnailResponse() override = default;
 
-private slots:
+ private slots:
   void startRequest();
   void prepareResult();
   void doCancel();
@@ -30,11 +31,12 @@ private slots:
   QMatrixClient::Connection* c;
   const QString mediaId;
   const QSize requestedSize;
+  const QString localFile;
   QMatrixClient::MediaThumbnailJob* job = nullptr;
 
   QImage image;
   QString errorStr;
-  mutable QReadWriteLock lock; // Guards ONLY these two members above
+  mutable QReadWriteLock lock;  // Guards ONLY these two members above
 
   QQuickTextureFactory* textureFactory() const override;
   QString errorString() const override;
@@ -49,7 +51,8 @@ class ImageProvider : public QObject, public QQuickAsyncImageProvider {
   explicit ImageProvider() = default;
 
   QQuickImageResponse* requestImageResponse(
-      const QString& id, const QSize& requestedSize) override;
+      const QString& id,
+      const QSize& requestedSize) override;
 
   QMatrixClient::Connection* connection() { return m_connection; }
   void setConnection(QMatrixClient::Connection* connection) {

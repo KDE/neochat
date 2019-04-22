@@ -71,11 +71,11 @@ Item {
             },
             ExpressionFilter {
                 enabled: filter === 2
-                expression: category === 1 || category === 2 || category === 4
+                expression: category === 1 || category === 2 || category === 3
             },
             ExpressionFilter {
                 enabled: filter === 3
-                expression: category === 3 || category === 5
+                expression: category === 4 || category === 5
             }
         ]
     }

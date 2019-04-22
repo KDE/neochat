@@ -1,16 +1,26 @@
 #include "imageprovider.h"
 
+#include <QDir>
+#include <QFileInfo>
+#include <QStandardPaths>
 #include <QtCore/QDebug>
 #include <QtCore/QThread>
 
 using QMatrixClient::BaseJob;
 
 ThumbnailResponse::ThumbnailResponse(QMatrixClient::Connection* c,
-    QString id, const QSize& size)
-  : c(c),
-    mediaId(std::move(id)),
-    requestedSize(size),
-    errorStr("Image request hasn't started") {
+                                     QString id,
+                                     const QSize& size)
+    : c(c),
+      mediaId(std::move(id)),
+      requestedSize(size),
+      localFile(QStringLiteral("%1/image_provider/%2-%3x%4.png")
+                    .arg(QStandardPaths::writableLocation(
+                             QStandardPaths::CacheLocation),
+                         mediaId,
+                         QString::number(requestedSize.width()),
+                         QString::number(requestedSize.height()))),
+      errorStr("Image request hasn't started") {
   if (requestedSize.isEmpty()) {
     errorStr.clear();
     emit finished();
@@ -18,11 +28,19 @@ ThumbnailResponse::ThumbnailResponse(QMatrixClient::Connection* c,
   }
   if (mediaId.count('/') != 1) {
     errorStr =
-        tr("Media id '%1' doesn't follow server/mediaId pattern")
-            .arg(mediaId);
+        tr("Media id '%1' doesn't follow server/mediaId pattern").arg(mediaId);
     emit finished();
     return;
   }
+
+  QImage cachedImage;
+  if (cachedImage.load(localFile)) {
+    image = cachedImage;
+    errorStr.clear();
+    emit finished();
+    return;
+  }
+
   // Execute a request on the main thread asynchronously
   moveToThread(c->thread());
   QMetaObject::invokeMethod(this, &ThumbnailResponse::startRequest,
@@ -45,6 +63,14 @@ void ThumbnailResponse::prepareResult() {
     QWriteLocker _(&lock);
     if (job->error() == BaseJob::Success) {
       image = job->thumbnail();
+
+      QString localPath = QFileInfo(localFile).absolutePath();
+      QDir dir;
+      if (!dir.exists(localPath))
+        dir.mkpath(localPath);
+
+      image.save(localFile);
+
       errorStr.clear();
     } else if (job->error() == BaseJob::Abandoned) {
       errorStr = tr("Image request has been cancelled");
@@ -83,7 +109,7 @@ void ThumbnailResponse::cancel() {
 }
 
 QQuickImageResponse* ImageProvider::requestImageResponse(
-    const QString& id, const QSize& requestedSize) {
-  qDebug() << "ImageProvider: requesting " << id << "of size" << requestedSize;
+    const QString& id,
+    const QSize& requestedSize) {
   return new ThumbnailResponse(m_connection.load(), id, requestedSize);
 }
