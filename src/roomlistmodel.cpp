@@ -16,8 +16,10 @@ RoomListModel::RoomListModel(QObject* parent) : QAbstractListModel(parent) {}
 RoomListModel::~RoomListModel() {}
 
 void RoomListModel::setConnection(Connection* connection) {
-  if (connection == m_connection) return;
-  if (m_connection) m_connection->disconnect(this);
+  if (connection == m_connection)
+    return;
+  if (m_connection)
+    m_connection->disconnect(this);
   if (!connection) {
     qDebug() << "Removing current connection...";
     m_connection = nullptr;
@@ -29,7 +31,8 @@ void RoomListModel::setConnection(Connection* connection) {
 
   m_connection = connection;
 
-  for (SpectralRoom* room : m_rooms) room->disconnect(this);
+  for (SpectralRoom* room : m_rooms)
+    room->disconnect(this);
 
   connect(connection, &Connection::connected, this,
           &RoomListModel::doResetModel);
@@ -40,6 +43,13 @@ void RoomListModel::setConnection(Connection* connection) {
   connect(connection, &Connection::leftRoom, this, &RoomListModel::updateRoom);
   connect(connection, &Connection::aboutToDeleteRoom, this,
           &RoomListModel::deleteRoom);
+  connect(connection, &Connection::directChatsListChanged, this,
+          [=](Connection::DirectChatsMap additions,
+              Connection::DirectChatsMap removals) {
+            for (QString roomID : additions.values() + removals.values())
+              refresh(static_cast<SpectralRoom*>(connection->room(roomID)),
+                      {CategoryRole});
+          });
 
   doResetModel();
 }
@@ -47,11 +57,14 @@ void RoomListModel::setConnection(Connection* connection) {
 void RoomListModel::doResetModel() {
   beginResetModel();
   m_rooms.clear();
-  for (auto r : m_connection->roomMap()) doAddRoom(r);
+  for (auto r : m_connection->roomMap())
+    doAddRoom(r);
   endResetModel();
 }
 
-SpectralRoom* RoomListModel::roomAt(int row) { return m_rooms.at(row); }
+SpectralRoom* RoomListModel::roomAt(int row) {
+  return m_rooms.at(row);
+}
 
 void RoomListModel::doAddRoom(Room* r) {
   if (auto* room = static_cast<SpectralRoom*>(r)) {
@@ -77,16 +90,19 @@ void RoomListModel::connectRoomSignals(SpectralRoom* room) {
   connect(room, &Room::addedMessages, this,
           [=] { refresh(room, {LastEventRole}); });
   connect(room, &Room::notificationCountChanged, this, [=] {
-      if (room->notificationCount() == 0) return;
-      if (room->timelineSize() == 0) return;
-      const RoomEvent* lastEvent = room->messageEvents().rbegin()->get();
-      if (lastEvent->isStateEvent()) return;
-      User* sender = room->user(lastEvent->senderId());
-      if (sender == room->localUser()) return;
-      emit newMessage(
-          room->id(), lastEvent->id(), room->displayName(),
-          sender->displayname(), room->eventToString(*lastEvent),
-          room->avatar(128));
+    if (room->notificationCount() == 0)
+      return;
+    if (room->timelineSize() == 0)
+      return;
+    const RoomEvent* lastEvent = room->messageEvents().rbegin()->get();
+    if (lastEvent->isStateEvent())
+      return;
+    User* sender = room->user(lastEvent->senderId());
+    if (sender == room->localUser())
+      return;
+    emit newMessage(room->id(), lastEvent->id(), room->displayName(),
+                    sender->displayname(), room->eventToString(*lastEvent),
+                    room->avatar(128));
   });
 }
 
@@ -129,7 +145,8 @@ void RoomListModel::updateRoom(Room* room, Room* prev) {
 void RoomListModel::deleteRoom(Room* room) {
   qDebug() << "Deleting room" << room->id();
   const auto it = std::find(m_rooms.begin(), m_rooms.end(), room);
-  if (it == m_rooms.end()) return;  // Already deleted, nothing to do
+  if (it == m_rooms.end())
+    return;  // Already deleted, nothing to do
   qDebug() << "Erasing room" << room->id();
   const int row = it - m_rooms.begin();
   beginRemoveRows(QModelIndex(), row, row);
@@ -138,34 +155,49 @@ void RoomListModel::deleteRoom(Room* room) {
 }
 
 int RoomListModel::rowCount(const QModelIndex& parent) const {
-  if (parent.isValid()) return 0;
+  if (parent.isValid())
+    return 0;
   return m_rooms.count();
 }
 
 QVariant RoomListModel::data(const QModelIndex& index, int role) const {
-  if (!index.isValid()) return QVariant();
+  if (!index.isValid())
+    return QVariant();
 
   if (index.row() >= m_rooms.count()) {
     qDebug() << "UserListModel: something wrong here...";
     return QVariant();
   }
   SpectralRoom* room = m_rooms.at(index.row());
-  if (role == NameRole) return room->displayName();
-  if (role == AvatarRole) return room->avatarMediaId();
-  if (role == TopicRole) return room->topic();
+  if (role == NameRole)
+    return room->displayName();
+  if (role == AvatarRole)
+    return room->avatarMediaId();
+  if (role == TopicRole)
+    return room->topic();
   if (role == CategoryRole) {
-    if (room->joinState() == JoinState::Invite) return RoomType::Invited;
-    if (room->isFavourite()) return RoomType::Favorite;
-    if (room->isDirectChat()) return RoomType::Direct;
-    if (room->isLowPriority()) return RoomType::Deprioritized;
+    if (room->joinState() == JoinState::Invite)
+      return RoomType::Invited;
+    if (room->isFavourite())
+      return RoomType::Favorite;
+    if (room->isDirectChat())
+      return RoomType::Direct;
+    if (room->isLowPriority())
+      return RoomType::Deprioritized;
     return RoomType::Normal;
   }
-  if (role == UnreadCountRole) return room->unreadCount();
-  if (role == NotificationCountRole) return room->notificationCount();
-  if (role == HighlightCountRole) return room->highlightCount();
-  if (role == LastEventRole) return room->lastEvent();
-  if (role == LastActiveTimeRole) return room->lastActiveTime();
-  if (role == CurrentRoomRole) return QVariant::fromValue(room);
+  if (role == UnreadCountRole)
+    return room->unreadCount();
+  if (role == NotificationCountRole)
+    return room->notificationCount();
+  if (role == HighlightCountRole)
+    return room->highlightCount();
+  if (role == LastEventRole)
+    return room->lastEvent();
+  if (role == LastActiveTimeRole)
+    return room->lastActiveTime();
+  if (role == CurrentRoomRole)
+    return QVariant::fromValue(room);
   return QVariant();
 }
 

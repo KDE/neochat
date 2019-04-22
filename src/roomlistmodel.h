@@ -17,8 +17,8 @@ class RoomType : public QObject {
   enum Types {
     Invited = 1,
     Favorite,
-    Normal,
     Direct,
+    Normal,
     Deprioritized,
   };
   REGISTER_ENUM(Types)
@@ -75,9 +75,12 @@ class RoomListModel : public QAbstractListModel {
  signals:
   void connectionChanged();
   void roomAdded(SpectralRoom* room);
-  void newMessage(const QString& roomId, const QString& eventId,
-                  const QString& roomName, const QString& senderName,
-                  const QString& text, const QImage& icon);
+  void newMessage(const QString& roomId,
+                  const QString& eventId,
+                  const QString& roomName,
+                  const QString& senderName,
+                  const QString& text,
+                  const QImage& icon);
 };
 
 #endif  // ROOMLISTMODEL_H

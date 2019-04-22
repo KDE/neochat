@@ -59,54 +59,62 @@ Drawer {
             Layout.fillWidth: true
         }
 
-        RowLayout {
+        Control {
             Layout.fillWidth: true
 
-            spacing: 8
+            padding: 0
 
-            MaterialIcon {
-                Layout.preferredWidth: 32
-                Layout.preferredHeight: 32
-                Layout.alignment: Qt.AlignTop
+            contentItem: RowLayout {
+                spacing: 8
 
-                icon: "\ue88f"
-                color: MPalette.lighter
+                MaterialIcon {
+                    Layout.preferredWidth: 32
+                    Layout.preferredHeight: 32
+                    Layout.alignment: Qt.AlignTop
+
+                    icon: "\ue88f"
+                    color: MPalette.lighter
+                }
+
+                ColumnLayout {
+                    Layout.fillWidth: true
+
+                    Label {
+                        Layout.fillWidth: true
+
+                        wrapMode: Label.Wrap
+                        text: room && room.canonicalAlias ? room.canonicalAlias : "No Canonical Alias"
+                        color: MPalette.accent
+                    }
+
+                    Label {
+                        Layout.fillWidth: true
+
+                        wrapMode: Label.Wrap
+                        text: "Main Alias"
+                        color: MPalette.lighter
+                    }
+
+                    Label {
+                        Layout.fillWidth: true
+
+                        wrapMode: Label.Wrap
+                        text: room && room.topic ? room.topic : "No Topic"
+                        color: MPalette.foreground
+                    }
+
+                    Label {
+                        Layout.fillWidth: true
+
+                        wrapMode: Label.Wrap
+                        text: "Topic"
+                        color: MPalette.lighter
+                    }
+                }
             }
 
-            ColumnLayout {
-                Layout.fillWidth: true
-
-                Label {
-                    Layout.fillWidth: true
-
-                    wrapMode: Label.Wrap
-                    text: room && room.canonicalAlias ? room.canonicalAlias : "No Canonical Alias"
-                    color: MPalette.accent
-                }
-
-                Label {
-                    Layout.fillWidth: true
-
-                    wrapMode: Label.Wrap
-                    text: "Main Alias"
-                    color: MPalette.lighter
-                }
-
-                Label {
-                    Layout.fillWidth: true
-
-                    wrapMode: Label.Wrap
-                    text: room && room.topic ? room.topic : "No Topic"
-                    color: MPalette.foreground
-                }
-
-                Label {
-                    Layout.fillWidth: true
-
-                    wrapMode: Label.Wrap
-                    text: "Topic"
-                    color: MPalette.lighter
-                }
+            background: RippleEffect {
+                onPrimaryClicked: roomDetailDialog.open()
             }
         }
 
@@ -209,9 +217,115 @@ Drawer {
 
         contentItem: AutoTextField {
             id: inviteUserDialogTextField
-            placeholderText: "@bot:matrix.org"
+            placeholderText: "User ID"
         }
 
         onAccepted: room.inviteToRoom(inviteUserDialogTextField.text)
+    }
+
+    Dialog {
+        anchors.centerIn: parent
+        width: 480
+
+        id: roomDetailDialog
+
+        parent: ApplicationWindow.overlay
+
+        title: "Room Settings - " + (room ? room.displayName : "")
+        modal: true
+
+        contentItem: ColumnLayout {
+            RowLayout {
+                Layout.fillWidth: true
+
+                spacing: 16
+
+                Avatar {
+                    Layout.preferredWidth: 72
+                    Layout.preferredHeight: 72
+                    Layout.alignment: Qt.AlignTop
+
+                    hint: room ? room.displayName : "No name"
+                    source: room ? room.avatarMediaId : null
+                }
+
+                ColumnLayout {
+                    Layout.fillWidth: true
+                    Layout.margins: 4
+
+                    AutoTextField {
+                        Layout.fillWidth: true
+
+                        text: room ? room.name : ""
+                        placeholderText: "Room Name"
+                    }
+
+                    AutoTextField {
+                        Layout.fillWidth: true
+
+                        text: room ? room.topic : ""
+                        placeholderText: "Room Topic"
+                    }
+                }
+            }
+
+            MenuSeparator {
+                Layout.fillWidth: true
+            }
+
+            ColumnLayout {
+                Layout.fillWidth: true
+
+                RowLayout {
+                    Layout.fillWidth: true
+
+                    Label {
+                        Layout.preferredWidth: 100
+
+                        wrapMode: Label.Wrap
+                        text: "Main Alias"
+                        color: MPalette.lighter
+                    }
+
+                    ComboBox {
+                        Layout.fillWidth: true
+
+                        model: room ? room.aliases : null
+
+                        currentIndex: room ? room.aliases.indexOf(room.canonicalAlias) : -1
+                    }
+                }
+
+                RowLayout {
+                    Layout.fillWidth: true
+
+                    Label {
+                        Layout.preferredWidth: 100
+                        Layout.alignment: Qt.AlignTop
+
+                        wrapMode: Label.Wrap
+                        text: "Aliases"
+                        color: MPalette.lighter
+                    }
+
+                    ColumnLayout {
+                        Layout.fillWidth: true
+
+                        Repeater {
+                            model: room ? room.aliases : null
+
+                            delegate: Label {
+                                Layout.fillWidth: true
+
+                                text: modelData
+
+                                font.pixelSize: 12
+                                color: MPalette.lighter
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

@@ -44,8 +44,8 @@ Item {
                 switch (category) {
                 case 1: return "Invited"
                 case 2: return "Favorites"
-                case 3: return "Rooms"
-                case 4: return "People"
+                case 3: return "People"
+                case 4: return "Rooms"
                 case 5: return "Low Priority"
                 }
             }
@@ -80,135 +80,6 @@ Item {
         ]
     }
 
-//    Drawer {
-//        width: Math.max(root.width, 400)
-//        height: root.height
-
-//        id: drawer
-
-//        edge: Qt.LeftEdge
-
-//        ColumnLayout {
-//            anchors.fill: parent
-
-//            id: mainColumn
-
-//            spacing: 0
-
-//            Control {
-//                Layout.fillWidth: true
-//                Layout.preferredHeight: 330
-
-//                padding: 24
-
-//                contentItem: ColumnLayout {
-//                    spacing: 4
-
-//                    Avatar {
-//                        Layout.preferredWidth: 200
-//                        Layout.preferredHeight: 200
-//                        Layout.margins: 12
-//                        Layout.alignment: Qt.AlignHCenter
-
-//                        source: root.user ? root.user.avatarMediaId : null
-//                        hint: root.user ? root.user.displayName : "?"
-//                    }
-
-//                    Label {
-//                        Layout.alignment: Qt.AlignHCenter
-
-//                        text: root.user ? root.user.displayName : "No Name"
-//                        color: "white"
-//                        font.pixelSize: 22
-//                    }
-
-//                    Label {
-//                        Layout.alignment: Qt.AlignHCenter
-
-//                        text: root.user ? root.user.id : "@example:matrix.org"
-//                        color: "white"
-//                        opacity: 0.7
-//                        font.pixelSize: 13
-//                    }
-//                }
-
-//                background: Rectangle { color: Material.primary }
-
-//                RippleEffect {
-//                    anchors.fill: parent
-//                }
-//            }
-
-//            ScrollView {
-//                Layout.fillWidth: true
-//                Layout.fillHeight: true
-
-//                clip: true
-
-//                ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-
-//                ColumnLayout {
-//                    width: mainColumn.width
-//                    spacing: 0
-
-//                    Repeater {
-//                        model: AccountListModel {
-//                            controller: spectralController
-//                        }
-
-//                        delegate: ItemDelegate {
-//                            Layout.fillWidth: true
-
-//                            text: user.displayName
-
-//                            onClicked: {
-//                                controller.connection = connection
-//                                drawer.close()
-//                            }
-//                        }
-//                    }
-
-//                    ItemDelegate {
-//                        Layout.fillWidth: true
-
-//                        text: "Add Account"
-
-//                        onClicked: loginDialog.open()
-//                    }
-
-//                    Rectangle {
-//                        Layout.fillWidth: true
-//                        Layout.preferredHeight: 1
-
-//                        color: MSettings.darkTheme ? "#424242" : "#e7ebeb"
-//                    }
-
-//                    ItemDelegate {
-//                        Layout.fillWidth: true
-
-//                        text: "Settings"
-//                    }
-
-//                    ItemDelegate {
-//                        Layout.fillWidth: true
-
-//                        text: "Logout"
-
-//                        onClicked: controller.logout(controller.connection)
-//                    }
-
-//                    ItemDelegate {
-//                        Layout.fillWidth: true
-
-//                        text: "Exit"
-
-//                        onClicked: Qt.quit()
-//                    }
-//                }
-//            }
-//        }
-//    }
-
     ColumnLayout {
         anchors.fill: parent
         spacing: 0
@@ -225,7 +96,7 @@ Item {
             rightPadding: 18
 
             contentItem: RowLayout {
-                ItemDelegate {
+                ToolButton {
                     Layout.preferredWidth: height
                     Layout.fillHeight: true
 
@@ -275,7 +146,7 @@ Item {
                     onClicked: filterMenu.popup()
                 }
 
-                ItemDelegate {
+                ToolButton {
                     Layout.preferredWidth: height
                     Layout.fillHeight: true
 
@@ -290,16 +161,12 @@ Item {
                     readonly property bool active: text
 
                     Layout.fillWidth: true
-                    Layout.fillHeight: true
+                    Layout.alignment: Qt.AlignVCenter
 
                     id: searchField
 
-                    topPadding: 0
-                    bottomPadding: 0
                     placeholderText: "Search..."
                     color: MPalette.lighter
-
-                    background: Item {}
                 }
 
                 Avatar {
@@ -520,6 +387,7 @@ Item {
 
                         onTriggered: category === RoomType.Favorite ? currentRoom.removeTag("m.favourite") : currentRoom.addTag("m.favourite", 1.0)
                     }
+
                     MenuItem {
                         text: "Deprioritize"
                         checkable: true
@@ -527,14 +395,18 @@ Item {
 
                         onTriggered: category === RoomType.Deprioritized ? currentRoom.removeTag("m.lowpriority") : currentRoom.addTag("m.lowpriority", 1.0)
                     }
+
                     MenuSeparator {}
+
                     MenuItem {
                         text: "Mark as Read"
 
                         onTriggered: currentRoom.markAllMessagesAsRead()
                     }
+
                     MenuItem {
                         text: "Leave Room"
+                        Material.foreground: Material.Red
 
                         onTriggered: currentRoom.forget()
                     }

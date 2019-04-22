@@ -87,9 +87,9 @@ ApplicationWindow {
 
         title: "Login"
 
-        contentItem: Column {
+        contentItem: ColumnLayout {
             AutoTextField {
-                width: parent.width
+                Layout.fillWidth: true
 
                 id: serverField
 
@@ -98,7 +98,7 @@ ApplicationWindow {
             }
 
             AutoTextField {
-                width: parent.width
+                Layout.fillWidth: true
 
                 id: usernameField
 
@@ -108,7 +108,7 @@ ApplicationWindow {
             }
 
             AutoTextField {
-                width: parent.width
+                Layout.fillWidth: true
 
                 id: passwordField
 
@@ -121,19 +121,19 @@ ApplicationWindow {
 
         footer: DialogButtonBox {
             Button {
-                text: "OK"
-                flat: true
-                enabled: !loginDialog.busy
-
-                onClicked: loginDialog.doLogin()
-            }
-
-            Button {
                 text: "Cancel"
                 flat: true
                 enabled: !loginDialog.busy
 
                 onClicked: loginDialog.close()
+            }
+
+            Button {
+                text: "OK"
+                flat: true
+                enabled: !loginDialog.busy
+
+                onClicked: loginDialog.doLogin()
             }
 
             ToolTip {
@@ -442,7 +442,7 @@ ApplicationWindow {
         title: "Start a Chat"
 
         contentItem: ColumnLayout {
-            TextField {
+            AutoTextField {
                 Layout.fillWidth: true
 
                 id: identifierField
@@ -473,7 +473,7 @@ ApplicationWindow {
         title: "Create a Room"
 
         contentItem: ColumnLayout {
-            TextField {
+            AutoTextField {
                 Layout.fillWidth: true
 
                 id: roomNameField
@@ -481,7 +481,7 @@ ApplicationWindow {
                 placeholderText: "Room Name"
             }
 
-            TextField {
+            AutoTextField {
                 Layout.fillWidth: true
 
                 id: roomTopicField
@@ -496,7 +496,7 @@ ApplicationWindow {
     }
 
     Drawer {
-        width: (inPortrait ? 0.67 : 0.3) * window.width
+        width: Math.min((inPortrait ? 0.67 : 0.3) * window.width, 360)
         height: window.height
         modal: inPortrait
         interactive: inPortrait
@@ -531,7 +531,7 @@ ApplicationWindow {
     }
 
     RoomDrawer {
-        width: (inPortrait ? 0.67 : 0.3) * window.width
+        width: Math.min((inPortrait ? 0.67 : 0.3) * window.width, 360)
         height: window.height
         modal: inPortrait
         interactive: inPortrait
