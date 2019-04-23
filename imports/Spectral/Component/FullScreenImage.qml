@@ -36,6 +36,6 @@ ApplicationWindow {
             color: "white"
         }
 
-        onClicked: root.close()
+        onClicked: root.destroy()
     }
 }
