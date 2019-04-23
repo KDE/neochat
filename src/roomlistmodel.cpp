@@ -195,6 +195,11 @@ QVariant RoomListModel::data(const QModelIndex& index, int role) const {
     return room->lastEvent();
   if (role == LastActiveTimeRole)
     return room->lastActiveTime();
+  if (role == JoinStateRole) {
+    if (!room->successorId().isEmpty())
+      return QStringLiteral("upgraded");
+    return toCString(room->joinState());
+  }
   if (role == CurrentRoomRole)
     return QVariant::fromValue(room);
   return QVariant();
@@ -231,6 +236,7 @@ QHash<int, QByteArray> RoomListModel::roleNames() const {
   roles[HighlightCountRole] = "highlightCount";
   roles[LastEventRole] = "lastEvent";
   roles[LastActiveTimeRole] = "lastActiveTime";
+  roles[JoinStateRole] = "joinState";
   roles[CurrentRoomRole] = "currentRoom";
   return roles;
 }

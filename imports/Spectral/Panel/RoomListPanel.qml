@@ -60,6 +60,9 @@ Item {
         ]
 
         filters: [
+            ExpressionFilter {
+                expression: joinState != "upgraded"
+            },
             RegExpFilter {
                 roleName: "name"
                 pattern: searchField.text
@@ -272,7 +275,7 @@ Item {
                 }
 
                 Rectangle {
-                    width: unreadCount > 0 ? 4 : 0
+                    width: unreadCount >= 0 ? 4 : 0
                     height: parent.height
 
                     color: Material.accent

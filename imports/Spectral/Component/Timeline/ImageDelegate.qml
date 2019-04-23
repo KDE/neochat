@@ -83,10 +83,13 @@ ColumnLayout {
             id: img
 
             source: "image://mxc/" +
-                                 (content.info && content.info.thumbnail_info ?
-                                     content.thumbnailMediaId : content.mediaId)
-            sourceSize.width: messageListView.width * 0.6
-            sourceSize.height: messageListView.height
+                    (content.info && content.info.thumbnail_info ?
+                         content.thumbnailMediaId : content.mediaId)
+
+            sourceSize.width: 720
+            sourceSize.height: 720
+
+            fillMode: Image.PreserveAspectCrop
 
             layer.enabled: true
             layer.effect: OpacityMask {
@@ -94,6 +97,16 @@ ColumnLayout {
                     width: img.width
                     height: img.height
                     radius: 24
+                }
+            }
+
+            Component {
+                id: fullScreenImage
+
+                FullScreenImage {
+                    imageUrl: "image://mxc/" + content.mediaId
+                    sourceWidth: content.info.w
+                    sourceHeight: content.info.h
                 }
             }
 
@@ -113,6 +126,11 @@ ColumnLayout {
 
                 id: messageMouseArea
 
+                onPrimaryClicked: {
+                    var window = fullScreenImage.createObject()
+                    window.show()
+                }
+
                 onSecondaryClicked: messageContextMenu.popup()
 
                 Menu {
@@ -126,16 +144,19 @@ ColumnLayout {
                             sourceDialog.open()
                         }
                     }
+
                     MenuItem {
                         text: "Open Externally"
 
                         onTriggered: downloadAndOpen()
                     }
+
                     MenuItem {
                         text: "Save As"
 
                         onTriggered: saveFileAs()
                     }
+
                     MenuItem {
                         text: "Reply"
 
@@ -147,6 +168,7 @@ ColumnLayout {
                             roomPanelInput.focus()
                         }
                     }
+
                     MenuItem {
                         text: "Redact"
 

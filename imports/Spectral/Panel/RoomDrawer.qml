@@ -271,6 +271,102 @@ Drawer {
                 }
             }
 
+            Control {
+                Layout.fillWidth: true
+
+                visible: room ? room.predecessorId : false
+
+                padding: 8
+
+                contentItem: RowLayout {
+                    MaterialIcon {
+                        Layout.preferredWidth: 48
+                        Layout.preferredHeight: 48
+
+                        icon: "\ue8d4"
+                    }
+
+                    ColumnLayout {
+                        Layout.fillWidth: true
+
+                        spacing: 0
+
+                        Label {
+                            Layout.fillWidth: true
+
+                            font.bold: true
+                            color: MPalette.foreground
+                            text: "This room is a continuation of another conversation."
+                        }
+
+                        Label {
+                            Layout.fillWidth: true
+
+                            color: MPalette.lighter
+                            text: "Click here to see older messages."
+                        }
+                    }
+                }
+
+                background: Rectangle {
+                    color: MPalette.banner
+
+                    RippleEffect {
+                        anchors.fill: parent
+
+                        onClicked: roomListForm.enteredRoom = spectralController.connection.room(room.predecessorId)
+                    }
+                }
+            }
+
+            Control {
+                Layout.fillWidth: true
+
+                visible: room ? room.successorId : false
+
+                padding: 8
+
+                contentItem: RowLayout {
+                    MaterialIcon {
+                        Layout.preferredWidth: 48
+                        Layout.preferredHeight: 48
+
+                        icon: "\ue8d4"
+                    }
+
+                    ColumnLayout {
+                        Layout.fillWidth: true
+
+                        spacing: 0
+
+                        Label {
+                            Layout.fillWidth: true
+
+                            font.bold: true
+                            color: MPalette.foreground
+                            text: "This room has been replaced and is no longer active."
+                        }
+
+                        Label {
+                            Layout.fillWidth: true
+
+                            color: MPalette.lighter
+                            text: "The conversation continues here."
+                        }
+                    }
+                }
+
+                background: Rectangle {
+                    color: MPalette.banner
+
+                    RippleEffect {
+                        anchors.fill: parent
+
+                        onClicked: roomListForm.enteredRoom = spectralController.connection.room(room.successorId)
+                    }
+                }
+            }
+
             MenuSeparator {
                 Layout.fillWidth: true
             }
