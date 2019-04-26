@@ -4,6 +4,7 @@ import QtQuick.Controls.Material 2.12
 import QtQuick.Layouts 1.12
 
 import Spectral.Component 2.0
+import Spectral.Dialog 2.0
 import Spectral.Effect 2.0
 import Spectral.Setting 0.1
 
@@ -115,7 +116,7 @@ Drawer {
             }
 
             background: RippleEffect {
-                onPrimaryClicked: roomDetailDialog.open()
+                onPrimaryClicked: roomSettingDialog.createObject(ApplicationWindow.overlay, {"room": room}).open()
             }
         }
 
@@ -153,7 +154,7 @@ Drawer {
                     color: MPalette.lighter
                 }
 
-                onClicked: inviteUserDialog.open()
+                onClicked: inviteUserDialog.createObject(ApplicationWindow.overlay, {"room": room}).open()
             }
         }
 
@@ -198,6 +199,8 @@ Drawer {
 
                 RippleEffect {
                     anchors.fill: parent
+
+                    onPrimaryClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": room, "user": user}).open()
                 }
             }
 
@@ -205,225 +208,21 @@ Drawer {
         }
     }
 
-    Dialog {
-        anchors.centerIn: parent
-        width: 360
+    Component {
+        id: roomSettingDialog
 
-        id: inviteUserDialog
-
-        parent: ApplicationWindow.overlay
-
-        title: "Invite User"
-        modal: true
-        standardButtons: Dialog.Ok | Dialog.Cancel
-
-        contentItem: AutoTextField {
-            id: inviteUserDialogTextField
-            placeholderText: "User ID"
-        }
-
-        onAccepted: room.inviteToRoom(inviteUserDialogTextField.text)
+        RoomSettingsDialog {}
     }
 
-    Dialog {
-        anchors.centerIn: parent
-        width: 480
+    Component {
+        id: userDetailDialog
 
-        id: roomDetailDialog
+        UserDetailDialog {}
+    }
 
-        parent: ApplicationWindow.overlay
+    Component {
+        id: inviteUserDialog
 
-        title: "Room Settings - " + (room ? room.displayName : "")
-        modal: true
-
-        contentItem: ColumnLayout {
-            RowLayout {
-                Layout.fillWidth: true
-
-                spacing: 16
-
-                Avatar {
-                    Layout.preferredWidth: 72
-                    Layout.preferredHeight: 72
-                    Layout.alignment: Qt.AlignTop
-
-                    hint: room ? room.displayName : "No name"
-                    source: room ? room.avatarMediaId : null
-                }
-
-                ColumnLayout {
-                    Layout.fillWidth: true
-                    Layout.margins: 4
-
-                    AutoTextField {
-                        Layout.fillWidth: true
-
-                        text: room ? room.name : ""
-                        placeholderText: "Room Name"
-                    }
-
-                    AutoTextField {
-                        Layout.fillWidth: true
-
-                        text: room ? room.topic : ""
-                        placeholderText: "Room Topic"
-                    }
-                }
-            }
-
-            Control {
-                Layout.fillWidth: true
-
-                visible: room ? room.predecessorId : false
-
-                padding: 8
-
-                contentItem: RowLayout {
-                    MaterialIcon {
-                        Layout.preferredWidth: 48
-                        Layout.preferredHeight: 48
-
-                        icon: "\ue8d4"
-                    }
-
-                    ColumnLayout {
-                        Layout.fillWidth: true
-
-                        spacing: 0
-
-                        Label {
-                            Layout.fillWidth: true
-
-                            font.bold: true
-                            color: MPalette.foreground
-                            text: "This room is a continuation of another conversation."
-                        }
-
-                        Label {
-                            Layout.fillWidth: true
-
-                            color: MPalette.lighter
-                            text: "Click here to see older messages."
-                        }
-                    }
-                }
-
-                background: Rectangle {
-                    color: MPalette.banner
-
-                    RippleEffect {
-                        anchors.fill: parent
-
-                        onClicked: roomListForm.enteredRoom = spectralController.connection.room(room.predecessorId)
-                    }
-                }
-            }
-
-            Control {
-                Layout.fillWidth: true
-
-                visible: room ? room.successorId : false
-
-                padding: 8
-
-                contentItem: RowLayout {
-                    MaterialIcon {
-                        Layout.preferredWidth: 48
-                        Layout.preferredHeight: 48
-
-                        icon: "\ue8d4"
-                    }
-
-                    ColumnLayout {
-                        Layout.fillWidth: true
-
-                        spacing: 0
-
-                        Label {
-                            Layout.fillWidth: true
-
-                            font.bold: true
-                            color: MPalette.foreground
-                            text: "This room has been replaced and is no longer active."
-                        }
-
-                        Label {
-                            Layout.fillWidth: true
-
-                            color: MPalette.lighter
-                            text: "The conversation continues here."
-                        }
-                    }
-                }
-
-                background: Rectangle {
-                    color: MPalette.banner
-
-                    RippleEffect {
-                        anchors.fill: parent
-
-                        onClicked: roomListForm.enteredRoom = spectralController.connection.room(room.successorId)
-                    }
-                }
-            }
-
-            MenuSeparator {
-                Layout.fillWidth: true
-            }
-
-            ColumnLayout {
-                Layout.fillWidth: true
-
-                RowLayout {
-                    Layout.fillWidth: true
-
-                    Label {
-                        Layout.preferredWidth: 100
-
-                        wrapMode: Label.Wrap
-                        text: "Main Alias"
-                        color: MPalette.lighter
-                    }
-
-                    ComboBox {
-                        Layout.fillWidth: true
-
-                        model: room ? room.aliases : null
-
-                        currentIndex: room ? room.aliases.indexOf(room.canonicalAlias) : -1
-                    }
-                }
-
-                RowLayout {
-                    Layout.fillWidth: true
-
-                    Label {
-                        Layout.preferredWidth: 100
-                        Layout.alignment: Qt.AlignTop
-
-                        wrapMode: Label.Wrap
-                        text: "Aliases"
-                        color: MPalette.lighter
-                    }
-
-                    ColumnLayout {
-                        Layout.fillWidth: true
-
-                        Repeater {
-                            model: room ? room.aliases : null
-
-                            delegate: Label {
-                                Layout.fillWidth: true
-
-                                text: modelData
-
-                                font.pixelSize: 12
-                                color: MPalette.lighter
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        InviteUserDialog {}
     }
 }

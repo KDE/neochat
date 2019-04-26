@@ -23,7 +23,7 @@
 
 using namespace QMatrixClient;
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
 #if defined(Q_OS_LINUX) || defined(Q_OS_WIN) || defined(Q_OS_FREEBSD)
   if (qgetenv("QT_SCALE_FACTOR").size() == 0) {
     QSettings settings("ENCOM", "Spectral");
@@ -59,11 +59,13 @@ int main(int argc, char *argv[]) {
                                                "RoomMessageEvent", "ENUM");
   qmlRegisterUncreatableType<RoomType>("Spectral", 0, 1, "RoomType", "ENUM");
 
-  qRegisterMetaType<User *>("User*");
-  qRegisterMetaType<Room *>("Room*");
+  qRegisterMetaType<User*>("User*");
+  qRegisterMetaType<User*>("const User*");
+  qRegisterMetaType<Room*>("Room*");
+  qRegisterMetaType<Connection*>("Connection*");
   qRegisterMetaType<MessageEventType>("MessageEventType");
-  qRegisterMetaType<SpectralRoom *>("SpectralRoom*");
-  qRegisterMetaType<SpectralUser *>("SpectralUser*");
+  qRegisterMetaType<SpectralRoom*>("SpectralRoom*");
+  qRegisterMetaType<SpectralUser*>("SpectralUser*");
 
 #if defined(BUNDLE_FONT)
   QFontDatabase::addApplicationFont(":/assets/font/roboto.ttf");
@@ -73,12 +75,13 @@ int main(int argc, char *argv[]) {
   QQmlApplicationEngine engine;
 
   engine.addImportPath("qrc:/imports");
-  ImageProvider *m_provider = new ImageProvider();
+  ImageProvider* m_provider = new ImageProvider();
   engine.rootContext()->setContextProperty("imageProvider", m_provider);
   engine.addImageProvider(QLatin1String("mxc"), m_provider);
 
   engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
-  if (engine.rootObjects().isEmpty()) return -1;
+  if (engine.rootObjects().isEmpty())
+    return -1;
 
   return app.exec();
 }

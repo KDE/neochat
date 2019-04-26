@@ -7,6 +7,7 @@
 #include "events/eventcontent.h"
 #include "events/roommessageevent.h"
 
+#include "csapi/account-data.h"
 #include "csapi/joining.h"
 #include "csapi/logout.h"
 

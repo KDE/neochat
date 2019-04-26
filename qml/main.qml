@@ -7,6 +7,7 @@ import Qt.labs.platform 1.0 as Platform
 
 import Spectral.Panel 2.0
 import Spectral.Component 2.0
+import Spectral.Dialog 2.0
 import Spectral.Page 2.0
 import Spectral.Effect 2.0
 
@@ -39,16 +40,14 @@ ApplicationWindow {
 
         menu: Platform.Menu {
             Platform.MenuItem {
-                text: qsTr("Hide Window")
-                onTriggered: hideWindow()
+                text: qsTr("Toggle Window")
+                onTriggered: window.visible ? hideWindow() : showWindow()
             }
             Platform.MenuItem {
                 text: qsTr("Quit")
                 onTriggered: Qt.quit()
             }
         }
-
-        onActivated: showWindow()
     }
 
     Controller {
@@ -72,102 +71,6 @@ ApplicationWindow {
     Shortcut {
         sequence: StandardKey.Quit
         onActivated: Qt.quit()
-    }
-
-    Dialog {
-        property bool busy: false
-
-        width: 360
-        x: (window.width - width) / 2
-        y: (window.height - height) / 2
-
-        id: loginDialog
-
-        parent: ApplicationWindow.overlay
-
-        title: "Login"
-
-        contentItem: ColumnLayout {
-            AutoTextField {
-                Layout.fillWidth: true
-
-                id: serverField
-
-                placeholderText: "Server Address"
-                text: "https://matrix.org"
-            }
-
-            AutoTextField {
-                Layout.fillWidth: true
-
-                id: usernameField
-
-                placeholderText: "Username"
-
-                onAccepted: passwordField.forceActiveFocus()
-            }
-
-            AutoTextField {
-                Layout.fillWidth: true
-
-                id: passwordField
-
-                placeholderText: "Password"
-                echoMode: TextInput.Password
-
-                onAccepted: loginDialog.doLogin()
-            }
-        }
-
-        footer: DialogButtonBox {
-            Button {
-                text: "Cancel"
-                flat: true
-                enabled: !loginDialog.busy
-
-                onClicked: loginDialog.close()
-            }
-
-            Button {
-                text: "OK"
-                flat: true
-                enabled: !loginDialog.busy
-
-                onClicked: loginDialog.doLogin()
-            }
-
-            ToolTip {
-                id: loginButtonTooltip
-
-            }
-        }
-
-        onVisibleChanged: {
-            if (visible) spectralController.onErrorOccured.connect(showError)
-            else spectralController.onErrorOccured.disconnect(showError)
-        }
-
-        function showError(error, detail) {
-            loginDialog.busy = false
-            loginButtonTooltip.text = error + ": " + detail
-            loginButtonTooltip.open()
-        }
-
-        function doLogin() {
-            if (!(serverField.text.startsWith("http") && serverField.text.includes("://"))) {
-                loginButtonTooltip.text = "Server address should start with http(s)://"
-                loginButtonTooltip.open()
-                return
-            }
-
-            loginDialog.busy = true
-            spectralController.loginWithCredentials(serverField.text, usernameField.text, passwordField.text)
-
-            spectralController.connectionAdded.connect(function(conn) {
-                busy = false
-                loginDialog.close()
-            })
-        }
     }
 
     Dialog {
@@ -267,7 +170,7 @@ ApplicationWindow {
                         color: MPalette.lighter
                     }
 
-                    onClicked: loginDialog.open()
+                    onClicked: loginDialog.createObject(ApplicationWindow.overlay).open()
                 }
             }
 
@@ -294,7 +197,7 @@ ApplicationWindow {
                 RippleEffect {
                     anchors.fill: parent
 
-                    onPrimaryClicked: joinRoomDialog.open()
+                    onPrimaryClicked: joinRoomDialog.createObject(ApplicationWindow.overlay).open()
                 }
             }
 
@@ -321,7 +224,7 @@ ApplicationWindow {
                 RippleEffect {
                     anchors.fill: parent
 
-                    onPrimaryClicked: createRoomDialog.open()
+                    onPrimaryClicked: createRoomDialog.createObject(ApplicationWindow.overlay).open()
                 }
             }
 
@@ -433,66 +336,22 @@ ApplicationWindow {
         }
     }
 
-    Dialog {
-        anchors.centerIn: parent
-        width: 360
+    Component {
+        id: loginDialog
 
-        id: joinRoomDialog
-
-        title: "Start a Chat"
-
-        contentItem: ColumnLayout {
-            AutoTextField {
-                Layout.fillWidth: true
-
-                id: identifierField
-
-                placeholderText: "Room Alias/User ID"
-            }
-        }
-
-        standardButtons: Dialog.Ok | Dialog.Cancel
-
-        onAccepted: {
-            var identifier = identifierField.text
-            var firstChar = identifier.charAt(0)
-            if (firstChar == "@") {
-                spectralController.createDirectChat(spectralController.connection, identifier)
-            } else if (firstChar == "!" || firstChar == "#") {
-                spectralController.joinRoom(spectralController.connection, identifier)
-            }
-        }
+        LoginDialog {}
     }
 
-    Dialog {
-        anchors.centerIn: parent
-        width: 360
+    Component {
+        id: joinRoomDialog
 
+        JoinRoomDialog {}
+    }
+
+    Component {
         id: createRoomDialog
 
-        title: "Create a Room"
-
-        contentItem: ColumnLayout {
-            AutoTextField {
-                Layout.fillWidth: true
-
-                id: roomNameField
-
-                placeholderText: "Room Name"
-            }
-
-            AutoTextField {
-                Layout.fillWidth: true
-
-                id: roomTopicField
-
-                placeholderText: "Room Topic"
-            }
-        }
-
-        standardButtons: Dialog.Ok | Dialog.Cancel
-
-        onAccepted: spectralController.createRoom(spectralController.connection, roomNameField.text, roomTopicField.text)
+        CreateRoomDialog {}
     }
 
     Drawer {

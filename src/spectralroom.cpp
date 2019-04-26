@@ -6,6 +6,7 @@
 #include "csapi/content-repo.h"
 #include "csapi/leaving.h"
 #include "csapi/typing.h"
+#include "events/accountdataevents.h"
 #include "events/typingevent.h"
 
 #include <QFileDialog>

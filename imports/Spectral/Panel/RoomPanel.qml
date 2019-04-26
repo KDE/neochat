@@ -88,9 +88,11 @@ Item {
 
                     sourceModel: messageEventModel
 
-                    filters: ExpressionFilter {
-                        expression: marks !== 0x10 && eventType !== "other"
-                    }
+                    filters: [
+                        ExpressionFilter {
+                            expression: marks !== 0x10 && eventType !== "other"
+                        }
+                    ]
 
                     onModelReset: {
                         if (currentRoom) {
@@ -271,31 +273,6 @@ Item {
                     Material.background: Material.accent
 
                     onClicked: messageListView.positionViewAtBeginning()
-                }
-
-                Popup {
-                    property string sourceText
-
-                    anchors.centerIn: parent
-                    width: 480
-
-                    id: sourceDialog
-
-                    parent: ApplicationWindow.overlay
-
-                    padding: 16
-
-                    closePolicy: Dialog.CloseOnEscape | Dialog.CloseOnPressOutside
-
-                    contentItem: ScrollView {
-                        clip: true
-                        TextArea {
-                            readOnly: true
-                            selectByMouse: true
-
-                            text: sourceDialog.sourceText
-                        }
-                    }
                 }
             }
 

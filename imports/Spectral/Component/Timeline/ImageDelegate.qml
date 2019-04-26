@@ -9,6 +9,7 @@ import Spectral 0.1
 import Spectral.Setting 0.1
 
 import Spectral.Component 2.0
+import Spectral.Dialog 2.0
 import Spectral.Effect 2.0
 import Spectral.Font 0.1
 
@@ -133,16 +134,19 @@ ColumnLayout {
 
                 onSecondaryClicked: messageContextMenu.popup()
 
+                Component {
+                    id: messageSourceDialog
+
+                    MessageSourceDialog {}
+                }
+
                 Menu {
                     id: messageContextMenu
 
                     MenuItem {
                         text: "View Source"
 
-                        onTriggered: {
-                            sourceDialog.sourceText = toolTip
-                            sourceDialog.open()
-                        }
+                        onTriggered: messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
                     }
 
                     MenuItem {
