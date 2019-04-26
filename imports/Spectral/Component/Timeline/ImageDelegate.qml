@@ -54,6 +54,20 @@ ColumnLayout {
             visible: avatarVisible
             hint: author.displayName
             source: author.avatarMediaId
+
+            Component {
+                id: userDetailDialog
+
+                UserDetailDialog {}
+            }
+
+            RippleEffect {
+                anchors.fill: parent
+
+                circular: true
+
+                onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": author}).open()
+            }
         }
 
         Label {

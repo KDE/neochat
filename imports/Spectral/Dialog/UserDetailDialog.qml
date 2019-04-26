@@ -39,7 +39,9 @@ Dialog {
 
                     font.pixelSize: 18
                     font.bold: true
-                    wrapMode: Label.Wrap
+
+                    elide: Text.ElideRight
+                    wrapMode: Text.NoWrap
                     text: user ? user.displayName : "No Name"
                     color: MPalette.foreground
                 }
@@ -47,7 +49,6 @@ Dialog {
                 Label {
                     Layout.fillWidth: true
 
-                    wrapMode: Label.Wrap
                     text: "Online"
                     color: MPalette.lighter
                 }
@@ -78,7 +79,8 @@ Dialog {
                 Label {
                     Layout.fillWidth: true
 
-                    wrapMode: Label.Wrap
+                    elide: Text.ElideRight
+                    wrapMode: Text.NoWrap
                     text: user ? user.id : "No ID"
                     color: MPalette.accent
                 }
@@ -122,8 +124,8 @@ Dialog {
 
             background: RippleEffect {
                 onPrimaryClicked: {
-                    room.connection.isIgnored(user) ? room.connection.removeFromIgnoredUsers(user) : room.connection.addToIgnoredUsers(user)
                     root.close()
+                    room.connection.isIgnored(user) ? room.connection.removeFromIgnoredUsers(user) : room.connection.addToIgnoredUsers(user)
                 }
             }
         }

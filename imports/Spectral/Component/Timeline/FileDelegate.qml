@@ -11,6 +11,7 @@ import Spectral.Setting 0.1
 import Spectral.Component 2.0
 import Spectral.Dialog 2.0
 import Spectral.Font 0.1
+import Spectral.Effect 2.0
 
 ColumnLayout {
     readonly property bool avatarVisible: !sentByMe && (aboveAuthor !== author || aboveSection !== section || aboveEventType === "state" || aboveEventType === "emote" || aboveEventType === "other")
@@ -53,6 +54,20 @@ ColumnLayout {
             visible: avatarVisible
             hint: author.displayName
             source: author.avatarMediaId
+
+            Component {
+                id: userDetailDialog
+
+                UserDetailDialog {}
+            }
+
+            RippleEffect {
+                anchors.fill: parent
+
+                circular: true
+
+                onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": author}).open()
+            }
         }
 
         Label {
