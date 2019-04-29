@@ -13,8 +13,8 @@ import Spectral.Setting 0.1
 import SortFilterProxyModel 0.2
 
 Item {
-    property var controller: null
-    readonly property var user: controller.connection ? controller.connection.localUser : null
+    property var connection: null
+    readonly property var user: connection ? connection.localUser : null
 
     property int filter: 0
     property var enteredRoom: null
@@ -28,7 +28,7 @@ Item {
     RoomListModel {
         id: roomListModel
 
-        connection: controller.connection
+        connection: root.connection
 
         onNewMessage: if (!window.active && MSettings.showNotification) spectralController.postNotification(roomId, eventId, roomName, senderName, text, icon)
     }

@@ -371,7 +371,7 @@ ApplicationWindow {
 
             clip: true
 
-            controller: spectralController
+            connection: spectralController.connection
 
             onLeaveRoom: roomForm.saveReadMarker(room)
         }
@@ -420,7 +420,7 @@ ApplicationWindow {
 
     Component.onCompleted: {
         spectralController.initiated.connect(function() {
-            if (spectralController.accountCount == 0) loginDialog.open()
+            if (spectralController.accountCount == 0) loginDialog.createObject(window).open()
         })
     }
 }

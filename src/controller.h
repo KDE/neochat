@@ -60,8 +60,6 @@ class Controller : public QObject {
   }
 
   void setConnection(Connection* conn) {
-    if (!conn)
-      return;
     if (conn == m_connection)
       return;
     m_connection = conn;
