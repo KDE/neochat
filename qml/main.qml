@@ -65,7 +65,8 @@ ApplicationWindow {
     }
 
     Shortcut {
-        sequence: StandardKey.Quit
+        sequence: "Ctrl+Q"
+        context: Qt.ApplicationShortcut
         onActivated: Qt.quit()
     }
 
