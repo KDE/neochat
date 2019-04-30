@@ -11,12 +11,9 @@ finish-args:
 - --device=dri
 - --filesystem=xdg-download
 - --talk-name=org.freedesktop.Notifications
-- --talk-name=org.kde.StatusNotifierWatcher
 modules:
 - name: spectral
   buildsystem: qmake
-  config-opts:
-  - "BUNDLE_FONT=true"
   sources:
   - type: dir
     path: ../
