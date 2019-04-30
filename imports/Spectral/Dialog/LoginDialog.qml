@@ -44,7 +44,7 @@ Dialog {
             placeholderText: "Password"
             echoMode: TextInput.Password
 
-            onAccepted: root.doLogin()
+            onAccepted: root.accept()
         }
     }
 
@@ -52,5 +52,5 @@ Dialog {
         spectralController.loginWithCredentials(serverField.text, usernameField.text, passwordField.text)
     }
 
-    onClosed: root.destroy()
+    onClosed: destroy()
 }

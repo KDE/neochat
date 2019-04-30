@@ -22,6 +22,6 @@ Popup {
         }
     }
 
-    onClosed: root.destroy()
+    onClosed: destroy()
 }
 

@@ -5,6 +5,8 @@ import QtQuick.Layouts 1.12
 import QtQuick.Controls.Material 2.12
 
 import Spectral.Component 2.0
+import Spectral.Dialog 2.0
+import Spectral.Menu 2.0
 import Spectral.Effect 2.0
 
 import Spectral 0.1
@@ -363,11 +365,9 @@ Item {
                 RippleEffect {
                     anchors.fill: parent
 
-                    onSecondaryClicked: roomContextMenu.popup()
                     onPrimaryClicked: {
                         if (category === RoomType.Invited) {
-                            inviteDialog.currentRoom = currentRoom
-                            inviteDialog.open()
+                            acceptInvitationDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom}).open()
                         } else {
                             if (enteredRoom) {
                                 enteredRoom.displayed = false
@@ -378,41 +378,13 @@ Item {
                             enteredRoom = currentRoom
                         }
                     }
+                    onSecondaryClicked: roomListContextMenu.createObject(ApplicationWindow.overlay, {"room": currentRoom}).popup()
                 }
 
-                Menu {
-                    id: roomContextMenu
+                Component {
+                    id: roomListContextMenu
 
-                    MenuItem {
-                        text: "Favourite"
-                        checkable: true
-                        checked: category === RoomType.Favorite
-
-                        onTriggered: category === RoomType.Favorite ? currentRoom.removeTag("m.favourite") : currentRoom.addTag("m.favourite", 1.0)
-                    }
-
-                    MenuItem {
-                        text: "Deprioritize"
-                        checkable: true
-                        checked: category === RoomType.Deprioritized
-
-                        onTriggered: category === RoomType.Deprioritized ? currentRoom.removeTag("m.lowpriority") : currentRoom.addTag("m.lowpriority", 1.0)
-                    }
-
-                    MenuSeparator {}
-
-                    MenuItem {
-                        text: "Mark as Read"
-
-                        onTriggered: currentRoom.markAllMessagesAsRead()
-                    }
-
-                    MenuItem {
-                        text: "Leave Room"
-                        Material.foreground: Material.Red
-
-                        onTriggered: currentRoom.forget()
-                    }
+                    RoomListContextMenu {}
                 }
             }
 
@@ -431,48 +403,9 @@ Item {
         }
     }
 
-    Dialog {
-        property var currentRoom
+    Component {
+        id: acceptInvitationDialog
 
-        id: inviteDialog
-        parent: ApplicationWindow.overlay
-
-        x: (window.width - width) / 2
-        y: (window.height - height) / 2
-        width: 360
-
-        title: "Action Required"
-        modal: true
-
-        contentItem: Label { text: "Accept this invitation?" }
-
-        footer: DialogButtonBox {
-            Button {
-                text: "Accept"
-                flat: true
-
-                onClicked: {
-                    inviteDialog.currentRoom.acceptInvitation()
-                    inviteDialog.close()
-                }
-            }
-
-            Button {
-                text: "Reject"
-                flat: true
-
-                onClicked: {
-                    inviteDialog.currentRoom.forget()
-                    inviteDialog.close()
-                }
-            }
-
-            Button {
-                text: "Cancel"
-                flat: true
-
-                onClicked: inviteDialog.close()
-            }
-        }
+        AcceptInvitationDialog {}
     }
 }

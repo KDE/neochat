@@ -8,6 +8,7 @@ import Spectral.Setting 0.1
 
 import Spectral.Component 2.0
 import Spectral.Dialog 2.0
+import Spectral.Menu.Timeline 2.0
 import Spectral.Effect 2.0
 import Spectral.Font 0.1
 
@@ -97,40 +98,35 @@ ColumnLayout {
 
                     id: messageMouseArea
 
-                    onSecondaryClicked: messageContextMenu.popup()
+                    onSecondaryClicked: {
+                        var contextMenu = messageDelegateContextMenu.createObject(ApplicationWindow.overlay)
+                        contextMenu.viewSource.connect(function() {
+                            messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
+                        })
+                        contextMenu.reply.connect(function() {
+                            roomPanelInput.replyUser = author
+                            roomPanelInput.replyEventID = eventId
+                            roomPanelInput.replyContent = contentLabel.selectedText || message
+                            roomPanelInput.isReply = true
+                            roomPanelInput.focus()
+                        })
+                        contextMenu.redact.connect(function() {
+                            currentRoom.redactEvent(eventId)
+                        })
+                        contextMenu.popup()
+                    }
+
+
+                    Component {
+                        id: messageDelegateContextMenu
+
+                        MessageDelegateContextMenu {}
+                    }
 
                     Component {
                         id: messageSourceDialog
 
                         MessageSourceDialog {}
-                    }
-
-                    Menu {
-                        readonly property string selectedText: contentLabel.selectedText
-
-                        id: messageContextMenu
-
-                        MenuItem {
-                            text: "View Source"
-
-                            onTriggered: messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
-                        }
-                        MenuItem {
-                            text: "Reply"
-
-                            onTriggered: {
-                                roomPanelInput.replyUser = author
-                                roomPanelInput.replyEventID = eventId
-                                roomPanelInput.replyContent = messageContextMenu.selectedText || message
-                                roomPanelInput.isReply = true
-                                roomPanelInput.focus()
-                            }
-                        }
-                        MenuItem {
-                            text: "Redact"
-
-                            onTriggered: currentRoom.redactEvent(eventId)
-                        }
                     }
                 }
             }

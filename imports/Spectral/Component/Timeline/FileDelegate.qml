@@ -10,6 +10,7 @@ import Spectral.Setting 0.1
 
 import Spectral.Component 2.0
 import Spectral.Dialog 2.0
+import Spectral.Menu.Timeline 2.0
 import Spectral.Font 0.1
 import Spectral.Effect 2.0
 
@@ -125,7 +126,25 @@ ColumnLayout {
 
                     id: messageMouseArea
 
-                    onSecondaryClicked: messageContextMenu.popup()
+                    onSecondaryClicked: {
+                        var contextMenu = fileDelegateContextMenu.createObject(ApplicationWindow.overlay)
+                        contextMenu.viewSource.connect(function() {
+                            messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
+                        })
+                        contextMenu.downloadAndOpen.connect(downloadAndOpen)
+                        contextMenu.saveFileAs.connect(saveFileAs)
+                        contextMenu.reply.connect(function() {
+                            roomPanelInput.replyUser = author
+                            roomPanelInput.replyEventID = eventId
+                            roomPanelInput.replyContent = message
+                            roomPanelInput.isReply = true
+                            roomPanelInput.focus()
+                        })
+                        contextMenu.redact.connect(function() {
+                            currentRoom.redactEvent(eventId)
+                        })
+                        contextMenu.popup()
+                    }
 
                     Component {
                         id: messageSourceDialog
@@ -133,40 +152,10 @@ ColumnLayout {
                         MessageSourceDialog {}
                     }
 
-                    Menu {
-                        id: messageContextMenu
+                    Component {
+                        id: fileDelegateContextMenu
 
-                        MenuItem {
-                            text: "View Source"
-
-                            onTriggered: messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
-                        }
-                        MenuItem {
-                            text: "Open Externally"
-
-                            onTriggered: downloadAndOpen()
-                        }
-                        MenuItem {
-                            text: "Save As"
-
-                            onTriggered: saveFileAs()
-                        }
-                        MenuItem {
-                            text: "Reply"
-
-                            onTriggered: {
-                                roomPanelInput.replyUser = author
-                                roomPanelInput.replyEventID = eventId
-                                roomPanelInput.replyContent = message
-                                roomPanelInput.isReply = true
-                                roomPanelInput.focus()
-                            }
-                        }
-                        MenuItem {
-                            text: "Redact"
-
-                            onTriggered: currentRoom.redactEvent(eventId)
-                        }
+                        FileDelegateContextMenu {}
                     }
                 }
             }
