@@ -10,7 +10,6 @@ import Spectral.Component 2.0
 import Spectral.Dialog 2.0
 import Spectral.Menu.Timeline 2.0
 import Spectral.Effect 2.0
-import Spectral.Font 0.1
 
 ColumnLayout {
     readonly property bool avatarVisible: !sentByMe && (aboveAuthor !== author || aboveSection !== section || aboveEventType === "state" || aboveEventType === "emote" || aboveEventType === "other")
@@ -202,7 +201,7 @@ ColumnLayout {
 
                     color: "white"
 
-                    font.family: CommonFont.font.family
+                    font.family: window.font.family
                     font.pixelSize: 14
                     selectByMouse: true
                     readOnly: true
