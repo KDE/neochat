@@ -72,13 +72,6 @@ void SpectralRoom::chooseAndUploadFile() {
   }
 }
 
-void SpectralRoom::saveFileAs(QString eventId) {
-  auto fileName = QFileDialog::getSaveFileName(Q_NULLPTR, tr("Save File as"),
-                                               fileNameToDownload(eventId));
-  if (!fileName.isEmpty())
-    downloadFile(eventId, QUrl::fromLocalFile(fileName));
-}
-
 void SpectralRoom::acceptInvitation() {
   connection()->joinRoom(id());
 }

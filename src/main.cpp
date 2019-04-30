@@ -67,11 +67,6 @@ int main(int argc, char* argv[]) {
   qRegisterMetaType<SpectralRoom*>("SpectralRoom*");
   qRegisterMetaType<SpectralUser*>("SpectralUser*");
 
-#if defined(BUNDLE_FONT)
-  QFontDatabase::addApplicationFont(":/assets/font/roboto.ttf");
-  QFontDatabase::addApplicationFont(":/assets/font/twemoji.ttf");
-#endif
-
   QQmlApplicationEngine engine;
 
   engine.addImportPath("qrc:/imports");

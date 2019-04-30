@@ -111,7 +111,7 @@ ColumnLayout {
                     }
 
                     Label {
-                        text: progressInfo.active ? (progressInfo.progress + "/" + progressInfo.total) : content.info.size
+                        text: progressInfo.active ? (progressInfo.progress + "/" + progressInfo.total) : content.info ? content.info.size : "Unknown"
                         color: MPalette.lighter
                     }
                 }
@@ -153,6 +153,12 @@ ColumnLayout {
                     }
 
                     Component {
+                        id: openFileDialog
+
+                        OpenFileDialog {}
+                    }
+
+                    Component {
                         id: fileDelegateContextMenu
 
                         FileDelegateContextMenu {}
@@ -162,7 +168,17 @@ ColumnLayout {
         }
     }
 
-    function saveFileAs() { currentRoom.saveFileAs(eventId) }
+    function saveFileAs() {
+        var fileDialog = openFileDialog.createObject(ApplicationWindow.overlay, {"selectFolder": true})
+
+        fileDialog.chosen.connect(function(path) {
+            if (!path) return
+
+            currentRoom.downloadFile(eventId, path + "/" + (content.filename || content.body))
+        })
+
+        fileDialog.open()
+    }
 
     function downloadAndOpen()
     {

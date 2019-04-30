@@ -20,7 +20,6 @@ Item {
 
     property int filter: 0
     property var enteredRoom: null
-    property alias errorControl: errorControl
 
     signal enterRoom(var room)
     signal leaveRoom(var room)
@@ -184,9 +183,12 @@ Item {
                     source: root.user ? root.user.avatarMediaId : null
                     hint: root.user ? root.user.displayName : "?"
 
-                    MouseArea {
+                    RippleEffect {
                         anchors.fill: parent
-                        onClicked: detailDialog.open()
+
+                        circular: true
+
+                        onClicked: accountDetailDialog.createObject(ApplicationWindow.overlay).open()
                     }
                 }
             }
@@ -200,52 +202,6 @@ Item {
                 layer.effect: ElevationEffect {
                     elevation: 2
                 }
-            }
-        }
-
-        Control {
-            property string error: ""
-            property string detail: ""
-
-            Layout.fillWidth: true
-
-            id: errorControl
-
-            visible: false
-
-            topPadding: 16
-            bottomPadding: 16
-            leftPadding: 24
-            rightPadding: 24
-
-            contentItem: ColumnLayout {
-                Label {
-                    Layout.fillWidth: true
-
-                    text: errorControl.error
-                    font.pixelSize: 16
-                    color: "white"
-                    wrapMode: Text.Wrap
-                }
-                Label {
-                    Layout.fillWidth: true
-
-                    text: errorControl.detail
-                    font.pixelSize: 14
-                    color: "white"
-                    opacity: 0.6
-                    wrapMode: Text.Wrap
-                }
-            }
-
-            background: Rectangle {
-                color: "#273338"
-            }
-
-            RippleEffect {
-                anchors.fill: parent
-
-                onClicked: errorControl.visible = false
             }
         }
 

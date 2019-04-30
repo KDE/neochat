@@ -251,7 +251,6 @@ class SpectralRoom : public Room {
 
  public slots:
   void chooseAndUploadFile();
-  void saveFileAs(QString eventId);
   void acceptInvitation();
   void forget();
   void sendTypingNotification(bool isTyping);

@@ -20,9 +20,6 @@ isEmpty(USE_SYSTEM_SORTFILTERPROXYMODEL) {
 isEmpty(USE_SYSTEM_QMATRIXCLIENT) {
     USE_SYSTEM_QMATRIXCLIENT = false
 }
-isEmpty(BUNDLE_FONT) {
-    BUNDLE_FONT = false
-}
 
 $$USE_SYSTEM_QMATRIXCLIENT {
     PKGCONFIG += QMatrixClient
@@ -70,13 +67,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 RESOURCES += res.qrc
-$$BUNDLE_FONT {
-    message("Bundling fonts.")
-    DEFINES += BUNDLE_FONT
-    RESOURCES += font.qrc
-} else {
-    message("Using fonts from operating system.")
-}
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH += imports/

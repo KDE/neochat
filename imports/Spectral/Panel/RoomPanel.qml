@@ -23,18 +23,42 @@ Item {
         room: currentRoom
     }
 
-    Label {
+    Column {
         anchors.centerIn: parent
+
+        spacing: 16
+
         visible: !currentRoom
-        text: "Please choose a room."
+
+        Image {
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            width: 240
+
+            fillMode: Image.PreserveAspectFit
+
+            source: "qrc:/assets/img/matrix.svg"
+        }
+
+        Label {
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            text: "Welcome to Matrix, a new era of instant messaging."
+        }
+
+        Label {
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            text: "To start chatting, select a room from the room list."
+        }
     }
 
     Image {
         anchors.fill: parent
 
-        visible: currentRoom && MSettings.enableTimelineBackground
+        visible: currentRoom && MSettings.timelineBackground
 
-        source: MSettings.timelineBackground || MSettings.darkTheme ? "qrc:/assets/img/roompanel-dark.svg" : "qrc:/assets/img/roompanel.svg"
+        source: MSettings.timelineBackground
         fillMode: Image.PreserveAspectCrop
     }
 

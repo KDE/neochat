@@ -8,7 +8,6 @@ import Qt.labs.platform 1.0 as Platform
 import Spectral.Panel 2.0
 import Spectral.Component 2.0
 import Spectral.Dialog 2.0
-import Spectral.Page 2.0
 import Spectral.Effect 2.0
 
 import Spectral 0.1
@@ -29,6 +28,8 @@ ApplicationWindow {
 
     visible: true
     title: qsTr("Spectral")
+
+    font.family: MSettings.fontFamily
 
     background: Rectangle {
         color: MSettings.darkTheme ? "#303030" : "#FFFFFF"
@@ -60,12 +61,7 @@ ApplicationWindow {
             roomForm.goToEvent(eventId)
             showWindow()
         }
-        onErrorOccured: {
-            roomListForm.errorControl.error = error
-            roomListForm.errorControl.detail = detail
-            roomListForm.errorControl.visible = true
-        }
-        onSyncDone: roomListForm.errorControl.visible = false
+        onErrorOccured: errorControl.show(error + ": " + detail, 3000)
     }
 
     Shortcut {
@@ -73,267 +69,18 @@ ApplicationWindow {
         onActivated: Qt.quit()
     }
 
-    Dialog {
-        anchors.centerIn: parent
+    ToolTip {
+        id: errorControl
 
-        width: 480
+        parent: ApplicationWindow.overlay
 
-        id: detailDialog
+        font.pixelSize: 14
+    }
 
-        contentItem: Column {
-            id: detailColumn
+    Component {
+        id: accountDetailDialog
 
-            spacing: 0
-
-            Repeater {
-                model: AccountListModel{
-                    controller: spectralController
-                }
-
-                delegate: Item {
-                    width: detailColumn.width
-                    height: 72
-
-                    RowLayout {
-                        anchors.fill: parent
-                        anchors.margins: 12
-
-                        spacing: 12
-
-                        Avatar {
-                            Layout.preferredWidth: height
-                            Layout.fillHeight: true
-
-                            source: user.avatarMediaId
-                            hint: user.displayName || "No Name"
-                        }
-
-                        ColumnLayout {
-                            Layout.fillWidth: true
-                            Layout.alignment: Qt.AlignHCenter
-
-                            Label {
-                                Layout.fillWidth: true
-
-                                text: user.displayName || "No Name"
-                                color: MPalette.foreground
-                                font.pixelSize: 16
-                                font.bold: true
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                            }
-
-                            Label {
-                                Layout.fillWidth: true
-
-                                text: connection === spectralController.connection ? "Active" : "Online"
-                                color: MPalette.lighter
-                                font.pixelSize: 13
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                            }
-                        }
-                    }
-
-                    Menu {
-                        id: contextMenu
-
-                        MenuItem {
-                            text: "Logout"
-
-                            onClicked: spectralController.logout(connection)
-                        }
-                    }
-
-                    RippleEffect {
-                        anchors.fill: parent
-
-                        onPrimaryClicked: spectralController.connection = connection
-                        onSecondaryClicked: contextMenu.popup()
-                    }
-                }
-            }
-
-            RowLayout {
-                width: parent.width
-
-                MenuSeparator {
-                    Layout.fillWidth: true
-                }
-
-                ToolButton {
-                    Layout.preferredWidth: 48
-                    Layout.preferredHeight: 48
-
-                    contentItem: MaterialIcon {
-                        icon: "\ue145"
-                        color: MPalette.lighter
-                    }
-
-                    onClicked: loginDialog.createObject(ApplicationWindow.overlay).open()
-                }
-            }
-
-            Control {
-                width: parent.width
-
-                contentItem: RowLayout {
-                    MaterialIcon {
-                        Layout.preferredWidth: 48
-                        Layout.preferredHeight: 48
-
-                        color: MPalette.foreground
-                        icon: "\ue7ff"
-                    }
-
-                    Label {
-                        Layout.fillWidth: true
-
-                        color: MPalette.foreground
-                        text: "Start a Chat"
-                    }
-                }
-
-                RippleEffect {
-                    anchors.fill: parent
-
-                    onPrimaryClicked: joinRoomDialog.createObject(ApplicationWindow.overlay).open()
-                }
-            }
-
-            Control {
-                width: parent.width
-
-                contentItem: RowLayout {
-                    MaterialIcon {
-                        Layout.preferredWidth: 48
-                        Layout.preferredHeight: 48
-
-                        color: MPalette.foreground
-                        icon: "\ue7fc"
-                    }
-
-                    Label {
-                        Layout.fillWidth: true
-
-                        color: MPalette.foreground
-                        text: "Create a Room"
-                    }
-                }
-
-                RippleEffect {
-                    anchors.fill: parent
-
-                    onPrimaryClicked: createRoomDialog.createObject(ApplicationWindow.overlay).open()
-                }
-            }
-
-            MenuSeparator {
-                width: parent.width
-            }
-
-            Control {
-                width: parent.width
-
-                contentItem: RowLayout {
-                    MaterialIcon {
-                        Layout.preferredWidth: 48
-                        Layout.preferredHeight: 48
-
-                        color: MPalette.foreground
-                        icon: "\ue3a9"
-                    }
-
-                    Label {
-                        Layout.fillWidth: true
-
-                        color: MPalette.foreground
-                        text: "Night Mode"
-                    }
-
-                    Switch {
-                        id: darkThemeSwitch
-
-                        checked: MSettings.darkTheme
-                        onCheckedChanged: MSettings.darkTheme = checked
-                    }
-                }
-
-                RippleEffect {
-                    anchors.fill: parent
-
-                    onPrimaryClicked: darkThemeSwitch.checked = !darkThemeSwitch.checked
-                }
-            }
-
-            Control {
-                width: parent.width
-
-                contentItem: RowLayout {
-                    MaterialIcon {
-                        Layout.preferredWidth: 48
-                        Layout.preferredHeight: 48
-
-                        color: MPalette.foreground
-                        icon: "\ue5d2"
-                    }
-
-                    Label {
-                        Layout.fillWidth: true
-
-                        color: MPalette.foreground
-                        text: "Enable System Tray"
-                    }
-
-                    Switch {
-                        id: trayIconSwitch
-
-                        checked: MSettings.showTray
-                        onCheckedChanged: MSettings.showTray = checked
-                    }
-                }
-
-                RippleEffect {
-                    anchors.fill: parent
-
-                    onPrimaryClicked: trayIconSwitch.checked = !trayIconSwitch.checked
-                }
-            }
-
-            Control {
-                width: parent.width
-
-                contentItem: RowLayout {
-                    MaterialIcon {
-                        Layout.preferredWidth: 48
-                        Layout.preferredHeight: 48
-
-                        color: MPalette.foreground
-                        icon: "\ue7f5"
-                    }
-
-                    Label {
-                        Layout.fillWidth: true
-
-                        color: MPalette.foreground
-                        text: "Enable Notifications"
-                    }
-
-                    Switch {
-                        id: notificationsSwitch
-
-                        checked: MSettings.showNotification
-                        onCheckedChanged: MSettings.showNotification = checked
-                    }
-                }
-
-                RippleEffect {
-                    anchors.fill: parent
-
-                    onPrimaryClicked: notificationsSwitch.checked = !notificationsSwitch.checked
-                }
-            }
-        }
+        AccountDetailDialog {}
     }
 
     Component {
@@ -352,6 +99,18 @@ ApplicationWindow {
         id: createRoomDialog
 
         CreateRoomDialog {}
+    }
+
+    Component {
+        id: fontFamilyDialog
+
+        FontFamilyDialog {}
+    }
+
+    Component {
+        id: chatBackgroundDialog
+
+        OpenFileDialog {}
     }
 
     Drawer {

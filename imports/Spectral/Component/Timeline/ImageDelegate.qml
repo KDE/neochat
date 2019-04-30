@@ -171,6 +171,12 @@ ColumnLayout {
                 }
 
                 Component {
+                    id: openFileDialog
+
+                    OpenFileDialog {}
+                }
+
+                Component {
                     id: imageDelegateContextMenu
 
                     FileDelegateContextMenu {}
@@ -179,7 +185,17 @@ ColumnLayout {
         }
     }
 
-    function saveFileAs() { currentRoom.saveFileAs(eventId) }
+    function saveFileAs() {
+        var fileDialog = openFileDialog.createObject(ApplicationWindow.overlay, {"selectFolder": true})
+
+        fileDialog.chosen.connect(function(path) {
+            if (!path) return
+
+            currentRoom.downloadFile(eventId, path + "/" + (content.filename || content.body))
+        })
+
+        fileDialog.open()
+    }
 
     function downloadAndOpen()
     {
