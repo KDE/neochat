@@ -2,9 +2,8 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 
 ApplicationWindow {
-    property url imageUrl
-    property int sourceWidth
-    property int sourceHeight
+    property string eventId
+    property url localPath
 
     id: root
 
@@ -12,16 +11,25 @@ ApplicationWindow {
     visible: true
     visibility: Qt.WindowFullScreen
 
-    title: "Image View - " + imageUrl
+    title: "Image View - " + eventId
 
     color: "#BB000000"
 
-    Image {
+    Shortcut {
+        sequence: "Escape"
+        onActivated: root.destroy()
+    }
+
+    AnimatedImage {
         anchors.centerIn: parent
 
-        sourceSize.width: root.sourceWidth
-        sourceSize.height: root.sourceHeight
-        source: imageUrl
+        width: Math.min(sourceSize.width, root.width)
+        height: Math.min(sourceSize.height, root.height)
+
+        fillMode: Image.PreserveAspectFit
+        cache: false
+
+        source: localPath
     }
 
     ItemDelegate {

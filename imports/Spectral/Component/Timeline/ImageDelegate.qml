@@ -19,13 +19,17 @@ ColumnLayout {
     readonly property bool sentByMe: author === currentRoom.localUser
 
     property bool openOnFinished: false
+    property bool showOnFinished: false
     readonly property bool downloaded: progressInfo && progressInfo.completed
 
     id: root
 
     spacing: 0
 
-    onDownloadedChanged: if (downloaded && openOnFinished) openSavedFile()
+    onDownloadedChanged: {
+        if (downloaded && showOnFinished) showSavedFile()
+        if (downloaded && openOnFinished) openSavedFile()
+    }
 
     Label {
         Layout.leftMargin: 48
@@ -116,16 +120,6 @@ ColumnLayout {
                 }
             }
 
-            Component {
-                id: fullScreenImage
-
-                FullScreenImage {
-                    imageUrl: "image://mxc/" + content.mediaId
-                    sourceWidth: content.info.w
-                    sourceHeight: content.info.h
-                }
-            }
-
             Rectangle {
                 anchors.fill: parent
 
@@ -137,12 +131,30 @@ ColumnLayout {
                 border.color: MPalette.banner
             }
 
+            Rectangle {
+                anchors.fill: parent
+
+                visible: progressInfo.active && !downloaded
+
+                color: "#BB000000"
+
+                ProgressBar {
+                    anchors.centerIn: parent
+
+                    width: parent.width * 0.8
+
+                    from: 0
+                    to: progressInfo.total
+                    value: progressInfo.progress
+                }
+            }
+
             RippleEffect {
                 anchors.fill: parent
 
                 id: messageMouseArea
 
-                onPrimaryClicked: fullScreenImage.createObject().show()
+                onPrimaryClicked: downloadAndShow()
 
                 onSecondaryClicked: {
                     var contextMenu = imageDelegateContextMenu.createObject(ApplicationWindow.overlay)
@@ -181,6 +193,12 @@ ColumnLayout {
 
                     FileDelegateContextMenu {}
                 }
+
+                Component {
+                    id: fullScreenImage
+
+                    FullScreenImage {}
+                }
             }
         }
     }
@@ -197,13 +215,28 @@ ColumnLayout {
         fileDialog.open()
     }
 
+    function downloadAndShow()
+    {
+        if (downloaded) showSavedFile()
+        else
+        {
+            showOnFinished = true
+            currentRoom.downloadFile(eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + (message || ".tmp"))
+        }
+    }
+
+    function showSavedFile()
+    {
+        fullScreenImage.createObject(parent, {"eventId": eventId, "localPath": progressInfo.localPath}).show()
+    }
+
     function downloadAndOpen()
     {
         if (downloaded) openSavedFile()
         else
         {
             openOnFinished = true
-            currentRoom.downloadFile(eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_") + (message || ".tmp"))
+            currentRoom.downloadFile(eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + (message || ".tmp"))
         }
     }
 
