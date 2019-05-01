@@ -9,7 +9,10 @@ import Spectral 0.1
 import Spectral.Setting 0.1
 
 import Spectral.Component 2.0
+import Spectral.Dialog 2.0
+import Spectral.Menu.Timeline 2.0
 import Spectral.Font 0.1
+import Spectral.Effect 2.0
 
 ColumnLayout {
     readonly property bool avatarVisible: !sentByMe && (aboveAuthor !== author || aboveSection !== section || aboveEventType === "state" || aboveEventType === "emote" || aboveEventType === "other")
@@ -52,6 +55,20 @@ ColumnLayout {
             visible: avatarVisible
             hint: author.displayName
             source: author.avatarMediaId
+
+            Component {
+                id: userDetailDialog
+
+                UserDetailDialog {}
+            }
+
+            RippleEffect {
+                anchors.fill: parent
+
+                circular: true
+
+                onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": author}).open()
+            }
         }
 
         Label {
@@ -94,7 +111,7 @@ ColumnLayout {
                     }
 
                     Label {
-                        text: progressInfo.active ? (progressInfo.progress + "/" + progressInfo.total) : content.info.size
+                        text: progressInfo.active ? (progressInfo.progress + "/" + progressInfo.total) : content.info ? content.info.size : "Unknown"
                         color: MPalette.lighter
                     }
                 }
@@ -109,52 +126,59 @@ ColumnLayout {
 
                     id: messageMouseArea
 
-                    onSecondaryClicked: messageContextMenu.popup()
+                    onSecondaryClicked: {
+                        var contextMenu = fileDelegateContextMenu.createObject(ApplicationWindow.overlay)
+                        contextMenu.viewSource.connect(function() {
+                            messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
+                        })
+                        contextMenu.downloadAndOpen.connect(downloadAndOpen)
+                        contextMenu.saveFileAs.connect(saveFileAs)
+                        contextMenu.reply.connect(function() {
+                            roomPanelInput.replyUser = author
+                            roomPanelInput.replyEventID = eventId
+                            roomPanelInput.replyContent = message
+                            roomPanelInput.isReply = true
+                            roomPanelInput.focus()
+                        })
+                        contextMenu.redact.connect(function() {
+                            currentRoom.redactEvent(eventId)
+                        })
+                        contextMenu.popup()
+                    }
 
-                    Menu {
-                        id: messageContextMenu
+                    Component {
+                        id: messageSourceDialog
 
-                        MenuItem {
-                            text: "View Source"
+                        MessageSourceDialog {}
+                    }
 
-                            onTriggered: {
-                                sourceDialog.sourceText = toolTip
-                                sourceDialog.open()
-                            }
-                        }
-                        MenuItem {
-                            text: "Open Externally"
+                    Component {
+                        id: openFileDialog
 
-                            onTriggered: downloadAndOpen()
-                        }
-                        MenuItem {
-                            text: "Save As"
+                        OpenFileDialog {}
+                    }
 
-                            onTriggered: saveFileAs()
-                        }
-                        MenuItem {
-                            text: "Reply"
+                    Component {
+                        id: fileDelegateContextMenu
 
-                            onTriggered: {
-                                roomPanelInput.replyUser = author
-                                roomPanelInput.replyEventID = eventId
-                                roomPanelInput.replyContent = message
-                                roomPanelInput.isReply = true
-                                roomPanelInput.focus()
-                            }
-                        }
-                        MenuItem {
-                            text: "Redact"
-
-                            onTriggered: currentRoom.redactEvent(eventId)
-                        }
+                        FileDelegateContextMenu {}
                     }
                 }
             }
         }
     }
 
-    function saveFileAs() { currentRoom.saveFileAs(eventId) }
+    function saveFileAs() {
+        var fileDialog = openFileDialog.createObject(ApplicationWindow.overlay, {"selectFolder": true})
+
+        fileDialog.chosen.connect(function(path) {
+            if (!path) return
+
+            currentRoom.downloadFile(eventId, path + "/" + (content.filename || content.body))
+        })
+
+        fileDialog.open()
+    }
 
     function downloadAndOpen()
     {
@@ -162,7 +186,7 @@ ColumnLayout {
         else
         {
             openOnFinished = true
-            currentRoom.downloadFile(eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_") + (message || ".tmp"))
+            currentRoom.downloadFile(eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + (message || ".tmp"))
         }
     }
 

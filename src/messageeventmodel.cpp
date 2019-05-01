@@ -41,7 +41,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const {
   return roles;
 }
 
-MessageEventModel::MessageEventModel(QObject *parent)
+MessageEventModel::MessageEventModel(QObject* parent)
     : QAbstractListModel(parent), m_currentRoom(nullptr) {
   using namespace QMatrixClient;
   qmlRegisterType<FileTransferInfo>();
@@ -52,8 +52,9 @@ MessageEventModel::MessageEventModel(QObject *parent)
 
 MessageEventModel::~MessageEventModel() {}
 
-void MessageEventModel::setRoom(SpectralRoom *room) {
-  if (room == m_currentRoom) return;
+void MessageEventModel::setRoom(SpectralRoom* room) {
+  if (room == m_currentRoom)
+    return;
 
   beginResetModel();
   if (m_currentRoom) {
@@ -96,8 +97,9 @@ void MessageEventModel::setRoom(SpectralRoom *room) {
     connect(m_currentRoom, &Room::pendingEventAdded, this,
             &MessageEventModel::endInsertRows);
     connect(m_currentRoom, &Room::pendingEventAboutToMerge, this,
-            [this](RoomEvent *, int i) {
-              if (i == 0) return;  // No need to move anything, just refresh
+            [this](RoomEvent*, int i) {
+              if (i == 0)
+                return;  // No need to move anything, just refresh
 
               movingEvent = true;
               // Reverse i because row 0 is bottommost in the model
@@ -131,7 +133,7 @@ void MessageEventModel::setRoom(SpectralRoom *room) {
       refreshEventRoles(lastReadEventId, {ReadMarkerRole});
     });
     connect(m_currentRoom, &Room::replacedEvent, this,
-            [this](const RoomEvent *newEvent) {
+            [this](const RoomEvent* newEvent) {
               refreshLastUserEvents(refreshEvent(newEvent->id()) -
                                     timelineBaseIndex());
             });
@@ -144,9 +146,14 @@ void MessageEventModel::setRoom(SpectralRoom *room) {
     connect(m_currentRoom, &Room::fileTransferCancelled, this,
             &MessageEventModel::refreshEvent);
     connect(m_currentRoom, &Room::readMarkerForUserMoved, this,
-            [=](User *, QString fromEventId, QString toEventId) {
+            [=](User*, QString fromEventId, QString toEventId) {
               refreshEventRoles(fromEventId, {UserMarkerRole});
               refreshEventRoles(toEventId, {UserMarkerRole});
+            });
+    connect(m_currentRoom->connection(), &Connection::ignoredUsersListChanged,
+            this, [=] {
+              beginResetModel();
+              endResetModel();
             });
     qDebug() << "Connected to room" << room->id() << "as"
              << room->localUser()->id();
@@ -155,23 +162,25 @@ void MessageEventModel::setRoom(SpectralRoom *room) {
   endResetModel();
 }
 
-int MessageEventModel::refreshEvent(const QString &eventId) {
+int MessageEventModel::refreshEvent(const QString& eventId) {
   return refreshEventRoles(eventId);
 }
 
-void MessageEventModel::refreshRow(int row) { refreshEventRoles(row); }
+void MessageEventModel::refreshRow(int row) {
+  refreshEventRoles(row);
+}
 
 int MessageEventModel::timelineBaseIndex() const {
   return m_currentRoom ? int(m_currentRoom->pendingEvents().size()) : 0;
 }
 
-void MessageEventModel::refreshEventRoles(int row, const QVector<int> &roles) {
+void MessageEventModel::refreshEventRoles(int row, const QVector<int>& roles) {
   const auto idx = index(row);
   emit dataChanged(idx, idx, roles);
 }
 
-int MessageEventModel::refreshEventRoles(const QString &eventId,
-                                         const QVector<int> &roles) {
+int MessageEventModel::refreshEventRoles(const QString& eventId,
+                                         const QVector<int>& roles) {
   const auto it = m_currentRoom->findInTimeline(eventId);
   if (it == m_currentRoom->timelineEdge()) {
     qWarning() << "Trying to refresh inexistent event:" << eventId;
@@ -183,15 +192,16 @@ int MessageEventModel::refreshEventRoles(const QString &eventId,
   return row;
 }
 
-inline bool hasValidTimestamp(const QMatrixClient::TimelineItem &ti) {
+inline bool hasValidTimestamp(const QMatrixClient::TimelineItem& ti) {
   return ti->timestamp().isValid();
 }
 
 QDateTime MessageEventModel::makeMessageTimestamp(
-    const QMatrixClient::Room::rev_iter_t &baseIt) const {
-  const auto &timeline = m_currentRoom->messageEvents();
+    const QMatrixClient::Room::rev_iter_t& baseIt) const {
+  const auto& timeline = m_currentRoom->messageEvents();
   auto ts = baseIt->event()->timestamp();
-  if (ts.isValid()) return ts;
+  if (ts.isValid())
+    return ts;
 
   // The event is most likely redacted or just invalid.
   // Look for the nearest date around and slap zero time to it.
@@ -210,11 +220,14 @@ QDateTime MessageEventModel::makeMessageTimestamp(
 
 QString MessageEventModel::renderDate(QDateTime timestamp) const {
   auto date = timestamp.toLocalTime().date();
-  if (date == QDate::currentDate()) return tr("Today");
-  if (date == QDate::currentDate().addDays(-1)) return tr("Yesterday");
+  if (date == QDate::currentDate())
+    return tr("Today");
+  if (date == QDate::currentDate().addDays(-1))
+    return tr("Yesterday");
   if (date == QDate::currentDate().addDays(-2))
     return tr("The day before yesterday");
-  if (date > QDate::currentDate().addDays(-7)) return date.toString("dddd");
+  if (date > QDate::currentDate().addDays(-7))
+    return date.toString("dddd");
   return date.toString(Qt::DefaultLocaleShortDate);
 }
 
@@ -222,8 +235,8 @@ void MessageEventModel::refreshLastUserEvents(int baseTimelineRow) {
   if (!m_currentRoom || m_currentRoom->timelineSize() <= baseTimelineRow)
     return;
 
-  const auto &timelineBottom = m_currentRoom->messageEvents().rbegin();
-  const auto &lastSender = (*(timelineBottom + baseTimelineRow))->senderId();
+  const auto& timelineBottom = m_currentRoom->messageEvents().rbegin();
+  const auto& lastSender = (*(timelineBottom + baseTimelineRow))->senderId();
   const auto limit = timelineBottom + std::min(baseTimelineRow + 10,
                                                m_currentRoom->timelineSize());
   for (auto it = timelineBottom + std::max(baseTimelineRow - 10, 0);
@@ -235,12 +248,13 @@ void MessageEventModel::refreshLastUserEvents(int baseTimelineRow) {
   }
 }
 
-int MessageEventModel::rowCount(const QModelIndex &parent) const {
-  if (!m_currentRoom || parent.isValid()) return 0;
+int MessageEventModel::rowCount(const QModelIndex& parent) const {
+  if (!m_currentRoom || parent.isValid())
+    return 0;
   return m_currentRoom->timelineSize();
 }
 
-QVariant MessageEventModel::data(const QModelIndex &idx, int role) const {
+QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
   const auto row = idx.row();
 
   if (!m_currentRoom || row < 0 ||
@@ -253,14 +267,14 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const {
                           std::max(0, row - timelineBaseIndex());
   const auto pendingIt = m_currentRoom->pendingEvents().crbegin() +
                          std::min(row, timelineBaseIndex());
-  const auto &evt = isPending ? **pendingIt : **timelineIt;
+  const auto& evt = isPending ? **pendingIt : **timelineIt;
 
   if (role == Qt::DisplayRole) {
-    return utils::removeReply(utils::eventToString(evt, m_currentRoom, Qt::RichText));
+    return utils::removeReply(m_currentRoom->eventToString(evt, Qt::RichText));
   }
 
   if (role == MessageRole) {
-    return utils::removeReply(utils::eventToString(evt, m_currentRoom));
+    return utils::removeReply(m_currentRoom->eventToString(evt));
   }
 
   if (role == Qt::ToolTipRole) {
@@ -282,7 +296,8 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const {
           return e->hasFileContent() ? "file" : "message";
       }
     }
-    if (evt.isStateEvent()) return "state";
+    if (evt.isStateEvent())
+      return "state";
 
     return "other";
   }
@@ -298,7 +313,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const {
 
   if (role == ContentTypeRole) {
     if (auto e = eventCast<const RoomMessageEvent>(&evt)) {
-      const auto &contentType = e->mimeType().name();
+      const auto& contentType = e->mimeType().name();
       return contentType == "text/plain" ? QStringLiteral("text/html")
                                          : contentType;
     }
@@ -323,19 +338,27 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const {
     };
   }
 
-  if (role == HighlightRole) return m_currentRoom->isEventHighlighted(&evt);
+  if (role == HighlightRole)
+    return m_currentRoom->isEventHighlighted(&evt);
 
   if (role == ReadMarkerRole)
     return evt.id() == lastReadEventId && row > timelineBaseIndex();
 
   if (role == SpecialMarksRole) {
-    if (isPending) return pendingIt->deliveryStatus();
+    if (isPending)
+      return pendingIt->deliveryStatus();
 
-    if (is<RedactionEvent>(evt)) return EventStatus::Hidden;
-    if (evt.isRedacted()) return EventStatus::Hidden;
+    if (is<RedactionEvent>(evt))
+      return EventStatus::Hidden;
+    if (evt.isRedacted())
+      return EventStatus::Hidden;
 
     if (evt.isStateEvent() &&
-        static_cast<const StateEventBase &>(evt).repeatsState())
+        static_cast<const StateEventBase&>(evt).repeatsState())
+      return EventStatus::Hidden;
+
+    if (m_currentRoom->connection()->isIgnored(
+            m_currentRoom->user(evt.senderId())))
       return EventStatus::Hidden;
 
     return EventStatus::Normal;
@@ -351,7 +374,8 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const {
   }
 
   if (role == AnnotationRole)
-    if (isPending) return pendingIt->annotation();
+    if (isPending)
+      return pendingIt->annotation();
 
   if (role == TimeRole || role == SectionRole) {
     auto ts =
@@ -361,8 +385,9 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const {
 
   if (role == UserMarkerRole) {
     QVariantList variantList;
-    for (User *user : m_currentRoom->usersAtEventId(evt.id())) {
-      if (user == m_currentRoom->localUser()) continue;
+    for (User* user : m_currentRoom->usersAtEventId(evt.id())) {
+      if (user == m_currentRoom->localUser())
+        continue;
       variantList.append(QVariant::fromValue(user));
     }
     return variantList;
@@ -370,22 +395,24 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const {
 
   if (role == ReplyEventIdRole || role == ReplyDisplayRole ||
       role == ReplyAuthorRole) {
-    const QString &replyEventId = evt.contentJson()["m.relates_to"]
+    const QString& replyEventId = evt.contentJson()["m.relates_to"]
                                       .toObject()["m.in_reply_to"]
                                       .toObject()["event_id"]
                                       .toString();
-    if (replyEventId.isEmpty()) return {};
+    if (replyEventId.isEmpty())
+      return {};
     const auto replyIt = m_currentRoom->findInTimeline(replyEventId);
-    if (replyIt == m_currentRoom->timelineEdge()) return {};
+    if (replyIt == m_currentRoom->timelineEdge())
+      return {};
     const auto& replyEvt = **replyIt;
     switch (role) {
       case ReplyEventIdRole:
         return replyEventId;
       case ReplyDisplayRole:
-        return utils::removeReply(utils::eventToString(replyEvt, m_currentRoom, Qt::RichText));
+        return utils::removeReply(
+            m_currentRoom->eventToString(replyEvt, Qt::RichText));
       case ReplyAuthorRole:
-        return QVariant::fromValue(
-            m_currentRoom->user(replyEvt.senderId()));
+        return QVariant::fromValue(m_currentRoom->user(replyEvt.senderId()));
     }
     return {};
   }
@@ -394,7 +421,8 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const {
       role == AboveAuthorRole || role == AboveTimeRole)
     for (auto r = row + 1; r < rowCount(); ++r) {
       auto i = index(r);
-      if (data(i, SpecialMarksRole) != EventStatus::Hidden) switch (role) {
+      if (data(i, SpecialMarksRole) != EventStatus::Hidden)
+        switch (role) {
           case AboveEventTypeRole:
             return data(i, EventTypeRole);
           case AboveSectionRole:
@@ -409,7 +437,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const {
   return {};
 }
 
-int MessageEventModel::eventIDToIndex(const QString &eventID) {
+int MessageEventModel::eventIDToIndex(const QString& eventID) {
   const auto it = m_currentRoom->findInTimeline(eventID);
   if (it == m_currentRoom->timelineEdge()) {
     qWarning() << "Trying to find inexistent event:" << eventID;

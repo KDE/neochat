@@ -4,6 +4,9 @@ import QtQuick.Controls.Material 2.12
 import QtQuick.Layouts 1.12
 
 import Spectral.Component 2.0
+import Spectral.Dialog 2.0
+import Spectral.Effect 2.0
+import Spectral.Setting 0.1
 
 import Spectral 0.1
 
@@ -16,79 +19,142 @@ Drawer {
 
     ColumnLayout {
         anchors.fill: parent
-        anchors.margins: 32
+        anchors.margins: 24
 
-        Avatar {
-            Layout.preferredWidth: 96
-            Layout.preferredHeight: 96
-            Layout.alignment: Qt.AlignHCenter
-
-            hint: room ? room.displayName : "No name"
-            source: room ? room.avatarMediaId : null
-        }
-
-        Label {
+        RowLayout {
             Layout.fillWidth: true
 
-            wrapMode: Label.Wrap
-            horizontalAlignment: Text.AlignHCenter
-            text: room && room.id ? room.id : ""
+            spacing: 16
+
+            Avatar {
+                Layout.preferredWidth: 72
+                Layout.preferredHeight: 72
+
+                hint: room ? room.displayName : "No name"
+                source: room ? room.avatarMediaId : null
+            }
+
+            ColumnLayout {
+                Layout.fillWidth: true
+
+                Label {
+                    Layout.fillWidth: true
+
+                    font.pixelSize: 18
+                    font.bold: true
+                    wrapMode: Label.Wrap
+                    text: room ? room.displayName : "No Name"
+                    color: MPalette.foreground
+                }
+
+                Label {
+                    Layout.fillWidth: true
+
+                    wrapMode: Label.Wrap
+                    text: room ? room.totalMemberCount + " Members" : "No Member Count"
+                    color: MPalette.lighter
+                }
+            }
         }
 
-        Label {
+        MenuSeparator {
             Layout.fillWidth: true
-
-            wrapMode: Label.Wrap
-            horizontalAlignment: Text.AlignHCenter
-            text: room && room.canonicalAlias ? room.canonicalAlias : "No Canonical Alias"
         }
 
-        Label {
+        Control {
             Layout.fillWidth: true
 
-            wrapMode: Label.Wrap
-            horizontalAlignment: Text.AlignHCenter
-            text: room ? room.totalMemberCount + " Members" : "No Member Count"
+            padding: 0
+
+            contentItem: RowLayout {
+                spacing: 8
+
+                MaterialIcon {
+                    Layout.preferredWidth: 32
+                    Layout.preferredHeight: 32
+                    Layout.alignment: Qt.AlignTop
+
+                    icon: "\ue88f"
+                    color: MPalette.lighter
+                }
+
+                ColumnLayout {
+                    Layout.fillWidth: true
+
+                    Label {
+                        Layout.fillWidth: true
+
+                        wrapMode: Label.Wrap
+                        text: room && room.canonicalAlias ? room.canonicalAlias : "No Canonical Alias"
+                        color: MPalette.accent
+                    }
+
+                    Label {
+                        Layout.fillWidth: true
+
+                        wrapMode: Label.Wrap
+                        text: "Main Alias"
+                        color: MPalette.lighter
+                    }
+
+                    Label {
+                        Layout.fillWidth: true
+
+                        wrapMode: Label.Wrap
+                        text: room && room.topic ? room.topic : "No Topic"
+                        color: MPalette.foreground
+                    }
+
+                    Label {
+                        Layout.fillWidth: true
+
+                        wrapMode: Label.Wrap
+                        text: "Topic"
+                        color: MPalette.lighter
+                    }
+                }
+            }
+
+            background: RippleEffect {
+                onPrimaryClicked: roomSettingDialog.createObject(ApplicationWindow.overlay, {"room": room}).open()
+            }
+        }
+
+        MenuSeparator {
+            Layout.fillWidth: true
         }
 
         RowLayout {
             Layout.fillWidth: true
 
-            AutoTextField {
+            spacing: 8
+
+            MaterialIcon {
+                Layout.preferredWidth: 32
+                Layout.preferredHeight: 32
+
+                icon: "\ue7ff"
+                color: MPalette.lighter
+            }
+
+            Label {
                 Layout.fillWidth: true
 
-                id: roomNameField
-                text: room && room.name ? room.name : ""
+                wrapMode: Label.Wrap
+                text: room ? room.totalMemberCount + " Members" : "No Member Count"
+                color: MPalette.lighter
             }
 
-            ItemDelegate {
-                Layout.preferredWidth: height
-                Layout.preferredHeight: parent.height
+            ToolButton {
+                Layout.preferredWidth: 32
+                Layout.preferredHeight: 32
 
-                contentItem: MaterialIcon { icon: "\ue5ca" }
+                contentItem: MaterialIcon {
+                    icon: "\ue145"
+                    color: MPalette.lighter
+                }
 
-                onClicked: room.setName(roomNameField.text)
-            }
-        }
-
-        RowLayout {
-            Layout.fillWidth: true
-
-            AutoTextField {
-                Layout.fillWidth: true
-
-                id: roomTopicField
-
-                text: room && room.topic ? room.topic : ""
-            }
-
-            ItemDelegate {
-                Layout.preferredWidth: height
-                Layout.preferredHeight: parent.height
-
-                contentItem: MaterialIcon { icon: "\ue5ca" }
-
-                onClicked: room.setTopic(roomTopicField.text)
+                onClicked: inviteUserDialog.createObject(ApplicationWindow.overlay, {"room": room}).open()
             }
         }
 
@@ -106,7 +172,7 @@ Drawer {
                 room: roomDrawer.room
             }
 
-            delegate: SwipeDelegate {
+            delegate: Item {
                 width: userListView.width
                 height: 48
 
@@ -127,62 +193,36 @@ Drawer {
                         Layout.fillWidth: true
 
                         text: name
+                        color: MPalette.foreground
                     }
                 }
 
-                swipe.right: Rectangle {
-                    width: height
-                    height: parent.height
-                    anchors.right: parent.right
-                    color: Material.accent
+                RippleEffect {
+                    anchors.fill: parent
 
-                    MaterialIcon {
-                        anchors.fill: parent
-                        icon: "\ue879"
-                        color: "white"
-                    }
-
-                    SwipeDelegate.onClicked: {
-                        room.kickMember(userId)
-                        swipe.close()
-                    }
+                    onPrimaryClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": room, "user": user}).open()
                 }
-
-                onClicked: swipe.open(SwipeDelegate.Right)
             }
 
             ScrollBar.vertical: ScrollBar {}
         }
+    }
 
-        Button {
-            Layout.fillWidth: true
+    Component {
+        id: roomSettingDialog
 
-            text: "Invite User"
-            flat: true
-            highlighted: true
+        RoomSettingsDialog {}
+    }
 
-            onClicked: inviteUserDialog.open()
+    Component {
+        id: userDetailDialog
 
-            Dialog {
-                x: (window.width - width) / 2
-                y: (window.height - height) / 2
-                width: 360
+        UserDetailDialog {}
+    }
 
-                id: inviteUserDialog
+    Component {
+        id: inviteUserDialog
 
-                parent: ApplicationWindow.overlay
-
-                title: "Input User ID"
-                modal: true
-                standardButtons: Dialog.Ok | Dialog.Cancel
-
-                contentItem: AutoTextField {
-                    id: inviteUserDialogTextField
-                    placeholderText: "@bot:matrix.org"
-                }
-
-                onAccepted: room.inviteToRoom(inviteUserDialogTextField.text)
-            }
-        }
+        InviteUserDialog {}
     }
 }

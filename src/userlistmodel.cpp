@@ -14,14 +14,16 @@ UserListModel::UserListModel(QObject* parent)
     : QAbstractListModel(parent), m_currentRoom(nullptr) {}
 
 void UserListModel::setRoom(QMatrixClient::Room* room) {
-  if (m_currentRoom == room) return;
+  if (m_currentRoom == room)
+    return;
 
   using namespace QMatrixClient;
   beginResetModel();
   if (m_currentRoom) {
     m_currentRoom->disconnect(this);
-//    m_currentRoom->connection()->disconnect(this);
-    for (User* user : m_users) user->disconnect(this);
+    //    m_currentRoom->connection()->disconnect(this);
+    for (User* user : m_users)
+      user->disconnect(this);
     m_users.clear();
   }
   m_currentRoom = room;
@@ -49,12 +51,14 @@ void UserListModel::setRoom(QMatrixClient::Room* room) {
 }
 
 QMatrixClient::User* UserListModel::userAt(QModelIndex index) {
-  if (index.row() < 0 || index.row() >= m_users.size()) return nullptr;
+  if (index.row() < 0 || index.row() >= m_users.size())
+    return nullptr;
   return m_users.at(index.row());
 }
 
 QVariant UserListModel::data(const QModelIndex& index, int role) const {
-  if (!index.isValid()) return QVariant();
+  if (!index.isValid())
+    return QVariant();
 
   if (index.row() >= m_users.count()) {
     qDebug()
@@ -71,12 +75,16 @@ QVariant UserListModel::data(const QModelIndex& index, int role) const {
   if (role == AvatarRole) {
     return user->avatarMediaId();
   }
+  if (role == ObjectRole) {
+    return QVariant::fromValue(user);
+  }
 
   return QVariant();
 }
 
 int UserListModel::rowCount(const QModelIndex& parent) const {
-  if (parent.isValid()) return 0;
+  if (parent.isValid())
+    return 0;
 
   return m_users.count();
 }
@@ -111,7 +119,8 @@ void UserListModel::refresh(QMatrixClient::User* user, QVector<int> roles) {
 
 void UserListModel::avatarChanged(QMatrixClient::User* user,
                                   const QMatrixClient::Room* context) {
-  if (context == m_currentRoom) refresh(user, {AvatarRole});
+  if (context == m_currentRoom)
+    refresh(user, {AvatarRole});
 }
 
 int UserListModel::findUserPos(User* user) const {
@@ -127,5 +136,6 @@ QHash<int, QByteArray> UserListModel::roleNames() const {
   roles[NameRole] = "name";
   roles[UserIDRole] = "userId";
   roles[AvatarRole] = "avatar";
+  roles[ObjectRole] = "user";
   return roles;
 }

@@ -36,8 +36,8 @@ Item {
         visible: !realSource || image.status != Image.Ready
 
         radius: height / 2
-
         color: stringToColor(hint)
+        antialiasing: true
 
         Label {
             anchors.centerIn: parent

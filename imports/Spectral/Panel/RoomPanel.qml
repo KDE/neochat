@@ -23,27 +23,42 @@ Item {
         room: currentRoom
     }
 
-    RoomDrawer {
-        width: Math.min(root.width * 0.7, 480)
-        height: root.height
-
-        id: roomDrawer
-
-        room: currentRoom
-    }
-
-    Label {
+    Column {
         anchors.centerIn: parent
+
+        spacing: 16
+
         visible: !currentRoom
-        text: "Please choose a room."
+
+        Image {
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            width: 240
+
+            fillMode: Image.PreserveAspectFit
+
+            source: "qrc:/assets/img/matrix.svg"
+        }
+
+        Label {
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            text: "Welcome to Matrix, a new era of instant messaging."
+        }
+
+        Label {
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            text: "To start chatting, select a room from the room list."
+        }
     }
 
     Image {
         anchors.fill: parent
 
-        visible: currentRoom && MSettings.enableTimelineBackground
+        visible: currentRoom && MSettings.timelineBackground
 
-        source: MSettings.timelineBackground || MSettings.darkTheme ? "qrc:/assets/img/roompanel-dark.svg" : "qrc:/assets/img/roompanel.svg"
+        source: MSettings.timelineBackground
         fillMode: Image.PreserveAspectCrop
     }
 
@@ -64,7 +79,7 @@ Item {
             topic: currentRoom ? (currentRoom.topic).replace(/(\r\n\t|\n|\r\t)/gm,"") : ""
             atTop: messageListView.atYBeginning
 
-            onClicked: roomDrawer.open()
+            onClicked: roomDrawer.visible ? roomDrawer.close() : roomDrawer.open()
         }
 
         ColumnLayout {
@@ -92,15 +107,16 @@ Item {
                 highlightMoveDuration: 500
 
                 boundsBehavior: Flickable.DragOverBounds
-
                 model: SortFilterProxyModel {
                     id: sortedMessageEventModel
 
                     sourceModel: messageEventModel
 
-                    filters: ExpressionFilter {
-                        expression: marks !== 0x10 && eventType !== "other"
-                    }
+                    filters: [
+                        ExpressionFilter {
+                            expression: marks !== 0x10 && eventType !== "other"
+                        }
+                    ]
 
                     onModelReset: {
                         if (currentRoom) {
@@ -182,8 +198,7 @@ Item {
                                 visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
                             }
 
-                            MessageDelegate {
-                            }
+                            MessageDelegate {}
                         }
                     }
 
@@ -200,8 +215,7 @@ Item {
                                 visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
                             }
 
-                            MessageDelegate {
-                            }
+                            MessageDelegate {}
                         }
                     }
 
@@ -244,24 +258,21 @@ Item {
                     }
                 }
 
-                RoundButton {
-                    width: 64
-                    height: 64
-                    anchors.right: parent.right
+                Button {
                     anchors.top: parent.top
-
-                    id: goBottomFab
+                    anchors.horizontalCenter: parent.horizontalCenter
 
                     visible: currentRoom && currentRoom.hasUnreadMessages
 
-                    contentItem: MaterialIcon {
-                        anchors.fill: parent
+                    topPadding: 8
+                    bottomPadding: 8
+                    leftPadding: 24
+                    rightPadding: 24
 
-                        icon: "\ue316"
-                        color: "white"
-                    }
+                    Material.foreground: MPalette.foreground
+                    Material.background: MPalette.banner
 
-                    Material.background: Material.accent
+                    text: "Go to read marker"
 
                     onClicked: goToEvent(currentRoom.readMarkerEventId)
                 }
@@ -286,85 +297,6 @@ Item {
                     Material.background: Material.accent
 
                     onClicked: messageListView.positionViewAtBeginning()
-                }
-
-                Popup {
-                    property string sourceText
-
-                    anchors.centerIn: parent
-                    width: 480
-
-                    id: sourceDialog
-
-                    parent: ApplicationWindow.overlay
-
-                    padding: 16
-
-                    closePolicy: Dialog.CloseOnEscape | Dialog.CloseOnPressOutside
-
-                    contentItem: ScrollView {
-                        clip: true
-                        TextArea {
-                            readOnly: true
-                            selectByMouse: true
-
-                            text: sourceDialog.sourceText
-                        }
-                    }
-                }
-
-                Popup {
-                    property alias listModel: readMarkerListView.model
-
-                    x: (window.width - width) / 2
-                    y: (window.height - height) / 2
-                    width: 320
-
-                    id: readMarkerDialog
-
-                    parent: ApplicationWindow.overlay
-
-                    modal: true
-                    padding: 16
-
-                    closePolicy: Dialog.CloseOnEscape | Dialog.CloseOnPressOutside
-
-                    contentItem: AutoListView {
-                        implicitHeight: Math.min(window.height - 64,
-                                                 readMarkerListView.contentHeight)
-
-                        id: readMarkerListView
-
-                        clip: true
-                        boundsBehavior: Flickable.DragOverBounds
-
-                        delegate: ItemDelegate {
-                            width: parent.width
-                            height: 48
-
-                            RowLayout {
-                                anchors.fill: parent
-                                anchors.margins: 8
-                                spacing: 12
-
-                                Avatar {
-                                    Layout.preferredWidth: height
-                                    Layout.fillHeight: true
-
-                                    source: modelData.avatar
-                                    hint: modelData.displayName
-                                }
-
-                                Label {
-                                    Layout.fillWidth: true
-
-                                    text: modelData.displayName
-                                }
-                            }
-                        }
-
-                        ScrollBar.vertical: ScrollBar {}
-                    }
                 }
             }
 

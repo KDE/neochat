@@ -7,7 +7,9 @@ import Spectral 0.1
 import Spectral.Setting 0.1
 
 import Spectral.Component 2.0
-import Spectral.Font 0.1
+import Spectral.Dialog 2.0
+import Spectral.Menu.Timeline 2.0
+import Spectral.Effect 2.0
 
 ColumnLayout {
     readonly property bool avatarVisible: !sentByMe && (aboveAuthor !== author || aboveSection !== section || aboveEventType === "state" || aboveEventType === "emote" || aboveEventType === "other")
@@ -48,6 +50,20 @@ ColumnLayout {
             visible: avatarVisible
             hint: author.displayName
             source: author.avatarMediaId
+
+            Component {
+                id: userDetailDialog
+
+                UserDetailDialog {}
+            }
+
+            RippleEffect {
+                anchors.fill: parent
+
+                circular: true
+
+                onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": author}).open()
+            }
         }
 
         Label {
@@ -74,43 +90,42 @@ ColumnLayout {
             background: Rectangle {
                 color: sentByMe ? "#009DC2" : eventType === "notice" ? "#4285F4" : "#673AB7"
                 radius: 18
+                antialiasing: true
 
                 AutoMouseArea {
                     anchors.fill: parent
 
                     id: messageMouseArea
 
-                    onSecondaryClicked: messageContextMenu.popup()
+                    onSecondaryClicked: {
+                        var contextMenu = messageDelegateContextMenu.createObject(ApplicationWindow.overlay)
+                        contextMenu.viewSource.connect(function() {
+                            messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
+                        })
+                        contextMenu.reply.connect(function() {
+                            roomPanelInput.replyUser = author
+                            roomPanelInput.replyEventID = eventId
+                            roomPanelInput.replyContent = contentLabel.selectedText || message
+                            roomPanelInput.isReply = true
+                            roomPanelInput.focus()
+                        })
+                        contextMenu.redact.connect(function() {
+                            currentRoom.redactEvent(eventId)
+                        })
+                        contextMenu.popup()
+                    }
 
-                    Menu {
-                        readonly property string selectedText: contentLabel.selectedText
 
-                        id: messageContextMenu
+                    Component {
+                        id: messageDelegateContextMenu
 
-                        MenuItem {
-                            text: "View Source"
+                        MessageDelegateContextMenu {}
+                    }
 
-                            onTriggered: {
-                                sourceDialog.sourceText = toolTip
-                                sourceDialog.open()
-                            }
-                        }
-                        MenuItem {
-                            text: "Reply"
+                    Component {
+                        id: messageSourceDialog
 
-                            onTriggered: {
-                                roomPanelInput.replyUser = author
-                                roomPanelInput.replyEventID = eventId
-                                roomPanelInput.replyContent = messageContextMenu.selectedText || message
-                                roomPanelInput.isReply = true
-                                roomPanelInput.focus()
-                            }
-                        }
-                        MenuItem {
-                            text: "Redact"
-
-                            onTriggered: currentRoom.redactEvent(eventId)
-                        }
+                        MessageSourceDialog {}
                     }
                 }
             }
@@ -123,19 +138,10 @@ ColumnLayout {
 
                     padding: 8
 
-                    background: Item {
-                        Rectangle {
-                            anchors.leftMargin: 0
-                            width: 2
-                            height: parent.height
+                    background: RippleEffect {
+                        anchors.fill: parent
 
-                            color: "white"
-                        }
-                        MouseArea {
-                            anchors.fill: parent
-
-                            onClicked: goToEvent(replyEventId)
-                        }
+                        onPrimaryClicked: goToEvent(replyEventId)
                     }
 
                     contentItem: RowLayout {
@@ -169,13 +175,21 @@ ColumnLayout {
                                 Layout.fillWidth: true
 
                                 color: "white"
-                                text: replyDisplay || ""
+                                text: "<style>a{color: white;} .user-pill{}</style>" + (replyDisplay || "")
 
                                 wrapMode: Label.Wrap
                                 textFormat: Label.RichText
                             }
                         }
                     }
+                }
+
+                Rectangle {
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 1
+
+                    visible: replyEventId || ""
+                    color: "white"
                 }
 
                 TextEdit {
@@ -187,7 +201,7 @@ ColumnLayout {
 
                     color: "white"
 
-                    font.family: CommonFont.font.family
+                    font.family: window.font.family
                     font.pixelSize: 14
                     selectByMouse: true
                     readOnly: true

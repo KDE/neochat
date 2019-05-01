@@ -7,6 +7,7 @@
 #include "events/eventcontent.h"
 #include "events/roommessageevent.h"
 
+#include "csapi/account-data.h"
 #include "csapi/joining.h"
 #include "csapi/logout.h"
 
@@ -15,6 +16,7 @@
 #include <QClipboard>
 #include <QFile>
 #include <QFileInfo>
+#include <QSysInfo>
 #include <QtCore/QDebug>
 #include <QtCore/QDir>
 #include <QtCore/QElapsedTimer>
@@ -57,19 +59,25 @@ inline QString accessTokenFileName(const AccountSettings& account) {
          '/' + fileName;
 }
 
-void Controller::loginWithCredentials(QString serverAddr, QString user,
+void Controller::loginWithCredentials(QString serverAddr,
+                                      QString user,
                                       QString pass) {
   if (!user.isEmpty() && !pass.isEmpty()) {
+    QString deviceName = "Spectral " + QSysInfo::machineHostName() + " " +
+                         QSysInfo::productType() + " " +
+                         QSysInfo::productVersion() + " " +
+                         QSysInfo::currentCpuArchitecture();
+
     Connection* conn = new Connection(this);
     conn->setHomeserver(QUrl(serverAddr));
-    conn->connectToServer(user, pass, "");
+    conn->connectToServer(user, pass, deviceName, "");
     connect(conn, &Connection::connected, [=] {
       AccountSettings account(conn->userId());
       account.setKeepLoggedIn(true);
       account.clearAccessToken();  // Drop the legacy - just in case
       account.setHomeserver(conn->homeserver());
       account.setDeviceId(conn->deviceId());
-      account.setDeviceName("Spectral");
+      account.setDeviceName(deviceName);
       if (!saveAccessToken(account, conn->accessToken()))
         qWarning() << "Couldn't save access token";
       account.sync();
@@ -100,7 +108,8 @@ void Controller::logout(Connection* conn) {
     conn->stopSync();
     emit conn->stateChanged();
     emit conn->loggedOut();
-    if (!m_connections.isEmpty()) setConnection(m_connections[0]);
+    if (!m_connections.isEmpty())
+      setConnection(m_connections[0]);
   });
   connect(job, &LogoutJob::failure, this, [=] {
     emit errorOccured("Server-side Logout Failed", job->errorString());
@@ -160,14 +169,16 @@ void Controller::invokeLogin() {
       c->connectWithToken(account.userId(), accessToken, account.deviceId());
     }
   }
-  if (!m_connections.isEmpty()) setConnection(m_connections[0]);
+  if (!m_connections.isEmpty())
+    setConnection(m_connections[0]);
   emit initiated();
 }
 
 QByteArray Controller::loadAccessToken(const AccountSettings& account) {
   QFile accountTokenFile{accessTokenFileName(account)};
   if (accountTokenFile.open(QFile::ReadOnly)) {
-    if (accountTokenFile.size() < 1024) return accountTokenFile.readAll();
+    if (accountTokenFile.size() < 1024)
+      return accountTokenFile.readAll();
 
     qWarning() << "File" << accountTokenFile.fileName() << "is"
                << accountTokenFile.size()
@@ -203,7 +214,8 @@ void Controller::joinRoom(Connection* c, const QString& alias) {
   });
 }
 
-void Controller::createRoom(Connection* c, const QString& name,
+void Controller::createRoom(Connection* c,
+                            const QString& name,
                             const QString& topic) {
   CreateRoomJob* createRoomJob =
       c->createRoom(Connection::PublishRoom, "", name, topic, QStringList());
@@ -231,10 +243,12 @@ void Controller::playAudio(QUrl localFile) {
   connect(player, &QMediaPlayer::stateChanged, [=] { player->deleteLater(); });
 }
 
-void Controller::postNotification(const QString& roomId, const QString& eventId,
+void Controller::postNotification(const QString& roomId,
+                                  const QString& eventId,
                                   const QString& roomName,
                                   const QString& senderName,
-                                  const QString& text, const QImage& icon) {
+                                  const QString& text,
+                                  const QImage& icon) {
   notificationsManager.postNotification(roomId, eventId, roomName, senderName,
                                         text, icon);
 }

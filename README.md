@@ -15,7 +15,7 @@ Spectral is a glossy cross-platform client for Matrix, the decentralized communi
 
 There is a separate document for Spectral, including installing, compiling, etc.
 
-It is at [Spectral Doc](https://doc.spectral.encom.eu.org/)
+It is at [Spectral Doc](https://b0.gitlab.io/spectral-doc/)
 
 ## Contact
 
@@ -31,6 +31,10 @@ This program uses libqmatrixclient library and some C++ models from Quaternion.
 
 [libqmatrixclient](https://github.com/QMatrixClient/libqmatrixclient)
 
+This program includes the source code of hoedown.
+
+[Hoedown](https://github.com/hoedown/hoedown)
+
 ## Donation
 
 Donations are welcome! My Bitcoin wallet address is 1AmNvttxJ6zne8f2GEH8zMAMQuT4cMdnDN
@@ -41,4 +45,4 @@ Donations are welcome! My Bitcoin wallet address is 1AmNvttxJ6zne8f2GEH8zMAMQuT4
 
 This program is licensed under GNU General Public License, Version 3. 
 
-Exceptions are src/notifications/wintoastlib.c and wintoastlib.h, copied from https://github.com/mohabouje/WinToast and licensed under MIT.
+Exceptions are src/notifications/wintoastlib.c and wintoastlib.h, which are from https://github.com/mohabouje/WinToast and licensed under MIT.

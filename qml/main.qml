@@ -7,25 +7,29 @@ import Qt.labs.platform 1.0 as Platform
 
 import Spectral.Panel 2.0
 import Spectral.Component 2.0
-import Spectral.Page 2.0
+import Spectral.Dialog 2.0
 import Spectral.Effect 2.0
 
 import Spectral 0.1
 import Spectral.Setting 0.1
 
 ApplicationWindow {
+    readonly property bool inPortrait: window.width < window.height
+
     Material.theme: MPalette.theme
     Material.background: MPalette.background
 
     width: 960
     height: 640
-    minimumWidth: 720
+    minimumWidth: 480
     minimumHeight: 360
 
     id: window
 
     visible: true
     title: qsTr("Spectral")
+
+    font.family: MSettings.fontFamily
 
     background: Rectangle {
         color: MSettings.darkTheme ? "#303030" : "#FFFFFF"
@@ -37,16 +41,14 @@ ApplicationWindow {
 
         menu: Platform.Menu {
             Platform.MenuItem {
-                text: qsTr("Hide Window")
-                onTriggered: hideWindow()
+                text: qsTr("Toggle Window")
+                onTriggered: window.visible ? hideWindow() : showWindow()
             }
             Platform.MenuItem {
                 text: qsTr("Quit")
                 onTriggered: Qt.quit()
             }
         }
-
-        onActivated: showWindow()
     }
 
     Controller {
@@ -59,137 +61,105 @@ ApplicationWindow {
             roomForm.goToEvent(eventId)
             showWindow()
         }
-        onErrorOccured: {
-            roomListForm.errorControl.error = error
-            roomListForm.errorControl.detail = detail
-            roomListForm.errorControl.visible = true
-        }
-        onSyncDone: roomListForm.errorControl.visible = false
+        onErrorOccured: errorControl.show(error + ": " + detail, 3000)
     }
 
     Shortcut {
-        sequence: StandardKey.Quit
+        sequence: "Ctrl+Q"
+        context: Qt.ApplicationShortcut
         onActivated: Qt.quit()
     }
 
-    Dialog {
-        property bool busy: false
-
-        width: 360
-        x: (window.width - width) / 2
-        y: (window.height - height) / 2
-
-        id: loginDialog
+    ToolTip {
+        id: errorControl
 
         parent: ApplicationWindow.overlay
 
-        title: "Login"
-
-        contentItem: Column {
-            AutoTextField {
-                width: parent.width
-
-                id: serverField
-
-                placeholderText: "Server Address"
-                text: "https://matrix.org"
-            }
-
-            AutoTextField {
-                width: parent.width
-
-                id: usernameField
-
-                placeholderText: "Username"
-            }
-
-            AutoTextField {
-                width: parent.width
-
-                id: passwordField
-
-                placeholderText: "Password"
-                echoMode: TextInput.Password
-            }
-        }
-
-        footer: DialogButtonBox {
-            Button {
-                text: "OK"
-                flat: true
-                enabled: !loginDialog.busy
-
-                onClicked: loginDialog.doLogin()
-            }
-
-            Button {
-                text: "Cancel"
-                flat: true
-                enabled: !loginDialog.busy
-
-                onClicked: loginDialog.close()
-            }
-
-            ToolTip {
-                id: loginButtonTooltip
-
-            }
-        }
-
-        onVisibleChanged: {
-            if (visible) spectralController.onErrorOccured.connect(showError)
-            else spectralController.onErrorOccured.disconnect(showError)
-        }
-
-        function showError(error, detail) {
-            loginDialog.busy = false
-            loginButtonTooltip.text = error + ": " + detail
-            loginButtonTooltip.open()
-        }
-
-        function doLogin() {
-            if (!(serverField.text.startsWith("http") && serverField.text.includes("://"))) {
-                loginButtonTooltip.text = "Server address should start with http(s)://"
-                loginButtonTooltip.open()
-                return
-            }
-
-            loginDialog.busy = true
-            spectralController.loginWithCredentials(serverField.text, usernameField.text, passwordField.text)
-
-            spectralController.connectionAdded.connect(function(conn) {
-                busy = false
-                loginDialog.close()
-            })
-        }
+        font.pixelSize: 14
     }
 
-    SplitView {
-        anchors.fill: parent
+    Component {
+        id: accountDetailDialog
+
+        AccountDetailDialog {}
+    }
+
+    Component {
+        id: loginDialog
+
+        LoginDialog {}
+    }
+
+    Component {
+        id: joinRoomDialog
+
+        JoinRoomDialog {}
+    }
+
+    Component {
+        id: createRoomDialog
+
+        CreateRoomDialog {}
+    }
+
+    Component {
+        id: fontFamilyDialog
+
+        FontFamilyDialog {}
+    }
+
+    Component {
+        id: chatBackgroundDialog
+
+        OpenFileDialog {}
+    }
+
+    Drawer {
+        width: Math.min((inPortrait ? 0.67 : 0.3) * window.width, 360)
+        height: window.height
+        modal: inPortrait
+        interactive: inPortrait
+        position: inPortrait ? 0 : 1
+        visible: !inPortrait
+
+        id: roomListDrawer
 
         RoomListPanel {
-            width: window.width * 0.35
-            Layout.minimumWidth: 180
+            anchors.fill: parent
 
             id: roomListForm
 
             clip: true
 
-            controller: spectralController
+            connection: spectralController.connection
 
             onLeaveRoom: roomForm.saveReadMarker(room)
         }
+    }
 
-        RoomPanel {
-            Layout.fillWidth: true
-            Layout.minimumWidth: 480
+    RoomPanel {
+        anchors.fill: parent
+        anchors.leftMargin: !inPortrait ? roomListDrawer.width : undefined
+        anchors.rightMargin: !inPortrait && roomDrawer.visible ? roomDrawer.width : undefined
 
-            id: roomForm
+        id: roomForm
 
-            clip: true
+        clip: true
 
-            currentRoom: roomListForm.enteredRoom
-        }
+        currentRoom: roomListForm.enteredRoom
+    }
+
+    RoomDrawer {
+        width: Math.min((inPortrait ? 0.67 : 0.3) * window.width, 360)
+        height: window.height
+        modal: inPortrait
+        interactive: inPortrait
+
+        edge: Qt.RightEdge
+
+        id: roomDrawer
+
+        room: roomListForm.enteredRoom
     }
 
     Binding {
@@ -208,9 +178,9 @@ ApplicationWindow {
         window.hide()
     }
 
-        Component.onCompleted: {
-            spectralController.initiated.connect(function() {
-                if (spectralController.accountCount == 0) loginDialog.open()
-            })
-        }
+    Component.onCompleted: {
+        spectralController.initiated.connect(function() {
+            if (spectralController.accountCount == 0) loginDialog.createObject(window).open()
+        })
+    }
 }

@@ -3,6 +3,7 @@
 
 #include "connection.h"
 #include "notifications/manager.h"
+#include "room.h"
 #include "settings.h"
 #include "user.h"
 
@@ -53,13 +54,14 @@ class Controller : public QObject {
   }
 
   Connection* connection() {
-    if (m_connection.isNull()) return nullptr;
+    if (m_connection.isNull())
+      return nullptr;
     return m_connection;
   }
 
   void setConnection(Connection* conn) {
-    if (!conn) return;
-    if (conn == m_connection) return;
+    if (conn == m_connection)
+      return;
     m_connection = conn;
     emit connectionChanged();
   }
@@ -99,9 +101,12 @@ class Controller : public QObject {
   void createDirectChat(Connection* c, const QString& userID);
   void copyToClipboard(const QString& text);
   void playAudio(QUrl localFile);
-  void postNotification(const QString& roomId, const QString& eventId,
-                        const QString& roomName, const QString& senderName,
-                        const QString& text, const QImage& icon);
+  void postNotification(const QString& roomId,
+                        const QString& eventId,
+                        const QString& roomName,
+                        const QString& senderName,
+                        const QString& text,
+                        const QImage& icon);
 };
 
 #endif  // CONTROLLER_H

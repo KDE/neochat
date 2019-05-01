@@ -9,6 +9,9 @@ import Spectral 0.1
 import Spectral.Setting 0.1
 
 import Spectral.Component 2.0
+import Spectral.Dialog 2.0
+import Spectral.Menu.Timeline 2.0
+import Spectral.Effect 2.0
 import Spectral.Font 0.1
 
 ColumnLayout {
@@ -16,13 +19,17 @@ ColumnLayout {
     readonly property bool sentByMe: author === currentRoom.localUser
 
     property bool openOnFinished: false
+    property bool showOnFinished: false
     readonly property bool downloaded: progressInfo && progressInfo.completed
 
     id: root
 
     spacing: 0
 
-    onDownloadedChanged: if (downloaded && openOnFinished) openSavedFile()
+    onDownloadedChanged: {
+        if (downloaded && showOnFinished) showSavedFile()
+        if (downloaded && openOnFinished) openSavedFile()
+    }
 
     Label {
         Layout.leftMargin: 48
@@ -52,6 +59,20 @@ ColumnLayout {
             visible: avatarVisible
             hint: author.displayName
             source: author.avatarMediaId
+
+            Component {
+                id: userDetailDialog
+
+                UserDetailDialog {}
+            }
+
+            RippleEffect {
+                anchors.fill: parent
+
+                circular: true
+
+                onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": author}).open()
+            }
         }
 
         Label {
@@ -69,16 +90,26 @@ ColumnLayout {
             verticalAlignment: Label.AlignVCenter
         }
 
+        BusyIndicator {
+            Layout.preferredWidth: 64
+            Layout.preferredHeight: 64
+
+            visible: img.status == Image.Loading
+        }
+
         Image {
             Layout.maximumWidth: messageListView.width - (!sentByMe ? 32 + messageRow.spacing : 0) - 48
 
             id: img
 
-            source: downloaded ? progressInfo.localPath : "image://mxc/" +
-                                 (content.info && content.info.thumbnail_info ?
-                                     content.thumbnailMediaId : content.mediaId)
-            sourceSize.width: 200
-            sourceSize.height: 200
+            source: "image://mxc/" +
+                    (content.info && content.info.thumbnail_info ?
+                         content.thumbnailMediaId : content.mediaId)
+
+            sourceSize.width: 720
+            sourceSize.height: 720
+
+            fillMode: Image.PreserveAspectCrop
 
             layer.enabled: true
             layer.effect: OpacityMask {
@@ -94,61 +125,110 @@ ColumnLayout {
 
                 color: "transparent"
                 radius: 24
+                antialiasing: true
 
-                border.width: 2
+                border.width: 4
                 border.color: MPalette.banner
             }
 
-            AutoMouseArea {
+            Rectangle {
+                anchors.fill: parent
+
+                visible: progressInfo.active && !downloaded
+
+                color: "#BB000000"
+
+                ProgressBar {
+                    anchors.centerIn: parent
+
+                    width: parent.width * 0.8
+
+                    from: 0
+                    to: progressInfo.total
+                    value: progressInfo.progress
+                }
+            }
+
+            RippleEffect {
                 anchors.fill: parent
 
                 id: messageMouseArea
 
-                onSecondaryClicked: messageContextMenu.popup()
+                onPrimaryClicked: downloadAndShow()
 
-                Menu {
-                    id: messageContextMenu
+                onSecondaryClicked: {
+                    var contextMenu = imageDelegateContextMenu.createObject(ApplicationWindow.overlay)
+                    contextMenu.viewSource.connect(function() {
+                        messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
+                    })
+                    contextMenu.downloadAndOpen.connect(downloadAndOpen)
+                    contextMenu.saveFileAs.connect(saveFileAs)
+                    contextMenu.reply.connect(function() {
+                        roomPanelInput.replyUser = author
+                        roomPanelInput.replyEventID = eventId
+                        roomPanelInput.replyContent = message
+                        roomPanelInput.isReply = true
+                        roomPanelInput.focus()
+                    })
+                    contextMenu.redact.connect(function() {
+                        currentRoom.redactEvent(eventId)
+                    })
+                    contextMenu.popup()
+                }
 
-                    MenuItem {
-                        text: "View Source"
+                Component {
+                    id: messageSourceDialog
 
-                        onTriggered: {
-                            sourceDialog.sourceText = toolTip
-                            sourceDialog.open()
-                        }
-                    }
-                    MenuItem {
-                        text: "Open Externally"
+                    MessageSourceDialog {}
+                }
 
-                        onTriggered: downloadAndOpen()
-                    }
-                    MenuItem {
-                        text: "Save As"
+                Component {
+                    id: openFileDialog
 
-                        onTriggered: saveFileAs()
-                    }
-                    MenuItem {
-                        text: "Reply"
+                    OpenFileDialog {}
+                }
 
-                        onTriggered: {
-                            roomPanelInput.replyUser = author
-                            roomPanelInput.replyEventID = eventId
-                            roomPanelInput.replyContent = message
-                            roomPanelInput.isReply = true
-                            roomPanelInput.focus()
-                        }
-                    }
-                    MenuItem {
-                        text: "Redact"
+                Component {
+                    id: imageDelegateContextMenu
 
-                        onTriggered: currentRoom.redactEvent(eventId)
-                    }
+                    FileDelegateContextMenu {}
+                }
+
+                Component {
+                    id: fullScreenImage
+
+                    FullScreenImage {}
                 }
             }
         }
     }
 
-    function saveFileAs() { currentRoom.saveFileAs(eventId) }
+    function saveFileAs() {
+        var fileDialog = openFileDialog.createObject(ApplicationWindow.overlay, {"selectFolder": true})
+
+        fileDialog.chosen.connect(function(path) {
+            if (!path) return
+
+            currentRoom.downloadFile(eventId, path + "/" + (content.filename || content.body))
+        })
+
+        fileDialog.open()
+    }
+
+    function downloadAndShow()
+    {
+        if (downloaded) showSavedFile()
+        else
+        {
+            showOnFinished = true
+            currentRoom.downloadFile(eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + (message || ".tmp"))
+        }
+    }
+
+    function showSavedFile()
+    {
+        fullScreenImage.createObject(parent, {"eventId": eventId, "localPath": progressInfo.localPath}).show()
+    }
 
     function downloadAndOpen()
     {
@@ -156,7 +236,7 @@ ColumnLayout {
         else
         {
             openOnFinished = true
-            currentRoom.downloadFile(eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_") + (message || ".tmp"))
+            currentRoom.downloadFile(eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + (message || ".tmp"))
         }
     }
 

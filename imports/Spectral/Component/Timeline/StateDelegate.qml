@@ -23,5 +23,6 @@ Label {
     background: Rectangle {
         color: MPalette.banner
         radius: 4
+        antialiasing: true
     }
 }

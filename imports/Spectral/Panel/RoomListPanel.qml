@@ -5,6 +5,8 @@ import QtQuick.Layouts 1.12
 import QtQuick.Controls.Material 2.12
 
 import Spectral.Component 2.0
+import Spectral.Dialog 2.0
+import Spectral.Menu 2.0
 import Spectral.Effect 2.0
 
 import Spectral 0.1
@@ -13,12 +15,11 @@ import Spectral.Setting 0.1
 import SortFilterProxyModel 0.2
 
 Item {
-    property var controller: null
-    readonly property var user: controller.connection ? controller.connection.localUser : null
+    property var connection: null
+    readonly property var user: connection ? connection.localUser : null
 
     property int filter: 0
     property var enteredRoom: null
-    property alias errorControl: errorControl
 
     signal enterRoom(var room)
     signal leaveRoom(var room)
@@ -28,7 +29,7 @@ Item {
     RoomListModel {
         id: roomListModel
 
-        connection: controller.connection
+        connection: root.connection
 
         onNewMessage: if (!window.active && MSettings.showNotification) spectralController.postNotification(roomId, eventId, roomName, senderName, text, icon)
     }
@@ -44,8 +45,8 @@ Item {
                 switch (category) {
                 case 1: return "Invited"
                 case 2: return "Favorites"
-                case 3: return "Rooms"
-                case 4: return "People"
+                case 3: return "People"
+                case 4: return "Rooms"
                 case 5: return "Low Priority"
                 }
             }
@@ -60,6 +61,9 @@ Item {
         ]
 
         filters: [
+            ExpressionFilter {
+                expression: joinState != "upgraded"
+            },
             RegExpFilter {
                 roleName: "name"
                 pattern: searchField.text
@@ -71,481 +75,13 @@ Item {
             },
             ExpressionFilter {
                 enabled: filter === 2
-                expression: category === 1 || category === 2 || category === 4
+                expression: category === 1 || category === 2 || category === 3
             },
             ExpressionFilter {
                 enabled: filter === 3
-                expression: category === 3 || category === 5
+                expression: category === 4 || category === 5
             }
         ]
-    }
-
-    Drawer {
-        width: Math.max(root.width, 400)
-        height: root.height
-
-        id: drawer
-
-        edge: Qt.LeftEdge
-
-        Component {
-            id: mainPage
-
-            ColumnLayout {
-                readonly property string title: "Main"
-
-                id: mainColumn
-
-                spacing: 0
-
-                Control {
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: 330
-
-                    padding: 24
-
-                    contentItem: ColumnLayout {
-                        spacing: 4
-
-                        Avatar {
-                            Layout.preferredWidth: 200
-                            Layout.preferredHeight: 200
-                            Layout.margins: 12
-                            Layout.alignment: Qt.AlignHCenter
-
-                            source: root.user ? root.user.avatarMediaId : null
-                            hint: root.user ? root.user.displayName : "?"
-                        }
-
-                        Label {
-                            Layout.alignment: Qt.AlignHCenter
-
-                            text: root.user ? root.user.displayName : "No Name"
-                            color: "white"
-                            font.pixelSize: 22
-                        }
-
-                        Label {
-                            Layout.alignment: Qt.AlignHCenter
-
-                            text: root.user ? root.user.id : "@example:matrix.org"
-                            color: "white"
-                            opacity: 0.7
-                            font.pixelSize: 13
-                        }
-                    }
-
-                    background: Rectangle { color: Material.primary }
-
-                    RippleEffect {
-                        anchors.fill: parent
-
-                        onClicked: stackView.push(userPage)
-                    }
-                }
-
-                ScrollView {
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-
-                    clip: true
-
-                    ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-
-                    ColumnLayout {
-                        width: mainColumn.width
-                        spacing: 0
-
-                        Repeater {
-                            model: AccountListModel {
-                                controller: spectralController
-                            }
-
-                            delegate: ItemDelegate {
-                                Layout.fillWidth: true
-
-                                text: user.displayName
-
-                                onClicked: {
-                                    controller.connection = connection
-                                    drawer.close()
-                                }
-                            }
-                        }
-
-                        ItemDelegate {
-                            Layout.fillWidth: true
-
-                            text: "Add Account"
-
-                            onClicked: loginDialog.open()
-                        }
-
-                        Rectangle {
-                            Layout.fillWidth: true
-                            Layout.preferredHeight: 1
-
-                            color: MSettings.darkTheme ? "#424242" : "#e7ebeb"
-                        }
-
-                        ItemDelegate {
-                            Layout.fillWidth: true
-
-                            text: "Settings"
-
-                            onClicked: stackView.push(settingsPage)
-                        }
-
-                        ItemDelegate {
-                            Layout.fillWidth: true
-
-                            text: "Logout"
-
-                            onClicked: controller.logout(controller.connection)
-                        }
-
-                        ItemDelegate {
-                            Layout.fillWidth: true
-
-                            text: "Exit"
-
-                            onClicked: Qt.quit()
-                        }
-                    }
-                }
-            }
-        }
-
-        Component {
-            id: userPage
-
-            ScrollView {
-                readonly property string title: "User Info"
-
-                id: main
-
-                ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-
-                ColumnLayout {
-                    width: main.width
-                    spacing: 0
-
-                    ItemDelegate {
-                        Layout.fillWidth: true
-
-                        padding: 24
-
-                        contentItem: ColumnLayout {
-                            spacing: 0
-
-                            Label {
-                                Layout.fillWidth: true
-                                Layout.fillHeight: true
-
-                                text: "Matrix ID"
-                                font.pixelSize: 16
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                            }
-
-                            Label {
-                                Layout.fillWidth: true
-                                Layout.fillHeight: true
-
-                                text: root.user.id
-                                color: "#5B7480"
-                                font.pixelSize: 13
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                            }
-                        }
-                    }
-
-                    ItemDelegate {
-                        Layout.fillWidth: true
-
-                        padding: 24
-
-                        contentItem: ColumnLayout {
-                            spacing: 0
-
-                            Label {
-                                Layout.fillWidth: true
-                                Layout.fillHeight: true
-
-                                text: "Name"
-                                font.pixelSize: 16
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                            }
-
-                            Label {
-                                Layout.fillWidth: true
-                                Layout.fillHeight: true
-
-                                text: root.user.name
-                                color: "#5B7480"
-                                font.pixelSize: 13
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                            }
-                        }
-                    }
-
-                    ItemDelegate {
-                        Layout.fillWidth: true
-
-                        padding: 24
-
-                        contentItem: ColumnLayout {
-                            spacing: 0
-
-                            Label {
-                                Layout.fillWidth: true
-                                Layout.fillHeight: true
-
-                                text: "Avatar"
-                                font.pixelSize: 16
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                            }
-
-                            Label {
-                                Layout.fillWidth: true
-                                Layout.fillHeight: true
-
-                                text: root.user.avatarMediaId
-                                color: "#5B7480"
-                                font.pixelSize: 13
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                            }
-                        }
-                    }
-
-                    ItemDelegate {
-                        Layout.fillWidth: true
-
-                        padding: 24
-
-                        contentItem: ColumnLayout {
-                            spacing: 0
-
-                            Label {
-                                Layout.fillWidth: true
-                                Layout.fillHeight: true
-
-                                text: "Server"
-                                font.pixelSize: 16
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                            }
-
-                            Label {
-                                Layout.fillWidth: true
-                                Layout.fillHeight: true
-
-                                text: root.controller.connection.accessToken
-                                color: "#5B7480"
-                                font.pixelSize: 13
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                            }
-                        }
-                    }
-
-                    ItemDelegate {
-                        Layout.fillWidth: true
-
-                        padding: 24
-
-                        contentItem: ColumnLayout {
-                            spacing: 0
-
-                            Label {
-                                Layout.fillWidth: true
-                                Layout.fillHeight: true
-
-                                text: "Device"
-                                font.pixelSize: 16
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                            }
-
-                            Label {
-                                Layout.fillWidth: true
-                                Layout.fillHeight: true
-
-                                text: root.controller.connection.deviceId
-                                color: "#5B7480"
-                                font.pixelSize: 13
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                            }
-                        }
-                    }
-
-                    ItemDelegate {
-                        Layout.fillWidth: true
-
-                        padding: 24
-
-                        contentItem: ColumnLayout {
-                            spacing: 0
-
-                            Label {
-                                Layout.fillWidth: true
-                                Layout.fillHeight: true
-
-                                text: "Token"
-                                font.pixelSize: 16
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                            }
-
-                            Label {
-                                Layout.fillWidth: true
-                                Layout.fillHeight: true
-
-                                text: root.controller.connection.accessToken
-                                color: "#5B7480"
-                                font.pixelSize: 13
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        Component {
-            id: settingsPage
-
-            ScrollView {
-                readonly property string title: "Settings"
-
-                id: main
-
-                ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-
-                padding: 32
-
-                ColumnLayout {
-                    width: main.width - 64
-                    spacing: 0
-
-                    Switch {
-                        text: "Dark theme"
-                        checked: MSettings.darkTheme
-
-                        onCheckedChanged: MSettings.darkTheme = checked
-                    }
-
-                    Switch {
-                        text: "Show notifications"
-                        checked: MSettings.showNotification
-
-                        onCheckedChanged: MSettings.showNotification = checked
-                    }
-
-                    Switch {
-                        text: "Use press and hold instead of right click"
-                        checked: MSettings.pressAndHold
-
-                        onCheckedChanged: MSettings.pressAndHold = checked
-                    }
-
-                    Switch {
-                        text: "Show tray icon"
-                        checked: MSettings.showTray
-
-                        onCheckedChanged: MSettings.showTray = checked
-                    }
-
-                    Switch {
-                        text: "Enable timeline background"
-                        checked: MSettings.enableTimelineBackground
-
-                        onCheckedChanged: MSettings.enableTimelineBackground = checked
-                    }
-
-                    RowLayout {
-                        Layout.fillWidth: true
-
-                        Label {
-                            text: "DPI"
-                        }
-
-                        Slider {
-                            Layout.fillWidth: true
-
-                            value: controller.dpi()
-                            from: 100
-                            to: 300
-                            stepSize: 25
-                            snapMode: Slider.SnapAlways
-
-                            ToolTip.visible: pressed
-                            ToolTip.text: value
-
-                            onMoved: controller.setDpi(value)
-                        }
-                    }
-                }
-            }
-        }
-
-        ColumnLayout {
-            anchors.fill: parent
-
-            spacing: 0
-
-            Rectangle {
-                Layout.fillWidth: true
-                Layout.preferredHeight: 64
-
-                visible: stackView.depth > 1
-
-                color: Material.primary
-
-                RowLayout {
-                    anchors.fill: parent
-                    anchors.margins: 4
-
-                    ToolButton {
-                        Layout.preferredWidth: height
-                        Layout.fillHeight: true
-
-                        contentItem: MaterialIcon {
-                            icon: "\ue5c4"
-                            color: "white"
-                        }
-
-                        onClicked: stackView.pop()
-                    }
-                    Label {
-                        Layout.fillWidth: true
-
-                        text: stackView.currentItem.title
-                        color: "white"
-                        font.pixelSize: 18
-                        elide: Label.ElideRight
-                    }
-                }
-            }
-
-            StackView {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-
-                id: stackView
-
-                clip: true
-
-                initialItem: mainPage
-            }
-        }
     }
 
     ColumnLayout {
@@ -564,7 +100,7 @@ Item {
             rightPadding: 18
 
             contentItem: RowLayout {
-                ItemDelegate {
+                ToolButton {
                     Layout.preferredWidth: height
                     Layout.fillHeight: true
 
@@ -614,7 +150,7 @@ Item {
                     onClicked: filterMenu.popup()
                 }
 
-                ItemDelegate {
+                ToolButton {
                     Layout.preferredWidth: height
                     Layout.fillHeight: true
 
@@ -627,40 +163,14 @@ Item {
 
                 AutoTextField {
                     readonly property bool active: text
-                    readonly property bool isRoom: text.match(/#.*:.*\..*/g) || text.match(/!.*:.*\..*/g)
-                    readonly property bool isUser: text.match(/@.*:.*\..*/g)
 
                     Layout.fillWidth: true
-                    Layout.fillHeight: true
+                    Layout.alignment: Qt.AlignVCenter
 
                     id: searchField
 
-                    topPadding: 0
-                    bottomPadding: 0
                     placeholderText: "Search..."
                     color: MPalette.lighter
-
-                    background: Item {}
-                }
-
-                ItemDelegate {
-                    Layout.preferredWidth: height
-                    Layout.fillHeight: true
-
-                    visible: searchField.isRoom || searchField.isUser
-
-                    contentItem: MaterialIcon { icon: "\ue145" }
-
-                    onClicked: {
-                        if (searchField.isRoom) {
-                            controller.joinRoom(controller.connection, searchField.text)
-                            return
-                        }
-                        if (searchField.isUser) {
-                            controller.createDirectChat(controller.connection, searchField.text)
-                            return
-                        }
-                    }
                 }
 
                 Avatar {
@@ -673,9 +183,12 @@ Item {
                     source: root.user ? root.user.avatarMediaId : null
                     hint: root.user ? root.user.displayName : "?"
 
-                    MouseArea {
+                    RippleEffect {
                         anchors.fill: parent
-                        onClicked: drawer.open()
+
+                        circular: true
+
+                        onClicked: accountDetailDialog.createObject(ApplicationWindow.overlay).open()
                     }
                 }
             }
@@ -689,52 +202,6 @@ Item {
                 layer.effect: ElevationEffect {
                     elevation: 2
                 }
-            }
-        }
-
-        Control {
-            property string error: ""
-            property string detail: ""
-
-            Layout.fillWidth: true
-
-            id: errorControl
-
-            visible: false
-
-            topPadding: 16
-            bottomPadding: 16
-            leftPadding: 24
-            rightPadding: 24
-
-            contentItem: ColumnLayout {
-                Label {
-                    Layout.fillWidth: true
-
-                    text: errorControl.error
-                    font.pixelSize: 16
-                    color: "white"
-                    wrapMode: Text.Wrap
-                }
-                Label {
-                    Layout.fillWidth: true
-
-                    text: errorControl.detail
-                    font.pixelSize: 14
-                    color: "white"
-                    opacity: 0.6
-                    wrapMode: Text.Wrap
-                }
-            }
-
-            background: Rectangle {
-                color: "#273338"
-            }
-
-            RippleEffect {
-                anchors.fill: parent
-
-                onClicked: errorControl.visible = false
             }
         }
 
@@ -766,7 +233,7 @@ Item {
                 }
 
                 Rectangle {
-                    width: unreadCount > 0 ? 4 : 0
+                    width: unreadCount >= 0 ? 4 : 0
                     height: parent.height
 
                     color: Material.accent
@@ -854,11 +321,9 @@ Item {
                 RippleEffect {
                     anchors.fill: parent
 
-                    onSecondaryClicked: roomContextMenu.popup()
                     onPrimaryClicked: {
                         if (category === RoomType.Invited) {
-                            inviteDialog.currentRoom = currentRoom
-                            inviteDialog.open()
+                            acceptInvitationDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom}).open()
                         } else {
                             if (enteredRoom) {
                                 enteredRoom.displayed = false
@@ -869,36 +334,13 @@ Item {
                             enteredRoom = currentRoom
                         }
                     }
+                    onSecondaryClicked: roomListContextMenu.createObject(ApplicationWindow.overlay, {"room": currentRoom}).popup()
                 }
 
-                Menu {
-                    id: roomContextMenu
+                Component {
+                    id: roomListContextMenu
 
-                    MenuItem {
-                        text: "Favourite"
-                        checkable: true
-                        checked: category === RoomType.Favorite
-
-                        onTriggered: category === RoomType.Favorite ? currentRoom.removeTag("m.favourite") : currentRoom.addTag("m.favourite", 1.0)
-                    }
-                    MenuItem {
-                        text: "Deprioritize"
-                        checkable: true
-                        checked: category === RoomType.Deprioritized
-
-                        onTriggered: category === RoomType.Deprioritized ? currentRoom.removeTag("m.lowpriority") : currentRoom.addTag("m.lowpriority", 1.0)
-                    }
-                    MenuSeparator {}
-                    MenuItem {
-                        text: "Mark as Read"
-
-                        onTriggered: currentRoom.markAllMessagesAsRead()
-                    }
-                    MenuItem {
-                        text: "Leave Room"
-
-                        onTriggered: currentRoom.forget()
-                    }
+                    RoomListContextMenu {}
                 }
             }
 
@@ -917,42 +359,9 @@ Item {
         }
     }
 
-    Dialog {
-        property var currentRoom
+    Component {
+        id: acceptInvitationDialog
 
-        id: inviteDialog
-        parent: ApplicationWindow.overlay
-
-        x: (window.width - width) / 2
-        y: (window.height - height) / 2
-        width: 360
-
-        title: "Action Required"
-        modal: true
-
-        contentItem: Label { text: "Accept this invitation?" }
-
-        footer: DialogButtonBox {
-            Button {
-                text: "Accept"
-                flat: true
-
-                onClicked: currentRoom.acceptInvitation()
-            }
-
-            Button {
-                text: "Reject"
-                flat: true
-
-                onClicked: currentRoom.forget()
-            }
-
-            Button {
-                text: "Cancel"
-                flat: true
-
-                onClicked: inviteDialog.close()
-            }
-        }
+        AcceptInvitationDialog {}
     }
 }

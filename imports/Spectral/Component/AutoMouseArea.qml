@@ -6,8 +6,8 @@ MouseArea {
     signal primaryClicked()
     signal secondaryClicked()
 
-    acceptedButtons: MSettings.pressAndHold ? Qt.LeftButton : (Qt.LeftButton | Qt.RightButton)
+    acceptedButtons: Qt.LeftButton | Qt.RightButton
 
     onClicked: mouse.button == Qt.RightButton ? secondaryClicked() : primaryClicked()
-    onPressAndHold: MSettings.pressAndHold ? secondaryClicked() : {}
+    onPressAndHold: secondaryClicked()
 }
