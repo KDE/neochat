@@ -3,6 +3,7 @@
 1. Update Qt to v5.10+
 
         brew install qt5
+        brew link qt5 --force
 
 2. Download Spectral source
 
@@ -16,8 +17,8 @@
 
 4. Build Spectral
 
-        /usr/local/Cellar/qt5/5.10.1/bin/qmake 
-        make
+        qmake ../spectral.pro
+        make -j4
 
 5. Open Spectral
 

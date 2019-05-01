@@ -103,7 +103,15 @@ win32 {
 }
 
 mac {
+	QMAKE_TARGET_BUNDLE_PREFIX = org.eu.encom
+
+	VERSION = 0.0.0.$$system(git rev-list --count HEAD)
+	INFO_PLIST_PATH = $$shell_quote($${OUT_PWD}/$${TARGET}.app/Contents/Info.plist)
+	QMAKE_POST_LINK += /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $${VERSION}\" $${INFO_PLIST_PATH}
+    QMAKE_POST_LINK += && /usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $${VERSION}\" $${INFO_PLIST_PATH}
+
     ICON = assets/img/icon.icns
+    QMAKE_INFO_PLIST = macOS/Info.plist
 }
 
 HEADERS += \
