@@ -84,6 +84,11 @@ Item {
         ]
     }
 
+    Shortcut {
+        sequence: "Ctrl+F"
+        onActivated: searchField.forceActiveFocus()
+    }
+
     ColumnLayout {
         anchors.fill: parent
         spacing: 0
