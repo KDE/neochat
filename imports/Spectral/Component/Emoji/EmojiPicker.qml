@@ -9,7 +9,7 @@ import Spectral 0.1
 import Spectral.Setting 0.1
 
 ColumnLayout {
-    property string emojiCategory: "people"
+    property string emojiCategory: "history"
     property var textArea
     property var emojiModel
 
@@ -28,6 +28,7 @@ ColumnLayout {
         orientation: ListView.Horizontal
 
         model: ListModel {
+            ListElement { label: "⌛️"; category: "history" }
             ListElement { label: "😏"; category: "people" }
             ListElement { label: "🌲"; category: "nature" }
             ListElement { label: "🍛"; category: "food"}
@@ -85,7 +86,29 @@ ColumnLayout {
 
         clip: true
 
-        model: emojiModel.model[emojiCategory]
+        model: {
+            switch (emojiCategory) {
+            case "history":
+                return emojiModel.history
+            case "people":
+                return emojiModel.people
+            case "nature":
+                return emojiModel.nature
+            case "food":
+                return emojiModel.food
+            case "activity":
+                return emojiModel.activity
+            case "travel":
+                return emojiModel.travel
+            case "objects":
+                return emojiModel.objects
+            case "symbols":
+                return emojiModel.symbols
+            case "flags":
+                return emojiModel.flags
+            }
+            return null
+        }
 
         delegate: ItemDelegate {
             width: 48
@@ -99,7 +122,10 @@ ColumnLayout {
                 text: modelData.unicode
             }
 
-            onClicked: textArea.insert(textArea.cursorPosition, modelData.unicode)
+            onClicked: {
+                textArea.insert(textArea.cursorPosition, modelData.unicode)
+                emojiModel.emojiUsed(modelData)
+            }
         }
 
         ScrollBar.vertical: ScrollBar {}

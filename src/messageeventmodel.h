@@ -8,7 +8,7 @@
 
 class MessageEventModel : public QAbstractListModel {
   Q_OBJECT
-  Q_PROPERTY(SpectralRoom* room READ getRoom WRITE setRoom NOTIFY roomChanged)
+  Q_PROPERTY(SpectralRoom* room READ room WRITE setRoom NOTIFY roomChanged)
 
  public:
   enum EventRoles {
@@ -40,7 +40,7 @@ class MessageEventModel : public QAbstractListModel {
   explicit MessageEventModel(QObject* parent = nullptr);
   ~MessageEventModel();
 
-  SpectralRoom* getRoom() { return m_currentRoom; }
+  SpectralRoom* room() { return m_currentRoom; }
   void setRoom(SpectralRoom* room);
 
   int rowCount(const QModelIndex& parent = QModelIndex()) const override;

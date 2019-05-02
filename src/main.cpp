@@ -67,6 +67,8 @@ int main(int argc, char* argv[]) {
   qRegisterMetaType<SpectralRoom*>("SpectralRoom*");
   qRegisterMetaType<SpectralUser*>("SpectralUser*");
 
+  qRegisterMetaTypeStreamOperators<Emoji>();
+
   QQmlApplicationEngine engine;
 
   engine.addImportPath("qrc:/imports");

@@ -20,19 +20,8 @@
 
 #include "emojimodel.h"
 
-QVariantMap EmojiModel::getModel() {
-  QVariantMap map;
-
-  map.insert("people", people);
-  map.insert("nature", nature);
-  map.insert("food", food);
-  map.insert("activity", activity);
-  map.insert("travel", travel);
-  map.insert("objects", objects);
-  map.insert("symbols", symbols);
-  map.insert("flags", flags);
-
-  return map;
+QVariantList EmojiModel::history() {
+  return m_settings->value("Editor/emojis", QVariantList()).toList();
 }
 
 QVariantList EmojiModel::filterModel(const QString& filter) {
@@ -88,6 +77,23 @@ QVariantList EmojiModel::filterModel(const QString& filter) {
   }
 
   return result;
+}
+
+void EmojiModel::emojiUsed(QVariant modelData) {
+  QVariantList list = history();
+
+  auto it = list.begin();
+  while (it != list.end()) {
+    if ((*it).value<Emoji>().unicode == modelData.value<Emoji>().unicode) {
+      it = list.erase(it);
+    } else
+      it++;
+  }
+
+  list.push_front(modelData);
+  m_settings->setValue("Editor/emojis", list);
+
+  emit historyChanged();
 }
 
 const QVariantList EmojiModel::people = {
