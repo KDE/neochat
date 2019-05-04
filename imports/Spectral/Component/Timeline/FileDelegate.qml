@@ -174,7 +174,7 @@ ColumnLayout {
         folderDialog.chosen.connect(function(path) {
             if (!path) return
 
-            currentRoom.downloadFile(eventId, path + "/" + (content.filename || content.body))
+            currentRoom.downloadFile(eventId, path + "/" + currentRoom.fileNameToDownload(eventId))
         })
 
         folderDialog.open()
@@ -186,7 +186,7 @@ ColumnLayout {
         else
         {
             openOnFinished = true
-            currentRoom.downloadFile(eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + (message || ".tmp"))
+            currentRoom.downloadFile(eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId))
         }
     }
 

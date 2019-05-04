@@ -8,6 +8,7 @@
 #include "csapi/typing.h"
 #include "events/accountdataevents.h"
 #include "events/typingevent.h"
+#include "jobs/downloadfilejob.h"
 
 #include <QFileDialog>
 #include <QFileInfo>
@@ -232,4 +233,8 @@ QString SpectralRoom::postMarkdownText(const QString& markdown) {
   hoedown_html_renderer_free(renderer);
 
   return postHtmlText(markdown, result);
+}
+
+QUrl SpectralRoom::urlToMxcUrl(QUrl mxcUrl) {
+  return DownloadFileJob::makeRequestUrl(connection()->homeserver(), mxcUrl);
 }

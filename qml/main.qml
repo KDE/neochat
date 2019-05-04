@@ -14,7 +14,7 @@ import Spectral 0.1
 import Spectral.Setting 0.1
 
 ApplicationWindow {
-    readonly property bool inPortrait: window.width < window.height
+    readonly property bool inPortrait: window.width < 640
 
     Material.theme: MPalette.theme
     Material.background: MPalette.background

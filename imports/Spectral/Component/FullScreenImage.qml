@@ -2,7 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 
 ApplicationWindow {
-    property string eventId
+    property string filename
     property url localPath
 
     id: root
@@ -11,7 +11,7 @@ ApplicationWindow {
     visible: true
     visibility: Qt.WindowFullScreen
 
-    title: "Image View - " + eventId
+    title: "Image View - " + filename
 
     color: "#BB000000"
 
@@ -26,8 +26,8 @@ ApplicationWindow {
         width: Math.min(sourceSize.width, root.width)
         height: Math.min(sourceSize.height, root.height)
 
-        fillMode: Image.PreserveAspectFit
         cache: false
+        fillMode: Image.PreserveAspectFit
 
         source: localPath
     }

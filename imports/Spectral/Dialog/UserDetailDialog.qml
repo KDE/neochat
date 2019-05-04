@@ -29,6 +29,14 @@ Dialog {
 
                 hint: user ? user.displayName : "No name"
                 source: user ? user.avatarMediaId : null
+
+                RippleEffect {
+                    anchors.fill: parent
+
+                    circular: true
+
+                    onPrimaryClicked: fullScreenImage.createObject(parent, {"filename": user.diaplayName, "localPath": room.urlToMxcUrl(user.avatarUrl)}).show()
+                }
             }
 
             ColumnLayout {
@@ -157,6 +165,12 @@ Dialog {
                 onPrimaryClicked: room.kickMember(user.id)
             }
         }
+    }
+
+    Component {
+        id: fullScreenImage
+
+        FullScreenImage {}
     }
 
     onClosed: destroy()

@@ -84,6 +84,8 @@ class SpectralRoom : public Room {
 
   Q_INVOKABLE QString postMarkdownText(const QString& markdown);
 
+  Q_INVOKABLE QUrl urlToMxcUrl(QUrl mxcUrl);
+
   template <typename BaseEventT>
   QString eventToString(const BaseEventT& evt,
                         Qt::TextFormat format = Qt::PlainText) {

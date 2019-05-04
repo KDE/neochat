@@ -136,7 +136,7 @@ ColumnLayout {
 
                     visible: replyEventId || ""
 
-                    padding: 8
+                    padding: 0
 
                     background: RippleEffect {
                         anchors.fill: parent
@@ -148,38 +148,22 @@ ColumnLayout {
                         spacing: 8
 
                         Avatar {
-                            Layout.preferredWidth: 36
-                            Layout.preferredHeight: 36
+                            Layout.preferredWidth: 28
+                            Layout.preferredHeight: 28
                             Layout.alignment: Qt.AlignTop
 
                             source: replyAuthor ? replyAuthor.avatarMediaId : ""
                             hint: replyAuthor ? replyAuthor.displayName : "H"
                         }
 
-                        ColumnLayout {
+                        Label {
                             Layout.fillWidth: true
 
-                            spacing: 0
+                            color: "white"
+                            text: "<style>a{color: white;} .user-pill{}</style>" + (replyDisplay || "")
 
-                            Label {
-                                Layout.fillWidth: true
-
-                                color: "white"
-                                text: replyAuthor ? replyAuthor.displayName : ""
-
-                                font.pixelSize: 13
-                                font.weight: Font.Medium
-                            }
-
-                            Label {
-                                Layout.fillWidth: true
-
-                                color: "white"
-                                text: "<style>a{color: white;} .user-pill{}</style>" + (replyDisplay || "")
-
-                                wrapMode: Label.Wrap
-                                textFormat: Label.RichText
-                            }
+                            wrapMode: Label.Wrap
+                            textFormat: Label.RichText
                         }
                     }
                 }
@@ -213,7 +197,7 @@ ColumnLayout {
                     onLinkActivated: {
                         if (link.startsWith("https://matrix.to/")) {
                             var result = link.replace(/\?.*/, "").match("https://matrix.to/#/(!.*:.*)/(\\$.*:.*)")
-                            if (result.length < 3) return
+                            if (!result || result.length < 3) return
                             if (result[1] != currentRoom.id) return
                             if (!result[2]) return
                             goToEvent(result[2])

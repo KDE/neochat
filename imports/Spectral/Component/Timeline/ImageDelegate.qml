@@ -19,7 +19,6 @@ ColumnLayout {
     readonly property bool sentByMe: author === currentRoom.localUser
 
     property bool openOnFinished: false
-    property bool showOnFinished: false
     readonly property bool downloaded: progressInfo && progressInfo.completed
 
     id: root
@@ -27,10 +26,6 @@ ColumnLayout {
     spacing: 0
 
     onDownloadedChanged: {
-        if (downloaded && showOnFinished) {
-            showSavedFile()
-            showOnFinished = false
-        }
         if (downloaded && openOnFinished) {
             openSavedFile()
             openOnFinished = false
@@ -160,7 +155,7 @@ ColumnLayout {
 
                 id: messageMouseArea
 
-                onPrimaryClicked: downloadAndShow()
+                onPrimaryClicked: fullScreenImage.createObject(parent, {"filename": eventId, "localPath": currentRoom.urlToDownload(eventId)}).show()
 
                 onSecondaryClicked: {
                     var contextMenu = imageDelegateContextMenu.createObject(ApplicationWindow.overlay)
@@ -215,25 +210,10 @@ ColumnLayout {
         folderDialog.chosen.connect(function(path) {
             if (!path) return
 
-            currentRoom.downloadFile(eventId, path + "/" + (content.filename || content.body))
+            currentRoom.downloadFile(eventId, path + "/" + currentRoom.fileNameToDownload(eventId))
         })
 
         folderDialog.open()
-    }
-
-    function downloadAndShow()
-    {
-        if (downloaded) showSavedFile()
-        else
-        {
-            showOnFinished = true
-            currentRoom.downloadFile(eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + (message || ".tmp"))
-        }
-    }
-
-    function showSavedFile()
-    {
-        fullScreenImage.createObject(parent, {"eventId": eventId, "localPath": progressInfo.localPath}).show()
     }
 
     function downloadAndOpen()
@@ -242,7 +222,7 @@ ColumnLayout {
         else
         {
             openOnFinished = true
-            currentRoom.downloadFile(eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + (message || ".tmp"))
+            currentRoom.downloadFile(eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId))
         }
     }
 
