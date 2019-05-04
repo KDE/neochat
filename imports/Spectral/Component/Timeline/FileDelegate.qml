@@ -153,9 +153,9 @@ ColumnLayout {
                     }
 
                     Component {
-                        id: openFileDialog
+                        id: openFolderDialog
 
-                        OpenFileDialog {}
+                        OpenFolderDialog {}
                     }
 
                     Component {
@@ -169,15 +169,15 @@ ColumnLayout {
     }
 
     function saveFileAs() {
-        var fileDialog = openFileDialog.createObject(ApplicationWindow.overlay, {"selectFolder": true})
+        var folderDialog = openFolderDialog.createObject(ApplicationWindow.overlay)
 
-        fileDialog.chosen.connect(function(path) {
+        folderDialog.chosen.connect(function(path) {
             if (!path) return
 
             currentRoom.downloadFile(eventId, path + "/" + (content.filename || content.body))
         })
 
-        fileDialog.open()
+        folderDialog.open()
     }
 
     function downloadAndOpen()
