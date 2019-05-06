@@ -256,6 +256,11 @@ Item {
                             }
                         }
                     }
+
+                    DelegateChoice {
+                        roleValue: "other"
+                        delegate: Item {}
+                    }
                 }
 
                 Button {

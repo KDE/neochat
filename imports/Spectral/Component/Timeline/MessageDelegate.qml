@@ -14,6 +14,7 @@ import Spectral.Effect 2.0
 ColumnLayout {
     readonly property bool avatarVisible: !sentByMe && (aboveAuthor !== author || aboveSection !== section || aboveEventType === "state" || aboveEventType === "emote" || aboveEventType === "other")
     readonly property bool sentByMe: author === currentRoom.localUser
+    property bool replyVisible: replyEventId || ""
 
     signal saveFileAs()
     signal openExternally()
@@ -131,34 +132,38 @@ ColumnLayout {
             }
 
             contentItem: ColumnLayout {
-                Control {
+                RowLayout {
                     Layout.fillWidth: true
 
-                    visible: replyEventId || ""
+                    visible: replyVisible
 
-                    padding: 0
+                    Avatar {
+                        Layout.preferredWidth: 28
+                        Layout.preferredHeight: 28
 
-                    background: RippleEffect {
-                        anchors.fill: parent
+                        source: replyVisible ? replyAuthor.avatarMediaId : ""
+                        hint: replyVisible ? replyAuthor.displayName : "H"
 
-                        onPrimaryClicked: goToEvent(replyEventId)
+                        RippleEffect {
+                            anchors.fill: parent
+
+                            onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": replyAuthor}).open()
+                        }
                     }
 
-                    contentItem: RowLayout {
-                        spacing: 8
+                    Control {
+                        Layout.fillWidth: true
 
-                        Avatar {
-                            Layout.preferredWidth: 28
-                            Layout.preferredHeight: 28
-                            Layout.alignment: Qt.AlignTop
+                        padding: 4
 
-                            source: replyAuthor ? replyAuthor.avatarMediaId : ""
-                            hint: replyAuthor ? replyAuthor.displayName : "H"
+                        background: RippleEffect {
+                            onClicked: goToEvent(replyEventId)
                         }
 
-                        Label {
+                        contentItem: Label {
                             Layout.fillWidth: true
 
+                            visible: replyVisible
                             color: "white"
                             text: "<style>a{color: white;} .user-pill{}</style>" + (replyDisplay || "")
 
@@ -172,7 +177,7 @@ ColumnLayout {
                     Layout.fillWidth: true
                     Layout.preferredHeight: 1
 
-                    visible: replyEventId || ""
+                    visible: replyVisible
                     color: "white"
                 }
 
