@@ -147,6 +147,8 @@ ColumnLayout {
                         RippleEffect {
                             anchors.fill: parent
 
+                            circular: true
+
                             onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": replyAuthor}).open()
                         }
                     }
