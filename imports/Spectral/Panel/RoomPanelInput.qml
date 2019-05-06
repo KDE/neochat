@@ -51,6 +51,7 @@ Control {
             Avatar {
                 Layout.preferredWidth: 32
                 Layout.preferredHeight: 32
+                Layout.alignment: Qt.AlignTop
 
                 source: replyUser ? replyUser.avatarMediaId : ""
                 hint: replyUser ? replyUser.displayName : "No name"

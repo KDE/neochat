@@ -303,6 +303,28 @@ Item {
 
                     onClicked: messageListView.positionViewAtBeginning()
                 }
+
+                NumberAnimation {
+                    id: timelineAnimation
+                    target: messageListView
+                    property: "contentY"
+                    easing.type: Easing.InOutQuad
+                    duration: 500
+                }
+
+                function gotoIndex(idx) {
+                    timelineAnimation.stop()
+
+                    var pos = contentY
+                    var destPos
+
+                    positionViewAtIndex(idx, ListView.Contain)
+                    destPos = contentY
+
+                    timelineAnimation.from = pos
+                    timelineAnimation.to = destPos
+                    timelineAnimation.start()
+                }
             }
 
             Control {
@@ -350,7 +372,8 @@ Item {
         var index = messageEventModel.eventIDToIndex(eventID)
         if (index === -1) return
         //        messageListView.currentIndex = sortedMessageEventModel.mapFromSource(index)
-        messageListView.positionViewAtIndex(sortedMessageEventModel.mapFromSource(index), ListView.Contain)
+        //        messageListView.positionViewAtIndex(sortedMessageEventModel.mapFromSource(index), ListView.Contain)
+        messageListView.gotoIndex(sortedMessageEventModel.mapFromSource(index))
     }
 
     function saveReadMarker(room) {

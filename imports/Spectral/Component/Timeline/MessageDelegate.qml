@@ -140,6 +140,7 @@ ColumnLayout {
                     Avatar {
                         Layout.preferredWidth: 28
                         Layout.preferredHeight: 28
+                        Layout.alignment: Qt.AlignTop
 
                         source: replyVisible ? replyAuthor.avatarMediaId : ""
                         hint: replyVisible ? replyAuthor.displayName : "H"
@@ -156,7 +157,7 @@ ColumnLayout {
                     Control {
                         Layout.fillWidth: true
 
-                        padding: 4
+                        padding: 0
 
                         background: RippleEffect {
                             onClicked: goToEvent(replyEventId)
