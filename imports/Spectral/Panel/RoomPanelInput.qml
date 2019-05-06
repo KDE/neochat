@@ -61,7 +61,7 @@ Control {
                 Layout.fillWidth: true
 
                 text: replyContent
-                font.pixelSize: 16
+                font.pixelSize: 14
 
                 wrapMode: Label.Wrap
             }
