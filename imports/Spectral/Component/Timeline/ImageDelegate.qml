@@ -129,7 +129,7 @@ ColumnLayout {
                 antialiasing: true
 
                 border.width: 4
-                border.color: MPalette.banner
+                border.color: MPalette.background
             }
 
             Rectangle {

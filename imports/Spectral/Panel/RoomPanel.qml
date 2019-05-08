@@ -62,6 +62,14 @@ Item {
         fillMode: Image.PreserveAspectCrop
     }
 
+    Rectangle {
+        anchors.fill: parent
+
+        visible: currentRoom && !MSettings.timelineBackground
+
+        color: MSettings.darkTheme ? "#242424" : "#EBEFF2"
+    }
+
     ColumnLayout {
         anchors.fill: parent
         spacing: 0
@@ -75,10 +83,6 @@ Item {
 
             id: roomHeader
 
-            avatar: currentRoom ? currentRoom.avatarMediaId : ""
-            topic: currentRoom ? (currentRoom.topic).replace(/(\r\n\t|\n|\r\t)/gm,"") : ""
-            atTop: messageListView.atYBeginning
-
             onClicked: roomDrawer.visible ? roomDrawer.close() : roomDrawer.open()
         }
 
@@ -86,10 +90,12 @@ Item {
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.maximumWidth: 960
+            Layout.alignment: Qt.AlignHCenter
             Layout.leftMargin: 16
             Layout.rightMargin: 16
             Layout.bottomMargin: 16
-            Layout.alignment: Qt.AlignHCenter
+
+            width: Math.min(parent.width - 32, 960)
 
             spacing: 16
 
@@ -147,113 +153,47 @@ Item {
 
                     DelegateChoice {
                         roleValue: "state"
-                        delegate: ColumnLayout {
-                            width: messageListView.width
-                            spacing: 4
+                        delegate: StateDelegate {
+                            anchors.horizontalCenter: parent.horizontalCenter
 
-                            SectionDelegate {
-                                Layout.alignment: Qt.AlignHCenter
-                                Layout.margins: 16
-
-                                visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
-                            }
-
-                            StateDelegate {
-                                Layout.maximumWidth: parent.width
-                                Layout.alignment: Qt.AlignHCenter
-                            }
+                            width: Math.min(implicitWidth, parent.width)
                         }
                     }
 
                     DelegateChoice {
                         roleValue: "emote"
-                        delegate: ColumnLayout {
-                            width: messageListView.width
-                            spacing: 4
+                        delegate: StateDelegate {
+                            anchors.horizontalCenter: parent.horizontalCenter
 
-                            SectionDelegate {
-                                Layout.alignment: Qt.AlignHCenter
-                                Layout.margins: 16
-
-                                visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
-                            }
-
-                            StateDelegate {
-                                Layout.maximumWidth: parent.width
-                                Layout.alignment: Qt.AlignHCenter
-                            }
+                            width: Math.min(implicitWidth, parent.width)
                         }
                     }
 
                     DelegateChoice {
                         roleValue: "message"
-                        delegate: ColumnLayout {
-                            width: messageListView.width
-                            spacing: 4
-
-                            SectionDelegate {
-                                Layout.alignment: Qt.AlignHCenter
-                                Layout.margins: 16
-
-                                visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
-                            }
-
-                            MessageDelegate {}
+                        delegate: MessageDelegate {
+                            anchors.right: sentByMe ? parent.right : undefined
                         }
                     }
 
                     DelegateChoice {
                         roleValue: "notice"
-                        delegate: ColumnLayout {
-                            width: messageListView.width
-                            spacing: 4
-
-                            SectionDelegate {
-                                Layout.alignment: Qt.AlignHCenter
-                                Layout.margins: 16
-
-                                visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
-                            }
-
-                            MessageDelegate {}
+                        delegate: MessageDelegate {
+                            anchors.right: sentByMe ? parent.right : undefined
                         }
                     }
 
                     DelegateChoice {
                         roleValue: "image"
-                        delegate: ColumnLayout {
-                            width: messageListView.width
-                            spacing: 4
-
-                            SectionDelegate {
-                                Layout.alignment: Qt.AlignHCenter
-                                Layout.margins: 16
-
-                                visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
-                            }
-
-                            ImageDelegate {
-                                Layout.maximumWidth: parent.width
-                            }
+                        delegate: ImageDelegate {
+                            Layout.maximumWidth: parent.width
                         }
                     }
 
                     DelegateChoice {
                         roleValue: "file"
-                        delegate: ColumnLayout {
-                            width: messageListView.width
-                            spacing: 4
-
-                            SectionDelegate {
-                                Layout.alignment: Qt.AlignHCenter
-                                Layout.margins: 16
-
-                                visible: section !== aboveSection || Math.abs(time - aboveTime) > 600000
-                            }
-
-                            FileDelegate {
-                                Layout.maximumWidth: parent.width
-                            }
+                        delegate: FileDelegate {
+                            Layout.maximumWidth: parent.width
                         }
                     }
 
@@ -275,7 +215,7 @@ Item {
                     rightPadding: 24
 
                     Material.foreground: MPalette.foreground
-                    Material.background: MPalette.banner
+                    Material.background: MPalette.background
 
                     text: "Go to read marker"
 
@@ -333,7 +273,7 @@ Item {
                 }
 
                 background: Rectangle {
-                    color: MPalette.banner
+                    color: MPalette.background
                     radius: height / 2
                 }
             }

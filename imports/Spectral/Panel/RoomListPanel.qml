@@ -237,17 +237,6 @@ Item {
                     opacity: 0.1
                 }
 
-                Rectangle {
-                    width: unreadCount >= 0 ? 4 : 0
-                    height: parent.height
-
-                    color: Material.accent
-
-                    Behavior on width {
-                        PropertyAnimation { easing.type: Easing.InOutCubic; duration: 200 }
-                    }
-                }
-
                 RowLayout {
                     anchors.fill: parent
                     anchors.margins: 12
@@ -274,6 +263,7 @@ Item {
                             text: name || "No Name"
                             color: MPalette.foreground
                             font.pixelSize: 16
+                            font.bold: unreadCount >= 0
                             elide: Text.ElideRight
                             wrapMode: Text.NoWrap
                         }

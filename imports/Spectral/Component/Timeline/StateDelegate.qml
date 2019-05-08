@@ -21,7 +21,7 @@ Label {
     onLinkActivated: Qt.openUrlExternally(link)
 
     background: Rectangle {
-        color: MPalette.banner
+        color: MPalette.background
         radius: 4
         antialiasing: true
     }

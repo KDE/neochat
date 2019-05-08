@@ -118,7 +118,7 @@ ColumnLayout {
             }
 
             background: Rectangle {
-                color: MPalette.banner
+                color: MPalette.background
                 radius: 18
 
                 AutoMouseArea {

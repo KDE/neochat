@@ -21,6 +21,12 @@ Drawer {
         anchors.fill: parent
         anchors.margins: 24
 
+        Component {
+            id: fullScreenImage
+
+            FullScreenImage {}
+        }
+
         RowLayout {
             Layout.fillWidth: true
 
@@ -32,6 +38,14 @@ Drawer {
 
                 hint: room ? room.displayName : "No name"
                 source: room ? room.avatarMediaId : null
+
+                RippleEffect {
+                    anchors.fill: parent
+
+                    circular: true
+
+                    onClicked: fullScreenImage.createObject(parent, {"filename": room.diaplayName, "localPath": room.urlToMxcUrl(room.avatarUrl)}).show()
+                }
             }
 
             ColumnLayout {

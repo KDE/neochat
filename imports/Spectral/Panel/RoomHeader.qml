@@ -9,17 +9,12 @@ import Spectral.Component 2.0
 import Spectral.Setting 0.1
 
 Control {
-    property alias avatar: headerImage.source
-    property alias topic: headerTopicLabel.text
-    property bool atTop: false
     signal clicked()
 
     id: header
 
     background: Rectangle {
-        color: Material.background
-
-        opacity: atTop ? 0 : 1
+        color: MPalette.background
 
         layer.enabled: true
         layer.effect: ElevationEffect {
@@ -29,53 +24,32 @@ Control {
 
     RowLayout {
         anchors.fill: parent
-        anchors.margins: 12
+        anchors.leftMargin: 18
+
+        Layout.alignment: Qt.AlignVCenter
 
         spacing: 12
 
-        Avatar {
+        Label {
+            Layout.fillWidth: true
+
+            text: currentRoom ? currentRoom.displayName : ""
+            color: MPalette.foreground
+            font.pixelSize: 18
+            elide: Text.ElideRight
+            wrapMode: Text.NoWrap
+        }
+
+        ToolButton {
             Layout.preferredWidth: height
             Layout.fillHeight: true
 
-            id: headerImage
-
-            source: currentRoom.avatarMediaId
-            hint: currentRoom ? currentRoom.displayName : "No name"
-        }
-
-        ColumnLayout {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-
-            visible: parent.width > 64
-
-            Label {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-
-                text: currentRoom ? currentRoom.displayName : ""
-                color: MPalette.foreground
-                font.pixelSize: 16
-                elide: Text.ElideRight
-                wrapMode: Text.NoWrap
-            }
-
-            Label {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-
-                id: headerTopicLabel
-
+            contentItem: MaterialIcon {
+                icon: "\ue5d4"
                 color: MPalette.lighter
-                elide: Text.ElideRight
-                wrapMode: Text.NoWrap
             }
+
+            onClicked: header.clicked()
         }
-    }
-
-    RippleEffect {
-        anchors.fill: parent
-
-        onClicked: header.clicked()
     }
 }

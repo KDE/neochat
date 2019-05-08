@@ -11,214 +11,188 @@ import Spectral.Dialog 2.0
 import Spectral.Menu.Timeline 2.0
 import Spectral.Effect 2.0
 
-ColumnLayout {
+RowLayout {
     readonly property bool avatarVisible: !sentByMe && (aboveAuthor !== author || aboveSection !== section || aboveEventType === "state" || aboveEventType === "emote" || aboveEventType === "other")
     readonly property bool sentByMe: author === currentRoom.localUser
-    property bool replyVisible: replyEventId || ""
+    readonly property bool darkBackground: !sentByMe
+    readonly property bool replyVisible: replyEventId || false
 
     signal saveFileAs()
     signal openExternally()
 
-    Layout.alignment: sentByMe ? Qt.AlignRight : Qt.AlignLeft
-
     id: root
 
-    spacing: 0
+    z: -5
 
-    Label {
-        Layout.leftMargin: 48
+    spacing: 4
 
-        text: author.displayName
+    Avatar {
+        Layout.preferredWidth: 32
+        Layout.preferredHeight: 32
+        Layout.alignment: Qt.AlignTop
 
         visible: avatarVisible
+        hint: author.displayName
+        source: author.avatarMediaId
 
-        font.pixelSize: 13
-        verticalAlignment: Text.AlignVCenter
+        Component {
+            id: userDetailDialog
+
+            UserDetailDialog {}
+        }
+
+        RippleEffect {
+            anchors.fill: parent
+
+            circular: true
+
+            onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": author}).open()
+        }
     }
 
-    RowLayout {
-        z: -5
+    Item {
+        Layout.preferredWidth: 32
+        Layout.preferredHeight: 32
 
-        id: messageRow
+        visible: !(sentByMe || avatarVisible)
+    }
 
-        spacing: 4
+    Control {
+        Layout.maximumWidth: messageListView.width - (!sentByMe ? 32 + root.spacing : 0) - 48
 
-        Avatar {
-            Layout.preferredWidth: 32
-            Layout.preferredHeight: 32
-            Layout.alignment: Qt.AlignTop
+        verticalPadding: 8
+        horizontalPadding: 16
 
-            visible: avatarVisible
-            hint: author.displayName
-            source: author.avatarMediaId
+        background: Rectangle {
+            color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
+            radius: 18
+            antialiasing: true
 
-            Component {
-                id: userDetailDialog
-
-                UserDetailDialog {}
-            }
-
-            RippleEffect {
+            AutoMouseArea {
                 anchors.fill: parent
 
-                circular: true
+                id: messageMouseArea
 
-                onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": author}).open()
-            }
-        }
-
-        Label {
-            Layout.preferredWidth: 32
-            Layout.preferredHeight: 32
-            Layout.alignment: Qt.AlignTop
-
-            visible: !(sentByMe || avatarVisible)
-
-            text: Qt.formatDateTime(time, "hh:mm")
-            color: MPalette.lighter
-
-            font.pixelSize: 10
-            horizontalAlignment: Label.AlignHCenter
-            verticalAlignment: Label.AlignVCenter
-        }
-
-        Control {
-            Layout.maximumWidth: messageListView.width - (!sentByMe ? 32 + messageRow.spacing : 0) - 48
-
-            verticalPadding: 8
-            horizontalPadding: 16
-
-            background: Rectangle {
-                color: sentByMe ? "#009DC2" : eventType === "notice" ? "#4285F4" : "#673AB7"
-                radius: 18
-                antialiasing: true
-
-                AutoMouseArea {
-                    anchors.fill: parent
-
-                    id: messageMouseArea
-
-                    onSecondaryClicked: {
-                        var contextMenu = messageDelegateContextMenu.createObject(ApplicationWindow.overlay)
-                        contextMenu.viewSource.connect(function() {
-                            messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
-                        })
-                        contextMenu.reply.connect(function() {
-                            roomPanelInput.replyUser = author
-                            roomPanelInput.replyEventID = eventId
-                            roomPanelInput.replyContent = contentLabel.selectedText || message
-                            roomPanelInput.isReply = true
-                            roomPanelInput.focus()
-                        })
-                        contextMenu.redact.connect(function() {
-                            currentRoom.redactEvent(eventId)
-                        })
-                        contextMenu.popup()
-                    }
+                onSecondaryClicked: {
+                    var contextMenu = messageDelegateContextMenu.createObject(ApplicationWindow.overlay)
+                    contextMenu.viewSource.connect(function() {
+                        messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
+                    })
+                    contextMenu.reply.connect(function() {
+                        roomPanelInput.replyUser = author
+                        roomPanelInput.replyEventID = eventId
+                        roomPanelInput.replyContent = contentLabel.selectedText || message
+                        roomPanelInput.isReply = true
+                        roomPanelInput.focus()
+                    })
+                    contextMenu.redact.connect(function() {
+                        currentRoom.redactEvent(eventId)
+                    })
+                    contextMenu.popup()
+                }
 
 
-                    Component {
-                        id: messageDelegateContextMenu
+                Component {
+                    id: messageDelegateContextMenu
 
-                        MessageDelegateContextMenu {}
-                    }
+                    MessageDelegateContextMenu {}
+                }
 
-                    Component {
-                        id: messageSourceDialog
+                Component {
+                    id: messageSourceDialog
 
-                        MessageSourceDialog {}
-                    }
+                    MessageSourceDialog {}
                 }
             }
+        }
 
-            contentItem: ColumnLayout {
-                RowLayout {
+        contentItem: ColumnLayout {
+            RowLayout {
+                Layout.fillWidth: true
+
+                visible: replyVisible
+
+                Avatar {
+                    Layout.preferredWidth: 28
+                    Layout.preferredHeight: 28
+                    Layout.alignment: Qt.AlignTop
+
+                    source: replyVisible ? replyAuthor.avatarMediaId : ""
+                    hint: replyVisible ? replyAuthor.displayName : "H"
+
+                    RippleEffect {
+                        anchors.fill: parent
+
+                        circular: true
+
+                        onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": replyAuthor}).open()
+                    }
+                }
+
+                Control {
                     Layout.fillWidth: true
 
-                    visible: replyVisible
+                    padding: 0
 
-                    Avatar {
-                        Layout.preferredWidth: 28
-                        Layout.preferredHeight: 28
-                        Layout.alignment: Qt.AlignTop
-
-                        source: replyVisible ? replyAuthor.avatarMediaId : ""
-                        hint: replyVisible ? replyAuthor.displayName : "H"
-
-                        RippleEffect {
-                            anchors.fill: parent
-
-                            circular: true
-
-                            onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": replyAuthor}).open()
-                        }
+                    background: RippleEffect {
+                        onClicked: goToEvent(replyEventId)
                     }
 
-                    Control {
+                    contentItem: Label {
                         Layout.fillWidth: true
 
-                        padding: 0
+                        visible: replyVisible
+                        color: darkBackground ? "white" : MPalette.lighter
+                        text: "<style>a{color: " + (darkBackground ? "white" : MPalette.foreground) + ";} .user-pill{}</style>" + (replyDisplay || "")
 
-                        background: RippleEffect {
-                            onClicked: goToEvent(replyEventId)
-                        }
+                        wrapMode: Label.Wrap
+                        textFormat: Label.RichText
+                    }
+                }
+            }
 
-                        contentItem: Label {
-                            Layout.fillWidth: true
+            Rectangle {
+                Layout.fillWidth: true
+                Layout.preferredHeight: 1
 
-                            visible: replyVisible
-                            color: "white"
-                            text: "<style>a{color: white;} .user-pill{}</style>" + (replyDisplay || "")
+                visible: replyVisible
+                color: darkBackground ? "white" : MPalette.lighter
+            }
 
-                            wrapMode: Label.Wrap
-                            textFormat: Label.RichText
-                        }
+            TextEdit {
+                Layout.fillWidth: true
+
+                id: contentLabel
+
+                text: "<style>a{color: " + (darkBackground ? "white" : MPalette.foreground) + ";} .user-pill{}</style>" + display
+
+                color: darkBackground ? "white" : MPalette.foreground
+
+                font.family: window.font.family
+                font.pixelSize: 14
+                selectByMouse: true
+                readOnly: true
+                wrapMode: Label.Wrap
+                selectedTextColor: darkBackground ? MPalette.accent : "white"
+                selectionColor: darkBackground ? "white" : MPalette.accent
+                textFormat: Text.RichText
+
+                onLinkActivated: {
+                    if (link.startsWith("https://matrix.to/")) {
+                        var result = link.replace(/\?.*/, "").match("https://matrix.to/#/(!.*:.*)/(\\$.*:.*)")
+                        if (!result || result.length < 3) return
+                        if (result[1] != currentRoom.id) return
+                        if (!result[2]) return
+                        goToEvent(result[2])
+                    } else {
+                        Qt.openUrlExternally(link)
                     }
                 }
 
-                Rectangle {
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: 1
-
-                    visible: replyVisible
-                    color: "white"
-                }
-
-                TextEdit {
-                    Layout.fillWidth: true
-
-                    id: contentLabel
-
-                    text: "<style>a{color: white;} .user-pill{}</style>" + display
-
-                    color: "white"
-
-                    font.family: window.font.family
-                    font.pixelSize: 14
-                    selectByMouse: true
-                    readOnly: true
-                    wrapMode: Label.Wrap
-                    selectedTextColor: Material.accent
-                    selectionColor: "white"
-                    textFormat: Text.RichText
-
-                    onLinkActivated: {
-                        if (link.startsWith("https://matrix.to/")) {
-                            var result = link.replace(/\?.*/, "").match("https://matrix.to/#/(!.*:.*)/(\\$.*:.*)")
-                            if (!result || result.length < 3) return
-                            if (result[1] != currentRoom.id) return
-                            if (!result[2]) return
-                            goToEvent(result[2])
-                        } else {
-                            Qt.openUrlExternally(link)
-                        }
-                    }
-
-                    MouseArea {
-                        anchors.fill: parent
-                        acceptedButtons: Qt.NoButton
-                        cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
-                    }
+                MouseArea {
+                    anchors.fill: parent
+                    acceptedButtons: Qt.NoButton
+                    cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
                 }
             }
         }
