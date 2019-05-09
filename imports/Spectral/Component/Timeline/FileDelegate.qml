@@ -15,7 +15,7 @@ import Spectral.Font 0.1
 import Spectral.Effect 2.0
 
 ColumnLayout {
-    readonly property bool avatarVisible: !sentByMe && (aboveAuthor !== author || aboveSection !== section || aboveEventType === "state" || aboveEventType === "emote" || aboveEventType === "other")
+    readonly property bool avatarVisible: !sentByMe && showAuthor
     readonly property bool sentByMe: author === currentRoom.localUser
 
     property bool openOnFinished: false
@@ -39,8 +39,6 @@ ColumnLayout {
     }
 
     RowLayout {
-        Layout.alignment: sentByMe ? Qt.AlignRight : Qt.AlignLeft
-
         z: -5
 
         id: messageRow
@@ -111,7 +109,7 @@ ColumnLayout {
                     }
 
                     Label {
-                        text: progressInfo.active ? (progressInfo.progress + "/" + progressInfo.total) : content.info ? content.info.size : "Unknown"
+                        text: progressInfo.active ? (humanSize(progressInfo.progress) + "/" + humanSize(progressInfo.total)) : humanSize(content.info ? content.info.size : 0)
                         color: MPalette.lighter
                     }
                 }
@@ -194,5 +192,21 @@ ColumnLayout {
     {
         if (Qt.openUrlExternally(progressInfo.localPath)) return;
         if (Qt.openUrlExternally(progressInfo.localDir)) return;
+    }
+
+
+    function humanSize(bytes)
+    {
+        if (!bytes)
+            return qsTr("Unknown", "Unknown attachment size")
+        if (bytes < 4000)
+            return qsTr("%1 bytes").arg(bytes)
+        bytes = Math.round(bytes / 100) / 10
+        if (bytes < 2000)
+            return qsTr("%1 KB").arg(bytes)
+        bytes = Math.round(bytes / 100) / 10
+        if (bytes < 2000)
+            return qsTr("%1 MB").arg(bytes)
+        return qsTr("%1 GB").arg(Math.round(bytes / 100) / 10)
     }
 }

@@ -14,14 +14,10 @@ class MessageEventModel : public QAbstractListModel {
   enum EventRoles {
     EventTypeRole = Qt::UserRole + 1,
     MessageRole,
-    AboveEventTypeRole,
     EventIdRole,
     TimeRole,
-    AboveTimeRole,
     SectionRole,
-    AboveSectionRole,
     AuthorRole,
-    AboveAuthorRole,
     ContentRole,
     ContentTypeRole,
     HighlightRole,
@@ -30,11 +26,23 @@ class MessageEventModel : public QAbstractListModel {
     LongOperationRole,
     AnnotationRole,
     UserMarkerRole,
+    // For reply
     ReplyEventIdRole,
     ReplyAuthorRole,
     ReplyDisplayRole,
+
+    ShowTimestampRole,
+    ShowAuthorRole,
+    BubbleShapeRole,
     // For debugging
     EventResolvedTypeRole,
+  };
+
+  enum BubbleShapes {
+    NoShape = 0,
+    BeginShape,
+    MiddleShape,
+    EndShape,
   };
 
   explicit MessageEventModel(QObject* parent = nullptr);

@@ -105,7 +105,7 @@ Item {
 
                 id: messageListView
 
-                spacing: 4
+                spacing: 2
 
                 displayMarginBeginning: 100
                 displayMarginEnd: 100
@@ -186,6 +186,8 @@ Item {
                     DelegateChoice {
                         roleValue: "image"
                         delegate: ImageDelegate {
+                            anchors.right: sentByMe ? parent.right : undefined
+
                             Layout.maximumWidth: parent.width
                         }
                     }
@@ -193,6 +195,8 @@ Item {
                     DelegateChoice {
                         roleValue: "file"
                         delegate: FileDelegate {
+                            anchors.right: sentByMe ? parent.right : undefined
+
                             Layout.maximumWidth: parent.width
                         }
                     }

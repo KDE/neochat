@@ -15,7 +15,7 @@ import Spectral.Effect 2.0
 import Spectral.Font 0.1
 
 ColumnLayout {
-    readonly property bool avatarVisible: !sentByMe && (aboveAuthor !== author || aboveSection !== section || aboveEventType === "state" || aboveEventType === "emote" || aboveEventType === "other")
+    readonly property bool avatarVisible: !sentByMe && showAuthor
     readonly property bool sentByMe: author === currentRoom.localUser
 
     property bool openOnFinished: false
@@ -44,8 +44,6 @@ ColumnLayout {
     }
 
     RowLayout {
-        Layout.alignment: sentByMe ? Qt.AlignRight : Qt.AlignLeft
-
         z: -5
 
         id: messageRow
@@ -119,17 +117,6 @@ ColumnLayout {
                     height: img.height
                     radius: 24
                 }
-            }
-
-            Rectangle {
-                anchors.fill: parent
-
-                color: "transparent"
-                radius: 24
-                antialiasing: true
-
-                border.width: 4
-                border.color: MPalette.background
             }
 
             Rectangle {

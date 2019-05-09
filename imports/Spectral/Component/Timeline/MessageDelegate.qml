@@ -12,7 +12,7 @@ import Spectral.Menu.Timeline 2.0
 import Spectral.Effect 2.0
 
 RowLayout {
-    readonly property bool avatarVisible: !sentByMe && (aboveAuthor !== author || aboveSection !== section || aboveEventType === "state" || aboveEventType === "emote" || aboveEventType === "other")
+    readonly property bool avatarVisible: !sentByMe && showAuthor
     readonly property bool sentByMe: author === currentRoom.localUser
     readonly property bool darkBackground: !sentByMe
     readonly property bool replyVisible: replyEventId || false
@@ -67,6 +67,58 @@ RowLayout {
             color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
             radius: 18
             antialiasing: true
+
+            Rectangle {
+                anchors.top: parent.top
+                anchors.left: parent.left
+
+                width: parent.width / 2
+                height: parent.height / 2
+
+                visible: !sentByMe && (bubbleShape == 3 || bubbleShape == 2)
+
+                color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
+                radius: 2
+            }
+
+            Rectangle {
+                anchors.top: parent.top
+                anchors.right: parent.right
+
+                width: parent.width / 2
+                height: parent.height / 2
+
+                visible: sentByMe && (bubbleShape == 3 || bubbleShape == 2)
+
+                color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
+                radius: 2
+            }
+
+            Rectangle {
+                anchors.bottom: parent.bottom
+                anchors.left: parent.left
+
+                width: parent.width / 2
+                height: parent.height / 2
+
+                visible: !sentByMe && (bubbleShape == 1 || bubbleShape == 2)
+
+                color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
+                radius: 2
+            }
+
+            Rectangle {
+                anchors.bottom: parent.bottom
+                anchors.right: parent.right
+
+                width: parent.width / 2
+                height: parent.height / 2
+
+                visible: sentByMe && (bubbleShape == 1 || bubbleShape == 2)
+
+                color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
+                radius: 2
+            }
 
             AutoMouseArea {
                 anchors.fill: parent

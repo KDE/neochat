@@ -18,14 +18,10 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const {
   QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
   roles[EventTypeRole] = "eventType";
   roles[MessageRole] = "message";
-  roles[AboveEventTypeRole] = "aboveEventType";
   roles[EventIdRole] = "eventId";
   roles[TimeRole] = "time";
-  roles[AboveTimeRole] = "aboveTime";
   roles[SectionRole] = "section";
-  roles[AboveSectionRole] = "aboveSection";
   roles[AuthorRole] = "author";
-  roles[AboveAuthorRole] = "aboveAuthor";
   roles[ContentRole] = "content";
   roles[ContentTypeRole] = "contentType";
   roles[HighlightRole] = "highlight";
@@ -38,6 +34,9 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const {
   roles[ReplyAuthorRole] = "replyAuthor";
   roles[ReplyDisplayRole] = "replyDisplay";
   roles[UserMarkerRole] = "userMarker";
+  roles[ShowTimestampRole] = "showTimestamp";
+  roles[ShowAuthorRole] = "showAuthor";
+  roles[BubbleShapeRole] = "bubbleShape";
   return roles;
 }
 
@@ -84,9 +83,9 @@ void MessageEventModel::setRoom(SpectralRoom* room) {
               if (biggest < m_currentRoom->maxTimelineIndex()) {
                 auto rowBelowInserted = m_currentRoom->maxTimelineIndex() -
                                         biggest + timelineBaseIndex() - 1;
-                refreshEventRoles(rowBelowInserted,
-                                  {AboveEventTypeRole, AboveAuthorRole,
-                                   AboveSectionRole, AboveTimeRole});
+                refreshEventRoles(
+                    rowBelowInserted,
+                    {ShowTimestampRole, ShowAuthorRole, BubbleShapeRole});
               }
               for (auto i = m_currentRoom->maxTimelineIndex() - biggest;
                    i <= m_currentRoom->maxTimelineIndex() - lowest; ++i)
@@ -117,8 +116,7 @@ void MessageEventModel::setRoom(SpectralRoom* room) {
         refreshEventRoles(timelineBaseIndex() + 1, {ReadMarkerRole});
       if (timelineBaseIndex() > 0)  // Refresh below, see #312
         refreshEventRoles(timelineBaseIndex() - 1,
-                          {AboveEventTypeRole, AboveAuthorRole,
-                           AboveSectionRole, AboveTimeRole});
+                          {ShowTimestampRole, ShowAuthorRole, BubbleShapeRole});
     });
     connect(m_currentRoom, &Room::pendingEventChanged, this,
             &MessageEventModel::refreshRow);
@@ -417,22 +415,49 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
     return {};
   }
 
-  if (role == AboveEventTypeRole || role == AboveSectionRole ||
-      role == AboveAuthorRole || role == AboveTimeRole)
+  if (role == ShowTimestampRole || role == ShowAuthorRole)
     for (auto r = row + 1; r < rowCount(); ++r) {
       auto i = index(r);
-      if (data(i, SpecialMarksRole) != EventStatus::Hidden)
+      if (data(i, SpecialMarksRole) != EventStatus::Hidden) {
         switch (role) {
-          case AboveEventTypeRole:
-            return data(i, EventTypeRole);
-          case AboveSectionRole:
-            return data(i, SectionRole);
-          case AboveAuthorRole:
-            return data(i, AuthorRole);
-          case AboveTimeRole:
-            return data(i, TimeRole);
+          case ShowTimestampRole:
+            return data(i, TimeRole)
+                       .toDateTime()
+                       .msecsTo(data(idx, TimeRole).toDateTime()) > 600000;
+          case ShowAuthorRole:
+            return data(i, AuthorRole) != data(idx, AuthorRole);
         }
+      }
     }
+
+  if (role == BubbleShapeRole) {  // TODO: Convoluted logic.
+    int belowRow = -1;            // Invalid
+
+    for (auto r = row - 1; r >= 0; --r) {
+      auto i = index(r);
+      if (data(i, SpecialMarksRole) != EventStatus::Hidden) {
+        belowRow = r;
+        break;
+      }
+    }
+
+    bool aboveShow, belowShow;
+    aboveShow = data(idx, ShowAuthorRole).toBool() ||
+                data(idx, ShowTimestampRole).toBool();
+    if (belowRow == -1)
+      belowShow = true;
+    else
+      belowShow = data(index(belowRow), ShowAuthorRole).toBool() ||
+                  data(index(belowRow), ShowTimestampRole).toBool();
+
+    if (aboveShow && belowShow)
+      return BubbleShapes::NoShape;
+    if (aboveShow && !belowShow)
+      return BubbleShapes::BeginShape;
+    if (belowShow)
+      return BubbleShapes::EndShape;
+    return BubbleShapes::MiddleShape;
+  }
 
   return {};
 }
