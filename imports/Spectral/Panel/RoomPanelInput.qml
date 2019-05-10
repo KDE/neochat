@@ -31,7 +31,7 @@ Control {
 
         layer.enabled: true
         layer.effect: ElevationEffect {
-            elevation: 2
+            elevation: 1
         }
     }
 

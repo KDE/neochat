@@ -415,40 +415,51 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
     return {};
   }
 
-  if (role == ShowTimestampRole || role == ShowAuthorRole)
-    for (auto r = row + 1; r < rowCount(); ++r) {
-      auto i = index(r);
-      if (data(i, SpecialMarksRole) != EventStatus::Hidden) {
-        switch (role) {
-          case ShowTimestampRole:
-            return data(i, TimeRole)
-                       .toDateTime()
-                       .msecsTo(data(idx, TimeRole).toDateTime()) > 600000;
-          case ShowAuthorRole:
-            return data(i, AuthorRole) != data(idx, AuthorRole);
-        }
-      }
-    }
-
-  if (role == BubbleShapeRole) {  // TODO: Convoluted logic.
-    int belowRow = -1;            // Invalid
-
+  if (role == ShowTimestampRole) {
     for (auto r = row - 1; r >= 0; --r) {
       auto i = index(r);
       if (data(i, SpecialMarksRole) != EventStatus::Hidden) {
-        belowRow = r;
+        return data(idx, TimeRole)
+                   .toDateTime()
+                   .msecsTo(data(i, TimeRole).toDateTime()) > 600000;
+      }
+    }
+
+    return true;
+  }
+
+  if (role == ShowAuthorRole) {
+    for (auto r = row - 1; r >= 0; --r) {
+      auto i = index(r);
+      if (data(i, SpecialMarksRole) != EventStatus::Hidden) {
+        return data(i, AuthorRole) != data(idx, AuthorRole) ||
+               data(i, EventTypeRole) != data(idx, EventTypeRole);
+      }
+    }
+
+    return true;
+  }
+
+  if (role == BubbleShapeRole) {  // TODO: Convoluted logic.
+    int aboveRow = -1;            // Invalid
+
+    for (auto r = row + 1; r < rowCount(); ++r) {
+      auto i = index(r);
+      if (data(i, SpecialMarksRole) != EventStatus::Hidden) {
+        aboveRow = r;
         break;
       }
     }
 
     bool aboveShow, belowShow;
-    aboveShow = data(idx, ShowAuthorRole).toBool() ||
+    if (aboveRow == -1) {
+      aboveShow = true;
+    } else {
+      aboveShow = data(index(aboveRow), ShowAuthorRole).toBool() ||
+                  data(index(aboveRow), ShowTimestampRole).toBool();
+    }
+    belowShow = data(idx, ShowAuthorRole).toBool() ||
                 data(idx, ShowTimestampRole).toBool();
-    if (belowRow == -1)
-      belowShow = true;
-    else
-      belowShow = data(index(belowRow), ShowAuthorRole).toBool() ||
-                  data(index(belowRow), ShowTimestampRole).toBool();
 
     if (aboveShow && belowShow)
       return BubbleShapes::NoShape;

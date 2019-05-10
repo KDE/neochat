@@ -45,7 +45,9 @@ Item {
             color: "white"
             text: hint[0].toUpperCase()
             font.pixelSize: root.width / 2
-            font.bold: true
+            font.weight: Font.Light
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
         }
     }
 

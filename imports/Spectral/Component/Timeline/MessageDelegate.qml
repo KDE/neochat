@@ -11,7 +11,7 @@ import Spectral.Dialog 2.0
 import Spectral.Menu.Timeline 2.0
 import Spectral.Effect 2.0
 
-RowLayout {
+ColumnLayout {
     readonly property bool avatarVisible: !sentByMe && showAuthor
     readonly property bool sentByMe: author === currentRoom.localUser
     readonly property bool darkBackground: !sentByMe
@@ -24,229 +24,258 @@ RowLayout {
 
     z: -5
 
-    spacing: 4
+    spacing: 0
 
-    Avatar {
-        Layout.preferredWidth: 32
-        Layout.preferredHeight: 32
-        Layout.alignment: Qt.AlignTop
+    RowLayout {
+        id: messageRow
 
-        visible: avatarVisible
-        hint: author.displayName
-        source: author.avatarMediaId
+        spacing: 4
 
-        Component {
-            id: userDetailDialog
+        Avatar {
+            Layout.preferredWidth: 32
+            Layout.preferredHeight: 32
+            Layout.alignment: Qt.AlignTop
 
-            UserDetailDialog {}
-        }
+            visible: avatarVisible
+            hint: author.displayName
+            source: author.avatarMediaId
 
-        RippleEffect {
-            anchors.fill: parent
+            Component {
+                id: userDetailDialog
 
-            circular: true
-
-            onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": author}).open()
-        }
-    }
-
-    Item {
-        Layout.preferredWidth: 32
-        Layout.preferredHeight: 32
-
-        visible: !(sentByMe || avatarVisible)
-    }
-
-    Control {
-        Layout.maximumWidth: messageListView.width - (!sentByMe ? 32 + root.spacing : 0) - 48
-
-        verticalPadding: 8
-        horizontalPadding: 16
-
-        background: Rectangle {
-            color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
-            radius: 18
-            antialiasing: true
-
-            Rectangle {
-                anchors.top: parent.top
-                anchors.left: parent.left
-
-                width: parent.width / 2
-                height: parent.height / 2
-
-                visible: !sentByMe && (bubbleShape == 3 || bubbleShape == 2)
-
-                color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
-                radius: 2
+                UserDetailDialog {}
             }
 
-            Rectangle {
-                anchors.top: parent.top
-                anchors.right: parent.right
-
-                width: parent.width / 2
-                height: parent.height / 2
-
-                visible: sentByMe && (bubbleShape == 3 || bubbleShape == 2)
-
-                color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
-                radius: 2
-            }
-
-            Rectangle {
-                anchors.bottom: parent.bottom
-                anchors.left: parent.left
-
-                width: parent.width / 2
-                height: parent.height / 2
-
-                visible: !sentByMe && (bubbleShape == 1 || bubbleShape == 2)
-
-                color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
-                radius: 2
-            }
-
-            Rectangle {
-                anchors.bottom: parent.bottom
-                anchors.right: parent.right
-
-                width: parent.width / 2
-                height: parent.height / 2
-
-                visible: sentByMe && (bubbleShape == 1 || bubbleShape == 2)
-
-                color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
-                radius: 2
-            }
-
-            AutoMouseArea {
+            RippleEffect {
                 anchors.fill: parent
 
-                id: messageMouseArea
+                circular: true
 
-                onSecondaryClicked: {
-                    var contextMenu = messageDelegateContextMenu.createObject(ApplicationWindow.overlay)
-                    contextMenu.viewSource.connect(function() {
-                        messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
-                    })
-                    contextMenu.reply.connect(function() {
-                        roomPanelInput.replyUser = author
-                        roomPanelInput.replyEventID = eventId
-                        roomPanelInput.replyContent = contentLabel.selectedText || message
-                        roomPanelInput.isReply = true
-                        roomPanelInput.focus()
-                    })
-                    contextMenu.redact.connect(function() {
-                        currentRoom.redactEvent(eventId)
-                    })
-                    contextMenu.popup()
-                }
-
-
-                Component {
-                    id: messageDelegateContextMenu
-
-                    MessageDelegateContextMenu {}
-                }
-
-                Component {
-                    id: messageSourceDialog
-
-                    MessageSourceDialog {}
-                }
+                onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": author}).open()
             }
         }
 
-        contentItem: ColumnLayout {
-            RowLayout {
-                Layout.fillWidth: true
+        Item {
+            Layout.preferredWidth: 32
+            Layout.preferredHeight: 32
 
-                visible: replyVisible
+            visible: !(sentByMe || avatarVisible)
+        }
 
-                Avatar {
-                    Layout.preferredWidth: 28
-                    Layout.preferredHeight: 28
-                    Layout.alignment: Qt.AlignTop
+        Control {
+            Layout.maximumWidth: messageListView.width - (!sentByMe ? 32 + messageRow.spacing : 0) - 48
 
-                    source: replyVisible ? replyAuthor.avatarMediaId : ""
-                    hint: replyVisible ? replyAuthor.displayName : "H"
+            verticalPadding: 8
+            horizontalPadding: 16
 
-                    RippleEffect {
-                        anchors.fill: parent
+            background: Rectangle {
+                color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
+                radius: 18
+                antialiasing: true
 
-                        circular: true
+                Rectangle {
+                    anchors.top: parent.top
+                    anchors.left: parent.left
 
-                        onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": replyAuthor}).open()
-                    }
+                    width: parent.width / 2
+                    height: parent.height / 2
+
+                    visible: !sentByMe && (bubbleShape == 3 || bubbleShape == 2)
+
+                    color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
+                    radius: 2
                 }
 
-                Control {
+                Rectangle {
+                    anchors.top: parent.top
+                    anchors.right: parent.right
+
+                    width: parent.width / 2
+                    height: parent.height / 2
+
+                    visible: sentByMe && (bubbleShape == 3 || bubbleShape == 2)
+
+                    color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
+                    radius: 2
+                }
+
+                Rectangle {
+                    anchors.bottom: parent.bottom
+                    anchors.left: parent.left
+
+                    width: parent.width / 2
+                    height: parent.height / 2
+
+                    visible: !sentByMe && (bubbleShape == 1 || bubbleShape == 2)
+
+                    color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
+                    radius: 2
+                }
+
+                Rectangle {
+                    anchors.bottom: parent.bottom
+                    anchors.right: parent.right
+
+                    width: parent.width / 2
+                    height: parent.height / 2
+
+                    visible: sentByMe && (bubbleShape == 1 || bubbleShape == 2)
+
+                    color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
+                    radius: 2
+                }
+
+                AutoMouseArea {
+                    anchors.fill: parent
+
+                    id: messageMouseArea
+
+                    onSecondaryClicked: {
+                        var contextMenu = messageDelegateContextMenu.createObject(ApplicationWindow.overlay)
+                        contextMenu.viewSource.connect(function() {
+                            messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
+                        })
+                        contextMenu.reply.connect(function() {
+                            roomPanelInput.replyUser = author
+                            roomPanelInput.replyEventID = eventId
+                            roomPanelInput.replyContent = contentLabel.selectedText || message
+                            roomPanelInput.isReply = true
+                            roomPanelInput.focus()
+                        })
+                        contextMenu.redact.connect(function() {
+                            currentRoom.redactEvent(eventId)
+                        })
+                        contextMenu.popup()
+                    }
+
+
+                    Component {
+                        id: messageDelegateContextMenu
+
+                        MessageDelegateContextMenu {}
+                    }
+
+                    Component {
+                        id: messageSourceDialog
+
+                        MessageSourceDialog {}
+                    }
+                }
+            }
+
+            contentItem: ColumnLayout {
+                RowLayout {
                     Layout.fillWidth: true
 
-                    padding: 0
+                    visible: replyVisible
 
-                    background: RippleEffect {
-                        onClicked: goToEvent(replyEventId)
+                    Avatar {
+                        Layout.preferredWidth: 28
+                        Layout.preferredHeight: 28
+                        Layout.alignment: Qt.AlignTop
+
+                        source: replyVisible ? replyAuthor.avatarMediaId : ""
+                        hint: replyVisible ? replyAuthor.displayName : "H"
+
+                        RippleEffect {
+                            anchors.fill: parent
+
+                            circular: true
+
+                            onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": replyAuthor}).open()
+                        }
                     }
 
-                    contentItem: Label {
+                    Control {
                         Layout.fillWidth: true
 
-                        visible: replyVisible
-                        color: darkBackground ? "white" : MPalette.lighter
-                        text: "<style>a{color: " + (darkBackground ? "white" : MPalette.foreground) + ";} .user-pill{}</style>" + (replyDisplay || "")
+                        padding: 0
 
-                        wrapMode: Label.Wrap
-                        textFormat: Label.RichText
-                    }
-                }
-            }
+                        background: RippleEffect {
+                            onClicked: goToEvent(replyEventId)
+                        }
 
-            Rectangle {
-                Layout.fillWidth: true
-                Layout.preferredHeight: 1
+                        contentItem: Label {
+                            Layout.fillWidth: true
 
-                visible: replyVisible
-                color: darkBackground ? "white" : MPalette.lighter
-            }
+                            visible: replyVisible
+                            color: darkBackground ? "white" : MPalette.lighter
+                            text: "<style>a{color: " + (darkBackground ? "white" : MPalette.foreground) + ";} .user-pill{}</style>" + (replyDisplay || "")
 
-            TextEdit {
-                Layout.fillWidth: true
-
-                id: contentLabel
-
-                text: "<style>a{color: " + (darkBackground ? "white" : MPalette.foreground) + ";} .user-pill{}</style>" + display
-
-                color: darkBackground ? "white" : MPalette.foreground
-
-                font.family: window.font.family
-                font.pixelSize: 14
-                selectByMouse: true
-                readOnly: true
-                wrapMode: Label.Wrap
-                selectedTextColor: darkBackground ? MPalette.accent : "white"
-                selectionColor: darkBackground ? "white" : MPalette.accent
-                textFormat: Text.RichText
-
-                onLinkActivated: {
-                    if (link.startsWith("https://matrix.to/")) {
-                        var result = link.replace(/\?.*/, "").match("https://matrix.to/#/(!.*:.*)/(\\$.*:.*)")
-                        if (!result || result.length < 3) return
-                        if (result[1] != currentRoom.id) return
-                        if (!result[2]) return
-                        goToEvent(result[2])
-                    } else {
-                        Qt.openUrlExternally(link)
+                            wrapMode: Label.Wrap
+                            textFormat: Label.RichText
+                        }
                     }
                 }
 
-                MouseArea {
-                    anchors.fill: parent
-                    acceptedButtons: Qt.NoButton
-                    cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
+                Rectangle {
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 1
+
+                    visible: replyVisible
+                    color: darkBackground ? "white" : MPalette.lighter
+                }
+
+                TextEdit {
+                    Layout.fillWidth: true
+
+                    id: contentLabel
+
+                    text: "<style>a{color: " + (darkBackground ? "white" : MPalette.foreground) + ";} .user-pill{}</style>" + display
+
+                    color: darkBackground ? "white" : MPalette.foreground
+
+                    font.family: window.font.family
+                    font.pixelSize: 14
+                    selectByMouse: true
+                    readOnly: true
+                    wrapMode: Label.Wrap
+                    selectedTextColor: darkBackground ? MPalette.accent : "white"
+                    selectionColor: darkBackground ? "white" : MPalette.accent
+                    textFormat: Text.RichText
+
+                    onLinkActivated: {
+                        if (link.startsWith("https://matrix.to/")) {
+                            var result = link.replace(/\?.*/, "").match("https://matrix.to/#/(!.*:.*)/(\\$.*:.*)")
+                            if (!result || result.length < 3) return
+                            if (result[1] != currentRoom.id) return
+                            if (!result[2]) return
+                            goToEvent(result[2])
+                        } else {
+                            Qt.openUrlExternally(link)
+                        }
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        acceptedButtons: Qt.NoButton
+                        cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
+                    }
                 }
             }
+        }
+    }
+
+    RowLayout {
+        Layout.alignment: sentByMe ? Qt.AlignRight : Qt.AlignLeft
+        Layout.leftMargin: sentByMe ? undefined : 32 + messageRow.spacing + 12
+        Layout.rightMargin: sentByMe ? 12 : undefined
+        Layout.bottomMargin: 4
+
+        visible: showTimestamp || (showAuthor && !sentByMe)
+
+        Label {
+            visible: showTimestamp
+
+            text: Qt.formatDateTime(time, "hh:mm")
+            color: MPalette.lighter
+        }
+
+        Label {
+            visible: showAuthor && !sentByMe
+
+            text: author.displayName
+            color: MPalette.lighter
         }
     }
 }
