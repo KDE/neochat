@@ -144,8 +144,10 @@ class SpectralRoom : public Room {
                   text += " and ";
                 if (e.avatarUrl().isEmpty())
                   text += tr("cleared the avatar");
+                else if (e.prevContent()->avatarUrl.isEmpty())
+                  text += tr("set an avatar");
                 else
-                  text += tr("updated the avatar");
+                  text += tr("updated their avatar");
               }
               return text;
             }
