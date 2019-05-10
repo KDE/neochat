@@ -46,8 +46,10 @@ void RoomListModel::setConnection(Connection* connection) {
   connect(connection, &Connection::directChatsListChanged, this,
           [=](Connection::DirectChatsMap additions,
               Connection::DirectChatsMap removals) {
-            for (QString roomID : additions.values() + removals.values())
-              refresh(static_cast<SpectralRoom*>(connection->room(roomID)));
+            for (QString roomID : additions.values() + removals.values()) {
+              auto room = connection->room(roomID);
+              if (room) refresh(static_cast<SpectralRoom*>(room));
+            }
           });
 
   doResetModel();
