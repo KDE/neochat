@@ -31,7 +31,6 @@ class MessageEventModel : public QAbstractListModel {
     ReplyAuthorRole,
     ReplyDisplayRole,
 
-    ShowTimestampRole,
     ShowAuthorRole,
     BubbleShapeRole,
     // For debugging

@@ -193,6 +193,15 @@ Item {
                     }
 
                     DelegateChoice {
+                        roleValue: "sticker"
+                        delegate: ImageDelegate {
+                            anchors.right: sentByMe ? parent.right : undefined
+
+                            Layout.maximumWidth: parent.width
+                        }
+                    }
+
+                    DelegateChoice {
                         roleValue: "file"
                         delegate: FileDelegate {
                             anchors.right: sentByMe ? parent.right : undefined

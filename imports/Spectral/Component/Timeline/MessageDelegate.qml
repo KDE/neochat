@@ -262,17 +262,15 @@ ColumnLayout {
         Layout.rightMargin: sentByMe ? 12 : undefined
         Layout.bottomMargin: 4
 
-        visible: showTimestamp || (showAuthor && !sentByMe)
+        visible: showAuthor
 
         Label {
-            visible: showTimestamp
-
             text: Qt.formatDateTime(time, "hh:mm")
             color: MPalette.lighter
         }
 
         Label {
-            visible: showAuthor && !sentByMe
+            visible: !sentByMe
 
             text: author.displayName
             color: MPalette.lighter
