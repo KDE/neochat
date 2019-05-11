@@ -76,7 +76,7 @@ ColumnLayout {
 
             visible: !(sentByMe || avatarVisible)
 
-            text: Qt.formatDateTime(time, "hh:mm")
+            text: Qt.formatTime(time, "hh:mm AP")
             color: "#5B7480"
 
             font.pixelSize: 10
@@ -118,6 +118,58 @@ ColumnLayout {
             background: Rectangle {
                 color: MPalette.background
                 radius: 18
+
+                Rectangle {
+                    anchors.top: parent.top
+                    anchors.left: parent.left
+
+                    width: parent.width / 2
+                    height: parent.height / 2
+
+                    visible: !sentByMe && (bubbleShape == 3 || bubbleShape == 2)
+
+                    color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
+                    radius: 2
+                }
+
+                Rectangle {
+                    anchors.top: parent.top
+                    anchors.right: parent.right
+
+                    width: parent.width / 2
+                    height: parent.height / 2
+
+                    visible: sentByMe && (bubbleShape == 3 || bubbleShape == 2)
+
+                    color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
+                    radius: 2
+                }
+
+                Rectangle {
+                    anchors.bottom: parent.bottom
+                    anchors.left: parent.left
+
+                    width: parent.width / 2
+                    height: parent.height / 2
+
+                    visible: !sentByMe && (bubbleShape == 1 || bubbleShape == 2)
+
+                    color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
+                    radius: 2
+                }
+
+                Rectangle {
+                    anchors.bottom: parent.bottom
+                    anchors.right: parent.right
+
+                    width: parent.width / 2
+                    height: parent.height / 2
+
+                    visible: sentByMe && (bubbleShape == 1 || bubbleShape == 2)
+
+                    color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
+                    radius: 2
+                }
 
                 AutoMouseArea {
                     anchors.fill: parent

@@ -35,6 +35,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const {
   roles[ReplyDisplayRole] = "replyDisplay";
   roles[UserMarkerRole] = "userMarker";
   roles[ShowAuthorRole] = "showAuthor";
+  roles[ShowSectionRole] = "showSection";
   roles[BubbleShapeRole] = "bubbleShape";
   return roles;
 }
@@ -289,7 +290,8 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
         case MessageEventType::Audio:
           return "audio";
       }
-      if (e->hasFileContent()) return "file";
+      if (e->hasFileContent())
+        return "file";
 
       return "message";
     }
@@ -423,6 +425,19 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
                data(idx, TimeRole)
                        .toDateTime()
                        .msecsTo(data(i, TimeRole).toDateTime()) > 600000;
+      }
+    }
+
+    return true;
+  }
+
+  if (role == ShowSectionRole) {
+    for (auto r = row + 1; r < rowCount(); ++r) {
+      auto i = index(r);
+      if (data(i, SpecialMarksRole) != EventStatus::Hidden) {
+        return data(i, TimeRole)
+                   .toDateTime()
+                   .msecsTo(data(idx, TimeRole).toDateTime()) > 600000;
       }
     }
 

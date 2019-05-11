@@ -37,7 +37,7 @@ RowLayout {
     Avatar {
         Layout.preferredWidth: 32
         Layout.preferredHeight: 32
-        Layout.alignment: Qt.AlignTop
+        Layout.alignment: Qt.AlignBottom
 
         visible: avatarVisible
         hint: author.displayName
@@ -61,16 +61,8 @@ RowLayout {
     Label {
         Layout.preferredWidth: 32
         Layout.preferredHeight: 32
-        Layout.alignment: Qt.AlignTop
 
         visible: !(sentByMe || avatarVisible)
-
-        text: Qt.formatDateTime(time, "hh:mm")
-        color: "#5B7480"
-
-        font.pixelSize: 10
-        horizontalAlignment: Label.AlignHCenter
-        verticalAlignment: Label.AlignVCenter
     }
 
     BusyIndicator {
@@ -114,7 +106,7 @@ RowLayout {
 
             contentItem: RowLayout {
                 Label {
-                    text: Qt.formatDateTime(time, "hh:mm")
+                    text: Qt.formatTime(time, "hh:mm AP")
                     color: "white"
                     font.pixelSize: 12
                 }

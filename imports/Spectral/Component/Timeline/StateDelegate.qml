@@ -3,26 +3,33 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Controls.Material 2.12
 
+import Spectral.Component 2.0
 import Spectral.Setting 0.1
 
-Label {
-    text: "<b>" + author.displayName + "</b> " + display
-    color: MPalette.foreground
-    font.pixelSize: 13
-    font.weight: Font.Medium
+Control {
+    padding: 8
 
-    topPadding: 8
-    bottomPadding: 8
-    leftPadding: 24
-    rightPadding: 24
+    contentItem: RowLayout {
+        Avatar {
+            Layout.preferredWidth: 24
+            Layout.preferredHeight: 24
 
-    wrapMode: Label.Wrap
-    textFormat: MSettings.richText ? Text.RichText : Text.StyledText
-    onLinkActivated: Qt.openUrlExternally(link)
+            hint: author.displayName
+            source: author.avatarMediaId
+        }
 
-    background: Rectangle {
-        color: MPalette.background
-        radius: 4
-        antialiasing: true
+        Label {
+            Layout.fillWidth: true
+            Layout.maximumWidth: messageListView.width - 48
+
+            text: "<b>" + author.displayName + "</b> " + display + " • " + Qt.formatTime(time, "hh:mm AP")
+            color: MPalette.foreground
+            font.pixelSize: 13
+            font.weight: Font.Medium
+            textFormat: Label.StyledText
+
+            wrapMode: Label.Wrap
+            onLinkActivated: Qt.openUrlExternally(link)
+        }
     }
 }

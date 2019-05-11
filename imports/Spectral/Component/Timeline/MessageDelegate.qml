@@ -27,6 +27,8 @@ ColumnLayout {
     spacing: 0
 
     RowLayout {
+        Layout.alignment: sentByMe ? Qt.AlignRight : Qt.AlignLeft
+
         id: messageRow
 
         spacing: 4
@@ -34,7 +36,7 @@ ColumnLayout {
         Avatar {
             Layout.preferredWidth: 32
             Layout.preferredHeight: 32
-            Layout.alignment: Qt.AlignTop
+            Layout.alignment: Qt.AlignBottom
 
             visible: avatarVisible
             hint: author.displayName
@@ -189,6 +191,8 @@ ColumnLayout {
                     Control {
                         Layout.fillWidth: true
 
+                        visible: replyVisible
+
                         padding: 0
 
                         background: RippleEffect {
@@ -196,9 +200,6 @@ ColumnLayout {
                         }
 
                         contentItem: Label {
-                            Layout.fillWidth: true
-
-                            visible: replyVisible
                             color: darkBackground ? "white" : MPalette.lighter
                             text: "<style>a{color: " + (darkBackground ? "white" : MPalette.foreground) + ";} .user-pill{}</style>" + (replyDisplay || "")
 
@@ -265,14 +266,14 @@ ColumnLayout {
         visible: showAuthor
 
         Label {
-            text: Qt.formatDateTime(time, "hh:mm")
+            visible: !sentByMe
+
+            text: author.displayName
             color: MPalette.lighter
         }
 
         Label {
-            visible: !sentByMe
-
-            text: author.displayName
+            text: Qt.formatTime(time, "hh:mm AP")
             color: MPalette.lighter
         }
     }

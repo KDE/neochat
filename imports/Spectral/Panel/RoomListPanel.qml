@@ -201,6 +201,8 @@ Item {
             background: Rectangle {
                 color: Material.background
 
+                opacity: listView.atYBeginning ? 0 : 1
+
                 layer.enabled: true
                 layer.effect: ElevationEffect {
                     elevation: 2

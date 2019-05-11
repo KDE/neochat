@@ -18,7 +18,6 @@ Item {
         sourceSize.width: width
         sourceSize.height: width
         fillMode: Image.PreserveAspectCrop
-        mipmap: true
         layer.enabled: true
         layer.effect: OpacityMask {
             maskSource: Rectangle {

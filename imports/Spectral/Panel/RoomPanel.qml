@@ -155,8 +155,6 @@ Item {
                         roleValue: "state"
                         delegate: StateDelegate {
                             anchors.horizontalCenter: parent.horizontalCenter
-
-                            width: Math.min(implicitWidth, parent.width)
                         }
                     }
 
@@ -164,49 +162,78 @@ Item {
                         roleValue: "emote"
                         delegate: StateDelegate {
                             anchors.horizontalCenter: parent.horizontalCenter
-
-                            width: Math.min(implicitWidth, parent.width)
                         }
                     }
 
                     DelegateChoice {
                         roleValue: "message"
-                        delegate: MessageDelegate {
-                            anchors.right: sentByMe ? parent.right : undefined
+                        delegate: ColumnLayout {
+                            width: messageListView.width
+
+                            SectionDelegate {
+                                Layout.alignment: Qt.AlignHCenter
+                                Layout.maximumWidth: parent.width
+
+                                visible: showSection
+                            }
+
+                            MessageDelegate {
+                                Layout.alignment: sentByMe ? Qt.AlignRight : Qt.AlignLeft
+                            }
                         }
                     }
 
                     DelegateChoice {
                         roleValue: "notice"
-                        delegate: MessageDelegate {
-                            anchors.right: sentByMe ? parent.right : undefined
+                        delegate: ColumnLayout {
+                            width: messageListView.width
+
+                            SectionDelegate {
+                                Layout.alignment: Qt.AlignHCenter
+                                Layout.maximumWidth: parent.width
+
+                                visible: showSection
+                            }
+
+                            MessageDelegate {
+                                Layout.alignment: sentByMe ? Qt.AlignRight : Qt.AlignLeft
+                            }
                         }
                     }
 
                     DelegateChoice {
                         roleValue: "image"
-                        delegate: ImageDelegate {
-                            anchors.right: sentByMe ? parent.right : undefined
+                        delegate: ColumnLayout {
+                            width: messageListView.width
 
-                            Layout.maximumWidth: parent.width
-                        }
-                    }
+                            SectionDelegate {
+                                Layout.alignment: Qt.AlignHCenter
+                                Layout.maximumWidth: parent.width
 
-                    DelegateChoice {
-                        roleValue: "sticker"
-                        delegate: ImageDelegate {
-                            anchors.right: sentByMe ? parent.right : undefined
+                                visible: showSection
+                            }
 
-                            Layout.maximumWidth: parent.width
+                            ImageDelegate {
+                                Layout.alignment: sentByMe ? Qt.AlignRight : Qt.AlignLeft
+                            }
                         }
                     }
 
                     DelegateChoice {
                         roleValue: "file"
-                        delegate: FileDelegate {
-                            anchors.right: sentByMe ? parent.right : undefined
+                        delegate: ColumnLayout {
+                            width: messageListView.width
 
-                            Layout.maximumWidth: parent.width
+                            SectionDelegate {
+                                Layout.alignment: Qt.AlignHCenter
+                                Layout.maximumWidth: parent.width
+
+                                visible: showSection
+                            }
+
+                            FileDelegate {
+                                Layout.alignment: sentByMe ? Qt.AlignRight : Qt.AlignLeft
+                            }
                         }
                     }
 
