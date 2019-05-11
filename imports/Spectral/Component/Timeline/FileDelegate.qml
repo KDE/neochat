@@ -14,7 +14,7 @@ import Spectral.Menu.Timeline 2.0
 import Spectral.Font 0.1
 import Spectral.Effect 2.0
 
-ColumnLayout {
+RowLayout {
     readonly property bool avatarVisible: !sentByMe && showAuthor
     readonly property bool sentByMe: author === currentRoom.localUser
 
@@ -23,188 +23,175 @@ ColumnLayout {
 
     id: root
 
-    spacing: 0
+    spacing: 4
 
     onDownloadedChanged: if (downloaded && openOnFinished) openSavedFile()
 
-    Label {
-        Layout.leftMargin: 48
+    z: -5
 
-        text: author.displayName
+    Avatar {
+        Layout.preferredWidth: 36
+        Layout.preferredHeight: 36
+        Layout.alignment: Qt.AlignBottom
 
         visible: avatarVisible
+        hint: author.displayName
+        source: author.avatarMediaId
 
-        font.pixelSize: 13
-        verticalAlignment: Text.AlignVCenter
+        Component {
+            id: userDetailDialog
+
+            UserDetailDialog {}
+        }
+
+        RippleEffect {
+            anchors.fill: parent
+
+            circular: true
+
+            onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": author}).open()
+        }
     }
 
-    RowLayout {
-        z: -5
+    Label {
+        Layout.preferredWidth: 36
+        Layout.preferredHeight: 36
 
-        id: messageRow
+        visible: !(sentByMe || avatarVisible)
+    }
 
-        spacing: 4
+    Control {
+        Layout.maximumWidth: messageListView.width - (!sentByMe ? 36 + root.spacing : 0) - 48
 
-        Avatar {
-            Layout.preferredWidth: 36
-            Layout.preferredHeight: 36
-            Layout.alignment: Qt.AlignTop
+        padding: 12
 
-            visible: avatarVisible
-            hint: author.displayName
-            source: author.avatarMediaId
+        contentItem: RowLayout {
+            ToolButton {
+                contentItem: MaterialIcon {
+                    icon: progressInfo.completed ? "\ue5ca" : "\ue2c4"
+                }
 
-            Component {
-                id: userDetailDialog
-
-                UserDetailDialog {}
+                onClicked: progressInfo.completed ? openSavedFile() : saveFileAs()
             }
 
-            RippleEffect {
+            ColumnLayout {
+                Label {
+                    Layout.fillWidth: true
+
+                    text: display
+                    wrapMode: Label.Wrap
+                    font.pixelSize: 18
+                    font.weight: Font.Medium
+                    font.capitalization: Font.AllUppercase
+                }
+
+                Label {
+                    Layout.fillWidth: true
+
+                    text: progressInfo.active ? (humanSize(progressInfo.progress) + "/" + humanSize(progressInfo.total)) : humanSize(content.info ? content.info.size : 0)
+                    color: MPalette.lighter
+                    wrapMode: Label.Wrap
+                }
+            }
+        }
+
+        background: Rectangle {
+            color: MPalette.background
+            radius: 18
+
+            Rectangle {
+                anchors.top: parent.top
+                anchors.left: parent.left
+
+                width: parent.width / 2
+                height: parent.height / 2
+
+                visible: !sentByMe && (bubbleShape == 3 || bubbleShape == 2)
+
+                color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
+                radius: 2
+            }
+
+            Rectangle {
+                anchors.top: parent.top
+                anchors.right: parent.right
+
+                width: parent.width / 2
+                height: parent.height / 2
+
+                visible: sentByMe && (bubbleShape == 3 || bubbleShape == 2)
+
+                color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
+                radius: 2
+            }
+
+            Rectangle {
+                anchors.bottom: parent.bottom
+                anchors.left: parent.left
+
+                width: parent.width / 2
+                height: parent.height / 2
+
+                visible: !sentByMe && (bubbleShape == 1 || bubbleShape == 2)
+
+                color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
+                radius: 2
+            }
+
+            Rectangle {
+                anchors.bottom: parent.bottom
+                anchors.right: parent.right
+
+                width: parent.width / 2
+                height: parent.height / 2
+
+                visible: sentByMe && (bubbleShape == 1 || bubbleShape == 2)
+
+                color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
+                radius: 2
+            }
+
+            AutoMouseArea {
                 anchors.fill: parent
 
-                circular: true
+                id: messageMouseArea
 
-                onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": author}).open()
-            }
-        }
-
-        Label {
-            Layout.preferredWidth: 36
-            Layout.preferredHeight: 36
-
-            visible: !(sentByMe || avatarVisible)
-        }
-
-        Control {
-            Layout.maximumWidth: messageListView.width - (!sentByMe ? 36 + messageRow.spacing : 0) - 48
-
-            padding: 12
-
-            contentItem: RowLayout {
-                ToolButton {
-                    contentItem: MaterialIcon {
-                        icon: progressInfo.completed ? "\ue5ca" : "\ue2c4"
-                    }
-
-                    onClicked: progressInfo.completed ? openSavedFile() : saveFileAs()
+                onSecondaryClicked: {
+                    var contextMenu = fileDelegateContextMenu.createObject(ApplicationWindow.overlay)
+                    contextMenu.viewSource.connect(function() {
+                        messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
+                    })
+                    contextMenu.downloadAndOpen.connect(downloadAndOpen)
+                    contextMenu.saveFileAs.connect(saveFileAs)
+                    contextMenu.reply.connect(function() {
+                        roomPanelInput.replyUser = author
+                        roomPanelInput.replyEventID = eventId
+                        roomPanelInput.replyContent = message
+                        roomPanelInput.isReply = true
+                        roomPanelInput.focus()
+                    })
+                    contextMenu.redact.connect(function() {
+                        currentRoom.redactEvent(eventId)
+                    })
+                    contextMenu.popup()
                 }
 
-                ColumnLayout {
-                    Label {
-                        Layout.alignment: Qt.AlignVCenter
+                Component {
+                    id: messageSourceDialog
 
-                        text: display
-                        font.pixelSize: 18
-                        font.weight: Font.Medium
-                        font.capitalization: Font.AllUppercase
-                    }
-
-                    Label {
-                        text: progressInfo.active ? (humanSize(progressInfo.progress) + "/" + humanSize(progressInfo.total)) : humanSize(content.info ? content.info.size : 0)
-                        color: MPalette.lighter
-                    }
-                }
-            }
-
-            background: Rectangle {
-                color: MPalette.background
-                radius: 18
-
-                Rectangle {
-                    anchors.top: parent.top
-                    anchors.left: parent.left
-
-                    width: parent.width / 2
-                    height: parent.height / 2
-
-                    visible: !sentByMe && (bubbleShape == 3 || bubbleShape == 2)
-
-                    color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
-                    radius: 2
+                    MessageSourceDialog {}
                 }
 
-                Rectangle {
-                    anchors.top: parent.top
-                    anchors.right: parent.right
+                Component {
+                    id: openFolderDialog
 
-                    width: parent.width / 2
-                    height: parent.height / 2
-
-                    visible: sentByMe && (bubbleShape == 3 || bubbleShape == 2)
-
-                    color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
-                    radius: 2
+                    OpenFolderDialog {}
                 }
 
-                Rectangle {
-                    anchors.bottom: parent.bottom
-                    anchors.left: parent.left
+                Component {
+                    id: fileDelegateContextMenu
 
-                    width: parent.width / 2
-                    height: parent.height / 2
-
-                    visible: !sentByMe && (bubbleShape == 1 || bubbleShape == 2)
-
-                    color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
-                    radius: 2
-                }
-
-                Rectangle {
-                    anchors.bottom: parent.bottom
-                    anchors.right: parent.right
-
-                    width: parent.width / 2
-                    height: parent.height / 2
-
-                    visible: sentByMe && (bubbleShape == 1 || bubbleShape == 2)
-
-                    color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
-                    radius: 2
-                }
-
-                AutoMouseArea {
-                    anchors.fill: parent
-
-                    id: messageMouseArea
-
-                    onSecondaryClicked: {
-                        var contextMenu = fileDelegateContextMenu.createObject(ApplicationWindow.overlay)
-                        contextMenu.viewSource.connect(function() {
-                            messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
-                        })
-                        contextMenu.downloadAndOpen.connect(downloadAndOpen)
-                        contextMenu.saveFileAs.connect(saveFileAs)
-                        contextMenu.reply.connect(function() {
-                            roomPanelInput.replyUser = author
-                            roomPanelInput.replyEventID = eventId
-                            roomPanelInput.replyContent = message
-                            roomPanelInput.isReply = true
-                            roomPanelInput.focus()
-                        })
-                        contextMenu.redact.connect(function() {
-                            currentRoom.redactEvent(eventId)
-                        })
-                        contextMenu.popup()
-                    }
-
-                    Component {
-                        id: messageSourceDialog
-
-                        MessageSourceDialog {}
-                    }
-
-                    Component {
-                        id: openFolderDialog
-
-                        OpenFolderDialog {}
-                    }
-
-                    Component {
-                        id: fileDelegateContextMenu
-
-                        FileDelegateContextMenu {}
-                    }
+                    FileDelegateContextMenu {}
                 }
             }
         }
@@ -237,7 +224,6 @@ ColumnLayout {
         if (Qt.openUrlExternally(progressInfo.localPath)) return;
         if (Qt.openUrlExternally(progressInfo.localDir)) return;
     }
-
 
     function humanSize(bytes)
     {
