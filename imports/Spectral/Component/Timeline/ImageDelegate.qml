@@ -14,8 +14,8 @@ import Spectral.Menu.Timeline 2.0
 import Spectral.Effect 2.0
 import Spectral.Font 0.1
 
-ColumnLayout {
-    readonly property bool avatarVisible: !sentByMe && showAuthor
+RowLayout {
+    readonly property bool avatarVisible: showAuthor && !sentByMe
     readonly property bool sentByMe: author === currentRoom.localUser
 
     property bool openOnFinished: false
@@ -23,7 +23,9 @@ ColumnLayout {
 
     id: root
 
-    spacing: 0
+    spacing: 4
+
+    z: -5
 
     onDownloadedChanged: {
         if (downloaded && openOnFinished) {
@@ -32,161 +34,172 @@ ColumnLayout {
         }
     }
 
-    Label {
-        Layout.leftMargin: 48
-
-        text: author.displayName
+    Avatar {
+        Layout.preferredWidth: 32
+        Layout.preferredHeight: 32
+        Layout.alignment: Qt.AlignTop
 
         visible: avatarVisible
+        hint: author.displayName
+        source: author.avatarMediaId
 
-        font.pixelSize: 13
-        verticalAlignment: Text.AlignVCenter
+        Component {
+            id: userDetailDialog
+
+            UserDetailDialog {}
+        }
+
+        RippleEffect {
+            anchors.fill: parent
+
+            circular: true
+
+            onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": author}).open()
+        }
     }
 
-    RowLayout {
-        z: -5
+    Label {
+        Layout.preferredWidth: 32
+        Layout.preferredHeight: 32
+        Layout.alignment: Qt.AlignTop
 
-        id: messageRow
+        visible: !(sentByMe || avatarVisible)
 
-        spacing: 4
+        text: Qt.formatDateTime(time, "hh:mm")
+        color: "#5B7480"
 
-        Avatar {
-            Layout.preferredWidth: 32
-            Layout.preferredHeight: 32
-            Layout.alignment: Qt.AlignTop
+        font.pixelSize: 10
+        horizontalAlignment: Label.AlignHCenter
+        verticalAlignment: Label.AlignVCenter
+    }
 
-            visible: avatarVisible
-            hint: author.displayName
-            source: author.avatarMediaId
+    BusyIndicator {
+        Layout.preferredWidth: 64
+        Layout.preferredHeight: 64
+
+        visible: img.status == Image.Loading
+    }
+
+    Image {
+        Layout.maximumWidth: messageListView.width - (!sentByMe ? 32 + root.spacing : 0) - 48
+
+        id: img
+
+        source: "image://mxc/" +
+                (content.info && content.info.thumbnail_info ?
+                     content.thumbnailMediaId : content.mediaId)
+
+        sourceSize.width: 720
+        sourceSize.height: 720
+
+        fillMode: Image.PreserveAspectCrop
+
+        layer.enabled: true
+        layer.effect: OpacityMask {
+            maskSource: Rectangle {
+                width: img.width
+                height: img.height
+                radius: 18
+            }
+        }
+
+        Control {
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 8
+            anchors.right: parent.right
+            anchors.rightMargin: 8
+
+            horizontalPadding: 8
+            verticalPadding: 4
+
+            contentItem: RowLayout {
+                Label {
+                    text: Qt.formatDateTime(time, "hh:mm")
+                    color: "white"
+                    font.pixelSize: 12
+                }
+
+                Label {
+                    text: author.displayName
+                    color: "white"
+                    font.pixelSize: 12
+                }
+            }
+
+            background: Rectangle {
+                radius: height / 2
+                color: "black"
+                opacity: 0.3
+            }
+        }
+
+        Rectangle {
+            anchors.fill: parent
+
+            visible: progressInfo.active && !downloaded
+
+            color: "#BB000000"
+
+            ProgressBar {
+                anchors.centerIn: parent
+
+                width: parent.width * 0.8
+
+                from: 0
+                to: progressInfo.total
+                value: progressInfo.progress
+            }
+        }
+
+        RippleEffect {
+            anchors.fill: parent
+
+            id: messageMouseArea
+
+            onPrimaryClicked: fullScreenImage.createObject(parent, {"filename": eventId, "localPath": currentRoom.urlToDownload(eventId)}).show()
+
+            onSecondaryClicked: {
+                var contextMenu = imageDelegateContextMenu.createObject(ApplicationWindow.overlay)
+                contextMenu.viewSource.connect(function() {
+                    messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
+                })
+                contextMenu.downloadAndOpen.connect(downloadAndOpen)
+                contextMenu.saveFileAs.connect(saveFileAs)
+                contextMenu.reply.connect(function() {
+                    roomPanelInput.replyUser = author
+                    roomPanelInput.replyEventID = eventId
+                    roomPanelInput.replyContent = message
+                    roomPanelInput.isReply = true
+                    roomPanelInput.focus()
+                })
+                contextMenu.redact.connect(function() {
+                    currentRoom.redactEvent(eventId)
+                })
+                contextMenu.popup()
+            }
 
             Component {
-                id: userDetailDialog
+                id: messageSourceDialog
 
-                UserDetailDialog {}
+                MessageSourceDialog {}
             }
 
-            RippleEffect {
-                anchors.fill: parent
+            Component {
+                id: openFolderDialog
 
-                circular: true
-
-                onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": author}).open()
-            }
-        }
-
-        Label {
-            Layout.preferredWidth: 32
-            Layout.preferredHeight: 32
-            Layout.alignment: Qt.AlignTop
-
-            visible: !(sentByMe || avatarVisible)
-
-            text: Qt.formatDateTime(time, "hh:mm")
-            color: "#5B7480"
-
-            font.pixelSize: 10
-            horizontalAlignment: Label.AlignHCenter
-            verticalAlignment: Label.AlignVCenter
-        }
-
-        BusyIndicator {
-            Layout.preferredWidth: 64
-            Layout.preferredHeight: 64
-
-            visible: img.status == Image.Loading
-        }
-
-        Image {
-            Layout.maximumWidth: messageListView.width - (!sentByMe ? 32 + messageRow.spacing : 0) - 48
-
-            id: img
-
-            source: "image://mxc/" +
-                    (content.info && content.info.thumbnail_info ?
-                         content.thumbnailMediaId : content.mediaId)
-
-            sourceSize.width: 720
-            sourceSize.height: 720
-
-            fillMode: Image.PreserveAspectCrop
-
-            layer.enabled: true
-            layer.effect: OpacityMask {
-                maskSource: Rectangle {
-                    width: img.width
-                    height: img.height
-                    radius: 24
-                }
+                OpenFolderDialog {}
             }
 
-            Rectangle {
-                anchors.fill: parent
+            Component {
+                id: imageDelegateContextMenu
 
-                visible: progressInfo.active && !downloaded
-
-                color: "#BB000000"
-
-                ProgressBar {
-                    anchors.centerIn: parent
-
-                    width: parent.width * 0.8
-
-                    from: 0
-                    to: progressInfo.total
-                    value: progressInfo.progress
-                }
+                FileDelegateContextMenu {}
             }
 
-            RippleEffect {
-                anchors.fill: parent
+            Component {
+                id: fullScreenImage
 
-                id: messageMouseArea
-
-                onPrimaryClicked: fullScreenImage.createObject(parent, {"filename": eventId, "localPath": currentRoom.urlToDownload(eventId)}).show()
-
-                onSecondaryClicked: {
-                    var contextMenu = imageDelegateContextMenu.createObject(ApplicationWindow.overlay)
-                    contextMenu.viewSource.connect(function() {
-                        messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
-                    })
-                    contextMenu.downloadAndOpen.connect(downloadAndOpen)
-                    contextMenu.saveFileAs.connect(saveFileAs)
-                    contextMenu.reply.connect(function() {
-                        roomPanelInput.replyUser = author
-                        roomPanelInput.replyEventID = eventId
-                        roomPanelInput.replyContent = message
-                        roomPanelInput.isReply = true
-                        roomPanelInput.focus()
-                    })
-                    contextMenu.redact.connect(function() {
-                        currentRoom.redactEvent(eventId)
-                    })
-                    contextMenu.popup()
-                }
-
-                Component {
-                    id: messageSourceDialog
-
-                    MessageSourceDialog {}
-                }
-
-                Component {
-                    id: openFolderDialog
-
-                    OpenFolderDialog {}
-                }
-
-                Component {
-                    id: imageDelegateContextMenu
-
-                    FileDelegateContextMenu {}
-                }
-
-                Component {
-                    id: fullScreenImage
-
-                    FullScreenImage {}
-                }
+                FullScreenImage {}
             }
         }
     }
