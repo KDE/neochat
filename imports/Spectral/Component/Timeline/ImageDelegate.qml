@@ -35,8 +35,8 @@ RowLayout {
     }
 
     Avatar {
-        Layout.preferredWidth: 32
-        Layout.preferredHeight: 32
+        Layout.preferredWidth: 36
+        Layout.preferredHeight: 36
         Layout.alignment: Qt.AlignBottom
 
         visible: avatarVisible
@@ -59,8 +59,8 @@ RowLayout {
     }
 
     Label {
-        Layout.preferredWidth: 32
-        Layout.preferredHeight: 32
+        Layout.preferredWidth: 36
+        Layout.preferredHeight: 36
 
         visible: !(sentByMe || avatarVisible)
     }
@@ -73,7 +73,7 @@ RowLayout {
     }
 
     Image {
-        Layout.maximumWidth: messageListView.width - (!sentByMe ? 32 + root.spacing : 0) - 48
+        Layout.maximumWidth: messageListView.width - (!sentByMe ? 36 + root.spacing : 0) - 48
 
         id: img
 

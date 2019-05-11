@@ -46,8 +46,8 @@ ColumnLayout {
         spacing: 4
 
         Avatar {
-            Layout.preferredWidth: 32
-            Layout.preferredHeight: 32
+            Layout.preferredWidth: 36
+            Layout.preferredHeight: 36
             Layout.alignment: Qt.AlignTop
 
             visible: avatarVisible
@@ -70,22 +70,14 @@ ColumnLayout {
         }
 
         Label {
-            Layout.preferredWidth: 32
-            Layout.preferredHeight: 32
-            Layout.alignment: Qt.AlignTop
+            Layout.preferredWidth: 36
+            Layout.preferredHeight: 36
 
             visible: !(sentByMe || avatarVisible)
-
-            text: Qt.formatTime(time, "hh:mm AP")
-            color: "#5B7480"
-
-            font.pixelSize: 10
-            horizontalAlignment: Label.AlignHCenter
-            verticalAlignment: Label.AlignVCenter
         }
 
         Control {
-            Layout.maximumWidth: messageListView.width - (!sentByMe ? 32 + messageRow.spacing : 0) - 48
+            Layout.maximumWidth: messageListView.width - (!sentByMe ? 36 + messageRow.spacing : 0) - 48
 
             padding: 12
 

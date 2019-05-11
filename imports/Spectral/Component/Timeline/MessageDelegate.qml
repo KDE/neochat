@@ -34,8 +34,8 @@ ColumnLayout {
         spacing: 4
 
         Avatar {
-            Layout.preferredWidth: 32
-            Layout.preferredHeight: 32
+            Layout.preferredWidth: 36
+            Layout.preferredHeight: 36
             Layout.alignment: Qt.AlignBottom
 
             visible: avatarVisible
@@ -58,14 +58,14 @@ ColumnLayout {
         }
 
         Item {
-            Layout.preferredWidth: 32
-            Layout.preferredHeight: 32
+            Layout.preferredWidth: 36
+            Layout.preferredHeight: 36
 
             visible: !(sentByMe || avatarVisible)
         }
 
         Control {
-            Layout.maximumWidth: messageListView.width - (!sentByMe ? 32 + messageRow.spacing : 0) - 48
+            Layout.maximumWidth: messageListView.width - (!sentByMe ? 36 + messageRow.spacing : 0) - 48
 
             verticalPadding: 8
             horizontalPadding: 16
@@ -259,7 +259,7 @@ ColumnLayout {
 
     RowLayout {
         Layout.alignment: sentByMe ? Qt.AlignRight : Qt.AlignLeft
-        Layout.leftMargin: sentByMe ? undefined : 32 + messageRow.spacing + 12
+        Layout.leftMargin: sentByMe ? undefined : 36 + messageRow.spacing + 12
         Layout.rightMargin: sentByMe ? 12 : undefined
         Layout.bottomMargin: 4
 
