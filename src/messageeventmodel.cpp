@@ -289,6 +289,8 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
           return "image";
         case MessageEventType::Audio:
           return "audio";
+        case MessageEventType::Video:
+          return "video";
       }
       if (e->hasFileContent())
         return "file";

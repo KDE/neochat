@@ -220,6 +220,24 @@ Item {
                     }
 
                     DelegateChoice {
+                        roleValue: "video"
+                        delegate: ColumnLayout {
+                            width: messageListView.width
+
+                            SectionDelegate {
+                                Layout.alignment: Qt.AlignHCenter
+                                Layout.maximumWidth: parent.width
+
+                                visible: showSection
+                            }
+
+                            VideoDelegate {
+                                Layout.alignment: sentByMe ? Qt.AlignRight : Qt.AlignLeft
+                            }
+                        }
+                    }
+
+                    DelegateChoice {
                         roleValue: "file"
                         delegate: ColumnLayout {
                             width: messageListView.width
