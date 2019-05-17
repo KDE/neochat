@@ -131,7 +131,12 @@ ColumnLayout {
                 Control {
                     Layout.fillWidth: true
 
-                    padding: 8
+                    Layout.topMargin: 8
+                    Layout.leftMargin: 8
+                    Layout.rightMargin: 8
+
+                    padding: 4
+                    rightPadding: 12
 
                     visible: replyVisible
 
@@ -164,19 +169,9 @@ ColumnLayout {
                         }
                     }
 
-                    background: AutoRectangle {
+                    background: Rectangle {
                         color: sentByMe ? MPalette.accent : MPalette.background
-                        radius: 16
-
-                        topLeftRadius: 2
-                        topRightRadius: 2
-                        bottomLeftRadius: 0
-                        bottomRightRadius: 0
-
-                        topLeftVisible: bubbleBackground.topLeftVisible
-                        topRightVisible: bubbleBackground.topRightVisible
-                        bottomLeftVisible: true
-                        bottomRightVisible: true
+                        radius: 18
 
                         AutoMouseArea {
                             anchors.fill: parent
