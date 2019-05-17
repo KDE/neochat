@@ -23,6 +23,18 @@ Item {
         room: currentRoom
     }
 
+    DropArea {
+        anchors.fill: parent
+
+        enabled: currentRoom
+
+        onDropped: {
+            if (!drop.hasUrls) return
+
+            currentRoom.uploadFile(drop.urls[0])
+        }
+    }
+
     Column {
         anchors.centerIn: parent
 

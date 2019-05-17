@@ -255,6 +255,7 @@ class SpectralRoom : public Room {
 
  public slots:
   void chooseAndUploadFile();
+  void uploadFile(const QUrl& url);
   void acceptInvitation();
   void forget();
   void sendTypingNotification(bool isTyping);
