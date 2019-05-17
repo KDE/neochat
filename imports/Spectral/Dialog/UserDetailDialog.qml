@@ -27,8 +27,8 @@ Dialog {
                 Layout.preferredWidth: 72
                 Layout.preferredHeight: 72
 
-                hint: user ? user.displayName : "No name"
-                source: user ? user.avatarMediaId : null
+                hint: user.displayName
+                source: user.avatarMediaId
 
                 RippleEffect {
                     anchors.fill: parent
@@ -50,8 +50,17 @@ Dialog {
 
                     elide: Text.ElideRight
                     wrapMode: Text.NoWrap
-                    text: user ? user.displayName : "No Name"
+                    text: user.displayName
                     color: MPalette.foreground
+                }
+
+                Label {
+                    Layout.fillWidth: true
+
+                    visible: user.bridgeName
+
+                    text: user.bridgeName
+                    color: MPalette.lighter
                 }
 
                 Label {
@@ -89,7 +98,7 @@ Dialog {
 
                     elide: Text.ElideRight
                     wrapMode: Text.NoWrap
-                    text: user ? user.id : "No ID"
+                    text: user.id
                     color: MPalette.accent
                 }
 

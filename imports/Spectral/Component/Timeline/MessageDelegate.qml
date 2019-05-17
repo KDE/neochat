@@ -67,65 +67,25 @@ ColumnLayout {
         Control {
             Layout.maximumWidth: messageListView.width - (!sentByMe ? 36 + messageRow.spacing : 0) - 48
 
-            verticalPadding: 8
-            horizontalPadding: 16
+            padding: 0
 
-            background: Rectangle {
+            background: AutoRectangle {
+                readonly property int minorRadius: 2
+
+                id: bubbleBackground
+
                 color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
                 radius: 18
-                antialiasing: true
 
-                Rectangle {
-                    anchors.top: parent.top
-                    anchors.left: parent.left
+                topLeftVisible: !sentByMe && (bubbleShape == 3 || bubbleShape == 2)
+                topRightVisible: sentByMe && (bubbleShape == 3 || bubbleShape == 2)
+                bottomLeftVisible: !sentByMe && (bubbleShape == 1 || bubbleShape == 2)
+                bottomRightVisible: sentByMe && (bubbleShape == 1 || bubbleShape == 2)
 
-                    width: parent.width / 2
-                    height: parent.height / 2
-
-                    visible: !sentByMe && (bubbleShape == 3 || bubbleShape == 2)
-
-                    color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
-                    radius: 2
-                }
-
-                Rectangle {
-                    anchors.top: parent.top
-                    anchors.right: parent.right
-
-                    width: parent.width / 2
-                    height: parent.height / 2
-
-                    visible: sentByMe && (bubbleShape == 3 || bubbleShape == 2)
-
-                    color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
-                    radius: 2
-                }
-
-                Rectangle {
-                    anchors.bottom: parent.bottom
-                    anchors.left: parent.left
-
-                    width: parent.width / 2
-                    height: parent.height / 2
-
-                    visible: !sentByMe && (bubbleShape == 1 || bubbleShape == 2)
-
-                    color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
-                    radius: 2
-                }
-
-                Rectangle {
-                    anchors.bottom: parent.bottom
-                    anchors.right: parent.right
-
-                    width: parent.width / 2
-                    height: parent.height / 2
-
-                    visible: sentByMe && (bubbleShape == 1 || bubbleShape == 2)
-
-                    color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
-                    radius: 2
-                }
+                topLeftRadius: minorRadius
+                topRightRadius: minorRadius
+                bottomLeftRadius: minorRadius
+                bottomRightRadius: minorRadius
 
                 AutoMouseArea {
                     anchors.fill: parent
@@ -166,59 +126,73 @@ ColumnLayout {
             }
 
             contentItem: ColumnLayout {
-                RowLayout {
+                spacing: 0
+
+                Control {
                     Layout.fillWidth: true
+
+                    padding: 8
 
                     visible: replyVisible
 
-                    Avatar {
-                        Layout.preferredWidth: 28
-                        Layout.preferredHeight: 28
-                        Layout.alignment: Qt.AlignTop
+                    contentItem: RowLayout {
+                        Avatar {
+                            Layout.preferredWidth: 28
+                            Layout.preferredHeight: 28
+                            Layout.alignment: Qt.AlignTop
 
-                        source: replyVisible ? replyAuthor.avatarMediaId : ""
-                        hint: replyVisible ? replyAuthor.displayName : "H"
+                            source: replyVisible ? replyAuthor.avatarMediaId : ""
+                            hint: replyVisible ? replyAuthor.displayName : "H"
 
-                        RippleEffect {
-                            anchors.fill: parent
+                            RippleEffect {
+                                anchors.fill: parent
 
-                            circular: true
+                                circular: true
 
-                            onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": replyAuthor}).open()
-                        }
-                    }
-
-                    Control {
-                        Layout.fillWidth: true
-
-                        visible: replyVisible
-
-                        padding: 0
-
-                        background: RippleEffect {
-                            onClicked: goToEvent(replyEventId)
+                                onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": replyAuthor}).open()
+                            }
                         }
 
-                        contentItem: Label {
-                            color: darkBackground ? "white" : MPalette.lighter
+                        Label {
+                            Layout.fillWidth: true
+
+                            color: !sentByMe ? MPalette.foreground : "white"
                             text: "<style>a{color: " + (darkBackground ? "white" : MPalette.foreground) + ";} .user-pill{}</style>" + (replyDisplay || "")
 
                             wrapMode: Label.Wrap
                             textFormat: Label.RichText
                         }
                     }
-                }
 
-                Rectangle {
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: 1
+                    background: AutoRectangle {
+                        color: sentByMe ? MPalette.accent : MPalette.background
+                        radius: 16
 
-                    visible: replyVisible
-                    color: darkBackground ? "white" : MPalette.lighter
+                        topLeftRadius: 2
+                        topRightRadius: 2
+                        bottomLeftRadius: 0
+                        bottomRightRadius: 0
+
+                        topLeftVisible: bubbleBackground.topLeftVisible
+                        topRightVisible: bubbleBackground.topRightVisible
+                        bottomLeftVisible: true
+                        bottomRightVisible: true
+
+                        AutoMouseArea {
+                            anchors.fill: parent
+
+                            onClicked: goToEvent(replyEventId)
+                        }
+                    }
                 }
 
                 TextEdit {
                     Layout.fillWidth: true
+
+                    Layout.leftMargin: 16
+                    Layout.rightMargin: 16
+                    Layout.topMargin: 8
+                    Layout.bottomMargin: 8
 
                     id: contentLabel
 
