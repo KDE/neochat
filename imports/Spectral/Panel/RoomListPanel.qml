@@ -54,6 +54,16 @@ Item {
 
         sorters: [
             RoleSorter { roleName: "category" },
+            ExpressionSorter {
+                expression: {
+                    return modelLeft.highlightCount > 0;
+                }
+            },
+            ExpressionSorter {
+                expression: {
+                    return modelLeft.notificationCount > 0;
+                }
+            },
             RoleSorter {
                 roleName: "lastActiveTime"
                 sortOrder: Qt.DescendingOrder
