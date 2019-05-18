@@ -162,7 +162,7 @@ ColumnLayout {
                             Layout.fillWidth: true
 
                             color: !sentByMe ? MPalette.foreground : "white"
-                            text: "<style>a{color: " + (darkBackground ? "white" : MPalette.foreground) + ";} .user-pill{}</style>" + (replyDisplay || "")
+                            text: "<style>a{color: " + color + ";} .user-pill{}</style>" + (replyDisplay || "")
 
                             wrapMode: Label.Wrap
                             textFormat: Label.RichText
@@ -191,7 +191,7 @@ ColumnLayout {
 
                     id: contentLabel
 
-                    text: "<style>a{color: " + (darkBackground ? "white" : MPalette.foreground) + ";} .user-pill{}</style>" + display
+                    text: "<style>a{color: " + color + ";} .user-pill{}</style>" + display
 
                     color: darkBackground ? "white" : MPalette.foreground
 
