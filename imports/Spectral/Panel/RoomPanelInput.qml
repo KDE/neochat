@@ -5,6 +5,7 @@ import QtQuick.Controls.Material 2.12
 
 import Spectral.Component 2.0
 import Spectral.Component.Emoji 2.0
+import Spectral.Dialog 2.0
 import Spectral.Effect 2.0
 import Spectral.Setting 0.1
 
@@ -20,6 +21,9 @@ Control {
     property var autoCompleteModel
     property int autoCompleteBeginPosition
     property int autoCompleteEndPosition
+
+    property bool hasAttachment: false
+    property url attachmentPath
 
     id: root
 
@@ -171,13 +175,13 @@ Control {
                 Layout.alignment: Qt.AlignBottom
 
                 id: uploadButton
-                visible: !isReply
+                visible: !isReply && !hasAttachment
 
                 contentItem: MaterialIcon {
                     icon: "\ue226"
                 }
 
-                onClicked: currentRoom.chooseAndUploadFile()
+                onClicked: attachDialog.open()
 
                 BusyIndicator {
                     anchors.fill: parent
@@ -200,6 +204,51 @@ Control {
                 }
 
                 onClicked: clearReply()
+            }
+
+            Control {
+                Layout.margins: 6
+                Layout.preferredHeight: 36
+                Layout.alignment: Qt.AlignVCenter
+
+                visible: hasAttachment
+
+                rightPadding: 8
+
+                background: Rectangle {
+                    color: MPalette.accent
+                    radius: height / 2
+                    antialiasing: true
+                }
+
+                contentItem: RowLayout {
+                    spacing: 0
+
+                    ToolButton {
+                        Layout.preferredWidth: height
+                        Layout.fillHeight: true
+
+                        id: cancelAttachmentButton
+
+                        contentItem: MaterialIcon {
+                            icon: "\ue5cd"
+                            color: "white"
+                            font.pixelSize: 18
+                        }
+
+                        onClicked: {
+                            hasAttachment = false
+                            attachmentPath = ""
+                        }
+                    }
+
+                    Label {
+                        Layout.alignment: Qt.AlignVCenter
+
+                        text: attachmentPath != "" ? attachmentPath.toString().substring(attachmentPath.toString().lastIndexOf('/') + 1, attachmentPath.length) : ""
+                        color: "white"
+                    }
+                }
             }
 
             TextArea {
@@ -307,6 +356,12 @@ Control {
                     if (text.trim().length === 0) { return }
                     if(!currentRoom) { return }
 
+                    if (hasAttachment) {
+                        currentRoom.uploadFile(attachmentPath, text)
+                        clearAttachment()
+                        return
+                    }
+
                     var PREFIX_ME = '/me '
                     var PREFIX_NOTICE = '/notice '
                     var PREFIX_RAINBOW = '/rainbow '
@@ -372,6 +427,10 @@ Control {
         }
     }
 
+    ImageClipboard {
+        id: imageClipboard
+    }
+
     function insert(str) {
         inputField.insert(inputField.cursorPosition, str)
     }
@@ -395,5 +454,15 @@ Control {
         replyItem.visible = false
         autoCompleteListView.visible = false
         emojiPicker.visible = false
+    }
+
+    function attach(localPath) {
+        hasAttachment = true
+        attachmentPath = localPath
+    }
+
+    function clearAttachment() {
+        hasAttachment = false
+        attachmentPath = ""
     }
 }

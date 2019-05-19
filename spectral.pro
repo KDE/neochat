@@ -42,7 +42,9 @@ HEADERS += \
     include/hoedown/escape.h \
     include/hoedown/html.h \
     include/hoedown/stack.h \
-    include/hoedown/version.h
+    include/hoedown/version.h \
+    src/imageclipboard.h \
+    src/matriximageprovider.h
 
 SOURCES += \
     include/hoedown/autolink.c \
@@ -53,7 +55,9 @@ SOURCES += \
     include/hoedown/html_blocks.c \
     include/hoedown/html_smartypants.c \
     include/hoedown/stack.c \
-    include/hoedown/version.c
+    include/hoedown/version.c \
+    src/imageclipboard.cpp \
+    src/matriximageprovider.cpp
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked deprecated (the exact warnings
@@ -117,7 +121,6 @@ mac {
 HEADERS += \
     src/controller.h \
     src/roomlistmodel.h \
-    src/imageprovider.h \
     src/messageeventmodel.h \
     src/emojimodel.h \
     src/spectralroom.h \
@@ -130,7 +133,6 @@ HEADERS += \
 SOURCES += src/main.cpp \
     src/controller.cpp \
     src/roomlistmodel.cpp \
-    src/imageprovider.cpp \
     src/messageeventmodel.cpp \
     src/emojimodel.cpp \
     src/spectralroom.cpp \

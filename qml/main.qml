@@ -56,12 +56,17 @@ ApplicationWindow {
 
         quitOnLastWindowClosed: !MSettings.showTray
 
+        onErrorOccured: errorControl.show(error + ": " + detail, 3000)
+    }
+
+    NotificationsManager {
+        id: notificationsManager
+
         onNotificationClicked: {
             roomListForm.enteredRoom = spectralController.connection.room(roomId)
             roomForm.goToEvent(eventId)
             showWindow()
         }
-        onErrorOccured: errorControl.show(error + ": " + detail, 3000)
     }
 
     Shortcut {

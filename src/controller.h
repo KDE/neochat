@@ -67,8 +67,6 @@ class Controller : public QObject {
   }
 
  private:
-  QClipboard* m_clipboard = QApplication::clipboard();
-  NotificationsManager notificationsManager;
   QVector<Connection*> m_connections;
   QPointer<Connection> m_connection;
 
@@ -99,14 +97,7 @@ class Controller : public QObject {
   void joinRoom(Connection* c, const QString& alias);
   void createRoom(Connection* c, const QString& name, const QString& topic);
   void createDirectChat(Connection* c, const QString& userID);
-  void copyToClipboard(const QString& text);
   void playAudio(QUrl localFile);
-  void postNotification(const QString& roomId,
-                        const QString& eventId,
-                        const QString& roomName,
-                        const QString& senderName,
-                        const QString& text,
-                        const QImage& icon);
 };
 
 #endif  // CONTROLLER_H

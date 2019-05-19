@@ -31,12 +31,8 @@
 #include <QtNetwork/QAuthenticator>
 #include <QtNetwork/QNetworkReply>
 
-Controller::Controller(QObject* parent)
-    : QObject(parent), notificationsManager(this) {
+Controller::Controller(QObject* parent) : QObject(parent) {
   QApplication::setQuitOnLastWindowClosed(false);
-
-  connect(&notificationsManager, &NotificationsManager::notificationClicked,
-          this, &Controller::notificationClicked);
 
   Connection::setRoomType<SpectralRoom>();
   Connection::setUserType<SpectralUser>();
@@ -232,25 +228,11 @@ void Controller::createDirectChat(Connection* c, const QString& userID) {
   });
 }
 
-void Controller::copyToClipboard(const QString& text) {
-  m_clipboard->setText(text);
-}
-
 void Controller::playAudio(QUrl localFile) {
   QMediaPlayer* player = new QMediaPlayer;
   player->setMedia(localFile);
   player->play();
   connect(player, &QMediaPlayer::stateChanged, [=] { player->deleteLater(); });
-}
-
-void Controller::postNotification(const QString& roomId,
-                                  const QString& eventId,
-                                  const QString& roomName,
-                                  const QString& senderName,
-                                  const QString& text,
-                                  const QImage& icon) {
-  notificationsManager.postNotification(roomId, eventId, roomName, senderName,
-                                        text, icon);
 }
 
 int Controller::dpi() {

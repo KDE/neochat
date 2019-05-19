@@ -1,4 +1,4 @@
-#include "imageprovider.h"
+#include "matriximageprovider.h"
 
 #include <QDir>
 #include <QFileInfo>
@@ -108,7 +108,7 @@ void ThumbnailResponse::cancel() {
                             Qt::QueuedConnection);
 }
 
-QQuickImageResponse* ImageProvider::requestImageResponse(
+QQuickImageResponse* MatrixImageProvider::requestImageResponse(
     const QString& id,
     const QSize& requestedSize) {
   return new ThumbnailResponse(m_connection.load(), id, requestedSize);

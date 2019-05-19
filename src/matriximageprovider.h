@@ -1,5 +1,5 @@
-#ifndef IMAGEPROVIDER_H
-#define IMAGEPROVIDER_H
+#ifndef MatrixImageProvider_H
+#define MatrixImageProvider_H
 #pragma once
 
 #include <QtQuick/QQuickAsyncImageProvider>
@@ -43,12 +43,12 @@ class ThumbnailResponse : public QQuickImageResponse {
   void cancel() override;
 };
 
-class ImageProvider : public QObject, public QQuickAsyncImageProvider {
+class MatrixImageProvider : public QObject, public QQuickAsyncImageProvider {
   Q_OBJECT
   Q_PROPERTY(QMatrixClient::Connection* connection READ connection WRITE
                  setConnection NOTIFY connectionChanged)
  public:
-  explicit ImageProvider() = default;
+  explicit MatrixImageProvider() = default;
 
   QQuickImageResponse* requestImageResponse(
       const QString& id,
@@ -67,4 +67,4 @@ class ImageProvider : public QObject, public QQuickAsyncImageProvider {
   QAtomicPointer<QMatrixClient::Connection> m_connection;
 };
 
-#endif  // IMAGEPROVIDER_H
+#endif  // MatrixImageProvider_H

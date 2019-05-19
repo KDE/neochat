@@ -3,10 +3,12 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Controls.Material 2.12
 import Qt.labs.qmlmodels 1.0
+import Qt.labs.platform 1.0
 
 import Spectral.Component 2.0
 import Spectral.Component.Emoji 2.0
 import Spectral.Component.Timeline 2.0
+import Spectral.Dialog 2.0
 import Spectral.Effect 2.0
 
 import Spectral 0.1
@@ -31,8 +33,111 @@ Item {
         onDropped: {
             if (!drop.hasUrls) return
 
-            currentRoom.uploadFile(drop.urls[0])
+            roomPanelInput.attach(drop.urls[0])
         }
+    }
+
+    ImageClipboard {
+        id: imageClipboard
+    }
+
+    Popup {
+        anchors.centerIn: parent
+
+        id: attachDialog
+
+        padding: 16
+
+        contentItem: RowLayout {
+            Control {
+                Layout.preferredWidth: 160
+                Layout.fillHeight: true
+
+                padding: 16
+
+                contentItem: ColumnLayout {
+                    spacing: 16
+
+                    MaterialIcon {
+                        Layout.alignment: Qt.AlignHCenter
+
+                        icon: "\ue2c8"
+                        font.pixelSize: 64
+                        color: MPalette.lighter
+                    }
+
+                    Label {
+                        Layout.alignment: Qt.AlignHCenter
+
+                        text: "Choose local file"
+                    }
+                }
+
+                background: RippleEffect {
+                    onClicked: {
+                        attachDialog.close()
+
+                        var fileDialog = openFileDialog.createObject(ApplicationWindow.overlay)
+
+                        fileDialog.chosen.connect(function(path) {
+                            if (!path) return
+
+                            roomPanelInput.attach(path)
+                        })
+
+                        fileDialog.open()
+                    }
+                }
+            }
+
+            Rectangle {
+                Layout.preferredWidth: 1
+                Layout.fillHeight: true
+
+                color: MPalette.banner
+            }
+
+            Control {
+                Layout.preferredWidth: 160
+                Layout.fillHeight: true
+
+                padding: 16
+
+                contentItem: ColumnLayout {
+                    spacing: 16
+
+                    MaterialIcon {
+                        Layout.alignment: Qt.AlignHCenter
+
+                        icon: "\ue410"
+                        font.pixelSize: 64
+                        color: MPalette.lighter
+                    }
+
+                    Label {
+                        Layout.alignment: Qt.AlignHCenter
+
+                        text: "Clipboard image"
+                        color: MPalette.foreground
+                    }
+                }
+
+                background: RippleEffect {
+                    onClicked: {
+                        var localPath = StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/screenshots/" + (new Date()).getTime() + ".png"
+                        imageClipboard.saveImage(localPath)
+                        roomPanelInput.attach(localPath)
+                        attachDialog.close()
+                    }
+                }
+            }
+        }
+    }
+
+    Component {
+        id: openFileDialog
+
+        OpenFileDialog {}
     }
 
     Column {

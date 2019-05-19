@@ -254,8 +254,7 @@ class SpectralRoom : public Room {
   void fileUploadingProgressChanged();
 
  public slots:
-  void chooseAndUploadFile();
-  void uploadFile(const QUrl& url);
+  void uploadFile(const QUrl& url, const QString& body = "");
   void acceptInvitation();
   void forget();
   void sendTypingNotification(bool isTyping);

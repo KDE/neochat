@@ -44,18 +44,11 @@ inline QSize getImageSize(const QUrl& imageUrl) {
   return reader.size();
 }
 
-void SpectralRoom::chooseAndUploadFile() {
-  auto localFile = QFileDialog::getOpenFileUrl(Q_NULLPTR, tr("Save File as"));
-  if (!localFile.isEmpty()) {
-    uploadFile(localFile);
-  }
-}
-
-void SpectralRoom::uploadFile(const QUrl& url) {
+void SpectralRoom::uploadFile(const QUrl& url, const QString& body) {
   if (url.isEmpty())
     return;
 
-  QString txnID = postFile(url.fileName(), url, false);
+  QString txnID = postFile(body.isEmpty() ? url.fileName() : body, url, false);
   setHasFileUploading(true);
   connect(this, &Room::fileTransferCompleted,
           [=](QString id, QUrl localFile, QUrl mxcUrl) {

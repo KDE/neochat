@@ -19,11 +19,7 @@ struct roomEventId {
 class NotificationsManager : public QObject {
   Q_OBJECT
  public:
-  NotificationsManager(QObject *parent = nullptr);
-
-  void postNotification(const QString &roomId, const QString &eventId,
-                        const QString &roomName, const QString &senderName,
-                        const QString &text, const QImage &icon);
+  NotificationsManager(QObject* parent = nullptr);
 
  signals:
   void notificationClicked(const QString roomId, const QString eventId);
@@ -31,7 +27,8 @@ class NotificationsManager : public QObject {
  private:
 #if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
   QDBusInterface dbus;
-  uint showNotification(const QString summary, const QString text,
+  uint showNotification(const QString summary,
+                        const QString text,
                         const QImage image);
 #endif
 
@@ -43,9 +40,16 @@ class NotificationsManager : public QObject {
  public slots:
   void actionInvoked(uint id, QString action);
   void notificationClosed(uint id, uint reason);
+
+  void postNotification(const QString& roomId,
+                        const QString& eventId,
+                        const QString& roomName,
+                        const QString& senderName,
+                        const QString& text,
+                        const QImage& icon);
 };
 
 #if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
-QDBusArgument &operator<<(QDBusArgument &arg, const QImage &image);
-const QDBusArgument &operator>>(const QDBusArgument &arg, QImage &);
+QDBusArgument& operator<<(QDBusArgument& arg, const QImage& image);
+const QDBusArgument& operator>>(const QDBusArgument& arg, QImage&);
 #endif

@@ -8,8 +8,10 @@
 #include "accountlistmodel.h"
 #include "controller.h"
 #include "emojimodel.h"
-#include "imageprovider.h"
+#include "imageclipboard.h"
+#include "matriximageprovider.h"
 #include "messageeventmodel.h"
+#include "notifications/manager.h"
 #include "room.h"
 #include "roomlistmodel.h"
 #include "spectralroom.h"
@@ -55,6 +57,9 @@ int main(int argc, char* argv[]) {
   qmlRegisterType<UserListModel>("Spectral", 0, 1, "UserListModel");
   qmlRegisterType<MessageEventModel>("Spectral", 0, 1, "MessageEventModel");
   qmlRegisterType<EmojiModel>("Spectral", 0, 1, "EmojiModel");
+  qmlRegisterType<NotificationsManager>("Spectral", 0, 1,
+                                        "NotificationsManager");
+  qmlRegisterType<ImageClipboard>("Spectral", 0, 1, "ImageClipboard");
   qmlRegisterUncreatableType<RoomMessageEvent>("Spectral", 0, 1,
                                                "RoomMessageEvent", "ENUM");
   qmlRegisterUncreatableType<RoomType>("Spectral", 0, 1, "RoomType", "ENUM");
@@ -72,9 +77,10 @@ int main(int argc, char* argv[]) {
   QQmlApplicationEngine engine;
 
   engine.addImportPath("qrc:/imports");
-  ImageProvider* m_provider = new ImageProvider();
-  engine.rootContext()->setContextProperty("imageProvider", m_provider);
-  engine.addImageProvider(QLatin1String("mxc"), m_provider);
+  MatrixImageProvider* matrixImageProvider = new MatrixImageProvider();
+  engine.rootContext()->setContextProperty("imageProvider",
+                                           matrixImageProvider);
+  engine.addImageProvider(QLatin1String("mxc"), matrixImageProvider);
 
   engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
   if (engine.rootObjects().isEmpty())

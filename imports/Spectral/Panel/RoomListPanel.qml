@@ -31,7 +31,7 @@ Item {
 
         connection: root.connection
 
-        onNewMessage: if (!window.active && MSettings.showNotification) spectralController.postNotification(roomId, eventId, roomName, senderName, text, icon)
+        onNewMessage: if (!window.active && MSettings.showNotification) notificationsManager.postNotification(roomId, eventId, roomName, senderName, text, icon)
     }
 
     SortFilterProxyModel {
