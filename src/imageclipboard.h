@@ -16,14 +16,13 @@ class ImageClipboard : public QObject {
   bool hasImage();
   QImage image();
 
+  Q_INVOKABLE bool saveImage(const QUrl& localPath);
+
  private:
   QClipboard* m_clipboard;
 
  signals:
   void imageChanged();
-
- public slots:
-  void saveImage(const QUrl& localPath);
 };
 
 #endif  // IMAGECLIPBOARD_H

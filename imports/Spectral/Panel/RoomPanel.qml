@@ -125,7 +125,7 @@ Item {
                 background: RippleEffect {
                     onClicked: {
                         var localPath = StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/screenshots/" + (new Date()).getTime() + ".png"
-                        imageClipboard.saveImage(localPath)
+                         if (!imageClipboard.saveImage(localPath)) return
                         roomPanelInput.attach(localPath)
                         attachDialog.close()
                     }

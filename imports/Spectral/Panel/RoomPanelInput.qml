@@ -301,7 +301,7 @@ Control {
                 Keys.onReturnPressed: {
                     if (event.modifiers & Qt.ShiftModifier) {
                         insert(cursorPosition, "\n")
-                    } else if (text) {
+                    } else {
                         postMessage(text)
                         text = ""
                         closeAll()
@@ -353,7 +353,6 @@ Control {
                 }
 
                 function postMessage(text) {
-                    if (text.trim().length === 0) { return }
                     if(!currentRoom) { return }
 
                     if (hasAttachment) {
@@ -361,6 +360,8 @@ Control {
                         clearAttachment()
                         return
                     }
+
+                    if (text.trim().length === 0) { return }
 
                     var PREFIX_ME = '/me '
                     var PREFIX_NOTICE = '/notice '
