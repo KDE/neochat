@@ -134,16 +134,16 @@ class SpectralRoom : public Room {
               QString text{};
               if (e.isRename()) {
                 if (e.displayName().isEmpty())
-                  text = tr("cleared the display name");
+                  text = tr("cleared their display name");
                 else
-                  text = tr("changed the display name to %1")
+                  text = tr("changed their display name to %1")
                              .arg(e.displayName().toHtmlEscaped());
               }
               if (e.isAvatarUpdate()) {
                 if (!text.isEmpty())
                   text += " and ";
                 if (e.avatarUrl().isEmpty())
-                  text += tr("cleared the avatar");
+                  text += tr("cleared their avatar");
                 else if (e.prevContent()->avatarUrl.isEmpty())
                   text += tr("set an avatar");
                 else
