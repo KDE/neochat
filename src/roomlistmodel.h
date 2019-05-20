@@ -60,9 +60,6 @@ class RoomListModel : public QAbstractListModel {
   QHash<int, QByteArray> roleNames() const;
 
  private slots:
-  void namesChanged(SpectralRoom* room);
-  void unreadMessagesChanged(SpectralRoom* room);
-
   void doAddRoom(Room* room);
   void updateRoom(Room* room, Room* prev);
   void deleteRoom(Room* room);
