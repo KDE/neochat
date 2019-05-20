@@ -25,7 +25,7 @@ $$USE_SYSTEM_QMATRIXCLIENT {
     PKGCONFIG += QMatrixClient
 } else {
     message("Falling back to built-in libQMatrixClient.")
-    include(include/libqmatrixclient/libqmatrixclient.pri)
+    include(include/libQuotient/libqmatrixclient.pri)
 }
 $$USE_SYSTEM_SORTFILTERPROXYMODEL {
     PKGCONFIG += SortFilterProxyModel
