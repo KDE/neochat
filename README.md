@@ -13,9 +13,7 @@ Spectral is a glossy cross-platform client for Matrix, the decentralized communi
 
 ## Document
 
-There is a separate document for Spectral, including installing, compiling, etc.
-
-It is at [Spectral Doc](https://b0.gitlab.io/spectral-doc/)
+There is a [separate document](https://spectral.encom.eu.org/docs) for Spectral.
 
 ## Contact
 
@@ -25,19 +23,17 @@ Also, you can file an issue at this project if anything goes wrong.
 
 ## Acknowledgement
 
-This program uses libqmatrixclient library and some C++ models from Quaternion. 
+This program utilizes [libQuotient](https://github.com/quotient-im/libQuotient) library and some C++ models from [Quaternion](https://github.com/quotient-im/Quaternion).
 
-[Quaternion](https://github.com/QMatrixClient/Quaternion)
+This program includes a copy of [hoedown](https://github.com/hoedown/hoedown).
 
-[libqmatrixclient](https://github.com/QMatrixClient/libqmatrixclient)
-
-This program includes the source code of hoedown.
-
-[Hoedown](https://github.com/hoedown/hoedown)
+This program includes a copy of [WinToast](https://github.com/mohabouje/WinToast) to display notifications.
 
 ## Donation
 
-Donations are welcome! My Bitcoin wallet address is 1AmNvttxJ6zne8f2GEH8zMAMQuT4cMdnDN
+Donations are needed!
+
+Bitcoin: `1AmNvttxJ6zne8f2GEH8zMAMQuT4cMdnDN`
 
 ## License
 
@@ -45,4 +41,3 @@ Donations are welcome! My Bitcoin wallet address is 1AmNvttxJ6zne8f2GEH8zMAMQuT4
 
 This program is licensed under GNU General Public License, Version 3. 
 
-Exceptions are src/notifications/wintoastlib.c and wintoastlib.h, which are from https://github.com/mohabouje/WinToast and licensed under MIT.
