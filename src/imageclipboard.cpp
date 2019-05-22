@@ -29,7 +29,7 @@ bool ImageClipboard::saveImage(const QUrl& localPath) {
   if (i.isNull())
     return false;
 
-  QString path = QFileInfo(localPath.toString()).absolutePath();
+  QString path = QFileInfo(localPath.toLocalFile()).absolutePath();
   QDir dir;
   if (!dir.exists(path))
     dir.mkpath(path);
