@@ -299,46 +299,6 @@ Dialog {
                 onPrimaryClicked: fontFamilyDialog.createObject(ApplicationWindow.overlay).open()
             }
         }
-
-        Control {
-            width: parent.width
-
-            contentItem: RowLayout {
-                MaterialIcon {
-                    Layout.preferredWidth: 48
-                    Layout.preferredHeight: 48
-
-                    color: MPalette.foreground
-                    icon: "\ue8aa"
-                }
-
-                Label {
-                    Layout.fillWidth: true
-
-                    color: MPalette.foreground
-                    text: "Chat Background"
-                }
-            }
-
-            RippleEffect {
-                anchors.fill: parent
-
-                onPrimaryClicked: {
-                    var fileDialog = chatBackgroundDialog.createObject(ApplicationWindow.overlay)
-
-                    fileDialog.chosen.connect(function(path) {
-                        if (!path) return
-
-                        MSettings.timelineBackground = path
-                    })
-                    fileDialog.rejected.connect(function(path) {
-                        MSettings.timelineBackground = ""
-                    })
-
-                    fileDialog.open()
-                }
-            }
-        }
     }
 
     onClosed: destroy()

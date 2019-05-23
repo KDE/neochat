@@ -113,12 +113,6 @@ ApplicationWindow {
         FontFamilyDialog {}
     }
 
-    Component {
-        id: chatBackgroundDialog
-
-        OpenFileDialog {}
-    }
-
     Drawer {
         width: Math.min((inPortrait ? 0.67 : 0.3) * window.width, 360)
         height: window.height

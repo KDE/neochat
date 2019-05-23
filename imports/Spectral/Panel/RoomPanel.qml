@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.12
 import QtQuick.Controls.Material 2.12
 import Qt.labs.qmlmodels 1.0
 import Qt.labs.platform 1.0
+import QtGraphicalEffects 1.0
 
 import Spectral.Component 2.0
 import Spectral.Component.Emoji 2.0
@@ -126,7 +127,7 @@ Item {
                 background: RippleEffect {
                     onClicked: {
                         var localPath = StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/screenshots/" + (new Date()).getTime() + ".png"
-                         if (!imageClipboard.saveImage(localPath)) return
+                        if (!imageClipboard.saveImage(localPath)) return
                         roomPanelInput.attach(localPath)
                         attachDialog.close()
                     }
@@ -172,19 +173,24 @@ Item {
     }
 
     Image {
+        readonly property int sourceDim: (Math.ceil(Math.max(width, height) / 360) + 1) * 360
+
         anchors.fill: parent
 
-        visible: currentRoom && MSettings.timelineBackground
+        visible: currentRoom && currentRoom.backgroundMediaId
 
-        source: MSettings.timelineBackground
+        sourceSize.width: sourceDim
+        sourceSize.height: sourceDim
+
         fillMode: Image.PreserveAspectCrop
+
+        source: currentRoom && currentRoom.backgroundMediaId ? "image://mxc/" + currentRoom.backgroundMediaId : ""
     }
 
     Rectangle {
         anchors.fill: parent
 
-        visible: currentRoom && !MSettings.timelineBackground
-
+        visible: currentRoom && !currentRoom.backgroundMediaId
         color: MSettings.darkTheme ? "#242424" : "#EBEFF2"
     }
 

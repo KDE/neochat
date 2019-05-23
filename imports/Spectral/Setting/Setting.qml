@@ -9,7 +9,5 @@ Settings {
 
     property bool darkTheme
 
-    property string timelineBackground
-
     property string fontFamily: "Roboto,Noto Sans,Noto Color Emoji"
 }

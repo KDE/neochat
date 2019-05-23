@@ -28,6 +28,10 @@ class SpectralRoom : public Room {
   Q_PROPERTY(int fileUploadingProgress READ fileUploadingProgress NOTIFY
                  fileUploadingProgressChanged)
   Q_PROPERTY(bool busy READ busy NOTIFY busyChanged)
+  Q_PROPERTY(QUrl backgroundUrl READ backgroundUrl WRITE setBackgroundUrl NOTIFY
+                 backgroundChanged)
+  Q_PROPERTY(
+      QString backgroundMediaId READ backgroundMediaId NOTIFY backgroundChanged)
 
  public:
   explicit SpectralRoom(Connection* connection,
@@ -85,6 +89,13 @@ class SpectralRoom : public Room {
   Q_INVOKABLE QString postMarkdownText(const QString& markdown);
 
   Q_INVOKABLE QUrl urlToMxcUrl(QUrl mxcUrl);
+
+  QUrl backgroundUrl();
+  Q_INVOKABLE void setBackgroundUrl(QUrl url);
+  Q_INVOKABLE void clearBackground();
+  Q_INVOKABLE void setBackgroundFromLocalFile(QUrl url);
+
+  QString backgroundMediaId();
 
   template <typename BaseEventT>
   QString eventToString(const BaseEventT& evt,
@@ -231,6 +242,8 @@ class SpectralRoom : public Room {
   }
 
  private:
+  const QString backgroundEventType = "org.eu.encom.spectral.background";
+
   QString m_cachedInput;
   QSet<const QMatrixClient::RoomEvent*> highlights;
 
@@ -252,6 +265,7 @@ class SpectralRoom : public Room {
   void busyChanged();
   void hasFileUploadingChanged();
   void fileUploadingProgressChanged();
+  void backgroundChanged();
 
  public slots:
   void uploadFile(const QUrl& url, const QString& body = "");

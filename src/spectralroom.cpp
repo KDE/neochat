@@ -3,6 +3,7 @@
 #include "connection.h"
 #include "user.h"
 
+#include "csapi/account-data.h"
 #include "csapi/content-repo.h"
 #include "csapi/leaving.h"
 #include "csapi/typing.h"
@@ -33,6 +34,10 @@ SpectralRoom::SpectralRoom(Connection* connection,
     setFileUploadingProgress(0);
     setHasFileUploading(false);
   });
+  connect(this, &Room::accountDataChanged, this, [=](QString type) {
+    if (type == backgroundEventType)
+      emit backgroundChanged();
+  });
 }
 
 inline QString getMIME(const QUrl& fileUrl) {
@@ -48,17 +53,17 @@ void SpectralRoom::uploadFile(const QUrl& url, const QString& body) {
   if (url.isEmpty())
     return;
 
-  QString txnID = postFile(body.isEmpty() ? url.fileName() : body, url, false);
+  QString txnId = postFile(body.isEmpty() ? url.fileName() : body, url, false);
   setHasFileUploading(true);
   connect(this, &Room::fileTransferCompleted,
           [=](QString id, QUrl localFile, QUrl mxcUrl) {
-            if (id == txnID) {
+            if (id == txnId) {
               setFileUploadingProgress(0);
               setHasFileUploading(false);
             }
           });
   connect(this, &Room::fileTransferFailed, [=](QString id, QString error) {
-    if (id == txnID) {
+    if (id == txnId) {
       setFileUploadingProgress(0);
       setHasFileUploading(false);
     }
@@ -66,7 +71,7 @@ void SpectralRoom::uploadFile(const QUrl& url, const QString& body) {
   connect(
       this, &Room::fileTransferProgress,
       [=](QString id, qint64 progress, qint64 total) {
-        if (id == txnID) {
+        if (id == txnId) {
           qDebug() << "Progress:" << progress << total;
           setFileUploadingProgress(int(float(progress) / float(total) * 100));
         }
@@ -252,4 +257,50 @@ QString SpectralRoom::postMarkdownText(const QString& markdown) {
 
 QUrl SpectralRoom::urlToMxcUrl(QUrl mxcUrl) {
   return DownloadFileJob::makeRequestUrl(connection()->homeserver(), mxcUrl);
+}
+
+QUrl SpectralRoom::backgroundUrl() {
+  return hasAccountData(backgroundEventType)
+             ? QUrl(accountData(backgroundEventType)
+                        .get()
+                        ->contentJson()["url"]
+                        .toString())
+             : QUrl();
+}
+
+void SpectralRoom::setBackgroundUrl(QUrl url) {
+  if (url.isEmpty() || url == backgroundUrl())
+    return;
+
+  connection()->callApi<SetAccountDataPerRoomJob>(
+      localUser()->id(), id(), backgroundEventType,
+      QJsonObject{{"url", url.toString()}});
+}
+
+void SpectralRoom::setBackgroundFromLocalFile(QUrl url) {
+  if (url.isEmpty())
+    return;
+
+  auto txnId = connection()->generateTxnId();
+  Room::uploadFile(txnId, url);
+
+  connect(this, &Room::fileTransferCompleted,
+          [=](QString id, QUrl localFile, QUrl mxcUrl) {
+            if (id == txnId) {
+              setBackgroundUrl(mxcUrl);
+            }
+          });
+}
+
+void SpectralRoom::clearBackground() {
+  connection()->callApi<SetAccountDataPerRoomJob>(
+      localUser()->id(), id(), backgroundEventType, QJsonObject{});
+}
+
+QString SpectralRoom::backgroundMediaId() {
+  if (!hasAccountData(backgroundEventType))
+    return {};
+
+  auto url = backgroundUrl();
+  return url.authority() + url.path();
 }
