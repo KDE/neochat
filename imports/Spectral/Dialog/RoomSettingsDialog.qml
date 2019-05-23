@@ -14,7 +14,7 @@ Dialog {
 
     id: root
 
-    title: "Room Settings - " + (room ? room.displayName : "")
+    title: "Room Settings - " + room.displayName
     modal: true
 
     contentItem: ColumnLayout {
@@ -28,8 +28,8 @@ Dialog {
                 Layout.preferredHeight: 72
                 Layout.alignment: Qt.AlignTop
 
-                hint: room ? room.displayName : "No name"
-                source: room ? room.avatarMediaId : null
+                hint: room.displayName
+                source: room.avatarMediaId
             }
 
             ColumnLayout {
@@ -39,14 +39,18 @@ Dialog {
                 AutoTextField {
                     Layout.fillWidth: true
 
-                    text: room ? room.name : ""
+                    id: roomNameField
+
+                    text: room.name
                     placeholderText: "Room Name"
                 }
 
                 AutoTextField {
                     Layout.fillWidth: true
 
-                    text: room ? room.topic : ""
+                    id: roomTopicField
+
+                    text: room.topic
                     placeholderText: "Room Topic"
                 }
             }
@@ -55,7 +59,7 @@ Dialog {
         Control {
             Layout.fillWidth: true
 
-            visible: room ? room.predecessorId : false
+            visible: room.predecessorId
 
             padding: 8
 
@@ -106,7 +110,7 @@ Dialog {
         Control {
             Layout.fillWidth: true
 
-            visible: room ? room.successorId : false
+            visible: room.successorId
 
             padding: 8
 
@@ -175,9 +179,9 @@ Dialog {
                 ComboBox {
                     Layout.fillWidth: true
 
-                    model: room ? room.aliases : null
+                    model: room.aliases
 
-                    currentIndex: room ? room.aliases.indexOf(room.canonicalAlias) : -1
+                    currentIndex: room.aliases.indexOf(room.canonicalAlias)
                 }
             }
 
@@ -197,7 +201,7 @@ Dialog {
                     Layout.fillWidth: true
 
                     Repeater {
-                        model: room ? room.aliases : null
+                        model: room.aliases
 
                         delegate: Label {
                             Layout.fillWidth: true
@@ -247,6 +251,14 @@ Dialog {
                 onClicked: room.clearBackground()
             }
         }
+
+        Button {
+            Layout.alignment: Qt.AlignRight
+
+            text: "Save"
+
+            onClicked: saveSettings()
+        }
     }
 
     Component {
@@ -256,5 +268,15 @@ Dialog {
     }
 
     onClosed: destroy()
+
+    function saveSettings() {
+        if (room.name != roomNameField.text) {
+            room.setName(roomNameField.text)
+        }
+
+        if (room.topic != roomTopicField.text) {
+            room.setTopic(roomTopicField.text)
+        }
+    }
 }
 
