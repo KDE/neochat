@@ -35,6 +35,8 @@ Donations are needed!
 
 Bitcoin: `1AmNvttxJ6zne8f2GEH8zMAMQuT4cMdnDN`
 
+Bitcoin Cash: `bitcoincash:qz8d8ksn6d4uhh2r45cu6ewxy4hvlkq085845hqhds`
+
 ## License
 
 ![GPLv3](https://www.gnu.org/graphics/gplv3-127x51.png)
