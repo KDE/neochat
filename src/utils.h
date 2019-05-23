@@ -25,7 +25,7 @@ static const QRegularExpression userPillRegExp{
     QRegularExpression::DotMatchesEverythingOption};
 
 QString removeReply(const QString& text);
-QString cleanHTML(const QString& text, QMatrixClient::Room* room);
+QString cleanHTML(const QString& text);
 }  // namespace utils
 
 #endif

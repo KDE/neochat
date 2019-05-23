@@ -7,7 +7,7 @@ QString utils::removeReply(const QString& text) {
   return result;
 }
 
-QString utils::cleanHTML(const QString& text, QMatrixClient::Room* room) {
+QString utils::cleanHTML(const QString& text) {
   QString result(text);
   result.replace(codePillRegExp, "<i>\\1</i>");
   result.replace(userPillRegExp, "<b>\\1</b>");
