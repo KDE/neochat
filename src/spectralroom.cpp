@@ -107,12 +107,26 @@ void SpectralRoom::sendTypingNotification(bool isTyping) {
 }
 
 QString SpectralRoom::lastEvent() {
-  if (timelineSize() == 0)
-    return "";
-  const RoomEvent* lastEvent = messageEvents().rbegin()->get();
-  return user(lastEvent->senderId())->displayname() +
-         (lastEvent->isStateEvent() ? " " : ": ") +
-         utils::removeReply(eventToString(*lastEvent));
+  for (auto i = messageEvents().rbegin(); i < messageEvents().rend(); i++) {
+    const RoomEvent* evt = i->get();
+
+    if (is<RedactionEvent>(*evt))
+      continue;
+    if (evt->isRedacted())
+      continue;
+
+    if (evt->isStateEvent() &&
+        static_cast<const StateEventBase*>(evt)->repeatsState())
+      continue;
+
+    if (connection()->isIgnored(user(evt->senderId())))
+      continue;
+
+    return user(evt->senderId())->displayname() +
+           (evt->isStateEvent() ? " " : ": ") +
+           utils::removeReply(eventToString(*evt));
+  }
+  return "";
 }
 
 bool SpectralRoom::isEventHighlighted(const RoomEvent* e) const {

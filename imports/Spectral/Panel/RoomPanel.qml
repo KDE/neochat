@@ -70,6 +70,7 @@ Item {
                         Layout.alignment: Qt.AlignHCenter
 
                         text: "Choose local file"
+                        color: MPalette.foreground
                     }
                 }
 

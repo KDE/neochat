@@ -331,12 +331,12 @@ Item {
                             acceptInvitationDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom}).open()
                         } else {
                             if (enteredRoom) {
-                                enteredRoom.displayed = false
                                 leaveRoom(enteredRoom)
+                                enteredRoom.displayed = false
                             }
-                            currentRoom.displayed = true
                             enterRoom(currentRoom)
                             enteredRoom = currentRoom
+                            currentRoom.displayed = true
                         }
                     }
                     onSecondaryClicked: roomListContextMenu.createObject(ApplicationWindow.overlay, {"room": currentRoom}).popup()
