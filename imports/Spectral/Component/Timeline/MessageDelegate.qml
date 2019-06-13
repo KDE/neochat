@@ -74,7 +74,7 @@ ColumnLayout {
 
                 id: bubbleBackground
 
-                color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
+                color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : author.color
                 radius: 18
 
                 topLeftVisible: !sentByMe && (bubbleShape == 3 || bubbleShape == 2)
