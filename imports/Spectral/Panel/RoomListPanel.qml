@@ -80,16 +80,16 @@ Item {
                 caseSensitivity: Qt.CaseInsensitive
             },
             ExpressionFilter {
+                enabled: filter === 0
+                expression: category !== 5 && notificationCount > 0
+            },
+            ExpressionFilter {
                 enabled: filter === 1
-                expression: unreadCount > 0
+                expression: category === 1 || category === 3
             },
             ExpressionFilter {
                 enabled: filter === 2
-                expression: category === 1 || category === 2 || category === 3
-            },
-            ExpressionFilter {
-                enabled: filter === 3
-                expression: category === 4 || category === 5
+                expression: category !== 3
             }
         ]
     }
@@ -125,9 +125,8 @@ Item {
                         icon: {
                             switch (filter) {
                             case 0: return "\ue8b6"
-                            case 1: return "\ue7f5"
-                            case 2: return "\ue7ff"
-                            case 3: return "\ue7fc"
+                            case 1: return "\ue7ff"
+                            case 2: return "\ue7fc"
                             }
                         }
                     }
@@ -136,7 +135,7 @@ Item {
                         id: filterMenu
 
                         MenuItem {
-                            text: "All"
+                            text: "New"
 
                             onClicked: filter = 0
                         }
@@ -144,21 +143,15 @@ Item {
                         MenuSeparator {}
 
                         MenuItem {
-                            text: "New"
+                            text: "People"
 
                             onClicked: filter = 1
                         }
 
                         MenuItem {
-                            text: "People"
-
-                            onClicked: filter = 2
-                        }
-
-                        MenuItem {
                             text: "Group"
 
-                            onClicked: filter = 3
+                            onClicked: filter = 2
                         }
                     }
 
