@@ -32,6 +32,9 @@ class SpectralRoom : public Room {
                  backgroundChanged)
   Q_PROPERTY(
       QString backgroundMediaId READ backgroundMediaId NOTIFY backgroundChanged)
+  //  Q_PROPERTY(QUrl avatarUrl READ avatarUrl NOTIFY avatarChanged)
+  Q_PROPERTY(QString avatarMediaId READ avatarMediaId NOTIFY avatarChanged
+                 STORED false)
 
  public:
   explicit SpectralRoom(Connection* connection,
@@ -89,6 +92,32 @@ class SpectralRoom : public Room {
   Q_INVOKABLE QString postMarkdownText(const QString& markdown);
 
   Q_INVOKABLE QUrl urlToMxcUrl(QUrl mxcUrl);
+
+  QUrl avatarUrl() const {
+    if (!Room::avatarUrl().isEmpty())
+      return Room::avatarUrl();
+
+    // Use the first (excluding self) user's avatar for direct chats
+    const auto dcUsers = directChatUsers();
+    for (auto* u : dcUsers)
+      if (u != localUser())
+        return u->avatarUrl();
+
+    return {};
+  }
+
+  QString avatarMediaId() const {
+    if (!Room::avatarMediaId().isEmpty())
+      return Room::avatarMediaId();
+
+    // Use the first (excluding self) user's avatar for direct chats
+    const auto dcUsers = directChatUsers();
+    for (auto* u : dcUsers)
+      if (u != localUser())
+        return u->avatarMediaId();
+
+    return {};
+  }
 
   QUrl backgroundUrl();
   Q_INVOKABLE void setBackgroundUrl(QUrl url);
