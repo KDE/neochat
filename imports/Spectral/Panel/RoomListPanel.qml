@@ -354,6 +354,28 @@ Item {
                 elide: Text.ElideRight
                 verticalAlignment: Text.AlignVCenter
             }
+
+            ColumnLayout {
+                anchors.centerIn: parent
+
+                visible: sortedRoomListModel.count == 0
+
+                MaterialIcon {
+                    Layout.alignment: Qt.AlignHCenter
+
+                    icon: "\ue2bf"
+                    font.pixelSize: 48
+                    color: MPalette.lighter
+                }
+
+                Label {
+                    Layout.alignment: Qt.AlignHCenter
+
+                    text: "You're all caught up!"
+
+                    color: MPalette.foreground
+                }
+            }
         }
     }
 
