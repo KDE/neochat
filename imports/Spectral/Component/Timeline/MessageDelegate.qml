@@ -170,7 +170,7 @@ ColumnLayout {
                     }
 
                     background: Rectangle {
-                        color: sentByMe ? MPalette.accent : MPalette.background
+                        color: replyAuthor && sentByMe ? replyAuthor.color : MPalette.background
                         radius: 18
 
                         AutoMouseArea {
