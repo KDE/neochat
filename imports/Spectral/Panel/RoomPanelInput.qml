@@ -181,7 +181,21 @@ Control {
                     icon: "\ue226"
                 }
 
-                onClicked: attachDialog.open()
+                onClicked: {
+                    if (imageClipboard.hasImage) {
+                        attachDialog.open()
+                    } else {
+                        var fileDialog = openFileDialog.createObject(ApplicationWindow.overlay)
+
+                        fileDialog.chosen.connect(function(path) {
+                            if (!path) return
+
+                            roomPanelInput.attach(path)
+                        })
+
+                        fileDialog.open()
+                    }
+                }
 
                 BusyIndicator {
                     anchors.fill: parent
@@ -426,10 +440,6 @@ Control {
                 onClicked: emojiPicker.visible = !emojiPicker.visible
             }
         }
-    }
-
-    ImageClipboard {
-        id: imageClipboard
     }
 
     function insert(str) {
