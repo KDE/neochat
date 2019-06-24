@@ -173,10 +173,8 @@ ColumnLayout {
                         color: replyAuthor && sentByMe ? replyAuthor.color : MPalette.background
                         radius: 18
 
-                        RippleEffect {
+                        AutoMouseArea {
                             anchors.fill: parent
-
-                            circular: true
 
                             onClicked: goToEvent(replyEventId)
                         }
