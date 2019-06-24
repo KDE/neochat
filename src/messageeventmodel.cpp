@@ -350,6 +350,13 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
     if (isPending)
       return pendingIt->deliveryStatus();
 
+    auto* memberEvent = timelineIt->viewAs<RoomMemberEvent>();
+    if (memberEvent) {
+      if ((memberEvent->isJoin() || memberEvent->isLeave()) &&
+          !Settings().value("UI/show_joinleave", true).toBool())
+        return EventStatus::Hidden;
+    }
+
     if (is<RedactionEvent>(evt))
       return EventStatus::Hidden;
     if (evt.isRedacted())

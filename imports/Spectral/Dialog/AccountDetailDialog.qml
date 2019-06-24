@@ -210,6 +210,40 @@ Dialog {
                     Layout.preferredHeight: 48
 
                     color: MPalette.foreground
+                    icon: "\ue8f8"
+                }
+
+                Label {
+                    Layout.fillWidth: true
+
+                    color: MPalette.foreground
+                    text: "Show Join/Leave"
+                }
+
+                Switch {
+                    id: showJoinLeaveSwitch
+
+                    checked: MSettings.value("UI/show_joinleave", true)
+                    onCheckedChanged: MSettings.setValue("UI/show_joinleave", checked)
+                }
+            }
+
+            RippleEffect {
+                anchors.fill: parent
+
+                onPrimaryClicked: showJoinLeaveSwitch.checked = !showJoinLeaveSwitch.checked
+            }
+        }
+
+        Control {
+            width: parent.width
+
+            contentItem: RowLayout {
+                MaterialIcon {
+                    Layout.preferredWidth: 48
+                    Layout.preferredHeight: 48
+
+                    color: MPalette.foreground
                     icon: "\ue5d2"
                 }
 
