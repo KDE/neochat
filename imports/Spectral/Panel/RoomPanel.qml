@@ -237,6 +237,7 @@ Item {
                 highlightMoveDuration: 500
 
                 boundsBehavior: Flickable.DragOverBounds
+
                 model: SortFilterProxyModel {
                     id: sortedMessageEventModel
 
@@ -425,39 +426,45 @@ Item {
 
                     onClicked: messageListView.positionViewAtBeginning()
                 }
-            }
 
-            Control {
-                Layout.maximumWidth: parent.width * 0.8
+                Control {
+                    anchors.left: parent.left
+                    anchors.bottom: parent.bottom
 
-                visible: currentRoom && currentRoom.hasUsersTyping
-                padding: 8
+                    visible: currentRoom && currentRoom.hasUsersTyping
+                    padding: 8
 
-                contentItem: RowLayout {
-                    spacing: 8
+                    contentItem: RowLayout {
+                        spacing: 8
 
-                    Repeater {
-                        model: currentRoom && currentRoom.hasUsersTyping ? currentRoom.usersTyping : null
+                        Repeater {
+                            model: currentRoom && currentRoom.hasUsersTyping ? currentRoom.usersTyping : null
 
-                        delegate: Avatar {
-                            Layout.preferredWidth: 24
-                            Layout.preferredHeight: 24
+                            delegate: Avatar {
+                                Layout.preferredWidth: 24
+                                Layout.preferredHeight: 24
 
-                            source: modelData.avatarMediaId
-                            hint: modelData.displayName
+                                source: modelData.avatarMediaId
+                                hint: modelData.displayName
+                            }
+                        }
+
+                        BusyIndicator {
+                            Layout.preferredWidth: 32
+                            Layout.preferredHeight: 32
                         }
                     }
 
-                    BusyIndicator {
-                        Layout.preferredWidth: 32
-                        Layout.preferredHeight: 32
+                    background: Rectangle {
+                        color: MPalette.background
+                        radius: height / 2
                     }
                 }
 
-                background: Rectangle {
-                    color: MPalette.background
-                    radius: height / 2
-                }
+                Keys.onUpPressed: scrollBar.decrease()
+                Keys.onDownPressed: scrollBar.increase()
+
+                ScrollBar.vertical: ScrollBar { id: scrollBar }
             }
 
             RoomPanelInput {
