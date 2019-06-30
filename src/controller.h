@@ -70,8 +70,12 @@ class Controller : public QObject {
   QVector<Connection*> m_connections;
   QPointer<Connection> m_connection;
 
-  QByteArray loadAccessToken(const AccountSettings& account);
-  bool saveAccessToken(const AccountSettings& account,
+  QByteArray loadAccessTokenFromFile(const AccountSettings& account);
+  QByteArray loadAccessTokenFromKeyChain(const AccountSettings& account);
+
+  bool saveAccessTokenToFile(const AccountSettings& account,
+                       const QByteArray& accessToken);
+  bool saveAccessTokenToKeyChain(const AccountSettings& account,
                        const QByteArray& accessToken);
   void loadSettings();
   void saveSettings() const;
