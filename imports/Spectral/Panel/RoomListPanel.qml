@@ -34,6 +34,12 @@ Item {
         onNewMessage: if (!window.active && MSettings.showNotification) notificationsManager.postNotification(roomId, eventId, roomName, senderName, text, icon)
     }
 
+    Binding {
+        target: trayIcon
+        property: "notificationCount"
+        value: roomListModel.notificationCount
+    }
+
     SortFilterProxyModel {
         id: sortedRoomListModel
 

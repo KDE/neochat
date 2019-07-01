@@ -2,8 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Controls.Material 2.12
-import Qt.labs.settings 1.0
-import Qt.labs.platform 1.0 as Platform
+import Qt.labs.settings 1.1
 
 import Spectral.Panel 2.0
 import Spectral.Component 2.0
@@ -35,20 +34,14 @@ ApplicationWindow {
         color: MSettings.darkTheme ? "#303030" : "#FFFFFF"
     }
 
-    Platform.SystemTrayIcon {
-        visible: MSettings.showTray
-        iconSource: "qrc:/assets/img/icon.png"
+    TrayIcon {
+        id: trayIcon
 
-        menu: Platform.Menu {
-            Platform.MenuItem {
-                text: qsTr("Toggle Window")
-                onTriggered: window.visible ? hideWindow() : showWindow()
-            }
-            Platform.MenuItem {
-                text: qsTr("Quit")
-                onTriggered: Qt.quit()
-            }
-        }
+        visible: MSettings.showTray
+
+        iconSource: ":/assets/img/icon.png"
+
+        onShowWindow: window.showWindow()
     }
 
     Controller {

@@ -62,6 +62,7 @@ void RoomListModel::doResetModel() {
   for (auto r : m_connection->roomMap())
     doAddRoom(r);
   endResetModel();
+  refreshNotificationCount();
 }
 
 SpectralRoom* RoomListModel::roomAt(int row) {
@@ -104,6 +105,17 @@ void RoomListModel::connectRoomSignals(SpectralRoom* room) {
                     sender->displayname(), room->eventToString(*lastEvent),
                     room->avatar(128));
   });
+  connect(room, &Room::notificationCountChanged, this,
+          &RoomListModel::refreshNotificationCount);
+}
+
+void RoomListModel::refreshNotificationCount() {
+  int count = 0;
+  for (auto room : m_rooms) {
+    count += room->notificationCount();
+  }
+  m_notificationCount = count;
+  emit notificationCountChanged();
 }
 
 void RoomListModel::updateRoom(Room* room, Room* prev) {

@@ -26,7 +26,7 @@ NotificationsManager::NotificationsManager(QObject *parent)
 void NotificationsManager::postNotification(
     const QString &roomid, const QString &eventid, const QString &roomname,
     const QString &sender, const QString &text, const QImage &icon) {
-  uint id = showNotification(roomname, sender + ": " + text, icon);
+  uint id = showNotification(sender + " (" + roomname + ")", text, icon);
   notificationIds[id] = roomEventId{roomid, eventid};
 }
 /**

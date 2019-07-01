@@ -16,6 +16,7 @@
 #include "roomlistmodel.h"
 #include "spectralroom.h"
 #include "spectraluser.h"
+#include "trayicon.h"
 #include "userlistmodel.h"
 
 #include "csapi/joining.h"
@@ -47,6 +48,7 @@ int main(int argc, char* argv[]) {
   qmlRegisterType<EmojiModel>("Spectral", 0, 1, "EmojiModel");
   qmlRegisterType<NotificationsManager>("Spectral", 0, 1,
                                         "NotificationsManager");
+  qmlRegisterType<TrayIcon>("Spectral", 0, 1, "TrayIcon");
   qmlRegisterType<ImageClipboard>("Spectral", 0, 1, "ImageClipboard");
   qmlRegisterUncreatableType<RoomMessageEvent>("Spectral", 0, 1,
                                                "RoomMessageEvent", "ENUM");

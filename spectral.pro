@@ -44,7 +44,8 @@ HEADERS += \
     include/hoedown/escape.h \
     include/hoedown/html.h \
     include/hoedown/stack.h \
-    include/hoedown/version.h
+    include/hoedown/version.h \
+    src/trayicon.h
 
 SOURCES += \
     include/hoedown/autolink.c \
@@ -55,7 +56,8 @@ SOURCES += \
     include/hoedown/html_blocks.c \
     include/hoedown/html_smartypants.c \
     include/hoedown/stack.c \
-    include/hoedown/version.c
+    include/hoedown/version.c \
+    src/trayicon.cpp
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked deprecated (the exact warnings

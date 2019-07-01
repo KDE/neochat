@@ -27,6 +27,8 @@ class RoomType : public QObject {
 class RoomListModel : public QAbstractListModel {
   Q_OBJECT
   Q_PROPERTY(Connection* connection READ connection WRITE setConnection)
+  Q_PROPERTY(int notificationCount READ notificationCount NOTIFY
+                 notificationCountChanged)
 
  public:
   enum EventRoles {
@@ -59,19 +61,27 @@ class RoomListModel : public QAbstractListModel {
 
   QHash<int, QByteArray> roleNames() const;
 
+  int notificationCount() { return m_notificationCount; }
+
  private slots:
   void doAddRoom(Room* room);
   void updateRoom(Room* room, Room* prev);
   void deleteRoom(Room* room);
   void refresh(SpectralRoom* room, const QVector<int>& roles = {});
+  void refreshNotificationCount();
 
  private:
   Connection* m_connection = nullptr;
   QList<SpectralRoom*> m_rooms;
+
+  int m_notificationCount = 0;
+
   void connectRoomSignals(SpectralRoom* room);
 
  signals:
   void connectionChanged();
+  void notificationCountChanged();
+
   void roomAdded(SpectralRoom* room);
   void newMessage(const QString& roomId,
                   const QString& eventId,

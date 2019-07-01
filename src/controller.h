@@ -74,13 +74,11 @@ class Controller : public QObject {
   QByteArray loadAccessTokenFromKeyChain(const AccountSettings& account);
 
   bool saveAccessTokenToFile(const AccountSettings& account,
-                       const QByteArray& accessToken);
+                             const QByteArray& accessToken);
   bool saveAccessTokenToKeyChain(const AccountSettings& account,
-                       const QByteArray& accessToken);
+                                 const QByteArray& accessToken);
   void loadSettings();
   void saveSettings() const;
-
-  Q_INVOKABLE QString removeReply(const QString& text);
 
  private slots:
   void invokeLogin();
@@ -94,6 +92,7 @@ class Controller : public QObject {
   void initiated();
   void notificationClicked(const QString roomId, const QString eventId);
   void quitOnLastWindowClosedChanged();
+  void unreadCountChanged();
   void connectionChanged();
 
  public slots:
