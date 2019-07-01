@@ -31,6 +31,8 @@
 #include <QtNetwork/QAuthenticator>
 #include <QtNetwork/QNetworkReply>
 
+#include <keychain.h>
+
 Controller::Controller(QObject* parent) : QObject(parent) {
   QApplication::setQuitOnLastWindowClosed(false);
 
@@ -74,7 +76,7 @@ void Controller::loginWithCredentials(QString serverAddr,
       account.setHomeserver(conn->homeserver());
       account.setDeviceId(conn->deviceId());
       account.setDeviceName(deviceName);
-      if (!saveAccessToken(account, conn->accessToken()))
+      if (!saveAccessTokenToKeyChain(account, conn->accessToken()))
         qWarning() << "Couldn't save access token";
       account.sync();
       addConnection(conn);
@@ -147,7 +149,7 @@ void Controller::invokeLogin() {
   for (const auto& accountId : accounts) {
     AccountSettings account{accountId};
     if (!account.homeserver().isEmpty()) {
-      auto accessToken = loadAccessToken(account);
+      auto accessToken = loadAccessTokenFromKeyChain(account);
 
       auto c = new Connection(account.homeserver(), this);
       auto deviceName = account.deviceName();
@@ -170,7 +172,7 @@ void Controller::invokeLogin() {
   emit initiated();
 }
 
-QByteArray Controller::loadAccessToken(const AccountSettings& account) {
+QByteArray Controller::loadAccessTokenFromFile(const AccountSettings& account) {
   QFile accountTokenFile{accessTokenFileName(account)};
   if (accountTokenFile.open(QFile::ReadOnly)) {
     if (accountTokenFile.size() < 1024)
@@ -186,8 +188,49 @@ QByteArray Controller::loadAccessToken(const AccountSettings& account) {
   return {};
 }
 
-bool Controller::saveAccessToken(const AccountSettings& account,
-                                 const QByteArray& accessToken) {
+QByteArray Controller::loadAccessTokenFromKeyChain(
+    const AccountSettings& account) {
+  qDebug() << "Read the access token from the keychain for "
+           << account.userId();
+  QKeychain::ReadPasswordJob job(qAppName());
+  job.setAutoDelete(false);
+  job.setKey(account.userId());
+  QEventLoop loop;
+  QKeychain::ReadPasswordJob::connect(&job, &QKeychain::Job::finished, &loop,
+                                      &QEventLoop::quit);
+  job.start();
+  loop.exec();
+
+  if (job.error() == QKeychain::Error::NoError) {
+    return job.binaryData();
+  }
+
+  qWarning() << "Could not read the access token from the keychain: "
+             << qPrintable(job.errorString());
+  // no access token from the keychain, try token file
+  auto accessToken = loadAccessTokenFromFile(account);
+  if (job.error() == QKeychain::Error::EntryNotFound) {
+    if (!accessToken.isEmpty()) {
+      qDebug() << "Migrating the access token from file to the keychain for "
+               << account.userId();
+      bool removed = false;
+      bool saved = saveAccessTokenToKeyChain(account, accessToken);
+      if (saved) {
+        QFile accountTokenFile{accessTokenFileName(account)};
+        removed = accountTokenFile.remove();
+      }
+      if (!(saved && removed)) {
+        qDebug() << "Migrating the access token from the file to the keychain "
+                    "failed";
+      }
+    }
+  }
+
+  return accessToken;
+}
+
+bool Controller::saveAccessTokenToFile(const AccountSettings& account,
+                                       const QByteArray& accessToken) {
   // (Re-)Make a dedicated file for access_token.
   QFile accountTokenFile{accessTokenFileName(account)};
   accountTokenFile.remove();  // Just in case
@@ -201,6 +244,28 @@ bool Controller::saveAccessToken(const AccountSettings& account,
     return true;
   }
   return false;
+}
+
+bool Controller::saveAccessTokenToKeyChain(const AccountSettings& account,
+                                           const QByteArray& accessToken) {
+  qDebug() << "Save the access token to the keychain for " << account.userId();
+  QKeychain::WritePasswordJob job(qAppName());
+  job.setAutoDelete(false);
+  job.setKey(account.userId());
+  job.setBinaryData(accessToken);
+  QEventLoop loop;
+  QKeychain::WritePasswordJob::connect(&job, &QKeychain::Job::finished, &loop,
+                                       &QEventLoop::quit);
+  job.start();
+  loop.exec();
+
+  if (job.error()) {
+    qWarning() << "Could not save access token to the keychain: "
+               << qPrintable(job.errorString());
+    return saveAccessTokenToFile(account, accessToken);
+  }
+
+  return true;
 }
 
 void Controller::joinRoom(Connection* c, const QString& alias) {

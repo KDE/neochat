@@ -34,6 +34,8 @@ $$USE_SYSTEM_SORTFILTERPROXYMODEL {
     include(include/SortFilterProxyModel/SortFilterProxyModel.pri)
 }
 
+include(include/qtkeychain/qt5keychain.pri)
+
 INCLUDEPATH += include/hoedown
 HEADERS += \
     include/hoedown/autolink.h \
