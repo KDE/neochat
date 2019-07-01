@@ -81,7 +81,7 @@ Item {
             },
             ExpressionFilter {
                 enabled: filter === 0
-                expression: category !== 5 && notificationCount > 0
+                expression: category !== 5 && notificationCount > 0 || currentRoom === enteredRoom
             },
             ExpressionFilter {
                 enabled: filter === 1
