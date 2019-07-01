@@ -20,9 +20,6 @@ isEmpty(USE_SYSTEM_SORTFILTERPROXYMODEL) {
 isEmpty(USE_SYSTEM_QMATRIXCLIENT) {
     USE_SYSTEM_QMATRIXCLIENT = false
 }
-isEmpty(USE_SYSTEM_QTCHAIN) {
-    USE_SYSTEM_QTCHAIN = false
-}
 
 $$USE_SYSTEM_QMATRIXCLIENT {
     PKGCONFIG += QMatrixClient
@@ -36,12 +33,8 @@ $$USE_SYSTEM_SORTFILTERPROXYMODEL {
     message("Falling back to built-in SortFilterProxyModel.")
     include(include/SortFilterProxyModel/SortFilterProxyModel.pri)
 }
-$$USE_SYSTEM_QTCHAIN {
-    LIBS += -lqt5keychain
-} else {
-    message("Falling back to built-in QtKeychain.")
-    include(include/qtkeychain/qt5keychain.pri)
-}
+
+include(include/qtkeychain/qt5keychain.pri)
 
 INCLUDEPATH += include/hoedown
 HEADERS += \
