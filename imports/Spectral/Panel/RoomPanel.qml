@@ -432,26 +432,45 @@ Item {
                     anchors.bottom: parent.bottom
 
                     visible: currentRoom && currentRoom.hasUsersTyping
-                    padding: 8
+                    padding: 4
 
                     contentItem: RowLayout {
-                        spacing: 8
+                        spacing: 0
 
-                        Repeater {
-                            model: currentRoom && currentRoom.hasUsersTyping ? currentRoom.usersTyping : null
+                        RowLayout {
+                            spacing: -8
 
-                            delegate: Avatar {
-                                Layout.preferredWidth: 24
-                                Layout.preferredHeight: 24
+                            Repeater {
+                                model: currentRoom && currentRoom.hasUsersTyping ? currentRoom.usersTyping : null
 
-                                source: modelData.avatarMediaId
-                                hint: modelData.displayName
+                                delegate: Rectangle {
+                                    Layout.preferredWidth: 28
+                                    Layout.preferredHeight: 28
+
+                                    color: "white"
+                                    radius: 14
+
+                                    Avatar {
+                                        anchors.fill: parent
+                                        anchors.margins: 2
+
+                                        source: modelData.avatarMediaId
+                                        hint: modelData.displayName
+                                    }
+                                }
                             }
                         }
 
-                        BusyIndicator {
-                            Layout.preferredWidth: 32
-                            Layout.preferredHeight: 32
+                        Item {
+                            Layout.preferredWidth: 28
+                            Layout.preferredHeight: 28
+
+                            BusyIndicator {
+                                anchors.centerIn: parent
+
+                                width: 32
+                                height: 32
+                            }
                         }
                     }
 

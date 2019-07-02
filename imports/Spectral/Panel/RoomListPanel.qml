@@ -18,7 +18,7 @@ Item {
     property var connection: null
     readonly property var user: connection ? connection.localUser : null
 
-    property int filter: 0
+    property int filter: tabBar.currentIndex
     property var enteredRoom: null
 
     signal enterRoom(var room)
@@ -128,40 +128,8 @@ Item {
                     visible: !searchField.active
 
                     contentItem: MaterialIcon {
-                        icon: {
-                            switch (filter) {
-                            case 0: return "\ue8b6"
-                            case 1: return "\ue7ff"
-                            case 2: return "\ue7fc"
-                            }
-                        }
+                        icon: "\ue8b6"
                     }
-
-                    Menu {
-                        id: filterMenu
-
-                        MenuItem {
-                            text: "New"
-
-                            onClicked: filter = 0
-                        }
-
-                        MenuSeparator {}
-
-                        MenuItem {
-                            text: "People"
-
-                            onClicked: filter = 1
-                        }
-
-                        MenuItem {
-                            text: "Group"
-
-                            onClicked: filter = 2
-                        }
-                    }
-
-                    onClicked: filterMenu.popup()
                 }
 
                 ToolButton {
@@ -369,7 +337,7 @@ Item {
                 MaterialIcon {
                     Layout.alignment: Qt.AlignHCenter
 
-                    icon: "\ue2bf"
+                    icon: "\ue5ca"
                     font.pixelSize: 48
                     color: MPalette.lighter
                 }
@@ -380,6 +348,58 @@ Item {
                     text: "You're all caught up!"
 
                     color: MPalette.foreground
+                }
+            }
+        }
+
+        TabBar {
+            Layout.fillWidth: true
+
+            id: tabBar
+
+            TabButton {
+                contentItem: Item {
+                    MaterialIcon {
+                        anchors.centerIn: parent
+
+                        icon: "\ue7f5"
+                        color: MPalette.lighter
+
+                        Rectangle {
+                            anchors.right: parent.right
+                            anchors.top: parent.top
+
+                            visible: roomListModel.notificationCount > 0
+
+                            width: 12
+                            height: 12
+                            radius: 6
+
+                            color: "white"
+
+                            Rectangle {
+                                anchors.centerIn: parent
+
+                                width: 8
+                                height: 8
+                                radius: 4
+
+                                color: "red"
+                            }
+                        }
+                    }
+                }
+            }
+            TabButton {
+                contentItem: MaterialIcon {
+                    icon: "\ue7ff"
+                    color: MPalette.lighter
+                }
+            }
+            TabButton {
+                contentItem: MaterialIcon {
+                    icon: "\ue7fc"
+                    color: MPalette.lighter
                 }
             }
         }
