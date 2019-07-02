@@ -23,6 +23,7 @@ class Controller : public QObject {
                  setQuitOnLastWindowClosed NOTIFY quitOnLastWindowClosedChanged)
   Q_PROPERTY(Connection* connection READ connection WRITE setConnection NOTIFY
                  connectionChanged)
+  Q_PROPERTY(bool busy READ busy WRITE setBusy NOTIFY busyChanged)
 
  public:
   explicit Controller(QObject* parent = nullptr);
@@ -53,6 +54,12 @@ class Controller : public QObject {
     }
   }
 
+  bool busy() { return m_busy; }
+  void setBusy(bool busy) {
+    m_busy = busy;
+    emit busyChanged();
+  }
+
   Connection* connection() {
     if (m_connection.isNull())
       return nullptr;
@@ -69,6 +76,7 @@ class Controller : public QObject {
  private:
   QVector<Connection*> m_connections;
   QPointer<Connection> m_connection;
+  bool m_busy = false;
 
   QByteArray loadAccessTokenFromFile(const AccountSettings& account);
   QByteArray loadAccessTokenFromKeyChain(const AccountSettings& account);

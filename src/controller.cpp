@@ -122,6 +122,7 @@ void Controller::addConnection(Connection* c) {
   c->setLazyLoading(true);
 
   connect(c, &Connection::syncDone, this, [=] {
+    setBusy(false);
     emit syncDone();
     c->sync(30000);
     c->saveState();
@@ -130,7 +131,9 @@ void Controller::addConnection(Connection* c) {
 
   using namespace QMatrixClient;
 
-  c->sync(30000);
+  setBusy(true);
+
+  c->sync();
 
   emit connectionAdded(c);
 }
