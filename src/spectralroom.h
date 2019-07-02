@@ -305,6 +305,7 @@ class SpectralRoom : public Room {
                  QString eventId,
                  QString replyContent,
                  QString sendContent);
+  void changeAvatar(QUrl localFile);
 };
 
 #endif  // SpectralRoom_H

@@ -30,6 +30,24 @@ Dialog {
 
                 hint: room.displayName
                 source: room.avatarMediaId
+
+                RippleEffect {
+                    anchors.fill: parent
+
+                    circular: true
+
+                    onClicked: {
+                        var fileDialog = openFileDialog.createObject(ApplicationWindow.overlay)
+
+                        fileDialog.chosen.connect(function(path) {
+                            if (!path) return
+
+                            room.changeAvatar(path)
+                        })
+
+                        fileDialog.open()
+                    }
+                }
             }
 
             ColumnLayout {
@@ -230,7 +248,7 @@ Dialog {
                 text: "Set background image"
 
                 onClicked: {
-                    var fileDialog = chatBackgroundDialog.createObject(ApplicationWindow.overlay)
+                    var fileDialog = openFileDialog.createObject(ApplicationWindow.overlay)
 
                     fileDialog.chosen.connect(function(path) {
                         if (!path) return
@@ -262,7 +280,7 @@ Dialog {
     }
 
     Component {
-        id: chatBackgroundDialog
+        id: openFileDialog
 
         OpenFileDialog {}
     }

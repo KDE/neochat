@@ -6,6 +6,8 @@
 #include "csapi/account-data.h"
 #include "csapi/content-repo.h"
 #include "csapi/leaving.h"
+#include "csapi/room_state.h"
+#include "csapi/rooms.h"
 #include "csapi/typing.h"
 #include "events/accountdataevents.h"
 #include "events/typingevent.h"
@@ -303,4 +305,14 @@ QString SpectralRoom::backgroundMediaId() {
 
   auto url = backgroundUrl();
   return url.authority() + url.path();
+}
+
+void SpectralRoom::changeAvatar(QUrl localFile) {
+  auto job = connection()->uploadFile(localFile.toLocalFile());
+  if (isJobRunning(job)) {
+    connect(job, &BaseJob::success, this, [this, job] {
+      connection()->callApi<SetRoomStateJob>(
+          id(), "m.room.avatar", QJsonObject{{"url", job->contentUri()}});
+    });
+  }
 }

@@ -36,6 +36,8 @@ ApplicationWindow {
         anchors.top: parent.top
         anchors.right: parent.right
 
+        id: closeButton
+
         width: 64
         height: 64
 

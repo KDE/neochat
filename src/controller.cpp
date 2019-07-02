@@ -8,8 +8,10 @@
 #include "events/roommessageevent.h"
 
 #include "csapi/account-data.h"
+#include "csapi/content-repo.h"
 #include "csapi/joining.h"
 #include "csapi/logout.h"
+#include "csapi/profile.h"
 
 #include "utils.h"
 
@@ -309,4 +311,13 @@ int Controller::dpi() {
 
 void Controller::setDpi(int dpi) {
   SettingsGroup("Interface").setValue("dpi", dpi);
+}
+
+void Controller::changeAvatar(Connection* conn, QUrl localFile) {
+  auto job = conn->uploadFile(localFile.toLocalFile());
+  if (isJobRunning(job)) {
+    connect(job, &BaseJob::success, this, [this, conn, job] {
+      conn->callApi<SetAvatarUrlJob>(conn->userId(), job->contentUri());
+    });
+  }
 }
