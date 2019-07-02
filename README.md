@@ -11,9 +11,13 @@ Spectral is a glossy cross-platform client for Matrix, the decentralized communi
 ![Screenshot](https://gitlab.com/b0/spectral/raw/master/screenshots/3.png)
 ![Screenshot](https://gitlab.com/b0/spectral/raw/master/screenshots/4.png)
 
-## Document
+## Documentation
 
-There is a [separate document](https://spectral.encom.eu.org/docs/) for Spectral.
+Documentation for Spectral is located
+[here](https://spectral.encom.eu.org/docs/).
+
+Build instructions for Spectral are located on [this
+page](https://spectral.encom.eu.org/docs/tutorial/compile.html).
 
 ## Contact
 
