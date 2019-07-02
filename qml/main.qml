@@ -69,6 +69,17 @@ ApplicationWindow {
     }
 
     ToolTip {
+        id: busyIndicator
+
+        parent: ApplicationWindow.overlay
+
+        visible: spectralController.busy
+        text: "Loading, please wait"
+
+        font.pixelSize: 14
+    }
+
+    ToolTip {
         id: errorControl
 
         parent: ApplicationWindow.overlay

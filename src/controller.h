@@ -56,6 +56,9 @@ class Controller : public QObject {
 
   bool busy() { return m_busy; }
   void setBusy(bool busy) {
+    if (m_busy == busy) {
+      return;
+    }
     m_busy = busy;
     emit busyChanged();
   }
