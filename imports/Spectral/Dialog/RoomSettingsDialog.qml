@@ -197,9 +197,11 @@ Dialog {
                 ComboBox {
                     Layout.fillWidth: true
 
-                    model: room.aliases
+                    id: canonicalAliasComboBox
 
-                    currentIndex: room.aliases.indexOf(room.canonicalAlias)
+                    model: room.remoteAliases
+
+                    currentIndex: room.remoteAliases.indexOf(room.canonicalAlias)
                 }
             }
 
@@ -211,15 +213,17 @@ Dialog {
                     Layout.alignment: Qt.AlignTop
 
                     wrapMode: Label.Wrap
-                    text: "Aliases"
+                    text: "Local Aliases"
                     color: MPalette.lighter
                 }
 
                 ColumnLayout {
                     Layout.fillWidth: true
 
+                    spacing: 0
+
                     Repeater {
-                        model: room.aliases
+                        model: room.localAliases
 
                         delegate: Label {
                             Layout.fillWidth: true
@@ -294,6 +298,10 @@ Dialog {
 
         if (room.topic != roomTopicField.text) {
             room.setTopic(roomTopicField.text)
+        }
+
+        if (room.canonicalAlias != room.remoteAliases[canonicalAliasComboBox.currentIndex]) {
+            room.setCanonicalAlias(room.remoteAliases[canonicalAliasComboBox.currentIndex])
         }
     }
 }
