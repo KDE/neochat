@@ -316,3 +316,23 @@ void SpectralRoom::changeAvatar(QUrl localFile) {
     });
   }
 }
+
+void SpectralRoom::addLocalAlias(const QString& alias) {
+  auto aliases = localAliases();
+  if (aliases.contains(alias))
+    return;
+
+  aliases.append(alias);
+
+  setLocalAliases(aliases);
+}
+
+void SpectralRoom::removeLocalAlias(const QString& alias) {
+  auto aliases = localAliases();
+  if (!aliases.contains(alias))
+    return;
+
+  aliases.removeAll(alias);
+
+  setLocalAliases(aliases);
+}

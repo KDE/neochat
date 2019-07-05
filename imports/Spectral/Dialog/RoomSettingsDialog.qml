@@ -176,6 +176,23 @@ Dialog {
             }
         }
 
+        Button {
+            Layout.alignment: Qt.AlignRight
+
+            text: "Save"
+            highlighted: true
+
+            onClicked: {
+                if (room.name != roomNameField.text) {
+                    room.setName(roomNameField.text)
+                }
+
+                if (room.topic != roomTopicField.text) {
+                    room.setTopic(roomTopicField.text)
+                }
+            }
+        }
+
         MenuSeparator {
             Layout.fillWidth: true
         }
@@ -202,6 +219,11 @@ Dialog {
                     model: room.remoteAliases
 
                     currentIndex: room.remoteAliases.indexOf(room.canonicalAlias)
+                    onCurrentIndexChanged: {
+                        if (room.canonicalAlias != room.remoteAliases[currentIndex]) {
+                            room.setCanonicalAlias(room.remoteAliases[currentIndex])
+                        }
+                    }
                 }
             }
 
@@ -225,13 +247,30 @@ Dialog {
                     Repeater {
                         model: room.localAliases
 
-                        delegate: Label {
-                            Layout.fillWidth: true
+                        delegate: RowLayout {
+                            Layout.maximumWidth: parent.width
 
-                            text: modelData
+                            Label {
+                                text: modelData
 
-                            font.pixelSize: 12
-                            color: MPalette.lighter
+                                font.pixelSize: 12
+                                color: MPalette.lighter
+                            }
+
+                            MaterialIcon {
+                                icon: "\ue5cd"
+
+                                color: MPalette.lighter
+                                font.pixelSize: 12
+
+                                RippleEffect {
+                                    anchors.fill: parent
+
+                                    circular: true
+
+                                    onClicked: room.removeLocalAlias(modelData)
+                                }
+                            }
                         }
                     }
                 }
@@ -273,14 +312,6 @@ Dialog {
                 onClicked: room.clearBackground()
             }
         }
-
-        Button {
-            Layout.alignment: Qt.AlignRight
-
-            text: "Save"
-
-            onClicked: saveSettings()
-        }
     }
 
     Component {
@@ -290,19 +321,5 @@ Dialog {
     }
 
     onClosed: destroy()
-
-    function saveSettings() {
-        if (room.name != roomNameField.text) {
-            room.setName(roomNameField.text)
-        }
-
-        if (room.topic != roomTopicField.text) {
-            room.setTopic(roomTopicField.text)
-        }
-
-        if (room.canonicalAlias != room.remoteAliases[canonicalAliasComboBox.currentIndex]) {
-            room.setCanonicalAlias(room.remoteAliases[canonicalAliasComboBox.currentIndex])
-        }
-    }
 }
 

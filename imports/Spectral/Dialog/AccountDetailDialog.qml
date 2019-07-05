@@ -20,55 +20,26 @@ Dialog {
 
         spacing: 0
 
-        Repeater {
+        ListView {
+            width: parent.width
+            height: 48
+
+            clip: true
+
+            orientation: ListView.Horizontal
+
+            spacing: 16
+
             model: AccountListModel{
                 controller: spectralController
             }
 
-            delegate: Item {
-                width: detailColumn.width
-                height: 72
+            delegate: Avatar {
+                width: 48
+                height: 48
 
-                RowLayout {
-                    anchors.fill: parent
-                    anchors.margins: 12
-
-                    spacing: 12
-
-                    Avatar {
-                        Layout.preferredWidth: height
-                        Layout.fillHeight: true
-
-                        source: user.avatarMediaId
-                        hint: user.displayName || "No Name"
-                    }
-
-                    ColumnLayout {
-                        Layout.fillWidth: true
-                        Layout.alignment: Qt.AlignHCenter
-
-                        Label {
-                            Layout.fillWidth: true
-
-                            text: user.displayName || "No Name"
-                            color: MPalette.foreground
-                            font.pixelSize: 16
-                            font.bold: true
-                            elide: Text.ElideRight
-                            wrapMode: Text.NoWrap
-                        }
-
-                        Label {
-                            Layout.fillWidth: true
-
-                            text: connection === spectralController.connection ? "Active" : "Online"
-                            color: MPalette.lighter
-                            font.pixelSize: 13
-                            elide: Text.ElideRight
-                            wrapMode: Text.NoWrap
-                        }
-                    }
-                }
+                source: user.avatarMediaId
+                hint: user.displayName || "No Name"
 
                 Menu {
                     id: contextMenu
@@ -82,6 +53,8 @@ Dialog {
 
                 RippleEffect {
                     anchors.fill: parent
+
+                    circular: true
 
                     onPrimaryClicked: spectralController.connection = connection
                     onSecondaryClicked: contextMenu.popup()

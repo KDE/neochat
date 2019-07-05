@@ -68,8 +68,12 @@ void Controller::loginWithCredentials(QString serverAddr,
                          QSysInfo::productVersion() + " " +
                          QSysInfo::currentCpuArchitecture();
 
+    QUrl serverUrl(serverAddr);
+
     Connection* conn = new Connection(this);
-    conn->setHomeserver(QUrl(serverAddr));
+    if (serverUrl.isValid()) {
+        conn->setHomeserver(serverUrl);
+    }
     conn->connectToServer(user, pass, deviceName, "");
     connect(conn, &Connection::connected, [=] {
       AccountSettings account(conn->userId());

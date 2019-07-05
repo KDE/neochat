@@ -306,6 +306,8 @@ class SpectralRoom : public Room {
                  QString replyContent,
                  QString sendContent);
   void changeAvatar(QUrl localFile);
+  void addLocalAlias(const QString& alias);
+  void removeLocalAlias(const QString& alias);
 };
 
 #endif  // SpectralRoom_H
