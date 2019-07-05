@@ -72,7 +72,7 @@ void Controller::loginWithCredentials(QString serverAddr,
 
     Connection* conn = new Connection(this);
     if (serverUrl.isValid()) {
-        conn->setHomeserver(serverUrl);
+      conn->setHomeserver(serverUrl);
     }
     conn->connectToServer(user, pass, deviceName, "");
     connect(conn, &Connection::connected, [=] {
@@ -168,6 +168,7 @@ void Controller::invokeLogin() {
       });
       connect(c, &Connection::loginError, [=](QString error, QString) {
         emit errorOccured("Login Failed", error);
+        logout(c);
       });
       connect(c, &Connection::networkError,
               [=](QString error, QString, int, int) {
