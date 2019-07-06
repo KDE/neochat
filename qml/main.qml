@@ -41,6 +41,8 @@ ApplicationWindow {
 
         iconSource: ":/assets/img/icon.png"
 
+        isOnline: spectralController.isOnline
+
         onShowWindow: window.showWindow()
     }
 

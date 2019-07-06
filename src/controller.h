@@ -10,6 +10,7 @@
 #include <QApplication>
 #include <QMediaPlayer>
 #include <QMenu>
+#include <QNetworkConfigurationManager>
 #include <QObject>
 #include <QSystemTrayIcon>
 
@@ -23,6 +24,7 @@ class Controller : public QObject {
                  setQuitOnLastWindowClosed NOTIFY quitOnLastWindowClosedChanged)
   Q_PROPERTY(Connection* connection READ connection WRITE setConnection NOTIFY
                  connectionChanged)
+  Q_PROPERTY(bool isOnline READ isOnline NOTIFY isOnlineChanged)
   Q_PROPERTY(bool busy READ busy WRITE setBusy NOTIFY busyChanged)
 
  public:
@@ -54,6 +56,8 @@ class Controller : public QObject {
     }
   }
 
+  bool isOnline() { return m_ncm.isOnline(); }
+
   bool busy() { return m_busy; }
   void setBusy(bool busy) {
     if (m_busy == busy) {
@@ -79,6 +83,7 @@ class Controller : public QObject {
  private:
   QVector<Connection*> m_connections;
   QPointer<Connection> m_connection;
+  QNetworkConfigurationManager m_ncm;
   bool m_busy = false;
 
   QByteArray loadAccessTokenFromFile(const AccountSettings& account);
@@ -105,6 +110,7 @@ class Controller : public QObject {
   void quitOnLastWindowClosedChanged();
   void unreadCountChanged();
   void connectionChanged();
+  void isOnlineChanged();
 
  public slots:
   void logout(Connection* conn);

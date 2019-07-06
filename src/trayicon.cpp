@@ -27,7 +27,7 @@ void MsgCountComposedIcon::paint(QPainter* painter,
 
   icon_.paint(painter, rect, Qt::AlignCenter, mode, state);
 
-  if (msgCount <= 0)
+  if (isOnline && msgCount <= 0)
     return;
 
   QColor backgroundColor("red");
@@ -46,10 +46,12 @@ void MsgCountComposedIcon::paint(QPainter* painter,
   painter->drawEllipse(bubble);
   painter->setPen(QPen(textColor));
   painter->setBrush(Qt::NoBrush);
-  if (msgCount < 100) {
-    painter->drawText(bubble, Qt::AlignCenter, QString::number(msgCount));
-  } else {
+  if (!isOnline) {
+    painter->drawText(bubble, Qt::AlignCenter, "x");
+  } else if (msgCount >= 100) {
     painter->drawText(bubble, Qt::AlignCenter, "99+");
+  } else {
+    painter->drawText(bubble, Qt::AlignCenter, QString::number(msgCount));
   }
 }
 
@@ -111,7 +113,7 @@ void TrayIcon::setNotificationCount(int count) {
 #elif defined(Q_OS_WIN)
 // FIXME: Find a way to use Windows apis for the badge counter (if any).
 #else
-  if (count == icon_->msgCount)
+  if (!icon_ || count == icon_->msgCount)
     return;
 
   // Custom drawing on Linux.
@@ -126,6 +128,23 @@ void TrayIcon::setNotificationCount(int count) {
   emit notificationCountChanged();
 }
 
+void TrayIcon::setIsOnline(bool online) {
+  m_isOnline = online;
+
+  if (!icon_ || online == icon_->isOnline)
+    return;
+
+  // Custom drawing on Linux.
+  MsgCountComposedIcon* tmp =
+      static_cast<MsgCountComposedIcon*>(icon_->clone());
+  tmp->isOnline = online;
+
+  setIcon(QIcon(tmp));
+
+  icon_ = tmp;
+  emit isOnlineChanged();
+}
+
 void TrayIcon::setIconSource(const QString& source) {
   m_iconSource = source;
 #if defined(Q_OS_MAC) || defined(Q_OS_WIN)
@@ -133,6 +152,8 @@ void TrayIcon::setIconSource(const QString& source) {
 #else
   icon_ = new MsgCountComposedIcon(source);
   setIcon(QIcon(icon_));
+  icon_->isOnline = m_isOnline;
+  icon_->msgCount = m_notificationCount;
 #endif
   emit iconSourceChanged();
 }

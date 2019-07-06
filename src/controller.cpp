@@ -41,6 +41,9 @@ Controller::Controller(QObject* parent) : QObject(parent) {
   Connection::setRoomType<SpectralRoom>();
   Connection::setUserType<SpectralUser>();
 
+  connect(&m_ncm, &QNetworkConfigurationManager::onlineStateChanged, this,
+          &Controller::isOnlineChanged);
+
   QTimer::singleShot(0, this, SLOT(invokeLogin()));
 }
 
@@ -134,6 +137,14 @@ void Controller::addConnection(Connection* c) {
     c->saveState();
   });
   connect(c, &Connection::loggedOut, this, [=] { dropConnection(c); });
+  connect(&m_ncm, &QNetworkConfigurationManager::onlineStateChanged,
+          [=](bool status) {
+            if (!status)
+              return;
+
+            c->stopSync();
+            c->sync(30000);
+          });
 
   using namespace QMatrixClient;
 

@@ -26,6 +26,7 @@ class MsgCountComposedIcon : public QIconEngine {
                          QIcon::State state);
 
   int msgCount = 0;
+  bool isOnline = true;  // Default to false?
 
  private:
   const int BubbleDiameter = 14;
@@ -39,6 +40,7 @@ class TrayIcon : public QSystemTrayIcon {
                  iconSourceChanged)
   Q_PROPERTY(int notificationCount READ notificationCount WRITE
                  setNotificationCount NOTIFY notificationCountChanged)
+    Q_PROPERTY(bool isOnline READ isOnline WRITE setIsOnline NOTIFY isOnlineChanged)
  public:
   TrayIcon(QObject* parent = nullptr);
 
@@ -48,15 +50,20 @@ class TrayIcon : public QSystemTrayIcon {
   int notificationCount() { return m_notificationCount; }
   void setNotificationCount(int count);
 
+  bool isOnline() { return m_isOnline; }
+  void setIsOnline(bool online);
+
  signals:
   void notificationCountChanged();
   void iconSourceChanged();
+  void isOnlineChanged();
 
   void showWindow();
 
  private:
   QString m_iconSource;
   int m_notificationCount = 0;
+  bool m_isOnline = true;
 
   QAction* viewAction_;
   QAction* quitAction_;
