@@ -477,6 +477,11 @@ Item {
                     background: Rectangle {
                         color: MPalette.background
                         radius: height / 2
+
+                        layer.enabled: true
+                        layer.effect: ElevationEffect {
+                            elevation: 1
+                        }
                     }
                 }
 
