@@ -14,6 +14,7 @@
 #include <events/roommemberevent.h>
 #include <events/roommessageevent.h>
 #include <events/simplestateevents.h>
+#include <events/encryptionevent.h>
 
 using namespace QMatrixClient;
 
