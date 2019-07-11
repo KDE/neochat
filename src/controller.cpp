@@ -64,12 +64,14 @@ inline QString accessTokenFileName(const AccountSettings& account) {
 
 void Controller::loginWithCredentials(QString serverAddr,
                                       QString user,
-                                      QString pass) {
+                                      QString pass,
+                                      QString deviceName) {
   if (!user.isEmpty() && !pass.isEmpty()) {
-    QString deviceName = "Spectral " + QSysInfo::machineHostName() + " " +
-                         QSysInfo::productType() + " " +
-                         QSysInfo::productVersion() + " " +
-                         QSysInfo::currentCpuArchitecture();
+    if (deviceName.isEmpty()) {
+      deviceName = "Spectral " + QSysInfo::machineHostName() + " " +
+                   QSysInfo::productType() + " " + QSysInfo::productVersion() +
+                   " " + QSysInfo::currentCpuArchitecture();
+    }
 
     QUrl serverUrl(serverAddr);
 

@@ -31,8 +31,7 @@ class Controller : public QObject {
   explicit Controller(QObject* parent = nullptr);
   ~Controller();
 
-  // All the Q_INVOKABLEs.
-  Q_INVOKABLE void loginWithCredentials(QString, QString, QString);
+  Q_INVOKABLE void loginWithCredentials(QString, QString, QString, QString);
 
   QVector<Connection*> connections() { return m_connections; }
 

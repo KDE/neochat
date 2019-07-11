@@ -44,12 +44,22 @@ Dialog {
             placeholderText: "Password"
             echoMode: TextInput.Password
 
+            onAccepted: deviceNameField.forceActiveFocus()
+        }
+
+        AutoTextField {
+            Layout.fillWidth: true
+
+            id: deviceNameField
+
+            placeholderText: "Device Name"
+
             onAccepted: root.accept()
         }
     }
 
     function doLogin() {
-        spectralController.loginWithCredentials(serverField.text, usernameField.text, passwordField.text)
+        spectralController.loginWithCredentials(serverField.text, usernameField.text, passwordField.text, deviceNameField.text)
     }
 
     onClosed: destroy()
