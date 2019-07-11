@@ -21,7 +21,7 @@ build-flatpak:
     - flatpak/spectral.flatpak
 
 build-appimage:
-  image: registry.gitlab.com/b0/qt-docker
+  image: registry.gitlab.com/b0/qt-olm-docker
   stage: build
   before_script:
     - git submodule update --init --recursive
