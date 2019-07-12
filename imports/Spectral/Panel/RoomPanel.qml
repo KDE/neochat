@@ -224,6 +224,9 @@ Item {
             spacing: 16
 
             AutoListView {
+                readonly property int largestVisibleIndex: count > 0 ? indexAt(contentX + (width / 2), contentY + height - 1) : -1
+                readonly property bool noNeedMoreContent: !currentRoom || currentRoom.eventsHistoryJob || currentRoom.allHistoryLoaded
+
                 Layout.fillWidth: true
                 Layout.fillHeight: true
 
@@ -250,26 +253,58 @@ Item {
                     ]
 
                     onModelReset: {
+                        movingTimer.stop()
                         if (currentRoom) {
+                            movingTimer.restart()
+
                             var lastScrollPosition = sortedMessageEventModel.mapFromSource(currentRoom.savedTopVisibleIndex())
-                            messageListView.currentIndex = lastScrollPosition
+                            if (lastScrollPosition === 0) {
+                                messageListView.positionViewAtBeginning()
+                            } else {
+                                messageListView.currentIndex = lastScrollPosition
+                            }
+
                             if (messageListView.contentY < messageListView.originY + 10 || currentRoom.timelineSize < 20)
                                 currentRoom.getPreviousContent(50)
                         }
                     }
                 }
 
-                property int largestVisibleIndex: count > 0 ? indexAt(contentX, contentY + height - 1) : -1
-
                 onContentYChanged: {
-                    if(currentRoom && contentY  - 5000 < originY)
+                    if(!noNeedMoreContent && contentY  - 5000 < originY)
                         currentRoom.getPreviousContent(20);
+                }
+
+                populate: Transition {
+                    NumberAnimation {
+                        property: "opacity"; from: 0; to: 1
+                        duration: 200
+                    }
+                }
+
+                add: Transition {
+                    NumberAnimation {
+                        property: "opacity"; from: 0; to: 1
+                        duration: 200
+                    }
+                }
+
+                move: Transition {
+                    NumberAnimation {
+                        property: "y"; duration: 200
+                    }
+                    NumberAnimation {
+                        property: "opacity"; to: 1
+                    }
                 }
 
                 displaced: Transition {
                     NumberAnimation {
                         property: "y"; duration: 200
                         easing.type: Easing.OutQuad
+                    }
+                    NumberAnimation {
+                        property: "opacity"; to: 1
                     }
                 }
 
@@ -305,6 +340,15 @@ Item {
                             MessageDelegate {
                                 Layout.alignment: sentByMe ? Qt.AlignRight : Qt.AlignLeft
                             }
+
+                            Rectangle {
+                                Layout.fillWidth: true
+                                Layout.preferredHeight: 2
+
+                                visible: readMarker
+
+                                color: MPalette.primary
+                            }
                         }
                     }
 
@@ -322,6 +366,15 @@ Item {
 
                             MessageDelegate {
                                 Layout.alignment: sentByMe ? Qt.AlignRight : Qt.AlignLeft
+                            }
+
+                            Rectangle {
+                                Layout.fillWidth: true
+                                Layout.preferredHeight: 2
+
+                                visible: readMarker
+
+                                color: MPalette.primary
                             }
                         }
                     }
@@ -341,6 +394,15 @@ Item {
                             ImageDelegate {
                                 Layout.alignment: sentByMe ? Qt.AlignRight : Qt.AlignLeft
                             }
+
+                            Rectangle {
+                                Layout.fillWidth: true
+                                Layout.preferredHeight: 2
+
+                                visible: readMarker
+
+                                color: MPalette.primary
+                            }
                         }
                     }
 
@@ -358,6 +420,15 @@ Item {
 
                             VideoDelegate {
                                 Layout.alignment: sentByMe ? Qt.AlignRight : Qt.AlignLeft
+                            }
+
+                            Rectangle {
+                                Layout.fillWidth: true
+                                Layout.preferredHeight: 2
+
+                                visible: readMarker
+
+                                color: MPalette.primary
                             }
                         }
                     }
@@ -377,6 +448,15 @@ Item {
                             FileDelegate {
                                 Layout.alignment: sentByMe ? Qt.AlignRight : Qt.AlignLeft
                             }
+
+                            Rectangle {
+                                Layout.fillWidth: true
+                                Layout.preferredHeight: 2
+
+                                visible: readMarker
+
+                                color: MPalette.primary
+                            }
                         }
                     }
 
@@ -386,46 +466,78 @@ Item {
                     }
                 }
 
-                Button {
+                Control {
+                    anchors.right: parent.right
                     anchors.top: parent.top
-                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.topMargin: 16
+
+                    padding: 8
+
+                    id: goReadMarkerFab
 
                     visible: currentRoom && currentRoom.hasUnreadMessages
 
-                    topPadding: 8
-                    bottomPadding: 8
-                    leftPadding: 24
-                    rightPadding: 24
+                    contentItem: MaterialIcon {
+                        icon: "\ue316"
+                        font.pixelSize: 28
+                    }
 
-                    Material.foreground: MPalette.foreground
-                    Material.background: MPalette.background
+                    background: Rectangle {
+                        color: MPalette.background
+                        radius: height / 2
 
-                    text: "Go to read marker"
+                        layer.enabled: true
+                        layer.effect: ElevationEffect {
+                            elevation: 2
+                        }
 
-                    onClicked: goToEvent(currentRoom.readMarkerEventId)
+                        RippleEffect {
+                            anchors.fill: parent
+
+                            circular: true
+
+                            onClicked: goToEvent(currentRoom.readMarkerEventId)
+                        }
+                    }
                 }
 
-                RoundButton {
-                    width: 64
-                    height: 64
+                Control {
                     anchors.right: parent.right
                     anchors.bottom: parent.bottom
+
+                    padding: 8
 
                     id: goTopFab
 
                     visible: !messageListView.atYEnd
 
                     contentItem: MaterialIcon {
-                        anchors.fill: parent
-
                         icon: "\ue313"
-                        color: "white"
+                        font.pixelSize: 28
                     }
 
-                    Material.background: Material.accent
+                    background: Rectangle {
+                        color: MPalette.background
+                        radius: height / 2
 
-                    onClicked: messageListView.positionViewAtBeginning()
+                        layer.enabled: true
+                        layer.effect: ElevationEffect {
+                            elevation: 2
+                        }
+
+                        RippleEffect {
+                            anchors.fill: parent
+
+                            circular: true
+
+                            onClicked: {
+                                currentRoom.markAllMessagesAsRead()
+                                messageListView.positionViewAtBeginning()
+                            }
+                        }
+                    }
                 }
+
 
                 Control {
                     anchors.left: parent.left
@@ -488,7 +600,9 @@ Item {
                 Keys.onUpPressed: scrollBar.decrease()
                 Keys.onDownPressed: scrollBar.increase()
 
-                ScrollBar.vertical: ScrollBar { id: scrollBar }
+                ScrollBar.vertical: ScrollBar {
+                    id: scrollBar
+                }
             }
 
             RoomPanelInput {
@@ -499,17 +613,29 @@ Item {
         }
     }
 
+    Timer {
+        id: movingTimer
+
+        interval: 10000
+        repeat: true
+        running: false
+
+        onTriggered: saveReadMarker()
+    }
+
     function goToEvent(eventID) {
         var index = messageEventModel.eventIDToIndex(eventID)
         if (index === -1) return
-        //        messageListView.currentIndex = sortedMessageEventModel.mapFromSource(index)
         messageListView.positionViewAtIndex(sortedMessageEventModel.mapFromSource(index), ListView.Contain)
     }
 
-    function saveReadMarker(room) {
+    function saveViewport() {
+        currentRoom.saveViewport(sortedMessageEventModel.mapToSource(messageListView.indexAt(messageListView.contentX + (messageListView.width / 2), messageListView.contentY)), sortedMessageEventModel.mapToSource(messageListView.largestVisibleIndex))
+    }
+
+    function saveReadMarker() {
         var readMarker = sortedMessageEventModel.get(messageListView.largestVisibleIndex).eventId
         if (!readMarker) return
-        room.readMarkerEventId = readMarker
-        currentRoom.saveViewport(sortedMessageEventModel.mapToSource(messageListView.indexAt(messageListView.contentX, messageListView.contentY)), sortedMessageEventModel.mapToSource(messageListView.largestVisibleIndex))
+        currentRoom.readMarkerEventId = readMarker
     }
 }

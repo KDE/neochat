@@ -138,7 +138,7 @@ ApplicationWindow {
 
             connection: spectralController.connection
 
-            onLeaveRoom: roomForm.saveReadMarker(room)
+            onLeaveRoom: roomForm.saveViewport()
         }
     }
 

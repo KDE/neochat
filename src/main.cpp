@@ -61,6 +61,7 @@ int main(int argc, char* argv[]) {
   qRegisterMetaType<MessageEventType>("MessageEventType");
   qRegisterMetaType<SpectralRoom*>("SpectralRoom*");
   qRegisterMetaType<SpectralUser*>("SpectralUser*");
+  qRegisterMetaType<GetRoomEventsJob*>("GetRoomEventsJob*");
 
   qRegisterMetaTypeStreamOperators<Emoji>();
 
