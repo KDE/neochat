@@ -92,8 +92,10 @@ void MessageEventModel::setRoom(SpectralRoom* room) {
             });
     connect(m_currentRoom, &Room::pendingEventAboutToAdd, this,
             [this] { beginInsertRows({}, 0, 0); });
-    connect(m_currentRoom, &Room::pendingEventAdded, this,
-            &MessageEventModel::endInsertRows);
+    connect(m_currentRoom, &Room::pendingEventAdded, this, [=] {
+      endInsertRows();
+      refreshEventRoles(1, {ShowAuthorRole, BubbleShapeRole});
+    });
     connect(m_currentRoom, &Room::pendingEventAboutToMerge, this,
             [this](RoomEvent*, int i) {
               if (i == 0)
