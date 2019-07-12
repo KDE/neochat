@@ -13,9 +13,10 @@ import Spectral 0.1
 
 Control {
     property alias isReply: replyItem.visible
-    property var replyUser
-    property string replyEventID
-    property string replyContent
+    property var replyModel
+    readonly property var replyUser: replyModel ? replyModel.author : null
+    readonly property string replyEventID: replyModel ? replyModel.eventId : ""
+    readonly property string replyContent: replyModel ? replyModel.message : ""
 
     property alias isAutoCompleting: autoCompleteListView.visible
     property var autoCompleteModel
@@ -452,9 +453,7 @@ Control {
 
     function clearReply() {
         isReply = false
-        replyUser = null
-        replyEventID = ""
-        replyContent = ""
+        replyModel = null
     }
 
     function focus() {

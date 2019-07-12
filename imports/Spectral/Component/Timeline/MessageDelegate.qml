@@ -98,9 +98,7 @@ ColumnLayout {
                             messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
                         })
                         contextMenu.reply.connect(function() {
-                            roomPanelInput.replyUser = author
-                            roomPanelInput.replyEventID = eventId
-                            roomPanelInput.replyContent = contentLabel.selectedText || message
+                            roomPanelInput.replyModel = model
                             roomPanelInput.isReply = true
                             roomPanelInput.focus()
                         })

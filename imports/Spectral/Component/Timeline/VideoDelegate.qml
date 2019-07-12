@@ -173,9 +173,7 @@ RowLayout {
                 contextMenu.downloadAndOpen.connect(downloadAndOpen)
                 contextMenu.saveFileAs.connect(saveFileAs)
                 contextMenu.reply.connect(function() {
-                    roomPanelInput.replyUser = author
-                    roomPanelInput.replyEventID = eventId
-                    roomPanelInput.replyContent = message
+                    roomPanelInput.replyModel = model
                     roomPanelInput.isReply = true
                     roomPanelInput.focus()
                 })
