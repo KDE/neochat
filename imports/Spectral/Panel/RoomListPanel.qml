@@ -417,17 +417,22 @@ Item {
                         }
 
                         Label {
+                            Layout.fillWidth: true
                             Layout.alignment: Qt.AlignVCenter
 
                             visible: newTabControl.highlighted
 
                             text: "New"
                             color: "white"
+                            horizontalAlignment: Text.AlignHCenter
                         }
                     }
 
-                    MouseArea {
+                    RippleEffect {
                         anchors.fill: parent
+
+                        circular: true
+
                         onClicked: filter = 0
                     }
                 }
@@ -462,17 +467,22 @@ Item {
                         }
 
                         Label {
+                            Layout.fillWidth: true
                             Layout.alignment: Qt.AlignVCenter
 
                             visible: peopleTabControl.highlighted
 
                             text: "People"
                             color: "white"
+                            horizontalAlignment: Text.AlignHCenter
                         }
                     }
 
-                    MouseArea {
+                    RippleEffect {
                         anchors.fill: parent
+
+                        circular: true
+
                         onClicked: filter = 1
                     }
                 }
@@ -507,17 +517,22 @@ Item {
                         }
 
                         Label {
+                            Layout.fillWidth: true
                             Layout.alignment: Qt.AlignVCenter
 
                             visible: groupTabControl.highlighted
 
                             text: "Group"
                             color: "white"
+                            horizontalAlignment: Text.AlignHCenter
                         }
                     }
 
-                    MouseArea {
+                    RippleEffect {
                         anchors.fill: parent
+
+                        circular: true
+
                         onClicked: filter = 2
                     }
                 }
