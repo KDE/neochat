@@ -18,7 +18,7 @@ Item {
     property var connection: null
     readonly property var user: connection ? connection.localUser : null
 
-    property int filter: tabBar.currentIndex
+    property int filter: 0
     property var enteredRoom: null
 
     signal enterRoom(var room)
@@ -178,8 +178,6 @@ Item {
             background: Rectangle {
                 color: Material.background
 
-                opacity: listView.atYBeginning ? 0 : 1
-
                 layer.enabled: true
                 layer.effect: ElevationEffect {
                     elevation: 2
@@ -193,8 +191,9 @@ Item {
 
             id: listView
 
+            z: -1
+
             spacing: 0
-            clip: true
 
             model: sortedRoomListModel
 
@@ -352,54 +351,185 @@ Item {
             }
         }
 
-        TabBar {
+        Control {
             Layout.fillWidth: true
+            Layout.preferredHeight: 48
+            Layout.margins: 16
 
-            id: tabBar
+            padding: 8
 
-            TabButton {
-                contentItem: Item {
-                    MaterialIcon {
-                        anchors.centerIn: parent
+            contentItem: RowLayout {
+                id: tabBar
 
-                        icon: "\ue7f5"
-                        color: MPalette.lighter
+                spacing: 8
 
-                        Rectangle {
-                            anchors.right: parent.right
-                            anchors.top: parent.top
+                Control {
+                    readonly property bool highlighted: filter === 0
 
-                            visible: roomListModel.notificationCount > 0
+                    Layout.fillWidth: highlighted
+                    Layout.fillHeight: true
 
-                            width: 12
-                            height: 12
-                            radius: 6
+                    id: newTabControl
 
-                            color: "white"
+                    horizontalPadding: 8
+
+                    background: Rectangle {
+                        visible: newTabControl.highlighted
+
+                        color: Material.accent
+                        border.color: Material.accent
+                        border.width: 2
+                        radius: height / 2
+                    }
+
+                    contentItem: RowLayout {
+                        spacing: 0
+
+                        MaterialIcon {
+                            Layout.preferredWidth: 32
+                            Layout.preferredHeight: 32
+
+                            icon: "\ue7f5"
+                            color: newTabControl.highlighted ? "white" : MPalette.lighter
 
                             Rectangle {
-                                anchors.centerIn: parent
+                                anchors.right: parent.right
+                                anchors.top: parent.top
 
-                                width: 8
-                                height: 8
-                                radius: 4
+                                visible: roomListModel.notificationCount > 0
 
-                                color: "red"
+                                width: 12
+                                height: 12
+                                radius: 6
+
+                                color: "white"
+
+                                Rectangle {
+                                    anchors.centerIn: parent
+
+                                    width: 8
+                                    height: 8
+                                    radius: 4
+
+                                    color: "red"
+                                }
                             }
                         }
+
+                        Label {
+                            Layout.alignment: Qt.AlignVCenter
+
+                            visible: newTabControl.highlighted
+
+                            text: "New"
+                            color: "white"
+                        }
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: filter = 0
+                    }
+                }
+
+                Control {
+                    readonly property bool highlighted: filter === 1
+
+                    Layout.fillWidth: highlighted
+                    Layout.fillHeight: true
+
+                    id: peopleTabControl
+
+                    horizontalPadding: 8
+
+                    background: Rectangle {
+                        visible: peopleTabControl.highlighted
+                        color: Material.accent
+                        border.color: Material.accent
+                        border.width: 2
+                        radius: height / 2
+                    }
+
+                    contentItem: RowLayout {
+                        spacing: 0
+
+                        MaterialIcon {
+                            Layout.preferredWidth: 32
+                            Layout.preferredHeight: 32
+
+                            icon: "\ue7ff"
+                            color: peopleTabControl.highlighted ? "white" : MPalette.lighter
+                        }
+
+                        Label {
+                            Layout.alignment: Qt.AlignVCenter
+
+                            visible: peopleTabControl.highlighted
+
+                            text: "People"
+                            color: "white"
+                        }
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: filter = 1
+                    }
+                }
+
+                Control {
+                    readonly property bool highlighted: filter === 2
+
+                    Layout.fillWidth: highlighted
+                    Layout.fillHeight: true
+
+                    id: groupTabControl
+
+                    horizontalPadding: 8
+
+                    background: Rectangle {
+                        visible: groupTabControl.highlighted
+                        color: Material.accent
+                        border.color: Material.accent
+                        border.width: 2
+                        radius: height / 2
+                    }
+
+                    contentItem: RowLayout {
+                        spacing: 0
+
+                        MaterialIcon {
+                            Layout.preferredWidth: 32
+                            Layout.preferredHeight: 32
+
+                            icon: "\ue7fc"
+                            color: groupTabControl.highlighted ? "white" : MPalette.lighter
+                        }
+
+                        Label {
+                            Layout.alignment: Qt.AlignVCenter
+
+                            visible: groupTabControl.highlighted
+
+                            text: "Group"
+                            color: "white"
+                        }
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: filter = 2
                     }
                 }
             }
-            TabButton {
-                contentItem: MaterialIcon {
-                    icon: "\ue7ff"
-                    color: MPalette.lighter
-                }
-            }
-            TabButton {
-                contentItem: MaterialIcon {
-                    icon: "\ue7fc"
-                    color: MPalette.lighter
+
+            background: Rectangle {
+                color: MSettings.darkTheme ? "#303030" : "#fafafa"
+                radius: 24
+
+                layer.enabled: true
+                layer.effect: ElevationEffect {
+                    elevation: 1
                 }
             }
         }
