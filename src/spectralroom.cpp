@@ -380,10 +380,10 @@ void SpectralRoom::postPlainMessage(const QString& text,
                           id() + "/" + replyEventId +
                           "\">In reply to</a> <a href=\"https://matrix.to/#/" +
                           replyEvt.senderId() + "\">" + replyEvt.senderId() +
-                          "</a><br>" + eventToString(replyEvt, Qt::RichText) +
+                          "</a><br>" + utils::removeReply(eventToString(replyEvt, Qt::RichText)) +
                           "</blockquote></mx-reply>" + text.toHtmlEscaped()}};
     postJson("m.room.message",
-             json);  // TODO: Support other message event types?
+             json);
 
     return;
   }
@@ -415,10 +415,10 @@ void SpectralRoom::postHtmlMessage(const QString& text,
                           id() + "/" + replyEventId +
                           "\">In reply to</a> <a href=\"https://matrix.to/#/" +
                           replyEvt.senderId() + "\">" + replyEvt.senderId() +
-                          "</a><br>" + eventToString(replyEvt, Qt::RichText) +
+                          "</a><br>" + utils::removeReply(eventToString(replyEvt, Qt::RichText)) +
                           "</blockquote></mx-reply>" + html}};
     postJson("m.room.message",
-             json);  // TODO: Support other message event types?
+             json);
 
     return;
   }
