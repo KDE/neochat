@@ -10,4 +10,6 @@ Settings {
     property bool darkTheme
 
     property string fontFamily: "Roboto,Noto Sans,Noto Color Emoji"
+
+    property bool markdownFormatting: true
 }

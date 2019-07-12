@@ -8,13 +8,13 @@
 #include <QPointer>
 #include <QTimer>
 
+#include <events/encryptionevent.h>
 #include <events/redactionevent.h>
 #include <events/roomavatarevent.h>
 #include <events/roomcreateevent.h>
 #include <events/roommemberevent.h>
 #include <events/roommessageevent.h>
 #include <events/simplestateevents.h>
-#include <events/encryptionevent.h>
 
 using namespace QMatrixClient;
 
@@ -89,8 +89,6 @@ class SpectralRoom : public Room {
   Q_INVOKABLE void getPreviousContent(int limit = 10);
 
   Q_INVOKABLE QVariantList getUsers(const QString& prefix);
-
-  Q_INVOKABLE QString postMarkdownText(const QString& markdown);
 
   Q_INVOKABLE QUrl urlToMxcUrl(QUrl mxcUrl);
 
@@ -287,6 +285,8 @@ class SpectralRoom : public Room {
   void onAddNewTimelineEvents(timeline_iter_t from) override;
   void onAddHistoricalTimelineEvents(rev_iter_t from) override;
 
+  static QString markdownToHTML(const QString& plaintext);
+
  private slots:
   void countChanged();
 
@@ -302,10 +302,16 @@ class SpectralRoom : public Room {
   void acceptInvitation();
   void forget();
   void sendTypingNotification(bool isTyping);
-  void sendReply(QString userId,
-                 QString eventId,
-                 QString replyContent,
-                 QString sendContent);
+  void postArbitaryMessage(const QString& text,
+                           MessageEventType type = MessageEventType::Text,
+                           const QString& replyEventId = "");
+  void postPlainMessage(const QString& text,
+                        MessageEventType type = MessageEventType::Text,
+                        const QString& replyEventId = "");
+  void postHtmlMessage(const QString& text,
+                       const QString& html,
+                       MessageEventType type = MessageEventType::Text,
+                       const QString& replyEventId = "");
   void changeAvatar(QUrl localFile);
   void addLocalAlias(const QString& alias);
   void removeLocalAlias(const QString& alias);

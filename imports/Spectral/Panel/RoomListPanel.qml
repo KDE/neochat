@@ -259,7 +259,7 @@ Item {
 
                     Label {
                         visible: notificationCount > 0 && highlightCount == 0
-                        color: "white"
+                        color: MPalette.background
                         text: notificationCount
                         leftPadding: 12
                         rightPadding: 12

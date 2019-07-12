@@ -10,6 +10,7 @@
 #include "csapi/rooms.h"
 #include "csapi/typing.h"
 #include "events/accountdataevents.h"
+#include "events/roommessageevent.h"
 #include "events/typingevent.h"
 #include "jobs/downloadfilejob.h"
 
@@ -18,6 +19,7 @@
 #include <QImageReader>
 #include <QMetaObject>
 #include <QMimeDatabase>
+#include <QTextDocument>
 
 #include "html.h"
 
@@ -169,24 +171,6 @@ void SpectralRoom::countChanged() {
   }
 }
 
-void SpectralRoom::sendReply(QString userId,
-                             QString eventId,
-                             QString replyContent,
-                             QString sendContent) {
-  QJsonObject json{
-      {"msgtype", "m.text"},
-      {"body", "> <" + userId + "> " + replyContent + "\n\n" + sendContent},
-      {"format", "org.matrix.custom.html"},
-      {"m.relates_to",
-       QJsonObject{{"m.in_reply_to", QJsonObject{{"event_id", eventId}}}}},
-      {"formatted_body",
-       "<mx-reply><blockquote><a href=\"https://matrix.to/#/" + id() + "/" +
-           eventId + "\">In reply to</a> <a href=\"https://matrix.to/#/" +
-           userId + "\">" + userId + "</a><br>" + replyContent +
-           "</blockquote></mx-reply>" + sendContent}};
-  postJson("m.room.message", json);
-}
-
 QDateTime SpectralRoom::lastActiveTime() {
   if (timelineSize() == 0)
     return QDateTime();
@@ -232,29 +216,6 @@ QVariantList SpectralRoom::getUsers(const QString& prefix) {
       matchedList.append(QVariant::fromValue(u));
 
   return matchedList;
-}
-
-QString SpectralRoom::postMarkdownText(const QString& markdown) {
-  unsigned char* sequence =
-      (unsigned char*)qstrdup(markdown.toUtf8().constData());
-  qint64 length = strlen((char*)sequence);
-
-  hoedown_renderer* renderer =
-      hoedown_html_renderer_new(HOEDOWN_HTML_USE_XHTML, 32);
-  hoedown_extensions extensions = (hoedown_extensions)(
-      (HOEDOWN_EXT_BLOCK | HOEDOWN_EXT_SPAN | HOEDOWN_EXT_MATH_EXPLICIT) &
-      ~HOEDOWN_EXT_QUOTE);
-  hoedown_document* document = hoedown_document_new(renderer, extensions, 32);
-  hoedown_buffer* html = hoedown_buffer_new(length);
-  hoedown_document_render(document, html, sequence, length);
-  QString result = QString::fromUtf8((char*)html->data, html->size);
-
-  free(sequence);
-  hoedown_buffer_free(html);
-  hoedown_document_free(document);
-  hoedown_html_renderer_free(renderer);
-
-  return postHtmlText(markdown, result);
 }
 
 QUrl SpectralRoom::urlToMxcUrl(QUrl mxcUrl) {
@@ -335,4 +296,132 @@ void SpectralRoom::removeLocalAlias(const QString& alias) {
   aliases.removeAll(alias);
 
   setLocalAliases(aliases);
+}
+
+QString SpectralRoom::markdownToHTML(const QString& markdown) {
+  unsigned char* sequence =
+      (unsigned char*)qstrdup(markdown.toUtf8().constData());
+  qint64 length = strlen((char*)sequence);
+
+  hoedown_renderer* renderer =
+      hoedown_html_renderer_new(HOEDOWN_HTML_USE_XHTML, 32);
+  hoedown_extensions extensions = (hoedown_extensions)(
+      (HOEDOWN_EXT_BLOCK | HOEDOWN_EXT_SPAN | HOEDOWN_EXT_MATH_EXPLICIT) &
+      ~HOEDOWN_EXT_QUOTE);
+  hoedown_document* document = hoedown_document_new(renderer, extensions, 32);
+  hoedown_buffer* html = hoedown_buffer_new(length);
+  hoedown_document_render(document, html, sequence, length);
+  QString result = QString::fromUtf8((char*)html->data, html->size);
+
+  free(sequence);
+  hoedown_buffer_free(html);
+  hoedown_document_free(document);
+  hoedown_html_renderer_free(renderer);
+
+  return result;
+}
+
+void SpectralRoom::postArbitaryMessage(const QString& text,
+                                       MessageEventType type,
+                                       const QString& replyEventId) {
+  auto parsedHTML = markdownToHTML(text);
+  bool isRichText = Qt::mightBeRichText(parsedHTML);
+
+  if (isRichText) {  // Markdown
+    postHtmlMessage(text, parsedHTML, type, replyEventId);
+  } else {  // Plain text
+    postPlainMessage(text, type, replyEventId);
+  }
+}
+
+QString msgTypeToString(MessageEventType msgType) {
+  switch (msgType) {
+    case MessageEventType::Text:
+      return "m.text";
+    case MessageEventType::File:
+      return "m.file";
+    case MessageEventType::Audio:
+      return "m.audio";
+    case MessageEventType::Emote:
+      return "m.emote";
+    case MessageEventType::Image:
+      return "m.image";
+    case MessageEventType::Video:
+      return "m.video";
+    case MessageEventType::Notice:
+      return "m.notice";
+    case MessageEventType::Location:
+      return "m.location";
+    default:
+      return "m.text";
+  }
+}
+
+void SpectralRoom::postPlainMessage(const QString& text,
+                                    MessageEventType type,
+                                    const QString& replyEventId) {
+  bool isReply = !replyEventId.isEmpty();
+  const auto replyIt = findInTimeline(replyEventId);
+  if (replyIt == timelineEdge())
+    isReply = false;
+
+  if (isReply) {
+    const auto& replyEvt = **replyIt;
+
+    QJsonObject json{{"msgtype", msgTypeToString(type)},
+                     {"body", "> <" + replyEvt.senderId() + "> " +
+                                  eventToString(replyEvt) + "\n\n" + text},
+                     {"format", "org.matrix.custom.html"},
+                     {"m.relates_to",
+                      QJsonObject{{"m.in_reply_to",
+                                   QJsonObject{{"event_id", replyEventId}}}}},
+                     {"formatted_body",
+                      "<mx-reply><blockquote><a href=\"https://matrix.to/#/" +
+                          id() + "/" + replyEventId +
+                          "\">In reply to</a> <a href=\"https://matrix.to/#/" +
+                          replyEvt.senderId() + "\">" + replyEvt.senderId() +
+                          "</a><br>" + eventToString(replyEvt, Qt::RichText) +
+                          "</blockquote></mx-reply>" + text.toHtmlEscaped()}};
+    postJson("m.room.message",
+             json);  // TODO: Support other message event types?
+
+    return;
+  }
+
+  Room::postMessage(text, type);
+}
+
+void SpectralRoom::postHtmlMessage(const QString& text,
+                                   const QString& html,
+                                   MessageEventType type,
+                                   const QString& replyEventId) {
+  bool isReply = !replyEventId.isEmpty();
+  const auto replyIt = findInTimeline(replyEventId);
+  if (replyIt == timelineEdge())
+    isReply = false;
+
+  if (isReply) {
+    const auto& replyEvt = **replyIt;
+
+    QJsonObject json{{"msgtype", msgTypeToString(type)},
+                     {"body", "> <" + replyEvt.senderId() + "> " +
+                                  eventToString(replyEvt) + "\n\n" + text},
+                     {"format", "org.matrix.custom.html"},
+                     {"m.relates_to",
+                      QJsonObject{{"m.in_reply_to",
+                                   QJsonObject{{"event_id", replyEventId}}}}},
+                     {"formatted_body",
+                      "<mx-reply><blockquote><a href=\"https://matrix.to/#/" +
+                          id() + "/" + replyEventId +
+                          "\">In reply to</a> <a href=\"https://matrix.to/#/" +
+                          replyEvt.senderId() + "\">" + replyEvt.senderId() +
+                          "</a><br>" + eventToString(replyEvt, Qt::RichText) +
+                          "</blockquote></mx-reply>" + html}};
+    postJson("m.room.message",
+             json);  // TODO: Support other message event types?
+
+    return;
+  }
+
+  Room::postHtmlMessage(text, html, type);
 }

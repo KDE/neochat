@@ -380,24 +380,9 @@ Control {
                     var PREFIX_ME = '/me '
                     var PREFIX_NOTICE = '/notice '
                     var PREFIX_RAINBOW = '/rainbow '
-                    var PREFIX_HTML = '/html '
-                    var PREFIX_MARKDOWN = '/md '
 
-                    if (isReply) {
-                        currentRoom.sendReply(replyUser.id, replyEventID, replyContent, text)
-                        return
-                    }
+                    var messageEventType = RoomMessageEvent.Text
 
-                    if (text.indexOf(PREFIX_ME) === 0) {
-                        text = text.substr(PREFIX_ME.length)
-                        currentRoom.postMessage(text, RoomMessageEvent.Emote)
-                        return
-                    }
-                    if (text.indexOf(PREFIX_NOTICE) === 0) {
-                        text = text.substr(PREFIX_NOTICE.length)
-                        currentRoom.postMessage(text, RoomMessageEvent.Notice)
-                        return
-                    }
                     if (text.indexOf(PREFIX_RAINBOW) === 0) {
                         text = text.substr(PREFIX_RAINBOW.length)
 
@@ -406,23 +391,38 @@ Control {
                         for (var i = 0; i < text.length; i++) {
                             parsedText = parsedText + "<font color='" + rainbowColor[i % rainbowColor.length] + "'>" + text.charAt(i) + "</font>"
                         }
-                        currentRoom.postHtmlMessage(text, parsedText, RoomMessageEvent.Text)
-                        return
-                    }
-                    if (text.indexOf(PREFIX_HTML) === 0) {
-                        text = text.substr(PREFIX_HTML.length)
-                        var re = new RegExp("<.*?>")
-                        var plainText = text.replace(re, "")
-                        currentRoom.postHtmlMessage(plainText, text, RoomMessageEvent.Text)
-                        return
-                    }
-                    if (text.indexOf(PREFIX_MARKDOWN) === 0) {
-                        text = text.substr(PREFIX_MARKDOWN.length)
-                        currentRoom.postMarkdownText(text)
+                        currentRoom.postHtmlMessage(text, parsedText, RoomMessageEvent.Text, replyEventID)
                         return
                     }
 
-                    currentRoom.postPlainText(text)
+                    if (text.indexOf(PREFIX_ME) === 0) {
+                        text = text.substr(PREFIX_ME.length)
+                        messageEventType = RoomMessageEvent.Emote
+                    } else if (text.indexOf(PREFIX_NOTICE) === 0) {
+                        text = text.substr(PREFIX_NOTICE.length)
+                        messageEventType = RoomMessageEvent.Notice
+                    }
+
+                    if (MSettings.markdownFormatting) {
+                        currentRoom.postArbitaryMessage(text, messageEventType, replyEventID)
+                    } else {
+                        currentRoom.postPlainMessage(text, messageEventType, replyEventID)
+                    }
+                }
+            }
+
+            MaterialIcon {
+                Layout.alignment: Qt.AlignVCenter
+
+                icon: "\ue165"
+                font.pixelSize: 16
+                color: MPalette.foreground
+                opacity: MSettings.markdownFormatting ? 1 : 0.3
+
+                MouseArea {
+                    anchors.fill: parent
+
+                    onClicked: MSettings.markdownFormatting = !MSettings.markdownFormatting
                 }
             }
 
