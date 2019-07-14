@@ -148,7 +148,7 @@ RowLayout {
 
             id: messageMouseArea
 
-            onPrimaryClicked: fullScreenImage.createObject(parent, {"filename": eventId, "localPath": currentRoom.urlToDownload(eventId)}).show()
+            onPrimaryClicked: fullScreenImage.createObject(parent, {"filename": eventId, "localPath": currentRoom.urlToDownload(eventId)}).showFullScreen()
 
             onSecondaryClicked: {
                 var contextMenu = imageDelegateContextMenu.createObject(ApplicationWindow.overlay)

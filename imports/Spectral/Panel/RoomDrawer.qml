@@ -44,7 +44,7 @@ Drawer {
 
                     circular: true
 
-                    onClicked: fullScreenImage.createObject(parent, {"filename": room.diaplayName, "localPath": room.urlToMxcUrl(room.avatarUrl)}).show()
+                    onClicked: fullScreenImage.createObject(parent, {"filename": room.diaplayName, "localPath": room.urlToMxcUrl(room.avatarUrl)}).showFullScreen()
                 }
             }
 
