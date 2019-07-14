@@ -361,186 +361,58 @@ Item {
             contentItem: RowLayout {
                 id: tabBar
 
-                spacing: 8
+                MaterialIcon {
+                    Layout.fillWidth: true
 
-                Control {
-                    readonly property bool highlighted: filter === 0
+                    icon: "\ue7f5"
+                    color: filter == 0 ? MPalette.accent : MPalette.lighter
 
-                    Layout.fillWidth: highlighted
-                    Layout.fillHeight: true
-
-                    id: newTabControl
-
-                    horizontalPadding: 8
-
-                    background: Rectangle {
-                        visible: newTabControl.highlighted
-
-                        color: Material.accent
-                        border.color: Material.accent
-                        border.width: 2
-                        radius: height / 2
-                    }
-
-                    contentItem: RowLayout {
-                        spacing: 0
-
-                        MaterialIcon {
-                            Layout.preferredWidth: 32
-                            Layout.preferredHeight: 32
-
-                            icon: "\ue7f5"
-                            color: newTabControl.highlighted ? "white" : MPalette.lighter
-
-                            Rectangle {
-                                anchors.right: parent.right
-                                anchors.top: parent.top
-
-                                visible: roomListModel.notificationCount > 0
-
-                                width: 12
-                                height: 12
-                                radius: 6
-
-                                color: "white"
-
-                                Rectangle {
-                                    anchors.centerIn: parent
-
-                                    width: 8
-                                    height: 8
-                                    radius: 4
-
-                                    color: "red"
-                                }
-                            }
-                        }
-
-                        Label {
-                            Layout.fillWidth: true
-                            Layout.alignment: Qt.AlignVCenter
-
-                            visible: newTabControl.highlighted
-
-                            text: "New"
-                            color: "white"
-                            horizontalAlignment: Text.AlignHCenter
-                        }
-                    }
-
-                    RippleEffect {
+                    MouseArea {
                         anchors.fill: parent
-
-                        circular: true
 
                         onClicked: filter = 0
                     }
                 }
 
-                Control {
-                    readonly property bool highlighted: filter === 1
+                MaterialIcon {
+                    Layout.fillWidth: true
 
-                    Layout.fillWidth: highlighted
-                    Layout.fillHeight: true
+                    icon: "\ue7ff"
+                    color: filter == 1 ? MPalette.accent : MPalette.lighter
 
-                    id: peopleTabControl
-
-                    horizontalPadding: 8
-
-                    background: Rectangle {
-                        visible: peopleTabControl.highlighted
-                        color: Material.accent
-                        border.color: Material.accent
-                        border.width: 2
-                        radius: height / 2
-                    }
-
-                    contentItem: RowLayout {
-                        spacing: 0
-
-                        MaterialIcon {
-                            Layout.preferredWidth: 32
-                            Layout.preferredHeight: 32
-
-                            icon: "\ue7ff"
-                            color: peopleTabControl.highlighted ? "white" : MPalette.lighter
-                        }
-
-                        Label {
-                            Layout.fillWidth: true
-                            Layout.alignment: Qt.AlignVCenter
-
-                            visible: peopleTabControl.highlighted
-
-                            text: "People"
-                            color: "white"
-                            horizontalAlignment: Text.AlignHCenter
-                        }
-                    }
-
-                    RippleEffect {
+                    MouseArea {
                         anchors.fill: parent
-
-                        circular: true
 
                         onClicked: filter = 1
                     }
                 }
 
-                Control {
-                    readonly property bool highlighted: filter === 2
+                MaterialIcon {
+                    Layout.fillWidth: true
 
-                    Layout.fillWidth: highlighted
-                    Layout.fillHeight: true
+                    icon: "\ue7fc"
+                    color: filter == 2 ? MPalette.accent : MPalette.lighter
 
-                    id: groupTabControl
-
-                    horizontalPadding: 8
-
-                    background: Rectangle {
-                        visible: groupTabControl.highlighted
-                        color: Material.accent
-                        border.color: Material.accent
-                        border.width: 2
-                        radius: height / 2
-                    }
-
-                    contentItem: RowLayout {
-                        spacing: 0
-
-                        MaterialIcon {
-                            Layout.preferredWidth: 32
-                            Layout.preferredHeight: 32
-
-                            icon: "\ue7fc"
-                            color: groupTabControl.highlighted ? "white" : MPalette.lighter
-                        }
-
-                        Label {
-                            Layout.fillWidth: true
-                            Layout.alignment: Qt.AlignVCenter
-
-                            visible: groupTabControl.highlighted
-
-                            text: "Group"
-                            color: "white"
-                            horizontalAlignment: Text.AlignHCenter
-                        }
-                    }
-
-                    RippleEffect {
+                    MouseArea {
                         anchors.fill: parent
-
-                        circular: true
 
                         onClicked: filter = 2
                     }
                 }
             }
 
-            background: Rectangle {
-                color: MSettings.darkTheme ? "#303030" : "#fafafa"
+            background: AutoRectangle {
+                color: MPalette.background
+
                 radius: 24
+
+                topLeftRadius: 8
+                topRightRadius: 8
+
+                topLeftVisible: true
+                topRightVisible: true
+                bottomLeftVisible: false
+                bottomRightVisible: false
 
                 layer.enabled: true
                 layer.effect: ElevationEffect {
