@@ -319,6 +319,7 @@ Control {
                     } else {
                         postMessage(text)
                         text = ""
+                        clearReply()
                         closeAll()
                     }
                 }
