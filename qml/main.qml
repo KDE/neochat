@@ -3,6 +3,7 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Controls.Material 2.12
 import Qt.labs.settings 1.1
+import Qt.labs.platform 1.1
 
 import Spectral.Panel 2.0
 import Spectral.Component 2.0
@@ -44,6 +45,33 @@ ApplicationWindow {
         isOnline: spectralController.isOnline
 
         onShowWindow: window.showWindow()
+    }
+
+    MenuBar {
+        id: menuBar
+
+        Menu {
+            id: fileMenu
+            title: "File"
+
+            MenuItem {
+                text: "Preferences"
+
+                shortcut: StandardKey.Preferences
+                role: MenuItem.PreferencesRole
+
+                onTriggered: accountDetailDialog.createObject(window).open()
+            }
+
+            MenuItem {
+                text: "Quit"
+
+                shortcut: StandardKey.Quit
+                role: MenuItem.QuitRole
+
+                onTriggered: Qt.quit()
+            }
+        }
     }
 
     Controller {
