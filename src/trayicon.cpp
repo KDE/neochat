@@ -130,7 +130,24 @@ void TrayIcon::setNotificationCount(int count) {
 
 void TrayIcon::setIsOnline(bool online) {
   m_isOnline = online;
+#if defined(Q_OS_MAC)
+  if (online) {
+    auto labelText =
+        m_notificationCount == 0 ? "" : QString::number(m_notificationCount);
 
+    if (labelText == QtMac::badgeLabelText())
+      return;
+
+    QtMac::setBadgeLabelText(labelText);
+  } else {
+    auto labelText = "x";
+
+    if (labelText == QtMac::badgeLabelText())
+      return;
+
+    QtMac::setBadgeLabelText(labelText);
+  }
+#else
   if (!icon_ || online == icon_->isOnline)
     return;
 
@@ -142,6 +159,7 @@ void TrayIcon::setIsOnline(bool online) {
   setIcon(QIcon(tmp));
 
   icon_ = tmp;
+#endif
   emit isOnlineChanged();
 }
 
