@@ -3,7 +3,7 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Controls.Material 2.12
 import Qt.labs.settings 1.1
-import Qt.labs.platform 1.1
+import Qt.labs.platform 1.1 as Platform
 
 import Spectral.Panel 2.0
 import Spectral.Component 2.0
@@ -47,27 +47,27 @@ ApplicationWindow {
         onShowWindow: window.showWindow()
     }
 
-    MenuBar {
+    Platform.MenuBar {
         id: menuBar
 
-        Menu {
+        Platform.Menu {
             id: fileMenu
             title: "File"
 
-            MenuItem {
+            Platform.MenuItem {
                 text: "Preferences"
 
                 shortcut: StandardKey.Preferences
-                role: MenuItem.PreferencesRole
+                role: Platform.MenuItem.PreferencesRole
 
                 onTriggered: accountDetailDialog.createObject(window).open()
             }
 
-            MenuItem {
+            Platform.MenuItem {
                 text: "Quit"
 
                 shortcut: StandardKey.Quit
-                role: MenuItem.QuitRole
+                role: Platform.MenuItem.QuitRole
 
                 onTriggered: Qt.quit()
             }
