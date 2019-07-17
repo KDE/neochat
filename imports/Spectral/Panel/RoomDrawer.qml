@@ -172,15 +172,13 @@ Drawer {
             }
         }
 
-        ListView {
+        AutoListView {
             Layout.fillWidth: true
             Layout.fillHeight: true
 
             id: userListView
 
             clip: true
-
-            pixelAligned: true
 
             boundsBehavior: Flickable.DragOverBounds
 
