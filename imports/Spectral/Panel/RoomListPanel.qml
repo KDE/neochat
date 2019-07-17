@@ -185,7 +185,7 @@ Item {
             }
         }
 
-        AutoListView {
+        ListView {
             Layout.fillWidth: true
             Layout.fillHeight: true
 
@@ -196,6 +196,8 @@ Item {
             spacing: 0
 
             model: sortedRoomListModel
+
+            pixelAligned: true
 
             boundsBehavior: Flickable.DragOverBounds
 

@@ -223,7 +223,7 @@ Item {
 
             spacing: 16
 
-            AutoListView {
+            ListView {
                 readonly property int largestVisibleIndex: count > 0 ? indexAt(contentX + (width / 2), contentY + height - 1) : -1
                 readonly property bool noNeedMoreContent: !currentRoom || currentRoom.eventsHistoryJob || currentRoom.allHistoryLoaded
 
@@ -241,6 +241,8 @@ Item {
 
                 boundsBehavior: Flickable.DragOverBounds
 
+                pixelAligned: true
+
                 model: SortFilterProxyModel {
                     id: sortedMessageEventModel
 
@@ -254,15 +256,9 @@ Item {
 
                     onModelReset: {
                         movingTimer.stop()
+                        messageListView.positionViewAtBeginning()
                         if (currentRoom) {
                             movingTimer.restart()
-
-                            var lastScrollPosition = sortedMessageEventModel.mapFromSource(currentRoom.savedTopVisibleIndex())
-                            if (lastScrollPosition === 0) {
-                                messageListView.positionViewAtBeginning()
-                            } else {
-                                messageListView.currentIndex = lastScrollPosition
-                            }
 
                             if (messageListView.contentY < messageListView.originY + 10 || currentRoom.timelineSize < 20)
                                 currentRoom.getPreviousContent(50)
