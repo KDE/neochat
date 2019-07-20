@@ -21,7 +21,7 @@
 #include <QMimeDatabase>
 #include <QTextDocument>
 
-#include "html.h"
+#include <cmark.h>
 
 #include "utils.h"
 
@@ -299,24 +299,18 @@ void SpectralRoom::removeLocalAlias(const QString& alias) {
 }
 
 QString SpectralRoom::markdownToHTML(const QString& markdown) {
-  unsigned char* sequence =
-      (unsigned char*)qstrdup(markdown.toUtf8().constData());
-  qint64 length = strlen((char*)sequence);
+  const auto str = markdown.toUtf8();
+  const char* tmp_buf =
+      cmark_markdown_to_html(str.constData(), str.size(), CMARK_OPT_DEFAULT);
 
-  hoedown_renderer* renderer =
-      hoedown_html_renderer_new(HOEDOWN_HTML_USE_XHTML, 32);
-  hoedown_extensions extensions = (hoedown_extensions)(
-      (HOEDOWN_EXT_BLOCK | HOEDOWN_EXT_SPAN | HOEDOWN_EXT_MATH_EXPLICIT) &
-      ~HOEDOWN_EXT_QUOTE);
-  hoedown_document* document = hoedown_document_new(renderer, extensions, 32);
-  hoedown_buffer* html = hoedown_buffer_new(length);
-  hoedown_document_render(document, html, sequence, length);
-  QString result = QString::fromUtf8((char*)html->data, html->size);
+  std::string html(tmp_buf);
 
-  free(sequence);
-  hoedown_buffer_free(html);
-  hoedown_document_free(document);
-  hoedown_html_renderer_free(renderer);
+  free((char *)tmp_buf);
+
+  auto result = QString::fromStdString(html).trimmed();
+
+  result.replace("<p>", "");
+  result.replace("</p>", "");
 
   return result;
 }
@@ -368,22 +362,22 @@ void SpectralRoom::postPlainMessage(const QString& text,
   if (isReply) {
     const auto& replyEvt = **replyIt;
 
-    QJsonObject json{{"msgtype", msgTypeToString(type)},
-                     {"body", "> <" + replyEvt.senderId() + "> " +
-                                  eventToString(replyEvt) + "\n\n" + text},
-                     {"format", "org.matrix.custom.html"},
-                     {"m.relates_to",
-                      QJsonObject{{"m.in_reply_to",
-                                   QJsonObject{{"event_id", replyEventId}}}}},
-                     {"formatted_body",
-                      "<mx-reply><blockquote><a href=\"https://matrix.to/#/" +
-                          id() + "/" + replyEventId +
-                          "\">In reply to</a> <a href=\"https://matrix.to/#/" +
-                          replyEvt.senderId() + "\">" + replyEvt.senderId() +
-                          "</a><br>" + utils::removeReply(eventToString(replyEvt, Qt::RichText)) +
-                          "</blockquote></mx-reply>" + text.toHtmlEscaped()}};
-    postJson("m.room.message",
-             json);
+    QJsonObject json{
+        {"msgtype", msgTypeToString(type)},
+        {"body", "> <" + replyEvt.senderId() + "> " + eventToString(replyEvt) +
+                     "\n\n" + text},
+        {"format", "org.matrix.custom.html"},
+        {"m.relates_to",
+         QJsonObject{
+             {"m.in_reply_to", QJsonObject{{"event_id", replyEventId}}}}},
+        {"formatted_body",
+         "<mx-reply><blockquote><a href=\"https://matrix.to/#/" + id() + "/" +
+             replyEventId +
+             "\">In reply to</a> <a href=\"https://matrix.to/#/" +
+             replyEvt.senderId() + "\">" + replyEvt.senderId() + "</a><br>" +
+             utils::removeReply(eventToString(replyEvt, Qt::RichText)) +
+             "</blockquote></mx-reply>" + text.toHtmlEscaped()}};
+    postJson("m.room.message", json);
 
     return;
   }
@@ -403,22 +397,22 @@ void SpectralRoom::postHtmlMessage(const QString& text,
   if (isReply) {
     const auto& replyEvt = **replyIt;
 
-    QJsonObject json{{"msgtype", msgTypeToString(type)},
-                     {"body", "> <" + replyEvt.senderId() + "> " +
-                                  eventToString(replyEvt) + "\n\n" + text},
-                     {"format", "org.matrix.custom.html"},
-                     {"m.relates_to",
-                      QJsonObject{{"m.in_reply_to",
-                                   QJsonObject{{"event_id", replyEventId}}}}},
-                     {"formatted_body",
-                      "<mx-reply><blockquote><a href=\"https://matrix.to/#/" +
-                          id() + "/" + replyEventId +
-                          "\">In reply to</a> <a href=\"https://matrix.to/#/" +
-                          replyEvt.senderId() + "\">" + replyEvt.senderId() +
-                          "</a><br>" + utils::removeReply(eventToString(replyEvt, Qt::RichText)) +
-                          "</blockquote></mx-reply>" + html}};
-    postJson("m.room.message",
-             json);
+    QJsonObject json{
+        {"msgtype", msgTypeToString(type)},
+        {"body", "> <" + replyEvt.senderId() + "> " + eventToString(replyEvt) +
+                     "\n\n" + text},
+        {"format", "org.matrix.custom.html"},
+        {"m.relates_to",
+         QJsonObject{
+             {"m.in_reply_to", QJsonObject{{"event_id", replyEventId}}}}},
+        {"formatted_body",
+         "<mx-reply><blockquote><a href=\"https://matrix.to/#/" + id() + "/" +
+             replyEventId +
+             "\">In reply to</a> <a href=\"https://matrix.to/#/" +
+             replyEvt.senderId() + "\">" + replyEvt.senderId() + "</a><br>" +
+             utils::removeReply(eventToString(replyEvt, Qt::RichText)) +
+             "</blockquote></mx-reply>" + html}};
+    postJson("m.room.message", json);
 
     return;
   }

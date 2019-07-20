@@ -33,7 +33,7 @@
 #include <QtNetwork/QAuthenticator>
 #include <QtNetwork/QNetworkReply>
 
-#include <keychain.h>
+#include <qt5keychain/keychain.h>
 
 Controller::Controller(QObject* parent) : QObject(parent) {
   QApplication::setQuitOnLastWindowClosed(false);

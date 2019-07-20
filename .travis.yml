@@ -6,20 +6,32 @@ git:
 matrix:
   include:
   - os: osx
-    env: [ 'ENV_EVAL="brew update && brew install qt5 && PATH=/usr/local/opt/qt/bin:$PATH"', 'DEPLOY_DIR="deploy"' ]
+    env: [ 'PATH=/usr/local/opt/qt/bin:$PATH"', 'DEPLOY_DIR="deploy"' ]
+    addons:
+      homebrew:
+        update: true
+        packages:
+        - qt5
+        - qtkeychain
+        - cmark
+        - cmake
 
 install:
-- eval "${ENV_EVAL}"
 - git submodule update --init --recursive
+- pushd include/libQuotient/3rdparty/libQtOlm
+- git clone https://gitlab.matrix.org/matrix-org/olm.git
+- popd
 
 script:
-- qmake spectral.pro CONFIG+=debug CONFIG+=qml_debug PREFIX="${DEPLOY_DIR}"
-- make
-- make install
-- macdeployqt ${DEPLOY_DIR}/bin/spectral.app -dmg -qmldir=qml -qmldir=imports
+- mkdir build && pushd build
+- cmake .. -LA -DUSE_INTREE_LIBQMC=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=/usr -DDEPLOY_VERBOSITY=$DEPLOY_VERBOSITY
+- cmake --build . --target all
+- export DESTDIR=$TRAVIS_BUILD_DIR/install
+- popd
+- macdeployqt build/spectral.app -dmg -qmldir=qml -qmldir=imports
 
 before_deploy:
-- mv ${DEPLOY_DIR}/bin/spectral.dmg ./
+- mv build/spectral.dmg ./
 - sed -i -e "s/TRAVIS_BUILD_NUMBER/0.0.0.$(git rev-list --count HEAD)/g" .ci/bintray-release.json
 
 deploy:
