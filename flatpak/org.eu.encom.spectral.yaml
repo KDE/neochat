@@ -1,4 +1,5 @@
 id: org.eu.encom.spectral
+rename-icon: spectral
 runtime: org.kde.Platform
 runtime-version: "5.12"
 sdk: org.kde.Sdk
@@ -22,13 +23,37 @@ modules:
     disable-shallow-clone: true
   config-opts:
   - -DCMAKE_BUILD_TYPE=Release
+- name: cmark
+  buildsystem: cmake-ninja
+  sources:
+  - sha256: acc98685d3c1b515ff787ac7c994188dadaf28a2d700c10c1221da4199bae1fc
+    type: archive
+    url: https://github.com/commonmark/cmark/archive/0.28.3.tar.gz
+  builddir: true
+  config-opts:
+  - -DCMAKE_BUILD_TYPE=Release
+  - -DCMARK_TESTS=OFF
+- name: libsecret
+  sources:
+  - sha256: 33ee5dfd3556931b81d47111890c8b9c51093b4ced18e0e87f51c1769e24d43c
+    type: archive
+    url: https://gitlab.gnome.org/GNOME/libsecret/-/archive/0.18.8/libsecret-0.18.8.tar.gz
+  config-opts:
+  - --disable-static
+  - --disable-gtk-doc
+  - --disable-manpages
+- name: qtkeychain
+  buildsystem: cmake
+  sources:
+  - sha256: 9c2762d9d0759a65cdb80106d547db83c6e9fdea66f1973c6e9014f867c6f28e
+    type: archive
+    url: https://github.com/frankosterfeld/qtkeychain/archive/v0.9.1.tar.gz
+  config-opts:
+  - -DCMAKE_INSTALL_LIBDIR=/app/lib
+  - -DLIB_INSTALL_DIR=/app/lib
+  - -DBUILD_TRANSLATIONS=NO
 - name: spectral
-  buildsystem: simple
+  buildsystem: cmake-ninja
   sources:
   - type: dir
     path: ../
-  build-commands:
-  - qmake QMAKE_CFLAGS="$CFLAGS" QMAKE_CXXFLAGS="$CXXFLAGS" QMAKE_LFLAGS="$LDFLAGS" PREFIX=/app .
-  - make -j4
-  - make install
-

@@ -68,7 +68,7 @@ class TrayIcon : public QSystemTrayIcon {
   QAction* viewAction_;
   QAction* quitAction_;
 
-  MsgCountComposedIcon* icon_;
+  MsgCountComposedIcon* icon_ = nullptr;
 };
 
 #endif  // TRAYICON_H

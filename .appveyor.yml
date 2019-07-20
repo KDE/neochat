@@ -15,15 +15,32 @@ init:
 
 before_build:
   - git submodule update --init --recursive
+  - cd include/libQuotient/3rdparty/libQtOlm
+  - git clone https://gitlab.matrix.org/matrix-org/olm.git
+  - cd ../../../../
+  - git clone https://github.com/frankosterfeld/qtkeychain.git
+  - cd qtkeychain
+  - cmake -LA -G "NMake Makefiles JOM" -H. -Bbuild -DCMAKE_CXX_FLAGS="/EHsc /W3" -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX="install" -DQTKEYCHAIN_STATIC=ON
+  - cmake --build build --target install
+  - cd ..
+  - git clone https://github.com/commonmark/cmark.git
+  - cd cmark
+  - cmake -LA -G "NMake Makefiles JOM" -H. -Bbuild -DCMAKE_CXX_FLAGS="/EHsc /W3" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="install" -DCMARK_SHARED=ON -DCMARK_STATIC=OFF -DCMARK_TESTS=OFF
+  - cmake --build build --target install
+  - cd ..
 
 build_script:
-  - qmake spectral.pro CONFIG+=release CONFIG+=qtquickcompiler PREFIX="%DEPLOY_DIR%"
-  - nmake
+  - cmake -LA -G "NMake Makefiles JOM" -H. -Bbuild -DCMAKE_CXX_FLAGS="/EHsc /W3" -DBUILD_SHARED_LIBS=OFF -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX="%DEPLOY_DIR%" -DUSE_INTREE_LIBQMC=1 -DQt5Keychain_DIR="qtkeychain/install/lib/cmake/Qt5Keychain" -DCMARK_LIBRARY=C:/projects/spectral/cmark/install/lib/cmark.lib -DCMARK_INCLUDE_DIR=C:/projects/spectral/cmark/install/include -DDEPLOY_VERBOSITY=%DEPLOY_VERBOSITY%
+  - cmake --build build
 
 after_build:
-  - nmake install
+  - cmake --build build --target install
   - windeployqt --release --qmldir qml --qmldir imports "%DEPLOY_DIR%\spectral.exe"
-  - 7z a spectral.zip "%DEPLOY_DIR%\"
+
+  - copy C:\projects\spectral\cmark\install\lib\cmark.lib "%DEPLOY_DIR%\"
+  - copy C:\projects\spectral\cmark\install\bin\cmark.dll "%DEPLOY_DIR%\"
+
+  - 7z a spectral.zip "%DEPLOY_DIR%\*"
 
 artifacts:
   - path: spectral.zip

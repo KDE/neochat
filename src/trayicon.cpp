@@ -147,6 +147,8 @@ void TrayIcon::setIsOnline(bool online) {
 
     QtMac::setBadgeLabelText(labelText);
   }
+#elif defined(Q_OS_WIN)
+// FIXME: Find a way to use Windows apis for the badge counter (if any).
 #else
   if (!icon_ || online == icon_->isOnline)
     return;
