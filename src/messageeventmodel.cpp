@@ -30,9 +30,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const {
   roles[LongOperationRole] = "progressInfo";
   roles[AnnotationRole] = "annotation";
   roles[EventResolvedTypeRole] = "eventResolvedType";
-  roles[ReplyEventIdRole] = "replyEventId";
-  roles[ReplyAuthorRole] = "replyAuthor";
-  roles[ReplyDisplayRole] = "replyDisplay";
+  roles[ReplyRole] = "reply";
   roles[UserMarkerRole] = "userMarker";
   roles[ShowAuthorRole] = "showAuthor";
   roles[ShowSectionRole] = "showSection";
@@ -404,8 +402,7 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
     return variantList;
   }
 
-  if (role == ReplyEventIdRole || role == ReplyDisplayRole ||
-      role == ReplyAuthorRole) {
+  if (role == ReplyRole) {
     const QString& replyEventId = evt.contentJson()["m.relates_to"]
                                       .toObject()["m.in_reply_to"]
                                       .toObject()["event_id"]
@@ -416,16 +413,13 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
     if (replyIt == m_currentRoom->timelineEdge())
       return {};
     const auto& replyEvt = **replyIt;
-    switch (role) {
-      case ReplyEventIdRole:
-        return replyEventId;
-      case ReplyDisplayRole:
-        return utils::cleanHTML(utils::removeReply(
-            m_currentRoom->eventToString(replyEvt, Qt::RichText)));
-      case ReplyAuthorRole:
-        return QVariant::fromValue(m_currentRoom->user(replyEvt.senderId()));
-    }
-    return {};
+
+    return QVariantMap{
+        {"eventId", replyEventId},
+        {"display", utils::cleanHTML(utils::removeReply(
+                                         m_currentRoom->eventToString(replyEvt, Qt::RichText)))},
+        {"author", QVariant::fromValue(m_currentRoom->user(replyEvt.senderId()))}
+    };
   }
 
   if (role == ShowAuthorRole) {

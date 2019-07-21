@@ -64,6 +64,8 @@ if (Qt5_POSITION_INDEPENDENT_CODE)
   SET(CMAKE_POSITION_INDEPENDENT_CODE ON)
 endif()
 
+set(QML_IMPORT_PATH ${CMAKE_SOURCE_DIR}/qml ${CMAKE_BINARY_DIR}/imports CACHE string "" FORCE)
+
 if(WIN32)
     enable_language(RC)
     include(CMakeDetermineRCCompiler)
