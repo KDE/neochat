@@ -10,7 +10,7 @@ RowLayout {
         model: reaction
 
         delegate: Control {
-            horizontalPadding: 4
+            horizontalPadding: 6
             verticalPadding: 0
 
             background: Rectangle {
@@ -20,7 +20,7 @@ RowLayout {
 
             contentItem: Label {
                 text: modelData.reaction + " " + modelData.count
-                font.pixelSize: 10
+                font.pixelSize: 14
             }
         }
     }
