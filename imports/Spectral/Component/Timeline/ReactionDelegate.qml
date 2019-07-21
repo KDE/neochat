@@ -15,7 +15,7 @@ RowLayout {
 
             background: Rectangle {
                 radius: height / 2
-                color: MPalette.banner
+                color: modelData.hasLocalUser ? (MSettings.darkTheme ? Qt.darker(MPalette.accent, 1.55) : Qt.lighter(MPalette.accent, 1.55)) : MPalette.banner
             }
 
             contentItem: Label {

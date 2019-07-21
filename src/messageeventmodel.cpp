@@ -500,9 +500,12 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
       for (auto author : i.value()) {
         authors.append(QVariant::fromValue(author));
       }
+      bool hasLocalUser = i.value().contains(
+          static_cast<SpectralUser*>(m_currentRoom->localUser()));
       res.append(QVariantMap{{"reaction", i.key()},
                              {"count", i.value().count()},
-                             {"authors", authors}});
+                             {"authors", authors},
+                             {"hasLocalUser", hasLocalUser}});
       ++i;
     }
 
