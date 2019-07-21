@@ -34,6 +34,8 @@ class MessageEventModel : public QAbstractListModel {
 
     BubbleShapeRole,
 
+    ReactionRole,
+
     // For debugging
     EventResolvedTypeRole,
   };

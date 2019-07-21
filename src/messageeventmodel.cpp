@@ -4,6 +4,7 @@
 #include <settings.h>
 #include <user.h>
 
+#include <events/reactionevent.h>
 #include <events/redactionevent.h>
 #include <events/roomavatarevent.h>
 #include <events/roommemberevent.h>
@@ -35,6 +36,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const {
   roles[ShowAuthorRole] = "showAuthor";
   roles[ShowSectionRole] = "showSection";
   roles[BubbleShapeRole] = "bubbleShape";
+  roles[ReactionRole] = "reaction";
   return roles;
 }
 
@@ -357,7 +359,7 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
         return EventStatus::Hidden;
     }
 
-    if (is<RedactionEvent>(evt))
+    if (is<RedactionEvent>(evt) || is<ReactionEvent>(evt))
       return EventStatus::Hidden;
     if (evt.isRedacted())
       return EventStatus::Hidden;
@@ -417,9 +419,9 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
     return QVariantMap{
         {"eventId", replyEventId},
         {"display", utils::cleanHTML(utils::removeReply(
-                                         m_currentRoom->eventToString(replyEvt, Qt::RichText)))},
-        {"author", QVariant::fromValue(m_currentRoom->user(replyEvt.senderId()))}
-    };
+                        m_currentRoom->eventToString(replyEvt, Qt::RichText)))},
+        {"author",
+         QVariant::fromValue(m_currentRoom->user(replyEvt.senderId()))}};
   }
 
   if (role == ShowAuthorRole) {
@@ -476,6 +478,35 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
     if (belowShow)
       return BubbleShapes::EndShape;
     return BubbleShapes::MiddleShape;
+  }
+
+  if (role == ReactionRole) {
+    const auto& annotations =
+        m_currentRoom->relatedEvents(evt, EventRelation::Annotation());
+    if (annotations.isEmpty())
+      return {};
+    QMap<QString, QList<SpectralUser*>> reactions;
+    for (const auto& a : annotations) {
+      if (auto e = eventCast<const ReactionEvent>(a))
+        reactions[e->relation().key].append(
+            static_cast<SpectralUser*>(m_currentRoom->user(e->senderId())));
+    }
+
+    QVariantList res;
+    QMap<QString, QList<SpectralUser*>>::const_iterator i =
+        reactions.constBegin();
+    while (i != reactions.constEnd()) {
+      QVariantList authors;
+      for (auto author : i.value()) {
+        authors.append(QVariant::fromValue(author));
+      }
+      res.append(QVariantMap{{"reaction", i.key()},
+                             {"count", i.value().count()},
+                             {"authors", authors}});
+      ++i;
+    }
+
+    return res;
   }
 
   return {};

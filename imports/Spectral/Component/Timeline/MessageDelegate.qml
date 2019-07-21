@@ -220,6 +220,12 @@ ColumnLayout {
                         cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
                     }
                 }
+
+                ReactionDelegate {
+                    Layout.bottomMargin: 8
+                    Layout.leftMargin: 16
+                    Layout.rightMargin: 16
+                }
             }
         }
     }
