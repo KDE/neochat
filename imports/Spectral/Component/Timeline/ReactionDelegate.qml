@@ -16,6 +16,31 @@ RowLayout {
             background: Rectangle {
                 radius: height / 2
                 color: modelData.hasLocalUser ? (MSettings.darkTheme ? Qt.darker(MPalette.accent, 1.55) : Qt.lighter(MPalette.accent, 1.55)) : MPalette.banner
+
+                MouseArea {
+                    anchors.fill: parent
+
+                    hoverEnabled: true
+
+                    ToolTip.visible: containsMouse
+                    ToolTip.text: {
+                        var text = "";
+
+                        for (var i = 0; i < modelData.authors.length; i++) {
+                            if (i === modelData.authors.length - 1 && i !== 0) {
+                                text += " and "
+                            } else if (i !== 0) {
+                                text += ", "
+                            }
+
+                            text += modelData.authors[i].displayName
+                        }
+
+                        text += " reacted with " + modelData.reaction
+
+                        return text
+                    }
+                }
             }
 
             contentItem: Label {
