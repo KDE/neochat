@@ -10,9 +10,9 @@
 #include "csapi/rooms.h"
 #include "csapi/typing.h"
 #include "events/accountdataevents.h"
+#include "events/reactionevent.h"
 #include "events/roommessageevent.h"
 #include "events/typingevent.h"
-#include "events/reactionevent.h"
 #include "jobs/downloadfilejob.h"
 
 #include <QFileDialog>
@@ -306,7 +306,7 @@ QString SpectralRoom::markdownToHTML(const QString& markdown) {
 
   std::string html(tmp_buf);
 
-  free((char *)tmp_buf);
+  free((char*)tmp_buf);
 
   auto result = QString::fromStdString(html).trimmed();
 
@@ -419,4 +419,36 @@ void SpectralRoom::postHtmlMessage(const QString& text,
   }
 
   Room::postHtmlMessage(text, html, type);
+}
+
+void SpectralRoom::toggleReaction(const QString& eventId,
+                                  const QString& reaction) {
+  const auto eventIt = findInTimeline(eventId);
+  if (eventIt == timelineEdge())
+    return;
+
+  const auto& evt = **eventIt;
+
+  QString redactEventId = "";
+
+  const auto& annotations = relatedEvents(evt, EventRelation::Annotation());
+  if (!annotations.isEmpty()) {
+    for (const auto& a : annotations) {
+      if (auto e = eventCast<const ReactionEvent>(a)) {
+        if (e->relation().key != reaction)
+          continue;
+
+        if (e->senderId() == localUser()->id()) {
+          redactEventId = e->id();
+          break;
+        }
+      }
+    }
+  }
+
+  if (!redactEventId.isEmpty()) {
+    redactEvent(redactEventId);
+  } else {
+      postEvent(new ReactionEvent(EventRelation::annotate(eventId, reaction)));
+  }
 }

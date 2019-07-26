@@ -3,8 +3,10 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import Spectral.Setting 0.1
 
-RowLayout {
+Flow {
     visible: reaction || false
+
+    spacing: 8
 
     Repeater {
         model: reaction
@@ -40,6 +42,8 @@ RowLayout {
 
                         return text
                     }
+
+                    onClicked: currentRoom.toggleReaction(eventId, modelData.reaction)
                 }
             }
 

@@ -222,6 +222,8 @@ ColumnLayout {
                 }
 
                 ReactionDelegate {
+                    Layout.fillWidth: true
+
                     Layout.topMargin: 0
                     Layout.bottomMargin: 8
                     Layout.leftMargin: 16
