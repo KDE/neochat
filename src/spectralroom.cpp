@@ -423,13 +423,16 @@ void SpectralRoom::postHtmlMessage(const QString& text,
 
 void SpectralRoom::toggleReaction(const QString& eventId,
                                   const QString& reaction) {
+  if (eventId.isEmpty() || reaction.isEmpty())
+    return;
+
   const auto eventIt = findInTimeline(eventId);
   if (eventIt == timelineEdge())
     return;
 
   const auto& evt = **eventIt;
 
-  QString redactEventId = "";
+  QStringList redactEventIds; // What if there are multiple reaction events?
 
   const auto& annotations = relatedEvents(evt, EventRelation::Annotation());
   if (!annotations.isEmpty()) {
@@ -439,16 +442,23 @@ void SpectralRoom::toggleReaction(const QString& eventId,
           continue;
 
         if (e->senderId() == localUser()->id()) {
-          redactEventId = e->id();
+          redactEventIds.push_back(e->id());
           break;
         }
       }
     }
   }
 
-  if (!redactEventId.isEmpty()) {
-    redactEvent(redactEventId);
+  if (!redactEventIds.isEmpty()) {
+    qDebug() << "Remove reaction event" << redactEventIds << "of event"
+             << eventId << ":" << reaction;
+    for (auto redactEventId : redactEventIds) {
+        redactEvent(redactEventId);
+    }
   } else {
-      postEvent(new ReactionEvent(EventRelation::annotate(eventId, reaction)));
+    qDebug() << "Add reaction event" << eventId << ":" << reaction;
+    postEvent(new ReactionEvent(EventRelation::annotate(eventId, reaction)));
   }
+
+  qDebug() << "End of SpectralRoom::toggleReaction()";
 }
