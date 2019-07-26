@@ -12,6 +12,31 @@ Menu {
 
     id: root
 
+    Flow {
+        width: parent.width
+
+        spacing: 0
+
+        Repeater {
+            model: ["👍", "👎️", "😄", "🎉", "🚀", "👀"]
+
+            delegate: ItemDelegate {
+                width: 32
+                height: 32
+
+                contentItem: Label {
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+
+                    font.pixelSize: 16
+                    text: modelData
+                }
+
+                onClicked: currentRoom.toggleReaction(eventId, modelData)
+            }
+        }
+    }
+
     MenuItem {
         text: "View Source"
 
