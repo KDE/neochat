@@ -103,6 +103,39 @@ void Controller::loginWithCredentials(QString serverAddr,
   }
 }
 
+void Controller::loginWithAccessToken(QString serverAddr,
+                                      QString user,
+                                      QString token,
+                                      QString deviceName) {
+  if (!user.isEmpty() && !token.isEmpty()) {
+    QUrl serverUrl(serverAddr);
+
+    Connection* conn = new Connection(this);
+    if (serverUrl.isValid()) {
+      conn->setHomeserver(serverUrl);
+    }
+
+    connect(conn, &Connection::connected, [=] {
+      AccountSettings account(conn->userId());
+      account.setKeepLoggedIn(true);
+      account.clearAccessToken();  // Drop the legacy - just in case
+      account.setHomeserver(conn->homeserver());
+      account.setDeviceId(conn->deviceId());
+      account.setDeviceName(deviceName);
+      if (!saveAccessTokenToKeyChain(account, conn->accessToken()))
+        qWarning() << "Couldn't save access token";
+      account.sync();
+      addConnection(conn);
+      setConnection(conn);
+    });
+    connect(conn, &Connection::networkError,
+            [=](QString error, QString, int, int) {
+              emit errorOccured("Network Error", error);
+            });
+    conn->connectWithToken(user, token, deviceName);
+  }
+}
+
 void Controller::logout(Connection* conn) {
   if (!conn) {
     qCritical() << "Attempt to logout null connection";
@@ -112,16 +145,24 @@ void Controller::logout(Connection* conn) {
   SettingsGroup("Accounts").remove(conn->userId());
   QFile(accessTokenFileName(AccountSettings(conn->userId()))).remove();
 
-  auto job = conn->callApi<LogoutJob>();
-  connect(job, &LogoutJob::finished, conn, [=] {
+  QKeychain::DeletePasswordJob job(qAppName());
+  job.setAutoDelete(true);
+  job.setKey(conn->userId());
+  QEventLoop loop;
+  QKeychain::DeletePasswordJob::connect(&job, &QKeychain::Job::finished, &loop, &QEventLoop::quit);
+  job.start();
+  loop.exec();
+
+  auto logoutJob = conn->callApi<LogoutJob>();
+  connect(logoutJob, &LogoutJob::finished, conn, [=] {
     conn->stopSync();
     emit conn->stateChanged();
     emit conn->loggedOut();
     if (!m_connections.isEmpty())
       setConnection(m_connections[0]);
   });
-  connect(job, &LogoutJob::failure, this, [=] {
-    emit errorOccured("Server-side Logout Failed", job->errorString());
+  connect(logoutJob, &LogoutJob::failure, this, [=] {
+    emit errorOccured("Server-side Logout Failed", logoutJob->errorString());
   });
 }
 

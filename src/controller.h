@@ -32,6 +32,7 @@ class Controller : public QObject {
   ~Controller();
 
   Q_INVOKABLE void loginWithCredentials(QString, QString, QString, QString);
+  Q_INVOKABLE void loginWithAccessToken(QString, QString, QString, QString);
 
   QVector<Connection*> connections() { return m_connections; }
 

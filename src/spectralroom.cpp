@@ -12,6 +12,7 @@
 #include "events/accountdataevents.h"
 #include "events/roommessageevent.h"
 #include "events/typingevent.h"
+#include "events/reactionevent.h"
 #include "jobs/downloadfilejob.h"
 
 #include <QFileDialog>
@@ -119,13 +120,13 @@ QString SpectralRoom::lastEvent() {
   for (auto i = messageEvents().rbegin(); i < messageEvents().rend(); i++) {
     const RoomEvent* evt = i->get();
 
-    if (is<RedactionEvent>(*evt))
+    if (is<RedactionEvent>(*evt) || is<ReactionEvent>(*evt))
       continue;
     if (evt->isRedacted())
       continue;
 
     if (evt->isStateEvent() &&
-        static_cast<const StateEventBase*>(evt)->repeatsState())
+        static_cast<const StateEventBase&>(*evt).repeatsState())
       continue;
 
     if (connection()->isIgnored(user(evt->senderId())))
