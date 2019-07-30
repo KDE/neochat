@@ -432,7 +432,7 @@ void SpectralRoom::toggleReaction(const QString& eventId,
 
   const auto& evt = **eventIt;
 
-  QStringList redactEventIds; // What if there are multiple reaction events?
+  QStringList redactEventIds;  // What if there are multiple reaction events?
 
   const auto& annotations = relatedEvents(evt, EventRelation::Annotation());
   if (!annotations.isEmpty()) {
@@ -450,15 +450,10 @@ void SpectralRoom::toggleReaction(const QString& eventId,
   }
 
   if (!redactEventIds.isEmpty()) {
-    qDebug() << "Remove reaction event" << redactEventIds << "of event"
-             << eventId << ":" << reaction;
     for (auto redactEventId : redactEventIds) {
-        redactEvent(redactEventId);
+      redactEvent(redactEventId);
     }
   } else {
-    qDebug() << "Add reaction event" << eventId << ":" << reaction;
     postEvent(new ReactionEvent(EventRelation::annotate(eventId, reaction)));
   }
-
-  qDebug() << "End of SpectralRoom::toggleReaction()";
 }

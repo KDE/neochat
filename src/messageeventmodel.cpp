@@ -136,6 +136,10 @@ void MessageEventModel::setRoom(SpectralRoom* room) {
               refreshLastUserEvents(refreshEvent(newEvent->id()) -
                                     timelineBaseIndex());
             });
+    connect(m_currentRoom, &Room::updatedEvent, this,
+            [this](const QString& eventId) {
+              refreshEventRoles(eventId, {ReactionRole});
+            });
     connect(m_currentRoom, &Room::fileTransferProgress, this,
             &MessageEventModel::refreshEvent);
     connect(m_currentRoom, &Room::fileTransferCompleted, this,
@@ -178,15 +182,24 @@ void MessageEventModel::refreshEventRoles(int row, const QVector<int>& roles) {
   emit dataChanged(idx, idx, roles);
 }
 
-int MessageEventModel::refreshEventRoles(const QString& eventId,
+int MessageEventModel::refreshEventRoles(const QString& id,
                                          const QVector<int>& roles) {
-  const auto it = m_currentRoom->findInTimeline(eventId);
-  if (it == m_currentRoom->timelineEdge()) {
-    qWarning() << "Trying to refresh inexistent event:" << eventId;
-    return -1;
+  // On 64-bit platforms, difference_type for std containers is long long
+  // but Qt uses int throughout its interfaces; hence casting to int below.
+  int row = -1;
+  // First try pendingEvents because it is almost always very short.
+  const auto pendingIt = m_currentRoom->findPendingEvent(id);
+  if (pendingIt != m_currentRoom->pendingEvents().end())
+    row = int(pendingIt - m_currentRoom->pendingEvents().begin());
+  else {
+    const auto timelineIt = m_currentRoom->findInTimeline(id);
+    if (timelineIt == m_currentRoom->timelineEdge()) {
+      qWarning() << "Trying to refresh inexistent event:" << id;
+      return -1;
+    }
+    row = int(timelineIt - m_currentRoom->messageEvents().rbegin()) +
+          timelineBaseIndex();
   }
-  const auto row =
-      it - m_currentRoom->messageEvents().rbegin() + timelineBaseIndex();
   refreshEventRoles(row, roles);
   return row;
 }
@@ -485,14 +498,20 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
         m_currentRoom->relatedEvents(evt, EventRelation::Annotation());
     if (annotations.isEmpty())
       return {};
-    QMap<QString, QList<SpectralUser*>> reactions;
+    QMap<QString, QList<SpectralUser*>> reactions = {};
     for (const auto& a : annotations) {
+      if (a->isRedacted())  // Just in case?
+        continue;
       if (auto e = eventCast<const ReactionEvent>(a))
         reactions[e->relation().key].append(
             static_cast<SpectralUser*>(m_currentRoom->user(e->senderId())));
     }
 
-    QVariantList res;
+    if (reactions.isEmpty()) {
+      return {};
+    }
+
+    QVariantList res = {};
     QMap<QString, QList<SpectralUser*>>::const_iterator i =
         reactions.constBegin();
     while (i != reactions.constEnd()) {
