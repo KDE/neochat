@@ -129,6 +129,12 @@ QString SpectralRoom::lastEvent() {
         static_cast<const StateEventBase&>(*evt).repeatsState())
       continue;
 
+    if (auto e = eventCast<const RoomMessageEvent>(evt)) {
+      if (!e->replacedEvent().isEmpty()) {
+        continue;
+      }
+    }
+
     if (connection()->isIgnored(user(evt->senderId())))
       continue;
 
@@ -454,6 +460,6 @@ void SpectralRoom::toggleReaction(const QString& eventId,
       redactEvent(redactEventId);
     }
   } else {
-    postEvent(new ReactionEvent(EventRelation::annotate(eventId, reaction)));
+    postReaction(eventId, reaction);
   }
 }

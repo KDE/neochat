@@ -138,7 +138,7 @@ void MessageEventModel::setRoom(SpectralRoom* room) {
             });
     connect(m_currentRoom, &Room::updatedEvent, this,
             [this](const QString& eventId) {
-              refreshEventRoles(eventId, {ReactionRole});
+              refreshEventRoles(eventId, {ReactionRole, Qt::DisplayRole});
             });
     connect(m_currentRoom, &Room::fileTransferProgress, this,
             &MessageEventModel::refreshEvent);
@@ -380,6 +380,12 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
     if (evt.isStateEvent() &&
         static_cast<const StateEventBase&>(evt).repeatsState())
       return EventStatus::Hidden;
+
+    if (auto e = eventCast<const RoomMessageEvent>(&evt)) {
+      if (!e->replacedEvent().isEmpty()) {
+        return EventStatus::Hidden;
+      }
+    }
 
     if (m_currentRoom->connection()->isIgnored(
             m_currentRoom->user(evt.senderId())))
