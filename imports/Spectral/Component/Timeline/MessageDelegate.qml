@@ -66,6 +66,7 @@ ColumnLayout {
 
         Control {
             Layout.maximumWidth: messageListView.width - (!sentByMe ? 36 + messageRow.spacing : 0) - 48
+            Layout.minimumHeight: 36
 
             padding: 0
 
