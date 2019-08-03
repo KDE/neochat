@@ -176,6 +176,7 @@ QT5_ADD_RESOURCES(spectral_QRC_SRC ${spectral_QRC})
 set_property(SOURCE qrc_resources.cpp PROPERTY SKIP_AUTOMOC ON)
 
 if(WIN32)
+    set(spectral_WINRC spectral_win32.rc)
     set_property(SOURCE spectral_win32.rc APPEND PROPERTY
         OBJECT_DEPENDS ${PROJECT_SOURCE_DIR}/icons/icon.ico
     )
