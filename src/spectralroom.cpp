@@ -171,6 +171,13 @@ void SpectralRoom::onAddHistoricalTimelineEvents(rev_iter_t from) {
                 [this](const TimelineItem& ti) { checkForHighlights(ti); });
 }
 
+void SpectralRoom::onRedaction(const RoomEvent& prevEvent,
+                               const RoomEvent& /*after*/) {
+  if (const auto& e = eventCast<const ReactionEvent>(&prevEvent)) {
+    emit updatedEvent(e->relation().eventId);
+  }
+}
+
 void SpectralRoom::countChanged() {
   if (displayed() && !hasUnreadMessages()) {
     resetNotificationCount();
