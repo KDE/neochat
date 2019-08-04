@@ -13,8 +13,8 @@ class ImageClipboard : public QObject {
  public:
   explicit ImageClipboard(QObject* parent = nullptr);
 
-  bool hasImage();
-  QImage image();
+  bool hasImage() const;
+  QImage image() const;
 
   Q_INVOKABLE bool saveImage(const QUrl& localPath);
 

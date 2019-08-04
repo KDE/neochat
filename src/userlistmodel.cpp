@@ -50,7 +50,7 @@ void UserListModel::setRoom(QMatrixClient::Room* room) {
   emit roomChanged();
 }
 
-QMatrixClient::User* UserListModel::userAt(QModelIndex index) {
+QMatrixClient::User* UserListModel::userAt(QModelIndex index) const {
   if (index.row() < 0 || index.row() >= m_users.size())
     return nullptr;
   return m_users.at(index.row());
@@ -133,9 +133,11 @@ int UserListModel::findUserPos(const QString& username) const {
 
 QHash<int, QByteArray> UserListModel::roleNames() const {
   QHash<int, QByteArray> roles;
+
   roles[NameRole] = "name";
   roles[UserIDRole] = "userId";
   roles[AvatarRole] = "avatar";
   roles[ObjectRole] = "user";
+
   return roles;
 }

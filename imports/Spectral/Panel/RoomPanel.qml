@@ -172,25 +172,10 @@ Item {
         }
     }
 
-    Image {
-        readonly property int sourceDim: (Math.ceil(Math.max(width, height) / 360) + 1) * 360
-
-        anchors.fill: parent
-
-        visible: currentRoom && currentRoom.backgroundMediaId
-
-        sourceSize.width: sourceDim
-        sourceSize.height: sourceDim
-
-        fillMode: Image.PreserveAspectCrop
-
-        source: currentRoom && currentRoom.backgroundMediaId ? "image://mxc/" + currentRoom.backgroundMediaId : ""
-    }
-
     Rectangle {
         anchors.fill: parent
 
-        visible: currentRoom && !currentRoom.backgroundMediaId
+        visible: currentRoom
         color: MSettings.darkTheme ? "#242424" : "#EBEFF2"
     }
 
@@ -258,12 +243,12 @@ Item {
                         if (currentRoom) {
                             movingTimer.restart()
 
-//                            var lastScrollPosition = sortedMessageEventModel.mapFromSource(currentRoom.savedTopVisibleIndex())
-//                            if (lastScrollPosition === 0) {
-//                                messageListView.positionViewAtBeginning()
-//                            } else {
-//                                messageListView.currentIndex = lastScrollPosition
-//                            }
+                            //                            var lastScrollPosition = sortedMessageEventModel.mapFromSource(currentRoom.savedTopVisibleIndex())
+                            //                            if (lastScrollPosition === 0) {
+                            //                                messageListView.positionViewAtBeginning()
+                            //                            } else {
+                            //                                messageListView.currentIndex = lastScrollPosition
+                            //                            }
 
                             if (messageListView.contentY < messageListView.originY + 10 || currentRoom.timelineSize < 20)
                                 currentRoom.getPreviousContent(50)
@@ -544,7 +529,7 @@ Item {
                     anchors.left: parent.left
                     anchors.bottom: parent.bottom
 
-                    visible: currentRoom && currentRoom.hasUsersTyping
+                    visible: currentRoom && currentRoom.usersTyping.length > 0
                     padding: 4
 
                     contentItem: RowLayout {
@@ -554,7 +539,7 @@ Item {
                             spacing: -8
 
                             Repeater {
-                                model: currentRoom && currentRoom.hasUsersTyping ? currentRoom.usersTyping : null
+                                model: currentRoom && currentRoom.usersTyping.length > 0 ? currentRoom.usersTyping : null
 
                                 delegate: Rectangle {
                                     Layout.preferredWidth: 28

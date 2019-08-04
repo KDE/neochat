@@ -45,23 +45,23 @@ class RoomListModel : public QAbstractListModel {
     CurrentRoomRole,
   };
 
-  RoomListModel(QObject* parent = 0);
-  virtual ~RoomListModel();
+  RoomListModel(QObject* parent = nullptr);
+  virtual ~RoomListModel() override;
 
-  Connection* connection() { return m_connection; }
+  Connection* connection() const { return m_connection; }
   void setConnection(Connection* connection);
   void doResetModel();
 
-  Q_INVOKABLE SpectralRoom* roomAt(int row);
+  Q_INVOKABLE SpectralRoom* roomAt(int row) const;
 
   QVariant data(const QModelIndex& index,
                 int role = Qt::DisplayRole) const override;
   Q_INVOKABLE int rowCount(
       const QModelIndex& parent = QModelIndex()) const override;
 
-  QHash<int, QByteArray> roleNames() const;
+  QHash<int, QByteArray> roleNames() const override;
 
-  int notificationCount() { return m_notificationCount; }
+  int notificationCount() const { return m_notificationCount; }
 
  private slots:
   void doAddRoom(Room* room);

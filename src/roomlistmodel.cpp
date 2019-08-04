@@ -59,18 +59,19 @@ void RoomListModel::setConnection(Connection* connection) {
 void RoomListModel::doResetModel() {
   beginResetModel();
   m_rooms.clear();
-  for (auto r : m_connection->roomMap())
+  for (auto r : m_connection->roomMap()) {
     doAddRoom(r);
+  }
   endResetModel();
   refreshNotificationCount();
 }
 
-SpectralRoom* RoomListModel::roomAt(int row) {
+SpectralRoom* RoomListModel::roomAt(int row) const {
   return m_rooms.at(row);
 }
 
 void RoomListModel::doAddRoom(Room* r) {
-  if (auto* room = static_cast<SpectralRoom*>(r)) {
+  if (auto room = static_cast<SpectralRoom*>(r)) {
     m_rooms.append(room);
     connectRoomSignals(room);
     emit roomAdded(room);
@@ -134,7 +135,7 @@ void RoomListModel::updateRoom(Room* room, Room* prev) {
     // That doesn't look right but technically we still can do it.
   }
   // Ok, we're through with pre-checks, now for the real thing.
-  auto* newRoom = static_cast<SpectralRoom*>(room);
+  auto newRoom = static_cast<SpectralRoom*>(room);
   const auto it = std::find_if(
       m_rooms.begin(), m_rooms.end(),
       [=](const SpectralRoom* r) { return r == prev || r == newRoom; });

@@ -15,6 +15,8 @@
 #include "events/typingevent.h"
 #include "jobs/downloadfilejob.h"
 
+#include <functional>
+
 #include <QFileDialog>
 #include <QFileInfo>
 #include <QImageReader>
@@ -34,24 +36,10 @@ SpectralRoom::SpectralRoom(Connection* connection,
           &SpectralRoom::countChanged);
   connect(this, &SpectralRoom::highlightCountChanged, this,
           &SpectralRoom::countChanged);
-  connect(this, &Room::addedMessages, this, [=] { setBusy(false); });
   connect(this, &Room::fileTransferCompleted, this, [=] {
     setFileUploadingProgress(0);
     setHasFileUploading(false);
   });
-  connect(this, &Room::accountDataChanged, this, [=](QString type) {
-    if (type == backgroundEventType)
-      emit backgroundChanged();
-  });
-}
-
-inline QString getMIME(const QUrl& fileUrl) {
-  return QMimeDatabase().mimeTypeForFile(fileUrl.toLocalFile()).name();
-}
-
-inline QSize getImageSize(const QUrl& imageUrl) {
-  QImageReader reader(imageUrl.toLocalFile());
-  return reader.size();
 }
 
 void SpectralRoom::uploadFile(const QUrl& url, const QString& body) {
@@ -61,13 +49,13 @@ void SpectralRoom::uploadFile(const QUrl& url, const QString& body) {
   QString txnId = postFile(body.isEmpty() ? url.fileName() : body, url, false);
   setHasFileUploading(true);
   connect(this, &Room::fileTransferCompleted,
-          [=](QString id, QUrl localFile, QUrl mxcUrl) {
+          [=](QString id, QUrl /*localFile*/, QUrl /*mxcUrl*/) {
             if (id == txnId) {
               setFileUploadingProgress(0);
               setHasFileUploading(false);
             }
           });
-  connect(this, &Room::fileTransferFailed, [=](QString id, QString error) {
+  connect(this, &Room::fileTransferFailed, [=](QString id, QString /*error*/) {
     if (id == txnId) {
       setFileUploadingProgress(0);
       setHasFileUploading(false);
@@ -91,24 +79,14 @@ void SpectralRoom::forget() {
   connection()->forgetRoom(id());
 }
 
-bool SpectralRoom::hasUsersTyping() {
-  QList<User*> users = usersTyping();
-  if (users.isEmpty())
-    return false;
-  int count = users.length();
-  if (users.contains(localUser()))
-    count--;
-  return count != 0;
-}
-
-QVariantList SpectralRoom::getUsersTyping() {
-  QList<User*> users = usersTyping();
-  users.removeOne(localUser());
-  QVariantList out;
+QVariantList SpectralRoom::getUsersTyping() const {
+  auto users = usersTyping();
+  users.removeAll(localUser());
+  QVariantList userVariants;
   for (User* user : users) {
-    out.append(QVariant::fromValue(user));
+    userVariants.append(QVariant::fromValue(user));
   }
-  return out;
+  return userVariants;
 }
 
 void SpectralRoom::sendTypingNotification(bool isTyping) {
@@ -116,7 +94,7 @@ void SpectralRoom::sendTypingNotification(bool isTyping) {
                                       id(), isTyping, 10000);
 }
 
-QString SpectralRoom::lastEvent() {
+QString SpectralRoom::lastEvent() const {
   for (auto i = messageEvents().rbegin(); i < messageEvents().rend(); i++) {
     const RoomEvent* evt = i->get();
 
@@ -185,7 +163,7 @@ void SpectralRoom::countChanged() {
   }
 }
 
-QDateTime SpectralRoom::lastActiveTime() {
+QDateTime SpectralRoom::lastActiveTime() const {
   if (timelineSize() == 0)
     return QDateTime();
   return messageEvents().rbegin()->get()->timestamp();
@@ -194,13 +172,13 @@ QDateTime SpectralRoom::lastActiveTime() {
 int SpectralRoom::savedTopVisibleIndex() const {
   return firstDisplayedMarker() == timelineEdge()
              ? 0
-             : firstDisplayedMarker() - messageEvents().rbegin();
+             : int(firstDisplayedMarker() - messageEvents().rbegin());
 }
 
 int SpectralRoom::savedBottomVisibleIndex() const {
   return lastDisplayedMarker() == timelineEdge()
              ? 0
-             : lastDisplayedMarker() - messageEvents().rbegin();
+             : int(lastDisplayedMarker() - messageEvents().rbegin());
 }
 
 void SpectralRoom::saveViewport(int topIndex, int bottomIndex) {
@@ -217,17 +195,13 @@ void SpectralRoom::saveViewport(int topIndex, int bottomIndex) {
   setLastDisplayedEvent(maxTimelineIndex() - bottomIndex);
 }
 
-void SpectralRoom::getPreviousContent(int limit) {
-  setBusy(true);
-  Room::getPreviousContent(limit);
-}
-
-QVariantList SpectralRoom::getUsers(const QString& prefix) {
-  auto userList = users();
+QVariantList SpectralRoom::getUsers(const QString& keyword) const {
+  const auto userList = users();
   QVariantList matchedList;
-  for (auto u : userList)
-    if (u->displayname(this).toLower().startsWith(prefix.toLower()))
+  for (const auto u : userList)
+    if (u->displayname(this).contains(keyword, Qt::CaseInsensitive)) {
       matchedList.append(QVariant::fromValue(u));
+    }
 
   return matchedList;
 }
@@ -236,54 +210,167 @@ QUrl SpectralRoom::urlToMxcUrl(QUrl mxcUrl) {
   return DownloadFileJob::makeRequestUrl(connection()->homeserver(), mxcUrl);
 }
 
-QUrl SpectralRoom::backgroundUrl() {
-  return hasAccountData(backgroundEventType)
-             ? QUrl(accountData(backgroundEventType)
-                        .get()
-                        ->contentJson()["url"]
-                        .toString())
-             : QUrl();
+QString SpectralRoom::avatarMediaId() const {
+  if (const auto avatar = Room::avatarMediaId(); !avatar.isEmpty()) {
+    return avatar;
+  }
+
+  // Use the first (excluding self) user's avatar for direct chats
+  const auto dcUsers = directChatUsers();
+  for (const auto u : dcUsers) {
+    if (u != localUser()) {
+      return u->avatarMediaId();
+    }
+  }
+
+  return {};
 }
 
-void SpectralRoom::setBackgroundUrl(QUrl url) {
-  if (url.isEmpty() || url == backgroundUrl())
-    return;
+QString SpectralRoom::eventToString(const RoomEvent& evt,
+                                    Qt::TextFormat format) const {
+  const bool prettyPrint = (format == Qt::RichText);
 
-  connection()->callApi<SetAccountDataPerRoomJob>(
-      localUser()->id(), id(), backgroundEventType,
-      QJsonObject{{"url", url.toString()}});
-}
+  using namespace QMatrixClient;
+  return visit(
+      evt,
+      [prettyPrint](const RoomMessageEvent& e) {
+        using namespace MessageEventContent;
 
-void SpectralRoom::setBackgroundFromLocalFile(QUrl url) {
-  if (url.isEmpty())
-    return;
-
-  auto txnId = connection()->generateTxnId();
-  Room::uploadFile(txnId, url);
-
-  connect(this, &Room::fileTransferCompleted,
-          [=](QString id, QUrl localFile, QUrl mxcUrl) {
-            if (id == txnId) {
-              setBackgroundUrl(mxcUrl);
+        if (prettyPrint && e.hasTextContent() &&
+            e.mimeType().name() != "text/plain")
+          return static_cast<const TextContent*>(e.content())->body;
+        if (e.hasFileContent()) {
+          auto fileCaption =
+              e.content()->fileInfo()->originalName.toHtmlEscaped();
+          if (fileCaption.isEmpty()) {
+            fileCaption = prettyPrint
+                              ? QMatrixClient::prettyPrint(e.plainBody())
+                              : e.plainBody();
+          }
+          return !fileCaption.isEmpty() ? fileCaption : tr("a file");
+        }
+        return prettyPrint ? QMatrixClient::prettyPrint(e.plainBody())
+                           : e.plainBody();
+      },
+      [this](const RoomMemberEvent& e) {
+        // FIXME: Rewind to the name that was at the time of this event
+        auto subjectName = this->user(e.userId())->displayname();
+        // The below code assumes senderName output in AuthorRole
+        switch (e.membership()) {
+          case MembershipType::Invite:
+            if (e.repeatsState())
+              return tr("reinvited %1 to the room").arg(subjectName);
+            FALLTHROUGH;
+          case MembershipType::Join: {
+            if (e.repeatsState())
+              return tr("joined the room (repeated)");
+            if (!e.prevContent() ||
+                e.membership() != e.prevContent()->membership) {
+              return e.membership() == MembershipType::Invite
+                         ? tr("invited %1 to the room").arg(subjectName)
+                         : tr("joined the room");
             }
-          });
-}
+            QString text{};
+            if (e.isRename()) {
+              if (e.displayName().isEmpty())
+                text = tr("cleared their display name");
+              else
+                text = tr("changed their display name to %1")
+                           .arg(e.displayName().toHtmlEscaped());
+            }
+            if (e.isAvatarUpdate()) {
+              if (!text.isEmpty())
+                text += " and ";
+              if (e.avatarUrl().isEmpty())
+                text += tr("cleared their avatar");
+              else if (e.prevContent()->avatarUrl.isEmpty())
+                text += tr("set an avatar");
+              else
+                text += tr("updated their avatar");
+            }
+            return text;
+          }
+          case MembershipType::Leave:
+            if (e.prevContent() &&
+                e.prevContent()->membership == MembershipType::Invite) {
+              return (e.senderId() != e.userId())
+                         ? tr("withdrew %1's invitation").arg(subjectName)
+                         : tr("rejected the invitation");
+            }
 
-void SpectralRoom::clearBackground() {
-  connection()->callApi<SetAccountDataPerRoomJob>(
-      localUser()->id(), id(), backgroundEventType, QJsonObject{});
-}
-
-QString SpectralRoom::backgroundMediaId() {
-  if (!hasAccountData(backgroundEventType))
-    return {};
-
-  auto url = backgroundUrl();
-  return url.authority() + url.path();
+            if (e.prevContent() &&
+                e.prevContent()->membership == MembershipType::Ban) {
+              return (e.senderId() != e.userId())
+                         ? tr("unbanned %1").arg(subjectName)
+                         : tr("self-unbanned");
+            }
+            return (e.senderId() != e.userId())
+                       ? tr("has put %1 out of the room: %2")
+                             .arg(subjectName, e.contentJson()["reason"_ls]
+                                                   .toString()
+                                                   .toHtmlEscaped())
+                       : tr("left the room");
+          case MembershipType::Ban:
+            return (e.senderId() != e.userId())
+                       ? tr("banned %1 from the room: %2")
+                             .arg(subjectName, e.contentJson()["reason"_ls]
+                                                   .toString()
+                                                   .toHtmlEscaped())
+                       : tr("self-banned from the room");
+          case MembershipType::Knock:
+            return tr("knocked");
+          default:;
+        }
+        return tr("made something unknown");
+      },
+      [](const RoomAliasesEvent& e) {
+        return tr("has set room aliases on server %1 to: %2")
+            .arg(e.stateKey(), QLocale().createSeparatedList(e.aliases()));
+      },
+      [](const RoomCanonicalAliasEvent& e) {
+        return (e.alias().isEmpty())
+                   ? tr("cleared the room main alias")
+                   : tr("set the room main alias to: %1").arg(e.alias());
+      },
+      [](const RoomNameEvent& e) {
+        return (e.name().isEmpty()) ? tr("cleared the room name")
+                                    : tr("set the room name to: %1")
+                                          .arg(e.name().toHtmlEscaped());
+      },
+      [prettyPrint](const RoomTopicEvent& e) {
+        return (e.topic().isEmpty())
+                   ? tr("cleared the topic")
+                   : tr("set the topic to: %1")
+                         .arg(prettyPrint
+                                  ? QMatrixClient::prettyPrint(e.topic())
+                                  : e.topic());
+      },
+      [](const RoomAvatarEvent&) { return tr("changed the room avatar"); },
+      [](const EncryptionEvent&) {
+        return tr("activated End-to-End Encryption");
+      },
+      [](const RoomCreateEvent& e) {
+        return (e.isUpgrade() ? tr("upgraded the room to version %1")
+                              : tr("created the room, version %1"))
+            .arg(e.version().isEmpty() ? "1" : e.version().toHtmlEscaped());
+      },
+      [](const StateEventBase& e) {
+        // A small hack for state events from TWIM bot
+        return e.stateKey() == "twim"
+                   ? tr("updated the database", "TWIM bot updated the database")
+                   : e.stateKey().isEmpty()
+                         ? tr("updated %1 state", "%1 - Matrix event type")
+                               .arg(e.matrixType())
+                         : tr("updated %1 state for %2",
+                              "%1 - Matrix event type, %2 - state key")
+                               .arg(e.matrixType(),
+                                    e.stateKey().toHtmlEscaped());
+      },
+      tr("Unknown event"));
 }
 
 void SpectralRoom::changeAvatar(QUrl localFile) {
-  auto job = connection()->uploadFile(localFile.toLocalFile());
+  const auto job = connection()->uploadFile(localFile.toLocalFile());
   if (isJobRunning(job)) {
     connect(job, &BaseJob::success, this, [this, job] {
       connection()->callApi<SetRoomStateJob>(
@@ -297,7 +384,7 @@ void SpectralRoom::addLocalAlias(const QString& alias) {
   if (aliases.contains(alias))
     return;
 
-  aliases.append(alias);
+  aliases += alias;
 
   setLocalAliases(aliases);
 }
@@ -314,12 +401,12 @@ void SpectralRoom::removeLocalAlias(const QString& alias) {
 
 QString SpectralRoom::markdownToHTML(const QString& markdown) {
   const auto str = markdown.toUtf8();
-  const char* tmp_buf =
+  char* tmp_buf =
       cmark_markdown_to_html(str.constData(), str.size(), CMARK_OPT_DEFAULT);
 
-  std::string html(tmp_buf);
+  const std::string html(tmp_buf);
 
-  free((char*)tmp_buf);
+  free(tmp_buf);
 
   auto result = QString::fromStdString(html).trimmed();
 
@@ -332,8 +419,8 @@ QString SpectralRoom::markdownToHTML(const QString& markdown) {
 void SpectralRoom::postArbitaryMessage(const QString& text,
                                        MessageEventType type,
                                        const QString& replyEventId) {
-  auto parsedHTML = markdownToHTML(text);
-  bool isRichText = Qt::mightBeRichText(parsedHTML);
+  const auto parsedHTML = markdownToHTML(text);
+  const bool isRichText = Qt::mightBeRichText(parsedHTML);
 
   if (isRichText) {  // Markdown
     postHtmlMessage(text, parsedHTML, type, replyEventId);
@@ -463,7 +550,7 @@ void SpectralRoom::toggleReaction(const QString& eventId,
   }
 
   if (!redactEventIds.isEmpty()) {
-    for (auto redactEventId : redactEventIds) {
+    for (const auto& redactEventId : redactEventIds) {
       redactEvent(redactEventId);
     }
   } else {
