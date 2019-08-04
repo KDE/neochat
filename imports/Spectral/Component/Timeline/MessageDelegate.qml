@@ -15,7 +15,7 @@ ColumnLayout {
     readonly property bool avatarVisible: !sentByMe && showAuthor
     readonly property bool sentByMe: author === currentRoom.localUser
     readonly property bool darkBackground: !sentByMe
-    readonly property bool replyVisible: replyEventId || false
+    readonly property bool replyVisible: reply || false
 
     signal saveFileAs()
     signal openExternally()
@@ -66,6 +66,7 @@ ColumnLayout {
 
         Control {
             Layout.maximumWidth: messageListView.width - (!sentByMe ? 36 + messageRow.spacing : 0) - 48
+            Layout.minimumHeight: 36
 
             padding: 0
 
@@ -144,15 +145,15 @@ ColumnLayout {
                             Layout.preferredHeight: 28
                             Layout.alignment: Qt.AlignTop
 
-                            source: replyVisible ? replyAuthor.avatarMediaId : ""
-                            hint: replyVisible ? replyAuthor.displayName : "H"
+                            source: replyVisible ? reply.author.avatarMediaId : ""
+                            hint: replyVisible ? reply.author.displayName : "H"
 
                             RippleEffect {
                                 anchors.fill: parent
 
                                 circular: true
 
-                                onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": replyAuthor}).open()
+                                onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": reply.author}).open()
                             }
                         }
 
@@ -160,7 +161,7 @@ ColumnLayout {
                             Layout.fillWidth: true
 
                             color: !sentByMe ? MPalette.foreground : "white"
-                            text: "<style>a{color: " + color + ";} .user-pill{}</style>" + (replyDisplay || "")
+                            text: "<style>a{color: " + color + ";} .user-pill{}</style>" + (replyVisible ? reply.display : "")
 
                             wrapMode: Label.Wrap
                             textFormat: Label.RichText
@@ -168,13 +169,13 @@ ColumnLayout {
                     }
 
                     background: Rectangle {
-                        color: replyAuthor && sentByMe ? replyAuthor.color : MPalette.background
+                        color: replyVisible && sentByMe ? reply.author.color : MPalette.background
                         radius: 18
 
                         AutoMouseArea {
                             anchors.fill: parent
 
-                            onClicked: goToEvent(replyEventId)
+                            onClicked: goToEvent(reply.eventId)
                         }
                     }
                 }
@@ -219,6 +220,15 @@ ColumnLayout {
                         acceptedButtons: Qt.NoButton
                         cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
                     }
+                }
+
+                ReactionDelegate {
+                    Layout.fillWidth: true
+
+                    Layout.topMargin: 0
+                    Layout.bottomMargin: 8
+                    Layout.leftMargin: 16
+                    Layout.rightMargin: 16
                 }
             }
         }

@@ -10,6 +10,7 @@
 #include "csapi/rooms.h"
 #include "csapi/typing.h"
 #include "events/accountdataevents.h"
+#include "events/reactionevent.h"
 #include "events/roommessageevent.h"
 #include "events/typingevent.h"
 #include "jobs/downloadfilejob.h"
@@ -119,14 +120,20 @@ QString SpectralRoom::lastEvent() {
   for (auto i = messageEvents().rbegin(); i < messageEvents().rend(); i++) {
     const RoomEvent* evt = i->get();
 
-    if (is<RedactionEvent>(*evt))
+    if (is<RedactionEvent>(*evt) || is<ReactionEvent>(*evt))
       continue;
     if (evt->isRedacted())
       continue;
 
     if (evt->isStateEvent() &&
-        static_cast<const StateEventBase*>(evt)->repeatsState())
+        static_cast<const StateEventBase&>(*evt).repeatsState())
       continue;
+
+    if (auto e = eventCast<const RoomMessageEvent>(evt)) {
+      if (!e->replacedEvent().isEmpty()) {
+        continue;
+      }
+    }
 
     if (connection()->isIgnored(user(evt->senderId())))
       continue;
@@ -162,6 +169,13 @@ void SpectralRoom::onAddNewTimelineEvents(timeline_iter_t from) {
 void SpectralRoom::onAddHistoricalTimelineEvents(rev_iter_t from) {
   std::for_each(from, messageEvents().crend(),
                 [this](const TimelineItem& ti) { checkForHighlights(ti); });
+}
+
+void SpectralRoom::onRedaction(const RoomEvent& prevEvent,
+                               const RoomEvent& /*after*/) {
+  if (const auto& e = eventCast<const ReactionEvent>(&prevEvent)) {
+    emit updatedEvent(e->relation().eventId);
+  }
 }
 
 void SpectralRoom::countChanged() {
@@ -305,7 +319,7 @@ QString SpectralRoom::markdownToHTML(const QString& markdown) {
 
   std::string html(tmp_buf);
 
-  free((char *)tmp_buf);
+  free((char*)tmp_buf);
 
   auto result = QString::fromStdString(html).trimmed();
 
@@ -418,4 +432,41 @@ void SpectralRoom::postHtmlMessage(const QString& text,
   }
 
   Room::postHtmlMessage(text, html, type);
+}
+
+void SpectralRoom::toggleReaction(const QString& eventId,
+                                  const QString& reaction) {
+  if (eventId.isEmpty() || reaction.isEmpty())
+    return;
+
+  const auto eventIt = findInTimeline(eventId);
+  if (eventIt == timelineEdge())
+    return;
+
+  const auto& evt = **eventIt;
+
+  QStringList redactEventIds;  // What if there are multiple reaction events?
+
+  const auto& annotations = relatedEvents(evt, EventRelation::Annotation());
+  if (!annotations.isEmpty()) {
+    for (const auto& a : annotations) {
+      if (auto e = eventCast<const ReactionEvent>(a)) {
+        if (e->relation().key != reaction)
+          continue;
+
+        if (e->senderId() == localUser()->id()) {
+          redactEventIds.push_back(e->id());
+          break;
+        }
+      }
+    }
+  }
+
+  if (!redactEventIds.isEmpty()) {
+    for (auto redactEventId : redactEventIds) {
+      redactEvent(redactEventId);
+    }
+  } else {
+    postReaction(eventId, reaction);
+  }
 }

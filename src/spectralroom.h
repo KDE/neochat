@@ -284,6 +284,7 @@ class SpectralRoom : public Room {
 
   void onAddNewTimelineEvents(timeline_iter_t from) override;
   void onAddHistoricalTimelineEvents(rev_iter_t from) override;
+  void onRedaction(const RoomEvent& prevEvent, const RoomEvent& after) override;
 
   static QString markdownToHTML(const QString& plaintext);
 
@@ -315,6 +316,7 @@ class SpectralRoom : public Room {
   void changeAvatar(QUrl localFile);
   void addLocalAlias(const QString& alias);
   void removeLocalAlias(const QString& alias);
+  void toggleReaction(const QString& eventId, const QString& reaction);
 };
 
 #endif  // SpectralRoom_H

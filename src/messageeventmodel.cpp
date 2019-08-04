@@ -4,6 +4,7 @@
 #include <settings.h>
 #include <user.h>
 
+#include <events/reactionevent.h>
 #include <events/redactionevent.h>
 #include <events/roomavatarevent.h>
 #include <events/roommemberevent.h>
@@ -30,13 +31,12 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const {
   roles[LongOperationRole] = "progressInfo";
   roles[AnnotationRole] = "annotation";
   roles[EventResolvedTypeRole] = "eventResolvedType";
-  roles[ReplyEventIdRole] = "replyEventId";
-  roles[ReplyAuthorRole] = "replyAuthor";
-  roles[ReplyDisplayRole] = "replyDisplay";
+  roles[ReplyRole] = "reply";
   roles[UserMarkerRole] = "userMarker";
   roles[ShowAuthorRole] = "showAuthor";
   roles[ShowSectionRole] = "showSection";
   roles[BubbleShapeRole] = "bubbleShape";
+  roles[ReactionRole] = "reaction";
   return roles;
 }
 
@@ -136,6 +136,10 @@ void MessageEventModel::setRoom(SpectralRoom* room) {
               refreshLastUserEvents(refreshEvent(newEvent->id()) -
                                     timelineBaseIndex());
             });
+    connect(m_currentRoom, &Room::updatedEvent, this,
+            [this](const QString& eventId) {
+              refreshEventRoles(eventId, {ReactionRole, Qt::DisplayRole});
+            });
     connect(m_currentRoom, &Room::fileTransferProgress, this,
             &MessageEventModel::refreshEvent);
     connect(m_currentRoom, &Room::fileTransferCompleted, this,
@@ -178,15 +182,24 @@ void MessageEventModel::refreshEventRoles(int row, const QVector<int>& roles) {
   emit dataChanged(idx, idx, roles);
 }
 
-int MessageEventModel::refreshEventRoles(const QString& eventId,
+int MessageEventModel::refreshEventRoles(const QString& id,
                                          const QVector<int>& roles) {
-  const auto it = m_currentRoom->findInTimeline(eventId);
-  if (it == m_currentRoom->timelineEdge()) {
-    qWarning() << "Trying to refresh inexistent event:" << eventId;
-    return -1;
+  // On 64-bit platforms, difference_type for std containers is long long
+  // but Qt uses int throughout its interfaces; hence casting to int below.
+  int row = -1;
+  // First try pendingEvents because it is almost always very short.
+  const auto pendingIt = m_currentRoom->findPendingEvent(id);
+  if (pendingIt != m_currentRoom->pendingEvents().end())
+    row = int(pendingIt - m_currentRoom->pendingEvents().begin());
+  else {
+    const auto timelineIt = m_currentRoom->findInTimeline(id);
+    if (timelineIt == m_currentRoom->timelineEdge()) {
+      qWarning() << "Trying to refresh inexistent event:" << id;
+      return -1;
+    }
+    row = int(timelineIt - m_currentRoom->messageEvents().rbegin()) +
+          timelineBaseIndex();
   }
-  const auto row =
-      it - m_currentRoom->messageEvents().rbegin() + timelineBaseIndex();
   refreshEventRoles(row, roles);
   return row;
 }
@@ -359,7 +372,7 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
         return EventStatus::Hidden;
     }
 
-    if (is<RedactionEvent>(evt))
+    if (is<RedactionEvent>(evt) || is<ReactionEvent>(evt))
       return EventStatus::Hidden;
     if (evt.isRedacted())
       return EventStatus::Hidden;
@@ -367,6 +380,12 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
     if (evt.isStateEvent() &&
         static_cast<const StateEventBase&>(evt).repeatsState())
       return EventStatus::Hidden;
+
+    if (auto e = eventCast<const RoomMessageEvent>(&evt)) {
+      if (!e->replacedEvent().isEmpty()) {
+        return EventStatus::Hidden;
+      }
+    }
 
     if (m_currentRoom->connection()->isIgnored(
             m_currentRoom->user(evt.senderId())))
@@ -404,8 +423,7 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
     return variantList;
   }
 
-  if (role == ReplyEventIdRole || role == ReplyDisplayRole ||
-      role == ReplyAuthorRole) {
+  if (role == ReplyRole) {
     const QString& replyEventId = evt.contentJson()["m.relates_to"]
                                       .toObject()["m.in_reply_to"]
                                       .toObject()["event_id"]
@@ -416,16 +434,13 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
     if (replyIt == m_currentRoom->timelineEdge())
       return {};
     const auto& replyEvt = **replyIt;
-    switch (role) {
-      case ReplyEventIdRole:
-        return replyEventId;
-      case ReplyDisplayRole:
-        return utils::cleanHTML(utils::removeReply(
-            m_currentRoom->eventToString(replyEvt, Qt::RichText)));
-      case ReplyAuthorRole:
-        return QVariant::fromValue(m_currentRoom->user(replyEvt.senderId()));
-    }
-    return {};
+
+    return QVariantMap{
+        {"eventId", replyEventId},
+        {"display", utils::cleanHTML(utils::removeReply(
+                        m_currentRoom->eventToString(replyEvt, Qt::RichText)))},
+        {"author",
+         QVariant::fromValue(m_currentRoom->user(replyEvt.senderId()))}};
   }
 
   if (role == ShowAuthorRole) {
@@ -482,6 +497,44 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
     if (belowShow)
       return BubbleShapes::EndShape;
     return BubbleShapes::MiddleShape;
+  }
+
+  if (role == ReactionRole) {
+    const auto& annotations =
+        m_currentRoom->relatedEvents(evt, EventRelation::Annotation());
+    if (annotations.isEmpty())
+      return {};
+    QMap<QString, QList<SpectralUser*>> reactions = {};
+    for (const auto& a : annotations) {
+      if (a->isRedacted())  // Just in case?
+        continue;
+      if (auto e = eventCast<const ReactionEvent>(a))
+        reactions[e->relation().key].append(
+            static_cast<SpectralUser*>(m_currentRoom->user(e->senderId())));
+    }
+
+    if (reactions.isEmpty()) {
+      return {};
+    }
+
+    QVariantList res = {};
+    QMap<QString, QList<SpectralUser*>>::const_iterator i =
+        reactions.constBegin();
+    while (i != reactions.constEnd()) {
+      QVariantList authors;
+      for (auto author : i.value()) {
+        authors.append(QVariant::fromValue(author));
+      }
+      bool hasLocalUser = i.value().contains(
+          static_cast<SpectralUser*>(m_currentRoom->localUser()));
+      res.append(QVariantMap{{"reaction", i.key()},
+                             {"count", i.value().count()},
+                             {"authors", authors},
+                             {"hasLocalUser", hasLocalUser}});
+      ++i;
+    }
+
+    return res;
   }
 
   return {};

@@ -44,6 +44,16 @@ Dialog {
             placeholderText: "Password"
             echoMode: TextInput.Password
 
+            onAccepted: accessTokenField.forceActiveFocus()
+        }
+
+        AutoTextField {
+            Layout.fillWidth: true
+
+            id: accessTokenField
+
+            placeholderText: "Access Token (Optional)"
+
             onAccepted: deviceNameField.forceActiveFocus()
         }
 
@@ -52,14 +62,19 @@ Dialog {
 
             id: deviceNameField
 
-            placeholderText: "Device Name"
+            placeholderText: "Device Name (Optional)"
 
             onAccepted: root.accept()
         }
     }
 
     function doLogin() {
-        spectralController.loginWithCredentials(serverField.text, usernameField.text, passwordField.text, deviceNameField.text)
+        if (accessTokenField.text !== "") {
+            console.log("Login using access token.")
+            spectralController.loginWithAccessToken(serverField.text, usernameField.text, accessTokenField.text, deviceNameField.text)
+        } else {
+            spectralController.loginWithCredentials(serverField.text, usernameField.text, passwordField.text, deviceNameField.text)
+        }
     }
 
     onClosed: destroy()
