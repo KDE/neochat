@@ -123,7 +123,7 @@ void TrayIcon::setNotificationCount(int count) {
 
   setIcon(QIcon(tmp));
 
-  icon_ = tmp;
+  icon_ = tmp
 #endif
   emit notificationCountChanged();
 }
