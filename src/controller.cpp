@@ -44,11 +44,11 @@ Controller::Controller(QObject* parent) : QObject(parent) {
   connect(&m_ncm, &QNetworkConfigurationManager::onlineStateChanged, this,
           &Controller::isOnlineChanged);
 
-  QTimer::singleShot(0, this, SLOT(invokeLogin()));
+  QTimer::singleShot(0, this, [=] { invokeLogin(); });
 }
 
 Controller::~Controller() {
-  for (Connection* c : m_connections) {
+  for (auto c : m_connections) {
     c->stopSync();
     c->saveState();
   }
@@ -66,74 +66,79 @@ void Controller::loginWithCredentials(QString serverAddr,
                                       QString user,
                                       QString pass,
                                       QString deviceName) {
-  if (!user.isEmpty() && !pass.isEmpty()) {
-    if (deviceName.isEmpty()) {
-      deviceName = "Spectral " + QSysInfo::machineHostName() + " " +
-                   QSysInfo::productType() + " " + QSysInfo::productVersion() +
-                   " " + QSysInfo::currentCpuArchitecture();
-    }
-
-    QUrl serverUrl(serverAddr);
-
-    Connection* conn = new Connection(this);
-    if (serverUrl.isValid()) {
-      conn->setHomeserver(serverUrl);
-    }
-    conn->connectToServer(user, pass, deviceName, "");
-    connect(conn, &Connection::connected, [=] {
-      AccountSettings account(conn->userId());
-      account.setKeepLoggedIn(true);
-      account.clearAccessToken();  // Drop the legacy - just in case
-      account.setHomeserver(conn->homeserver());
-      account.setDeviceId(conn->deviceId());
-      account.setDeviceName(deviceName);
-      if (!saveAccessTokenToKeyChain(account, conn->accessToken()))
-        qWarning() << "Couldn't save access token";
-      account.sync();
-      addConnection(conn);
-      setConnection(conn);
-    });
-    connect(conn, &Connection::networkError,
-            [=](QString error, QString, int, int) {
-              emit errorOccured("Network Error", error);
-            });
-    connect(conn, &Connection::loginError, [=](QString error, QString) {
-      emit errorOccured("Login Failed", error);
-    });
+  if (user.isEmpty() || pass.isEmpty()) {
+    return;
   }
+
+  if (deviceName.isEmpty()) {
+    deviceName = "Spectral " + QSysInfo::machineHostName() + " " +
+                 QSysInfo::productType() + " " + QSysInfo::productVersion() +
+                 " " + QSysInfo::currentCpuArchitecture();
+  }
+
+  QUrl serverUrl(serverAddr);
+
+  auto conn = new Connection(this);
+  if (serverUrl.isValid()) {
+    conn->setHomeserver(serverUrl);
+  }
+  conn->connectToServer(user, pass, deviceName, "");
+
+  connect(conn, &Connection::connected, [=] {
+    AccountSettings account(conn->userId());
+    account.setKeepLoggedIn(true);
+    account.clearAccessToken();  // Drop the legacy - just in case
+    account.setHomeserver(conn->homeserver());
+    account.setDeviceId(conn->deviceId());
+    account.setDeviceName(deviceName);
+    if (!saveAccessTokenToKeyChain(account, conn->accessToken()))
+      qWarning() << "Couldn't save access token";
+    account.sync();
+    addConnection(conn);
+    setConnection(conn);
+  });
+  connect(conn, &Connection::networkError,
+          [=](QString error, QString, int, int) {
+            emit errorOccured("Network Error", error);
+          });
+  connect(conn, &Connection::loginError, [=](QString error, QString) {
+    emit errorOccured("Login Failed", error);
+  });
 }
 
 void Controller::loginWithAccessToken(QString serverAddr,
                                       QString user,
                                       QString token,
                                       QString deviceName) {
-  if (!user.isEmpty() && !token.isEmpty()) {
-    QUrl serverUrl(serverAddr);
-
-    Connection* conn = new Connection(this);
-    if (serverUrl.isValid()) {
-      conn->setHomeserver(serverUrl);
-    }
-
-    connect(conn, &Connection::connected, [=] {
-      AccountSettings account(conn->userId());
-      account.setKeepLoggedIn(true);
-      account.clearAccessToken();  // Drop the legacy - just in case
-      account.setHomeserver(conn->homeserver());
-      account.setDeviceId(conn->deviceId());
-      account.setDeviceName(deviceName);
-      if (!saveAccessTokenToKeyChain(account, conn->accessToken()))
-        qWarning() << "Couldn't save access token";
-      account.sync();
-      addConnection(conn);
-      setConnection(conn);
-    });
-    connect(conn, &Connection::networkError,
-            [=](QString error, QString, int, int) {
-              emit errorOccured("Network Error", error);
-            });
-    conn->connectWithToken(user, token, deviceName);
+  if (user.isEmpty() || token.isEmpty()) {
+    return;
   }
+
+  QUrl serverUrl(serverAddr);
+
+  auto conn = new Connection(this);
+  if (serverUrl.isValid()) {
+    conn->setHomeserver(serverUrl);
+  }
+
+  connect(conn, &Connection::connected, [=] {
+    AccountSettings account(conn->userId());
+    account.setKeepLoggedIn(true);
+    account.clearAccessToken();  // Drop the legacy - just in case
+    account.setHomeserver(conn->homeserver());
+    account.setDeviceId(conn->deviceId());
+    account.setDeviceName(deviceName);
+    if (!saveAccessTokenToKeyChain(account, conn->accessToken()))
+      qWarning() << "Couldn't save access token";
+    account.sync();
+    addConnection(conn);
+    setConnection(conn);
+  });
+  connect(conn, &Connection::networkError,
+          [=](QString error, QString, int, int) {
+            emit errorOccured("Network Error", error);
+          });
+  conn->connectWithToken(user, token, deviceName);
 }
 
 void Controller::logout(Connection* conn) {
@@ -149,7 +154,8 @@ void Controller::logout(Connection* conn) {
   job.setAutoDelete(true);
   job.setKey(conn->userId());
   QEventLoop loop;
-  QKeychain::DeletePasswordJob::connect(&job, &QKeychain::Job::finished, &loop, &QEventLoop::quit);
+  QKeychain::DeletePasswordJob::connect(&job, &QKeychain::Job::finished, &loop,
+                                        &QEventLoop::quit);
   job.start();
   loop.exec();
 
@@ -169,21 +175,24 @@ void Controller::logout(Connection* conn) {
 void Controller::addConnection(Connection* c) {
   Q_ASSERT_X(c, __FUNCTION__, "Attempt to add a null connection");
 
-  m_connections.push_back(c);
+  m_connections += c;
 
   c->setLazyLoading(true);
 
   connect(c, &Connection::syncDone, this, [=] {
     setBusy(false);
+
     emit syncDone();
+
     c->sync(30000);
     c->saveState();
   });
   connect(c, &Connection::loggedOut, this, [=] { dropConnection(c); });
   connect(&m_ncm, &QNetworkConfigurationManager::onlineStateChanged,
           [=](bool status) {
-            if (!status)
+            if (!status) {
               return;
+            }
 
             c->stopSync();
             c->sync(30000);
@@ -231,8 +240,11 @@ void Controller::invokeLogin() {
       c->connectWithToken(account.userId(), accessToken, account.deviceId());
     }
   }
-  if (!m_connections.isEmpty())
+
+  if (!m_connections.isEmpty()) {
     setConnection(m_connections[0]);
+  }
+
   emit initiated();
 }
 
@@ -333,7 +345,7 @@ bool Controller::saveAccessTokenToKeyChain(const AccountSettings& account,
 }
 
 void Controller::joinRoom(Connection* c, const QString& alias) {
-  JoinRoomJob* joinRoomJob = c->joinRoom(alias);
+  auto joinRoomJob = c->joinRoom(alias);
   joinRoomJob->connect(joinRoomJob, &JoinRoomJob::failure, [=] {
     emit errorOccured("Join Room Failed", joinRoomJob->errorString());
   });
@@ -342,7 +354,7 @@ void Controller::joinRoom(Connection* c, const QString& alias) {
 void Controller::createRoom(Connection* c,
                             const QString& name,
                             const QString& topic) {
-  CreateRoomJob* createRoomJob =
+  auto createRoomJob =
       c->createRoom(Connection::PublishRoom, "", name, topic, QStringList());
   createRoomJob->connect(createRoomJob, &CreateRoomJob::failure, [=] {
     emit errorOccured("Create Room Failed", createRoomJob->errorString());
@@ -350,7 +362,7 @@ void Controller::createRoom(Connection* c,
 }
 
 void Controller::createDirectChat(Connection* c, const QString& userID) {
-  CreateRoomJob* createRoomJob = c->createDirectChat(userID);
+  auto createRoomJob = c->createDirectChat(userID);
   createRoomJob->connect(createRoomJob, &CreateRoomJob::failure, [=] {
     emit errorOccured("Create Direct Chat Failed",
                       createRoomJob->errorString());
@@ -358,24 +370,16 @@ void Controller::createDirectChat(Connection* c, const QString& userID) {
 }
 
 void Controller::playAudio(QUrl localFile) {
-  QMediaPlayer* player = new QMediaPlayer;
+  auto player = new QMediaPlayer;
   player->setMedia(localFile);
   player->play();
   connect(player, &QMediaPlayer::stateChanged, [=] { player->deleteLater(); });
 }
 
-int Controller::dpi() {
-  return SettingsGroup("Interface").value("dpi", 100).toInt();
-}
-
-void Controller::setDpi(int dpi) {
-  SettingsGroup("Interface").setValue("dpi", dpi);
-}
-
 void Controller::changeAvatar(Connection* conn, QUrl localFile) {
   auto job = conn->uploadFile(localFile.toLocalFile());
   if (isJobRunning(job)) {
-    connect(job, &BaseJob::success, this, [this, conn, job] {
+    connect(job, &BaseJob::success, this, [conn, job] {
       conn->callApi<SetAvatarUrlJob>(conn->userId(), job->contentUri());
     });
   }

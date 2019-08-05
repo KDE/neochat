@@ -276,42 +276,6 @@ Dialog {
                 }
             }
         }
-
-        MenuSeparator {
-            Layout.fillWidth: true
-        }
-
-        RowLayout {
-            Layout.fillWidth: true
-
-            Button {
-                Layout.fillWidth: true
-
-                flat: true
-                text: "Set background image"
-
-                onClicked: {
-                    var fileDialog = openFileDialog.createObject(ApplicationWindow.overlay)
-
-                    fileDialog.chosen.connect(function(path) {
-                        if (!path) return
-
-                        room.setBackgroundFromLocalFile(path)
-                    })
-
-                    fileDialog.open()
-                }
-            }
-
-            Button {
-                Layout.fillWidth: true
-
-                flat: true
-                text: "Clear background image"
-
-                onClicked: room.clearBackground()
-            }
-        }
     }
 
     Component {

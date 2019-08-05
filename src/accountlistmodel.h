@@ -20,7 +20,7 @@ class AccountListModel : public QAbstractListModel {
 
   QHash<int, QByteArray> roleNames() const override;
 
-  Controller* controller() { return m_controller; }
+  Controller* controller() const { return m_controller; }
   void setController(Controller* value);
 
  private:

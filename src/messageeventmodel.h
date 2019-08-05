@@ -48,9 +48,9 @@ class MessageEventModel : public QAbstractListModel {
   };
 
   explicit MessageEventModel(QObject* parent = nullptr);
-  ~MessageEventModel();
+  ~MessageEventModel() override;
 
-  SpectralRoom* room() { return m_currentRoom; }
+  SpectralRoom* room() const { return m_currentRoom; }
   void setRoom(SpectralRoom* room);
 
   int rowCount(const QModelIndex& parent = QModelIndex()) const override;
@@ -58,7 +58,7 @@ class MessageEventModel : public QAbstractListModel {
                 int role = Qt::DisplayRole) const override;
   QHash<int, QByteArray> roleNames() const override;
 
-  Q_INVOKABLE int eventIDToIndex(const QString& eventID);
+  Q_INVOKABLE int eventIDToIndex(const QString& eventID) const;
 
  private slots:
   int refreshEvent(const QString& eventId);

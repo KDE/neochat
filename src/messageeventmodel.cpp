@@ -307,6 +307,8 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
           return "audio";
         case MessageEventType::Video:
           return "video";
+        default:
+          break;
       }
       if (e->hasFileContent())
         return "file";
@@ -341,8 +343,8 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
     if (evt.isRedacted()) {
       auto reason = evt.redactedBecause()->reason();
       return (reason.isEmpty())
-                 ? tr("Redacted")
-                 : tr("Redacted: %1").arg(evt.redactedBecause()->reason());
+                 ? tr("[REDACTED]")
+                 : tr("[REDACTED: %1]").arg(evt.redactedBecause()->reason());
     }
 
     if (auto e = eventCast<const RoomMessageEvent>(&evt)) {
@@ -540,7 +542,7 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
   return {};
 }
 
-int MessageEventModel::eventIDToIndex(const QString& eventID) {
+int MessageEventModel::eventIDToIndex(const QString& eventID) const {
   const auto it = m_currentRoom->findInTimeline(eventID);
   if (it == m_currentRoom->timelineEdge()) {
     qWarning() << "Trying to find inexistent event:" << eventID;

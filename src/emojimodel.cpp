@@ -28,49 +28,49 @@ QVariantList EmojiModel::filterModel(const QString& filter) {
   QVariantList result;
 
   for (QVariant e : people) {
-    Emoji emoji = qvariant_cast<Emoji>(e);
+    auto emoji = qvariant_cast<Emoji>(e);
     if (emoji.shortname.startsWith(filter)) {
       result.append(e);
     }
   }
   for (QVariant e : nature) {
-    Emoji emoji = qvariant_cast<Emoji>(e);
+    auto emoji = qvariant_cast<Emoji>(e);
     if (emoji.shortname.startsWith(filter)) {
       result.append(e);
     }
   }
   for (QVariant e : food) {
-    Emoji emoji = qvariant_cast<Emoji>(e);
+    auto emoji = qvariant_cast<Emoji>(e);
     if (emoji.shortname.startsWith(filter)) {
       result.append(e);
     }
   }
   for (QVariant e : activity) {
-    Emoji emoji = qvariant_cast<Emoji>(e);
+    auto emoji = qvariant_cast<Emoji>(e);
     if (emoji.shortname.startsWith(filter)) {
       result.append(e);
     }
   }
   for (QVariant e : travel) {
-    Emoji emoji = qvariant_cast<Emoji>(e);
+    auto emoji = qvariant_cast<Emoji>(e);
     if (emoji.shortname.startsWith(filter)) {
       result.append(e);
     }
   }
   for (QVariant e : objects) {
-    Emoji emoji = qvariant_cast<Emoji>(e);
+    auto emoji = qvariant_cast<Emoji>(e);
     if (emoji.shortname.startsWith(filter)) {
       result.append(e);
     }
   }
   for (QVariant e : symbols) {
-    Emoji emoji = qvariant_cast<Emoji>(e);
+    auto emoji = qvariant_cast<Emoji>(e);
     if (emoji.shortname.startsWith(filter)) {
       result.append(e);
     }
   }
   for (QVariant e : flags) {
-    Emoji emoji = qvariant_cast<Emoji>(e);
+    auto emoji = qvariant_cast<Emoji>(e);
     if (emoji.shortname.startsWith(filter)) {
       result.append(e);
     }

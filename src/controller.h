@@ -34,10 +34,7 @@ class Controller : public QObject {
   Q_INVOKABLE void loginWithCredentials(QString, QString, QString, QString);
   Q_INVOKABLE void loginWithAccessToken(QString, QString, QString, QString);
 
-  QVector<Connection*> connections() { return m_connections; }
-
-  Q_INVOKABLE int dpi();
-  Q_INVOKABLE void setDpi(int dpi);
+  QVector<Connection*> connections() const { return m_connections; }
 
   // All the non-Q_INVOKABLE functions.
   void addConnection(Connection* c);
@@ -46,19 +43,20 @@ class Controller : public QObject {
   // All the Q_PROPERTYs.
   int accountCount() { return m_connections.count(); }
 
-  bool quitOnLastWindowClosed() {
+  bool quitOnLastWindowClosed() const {
     return QApplication::quitOnLastWindowClosed();
   }
   void setQuitOnLastWindowClosed(bool value) {
     if (quitOnLastWindowClosed() != value) {
       QApplication::setQuitOnLastWindowClosed(value);
+
       emit quitOnLastWindowClosedChanged();
     }
   }
 
-  bool isOnline() { return m_ncm.isOnline(); }
+  bool isOnline() const { return m_ncm.isOnline(); }
 
-  bool busy() { return m_busy; }
+  bool busy() const { return m_busy; }
   void setBusy(bool busy) {
     if (m_busy == busy) {
       return;
@@ -67,9 +65,10 @@ class Controller : public QObject {
     emit busyChanged();
   }
 
-  Connection* connection() {
+  Connection* connection() const {
     if (m_connection.isNull())
       return nullptr;
+
     return m_connection;
   }
 

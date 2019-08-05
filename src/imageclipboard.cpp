@@ -12,11 +12,11 @@ ImageClipboard::ImageClipboard(QObject* parent)
           &ImageClipboard::imageChanged);
 }
 
-bool ImageClipboard::hasImage() {
+bool ImageClipboard::hasImage() const {
   return !image().isNull();
 }
 
-QImage ImageClipboard::image() {
+QImage ImageClipboard::image() const {
   return m_clipboard->image();
 }
 
@@ -31,8 +31,9 @@ bool ImageClipboard::saveImage(const QUrl& localPath) {
 
   QString path = QFileInfo(localPath.toLocalFile()).absolutePath();
   QDir dir;
-  if (!dir.exists(path))
+  if (!dir.exists(path)) {
     dir.mkpath(path);
+  }
 
   i.save(localPath.toLocalFile());
 
