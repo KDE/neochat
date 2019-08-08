@@ -289,7 +289,7 @@ Item {
                     }
                 }
 
-                RippleEffect {
+                AutoMouseArea {
                     anchors.fill: parent
 
                     onPrimaryClicked: {

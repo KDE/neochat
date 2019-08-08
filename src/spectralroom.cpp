@@ -152,7 +152,10 @@ void SpectralRoom::onAddHistoricalTimelineEvents(rev_iter_t from) {
 void SpectralRoom::onRedaction(const RoomEvent& prevEvent,
                                const RoomEvent& /*after*/) {
   if (const auto& e = eventCast<const ReactionEvent>(&prevEvent)) {
-    emit updatedEvent(e->relation().eventId);
+    if (auto relatedEventId = e->relation().eventId;
+        !relatedEventId.isEmpty()) {
+      emit updatedEvent(relatedEventId);
+    }
   }
 }
 

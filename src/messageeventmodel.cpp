@@ -138,6 +138,9 @@ void MessageEventModel::setRoom(SpectralRoom* room) {
             });
     connect(m_currentRoom, &Room::updatedEvent, this,
             [this](const QString& eventId) {
+              if (eventId.isEmpty()) {  // How did we get here?
+                return;
+              }
               refreshEventRoles(eventId, {ReactionRole, Qt::DisplayRole});
             });
     connect(m_currentRoom, &Room::fileTransferProgress, this,
