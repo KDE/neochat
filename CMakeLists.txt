@@ -80,8 +80,8 @@ if ((NOT DEFINED USE_INTREE_LIBQMC OR USE_INTREE_LIBQMC)
     endif ()
 endif ()
 if (NOT USE_INTREE_LIBQMC)
-    find_package(QMatrixClient 0.5.1 REQUIRED)
-    if (NOT QMatrixClient_FOUND)
+    find_package(Quotient 0.6 REQUIRED)
+    if (NOT Quotient_FOUND)
         message( WARNING "libQMatrixClient not found; configuration will most likely fail.")
     endif ()
 endif ()
@@ -123,7 +123,7 @@ if (USE_INTREE_LIBQMC)
         message( STATUS "  Library git SHA1: ${LIB_GIT_SHA1}")
     endif (GIT_FOUND)
 else ()
-    message( STATUS "Using libQMatrixClient ${QMatrixClient_VERSION} at ${QMatrixClient_DIR}")
+    message( STATUS "Using libQMatrixClient ${Quotient_VERSION} at ${Quotient_DIR}")
 endif ()
 
 message( STATUS "=============================================================================" )
@@ -205,7 +205,7 @@ add_executable(${PROJECT_NAME} WIN32 MACOSX_BUNDLE
 
 target_link_libraries(${PROJECT_NAME}
     Qt5::Widgets Qt5::Quick Qt5::Qml Qt5::Gui Qt5::Network
-    QMatrixClient
+    Quotient
     cmark::cmark
     ${QTKEYCHAIN_LIBRARIES}
     )
