@@ -46,9 +46,6 @@ find_package(Qt5 5.12 REQUIRED Widgets Network Quick Qml Gui Svg Multimedia)
 if(LINUX)
     find_package(Qt5DBus REQUIRED)
 endif(LINUX)
-if (APPLE)
-    find_package(Qt5MacExtras REQUIRED)
-endif(APPLE)
 # Qt5_Prefix is only used to show Qt path in message()
 # Qt5_BinDir is where all the binary tools for Qt are
 if (QT_QMAKE_EXECUTABLE)
@@ -212,9 +209,7 @@ target_link_libraries(${PROJECT_NAME}
 target_compile_definitions(${PROJECT_NAME} PRIVATE
     GIT_SHA1="${GIT_SHA1}" LIB_GIT_SHA1="${LIB_GIT_SHA1}")
 
-if (APPLE)
-    target_link_libraries(${PROJECT_NAME} Qt5::MacExtras)
-elseif(LINUX)
+if(LINUX)
     target_link_libraries(${PROJECT_NAME} Qt5::DBus)
 endif()
 
