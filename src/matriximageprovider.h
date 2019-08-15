@@ -10,14 +10,14 @@
 #include <QtCore/QAtomicPointer>
 #include <QtCore/QReadWriteLock>
 
-namespace QMatrixClient {
+namespace Quotient {
 class Connection;
 }
 
 class ThumbnailResponse : public QQuickImageResponse {
   Q_OBJECT
  public:
-  ThumbnailResponse(QMatrixClient::Connection* c,
+  ThumbnailResponse(Quotient::Connection* c,
                     QString mediaId,
                     const QSize& requestedSize);
   ~ThumbnailResponse() override = default;
@@ -28,11 +28,11 @@ class ThumbnailResponse : public QQuickImageResponse {
   void doCancel();
 
  private:
-  QMatrixClient::Connection* c;
+  Quotient::Connection* c;
   const QString mediaId;
   const QSize requestedSize;
   const QString localFile;
-  QMatrixClient::MediaThumbnailJob* job = nullptr;
+  Quotient::MediaThumbnailJob* job = nullptr;
 
   QImage image;
   QString errorStr;
@@ -45,7 +45,7 @@ class ThumbnailResponse : public QQuickImageResponse {
 
 class MatrixImageProvider : public QObject, public QQuickAsyncImageProvider {
   Q_OBJECT
-  Q_PROPERTY(QMatrixClient::Connection* connection READ connection WRITE
+  Q_PROPERTY(Quotient::Connection* connection READ connection WRITE
                  setConnection NOTIFY connectionChanged)
  public:
   explicit MatrixImageProvider() = default;
@@ -54,8 +54,8 @@ class MatrixImageProvider : public QObject, public QQuickAsyncImageProvider {
       const QString& id,
       const QSize& requestedSize) override;
 
-  QMatrixClient::Connection* connection() { return m_connection; }
-  void setConnection(QMatrixClient::Connection* connection) {
+  Quotient::Connection* connection() { return m_connection; }
+  void setConnection(Quotient::Connection* connection) {
     m_connection.store(connection);
     emit connectionChanged();
   }
@@ -64,7 +64,7 @@ class MatrixImageProvider : public QObject, public QQuickAsyncImageProvider {
   void connectionChanged();
 
  private:
-  QAtomicPointer<QMatrixClient::Connection> m_connection;
+  QAtomicPointer<Quotient::Connection> m_connection;
 };
 
 #endif  // MatrixImageProvider_H

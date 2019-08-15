@@ -263,7 +263,6 @@ QString SpectralRoom::eventToString(const RoomEvent& evt,
           case MembershipType::Invite:
             if (e.repeatsState())
               return tr("reinvited %1 to the room").arg(subjectName);
-            FALLTHROUGH;
           case MembershipType::Join: {
             if (e.repeatsState())
               return tr("joined the room (repeated)");

@@ -46,6 +46,9 @@ find_package(Qt5 5.12 REQUIRED Widgets Network Quick Qml Gui Svg Multimedia)
 if(LINUX)
     find_package(Qt5DBus REQUIRED)
 endif(LINUX)
+if (APPLE)
+    find_package(Qt5MacExtras REQUIRED)
+endif(APPLE)
 # Qt5_Prefix is only used to show Qt path in message()
 # Qt5_BinDir is where all the binary tools for Qt are
 if (QT_QMAKE_EXECUTABLE)
@@ -79,7 +82,7 @@ endif ()
 if (NOT USE_INTREE_LIBQMC)
     find_package(Quotient 0.6 REQUIRED)
     if (NOT Quotient_FOUND)
-        message( WARNING "libQMatrixClient not found; configuration will most likely fail.")
+        message( WARNING "libQuotient not found; configuration will most likely fail.")
     endif ()
 endif ()
 
@@ -110,7 +113,7 @@ endif()
 message( STATUS "Using compiler: ${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION}" )
 message( STATUS "Using Qt ${Qt5_VERSION} at ${Qt5_Prefix}" )
 if (USE_INTREE_LIBQMC)
-    message( STATUS "Using in-tree libQMatrixClient")
+    message( STATUS "Using in-tree libQuotient")
     if (GIT_FOUND)
         execute_process(COMMAND
             "${GIT_EXECUTABLE}" rev-parse -q HEAD
@@ -120,7 +123,7 @@ if (USE_INTREE_LIBQMC)
         message( STATUS "  Library git SHA1: ${LIB_GIT_SHA1}")
     endif (GIT_FOUND)
 else ()
-    message( STATUS "Using libQMatrixClient ${Quotient_VERSION} at ${Quotient_DIR}")
+    message( STATUS "Using libQuotient ${Quotient_VERSION} at ${Quotient_DIR}")
 endif ()
 
 message( STATUS "=============================================================================" )
@@ -209,7 +212,9 @@ target_link_libraries(${PROJECT_NAME}
 target_compile_definitions(${PROJECT_NAME} PRIVATE
     GIT_SHA1="${GIT_SHA1}" LIB_GIT_SHA1="${LIB_GIT_SHA1}")
 
-if(LINUX)
+if (APPLE)
+    target_link_libraries(${PROJECT_NAME} Qt5::MacExtras)
+elseif(LINUX)
     target_link_libraries(${PROJECT_NAME} Qt5::DBus)
 endif()
 

@@ -8,7 +8,7 @@
 
 #include <QtCore/QAbstractListModel>
 
-using namespace QMatrixClient;
+using namespace Quotient;
 
 class RoomType : public QObject {
   Q_OBJECT
@@ -21,7 +21,7 @@ class RoomType : public QObject {
     Normal,
     Deprioritized,
   };
-  REGISTER_ENUM(Types)
+  Q_ENUMS(Types)
 };
 
 class RoomListModel : public QAbstractListModel {
