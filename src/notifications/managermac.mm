@@ -1,8 +1,12 @@
 #include "manager.h"
 
-#import <UserNotifications/UserNotifications.h>
+#include <Foundation/Foundation.h>
+#include <QtMac>
+#include <QPixmap>
 
-#include <QApplication>
+@interface NSUserNotification (CFIPrivate)
+- (void)set_identityImage:(NSImage*)image;
+@end
 
 NotificationsManager::NotificationsManager(QObject* parent) : QObject(parent) {}
 
@@ -16,42 +20,17 @@ void NotificationsManager::postNotification(const QString& roomId,
   Q_UNUSED(eventId);
   Q_UNUSED(icon);
 
-  UNUserNotificationCenter* center =
-      [UNUserNotificationCenter currentNotificationCenter];
-  UNAuthorizationOptions options =
-      UNAuthorizationOptionAlert + UNAuthorizationOptionSound;
+  NSUserNotification* notif = [[NSUserNotification alloc] init];
 
-  [center requestAuthorizationWithOptions:options
-                        completionHandler:^(BOOL granted,
-                                            NSError* _Nullable error) {
-                          if (!granted) {
-                            NSLog(@"Something went wrong");
-                          }
-                        }];
+  notif.title = roomName.toNSString();
+  notif.subtitle = QString("%1 sent a message").arg(senderName).toNSString();
+  notif.informativeText = text.toNSString();
+  notif.soundName = NSUserNotificationDefaultSoundName;
+  notif.contentImage = QtMac::toNSImage(QPixmap::fromImage(icon));
 
-  UNTimeIntervalNotificationTrigger* trigger =
-      [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:0 repeats:NO];
-
-  UNMutableNotificationContent* content = [UNMutableNotificationContent new];
-
-  content.title = roomName.toNSString();
-  content.subtitle = QString("%1 sent a message").arg(senderName).toNSString();
-  content.body = text.toNSString();
-  content.sound = [UNNotificationSound defaultSound];
-
-  NSString* identifier = QApplication::applicationName().toNSString();
-
-  UNNotificationRequest* request =
-      [UNNotificationRequest requestWithIdentifier:identifier
-                                           content:content
-                                           trigger:trigger];
-
-  [center addNotificationRequest:request
-           withCompletionHandler:^(NSError* _Nullable error) {
-             if (error != nil) {
-               NSLog(@"Something went wrong: %@", error);
-             }
-           }];
+  [[NSUserNotificationCenter defaultUserNotificationCenter]
+      deliverNotification:notif];
+  [notif autorelease];
 }
 
 // unused
