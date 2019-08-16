@@ -1,12 +1,12 @@
 language: cpp
-
 git:
   depth: false
-
 matrix:
   include:
   - os: osx
-    env: [ 'PATH=/usr/local/opt/qt/bin:$PATH"', 'DEPLOY_DIR="deploy"' ]
+    env:
+    - PATH=/usr/local/opt/qt/bin:$PATH"
+    - DEPLOY_DIR="deploy"
     addons:
       homebrew:
         update: true
@@ -15,28 +15,31 @@ matrix:
         - qtkeychain
         - cmark
         - cmake
-
 install:
 - git submodule update --init --recursive
 - pushd include/libQuotient/3rdparty/libQtOlm
 - git clone https://gitlab.matrix.org/matrix-org/olm.git
 - popd
-
 script:
 - mkdir build && pushd build
-- cmake .. -LA -DUSE_INTREE_LIBQMC=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=/usr -DDEPLOY_VERBOSITY=$DEPLOY_VERBOSITY
+- cmake .. -LA -DUSE_INTREE_LIBQMC=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=/usr
+  -DDEPLOY_VERBOSITY=$DEPLOY_VERBOSITY
 - cmake --build . --target all
 - export DESTDIR=$TRAVIS_BUILD_DIR/install
 - popd
 - macdeployqt build/spectral.app -dmg -qmldir=qml -qmldir=imports
-
 before_deploy:
-- mv build/spectral.dmg ./
-- sed -i -e "s/TRAVIS_BUILD_NUMBER/0.0.0.$(git rev-list --count HEAD)/g" .ci/bintray-release.json
-
+- mkdir artifacts
+- mv build/spectral.dmg ./artifacts/spectral-$(git rev-list --count HEAD).dmg
 deploy:
-  - provider: bintray
-    file: .ci/bintray-release.json
-    user: $BINTRAY_USER
-    key: $BINTRAY_TOKEN
+  matrix:
+  - provider: s3
+    endpoint: https://s3.fr-par.scw.cloud
+    access_key_id: SCW3YFDYGXBM01QP6T4M
+    bucket: encom
     skip_cleanup: true
+    acl: public_read
+    local_dir: artifacts
+    upload-dir: spectral/macos/artifacts
+  secret_access_key:
+    secure: gAeTjEmsXUQQBT8iynazXpxEvlvtrz7ZxLWYYgGGmQv2y+NOo6dbb8hALGelV8lE1hp2eX/HU9sA3Lx/vr0nH0idXZZZ5XfXKkPcFwSdUO+JM0kGb3oP9hKFjCQhVVKtV6txAmPDuyLSGyMLZOtR0cqCCzGxyuZ99ntjTlP4Lxh46BlWKa0yFNr0iw0D4h1bxKJZXTSdYvidKLcxuTxXTMwxO81Ak8Y/BHzgMSo3wH4RAvmMiJvlAgXnA73zwAw7gK/2fz3zmlIZ7znh2Vb01HiysXtda23sXVbLirmlWAiw8BqVdi5UeQQNR7GhYefTf3ajnfeKVrYClELz3m0KGW8gjih+SIEvP3hdwtWLdvqTCW9AGVxoSn+t5mUGz8kYC8+r+zWVslGsDEarTZcso2U6bzupPwgm24Mbc0eID9MeTqmlHLN3wXQM+sDzBEjSCNT6QTl8j8xxeLnGlZVR6eSSEyx1f6CkixVTgoIdtxRqPq0/y+YZ5XuiepqreCShMqaUrawE/Qq4JzzhoOkOZkqe/l09R3cbIt0Igt91X2ItGKaDpYriJ1XNXEHYNzG63kPrAdYveg0AKlUQ4QcW+Vf+OuKJUTBL9eVB7rTf5A5GK9vD961gp+AjyAznrfdGublr2AkB9nANqgNEHyk2D6oCPybR0q0HXu3aI/RtELw=
