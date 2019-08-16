@@ -27,7 +27,7 @@ deploy-flatpak:
   before_script:
     - pip3 install awscli
     - pip3 install awscli-plugin-endpoint
-    - cp -R .aws ~/
+    - cp -R ci/.aws ~/
     - sed -i -e "s/REGION/$REGION/g" ~/.aws/config
     - sed -i -e "s/ENDPOINT_URL/$ENDPOINT_URL/g" ~/.aws/config
     - sed -i -e "s/AWS_ACCESS_KEY_ID/$AWS_ACCESS_KEY_ID/g" ~/.aws/credentials
