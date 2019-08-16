@@ -33,5 +33,5 @@ deploy-flatpak:
     - sed -i -e "s~AWS_ACCESS_KEY_ID~$AWS_ACCESS_KEY_ID~g" ~/.aws/credentials
     - sed -i -e "s~AWS_SECRET_ACCESS_KEY~$AWS_SECRET_ACCESS_KEY~g" ~/.aws/credentials
   script:
-    - aws s3 cp spectral-$(git rev-list --count HEAD).flatpak s3://$BUCKET_NAME/spectral/flatpak/artifacts/ --acl public-read
-    - aws s3 cp spectral-$(git rev-list --count HEAD).flatpak s3://$BUCKET_NAME/spectral/flatpak/spectral.flatpak --acl public-read
+    - aws s3 cp *.flatpak s3://$BUCKET_NAME/spectral/flatpak/artifacts/ --acl public-read
+    - aws s3 cp *.flatpak s3://$BUCKET_NAME/spectral/flatpak/spectral.flatpak --acl public-read
