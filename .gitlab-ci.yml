@@ -12,11 +12,25 @@ build-flatpak:
     - flatpak-builder --force-clean --ccache --repo=repo build-dir org.eu.encom.spectral.yaml
     - flatpak build-bundle repo spectral.flatpak org.eu.encom.spectral
     - cd ../
+    - mv flatpak/spectral.flatpak ./spectral-$(git rev-list --count HEAD).flatpak
   cache:
     key: "flatpak-$CI_COMMIT_REF_SLUG"
     paths:
     - flatpak/.flatpak-builder
   artifacts:
     paths:
-    - flatpak/spectral.flatpak
+    - "*.flatpak"
 
+deploy-flatpak:
+  image: python:3-alpine
+  stage: deploy
+  before_script:
+    - pip3 install awscli
+    - pip3 install awscli-plugin-endpoint
+    - cp -R .aws ~/
+    - sed -i -e "s/REGION/$REGION/g" ~/.aws/config
+    - sed -i -e "s/ENDPOINT_URL/$ENDPOINT_URL/g" ~/.aws/config
+    - sed -i -e "s/AWS_ACCESS_KEY_ID/$AWS_ACCESS_KEY_ID/g" ~/.aws/credentials
+    - sed -i -e "s/AWS_SECRET_ACCESS_KEY/$AWS_SECRET_ACCESS_KEY/g" ~/.aws/credentials
+  script:
+    - aws s3 cp *.flatpak s3://$BUCKET_NAME
