@@ -24,6 +24,8 @@ build-flatpak:
 deploy-flatpak:
   image: python:3-alpine
   stage: deploy
+  only:
+    - master
   before_script:
     - pip3 install awscli
     - pip3 install awscli-plugin-endpoint
