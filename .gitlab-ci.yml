@@ -25,6 +25,8 @@ build-osx:
   stage: build
   tags:
     - osx
+  before_script:
+    - git submodule update --init --recursive
   script:
     - pushd include/libQuotient/3rdparty/libQtOlm
     - git clone https://gitlab.matrix.org/matrix-org/olm.git
