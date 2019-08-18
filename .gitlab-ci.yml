@@ -33,10 +33,10 @@ build-osx:
     - git clone https://gitlab.matrix.org/matrix-org/olm.git
     - popd
     - mkdir build && pushd build
-    - cmake .. -LA -DUSE_INTREE_LIBQMC=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=/usr
+    - cmake .. -LA -DUSE_INTREE_LIBQMC=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_PREFIX_PATH=/usr/local/Cellar/qt/5.13.0/
     - cmake --build . --target all
     - popd
-    - macdeployqt build/spectral.app -dmg -qmldir=qml -qmldir=imports
+    - /usr/local/Cellar/qt/5.13.0/bin/macdeployqt build/spectral.app -dmg -qmldir=qml -qmldir=imports
     - mv build/spectral.dmg ./spectral-$(git rev-list --count HEAD).dmg
   artifacts:
     paths:
