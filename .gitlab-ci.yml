@@ -29,6 +29,7 @@ build-osx:
     - git submodule update --init --recursive
   script:
     - pushd include/libQuotient/3rdparty/libQtOlm
+    - rm -rf olm
     - git clone https://gitlab.matrix.org/matrix-org/olm.git
     - popd
     - mkdir build && pushd build
