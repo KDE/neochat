@@ -21,6 +21,24 @@ build-flatpak:
     paths:
     - "*.flatpak"
 
+build-osx:
+  stage: build
+  tags:
+    - osx
+  script:
+    - pushd include/libQuotient/3rdparty/libQtOlm
+    - git clone https://gitlab.matrix.org/matrix-org/olm.git
+    - popd
+    - mkdir build && pushd build
+    - cmake .. -LA -DUSE_INTREE_LIBQMC=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=/usr
+    - cmake --build . --target all
+    - popd
+    - macdeployqt build/spectral.app -dmg -qmldir=qml -qmldir=imports
+    - mv build/spectral.dmg ./spectral-$(git rev-list --count HEAD).dmg
+  artifacts:
+    paths:
+    - "*.dmg"
+
 deploy-flatpak:
   image: python:3-alpine
   stage: deploy
