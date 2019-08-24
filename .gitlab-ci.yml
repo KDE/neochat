@@ -34,7 +34,7 @@ build-osx:
     - popd
     - mkdir build && pushd build
     - cmake .. -LA -DUSE_INTREE_LIBQMC=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_PREFIX_PATH=/usr/local/Cellar/qt/5.13.0/
-    - cmake --build . --target all
+    - cmake --build . --target all --parallel 16
     - popd
     - /usr/local/Cellar/qt/5.13.0/bin/macdeployqt build/spectral.app -dmg -qmldir=qml -qmldir=imports
     - mv build/spectral.dmg ./spectral-$(git rev-list --count HEAD).dmg
