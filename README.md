@@ -29,8 +29,6 @@ Also, you can file an issue at this project if anything goes wrong.
 
 This program utilizes [libQuotient](https://github.com/quotient-im/libQuotient/) library and some C++ models from [Quaternion](https://github.com/quotient-im/Quaternion/).
 
-This program includes a copy of [hoedown](https://github.com/hoedown/hoedown/).
-
 This program includes a copy of [WinToast](https://github.com/mohabouje/WinToast/) to display notifications.
 
 ## Donation
