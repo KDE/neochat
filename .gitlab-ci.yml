@@ -59,3 +59,21 @@ deploy-flatpak:
     - aws s3 cp *.flatpak s3://$BUCKET_NAME/spectral/flatpak/artifacts/ --acl public-read
     - aws s3 rm s3://$BUCKET_NAME/spectral/flatpak/spectral.flatpak
     - aws s3 cp *.flatpak s3://$BUCKET_NAME/spectral/flatpak/spectral.flatpak --acl public-read
+
+deploy-osx:
+  image: python:3-alpine
+  stage: deploy
+  only:
+    - master
+  before_script:
+    - pip3 install awscli
+    - pip3 install awscli-plugin-endpoint
+    - cp -R ci/.aws ~/
+    - sed -i -e "s~REGION~$REGION~g" ~/.aws/config
+    - sed -i -e "s~ENDPOINT_URL~$ENDPOINT_URL~g" ~/.aws/config
+    - sed -i -e "s~AWS_ACCESS_KEY_ID~$AWS_ACCESS_KEY_ID~g" ~/.aws/credentials
+    - sed -i -e "s~AWS_SECRET_ACCESS_KEY~$AWS_SECRET_ACCESS_KEY~g" ~/.aws/credentials
+  script:
+    - aws s3 cp *.dmg s3://$BUCKET_NAME/spectral/osx/artifacts/ --acl public-read
+    - aws s3 rm s3://$BUCKET_NAME/spectral/osx/spectral.dmg
+    - aws s3 cp *.dmg s3://$BUCKET_NAME/spectral/osx/spectral.dmg --acl public-read
