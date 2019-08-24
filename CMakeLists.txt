@@ -204,7 +204,7 @@ add_executable(${PROJECT_NAME} WIN32 MACOSX_BUNDLE
     ${spectral_WINRC} ${${PROJECT_NAME}_MAC_ICON})
 
 target_link_libraries(${PROJECT_NAME}
-    Qt5::Widgets Qt5::Quick Qt5::Qml Qt5::Gui Qt5::Network
+    Qt5::Widgets Qt5::Quick Qt5::Qml Qt5::Gui Qt5::Network Qt5::Svg
     Quotient
     cmark::cmark
     ${QTKEYCHAIN_LIBRARIES}
