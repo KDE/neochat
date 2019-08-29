@@ -313,8 +313,9 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
         default:
           break;
       }
-      if (e->hasFileContent())
+      if (e->hasFileContent()) {
         return "file";
+      }
 
       return "message";
     }
