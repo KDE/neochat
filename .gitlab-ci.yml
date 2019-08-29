@@ -12,14 +12,14 @@ build-flatpak:
     - flatpak-builder --force-clean --ccache --repo=repo build-dir org.eu.encom.spectral.yaml
     - flatpak build-bundle repo spectral.flatpak org.eu.encom.spectral
     - cd ../
-    - mv flatpak/spectral.flatpak ./spectral-$(git rev-list --count HEAD).flatpak
+    - mv flatpak/spectral.flatpak ./spectral.flatpak
   cache:
     key: "flatpak-$CI_COMMIT_REF_SLUG"
     paths:
     - flatpak/.flatpak-builder
   artifacts:
     paths:
-    - "*.flatpak"
+    - spectral.flatpak
 
 build-osx:
   stage: build
@@ -37,8 +37,8 @@ build-osx:
     - cmake --build . --target all --parallel 16
     - popd
     - /usr/local/Cellar/qt/5.13.0/bin/macdeployqt build/spectral.app -dmg -qmldir=qml -qmldir=imports
-    - mv build/spectral.dmg ./spectral-$(git rev-list --count HEAD).dmg
+    - mv build/spectral.dmg ./spectral.dmg
   artifacts:
     paths:
-    - "*.dmg"
+    - spectral.dmg
 
