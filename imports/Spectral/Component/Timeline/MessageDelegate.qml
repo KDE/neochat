@@ -16,6 +16,7 @@ ColumnLayout {
     readonly property bool sentByMe: author === currentRoom.localUser
     readonly property bool darkBackground: !sentByMe
     readonly property bool replyVisible: reply || false
+    readonly property bool failed: marks === EventStatus.SendingFailed
 
     signal saveFileAs()
     signal openExternally()
@@ -240,7 +241,7 @@ ColumnLayout {
         Layout.rightMargin: sentByMe ? 12 : undefined
         Layout.bottomMargin: 4
 
-        visible: showAuthor
+        visible: showAuthor && !failed
 
         Label {
             visible: !sentByMe
@@ -252,6 +253,47 @@ ColumnLayout {
         Label {
             text: Qt.formatTime(time, "hh:mm AP")
             color: MPalette.lighter
+        }
+    }
+
+    RowLayout {
+        Layout.alignment: sentByMe ? Qt.AlignRight : Qt.AlignLeft
+        Layout.leftMargin: sentByMe ? undefined : 36 + messageRow.spacing + 12
+        Layout.rightMargin: sentByMe ? 12 : undefined
+        Layout.bottomMargin: 4
+
+        visible: failed
+
+        Label {
+            text: "Send failed:"
+            color: MPalette.lighter
+        }
+
+        Label {
+            text: "Resend"
+            color: MPalette.lighter
+
+            MouseArea {
+                anchors.fill: parent
+
+                onClicked: currentRoom.retryMessage(eventId)
+            }
+        }
+
+        Label {
+            text: "|"
+            color: MPalette.lighter
+        }
+
+        Label {
+            text: "Discard"
+            color: MPalette.lighter
+
+            MouseArea {
+                anchors.fill: parent
+
+                onClicked: currentRoom.discardMessage(eventId)
+            }
         }
     }
 }
