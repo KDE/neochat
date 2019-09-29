@@ -45,6 +45,12 @@ Dialog {
                     id: contextMenu
 
                     MenuItem {
+                        text: "Mark all as read"
+
+                        onClicked: spectralController.markAllMessagesAsRead(connection)
+                    }
+
+                    MenuItem {
                         text: "Logout"
 
                         onClicked: spectralController.logout(connection)

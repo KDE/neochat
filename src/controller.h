@@ -118,6 +118,7 @@ class Controller : public QObject {
   void createDirectChat(Connection* c, const QString& userID);
   void playAudio(QUrl localFile);
   void changeAvatar(Connection* conn, QUrl localFile);
+  void markAllMessagesAsRead(Connection* conn);
 };
 
 #endif  // CONTROLLER_H

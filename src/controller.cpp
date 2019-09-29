@@ -384,3 +384,9 @@ void Controller::changeAvatar(Connection* conn, QUrl localFile) {
     });
   }
 }
+
+void Controller::markAllMessagesAsRead(Connection* conn) {
+  for (auto room : conn->roomMap().values()) {
+    room->markAllMessagesAsRead();
+  }
+}
