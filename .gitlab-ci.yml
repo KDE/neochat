@@ -43,7 +43,7 @@ build-osx:
     - popd
     - cmake . -Bbuild -LA -DUSE_INTREE_LIBQMC=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_PREFIX_PATH=/usr/local/Cellar/qt/5.13.1/ -DOlm_DIR=olm/install/lib/cmake/Olm -DQt5Keychain_DIR="qtkeychain/install/lib/cmake/Qt5Keychain"
     - cmake --build build --target all --parallel 16
-    - /usr/local/Cellar/qt/5.13.0/bin/macdeployqt build/spectral.app -dmg -qmldir=qml -qmldir=imports
+    - /usr/local/Cellar/qt/5.13.1/bin/macdeployqt build/spectral.app -dmg -qmldir=qml -qmldir=imports
     - mv build/spectral.dmg ./spectral.dmg
   artifacts:
     paths:
