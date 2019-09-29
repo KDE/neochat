@@ -158,14 +158,19 @@ ColumnLayout {
                             }
                         }
 
-                        Label {
+                        TextEdit {
                             Layout.fillWidth: true
 
                             color: !sentByMe ? MPalette.foreground : "white"
                             text: "<style>a{color: " + color + ";} .user-pill{}</style>" + (replyVisible ? reply.display : "")
 
+                            font.family: window.font.family
+                            selectByMouse: true
+                            readOnly: true
                             wrapMode: Label.Wrap
-                            textFormat: Label.RichText
+                            selectedTextColor: darkBackground ? "white" : MPalette.accent
+                            selectionColor: darkBackground ? MPalette.accent : "white"
+                            textFormat: Text.RichText
                         }
                     }
 
