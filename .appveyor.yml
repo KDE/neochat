@@ -15,9 +15,11 @@ init:
 
 before_build:
   - git submodule update --init --recursive
-  - cd include/libQuotient/3rdparty/libQtOlm
   - git clone https://gitlab.matrix.org/matrix-org/olm.git
-  - cd ../../../../
+  - cd olm
+  - cmake -LA -G "NMake Makefiles JOM" -H. -Bbuild -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX="install" -DBUILD_SHARED_LIBS=NO
+  - cmake --build build --target install
+  - cd ..
   - git clone https://github.com/frankosterfeld/qtkeychain.git
   - cd qtkeychain
   - cmake -LA -G "NMake Makefiles JOM" -H. -Bbuild -DCMAKE_CXX_FLAGS="/EHsc /W3" -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX="install" -DQTKEYCHAIN_STATIC=ON
@@ -30,7 +32,7 @@ before_build:
   - cd ..
 
 build_script:
-  - cmake -LA -G "NMake Makefiles JOM" -H. -Bbuild -DCMAKE_CXX_FLAGS="/EHsc /W3" -DBUILD_SHARED_LIBS=OFF -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX="%DEPLOY_DIR%" -DUSE_INTREE_LIBQMC=1 -DQt5Keychain_DIR="qtkeychain/install/lib/cmake/Qt5Keychain" -DCMARK_LIBRARY=C:/projects/spectral/cmark/install/lib/cmark.lib -DCMARK_INCLUDE_DIR=C:/projects/spectral/cmark/install/include -DDEPLOY_VERBOSITY=%DEPLOY_VERBOSITY%
+  - cmake -LA -G "NMake Makefiles JOM" -H. -Bbuild -DCMAKE_CXX_FLAGS="/EHsc /W3" -DBUILD_SHARED_LIBS=OFF -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX="%DEPLOY_DIR%" -DUSE_INTREE_LIBQMC=1 -DQt5Keychain_DIR="qtkeychain/install/lib/cmake/Qt5Keychain" -DOlm_DIR=olm/install/lib/cmake/Olm -DCMARK_LIBRARY=C:/projects/spectral/cmark/install/lib/cmark.lib -DCMARK_INCLUDE_DIR=C:/projects/spectral/cmark/install/include -DDEPLOY_VERBOSITY=%DEPLOY_VERBOSITY%
   - cmake --build build
 
 after_build:
