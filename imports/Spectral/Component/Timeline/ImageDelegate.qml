@@ -17,6 +17,7 @@ import Spectral.Font 0.1
 RowLayout {
     readonly property bool avatarVisible: showAuthor && !sentByMe
     readonly property bool sentByMe: author === currentRoom.localUser
+    readonly property bool isAnimated: contentType === "image/gif"
 
     property bool openOnFinished: false
     readonly property bool downloaded: progressInfo && progressInfo.completed
@@ -74,6 +75,8 @@ RowLayout {
 
     Image {
         Layout.maximumWidth: messageListView.width - (!sentByMe ? 36 + root.spacing : 0) - 48
+        Layout.minimumWidth: 256
+        Layout.minimumHeight: 64
 
         id: img
 
