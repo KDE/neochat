@@ -70,7 +70,7 @@ class SpectralRoom : public Room {
   QString avatarMediaId() const;
 
   QString eventToString(const RoomEvent& evt,
-                        Qt::TextFormat format = Qt::PlainText) const;
+                        Qt::TextFormat format = Qt::PlainText, bool removeReply = true) const;
 
  private:
   QString m_cachedInput;

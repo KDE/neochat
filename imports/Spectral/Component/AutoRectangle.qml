@@ -25,6 +25,26 @@ Rectangle {
         antialiasing: true
 
         color: parent.color
+
+        Rectangle {
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+
+            width: parent.width / 2
+            height: parent.height / 2
+
+            color: parent.color
+        }
+
+        Rectangle {
+            anchors.top: parent.top
+            anchors.right: parent.right
+
+            width: parent.width / 2
+            height: parent.height / 2
+
+            color: parent.color
+        }
     }
 
     Rectangle {
@@ -39,6 +59,26 @@ Rectangle {
         antialiasing: true
 
         color: parent.color
+
+        Rectangle {
+            anchors.bottom: parent.bottom
+            anchors.right: parent.right
+
+            width: parent.width / 2
+            height: parent.height / 2
+
+            color: parent.color
+        }
+
+        Rectangle {
+            anchors.top: parent.top
+            anchors.left: parent.left
+
+            width: parent.width / 2
+            height: parent.height / 2
+
+            color: parent.color
+        }
     }
 
     Rectangle {
@@ -53,6 +93,26 @@ Rectangle {
         antialiasing: true
 
         color: parent.color
+
+        Rectangle {
+            anchors.bottom: parent.bottom
+            anchors.right: parent.right
+
+            width: parent.width / 2
+            height: parent.height / 2
+
+            color: parent.color
+        }
+
+        Rectangle {
+            anchors.top: parent.top
+            anchors.left: parent.left
+
+            width: parent.width / 2
+            height: parent.height / 2
+
+            color: parent.color
+        }
     }
 
     Rectangle {
@@ -67,5 +127,25 @@ Rectangle {
         antialiasing: true
 
         color: parent.color
+
+        Rectangle {
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+
+            width: parent.width / 2
+            height: parent.height / 2
+
+            color: parent.color
+        }
+
+        Rectangle {
+            anchors.top: parent.top
+            anchors.right: parent.right
+
+            width: parent.width / 2
+            height: parent.height / 2
+
+            color: parent.color
+        }
     }
 }

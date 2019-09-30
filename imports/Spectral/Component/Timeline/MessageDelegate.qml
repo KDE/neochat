@@ -72,7 +72,7 @@ ColumnLayout {
             padding: 0
 
             background: AutoRectangle {
-                readonly property int minorRadius: 2
+                readonly property int minorRadius: 8
 
                 id: bubbleBackground
 
@@ -100,7 +100,7 @@ ColumnLayout {
                             messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
                         })
                         contextMenu.reply.connect(function() {
-                            roomPanelInput.replyModel = model
+                            roomPanelInput.replyModel = Object.assign({}, model)
                             roomPanelInput.isReply = true
                             roomPanelInput.focus()
                         })

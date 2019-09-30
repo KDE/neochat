@@ -118,7 +118,7 @@ QString SpectralRoom::lastEvent() const {
 
     return user(evt->senderId())->displayname() +
            (evt->isStateEvent() ? " " : ": ") +
-           utils::removeReply(eventToString(*evt));
+           eventToString(*evt);
   }
   return "";
 }
@@ -230,18 +230,27 @@ QString SpectralRoom::avatarMediaId() const {
 }
 
 QString SpectralRoom::eventToString(const RoomEvent& evt,
-                                    Qt::TextFormat format) const {
+                                    Qt::TextFormat format, bool removeReply) const {
   const bool prettyPrint = (format == Qt::RichText);
 
   using namespace QMatrixClient;
   return visit(
       evt,
-      [prettyPrint](const RoomMessageEvent& e) {
+      [prettyPrint, removeReply](const RoomMessageEvent& e) {
         using namespace MessageEventContent;
 
         if (prettyPrint && e.hasTextContent() &&
-            e.mimeType().name() != "text/plain")
-          return static_cast<const TextContent*>(e.content())->body;
+                e.mimeType().name() != "text/plain") {
+          auto htmlBody = static_cast<const TextContent*>(e.content())->body;
+          if (removeReply) {
+              htmlBody.remove(utils::removeRichReplyRegex);
+          }
+          htmlBody.replace(utils::userPillRegExp, "<b>\\1</b>");
+          htmlBody.replace(utils::strikethroughRegExp, "<s>\\1</s>");
+          htmlBody.push_front("<style>pre {white-space: pre-wrap}</style>");
+          return htmlBody;
+        }
+
         if (e.hasFileContent()) {
           auto fileCaption =
               e.content()->fileInfo()->originalName.toHtmlEscaped();
@@ -252,8 +261,18 @@ QString SpectralRoom::eventToString(const RoomEvent& evt,
           }
           return !fileCaption.isEmpty() ? fileCaption : tr("a file");
         }
-        return prettyPrint ? QMatrixClient::prettyPrint(e.plainBody())
-                           : e.plainBody();
+
+        if (prettyPrint) {
+            auto plainBody = e.plainBody();
+            if (removeReply) {
+                return plainBody.remove(utils::removeReplyRegex);
+            }
+            return QMatrixClient::prettyPrint(plainBody);
+        }
+        if (removeReply) {
+            return e.plainBody().remove(utils::removeReplyRegex);
+        }
+        return e.plainBody();
       },
       [this](const RoomMemberEvent& e) {
         // FIXME: Rewind to the name that was at the time of this event
@@ -478,7 +497,7 @@ void SpectralRoom::postPlainMessage(const QString& text,
              replyEventId +
              "\">In reply to</a> <a href=\"https://matrix.to/#/" +
              replyEvt.senderId() + "\">" + replyEvt.senderId() + "</a><br>" +
-             utils::removeReply(eventToString(replyEvt, Qt::RichText)) +
+             eventToString(replyEvt, Qt::RichText) +
              "</blockquote></mx-reply>" + text.toHtmlEscaped()}};
     postJson("m.room.message", json);
 
@@ -513,7 +532,7 @@ void SpectralRoom::postHtmlMessage(const QString& text,
              replyEventId +
              "\">In reply to</a> <a href=\"https://matrix.to/#/" +
              replyEvt.senderId() + "\">" + replyEvt.senderId() + "</a><br>" +
-             utils::removeReply(eventToString(replyEvt, Qt::RichText)) +
+             eventToString(replyEvt, Qt::RichText) +
              "</blockquote></mx-reply>" + html}};
     postJson("m.room.message", json);
 

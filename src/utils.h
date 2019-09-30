@@ -19,13 +19,12 @@ static const QRegularExpression removeReplyRegex{
 static const QRegularExpression removeRichReplyRegex{
     "<mx-reply>.*?</mx-reply>", QRegularExpression::DotMatchesEverythingOption};
 static const QRegularExpression codePillRegExp{
-    "<pre>(.*?)</pre>", QRegularExpression::DotMatchesEverythingOption};
+    "<pre><code[^>]*>(.*?)</code></pre>", QRegularExpression::DotMatchesEverythingOption};
 static const QRegularExpression userPillRegExp{
     "<a href=\"https://matrix.to/#/@.*?:.*?\">(.*?)</a>",
     QRegularExpression::DotMatchesEverythingOption};
-
-QString removeReply(const QString& text);
-QString cleanHTML(const QString& text);
+static const QRegularExpression strikethroughRegExp{
+    "<del>(.*?)</del>", QRegularExpression::DotMatchesEverythingOption};
 }  // namespace utils
 
 #endif

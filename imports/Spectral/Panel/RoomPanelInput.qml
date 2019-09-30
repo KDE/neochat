@@ -16,7 +16,7 @@ Control {
     property var replyModel
     readonly property var replyUser: replyModel ? replyModel.author : null
     readonly property string replyEventID: replyModel ? replyModel.eventId : ""
-    readonly property string replyContent: replyModel ? replyModel.message : ""
+    readonly property string replyContent: replyModel ? replyModel.display : ""
 
     property alias isAutoCompleting: autoCompleteListView.visible
     property var autoCompleteModel
@@ -62,13 +62,20 @@ Control {
                 hint: replyUser ? replyUser.displayName : "No name"
             }
 
-            Label {
+            TextEdit {
                 Layout.fillWidth: true
 
-                text: replyContent
-                font.pixelSize: 14
+                color: MPalette.foreground
+                text: "<style>a{color: " + color + ";} .user-pill{}</style>" + replyContent
 
+                font.family: window.font.family
+                font.pixelSize: 14
+                selectByMouse: true
+                readOnly: true
                 wrapMode: Label.Wrap
+                selectedTextColor: "white"
+                selectionColor: MPalette.accent
+                textFormat: Text.RichText
             }
         }
 

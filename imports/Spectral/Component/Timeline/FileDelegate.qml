@@ -164,7 +164,7 @@ RowLayout {
                     contextMenu.downloadAndOpen.connect(downloadAndOpen)
                     contextMenu.saveFileAs.connect(saveFileAs)
                     contextMenu.reply.connect(function() {
-                        roomPanelInput.replyModel = model
+                        roomPanelInput.replyModel = Object.assign({}, model)
                         roomPanelInput.isReply = true
                         roomPanelInput.focus()
                     })

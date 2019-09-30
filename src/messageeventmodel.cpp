@@ -285,12 +285,11 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
   const auto& evt = isPending ? **pendingIt : **timelineIt;
 
   if (role == Qt::DisplayRole) {
-    return utils::cleanHTML(
-        utils::removeReply(m_currentRoom->eventToString(evt, Qt::RichText)));
+    return m_currentRoom->eventToString(evt, Qt::RichText);
   }
 
   if (role == MessageRole) {
-    return utils::removeReply(m_currentRoom->eventToString(evt));
+    return m_currentRoom->eventToString(evt);
   }
 
   if (role == Qt::ToolTipRole) {
@@ -443,8 +442,7 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
 
     return QVariantMap{
         {"eventId", replyEventId},
-        {"display", utils::cleanHTML(utils::removeReply(
-                        m_currentRoom->eventToString(replyEvt, Qt::RichText)))},
+        {"display", m_currentRoom->eventToString(replyEvt, Qt::RichText)},
         {"author",
          QVariant::fromValue(m_currentRoom->user(replyEvt.senderId()))}};
   }
