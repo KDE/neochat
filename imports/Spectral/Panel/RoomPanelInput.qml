@@ -13,6 +13,7 @@ import Spectral 0.1
 
 Control {
     property alias isReply: replyItem.visible
+    property bool isReaction: false
     property var replyModel
     readonly property var replyUser: replyModel ? replyModel.author : null
     readonly property string replyEventID: replyModel ? replyModel.eventId : ""
@@ -53,13 +54,34 @@ Control {
 
             spacing: 8
 
-            Avatar {
-                Layout.preferredWidth: 32
-                Layout.preferredHeight: 32
+            Control {
                 Layout.alignment: Qt.AlignTop
 
-                source: replyUser ? replyUser.avatarMediaId : ""
-                hint: replyUser ? replyUser.displayName : "No name"
+                padding: 4
+
+                background: Rectangle {
+                    radius: height / 2
+                    color: replyUser ? replyUser.color : MPalette.accent
+                }
+
+                contentItem: RowLayout {
+                    Avatar {
+                        Layout.preferredWidth: 24
+                        Layout.preferredHeight: 24
+
+                        source: replyUser ? replyUser.avatarMediaId : ""
+                        hint: replyUser ? replyUser.displayName : "No name"
+                    }
+
+                    Label {
+                        Layout.alignment: Qt.AlignVCenter
+
+                        text: replyUser ? replyUser.displayName : "No name"
+                        color: "white"
+                        font.weight: Font.Medium
+                        rightPadding: 8
+                    }
+                }
             }
 
             TextEdit {

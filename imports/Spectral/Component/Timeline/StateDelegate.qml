@@ -10,23 +10,47 @@ Control {
     padding: 8
 
     contentItem: RowLayout {
-        Avatar {
-            Layout.preferredWidth: 24
-            Layout.preferredHeight: 24
+        id: row
 
-            hint: author.displayName
-            source: author.avatarMediaId
+        Control {
+            id: authorControl
+
+            padding: 4
+
+            background: Rectangle {
+                radius: height / 2
+                color: author.color
+            }
+
+            contentItem: RowLayout {
+                Avatar {
+                    Layout.preferredWidth: 24
+                    Layout.preferredHeight: 24
+
+                    hint: author.displayName
+                    source: author.avatarMediaId
+                }
+
+                Label {
+                    Layout.alignment: Qt.AlignVCenter
+
+                    text: author.displayName
+                    font.pixelSize: 13
+                    font.weight: Font.Medium
+                    color: "white"
+                    rightPadding: 8
+                }
+            }
         }
 
         Label {
             Layout.fillWidth: true
-            Layout.maximumWidth: messageListView.width - 48
+            Layout.maximumWidth: messageListView.width - authorControl.width - row.spacing
 
-            text: "<b>" + author.displayName + "</b> " + display + " • " + Qt.formatTime(time, "hh:mm AP")
+            text: display + " • " + Qt.formatTime(time, "hh:mm AP")
             color: MPalette.foreground
             font.pixelSize: 13
             font.weight: Font.Medium
-            textFormat: Label.StyledText
 
             wrapMode: Label.Wrap
             onLinkActivated: Qt.openUrlExternally(link)
