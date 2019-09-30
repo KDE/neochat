@@ -7,6 +7,7 @@ import Spectral.Setting 0.1
 Item {
     property string hint: "H"
     property string source: ""
+    property color color: MPalette.accent
     readonly property url realSource: source ? "image://mxc/" + source : ""
 
     id: root
@@ -38,7 +39,7 @@ Item {
         visible: !realSource || image.status != Image.Ready
 
         radius: height / 2
-        color: MPalette.accent
+        color: root.color
         antialiasing: true
 
         Label {
@@ -47,22 +48,9 @@ Item {
             color: "white"
             text: hint[0].toUpperCase()
             font.pixelSize: root.width / 2
-            font.weight: Font.Light
+            font.weight: Font.Medium
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
         }
     }
-
-//    function stringToColor(str) {
-//        var hash = 0;
-//        for (var i = 0; i < str.length; i++) {
-//            hash = str.charCodeAt(i) + ((hash << 5) - hash);
-//        }
-//        var colour = '#';
-//        for (var j = 0; j < 3; j++) {
-//            var value = (hash >> (j * 8)) & 0xFF;
-//            colour += ('00' + value.toString(16)).substr(-2);
-//        }
-//        return colour;
-//    }
 }

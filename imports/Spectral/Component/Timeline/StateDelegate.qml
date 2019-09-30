@@ -29,6 +29,7 @@ Control {
 
                     hint: author.displayName
                     source: author.avatarMediaId
+                    color: Qt.darker(author.color, 1.1)
                 }
 
                 Label {

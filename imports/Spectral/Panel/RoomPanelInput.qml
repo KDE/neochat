@@ -61,7 +61,7 @@ Control {
 
                 background: Rectangle {
                     radius: height / 2
-                    color: replyUser ? replyUser.color : MPalette.accent
+                    color: replyUser ? Qt.darker(replyUser.color, 1.1) : MPalette.accent
                 }
 
                 contentItem: RowLayout {
@@ -135,22 +135,22 @@ Control {
                 readonly property bool highlighted: autoCompleteListView.currentIndex === index
 
                 height: 36
-                padding: 8
+                padding: 6
 
                 background: Rectangle {
                     visible: !isEmoji
-                    color: highlighted ? Material.accent : "transparent"
-                    border.color: Material.accent
+                    color: highlighted ? border.color : "transparent"
+                    border.color: isEmoji ? Material.accent : modelData.color
                     border.width: 2
                     radius: height / 2
                 }
 
-                contentItem: Row {
-                    spacing: 4
+                contentItem: RowLayout {
+                    spacing: 6
 
                     Text {
-                        width: 20
-                        height: 20
+                        width: 24
+                        height: 24
                         visible: isEmoji
                         text: autoCompleteText
                         font.pixelSize: 24
@@ -158,18 +158,24 @@ Control {
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
                     }
+
                     Avatar {
-                        width: 20
-                        height: 20
+                        Layout.preferredWidth: 24
+                        Layout.preferredHeight: 24
+
                         visible: !isEmoji
                         source: modelData.avatarMediaId || null
+                        color: modelData.color ? Qt.darker(modelData.color, 1.1) : MPalette.accent
                     }
+
                     Label {
-                        height: parent.height
+                        Layout.fillHeight: true
+
                         visible: !isEmoji
                         text: autoCompleteText
-                        color: highlighted ? "white" : Material.accent
+                        color: highlighted ? "white" : MPalette.foreground
                         verticalAlignment: Text.AlignVCenter
+                        rightPadding: 8
                     }
                 }
 
