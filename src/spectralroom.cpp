@@ -265,7 +265,7 @@ QString SpectralRoom::eventToString(const RoomEvent& evt,
         if (prettyPrint) {
             auto plainBody = e.plainBody();
             if (removeReply) {
-                return plainBody.remove(utils::removeReplyRegex);
+                plainBody.remove(utils::removeReplyRegex);
             }
             return QMatrixClient::prettyPrint(plainBody);
         }
