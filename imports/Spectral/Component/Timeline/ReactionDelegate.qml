@@ -48,7 +48,8 @@ Flow {
             }
 
             contentItem: Label {
-                text: modelData.reaction + " " + modelData.count
+                text: modelData.reaction + (modelData.count > 1 ? " " + modelData.count : "")
+                color: MPalette.lighter
                 font.pixelSize: 14
             }
         }
