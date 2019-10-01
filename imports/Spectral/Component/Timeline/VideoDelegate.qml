@@ -48,6 +48,7 @@ RowLayout {
         visible: avatarVisible
         hint: author.displayName
         source: author.avatarMediaId
+        color: author.color
 
         Component {
             id: userDetailDialog

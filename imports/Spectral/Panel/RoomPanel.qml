@@ -554,6 +554,7 @@ Item {
 
                                         source: modelData.avatarMediaId
                                         hint: modelData.displayName
+                                        color: modelData.color
                                     }
                                 }
                             }

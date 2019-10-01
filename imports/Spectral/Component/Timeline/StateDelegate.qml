@@ -4,6 +4,8 @@ import QtQuick.Layouts 1.12
 import QtQuick.Controls.Material 2.12
 
 import Spectral.Component 2.0
+import Spectral.Dialog 2.0
+import Spectral.Effect 2.0
 import Spectral.Setting 0.1
 
 Control {
@@ -30,6 +32,20 @@ Control {
                     hint: author.displayName
                     source: author.avatarMediaId
                     color: Qt.darker(author.color, 1.1)
+
+                    Component {
+                        id: userDetailDialog
+
+                        UserDetailDialog {}
+                    }
+
+                    RippleEffect {
+                        anchors.fill: parent
+
+                        circular: true
+
+                        onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": author}).open()
+                    }
                 }
 
                 Label {

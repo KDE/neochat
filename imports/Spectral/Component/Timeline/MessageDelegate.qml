@@ -17,6 +17,8 @@ ColumnLayout {
     readonly property bool darkBackground: !sentByMe
     readonly property bool replyVisible: reply || false
     readonly property bool failed: marks === EventStatus.SendingFailed
+    readonly property color authorColor: eventType === "notice" ? MPalette.primary : author.color
+    readonly property color replyAuthorColor: replyVisible ? reply.author.color : MPalette.accent
 
     signal saveFileAs()
     signal openExternally()
@@ -42,6 +44,7 @@ ColumnLayout {
             visible: avatarVisible
             hint: author.displayName
             source: author.avatarMediaId
+            color: author.color
 
             Component {
                 id: userDetailDialog
@@ -76,7 +79,7 @@ ColumnLayout {
 
                 id: bubbleBackground
 
-                color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : author.color
+                color: sentByMe ? MPalette.background : authorColor
                 radius: 18
 
                 topLeftVisible: !sentByMe && (bubbleShape == 3 || bubbleShape == 2)
@@ -135,6 +138,8 @@ ColumnLayout {
                     Layout.leftMargin: 8
                     Layout.rightMargin: 8
 
+                    id: replyControl
+
                     padding: 4
                     rightPadding: 12
 
@@ -148,6 +153,7 @@ ColumnLayout {
 
                             source: replyVisible ? reply.author.avatarMediaId : ""
                             hint: replyVisible ? reply.author.displayName : "H"
+                            color: replyVisible ? reply.author.color : MPalette.accent
 
                             RippleEffect {
                                 anchors.fill: parent
@@ -168,14 +174,14 @@ ColumnLayout {
                             selectByMouse: true
                             readOnly: true
                             wrapMode: Label.Wrap
-                            selectedTextColor: darkBackground ? "white" : MPalette.accent
-                            selectionColor: darkBackground ? MPalette.accent : "white"
+                            selectedTextColor: darkBackground ? "white" : replyAuthorColor
+                            selectionColor: darkBackground ? replyAuthorColor : "white"
                             textFormat: Text.RichText
                         }
                     }
 
                     background: Rectangle {
-                        color: replyVisible && sentByMe ? reply.author.color : MPalette.background
+                        color: sentByMe ? replyAuthorColor : MPalette.background
                         radius: 18
 
                         AutoMouseArea {
@@ -205,8 +211,8 @@ ColumnLayout {
                     selectByMouse: true
                     readOnly: true
                     wrapMode: Label.Wrap
-                    selectedTextColor: darkBackground ? MPalette.accent : "white"
-                    selectionColor: darkBackground ? "white" : MPalette.accent
+                    selectedTextColor: darkBackground ? authorColor : "white"
+                    selectionColor: darkBackground ? "white" : authorColor
                     textFormat: Text.RichText
 
                     onLinkActivated: {
