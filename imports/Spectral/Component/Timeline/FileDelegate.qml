@@ -89,7 +89,7 @@ RowLayout {
                 Label {
                     Layout.fillWidth: true
 
-                    text: progressInfo.active ? (humanSize(progressInfo.progress) + "/" + humanSize(progressInfo.total)) : humanSize(content.info ? content.info.size : 0)
+                    text: !progressInfo.completed && progressInfo.active ? (humanSize(progressInfo.progress) + "/" + humanSize(progressInfo.total)) : humanSize(content.info ? content.info.size : 0)
                     color: MPalette.lighter
                     wrapMode: Label.Wrap
                 }
