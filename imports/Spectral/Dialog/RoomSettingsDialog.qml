@@ -77,7 +77,7 @@ Dialog {
         Control {
             Layout.fillWidth: true
 
-            visible: room.predecessorId
+            visible: room.predecessorId && room.connection.room(room.predecessorId)
 
             padding: 8
 
@@ -128,7 +128,7 @@ Dialog {
         Control {
             Layout.fillWidth: true
 
-            visible: room.successorId
+            visible: room.successorId && room.connection.room(room.successorId)
 
             padding: 8
 
