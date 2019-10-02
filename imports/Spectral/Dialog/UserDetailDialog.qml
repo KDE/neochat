@@ -35,7 +35,11 @@ Dialog {
 
                     circular: true
 
-                    onPrimaryClicked: fullScreenImage.createObject(parent, {"filename": user.diaplayName, "localPath": room.urlToMxcUrl(user.avatarUrl)}).showFullScreen()
+                    onPrimaryClicked: {
+                        if (user.avatarMediaId) {
+                            fullScreenImage.createObject(parent, {"filename": user.diaplayName, "localPath": room.urlToMxcUrl(user.avatarUrl)}).showFullScreen()
+                        }
+                    }
                 }
             }
 
