@@ -258,6 +258,8 @@ QString SpectralRoom::eventToString(const RoomEvent& evt,
             fileCaption = prettyPrint
                               ? QMatrixClient::prettyPrint(e.plainBody())
                               : e.plainBody();
+          } else if (e.content()->fileInfo()->originalName != e.plainBody()) {
+              fileCaption = e.plainBody() + " | " + fileCaption;
           }
           return !fileCaption.isEmpty() ? fileCaption : tr("a file");
         }
