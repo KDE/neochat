@@ -87,7 +87,6 @@ RowLayout {
         id: vid
 
         loops: MediaPlayer.Infinite
-        autoPlay: true
 
         fillMode: VideoOutput.PreserveAspectFit
 
