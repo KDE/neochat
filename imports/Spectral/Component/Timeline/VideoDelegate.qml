@@ -101,14 +101,12 @@ RowLayout {
 
         onDurationChanged: {
             if (!duration) {
-                console.log("This server does not support media streaming")
                 supportStreaming = false;
             }
         }
 
         onErrorChanged: {
             if (error != MediaPlayer.NoError) {
-                console.log("This server does not support media streaming")
                 supportStreaming = false;
             }
         }
