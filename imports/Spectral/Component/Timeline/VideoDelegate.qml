@@ -139,7 +139,7 @@ RowLayout {
         Label {
             anchors.centerIn: parent
 
-            visible: vid.playbackState != MediaPlayer.PlayingState
+            visible: vid.playbackState == MediaPlayer.StoppedState || vid.error != MediaPlayer.NoError
             color: "white"
             text: "Video"
             font.pixelSize: 16
