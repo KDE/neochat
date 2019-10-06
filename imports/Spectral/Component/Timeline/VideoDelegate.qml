@@ -23,6 +23,8 @@ RowLayout {
     property bool playOnFinished: false
     readonly property bool downloaded: progressInfo && progressInfo.completed
 
+    property bool supportStreaming: true
+
     id: root
 
     spacing: 4
@@ -30,6 +32,10 @@ RowLayout {
     z: -5
 
     onDownloadedChanged: {
+        if (downloaded) {
+            vid.source = progressInfo.localPath
+        }
+
         if (downloaded && openOnFinished) {
             openSavedFile()
             openOnFinished = false
@@ -80,14 +86,32 @@ RowLayout {
 
         id: vid
 
-        source: progressInfo.completed ? progressInfo.localPath : ""
-
         loops: MediaPlayer.Infinite
         autoPlay: true
 
         fillMode: VideoOutput.PreserveAspectFit
 
-        onErrorChanged: console.log("Video playback error: " + errorString)
+        Component.onCompleted: {
+            if (downloaded) {
+                source = progressInfo.localPath
+            } else {
+                source = currentRoom.urlToMxcUrl(content.url)
+            }
+        }
+
+        onDurationChanged: {
+            if (!duration) {
+                console.log("This server does not support media streaming")
+                supportStreaming = false;
+            }
+        }
+
+        onErrorChanged: {
+            if (error != MediaPlayer.NoError) {
+                console.log("This server does not support media streaming")
+                supportStreaming = false;
+            }
+        }
 
         layer.enabled: true
         layer.effect: OpacityMask {
@@ -104,7 +128,7 @@ RowLayout {
 
             anchors.fill: parent
 
-            visible: isThumbnail && vid.playbackState != MediaPlayer.PlayingState
+            visible: isThumbnail  && (vid.playbackState == MediaPlayer.StoppedState || vid.error != MediaPlayer.NoError)
 
             source: "image://mxc/" + (isThumbnail ? content.thumbnailMediaId : "")
 
@@ -184,7 +208,17 @@ RowLayout {
 
             id: messageMouseArea
 
-            onPrimaryClicked: downloadAndPlay()
+            onPrimaryClicked: {
+                if (supportStreaming || progressInfo.completed) {
+                    if (vid.playbackState == MediaPlayer.PlayingState) {
+                        vid.pause()
+                    } else {
+                        vid.play()
+                    }
+                } else {
+                    downloadAndPlay()
+                }
+            }
 
             onSecondaryClicked: {
                 var contextMenu = imageDelegateContextMenu.createObject(ApplicationWindow.overlay)

@@ -76,7 +76,7 @@ RowLayout {
 
                 onClicked: {
                     if (audio.playbackState == Audio.PlayingState) {
-                        audio.stop()
+                        audio.pause()
                     } else {
                         audio.play()
                     }
