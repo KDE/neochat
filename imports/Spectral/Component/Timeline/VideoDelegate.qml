@@ -73,7 +73,7 @@ RowLayout {
     }
 
     Video {
-        property int maxWidth: messageListView.width - (!sentByMe ? 36 + root.spacing : 0) - 48
+        readonly property int maxWidth: messageListView.width - (!sentByMe ? 36 + root.spacing : 0) - 48
 
         Layout.preferredWidth: content.info.w > maxWidth ? maxWidth : content.info.w
         Layout.preferredHeight: content.info.w > maxWidth ? (content.info.h / content.info.w * maxWidth) : content.info.h
@@ -99,19 +99,19 @@ RowLayout {
         }
 
         Image {
+            readonly property bool isThumbnail: !(content.info.thumbnail_info == null || content.thumbnailMediaId == null)
+            readonly property var info: isThumbnail ? content.info.thumbnail_info : content.info
+
             anchors.fill: parent
 
-            visible: content.info && content.info.thumbnail_info && vid.playbackState != MediaPlayer.PlayingState
+            visible: isThumbnail && vid.playbackState != MediaPlayer.PlayingState
 
-            source: "image://mxc/" + (content.info && content.info.thumbnail_info ?
-                                          content.thumbnailMediaId : "")
+            source: "image://mxc/" + (isThumbnail ? content.thumbnailMediaId : "")
 
-            sourceSize.width: 720
-            sourceSize.height: 720
+            sourceSize.width: info.w
+            sourceSize.height: info.h
 
             fillMode: Image.PreserveAspectCrop
-
-            Component.onCompleted: console.log(source)
         }
 
         Label {

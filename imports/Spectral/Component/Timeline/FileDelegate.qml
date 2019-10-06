@@ -80,6 +80,7 @@ RowLayout {
                     Layout.fillWidth: true
 
                     text: display
+                    color: MPalette.foreground
                     wrapMode: Label.Wrap
                     font.pixelSize: 18
                     font.weight: Font.Medium

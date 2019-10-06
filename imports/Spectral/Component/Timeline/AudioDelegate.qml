@@ -68,10 +68,45 @@ RowLayout {
             source: currentRoom.urlToMxcUrl(content.url)
         }
 
-        contentItem: Label {
-            text: content.info.duration || audio.duration || "Unknown audio"
+        contentItem: RowLayout {
+            ToolButton {
+                contentItem: MaterialIcon {
+                    icon: audio.playbackState == Audio.PlayingState ? "\ue034" : "\ue405"
+                }
 
-            color: !sentByMe ? "white" : MPalette.foreground
+                onClicked: {
+                    if (audio.playbackState == Audio.PlayingState) {
+                        audio.stop()
+                    } else {
+                        audio.play()
+                    }
+                }
+            }
+
+            ColumnLayout {
+                Label {
+                    Layout.fillWidth: true
+
+                    text: display
+                    color: MPalette.foreground
+                    wrapMode: Label.Wrap
+                    font.pixelSize: 18
+                    font.weight: Font.Medium
+                    font.capitalization: Font.AllUppercase
+                }
+
+                Label {
+                    readonly property int duration: content.info.duration || audio.duration || 0
+
+                    Layout.fillWidth: true
+
+                    visible: duration
+
+                    text: humanSize(duration)
+                    color: MPalette.lighter
+                    wrapMode: Label.Wrap
+                }
+            }
         }
 
         background: AutoRectangle {
@@ -79,7 +114,7 @@ RowLayout {
 
             id: bubbleBackground
 
-            color: sentByMe ? MPalette.background : author.color
+            color: MPalette.background
             radius: 18
 
             topLeftVisible: !sentByMe && (bubbleShape == 3 || bubbleShape == 2)
@@ -97,12 +132,40 @@ RowLayout {
 
                 id: messageMouseArea
 
-                onPrimaryClicked: {
-                    if (audio.playbackState === Audio.PlayingState) {
-                        audio.stop()
-                    } else {
-                        audio.play()
-                    }
+                onSecondaryClicked: {
+                    var contextMenu = fileDelegateContextMenu.createObject(ApplicationWindow.overlay)
+                    contextMenu.viewSource.connect(function() {
+                        messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
+                    })
+                    contextMenu.downloadAndOpen.connect(downloadAndOpen)
+                    contextMenu.saveFileAs.connect(saveFileAs)
+                    contextMenu.reply.connect(function() {
+                        roomPanelInput.replyModel = Object.assign({}, model)
+                        roomPanelInput.isReply = true
+                        roomPanelInput.focus()
+                    })
+                    contextMenu.redact.connect(function() {
+                        currentRoom.redactEvent(eventId)
+                    })
+                    contextMenu.popup()
+                }
+
+                Component {
+                    id: messageSourceDialog
+
+                    MessageSourceDialog {}
+                }
+
+                Component {
+                    id: openFolderDialog
+
+                    OpenFolderDialog {}
+                }
+
+                Component {
+                    id: fileDelegateContextMenu
+
+                    FileDelegateContextMenu {}
                 }
             }
         }
@@ -134,5 +197,20 @@ RowLayout {
     {
         if (Qt.openUrlExternally(progressInfo.localPath)) return;
         if (Qt.openUrlExternally(progressInfo.localDir)) return;
+    }
+
+    function humanSize(duration)
+    {
+        if (!duration)
+            return qsTr("Unknown", "Unknown duration")
+        if (duration < 1000)
+            return qsTr("An instant")
+        duration = Math.round(duration / 100) / 10
+        if (duration < 60)
+            return qsTr("%1 sec.").arg(duration)
+        duration = Math.round(duration / 6) / 10
+        if (duration < 60)
+            return qsTr("%1 min.").arg(duration)
+        return qsTr("%1 hrs.").arg(Math.round(duration / 6) / 10)
     }
 }

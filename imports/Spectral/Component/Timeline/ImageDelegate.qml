@@ -35,7 +35,7 @@ RowLayout {
         }
     }
 
-    Avatar {
+    Avatar {        
         Layout.preferredWidth: 36
         Layout.preferredHeight: 36
         Layout.alignment: Qt.AlignBottom
@@ -67,28 +67,24 @@ RowLayout {
         visible: !(sentByMe || avatarVisible)
     }
 
-    BusyIndicator {
-        Layout.preferredWidth: 64
-        Layout.preferredHeight: 64
-
-        visible: img.status == Image.Loading
-    }
-
     Image {
-        property int maxWidth: messageListView.width - (!sentByMe ? 36 + root.spacing : 0) - 48
+        readonly property bool isThumbnail: !(content.info.thumbnail_info == null || content.thumbnailMediaId == null)
+        readonly property var info: isThumbnail ? content.info.thumbnail_info : content.info
+        readonly property string mediaId: isThumbnail ? content.thumbnailMediaId : content.mediaId
+        readonly property int maxWidth: messageListView.width - (!sentByMe ? 36 + root.spacing : 0) - 48
 
         Layout.minimumWidth: 256
         Layout.minimumHeight: 64
 
-        Layout.preferredWidth: content.info.w > maxWidth ? maxWidth : content.info.w
-        Layout.preferredHeight: content.info.w > maxWidth ? (content.info.h / content.info.w * maxWidth) : content.info.h
+        Layout.preferredWidth: info.w > maxWidth ? maxWidth : info.w
+        Layout.preferredHeight: info.w > maxWidth ? (info.h / info.w * maxWidth) : info.h
 
         id: img
 
-        source: "image://mxc/" + content.mediaId
+        source: "image://mxc/" + mediaId
 
-        sourceSize.width: 720
-        sourceSize.height: 720
+        sourceSize.width: info.w
+        sourceSize.height: info.h
 
         fillMode: Image.PreserveAspectCrop
 
