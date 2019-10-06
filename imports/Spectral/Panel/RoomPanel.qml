@@ -393,6 +393,33 @@ Item {
                     }
 
                     DelegateChoice {
+                        roleValue: "audio"
+                        delegate: ColumnLayout {
+                            width: messageListView.width
+
+                            SectionDelegate {
+                                Layout.alignment: Qt.AlignHCenter
+                                Layout.maximumWidth: parent.width
+
+                                visible: showSection
+                            }
+
+                            AudioDelegate {
+                                Layout.alignment: sentByMe ? Qt.AlignRight : Qt.AlignLeft
+                            }
+
+                            Rectangle {
+                                Layout.fillWidth: true
+                                Layout.preferredHeight: 2
+
+                                visible: readMarker
+
+                                color: MPalette.primary
+                            }
+                        }
+                    }
+
+                    DelegateChoice {
                         roleValue: "video"
                         delegate: ColumnLayout {
                             width: messageListView.width

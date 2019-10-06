@@ -60,7 +60,7 @@ RowLayout {
         }
     }
 
-    Label {
+    Item {
         Layout.preferredWidth: 36
         Layout.preferredHeight: 36
 
@@ -75,15 +75,17 @@ RowLayout {
     }
 
     Image {
-        Layout.maximumWidth: messageListView.width - (!sentByMe ? 36 + root.spacing : 0) - 48
+        property int maxWidth: messageListView.width - (!sentByMe ? 36 + root.spacing : 0) - 48
+
         Layout.minimumWidth: 256
         Layout.minimumHeight: 64
 
+        Layout.preferredWidth: content.info.w > maxWidth ? maxWidth : content.info.w
+        Layout.preferredHeight: content.info.w > maxWidth ? (content.info.h / content.info.w * maxWidth) : content.info.h
+
         id: img
 
-        source: "image://mxc/" +
-                (content.info && content.info.thumbnail_info ?
-                     content.thumbnailMediaId : content.mediaId)
+        source: "image://mxc/" + content.mediaId
 
         sourceSize.width: 720
         sourceSize.height: 720

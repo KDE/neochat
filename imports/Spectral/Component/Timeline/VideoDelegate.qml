@@ -65,7 +65,7 @@ RowLayout {
         }
     }
 
-    Label {
+    Item {
         Layout.preferredWidth: 36
         Layout.preferredHeight: 36
 
@@ -73,17 +73,21 @@ RowLayout {
     }
 
     Video {
-        Layout.fillWidth: true
-        Layout.preferredHeight: width
+        property int maxWidth: messageListView.width - (!sentByMe ? 36 + root.spacing : 0) - 48
+
+        Layout.preferredWidth: content.info.w > maxWidth ? maxWidth : content.info.w
+        Layout.preferredHeight: content.info.w > maxWidth ? (content.info.h / content.info.w * maxWidth) : content.info.h
 
         id: vid
 
-        source: progressInfo.localPath
+        source: progressInfo.completed ? progressInfo.localPath : ""
 
         loops: MediaPlayer.Infinite
         autoPlay: true
 
         fillMode: VideoOutput.PreserveAspectFit
+
+        onErrorChanged: console.log("Video playback error: " + errorString)
 
         layer.enabled: true
         layer.effect: OpacityMask {
@@ -92,6 +96,22 @@ RowLayout {
                 height: vid.height
                 radius: 18
             }
+        }
+
+        Image {
+            anchors.fill: parent
+
+            visible: content.info && content.info.thumbnail_info && vid.playbackState != MediaPlayer.PlayingState
+
+            source: "image://mxc/" + (content.info && content.info.thumbnail_info ?
+                                          content.thumbnailMediaId : "")
+
+            sourceSize.width: 720
+            sourceSize.height: 720
+
+            fillMode: Image.PreserveAspectCrop
+
+            Component.onCompleted: console.log(source)
         }
 
         Label {

@@ -54,7 +54,7 @@ RowLayout {
         }
     }
 
-    Label {
+    Item {
         Layout.preferredWidth: 36
         Layout.preferredHeight: 36
 
