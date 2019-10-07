@@ -160,7 +160,7 @@ ColumnLayout {
 
                                 circular: true
 
-                                onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": reply.author}).open()
+                                onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": reply.author.object, "displayName": reply.author.displayName, "avatarMediaId": reply.author.avatarMediaId, "avatarUrl": reply.author.avatarUrl}).open()
                             }
                         }
 
