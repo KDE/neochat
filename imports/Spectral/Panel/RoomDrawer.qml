@@ -80,56 +80,83 @@ Drawer {
 
             padding: 0
 
-            contentItem: RowLayout {
-                spacing: 8
-
-                MaterialIcon {
-                    Layout.preferredWidth: 32
-                    Layout.preferredHeight: 32
-                    Layout.alignment: Qt.AlignTop
-
-                    icon: "\ue88f"
-                    color: MPalette.lighter
-                }
-
-                ColumnLayout {
+            contentItem: ColumnLayout {
+                RowLayout {
                     Layout.fillWidth: true
 
-                    Label {
-                        Layout.fillWidth: true
+                    visible: room && room.canonicalAlias
 
-                        wrapMode: Label.Wrap
-                        text: room && room.canonicalAlias ? room.canonicalAlias : "No Canonical Alias"
-                        color: MPalette.accent
-                    }
+                    spacing: 8
 
-                    Label {
-                        Layout.fillWidth: true
+                    MaterialIcon {
+                        Layout.preferredWidth: 32
+                        Layout.preferredHeight: 32
+                        Layout.alignment: Qt.AlignTop
 
-                        wrapMode: Label.Wrap
-                        text: "Main Alias"
+                        icon: "\ue2bc"
                         color: MPalette.lighter
                     }
 
-                    Label {
+                    ColumnLayout {
                         Layout.fillWidth: true
 
-                        wrapMode: Label.Wrap
-                        text: room && room.topic ? room.topic : "No Topic"
-                        color: MPalette.foreground
+                        Label {
+                            Layout.fillWidth: true
+
+                            wrapMode: Label.Wrap
+                            text: room && room.canonicalAlias ? room.canonicalAlias : "No Canonical Alias"
+                            color: MPalette.accent
+                        }
+
+                        Label {
+                            Layout.fillWidth: true
+
+                            wrapMode: Label.Wrap
+                            text: "Main Alias"
+                            color: MPalette.lighter
+                        }
+                    }
+                }
+
+                RowLayout {
+                    Layout.fillWidth: true
+
+                    spacing: 8
+
+                    MaterialIcon {
+                        Layout.preferredWidth: 32
+                        Layout.preferredHeight: 32
+                        Layout.alignment: Qt.AlignTop
+
+                        icon: "\ue88f"
+                        color: MPalette.lighter
                     }
 
-                    Label {
+                    ColumnLayout {
                         Layout.fillWidth: true
 
-                        wrapMode: Label.Wrap
-                        text: "Topic"
-                        color: MPalette.lighter
+                        Label {
+                            Layout.fillWidth: true
+
+                            wrapMode: Label.Wrap
+                            text: room && room.topic ? room.topic : "No Topic"
+                            color: MPalette.foreground
+                            maximumLineCount: 5
+                            elide: Text.ElideRight
+                        }
+
+                        Label {
+                            Layout.fillWidth: true
+
+                            wrapMode: Label.Wrap
+                            text: "Topic"
+                            color: MPalette.lighter
+                        }
                     }
                 }
             }
 
-            background: RippleEffect {
+            background: AutoMouseArea {
                 onPrimaryClicked: roomSettingDialog.createObject(ApplicationWindow.overlay, {"room": room}).open()
             }
         }
