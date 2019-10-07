@@ -9,6 +9,8 @@ import Spectral.Effect 2.0
 import Spectral.Setting 0.1
 
 Control {
+    id: root
+
     padding: 8
 
     contentItem: RowLayout {
@@ -62,7 +64,7 @@ Control {
 
         Label {
             Layout.fillWidth: true
-            Layout.maximumWidth: messageListView.width - authorControl.width - row.spacing
+            Layout.maximumWidth: messageListView.width - authorControl.width - row.spacing - (root.padding * 2)
 
             text: display + " • " + Qt.formatTime(time, "hh:mm AP")
             color: MPalette.foreground
