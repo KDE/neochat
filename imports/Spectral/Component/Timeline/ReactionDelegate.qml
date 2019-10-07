@@ -12,8 +12,17 @@ Flow {
         model: reaction
 
         delegate: Control {
+            width: Math.min(implicitWidth, 128)
+
             horizontalPadding: 6
             verticalPadding: 0
+
+            contentItem: Label {
+                text: modelData.reaction + (modelData.count > 1 ? " " + modelData.count : "")
+                color: MPalette.lighter
+                font.pixelSize: 14
+                elide: Text.ElideRight
+            }
 
             background: Rectangle {
                 radius: height / 2
@@ -45,12 +54,6 @@ Flow {
 
                     onClicked: currentRoom.toggleReaction(eventId, modelData.reaction)
                 }
-            }
-
-            contentItem: Label {
-                text: modelData.reaction + (modelData.count > 1 ? " " + modelData.count : "")
-                color: MPalette.lighter
-                font.pixelSize: 14
             }
         }
     }
