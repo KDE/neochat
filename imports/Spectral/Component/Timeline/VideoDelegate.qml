@@ -17,7 +17,7 @@ import Spectral.Font 0.1
 
 RowLayout {
     readonly property bool avatarVisible: showAuthor && !sentByMe
-    readonly property bool sentByMe: author === currentRoom.localUser
+    readonly property bool sentByMe: author.isLocalUser
 
     property bool openOnFinished: false
     property bool playOnFinished: false
@@ -67,7 +67,7 @@ RowLayout {
 
             circular: true
 
-            onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": author}).open()
+            onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": author.object, "displayName": author.displayName, "avatarMediaId": author.avatarMediaId, "avatarUrl": author.avatarUrl}).open()
         }
     }
 

@@ -269,6 +269,18 @@ int MessageEventModel::rowCount(const QModelIndex& parent) const {
   return m_currentRoom->timelineSize();
 }
 
+inline QVariantMap userAtEvent(SpectralUser* user, SpectralRoom* room, const RoomEvent& evt) {
+    return QVariantMap{
+        {"isLocalUser", user->id() == room->localUser()->id()},
+        {"id", user->id()},
+        {"avatarMediaId", user->avatarMediaId(room)},
+        {"avatarUrl", user->avatarUrl(room)},
+        {"displayName", user->displayname(room)},
+        {"color", user->color()},
+        {"object", QVariant::fromValue(user)},
+    };
+}
+
 QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
   const auto row = idx.row();
 
@@ -328,9 +340,9 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
     return EventTypeRegistry::getMatrixType(evt.type());
 
   if (role == AuthorRole) {
-    // FIXME: It shouldn't be User, it should be its state "as of event"
-    return QVariant::fromValue(isPending ? m_currentRoom->localUser()
-                                         : m_currentRoom->user(evt.senderId()));
+      auto author = static_cast<SpectralUser*>(isPending ? m_currentRoom->localUser()
+                                               : m_currentRoom->user(evt.senderId()));
+      return userAtEvent(author, m_currentRoom, evt);
   }
 
   if (role == ContentTypeRole) {
@@ -444,7 +456,7 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
         {"eventId", replyEventId},
         {"display", m_currentRoom->eventToString(replyEvt, Qt::RichText)},
         {"author",
-         QVariant::fromValue(m_currentRoom->user(replyEvt.senderId()))}};
+         userAtEvent(static_cast<SpectralUser*>(m_currentRoom->user(replyEvt.senderId())), m_currentRoom, evt)}};
   }
 
   if (role == ShowAuthorRole) {
@@ -522,12 +534,11 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
     }
 
     QVariantList res = {};
-    QMap<QString, QList<SpectralUser*>>::const_iterator i =
-        reactions.constBegin();
+    auto i = reactions.constBegin();
     while (i != reactions.constEnd()) {
       QVariantList authors;
       for (auto author : i.value()) {
-        authors.append(QVariant::fromValue(author));
+        authors.append(userAtEvent(author, m_currentRoom, evt));
       }
       bool hasLocalUser = i.value().contains(
           static_cast<SpectralUser*>(m_currentRoom->localUser()));

@@ -16,7 +16,7 @@ import Spectral.Font 0.1
 
 RowLayout {
     readonly property bool avatarVisible: showAuthor && !sentByMe
-    readonly property bool sentByMe: author === currentRoom.localUser
+    readonly property bool sentByMe: author.isLocalUser
     readonly property bool isAnimated: contentType === "image/gif"
 
     property bool openOnFinished: false
@@ -56,7 +56,7 @@ RowLayout {
 
             circular: true
 
-            onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": author}).open()
+            onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": author.object, "displayName": author.displayName, "avatarMediaId": author.avatarMediaId, "avatarUrl": author.avatarUrl}).open()
         }
     }
 

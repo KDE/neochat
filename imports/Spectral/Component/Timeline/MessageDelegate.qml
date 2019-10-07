@@ -13,7 +13,7 @@ import Spectral.Effect 2.0
 
 ColumnLayout {
     readonly property bool avatarVisible: !sentByMe && showAuthor
-    readonly property bool sentByMe: author === currentRoom.localUser
+    readonly property bool sentByMe: author.isLocalUser
     readonly property bool darkBackground: !sentByMe
     readonly property bool replyVisible: reply || false
     readonly property bool failed: marks === EventStatus.SendingFailed
@@ -57,7 +57,7 @@ ColumnLayout {
 
                 circular: true
 
-                onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": author}).open()
+                onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": author.object, "displayName": author.displayName, "avatarMediaId": author.avatarMediaId, "avatarUrl": author.avatarUrl}).open()
             }
         }
 

@@ -10,6 +10,10 @@ Dialog {
     property var room
     property var user
 
+    property string displayName: user.displayName
+    property string avatarMediaId: user.avatarMediaId
+    property string avatarUrl: user.avatarUrl
+
     anchors.centerIn: parent
     width: 360
 
@@ -27,8 +31,8 @@ Dialog {
                 Layout.preferredWidth: 72
                 Layout.preferredHeight: 72
 
-                hint: user.displayName
-                source: user.avatarMediaId
+                hint: displayName
+                source: avatarMediaId
 
                 RippleEffect {
                     anchors.fill: parent
@@ -36,8 +40,8 @@ Dialog {
                     circular: true
 
                     onPrimaryClicked: {
-                        if (user.avatarMediaId) {
-                            fullScreenImage.createObject(parent, {"filename": user.diaplayName, "localPath": room.urlToMxcUrl(user.avatarUrl)}).showFullScreen()
+                        if (avatarMediaId) {
+                            fullScreenImage.createObject(parent, {"filename": displayName, "localPath": room.urlToMxcUrl(avatarUrl)}).showFullScreen()
                         }
                     }
                 }
@@ -54,17 +58,8 @@ Dialog {
 
                     elide: Text.ElideRight
                     wrapMode: Text.NoWrap
-                    text: user.displayName
+                    text: displayName
                     color: MPalette.foreground
-                }
-
-                Label {
-                    Layout.fillWidth: true
-
-                    visible: user.bridgeName
-
-                    text: user.bridgeName
-                    color: MPalette.lighter
                 }
 
                 Label {

@@ -73,7 +73,7 @@ QVariant UserListModel::data(const QModelIndex& index, int role) const {
     return user->id();
   }
   if (role == AvatarRole) {
-    return user->avatarMediaId();
+    return user->avatarMediaId(m_currentRoom);
   }
   if (role == ObjectRole) {
     return QVariant::fromValue(user);

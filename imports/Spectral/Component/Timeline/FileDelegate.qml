@@ -16,7 +16,7 @@ import Spectral.Effect 2.0
 
 RowLayout {
     readonly property bool avatarVisible: !sentByMe && showAuthor
-    readonly property bool sentByMe: author === currentRoom.localUser
+    readonly property bool sentByMe: author.isLocalUser
 
     property bool openOnFinished: false
     readonly property bool downloaded: progressInfo && progressInfo.completed
@@ -50,7 +50,7 @@ RowLayout {
 
             circular: true
 
-            onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": author}).open()
+            onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": author.object, "displayName": author.displayName, "avatarMediaId": author.avatarMediaId, "avatarUrl": author.avatarUrl}).open()
         }
     }
 
