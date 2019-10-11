@@ -25,7 +25,7 @@
 using namespace QMatrixClient;
 
 int main(int argc, char* argv[]) {
-  QCoreApplication::setAttribute(Qt::AA_UseOpenGLES);
+  QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
   QNetworkProxyFactory::setUseSystemConfiguration(true);
 
