@@ -153,7 +153,7 @@ RowLayout {
             onPrimaryClicked: fullScreenImage.createObject(parent, {"filename": eventId, "localPath": currentRoom.urlToDownload(eventId)}).showFullScreen()
 
             onSecondaryClicked: {
-                var contextMenu = imageDelegateContextMenu.createObject(ApplicationWindow.overlay)
+                var contextMenu = imageDelegateContextMenu.createObject(root)
                 contextMenu.viewSource.connect(function() {
                     messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
                 })

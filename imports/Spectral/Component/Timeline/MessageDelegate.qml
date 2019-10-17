@@ -98,7 +98,7 @@ ColumnLayout {
                     id: messageMouseArea
 
                     onSecondaryClicked: {
-                        var contextMenu = messageDelegateContextMenu.createObject(ApplicationWindow.overlay)
+                        var contextMenu = messageDelegateContextMenu.createObject(root)
                         contextMenu.viewSource.connect(function() {
                             messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
                         })

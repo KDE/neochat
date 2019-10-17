@@ -218,7 +218,7 @@ RowLayout {
             }
 
             onSecondaryClicked: {
-                var contextMenu = imageDelegateContextMenu.createObject(ApplicationWindow.overlay)
+                var contextMenu = imageDelegateContextMenu.createObject(root)
                 contextMenu.viewSource.connect(function() {
                     messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
                 })

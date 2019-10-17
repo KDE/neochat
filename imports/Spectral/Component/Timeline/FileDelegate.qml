@@ -159,7 +159,7 @@ RowLayout {
                 id: messageMouseArea
 
                 onSecondaryClicked: {
-                    var contextMenu = fileDelegateContextMenu.createObject(ApplicationWindow.overlay)
+                    var contextMenu = fileDelegateContextMenu.createObject(root)
                     contextMenu.viewSource.connect(function() {
                         messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
                     })
