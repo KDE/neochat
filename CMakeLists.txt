@@ -42,7 +42,7 @@ foreach (FLAG "" all pedantic extra no-unused-parameter)
 endforeach ()
 
 # Find the libraries
-find_package(Qt5 5.12 REQUIRED Widgets Network Quick Qml Gui Svg Multimedia)
+find_package(Qt5 5.12 REQUIRED Widgets Network Quick Qml Gui Svg Multimedia QuickControls2)
 if(LINUX)
     find_package(Qt5DBus REQUIRED)
 endif(LINUX)
@@ -204,7 +204,7 @@ add_executable(${PROJECT_NAME} WIN32 MACOSX_BUNDLE
     ${spectral_WINRC} ${${PROJECT_NAME}_MAC_ICON})
 
 target_link_libraries(${PROJECT_NAME}
-    Qt5::Widgets Qt5::Quick Qt5::Qml Qt5::Gui Qt5::Network Qt5::Svg
+    Qt5::Widgets Qt5::Quick Qt5::Qml Qt5::Gui Qt5::Network Qt5::Svg Qt5::QuickControls2
     Quotient
     cmark::cmark
     ${QTKEYCHAIN_LIBRARIES}
