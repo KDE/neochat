@@ -17,6 +17,8 @@ Control {
         id: row
 
         Control {
+            Layout.alignment: Qt.AlignTop
+
             id: authorControl
 
             padding: 4
