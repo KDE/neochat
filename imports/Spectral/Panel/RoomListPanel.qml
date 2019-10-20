@@ -305,7 +305,7 @@ Item {
                             currentRoom.displayed = true
                         }
                     }
-                    onSecondaryClicked: roomListContextMenu.createObject(ApplicationWindow.overlay, {"room": currentRoom}).popup()
+                    onSecondaryClicked: roomListContextMenu.createObject(parent, {"room": currentRoom}).popup()
                 }
 
                 Component {
