@@ -44,8 +44,8 @@ void RoomListModel::setConnection(Connection* connection) {
   connect(connection, &Connection::aboutToDeleteRoom, this,
           &RoomListModel::deleteRoom);
   connect(connection, &Connection::directChatsListChanged, this,
-          [=](Connection::DirectChatsMap additions,
-              Connection::DirectChatsMap removals) {
+          [=](Quotient::DirectChatsMap additions,
+              Quotient::DirectChatsMap removals) {
             for (QString roomID : additions.values() + removals.values()) {
               auto room = connection->room(roomID);
               if (room)
