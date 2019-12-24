@@ -1,12 +1,6 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
-#include "connection.h"
-#include "notifications/manager.h"
-#include "room.h"
-#include "settings.h"
-#include "user.h"
-
 #include <QApplication>
 #include <QMediaPlayer>
 #include <QMenu>
@@ -14,7 +8,14 @@
 #include <QObject>
 #include <QSystemTrayIcon>
 
-using namespace QMatrixClient;
+#include "connection.h"
+#include "csapi/list_public_rooms.h"
+#include "notifications/manager.h"
+#include "room.h"
+#include "settings.h"
+#include "user.h"
+
+using namespace Quotient;
 
 class Controller : public QObject {
   Q_OBJECT

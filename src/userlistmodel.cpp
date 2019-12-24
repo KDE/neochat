@@ -1,12 +1,12 @@
 #include "userlistmodel.h"
 
-#include <QElapsedTimer>
-#include <QtCore/QDebug>
-#include <QtGui/QPixmap>
-
 #include <connection.h>
 #include <room.h>
 #include <user.h>
+
+#include <QElapsedTimer>
+#include <QtCore/QDebug>
+#include <QtGui/QPixmap>
 
 #include "spectraluser.h"
 
@@ -17,7 +17,7 @@ void UserListModel::setRoom(QMatrixClient::Room* room) {
   if (m_currentRoom == room)
     return;
 
-  using namespace QMatrixClient;
+  using namespace Quotient;
   beginResetModel();
   if (m_currentRoom) {
     m_currentRoom->disconnect(this);

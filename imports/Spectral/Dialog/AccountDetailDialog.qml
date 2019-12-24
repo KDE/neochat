@@ -111,7 +111,7 @@ Dialog {
             RippleEffect {
                 anchors.fill: parent
 
-                onPrimaryClicked: joinRoomDialog.createObject(ApplicationWindow.overlay).open()
+                onPrimaryClicked: joinRoomDialog.createObject(ApplicationWindow.overlay, {"controller": spectralController, "connection": spectralController.connection}).open()
             }
         }
 

@@ -59,7 +59,7 @@ void RoomListModel::setConnection(Connection* connection) {
 void RoomListModel::doResetModel() {
   beginResetModel();
   m_rooms.clear();
-  for (auto r : m_connection->roomMap()) {
+  for (auto r : m_connection->allRooms()) {
     doAddRoom(r);
   }
   endResetModel();

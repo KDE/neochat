@@ -1,19 +1,6 @@
 #include "controller.h"
 
-#include "settings.h"
-#include "spectralroom.h"
-#include "spectraluser.h"
-
-#include "events/eventcontent.h"
-#include "events/roommessageevent.h"
-
-#include "csapi/account-data.h"
-#include "csapi/content-repo.h"
-#include "csapi/joining.h"
-#include "csapi/logout.h"
-#include "csapi/profile.h"
-
-#include "utils.h"
+#include <qt5keychain/keychain.h>
 
 #include <QClipboard>
 #include <QFile>
@@ -33,7 +20,17 @@
 #include <QtNetwork/QAuthenticator>
 #include <QtNetwork/QNetworkReply>
 
-#include <qt5keychain/keychain.h>
+#include "csapi/account-data.h"
+#include "csapi/content-repo.h"
+#include "csapi/joining.h"
+#include "csapi/logout.h"
+#include "csapi/profile.h"
+#include "events/eventcontent.h"
+#include "events/roommessageevent.h"
+#include "settings.h"
+#include "spectralroom.h"
+#include "spectraluser.h"
+#include "utils.h"
 
 Controller::Controller(QObject* parent) : QObject(parent) {
   QApplication::setQuitOnLastWindowClosed(false);
@@ -386,7 +383,7 @@ void Controller::changeAvatar(Connection* conn, QUrl localFile) {
 }
 
 void Controller::markAllMessagesAsRead(Connection* conn) {
-  for (auto room : conn->roomMap().values()) {
+  for (auto room : conn->allRooms()) {
     room->markAllMessagesAsRead();
   }
 }

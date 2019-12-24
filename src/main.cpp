@@ -7,20 +7,20 @@
 
 #include "accountlistmodel.h"
 #include "controller.h"
+#include "csapi/joining.h"
+#include "csapi/leaving.h"
 #include "emojimodel.h"
 #include "imageclipboard.h"
 #include "matriximageprovider.h"
 #include "messageeventmodel.h"
 #include "notifications/manager.h"
+#include "publicroomlistmodel.h"
 #include "room.h"
 #include "roomlistmodel.h"
 #include "spectralroom.h"
 #include "spectraluser.h"
 #include "trayicon.h"
 #include "userlistmodel.h"
-
-#include "csapi/joining.h"
-#include "csapi/leaving.h"
 
 using namespace QMatrixClient;
 
@@ -41,6 +41,7 @@ int main(int argc, char* argv[]) {
   qmlRegisterType<RoomListModel>("Spectral", 0, 1, "RoomListModel");
   qmlRegisterType<UserListModel>("Spectral", 0, 1, "UserListModel");
   qmlRegisterType<MessageEventModel>("Spectral", 0, 1, "MessageEventModel");
+  qmlRegisterType<PublicRoomListModel>("Spectral", 0, 1, "PublicRoomListModel");
   qmlRegisterType<EmojiModel>("Spectral", 0, 1, "EmojiModel");
   qmlRegisterType<NotificationsManager>("Spectral", 0, 1,
                                         "NotificationsManager");

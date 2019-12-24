@@ -155,6 +155,7 @@ set(spectral_SRCS
     src/spectraluser.cpp
     src/trayicon.cpp
     src/userlistmodel.cpp
+    src/publicroomlistmodel.cpp
     src/utils.cpp
     src/main.cpp
 )
