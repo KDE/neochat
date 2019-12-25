@@ -573,3 +573,12 @@ void SpectralRoom::toggleReaction(const QString& eventId,
     postReaction(eventId, reaction);
   }
 }
+
+bool SpectralRoom::containsUser(QString userID) const {
+  auto u = Room::user(userID);
+
+  if (!u)
+    return false;
+
+  return Room::memberJoinState(u) != JoinState::Leave;
+}

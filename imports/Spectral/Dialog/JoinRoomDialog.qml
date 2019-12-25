@@ -58,7 +58,7 @@ Dialog {
                     if (identifierField.isJoined) {
                         roomListForm.joinRoom(identifierField.room)
                     } else {
-                        spectralController.joinRoom(connection, identifierField.text)
+                        controller.joinRoom(connection, identifierField.text)
                     }
                 }
             }
@@ -248,7 +248,7 @@ Dialog {
                             circular: true
 
                             onClicked: {
-                                spectralController.joinRoom(connection, roomID)
+                                controller.joinRoom(connection, roomID)
                                 root.close()
                             }
                         }

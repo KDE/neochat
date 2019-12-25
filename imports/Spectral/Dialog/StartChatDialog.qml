@@ -10,7 +10,7 @@ import Spectral 0.1
 
 Dialog {
     property var controller
-    property var room
+    property var connection
 
     anchors.centerIn: parent
     width: 480
@@ -18,7 +18,7 @@ Dialog {
 
     id: root
 
-    title: "Invite a User"
+    title: "Start a Chat"
 
     contentItem: ColumnLayout {
         spacing: 0
@@ -43,11 +43,11 @@ Dialog {
             Button {
                 visible: identifierField.isUserID
 
-                text: "Add"
+                text: "Chat"
                 highlighted: true
 
                 onClicked: {
-                    room.inviteToRoom(identifierField.text)
+                    controller.createDirectChat(connection, identifierField.text)
                 }
             }
         }
@@ -69,17 +69,13 @@ Dialog {
             model: UserDirectoryListModel {
                 id: userDictListModel
 
-                connection: root.room.connection
+                connection: root.connection
                 keyword: identifierField.text
             }
 
             delegate: Control {
-                property bool inRoom: room && room.containsUser(userID)
-
                 width: userDictListView.width
                 height: 48
-
-                id: delegate
 
                 padding: 8
 
@@ -129,7 +125,7 @@ Dialog {
                         Layout.preferredWidth: 32
                         Layout.preferredHeight: 32
 
-                        visible: inRoom
+                        visible: directChats != null
 
                         contentItem: MaterialIcon {
                             icon: "\ue89e"
@@ -139,6 +135,11 @@ Dialog {
 
                         background: RippleEffect {
                             circular: true
+
+                            onClicked: {
+                                roomListForm.joinRoom(connection.room(directChats[0]))
+                                root.close()
+                            }
                         }
                     }
 
@@ -146,10 +147,8 @@ Dialog {
                         Layout.preferredWidth: 32
                         Layout.preferredHeight: 32
 
-                        visible: !inRoom
-
                         contentItem: MaterialIcon {
-                            icon: "\ue7fe"
+                            icon: "\ue7f0"
                             color: MPalette.lighter
                             font.pixelSize: 20
                         }
@@ -158,7 +157,8 @@ Dialog {
                             circular: true
 
                             onClicked: {
-                                room.inviteToRoom(userID)
+                                controller.createDirectChat(connection, userID)
+                                root.close()
                             }
                         }
                     }

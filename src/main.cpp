@@ -20,6 +20,7 @@
 #include "spectralroom.h"
 #include "spectraluser.h"
 #include "trayicon.h"
+#include "userdirectorylistmodel.h"
 #include "userlistmodel.h"
 
 using namespace Quotient;
@@ -42,6 +43,8 @@ int main(int argc, char* argv[]) {
   qmlRegisterType<UserListModel>("Spectral", 0, 1, "UserListModel");
   qmlRegisterType<MessageEventModel>("Spectral", 0, 1, "MessageEventModel");
   qmlRegisterType<PublicRoomListModel>("Spectral", 0, 1, "PublicRoomListModel");
+  qmlRegisterType<UserDirectoryListModel>("Spectral", 0, 1,
+                                          "UserDirectoryListModel");
   qmlRegisterType<EmojiModel>("Spectral", 0, 1, "EmojiModel");
   qmlRegisterType<NotificationsManager>("Spectral", 0, 1,
                                         "NotificationsManager");

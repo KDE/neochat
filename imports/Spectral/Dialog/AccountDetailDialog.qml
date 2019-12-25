@@ -127,6 +127,36 @@ Dialog {
                     Layout.preferredHeight: 48
 
                     color: MPalette.foreground
+                    icon: "\ue7ff"
+                }
+
+                Label {
+                    Layout.fillWidth: true
+
+                    color: MPalette.foreground
+                    text: "Start a Chat"
+                }
+            }
+
+            RippleEffect {
+                anchors.fill: parent
+
+                onPrimaryClicked: {
+                    startChatDialog.createObject(ApplicationWindow.overlay, {"controller": spectralController, "connection": spectralController.connection}).open()
+                    root.close()
+                }
+            }
+        }
+
+        Control {
+            width: parent.width
+
+            contentItem: RowLayout {
+                MaterialIcon {
+                    Layout.preferredWidth: 48
+                    Layout.preferredHeight: 48
+
+                    color: MPalette.foreground
                     icon: "\ue7fc"
                 }
 

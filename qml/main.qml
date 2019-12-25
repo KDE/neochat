@@ -136,6 +136,12 @@ ApplicationWindow {
     }
 
     Component {
+        id: startChatDialog
+
+        StartChatDialog {}
+    }
+
+    Component {
         id: createRoomDialog
 
         CreateRoomDialog {}

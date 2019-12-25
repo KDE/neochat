@@ -73,6 +73,8 @@ class SpectralRoom : public Room {
                         Qt::TextFormat format = Qt::PlainText,
                         bool removeReply = true) const;
 
+  Q_INVOKABLE bool containsUser(QString userID) const;
+
  private:
   QString m_cachedInput;
   QSet<const Quotient::RoomEvent*> highlights;

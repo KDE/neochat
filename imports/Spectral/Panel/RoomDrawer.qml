@@ -195,7 +195,7 @@ Drawer {
                     color: MPalette.lighter
                 }
 
-                onClicked: inviteUserDialog.createObject(ApplicationWindow.overlay, {"room": room}).open()
+                onClicked: inviteUserDialog.createObject(ApplicationWindow.overlay, {"controller": spectralController, "room": room}).open()
             }
         }
 
@@ -246,6 +246,12 @@ Drawer {
             }
 
             ScrollBar.vertical: ScrollBar {}
+        }
+    }
+
+    onRoomChanged: {
+        if (room == null) {
+            close()
         }
     }
 

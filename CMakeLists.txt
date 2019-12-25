@@ -144,6 +144,7 @@ set(spectral_SRCS
     src/trayicon.h
     src/userlistmodel.h
     src/publicroomlistmodel.h
+    src/userdirectorylistmodel.h
     src/utils.h
     src/accountlistmodel.cpp
     src/controller.cpp
@@ -157,6 +158,7 @@ set(spectral_SRCS
     src/trayicon.cpp
     src/userlistmodel.cpp
     src/publicroomlistmodel.cpp
+    src/userdirectorylistmodel.cpp
     src/utils.cpp
     src/main.cpp
 )
