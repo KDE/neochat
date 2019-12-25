@@ -1,14 +1,13 @@
 #include "messageeventmodel.h"
 
 #include <connection.h>
-#include <settings.h>
-#include <user.h>
-
 #include <events/reactionevent.h>
 #include <events/redactionevent.h>
 #include <events/roomavatarevent.h>
 #include <events/roommemberevent.h>
 #include <events/simplestateevents.h>
+#include <settings.h>
+#include <user.h>
 
 #include <QtCore/QDebug>
 #include <QtQml>  // for qmlRegisterType()
@@ -42,7 +41,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const {
 
 MessageEventModel::MessageEventModel(QObject* parent)
     : QAbstractListModel(parent), m_currentRoom(nullptr) {
-  using namespace QMatrixClient;
+  using namespace Quotient;
   qmlRegisterType<FileTransferInfo>();
   qRegisterMetaType<FileTransferInfo>();
   qmlRegisterUncreatableType<EventStatus>(
@@ -64,7 +63,7 @@ void MessageEventModel::setRoom(SpectralRoom* room) {
   if (room) {
     lastReadEventId = room->readMarkerEventId();
 
-    using namespace QMatrixClient;
+    using namespace Quotient;
     connect(m_currentRoom, &Room::aboutToAddNewMessages, this,
             [=](RoomEventsRange events) {
               beginInsertRows({}, timelineBaseIndex(),
@@ -207,12 +206,12 @@ int MessageEventModel::refreshEventRoles(const QString& id,
   return row;
 }
 
-inline bool hasValidTimestamp(const QMatrixClient::TimelineItem& ti) {
+inline bool hasValidTimestamp(const Quotient::TimelineItem& ti) {
   return ti->timestamp().isValid();
 }
 
 QDateTime MessageEventModel::makeMessageTimestamp(
-    const QMatrixClient::Room::rev_iter_t& baseIt) const {
+    const Quotient::Room::rev_iter_t& baseIt) const {
   const auto& timeline = m_currentRoom->messageEvents();
   auto ts = baseIt->event()->timestamp();
   if (ts.isValid())
@@ -220,7 +219,7 @@ QDateTime MessageEventModel::makeMessageTimestamp(
 
   // The event is most likely redacted or just invalid.
   // Look for the nearest date around and slap zero time to it.
-  using QMatrixClient::TimelineItem;
+  using Quotient::TimelineItem;
   auto rit = std::find_if(baseIt, timeline.rend(), hasValidTimestamp);
   if (rit != timeline.rend())
     return {rit->event()->timestamp().date(), {0, 0}, Qt::LocalTime};
@@ -269,16 +268,18 @@ int MessageEventModel::rowCount(const QModelIndex& parent) const {
   return m_currentRoom->timelineSize();
 }
 
-inline QVariantMap userAtEvent(SpectralUser* user, SpectralRoom* room, const RoomEvent& evt) {
-    return QVariantMap{
-        {"isLocalUser", user->id() == room->localUser()->id()},
-        {"id", user->id()},
-        {"avatarMediaId", user->avatarMediaId(room)},
-        {"avatarUrl", user->avatarUrl(room)},
-        {"displayName", user->displayname(room)},
-        {"color", user->color()},
-        {"object", QVariant::fromValue(user)},
-    };
+inline QVariantMap userAtEvent(SpectralUser* user,
+                               SpectralRoom* room,
+                               const RoomEvent& evt) {
+  return QVariantMap{
+      {"isLocalUser", user->id() == room->localUser()->id()},
+      {"id", user->id()},
+      {"avatarMediaId", user->avatarMediaId(room)},
+      {"avatarUrl", user->avatarUrl(room)},
+      {"displayName", user->displayname(room)},
+      {"color", user->color()},
+      {"object", QVariant::fromValue(user)},
+  };
 }
 
 QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
@@ -340,9 +341,10 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
     return EventTypeRegistry::getMatrixType(evt.type());
 
   if (role == AuthorRole) {
-      auto author = static_cast<SpectralUser*>(isPending ? m_currentRoom->localUser()
-                                               : m_currentRoom->user(evt.senderId()));
-      return userAtEvent(author, m_currentRoom, evt);
+    auto author = static_cast<SpectralUser*>(
+        isPending ? m_currentRoom->localUser()
+                  : m_currentRoom->user(evt.senderId()));
+    return userAtEvent(author, m_currentRoom, evt);
   }
 
   if (role == ContentTypeRole) {
@@ -455,8 +457,9 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
     return QVariantMap{
         {"eventId", replyEventId},
         {"display", m_currentRoom->eventToString(replyEvt, Qt::RichText)},
-        {"author",
-         userAtEvent(static_cast<SpectralUser*>(m_currentRoom->user(replyEvt.senderId())), m_currentRoom, evt)}};
+        {"author", userAtEvent(static_cast<SpectralUser*>(
+                                   m_currentRoom->user(replyEvt.senderId())),
+                               m_currentRoom, evt)}};
   }
 
   if (role == ShowAuthorRole) {

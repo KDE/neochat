@@ -6,9 +6,9 @@
 #include <QtCore/QDebug>
 #include <QtCore/QThread>
 
-using QMatrixClient::BaseJob;
+using Quotient::BaseJob;
 
-ThumbnailResponse::ThumbnailResponse(QMatrixClient::Connection* c,
+ThumbnailResponse::ThumbnailResponse(Quotient::Connection* c,
                                      QString id,
                                      const QSize& size)
     : c(c),

@@ -1,13 +1,6 @@
 #ifndef SpectralRoom_H
 #define SpectralRoom_H
 
-#include "room.h"
-#include "spectraluser.h"
-
-#include <QObject>
-#include <QPointer>
-#include <QTimer>
-
 #include <events/encryptionevent.h>
 #include <events/redactionevent.h>
 #include <events/roomavatarevent.h>
@@ -16,7 +9,14 @@
 #include <events/roommessageevent.h>
 #include <events/simplestateevents.h>
 
-using namespace QMatrixClient;
+#include <QObject>
+#include <QPointer>
+#include <QTimer>
+
+#include "room.h"
+#include "spectraluser.h"
+
+using namespace Quotient;
 
 class SpectralRoom : public Room {
   Q_OBJECT
@@ -37,7 +37,7 @@ class SpectralRoom : public Room {
   QVariantList getUsersTyping() const;
 
   QString lastEvent() const;
-  bool isEventHighlighted(const QMatrixClient::RoomEvent* e) const;
+  bool isEventHighlighted(const Quotient::RoomEvent* e) const;
 
   QDateTime lastActiveTime() const;
 
@@ -70,16 +70,17 @@ class SpectralRoom : public Room {
   QString avatarMediaId() const;
 
   QString eventToString(const RoomEvent& evt,
-                        Qt::TextFormat format = Qt::PlainText, bool removeReply = true) const;
+                        Qt::TextFormat format = Qt::PlainText,
+                        bool removeReply = true) const;
 
  private:
   QString m_cachedInput;
-  QSet<const QMatrixClient::RoomEvent*> highlights;
+  QSet<const Quotient::RoomEvent*> highlights;
 
   bool m_hasFileUploading = false;
   int m_fileUploadingProgress = 0;
 
-  void checkForHighlights(const QMatrixClient::TimelineItem& ti);
+  void checkForHighlights(const Quotient::TimelineItem& ti);
 
   void onAddNewTimelineEvents(timeline_iter_t from) override;
   void onAddHistoricalTimelineEvents(rev_iter_t from) override;

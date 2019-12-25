@@ -195,7 +195,7 @@ void Controller::addConnection(Connection* c) {
             c->sync(30000);
           });
 
-  using namespace QMatrixClient;
+  using namespace Quotient;
 
   setBusy(true);
 
@@ -213,7 +213,7 @@ void Controller::dropConnection(Connection* c) {
 }
 
 void Controller::invokeLogin() {
-  using namespace QMatrixClient;
+  using namespace Quotient;
   const auto accounts = SettingsGroup("Accounts").childGroups();
   for (const auto& accountId : accounts) {
     AccountSettings account{accountId};
@@ -342,7 +342,11 @@ bool Controller::saveAccessTokenToKeyChain(const AccountSettings& account,
 }
 
 void Controller::joinRoom(Connection* c, const QString& alias) {
-  auto joinRoomJob = c->joinRoom(alias);
+  if (!alias.contains(":"))
+    return;
+
+  auto knownServer = alias.mid(alias.indexOf(":") + 1);
+  auto joinRoomJob = c->joinRoom(alias, QStringList{knownServer});
   joinRoomJob->connect(joinRoomJob, &JoinRoomJob::failure, [=] {
     emit errorOccured("Join Room Failed", joinRoomJob->errorString());
   });

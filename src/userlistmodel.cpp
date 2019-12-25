@@ -13,7 +13,7 @@
 UserListModel::UserListModel(QObject* parent)
     : QAbstractListModel(parent), m_currentRoom(nullptr) {}
 
-void UserListModel::setRoom(QMatrixClient::Room* room) {
+void UserListModel::setRoom(Quotient::Room* room) {
   if (m_currentRoom == room)
     return;
 
@@ -50,7 +50,7 @@ void UserListModel::setRoom(QMatrixClient::Room* room) {
   emit roomChanged();
 }
 
-QMatrixClient::User* UserListModel::userAt(QModelIndex index) const {
+Quotient::User* UserListModel::userAt(QModelIndex index) const {
   if (index.row() < 0 || index.row() >= m_users.size())
     return nullptr;
   return m_users.at(index.row());
@@ -89,16 +89,16 @@ int UserListModel::rowCount(const QModelIndex& parent) const {
   return m_users.count();
 }
 
-void UserListModel::userAdded(QMatrixClient::User* user) {
+void UserListModel::userAdded(Quotient::User* user) {
   auto pos = findUserPos(user);
   beginInsertRows(QModelIndex(), pos, pos);
   m_users.insert(pos, user);
   endInsertRows();
-  connect(user, &QMatrixClient::User::avatarChanged, this,
+  connect(user, &Quotient::User::avatarChanged, this,
           &UserListModel::avatarChanged);
 }
 
-void UserListModel::userRemoved(QMatrixClient::User* user) {
+void UserListModel::userRemoved(Quotient::User* user) {
   auto pos = findUserPos(user);
   if (pos != m_users.size()) {
     beginRemoveRows(QModelIndex(), pos, pos);
@@ -109,7 +109,7 @@ void UserListModel::userRemoved(QMatrixClient::User* user) {
     qWarning() << "Trying to remove a room member not in the user list";
 }
 
-void UserListModel::refresh(QMatrixClient::User* user, QVector<int> roles) {
+void UserListModel::refresh(Quotient::User* user, QVector<int> roles) {
   auto pos = findUserPos(user);
   if (pos != m_users.size())
     emit dataChanged(index(pos), index(pos), roles);
@@ -117,8 +117,8 @@ void UserListModel::refresh(QMatrixClient::User* user, QVector<int> roles) {
     qWarning() << "Trying to access a room member not in the user list";
 }
 
-void UserListModel::avatarChanged(QMatrixClient::User* user,
-                                  const QMatrixClient::Room* context) {
+void UserListModel::avatarChanged(Quotient::User* user,
+                                  const Quotient::Room* context) {
   if (context == m_currentRoom)
     refresh(user, {AvatarRole});
 }

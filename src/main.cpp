@@ -22,7 +22,7 @@
 #include "trayicon.h"
 #include "userlistmodel.h"
 
-using namespace QMatrixClient;
+using namespace Quotient;
 
 int main(int argc, char* argv[]) {
   QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
@@ -53,6 +53,7 @@ int main(int argc, char* argv[]) {
 
   qRegisterMetaType<User*>("User*");
   qRegisterMetaType<User*>("const User*");
+  qRegisterMetaType<User*>("const Quotient::User*");
   qRegisterMetaType<Room*>("Room*");
   qRegisterMetaType<Connection*>("Connection*");
   qRegisterMetaType<MessageEventType>("MessageEventType");

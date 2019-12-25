@@ -21,7 +21,7 @@ Dialog {
 
     id: root
 
-    title: "Start a Chat"
+    title: "Explore Rooms"
 
     contentItem: ColumnLayout {
         spacing: 0
@@ -30,14 +30,36 @@ Dialog {
             Layout.fillWidth: true
 
             AutoTextField {
+                property bool isRoomAlias: text.match(/#(.+):(.+)/g)
+                property var room: isRoomAlias ? connection.roomByAlias(text) : null
+                property bool isJoined: room != null
+
                 Layout.fillWidth: true
 
                 id: identifierField
 
-                placeholderText: "Room Alias/User ID"
+                placeholderText: "Find a room..."
 
-                Keys.onReturnPressed: {
+                onEditingFinished: {
                     keyword = text
+                }
+            }
+
+            Button {
+                id: joinButton
+
+                visible: identifierField.isRoomAlias
+
+                text: identifierField.isJoined ? "View" : "Join"
+                highlighted: true
+                flat: identifierField.isJoined
+
+                onClicked: {
+                    if (identifierField.isJoined) {
+                        roomListForm.joinRoom(identifierField.room)
+                    } else {
+                        spectralController.joinRoom(connection, identifierField.text)
+                    }
                 }
             }
 
@@ -88,14 +110,13 @@ Dialog {
                 keyword: root.keyword
             }
 
-            delegate: Item {
+            delegate: Control {
                 width: publicRoomsListView.width
-                height: 40
+                height: 48
 
-                RowLayout {
-                    anchors.fill: parent
-                    anchors.margins: 4
+                padding: 8
 
+                contentItem: RowLayout {
                     spacing: 8
 
                     Avatar {
@@ -109,20 +130,52 @@ Dialog {
                     ColumnLayout {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
-                        Layout.alignment: Qt.AlignHCenter
 
                         spacing: 0
 
-                        Label {
+                        RowLayout {
                             Layout.fillWidth: true
                             Layout.fillHeight: true
 
-                            text: name
-                            color: MPalette.foreground
-                            font.pixelSize: 13
-                            textFormat: Text.PlainText
-                            elide: Text.ElideRight
-                            wrapMode: Text.NoWrap
+                            spacing: 4
+
+                            Label {
+                                Layout.fillWidth: true
+                                Layout.fillHeight: true
+
+                                text: name
+                                color: MPalette.foreground
+                                font.pixelSize: 13
+                                textFormat: Text.PlainText
+                                elide: Text.ElideRight
+                                wrapMode: Text.NoWrap
+                            }
+
+                            Label {
+                                visible: allowGuests
+
+                                text: "GUESTS CAN JOIN"
+                                color: MPalette.lighter
+                                font.pixelSize: 10
+                                padding: 4
+
+                                background: Rectangle {
+                                    color: MPalette.banner
+                                }
+                            }
+
+                            Label {
+                                visible: worldReadable
+
+                                text: "WORLD READABLE"
+                                color: MPalette.lighter
+                                font.pixelSize: 10
+                                padding: 4
+
+                                background: Rectangle {
+                                    color: MPalette.banner
+                                }
+                            }
                         }
 
                         Label {
@@ -139,10 +192,67 @@ Dialog {
                             wrapMode: Text.NoWrap
                         }
                     }
-                }
 
-                RippleEffect {
-                    anchors.fill: parent
+                    MaterialIcon {
+                        Layout.preferredWidth: 16
+                        Layout.preferredHeight: 16
+
+                        icon: "\ue7fc"
+                        color: MPalette.lighter
+                        font.pixelSize: 16
+                    }
+
+                    Label {
+                        Layout.preferredWidth: 36
+
+                        text: memberCount
+                        color: MPalette.lighter
+                        font.pixelSize: 12
+                    }
+
+                    Control {
+                        Layout.preferredWidth: 32
+                        Layout.preferredHeight: 32
+
+                        visible: isJoined
+
+                        contentItem: MaterialIcon {
+                            icon: "\ue89e"
+                            color: MPalette.lighter
+                            font.pixelSize: 20
+                        }
+
+                        background: RippleEffect {
+                            circular: true
+
+                            onClicked: {
+                                roomListForm.joinRoom(connection.room(roomID))
+                                root.close()
+                            }
+                        }
+                    }
+
+                    Control {
+                        Layout.preferredWidth: 32
+                        Layout.preferredHeight: 32
+
+                        visible: !isJoined
+
+                        contentItem: MaterialIcon {
+                            icon: "\ue7f0"
+                            color: MPalette.lighter
+                            font.pixelSize: 20
+                        }
+
+                        background: RippleEffect {
+                            circular: true
+
+                            onClicked: {
+                                spectralController.joinRoom(connection, roomID)
+                                root.close()
+                            }
+                        }
+                    }
                 }
             }
 
@@ -154,18 +264,6 @@ Dialog {
             }
         }
     }
-
-    //    standardButtons: Dialog.Ok | Dialog.Cancel
-
-    //    onAccepted: {
-    //        var identifier = identifierField.text
-    //        var firstChar = identifier.charAt(0)
-    //        if (firstChar == "@") {
-    //            spectralController.createDirectChat(spectralController.connection, identifier)
-    //        } else if (firstChar == "!" || firstChar == "#") {
-    //            spectralController.joinRoom(spectralController.connection, identifier)
-    //        }
-    //    }
 
     onClosed: destroy()
 }

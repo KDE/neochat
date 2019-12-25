@@ -97,14 +97,14 @@ Dialog {
                     Layout.preferredHeight: 48
 
                     color: MPalette.foreground
-                    icon: "\ue7ff"
+                    icon: "\ue5d2"
                 }
 
                 Label {
                     Layout.fillWidth: true
 
                     color: MPalette.foreground
-                    text: "Start a Chat"
+                    text: "Explore Rooms"
                 }
             }
 
@@ -113,7 +113,7 @@ Dialog {
 
                 onPrimaryClicked: {
                     joinRoomDialog.createObject(ApplicationWindow.overlay, {"controller": spectralController, "connection": spectralController.connection}).open()
-                    root.destroy()
+                    root.close()
                 }
             }
         }

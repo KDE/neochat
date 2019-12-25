@@ -1,12 +1,12 @@
 #ifndef SpectralUser_H
 #define SpectralUser_H
 
+#include <QObject>
+
 #include "room.h"
 #include "user.h"
 
-#include <QObject>
-
-using namespace QMatrixClient;
+using namespace Quotient;
 
 class SpectralUser : public User {
   Q_OBJECT

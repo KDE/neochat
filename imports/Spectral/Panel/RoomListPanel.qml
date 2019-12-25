@@ -296,13 +296,7 @@ Item {
                         if (category === RoomType.Invited) {
                             acceptInvitationDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom}).open()
                         } else {
-                            if (enteredRoom) {
-                                leaveRoom(enteredRoom)
-                                enteredRoom.displayed = false
-                            }
-                            enterRoom(currentRoom)
-                            enteredRoom = currentRoom
-                            currentRoom.displayed = true
+                            joinRoom(currentRoom)
                         }
                     }
                     onSecondaryClicked: roomListContextMenu.createObject(parent, {"room": currentRoom}).popup()
@@ -426,5 +420,15 @@ Item {
         id: acceptInvitationDialog
 
         AcceptInvitationDialog {}
+    }
+
+    function joinRoom(room) {
+        if (enteredRoom) {
+            leaveRoom(enteredRoom)
+            enteredRoom.displayed = false
+        }
+        enterRoom(room)
+        enteredRoom = room
+        room.displayed = true
     }
 }

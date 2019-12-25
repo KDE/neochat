@@ -167,6 +167,24 @@ QVariant PublicRoomListModel::data(const QModelIndex& index, int role) const {
   if (role == TopicRole) {
     return room.topic;
   }
+  if (role == RoomIDRole) {
+    return room.roomId;
+  }
+  if (role == MemberCountRole) {
+    return room.numJoinedMembers;
+  }
+  if (role == AllowGuestsRole) {
+    return room.guestCanJoin;
+  }
+  if (role == WorldReadableRole) {
+    return room.worldReadable;
+  }
+  if (role == IsJoinedRole) {
+    if (!m_connection)
+      return {};
+
+    return m_connection->room(room.roomId, JoinState::Join) != nullptr;
+  }
 
   return {};
 }
@@ -177,6 +195,11 @@ QHash<int, QByteArray> PublicRoomListModel::roleNames() const {
   roles[NameRole] = "name";
   roles[AvatarRole] = "avatar";
   roles[TopicRole] = "topic";
+  roles[RoomIDRole] = "roomID";
+  roles[MemberCountRole] = "memberCount";
+  roles[AllowGuestsRole] = "allowGuests";
+  roles[WorldReadableRole] = "worldReadable";
+  roles[IsJoinedRole] = "isJoined";
 
   return roles;
 }

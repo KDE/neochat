@@ -1,10 +1,10 @@
 #ifndef MESSAGEEVENTMODEL_H
 #define MESSAGEEVENTMODEL_H
 
+#include <QtCore/QAbstractListModel>
+
 #include "room.h"
 #include "spectralroom.h"
-
-#include <QtCore/QAbstractListModel>
 
 class MessageEventModel : public QAbstractListModel {
   Q_OBJECT
@@ -72,7 +72,7 @@ class MessageEventModel : public QAbstractListModel {
 
   int timelineBaseIndex() const;
   QDateTime makeMessageTimestamp(
-      const QMatrixClient::Room::rev_iter_t& baseIt) const;
+      const Quotient::Room::rev_iter_t& baseIt) const;
   QString renderDate(QDateTime timestamp) const;
 
   void refreshLastUserEvents(int baseRow);

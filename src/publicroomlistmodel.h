@@ -20,7 +20,16 @@ class PublicRoomListModel : public QAbstractListModel {
   Q_PROPERTY(bool hasMore READ hasMore NOTIFY hasMoreChanged)
 
  public:
-  enum EventRoles { NameRole = Qt::DisplayRole + 1, AvatarRole, TopicRole };
+  enum EventRoles {
+    NameRole = Qt::DisplayRole + 1,
+    AvatarRole,
+    TopicRole,
+    RoomIDRole,
+    MemberCountRole,
+    AllowGuestsRole,
+    WorldReadableRole,
+    IsJoinedRole,
+  };
 
   PublicRoomListModel(QObject* parent = nullptr);
 
