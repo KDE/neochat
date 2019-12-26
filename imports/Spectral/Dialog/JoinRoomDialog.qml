@@ -17,7 +17,7 @@ Dialog {
 
     anchors.centerIn: parent
     width: 480
-    height: window.height - 100
+    height: Math.min(window.height - 100, 800)
 
     id: root
 

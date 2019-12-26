@@ -13,8 +13,8 @@ Dialog {
     property var room
 
     anchors.centerIn: parent
-    width: 480
-    height: window.height - 100
+    width: 360
+    height: Math.min(window.height - 100, 640)
 
     id: root
 
