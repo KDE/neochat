@@ -105,7 +105,7 @@ QString SpectralRoom::lastEvent() const {
       continue;
 
     if (auto e = eventCast<const RoomMessageEvent>(evt)) {
-      if (!e->replacedEvent().isEmpty()) {
+      if (!e->replacedEvent().isEmpty() && e->replacedEvent() != e->id()) {
         continue;
       }
     }
