@@ -260,17 +260,23 @@ QString SpectralRoom::eventToString(const RoomEvent& evt,
           return !fileCaption.isEmpty() ? fileCaption : tr("a file");
         }
 
+        QString plainBody;
+        if (e.hasTextContent() && e.content()) {
+            plainBody = static_cast<const TextContent*>(e.content())->body;
+        } else {
+            plainBody = e.plainBody();
+        }
+
         if (prettyPrint) {
-          auto plainBody = e.plainBody();
           if (removeReply) {
             plainBody.remove(utils::removeReplyRegex);
           }
           return Quotient::prettyPrint(plainBody);
         }
         if (removeReply) {
-          return e.plainBody().remove(utils::removeReplyRegex);
+          return plainBody.remove(utils::removeReplyRegex);
         }
-        return e.plainBody();
+        return plainBody;
       },
       [this](const RoomMemberEvent& e) {
         // FIXME: Rewind to the name that was at the time of this event
