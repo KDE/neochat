@@ -75,7 +75,7 @@ ColumnLayout {
             padding: 0
 
             background: AutoRectangle {
-                readonly property int minorRadius: 8
+                readonly property int minorRadius: 2
 
                 id: bubbleBackground
 
