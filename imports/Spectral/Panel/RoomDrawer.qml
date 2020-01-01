@@ -235,6 +235,31 @@ Drawer {
 
                         text: name
                         color: MPalette.foreground
+                        textFormat: Text.PlainText
+                        elide: Text.ElideRight
+                        wrapMode: Text.NoWrap
+                    }
+
+                    MaterialIcon {
+                        Layout.preferredWidth: height
+                        Layout.fillHeight: true
+
+                        enabled: perm != UserType.Member
+
+                        icon: {
+                            if (perm == UserType.Admin) {
+                                return "\ue853"
+                            }
+                            if (perm == UserType.Moderator) {
+                                return "\ue8e8"
+                            }
+                            if (perm == UserType.Muted) {
+                                return "\ue92a"
+                            }
+                            return ""
+                        }
+
+                        color: MPalette.lighter
                     }
                 }
 

@@ -4,6 +4,8 @@
 #include <room.h>
 #include <user.h>
 
+#include "events/roompowerlevelsevent.h"
+
 #include <QElapsedTimer>
 #include <QtCore/QDebug>
 #include <QtGui/QPixmap>
@@ -63,7 +65,7 @@ QVariant UserListModel::data(const QModelIndex& index, int role) const {
   if (index.row() >= m_users.count()) {
     qDebug()
         << "UserListModel, something's wrong: index.row() >= m_users.count()";
-    return QVariant();
+    return {};
   }
   auto user = m_users.at(index.row());
   if (role == NameRole) {
@@ -78,8 +80,38 @@ QVariant UserListModel::data(const QModelIndex& index, int role) const {
   if (role == ObjectRole) {
     return QVariant::fromValue(user);
   }
+  if (role == PermRole) {
+    auto pl = m_currentRoom->getCurrentState<RoomPowerLevelsEvent>();
+    auto userPl = pl->powerLevelForUser(user->id());
 
-  return QVariant();
+    if (userPl == pl->content().usersDefault) {
+      return UserType::Member;
+    }
+
+    if (userPl < pl->content().usersDefault) {
+      return UserType::Muted;
+    }
+
+    auto userPls = pl->users();
+
+    int highestPl = pl->usersDefault();
+    QHash<QString, int>::const_iterator i = userPls.constBegin();
+    while (i != userPls.constEnd()) {
+      if (i.value() > highestPl) {
+        highestPl = i.value();
+      }
+
+      ++i;
+    }
+
+    if (userPl == highestPl) {
+      return UserType::Admin;
+    }
+
+    return UserType::Moderator;
+  }
+
+  return {};
 }
 
 int UserListModel::rowCount(const QModelIndex& parent) const {
@@ -138,6 +170,7 @@ QHash<int, QByteArray> UserListModel::roleNames() const {
   roles[UserIDRole] = "userId";
   roles[AvatarRole] = "avatar";
   roles[ObjectRole] = "user";
+  roles[PermRole] = "perm";
 
   return roles;
 }
