@@ -236,6 +236,7 @@ QString SpectralRoom::eventToString(const RoomEvent& evt,
       [prettyPrint, removeReply](const RoomMessageEvent& e) {
         using namespace MessageEventContent;
 
+        // 1. prettyPrint/HTML
         if (prettyPrint && e.hasTextContent() &&
             e.mimeType().name() != "text/plain") {
           auto htmlBody = static_cast<const TextContent*>(e.content())->body;
@@ -260,10 +261,11 @@ QString SpectralRoom::eventToString(const RoomEvent& evt,
           return !fileCaption.isEmpty() ? fileCaption : tr("a file");
         }
 
+        // 2. prettyPrint/text 3. plainText/HTML 4. plainText/text
         QString plainBody;
-        if (e.hasTextContent() && e.content()) {
+        if (e.hasTextContent() && e.content() && e.mimeType().name() == "text/plain") { // 2/4
             plainBody = static_cast<const TextContent*>(e.content())->body;
-        } else {
+        } else { // 3
             plainBody = e.plainBody();
         }
 
