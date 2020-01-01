@@ -21,6 +21,7 @@
 #include "events/reactionevent.h"
 #include "events/roommessageevent.h"
 #include "events/typingevent.h"
+#include "events/roompowerlevelsevent.h"
 #include "jobs/downloadfilejob.h"
 #include "user.h"
 #include "utils.h"
@@ -487,20 +488,32 @@ void SpectralRoom::postPlainMessage(const QString& text,
   if (isReply) {
     const auto& replyEvt = **replyIt;
 
-    QJsonObject json{{"msgtype", msgTypeToString(type)},
-                     {"body", "> <" + replyEvt.senderId() + "> " +
-                                  eventToString(replyEvt) + "\n\n" + text},
-                     {"format", "org.matrix.custom.html"},
-                     {"m.relates_to",
-                      QJsonObject{{"m.in_reply_to",
-                                   QJsonObject{{"event_id", replyEventId}}}}},
-                     {"formatted_body",
-                      "<mx-reply><blockquote><a href=\"https://matrix.to/#/" +
-                          id() + "/" + replyEventId +
-                          "\">In reply to</a> <a href=\"https://matrix.to/#/" +
-                          replyEvt.senderId() + "\">" + replyEvt.senderId() +
-                          "</a><br>" + eventToString(replyEvt, Qt::RichText) +
-                          "</blockquote></mx-reply>" + text.toHtmlEscaped()}};
+    // clang-format off
+    QJsonObject json{
+      {"msgtype", msgTypeToString(type)},
+      {"body", "> <" + replyEvt.senderId() + "> " + eventToString(replyEvt) + "\n\n" + text},
+      {"format", "org.matrix.custom.html"},
+      {"m.relates_to",
+        {
+          {"m.in_reply_to",
+            {
+              {"event_id", replyEventId}
+            }
+          }
+        }
+      },
+      {"formatted_body",
+        "<mx-reply><blockquote><a href=\"https://matrix.to/#/" +
+        id() + "/" +
+        replyEventId +
+        "\">In reply to</a> <a href=\"https://matrix.to/#/" +
+        replyEvt.senderId() + "\">" + replyEvt.senderId() +
+        "</a><br>" + eventToString(replyEvt, Qt::RichText) +
+        "</blockquote></mx-reply>" + text
+      }
+    };
+    // clang-format on
+
     postJson("m.room.message", json);
 
     return;
@@ -521,20 +534,32 @@ void SpectralRoom::postHtmlMessage(const QString& text,
   if (isReply) {
     const auto& replyEvt = **replyIt;
 
-    QJsonObject json{{"msgtype", msgTypeToString(type)},
-                     {"body", "> <" + replyEvt.senderId() + "> " +
-                                  eventToString(replyEvt) + "\n\n" + text},
-                     {"format", "org.matrix.custom.html"},
-                     {"m.relates_to",
-                      QJsonObject{{"m.in_reply_to",
-                                   QJsonObject{{"event_id", replyEventId}}}}},
-                     {"formatted_body",
-                      "<mx-reply><blockquote><a href=\"https://matrix.to/#/" +
-                          id() + "/" + replyEventId +
-                          "\">In reply to</a> <a href=\"https://matrix.to/#/" +
-                          replyEvt.senderId() + "\">" + replyEvt.senderId() +
-                          "</a><br>" + eventToString(replyEvt, Qt::RichText) +
-                          "</blockquote></mx-reply>" + html}};
+    // clang-format off
+    QJsonObject json{
+      {"msgtype", msgTypeToString(type)},
+      {"body", "> <" + replyEvt.senderId() + "> " + eventToString(replyEvt) + "\n\n" + text},
+      {"format", "org.matrix.custom.html"},
+      {"m.relates_to",
+        {
+          {"m.in_reply_to",
+            {
+              {"event_id", replyEventId}
+            }
+          }
+        }
+      },
+      {"formatted_body",
+        "<mx-reply><blockquote><a href=\"https://matrix.to/#/" +
+        id() + "/" +
+        replyEventId +
+        "\">In reply to</a> <a href=\"https://matrix.to/#/" +
+        replyEvt.senderId() + "\">" + replyEvt.senderId() +
+        "</a><br>" + eventToString(replyEvt, Qt::RichText) +
+        "</blockquote></mx-reply>" + html
+      }
+    };
+    // clang-format on
+
     postJson("m.room.message", json);
 
     return;
@@ -587,4 +612,20 @@ bool SpectralRoom::containsUser(QString userID) const {
     return false;
 
   return Room::memberJoinState(u) != JoinState::Leave;
+}
+
+bool SpectralRoom::canSendEvent(const QString& eventType) const {
+  auto plEvent = getCurrentState<RoomPowerLevelsEvent>();
+  auto pl = plEvent->powerLevelForEvent(eventType);
+  auto currentPl = plEvent->powerLevelForUser(localUser()->id());
+
+  return currentPl >= pl;
+}
+
+bool SpectralRoom::canSendState(const QString& eventType) const {
+  auto plEvent = getCurrentState<RoomPowerLevelsEvent>();
+  auto pl = plEvent->powerLevelForState(eventType);
+  auto currentPl = plEvent->powerLevelForUser(localUser()->id());
+
+  return currentPl >= pl;
 }
