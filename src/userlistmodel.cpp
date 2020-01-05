@@ -84,11 +84,11 @@ QVariant UserListModel::data(const QModelIndex& index, int role) const {
     auto pl = m_currentRoom->getCurrentState<RoomPowerLevelsEvent>();
     auto userPl = pl->powerLevelForUser(user->id());
 
-    if (userPl == pl->content().usersDefault) {
+    if (userPl == pl->content().usersDefault) { // Shortcut
       return UserType::Member;
     }
 
-    if (userPl < pl->content().usersDefault) {
+    if (userPl < pl->powerLevelForState("m.room.message")) {
       return UserType::Muted;
     }
 
@@ -105,10 +105,18 @@ QVariant UserListModel::data(const QModelIndex& index, int role) const {
     }
 
     if (userPl == highestPl) {
+      return UserType::Owner;
+    }
+
+    if (userPl >= pl->powerLevelForState("m.room.power_levels")) {
       return UserType::Admin;
     }
 
-    return UserType::Moderator;
+    if (userPl >= pl->ban() || userPl >= pl->kick() || userPl >= pl->redact()) {
+      return UserType::Moderator;
+    }
+
+    return UserType::Member;
   }
 
   return {};

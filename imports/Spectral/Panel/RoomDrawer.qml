@@ -240,26 +240,28 @@ Drawer {
                         wrapMode: Text.NoWrap
                     }
 
-                    MaterialIcon {
-                        Layout.preferredWidth: height
-                        Layout.fillHeight: true
+                    Label {
+                        visible: perm != UserType.Member
 
-                        enabled: perm != UserType.Member
-
-                        icon: {
+                        text: {
+                            if (perm == UserType.Owner) {
+                                return "Owner"
+                            }
                             if (perm == UserType.Admin) {
-                                return "\ue853"
+                                return "Admin"
                             }
                             if (perm == UserType.Moderator) {
-                                return "\ue8e8"
+                                return "Mod"
                             }
                             if (perm == UserType.Muted) {
-                                return "\ue92a"
+                                return "Muted"
                             }
                             return ""
                         }
-
-                        color: MPalette.lighter
+                        color: perm == UserType.Muted ? MPalette.lighter : MPalette.accent
+                        font.pixelSize: 12
+                        textFormat: Text.PlainText
+                        wrapMode: Text.NoWrap
                     }
                 }
 

@@ -17,7 +17,8 @@ class UserType : public QObject {
 
   public:
     enum Types {
-      Admin = 1,
+      Owner = 1,
+      Admin,
       Moderator,
       Member,
       Muted,
