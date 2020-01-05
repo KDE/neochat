@@ -1,7 +1,7 @@
 id: org.eu.encom.spectral
 rename-icon: spectral
 runtime: org.kde.Platform
-runtime-version: "5.13"
+runtime-version: "5.12"
 sdk: org.kde.Sdk
 command: spectral
 finish-args:
@@ -26,9 +26,9 @@ modules:
 - name: cmark
   buildsystem: cmake-ninja
   sources:
-  - sha256: acc98685d3c1b515ff787ac7c994188dadaf28a2d700c10c1221da4199bae1fc
+  - sha256: 2558ace3cbeff85610de3bda32858f722b359acdadf0c4691851865bb84924a6
     type: archive
-    url: https://github.com/commonmark/cmark/archive/0.28.3.tar.gz
+    url: https://github.com/commonmark/cmark/archive/0.29.0.tar.gz
   builddir: true
   config-opts:
   - -DCMAKE_BUILD_TYPE=Release
@@ -45,9 +45,9 @@ modules:
 - name: qtkeychain
   buildsystem: cmake
   sources:
-  - sha256: 9c2762d9d0759a65cdb80106d547db83c6e9fdea66f1973c6e9014f867c6f28e
+  - sha256: 5f916cd97843de550467db32d2e10f218b904af5b21cfdfcc7c6425d7dfc3ec2
     type: archive
-    url: https://github.com/frankosterfeld/qtkeychain/archive/v0.9.1.tar.gz
+    url: https://github.com/frankosterfeld/qtkeychain/archive/v0.10.0.tar.gz
   config-opts:
   - -DCMAKE_INSTALL_LIBDIR=/app/lib
   - -DLIB_INSTALL_DIR=/app/lib
