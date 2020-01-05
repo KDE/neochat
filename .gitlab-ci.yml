@@ -6,7 +6,7 @@ variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
 build-appimage:
-  image: registry.gitlab.com/b0/qt-docker
+  image: registry.gitlab.com/spectral-im/qt-docker:latest
   stage: build
   script:
     - git clone https://gitlab.matrix.org/matrix-org/olm.git && cd olm
@@ -32,7 +32,7 @@ build-appimage:
     - spectral.AppImage
 
 build-flatpak:
-  image: registry.gitlab.com/b0/flatpak-kde-docker
+  image: registry.gitlab.com/spectral-im/flatpak-kde-docker:latest
   stage: build
   script:
     - cd flatpak
