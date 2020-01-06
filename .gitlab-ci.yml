@@ -22,7 +22,7 @@ build-appimage:
     - cmake . -Bbuild -LA -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=install -DCMARK_SHARED=ON -DCMARK_STATIC=ON -DCMARK_TESTS=OFF
     - cmake --build build --target install --parallel $(nproc)
     - cd ..
-    - cmake . -Bbuild -LA -DUSE_INTREE_LIBQMC=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=install/usr -DOlm_DIR="olm/install/lib/cmake/Olm" -DQt5Keychain_DIR="qtkeychain/install/lib/x86_64-linux-gnu/cmake/Qt5Keychain" -DCMARK_LIBRARY="$PWD/cmark/install/lib/libcmark.a" -DCMARK_INCLUDE_DIR="$PWD/cmark/install/include"
+    - cmake . -Bbuild -LA -DUSE_INTREE_LIBQMC=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=install/usr -DOlm_DIR="olm/install/lib/cmake/Olm" -DQt5Keychain_DIR="qtkeychain/install/lib/x86_64-linux-gnu/cmake/Qt5Keychain" -DCMARK_LIBRARY="$PWD/cmark/install/lib/libcmark_static.a" -DCMARK_INCLUDE_DIR="$PWD/cmark/install/include"
     - cmake --build build --target install --parallel $(nproc)
     - cp install/usr/share/icons/hicolor/256x256/apps/spectral.png install/org.eu.encom.spectral.png
     - linuxdeployqt install/usr/share/applications/org.eu.encom.spectral.desktop -appimage -qmldir=qml -qmldir=imports
