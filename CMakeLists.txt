@@ -242,8 +242,8 @@ if(LINUX)
     install(FILES linux/${IDENTIFIER}.appdata.xml
             DESTINATION  ${CMAKE_INSTALL_DATADIR}/metainfo
             )
-    file(GLOB spectral_icons icons/hicolor/*-apps-spectral.png)
+    file(GLOB spectral_icons icons/hicolor/*-apps-org.eu.encom.spectral.png)
     ecm_install_icons(ICONS ${spectral_icons}
-                      DESTINATION ${CMAKE_INSTALL_DATADIR}/icons
-                      )
+            DESTINATION ${CMAKE_INSTALL_DATADIR}/icons
+    )
 endif(LINUX)
