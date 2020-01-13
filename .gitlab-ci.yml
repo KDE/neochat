@@ -10,7 +10,6 @@ build-appimage:
   stage: build
   script:
     - git clone https://gitlab.matrix.org/matrix-org/olm.git && cd olm
-    - git checkout tags/0.29.0
     - cmake . -Bbuild -LA -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=install -DBUILD_SHARED_LIBS=NO
     - cmake --build build --target install --parallel $(nproc)
     - cd ..
@@ -20,6 +19,7 @@ build-appimage:
     - sudo cmake --build build --target install
     - cd ..
     - git clone https://github.com/commonmark/cmark.git && cd cmark
+    - git checkout tags/0.29.0
     - cmake . -Bbuild -LA -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=install -DCMARK_SHARED=ON -DCMARK_STATIC=ON -DCMARK_TESTS=OFF
     - cmake --build build --target install --parallel $(nproc)
     - cd ..
