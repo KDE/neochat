@@ -10,6 +10,7 @@ build-appimage:
   stage: build
   script:
     - git clone https://gitlab.matrix.org/matrix-org/olm.git && cd olm
+    - git checkout tags/0.29.0
     - cmake . -Bbuild -LA -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=install -DBUILD_SHARED_LIBS=NO
     - cmake --build build --target install --parallel $(nproc)
     - cd ..
