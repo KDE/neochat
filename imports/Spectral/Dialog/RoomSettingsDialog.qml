@@ -9,6 +9,11 @@ import Spectral.Setting 0.1
 Dialog {
     property var room
 
+    readonly property bool canChangeAvatar: room.canSendState("m.room.avatar")
+    readonly property bool canChangeName: room.canSendState("m.room.name")
+    readonly property bool canChangeTopic: room.canSendState("m.room.topic")
+    readonly property bool canChangeCanonicalAlias: room.canSendState("m.room.canonical_alias")
+
     anchors.centerIn: parent
     width: 480
 
@@ -36,6 +41,8 @@ Dialog {
 
                     circular: true
 
+                    enabled: canChangeAvatar
+
                     onClicked: {
                         var fileDialog = openFileDialog.createObject(ApplicationWindow.overlay)
 
@@ -61,6 +68,8 @@ Dialog {
 
                     text: room.name
                     placeholderText: "Room Name"
+
+                    enabled: canChangeName
                 }
 
                 AutoTextField {
@@ -70,6 +79,8 @@ Dialog {
 
                     text: room.topic
                     placeholderText: "Room Topic"
+
+                    enabled: canChangeTopic
                 }
             }
         }
@@ -179,6 +190,8 @@ Dialog {
         Button {
             Layout.alignment: Qt.AlignRight
 
+            visible: canChangeName || canChangeTopic
+
             text: "Save"
             highlighted: true
 
@@ -215,6 +228,8 @@ Dialog {
                     Layout.fillWidth: true
 
                     id: canonicalAliasComboBox
+
+                    enabled: canChangeCanonicalAlias
 
                     model: room.remoteAliases
 
@@ -271,6 +286,42 @@ Dialog {
                                     onClicked: room.removeLocalAlias(modelData)
                                 }
                             }
+                        }
+                    }
+                }
+            }
+
+            RowLayout {
+                Layout.fillWidth: true
+
+                Label {
+                    Layout.preferredWidth: 100
+                    Layout.alignment: Qt.AlignTop
+
+                    wrapMode: Label.Wrap
+                    text: "Remote Aliases"
+                    color: MPalette.lighter
+                }
+
+                ColumnLayout {
+                    Layout.fillWidth: true
+
+                    spacing: 0
+
+                    Repeater {
+                        model: {
+                            var localAliases = room.localAliases
+                            var remoteAliases = room.remoteAliases
+                            return remoteAliases.filter(n => !localAliases.includes(n))
+                        }
+
+                        delegate: Label {
+                            width: parent.width
+
+                            text: modelData
+
+                            font.pixelSize: 12
+                            color: MPalette.lighter
                         }
                     }
                 }

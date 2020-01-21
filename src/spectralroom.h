@@ -75,6 +75,9 @@ class SpectralRoom : public Room {
 
   Q_INVOKABLE bool containsUser(QString userID) const;
 
+  Q_INVOKABLE bool canSendEvent(const QString& eventType) const;
+  Q_INVOKABLE bool canSendState(const QString& eventType) const;
+
  private:
   QString m_cachedInput;
   QSet<const Quotient::RoomEvent*> highlights;

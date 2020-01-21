@@ -53,6 +53,7 @@ int main(int argc, char* argv[]) {
   qmlRegisterUncreatableType<RoomMessageEvent>("Spectral", 0, 1,
                                                "RoomMessageEvent", "ENUM");
   qmlRegisterUncreatableType<RoomType>("Spectral", 0, 1, "RoomType", "ENUM");
+  qmlRegisterUncreatableType<UserType>("Spectral", 0, 1, "UserType", "ENUM");
 
   qRegisterMetaType<User*>("User*");
   qRegisterMetaType<User*>("const User*");

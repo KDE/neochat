@@ -235,6 +235,33 @@ Drawer {
 
                         text: name
                         color: MPalette.foreground
+                        textFormat: Text.PlainText
+                        elide: Text.ElideRight
+                        wrapMode: Text.NoWrap
+                    }
+
+                    Label {
+                        visible: perm != UserType.Member
+
+                        text: {
+                            if (perm == UserType.Owner) {
+                                return "Owner"
+                            }
+                            if (perm == UserType.Admin) {
+                                return "Admin"
+                            }
+                            if (perm == UserType.Moderator) {
+                                return "Mod"
+                            }
+                            if (perm == UserType.Muted) {
+                                return "Muted"
+                            }
+                            return ""
+                        }
+                        color: perm == UserType.Muted ? MPalette.lighter : MPalette.accent
+                        font.pixelSize: 12
+                        textFormat: Text.PlainText
+                        wrapMode: Text.NoWrap
                     }
                 }
 

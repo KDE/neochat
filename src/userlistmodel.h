@@ -12,6 +12,20 @@ class Room;
 class User;
 }  // namespace Quotient
 
+class UserType : public QObject {
+  Q_OBJECT
+
+  public:
+    enum Types {
+      Owner = 1,
+      Admin,
+      Moderator,
+      Member,
+      Muted,
+    };
+    Q_ENUMS(Types)
+};
+
 class UserListModel : public QAbstractListModel {
   Q_OBJECT
   Q_PROPERTY(
@@ -21,16 +35,15 @@ class UserListModel : public QAbstractListModel {
     NameRole = Qt::UserRole + 1,
     UserIDRole,
     AvatarRole,
-    ObjectRole
+    ObjectRole,
+    PermRole,
   };
-
-  using User = Quotient::User;
 
   UserListModel(QObject* parent = nullptr);
 
   Quotient::Room* room() const { return m_currentRoom; }
   void setRoom(Quotient::Room* room);
-  User* userAt(QModelIndex index) const;
+  Quotient::User* userAt(QModelIndex index) const;
 
   QVariant data(const QModelIndex& index, int role = NameRole) const override;
   int rowCount(const QModelIndex& parent = QModelIndex()) const override;
@@ -41,16 +54,16 @@ class UserListModel : public QAbstractListModel {
   void roomChanged();
 
  private slots:
-  void userAdded(User* user);
-  void userRemoved(User* user);
-  void refresh(User* user, QVector<int> roles = {});
-  void avatarChanged(User* user, const Quotient::Room* context);
+  void userAdded(Quotient::User* user);
+  void userRemoved(Quotient::User* user);
+  void refresh(Quotient::User* user, QVector<int> roles = {});
+  void avatarChanged(Quotient::User* user, const Quotient::Room* context);
 
  private:
   Quotient::Room* m_currentRoom;
-  QList<User*> m_users;
+  QList<Quotient::User*> m_users;
 
-  int findUserPos(User* user) const;
+  int findUserPos(Quotient::User* user) const;
   int findUserPos(const QString& username) const;
 };
 
