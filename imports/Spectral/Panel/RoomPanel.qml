@@ -226,10 +226,6 @@ Item {
 
                 boundsBehavior: Flickable.DragOverBounds
 
-                onModelChanged: {
-                    messageListView.positionViewAtBeginning()
-                }
-
                 model: SortFilterProxyModel {
                     id: sortedMessageEventModel
 

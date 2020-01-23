@@ -246,7 +246,7 @@ QString SpectralRoom::eventToString(const RoomEvent& evt,
           }
           htmlBody.replace(utils::userPillRegExp, "<b>\\1</b>");
           htmlBody.replace(utils::strikethroughRegExp, "<s>\\1</s>");
-          htmlBody.push_front("<style>pre {white-space: pre-wrap}</style>");
+
           return htmlBody;
         }
 
