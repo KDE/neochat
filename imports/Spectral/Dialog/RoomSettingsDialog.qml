@@ -15,7 +15,9 @@ Dialog {
     readonly property bool canChangeCanonicalAlias: room.canSendState("m.room.canonical_alias")
 
     anchors.centerIn: parent
+
     width: 480
+    height: window.height * 0.9
 
     id: root
 
@@ -85,108 +87,6 @@ Dialog {
             }
         }
 
-        Control {
-            Layout.fillWidth: true
-
-            visible: room.predecessorId && room.connection.room(room.predecessorId)
-
-            padding: 8
-
-            contentItem: RowLayout {
-                MaterialIcon {
-                    Layout.preferredWidth: 48
-                    Layout.preferredHeight: 48
-
-                    icon: "\ue8d4"
-                }
-
-                ColumnLayout {
-                    Layout.fillWidth: true
-
-                    spacing: 0
-
-                    Label {
-                        Layout.fillWidth: true
-
-                        font.bold: true
-                        color: MPalette.foreground
-                        text: "This room is a continuation of another conversation."
-                    }
-
-                    Label {
-                        Layout.fillWidth: true
-
-                        color: MPalette.lighter
-                        text: "Click here to see older messages."
-                    }
-                }
-            }
-
-            background: Rectangle {
-                color: MPalette.banner
-
-                RippleEffect {
-                    anchors.fill: parent
-
-                    onClicked: {
-                        roomListForm.enteredRoom = spectralController.connection.room(room.predecessorId)
-                        root.close()
-                    }
-                }
-            }
-        }
-
-        Control {
-            Layout.fillWidth: true
-
-            visible: room.successorId && room.connection.room(room.successorId)
-
-            padding: 8
-
-            contentItem: RowLayout {
-                MaterialIcon {
-                    Layout.preferredWidth: 48
-                    Layout.preferredHeight: 48
-
-                    icon: "\ue8d4"
-                }
-
-                ColumnLayout {
-                    Layout.fillWidth: true
-
-                    spacing: 0
-
-                    Label {
-                        Layout.fillWidth: true
-
-                        font.bold: true
-                        color: MPalette.foreground
-                        text: "This room has been replaced and is no longer active."
-                    }
-
-                    Label {
-                        Layout.fillWidth: true
-
-                        color: MPalette.lighter
-                        text: "The conversation continues here."
-                    }
-                }
-            }
-
-            background: Rectangle {
-                color: MPalette.banner
-
-                RippleEffect {
-                    anchors.fill: parent
-
-                    onClicked: {
-                        roomListForm.enteredRoom = spectralController.connection.room(room.successorId)
-                        root.close()
-                    }
-                }
-            }
-        }
-
         Button {
             Layout.alignment: Qt.AlignRight
 
@@ -210,118 +110,231 @@ Dialog {
             Layout.fillWidth: true
         }
 
-        ColumnLayout {
+        ScrollView {
             Layout.fillWidth: true
+            Layout.fillHeight: true
 
-            RowLayout {
-                Layout.fillWidth: true
+            id: scrollview
 
-                Label {
-                    Layout.preferredWidth: 100
+            clip: true
 
-                    wrapMode: Label.Wrap
-                    text: "Main Alias"
-                    color: MPalette.lighter
-                }
+            ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
 
-                ComboBox {
+            ColumnLayout {
+                width: scrollview.width
+
+                Control {
                     Layout.fillWidth: true
 
-                    id: canonicalAliasComboBox
+                    visible: room.predecessorId && room.connection.room(room.predecessorId)
 
-                    enabled: canChangeCanonicalAlias
+                    padding: 8
 
-                    model: room.remoteAliases
+                    contentItem: RowLayout {
+                        MaterialIcon {
+                            Layout.preferredWidth: 48
+                            Layout.preferredHeight: 48
 
-                    currentIndex: room.remoteAliases.indexOf(room.canonicalAlias)
-                    onCurrentIndexChanged: {
-                        if (room.canonicalAlias != room.remoteAliases[currentIndex]) {
-                            room.setCanonicalAlias(room.remoteAliases[currentIndex])
+                            icon: "\ue8d4"
+                        }
+
+                        ColumnLayout {
+                            Layout.fillWidth: true
+
+                            spacing: 0
+
+                            Label {
+                                Layout.fillWidth: true
+
+                                font.bold: true
+                                color: MPalette.foreground
+                                text: "This room continues another conversation."
+                            }
+
+                            Label {
+                                Layout.fillWidth: true
+
+                                color: MPalette.lighter
+                                text: "Click here to see older messages."
+                            }
+                        }
+                    }
+
+                    background: Rectangle {
+                        color: MPalette.banner
+
+                        RippleEffect {
+                            anchors.fill: parent
+
+                            onClicked: {
+                                roomListForm.enteredRoom = spectralController.connection.room(room.predecessorId)
+                                root.close()
+                            }
                         }
                     }
                 }
-            }
 
-            RowLayout {
-                Layout.fillWidth: true
-
-                Label {
-                    Layout.preferredWidth: 100
-                    Layout.alignment: Qt.AlignTop
-
-                    wrapMode: Label.Wrap
-                    text: "Local Aliases"
-                    color: MPalette.lighter
-                }
-
-                ColumnLayout {
+                Control {
                     Layout.fillWidth: true
 
-                    spacing: 0
+                    visible: room.successorId && room.connection.room(room.successorId)
 
-                    Repeater {
-                        model: room.localAliases
+                    padding: 8
 
-                        delegate: RowLayout {
-                            Layout.maximumWidth: parent.width
+                    contentItem: RowLayout {
+                        MaterialIcon {
+                            Layout.preferredWidth: 48
+                            Layout.preferredHeight: 48
+
+                            icon: "\ue8d4"
+                        }
+
+                        ColumnLayout {
+                            Layout.fillWidth: true
+
+                            spacing: 0
 
                             Label {
-                                text: modelData
+                                Layout.fillWidth: true
 
-                                font.pixelSize: 12
-                                color: MPalette.lighter
+                                font.bold: true
+                                color: MPalette.foreground
+                                text: "This room has been replaced."
                             }
 
-                            MaterialIcon {
-                                icon: "\ue5cd"
+                            Label {
+                                Layout.fillWidth: true
 
                                 color: MPalette.lighter
-                                font.pixelSize: 12
+                                text: "The conversation continues here."
+                            }
+                        }
+                    }
 
-                                RippleEffect {
-                                    anchors.fill: parent
+                    background: Rectangle {
+                        color: MPalette.banner
 
-                                    circular: true
+                        RippleEffect {
+                            anchors.fill: parent
 
-                                    onClicked: room.removeLocalAlias(modelData)
+                            onClicked: {
+                                roomListForm.enteredRoom = spectralController.connection.room(room.successorId)
+                                root.close()
+                            }
+                        }
+                    }
+                }
+
+                RowLayout {
+                    Layout.fillWidth: true
+
+                    Label {
+                        Layout.preferredWidth: 100
+
+                        wrapMode: Label.Wrap
+                        text: "Main Alias"
+                        color: MPalette.lighter
+                    }
+
+                    ComboBox {
+                        Layout.fillWidth: true
+
+                        id: canonicalAliasComboBox
+
+                        enabled: canChangeCanonicalAlias
+
+                        model: room.remoteAliases
+
+                        currentIndex: room.remoteAliases.indexOf(room.canonicalAlias)
+                        onCurrentIndexChanged: {
+                            if (room.canonicalAlias != room.remoteAliases[currentIndex]) {
+                                room.setCanonicalAlias(room.remoteAliases[currentIndex])
+                            }
+                        }
+                    }
+                }
+
+                RowLayout {
+                    Layout.fillWidth: true
+
+                    Label {
+                        Layout.preferredWidth: 100
+                        Layout.alignment: Qt.AlignTop
+
+                        wrapMode: Label.Wrap
+                        text: "Local Aliases"
+                        color: MPalette.lighter
+                    }
+
+                    ColumnLayout {
+                        Layout.fillWidth: true
+
+                        spacing: 0
+
+                        Repeater {
+                            model: room.localAliases
+
+                            delegate: RowLayout {
+                                Layout.maximumWidth: parent.width
+
+                                Label {
+                                    text: modelData
+
+                                    font.pixelSize: 12
+                                    color: MPalette.lighter
+                                }
+
+                                MaterialIcon {
+                                    icon: "\ue5cd"
+
+                                    color: MPalette.lighter
+                                    font.pixelSize: 12
+
+                                    RippleEffect {
+                                        anchors.fill: parent
+
+                                        circular: true
+
+                                        onClicked: room.removeLocalAlias(modelData)
+                                    }
                                 }
                             }
                         }
                     }
                 }
-            }
 
-            RowLayout {
-                Layout.fillWidth: true
-
-                Label {
-                    Layout.preferredWidth: 100
-                    Layout.alignment: Qt.AlignTop
-
-                    wrapMode: Label.Wrap
-                    text: "Remote Aliases"
-                    color: MPalette.lighter
-                }
-
-                ColumnLayout {
+                RowLayout {
                     Layout.fillWidth: true
 
-                    spacing: 0
+                    Label {
+                        Layout.preferredWidth: 100
+                        Layout.alignment: Qt.AlignTop
 
-                    Repeater {
-                        model: {
-                            var localAliases = room.localAliases
-                            var remoteAliases = room.remoteAliases
-                            return remoteAliases.filter(n => !localAliases.includes(n))
-                        }
+                        wrapMode: Label.Wrap
+                        text: "Remote Aliases"
+                        color: MPalette.lighter
+                    }
 
-                        delegate: Label {
-                            width: parent.width
+                    ColumnLayout {
+                        Layout.fillWidth: true
 
-                            text: modelData
+                        spacing: 0
 
-                            font.pixelSize: 12
-                            color: MPalette.lighter
+                        Repeater {
+                            model: {
+                                var localAliases = room.localAliases
+                                var remoteAliases = room.remoteAliases
+                                return remoteAliases.filter(n => !localAliases.includes(n))
+                            }
+
+                            delegate: Label {
+                                width: parent.width
+
+                                text: modelData
+
+                                font.pixelSize: 12
+                                color: MPalette.lighter
+                            }
                         }
                     }
                 }

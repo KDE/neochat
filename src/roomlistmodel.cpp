@@ -106,6 +106,21 @@ void RoomListModel::connectRoomSignals(SpectralRoom* room) {
                     sender->displayname(), room->eventToString(*lastEvent),
                     room->avatar(128));
   });
+  connect(room, &Room::highlightCountChanged, this, [=] {
+    if (room->highlightCount() == 0)
+      return;
+    if (room->timelineSize() == 0)
+      return;
+    const RoomEvent* lastEvent = room->messageEvents().rbegin()->get();
+    if (lastEvent->isStateEvent())
+      return;
+    User* sender = room->user(lastEvent->senderId());
+    if (sender == room->localUser())
+      return;
+    emit newHighlight(room->id(), lastEvent->id(), room->displayName(),
+                    sender->displayname(), room->eventToString(*lastEvent),
+                    room->avatar(128));
+  });
   connect(room, &Room::notificationCountChanged, this,
           &RoomListModel::refreshNotificationCount);
 }

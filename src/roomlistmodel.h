@@ -89,6 +89,12 @@ class RoomListModel : public QAbstractListModel {
                   const QString& senderName,
                   const QString& text,
                   const QImage& icon);
+  void newHighlight(const QString& roomId,
+                  const QString& eventId,
+                  const QString& roomName,
+                  const QString& senderName,
+                  const QString& text,
+                  const QImage& icon);
 };
 
 #endif  // ROOMLISTMODEL_H
