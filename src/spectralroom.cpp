@@ -496,9 +496,9 @@ void SpectralRoom::postPlainMessage(const QString& text,
       {"body", "> <" + replyEvt.senderId() + "> " + eventToString(replyEvt) + "\n\n" + text},
       {"format", "org.matrix.custom.html"},
       {"m.relates_to",
-        {
+        QJsonObject {
           {"m.in_reply_to",
-            {
+            QJsonObject {
               {"event_id", replyEventId}
             }
           }
@@ -542,9 +542,9 @@ void SpectralRoom::postHtmlMessage(const QString& text,
       {"body", "> <" + replyEvt.senderId() + "> " + eventToString(replyEvt) + "\n\n" + text},
       {"format", "org.matrix.custom.html"},
       {"m.relates_to",
-        {
+        QJsonObject {
           {"m.in_reply_to",
-            {
+            QJsonObject {
               {"event_id", replyEventId}
             }
           }
