@@ -54,18 +54,18 @@ build-osx:
     - rm -rf olm
     - git clone https://gitlab.matrix.org/matrix-org/olm.git
     - pushd olm
-    - cmake . -Bbuild -LA -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=install -DCMAKE_PREFIX_PATH=/usr/local/Cellar/qt/5.13.2/ -DBUILD_SHARED_LIBS=NO
+    - cmake . -Bbuild -LA -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=install -DCMAKE_PREFIX_PATH=/usr/local/Cellar/qt/5.14.0/ -DBUILD_SHARED_LIBS=NO
     - cmake --build build --target install --parallel $(sysctl -n hw.ncpu)
     - popd
     - rm -rf qtkeychain
     - git clone https://github.com/frankosterfeld/qtkeychain.git
     - pushd qtkeychain
-    - cmake . -Bbuild -LA -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=install -DCMAKE_PREFIX_PATH=/usr/local/Cellar/qt/5.13.2/ -DQTKEYCHAIN_STATIC=ON
+    - cmake . -Bbuild -LA -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=install -DCMAKE_PREFIX_PATH=/usr/local/Cellar/qt/5.14.0/ -DQTKEYCHAIN_STATIC=ON
     - cmake --build build --target install --parallel $(sysctl -n hw.ncpu)
     - popd
-    - cmake . -Bbuild -LA -DUSE_INTREE_LIBQMC=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_PREFIX_PATH=/usr/local/Cellar/qt/5.13.2/ -DOlm_DIR="olm/install/lib/cmake/Olm" -DQt5Keychain_DIR="qtkeychain/install/lib/cmake/Qt5Keychain"
+    - cmake . -Bbuild -LA -DUSE_INTREE_LIBQMC=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_PREFIX_PATH=/usr/local/Cellar/qt/5.14.0/ -DOlm_DIR="olm/install/lib/cmake/Olm" -DQt5Keychain_DIR="qtkeychain/install/lib/cmake/Qt5Keychain"
     - cmake --build build --target all --parallel $(sysctl -n hw.ncpu)
-    - /usr/local/Cellar/qt/5.13.2/bin/macdeployqt build/spectral.app -dmg -qmldir=qml -qmldir=imports
+    - /usr/local/Cellar/qt/5.14.0/bin/macdeployqt build/spectral.app -dmg -qmldir=qml -qmldir=imports
     - mv build/spectral.dmg ./spectral.dmg
   artifacts:
     paths:
