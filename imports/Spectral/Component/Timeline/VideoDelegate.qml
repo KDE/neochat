@@ -163,7 +163,7 @@ RowLayout {
 
             contentItem: RowLayout {
                 Label {
-                    text: Qt.formatTime(time, "hh:mm AP")
+                    text: Qt.formatTime(time)
                     color: "white"
                     font.pixelSize: 12
                 }

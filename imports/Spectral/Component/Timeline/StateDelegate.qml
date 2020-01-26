@@ -68,7 +68,7 @@ Control {
             Layout.fillWidth: true
             Layout.maximumWidth: messageListView.width - authorControl.width - row.spacing - (root.padding * 2)
 
-            text: display + " • " + Qt.formatTime(time, "hh:mm AP")
+            text: display + " • " + Qt.formatTime(time)
             color: MPalette.foreground
             font.pixelSize: 13
             font.weight: Font.Medium
