@@ -148,7 +148,10 @@ QVariant PublicRoomListModel::data(const QModelIndex& index, int role) const {
       return displayName;
     }
 
-    displayName = room.aliases.front();
+    if (!room.aliases.isEmpty()) {
+      displayName = room.aliases.front();
+    }
+
     if (!displayName.isEmpty()) {
       return displayName;
     }
