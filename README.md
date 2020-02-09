@@ -11,6 +11,10 @@ Spectral is a glossy cross-platform client for Matrix, the decentralized communi
 ![Screenshot](https://gitlab.com/spectral-im/spectral/raw/master/screenshots/3.png)
 ![Screenshot](https://gitlab.com/spectral-im/spectral/raw/master/screenshots/4.png)
 
+## Packaging status
+
+* [Fedora](https://src.fedoraproject.org/rpms/spectral): `sudo dnf install spectral`
+
 ## Documentation
 
 Documentation for Spectral is located
