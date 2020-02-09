@@ -163,12 +163,14 @@ Item {
             anchors.horizontalCenter: parent.horizontalCenter
 
             text: "Welcome to Matrix, a new era of instant messaging."
+            wrapMode: Label.Wrap
         }
 
         Label {
             anchors.horizontalCenter: parent.horizontalCenter
 
             text: "To start chatting, select a room from the room list."
+            wrapMode: Label.Wrap
         }
     }
 
