@@ -253,6 +253,8 @@ Item {
 
                             if (messageListView.contentY < messageListView.originY + 10 || currentRoom.timelineSize < 20)
                                 currentRoom.getPreviousContent(50)
+
+                            messageListView.positionViewAtBeginning()
                         }
                     }
                 }

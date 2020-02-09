@@ -77,7 +77,7 @@ RowLayout {
         Layout.minimumHeight: 64
 
         Layout.preferredWidth: info.w > maxWidth ? maxWidth : info.w
-        Layout.preferredHeight: info.w > maxWidth ? (info.h / info.w * maxWidth) : info.h
+        Layout.preferredHeight: info.w > maxWidth ? (info.h * maxWidth / info.w) : info.h
 
         id: img
 

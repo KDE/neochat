@@ -168,7 +168,7 @@ ColumnLayout {
                             Layout.fillWidth: true
 
                             color: !sentByMe ? MPalette.foreground : "white"
-                            text: "<style>a{color: " + color + ";} .user-pill{}</style>" + (replyVisible ? reply.display : "")
+                            text: "<style>pre {white-space: pre-wrap} a{color: " + color + ";} .user-pill{}</style>" + (replyVisible ? reply.display : "")
 
                             font.family: window.font.family
                             selectByMouse: true
@@ -202,7 +202,7 @@ ColumnLayout {
 
                     id: contentLabel
 
-                    text: "<style>a{color: " + color + ";} .user-pill{}</style>" + display
+                    text: "<style>pre {white-space: pre-wrap} a{color: " + color + ";} .user-pill{}</style>" + display
 
                     color: darkBackground ? "white" : MPalette.foreground
 
