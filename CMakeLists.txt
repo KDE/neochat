@@ -86,6 +86,8 @@ if (NOT USE_INTREE_LIBQMC)
     endif ()
 endif ()
 
+find_package(KF5Kirigami2 REQUIRED)
+
 find_package(Qt5Keychain REQUIRED)
 
 find_package(cmark REQUIRED)
@@ -209,6 +211,7 @@ add_executable(${PROJECT_NAME} WIN32 MACOSX_BUNDLE
 
 target_link_libraries(${PROJECT_NAME}
     Qt5::Widgets Qt5::Quick Qt5::Qml Qt5::Gui Qt5::Network Qt5::Svg Qt5::QuickControls2
+    KF5::Kirigami2
     Quotient
     cmark::cmark
     ${QTKEYCHAIN_LIBRARIES}

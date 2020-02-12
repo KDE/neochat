@@ -34,7 +34,6 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const {
   roles[UserMarkerRole] = "userMarker";
   roles[ShowAuthorRole] = "showAuthor";
   roles[ShowSectionRole] = "showSection";
-  roles[BubbleShapeRole] = "bubbleShape";
   roles[ReactionRole] = "reaction";
   return roles;
 }
@@ -83,7 +82,7 @@ void MessageEventModel::setRoom(SpectralRoom* room) {
                 auto rowBelowInserted = m_currentRoom->maxTimelineIndex() -
                                         biggest + timelineBaseIndex() - 1;
                 refreshEventRoles(rowBelowInserted,
-                                  {ShowAuthorRole, BubbleShapeRole});
+                                  {ShowAuthorRole});
               }
               for (auto i = m_currentRoom->maxTimelineIndex() - biggest;
                    i <= m_currentRoom->maxTimelineIndex() - lowest; ++i)
@@ -91,10 +90,7 @@ void MessageEventModel::setRoom(SpectralRoom* room) {
             });
     connect(m_currentRoom, &Room::pendingEventAboutToAdd, this,
             [this] { beginInsertRows({}, 0, 0); });
-    connect(m_currentRoom, &Room::pendingEventAdded, this, [=] {
-      endInsertRows();
-      refreshEventRoles(1, {ShowAuthorRole, BubbleShapeRole});
-    });
+    connect(m_currentRoom, &Room::pendingEventAdded, this, &MessageEventModel::endInsertRows);
     connect(m_currentRoom, &Room::pendingEventAboutToMerge, this,
             [this](RoomEvent*, int i) {
               if (i == 0)
@@ -116,7 +112,7 @@ void MessageEventModel::setRoom(SpectralRoom* room) {
         refreshEventRoles(timelineBaseIndex() + 1, {ReadMarkerRole});
       if (timelineBaseIndex() > 0)  // Refresh below, see #312
         refreshEventRoles(timelineBaseIndex() - 1,
-                          {ShowAuthorRole, BubbleShapeRole});
+                          {ShowAuthorRole});
     });
     connect(m_currentRoom, &Room::pendingEventChanged, this,
             &MessageEventModel::refreshRow);
@@ -463,7 +459,7 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
   }
 
   if (role == ShowAuthorRole) {
-    for (auto r = row - 1; r >= 0; --r) {
+    for (auto r = row + 1; r < 0; ++r) {
       auto i = index(r);
       if (data(i, SpecialMarksRole) != EventStatus::Hidden) {
         return data(i, AuthorRole) != data(idx, AuthorRole) ||
@@ -488,34 +484,6 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
     }
 
     return true;
-  }
-
-  if (role == BubbleShapeRole) {  // TODO: Convoluted logic.
-    int aboveRow = -1;            // Invalid
-
-    for (auto r = row + 1; r < rowCount(); ++r) {
-      auto i = index(r);
-      if (data(i, SpecialMarksRole) != EventStatus::Hidden) {
-        aboveRow = r;
-        break;
-      }
-    }
-
-    bool aboveShow, belowShow;
-    if (aboveRow == -1) {
-      aboveShow = true;
-    } else {
-      aboveShow = data(index(aboveRow), ShowAuthorRole).toBool();
-    }
-    belowShow = data(idx, ShowAuthorRole).toBool();
-
-    if (aboveShow && belowShow)
-      return BubbleShapes::NoShape;
-    if (aboveShow && !belowShow)
-      return BubbleShapes::BeginShape;
-    if (belowShow)
-      return BubbleShapes::EndShape;
-    return BubbleShapes::MiddleShape;
   }
 
   if (role == ReactionRole) {

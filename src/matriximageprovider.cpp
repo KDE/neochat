@@ -21,6 +21,9 @@ ThumbnailResponse::ThumbnailResponse(Quotient::Connection* c,
                          QString::number(requestedSize.width()),
                          QString::number(requestedSize.height()))),
       errorStr("Image request hasn't started") {
+  if (!c) {
+    return;
+  }
   if (requestedSize.isEmpty()) {
     errorStr.clear();
     emit finished();

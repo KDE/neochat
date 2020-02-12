@@ -244,7 +244,7 @@ QString SpectralRoom::eventToString(const RoomEvent& evt,
           if (removeReply) {
             htmlBody.remove(utils::removeRichReplyRegex);
           }
-          htmlBody.replace(utils::userPillRegExp, "<b>\\1</b>");
+          htmlBody.replace(utils::userPillRegExp, "<b class=\"user-pill\">\\1</b>");
           htmlBody.replace(utils::strikethroughRegExp, "<s>\\1</s>");
 
           return htmlBody;

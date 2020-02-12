@@ -14,185 +14,130 @@ import Spectral.Menu.Timeline 2.0
 import Spectral.Effect 2.0
 import Spectral.Font 0.1
 
-RowLayout {
-    readonly property bool avatarVisible: showAuthor && !sentByMe
-    readonly property bool sentByMe: author.isLocalUser
+Image {
     readonly property bool isAnimated: contentType === "image/gif"
 
     property bool openOnFinished: false
     readonly property bool downloaded: progressInfo && progressInfo.completed
 
-    id: root
+    readonly property bool isThumbnail: !(content.info.thumbnail_info == null || content.thumbnailMediaId == null)
+    //    readonly property var info: isThumbnail ? content.info.thumbnail_info : content.info
+    readonly property var info: content.info
+    readonly property string mediaId: isThumbnail ? content.thumbnailMediaId : content.mediaId
 
-    spacing: 4
+    id: img
 
-    z: -5
+    source: "image://mxc/" + mediaId
 
-    onDownloadedChanged: {
-        if (downloaded && openOnFinished) {
-            openSavedFile()
-            openOnFinished = false
+    sourceSize.width: info.w
+    sourceSize.height: info.h
+
+    fillMode: Image.PreserveAspectCrop
+
+    layer.enabled: true
+    layer.effect: OpacityMask {
+        maskSource: Rectangle {
+            width: img.width
+            height: img.height
+            radius: 18
         }
     }
 
-    Avatar {        
-        Layout.preferredWidth: 36
-        Layout.preferredHeight: 36
-        Layout.alignment: Qt.AlignBottom
+    Control {
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 8
+        anchors.right: parent.right
+        anchors.rightMargin: 8
 
-        visible: avatarVisible
-        hint: author.displayName
-        source: author.avatarMediaId
-        color: author.color
+        horizontalPadding: 8
+        verticalPadding: 4
+
+        contentItem: RowLayout {
+            Label {
+                text: Qt.formatTime(time)
+                color: "white"
+                font.pixelSize: 12
+            }
+
+            Label {
+                text: author.displayName
+                color: "white"
+                font.pixelSize: 12
+            }
+        }
+
+        background: Rectangle {
+            radius: height / 2
+            color: "black"
+            opacity: 0.3
+        }
+    }
+
+    Rectangle {
+        anchors.fill: parent
+
+        visible: progressInfo.active && !downloaded
+
+        color: "#BB000000"
+
+        ProgressBar {
+            anchors.centerIn: parent
+
+            width: parent.width * 0.8
+
+            from: 0
+            to: progressInfo.total
+            value: progressInfo.progress
+        }
+    }
+
+    RippleEffect {
+        anchors.fill: parent
+
+        id: messageMouseArea
+
+        onPrimaryClicked: fullScreenImage.createObject(parent, {"filename": eventId, "localPath": currentRoom.urlToDownload(eventId)}).showFullScreen()
+
+        onSecondaryClicked: {
+            var contextMenu = imageDelegateContextMenu.createObject(root)
+            contextMenu.viewSource.connect(function() {
+                messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
+            })
+            contextMenu.downloadAndOpen.connect(downloadAndOpen)
+            contextMenu.saveFileAs.connect(saveFileAs)
+            contextMenu.reply.connect(function() {
+                roomPanelInput.replyModel = Object.assign({}, model)
+                roomPanelInput.isReply = true
+                roomPanelInput.focus()
+            })
+            contextMenu.redact.connect(function() {
+                currentRoom.redactEvent(eventId)
+            })
+            contextMenu.popup()
+        }
 
         Component {
-            id: userDetailDialog
+            id: messageSourceDialog
 
-            UserDetailDialog {}
+            MessageSourceDialog {}
         }
 
-        RippleEffect {
-            anchors.fill: parent
+        Component {
+            id: openFolderDialog
 
-            circular: true
-
-            onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": author.object, "displayName": author.displayName, "avatarMediaId": author.avatarMediaId, "avatarUrl": author.avatarUrl}).open()
-        }
-    }
-
-    Item {
-        Layout.preferredWidth: 36
-        Layout.preferredHeight: 36
-
-        visible: !(sentByMe || avatarVisible)
-    }
-
-    Image {
-        readonly property bool isThumbnail: !(content.info.thumbnail_info == null || content.thumbnailMediaId == null)
-        readonly property var info: isThumbnail ? content.info.thumbnail_info : content.info
-        readonly property string mediaId: isThumbnail ? content.thumbnailMediaId : content.mediaId
-        readonly property int maxWidth: messageListView.width - (!sentByMe ? 36 + root.spacing : 0) - 48
-
-        Layout.minimumWidth: 256
-        Layout.minimumHeight: 64
-
-        Layout.preferredWidth: info.w > maxWidth ? maxWidth : info.w
-        Layout.preferredHeight: info.w > maxWidth ? (info.h * maxWidth / info.w) : info.h
-
-        id: img
-
-        source: "image://mxc/" + mediaId
-
-        sourceSize.width: info.w
-        sourceSize.height: info.h
-
-        fillMode: Image.PreserveAspectCrop
-
-        layer.enabled: true
-        layer.effect: OpacityMask {
-            maskSource: Rectangle {
-                width: img.width
-                height: img.height
-                radius: 18
-            }
+            OpenFolderDialog {}
         }
 
-        Control {
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: 8
-            anchors.right: parent.right
-            anchors.rightMargin: 8
+        Component {
+            id: imageDelegateContextMenu
 
-            horizontalPadding: 8
-            verticalPadding: 4
-
-            contentItem: RowLayout {
-                Label {
-                    text: Qt.formatTime(time)
-                    color: "white"
-                    font.pixelSize: 12
-                }
-
-                Label {
-                    text: author.displayName
-                    color: "white"
-                    font.pixelSize: 12
-                }
-            }
-
-            background: Rectangle {
-                radius: height / 2
-                color: "black"
-                opacity: 0.3
-            }
+            FileDelegateContextMenu {}
         }
 
-        Rectangle {
-            anchors.fill: parent
+        Component {
+            id: fullScreenImage
 
-            visible: progressInfo.active && !downloaded
-
-            color: "#BB000000"
-
-            ProgressBar {
-                anchors.centerIn: parent
-
-                width: parent.width * 0.8
-
-                from: 0
-                to: progressInfo.total
-                value: progressInfo.progress
-            }
-        }
-
-        RippleEffect {
-            anchors.fill: parent
-
-            id: messageMouseArea
-
-            onPrimaryClicked: fullScreenImage.createObject(parent, {"filename": eventId, "localPath": currentRoom.urlToDownload(eventId)}).showFullScreen()
-
-            onSecondaryClicked: {
-                var contextMenu = imageDelegateContextMenu.createObject(root)
-                contextMenu.viewSource.connect(function() {
-                    messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
-                })
-                contextMenu.downloadAndOpen.connect(downloadAndOpen)
-                contextMenu.saveFileAs.connect(saveFileAs)
-                contextMenu.reply.connect(function() {
-                    roomPanelInput.replyModel = Object.assign({}, model)
-                    roomPanelInput.isReply = true
-                    roomPanelInput.focus()
-                })
-                contextMenu.redact.connect(function() {
-                    currentRoom.redactEvent(eventId)
-                })
-                contextMenu.popup()
-            }
-
-            Component {
-                id: messageSourceDialog
-
-                MessageSourceDialog {}
-            }
-
-            Component {
-                id: openFolderDialog
-
-                OpenFolderDialog {}
-            }
-
-            Component {
-                id: imageDelegateContextMenu
-
-                FileDelegateContextMenu {}
-            }
-
-            Component {
-                id: fullScreenImage
-
-                FullScreenImage {}
-            }
+            FullScreenImage {}
         }
     }
 
