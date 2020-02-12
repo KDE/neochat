@@ -10,12 +10,14 @@ Controls.ItemDelegate {
     horizontalPadding: Kirigami.Units.largeSpacing
     verticalPadding: Kirigami.Units.smallSpacing
 
-    contentItem: Column {
+    contentItem: ColumnLayout {
         id: column
 
         SectionDelegate {
-            anchors.horizontalCenter: parent.horizontalCenter
-            width: Math.min(implicitWidth, parent.width)
+            //            anchors.horizontalCenter: parent.horizontalCenter
+            //            width: Math.min(implicitWidth, parent.width)
+            Layout.maximumWidth: parent.width
+            Layout.alignment: Qt.AlignHCenter
 
             visible: showSection
         }

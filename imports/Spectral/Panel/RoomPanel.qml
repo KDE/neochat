@@ -65,38 +65,38 @@ Kirigami.ScrollablePage {
                 currentRoom.getPreviousContent(20);
         }
 
-//        populate: Transition {
-//            NumberAnimation {
-//                property: "opacity"; from: 0; to: 1
-//                duration: 200
-//            }
-//        }
+        //        populate: Transition {
+        //            NumberAnimation {
+        //                property: "opacity"; from: 0; to: 1
+        //                duration: 200
+        //            }
+        //        }
 
-//        add: Transition {
-//            NumberAnimation {
-//                property: "opacity"; from: 0; to: 1
-//                duration: 200
-//            }
-//        }
+        //        add: Transition {
+        //            NumberAnimation {
+        //                property: "opacity"; from: 0; to: 1
+        //                duration: 200
+        //            }
+        //        }
 
-//        move: Transition {
-//            NumberAnimation {
-//                property: "y"; duration: 200
-//            }
-//            NumberAnimation {
-//                property: "opacity"; to: 1
-//            }
-//        }
+        //        move: Transition {
+        //            NumberAnimation {
+        //                property: "y"; duration: 200
+        //            }
+        //            NumberAnimation {
+        //                property: "opacity"; to: 1
+        //            }
+        //        }
 
-//        displaced: Transition {
-//            NumberAnimation {
-//                property: "y"; duration: 200
-//                easing.type: Easing.OutQuad
-//            }
-//            NumberAnimation {
-//                property: "opacity"; to: 1
-//            }
-//        }
+        //        displaced: Transition {
+        //            NumberAnimation {
+        //                property: "y"; duration: 200
+        //                easing.type: Easing.OutQuad
+        //            }
+        //            NumberAnimation {
+        //                property: "opacity"; to: 1
+        //            }
+        //        }
 
         delegate: DelegateChooser {
             role: "eventType"
@@ -104,28 +104,34 @@ Kirigami.ScrollablePage {
             DelegateChoice {
                 roleValue: "state"
                 delegate: TimelineContainer {
-                    width: page.width
+                    width: messageListView.width
 
-                    StateDelegate {}
+                    innerObject: StateDelegate {
+                        Layout.maximumWidth: parent.width
+                        Layout.alignment: Qt.AlignHCenter
+                    }
                 }
             }
 
             DelegateChoice {
                 roleValue: "emote"
                 delegate: TimelineContainer {
-                    width: page.width
+                    width: messageListView.width
 
-                    innerObject: StateDelegate {}
+                    innerObject: StateDelegate {
+                        Layout.maximumWidth: parent.width
+                        Layout.alignment: Qt.AlignHCenter
+                    }
                 }
             }
 
             DelegateChoice {
                 roleValue: "message"
                 delegate: TimelineContainer {
-                    width: page.width
+                    width: messageListView.width
 
                     innerObject: MessageDelegate {
-                        width: parent.width
+                        Layout.fillWidth: true
 
                         innerObject: TextDelegate {
                             Layout.fillWidth: true
@@ -137,10 +143,10 @@ Kirigami.ScrollablePage {
             DelegateChoice {
                 roleValue: "notice"
                 delegate: TimelineContainer {
-                    width: page.width
+                    width: messageListView.width
 
                     innerObject: MessageDelegate {
-                        width: parent.width
+                        Layout.fillWidth: true
 
                         innerObject: TextDelegate {
                             Layout.fillWidth: true
@@ -152,10 +158,10 @@ Kirigami.ScrollablePage {
             DelegateChoice {
                 roleValue: "image"
                 delegate: TimelineContainer {
-                    width: page.width
+                    width: messageListView.width
 
                     innerObject: MessageDelegate {
-                        width: parent.width
+                        Layout.fillWidth: true
 
                         innerObject: ImageDelegate {
                             Layout.fillWidth: true
@@ -168,10 +174,10 @@ Kirigami.ScrollablePage {
             DelegateChoice {
                 roleValue: "audio"
                 delegate: TimelineContainer {
-                    width: page.width
+                    width: messageListView.width
 
                     innerObject: MessageDelegate {
-                        width: parent.width
+                        Layout.fillWidth: true
 
                         innerObject: AudioDelegate {
                             Layout.fillWidth: true
@@ -183,10 +189,10 @@ Kirigami.ScrollablePage {
             DelegateChoice {
                 roleValue: "video"
                 delegate: TimelineContainer {
-                    width: page.width
+                    width: messageListView.width
 
                     innerObject: MessageDelegate {
-                        width: parent.width
+                        Layout.fillWidth: true
 
                         innerObject: AudioDelegate {
                             Layout.fillWidth: true
@@ -198,10 +204,10 @@ Kirigami.ScrollablePage {
             DelegateChoice {
                 roleValue: "file"
                 delegate: TimelineContainer {
-                    width: page.width
+                    width: messageListView.width
 
                     innerObject: MessageDelegate {
-                        width: parent.width
+                        Layout.fillWidth: true
 
                         innerObject: FileDelegate {
                             Layout.fillWidth: true

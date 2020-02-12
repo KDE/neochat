@@ -459,7 +459,7 @@ QVariant MessageEventModel::data(const QModelIndex& idx, int role) const {
   }
 
   if (role == ShowAuthorRole) {
-    for (auto r = row + 1; r < 0; ++r) {
+    for (auto r = row + 1; r < rowCount(); ++r) {
       auto i = index(r);
       if (data(i, SpecialMarksRole) != EventStatus::Hidden) {
         return data(i, AuthorRole) != data(idx, AuthorRole) ||
