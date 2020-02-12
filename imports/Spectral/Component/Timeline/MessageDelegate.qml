@@ -90,7 +90,7 @@ RowLayout {
                 }
 
                 TextEdit {
-                    Layout.fillWidth: true
+                    Layout.maximumWidth: parent.width
 
                     text: "<style>pre {white-space: pre-wrap} a{color: " + color + ";} .user-pill{}</style>" + (replyVisible ? reply.display : "")
 

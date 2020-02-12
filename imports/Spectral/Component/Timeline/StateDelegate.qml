@@ -43,7 +43,7 @@ RowLayout {
     }
 
     Label {
-        text: model.display
+        text: display
         color: MPalette.foreground
         font.pixelSize: 13
         font.weight: Font.Medium

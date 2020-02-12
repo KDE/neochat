@@ -16,7 +16,7 @@ Kirigami.ScrollablePage {
     signal enterRoom(var room)
     signal leaveRoom(var room)
 
-    title: "Spectral"
+    title: "Rooms"
     actions {
         main: Kirigami.Action {
             iconName: "document-edit"

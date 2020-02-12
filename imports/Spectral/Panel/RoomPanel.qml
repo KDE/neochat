@@ -164,8 +164,8 @@ Kirigami.ScrollablePage {
                         Layout.fillWidth: true
 
                         innerObject: ImageDelegate {
-                            Layout.fillWidth: true
-                            Layout.preferredHeight: info.h
+                            Layout.preferredWidth: Math.min(320, info.w)
+                            Layout.preferredHeight: Math.min(320, info.h)
                         }
                     }
                 }
