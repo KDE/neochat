@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.12
 
 import org.kde.kirigami 2.4 as Kirigami
 
-Controls.Control {
+Controls.ItemDelegate {
     default property alias innerObject : column.children
 
     horizontalPadding: Kirigami.Units.largeSpacing
