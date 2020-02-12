@@ -31,9 +31,23 @@ Kirigami.ScrollablePage {
         room: currentRoom
     }
 
+    SortFilterProxyModel {
+        id: sortedMessageEventModel
+
+        sourceModel: messageEventModel
+
+        filters: [
+            ExpressionFilter {
+                expression: marks !== 0x10 && eventType !== "other"
+            }
+        ]
+    }
+
     ListView {
         readonly property int largestVisibleIndex: count > 0 ? indexAt(contentX + (width / 2), contentY + height - 1) : -1
         readonly property bool noNeedMoreContent: !currentRoom || currentRoom.eventsHistoryJob || currentRoom.allHistoryLoaded
+
+        readonly property bool isLoaded: page.width * page.height > 10
 
         id: messageListView
 
@@ -44,62 +58,45 @@ Kirigami.ScrollablePage {
         verticalLayoutDirection: ListView.BottomToTop
         highlightMoveDuration: 500
 
-        model: SortFilterProxyModel {
-            id: sortedMessageEventModel
-
-            sourceModel: messageEventModel
-
-            filters: [
-                ExpressionFilter {
-                    expression: marks !== 0x10 && eventType !== "other"
-                }
-            ]
-
-            onModelReset: {
-                if (currentRoom) {
-                    if (currentRoom.timelineSize < 20)
-                        currentRoom.getPreviousContent(50)
-                }
-            }
-        }
+        model: !isLoaded ? undefined : sortedMessageEventModel
 
         onContentYChanged: {
             if(!noNeedMoreContent && contentY  - 5000 < originY)
                 currentRoom.getPreviousContent(20);
         }
 
-        populate: Transition {
-            NumberAnimation {
-                property: "opacity"; from: 0; to: 1
-                duration: 200
-            }
-        }
+//        populate: Transition {
+//            NumberAnimation {
+//                property: "opacity"; from: 0; to: 1
+//                duration: 200
+//            }
+//        }
 
-        add: Transition {
-            NumberAnimation {
-                property: "opacity"; from: 0; to: 1
-                duration: 200
-            }
-        }
+//        add: Transition {
+//            NumberAnimation {
+//                property: "opacity"; from: 0; to: 1
+//                duration: 200
+//            }
+//        }
 
-        move: Transition {
-            NumberAnimation {
-                property: "y"; duration: 200
-            }
-            NumberAnimation {
-                property: "opacity"; to: 1
-            }
-        }
+//        move: Transition {
+//            NumberAnimation {
+//                property: "y"; duration: 200
+//            }
+//            NumberAnimation {
+//                property: "opacity"; to: 1
+//            }
+//        }
 
-        displaced: Transition {
-            NumberAnimation {
-                property: "y"; duration: 200
-                easing.type: Easing.OutQuad
-            }
-            NumberAnimation {
-                property: "opacity"; to: 1
-            }
-        }
+//        displaced: Transition {
+//            NumberAnimation {
+//                property: "y"; duration: 200
+//                easing.type: Easing.OutQuad
+//            }
+//            NumberAnimation {
+//                property: "opacity"; to: 1
+//            }
+//        }
 
         delegate: DelegateChooser {
             role: "eventType"
@@ -217,6 +214,15 @@ Kirigami.ScrollablePage {
                 roleValue: "other"
                 delegate: Item {}
             }
+        }
+
+        Component.onCompleted: {
+            if (currentRoom) {
+                if (currentRoom.timelineSize < 20)
+                    currentRoom.getPreviousContent(50)
+            }
+
+            positionViewAtBeginning()
         }
     }
 
