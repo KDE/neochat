@@ -22,6 +22,7 @@
 #include "events/roommessageevent.h"
 #include "events/typingevent.h"
 #include "events/roompowerlevelsevent.h"
+#include "events/roomcanonicalaliasevent.h"
 #include "jobs/downloadfilejob.h"
 #include "user.h"
 #include "utils.h"
@@ -350,10 +351,6 @@ QString SpectralRoom::eventToString(const RoomEvent& evt,
           default:;
         }
         return tr("made something unknown");
-      },
-      [](const RoomAliasesEvent& e) {
-        return tr("has set room aliases on server %1 to: %2")
-            .arg(e.stateKey(), QLocale().createSeparatedList(e.aliases()));
       },
       [](const RoomCanonicalAliasEvent& e) {
         return (e.alias().isEmpty())
