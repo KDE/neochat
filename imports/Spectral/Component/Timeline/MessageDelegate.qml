@@ -90,7 +90,7 @@ RowLayout {
                 }
 
                 TextEdit {
-                    Layout.maximumWidth: parent.width
+                    Layout.fillWidth: true
 
                     text: "<style>pre {white-space: pre-wrap} a{color: " + color + ";} .user-pill{}</style>" + (replyVisible ? reply.display : "")
 
@@ -100,7 +100,7 @@ RowLayout {
 
                     selectByMouse: true
                     readOnly: true
-                    wrapMode: Text.Wrap
+                    wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                     textFormat: Text.RichText
                 }
             }

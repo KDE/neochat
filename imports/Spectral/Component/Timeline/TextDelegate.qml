@@ -16,7 +16,7 @@ TextEdit {
 
     selectByMouse: true
     readOnly: true
-    wrapMode: Text.Wrap
+    wrapMode: Text.WrapAtWordBoundaryOrAnywhere
     textFormat: Text.RichText
 }
 

@@ -21,9 +21,6 @@ ThumbnailResponse::ThumbnailResponse(Quotient::Connection* c,
                          QString::number(requestedSize.width()),
                          QString::number(requestedSize.height()))),
       errorStr("Image request hasn't started") {
-  if (!c) {
-    return;
-  }
   if (requestedSize.isEmpty()) {
     errorStr.clear();
     emit finished();
@@ -41,6 +38,11 @@ ThumbnailResponse::ThumbnailResponse(Quotient::Connection* c,
     image = cachedImage;
     errorStr.clear();
     emit finished();
+    return;
+  }
+
+  if (!c) {
+    qWarning() << "Current connection is null";
     return;
   }
 
@@ -114,5 +116,5 @@ void ThumbnailResponse::cancel() {
 QQuickImageResponse* MatrixImageProvider::requestImageResponse(
     const QString& id,
     const QSize& requestedSize) {
-  return new ThumbnailResponse(m_connection.load(), id, requestedSize);
+  return new ThumbnailResponse(m_connection.loadRelaxed(), id, requestedSize);
 }
