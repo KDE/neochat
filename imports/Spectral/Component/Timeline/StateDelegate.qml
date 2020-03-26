@@ -43,6 +43,8 @@ RowLayout {
     }
 
     Label {
+        Layout.fillWidth: true
+
         text: display
         color: MPalette.foreground
         font.pixelSize: 13
