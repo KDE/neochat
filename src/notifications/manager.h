@@ -27,6 +27,7 @@ class NotificationsManager : public QObject {
  private:
 #if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
   QDBusInterface dbus;
+  bool serverSupportsHtml = false;
   uint showNotification(const QString summary,
                         const QString text,
                         const QImage image);
