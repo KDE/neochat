@@ -56,6 +56,7 @@ uint NotificationsManager::showNotification(const QString summary,
 
   QVariantMap hints;
   hints["image-data"] = croppedImage;
+  hints["desktop-entry"] = "org.eu.encom.spectral";
   QList<QVariant> argumentList;
   argumentList << "Spectral";                           // app_name
   argumentList << uint(0);                              // replace_id
