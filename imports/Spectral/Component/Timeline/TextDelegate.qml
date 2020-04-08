@@ -2,7 +2,7 @@ import QtQuick 2.12
 
 import org.kde.kirigami 2.4 as Kirigami
 
-TextEdit {
+Text {
     text: "<style>pre {white-space: pre-wrap} a{color: " + Kirigami.Theme.linkColor + ";} .user-pill{}</style>" + display
 
     font {
@@ -11,11 +11,11 @@ TextEdit {
     }
 
     color: Kirigami.Theme.textColor
-    selectionColor: Kirigami.Theme.highlightColor
-    selectedTextColor: Kirigami.Theme.highlightedTextColor
+//    selectionColor: Kirigami.Theme.highlightColor
+//    selectedTextColor: Kirigami.Theme.highlightedTextColor
 
-    selectByMouse: true
-    readOnly: true
+//    selectByMouse: true
+//    readOnly: true
     wrapMode: Text.WrapAtWordBoundaryOrAnywhere
     textFormat: Text.RichText
 }

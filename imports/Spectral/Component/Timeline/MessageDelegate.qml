@@ -89,17 +89,17 @@ RowLayout {
                     wrapMode: Text.Wrap
                 }
 
-                TextEdit {
+                Text {
                     Layout.fillWidth: true
 
                     text: "<style>pre {white-space: pre-wrap} a{color: " + color + ";} .user-pill{}</style>" + (replyVisible ? reply.display : "")
 
                     color: Kirigami.Theme.textColor
-                    selectionColor: Kirigami.Theme.highlightColor
-                    selectedTextColor: Kirigami.Theme.highlightedTextColor
+//                    selectionColor: Kirigami.Theme.highlightColor
+//                    selectedTextColor: Kirigami.Theme.highlightedTextColor
 
-                    selectByMouse: true
-                    readOnly: true
+//                    selectByMouse: true
+//                    readOnly: true
                     wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                     textFormat: Text.RichText
                 }
