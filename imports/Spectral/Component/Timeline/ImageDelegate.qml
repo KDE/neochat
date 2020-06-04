@@ -68,7 +68,7 @@ RowLayout {
     }
 
     Image {
-        readonly property bool isThumbnail: !(content.info.thumbnail_info == null || content.thumbnailMediaId == null)
+        readonly property bool isThumbnail: content.info.thumbnail_info && content.thumbnailMediaId
         readonly property var info: isThumbnail ? content.info.thumbnail_info : content.info
         readonly property string mediaId: isThumbnail ? content.thumbnailMediaId : content.mediaId
         readonly property int maxWidth: messageListView.width - (!sentByMe ? 36 + root.spacing : 0) - 48

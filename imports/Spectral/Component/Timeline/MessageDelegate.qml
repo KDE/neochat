@@ -15,9 +15,9 @@ ColumnLayout {
     readonly property bool avatarVisible: !sentByMe && showAuthor
     readonly property bool sentByMe: author.isLocalUser
     readonly property bool darkBackground: !sentByMe
-    readonly property bool replyVisible: reply || false
-    readonly property bool failed: marks === EventStatus.SendingFailed
-    readonly property color authorColor: eventType === "notice" ? MPalette.primary : author.color
+    readonly property bool replyVisible: reply ?? false
+    readonly property bool failed: marks == EventStatus.SendingFailed
+    readonly property color authorColor: eventType == "notice" ? MPalette.primary : author.color
     readonly property color replyAuthorColor: replyVisible ? reply.author.color : MPalette.accent
 
     signal saveFileAs()

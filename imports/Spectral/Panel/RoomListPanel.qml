@@ -224,7 +224,7 @@ Item {
                         Layout.fillHeight: true
 
                         source: avatar
-                        hint: name || "No Name"
+                        hint: name ?? ""
                     }
 
                     ColumnLayout {
@@ -236,7 +236,7 @@ Item {
                             Layout.fillWidth: true
                             Layout.fillHeight: true
 
-                            text: name || "No Name"
+                            text: name ?? ""
                             color: MPalette.foreground
                             font.pixelSize: 16
                             font.bold: unreadCount >= 0
