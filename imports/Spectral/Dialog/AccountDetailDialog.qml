@@ -39,7 +39,7 @@ Dialog {
                 height: 48
 
                 source: user.avatarMediaId
-                hint: user.displayName || "No Name"
+                hint: user.displayName ?? ""
 
                 Menu {
                     id: contextMenu

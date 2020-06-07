@@ -130,9 +130,9 @@ Control {
             keyNavigationWraps: true
 
             delegate: Control {
-                property string autoCompleteText: modelData.displayName || modelData.unicode
+                property string autoCompleteText: modelData.displayName ?? modelData.unicode
                 property bool isEmoji: modelData.unicode != null
-                readonly property bool highlighted: autoCompleteListView.currentIndex === index
+                readonly property bool highlighted: autoCompleteListView.currentIndex == index
 
                 height: 36
                 padding: 6
@@ -140,7 +140,7 @@ Control {
                 background: Rectangle {
                     visible: !isEmoji
                     color: highlighted ? border.color : "transparent"
-                    border.color: isEmoji ? Material.accent : modelData.color
+                    border.color: isEmoji ? MPalette.accent : modelData.color
                     border.width: 2
                     radius: height / 2
                 }
@@ -164,7 +164,7 @@ Control {
                         Layout.preferredHeight: 24
 
                         visible: !isEmoji
-                        source: modelData.avatarMediaId || null
+                        source: modelData.avatarMediaId ?? null
                         color: modelData.color ? Qt.darker(modelData.color, 1.1) : MPalette.accent
                     }
 

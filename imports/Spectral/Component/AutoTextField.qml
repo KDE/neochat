@@ -26,7 +26,7 @@ TextField {
             states: [
                 State {
                     name: "shown"
-                    when: textField.text.length !== 0 || textField.activeFocus
+                    when: textField.text.length != 0 || textField.activeFocus
                     PropertyChanges { target: floatingPlaceholder; scale: 0.8 }
                     PropertyChanges { target: floatingPlaceholder; anchors.topMargin: -floatingPlaceholder.height * 0.4 }
                 }

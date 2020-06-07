@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.12
 import Spectral.Setting 0.1
 
 Flow {
-    visible: (reaction && reaction.length > 0) || false
+    visible: (reaction && reaction.length > 0) ?? false
 
     spacing: 8
 
