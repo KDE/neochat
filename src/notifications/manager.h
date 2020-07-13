@@ -6,7 +6,7 @@
 #include <QString>
 #include <QUrl>
 
-#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
+#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD) || defined(Q_OS_OPENBSD)
 #include <QtDBus/QDBusArgument>
 #include <QtDBus/QDBusInterface>
 #endif
@@ -25,7 +25,7 @@ class NotificationsManager : public QObject {
   void notificationClicked(const QString roomId, const QString eventId);
 
  private:
-#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
+#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD) || defined(Q_OS_OPENBSD)
   QDBusInterface dbus;
   bool serverSupportsHtml = false;
   uint showNotification(const QString summary,
@@ -50,7 +50,7 @@ class NotificationsManager : public QObject {
                         const QImage& icon);
 };
 
-#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
+#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD) || defined(Q_OS_OPENBSD)
 QDBusArgument& operator<<(QDBusArgument& arg, const QImage& image);
 const QDBusArgument& operator>>(const QDBusArgument& arg, QImage&);
 #endif
