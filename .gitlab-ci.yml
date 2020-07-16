@@ -19,7 +19,7 @@ build-appimage:
     - sudo cmake --build build --target install
     - cd ..
     - git clone https://github.com/commonmark/cmark.git && cd cmark
-    - git checkout tags/0.29.0
+    - git reset --hard tags/0.29.0
     - cmake . -Bbuild -LA -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=install -DCMARK_SHARED=ON -DCMARK_STATIC=ON -DCMARK_TESTS=OFF
     - cmake --build build --target install --parallel $(nproc)
     - cd ..
