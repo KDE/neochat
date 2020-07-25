@@ -110,15 +110,14 @@ void PublicRoomListModel::next(int count) {
     attempted = true;
 
     if (job->status() == BaseJob::Success) {
-      auto resp = job->data();
-      nextBatch = resp.nextBatch;
+      nextBatch = job->nextBatch();
 
       this->beginInsertRows({}, rooms.count(),
-                            rooms.count() + resp.chunk.count() - 1);
-      rooms.append(resp.chunk);
+                            rooms.count() + job->chunk().count() - 1);
+      rooms.append(job->chunk());
       this->endInsertRows();
 
-      if (resp.nextBatch.isEmpty()) {
+      if (job->nextBatch().isEmpty()) {
         emit hasMoreChanged();
       }
     }
