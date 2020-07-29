@@ -56,7 +56,7 @@ class MatrixImageProvider : public QObject, public QQuickAsyncImageProvider {
 
   Quotient::Connection* connection() { return m_connection; }
   void setConnection(Quotient::Connection* connection) {
-    m_connection.store(connection);
+    m_connection.storeRelaxed(connection);
     emit connectionChanged();
   }
 

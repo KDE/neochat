@@ -167,7 +167,7 @@ void SpectralRoom::countChanged() {
 QDateTime SpectralRoom::lastActiveTime() const {
   if (timelineSize() == 0)
     return QDateTime();
-  return messageEvents().rbegin()->get()->timestamp();
+  return messageEvents().rbegin()->get()->originTimestamp();
 }
 
 int SpectralRoom::savedTopVisibleIndex() const {
