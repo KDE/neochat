@@ -167,7 +167,7 @@ void SpectralRoom::countChanged() {
 QDateTime SpectralRoom::lastActiveTime() const {
   if (timelineSize() == 0)
     return QDateTime();
-  return messageEvents().rbegin()->get()->timestamp();
+  return messageEvents().rbegin()->get()->originTimestamp();
 }
 
 int SpectralRoom::savedTopVisibleIndex() const {
@@ -397,30 +397,30 @@ void SpectralRoom::changeAvatar(QUrl localFile) {
   const auto job = connection()->uploadFile(localFile.toLocalFile());
   if (isJobRunning(job)) {
     connect(job, &BaseJob::success, this, [this, job] {
-      connection()->callApi<SetRoomStateJob>(
-          id(), "m.room.avatar", QJsonObject{{"url", job->contentUri()}});
+      connection()->callApi<SetRoomStateWithKeyJob>(
+          id(), "m.room.avatar", localUser()->id(), QJsonObject{{"url", job->contentUri()}});
     });
   }
 }
 
 void SpectralRoom::addLocalAlias(const QString& alias) {
-  auto aliases = localAliases();
-  if (aliases.contains(alias))
+  auto a = aliases();
+  if (a.contains(alias))
     return;
 
-  aliases += alias;
+  a += alias;
 
-  setLocalAliases(aliases);
+  setLocalAliases(a);
 }
 
 void SpectralRoom::removeLocalAlias(const QString& alias) {
-  auto aliases = localAliases();
-  if (!aliases.contains(alias))
+  auto a = aliases();
+  if (!a.contains(alias))
     return;
 
-  aliases.removeAll(alias);
+  a.removeAll(alias);
 
-  setLocalAliases(aliases);
+  setLocalAliases(a);
 }
 
 QString SpectralRoom::markdownToHTML(const QString& markdown) {

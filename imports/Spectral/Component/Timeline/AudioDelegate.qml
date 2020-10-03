@@ -96,7 +96,7 @@ RowLayout {
                 }
 
                 Label {
-                    readonly property int duration: content.info.duration || audio.duration || 0
+                    readonly property int duration: content.info.duration ?? audio.duration ?? 0
 
                     Layout.fillWidth: true
 
@@ -193,14 +193,12 @@ RowLayout {
         }
     }
 
-    function openSavedFile()
-    {
+    function openSavedFile() {
         if (Qt.openUrlExternally(progressInfo.localPath)) return;
         if (Qt.openUrlExternally(progressInfo.localDir)) return;
     }
 
-    function humanSize(duration)
-    {
+    function humanSize(duration) {
         if (!duration)
             return qsTr("Unknown", "Unknown duration")
         if (duration < 1000)

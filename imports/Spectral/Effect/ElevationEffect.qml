@@ -135,7 +135,7 @@ Item {
             glowRadius: modelData.blur/2
             spread: 0.05
             color: _shadowColors[index]
-            cornerRadius: modelData.blur + (effect.sourceItem.radius || 0)
+            cornerRadius: modelData.blur + (effect.sourceItem.radius ?? 0)
         }
     }
 

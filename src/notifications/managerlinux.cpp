@@ -5,6 +5,7 @@
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusMetaType>
+#include <QtDBus/QDBusReply>
 
 NotificationsManager::NotificationsManager(QObject *parent)
     : QObject(parent),
@@ -12,6 +13,15 @@ NotificationsManager::NotificationsManager(QObject *parent)
            "org.freedesktop.Notifications", QDBusConnection::sessionBus(),
            this) {
   qDBusRegisterMetaType<QImage>();
+
+  const QDBusReply<QStringList> capabilitiesReply = dbus.call("GetCapabilities");
+
+  if (capabilitiesReply.isValid()) {
+      const QStringList capabilities = capabilitiesReply.value();
+      serverSupportsHtml = capabilities.contains("body-markup");
+  } else {
+      qWarning() << "Could not get notification server capabilities" << capabilitiesReply.error();
+  }
 
   QDBusConnection::sessionBus().connect(
       "org.freedesktop.Notifications", "/org/freedesktop/Notifications",
@@ -54,14 +64,17 @@ uint NotificationsManager::showNotification(const QString summary,
     croppedImage = image;
   }
 
+  const QString body = serverSupportsHtml ? text.toHtmlEscaped() : text;
+
   QVariantMap hints;
   hints["image-data"] = croppedImage;
+  hints["desktop-entry"] = "org.eu.encom.spectral";
   QList<QVariant> argumentList;
   argumentList << "Spectral";                           // app_name
   argumentList << uint(0);                              // replace_id
   argumentList << "";                                   // app_icon
   argumentList << summary;                              // summary
-  argumentList << text;                                 // body
+  argumentList << body;                                 // body
   argumentList << (QStringList("default") << "reply");  // actions
   argumentList << hints;                                // hints
   argumentList << int(-1);                              // timeout in ms
