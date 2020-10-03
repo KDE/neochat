@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
+import org.kde.kirigami 2.13 as Kirigami
 
 import Spectral.Component 2.0
 import Spectral.Effect 2.0
@@ -27,12 +28,12 @@ Dialog {
 
             spacing: 16
 
-            Avatar {
+            Kirigami.Avatar {
                 Layout.preferredWidth: 72
                 Layout.preferredHeight: 72
 
-                hint: displayName
-                source: avatarMediaId
+                name: displayName
+                source: avatarMediaId ? "image://mxc/" + avatarMediaId : ""
 
                 RippleEffect {
                     anchors.fill: parent

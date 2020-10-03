@@ -2,6 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Controls.Material 2.12
+import org.kde.kirigami 2.13 as Kirigami
 
 import Spectral.Component 2.0
 import Spectral.Dialog 2.0
@@ -11,11 +12,11 @@ import Spectral.Setting 0.1
 RowLayout {
     id: row
 
-    Avatar {
+    Kirigami.Avatar {
         Layout.preferredWidth: 24
         Layout.preferredHeight: 24
 
-        hint: author.displayName
+        name: author.displayName
         source: author.avatarMediaId
         color: author.color
 

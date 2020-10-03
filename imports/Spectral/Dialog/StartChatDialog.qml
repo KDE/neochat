@@ -82,12 +82,12 @@ Dialog {
                 contentItem: RowLayout {
                     spacing: 8
 
-                    Avatar {
+                    Kirigami.Avatar {
                         Layout.preferredWidth: height
                         Layout.fillHeight: true
 
                         source: avatar
-                        hint: name
+                        name: name
                     }
 
                     ColumnLayout {

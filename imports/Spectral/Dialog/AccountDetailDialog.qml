@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
+import org.kde.kirigami 2.13 as Kirigami
 
 import Spectral.Component 2.0
 import Spectral.Effect 2.0
@@ -34,12 +35,12 @@ Dialog {
                 controller: spectralController
             }
 
-            delegate: Avatar {
+            delegate: Kirigami.Avatar {
                 width: 48
                 height: 48
 
-                source: user.avatarMediaId
-                hint: user.displayName ?? ""
+                source: urser.avatarMediaId ? "image://mxc/" + user.avatarMediaId : ""
+                name: user.displayName ?? ""
 
                 Menu {
                     id: contextMenu

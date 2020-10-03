@@ -2,7 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12 as Controls
 import QtQuick.Layouts 1.12
 
-import org.kde.kirigami 2.4 as Kirigami
+import org.kde.kirigami 2.13 as Kirigami
 
 import SortFilterProxyModel 0.2
 
@@ -10,20 +10,25 @@ import Spectral.Component 2.0
 import Spectral 0.1
 
 Kirigami.ScrollablePage {
+    id: page
     property var roomListModel
     property var enteredRoom
+    property var searchText
 
     signal enterRoom(var room)
     signal leaveRoom(var room)
 
     title: "Rooms"
-    actions {
-        main: Kirigami.Action {
-            iconName: "document-edit"
-        }
-        contextualActions: []
+    
+    titleDelegate: Kirigami.SearchField {
+        Layout.topMargin: Kirigami.Units.smallSpacing
+        Layout.bottomMargin: Kirigami.Units.smallSpacing
+        Layout.fillHeight: true
+        Layout.fillWidth: true
+        onTextChanged: page.searchText = text
     }
 
+    
     ListView {
         id: messageListView
 
@@ -66,6 +71,11 @@ Kirigami.ScrollablePage {
             filters: [
                 ExpressionFilter {
                     expression: joinState != "upgraded"
+                },
+                RegExpFilter {
+                    roleName: "name"
+                    pattern: searchText
+                    caseSensitivity: Qt.CaseInsensitive
                 }
             ]
         }
@@ -89,12 +99,12 @@ Kirigami.ScrollablePage {
             contentItem: RowLayout {
                 spacing: Kirigami.Units.largeSpacing
 
-                Avatar {
+                Kirigami.Avatar {
                     Layout.preferredWidth: height
                     Layout.fillHeight: true
 
-                    source: avatar
-                    hint: name || "No Name"
+                    source: avatar ? "image://mxc/" + avatar : ""
+                    name: model.name || "No Name"
                 }
 
                 ColumnLayout {
@@ -108,11 +118,17 @@ Kirigami.ScrollablePage {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
 
+                        text: name || "No Name"
+                        font.pixelSize: 16
+                        font.bold: unreadCount >= 0
+                        elide: Text.ElideRight
+                        wrapMode: Text.NoWrap
                     }
 
                     Controls.Label {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
+                        Layout.alignment: Qt.AlignHCenter
 
                         text: (lastEvent == "" ? topic : lastEvent).replace(/(\r\n\t|\n|\r\t)/gm," ")
                         font.pixelSize: 13

@@ -1,7 +1,8 @@
 import QtQuick 2.12
-import QtQuick.Controls 2.12 as Controls
+import QtQuick.Controls 2.12 as QQC2
 import QtQuick.Layouts 1.12
 import Qt.labs.qmlmodels 1.0
+import QtQuick.Controls.Material 2.12
 
 import org.kde.kirigami 2.4 as Kirigami
 
@@ -9,6 +10,8 @@ import SortFilterProxyModel 0.2
 
 import Spectral.Component 2.0
 import Spectral.Component.Timeline 2.0
+import Spectral.Dialog 2.0
+import Spectral.Effect 2.0
 import Spectral 0.1
 
 Kirigami.ScrollablePage {
@@ -18,18 +21,73 @@ Kirigami.ScrollablePage {
 
     title: "Messages"
 
-    actions {
-        main: Kirigami.Action {
-            iconName: "document-edit"
-        }
-        contextualActions: []
-    }
-
     MessageEventModel {
         id: messageEventModel
 
         room: currentRoom
     }
+    
+    ImageClipboard {
+        id: imageClipboard
+    }
+
+    QQC2.Popup {
+        anchors.centerIn: parent
+
+        id: attachDialog
+
+        padding: 16
+
+        contentItem: RowLayout {
+            QQC2.ToolButton {
+                Layout.preferredWidth: 160
+                Layout.fillHeight: true
+
+                icon.name: 'mail-attachment'
+
+                text: "Choose local file"
+
+                onClicked: {
+                    attachDialog.close()
+
+                    var fileDialog = openFileDialog.createObject(ApplicationWindow.overlay)
+
+                    fileDialog.chosen.connect(function(path) {
+                        if (!path) return
+
+                        roomPanelInput.attach(path)
+                    })
+
+                    fileDialog.open()
+                }
+            }
+
+            Kirigami.Separator {}
+
+            QQC2.ToolButton {
+                Layout.preferredWidth: 160
+                Layout.fillHeight: true
+
+                padding: 16
+
+                icon.name: 'insert-image'
+                text: "Clipboard image"
+                onClicked: {
+                    var localPath = StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/screenshots/" + (new Date()).getTime() + ".png"
+                    if (!imageClipboard.saveImage(localPath)) return
+                    roomPanelInput.attach(localPath)
+                    attachDialog.close()
+                }
+            }
+        }
+    }
+
+    Component {
+        id: openFileDialog
+
+        OpenFileDialog {}
+    }
+
 
     SortFilterProxyModel {
         id: sortedMessageEventModel
@@ -232,16 +290,9 @@ Kirigami.ScrollablePage {
         }
     }
 
-    footer: RowLayout {
-        Controls.ToolButton {
-            contentItem: Kirigami.Icon {
-                source: "mail-attachment"
-            }
-        }
-
-        Controls.TextField {
-            Layout.fillWidth: true
-        }
+    footer: RoomPanelInput {
+        id: roomPanelInput
+        Layout.fillWidth: true
     }
 
     background: Item {}

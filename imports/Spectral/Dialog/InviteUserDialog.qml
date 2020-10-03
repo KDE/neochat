@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
+import org.kde.kirigami 2.13 as Kirigami
 
 import Spectral.Component 2.0
 import Spectral.Effect 2.0
@@ -86,11 +87,11 @@ Dialog {
                 contentItem: RowLayout {
                     spacing: 8
 
-                    Avatar {
+                    Kirigami.Avatar {
                         Layout.preferredWidth: height
                         Layout.fillHeight: true
 
-                        source: avatar
+                        source: author.avatarMediaId ? "image://mxc/" + author.avatarMediaId : ""
                         hint: name
                     }
 

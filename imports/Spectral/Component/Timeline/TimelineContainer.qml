@@ -7,18 +7,12 @@ import org.kde.kirigami 2.4 as Kirigami
 Item {
     default property alias innerObject : column.children
 
-    readonly property int horizontalPadding: Kirigami.Units.largeSpacing
-    readonly property int verticalPadding: Kirigami.Units.smallSpacing
-
-    height: column.implicitHeight + verticalPadding * 2
+    height: column.implicitHeight
 
     ColumnLayout {
-        x: horizontalPadding
-        y: verticalPadding
-
-        width: parent.width - horizontalPadding * 2
-
         id: column
+        x: horizontalPadding
+        width: parent.width - Kirigami.Units.largeSpacing * 2
 
         SectionDelegate {
             Layout.maximumWidth: parent.width
@@ -26,11 +20,5 @@ Item {
 
             visible: showSection
         }
-    }
-
-    Controls.ItemDelegate {
-        anchors.fill: parent
-
-        z: -1
     }
 }

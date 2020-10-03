@@ -5,6 +5,7 @@ import QtQuick.Controls.Material 2.12
 import QtGraphicalEffects 1.0
 import Qt.labs.platform 1.0 as Platform
 import QtMultimedia 5.12
+import org.kde.kirigami 2.13 as Kirigami
 
 import Spectral 0.1
 import Spectral.Setting 0.1
@@ -25,14 +26,14 @@ RowLayout {
 
     z: -5
 
-    Avatar {
+    Kirigami.Avatar {
         Layout.preferredWidth: 36
         Layout.preferredHeight: 36
         Layout.alignment: Qt.AlignBottom
 
         visible: avatarVisible
-        hint: author.displayName
-        source: author.avatarMediaId
+        name: author.displayName
+        source: author.avatarMediaId ? "image://mxc/" + author.avatarMediaId : ""
         color: author.color
 
         Component {

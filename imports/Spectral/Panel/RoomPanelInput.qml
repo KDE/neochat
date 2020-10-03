@@ -1,7 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
-import QtQuick.Controls.Material 2.12
+import org.kde.kirigami 2.13 as Kirigami
 
 import Spectral.Component 2.0
 import Spectral.Component.Emoji 2.0
@@ -30,14 +30,20 @@ Control {
     id: root
 
     padding: 0
-
+    
     background: Rectangle {
-        color: MSettings.darkTheme ? "#303030" : "#fafafa"
-        radius: 24
-
-        layer.enabled: true
-        layer.effect: ElevationEffect {
-            elevation: 1
+        color: Kirigami.Theme.backgroundColor
+        Kirigami.Separator {
+            Rectangle {
+                anchors.fill: parent
+                color: Kirigami.Theme.focusColor
+                visible: chatTextInput.activeFocus
+            }
+            anchors {
+                left: parent.left
+                right: parent.right
+                top: parent.top
+            }
         }
     }
 
@@ -59,18 +65,13 @@ Control {
 
                 padding: 4
 
-                background: Rectangle {
-                    radius: height / 2
-                    color: replyUser ? Qt.darker(replyUser.color, 1.1) : MPalette.accent
-                }
-
                 contentItem: RowLayout {
-                    Avatar {
+                    Kirigami.Avatar {
                         Layout.preferredWidth: 24
                         Layout.preferredHeight: 24
 
-                        source: replyUser ? replyUser.avatarMediaId : ""
-                        hint: replyUser ? replyUser.displayName : "No name"
+                        source: replyUser ? "image://mxc/" + replyUser.avatarMediaId: ""
+                        name: replyUser ? replyUser.displayName : "No name"
                     }
 
                     Label {
@@ -87,7 +88,6 @@ Control {
             TextEdit {
                 Layout.fillWidth: true
 
-                color: MPalette.foreground
                 text: "<style>a{color: " + color + ";} .user-pill{}</style>" + replyContent
 
                 font.family: window.font.family
@@ -96,7 +96,6 @@ Control {
                 readOnly: true
                 wrapMode: Label.Wrap
                 selectedTextColor: "white"
-                selectionColor: MPalette.accent
                 textFormat: Text.RichText
             }
         }
@@ -159,21 +158,19 @@ Control {
                         horizontalAlignment: Text.AlignHCenter
                     }
 
-                    Avatar {
+                    Kirigami.Avatar {
                         Layout.preferredWidth: 24
                         Layout.preferredHeight: 24
 
-                        visible: !isEmoji
-                        source: modelData.avatarMediaId ?? null
-                        color: modelData.color ? Qt.darker(modelData.color, 1.1) : MPalette.accent
+                        source: modelData.avatarMediaId ? "image://mxc/" + modelData.avatarMediaId : ""
+                        color: modelData.color ? Qt.darker(modelData.color, 1.1) : null
                     }
-
                     Label {
                         Layout.fillHeight: true
 
                         visible: !isEmoji
                         text: autoCompleteText
-                        color: highlighted ? "white" : MPalette.foreground
+                        color: highlighted ? Kirigami.Theme.highlightTextColor : Kirigami.Theme.textColor
                         verticalAlignment: Text.AlignVCenter
                         rightPadding: 8
                     }
@@ -196,8 +193,6 @@ Control {
             Layout.rightMargin: 12
 
             visible: emojiPicker.visible || replyItem.visible || autoCompleteListView.visible
-
-            color: MSettings.darkTheme ? "#424242" : "#e7ebeb"
         }
 
         RowLayout {
@@ -213,9 +208,7 @@ Control {
                 id: uploadButton
                 visible: !isReply && !hasAttachment
 
-                contentItem: MaterialIcon {
-                    icon: "\ue226"
-                }
+                icon.name: "mail-attachment"
 
                 onClicked: {
                     if (imageClipboard.hasImage) {
@@ -264,13 +257,7 @@ Control {
                 visible: hasAttachment
 
                 rightPadding: 8
-
-                background: Rectangle {
-                    color: MPalette.accent
-                    radius: height / 2
-                    antialiasing: true
-                }
-
+                
                 contentItem: RowLayout {
                     spacing: 0
 
@@ -280,15 +267,11 @@ Control {
 
                         id: cancelAttachmentButton
 
-                        contentItem: MaterialIcon {
-                            icon: "\ue5cd"
-                            color: "white"
-                            font.pixelSize: 18
-                        }
+                        icon.name: "mail-attachement"
 
                         onClicked: {
-                            hasAttachment = false
-                            attachmentPath = ""
+                            hasAttachment = false;
+                            attachmentPath = "";
                         }
                     }
 
@@ -448,19 +431,13 @@ Control {
                 }
             }
 
-            MaterialIcon {
+            ToolButton {
+                flat: true
                 Layout.alignment: Qt.AlignVCenter
 
-                icon: "\ue165"
+                icon.name: "format-text-code"
                 font.pixelSize: 16
-                color: MPalette.foreground
-                opacity: MSettings.markdownFormatting ? 1 : 0.3
-
-                MouseArea {
-                    anchors.fill: parent
-
-                    onClicked: MSettings.markdownFormatting = !MSettings.markdownFormatting
-                }
+                onClicked: MSettings.markdownFormatting = !MSettings.markdownFormatting
             }
 
             ToolButton {
@@ -469,10 +446,7 @@ Control {
                 Layout.alignment: Qt.AlignBottom
 
                 id: emojiButton
-
-                contentItem: MaterialIcon {
-                    icon: "\ue24e"
-                }
+                icon.name: "document-send"
 
                 onClicked: emojiPicker.visible = !emojiPicker.visible
             }
