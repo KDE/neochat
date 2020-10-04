@@ -3,6 +3,8 @@ import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
 import QtQuick.Layouts 1.12
 
+import org.kde.kirigami 2.13 as Kirigami
+
 import Spectral.Component 2.0
 import Spectral.Dialog 2.0
 import Spectral.Effect 2.0
@@ -10,16 +12,17 @@ import Spectral.Setting 0.1
 
 import Spectral 0.1
 
-Drawer {
+Kirigami.OverlayDrawer {
     property var room
 
     id: roomDrawer
+    enabled: true
 
-    edge: Qt.RightEdge
+    edge: Qt.application.layoutDirection == Qt.RightToLeft ? Qt.LeftEdge : Qt.RightEdge
 
-    ColumnLayout {
-        anchors.fill: parent
-        anchors.margins: 24
+    padding: 0
+    contentItem: ColumnLayout {
+        implicitWidth: Kirigami.Units.gridUnit * 15 // TODO FIXME
 
         Component {
             id: fullScreenImage
@@ -32,20 +35,12 @@ Drawer {
 
             spacing: 16
 
-            Avatar {
+            Kirigami.Avatar {
                 Layout.preferredWidth: 72
                 Layout.preferredHeight: 72
 
-                hint: room ? room.displayName : "No name"
-                source: room ? room.avatarMediaId : null
-
-                RippleEffect {
-                    anchors.fill: parent
-
-                    circular: true
-
-                    onClicked: fullScreenImage.createObject(parent, {"filename": room.diaplayName, "localPath": room.urlToMxcUrl(room.avatarUrl)}).showFullScreen()
-                }
+                name: room ? room.displayName : "No name"
+                source: room ? "image://mxc/" +  room.avatarMediaId : null
             }
 
             ColumnLayout {
@@ -71,88 +66,21 @@ Drawer {
             }
         }
 
-        MenuSeparator {
+        Kirigami.Separator {
             Layout.fillWidth: true
         }
 
         Control {
             Layout.fillWidth: true
-
-            padding: 0
-
-            contentItem: ColumnLayout {
-                RowLayout {
-                    Layout.fillWidth: true
-
-                    visible: room && room.canonicalAlias
-
-                    spacing: 8
-
-                    MaterialIcon {
-                        Layout.preferredWidth: 32
-                        Layout.preferredHeight: 32
-                        Layout.alignment: Qt.AlignTop
-
-                        icon: "\ue2bc"
-                        color: MPalette.lighter
-                    }
-
-                    ColumnLayout {
-                        Layout.fillWidth: true
-
-                        Label {
-                            Layout.fillWidth: true
-
-                            wrapMode: Label.Wrap
-                            text: room && room.canonicalAlias ? room.canonicalAlias : "No Canonical Alias"
-                            color: MPalette.accent
-                        }
-
-                        Label {
-                            Layout.fillWidth: true
-
-                            wrapMode: Label.Wrap
-                            text: "Main Alias"
-                            color: MPalette.lighter
-                        }
-                    }
+            contentItem: Kirigami.FormLayout {
+                Label {
+                    Kirigami.FormData.label: "Main Alias"
+                    text: room && room.canonicalAlias ? room.canonicalAlias : "No Canonical Alias"
                 }
-
-                RowLayout {
-                    Layout.fillWidth: true
-
-                    spacing: 8
-
-                    MaterialIcon {
-                        Layout.preferredWidth: 32
-                        Layout.preferredHeight: 32
-                        Layout.alignment: Qt.AlignTop
-
-                        icon: "\ue88f"
-                        color: MPalette.lighter
-                    }
-
-                    ColumnLayout {
-                        Layout.fillWidth: true
-
-                        Label {
-                            Layout.fillWidth: true
-
-                            wrapMode: Label.Wrap
-                            text: room && room.topic ? room.topic : "No Topic"
-                            color: MPalette.foreground
-                            maximumLineCount: 5
-                            elide: Text.ElideRight
-                        }
-
-                        Label {
-                            Layout.fillWidth: true
-
-                            wrapMode: Label.Wrap
-                            text: "Topic"
-                            color: MPalette.lighter
-                        }
-                    }
+                Label {
+                    Kirigami.FormData.label: "Topic"
+                    text: room && room.topic ? room.topic : "No Topic"
+                    wrapMode: Text.WordWrap
                 }
             }
 
@@ -161,7 +89,7 @@ Drawer {
             }
         }
 
-        MenuSeparator {
+        Kirigami.Separator {
             Layout.fillWidth: true
         }
 
@@ -169,13 +97,10 @@ Drawer {
             Layout.fillWidth: true
 
             spacing: 8
-
-            MaterialIcon {
-                Layout.preferredWidth: 32
-                Layout.preferredHeight: 32
-
-                icon: "\ue7ff"
-                color: MPalette.lighter
+            Kirigami.Icon {
+                Layout.preferredWidth: Kirigami.Units.gridUnit * 2
+                Layout.preferredHeight: Kirigami.Units.gridUnit * 2
+                source: "user-others"
             }
 
             Label {
@@ -183,17 +108,12 @@ Drawer {
 
                 wrapMode: Label.Wrap
                 text: room ? room.totalMemberCount + " Members" : "No Member Count"
-                color: MPalette.lighter
             }
 
             ToolButton {
-                Layout.preferredWidth: 32
-                Layout.preferredHeight: 32
-
-                contentItem: MaterialIcon {
-                    icon: "\ue145"
-                    color: MPalette.lighter
-                }
+                Layout.preferredWidth: Kirigami.Units.gridUnit
+                Layout.preferredHeight: Kirigami.Units.gridUnit
+                icon.name: "list-user-add"
 
                 onClicked: inviteUserDialog.createObject(ApplicationWindow.overlay, {"controller": spectralController, "room": room}).open()
             }
@@ -222,12 +142,12 @@ Drawer {
                     anchors.margins: 8
                     spacing: 12
 
-                    Avatar {
+                    Kirigami.Avatar {
                         Layout.preferredWidth: height
                         Layout.fillHeight: true
 
-                        source: avatar
-                        hint: name
+                        source: "image://mxc/" + avatar
+                        name: name
                     }
 
                     Label {

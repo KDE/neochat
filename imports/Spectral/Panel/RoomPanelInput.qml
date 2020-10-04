@@ -37,7 +37,6 @@ Control {
             Rectangle {
                 anchors.fill: parent
                 color: Kirigami.Theme.focusColor
-                visible: chatTextInput.activeFocus
             }
             anchors {
                 left: parent.left
@@ -90,8 +89,6 @@ Control {
 
                 text: "<style>a{color: " + color + ";} .user-pill{}</style>" + replyContent
 
-                font.family: window.font.family
-                font.pixelSize: 14
                 selectByMouse: true
                 readOnly: true
                 wrapMode: Label.Wrap
@@ -242,9 +239,7 @@ Control {
 
                 visible: isReply
 
-                contentItem: MaterialIcon {
-                    icon: "\ue5cd"
-                }
+                icon.name: "dialog-cancel"
 
                 onClicked: clearReply()
             }
@@ -308,7 +303,6 @@ Control {
                     height: parent.height
 
                     opacity: 0.2
-                    color: Material.accent
                 }
 
                 Timer {

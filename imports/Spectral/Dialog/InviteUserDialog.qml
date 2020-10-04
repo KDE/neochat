@@ -92,7 +92,7 @@ Dialog {
                         Layout.fillHeight: true
 
                         source: author.avatarMediaId ? "image://mxc/" + author.avatarMediaId : ""
-                        hint: name
+                        name: name
                     }
 
                     ColumnLayout {

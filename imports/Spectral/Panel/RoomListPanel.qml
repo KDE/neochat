@@ -1,5 +1,5 @@
 import QtQuick 2.12
-import QtQuick.Controls 2.12 as Controls
+import QtQuick.Controls 2.12 as QQC2
 import QtQuick.Layouts 1.12
 
 import org.kde.kirigami 2.13 as Kirigami
@@ -11,6 +11,7 @@ import Spectral 0.1
 
 Kirigami.ScrollablePage {
     id: page
+
     property var roomListModel
     property var enteredRoom
     property var searchText
@@ -28,17 +29,13 @@ Kirigami.ScrollablePage {
         onTextChanged: page.searchText = text
     }
 
-    
     ListView {
         id: messageListView
 
-        model: SortFilterProxyModel {
-            id: sortedRoomListModel
-
+        model:  SortFilterProxyModel {
             sourceModel: roomListModel
-
             proxyRoles: ExpressionRole {
-                name: "display"
+                name: "categoryName"
                 expression: {
                     switch (category) {
                     case 1: return "Invited"
@@ -63,7 +60,7 @@ Kirigami.ScrollablePage {
                     }
                 },
                 RoleSorter {
-                    roleName: "lastActiveTime"
+                    roleName: "name"
                     sortOrder: Qt.DescendingOrder
                 }
             ]
@@ -74,27 +71,21 @@ Kirigami.ScrollablePage {
                 },
                 RegExpFilter {
                     roleName: "name"
-                    pattern: searchText
+                    pattern: page.searchText
                     caseSensitivity: Qt.CaseInsensitive
                 }
             ]
         }
 
-        delegate: Kirigami.SwipeListItem {
-            padding: Kirigami.Units.largeSpacing
 
-            actions: [
-                Kirigami.Action {
-                    text:"Action for buttons"
-                    iconName: "bookmarks"
-                    onTriggered: print("Action 1 clicked")
-                },
-                Kirigami.Action {
-                    text:"Action 2"
-                    iconName: "folder"
-                    enabled: false
-                }
-            ]
+        section.property: "categoryName"
+        section.delegate: Kirigami.ListSectionHeader {
+            label: section
+        }
+
+        delegate: Kirigami.AbstractListItem {
+            topPadding: Kirigami.Units.largeSpacing
+            bottomPadding: Kirigami.Units.largeSpacing
 
             contentItem: RowLayout {
                 spacing: Kirigami.Units.largeSpacing
@@ -114,24 +105,23 @@ Kirigami.ScrollablePage {
 
                     spacing: Kirigami.Units.smallSpacing
 
-                    Controls.Label {
+                    QQC2.Label {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
-
-                        text: name || "No Name"
-                        font.pixelSize: 16
+                        text: name ?? ""
+                        font.pixelSize: 15
                         font.bold: unreadCount >= 0
                         elide: Text.ElideRight
                         wrapMode: Text.NoWrap
                     }
 
-                    Controls.Label {
+                    QQC2.Label {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
                         Layout.alignment: Qt.AlignHCenter
 
                         text: (lastEvent == "" ? topic : lastEvent).replace(/(\r\n\t|\n|\r\t)/gm," ")
-                        font.pixelSize: 13
+                        font.pixelSize: 12
                         elide: Text.ElideRight
                         wrapMode: Text.NoWrap
                     }
