@@ -190,6 +190,7 @@ Kirigami.ScrollablePage {
 
                     innerObject: MessageDelegate {
                         Layout.fillWidth: true
+                        Layout.maximumWidth: messageListView.width
 
                         innerObject: TextDelegate {
                             Layout.fillWidth: true

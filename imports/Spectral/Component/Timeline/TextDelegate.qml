@@ -16,7 +16,8 @@ Text {
 
 //    selectByMouse: true
 //    readOnly: true
-    wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+    wrapMode: Text.WordWrap
+    width: parent.width
     textFormat: Text.RichText
 }
 

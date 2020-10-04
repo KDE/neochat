@@ -25,10 +25,12 @@ RowLayout {
     id: root
 
     spacing: Kirigami.Units.largeSpacing
+    Layout.leftMargin: Kirigami.Units.smallSpacing
+    Layout.rightMargin: Kirigami.Units.smallSpacing
 
     Kirigami.Avatar {
-        Layout.preferredWidth: Kirigami.Units.gridUnit * 1.5
-        Layout.preferredHeight: Kirigami.Units.gridUnit * 1.5
+        Layout.preferredWidth: Kirigami.Units.gridUnit * 2
+        Layout.preferredHeight: Kirigami.Units.gridUnit * 2
 
         Layout.alignment: Qt.AlignTop
 
@@ -39,97 +41,74 @@ RowLayout {
     }
 
     Item {
-        Layout.preferredWidth: Kirigami.Units.gridUnit * 1.5
+        Layout.preferredWidth: Kirigami.Units.gridUnit * 2
         Layout.preferredHeight: 1
 
         visible: !showAuthor
     }
     
-    Item {
-        Layout.preferredWidth: column.width + 16
-		Layout.preferredHeight: column.height + 16
+    ColumnLayout {
+        id: column
+        Layout.fillWidth: true
+        spacing: Kirigami.Units.smallSpacing
 
-        /*RectangularGlow {
-            anchors.fill: messageBubble
-            glowRadius: 0.8
-            spread: 0.3
-            cornerRadius: messageBubble.radius + glowRadius
-            color: Qt.darker(messageBubble.color, 1.2)
-        }*/
-        
-        // inner area of the message bubble
-        /*Rectangle {
-            id: messageBubble
-            anchors.fill: parent
-            radius: 2
-            color: authorColor
-        }*/
-
-
-        ColumnLayout {
-            id: column
+        Controls.Label {
             Layout.fillWidth: true
-            anchors.centerIn: parent
-            spacing: Kirigami.Units.smallSpacing
 
-            Controls.Label {
-                Layout.fillWidth: true
+            visible: showAuthor
 
-                visible: showAuthor
+            text: author.displayName
+            font.bold: true
+            color: Kirigami.Theme.activeTextColor
+            wrapMode: Text.Wrap
+        }
 
-                text: author.displayName
-                font.bold: true
-                color: Kirigami.Theme.activeTextColor
-                wrapMode: Text.Wrap
+        RowLayout {
+            Layout.fillWidth: true
+
+            visible: replyVisible
+
+            Rectangle {
+                Layout.preferredWidth: 4
+                Layout.fillHeight: true
+
+                color: Kirigami.Theme.highlightColor
             }
 
-            RowLayout {
+            Kirigami.Avatar {
+                Layout.preferredWidth: Kirigami.Units.gridUnit * 1.5
+                Layout.preferredHeight: Kirigami.Units.gridUnit * 1.5
+                Layout.alignment: Qt.AlignTop
+
+                source: replyVisible && reply.author.avatarMediaId ? "image://mxc/" + reply.author.avatarMediaId : ""
+                name: replyVisible ? reply.author.displayName : "H"
+                color: replyVisible ? reply.author.color : MPalette.accent
+            }
+
+            ColumnLayout {
                 Layout.fillWidth: true
 
-                visible: replyVisible
-
-                Rectangle {
-                    Layout.preferredWidth: 4
-                    Layout.fillHeight: true
-
-                    color: Kirigami.Theme.highlightColor
-                }
-
-                Kirigami.Avatar {
-                    Layout.preferredWidth: Kirigami.Units.gridUnit * 1.5
-                    Layout.preferredHeight: Kirigami.Units.gridUnit * 1.5
-                    Layout.alignment: Qt.AlignTop
-
-                    source: replyVisible && reply.author.avatarMediaId ? "image://mxc/" + reply.author.avatarMediaId : ""
-                    name: replyVisible ? reply.author.displayName : "H"
-                    color: replyVisible ? reply.author.color : MPalette.accent
-                }
-
-                ColumnLayout {
+                Controls.Label {
                     Layout.fillWidth: true
 
-                    Controls.Label {
-                        Layout.fillWidth: true
+                    text: replyVisible ? reply.author.displayName : ""
+                    color: Kirigami.Theme.activeTextColor
+                    wrapMode: Text.Wrap
+                }
 
-                        text: replyVisible ? reply.author.displayName : ""
-                        color: Kirigami.Theme.activeTextColor
-                        wrapMode: Text.Wrap
-                    }
+                Text {
+                    Layout.fillWidth: true
 
-                    Text {
-                        Layout.fillWidth: true
+                    text: replyVisible ? reply.display : ""
 
-                        text: replyVisible ? reply.display : ""
+                    color: Kirigami.Theme.textColor
+//                    selectionColor: Kirigami.Theme.highlightColor
+//                    selectedTextColor: Kirigami.Theme.highlightedTextColor
 
-                        color: Kirigami.Theme.textColor
-    //                    selectionColor: Kirigami.Theme.highlightColor
-    //                    selectedTextColor: Kirigami.Theme.highlightedTextColor
-
-    //                    selectByMouse: true
-    //                    readOnly: true
-                        wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-                        textFormat: Text.RichText
-                    }
+//                    selectByMouse: true
+//                    readOnly: true
+                    wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                    textFormat: Text.RichText
                 }
             }
         }
