@@ -57,7 +57,7 @@ class UserListModel : public QAbstractListModel {
   void userAdded(Quotient::User* user);
   void userRemoved(Quotient::User* user);
   void refresh(Quotient::User* user, QVector<int> roles = {});
-  void avatarChanged(Quotient::User* user, const Quotient::Room* context);
+  void avatarChanged(Quotient::User* user);
 
  private:
   Quotient::Room* m_currentRoom;
