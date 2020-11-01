@@ -44,6 +44,7 @@ class RoomListModel : public QAbstractListModel {
     JoinStateRole,
     CurrentRoomRole,
   };
+  Q_ENUM(EventRoles)
 
   RoomListModel(QObject* parent = nullptr);
   virtual ~RoomListModel() override;

@@ -6,7 +6,7 @@ import QtQuick.Controls.Material 2.12
 
 import org.kde.kirigami 2.4 as Kirigami
 
-import SortFilterProxyModel 0.2
+import org.kde.kitemmodels 1.0
 
 import Spectral.Component 2.0
 import Spectral.Component.Timeline 2.0
@@ -89,16 +89,14 @@ Kirigami.ScrollablePage {
     }
 
 
-    SortFilterProxyModel {
+    KSortFilterProxyModel {
         id: sortedMessageEventModel
 
         sourceModel: messageEventModel
 
-        filters: [
-            ExpressionFilter {
-                expression: marks !== 0x10 && eventType !== "other"
-            }
-        ]
+        filterRowCallback: function(row, parent) {
+            return messageEventModel.data(messageEventModel.index(row, 0), MessageEventModel.MessageRole) !== 0x10 && messageEventModel.data(messageEventModel.index(row, 0), MessageEventModel.EventTypeRole) !== "other"
+        }
     }
 
     ListView {

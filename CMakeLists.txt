@@ -92,7 +92,7 @@ find_package(Qt5Keychain REQUIRED)
 
 find_package(cmark REQUIRED)
 
-add_subdirectory(include/SortFilterProxyModel EXCLUDE_FROM_ALL)
+find_package(KF5ItemModels REQUIRED)
 
 message( STATUS )
 message( STATUS "=============================================================================" )
@@ -206,7 +206,7 @@ endif(APPLE)
 
 # Windows, this is a GUI executable; OSX, make a bundle
 add_executable(${PROJECT_NAME} WIN32 MACOSX_BUNDLE
-    ${spectral_SRCS} ${spectral_QRC_SRC} $<TARGET_OBJECTS:SortFilterProxyModel>
+    ${spectral_SRCS} ${spectral_QRC_SRC}
     ${spectral_WINRC} ${${PROJECT_NAME}_MAC_ICON})
 
 target_link_libraries(${PROJECT_NAME}

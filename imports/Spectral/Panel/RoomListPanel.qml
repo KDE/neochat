@@ -4,8 +4,7 @@ import QtQuick.Layouts 1.12
 
 import org.kde.kirigami 2.13 as Kirigami
 
-import SortFilterProxyModel 0.2
-
+import org.kde.kitemmodels 1.0
 import Spectral.Component 2.0
 import Spectral 0.1
 
@@ -14,7 +13,9 @@ Kirigami.ScrollablePage {
 
     property var roomListModel
     property var enteredRoom
-    property var searchText
+    property var searchText: ""
+
+    onSearchTextChanged: sortedFilteredRoomListModel.invalidateFilter()
 
     signal enterRoom(var room)
     signal leaveRoom(var room)
@@ -32,51 +33,16 @@ Kirigami.ScrollablePage {
     ListView {
         id: messageListView
 
-        model:  SortFilterProxyModel {
+        model:  KSortFilterProxyModel {
+            id: sortedFilteredRoomListModel
             sourceModel: roomListModel
-            proxyRoles: ExpressionRole {
-                name: "categoryName"
-                expression: {
-                    switch (category) {
-                    case 1: return "Invited"
-                    case 2: return "Favorites"
-                    case 3: return "People"
-                    case 4: return "Rooms"
-                    case 5: return "Low Priority"
-                    }
-                }
+
+            sortRole: "name"
+            sortOrder: Qt.AscendingOrder
+            filterRowCallback: function(row, parent) {
+                return (roomListModel.data(roomListModel.index(row, 0), RoomListModel.JoinStateRole) !== "upgraded") && roomListModel.data(roomListModel.index(row, 0), RoomListModel.NameRole).toLowerCase().includes(page.searchText.toLowerCase())
             }
-
-            sorters: [
-                RoleSorter { roleName: "category" },
-                ExpressionSorter {
-                    expression: {
-                        return modelLeft.highlightCount > 0;
-                    }
-                },
-                ExpressionSorter {
-                    expression: {
-                        return modelLeft.notificationCount > 0;
-                    }
-                },
-                RoleSorter {
-                    roleName: "name"
-                    sortOrder: Qt.DescendingOrder
-                }
-            ]
-
-            filters: [
-                ExpressionFilter {
-                    expression: joinState != "upgraded"
-                },
-                RegExpFilter {
-                    roleName: "name"
-                    pattern: page.searchText
-                    caseSensitivity: Qt.CaseInsensitive
-                }
-            ]
         }
-
 
         section.property: "categoryName"
         section.delegate: Kirigami.ListSectionHeader {

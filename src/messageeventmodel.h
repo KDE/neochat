@@ -37,6 +37,7 @@ class MessageEventModel : public QAbstractListModel {
     // For debugging
     EventResolvedTypeRole,
   };
+  Q_ENUM(EventRoles)
 
   enum BubbleShapes {
     NoShape = 0,
