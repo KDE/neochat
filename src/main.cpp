@@ -18,7 +18,7 @@
 #include "imageclipboard.h"
 #include "matriximageprovider.h"
 #include "messageeventmodel.h"
-#include "manager.h"
+#include "notificationsmanager.h"
 #include "publicroomlistmodel.h"
 #include "room.h"
 #include "roomlistmodel.h"
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 
     app.setOrganizationName("KDE");
     app.setOrganizationDomain("kde.org");
-    app.setApplicationName("NeoChat");
+    app.setApplicationName("neochat");
     app.setWindowIcon(QIcon(":/assets/img/icon.png"));
 
     qmlRegisterType<Controller>("Spectral", 0, 1, "Controller");

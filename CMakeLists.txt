@@ -20,7 +20,7 @@ include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets Core Quick Gui QuickControls2 Multimedia)
-find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS Kirigami2 ItemModels I18n)
+find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS Kirigami2 ItemModels I18n Notifications)
 
 find_package(Quotient 0.7 REQUIRED)
 find_package(Qt5Keychain REQUIRED)
@@ -29,6 +29,7 @@ find_package(cmark REQUIRED)
 install(PROGRAMS org.kde.neochat.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.neochat.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 #install(FILES neochat.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/apps)
+install(FILES neochat.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})
 
 add_subdirectory(src)
 
