@@ -18,7 +18,7 @@
 #include "imageclipboard.h"
 #include "matriximageprovider.h"
 #include "messageeventmodel.h"
-#include "notifications/manager.h"
+#include "manager.h"
 #include "publicroomlistmodel.h"
 #include "room.h"
 #include "roomlistmodel.h"
