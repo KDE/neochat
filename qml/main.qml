@@ -1,3 +1,9 @@
+/**
+ * SPDX-FileCopyrightText: 2019 Black Hat <bhat@encom.eu.org>
+ * SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
+ *
+ * SPDX-LicenseIdentifier: GPL-3.0-only
+ */
 import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
@@ -17,20 +23,20 @@ Kirigami.ApplicationWindow {
         id: contextDrawer
         enabled: roomList.enteredRoom !== null
         room: root.currentRoom
+        handleVisible: enabled && (pageStack.currentItem instanceof RoomPage)
     }
 
     pageStack.initialPage: LoadingPage {}
 
     Component {
         id: roomListComponent
-        RoomListPanel {
+        RoomListPage {
             id: roomList
             roomListModel: spectralRoomListModel
 
             onEnterRoom: {
                 applicationWindow().pageStack.push(roomPanelComponent, {"currentRoom": room});
                 root.currentRoom = room;
-
             }
             onLeaveRoom: {
                 var stack = applicationWindow().pageStack;
@@ -49,6 +55,7 @@ Kirigami.ApplicationWindow {
         onErrorOccured: showPassiveNotification(error + ": " + detail)
 
         onInitiated: {
+
             if (spectralController.accountCount === 0) {
                 pageStack.replace("qrc:/qml/LoginPage.qml", {
                     'spectralController': spectralController
@@ -81,7 +88,7 @@ Kirigami.ApplicationWindow {
     Component {
         id: roomPanelComponent
 
-        RoomPanel {
+        RoomPage {
             currentRoom: root.currentRoom
         }
     }

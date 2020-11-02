@@ -15,18 +15,18 @@ import Spectral.Effect 2.0
 import Spectral 0.1
 
 Kirigami.ScrollablePage {
-    property var currentRoom
-
     id: page
 
-    title: "Messages"
+    property var currentRoom
+
+    title: i18n("Messages")
 
     MessageEventModel {
         id: messageEventModel
 
         room: currentRoom
     }
-    
+
     ImageClipboard {
         id: imageClipboard
     }
@@ -45,7 +45,7 @@ Kirigami.ScrollablePage {
 
                 icon.name: 'mail-attachment'
 
-                text: "Choose local file"
+                text: i18n("Choose local file")
 
                 onClicked: {
                     attachDialog.close()
@@ -55,7 +55,7 @@ Kirigami.ScrollablePage {
                     fileDialog.chosen.connect(function(path) {
                         if (!path) return
 
-                        roomPanelInput.attach(path)
+                        chatTextInput.attach(path)
                     })
 
                     fileDialog.open()
@@ -71,11 +71,11 @@ Kirigami.ScrollablePage {
                 padding: 16
 
                 icon.name: 'insert-image'
-                text: "Clipboard image"
+                text: i18n("Clipboard image")
                 onClicked: {
                     var localPath = StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/screenshots/" + (new Date()).getTime() + ".png"
                     if (!imageClipboard.saveImage(localPath)) return
-                    roomPanelInput.attach(localPath)
+                    chatTextInput.attach(localPath)
                     attachDialog.close()
                 }
             }
@@ -289,8 +289,8 @@ Kirigami.ScrollablePage {
         }
     }
 
-    footer: RoomPanelInput {
-        id: roomPanelInput
+    footer: ChatTextInput {
+        id: chatTextInput
         Layout.fillWidth: true
     }
 
