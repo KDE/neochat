@@ -1,3 +1,9 @@
+/**
+ * SPDX-FileCopyrightText: Black Hat <bhat@encom.eu.org>
+ * SPDX-FileCopyrightText: 2019 Kitsune Ral <kitsune-ral@users.sf.net>
+ *
+ * SPDX-LicenseIdentifier: GPL-3.0-only
+ */
 #ifndef MatrixImageProvider_H
 #define MatrixImageProvider_H
 #pragma once

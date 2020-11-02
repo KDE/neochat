@@ -1,11 +1,14 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.1)
 
-set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+project(NeoChat VERSION 0.0.90)
 
-set(IDENTIFIER "org.eu.encom.spectral")
-set(COPYRIGHT "Copyright © 2018-2019 bhat@encom.eu.org")
+set(REQUIRED_KF5_VERSION "5.57.0")
+find_package(ECM ${REQUIRED_KF5_VERSION} REQUIRED NO_MODULE)
 
-project(spectral VERSION 0.0.0 LANGUAGES CXX)
+set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${ECM_MODULE_PATH})
+
+set(IDENTIFIER "org.kde.neochat")
+set(COPYRIGHT "Copyright © 2018-2019 bhat@encom.eu.org, 2020 KDE Community")
 
 if(UNIX AND NOT APPLE)
     set(LINUX 1)
@@ -86,13 +89,15 @@ if (NOT USE_INTREE_LIBQMC)
     endif ()
 endif ()
 
-find_package(KF5Kirigami2 REQUIRED)
+find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED
+    Kirigami2
+    ItemModels
+    I18n
+)
 
 find_package(Qt5Keychain REQUIRED)
 
 find_package(cmark REQUIRED)
-
-find_package(KF5ItemModels REQUIRED)
 
 message( STATUS )
 message( STATUS "=============================================================================" )
@@ -245,7 +250,7 @@ if(LINUX)
     install(FILES linux/${IDENTIFIER}.appdata.xml
             DESTINATION  ${CMAKE_INSTALL_DATADIR}/metainfo
             )
-    file(GLOB spectral_icons icons/hicolor/*-apps-org.eu.encom.spectral.png)
+    file(GLOB spectral_icons icons/hicolor/*-apps-org.kde.neochat.png)
     ecm_install_icons(ICONS ${spectral_icons}
             DESTINATION ${CMAKE_INSTALL_DATADIR}/icons
     )

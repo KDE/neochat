@@ -1,3 +1,8 @@
+/**
+ * SPDX-FileCopyrightText: Black Hat <bhat@encom.eu.org>
+ *
+ * SPDX-LicenseIdentifier: GPL-3.0-only
+ */
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
