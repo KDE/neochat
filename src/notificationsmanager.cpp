@@ -3,6 +3,7 @@
 #include <QDebug>
 #include <QImage>
 
+#include <KLocalizedString>
 #include <KNotification>
 
 NotificationsManager::NotificationsManager(QObject *parent)
