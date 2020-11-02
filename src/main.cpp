@@ -38,9 +38,9 @@ int main(int argc, char *argv[])
 
     QApplication app(argc, argv);
 
-    app.setOrganizationName("ENCOM");
-    app.setOrganizationDomain("encom.eu.org");
-    app.setApplicationName("Spectral");
+    app.setOrganizationName("KDE");
+    app.setOrganizationDomain("kde.org");
+    app.setApplicationName("NeoChat");
     app.setWindowIcon(QIcon(":/assets/img/icon.png"));
 
     qmlRegisterType<Controller>("Spectral", 0, 1, "Controller");

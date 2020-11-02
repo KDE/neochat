@@ -6,6 +6,7 @@ import org.kde.kirigami 2.12 as Kirigami
 
 import Spectral 0.1
 import Spectral.Component 2.0
+import Spectral.Dialog 2.0
 import Spectral.Panel 2.0
 
 Kirigami.ApplicationWindow {
@@ -15,28 +16,28 @@ Kirigami.ApplicationWindow {
     contextDrawer: RoomDrawer {
         id: contextDrawer
         enabled: roomList.enteredRoom !== null
-        visible: enabled
         room: root.currentRoom
     }
 
-    pageStack.initialPage: RoomListPanel {
-        id: roomList
-        roomListModel: spectralRoomListModel
+    pageStack.initialPage: LoadingPage {}
 
-        Component.onCompleted: {
-            applicationWindow().pageStack.push(roomPanelComponent, {"currentRoom": roomList.enteredRoom })
-        }
+    Component {
+        id: roomListComponent
+        RoomListPanel {
+            id: roomList
+            roomListModel: spectralRoomListModel
 
-        onEnterRoom: {
-            applicationWindow().pageStack.push(roomPanelComponent, {"currentRoom": room})
-            root.currentRoom = room
+            onEnterRoom: {
+                applicationWindow().pageStack.push(roomPanelComponent, {"currentRoom": room});
+                root.currentRoom = room;
 
-        }
-        onLeaveRoom: {
-            var stack = applicationWindow().pageStack;
-            roomList.enteredRoom = null
+            }
+            onLeaveRoom: {
+                var stack = applicationWindow().pageStack;
+                roomList.enteredRoom = null;
 
-            stack.removePage(stack.lastItem)
+                stack.removePage(stack.lastItem);
+            }
         }
     }
 
@@ -46,6 +47,23 @@ Kirigami.ApplicationWindow {
         quitOnLastWindowClosed: true
 
         onErrorOccured: showPassiveNotification(error + ": " + detail)
+
+        onInitiated: {
+            if (spectralController.accountCount === 0) {
+                pageStack.replace("qrc:/qml/LoginPage.qml", {
+                    'spectralController': spectralController
+                });
+            } else {
+                pageStack.replace(roomListComponent);
+            }
+        }
+
+        onConnectionAdded: {
+            if (spectralController.accountCount === 1) {
+                console.log("roomListComponent")
+                pageStack.replace(roomListComponent);
+            }
+        }
     }
 
     Binding {
