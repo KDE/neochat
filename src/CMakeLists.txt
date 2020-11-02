@@ -1,4 +1,4 @@
-set(neochat_SRCS
+add_executable(neochat
     accountlistmodel.cpp
     controller.cpp
     emojimodel.cpp
@@ -17,8 +17,6 @@ set(neochat_SRCS
     manager.cpp
     ../res.qrc
 )
-
-add_executable(neochat ${neochat_SRCS})
 
 target_link_libraries(neochat Qt5::Widgets Qt5::Quick Qt5::Qml Qt5::Gui Qt5::Network Qt5::QuickControls2 KF5::Kirigami2 Quotient cmark::cmark ${QTKEYCHAIN_LIBRARIES})
 
