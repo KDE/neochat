@@ -9,54 +9,62 @@
 
 using namespace Quotient;
 
-class UserDirectoryListModel : public QAbstractListModel {
-  Q_OBJECT
-  Q_PROPERTY(Connection* connection READ connection WRITE setConnection NOTIFY
-                 connectionChanged)
-  Q_PROPERTY(
-      QString keyword READ keyword WRITE setKeyword NOTIFY keywordChanged)
-  Q_PROPERTY(bool limited READ limited NOTIFY limitedChanged)
+class UserDirectoryListModel : public QAbstractListModel
+{
+    Q_OBJECT
+    Q_PROPERTY(Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
+    Q_PROPERTY(QString keyword READ keyword WRITE setKeyword NOTIFY keywordChanged)
+    Q_PROPERTY(bool limited READ limited NOTIFY limitedChanged)
 
- public:
-  enum EventRoles {
-    NameRole = Qt::DisplayRole + 1,
-    AvatarRole,
-    UserIDRole,
-    DirectChatsRole,
-  };
+public:
+    enum EventRoles {
+        NameRole = Qt::DisplayRole + 1,
+        AvatarRole,
+        UserIDRole,
+        DirectChatsRole,
+    };
 
-  UserDirectoryListModel(QObject* parent = nullptr);
+    UserDirectoryListModel(QObject *parent = nullptr);
 
-  QVariant data(const QModelIndex& index, int role = NameRole) const override;
-  int rowCount(const QModelIndex& parent = QModelIndex()) const override;
+    QVariant data(const QModelIndex &index, int role = NameRole) const override;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
-  QHash<int, QByteArray> roleNames() const override;
+    QHash<int, QByteArray> roleNames() const override;
 
-  Connection* connection() const { return m_connection; }
-  void setConnection(Connection* value);
+    Connection *connection() const
+    {
+        return m_connection;
+    }
+    void setConnection(Connection *value);
 
-  QString keyword() const { return m_keyword; }
-  void setKeyword(const QString& value);
+    QString keyword() const
+    {
+        return m_keyword;
+    }
+    void setKeyword(const QString &value);
 
-  bool limited() const { return m_limited; }
+    bool limited() const
+    {
+        return m_limited;
+    }
 
-  Q_INVOKABLE void search(int count = 50);
+    Q_INVOKABLE void search(int count = 50);
 
- private:
-  Connection* m_connection = nullptr;
-  QString m_keyword;
-  bool m_limited = false;
+private:
+    Connection *m_connection = nullptr;
+    QString m_keyword;
+    bool m_limited = false;
 
-  bool attempted = false;
+    bool attempted = false;
 
-  QVector<SearchUserDirectoryJob::User> users;
+    QVector<SearchUserDirectoryJob::User> users;
 
-  SearchUserDirectoryJob* job = nullptr;
+    SearchUserDirectoryJob *job = nullptr;
 
- signals:
-  void connectionChanged();
-  void keywordChanged();
-  void limitedChanged();
+signals:
+    void connectionChanged();
+    void keywordChanged();
+    void limitedChanged();
 };
 
-#endif  // USERDIRECTORYLISTMODEL_H
+#endif // USERDIRECTORYLISTMODEL_H

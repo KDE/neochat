@@ -7,6 +7,8 @@ find_package(ECM ${REQUIRED_KF5_VERSION} REQUIRED NO_MODULE)
 
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${ECM_MODULE_PATH})
 
+include(KDEClangFormat)
+
 set(IDENTIFIER "org.kde.neochat")
 set(COPYRIGHT "Copyright © 2018-2019 bhat@encom.eu.org, 2020 KDE Community")
 
@@ -255,3 +257,7 @@ if(LINUX)
             DESTINATION ${CMAKE_INSTALL_DATADIR}/icons
     )
 endif(LINUX)
+
+# add clang-format target for all our real source files
+file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h)
+kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})

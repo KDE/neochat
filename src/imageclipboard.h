@@ -10,24 +10,25 @@
 #include <QImage>
 #include <QObject>
 
-class ImageClipboard : public QObject {
-  Q_OBJECT
-  Q_PROPERTY(bool hasImage READ hasImage NOTIFY imageChanged)
-  Q_PROPERTY(QImage image READ image NOTIFY imageChanged)
+class ImageClipboard : public QObject
+{
+    Q_OBJECT
+    Q_PROPERTY(bool hasImage READ hasImage NOTIFY imageChanged)
+    Q_PROPERTY(QImage image READ image NOTIFY imageChanged)
 
- public:
-  explicit ImageClipboard(QObject* parent = nullptr);
+public:
+    explicit ImageClipboard(QObject *parent = nullptr);
 
-  bool hasImage() const;
-  QImage image() const;
+    bool hasImage() const;
+    QImage image() const;
 
-  Q_INVOKABLE bool saveImage(const QUrl& localPath);
+    Q_INVOKABLE bool saveImage(const QUrl &localPath);
 
- private:
-  QClipboard* m_clipboard;
+private:
+    QClipboard *m_clipboard;
 
- signals:
-  void imageChanged();
+signals:
+    void imageChanged();
 };
 
-#endif  // IMAGECLIPBOARD_H
+#endif // IMAGECLIPBOARD_H

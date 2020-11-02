@@ -13,18 +13,13 @@
 #include <events/roommemberevent.h>
 #include <events/simplestateevents.h>
 
-namespace utils {
-static const QRegularExpression removeReplyRegex{
-    "> <.*?>.*?\\n\\n", QRegularExpression::DotMatchesEverythingOption};
-static const QRegularExpression removeRichReplyRegex{
-    "<mx-reply>.*?</mx-reply>", QRegularExpression::DotMatchesEverythingOption};
-static const QRegularExpression codePillRegExp{
-    "<pre><code[^>]*>(.*?)</code></pre>", QRegularExpression::DotMatchesEverythingOption};
-static const QRegularExpression userPillRegExp{
-    "<a href=\"https://matrix.to/#/@.*?:.*?\">(.*?)</a>",
-    QRegularExpression::DotMatchesEverythingOption};
-static const QRegularExpression strikethroughRegExp{
-    "<del>(.*?)</del>", QRegularExpression::DotMatchesEverythingOption};
-}  // namespace utils
+namespace utils
+{
+static const QRegularExpression removeReplyRegex {"> <.*?>.*?\\n\\n", QRegularExpression::DotMatchesEverythingOption};
+static const QRegularExpression removeRichReplyRegex {"<mx-reply>.*?</mx-reply>", QRegularExpression::DotMatchesEverythingOption};
+static const QRegularExpression codePillRegExp {"<pre><code[^>]*>(.*?)</code></pre>", QRegularExpression::DotMatchesEverythingOption};
+static const QRegularExpression userPillRegExp {"<a href=\"https://matrix.to/#/@.*?:.*?\">(.*?)</a>", QRegularExpression::DotMatchesEverythingOption};
+static const QRegularExpression strikethroughRegExp {"<del>(.*?)</del>", QRegularExpression::DotMatchesEverythingOption};
+} // namespace utils
 
 #endif

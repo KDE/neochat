@@ -18,110 +18,105 @@
 
 using namespace Quotient;
 
-class SpectralRoom : public Room {
-  Q_OBJECT
-  Q_PROPERTY(QVariantList usersTyping READ getUsersTyping NOTIFY typingChanged)
-  Q_PROPERTY(QString cachedInput MEMBER m_cachedInput NOTIFY cachedInputChanged)
-  Q_PROPERTY(bool hasFileUploading READ hasFileUploading WRITE
-                 setHasFileUploading NOTIFY hasFileUploadingChanged)
-  Q_PROPERTY(int fileUploadingProgress READ fileUploadingProgress NOTIFY
-                 fileUploadingProgressChanged)
-  Q_PROPERTY(QString avatarMediaId READ avatarMediaId NOTIFY avatarChanged
-                 STORED false)
+class SpectralRoom : public Room
+{
+    Q_OBJECT
+    Q_PROPERTY(QVariantList usersTyping READ getUsersTyping NOTIFY typingChanged)
+    Q_PROPERTY(QString cachedInput MEMBER m_cachedInput NOTIFY cachedInputChanged)
+    Q_PROPERTY(bool hasFileUploading READ hasFileUploading WRITE setHasFileUploading NOTIFY hasFileUploadingChanged)
+    Q_PROPERTY(int fileUploadingProgress READ fileUploadingProgress NOTIFY fileUploadingProgressChanged)
+    Q_PROPERTY(QString avatarMediaId READ avatarMediaId NOTIFY avatarChanged STORED false)
 
- public:
-  explicit SpectralRoom(Connection* connection,
-                        QString roomId,
-                        JoinState joinState = {});
+public:
+    explicit SpectralRoom(Connection *connection, QString roomId, JoinState joinState = {});
 
-  QVariantList getUsersTyping() const;
+    QVariantList getUsersTyping() const;
 
-  QString lastEvent() const;
-  bool isEventHighlighted(const Quotient::RoomEvent* e) const;
+    QString lastEvent() const;
+    bool isEventHighlighted(const Quotient::RoomEvent *e) const;
 
-  QDateTime lastActiveTime() const;
+    QDateTime lastActiveTime() const;
 
-  bool hasFileUploading() const { return m_hasFileUploading; }
-  void setHasFileUploading(bool value) {
-    if (value == m_hasFileUploading) {
-      return;
+    bool hasFileUploading() const
+    {
+        return m_hasFileUploading;
     }
-    m_hasFileUploading = value;
-    emit hasFileUploadingChanged();
-  }
-
-  int fileUploadingProgress() const { return m_fileUploadingProgress; }
-  void setFileUploadingProgress(int value) {
-    if (m_fileUploadingProgress == value) {
-      return;
+    void setHasFileUploading(bool value)
+    {
+        if (value == m_hasFileUploading) {
+            return;
+        }
+        m_hasFileUploading = value;
+        emit hasFileUploadingChanged();
     }
-    m_fileUploadingProgress = value;
-    emit fileUploadingProgressChanged();
-  }
 
-  Q_INVOKABLE int savedTopVisibleIndex() const;
-  Q_INVOKABLE int savedBottomVisibleIndex() const;
-  Q_INVOKABLE void saveViewport(int topIndex, int bottomIndex);
+    int fileUploadingProgress() const
+    {
+        return m_fileUploadingProgress;
+    }
+    void setFileUploadingProgress(int value)
+    {
+        if (m_fileUploadingProgress == value) {
+            return;
+        }
+        m_fileUploadingProgress = value;
+        emit fileUploadingProgressChanged();
+    }
 
-  Q_INVOKABLE QVariantList getUsers(const QString& keyword) const;
+    Q_INVOKABLE int savedTopVisibleIndex() const;
+    Q_INVOKABLE int savedBottomVisibleIndex() const;
+    Q_INVOKABLE void saveViewport(int topIndex, int bottomIndex);
 
-  Q_INVOKABLE QUrl urlToMxcUrl(QUrl mxcUrl);
+    Q_INVOKABLE QVariantList getUsers(const QString &keyword) const;
 
-  QString avatarMediaId() const;
+    Q_INVOKABLE QUrl urlToMxcUrl(QUrl mxcUrl);
 
-  QString eventToString(const RoomEvent& evt,
-                        Qt::TextFormat format = Qt::PlainText,
-                        bool removeReply = true) const;
+    QString avatarMediaId() const;
 
-  Q_INVOKABLE bool containsUser(QString userID) const;
+    QString eventToString(const RoomEvent &evt, Qt::TextFormat format = Qt::PlainText, bool removeReply = true) const;
 
-  Q_INVOKABLE bool canSendEvent(const QString& eventType) const;
-  Q_INVOKABLE bool canSendState(const QString& eventType) const;
+    Q_INVOKABLE bool containsUser(QString userID) const;
 
- private:
-  QString m_cachedInput;
-  QSet<const Quotient::RoomEvent*> highlights;
+    Q_INVOKABLE bool canSendEvent(const QString &eventType) const;
+    Q_INVOKABLE bool canSendState(const QString &eventType) const;
 
-  bool m_hasFileUploading = false;
-  int m_fileUploadingProgress = 0;
+private:
+    QString m_cachedInput;
+    QSet<const Quotient::RoomEvent *> highlights;
 
-  void checkForHighlights(const Quotient::TimelineItem& ti);
+    bool m_hasFileUploading = false;
+    int m_fileUploadingProgress = 0;
 
-  void onAddNewTimelineEvents(timeline_iter_t from) override;
-  void onAddHistoricalTimelineEvents(rev_iter_t from) override;
-  void onRedaction(const RoomEvent& prevEvent, const RoomEvent& after) override;
+    void checkForHighlights(const Quotient::TimelineItem &ti);
 
-  static QString markdownToHTML(const QString& plaintext);
+    void onAddNewTimelineEvents(timeline_iter_t from) override;
+    void onAddHistoricalTimelineEvents(rev_iter_t from) override;
+    void onRedaction(const RoomEvent &prevEvent, const RoomEvent &after) override;
 
- private slots:
-  void countChanged();
+    static QString markdownToHTML(const QString &plaintext);
 
- signals:
-  void cachedInputChanged();
-  void busyChanged();
-  void hasFileUploadingChanged();
-  void fileUploadingProgressChanged();
-  void backgroundChanged();
+private slots:
+    void countChanged();
 
- public slots:
-  void uploadFile(const QUrl& url, const QString& body = "");
-  void acceptInvitation();
-  void forget();
-  void sendTypingNotification(bool isTyping);
-  void postArbitaryMessage(const QString& text,
-                           MessageEventType type = MessageEventType::Text,
-                           const QString& replyEventId = "");
-  void postPlainMessage(const QString& text,
-                        MessageEventType type = MessageEventType::Text,
-                        const QString& replyEventId = "");
-  void postHtmlMessage(const QString& text,
-                       const QString& html,
-                       MessageEventType type = MessageEventType::Text,
-                       const QString& replyEventId = "");
-  void changeAvatar(QUrl localFile);
-  void addLocalAlias(const QString& alias);
-  void removeLocalAlias(const QString& alias);
-  void toggleReaction(const QString& eventId, const QString& reaction);
+signals:
+    void cachedInputChanged();
+    void busyChanged();
+    void hasFileUploadingChanged();
+    void fileUploadingProgressChanged();
+    void backgroundChanged();
+
+public slots:
+    void uploadFile(const QUrl &url, const QString &body = "");
+    void acceptInvitation();
+    void forget();
+    void sendTypingNotification(bool isTyping);
+    void postArbitaryMessage(const QString &text, MessageEventType type = MessageEventType::Text, const QString &replyEventId = "");
+    void postPlainMessage(const QString &text, MessageEventType type = MessageEventType::Text, const QString &replyEventId = "");
+    void postHtmlMessage(const QString &text, const QString &html, MessageEventType type = MessageEventType::Text, const QString &replyEventId = "");
+    void changeAvatar(QUrl localFile);
+    void addLocalAlias(const QString &alias);
+    void removeLocalAlias(const QString &alias);
+    void toggleReaction(const QString &eventId, const QString &reaction);
 };
 
-#endif  // SpectralRoom_H
+#endif // SpectralRoom_H

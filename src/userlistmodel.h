@@ -6,65 +6,70 @@
 #include <QObject>
 #include <QtCore/QAbstractListModel>
 
-namespace Quotient {
+namespace Quotient
+{
 class Connection;
 class Room;
 class User;
-}  // namespace Quotient
+} // namespace Quotient
 
-class UserType : public QObject {
-  Q_OBJECT
+class UserType : public QObject
+{
+    Q_OBJECT
 
-  public:
+public:
     enum Types {
-      Owner = 1,
-      Admin,
-      Moderator,
-      Member,
-      Muted,
+        Owner = 1,
+        Admin,
+        Moderator,
+        Member,
+        Muted,
     };
     Q_ENUMS(Types)
 };
 
-class UserListModel : public QAbstractListModel {
-  Q_OBJECT
-  Q_PROPERTY(
-      Quotient::Room* room READ room WRITE setRoom NOTIFY roomChanged)
- public:
-  enum EventRoles {
-    NameRole = Qt::UserRole + 1,
-    UserIDRole,
-    AvatarRole,
-    ObjectRole,
-    PermRole,
-  };
+class UserListModel : public QAbstractListModel
+{
+    Q_OBJECT
+    Q_PROPERTY(Quotient::Room *room READ room WRITE setRoom NOTIFY roomChanged)
+public:
+    enum EventRoles {
+        NameRole = Qt::UserRole + 1,
+        UserIDRole,
+        AvatarRole,
+        ObjectRole,
+        PermRole,
+    };
 
-  UserListModel(QObject* parent = nullptr);
+    UserListModel(QObject *parent = nullptr);
 
-  Quotient::Room* room() const { return m_currentRoom; }
-  void setRoom(Quotient::Room* room);
-  Quotient::User* userAt(QModelIndex index) const;
+    Quotient::Room *room() const
+    {
+        return m_currentRoom;
+    }
+    void setRoom(Quotient::Room *room);
+    Quotient::User *userAt(QModelIndex index) const;
 
-  QVariant data(const QModelIndex& index, int role = NameRole) const override;
-  int rowCount(const QModelIndex& parent = QModelIndex()) const override;
+    QVariant data(const QModelIndex &index, int role = NameRole) const override;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
-  QHash<int, QByteArray> roleNames() const override;
+    QHash<int, QByteArray> roleNames() const override;
 
- signals:
-  void roomChanged();
+signals:
+    void roomChanged();
 
- private slots:
-  void userAdded(Quotient::User* user);
-  void userRemoved(Quotient::User* user);
-  void refresh(Quotient::User* user, QVector<int> roles = {});
-  void avatarChanged(Quotient::User* user);
+private slots:
+    void userAdded(Quotient::User *user);
+    void userRemoved(Quotient::User *user);
+    void refresh(Quotient::User *user, QVector<int> roles = {});
+    void avatarChanged(Quotient::User *user);
 
- private:
-  Quotient::Room* m_currentRoom;
-  QList<Quotient::User*> m_users;
+private:
+    Quotient::Room *m_currentRoom;
+    QList<Quotient::User *> m_users;
 
-  int findUserPos(Quotient::User* user) const;
-  int findUserPos(const QString& username) const;
+    int findUserPos(Quotient::User *user) const;
+    int findUserPos(const QString &username) const;
 };
 
-#endif  // USERLISTMODEL_H
+#endif // USERLISTMODEL_H
