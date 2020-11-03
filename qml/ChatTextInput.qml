@@ -417,21 +417,8 @@ Control {
                         messageEventType = RoomMessageEvent.Notice
                     }
 
-                    if (MSettings.markdownFormatting) {
-                        currentRoom.postArbitaryMessage(text, messageEventType, replyEventID)
-                    } else {
-                        currentRoom.postPlainMessage(text, messageEventType, replyEventID)
-                    }
+                    currentRoom.postArbitaryMessage(text, messageEventType, replyEventID)
                 }
-            }
-
-            ToolButton {
-                flat: true
-                Layout.alignment: Qt.AlignVCenter
-
-                icon.name: "format-text-code"
-                font.pixelSize: 16
-                onClicked: MSettings.markdownFormatting = !MSettings.markdownFormatting
             }
 
             ToolButton {
