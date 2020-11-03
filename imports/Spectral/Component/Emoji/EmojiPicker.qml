@@ -48,6 +48,7 @@ ColumnLayout {
                 verticalAlignment: Text.AlignVCenter
 
                 font.pixelSize: 24
+                font.family: 'emoji'
                 text: label
             }
 
@@ -119,6 +120,7 @@ ColumnLayout {
                 verticalAlignment: Text.AlignVCenter
 
                 font.pixelSize: 32
+                font.family: 'emoji'
                 text: modelData.unicode
             }
 
