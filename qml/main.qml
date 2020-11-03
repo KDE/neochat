@@ -12,7 +12,6 @@ import org.kde.kirigami 2.12 as Kirigami
 
 import Spectral 0.1
 import Spectral.Component 2.0
-import Spectral.Dialog 2.0
 import Spectral.Panel 2.0
 
 Kirigami.ApplicationWindow {
@@ -21,7 +20,7 @@ Kirigami.ApplicationWindow {
 
     contextDrawer: RoomDrawer {
         id: contextDrawer
-        enabled: roomList.enteredRoom !== null
+        enabled: root.currentRoomm !== null
         room: root.currentRoom
         handleVisible: enabled && (pageStack.currentItem instanceof RoomPage)
     }

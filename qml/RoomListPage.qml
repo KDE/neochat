@@ -37,8 +37,6 @@ Kirigami.ScrollablePage {
     }
 
     ListView {
-        id: messageListView
-
         model:  KSortFilterProxyModel {
             id: sortedFilteredRoomListModel
             sourceModel: roomListModel
@@ -59,56 +57,73 @@ Kirigami.ScrollablePage {
             topPadding: Kirigami.Units.largeSpacing
             bottomPadding: Kirigami.Units.largeSpacing
 
-            contentItem: RowLayout {
-                spacing: Kirigami.Units.largeSpacing
+            contentItem: Item {
+                implicitHeight: roomLayout.implicitHeight
+                RowLayout {
+                    id: roomLayout
+                    spacing: Kirigami.Units.largeSpacing
+                    anchors.fill: parent
 
-                Kirigami.Avatar {
-                    Layout.preferredWidth: height
-                    Layout.fillHeight: true
-
-                    source: avatar ? "image://mxc/" + avatar : ""
-                    name: model.name || "No Name"
-                }
-
-                ColumnLayout {
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    Layout.alignment: Qt.AlignHCenter
-
-                    spacing: Kirigami.Units.smallSpacing
-
-                    QQC2.Label {
-                        Layout.fillWidth: true
+                    Kirigami.Avatar {
+                        Layout.preferredWidth: height
                         Layout.fillHeight: true
-                        text: name ?? ""
-                        font.pixelSize: 15
-                        font.bold: unreadCount >= 0
-                        elide: Text.ElideRight
-                        wrapMode: Text.NoWrap
+
+                        source: avatar ? "image://mxc/" + avatar : ""
+                        name: model.name || i18n("No Name")
                     }
 
-                    QQC2.Label {
+                    ColumnLayout {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
                         Layout.alignment: Qt.AlignHCenter
 
-                        text: (lastEvent == "" ? topic : lastEvent).replace(/(\r\n\t|\n|\r\t)/gm," ")
-                        font.pixelSize: 12
-                        elide: Text.ElideRight
-                        wrapMode: Text.NoWrap
+                        spacing: Kirigami.Units.smallSpacing
+
+                        QQC2.Label {
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+                            text: name ?? ""
+                            font.pixelSize: 15
+                            font.bold: unreadCount >= 0
+                            elide: Text.ElideRight
+                            wrapMode: Text.NoWrap
+                        }
+
+                        QQC2.Label {
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+                            Layout.alignment: Qt.AlignHCenter
+
+                            text: (lastEvent == "" ? topic : lastEvent).replace(/(\r\n\t|\n|\r\t)/gm," ")
+                            font.pixelSize: 12
+                            elide: Text.ElideRight
+                            wrapMode: Text.NoWrap
+                        }
+                    }
+                }
+                MouseArea {
+                    acceptedButtons: Qt.LeftButton | Qt.RightButton
+                    anchors.fill: parent
+                    onClicked: {
+                        console.log(mouse.button)
+                        if (mouse.button == Qt.RightButton) {
+                            roomListContextMenu.createObject(parent, {"room": currentRoom}).popup()
+                        } else {
+                            if (enteredRoom) {
+                                leaveRoom(enteredRoom)
+                            }
+
+                            enteredRoom = currentRoom
+
+                            enterRoom(enteredRoom)
+                        }
                     }
                 }
             }
-
-            onClicked: {
-                if (enteredRoom) {
-                    leaveRoom(enteredRoom)
-                }
-
-                enteredRoom = currentRoom
-
-                enterRoom(enteredRoom)
-            }
+        }
+        Component {
+            id: roomListContextMenu
+            RoomListContextMenu {}
         }
     }
 }

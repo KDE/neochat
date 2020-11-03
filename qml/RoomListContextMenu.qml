@@ -1,14 +1,21 @@
+/**
+ * SPDX-FileCopyrightText: 2019 Black Hat <bhat@encom.eu.org>
+ * SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
+ *
+ * SPDX-LicenseIdentifier: GPL-3.0-only
+ */
 import QtQuick 2.12
 import QtQuick.Controls 2.12
-import QtQuick.Controls.Material 2.12
 
+/**
+ * Context menu when clicking on a room in the room list
+ */
 Menu {
+    id: root
     property var room
 
-    id: root
-
     MenuItem {
-        text: "Favourite"
+        text: i18n("Favourite")
         checkable: true
         checked: room.isFavourite
 
@@ -16,7 +23,7 @@ Menu {
     }
 
     MenuItem {
-        text: "Deprioritize"
+        text: i18n("Deprioritize")
         checkable: true
         checked: room.isLowPriority
 
@@ -26,15 +33,13 @@ Menu {
     MenuSeparator {}
 
     MenuItem {
-        text: "Mark as Read"
+        text: i18n("Mark as Read")
 
         onTriggered: room.markAllMessagesAsRead()
     }
 
     MenuItem {
-        text: "Leave Room"
-        Material.foreground: Material.Red
-
+        text: i18n("Leave Room")
         onTriggered: room.forget()
     }
 
