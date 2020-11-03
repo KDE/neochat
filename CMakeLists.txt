@@ -33,7 +33,7 @@ find_package(cmark REQUIRED)
 
 install(PROGRAMS org.kde.neochat.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.neochat.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
-#install(FILES neochat.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/apps)
+install(FILES neochat.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/apps)
 install(FILES neochat.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})
 
 # add_definitions(-DQT_NO_KEYWORDS) Need to fix libQuotient first
