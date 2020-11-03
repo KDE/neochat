@@ -14,7 +14,7 @@
 
 using Quotient::BaseJob;
 
-ThumbnailResponse::ThumbnailResponse(Quotient::Connection *c, QString id, const QSize &size)
+ThumbnailResponse::ThumbnailResponse(Quotient::Connection *c, QString id, QSize size)
     : c(c)
     , mediaId(std::move(id))
     , requestedSize(size)
@@ -22,9 +22,8 @@ ThumbnailResponse::ThumbnailResponse(Quotient::Connection *c, QString id, const 
     , errorStr("Image request hasn't started")
 {
     if (requestedSize.isEmpty()) {
-        errorStr.clear();
-        Q_EMIT finished();
-        return;
+        requestedSize.setHeight(100);
+        requestedSize.setWidth(100);
     }
     if (mediaId.count('/') != 1) {
         errorStr = tr("Media id '%1' doesn't follow server/mediaId pattern").arg(mediaId);

@@ -25,7 +25,7 @@ class ThumbnailResponse : public QQuickImageResponse
 {
     Q_OBJECT
 public:
-    ThumbnailResponse(Quotient::Connection *c, QString mediaId, const QSize &requestedSize);
+    ThumbnailResponse(Quotient::Connection *c, QString mediaId, QSize requestedSize);
     ~ThumbnailResponse() override = default;
 
 private Q_SLOTS:
@@ -36,7 +36,7 @@ private Q_SLOTS:
 private:
     Quotient::Connection *c;
     const QString mediaId;
-    const QSize requestedSize;
+    QSize requestedSize;
     const QString localFile;
     Quotient::MediaThumbnailJob *job = nullptr;
 
