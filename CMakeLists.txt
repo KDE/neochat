@@ -36,6 +36,9 @@ install(FILES org.kde.neochat.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR}
 #install(FILES neochat.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/apps)
 install(FILES neochat.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})
 
+# add_definitions(-DQT_NO_KEYWORDS) Need to fix libQuotient first
+add_definitions(-DQT_NO_FOREACH)
+
 add_subdirectory(src)
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)

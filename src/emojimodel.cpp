@@ -18,49 +18,49 @@ QVariantList EmojiModel::filterModel(const QString &filter)
 {
     QVariantList result;
 
-    for (QVariant e : people) {
+    for (const QVariant &e : people) {
         auto emoji = qvariant_cast<Emoji>(e);
         if (emoji.shortname.startsWith(filter)) {
             result.append(e);
         }
     }
-    for (QVariant e : nature) {
+    for (const QVariant &e : nature) {
         auto emoji = qvariant_cast<Emoji>(e);
         if (emoji.shortname.startsWith(filter)) {
             result.append(e);
         }
     }
-    for (QVariant e : food) {
+    for (const QVariant &e : food) {
         auto emoji = qvariant_cast<Emoji>(e);
         if (emoji.shortname.startsWith(filter)) {
             result.append(e);
         }
     }
-    for (QVariant e : activity) {
+    for (const QVariant &e : activity) {
         auto emoji = qvariant_cast<Emoji>(e);
         if (emoji.shortname.startsWith(filter)) {
             result.append(e);
         }
     }
-    for (QVariant e : travel) {
+    for (const QVariant &e : travel) {
         auto emoji = qvariant_cast<Emoji>(e);
         if (emoji.shortname.startsWith(filter)) {
             result.append(e);
         }
     }
-    for (QVariant e : objects) {
+    for (const QVariant &e : objects) {
         auto emoji = qvariant_cast<Emoji>(e);
         if (emoji.shortname.startsWith(filter)) {
             result.append(e);
         }
     }
-    for (QVariant e : symbols) {
+    for (const QVariant &e : symbols) {
         auto emoji = qvariant_cast<Emoji>(e);
         if (emoji.shortname.startsWith(filter)) {
             result.append(e);
         }
     }
-    for (QVariant e : flags) {
+    for (const QVariant &e : flags) {
         auto emoji = qvariant_cast<Emoji>(e);
         if (emoji.shortname.startsWith(filter)) {
             result.append(e);

@@ -25,7 +25,7 @@ public:
         Member,
         Muted,
     };
-    Q_ENUMS(Types)
+    Q_ENUM(Types)
 };
 
 class UserListModel : public QAbstractListModel

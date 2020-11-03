@@ -59,7 +59,7 @@ Controller::Controller(QObject *parent)
 
 Controller::~Controller()
 {
-    for (auto c : m_connections) {
+    for (auto c : qAsConst(m_connections)) {
         c->stopSync();
         c->saveState();
     }
@@ -90,7 +90,7 @@ void Controller::loginWithCredentials(QString serverAddr, QString user, QString 
     }
     conn->connectToServer(user, pass, deviceName, "");
 
-    connect(conn, &Connection::connected, [=] {
+    connect(conn, &Connection::connected, this, [=] {
         AccountSettings account(conn->userId());
         account.setKeepLoggedIn(true);
         account.clearAccessToken(); // Drop the legacy - just in case
@@ -124,7 +124,7 @@ void Controller::loginWithAccessToken(QString serverAddr, QString user, QString 
         conn->setHomeserver(serverUrl);
     }
 
-    connect(conn, &Connection::connected, [=] {
+    connect(conn, &Connection::connected, this, [=] {
         AccountSettings account(conn->userId());
         account.setKeepLoggedIn(true);
         account.clearAccessToken(); // Drop the legacy - just in case
@@ -137,7 +137,7 @@ void Controller::loginWithAccessToken(QString serverAddr, QString user, QString 
         addConnection(conn);
         setConnection(conn);
     });
-    connect(conn, &Connection::networkError, [=](QString error, QString, int, int) {
+    connect(conn, &Connection::networkError, this, [=](QString error, QString, int, int) {
         Q_EMIT errorOccured("Network Error", error);
     });
     conn->connectWithToken(user, token, deviceName);
@@ -236,16 +236,15 @@ void Controller::invokeLogin()
             auto accessToken = loadAccessTokenFromKeyChain(account);
 
             auto c = new Connection(account.homeserver(), this);
-            auto deviceName = account.deviceName();
             connect(c, &Connection::connected, this, [=] {
                 c->loadState();
                 addConnection(c);
             });
-            connect(c, &Connection::loginError, [=](QString error, QString) {
+            connect(c, &Connection::loginError, this, [=](QString error, QString) {
                 Q_EMIT errorOccured("Login Failed", error);
                 logout(c);
             });
-            connect(c, &Connection::networkError, [=](QString error, QString, int, int) {
+            connect(c, &Connection::networkError, this, [=](QString error, QString, int, int) {
                 Q_EMIT errorOccured("Network Error", error);
             });
             c->connectWithToken(account.userId(), accessToken, account.deviceId());
@@ -410,7 +409,8 @@ void Controller::changeAvatar(Connection *conn, QUrl localFile)
 
 void Controller::markAllMessagesAsRead(Connection *conn)
 {
-    for (auto room : conn->allRooms()) {
+    const auto rooms = conn->allRooms();
+    for (auto room : rooms) {
         room->markAllMessagesAsRead();
     }
 }

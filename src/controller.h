@@ -120,8 +120,8 @@ Q_SIGNALS:
     void busyChanged();
     void errorOccured(QString error, QString detail);
     void syncDone();
-    void connectionAdded(Connection *conn);
-    void connectionDropped(Connection *conn);
+    void connectionAdded(Quotient::Connection *conn);
+    void connectionDropped(Quotient::Connection *conn);
     void initiated();
     void notificationClicked(const QString roomId, const QString eventId);
     void quitOnLastWindowClosedChanged();
@@ -130,13 +130,13 @@ Q_SIGNALS:
     void isOnlineChanged();
 
 public Q_SLOTS:
-    void logout(Connection *conn);
-    void joinRoom(Connection *c, const QString &alias);
-    void createRoom(Connection *c, const QString &name, const QString &topic);
-    void createDirectChat(Connection *c, const QString &userID);
+    void logout(Quotient::Connection *conn);
+    void joinRoom(Quotient::Connection *c, const QString &alias);
+    void createRoom(Quotient::Connection *c, const QString &name, const QString &topic);
+    void createDirectChat(Quotient::Connection *c, const QString &userID);
     void playAudio(QUrl localFile);
-    void changeAvatar(Connection *conn, QUrl localFile);
-    void markAllMessagesAsRead(Connection *conn);
+    void changeAvatar(Quotient::Connection *conn, QUrl localFile);
+    void markAllMessagesAsRead(Quotient::Connection *conn);
 };
 
 #endif // CONTROLLER_H

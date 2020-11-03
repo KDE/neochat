@@ -44,7 +44,7 @@ MessageEventModel::MessageEventModel(QObject *parent)
     , m_currentRoom(nullptr)
 {
     using namespace Quotient;
-    qmlRegisterType<FileTransferInfo>();
+    qmlRegisterAnonymousType<FileTransferInfo>("Spectral", 1);
     qRegisterMetaType<FileTransferInfo>();
     qmlRegisterUncreatableType<EventStatus>("Spectral", 0, 1, "EventStatus", "EventStatus is not an creatable type");
 }
@@ -255,6 +255,7 @@ int MessageEventModel::rowCount(const QModelIndex &parent) const
 
 inline QVariantMap userAtEvent(SpectralUser *user, SpectralRoom *room, const RoomEvent &evt)
 {
+    Q_UNUSED(evt)
     return QVariantMap {
         {"isLocalUser", user->id() == room->localUser()->id()},
         {"id", user->id()},
@@ -404,7 +405,8 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 
     if (role == UserMarkerRole) {
         QVariantList variantList;
-        for (User *user : m_currentRoom->usersAtEventId(evt.id())) {
+        const auto users = m_currentRoom->usersAtEventId(evt.id());
+        for (User *user : users) {
             if (user == m_currentRoom->localUser())
                 continue;
             variantList.append(QVariant::fromValue(user));

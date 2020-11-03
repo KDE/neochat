@@ -37,8 +37,9 @@ void RoomListModel::setConnection(Connection *connection)
 
     m_connection = connection;
 
-    for (SpectralRoom *room : m_rooms)
+    for (SpectralRoom *room : qAsConst(m_rooms)) {
         room->disconnect(this);
+    }
 
     connect(connection, &Connection::connected, this, &RoomListModel::doResetModel);
     connect(connection, &Connection::invitedRoom, this, &RoomListModel::updateRoom);
@@ -46,7 +47,8 @@ void RoomListModel::setConnection(Connection *connection)
     connect(connection, &Connection::leftRoom, this, &RoomListModel::updateRoom);
     connect(connection, &Connection::aboutToDeleteRoom, this, &RoomListModel::deleteRoom);
     connect(connection, &Connection::directChatsListChanged, this, [=](Quotient::DirectChatsMap additions, Quotient::DirectChatsMap removals) {
-        for (QString roomID : additions.values() + removals.values()) {
+        const auto values = additions.values() + removals.values();
+        for (const QString &roomID : values) {
             auto room = connection->room(roomID);
             if (room)
                 refresh(static_cast<SpectralRoom *>(room));
@@ -54,6 +56,8 @@ void RoomListModel::setConnection(Connection *connection)
     });
 
     doResetModel();
+
+    Q_EMIT connectionChanged();
 }
 
 void RoomListModel::doResetModel()
@@ -139,7 +143,7 @@ void RoomListModel::connectRoomSignals(SpectralRoom *room)
 void RoomListModel::refreshNotificationCount()
 {
     int count = 0;
-    for (auto room : m_rooms) {
+    for (auto room : qAsConst(m_rooms)) {
         count += room->notificationCount();
     }
     m_notificationCount = count;

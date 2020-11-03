@@ -22,13 +22,13 @@ public:
         Normal,
         Deprioritized,
     };
-    Q_ENUMS(Types)
+    Q_ENUM(Types)
 };
 
 class RoomListModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(Connection *connection READ connection WRITE setConnection)
+    Q_PROPERTY(Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
     Q_PROPERTY(int notificationCount READ notificationCount NOTIFY notificationCountChanged)
 
 public:
@@ -70,9 +70,9 @@ public:
     }
 
 private Q_SLOTS:
-    void doAddRoom(Room *room);
-    void updateRoom(Room *room, Room *prev);
-    void deleteRoom(Room *room);
+    void doAddRoom(Quotient::Room *room);
+    void updateRoom(Quotient::Room *room, Quotient::Room *prev);
+    void deleteRoom(Quotient::Room *room);
     void refresh(SpectralRoom *room, const QVector<int> &roles = {});
     void refreshNotificationCount();
 
