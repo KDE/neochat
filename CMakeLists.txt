@@ -19,11 +19,16 @@ include(KDEClangFormat)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 
-find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets Core Quick Gui QuickControls2 Multimedia)
-find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS Kirigami2 ItemModels I18n Notifications)
+find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets Core Quick Gui QuickControls2 Multimedia Svg)
+find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS Kirigami2 ItemModels I18n Notifications Config)
+
+if(ANDROID)
+    find_package(OpenSSL REQUIRED)
+else()
+    find_package(Qt5Keychain REQUIRED)
+endif()
 
 find_package(Quotient 0.7 REQUIRED)
-find_package(Qt5Keychain REQUIRED)
 find_package(cmark REQUIRED)
 
 install(PROGRAMS org.kde.neochat.desktop DESTINATION ${KDE_INSTALL_APPDIR})

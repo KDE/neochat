@@ -9,6 +9,10 @@
 #include <QNetworkProxyFactory>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QQuickStyle>
+
+#include <KLocalizedContext>
+#include <KLocalizedString>
 
 #include "accountlistmodel.h"
 #include "controller.h"
@@ -30,13 +34,21 @@
 
 using namespace Quotient;
 
+#ifdef Q_OS_ANDROID
+Q_DECL_EXPORT
+#endif
 int main(int argc, char *argv[])
 {
     QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QNetworkProxyFactory::setUseSystemConfiguration(true);
 
+#ifdef Q_OS_ANDROID
+    QGuiApplication app(argc, argv);
+    QQuickStyle::setStyle(QStringLiteral("Material"));
+#else
     QApplication app(argc, argv);
+#endif
 
     app.setOrganizationName("KDE");
     app.setOrganizationDomain("kde.org");
@@ -71,6 +83,8 @@ int main(int argc, char *argv[])
     qRegisterMetaTypeStreamOperators<Emoji>();
 
     QQmlApplicationEngine engine;
+    engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
+    KLocalizedString::setApplicationDomain("neochat");
 
     engine.addImportPath("qrc:/imports");
     MatrixImageProvider *matrixImageProvider = new MatrixImageProvider();
