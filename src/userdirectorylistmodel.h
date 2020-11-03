@@ -61,7 +61,7 @@ private:
 
     SearchUserDirectoryJob *job = nullptr;
 
-signals:
+Q_SIGNALS: 
     void connectionChanged();
     void keywordChanged();
     void limitedChanged();

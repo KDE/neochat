@@ -62,7 +62,7 @@ public:
 
     Q_INVOKABLE int eventIDToIndex(const QString &eventID) const;
 
-private slots:
+private Q_SLOTS:
     int refreshEvent(const QString &eventId);
     void refreshRow(int row);
 
@@ -80,7 +80,7 @@ private:
     void refreshEventRoles(int row, const QVector<int> &roles = {});
     int refreshEventRoles(const QString &eventId, const QVector<int> &roles = {});
 
-signals:
+Q_SIGNALS: 
     void roomChanged();
 };
 

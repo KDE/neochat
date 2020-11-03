@@ -113,10 +113,10 @@ private:
     void loadSettings();
     void saveSettings() const;
 
-private slots:
+private Q_SLOTS:
     void invokeLogin();
 
-signals:
+Q_SIGNALS: 
     void busyChanged();
     void errorOccured(QString error, QString detail);
     void syncDone();
@@ -129,7 +129,7 @@ signals:
     void connectionChanged();
     void isOnlineChanged();
 
-public slots:
+public Q_SLOTS:
     void logout(Connection *conn);
     void joinRoom(Connection *c, const QString &alias);
     void createRoom(Connection *c, const QString &name, const QString &topic);

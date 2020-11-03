@@ -69,7 +69,7 @@ public:
         return m_notificationCount;
     }
 
-private slots:
+private Q_SLOTS:
     void doAddRoom(Room *room);
     void updateRoom(Room *room, Room *prev);
     void deleteRoom(Room *room);
@@ -84,7 +84,7 @@ private:
 
     void connectRoomSignals(SpectralRoom *room);
 
-signals:
+Q_SIGNALS: 
     void connectionChanged();
     void notificationCountChanged();
 

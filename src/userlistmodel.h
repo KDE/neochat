@@ -55,10 +55,10 @@ public:
 
     QHash<int, QByteArray> roleNames() const override;
 
-signals:
+Q_SIGNALS: 
     void roomChanged();
 
-private slots:
+private Q_SLOTS:
     void userAdded(Quotient::User *user);
     void userRemoved(Quotient::User *user);
     void refresh(Quotient::User *user, QVector<int> roles = {});

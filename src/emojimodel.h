@@ -70,10 +70,10 @@ public:
     Q_INVOKABLE QVariantList history();
     Q_INVOKABLE QVariantList filterModel(const QString &filter);
 
-signals:
+Q_SIGNALS: 
     void historyChanged();
 
-public slots:
+public Q_SLOTS:
     void emojiUsed(QVariant modelData);
 
 private:

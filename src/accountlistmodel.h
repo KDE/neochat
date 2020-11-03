@@ -35,7 +35,7 @@ private:
     Controller *m_controller = nullptr;
     QVector<Connection *> m_connections;
 
-signals:
+Q_SIGNALS: 
     void controllerChanged();
 };
 

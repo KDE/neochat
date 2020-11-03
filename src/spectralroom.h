@@ -95,17 +95,17 @@ private:
 
     static QString markdownToHTML(const QString &plaintext);
 
-private slots:
+private Q_SLOTS:
     void countChanged();
 
-signals:
+Q_SIGNALS: 
     void cachedInputChanged();
     void busyChanged();
     void hasFileUploadingChanged();
     void fileUploadingProgressChanged();
     void backgroundChanged();
 
-public slots:
+public Q_SLOTS:
     void uploadFile(const QUrl &url, const QString &body = "");
     void acceptInvitation();
     void forget();

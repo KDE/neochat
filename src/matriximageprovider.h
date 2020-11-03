@@ -28,7 +28,7 @@ public:
     ThumbnailResponse(Quotient::Connection *c, QString mediaId, const QSize &requestedSize);
     ~ThumbnailResponse() override = default;
 
-private slots:
+private Q_SLOTS:
     void startRequest();
     void prepareResult();
     void doCancel();
@@ -68,7 +68,7 @@ public:
         Q_EMIT connectionChanged();
     }
 
-signals:
+Q_SIGNALS: 
     void connectionChanged();
 
 private:
