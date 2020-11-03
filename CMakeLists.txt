@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.1)
 
 project(neoChat VERSION 0.0.90)
 
-set(KF5_MIN_VERSION "5.75.0")
+set(KF5_MIN_VERSION "5.74.0")
 set(QT_MIN_VERSION "5.15.0")
 
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
