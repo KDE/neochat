@@ -12,6 +12,8 @@ import Spectral.Setting 0.1
 import Spectral 0.1
 
 Control {
+    id: root
+
     property alias isReply: replyItem.visible
     property bool isReaction: false
     property var replyModel
@@ -27,10 +29,8 @@ Control {
     property bool hasAttachment: false
     property url attachmentPath
 
-    id: root
-
     padding: 0
-    
+
     background: Rectangle {
         color: Kirigami.Theme.backgroundColor
         Kirigami.Separator {
@@ -158,7 +158,7 @@ Control {
                     Kirigami.Avatar {
                         Layout.preferredWidth: 24
                         Layout.preferredHeight: 24
-
+                        
                         source: modelData.avatarMediaId ? "image://mxc/" + modelData.avatarMediaId : ""
                         color: modelData.color ? Qt.darker(modelData.color, 1.1) : null
                     }
@@ -198,11 +198,12 @@ Control {
             spacing: 0
 
             ToolButton {
+                id: uploadButton
+
                 Layout.preferredWidth: 48
                 Layout.preferredHeight: 48
                 Layout.alignment: Qt.AlignBottom
 
-                id: uploadButton
                 visible: !isReply && !hasAttachment
 
                 icon.name: "mail-attachment"
@@ -216,7 +217,7 @@ Control {
                         fileDialog.chosen.connect(function(path) {
                             if (!path) return
 
-                            roomPanelInput.attach(path)
+                            root.attach(path)
                         })
 
                         fileDialog.open()
@@ -252,7 +253,7 @@ Control {
                 visible: hasAttachment
 
                 rightPadding: 8
-                
+
                 contentItem: RowLayout {
                     spacing: 0
 
@@ -262,7 +263,7 @@ Control {
 
                         id: cancelAttachmentButton
 
-                        icon.name: "mail-attachement"
+                        icon.name: "dialog-cancel"
 
                         onClicked: {
                             hasAttachment = false;
@@ -273,8 +274,7 @@ Control {
                     Label {
                         Layout.alignment: Qt.AlignVCenter
 
-                        text: attachmentPath != "" ? attachmentPath.toString().substring(attachmentPath.toString().lastIndexOf('/') + 1, attachmentPath.length) : ""
-                        color: "white"
+                        text: attachmentPath !== "" ? attachmentPath.toString().substring(attachmentPath.toString().lastIndexOf('/') + 1, attachmentPath.length) : ""
                     }
                 }
             }
@@ -427,7 +427,7 @@ Control {
                 Layout.alignment: Qt.AlignBottom
 
                 id: emojiButton
-                icon.name: "document-send"
+                icon.name: "preferences-desktop-emoticons"
 
                 onClicked: emojiPicker.visible = !emojiPicker.visible
             }
