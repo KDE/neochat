@@ -61,7 +61,7 @@ public:
         if (quitOnLastWindowClosed() != value) {
             QApplication::setQuitOnLastWindowClosed(value);
 
-            emit quitOnLastWindowClosedChanged();
+            Q_EMIT quitOnLastWindowClosedChanged();
         }
     }
 
@@ -80,7 +80,7 @@ public:
             return;
         }
         m_busy = busy;
-        emit busyChanged();
+        Q_EMIT busyChanged();
     }
 
     Connection *connection() const
@@ -96,7 +96,7 @@ public:
         if (conn == m_connection)
             return;
         m_connection = conn;
-        emit connectionChanged();
+        Q_EMIT connectionChanged();
     }
 
 private:

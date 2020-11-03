@@ -125,7 +125,7 @@ void TrayIcon::setNotificationCount(int count)
 
     icon_ = tmp;
 #endif
-    emit notificationCountChanged();
+    Q_EMIT notificationCountChanged();
 }
 
 void TrayIcon::setIsOnline(bool online)
@@ -161,7 +161,7 @@ void TrayIcon::setIsOnline(bool online)
 
     icon_ = tmp;
 #endif
-    emit isOnlineChanged();
+    Q_EMIT isOnlineChanged();
 }
 
 void TrayIcon::setIconSource(const QString &source)
@@ -175,5 +175,5 @@ void TrayIcon::setIconSource(const QString &source)
     icon_->isOnline = m_isOnline;
     icon_->msgCount = m_notificationCount;
 #endif
-    emit iconSourceChanged();
+    Q_EMIT iconSourceChanged();
 }

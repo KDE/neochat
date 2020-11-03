@@ -85,7 +85,7 @@ void EmojiModel::emojiUsed(QVariant modelData)
     list.push_front(modelData);
     m_settings->setValue("Editor/emojis", list);
 
-    emit historyChanged();
+    Q_EMIT historyChanged();
 }
 
 const QVariantList EmojiModel::people = {

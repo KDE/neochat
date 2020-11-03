@@ -99,10 +99,10 @@ void Controller::loginWithCredentials(QString serverAddr, QString user, QString 
         setConnection(conn);
     });
     connect(conn, &Connection::networkError, [=](QString error, QString, int, int) {
-        emit errorOccured("Network Error", error);
+        Q_EMIT errorOccured("Network Error", error);
     });
     connect(conn, &Connection::loginError, [=](QString error, QString) {
-        emit errorOccured("Login Failed", error);
+        Q_EMIT errorOccured("Login Failed", error);
     });
 }
 
@@ -133,7 +133,7 @@ void Controller::loginWithAccessToken(QString serverAddr, QString user, QString 
         setConnection(conn);
     });
     connect(conn, &Connection::networkError, [=](QString error, QString, int, int) {
-        emit errorOccured("Network Error", error);
+        Q_EMIT errorOccured("Network Error", error);
     });
     conn->connectWithToken(user, token, deviceName);
 }
@@ -159,13 +159,13 @@ void Controller::logout(Connection *conn)
     auto logoutJob = conn->callApi<LogoutJob>();
     connect(logoutJob, &LogoutJob::finished, conn, [=] {
         conn->stopSync();
-        emit conn->stateChanged();
-        emit conn->loggedOut();
+        Q_EMIT conn->stateChanged();
+        Q_EMIT conn->loggedOut();
         if (!m_connections.isEmpty())
             setConnection(m_connections[0]);
     });
     connect(logoutJob, &LogoutJob::failure, this, [=] {
-        emit errorOccured("Server-side Logout Failed", logoutJob->errorString());
+        Q_EMIT errorOccured("Server-side Logout Failed", logoutJob->errorString());
     });
 }
 
@@ -180,7 +180,7 @@ void Controller::addConnection(Connection *c)
     connect(c, &Connection::syncDone, this, [=] {
         setBusy(false);
 
-        emit syncDone();
+        Q_EMIT syncDone();
 
         c->sync(30000);
         c->saveState();
@@ -203,7 +203,7 @@ void Controller::addConnection(Connection *c)
 
     c->sync();
 
-    emit connectionAdded(c);
+    Q_EMIT connectionAdded(c);
 }
 
 void Controller::dropConnection(Connection *c)
@@ -211,7 +211,7 @@ void Controller::dropConnection(Connection *c)
     Q_ASSERT_X(c, __FUNCTION__, "Attempt to drop a null connection");
     m_connections.removeOne(c);
 
-    emit connectionDropped(c);
+    Q_EMIT connectionDropped(c);
     c->deleteLater();
 }
 
@@ -231,11 +231,11 @@ void Controller::invokeLogin()
                 addConnection(c);
             });
             connect(c, &Connection::loginError, [=](QString error, QString) {
-                emit errorOccured("Login Failed", error);
+                Q_EMIT errorOccured("Login Failed", error);
                 logout(c);
             });
             connect(c, &Connection::networkError, [=](QString error, QString, int, int) {
-                emit errorOccured("Network Error", error);
+                Q_EMIT errorOccured("Network Error", error);
             });
             c->connectWithToken(account.userId(), accessToken, account.deviceId());
         }
@@ -245,7 +245,7 @@ void Controller::invokeLogin()
         setConnection(m_connections[0]);
     }
 
-    emit initiated();
+    Q_EMIT initiated();
 }
 
 QByteArray Controller::loadAccessTokenFromFile(const AccountSettings &account)
@@ -307,7 +307,7 @@ bool Controller::saveAccessTokenToFile(const AccountSettings &account, const QBy
 
     auto fileDir = QFileInfo(accountTokenFile).dir();
     if (!((fileDir.exists() || fileDir.mkpath(".")) && accountTokenFile.open(QFile::WriteOnly))) {
-        emit errorOccured("I/O Denied", "Cannot save access token.");
+        Q_EMIT errorOccured("I/O Denied", "Cannot save access token.");
     } else {
         accountTokenFile.write(accessToken);
         return true;
@@ -343,7 +343,7 @@ void Controller::joinRoom(Connection *c, const QString &alias)
     auto knownServer = alias.mid(alias.indexOf(":") + 1);
     auto joinRoomJob = c->joinRoom(alias, QStringList {knownServer});
     joinRoomJob->connect(joinRoomJob, &JoinRoomJob::failure, [=] {
-        emit errorOccured("Join Room Failed", joinRoomJob->errorString());
+        Q_EMIT errorOccured("Join Room Failed", joinRoomJob->errorString());
     });
 }
 
@@ -351,7 +351,7 @@ void Controller::createRoom(Connection *c, const QString &name, const QString &t
 {
     auto createRoomJob = c->createRoom(Connection::PublishRoom, "", name, topic, QStringList());
     createRoomJob->connect(createRoomJob, &CreateRoomJob::failure, [=] {
-        emit errorOccured("Create Room Failed", createRoomJob->errorString());
+        Q_EMIT errorOccured("Create Room Failed", createRoomJob->errorString());
     });
 }
 
@@ -359,7 +359,7 @@ void Controller::createDirectChat(Connection *c, const QString &userID)
 {
     auto createRoomJob = c->createDirectChat(userID);
     createRoomJob->connect(createRoomJob, &CreateRoomJob::failure, [=] {
-        emit errorOccured("Create Direct Chat Failed", createRoomJob->errorString());
+        Q_EMIT errorOccured("Create Direct Chat Failed", createRoomJob->errorString());
     });
 }
 

@@ -65,7 +65,7 @@ public:
     void setConnection(Quotient::Connection *connection)
     {
         m_connection.storeRelaxed(connection);
-        emit connectionChanged();
+        Q_EMIT connectionChanged();
     }
 
 signals:

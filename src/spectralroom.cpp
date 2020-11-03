@@ -153,7 +153,7 @@ void SpectralRoom::onRedaction(const RoomEvent &prevEvent, const RoomEvent & /*a
 {
     if (const auto &e = eventCast<const ReactionEvent>(&prevEvent)) {
         if (auto relatedEventId = e->relation().eventId; !relatedEventId.isEmpty()) {
-            emit updatedEvent(relatedEventId);
+            Q_EMIT updatedEvent(relatedEventId);
         }
     }
 }

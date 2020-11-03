@@ -29,8 +29,8 @@ void UserDirectoryListModel::setConnection(Connection *conn)
         job = nullptr;
     }
 
-    emit connectionChanged();
-    emit limitedChanged();
+    Q_EMIT connectionChanged();
+    Q_EMIT limitedChanged();
 }
 
 void UserDirectoryListModel::setKeyword(const QString &value)
@@ -48,8 +48,8 @@ void UserDirectoryListModel::setKeyword(const QString &value)
         job = nullptr;
     }
 
-    emit keywordChanged();
-    emit limitedChanged();
+    Q_EMIT keywordChanged();
+    Q_EMIT limitedChanged();
 }
 
 void UserDirectoryListModel::search(int count)
@@ -84,7 +84,7 @@ void UserDirectoryListModel::search(int count)
 
         this->job = nullptr;
 
-        emit limitedChanged();
+        Q_EMIT limitedChanged();
     });
 }
 

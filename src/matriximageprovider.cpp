@@ -23,12 +23,12 @@ ThumbnailResponse::ThumbnailResponse(Quotient::Connection *c, QString id, const 
 {
     if (requestedSize.isEmpty()) {
         errorStr.clear();
-        emit finished();
+        Q_EMIT finished();
         return;
     }
     if (mediaId.count('/') != 1) {
         errorStr = tr("Media id '%1' doesn't follow server/mediaId pattern").arg(mediaId);
-        emit finished();
+        Q_EMIT finished();
         return;
     }
 
@@ -36,7 +36,7 @@ ThumbnailResponse::ThumbnailResponse(Quotient::Connection *c, QString id, const 
     if (cachedImage.load(localFile)) {
         image = cachedImage;
         errorStr.clear();
-        emit finished();
+        Q_EMIT finished();
         return;
     }
 
@@ -86,7 +86,7 @@ void ThumbnailResponse::prepareResult()
         }
         job = nullptr;
     }
-    emit finished();
+    Q_EMIT finished();
 }
 
 void ThumbnailResponse::doCancel()

@@ -47,7 +47,7 @@ public:
             return;
         }
         m_hasFileUploading = value;
-        emit hasFileUploadingChanged();
+        Q_EMIT hasFileUploadingChanged();
     }
 
     int fileUploadingProgress() const
@@ -60,7 +60,7 @@ public:
             return;
         }
         m_fileUploadingProgress = value;
-        emit fileUploadingProgressChanged();
+        Q_EMIT fileUploadingProgressChanged();
     }
 
     Q_INVOKABLE int savedTopVisibleIndex() const;

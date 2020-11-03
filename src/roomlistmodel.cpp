@@ -77,7 +77,7 @@ void RoomListModel::doAddRoom(Room *r)
     if (auto room = static_cast<SpectralRoom *>(r)) {
         m_rooms.append(room);
         connectRoomSignals(room);
-        emit roomAdded(room);
+        Q_EMIT roomAdded(room);
     } else {
         qCritical() << "Attempt to add nullptr to the room list";
         Q_ASSERT(false);
@@ -118,7 +118,7 @@ void RoomListModel::connectRoomSignals(SpectralRoom *room)
         User *sender = room->user(lastEvent->senderId());
         if (sender == room->localUser())
             return;
-        emit newMessage(room->id(), lastEvent->id(), room->displayName(), sender->displayname(), room->eventToString(*lastEvent), room->avatar(128));
+        Q_EMIT newMessage(room->id(), lastEvent->id(), room->displayName(), sender->displayname(), room->eventToString(*lastEvent), room->avatar(128));
     });
     connect(room, &Room::highlightCountChanged, this, [=] {
         if (room->highlightCount() == 0)
@@ -131,7 +131,7 @@ void RoomListModel::connectRoomSignals(SpectralRoom *room)
         User *sender = room->user(lastEvent->senderId());
         if (sender == room->localUser())
             return;
-        emit newHighlight(room->id(), lastEvent->id(), room->displayName(), sender->displayname(), room->eventToString(*lastEvent), room->avatar(128));
+        Q_EMIT newHighlight(room->id(), lastEvent->id(), room->displayName(), sender->displayname(), room->eventToString(*lastEvent), room->avatar(128));
     });
     connect(room, &Room::notificationCountChanged, this, &RoomListModel::refreshNotificationCount);
 }
@@ -143,7 +143,7 @@ void RoomListModel::refreshNotificationCount()
         count += room->notificationCount();
     }
     m_notificationCount = count;
-    emit notificationCountChanged();
+    Q_EMIT notificationCountChanged();
 }
 
 void RoomListModel::updateRoom(Room *room, Room *prev)
@@ -174,7 +174,7 @@ void RoomListModel::updateRoom(Room *room, Room *prev)
             m_rooms.replace(row, newRoom);
             connectRoomSignals(newRoom);
         }
-        emit dataChanged(index(row), index(row));
+        Q_EMIT dataChanged(index(row), index(row));
     } else {
         beginInsertRows(QModelIndex(), m_rooms.count(), m_rooms.count());
         doAddRoom(newRoom);
@@ -257,7 +257,7 @@ void RoomListModel::refresh(SpectralRoom *room, const QVector<int> &roles)
         return;
     }
     const auto idx = index(it - m_rooms.begin());
-    emit dataChanged(idx, idx, roles);
+    Q_EMIT dataChanged(idx, idx, roles);
 }
 
 QHash<int, QByteArray> RoomListModel::roleNames() const

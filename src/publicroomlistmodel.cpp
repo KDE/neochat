@@ -34,9 +34,9 @@ void PublicRoomListModel::setConnection(Connection *conn)
         next();
     }
 
-    emit connectionChanged();
-    emit serverChanged();
-    emit hasMoreChanged();
+    Q_EMIT connectionChanged();
+    Q_EMIT serverChanged();
+    Q_EMIT hasMoreChanged();
 }
 
 void PublicRoomListModel::setServer(const QString &value)
@@ -63,8 +63,8 @@ void PublicRoomListModel::setServer(const QString &value)
         next();
     }
 
-    emit serverChanged();
-    emit hasMoreChanged();
+    Q_EMIT serverChanged();
+    Q_EMIT hasMoreChanged();
 }
 
 void PublicRoomListModel::setKeyword(const QString &value)
@@ -91,8 +91,8 @@ void PublicRoomListModel::setKeyword(const QString &value)
         next();
     }
 
-    emit keywordChanged();
-    emit hasMoreChanged();
+    Q_EMIT keywordChanged();
+    Q_EMIT hasMoreChanged();
 }
 
 void PublicRoomListModel::next(int count)
@@ -122,7 +122,7 @@ void PublicRoomListModel::next(int count)
             this->endInsertRows();
 
             if (job->nextBatch().isEmpty()) {
-                emit hasMoreChanged();
+                Q_EMIT hasMoreChanged();
             }
         }
 

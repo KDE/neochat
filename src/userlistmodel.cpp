@@ -53,7 +53,7 @@ void UserListModel::setRoom(Quotient::Room *room)
         qDebug() << m_users.count() << "user(s) in the room";
     }
     endResetModel();
-    emit roomChanged();
+    Q_EMIT roomChanged();
 }
 
 Quotient::User *UserListModel::userAt(QModelIndex index) const
@@ -162,7 +162,7 @@ void UserListModel::refresh(Quotient::User *user, QVector<int> roles)
 {
     auto pos = findUserPos(user);
     if (pos != m_users.size())
-        emit dataChanged(index(pos), index(pos), roles);
+        Q_EMIT dataChanged(index(pos), index(pos), roles);
     else
         qWarning() << "Trying to access a room member not in the user list";
 }

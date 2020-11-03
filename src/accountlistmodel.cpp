@@ -47,7 +47,7 @@ void AccountListModel::setController(Controller *value)
         m_connections.erase(it);
         endRemoveRows();
     });
-    emit controllerChanged();
+    Q_EMIT controllerChanged();
 }
 
 QVariant AccountListModel::data(const QModelIndex &index, int role) const

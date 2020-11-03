@@ -164,7 +164,7 @@ int MessageEventModel::timelineBaseIndex() const
 void MessageEventModel::refreshEventRoles(int row, const QVector<int> &roles)
 {
     const auto idx = index(row);
-    emit dataChanged(idx, idx, roles);
+    Q_EMIT dataChanged(idx, idx, roles);
 }
 
 int MessageEventModel::refreshEventRoles(const QString &id, const QVector<int> &roles)
@@ -241,7 +241,7 @@ void MessageEventModel::refreshLastUserEvents(int baseTimelineRow)
     for (auto it = timelineBottom + std::max(baseTimelineRow - 10, 0); it != limit; ++it) {
         if ((*it)->senderId() == lastSender) {
             auto idx = index(it - timelineBottom);
-            emit dataChanged(idx, idx);
+            Q_EMIT dataChanged(idx, idx);
         }
     }
 }
