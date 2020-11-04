@@ -20,6 +20,6 @@ void NotificationsManager::postNotification(const QString &roomid, const QString
     notification->setText(text);
     notification->setPixmap(img);
     notification->sendEvent();
-    
+
     m_notifications.insert(roomid, notification);
 }

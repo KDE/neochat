@@ -56,7 +56,7 @@ public:
     }
     void setIsOnline(bool online);
 
-Q_SIGNALS: 
+Q_SIGNALS:
     void notificationCountChanged();
     void iconSourceChanged();
     void isOnlineChanged();

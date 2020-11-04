@@ -70,7 +70,7 @@ public:
     Q_INVOKABLE QVariantList history();
     Q_INVOKABLE QVariantList filterModel(const QString &filter);
 
-Q_SIGNALS: 
+Q_SIGNALS:
     void historyChanged();
 
 public Q_SLOTS:

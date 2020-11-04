@@ -71,7 +71,7 @@ private:
 
     QueryPublicRoomsJob *job = nullptr;
 
-Q_SIGNALS: 
+Q_SIGNALS:
     void connectionChanged();
     void serverChanged();
     void keywordChanged();

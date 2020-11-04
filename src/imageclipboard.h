@@ -27,7 +27,7 @@ public:
 private:
     QClipboard *m_clipboard;
 
-Q_SIGNALS: 
+Q_SIGNALS:
     void imageChanged();
 };
 

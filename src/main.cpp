@@ -3,6 +3,7 @@
  *
  * SPDX-LicenseIdentifier: GPL-3.0-only
  */
+#include <QCommandLineParser>
 #include <QFontDatabase>
 #include <QGuiApplication>
 #include <QNetworkProxy>
@@ -10,11 +11,10 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQuickStyle>
-#include <QCommandLineParser>
 
+#include <KAboutData>
 #include <KLocalizedContext>
 #include <KLocalizedString>
-#include <KAboutData>
 
 #include "neochat-version.h"
 

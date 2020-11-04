@@ -10,7 +10,7 @@
 class NotificationsManager : public QObject
 {
     Q_OBJECT
-    
+
 public:
     NotificationsManager(QObject *parent = nullptr);
 

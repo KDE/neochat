@@ -130,7 +130,7 @@ private:
 private Q_SLOTS:
     void invokeLogin();
 
-Q_SIGNALS: 
+Q_SIGNALS:
     void busyChanged();
     void errorOccured(QString error, QString detail);
     void syncDone();

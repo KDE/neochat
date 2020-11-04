@@ -68,7 +68,7 @@ public:
         Q_EMIT connectionChanged();
     }
 
-Q_SIGNALS: 
+Q_SIGNALS:
     void connectionChanged();
 
 private:

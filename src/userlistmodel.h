@@ -55,7 +55,7 @@ public:
 
     QHash<int, QByteArray> roleNames() const override;
 
-Q_SIGNALS: 
+Q_SIGNALS:
     void roomChanged();
 
 private Q_SLOTS:

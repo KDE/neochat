@@ -98,7 +98,7 @@ private:
 private Q_SLOTS:
     void countChanged();
 
-Q_SIGNALS: 
+Q_SIGNALS:
     void cachedInputChanged();
     void busyChanged();
     void hasFileUploadingChanged();

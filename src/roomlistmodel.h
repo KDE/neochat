@@ -84,7 +84,7 @@ private:
 
     void connectRoomSignals(SpectralRoom *room);
 
-Q_SIGNALS: 
+Q_SIGNALS:
     void connectionChanged();
     void notificationCountChanged();
 

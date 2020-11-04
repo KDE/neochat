@@ -80,7 +80,7 @@ private:
     void refreshEventRoles(int row, const QVector<int> &roles = {});
     int refreshEventRoles(const QString &eventId, const QVector<int> &roles = {});
 
-Q_SIGNALS: 
+Q_SIGNALS:
     void roomChanged();
 };
 
