@@ -5,11 +5,11 @@
  */
 #include "imageclipboard.h"
 
+#include <QDebug>
 #include <QDir>
 #include <QFileInfo>
 #include <QGuiApplication>
 #include <QUrl>
-#include <QDebug>
 
 ImageClipboard::ImageClipboard(QObject *parent)
     : QObject(parent)

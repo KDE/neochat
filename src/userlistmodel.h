@@ -3,8 +3,8 @@
 
 #include "room.h"
 
-#include <QObject>
 #include <QAbstractListModel>
+#include <QObject>
 
 namespace Quotient
 {

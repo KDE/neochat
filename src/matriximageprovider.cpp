@@ -6,10 +6,10 @@
  */
 #include "matriximageprovider.h"
 
+#include <QDebug>
 #include <QDir>
 #include <QFileInfo>
 #include <QStandardPaths>
-#include <QDebug>
 #include <QThread>
 
 using Quotient::BaseJob;

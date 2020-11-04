@@ -13,15 +13,14 @@
 #endif
 
 #include <QClipboard>
-#include <QFile>
-#include <QFileInfo>
-#include <QSysInfo>
 #include <QDebug>
 #include <QDir>
 #include <QElapsedTimer>
+#include <QFile>
 #include <QFileInfo>
 #include <QStandardPaths>
 #include <QStringBuilder>
+#include <QSysInfo>
 #include <QTimer>
 #include <QtGui/QCloseEvent>
 #include <QtGui/QDesktopServices>
