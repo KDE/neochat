@@ -55,8 +55,6 @@ int main(int argc, char *argv[])
 #endif
 
     app.setOrganizationName("KDE");
-    app.setOrganizationDomain("kde.org");
-    app.setApplicationName("neochat");
     app.setWindowIcon(QIcon(":/assets/img/icon.png"));
 
     qmlRegisterSingletonInstance("Spectral", 0, 1, "Controller", &Controller::instance());
@@ -97,6 +95,8 @@ int main(int argc, char *argv[])
     about.addAuthor(i18n("Black Hat"), QString(), QStringLiteral("bhat@encom.eu.org"));
     about.addAuthor(i18n("Carl Schwan"), QString(), QStringLiteral("carl@carlschwan.eu"));
     about.addAuthor(i18n("Tobias Fella"), QString(), QStringLiteral("fella@posteo.de"));
+
+    KAboutData::setApplicationData(about);
 
     about.setupCommandLine(&parser);
     parser.process(app);
