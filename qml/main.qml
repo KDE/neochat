@@ -85,12 +85,6 @@ Kirigami.ApplicationWindow {
         onErrorOccured: showPassiveNotification(error + ": " + detail)
     }
 
-    Binding {
-        target: imageProvider
-        property: "connection"
-        value: Controller.connection
-    }
-
     RoomListModel {
         id: spectralRoomListModel
 

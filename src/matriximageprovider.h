@@ -25,7 +25,7 @@ class ThumbnailResponse : public QQuickImageResponse
 {
     Q_OBJECT
 public:
-    ThumbnailResponse(Quotient::Connection *c, QString mediaId, QSize requestedSize);
+    ThumbnailResponse(QString mediaId, QSize requestedSize);
     ~ThumbnailResponse() override = default;
 
 private Q_SLOTS:
@@ -34,7 +34,6 @@ private Q_SLOTS:
     void doCancel();
 
 private:
-    Quotient::Connection *c;
     const QString mediaId;
     QSize requestedSize;
     const QString localFile;
@@ -49,30 +48,10 @@ private:
     void cancel() override;
 };
 
-class MatrixImageProvider : public QObject, public QQuickAsyncImageProvider
+class MatrixImageProvider : public QQuickAsyncImageProvider
 {
-    Q_OBJECT
-    Q_PROPERTY(Quotient::Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
 public:
-    explicit MatrixImageProvider() = default;
-
     QQuickImageResponse *requestImageResponse(const QString &id, const QSize &requestedSize) override;
-
-    Quotient::Connection *connection()
-    {
-        return m_connection;
-    }
-    void setConnection(Quotient::Connection *connection)
-    {
-        m_connection.storeRelaxed(connection);
-        Q_EMIT connectionChanged();
-    }
-
-Q_SIGNALS:
-    void connectionChanged();
-
-private:
-    QAtomicPointer<Quotient::Connection> m_connection;
 };
 
 #endif // MatrixImageProvider_H

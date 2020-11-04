@@ -12,11 +12,12 @@
 #include <QStandardPaths>
 #include <QThread>
 
+#include "controller.h"
+
 using Quotient::BaseJob;
 
-ThumbnailResponse::ThumbnailResponse(Quotient::Connection *c, QString id, QSize size)
-    : c(c)
-    , mediaId(std::move(id))
+ThumbnailResponse::ThumbnailResponse(QString id, QSize size)
+    : mediaId(std::move(id))
     , requestedSize(size)
     , localFile(QStringLiteral("%1/image_provider/%2-%3x%4.png").arg(QStandardPaths::writableLocation(QStandardPaths::CacheLocation), mediaId, QString::number(requestedSize.width()), QString::number(requestedSize.height())))
     , errorStr("Image request hasn't started")
@@ -39,21 +40,21 @@ ThumbnailResponse::ThumbnailResponse(Quotient::Connection *c, QString id, QSize 
         return;
     }
 
-    if (!c) {
+    if (!Controller::instance().connection()) {
         qWarning() << "Current connection is null";
         return;
     }
 
     // Execute a request on the main thread asynchronously
-    moveToThread(c->thread());
+    moveToThread(Controller::instance().connection()->thread());
     QMetaObject::invokeMethod(this, &ThumbnailResponse::startRequest, Qt::QueuedConnection);
 }
 
 void ThumbnailResponse::startRequest()
 {
     // Runs in the main thread, not QML thread
-    Q_ASSERT(QThread::currentThread() == c->thread());
-    job = c->getThumbnail(mediaId, requestedSize);
+    Q_ASSERT(QThread::currentThread() == Controller::instance().connection()->thread());
+    job = Controller::instance().connection()->getThumbnail(mediaId, requestedSize);
     // Connect to any possible outcome including abandonment
     // to make sure the QML thread is not left stuck forever.
     connect(job, &BaseJob::finished, this, &ThumbnailResponse::prepareResult);
@@ -116,5 +117,5 @@ void ThumbnailResponse::cancel()
 
 QQuickImageResponse *MatrixImageProvider::requestImageResponse(const QString &id, const QSize &requestedSize)
 {
-    return new ThumbnailResponse(m_connection.loadRelaxed(), id, requestedSize);
+    return new ThumbnailResponse(id, requestedSize);
 }

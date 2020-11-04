@@ -105,9 +105,7 @@ int main(int argc, char *argv[])
     Controller::instance().setAboutData(about);
 
     engine.addImportPath("qrc:/imports");
-    MatrixImageProvider *matrixImageProvider = new MatrixImageProvider();
-    engine.rootContext()->setContextProperty("imageProvider", matrixImageProvider);
-    engine.addImageProvider(QLatin1String("mxc"), matrixImageProvider);
+    engine.addImageProvider(QLatin1String("mxc"), new MatrixImageProvider);
 
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
     if (engine.rootObjects().isEmpty())
