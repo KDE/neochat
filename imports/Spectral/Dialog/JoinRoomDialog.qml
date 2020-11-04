@@ -10,7 +10,6 @@ import Spectral.Setting 0.1
 import Spectral 0.1
 
 Dialog {
-    property var controller
     property var connection
 
     property string keyword
@@ -59,7 +58,7 @@ Dialog {
                     if (identifierField.isJoined) {
                         roomListForm.joinRoom(identifierField.room)
                     } else {
-                        controller.joinRoom(connection, identifierField.text)
+                        Controller.joinRoom(connection, identifierField.text)
                     }
                 }
             }
@@ -249,7 +248,7 @@ Dialog {
                             circular: true
 
                             onClicked: {
-                                controller.joinRoom(connection, roomID)
+                                Controller.joinRoom(connection, roomID)
                                 root.close()
                             }
                         }

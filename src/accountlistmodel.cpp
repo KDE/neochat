@@ -10,21 +10,10 @@
 AccountListModel::AccountListModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-}
-
-void AccountListModel::setController(Controller *value)
-{
-    if (m_controller == value) {
-        return;
-    }
-
-    beginResetModel();
-
     m_connections.clear();
-    m_controller = value;
-    m_connections += m_controller->connections();
+    m_connections += Controller::instance().connections();
 
-    connect(m_controller, &Controller::connectionAdded, this, [=](Connection *conn) {
+    connect(&Controller::instance(), &Controller::connectionAdded, this, [=](Connection *conn) {
         if (!conn) {
             return;
         }
@@ -32,7 +21,7 @@ void AccountListModel::setController(Controller *value)
         m_connections.append(conn);
         endInsertRows();
     });
-    connect(m_controller, &Controller::connectionDropped, this, [=](Connection *conn) {
+    connect(&Controller::instance(), &Controller::connectionDropped, this, [=](Connection *conn) {
         qDebug() << "Dropping connection" << conn->userId();
         if (!conn) {
             qDebug() << "Trying to remove null connection";
@@ -47,7 +36,6 @@ void AccountListModel::setController(Controller *value)
         m_connections.erase(it);
         endRemoveRows();
     });
-    Q_EMIT controllerChanged();
 }
 
 QVariant AccountListModel::data(const QModelIndex &index, int role) const

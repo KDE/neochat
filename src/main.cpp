@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
     app.setApplicationName("neochat");
     app.setWindowIcon(QIcon(":/assets/img/icon.png"));
 
-    qmlRegisterType<Controller>("Spectral", 0, 1, "Controller");
+    qmlRegisterSingletonInstance("Spectral", 0, 1, "Controller", &Controller::instance());
     qmlRegisterType<AccountListModel>("Spectral", 0, 1, "AccountListModel");
     qmlRegisterType<RoomListModel>("Spectral", 0, 1, "RoomListModel");
     qmlRegisterType<UserListModel>("Spectral", 0, 1, "UserListModel");

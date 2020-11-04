@@ -8,6 +8,8 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12 as QQC2
 import QtQuick.Layouts 1.12
 
+import Spectral 0.1
+
 import Spectral.Component 2.0
 
 import org.kde.kirigami 2.12 as Kirigami
@@ -16,8 +18,6 @@ Kirigami.ScrollablePage {
     id: root
 
     title: i18n("Login")
-
-    required property var spectralController
 
     Kirigami.FormLayout {
         id: formLayout
@@ -55,9 +55,9 @@ Kirigami.ScrollablePage {
 
     function doLogin() {
         if (accessTokenField.text.length > 0) {
-            spectralController.loginWithAccessToken(serverField.text, usernameField.text, accessTokenField.text, deviceNameField.text)
+            Controller.loginWithAccessToken(serverField.text, usernameField.text, accessTokenField.text, deviceNameField.text)
         } else {
-            spectralController.loginWithCredentials(serverField.text, usernameField.text, passwordField.text, deviceNameField.text)
+            Controller.loginWithCredentials(serverField.text, usernameField.text, passwordField.text, deviceNameField.text)
         }
     }
 }

@@ -115,7 +115,7 @@ Kirigami.OverlayDrawer {
                 Layout.preferredHeight: Kirigami.Units.gridUnit
                 icon.name: "list-user-add"
 
-                onClicked: inviteUserDialog.createObject(ApplicationWindow.overlay, {"controller": spectralController, "room": room}).open()
+                onClicked: inviteUserDialog.createObject(ApplicationWindow.overlay, {"room": room}).open()
             }
         }
 

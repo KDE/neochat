@@ -9,7 +9,6 @@ import Spectral.Setting 0.1
 import Spectral 0.1
 
 Dialog {
-    property var controller
     property var connection
 
     anchors.centerIn: parent
@@ -47,7 +46,7 @@ Dialog {
                 highlighted: true
 
                 onClicked: {
-                    controller.createDirectChat(connection, identifierField.text)
+                    Controller.createDirectChat(connection, identifierField.text)
                 }
             }
         }
@@ -157,7 +156,7 @@ Dialog {
                             circular: true
 
                             onClicked: {
-                                controller.createDirectChat(connection, userID)
+                                Controller.createDirectChat(connection, userID)
                                 root.close()
                             }
                         }

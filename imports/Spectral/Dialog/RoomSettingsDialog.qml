@@ -7,6 +7,8 @@ import Spectral.Component 2.0
 import Spectral.Effect 2.0
 import Spectral.Setting 0.1
 
+import Spectral 0.1
+
 Dialog {
     property var room
 
@@ -168,7 +170,7 @@ Dialog {
                             anchors.fill: parent
 
                             onClicked: {
-                                roomListForm.enteredRoom = spectralController.connection.room(room.predecessorId)
+                                roomListForm.enteredRoom = Controller.connection.room(room.predecessorId)
                                 root.close()
                             }
                         }
@@ -219,7 +221,7 @@ Dialog {
                             anchors.fill: parent
 
                             onClicked: {
-                                roomListForm.enteredRoom = spectralController.connection.room(room.successorId)
+                                roomListForm.enteredRoom = Controller.connection.room(room.successorId)
                                 root.close()
                             }
                         }

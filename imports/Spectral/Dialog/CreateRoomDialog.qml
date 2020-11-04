@@ -4,6 +4,8 @@ import QtQuick.Layouts 1.12
 
 import Spectral.Component 2.0
 
+import Spectral 0.1
+
 Dialog {
     anchors.centerIn: parent
     width: 360
@@ -32,7 +34,7 @@ Dialog {
 
     standardButtons: Dialog.Ok | Dialog.Cancel
 
-    onAccepted: spectralController.createRoom(spectralController.connection, roomNameField.text, roomTopicField.text)
+    onAccepted: Controller.createRoom(Controller.connection, roomNameField.text, roomTopicField.text)
 
     onClosed: destroy()
 }

@@ -14,7 +14,6 @@
 class AccountListModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(Controller *controller READ controller WRITE setController NOTIFY controllerChanged)
 public:
     enum EventRoles { UserRole = Qt::UserRole + 1, ConnectionRole };
 
@@ -25,18 +24,8 @@ public:
 
     QHash<int, QByteArray> roleNames() const override;
 
-    Controller *controller() const
-    {
-        return m_controller;
-    }
-    void setController(Controller *value);
-
 private:
-    Controller *m_controller = nullptr;
     QVector<Connection *> m_connections;
-
-Q_SIGNALS: 
-    void controllerChanged();
 };
 
 #endif // ACCOUNTLISTMODEL_H

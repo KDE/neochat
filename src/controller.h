@@ -31,8 +31,11 @@ class Controller : public QObject
     Q_PROPERTY(bool busy READ busy WRITE setBusy NOTIFY busyChanged)
 
 public:
-    explicit Controller(QObject *parent = nullptr);
-    ~Controller();
+    static Controller &instance()
+    {
+        static Controller _instance;
+        return _instance;
+    }
 
     Q_INVOKABLE void loginWithCredentials(QString, QString, QString, QString);
     Q_INVOKABLE void loginWithAccessToken(QString, QString, QString, QString);
@@ -100,6 +103,9 @@ public:
     }
 
 private:
+    explicit Controller(QObject *parent = nullptr);
+    ~Controller();
+
     QVector<Connection *> m_connections;
     QPointer<Connection> m_connection;
     QNetworkConfigurationManager m_ncm;

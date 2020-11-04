@@ -31,9 +31,7 @@ Dialog {
 
             spacing: 16
 
-            model: AccountListModel{
-                controller: spectralController
-            }
+            model: AccountListModel{ }
 
             delegate: Kirigami.Avatar {
                 width: 48
@@ -48,13 +46,13 @@ Dialog {
                     MenuItem {
                         text: "Mark all as read"
 
-                        onClicked: spectralController.markAllMessagesAsRead(connection)
+                        onClicked: Controller.markAllMessagesAsRead(connection)
                     }
 
                     MenuItem {
                         text: "Logout"
 
-                        onClicked: spectralController.logout(connection)
+                        onClicked: Controller.logout(connection)
                     }
                 }
 
@@ -63,7 +61,7 @@ Dialog {
 
                     circular: true
 
-                    onPrimaryClicked: spectralController.connection = connection
+                    onPrimaryClicked: Controller.connection = connection
                     onSecondaryClicked: contextMenu.popup()
                 }
             }
@@ -113,7 +111,7 @@ Dialog {
                 anchors.fill: parent
 
                 onPrimaryClicked: {
-                    joinRoomDialog.createObject(ApplicationWindow.overlay, {"controller": spectralController, "connection": spectralController.connection}).open()
+                    joinRoomDialog.createObject(ApplicationWindow.overlay, {"connection": Controller.connection}).open()
                     root.close()
                 }
             }
@@ -143,7 +141,7 @@ Dialog {
                 anchors.fill: parent
 
                 onPrimaryClicked: {
-                    startChatDialog.createObject(ApplicationWindow.overlay, {"controller": spectralController, "connection": spectralController.connection}).open()
+                    startChatDialog.createObject(ApplicationWindow.overlay, {"connection": Controller.connection}).open()
                     root.close()
                 }
             }

@@ -10,7 +10,6 @@ import Spectral.Setting 0.1
 import Spectral 0.1
 
 Dialog {
-    property var controller
     property var room
 
     anchors.centerIn: parent

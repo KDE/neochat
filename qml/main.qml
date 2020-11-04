@@ -46,42 +46,36 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    Controller {
-        id: spectralController
-
-        quitOnLastWindowClosed: true
-
-        onErrorOccured: showPassiveNotification(error + ": " + detail)
+    Connections {
+        target: Controller
 
         onInitiated: {
-
-            if (spectralController.accountCount === 0) {
-                pageStack.replace("qrc:/qml/LoginPage.qml", {
-                    'spectralController': spectralController
-                });
+            if (Controller.accountCount === 0) {
+                pageStack.replace("qrc:/qml/LoginPage.qml", {});
             } else {
                 pageStack.replace(roomListComponent);
             }
         }
 
         onConnectionAdded: {
-            if (spectralController.accountCount === 1) {
+            if (Controller.accountCount === 1) {
                 console.log("roomListComponent")
                 pageStack.replace(roomListComponent);
             }
         }
+        onErrorOccured: showPassiveNotification(error + ": " + detail)
     }
 
     Binding {
         target: imageProvider
         property: "connection"
-        value: spectralController.connection
+        value: Controller.connection
     }
 
     RoomListModel {
         id: spectralRoomListModel
 
-        connection: spectralController.connection
+        connection: Controller.connection
     }
 
     Component {
