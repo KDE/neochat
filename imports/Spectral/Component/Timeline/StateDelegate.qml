@@ -17,7 +17,7 @@ RowLayout {
         Layout.preferredHeight: 24
 
         name: author.displayName
-        source: author.avatarMediaId
+        source: author.avatarMediaId ? "image://mxc/" + author.avatarMediaId : ""
         color: author.color
 
         Component {
