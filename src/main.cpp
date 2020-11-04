@@ -10,9 +10,13 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQuickStyle>
+#include <QCommandLineParser>
 
 #include <KLocalizedContext>
 #include <KLocalizedString>
+#include <KAboutData>
+
+#include "neochat-version.h"
 
 #include "accountlistmodel.h"
 #include "controller.h"
@@ -85,6 +89,20 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
     KLocalizedString::setApplicationDomain("neochat");
+
+    QCommandLineParser parser;
+    parser.setApplicationDescription(i18n("Client for the matrix communication protocol"));
+
+    KAboutData about(QStringLiteral("neochat"), i18n("Neochat"), QStringLiteral(NEOCHAT_VERSION_STRING), i18n("Matrix client"), KAboutLicense::GPL_V3, i18n("© 2018-2020 Black Hat, 2020 KDE Community"));
+    about.addAuthor(i18n("Black Hat"), QString(), QStringLiteral("bhat@encom.eu.org"));
+    about.addAuthor(i18n("Carl Schwan"), QString(), QStringLiteral("carl@carlschwan.eu"));
+    about.addAuthor(i18n("Tobias Fella"), QString(), QStringLiteral("fella@posteo.de"));
+
+    about.setupCommandLine(&parser);
+    parser.process(app);
+    about.processCommandLine(&parser);
+
+    Controller::instance().setAboutData(about);
 
     engine.addImportPath("qrc:/imports");
     MatrixImageProvider *matrixImageProvider = new MatrixImageProvider();

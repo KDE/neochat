@@ -414,3 +414,14 @@ void Controller::markAllMessagesAsRead(Connection *conn)
         room->markAllMessagesAsRead();
     }
 }
+
+void Controller::setAboutData(KAboutData aboutData)
+{
+    m_aboutData = aboutData;
+    Q_EMIT aboutDataChanged();
+}
+
+KAboutData Controller::aboutData() const
+{
+    return m_aboutData;
+}

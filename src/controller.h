@@ -13,6 +13,8 @@
 #include <QObject>
 #include <QSystemTrayIcon>
 
+#include <KAboutData>
+
 #include "connection.h"
 #include "csapi/list_public_rooms.h"
 #include "room.h"
@@ -29,6 +31,7 @@ class Controller : public QObject
     Q_PROPERTY(Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
     Q_PROPERTY(bool isOnline READ isOnline NOTIFY isOnlineChanged)
     Q_PROPERTY(bool busy READ busy WRITE setBusy NOTIFY busyChanged)
+    Q_PROPERTY(KAboutData aboutData READ aboutData WRITE setAboutData NOTIFY aboutDataChanged)
 
 public:
     static Controller &instance()
@@ -102,6 +105,9 @@ public:
         Q_EMIT connectionChanged();
     }
 
+    void setAboutData(KAboutData aboutData);
+    KAboutData aboutData() const;
+
 private:
     explicit Controller(QObject *parent = nullptr);
     ~Controller();
@@ -119,6 +125,8 @@ private:
     void loadSettings();
     void saveSettings() const;
 
+    KAboutData m_aboutData;
+
 private Q_SLOTS:
     void invokeLogin();
 
@@ -134,6 +142,7 @@ Q_SIGNALS:
     void unreadCountChanged();
     void connectionChanged();
     void isOnlineChanged();
+    void aboutDataChanged();
 
 public Q_SLOTS:
     void logout(Quotient::Connection *conn);

@@ -25,6 +25,25 @@ Kirigami.ApplicationWindow {
         handleVisible: enabled && (pageStack.currentItem instanceof RoomPage)
     }
 
+    globalDrawer: Kirigami.GlobalDrawer {
+        isMenu: true
+        actions: [
+            Kirigami.Action {
+                text: i18n("About Neochat")
+                iconName: "help-about"
+                onTriggered: pageStack.layers.push(aboutPage)
+                enabled: pageStack.layers.currentItem.title !== i18n("About")
+            }
+        ]
+    }
+
+    Component {
+        id: aboutPage
+        Kirigami.AboutPage {
+            aboutData: Controller.aboutData
+        }
+    }
+
     pageStack.initialPage: LoadingPage {}
 
     Component {
