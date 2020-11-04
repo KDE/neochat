@@ -9,7 +9,7 @@
 #include <QFileInfo>
 #include <QGuiApplication>
 #include <QUrl>
-#include <QtDebug>
+#include <QDebug>
 
 ImageClipboard::ImageClipboard(QObject *parent)
     : QObject(parent)

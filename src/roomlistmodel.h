@@ -6,7 +6,7 @@
 #include "room.h"
 #include "spectralroom.h"
 
-#include <QtCore/QAbstractListModel>
+#include <QAbstractListModel>
 
 using namespace Quotient;
 

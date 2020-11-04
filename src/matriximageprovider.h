@@ -8,13 +8,13 @@
 #define MatrixImageProvider_H
 #pragma once
 
-#include <QtQuick/QQuickAsyncImageProvider>
+#include <QQuickAsyncImageProvider>
 
 #include <connection.h>
 #include <jobs/mediathumbnailjob.h>
 
-#include <QtCore/QAtomicPointer>
-#include <QtCore/QReadWriteLock>
+#include <QAtomicPointer>
+#include <QReadWriteLock>
 
 namespace Quotient
 {

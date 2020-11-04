@@ -4,7 +4,7 @@
 #include "room.h"
 
 #include <QObject>
-#include <QtCore/QAbstractListModel>
+#include <QAbstractListModel>
 
 namespace Quotient
 {

@@ -9,8 +9,8 @@
 #include <settings.h>
 #include <user.h>
 
-#include <QtCore/QDebug>
-#include <QtQml> // for qmlRegisterType()
+#include <QDebug>
+#include <QQmlEngine> // for qmlRegisterType()
 
 #include "utils.h"
 

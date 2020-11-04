@@ -6,10 +6,9 @@
 #include "events/roomevent.h"
 
 #include <QStandardPaths>
-#include <QtCore/QDebug>
-#include <QtGui/QBrush>
-#include <QtGui/QColor>
-#include <QtQuick>
+#include <QDebug>
+#include <QBrush>
+#include <QColor>
 
 RoomListModel::RoomListModel(QObject *parent)
     : QAbstractListModel(parent)

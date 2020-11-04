@@ -9,8 +9,8 @@
 #include <QDir>
 #include <QFileInfo>
 #include <QStandardPaths>
-#include <QtCore/QDebug>
-#include <QtCore/QThread>
+#include <QDebug>
+#include <QThread>
 
 using Quotient::BaseJob;
 

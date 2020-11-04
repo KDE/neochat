@@ -7,8 +7,8 @@
 #include "events/roompowerlevelsevent.h"
 
 #include <QElapsedTimer>
-#include <QtCore/QDebug>
-#include <QtGui/QPixmap>
+#include <QDebug>
+#include <QPixmap>
 
 #include "spectraluser.h"
 
