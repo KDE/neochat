@@ -5,7 +5,8 @@ messaging. It is a fork of Spectral, using KDE frameworks (Kirigami and KI18n).
 
 ## Contact
 
-You can reach the maintainer at #plasma-mobile:matrix.org, if you are already on Matrix.
+You can reach the maintainers at #neochat:kde.org, if you are already on Matrix.
+Development happens in http://invent.kde.org/network/neochat (not in GitHub).
 
 ## Acknowledgement
 
