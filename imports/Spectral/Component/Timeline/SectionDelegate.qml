@@ -1,12 +1,18 @@
+/**
+ * SPDX-FileCopyrightText: 2019 Black Hat <bhat@encom.eu.org>
+ * SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
+ *
+ * SPDX-LicenseIdentifier: GPL-3.0-or-later
+ */
 import QtQuick 2.12
-import QtQuick.Controls 2.12 as Controls
 
-import org.kde.kirigami 2.4 as Kirigami
+import org.kde.kirigami 2.13 as Kirigami
 
-Controls.Label {
+Kirigami.Heading {
+    level: 4
     text: section + " • " + Qt.formatTime(time)
-    font.weight: Font.Medium
     font.capitalization: Font.AllUppercase
     verticalAlignment: Text.AlignVCenter
-    padding: 8
+    topPadding: Kirigami.Units.largeSpacing * 2
+    bottomPadding: Kirigami.Units.smallSpacing
 }

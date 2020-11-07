@@ -12,9 +12,14 @@ import Spectral.Setting 0.1
 RowLayout {
     id: row
 
+    Item {
+        Layout.minimumWidth: Kirigami.Units.iconSizes.medium
+        Layout.preferredHeight: 1
+    }
+
     Kirigami.Avatar {
-        Layout.preferredWidth: 24
-        Layout.preferredHeight: 24
+        Layout.preferredWidth: Kirigami.Units.iconSizes.small
+        Layout.preferredHeight: Kirigami.Units.iconSizes.small
 
         name: author.displayName
         source: author.avatarMediaId ? "image://mxc/" + author.avatarMediaId : ""
@@ -37,18 +42,15 @@ RowLayout {
 
     Label {
         Layout.alignment: Qt.AlignVCenter
-
         text: author.displayName
-        font.pixelSize: 13
-        font.bold: true
+        color: Kirigami.Theme.disabledTextColor
     }
 
     Label {
         Layout.fillWidth: true
 
         text: display
-        color: MPalette.foreground
-        font.pixelSize: 13
+        color: Kirigami.Theme.disabledTextColor
         font.weight: Font.Medium
 
         wrapMode: Label.Wrap

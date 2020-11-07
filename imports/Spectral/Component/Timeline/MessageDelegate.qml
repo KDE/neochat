@@ -1,3 +1,9 @@
+/**
+ * SPDX-FileCopyrightText: 2019 Black Hat <bhat@encom.eu.org>
+ * SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
+ *
+ * SPDX-LicenseIdentifier: GPL-3.0-or-later
+ */
 import QtQuick 2.12
 import QtQuick.Controls 2.12 as Controls
 import QtQuick.Layouts 1.12
@@ -29,8 +35,10 @@ RowLayout {
     Layout.rightMargin: Kirigami.Units.smallSpacing
 
     Kirigami.Avatar {
-        Layout.preferredWidth: Kirigami.Units.gridUnit * 2
-        Layout.preferredHeight: Kirigami.Units.gridUnit * 2
+        Layout.minimumWidth: Kirigami.Units.iconSizes.medium
+        Layout.minimumHeight: Kirigami.Units.iconSizes.medium
+        Layout.maximumWidth: Kirigami.Units.iconSizes.medium
+        Layout.maximumHeight: Kirigami.Units.iconSizes.medium
 
         Layout.alignment: Qt.AlignTop
 
@@ -41,12 +49,12 @@ RowLayout {
     }
 
     Item {
-        Layout.preferredWidth: Kirigami.Units.gridUnit * 2
+        Layout.minimumWidth: Kirigami.Units.iconSizes.medium
         Layout.preferredHeight: 1
 
         visible: !showAuthor
     }
-    
+
     ColumnLayout {
         id: column
         Layout.fillWidth: true
@@ -59,7 +67,7 @@ RowLayout {
 
             text: author.displayName
             font.bold: true
-            color: Kirigami.Theme.activeTextColor
+            color: author.color
             wrapMode: Text.Wrap
         }
 
@@ -69,20 +77,20 @@ RowLayout {
             visible: replyVisible
 
             Rectangle {
-                Layout.preferredWidth: 4
+                Layout.preferredWidth: Kirigami.Units.smallSpacing
                 Layout.fillHeight: true
 
                 color: Kirigami.Theme.highlightColor
             }
 
             Kirigami.Avatar {
-                Layout.preferredWidth: Kirigami.Units.gridUnit * 1.5
-                Layout.preferredHeight: Kirigami.Units.gridUnit * 1.5
+                Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
+                Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
                 Layout.alignment: Qt.AlignTop
 
                 source: replyVisible && reply.author.avatarMediaId ? "image://mxc/" + reply.author.avatarMediaId : ""
                 name: replyVisible ? reply.author.displayName : "H"
-                color: replyVisible ? reply.author.color : MPalette.accent
+                color: replyVisible ? reply.author.color : Kirigami.Theme.highlightColor
             }
 
             ColumnLayout {
@@ -92,7 +100,7 @@ RowLayout {
                     Layout.fillWidth: true
 
                     text: replyVisible ? reply.author.displayName : ""
-                    color: Kirigami.Theme.activeTextColor
+                    color: replay.author.color
                     wrapMode: Text.Wrap
                 }
 
@@ -102,11 +110,6 @@ RowLayout {
                     text: replyVisible ? reply.display : ""
 
                     color: Kirigami.Theme.textColor
-//                    selectionColor: Kirigami.Theme.highlightColor
-//                    selectedTextColor: Kirigami.Theme.highlightedTextColor
-
-//                    selectByMouse: true
-//                    readOnly: true
                     wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                     textFormat: Text.RichText
                 }
