@@ -81,15 +81,6 @@ Dialog {
 
             spacing: 8
 
-            MaterialIcon {
-                Layout.preferredWidth: 32
-                Layout.preferredHeight: 32
-                Layout.alignment: Qt.AlignTop
-
-                icon: "\ue88f"
-                color: MPalette.lighter
-            }
-
             ColumnLayout {
                 Layout.fillWidth: true
 
@@ -120,15 +111,6 @@ Dialog {
             Layout.fillWidth: true
 
             contentItem: RowLayout {
-                MaterialIcon {
-                    Layout.preferredWidth: 32
-                    Layout.preferredHeight: 32
-                    Layout.alignment: Qt.AlignTop
-
-                    icon: room.connection.isIgnored(user) ? "\ue7f5" : "\ue7f6"
-                    color: MPalette.lighter
-                }
-
                 Label {
                     Layout.fillWidth: true
 
@@ -151,15 +133,6 @@ Dialog {
             Layout.fillWidth: true
 
             contentItem: RowLayout {
-                MaterialIcon {
-                    Layout.preferredWidth: 32
-                    Layout.preferredHeight: 32
-                    Layout.alignment: Qt.AlignTop
-
-                    icon: "\ue5d9"
-                    color: MPalette.lighter
-                }
-
                 Label {
                     Layout.fillWidth: true
 

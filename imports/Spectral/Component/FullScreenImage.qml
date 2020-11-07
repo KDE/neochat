@@ -11,7 +11,7 @@ ApplicationWindow {
     visible: true
     visibility: Qt.WindowFullScreen
 
-    title: "Image View - " + filename
+    title: i18n("Image View - %1", filename)
 
     color: "#BB000000"
 
@@ -40,11 +40,6 @@ ApplicationWindow {
 
         width: 64
         height: 64
-
-        contentItem: MaterialIcon {
-            icon: "\ue5cd"
-            color: "white"
-        }
 
         onClicked: root.destroy()
     }

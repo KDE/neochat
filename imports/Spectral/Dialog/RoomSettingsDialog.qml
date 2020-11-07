@@ -134,13 +134,6 @@ Dialog {
                     padding: 8
 
                     contentItem: RowLayout {
-                        MaterialIcon {
-                            Layout.preferredWidth: 48
-                            Layout.preferredHeight: 48
-
-                            icon: "\ue8d4"
-                        }
-
                         ColumnLayout {
                             Layout.fillWidth: true
 
@@ -185,13 +178,6 @@ Dialog {
                     padding: 8
 
                     contentItem: RowLayout {
-                        MaterialIcon {
-                            Layout.preferredWidth: 48
-                            Layout.preferredHeight: 48
-
-                            icon: "\ue8d4"
-                        }
-
                         ColumnLayout {
                             Layout.fillWidth: true
 
@@ -289,19 +275,9 @@ Dialog {
                                     color: MPalette.lighter
                                 }
 
-                                MaterialIcon {
-                                    icon: "\ue5cd"
-
-                                    color: MPalette.lighter
-                                    font.pixelSize: 12
-
-                                    RippleEffect {
-                                        anchors.fill: parent
-
-                                        circular: true
-
-                                        onClicked: room.removeLocalAlias(modelData)
-                                    }
+                                ToolButton {
+                                    icon.name: ""
+                                    onClicked: room.removeLocalAlias(modelData)
                                 }
                             }
                         }

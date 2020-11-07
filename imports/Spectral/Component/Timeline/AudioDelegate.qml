@@ -1,7 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
-import QtQuick.Controls.Material 2.12
 import QtGraphicalEffects 1.0
 import Qt.labs.platform 1.0 as Platform
 import QtMultimedia 5.12
@@ -13,7 +12,6 @@ import Spectral.Setting 0.1
 import Spectral.Component 2.0
 import Spectral.Dialog 2.0
 import Spectral.Menu.Timeline 2.0
-import Spectral.Font 0.1
 import Spectral.Effect 2.0
 
 RowLayout {
@@ -71,9 +69,7 @@ RowLayout {
 
         contentItem: RowLayout {
             ToolButton {
-                contentItem: MaterialIcon {
-                    icon: audio.playbackState == Audio.PlayingState ? "\ue034" : "\ue405"
-                }
+                icon.name: audio.playbackState == Audio.PlayingState ? "media-playback-pause" : "media-playback-start"
 
                 onClicked: {
                     if (audio.playbackState == Audio.PlayingState) {

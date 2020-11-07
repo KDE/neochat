@@ -12,7 +12,6 @@ import Spectral.Setting 0.1
 import Spectral.Component 2.0
 import Spectral.Dialog 2.0
 import Spectral.Menu.Timeline 2.0
-import Spectral.Font 0.1
 import Spectral.Effect 2.0
 
 RowLayout {
@@ -69,9 +68,7 @@ RowLayout {
 
         contentItem: RowLayout {
             ToolButton {
-                contentItem: MaterialIcon {
-                    icon: progressInfo.completed ? "\ue5ca" : "\ue2c4"
-                }
+                icon.name: progressInfo.completed ? "document-open" : "document-save"
 
                 onClicked: progressInfo.completed ? openSavedFile() : saveFileAs()
             }

@@ -131,12 +131,6 @@ Dialog {
 
                         visible: inRoom
 
-                        contentItem: MaterialIcon {
-                            icon: "\ue89e"
-                            color: MPalette.lighter
-                            font.pixelSize: 20
-                        }
-
                         background: RippleEffect {
                             circular: true
                         }
@@ -147,12 +141,6 @@ Dialog {
                         Layout.preferredHeight: 32
 
                         visible: !inRoom
-
-                        contentItem: MaterialIcon {
-                            icon: "\ue7fe"
-                            color: MPalette.lighter
-                            font.pixelSize: 20
-                        }
 
                         background: RippleEffect {
                             circular: true

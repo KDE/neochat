@@ -100,7 +100,7 @@ RowLayout {
                     Layout.fillWidth: true
 
                     text: replyVisible ? reply.author.displayName : ""
-                    color: replay.author.color
+                    color: reply.author.color
                     wrapMode: Text.Wrap
                 }
 

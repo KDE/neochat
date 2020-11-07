@@ -1,7 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
-import QtQuick.Controls.Material 2.12
 import QtGraphicalEffects 1.0
 import Qt.labs.platform 1.0 as Platform
 
@@ -12,7 +11,6 @@ import Spectral.Component 2.0
 import Spectral.Dialog 2.0
 import Spectral.Menu.Timeline 2.0
 import Spectral.Effect 2.0
-import Spectral.Font 0.1
 
 Image {
     readonly property bool isAnimated: contentType === "image/gif"
