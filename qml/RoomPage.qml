@@ -105,6 +105,7 @@ Kirigami.ScrollablePage {
         id: messageListView
 
         spacing: Kirigami.Units.smallSpacing
+        clip: true
 
         displayMarginBeginning: 100
         displayMarginEnd: 100
@@ -152,6 +153,7 @@ Kirigami.ScrollablePage {
         //        }
 
         delegate: DelegateChooser {
+            id: timelineDelegateChooser
             role: "eventType"
 
             DelegateChoice {
@@ -182,10 +184,15 @@ Kirigami.ScrollablePage {
                 roleValue: "message"
                 delegate: TimelineContainer {
                     width: messageListView.width
-
+                    MouseArea {
+                        acceptedButtons: Qt.RightButton
+                        anchors.fill: parent
+                        onClicked: openMessageContext(author, display, eventId, toolTip);
+                    }
                     innerObject: MessageDelegate {
                         Layout.fillWidth: true
                         Layout.maximumWidth: messageListView.width
+
 
                         innerObject: TextDelegate {
                             Layout.fillWidth: true
@@ -292,4 +299,42 @@ Kirigami.ScrollablePage {
     }
 
     background: Item {}
+
+    function openMessageContext(author, message, eventId, toolTip, model) {
+        const contextMenu = messageDelegateContextMenu.createObject(root, {
+            'author': author,
+            'message': message
+        });
+        contextMenu.viewSource.connect(function() {
+            messageSourceDialog.createObject(root, {
+                'sourceText': toolTip,
+            }).open();
+            contextMenu.close();
+        });
+        contextMenu.reply.connect(function(replyUser, replyContent) {
+            chatTextInput.replyUser = replyUser;
+            chatTextInput.replyEventID = eventId;
+            chatTextInput.replyContent = replyContent;
+            chatTextInput.isReply = true;
+            chatTextInput.focus();
+            contextMenu.close();
+        })
+        contextMenu.remove.connect(function() {
+            currentRoom.redactEvent(eventId);
+            contextMenu.close();
+        })
+        contextMenu.open()
+    }
+
+    Component {
+        id: messageDelegateContextMenu
+
+        MessageDelegateContextMenu {}
+    }
+
+    Component {
+        id: messageSourceDialog
+
+        MessageSourceDialog {}
+    }
 }

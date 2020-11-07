@@ -16,10 +16,9 @@ Control {
 
     property alias isReply: replyItem.visible
     property bool isReaction: false
-    property var replyModel
-    readonly property var replyUser: replyModel ? replyModel.author : null
-    readonly property string replyEventID: replyModel ? replyModel.eventId : ""
-    readonly property string replyContent: replyModel ? replyModel.display : ""
+    property var replyUser
+    property string replyEventID
+    property string replyContent
 
     property alias isAutoCompleting: autoCompleteListView.visible
     property var autoCompleteModel
@@ -75,10 +74,7 @@ Control {
 
                     Label {
                         Layout.alignment: Qt.AlignVCenter
-
                         text: replyUser ? replyUser.displayName : "No name"
-                        color: "white"
-                        font.weight: Font.Medium
                         rightPadding: 8
                     }
                 }
@@ -417,6 +413,7 @@ Control {
                         messageEventType = RoomMessageEvent.Notice
                     }
 
+                    console.log(replyContent, replyUser, replyEventID, messageEventType);
                     currentRoom.postArbitaryMessage(text, messageEventType, replyEventID)
                 }
             }
@@ -444,7 +441,9 @@ Control {
 
     function clearReply() {
         isReply = false
-        replyModel = null
+        replyUser = null;
+        replyContent = "";
+        replyEventID = ""
     }
 
     function focus() {
