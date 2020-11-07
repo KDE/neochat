@@ -2,7 +2,7 @@ add_executable(neochat
     accountlistmodel.cpp
     controller.cpp
     emojimodel.cpp
-    imageclipboard.cpp
+    clipboard.cpp
     matriximageprovider.cpp
     messageeventmodel.cpp
     roomlistmodel.cpp

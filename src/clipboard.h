@@ -3,26 +3,31 @@
  *
  * SPDX-LicenseIdentifier: GPL-3.0-only
  */
-#ifndef IMAGECLIPBOARD_H
-#define IMAGECLIPBOARD_H
+#pragma once
 
-#include <QClipboard>
-#include <QImage>
 #include <QObject>
 
-class ImageClipboard : public QObject
+class QClipboard;
+class QImage;
+
+/**
+ * Clipboard proxy
+ */
+class Clipboard : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(bool hasImage READ hasImage NOTIFY imageChanged)
     Q_PROPERTY(QImage image READ image NOTIFY imageChanged)
 
 public:
-    explicit ImageClipboard(QObject *parent = nullptr);
+    explicit Clipboard(QObject *parent = nullptr);
 
     bool hasImage() const;
     QImage image() const;
 
     Q_INVOKABLE bool saveImage(const QUrl &localPath);
+
+    Q_INVOKABLE void saveText(QString message);
 
 private:
     QClipboard *m_clipboard;
@@ -30,5 +35,3 @@ private:
 Q_SIGNALS:
     void imageChanged();
 };
-
-#endif // IMAGECLIPBOARD_H

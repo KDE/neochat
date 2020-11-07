@@ -209,7 +209,7 @@ Control {
                 icon.name: "mail-attachment"
 
                 onClicked: {
-                    if (imageClipboard.hasImage) {
+                    if (Clipboard.hasImage) {
                         attachDialog.open()
                     } else {
                         var fileDialog = openFileDialog.createObject(ApplicationWindow.overlay)

@@ -3,32 +3,35 @@
  *
  * SPDX-LicenseIdentifier: GPL-3.0-only
  */
-#include "imageclipboard.h"
+#include "clipboard.h"
 
-#include <QDebug>
+#include <QClipboard>
+#include <QMimeData>
+#include <QRegularExpression>
+#include <QImage>
 #include <QDir>
 #include <QFileInfo>
 #include <QGuiApplication>
 #include <QUrl>
 
-ImageClipboard::ImageClipboard(QObject *parent)
+Clipboard::Clipboard(QObject *parent)
     : QObject(parent)
     , m_clipboard(QGuiApplication::clipboard())
 {
-    connect(m_clipboard, &QClipboard::changed, this, &ImageClipboard::imageChanged);
+    connect(m_clipboard, &QClipboard::changed, this, &Clipboard::imageChanged);
 }
 
-bool ImageClipboard::hasImage() const
+bool Clipboard::hasImage() const
 {
     return !image().isNull();
 }
 
-QImage ImageClipboard::image() const
+QImage Clipboard::image() const
 {
     return m_clipboard->image();
 }
 
-bool ImageClipboard::saveImage(const QUrl &localPath)
+bool Clipboard::saveImage(const QUrl &localPath)
 {
     if (!localPath.isLocalFile())
         return false;
@@ -47,4 +50,13 @@ bool ImageClipboard::saveImage(const QUrl &localPath)
     i.save(localPath.toLocalFile());
 
     return true;
+}
+
+void Clipboard::saveText(QString message)
+{
+    QRegularExpression re("<[^>]*>");
+    auto *mineData = new QMimeData; // ownership is transfered to clipboard
+    mineData->setHtml(message);
+    mineData->setText(message.replace(re, ""));
+    m_clipboard->setMimeData(mineData);
 }

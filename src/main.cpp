@@ -23,7 +23,7 @@
 #include "csapi/joining.h"
 #include "csapi/leaving.h"
 #include "emojimodel.h"
-#include "imageclipboard.h"
+#include "clipboard.h"
 #include "matriximageprovider.h"
 #include "messageeventmodel.h"
 #include "notificationsmanager.h"
@@ -57,7 +57,10 @@ int main(int argc, char *argv[])
     app.setOrganizationName("KDE");
     app.setWindowIcon(QIcon(":/assets/img/icon.png"));
 
+    Clipboard clipboard;
+
     qmlRegisterSingletonInstance("Spectral", 0, 1, "Controller", &Controller::instance());
+    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Clipboard", &clipboard);
     qmlRegisterType<AccountListModel>("Spectral", 0, 1, "AccountListModel");
     qmlRegisterType<RoomListModel>("Spectral", 0, 1, "RoomListModel");
     qmlRegisterType<UserListModel>("Spectral", 0, 1, "UserListModel");
@@ -67,7 +70,6 @@ int main(int argc, char *argv[])
     qmlRegisterType<EmojiModel>("Spectral", 0, 1, "EmojiModel");
     qmlRegisterType<NotificationsManager>("Spectral", 0, 1, "NotificationsManager");
     qmlRegisterType<TrayIcon>("Spectral", 0, 1, "TrayIcon");
-    qmlRegisterType<ImageClipboard>("Spectral", 0, 1, "ImageClipboard");
     qmlRegisterUncreatableType<RoomMessageEvent>("Spectral", 0, 1, "RoomMessageEvent", "ENUM");
     qmlRegisterUncreatableType<RoomType>("Spectral", 0, 1, "RoomType", "ENUM");
     qmlRegisterUncreatableType<UserType>("Spectral", 0, 1, "UserType", "ENUM");

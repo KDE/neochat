@@ -5,13 +5,14 @@ import Qt.labs.qmlmodels 1.0
 import QtQuick.Controls.Material 2.12
 
 import org.kde.kirigami 2.4 as Kirigami
-
 import org.kde.kitemmodels 1.0
+import org.kde.neochat 1.0
 
 import Spectral.Component 2.0
 import Spectral.Component.Timeline 2.0
 import Spectral.Dialog 2.0
 import Spectral.Effect 2.0
+import Spectral.Menu.Timeline 2.0
 import Spectral 0.1
 
 Kirigami.ScrollablePage {
@@ -25,10 +26,6 @@ Kirigami.ScrollablePage {
         id: messageEventModel
 
         room: currentRoom
-    }
-
-    ImageClipboard {
-        id: imageClipboard
     }
 
     QQC2.Popup {
@@ -74,7 +71,7 @@ Kirigami.ScrollablePage {
                 text: i18n("Clipboard image")
                 onClicked: {
                     var localPath = StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/screenshots/" + (new Date()).getTime() + ".png"
-                    if (!imageClipboard.saveImage(localPath)) return
+                    if (!Clipboard.saveImage(localPath)) return
                     chatTextInput.attach(localPath)
                     attachDialog.close()
                 }
