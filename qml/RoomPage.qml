@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.12
 import Qt.labs.qmlmodels 1.0
 import QtQuick.Controls.Material 2.12
 
-import org.kde.kirigami 2.4 as Kirigami
+import org.kde.kirigami 2.13 as Kirigami
 import org.kde.kitemmodels 1.0
 import org.kde.neochat 1.0
 
@@ -107,8 +107,8 @@ Kirigami.ScrollablePage {
         spacing: Kirigami.Units.smallSpacing
         clip: true
 
-        displayMarginBeginning: 100
-        displayMarginEnd: 100
+        displayMarginBeginning: Kirigami.Units.gridUnit
+        displayMarginEnd: typingNotification.visible ? typingNotification.height : Kirigami.Units.gridUnit
         verticalLayoutDirection: ListView.BottomToTop
         highlightMoveDuration: 500
 
@@ -295,6 +295,51 @@ Kirigami.ScrollablePage {
                 delegate: Item {}
             }
         }
+
+        QQC2.Button {
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.topMargin: 16
+
+            padding: 8
+
+            id: goReadMarkerFab
+
+            visible: currentRoom && currentRoom.hasUnreadMessages || !messageListView.atYEnd
+            action: Kirigami.Action {
+                onTriggered: {
+                    if (currentRoom && currentRoom.hasUnreadMessages) {
+                        goToEvent(currentRoom.readMarkerEventId)
+                    } else {
+                        currentRoom.markAllMessagesAsRead()
+                        messageListView.positionViewAtBeginning()
+                    }
+                }
+                icon.name: currentRoom && currentRoom.hasUnreadMessages ? "go-up" : "go-down"
+            }
+        }
+
+        QQC2.Control {
+            id: typingNotification
+            anchors.left: parent.left
+            anchors.bottom: parent.bottom
+
+            visible: currentRoom && currentRoom.usersTyping.length > 0
+            padding: 4
+
+            contentItem: RowLayout {
+                spacing: Kirigami.Units.largeSpacing
+
+                QQC2.BusyIndicator {
+                    Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
+                    Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
+                }
+                QQC2.Label {
+                    text: i18ncp("Message displayed when some users are typing", "%2 is typing", "%2 are typing", currentRoom.usersTyping.length, currentRoom.usersTyping.join(", "))
+                }
+            }
+        }
+
 
         Component.onCompleted: {
             if (currentRoom) {
