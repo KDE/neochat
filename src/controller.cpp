@@ -34,6 +34,7 @@
 #include "csapi/joining.h"
 #include "csapi/logout.h"
 #include "csapi/profile.h"
+#include "csapi/registration.h"
 #include "events/eventcontent.h"
 #include "events/roommessageevent.h"
 #include "settings.h"
@@ -173,6 +174,8 @@ void Controller::logout(Connection *conn)
         Q_EMIT conn->loggedOut();
         if (!m_connections.isEmpty())
             setConnection(m_connections[0]);
+        else
+            setConnection(nullptr);
     });
     connect(logoutJob, &LogoutJob::failure, this, [=] {
         Q_EMIT errorOccured("Server-side Logout Failed", logoutJob->errorString());
@@ -423,4 +426,45 @@ void Controller::setAboutData(KAboutData aboutData)
 KAboutData Controller::aboutData() const
 {
     return m_aboutData;
+}
+
+void Controller::changePassword(Connection *connection, const QString &currentPassword, const QString &newPassword)
+{
+    NeochatChangePasswordJob *job = connection->callApi<NeochatChangePasswordJob>(newPassword, false);
+    connect(job, &BaseJob::result, this, [this, job, currentPassword, newPassword, connection] {
+        if(job->error() == 103) {
+            QJsonObject replyData = job->jsonData();
+            QJsonObject authData;
+            authData["session"] = replyData["session"];
+            authData["password"] = currentPassword;
+            authData["type"] = "m.login.password";
+            authData["user"] = connection->user()->id();
+            QJsonObject identifier = {{"type", "m.id.user"}, {"user", connection->user()->id()}};
+            authData["identifier"] = identifier;
+            NeochatChangePasswordJob *innerJob = connection->callApi<NeochatChangePasswordJob>(newPassword, false, authData);
+            connect(innerJob, &BaseJob::success, this, [this]() {
+                Q_EMIT passwordStatus(PasswordStatus::Success);
+            });
+            connect(innerJob, &BaseJob::failure, this, [innerJob, this] () {
+                if(innerJob->jsonData()["errcode"] == "M_FORBIDDEN") {
+                    Q_EMIT passwordStatus(PasswordStatus::Wrong);
+                } else {
+                    Q_EMIT passwordStatus(PasswordStatus::Other);
+                }
+            });
+        }
+    });
+}
+
+NeochatChangePasswordJob::NeochatChangePasswordJob(const QString& newPassword,
+                                     bool logoutDevices,
+                                     const Omittable<QJsonObject>& auth)
+    : BaseJob(HttpVerb::Post, QStringLiteral("ChangePasswordJob"),
+              QStringLiteral("/_matrix/client/r0") % "/account/password")
+{
+    QJsonObject _data;
+    addParam<>(_data, QStringLiteral("new_password"), newPassword);
+    addParam<IfNotEmpty>(_data, QStringLiteral("logout_devices"), logoutDevices);
+    addParam<IfNotEmpty>(_data, QStringLiteral("auth"), auth);
+    setRequestData(std::move(_data));
 }

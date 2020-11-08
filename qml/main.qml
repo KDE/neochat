@@ -33,6 +33,12 @@ Kirigami.ApplicationWindow {
                 iconName: "help-about"
                 onTriggered: pageStack.layers.push(aboutPage)
                 enabled: pageStack.layers.currentItem.title !== i18n("About")
+            },
+            Kirigami.Action {
+                text: i18n("Accounts")
+                iconName: "im-user"
+                onTriggered: pageStack.layers.push("qrc:/qml/AccountsPage.qml")
+                enabled: pageStack.layers.currentItem.title !== i18n("Accounts")
             }
         ]
     }
@@ -82,6 +88,12 @@ Kirigami.ApplicationWindow {
                 pageStack.replace(roomListComponent);
             }
         }
+
+        onConnectionDropped: {
+            if(Controller.accountCount === 0)
+                pageStack.replace("qrc:/qml/LoginPage.qml")
+        }
+
         onErrorOccured: showPassiveNotification(error + ": " + detail)
     }
 

@@ -43,6 +43,8 @@ public:
     Q_INVOKABLE void loginWithCredentials(QString, QString, QString, QString);
     Q_INVOKABLE void loginWithAccessToken(QString, QString, QString, QString);
 
+    Q_INVOKABLE void changePassword(Connection *connection, const QString &currentPassword, const QString &newPassword);
+
     QVector<Connection *> connections() const
     {
         return m_connections;
@@ -108,6 +110,13 @@ public:
     void setAboutData(KAboutData aboutData);
     KAboutData aboutData() const;
 
+    enum PasswordStatus {
+        Success,
+        Wrong,
+        Other
+    };
+    Q_ENUM(PasswordStatus);
+
 private:
     explicit Controller(QObject *parent = nullptr);
     ~Controller();
@@ -143,6 +152,7 @@ Q_SIGNALS:
     void connectionChanged();
     void isOnlineChanged();
     void aboutDataChanged();
+    void passwordStatus(PasswordStatus status);
 
 public Q_SLOTS:
     void logout(Quotient::Connection *conn);
@@ -152,6 +162,14 @@ public Q_SLOTS:
     void playAudio(QUrl localFile);
     void changeAvatar(Quotient::Connection *conn, QUrl localFile);
     void markAllMessagesAsRead(Quotient::Connection *conn);
+};
+
+//TODO libQuotient 0.7: Drop
+class NeochatChangePasswordJob : public BaseJob {
+public:
+    explicit NeochatChangePasswordJob(const QString& newPassword,
+                               bool logoutDevices,
+                               const Omittable<QJsonObject>& auth = none);
 };
 
 #endif // CONTROLLER_H
