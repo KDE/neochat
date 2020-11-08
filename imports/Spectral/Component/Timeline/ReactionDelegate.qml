@@ -18,15 +18,15 @@ Flow {
         model: reaction
 
         delegate: Control {
-            width: Math.min(implicitWidth, 128)
-            height: width
+            width: Math.max(implicitWidth, Kirigami.Units.largeSpacing * 3)
+            height: Kirigami.Units.largeSpacing * 3
 
             horizontalPadding: 6
             verticalPadding: 0
 
             contentItem: Label {
+                height: Kirigami.Units.largeSpacing * 3
                 text: modelData.reaction + (modelData.count > 1 ? " " + modelData.count : "")
-                font.pixelSize: 14
                 font.family: "emoji"
                 elide: Text.ElideRight
             }
@@ -41,24 +41,26 @@ Flow {
 
                     hoverEnabled: true
 
-                    ToolTip.visible: containsMouse
-                    TootTip.font.family: Kirigami.Theme.defaultFont.family + ", emoji"
-                    ToolTip.text: {
-                        var text = "";
+                    ToolTip {
+                        visible: parent.containsMouse
+                        font.family: Kirigami.Theme.defaultFont.family + ", emoji"
+                        text: {
+                            var text = "";
 
-                        for (var i = 0; i < modelData.authors.length; i++) {
-                            if (i === modelData.authors.length - 1 && i !== 0) {
-                                text += i18nc("Seperate the usernames of users", " and ")
-                            } else if (i !== 0) {
-                                text += ", "
+                            for (var i = 0; i < modelData.authors.length; i++) {
+                                if (i === modelData.authors.length - 1 && i !== 0) {
+                                    text += i18nc("Seperate the usernames of users", " and ")
+                                } else if (i !== 0) {
+                                    text += ", "
+                                }
+
+                                text += modelData.authors[i].displayName
                             }
 
-                            text += modelData.authors[i].displayName
+                            text = i18ncp("%1 is the users who reacted and %2 the emoji that was given", "%2 reacted with %3", "%2 reacted with %3", modelData.authors.length, text, modelData.reaction)
+
+                            return text
                         }
-
-                        text = i18ncp("%1 is the users who reacted and %2 the emoji that was given", "%2 reacted with %3", "%2 reacted with %3", modelData.authors.length, text, modelData.reaction)
-
-                        return text
                     }
 
                     onClicked: currentRoom.toggleReaction(eventId, modelData.reaction)

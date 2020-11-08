@@ -192,9 +192,16 @@ Kirigami.ScrollablePage {
                             anchors.fill: parent
                             onClicked: openMessageContext(author, display, eventId, toolTip);
                         }
-                        innerObject: TextDelegate {
-                            Layout.fillWidth: true
-                        }
+                        innerObject: [
+                            TextDelegate {
+                                Layout.fillWidth: true
+                            },
+                            ReactionDelegate {
+                                Layout.fillWidth: true
+                                Layout.topMargin: 0
+                                Layout.bottomMargin: 8
+                            }
+                        ]
                     }
                 }
             }
@@ -222,11 +229,18 @@ Kirigami.ScrollablePage {
                     innerObject: MessageDelegate {
                         Layout.fillWidth: true
 
-                        innerObject: ImageDelegate {
-                            Layout.maximumWidth: parent.width
-                            Layout.preferredWidth: Math.min(320, info.w)
-                            Layout.preferredHeight: Math.min(320, info.h)
-                        }
+                        innerObject: [
+                            ImageDelegate {
+                                Layout.maximumWidth: parent.width
+                                Layout.preferredWidth: Math.min(320, info.w)
+                                Layout.preferredHeight: Math.min(320, info.h)
+                            },
+                            ReactionDelegate {
+                                Layout.fillWidth: true
+                                Layout.topMargin: 0
+                                Layout.bottomMargin: 8
+                            }
+                        ]
                     }
                 }
             }
