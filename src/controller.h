@@ -34,78 +34,30 @@ class Controller : public QObject
     Q_PROPERTY(KAboutData aboutData READ aboutData WRITE setAboutData NOTIFY aboutDataChanged)
 
 public:
-    static Controller &instance()
-    {
-        static Controller _instance;
-        return _instance;
-    }
+    static Controller &instance();
+
+    QVector<Connection *> connections() const;
+
+    void setConnection(Connection *conn);
+    Connection *connection() const;
+
+    void addConnection(Connection *c);
+    void dropConnection(Connection *c);
 
     Q_INVOKABLE void loginWithCredentials(QString, QString, QString, QString);
     Q_INVOKABLE void loginWithAccessToken(QString, QString, QString, QString);
 
     Q_INVOKABLE void changePassword(Connection *connection, const QString &currentPassword, const QString &newPassword);
 
-    QVector<Connection *> connections() const
-    {
-        return m_connections;
-    }
+    int accountCount() const;
 
-    // All the non-Q_INVOKABLE functions.
-    void addConnection(Connection *c);
-    void dropConnection(Connection *c);
+    bool isOnline() const;
 
-    // All the Q_PROPERTYs.
-    int accountCount()
-    {
-        return m_connections.count();
-    }
+    bool quitOnLastWindowClosed() const;
+    void setQuitOnLastWindowClosed(bool value);
 
-    bool quitOnLastWindowClosed() const
-    {
-        return QApplication::quitOnLastWindowClosed();
-    }
-    void setQuitOnLastWindowClosed(bool value)
-    {
-        if (quitOnLastWindowClosed() != value) {
-            QApplication::setQuitOnLastWindowClosed(value);
-
-            Q_EMIT quitOnLastWindowClosedChanged();
-        }
-    }
-
-    bool isOnline() const
-    {
-        return m_ncm.isOnline();
-    }
-
-    bool busy() const
-    {
-        return m_busy;
-    }
-    void setBusy(bool busy)
-    {
-        if (m_busy == busy) {
-            return;
-        }
-        m_busy = busy;
-        Q_EMIT busyChanged();
-    }
-
-    Connection *connection() const
-    {
-        if (m_connection.isNull())
-            return nullptr;
-
-        return m_connection;
-    }
-
-    void setConnection(Connection *conn)
-    {
-        if (conn == m_connection)
-            return;
-        m_connection = conn;
-        Q_EMIT connectionChanged();
-    }
+    bool busy() const;
+    void setBusy(bool busy);
 
     void setAboutData(KAboutData aboutData);
     KAboutData aboutData() const;
@@ -113,7 +65,7 @@ public:
     enum PasswordStatus {
         Success,
         Wrong,
-        Other
+        Other,
     };
     Q_ENUM(PasswordStatus);
 
@@ -164,12 +116,11 @@ public Q_SLOTS:
     void markAllMessagesAsRead(Quotient::Connection *conn);
 };
 
-//TODO libQuotient 0.7: Drop
-class NeochatChangePasswordJob : public BaseJob {
+// TODO libQuotient 0.7: Drop
+class NeochatChangePasswordJob : public BaseJob
+{
 public:
-    explicit NeochatChangePasswordJob(const QString& newPassword,
-                               bool logoutDevices,
-                               const Omittable<QJsonObject>& auth = none);
+    explicit NeochatChangePasswordJob(const QString &newPassword, bool logoutDevices, const Omittable<QJsonObject> &auth = none);
 };
 
 #endif // CONTROLLER_H

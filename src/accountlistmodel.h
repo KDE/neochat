@@ -15,7 +15,10 @@ class AccountListModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    enum EventRoles { UserRole = Qt::UserRole + 1, ConnectionRole };
+    enum EventRoles {
+        UserRole = Qt::UserRole + 1,
+        ConnectionRole,
+    };
 
     AccountListModel(QObject *parent = nullptr);
 
