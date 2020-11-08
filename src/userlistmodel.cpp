@@ -10,7 +10,7 @@
 #include <QElapsedTimer>
 #include <QPixmap>
 
-#include "spectraluser.h"
+#include "neochatuser.h"
 
 UserListModel::UserListModel(QObject *parent)
     : QAbstractListModel(parent)

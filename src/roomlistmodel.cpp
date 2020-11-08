@@ -38,7 +38,7 @@ void RoomListModel::setConnection(Connection *connection)
 
     m_connection = connection;
 
-    for (SpectralRoom *room : qAsConst(m_rooms)) {
+    for (NeoChatRoom *room : qAsConst(m_rooms)) {
         room->disconnect(this);
     }
 
@@ -52,7 +52,7 @@ void RoomListModel::setConnection(Connection *connection)
         for (const QString &roomID : values) {
             auto room = connection->room(roomID);
             if (room)
-                refresh(static_cast<SpectralRoom *>(room));
+                refresh(static_cast<NeoChatRoom *>(room));
         }
     });
 
@@ -72,14 +72,14 @@ void RoomListModel::doResetModel()
     refreshNotificationCount();
 }
 
-SpectralRoom *RoomListModel::roomAt(int row) const
+NeoChatRoom *RoomListModel::roomAt(int row) const
 {
     return m_rooms.at(row);
 }
 
 void RoomListModel::doAddRoom(Room *r)
 {
-    if (auto room = static_cast<SpectralRoom *>(r)) {
+    if (auto room = static_cast<NeoChatRoom *>(r)) {
         m_rooms.append(room);
         connectRoomSignals(room);
         Q_EMIT roomAdded(room);
@@ -89,7 +89,7 @@ void RoomListModel::doAddRoom(Room *r)
     }
 }
 
-void RoomListModel::connectRoomSignals(SpectralRoom *room)
+void RoomListModel::connectRoomSignals(NeoChatRoom *room)
 {
     connect(room, &Room::displaynameChanged, this, [=] {
         refresh(room);
@@ -159,7 +159,7 @@ void RoomListModel::updateRoom(Room *room, Room *prev)
     //    the previously left room (in both cases prev has the previous state).
     if (prev == room) {
         qCritical() << "RoomListModel::updateRoom: room tried to replace itself";
-        refresh(static_cast<SpectralRoom *>(room));
+        refresh(static_cast<NeoChatRoom *>(room));
         return;
     }
     if (prev && room->id() != prev->id()) {
@@ -167,8 +167,8 @@ void RoomListModel::updateRoom(Room *room, Room *prev)
         // That doesn't look right but technically we still can do it.
     }
     // Ok, we're through with pre-checks, now for the real thing.
-    auto newRoom = static_cast<SpectralRoom *>(room);
-    const auto it = std::find_if(m_rooms.begin(), m_rooms.end(), [=](const SpectralRoom *r) {
+    auto newRoom = static_cast<NeoChatRoom *>(room);
+    const auto it = std::find_if(m_rooms.begin(), m_rooms.end(), [=](const NeoChatRoom *r) {
         return r == prev || r == newRoom;
     });
     if (it != m_rooms.end()) {
@@ -216,7 +216,7 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
         qDebug() << "UserListModel: something wrong here...";
         return QVariant();
     }
-    SpectralRoom *room = m_rooms.at(index.row());
+    NeoChatRoom *room = m_rooms.at(index.row());
     if (role == NameRole)
         return room->displayName();
     if (role == AvatarRole)
@@ -256,7 +256,7 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
-void RoomListModel::refresh(SpectralRoom *room, const QVector<int> &roles)
+void RoomListModel::refresh(NeoChatRoom *room, const QVector<int> &roles)
 {
     const auto it = std::find(m_rooms.begin(), m_rooms.end(), room);
     if (it == m_rooms.end()) {

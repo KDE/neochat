@@ -4,7 +4,7 @@
 #include "connection.h"
 #include "events/roomevent.h"
 #include "room.h"
-#include "spectralroom.h"
+#include "neochatroom.h"
 
 #include <QAbstractListModel>
 
@@ -58,7 +58,7 @@ public:
     void setConnection(Connection *connection);
     void doResetModel();
 
-    Q_INVOKABLE SpectralRoom *roomAt(int row) const;
+    Q_INVOKABLE NeoChatRoom *roomAt(int row) const;
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     Q_INVOKABLE int rowCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -78,24 +78,24 @@ private Q_SLOTS:
     void doAddRoom(Quotient::Room *room);
     void updateRoom(Quotient::Room *room, Quotient::Room *prev);
     void deleteRoom(Quotient::Room *room);
-    void refresh(SpectralRoom *room, const QVector<int> &roles = {});
+    void refresh(NeoChatRoom *room, const QVector<int> &roles = {});
     void refreshNotificationCount();
 
 private:
     Connection *m_connection = nullptr;
-    QList<SpectralRoom *> m_rooms;
+    QList<NeoChatRoom *> m_rooms;
 
     QMap<int, bool> m_categoryVisibility;
 
     int m_notificationCount = 0;
 
-    void connectRoomSignals(SpectralRoom *room);
+    void connectRoomSignals(NeoChatRoom *room);
 
 Q_SIGNALS:
     void connectionChanged();
     void notificationCountChanged();
 
-    void roomAdded(SpectralRoom *room);
+    void roomAdded(NeoChatRoom *room);
     void newMessage(const QString &roomId, const QString &eventId, const QString &roomName, const QString &senderName, const QString &text, const QImage &icon);
     void newHighlight(const QString &roomId, const QString &eventId, const QString &roomName, const QString &senderName, const QString &text, const QImage &icon);
 };

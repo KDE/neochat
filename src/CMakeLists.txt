@@ -6,8 +6,8 @@ add_executable(neochat
     matriximageprovider.cpp
     messageeventmodel.cpp
     roomlistmodel.cpp
-    spectralroom.cpp
-    spectraluser.cpp
+    neochatroom.cpp
+    neochatuser.cpp
     trayicon.cpp
     userlistmodel.cpp
     publicroomlistmodel.cpp

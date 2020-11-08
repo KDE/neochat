@@ -44,16 +44,16 @@ MessageEventModel::MessageEventModel(QObject *parent)
     , m_currentRoom(nullptr)
 {
     using namespace Quotient;
-    qmlRegisterAnonymousType<FileTransferInfo>("Spectral", 1);
+    qmlRegisterAnonymousType<FileTransferInfo>("NeoChat", 1);
     qRegisterMetaType<FileTransferInfo>();
-    qmlRegisterUncreatableType<EventStatus>("Spectral", 0, 1, "EventStatus", "EventStatus is not an creatable type");
+    qmlRegisterUncreatableType<EventStatus>("NeoChat", 0, 1, "EventStatus", "EventStatus is not an creatable type");
 }
 
 MessageEventModel::~MessageEventModel()
 {
 }
 
-void MessageEventModel::setRoom(SpectralRoom *room)
+void MessageEventModel::setRoom(NeoChatRoom *room)
 {
     if (room == m_currentRoom)
         return;
@@ -253,7 +253,7 @@ int MessageEventModel::rowCount(const QModelIndex &parent) const
     return m_currentRoom->timelineSize();
 }
 
-inline QVariantMap userAtEvent(SpectralUser *user, SpectralRoom *room, const RoomEvent &evt)
+inline QVariantMap userAtEvent(NeoChatUser *user, NeoChatRoom *room, const RoomEvent &evt)
 {
     Q_UNUSED(evt)
     return QVariantMap {
@@ -323,7 +323,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         return EventTypeRegistry::getMatrixType(evt.type());
 
     if (role == AuthorRole) {
-        auto author = static_cast<SpectralUser *>(isPending ? m_currentRoom->localUser() : m_currentRoom->user(evt.senderId()));
+        auto author = static_cast<NeoChatUser *>(isPending ? m_currentRoom->localUser() : m_currentRoom->user(evt.senderId()));
         return userAtEvent(author, m_currentRoom, evt);
     }
 
@@ -423,7 +423,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             return {};
         const auto &replyEvt = **replyIt;
 
-        return QVariantMap {{"eventId", replyEventId}, {"display", m_currentRoom->eventToString(replyEvt, Qt::RichText)}, {"author", userAtEvent(static_cast<SpectralUser *>(m_currentRoom->user(replyEvt.senderId())), m_currentRoom, evt)}};
+        return QVariantMap {{"eventId", replyEventId}, {"display", m_currentRoom->eventToString(replyEvt, Qt::RichText)}, {"author", userAtEvent(static_cast<NeoChatUser *>(m_currentRoom->user(replyEvt.senderId())), m_currentRoom, evt)}};
     }
 
     if (role == ShowAuthorRole) {
@@ -452,12 +452,12 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         const auto &annotations = m_currentRoom->relatedEvents(evt, EventRelation::Annotation());
         if (annotations.isEmpty())
             return {};
-        QMap<QString, QList<SpectralUser *>> reactions = {};
+        QMap<QString, QList<NeoChatUser *>> reactions = {};
         for (const auto &a : annotations) {
             if (a->isRedacted()) // Just in case?
                 continue;
             if (auto e = eventCast<const ReactionEvent>(a))
-                reactions[e->relation().key].append(static_cast<SpectralUser *>(m_currentRoom->user(e->senderId())));
+                reactions[e->relation().key].append(static_cast<NeoChatUser *>(m_currentRoom->user(e->senderId())));
         }
 
         if (reactions.isEmpty()) {
@@ -471,7 +471,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             for (auto author : i.value()) {
                 authors.append(userAtEvent(author, m_currentRoom, evt));
             }
-            bool hasLocalUser = i.value().contains(static_cast<SpectralUser *>(m_currentRoom->localUser()));
+            bool hasLocalUser = i.value().contains(static_cast<NeoChatUser *>(m_currentRoom->localUser()));
             res.append(QVariantMap {{"reaction", i.key()}, {"count", i.value().count()}, {"authors", authors}, {"hasLocalUser", hasLocalUser}});
             ++i;
         }

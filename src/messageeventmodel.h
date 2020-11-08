@@ -4,12 +4,12 @@
 #include <QAbstractListModel>
 
 #include "room.h"
-#include "spectralroom.h"
+#include "neochatroom.h"
 
 class MessageEventModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(SpectralRoom *room READ room WRITE setRoom NOTIFY roomChanged)
+    Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
 
 public:
     enum EventRoles {
@@ -50,11 +50,11 @@ public:
     explicit MessageEventModel(QObject *parent = nullptr);
     ~MessageEventModel() override;
 
-    SpectralRoom *room() const
+    NeoChatRoom *room() const
     {
         return m_currentRoom;
     }
-    void setRoom(SpectralRoom *room);
+    void setRoom(NeoChatRoom *room);
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
@@ -67,7 +67,7 @@ private Q_SLOTS:
     void refreshRow(int row);
 
 private:
-    SpectralRoom *m_currentRoom = nullptr;
+    NeoChatRoom *m_currentRoom = nullptr;
     QString lastReadEventId;
     int rowBelowInserted = -1;
     bool movingEvent = 0;

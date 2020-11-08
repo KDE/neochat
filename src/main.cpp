@@ -31,8 +31,8 @@
 #include "room.h"
 #include "roomlistmodel.h"
 #include "sortfilterroomlistmodel.h"
-#include "spectralroom.h"
-#include "spectraluser.h"
+#include "neochatroom.h"
+#include "neochatuser.h"
 #include "trayicon.h"
 #include "userdirectorylistmodel.h"
 #include "userlistmodel.h"
@@ -60,21 +60,21 @@ int main(int argc, char *argv[])
 
     Clipboard clipboard;
 
-    qmlRegisterSingletonInstance("Spectral", 0, 1, "Controller", &Controller::instance());
+    qmlRegisterSingletonInstance("org.kde.neochat", 0, 1, "Controller", &Controller::instance());
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Clipboard", &clipboard);
-    qmlRegisterType<AccountListModel>("Spectral", 0, 1, "AccountListModel");
-    qmlRegisterType<RoomListModel>("Spectral", 0, 1, "RoomListModel");
-    qmlRegisterType<UserListModel>("Spectral", 0, 1, "UserListModel");
-    qmlRegisterType<MessageEventModel>("Spectral", 0, 1, "MessageEventModel");
-    qmlRegisterType<PublicRoomListModel>("Spectral", 0, 1, "PublicRoomListModel");
-    qmlRegisterType<UserDirectoryListModel>("Spectral", 0, 1, "UserDirectoryListModel");
-    qmlRegisterType<EmojiModel>("Spectral", 0, 1, "EmojiModel");
-    qmlRegisterType<NotificationsManager>("Spectral", 0, 1, "NotificationsManager");
-    qmlRegisterType<TrayIcon>("Spectral", 0, 1, "TrayIcon");
-    qmlRegisterType<SortFilterRoomListModel>("org.kde.neochat", 1, 0, "SortFilterRoomListModel");
-    qmlRegisterUncreatableType<RoomMessageEvent>("Spectral", 0, 1, "RoomMessageEvent", "ENUM");
-    qmlRegisterUncreatableType<RoomType>("Spectral", 0, 1, "RoomType", "ENUM");
-    qmlRegisterUncreatableType<UserType>("Spectral", 0, 1, "UserType", "ENUM");
+    qmlRegisterType<AccountListModel>("org.kde.neochat", 0, 1, "AccountListModel");
+    qmlRegisterType<RoomListModel>("org.kde.neochat", 0, 1, "RoomListModel");
+    qmlRegisterType<UserListModel>("org.kde.neochat", 0, 1, "UserListModel");
+    qmlRegisterType<MessageEventModel>("org.kde.neochat", 0, 1, "MessageEventModel");
+    qmlRegisterType<PublicRoomListModel>("org.kde.neochat", 0, 1, "PublicRoomListModel");
+    qmlRegisterType<UserDirectoryListModel>("org.kde.neochat", 0, 1, "UserDirectoryListModel");
+    qmlRegisterType<EmojiModel>("org.kde.neochat", 0, 1, "EmojiModel");
+    qmlRegisterType<NotificationsManager>("org.kde.neochat", 0, 1, "NotificationsManager");
+    qmlRegisterType<TrayIcon>("org.kde.neochat", 0, 1, "TrayIcon");
+    qmlRegisterType<SortFilterRoomListModel>("org.kde.neochat", 0, 1, "SortFilterRoomListModel");
+    qmlRegisterUncreatableType<RoomMessageEvent>("org.kde.neochat", 0, 1, "RoomMessageEvent", "ENUM");
+    qmlRegisterUncreatableType<RoomType>("org.kde.neochat", 0, 1, "RoomType", "ENUM");
+    qmlRegisterUncreatableType<UserType>("org.kde.neochat", 0, 1, "UserType", "ENUM");
 
     qRegisterMetaType<User *>("User*");
     qRegisterMetaType<User *>("const User*");
@@ -82,8 +82,8 @@ int main(int argc, char *argv[])
     qRegisterMetaType<Room *>("Room*");
     qRegisterMetaType<Connection *>("Connection*");
     qRegisterMetaType<MessageEventType>("MessageEventType");
-    qRegisterMetaType<SpectralRoom *>("SpectralRoom*");
-    qRegisterMetaType<SpectralUser *>("SpectralUser*");
+    qRegisterMetaType<NeoChatRoom *>("NeoChatRoom*");
+    qRegisterMetaType<NeoChatUser *>("NeoChatUser*");
     qRegisterMetaType<GetRoomEventsJob *>("GetRoomEventsJob*");
 
     qRegisterMetaTypeStreamOperators<Emoji>();

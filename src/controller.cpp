@@ -38,8 +38,8 @@
 #include "events/eventcontent.h"
 #include "events/roommessageevent.h"
 #include "settings.h"
-#include "spectralroom.h"
-#include "spectraluser.h"
+#include "neochatroom.h"
+#include "neochatuser.h"
 #include "utils.h"
 
 Controller::Controller(QObject *parent)
@@ -47,8 +47,8 @@ Controller::Controller(QObject *parent)
 {
     QApplication::setQuitOnLastWindowClosed(false);
 
-    Connection::setRoomType<SpectralRoom>();
-    Connection::setUserType<SpectralUser>();
+    Connection::setRoomType<NeoChatRoom>();
+    Connection::setUserType<NeoChatUser>();
 
     connect(&m_ncm, &QNetworkConfigurationManager::onlineStateChanged, this, &Controller::isOnlineChanged);
 
@@ -83,7 +83,7 @@ void Controller::loginWithCredentials(QString serverAddr, QString user, QString 
     }
 
     if (deviceName.isEmpty()) {
-        deviceName = "Spectral " + QSysInfo::machineHostName() + " " + QSysInfo::productType() + " " + QSysInfo::productVersion() + " " + QSysInfo::currentCpuArchitecture();
+        deviceName = "NeoChat " + QSysInfo::machineHostName() + " " + QSysInfo::productType() + " " + QSysInfo::productVersion() + " " + QSysInfo::currentCpuArchitecture();
     }
 
     QUrl serverUrl(serverAddr);
