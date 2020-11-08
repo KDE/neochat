@@ -5,7 +5,7 @@
  * SPDX-LicenseIdentifier: GPL-3.0-or-later
  */
 import QtQuick 2.12
-import QtQuick.Controls 2.12 as Controls
+import QtQuick.Controls 2.12 as QQC2
 import QtQuick.Layouts 1.12
 import QtGraphicalEffects 1.12
 
@@ -24,6 +24,8 @@ RowLayout {
     readonly property bool failed: marks == EventStatus.SendingFailed
     readonly property color authorColor: eventType == "notice" ? MPalette.primary : author.color
     readonly property color replyAuthorColor: replyVisible ? reply.author.color : MPalette.accent
+
+    property alias mouseArea: controlContainer.children
 
     signal saveFileAs()
     signal openExternally()
@@ -55,63 +57,67 @@ RowLayout {
         visible: !showAuthor
     }
 
-    ColumnLayout {
-        id: column
+
+    QQC2.Control {
+        id: controlContainer
         Layout.fillWidth: true
-        spacing: Kirigami.Units.smallSpacing
+        contentItem: ColumnLayout {
+            id: column
+            spacing: Kirigami.Units.smallSpacing
 
-        Controls.Label {
-            Layout.fillWidth: true
-
-            visible: showAuthor
-
-            text: author.displayName
-            font.bold: true
-            color: author.color
-            wrapMode: Text.Wrap
-        }
-
-        RowLayout {
-            Layout.fillWidth: true
-
-            visible: replyVisible
-
-            Rectangle {
-                Layout.preferredWidth: Kirigami.Units.smallSpacing
-                Layout.fillHeight: true
-
-                color: Kirigami.Theme.highlightColor
-            }
-
-            Kirigami.Avatar {
-                Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
-                Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
-                Layout.alignment: Qt.AlignTop
-
-                source: replyVisible && reply.author.avatarMediaId ? "image://mxc/" + reply.author.avatarMediaId : ""
-                name: replyVisible ? reply.author.displayName : "H"
-                color: replyVisible ? reply.author.color : Kirigami.Theme.highlightColor
-            }
-
-            ColumnLayout {
+            QQC2.Label {
                 Layout.fillWidth: true
 
-                Controls.Label {
-                    Layout.fillWidth: true
+                visible: showAuthor
 
-                    text: replyVisible ? reply.author.displayName : ""
-                    color: reply.author.color
-                    wrapMode: Text.Wrap
+                text: author.displayName
+                font.bold: true
+                color: author.color
+                wrapMode: Text.Wrap
+            }
+
+            RowLayout {
+                Layout.fillWidth: true
+
+                visible: replyVisible
+
+                Rectangle {
+                    Layout.preferredWidth: Kirigami.Units.smallSpacing
+                    Layout.fillHeight: true
+
+                    color: Kirigami.Theme.highlightColor
                 }
 
-                Text {
+                Kirigami.Avatar {
+                    Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
+                    Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
+                    Layout.alignment: Qt.AlignTop
+
+                    source: replyVisible && reply.author.avatarMediaId ? "image://mxc/" + reply.author.avatarMediaId : ""
+                    name: replyVisible ? reply.author.displayName : "H"
+                    color: replyVisible ? reply.author.color : Kirigami.Theme.highlightColor
+                }
+
+                ColumnLayout {
                     Layout.fillWidth: true
 
-                    text: replyVisible ? reply.display : ""
+                    QQC2.Label {
+                        Layout.fillWidth: true
 
-                    color: Kirigami.Theme.textColor
-                    wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-                    textFormat: Text.RichText
+                        text: replyVisible ? reply.author.displayName : ""
+                        color: replyVisible ? reply.author.color: null
+                        wrapMode: Text.Wrap
+                    }
+
+                    Text {
+                        Layout.fillWidth: true
+
+                        text: replyVisible ? reply.display : ""
+
+                        color: Kirigami.Theme.textColor
+                        wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                        textFormat: Text.RichText
+                    }
                 }
             }
         }

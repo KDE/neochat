@@ -184,16 +184,14 @@ Kirigami.ScrollablePage {
                 roleValue: "message"
                 delegate: TimelineContainer {
                     width: messageListView.width
-                    MouseArea {
-                        acceptedButtons: Qt.RightButton
-                        anchors.fill: parent
-                        onClicked: openMessageContext(author, display, eventId, toolTip);
-                    }
                     innerObject: MessageDelegate {
                         Layout.fillWidth: true
                         Layout.maximumWidth: messageListView.width
-
-
+                        mouseArea: MouseArea {
+                            acceptedButtons: Qt.RightButton
+                            anchors.fill: parent
+                            onClicked: openMessageContext(author, display, eventId, toolTip);
+                        }
                         innerObject: TextDelegate {
                             Layout.fillWidth: true
                         }
@@ -304,7 +302,8 @@ Kirigami.ScrollablePage {
     function openMessageContext(author, message, eventId, toolTip, model) {
         const contextMenu = messageDelegateContextMenu.createObject(root, {
             'author': author,
-            'message': message
+            'message': message,
+            'eventId': eventId,
         });
         contextMenu.viewSource.connect(function() {
             messageSourceDialog.createObject(root, {

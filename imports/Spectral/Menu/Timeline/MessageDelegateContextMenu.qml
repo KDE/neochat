@@ -16,6 +16,7 @@ Kirigami.OverlaySheet {
 
     required property var author;
     required property string message;
+    required property string eventId;
 
     signal viewSource()
     signal reply(var author, string message)
@@ -72,9 +73,13 @@ Kirigami.OverlaySheet {
                         font.pixelSize: 16
                         font.family: "emoji"
                         text: modelData
+
                     }
 
-                    onClicked: currentRoom.toggleReaction(eventId, modelData)
+                    onClicked: {
+                        currentRoom.toggleReaction(eventId, modelData)
+                        root.close();
+                    }
                 }
             }
         }
