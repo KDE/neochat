@@ -1,7 +1,13 @@
+/**
+ * SPDX-FileCopyrightText: 2019 Black Hat <bhat@encom.eu.org>
+ * SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
+ *
+ * SPDX-LicenseIdentifier: GPL-3.0-only
+ */
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
-import Spectral.Setting 0.1
+import org.kde.kirigami 2.13 as Kirigami
 
 Flow {
     visible: (reaction && reaction.length > 0) ?? false
@@ -13,20 +19,22 @@ Flow {
 
         delegate: Control {
             width: Math.min(implicitWidth, 128)
+            height: width
 
             horizontalPadding: 6
             verticalPadding: 0
 
             contentItem: Label {
                 text: modelData.reaction + (modelData.count > 1 ? " " + modelData.count : "")
-                color: MPalette.lighter
                 font.pixelSize: 14
+                font.family: "emoji"
                 elide: Text.ElideRight
             }
 
             background: Rectangle {
                 radius: height / 2
-                color: modelData.hasLocalUser ? (MSettings.darkTheme ? Qt.darker(MPalette.accent, 1.55) : Qt.lighter(MPalette.accent, 1.55)) : MPalette.banner
+                Kirigami.Theme.colorSet: Kirigami.Theme.View
+                color: Kirigami.Theme.backgroundColor
 
                 MouseArea {
                     anchors.fill: parent
@@ -34,12 +42,13 @@ Flow {
                     hoverEnabled: true
 
                     ToolTip.visible: containsMouse
+                    TootTip.font.family: Kirigami.Theme.defaultFont.family + ", emoji"
                     ToolTip.text: {
                         var text = "";
 
                         for (var i = 0; i < modelData.authors.length; i++) {
                             if (i === modelData.authors.length - 1 && i !== 0) {
-                                text += " and "
+                                text += i18nc("Seperate the usernames of users", " and ")
                             } else if (i !== 0) {
                                 text += ", "
                             }
@@ -47,7 +56,7 @@ Flow {
                             text += modelData.authors[i].displayName
                         }
 
-                        text += " reacted with " + modelData.reaction
+                        text = i18ncp("%1 is the users who reacted and %2 the emoji that was given", "%2 reacted with %3", "%2 reacted with %3", modelData.authors.length, text, modelData.reaction)
 
                         return text
                     }
