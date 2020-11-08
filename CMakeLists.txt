@@ -25,7 +25,7 @@ ecm_setup_version(0.1.0
 )
 
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets Core Quick Gui QuickControls2 Multimedia Svg)
-find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS Kirigami2 ItemModels I18n Notifications Config CoreAddons)
+find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS Kirigami2 I18n Notifications Config CoreAddons)
 
 if(ANDROID)
     find_package(OpenSSL REQUIRED)

@@ -10,6 +10,8 @@
 #include <QDebug>
 #include <QStandardPaths>
 
+#include <KLocalizedString>
+
 RoomListModel::RoomListModel(QObject *parent)
     : QAbstractListModel(parent)
 {
@@ -249,6 +251,8 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
     }
     if (role == CurrentRoomRole)
         return QVariant::fromValue(room);
+    if (role == CategoryVisibleRole)
+        return m_categoryVisibility.value(data(index, CategoryRole).toInt(), true);
     return QVariant();
 }
 
@@ -277,5 +281,36 @@ QHash<int, QByteArray> RoomListModel::roleNames() const
     roles[LastActiveTimeRole] = "lastActiveTime";
     roles[JoinStateRole] = "joinState";
     roles[CurrentRoomRole] = "currentRoom";
+    roles[CategoryVisibleRole] = "categoryVisible";
     return roles;
+}
+
+QString RoomListModel::categoryName(int section) const
+{
+    switch (section) {
+    case 1:
+        return i18n("Invited");
+    case 2:
+        return i18n("Favorite");
+    case 3:
+        return i18n("Direct Messages");
+    case 4:
+        return i18n("Normal");
+    case 5:
+        return i18n("Low priority");
+    default:
+        return i18n("Deadbeef");
+    }
+}
+
+void RoomListModel::setCategoryVisible(int category, bool visible)
+{
+    beginResetModel();
+    m_categoryVisibility[category] = visible;
+    endResetModel();
+}
+
+bool RoomListModel::categoryVisible(int category) const
+{
+    return m_categoryVisibility.value(category, true);
 }

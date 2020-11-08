@@ -14,6 +14,8 @@ import org.kde.kitemmodels 1.0
 import Spectral.Component 2.0
 import Spectral 0.1
 
+import org.kde.neochat 1.0
+
 Kirigami.ScrollablePage {
     id: page
 
@@ -21,7 +23,7 @@ Kirigami.ScrollablePage {
     property var enteredRoom
     property var searchText: ""
 
-    onSearchTextChanged: sortedFilteredRoomListModel.invalidateFilter()
+    onSearchTextChanged: sortFilterRoomListModel.setFilterText(searchText)
 
     signal enterRoom(var room)
     signal leaveRoom(var room)
@@ -37,23 +39,25 @@ Kirigami.ScrollablePage {
     }
 
     ListView {
-        model:  KSortFilterProxyModel {
-            id: sortedFilteredRoomListModel
+        model:  SortFilterRoomListModel {
+            id: sortFilterRoomListModel
             sourceModel: roomListModel
+            roomSortOrder: SortFilterRoomListModel.Categories
+        }
 
-            sortRole: "name"
-            sortOrder: Qt.AscendingOrder
-            filterRowCallback: function(row, parent) {
-                return (roomListModel.data(roomListModel.index(row, 0), RoomListModel.JoinStateRole) !== "upgraded") && roomListModel.data(roomListModel.index(row, 0), RoomListModel.NameRole).toLowerCase().includes(page.searchText.toLowerCase())
+        section.property: "category"
+        section.delegate: Kirigami.ListSectionHeader {
+            id: sectionHeader
+            label: roomListModel.categoryName(section)
+            MouseArea {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                onClicked: roomListModel.setCategoryVisible(section, !roomListModel.categoryVisible(section))
             }
         }
 
-        section.property: "categoryName"
-        section.delegate: Kirigami.ListSectionHeader {
-            label: section
-        }
-
         delegate: Kirigami.AbstractListItem {
+            visible: model.categoryVisible
             topPadding: Kirigami.Units.largeSpacing
             bottomPadding: Kirigami.Units.largeSpacing
 

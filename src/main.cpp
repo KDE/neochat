@@ -30,6 +30,7 @@
 #include "publicroomlistmodel.h"
 #include "room.h"
 #include "roomlistmodel.h"
+#include "sortfilterroomlistmodel.h"
 #include "spectralroom.h"
 #include "spectraluser.h"
 #include "trayicon.h"
@@ -70,6 +71,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<EmojiModel>("Spectral", 0, 1, "EmojiModel");
     qmlRegisterType<NotificationsManager>("Spectral", 0, 1, "NotificationsManager");
     qmlRegisterType<TrayIcon>("Spectral", 0, 1, "TrayIcon");
+    qmlRegisterType<SortFilterRoomListModel>("org.kde.neochat", 1, 0, "SortFilterRoomListModel");
     qmlRegisterUncreatableType<RoomMessageEvent>("Spectral", 0, 1, "RoomMessageEvent", "ENUM");
     qmlRegisterUncreatableType<RoomType>("Spectral", 0, 1, "RoomType", "ENUM");
     qmlRegisterUncreatableType<UserType>("Spectral", 0, 1, "UserType", "ENUM");

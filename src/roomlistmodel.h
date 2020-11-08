@@ -44,6 +44,7 @@ public:
         LastActiveTimeRole,
         JoinStateRole,
         CurrentRoomRole,
+        CategoryVisibleRole,
     };
     Q_ENUM(EventRoles)
 
@@ -64,6 +65,10 @@ public:
 
     QHash<int, QByteArray> roleNames() const override;
 
+    Q_INVOKABLE QString categoryName(int category) const;
+    Q_INVOKABLE void setCategoryVisible(int category, bool visible);
+    Q_INVOKABLE bool categoryVisible(int category) const;
+
     int notificationCount() const
     {
         return m_notificationCount;
@@ -79,6 +84,8 @@ private Q_SLOTS:
 private:
     Connection *m_connection = nullptr;
     QList<SpectralRoom *> m_rooms;
+
+    QMap<int, bool> m_categoryVisibility;
 
     int m_notificationCount = 0;
 
