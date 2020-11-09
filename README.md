@@ -14,8 +14,6 @@ This program utilizes [libQuotient](https://github.com/quotient-im/libQuotient/)
 
 This program is a fork of [Spectral](https://gitlab.com/spectral-im/spectral/).
 
-This program includes a copy of [WinToast](https://github.com/mohabouje/WinToast/) to display notifications.
-
 ## License
 
 ![GPLv3](https://www.gnu.org/graphics/gplv3-127x51.png)
