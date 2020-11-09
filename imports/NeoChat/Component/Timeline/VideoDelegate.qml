@@ -63,7 +63,7 @@ RowLayout {
             UserDetailDialog {}
         }
 
-        RippleEffect {
+        MouseArea {
             anchors.fill: parent
 
             circular: true

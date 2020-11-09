@@ -9,7 +9,7 @@ import NeoChat.Effect 2.0
 import org.kde.neochat 0.1
 import NeoChat.Setting 0.1
 
-Dialog {
+Kirigami.OverlaySheet {
     anchors.centerIn: parent
 
     width: 480

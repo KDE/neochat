@@ -1,5 +1,11 @@
+/**
+ * SPDX-FileCopyrightText: 2019 Black Hat <bhat@encom.eu.org>
+ * SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
+ *
+ * SPDX-LicenseIdentifier: GPL-3.0-only
+ */
 import QtQuick 2.12
-import QtQuick.Controls 2.12
+import QtQuick.Controls 2.12 as QQC2
 import QtQuick.Layouts 1.12
 import org.kde.kirigami 2.13 as Kirigami
 
@@ -7,7 +13,9 @@ import NeoChat.Component 2.0
 import NeoChat.Effect 2.0
 import NeoChat.Setting 0.1
 
-Dialog {
+Kirigami.OverlaySheet {
+    id: root
+
     property var room
     property var user
 
@@ -15,32 +23,37 @@ Dialog {
     property string avatarMediaId: user.avatarMediaId
     property string avatarUrl: user.avatarUrl
 
-    anchors.centerIn: parent
-    width: 360
+    parent: applicationWindow().overlay
 
-    id: root
+    leftPadding: 0
+    rightPadding: 0
+    topPadding: 0
 
-    modal: true
+    header: Kirigami.Heading {
+        text: i18nc("Account detail dialog", "Account detail - %1", displayName)
+    }
 
     contentItem: ColumnLayout {
+        spacing: 0
         RowLayout {
             Layout.fillWidth: true
-
-            spacing: 16
+            Layout.leftMargin: Kirigami.Units.largeSpacing
+            Layout.rightMargin: Kirigami.Units.largeSpacing
+            Layout.topMargin: Kirigami.Units.smallSpacing
+            Layout.bottomMargin: Kirigami.Units.smallSpacing
+            spacing: Kirigami.Units.largeSpacing
 
             Kirigami.Avatar {
-                Layout.preferredWidth: 72
-                Layout.preferredHeight: 72
+                Layout.preferredWidth: Kirigami.Units.iconSizes.huge
+                Layout.preferredHeight: Kirigami.Units.iconSizes.huge
 
                 name: displayName
                 source: avatarMediaId ? "image://mxc/" + avatarMediaId : ""
 
-                RippleEffect {
+                MouseArea {
                     anchors.fill: parent
 
-                    circular: true
-
-                    onPrimaryClicked: {
+                    onClicked: {
                         if (avatarMediaId) {
                             fullScreenImage.createObject(parent, {"filename": displayName, "localPath": room.urlToMxcUrl(avatarUrl)}).showFullScreen()
                         }
@@ -51,110 +64,53 @@ Dialog {
             ColumnLayout {
                 Layout.fillWidth: true
 
-                Label {
+                Kirigami.Heading {
+                    level: 1
                     Layout.fillWidth: true
-
-                    font.pixelSize: 18
                     font.bold: true
 
                     elide: Text.ElideRight
                     wrapMode: Text.NoWrap
                     text: displayName
-                    color: MPalette.foreground
                 }
 
-                Label {
+                QQC2.Label {
                     Layout.fillWidth: true
 
-                    text: "Online"
-                    color: MPalette.lighter
+                    text: i18n("Online")
+                    color: Kirigami.Theme.disabledTextColor
                 }
-            }
-        }
-
-        MenuSeparator {
-            Layout.fillWidth: true
-        }
-
-        RowLayout {
-            Layout.fillWidth: true
-
-            spacing: 8
-
-            ColumnLayout {
-                Layout.fillWidth: true
-
-                Label {
-                    Layout.fillWidth: true
-
-                    elide: Text.ElideRight
-                    wrapMode: Text.NoWrap
+                Kirigami.Heading {
+                    level: 5
                     text: user.id
-                    color: MPalette.accent
-                }
-
-                Label {
-                    Layout.fillWidth: true
-
-                    wrapMode: Label.Wrap
-                    text: "User ID"
-                    color: MPalette.lighter
                 }
             }
         }
 
-        MenuSeparator {
-            Layout.fillWidth: true
-        }
+        QQC2.MenuSeparator {}
 
-        Control {
-            Layout.fillWidth: true
-
-            contentItem: RowLayout {
-                Label {
-                    Layout.fillWidth: true
-
-                    wrapMode: Label.Wrap
-                    text: room.connection.isIgnored(user) ? "Unignore this user" : "Ignore this user"
-
-                    color: MPalette.accent
-                }
-            }
-
-            background: RippleEffect {
-                onPrimaryClicked: {
+        Kirigami.BasicListItem {
+            action: Kirigami.Action {
+                text: room.connection.isIgnored(user) ? i18n("Unignore this user") : i18n("Ignore this user")
+                icon.name: "im-invisible-user"
+                onTriggered: {
                     root.close()
                     room.connection.isIgnored(user) ? room.connection.removeFromIgnoredUsers(user) : room.connection.addToIgnoredUsers(user)
                 }
             }
         }
-
-        Control {
-            Layout.fillWidth: true
-
-            contentItem: RowLayout {
-                Label {
-                    Layout.fillWidth: true
-
-                    wrapMode: Label.Wrap
-                    text: "Kick this user"
-
-                    color: MPalette.accent
-                }
+        /*Kirigami.BasicListItem {
+            action: Kirigami.Action {
+                text: i18n("Kick this user")
+                icon.name: "im-kick-user"
+                onTriggered: room.kickMember(user.id)
             }
+        }*/
+        Component {
+            id: fullScreenImage
 
-            background: RippleEffect {
-                onPrimaryClicked: room.kickMember(user.id)
-            }
+            FullScreenImage {}
         }
     }
-
-    Component {
-        id: fullScreenImage
-
-        FullScreenImage {}
-    }
-
-    onClosed: destroy()
 }
 

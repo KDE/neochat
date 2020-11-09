@@ -14,6 +14,7 @@ import org.kde.kirigami 2.13 as Kirigami
 import org.kde.neochat 0.1
 import NeoChat.Setting 0.1
 import NeoChat.Component 2.0
+import NeoChat.Dialog 2.0
 
 RowLayout {
     default property alias innerObject : column.children
@@ -48,6 +49,17 @@ RowLayout {
         name: author.displayName
         source: author.avatarMediaId ? "image://mxc/" + author.avatarMediaId : ""
         color: author.color
+
+        Component {
+            id: userDetailDialog
+
+            UserDetailDialog {}
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {"room": currentRoom, "user": author.object, "displayName": author.displayName, "avatarMediaId": author.avatarMediaId, "avatarUrl": author.avatarUrl}).open()
+        }
     }
 
     Item {
