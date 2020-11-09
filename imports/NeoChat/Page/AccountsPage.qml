@@ -10,7 +10,7 @@ import QtQuick.Layouts 1.14
 
 import org.kde.kirigami 2.12 as Kirigami
 
-import NeoChat 0.1
+import org.kde.neochat 0.1
 
 Kirigami.ScrollablePage {
     title: i18n("Accounts")
