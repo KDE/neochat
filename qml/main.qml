@@ -38,7 +38,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: i18n("Accounts")
                 iconName: "im-user"
-                onTriggered: pageStack.layers.push("qrc:/qml/AccountsPage.qml")
+                onTriggered: pageStack.layers.push("qrc:/imports/NeoChat/Page/AccountsPage.qml")
                 enabled: pageStack.layers.currentItem.title !== i18n("Accounts")
             }
         ]
