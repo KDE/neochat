@@ -25,7 +25,26 @@ target_link_libraries(neochat PRIVATE Qt5::Quick Qt5::Qml Qt5::Gui Qt5::Network 
 if(ANDROID)
     target_link_libraries(neochat PRIVATE Qt5::Svg OpenSSL::SSL)
     kirigami_package_breeze_icons(ICONS
-        "document-send"
+        "help-about"
+        "im-user"
+        "im-invisible-user"
+        "im-kick-user"
+        "mail-attachment"
+        "dialog-cancel"
+        "preferences-desktop-emoticons"
+        "document-open"
+        "document-save"
+        "dialog-close"
+        "edit-delete-remove"
+        "code-context"
+        "document-edit"
+        "list-user-add"
+        "list-add-user"
+        "user-others"
+        "media-playback-pause":
+        "media-playback-start"
+        "go-up"
+        "go-down"
     )
 else()
     target_link_libraries(neochat PRIVATE Qt5::Widgets ${QTKEYCHAIN_LIBRARIES})
