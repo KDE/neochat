@@ -113,7 +113,7 @@ Kirigami.OverlayDrawer {
             ToolButton {
                 Layout.preferredWidth: Kirigami.Units.gridUnit
                 Layout.preferredHeight: Kirigami.Units.gridUnit
-                icon.name: "list-user-add"
+                icon.name: "list-add-user"
 
                 onClicked: inviteUserDialog.createObject(ApplicationWindow.overlay, {"room": room}).open()
             }
