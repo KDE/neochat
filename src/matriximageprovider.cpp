@@ -40,21 +40,21 @@ ThumbnailResponse::ThumbnailResponse(QString id, QSize size)
         return;
     }
 
-    if (!Controller::instance().connection()) {
+    if (!Controller::instance().activeConnection()) {
         qWarning() << "Current connection is null";
         return;
     }
 
     // Execute a request on the main thread asynchronously
-    moveToThread(Controller::instance().connection()->thread());
+    moveToThread(Controller::instance().activeConnection()->thread());
     QMetaObject::invokeMethod(this, &ThumbnailResponse::startRequest, Qt::QueuedConnection);
 }
 
 void ThumbnailResponse::startRequest()
 {
     // Runs in the main thread, not QML thread
-    Q_ASSERT(QThread::currentThread() == Controller::instance().connection()->thread());
-    job = Controller::instance().connection()->getThumbnail(mediaId, requestedSize);
+    Q_ASSERT(QThread::currentThread() == Controller::instance().activeConnection()->thread());
+    job = Controller::instance().activeConnection()->getThumbnail(mediaId, requestedSize);
     // Connect to any possible outcome including abandonment
     // to make sure the QML thread is not left stuck forever.
     connect(job, &BaseJob::finished, this, &ThumbnailResponse::prepareResult);

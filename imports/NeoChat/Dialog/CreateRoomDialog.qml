@@ -39,7 +39,7 @@ Dialog {
 
     standardButtons: Dialog.Ok | Dialog.Cancel
 
-    onAccepted: Controller.createRoom(Controller.connection, roomNameField.text, roomTopicField.text)
+    onAccepted: Controller.createRoom(Controller.activeConnection, roomNameField.text, roomTopicField.text)
 
     onClosed: destroy()
 }

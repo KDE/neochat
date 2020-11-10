@@ -168,7 +168,7 @@ Dialog {
                             anchors.fill: parent
 
                             onClicked: {
-                                roomListForm.enteredRoom = Controller.connection.room(room.predecessorId)
+                                roomListForm.enteredRoom = Controller.activeConnection.room(room.predecessorId)
                                 root.close()
                             }
                         }
@@ -212,7 +212,7 @@ Dialog {
                             anchors.fill: parent
 
                             onClicked: {
-                                roomListForm.enteredRoom = Controller.connection.room(room.successorId)
+                                roomListForm.enteredRoom = Controller.activeConnection.room(room.successorId)
                                 root.close()
                             }
                         }

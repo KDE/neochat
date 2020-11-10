@@ -29,7 +29,7 @@ Kirigami.ScrollablePage {
                 icon: model.connection.user.avatarMediaId ? "image://mxc/" + model.connection.user.avatarMediaId : "im-user"
 
                 onClicked: {
-                    Controller.connection = model.connection
+                    Controller.activeConnection = model.connection
                     pageStack.layers.pop()
                 }
             }

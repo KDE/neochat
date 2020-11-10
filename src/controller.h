@@ -28,7 +28,7 @@ class Controller : public QObject
     Q_OBJECT
     Q_PROPERTY(int accountCount READ accountCount NOTIFY connectionAdded NOTIFY connectionDropped)
     Q_PROPERTY(bool quitOnLastWindowClosed READ quitOnLastWindowClosed WRITE setQuitOnLastWindowClosed NOTIFY quitOnLastWindowClosedChanged)
-    Q_PROPERTY(Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
+    Q_PROPERTY(Connection *activeConnection READ activeConnection WRITE setActiveConnection NOTIFY activeConnectionChanged)
     Q_PROPERTY(bool isOnline READ isOnline NOTIFY isOnlineChanged)
     Q_PROPERTY(bool busy READ busy WRITE setBusy NOTIFY busyChanged)
     Q_PROPERTY(KAboutData aboutData READ aboutData WRITE setAboutData NOTIFY aboutDataChanged)
@@ -38,8 +38,8 @@ public:
 
     QVector<Connection *> connections() const;
 
-    void setConnection(Connection *conn);
-    Connection *connection() const;
+    void setActiveConnection(Connection *connection);
+    Connection *activeConnection() const;
 
     void addConnection(Connection *c);
     void dropConnection(Connection *c);
@@ -101,7 +101,7 @@ Q_SIGNALS:
     void notificationClicked(const QString roomId, const QString eventId);
     void quitOnLastWindowClosedChanged();
     void unreadCountChanged();
-    void connectionChanged();
+    void activeConnectionChanged();
     void isOnlineChanged();
     void aboutDataChanged();
     void passwordStatus(Controller::PasswordStatus status);

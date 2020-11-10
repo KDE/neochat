@@ -110,7 +110,7 @@ void Controller::loginWithCredentials(QString serverAddr, QString user, QString 
             qWarning() << "Couldn't save access token";
         account.sync();
         addConnection(conn);
-        setConnection(conn);
+        setActiveConnection(conn);
     });
     connect(conn, &Connection::networkError, [=](QString error, QString, int, int) {
         Q_EMIT errorOccured("Network Error", error);
@@ -144,7 +144,7 @@ void Controller::loginWithAccessToken(QString serverAddr, QString user, QString 
             qWarning() << "Couldn't save access token";
         account.sync();
         addConnection(conn);
-        setConnection(conn);
+        setActiveConnection(conn);
     });
     connect(conn, &Connection::networkError, this, [=](QString error, QString, int, int) {
         Q_EMIT errorOccured("Network Error", error);
@@ -179,9 +179,9 @@ void Controller::logout(Connection *conn, bool serverSideLogout)
     Q_EMIT conn->stateChanged();
     Q_EMIT conn->loggedOut();
     if (!m_connections.isEmpty())
-        setConnection(m_connections[0]);
+        setActiveConnection(m_connections[0]);
     else
-        setConnection(nullptr);
+        setActiveConnection(nullptr);
     if (!serverSideLogout) {
         return;
     }
@@ -263,7 +263,7 @@ void Controller::invokeLogin()
     }
 
     if (!m_connections.isEmpty()) {
-        setConnection(m_connections[0]);
+        setActiveConnection(m_connections[0]);
     }
 
     Q_EMIT initiated();
@@ -517,17 +517,17 @@ void Controller::setBusy(bool busy)
     Q_EMIT busyChanged();
 }
 
-Connection *Controller::connection() const
+Connection *Controller::activeConnection() const
 {
     if (m_connection.isNull())
         return nullptr;
     return m_connection;
 }
 
-void Controller::setConnection(Connection *connection)
+void Controller::setActiveConnection(Connection *connection)
 {
     if (connection == m_connection)
         return;
     m_connection = connection;
-    Q_EMIT connectionChanged();
+    Q_EMIT activeConnectionChanged();
 }

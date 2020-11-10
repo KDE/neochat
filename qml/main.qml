@@ -37,7 +37,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: i18n("Explore rooms")
                 iconName: "compass"
-                onTriggered: pageStack.layers.push("qrc:/imports/NeoChat/Page/JoinRoomPage.qml", {"connection": Controller.connection})
+                onTriggered: pageStack.layers.push("qrc:/imports/NeoChat/Page/JoinRoomPage.qml", {"connection": Controller.activeConnection})
                 enabled: pageStack.layers.currentItem.title !== i18n("Explore Rooms")
             },
             Kirigami.Action {
@@ -100,6 +100,6 @@ Kirigami.ApplicationWindow {
     RoomListModel {
         id: spectralRoomListModel
 
-        connection: Controller.connection
+        connection: Controller.activeConnection
     }
 }
