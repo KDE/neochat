@@ -89,47 +89,9 @@ RowLayout {
                 color: author.color
                 wrapMode: Text.Wrap
             }
-
-            RowLayout {
-                Layout.fillWidth: true
-
-                visible: replyVisible
-
-                Rectangle {
-                    Layout.preferredWidth: Kirigami.Units.smallSpacing
-                    Layout.fillHeight: true
-
-                    color: Kirigami.Theme.highlightColor
-                }
-
-                Kirigami.Avatar {
-                    Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
-                    Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
-                    Layout.alignment: Qt.AlignTop
-
-                    source: replyVisible && reply.author.avatarMediaId ? "image://mxc/" + reply.author.avatarMediaId : ""
-                    name: replyVisible ? reply.author.displayName : "H"
-                    color: replyVisible ? reply.author.color : Kirigami.Theme.highlightColor
-                }
-
-                ColumnLayout {
-                    Layout.fillWidth: true
-
-                    QQC2.Label {
-                        Layout.fillWidth: true
-
-                        text: replyVisible ? reply.author.displayName : ""
-                        color: replyVisible ? reply.author.color: null
-                        wrapMode: Text.Wrap
-                    }
-
-                    QQC2.Label {
-                        Layout.fillWidth: true
-                        text: replyVisible ? reply.display : ""
-                        wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-                        textFormat: Text.RichText
-                    }
-                }
+            Loader {
+                source: 'qrc:imports/NeoChat/Component/Timeline/ReplyComponent.qml'
+                active: replyVisible
             }
         }
     }
