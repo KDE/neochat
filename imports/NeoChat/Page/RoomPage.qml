@@ -19,7 +19,7 @@ Kirigami.ScrollablePage {
 
     property var currentRoom
 
-    title: i18n("Messages")
+    title: currentRoom.name
 
     MessageEventModel {
         id: messageEventModel
