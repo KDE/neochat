@@ -47,7 +47,7 @@ public:
     Q_INVOKABLE void loginWithCredentials(QString, QString, QString, QString);
     Q_INVOKABLE void loginWithAccessToken(QString, QString, QString, QString);
 
-    Q_INVOKABLE void changePassword(Connection *connection, const QString &currentPassword, const QString &newPassword);
+    Q_INVOKABLE void changePassword(Quotient::Connection *connection, const QString &currentPassword, const QString &newPassword);
 
     int accountCount() const;
 
@@ -104,7 +104,7 @@ Q_SIGNALS:
     void connectionChanged();
     void isOnlineChanged();
     void aboutDataChanged();
-    void passwordStatus(PasswordStatus status);
+    void passwordStatus(Controller::PasswordStatus status);
 
 public Q_SLOTS:
     void logout(Quotient::Connection *conn);

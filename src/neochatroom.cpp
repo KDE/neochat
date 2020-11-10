@@ -297,15 +297,15 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                 }
                 QString text {};
                 if (e.isRename()) {
-                    if (e.displayName().isEmpty())
+                    if (e.newDisplayName()->isEmpty())
                         text = tr("cleared their display name");
                     else
-                        text = tr("changed their display name to %1").arg(e.displayName().toHtmlEscaped());
+                        text = tr("changed their display name to %1").arg(e.newDisplayName()->toHtmlEscaped());
                 }
                 if (e.isAvatarUpdate()) {
                     if (!text.isEmpty())
                         text += " and ";
-                    if (e.avatarUrl().isEmpty())
+                    if (e.newAvatarUrl()->isEmpty())
                         text += tr("cleared their avatar");
                     else if (e.prevContent()->avatarUrl->isEmpty())
                         text += tr("set an avatar");
