@@ -1,3 +1,8 @@
+/**
+ * SPDX-FileCopyrightText: 2019 Black Hat <bhat@encom.eu.org>
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
 #include "trayicon.h"
 
 // Modified from mujx/nheko's TrayIcon.

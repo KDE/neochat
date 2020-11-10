@@ -1,7 +1,7 @@
 /**
- * SPDX-FileCopyrightText: 2017  Konstantinos Sideris <siderisk@auth.gr>
+ * SPDX-FileCopyrightText: 2017 Konstantinos Sideris <siderisk@auth.gr>
  *
- * SPDX-LicenseIdentifier: GPL-3.0-or-later
+ * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 #include <QByteArray>

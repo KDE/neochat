@@ -1,7 +1,8 @@
 /**
- * SPDX-FileCopyrightText: Black Hat <bhat@encom.eu.org>
+ * SPDX-FileCopyrightText: 2018-2019 Black Hat <bhat@encom.eu.org>
+ * SPDX-FileCopyrightText: 2020 Tobias Fella <fella@posteo.de>
  *
- * SPDX-LicenseIdentifier: GPL-3.0-only
+ * SPDX-License-Identifier: GPL-3.0-only
  */
 #include "controller.h"
 

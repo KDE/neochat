@@ -1,3 +1,8 @@
+/**
+ * SPDX-FileCopyrightText: 2020 Tobias Fella <fella@posteo.de>
+ *
+ * SPDX-License-Identifier: GPL-2.0-or-later
+ */
 #pragma once
 
 #include <QImage>

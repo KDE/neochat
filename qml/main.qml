@@ -1,8 +1,8 @@
 /**
- * SPDX-FileCopyrightText: 2019 Black Hat <bhat@encom.eu.org>
+ * SPDX-FileCopyrightText: 2018-2020 Black Hat <bhat@encom.eu.org>
  * SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
  *
- * SPDX-LicenseIdentifier: GPL-3.0-only
+ * SPDX-License-Identifier: GPL-3.0-only
  */
 import QtQuick 2.14
 import QtQuick.Controls 2.14 as QQC2
