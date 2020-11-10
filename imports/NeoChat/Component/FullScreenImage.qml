@@ -1,14 +1,21 @@
+/**
+ * SPDX-FileCopyrightText: 2019 Black Hat <bhat@encom.eu.org>
+ *
+ * SPDX-LicenseIdentifier: GPL-3.0-only
+ */
+
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 
+import org.kde.kirigami 2.12 as Kirigami
+
 ApplicationWindow {
+    id: root
+
     property string filename
     property url localPath
 
-    id: root
-
     flags: Qt.FramelessWindowHint | Qt.WA_TranslucentBackground
-    visible: true
     visibility: Qt.WindowFullScreen
 
     title: i18n("Image View - %1", filename)
@@ -32,14 +39,16 @@ ApplicationWindow {
         source: localPath
     }
 
-    ItemDelegate {
+    Button {
         anchors.top: parent.top
         anchors.right: parent.right
 
-        id: closeButton
+        text: i18n("Close")
+        icon.name: "dialog-close"
+        display: AbstractButton.IconOnly
 
-        width: 64
-        height: 64
+        width: Kirigami.Units.gridUnit * 2
+        height: Kirigami.Units.gridUnit * 2
 
         onClicked: root.destroy()
     }
