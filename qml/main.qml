@@ -85,7 +85,6 @@ Kirigami.ApplicationWindow {
 
         onConnectionAdded: {
             if (Controller.accountCount === 1) {
-                console.log("roomListComponent")
                 pageStack.replace(roomListComponent);
             }
         }
