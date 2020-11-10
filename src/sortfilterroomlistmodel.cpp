@@ -37,7 +37,7 @@ bool SortFilterRoomListModel::lessThan(const QModelIndex &source_left, const QMo
         return QSortFilterProxyModel::lessThan(source_left, source_right);
     if (sourceModel()->data(source_left, RoomListModel::CategoryRole) != sourceModel()->data(source_right, RoomListModel::CategoryRole))
         return sourceModel()->data(source_left, RoomListModel::CategoryRole) < sourceModel()->data(source_right, RoomListModel::CategoryRole);
-    return sourceModel()->data(source_left, RoomListModel::NameRole) < sourceModel()->data(source_right, RoomListModel::NameRole);
+    return sourceModel()->data(source_left, RoomListModel::LastActiveTimeRole) > sourceModel()->data(source_right, RoomListModel::LastActiveTimeRole);
 }
 
 void SortFilterRoomListModel::setFilterText(const QString &text)
