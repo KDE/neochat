@@ -33,9 +33,10 @@ RowLayout {
 
     id: root
 
-    spacing: Kirigami.Units.largeSpacing
-    Layout.leftMargin: Kirigami.Units.smallSpacing
+    spacing: Kirigami.Units.smallSpacing
+    Layout.leftMargin: Kirigami.Units.largeSpacing
     Layout.rightMargin: Kirigami.Units.smallSpacing
+    Layout.topMargin: showAuthor ? Kirigami.Units.smallSpacing : 0
 
     Kirigami.Avatar {
         Layout.minimumWidth: Kirigami.Units.iconSizes.medium
@@ -65,7 +66,6 @@ RowLayout {
     Item {
         Layout.minimumWidth: Kirigami.Units.iconSizes.medium
         Layout.preferredHeight: 1
-
         visible: !showAuthor
     }
 
@@ -73,12 +73,14 @@ RowLayout {
     QQC2.Control {
         id: controlContainer
         Layout.fillWidth: true
+        topPadding: 0
         contentItem: ColumnLayout {
             id: column
             spacing: Kirigami.Units.smallSpacing
 
             QQC2.Label {
                 Layout.fillWidth: true
+                topInset: 0
 
                 visible: showAuthor
 
@@ -121,12 +123,9 @@ RowLayout {
                         wrapMode: Text.Wrap
                     }
 
-                    Text {
+                    QQC2.Label {
                         Layout.fillWidth: true
-
                         text: replyVisible ? reply.display : ""
-
-                        color: Kirigami.Theme.textColor
                         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                         textFormat: Text.RichText
                     }

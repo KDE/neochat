@@ -37,7 +37,7 @@ Image {
         maskSource: Rectangle {
             width: img.width
             height: img.height
-            radius: 18
+            radius: 2
         }
     }
 
@@ -65,7 +65,7 @@ Image {
         }
 
         background: Rectangle {
-            radius: height / 2
+            radius: 2
             color: "black"
             opacity: 0.3
         }
