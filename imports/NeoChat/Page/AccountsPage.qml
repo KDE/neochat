@@ -74,7 +74,7 @@ Kirigami.ScrollablePage {
     actions.main: Kirigami.Action {
         text: i18n("Add an account")
         iconName: "list-add-user"
-        onTriggered: pageStack.layers.push("qrc:/qml/LoginPage.qml")
+        onTriggered: pageStack.layers.push("qrc:/imports/NeoChat/Page/LoginPage.qml")
     }
 
     Kirigami.OverlaySheet {
