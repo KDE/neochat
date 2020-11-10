@@ -24,6 +24,7 @@ public:
         AvatarRole,
         TopicRole,
         RoomIDRole,
+        AliasRole,
         MemberCountRole,
         AllowGuestsRole,
         WorldReadableRole,

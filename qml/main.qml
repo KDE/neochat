@@ -5,19 +5,24 @@
  * SPDX-LicenseIdentifier: GPL-3.0-only
  */
 import QtQuick 2.14
-import QtQuick.Controls 2.14 as Controls
+import QtQuick.Controls 2.14 as QQC2
 import QtQuick.Layouts 1.14
 
 import org.kde.kirigami 2.12 as Kirigami
 
 import org.kde.neochat 0.1
+import NeoChat 2.0
 import NeoChat.Component 2.0
 import NeoChat.Panel 2.0
+import NeoChat.Dialog 2.0
+import NeoChat.Page 2.0
 import NeoChat.Page 2.0
 
 Kirigami.ApplicationWindow {
     id: root
     property var currentRoom: null
+
+    Component.onCompleted: RoomManager.pageStack = root.pageStack
 
     contextDrawer: RoomDrawer {
         id: contextDrawer
@@ -30,16 +35,22 @@ Kirigami.ApplicationWindow {
         isMenu: true
         actions: [
             Kirigami.Action {
-                text: i18n("About Neochat")
-                iconName: "help-about"
-                onTriggered: pageStack.layers.push(aboutPage)
-                enabled: pageStack.layers.currentItem.title !== i18n("About")
+                text: i18n("Explore rooms")
+                iconName: "compass"
+                onTriggered: pageStack.layers.push("qrc:/imports/NeoChat/Page/JoinRoomPage.qml", {"connection": Controller.connection})
+                enabled: pageStack.layers.currentItem.title !== i18n("Explore Rooms")
             },
             Kirigami.Action {
                 text: i18n("Accounts")
                 iconName: "im-user"
                 onTriggered: pageStack.layers.push("qrc:/imports/NeoChat/Page/AccountsPage.qml")
                 enabled: pageStack.layers.currentItem.title !== i18n("Accounts")
+            },
+            Kirigami.Action {
+                text: i18n("About Neochat")
+                iconName: "help-about"
+                onTriggered: pageStack.layers.push(aboutPage)
+                enabled: pageStack.layers.currentItem.title !== i18n("About")
             }
         ]
     }
@@ -58,17 +69,6 @@ Kirigami.ApplicationWindow {
         RoomListPage {
             id: roomList
             roomListModel: spectralRoomListModel
-
-            onEnterRoom: {
-                applicationWindow().pageStack.push(roomPanelComponent, {"currentRoom": room});
-                root.currentRoom = room;
-            }
-            onLeaveRoom: {
-                var stack = applicationWindow().pageStack;
-                roomList.enteredRoom = null;
-
-                stack.removePage(stack.lastItem);
-            }
         }
     }
 
@@ -102,13 +102,5 @@ Kirigami.ApplicationWindow {
         id: spectralRoomListModel
 
         connection: Controller.connection
-    }
-
-    Component {
-        id: roomPanelComponent
-
-        RoomPage {
-            currentRoom: root.currentRoom
-        }
     }
 }

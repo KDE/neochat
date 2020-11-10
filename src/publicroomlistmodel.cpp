@@ -177,6 +177,12 @@ QVariant PublicRoomListModel::data(const QModelIndex &index, int role) const
     if (role == RoomIDRole) {
         return room.roomId;
     }
+    if (role == AliasRole) {
+        if (!room.canonicalAlias.isEmpty()) {
+            return room.canonicalAlias;
+        }
+        return {};
+    }
     if (role == MemberCountRole) {
         return room.numJoinedMembers;
     }
@@ -208,6 +214,7 @@ QHash<int, QByteArray> PublicRoomListModel::roleNames() const
     roles[AllowGuestsRole] = "allowGuests";
     roles[WorldReadableRole] = "worldReadable";
     roles[IsJoinedRole] = "isJoined";
+    roles[AliasRole] = "alias";
 
     return roles;
 }

@@ -12,6 +12,7 @@ import org.kde.kirigami 2.13 as Kirigami
 import org.kde.kitemmodels 1.0
 import org.kde.neochat 0.1
 
+import NeoChat 2.0
 import NeoChat.Component 2.0
 import NeoChat.Menu 2.0
 
@@ -121,17 +122,10 @@ Kirigami.ScrollablePage {
                     acceptedButtons: Qt.LeftButton | Qt.RightButton
                     anchors.fill: parent
                     onClicked: {
-                        console.log(mouse.button)
                         if (mouse.button == Qt.RightButton) {
                             roomListContextMenu.createObject(parent, {"room": currentRoom}).popup()
                         } else {
-                            if (enteredRoom) {
-                                leaveRoom(enteredRoom)
-                            }
-
-                            enteredRoom = currentRoom
-
-                            enterRoom(enteredRoom)
+                            RoomManager.enterRoom(currentRoom)
                         }
                     }
                 }
