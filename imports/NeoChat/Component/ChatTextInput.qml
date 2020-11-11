@@ -430,6 +430,7 @@ Control {
 
                 id: emojiButton
                 icon.name: "preferences-desktop-emoticons"
+                icon.color: "transparent"
 
                 onClicked: emojiPicker.visible = !emojiPicker.visible
             }
