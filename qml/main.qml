@@ -77,7 +77,7 @@ Kirigami.ApplicationWindow {
 
         onInitiated: {
             if (Controller.accountCount === 0) {
-                pageStack.replace("qrc:/qml/LoginPage.qml", {});
+                pageStack.replace("qrc:/imports/NeoChat/Page/LoginPage.qml", {});
             } else {
                 pageStack.replace(roomListComponent);
             }
