@@ -98,17 +98,6 @@ Control {
             }
         }
 
-        EmojiPicker {
-            Layout.fillWidth: true
-
-            id: emojiPicker
-
-            visible: false
-
-            textArea: inputField
-            emojiModel: EmojiModel { id: emojiModel }
-        }
-
         ListView {
             Layout.fillWidth: true
             Layout.preferredHeight: 36
@@ -449,6 +438,16 @@ Control {
                     root.closeAll()
                 }
             }
+        }
+        EmojiPicker {
+            id: emojiPicker
+
+            Layout.fillWidth: true
+
+            visible: false
+
+            textArea: inputField
+            emojiModel: EmojiModel { id: emojiModel }
         }
     }
 
