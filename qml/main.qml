@@ -91,7 +91,7 @@ Kirigami.ApplicationWindow {
 
         onConnectionDropped: {
             if(Controller.accountCount === 0)
-                pageStack.replace("qrc:/qml/LoginPage.qml")
+                pageStack.replace("qrc:/imports/NeoChat/Page/LoginPage.qml")
         }
 
         onErrorOccured: showPassiveNotification(error + ": " + detail)
