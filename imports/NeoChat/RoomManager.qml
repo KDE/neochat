@@ -7,7 +7,7 @@
 pragma Singleton
 
 import QtQuick 2.14
-import NeoChat.Page 2.0
+import NeoChat.Page 1.0
 
 /**
  * Manage opening and close rooms

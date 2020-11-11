@@ -9,9 +9,9 @@ import QtQuick.Controls 2.12 as QQC2
 import QtQuick.Layouts 1.12
 import org.kde.kirigami 2.13 as Kirigami
 
-import NeoChat.Component 2.0
-import NeoChat.Effect 2.0
-import NeoChat.Setting 0.1
+import NeoChat.Component 1.0
+import NeoChat.Effect 1.0
+import NeoChat.Setting 1.0
 
 Kirigami.OverlaySheet {
     id: root

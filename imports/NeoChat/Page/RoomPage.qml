@@ -12,13 +12,13 @@ import QtQuick.Controls.Material 2.12
 
 import org.kde.kirigami 2.13 as Kirigami
 import org.kde.kitemmodels 1.0
-import org.kde.neochat 0.1
+import org.kde.neochat 1.0
 
-import NeoChat.Component 2.0
-import NeoChat.Component.Timeline 2.0
-import NeoChat.Dialog 2.0
-import NeoChat.Effect 2.0
-import NeoChat.Menu.Timeline 2.0
+import NeoChat.Component 1.0
+import NeoChat.Component.Timeline 1.0
+import NeoChat.Dialog 1.0
+import NeoChat.Effect 1.0
+import NeoChat.Menu.Timeline 1.0
 
 Kirigami.ScrollablePage {
     id: page

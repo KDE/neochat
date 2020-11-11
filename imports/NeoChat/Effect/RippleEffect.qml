@@ -7,8 +7,8 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtGraphicalEffects 1.0
 
-import NeoChat.Component 2.0
-import NeoChat.Setting 0.1
+import NeoChat.Component 1.0
+import NeoChat.Setting 1.0
 
 AutoMouseArea {
     id: ripple

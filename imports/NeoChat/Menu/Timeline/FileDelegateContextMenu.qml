@@ -6,7 +6,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 
-import NeoChat.Dialog 2.0
+import NeoChat.Dialog 1.0
 
 Menu {
     signal viewSource()

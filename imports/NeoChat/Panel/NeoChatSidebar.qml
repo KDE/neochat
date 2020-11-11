@@ -12,9 +12,9 @@ import org.kde.kirigami 2.12 as Kirigami
 
 import SortFilterProxyModel 0.2
 
-import NeoChat.Component 2.0
-import NeoChat.Component.Timeline 2.0
-import org.kde.neochat 0.1
+import NeoChat.Component 1.0
+import NeoChat.Component.Timeline 1.0
+import org.kde.neochat 1.0
 
 Kirigami.GlobalDrawer {
     id: root

@@ -11,10 +11,10 @@ import QtGraphicalEffects 1.12
 
 import org.kde.kirigami 2.13 as Kirigami
 
-import org.kde.neochat 0.1
-import NeoChat.Setting 0.1
-import NeoChat.Component 2.0
-import NeoChat.Dialog 2.0
+import org.kde.neochat 1.0
+import NeoChat.Setting 1.0
+import NeoChat.Component 1.0
+import NeoChat.Dialog 1.0
 
 RowLayout {
     default property alias innerObject : column.children

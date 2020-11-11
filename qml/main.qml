@@ -10,13 +10,13 @@ import QtQuick.Layouts 1.14
 
 import org.kde.kirigami 2.12 as Kirigami
 
-import org.kde.neochat 0.1
-import NeoChat 2.0
-import NeoChat.Component 2.0
-import NeoChat.Panel 2.0
-import NeoChat.Dialog 2.0
-import NeoChat.Page 2.0
-import NeoChat.Page 2.0
+import org.kde.neochat 1.0
+import NeoChat 1.0
+import NeoChat.Component 1.0
+import NeoChat.Panel 1.0
+import NeoChat.Dialog 1.0
+import NeoChat.Page 1.0
+import NeoChat.Page 1.0
 
 Kirigami.ApplicationWindow {
     id: root

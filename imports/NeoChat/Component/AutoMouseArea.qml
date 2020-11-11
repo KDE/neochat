@@ -5,7 +5,7 @@
  */
 import QtQuick 2.12
 
-import NeoChat.Setting 0.1
+import NeoChat.Setting 1.0
 
 MouseArea {
     signal primaryClicked()

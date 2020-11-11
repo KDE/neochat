@@ -8,10 +8,10 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Controls.Material 2.12
 
-import NeoChat.Component 2.0
+import NeoChat.Component 1.0
 
-import org.kde.neochat 0.1
-import NeoChat.Setting 0.1
+import org.kde.neochat 1.0
+import NeoChat.Setting 1.0
 
 ColumnLayout {
     property string emojiCategory: "history"

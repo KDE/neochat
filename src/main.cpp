@@ -60,21 +60,21 @@ int main(int argc, char *argv[])
 
     Clipboard clipboard;
 
-    qmlRegisterSingletonInstance("org.kde.neochat", 0, 1, "Controller", &Controller::instance());
+    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Controller", &Controller::instance());
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Clipboard", &clipboard);
-    qmlRegisterType<AccountListModel>("org.kde.neochat", 0, 1, "AccountListModel");
-    qmlRegisterType<RoomListModel>("org.kde.neochat", 0, 1, "RoomListModel");
-    qmlRegisterType<UserListModel>("org.kde.neochat", 0, 1, "UserListModel");
-    qmlRegisterType<MessageEventModel>("org.kde.neochat", 0, 1, "MessageEventModel");
-    qmlRegisterType<PublicRoomListModel>("org.kde.neochat", 0, 1, "PublicRoomListModel");
-    qmlRegisterType<UserDirectoryListModel>("org.kde.neochat", 0, 1, "UserDirectoryListModel");
-    qmlRegisterType<EmojiModel>("org.kde.neochat", 0, 1, "EmojiModel");
-    qmlRegisterType<NotificationsManager>("org.kde.neochat", 0, 1, "NotificationsManager");
-    qmlRegisterType<TrayIcon>("org.kde.neochat", 0, 1, "TrayIcon");
-    qmlRegisterType<SortFilterRoomListModel>("org.kde.neochat", 0, 1, "SortFilterRoomListModel");
-    qmlRegisterUncreatableType<RoomMessageEvent>("org.kde.neochat", 0, 1, "RoomMessageEvent", "ENUM");
-    qmlRegisterUncreatableType<RoomType>("org.kde.neochat", 0, 1, "RoomType", "ENUM");
-    qmlRegisterUncreatableType<UserType>("org.kde.neochat", 0, 1, "UserType", "ENUM");
+    qmlRegisterType<AccountListModel>("org.kde.neochat", 1, 0, "AccountListModel");
+    qmlRegisterType<RoomListModel>("org.kde.neochat", 1, 0, "RoomListModel");
+    qmlRegisterType<UserListModel>("org.kde.neochat", 1, 0, "UserListModel");
+    qmlRegisterType<MessageEventModel>("org.kde.neochat", 1, 0, "MessageEventModel");
+    qmlRegisterType<PublicRoomListModel>("org.kde.neochat", 1, 0, "PublicRoomListModel");
+    qmlRegisterType<UserDirectoryListModel>("org.kde.neochat", 1, 0, "UserDirectoryListModel");
+    qmlRegisterType<EmojiModel>("org.kde.neochat", 1, 0, "EmojiModel");
+    qmlRegisterType<NotificationsManager>("org.kde.neochat", 1, 0, "NotificationsManager");
+    qmlRegisterType<TrayIcon>("org.kde.neochat", 1, 0, "TrayIcon");
+    qmlRegisterType<SortFilterRoomListModel>("org.kde.neochat", 1, 0, "SortFilterRoomListModel");
+    qmlRegisterUncreatableType<RoomMessageEvent>("org.kde.neochat", 1, 0, "RoomMessageEvent", "ENUM");
+    qmlRegisterUncreatableType<RoomType>("org.kde.neochat", 1, 0, "RoomType", "ENUM");
+    qmlRegisterUncreatableType<UserType>("org.kde.neochat", 1, 0, "UserType", "ENUM");
 
     qRegisterMetaType<User *>("User*");
     qRegisterMetaType<User *>("const User*");

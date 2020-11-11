@@ -9,7 +9,7 @@ import QtQuick.Controls 2.12 as QQC2
 import QtQuick.Layouts 1.12
 import org.kde.kirigami 2.13 as Kirigami
 
-import NeoChat.Dialog 2.0
+import NeoChat.Dialog 1.0
 
 Kirigami.OverlaySheet {
     id: root
