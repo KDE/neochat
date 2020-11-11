@@ -11,7 +11,7 @@ QColor NeoChatUser::color()
 {
     return QColor::fromHslF(hueF(), 0.7, 0.5, 1);
 }
-//TODO libQuotient 0.7: remove default name
+// TODO libQuotient 0.7: remove default name
 void NeoChatUser::setDefaultName(QString defaultName)
 {
     rename(defaultName);
@@ -24,10 +24,10 @@ void NeoChatUser::setDefaultName(QString defaultName)
 
 QString NeoChatUser::defaultName()
 {
-    if(m_defaultName.isEmpty()) {
+    if (m_defaultName.isEmpty()) {
         GetDisplayNameJob *job = connection()->callApi<GetDisplayNameJob>(id());
         connect(job, &BaseJob::success, this, [this, job] {
-            if(job->displayname().isEmpty())
+            if (job->displayname().isEmpty())
                 m_defaultName = id();
             else
                 m_defaultName = job->displayname();

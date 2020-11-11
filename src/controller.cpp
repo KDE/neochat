@@ -38,9 +38,9 @@
 #include "csapi/registration.h"
 #include "events/eventcontent.h"
 #include "events/roommessageevent.h"
-#include "settings.h"
 #include "neochatroom.h"
 #include "neochatuser.h"
+#include "settings.h"
 #include "utils.h"
 
 Controller::Controller(QObject *parent)
@@ -53,7 +53,9 @@ Controller::Controller(QObject *parent)
 
     connect(&m_ncm, &QNetworkConfigurationManager::onlineStateChanged, this, &Controller::isOnlineChanged);
 
-    QTimer::singleShot(0, this, [=] { invokeLogin(); });
+    QTimer::singleShot(0, this, [=] {
+        invokeLogin();
+    });
 }
 
 Controller::~Controller()
@@ -108,8 +110,12 @@ void Controller::loginWithCredentials(QString serverAddr, QString user, QString 
         addConnection(conn);
         setConnection(conn);
     });
-    connect(conn, &Connection::networkError, [=](QString error, QString, int, int) { Q_EMIT errorOccured("Network Error", error); });
-    connect(conn, &Connection::loginError, [=](QString error, QString) { Q_EMIT errorOccured("Login Failed", error); });
+    connect(conn, &Connection::networkError, [=](QString error, QString, int, int) {
+        Q_EMIT errorOccured("Network Error", error);
+    });
+    connect(conn, &Connection::loginError, [=](QString error, QString) {
+        Q_EMIT errorOccured("Login Failed", error);
+    });
 }
 
 void Controller::loginWithAccessToken(QString serverAddr, QString user, QString token, QString deviceName)
@@ -138,7 +144,9 @@ void Controller::loginWithAccessToken(QString serverAddr, QString user, QString 
         addConnection(conn);
         setConnection(conn);
     });
-    connect(conn, &Connection::networkError, this, [=](QString error, QString, int, int) { Q_EMIT errorOccured("Network Error", error); });
+    connect(conn, &Connection::networkError, this, [=](QString error, QString, int, int) {
+        Q_EMIT errorOccured("Network Error", error);
+    });
     conn->connectWithToken(user, token, deviceName);
 }
 
@@ -176,7 +184,9 @@ void Controller::logout(Connection *conn)
         else
             setConnection(nullptr);
     });
-    connect(logoutJob, &LogoutJob::failure, this, [=] { Q_EMIT errorOccured("Server-side Logout Failed", logoutJob->errorString()); });
+    connect(logoutJob, &LogoutJob::failure, this, [=] {
+        Q_EMIT errorOccured("Server-side Logout Failed", logoutJob->errorString());
+    });
 }
 
 void Controller::addConnection(Connection *c)
@@ -195,7 +205,9 @@ void Controller::addConnection(Connection *c)
         c->sync(30000);
         c->saveState();
     });
-    connect(c, &Connection::loggedOut, this, [=] { dropConnection(c); });
+    connect(c, &Connection::loggedOut, this, [=] {
+        dropConnection(c);
+    });
     connect(&m_ncm, &QNetworkConfigurationManager::onlineStateChanged, [=](bool status) {
         if (!status) {
             return;
@@ -238,7 +250,9 @@ void Controller::invokeLogin()
                 Q_EMIT errorOccured("Login Failed", error);
                 logout(c);
             });
-            connect(c, &Connection::networkError, this, [=](QString error, QString, int, int) { Q_EMIT errorOccured("Network Error", error); });
+            connect(c, &Connection::networkError, this, [=](QString error, QString, int, int) {
+                Q_EMIT errorOccured("Network Error", error);
+            });
             c->connectWithToken(account.userId(), accessToken, account.deviceId());
         }
     }
@@ -358,19 +372,25 @@ void Controller::joinRoom(Connection *c, const QString &alias)
 
     auto knownServer = alias.mid(alias.indexOf(":") + 1);
     auto joinRoomJob = c->joinRoom(alias, QStringList {knownServer});
-    joinRoomJob->connect(joinRoomJob, &JoinRoomJob::failure, [=] { Q_EMIT errorOccured("Join Room Failed", joinRoomJob->errorString()); });
+    joinRoomJob->connect(joinRoomJob, &JoinRoomJob::failure, [=] {
+        Q_EMIT errorOccured("Join Room Failed", joinRoomJob->errorString());
+    });
 }
 
 void Controller::createRoom(Connection *c, const QString &name, const QString &topic)
 {
     auto createRoomJob = c->createRoom(Connection::PublishRoom, "", name, topic, QStringList());
-    createRoomJob->connect(createRoomJob, &CreateRoomJob::failure, [=] { Q_EMIT errorOccured("Create Room Failed", createRoomJob->errorString()); });
+    createRoomJob->connect(createRoomJob, &CreateRoomJob::failure, [=] {
+        Q_EMIT errorOccured("Create Room Failed", createRoomJob->errorString());
+    });
 }
 
 void Controller::createDirectChat(Connection *c, const QString &userID)
 {
     auto createRoomJob = c->createDirectChat(userID);
-    createRoomJob->connect(createRoomJob, &CreateRoomJob::failure, [=] { Q_EMIT errorOccured("Create Direct Chat Failed", createRoomJob->errorString()); });
+    createRoomJob->connect(createRoomJob, &CreateRoomJob::failure, [=] {
+        Q_EMIT errorOccured("Create Direct Chat Failed", createRoomJob->errorString());
+    });
 }
 
 void Controller::playAudio(QUrl localFile)
@@ -378,14 +398,18 @@ void Controller::playAudio(QUrl localFile)
     auto player = new QMediaPlayer;
     player->setMedia(localFile);
     player->play();
-    connect(player, &QMediaPlayer::stateChanged, [=] { player->deleteLater(); });
+    connect(player, &QMediaPlayer::stateChanged, [=] {
+        player->deleteLater();
+    });
 }
 
 void Controller::changeAvatar(Connection *conn, QUrl localFile)
 {
     auto job = conn->uploadFile(localFile.toLocalFile());
     if (isJobRunning(job)) {
-        connect(job, &BaseJob::success, this, [conn, job] { conn->callApi<SetAvatarUrlJob>(conn->userId(), job->contentUri()); });
+        connect(job, &BaseJob::success, this, [conn, job] {
+            conn->callApi<SetAvatarUrlJob>(conn->userId(), job->contentUri());
+        });
     }
 }
 
@@ -422,7 +446,9 @@ void Controller::changePassword(Connection *connection, const QString &currentPa
             QJsonObject identifier = {{"type", "m.id.user"}, {"user", connection->user()->id()}};
             authData["identifier"] = identifier;
             NeochatChangePasswordJob *innerJob = connection->callApi<NeochatChangePasswordJob>(newPassword, false, authData);
-            connect(innerJob, &BaseJob::success, this, [this]() { Q_EMIT passwordStatus(PasswordStatus::Success); });
+            connect(innerJob, &BaseJob::success, this, [this]() {
+                Q_EMIT passwordStatus(PasswordStatus::Success);
+            });
             connect(innerJob, &BaseJob::failure, this, [innerJob, this]() {
                 if (innerJob->jsonData()["errcode"] == "M_FORBIDDEN") {
                     Q_EMIT passwordStatus(PasswordStatus::Wrong);

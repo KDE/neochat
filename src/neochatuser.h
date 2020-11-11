@@ -25,7 +25,7 @@ public:
 
     QColor color();
 
-    //TODO libQuotient 0.7: remove
+    // TODO libQuotient 0.7: remove
     void setDefaultName(QString defaultName);
     QString defaultName();
 

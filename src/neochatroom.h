@@ -17,8 +17,8 @@
 #include <QPointer>
 #include <QTimer>
 
-#include "room.h"
 #include "neochatuser.h"
+#include "room.h"
 
 using namespace Quotient;
 

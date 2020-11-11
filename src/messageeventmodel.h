@@ -8,8 +8,8 @@
 
 #include <QAbstractListModel>
 
-#include "room.h"
 #include "neochatroom.h"
+#include "room.h"
 
 class MessageEventModel : public QAbstractListModel
 {

@@ -6,12 +6,12 @@
 #include "clipboard.h"
 
 #include <QClipboard>
-#include <QMimeData>
-#include <QRegularExpression>
-#include <QImage>
 #include <QDir>
 #include <QFileInfo>
 #include <QGuiApplication>
+#include <QImage>
+#include <QMimeData>
+#include <QRegularExpression>
 #include <QUrl>
 
 Clipboard::Clipboard(QObject *parent)
