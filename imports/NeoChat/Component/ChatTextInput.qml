@@ -434,6 +434,21 @@ Control {
 
                 onClicked: emojiPicker.visible = !emojiPicker.visible
             }
+            ToolButton {
+                Layout.preferredWidth: 48
+                Layout.preferredHeight: 48
+                Layout.alignment: Qt.AlignBottom
+
+                icon.name: "document-send"
+                icon.color: "transparent"
+
+                onClicked: {
+                    inputField.postMessage(inputField.text)
+                    inputField.text = ""
+                    root.clearReply()
+                    root.closeAll()
+                }
+            }
         }
     }
 

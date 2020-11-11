@@ -34,6 +34,7 @@ if(ANDROID)
         "preferences-desktop-emoticons"
         "document-open"
         "document-save"
+        "document-send"
         "dialog-close"
         "edit-delete-remove"
         "code-context"
