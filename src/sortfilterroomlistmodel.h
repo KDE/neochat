@@ -13,7 +13,6 @@ class SortFilterRoomListModel : public QSortFilterProxyModel
     Q_OBJECT
 
     Q_PROPERTY(RoomSortOrder roomSortOrder READ roomSortOrder WRITE setRoomSortOrder NOTIFY roomSortOrderChanged)
-    Q_PROPERTY(QAbstractItemModel *sourceModel READ sourceModel WRITE setSourceModel NOTIFY sourceModelChanged)
 
 public:
     enum RoomSortOrder {
@@ -34,7 +33,6 @@ public:
 
 Q_SIGNALS:
     void roomSortOrderChanged();
-    void sourceModelChanged();
 
 private:
     RoomSortOrder m_sortOrder;
