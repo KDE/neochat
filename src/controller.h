@@ -9,7 +9,6 @@
 #include <QApplication>
 #include <QMediaPlayer>
 #include <QMenu>
-#include <QNetworkConfigurationManager>
 #include <QObject>
 #include <QSystemTrayIcon>
 
@@ -29,7 +28,6 @@ class Controller : public QObject
     Q_PROPERTY(int accountCount READ accountCount NOTIFY connectionAdded NOTIFY connectionDropped)
     Q_PROPERTY(bool quitOnLastWindowClosed READ quitOnLastWindowClosed WRITE setQuitOnLastWindowClosed NOTIFY quitOnLastWindowClosedChanged)
     Q_PROPERTY(Connection *activeConnection READ activeConnection WRITE setActiveConnection NOTIFY activeConnectionChanged)
-    Q_PROPERTY(bool isOnline READ isOnline NOTIFY isOnlineChanged)
     Q_PROPERTY(bool busy READ busy WRITE setBusy NOTIFY busyChanged)
     Q_PROPERTY(KAboutData aboutData READ aboutData WRITE setAboutData NOTIFY aboutDataChanged)
 
@@ -50,8 +48,6 @@ public:
     Q_INVOKABLE void changePassword(Quotient::Connection *connection, const QString &currentPassword, const QString &newPassword);
 
     int accountCount() const;
-
-    bool isOnline() const;
 
     bool quitOnLastWindowClosed() const;
     void setQuitOnLastWindowClosed(bool value);
@@ -75,7 +71,6 @@ private:
 
     QVector<Connection *> m_connections;
     QPointer<Connection> m_connection;
-    QNetworkConfigurationManager m_ncm;
     bool m_busy = false;
 
     QByteArray loadAccessTokenFromFile(const AccountSettings &account);
@@ -102,7 +97,6 @@ Q_SIGNALS:
     void quitOnLastWindowClosedChanged();
     void unreadCountChanged();
     void activeConnectionChanged();
-    void isOnlineChanged();
     void aboutDataChanged();
     void passwordStatus(Controller::PasswordStatus status);
 

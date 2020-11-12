@@ -53,8 +53,6 @@ Controller::Controller(QObject *parent)
     Connection::setRoomType<NeoChatRoom>();
     Connection::setUserType<NeoChatUser>();
 
-    connect(&m_ncm, &QNetworkConfigurationManager::onlineStateChanged, this, &Controller::isOnlineChanged);
-
     QTimer::singleShot(0, this, [=] {
         invokeLogin();
     });
@@ -207,14 +205,6 @@ void Controller::addConnection(Connection *c)
     });
     connect(c, &Connection::loggedOut, this, [=] {
         dropConnection(c);
-    });
-    connect(&m_ncm, &QNetworkConfigurationManager::onlineStateChanged, [=](bool status) {
-        if (!status) {
-            return;
-        }
-
-        c->stopSync();
-        c->sync(30000);
     });
 
     setBusy(true);
@@ -496,11 +486,6 @@ void Controller::setQuitOnLastWindowClosed(bool value)
         QApplication::setQuitOnLastWindowClosed(value);
         Q_EMIT quitOnLastWindowClosedChanged();
     }
-}
-
-bool Controller::isOnline() const
-{
-    return m_ncm.isOnline();
 }
 
 bool Controller::busy() const
