@@ -46,7 +46,7 @@ Kirigami.ScrollablePage {
                     text: i18n("Logout")
                     iconName: "im-kick-user"
                     onTriggered: {
-                        Controller.logout(model.connection)
+                        Controller.logout(model.connection, true)
                         if(Controller.accountCount === 1)
                             pageStack.layers.pop()
                     }

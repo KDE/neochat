@@ -13,6 +13,8 @@
 #include <KConfigGroup>
 #endif
 
+#include <KLocalizedString>
+
 #include <QClipboard>
 #include <QDebug>
 #include <QDir>
@@ -150,7 +152,7 @@ void Controller::loginWithAccessToken(QString serverAddr, QString user, QString 
     conn->connectWithToken(user, token, deviceName);
 }
 
-void Controller::logout(Connection *conn)
+void Controller::logout(Connection *conn, bool serverSideLogout)
 {
     if (!conn) {
         qCritical() << "Attempt to logout null connection";
@@ -173,20 +175,18 @@ void Controller::logout(Connection *conn)
     KConfigGroup tokensGroup(&config, "Tokens");
     tokensGroup.deleteEntry(conn->userId());
 #endif
-
+    conn->stopSync();
+    Q_EMIT conn->stateChanged();
+    Q_EMIT conn->loggedOut();
+    if (!m_connections.isEmpty())
+        setConnection(m_connections[0]);
+    else
+        setConnection(nullptr);
+    if (!serverSideLogout) {
+        return;
+    }
     auto logoutJob = conn->callApi<LogoutJob>();
-    connect(logoutJob, &LogoutJob::finished, conn, [=] {
-        conn->stopSync();
-        Q_EMIT conn->stateChanged();
-        Q_EMIT conn->loggedOut();
-        if (!m_connections.isEmpty())
-            setConnection(m_connections[0]);
-        else
-            setConnection(nullptr);
-    });
-    connect(logoutJob, &LogoutJob::failure, this, [=] {
-        Q_EMIT errorOccured("Server-side Logout Failed", logoutJob->errorString());
-    });
+    connect(logoutJob, &LogoutJob::failure, this, [=] { Q_EMIT errorOccured("Server-side Logout Failed", logoutJob->errorString()); });
 }
 
 void Controller::addConnection(Connection *c)
@@ -247,8 +247,13 @@ void Controller::invokeLogin()
                 addConnection(c);
             });
             connect(c, &Connection::loginError, this, [=](QString error, QString) {
-                Q_EMIT errorOccured("Login Failed", error);
-                logout(c);
+                if (error == "Unrecognised access token") {
+                    Q_EMIT errorOccured(i18n("Login Failed"), i18n("Access Token invalid or revoked"));
+                    logout(c, false);
+                } else {
+                    Q_EMIT errorOccured(i18n("Login Failed"), error);
+                    logout(c, true);
+                }
             });
             connect(c, &Connection::networkError, this, [=](QString error, QString, int, int) {
                 Q_EMIT errorOccured("Network Error", error);

@@ -107,7 +107,7 @@ Q_SIGNALS:
     void passwordStatus(Controller::PasswordStatus status);
 
 public Q_SLOTS:
-    void logout(Quotient::Connection *conn);
+    void logout(Quotient::Connection *conn, bool serverSideLogout);
     void joinRoom(Quotient::Connection *c, const QString &alias);
     void createRoom(Quotient::Connection *c, const QString &name, const QString &topic);
     void createDirectChat(Quotient::Connection *c, const QString &userID);
