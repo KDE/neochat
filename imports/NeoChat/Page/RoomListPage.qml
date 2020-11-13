@@ -21,9 +21,6 @@ Kirigami.ScrollablePage {
 
     property var roomListModel
     property var enteredRoom
-    property var searchText: ""
-
-    onSearchTextChanged: sortFilterRoomListModel.setFilterText(searchText)
 
     signal enterRoom(var room)
     signal leaveRoom(var room)
@@ -35,7 +32,7 @@ Kirigami.ScrollablePage {
         Layout.bottomMargin: Kirigami.Units.smallSpacing
         Layout.fillHeight: true
         Layout.fillWidth: true
-        onTextChanged: page.searchText = text
+        onTextChanged: sortFilterRoomListModel.filterText = text
     }
 
     ListView {

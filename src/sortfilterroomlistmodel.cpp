@@ -11,9 +11,11 @@
 SortFilterRoomListModel::SortFilterRoomListModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
-    setFilterRole(RoomListModel::NameRole);
-    setFilterCaseSensitivity(Qt::CaseInsensitive);
     sort(0);
+    invalidateFilter();
+    connect(this, &SortFilterRoomListModel::filterTextChanged, this, [this]() {
+        invalidateFilter();
+    });
 }
 
 void SortFilterRoomListModel::setRoomSortOrder(SortFilterRoomListModel::RoomSortOrder sortOrder)
@@ -42,5 +44,18 @@ bool SortFilterRoomListModel::lessThan(const QModelIndex &source_left, const QMo
 
 void SortFilterRoomListModel::setFilterText(const QString &text)
 {
-    setFilterFixedString(text);
+    m_filterText = text;
+    Q_EMIT filterTextChanged();
+}
+
+QString SortFilterRoomListModel::filterText() const
+{
+    return m_filterText;
+}
+
+
+bool SortFilterRoomListModel::filterAcceptsRow(int source_row, const QModelIndex& source_parent) const
+{
+    Q_UNUSED(source_parent);
+    return sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::NameRole).toString().contains(m_filterText, Qt::CaseInsensitive) && sourceModel()->data(sourceModel()->index(source_row, 0)).toString() != "upgraded";
 }

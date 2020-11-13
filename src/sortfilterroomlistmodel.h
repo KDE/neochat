@@ -13,6 +13,7 @@ class SortFilterRoomListModel : public QSortFilterProxyModel
     Q_OBJECT
 
     Q_PROPERTY(RoomSortOrder roomSortOrder READ roomSortOrder WRITE setRoomSortOrder NOTIFY roomSortOrderChanged)
+    Q_PROPERTY(QString filterText READ filterText READ filterText WRITE setFilterText NOTIFY filterTextChanged)
 
 public:
     enum RoomSortOrder {
@@ -27,13 +28,19 @@ public:
     void setRoomSortOrder(RoomSortOrder sortOrder);
     RoomSortOrder roomSortOrder() const;
 
-    Q_INVOKABLE void setFilterText(const QString &text);
+    void setFilterText(const QString &text);
+    QString filterText() const;
 
     bool lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const override;
 
+protected:
+    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
+
 Q_SIGNALS:
     void roomSortOrderChanged();
+    void filterTextChanged();
 
 private:
     RoomSortOrder m_sortOrder;
+    QString m_filterText;
 };
