@@ -57,5 +57,5 @@ QString SortFilterRoomListModel::filterText() const
 bool SortFilterRoomListModel::filterAcceptsRow(int source_row, const QModelIndex& source_parent) const
 {
     Q_UNUSED(source_parent);
-    return sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::NameRole).toString().contains(m_filterText, Qt::CaseInsensitive) && sourceModel()->data(sourceModel()->index(source_row, 0)).toString() != "upgraded";
+    return sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::NameRole).toString().contains(m_filterText, Qt::CaseInsensitive) && sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::JoinStateRole).toString() != "upgraded";
 }
