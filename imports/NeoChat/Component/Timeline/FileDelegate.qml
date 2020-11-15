@@ -20,9 +20,6 @@ import NeoChat.Menu.Timeline 1.0
 import NeoChat.Effect 1.0
 
 RowLayout {
-    readonly property bool avatarVisible: !sentByMe && showAuthor
-    readonly property bool sentByMe: author.isLocalUser
-
     property bool openOnFinished: false
     readonly property bool downloaded: progressInfo && progressInfo.completed
 
@@ -34,134 +31,36 @@ RowLayout {
 
     z: -5
 
-    Kirigami.Avatar {
-        Layout.preferredWidth: 36
-        Layout.preferredHeight: 36
-        Layout.alignment: Qt.AlignBottom
-
-        visible: avatarVisible
-        name: author.displayName
-        source: author.avatarMediaId ? "image://mxc/" + author.avatarMediaId : ""
-        color: author.color
-
-        Component {
-            id: userDetailDialog
-
-            UserDetailDialog {}
-        }
-
-        RippleEffect {
-            anchors.fill: parent
-
-            circular: true
-
-            onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": author.object, "displayName": author.displayName, "avatarMediaId": author.avatarMediaId, "avatarUrl": author.avatarUrl}).open()
-        }
-    }
-
-    Item {
-        Layout.preferredWidth: 36
-        Layout.preferredHeight: 36
-
-        visible: !(sentByMe || avatarVisible)
-    }
-
     Control {
-        Layout.maximumWidth: messageListView.width - (!sentByMe ? 36 + root.spacing : 0) - 48
-
-        padding: 12
-
         contentItem: RowLayout {
             ToolButton {
                 icon.name: progressInfo.completed ? "document-open" : "document-save"
-
                 onClicked: progressInfo.completed ? openSavedFile() : saveFileAs()
             }
 
             ColumnLayout {
-                Label {
+                Kirigami.Heading {
                     Layout.fillWidth: true
-
+                    level: 4
                     text: display
-                    color: MPalette.foreground
                     wrapMode: Label.Wrap
-                    font.pixelSize: 18
-                    font.weight: Font.Medium
-                    font.capitalization: Font.AllUppercase
                 }
 
                 Label {
                     Layout.fillWidth: true
-
                     text: !progressInfo.completed && progressInfo.active ? (humanSize(progressInfo.progress) + "/" + humanSize(progressInfo.total)) : humanSize(content.info ? content.info.size : 0)
-                    color: MPalette.lighter
+                    color: Kirigami.Theme.disabledTextColor
                     wrapMode: Label.Wrap
                 }
             }
         }
 
-        background: Rectangle {
-            color: MPalette.background
-            radius: 18
-
-            Rectangle {
-                anchors.top: parent.top
-                anchors.left: parent.left
-
-                width: parent.width / 2
-                height: parent.height / 2
-
-                visible: !sentByMe && (bubbleShape == 3 || bubbleShape == 2)
-
-                color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
-                radius: 2
-            }
-
-            Rectangle {
-                anchors.top: parent.top
-                anchors.right: parent.right
-
-                width: parent.width / 2
-                height: parent.height / 2
-
-                visible: sentByMe && (bubbleShape == 3 || bubbleShape == 2)
-
-                color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
-                radius: 2
-            }
-
-            Rectangle {
-                anchors.bottom: parent.bottom
-                anchors.left: parent.left
-
-                width: parent.width / 2
-                height: parent.height / 2
-
-                visible: !sentByMe && (bubbleShape == 1 || bubbleShape == 2)
-
-                color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
-                radius: 2
-            }
-
-            Rectangle {
-                anchors.bottom: parent.bottom
-                anchors.right: parent.right
-
-                width: parent.width / 2
-                height: parent.height / 2
-
-                visible: sentByMe && (bubbleShape == 1 || bubbleShape == 2)
-
-                color: sentByMe ? MPalette.background : eventType === "notice" ? MPalette.primary : MPalette.accent
-                radius: 2
-            }
-
-            AutoMouseArea {
-                anchors.fill: parent
-
+        background: Item {
+            MouseArea {
                 id: messageMouseArea
-
-                onSecondaryClicked: {
+                anchors.fill: parent
+                acceptedButtons: Qt.RightButton
+                onClicked: {
                     var contextMenu = fileDelegateContextMenu.createObject(root)
                     contextMenu.viewSource.connect(function() {
                         messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
