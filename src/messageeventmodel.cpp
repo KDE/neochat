@@ -49,9 +49,9 @@ MessageEventModel::MessageEventModel(QObject *parent)
     , m_currentRoom(nullptr)
 {
     using namespace Quotient;
-    qmlRegisterAnonymousType<FileTransferInfo>("NeoChat", 1);
+    qmlRegisterAnonymousType<FileTransferInfo>("org.kde.neochat", 1);
     qRegisterMetaType<FileTransferInfo>();
-    qmlRegisterUncreatableType<EventStatus>("NeoChat", 0, 1, "EventStatus", "EventStatus is not an creatable type");
+    qmlRegisterUncreatableType<EventStatus>("org.kde.neochat", 1, 0, "EventStatus", "EventStatus is not an creatable type");
 }
 
 MessageEventModel::~MessageEventModel()
