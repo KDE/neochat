@@ -46,6 +46,7 @@ if(ANDROID)
         "media-playback-start"
         "go-up"
         "go-down"
+        "list-add"
     )
 else()
     target_link_libraries(neochat PRIVATE Qt5::Widgets ${QTKEYCHAIN_LIBRARIES})

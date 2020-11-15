@@ -69,6 +69,7 @@ Kirigami.ApplicationWindow {
         RoomListPage {
             id: roomList
             roomListModel: spectralRoomListModel
+            activeConnection: Controller.activeConnection
         }
     }
 
@@ -79,7 +80,7 @@ Kirigami.ApplicationWindow {
             if (Controller.accountCount === 0) {
                 pageStack.replace("qrc:/imports/NeoChat/Page/LoginPage.qml", {});
             } else {
-                pageStack.replace(roomListComponent);
+                pageStack.replace(roomListComponent, {'activeConnection': Controller.activeConnection});
             }
         }
 

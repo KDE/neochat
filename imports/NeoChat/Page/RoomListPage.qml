@@ -21,6 +21,7 @@ Kirigami.ScrollablePage {
 
     property var roomListModel
     property var enteredRoom
+    required property var activeConnection
 
     signal enterRoom(var room)
     signal leaveRoom(var room)
@@ -36,6 +37,18 @@ Kirigami.ScrollablePage {
     }
 
     ListView {
+        id: listView
+        Kirigami.PlaceholderMessage {
+            anchors.centerIn: parent
+            width: parent.width - (Kirigami.Units.largeSpacing * 4)
+            visible: listView.count == 0
+            text: i18n("You didn't join any room yet.")
+            helpfulAction: Kirigami.Action {
+                icon.name: "list-add"
+                text: i18n("Explore rooms")
+                onTriggered: pageStack.layers.push("qrc:/imports/NeoChat/Page/JoinRoomPage.qml", {"connection": activeConnection})
+            }
+        }
         model:  SortFilterRoomListModel {
             id: sortFilterRoomListModel
             sourceModel: roomListModel
