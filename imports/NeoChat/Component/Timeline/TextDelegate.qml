@@ -16,5 +16,7 @@ QQC2.Label {
     wrapMode: Text.WordWrap
     width: parent.width
     textFormat: Text.RichText
+
+    onLinkActivated: Qt.openUrlExternally(link)
 }
 
