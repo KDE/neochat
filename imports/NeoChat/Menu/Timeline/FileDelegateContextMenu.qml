@@ -18,31 +18,31 @@ Menu {
     id: root
 
     MenuItem {
-        text: "View Source"
+        text: i18n("View Source")
 
         onTriggered: viewSource()
     }
 
     MenuItem {
-        text: "Open Externally"
+        text: i18n("Open Externally")
 
         onTriggered: downloadAndOpen()
     }
 
     MenuItem {
-        text: "Save As"
+        text: i18n("Save As")
 
         onTriggered: saveFileAs()
     }
 
     MenuItem {
-        text: "Reply"
+        text: i18n("Reply")
 
         onTriggered: reply()
     }
 
     MenuItem {
-        text: "Redact"
+        text: i18n("Redact")
 
         onTriggered: redact()
     }

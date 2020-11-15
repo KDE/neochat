@@ -365,13 +365,13 @@ Kirigami.ScrollablePage {
     background: Item {}
 
     function openMessageContext(author, message, eventId, toolTip, model) {
-        const contextMenu = messageDelegateContextMenu.createObject(root, {
+        const contextMenu = messageDelegateContextMenu.createObject(page, {
             'author': author,
             'message': message,
             'eventId': eventId,
         });
         contextMenu.viewSource.connect(function() {
-            messageSourceDialog.createObject(root, {
+            messageSourceDialog.createObject(page, {
                 'sourceText': toolTip,
             }).open();
             contextMenu.close();
