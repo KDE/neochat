@@ -200,11 +200,12 @@ Kirigami.ScrollablePage {
                         innerObject: [
                             TextDelegate {
                                 Layout.fillWidth: true
+                                Layout.rightMargin: Kirigami.Units.largeSpacing
                             },
                             ReactionDelegate {
                                 Layout.fillWidth: true
                                 Layout.topMargin: 0
-                                Layout.bottomMargin: 8
+                                Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
                             }
                         ]
                     }

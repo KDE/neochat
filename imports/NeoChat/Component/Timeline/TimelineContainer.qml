@@ -16,8 +16,6 @@ Item {
 
     ColumnLayout {
         id: column
-        x: horizontalPadding
-        width: parent.width - Kirigami.Units.largeSpacing * 2
 
         SectionDelegate {
             Layout.maximumWidth: parent.width

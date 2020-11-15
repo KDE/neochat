@@ -22,8 +22,8 @@ RowLayout {
     }
 
     Kirigami.Avatar {
-        Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
-        Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
+        Layout.preferredWidth: Kirigami.Units.gridUnit
+        Layout.preferredHeight: Kirigami.Units.gridUnit
         Layout.alignment: Qt.AlignTop
 
         source: replyVisible && reply.author.avatarMediaId ? "image://mxc/" + reply.author.avatarMediaId : ""
@@ -32,21 +32,21 @@ RowLayout {
     }
 
     ColumnLayout {
+        id: replyLayout
         Layout.fillWidth: true
 
         QQC2.Label {
             Layout.fillWidth: true
-
             text: replyVisible ? reply.author.displayName : ""
             color: replyVisible ? reply.author.color: null
-            wrapMode: Text.Wrap
+            elide: Text.ElideRight
         }
 
         QQC2.Label {
             Layout.fillWidth: true
             text: replyVisible ? reply.display : ""
-            wrapMode: Text.WrapAtWordBoundaryOrAnywhere
             textFormat: Text.RichText
+            elide: Text.ElideRight
         }
     }
 }

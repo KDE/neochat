@@ -39,10 +39,10 @@ RowLayout {
     Layout.topMargin: showAuthor ? Kirigami.Units.smallSpacing : 0
 
     Kirigami.Avatar {
-        Layout.minimumWidth: Kirigami.Units.iconSizes.medium
-        Layout.minimumHeight: Kirigami.Units.iconSizes.medium
-        Layout.maximumWidth: Kirigami.Units.iconSizes.medium
-        Layout.maximumHeight: Kirigami.Units.iconSizes.medium
+        Layout.minimumWidth: Kirigami.Units.gridUnit * 2
+        Layout.minimumHeight: Kirigami.Units.gridUnit * 2
+        Layout.maximumWidth: Kirigami.Units.gridUnit * 2
+        Layout.maximumHeight: Kirigami.Units.gridUnit * 2
 
         Layout.alignment: Qt.AlignTop
 
@@ -64,7 +64,7 @@ RowLayout {
     }
 
     Item {
-        Layout.minimumWidth: Kirigami.Units.iconSizes.medium
+        Layout.minimumWidth: Kirigami.Units.gridUnit * 2
         Layout.preferredHeight: 1
         visible: !showAuthor
     }
