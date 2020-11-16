@@ -33,6 +33,7 @@ Kirigami.ScrollablePage {
         Layout.fillHeight: true
         Layout.fillWidth: true
         onTextChanged: sortFilterRoomListModel.filterText = text
+        KeyNavigation.tab: listView
     }
 
     ListView {
@@ -79,9 +80,19 @@ Kirigami.ScrollablePage {
         }
 
         delegate: Kirigami.AbstractListItem {
+            id: roomListItem
             visible: model.categoryVisible
             topPadding: Kirigami.Units.largeSpacing
             bottomPadding: Kirigami.Units.largeSpacing
+            focus: true
+            action: Kirigami.Action {
+                id: enterRoomAction
+                onTriggered: {
+                    var roomItem = roomManager.enterRoom(currentRoom)
+                    roomListItem.KeyNavigation.right = roomItem
+                    roomItem.focus = true;
+                }
+            }
 
             contentItem: Item {
                 implicitHeight: roomLayout.implicitHeight
@@ -127,6 +138,7 @@ Kirigami.ScrollablePage {
                         }
                     }
                 }
+
                 MouseArea {
                     acceptedButtons: Qt.LeftButton | Qt.RightButton
                     anchors.fill: parent

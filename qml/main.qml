@@ -39,8 +39,9 @@ Kirigami.ApplicationWindow {
                 currentRoom = null;
                 pageStack.removePage(pageStack.lastItem);
             }
-            pageStack.push(roomPage, { 'currentRoom': room, });
+            var item = pageStack.push(roomPage, { 'currentRoom': room, });
             currentRoom = room;
+            return item;
         }
     }
 
