@@ -16,7 +16,7 @@ import NeoChat.Setting 1.0
 
 import org.kde.neochat 1.0
 
-Control {
+ToolBar {
     id: root
 
     property alias isReply: replyItem.visible
@@ -33,22 +33,7 @@ Control {
     property bool hasAttachment: false
     property url attachmentPath
 
-    padding: 0
-
-    background: Rectangle {
-        color: Kirigami.Theme.backgroundColor
-        Kirigami.Separator {
-            Rectangle {
-                anchors.fill: parent
-                color: Kirigami.Theme.focusColor
-            }
-            anchors {
-                left: parent.left
-                right: parent.right
-                top: parent.top
-            }
-        }
-    }
+    position: ToolBar.Footer
 
     contentItem: ColumnLayout {
         spacing: 0
@@ -191,47 +176,9 @@ Control {
         RowLayout {
             Layout.fillWidth: true
 
-            spacing: 0
+            spacing: Kirigami.Units.smallSpacing
 
-            ToolButton {
-                id: uploadButton
-
-                Layout.preferredWidth: 48
-                Layout.preferredHeight: 48
-                Layout.alignment: Qt.AlignBottom
-
-                visible: !isReply && !hasAttachment
-
-                icon.name: "mail-attachment"
-
-                onClicked: {
-                    if (Clipboard.hasImage) {
-                        attachDialog.open()
-                    } else {
-                        var fileDialog = openFileDialog.createObject(ApplicationWindow.overlay)
-
-                        fileDialog.chosen.connect(function(path) {
-                            if (!path) return
-
-                            root.attach(path)
-                        })
-
-                        fileDialog.open()
-                    }
-                }
-
-                BusyIndicator {
-                    anchors.fill: parent
-
-                    running: currentRoom && currentRoom.hasFileUploading
-                }
-            }
-
-            ToolButton {
-                Layout.preferredWidth: 48
-                Layout.preferredHeight: 48
-                Layout.alignment: Qt.AlignBottom
-
+            Button {
                 id: cancelReplyButton
 
                 visible: isReply
@@ -279,12 +226,11 @@ Control {
                 property real progress: 0
 
                 Layout.fillWidth: true
-                Layout.minimumHeight: 48
 
                 id: inputField
 
                 wrapMode: Text.Wrap
-                placeholderText: "Send a Message"
+                placeholderText: "Write your message..."
                 topPadding: 0
                 bottomPadding: 0
                 selectByMouse: true
@@ -418,22 +364,46 @@ Control {
                 }
             }
 
-            ToolButton {
-                Layout.preferredWidth: 48
-                Layout.preferredHeight: 48
-                Layout.alignment: Qt.AlignBottom
 
+            Button {
                 id: emojiButton
                 icon.name: "preferences-desktop-emoticons"
                 icon.color: "transparent"
 
                 onClicked: emojiPicker.visible = !emojiPicker.visible
             }
-            ToolButton {
-                Layout.preferredWidth: 48
-                Layout.preferredHeight: 48
-                Layout.alignment: Qt.AlignBottom
 
+            Button {
+                id: uploadButton
+
+                visible: !isReply && !hasAttachment
+
+                icon.name: "mail-attachment"
+
+                onClicked: {
+                    if (Clipboard.hasImage) {
+                        attachDialog.open()
+                    } else {
+                        var fileDialog = openFileDialog.createObject(ApplicationWindow.overlay)
+
+                        fileDialog.chosen.connect(function(path) {
+                            if (!path) return
+
+                            root.attach(path)
+                        })
+
+                        fileDialog.open()
+                    }
+                }
+
+                BusyIndicator {
+                    anchors.fill: parent
+
+                    running: currentRoom && currentRoom.hasFileUploading
+                }
+            }
+
+            Button {
                 icon.name: "document-send"
                 icon.color: "transparent"
 
