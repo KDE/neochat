@@ -16,6 +16,7 @@ Item {
 
     ColumnLayout {
         id: column
+        width: parent.width
 
         SectionDelegate {
             Layout.maximumWidth: parent.width
