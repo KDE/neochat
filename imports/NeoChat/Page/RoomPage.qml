@@ -364,6 +364,12 @@ Kirigami.ScrollablePage {
 
     background: Item {}
 
+    function goToEvent(eventID) {
+        var index = messageEventModel.eventIDToIndex(eventID)
+        if (index === -1) return
+        messageListView.positionViewAtIndex(sortedMessageEventModel.mapFromSource(messageEventModel.index(index, 0)).row, ListView.Contain)
+    }
+
     function openMessageContext(author, message, eventId, toolTip, model) {
         const contextMenu = messageDelegateContextMenu.createObject(page, {
             'author': author,
