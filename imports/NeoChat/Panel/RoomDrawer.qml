@@ -130,7 +130,10 @@ Kirigami.OverlayDrawer {
                     ToolButton {
                         icon.name: "list-add-user"
                         text: i18n("Invite")
-                        onClicked: inviteUserDialog.createObject(ApplicationWindow.overlay, {"room": room}).open()
+                        onClicked: {
+                            applicationWindow().pageStack.push("qrc:/imports/NeoChat/Page/InviteUserPage.qml", {"room": room})
+                            roomDrawer.close();
+                        }
                     }
                 }
             }
@@ -221,11 +224,5 @@ Kirigami.OverlayDrawer {
         id: userDetailDialog
 
         UserDetailDialog {}
-    }
-
-    Component {
-        id: inviteUserDialog
-
-        InviteUserDialog {}
     }
 }
