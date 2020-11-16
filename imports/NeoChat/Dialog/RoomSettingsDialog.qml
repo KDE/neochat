@@ -14,7 +14,9 @@ import NeoChat.Setting 1.0
 
 import org.kde.neochat 1.0
 
-Dialog {
+Kirigami.OverlaySheet {
+    id: root
+
     property var room
 
     readonly property bool canChangeAvatar: room.canSendState("m.room.avatar")
@@ -22,15 +24,12 @@ Dialog {
     readonly property bool canChangeTopic: room.canSendState("m.room.topic")
     readonly property bool canChangeCanonicalAlias: room.canSendState("m.room.canonical_alias")
 
-    anchors.centerIn: parent
+    parent: applicationWindow().overlay
 
-    width: 480
-    height: window.height * 0.9
 
-    id: root
-
-    title: "Room Settings - " + room.displayName
-    modal: true
+    header: Kirigami.Heading {
+        text: i18nc("%1 is the room name", "Room Settings - %1", room.displayName)
+    }
 
     contentItem: ColumnLayout {
         RowLayout {
@@ -46,10 +45,8 @@ Dialog {
                 name: room.displayName
                 source: room.avatarMediaId ? "image://mxc/" + room.avatarMediaId : ""
 
-                RippleEffect {
+                MouseArea {
                     anchors.fill: parent
-
-                    circular: true
 
                     enabled: canChangeAvatar
 
@@ -67,200 +64,66 @@ Dialog {
                 }
             }
 
-            ColumnLayout {
+            Kirigami.FormLayout {
                 Layout.fillWidth: true
-                Layout.margins: 4
 
-                AutoTextField {
-                    Layout.fillWidth: true
-
+                TextField {
                     id: roomNameField
-
                     text: room.name
-                    placeholderText: "Room Name"
-
+                    Kirigami.FormData.label: i18n("Room Name:")
                     enabled: canChangeName
                 }
 
-                AutoTextField {
-                    Layout.fillWidth: true
-
+                TextField {
                     id: roomTopicField
-
+                    Layout.fillWidth: true
                     text: room.topic
-                    placeholderText: "Room Topic"
-
+                    Kirigami.FormData.label: i18n("Room topic:")
                     enabled: canChangeTopic
                 }
-            }
-        }
+                Button {
+                    Layout.alignment: Qt.AlignRight
 
-        Button {
-            Layout.alignment: Qt.AlignRight
+                    visible: canChangeName || canChangeTopic
 
-            visible: canChangeName || canChangeTopic
+                    text: i18n("Save")
+                    highlighted: true
 
-            text: "Save"
-            highlighted: true
-
-            onClicked: {
-                if (room.name != roomNameField.text) {
-                    room.setName(roomNameField.text)
-                }
-
-                if (room.topic != roomTopicField.text) {
-                    room.setTopic(roomTopicField.text)
-                }
-            }
-        }
-
-        MenuSeparator {
-            Layout.fillWidth: true
-        }
-
-        ScrollView {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-
-            id: scrollview
-
-            clip: true
-
-            ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-
-            ColumnLayout {
-                width: scrollview.width
-
-                Control {
-                    Layout.fillWidth: true
-
-                    visible: room.predecessorId && room.connection.room(room.predecessorId)
-
-                    padding: 8
-
-                    contentItem: RowLayout {
-                        ColumnLayout {
-                            Layout.fillWidth: true
-
-                            spacing: 0
-
-                            Label {
-                                Layout.fillWidth: true
-
-                                font.bold: true
-                                color: MPalette.foreground
-                                text: "This room continues another conversation."
-                            }
-
-                            Label {
-                                Layout.fillWidth: true
-
-                                color: MPalette.lighter
-                                text: "Click here to see older messages."
-                            }
+                    onClicked: {
+                        if (room.name != roomNameField.text) {
+                            room.setName(roomNameField.text)
                         }
-                    }
 
-                    background: Rectangle {
-                        color: MPalette.banner
-
-                        RippleEffect {
-                            anchors.fill: parent
-
-                            onClicked: {
-                                roomListForm.enteredRoom = Controller.activeConnection.room(room.predecessorId)
-                                root.close()
-                            }
+                        if (room.topic != roomTopicField.text) {
+                            room.setTopic(roomTopicField.text)
                         }
                     }
                 }
 
-                Control {
-                    Layout.fillWidth: true
+                Kirigami.Separator {}
 
-                    visible: room.successorId && room.connection.room(room.successorId)
+                ComboBox {
+                    id: canonicalAliasComboBox
+                    Kirigami.FormData.label: i18n("Canonical Alias:")
+                    popup.z: 999; // HACK This is an absolute hack, but combos inside OverlaySheets have their popups show up underneath, because of fun z ordering stuff
 
-                    padding: 8
+                    enabled: canChangeCanonicalAlias
 
-                    contentItem: RowLayout {
-                        ColumnLayout {
-                            Layout.fillWidth: true
+                    model: room.aliases
 
-                            spacing: 0
-
-                            Label {
-                                Layout.fillWidth: true
-
-                                font.bold: true
-                                color: MPalette.foreground
-                                text: "This room has been replaced."
-                            }
-
-                            Label {
-                                Layout.fillWidth: true
-
-                                color: MPalette.lighter
-                                text: "The conversation continues here."
-                            }
-                        }
-                    }
-
-                    background: Rectangle {
-                        color: MPalette.banner
-
-                        RippleEffect {
-                            anchors.fill: parent
-
-                            onClicked: {
-                                roomListForm.enteredRoom = Controller.activeConnection.room(room.successorId)
-                                root.close()
-                            }
+                    currentIndex: room.aliases.indexOf(room.canonicalAlias)
+                    onCurrentIndexChanged: {
+                        if (room.canonicalAlias != room.aliases[currentIndex]) {
+                            room.setCanonicalAlias(room.aliases[currentIndex])
                         }
                     }
                 }
 
                 RowLayout {
-                    Layout.fillWidth: true
-
-                    Label {
-                        Layout.preferredWidth: 100
-
-                        wrapMode: Label.Wrap
-                        text: "Canonical Alias"
-                        color: MPalette.lighter
-                    }
-
-                    ComboBox {
-                        Layout.fillWidth: true
-
-                        id: canonicalAliasComboBox
-
-                        enabled: canChangeCanonicalAlias
-
-                        model: room.aliases
-
-                        currentIndex: room.aliases.indexOf(room.canonicalAlias)
-                        onCurrentIndexChanged: {
-                            if (room.canonicalAlias != room.aliases[currentIndex]) {
-                                room.setCanonicalAlias(room.aliases[currentIndex])
-                            }
-                        }
-                    }
-                }
-
-                RowLayout {
+                    Kirigami.FormData.label: i18n("Alt Aliases")
                     Layout.fillWidth: true
 
                     visible: room.altAliases && room.altAliases.length
-
-                    Label {
-                        Layout.preferredWidth: 100
-                        Layout.alignment: Qt.AlignTop
-
-                        wrapMode: Label.Wrap
-                        text: "Alt Aliases"
-                        color: MPalette.lighter
-                    }
 
                     ColumnLayout {
                         Layout.fillWidth: true
@@ -290,14 +153,56 @@ Dialog {
                 }
             }
         }
+
+        Kirigami.Separator {
+            Layout.fillWidth: true
+            visible: next.visible || prev.visible 
+        }
+
+        Control {
+            id: next
+            Layout.fillWidth: true
+
+            visible: room.predecessorId && room.connection.room(room.predecessorId)
+
+            padding: Kirigami.Units.largeSpacing
+
+            contentItem: Kirigami.InlineMessage {
+                text: i18n("This room continues another conversation.")
+                actions: Kirigami.Action {
+                    text: i18n("See older messages...")
+                    onTriggered: {
+                        roomListForm.enteredRoom = Controller.activeConnection.room(room.predecessorId)
+                        root.close()
+                    }
+                }
+            }
+        }
+
+        Control {
+            id: prev
+            Layout.fillWidth: true
+
+            visible: room.successorId && room.connection.room(room.successorId)
+
+            padding: Kirigami.Units.largeSpacing
+
+            contentItem: Kirigami.InlineMessage {
+                text: i18n("This room has been replaced.")
+                actions: Kirigami.Action {
+                    text: i18n("See new room...")
+                    onTriggered: {
+                        roomListForm.enteredRoom = Controller.activeConnection.room(room.successorId)
+                        root.close()
+                    }
+                }
+            }
+        }
+        Component {
+            id: openFileDialog
+
+            OpenFileDialog {}
+        }
     }
-
-    Component {
-        id: openFileDialog
-
-        OpenFileDialog {}
-    }
-
-    onClosed: destroy()
 }
 
