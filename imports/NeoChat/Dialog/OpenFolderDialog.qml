@@ -11,7 +11,7 @@ FolderDialog {
 
     id: root
 
-    title: "Please choose a folder"
+    title: i18n("Please choose a folder")
 
     onAccepted: chosen(folder)
 }

@@ -11,7 +11,7 @@ FileDialog {
 
     id: root
 
-    title: "Please choose a file"
+    title: i18n("Please choose a file")
 
     onAccepted: chosen(file)
 }
