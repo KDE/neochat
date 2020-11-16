@@ -17,7 +17,7 @@ Dialog {
 
     id: root
 
-    title: "Create a Room"
+    title: i18n("Create a Room")
 
     contentItem: ColumnLayout {
         AutoTextField {
@@ -25,7 +25,7 @@ Dialog {
 
             id: roomNameField
 
-            placeholderText: "Room Name"
+            placeholderText: i18n("Room Name")
         }
 
         AutoTextField {
@@ -33,7 +33,7 @@ Dialog {
 
             id: roomTopicField
 
-            placeholderText: "Room Topic"
+            placeholderText: i18n("Room Topic")
         }
     }
 

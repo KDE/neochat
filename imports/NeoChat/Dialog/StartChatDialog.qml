@@ -22,7 +22,7 @@ Dialog {
 
     id: root
 
-    title: "Start a Chat"
+    title: i18n("Start a Chat")
 
     contentItem: ColumnLayout {
         spacing: 0
@@ -37,7 +37,7 @@ Dialog {
 
                 id: identifierField
 
-                placeholderText: "Find a user..."
+                placeholderText: i18n("Find a user...")
 
                 onAccepted: {
                     userDictListModel.search()
@@ -47,7 +47,7 @@ Dialog {
             Button {
                 visible: identifierField.isUserID
 
-                text: "Chat"
+                text: i18n("Chat")
                 highlighted: true
 
                 onClicked: {
@@ -176,7 +176,7 @@ Dialog {
 
                 visible: userDictListView.count < 1
 
-                text: "No users available"
+                text: i18n("No users available")
                 color: MPalette.foreground
             }
         }

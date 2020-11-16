@@ -14,16 +14,16 @@ Dialog {
 
     id: root
 
-    title: "Invitation Received"
+    title: i18n("Invitation Received")
     modal: true
 
     contentItem: Label {
-        text: "Accept this invitation?"
+        text: i18n("Accept this invitation?")
     }
 
     footer: DialogButtonBox {
         Button {
-            text: "Accept"
+            text: i18n("Accept")
             flat: true
 
             onClicked: {
@@ -33,7 +33,7 @@ Dialog {
         }
 
         Button {
-            text: "Reject"
+            text: i18n("Reject")
             flat: true
 
             onClicked: {
@@ -43,7 +43,7 @@ Dialog {
         }
 
         Button {
-            text: "Cancel"
+            text: i18n("Cancel")
             flat: true
 
             onClicked: close()
