@@ -15,7 +15,6 @@ import NeoChat.Component 1.0
 import NeoChat.Panel 1.0
 import NeoChat.Dialog 1.0
 import NeoChat.Page 1.0
-import NeoChat.Page 1.0
 
 Kirigami.ApplicationWindow {
     id: root
@@ -24,7 +23,7 @@ Kirigami.ApplicationWindow {
     /**
      * Manage opening and close rooms
      */
-    Item {
+    QtObject {
         id: roomManager
 
         property var currentRoom: null
@@ -43,18 +42,12 @@ Kirigami.ApplicationWindow {
             pageStack.push(roomPage, { 'currentRoom': room, });
             currentRoom = room;
         }
-
-        Component {
-            id: roomPage
-
-            RoomPage {}
-        }
     }
 
     contextDrawer: RoomDrawer {
         id: contextDrawer
-        enabled: root.currentRoomm !== null
-        room: root.currentRoom
+        enabled: roomManager.hasOpenRoom
+        room: roomManager.currentRoom
         handleVisible: enabled && (pageStack.currentItem instanceof RoomPage)
     }
 
@@ -129,5 +122,11 @@ Kirigami.ApplicationWindow {
         id: spectralRoomListModel
 
         connection: Controller.activeConnection
+    }
+
+    Component {
+        id: roomPage
+
+        RoomPage {}
     }
 }
