@@ -52,6 +52,16 @@ Control {
 
     contentItem: ColumnLayout {
         spacing: 0
+        EmojiPicker {
+            id: emojiPicker
+
+            Layout.fillWidth: true
+
+            visible: false
+
+            textArea: inputField
+            emojiModel: EmojiModel { id: emojiModel }
+        }
 
         RowLayout {
             Layout.fillWidth: true
@@ -70,8 +80,8 @@ Control {
 
                 contentItem: RowLayout {
                     Kirigami.Avatar {
-                        Layout.preferredWidth: 24
-                        Layout.preferredHeight: 24
+                        Layout.preferredWidth: Kirigami.Units.gridUnit
+                        Layout.preferredHeight: Kirigami.Units.gridUnit
 
                         source: replyUser ? "image://mxc/" + replyUser.avatarMediaId: ""
                         name: replyUser ? replyUser.displayName : "No name"
@@ -132,22 +142,21 @@ Control {
                 }
 
                 contentItem: RowLayout {
-                    spacing: 6
+                    spacing: Kirigami.Units.largeSpacing
 
-                    Text {
-                        width: 24
-                        height: 24
+                    Label {
+                        width: Kirigami.Units.gridUnit
+                        height: Kirigami.Units.gridUnit
                         visible: isEmoji
                         text: autoCompleteText
-                        font.pixelSize: 24
                         font.family: "Emoji"
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
                     }
 
                     Kirigami.Avatar {
-                        Layout.preferredWidth: 24
-                        Layout.preferredHeight: 24
+                        Layout.preferredWidth: Kirigami.Units.gridUnit
+                        Layout.preferredHeight: Kirigami.Units.gridUnit
                         
                         source: modelData.avatarMediaId ? "image://mxc/" + modelData.avatarMediaId : ""
                         color: modelData.color ? Qt.darker(modelData.color, 1.1) : null
@@ -159,7 +168,7 @@ Control {
                         text: autoCompleteText
                         color: highlighted ? Kirigami.Theme.highlightTextColor : Kirigami.Theme.textColor
                         verticalAlignment: Text.AlignVCenter
-                        rightPadding: 8
+                        rightPadding: Kirigami.Units.largeSpacing
                     }
                 }
 
@@ -173,12 +182,9 @@ Control {
             }
         }
 
-        Rectangle {
+        Kirigami.Separator {
             Layout.fillWidth: true
             Layout.preferredHeight: 1
-            Layout.leftMargin: 12
-            Layout.rightMargin: 12
-
             visible: emojiPicker.visible || replyItem.visible || autoCompleteListView.visible
         }
 
@@ -438,16 +444,6 @@ Control {
                     root.closeAll()
                 }
             }
-        }
-        EmojiPicker {
-            id: emojiPicker
-
-            Layout.fillWidth: true
-
-            visible: false
-
-            textArea: inputField
-            emojiModel: EmojiModel { id: emojiModel }
         }
     }
 

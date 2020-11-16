@@ -6,12 +6,11 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
-import QtQuick.Controls.Material 2.12
+import org.kde.kirigami 2.13 as Kirigami
 
 import NeoChat.Component 1.0
 
 import org.kde.neochat 1.0
-import NeoChat.Setting 1.0
 
 ColumnLayout {
     property string emojiCategory: "history"
@@ -22,9 +21,7 @@ ColumnLayout {
 
     ListView {
         Layout.fillWidth: true
-        Layout.preferredHeight: 48
-        Layout.leftMargin: 24
-        Layout.rightMargin: 24
+        Layout.preferredHeight: Kirigami.Units.gridUnit * 2 + 2 // for the focus line
 
         boundsBehavior: Flickable.DragOverBounds
 
@@ -45,14 +42,14 @@ ColumnLayout {
         }
 
         delegate: ItemDelegate {
-            width: 64
-            height: 48
+            width: Kirigami.Units.gridUnit * 2
+            height: Kirigami.Units.gridUnit * 2
 
-            contentItem: Label {
+            contentItem: Kirigami.Heading {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
+                level: 1
 
-                font.pixelSize: 24
                 font.family: 'emoji'
                 text: label
             }
@@ -65,28 +62,24 @@ ColumnLayout {
 
                 visible: emojiCategory === category
 
-                color: Material.accent
+                color: Kirigami.Theme.focusColor
             }
 
             onClicked: emojiCategory = category
         }
     }
 
-    Rectangle {
+    Kirigami.Separator {
         Layout.fillWidth: true
         Layout.preferredHeight: 1
-        Layout.leftMargin: 12
-        Layout.rightMargin: 12
-
-        color: MSettings.darkTheme ? "#424242" : "#e7ebeb"
     }
 
     GridView {
         Layout.fillWidth: true
-        Layout.preferredHeight: 180
+        Layout.preferredHeight: Kirigami.Units.gridUnit * 8
 
-        cellWidth: 48
-        cellHeight: 48
+        cellWidth: Kirigami.Units.gridUnit * 2
+        cellHeight: Kirigami.Units.gridUnit * 2
 
         boundsBehavior: Flickable.DragOverBounds
 
@@ -117,14 +110,13 @@ ColumnLayout {
         }
 
         delegate: ItemDelegate {
-            width: 48
-            height: 48
+            width: Kirigami.Units.gridUnit * 2
+            height: Kirigami.Units.gridUnit * 2
 
-            contentItem: Label {
+            contentItem: Kirigami.Heading {
+                level: 1
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-
-                font.pixelSize: 32
                 font.family: 'emoji'
                 text: modelData.unicode
             }
