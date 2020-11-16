@@ -69,12 +69,12 @@ ToolBar {
                         Layout.preferredHeight: Kirigami.Units.gridUnit
 
                         source: replyUser ? "image://mxc/" + replyUser.avatarMediaId: ""
-                        name: replyUser ? replyUser.displayName : "No name"
+                        name: replyUser ? replyUser.displayName : i18n("No name")
                     }
 
                     Label {
                         Layout.alignment: Qt.AlignVCenter
-                        text: replyUser ? replyUser.displayName : "No name"
+                        text: replyUser ? replyUser.displayName : i18n("No name")
                         rightPadding: 8
                     }
                 }
@@ -142,7 +142,6 @@ ToolBar {
                     Kirigami.Avatar {
                         Layout.preferredWidth: Kirigami.Units.gridUnit
                         Layout.preferredHeight: Kirigami.Units.gridUnit
-                        
                         source: modelData.avatarMediaId ? "image://mxc/" + modelData.avatarMediaId : ""
                         color: modelData.color ? Qt.darker(modelData.color, 1.1) : null
                     }
@@ -230,7 +229,7 @@ ToolBar {
                 id: inputField
 
                 wrapMode: Text.Wrap
-                placeholderText: "Write your message..."
+                placeholderText: i18n("Write your message...")
                 topPadding: 0
                 bottomPadding: 0
                 selectByMouse: true
