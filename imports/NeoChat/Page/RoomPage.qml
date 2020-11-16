@@ -357,6 +357,26 @@ Kirigami.ScrollablePage {
         }
     }
 
+    DropArea {
+        id: dropAreaFile
+        anchors.fill: parent
+        onDropped: chatTextInput.attach(drop.urls[0])
+    }
+
+    QQC2.Pane {
+        visible: dropAreaFile.containsDrag
+        anchors {
+            fill: parent
+            margins: Kirigami.Units.gridUnit
+        }
+
+        Kirigami.PlaceholderMessage {
+            anchors.centerIn: parent
+            width: parent.width - (Kirigami.Units.largeSpacing * 4)
+            text: i18n("Drag items here to share them")
+        }
+    }
+
     footer: ChatTextInput {
         id: chatTextInput
         Layout.fillWidth: true
