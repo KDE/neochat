@@ -58,7 +58,7 @@ Kirigami.ScrollablePage {
                     if (!identifierField.isJoined) {
                         Controller.joinRoom(connection, identifierField.text);
                     }
-                    RoomManager.enterRoom(connection.room(identifierField.room));
+                    roomManager.enterRoom(connection.room(identifierField.room));
                     applicationWindow().pageStack.layers.pop();
                 }
             }
@@ -112,7 +112,7 @@ Kirigami.ScrollablePage {
                     Controller.joinRoom(connection, roomID)
                     justJoined = true;
                 } else {
-                    RoomManager.enterRoom(connection.room(roomID))
+                    roomManager.enterRoom(connection.room(roomID))
                     applicationWindow().pageStack.layers.pop();
                 }
             }

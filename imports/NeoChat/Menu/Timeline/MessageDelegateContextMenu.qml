@@ -14,9 +14,9 @@ import NeoChat.Dialog 1.0
 Kirigami.OverlaySheet {
     id: root
 
-    required property var author;
-    required property string message;
-    required property string eventId;
+    required property var author
+    required property string message
+    required property string eventId
 
     signal viewSource()
     signal reply(var author, string message)
@@ -29,32 +29,31 @@ Kirigami.OverlaySheet {
 
     ColumnLayout {
         spacing: 0
-        QQC2.Control {
-            leftPadding: Kirigami.Units.largeSpacing
-            rightPadding: Kirigami.Units.largeSpacing
+        RowLayout {
+            id: headerLayout
             Layout.fillWidth: true
-            implicitHeight: headerLayout.implicitHeight
-            contentItem: RowLayout {
-                id: headerLayout
+            Layout.leftMargin: Kirigami.Units.largeSpacing
+            Layout.rightMargin: Kirigami.Units.largeSpacing
+            spacing: Kirigami.Units.largeSpacing
+            Kirigami.Avatar {
+                id: avatar
+                source: author.avatarMediaId ? "image://mxc/" + author.avatarMediaId : ""
+                Layout.preferredWidth: Kirigami.Units.gridUnit * 3
+                Layout.preferredHeight: Kirigami.Units.gridUnit * 3
+                Layout.alignment: Qt.AlignTop
+            }
+            ColumnLayout {
                 Layout.fillWidth: true
-                spacing: Kirigami.Units.largeSpacing
-                Kirigami.Avatar {
-                    source: author.avatarMediaId ? "image://mxc/" + author.avatarMediaId : ""
-                    Layout.preferredWidth: Kirigami.Units.iconSizes.large
-                    Layout.preferredHeight: Kirigami.Units.iconSizes.large
-                    Layout.alignment: Qt.AlignTop
-                }
-                ColumnLayout {
+                Kirigami.Heading {
+                    level: 3
                     Layout.fillWidth: true
-                    Kirigami.Heading {
-                        level: 3
-                        Layout.fillWidth: true
-                        text: author.displayName
-                    }
-                    QQC2.Label {
-                        text: message
-                        Layout.fillWidth: true
-                    }
+                    text: author.displayName
+                    wrapMode: Text.WordWrap
+                }
+                QQC2.Label {
+                    text: message
+                    Layout.fillWidth: true
+                    wrapMode: Text.WordWrap
                 }
             }
         }

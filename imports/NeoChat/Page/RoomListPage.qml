@@ -12,7 +12,6 @@ import org.kde.kirigami 2.13 as Kirigami
 import org.kde.kitemmodels 1.0
 import org.kde.neochat 1.0
 
-import NeoChat 1.0
 import NeoChat.Component 1.0
 import NeoChat.Menu 1.0
 
@@ -135,7 +134,7 @@ Kirigami.ScrollablePage {
                         if (mouse.button == Qt.RightButton) {
                             roomListContextMenu.createObject(parent, {"room": currentRoom}).popup()
                         } else {
-                            RoomManager.enterRoom(currentRoom)
+                            roomManager.enterRoom(currentRoom)
                         }
                     }
                 }

@@ -11,7 +11,6 @@ import QtQuick.Layouts 1.14
 import org.kde.kirigami 2.12 as Kirigami
 
 import org.kde.neochat 1.0
-import NeoChat 1.0
 import NeoChat.Component 1.0
 import NeoChat.Panel 1.0
 import NeoChat.Dialog 1.0
@@ -22,7 +21,35 @@ Kirigami.ApplicationWindow {
     id: root
     property var currentRoom: null
 
-    Component.onCompleted: RoomManager.pageStack = root.pageStack
+    /**
+     * Manage opening and close rooms
+     */
+    Item {
+        id: roomManager
+
+        property var currentRoom: null
+        property alias pageStack: root.pageStack
+
+        readonly property bool hasOpenRoom: currentRoom != null
+
+        signal leaveRoom(string room);
+        signal openRoom(string room);
+
+        function enterRoom(room) {
+            if (currentRoom != null) {
+                currentRoom = null;
+                pageStack.removePage(pageStack.lastItem);
+            }
+            pageStack.push(roomPage, { 'currentRoom': room, });
+            currentRoom = room;
+        }
+
+        Component {
+            id: roomPage
+
+            RoomPage {}
+        }
+    }
 
     contextDrawer: RoomDrawer {
         id: contextDrawer
