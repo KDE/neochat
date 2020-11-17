@@ -22,9 +22,6 @@ import NeoChat.Effect 1.0
 import NeoChat.Font 1.0
 
 RowLayout {
-    readonly property bool avatarVisible: showAuthor && !sentByMe
-    readonly property bool sentByMe: author.isLocalUser
-
     property bool openOnFinished: false
     property bool playOnFinished: false
     readonly property bool downloaded: progressInfo && progressInfo.completed
@@ -52,40 +49,8 @@ RowLayout {
         }
     }
 
-    Kirigami.Avatar {
-        Layout.preferredWidth: 36
-        Layout.preferredHeight: 36
-        Layout.alignment: Qt.AlignBottom
-
-        visible: avatarVisible
-        name: author.displayName
-        source: author.avatarMediaId ? "image://mxc/" + author.avatarMediaId : ""
-        color: author.color
-
-        Component {
-            id: userDetailDialog
-
-            UserDetailDialog {}
-        }
-
-        MouseArea {
-            anchors.fill: parent
-
-            circular: true
-
-            onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": author.object, "displayName": author.displayName, "avatarMediaId": author.avatarMediaId, "avatarUrl": author.avatarUrl}).open()
-        }
-    }
-
-    Item {
-        Layout.preferredWidth: 36
-        Layout.preferredHeight: 36
-
-        visible: !(sentByMe || avatarVisible)
-    }
-
     Video {
-        readonly property int maxWidth: messageListView.width - (!sentByMe ? 36 + root.spacing : 0) - 48
+        readonly property int maxWidth: 1000 // TODO messageListView.width
 
         Layout.preferredWidth: content.info.w > maxWidth ? maxWidth : content.info.w
         Layout.preferredHeight: content.info.w > maxWidth ? (content.info.h / content.info.w * maxWidth) : content.info.h
