@@ -7,6 +7,7 @@
 
 #include "user.h"
 #include "utils.h"
+#include "neochatconfig.h"
 
 #include "events/roomevent.h"
 
@@ -20,6 +21,10 @@
 RoomListModel::RoomListModel(QObject *parent)
     : QAbstractListModel(parent)
 {
+    const auto collaposedSections = NeoChatConfig::collapsedSections();
+    for (auto collapsedSection : collaposedSections) {
+        m_categoryVisibility[collapsedSection] = false;
+    }
 }
 
 RoomListModel::~RoomListModel()
@@ -311,6 +316,15 @@ QString RoomListModel::categoryName(int section) const
 void RoomListModel::setCategoryVisible(int category, bool visible)
 {
     beginResetModel();
+    auto collaposedSections = NeoChatConfig::collapsedSections();
+    if (visible) {
+        collaposedSections.removeAll(category);
+    } else {
+        collaposedSections.push_back(category);
+    }
+    NeoChatConfig::setCollapsedSections(collaposedSections);
+    NeoChatConfig::self()->save();
+
     m_categoryVisibility[category] = visible;
     endResetModel();
 }

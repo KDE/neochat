@@ -60,11 +60,11 @@ int main(int argc, char *argv[])
     app.setWindowIcon(QIcon(":/assets/img/icon.png"));
 
     Clipboard clipboard;
-    NeoChatConfig config;
+    auto config = NeoChatConfig::self();
 
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Controller", &Controller::instance());
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Clipboard", &clipboard);
-    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Config", &config);
+    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Config", config);
     qmlRegisterType<AccountListModel>("org.kde.neochat", 1, 0, "AccountListModel");
     qmlRegisterType<RoomListModel>("org.kde.neochat", 1, 0, "RoomListModel");
     qmlRegisterType<UserListModel>("org.kde.neochat", 1, 0, "UserListModel");
