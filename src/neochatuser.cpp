@@ -17,7 +17,6 @@ void NeoChatUser::setDefaultName(QString defaultName)
     rename(defaultName);
     connect(this, &Quotient::User::defaultNameChanged, this, [this]() {
         m_defaultName = "";
-        qDebug() << "asdf";
         Q_EMIT nameChanged();
     });
 }
