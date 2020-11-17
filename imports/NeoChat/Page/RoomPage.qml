@@ -112,8 +112,6 @@ Kirigami.ScrollablePage {
         spacing: Kirigami.Units.smallSpacing
         clip: true
 
-        displayMarginBeginning: Kirigami.Units.gridUnit
-        displayMarginEnd: typingNotification.visible ? typingNotification.height : Kirigami.Units.gridUnit
         verticalLayoutDirection: ListView.BottomToTop
         highlightMoveDuration: 500
 
@@ -325,24 +323,18 @@ Kirigami.ScrollablePage {
             }
         }
 
-        QQC2.Control {
+        header: RowLayout {
             id: typingNotification
-            anchors.left: parent.left
-            anchors.bottom: parent.bottom
 
             visible: currentRoom && currentRoom.usersTyping.length > 0
-            padding: 4
+            spacing: Kirigami.Units.largeSpacing
 
-            contentItem: RowLayout {
-                spacing: Kirigami.Units.largeSpacing
-
-                QQC2.BusyIndicator {
-                    Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
-                    Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
-                }
-                QQC2.Label {
-                    text: i18ncp("Message displayed when some users are typing", "%2 is typing", "%2 are typing", currentRoom.usersTyping.length, currentRoom.usersTyping.join(", "))
-                }
+            QQC2.BusyIndicator {
+                Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
+                Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
+            }
+            QQC2.Label {
+                text: i18ncp("Message displayed when some users are typing", "%2 is typing", "%2 are typing", currentRoom.usersTyping.length, currentRoom.usersTyping.map(user => user.displayName).join(", "))
             }
         }
 
