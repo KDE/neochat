@@ -81,6 +81,12 @@ Kirigami.ApplicationWindow {
                 enabled: pageStack.layers.currentItem.title !== i18n("Accounts")
             },
             Kirigami.Action {
+                text: i18n("Settings")
+                iconName: "settings-configure"
+                onTriggered: pageStack.layers.push("qrc:/imports/NeoChat/Page/SettingsPage.qml")
+                enabled: pageStack.layers.currentItem.title !== i18n("Settings")
+            },
+            Kirigami.Action {
                 text: i18n("About Neochat")
                 iconName: "help-about"
                 onTriggered: pageStack.layers.push(aboutPage)

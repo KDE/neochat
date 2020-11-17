@@ -72,7 +72,6 @@ int main(int argc, char *argv[])
     qmlRegisterType<PublicRoomListModel>("org.kde.neochat", 1, 0, "PublicRoomListModel");
     qmlRegisterType<UserDirectoryListModel>("org.kde.neochat", 1, 0, "UserDirectoryListModel");
     qmlRegisterType<EmojiModel>("org.kde.neochat", 1, 0, "EmojiModel");
-    qmlRegisterType<NotificationsManager>("org.kde.neochat", 1, 0, "NotificationsManager");
     qmlRegisterType<TrayIcon>("org.kde.neochat", 1, 0, "TrayIcon");
     qmlRegisterType<SortFilterRoomListModel>("org.kde.neochat", 1, 0, "SortFilterRoomListModel");
     qmlRegisterUncreatableType<RoomMessageEvent>("org.kde.neochat", 1, 0, "RoomMessageEvent", "ENUM");

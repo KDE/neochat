@@ -11,6 +11,15 @@
 #include <KLocalizedString>
 #include <KNotification>
 
+#include "neochatconfig.h"
+
+NotificationsManager &NotificationsManager::instance()
+{
+    static NotificationsManager _instance;
+    return _instance;
+}
+
+
 NotificationsManager::NotificationsManager(QObject *parent)
     : QObject(parent)
 {
@@ -18,6 +27,10 @@ NotificationsManager::NotificationsManager(QObject *parent)
 
 void NotificationsManager::postNotification(const QString &roomid, const QString &eventid, const QString &roomname, const QString &sender, const QString &text, const QImage &icon)
 {
+    if(!NeoChatConfig::self()->showNotifications()) {
+        return;
+    }
+
     QPixmap img;
     img.convertFromImage(icon);
     KNotification *notification = new KNotification("message");

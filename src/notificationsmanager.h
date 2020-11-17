@@ -17,10 +17,12 @@ class NotificationsManager : public QObject
     Q_OBJECT
 
 public:
-    NotificationsManager(QObject *parent = nullptr);
+    static NotificationsManager &instance();
 
     Q_INVOKABLE void postNotification(const QString &roomId, const QString &eventId, const QString &roomName, const QString &senderName, const QString &text, const QImage &icon);
 
 private:
+    NotificationsManager(QObject *parent = nullptr);
+
     QMultiMap<QString, KNotification *> m_notifications;
 };

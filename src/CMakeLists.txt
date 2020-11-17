@@ -49,6 +49,7 @@ if(ANDROID)
         "go-down"
         "list-add"
         "irc-join-channel"
+        "settings-configure"
     )
 else()
     target_link_libraries(neochat PRIVATE Qt5::Widgets ${QTKEYCHAIN_LIBRARIES})

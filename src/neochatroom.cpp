@@ -31,6 +31,7 @@
 #include "jobs/downloadfilejob.h"
 #include "user.h"
 #include "utils.h"
+#include "notificationsmanager.h"
 
 #include <KLocalizedString>
 
@@ -42,6 +43,18 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
     connect(this, &Room::fileTransferCompleted, this, [=] {
         setFileUploadingProgress(0);
         setHasFileUploading(false);
+    });
+    connect(this, &NeoChatRoom::notificationCountChanged, this, [this]() {
+        if(messageEvents().size() == 0)
+            return;
+        const RoomEvent *lastEvent = messageEvents().rbegin()->get();
+        if (lastEvent->isStateEvent())
+            return;
+        User *sender = user(lastEvent->senderId());
+        if (sender == localUser())
+            return;
+
+        NotificationsManager::instance().postNotification(id(), lastEvent->id(), displayName(), sender->displayname(this), eventToString(*lastEvent), avatar(128));
     });
 }
 
