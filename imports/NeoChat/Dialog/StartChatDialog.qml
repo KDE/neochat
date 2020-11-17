@@ -6,6 +6,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
+import org.kde.kirigami 2.0 as Kirigami
 
 import NeoChat.Component 1.0
 import NeoChat.Effect 1.0
@@ -100,13 +101,11 @@ Dialog {
 
                         spacing: 0
 
-                        Label {
+                        Kirigami.Heading {
                             Layout.fillWidth: true
                             Layout.fillHeight: true
 
                             text: name
-                            color: MPalette.foreground
-                            font.pixelSize: 13
                             textFormat: Text.PlainText
                             elide: Text.ElideRight
                             wrapMode: Text.NoWrap
@@ -117,53 +116,32 @@ Dialog {
                             Layout.fillHeight: true
 
                             text: userID
-                            color: MPalette.lighter
-                            font.pixelSize: 10
+                            color: Kirigami.Theme.disabledColor
                             textFormat: Text.PlainText
                             elide: Text.ElideRight
                             wrapMode: Text.NoWrap
                         }
                     }
 
-                    Control {
+                    Button {
                         Layout.preferredWidth: 32
                         Layout.preferredHeight: 32
 
                         visible: directChats != null
 
-                        contentItem: MaterialIcon {
-                            icon: "\ue89e"
-                            color: MPalette.lighter
-                            font.pixelSize: 20
-                        }
-
-                        background: RippleEffect {
-                            circular: true
-
-                            onClicked: {
-                                roomListForm.joinRoom(connection.room(directChats[0]))
-                                root.close()
-                            }
+                        icon.name: "document-send"
+                        onClicked: {
+                            roomListForm.joinRoom(connection.room(directChats[0]))
+                            root.close()
                         }
                     }
 
-                    Control {
-                        Layout.preferredWidth: 32
-                        Layout.preferredHeight: 32
+                    Button {
+                        icon.name: "irc-join-channel"
 
-                        contentItem: MaterialIcon {
-                            icon: "\ue7f0"
-                            color: MPalette.lighter
-                            font.pixelSize: 20
-                        }
-
-                        background: RippleEffect {
-                            circular: true
-
-                            onClicked: {
-                                Controller.createDirectChat(connection, userID)
-                                root.close()
-                            }
+                        onClicked: {
+                            Controller.createDirectChat(connection, userID)
+                            root.close()
                         }
                     }
                 }
@@ -177,7 +155,6 @@ Dialog {
                 visible: userDictListView.count < 1
 
                 text: i18n("No users available")
-                color: MPalette.foreground
             }
         }
     }

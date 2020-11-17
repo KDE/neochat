@@ -23,8 +23,8 @@ RowLayout {
     readonly property bool darkBackground: !sentByMe
     readonly property bool replyVisible: reply ?? false
     readonly property bool failed: marks == EventStatus.SendingFailed
-    readonly property color authorColor: eventType == "notice" ? MPalette.primary : author.color
-    readonly property color replyAuthorColor: replyVisible ? reply.author.color : MPalette.accent
+    readonly property color authorColor: eventType == "notice" ? Kirigami.Theme.activeTextColor : author.color
+    readonly property color replyAuthorColor: replyVisible ? reply.author.color : Kirigami.Theme.focusColor
 
     property alias mouseArea: controlContainer.children
 

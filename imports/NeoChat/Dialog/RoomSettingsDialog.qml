@@ -138,9 +138,7 @@ Kirigami.OverlaySheet {
 
                                 Label {
                                     text: modelData
-
-                                    font.pixelSize: 12
-                                    color: MPalette.lighter
+                                    color: Kirigami.Theme.disabledColor
                                 }
 
                                 ToolButton {
