@@ -397,7 +397,7 @@ Kirigami.ScrollablePage {
             'eventId': eventId,
         });
         contextMenu.viewSource.connect(function() {
-            messageSourceDialog.createObject(page, {
+            messageSourceSheet.createObject(page, {
                 'sourceText': toolTip,
             }).open();
             contextMenu.close();
@@ -424,8 +424,8 @@ Kirigami.ScrollablePage {
     }
 
     Component {
-        id: messageSourceDialog
+        id: messageSourceSheet
 
-        MessageSourceDialog {}
+        MessageSourceSheet {}
     }
 }

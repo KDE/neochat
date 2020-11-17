@@ -34,7 +34,7 @@ Control {
         onTriggered: {
             let contextMenu = fileDelegateContextMenu.createObject(root)
             contextMenu.viewSource.connect(function() {
-                messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
+                messagerSourceSheet.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
             })
             contextMenu.downloadAndOpen.connect(downloadAndOpen)
             contextMenu.saveFileAs.connect(saveFileAs)
@@ -90,9 +90,9 @@ Control {
         onSecondaryClicked: saveFileAction.trigger()
 
         Component {
-            id: messageSourceDialog
+            id: messagerSourceSheet
 
-            MessageSourceDialog {}
+            MessageSourceSheet {}
         }
 
         Component {

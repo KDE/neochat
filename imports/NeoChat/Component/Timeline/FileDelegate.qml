@@ -63,7 +63,7 @@ RowLayout {
                 onClicked: {
                     var contextMenu = fileDelegateContextMenu.createObject(root)
                     contextMenu.viewSource.connect(function() {
-                        messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
+                        messageSourceSheet.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
                     })
                     contextMenu.downloadAndOpen.connect(downloadAndOpen)
                     contextMenu.saveFileAs.connect(saveFileAs)
@@ -79,9 +79,9 @@ RowLayout {
                 }
 
                 Component {
-                    id: messageSourceDialog
+                    id: messageSourceSheet
 
-                    MessageSourceDialog {}
+                    MessageSourceSheet {}
                 }
 
                 Component {

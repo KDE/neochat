@@ -104,7 +104,7 @@ Image {
         onSecondaryClicked: {
             var contextMenu = imageDelegateContextMenu.createObject(root)
             contextMenu.viewSource.connect(function() {
-                messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
+                messageSourceSheet.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
             })
             contextMenu.downloadAndOpen.connect(downloadAndOpen)
             contextMenu.saveFileAs.connect(saveFileAs)
@@ -120,9 +120,9 @@ Image {
         }
 
         Component {
-            id: messageSourceDialog
+            id: messageSourceSheet
 
-            MessageSourceDialog {}
+            MessageSourceSheet {}
         }
 
         Component {
