@@ -79,11 +79,9 @@ Kirigami.ScrollablePage {
             }
         }
 
-        delegate: Kirigami.AbstractListItem {
-            id: roomListItem
+        delegate: Kirigami.SwipeListItem {
             visible: model.categoryVisible
-            topPadding: Kirigami.Units.largeSpacing
-            bottomPadding: Kirigami.Units.largeSpacing
+            height: model.categoryVisible ? implicitHeight : 0
             focus: true
             action: Kirigami.Action {
                 id: enterRoomAction
@@ -93,17 +91,43 @@ Kirigami.ScrollablePage {
                     roomItem.focus = true;
                 }
             }
+            actions: [
+                Kirigami.Action {
+                    id: makeAction
+                    text: currentRoom.isFavourite ? i18n("Remove room from favorites") : i18n("Make room favorite")
 
+                    icon.name: currentRoom.isFavourite ? "rating" : "rating-unrated"
+                    checkable: true
+                    checked: currentRoom.isFavourite
+
+                    onTriggered: currentRoom.isFavourite ? currentRoom.removeTag("m.favourite") : currentRoom.addTag("m.favourite", 1.0)
+
+                },
+                Kirigami.Action {
+                    id: optionAction
+
+                    text: i18n("Configure room")
+
+                    icon.name: "configure"
+                    onTriggered: roomListContextMenu.createObject(roomLayout, {"room": currentRoom}).popup();
+                }
+            ]
             contentItem: Item {
+                id: listItem
+                focus: true
                 implicitHeight: roomLayout.implicitHeight
                 RowLayout {
                     id: roomLayout
-                    spacing: Kirigami.Units.largeSpacing
                     anchors.fill: parent
+                    spacing: Kirigami.Units.largeSpacing
 
                     Kirigami.Avatar {
-                        Layout.preferredWidth: height
-                        Layout.fillHeight: true
+                        id: roomAvatar
+                        property int size: Kirigami.Units.gridUnit * 3 - Kirigami.Units.smallSpacing * 2;
+                        Layout.minimumHeight: size
+                        Layout.maximumHeight: size
+                        Layout.minimumWidth: size
+                        Layout.maximumWidth: size
 
                         source: avatar ? "image://mxc/" + avatar : ""
                         name: model.name || i18n("No Name")
@@ -116,11 +140,11 @@ Kirigami.ScrollablePage {
 
                         spacing: Kirigami.Units.smallSpacing
 
-                        QQC2.Label {
+                        Kirigami.Heading {
+                            level: 3
                             Layout.fillWidth: true
                             Layout.fillHeight: true
                             text: name ?? ""
-                            font.pixelSize: 15
                             font.bold: unreadCount >= 0
                             elide: Text.ElideRight
                             wrapMode: Text.NoWrap
@@ -132,7 +156,7 @@ Kirigami.ScrollablePage {
                             Layout.alignment: Qt.AlignHCenter
 
                             text: (lastEvent == "" ? topic : lastEvent).replace(/(\r\n\t|\n|\r\t)/gm," ")
-                            font.pixelSize: 12
+                            visible: text.length > 0
                             elide: Text.ElideRight
                             wrapMode: Text.NoWrap
                         }
@@ -144,7 +168,7 @@ Kirigami.ScrollablePage {
                     anchors.fill: parent
                     onClicked: {
                         if (mouse.button == Qt.RightButton) {
-                            roomListContextMenu.createObject(parent, {"room": currentRoom}).popup()
+                            roomListContextMenu.createObject(roomLayout, {"room": currentRoom}).popup()
                         } else {
                             roomManager.enterRoom(currentRoom)
                         }
