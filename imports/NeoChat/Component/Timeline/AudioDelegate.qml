@@ -19,157 +19,70 @@ import NeoChat.Dialog 1.0
 import NeoChat.Menu.Timeline 1.0
 import NeoChat.Effect 1.0
 
-RowLayout {
-    readonly property bool avatarVisible: !sentByMe && showAuthor
-    readonly property bool sentByMe: author.isLocalUser
-
+Control {
     id: root
+    Layout.fillWidth: true
 
-    spacing: 4
+    Audio {
+        id: audio
 
-    z: -5
+        source: currentRoom.urlToMxcUrl(content.url)
+    }
 
-    Kirigami.Avatar {
-        Layout.preferredWidth: 36
-        Layout.preferredHeight: 36
-        Layout.alignment: Qt.AlignBottom
+    contentItem: RowLayout {
+        ToolButton {
+            icon.name: audio.playbackState == Audio.PlayingState ? "media-playback-pause" : "media-playback-start"
 
-        visible: avatarVisible
-        name: author.displayName
-        source: author.avatarMediaId ? "image://mxc/" + author.avatarMediaId : ""
-        color: author.color
+            onClicked: {
+                if (audio.playbackState == Audio.PlayingState) {
+                    audio.pause()
+                } else {
+                    audio.play()
+                }
+            }
+            text: i18nc("@label %1 = song name, %2 = duration", "%1 (%2)", model.display, humanSize(model.duration))
+        }
+    }
+
+    background: AutoMouseArea {
+        anchors.fill: parent
+
+        id: messageMouseArea
+
+        onSecondaryClicked: {
+            var contextMenu = fileDelegateContextMenu.createObject(root)
+            contextMenu.viewSource.connect(function() {
+                messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
+            })
+            contextMenu.downloadAndOpen.connect(downloadAndOpen)
+            contextMenu.saveFileAs.connect(saveFileAs)
+            contextMenu.reply.connect(function() {
+                roomPanelInput.replyModel = Object.assign({}, model)
+                roomPanelInput.isReply = true
+                roomPanelInput.focus()
+            })
+            contextMenu.redact.connect(function() {
+                currentRoom.redactEvent(eventId)
+            })
+            contextMenu.popup()
+        }
 
         Component {
-            id: userDetailDialog
+            id: messageSourceDialog
 
-            UserDetailDialog {}
+            MessageSourceDialog {}
         }
 
-        RippleEffect {
-            anchors.fill: parent
+        Component {
+            id: openFolderDialog
 
-            circular: true
-
-            onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": author.object, "displayName": author.displayName, "avatarMediaId": author.avatarMediaId, "avatarUrl": author.avatarUrl}).open()
-        }
-    }
-
-    Item {
-        Layout.preferredWidth: 36
-        Layout.preferredHeight: 36
-
-        visible: !(sentByMe || avatarVisible)
-    }
-
-    Control {
-        Layout.maximumWidth: messageListView.width - (!sentByMe ? 36 + root.spacing : 0) - 48
-
-        padding: 12
-
-        Audio {
-            id: audio
-
-            source: currentRoom.urlToMxcUrl(content.url)
+            OpenFolderDialog {}
         }
 
-        contentItem: RowLayout {
-            ToolButton {
-                icon.name: audio.playbackState == Audio.PlayingState ? "media-playback-pause" : "media-playback-start"
+        Component {
+            id: fileDelegateContextMenu
 
-                onClicked: {
-                    if (audio.playbackState == Audio.PlayingState) {
-                        audio.pause()
-                    } else {
-                        audio.play()
-                    }
-                }
-            }
-
-            ColumnLayout {
-                Label {
-                    Layout.fillWidth: true
-
-                    text: display
-                    color: MPalette.foreground
-                    wrapMode: Label.Wrap
-                    font.pixelSize: 18
-                    font.weight: Font.Medium
-                    font.capitalization: Font.AllUppercase
-                }
-
-                Label {
-                    readonly property int duration: content.info.duration ?? audio.duration ?? 0
-
-                    Layout.fillWidth: true
-
-                    visible: duration
-
-                    text: humanSize(duration)
-                    color: MPalette.lighter
-                    wrapMode: Label.Wrap
-                }
-            }
-        }
-
-        background: AutoRectangle {
-            readonly property int minorRadius: 8
-
-            id: bubbleBackground
-
-            color: MPalette.background
-            radius: 18
-
-            topLeftVisible: !sentByMe && (bubbleShape == 3 || bubbleShape == 2)
-            topRightVisible: sentByMe && (bubbleShape == 3 || bubbleShape == 2)
-            bottomLeftVisible: !sentByMe && (bubbleShape == 1 || bubbleShape == 2)
-            bottomRightVisible: sentByMe && (bubbleShape == 1 || bubbleShape == 2)
-
-            topLeftRadius: minorRadius
-            topRightRadius: minorRadius
-            bottomLeftRadius: minorRadius
-            bottomRightRadius: minorRadius
-
-            AutoMouseArea {
-                anchors.fill: parent
-
-                id: messageMouseArea
-
-                onSecondaryClicked: {
-                    var contextMenu = fileDelegateContextMenu.createObject(root)
-                    contextMenu.viewSource.connect(function() {
-                        messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
-                    })
-                    contextMenu.downloadAndOpen.connect(downloadAndOpen)
-                    contextMenu.saveFileAs.connect(saveFileAs)
-                    contextMenu.reply.connect(function() {
-                        roomPanelInput.replyModel = Object.assign({}, model)
-                        roomPanelInput.isReply = true
-                        roomPanelInput.focus()
-                    })
-                    contextMenu.redact.connect(function() {
-                        currentRoom.redactEvent(eventId)
-                    })
-                    contextMenu.popup()
-                }
-
-                Component {
-                    id: messageSourceDialog
-
-                    MessageSourceDialog {}
-                }
-
-                Component {
-                    id: openFolderDialog
-
-                    OpenFolderDialog {}
-                }
-
-                Component {
-                    id: fileDelegateContextMenu
-
-                    FileDelegateContextMenu {}
-                }
-            }
+            FileDelegateContextMenu {}
         }
     }
 
@@ -185,11 +98,10 @@ RowLayout {
         folderDialog.open()
     }
 
-    function downloadAndOpen()
-    {
-        if (downloaded) openSavedFile()
-        else
-        {
+    function downloadAndOpen() {
+        if (downloaded) {
+            openSavedFile()
+        } else {
             openOnFinished = true
             currentRoom.downloadFile(eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId))
         }
@@ -202,15 +114,15 @@ RowLayout {
 
     function humanSize(duration) {
         if (!duration)
-            return qsTr("Unknown", "Unknown duration")
+            return i18n("Unknown duration")
         if (duration < 1000)
-            return qsTr("An instant")
+            return i18n("An instant")
         duration = Math.round(duration / 100) / 10
         if (duration < 60)
-            return qsTr("%1 sec.").arg(duration)
+            return i18n("%1 sec.", duration)
         duration = Math.round(duration / 6) / 10
         if (duration < 60)
-            return qsTr("%1 min.").arg(duration)
-        return qsTr("%1 hrs.").arg(Math.round(duration / 6) / 10)
+            return i18n("%1 min.", duration)
+        return i18n("%1 hrs.", Math.round(duration / 6) / 10)
     }
 }
