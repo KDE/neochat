@@ -34,6 +34,16 @@ Kirigami.ApplicationWindow {
         signal leaveRoom(string room);
         signal openRoom(string room);
 
+        function loadInitialRoom() {
+            if (Config.openRoom) {
+                const room = Controller.activeConnection.room(Config.openRoom);
+                pageStack.push(roomPage, { 'currentRoom': room, });
+            } else {
+                // TODO create welcome page
+            }
+        }
+
+
         function enterRoom(room) {
             if (currentRoom != null) {
                 currentRoom = null;
@@ -41,6 +51,8 @@ Kirigami.ApplicationWindow {
             }
             var item = pageStack.push(roomPage, { 'currentRoom': room, });
             currentRoom = room;
+            Config.openRoom = room.id;
+            Config.save();
             return item;
         }
     }
@@ -102,6 +114,7 @@ Kirigami.ApplicationWindow {
                 pageStack.replace("qrc:/imports/NeoChat/Page/LoginPage.qml", {});
             } else {
                 pageStack.replace(roomListComponent, {'activeConnection': Controller.activeConnection});
+                roomManager.loadInitialRoom();
             }
         }
 

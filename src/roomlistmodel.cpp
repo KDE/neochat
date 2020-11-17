@@ -21,8 +21,8 @@
 RoomListModel::RoomListModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    const auto collaposedSections = NeoChatConfig::collapsedSections();
-    for (auto collapsedSection : collaposedSections) {
+    const auto collapsedSections = NeoChatConfig::collapsedSections();
+    for (auto collapsedSection : collapsedSections) {
         m_categoryVisibility[collapsedSection] = false;
     }
 }
@@ -316,13 +316,13 @@ QString RoomListModel::categoryName(int section) const
 void RoomListModel::setCategoryVisible(int category, bool visible)
 {
     beginResetModel();
-    auto collaposedSections = NeoChatConfig::collapsedSections();
+    auto collapsedSections = NeoChatConfig::collapsedSections();
     if (visible) {
-        collaposedSections.removeAll(category);
+        collapsedSections.removeAll(category);
     } else {
-        collaposedSections.push_back(category);
+        collapsedSections.push_back(category);
     }
-    NeoChatConfig::setCollapsedSections(collaposedSections);
+    NeoChatConfig::setCollapsedSections(collapsedSections);
     NeoChatConfig::self()->save();
 
     m_categoryVisibility[category] = visible;
