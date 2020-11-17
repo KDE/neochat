@@ -25,32 +25,14 @@ Control {
 
     Audio {
         id: audio
-
         source: currentRoom.urlToMxcUrl(content.url)
+        autoLoad: false
     }
 
-    contentItem: RowLayout {
-        ToolButton {
-            icon.name: audio.playbackState == Audio.PlayingState ? "media-playback-pause" : "media-playback-start"
-
-            onClicked: {
-                if (audio.playbackState == Audio.PlayingState) {
-                    audio.pause()
-                } else {
-                    audio.play()
-                }
-            }
-            text: i18nc("@label %1 = song name, %2 = duration", "%1 (%2)", model.display, humanSize(model.duration))
-        }
-    }
-
-    background: AutoMouseArea {
-        anchors.fill: parent
-
-        id: messageMouseArea
-
-        onSecondaryClicked: {
-            var contextMenu = fileDelegateContextMenu.createObject(root)
+    Kirigami.Action {
+        id: saveFileAction
+        onTriggered: {
+            let contextMenu = fileDelegateContextMenu.createObject(root)
             contextMenu.viewSource.connect(function() {
                 messageSourceDialog.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
             })
@@ -66,6 +48,46 @@ Control {
             })
             contextMenu.popup()
         }
+    }
+
+    contentItem: ColumnLayout {
+        RowLayout {
+            ToolButton {
+                icon.name: audio.playbackState == Audio.PlayingState ? "media-playback-pause" : "media-playback-start"
+
+                onClicked: {
+                    if (audio.playbackState == Audio.PlayingState) {
+                        audio.pause()
+                    } else {
+                        audio.play()
+                    }
+                }
+            }
+            Label {
+                text: model.display
+            }
+        }
+        RowLayout {
+            visible: audio.hasAudio
+            // Server doesn't support seeking, so use ProgressBar instead of Slider :(
+            ProgressBar {
+                from: 0
+                to: audio.duration
+                value: audio.position
+            }
+
+            Label {
+                text: humanSize(audio.position) + "/" + humanSize(audio.duration)
+            }
+        }
+    }
+
+    background: AutoMouseArea {
+        anchors.fill: parent
+
+        id: messageMouseArea
+
+        onSecondaryClicked: saveFileAction.trigger()
 
         Component {
             id: messageSourceDialog
@@ -113,16 +135,14 @@ Control {
     }
 
     function humanSize(duration) {
-        if (!duration)
+        if (!duration) {
             return i18n("Unknown duration")
-        if (duration < 1000)
-            return i18n("An instant")
-        duration = Math.round(duration / 100) / 10
-        if (duration < 60)
-            return i18n("%1 sec.", duration)
-        duration = Math.round(duration / 6) / 10
-        if (duration < 60)
-            return i18n("%1 min.", duration)
-        return i18n("%1 hrs.", Math.round(duration / 6) / 10)
+        }
+
+        if (duration > 1000 * 60 * 60) {
+            return new Date(duration).toLocaleTimeString(Qt.locale(), "hh:mm:ss")
+        }
+
+        return new Date(duration).toLocaleTimeString(Qt.locale(), "mm:ss")
     }
 }
