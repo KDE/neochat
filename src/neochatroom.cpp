@@ -32,6 +32,8 @@
 #include "user.h"
 #include "utils.h"
 
+#include <KLocalizedString>
+
 NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinState)
     : Room(connection, std::move(roomId), joinState)
 {
@@ -264,7 +266,7 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                 } else if (e.content()->fileInfo()->originalName != e.plainBody()) {
                     fileCaption = e.plainBody() + " | " + fileCaption;
                 }
-                return !fileCaption.isEmpty() ? fileCaption : tr("a file");
+                return !fileCaption.isEmpty() ? fileCaption : i18n("a file");
             }
 
             // 2. prettyPrint/text 3. plainText/HTML 4. plainText/text
@@ -293,74 +295,72 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
             switch (e.membership()) {
             case MembershipType::Invite:
                 if (e.repeatsState())
-                    return tr("reinvited %1 to the room").arg(subjectName);
+                    return i18n("reinvited %1 to the room", subjectName);
             case MembershipType::Join: {
                 if (e.repeatsState())
-                    return tr("joined the room (repeated)");
+                    return i18n("joined the room (repeated)");
                 if (!e.prevContent() || e.membership() != e.prevContent()->membership) {
-                    return e.membership() == MembershipType::Invite ? tr("invited %1 to the room").arg(subjectName) : tr("joined the room");
+                    return e.membership() == MembershipType::Invite ? i18n("invited %1 to the room", subjectName) : i18n("joined the room");
                 }
                 QString text {};
                 if (e.isRename()) {
                     if (e.newDisplayName()->isEmpty())
-                        text = tr("cleared their display name");
+                        text = i18n("cleared their display name");
                     else
-                        text = tr("changed their display name to %1").arg(e.newDisplayName()->toHtmlEscaped());
+                        text = i18n("changed their display name to %1", e.newDisplayName()->toHtmlEscaped());
                 }
                 if (e.isAvatarUpdate()) {
                     if (!text.isEmpty())
-                        text += " and ";
+                        text += i18n(" and ");
                     if (!e.newAvatarUrl())
-                        text += tr("cleared their avatar");
+                        text += i18n("cleared their avatar");
                     else if (!e.prevContent()->avatarUrl)
-                        text += tr("set an avatar");
+                        text += i18n("set an avatar");
                     else
-                        text += tr("updated their avatar");
+                        text += i18n("updated their avatar");
                 }
                 return text;
             }
             case MembershipType::Leave:
                 if (e.prevContent() && e.prevContent()->membership == MembershipType::Invite) {
-                    return (e.senderId() != e.userId()) ? tr("withdrew %1's invitation").arg(subjectName) : tr("rejected the invitation");
+                    return (e.senderId() != e.userId()) ? i18n("withdrew %1's invitation", subjectName) : i18n("rejected the invitation");
                 }
 
                 if (e.prevContent() && e.prevContent()->membership == MembershipType::Ban) {
-                    return (e.senderId() != e.userId()) ? tr("unbanned %1").arg(subjectName) : tr("self-unbanned");
+                    return (e.senderId() != e.userId()) ? i18n("unbanned %1", subjectName) : i18n("self-unbanned");
                 }
-                return (e.senderId() != e.userId()) ? tr("has put %1 out of the room: %2").arg(subjectName, e.contentJson()["reason"_ls].toString().toHtmlEscaped()) : tr("left the room");
+                return (e.senderId() != e.userId()) ? i18n("has put %1 out of the room: %2", subjectName, e.contentJson()["reason"_ls].toString().toHtmlEscaped()) : i18n("left the room");
             case MembershipType::Ban:
-                return (e.senderId() != e.userId()) ? tr("banned %1 from the room: %2").arg(subjectName, e.contentJson()["reason"_ls].toString().toHtmlEscaped()) : tr("self-banned from the room");
+                return (e.senderId() != e.userId()) ? i18n("banned %1 from the room: %2", subjectName, e.contentJson()["reason"_ls].toString().toHtmlEscaped()) : i18n("self-banned from the room");
             case MembershipType::Knock:
-                return tr("knocked");
+                return i18n("knocked");
             default:;
             }
-            return tr("made something unknown");
+            return i18n("made something unknown");
         },
         [](const RoomCanonicalAliasEvent &e) {
-            return (e.alias().isEmpty()) ? tr("cleared the room main alias") : tr("set the room main alias to: %1").arg(e.alias());
+            return (e.alias().isEmpty()) ? i18n("cleared the room main alias") : i18n("set the room main alias to: %1", e.alias());
         },
         [](const RoomNameEvent &e) {
-            return (e.name().isEmpty()) ? tr("cleared the room name") : tr("set the room name to: %1").arg(e.name().toHtmlEscaped());
+            return (e.name().isEmpty()) ? i18n("cleared the room name") : i18n("set the room name to: %1", e.name().toHtmlEscaped());
         },
         [prettyPrint](const RoomTopicEvent &e) {
-            return (e.topic().isEmpty()) ? tr("cleared the topic") : tr("set the topic to: %1").arg(prettyPrint ? Quotient::prettyPrint(e.topic()) : e.topic());
+            return (e.topic().isEmpty()) ? i18n("cleared the topic") : i18n("set the topic to: %1", prettyPrint ? Quotient::prettyPrint(e.topic()) : e.topic());
         },
         [](const RoomAvatarEvent &) {
-            return tr("changed the room avatar");
+            return i18n("changed the room avatar");
         },
         [](const EncryptionEvent &) {
-            return tr("activated End-to-End Encryption");
+            return i18n("activated End-to-End Encryption");
         },
         [](const RoomCreateEvent &e) {
-            return (e.isUpgrade() ? tr("upgraded the room to version %1") : tr("created the room, version %1")).arg(e.version().isEmpty() ? "1" : e.version().toHtmlEscaped());
+            return e.isUpgrade() ? i18n("upgraded the room to version %1", e.version().isEmpty() ? "1" : e.version().toHtmlEscaped()) : i18n("created the room, version %1", e.version().isEmpty() ? "1" : e.version().toHtmlEscaped());
         },
         [](const StateEventBase &e) {
             // A small hack for state events from TWIM bot
-            return e.stateKey() == "twim" ? tr("updated the database", "TWIM bot updated the database")
-                : e.stateKey().isEmpty()  ? tr("updated %1 state", "%1 - Matrix event type").arg(e.matrixType())
-                                          : tr("updated %1 state for %2", "%1 - Matrix event type, %2 - state key").arg(e.matrixType(), e.stateKey().toHtmlEscaped());
+            return e.stateKey() == "twim" ? i18n("updated the database") : e.stateKey().isEmpty() ? i18n("updated %1 state", e.matrixType()) : i18n("updated %1 state for %2", e.matrixType(), e.stateKey().toHtmlEscaped());
         },
-        tr("Unknown event"));
+        i18n("Unknown event"));
 }
 
 void NeoChatRoom::changeAvatar(QUrl localFile)

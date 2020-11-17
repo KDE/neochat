@@ -12,6 +12,8 @@
 #include <QStandardPaths>
 #include <QThread>
 
+#include <KLocalizedString>
+
 #include "controller.h"
 
 using Quotient::BaseJob;
@@ -27,7 +29,7 @@ ThumbnailResponse::ThumbnailResponse(QString id, QSize size)
         requestedSize.setWidth(100);
     }
     if (mediaId.count('/') != 1) {
-        errorStr = tr("Media id '%1' doesn't follow server/mediaId pattern").arg(mediaId);
+        errorStr = i18n("Media id '%1' doesn't follow server/mediaId pattern", mediaId);
         Q_EMIT finished();
         return;
     }
@@ -78,7 +80,7 @@ void ThumbnailResponse::prepareResult()
 
             errorStr.clear();
         } else if (job->error() == BaseJob::Abandoned) {
-            errorStr = tr("Image request has been cancelled");
+            errorStr = i18n("Image request has been cancelled");
             qDebug() << "ThumbnailResponse: cancelled for" << mediaId;
         } else {
             errorStr = job->errorString();

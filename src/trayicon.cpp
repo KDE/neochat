@@ -17,6 +17,8 @@
 #include <QtMacExtras>
 #endif
 
+#include <KLocalizedString>
+
 MsgCountComposedIcon::MsgCountComposedIcon(const QString &filename)
     : QIconEngine()
 {
@@ -93,8 +95,8 @@ TrayIcon::TrayIcon(QObject *parent)
     : QSystemTrayIcon(parent)
 {
     QMenu *menu = new QMenu();
-    viewAction_ = new QAction(tr("Show"), parent);
-    quitAction_ = new QAction(tr("Quit"), parent);
+    viewAction_ = new QAction(i18n("Show"), parent);
+    quitAction_ = new QAction(i18n("Quit"), parent);
 
     connect(viewAction_, &QAction::triggered, this, &TrayIcon::showWindow);
     connect(quitAction_, &QAction::triggered, this, QApplication::quit);

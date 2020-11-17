@@ -17,6 +17,8 @@
 #include <QDebug>
 #include <QQmlEngine> // for qmlRegisterType()
 
+#include <KLocalizedString>
+
 #include "utils.h"
 
 QHash<int, QByteArray> MessageEventModel::roleNames() const
@@ -224,11 +226,11 @@ QString MessageEventModel::renderDate(QDateTime timestamp) const
 {
     auto date = timestamp.toLocalTime().date();
     if (date == QDate::currentDate())
-        return tr("Today");
+        return i18n("Today");
     if (date == QDate::currentDate().addDays(-1))
-        return tr("Yesterday");
+        return i18n("Yesterday");
     if (date == QDate::currentDate().addDays(-2))
-        return tr("The day before yesterday");
+        return i18n("The day before yesterday");
     if (date > QDate::currentDate().addDays(-7))
         return date.toString("dddd");
 
@@ -343,7 +345,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     if (role == ContentRole) {
         if (evt.isRedacted()) {
             auto reason = evt.redactedBecause()->reason();
-            return (reason.isEmpty()) ? tr("[REDACTED]") : tr("[REDACTED: %1]").arg(evt.redactedBecause()->reason());
+            return (reason.isEmpty()) ? i18n("[REDACTED]") : i18n("[REDACTED: %1]").arg(evt.redactedBecause()->reason());
         }
 
         if (auto e = eventCast<const RoomMessageEvent>(&evt)) {

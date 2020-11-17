@@ -130,15 +130,15 @@ RowLayout {
     function humanSize(bytes)
     {
         if (!bytes)
-            return qsTr("Unknown", "Unknown attachment size")
+            return i18nc("Unknown attachment size", "Unknown")
         if (bytes < 4000)
-            return qsTr("%1 bytes").arg(bytes)
+            return i18np("%1 byte", "%1 bytes", bytes)
         bytes = Math.round(bytes / 100) / 10
         if (bytes < 2000)
-            return qsTr("%1 KB").arg(bytes)
+            return i18nc("KB as in kilobytes", "%1 KB", bytes)
         bytes = Math.round(bytes / 100) / 10
         if (bytes < 2000)
-            return qsTr("%1 MB").arg(bytes)
-        return qsTr("%1 GB").arg(Math.round(bytes / 100) / 10)
+            return i18nc("MB as in megabytes", "%1 MB", bytes)
+        return i18nc("GB as in gigabytes", "%1 GB", Math.round(bytes / 100) / 10)
     }
 }
