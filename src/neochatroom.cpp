@@ -356,9 +356,9 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
         },
         [](const StateEventBase &e) {
             // A small hack for state events from TWIM bot
-            return e.stateKey() == "twim"
-                ? tr("updated the database", "TWIM bot updated the database")
-                : e.stateKey().isEmpty() ? tr("updated %1 state", "%1 - Matrix event type").arg(e.matrixType()) : tr("updated %1 state for %2", "%1 - Matrix event type, %2 - state key").arg(e.matrixType(), e.stateKey().toHtmlEscaped());
+            return e.stateKey() == "twim" ? tr("updated the database", "TWIM bot updated the database")
+                : e.stateKey().isEmpty()  ? tr("updated %1 state", "%1 - Matrix event type").arg(e.matrixType())
+                                          : tr("updated %1 state for %2", "%1 - Matrix event type, %2 - state key").arg(e.matrixType(), e.stateKey().toHtmlEscaped());
         },
         tr("Unknown event"));
 }

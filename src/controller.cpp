@@ -184,7 +184,9 @@ void Controller::logout(Connection *conn, bool serverSideLogout)
         return;
     }
     auto logoutJob = conn->callApi<LogoutJob>();
-    connect(logoutJob, &LogoutJob::failure, this, [=] { Q_EMIT errorOccured("Server-side Logout Failed", logoutJob->errorString()); });
+    connect(logoutJob, &LogoutJob::failure, this, [=] {
+        Q_EMIT errorOccured("Server-side Logout Failed", logoutJob->errorString());
+    });
 }
 
 void Controller::addConnection(Connection *c)
