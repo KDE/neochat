@@ -29,7 +29,7 @@ Kirigami.ApplicationWindow {
         property var currentRoom: null
         property alias pageStack: root.pageStack
 
-        readonly property bool hasOpenRoom: currentRoom != null
+        readonly property bool hasOpenRoom: currentRoom !== null
 
         signal leaveRoom(string room);
         signal openRoom(string room);
@@ -37,6 +37,7 @@ Kirigami.ApplicationWindow {
         function loadInitialRoom() {
             if (Config.openRoom) {
                 const room = Controller.activeConnection.room(Config.openRoom);
+                currentRoom = room;
                 pageStack.push(roomPage, { 'currentRoom': room, });
             } else {
                 // TODO create welcome page
