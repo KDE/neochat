@@ -8,6 +8,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12 as QQC2
 import QtQuick.Layouts 1.12
 import Qt.labs.qmlmodels 1.0
+import Qt.labs.platform 1.0 as Platform
 import QtQuick.Controls.Material 2.12
 
 import org.kde.kirigami 2.13 as Kirigami
@@ -75,7 +76,7 @@ Kirigami.ScrollablePage {
                 icon.name: 'insert-image'
                 text: i18n("Clipboard image")
                 onClicked: {
-                    var localPath = StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/screenshots/" + (new Date()).getTime() + ".png"
+                    var localPath = Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/screenshots/" + (new Date()).getTime() + ".png"
                     if (!Clipboard.saveImage(localPath)) return
                     chatTextInput.attach(localPath)
                     attachDialog.close()
