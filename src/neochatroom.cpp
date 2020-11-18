@@ -412,7 +412,7 @@ QString NeoChatRoom::markdownToHTML(const QString &markdown)
     return result;
 }
 
-void NeoChatRoom::postArbitaryMessage(const QString &text, MessageEventType type, const QString &replyEventId)
+void NeoChatRoom::postArbitaryMessage(const QString &text, Quotient::RoomMessageEvent::MsgType type, const QString &replyEventId)
 {
     const auto parsedHTML = markdownToHTML(text);
     const bool isRichText = Qt::mightBeRichText(parsedHTML);
@@ -459,29 +459,29 @@ void NeoChatRoom::postPlainMessage(const QString &text, MessageEventType type, c
         const auto &replyEvt = **replyIt;
 
         // clang-format off
-    QJsonObject json{
-      {"msgtype", msgTypeToString(type)},
-      {"body", "> <" + replyEvt.senderId() + "> " + eventToString(replyEvt) + "\n\n" + text},
-      {"format", "org.matrix.custom.html"},
-      {"m.relates_to",
-        QJsonObject {
-          {"m.in_reply_to",
+        QJsonObject json{
+          {"msgtype", msgTypeToString(type)},
+          {"body", "> <" + replyEvt.senderId() + "> " + eventToString(replyEvt) + "\n\n" + text},
+          {"format", "org.matrix.custom.html"},
+          {"m.relates_to",
             QJsonObject {
-              {"event_id", replyEventId}
+              {"m.in_reply_to",
+                QJsonObject {
+                  {"event_id", replyEventId}
+                }
+              }
             }
+          },
+          {"formatted_body",
+            "<mx-reply><blockquote><a href=\"https://matrix.to/#/" +
+            id() + "/" +
+            replyEventId +
+            "\">In reply to</a> <a href=\"https://matrix.to/#/" +
+            replyEvt.senderId() + "\">" + replyEvt.senderId() +
+            "</a><br>" + eventToString(replyEvt, Qt::RichText) +
+            "</blockquote></mx-reply>" + text
           }
-        }
-      },
-      {"formatted_body",
-        "<mx-reply><blockquote><a href=\"https://matrix.to/#/" +
-        id() + "/" +
-        replyEventId +
-        "\">In reply to</a> <a href=\"https://matrix.to/#/" +
-        replyEvt.senderId() + "\">" + replyEvt.senderId() +
-        "</a><br>" + eventToString(replyEvt, Qt::RichText) +
-        "</blockquote></mx-reply>" + text
-      }
-    };
+        };
         // clang-format on
 
         postJson("m.room.message", json);
@@ -503,29 +503,29 @@ void NeoChatRoom::postHtmlMessage(const QString &text, const QString &html, Mess
         const auto &replyEvt = **replyIt;
 
         // clang-format off
-    QJsonObject json{
-      {"msgtype", msgTypeToString(type)},
-      {"body", "> <" + replyEvt.senderId() + "> " + eventToString(replyEvt) + "\n\n" + text},
-      {"format", "org.matrix.custom.html"},
-      {"m.relates_to",
-        QJsonObject {
-          {"m.in_reply_to",
+        QJsonObject json{
+          {"msgtype", msgTypeToString(type)},
+          {"body", "> <" + replyEvt.senderId() + "> " + eventToString(replyEvt) + "\n\n" + text},
+          {"format", "org.matrix.custom.html"},
+          {"m.relates_to",
             QJsonObject {
-              {"event_id", replyEventId}
+              {"m.in_reply_to",
+                QJsonObject {
+                  {"event_id", replyEventId}
+                }
+              }
             }
+          },
+          {"formatted_body",
+            "<mx-reply><blockquote><a href=\"https://matrix.to/#/" +
+            id() + "/" +
+            replyEventId +
+            "\">In reply to</a> <a href=\"https://matrix.to/#/" +
+            replyEvt.senderId() + "\">" + replyEvt.senderId() +
+            "</a><br>" + eventToString(replyEvt, Qt::RichText) +
+            "</blockquote></mx-reply>" + html
           }
-        }
-      },
-      {"formatted_body",
-        "<mx-reply><blockquote><a href=\"https://matrix.to/#/" +
-        id() + "/" +
-        replyEventId +
-        "\">In reply to</a> <a href=\"https://matrix.to/#/" +
-        replyEvt.senderId() + "\">" + replyEvt.senderId() +
-        "</a><br>" + eventToString(replyEvt, Qt::RichText) +
-        "</blockquote></mx-reply>" + html
-      }
-    };
+        };
         // clang-format on
 
         postJson("m.room.message", json);
