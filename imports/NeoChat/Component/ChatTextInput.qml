@@ -174,7 +174,7 @@ ToolBar {
         RowLayout {
             Layout.fillWidth: true
 
-            spacing: Kirigami.Units.smallSpacing
+            spacing: 0 //Kirigami.Units.smallSpacing
 
             Button {
                 id: cancelReplyButton
@@ -231,6 +231,7 @@ ToolBar {
                 placeholderText: i18n("Write your message...")
                 topPadding: 0
                 bottomPadding: 0
+                leftPadding: Kirigami.Units.smallSpacing
                 selectByMouse: true
                 verticalAlignment: TextEdit.AlignVCenter
 
@@ -363,7 +364,7 @@ ToolBar {
             }
 
 
-            Button {
+            ToolButton {
                 id: emojiButton
                 icon.name: "preferences-desktop-emoticons"
                 icon.color: "transparent"
@@ -371,7 +372,7 @@ ToolBar {
                 onClicked: emojiPicker.visible = !emojiPicker.visible
             }
 
-            Button {
+            ToolButton {
                 id: uploadButton
 
                 visible: !isReply && !hasAttachment
@@ -401,7 +402,7 @@ ToolBar {
                 }
             }
 
-            Button {
+            ToolButton {
                 icon.name: "document-send"
                 icon.color: "transparent"
 
@@ -414,6 +415,19 @@ ToolBar {
             }
         }
     }
+
+    background: Rectangle {
+        implicitHeight: 40
+        color: Kirigami.Theme.backgroundColor
+        Kirigami.Separator {
+            anchors {
+                left: parent.left
+                right: parent.right
+                top: parent.top
+            }
+        }
+    }
+
 
     function insert(str) {
         inputField.insert(inputField.cursorPosition, str)
