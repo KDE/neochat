@@ -67,7 +67,7 @@ private Q_SLOTS:
     void userAdded(Quotient::User *user);
     void userRemoved(Quotient::User *user);
     void refresh(Quotient::User *user, QVector<int> roles = {});
-    void avatarChanged(Quotient::User *user);
+    void avatarChanged(Quotient::User *user, const Quotient::Room *context);
 
 private:
     Quotient::Room *m_currentRoom;

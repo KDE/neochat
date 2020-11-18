@@ -48,9 +48,7 @@ void UserListModel::setRoom(Quotient::Room *room)
             std::sort(m_users.begin(), m_users.end(), room->memberSorter());
         }
         for (User *user : qAsConst(m_users)) {
-            connect(user, &User::defaultAvatarChanged, this, [user, this]() {
-                avatarChanged(user);
-            });
+            connect(user, &User::avatarChanged, this, &UserListModel::avatarChanged);
         }
         connect(m_currentRoom->connection(), &Connection::loggedOut, this, [=] {
             setRoom(nullptr);
@@ -146,9 +144,7 @@ void UserListModel::userAdded(Quotient::User *user)
     beginInsertRows(QModelIndex(), pos, pos);
     m_users.insert(pos, user);
     endInsertRows();
-    connect(user, &Quotient::User::defaultAvatarChanged, this, [user, this]() {
-        avatarChanged(user);
-    });
+    connect(user, &Quotient::User::avatarChanged, this, &UserListModel::avatarChanged);
 }
 
 void UserListModel::userRemoved(Quotient::User *user)
@@ -172,9 +168,10 @@ void UserListModel::refresh(Quotient::User *user, QVector<int> roles)
         qWarning() << "Trying to access a room member not in the user list";
 }
 
-void UserListModel::avatarChanged(Quotient::User *user)
+void UserListModel::avatarChanged(Quotient::User *user, const Quotient::Room *context)
 {
-    refresh(user, {AvatarRole});
+    if(context == m_currentRoom)
+        refresh(user, {AvatarRole});
 }
 
 int UserListModel::findUserPos(User *user) const

@@ -33,7 +33,7 @@ else()
     find_package(Qt5Keychain REQUIRED)
 endif()
 
-find_package(Quotient 0.7 REQUIRED)
+find_package(Quotient 0.6 REQUIRED)
 find_package(cmark REQUIRED)
 
 install(PROGRAMS org.kde.neochat.desktop DESTINATION ${KDE_INSTALL_APPDIR})

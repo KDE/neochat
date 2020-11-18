@@ -24,7 +24,7 @@ Kirigami.ScrollablePage {
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
 
-                text: model.user.defaultName
+                text: model.user.displayName
                 subtitle: model.user.id
                 icon: model.connection.user.avatarMediaId ? "image://mxc/" + model.connection.user.avatarMediaId : "im-user"
 
@@ -90,7 +90,7 @@ Kirigami.ScrollablePage {
             anchors.top: passwordsMessage.bottom
             Controls.TextField {
                 id: name
-                text: userEditSheet.connection.localUser.defaultName
+                text: userEditSheet.connection.localUser.displayName
                 Kirigami.FormData.label: i18n("Name:")
             }
             Controls.TextField {
@@ -113,8 +113,8 @@ Kirigami.ScrollablePage {
             Controls.Button {
                 text: i18n("Save")
                 onClicked: {
-                    if(userEditSheet.connection.localUser.defaultName !== name.text)
-                        userEditSheet.connection.localUser.user.defaultName = name.text
+                    if(userEditSheet.connection.localUser.displayName !== name.text)
+                        userEditSheet.connection.localUser.rename(name.text)
                     if(currentPassword.text !== "" && newPassword.text !== "" && confirmPassword.text !== "") {
                         if(newPassword.text === confirmPassword.text) {
                             Controller.changePassword(userEditSheet.connection, currentPassword.text, newPassword.text)
