@@ -121,6 +121,12 @@ Kirigami.ScrollablePage {
         onContentYChanged: {
             if(!noNeedMoreContent && contentY  - 5000 < originY)
                 currentRoom.getPreviousContent(20);
+            const index = eventToIndex(currentRoom.readMarkerEventId)
+            if(index === -1)
+                return
+            if(index < firstVisibleIndex() && index > lastVisibleIndex()) {
+                currentRoom.readMarkerEventId = sortedMessageEventModel.data(sortedMessageEventModel.index(lastVisibleIndex(), 0), MessageEventModel.EventIdRole)
+            }
         }
 
         //        populate: Transition {
@@ -378,9 +384,36 @@ Kirigami.ScrollablePage {
     background: Item {}
 
     function goToEvent(eventID) {
-        var index = messageEventModel.eventIDToIndex(eventID)
-        if (index === -1) return
-        messageListView.positionViewAtIndex(sortedMessageEventModel.mapFromSource(messageEventModel.index(index, 0)).row, ListView.Contain)
+        messageListView.positionViewAtIndex(eventToIndex(eventID), ListView.Contain)
+    }
+
+    function eventToIndex(eventID) {
+        const index = messageEventModel.eventIDToIndex(eventID)
+        if (index === -1)
+            return -1
+        return sortedMessageEventModel.mapFromSource(messageEventModel.index(index, 0)).row
+    }
+
+    function firstVisibleIndex() {
+        let index = -1;
+        let center = messageListView.x + messageListView.width / 2;
+        let i = 0;
+        while(index === -1) {
+            index = messageListView.indexAt(center, messageListView.y + messageListView.contentY + i);
+            i++;
+        }
+        return index;
+    }
+
+    function lastVisibleIndex() {
+        let index = -1;
+        let center = messageListView.x + messageListView.width / 2;
+        let i = 0;
+        while(index === -1) {
+            index = messageListView.indexAt(center, messageListView.y + messageListView.contentY + messageListView.height - i);
+            i++;
+        }
+        return index;
     }
 
     function openMessageContext(author, message, eventId, toolTip, model) {
