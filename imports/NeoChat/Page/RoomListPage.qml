@@ -161,6 +161,17 @@ Kirigami.ScrollablePage {
                             wrapMode: Text.NoWrap
                         }
                     }
+                    QQC2.Label {
+                        text: notificationCount
+                        visible: notificationCount > 0
+                        padding: Kirigami.Units.smallSpacing
+                        background: Rectangle {
+                            Kirigami.Theme.colorSet: Kirigami.Theme.Button
+                            color: Kirigami.Theme.backgroundColor
+                            radius: height / 2
+                            implicitWidth: implicitHeight
+                        }
+                    }
                 }
 
                 MouseArea {
