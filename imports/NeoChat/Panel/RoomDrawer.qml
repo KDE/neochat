@@ -30,6 +30,7 @@ Kirigami.OverlayDrawer {
     leftPadding: 0
     rightPadding: 0
     contentItem: ColumnLayout {
+        id: columnLayout
         implicitWidth: Kirigami.Units.gridUnit * 20
 
         Component {
@@ -97,11 +98,13 @@ Kirigami.OverlayDrawer {
 
                 Kirigami.FormLayout {
                     Layout.fillWidth: true
+                    Layout.maximumWidth: Kirigami.Units.gridUnit * 20
                     Label {
                         Kirigami.FormData.label: i18n("Main Alias:")
                         text: room && room.canonicalAlias ? room.canonicalAlias :i18n("No Canonical Alias")
                     }
                     Label {
+                        Layout.fillWidth: true
                         Kirigami.FormData.label: i18n("Topic:")
                         text: room && room.topic ? room.topic : i18n("No Topic")
                         elide: Text.ElideRight
@@ -109,7 +112,7 @@ Kirigami.OverlayDrawer {
                     }
                 }
 
-                Flow {
+                RowLayout {
                     Layout.fillWidth: true
 
                     spacing: 8
@@ -118,6 +121,7 @@ Kirigami.OverlayDrawer {
                     }
 
                     Label {
+                        Layout.fillWidth: true
                         text: room ?  i18np("%1 Member", "%1 Members", room.totalMemberCount) : i18n("No Member Count")
                     }
 
@@ -131,6 +135,10 @@ Kirigami.OverlayDrawer {
                     }
                 }
             }
+        }
+
+        Kirigami.Separator {
+            Layout.fillWidth: true
         }
 
         ScrollView {
