@@ -90,6 +90,7 @@ Kirigami.OverlaySheet {
         QQC2.MenuSeparator {}
 
         Kirigami.BasicListItem {
+            visible: user !== room.localUser
             action: Kirigami.Action {
                 text: room.connection.isIgnored(user) ? i18n("Unignore this user") : i18n("Ignore this user")
                 icon.name: "im-invisible-user"
