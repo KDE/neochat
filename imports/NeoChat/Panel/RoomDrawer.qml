@@ -29,8 +29,6 @@ Kirigami.OverlayDrawer {
     topPadding: 0
     leftPadding: 0
     rightPadding: 0
-    width: 400
-    implicitWidth: 400
     contentItem: ColumnLayout {
         implicitWidth: Kirigami.Units.gridUnit * 20
 
@@ -40,7 +38,7 @@ Kirigami.OverlayDrawer {
             FullScreenImage {}
         }
 
-        ToolBar {
+        Control {
             Layout.fillWidth: true
             implicitHeight: infoLayout.implicitHeight
             bottomPadding: Kirigami.Units.largeSpacing
@@ -73,16 +71,15 @@ Kirigami.OverlayDrawer {
                             text: room ? room.displayName : i18n("No name")
                         }
 
-                        RowLayout {
+                        Flow {
                             Layout.fillWidth: true
                             Label {
-                                Layout.fillWidth: true
-
-                                wrapMode: Label.Wrap
                                 text: room ? i18np("%1 Member", "%1 Members", room.totalMemberCount) : i18n("No Member Count")
                                 color: Kirigami.Theme.disabledTextColor
+                                height: configButton.implicitHeight
                             }
                             Button {
+                                id: configButton
                                 icon.name: 'settings-configure'
                                 text: i18n("Room setting")
                                 onClicked: {
@@ -101,18 +98,18 @@ Kirigami.OverlayDrawer {
                 Kirigami.FormLayout {
                     Layout.fillWidth: true
                     Label {
-                        Kirigami.FormData.label: i18n("Main Alias")
+                        Kirigami.FormData.label: i18n("Main Alias:")
                         text: room && room.canonicalAlias ? room.canonicalAlias :i18n("No Canonical Alias")
                     }
                     Label {
-                        Kirigami.FormData.label: i18n("Topic")
+                        Kirigami.FormData.label: i18n("Topic:")
                         text: room && room.topic ? room.topic : i18n("No Topic")
                         elide: Text.ElideRight
                         wrapMode: Text.WordWrap
                     }
                 }
 
-                RowLayout {
+                Flow {
                     Layout.fillWidth: true
 
                     spacing: 8
@@ -121,9 +118,6 @@ Kirigami.OverlayDrawer {
                     }
 
                     Label {
-                        Layout.fillWidth: true
-
-                        wrapMode: Label.Wrap
                         text: room ?  i18np("%1 Member", "%1 Members", room.totalMemberCount) : i18n("No Member Count")
                     }
 
