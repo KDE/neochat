@@ -50,6 +50,9 @@ if(ANDROID)
         "list-add"
         "irc-join-channel"
         "settings-configure"
+        "configure"
+        "rating"
+        "rating-unrated"
     )
 else()
     target_link_libraries(neochat PRIVATE Qt5::Widgets ${QTKEYCHAIN_LIBRARIES})
