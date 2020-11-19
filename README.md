@@ -4,11 +4,7 @@ Neochat is a client for Matrix, the decentralized communication protocol for ins
 messaging. It is a fork of Spectral, using KDE frameworks, most notably Kirigami,
 KConfig and KI18n.
 
-<div style="display: flex; flex-wrap: wrap;">
-<img src="https://www.plasma-mobile.org/img/post-2020-10/post-2020-10-neochat.png" style="max-width: 100%; height: auto;">
-<img src="https://www.plasma-mobile.org/img/post-2020-10/post-2020-10-neochat-timeline.png" style="max-width: 100%; height: auto;">
-<img src="https://www.plasma-mobile.org/img/post-2020-10/post-2020-10-neochat-explore.png" style="max-width: 100%; height: auto;">
-</div>
+![Timeline](https://www.plasma-mobile.org/img/post-2020-10/post-2020-10-neochat-timeline.png)
 
 # Features
 
