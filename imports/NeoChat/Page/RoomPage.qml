@@ -124,6 +124,8 @@ Kirigami.ScrollablePage {
             const index = eventToIndex(currentRoom.readMarkerEventId)
             if(index === -1)
                 return
+            if(firstVisibleIndex() === -1 || lastVisibleIndex() === -1)
+                return
             if(index < firstVisibleIndex() && index > lastVisibleIndex()) {
                 currentRoom.readMarkerEventId = sortedMessageEventModel.data(sortedMessageEventModel.index(lastVisibleIndex(), 0), MessageEventModel.EventIdRole)
             }
@@ -395,25 +397,13 @@ Kirigami.ScrollablePage {
     }
 
     function firstVisibleIndex() {
-        let index = -1;
         let center = messageListView.x + messageListView.width / 2;
-        let i = 0;
-        while(index === -1) {
-            index = messageListView.indexAt(center, messageListView.y + messageListView.contentY + i);
-            i++;
-        }
-        return index;
+        return messageListView.indexAt(center, messageListView.y + messageListView.contentY);
     }
 
     function lastVisibleIndex() {
-        let index = -1;
         let center = messageListView.x + messageListView.width / 2;
-        let i = 0;
-        while(index === -1) {
-            index = messageListView.indexAt(center, messageListView.y + messageListView.contentY + messageListView.height - i);
-            i++;
-        }
-        return index;
+        return messageListView.indexAt(center, messageListView.y + messageListView.contentY + messageListView.height);
     }
 
     function openMessageContext(author, message, eventId, toolTip, model) {
