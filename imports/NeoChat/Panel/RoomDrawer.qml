@@ -71,22 +71,25 @@ Kirigami.OverlayDrawer {
                             wrapMode: Label.Wrap
                             text: room ? room.displayName : i18n("No name")
                         }
-
-                        Flow {
+                        Label {
                             Layout.fillWidth: true
-                            Label {
-                                text: room ? i18np("%1 Member", "%1 Members", room.totalMemberCount) : i18n("No Member Count")
-                                color: Kirigami.Theme.disabledTextColor
-                                height: configButton.implicitHeight
-                            }
-                            Button {
-                                id: configButton
-                                icon.name: 'settings-configure'
-                                text: i18n("Room setting")
-                                onClicked: {
-                                    roomSettingDialog.createObject(ApplicationWindow.overlay, {"room": room}).open()
-                                    roomDrawer.close();
-                                }
+                            text: room && room.canonicalAlias ? room.canonicalAlias : i18n("No Canonical Alias")
+                        }
+
+                        Label {
+                            Layout.fillWidth: true
+                            text: room ? i18np("%1 Member", "%1 Members", room.totalMemberCount) : i18n("No Member Count")
+                            color: Kirigami.Theme.disabledTextColor
+                            height: configButton.implicitHeight
+                        }
+                        Button {
+                            Layout.fillWidth: true
+                            id: configButton
+                            icon.name: 'settings-configure'
+                            text: i18n("Room setting")
+                            onClicked: {
+                                roomSettingDialog.createObject(ApplicationWindow.overlay, {"room": room}).open()
+                                roomDrawer.close();
                             }
                         }
                     }
@@ -96,20 +99,13 @@ Kirigami.OverlayDrawer {
                     Layout.fillWidth: true
                 }
 
-                Kirigami.FormLayout {
-                    Layout.fillWidth: true
+                Label {
                     Layout.maximumWidth: Kirigami.Units.gridUnit * 20
-                    Label {
-                        Kirigami.FormData.label: i18n("Main Alias:")
-                        text: room && room.canonicalAlias ? room.canonicalAlias :i18n("No Canonical Alias")
-                    }
-                    Label {
-                        Layout.fillWidth: true
-                        Kirigami.FormData.label: i18n("Topic:")
-                        text: room && room.topic ? room.topic : i18n("No Topic")
-                        elide: Text.ElideRight
-                        wrapMode: Text.WordWrap
-                    }
+                    Layout.fillWidth: true
+                    Kirigami.FormData.label: i18n("Topic:")
+                    text: room && room.topic ? room.topic : i18n("No Topic")
+                    elide: Text.ElideRight
+                    wrapMode: Text.WordWrap
                 }
 
                 RowLayout {
