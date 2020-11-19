@@ -115,16 +115,7 @@ ToolBar {
                 property bool isEmoji: modelData.unicode != null
                 readonly property bool highlighted: autoCompleteListView.currentIndex == index
 
-                height: 36
-                padding: 6
-
-                background: Rectangle {
-                    visible: !isEmoji
-                    color: highlighted ? border.color : "transparent"
-                    border.color: isEmoji ? Kirigami.Theme.focusColor : modelData.color
-                    border.width: 2
-                    radius: height / 2
-                }
+                padding: Kirigami.Units.smallSpacing
 
                 contentItem: RowLayout {
                     spacing: Kirigami.Units.largeSpacing
@@ -151,6 +142,7 @@ ToolBar {
                         visible: !isEmoji
                         text: autoCompleteText
                         color: highlighted ? Kirigami.Theme.highlightTextColor : Kirigami.Theme.textColor
+                        font.underline: highlighted
                         verticalAlignment: Text.AlignVCenter
                         rightPadding: Kirigami.Units.largeSpacing
                     }
