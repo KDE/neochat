@@ -306,6 +306,18 @@ ToolBar {
                         isAutoCompleting = false
                         autoCompleteListView.currentIndex = 0
                     }
+
+                    var autoCompletePrefix = text.substring(0, cursorPosition).split(" ").pop();
+                    if (!autoCompletePrefix) return
+
+                    if (autoCompletePrefix.startsWith("@")) {
+                        autoCompletePrefix = autoCompletePrefix.substring(1);
+                        autoCompleteBeginPosition = text.substring(0, cursorPosition).lastIndexOf(" ") + 1 // 1 = space
+                        autoCompleteModel = currentRoom.getUsers(autoCompletePrefix)
+                        if (autoCompleteModel.length === 0) return
+                        isAutoCompleting = true
+                        autoCompleteEndPosition = cursorPosition
+                    }
                 }
 
                 function replaceAutoComplete(word) {
