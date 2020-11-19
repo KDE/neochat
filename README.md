@@ -15,7 +15,7 @@ flatpak remote-add --if-not-exists kdeapps --from https://distribute.kde.org/kde
 flatpak install kdeapps org.kde.neochat
 ```
 
-A nigthly build is also available on Android in the [KDE nightly F-Droid repo](https://community.kde.org/Android/FDroid)
+A nigthly build is also available for Android in the [KDE nightly F-Droid repo](https://community.kde.org/Android/FDroid)
 and can also directly be downloaded from the [binary factory](https://binary-factory.kde.org/view/Android/job/Neochat_android/).
 
 ![Timeline](https://www.plasma-mobile.org/img/post-2020-10/post-2020-10-neochat-timeline.png)
