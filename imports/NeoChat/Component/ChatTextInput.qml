@@ -358,7 +358,6 @@ ToolBar {
                         messageEventType = RoomMessageEvent.Notice
                     }
 
-                    console.log(replyContent, replyUser, replyEventID, messageEventType);
                     currentRoom.postArbitaryMessage(text, messageEventType, replyEventID)
                 }
             }
