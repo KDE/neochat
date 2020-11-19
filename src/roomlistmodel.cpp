@@ -58,12 +58,16 @@ void RoomListModel::setConnection(Connection *connection)
     connect(connection, &Connection::leftRoom, this, &RoomListModel::updateRoom);
     connect(connection, &Connection::aboutToDeleteRoom, this, &RoomListModel::deleteRoom);
     connect(connection, &Connection::directChatsListChanged, this, [=](Quotient::DirectChatsMap additions, Quotient::DirectChatsMap removals) {
-        const auto values = additions.values() + removals.values();
-        for (const QString &roomID : values) {
-            auto room = connection->room(roomID);
-            if (room)
-                refresh(static_cast<NeoChatRoom *>(room));
-        }
+        auto refreshRooms = [this, &connection](Quotient::DirectChatsMap rooms) {
+            for (const QString &roomID : qAsConst(rooms)) {
+                auto room = connection->room(roomID);
+                if (room)
+                    refresh(static_cast<NeoChatRoom *>(room));
+            }
+        };
+
+        refreshRooms(additions);
+        refreshRooms(removals);
     });
 
     doResetModel();
@@ -75,8 +79,9 @@ void RoomListModel::doResetModel()
 {
     beginResetModel();
     m_rooms.clear();
-    for (auto r : m_connection->allRooms()) {
-        doAddRoom(r);
+    const auto rooms = m_connection->allRooms();
+    for (const auto &room : rooms) {
+        doAddRoom(room);
     }
     endResetModel();
     refreshNotificationCount();
