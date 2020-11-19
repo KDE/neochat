@@ -4,9 +4,23 @@ Neochat is a client for Matrix, the decentralized communication protocol for ins
 messaging. It is a fork of Spectral, using KDE frameworks, most notably Kirigami,
 KConfig and KI18n.
 
+## Get it
+
+There is no stable release for now, but a Flatpak version is available for the nightly
+version:
+
+```
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add --if-not-exists kdeapps --from https://distribute.kde.org/kdeapps.flatpakrepo
+flatpak install kdeapps org.kde.neochat
+```
+
+A nigthly build is also available on Android in the [KDE nightly F-Droid repo](https://community.kde.org/Android/FDroid)
+and can also directly be downloaded from the [binary factory](https://binary-factory.kde.org/view/Android/job/Neochat_android/).
+
 ![Timeline](https://www.plasma-mobile.org/img/post-2020-10/post-2020-10-neochat-timeline.png)
 
-# Features
+## Features
 
 * Sending messages
 * Sending files from clipboard and filesystem
