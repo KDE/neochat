@@ -28,6 +28,7 @@ Kirigami.ApplicationWindow {
 
         property var currentRoom: null
         property alias pageStack: root.pageStack
+        property bool invitationOpen: false
 
         readonly property bool hasOpenRoom: currentRoom !== null
 
@@ -44,17 +45,31 @@ Kirigami.ApplicationWindow {
             }
         }
 
-
         function enterRoom(room) {
-            if (currentRoom != null) {
+            let item = null;
+            if (currentRoom != null || invitationOpen) {
                 currentRoom = null;
-                pageStack.removePage(pageStack.lastItem);
+                item = pageStack.replace(roomPage, { 'currentRoom': room, });
+            } else {
+                item = pageStack.push(roomPage, { 'currentRoom': room, });
             }
-            var item = pageStack.push(roomPage, { 'currentRoom': room, });
             currentRoom = room;
             Config.openRoom = room.id;
             Config.save();
             return item;
+        }
+
+        function openInvitation(room) {
+            if (currentRoom != null) {
+                currentRoom = null;
+                pageStack.removePage(pageStack.lastItem);
+            }
+            invitationOpen = true;
+            pageStack.push("qrc:/imports/NeoChat/Page/InvitationPage.qml", {"room": room});
+        }
+
+        function getBack() {
+            pageStack.replace(roomPage, { 'currentRoom': currentRoom, });
         }
     }
 

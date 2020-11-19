@@ -86,9 +86,14 @@ Kirigami.ScrollablePage {
             action: Kirigami.Action {
                 id: enterRoomAction
                 onTriggered: {
-                    var roomItem = roomManager.enterRoom(currentRoom)
-                    roomListItem.KeyNavigation.right = roomItem
-                    roomItem.focus = true;
+                    console.log(RoomType.Invited)
+                    if (category === RoomType.Invited) {
+                        roomManager.openInvitation(currentRoom);
+                    } else {
+                        var roomItem = roomManager.enterRoom(currentRoom)
+                        roomListItem.KeyNavigation.right = roomItem
+                        roomItem.focus = true;
+                    }
                 }
             }
             actions: [
@@ -181,7 +186,7 @@ Kirigami.ScrollablePage {
                         if (mouse.button == Qt.RightButton) {
                             roomListContextMenu.createObject(roomLayout, {"room": currentRoom}).popup()
                         } else {
-                            roomManager.enterRoom(currentRoom)
+                            enterRoomAction.trigger();
                         }
                     }
                 }
