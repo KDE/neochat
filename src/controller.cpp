@@ -37,6 +37,7 @@
 #include "csapi/joining.h"
 #include "csapi/logout.h"
 #include "csapi/profile.h"
+#include "csapi/wellknown.h"
 #include "csapi/registration.h"
 #include "events/eventcontent.h"
 #include "events/roommessageevent.h"
@@ -92,30 +93,43 @@ void Controller::loginWithCredentials(QString serverAddr, QString user, QString 
     QUrl serverUrl(serverAddr);
 
     auto conn = new Connection(this);
+
     if (serverUrl.isValid()) {
         conn->setHomeserver(serverUrl);
+        auto *job = conn->callApi<GetWellknownJob>();
+        connect(job, &BaseJob::finished, this, [=]() {
+            if (job->status() == BaseJob::Success) {
+                QUrl url(job->data().homeserver.baseUrl);
+                auto finalConn = new Connection(this);
+                finalConn->setHomeserver(url);
+                finalConn->connectToServer(user, pass, deviceName, "");
+                connect(finalConn, &Connection::connected, this, [=] {
+                    AccountSettings account(finalConn->userId());
+                    account.setKeepLoggedIn(true);
+                    account.clearAccessToken(); // Drop the legacy - just in case
+                    account.setHomeserver(finalConn->homeserver());
+                    account.setDeviceId(finalConn->deviceId());
+                    account.setDeviceName(deviceName);
+                    if (!saveAccessTokenToKeyChain(account, finalConn->accessToken()))
+                        qWarning() << "Couldn't save access token";
+                    account.sync();
+                    addConnection(finalConn);
+                    setActiveConnection(finalConn);
+                });
+                connect(finalConn, &Connection::networkError, [=](QString error, QString, int, int) {
+                    Q_EMIT errorOccured(i18n("Network Error"), error);
+                });
+                connect(finalConn, &Connection::loginError, [=](QString error, QString) {
+                    Q_EMIT errorOccured(i18n("Login Failed"), error);
+                });
+            } else {
+                Q_EMIT errorOccured(i18n("Error connecting to server"), "");
+            }
+        });
+        connect(conn, &Connection::networkError, this, [=](QString error, QString, int, int) {
+            Q_EMIT errorOccured(i18n("Network Error"), error);
+        });
     }
-    conn->connectToServer(user, pass, deviceName, "");
-
-    connect(conn, &Connection::connected, this, [=] {
-        AccountSettings account(conn->userId());
-        account.setKeepLoggedIn(true);
-        account.clearAccessToken(); // Drop the legacy - just in case
-        account.setHomeserver(conn->homeserver());
-        account.setDeviceId(conn->deviceId());
-        account.setDeviceName(deviceName);
-        if (!saveAccessTokenToKeyChain(account, conn->accessToken()))
-            qWarning() << "Couldn't save access token";
-        account.sync();
-        addConnection(conn);
-        setActiveConnection(conn);
-    });
-    connect(conn, &Connection::networkError, [=](QString error, QString, int, int) {
-        Q_EMIT errorOccured("Network Error", error);
-    });
-    connect(conn, &Connection::loginError, [=](QString error, QString) {
-        Q_EMIT errorOccured("Login Failed", error);
-    });
 }
 
 void Controller::loginWithAccessToken(QString serverAddr, QString user, QString token, QString deviceName)
