@@ -43,7 +43,7 @@ if(ANDROID)
         "list-user-add"
         "list-add-user"
         "user-others"
-        "media-playback-pause":
+        "media-playback-pause"
         "media-playback-start"
         "go-up"
         "go-down"
