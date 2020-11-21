@@ -44,9 +44,9 @@ Kirigami.ScrollablePage {
             visible: listView.count == 0
             text: sortFilterRoomListModel.filterText.length > 0 ? i18n("No room found.") : i18n("You didn't join any room yet.")
             helpfulAction: Kirigami.Action {
-                icon.name: "list-add"
-                text: i18n("Explore rooms")
-                onTriggered: pageStack.layers.push("qrc:/imports/NeoChat/Page/JoinRoomPage.qml", {"connection": activeConnection})
+                icon.name: sortFilterRoomListModel.filterText.length > 0 ? "search" : "list-add"
+                text: sortFilterRoomListModel.filterText.length > 0 ? i18n("Search in room directory") : i18n("Explore rooms")
+                onTriggered: pageStack.layers.push("qrc:/imports/NeoChat/Page/JoinRoomPage.qml", {"connection": activeConnection, "keyword": sortFilterRoomListModel.filterText})
             }
         }
         model:  SortFilterRoomListModel {

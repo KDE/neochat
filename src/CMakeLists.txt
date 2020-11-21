@@ -53,6 +53,7 @@ if(ANDROID)
         "configure"
         "rating"
         "rating-unrated"
+        "search"
     )
 else()
     target_link_libraries(neochat PRIVATE Qt5::Widgets ${QTKEYCHAIN_LIBRARIES})

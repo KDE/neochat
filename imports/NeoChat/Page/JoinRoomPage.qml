@@ -20,7 +20,7 @@ Kirigami.ScrollablePage {
     id: root
     property var connection
 
-    property string keyword
+    property alias keyword: identifierField.text
     property string server
 
     signal joinRoom(string room)
@@ -40,10 +40,6 @@ Kirigami.ScrollablePage {
                 id: identifierField
 
                 placeholderText: i18n("Find a room...")
-
-                onEditingFinished: {
-                    keyword = text
-                }
             }
 
             Button {
