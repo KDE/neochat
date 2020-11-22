@@ -81,12 +81,18 @@ Kirigami.ApplicationWindow {
         }
     }
 
+    function showWindow() {
+        root.show()
+        root.raise()
+        root.requestActivate()
+    }
+
     TrayIcon {
         id: trayIcon
         visible: true
         iconSource: ":/assets/img/icon.png"
         isOnline: true
-        onShowWindow: window.showWindow()
+        onShowWindow: root.showWindow()
     }
 
     contextDrawer: RoomDrawer {
