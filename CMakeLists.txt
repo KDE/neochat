@@ -36,8 +36,21 @@ else()
     find_package(Qt5Keychain REQUIRED)
 endif()
 
-find_package(Quotient 0.6 REQUIRED)
-find_package(cmark REQUIRED)
+find_package(Quotient 0.6)
+set_package_properties(Quotient PROPERTIES
+    TYPE REQUIRED
+    DESCRIPTION "Qt wrapper arround Matrix API"
+    URL "https://github.com/quotient-im/libQuotient/"
+    PURPOSE "Talk with matrix server"
+)
+
+find_package(cmark)
+set_package_properties(cmark PROPERTIES
+    TYPE REQUIRED
+    DESCRIPTION "Cmark is the common mark reference implementation"
+    URL "https://github.com/commonmark/cmark"
+    PURPOSE "Convert markdown to html"
+)
 
 install(PROGRAMS org.kde.neochat.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.neochat.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
