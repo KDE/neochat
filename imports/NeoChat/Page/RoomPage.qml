@@ -28,81 +28,80 @@ Kirigami.ScrollablePage {
 
     title: currentRoom.name
 
-    MessageEventModel {
-        id: messageEventModel
-
-        room: currentRoom
-    }
-
-    QQC2.Popup {
-        anchors.centerIn: parent
-
-        id: attachDialog
-
-        padding: 16
-
-        contentItem: RowLayout {
-            QQC2.ToolButton {
-                Layout.preferredWidth: 160
-                Layout.fillHeight: true
-
-                icon.name: 'mail-attachment'
-
-                text: i18n("Choose local file")
-
-                onClicked: {
-                    attachDialog.close()
-
-                    var fileDialog = openFileDialog.createObject(ApplicationWindow.overlay)
-
-                    fileDialog.chosen.connect(function(path) {
-                        if (!path) return
-
-                        chatTextInput.attach(path)
-                    })
-
-                    fileDialog.open()
-                }
-            }
-
-            Kirigami.Separator {}
-
-            QQC2.ToolButton {
-                Layout.preferredWidth: 160
-                Layout.fillHeight: true
-
-                padding: 16
-
-                icon.name: 'insert-image'
-                text: i18n("Clipboard image")
-                onClicked: {
-                    var localPath = Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/screenshots/" + (new Date()).getTime() + ".png"
-                    if (!Clipboard.saveImage(localPath)) return
-                    chatTextInput.attach(localPath)
-                    attachDialog.close()
-                }
-            }
-        }
-    }
-
-    Component {
-        id: openFileDialog
-
-        OpenFileDialog {}
-    }
-
-
-    KSortFilterProxyModel {
-        id: sortedMessageEventModel
-
-        sourceModel: messageEventModel
-
-        filterRowCallback: function(row, parent) {
-            return messageEventModel.data(messageEventModel.index(row, 0), MessageEventModel.MessageRole) !== 0x10 && messageEventModel.data(messageEventModel.index(row, 0), MessageEventModel.EventTypeRole) !== "other"
-        }
-    }
-
     ListView {
+        MessageEventModel {
+            id: messageEventModel
+
+            room: currentRoom
+        }
+
+        QQC2.Popup {
+            anchors.centerIn: parent
+
+            id: attachDialog
+
+            padding: 16
+
+            contentItem: RowLayout {
+                QQC2.ToolButton {
+                    Layout.preferredWidth: 160
+                    Layout.fillHeight: true
+
+                    icon.name: 'mail-attachment'
+
+                    text: i18n("Choose local file")
+
+                    onClicked: {
+                        attachDialog.close()
+
+                        var fileDialog = openFileDialog.createObject(ApplicationWindow.overlay)
+
+                        fileDialog.chosen.connect(function(path) {
+                            if (!path) return
+
+                            chatTextInput.attach(path)
+                        })
+
+                        fileDialog.open()
+                    }
+                }
+
+                Kirigami.Separator {}
+
+                QQC2.ToolButton {
+                    Layout.preferredWidth: 160
+                    Layout.fillHeight: true
+
+                    padding: 16
+
+                    icon.name: 'insert-image'
+                    text: i18n("Clipboard image")
+                    onClicked: {
+                        var localPath = Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/screenshots/" + (new Date()).getTime() + ".png"
+                        if (!Clipboard.saveImage(localPath)) return
+                        chatTextInput.attach(localPath)
+                        attachDialog.close()
+                    }
+                }
+            }
+        }
+
+        Component {
+            id: openFileDialog
+
+            OpenFileDialog {}
+        }
+
+
+        KSortFilterProxyModel {
+            id: sortedMessageEventModel
+
+            sourceModel: messageEventModel
+
+            filterRowCallback: function(row, parent) {
+                return messageEventModel.data(messageEventModel.index(row, 0), MessageEventModel.MessageRole) !== 0x10 && messageEventModel.data(messageEventModel.index(row, 0), MessageEventModel.EventTypeRole) !== "other"
+            }
+        }
         readonly property int largestVisibleIndex: count > 0 ? indexAt(contentX + (width / 2), contentY + height - 1) : -1
         readonly property bool noNeedMoreContent: !currentRoom || currentRoom.eventsHistoryJob || currentRoom.allHistoryLoaded
 
@@ -309,10 +308,11 @@ Kirigami.ScrollablePage {
             }
         }
 
-        QQC2.Button {
+        QQC2.RoundButton {
             anchors.right: parent.right
             anchors.top: parent.top
-            anchors.topMargin: 16
+            anchors.topMargin: Kirigami.Units.largeSpacing
+            anchors.rightMargin: Kirigami.Units.largeSpacing
 
             padding: 8
 
@@ -356,25 +356,37 @@ Kirigami.ScrollablePage {
 
             positionViewAtBeginning()
         }
-    }
 
-    DropArea {
-        id: dropAreaFile
-        anchors.fill: parent
-        onDropped: chatTextInput.attach(drop.urls[0])
-    }
-
-    QQC2.Pane {
-        visible: dropAreaFile.containsDrag
-        anchors {
-            fill: parent
-            margins: Kirigami.Units.gridUnit
+        DropArea {
+            id: dropAreaFile
+            anchors.fill: parent
+            onDropped: chatTextInput.attach(drop.urls[0])
         }
 
-        Kirigami.PlaceholderMessage {
-            anchors.centerIn: parent
-            width: parent.width - (Kirigami.Units.largeSpacing * 4)
-            text: i18n("Drag items here to share them")
+        QQC2.Pane {
+            visible: dropAreaFile.containsDrag
+            anchors {
+                fill: parent
+                margins: Kirigami.Units.gridUnit
+            }
+
+            Kirigami.PlaceholderMessage {
+                anchors.centerIn: parent
+                width: parent.width - (Kirigami.Units.largeSpacing * 4)
+                text: i18n("Drag items here to share them")
+            }
+        }
+
+        Component {
+            id: messageDelegateContextMenu
+
+            MessageDelegateContextMenu {}
+        }
+
+        Component {
+            id: messageSourceSheet
+
+            MessageSourceSheet {}
         }
     }
 
@@ -431,17 +443,5 @@ Kirigami.ScrollablePage {
             contextMenu.close();
         })
         contextMenu.open()
-    }
-
-    Component {
-        id: messageDelegateContextMenu
-
-        MessageDelegateContextMenu {}
-    }
-
-    Component {
-        id: messageSourceSheet
-
-        MessageSourceSheet {}
     }
 }
