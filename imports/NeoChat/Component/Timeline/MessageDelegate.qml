@@ -81,16 +81,24 @@ RowLayout {
             id: column
             spacing: Kirigami.Units.smallSpacing
 
-            QQC2.Label {
-                Layout.fillWidth: true
-                topInset: 0
+            RowLayout {
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    topInset: 0
 
-                visible: showAuthor
+                    visible: showAuthor
 
-                text: author.displayName
-                font.bold: true
-                color: author.color
-                wrapMode: Text.Wrap
+                    text: author.displayName
+                    font.bold: true
+                    color: author.color
+                    wrapMode: Text.Wrap
+                }
+
+                QQC2.Label {
+                    visible: showAuthor
+                    text: time.toLocaleTimeString(Locale.ShortFormat)
+                    color: Kirigami.Theme.disabledTextColor
+                }
             }
             Loader {
                 id: replyLoader
