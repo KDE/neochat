@@ -126,6 +126,7 @@ ToolBar {
                         visible: isEmoji
                         text: autoCompleteText
                         font.family: "Emoji"
+                        font.pointSize: 20
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
                     }
@@ -135,6 +136,7 @@ ToolBar {
                         Layout.preferredHeight: Kirigami.Units.gridUnit
                         source: modelData.avatarMediaId ? "image://mxc/" + modelData.avatarMediaId : ""
                         color: modelData.color ? Qt.darker(modelData.color, 1.1) : null
+                        visible: !isEmoji
                     }
                     Label {
                         Layout.fillHeight: true
