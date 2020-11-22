@@ -383,7 +383,7 @@ Kirigami.ScrollablePage {
         Layout.fillWidth: true
     }
 
-    background: Item {}
+    Kirigami.Theme.colorSet: Kirigami.Theme.View
 
     function goToEvent(eventID) {
         messageListView.positionViewAtIndex(eventToIndex(eventID), ListView.Contain)
