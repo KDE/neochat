@@ -101,6 +101,13 @@ TrayIcon::TrayIcon(QObject *parent)
     connect(viewAction_, &QAction::triggered, this, &TrayIcon::showWindow);
     connect(quitAction_, &QAction::triggered, this, QApplication::quit);
 
+    connect(this, &QSystemTrayIcon::activated, this, [this](QSystemTrayIcon::ActivationReason reason) {
+        // Usually left click
+        if (reason == QSystemTrayIcon::ActivationReason::Trigger) {
+            Q_EMIT showWindow();
+        }
+    });
+
     menu->addAction(viewAction_);
     menu->addAction(quitAction_);
 
