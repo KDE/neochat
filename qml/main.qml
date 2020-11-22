@@ -73,6 +73,14 @@ Kirigami.ApplicationWindow {
         }
     }
 
+    function pushReplaceLayer(page, args) {
+        if (pageStack.layers.depth === 2) {
+            pageStack.layers.replace(page, args);
+        } else {
+            pageStack.layers.push(page, args);
+        }
+    }
+
     TrayIcon {
         id: trayIcon
         visible: true
@@ -90,29 +98,30 @@ Kirigami.ApplicationWindow {
 
     globalDrawer: Kirigami.GlobalDrawer {
         isMenu: true
+        property bool hasLayer
         actions: [
             Kirigami.Action {
                 text: i18n("Explore rooms")
                 iconName: "compass"
-                onTriggered: pageStack.layers.push("qrc:/imports/NeoChat/Page/JoinRoomPage.qml", {"connection": Controller.activeConnection})
+                onTriggered: pushReplaceLayer("qrc:/imports/NeoChat/Page/JoinRoomPage.qml", {"connection": Controller.activeConnection})
                 enabled: pageStack.layers.currentItem.title !== i18n("Explore Rooms")
             },
             Kirigami.Action {
                 text: i18n("Accounts")
                 iconName: "im-user"
-                onTriggered: pageStack.layers.push("qrc:/imports/NeoChat/Page/AccountsPage.qml")
+                onTriggered: pushReplaceLayer("qrc:/imports/NeoChat/Page/AccountsPage.qml")
                 enabled: pageStack.layers.currentItem.title !== i18n("Accounts")
             },
             Kirigami.Action {
                 text: i18n("Settings")
                 iconName: "settings-configure"
-                onTriggered: pageStack.layers.push("qrc:/imports/NeoChat/Page/SettingsPage.qml")
+                onTriggered: pushReplaceLayer("qrc:/imports/NeoChat/Page/SettingsPage.qml")
                 enabled: pageStack.layers.currentItem.title !== i18n("Settings")
             },
             Kirigami.Action {
                 text: i18n("About Neochat")
                 iconName: "help-about"
-                onTriggered: pageStack.layers.push(aboutPage)
+                onTriggered: pushReplaceLayer("qrc:/imports/NeoChat/Page/AboutPage.qml")
                 enabled: pageStack.layers.currentItem.title !== i18n("About")
             }
         ]
