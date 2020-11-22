@@ -41,6 +41,6 @@ Q_SIGNALS:
     void filterTextChanged();
 
 private:
-    RoomSortOrder m_sortOrder;
+    RoomSortOrder m_sortOrder = Categories;
     QString m_filterText;
 };
