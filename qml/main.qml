@@ -99,7 +99,7 @@ Kirigami.ApplicationWindow {
         id: contextDrawer
         enabled: roomManager.hasOpenRoom
         room: roomManager.currentRoom
-        handleVisible: enabled && (pageStack.currentItem instanceof RoomPage) && pageStack.layers.depth < 2
+        handleVisible: enabled && pageStack.layers.depth < 2
     }
 
     globalDrawer: Kirigami.GlobalDrawer {
