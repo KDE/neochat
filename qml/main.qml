@@ -127,7 +127,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: i18n("About Neochat")
                 iconName: "help-about"
-                onTriggered: pushReplaceLayer("qrc:/imports/NeoChat/Page/AboutPage.qml")
+                onTriggered: pushReplaceLayer(aboutPage)
                 enabled: pageStack.layers.currentItem.title !== i18n("About")
             }
         ]
