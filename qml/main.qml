@@ -73,6 +73,14 @@ Kirigami.ApplicationWindow {
         }
     }
 
+    TrayIcon {
+        id: trayIcon
+        visible: true
+        iconSource: ":/assets/img/icon.png"
+        isOnline: true
+        onShowWindow: window.showWindow()
+    }
+
     contextDrawer: RoomDrawer {
         id: contextDrawer
         enabled: roomManager.hasOpenRoom
