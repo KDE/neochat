@@ -57,9 +57,18 @@ Kirigami.ScrollablePage {
             Kirigami.FormData.label: i18n("Device Name (Optional)")
             onAccepted: doLogin()
         }
-        QQC2.Button {
-            text: i18n("Login")
-            onClicked: doLogin()
+        RowLayout {
+            QQC2.Button {
+                visible: Controller.accountCount > 0
+                text: i18n("Cancel")
+                onClicked: {
+                    pageStack.layers.clear();
+                }
+            }
+            QQC2.Button {
+                text: i18n("Login")
+                onClicked: doLogin()
+            }
         }
 
         Connections {
