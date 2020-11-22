@@ -10,8 +10,7 @@ import org.kde.kirigami 2.13 as Kirigami
 
 Kirigami.Heading {
     level: 4
-    text: section + " • " + Qt.formatTime(time)
-    font.capitalization: Font.AllUppercase
+    text: section
     verticalAlignment: Text.AlignVCenter
     topPadding: Kirigami.Units.largeSpacing * 2
     bottomPadding: Kirigami.Units.smallSpacing

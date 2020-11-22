@@ -15,6 +15,7 @@
 #include <user.h>
 
 #include <QDebug>
+#include <QTimeZone>
 #include <QQmlEngine> // for qmlRegisterType()
 
 #include <KLocalizedString>
@@ -452,7 +453,9 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         for (auto r = row + 1; r < rowCount(); ++r) {
             auto i = index(r);
             if (data(i, SpecialMarksRole) != EventStatus::Hidden) {
-                return data(i, TimeRole).toDateTime().msecsTo(data(idx, TimeRole).toDateTime()) > 600000;
+                const auto day = data(idx, TimeRole).toDateTime().toLocalTime().date().dayOfYear();
+                const auto previousEventDay = data(i, TimeRole).toDateTime().toLocalTime().date().dayOfYear();
+                return day != previousEventDay;
             }
         }
 
