@@ -21,8 +21,12 @@ Kirigami.ScrollablePage {
             Kirigami.FormData.label: i18n("Show Notifications:")
             checked: Config.showNotifications
         }
+    }
 
+    footer: RowLayout {
         QQC2.Button {
+            Layout.alignment: Qt.AlignRight
+            Layout.margins: Kirigami.Units.smallSpacing
             text: i18n("Save")
             onClicked: {
                 Config.showNotifications = showNotifications.checked;
