@@ -10,7 +10,6 @@
 #include <QMediaPlayer>
 #include <QMenu>
 #include <QObject>
-#include <QSystemTrayIcon>
 
 #include <KAboutData>
 
