@@ -77,9 +77,9 @@ Kirigami.ScrollablePage {
 
     function doLogin() {
         if (accessTokenField.text.length > 0) {
-            Controller.loginWithAccessToken(serverField.text, usernameField.text, accessTokenField.text, deviceNameField.text)
+            Controller.loginWithAccessToken(serverField.text.trim(), usernameField.text.trim(), accessTokenField.text, deviceNameField.text.trim());
         } else {
-            Controller.loginWithCredentials(serverField.text, usernameField.text, passwordField.text, deviceNameField.text)
+            Controller.loginWithCredentials(serverField.text.trim(), usernameField.text.trim(), passwordField.text, deviceNameField.text.trim());
         }
     }
 }
