@@ -101,10 +101,14 @@ Kirigami.OverlaySheet {
                     }
                 }
 
-                Kirigami.Separator {}
+                Kirigami.Separator {
+                    Layout.fillWidth: true
+                    visible: canonicalAliasComboBox.visible || altAlias.visible
+                }
 
                 ComboBox {
                     id: canonicalAliasComboBox
+                    visible: room.aliases && room.aliases.length
                     Kirigami.FormData.label: i18n("Canonical Alias:")
                     popup.z: 999; // HACK This is an absolute hack, but combos inside OverlaySheets have their popups show up underneath, because of fun z ordering stuff
 
@@ -121,6 +125,7 @@ Kirigami.OverlaySheet {
                 }
 
                 RowLayout {
+                    id: altAlias
                     Kirigami.FormData.label: i18n("Alt Aliases")
                     Layout.fillWidth: true
 
