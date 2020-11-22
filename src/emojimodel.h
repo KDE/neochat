@@ -63,7 +63,6 @@ class EmojiModel : public QObject
 public:
     explicit EmojiModel(QObject *parent = nullptr)
         : QObject(parent)
-        , m_settings(new QSettings())
     {
     }
 
@@ -86,7 +85,7 @@ private:
     static const QVariantList symbols;
     static const QVariantList flags;
 
-    QSettings *m_settings;
+    QSettings m_settings;
 };
 
 #endif // EMOJIMODEL_H

@@ -11,7 +11,7 @@
 
 QVariantList EmojiModel::history()
 {
-    return m_settings->value("Editor/emojis", QVariantList()).toList();
+    return m_settings.value("Editor/emojis", QVariantList()).toList();
 }
 
 QVariantList EmojiModel::filterModel(const QString &filter)
@@ -83,7 +83,7 @@ void EmojiModel::emojiUsed(QVariant modelData)
     }
 
     list.push_front(modelData);
-    m_settings->setValue("Editor/emojis", list);
+    m_settings.setValue("Editor/emojis", list);
 
     Q_EMIT historyChanged();
 }
