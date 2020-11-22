@@ -12,7 +12,7 @@ import org.kde.kirigami 2.13 as Kirigami
 Flow {
     visible: (reaction && reaction.length > 0) ?? false
 
-    spacing: 8
+    spacing: Kirigami.Units.largeSpacing
 
     Repeater {
         model: reaction
@@ -27,13 +27,12 @@ Flow {
             contentItem: Label {
                 height: Kirigami.Units.largeSpacing * 3
                 text: modelData.reaction + (modelData.count > 1 ? " " + modelData.count : "")
-                font.family: "emoji"
                 elide: Text.ElideRight
             }
 
             background: Rectangle {
                 radius: height / 2
-                Kirigami.Theme.colorSet: Kirigami.Theme.View
+                Kirigami.Theme.colorSet: Kirigami.Theme.Window
                 color: Kirigami.Theme.backgroundColor
 
                 MouseArea {
@@ -43,7 +42,6 @@ Flow {
 
                     ToolTip {
                         visible: parent.containsMouse
-                        font.family: Kirigami.Theme.defaultFont.family + ", emoji"
                         text: {
                             var text = "";
 

@@ -37,6 +37,7 @@ RowLayout {
     spacing: Kirigami.Units.smallSpacing
     Layout.leftMargin: Kirigami.Units.largeSpacing
     Layout.rightMargin: Kirigami.Units.smallSpacing
+    Layout.bottomMargin: 0
     Layout.topMargin: showAuthor ? Kirigami.Units.smallSpacing : 0
 
     Kirigami.Avatar {
@@ -75,6 +76,7 @@ RowLayout {
         id: controlContainer
         Layout.fillWidth: true
         topPadding: 0
+        bottomPadding: 0
         contentItem: ColumnLayout {
             id: column
             spacing: Kirigami.Units.smallSpacing
