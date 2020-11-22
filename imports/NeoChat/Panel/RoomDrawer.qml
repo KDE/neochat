@@ -86,7 +86,7 @@ Kirigami.OverlayDrawer {
                             Layout.fillWidth: true
                             id: configButton
                             icon.name: 'settings-configure'
-                            text: i18n("Room setting")
+                            text: i18n("Room settings")
                             onClicked: {
                                 roomSettingDialog.createObject(ApplicationWindow.overlay, {"room": room}).open()
                                 roomDrawer.close();
