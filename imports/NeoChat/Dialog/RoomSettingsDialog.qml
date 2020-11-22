@@ -29,6 +29,7 @@ Kirigami.OverlaySheet {
 
     header: Kirigami.Heading {
         text: i18nc("%1 is the room name", "Room Settings - %1", room.displayName)
+        elide: Text.ElideRight
     }
 
     contentItem: ColumnLayout {
