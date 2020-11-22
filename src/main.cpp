@@ -33,7 +33,6 @@
 #include "room.h"
 #include "roomlistmodel.h"
 #include "sortfilterroomlistmodel.h"
-#include "trayicon.h"
 #include "userdirectorylistmodel.h"
 #include "userlistmodel.h"
 #include "neochatconfig.h"
@@ -72,7 +71,6 @@ int main(int argc, char *argv[])
     qmlRegisterType<PublicRoomListModel>("org.kde.neochat", 1, 0, "PublicRoomListModel");
     qmlRegisterType<UserDirectoryListModel>("org.kde.neochat", 1, 0, "UserDirectoryListModel");
     qmlRegisterType<EmojiModel>("org.kde.neochat", 1, 0, "EmojiModel");
-    qmlRegisterType<TrayIcon>("org.kde.neochat", 1, 0, "TrayIcon");
     qmlRegisterType<SortFilterRoomListModel>("org.kde.neochat", 1, 0, "SortFilterRoomListModel");
     qmlRegisterUncreatableType<RoomMessageEvent>("org.kde.neochat", 1, 0, "RoomMessageEvent", "ENUM");
     qmlRegisterUncreatableType<RoomType>("org.kde.neochat", 1, 0, "RoomType", "ENUM");

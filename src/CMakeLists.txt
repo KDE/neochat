@@ -8,7 +8,6 @@ add_executable(neochat
     roomlistmodel.cpp
     neochatroom.cpp
     neochatuser.cpp
-    trayicon.cpp
     userlistmodel.cpp
     publicroomlistmodel.cpp
     userdirectorylistmodel.cpp
@@ -18,6 +17,10 @@ add_executable(neochat
     sortfilterroomlistmodel.cpp
     ../res.qrc
 )
+
+if(NOT ANDROID)
+    target_sources(neochat PRIVATE trayicon.cpp)
+endif()
 
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR})
 target_link_libraries(neochat PRIVATE Qt5::Quick Qt5::Qml Qt5::Gui Qt5::Network Qt5::QuickControls2 KF5::I18n KF5::Kirigami2 KF5::Notifications KF5::ConfigCore KF5::ConfigGui KF5::CoreAddons Quotient cmark::cmark)

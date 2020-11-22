@@ -87,14 +87,6 @@ Kirigami.ApplicationWindow {
         root.requestActivate()
     }
 
-    TrayIcon {
-        id: trayIcon
-        visible: true
-        iconSource: ":/assets/img/icon.png"
-        isOnline: true
-        onShowWindow: root.showWindow()
-    }
-
     contextDrawer: RoomDrawer {
         id: contextDrawer
         enabled: roomManager.hasOpenRoom
@@ -177,6 +169,8 @@ Kirigami.ApplicationWindow {
         }
 
         onGlobalErrorOccured: showPassiveNotification(error + ": " + detail)
+
+        onShowWindow: root.showWindow()
     }
 
     RoomListModel {

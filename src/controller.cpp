@@ -46,6 +46,10 @@
 #include "settings.h"
 #include "utils.h"
 
+#ifndef Q_OS_ANDROID
+#include "trayicon.h"
+#endif
+
 Controller::Controller(QObject *parent)
     : QObject(parent)
 {
@@ -53,6 +57,14 @@ Controller::Controller(QObject *parent)
 
     Connection::setRoomType<NeoChatRoom>();
     Connection::setUserType<NeoChatUser>();
+
+#ifndef Q_OS_ANDROID
+    TrayIcon *trayIcon = new TrayIcon(this);
+    connect(trayIcon, &TrayIcon::showWindow, this, &Controller::showWindow);
+    trayIcon->setVisible(true);
+    trayIcon->setIconSource(":/assets/img/icon.png");
+    trayIcon->setIsOnline(true);
+#endif
 
     QTimer::singleShot(0, this, [=] {
         invokeLogin();

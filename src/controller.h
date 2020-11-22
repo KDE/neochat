@@ -102,6 +102,7 @@ Q_SIGNALS:
     void activeConnectionChanged();
     void aboutDataChanged();
     void passwordStatus(Controller::PasswordStatus status);
+    void showWindow();
 
 public Q_SLOTS:
     void logout(Quotient::Connection *conn, bool serverSideLogout);
