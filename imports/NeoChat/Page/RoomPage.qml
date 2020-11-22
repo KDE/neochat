@@ -203,6 +203,7 @@ Kirigami.ScrollablePage {
                             anchors.fill: parent
                             onClicked: openMessageContext(author, display, eventId, toolTip);
                         }
+                        onReplyClicked: goToEvent(eventID)
                         innerObject: [
                             TextDelegate {
                                 Layout.fillWidth: true
@@ -225,6 +226,7 @@ Kirigami.ScrollablePage {
 
                     innerObject: MessageDelegate {
                         Layout.fillWidth: true
+                        onReplyClicked: goToEvent(eventID)
 
                         innerObject: TextDelegate {
                             Layout.fillWidth: true
@@ -240,6 +242,7 @@ Kirigami.ScrollablePage {
 
                     innerObject: MessageDelegate {
                         Layout.fillWidth: true
+                        onReplyClicked: goToEvent(eventID)
 
                         innerObject: [
                             ImageDelegate {
@@ -264,6 +267,7 @@ Kirigami.ScrollablePage {
 
                     innerObject: MessageDelegate {
                         Layout.fillWidth: true
+                        onReplyClicked: goToEvent(eventID)
 
                         innerObject: AudioDelegate {
                             Layout.fillWidth: true
@@ -279,6 +283,7 @@ Kirigami.ScrollablePage {
 
                     innerObject: MessageDelegate {
                         Layout.fillWidth: true
+                        onReplyClicked: goToEvent(eventID)
 
                         innerObject: AudioDelegate {
                             Layout.fillWidth: true

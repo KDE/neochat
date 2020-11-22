@@ -30,6 +30,7 @@ RowLayout {
 
     signal saveFileAs()
     signal openExternally()
+    signal replyClicked(string eventID)
 
     id: root
 
@@ -90,8 +91,13 @@ RowLayout {
                 wrapMode: Text.Wrap
             }
             Loader {
+                id: replyLoader
                 source: 'qrc:imports/NeoChat/Component/Timeline/ReplyComponent.qml'
                 active: replyVisible
+            }
+            Connections {
+                target: replyLoader.item
+                onClicked: replyClicked(reply.eventId)
             }
         }
     }

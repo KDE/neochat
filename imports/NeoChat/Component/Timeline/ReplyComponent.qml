@@ -9,48 +9,48 @@ import QtQuick.Controls 2.12 as QQC2
 import QtQuick.Layouts 1.12
 import org.kde.kirigami 2.13 as Kirigami
 
-RowLayout {
-    Layout.fillWidth: true
-
+QQC2.AbstractButton {
     visible: replyVisible
-
     Component.onCompleted: parent.Layout.fillWidth = true
 
-    Rectangle {
-        Layout.preferredWidth: Kirigami.Units.smallSpacing
-        Layout.fillHeight: true
-
-        color: Kirigami.Theme.highlightColor
-    }
-
-    Kirigami.Avatar {
-        Layout.preferredWidth: Kirigami.Units.gridUnit
-        Layout.preferredHeight: Kirigami.Units.gridUnit
-        Layout.alignment: Qt.AlignTop
-
-        source: replyVisible && reply.author.avatarMediaId ? "image://mxc/" + reply.author.avatarMediaId : ""
-        name: replyVisible ? reply.author.displayName : "H"
-        color: replyVisible ? reply.author.color : Kirigami.Theme.highlightColor
-    }
-
-    ColumnLayout {
-        id: replyLayout
+    contentItem: RowLayout {
         Layout.fillWidth: true
 
-        QQC2.Label {
-            Layout.fillWidth: true
-            text: replyVisible ? reply.author.displayName : ""
-            color: replyVisible ? reply.author.color: null
-            elide: Text.ElideRight
+        Rectangle {
+            Layout.preferredWidth: Kirigami.Units.smallSpacing
+            Layout.fillHeight: true
+
+            color: Kirigami.Theme.highlightColor
         }
 
-        QQC2.Label {
+        Kirigami.Avatar {
+            Layout.preferredWidth: Kirigami.Units.gridUnit
+            Layout.preferredHeight: Kirigami.Units.gridUnit
+            Layout.alignment: Qt.AlignTop
+
+            source: replyVisible && reply.author.avatarMediaId ? "image://mxc/" + reply.author.avatarMediaId : ""
+            name: replyVisible ? reply.author.displayName : "H"
+            color: replyVisible ? reply.author.color : Kirigami.Theme.highlightColor
+        }
+
+        ColumnLayout {
+            id: replyLayout
             Layout.fillWidth: true
-            text: replyVisible ? reply.display : ""
-            textFormat: Text.RichText
-            elide: Text.ElideRight
-            wrapMode: Text.WordWrap
+
+            QQC2.Label {
+                Layout.fillWidth: true
+                text: replyVisible ? reply.author.displayName : ""
+                color: replyVisible ? reply.author.color: null
+                elide: Text.ElideRight
+            }
+
+            QQC2.Label {
+                Layout.fillWidth: true
+                text: replyVisible ? reply.display : ""
+                textFormat: Text.RichText
+                elide: Text.ElideRight
+                wrapMode: Text.WordWrap
+            }
         }
     }
 }
-
