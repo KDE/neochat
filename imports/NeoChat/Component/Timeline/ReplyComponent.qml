@@ -14,6 +14,8 @@ RowLayout {
 
     visible: replyVisible
 
+    Component.onCompleted: parent.Layout.fillWidth = true
+
     Rectangle {
         Layout.preferredWidth: Kirigami.Units.smallSpacing
         Layout.fillHeight: true
@@ -47,6 +49,7 @@ RowLayout {
             text: replyVisible ? reply.display : ""
             textFormat: Text.RichText
             elide: Text.ElideRight
+            wrapMode: Text.WordWrap
         }
     }
 }
