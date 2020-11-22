@@ -117,17 +117,16 @@ void Controller::loginWithCredentials(QString serverAddr, QString user, QString 
                     setActiveConnection(finalConn);
                 });
                 connect(finalConn, &Connection::networkError, [=](QString error, QString, int, int) {
-                    Q_EMIT errorOccured(i18n("Network Error"), error);
+                    Q_EMIT globalErrorOccured(i18n("Network Error"), error);
                 });
                 connect(finalConn, &Connection::loginError, [=](QString error, QString) {
                     Q_EMIT errorOccured(i18n("Login Failed"), error);
                 });
-            } else {
-                Q_EMIT errorOccured(i18n("Error connecting to server"), "");
             }
         });
-        connect(conn, &Connection::networkError, this, [=](QString error, QString, int, int) {
-            Q_EMIT errorOccured(i18n("Network Error"), error);
+        connect(job, &BaseJob::retryScheduled, this, [=](int, Quotient::BaseJob::duration_ms_t) {
+            Q_EMIT errorOccured(i18n("%1 is not a matrix server or is unreachable", serverUrl.toString()), QString());
+            job->abandon();
         });
     }
 }

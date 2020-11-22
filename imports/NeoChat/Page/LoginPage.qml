@@ -19,6 +19,16 @@ Kirigami.ScrollablePage {
 
     title: i18n("Login")
 
+    header: QQC2.Control {
+        padding: Kirigami.Units.smallSpacing
+        contentItem: Kirigami.InlineMessage {
+            id: inlineMessage
+            type: Kirigami.MessageType.Error
+            visible: false
+            showCloseButton: true
+        }
+    }
+
     Kirigami.FormLayout {
         id: formLayout
         QQC2.TextField {
@@ -50,6 +60,18 @@ Kirigami.ScrollablePage {
         QQC2.Button {
             text: i18n("Login")
             onClicked: doLogin()
+        }
+
+        Connections {
+            target: Controller
+            onErrorOccured: {
+                if (detail.length !== 0) {
+                    inlineMessage.text = i18n("%1: %2", error, detail);
+                } else {
+                    inlineMessage.text = error;
+                }
+                inlineMessage.visible = true;
+            }
         }
     }
 

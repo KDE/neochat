@@ -151,7 +151,7 @@ Kirigami.ApplicationWindow {
                 pageStack.replace("qrc:/imports/NeoChat/Page/LoginPage.qml")
         }
 
-        onErrorOccured: showPassiveNotification(error + ": " + detail)
+        onGlobalErrorOccured: showPassiveNotification(error + ": " + detail)
     }
 
     RoomListModel {
