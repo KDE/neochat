@@ -335,6 +335,10 @@ Kirigami.ScrollablePage {
                 }
                 icon.name: currentRoom && currentRoom.hasUnreadMessages ? "go-up" : "go-down"
             }
+
+            QQC2.ToolTip {
+                text: currentRoom && currentRoom.hasUnreadMessages ? i18n("Jump to first unread message") : i18n("Jump to latest message")
+            }
         }
 
         header: RowLayout {
