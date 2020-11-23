@@ -377,6 +377,10 @@ ToolBar {
                 Layout.alignment: Qt.AlignTop
 
                 onClicked: emojiPicker.visible = !emojiPicker.visible
+
+                ToolTip {
+                    text: i18n("Add an Emoji")
+                }
             }
 
             ToolButton {
@@ -403,6 +407,10 @@ ToolBar {
                     }
                 }
 
+                ToolTip {
+                    text: i18n("Attach an image or file")
+                }
+
                 BusyIndicator {
                     anchors.fill: parent
 
@@ -420,6 +428,10 @@ ToolBar {
                     inputField.text = ""
                     root.clearReply()
                     root.closeAll()
+                }
+
+                ToolTip {
+                    text: i18n("Send message")
                 }
             }
         }
