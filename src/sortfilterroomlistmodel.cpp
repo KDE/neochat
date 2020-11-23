@@ -26,6 +26,7 @@ void SortFilterRoomListModel::setRoomSortOrder(SortFilterRoomListModel::RoomSort
         setSortRole(RoomListModel::NameRole);
     else if (sortOrder == SortFilterRoomListModel::LastActivity)
         setSortRole(RoomListModel::LastActiveTimeRole);
+    invalidate();
 }
 
 SortFilterRoomListModel::RoomSortOrder SortFilterRoomListModel::roomSortOrder() const
@@ -35,6 +36,21 @@ SortFilterRoomListModel::RoomSortOrder SortFilterRoomListModel::roomSortOrder() 
 
 bool SortFilterRoomListModel::lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const
 {
+    if (m_sortOrder == SortFilterRoomListModel::LastActivity) {
+        // display favorite rooms always on top
+        const auto categoryLeft = static_cast<RoomType::Types>(sourceModel()->data(source_left, RoomListModel::CategoryRole).toInt());
+        const auto categoryRight = static_cast<RoomType::Types>(sourceModel()->data(source_right, RoomListModel::CategoryRole).toInt());
+
+        if (categoryLeft == RoomType::Types::Favorite && categoryRight == RoomType::Types::Favorite) {
+            return sourceModel()->data(source_left, RoomListModel::LastActiveTimeRole).toDateTime() > sourceModel()->data(source_right, RoomListModel::LastActiveTimeRole).toDateTime();
+        } else if (categoryLeft == RoomType::Types::Favorite) {
+            return true;
+        } else if (categoryRight == RoomType::Types::Favorite) {
+            return false;
+        }
+
+        return sourceModel()->data(source_left, RoomListModel::LastActiveTimeRole).toDateTime() > sourceModel()->data(source_right, RoomListModel::LastActiveTimeRole).toDateTime();
+    }
     if (m_sortOrder != SortFilterRoomListModel::Categories)
         return QSortFilterProxyModel::lessThan(source_left, source_right);
     if (sourceModel()->data(source_left, RoomListModel::CategoryRole) != sourceModel()->data(source_right, RoomListModel::CategoryRole))

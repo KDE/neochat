@@ -20,18 +20,20 @@ Kirigami.ScrollablePage {
             id: showNotifications
             Kirigami.FormData.label: i18n("Show Notifications:")
             checked: Config.showNotifications
+            onToggled: Config.showNotifications = checked
         }
-    }
-
-    footer: RowLayout {
-        QQC2.Button {
-            Layout.alignment: Qt.AlignRight
-            Layout.margins: Kirigami.Units.smallSpacing
-            text: i18n("Save")
-            onClicked: {
-                Config.showNotifications = showNotifications.checked;
-                Config.save();
-            }
+        QQC2.RadioButton {
+            id: mergeRoomList
+            Kirigami.FormData.label: i18n("Rooms and private chats:")
+            text: i18n("Separated")
+            checked: Config.mergeRoomList
+            onToggled: Config.mergeRoomList = true
+        }
+        QQC2.RadioButton {
+            id: mergeRoomList
+            text: i18n("Intermixed")
+            checked: !Config.mergeRoomList
+            onToggled: Config.mergeRoomList = false
         }
     }
 }

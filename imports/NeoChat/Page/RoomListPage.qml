@@ -52,10 +52,10 @@ Kirigami.ScrollablePage {
         model:  SortFilterRoomListModel {
             id: sortFilterRoomListModel
             sourceModel: roomListModel
-            roomSortOrder: SortFilterRoomListModel.Categories
+            roomSortOrder: Config.mergeRoomList ? SortFilterRoomListModel.LastActivity : SortFilterRoomListModel.Categories
         }
 
-        section.property: sortFilterRoomListModel.filterText.length === 0 ? "category" : null
+        section.property: sortFilterRoomListModel.filterText.length === 0 && !Config.mergeRoomList ? "category" : null
         section.delegate: Kirigami.ListSectionHeader {
             id: sectionHeader
             action: Kirigami.Action {
@@ -80,8 +80,9 @@ Kirigami.ScrollablePage {
         }
 
         delegate: Kirigami.SwipeListItem {
-            visible: model.categoryVisible || sortFilterRoomListModel.filterText.length > 0
-            height: model.categoryVisible || sortFilterRoomListModel.filterText.length > 0 ? implicitHeight : 0
+            property bool itemVisible: model.categoryVisible || sortFilterRoomListModel.filterText.length > 0 || Config.mergeRoomList
+            visible: itemVisible
+            height: itemVisible ? implicitHeight : 0
             focus: true
             action: Kirigami.Action {
                 id: enterRoomAction
