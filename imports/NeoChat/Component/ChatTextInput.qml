@@ -84,6 +84,7 @@ ToolBar {
                 Layout.fillWidth: true
 
                 text: "<style>a{color: " + color + ";} .user-pill{}</style>" + replyContent
+                color: Kirigami.Theme.textColor
 
                 selectByMouse: true
                 readOnly: true
