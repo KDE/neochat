@@ -376,7 +376,9 @@ ToolBar {
                 icon.name: "preferences-desktop-emoticons"
                 icon.color: "transparent"
 
-                onClicked: emojiPicker.visible = !emojiPicker.visible
+                checkable: true
+                checked: emojiPicker.visible
+                onToggled: emojiPicker.visible = !emojiPicker.visible
 
                 ToolTip {
                     text: i18n("Add an Emoji")
