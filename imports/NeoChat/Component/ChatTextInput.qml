@@ -374,7 +374,6 @@ ToolBar {
                 id: emojiButton
                 icon.name: "preferences-desktop-emoticons"
                 icon.color: "transparent"
-                Layout.alignment: Qt.AlignTop
 
                 onClicked: emojiPicker.visible = !emojiPicker.visible
 
@@ -385,7 +384,6 @@ ToolBar {
 
             ToolButton {
                 id: uploadButton
-                Layout.alignment: Qt.AlignTop
 
                 visible: !isReply && !hasAttachment
 
@@ -421,7 +419,6 @@ ToolBar {
             ToolButton {
                 icon.name: "document-send"
                 icon.color: "transparent"
-                Layout.alignment: Qt.AlignTop
 
                 onClicked: {
                     inputField.postMessage(inputField.text)
