@@ -17,52 +17,38 @@ Flow {
     Repeater {
         model: reaction
 
-        delegate: Control {
-            width: Math.max(implicitWidth, Kirigami.Units.largeSpacing * 3)
-            height: Kirigami.Units.largeSpacing * 3
+        delegate: RoundButton {
+            width: Math.min(implicitWidth, Kirigami.Units.largeSpacing * 4)
+            implicitHeight: Kirigami.Units.largeSpacing * 4
 
             horizontalPadding: 6
             verticalPadding: 0
 
-            contentItem: Label {
-                height: Kirigami.Units.largeSpacing * 3
-                text: modelData.reaction + (modelData.count > 1 ? " " + modelData.count : "")
-                elide: Text.ElideRight
-            }
+            text: modelData.reaction + (modelData.count > 1 ? " " + modelData.count : "")
 
-            background: Rectangle {
-                radius: height / 2
-                Kirigami.Theme.colorSet: Kirigami.Theme.Window
-                color: Kirigami.Theme.backgroundColor
+            checkable: true
 
-                MouseArea {
-                    anchors.fill: parent
+            checked: modelData.hasLocalUser
 
-                    hoverEnabled: true
+            onToggled: currentRoom.toggleReaction(eventId, modelData.reaction)
 
-                    ToolTip {
-                        visible: parent.containsMouse
-                        text: {
-                            var text = "";
+            ToolTip.visible: hovered
+            ToolTip.text: {
+                var text = "";
 
-                            for (var i = 0; i < modelData.authors.length; i++) {
-                                if (i === modelData.authors.length - 1 && i !== 0) {
-                                    text += i18nc("Seperate the usernames of users", " and ")
-                                } else if (i !== 0) {
-                                    text += ", "
-                                }
-
-                                text += modelData.authors[i].displayName
-                            }
-
-                            text = i18ncp("%1 is the users who reacted and %2 the emoji that was given", "%2 reacted with %3", "%2 reacted with %3", modelData.authors.length, text, modelData.reaction)
-
-                            return text
-                        }
+                for (var i = 0; i < modelData.authors.length; i++) {
+                    if (i === modelData.authors.length - 1 && i !== 0) {
+                        text += i18nc("Seperate the usernames of users", " and ")
+                    } else if (i !== 0) {
+                        text += ", "
                     }
 
-                    onClicked: currentRoom.toggleReaction(eventId, modelData.reaction)
+                    text += modelData.authors[i].displayName
                 }
+
+                text = i18ncp("%1 is the users who reacted and %2 the emoji that was given", "%2 reacted with %3", "%2 reacted with %3", modelData.authors.length, text, modelData.reaction)
+
+                return text
             }
         }
     }
