@@ -25,13 +25,13 @@ Kirigami.ScrollablePage {
         QQC2.RadioButton {
             Kirigami.FormData.label: i18n("Rooms and private chats:")
             text: i18n("Separated")
-            checked: Config.mergeRoomList
-            onToggled: Config.mergeRoomList = true
+            checked: !Config.mergeRoomList
+            onToggled: Config.mergeRoomList = false
         }
         QQC2.RadioButton {
             text: i18n("Intermixed")
-            checked: !Config.mergeRoomList
-            onToggled: Config.mergeRoomList = false
+            checked: Config.mergeRoomList
+            onToggled: Config.mergeRoomList = true
         }
     }
 }
