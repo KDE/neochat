@@ -42,7 +42,7 @@ Kirigami.ScrollablePage {
             anchors.centerIn: parent
             width: parent.width - (Kirigami.Units.largeSpacing * 4)
             visible: listView.count == 0
-            text: sortFilterRoomListModel.filterText.length > 0 ? i18n("No room found.") : i18n("You didn't join any room yet.")
+            text: sortFilterRoomListModel.filterText.length > 0 ? i18n("No room found") : i18n("You didn't join any room yet")
             helpfulAction: Kirigami.Action {
                 icon.name: sortFilterRoomListModel.filterText.length > 0 ? "search" : "list-add"
                 text: sortFilterRoomListModel.filterText.length > 0 ? i18n("Search in room directory") : i18n("Explore rooms")
