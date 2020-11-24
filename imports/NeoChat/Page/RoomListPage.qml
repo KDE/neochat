@@ -150,7 +150,6 @@ Kirigami.ScrollablePage {
                             Layout.fillWidth: true
                             Layout.fillHeight: true
                             text: name ?? ""
-                            font.bold: unreadCount >= 0
                             elide: Text.ElideRight
                             wrapMode: Text.NoWrap
                         }
