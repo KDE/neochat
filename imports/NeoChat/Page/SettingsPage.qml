@@ -17,10 +17,14 @@ Kirigami.ScrollablePage {
 
     Kirigami.FormLayout {
         QQC2.CheckBox {
-            id: showNotifications
-            Kirigami.FormData.label: i18n("Show Notifications:")
+            Kirigami.FormData.label: i18n("Show notifications:")
             checked: Config.showNotifications
             onToggled: Config.showNotifications = checked
+        }
+        QQC2.CheckBox {
+            Kirigami.FormData.label: i18n("Show leave and join events:")
+            checked: Config.showLeaveJoinEvent
+            onToggled: Config.showLeaveJoinEvent = checked
         }
         QQC2.RadioButton {
             Kirigami.FormData.label: i18n("Rooms and private chats:")

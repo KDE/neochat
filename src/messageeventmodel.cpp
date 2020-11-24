@@ -11,8 +11,8 @@
 #include <events/roomavatarevent.h>
 #include <events/roommemberevent.h>
 #include <events/simplestateevents.h>
-#include <settings.h>
 #include <user.h>
+#include "neochatconfig.h"
 
 #include <QDebug>
 #include <QTimeZone>
@@ -373,7 +373,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 
         auto *memberEvent = timelineIt->viewAs<RoomMemberEvent>();
         if (memberEvent) {
-            if ((memberEvent->isJoin() || memberEvent->isLeave()) && !Settings().value("UI/show_joinleave", true).toBool())
+            if ((memberEvent->isJoin() || memberEvent->isLeave()) && !NeoChatConfig::self()->showLeaveJoinEvent())
                 return EventStatus::Hidden;
         }
 
