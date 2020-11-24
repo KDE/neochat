@@ -11,8 +11,12 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQuickStyle>
+#include <QQuickWindow>
 
 #include <KAboutData>
+#ifndef Q_OS_ANDROID
+#include <KDBusService>
+#endif
 #include <KLocalizedContext>
 #include <KLocalizedString>
 
@@ -57,6 +61,10 @@ int main(int argc, char *argv[])
 
     app.setOrganizationName("KDE");
     app.setWindowIcon(QIcon(":/assets/img/icon.png"));
+
+#ifndef Q_OS_ANDROID
+    KDBusService service(KDBusService::Unique);
+#endif
 
     Clipboard clipboard;
     auto config = NeoChatConfig::self();
@@ -115,5 +123,16 @@ int main(int argc, char *argv[])
     if (engine.rootObjects().isEmpty())
         return -1;
 
+#ifndef Q_OS_ANDROID
+    QObject::connect(&service, &KDBusService::activateRequested, &engine, [&engine](const QStringList &/*arguments*/, const QString &/*workingDirectory*/) {
+        for (auto obj : engine.rootObjects()) {
+            auto view = qobject_cast<QQuickWindow*>(obj);
+            if (view) {
+                view->raise();
+                return;
+            }
+        }
+    });
+#endif
     return app.exec();
 }

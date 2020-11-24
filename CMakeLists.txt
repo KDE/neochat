@@ -34,6 +34,7 @@ if(ANDROID)
     find_package(OpenSSL REQUIRED)
 else()
     find_package(Qt5Keychain REQUIRED)
+    find_package(KF5DBusAddons REQUIRED)
 endif()
 
 find_package(Quotient 0.6)

@@ -59,7 +59,7 @@ if(ANDROID)
         "search"
     )
 else()
-    target_link_libraries(neochat PRIVATE Qt5::Widgets ${QTKEYCHAIN_LIBRARIES})
+    target_link_libraries(neochat PRIVATE Qt5::Widgets KF5::DBusAddons ${QTKEYCHAIN_LIBRARIES})
 endif()
 
 install(TARGETS neochat ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
