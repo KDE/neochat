@@ -153,6 +153,7 @@ Kirigami.ScrollablePage {
                             Layout.fillHeight: true
                             text: name ?? ""
                             elide: Text.ElideRight
+                            font.bold: unreadCount >= 0 || highlightCount > 0 || notificationCount > 0
                             wrapMode: Text.NoWrap
                         }
 
@@ -173,7 +174,7 @@ Kirigami.ScrollablePage {
                         padding: Kirigami.Units.smallSpacing
                         background: Rectangle {
                             Kirigami.Theme.colorSet: Kirigami.Theme.Button
-                            color: Kirigami.Theme.backgroundColor
+                            color: highlightCount > 0 ? Kirigami.Theme.negativeColor : Kirigami.Theme.backgroundColor
                             radius: height / 2
                             implicitWidth: implicitHeight
                         }
