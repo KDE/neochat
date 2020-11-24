@@ -121,13 +121,15 @@ RowLayout {
             anchors.right: controlContainer.right
             spacing: 0
             QQC2.Button {
-                QQC2.ToolTip.text: i18n("React")
+                QQC2.ToolTip.text: i18n("React") + " (not implemented yet)"
+                QQC2.ToolTip.visible: hovered
                 visible: controlContainer.hovered
                 icon.name: "preferences-desktop-emoticons"
                 // TODO onClicked
             }
             QQC2.Button {
                 QQC2.ToolTip.text: i18n("Reply")
+                QQC2.ToolTip.visible: hovered
                 visible: controlContainer.hovered
                 icon.name: "mail-replied-symbolic"
                 onClicked: replyToMessage(author, message, eventId)
