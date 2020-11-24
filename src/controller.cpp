@@ -61,8 +61,7 @@ Controller::Controller(QObject *parent)
 #ifndef Q_OS_ANDROID
     TrayIcon *trayIcon = new TrayIcon(this);
     connect(trayIcon, &TrayIcon::showWindow, this, &Controller::showWindow);
-    trayIcon->setVisible(true);
-    trayIcon->setIconSource(":/assets/img/icon.png");
+    trayIcon->setIconSource("neochat");
     trayIcon->setIsOnline(true);
 #endif
 
