@@ -81,12 +81,11 @@ RowLayout {
         hoverEnabled: true
         contentItem: ColumnLayout {
             id: column
-            spacing: Kirigami.Units.smallSpacing
+            spacing: showAuthor ? Kirigami.Units.smallSpacing : 0
 
             RowLayout {
                 id: rowLayout
                 Layout.fillWidth: true
-                Layout.minimumHeight: 1
                 QQC2.Label {
                     Layout.fillWidth: true
                     topInset: 0
