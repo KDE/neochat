@@ -62,6 +62,14 @@ int main(int argc, char *argv[])
     app.setOrganizationName("KDE");
     app.setWindowIcon(QIcon(":/assets/img/icon.png"));
 
+    KAboutData about(QStringLiteral("neochat"), i18n("Neochat"), QStringLiteral(NEOCHAT_VERSION_STRING), i18n("Matrix client"), KAboutLicense::GPL_V3, i18n("© 2018-2020 Black Hat, 2020 KDE Community"));
+    about.addAuthor(i18n("Black Hat"), QString(), QStringLiteral("bhat@encom.eu.org"));
+    about.addAuthor(i18n("Carl Schwan"), QString(), QStringLiteral("carl@carlschwan.eu"));
+    about.addAuthor(i18n("Tobias Fella"), QString(), QStringLiteral("fella@posteo.de"));
+    about.setOrganizationDomain("kde.org");
+
+    KAboutData::setApplicationData(about);
+
 #ifndef Q_OS_ANDROID
     KDBusService service(KDBusService::Unique);
 #endif
@@ -102,13 +110,6 @@ int main(int argc, char *argv[])
 
     QCommandLineParser parser;
     parser.setApplicationDescription(i18n("Client for the matrix communication protocol"));
-
-    KAboutData about(QStringLiteral("neochat"), i18n("Neochat"), QStringLiteral(NEOCHAT_VERSION_STRING), i18n("Matrix client"), KAboutLicense::GPL_V3, i18n("© 2018-2020 Black Hat, 2020 KDE Community"));
-    about.addAuthor(i18n("Black Hat"), QString(), QStringLiteral("bhat@encom.eu.org"));
-    about.addAuthor(i18n("Carl Schwan"), QString(), QStringLiteral("carl@carlschwan.eu"));
-    about.addAuthor(i18n("Tobias Fella"), QString(), QStringLiteral("fella@posteo.de"));
-
-    KAboutData::setApplicationData(about);
 
     about.setupCommandLine(&parser);
     parser.process(app);
