@@ -219,6 +219,7 @@ ToolBar {
 
             TextArea {
                 property real progress: 0
+                property bool autoAppeared: false;
 
                 Layout.fillWidth: true
 
@@ -279,24 +280,23 @@ ToolBar {
                 Keys.onBacktabPressed: if (isAutoCompleting) autoCompleteListView.decrementCurrentIndex()
 
                 Keys.onTabPressed: {
-                    if (isAutoCompleting) {
+                    if (isAutoCompleting && autoAppeared === false) {
+                        autoAppeared = false;
                         autoCompleteListView.incrementCurrentIndex()
                     } else {
+                        autoAppeared = false;
                         autoCompleteBeginPosition = text.substring(0, cursorPosition).lastIndexOf(" ") + 1
-                        var autoCompletePrefix = text.substring(0, cursorPosition).split(" ").pop()
+                        let autoCompletePrefix = text.substring(0, cursorPosition).split(" ").pop()
                         if (!autoCompletePrefix) return
                         if (autoCompletePrefix.startsWith(":")) {
                             autoCompleteBeginPosition = text.substring(0, cursorPosition).lastIndexOf(" ") + 1
                             autoCompleteModel = emojiModel.filterModel(autoCompletePrefix)
-                            if (autoCompleteModel.length === 0) return
-                            isAutoCompleting = true
-                            autoCompleteEndPosition = cursorPosition
                         } else {
                             autoCompleteModel = currentRoom.getUsers(autoCompletePrefix)
-                            if (autoCompleteModel.length === 0) return
-                            isAutoCompleting = true
-                            autoCompleteEndPosition = cursorPosition
                         }
+                        if (autoCompleteModel.length === 0) return
+                        isAutoCompleting = true
+                        autoCompleteEndPosition = cursorPosition
                     }
                     replaceAutoComplete(autoCompleteListView.currentItem.autoCompleteText)
                 }
@@ -305,21 +305,30 @@ ToolBar {
                     timeoutTimer.restart()
                     repeatTimer.start()
                     currentRoom.cachedInput = text
+                    autoAppeared = false;
 
                     if (cursorPosition !== autoCompleteBeginPosition && cursorPosition !== autoCompleteEndPosition) {
-                        isAutoCompleting = false
-                        autoCompleteListView.currentIndex = 0
+                        isAutoCompleting = false;
+                        autoCompleteListView.currentIndex = 0;
                     }
 
-                    var autoCompletePrefix = text.substring(0, cursorPosition).split(" ").pop();
-                    if (!autoCompletePrefix) return
-
-                    if (autoCompletePrefix.startsWith("@")) {
-                        autoCompletePrefix = autoCompletePrefix.substring(1);
-                        autoCompleteBeginPosition = text.substring(0, cursorPosition).lastIndexOf(" ") + 1 // 1 = space
-                        autoCompleteModel = currentRoom.getUsers(autoCompletePrefix)
-                        if (autoCompleteModel.length === 0) return
+                    let autoCompletePrefix = text.substring(0, cursorPosition).split(" ").pop();
+                    if (!autoCompletePrefix) {
+                        return;
+                    }
+                    if (autoCompletePrefix.startsWith("@") || autoCompletePrefix.startsWith(":")) {
+                        if (autoCompletePrefix.startsWith("@")) {
+                            autoCompletePrefix = autoCompletePrefix.substring(1);
+                            autoCompleteBeginPosition = text.substring(0, cursorPosition).lastIndexOf(" ") + 1 // 1 = space
+                            autoCompleteModel = currentRoom.getUsers(autoCompletePrefix);
+                        } else {
+                            autoCompleteModel = emojiModel.filterModel(autoCompletePrefix);
+                        }
+                        if (autoCompleteModel.length === 0) {
+                            return;
+                        }
                         isAutoCompleting = true
+                        autoAppeared = true;
                         autoCompleteEndPosition = cursorPosition
                     }
                 }
