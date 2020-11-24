@@ -80,9 +80,11 @@ Kirigami.ScrollablePage {
         }
 
         delegate: Kirigami.SwipeListItem {
+            id: roomListItem
             property bool itemVisible: model.categoryVisible || sortFilterRoomListModel.filterText.length > 0 || Config.mergeRoomList
             visible: itemVisible
             height: itemVisible ? implicitHeight : 0
+            highlighted: roomManager.currentRoom && roomManager.currentRoom.name === name
             focus: true
             action: Kirigami.Action {
                 id: enterRoomAction
@@ -186,6 +188,7 @@ Kirigami.ScrollablePage {
                             roomListContextMenu.createObject(roomLayout, {"room": currentRoom}).popup()
                         } else {
                             enterRoomAction.trigger();
+                            listView.currentIndex = index;
                         }
                     }
                 }
