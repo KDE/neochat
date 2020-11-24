@@ -37,15 +37,6 @@ Image {
 
     fillMode: Image.PreserveAspectCrop
 
-    layer.enabled: true
-    layer.effect: OpacityMask {
-        maskSource: Rectangle {
-            width: img.width
-            height: img.height
-            radius: 2
-        }
-    }
-
     Control {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 8
