@@ -79,6 +79,7 @@ ColumnLayout {
     GridView {
         Layout.fillWidth: true
         Layout.preferredHeight: Kirigami.Units.gridUnit * 8
+        Layout.fillHeight: true
 
         cellWidth: Kirigami.Units.gridUnit * 2
         cellHeight: Kirigami.Units.gridUnit * 2
