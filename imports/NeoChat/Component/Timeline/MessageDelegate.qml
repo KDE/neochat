@@ -31,6 +31,7 @@ RowLayout {
     signal saveFileAs()
     signal openExternally()
     signal replyClicked(string eventID)
+    signal replyToMessageClicked(var replyUser, string replyContent, string eventID)
 
     id: root
 
@@ -77,11 +78,15 @@ RowLayout {
         Layout.fillWidth: true
         topPadding: 0
         bottomPadding: 0
+        hoverEnabled: true
         contentItem: ColumnLayout {
             id: column
             spacing: Kirigami.Units.smallSpacing
 
             RowLayout {
+                id: rowLayout
+                Layout.fillWidth: true
+                Layout.minimumHeight: 1
                 QQC2.Label {
                     Layout.fillWidth: true
                     topInset: 0
@@ -93,7 +98,6 @@ RowLayout {
                     color: author.color
                     wrapMode: Text.Wrap
                 }
-
                 QQC2.Label {
                     visible: showAuthor
                     text: time.toLocaleTimeString(Locale.ShortFormat)
@@ -108,6 +112,25 @@ RowLayout {
             Connections {
                 target: replyLoader.item
                 onClicked: replyClicked(reply.eventId)
+            }
+        }
+        RowLayout {
+            z: 2
+            anchors.bottom: controlContainer.top
+            anchors.bottomMargin: -Kirigami.Units.gridUnit
+            anchors.right: controlContainer.right
+            spacing: 0
+            QQC2.Button {
+                QQC2.ToolTip.text: i18n("React")
+                visible: controlContainer.hovered
+                icon.name: "preferences-desktop-emoticons"
+                // TODO onClicked
+            }
+            QQC2.Button {
+                QQC2.ToolTip.text: i18n("Reply")
+                visible: controlContainer.hovered
+                icon.name: "mail-replied-symbolic"
+                onClicked: replyToMessage(author, message, eventId)
             }
         }
     }

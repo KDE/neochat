@@ -204,6 +204,7 @@ Kirigami.ScrollablePage {
                             onClicked: openMessageContext(author, display, eventId, toolTip);
                         }
                         onReplyClicked: goToEvent(eventID)
+                        onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
                         innerObject: [
                             TextDelegate {
                                 Layout.fillWidth: true
@@ -227,6 +228,7 @@ Kirigami.ScrollablePage {
                     innerObject: MessageDelegate {
                         Layout.fillWidth: true
                         onReplyClicked: goToEvent(eventID)
+                        onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
 
                         innerObject: TextDelegate {
                             Layout.fillWidth: true
@@ -243,6 +245,7 @@ Kirigami.ScrollablePage {
                     innerObject: MessageDelegate {
                         Layout.fillWidth: true
                         onReplyClicked: goToEvent(eventID)
+                        onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
 
                         innerObject: [
                             ImageDelegate {
@@ -268,6 +271,7 @@ Kirigami.ScrollablePage {
                     innerObject: MessageDelegate {
                         Layout.fillWidth: true
                         onReplyClicked: goToEvent(eventID)
+                        onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
 
                         innerObject: AudioDelegate {
                             Layout.fillWidth: true
@@ -284,6 +288,7 @@ Kirigami.ScrollablePage {
                     innerObject: MessageDelegate {
                         Layout.fillWidth: true
                         onReplyClicked: goToEvent(eventID)
+                        onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
 
                         innerObject: AudioDelegate {
                             Layout.fillWidth: true
@@ -299,6 +304,8 @@ Kirigami.ScrollablePage {
 
                     innerObject: MessageDelegate {
                         Layout.fillWidth: true
+                        onReplyClicked: goToEvent(eventID)
+                        onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
 
                         innerObject: FileDelegate {
                             Layout.fillWidth: true
@@ -440,11 +447,7 @@ Kirigami.ScrollablePage {
             contextMenu.close();
         });
         contextMenu.reply.connect(function(replyUser, replyContent) {
-            chatTextInput.replyUser = replyUser;
-            chatTextInput.replyEventID = eventId;
-            chatTextInput.replyContent = replyContent;
-            chatTextInput.isReply = true;
-            chatTextInput.focus();
+            replyToMessage(replyUser, replyContent, eventId);
             contextMenu.close();
         })
         contextMenu.remove.connect(function() {
@@ -452,5 +455,13 @@ Kirigami.ScrollablePage {
             contextMenu.close();
         })
         contextMenu.open()
+    }
+
+    function replyToMessage(replyUser, replyContent, eventId) {
+        chatTextInput.replyUser = replyUser;
+        chatTextInput.replyEventID = eventId;
+        chatTextInput.replyContent = replyContent;
+        chatTextInput.isReply = true;
+        chatTextInput.focus();
     }
 }
