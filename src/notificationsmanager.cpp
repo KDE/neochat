@@ -35,7 +35,7 @@ void NotificationsManager::postNotification(const QString &roomid, const QString
     img.convertFromImage(icon);
     KNotification *notification = new KNotification("message");
     notification->setTitle(i18n("%1 (%2)", sender, roomname));
-    notification->setText(text);
+    notification->setText(text.toHtmlEscaped());
     notification->setPixmap(img);
     notification->sendEvent();
 
