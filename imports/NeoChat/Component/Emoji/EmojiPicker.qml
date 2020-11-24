@@ -17,6 +17,8 @@ ColumnLayout {
     property var textArea
     property var emojiModel
 
+    signal choosen(string emoji)
+
     spacing: 0
 
     ListView {
@@ -122,7 +124,7 @@ ColumnLayout {
             }
 
             onClicked: {
-                textArea.insert(textArea.cursorPosition, modelData.unicode)
+                choosen(modelData.unicode)
                 emojiModel.emojiUsed(modelData)
             }
         }
