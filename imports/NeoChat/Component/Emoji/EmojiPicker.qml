@@ -17,7 +17,7 @@ ColumnLayout {
     property var textArea
     property var emojiModel
 
-    signal choosen(string emoji)
+    signal chosen(string emoji)
 
     spacing: 0
 
@@ -125,7 +125,7 @@ ColumnLayout {
             }
 
             onClicked: {
-                choosen(modelData.unicode)
+                chosen(modelData.unicode)
                 emojiModel.emojiUsed(modelData)
             }
         }

@@ -46,7 +46,7 @@ ToolBar {
 
             textArea: inputField
             emojiModel: EmojiModel { id: emojiModel }
-            onChoosen: {
+            onChosen: {
                 textArea.insert(textArea.cursorPosition, emoji);
                 textArea.forceActiveFocus();
             }
