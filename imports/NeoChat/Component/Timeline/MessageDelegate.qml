@@ -133,5 +133,10 @@ RowLayout {
                 onClicked: replyToMessage(author, message, eventId)
             }
         }
+        background: Rectangle {
+            Kirigami.Theme.colorSet: Kirigami.Theme.Window
+            color: Kirigami.Theme.backgroundColor
+            opacity: controlContainer.hovered ? 1 : 0
+        }
     }
 }
