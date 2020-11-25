@@ -30,6 +30,7 @@ class NeoChatRoom : public Room
     Q_PROPERTY(bool hasFileUploading READ hasFileUploading WRITE setHasFileUploading NOTIFY hasFileUploadingChanged)
     Q_PROPERTY(int fileUploadingProgress READ fileUploadingProgress NOTIFY fileUploadingProgressChanged)
     Q_PROPERTY(QString avatarMediaId READ avatarMediaId NOTIFY avatarChanged STORED false)
+    Q_PROPERTY(bool readMarkerLoaded READ readMarkerLoaded NOTIFY readMarkerLoadedChanged)
 
 public:
     explicit NeoChatRoom(Connection *connection, QString roomId, JoinState joinState = {});
@@ -66,6 +67,8 @@ public:
         m_fileUploadingProgress = value;
         Q_EMIT fileUploadingProgressChanged();
     }
+
+    bool readMarkerLoaded() const;
 
     Q_INVOKABLE int savedTopVisibleIndex() const;
     Q_INVOKABLE int savedBottomVisibleIndex() const;
@@ -108,6 +111,7 @@ Q_SIGNALS:
     void hasFileUploadingChanged();
     void fileUploadingProgressChanged();
     void backgroundChanged();
+    void readMarkerLoadedChanged();
 
 public Q_SLOTS:
     void uploadFile(const QUrl &url, const QString &body = "");

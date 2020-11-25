@@ -56,6 +56,8 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
 
         NotificationsManager::instance().postNotification(id(), lastEvent->id(), displayName(), sender->displayname(this), eventToString(*lastEvent), avatar(128));
     });
+
+    connect(this, &Room::aboutToAddHistoricalMessages, this, &NeoChatRoom::readMarkerLoadedChanged);
 }
 
 void NeoChatRoom::uploadFile(const QUrl &url, const QString &body)
@@ -612,4 +614,10 @@ bool NeoChatRoom::canSendState(const QString &eventType) const
     auto currentPl = plEvent->powerLevelForUser(localUser()->id());
 
     return currentPl >= pl;
+}
+
+bool NeoChatRoom::readMarkerLoaded() const
+{
+    const auto it = findInTimeline(readMarkerEventId());
+    return it != timelineEdge();
 }

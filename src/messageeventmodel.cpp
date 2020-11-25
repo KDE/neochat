@@ -55,6 +55,19 @@ MessageEventModel::MessageEventModel(QObject *parent)
     qmlRegisterAnonymousType<FileTransferInfo>("org.kde.neochat", 1);
     qRegisterMetaType<FileTransferInfo>();
     qmlRegisterUncreatableType<EventStatus>("org.kde.neochat", 1, 0, "EventStatus", "EventStatus is not an creatable type");
+
+    QTimer::singleShot(0, this, [=]() {
+        m_currentRoom->getPreviousContent(50);
+        connect(this, &QAbstractListModel::rowsInserted, this, [=](){
+            if(m_currentRoom->readMarkerEventId().isEmpty()) {
+                return;
+            }
+            const auto it = m_currentRoom->findInTimeline(m_currentRoom->readMarkerEventId());
+            if (it == m_currentRoom->timelineEdge()) {
+                m_currentRoom->getPreviousContent(50);
+            }
+        });
+    });
 }
 
 MessageEventModel::~MessageEventModel()
