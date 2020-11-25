@@ -10,17 +10,30 @@
 #include "room.h"
 #include "user.h"
 
+namespace Kirigami
+{
+class PlatformTheme;
+}
+
 using namespace Quotient;
 
 class NeoChatUser : public User
 {
     Q_OBJECT
-    Q_PROPERTY(QColor color READ color CONSTANT)
+    Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged)
 public:
-    NeoChatUser(QString userId, Connection *connection)
-        : User(userId, connection)
-    {
-    }
+    NeoChatUser(QString userId, Connection *connection);
 
+public Q_SLOTS:
     QColor color();
+    void setColor(QColor color);
+
+Q_SIGNALS:
+    void colorChanged(QColor color);
+
+private:
+    Kirigami::PlatformTheme *m_theme = nullptr;
+    QColor m_color;
+
+    void polishColor();
 };
