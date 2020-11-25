@@ -19,7 +19,6 @@ Kirigami.Page {
         text: i18n("Accept this invitation?")
         RowLayout {
             Button {
-                flat: true
                 Layout.alignment : Qt.AlignHCenter
                 text: i18n("Cancel")
 
@@ -29,7 +28,6 @@ Kirigami.Page {
             Button {
                 Layout.alignment : Qt.AlignHCenter
                 text: i18n("Reject")
-                flat: true
 
                 onClicked: {
                     room.forget()
