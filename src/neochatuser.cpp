@@ -6,11 +6,12 @@
 #include "neochatuser.h"
 
 #include <PlatformTheme> // Kirigami
+#include <utility>
 
 #include "csapi/profile.h"
 
 NeoChatUser::NeoChatUser(QString userId, Connection *connection)
-    : User(userId, connection)
+    : User(std::move(userId), connection)
 {
     m_theme = static_cast<Kirigami::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::PlatformTheme>(this, true));
     Q_ASSERT(m_theme);
@@ -23,10 +24,11 @@ QColor NeoChatUser::color()
     return m_color;
 }
 
-void NeoChatUser::setColor(QColor color)
+void NeoChatUser::setColor(const QColor &color)
 {
-    if (m_color == color)
+    if (m_color == color) {
         return;
+    }
 
     m_color = color;
     emit colorChanged(m_color);

@@ -31,14 +31,15 @@
 #include <QtGui/QPixmap>
 #include <QtNetwork/QAuthenticator>
 #include <QtNetwork/QNetworkReply>
+#include <utility>
 
 #include "csapi/account-data.h"
 #include "csapi/content-repo.h"
 #include "csapi/joining.h"
 #include "csapi/logout.h"
 #include "csapi/profile.h"
-#include "csapi/wellknown.h"
 #include "csapi/registration.h"
+#include "csapi/wellknown.h"
 #include "events/eventcontent.h"
 #include "events/roommessageevent.h"
 #include "neochatroom.h"
@@ -91,7 +92,7 @@ inline QString accessTokenFileName(const AccountSettings &account)
     return QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + '/' + fileName;
 }
 
-void Controller::loginWithCredentials(QString serverAddr, QString user, QString pass, QString deviceName)
+void Controller::loginWithCredentials(const QString &serverAddr, const QString &user, const QString &pass, QString deviceName)
 {
     if (user.isEmpty() || pass.isEmpty()) {
         return;
@@ -121,17 +122,18 @@ void Controller::loginWithCredentials(QString serverAddr, QString user, QString 
                     account.setHomeserver(finalConn->homeserver());
                     account.setDeviceId(finalConn->deviceId());
                     account.setDeviceName(deviceName);
-                    if (!saveAccessTokenToKeyChain(account, finalConn->accessToken()))
+                    if (!saveAccessTokenToKeyChain(account, finalConn->accessToken())) {
                         qWarning() << "Couldn't save access token";
+                    }
                     account.sync();
                     addConnection(finalConn);
                     setActiveConnection(finalConn);
                 });
-                connect(finalConn, &Connection::networkError, [=](QString error, QString, int, int) {
-                    Q_EMIT globalErrorOccured(i18n("Network Error"), error);
+                connect(finalConn, &Connection::networkError, [=](QString error, const QString &, int, int) {
+                    Q_EMIT globalErrorOccured(i18n("Network Error"), std::move(error));
                 });
-                connect(finalConn, &Connection::loginError, [=](QString error, QString) {
-                    Q_EMIT errorOccured(i18n("Login Failed"), error);
+                connect(finalConn, &Connection::loginError, [=](QString error, const QString &) {
+                    Q_EMIT errorOccured(i18n("Login Failed"), std::move(error));
                 });
             }
         });
@@ -142,7 +144,7 @@ void Controller::loginWithCredentials(QString serverAddr, QString user, QString 
     }
 }
 
-void Controller::loginWithAccessToken(QString serverAddr, QString user, QString token, QString deviceName)
+void Controller::loginWithAccessToken(const QString &serverAddr, const QString &user, const QString &token, const QString &deviceName)
 {
     if (user.isEmpty() || token.isEmpty()) {
         return;
@@ -162,14 +164,15 @@ void Controller::loginWithAccessToken(QString serverAddr, QString user, QString 
         account.setHomeserver(conn->homeserver());
         account.setDeviceId(conn->deviceId());
         account.setDeviceName(deviceName);
-        if (!saveAccessTokenToKeyChain(account, conn->accessToken()))
+        if (!saveAccessTokenToKeyChain(account, conn->accessToken())) {
             qWarning() << "Couldn't save access token";
+        }
         account.sync();
         addConnection(conn);
         setActiveConnection(conn);
     });
-    connect(conn, &Connection::networkError, this, [=](QString error, QString, int, int) {
-        Q_EMIT errorOccured("Network Error", error);
+    connect(conn, &Connection::networkError, this, [=](QString error, const QString &, int, int) {
+        Q_EMIT errorOccured("Network Error", std::move(error));
     });
     conn->connectWithToken(user, token, deviceName);
 }
@@ -200,10 +203,11 @@ void Controller::logout(Connection *conn, bool serverSideLogout)
     conn->stopSync();
     Q_EMIT conn->stateChanged();
     Q_EMIT conn->loggedOut();
-    if (!m_connections.isEmpty())
+    if (!m_connections.isEmpty()) {
         setActiveConnection(m_connections[0]);
-    else
+    } else {
         setActiveConnection(nullptr);
+    }
     if (!serverSideLogout) {
         return;
     }
@@ -262,7 +266,7 @@ void Controller::invokeLogin()
                 c->loadState();
                 addConnection(c);
             });
-            connect(c, &Connection::loginError, this, [=](QString error, QString) {
+            connect(c, &Connection::loginError, this, [=](const QString &error, const QString &) {
                 if (error == "Unrecognised access token") {
                     Q_EMIT errorOccured(i18n("Login Failed"), i18n("Access Token invalid or revoked"));
                     logout(c, false);
@@ -271,7 +275,7 @@ void Controller::invokeLogin()
                     logout(c, true);
                 }
             });
-            connect(c, &Connection::networkError, this, [=](QString error, QString, int, int) {
+            connect(c, &Connection::networkError, this, [=](const QString &error, const QString &, int, int) {
                 Q_EMIT errorOccured("Network Error", error);
             });
             c->connectWithToken(account.userId(), accessToken, account.deviceId());
@@ -289,8 +293,9 @@ QByteArray Controller::loadAccessTokenFromFile(const AccountSettings &account)
 {
     QFile accountTokenFile {accessTokenFileName(account)};
     if (accountTokenFile.open(QFile::ReadOnly)) {
-        if (accountTokenFile.size() < 1024)
+        if (accountTokenFile.size() < 1024) {
             return accountTokenFile.readAll();
+        }
 
         qWarning() << "File" << accountTokenFile.fileName() << "is" << accountTokenFile.size() << "bytes long - too long for a token, ignoring it.";
     }
@@ -388,12 +393,13 @@ bool Controller::saveAccessTokenToKeyChain(const AccountSettings &account, const
 
 void Controller::joinRoom(Connection *c, const QString &alias)
 {
-    if (!alias.contains(":"))
+    if (!alias.contains(":")) {
         return;
+    }
 
     auto knownServer = alias.mid(alias.indexOf(":") + 1);
     auto joinRoomJob = c->joinRoom(alias, QStringList {knownServer});
-    joinRoomJob->connect(joinRoomJob, &JoinRoomJob::failure, [=] {
+    Quotient::JoinRoomJob::connect(joinRoomJob, &JoinRoomJob::failure, [=] {
         Q_EMIT errorOccured("Join Room Failed", joinRoomJob->errorString());
     });
 }
@@ -401,7 +407,7 @@ void Controller::joinRoom(Connection *c, const QString &alias)
 void Controller::createRoom(Connection *c, const QString &name, const QString &topic)
 {
     auto createRoomJob = c->createRoom(Connection::PublishRoom, "", name, topic, QStringList());
-    createRoomJob->connect(createRoomJob, &CreateRoomJob::failure, [=] {
+    Quotient::CreateRoomJob::connect(createRoomJob, &CreateRoomJob::failure, [=] {
         Q_EMIT errorOccured("Create Room Failed", createRoomJob->errorString());
     });
 }
@@ -409,12 +415,12 @@ void Controller::createRoom(Connection *c, const QString &name, const QString &t
 void Controller::createDirectChat(Connection *c, const QString &userID)
 {
     auto createRoomJob = c->createDirectChat(userID);
-    createRoomJob->connect(createRoomJob, &CreateRoomJob::failure, [=] {
+    Quotient::CreateRoomJob::connect(createRoomJob, &CreateRoomJob::failure, [=] {
         Q_EMIT errorOccured("Create Direct Chat Failed", createRoomJob->errorString());
     });
 }
 
-void Controller::playAudio(QUrl localFile)
+void Controller::playAudio(const QUrl &localFile)
 {
     auto player = new QMediaPlayer;
     player->setMedia(localFile);
@@ -424,7 +430,7 @@ void Controller::playAudio(QUrl localFile)
     });
 }
 
-void Controller::changeAvatar(Connection *conn, QUrl localFile)
+void Controller::changeAvatar(Connection *conn, const QUrl &localFile)
 {
     auto job = conn->uploadFile(localFile.toLocalFile());
     if (isJobRunning(job)) {
@@ -442,7 +448,7 @@ void Controller::markAllMessagesAsRead(Connection *conn)
     }
 }
 
-void Controller::setAboutData(KAboutData aboutData)
+void Controller::setAboutData(const KAboutData &aboutData)
 {
     m_aboutData = aboutData;
     Q_EMIT aboutDataChanged();
@@ -488,7 +494,7 @@ NeochatChangePasswordJob::NeochatChangePasswordJob(const QString &newPassword, b
     addParam<>(_data, QStringLiteral("new_password"), newPassword);
     addParam<IfNotEmpty>(_data, QStringLiteral("logout_devices"), logoutDevices);
     addParam<IfNotEmpty>(_data, QStringLiteral("auth"), auth);
-    setRequestData(std::move(_data));
+    setRequestData(_data);
 }
 
 QVector<Connection *> Controller::connections() const
@@ -501,7 +507,7 @@ int Controller::accountCount() const
     return m_connections.count();
 }
 
-bool Controller::quitOnLastWindowClosed() const
+bool Controller::quitOnLastWindowClosed()
 {
     return QApplication::quitOnLastWindowClosed();
 }
@@ -530,15 +536,17 @@ void Controller::setBusy(bool busy)
 
 Connection *Controller::activeConnection() const
 {
-    if (m_connection.isNull())
+    if (m_connection.isNull()) {
         return nullptr;
+    }
     return m_connection;
 }
 
 void Controller::setActiveConnection(Connection *connection)
 {
-    if (connection == m_connection)
+    if (connection == m_connection) {
         return;
+    }
     m_connection = connection;
     Q_EMIT activeConnectionChanged();
 }

@@ -17,7 +17,7 @@ TrayIcon::TrayIcon(QObject *parent)
     auto viewAction_ = new QAction(i18n("Show"), parent);
 
     connect(viewAction_, &QAction::triggered, this, &TrayIcon::showWindow);
-    connect(this, &KStatusNotifierItem::activateRequested, this, [this] (bool active) {
+    connect(this, &KStatusNotifierItem::activateRequested, this, [this](bool active) {
         if (active) {
             Q_EMIT showWindow();
         }

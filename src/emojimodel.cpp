@@ -70,7 +70,7 @@ QVariantList EmojiModel::filterModel(const QString &filter)
     return result;
 }
 
-void EmojiModel::emojiUsed(QVariant modelData)
+void EmojiModel::emojiUsed(const QVariant &modelData)
 {
     QVariantList list = history();
 
@@ -78,8 +78,9 @@ void EmojiModel::emojiUsed(QVariant modelData)
     while (it != list.end()) {
         if ((*it).value<Emoji>().unicode == modelData.value<Emoji>().unicode) {
             it = list.erase(it);
-        } else
+        } else {
             it++;
+        }
     }
 
     list.push_front(modelData);

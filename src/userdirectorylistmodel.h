@@ -31,24 +31,24 @@ public:
 
     UserDirectoryListModel(QObject *parent = nullptr);
 
-    QVariant data(const QModelIndex &index, int role = NameRole) const override;
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role = NameRole) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    QHash<int, QByteArray> roleNames() const override;
+    [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
-    Connection *connection() const
+    [[nodiscard]] Connection *connection() const
     {
         return m_connection;
     }
-    void setConnection(Connection *value);
+    void setConnection(Connection *conn);
 
-    QString keyword() const
+    [[nodiscard]] QString keyword() const
     {
         return m_keyword;
     }
     void setKeyword(const QString &value);
 
-    bool limited() const
+    [[nodiscard]] bool limited() const
     {
         return m_limited;
     }

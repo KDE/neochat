@@ -26,15 +26,15 @@ public:
     SortFilterRoomListModel(QObject *parent = nullptr);
 
     void setRoomSortOrder(RoomSortOrder sortOrder);
-    RoomSortOrder roomSortOrder() const;
+    [[nodiscard]] RoomSortOrder roomSortOrder() const;
 
     void setFilterText(const QString &text);
-    QString filterText() const;
+    [[nodiscard]] QString filterText() const;
 
-    bool lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const override;
+    [[nodiscard]] bool lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const override;
 
 protected:
-    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
+    [[nodiscard]] bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 
 Q_SIGNALS:
     void roomSortOrderChanged();

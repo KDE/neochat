@@ -33,29 +33,29 @@ class Controller : public QObject
 public:
     static Controller &instance();
 
-    QVector<Connection *> connections() const;
+    [[nodiscard]] QVector<Connection *> connections() const;
 
     void setActiveConnection(Connection *connection);
-    Connection *activeConnection() const;
+    [[nodiscard]] Connection *activeConnection() const;
 
     void addConnection(Connection *c);
     void dropConnection(Connection *c);
 
-    Q_INVOKABLE void loginWithCredentials(QString, QString, QString, QString);
-    Q_INVOKABLE void loginWithAccessToken(QString, QString, QString, QString);
+    Q_INVOKABLE void loginWithCredentials(const QString &, const QString &, const QString &, QString);
+    Q_INVOKABLE void loginWithAccessToken(const QString &, const QString &, const QString &, const QString &);
 
     Q_INVOKABLE void changePassword(Quotient::Connection *connection, const QString &currentPassword, const QString &newPassword);
 
-    int accountCount() const;
+    [[nodiscard]] int accountCount() const;
 
-    bool quitOnLastWindowClosed() const;
+    [[nodiscard]] static bool quitOnLastWindowClosed();
     void setQuitOnLastWindowClosed(bool value);
 
-    bool busy() const;
+    [[nodiscard]] bool busy() const;
     void setBusy(bool busy);
 
-    void setAboutData(KAboutData aboutData);
-    KAboutData aboutData() const;
+    void setAboutData(const KAboutData &aboutData);
+    [[nodiscard]] KAboutData aboutData() const;
 
     enum PasswordStatus {
         Success,
@@ -66,13 +66,13 @@ public:
 
 private:
     explicit Controller(QObject *parent = nullptr);
-    ~Controller();
+    ~Controller() override;
 
     QVector<Connection *> m_connections;
     QPointer<Connection> m_connection;
     bool m_busy = false;
 
-    QByteArray loadAccessTokenFromFile(const AccountSettings &account);
+    static QByteArray loadAccessTokenFromFile(const AccountSettings &account);
     QByteArray loadAccessTokenFromKeyChain(const AccountSettings &account);
 
     bool saveAccessTokenToFile(const AccountSettings &account, const QByteArray &accessToken);
@@ -88,20 +88,20 @@ private Q_SLOTS:
 Q_SIGNALS:
     void busyChanged();
     /// Error occured because of user inputs
-    void errorOccured(QString error, QString detail);
+    void errorOccured(QString _t1, QString _t2);
 
     /// Error occured because of server or bug in NeoChat
-    void globalErrorOccured(QString error, QString detail);
+    void globalErrorOccured(QString _t1, QString _t2);
     void syncDone();
-    void connectionAdded(Quotient::Connection *conn);
-    void connectionDropped(Quotient::Connection *conn);
+    void connectionAdded(Quotient::Connection *_t1);
+    void connectionDropped(Quotient::Connection *_t1);
     void initiated();
-    void notificationClicked(const QString roomId, const QString eventId);
+    void notificationClicked(const QString &_t1, const QString &_t2);
     void quitOnLastWindowClosedChanged();
     void unreadCountChanged();
     void activeConnectionChanged();
     void aboutDataChanged();
-    void passwordStatus(Controller::PasswordStatus status);
+    void passwordStatus(Controller::PasswordStatus _t1);
     void showWindow();
 
 public Q_SLOTS:
@@ -109,9 +109,9 @@ public Q_SLOTS:
     void joinRoom(Quotient::Connection *c, const QString &alias);
     void createRoom(Quotient::Connection *c, const QString &name, const QString &topic);
     void createDirectChat(Quotient::Connection *c, const QString &userID);
-    void playAudio(QUrl localFile);
-    void changeAvatar(Quotient::Connection *conn, QUrl localFile);
-    void markAllMessagesAsRead(Quotient::Connection *conn);
+    static void playAudio(const QUrl &localFile);
+    void changeAvatar(Quotient::Connection *conn, const QUrl &localFile);
+    static void markAllMessagesAsRead(Quotient::Connection *conn);
 };
 
 // TODO libQuotient 0.7: Drop

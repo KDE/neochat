@@ -35,14 +35,14 @@ class NeoChatRoom : public Room
 public:
     explicit NeoChatRoom(Connection *connection, QString roomId, JoinState joinState = {});
 
-    QVariantList getUsersTyping() const;
+    [[nodiscard]] QVariantList getUsersTyping() const;
 
-    QString lastEvent() const;
+    [[nodiscard]] QString lastEvent() const;
     bool isEventHighlighted(const Quotient::RoomEvent *e) const;
 
-    QDateTime lastActiveTime() const;
+    [[nodiscard]] QDateTime lastActiveTime() const;
 
-    bool hasFileUploading() const
+    [[nodiscard]] bool hasFileUploading() const
     {
         return m_hasFileUploading;
     }
@@ -55,7 +55,7 @@ public:
         Q_EMIT hasFileUploadingChanged();
     }
 
-    int fileUploadingProgress() const
+    [[nodiscard]] int fileUploadingProgress() const
     {
         return m_fileUploadingProgress;
     }
@@ -68,24 +68,24 @@ public:
         Q_EMIT fileUploadingProgressChanged();
     }
 
-    bool readMarkerLoaded() const;
+    [[nodiscard]] bool readMarkerLoaded() const;
 
-    Q_INVOKABLE int savedTopVisibleIndex() const;
-    Q_INVOKABLE int savedBottomVisibleIndex() const;
+    Q_INVOKABLE [[nodiscard]] int savedTopVisibleIndex() const;
+    Q_INVOKABLE [[nodiscard]] int savedBottomVisibleIndex() const;
     Q_INVOKABLE void saveViewport(int topIndex, int bottomIndex);
 
-    Q_INVOKABLE QVariantList getUsers(const QString &keyword) const;
+    Q_INVOKABLE [[nodiscard]] QVariantList getUsers(const QString &keyword) const;
 
-    Q_INVOKABLE QUrl urlToMxcUrl(QUrl mxcUrl);
+    Q_INVOKABLE QUrl urlToMxcUrl(const QUrl &mxcUrl);
 
-    QString avatarMediaId() const;
+    [[nodiscard]] QString avatarMediaId() const;
 
-    QString eventToString(const RoomEvent &evt, Qt::TextFormat format = Qt::PlainText, bool removeReply = true) const;
+    [[nodiscard]] QString eventToString(const RoomEvent &evt, Qt::TextFormat format = Qt::PlainText, bool removeReply = true) const;
 
-    Q_INVOKABLE bool containsUser(QString userID) const;
+    Q_INVOKABLE [[nodiscard]] bool containsUser(const QString &userID) const;
 
-    Q_INVOKABLE bool canSendEvent(const QString &eventType) const;
-    Q_INVOKABLE bool canSendState(const QString &eventType) const;
+    Q_INVOKABLE [[nodiscard]] bool canSendEvent(const QString &eventType) const;
+    Q_INVOKABLE [[nodiscard]] bool canSendState(const QString &eventType) const;
 
 private:
     QString m_cachedInput;
@@ -100,7 +100,7 @@ private:
     void onAddHistoricalTimelineEvents(rev_iter_t from) override;
     void onRedaction(const RoomEvent &prevEvent, const RoomEvent &after) override;
 
-    static QString markdownToHTML(const QString &plaintext);
+    static QString markdownToHTML(const QString &markdown);
 
 private Q_SLOTS:
     void countChanged();
@@ -121,7 +121,7 @@ public Q_SLOTS:
     void postArbitaryMessage(const QString &text, Quotient::RoomMessageEvent::MsgType type, const QString &replyEventId);
     void postPlainMessage(const QString &text, Quotient::RoomMessageEvent::MsgType type = Quotient::MessageEventType::Text, const QString &replyEventId = "");
     void postHtmlMessage(const QString &text, const QString &html, Quotient::MessageEventType type = Quotient::MessageEventType::Text, const QString &replyEventId = "");
-    void changeAvatar(QUrl localFile);
+    void changeAvatar(const QUrl &localFile);
     void addLocalAlias(const QString &alias);
     void removeLocalAlias(const QString &alias);
     void toggleReaction(const QString &eventId, const QString &reaction);

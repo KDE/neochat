@@ -34,24 +34,24 @@ public:
     };
     Q_ENUM(AutoCompletionType)
 
-    explicit ChatDocumentHandler(QObject *object = nullptr);
+    explicit ChatDocumentHandler(QObject *parent = nullptr);
 
-    QQuickTextDocument *document() const;
+    [[nodiscard]] QQuickTextDocument *document() const;
     void setDocument(QQuickTextDocument *document);
 
-    int cursorPosition() const;
+    [[nodiscard]] int cursorPosition() const;
     void setCursorPosition(int position);
 
-    int selectionStart() const;
+    [[nodiscard]] int selectionStart() const;
     void setSelectionStart(int position);
 
-    int selectionEnd() const;
+    [[nodiscard]] int selectionEnd() const;
     void setSelectionEnd(int position);
 
-    NeoChatRoom *room() const;
+    [[nodiscard]] NeoChatRoom *room() const;
     void setRoom(NeoChatRoom *room);
 
-    Q_INVOKABLE void postMessage(const QString &attachmentPath, const QString &replyEventId) const;
+    Q_INVOKABLE void postMessage(const QString &attachementPath, const QString &replyEventId) const;
 
     /// This function will look at the current QTextCursor and determine if there
     /// is the posibility to autocomplete it.
@@ -66,8 +66,8 @@ Q_SIGNALS:
     void roomChanged();
 
 private:
-    QTextCursor textCursor() const;
-    QTextDocument *textDocument() const;
+    [[nodiscard]] QTextCursor textCursor() const;
+    [[nodiscard]] QTextDocument *textDocument() const;
 
     QQuickTextDocument *m_document;
 

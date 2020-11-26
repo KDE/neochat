@@ -54,27 +54,27 @@ public:
     Q_ENUM(EventRoles)
 
     RoomListModel(QObject *parent = nullptr);
-    virtual ~RoomListModel() override;
+    ~RoomListModel() override;
 
-    Connection *connection() const
+    [[nodiscard]] Connection *connection() const
     {
         return m_connection;
     }
     void setConnection(Connection *connection);
     void doResetModel();
 
-    Q_INVOKABLE NeoChatRoom *roomAt(int row) const;
+    Q_INVOKABLE [[nodiscard]] NeoChatRoom *roomAt(int row) const;
 
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
-    Q_INVOKABLE int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    Q_INVOKABLE [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    QHash<int, QByteArray> roleNames() const override;
+    [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
-    Q_INVOKABLE QString categoryName(int category) const;
+    Q_INVOKABLE [[nodiscard]] static QString categoryName(int section);
     Q_INVOKABLE void setCategoryVisible(int category, bool visible);
-    Q_INVOKABLE bool categoryVisible(int category) const;
+    Q_INVOKABLE [[nodiscard]] bool categoryVisible(int category) const;
 
-    int notificationCount() const
+    [[nodiscard]] int notificationCount() const
     {
         return m_notificationCount;
     }
@@ -100,9 +100,9 @@ Q_SIGNALS:
     void connectionChanged();
     void notificationCountChanged();
 
-    void roomAdded(NeoChatRoom *room);
-    void newMessage(const QString &roomId, const QString &eventId, const QString &roomName, const QString &senderName, const QString &text, const QImage &icon);
-    void newHighlight(const QString &roomId, const QString &eventId, const QString &roomName, const QString &senderName, const QString &text, const QImage &icon);
+    void roomAdded(NeoChatRoom *_t1);
+    void newMessage(const QString &_t1, const QString &_t2, const QString &_t3, const QString &_t4, const QString &_t5, const QImage &_t6);
+    void newHighlight(const QString &_t1, const QString &_t2, const QString &_t3, const QString &_t4, const QString &_t5, const QImage &_t6);
 };
 
 #endif // ROOMLISTMODEL_H

@@ -19,7 +19,6 @@ NotificationsManager &NotificationsManager::instance()
     return _instance;
 }
 
-
 NotificationsManager::NotificationsManager(QObject *parent)
     : QObject(parent)
 {
@@ -27,7 +26,7 @@ NotificationsManager::NotificationsManager(QObject *parent)
 
 void NotificationsManager::postNotification(const QString &roomid, const QString &eventid, const QString &roomname, const QString &sender, const QString &text, const QImage &icon)
 {
-    if(!NeoChatConfig::self()->showNotifications()) {
+    if (!NeoChatConfig::self()->showNotifications()) {
         return;
     }
 

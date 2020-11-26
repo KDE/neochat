@@ -22,10 +22,10 @@ public:
 
     AccountListModel(QObject *parent = nullptr);
 
-    QVariant data(const QModelIndex &index, int role = UserRole) const override;
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role = UserRole) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    QHash<int, QByteArray> roleNames() const override;
+    [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
 private:
     QVector<Connection *> m_connections;

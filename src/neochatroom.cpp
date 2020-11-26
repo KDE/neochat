@@ -29,9 +29,9 @@
 #include "events/roompowerlevelsevent.h"
 #include "events/typingevent.h"
 #include "jobs/downloadfilejob.h"
+#include "notificationsmanager.h"
 #include "user.h"
 #include "utils.h"
-#include "notificationsmanager.h"
 
 #include <KLocalizedString>
 
@@ -45,14 +45,17 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
         setHasFileUploading(false);
     });
     connect(this, &NeoChatRoom::notificationCountChanged, this, [this]() {
-        if(messageEvents().size() == 0)
+        if (messageEvents().size() == 0) {
             return;
+        }
         const RoomEvent *lastEvent = messageEvents().rbegin()->get();
-        if (lastEvent->isStateEvent())
+        if (lastEvent->isStateEvent()) {
             return;
+        }
         User *sender = user(lastEvent->senderId());
-        if (sender == localUser())
+        if (sender == localUser()) {
             return;
+        }
 
         NotificationsManager::instance().postNotification(id(), lastEvent->id(), displayName(), sender->displayname(this), eventToString(*lastEvent), avatar(128));
     });
@@ -62,24 +65,25 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
 
 void NeoChatRoom::uploadFile(const QUrl &url, const QString &body)
 {
-    if (url.isEmpty())
+    if (url.isEmpty()) {
         return;
+    }
 
     QString txnId = postFile(body.isEmpty() ? url.fileName() : body, url, false);
     setHasFileUploading(true);
-    connect(this, &Room::fileTransferCompleted, [=](QString id, QUrl /*localFile*/, QUrl /*mxcUrl*/) {
+    connect(this, &Room::fileTransferCompleted, [=](const QString &id, const QUrl & /*localFile*/, const QUrl & /*mxcUrl*/) {
         if (id == txnId) {
             setFileUploadingProgress(0);
             setHasFileUploading(false);
         }
     });
-    connect(this, &Room::fileTransferFailed, [=](QString id, QString /*error*/) {
+    connect(this, &Room::fileTransferFailed, [=](const QString &id, const QString & /*error*/) {
         if (id == txnId) {
             setFileUploadingProgress(0);
             setHasFileUploading(false);
         }
     });
-    connect(this, &Room::fileTransferProgress, [=](QString id, qint64 progress, qint64 total) {
+    connect(this, &Room::fileTransferProgress, [=](const QString &id, qint64 progress, qint64 total) {
         if (id == txnId) {
             qDebug() << "Progress:" << progress << total;
             setFileUploadingProgress(int(float(progress) / float(total) * 100));
@@ -118,13 +122,16 @@ QString NeoChatRoom::lastEvent() const
     for (auto i = messageEvents().rbegin(); i < messageEvents().rend(); i++) {
         const RoomEvent *evt = i->get();
 
-        if (is<RedactionEvent>(*evt) || is<ReactionEvent>(*evt))
+        if (is<RedactionEvent>(*evt) || is<ReactionEvent>(*evt)) {
             continue;
-        if (evt->isRedacted())
+        }
+        if (evt->isRedacted()) {
             continue;
+        }
 
-        if (evt->isStateEvent() && static_cast<const StateEventBase &>(*evt).repeatsState())
+        if (evt->isStateEvent() && static_cast<const StateEventBase &>(*evt).repeatsState()) {
             continue;
+        }
 
         if (auto e = eventCast<const RoomMessageEvent>(evt)) {
             if (!e->replacedEvent().isEmpty() && e->replacedEvent() != e->id()) {
@@ -132,8 +139,9 @@ QString NeoChatRoom::lastEvent() const
             }
         }
 
-        if (connection()->isIgnored(user(evt->senderId())))
+        if (connection()->isIgnored(user(evt->senderId()))) {
             continue;
+        }
 
         return user(evt->senderId())->displayname() + (evt->isStateEvent() ? " " : ": ") + eventToString(*evt);
     }
@@ -148,12 +156,14 @@ bool NeoChatRoom::isEventHighlighted(const RoomEvent *e) const
 void NeoChatRoom::checkForHighlights(const Quotient::TimelineItem &ti)
 {
     auto localUserId = localUser()->id();
-    if (ti->senderId() == localUserId)
+    if (ti->senderId() == localUserId) {
         return;
+    }
     if (auto *e = ti.viewAs<RoomMessageEvent>()) {
         const auto &text = e->plainBody();
-        if (text.contains(localUserId) || text.contains(roomMembername(localUserId)))
+        if (text.contains(localUserId) || text.contains(roomMembername(localUserId))) {
             highlights.insert(e);
+        }
     }
 }
 
@@ -190,8 +200,9 @@ void NeoChatRoom::countChanged()
 
 QDateTime NeoChatRoom::lastActiveTime() const
 {
-    if (timelineSize() == 0)
+    if (timelineSize() == 0) {
         return QDateTime();
+    }
     return messageEvents().rbegin()->get()->originTimestamp();
 }
 
@@ -207,8 +218,9 @@ int NeoChatRoom::savedBottomVisibleIndex() const
 
 void NeoChatRoom::saveViewport(int topIndex, int bottomIndex)
 {
-    if (topIndex == -1 || bottomIndex == -1 || (bottomIndex == savedBottomVisibleIndex() && (bottomIndex == 0 || topIndex == savedTopVisibleIndex())))
+    if (topIndex == -1 || bottomIndex == -1 || (bottomIndex == savedBottomVisibleIndex() && (bottomIndex == 0 || topIndex == savedTopVisibleIndex()))) {
         return;
+    }
     if (bottomIndex == 0) {
         setFirstDisplayedEventId({});
         setLastDisplayedEventId({});
@@ -222,15 +234,16 @@ QVariantList NeoChatRoom::getUsers(const QString &keyword) const
 {
     const auto userList = users();
     QVariantList matchedList;
-    for (const auto u : userList)
+    for (const auto u : userList) {
         if (u->displayname(this).contains(keyword, Qt::CaseInsensitive)) {
             matchedList.append(QVariant::fromValue(u));
         }
+    }
 
     return matchedList;
 }
 
-QUrl NeoChatRoom::urlToMxcUrl(QUrl mxcUrl)
+QUrl NeoChatRoom::urlToMxcUrl(const QUrl &mxcUrl)
 {
     return DownloadFileJob::makeRequestUrl(connection()->homeserver(), mxcUrl);
 }
@@ -268,7 +281,7 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                 if (removeReply) {
                     htmlBody.remove(utils::removeRichReplyRegex);
                 }
-                htmlBody.replace(utils::userPillRegExp, "<b class=\"user-pill\">\\1</b>");
+                htmlBody.replace(utils::userPillRegExp, R"(<b class="user-pill">\1</b>)");
                 htmlBody.replace(utils::strikethroughRegExp, "<s>\\1</s>");
 
                 return htmlBody;
@@ -309,30 +322,35 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
             // The below code assumes senderName output in AuthorRole
             switch (e.membership()) {
             case MembershipType::Invite:
-                if (e.repeatsState())
+                if (e.repeatsState()) {
                     return i18n("reinvited %1 to the room", subjectName);
+                }
             case MembershipType::Join: {
-                if (e.repeatsState())
+                if (e.repeatsState()) {
                     return i18n("joined the room (repeated)");
+                }
                 if (!e.prevContent() || e.membership() != e.prevContent()->membership) {
                     return e.membership() == MembershipType::Invite ? i18n("invited %1 to the room", subjectName) : i18n("joined the room");
                 }
                 QString text {};
                 if (e.isRename()) {
-                    if (e.displayName().isEmpty())
+                    if (e.displayName().isEmpty()) {
                         text = i18n("cleared their display name");
-                    else
+                    } else {
                         text = i18n("changed their display name to %1", e.displayName().toHtmlEscaped());
+                    }
                 }
                 if (e.isAvatarUpdate()) {
-                    if (!text.isEmpty())
+                    if (!text.isEmpty()) {
                         text += i18n(" and ");
-                    if (e.avatarUrl().isEmpty())
+                    }
+                    if (e.avatarUrl().isEmpty()) {
                         text += i18n("cleared their avatar");
-                    else if (e.prevContent()->avatarUrl.isEmpty())
+                    } else if (e.prevContent()->avatarUrl.isEmpty()) {
                         text += i18n("set an avatar");
-                    else
+                    } else {
                         text += i18n("updated their avatar");
+                    }
                 }
                 return text;
             }
@@ -378,7 +396,7 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
         i18n("Unknown event"));
 }
 
-void NeoChatRoom::changeAvatar(QUrl localFile)
+void NeoChatRoom::changeAvatar(const QUrl &localFile)
 {
     const auto job = connection()->uploadFile(localFile.toLocalFile());
     if (isJobRunning(job)) {
@@ -391,8 +409,9 @@ void NeoChatRoom::changeAvatar(QUrl localFile)
 void NeoChatRoom::addLocalAlias(const QString &alias)
 {
     auto a = aliases();
-    if (a.contains(alias))
+    if (a.contains(alias)) {
         return;
+    }
 
     a += alias;
 
@@ -402,8 +421,9 @@ void NeoChatRoom::addLocalAlias(const QString &alias)
 void NeoChatRoom::removeLocalAlias(const QString &alias)
 {
     auto a = aliases();
-    if (!a.contains(alias))
+    if (!a.contains(alias)) {
         return;
+    }
 
     a.removeAll(alias);
 
@@ -467,8 +487,9 @@ void NeoChatRoom::postPlainMessage(const QString &text, MessageEventType type, c
 {
     bool isReply = !replyEventId.isEmpty();
     const auto replyIt = findInTimeline(replyEventId);
-    if (replyIt == timelineEdge())
+    if (replyIt == timelineEdge()) {
         isReply = false;
+    }
 
     if (isReply) {
         const auto &replyEvt = **replyIt;
@@ -511,8 +532,9 @@ void NeoChatRoom::postHtmlMessage(const QString &text, const QString &html, Mess
 {
     bool isReply = !replyEventId.isEmpty();
     const auto replyIt = findInTimeline(replyEventId);
-    if (replyIt == timelineEdge())
+    if (replyIt == timelineEdge()) {
         isReply = false;
+    }
 
     if (isReply) {
         const auto &replyEvt = **replyIt;
@@ -553,12 +575,14 @@ void NeoChatRoom::postHtmlMessage(const QString &text, const QString &html, Mess
 
 void NeoChatRoom::toggleReaction(const QString &eventId, const QString &reaction)
 {
-    if (eventId.isEmpty() || reaction.isEmpty())
+    if (eventId.isEmpty() || reaction.isEmpty()) {
         return;
+    }
 
     const auto eventIt = findInTimeline(eventId);
-    if (eventIt == timelineEdge())
+    if (eventIt == timelineEdge()) {
         return;
+    }
 
     const auto &evt = **eventIt;
 
@@ -568,8 +592,9 @@ void NeoChatRoom::toggleReaction(const QString &eventId, const QString &reaction
     if (!annotations.isEmpty()) {
         for (const auto &a : annotations) {
             if (auto e = eventCast<const ReactionEvent>(a)) {
-                if (e->relation().key != reaction)
+                if (e->relation().key != reaction) {
                     continue;
+                }
 
                 if (e->senderId() == localUser()->id()) {
                     redactEventIds.push_back(e->id());
@@ -588,12 +613,13 @@ void NeoChatRoom::toggleReaction(const QString &eventId, const QString &reaction
     }
 }
 
-bool NeoChatRoom::containsUser(QString userID) const
+bool NeoChatRoom::containsUser(const QString &userID) const
 {
     auto u = Room::user(userID);
 
-    if (!u)
+    if (!u) {
         return false;
+    }
 
     return Room::memberJoinState(u) != JoinState::Leave;
 }

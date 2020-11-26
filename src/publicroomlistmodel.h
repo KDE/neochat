@@ -38,30 +38,30 @@ public:
 
     PublicRoomListModel(QObject *parent = nullptr);
 
-    QVariant data(const QModelIndex &index, int role = NameRole) const override;
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role = NameRole) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    QHash<int, QByteArray> roleNames() const override;
+    [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
-    Connection *connection() const
+    [[nodiscard]] Connection *connection() const
     {
         return m_connection;
     }
-    void setConnection(Connection *value);
+    void setConnection(Connection *conn);
 
-    QString server() const
+    [[nodiscard]] QString server() const
     {
         return m_server;
     }
     void setServer(const QString &value);
 
-    QString keyword() const
+    [[nodiscard]] QString keyword() const
     {
         return m_keyword;
     }
     void setKeyword(const QString &value);
 
-    bool hasMore() const;
+    [[nodiscard]] bool hasMore() const;
 
     Q_INVOKABLE void next(int count = 50);
 

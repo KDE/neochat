@@ -12,8 +12,9 @@ PublicRoomListModel::PublicRoomListModel(QObject *parent)
 
 void PublicRoomListModel::setConnection(Connection *conn)
 {
-    if (m_connection == conn)
+    if (m_connection == conn) {
         return;
+    }
 
     beginResetModel();
 
@@ -46,8 +47,9 @@ void PublicRoomListModel::setConnection(Connection *conn)
 
 void PublicRoomListModel::setServer(const QString &value)
 {
-    if (m_server == value)
+    if (m_server == value) {
         return;
+    }
 
     m_server = value;
 
@@ -74,8 +76,9 @@ void PublicRoomListModel::setServer(const QString &value)
 
 void PublicRoomListModel::setKeyword(const QString &value)
 {
-    if (m_keyword == value)
+    if (m_keyword == value) {
         return;
+    }
 
     m_keyword = value;
 
@@ -102,8 +105,9 @@ void PublicRoomListModel::setKeyword(const QString &value)
 
 void PublicRoomListModel::next(int count)
 {
-    if (count < 1)
+    if (count < 1) {
         return;
+    }
 
     if (job) {
         qDebug() << "PublicRoomListModel: Other jobs running, ignore";
@@ -134,8 +138,9 @@ void PublicRoomListModel::next(int count)
 
 QVariant PublicRoomListModel::data(const QModelIndex &index, int role) const
 {
-    if (!index.isValid())
+    if (!index.isValid()) {
         return QVariant();
+    }
 
     if (index.row() >= rooms.count()) {
         qDebug() << "PublicRoomListModel, something's wrong: index.row() >= "
@@ -195,8 +200,9 @@ QVariant PublicRoomListModel::data(const QModelIndex &index, int role) const
         return room.worldReadable;
     }
     if (role == IsJoinedRole) {
-        if (!m_connection)
+        if (!m_connection) {
             return {};
+        }
 
         return m_connection->room(room.roomId, JoinState::Join) != nullptr;
     }
@@ -223,8 +229,9 @@ QHash<int, QByteArray> PublicRoomListModel::roleNames() const
 
 int PublicRoomListModel::rowCount(const QModelIndex &parent) const
 {
-    if (parent.isValid())
+    if (parent.isValid()) {
         return 0;
+    }
 
     return rooms.count();
 }

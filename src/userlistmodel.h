@@ -48,17 +48,17 @@ public:
 
     UserListModel(QObject *parent = nullptr);
 
-    Quotient::Room *room() const
+    [[nodiscard]] Quotient::Room *room() const
     {
         return m_currentRoom;
     }
     void setRoom(Quotient::Room *room);
-    Quotient::User *userAt(QModelIndex index) const;
+    [[nodiscard]] Quotient::User *userAt(QModelIndex index) const;
 
-    QVariant data(const QModelIndex &index, int role = NameRole) const override;
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role = NameRole) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    QHash<int, QByteArray> roleNames() const override;
+    [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
 Q_SIGNALS:
     void roomChanged();
@@ -66,7 +66,7 @@ Q_SIGNALS:
 private Q_SLOTS:
     void userAdded(Quotient::User *user);
     void userRemoved(Quotient::User *user);
-    void refresh(Quotient::User *user, QVector<int> roles = {});
+    void refresh(Quotient::User *user, const QVector<int> &roles = {});
     void avatarChanged(Quotient::User *user, const Quotient::Room *context);
 
 private:
@@ -74,7 +74,7 @@ private:
     QList<Quotient::User *> m_users;
 
     int findUserPos(Quotient::User *user) const;
-    int findUserPos(const QString &username) const;
+    [[nodiscard]] int findUserPos(const QString &username) const;
 };
 
 #endif // USERLISTMODEL_H

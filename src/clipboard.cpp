@@ -31,15 +31,17 @@ QImage Clipboard::image() const
     return m_clipboard->image();
 }
 
-bool Clipboard::saveImage(const QUrl &localPath)
+bool Clipboard::saveImage(const QUrl &localPath) const
 {
-    if (!localPath.isLocalFile())
+    if (!localPath.isLocalFile()) {
         return false;
+    }
 
     auto i = image();
 
-    if (i.isNull())
+    if (i.isNull()) {
         return false;
+    }
 
     QString path = QFileInfo(localPath.toLocalFile()).absolutePath();
     QDir dir;

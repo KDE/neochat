@@ -8,12 +8,12 @@
 
 // Modified from mujx/nheko's TrayIcon.
 
+#include <KStatusNotifierItem>
 #include <QAction>
 #include <QIcon>
 #include <QIconEngine>
 #include <QPainter>
 #include <QRect>
-#include <KStatusNotifierItem>
 
 class TrayIcon : public KStatusNotifierItem
 {
@@ -29,7 +29,7 @@ public:
     }
     void setIconSource(const QString &source);
 
-    bool isOnline()
+    bool isOnline() const
     {
         return m_isOnline;
     }

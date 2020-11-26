@@ -25,16 +25,18 @@ UserListModel::UserListModel(QObject *parent)
 
 void UserListModel::setRoom(Quotient::Room *room)
 {
-    if (m_currentRoom == room)
+    if (m_currentRoom == room) {
         return;
+    }
 
     using namespace Quotient;
     beginResetModel();
     if (m_currentRoom) {
         m_currentRoom->disconnect(this);
         //    m_currentRoom->connection()->disconnect(this);
-        for (User *user : qAsConst(m_users))
+        for (User *user : qAsConst(m_users)) {
             user->disconnect(this);
+        }
         m_users.clear();
     }
     m_currentRoom = room;
@@ -61,15 +63,17 @@ void UserListModel::setRoom(Quotient::Room *room)
 
 Quotient::User *UserListModel::userAt(QModelIndex index) const
 {
-    if (index.row() < 0 || index.row() >= m_users.size())
+    if (index.row() < 0 || index.row() >= m_users.size()) {
         return nullptr;
+    }
     return m_users.at(index.row());
 }
 
 QVariant UserListModel::data(const QModelIndex &index, int role) const
 {
-    if (!index.isValid())
+    if (!index.isValid()) {
         return QVariant();
+    }
 
     if (index.row() >= m_users.count()) {
         qDebug() << "UserListModel, something's wrong: index.row() >= m_users.count()";
@@ -132,8 +136,9 @@ QVariant UserListModel::data(const QModelIndex &index, int role) const
 
 int UserListModel::rowCount(const QModelIndex &parent) const
 {
-    if (parent.isValid())
+    if (parent.isValid()) {
         return 0;
+    }
 
     return m_users.count();
 }
@@ -155,23 +160,26 @@ void UserListModel::userRemoved(Quotient::User *user)
         m_users.removeAt(pos);
         endRemoveRows();
         user->disconnect(this);
-    } else
+    } else {
         qWarning() << "Trying to remove a room member not in the user list";
+    }
 }
 
-void UserListModel::refresh(Quotient::User *user, QVector<int> roles)
+void UserListModel::refresh(Quotient::User *user, const QVector<int> &roles)
 {
     auto pos = findUserPos(user);
-    if (pos != m_users.size())
+    if (pos != m_users.size()) {
         Q_EMIT dataChanged(index(pos), index(pos), roles);
-    else
+    } else {
         qWarning() << "Trying to access a room member not in the user list";
+    }
 }
 
 void UserListModel::avatarChanged(Quotient::User *user, const Quotient::Room *context)
 {
-    if(context == m_currentRoom)
+    if (context == m_currentRoom) {
         refresh(user, {AvatarRole});
+    }
 }
 
 int UserListModel::findUserPos(User *user) const

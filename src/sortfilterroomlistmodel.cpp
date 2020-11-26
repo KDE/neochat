@@ -22,10 +22,11 @@ void SortFilterRoomListModel::setRoomSortOrder(SortFilterRoomListModel::RoomSort
 {
     m_sortOrder = sortOrder;
     Q_EMIT roomSortOrderChanged();
-    if (sortOrder == SortFilterRoomListModel::Alphabetical)
+    if (sortOrder == SortFilterRoomListModel::Alphabetical) {
         setSortRole(RoomListModel::NameRole);
-    else if (sortOrder == SortFilterRoomListModel::LastActivity)
+    } else if (sortOrder == SortFilterRoomListModel::LastActivity) {
         setSortRole(RoomListModel::LastActiveTimeRole);
+    }
     invalidate();
 }
 
@@ -43,7 +44,8 @@ bool SortFilterRoomListModel::lessThan(const QModelIndex &source_left, const QMo
 
         if (categoryLeft == RoomType::Types::Favorite && categoryRight == RoomType::Types::Favorite) {
             return sourceModel()->data(source_left, RoomListModel::LastActiveTimeRole).toDateTime() > sourceModel()->data(source_right, RoomListModel::LastActiveTimeRole).toDateTime();
-        } else if (categoryLeft == RoomType::Types::Favorite) {
+        }
+        if (categoryLeft == RoomType::Types::Favorite) {
             return true;
         } else if (categoryRight == RoomType::Types::Favorite) {
             return false;
@@ -51,10 +53,12 @@ bool SortFilterRoomListModel::lessThan(const QModelIndex &source_left, const QMo
 
         return sourceModel()->data(source_left, RoomListModel::LastActiveTimeRole).toDateTime() > sourceModel()->data(source_right, RoomListModel::LastActiveTimeRole).toDateTime();
     }
-    if (m_sortOrder != SortFilterRoomListModel::Categories)
+    if (m_sortOrder != SortFilterRoomListModel::Categories) {
         return QSortFilterProxyModel::lessThan(source_left, source_right);
-    if (sourceModel()->data(source_left, RoomListModel::CategoryRole) != sourceModel()->data(source_right, RoomListModel::CategoryRole))
+    }
+    if (sourceModel()->data(source_left, RoomListModel::CategoryRole) != sourceModel()->data(source_right, RoomListModel::CategoryRole)) {
         return sourceModel()->data(source_left, RoomListModel::CategoryRole).toInt() < sourceModel()->data(source_right, RoomListModel::CategoryRole).toInt();
+    }
     return sourceModel()->data(source_left, RoomListModel::LastActiveTimeRole).toDateTime() > sourceModel()->data(source_right, RoomListModel::LastActiveTimeRole).toDateTime();
 }
 

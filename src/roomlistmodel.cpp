@@ -5,9 +5,9 @@
  */
 #include "roomlistmodel.h"
 
+#include "neochatconfig.h"
 #include "user.h"
 #include "utils.h"
-#include "neochatconfig.h"
 
 #include "events/roomevent.h"
 
@@ -17,6 +17,7 @@
 #include <QStandardPaths>
 
 #include <KLocalizedString>
+#include <utility>
 
 RoomListModel::RoomListModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -27,16 +28,16 @@ RoomListModel::RoomListModel(QObject *parent)
     }
 }
 
-RoomListModel::~RoomListModel()
-{
-}
+RoomListModel::~RoomListModel() = default;
 
 void RoomListModel::setConnection(Connection *connection)
 {
-    if (connection == m_connection)
+    if (connection == m_connection) {
         return;
-    if (m_connection)
+    }
+    if (m_connection) {
         m_connection->disconnect(this);
+    }
     if (!connection) {
         qDebug() << "Removing current connection...";
         m_connection = nullptr;
@@ -61,13 +62,14 @@ void RoomListModel::setConnection(Connection *connection)
         auto refreshRooms = [this, &connection](Quotient::DirectChatsMap rooms) {
             for (const QString &roomID : qAsConst(rooms)) {
                 auto room = connection->room(roomID);
-                if (room)
+                if (room) {
                     refresh(static_cast<NeoChatRoom *>(room));
+                }
             }
         };
 
-        refreshRooms(additions);
-        refreshRooms(removals);
+        refreshRooms(std::move(additions));
+        refreshRooms(std::move(removals));
     });
 
     doResetModel();
@@ -128,29 +130,37 @@ void RoomListModel::connectRoomSignals(NeoChatRoom *room)
         refresh(room, {LastEventRole});
     });
     connect(room, &Room::notificationCountChanged, this, [=] {
-        if (room->notificationCount() == 0)
+        if (room->notificationCount() == 0) {
             return;
-        if (room->timelineSize() == 0)
+        }
+        if (room->timelineSize() == 0) {
             return;
+        }
         const RoomEvent *lastEvent = room->messageEvents().rbegin()->get();
-        if (lastEvent->isStateEvent())
+        if (lastEvent->isStateEvent()) {
             return;
+        }
         User *sender = room->user(lastEvent->senderId());
-        if (sender == room->localUser())
+        if (sender == room->localUser()) {
             return;
+        }
         Q_EMIT newMessage(room->id(), lastEvent->id(), room->displayName(), sender->displayname(), room->eventToString(*lastEvent), room->avatar(128));
     });
     connect(room, &Room::highlightCountChanged, this, [=] {
-        if (room->highlightCount() == 0)
+        if (room->highlightCount() == 0) {
             return;
-        if (room->timelineSize() == 0)
+        }
+        if (room->timelineSize() == 0) {
             return;
+        }
         const RoomEvent *lastEvent = room->messageEvents().rbegin()->get();
-        if (lastEvent->isStateEvent())
+        if (lastEvent->isStateEvent()) {
             return;
+        }
         User *sender = room->user(lastEvent->senderId());
-        if (sender == room->localUser())
+        if (sender == room->localUser()) {
             return;
+        }
         Q_EMIT newHighlight(room->id(), lastEvent->id(), room->displayName(), sender->displayname(), room->eventToString(*lastEvent), room->avatar(128));
     });
     connect(room, &Room::notificationCountChanged, this, &RoomListModel::refreshNotificationCount);
@@ -206,8 +216,9 @@ void RoomListModel::deleteRoom(Room *room)
 {
     qDebug() << "Deleting room" << room->id();
     const auto it = std::find(m_rooms.begin(), m_rooms.end(), room);
-    if (it == m_rooms.end())
+    if (it == m_rooms.end()) {
         return; // Already deleted, nothing to do
+    }
     qDebug() << "Erasing room" << room->id();
     const int row = it - m_rooms.begin();
     beginRemoveRows(QModelIndex(), row, row);
@@ -217,57 +228,74 @@ void RoomListModel::deleteRoom(Room *room)
 
 int RoomListModel::rowCount(const QModelIndex &parent) const
 {
-    if (parent.isValid())
+    if (parent.isValid()) {
         return 0;
+    }
     return m_rooms.count();
 }
 
 QVariant RoomListModel::data(const QModelIndex &index, int role) const
 {
-    if (!index.isValid())
+    if (!index.isValid()) {
         return QVariant();
+    }
 
     if (index.row() >= m_rooms.count()) {
         qDebug() << "UserListModel: something wrong here...";
         return QVariant();
     }
     NeoChatRoom *room = m_rooms.at(index.row());
-    if (role == NameRole)
+    if (role == NameRole) {
         return room->displayName();
-    if (role == AvatarRole)
+    }
+    if (role == AvatarRole) {
         return room->avatarMediaId();
-    if (role == TopicRole)
+    }
+    if (role == TopicRole) {
         return room->topic();
+    }
     if (role == CategoryRole) {
-        if (room->joinState() == JoinState::Invite)
+        if (room->joinState() == JoinState::Invite) {
             return RoomType::Invited;
-        if (room->isFavourite())
+        }
+        if (room->isFavourite()) {
             return RoomType::Favorite;
-        if (room->isDirectChat())
+        }
+        if (room->isDirectChat()) {
             return RoomType::Direct;
-        if (room->isLowPriority())
+        }
+        if (room->isLowPriority()) {
             return RoomType::Deprioritized;
+        }
         return RoomType::Normal;
     }
-    if (role == UnreadCountRole)
+    if (role == UnreadCountRole) {
         return room->unreadCount();
-    if (role == NotificationCountRole)
+    }
+    if (role == NotificationCountRole) {
         return room->notificationCount();
-    if (role == HighlightCountRole)
+    }
+    if (role == HighlightCountRole) {
         return room->highlightCount();
-    if (role == LastEventRole)
+    }
+    if (role == LastEventRole) {
         return room->lastEvent();
-    if (role == LastActiveTimeRole)
+    }
+    if (role == LastActiveTimeRole) {
         return room->lastActiveTime();
+    }
     if (role == JoinStateRole) {
-        if (!room->successorId().isEmpty())
+        if (!room->successorId().isEmpty()) {
             return QStringLiteral("upgraded");
+        }
         return toCString(room->joinState());
     }
-    if (role == CurrentRoomRole)
+    if (role == CurrentRoomRole) {
         return QVariant::fromValue(room);
-    if (role == CategoryVisibleRole)
+    }
+    if (role == CategoryVisibleRole) {
         return m_categoryVisibility.value(data(index, CategoryRole).toInt(), true);
+    }
     return QVariant();
 }
 
@@ -300,7 +328,7 @@ QHash<int, QByteArray> RoomListModel::roleNames() const
     return roles;
 }
 
-QString RoomListModel::categoryName(int section) const
+QString RoomListModel::categoryName(int section)
 {
     switch (section) {
     case 1:

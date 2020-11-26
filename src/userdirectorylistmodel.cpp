@@ -12,8 +12,9 @@ UserDirectoryListModel::UserDirectoryListModel(QObject *parent)
 
 void UserDirectoryListModel::setConnection(Connection *conn)
 {
-    if (m_connection == conn)
+    if (m_connection == conn) {
         return;
+    }
 
     beginResetModel();
 
@@ -40,8 +41,9 @@ void UserDirectoryListModel::setConnection(Connection *conn)
 
 void UserDirectoryListModel::setKeyword(const QString &value)
 {
-    if (m_keyword == value)
+    if (m_keyword == value) {
         return;
+    }
 
     m_keyword = value;
 
@@ -59,8 +61,9 @@ void UserDirectoryListModel::setKeyword(const QString &value)
 
 void UserDirectoryListModel::search(int count)
 {
-    if (count < 1)
+    if (count < 1) {
         return;
+    }
 
     if (job) {
         qDebug() << "UserDirectoryListModel: Other jobs running, ignore";
@@ -68,8 +71,9 @@ void UserDirectoryListModel::search(int count)
         return;
     }
 
-    if (attempted)
+    if (attempted) {
         return;
+    }
 
     job = m_connection->callApi<SearchUserDirectoryJob>(m_keyword, count);
 
@@ -95,8 +99,9 @@ void UserDirectoryListModel::search(int count)
 
 QVariant UserDirectoryListModel::data(const QModelIndex &index, int role) const
 {
-    if (!index.isValid())
+    if (!index.isValid()) {
         return QVariant();
+    }
 
     if (index.row() >= users.count()) {
         qDebug() << "UserDirectoryListModel, something's wrong: index.row() >= "
@@ -130,8 +135,9 @@ QVariant UserDirectoryListModel::data(const QModelIndex &index, int role) const
         return user.userId;
     }
     if (role == DirectChatsRole) {
-        if (!m_connection)
+        if (!m_connection) {
             return {};
+        };
 
         auto userObj = m_connection->user(user.userId);
         auto directChats = m_connection->directChats();
@@ -161,8 +167,9 @@ QHash<int, QByteArray> UserDirectoryListModel::roleNames() const
 
 int UserDirectoryListModel::rowCount(const QModelIndex &parent) const
 {
-    if (parent.isValid())
+    if (parent.isValid()) {
         return 0;
+    }
 
     return users.count();
 }

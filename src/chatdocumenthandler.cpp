@@ -3,9 +3,9 @@
 #include <QQmlFile>
 #include <QQmlFileSelector>
 #include <QQuickTextDocument>
+#include <QStringBuilder>
 #include <QTextBlock>
 #include <QTextDocument>
-#include <QStringBuilder>
 
 #include "neochatroom.h"
 
@@ -23,11 +23,13 @@ QQuickTextDocument *ChatDocumentHandler::document() const
 
 void ChatDocumentHandler::setDocument(QQuickTextDocument *document)
 {
-    if (document == m_document)
+    if (document == m_document) {
         return;
+    }
 
-    if (m_document)
+    if (m_document) {
         m_document->textDocument()->disconnect(this);
+    }
     m_document = document;
     Q_EMIT documentChanged();
 }
@@ -39,13 +41,13 @@ int ChatDocumentHandler::cursorPosition() const
 
 void ChatDocumentHandler::setCursorPosition(int position)
 {
-    if (position == m_cursorPosition)
+    if (position == m_cursorPosition) {
         return;
+    }
 
     m_cursorPosition = position;
     Q_EMIT cursorPositionChanged();
 }
-
 
 int ChatDocumentHandler::selectionStart() const
 {
@@ -54,8 +56,9 @@ int ChatDocumentHandler::selectionStart() const
 
 void ChatDocumentHandler::setSelectionStart(int position)
 {
-    if (position == m_selectionStart)
+    if (position == m_selectionStart) {
         return;
+    }
 
     m_selectionStart = position;
     Q_EMIT selectionStartChanged();
@@ -68,8 +71,9 @@ int ChatDocumentHandler::selectionEnd() const
 
 void ChatDocumentHandler::setSelectionEnd(int position)
 {
-    if (position == m_selectionEnd)
+    if (position == m_selectionEnd) {
         return;
+    }
 
     m_selectionEnd = position;
     Q_EMIT selectionEndChanged();
@@ -78,8 +82,9 @@ void ChatDocumentHandler::setSelectionEnd(int position)
 QTextCursor ChatDocumentHandler::textCursor() const
 {
     QTextDocument *doc = textDocument();
-    if (!doc)
+    if (!doc) {
         return QTextCursor();
+    }
 
     QTextCursor cursor = QTextCursor(doc);
     if (m_selectionStart != m_selectionEnd) {
@@ -93,8 +98,9 @@ QTextCursor ChatDocumentHandler::textCursor() const
 
 QTextDocument *ChatDocumentHandler::textDocument() const
 {
-    if (!m_document)
+    if (!m_document) {
         return nullptr;
+    }
 
     return m_document->textDocument();
 }
@@ -106,8 +112,9 @@ NeoChatRoom *ChatDocumentHandler::room() const
 
 void ChatDocumentHandler::setRoom(NeoChatRoom *room)
 {
-    if (m_room == room)
+    if (m_room == room) {
         return;
+    }
 
     m_room = room;
     Q_EMIT roomChanged();
@@ -123,8 +130,7 @@ QVariantMap ChatDocumentHandler::getAutocompletionInfo()
             {"type", AutoCompletionType::Ignore},
         };
     }
-    if (m_cursorPosition != m_autoCompleteBeginPosition
-            && m_cursorPosition != m_autoCompleteEndPosition) {
+    if (m_cursorPosition != m_autoCompleteBeginPosition && m_cursorPosition != m_autoCompleteEndPosition) {
         // we moved our cursor, so cancel autocompletion
     }
 
@@ -149,12 +155,11 @@ QVariantMap ChatDocumentHandler::getAutocompletionInfo()
                 {"keyword", autoCompletePrefix},
                 {"type", AutoCompletionType::User},
             };
-        } else {
-            return QVariantMap {
-                {"keyword", autoCompletePrefix},
-                {"type", AutoCompletionType::Emoji},
-            };
         }
+        return QVariantMap {
+            {"keyword", autoCompletePrefix},
+            {"type", AutoCompletionType::Emoji},
+        };
     }
 
     return QVariantMap {
@@ -164,8 +169,9 @@ QVariantMap ChatDocumentHandler::getAutocompletionInfo()
 
 void ChatDocumentHandler::postMessage(const QString &attachementPath, const QString &replyEventId) const
 {
-    if (!m_room || !m_document)
+    if (!m_room || !m_document) {
         return;
+    }
 
     QString cleanedText = m_document->textDocument()->toMarkdown();
 
@@ -175,8 +181,9 @@ void ChatDocumentHandler::postMessage(const QString &attachementPath, const QStr
         m_room->uploadFile(attachementPath, cleanedText);
     }
 
-    if (cleanedText.length() == 0)
+    if (cleanedText.length() == 0) {
         return;
+    }
 
     auto messageEventType = RoomMessageEvent::MsgType::Text;
 
@@ -187,7 +194,8 @@ void ChatDocumentHandler::postMessage(const QString &attachementPath, const QStr
     if (cleanedText.indexOf(rainbowPrefix) == 0) {
         cleanedText = cleanedText.remove(0, rainbowPrefix.length());
         QString rainbowText;
-        QStringList rainbowColors { "#ff2b00", "#ff5500", "#ff8000", "#ffaa00", "#ffd500", "#ffff00", "#d4ff00", "#aaff00", "#80ff00", "#55ff00", "#2bff00", "#00ff00", "#00ff2b", "#00ff55", "#00ff80", "#00ffaa", "#00ffd5", "#00ffff", "#00d4ff", "#00aaff", "#007fff", "#0055ff", "#002bff", "#0000ff", "#2a00ff", "#5500ff", "#7f00ff", "#aa00ff", "#d400ff", "#ff00ff", "#ff00d4", "#ff00aa", "#ff0080", "#ff0055", "#ff002b", "#ff0000" };
+        QStringList rainbowColors {"#ff2b00", "#ff5500", "#ff8000", "#ffaa00", "#ffd500", "#ffff00", "#d4ff00", "#aaff00", "#80ff00", "#55ff00", "#2bff00", "#00ff00", "#00ff2b", "#00ff55", "#00ff80", "#00ffaa", "#00ffd5", "#00ffff",
+                                   "#00d4ff", "#00aaff", "#007fff", "#0055ff", "#002bff", "#0000ff", "#2a00ff", "#5500ff", "#7f00ff", "#aa00ff", "#d400ff", "#ff00ff", "#ff00d4", "#ff00aa", "#ff0080", "#ff0055", "#ff002b", "#ff0000"};
 
         for (int i = 0; i < cleanedText.length(); i++) {
             rainbowText = rainbowText % QStringLiteral("<font color='") % rainbowColors.at(i % rainbowColors.length()) % "'>" % cleanedText.at(i) % "</font>";

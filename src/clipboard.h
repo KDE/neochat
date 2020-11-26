@@ -22,10 +22,10 @@ class Clipboard : public QObject
 public:
     explicit Clipboard(QObject *parent = nullptr);
 
-    bool hasImage() const;
-    QImage image() const;
+    [[nodiscard]] bool hasImage() const;
+    [[nodiscard]] QImage image() const;
 
-    Q_INVOKABLE bool saveImage(const QUrl &localPath);
+    Q_INVOKABLE bool saveImage(const QUrl &localPath) const;
 
     Q_INVOKABLE void saveText(QString message);
 

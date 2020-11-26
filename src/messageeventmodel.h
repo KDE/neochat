@@ -55,17 +55,17 @@ public:
     explicit MessageEventModel(QObject *parent = nullptr);
     ~MessageEventModel() override;
 
-    NeoChatRoom *room() const
+    [[nodiscard]] NeoChatRoom *room() const
     {
         return m_currentRoom;
     }
     void setRoom(NeoChatRoom *room);
 
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
-    QHash<int, QByteArray> roleNames() const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &idx, int role = Qt::DisplayRole) const override;
+    [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
-    Q_INVOKABLE int eventIDToIndex(const QString &eventID) const;
+    Q_INVOKABLE [[nodiscard]] int eventIDToIndex(const QString &eventID) const;
 
 private Q_SLOTS:
     int refreshEvent(const QString &eventId);
@@ -75,13 +75,13 @@ private:
     NeoChatRoom *m_currentRoom = nullptr;
     QString lastReadEventId;
     int rowBelowInserted = -1;
-    bool movingEvent = 0;
+    bool movingEvent = false;
 
-    int timelineBaseIndex() const;
-    QDateTime makeMessageTimestamp(const Quotient::Room::rev_iter_t &baseIt) const;
-    QString renderDate(QDateTime timestamp) const;
+    [[nodiscard]] int timelineBaseIndex() const;
+    [[nodiscard]] QDateTime makeMessageTimestamp(const Quotient::Room::rev_iter_t &baseIt) const;
+    [[nodiscard]] static QString renderDate(const QDateTime &timestamp);
 
-    void refreshLastUserEvents(int baseRow);
+    void refreshLastUserEvents(int baseTimelineRow);
     void refreshEventRoles(int row, const QVector<int> &roles = {});
     int refreshEventRoles(const QString &eventId, const QVector<int> &roles = {});
 

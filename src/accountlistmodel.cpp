@@ -29,8 +29,9 @@ AccountListModel::AccountListModel(QObject *parent)
         }
         conn->disconnect(this);
         const auto it = std::find(m_connections.begin(), m_connections.end(), conn);
-        if (it == m_connections.end())
+        if (it == m_connections.end()) {
             return; // Already deleted, nothing to do
+        }
         const int row = it - m_connections.begin();
         beginRemoveRows(QModelIndex(), row, row);
         m_connections.erase(it);

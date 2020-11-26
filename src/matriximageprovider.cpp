@@ -73,8 +73,9 @@ void ThumbnailResponse::prepareResult()
 
             QString localPath = QFileInfo(localFile).absolutePath();
             QDir dir;
-            if (!dir.exists(localPath))
+            if (!dir.exists(localPath)) {
                 dir.mkpath(localPath);
+            }
 
             image.save(localFile);
 

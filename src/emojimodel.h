@@ -10,16 +10,15 @@
 #include <QSettings>
 #include <QVariant>
 #include <QVector>
+#include <utility>
 
 struct Emoji {
-    Emoji(const QString &u, const QString &s)
-        : unicode(u)
-        , shortname(s)
+    Emoji(QString u, QString s)
+        : unicode(std::move(std::move(u)))
+        , shortname(std::move(std::move(s)))
     {
     }
-    Emoji()
-    {
-    }
+    Emoji() = default;
 
     friend QDataStream &operator<<(QDataStream &arch, const Emoji &object)
     {
@@ -67,13 +66,13 @@ public:
     }
 
     Q_INVOKABLE QVariantList history();
-    Q_INVOKABLE QVariantList filterModel(const QString &filter);
+    Q_INVOKABLE static QVariantList filterModel(const QString &filter);
 
 Q_SIGNALS:
     void historyChanged();
 
 public Q_SLOTS:
-    void emojiUsed(QVariant modelData);
+    void emojiUsed(const QVariant &modelData);
 
 private:
     static const QVariantList people;

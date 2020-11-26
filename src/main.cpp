@@ -23,6 +23,7 @@
 #include "neochat-version.h"
 
 #include "accountlistmodel.h"
+#include "chatdocumenthandler.h"
 #include "clipboard.h"
 #include "controller.h"
 #include "csapi/joining.h"
@@ -30,6 +31,7 @@
 #include "emojimodel.h"
 #include "matriximageprovider.h"
 #include "messageeventmodel.h"
+#include "neochatconfig.h"
 #include "neochatroom.h"
 #include "neochatuser.h"
 #include "notificationsmanager.h"
@@ -39,8 +41,6 @@
 #include "sortfilterroomlistmodel.h"
 #include "userdirectorylistmodel.h"
 #include "userlistmodel.h"
-#include "neochatconfig.h"
-#include "chatdocumenthandler.h"
 
 using namespace Quotient;
 
@@ -60,8 +60,8 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 #endif
 
-    app.setOrganizationName("KDE");
-    app.setWindowIcon(QIcon(":/assets/img/icon.png"));
+    QApplication::setOrganizationName("KDE");
+    QApplication::setWindowIcon(QIcon(":/assets/img/icon.png"));
 
     KAboutData about(QStringLiteral("neochat"), i18n("Neochat"), QStringLiteral(NEOCHAT_VERSION_STRING), i18n("Matrix client"), KAboutLicense::GPL_V3, i18n("© 2018-2020 Black Hat, 2020 KDE Community"));
     about.addAuthor(i18n("Black Hat"), QString(), QStringLiteral("bhat@encom.eu.org"));
@@ -123,14 +123,15 @@ int main(int argc, char *argv[])
     engine.addImageProvider(QLatin1String("mxc"), new MatrixImageProvider);
 
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
-    if (engine.rootObjects().isEmpty())
+    if (engine.rootObjects().isEmpty()) {
         return -1;
+    }
 
 #ifndef Q_OS_ANDROID
-    QObject::connect(&service, &KDBusService::activateRequested, &engine, [&engine](const QStringList &/*arguments*/, const QString &/*workingDirectory*/) {
+    QObject::connect(&service, &KDBusService::activateRequested, &engine, [&engine](const QStringList & /*arguments*/, const QString & /*workingDirectory*/) {
         const auto rootObjects = engine.rootObjects();
         for (auto obj : rootObjects) {
-            auto view = qobject_cast<QQuickWindow*>(obj);
+            auto view = qobject_cast<QQuickWindow *>(obj);
             if (view) {
                 view->raise();
                 return;
@@ -138,5 +139,5 @@ int main(int argc, char *argv[])
         }
     });
 #endif
-    return app.exec();
+    return QApplication::exec();
 }

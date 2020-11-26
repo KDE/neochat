@@ -26,10 +26,10 @@ public:
 
 public Q_SLOTS:
     QColor color();
-    void setColor(QColor color);
+    void setColor(const QColor &color);
 
 Q_SIGNALS:
-    void colorChanged(QColor color);
+    void colorChanged(QColor _t1);
 
 private:
     Kirigami::PlatformTheme *m_theme = nullptr;
