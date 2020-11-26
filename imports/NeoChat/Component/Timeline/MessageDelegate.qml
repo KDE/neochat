@@ -140,8 +140,8 @@ RowLayout {
         }
         background: Rectangle {
             Kirigami.Theme.colorSet: Kirigami.Theme.Window
-            color: Kirigami.Theme.backgroundColor
-            opacity: controlContainer.hovered ? 1 : 0
+            color: !model.isHighlighted ? Kirigami.Theme.backgroundColor : Kirigami.Theme.positiveBackgroundColor
+            opacity: controlContainer.hovered || model.isHighlighted ? 1 : 0
         }
     }
 }

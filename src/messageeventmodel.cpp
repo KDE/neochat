@@ -33,7 +33,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[AuthorRole] = "author";
     roles[ContentRole] = "content";
     roles[ContentTypeRole] = "contentType";
-    roles[HighlightRole] = "highlight";
+    roles[HighlightRole] = "isHighlighted";
     roles[ReadMarkerRole] = "readMarker";
     roles[SpecialMarksRole] = "marks";
     roles[LongOperationRole] = "progressInfo";
