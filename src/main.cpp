@@ -128,7 +128,8 @@ int main(int argc, char *argv[])
 
 #ifndef Q_OS_ANDROID
     QObject::connect(&service, &KDBusService::activateRequested, &engine, [&engine](const QStringList &/*arguments*/, const QString &/*workingDirectory*/) {
-        for (auto obj : engine.rootObjects()) {
+        const auto rootObjects = engine.rootObjects();
+        for (auto obj : rootObjects) {
             auto view = qobject_cast<QQuickWindow*>(obj);
             if (view) {
                 view->raise();
