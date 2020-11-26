@@ -2,6 +2,14 @@
 # CMake module to search for the cmark library
 #
 
+# first try to find cmark-config.cmake
+# path to a file not in the search path can be set with 'cmake -Dcmark_DIR=some/path/'
+find_package(cmark CONFIG)
+if(cmark_FOUND AND TARGET cmark::cmark)
+  # found it!
+  return()
+endif()
+
 include(FindPkgConfig)
 pkg_check_modules(PC_CMARK QUIET cmark)
 
