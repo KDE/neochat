@@ -18,7 +18,7 @@ TextEdit {
     readonly property var isEmoji: /^(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])+$/
 
     font.pointSize: isEmoji.test(message) ? Kirigami.Theme.defaultFont.pointSize * 4 : Kirigami.Theme.defaultFont.pointSize
-    selectByMouse: !Kirigami.isMobile
+    selectByMouse: !Kirigami.Settings.isMobile
     readOnly: true
     wrapMode: Text.WordWrap
     textFormat: Text.RichText
