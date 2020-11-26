@@ -40,6 +40,7 @@
 #include "userdirectorylistmodel.h"
 #include "userlistmodel.h"
 #include "neochatconfig.h"
+#include "chatdocumenthandler.h"
 
 using namespace Quotient;
 
@@ -81,6 +82,7 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Clipboard", &clipboard);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Config", config);
     qmlRegisterType<AccountListModel>("org.kde.neochat", 1, 0, "AccountListModel");
+    qmlRegisterType<ChatDocumentHandler>("org.kde.neochat", 1, 0, "ChatDocumentHandler");
     qmlRegisterType<RoomListModel>("org.kde.neochat", 1, 0, "RoomListModel");
     qmlRegisterType<UserListModel>("org.kde.neochat", 1, 0, "UserListModel");
     qmlRegisterType<MessageEventModel>("org.kde.neochat", 1, 0, "MessageEventModel");

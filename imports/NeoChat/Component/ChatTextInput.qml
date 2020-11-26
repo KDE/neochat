@@ -116,7 +116,8 @@ ToolBar {
             keyNavigationWraps: true
 
             delegate: Control {
-                property string autoCompleteText: modelData.displayName ?? modelData.unicode
+                property string autoCompleteText: modelData.displayName ? ("<a href=\"https://matrix.to/#/" + modelData.id + "\">" + modelData.displayName + "</a>:") : modelData.unicode
+                property string displayText: modelData.displayName ?? modelData.unicode
                 property bool isEmoji: modelData.unicode != null
                 readonly property bool highlighted: autoCompleteListView.currentIndex == index
 
@@ -147,7 +148,7 @@ ToolBar {
                         Layout.fillHeight: true
 
                         visible: !isEmoji
-                        text: autoCompleteText
+                        text: displayText
                         color: highlighted ? Kirigami.Theme.highlightTextColor : Kirigami.Theme.textColor
                         font.underline: highlighted
                         verticalAlignment: Text.AlignVCenter
@@ -159,7 +160,7 @@ ToolBar {
                     anchors.fill: parent
                     onClicked: {
                         autoCompleteListView.currentIndex = index
-                        inputField.replaceAutoComplete(autoCompleteText)
+                        documentHandler.replaceAutoComplete(autoCompleteText)
                     }
                 }
             }
@@ -221,14 +222,24 @@ ToolBar {
             }
 
             TextArea {
+                id: inputField
                 property real progress: 0
-                property bool autoAppeared: false;
+                property bool autoAppeared: false
+
+                ChatDocumentHandler {
+                    id: documentHandler
+                    document: inputField.textDocument
+                    cursorPosition: inputField.cursorPosition
+                    selectionStart: inputField.selectionStart
+                    selectionEnd: inputField.selectionEnd
+                    room: currentRoom ?? null
+                }
 
                 Layout.fillWidth: true
 
-                id: inputField
 
                 wrapMode: Text.Wrap
+                textFormat: TextEdit.RichText
                 placeholderText: i18n("Write your message...")
                 topPadding: 0
                 bottomPadding: 0
@@ -268,6 +279,11 @@ ToolBar {
                 }
 
                 Keys.onReturnPressed: {
+                    if (isAutoCompleting) {
+                        documentHandler.replaceAutoComplete(autoCompleteListView.currentItem.autoCompleteText)
+                        isAutoCompleting = false;
+                        return;
+                    }
                     if (event.modifiers & Qt.ShiftModifier) {
                         insert(cursorPosition, "\n")
                     } else {
@@ -280,28 +296,28 @@ ToolBar {
 
                 Keys.onEscapePressed: closeAll()
 
-                Keys.onBacktabPressed: if (isAutoCompleting) autoCompleteListView.decrementCurrentIndex()
+                Keys.onBacktabPressed: {
+                    if (isAutoCompleting) {
+                        autoCompleteListView.decrementCurrentIndex();
+                    }
+                }
 
                 Keys.onTabPressed: {
-                    if (isAutoCompleting && autoAppeared === false) {
-                        autoAppeared = false;
+                    if (!isAutoCompleting) {
+                        return;
+                    }
+
+                    // TODO detect moved cursor
+
+                    // ignore first time tab was clicked so that user can select
+                    // first emoji/user
+                    if (autoAppeared === false) {
                         autoCompleteListView.incrementCurrentIndex()
                     } else {
                         autoAppeared = false;
-                        autoCompleteBeginPosition = text.substring(0, cursorPosition).lastIndexOf(" ") + 1
-                        let autoCompletePrefix = text.substring(0, cursorPosition).split(" ").pop()
-                        if (!autoCompletePrefix) return
-                        if (autoCompletePrefix.startsWith(":")) {
-                            autoCompleteBeginPosition = text.substring(0, cursorPosition).lastIndexOf(" ") + 1
-                            autoCompleteModel = emojiModel.filterModel(autoCompletePrefix)
-                        } else {
-                            autoCompleteModel = currentRoom.getUsers(autoCompletePrefix)
-                        }
-                        if (autoCompleteModel.length === 0) return
-                        isAutoCompleting = true
-                        autoCompleteEndPosition = cursorPosition
                     }
-                    replaceAutoComplete(autoCompleteListView.currentItem.autoCompleteText)
+
+                    documentHandler.replaceAutoComplete(autoCompleteListView.currentItem.autoCompleteText)
                 }
 
                 onTextChanged: {
@@ -310,76 +326,35 @@ ToolBar {
                     currentRoom.cachedInput = text
                     autoAppeared = false;
 
-                    if (cursorPosition !== autoCompleteBeginPosition && cursorPosition !== autoCompleteEndPosition) {
-                        isAutoCompleting = false;
-                        autoCompleteListView.currentIndex = 0;
-                    }
+                    const autocompletionInfo = documentHandler.getAutocompletionInfo();
 
-                    let autoCompletePrefix = text.substring(0, cursorPosition).split(" ").pop();
-                    if (!autoCompletePrefix) {
+                    if (autocompletionInfo.type === ChatDocumentHandler.Ignore) {
                         return;
                     }
-                    if (autoCompletePrefix.startsWith("@") || autoCompletePrefix.startsWith(":")) {
-                        if (autoCompletePrefix.startsWith("@")) {
-                            autoCompletePrefix = autoCompletePrefix.substring(1);
-                            autoCompleteBeginPosition = text.substring(0, cursorPosition).lastIndexOf(" ") + 1 // 1 = space
-                            autoCompleteModel = currentRoom.getUsers(autoCompletePrefix);
-                        } else {
-                            autoCompleteModel = emojiModel.filterModel(autoCompletePrefix);
-                        }
-                        if (autoCompleteModel.length === 0) {
-                            return;
-                        }
-                        isAutoCompleting = true
-                        autoAppeared = true;
-                        autoCompleteEndPosition = cursorPosition
+                    if (autocompletionInfo.type === ChatDocumentHandler.None) {
+                        isAutoCompleting = false;
+                        autoCompleteListView.currentIndex = 0;
+                        return;
                     }
+
+                    if (autocompletionInfo.type === ChatDocumentHandler.User) {
+                        autoCompleteModel = currentRoom.getUsers(autocompletionInfo.keyword);
+                    } else {
+                        autoCompleteModel = emojiModel.filterModel(autocompletionInfo.keyword);
+                    }
+
+                    if (autoCompleteModel.length === 0) {
+                        return;
+                    }
+                    isAutoCompleting = true
+                    autoAppeared = true;
+                    autoCompleteEndPosition = cursorPosition
                 }
 
-                function replaceAutoComplete(word) {
-                    remove(autoCompleteBeginPosition, autoCompleteEndPosition)
-                    autoCompleteEndPosition = autoCompleteBeginPosition + word.length
-                    insert(cursorPosition, word)
-                }
-
-                function postMessage(text) {
-                    if(!currentRoom) { return }
-
-                    if (hasAttachment) {
-                        currentRoom.uploadFile(attachmentPath, text)
-                        clearAttachment()
-                        return
-                    }
-
-                    if (text.trim().length === 0) { return }
-
-                    var PREFIX_ME = '/me '
-                    var PREFIX_NOTICE = '/notice '
-                    var PREFIX_RAINBOW = '/rainbow '
-
-                    var messageEventType = RoomMessageEvent.Text
-
-                    if (text.indexOf(PREFIX_RAINBOW) === 0) {
-                        text = text.substr(PREFIX_RAINBOW.length)
-
-                        var parsedText = ""
-                        var rainbowColor = ["#ff2b00", "#ff5500", "#ff8000", "#ffaa00", "#ffd500", "#ffff00", "#d4ff00", "#aaff00", "#80ff00", "#55ff00", "#2bff00", "#00ff00", "#00ff2b", "#00ff55", "#00ff80", "#00ffaa", "#00ffd5", "#00ffff", "#00d4ff", "#00aaff", "#007fff", "#0055ff", "#002bff", "#0000ff", "#2a00ff", "#5500ff", "#7f00ff", "#aa00ff", "#d400ff", "#ff00ff", "#ff00d4", "#ff00aa", "#ff0080", "#ff0055", "#ff002b", "#ff0000"]
-                        for (var i = 0; i < text.length; i++) {
-                            parsedText = parsedText + "<font color='" + rainbowColor[i % rainbowColor.length] + "'>" + text.charAt(i) + "</font>"
-                        }
-                        currentRoom.postHtmlMessage(text, parsedText, RoomMessageEvent.Text, replyEventID)
-                        return
-                    }
-
-                    if (text.indexOf(PREFIX_ME) === 0) {
-                        text = text.substr(PREFIX_ME.length)
-                        messageEventType = RoomMessageEvent.Emote
-                    } else if (text.indexOf(PREFIX_NOTICE) === 0) {
-                        text = text.substr(PREFIX_NOTICE.length)
-                        messageEventType = RoomMessageEvent.Notice
-                    }
-
-                    currentRoom.postArbitaryMessage(text, messageEventType, replyEventID)
+                function postMessage() {
+                    documentHandler.postMessage(attachmentPath, replyEventID);
+                    clearAttachment();
+                    clear();
                 }
             }
 
