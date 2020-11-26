@@ -325,6 +325,7 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                 if (e.repeatsState()) {
                     return i18n("reinvited %1 to the room", subjectName);
                 }
+                break;
             case MembershipType::Join: {
                 if (e.repeatsState()) {
                     return i18n("joined the room (repeated)");
