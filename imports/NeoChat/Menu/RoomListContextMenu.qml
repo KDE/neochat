@@ -38,6 +38,8 @@ Menu {
         onTriggered: room.markAllMessagesAsRead()
     }
 
+    MenuSeparator {}
+
     MenuItem {
         text: i18n("Leave Room")
         onTriggered: room.forget()
