@@ -25,6 +25,20 @@ Kirigami.ScrollablePage {
     signal enterRoom(var room)
     signal leaveRoom(var room)
 
+    function goToNextRoom() {
+        do {
+            listView.incrementCurrentIndex();
+        } while (!listView.currentItem.visible && listView.currentIndex === listView.count)
+        listView.currentItem.action.trigger();
+    }
+
+    function goToPreviousRoom() {
+        do {
+            listView.decrementCurrentIndex();
+        } while (!listView.currentItem.visible && listView.currentIndex !== 0)
+        listView.currentItem.action.trigger();
+    }
+
     title: i18n("Rooms")
 
     titleDelegate: Kirigami.SearchField {

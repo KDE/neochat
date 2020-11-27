@@ -26,9 +26,59 @@ Kirigami.ScrollablePage {
 
     property var currentRoom
 
+    signal switchRoomUp()
+    signal switchRoomDown()
+
     title: currentRoom.name
+    focus: true
+
+    Keys.onTabPressed: {
+        if (event.modifiers & Qt.ControlModifier) {
+            switchRoomDown();
+        }
+    }
+
+    Keys.onBacktabPressed: {
+        if (event.modifiers & Qt.ControlModifier) {
+            switchRoomUp();
+        }
+    }
+
+    Keys.onPressed: {
+        if (event.key === Qt.Key_PageDown) {
+            switchRoomDown();
+        } else if (event.key === Qt.Key_PageUp) {
+            switchRoomUp();
+        }
+    }
 
     ListView {
+        id: messageListView
+
+        readonly property int largestVisibleIndex: count > 0 ? indexAt(contentX + (width / 2), contentY + height - 1) : -1
+        readonly property bool noNeedMoreContent: !currentRoom || currentRoom.eventsHistoryJob || currentRoom.allHistoryLoaded
+        readonly property bool isLoaded: page.width * page.height > 10
+
+        spacing: Kirigami.Units.smallSpacing
+        clip: true
+
+        verticalLayoutDirection: ListView.BottomToTop
+        highlightMoveDuration: 500
+
+        model: !isLoaded ? undefined : sortedMessageEventModel
+
+        onContentYChanged: {
+            if(!noNeedMoreContent && contentY  - 5000 < originY)
+                currentRoom.getPreviousContent(20);
+            const index = eventToIndex(currentRoom.readMarkerEventId)
+            if(index === -1)
+                return
+            if(firstVisibleIndex() === -1 || lastVisibleIndex() === -1)
+                return
+            if(index < firstVisibleIndex() && index > lastVisibleIndex()) {
+                currentRoom.readMarkerEventId = sortedMessageEventModel.data(sortedMessageEventModel.index(lastVisibleIndex(), 0), MessageEventModel.EventIdRole)
+            }
+        }
         MessageEventModel {
             id: messageEventModel
 
@@ -100,33 +150,6 @@ Kirigami.ScrollablePage {
 
             filterRowCallback: function(row, parent) {
                 return messageEventModel.data(messageEventModel.index(row, 0), MessageEventModel.MessageRole) !== 0x10 && messageEventModel.data(messageEventModel.index(row, 0), MessageEventModel.EventTypeRole) !== "other"
-            }
-        }
-        readonly property int largestVisibleIndex: count > 0 ? indexAt(contentX + (width / 2), contentY + height - 1) : -1
-        readonly property bool noNeedMoreContent: !currentRoom || currentRoom.eventsHistoryJob || currentRoom.allHistoryLoaded
-
-        readonly property bool isLoaded: page.width * page.height > 10
-
-        id: messageListView
-
-        spacing: Kirigami.Units.smallSpacing
-        clip: true
-
-        verticalLayoutDirection: ListView.BottomToTop
-        highlightMoveDuration: 500
-
-        model: !isLoaded ? undefined : sortedMessageEventModel
-
-        onContentYChanged: {
-            if(!noNeedMoreContent && contentY  - 5000 < originY)
-                currentRoom.getPreviousContent(20);
-            const index = eventToIndex(currentRoom.readMarkerEventId)
-            if(index === -1)
-                return
-            if(firstVisibleIndex() === -1 || lastVisibleIndex() === -1)
-                return
-            if(index < firstVisibleIndex() && index > lastVisibleIndex()) {
-                currentRoom.readMarkerEventId = sortedMessageEventModel.data(sortedMessageEventModel.index(lastVisibleIndex(), 0), MessageEventModel.EventIdRole)
             }
         }
 

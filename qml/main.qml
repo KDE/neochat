@@ -29,6 +29,7 @@ Kirigami.ApplicationWindow {
         property var currentRoom: null
         property alias pageStack: root.pageStack
         property bool invitationOpen: false
+        property var roomList: null
 
         readonly property bool hasOpenRoom: currentRoom !== null
 
@@ -39,7 +40,8 @@ Kirigami.ApplicationWindow {
             if (Config.openRoom) {
                 const room = Controller.activeConnection.room(Config.openRoom);
                 currentRoom = room;
-                pageStack.push(roomPage, { 'currentRoom': room, });
+                let item = pageStack.push(roomPage, { 'currentRoom': room, });
+                connectRoomToSignal(item);
             } else {
                 // TODO create welcome page
             }
@@ -56,6 +58,7 @@ Kirigami.ApplicationWindow {
             currentRoom = room;
             Config.openRoom = room.id;
             Config.save();
+            connectRoomToSignal(item);
             return item;
         }
 
@@ -70,6 +73,20 @@ Kirigami.ApplicationWindow {
 
         function getBack() {
             pageStack.replace(roomPage, { 'currentRoom': currentRoom, });
+        }
+
+        function connectRoomToSignal(item) {
+            console.log("connect")
+            if (!roomList) {
+                console.log("Should not happen: no room list page but room page");
+            }
+            item.switchRoomUp.connect(function() {
+                roomList.goToNextRoom();
+            });
+
+            item.switchRoomDown.connect(function() {
+                roomList.goToPreviousRoom();
+            });
         }
     }
 
@@ -167,14 +184,14 @@ Kirigami.ApplicationWindow {
             if (Controller.accountCount === 0) {
                 pageStack.replace("qrc:/imports/NeoChat/Page/LoginPage.qml", {});
             } else {
-                pageStack.replace(roomListComponent, {'activeConnection': Controller.activeConnection});
+                roomManager.roomList = pageStack.replace(roomListComponent, {'activeConnection': Controller.activeConnection});
                 roomManager.loadInitialRoom();
             }
         }
 
         onConnectionAdded: {
             if (Controller.accountCount === 1) {
-                pageStack.replace(roomListComponent);
+                roomManager.roomList = pageStack.replace(roomListComponent);
             }
         }
 
