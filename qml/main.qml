@@ -100,25 +100,32 @@ Kirigami.ApplicationWindow {
         actions: [
             Kirigami.Action {
                 text: i18n("Explore rooms")
-                iconName: "compass"
+                icon.name: "compass"
                 onTriggered: pushReplaceLayer("qrc:/imports/NeoChat/Page/JoinRoomPage.qml", {"connection": Controller.activeConnection})
                 enabled: pageStack.layers.currentItem.title !== i18n("Explore Rooms")
             },
             Kirigami.Action {
+                text: i18n("Start a Chat")
+                icon.name: "irc-join-channel"
+                onTriggered: pushReplaceLayer("qrc:/imports/NeoChat/Page/StartChatPage.qml", {"connection": Controller.activeConnection})
+
+                enabled: pageStack.layers.currentItem.title !== i18n("Start a Chat")
+            },
+            Kirigami.Action {
                 text: i18n("Accounts")
-                iconName: "im-user"
+                icon.name: "im-user"
                 onTriggered: pushReplaceLayer("qrc:/imports/NeoChat/Page/AccountsPage.qml")
                 enabled: pageStack.layers.currentItem.title !== i18n("Accounts")
             },
             Kirigami.Action {
                 text: i18n("Settings")
-                iconName: "settings-configure"
+                icon.name: "settings-configure"
                 onTriggered: pushReplaceLayer("qrc:/imports/NeoChat/Page/SettingsPage.qml")
                 enabled: pageStack.layers.currentItem.title !== i18n("Settings")
             },
             Kirigami.Action {
                 text: i18n("About Neochat")
-                iconName: "help-about"
+                icon.name: "help-about"
                 onTriggered: pushReplaceLayer(aboutPage)
                 enabled: pageStack.layers.currentItem.title !== i18n("About")
             }
