@@ -177,7 +177,7 @@ Kirigami.ScrollablePage {
                         horizontalAlignment: Text.AlignHCenter
                         background: Rectangle {
                             Kirigami.Theme.colorSet: Kirigami.Theme.Button
-                            color: highlightCount > 0 ? Kirigami.Theme.negativeTextColor : Kirigami.Theme.backgroundColor
+                            color: highlightCount > 0 ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.backgroundColor
                             radius: height / 2
                         }
                     }
