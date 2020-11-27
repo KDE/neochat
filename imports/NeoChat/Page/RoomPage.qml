@@ -183,10 +183,29 @@ Kirigami.ScrollablePage {
                 roleValue: "emote"
                 delegate: TimelineContainer {
                     width: messageListView.width
-
-                    innerObject: StateDelegate {
-                        Layout.maximumWidth: parent.width
-                        Layout.alignment: Qt.AlignHCenter
+                    innerObject: MessageDelegate {
+                        Layout.fillWidth: true
+                        Layout.maximumWidth: messageListView.width
+                        isEmote: true
+                        mouseArea: MouseArea {
+                            acceptedButtons: Qt.RightButton
+                            anchors.fill: parent
+                            onClicked: openMessageContext(author, display, eventId, toolTip);
+                        }
+                        onReplyClicked: goToEvent(eventID)
+                        onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
+                        innerObject: [
+                            TextDelegate {
+                                isEmote: true
+                                Layout.fillWidth: true
+                                Layout.rightMargin: Kirigami.Units.largeSpacing
+                            },
+                            ReactionDelegate {
+                                Layout.fillWidth: true
+                                Layout.topMargin: 0
+                                Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
+                            }
+                        ]
                     }
                 }
             }

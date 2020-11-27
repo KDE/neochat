@@ -11,12 +11,13 @@ import org.kde.kirigami 2.4 as Kirigami
 TextEdit {
     id: contentLabel
 
-    text: "<style>pre {white-space: pre-wrap} a{color: " + Kirigami.Theme.linkColor + ";} .user-pill{}</style>" + display
-
-    color: Kirigami.Theme.textColor
-
     readonly property var isEmoji: /^(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])+$/
 
+    property bool isEmote: false
+
+    text: "<style>pre {white-space: pre-wrap} a{color: " + Kirigami.Theme.linkColor + ";} .user-pill{}</style>" + (isEmote ? "* <a href='https://matrix.to/#/" + author.id + "' style='color: " + author.color + "'>" + author.displayName + "</a> " : "") + display
+
+    color: Kirigami.Theme.textColor
     font.pointSize: isEmoji.test(message) ? Kirigami.Theme.defaultFont.pointSize * 4 : Kirigami.Theme.defaultFont.pointSize
     selectByMouse: !Kirigami.Settings.isMobile
     readOnly: true

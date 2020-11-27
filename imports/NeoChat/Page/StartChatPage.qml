@@ -22,27 +22,29 @@ Kirigami.ScrollablePage {
 
     title: i18n("Start a Chat")
 
-    header: RowLayout {
-        Layout.fillWidth: true
-        Kirigami.SearchField {
-            id: identifierField
+    header: Control {
+        padding: Kirigami.Units.largeSpacing
+        contentItem: RowLayout {
+            Kirigami.SearchField {
+                id: identifierField
 
-            property bool isUserID: text.match(/@(.+):(.+)/g)
+                property bool isUserID: text.match(/@(.+):(.+)/g)
 
-            Layout.fillWidth: true
+                Layout.fillWidth: true
 
-            placeholderText: i18n("Find a user...")
+                placeholderText: i18n("Find a user...")
 
-            onAccepted: userDictListModel.search()
-        }
+                onAccepted: userDictListModel.search()
+            }
 
-        Button {
-            visible: identifierField.isUserID
+            Button {
+                visible: identifierField.isUserID
 
-            text: i18n("Chat")
-            highlighted: true
+                text: i18n("Chat")
+                highlighted: true
 
-            onClicked: Controller.createDirectChat(connection, identifierField.text)
+                onClicked: Controller.createDirectChat(connection, identifierField.text)
+            }
         }
     }
 

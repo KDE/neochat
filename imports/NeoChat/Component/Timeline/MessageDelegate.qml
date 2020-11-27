@@ -27,6 +27,7 @@ RowLayout {
     readonly property color replyAuthorColor: replyVisible ? reply.author.color : Kirigami.Theme.focusColor
 
     property alias mouseArea: controlContainer.children
+    property bool isEmote: false
 
     signal saveFileAs()
     signal openExternally()
@@ -90,7 +91,7 @@ RowLayout {
                     Layout.fillWidth: true
                     topInset: 0
 
-                    visible: showAuthor
+                    visible: showAuthor && !isEmote
 
                     text: author.displayName
                     font.bold: true
@@ -98,7 +99,7 @@ RowLayout {
                     wrapMode: Text.Wrap
                 }
                 QQC2.Label {
-                    visible: showAuthor
+                    visible: showAuthor && !isEmote
                     text: time.toLocaleTimeString(Locale.ShortFormat)
                     color: Kirigami.Theme.disabledTextColor
                 }
