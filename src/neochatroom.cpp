@@ -49,6 +49,9 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
             return;
         }
         const RoomEvent *lastEvent = messageEvents().rbegin()->get();
+        if(lastEvent->originTimestamp() < QDateTime::currentDateTime().addSecs(-60)) {
+            return;
+        }
         if (lastEvent->isStateEvent()) {
             return;
         }
