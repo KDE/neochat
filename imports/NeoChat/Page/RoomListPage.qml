@@ -172,11 +172,13 @@ Kirigami.ScrollablePage {
                         text: notificationCount
                         visible: notificationCount > 0
                         padding: Kirigami.Units.smallSpacing
+                        color: highlightCount > 0 ? "white" : Kirigami.Theme.textColor
+                        Layout.minimumWidth: height
+                        horizontalAlignment: Text.AlignHCenter
                         background: Rectangle {
                             Kirigami.Theme.colorSet: Kirigami.Theme.Button
-                            color: highlightCount > 0 ? Kirigami.Theme.negativeColor : Kirigami.Theme.backgroundColor
+                            color: highlightCount > 0 ? Kirigami.Theme.negativeTextColor : Kirigami.Theme.backgroundColor
                             radius: height / 2
-                            implicitWidth: implicitHeight
                         }
                     }
                 }
