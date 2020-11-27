@@ -17,14 +17,21 @@ Flow {
     Repeater {
         model: reaction
 
-        delegate: RoundButton {
-            width: Math.min(implicitWidth, Kirigami.Units.largeSpacing * 4)
-            implicitHeight: Kirigami.Units.largeSpacing * 4
+        delegate: AbstractButton {
+            width: Math.max(implicitWidth, height)
 
-            horizontalPadding: 6
-            verticalPadding: 0
+            contentItem: Label {
+                horizontalAlignment: Text.AlignHCenter
+                text: modelData.reaction + (modelData.count > 1 ? " " + modelData.count : "")
+            }
 
-            text: modelData.reaction + (modelData.count > 1 ? " " + modelData.count : "")
+            padding: Kirigami.Units.smallSpacing
+
+            background: Rectangle {
+                radius: height / 2
+                Kirigami.Theme.colorSet: Kirigami.Theme.Button
+                color: checked ? Kirigami.Theme.positiveBackgroundColor : Kirigami.Theme.backgroundColor
+            }
 
             checkable: true
 
