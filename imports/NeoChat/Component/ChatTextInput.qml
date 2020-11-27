@@ -344,6 +344,8 @@ ToolBar {
                     }
 
                     if (autoCompleteModel.length === 0) {
+                        isAutoCompleting = false;
+                        autoCompleteListView.currentIndex = 0;
                         return;
                     }
                     isAutoCompleting = true
