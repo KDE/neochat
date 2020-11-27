@@ -343,6 +343,8 @@ Kirigami.ScrollablePage {
             anchors.top: parent.top
             anchors.topMargin: Kirigami.Units.largeSpacing
             anchors.rightMargin: Kirigami.Units.largeSpacing
+            implicitWidth: Kirigami.Units.gridUnit * 2
+            implicitHeight: Kirigami.Units.gridUnit * 2
 
             padding: 8
 
