@@ -20,6 +20,13 @@ Kirigami.ApplicationWindow {
     id: root
     property var currentRoom: null
 
+    Connections {
+        target: root.quitAction
+        function onTriggered() {
+            Qt.quit()
+        }
+    }
+
     /**
      * Manage opening and close rooms
      */
