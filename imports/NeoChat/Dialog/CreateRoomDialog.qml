@@ -6,40 +6,43 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
+import org.kde.kirigami 2.13 as Kirigami
 
 import NeoChat.Component 1.0
 
 import org.kde.neochat 1.0
 
-Dialog {
-    anchors.centerIn: parent
-    width: 360
-
+Kirigami.OverlaySheet {
     id: root
 
-    title: i18n("Create a Room")
+    parent: applicationWindow().overlay
 
-    contentItem: ColumnLayout {
-        AutoTextField {
-            Layout.fillWidth: true
-
-            id: roomNameField
-
-            placeholderText: i18n("Room Name")
-        }
-
-        AutoTextField {
-            Layout.fillWidth: true
-
-            id: roomTopicField
-
-            placeholderText: i18n("Room Topic")
-        }
+    header: Kirigami.Heading {
+        text: i18n("Create a Room")
     }
 
-    standardButtons: Dialog.Ok | Dialog.Cancel
+    contentItem: Kirigami.FormLayout {
+        TextField {
+            id: roomNameField
+            Kirigami.FormData.label: i18n("Room Name")
+            onAccepted: roomTopixField.forceActiveFocus();
+        }
 
-    onAccepted: Controller.createRoom(Controller.activeConnection, roomNameField.text, roomTopicField.text)
+        TextField {
+            id: roomTopicField
+            Kirigami.FormData.label: i18n("Room Topic")
+            onAccepted: okButton.forceActiveFocus();
+        }
 
-    onClosed: destroy()
+        Button {
+            id: okButton
+            text: i18nc("@action:button", "Ok")
+            onClicked: {
+                Controller.createRoom(Controller.activeConnection, roomNameField.text, roomTopicField.text)
+                root.close();
+                // TODO investigate how to join the new room automatically
+                root.destroy();
+            }
+        }
+    }
 }

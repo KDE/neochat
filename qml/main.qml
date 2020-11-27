@@ -112,6 +112,16 @@ Kirigami.ApplicationWindow {
                 enabled: pageStack.layers.currentItem.title !== i18n("Start a Chat")
             },
             Kirigami.Action {
+                text: i18n("Create a Room")
+                icon.name: "irc-join-channel"
+                onTriggered: {
+                    let dialog = createRoomDialog.createObject(root.overlay);
+                    dialog.open();
+                }
+
+                enabled: pageStack.layers.currentItem.title !== i18n("Start a Chat")
+            },
+            Kirigami.Action {
                 text: i18n("Accounts")
                 icon.name: "im-user"
                 onTriggered: pushReplaceLayer("qrc:/imports/NeoChat/Page/AccountsPage.qml")
@@ -190,5 +200,11 @@ Kirigami.ApplicationWindow {
         id: roomPage
 
         RoomPage {}
+    }
+
+    Component {
+        id: createRoomDialog
+
+        CreateRoomDialog {}
     }
 }
