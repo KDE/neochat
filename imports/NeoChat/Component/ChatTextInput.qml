@@ -306,11 +306,6 @@ ToolBar {
                         switchRoomDown();
                     } else if (event.key === Qt.Key_PageUp) {
                         switchRoomUp();
-                    } else if (!(event.modifiers & Qt.ControlModifier)) {
-                        event.accepted = true;
-                        chatTextInput.addText(event.text);
-                        chatTextInput.focus();
-                        return;
                     }
                 }
 
