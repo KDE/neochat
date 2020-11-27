@@ -34,6 +34,10 @@ ToolBar {
 
     position: ToolBar.Footer
 
+    function addText(text) {
+        inputField.insert(inputField.length, text)
+    }
+
     contentItem: ColumnLayout {
         id: layout
         spacing: 0
@@ -235,6 +239,7 @@ ToolBar {
                     room: currentRoom ?? null
                 }
 
+
                 Layout.fillWidth: true
 
 
@@ -296,13 +301,34 @@ ToolBar {
 
                 Keys.onEscapePressed: closeAll()
 
+                Keys.onPressed: {
+                    if (event.key === Qt.Key_PageDown) {
+                        switchRoomDown();
+                    } else if (event.key === Qt.Key_PageUp) {
+                        switchRoomUp();
+                    } else if (!(event.modifiers & Qt.ControlModifier)) {
+                        event.accepted = true;
+                        chatTextInput.addText(event.text);
+                        chatTextInput.focus();
+                        return;
+                    }
+                }
+
                 Keys.onBacktabPressed: {
+                    if (event.modifiers & Qt.ControlModifier) {
+                        switchRoomUp();
+                        return;
+                    }
                     if (isAutoCompleting) {
                         autoCompleteListView.decrementCurrentIndex();
                     }
                 }
 
                 Keys.onTabPressed: {
+                    if (event.modifiers & Qt.ControlModifier) {
+                        switchRoomDown();
+                        return;
+                    }
                     if (!isAutoCompleting) {
                         return;
                     }
