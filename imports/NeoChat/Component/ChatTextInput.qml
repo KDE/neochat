@@ -377,6 +377,7 @@ ToolBar {
                 function postMessage() {
                     documentHandler.postMessage(attachmentPath, replyEventID);
                     clearAttachment();
+		    currentRoom.markAllMessagesAsRead();
                     clear();
                 }
             }
