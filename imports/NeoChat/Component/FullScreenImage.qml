@@ -20,11 +20,15 @@ ApplicationWindow {
 
     title: i18n("Image View - %1", filename)
 
-    color: "#BB000000"
-
     Shortcut {
         sequence: "Escape"
         onActivated: root.destroy()
+    }
+
+    color: Kirigami.Theme.backgroundColor
+
+    background: AbstractButton {
+        onClicked: root.destroy()
     }
 
     AnimatedImage {
