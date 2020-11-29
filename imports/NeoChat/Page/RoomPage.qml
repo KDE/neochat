@@ -155,16 +155,16 @@ Kirigami.ScrollablePage {
 
             filterRowCallback: Config.showLeaveJoinEvent ? dontFilterLeaveJoin : filterLeaveJoin
 
-	    function dontFilterLeaveJoin(row, parent) {
+            function dontFilterLeaveJoin(row, parent) {
                 return messageEventModel.data(messageEventModel.index(row, 0), MessageEventModel.MessageRole) !== 0x10
-		    && messageEventModel.data(messageEventModel.index(row, 0), MessageEventModel.EventTypeRole) !== "other";
-	    }
+                    && messageEventModel.data(messageEventModel.index(row, 0), MessageEventModel.EventTypeRole) !== "other";
+            }
 
-	    function filterLeaveJoin(row, parent) {
+            function filterLeaveJoin(row, parent) {
                 return messageEventModel.data(messageEventModel.index(row, 0), MessageEventModel.MessageRole) !== 0x10
-		    && messageEventModel.data(messageEventModel.index(row, 0), MessageEventModel.EventTypeRole) !== "other"
-		    && messageEventModel.data(messageEventModel.index(row, 0), MessageEventModel.EventTypeRole) !== "state";
-	    }
+                    && messageEventModel.data(messageEventModel.index(row, 0), MessageEventModel.EventTypeRole) !== "other"
+                    && messageEventModel.data(messageEventModel.index(row, 0), MessageEventModel.EventTypeRole) !== "state";
+            }
         }
 
         //        populate: Transition {
