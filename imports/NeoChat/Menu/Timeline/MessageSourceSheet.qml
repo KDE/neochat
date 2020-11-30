@@ -17,8 +17,9 @@ Kirigami.OverlaySheet {
         text: i18n("Message Source")
     }
 
-    Label {
+    TextArea {
         text: sourceText
+        readOnly: true
         wrapMode: Text.WordWrap
     }
 }
