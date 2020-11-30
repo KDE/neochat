@@ -101,7 +101,7 @@ Kirigami.OverlaySheet {
             action: Kirigami.Action {
                 text: i18n("Copy")
                 icon.name: "copy"
-                onTriggered: Clibpoard.setText(message)
+                onTriggered: Clipboard.setText(message)
             }
         }
         Kirigami.BasicListItem {
