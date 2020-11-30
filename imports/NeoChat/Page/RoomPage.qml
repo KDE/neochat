@@ -255,9 +255,14 @@ Kirigami.ScrollablePage {
                         Layout.fillWidth: true
                         Layout.maximumWidth: messageListView.width
                         mouseArea: MouseArea {
-                            acceptedButtons: Qt.RightButton
+                            acceptedButtons: Qt.LeftButton | Qt.RightButton
                             anchors.fill: parent
-                            onClicked: openMessageContext(author, display, eventId, toolTip);
+                            onClicked: {
+                                if (mouse.button == Qt.RightButton) {
+                                    openMessageContext(author, display, eventId, toolTip);
+                                }
+                            }
+                            onPressAndHold: openMessageContext(author, display, eventId, toolTip);
                         }
                         onReplyClicked: goToEvent(eventID)
                         onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
