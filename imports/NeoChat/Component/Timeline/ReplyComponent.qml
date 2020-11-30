@@ -8,6 +8,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12 as QQC2
 import QtQuick.Layouts 1.12
 import org.kde.kirigami 2.13 as Kirigami
+import NeoChat.Component.Timeline 1.0
 
 QQC2.AbstractButton {
     visible: replyVisible
@@ -44,11 +45,10 @@ QQC2.AbstractButton {
                 elide: Text.ElideRight
             }
 
-            QQC2.Label {
+            TextDelegate {
                 Layout.fillWidth: true
-                text: replyVisible ? reply.display : ""
+                text: replyVisible ? ("<style>pre {white-space: pre-wrap} a{color: " + Kirigami.Theme.linkColor + ";} .user-pill{}</style>" + reply.display) : ""
                 textFormat: Text.RichText
-                elide: Text.ElideRight
                 wrapMode: Text.WordWrap
             }
         }
