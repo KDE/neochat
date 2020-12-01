@@ -220,11 +220,6 @@ void NeoChatRoom::countChanged()
 QDateTime NeoChatRoom::lastActiveTime()
 {
     if (timelineSize() == 0) {
-        QTimer::singleShot(0, this, [=]() {
-            if (localUser()) {
-                getPreviousContent(10);
-            }
-        });
         return QDateTime();
     }
 
