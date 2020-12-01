@@ -142,13 +142,14 @@ void RoomListModel::connectRoomSignals(NeoChatRoom *room)
             return;
         }
 
-        if (!lastEvent->isStateEvent()) {
-            User *sender = room->user(lastEvent->senderId());
-            if (sender == room->localUser()) {
-                return;
-            }
-            Q_EMIT newMessage(room->id(), lastEvent->id(), room->displayName(), sender->displayname(), room->eventToString(*lastEvent), room->avatar(128));
+        if (lastEvent->isStateEvent()) {
+            return;
         }
+        User *sender = room->user(lastEvent->senderId());
+        if (sender == room->localUser()) {
+            return;
+        }
+        Q_EMIT newMessage(room->id(), lastEvent->id(), room->displayName(), sender->displayname(), room->eventToString(*lastEvent), room->avatar(128));
     });
     connect(room, &Room::highlightCountChanged, this, [=] {
         if (room->highlightCount() == 0) {
@@ -164,12 +165,13 @@ void RoomListModel::connectRoomSignals(NeoChatRoom *room)
         }
 
         if (!lastEvent->isStateEvent()) {
-            User *sender = room->user(lastEvent->senderId());
-            if (sender == room->localUser()) {
-                return;
-            }
-            Q_EMIT newHighlight(room->id(), lastEvent->id(), room->displayName(), sender->displayname(), room->eventToString(*lastEvent), room->avatar(128));
+            return;
         }
+        User *sender = room->user(lastEvent->senderId());
+        if (sender == room->localUser()) {
+            return;
+        }
+        Q_EMIT newHighlight(room->id(), lastEvent->id(), room->displayName(), sender->displayname(), room->eventToString(*lastEvent), room->avatar(128));
     });
     connect(room, &Room::notificationCountChanged, this, &RoomListModel::refreshNotificationCount);
 }
