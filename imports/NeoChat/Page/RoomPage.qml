@@ -255,7 +255,7 @@ Kirigami.ScrollablePage {
                         Layout.fillWidth: true
                         Layout.maximumWidth: messageListView.width
                         mouseArea: MouseArea {
-                            acceptedButtons: Qt.LeftButton | Qt.RightButton
+                            acceptedButtons: (Kirigami.Settings.isMobile ? Qt.LeftButton : 0) | Qt.RightButton
                             anchors.fill: parent
                             onClicked: {
                                 if (mouse.button == Qt.RightButton) {
