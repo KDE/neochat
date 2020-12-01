@@ -29,7 +29,29 @@ Kirigami.ScrollablePage {
     signal switchRoomUp()
     signal switchRoomDown()
 
-    title: currentRoom.name
+    titleDelegate: Component {
+        RowLayout {
+            Layout.fillWidth: true
+            Layout.maximumWidth: implicitWidth + 1 // The +1 is to make sure we do not trigger eliding at max width
+            Layout.minimumWidth: 0
+            Kirigami.Heading {
+                level: 1
+                text: currentRoom.name
+                opacity: page.isCurrentPage ? 1 : 0.4
+                maximumLineCount: 1
+                Layout.leftMargin: Kirigami.Units.largeSpacing
+                Layout.alignment: Qt.AlignBottom
+            }
+            QQC2.Label {
+                Layout.alignment: Qt.AlignBottom
+                text: currentRoom.topic
+                Layout.fillWidth: true
+                //wrapMode: Text.WordWrap
+                elide: Text.ElideRight
+                color: Kirigami.Theme.disabledTextColor
+            }
+        }
+    }
     focus: true
 
     Keys.onTabPressed: {
