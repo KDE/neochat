@@ -10,6 +10,7 @@ import QtQuick.Layouts 1.12
 import org.kde.kirigami 2.13 as Kirigami
 
 import NeoChat.Dialog 1.0
+import org.kde.neochat 1.0
 
 Kirigami.OverlaySheet {
     id: root
@@ -101,7 +102,7 @@ Kirigami.OverlaySheet {
             action: Kirigami.Action {
                 text: i18n("Copy")
                 icon.name: "copy"
-                onTriggered: Clipboard.setText(message)
+                onTriggered: Clipboard.saveText(message)
             }
         }
         Kirigami.BasicListItem {
