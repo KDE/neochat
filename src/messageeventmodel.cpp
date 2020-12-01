@@ -57,6 +57,9 @@ MessageEventModel::MessageEventModel(QObject *parent)
     qmlRegisterUncreatableType<EventStatus>("org.kde.neochat", 1, 0, "EventStatus", "EventStatus is not an creatable type");
 
     QTimer::singleShot(0, this, [=]() {
+        if (!m_currentRoom) {
+            return;
+        }
         m_currentRoom->getPreviousContent(50);
         connect(this, &QAbstractListModel::rowsInserted, this, [=](){
             if(m_currentRoom->readMarkerEventId().isEmpty()) {
