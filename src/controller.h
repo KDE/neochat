@@ -12,6 +12,7 @@
 #include <QObject>
 
 #include <KAboutData>
+class QKeySequences;
 
 #include "connection.h"
 #include "csapi/list_public_rooms.h"
@@ -30,6 +31,9 @@ class Controller : public QObject
     Q_PROPERTY(bool busy READ busy WRITE setBusy NOTIFY busyChanged)
     Q_PROPERTY(KAboutData aboutData READ aboutData WRITE setAboutData NOTIFY aboutDataChanged)
 
+    /// Get the list of shortcuts activating the preferences page
+    Q_PROPERTY(QList<QKeySequence> preferencesShortcuts READ preferencesShortcuts CONSTANT)
+
 public:
     static Controller &instance();
 
@@ -47,6 +51,8 @@ public:
     Q_INVOKABLE void changePassword(Quotient::Connection *connection, const QString &currentPassword, const QString &newPassword);
 
     [[nodiscard]] int accountCount() const;
+
+    [[nodiscard]] QList<QKeySequence> preferencesShortcuts() const;
 
     [[nodiscard]] static bool quitOnLastWindowClosed();
     void setQuitOnLastWindowClosed(bool value);

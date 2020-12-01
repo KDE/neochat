@@ -46,6 +46,7 @@
 #include "neochatuser.h"
 #include "settings.h"
 #include "utils.h"
+#include <KStandardShortcut>
 
 #ifndef Q_OS_ANDROID
 #include "trayicon.h"
@@ -549,4 +550,9 @@ void Controller::setActiveConnection(Connection *connection)
     }
     m_connection = connection;
     Q_EMIT activeConnectionChanged();
+}
+
+QList<QKeySequence> Controller::preferencesShortcuts() const
+{
+    return KStandardShortcut::preferences();
 }
