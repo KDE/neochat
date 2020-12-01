@@ -75,20 +75,18 @@ Kirigami.ScrollablePage {
             action: Kirigami.Action {
                 onTriggered: roomListModel.setCategoryVisible(section, !roomListModel.categoryVisible(section))
             }
-            contentItem: Item {
+            contentItem: RowLayout {
                 implicitHeight: categoryName.implicitHeight
-                Kirigami.Heading {
-                    id: categoryName
-                    level: 3
-                    text: roomListModel.categoryName(section)
-                }
                 Kirigami.Icon {
                     source: roomListModel.categoryVisible(section) ? "go-up" : "go-down"
                     implicitHeight: Kirigami.Units.iconSizes.small
                     implicitWidth: Kirigami.Units.iconSizes.small
-                    anchors.left: categoryName.right
-                    anchors.leftMargin: Kirigami.Units.largeSpacing
-                    anchors.verticalCenter: parent.verticalCenter
+                }
+                Kirigami.Heading {
+                    id: categoryName
+                    level: 3
+                    text: roomListModel.categoryName(section)
+                    Layout.fillWidth: true
                 }
             }
         }
