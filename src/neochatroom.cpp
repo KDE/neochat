@@ -32,6 +32,7 @@
 #include "notificationsmanager.h"
 #include "user.h"
 #include "utils.h"
+#include "neochatconfig.h"
 
 #include <KLocalizedString>
 
@@ -63,7 +64,11 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
         NotificationsManager::instance().postNotification(id(), lastEvent->id(), displayName(), sender->displayname(this), eventToString(*lastEvent), avatar(128));
     });
 
-    connect(this, &Room::aboutToAddHistoricalMessages, this, &NeoChatRoom::readMarkerLoadedChanged);
+    connect(this, &Room::aboutToAddHistoricalMessages,
+            this, &NeoChatRoom::readMarkerLoadedChanged);
+
+    connect(this, &Quotient::Room::eventsHistoryJobChanged,
+            this, &NeoChatRoom::lastActiveTimeChanged);
 }
 
 void NeoChatRoom::uploadFile(const QUrl &url, const QString &body)
@@ -120,36 +125,47 @@ void NeoChatRoom::sendTypingNotification(bool isTyping)
     connection()->callApi<SetTypingJob>(BackgroundRequest, localUser()->id(), id(), isTyping, 10000);
 }
 
-QString NeoChatRoom::lastEvent() const
+const RoomMessageEvent *NeoChatRoom::lastEvent(bool ignoreStateEvent) const
 {
-    for (auto i = messageEvents().rbegin(); i < messageEvents().rend(); i++) {
-        const RoomEvent *evt = i->get();
+    for (auto timelineItem = messageEvents().rbegin(); timelineItem < messageEvents().rend(); timelineItem++) {
+        const RoomEvent *event = timelineItem->get();
 
-        if (is<RedactionEvent>(*evt) || is<ReactionEvent>(*evt)) {
+        if (is<RedactionEvent>(*event) || is<ReactionEvent>(*event)) {
             continue;
         }
-        if (evt->isRedacted()) {
-            continue;
-        }
-
-        if (evt->isStateEvent() && static_cast<const StateEventBase &>(*evt).repeatsState()) {
+        if (event->isRedacted()) {
             continue;
         }
 
-        if (auto e = eventCast<const RoomMessageEvent>(evt)) {
-            if (!e->replacedEvent().isEmpty() && e->replacedEvent() != e->id()) {
+        if (event->isStateEvent() && (ignoreStateEvent || !NeoChatConfig::self()->showLeaveJoinEvent() || static_cast<const StateEventBase &>(*event).repeatsState())) {
+            continue;
+        }
+
+        if (auto roomEvent = eventCast<const RoomMessageEvent>(event)) {
+            if (!roomEvent->replacedEvent().isEmpty() && roomEvent->replacedEvent() != roomEvent->id()) {
                 continue;
             }
         }
 
-        if (connection()->isIgnored(user(evt->senderId()))) {
+        if (connection()->isIgnored(user(event->senderId()))) {
             continue;
         }
 
-        return user(evt->senderId())->displayname() + (evt->isStateEvent() ? " " : ": ") + eventToString(*evt);
+        if (auto lastEvent = eventCast<const RoomMessageEvent>(event)) {
+            return lastEvent;
+        }
     }
-    return "";
+    return nullptr;
 }
+
+QString NeoChatRoom::lastEventToString() const
+{
+    if (auto event = lastEvent()) {
+        return user(event->senderId())->displayname() + (event->isStateEvent() ? " " : ": ") + eventToString(*event);
+    }
+    return QLatin1String("");
+}
+
 
 bool NeoChatRoom::isEventHighlighted(const RoomEvent *e) const
 {
@@ -201,11 +217,22 @@ void NeoChatRoom::countChanged()
     }
 }
 
-QDateTime NeoChatRoom::lastActiveTime() const
+QDateTime NeoChatRoom::lastActiveTime()
 {
     if (timelineSize() == 0) {
+        QTimer::singleShot(0, this, [=]() {
+            if (localUser()) {
+                getPreviousContent(10);
+            }
+        });
         return QDateTime();
     }
+
+    if (auto event = lastEvent(true)) {
+        return event->originTimestamp();
+    }
+
+    // no message found, take last event
     return messageEvents().rbegin()->get()->originTimestamp();
 }
 

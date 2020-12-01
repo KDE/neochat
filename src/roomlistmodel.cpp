@@ -136,15 +136,19 @@ void RoomListModel::connectRoomSignals(NeoChatRoom *room)
         if (room->timelineSize() == 0) {
             return;
         }
-        const RoomEvent *lastEvent = room->messageEvents().rbegin()->get();
-        if (lastEvent->isStateEvent()) {
+        auto *lastEvent = room->lastEvent();
+
+        if (!lastEvent) {
             return;
         }
-        User *sender = room->user(lastEvent->senderId());
-        if (sender == room->localUser()) {
-            return;
+
+        if (!lastEvent->isStateEvent()) {
+            User *sender = room->user(lastEvent->senderId());
+            if (sender == room->localUser()) {
+                return;
+            }
+            Q_EMIT newMessage(room->id(), lastEvent->id(), room->displayName(), sender->displayname(), room->eventToString(*lastEvent), room->avatar(128));
         }
-        Q_EMIT newMessage(room->id(), lastEvent->id(), room->displayName(), sender->displayname(), room->eventToString(*lastEvent), room->avatar(128));
     });
     connect(room, &Room::highlightCountChanged, this, [=] {
         if (room->highlightCount() == 0) {
@@ -153,15 +157,19 @@ void RoomListModel::connectRoomSignals(NeoChatRoom *room)
         if (room->timelineSize() == 0) {
             return;
         }
-        const RoomEvent *lastEvent = room->messageEvents().rbegin()->get();
-        if (lastEvent->isStateEvent()) {
+        auto *lastEvent = room->lastEvent();
+
+        if (!lastEvent) {
             return;
         }
-        User *sender = room->user(lastEvent->senderId());
-        if (sender == room->localUser()) {
-            return;
+
+        if (!lastEvent->isStateEvent()) {
+            User *sender = room->user(lastEvent->senderId());
+            if (sender == room->localUser()) {
+                return;
+            }
+            Q_EMIT newHighlight(room->id(), lastEvent->id(), room->displayName(), sender->displayname(), room->eventToString(*lastEvent), room->avatar(128));
         }
-        Q_EMIT newHighlight(room->id(), lastEvent->id(), room->displayName(), sender->displayname(), room->eventToString(*lastEvent), room->avatar(128));
     });
     connect(room, &Room::notificationCountChanged, this, &RoomListModel::refreshNotificationCount);
 }
@@ -279,7 +287,7 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
         return room->highlightCount();
     }
     if (role == LastEventRole) {
-        return room->lastEvent();
+        return room->lastEventToString();
     }
     if (role == LastActiveTimeRole) {
         return room->lastActiveTime();

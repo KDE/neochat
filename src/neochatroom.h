@@ -31,16 +31,31 @@ class NeoChatRoom : public Room
     Q_PROPERTY(int fileUploadingProgress READ fileUploadingProgress NOTIFY fileUploadingProgressChanged)
     Q_PROPERTY(QString avatarMediaId READ avatarMediaId NOTIFY avatarChanged STORED false)
     Q_PROPERTY(bool readMarkerLoaded READ readMarkerLoaded NOTIFY readMarkerLoadedChanged)
+    Q_PROPERTY(QDateTime lastActiveTime READ lastActiveTime NOTIFY lastActiveTimeChanged)
 
 public:
     explicit NeoChatRoom(Connection *connection, QString roomId, JoinState joinState = {});
 
     [[nodiscard]] QVariantList getUsersTyping() const;
 
-    [[nodiscard]] QString lastEvent() const;
-    bool isEventHighlighted(const Quotient::RoomEvent *e) const;
+    /// Get the interesting last event.
+    ///
+    /// This function respect the showLeaveJoinEvent setting and discard
+    /// other not interesting events. This function can return an empty pointer
+    /// when the room is empty of RoomMessageEvent.
+    [[nodiscard]] const RoomMessageEvent *lastEvent(bool ignoreStateEvent = false) const;
 
-    [[nodiscard]] QDateTime lastActiveTime() const;
+    /// Convenient way to get the last event but in a string format.
+    ///
+    /// \see lastEvent
+    [[nodiscard]] QString lastEventToString() const;
+
+    /// Convenient way to get the QDateTime of the last event.
+    ///
+    /// \see lastEvent
+    [[nodiscard]] QDateTime lastActiveTime();
+
+    bool isEventHighlighted(const Quotient::RoomEvent *e) const;
 
     [[nodiscard]] bool hasFileUploading() const
     {
@@ -112,6 +127,7 @@ Q_SIGNALS:
     void fileUploadingProgressChanged();
     void backgroundChanged();
     void readMarkerLoadedChanged();
+    void lastActiveTimeChanged();
 
 public Q_SLOTS:
     void uploadFile(const QUrl &url, const QString &body = "");
