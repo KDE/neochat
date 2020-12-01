@@ -18,7 +18,7 @@ TextEdit {
     text: "<style>pre {white-space: pre-wrap} a{color: " + Kirigami.Theme.linkColor + ";} .user-pill{}</style>" + (isEmote ? "* <a href='https://matrix.to/#/" + author.id + "' style='color: " + author.color + "'>" + author.displayName + "</a> " : "") + display
 
     color: Kirigami.Theme.textColor
-    font.pointSize: isEmoji.test(message) ? Kirigami.Theme.defaultFont.pointSize * 4 : Kirigami.Theme.defaultFont.pointSize
+    font.pointSize: isEmoji.test(display) ? Kirigami.Theme.defaultFont.pointSize * 4 : Kirigami.Theme.defaultFont.pointSize
     selectByMouse: !Kirigami.Settings.isMobile
     readOnly: true
     wrapMode: Text.WordWrap
