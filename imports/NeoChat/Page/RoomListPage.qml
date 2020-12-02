@@ -151,7 +151,7 @@ Kirigami.ScrollablePage {
                         Layout.alignment: Qt.AlignHCenter
 
                         text: (lastEvent == "" ? topic : lastEvent).replace(/(\r\n\t|\n|\r\t)/gm," ")
-                        visible: text.length >
+                        visible: text.length > 0
                         elide: Text.ElideRight
                         wrapMode: Text.NoWrap
                     }
