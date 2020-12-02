@@ -17,12 +17,15 @@ Kirigami.ScrollablePage {
 
     Kirigami.FormLayout {
         QQC2.CheckBox {
-            Kirigami.FormData.label: i18n("Show notifications:")
+            // TODO: When there are enough notification and timeline event
+            // settings, make 2 separate groups with FormData labels.
+            Kirigami.FormData.label: i18n("Notifications and events:")
+            text: i18n("Show notifications")
             checked: Config.showNotifications
             onToggled: Config.showNotifications = checked
         }
         QQC2.CheckBox {
-            Kirigami.FormData.label: i18n("Show leave and join events:")
+            text: i18n("Show leave and join events")
             checked: Config.showLeaveJoinEvent
             onToggled: Config.showLeaveJoinEvent = checked
         }
