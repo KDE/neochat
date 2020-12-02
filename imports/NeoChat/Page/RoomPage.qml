@@ -73,7 +73,7 @@ Kirigami.ScrollablePage {
             switchRoomDown();
         } else if (event.key === Qt.Key_PageUp) {
             switchRoomUp();
-        } else if (!(event.modifiers & Qt.ControlModifier) && event.key !== Qt.Key_Delete && event.key !== Qt.Key_Space) {
+        } else if (!(event.modifiers & Qt.ControlModifier) && event.key < Qt.Key_Escape) {
             event.accepted = true;
             chatTextInput.addText(event.text);
             chatTextInput.focus();
