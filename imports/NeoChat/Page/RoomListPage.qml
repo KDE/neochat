@@ -88,12 +88,11 @@ Kirigami.ScrollablePage {
             }
         }
 
-        delegate: Kirigami.AbstractListItem {
+        delegate: Kirigami.BasicListItem {
             id: roomListItem
-            property bool itemVisible: model.categoryVisible || sortFilterRoomListModel.filterText.length > 0 || Config.mergeRoomList
-            visible: itemVisible
-            highlighted: roomManager.currentRoom && roomManager.currentRoom.displayName === displayName
+            visible: model.categoryVisible || sortFilterRoomListModel.filterText.length > 0 || Config.mergeRoomList
             focus: true
+            icon: undefined
             action: Kirigami.Action {
                 id: enterRoomAction
                 onTriggered: {
@@ -107,68 +106,22 @@ Kirigami.ScrollablePage {
                 }
             }
 
-
-            contentItem: RowLayout {
-                id: roomLayout
-                spacing: Kirigami.Units.largeSpacing
-                width: listView.width
-
-                TapHandler {
-                    acceptedButtons: Qt.RightButton
-                    gesturePolicy: TapHandler.ReleaseWithinBounds
-                    onTapped: roomListContextMenu.createObject(roomLayout, {"room": currentRoom}).popup()
+            label: name ?? ""
+            subtitle: {
+                let txt = (lastEvent == "" ? topic : lastEvent).replace(/(\r\n\t|\n|\r\t)/gm," ")
+                if (txt.length) {
+                    return txt
                 }
+                return " "
+            }
 
-                TapHandler {
-                    onTapped: enterRoomAction.trigger()
-                    onLongPressed: roomListContextMenu.createObject(roomLayout, {"room": currentRoom}).popup()
-                }
+            leading: Kirigami.Avatar {
+                source: avatar ? "image://mxc/" + avatar : ""
+                name: model.name || i18n("No Name")
+                implicitWidth: height
+            }
 
-                Kirigami.Avatar {
-                    id: roomAvatar
-                    property int size: Kirigami.Units.gridUnit * 2 + Kirigami.Units.smallSpacing
-                    Layout.minimumHeight: size
-                    Layout.maximumHeight: size
-                    Layout.minimumWidth: size
-                    Layout.maximumWidth: size
-
-                    source: avatar ? ("image://mxc/" + avatar) : ""
-                    name: model.name || i18n("No Name")
-                }
-
-                ColumnLayout {
-                    id: roomitemcolumn
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    Layout.minimumHeight: Kirigami.Units.gridUnit * 2
-                    Layout.maximumHeight: Kirigami.Units.gridUnit * 2
-                    Layout.topMargin: Kirigami.Units.smallSpacing
-                    Layout.bottomMargin: Kirigami.Units.smallSpacing
-                    Layout.alignment: Qt.AlignHCenter
-
-                    spacing: Kirigami.Units.smallSpacing
-
-                    QQC2.Label {
-                        Layout.fillWidth: true
-                        Layout.fillHeight: true
-                        text: displayName ?? ""
-                        elide: Text.ElideRight
-                        font.bold: unreadCount >= 0 || highlightCount > 0 || notificationCount > 0
-                        wrapMode: Text.NoWrap
-                    }
-
-                    QQC2.Label {
-                        Layout.fillWidth: true
-                        Layout.fillHeight: true
-                        Layout.alignment: Qt.AlignHCenter
-
-                        text: (lastEvent == "" ? topic : lastEvent).replace(/(\r\n\t|\n|\r\t)/gm," ")
-                        visible: text.length > 0
-                        elide: Text.ElideRight
-                        wrapMode: Text.NoWrap
-                        color: Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.7)
-                    }
-                }
+            trailing: RowLayout {
                 QQC2.Label {
                     text: notificationCount
                     visible: notificationCount > 0
@@ -180,6 +133,26 @@ Kirigami.ScrollablePage {
                         Kirigami.Theme.colorSet: Kirigami.Theme.Button
                         color: highlightCount > 0 ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.backgroundColor
                         radius: height / 2
+                    }
+                }
+                QQC2.Button {
+                    id: configButton
+                    visible: roomListItem.hovered || Kirigami.Settings.isMobile
+                    Accessible.name: i18n("Configure room")
+
+                    action: Kirigami.Action {
+                        id: optionAction
+                        icon.name: "configure"
+                        onTriggered: {
+                            const menu = roomListContextMenu.createObject(page, {"room": currentRoom})
+                            configButton.visible = true
+                            configButton.down = true
+                            menu.closed.connect(function() {
+                                configButton.down = undefined
+                                configButton.visible = Qt.binding(function() { return roomListItem.hovered || Kirigami.Settings.isMobile })
+                            })
+                            menu.popup()
+                        }
                     }
                 }
             }

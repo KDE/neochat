@@ -16,17 +16,13 @@ Menu {
     property var room
 
     MenuItem {
-        text: i18n("Favourite")
-        checkable: true
-        checked: room.isFavourite
+        text: room.isFavourite ? i18n("Remove from Favourites") : i18n("Add to Favourites")
 
         onTriggered: room.isFavourite ? room.removeTag("m.favourite") : room.addTag("m.favourite", 1.0)
     }
 
     MenuItem {
-        text: i18n("Deprioritize")
-        checkable: true
-        checked: room.isLowPriority
+        text: room.isLowPriority ? i18n("Reprioritize") : i18n("Deprioritize")
 
         onTriggered: room.isLowPriority ? room.removeTag("m.lowpriority") : room.addTag("m.lowpriority", 1.0)
     }
