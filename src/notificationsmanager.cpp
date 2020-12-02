@@ -12,6 +12,7 @@
 #include <KNotification>
 
 #include "neochatconfig.h"
+#include "controller.h"
 
 NotificationsManager &NotificationsManager::instance()
 {
@@ -24,7 +25,7 @@ NotificationsManager::NotificationsManager(QObject *parent)
 {
 }
 
-void NotificationsManager::postNotification(const QString &roomid, const QString &eventid, const QString &roomname, const QString &sender, const QString &text, const QImage &icon)
+void NotificationsManager::postNotification(NeoChatRoom *room, const QString &eventid, const QString &roomname, const QString &sender, const QString &text, const QImage &icon)
 {
     if (!NeoChatConfig::self()->showNotifications()) {
         return;
@@ -42,7 +43,14 @@ void NotificationsManager::postNotification(const QString &roomid, const QString
 
     notification->setText(text.toHtmlEscaped());
     notification->setPixmap(img);
+
+    notification->setDefaultAction(i18n("Open NeoChat in this room"));
+    connect(notification, &KNotification::defaultActivated, this, [this, room]() {
+        Q_EMIT Controller::instance().openRoom(room);
+        Q_EMIT Controller::instance().showWindow();
+    });
+
     notification->sendEvent();
 
-    m_notifications.insert(roomid, notification);
+    m_notifications.insert(room->id(), notification);
 }

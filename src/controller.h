@@ -20,6 +20,8 @@ class QKeySequences;
 #include "settings.h"
 #include "user.h"
 
+class NeoChatRoom;
+
 using namespace Quotient;
 
 class Controller : public QObject
@@ -109,6 +111,7 @@ Q_SIGNALS:
     void aboutDataChanged();
     void passwordStatus(Controller::PasswordStatus _t1);
     void showWindow();
+    void openRoom(NeoChatRoom *room);
 
 public Q_SLOTS:
     void logout(Quotient::Connection *conn, bool serverSideLogout);

@@ -223,6 +223,8 @@ Kirigami.ApplicationWindow {
         onGlobalErrorOccured: showPassiveNotification(error + ": " + detail)
 
         onShowWindow: root.showWindow()
+
+        onOpenRoom: roomManager.enterRoom(room)
     }
 
     RoomListModel {
