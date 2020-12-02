@@ -112,17 +112,6 @@ Kirigami.ScrollablePage {
             }
             actions: [
                 Kirigami.Action {
-                    id: makeAction
-                    text: currentRoom.isFavourite ? i18n("Remove room from favorites") : i18n("Make room favorite")
-
-                    icon.name: currentRoom.isFavourite ? "rating" : "rating-unrated"
-                    checkable: true
-                    checked: currentRoom.isFavourite
-
-                    onTriggered: currentRoom.isFavourite ? currentRoom.removeTag("m.favourite") : currentRoom.addTag("m.favourite", 1.0)
-
-                },
-                Kirigami.Action {
                     id: optionAction
 
                     text: i18n("Configure room")
