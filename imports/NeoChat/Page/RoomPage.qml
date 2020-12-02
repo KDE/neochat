@@ -39,6 +39,7 @@ Kirigami.ScrollablePage {
                 text: currentRoom.name
                 opacity: page.isCurrentPage ? 1 : 0.4
                 maximumLineCount: 1
+                elide: Text.ElideRight
                 Layout.leftMargin: Kirigami.Units.largeSpacing
                 Layout.alignment: Qt.AlignBottom
             }
@@ -46,6 +47,7 @@ Kirigami.ScrollablePage {
                 Layout.alignment: Qt.AlignBottom
                 text: currentRoom.topic
                 Layout.fillWidth: true
+                maximumLineCount: 1
                 //wrapMode: Text.WordWrap
                 elide: Text.ElideRight
                 color: Kirigami.Theme.disabledTextColor
