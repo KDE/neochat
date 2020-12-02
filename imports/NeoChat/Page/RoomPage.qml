@@ -440,6 +440,7 @@ Kirigami.ScrollablePage {
             id: typingNotification
 
             visible: currentRoom && currentRoom.usersTyping.length > 0
+            height: visible ? implicitHeight: 0
             spacing: Kirigami.Units.largeSpacing
 
             QQC2.BusyIndicator {
