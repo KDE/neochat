@@ -40,5 +40,11 @@ Kirigami.ScrollablePage {
             checked: Config.mergeRoomList
             onToggled: Config.mergeRoomList = true
         }
+        QQC2.CheckBox {
+            Kirigami.FormData.label: i18n("Timeline:")
+            text: i18n("Show User Avatar")
+            checked: Config.showAvatarInTimeline
+            onToggled: Config.showAvatarInTimeline = checked
+        }
     }
 }

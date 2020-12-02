@@ -50,7 +50,7 @@ RowLayout {
 
         Layout.alignment: Qt.AlignTop
 
-        visible: showAuthor
+        visible: showAuthor && Config.showAvatarInTimeline
         name: author.displayName
         source: author.avatarMediaId ? "image://mxc/" + author.avatarMediaId : ""
         color: author.color
@@ -70,7 +70,7 @@ RowLayout {
     Item {
         Layout.minimumWidth: Kirigami.Units.gridUnit * 2
         Layout.preferredHeight: 1
-        visible: !showAuthor
+        visible: !showAuthor && Config.showAvatarInTimeline
     }
 
 

@@ -28,7 +28,7 @@ QQC2.AbstractButton {
             Layout.preferredWidth: Kirigami.Units.gridUnit
             Layout.preferredHeight: Kirigami.Units.gridUnit
             Layout.alignment: Qt.AlignTop
-
+            visible: Config.showAvatarInTimeline
             source: replyVisible && reply.author.avatarMediaId ? "image://mxc/" + reply.author.avatarMediaId : ""
             name: replyVisible ? reply.author.displayName : "H"
             color: replyVisible ? reply.author.color : Kirigami.Theme.highlightColor
