@@ -10,6 +10,7 @@ import QtQuick.Controls.Material 2.12
 import QtQuick.Layouts 1.12
 
 import org.kde.kirigami 2.13 as Kirigami
+import org.kde.kitemmodels 1.0
 
 import NeoChat.Component 1.0
 import NeoChat.Dialog 1.0
@@ -147,8 +148,14 @@ Kirigami.OverlayDrawer {
                 headerPositioning: ListView.OverlayHeader
                 boundsBehavior: Flickable.DragOverBounds
 
-                model: UserListModel {
-                    room: roomDrawer.room
+                model: KSortFilterProxyModel {
+                    id: sortedMessageEventModel
+
+                    sourceModel: UserListModel {
+                        room: roomDrawer.room
+                    }
+
+                    sortRole: "perm"
                 }
 
                 delegate: Kirigami.AbstractListItem {
