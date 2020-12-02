@@ -94,10 +94,10 @@ private Q_SLOTS:
 Q_SIGNALS:
     void busyChanged();
     /// Error occured because of user inputs
-    void errorOccured(QString _t1, QString _t2);
+    void errorOccured(QString error, QString detail);
 
     /// Error occured because of server or bug in NeoChat
-    void globalErrorOccured(QString _t1, QString _t2);
+    void globalErrorOccured(QString error, QString detail);
     void syncDone();
     void connectionAdded(Quotient::Connection *_t1);
     void connectionDropped(Quotient::Connection *_t1);

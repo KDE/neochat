@@ -99,50 +99,43 @@ void Controller::loginWithCredentials(const QString &serverAddr, const QString &
         return;
     }
 
+
     if (deviceName.isEmpty()) {
         deviceName = "NeoChat " + QSysInfo::machineHostName() + " " + QSysInfo::productType() + " " + QSysInfo::productVersion() + " " + QSysInfo::currentCpuArchitecture();
     }
 
-    QUrl serverUrl(serverAddr);
-
     auto conn = new Connection(this);
+    const QUrl serverUrl = QUrl(serverAddr);
+    // we are using a fake mixd since resolveServer just set the homeserver url :sigh:
+    conn->resolveServer("@username:" + serverUrl.host() + ":" + QString::number(serverUrl.port(443)));
 
-    if (serverUrl.isValid()) {
-        conn->setHomeserver(serverUrl);
-        auto *job = conn->callApi<GetWellknownJob>();
-        connect(job, &BaseJob::finished, this, [=]() {
-            if (job->status() == BaseJob::Success) {
-                QUrl url(job->data().homeserver.baseUrl);
-                auto finalConn = new Connection(this);
-                finalConn->setHomeserver(url);
-                finalConn->connectToServer(user, pass, deviceName, "");
-                connect(finalConn, &Connection::connected, this, [=] {
-                    AccountSettings account(finalConn->userId());
-                    account.setKeepLoggedIn(true);
-                    account.clearAccessToken(); // Drop the legacy - just in case
-                    account.setHomeserver(finalConn->homeserver());
-                    account.setDeviceId(finalConn->deviceId());
-                    account.setDeviceName(deviceName);
-                    if (!saveAccessTokenToKeyChain(account, finalConn->accessToken())) {
-                        qWarning() << "Couldn't save access token";
-                    }
-                    account.sync();
-                    addConnection(finalConn);
-                    setActiveConnection(finalConn);
-                });
-                connect(finalConn, &Connection::networkError, [=](QString error, const QString &, int, int) {
-                    Q_EMIT globalErrorOccured(i18n("Network Error"), std::move(error));
-                });
-                connect(finalConn, &Connection::loginError, [=](QString error, const QString &) {
-                    Q_EMIT errorOccured(i18n("Login Failed"), std::move(error));
-                });
+    connect(conn, &Connection::homeserverChanged, this, [this, user, conn, pass, deviceName]() {
+        conn->connectToServer(user, pass, deviceName, "");
+        connect(conn, &Connection::connected, this, [this, conn, deviceName] {
+            AccountSettings account(conn->userId());
+            account.setKeepLoggedIn(true);
+            account.clearAccessToken(); // Drop the legacy - just in case
+            account.setHomeserver(conn->homeserver());
+            account.setDeviceId(conn->deviceId());
+            account.setDeviceName(deviceName);
+            if (!saveAccessTokenToKeyChain(account, conn->accessToken())) {
+                qWarning() << "Couldn't save access token";
             }
+            account.sync();
+            addConnection(conn);
+            setActiveConnection(conn);
         });
-        connect(job, &BaseJob::retryScheduled, this, [=](int, Quotient::BaseJob::duration_ms_t) {
-            Q_EMIT errorOccured(i18n("%1 is not a matrix server or is unreachable", serverUrl.toString()), QString());
-            job->abandon();
+        connect(conn, &Connection::networkError, [=](QString error, const QString &, int, int) {
+            Q_EMIT globalErrorOccured(i18n("Network Error"), std::move(error));
         });
-    }
+        connect(conn, &Connection::loginError, [=](QString error, const QString &) {
+            Q_EMIT errorOccured(i18n("Login Failed"), std::move(error));
+        });
+    });
+
+    connect(conn, &Connection::resolveError, this, [=](QString error) {
+        Q_EMIT globalErrorOccured(i18n("Network Error"), std::move(error));
+    });
 }
 
 void Controller::loginWithAccessToken(const QString &serverAddr, const QString &user, const QString &token, const QString &deviceName)

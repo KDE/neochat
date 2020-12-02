@@ -23,7 +23,6 @@ Kirigami.ScrollablePage {
         padding: Kirigami.Units.smallSpacing
         contentItem: Kirigami.InlineMessage {
             id: inlineMessage
-            type: Kirigami.MessageType.Error
             visible: false
             showCloseButton: true
         }
@@ -74,7 +73,8 @@ Kirigami.ScrollablePage {
         Connections {
             target: Controller
             onErrorOccured: {
-                if (detail.length !== 0) {
+                inlineMessage.type = Kirigami.MessageType.Error;
+                if (detail && detail.length !== 0) {
                     inlineMessage.text = i18n("%1: %2", error, detail);
                 } else {
                     inlineMessage.text = error;
@@ -85,6 +85,9 @@ Kirigami.ScrollablePage {
     }
 
     function doLogin() {
+        inlineMessage.text = i18n("Loading, this might take up to 10 seconds.");
+        inlineMessage.type = Kirigami.MessageType.Information
+        inlineMessage.visible = true;
         if (accessTokenField.text.length > 0) {
             Controller.loginWithAccessToken(serverField.text.trim(), usernameField.text.trim(), accessTokenField.text, deviceNameField.text.trim());
         } else {
