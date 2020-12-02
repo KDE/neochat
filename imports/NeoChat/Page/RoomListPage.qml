@@ -91,11 +91,11 @@ Kirigami.ScrollablePage {
             }
         }
 
-        delegate: Kirigami.SwipeListItem {
+        delegate: Kirigami.AbstractListItem {
             id: roomListItem
             property bool itemVisible: model.categoryVisible || sortFilterRoomListModel.filterText.length > 0 || Config.mergeRoomList
             visible: itemVisible
-            height: itemVisible ? implicitHeight : 0
+            height: itemVisible ? roomLayout.implicitHeight : 0
             highlighted: roomManager.currentRoom && roomManager.currentRoom.name === name
             focus: true
             action: Kirigami.Action {
@@ -110,90 +110,72 @@ Kirigami.ScrollablePage {
                     }
                 }
             }
-            actions: [
-                Kirigami.Action {
-                    id: optionAction
 
-                    text: i18n("Configure room")
+            contentItem: RowLayout {
+                id: roomLayout
+                spacing: Kirigami.Units.largeSpacing
 
-                    icon.name: "configure"
-                    onTriggered: roomListContextMenu.createObject(roomLayout, {"room": currentRoom}).popup();
+                Kirigami.Avatar {
+                    id: roomAvatar
+                    property int size: parent.height - Kirigami.Units.smallSpacing * 2;
+                    Layout.minimumHeight: size
+                    Layout.maximumHeight: size
+                    Layout.minimumWidth: size
+                    Layout.maximumWidth: size
+
+                    source: avatar ? "image://mxc/" + avatar : ""
+                    name: model.name || i18n("No Name")
                 }
-            ]
-            contentItem: Item {
-                id: listItem
-                focus: true
-                implicitHeight: roomLayout.implicitHeight
-                RowLayout {
-                    id: roomLayout
-                    anchors.fill: parent
-                    spacing: Kirigami.Units.largeSpacing
 
-                    Kirigami.Avatar {
-                        id: roomAvatar
-                        property int size: Kirigami.Units.gridUnit * 3 - Kirigami.Units.smallSpacing * 2;
-                        Layout.minimumHeight: size
-                        Layout.maximumHeight: size
-                        Layout.minimumWidth: size
-                        Layout.maximumWidth: size
+                ColumnLayout {
+                    id: roomitemcolumn
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    Layout.alignment: Qt.AlignHCenter
 
-                        source: avatar ? "image://mxc/" + avatar : ""
-                        name: model.name || i18n("No Name")
+                    spacing: Kirigami.Units.smallSpacing
+
+                    Kirigami.Heading {
+                        level: 3
+                        Layout.fillWidth: true
+                        Layout.fillHeight: true
+                        text: name ?? ""
+                        elide: Text.ElideRight
+                        font.bold: unreadCount >= 0 || highlightCount > 0 || notificationCount > 0
+                        wrapMode: Text.NoWrap
                     }
 
-                    ColumnLayout {
+                    QQC2.Label {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
                         Layout.alignment: Qt.AlignHCenter
 
-                        spacing: Kirigami.Units.smallSpacing
-
-                        Kirigami.Heading {
-                            level: 3
-                            Layout.fillWidth: true
-                            Layout.fillHeight: true
-                            text: name ?? ""
-                            elide: Text.ElideRight
-                            font.bold: unreadCount >= 0 || highlightCount > 0 || notificationCount > 0
-                            wrapMode: Text.NoWrap
-                        }
-
-                        QQC2.Label {
-                            Layout.fillWidth: true
-                            Layout.fillHeight: true
-                            Layout.alignment: Qt.AlignHCenter
-
-                            text: (lastEvent == "" ? topic : lastEvent).replace(/(\r\n\t|\n|\r\t)/gm," ")
-                            visible: text.length > 0
-                            elide: Text.ElideRight
-                            wrapMode: Text.NoWrap
-                        }
-                    }
-                    QQC2.Label {
-                        text: notificationCount
-                        visible: notificationCount > 0
-                        padding: Kirigami.Units.smallSpacing
-                        color: highlightCount > 0 ? "white" : Kirigami.Theme.textColor
-                        Layout.minimumWidth: height
-                        horizontalAlignment: Text.AlignHCenter
-                        background: Rectangle {
-                            Kirigami.Theme.colorSet: Kirigami.Theme.Button
-                            color: highlightCount > 0 ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.backgroundColor
-                            radius: height / 2
-                        }
+                        text: (lastEvent == "" ? topic : lastEvent).replace(/(\r\n\t|\n|\r\t)/gm," ")
+                        visible: text.length >
+                        elide: Text.ElideRight
+                        wrapMode: Text.NoWrap
                     }
                 }
-
-                MouseArea {
-                    acceptedButtons: Qt.LeftButton | Qt.RightButton
-                    anchors.fill: parent
-                    onClicked: {
-                        if (mouse.button == Qt.RightButton) {
-                            roomListContextMenu.createObject(roomLayout, {"room": currentRoom}).popup()
-                        } else {
-                            enterRoomAction.trigger();
-                            listView.currentIndex = index;
-                        }
+                QQC2.Label {
+                    text: notificationCount
+                    visible: notificationCount > 0
+                    padding: Kirigami.Units.smallSpacing
+                    color: highlightCount > 0 ? "white" : Kirigami.Theme.textColor
+                    Layout.minimumWidth: height
+                    horizontalAlignment: Text.AlignHCenter
+                    background: Rectangle {
+                        Kirigami.Theme.colorSet: Kirigami.Theme.Button
+                        color: highlightCount > 0 ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.backgroundColor
+                        radius: height / 2
+                    }
+                }
+                QQC2.Button {
+                    visible: roomListItem.hovered || Kirigami.Settings.isMobile
+                    Accessible.description: i18n("Configure room")
+                    action: Kirigami.Action {
+                        id: optionAction
+                        icon.name: "configure"
+                        onTriggered: roomListContextMenu.createObject(roomLayout, {"room": currentRoom}).popup();
                     }
                 }
             }
