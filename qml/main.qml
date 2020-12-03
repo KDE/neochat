@@ -87,7 +87,6 @@ Kirigami.ApplicationWindow {
         }
 
         function connectRoomToSignal(item) {
-            console.log("connect")
             if (!roomList) {
                 console.log("Should not happen: no room list page but room page");
             }

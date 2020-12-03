@@ -315,7 +315,6 @@ ToolBar {
                 Keys.onEscapePressed: closeAll()
 
                 Keys.onPressed: {
-                    console.log(Qt.Key_Paste, event.key);
                     if (event.key === Qt.Key_PageDown) {
                         switchRoomDown();
                     } else if (event.key === Qt.Key_PageUp) {
