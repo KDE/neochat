@@ -18,7 +18,11 @@ import NeoChat.Page 1.0
 
 Kirigami.ApplicationWindow {
     id: root
+
     property var currentRoom: null
+    property int columnWidth: Kirigami.Units.gridUnit * 13
+
+    wideScreen: width > columnWidth * 5
 
     Connections {
         target: root.quitAction
@@ -113,14 +117,20 @@ Kirigami.ApplicationWindow {
 
     contextDrawer: RoomDrawer {
         id: contextDrawer
+        contentItem.implicitWidth: columnWidth
+        edge: Qt.application.layoutDirection == Qt.RightToLeft ? Qt.LeftEdge : Qt.RightEdge
+        modal: !root.wideScreen
+        onEnabledChanged: drawerOpen = enabled && !modal
+        onModalChanged: drawerOpen = !modal
         enabled: roomManager.hasOpenRoom
         room: roomManager.currentRoom
         handleVisible: enabled && pageStack.layers.depth < 2
     }
 
     globalDrawer: Kirigami.GlobalDrawer {
-        isMenu: true
         property bool hasLayer
+        contentItem.implicitWidth: columnWidth
+        isMenu: true
         actions: [
             Kirigami.Action {
                 text: i18n("Explore rooms")
