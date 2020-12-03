@@ -9,6 +9,7 @@ import QtQuick.Controls 2.12 as QQC2
 import QtQuick.Layouts 1.12
 import org.kde.kirigami 2.13 as Kirigami
 import NeoChat.Component.Timeline 1.0
+import org.kde.neochat 1.0
 
 QQC2.AbstractButton {
     visible: replyVisible
