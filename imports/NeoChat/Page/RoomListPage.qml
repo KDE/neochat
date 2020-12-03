@@ -95,7 +95,6 @@ Kirigami.ScrollablePage {
             id: roomListItem
             property bool itemVisible: model.categoryVisible || sortFilterRoomListModel.filterText.length > 0 || Config.mergeRoomList
             visible: itemVisible
-            height: itemVisible ? roomLayout.height : 0
             highlighted: roomManager.currentRoom && roomManager.currentRoom.name === name
             focus: true
             action: Kirigami.Action {
@@ -114,8 +113,7 @@ Kirigami.ScrollablePage {
             contentItem: RowLayout {
                 id: roomLayout
                 spacing: Kirigami.Units.largeSpacing
-                height: Kirigami.Units.gridUnit * 3
-                implicitHeight: Kirigami.Units.gridUnit * 3
+                width: listView.width
 
                 TapHandler {
                     acceptedButtons: Qt.RightButton
@@ -139,6 +137,8 @@ Kirigami.ScrollablePage {
                     id: roomitemcolumn
                     Layout.fillWidth: true
                     Layout.fillHeight: true
+                    Layout.minimumHeight: Kirigami.Units.gridUnit * 2
+                    Layout.maximumHeight: Kirigami.Units.gridUnit * 2
                     Layout.alignment: Qt.AlignHCenter
 
                     spacing: Kirigami.Units.smallSpacing
