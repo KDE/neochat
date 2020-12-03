@@ -73,7 +73,9 @@ Kirigami.OverlayDrawer {
                     icon.name: 'settings-configure'
                     onClicked: {
                         roomSettingDialog.createObject(ApplicationWindow.overlay, {"room": room}).open()
-                        roomDrawer.close();
+                        if (!wideScreen) {
+                            roomDrawer.close();
+                        }
                     }
 
                     ToolTip {
