@@ -117,6 +117,12 @@ Kirigami.ScrollablePage {
                 height: Kirigami.Units.gridUnit * 3
                 implicitHeight: Kirigami.Units.gridUnit * 3
 
+                TapHandler {
+                    acceptedButtons: Qt.RightButton
+                    onTapped: roomListContextMenu.createObject(roomLayout, {"room": currentRoom}).popup()
+
+                }
+
                 Kirigami.Avatar {
                     id: roomAvatar
                     property int size: Kirigami.Units.gridUnit * 2
