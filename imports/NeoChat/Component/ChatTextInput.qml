@@ -305,7 +305,7 @@ ToolBar {
                     if (event.modifiers & Qt.ShiftModifier) {
                         insert(cursorPosition, "<br />")
                     } else {
-                        postMessage(text)
+                        postMessage()
                         text = ""
                         clearReply()
                         closeAll()
@@ -392,7 +392,7 @@ ToolBar {
                 function postMessage() {
                     documentHandler.postMessage(attachmentPath, replyEventID);
                     clearAttachment();
-		    currentRoom.markAllMessagesAsRead();
+                    currentRoom.markAllMessagesAsRead();
                     clear();
                 }
             }
@@ -451,7 +451,7 @@ ToolBar {
                 icon.color: "transparent"
 
                 onClicked: {
-                    inputField.postMessage(inputField.text)
+                    inputField.postMessage()
                     inputField.text = ""
                     root.clearReply()
                     root.closeAll()
