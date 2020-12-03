@@ -35,7 +35,7 @@ Image {
     sourceSize.width: info.w
     sourceSize.height: info.h
 
-    fillMode: Image.PreserveAspectCrop
+    fillMode: Image.PreserveAspectFit
 
     Control {
         anchors.bottom: parent.bottom

@@ -338,6 +338,7 @@ Kirigami.ScrollablePage {
                             ImageDelegate {
                                 Layout.maximumWidth: parent.width
                                 Layout.minimumWidth: 320
+                                Layout.preferredHeight: info.h / info.w * width
                             },
                             ReactionDelegate {
                                 Layout.fillWidth: true
