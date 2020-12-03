@@ -422,11 +422,6 @@ ToolBar {
 
                 onClicked: {
                     if (Clipboard.hasImage) {
-            documentHandler.paste()
-                        const localPath = Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/screenshots/" + (new Date()).getTime() + ".png"
-                        if (!Clipboard.saveImage(localPath)) return
-                        chatTextInput.attach(localPath)
-                        attachDialog.close()
                         attachDialog.open()
                     } else {
                         var fileDialog = openFileDialog.createObject(ApplicationWindow.overlay)
