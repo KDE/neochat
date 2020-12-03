@@ -95,7 +95,7 @@ Kirigami.ScrollablePage {
             id: roomListItem
             property bool itemVisible: model.categoryVisible || sortFilterRoomListModel.filterText.length > 0 || Config.mergeRoomList
             visible: itemVisible
-            height: itemVisible ? roomLayout.implicitHeight : 0
+            height: itemVisible ? roomLayout.height : 0
             highlighted: roomManager.currentRoom && roomManager.currentRoom.name === name
             focus: true
             action: Kirigami.Action {
@@ -114,10 +114,12 @@ Kirigami.ScrollablePage {
             contentItem: RowLayout {
                 id: roomLayout
                 spacing: Kirigami.Units.largeSpacing
+                height: Kirigami.Units.gridUnit * 3
+                implicitHeight: Kirigami.Units.gridUnit * 3
 
                 Kirigami.Avatar {
                     id: roomAvatar
-                    property int size: parent.height - Kirigami.Units.smallSpacing * 2;
+                    property int size: Kirigami.Units.gridUnit * 2
                     Layout.minimumHeight: size
                     Layout.maximumHeight: size
                     Layout.minimumWidth: size
