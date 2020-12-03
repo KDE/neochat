@@ -6,6 +6,7 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
+import Qt.labs.platform 1.0 as Platform
 import org.kde.kirigami 2.13 as Kirigami
 
 import NeoChat.Component 1.0
@@ -38,6 +39,17 @@ ToolBar {
         inputField.insert(inputField.length, text)
     }
     Kirigami.Theme.colorSet: Kirigami.Theme.View
+
+    Action {
+        id: pasteAction
+        shortcut: StandardKey.Paste
+        onTriggered: {
+            if (Clipboard.hasImage) {
+                root.pasteImage();
+            }
+            activeFocusItem.paste();
+        }
+    }
 
     contentItem: ColumnLayout {
         id: layout
@@ -303,10 +315,13 @@ ToolBar {
                 Keys.onEscapePressed: closeAll()
 
                 Keys.onPressed: {
+                    console.log(Qt.Key_Paste, event.key);
                     if (event.key === Qt.Key_PageDown) {
                         switchRoomDown();
                     } else if (event.key === Qt.Key_PageUp) {
                         switchRoomUp();
+                    } else if (event.key === Qt.Key_V && event.modifiers & Qt.ControlModifier) {
+                        root.pasteImage();
                     }
                 }
 
@@ -407,6 +422,11 @@ ToolBar {
 
                 onClicked: {
                     if (Clipboard.hasImage) {
+            documentHandler.paste()
+                        const localPath = Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/screenshots/" + (new Date()).getTime() + ".png"
+                        if (!Clipboard.saveImage(localPath)) return
+                        chatTextInput.attach(localPath)
+                        attachDialog.close()
                         attachDialog.open()
                     } else {
                         var fileDialog = openFileDialog.createObject(ApplicationWindow.overlay)
@@ -496,5 +516,13 @@ ToolBar {
     function clearAttachment() {
         hasAttachment = false
         attachmentPath = ""
+    }
+
+    function pasteImage() {
+        var localPath = Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/screenshots/" + (new Date()).getTime() + ".png";
+        if (!Clipboard.saveImage(localPath)) {
+            return;
+        }
+        root.attach(localPath);
     }
 }
