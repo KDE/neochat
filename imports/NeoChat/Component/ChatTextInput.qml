@@ -37,6 +37,7 @@ ToolBar {
     function addText(text) {
         inputField.insert(inputField.length, text)
     }
+    Kirigami.Theme.colorSet: Kirigami.Theme.View
 
     contentItem: ColumnLayout {
         id: layout

@@ -30,9 +30,58 @@ Kirigami.OverlayDrawer {
     topPadding: 0
     leftPadding: 0
     rightPadding: 0
+    Kirigami.Theme.colorSet: Kirigami.Theme.View
     contentItem: ColumnLayout {
         id: columnLayout
-        implicitWidth: Kirigami.Units.gridUnit * 20
+        spacing: 0
+        Kirigami.AbstractApplicationHeader {
+            Layout.fillWidth: true
+            topPadding: Kirigami.Units.smallSpacing / 2;
+            bottomPadding: Kirigami.Units.smallSpacing / 2;
+            rightPadding: Kirigami.Units.smallSpacing
+            leftPadding: Kirigami.Units.smallSpacing
+
+            RowLayout {
+                anchors.fill: parent
+                spacing: 0
+
+                ToolButton {
+                    icon.name: "list-add-user"
+                    text: i18n("Invite")
+                    onClicked: {
+                        applicationWindow().pageStack.push("qrc:/imports/NeoChat/Page/InviteUserPage.qml", {"room": room})
+                        roomDrawer.close();
+                    }
+                }
+                Item {
+                    // HACK otherwise rating item is not right aligned
+                    Layout.fillWidth: true
+                }
+
+                ToolButton {
+                    Layout.alignment: Qt.AlignRight
+                    icon.name: room.isFavourite ? "rating" : "rating-unrated"
+                    checkable: true
+                    checked: room.isFavourite
+                    onClicked: room.isFavourite ? room.removeTag("m.favourite") : room.addTag("m.favourite", 1.0)
+                    ToolTip {
+                        text: room.isFavourite ? i18n("Remove room from favorites") : i18n("Make room favorite")
+                    }
+                }
+                ToolButton {
+                    Layout.alignment: Qt.AlignRight
+                    icon.name: 'settings-configure'
+                    onClicked: {
+                        roomSettingDialog.createObject(ApplicationWindow.overlay, {"room": room}).open()
+                        roomDrawer.close();
+                    }
+
+                    ToolTip {
+                        text: i18n("Room settings")
+                    }
+                }
+            }
+        }
 
         Component {
             id: fullScreenImage
@@ -42,11 +91,14 @@ Kirigami.OverlayDrawer {
 
         Control {
             Layout.fillWidth: true
-            implicitHeight: infoLayout.implicitHeight
             bottomPadding: Kirigami.Units.largeSpacing
             contentItem: ColumnLayout {
                 id: infoLayout
                 Layout.fillWidth: true
+                Kirigami.Heading {
+                    text: i18n("Room information")
+                    level: 3
+                }
                 RowLayout {
                     Layout.fillWidth: true
                     Layout.margins: Kirigami.Units.largeSpacing
@@ -63,6 +115,7 @@ Kirigami.OverlayDrawer {
 
                     ColumnLayout {
                         Layout.fillWidth: true
+                        Layout.alignment: Qt.AlignVCenter
                         spacing: 0
 
                         Kirigami.Heading {
@@ -76,66 +129,27 @@ Kirigami.OverlayDrawer {
                             Layout.fillWidth: true
                             text: room && room.canonicalAlias ? room.canonicalAlias : i18n("No Canonical Alias")
                         }
-
-                        Label {
-                            Layout.fillWidth: true
-                            text: room ? i18np("%1 Member", "%1 Members", room.totalMemberCount) : i18n("No Member Count")
-                            color: Kirigami.Theme.disabledTextColor
-                            height: configButton.implicitHeight
-                        }
-                        Button {
-                            Layout.fillWidth: true
-                            id: configButton
-                            icon.name: 'settings-configure'
-                            text: i18n("Room settings")
-                            onClicked: {
-                                roomSettingDialog.createObject(ApplicationWindow.overlay, {"room": room}).open()
-                                roomDrawer.close();
-                            }
-                        }
                     }
                 }
 
-                Kirigami.Separator {
-                    Layout.fillWidth: true
-                }
-
                 Label {
-                    Layout.maximumWidth: Kirigami.Units.gridUnit * 20
+                    Layout.maximumWidth: Kirigami.Units.gridUnit * 13
+                    Layout.preferredWidth: Kirigami.Units.gridUnit * 13
                     Layout.fillWidth: true
                     Kirigami.FormData.label: i18n("Topic:")
                     text: room && room.topic ? room.topic : i18n("No Topic")
                     elide: Text.ElideRight
                     wrapMode: Text.WordWrap
                 }
-
-                RowLayout {
-                    Layout.fillWidth: true
-
-                    spacing: 8
-                    Kirigami.Icon {
-                        source: "user-others"
-                    }
-
-                    Label {
-                        Layout.fillWidth: true
-                        text: room ?  i18np("%1 Member", "%1 Members", room.totalMemberCount) : i18n("No Member Count")
-                    }
-
-                    ToolButton {
-                        icon.name: "list-add-user"
-                        text: i18n("Invite")
-                        onClicked: {
-                            applicationWindow().pageStack.push("qrc:/imports/NeoChat/Page/InviteUserPage.qml", {"room": room})
-                            roomDrawer.close();
-                        }
-                    }
-                }
             }
         }
 
-        Kirigami.Separator {
-            Layout.fillWidth: true
+        Kirigami.ListSectionHeader {
+            label: i18n("Members")
+            Label {
+                Layout.alignment: Qt.AlignRight
+                text: room ? i18np("%1 Member", "%1 Members", room.totalMemberCount) : i18n("No Member Count")
+            }
         }
 
         ScrollView {
