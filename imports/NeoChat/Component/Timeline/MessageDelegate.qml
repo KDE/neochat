@@ -26,13 +26,13 @@ RowLayout {
     readonly property color authorColor: eventType == "notice" ? Kirigami.Theme.activeTextColor : author.color
     readonly property color replyAuthorColor: replyVisible ? reply.author.color : Kirigami.Theme.focusColor
 
-    property alias mouseArea: controlContainer.children
     property bool isEmote: false
 
     signal saveFileAs()
     signal openExternally()
     signal replyClicked(string eventID)
     signal replyToMessageClicked(var replyUser, string replyContent, string eventID)
+    signal openContextMenu()
 
     id: root
 
@@ -80,6 +80,11 @@ RowLayout {
         topPadding: 0
         bottomPadding: 0
         hoverEnabled: true
+        TapHandler {
+            acceptedButtons: (Kirigami.Settings.isMobile ? Qt.LeftButton : 0) | Qt.RightButton
+            onTapped: openContextMenu()
+            onLongPressed: openContextMenu()
+        }
         contentItem: ColumnLayout {
             id: column
             spacing: showAuthor ? Kirigami.Units.smallSpacing : 0
