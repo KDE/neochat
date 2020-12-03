@@ -250,7 +250,11 @@ Kirigami.ScrollablePage {
                         Layout.fillWidth: true
                         Layout.maximumWidth: messageListView.width
                         isEmote: true
-                        onOpenContextMenu: openMessageContext(author, display, eventId, toolTip)
+                        mouseArea: MouseArea {
+                            acceptedButtons: Qt.RightButton
+                            anchors.fill: parent
+                            onClicked: openMessageContext(author, display, eventId, toolTip);
+                        }
                         onReplyClicked: goToEvent(eventID)
                         onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
                         innerObject: [
@@ -276,7 +280,16 @@ Kirigami.ScrollablePage {
                     innerObject: MessageDelegate {
                         Layout.fillWidth: true
                         Layout.maximumWidth: messageListView.width
-                        onOpenContextMenu: openMessageContext(author, display, eventId, toolTip)
+                        mouseArea: MouseArea {
+                            acceptedButtons: (Kirigami.Settings.isMobile ? Qt.LeftButton : 0) | Qt.RightButton
+                            anchors.fill: parent
+                            onClicked: {
+                                if (mouse.button == Qt.RightButton) {
+                                    openMessageContext(author, display, eventId, toolTip);
+                                }
+                            }
+                            onPressAndHold: openMessageContext(author, display, eventId, toolTip);
+                        }
                         onReplyClicked: goToEvent(eventID)
                         onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
                         innerObject: [
