@@ -44,6 +44,7 @@
 #include "events/roommessageevent.h"
 #include "neochatroom.h"
 #include "neochatuser.h"
+#include "neochatconfig.h"
 #include "settings.h"
 #include "utils.h"
 #include <KStandardShortcut>
@@ -277,9 +278,16 @@ void Controller::invokeLogin()
     }
 
     if (!m_connections.isEmpty()) {
+        const QString id = NeoChatConfig::self()->activeConnection();
+        for (auto *connection : qAsConst(m_connections)) {
+            if (connection->userId() == id) {
+                setActiveConnection(connection);
+                Q_EMIT initiated();
+                return;
+            }
+        }
         setActiveConnection(m_connections[0]);
     }
-
     Q_EMIT initiated();
 }
 
@@ -542,6 +550,12 @@ void Controller::setActiveConnection(Connection *connection)
         return;
     }
     m_connection = connection;
+    if (connection != nullptr) {
+        NeoChatConfig::self()->setActiveConnection(connection->userId());
+    } else {
+        NeoChatConfig::self()->setActiveConnection(QString());
+    }
+    NeoChatConfig::self()->save();
     Q_EMIT activeConnectionChanged();
 }
 

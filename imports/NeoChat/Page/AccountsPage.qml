@@ -20,6 +20,9 @@ Kirigami.ScrollablePage {
         delegate: Kirigami.SwipeListItem {
             leftPadding: 0
             rightPadding: 0
+            action: Kirigami.Action {
+                onTriggered: Controller.activeConnection = model.connection
+            }
             Kirigami.BasicListItem {
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
