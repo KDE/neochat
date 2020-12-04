@@ -53,7 +53,7 @@ set_package_properties(cmark PROPERTIES
     PURPOSE "Convert markdown to html"
 )
 
-install(PROGRAMS org.kde.neochat.desktop DESTINATION ${KDE_INSTALL_APPDIR})
+install(FILES org.kde.neochat.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.neochat.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 install(FILES neochat.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/apps)
 install(FILES neochat.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})
