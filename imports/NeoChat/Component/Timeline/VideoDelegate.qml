@@ -13,26 +13,20 @@ import Qt.labs.platform 1.0 as Platform
 import org.kde.kirigami 2.13 as Kirigami
 
 import org.kde.neochat 1.0
-import NeoChat.Setting 1.0
 
 import NeoChat.Component 1.0
 import NeoChat.Dialog 1.0
 import NeoChat.Menu.Timeline 1.0
 import NeoChat.Effect 1.0
-import NeoChat.Font 1.0
 
-RowLayout {
+Video {
+    id: vid
+
     property bool openOnFinished: false
     property bool playOnFinished: false
     readonly property bool downloaded: progressInfo && progressInfo.completed
 
     property bool supportStreaming: true
-
-    id: root
-
-    spacing: 4
-
-    z: -5
 
     onDownloadedChanged: {
         if (downloaded) {
@@ -49,180 +43,168 @@ RowLayout {
         }
     }
 
-    Video {
-        readonly property int maxWidth: 1000 // TODO messageListView.width
 
-        Layout.preferredWidth: content.info.w > maxWidth ? maxWidth : content.info.w
-        Layout.preferredHeight: content.info.w > maxWidth ? (content.info.h / content.info.w * maxWidth) : content.info.h
+    readonly property int maxWidth: 1000 // TODO messageListView.width
 
-        id: vid
+    Layout.preferredWidth: content.info.w > maxWidth ? maxWidth : content.info.w
+    Layout.preferredHeight: content.info.w > maxWidth ? (content.info.h / content.info.w * maxWidth) : content.info.h
 
-        loops: MediaPlayer.Infinite
+    loops: MediaPlayer.Infinite
 
-        fillMode: VideoOutput.PreserveAspectFit
+    fillMode: VideoOutput.PreserveAspectFit
 
-        Component.onCompleted: {
-            if (downloaded) {
-                source = progressInfo.localPath
-            } else {
-                source = currentRoom.urlToMxcUrl(content.url)
+    Component.onCompleted: {
+        if (downloaded) {
+            source = progressInfo.localPath
+        } else {
+            source = currentRoom.urlToMxcUrl(content.url)
+        }
+    }
+
+    onDurationChanged: {
+        if (!duration) {
+            supportStreaming = false;
+        }
+    }
+
+    onErrorChanged: {
+        if (error != MediaPlayer.NoError) {
+            supportStreaming = false;
+        }
+    }
+
+    Image {
+        readonly property bool isThumbnail: content.info.thumbnail_info && content.thumbnailMediaId
+        readonly property var info: isThumbnail ? content.info.thumbnail_info : content.info
+
+        anchors.fill: parent
+
+        visible: isThumbnail  && (vid.playbackState == MediaPlayer.StoppedState || vid.error != MediaPlayer.NoError)
+
+        source: "image://mxc/" + (isThumbnail ? content.thumbnailMediaId : "")
+
+        sourceSize.width: info.w
+        sourceSize.height: info.h
+
+        fillMode: Image.PreserveAspectFit
+    }
+
+    Label {
+        anchors.centerIn: parent
+
+        visible: vid.playbackState == MediaPlayer.StoppedState || vid.error != MediaPlayer.NoError
+        color: "white"
+        text: "Video"
+        font.pixelSize: 16
+
+        padding: 8
+
+        background: Rectangle {
+            radius: Kirigami.Units.smallSpacing
+            color: "black"
+            opacity: 0.3
+        }
+    }
+
+    Control {
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 8
+        anchors.right: parent.right
+        anchors.rightMargin: 8
+
+        horizontalPadding: 8
+        verticalPadding: 4
+
+        contentItem: RowLayout {
+            Label {
+                text: Qt.formatTime(time)
+                color: "white"
+                font.pixelSize: 12
+            }
+
+            Label {
+                text: author.displayName
+                color: "white"
+                font.pixelSize: 12
             }
         }
 
-        onDurationChanged: {
-            if (!duration) {
-                supportStreaming = false;
-            }
+        background: Rectangle {
+            radius: height / 2
+            color: "black"
+            opacity: 0.3
         }
+    }
 
-        onErrorChanged: {
-            if (error != MediaPlayer.NoError) {
-                supportStreaming = false;
-            }
-        }
+    Rectangle {
+        anchors.fill: parent
 
-        layer.enabled: true
-        layer.effect: OpacityMask {
-            maskSource: Rectangle {
-                width: vid.width
-                height: vid.height
-                radius: 18
-            }
-        }
+        visible: progressInfo.active && !downloaded
 
-        Image {
-            readonly property bool isThumbnail: content.info.thumbnail_info && content.thumbnailMediaId
-            readonly property var info: isThumbnail ? content.info.thumbnail_info : content.info
+        color: "#BB000000"
 
-            anchors.fill: parent
-
-            visible: isThumbnail  && (vid.playbackState == MediaPlayer.StoppedState || vid.error != MediaPlayer.NoError)
-
-            source: "image://mxc/" + (isThumbnail ? content.thumbnailMediaId : "")
-
-            sourceSize.width: info.w
-            sourceSize.height: info.h
-
-            fillMode: Image.PreserveAspectCrop
-        }
-
-        Label {
+        ProgressBar {
             anchors.centerIn: parent
 
-            visible: vid.playbackState == MediaPlayer.StoppedState || vid.error != MediaPlayer.NoError
-            color: "white"
-            text: "Video"
-            font.pixelSize: 16
+            width: parent.width * 0.8
 
-            padding: 8
-
-            background: Rectangle {
-                radius: height / 2
-                color: "black"
-                opacity: 0.3
-            }
+            from: 0
+            to: progressInfo.total
+            value: progressInfo.progress
         }
+    }
 
-        Control {
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: 8
-            anchors.right: parent.right
-            anchors.rightMargin: 8
+    AutoMouseArea {
+        anchors.fill: parent
 
-            horizontalPadding: 8
-            verticalPadding: 4
+        id: messageMouseArea
 
-            contentItem: RowLayout {
-                Label {
-                    text: Qt.formatTime(time)
-                    color: "white"
-                    font.pixelSize: 12
-                }
-
-                Label {
-                    text: author.displayName
-                    color: "white"
-                    font.pixelSize: 12
-                }
-            }
-
-            background: Rectangle {
-                radius: height / 2
-                color: "black"
-                opacity: 0.3
-            }
-        }
-
-        Rectangle {
-            anchors.fill: parent
-
-            visible: progressInfo.active && !downloaded
-
-            color: "#BB000000"
-
-            ProgressBar {
-                anchors.centerIn: parent
-
-                width: parent.width * 0.8
-
-                from: 0
-                to: progressInfo.total
-                value: progressInfo.progress
-            }
-        }
-
-        RippleEffect {
-            anchors.fill: parent
-
-            id: messageMouseArea
-
-            onPrimaryClicked: {
-                if (supportStreaming || progressInfo.completed) {
-                    if (vid.playbackState == MediaPlayer.PlayingState) {
-                        vid.pause()
-                    } else {
-                        vid.play()
-                    }
+        onPrimaryClicked: {
+            if (supportStreaming || progressInfo.completed) {
+                if (vid.playbackState == MediaPlayer.PlayingState) {
+                    vid.pause()
                 } else {
-                    downloadAndPlay()
+                    vid.play()
                 }
+            } else {
+                downloadAndPlay()
             }
+        }
 
-            onSecondaryClicked: {
-                var contextMenu = imageDelegateContextMenu.createObject(root)
-                contextMenu.viewSource.connect(function() {
-                    messageSourceSheet.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
-                })
-                contextMenu.downloadAndOpen.connect(downloadAndOpen)
-                contextMenu.saveFileAs.connect(saveFileAs)
-                contextMenu.reply.connect(function() {
-                    roomPanelInput.replyModel = Object.assign({}, model)
-                    roomPanelInput.isReply = true
-                    roomPanelInput.focus()
-                })
-                contextMenu.redact.connect(function() {
-                    currentRoom.redactEvent(eventId)
-                })
-                contextMenu.popup()
-            }
+        onSecondaryClicked: {
+            var contextMenu = imageDelegateContextMenu.createObject(vid)
+            contextMenu.viewSource.connect(function() {
+                messageSourceSheet.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
+            })
+            contextMenu.downloadAndOpen.connect(downloadAndOpen)
+            contextMenu.saveFileAs.connect(saveFileAs)
+            contextMenu.reply.connect(function() {
+                roomPanelInput.replyModel = Object.assign({}, model)
+                roomPanelInput.isReply = true
+                roomPanelInput.focus()
+            })
+            contextMenu.redact.connect(function() {
+                currentRoom.redactEvent(eventId)
+            })
+            contextMenu.popup()
+        }
 
-            Component {
-                id: messageSourceSheet
+        Component {
+            id: messageSourceSheet
 
-                MessageSourceSheet {}
-            }
+            MessageSourceSheet {}
+        }
 
-            Component {
-                id: openFolderDialog
+        Component {
+            id: openFolderDialog
 
-                OpenFolderDialog {}
-            }
+            OpenFolderDialog {}
+        }
 
-            Component {
-                id: imageDelegateContextMenu
+        Component {
+            id: imageDelegateContextMenu
 
-                FileDelegateContextMenu {}
-            }
+            FileDelegateContextMenu {}
         }
     }
 

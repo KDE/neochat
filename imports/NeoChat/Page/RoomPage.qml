@@ -343,6 +343,7 @@ Kirigami.ScrollablePage {
                             ReactionDelegate {
                                 Layout.fillWidth: true
                                 Layout.topMargin: 0
+                                Layout.maximumHeight: 320
                                 Layout.bottomMargin: 8
                             }
                         ]
@@ -358,6 +359,16 @@ Kirigami.ScrollablePage {
                     innerObject: MessageDelegate {
                         Layout.fillWidth: true
                         onReplyClicked: goToEvent(eventID)
+                        mouseArea: MouseArea {
+                            acceptedButtons: (Kirigami.Settings.isMobile ? Qt.LeftButton : 0) | Qt.RightButton
+                            anchors.fill: parent
+                            onClicked: {
+                                if (mouse.button == Qt.RightButton) {
+                                    openMessageContext(author, display, eventId, toolTip);
+                                }
+                            }
+                            onPressAndHold: openMessageContext(author, display, eventId, toolTip);
+                        }
                         onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
 
                         innerObject: AudioDelegate {
@@ -375,10 +386,23 @@ Kirigami.ScrollablePage {
                     innerObject: MessageDelegate {
                         Layout.fillWidth: true
                         onReplyClicked: goToEvent(eventID)
+                        mouseArea: MouseArea {
+                            acceptedButtons: (Kirigami.Settings.isMobile ? Qt.LeftButton : 0) | Qt.RightButton
+                            anchors.fill: parent
+                            onClicked: {
+                                if (mouse.button == Qt.RightButton) {
+                                    openMessageContext(author, display, eventId, toolTip);
+                                }
+                            }
+                            onPressAndHold: openMessageContext(author, display, eventId, toolTip);
+                        }
                         onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
 
-                        innerObject: AudioDelegate {
-                            Layout.fillWidth: true
+                        innerObject: VideoDelegate {
+                            Layout.maximumWidth: parent.width
+                            Layout.minimumWidth: 320
+                            Layout.maximumHeight: 320
+                            Layout.preferredHeight: content.info.h / content.info.w * width
                         }
                     }
                 }
