@@ -110,8 +110,8 @@ ToolBar {
                 selectByMouse: true
                 readOnly: true
                 wrapMode: Label.Wrap
-                selectedTextColor: "white"
                 textFormat: Text.RichText
+                selectedTextColor: "white"
             }
         }
 
@@ -133,7 +133,6 @@ ToolBar {
             keyNavigationWraps: true
 
             delegate: Control {
-                property string autoCompleteText: modelData.displayName ? ("<a href=\"https://matrix.to/#/" + modelData.id + "\">" + modelData.displayName + "</a>:") : modelData.unicode
                 property string displayText: modelData.displayName ?? modelData.unicode
                 property bool isEmoji: modelData.unicode != null
                 readonly property bool highlighted: autoCompleteListView.currentIndex == index
@@ -147,7 +146,7 @@ ToolBar {
                         width: Kirigami.Units.gridUnit
                         height: Kirigami.Units.gridUnit
                         visible: isEmoji
-                        text: autoCompleteText
+                        text: displayText
                         font.family: "Emoji"
                         font.pointSize: 20
                         verticalAlignment: Text.AlignVCenter
@@ -177,7 +176,7 @@ ToolBar {
                     anchors.fill: parent
                     onClicked: {
                         autoCompleteListView.currentIndex = index
-                        documentHandler.replaceAutoComplete(autoCompleteText)
+                        documentHandler.replaceAutoComplete(displayText)
                     }
                 }
             }
@@ -255,9 +254,7 @@ ToolBar {
 
                 Layout.fillWidth: true
 
-
                 wrapMode: Text.Wrap
-                textFormat: TextEdit.RichText
                 placeholderText: i18n("Write your message...")
                 topPadding: 0
                 bottomPadding: 0
@@ -298,7 +295,7 @@ ToolBar {
 
                 Keys.onReturnPressed: {
                     if (isAutoCompleting) {
-                        documentHandler.replaceAutoComplete(autoCompleteListView.currentItem.autoCompleteText)
+                        documentHandler.replaceAutoComplete(autoCompleteListView.currentItem.displayText)
                         isAutoCompleting = false;
                         return;
                     }
@@ -353,7 +350,7 @@ ToolBar {
                         autoAppeared = false;
                     }
 
-                    documentHandler.replaceAutoComplete(autoCompleteListView.currentItem.autoCompleteText)
+                    documentHandler.replaceAutoComplete(autoCompleteListView.currentItem.displayText)
                 }
 
                 onTextChanged: {
@@ -390,7 +387,7 @@ ToolBar {
                 }
 
                 function postMessage() {
-                    documentHandler.postMessage(attachmentPath, replyEventID);
+                    documentHandler.postMessage(inputField.text, attachmentPath, replyEventID);
                     clearAttachment();
                     currentRoom.markAllMessagesAsRead();
                     clear();

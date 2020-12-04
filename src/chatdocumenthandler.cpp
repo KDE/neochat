@@ -167,13 +167,13 @@ QVariantMap ChatDocumentHandler::getAutocompletionInfo()
     };
 }
 
-void ChatDocumentHandler::postMessage(const QString &attachementPath, const QString &replyEventId) const
+void ChatDocumentHandler::postMessage(const QString &text, const QString &attachementPath, const QString &replyEventId) const
 {
     if (!m_room || !m_document) {
         return;
     }
 
-    QString cleanedText = m_document->textDocument()->toMarkdown();
+    QString cleanedText = text;
 
     cleanedText = cleanedText.trimmed();
 
