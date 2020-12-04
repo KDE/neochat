@@ -193,4 +193,20 @@ Kirigami.ScrollablePage {
             RoomListContextMenu {}
         }
     }
+
+    footer: RowLayout {
+        visible: accountListTab.count > 1
+        height: visible ? accountListTab.implicitHeight : 0
+        Repeater {
+            id: accountListTab
+            model: AccountListModel { }
+            delegate: QQC2.TabButton {
+                checkable: true
+                checked: Controller.activeConnection.user.id === model.connection.user.id
+                onClicked: Controller.activeConnection = model.connection
+                Layout.fillWidth: true
+                text: model.user.id
+            }
+        }
+    }
 }
