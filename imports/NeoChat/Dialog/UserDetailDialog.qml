@@ -100,13 +100,25 @@ Kirigami.OverlaySheet {
                 }
             }
         }
-        /*Kirigami.BasicListItem {
+        Kirigami.BasicListItem {
+            visible: user !== room.localUser && room.canSendState("kick")
+
             action: Kirigami.Action {
                 text: i18n("Kick this user")
                 icon.name: "im-kick-user"
                 onTriggered: room.kickMember(user.id)
             }
-        }*/
+        }
+        Kirigami.BasicListItem {
+            visible: user !== room.localUser && room.canSendState("ban")
+
+            action: Kirigami.Action {
+                text: i18n("Ban this user")
+                icon.name: "im-ban-user"
+                icon.color: Kirigami.Theme.negativeTextColor
+                onTriggered: room.banMember(user.id)
+            }
+        }
         Component {
             id: fullScreenImage
 
