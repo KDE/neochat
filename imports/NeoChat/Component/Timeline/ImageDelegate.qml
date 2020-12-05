@@ -93,7 +93,7 @@ Image {
         onPrimaryClicked: fullScreenImage.createObject(parent, {"filename": eventId, "localPath": currentRoom.urlToDownload(eventId)}).showFullScreen()
 
         onSecondaryClicked: {
-            var contextMenu = imageDelegateContextMenu.createObject(root)
+            var contextMenu = imageDelegateContextMenu.createObject(root, {'room': currentRoom});
             contextMenu.viewSource.connect(function() {
                 messageSourceSheet.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
             })

@@ -21,6 +21,7 @@ import NeoChat.Effect 1.0
 
 Control {
     id: root
+
     Layout.fillWidth: true
 
     Audio {
@@ -32,7 +33,7 @@ Control {
     Kirigami.Action {
         id: saveFileAction
         onTriggered: {
-            let contextMenu = fileDelegateContextMenu.createObject(root)
+            let contextMenu = fileDelegateContextMenu.createObject(root, {'room': currentRoom, 'author': author});
             contextMenu.viewSource.connect(function() {
                 messagerSourceSheet.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
             })

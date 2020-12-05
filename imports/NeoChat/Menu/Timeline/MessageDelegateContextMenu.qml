@@ -91,6 +91,7 @@ Kirigami.OverlaySheet {
             }
         }
         Kirigami.BasicListItem {
+            visible: author.id === currentRoom.localUser.id || currentRoom.canSendState("redact")
             action: Kirigami.Action {
                 text: i18n("Remove")
                 icon.name: "edit-delete-remove"

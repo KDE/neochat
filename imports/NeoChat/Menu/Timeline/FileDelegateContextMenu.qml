@@ -9,13 +9,16 @@ import QtQuick.Controls 2.12
 import NeoChat.Dialog 1.0
 
 Menu {
+    id: root
+
+    required property var room
+    required property var author
+
     signal viewSource()
     signal downloadAndOpen()
     signal saveFileAs()
     signal reply()
     signal redact()
-
-    id: root
 
     MenuItem {
         text: i18n("View Source")
@@ -42,8 +45,8 @@ Menu {
     }
 
     MenuItem {
+        visible: room.canSendState("redact") || room.localUser.id === author.id
         text: i18n("Redact")
-
         onTriggered: redact()
     }
 

@@ -61,7 +61,7 @@ RowLayout {
                 anchors.fill: parent
                 acceptedButtons: Qt.RightButton
                 onClicked: {
-                    var contextMenu = fileDelegateContextMenu.createObject(root)
+                    var contextMenu = fileDelegateContextMenu.createObject(root, {'room': currentRoom, 'author': author});
                     contextMenu.viewSource.connect(function() {
                         messageSourceSheet.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
                     })

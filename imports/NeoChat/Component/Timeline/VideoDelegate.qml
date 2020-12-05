@@ -172,7 +172,7 @@ Video {
         }
 
         onSecondaryClicked: {
-            var contextMenu = imageDelegateContextMenu.createObject(vid)
+            var contextMenu = imageDelegateContextMenu.createObject(vid, {'room': currentRoom, 'author': author})
             contextMenu.viewSource.connect(function() {
                 messageSourceSheet.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
             })
