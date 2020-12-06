@@ -8,7 +8,7 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Controls.Material 2.12
 import QtGraphicalEffects 1.0
-import Qt.labs.platform 1.0 as Platform
+import Qt.labs.platform 1.0
 import org.kde.kirigami 2.13 as Kirigami
 
 import org.kde.neochat 1.0
@@ -84,9 +84,15 @@ RowLayout {
                 }
 
                 Component {
-                    id: openFolderDialog
+                    id: fileDialog
 
-                    OpenFolderDialog {}
+                    FileDialog {
+                        fileMode: FileDialog.SaveFile
+                        folder: StandardPaths.writableLocation(StandardPaths.DownloadLocation)
+                        onAccepted: {
+                            currentRoom.downloadFile(eventId, file)
+                        }
+                    }
                 }
 
                 Component {
@@ -99,15 +105,8 @@ RowLayout {
     }
 
     function saveFileAs() {
-        var folderDialog = openFolderDialog.createObject(ApplicationWindow.overlay)
-
-        folderDialog.chosen.connect(function(path) {
-            if (!path) return
-
-            currentRoom.downloadFile(eventId, path + "/" + currentRoom.fileNameToDownload(eventId))
-        })
-
-        folderDialog.open()
+        var dialog = fileDialog.createObject(ApplicationWindow.overlay)
+        dialog.open()
     }
 
     function downloadAndOpen()
