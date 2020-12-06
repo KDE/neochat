@@ -86,7 +86,7 @@ Kirigami.OverlaySheet {
         Kirigami.BasicListItem {
             action: Kirigami.Action {
                 text: i18n("Reply")
-                icon.name: "reply"
+                icon.name: "mail-replied-symbolic"
                 onTriggered: reply(author, message)
             }
         }
@@ -102,7 +102,7 @@ Kirigami.OverlaySheet {
         Kirigami.BasicListItem {
             action: Kirigami.Action {
                 text: i18n("Copy")
-                icon.name: "copy"
+                icon.name: "edit-copy"
                 onTriggered: Clipboard.saveText(message)
             }
         }
