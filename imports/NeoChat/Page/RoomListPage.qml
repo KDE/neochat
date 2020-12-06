@@ -122,6 +122,7 @@ Kirigami.ScrollablePage {
                 }
 
                 TapHandler {
+                    onTapped: enterRoomAction.trigger()
                     onLongPressed: roomListContextMenu.createObject(roomLayout, {"room": currentRoom}).popup()
                 }
 
