@@ -110,6 +110,7 @@ Kirigami.ScrollablePage {
                 }
             }
 
+
             contentItem: RowLayout {
                 id: roomLayout
                 spacing: Kirigami.Units.largeSpacing
@@ -118,7 +119,10 @@ Kirigami.ScrollablePage {
                 TapHandler {
                     acceptedButtons: Qt.RightButton
                     onTapped: roomListContextMenu.createObject(roomLayout, {"room": currentRoom}).popup()
+                }
 
+                TapHandler {
+                    onLongPressed: roomListContextMenu.createObject(roomLayout, {"room": currentRoom}).popup()
                 }
 
                 Kirigami.Avatar {
@@ -178,7 +182,7 @@ Kirigami.ScrollablePage {
                     }
                 }
                 QQC2.Button {
-                    visible: roomListItem.hovered || Kirigami.Settings.isMobile
+                    visible: roomListItem.hovered
                     Accessible.description: i18n("Configure room")
                     action: Kirigami.Action {
                         id: optionAction
