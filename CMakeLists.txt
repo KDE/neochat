@@ -15,6 +15,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include(FeatureSummary)
 include(ECMSetupVersion)
 include(KDEInstallDirs)
+include(ECMQMLModules)
 include(KDEClangFormat)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
@@ -51,6 +52,15 @@ set_package_properties(cmark PROPERTIES
     DESCRIPTION "Cmark is the common mark reference implementation"
     URL "https://github.com/commonmark/cmark"
     PURPOSE "Convert markdown to html"
+)
+
+ecm_find_qmlmodule(org.kde.kquickimageeditor 1.0)
+
+find_package(KQuickImageEditor COMPONENTS)
+set_package_properties(KQuickImageEditor PROPERTIES
+    DESCRIPTION "Simple image editor for QtQuick applications"
+    URL "https://invent.kde.org/libraries/kquickimageeditor/"
+    PURPOSE "Add image editing capability to image attachments"
 )
 
 install(FILES org.kde.neochat.desktop DESTINATION ${KDE_INSTALL_APPDIR})

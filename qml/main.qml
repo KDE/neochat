@@ -121,9 +121,10 @@ Kirigami.ApplicationWindow {
         modal: !root.wideScreen
         onEnabledChanged: drawerOpen = enabled && !modal
         onModalChanged: drawerOpen = !modal
-        enabled: roomManager.hasOpenRoom
+        enabled: roomManager.hasOpenRoom && pageStack.layers.depth < 2 && pageStack.depth < 3
+        visible: enabled
         room: roomManager.currentRoom
-        handleVisible: enabled && pageStack.layers.depth < 2
+        handleVisible: enabled && pageStack.layers.depth < 2 && pageStack.depth < 3
     }
 
     globalDrawer: Kirigami.GlobalDrawer {

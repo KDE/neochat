@@ -12,7 +12,7 @@ import org.kde.kirigami 2.13 as Kirigami
 import NeoChat.Component 1.0
 import NeoChat.Component.Emoji 1.0
 import NeoChat.Dialog 1.0
-import NeoChat.Effect 1.0
+import NeoChat.Page 1.0
 
 import org.kde.neochat 1.0
 
@@ -188,6 +188,86 @@ ToolBar {
             visible: emojiPicker.visible || replyItem.visible || autoCompleteListView.visible
         }
 
+        Image {
+            Layout.preferredHeight: Kirigami.Units.gridUnit * 10
+            source: attachmentPath
+            visible: hasAttachment && (attachmentPath.toString().endsWith('.png') || attachmentPath.toString().endsWith('.jpg'))
+            fillMode: Image.PreserveAspectFit
+            Layout.preferredWidth: paintedWidth
+            RowLayout {
+                anchors.right: parent.right
+                Button {
+                    visible: isImage
+                    icon.name: "document-edit"
+
+                    // HACK: Use a component because an url doesn't work
+                    Component {
+                        id: imageEditorPage
+                        ImageEditorPage {
+                            imagePath: attachmentPath
+                        }
+                    }
+                    onClicked: {
+                        let imageEditor = applicationWindow().pageStack.layers.push(imageEditorPage, {
+                            imagePath: attachmentPath
+                        });
+                        imageEditor.newPathChanged.connect(function(newPath) {
+                            applicationWindow().pageStack.layers.pop();
+                            attachmentPath = newPath;
+                        });
+                    }
+                    ToolTip {
+                        text: i18n("Edit")
+                    }
+                }
+                Button {
+                    icon.name: "dialog-cancel"
+                    onClicked: {
+                        hasAttachment = false;
+                        attachmentPath = "";
+                    }
+                    ToolTip {
+                        text: i18n("Cancel")
+                    }
+                }
+            }
+            Rectangle {
+                color: rgba(255, 255, 255, 40)
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.bottom: parent.bottom
+                implicitHeight: fileLabel.implicitHeight
+
+                Label {
+                    id: fileLabel
+                    Layout.alignment: Qt.AlignVCenter
+                    text: attachmentPath !== "" ? attachmentPath.toString().substring(attachmentPath.toString().lastIndexOf('/') + 1, attachmentPath.length) : ""
+                }
+            }
+        }
+
+        RowLayout {
+            visible: hasAttachment && !(attachmentPath.toString().endsWith('.png') || attachmentPath.toString().endsWith('.jpg'))
+            ToolButton {
+                icon.name: "dialog-cancel"
+                onClicked: {
+                    hasAttachment = false;
+                    attachmentPath = "";
+                }
+            }
+
+            Label {
+                Layout.alignment: Qt.AlignVCenter
+                text: attachmentPath !== "" ? attachmentPath.toString().substring(attachmentPath.toString().lastIndexOf('/') + 1, attachmentPath.length) : ""
+            }
+        }
+
+        Kirigami.Separator {
+            Layout.fillWidth: true
+            Layout.preferredHeight: 1
+            visible: hasAttachment
+        }
+
         RowLayout {
             Layout.fillWidth: true
 
@@ -203,39 +283,6 @@ ToolBar {
                 onClicked: clearReply()
             }
 
-            Control {
-                Layout.margins: 6
-                Layout.preferredHeight: 36
-                Layout.alignment: Qt.AlignVCenter
-
-                visible: hasAttachment
-
-                rightPadding: 8
-
-                contentItem: RowLayout {
-                    spacing: 0
-
-                    ToolButton {
-                        Layout.preferredWidth: height
-                        Layout.fillHeight: true
-
-                        id: cancelAttachmentButton
-
-                        icon.name: "dialog-cancel"
-
-                        onClicked: {
-                            hasAttachment = false;
-                            attachmentPath = "";
-                        }
-                    }
-
-                    Label {
-                        Layout.alignment: Qt.AlignVCenter
-
-                        text: attachmentPath !== "" ? attachmentPath.toString().substring(attachmentPath.toString().lastIndexOf('/') + 1, attachmentPath.length) : ""
-                    }
-                }
-            }
 
             TextArea {
                 id: inputField
