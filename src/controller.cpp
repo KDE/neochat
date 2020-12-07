@@ -111,7 +111,7 @@ void Controller::loginWithCredentials(const QString &serverAddr, const QString &
     conn->resolveServer("@username:" + serverUrl.host() + ":" + QString::number(serverUrl.port(443)));
 
     connect(conn, &Connection::homeserverChanged, this, [this, user, conn, pass, deviceName]() {
-        conn->connectToServer(user, pass, deviceName, "");
+        conn->loginWithPassword(user, pass, deviceName, "");
         connect(conn, &Connection::connected, this, [this, conn, deviceName] {
             AccountSettings account(conn->userId());
             account.setKeepLoggedIn(true);
