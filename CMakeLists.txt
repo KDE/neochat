@@ -32,14 +32,38 @@ ecm_setup_version(1.0.80
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/neochat-version.h
 )
 
-find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets Core Quick Gui QuickControls2 Multimedia Svg)
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS Kirigami2 I18n Notifications Config CoreAddons)
+find_package(Qt5 ${QT_MIN_VERSION} NO_MODULE COMPONENTS Widgets Core Quick Gui QuickControls2 Multimedia Svg)
+set_package_properties(Qt5 PROPERTIES
+    TYPE REQUIRED
+    PURPOSE "Basic application components"
+)
+find_package(KF5 ${KF5_MIN_VERSION} COMPONENTS Kirigami2 I18n Notifications Config CoreAddons)
+set_package_properties(KF5 PROPERTIES
+    TYPE REQUIRED
+    PURPOSE "Basic application components"
+)
+set_package_properties(KF5Kirigami2 PROPERTIES
+    TYPE REQUIRED
+    PURPOSE "Kirigami application UI framework"
+)
 
 if(ANDROID)
-    find_package(OpenSSL REQUIRED)
+    find_package(OpenSSL)
+    set_package_properties(OpenSSL PROPERTIES
+        TYPE REQUIRED
+        PURPOSE "Encrypted communications"
+    )
 else()
-    find_package(Qt5Keychain REQUIRED)
-    find_package(KF5DBusAddons ${KF5_MIN_VERSION} REQUIRED)
+    find_package(Qt5Keychain)
+    set_package_properties(Qt5Keychain PROPERTIES
+        TYPE REQUIRED
+        PURPOSE "Secure storage of account secrets"
+    )
+    find_package(KF5DBusAddons ${KF5_MIN_VERSION})
+    set_package_properties(KF5DBusAddons PROPERTIES
+        TYPE REQUIRED
+        PURPOSE "DBus convenience functions"
+    )
 endif()
 
 find_package(Quotient 0.7)
