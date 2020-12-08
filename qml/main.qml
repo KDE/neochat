@@ -122,7 +122,6 @@ Kirigami.ApplicationWindow {
         onEnabledChanged: drawerOpen = enabled && !modal
         onModalChanged: drawerOpen = !modal
         enabled: roomManager.hasOpenRoom && pageStack.layers.depth < 2 && pageStack.depth < 3
-        visible: enabled
         room: roomManager.currentRoom
         handleVisible: enabled && pageStack.layers.depth < 2 && pageStack.depth < 3
     }
