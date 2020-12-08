@@ -115,7 +115,7 @@ Kirigami.Page {
                 Kirigami.Action {
                     iconName: "dialog-ok"
                     visible: rootEditorView.resizing
-                    text: i18nc("@action:button Rotate an image to the right", "Crop");
+                    text: i18nc("@action:button Crop an image", "Crop");
                     onTriggered: rootEditorView.crop();
                 },
                 Kirigami.Action {
