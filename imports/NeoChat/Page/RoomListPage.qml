@@ -128,7 +128,7 @@ Kirigami.ScrollablePage {
 
                 Kirigami.Avatar {
                     id: roomAvatar
-                    property int size: Kirigami.Units.gridUnit * 2
+                    property int size: Kirigami.Units.gridUnit * 2 + Kirigami.Units.smallSpacing
                     Layout.minimumHeight: size
                     Layout.maximumHeight: size
                     Layout.minimumWidth: size
@@ -144,12 +144,13 @@ Kirigami.ScrollablePage {
                     Layout.fillHeight: true
                     Layout.minimumHeight: Kirigami.Units.gridUnit * 2
                     Layout.maximumHeight: Kirigami.Units.gridUnit * 2
+                    Layout.topMargin: Kirigami.Units.smallSpacing
+                    Layout.bottomMargin: Kirigami.Units.smallSpacing
                     Layout.alignment: Qt.AlignHCenter
 
                     spacing: Kirigami.Units.smallSpacing
 
-                    Kirigami.Heading {
-                        level: 3
+                    QQC2.Label {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
                         text: name ?? ""
@@ -167,6 +168,7 @@ Kirigami.ScrollablePage {
                         visible: text.length > 0
                         elide: Text.ElideRight
                         wrapMode: Text.NoWrap
+                        color: Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.7)
                     }
                 }
                 QQC2.Label {
