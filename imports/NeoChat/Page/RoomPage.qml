@@ -485,6 +485,7 @@ Kirigami.ScrollablePage {
 
 
         Component.onCompleted: {
+            updateReadMarker()
             if (currentRoom) {
                 if (currentRoom.timelineSize < 20)
                     currentRoom.getPreviousContent(50)
