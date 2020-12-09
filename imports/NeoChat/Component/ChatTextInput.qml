@@ -347,7 +347,7 @@ ToolBar {
                         return;
                     }
                     if (event.modifiers & Qt.ShiftModifier) {
-                        insert(cursorPosition, "<br />")
+                        insert(cursorPosition, "\n")
                     } else {
                         postMessage()
                         text = ""
