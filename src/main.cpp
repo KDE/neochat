@@ -61,7 +61,6 @@ int main(int argc, char *argv[])
 #endif
 
     QApplication::setOrganizationName("KDE");
-    QApplication::setWindowIcon(QIcon(":/assets/img/icon.png"));
 
     KAboutData about(QStringLiteral("neochat"), i18n("Neochat"), QStringLiteral(NEOCHAT_VERSION_STRING), i18n("Matrix client"), KAboutLicense::GPL_V3, i18n("© 2018-2020 Black Hat, 2020 KDE Community"));
     about.addAuthor(i18n("Black Hat"), QString(), QStringLiteral("bhat@encom.eu.org"));
