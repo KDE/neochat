@@ -16,6 +16,7 @@ add_executable(neochat
     notificationsmanager.cpp
     sortfilterroomlistmodel.cpp
     chatdocumenthandler.cpp
+    devicesmodel.cpp
     ../res.qrc
 )
 

@@ -563,3 +563,12 @@ QList<QKeySequence> Controller::preferencesShortcuts() const
 {
     return KStandardShortcut::preferences();
 }
+
+NeochatDeleteDeviceJob::NeochatDeleteDeviceJob(const QString& deviceId, const Omittable<QJsonObject> &auth)
+    : Quotient::BaseJob(HttpVerb::Delete, QStringLiteral("DeleteDeviceJob"),
+              QStringLiteral("/_matrix/client/r0/devices/%1").arg(deviceId))
+{
+    QJsonObject _data;
+    addParam<IfNotEmpty>(_data, QStringLiteral("auth"), auth);
+    setRequestData(std::move(_data));
+}

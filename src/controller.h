@@ -130,4 +130,9 @@ public:
     explicit NeochatChangePasswordJob(const QString &newPassword, bool logoutDevices, const Omittable<QJsonObject> &auth = none);
 };
 
+class NeochatDeleteDeviceJob : public BaseJob {
+public:
+    explicit NeochatDeleteDeviceJob(const QString& deviceId, const Omittable<QJsonObject> &auth = none);
+};
+
 #endif // CONTROLLER_H

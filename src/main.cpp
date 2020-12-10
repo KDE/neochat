@@ -41,6 +41,7 @@
 #include "sortfilterroomlistmodel.h"
 #include "userdirectorylistmodel.h"
 #include "userlistmodel.h"
+#include "devicesmodel.h"
 
 using namespace Quotient;
 
@@ -89,6 +90,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<UserDirectoryListModel>("org.kde.neochat", 1, 0, "UserDirectoryListModel");
     qmlRegisterType<EmojiModel>("org.kde.neochat", 1, 0, "EmojiModel");
     qmlRegisterType<SortFilterRoomListModel>("org.kde.neochat", 1, 0, "SortFilterRoomListModel");
+    qmlRegisterType<DevicesModel>("org.kde.neochat", 1, 0, "DevicesModel");
     qmlRegisterUncreatableType<RoomMessageEvent>("org.kde.neochat", 1, 0, "RoomMessageEvent", "ENUM");
     qmlRegisterUncreatableType<RoomType>("org.kde.neochat", 1, 0, "RoomType", "ENUM");
     qmlRegisterUncreatableType<UserType>("org.kde.neochat", 1, 0, "UserType", "ENUM");
