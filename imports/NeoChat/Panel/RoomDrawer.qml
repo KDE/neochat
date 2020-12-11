@@ -14,7 +14,6 @@ import org.kde.kitemmodels 1.0
 
 import NeoChat.Component 1.0
 import NeoChat.Dialog 1.0
-import NeoChat.Effect 1.0
 import NeoChat.Setting 1.0
 
 import org.kde.neochat 1.0
