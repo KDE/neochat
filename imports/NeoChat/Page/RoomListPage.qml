@@ -184,15 +184,6 @@ Kirigami.ScrollablePage {
                         radius: height / 2
                     }
                 }
-                QQC2.Button {
-                    visible: roomListItem.hovered
-                    Accessible.description: i18n("Configure room")
-                    action: Kirigami.Action {
-                        id: optionAction
-                        icon.name: "configure"
-                        onTriggered: roomListContextMenu.createObject(roomLayout, {"room": currentRoom}).popup();
-                    }
-                }
             }
         }
         Component {
