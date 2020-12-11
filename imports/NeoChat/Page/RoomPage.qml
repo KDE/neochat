@@ -18,7 +18,6 @@ import org.kde.neochat 1.0
 import NeoChat.Component 1.0
 import NeoChat.Component.Timeline 1.0
 import NeoChat.Dialog 1.0
-import NeoChat.Effect 1.0
 import NeoChat.Menu.Timeline 1.0
 
 Kirigami.ScrollablePage {

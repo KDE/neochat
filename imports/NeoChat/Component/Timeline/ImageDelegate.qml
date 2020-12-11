@@ -15,7 +15,6 @@ import NeoChat.Setting 1.0
 import NeoChat.Component 1.0
 import NeoChat.Dialog 1.0
 import NeoChat.Menu.Timeline 1.0
-import NeoChat.Effect 1.0
 
 Image {
     readonly property bool isAnimated: contentType === "image/gif"
@@ -85,15 +84,23 @@ Image {
         }
     }
 
-    RippleEffect {
-        anchors.fill: parent
-
+    MouseArea {
         id: messageMouseArea
 
-        onPrimaryClicked: fullScreenImage.createObject(parent, {"filename": eventId, "localPath": currentRoom.urlToDownload(eventId)}).showFullScreen()
+        anchors.fill: parent
 
-        onSecondaryClicked: {
-            var contextMenu = imageDelegateContextMenu.createObject(root, {'room': currentRoom});
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
+
+        onClicked: {
+            if(mouse.button === Qt.LeftButton) {
+                fullScreenImage.createObject(parent, {"filename": eventId, "localPath": currentRoom.urlToDownload(eventId)}).showFullScreen()
+            } else {
+                openContextMenu()
+            }
+        }
+
+        function openContextMenu() {
+            var contextMenu = imageDelegateContextMenu.createObject(root, {'room': currentRoom, 'author': author});
             contextMenu.viewSource.connect(function() {
                 messageSourceSheet.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
             })
