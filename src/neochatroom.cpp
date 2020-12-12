@@ -372,7 +372,7 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                     }
                     if (e.avatarUrl().isEmpty()) {
                         text += i18n("cleared their avatar");
-                    } else if (e.prevContent()->avatarUrl.isEmpty()) {
+                    } else if (e.prevContent()->avatarUrl) {
                         text += i18n("set an avatar");
                     } else {
                         text += i18n("updated their avatar");

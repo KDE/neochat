@@ -38,7 +38,7 @@ else()
     find_package(KF5DBusAddons ${KF5_MIN_VERSION} REQUIRED)
 endif()
 
-find_package(Quotient 0.6)
+find_package(Quotient 0.7)
 set_package_properties(Quotient PROPERTIES
     TYPE REQUIRED
     DESCRIPTION "Qt wrapper arround Matrix API"
