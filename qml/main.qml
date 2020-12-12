@@ -172,6 +172,11 @@ Kirigami.ApplicationWindow {
                 icon.name: "help-about"
                 onTriggered: pushReplaceLayer(aboutPage)
                 enabled: pageStack.layers.currentItem.title !== i18n("About")
+            },
+            Kirigami.Action {
+                text: i18n("Quit")
+                icon.name: "gtk-quit"
+                onTriggered: Qt.quit()
             }
         ]
     }

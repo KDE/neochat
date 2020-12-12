@@ -64,6 +64,7 @@ if(ANDROID)
         "search"
         "mail-replied-symbolic"
         "edit-copy"
+        "gtk-quit"
     )
 else()
     target_link_libraries(neochat PRIVATE Qt5::Widgets KF5::DBusAddons ${QTKEYCHAIN_LIBRARIES})
