@@ -133,14 +133,22 @@ Kirigami.OverlayDrawer {
                     }
                 }
 
-                Label {
+                TextEdit {
                     Layout.maximumWidth: Kirigami.Units.gridUnit * 13
                     Layout.preferredWidth: Kirigami.Units.gridUnit * 13
                     Layout.fillWidth: true
-                    Kirigami.FormData.label: i18n("Topic:")
-                    text: room && room.topic ? room.topic : i18n("No Topic")
-                    elide: Text.ElideRight
+                    text: room && room.topic ? room.topic.replace(replaceLinks, "<a href=\"$1\">$1</a>") : i18n("No Topic")
+                    readonly property var replaceLinks: /\(https:\/\/[^ ]*\)/
+                    textFormat: TextEdit.MarkdownText
                     wrapMode: Text.WordWrap
+                    selectByMouse: true
+                    color: Kirigami.Theme.textColor
+                    onLinkActivated: Qt.openUrlExternally(link)
+                    MouseArea {
+                        anchors.fill: parent
+                        acceptedButtons: Qt.NoButton
+                        cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.IBeamCursor
+                    }
                 }
             }
         }
