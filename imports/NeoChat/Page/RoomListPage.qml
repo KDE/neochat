@@ -118,6 +118,7 @@ Kirigami.ScrollablePage {
 
                 TapHandler {
                     acceptedButtons: Qt.RightButton
+                    gesturePolicy: TapHandler.ReleaseWithinBounds
                     onTapped: roomListContextMenu.createObject(roomLayout, {"room": currentRoom}).popup()
                 }
 
