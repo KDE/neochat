@@ -88,6 +88,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
 
     m_currentRoom = room;
     if (room) {
+        room->setDisplayed();
         lastReadEventId = room->readMarkerEventId();
 
         using namespace Quotient;
