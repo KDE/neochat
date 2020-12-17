@@ -75,6 +75,13 @@ int main(int argc, char *argv[])
     KDBusService service(KDBusService::Unique);
 #endif
 
+#ifdef NEOCHAT_FLATPAK
+    // Copy over the included FontConfig configuration to the
+    // app's config dir:
+    QFile::copy("/app/etc/fonts/conf.d/99-noto-mono-color-emoji.conf",
+                "/var/config/fontconfig/conf.d/99-noto-mono-color-emoji.conf");
+#endif
+
     Clipboard clipboard;
     auto config = NeoChatConfig::self();
 
