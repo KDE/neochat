@@ -41,6 +41,7 @@ Kirigami.ApplicationWindow {
         property alias pageStack: root.pageStack
         property bool invitationOpen: false
         property var roomList: null
+        property Item roomItem: null
 
         readonly property bool hasOpenRoom: currentRoom !== null
 
@@ -51,8 +52,8 @@ Kirigami.ApplicationWindow {
             if (Config.openRoom) {
                 const room = Controller.activeConnection.room(Config.openRoom);
                 currentRoom = room;
-                let item = pageStack.push(roomPage, { 'currentRoom': room, });
-                connectRoomToSignal(item);
+                roomItem = pageStack.push(roomPage, { 'currentRoom': room, });
+                connectRoomToSignal(roomItem);
             } else {
                 // TODO create welcome page
             }
@@ -61,16 +62,16 @@ Kirigami.ApplicationWindow {
         function enterRoom(room) {
             let item = null;
             if (currentRoom != null || invitationOpen) {
-                currentRoom = null;
-                item = pageStack.replace(roomPage, { 'currentRoom': room, });
+                roomItem.currentRoom = room;
+                //item = pageStack.replace(roomPage, { 'currentRoom': room, });
             } else {
-                item = pageStack.push(roomPage, { 'currentRoom': room, });
+                roomItem = pageStack.push(roomPage, { 'currentRoom': room, });
             }
             currentRoom = room;
             Config.openRoom = room.id;
             Config.save();
-            connectRoomToSignal(item);
-            return item;
+            connectRoomToSignal(roomItem);
+            return roomItem;
         }
 
         function openInvitation(room) {
