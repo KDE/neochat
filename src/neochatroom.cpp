@@ -467,6 +467,8 @@ QString NeoChatRoom::markdownToHTML(const QString &markdown)
 
     auto result = QString::fromStdString(html).trimmed();
 
+    result.replace("<!-- raw HTML omitted -->", "<br />");
+    result.replace(QRegularExpression("(<br />)*$"), "");
     result.replace("<p>", "");
     result.replace("</p>", "");
 
