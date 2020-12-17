@@ -58,6 +58,7 @@ ecm_find_qmlmodule(org.kde.kquickimageeditor 1.0)
 
 find_package(KQuickImageEditor COMPONENTS)
 set_package_properties(KQuickImageEditor PROPERTIES
+    TYPE REQUIRED
     DESCRIPTION "Simple image editor for QtQuick applications"
     URL "https://invent.kde.org/libraries/kquickimageeditor/"
     PURPOSE "Add image editing capability to image attachments"
