@@ -11,7 +11,6 @@ import org.kde.kirigami 2.13 as Kirigami
 
 import org.kde.neochat 1.0
 import NeoChat.Component 1.0
-import NeoChat.Effect 1.0
 import NeoChat.Setting 1.0
 
 import org.kde.neochat 1.0

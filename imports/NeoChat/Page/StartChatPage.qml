@@ -10,7 +10,6 @@ import QtQuick.Layouts 1.12
 import org.kde.kirigami 2.14 as Kirigami
 
 import NeoChat.Component 1.0
-import NeoChat.Effect 1.0
 import NeoChat.Setting 1.0
 
 import org.kde.neochat 1.0
