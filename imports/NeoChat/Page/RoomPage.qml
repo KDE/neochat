@@ -121,6 +121,14 @@ Kirigami.ScrollablePage {
             room: currentRoom
         }
 
+        Kirigami.PlaceholderMessage {
+            anchors.centerIn: parent
+            visible: messageListView.count === 0 && !currentRoom.allHistoryLoaded
+            QQC2.BusyIndicator {
+                running: true
+            }
+        }
+
         QQC2.Popup {
             anchors.centerIn: parent
 
