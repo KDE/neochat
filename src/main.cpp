@@ -69,6 +69,7 @@ int main(int argc, char *argv[])
     about.setOrganizationDomain("kde.org");
 
     KAboutData::setApplicationData(about);
+    QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("org.kde.neochat")));
 
 #ifndef Q_OS_ANDROID
     KDBusService service(KDBusService::Unique);
