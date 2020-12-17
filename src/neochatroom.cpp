@@ -61,7 +61,14 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
             return;
         }
 
-        NotificationsManager::instance().postNotification(this, displayName(), sender->displayname(this), eventToString(*lastEvent), sender->avatar(128, this));
+        QImage avatar_image;
+        if (!sender->avatarUrl(this).isEmpty()) {
+            avatar_image = sender->avatar(128, this);
+        } else {
+            avatar_image = this->avatar(128);
+        }
+
+        NotificationsManager::instance().postNotification(this, displayName(), sender->displayname(this), eventToString(*lastEvent), avatar_image);
     });
 
     connect(this, &Room::aboutToAddHistoricalMessages,
