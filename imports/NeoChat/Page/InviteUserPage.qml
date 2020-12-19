@@ -15,15 +15,13 @@ Kirigami.ScrollablePage {
 
     property var room
 
-    parent: applicationWindow().overlay
-
     title: i18n("Invite a User")
 
     actions {
         main: Kirigami.Action {
             icon.name: "dialog-close"
             text: i18nc("@action", "Cancel")
-            onTriggered: applicationWindow().pageStack.pop()
+            onTriggered: applicationWindow().pageStack.layers.pop()
         }
     }
     header: RowLayout {
@@ -125,7 +123,7 @@ Kirigami.ScrollablePage {
 
                     onClicked: {
                         room.inviteToRoom(userID);
-                        applicationWindow().pageStack.pop();
+                        applicationWindow().pageStack.layers.pop();
                     }
                 }
             }

@@ -48,7 +48,7 @@ Kirigami.OverlayDrawer {
                     icon.name: "list-add-user"
                     text: i18n("Invite")
                     onClicked: {
-                        applicationWindow().pageStack.push("qrc:/imports/NeoChat/Page/InviteUserPage.qml", {"room": room})
+                        applicationWindow().pageStack.layers.push("qrc:/imports/NeoChat/Page/InviteUserPage.qml", {"room": room})
                         roomDrawer.close();
                     }
                 }
