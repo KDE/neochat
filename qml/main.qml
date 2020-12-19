@@ -63,7 +63,7 @@ Kirigami.ApplicationWindow {
             let item = null;
             if (currentRoom != null || invitationOpen) {
                 roomItem.currentRoom = room;
-                //item = pageStack.replace(roomPage, { 'currentRoom': room, });
+                pageStack.currentIndex = pageStack.depth - 1;
             } else {
                 roomItem = pageStack.push(roomPage, { 'currentRoom': room, });
             }
