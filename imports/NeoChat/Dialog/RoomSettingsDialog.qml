@@ -74,7 +74,7 @@ Kirigami.OverlaySheet {
                     enabled: canChangeName
                 }
 
-                TextField {
+                TextArea {
                     id: roomTopicField
                     Layout.fillWidth: true
                     text: room.topic
