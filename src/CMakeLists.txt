@@ -32,10 +32,6 @@ if(NEOCHAT_FLATPAK)
     target_compile_definitions(neochat PRIVATE NEOCHAT_FLATPAK)
 endif()
 
-if (KQuickImageEditor_FOUND)
-    target_compile_definitions(neochat PRIVATE HAS_KQUICKIMAGEEDITOR)
-endif()
-
 if(ANDROID)
     target_link_libraries(neochat PRIVATE Qt5::Svg OpenSSL::SSL)
     kirigami_package_breeze_icons(ICONS
