@@ -61,7 +61,7 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
             return;
         }
 
-        NotificationsManager::instance().postNotification(this, lastEvent->id(), displayName(), sender->displayname(this), eventToString(*lastEvent), avatar(128));
+        NotificationsManager::instance().postNotification(this, displayName(), sender->displayname(this), eventToString(*lastEvent), avatar(128));
     });
 
     connect(this, &Room::aboutToAddHistoricalMessages,

@@ -25,7 +25,7 @@ NotificationsManager::NotificationsManager(QObject *parent)
 {
 }
 
-void NotificationsManager::postNotification(NeoChatRoom *room, const QString &eventid, const QString &roomname, const QString &sender, const QString &text, const QImage &icon)
+void NotificationsManager::postNotification(NeoChatRoom *room, const QString &roomname, const QString &sender, const QString &text, const QImage &icon)
 {
     if (!NeoChatConfig::self()->showNotifications()) {
         return;

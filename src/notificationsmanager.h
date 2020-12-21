@@ -21,7 +21,7 @@ class NotificationsManager : public QObject
 public:
     static NotificationsManager &instance();
 
-    Q_INVOKABLE void postNotification(NeoChatRoom *roomId, const QString &eventId, const QString &roomName, const QString &senderName, const QString &text, const QImage &icon);
+    Q_INVOKABLE void postNotification(NeoChatRoom *roomId, const QString &roomName, const QString &senderName, const QString &text, const QImage &icon);
 
 private:
     NotificationsManager(QObject *parent = nullptr);
