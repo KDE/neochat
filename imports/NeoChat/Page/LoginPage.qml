@@ -72,7 +72,7 @@ Kirigami.ScrollablePage {
 
         Connections {
             target: Controller
-            onErrorOccured: {
+            function onErrorOccured(error, detail) {
                 inlineMessage.type = Kirigami.MessageType.Error;
                 if (detail && detail.length !== 0) {
                     inlineMessage.text = i18n("%1: %2", error, detail);

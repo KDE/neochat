@@ -111,7 +111,9 @@ RowLayout {
             }
             Connections {
                 target: replyLoader.item
-                onClicked: replyClicked(reply.eventId)
+                function onClicked() {
+                    replyClicked(reply.eventId)
+                }
             }
         }
         RowLayout {
