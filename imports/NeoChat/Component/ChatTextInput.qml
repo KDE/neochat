@@ -133,9 +133,8 @@ ToolBar {
             keyNavigationWraps: true
 
             delegate: Control {
-                property string autoCompleteText: modelData.displayName ? ("[" + modelData.displayName + "](https://matrix.to/#/" + modelData.id + "):") : modelData.unicode
-                property string displayText: modelData.displayName ?? modelData.unicode
-                property bool isEmoji: modelData.unicode != null
+                readonly property string displayText: modelData.displayName ?? modelData.unicode
+                readonly property bool isEmoji: modelData.unicode != null
                 readonly property bool highlighted: autoCompleteListView.currentIndex == index
 
                 padding: Kirigami.Units.smallSpacing
@@ -304,7 +303,6 @@ ToolBar {
 
                 wrapMode: Text.Wrap
                 placeholderText: i18n("Write your message...")
-                textFormat: TextEdit.MarkdownText
                 topPadding: 0
                 bottomPadding: 0
                 leftPadding: Kirigami.Units.smallSpacing
@@ -441,8 +439,7 @@ ToolBar {
                     // to remove the wrapped lines but not break the empty
                     // lines.
                     const updatedText = inputField.text.trim()
-                        .replace(/\n{2,}/g, '<br /><br />')
-                        .replace(/\n/g, '')
+                        .replace(/@([^: ]*):([^ ]*\.[^ ]*)/, "[@$1:$2](https://matrix.to/#/@$1:$2)");
                     documentHandler.postMessage(updatedText, attachmentPath, replyEventID);
                     clearAttachment();
                     currentRoom.markAllMessagesAsRead();
@@ -452,18 +449,8 @@ ToolBar {
                     });
                 }
 
-                // HACK apply markdown, we are setting the text attribute to
-                // force the text field to rerender. Because the cursor position
-                // will be reset, we save the old one and substract the now hidden
-                // markdown markup.
                 function autoComplete() {
-                    documentHandler.replaceAutoComplete(autoCompleteListView.currentItem.autoCompleteText)
-                    const oldCursorPosition = cursorPosition;
-                    const oldText = text;
-                    const oldLength = inputField.length;
-                    text = "";
-                    text = oldText;
-                    cursorPosition = oldCursorPosition - (oldLength - inputField.length);
+                    documentHandler.replaceAutoComplete(autoCompleteListView.currentItem.displayText)
                 }
             }
 
