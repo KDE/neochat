@@ -35,23 +35,26 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             Layout.maximumWidth: implicitWidth + 1 // The +1 is to make sure we do not trigger eliding at max width
             Layout.minimumWidth: 0
+            spacing: Kirigami.Units.gridUnit * 0.8
             Kirigami.Heading {
-                level: 1
+                id: titleLabel
+                level: 2
+                Layout.alignment: Qt.AlignVCenter
                 text: page.title
                 opacity: page.isCurrentPage ? 1 : 0.4
                 maximumLineCount: 1
                 elide: Text.ElideRight
-                Layout.leftMargin: Kirigami.Units.largeSpacing
-                Layout.alignment: Qt.AlignBottom
             }
             QQC2.Label {
-                Layout.alignment: Qt.AlignBottom
-                text: currentRoom.topic
                 Layout.fillWidth: true
-                maximumLineCount: 1
-                //wrapMode: Text.WordWrap
+                Layout.alignment: Qt.AlignVCenter
+                anchors.baseline: lineCount < 2 ? titleLabel.baseline : undefined // necessary, since there is no way to do this with Layout.alignment
+                text: currentRoom.topic
+                maximumLineCount: 2
+                wrapMode: Text.Wrap
                 elide: Text.ElideRight
                 color: Kirigami.Theme.disabledTextColor
+                font.pointSize: Kirigami.Theme.defaultFont.pointSize * 0.9
             }
         }
     }
