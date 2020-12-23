@@ -357,7 +357,10 @@ ToolBar {
                     }
                 }
 
-                Keys.onEscapePressed: closeAll()
+                Keys.onEscapePressed: {
+                    clearReply();
+                    closeAll();
+                }
 
                 Keys.onPressed: {
                     if (event.key === Qt.Key_PageDown) {
