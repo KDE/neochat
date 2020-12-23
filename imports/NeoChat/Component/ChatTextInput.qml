@@ -284,173 +284,177 @@ ToolBar {
             }
 
 
-            TextArea {
-                id: inputField
-                property real progress: 0
-                property bool autoAppeared: false
-
-                ChatDocumentHandler {
-                    id: documentHandler
-                    document: inputField.textDocument
-                    cursorPosition: inputField.cursorPosition
-                    selectionStart: inputField.selectionStart
-                    selectionEnd: inputField.selectionEnd
-                    room: currentRoom ?? null
-                }
-
-
+            ScrollView {
                 Layout.fillWidth: true
+                Layout.maximumHeight: inputField.lineHeight * 8
+                TextArea {
+                    id: inputField
+                    property real progress: 0
+                    property bool autoAppeared: false
 
-                wrapMode: Text.Wrap
-                placeholderText: i18n("Write your message...")
-                topPadding: 0
-                bottomPadding: 0
-                leftPadding: Kirigami.Units.smallSpacing
-                selectByMouse: true
-                verticalAlignment: TextEdit.AlignVCenter
-
-                text: currentRoom != null ? currentRoom.cachedInput : ""
-
-                background: Item {}
-
-                Rectangle {
-                    width: currentRoom && currentRoom.hasFileUploading ? parent.width * currentRoom.fileUploadingProgress / 100 : 0
-                    height: parent.height
-
-                    opacity: 0.2
-                }
-
-                Timer {
-                    id: timeoutTimer
-
-                    repeat: false
-                    interval: 2000
-                    onTriggered: {
-                        repeatTimer.stop()
-                        currentRoom.sendTypingNotification(false)
+                    ChatDocumentHandler {
+                        id: documentHandler
+                        document: inputField.textDocument
+                        cursorPosition: inputField.cursorPosition
+                        selectionStart: inputField.selectionStart
+                        selectionEnd: inputField.selectionEnd
+                        room: currentRoom ?? null
                     }
-                }
 
-                Timer {
-                    id: repeatTimer
 
-                    repeat: true
-                    interval: 5000
-                    triggeredOnStart: true
-                    onTriggered: currentRoom.sendTypingNotification(true)
-                }
+                    property int lineHeight: contentHeight / lineCount
 
-                Keys.onReturnPressed: {
-                    if (isAutoCompleting) {
+                    wrapMode: Text.Wrap
+                    placeholderText: i18n("Write your message...")
+                    topPadding: 0
+                    bottomPadding: 0
+                    leftPadding: Kirigami.Units.smallSpacing
+                    selectByMouse: true
+                    verticalAlignment: TextEdit.AlignVCenter
+
+                    text: currentRoom != null ? currentRoom.cachedInput : ""
+
+                    background: Item {}
+
+                    Rectangle {
+                        width: currentRoom && currentRoom.hasFileUploading ? parent.width * currentRoom.fileUploadingProgress / 100 : 0
+                        height: parent.height
+
+                        opacity: 0.2
+                    }
+
+                    Timer {
+                        id: timeoutTimer
+
+                        repeat: false
+                        interval: 2000
+                        onTriggered: {
+                            repeatTimer.stop()
+                            currentRoom.sendTypingNotification(false)
+                        }
+                    }
+
+                    Timer {
+                        id: repeatTimer
+
+                        repeat: true
+                        interval: 5000
+                        triggeredOnStart: true
+                        onTriggered: currentRoom.sendTypingNotification(true)
+                    }
+
+                    Keys.onReturnPressed: {
+                        if (isAutoCompleting) {
+                            inputField.autoComplete();
+
+                            isAutoCompleting = false;
+                            return;
+                        }
+                        if (event.modifiers & Qt.ShiftModifier) {
+                            insert(cursorPosition, "\n")
+                        } else {
+                            postMessage()
+                            text = ""
+                            clearReply()
+                            closeAll()
+                        }
+                    }
+
+                    Keys.onEscapePressed: closeAll()
+
+                    Keys.onPressed: {
+                        if (event.key === Qt.Key_PageDown) {
+                            switchRoomDown();
+                        } else if (event.key === Qt.Key_PageUp) {
+                            switchRoomUp();
+                        } else if (event.key === Qt.Key_V && event.modifiers & Qt.ControlModifier) {
+                            root.pasteImage();
+                        }
+                    }
+
+                    Keys.onBacktabPressed: {
+                        if (event.modifiers & Qt.ControlModifier) {
+                            switchRoomUp();
+                            return;
+                        }
+                        if (isAutoCompleting) {
+                            autoCompleteListView.decrementCurrentIndex();
+                        }
+                    }
+
+                    Keys.onTabPressed: {
+                        if (event.modifiers & Qt.ControlModifier) {
+                            switchRoomDown();
+                            return;
+                        }
+                        if (!isAutoCompleting) {
+                            return;
+                        }
+
+                        // TODO detect moved cursor
+
+                        // ignore first time tab was clicked so that user can select
+                        // first emoji/user
+                        if (autoAppeared === false) {
+                            autoCompleteListView.incrementCurrentIndex()
+                        } else {
+                            autoAppeared = false;
+                        }
+
                         inputField.autoComplete();
-
-                        isAutoCompleting = false;
-                        return;
-                    }
-                    if (event.modifiers & Qt.ShiftModifier) {
-                        insert(cursorPosition, "\n")
-                    } else {
-                        postMessage()
-                        text = ""
-                        clearReply()
-                        closeAll()
-                    }
-                }
-
-                Keys.onEscapePressed: closeAll()
-
-                Keys.onPressed: {
-                    if (event.key === Qt.Key_PageDown) {
-                        switchRoomDown();
-                    } else if (event.key === Qt.Key_PageUp) {
-                        switchRoomUp();
-                    } else if (event.key === Qt.Key_V && event.modifiers & Qt.ControlModifier) {
-                        root.pasteImage();
-                    }
-                }
-
-                Keys.onBacktabPressed: {
-                    if (event.modifiers & Qt.ControlModifier) {
-                        switchRoomUp();
-                        return;
-                    }
-                    if (isAutoCompleting) {
-                        autoCompleteListView.decrementCurrentIndex();
-                    }
-                }
-
-                Keys.onTabPressed: {
-                    if (event.modifiers & Qt.ControlModifier) {
-                        switchRoomDown();
-                        return;
-                    }
-                    if (!isAutoCompleting) {
-                        return;
                     }
 
-                    // TODO detect moved cursor
-
-                    // ignore first time tab was clicked so that user can select
-                    // first emoji/user
-                    if (autoAppeared === false) {
-                        autoCompleteListView.incrementCurrentIndex()
-                    } else {
+                    onTextChanged: {
+                        timeoutTimer.restart()
+                        repeatTimer.start()
+                        currentRoom.cachedInput = text
                         autoAppeared = false;
+
+                        const autocompletionInfo = documentHandler.getAutocompletionInfo();
+
+                        if (autocompletionInfo.type === ChatDocumentHandler.Ignore) {
+                            return;
+                        }
+                        if (autocompletionInfo.type === ChatDocumentHandler.None) {
+                            isAutoCompleting = false;
+                            autoCompleteListView.currentIndex = 0;
+                            return;
+                        }
+
+                        if (autocompletionInfo.type === ChatDocumentHandler.User) {
+                            autoCompleteModel = currentRoom.getUsers(autocompletionInfo.keyword);
+                        } else {
+                            autoCompleteModel = emojiModel.filterModel(autocompletionInfo.keyword);
+                        }
+
+                        if (autoCompleteModel.length === 0) {
+                            isAutoCompleting = false;
+                            autoCompleteListView.currentIndex = 0;
+                            return;
+                        }
+                        isAutoCompleting = true
+                        autoAppeared = true;
+                        autoCompleteEndPosition = cursorPosition
                     }
 
-                    inputField.autoComplete();
-                }
-
-                onTextChanged: {
-                    timeoutTimer.restart()
-                    repeatTimer.start()
-                    currentRoom.cachedInput = text
-                    autoAppeared = false;
-
-                    const autocompletionInfo = documentHandler.getAutocompletionInfo();
-
-                    if (autocompletionInfo.type === ChatDocumentHandler.Ignore) {
-                        return;
-                    }
-                    if (autocompletionInfo.type === ChatDocumentHandler.None) {
-                        isAutoCompleting = false;
-                        autoCompleteListView.currentIndex = 0;
-                        return;
+                    function postMessage() {
+                        // Qt wraps lines so we need to use a small hack
+                        // to remove the wrapped lines but not break the empty
+                        // lines.
+                        const updatedText = inputField.text.trim()
+                            .replace(/@([^: ]*):([^ ]*\.[^ ]*)/, "[@$1:$2](https://matrix.to/#/@$1:$2)");
+                        documentHandler.postMessage(updatedText, attachmentPath, replyEventID);
+                        clearAttachment();
+                        currentRoom.markAllMessagesAsRead();
+                        clear();
+                        text = Qt.binding(function() {
+                            return currentRoom != null ? currentRoom.cachedInput : "";
+                        });
                     }
 
-                    if (autocompletionInfo.type === ChatDocumentHandler.User) {
-                        autoCompleteModel = currentRoom.getUsers(autocompletionInfo.keyword);
-                    } else {
-                        autoCompleteModel = emojiModel.filterModel(autocompletionInfo.keyword);
+                    function autoComplete() {
+                        documentHandler.replaceAutoComplete(autoCompleteListView.currentItem.displayText)
                     }
-
-                    if (autoCompleteModel.length === 0) {
-                        isAutoCompleting = false;
-                        autoCompleteListView.currentIndex = 0;
-                        return;
-                    }
-                    isAutoCompleting = true
-                    autoAppeared = true;
-                    autoCompleteEndPosition = cursorPosition
-                }
-
-                function postMessage() {
-                    // Qt wraps lines so we need to use a small hack
-                    // to remove the wrapped lines but not break the empty
-                    // lines.
-                    const updatedText = inputField.text.trim()
-                        .replace(/@([^: ]*):([^ ]*\.[^ ]*)/, "[@$1:$2](https://matrix.to/#/@$1:$2)");
-                    documentHandler.postMessage(updatedText, attachmentPath, replyEventID);
-                    clearAttachment();
-                    currentRoom.markAllMessagesAsRead();
-                    clear();
-                    text = Qt.binding(function() {
-                        return currentRoom != null ? currentRoom.cachedInput : "";
-                    });
-                }
-
-                function autoComplete() {
-                    documentHandler.replaceAutoComplete(autoCompleteListView.currentItem.displayText)
                 }
             }
 
