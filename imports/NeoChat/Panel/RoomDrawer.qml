@@ -84,12 +84,6 @@ Kirigami.OverlayDrawer {
             }
         }
 
-        Component {
-            id: fullScreenImage
-
-            FullScreenImage {}
-        }
-
         Control {
             Layout.fillWidth: true
             bottomPadding: Kirigami.Units.largeSpacing
