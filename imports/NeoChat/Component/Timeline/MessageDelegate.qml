@@ -64,6 +64,7 @@ RowLayout {
         MouseArea {
             anchors.fill: parent
             onClicked: userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {"room": currentRoom, "user": author.object, "displayName": author.displayName, "avatarMediaId": author.avatarMediaId, "avatarUrl": author.avatarUrl}).open()
+            cursorShape: Qt.PointingHandCursor
         }
     }
 
