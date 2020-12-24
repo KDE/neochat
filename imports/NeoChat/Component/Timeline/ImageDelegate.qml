@@ -7,7 +7,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtGraphicalEffects 1.0
-import Qt.labs.platform 1.0 as Platform
+import Qt.labs.platform 1.0
 
 import org.kde.neochat 1.0
 import NeoChat.Setting 1.0
@@ -143,15 +143,21 @@ Image {
     }
 
     function saveFileAs() {
-        var folderDialog = openFolderDialog.createObject(ApplicationWindow.overlay)
+        var dialog = fileDialog.createObject(ApplicationWindow.overlay)
+        dialog.open()
+        dialog.currentFile = dialog.folder + "/" + currentRoom.fileNameToDownload(eventId)
+    }
 
-        folderDialog.chosen.connect(function(path) {
-            if (!path) return
+    Component {
+        id: fileDialog
 
-            currentRoom.downloadFile(eventId, path + "/" + currentRoom.fileNameToDownload(eventId))
-        })
-
-        folderDialog.open()
+        FileDialog {
+            fileMode: FileDialog.SaveFile
+            folder: StandardPaths.writableLocation(StandardPaths.DownloadLocation)
+            onAccepted: {
+                currentRoom.downloadFile(eventId, file)
+            }
+        }
     }
 
     function downloadAndOpen()
@@ -160,7 +166,7 @@ Image {
         else
         {
             openOnFinished = true
-            currentRoom.downloadFile(eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId))
+            currentRoom.downloadFile(eventId, StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId))
         }
     }
 
