@@ -20,7 +20,9 @@ include(KDEClangFormat)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 
-include(cmake/Flatpak.cmake)
+if(NEOCHAT_FLATPAK)
+    include(cmake/Flatpak.cmake)
+endif()
 
 # Fix a crash due to problems with quotient's event system. Can probably be removed once the reworked event system is in
 cmake_policy(SET CMP0063 OLD)
