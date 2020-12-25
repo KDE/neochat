@@ -61,8 +61,8 @@ MessageEventModel::MessageEventModel(QObject *parent)
             return;
         }
         m_currentRoom->getPreviousContent(50);
-        connect(this, &QAbstractListModel::rowsInserted, this, [=](){
-            if(m_currentRoom->readMarkerEventId().isEmpty()) {
+        connect(this, &QAbstractListModel::rowsInserted, this, [=]() {
+            if (m_currentRoom->readMarkerEventId().isEmpty()) {
                 return;
             }
             const auto it = m_currentRoom->findInTimeline(m_currentRoom->readMarkerEventId());
@@ -295,7 +295,7 @@ int MessageEventModel::rowCount(const QModelIndex &parent) const
 inline QVariantMap userAtEvent(NeoChatUser *user, NeoChatRoom *room, const RoomEvent &evt)
 {
     Q_UNUSED(evt)
-    return QVariantMap {
+    return QVariantMap{
         {"isLocalUser", user->id() == room->localUser()->id()},
         {"id", user->id()},
         {"avatarMediaId", user->avatarMediaId(room)},
@@ -485,7 +485,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         };
         const auto &replyEvt = **replyIt;
 
-        return QVariantMap {{"eventId", replyEventId}, {"display", m_currentRoom->eventToString(replyEvt, Qt::RichText)}, {"author", userAtEvent(static_cast<NeoChatUser *>(m_currentRoom->user(replyEvt.senderId())), m_currentRoom, evt)}};
+        return QVariantMap{{"eventId", replyEventId}, {"display", m_currentRoom->eventToString(replyEvt, Qt::RichText)}, {"author", userAtEvent(static_cast<NeoChatUser *>(m_currentRoom->user(replyEvt.senderId())), m_currentRoom, evt)}};
     }
 
     if (role == ShowAuthorRole) {
@@ -539,7 +539,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
                 authors.append(userAtEvent(author, m_currentRoom, evt));
             }
             bool hasLocalUser = i.value().contains(static_cast<NeoChatUser *>(m_currentRoom->localUser()));
-            res.append(QVariantMap {{"reaction", i.key()}, {"count", i.value().count()}, {"authors", authors}, {"hasLocalUser", hasLocalUser}});
+            res.append(QVariantMap{{"reaction", i.key()}, {"count", i.value().count()}, {"authors", authors}, {"hasLocalUser", hasLocalUser}});
             ++i;
         }
 

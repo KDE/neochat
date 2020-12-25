@@ -42,9 +42,9 @@
 #include "csapi/wellknown.h"
 #include "events/eventcontent.h"
 #include "events/roommessageevent.h"
+#include "neochatconfig.h"
 #include "neochatroom.h"
 #include "neochatuser.h"
-#include "neochatconfig.h"
 #include "settings.h"
 #include "utils.h"
 #include <KStandardShortcut>
@@ -99,7 +99,6 @@ void Controller::loginWithCredentials(const QString &serverAddr, const QString &
     if (user.isEmpty() || pass.isEmpty()) {
         return;
     }
-
 
     if (deviceName.isEmpty()) {
         deviceName = "NeoChat " + QSysInfo::machineHostName() + " " + QSysInfo::productType() + " " + QSysInfo::productVersion() + " " + QSysInfo::currentCpuArchitecture();
@@ -252,7 +251,7 @@ void Controller::invokeLogin()
 {
     const auto accounts = SettingsGroup("Accounts").childGroups();
     for (const auto &accountId : accounts) {
-        AccountSettings account {accountId};
+        AccountSettings account{accountId};
         if (!account.homeserver().isEmpty()) {
             auto accessToken = loadAccessTokenFromKeyChain(account);
 
@@ -293,7 +292,7 @@ void Controller::invokeLogin()
 
 QByteArray Controller::loadAccessTokenFromFile(const AccountSettings &account)
 {
-    QFile accountTokenFile {accessTokenFileName(account)};
+    QFile accountTokenFile{accessTokenFileName(account)};
     if (accountTokenFile.open(QFile::ReadOnly)) {
         if (accountTokenFile.size() < 1024) {
             return accountTokenFile.readAll();
@@ -331,7 +330,7 @@ QByteArray Controller::loadAccessTokenFromKeyChain(const AccountSettings &accoun
             bool removed = false;
             bool saved = saveAccessTokenToKeyChain(account, accessToken);
             if (saved) {
-                QFile accountTokenFile {accessTokenFileName(account)};
+                QFile accountTokenFile{accessTokenFileName(account)};
                 removed = accountTokenFile.remove();
             }
             if (!(saved && removed)) {
@@ -354,7 +353,7 @@ QByteArray Controller::loadAccessTokenFromKeyChain(const AccountSettings &accoun
 bool Controller::saveAccessTokenToFile(const AccountSettings &account, const QByteArray &accessToken)
 {
     // (Re-)Make a dedicated file for access_token.
-    QFile accountTokenFile {accessTokenFileName(account)};
+    QFile accountTokenFile{accessTokenFileName(account)};
     accountTokenFile.remove(); // Just in case
 
     auto fileDir = QFileInfo(accountTokenFile).dir();
@@ -400,7 +399,7 @@ void Controller::joinRoom(Connection *c, const QString &alias)
     }
 
     auto knownServer = alias.mid(alias.indexOf(":") + 1);
-    auto joinRoomJob = c->joinRoom(alias, QStringList {knownServer});
+    auto joinRoomJob = c->joinRoom(alias, QStringList{knownServer});
     Quotient::JoinRoomJob::connect(joinRoomJob, &JoinRoomJob::failure, [=] {
         Q_EMIT errorOccured("Join Room Failed", joinRoomJob->errorString());
     });
@@ -564,9 +563,8 @@ QList<QKeySequence> Controller::preferencesShortcuts() const
     return KStandardShortcut::preferences();
 }
 
-NeochatDeleteDeviceJob::NeochatDeleteDeviceJob(const QString& deviceId, const Omittable<QJsonObject> &auth)
-    : Quotient::BaseJob(HttpVerb::Delete, QStringLiteral("DeleteDeviceJob"),
-              QStringLiteral("/_matrix/client/r0/devices/%1").arg(deviceId))
+NeochatDeleteDeviceJob::NeochatDeleteDeviceJob(const QString &deviceId, const Omittable<QJsonObject> &auth)
+    : Quotient::BaseJob(HttpVerb::Delete, QStringLiteral("DeleteDeviceJob"), QStringLiteral("/_matrix/client/r0/devices/%1").arg(deviceId))
 {
     QJsonObject _data;
     addParam<IfNotEmpty>(_data, QStringLiteral("auth"), auth);

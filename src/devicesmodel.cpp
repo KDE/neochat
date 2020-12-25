@@ -21,25 +21,25 @@ DevicesModel::DevicesModel(QObject *parent)
     });
 }
 
-QVariant DevicesModel::data(const QModelIndex& index, int role) const
+QVariant DevicesModel::data(const QModelIndex &index, int role) const
 {
-    if(index.row() < 0 || index.row() >= rowCount(QModelIndex()))
+    if (index.row() < 0 || index.row() >= rowCount(QModelIndex()))
         return QVariant();
-    switch(role) {
-        case Id:
-            return m_devices[index.row()].deviceId;
-        case DisplayName:
-            return m_devices[index.row()].displayName;
-        case LastIp:
-            return m_devices[index.row()].lastSeenIp;
-        case LastTimestamp:
-            if(m_devices[index.row()].lastSeenTs)
-                return *m_devices[index.row()].lastSeenTs;
+    switch (role) {
+    case Id:
+        return m_devices[index.row()].deviceId;
+    case DisplayName:
+        return m_devices[index.row()].displayName;
+    case LastIp:
+        return m_devices[index.row()].lastSeenIp;
+    case LastTimestamp:
+        if (m_devices[index.row()].lastSeenTs)
+            return *m_devices[index.row()].lastSeenTs;
     }
     return QVariant();
 }
 
-int DevicesModel::rowCount(const QModelIndex& parent) const
+int DevicesModel::rowCount(const QModelIndex &parent) const
 {
     return m_devices.size();
 }

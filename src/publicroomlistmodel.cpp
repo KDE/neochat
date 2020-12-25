@@ -115,7 +115,7 @@ void PublicRoomListModel::next(int count)
         return;
     }
 
-    job = m_connection->callApi<QueryPublicRoomsJob>(m_server, count, nextBatch, QueryPublicRoomsJob::Filter {m_keyword});
+    job = m_connection->callApi<QueryPublicRoomsJob>(m_server, count, nextBatch, QueryPublicRoomsJob::Filter{m_keyword});
 
     connect(job, &BaseJob::finished, this, [=] {
         attempted = true;

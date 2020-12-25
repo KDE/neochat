@@ -126,7 +126,7 @@ QVariantMap ChatDocumentHandler::getAutocompletionInfo()
 
     if (cursor.block().text() == m_lastState) {
         // ignore change, it was caused by autocompletion
-        return QVariantMap {
+        return QVariantMap{
             {"type", AutoCompletionType::Ignore},
         };
     }
@@ -141,7 +141,7 @@ QVariantMap ChatDocumentHandler::getAutocompletionInfo()
     QString autoCompletePrefix = textBeforeCursor.section(" ", -1);
 
     if (autoCompletePrefix.isEmpty()) {
-        return QVariantMap {
+        return QVariantMap{
             {"type", AutoCompletionType::None},
         };
     }
@@ -151,18 +151,18 @@ QVariantMap ChatDocumentHandler::getAutocompletionInfo()
 
         if (autoCompletePrefix.startsWith("@")) {
             autoCompletePrefix.remove(0, 1);
-            return QVariantMap {
+            return QVariantMap{
                 {"keyword", autoCompletePrefix},
                 {"type", AutoCompletionType::User},
             };
         }
-        return QVariantMap {
+        return QVariantMap{
             {"keyword", autoCompletePrefix},
             {"type", AutoCompletionType::Emoji},
         };
     }
 
-    return QVariantMap {
+    return QVariantMap{
         {"type", AutoCompletionType::None},
     };
 }
@@ -194,8 +194,8 @@ void ChatDocumentHandler::postMessage(const QString &text, const QString &attach
     if (cleanedText.indexOf(rainbowPrefix) == 0) {
         cleanedText = cleanedText.remove(0, rainbowPrefix.length());
         QString rainbowText;
-        QStringList rainbowColors {"#ff2b00", "#ff5500", "#ff8000", "#ffaa00", "#ffd500", "#ffff00", "#d4ff00", "#aaff00", "#80ff00", "#55ff00", "#2bff00", "#00ff00", "#00ff2b", "#00ff55", "#00ff80", "#00ffaa", "#00ffd5", "#00ffff",
-                                   "#00d4ff", "#00aaff", "#007fff", "#0055ff", "#002bff", "#0000ff", "#2a00ff", "#5500ff", "#7f00ff", "#aa00ff", "#d400ff", "#ff00ff", "#ff00d4", "#ff00aa", "#ff0080", "#ff0055", "#ff002b", "#ff0000"};
+        QStringList rainbowColors{"#ff2b00", "#ff5500", "#ff8000", "#ffaa00", "#ffd500", "#ffff00", "#d4ff00", "#aaff00", "#80ff00", "#55ff00", "#2bff00", "#00ff00", "#00ff2b", "#00ff55", "#00ff80", "#00ffaa", "#00ffd5", "#00ffff",
+                                  "#00d4ff", "#00aaff", "#007fff", "#0055ff", "#002bff", "#0000ff", "#2a00ff", "#5500ff", "#7f00ff", "#aa00ff", "#d400ff", "#ff00ff", "#ff00d4", "#ff00aa", "#ff0080", "#ff0055", "#ff002b", "#ff0000"};
 
         for (int i = 0; i < cleanedText.length(); i++) {
             rainbowText = rainbowText % QStringLiteral("<font color='") % rainbowColors.at(i % rainbowColors.length()) % "'>" % cleanedText.at(i) % "</font>";

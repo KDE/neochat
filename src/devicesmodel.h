@@ -27,9 +27,9 @@ public:
 
     DevicesModel(QObject *parent = nullptr);
 
-    QVariant data(const QModelIndex & index, int role) const override;
+    QVariant data(const QModelIndex &index, int role) const override;
     QHash<int, QByteArray> roleNames() const override;
-    int rowCount(const QModelIndex & parent) const override;
+    int rowCount(const QModelIndex &parent) const override;
 
     Q_INVOKABLE void logout(int index, const QString &password);
     Q_INVOKABLE void setName(int index, const QString &name);

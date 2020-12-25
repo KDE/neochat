@@ -11,8 +11,8 @@
 #include <KLocalizedString>
 #include <KNotification>
 
-#include "neochatconfig.h"
 #include "controller.h"
+#include "neochatconfig.h"
 
 NotificationsManager &NotificationsManager::instance()
 {

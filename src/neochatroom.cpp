@@ -29,10 +29,10 @@
 #include "events/roompowerlevelsevent.h"
 #include "events/typingevent.h"
 #include "jobs/downloadfilejob.h"
+#include "neochatconfig.h"
 #include "notificationsmanager.h"
 #include "user.h"
 #include "utils.h"
-#include "neochatconfig.h"
 
 #include <KLocalizedString>
 
@@ -50,7 +50,7 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
             return;
         }
         const RoomEvent *lastEvent = messageEvents().rbegin()->get();
-        if(lastEvent->originTimestamp() < QDateTime::currentDateTime().addSecs(-60)) {
+        if (lastEvent->originTimestamp() < QDateTime::currentDateTime().addSecs(-60)) {
             return;
         }
         if (lastEvent->isStateEvent()) {
@@ -71,11 +71,9 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
         NotificationsManager::instance().postNotification(this, displayName(), sender->displayname(this), eventToString(*lastEvent), avatar_image);
     });
 
-    connect(this, &Room::aboutToAddHistoricalMessages,
-            this, &NeoChatRoom::readMarkerLoadedChanged);
+    connect(this, &Room::aboutToAddHistoricalMessages, this, &NeoChatRoom::readMarkerLoadedChanged);
 
-    connect(this, &Quotient::Room::eventsHistoryJobChanged,
-            this, &NeoChatRoom::lastActiveTimeChanged);
+    connect(this, &Quotient::Room::eventsHistoryJobChanged, this, &NeoChatRoom::lastActiveTimeChanged);
 }
 
 void NeoChatRoom::uploadFile(const QUrl &url, const QString &body)
@@ -172,7 +170,6 @@ QString NeoChatRoom::lastEventToString() const
     }
     return QLatin1String("");
 }
-
 
 bool NeoChatRoom::isEventHighlighted(const RoomEvent *e) const
 {
@@ -365,7 +362,7 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                 if (!e.prevContent() || e.membership() != e.prevContent()->membership) {
                     return e.membership() == MembershipType::Invite ? i18n("invited %1 to the room", subjectName) : i18n("joined the room");
                 }
-                QString text {};
+                QString text{};
                 if (e.isRename()) {
                     if (!e.newDisplayName().has_value()) {
                         text = i18n("cleared their display name");
@@ -434,7 +431,7 @@ void NeoChatRoom::changeAvatar(const QUrl &localFile)
     const auto job = connection()->uploadFile(localFile.toLocalFile());
     if (isJobRunning(job)) {
         connect(job, &BaseJob::success, this, [this, job] {
-            connection()->callApi<SetRoomStateWithKeyJob>(id(), "m.room.avatar", localUser()->id(), QJsonObject {{"url", job->contentUri()}});
+            connection()->callApi<SetRoomStateWithKeyJob>(id(), "m.room.avatar", localUser()->id(), QJsonObject{{"url", job->contentUri()}});
         });
     }
 }

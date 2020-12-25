@@ -28,6 +28,7 @@
 #include "controller.h"
 #include "csapi/joining.h"
 #include "csapi/leaving.h"
+#include "devicesmodel.h"
 #include "emojimodel.h"
 #include "matriximageprovider.h"
 #include "messageeventmodel.h"
@@ -41,7 +42,6 @@
 #include "sortfilterroomlistmodel.h"
 #include "userdirectorylistmodel.h"
 #include "userlistmodel.h"
-#include "devicesmodel.h"
 
 using namespace Quotient;
 
@@ -83,8 +83,7 @@ int main(int argc, char *argv[])
 #ifdef NEOCHAT_FLATPAK
     // Copy over the included FontConfig configuration to the
     // app's config dir:
-    QFile::copy("/app/etc/fonts/conf.d/99-noto-mono-color-emoji.conf",
-                "/var/config/fontconfig/conf.d/99-noto-mono-color-emoji.conf");
+    QFile::copy("/app/etc/fonts/conf.d/99-noto-mono-color-emoji.conf", "/var/config/fontconfig/conf.d/99-noto-mono-color-emoji.conf");
 #endif
 
     Clipboard clipboard;
