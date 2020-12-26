@@ -352,7 +352,7 @@ QString RoomListModel::categoryName(int section)
     case 5:
         return i18n("Low priority");
     default:
-        return i18n("Deadbeef");
+        return "Deadbeef";
     }
 }
 
