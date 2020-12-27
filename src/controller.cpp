@@ -76,7 +76,6 @@ Controller::Controller(QObject *parent)
 Controller::~Controller()
 {
     for (auto c : qAsConst(m_connections)) {
-        c->stopSync();
         c->saveState();
     }
 }
