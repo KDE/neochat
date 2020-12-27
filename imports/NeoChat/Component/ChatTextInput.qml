@@ -314,7 +314,11 @@ ToolBar {
 
                     text: currentRoom != null ? currentRoom.cachedInput : ""
 
-                    background: Item {}
+                    background: MouseArea {
+                        acceptedButtons: Qt.NoButton
+                        cursorShape: Qt.IBeamCursor
+                        z: 1
+                    }
 
                     Rectangle {
                         width: currentRoom && currentRoom.hasFileUploading ? parent.width * currentRoom.fileUploadingProgress / 100 : 0
