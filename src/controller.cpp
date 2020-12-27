@@ -25,12 +25,12 @@
 #include <QStringBuilder>
 #include <QSysInfo>
 #include <QTimer>
-#include <QtGui/QCloseEvent>
-#include <QtGui/QDesktopServices>
-#include <QtGui/QMovie>
-#include <QtGui/QPixmap>
-#include <QtNetwork/QAuthenticator>
-#include <QtNetwork/QNetworkReply>
+#include <QCloseEvent>
+#include <QDesktopServices>
+#include <QMovie>
+#include <QPixmap>
+#include <QAuthenticator>
+#include <QNetworkReply>
 #include <utility>
 
 #include "csapi/account-data.h"
