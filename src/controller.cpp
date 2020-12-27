@@ -110,7 +110,7 @@ void Controller::loginWithCredentials(const QString &serverAddr, const QString &
     // we are using a fake mixd since resolveServer just set the homeserver url :sigh:
     conn->resolveServer("@username:" + serverUrl.host() + ":" + QString::number(serverUrl.port(443)));
 
-    connect(conn, &Connection::homeserverChanged, this, [this, user, conn, pass, deviceName]() {
+    connect(conn, &Connection::loginFlowsChanged, this, [this, user, conn, pass, deviceName]() {
         conn->loginWithPassword(user, pass, deviceName, "");
         connect(conn, &Connection::connected, this, [this, conn, deviceName] {
             AccountSettings account(conn->userId());
