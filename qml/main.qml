@@ -22,6 +22,9 @@ Kirigami.ApplicationWindow {
     property var currentRoom: null
     property int columnWidth: Kirigami.Units.gridUnit * 13
 
+    minimumWidth: Kirigami.Units.gridUnit * 15
+    minimumHeight: Kirigami.Units.gridUnit * 20
+
     wideScreen: width > columnWidth * 5
 
     Connections {
