@@ -145,7 +145,6 @@ Kirigami.ApplicationWindow {
                 text: i18n("Start a Chat")
                 icon.name: "irc-join-channel"
                 onTriggered: pushReplaceLayer("qrc:/imports/NeoChat/Page/StartChatPage.qml", {"connection": Controller.activeConnection})
-
                 enabled: pageStack.layers.currentItem.title !== i18n("Start a Chat")
             },
             Kirigami.Action {
@@ -155,7 +154,7 @@ Kirigami.ApplicationWindow {
                     let dialog = createRoomDialog.createObject(root.overlay);
                     dialog.open();
                 }
-
+                shortcut: StandardKey.New
                 enabled: pageStack.layers.currentItem.title !== i18n("Start a Chat")
             },
             Kirigami.Action {
