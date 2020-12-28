@@ -198,7 +198,7 @@ void Controller::logout(Connection *conn, bool serverSideLogout)
     conn->stopSync();
     Q_EMIT conn->stateChanged();
     Q_EMIT conn->loggedOut();
-    if (!m_connections.isEmpty()) {
+    if (conn == activeConnection() && !m_connections.isEmpty()) {
         setActiveConnection(m_connections[0]);
     } else {
         setActiveConnection(nullptr);
