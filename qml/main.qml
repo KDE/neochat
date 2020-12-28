@@ -220,6 +220,16 @@ Kirigami.ApplicationWindow {
 
         function onConnectionAdded() {
             if (Controller.accountCount === 1) {
+                if (Controller.busy) {
+                    pageStack.replace("qrc:/imports/NeoChat/Page/LoadingPage.qml");
+                } else {
+                    roomManager.roomList = pageStack.replace(roomListComponent);
+                }
+            }
+        }
+
+        function onBusyChanged() {
+            if(!Controller.busy && roomManager.roomList === null) {
                 roomManager.roomList = pageStack.replace(roomListComponent);
             }
         }
