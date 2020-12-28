@@ -167,7 +167,7 @@ QVariantMap ChatDocumentHandler::getAutocompletionInfo()
     };
 }
 
-void ChatDocumentHandler::postMessage(const QString &text, const QString &attachementPath, const QString &replyEventId) const
+void ChatDocumentHandler::postMessage(const QString &text, const QString &attachementPath, const QString &replyEventId, const QString &editEventId) const
 {
     if (!m_room || !m_document) {
         return;
@@ -200,7 +200,7 @@ void ChatDocumentHandler::postMessage(const QString &text, const QString &attach
         for (int i = 0; i < cleanedText.length(); i++) {
             rainbowText = rainbowText % QStringLiteral("<font color='") % rainbowColors.at(i % rainbowColors.length()) % "'>" % cleanedText.at(i) % "</font>";
         }
-        m_room->postHtmlMessage(cleanedText, rainbowText, messageEventType, replyEventId);
+        m_room->postHtmlMessage(cleanedText, rainbowText, messageEventType, replyEventId, editEventId);
         return;
     }
 
@@ -211,7 +211,7 @@ void ChatDocumentHandler::postMessage(const QString &text, const QString &attach
         cleanedText = cleanedText.remove(0, noticePrefix.length());
         messageEventType = RoomMessageEvent::MsgType::Notice;
     }
-    m_room->postArbitaryMessage(cleanedText, messageEventType, replyEventId);
+    m_room->postMessage(cleanedText, messageEventType, replyEventId, editEventId);
 }
 
 void ChatDocumentHandler::replaceAutoComplete(const QString &word)

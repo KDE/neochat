@@ -479,18 +479,6 @@ QString NeoChatRoom::markdownToHTML(const QString &markdown)
     return result;
 }
 
-void NeoChatRoom::postArbitaryMessage(const QString &text, Quotient::RoomMessageEvent::MsgType type, const QString &replyEventId)
-{
-    const auto parsedHTML = markdownToHTML(text);
-    const bool isRichText = Qt::mightBeRichText(parsedHTML);
-
-    if (isRichText) { // Markdown
-        postHtmlMessage(text, parsedHTML, type, replyEventId);
-    } else { // Plain text
-        postPlainMessage(text, type, replyEventId);
-    }
-}
-
 QString msgTypeToString(MessageEventType msgType)
 {
     switch (msgType) {
@@ -515,57 +503,46 @@ QString msgTypeToString(MessageEventType msgType)
     }
 }
 
-void NeoChatRoom::postPlainMessage(const QString &text, MessageEventType type, const QString &replyEventId)
+void NeoChatRoom::postMessage(const QString &text, MessageEventType type, const QString &replyEventId, const QString &relateToEventId)
 {
-    bool isReply = !replyEventId.isEmpty();
-    const auto replyIt = findInTimeline(replyEventId);
-    if (replyIt == timelineEdge()) {
-        isReply = false;
-    }
-
-    if (isReply) {
-        const auto &replyEvt = **replyIt;
-
-        // clang-format off
-        QJsonObject json{
-          {"msgtype", msgTypeToString(type)},
-          {"body", "> <" + replyEvt.senderId() + "> " + eventToString(replyEvt) + "\n\n" + text},
-          {"format", "org.matrix.custom.html"},
-          {"m.relates_to",
-            QJsonObject {
-              {"m.in_reply_to",
-                QJsonObject {
-                  {"event_id", replyEventId}
-                }
-              }
-            }
-          },
-          {"formatted_body",
-            "<mx-reply><blockquote><a href=\"https://matrix.to/#/" +
-            id() + "/" +
-            replyEventId +
-            "\">In reply to</a> <a href=\"https://matrix.to/#/" +
-            replyEvt.senderId() + "\">" + replyEvt.senderId() +
-            "</a><br>" + eventToString(replyEvt, Qt::RichText) +
-            "</blockquote></mx-reply>" + text
-          }
-        };
-        // clang-format on
-
-        postJson("m.room.message", json);
-
-        return;
-    }
-
-    Room::postMessage(text, type);
+    const auto html = markdownToHTML(text);
+    postHtmlMessage(text, html, type, replyEventId, relateToEventId);
 }
 
-void NeoChatRoom::postHtmlMessage(const QString &text, const QString &html, MessageEventType type, const QString &replyEventId)
+void NeoChatRoom::postHtmlMessage(const QString &text, const QString &html, MessageEventType type, const QString &replyEventId, const QString &relateToEventId)
 {
+    QString htmlWithLinks = html;
+    htmlWithLinks = htmlWithLinks.replace(QRegularExpression("@([^: ]*):([^ ]*\\.[^ ]*)"), "<a href=\"https://matrix.to/#/@$1:$2\">@$1:$2</a>");
+    bool isRichText = Qt::mightBeRichText(htmlWithLinks);
     bool isReply = !replyEventId.isEmpty();
+    bool isEdit = !relateToEventId.isEmpty();
     const auto replyIt = findInTimeline(replyEventId);
     if (replyIt == timelineEdge()) {
         isReply = false;
+    }
+
+
+    if (isEdit) {
+        QJsonObject json {
+            {"type", "m.room.message"},
+            {"msgtype", msgTypeToString(type)},
+            {"body", "* " + (isRichText ? text : htmlWithLinks)},
+            {"m.new_content",
+              QJsonObject {
+                {"body", (isRichText ? text : htmlWithLinks)},
+                {"msgtype", msgTypeToString(type)}
+              }
+            },
+            {"m.relates_to",
+                QJsonObject {
+                    {"rel_type", "m.replace"},
+                    {"event_id", relateToEventId}
+                }
+            }
+        };
+
+        postJson("m.room.message", json);
+        return;
     }
 
     if (isReply) {
@@ -592,7 +569,7 @@ void NeoChatRoom::postHtmlMessage(const QString &text, const QString &html, Mess
             "\">In reply to</a> <a href=\"https://matrix.to/#/" +
             replyEvt.senderId() + "\">" + replyEvt.senderId() +
             "</a><br>" + eventToString(replyEvt, Qt::RichText) +
-            "</blockquote></mx-reply>" + html
+            "</blockquote></mx-reply>" + (isRichText ? htmlWithLinks : text)
           }
         };
         // clang-format on
@@ -602,7 +579,11 @@ void NeoChatRoom::postHtmlMessage(const QString &text, const QString &html, Mess
         return;
     }
 
-    Room::postHtmlMessage(text, html, type);
+    if (isRichText) {
+        Room::postHtmlMessage(text, html, type);
+    } else {
+        Room::postMessage(text, type);
+    }
 }
 
 void NeoChatRoom::toggleReaction(const QString &eventId, const QString &reaction)

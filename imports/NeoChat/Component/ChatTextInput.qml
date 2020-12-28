@@ -22,8 +22,10 @@ ToolBar {
     property alias isReply: replyItem.visible
     property bool isReaction: false
     property var replyUser
-    property string replyEventID
-    property string replyContent
+    property string replyEventID: ""
+    property string replyContent: ""
+
+    property string editEventId
 
     property alias isAutoCompleting: autoCompleteListView.visible
     property var autoCompleteModel
@@ -262,6 +264,19 @@ ToolBar {
             }
         }
 
+        RowLayout {
+            visible: editEventId.length > 0
+            ToolButton {
+                icon.name: "dialog-cancel"
+                onClicked: clearEditReply();
+            }
+
+            Label {
+                Layout.alignment: Qt.AlignVCenter
+                text: i18n("Edit Message")
+            }
+        }
+
         Kirigami.Separator {
             Layout.fillWidth: true
             Layout.preferredHeight: 1
@@ -280,7 +295,7 @@ ToolBar {
 
                 icon.name: "dialog-cancel"
 
-                onClicked: clearReply()
+                onClicked: clearEditReply()
             }
 
 
@@ -359,13 +374,13 @@ ToolBar {
                         } else {
                             postMessage()
                             text = ""
-                            clearReply()
+                            clearEditReply()
                             closeAll()
                         }
                     }
 
                     Keys.onEscapePressed: {
-                        clearReply();
+                        clearEditReply();
                         closeAll();
                     }
 
@@ -450,7 +465,7 @@ ToolBar {
                         // lines.
                         const updatedText = inputField.text.trim()
                             .replace(/@([^: ]*):([^ ]*\.[^ ]*)/, "[@$1:$2](https://matrix.to/#/@$1:$2)");
-                        documentHandler.postMessage(updatedText, attachmentPath, replyEventID);
+                        documentHandler.postMessage(updatedText, attachmentPath, replyEventID, editEventId);
                         clearAttachment();
                         currentRoom.markAllMessagesAsRead();
                         clear();
@@ -521,7 +536,7 @@ ToolBar {
                 onClicked: {
                     inputField.postMessage()
                     inputField.text = ""
-                    root.clearReply()
+                    root.clearEditReply()
                     root.closeAll()
                 }
 
@@ -553,15 +568,21 @@ ToolBar {
         inputField.clear()
     }
 
-    function clearReply() {
-        isReply = false
+    function clearEditReply() {
+        isReply = false;
         replyUser = null;
-        replyContent = "";
-        replyEventID = ""
+        root.replyContent = "";
+        root.replyEventID = "";
+        root.editEventId = "";
     }
 
     function focus() {
         inputField.forceActiveFocus()
+    }
+
+    function edit(editContent, editEventId) {
+        inputField.text = editContent;
+        root.editEventId = editEventId
     }
 
     function closeAll() {

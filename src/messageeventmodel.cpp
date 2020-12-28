@@ -415,6 +415,11 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             }
         }
 
+        // isReplacement?
+        if (auto e = eventCast<const RoomMessageEvent>(&evt))
+            if (!e->replacedEvent().isEmpty())
+                return EventStatus::Hidden;
+
         if (is<RedactionEvent>(evt) || is<ReactionEvent>(evt)) {
             return EventStatus::Hidden;
         }

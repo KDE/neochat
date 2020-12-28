@@ -135,6 +135,13 @@ RowLayout {
                 }
             }
             QQC2.Button {
+                QQC2.ToolTip.text: i18n("Edit")
+                QQC2.ToolTip.visible: hovered
+                visible: controlContainer.hovered && author.id === Controller.activeConnection.localUserId && (model.eventType === "emote" || model.eventType === "message")
+                icon.name: "document-edit"
+                onClicked: chatTextInput.edit(message, eventId)
+            }
+            QQC2.Button {
                 QQC2.ToolTip.text: i18n("Reply")
                 QQC2.ToolTip.visible: hovered
                 visible: controlContainer.hovered

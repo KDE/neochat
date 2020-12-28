@@ -130,13 +130,12 @@ Q_SIGNALS:
     void lastActiveTimeChanged();
 
 public Q_SLOTS:
-    void uploadFile(const QUrl &url, const QString &body = "");
+    void uploadFile(const QUrl &url, const QString &body = QString());
     void acceptInvitation();
     void forget();
     void sendTypingNotification(bool isTyping);
-    void postArbitaryMessage(const QString &text, Quotient::RoomMessageEvent::MsgType type, const QString &replyEventId);
-    void postPlainMessage(const QString &text, Quotient::RoomMessageEvent::MsgType type = Quotient::MessageEventType::Text, const QString &replyEventId = "");
-    void postHtmlMessage(const QString &text, const QString &html, Quotient::MessageEventType type = Quotient::MessageEventType::Text, const QString &replyEventId = "");
+    void postMessage(const QString &text, Quotient::MessageEventType type = Quotient::MessageEventType::Text, const QString &replyEventId = QString(), const QString &relateToEventId = QString());
+    void postHtmlMessage(const QString &text, const QString &html, Quotient::MessageEventType type = Quotient::MessageEventType::Text, const QString &replyEventId = QString(), const QString &relateToEventId = QString());
     void changeAvatar(const QUrl &localFile);
     void addLocalAlias(const QString &alias);
     void removeLocalAlias(const QString &alias);
