@@ -78,8 +78,7 @@ install(FILES org.kde.neochat-symbolic.svg DESTINATION ${KDE_INSTALL_FULL_ICONDI
 install(FILES org.kde.neochat-symbolic.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/symbolic/apps)
 install(FILES neochat.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})
 
-# add_definitions(-DQT_NO_KEYWORDS) Need to fix libQuotient first
-add_definitions(-DQT_NO_FOREACH)
+add_definitions(-DQT_NO_FOREACH -DQT_NO_KEYWORDS)
 
 add_subdirectory(src)
 

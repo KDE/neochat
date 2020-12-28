@@ -31,7 +31,7 @@ void NeoChatUser::setColor(const QColor &color)
     }
 
     m_color = color;
-    emit colorChanged(m_color);
+    Q_EMIT colorChanged(m_color);
 }
 
 void NeoChatUser::polishColor()
