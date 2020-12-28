@@ -77,16 +77,16 @@ Kirigami.ScrollablePage {
             }
             contentItem: RowLayout {
                 implicitHeight: categoryName.implicitHeight
-                Kirigami.Icon {
-                    source: roomListModel.categoryVisible(section) ? "go-up" : "go-down"
-                    implicitHeight: Kirigami.Units.iconSizes.small
-                    implicitWidth: Kirigami.Units.iconSizes.small
-                }
                 Kirigami.Heading {
                     id: categoryName
                     level: 3
                     text: roomListModel.categoryName(section)
                     Layout.fillWidth: true
+                }
+                Kirigami.Icon {
+                    source: roomListModel.categoryVisible(section) ? "go-up" : "go-down"
+                    implicitHeight: Kirigami.Units.iconSizes.small
+                    implicitWidth: Kirigami.Units.iconSizes.small
                 }
             }
         }
