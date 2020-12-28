@@ -86,7 +86,7 @@ Kirigami.ScrollablePage {
                     Layout.preferredWidth: height
                     Layout.fillHeight: true
 
-                    source: avatar ? "image://mxc/" + avatar : ""
+                    source: avatar ? ("image://mxc/" + avatar) : ""
                     name: name
                 }
 

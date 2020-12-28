@@ -89,7 +89,7 @@ ToolBar {
                         Layout.preferredWidth: Kirigami.Units.gridUnit
                         Layout.preferredHeight: Kirigami.Units.gridUnit
 
-                        source: replyUser ? "image://mxc/" + replyUser.avatarMediaId: ""
+                        source: replyUser ? ("image://mxc/" + replyUser.avatarMediaId) : ""
                         name: replyUser ? replyUser.displayName : i18n("No name")
                     }
 
@@ -156,7 +156,7 @@ ToolBar {
                     Kirigami.Avatar {
                         Layout.preferredWidth: Kirigami.Units.gridUnit
                         Layout.preferredHeight: Kirigami.Units.gridUnit
-                        source: modelData.avatarMediaId ? "image://mxc/" + modelData.avatarMediaId : ""
+                        source: modelData.avatarMediaId ? ("image://mxc/" + modelData.avatarMediaId) : ""
                         color: modelData.color ? Qt.darker(modelData.color, 1.1) : null
                         visible: !isEmoji
                     }

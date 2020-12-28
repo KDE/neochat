@@ -116,7 +116,7 @@ Kirigami.ScrollablePage {
                     Layout.preferredWidth: Kirigami.Units.iconSizes.huge
                     Layout.preferredHeight: Kirigami.Units.iconSizes.huge
 
-                    source: model.avatar ? "image://mxc/" + model.avatar : ""
+                    source: model.avatar ? ("image://mxc/" + model.avatar) : ""
                     name: name
                 }
                 ColumnLayout {

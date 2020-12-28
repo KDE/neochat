@@ -52,7 +52,7 @@ RowLayout {
 
         visible: showAuthor && Config.showAvatarInTimeline
         name: author.displayName
-        source: author.avatarMediaId ? "image://mxc/" + author.avatarMediaId : ""
+        source: author.avatarMediaId ? ("image://mxc/" + author.avatarMediaId) : ""
         color: author.color
 
         Component {

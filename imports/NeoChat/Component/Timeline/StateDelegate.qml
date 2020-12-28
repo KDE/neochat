@@ -26,7 +26,7 @@ RowLayout {
         Layout.preferredHeight: Kirigami.Units.iconSizes.small
 
         name: author.displayName
-        source: author.avatarMediaId ? "image://mxc/" + author.avatarMediaId : ""
+        source: author.avatarMediaId ? ("image://mxc/" + author.avatarMediaId) : ""
         color: author.color
 
         Component {

@@ -111,7 +111,7 @@ Kirigami.OverlayDrawer {
                         Layout.preferredHeight: Kirigami.Units.gridUnit * 3.5
 
                         name: room ? room.displayName : i18n("No name")
-                        source: room ? "image://mxc/" +  room.avatarMediaId : undefined
+                        source: room ? ("image://mxc/" +  room.avatarMediaId) : ""
                     }
 
                     ColumnLayout {
@@ -190,7 +190,7 @@ Kirigami.OverlayDrawer {
                             Layout.preferredWidth: height
                             Layout.fillHeight: true
 
-                            source: "image://mxc/" + avatar
+                            source: avatar ? ("image://mxc/" + avatar) : ""
                             name: name
                         }
 
