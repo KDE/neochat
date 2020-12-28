@@ -557,11 +557,6 @@ void Controller::setActiveConnection(Connection *connection)
     Q_EMIT activeConnectionChanged();
 }
 
-QList<QKeySequence> Controller::preferencesShortcuts() const
-{
-    return KStandardShortcut::preferences();
-}
-
 NeochatDeleteDeviceJob::NeochatDeleteDeviceJob(const QString &deviceId, const Omittable<QJsonObject> &auth)
     : Quotient::BaseJob(HttpVerb::Delete, QStringLiteral("DeleteDeviceJob"), QStringLiteral("/_matrix/client/r0/devices/%1").arg(deviceId))
 {

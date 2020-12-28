@@ -175,7 +175,7 @@ Kirigami.ApplicationWindow {
                 icon.name: "settings-configure"
                 onTriggered: pushReplaceLayer("qrc:/imports/NeoChat/Page/SettingsPage.qml")
                 enabled: pageStack.layers.currentItem.title !== i18n("Settings")
-                shortcut: Controller.preferencesShortcuts[0]
+                shortcut: StandardKey.Preferences
             },
             Kirigami.Action {
                 text: i18n("About Neochat")
@@ -191,6 +191,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: i18n("Quit")
                 icon.name: "gtk-quit"
+                shortcut: StandardKey.Quit
                 onTriggered: Qt.quit()
             }
         ]
