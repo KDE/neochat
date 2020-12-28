@@ -54,6 +54,9 @@ ThumbnailResponse::ThumbnailResponse(QString id, QSize size)
 
 void ThumbnailResponse::startRequest()
 {
+    if (!Controller::instance().activeConnection()) {
+        return;
+    }
     // Runs in the main thread, not QML thread
     Q_ASSERT(QThread::currentThread() == Controller::instance().activeConnection()->thread());
     job = Controller::instance().activeConnection()->getThumbnail(mediaId, requestedSize);
@@ -94,6 +97,9 @@ void ThumbnailResponse::prepareResult()
 
 void ThumbnailResponse::doCancel()
 {
+    if (!Controller::instance().activeConnection()) {
+        return;
+    }
     // Runs in the main thread, not QML thread
     if (job) {
         Q_ASSERT(QThread::currentThread() == job->thread());
