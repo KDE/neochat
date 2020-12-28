@@ -43,7 +43,7 @@ Kirigami.OverlaySheet {
                 Layout.alignment: Qt.AlignTop
 
                 name: room.displayName
-                source: room.avatarMediaId ? "image://mxc/" + room.avatarMediaId : ""
+                source: room.avatarMediaId ? ("image://mxc/" + room.avatarMediaId) : ""
 
                 MouseArea {
                     anchors.fill: parent

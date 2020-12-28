@@ -51,7 +51,7 @@ Kirigami.OverlaySheet {
                 Layout.preferredHeight: Kirigami.Units.iconSizes.huge
 
                 name: displayName
-                source: avatarMediaId ? "image://mxc/" + avatarMediaId : ""
+                source: avatarMediaId ? ("image://mxc/" + avatarMediaId) : ""
 
                 MouseArea {
                     anchors.fill: parent

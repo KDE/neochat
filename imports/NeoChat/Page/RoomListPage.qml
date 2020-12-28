@@ -135,7 +135,7 @@ Kirigami.ScrollablePage {
                     Layout.minimumWidth: size
                     Layout.maximumWidth: size
 
-                    source: avatar ? "image://mxc/" + avatar : ""
+                    source: avatar ? ("image://mxc/" + avatar) : ""
                     name: model.name || i18n("No Name")
                 }
 
