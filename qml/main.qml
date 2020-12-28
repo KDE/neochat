@@ -181,6 +181,11 @@ Kirigami.ApplicationWindow {
                 enabled: pageStack.layers.currentItem.title !== i18n("About")
             },
             Kirigami.Action {
+                text: i18n("Logout")
+                icon.name: "list-remove-user"
+                onTriggered: Controller.logout(Controller.activeConnection, true)
+            },
+            Kirigami.Action {
                 text: i18n("Quit")
                 icon.name: "gtk-quit"
                 onTriggered: Qt.quit()
