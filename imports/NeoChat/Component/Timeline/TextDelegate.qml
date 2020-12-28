@@ -15,7 +15,7 @@ TextEdit {
 
     property bool isEmote: false
 
-    text: "<style>pre {white-space: pre-wrap} a{color: " + Kirigami.Theme.linkColor + ";} .user-pill{}</style>" + (isEmote ? "* <a href='https://matrix.to/#/" + author.id + "' style='color: " + author.color + "'>" + author.displayName + "</a> " : "") + display
+    text: "<style>pre {white-space: pre-wrap} a{color: " + Kirigami.Theme.linkColor + ";} .user-pill{}</style>" + (isEmote ? "* <a href='https://matrix.to/#/" + author.id + "' style='color: " + author.color + "'>" + author.displayName + "</a> " : "") + display + (isEdited ? (" <span style=\"color: " + Kirigami.Theme.disabledTextColor + "\">" + i18n("(edited)") + "</span>") : "")
 
     color: Kirigami.Theme.textColor
     font.pointSize: isEmoji.test(display) ? Kirigami.Theme.defaultFont.pointSize * 4 : Kirigami.Theme.defaultFont.pointSize
