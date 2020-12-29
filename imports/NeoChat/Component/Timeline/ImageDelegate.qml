@@ -17,6 +17,8 @@ import NeoChat.Dialog 1.0
 import NeoChat.Menu.Timeline 1.0
 
 Image {
+    id: img
+
     readonly property bool isAnimated: contentType === "image/gif"
 
     property bool openOnFinished: false
@@ -26,8 +28,7 @@ Image {
     //    readonly property var info: isThumbnail ? content.info.thumbnail_info : content.info
     readonly property var info: content.info
     readonly property string mediaId: isThumbnail ? content.thumbnailMediaId : content.mediaId
-
-    id: img
+    property bool readonly: false
 
     source: "image://mxc/" + mediaId
 
@@ -36,34 +37,12 @@ Image {
 
     fillMode: Image.PreserveAspectFit
 
-    Control {
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 8
-        anchors.right: parent.right
-        anchors.rightMargin: 8
+    ToolTip.text: display
+    ToolTip.visible: hoverHandler.hovered
 
-        horizontalPadding: 8
-        verticalPadding: 4
-
-        contentItem: RowLayout {
-            Label {
-                text: Qt.formatTime(time)
-                color: "white"
-                font.pixelSize: 12
-            }
-
-            Label {
-                text: author.displayName
-                color: "white"
-                font.pixelSize: 12
-            }
-        }
-
-        background: Rectangle {
-            radius: 2
-            color: "black"
-            opacity: 0.3
-        }
+    HoverHandler {
+        id: hoverHandler
+        enabled: img.readonly
     }
 
     Rectangle {
@@ -86,6 +65,8 @@ Image {
 
     MouseArea {
         id: messageMouseArea
+
+        enabled: !img.readonly
 
         anchors.fill: parent
 

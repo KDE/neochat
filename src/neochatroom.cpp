@@ -27,6 +27,7 @@
 #include "events/roomcanonicalaliasevent.h"
 #include "events/roommessageevent.h"
 #include "events/roompowerlevelsevent.h"
+#include "events/stickerevent.h"
 #include "events/typingevent.h"
 #include "jobs/downloadfilejob.h"
 #include "neochatconfig.h"
@@ -344,6 +345,9 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                 return plainBody.remove(utils::removeReplyRegex);
             }
             return plainBody;
+        },
+        [](const StickerEvent &e) {
+            return e.body();
         },
         [this](const RoomMemberEvent &e) {
             // FIXME: Rewind to the name that was at the time of this event

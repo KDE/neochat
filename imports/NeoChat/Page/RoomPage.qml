@@ -318,7 +318,7 @@ Kirigami.ScrollablePage {
                             ReactionDelegate {
                                 Layout.fillWidth: true
                                 Layout.topMargin: 0
-                                Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
+                                Layout.bottomMargin: Kirigami.Units.largeSpacing
                             }
                         ]
                     }
@@ -362,7 +362,35 @@ Kirigami.ScrollablePage {
                                 Layout.fillWidth: true
                                 Layout.topMargin: 0
                                 Layout.maximumHeight: 320
-                                Layout.bottomMargin: 8
+                                Layout.bottomMargin: Kirigami.Units.largeSpacing
+                            }
+                        ]
+                    }
+                }
+            }
+
+            DelegateChoice {
+                roleValue: "sticker"
+                delegate: TimelineContainer {
+                    width: messageListView.width
+
+                    innerObject: MessageDelegate {
+                        Layout.fillWidth: true
+                        onReplyClicked: goToEvent(eventID)
+                        onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
+
+                        innerObject: [
+                            ImageDelegate {
+                                readonly: true
+                                Layout.maximumWidth: parent.width / 2
+                                Layout.minimumWidth: 320
+                                Layout.preferredHeight: info.h / info.w * width
+                            },
+                            ReactionDelegate {
+                                Layout.fillWidth: true
+                                Layout.topMargin: 0
+                                Layout.maximumHeight: 320
+                                Layout.bottomMargin: Kirigami.Units.largeSpacing
                             }
                         ]
                     }
@@ -442,6 +470,7 @@ Kirigami.ScrollablePage {
                     }
                 }
             }
+
 
             DelegateChoice {
                 roleValue: "other"

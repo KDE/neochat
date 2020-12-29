@@ -11,6 +11,7 @@
 #include <events/redactionevent.h>
 #include <events/roomavatarevent.h>
 #include <events/roommemberevent.h>
+#include <events/stickerevent.h>
 #include <events/simplestateevents.h>
 #include <user.h>
 
@@ -324,6 +325,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             auto reason = evt.redactedBecause()->reason();
             return (reason.isEmpty()) ? i18n("<i>[This message was deleted]</i>") : i18n("<i>[This message was deleted: %1]</i>").arg(evt.redactedBecause()->reason());
         }
+
         return m_currentRoom->eventToString(evt, Qt::RichText);
     }
 
@@ -356,6 +358,9 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             }
 
             return "message";
+        }
+        if (is<const StickerEvent>(evt)) {
+            return "sticker";
         }
         if (evt.isStateEvent()) {
             return "state";
@@ -393,6 +398,10 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             // content JSON stored in EventContent::Base
             return e->hasFileContent() ? QVariant::fromValue(e->content()->originalJson) : QVariant();
         };
+
+        if (auto e = eventCast<const StickerEvent>(&evt)) {
+            return QVariant::fromValue(e->image().originalJson);
+        }
     }
 
     if (role == HighlightRole) {
@@ -453,6 +462,9 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             if (e->hasFileContent()) {
                 return QVariant::fromValue(m_currentRoom->fileTransferInfo(e->id()));
             }
+        }
+        if (auto e = eventCast<const StickerEvent>(&evt)) {
+            return QVariant::fromValue(m_currentRoom->fileTransferInfo(e->id()));
         }
     }
 
