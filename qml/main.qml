@@ -136,14 +136,13 @@ Kirigami.ApplicationWindow {
                 text: i18n("Explore rooms")
                 icon.name: "compass"
                 onTriggered: pushReplaceLayer("qrc:/imports/NeoChat/Page/JoinRoomPage.qml", {"connection": Controller.activeConnection})
-                enabled: pageStack.layers.currentItem.title !== i18n("Explore Rooms")
+                enabled: pageStack.layers.currentItem.title !== i18n("Explore Rooms") && Controller.accountCount > 0
             },
             Kirigami.Action {
                 text: i18n("Start a Chat")
                 icon.name: "irc-join-channel"
                 onTriggered: pushReplaceLayer("qrc:/imports/NeoChat/Page/StartChatPage.qml", {"connection": Controller.activeConnection})
-
-                enabled: pageStack.layers.currentItem.title !== i18n("Start a Chat")
+                enabled: pageStack.layers.currentItem.title !== i18n("Start a Chat") && Controller.accountCount > 0
             },
             Kirigami.Action {
                 text: i18n("Create a Room")
@@ -152,14 +151,21 @@ Kirigami.ApplicationWindow {
                     let dialog = createRoomDialog.createObject(root.overlay);
                     dialog.open();
                 }
-
-                enabled: pageStack.layers.currentItem.title !== i18n("Start a Chat")
+                shortcut: StandardKey.New
+                enabled: pageStack.layers.currentItem.title !== i18n("Start a Chat") && Controller.accountCount > 0
             },
             Kirigami.Action {
                 text: i18n("Accounts")
                 icon.name: "im-user"
                 onTriggered: pushReplaceLayer("qrc:/imports/NeoChat/Page/AccountsPage.qml")
-                enabled: pageStack.layers.currentItem.title !== i18n("Accounts")
+                enabled: pageStack.layers.currentItem.title !== i18n("Accounts") && Controller.accountCount > 0
+
+            },
+            Kirigami.Action {
+                text: i18n("Devices")
+                iconName: "network-connect"
+                onTriggered: pageStack.layers.push("qrc:/imports/NeoChat/Page/DevicesPage.qml")
+                enabled: pageStack.layers.currentItem.title !== i18n("Devices") && Controller.accountCount > 0
             },
             Kirigami.Action {
                 text: i18n("Settings")
@@ -173,6 +179,18 @@ Kirigami.ApplicationWindow {
                 icon.name: "help-about"
                 onTriggered: pushReplaceLayer(aboutPage)
                 enabled: pageStack.layers.currentItem.title !== i18n("About")
+            },
+            Kirigami.Action {
+                text: i18n("Logout")
+                icon.name: "list-remove-user"
+                enabled: Controller.accountCount > 0
+                onTriggered: Controller.logout(Controller.activeConnection, true)
+            },
+            Kirigami.Action {
+                text: i18n("Quit")
+                icon.name: "gtk-quit"
+                shortcut: StandardKey.Quit
+                onTriggered: Qt.quit()
             }
         ]
     }
