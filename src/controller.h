@@ -27,7 +27,7 @@ using namespace Quotient;
 class Controller : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(int accountCount READ accountCount NOTIFY connectionAdded NOTIFY connectionDropped)
+    Q_PROPERTY(int accountCount READ accountCount NOTIFY accountCountChanged)
     Q_PROPERTY(bool quitOnLastWindowClosed READ quitOnLastWindowClosed WRITE setQuitOnLastWindowClosed NOTIFY quitOnLastWindowClosedChanged)
     Q_PROPERTY(Connection *activeConnection READ activeConnection WRITE setActiveConnection NOTIFY activeConnectionChanged)
     Q_PROPERTY(bool busy READ busy WRITE setBusy NOTIFY busyChanged)
@@ -103,6 +103,7 @@ Q_SIGNALS:
     void syncDone();
     void connectionAdded(Quotient::Connection *_t1);
     void connectionDropped(Quotient::Connection *_t1);
+    void accountCountChanged();
     void initiated();
     void notificationClicked(const QString &_t1, const QString &_t2);
     void quitOnLastWindowClosedChanged();
