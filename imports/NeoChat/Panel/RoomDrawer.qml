@@ -114,6 +114,7 @@ Kirigami.OverlayDrawer {
                         spacing: 0
 
                         Kirigami.Heading {
+                            Layout.maximumWidth: Kirigami.Units.gridUnit * 9
                             Layout.fillWidth: true
                             level: 1
                             font.bold: true
