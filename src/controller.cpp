@@ -241,6 +241,7 @@ void Controller::addConnection(Connection *c)
     c->sync();
 
     Q_EMIT connectionAdded(c);
+    Q_EMIT accountCountChanged();
 }
 
 void Controller::dropConnection(Connection *c)
@@ -249,6 +250,7 @@ void Controller::dropConnection(Connection *c)
     m_connections.removeOne(c);
 
     Q_EMIT connectionDropped(c);
+    Q_EMIT accountCountChanged();
     c->deleteLater();
 }
 
