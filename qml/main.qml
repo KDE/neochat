@@ -262,6 +262,33 @@ Kirigami.ApplicationWindow {
         function onOpenRoom(room) {
             roomManager.enterRoom(room)
         }
+
+        function onUserConsentRequired(url) {
+            consentSheet.url = url
+            consentSheet.open()
+        }
+    }
+
+    Kirigami.OverlaySheet {
+        id: consentSheet
+
+        property string url: ""
+
+        header: Kirigami.Heading {
+            text: i18n("User consent")
+        }
+
+        QQC2.Label {
+            id: label
+
+            text: i18n("Your homeserver requires you to agree to its terms and conditions before being able to use it. Please click the button below to read them.")
+            wrapMode: Text.WordWrap
+            width: parent.width
+        }
+        footer: QQC2.Button {
+            text: i18n("Open")
+            onClicked: Qt.openUrlExternally(consentSheet.url)
+        }
     }
 
     RoomListModel {
