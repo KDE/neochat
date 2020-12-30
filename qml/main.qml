@@ -6,6 +6,7 @@
  */
 import QtQuick 2.14
 import QtQuick.Controls 2.14 as QQC2
+import QtQuick.Window 2.2
 import QtQuick.Layouts 1.14
 
 import org.kde.kirigami 2.12 as Kirigami
@@ -33,6 +34,23 @@ Kirigami.ApplicationWindow {
             Qt.quit()
         }
     }
+
+    onClosing: Controller.saveWindowGeometry(root)
+
+    // This timer allows to batch update the window size change to reduce
+    // the io load and also work around the fact that x/y/width/height are
+    // changed when loading the page and overwrite the saved geometry from
+    // the previous session.
+    Timer {
+        id: saveWindowGeometryTimer
+        interval: 1000
+        onTriggered: Controller.saveWindowGeometry(root)
+    }
+
+    onWidthChanged: saveWindowGeometryTimer.restart()
+    onHeightChanged: saveWindowGeometryTimer.restart()
+    onXChanged: saveWindowGeometryTimer.restart()
+    onYChanged: saveWindowGeometryTimer.restart()
 
     /**
      * Manage opening and close rooms

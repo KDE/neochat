@@ -21,6 +21,7 @@ class QKeySequences;
 #include "user.h"
 
 class NeoChatRoom;
+class QQuickWindow;
 
 using namespace Quotient;
 
@@ -118,6 +119,7 @@ public Q_SLOTS:
     static void playAudio(const QUrl &localFile);
     void changeAvatar(Quotient::Connection *conn, const QUrl &localFile);
     static void markAllMessagesAsRead(Quotient::Connection *conn);
+    void saveWindowGeometry(QQuickWindow *);
 };
 
 // TODO libQuotient 0.7: Drop

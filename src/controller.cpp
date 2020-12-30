@@ -8,15 +8,16 @@
 
 #ifndef Q_OS_ANDROID
 #include <qt5keychain/keychain.h>
-#else
+#endif
 #include <KConfig>
 #include <KConfigGroup>
-#endif
+#include <KWindowConfig>
 
 #include <KLocalizedString>
 
 #include <QClipboard>
 #include <QDebug>
+#include <QQuickWindow>
 #include <QDir>
 #include <QElapsedTimer>
 #include <QFile>
@@ -563,6 +564,15 @@ void Controller::setActiveConnection(Connection *connection)
     }
     NeoChatConfig::self()->save();
     Q_EMIT activeConnectionChanged();
+}
+
+void Controller::saveWindowGeometry(QQuickWindow *window)
+{
+    KConfig dataResource("data", KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
+    KConfigGroup windowGroup(&dataResource, "Window");
+    KWindowConfig::saveWindowPosition(window, windowGroup);
+    KWindowConfig::saveWindowSize(window, windowGroup);
+    dataResource.sync();
 }
 
 NeochatDeleteDeviceJob::NeochatDeleteDeviceJob(const QString &deviceId, const Omittable<QJsonObject> &auth)

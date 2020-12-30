@@ -19,6 +19,7 @@
 #endif
 #include <KLocalizedContext>
 #include <KLocalizedString>
+#include <KWindowConfig>
 
 #include "neochat-version.h"
 
@@ -152,6 +153,17 @@ int main(int argc, char *argv[])
             }
         }
     });
+    const auto rootObjects = engine.rootObjects();
+    for (auto obj : rootObjects) {
+        auto view = qobject_cast<QQuickWindow*>(obj);
+        if (view) {
+            KConfig dataResource("data", KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
+            KConfigGroup windowGroup(&dataResource, "Window");
+            KWindowConfig::restoreWindowSize(view, windowGroup);
+            KWindowConfig::restoreWindowPosition(view, windowGroup);
+            break;
+        }
+    }
 #endif
     return QApplication::exec();
 }
