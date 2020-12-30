@@ -231,6 +231,12 @@ void Controller::addConnection(Connection *c)
         dropConnection(c);
     });
 
+    connect(c, &Connection::requestFailed, this, [=] (BaseJob *job) {
+        if(job->error() == BaseJob::UserConsentRequiredError) {
+            Q_EMIT userConsentRequired(job->errorUrl());
+        }
+    });
+
     setBusy(true);
 
     c->sync();

@@ -113,6 +113,7 @@ Q_SIGNALS:
     void passwordStatus(Controller::PasswordStatus _t1);
     void showWindow();
     void openRoom(NeoChatRoom *room);
+    void userConsentRequired(QUrl url);
 
 public Q_SLOTS:
     void logout(Quotient::Connection *conn, bool serverSideLogout);
