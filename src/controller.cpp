@@ -261,9 +261,9 @@ void Controller::invokeLogin()
             auto accessToken = loadAccessTokenFromKeyChain(account);
 
             auto c = new Connection(account.homeserver(), this);
+            addConnection(c);
             connect(c, &Connection::connected, this, [=] {
                 c->loadState();
-                addConnection(c);
             });
             connect(c, &Connection::loginError, this, [=](const QString &error, const QString &) {
                 if (error == "Unrecognised access token") {
