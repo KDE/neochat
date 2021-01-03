@@ -31,6 +31,7 @@
 #include "csapi/leaving.h"
 #include "devicesmodel.h"
 #include "emojimodel.h"
+#include "filetypesingleton.h"
 #include "matriximageprovider.h"
 #include "messageeventmodel.h"
 #include "neochatconfig.h"
@@ -89,10 +90,12 @@ int main(int argc, char *argv[])
 
     Clipboard clipboard;
     auto config = NeoChatConfig::self();
+    FileTypeSingleton fileTypeSingleton;
 
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Controller", &Controller::instance());
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Clipboard", &clipboard);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Config", config);
+    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "FileType", &fileTypeSingleton);
     qmlRegisterType<AccountListModel>("org.kde.neochat", 1, 0, "AccountListModel");
     qmlRegisterType<ChatDocumentHandler>("org.kde.neochat", 1, 0, "ChatDocumentHandler");
     qmlRegisterType<RoomListModel>("org.kde.neochat", 1, 0, "RoomListModel");
@@ -116,6 +119,7 @@ int main(int argc, char *argv[])
     qRegisterMetaType<NeoChatRoom *>("NeoChatRoom*");
     qRegisterMetaType<NeoChatUser *>("NeoChatUser*");
     qRegisterMetaType<GetRoomEventsJob *>("GetRoomEventsJob*");
+    qRegisterMetaType<QMimeType>("QMimeType");
 
     qRegisterMetaTypeStreamOperators<Emoji>();
 
