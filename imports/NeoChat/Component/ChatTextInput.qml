@@ -33,7 +33,10 @@ ToolBar {
     property int autoCompleteEndPosition
 
     property bool hasAttachment: false
-    property url attachmentPath
+    property url attachmentPath: ""
+    property var attachmentMimetype: FileType.mimeTypeForUrl(attachmentPath)
+    property bool hasImageAttachment: hasAttachment && attachmentMimetype.valid
+        && FileType.supportedImageFormats.includes(attachmentMimetype.preferredSuffix)
 
     position: ToolBar.Footer
 
@@ -193,7 +196,7 @@ ToolBar {
         Image {
             Layout.preferredHeight: Kirigami.Units.gridUnit * 10
             source: attachmentPath
-            visible: hasAttachment && (attachmentPath.toString().endsWith('.png') || attachmentPath.toString().endsWith('.jpg'))
+            visible: hasImageAttachment
             fillMode: Image.PreserveAspectFit
             Layout.preferredWidth: paintedWidth
             RowLayout {
@@ -249,7 +252,7 @@ ToolBar {
         }
 
         RowLayout {
-            visible: hasAttachment && !(attachmentPath.toString().endsWith('.png') || attachmentPath.toString().endsWith('.jpg'))
+            visible: hasAttachment && !hasImageAttachment
             ToolButton {
                 icon.name: "dialog-cancel"
                 onClicked: {
@@ -258,7 +261,15 @@ ToolBar {
                 }
             }
 
+            Kirigami.Icon {
+                id: mimetypeIcon
+                implicitHeight: Kirigami.Units.fontMetrics.roundedIconSize(horizontalFileLabel.implicitHeight)
+                implicitWidth: implicitHeight
+                source: attachmentMimetype.iconName
+            }
+
             Label {
+                id: horizontalFileLabel
                 Layout.alignment: Qt.AlignVCenter
                 text: attachmentPath !== "" ? attachmentPath.toString().substring(attachmentPath.toString().lastIndexOf('/') + 1, attachmentPath.length) : ""
             }
