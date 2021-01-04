@@ -202,7 +202,6 @@ ToolBar {
             RowLayout {
                 anchors.right: parent.right
                 Button {
-                    visible: isImage
                     icon.name: "document-edit"
 
                     // HACK: Use a component because an url doesn't work
@@ -237,7 +236,7 @@ ToolBar {
                 }
             }
             Rectangle {
-                color: rgba(255, 255, 255, 40)
+                color: Qt.rgba(255, 255, 255, 40)
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.bottom: parent.bottom
