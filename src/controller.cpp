@@ -258,44 +258,39 @@ void Controller::dropConnection(Connection *c)
 void Controller::invokeLogin()
 {
     const auto accounts = SettingsGroup("Accounts").childGroups();
+    const QString id = NeoChatConfig::self()->activeConnection();
     for (const auto &accountId : accounts) {
         AccountSettings account {accountId};
         if (!account.homeserver().isEmpty()) {
             auto accessToken = loadAccessTokenFromKeyChain(account);
 
-            auto c = new Connection(account.homeserver(), this);
-            addConnection(c);
-            connect(c, &Connection::connected, this, [=] {
-                c->loadState();
-            });
-            connect(c, &Connection::loginError, this, [=](const QString &error, const QString &) {
-                if (error == "Unrecognised access token") {
-                    Q_EMIT errorOccured(i18n("Login Failed"), i18n("Access Token invalid or revoked"));
-                    logout(c, false);
-                } else {
-                    Q_EMIT errorOccured(i18n("Login Failed"), error);
-                    logout(c, true);
+            auto connection = new Connection(account.homeserver(), this);
+            addConnection(connection);
+            connect(connection, &Connection::connected, this, [=] {
+                connection->loadState();
+                if (connection->userId() == id) {
+                    setActiveConnection(connection);
+                    Q_EMIT initiated();
                 }
             });
-            connect(c, &Connection::networkError, this, [=](const QString &error, const QString &, int, int) {
+            connect(connection, &Connection::loginError, this, [=](const QString &error, const QString &) {
+                if (error == "Unrecognised access token") {
+                    Q_EMIT errorOccured(i18n("Login Failed"), i18n("Access Token invalid or revoked"));
+                    logout(connection, false);
+                } else {
+                    Q_EMIT errorOccured(i18n("Login Failed"), error);
+                    logout(connection, true);
+                }
+            });
+            connect(connection, &Connection::networkError, this, [=](const QString &error, const QString &, int, int) {
                 Q_EMIT errorOccured("Network Error", error);
             });
-            c->connectWithToken(account.userId(), accessToken, account.deviceId());
+            connection->connectWithToken(account.userId(), accessToken, account.deviceId());
         }
     }
-
-    if (!m_connections.isEmpty()) {
-        const QString id = NeoChatConfig::self()->activeConnection();
-        for (auto *connection : qAsConst(m_connections)) {
-            if (connection->userId() == id) {
-                setActiveConnection(connection);
-                Q_EMIT initiated();
-                return;
-            }
-        }
-        setActiveConnection(m_connections[0]);
+    if (m_connections.isEmpty()) {
+        Q_EMIT initiated();
     }
-    Q_EMIT initiated();
 }
 
 QByteArray Controller::loadAccessTokenFromFile(const AccountSettings &account)
