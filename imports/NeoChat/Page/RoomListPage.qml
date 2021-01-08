@@ -95,7 +95,7 @@ Kirigami.ScrollablePage {
             id: roomListItem
             property bool itemVisible: model.categoryVisible || sortFilterRoomListModel.filterText.length > 0 || Config.mergeRoomList
             visible: itemVisible
-            highlighted: roomManager.currentRoom && roomManager.currentRoom.name === name
+            highlighted: roomManager.currentRoom && roomManager.currentRoom.displayName === displayName
             focus: true
             action: Kirigami.Action {
                 id: enterRoomAction
@@ -153,7 +153,7 @@ Kirigami.ScrollablePage {
                     QQC2.Label {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
-                        text: name ?? ""
+                        text: displayName ?? ""
                         elide: Text.ElideRight
                         font.bold: unreadCount >= 0 || highlightCount > 0 || notificationCount > 0
                         wrapMode: Text.NoWrap

@@ -90,7 +90,7 @@ ToolBar {
                         Layout.preferredHeight: Kirigami.Units.gridUnit
 
                         source: replyUser ? ("image://mxc/" + replyUser.avatarMediaId) : ""
-                        name: replyUser ? replyUser.displayName : i18n("No name")
+                        name: replyUser ? replyUser.name : i18n("No name")
                     }
 
                     Label {

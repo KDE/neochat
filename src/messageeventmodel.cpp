@@ -301,6 +301,7 @@ inline QVariantMap userAtEvent(NeoChatUser *user, NeoChatRoom *room, const RoomE
         {"avatarMediaId", user->avatarMediaId(room)},
         {"avatarUrl", user->avatarUrl(room)},
         {"displayName", user->displayname(room)},
+        {"display", user->name()},
         {"color", user->color()},
         {"object", QVariant::fromValue(user)},
     };

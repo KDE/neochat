@@ -31,7 +31,7 @@ QQC2.AbstractButton {
             Layout.alignment: Qt.AlignTop
             visible: Config.showAvatarInTimeline
             source: replyVisible && reply.author.avatarMediaId ? ("image://mxc/" + reply.author.avatarMediaId) : ""
-            name: replyVisible ? reply.author.displayName : "H"
+            name: replyVisible ? reply.author.name : "H"
             color: replyVisible ? reply.author.color : Kirigami.Theme.highlightColor
         }
 
