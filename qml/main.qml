@@ -54,9 +54,18 @@ Kirigami.ApplicationWindow {
 
     /**
      * Manage opening and close rooms
+     * TODO this should probably be moved to C++
      */
     QtObject {
         id: roomManager
+
+        property var actionsHandler: ActionsHandler {
+            room: roomManager.currentRoom
+            connection: Controller.activeConnection
+            onRoomJoined: {
+                roomManager.enterRoom(Controller.activeConnection.room(roomName))
+            }
+        }
 
         property var currentRoom: null
         property alias pageStack: root.pageStack
@@ -262,6 +271,11 @@ Kirigami.ApplicationWindow {
             }
         }
 
+        function onRoomJoined(roomId) {
+            const room = Controller.activeConnection.room(roomId);
+            return roomManager.enterRoom(room);
+        }
+
         function onConnectionDropped() {
             if (Controller.accountCount === 0) {
                 pageStack.clear();
@@ -284,6 +298,13 @@ Kirigami.ApplicationWindow {
         function onUserConsentRequired(url) {
             consentSheet.url = url
             consentSheet.open()
+        }
+    }
+
+    Connections {
+        target: Controller.activeConnection
+        onDirectChatAvailable: {
+            roomManager.enterRoom(Controller.activeConnection.room(directChat.id));
         }
     }
 

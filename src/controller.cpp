@@ -12,7 +12,6 @@
 #include <KConfig>
 #include <KConfigGroup>
 #include <KWindowConfig>
-
 #include <KLocalizedString>
 
 #include <QClipboard>
@@ -23,7 +22,6 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QStandardPaths>
-#include <QStringBuilder>
 #include <QSysInfo>
 #include <QTimer>
 #include <QCloseEvent>
@@ -32,11 +30,11 @@
 #include <QPixmap>
 #include <QAuthenticator>
 #include <QNetworkReply>
+#include <QStringBuilder>
 #include <utility>
 
 #include "csapi/account-data.h"
 #include "csapi/content-repo.h"
-#include "csapi/joining.h"
 #include "csapi/logout.h"
 #include "csapi/profile.h"
 #include "csapi/registration.h"
@@ -399,34 +397,6 @@ bool Controller::saveAccessTokenToKeyChain(const AccountSettings &account, const
     return true;
 }
 
-void Controller::joinRoom(Connection *c, const QString &alias)
-{
-    if (!alias.contains(":")) {
-        return;
-    }
-
-    auto knownServer = alias.mid(alias.indexOf(":") + 1);
-    auto joinRoomJob = c->joinRoom(alias, QStringList{knownServer});
-    Quotient::JoinRoomJob::connect(joinRoomJob, &JoinRoomJob::failure, [=] {
-        Q_EMIT errorOccured("Join Room Failed", joinRoomJob->errorString());
-    });
-}
-
-void Controller::createRoom(Connection *c, const QString &name, const QString &topic)
-{
-    auto createRoomJob = c->createRoom(Connection::PublishRoom, "", name, topic, QStringList());
-    Quotient::CreateRoomJob::connect(createRoomJob, &CreateRoomJob::failure, [=] {
-        Q_EMIT errorOccured("Create Room Failed", createRoomJob->errorString());
-    });
-}
-
-void Controller::createDirectChat(Connection *c, const QString &userID)
-{
-    auto createRoomJob = c->createDirectChat(userID);
-    Quotient::CreateRoomJob::connect(createRoomJob, &CreateRoomJob::failure, [=] {
-        Q_EMIT errorOccured("Create Direct Chat Failed", createRoomJob->errorString());
-    });
-}
 
 void Controller::playAudio(const QUrl &localFile)
 {
@@ -573,6 +543,7 @@ void Controller::saveWindowGeometry(QQuickWindow *window)
     KWindowConfig::saveWindowSize(window, windowGroup);
     dataResource.sync();
 }
+
 
 NeochatDeleteDeviceJob::NeochatDeleteDeviceJob(const QString &deviceId, const Omittable<QJsonObject> &auth)
     : Quotient::BaseJob(HttpVerb::Delete, QStringLiteral("DeleteDeviceJob"), QStringLiteral("/_matrix/client/r0/devices/%1").arg(deviceId))

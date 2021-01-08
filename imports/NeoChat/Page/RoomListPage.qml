@@ -22,9 +22,6 @@ Kirigami.ScrollablePage {
     property var enteredRoom
     required property var activeConnection
 
-    signal enterRoom(var room)
-    signal leaveRoom(var room)
-
     function goToNextRoom() {
         do {
             listView.incrementCurrentIndex();

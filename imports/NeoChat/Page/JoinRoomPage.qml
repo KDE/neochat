@@ -22,8 +22,6 @@ Kirigami.ScrollablePage {
     property alias keyword: identifierField.text
     property string server
 
-    signal joinRoom(string room)
-
     title: i18n("Explore Rooms")
 
     header: Control {
@@ -51,9 +49,9 @@ Kirigami.ScrollablePage {
 
                 onClicked: {
                     if (!identifierField.isJoined) {
-                        Controller.joinRoom(connection, identifierField.text);
+                        roomManager.actionsHandler.joinRoom(identifierField.text);
+                        // When joining the room, the room will be opened
                     }
-                    roomManager.enterRoom(connection.room(identifierField.room));
                     applicationWindow().pageStack.layers.pop();
                 }
             }
@@ -104,12 +102,12 @@ Kirigami.ScrollablePage {
             width: publicRoomsListView.width
             onClicked: {
                 if (!isJoined) {
-                    Controller.joinRoom(connection, roomID)
+                    roomManager.actionsHandler.joinRoom(connection, roomID)
                     justJoined = true;
                 } else {
                     roomManager.enterRoom(connection.room(roomID))
-                    applicationWindow().pageStack.layers.pop();
                 }
+                applicationWindow().pageStack.layers.pop();
             }
             contentItem: RowLayout {
                 Kirigami.Avatar {

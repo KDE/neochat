@@ -36,11 +36,11 @@ Kirigami.OverlaySheet {
 
         Button {
             id: okButton
+
             text: i18nc("@action:button", "Ok")
             onClicked: {
-                Controller.createRoom(Controller.activeConnection, roomNameField.text, roomTopicField.text)
+                roomManager.actionsHandler.createRoom(roomNameField.text, roomTopicField.text);
                 root.close();
-                // TODO investigate how to join the new room automatically
                 root.destroy();
             }
         }

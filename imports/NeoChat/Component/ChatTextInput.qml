@@ -326,7 +326,6 @@ ToolBar {
                         room: currentRoom ?? null
                     }
 
-
                     property int lineHeight: contentHeight / lineCount
 
                     wrapMode: Text.Wrap
@@ -470,12 +469,8 @@ ToolBar {
                     }
 
                     function postMessage() {
-                        // Qt wraps lines so we need to use a small hack
-                        // to remove the wrapped lines but not break the empty
-                        // lines.
-                        const updatedText = inputField.text.trim()
-                            .replace(/@([^: ]*):([^ ]*\.[^ ]*)/, "[@$1:$2](https://matrix.to/#/@$1:$2)");
-                        documentHandler.postMessage(updatedText, attachmentPath, replyEventID, editEventId);
+                        roomManager.actionsHandler.postMessage(inputField.text.trim(), attachmentPath,
+                            replyEventID, editEventId);
                         clearAttachment();
                         currentRoom.markAllMessagesAsRead();
                         clear();

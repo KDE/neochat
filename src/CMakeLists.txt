@@ -1,6 +1,7 @@
 add_executable(neochat
     accountlistmodel.cpp
     controller.cpp
+    actionshandler.cpp
     emojimodel.cpp
     clipboard.cpp
     matriximageprovider.cpp

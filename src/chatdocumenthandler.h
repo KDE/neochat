@@ -14,6 +14,7 @@
 class QTextDocument;
 class QQuickTextDocument;
 class NeoChatRoom;
+class Controller;
 
 class ChatDocumentHandler : public QObject
 {
@@ -51,8 +52,6 @@ public:
     [[nodiscard]] NeoChatRoom *room() const;
     void setRoom(NeoChatRoom *room);
 
-    Q_INVOKABLE void postMessage(const QString &text, const QString &attachementPath, const QString &replyEventId, const QString &editEventId) const;
-
     /// This function will look at the current QTextCursor and determine if there
     /// is the posibility to autocomplete it.
     Q_INVOKABLE QVariantMap getAutocompletionInfo();
@@ -64,6 +63,7 @@ Q_SIGNALS:
     void selectionStartChanged();
     void selectionEndChanged();
     void roomChanged();
+    void joinRoom(QString roomName);
 
 private:
     [[nodiscard]] QTextCursor textCursor() const;

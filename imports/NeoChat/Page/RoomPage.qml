@@ -28,7 +28,27 @@ Kirigami.ScrollablePage {
     signal switchRoomUp()
     signal switchRoomDown()
 
-    title: currentRoom.name
+    Connections {
+        target: roomManager.actionsHandler
+        onShowMessage: {
+            page.header.contentItem.text = message;
+            page.header.contentItem.type = messageType === ActionsHandler.Error ? Kirigami.MessageType.Error : Kirigami.MessageType.Information;
+            page.header.contentItem.visible = true;
+        }
+
+        onHideMessage: page.header.contentItem.visible = false
+    }
+
+    header: QQC2.Control {
+        visible: contentItem.visible
+        padding: Kirigami.Units.smallSpacing
+        contentItem: Kirigami.InlineMessage {
+            showCloseButton: true
+            visible: false
+        }
+    }
+
+    title: currentRoom.displayName
     titleDelegate: Component {
         RowLayout {
             visible: !Kirigami.Settings.isMobile

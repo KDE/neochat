@@ -42,7 +42,10 @@ Kirigami.ScrollablePage {
                 text: i18n("Chat")
                 highlighted: true
 
-                onClicked: Controller.createDirectChat(connection, identifierField.text)
+                onClicked: {
+                    connection.requestDirectChat(identifierField.text);
+                    applicationWindow().pageStack.layers.pop();
+                }
             }
         }
     }
@@ -103,23 +106,27 @@ Kirigami.ScrollablePage {
                 }
 
                 Button {
+                    id: joinChatButton
                     Layout.alignment: Qt.AlignRight
-                    visible: directChats != null
+                    visible: directChats && directChats.length > 0
 
                     icon.name: "document-send"
                     onClicked: {
-                        roomListForm.joinRoom(connection.room(directChats[0]))
-                        root.close()
+                        connection.requestDirectChat(userID);
+                        applicationWindow().pageStack.layers.pop();
                     }
                 }
 
                 Button {
                     Layout.alignment: Qt.AlignRight
                     icon.name: "irc-join-channel"
+                    // We wants to make sure an user can't start more than one
+                    // chat with someone.
+                    visible: !joinChatButton.visible
 
                     onClicked: {
-                        Controller.createDirectChat(connection, userID)
-                        root.close()
+                        connection.requestDirectChat(userID);
+                        applicationWindow().pageStack.layers.pop();
                     }
                 }
             }

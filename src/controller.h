@@ -113,9 +113,6 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void logout(Quotient::Connection *conn, bool serverSideLogout);
-    void joinRoom(Quotient::Connection *c, const QString &alias);
-    void createRoom(Quotient::Connection *c, const QString &name, const QString &topic);
-    void createDirectChat(Quotient::Connection *c, const QString &userID);
     static void playAudio(const QUrl &localFile);
     void changeAvatar(Quotient::Connection *conn, const QUrl &localFile);
     static void markAllMessagesAsRead(Quotient::Connection *conn);

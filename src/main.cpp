@@ -44,6 +44,7 @@
 #include "sortfilterroomlistmodel.h"
 #include "userdirectorylistmodel.h"
 #include "userlistmodel.h"
+#include "actionshandler.h"
 
 using namespace Quotient;
 
@@ -97,6 +98,7 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Config", config);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "FileType", &fileTypeSingleton);
     qmlRegisterType<AccountListModel>("org.kde.neochat", 1, 0, "AccountListModel");
+    qmlRegisterType<ActionsHandler>("org.kde.neochat", 1, 0, "ActionsHandler");
     qmlRegisterType<ChatDocumentHandler>("org.kde.neochat", 1, 0, "ChatDocumentHandler");
     qmlRegisterType<RoomListModel>("org.kde.neochat", 1, 0, "RoomListModel");
     qmlRegisterType<UserListModel>("org.kde.neochat", 1, 0, "UserListModel");

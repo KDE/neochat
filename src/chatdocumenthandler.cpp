@@ -167,53 +167,6 @@ QVariantMap ChatDocumentHandler::getAutocompletionInfo()
     };
 }
 
-void ChatDocumentHandler::postMessage(const QString &text, const QString &attachementPath, const QString &replyEventId, const QString &editEventId) const
-{
-    if (!m_room || !m_document) {
-        return;
-    }
-
-    QString cleanedText = text;
-
-    cleanedText = cleanedText.trimmed();
-
-    if (attachementPath.length() > 0) {
-        m_room->uploadFile(attachementPath, cleanedText);
-    }
-
-    if (cleanedText.length() == 0) {
-        return;
-    }
-
-    auto messageEventType = RoomMessageEvent::MsgType::Text;
-
-    const QString rainbowPrefix = QStringLiteral("/rainbow ");
-    const QString mePrefix = QStringLiteral("/me ");
-    const QString noticePrefix = QStringLiteral("/notice ");
-
-    if (cleanedText.indexOf(rainbowPrefix) == 0) {
-        cleanedText = cleanedText.remove(0, rainbowPrefix.length());
-        QString rainbowText;
-        QStringList rainbowColors{"#ff2b00", "#ff5500", "#ff8000", "#ffaa00", "#ffd500", "#ffff00", "#d4ff00", "#aaff00", "#80ff00", "#55ff00", "#2bff00", "#00ff00", "#00ff2b", "#00ff55", "#00ff80", "#00ffaa", "#00ffd5", "#00ffff",
-                                  "#00d4ff", "#00aaff", "#007fff", "#0055ff", "#002bff", "#0000ff", "#2a00ff", "#5500ff", "#7f00ff", "#aa00ff", "#d400ff", "#ff00ff", "#ff00d4", "#ff00aa", "#ff0080", "#ff0055", "#ff002b", "#ff0000"};
-
-        for (int i = 0; i < cleanedText.length(); i++) {
-            rainbowText = rainbowText % QStringLiteral("<font color='") % rainbowColors.at(i % rainbowColors.length()) % "'>" % cleanedText.at(i) % "</font>";
-        }
-        m_room->postHtmlMessage(cleanedText, rainbowText, messageEventType, replyEventId, editEventId);
-        return;
-    }
-
-    if (cleanedText.indexOf(mePrefix) == 0) {
-        cleanedText = cleanedText.remove(0, mePrefix.length());
-        messageEventType = RoomMessageEvent::MsgType::Emote;
-    } else if (cleanedText.indexOf(noticePrefix) == 0) {
-        cleanedText = cleanedText.remove(0, noticePrefix.length());
-        messageEventType = RoomMessageEvent::MsgType::Notice;
-    }
-    m_room->postMessage(cleanedText, messageEventType, replyEventId, editEventId);
-}
-
 void ChatDocumentHandler::replaceAutoComplete(const QString &word)
 {
     QTextCursor cursor = textCursor();
