@@ -356,33 +356,44 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
             switch (e.membership()) {
             case MembershipType::Invite:
                 if (e.repeatsState()) {
-                    return i18n("reinvited %1 to the room", subjectName);
+                    auto text = i18n("reinvited %1 to the room", subjectName);
+                    if (!e.reason().isEmpty()) {
+                        text += i18nc("Optional reason for an invitation", ": %1") + e.reason().toHtmlEscaped();
+                    }
+                    return text;
                 }
-                break;
+                Q_FALLTHROUGH();
             case MembershipType::Join: {
+                QString text {};
+                // Part 1: invites and joins
                 if (e.repeatsState()) {
-                    return i18n("joined the room (repeated)");
+                    text = i18n("joined the room (repeated)");
+                } else if (e.changesMembership()) {
+                    text = e.membership() == MembershipType::Invite
+                            ? i18n("invited %1 to the room", subjectName)
+                            : i18n("joined the room");
                 }
-                if (!e.prevContent() || e.membership() != e.prevContent()->membership) {
-                    return e.membership() == MembershipType::Invite ? i18n("invited %1 to the room", subjectName) : i18n("joined the room");
+                if (!text.isEmpty()) {
+                    if (!e.reason().isEmpty()) {
+                        text += i18n(": %1", e.reason().toHtmlEscaped());
+                    }
+                    return text;
                 }
-                QString text{};
-                if (e.isRename()) {
-                    if (!e.newDisplayName().has_value()) {
+                // Part 2: profile changes of joined members
+                if (e.isRename() && NeoChatConfig::self()->showRename()) {
+                    if (e.newDisplayName().has_value()) {
                         text = i18n("cleared their display name");
                     } else {
                         text = i18n("changed their display name to %1", e.newDisplayName()->toHtmlEscaped());
                     }
                 }
-                if (e.isAvatarUpdate()) {
+                if (e.isAvatarUpdate() && NeoChatConfig::self()->showAvatarUpdate()) {
                     if (!text.isEmpty()) {
                         text += i18n(" and ");
                     }
                     if (!e.newAvatarUrl().has_value()) {
                         text += i18n("cleared their avatar");
                     } else if (e.prevContent()->avatarUrl) {
-                        text += i18n("set an avatar");
-                    } else {
                         text += i18n("updated their avatar");
                     }
                 }
