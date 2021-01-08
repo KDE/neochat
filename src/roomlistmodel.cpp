@@ -256,6 +256,9 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
     }
     NeoChatRoom *room = m_rooms.at(index.row());
     if (role == NameRole) {
+        return !room->name().isEmpty() ? room->name() : room->displayName();
+    }
+    if (role == DisplayNameRole) {
         return room->displayName();
     }
     if (role == AvatarRole) {
@@ -324,6 +327,7 @@ QHash<int, QByteArray> RoomListModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
     roles[NameRole] = "name";
+    roles[DisplayNameRole] = "displayName";
     roles[AvatarRole] = "avatar";
     roles[TopicRole] = "topic";
     roles[CategoryRole] = "category";

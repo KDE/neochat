@@ -288,7 +288,7 @@ QString NeoChatRoom::avatarMediaId() const
     const auto dcUsers = directChatUsers();
     for (const auto u : dcUsers) {
         if (u != localUser()) {
-            return u->avatarMediaId();
+            return u->avatarMediaId(this);
         }
     }
 

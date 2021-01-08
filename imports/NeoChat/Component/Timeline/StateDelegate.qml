@@ -25,7 +25,7 @@ RowLayout {
         Layout.preferredWidth: Kirigami.Units.iconSizes.small
         Layout.preferredHeight: Kirigami.Units.iconSizes.small
 
-        name: author.displayName
+        name: author.name
         source: author.avatarMediaId ? ("image://mxc/" + author.avatarMediaId) : ""
         color: author.color
 

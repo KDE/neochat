@@ -42,7 +42,7 @@ Kirigami.OverlaySheet {
                 Layout.preferredHeight: 72
                 Layout.alignment: Qt.AlignTop
 
-                name: room.displayName
+                name: room.name
                 source: room.avatarMediaId ? ("image://mxc/" + room.avatarMediaId) : ""
 
                 MouseArea {
