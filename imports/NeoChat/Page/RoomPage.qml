@@ -303,7 +303,8 @@ Kirigami.ScrollablePage {
                         innerObject: [
                             MouseArea {
                                 acceptedButtons: (Kirigami.Settings.isMobile ? Qt.LeftButton : 0) | Qt.RightButton
-                                anchors.fill: parent
+                                Layout.fillWidth: true
+                                Layout.fillHeight: true
                                 onClicked: {
                                     if (mouse.button == Qt.RightButton) {
                                         openMessageContext(author, display, eventId, toolTip);
