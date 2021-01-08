@@ -543,6 +543,8 @@ ToolBar {
                 icon.name: "document-send"
                 icon.color: "transparent"
 
+                enabled: inputField.length > 0
+
                 onClicked: {
                     inputField.postMessage()
                     inputField.text = ""
