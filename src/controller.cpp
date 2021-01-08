@@ -258,9 +258,13 @@ void Controller::dropConnection(Connection *c)
 void Controller::invokeLogin()
 {
     const auto accounts = SettingsGroup("Accounts").childGroups();
-    const QString id = NeoChatConfig::self()->activeConnection();
+    QString id = NeoChatConfig::self()->activeConnection();
     for (const auto &accountId : accounts) {
         AccountSettings account{accountId};
+        if (id.isEmpty()) {
+            // handle case where the account config is empty
+            id = accountId;
+        }
         if (!account.homeserver().isEmpty()) {
             auto accessToken = loadAccessTokenFromKeyChain(account);
 
