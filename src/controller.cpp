@@ -269,9 +269,9 @@ void Controller::invokeLogin()
             auto accessToken = loadAccessTokenFromKeyChain(account);
 
             auto connection = new Connection(account.homeserver(), this);
-            addConnection(connection);
             connect(connection, &Connection::connected, this, [=] {
                 connection->loadState();
+                addConnection(connection);
                 if (connection->userId() == id) {
                     setActiveConnection(connection);
                     Q_EMIT initiated();
