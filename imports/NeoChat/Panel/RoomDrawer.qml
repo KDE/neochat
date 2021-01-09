@@ -166,6 +166,16 @@ Kirigami.OverlayDrawer {
                 headerPositioning: ListView.OverlayHeader
                 boundsBehavior: Flickable.DragOverBounds
 
+                header: Pane {
+                    padding: Kirigami.Units.smallSpacing
+                    implicitWidth: parent.width
+                    z: 2
+                    contentItem: Kirigami.SearchField {
+                        id: userListSearchField
+                        onTextChanged: sortedMessageEventModel.filterString = text;
+                    }
+                }
+
                 model: KSortFilterProxyModel {
                     id: sortedMessageEventModel
 
@@ -174,11 +184,13 @@ Kirigami.OverlayDrawer {
                     }
 
                     sortRole: "perm"
+                    filterRole: "name"
                 }
 
                 delegate: Kirigami.AbstractListItem {
                     width: userListView.width
                     implicitHeight: Kirigami.Units.gridUnit * 2
+                    z: 1
 
                     contentItem: RowLayout {
                         Kirigami.Avatar {
