@@ -15,7 +15,7 @@ class ActionsHandler : public QObject
 {
     Q_OBJECT
 
-    /// \brief List of command definition. Usefull for buiding an autcompletion
+    /// \brief List of command definition. Useful for building an autcompletion
     /// engine or an help dialog.
     Q_PROPERTY(QVariantList commands READ commands CONSTANT)
 
@@ -49,7 +49,7 @@ Q_SIGNALS:
     /// These messages will be displayed in the room view header.
     void showMessage(MessageType messageType, QString message);
 
-    /// \brief Emmited when an action made the user join a room.
+    /// \brief Emitted when an action made the user join a room.
     ///
     /// Either when a new room was created, a direct chat was started
     /// or a group chat was joined. The UI will react to this signal

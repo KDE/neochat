@@ -57,7 +57,7 @@ bool Clipboard::saveImage(const QUrl &localPath) const
 void Clipboard::saveText(QString message)
 {
     QRegularExpression re("<[^>]*>");
-    auto *mineData = new QMimeData; // ownership is transfered to clipboard
+    auto *mineData = new QMimeData; // ownership is transferred to clipboard
     mineData->setHtml(message);
     mineData->setText(message.replace(re, ""));
     m_clipboard->setMimeData(mineData);

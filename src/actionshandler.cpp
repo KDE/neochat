@@ -138,7 +138,7 @@ void ActionsHandler::joinRoom(const QString &alias)
     auto joinRoomJob = m_connection->joinRoom(alias, QStringList{knownServer});
 
     Quotient::JoinRoomJob::connect(joinRoomJob, &JoinRoomJob::failure, [=] {
-        Q_EMIT showMessage(MessageType::Error, i18n("Serveur error when joining the room \"%1\": %2",
+        Q_EMIT showMessage(MessageType::Error, i18n("Server error when joining the room \"%1\": %2",
                     joinRoomJob->errorString()));
     });
     Quotient::JoinRoomJob::connect(joinRoomJob, &JoinRoomJob::success, [this, joinRoomJob] {

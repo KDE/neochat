@@ -45,7 +45,7 @@ Flow {
 
                 for (var i = 0; i < modelData.authors.length; i++) {
                     if (i === modelData.authors.length - 1 && i !== 0) {
-                        text += i18nc("Seperate the usernames of users", " and ")
+                        text += i18nc("Separate the usernames of users", " and ")
                     } else if (i !== 0) {
                         text += ", "
                     }

@@ -53,7 +53,7 @@ public:
     void setRoom(NeoChatRoom *room);
 
     /// This function will look at the current QTextCursor and determine if there
-    /// is the posibility to autocomplete it.
+    /// is the possibility to autocomplete it.
     Q_INVOKABLE QVariantMap getAutocompletionInfo();
     Q_INVOKABLE void replaceAutoComplete(const QString &word);
 

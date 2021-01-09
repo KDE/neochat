@@ -48,7 +48,7 @@ public:
 
     Q_INVOKABLE QString suffixForFileName(const QString &fileName) const;
 
-    // These return a list of file extentions, not mimetypes
+    // These return a list of file extensions, not mimetypes
     QStringList supportedImageFormats() const;
     QStringList supportedAnimatedImageFormats() const;
 
