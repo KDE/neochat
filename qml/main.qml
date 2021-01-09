@@ -117,6 +117,12 @@ Kirigami.ApplicationWindow {
             pageStack.replace(roomPage, { 'currentRoom': currentRoom, });
         }
 
+        function openWindow(room) {
+            const secondayWindow = roomWindow.createObject(applicationWindow(), {currentRoom: room});
+            secondayWindow.width = root.width - roomList.width;
+            secondayWindow.show();
+        }
+
         function connectRoomToSignal(item) {
             if (!roomList) {
                 console.log("Should not happen: no room list page but room page");
@@ -346,5 +352,10 @@ Kirigami.ApplicationWindow {
         id: createRoomDialog
 
         CreateRoomDialog {}
+    }
+
+    Component {
+        id: roomWindow
+        RoomWindow {}
     }
 }

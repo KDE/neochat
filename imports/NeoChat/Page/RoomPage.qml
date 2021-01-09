@@ -23,7 +23,7 @@ import NeoChat.Menu.Timeline 1.0
 Kirigami.ScrollablePage {
     id: page
 
-    property var currentRoom
+    required property var currentRoom
 
     signal switchRoomUp()
     signal switchRoomDown()
