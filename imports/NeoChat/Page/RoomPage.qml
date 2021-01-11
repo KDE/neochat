@@ -40,6 +40,7 @@ Kirigami.ScrollablePage {
     }
 
     header: QQC2.Control {
+        height: visible ? implicitHeight : 0
         visible: contentItem.visible
         padding: Kirigami.Units.smallSpacing
         contentItem: Kirigami.InlineMessage {
