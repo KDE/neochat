@@ -266,7 +266,15 @@ QVariantList NeoChatRoom::getUsers(const QString &keyword) const
     QVariantList matchedList;
     for (const auto u : userList) {
         if (u->displayname(this).contains(keyword, Qt::CaseInsensitive)) {
-            matchedList.append(QVariant::fromValue(u));
+            NeoChatUser user(u->id(), u->connection());
+            QVariantMap userVariant {
+                { QStringLiteral("id"), user.id() },
+                { QStringLiteral("displayName"), user.displayname(this) },
+                { QStringLiteral("avatarMediaId"), user.avatarMediaId(this) },
+                { QStringLiteral("color"), user.color() }
+            };
+
+            matchedList.append(QVariant::fromValue(userVariant));
         }
     }
 

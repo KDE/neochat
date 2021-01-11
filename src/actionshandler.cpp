@@ -159,12 +159,17 @@ void ActionsHandler::createRoom(const QString &name, const QString &topic)
 }
 
 void ActionsHandler::postMessage(const QString &text,
-        const QString &attachementPath, const QString &replyEventId, const QString &editEventId)
+        const QString &attachementPath, const QString &replyEventId, const QString &editEventId,
+        const QVariantMap usernames)
 {
     QString rawText = text;
     QString cleanedText = text;
-    cleanedText = cleanedText.replace(QRegularExpression("@([^: ]*):([^ ]*\\.[^ ]*)"),
-            "[@$1:$2](https://matrix.to/#/@$1:$2)");
+
+    for (const auto username : usernames.keys()) {
+        const auto replacement = usernames.value(username);
+        cleanedText = cleanedText.replace(username,
+                "[" + username + "](https://matrix.to/#/" + replacement.toString() + ")");
+    }
 
     if (attachementPath.length() > 0) {
         m_room->uploadFile(attachementPath, cleanedText);
