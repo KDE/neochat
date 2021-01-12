@@ -39,6 +39,7 @@ public:
         ShowSectionRole,
 
         ReactionRole,
+        IsEditedRole,
 
         // For debugging
         EventResolvedTypeRole,

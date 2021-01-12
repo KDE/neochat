@@ -44,6 +44,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[ShowAuthorRole] = "showAuthor";
     roles[ShowSectionRole] = "showSection";
     roles[ReactionRole] = "reaction";
+    roles[IsEditedRole] = "isEdited";
     return roles;
 }
 
@@ -416,6 +417,11 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             }
         }
 
+        // isReplacement?
+        if (auto e = eventCast<const RoomMessageEvent>(&evt))
+            if (!e->replacedEvent().isEmpty())
+                return EventStatus::Hidden;
+
         if (is<RedactionEvent>(evt) || is<ReactionEvent>(evt)) {
             return EventStatus::Hidden;
         }
@@ -438,6 +444,13 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         }
 
         return EventStatus::Normal;
+    }
+
+    if (role == IsEditedRole) {
+        if (auto e = eventCast<const RoomMessageEvent>(&evt)) {
+            return !e->unsignedJson().isEmpty() && e->unsignedJson().contains("m.relations") && e->unsignedJson()["m.relations"].toObject().contains("m.replace");
+        }
+        return false;
     }
 
     if (role == EventIdRole) {
