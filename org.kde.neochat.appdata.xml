@@ -105,17 +105,25 @@
     <content_attribute id="social-chat">intense</content_attribute>
   </content_rating>
   <releases>
+    <release version="1.0.1" date="2021-01-13">
+      <description>
+        <p>This version fixes several bugs.<p>
+        <ul>
+          <li>NeoChat doesn't require a .well-know configuration in the server to work.</li>
+          <li>Edited messages won't show up duplicated anymore.</li>
+          <li>Various graphic glitches have been fixed.</li>
+          <li>NeoChat now ask for consent to terms and conditions if required instead of displaying nothing.</li>
+          <li>Users avatar in the room list are now displayed correctly.</li>
+          <li>Fix image saving</li>
+        </ul>
+      </description>
+      <url>https://carlschwan.eu/2020/01/13/neochat-1.0.1/</url>
+    </release>
     <release version="1.0" date="2020-12-23">
       <description>
-        <p>Initial release of NeoChat</p>
+        <p>Initial release of NeoChat, the KDE matrix client.</p>
       </description>
       <url>https://carlschwan.eu/2020/12/23/announcing-neochat-1.0-the-kde-matrix-client/</url>
-      <artifacts>
-        <artifact type="source">
-          <location>https://download.kde.org/stable/neochat/1.0/neochat-1.0.tar.xz</location>
-          <checksum type="sha256">45231249f5af93d3cb56763a9aab1211f26916eedd7af732f9c945c58f8289c4</checksum>
-        </artifact>
-      </artifacts>
     </release>
   </releases>
 </component>
