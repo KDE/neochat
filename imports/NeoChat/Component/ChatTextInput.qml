@@ -133,6 +133,7 @@ ToolBar {
             keyNavigationWraps: true
 
             delegate: Control {
+                readonly property string userId: modelData.id ?? ""
                 readonly property string displayText: modelData.displayName ?? modelData.unicode
                 readonly property bool isEmoji: modelData.unicode != null
                 readonly property bool highlighted: autoCompleteListView.currentIndex == index
@@ -437,13 +438,18 @@ ToolBar {
                     autoCompleteEndPosition = cursorPosition
                 }
 
+                // store each user we autoComplete here, this will be helpful later to generate
+                // the matrix.to links.
+                // This use an hack to define: https://doc.qt.io/qt-5/qml-var.html#property-value-initialization-semantics
+                property var userAutocompleted: ({})
+
+
                 function postMessage() {
                     // Qt wraps lines so we need to use a small hack
                     // to remove the wrapped lines but not break the empty
                     // lines.
-                    const updatedText = inputField.text.trim()
-                        .replace(/@([^: ]*):([^ ]*\.[^ ]*)/, "[@$1:$2](https://matrix.to/#/@$1:$2)");
-                    documentHandler.postMessage(updatedText, attachmentPath, replyEventID);
+                    documentHandler.postMessage(inputField.text.trim(), attachmentPath, replyEventID,
+                        inputField.userAutocompleted);
                     clearAttachment();
                     currentRoom.markAllMessagesAsRead();
                     clear();
@@ -454,6 +460,9 @@ ToolBar {
 
                 function autoComplete() {
                     documentHandler.replaceAutoComplete(autoCompleteListView.currentItem.displayText)
+                    if (!autoCompleteListView.currentItem.isEmoji) {
+                        inputField.userAutocompleted[autoCompleteListView.currentItem.displayText] = autoCompleteListView.currentItem.userId;
+                    }
                 }
             }
 
@@ -543,6 +552,7 @@ ToolBar {
 
     function clear() {
         inputField.clear()
+        inputField.userAutocompleted = {};
     }
 
     function clearReply() {

@@ -51,7 +51,7 @@ public:
     [[nodiscard]] NeoChatRoom *room() const;
     void setRoom(NeoChatRoom *room);
 
-    Q_INVOKABLE void postMessage(const QString &text, const QString &attachementPath, const QString &replyEventId) const;
+    Q_INVOKABLE void postMessage(const QString &text, const QString &attachementPath, const QString &replyEventId, const QVariantMap usernames) const;
 
     /// This function will look at the current QTextCursor and determine if there
     /// is the posibility to autocomplete it.

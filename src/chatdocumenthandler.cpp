@@ -167,7 +167,8 @@ QVariantMap ChatDocumentHandler::getAutocompletionInfo()
     };
 }
 
-void ChatDocumentHandler::postMessage(const QString &text, const QString &attachementPath, const QString &replyEventId) const
+void ChatDocumentHandler::postMessage(const QString &text, const QString &attachementPath,
+        const QString &replyEventId, const QVariantMap usernames) const
 {
     if (!m_room || !m_document) {
         return;
@@ -176,6 +177,13 @@ void ChatDocumentHandler::postMessage(const QString &text, const QString &attach
     QString cleanedText = text;
 
     cleanedText = cleanedText.trimmed();
+
+    for (const auto username : usernames.keys()) {
+        const auto replacement = usernames.value(username);
+        cleanedText = cleanedText.replace(username,
+                "[" + username + "](https://matrix.to/#/" + replacement.toString() + ")");
+    }
+
 
     if (attachementPath.length() > 0) {
         m_room->uploadFile(attachementPath, cleanedText);
@@ -200,7 +208,7 @@ void ChatDocumentHandler::postMessage(const QString &text, const QString &attach
         for (int i = 0; i < cleanedText.length(); i++) {
             rainbowText = rainbowText % QStringLiteral("<font color='") % rainbowColors.at(i % rainbowColors.length()) % "'>" % cleanedText.at(i) % "</font>";
         }
-        m_room->postHtmlMessage(cleanedText, rainbowText, messageEventType, replyEventId);
+        m_room->postHtmlMessage(text, rainbowText, messageEventType, replyEventId);
         return;
     }
 
