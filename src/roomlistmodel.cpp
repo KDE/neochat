@@ -429,3 +429,13 @@ bool RoomListModel::categoryVisible(int category) const
 {
     return m_categoryVisibility.value(category, true);
 }
+
+NeoChatRoom *RoomListModel::roomByAliasOrId(const QString &aliasOrId)
+{
+    for(const auto &room : m_rooms) {
+        if(room->aliases().contains(aliasOrId) || room->id() == aliasOrId) {
+            return room;
+        }
+    }
+    return nullptr;
+}

@@ -77,6 +77,15 @@ Kirigami.ApplicationWindow {
         signal leaveRoom(string room);
         signal openRoom(string room);
 
+        function roomByAliasOrId(aliasOrId) {
+            return spectralRoomListModel.roomByAliasOrId(aliasOrId)
+        }
+
+        function openRoomAndEvent(room, event) {
+            enterRoom(room)
+            roomItem.goToEvent(event)
+        }
+
         function loadInitialRoom() {
             if (Config.openRoom) {
                 const room = Controller.activeConnection.room(Config.openRoom);
@@ -346,5 +355,38 @@ Kirigami.ApplicationWindow {
     Component {
         id: roomWindow
         RoomWindow {}
+    }
+
+    function handleLink(link, currentRoom) {
+        if (link.startsWith("https://matrix.to/")) {
+            var content = link.replace("https://matrix.to/#/", "").replace(/\?.*/, "")
+            if(content.match("^[#!]")) {
+                if(content.includes("/")) {
+                    var result = content.match("([!#].*:.*)/(\\$.*)")
+                    if(!result) {
+                        return
+                    }
+                    if(result[1] == currentRoom.id) {
+                        roomManager.roomItem.goToEvent(result[2])
+                    } else {
+                        roomManager.openRoomAndEvent(roomManager.roomByAliasOrId(result[1]), result[2])
+                    }
+                } else {
+                    roomManager.enterRoom(roomManager.roomByAliasOrId(content))
+                }
+            } else if(content.match("^@")) {
+                let dialog = userDialog.createObject(root.overlay, {room: currentRoom, user: currentRoom.user(content)})
+                dialog.open()
+                console.log(dialog.user)
+            }
+        } else {
+            Qt.openUrlExternally(link)
+        }
+    }
+
+    Component {
+        id: userDialog
+        UserDetailDialog {
+        }
     }
 }

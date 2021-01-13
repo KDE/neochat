@@ -45,15 +45,7 @@ a{
     textFormat: Text.RichText
 
     onLinkActivated: {
-        if (link.startsWith("https://matrix.to/")) {
-            var result = link.replace(/\?.*/, "").match("https://matrix.to/#/(!.*:.*)/(\\$.*:.*)")
-            if (!result || result.length < 3) return
-            if (result[1] != currentRoom.id) return
-            if (!result[2]) return
-            goToEvent(result[2])
-        } else {
-            Qt.openUrlExternally(link)
-        }
+        applicationWindow().handleLink(link, currentRoom)
     }
 
     MouseArea {

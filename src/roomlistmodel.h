@@ -80,6 +80,8 @@ public:
         return m_notificationCount;
     }
 
+    Q_INVOKABLE NeoChatRoom *roomByAliasOrId(const QString &aliasOrId);
+
 private Q_SLOTS:
     void doAddRoom(Quotient::Room *room);
     void updateRoom(Quotient::Room *room, Quotient::Room *prev);
