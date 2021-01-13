@@ -14,10 +14,25 @@
 #include <QBrush>
 #include <QColor>
 #include <QDebug>
+#ifndef Q_OS_ANDROID
+#include <QDBusConnection>
+#include <QDBusMessage>
+#include <QDBusInterface>
+#endif
 #include <QStandardPaths>
 
 #include <KLocalizedString>
 #include <utility>
+
+#ifndef Q_OS_ANDROID
+bool useUnityCounter() {
+    static const auto Result = QDBusInterface(
+        "com.canonical.Unity",
+        "/").isValid();
+
+    return Result;
+}
+#endif
 
 RoomListModel::RoomListModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -26,6 +41,37 @@ RoomListModel::RoomListModel(QObject *parent)
     for (auto collapsedSection : collapsedSections) {
         m_categoryVisibility[collapsedSection] = false;
     }
+
+#ifndef Q_OS_ANDROID
+    connect(this, &RoomListModel::notificationCountChanged, this, [this]() {
+        if (useUnityCounter()) {
+            // copied from Telegram desktop
+            const auto launcherUrl = "application://org.kde.neochat.desktop";
+            // Gnome requires that count is a 64bit integer
+            const qint64 counterSlice = std::min(m_notificationCount, 9999);
+            QVariantMap dbusUnityProperties;
+
+            if (counterSlice > 0) {
+                dbusUnityProperties["count"] = counterSlice;
+                dbusUnityProperties["count-visible"] = true;
+            } else {
+                dbusUnityProperties["count-visible"] = false;
+            }
+
+            auto signal = QDBusMessage::createSignal(
+                "/com/canonical/unity/launcherentry/org.kde.neochat",
+                "com.canonical.Unity.LauncherEntry",
+                "Update");
+
+            signal.setArguments({
+                launcherUrl,
+                dbusUnityProperties
+            });
+
+            QDBusConnection::sessionBus().send(signal);
+        }
+    });
+#endif
 }
 
 RoomListModel::~RoomListModel() = default;
@@ -181,6 +227,9 @@ void RoomListModel::refreshNotificationCount()
     int count = 0;
     for (auto room : qAsConst(m_rooms)) {
         count += room->notificationCount();
+    }
+    if (m_notificationCount == count) {
+        return;
     }
     m_notificationCount = count;
     Q_EMIT notificationCountChanged();
