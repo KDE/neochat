@@ -228,7 +228,7 @@ Kirigami.OverlayDrawer {
                                 }
                                 return ""
                             }
-                            color: perm == UserType.Muted ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.textColor
+                            color: Kirigami.Theme.disabledTextColor
                             font.pixelSize: 12
                             textFormat: Text.PlainText
                             wrapMode: Text.NoWrap
