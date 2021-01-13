@@ -59,7 +59,7 @@ RoomListModel::RoomListModel(QObject *parent)
             }
 
             auto signal = QDBusMessage::createSignal(
-                "/com/canonical/unity/launcherentry/org.kde.neochat",
+                "/com/canonical/unity/launcherentry/neochat",
                 "com.canonical.Unity.LauncherEntry",
                 "Update");
 
