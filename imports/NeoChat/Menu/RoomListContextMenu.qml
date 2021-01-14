@@ -16,6 +16,13 @@ Menu {
     property var room
 
     MenuItem {
+        text: i18n("Open in new window")
+        onTriggered: roomManager.openWindow(room);
+    }
+
+    MenuSeparator {}
+
+    MenuItem {
         text: room.isFavourite ? i18n("Remove from Favourites") : i18n("Add to Favourites")
 
         onTriggered: room.isFavourite ? room.removeTag("m.favourite") : room.addTag("m.favourite", 1.0)
@@ -26,8 +33,6 @@ Menu {
 
         onTriggered: room.isLowPriority ? room.removeTag("m.lowpriority") : room.addTag("m.lowpriority", 1.0)
     }
-
-    MenuSeparator {}
 
     MenuItem {
         text: i18n("Mark as Read")
@@ -40,13 +45,6 @@ Menu {
     MenuItem {
         text: i18n("Leave Room")
         onTriggered: room.forget()
-    }
-
-    MenuSeparator {}
-
-    MenuItem {
-        text: i18n("Open in new window")
-        onTriggered: roomManager.openWindow(room);
     }
 
     onClosed: destroy()
