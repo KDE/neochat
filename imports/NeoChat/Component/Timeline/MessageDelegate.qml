@@ -51,7 +51,7 @@ RowLayout {
         Layout.alignment: Qt.AlignTop
 
         visible: showAuthor && Config.showAvatarInTimeline
-        name: author.name
+        name: author.name ?? author.displayName
         source: author.avatarMediaId ? ("image://mxc/" + author.avatarMediaId) : ""
         color: author.color
 
