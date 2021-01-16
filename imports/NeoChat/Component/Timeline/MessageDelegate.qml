@@ -95,7 +95,7 @@ RowLayout {
                     visible: showAuthor && !isEmote
 
                     text: author.displayName
-                    font.bold: true
+                    font.weight: Font.Bold
                     color: author.color
                     wrapMode: Text.Wrap
                 }
