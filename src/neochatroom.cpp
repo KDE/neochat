@@ -529,7 +529,9 @@ QString msgTypeToString(MessageEventType msgType)
 void NeoChatRoom::postMessage(const QString &text, MessageEventType type, const QString &replyEventId, const QString &relateToEventId)
 {
     const auto html = markdownToHTML(text);
-    postHtmlMessage(text, html, type, replyEventId, relateToEventId);
+    QString cleanText(text);
+    cleanText.replace(QRegularExpression("\\[(.+)\\]\\(.+\\)"), "\\1");
+    postHtmlMessage(cleanText, html, type, replyEventId, relateToEventId);
 }
 
 void NeoChatRoom::postHtmlMessage(const QString &text, const QString &html, MessageEventType type, const QString &replyEventId, const QString &relateToEventId)
