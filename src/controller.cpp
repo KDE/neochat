@@ -105,7 +105,7 @@ void Controller::loginWithCredentials(const QString &serverAddr, const QString &
     }
 
     auto conn = new Connection(this);
-    const QUrl serverUrl = QUrl(serverAddr);
+    const QUrl serverUrl = QUrl::fromUserInput(serverAddr);
     // we are using a fake mixd since resolveServer just set the homeserver url :sigh:
     conn->resolveServer("@username:" + serverUrl.host() + ":" + QString::number(serverUrl.port(443)));
 
