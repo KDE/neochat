@@ -161,7 +161,7 @@ const RoomMessageEvent *NeoChatRoom::lastEvent(bool ignoreStateEvent) const
 QString NeoChatRoom::lastEventToString() const
 {
     if (auto event = lastEvent()) {
-        return user(event->senderId())->displayname() + (event->isStateEvent() ? " " : ": ") + eventToString(*event);
+        return user(event->senderId())->displayname(this) + (event->isStateEvent() ? " " : ": ") + eventToString(*event);
     }
     return QLatin1String("");
 }
