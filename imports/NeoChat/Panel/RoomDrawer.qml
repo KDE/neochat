@@ -139,6 +139,7 @@ Kirigami.OverlayDrawer {
                     selectByMouse: true
                     color: Kirigami.Theme.textColor
                     onLinkActivated: Qt.openUrlExternally(link)
+                    readOnly: true
                     MouseArea {
                         anchors.fill: parent
                         acceptedButtons: Qt.NoButton
