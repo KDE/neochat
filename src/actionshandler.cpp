@@ -159,16 +159,15 @@ void ActionsHandler::createRoom(const QString &name, const QString &topic)
 }
 
 void ActionsHandler::postMessage(const QString &text,
-        const QString &attachementPath, const QString &replyEventId, const QString &editEventId,
-        const QVariantMap usernames)
+        const QString &attachementPath, const QString &replyEventId, const QString &editEventId)
 {
     QString rawText = text;
     QString cleanedText = text;
 
-    for (const auto username : usernames.keys()) {
-        const auto replacement = usernames.value(username);
-        cleanedText = cleanedText.replace(username,
-                "[" + username + "](https://matrix.to/#/" + replacement.toString() + ")");
+    for (const auto *user : m_room->users()) {
+        const auto displayName = user->displayname(m_room);
+        cleanedText = cleanedText.replace(displayName,
+                "[" + displayName + "](https://matrix.to/#/" + user->id() + ")");
     }
 
     if (attachementPath.length() > 0) {
@@ -271,9 +270,6 @@ void ActionsHandler::postMessage(const QString &text,
     if (rawText.indexOf(partPrefix) == 0) {
         rawText = rawText.remove(0, partPrefix.length());
         const QStringList splittedText = rawText.split(" ");
-        qDebug() << m_room;
-        qDebug() << "m_room";
-        qDebug() << splittedText;
         if (splittedText.count() == 0 || splittedText[0].isEmpty()) {
             // leave current room
             m_connection->leaveRoom(m_room);
