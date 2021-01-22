@@ -469,9 +469,14 @@ ToolBar {
                         autoCompleteEndPosition = cursorPosition
                     }
 
+                    // store each user we autoComplete here, this will be helpful later to generate
+                    // the matrix.to links.
+                    // This use an hack to define: https://doc.qt.io/qt-5/qml-var.html#property-value-initialization-semantics
+                    property var userAutocompleted: ({})
+
                     function postMessage() {
                         roomManager.actionsHandler.postMessage(inputField.text.trim(), attachmentPath,
-                            replyEventID, editEventId);
+                            replyEventID, editEventId, inputField.userAutocompleted);
                         clearAttachment();
                         currentRoom.markAllMessagesAsRead();
                         clear();
@@ -482,6 +487,10 @@ ToolBar {
 
                     function autoComplete() {
                         documentHandler.replaceAutoComplete(autoCompleteListView.currentItem.displayText)
+                        // Unfortunally it doesn't
+                        if (!autoCompleteListView.currentItem.isEmoji) {
+                            inputField.userAutocompleted[autoCompleteListView.currentItem.displayText] = autoCompleteListView.currentItem.userId;
+                        }
                     }
                 }
             }
@@ -574,6 +583,7 @@ ToolBar {
 
     function clear() {
         inputField.clear()
+        inputField.userAutocompleted = {};
     }
 
     function clearEditReply() {
