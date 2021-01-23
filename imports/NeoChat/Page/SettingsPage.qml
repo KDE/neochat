@@ -22,29 +22,44 @@ Kirigami.ScrollablePage {
             Kirigami.FormData.label: i18n("Notifications and events:")
             text: i18n("Show notifications")
             checked: Config.showNotifications
-            onToggled: Config.showNotifications = checked
+            onToggled: {
+                Config.showNotifications = checked
+                Config.save()
+            }
         }
         QQC2.CheckBox {
             text: i18n("Show leave and join events")
             checked: Config.showLeaveJoinEvent
-            onToggled: Config.showLeaveJoinEvent = checked
+            onToggled: {
+                Config.showLeaveJoinEvent = checked
+                Config.save()
+            }
         }
         QQC2.RadioButton {
             Kirigami.FormData.label: i18n("Rooms and private chats:")
             text: i18n("Separated")
             checked: !Config.mergeRoomList
-            onToggled: Config.mergeRoomList = false
+            onToggled: {
+                Config.mergeRoomList = false
+                Config.save()
+            }
         }
         QQC2.RadioButton {
             text: i18n("Intermixed")
             checked: Config.mergeRoomList
-            onToggled: Config.mergeRoomList = true
+            onToggled: {
+                Config.mergeRoomList = true
+                Config.save()
+            }
         }
         QQC2.CheckBox {
             Kirigami.FormData.label: i18n("Timeline:")
             text: i18n("Show User Avatar")
             checked: Config.showAvatarInTimeline
-            onToggled: Config.showAvatarInTimeline = checked
+            onToggled: {
+                Config.showAvatarInTimeline = checked
+                Config.save()
+            }
         }
     }
 }
