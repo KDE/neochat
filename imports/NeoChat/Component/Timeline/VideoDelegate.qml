@@ -93,7 +93,7 @@ Video {
 
         visible: vid.playbackState == MediaPlayer.StoppedState || vid.error != MediaPlayer.NoError
         color: "white"
-        text: "Video"
+        text: i18n("Video")
         font.pixelSize: 16
 
         padding: 8
