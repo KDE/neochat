@@ -548,7 +548,7 @@ ToolBar {
                 icon.name: "document-send"
                 icon.color: "transparent"
 
-                enabled: inputField.length > 0
+                enabled: inputField.length > 0 || hasAttachment
 
                 onClicked: {
                     inputField.postMessage()
