@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
     QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("org.kde.neochat")));
 
 #ifdef HAVE_KDBUSADDONS
-    KDBusService service(KDBusService::Unique)
+    KDBusService service(KDBusService::Unique);
 #endif
 
 #ifdef NEOCHAT_FLATPAK
