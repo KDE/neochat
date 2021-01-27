@@ -14,7 +14,7 @@
 #include <QQuickWindow>
 
 #include <KAboutData>
-#ifndef Q_OS_ANDROID
+#ifdef HAVE_KDBUSADDONS
 #include <KDBusService>
 #endif
 #include <KLocalizedContext>
@@ -83,8 +83,8 @@ int main(int argc, char *argv[])
     KAboutData::setApplicationData(about);
     QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("org.kde.neochat")));
 
-#ifndef Q_OS_ANDROID
-    KDBusService service(KDBusService::Unique);
+#ifdef HAVE_KDBUSADDONS
+    KDBusService service(KDBusService::Unique)
 #endif
 
 #ifdef NEOCHAT_FLATPAK
@@ -151,7 +151,7 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-#ifndef Q_OS_ANDROID
+#ifdef HAVE_KDBUSADDONS
     QObject::connect(&service, &KDBusService::activateRequested, &engine, [&engine](const QStringList & /*arguments*/, const QString & /*workingDirectory*/) {
         const auto rootObjects = engine.rootObjects();
         for (auto obj : rootObjects) {

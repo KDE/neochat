@@ -60,11 +60,10 @@ else()
         TYPE REQUIRED
         PURPOSE "Secure storage of account secrets"
     )
-    find_package(KF5DBusAddons ${KF5_MIN_VERSION})
-    set_package_properties(KF5DBusAddons PROPERTIES
-        TYPE REQUIRED
-        PURPOSE "DBus convenience functions"
-    )
+endif()
+
+if (NOT ANDROID AND NOT WIN32)
+    find_package(KF5DBusAddons ${KF5_MIN_VERSION} REQUIRED)
 endif()
 
 find_package(Quotient 0.7)

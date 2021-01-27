@@ -76,7 +76,12 @@ if(ANDROID)
         "network-connect"
     )
 else()
-    target_link_libraries(neochat PRIVATE Qt5::Widgets KF5::DBusAddons ${QTKEYCHAIN_LIBRARIES})
+    target_link_libraries(neochat PRIVATE Qt5::Widgets ${QTKEYCHAIN_LIBRARIES})
+endif()
+
+if(TARGET KF5::DBusAddons)
+    target_link_libraries(neochat PRIVATE KF5::DBusAddons)
+    target_compile_definitions(neochat PRIVATE -DHAVE_KDBUSADDONS)
 endif()
 
 install(TARGETS neochat ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
