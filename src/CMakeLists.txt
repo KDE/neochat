@@ -22,6 +22,10 @@ add_executable(neochat
     ../res.qrc
 )
 
+ecm_add_app_icon(NEOCHAT_ICON ICONS ${CMAKE_SOURCE_DIR}/128-logo.png)
+
+target_sources(neochat PRIVATE ${NEOCHAT_ICON})
+
 if(NOT ANDROID)
     target_sources(neochat PRIVATE trayicon.cpp)
 endif()

@@ -19,6 +19,7 @@ include(ECMQMLModules)
 include(KDEClangFormat)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
+include(ECMAddAppIcon)
 
 if(NEOCHAT_FLATPAK)
     include(cmake/Flatpak.cmake)
