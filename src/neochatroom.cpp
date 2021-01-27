@@ -389,7 +389,7 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                 }
                 // Part 2: profile changes of joined members
                 if (e.isRename() && NeoChatConfig::self()->showRename()) {
-                    if (e.newDisplayName().has_value()) {
+                    if (!e.newDisplayName().has_value()) {
                         text = i18n("cleared their display name");
                     } else {
                         text = i18n("changed their display name to %1", e.newDisplayName()->toHtmlEscaped());
