@@ -137,6 +137,7 @@ void ActionsHandler::joinRoom(const QString &alias)
     const auto knownServer = alias.mid(alias.indexOf(":") + 1);
     auto joinRoomJob = m_connection->joinRoom(alias, QStringList{knownServer});
 
+    qDebug() << alias;
     Quotient::JoinRoomJob::connect(joinRoomJob, &JoinRoomJob::failure, [=] {
         Q_EMIT showMessage(MessageType::Error, i18n("Server error when joining the room \"%1\": %2",
                     joinRoomJob->errorString()));
@@ -253,7 +254,13 @@ void ActionsHandler::postMessage(const QString &text,
             Q_EMIT showMessage(MessageType::Error, i18n("Invalid command"));
             return;
         }
-        joinRoom(splittedText[0]);
+        if (splittedText.count() > 1) {
+            joinRoom(splittedText[0] + ":" + splittedText[1]);
+            return;
+        }
+        else {
+            joinRoom(splittedText[0] + ":matrix.org");
+        }
         return;
     }
 
