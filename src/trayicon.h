@@ -8,43 +8,21 @@
 
 // Modified from mujx/nheko's TrayIcon.
 
-#include <KStatusNotifierItem>
+#include <QSystemTrayIcon>
 #include <QAction>
 #include <QIcon>
 #include <QIconEngine>
 #include <QPainter>
 #include <QRect>
 
-class TrayIcon : public KStatusNotifierItem
+class TrayIcon : public QSystemTrayIcon
 {
     Q_OBJECT
-    Q_PROPERTY(QString iconSource READ iconSource WRITE setIconSource NOTIFY iconSourceChanged)
-    Q_PROPERTY(bool isOnline READ isOnline WRITE setIsOnline NOTIFY isOnlineChanged)
 public:
     TrayIcon(QObject *parent = nullptr);
 
-    QString iconSource()
-    {
-        return m_iconSource;
-    }
-    void setIconSource(const QString &source);
-
-    bool isOnline() const
-    {
-        return m_isOnline;
-    }
-    void setIsOnline(bool online);
-
 Q_SIGNALS:
-    void notificationCountChanged();
-    void iconSourceChanged();
-    void isOnlineChanged();
-
     void showWindow();
-
-private:
-    QString m_iconSource;
-    bool m_isOnline = true;
 };
 
 #endif // TRAYICON_H

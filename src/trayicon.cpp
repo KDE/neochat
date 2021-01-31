@@ -1,5 +1,6 @@
 /**
  * SPDX-FileCopyrightText: 2019 Black Hat <bhat@encom.eu.org>
+ * SPDX-FileCopyrightText: 2021 Nicolas Fella <nicolas.fella@gmx.de>
  *
  * SPDX-License-Identifier: GPL-3.0-only
  */
@@ -11,34 +12,28 @@
 #include <KLocalizedString>
 
 TrayIcon::TrayIcon(QObject *parent)
-    : KStatusNotifierItem(parent)
+    : QSystemTrayIcon(parent)
 {
+    setIcon(QIcon::fromTheme("org.kde.neochat"));
     QMenu *menu = new QMenu();
     auto viewAction_ = new QAction(i18n("Show"), parent);
 
     connect(viewAction_, &QAction::triggered, this, &TrayIcon::showWindow);
-    connect(this, &KStatusNotifierItem::activateRequested, this, [this](bool active) {
-        if (active) {
+    connect(this, &QSystemTrayIcon::activated, this, [this](QSystemTrayIcon::ActivationReason reason) {
+        if (reason == QSystemTrayIcon::Trigger) {
             Q_EMIT showWindow();
         }
     });
 
     menu->addAction(viewAction_);
 
-    setCategory(Communications);
+    menu->addSeparator();
+
+    auto quitAction = new QAction(i18n("Quit"), parent);
+    quitAction->setIcon(QIcon::fromTheme("application-exit"));
+    connect(quitAction, &QAction::triggered, QCoreApplication::instance(), QCoreApplication::quit);
+
+    menu->addAction(quitAction);
+
     setContextMenu(menu);
-}
-
-void TrayIcon::setIsOnline(bool online)
-{
-    m_isOnline = online;
-    setStatus(Active);
-    Q_EMIT isOnlineChanged();
-}
-
-void TrayIcon::setIconSource(const QString &source)
-{
-    m_iconSource = source;
-    setIconByName(source);
-    Q_EMIT iconSourceChanged();
 }
