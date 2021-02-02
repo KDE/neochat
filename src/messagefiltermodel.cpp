@@ -12,11 +12,9 @@ bool MessageFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sour
 {
     const QModelIndex index = sourceModel()->index(sourceRow, 0, sourceParent);
 
-    if (index.data(MessageEventModel::SpecialMarksRole).toInt() == EventStatus::Hidden) {
-        return false;
-    }
+    const int specialMarks = index.data(MessageEventModel::SpecialMarksRole).toInt();
 
-    if (index.data(MessageEventModel::SpecialMarksRole).toInt() == EventStatus::Replaced) {
+    if (specialMarks == EventStatus::Hidden || specialMarks == EventStatus::Replaced) {
         return false;
     }
 
