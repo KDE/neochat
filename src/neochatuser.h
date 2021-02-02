@@ -32,7 +32,6 @@ Q_SIGNALS:
     void colorChanged(QColor _t1);
 
 private:
-    Kirigami::PlatformTheme *m_theme = nullptr;
     QColor m_color;
 
     void polishColor();

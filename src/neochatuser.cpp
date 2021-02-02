@@ -10,13 +10,18 @@
 
 #include "csapi/profile.h"
 
+static Kirigami::PlatformTheme * s_theme = nullptr;
+
 NeoChatUser::NeoChatUser(QString userId, Connection *connection)
     : User(std::move(userId), connection)
 {
-    m_theme = static_cast<Kirigami::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::PlatformTheme>(this, true));
-    Q_ASSERT(m_theme);
+    if (!s_theme) {
+        s_theme = static_cast<Kirigami::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::PlatformTheme>(this, true));
+        Q_ASSERT(s_theme);
+    }
 
-    connect(m_theme, &Kirigami::PlatformTheme::colorsChanged, this, &NeoChatUser::polishColor);
+    connect(s_theme, &Kirigami::PlatformTheme::colorsChanged, this, &NeoChatUser::polishColor);
+    polishColor();
 }
 
 QColor NeoChatUser::color()
@@ -37,5 +42,5 @@ void NeoChatUser::setColor(const QColor &color)
 void NeoChatUser::polishColor()
 {
     // https://github.com/quotient-im/libQuotient/wiki/User-color-coding-standard-draft-proposal
-    setColor(QColor::fromHslF(hueF(), 1 - m_theme->alternateBackgroundColor().saturationF(), -0.7 * m_theme->alternateBackgroundColor().lightnessF() + 0.9, m_theme->textColor().alphaF()));
+    setColor(QColor::fromHslF(hueF(), 1 - s_theme->alternateBackgroundColor().saturationF(), -0.7 * s_theme->alternateBackgroundColor().lightnessF() + 0.9, s_theme->textColor().alphaF()));
 }
