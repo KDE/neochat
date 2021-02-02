@@ -96,13 +96,9 @@ Kirigami.ScrollablePage {
             action: Kirigami.Action {
                 id: enterRoomAction
                 onTriggered: {
-                    if (category === RoomType.Invited) {
-                        roomManager.openInvitation(currentRoom);
-                    } else {
-                        var roomItem = roomManager.enterRoom(currentRoom)
-                        roomListItem.KeyNavigation.right = roomItem
-                        roomItem.focus = true;
-                    }
+                    var roomItem = roomManager.enterRoom(currentRoom)
+                    roomListItem.KeyNavigation.right = roomItem
+                    roomItem.focus = true;
                 }
             }
 

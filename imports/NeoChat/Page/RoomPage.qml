@@ -25,8 +25,19 @@ Kirigami.ScrollablePage {
 
     required property var currentRoom
 
+    title: currentRoom.displayName
+
     signal switchRoomUp()
     signal switchRoomDown()
+
+    Connections {
+        target: Controller.activeConnection
+        function onJoinedRoom(room) {
+            if(room.id === invitation.id) {
+                roomManager.enterRoom(room);
+            }
+        }
+    }
 
     Connections {
         target: roomManager.actionsHandler
@@ -49,7 +60,38 @@ Kirigami.ScrollablePage {
         }
     }
 
-    title: currentRoom.displayName
+    Kirigami.PlaceholderMessage {
+        id: invitation
+
+        property var id
+
+        visible: currentRoom.isInvite
+        anchors.centerIn: parent
+        text: i18n("Accept this invitation?")
+        RowLayout {
+            QQC2.Button {
+                Layout.alignment : Qt.AlignHCenter
+                text: i18n("Reject")
+
+                onClicked: {
+                    page.currentRoom.forget()
+                    roomManager.getBack();
+                }
+            }
+
+            QQC2.Button {
+                Layout.alignment : Qt.AlignHCenter
+                text: i18n("Accept")
+
+                onClicked: {
+                    currentRoom.acceptInvitation();
+                    invitation.id = currentRoom.id
+                    invitation.visible = false
+                }
+            }
+        }
+    }
+
     titleDelegate: Component {
         RowLayout {
             visible: !Kirigami.Settings.isMobile
@@ -108,6 +150,8 @@ Kirigami.ScrollablePage {
 
     ListView {
         id: messageListView
+
+        visible: !invitation.visible
 
         readonly property int largestVisibleIndex: count > 0 ? indexAt(contentX + (width / 2), contentY + height - 1) : -1
         readonly property bool noNeedMoreContent: !currentRoom || currentRoom.eventsHistoryJob || currentRoom.allHistoryLoaded
@@ -577,6 +621,8 @@ Kirigami.ScrollablePage {
 
     footer: ChatTextInput {
         id: chatTextInput
+
+        visible: !invitation.visible && !(messageListView.count === 0 && !currentRoom.allHistoryLoaded)
         Layout.fillWidth: true
     }
 

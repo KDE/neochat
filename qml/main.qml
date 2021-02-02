@@ -69,7 +69,6 @@ Kirigami.ApplicationWindow {
 
         property var currentRoom: null
         property alias pageStack: root.pageStack
-        property bool invitationOpen: false
         property var roomList: null
         property Item roomItem: null
 
@@ -90,8 +89,7 @@ Kirigami.ApplicationWindow {
         }
 
         function enterRoom(room) {
-            let item = null;
-            if (currentRoom != null || invitationOpen) {
+            if (currentRoom != null) {
                 roomItem.currentRoom = room;
                 pageStack.currentIndex = pageStack.depth - 1;
             } else {
@@ -102,15 +100,6 @@ Kirigami.ApplicationWindow {
             Config.save();
             connectRoomToSignal(roomItem);
             return roomItem;
-        }
-
-        function openInvitation(room) {
-            if (currentRoom != null) {
-                currentRoom = null;
-                pageStack.removePage(pageStack.lastItem);
-            }
-            invitationOpen = true;
-            pageStack.push("qrc:/imports/NeoChat/Page/InvitationPage.qml", {"room": room});
         }
 
         function getBack() {
