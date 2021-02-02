@@ -211,25 +211,10 @@ Kirigami.ScrollablePage {
         }
 
 
-        KSortFilterProxyModel {
+        MessageFilterModel {
             id: sortedMessageEventModel
 
             sourceModel: messageEventModel
-
-            filterRowCallback: Config.showLeaveJoinEvent ? dontFilterLeaveJoin : filterLeaveJoin
-
-            function dontFilterLeaveJoin(row, parent) {
-                return messageEventModel.data(messageEventModel.index(row, 0), MessageEventModel.SpecialMarksRole) !== EventStatus.Hidden
-                    && messageEventModel.data(messageEventModel.index(row, 0), MessageEventModel.MessageRole) !== 0x10
-                    && messageEventModel.data(messageEventModel.index(row, 0), MessageEventModel.EventTypeRole) !== "other";
-            }
-
-            function filterLeaveJoin(row, parent) {
-                return messageEventModel.data(messageEventModel.index(row, 0), MessageEventModel.SpecialMarksRole) !== EventStatus.Hidden
-                    && messageEventModel.data(messageEventModel.index(row, 0), MessageEventModel.MessageRole) !== 0x10
-                    && messageEventModel.data(messageEventModel.index(row, 0), MessageEventModel.EventTypeRole) !== "other"
-                    && messageEventModel.data(messageEventModel.index(row, 0), MessageEventModel.EventTypeRole) !== "state";
-            }
         }
 
         //        populate: Transition {

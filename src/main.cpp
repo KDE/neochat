@@ -34,6 +34,7 @@
 #include "filetypesingleton.h"
 #include "matriximageprovider.h"
 #include "messageeventmodel.h"
+#include "messagefiltermodel.h"
 #include "neochatconfig.h"
 #include "neochatroom.h"
 #include "neochatuser.h"
@@ -107,6 +108,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<RoomListModel>("org.kde.neochat", 1, 0, "RoomListModel");
     qmlRegisterType<UserListModel>("org.kde.neochat", 1, 0, "UserListModel");
     qmlRegisterType<MessageEventModel>("org.kde.neochat", 1, 0, "MessageEventModel");
+    qmlRegisterType<MessageFilterModel>("org.kde.neochat", 1, 0, "MessageFilterModel");
     qmlRegisterType<PublicRoomListModel>("org.kde.neochat", 1, 0, "PublicRoomListModel");
     qmlRegisterType<UserDirectoryListModel>("org.kde.neochat", 1, 0, "UserDirectoryListModel");
     qmlRegisterType<EmojiModel>("org.kde.neochat", 1, 0, "EmojiModel");

@@ -6,6 +6,7 @@ add_executable(neochat
     clipboard.cpp
     matriximageprovider.cpp
     messageeventmodel.cpp
+    messagefiltermodel.cpp
     roomlistmodel.cpp
     neochatroom.cpp
     neochatuser.cpp
