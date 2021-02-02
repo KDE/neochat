@@ -16,7 +16,7 @@ bool MessageFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sour
         return false;
     }
 
-    if (index.data(MessageEventModel::MessageRole).toInt() == 0x10) {
+    if (index.data(MessageEventModel::SpecialMarksRole).toInt() == EventStatus::Replaced) {
         return false;
     }
 
