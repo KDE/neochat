@@ -22,7 +22,7 @@ Flow {
 
             contentItem: Label {
                 horizontalAlignment: Text.AlignHCenter
-                text: modelData.reaction + (modelData.count > 1 ? " " + modelData.count : "")
+                text: modelData.reaction + " " + modelData.count
             }
 
             padding: Kirigami.Units.smallSpacing
@@ -31,6 +31,8 @@ Flow {
                 radius: height / 2
                 Kirigami.Theme.colorSet: Kirigami.Theme.Button
                 color: checked ? Kirigami.Theme.positiveBackgroundColor : Kirigami.Theme.backgroundColor
+		border.color: checked ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.textColor
+		border.width: 1
             }
 
             checkable: true
