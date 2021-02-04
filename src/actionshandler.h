@@ -2,6 +2,8 @@
 //
 // SPDX-License-Identifier: GPl-3.0-or-later
 
+#pragma once
+
 #include <QObject>
 
 #include "connection.h"

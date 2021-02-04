@@ -3,8 +3,8 @@
  *
  * SPDX-License-Identifier: GPL-3.0-only
  */
-#ifndef USERLISTMODEL_H
-#define USERLISTMODEL_H
+
+#pragma once
 
 #include "room.h"
 
@@ -76,5 +76,3 @@ private:
     int findUserPos(Quotient::User *user) const;
     [[nodiscard]] int findUserPos(const QString &username) const;
 };
-
-#endif // USERLISTMODEL_H

@@ -3,8 +3,8 @@
  *
  * SPDX-License-Identifier: GPL-3.0-only
  */
-#ifndef CONTROLLER_H
-#define CONTROLLER_H
+
+#pragma once
 
 #include <QApplication>
 #include <QMediaPlayer>
@@ -131,5 +131,3 @@ class NeochatDeleteDeviceJob : public BaseJob
 public:
     explicit NeochatDeleteDeviceJob(const QString &deviceId, const Omittable<QJsonObject> &auth = none);
 };
-
-#endif // CONTROLLER_H

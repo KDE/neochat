@@ -3,8 +3,8 @@
  *
  * SPDX-License-Identifier: GPL-3.0-only
  */
-#ifndef ACCOUNTLISTMODEL_H
-#define ACCOUNTLISTMODEL_H
+
+#pragma once
 
 #include "controller.h"
 
@@ -30,5 +30,3 @@ public:
 private:
     QVector<Connection *> m_connections;
 };
-
-#endif // ACCOUNTLISTMODEL_H

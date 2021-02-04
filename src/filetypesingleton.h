@@ -4,8 +4,7 @@
  * SPDX-License-Identifier: LicenseRef-KDE-Accepted-LGPL
  */
 
-#ifndef FILETYPESINGLETON_H
-#define FILETYPESINGLETON_H
+#pragma once
 
 #include <QObject>
 #include <qqml.h>
@@ -59,5 +58,3 @@ private:
 };
 
 QML_DECLARE_TYPE(FileTypeSingleton)
-
-#endif // MIMETYPESINGLETON_H

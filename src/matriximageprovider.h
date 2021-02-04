@@ -4,8 +4,7 @@
  *
  * SPDX-License-Identifier: GPL-3.0-only
  */
-#ifndef MatrixImageProvider_H
-#define MatrixImageProvider_H
+
 #pragma once
 
 #include <QQuickAsyncImageProvider>
@@ -53,5 +52,3 @@ class MatrixImageProvider : public QQuickAsyncImageProvider
 public:
     QQuickImageResponse *requestImageResponse(const QString &id, const QSize &requestedSize) override;
 };
-
-#endif // MatrixImageProvider_H

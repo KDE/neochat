@@ -3,8 +3,8 @@
  *
  * SPDX-License-Identifier: GPL-3.0-only
  */
-#ifndef USERDIRECTORYLISTMODEL_H
-#define USERDIRECTORYLISTMODEL_H
+
+#pragma once
 
 #include <QAbstractListModel>
 #include <QObject>
@@ -71,5 +71,3 @@ Q_SIGNALS:
     void keywordChanged();
     void limitedChanged();
 };
-
-#endif // USERDIRECTORYLISTMODEL_H

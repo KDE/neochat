@@ -3,8 +3,8 @@
  *
  * SPDX-License-Identifier: GPL-3.0-only
  */
-#ifndef TRAYICON_H
-#define TRAYICON_H
+
+#pragma once
 
 // Modified from mujx/nheko's TrayIcon.
 
@@ -24,5 +24,3 @@ public:
 Q_SIGNALS:
     void showWindow();
 };
-
-#endif // TRAYICON_H

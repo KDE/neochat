@@ -3,8 +3,8 @@
  *
  * SPDX-License-Identifier: GPL-3.0-only
  */
-#ifndef PUBLICROOMLISTMODEL_H
-#define PUBLICROOMLISTMODEL_H
+
+#pragma once
 
 #include <QAbstractListModel>
 #include <QObject>
@@ -83,5 +83,3 @@ Q_SIGNALS:
     void keywordChanged();
     void hasMoreChanged();
 };
-
-#endif // PUBLICROOMLISTMODEL_H

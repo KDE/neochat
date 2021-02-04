@@ -3,8 +3,8 @@
  *
  * SPDX-License-Identifier: GPL-3.0-only
  */
-#ifndef ROOMLISTMODEL_H
-#define ROOMLISTMODEL_H
+
+#pragma once
 
 #include "connection.h"
 #include "events/roomevent.h"
@@ -107,5 +107,3 @@ Q_SIGNALS:
     void newMessage(const QString &_t1, const QString &_t2, const QString &_t3, const QString &_t4, const QString &_t5, const QImage &_t6);
     void newHighlight(const QString &_t1, const QString &_t2, const QString &_t3, const QString &_t4, const QString &_t5, const QImage &_t6);
 };
-
-#endif // ROOMLISTMODEL_H

@@ -3,8 +3,8 @@
  *
  * SPDX-License-Identifier: GPL-3.0-only
  */
-#ifndef Utils_H
-#define Utils_H
+
+#pragma once
 
 #include "room.h"
 #include "user.h"
@@ -26,5 +26,3 @@ static const QRegularExpression codePillRegExp{"<pre><code[^>]*>(.*?)</code></pr
 static const QRegularExpression userPillRegExp{"<a href=\"https://matrix.to/#/@.*?:.*?\">(.*?)</a>", QRegularExpression::DotMatchesEverythingOption};
 static const QRegularExpression strikethroughRegExp{"<del>(.*?)</del>", QRegularExpression::DotMatchesEverythingOption};
 } // namespace utils
-
-#endif

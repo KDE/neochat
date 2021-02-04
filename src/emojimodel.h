@@ -3,8 +3,8 @@
  *
  * SPDX-License-Identifier: GPL-3.0-only
  */
-#ifndef EMOJIMODEL_H
-#define EMOJIMODEL_H
+
+#pragma once
 
 #include <QObject>
 #include <QSettings>
@@ -86,5 +86,3 @@ private:
 
     QSettings m_settings;
 };
-
-#endif // EMOJIMODEL_H

@@ -3,8 +3,8 @@
  *
  * SPDX-License-Identifier: GPL-3.0-only
  */
-#ifndef MESSAGEEVENTMODEL_H
-#define MESSAGEEVENTMODEL_H
+
+#pragma once
 
 #include <QAbstractListModel>
 
@@ -90,5 +90,3 @@ private:
 Q_SIGNALS:
     void roomChanged();
 };
-
-#endif // MESSAGEEVENTMODEL_H
