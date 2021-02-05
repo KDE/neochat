@@ -282,6 +282,7 @@ void Controller::invokeLogin()
                     Q_EMIT errorOccured(i18n("Login Failed"), error);
                     logout(connection, true);
                 }
+                Q_EMIT initiated();
             });
             connect(connection, &Connection::networkError, this, [=](const QString &error, const QString &, int, int) {
                 Q_EMIT errorOccured("Network Error", error);
@@ -289,7 +290,7 @@ void Controller::invokeLogin()
             connection->connectWithToken(account.userId(), accessToken, account.deviceId());
         }
     }
-    if (m_connections.isEmpty()) {
+    if (accounts.isEmpty()) {
         Q_EMIT initiated();
     }
 }

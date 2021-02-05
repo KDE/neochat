@@ -251,6 +251,9 @@ Kirigami.ApplicationWindow {
         target: Controller
 
         function onInitiated() {
+            if (roomManager.hasOpenRoom) {
+                return;
+            }
             if (Controller.accountCount === 0) {
                 pageStack.replace("qrc:/imports/NeoChat/Page/LoginPage.qml", {});
             } else {
