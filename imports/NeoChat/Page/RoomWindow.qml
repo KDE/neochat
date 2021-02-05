@@ -12,6 +12,8 @@ import org.kde.kirigami 2.14 as Kirigami
 Kirigami.ApplicationWindow {
     id: window
     required property var currentRoom
+    minimumWidth: Kirigami.Units.gridUnit * 10
+    minimumHeight: Kirigami.Units.gridUnit * 15
     pageStack.initialPage: RoomPage {
         visible: true
         currentRoom: window.currentRoom
