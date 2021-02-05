@@ -153,7 +153,7 @@ Kirigami.ApplicationWindow {
         id: contextDrawer
         contentItem.implicitWidth: columnWidth
         edge: Qt.application.layoutDirection == Qt.RightToLeft ? Qt.LeftEdge : Qt.RightEdge
-        modal: !root.wideScreen
+        modal: !root.wideScreen && pageStack.layers.depth < 2 && pageStack.depth < 3
         onEnabledChanged: drawerOpen = enabled && !modal
         onModalChanged: drawerOpen = !modal
         enabled: roomManager.hasOpenRoom && pageStack.layers.depth < 2 && pageStack.depth < 3
