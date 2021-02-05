@@ -127,7 +127,12 @@ QVariantList NeoChatRoom::getUsersTyping() const
     users.removeAll(localUser());
     QVariantList userVariants;
     for (User *user : users) {
-        userVariants.append(QVariant::fromValue(user));
+        userVariants.append(QVariantMap {
+            {"id", user->id()},
+            {"avatarMediaId", user->avatarMediaId(this)},
+            {"displayName", user->displayname(this)},
+            {"display", user->name()},
+        });
     }
     return userVariants;
 }
