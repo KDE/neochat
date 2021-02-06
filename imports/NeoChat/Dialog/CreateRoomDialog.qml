@@ -25,7 +25,7 @@ Kirigami.OverlaySheet {
         TextField {
             id: roomNameField
             Kirigami.FormData.label: i18n("Room Name")
-            onAccepted: roomTopixField.forceActiveFocus();
+            onAccepted: roomTopicField.forceActiveFocus();
         }
 
         TextField {
