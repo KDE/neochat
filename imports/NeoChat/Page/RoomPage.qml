@@ -351,20 +351,18 @@ Kirigami.ScrollablePage {
                         onReplyClicked: goToEvent(eventID)
                         onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
                         innerObject: [
-                            MouseArea {
-                                acceptedButtons: (Kirigami.Settings.isMobile ? Qt.LeftButton : 0) | Qt.RightButton
-                                Layout.fillWidth: true
-                                Layout.fillHeight: true
-                                onClicked: {
-                                    if (mouse.button == Qt.RightButton) {
-                                        openMessageContext(author, display, eventId, toolTip);
-                                    }
-                                }
-                                onPressAndHold: openMessageContext(author, display, eventId, toolTip);
-                            },
                             TextDelegate {
                                 Layout.fillWidth: true
                                 Layout.rightMargin: Kirigami.Units.largeSpacing
+                                TapHandler {
+                                    acceptedButtons: Qt.RightButton
+                                    onTapped: openMessageContext(author, display, eventId, toolTip)
+                                }
+                                TapHandler {
+                                    acceptedButtons: Qt.LeftButton
+                                    //enabled: Kirigami.Settings.isMobile
+                                    onLongPressed: openMessageContext(author, display, eventId, toolTip)
+                                }
                             },
                             ReactionDelegate {
                                 Layout.fillWidth: true
