@@ -10,13 +10,15 @@
 
 #include "csapi/profile.h"
 
+#include "controller.h"
+
 static Kirigami::PlatformTheme * s_theme = nullptr;
 
 NeoChatUser::NeoChatUser(QString userId, Connection *connection)
     : User(std::move(userId), connection)
 {
     if (!s_theme) {
-        s_theme = static_cast<Kirigami::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::PlatformTheme>(this, true));
+        s_theme = static_cast<Kirigami::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::PlatformTheme>(&Controller::instance(), true));
         Q_ASSERT(s_theme);
     }
 
