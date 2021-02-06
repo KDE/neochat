@@ -105,7 +105,6 @@ void NeoChatRoom::uploadFile(const QUrl &url, const QString &body)
     });
     connect(this, &Room::fileTransferProgress, [=](const QString &id, qint64 progress, qint64 total) {
         if (id == txnId) {
-            qDebug() << "Progress:" << progress << total;
             setFileUploadingProgress(int(float(progress) / float(total) * 100));
         }
     });
@@ -549,9 +548,7 @@ void NeoChatRoom::postMessage(const QString &text, MessageEventType type, const 
 
 void NeoChatRoom::postHtmlMessage(const QString &text, const QString &html, MessageEventType type, const QString &replyEventId, const QString &relateToEventId)
 {
-    QString htmlWithLinks = html;
-    htmlWithLinks = htmlWithLinks.replace(QRegularExpression("@([^: ]*):([^ ]*\\.[^ ]*)"), "<a href=\"https://matrix.to/#/@$1:$2\">@$1:$2</a>");
-    bool isRichText = Qt::mightBeRichText(htmlWithLinks);
+    bool isRichText = Qt::mightBeRichText(html);
     bool isReply = !replyEventId.isEmpty();
     bool isEdit = !relateToEventId.isEmpty();
     const auto replyIt = findInTimeline(replyEventId);
@@ -564,11 +561,15 @@ void NeoChatRoom::postHtmlMessage(const QString &text, const QString &html, Mess
         QJsonObject json {
             {"type", "m.room.message"},
             {"msgtype", msgTypeToString(type)},
-            {"body", "* " + (isRichText ? text : htmlWithLinks)},
+            {"body", "* " + text},
+            {"format", "org.matrix.custom.html"},
+            {"formatted_body", html},
             {"m.new_content",
               QJsonObject {
-                {"body", (isRichText ? text : htmlWithLinks)},
-                {"msgtype", msgTypeToString(type)}
+                {"body", text},
+                {"msgtype", msgTypeToString(type)},
+                {"format", "org.matrix.custom.html"},
+                {"formatted_body", html}
               }
             },
             {"m.relates_to",
@@ -607,7 +608,7 @@ void NeoChatRoom::postHtmlMessage(const QString &text, const QString &html, Mess
             "\">In reply to</a> <a href=\"https://matrix.to/#/" +
             replyEvt.senderId() + "\">" + replyEvt.senderId() +
             "</a><br>" + eventToString(replyEvt, Qt::RichText) +
-            "</blockquote></mx-reply>" + (isRichText ? htmlWithLinks : text)
+            "</blockquote></mx-reply>" + (isRichText ? html : text)
           }
         };
         // clang-format on

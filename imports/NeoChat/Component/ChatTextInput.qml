@@ -500,9 +500,9 @@ ToolBar {
                     }
 
                     function postMessage() {
-                        checkForFancyEffectsReason()
+                        checkForFancyEffectsReason();
                         roomManager.actionsHandler.postMessage(inputField.text.trim(), attachmentPath,
-                            replyEventID, editEventId, inputField.userAutocompleted);
+                            replyEventID, editEventId);
                         clearAttachment();
                         currentRoom.markAllMessagesAsRead();
                         clear();
@@ -513,10 +513,6 @@ ToolBar {
 
                     function autoComplete() {
                         documentHandler.replaceAutoComplete(autoCompleteListView.currentItem.displayText)
-                        // Unfortunally it doesn't
-                        if (!autoCompleteListView.currentItem.isEmoji) {
-                            inputField.userAutocompleted[autoCompleteListView.currentItem.displayText] = autoCompleteListView.currentItem.userId;
-                        }
                     }
                 }
             }
@@ -609,7 +605,6 @@ ToolBar {
 
     function clear() {
         inputField.clear()
-        inputField.userAutocompleted = {};
     }
 
     function clearEditReply() {
