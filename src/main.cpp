@@ -32,6 +32,7 @@
 #include "devicesmodel.h"
 #include "emojimodel.h"
 #include "filetypesingleton.h"
+#include "login.h"
 #include "matriximageprovider.h"
 #include "messageeventmodel.h"
 #include "messagefiltermodel.h"
@@ -98,10 +99,13 @@ int main(int argc, char *argv[])
     auto config = NeoChatConfig::self();
     FileTypeSingleton fileTypeSingleton;
 
+    Login *login = new Login();
+
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Controller", &Controller::instance());
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Clipboard", &clipboard);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Config", config);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "FileType", &fileTypeSingleton);
+    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "LoginHelper", login);
     qmlRegisterType<AccountListModel>("org.kde.neochat", 1, 0, "AccountListModel");
     qmlRegisterType<ActionsHandler>("org.kde.neochat", 1, 0, "ActionsHandler");
     qmlRegisterType<ChatDocumentHandler>("org.kde.neochat", 1, 0, "ChatDocumentHandler");

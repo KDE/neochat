@@ -45,7 +45,6 @@ public:
     void addConnection(Connection *c);
     void dropConnection(Connection *c);
 
-    Q_INVOKABLE void loginWithCredentials(const QString &, const QString &, const QString &, QString);
     Q_INVOKABLE void loginWithAccessToken(const QString &, const QString &, const QString &, const QString &);
 
     Q_INVOKABLE void changePassword(Quotient::Connection *connection, const QString &currentPassword, const QString &newPassword);
@@ -60,6 +59,9 @@ public:
 
     void setAboutData(const KAboutData &aboutData);
     [[nodiscard]] KAboutData aboutData() const;
+
+    bool saveAccessTokenToFile(const AccountSettings &account, const QByteArray &accessToken);
+    bool saveAccessTokenToKeyChain(const AccountSettings &account, const QByteArray &accessToken);
 
     enum PasswordStatus {
         Success,
@@ -79,8 +81,6 @@ private:
     static QByteArray loadAccessTokenFromFile(const AccountSettings &account);
     QByteArray loadAccessTokenFromKeyChain(const AccountSettings &account);
 
-    bool saveAccessTokenToFile(const AccountSettings &account, const QByteArray &accessToken);
-    bool saveAccessTokenToKeyChain(const AccountSettings &account, const QByteArray &accessToken);
     void loadSettings();
     void saveSettings() const;
 
@@ -110,6 +110,7 @@ Q_SIGNALS:
     void showWindow();
     void openRoom(NeoChatRoom *room);
     void userConsentRequired(QUrl url);
+    void testConnectionResult(const QString &connection, bool usable);
 
 public Q_SLOTS:
     void logout(Quotient::Connection *conn, bool serverSideLogout);

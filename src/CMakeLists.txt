@@ -20,6 +20,7 @@ add_executable(neochat
     chatdocumenthandler.cpp
     devicesmodel.cpp
     filetypesingleton.cpp
+    login.cpp
     ../res.qrc
 )
 
