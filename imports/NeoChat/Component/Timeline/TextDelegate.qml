@@ -32,6 +32,7 @@ pre {
 }
 a{
     color: " + Kirigami.Theme.linkColor + ";
+    text-decoration: none;
 }
 
 .user-pill{}
