@@ -20,7 +20,6 @@ import NeoChat.Page 1.0
 Kirigami.ApplicationWindow {
     id: root
 
-    property var currentRoom: null
     property int columnWidth: Kirigami.Units.gridUnit * 13
 
     minimumWidth: Kirigami.Units.gridUnit * 15
@@ -28,14 +27,16 @@ Kirigami.ApplicationWindow {
 
     wideScreen: width > columnWidth * 5
 
+    onClosing: Controller.saveWindowGeometry(root)
+
+    pageStack.initialPage: LoadingPage {}
+
     Connections {
         target: root.quitAction
         function onTriggered() {
             Qt.quit()
         }
     }
-
-    onClosing: Controller.saveWindowGeometry(root)
 
     // This timer allows to batch update the window size change to reduce
     // the io load and also work around the fact that x/y/width/height are
@@ -78,7 +79,7 @@ Kirigami.ApplicationWindow {
         signal openRoom(string room);
 
         function roomByAliasOrId(aliasOrId) {
-            return spectralRoomListModel.roomByAliasOrId(aliasOrId)
+            return Controller.activeConnection.room(aliasOrId)
         }
 
         function openRoomAndEvent(room, event) {
@@ -90,7 +91,7 @@ Kirigami.ApplicationWindow {
             if (Config.openRoom) {
                 const room = Controller.activeConnection.room(Config.openRoom);
                 currentRoom = room;
-                roomItem = pageStack.push(roomPage, { 'currentRoom': room, });
+                roomItem = pageStack.push("qrc:/imports/NeoChat/Page/RoomPage.qml", { 'currentRoom': room, });
                 connectRoomToSignal(roomItem);
             } else {
                 // TODO create welcome page
@@ -102,7 +103,7 @@ Kirigami.ApplicationWindow {
                 roomItem.currentRoom = room;
                 pageStack.currentIndex = pageStack.depth - 1;
             } else {
-                roomItem = pageStack.push(roomPage, { 'currentRoom': room, });
+                roomItem = pageStack.push("qrc:/imports/NeoChat/Page/RoomPage.qml", { 'currentRoom': room, });
             }
             currentRoom = room;
             Config.openRoom = room.id;
@@ -112,7 +113,7 @@ Kirigami.ApplicationWindow {
         }
 
         function getBack() {
-            pageStack.replace(roomPage, { 'currentRoom': currentRoom, });
+            pageStack.replace("qrc:/imports/NeoChat/Page/RoomPage.qml", { 'currentRoom': currentRoom, });
         }
 
         function openWindow(room) {
@@ -236,13 +237,10 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    pageStack.initialPage: LoadingPage {}
-
     Component {
         id: roomListComponent
         RoomListPage {
             id: roomList
-            roomListModel: spectralRoomListModel
             activeConnection: Controller.activeConnection
         }
     }
@@ -331,18 +329,6 @@ Kirigami.ApplicationWindow {
             text: i18n("Open")
             onClicked: Qt.openUrlExternally(consentSheet.url)
         }
-    }
-
-    RoomListModel {
-        id: spectralRoomListModel
-
-        connection: Controller.activeConnection
-    }
-
-    Component {
-        id: roomPage
-
-        RoomPage {}
     }
 
     Component {

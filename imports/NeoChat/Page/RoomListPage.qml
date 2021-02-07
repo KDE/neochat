@@ -18,7 +18,6 @@ import NeoChat.Menu 1.0
 Kirigami.ScrollablePage {
     id: page
 
-    property var roomListModel
     property var enteredRoom
     required property var activeConnection
 
@@ -62,7 +61,10 @@ Kirigami.ScrollablePage {
         }
         model:  SortFilterRoomListModel {
             id: sortFilterRoomListModel
-            sourceModel: roomListModel
+            sourceModel: RoomListModel {
+                id: roomListModel
+                connection: page.activeConnection
+            }
             roomSortOrder: Config.mergeRoomList ? SortFilterRoomListModel.LastActivity : SortFilterRoomListModel.Categories
         }
 
