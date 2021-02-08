@@ -595,11 +595,9 @@ Kirigami.ScrollablePage {
         Layout.fillWidth: true
     }
 
-    FancyEffectsContainer {
+    background: FancyEffectsContainer {
         id: fancyEffectsContainer
 
-        Layout.fillWidth: true
-        Layout.fillHeight: true
         enabled: Config.showFancyEffects
 
         function processFancyEffectsReason(fancyEffect) {

@@ -176,12 +176,13 @@ Item {
         repeat: true
         onTriggered: {
             customEmit(Math.random() * parent.width,
-                       Math.random() * parent.width) // height is 0 somehow
+                       Math.random() * parent.height)
         }
     }
 
     ParticleSystem {
         id: fireworksSystem
+        anchors.fill: parent
         running: fireworksInternalTimer.running
         onRunningChanged: {
             if (running) {
