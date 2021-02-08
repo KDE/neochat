@@ -595,6 +595,14 @@ Kirigami.ScrollablePage {
         Layout.fillWidth: true
     }
 
+    FancyEffectsContainer {
+        id: fancyEffectsContainer
+
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        enabled: Config.showFancyEffects
+    }
+
     Kirigami.Theme.colorSet: Kirigami.Theme.View
 
     function goToEvent(eventID) {
