@@ -616,6 +616,7 @@ Kirigami.ScrollablePage {
         }
 
         Connections {
+            enabled: Config.showFancyEffects
             target: messageEventModel
             onFancyEffectsReasonFound: {
                 fancyEffectsContainer.processFancyEffectsReason(fancyEffect)
@@ -623,6 +624,7 @@ Kirigami.ScrollablePage {
         }
 
         Connections {
+            enabled: Config.showFancyEffects
             target: chatTextInput
             onFancyEffectsReasonFound: {
                 fancyEffectsContainer.processFancyEffectsReason(fancyEffect)

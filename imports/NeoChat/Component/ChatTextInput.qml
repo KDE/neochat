@@ -477,6 +477,10 @@ ToolBar {
                     property var userAutocompleted: ({})
 
                     function checkForFancyEffectsReason() {
+                        if (!Config.showFancyEffects) {
+                            return
+                        }
+
                         var inputFieldText = inputField.text.trim()
                         console.log(inputFieldText)
                         if (inputFieldText.includes('\u{2744}')) {
