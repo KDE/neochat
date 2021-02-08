@@ -601,6 +601,33 @@ Kirigami.ScrollablePage {
         Layout.fillWidth: true
         Layout.fillHeight: true
         enabled: Config.showFancyEffects
+
+        function processFancyEffectsReason(fancyEffect) {
+            console.log("onFancyEffectsReasonFound", fancyEffect)
+            if (fancyEffect === "snowflake") {
+                fancyEffectsContainer.showSnowEffect()
+            }
+            if (fancyEffect === "fireworks") {
+                fancyEffectsContainer.showFireworksEffect()
+            }
+            if (fancyEffect === "confetti") {
+                fancyEffectsContainer.showConfettiEffect()
+            }
+        }
+
+        Connections {
+            target: messageEventModel
+            onFancyEffectsReasonFound: {
+                fancyEffectsContainer.processFancyEffectsReason(fancyEffect)
+            }
+        }
+
+        Connections {
+            target: chatTextInput
+            onFancyEffectsReasonFound: {
+                fancyEffectsContainer.processFancyEffectsReason(fancyEffect)
+            }
+        }
     }
 
     Kirigami.Theme.colorSet: Kirigami.Theme.View

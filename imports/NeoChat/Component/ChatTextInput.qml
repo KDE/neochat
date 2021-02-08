@@ -38,6 +38,8 @@ ToolBar {
     property bool hasImageAttachment: hasAttachment && attachmentMimetype.valid
         && FileType.supportedImageFormats.includes(attachmentMimetype.preferredSuffix)
 
+    signal fancyEffectsReasonFound(string fancyEffect)
+
     position: ToolBar.Footer
 
     function addText(text) {
@@ -474,7 +476,28 @@ ToolBar {
                     // This use an hack to define: https://doc.qt.io/qt-5/qml-var.html#property-value-initialization-semantics
                     property var userAutocompleted: ({})
 
+                    function checkForFancyEffectsReason() {
+                        var inputFieldText = inputField.text.trim()
+                        console.log(inputFieldText)
+                        if (inputFieldText.includes('\u{2744}')) {
+                            root.fancyEffectsReasonFound("snowflake")
+                        }
+                        if (inputFieldText.includes('\u{1F386}')) {
+                            root.fancyEffectsReasonFound("fireworks")
+                        }
+                        if (inputFieldText.includes('\u{1F387}')) {
+                            root.fancyEffectsReasonFound("fireworks")
+                        }
+                        if (inputFieldText.includes('\u{1F389}')) {
+                            root.fancyEffectsReasonFound("confetti")
+                        }
+                        if (inputFieldText.includes('\u{1F38A}')) {
+                            root.fancyEffectsReasonFound("confetti")
+                        }
+                    }
+
                     function postMessage() {
+                        checkForFancyEffectsReason()
                         roomManager.actionsHandler.postMessage(inputField.text.trim(), attachmentPath,
                             replyEventID, editEventId, inputField.userAutocompleted);
                         clearAttachment();
