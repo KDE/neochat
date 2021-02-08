@@ -26,14 +26,14 @@ LoginStep {
             onSsoUrlChanged: {
                 Qt.openUrlExternally(LoginHelper.ssoUrl)
             }
-            onConnected: proccessed("qrc:/imports/NeoChat/Component/Login/Loading.qml")
+            onConnected: processed("qrc:/imports/NeoChat/Component/Login/Loading.qml")
         }
 
         QQC2.Button {
             text: i18n("Login")
             onClicked: {
                 LoginHelper.loginWithSso()
-                root.showMessage(i18n("Complete the authentification steps in your browser"))
+                root.showMessage(i18n("Complete the authentication steps in your browser"))
             }
             Component.onCompleted: forceActiveFocus()
             Keys.onReturnPressed: clicked()

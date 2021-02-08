@@ -17,7 +17,7 @@ class ActionsHandler : public QObject
 {
     Q_OBJECT
 
-    /// \brief List of command definition. Useful for building an autcompletion
+    /// \brief List of command definition. Useful for building an autocompletion
     /// engine or an help dialog.
     Q_PROPERTY(QVariantList commands READ commands CONSTANT)
 
