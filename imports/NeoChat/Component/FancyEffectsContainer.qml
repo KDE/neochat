@@ -46,7 +46,17 @@ Item {
 
         running: false
         onRunningChanged: {
-            visible = running
+            if (running) {
+                opacity = 1
+            } else {
+                opacity = 0
+            }
+        }
+
+        Behavior on opacity {
+            SequentialAnimation {
+                NumberAnimation { duration: Kirigami.Units.longDuration }
+            }
         }
 
         ItemParticle {
@@ -95,7 +105,17 @@ Item {
 
         running: false
         onRunningChanged: {
-            visible = running
+            if (running) {
+                opacity = 1
+            } else {
+                opacity = 0
+            }
+        }
+
+        Behavior on opacity {
+            SequentialAnimation {
+                NumberAnimation { duration: Kirigami.Units.longDuration }
+            }
         }
 
         ItemParticle {
