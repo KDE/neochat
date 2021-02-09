@@ -601,7 +601,6 @@ Kirigami.ScrollablePage {
         enabled: Config.showFancyEffects
 
         function processFancyEffectsReason(fancyEffect) {
-            console.log("onFancyEffectsReasonFound", fancyEffect)
             if (fancyEffect === "snowflake") {
                 fancyEffectsContainer.showSnowEffect()
             }

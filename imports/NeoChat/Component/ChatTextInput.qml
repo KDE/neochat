@@ -482,7 +482,6 @@ ToolBar {
                         }
 
                         var inputFieldText = inputField.text.trim()
-                        console.log(inputFieldText)
                         if (inputFieldText.includes('\u{2744}')) {
                             root.fancyEffectsReasonFound("snowflake")
                         }
