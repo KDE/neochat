@@ -65,7 +65,7 @@ Kirigami.ScrollablePage {
 
         property var id
 
-        visible: currentRoom.isInvite
+        visible: currentRoom && currentRoom.isInvite
         anchors.centerIn: parent
         text: i18n("Accept this invitation?")
         RowLayout {
@@ -86,9 +86,17 @@ Kirigami.ScrollablePage {
                 onClicked: {
                     currentRoom.acceptInvitation();
                     invitation.id = currentRoom.id
-                    invitation.visible = false
+                    currentRoom = null
                 }
             }
+        }
+    }
+
+    Kirigami.PlaceholderMessage {
+        anchors.centerIn: parent
+        visible: page.currentRoom === null || (messageListView.count === 0 && !page.currentRoom.allHistoryLoaded && !page.currentRoom.isInvite)
+        QQC2.BusyIndicator {
+            running: true
         }
     }
 
@@ -158,14 +166,6 @@ Kirigami.ScrollablePage {
             id: messageEventModel
 
             room: currentRoom
-        }
-
-        Kirigami.PlaceholderMessage {
-            anchors.centerIn: parent
-            visible: messageListView.count === 0 && !currentRoom.allHistoryLoaded
-            QQC2.BusyIndicator {
-                running: true
-            }
         }
 
         QQC2.Popup {
