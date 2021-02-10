@@ -237,7 +237,7 @@ Kirigami.OverlayDrawer {
                     }
 
                     action: Kirigami.Action {
-                        onTriggered: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": room, "user": user}).open()
+                        onTriggered: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": room, "user": user, "displayName": name, "avatarMediaId": avatar}).open()
                     }
                 }
             }

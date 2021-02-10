@@ -24,7 +24,7 @@ QQC2.Popup {
     implicitHeight: Kirigami.Units.gridUnit * 20
 
     contentItem: EmojiPicker {
-        onChosen: react(emoji);
+        onChosen: react(emoji)
         emojiModel: EmojiModel {}
     }
 }

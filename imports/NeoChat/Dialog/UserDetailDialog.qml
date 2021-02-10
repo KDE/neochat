@@ -9,6 +9,8 @@ import QtQuick.Controls 2.12 as QQC2
 import QtQuick.Layouts 1.12
 import org.kde.kirigami 2.13 as Kirigami
 
+import org.kde.neochat 1.0
+
 import NeoChat.Component 1.0
 import NeoChat.Setting 1.0
 
@@ -109,7 +111,10 @@ Kirigami.OverlaySheet {
             action: Kirigami.Action {
                 text: i18n("Kick this user")
                 icon.name: "im-kick-user"
-                onTriggered: room.kickMember(user.id)
+                onTriggered: {
+                    room.kickMember(user.id)
+                    root.close()
+                }
             }
         }
         Kirigami.BasicListItem {
@@ -119,7 +124,20 @@ Kirigami.OverlaySheet {
                 text: i18n("Ban this user")
                 icon.name: "im-ban-user"
                 icon.color: Kirigami.Theme.negativeTextColor
-                onTriggered: room.banMember(user.id)
+                onTriggered: {
+                    room.banMember(user.id)
+                    root.close()
+                }
+            }
+        }
+        Kirigami.BasicListItem {
+            action: Kirigami.Action {
+                text: i18n("Open a private chat")
+                icon.name: "document-send"
+                onTriggered: {
+                    Controller.activeConnection.requestDirectChat(user)
+                    root.close()
+                }
             }
         }
         Component {
