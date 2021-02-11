@@ -55,15 +55,26 @@
 Controller::Controller(QObject *parent)
     : QObject(parent)
 {
-    QApplication::setQuitOnLastWindowClosed(false);
-
     Connection::setRoomType<NeoChatRoom>();
     Connection::setUserType<NeoChatUser>();
 
 #ifndef Q_OS_ANDROID
     TrayIcon *trayIcon = new TrayIcon(this);
-    trayIcon->show();
-    connect(trayIcon, &TrayIcon::showWindow, this, &Controller::showWindow);
+    if(NeoChatConfig::self()->systemTray()) {
+        trayIcon->show();
+        connect(trayIcon, &TrayIcon::showWindow, this, &Controller::showWindow);
+        QApplication::setQuitOnLastWindowClosed(false);
+    }
+    connect(NeoChatConfig::self(), &NeoChatConfig::SystemTrayChanged, this, [=](){
+        if(NeoChatConfig::self()->systemTray()) {
+            trayIcon->show();
+            connect(trayIcon, &TrayIcon::showWindow, this, &Controller::showWindow);
+        } else {
+            trayIcon->hide();
+            disconnect(trayIcon, &TrayIcon::showWindow, this, &Controller::showWindow);
+        }
+        QApplication::setQuitOnLastWindowClosed(!NeoChatConfig::self()->systemTray());
+    });
 #endif
 
     QTimer::singleShot(0, this, [=] {

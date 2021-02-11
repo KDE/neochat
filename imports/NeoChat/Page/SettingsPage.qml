@@ -17,6 +17,15 @@ Kirigami.ScrollablePage {
 
     Kirigami.FormLayout {
         QQC2.CheckBox {
+            Kirigami.FormData.label: i18nc("General settings:")
+            text: i18n("Close to sytem tray")
+            checked: Config.systemTray
+            onToggled: {
+                Config.systemTray = checked
+                Config.save()
+            }
+        }
+        QQC2.CheckBox {
             // TODO: When there are enough notification and timeline event
             // settings, make 2 separate groups with FormData labels.
             Kirigami.FormData.label: i18n("Notifications and events:")
