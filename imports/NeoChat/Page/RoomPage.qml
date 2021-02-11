@@ -540,7 +540,7 @@ Kirigami.ScrollablePage {
                 Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
             }
             QQC2.Label {
-                text: visible ? i18ncp("Message displayed when some users are typing", "%2 is typing", "%2 are typing", currentRoom.usersTyping.length, currentRoom.usersTyping.map(user => user.displayName).join(", ")) : ""
+                text: visible ? i18ncp("Message displayed when some users are typing", "%1 is typing", "%1 are typing", currentRoom.usersTyping.length, currentRoom.usersTyping.map(user => user.displayName).join(", ")) : ""
             }
         }
 
