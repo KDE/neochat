@@ -589,6 +589,9 @@ ToolBar {
     function clearEditReply() {
         isReply = false;
         replyUser = null;
+        if (root.editEventId.length > 0) {
+            clear();
+        }
         root.replyContent = "";
         root.replyEventID = "";
         root.editEventId = "";
