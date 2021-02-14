@@ -595,6 +595,7 @@ ToolBar {
         root.replyContent = "";
         root.replyEventID = "";
         root.editEventId = "";
+        focus();
     }
 
     function focus() {
