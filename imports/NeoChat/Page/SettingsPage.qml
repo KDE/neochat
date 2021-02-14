@@ -18,7 +18,7 @@ Kirigami.ScrollablePage {
     Kirigami.FormLayout {
         QQC2.CheckBox {
             Kirigami.FormData.label: i18nc("General settings:")
-            text: i18n("Close to sytem tray")
+            text: i18n("Close to system tray")
             checked: Config.systemTray
             onToggled: {
                 Config.systemTray = checked
