@@ -21,6 +21,7 @@ add_executable(neochat
     devicesmodel.cpp
     filetypesingleton.cpp
     login.cpp
+    stickerevent.cpp
     ../res.qrc
 )
 
