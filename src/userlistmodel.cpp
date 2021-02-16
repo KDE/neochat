@@ -50,9 +50,7 @@ void UserListModel::setRoom(Quotient::Room *room)
             std::sort(m_users.begin(), m_users.end(), room->memberSorter());
         }
         for (User *user : qAsConst(m_users)) {
-            connect(user, &User::defaultAvatarChanged, this, [this, &user]() {
-                avatarChanged(user, m_currentRoom);
-            });
+            connect(user, &User::avatarChanged, this, &UserListModel::avatarChanged);
         }
         connect(m_currentRoom->connection(), &Connection::loggedOut, this, [=] {
             setRoom(nullptr);
@@ -151,9 +149,7 @@ void UserListModel::userAdded(Quotient::User *user)
     beginInsertRows(QModelIndex(), pos, pos);
     m_users.insert(pos, user);
     endInsertRows();
-    connect(user, &User::defaultAvatarChanged, this, [this, &user]() {
-        avatarChanged(user, m_currentRoom);
-    });
+    connect(user, &Quotient::User::avatarChanged, this, &UserListModel::avatarChanged);
 }
 
 void UserListModel::userRemoved(Quotient::User *user)
