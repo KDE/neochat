@@ -400,17 +400,17 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                 }
                 // Part 2: profile changes of joined members
                 if (e.isRename() && NeoChatConfig::self()->showRename()) {
-                    if (!e.newDisplayName().has_value()) {
+                    if (!e.displayName().isEmpty()) {
                         text = i18n("cleared their display name");
                     } else {
-                        text = i18n("changed their display name to %1", e.newDisplayName()->toHtmlEscaped());
+                        text = i18n("changed their display name to %1", e.displayName().toHtmlEscaped());
                     }
                 }
                 if (e.isAvatarUpdate() && NeoChatConfig::self()->showAvatarUpdate()) {
                     if (!text.isEmpty()) {
                         text += i18n(" and ");
                     }
-                    if (!e.newAvatarUrl().has_value()) {
+                    if (e.avatarUrl().isEmpty()) {
                         text += i18n("cleared their avatar");
                     } else if (e.prevContent()->avatarUrl.isEmpty()) {
                         text += i18n("set an avatar");
