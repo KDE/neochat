@@ -27,7 +27,7 @@
 #include "events/roomcanonicalaliasevent.h"
 #include "events/roommessageevent.h"
 #include "events/roompowerlevelsevent.h"
-#include "events/stickerevent.h"
+#include "stickerevent.h"
 #include "events/typingevent.h"
 #include "jobs/downloadfilejob.h"
 #include "neochatconfig.h"
