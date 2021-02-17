@@ -8,7 +8,6 @@ import QtQuick 2.10
 import QtQuick.Controls 2.1 as QQC2
 import QtQuick.Layouts 1.12
 import org.kde.kirigami 2.12 as Kirigami
-import QtQuick.Dialogs 1.2
 import org.kde.kquickimageeditor 1.0 as KQuickImageEditor
 import QtGraphicalEffects 1.12
 import Qt.labs.platform 1.0 as Platform
@@ -80,21 +79,6 @@ Kirigami.Page {
             sequence: StandardKey.SaveAs
             onActivated: saveAsAction.trigger();
         }    anchors.fill: parent
-
-        FileDialog {
-            id: fileDialog
-            title: i18n("Save As")
-            folder: shortcuts.home
-            selectMultiple: false
-            selectExisting: false
-            onAccepted: {
-                fileDialog.close()
-            }
-            onRejected: {
-                fileDialog.close()
-            }
-            Component.onCompleted: visible = false
-        }
 
         KQuickImageEditor.ImageDocument {
             id: imageDoc
