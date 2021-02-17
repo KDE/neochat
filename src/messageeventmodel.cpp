@@ -11,9 +11,10 @@
 #include <events/redactionevent.h>
 #include <events/roomavatarevent.h>
 #include <events/roommemberevent.h>
-#include <events/stickerevent.h>
 #include <events/simplestateevents.h>
 #include <user.h>
+
+#include "stickerevent.h"
 
 #include <QDebug>
 #include <QQmlEngine> // for qmlRegisterType()
