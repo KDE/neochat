@@ -28,7 +28,7 @@ endif()
 # Fix a crash due to problems with quotient's event system. Can probably be removed once the reworked event system is in
 cmake_policy(SET CMP0063 OLD)
 
-ecm_setup_version(1.0.80
+ecm_setup_version(1.1.0
     VARIABLE_PREFIX NEOCHAT
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/neochat-version.h
 )
