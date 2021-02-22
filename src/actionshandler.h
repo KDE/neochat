@@ -72,7 +72,7 @@ public Q_SLOTS:
     ///
     /// This also interprets commands if any.
     void postMessage(const QString &text, const QString &attachementPath,
-        const QString &replyEventId, const QString &editEventId);
+        const QString &replyEventId, const QString &editEventId, const QVariantMap &usernames);
 
 private:
     Connection *m_connection = nullptr;

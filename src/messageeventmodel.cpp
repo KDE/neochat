@@ -47,6 +47,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[ShowSectionRole] = "showSection";
     roles[ReactionRole] = "reaction";
     roles[IsEditedRole] = "isEdited";
+    roles[FormattedBodyRole] = "formattedBody";
     return roles;
 }
 
@@ -366,6 +367,16 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         }
 
         return m_currentRoom->eventToString(evt, Qt::RichText);
+    }
+
+    if (role == FormattedBodyRole) {
+        if (auto e = eventCast<const RoomMessageEvent>(&evt)) {
+            if (e->hasTextContent() && e->mimeType().name() != "text/plain") {
+                return static_cast<const Quotient::EventContent::TextContent *>(e->content())->body;
+            }
+        }
+
+        return {};
     }
 
     if (role == MessageRole) {

@@ -320,6 +320,11 @@ ToolBar {
                     property real progress: 0
                     property bool autoAppeared: false
 
+                    // store each user we autoComplete here, this will be helpful later to generate
+                    // the matrix.to links.
+                    // This use an hack to define: https://doc.qt.io/qt-5/qml-var.html#property-value-initialization-semantics
+                    property var userAutocompleted: ({})
+
                     ChatDocumentHandler {
                         id: documentHandler
                         document: inputField.textDocument
@@ -503,7 +508,7 @@ ToolBar {
                     function postMessage() {
                         checkForFancyEffectsReason();
                         roomManager.actionsHandler.postMessage(inputField.text.trim(), attachmentPath,
-                            replyEventID, editEventId);
+                            replyEventID, editEventId, inputField.userAutocompleted);
                         clearAttachment();
                         currentRoom.markAllMessagesAsRead();
                         clear();
@@ -514,6 +519,10 @@ ToolBar {
 
                     function autoComplete() {
                         documentHandler.replaceAutoComplete(autoCompleteListView.currentItem.displayText)
+                        if (!autoCompleteListView.currentItem.isEmoji) {
+                            inputField.userAutocompleted[autoCompleteListView.currentItem.displayText] = autoCompleteListView.currentItem.userId;
+                        }
+
                     }
                 }
             }
@@ -605,15 +614,14 @@ ToolBar {
     }
 
     function clear() {
-        inputField.clear()
+        inputField.clear();
+        inputField.userAutocompleted = {};
     }
 
     function clearEditReply() {
         isReply = false;
         replyUser = null;
-        if (root.editEventId.length > 0) {
-            clear();
-        }
+        clear();
         root.replyContent = "";
         root.replyEventID = "";
         root.editEventId = "";
@@ -624,9 +632,26 @@ ToolBar {
         inputField.forceActiveFocus()
     }
 
-    function edit(editContent, editEventId) {
+    function edit(editContent, editFormatedContent, editEventId) {
+        console.log("Editing ", editContent, "html:", editFormatedContent)
+        // Set the input field in edit mode
         inputField.text = editContent;
         root.editEventId = editEventId
+
+        // clean autocompletion list
+        inputField.userAutocompleted = {};
+
+        // Fill autocompletion list with values extracted from message.
+        // We can't just iterate on every user in the list and try to
+        // find matching display name since some users have display name
+        // matching frequent words and this will marks too many words as
+        // mentions.
+        const regex = /<a href=\"https:\/\/matrix.to\/#\/(@[a-zA-Z09]*:[a-zA-Z09.]*)\">([^<]*)<\/a>/g;
+
+        let match;
+        while ((match = regex.exec(editFormatedContent.toString())) !== null) {
+            inputField.userAutocompleted[match[2]] = match[1];
+        }
     }
 
     function closeAll() {

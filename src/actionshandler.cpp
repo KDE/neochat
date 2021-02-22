@@ -142,7 +142,6 @@ void ActionsHandler::joinRoom(const QString &alias)
                     joinRoomJob->errorString()));
     });
     Quotient::JoinRoomJob::connect(joinRoomJob, &JoinRoomJob::success, [this, joinRoomJob] {
-        qDebug() << "joined" << joinRoomJob->roomId();
         Q_EMIT roomJoined(joinRoomJob->roomId());
     });
 }
@@ -159,15 +158,16 @@ void ActionsHandler::createRoom(const QString &name, const QString &topic)
 }
 
 void ActionsHandler::postMessage(const QString &text,
-        const QString &attachementPath, const QString &replyEventId, const QString &editEventId)
+        const QString &attachementPath, const QString &replyEventId, const QString &editEventId,
+        const QVariantMap &usernames)
 {
     QString rawText = text;
     QString cleanedText = text;
 
-    for (const auto *user : m_room->users()) {
-        const auto displayName = user->displayname(m_room);
-        cleanedText = cleanedText.replace(displayName,
-                "[" + displayName + "](https://matrix.to/#/" + user->id() + ")");
+
+    for (auto it = usernames.constBegin(); it != usernames.constEnd(); it++) {
+        cleanedText = cleanedText.replace(it.key(),
+                "[" + it.key() + "](https://matrix.to/#/" + it.value().toString() + ")");
     }
 
     if (attachementPath.length() > 0) {
@@ -328,5 +328,5 @@ void ActionsHandler::postMessage(const QString &text,
         cleanedText = cleanedText.remove(0, noticePrefix.length());
         messageEventType = RoomMessageEvent::MsgType::Notice;
     }
-    m_room->postMessage(cleanedText, messageEventType, replyEventId, editEventId);
+    m_room->postMessage(rawText, cleanedText, messageEventType, replyEventId, editEventId);
 }

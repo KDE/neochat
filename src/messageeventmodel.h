@@ -32,6 +32,7 @@ public:
         LongOperationRole,
         AnnotationRole,
         UserMarkerRole,
+        FormattedBodyRole,
 
         ReplyRole,
 
