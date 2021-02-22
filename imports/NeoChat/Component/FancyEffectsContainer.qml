@@ -14,6 +14,8 @@ Item {
     id: item
     property bool enabled: false
     property int effectInterval: Kirigami.Units.veryLongDuration*10;
+    property color darkSnowColor: "grey"
+    property bool isThemeDark: Kirigami.Theme.backgroundColor.hslLightness <= darkSnowColor.hslLightness
 
     function showConfettiEffect() {
         confettiTimer.start()
@@ -61,12 +63,13 @@ Item {
             }
         }
 
-        ItemParticle {
-            delegate: Rectangle {
-                width: Kirigami.Units.iconSizes.small
-                height: Kirigami.Units.iconSizes.smallMedium
-                color: Qt.hsla(Math.random(), 0.5, 0.6, 1)
-            }
+        ImageParticle {
+            source: "qrc:/imports/NeoChat/Component/confetti.png"
+            entryEffect: ImageParticle.Scale
+            rotationVariation: 360
+            rotationVelocity: 90
+            color: Qt.hsla(Math.random(), 0.5, 0.6, 1)
+            colorVariation: 1
         }
 
         Emitter {
@@ -76,9 +79,9 @@ Item {
                 top: parent.top
             }
 
-            sizeVariation: Kirigami.Units.iconSizes.medium
+            sizeVariation: Kirigami.Units.iconSizes.small/2
             lifeSpan: Kirigami.Units.veryLongDuration*10
-            size: Kirigami.Units.iconSizes.large
+            size: Kirigami.Units.iconSizes.small
 
             velocity: AngleDirection {
                 angle: 90
@@ -127,7 +130,7 @@ Item {
                 width: 10
                 height: width
                 radius: width
-                color: "white"
+                color: item.isThemeDark ? "white" : darkSnowColor
                 scale: Math.random()
                 opacity: Math.random()
             }
@@ -175,8 +178,11 @@ Item {
         running: false
         repeat: true
         onTriggered: {
-            customEmit(Math.random() * parent.width,
-                       Math.random() * parent.height)
+            var x = Math.random() * parent.width
+            var y = Math.random() * parent.height
+            customEmit(x, y)
+            customEmit(x, y)
+            customEmit(x, y)
         }
     }
 
@@ -202,44 +208,49 @@ Item {
     ImageParticle {
         id: fireworksParticleA
         system: fireworksSystem
-        source: "qrc:///particleresources/glowdot.png"
-        alphaVariation: 0.1
-        alpha: 0.1
+        source: "qrc:/imports/NeoChat/Component/glowdot.png"
+        alphaVariation: item.isThemeDark ? 0.1 : 0.1
+        alpha: item.isThemeDark ? 0.5 : 1
         groups: ["a"]
         opacity: fireworksSystem.opacity
+        entryEffect: ImageParticle.Scale
+        rotationVariation: 360
     }
 
     ImageParticle {
         system: fireworksSystem
-        source: "qrc:///particleresources/glowdot.png"
-        color: "white"
-        alphaVariation: 0.1
-        alpha: 0.1
-        groups: ["white"]
+        source: "qrc:/imports/NeoChat/Component/glowdot.png"
+        color: item.isThemeDark ? "white" : "gold"
+        alphaVariation: item.isThemeDark ? 0.1 : 0.1
+        alpha: item.isThemeDark ? 0.5 : 1
+        groups: ["light"]
         opacity: fireworksSystem.opacity
+        entryEffect: ImageParticle.Scale
+        rotationVariation: 360
     }
 
     ImageParticle {
         id: fireworksParticleB
         system: fireworksSystem
-        source: "qrc:///particleresources/glowdot.png"
-        alphaVariation: 0.1
-        alpha: 0.1
+        source: "qrc:/imports/NeoChat/Component/glowdot.png"
+        alphaVariation: item.isThemeDark ? 0.1 : 0.1
+        alpha: item.isThemeDark ? 0.5 : 1
         groups: ["b"]
         opacity: fireworksSystem.opacity
+        entryEffect: ImageParticle.Scale
+        rotationVariation: 360
     }
 
     Component {
         id: emitterComp
         Emitter {
             id: container
-            property int life: 2600
+            property int life: 23
             property real targetX: 0
             property real targetY: 0
             width: 1
             height: 1
             system: fireworksSystem
-            emitRate: 100
             size: 16
             endSize: 8
             sizeVariation: 5
@@ -249,8 +260,9 @@ Item {
                 onTriggered: {
                     container.destroy();
                     var randomHue = Math.random()
-                    fireworksParticleA.color = Qt.hsla(randomHue, 0.8, 0.5, 1)
-                    fireworksParticleA.color = Qt.hsla(1-randomHue, 0.8, 0.5, 1)
+                    var lightness = item.isThemeDark ? 0.8 : 0.7
+                    fireworksParticleA.color = Qt.hsla(randomHue, 0.8, lightness, 1)
+                    fireworksParticleB.color = Qt.hsla(1-randomHue, 0.8, lightness, 1)
                 }
             }
             velocity: AngleDirection {angleVariation:360; magnitude: 200}
@@ -266,13 +278,13 @@ Item {
             obj.y = y
             obj.targetX = Math.random() * currentSize - currentSize/2 + obj.x
             obj.targetY = Math.random() * currentSize - currentSize/2 + obj.y
-            obj.life = Math.round(Math.random() * 2400) + 200
-            obj.emitRate = Math.round(Math.random() * 32) + 32
+            obj.life = Math.round(Math.random() * 23) + 150
+            obj.emitRate = Math.round(Math.random() * 32) + 5
             obj.lifeSpan = currentLifeSpan
             const group = Math.round(Math.random() * 3);
             switch (group) {
                 case 0:
-                    obj.group = "white";
+                    obj.group = "light";
                     break;
                 case 1:
                     obj.group = "a";
