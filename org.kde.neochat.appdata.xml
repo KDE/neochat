@@ -119,6 +119,16 @@
     <content_attribute id="social-chat">intense</content_attribute>
   </content_rating>
   <releases>
+    <release version="1.1.0" date="2021-02-22">
+      <description>
+        <p>Probably the highlight of this release is the completely new login page. It detects the server configuration based on your Matrix Id. This allows you to login to servers requiring Single Sign On (SSO) (like the Mozilla or the incoming Fedora Matrix instance).</p>
+        <p>Servers that require agreeing to the TOS before usage are correctly detected now and redirect to their TOS webpage, allowing the user to agree to them instead of silently failing to load the account.</p>
+        <p>It is now possible to open a room into a new window. This allows you to view and interact with multiple rooms at the same time.</p>
+        <p>We added a few commands to NeoChat (/shrug, /lenny, /join, /ignore, ...).</p>
+        <p>We improved the Plasma integration a bit. Now the number of unread messages is displayed in the Plasma Taskbar.</p>
+      </description>
+      <url>https://carlschwan.eu/2020/02/22/neochat-1.1/</url>
+    </release>
     <release version="1.0.1" date="2021-01-13">
       <description>
         <p>This version fixes several bugs.</p>
