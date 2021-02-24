@@ -401,9 +401,9 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                 // Part 2: profile changes of joined members
                 if (e.isRename() && NeoChatConfig::self()->showRename()) {
                     if (!e.displayName().isEmpty()) {
-                        text = i18n("cleared their display name");
+                        text = i18nc("their refers to a singular user", "cleared their display name");
                     } else {
-                        text = i18n("changed their display name to %1", e.displayName().toHtmlEscaped());
+                        text = i18nc("their refers to a singular user", "changed their display name to %1", e.displayName().toHtmlEscaped());
                     }
                 }
                 if (e.isAvatarUpdate() && NeoChatConfig::self()->showAvatarUpdate()) {
@@ -411,11 +411,11 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                         text += i18n(" and ");
                     }
                     if (e.avatarUrl().isEmpty()) {
-                        text += i18n("cleared their avatar");
+                        text += i18nc("their refers to a singular user", "cleared their avatar");
                     } else if (e.prevContent()->avatarUrl.isEmpty()) {
                         text += i18n("set an avatar");
                     } else {
-                        text += i18n("updated their avatar");
+                        text += i18nc("their refers to a singular user", "updated their avatar");
                     }
                 }
                 return text;
