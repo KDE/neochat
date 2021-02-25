@@ -273,7 +273,7 @@ Item {
         var currentSize = Math.round(Math.random() * 200) + 40
         var currentLifeSpan = Math.round(Math.random() * 1000) + 100
         for (var i=0; i<8; i++) {
-            var obj = emitterComp.createObject(root);
+            var obj = emitterComp.createObject(parent);
             obj.x = x
             obj.y = y
             obj.targetX = Math.random() * currentSize - currentSize/2 + obj.x
