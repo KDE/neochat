@@ -71,7 +71,6 @@ Kirigami.ScrollablePage {
             }
         }
         QQC2.CheckBox {
-            Kirigami.FormData.label: i18n("Timeline:")
             text: i18n("Show Fancy Effects")
             checked: Config.showFancyEffects
             onToggled: {
