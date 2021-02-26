@@ -116,7 +116,8 @@ Kirigami.ScrollablePage {
             leading: Kirigami.Avatar {
                 source: avatar ? "image://mxc/" + avatar : ""
                 name: model.name || i18n("No Name")
-                implicitWidth: height
+                implicitWidth: visible ? height : 0
+                visible: Config.showAvatarInTimeline
             }
 
             trailing: RowLayout {

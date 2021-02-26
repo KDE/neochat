@@ -197,6 +197,7 @@ Kirigami.OverlayDrawer {
                         Kirigami.Avatar {
                             Layout.preferredWidth: height
                             Layout.fillHeight: true
+                            visible: Config.showAvatarInTimeline
 
                             source: avatar ? ("image://mxc/" + avatar) : ""
                             name: name
