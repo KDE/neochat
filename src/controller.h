@@ -33,6 +33,7 @@ class Controller : public QObject
     Q_PROPERTY(Connection *activeConnection READ activeConnection WRITE setActiveConnection NOTIFY activeConnectionChanged)
     Q_PROPERTY(bool busy READ busy WRITE setBusy NOTIFY busyChanged)
     Q_PROPERTY(KAboutData aboutData READ aboutData WRITE setAboutData NOTIFY aboutDataChanged)
+    Q_PROPERTY(bool supportSystemTray READ supportSystemTray CONSTANT)
 
 public:
     static Controller &instance();
@@ -59,6 +60,8 @@ public:
 
     void setAboutData(const KAboutData &aboutData);
     [[nodiscard]] KAboutData aboutData() const;
+
+    [[nodiscard]] bool supportSystemTray() const;
 
     bool saveAccessTokenToFile(const AccountSettings &account, const QByteArray &accessToken);
     bool saveAccessTokenToKeyChain(const AccountSettings &account, const QByteArray &accessToken);

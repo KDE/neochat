@@ -404,6 +404,15 @@ KAboutData Controller::aboutData() const
     return m_aboutData;
 }
 
+bool Controller::supportSystemTray() const
+{
+#ifdef Q_OS_ANDROID
+    return false;
+#else
+    return true;
+#endif
+}
+
 void Controller::changePassword(Connection *connection, const QString &currentPassword, const QString &newPassword)
 {
     NeochatChangePasswordJob *job = connection->callApi<NeochatChangePasswordJob>(newPassword, false);
