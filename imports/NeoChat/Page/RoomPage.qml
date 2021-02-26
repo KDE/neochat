@@ -506,8 +506,6 @@ Kirigami.ScrollablePage {
             implicitWidth: Kirigami.Units.gridUnit * 2
             implicitHeight: Kirigami.Units.gridUnit * 2
 
-            padding: 8
-
             id: goReadMarkerFab
 
             visible: currentRoom && currentRoom.hasUnreadMessages && currentRoom.readMarkerLoaded || !messageListView.atYEnd
