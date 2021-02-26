@@ -338,6 +338,7 @@ ToolBar {
                     leftPadding: Kirigami.Units.smallSpacing
                     selectByMouse: true
                     verticalAlignment: TextEdit.AlignVCenter
+                    enabled: room.canSendEvent("m.room.message")
 
                     text: currentRoom != null ? currentRoom.cachedInput : ""
 
