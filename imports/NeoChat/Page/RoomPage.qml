@@ -4,7 +4,7 @@
  *
  * SPDX-License-Identifier: GPL-3.0-only
  */
-import QtQuick 2.12
+import QtQuick 2.15
 import QtQuick.Controls 2.12 as QQC2
 import QtQuick.Layouts 1.12
 import Qt.labs.qmlmodels 1.0
@@ -331,7 +331,6 @@ Kirigami.ScrollablePage {
                                 }
                                 TapHandler {
                                     acceptedButtons: Qt.LeftButton
-                                    //enabled: Kirigami.Settings.isMobile
                                     onLongPressed: openMessageContext(author, display, eventId, toolTip)
                                 }
                             },
