@@ -477,11 +477,6 @@ ToolBar {
                         autoCompleteEndPosition = cursorPosition
                     }
 
-                    // store each user we autoComplete here, this will be helpful later to generate
-                    // the matrix.to links.
-                    // This use an hack to define: https://doc.qt.io/qt-5/qml-var.html#property-value-initialization-semantics
-                    property var userAutocompleted: ({})
-
                     function checkForFancyEffectsReason() {
                         if (!Config.showFancyEffects) {
                             return
