@@ -71,6 +71,11 @@ int main(int argc, char *argv[])
 #endif
 
 #ifdef Q_OS_WINDOWS
+    if (AttachConsole(ATTACH_PARENT_PROCESS)) {
+        freopen("CONOUT$", "w", stdout);
+        freopen("CONOUT$", "w", stderr);
+    }
+
     QApplication::setStyle(QStringLiteral("breeze"));
     auto font = app.font();
     font.setPointSize(10);
