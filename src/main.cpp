@@ -72,6 +72,9 @@ int main(int argc, char *argv[])
 
 #ifdef Q_OS_WINDOWS
     QApplication::setStyle(QStringLiteral("breeze"));
+    auto font = app.font();
+    font.setPointSize(10);
+    app.setFont(font);
 #endif
 
     QApplication::setOrganizationName("KDE");
