@@ -234,12 +234,23 @@ void RoomListModel::handleNotifications()
                 } else {
                     avatar_image = room->avatar(128);
                 }
-                NotificationsManager::instance().postNotification(dynamic_cast<NeoChatRoom *>(room),
-                                                                  sender->displayname(room),
-                                                                  notification["event"].toObject()["content"].toObject()["body"].toString(),
-                                                                  avatar_image,
-                                                                  notification["event"].toObject()["event_id"].toString(),
-                                                                  true);
+                if (notification["event"]["type"].toString() == QStringLiteral("m.call.invite")) {
+#ifdef GSTREAMER_AVAILABLE
+                    NotificationsManager::instance().postCallInviteNotification(
+                        dynamic_cast<NeoChatRoom *>(room),
+                        room->displayName(),
+                        sender->displayname(room),
+                        avatar_image,
+                        notification["event"]["content"]["offer"]["sdp"].toString().contains(QStringLiteral("video")));
+#endif
+                } else {
+                    NotificationsManager::instance().postNotification(dynamic_cast<NeoChatRoom *>(room),
+                                                                      sender->displayname(room),
+                                                                      notification["event"].toObject()["content"].toObject()["body"].toString(),
+                                                                      avatar_image,
+                                                                      notification["event"].toObject()["event_id"].toString(),
+                                                                      true);
+                }
             }
         }
     });

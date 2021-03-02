@@ -52,6 +52,16 @@ Kirigami.Page {
         }
     }
 
+    actions.main: Kirigami.Action {
+        text: i18n("Call")
+        icon.name: "call-start"
+        visible: Controller.callsSupported && root.currentRoom.joinedCount === 2
+        onTriggered: {
+            CallManager.startCall(root.currentRoom, true)
+        }
+    }
+
+
     Loader {
         id: timelineViewLoader
         anchors.fill: parent

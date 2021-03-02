@@ -100,6 +100,7 @@ class Controller : public QObject
      * This is the only way to gate NeoChat features in flatpaks in QML.
      */
     Q_PROPERTY(bool isFlatpak READ isFlatpak CONSTANT)
+    Q_PROPERTY(bool callsSupported READ callsSupported CONSTANT)
 
 public:
     /**
@@ -197,6 +198,7 @@ public:
     int quotientMinorVersion() const;
 
     bool isFlatpak() const;
+    bool callsSupported() const;
 
     /**
      * @brief Return a string for the input timestamp.

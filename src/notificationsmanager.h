@@ -156,6 +156,7 @@ public:
      * @brief Display a native notification for an invite.
      */
     void postInviteNotification(NeoChatRoom *room, const QString &title, const QString &sender, const QImage &icon);
+    void postCallInviteNotification(NeoChatRoom *room, const QString &roomName, const QString &sender, const QImage &icon, bool video);
 
     /**
      * @brief Clear an existing invite notification for the given room.

@@ -65,6 +65,12 @@ ecm_qt_declare_logging_category(neochat
     DEFAULT_SEVERITY Info
 )
 
+ecm_qt_declare_logging_category(neochat
+    HEADER "voip_logging.h"
+    IDENTIFIER "voip"
+    CATEGORY_NAME "org.kde.neochat.voip"
+)
+
 add_executable(neochat-app
     main.cpp
     res.qrc
@@ -111,6 +117,20 @@ endif()
 
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR})
 target_link_libraries(neochat PUBLIC Qt::Core Qt::Quick Qt::Qml Qt::Gui Qt::Multimedia Qt::Network Qt::QuickControls2 KF${QT_MAJOR_VERSION}::I18n KF${QT_MAJOR_VERSION}::Kirigami2 KF${QT_MAJOR_VERSION}::Notifications KF${QT_MAJOR_VERSION}::ConfigCore KF${QT_MAJOR_VERSION}::ConfigGui KF${QT_MAJOR_VERSION}::CoreAddons KF${QT_MAJOR_VERSION}::SonnetCore  KF${QT_MAJOR_VERSION}::ItemModels Quotient${QUOTIENT_SUFFIX} cmark::cmark ${QTKEYCHAIN_LIBRARIES} QCoro::Core)
+
+if (TARGET PkgConfig::GSTREAMER)
+    target_link_libraries(neochat PUBLIC PkgConfig::GSTREAMER)
+    target_sources(neochat PRIVATE
+        call/callmanager.cpp
+        call/callsession.cpp
+        call/audiosources.cpp
+        call/videosources.cpp
+        call/devicemonitor.cpp
+        models/callparticipantsmodel.cpp
+        call/callparticipant.cpp
+    )
+    target_compile_definitions(neochat PUBLIC GSTREAMER_AVAILABLE)
+endif()
 kconfig_add_kcfg_files(neochat GENERATE_MOC neochatconfig.kcfgc)
 
 if(NEOCHAT_FLATPAK)

@@ -59,6 +59,12 @@ Kirigami.CategorizedSettings {
             page: Qt.resolvedUrl("DevicesPage.qml")
         },
         Kirigami.SettingAction {
+            actionName: "calls"
+            text: i18n("Calls")
+            iconName: "call-start"
+            page: Qt.resolvedUrl("CallConfigurationPage.qml")
+        },
+        Kirigami.SettingAction {
             actionName: "aboutNeochat"
             text: i18n("About NeoChat")
             icon.name: "help-about"

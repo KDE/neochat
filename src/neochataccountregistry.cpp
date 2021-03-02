@@ -54,12 +54,12 @@ QVariant AccountRegistry::data(const QModelIndex &index, int role) const
     const auto account = m_accounts[index.row()];
 
     switch (role) {
-        case ConnectionRole:
-            return QVariant::fromValue(account);
-        case UserIdRole:
-            return QVariant::fromValue(account->userId());
-        default:
-            return {};
+    case ConnectionRole:
+        return QVariant::fromValue(account);
+    case UserIdRole:
+        return QVariant::fromValue(account->userId());
+    default:
+        return {};
     }
 
     return {};

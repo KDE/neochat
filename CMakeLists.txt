@@ -145,6 +145,14 @@ if(ANDROID)
     configure_file(${CMAKE_CURRENT_SOURCE_DIR}/android/version.gradle.in ${CMAKE_BINARY_DIR}/version.gradle)
 endif()
 
+include(FindPkgConfig)
+pkg_check_modules(GSTREAMER IMPORTED_TARGET gstreamer-sdp-1.0>1.18 gstreamer-webrtc-1.0>=1.18)
+if (TARGET PkgConfig::GSTREAMER)
+    add_feature_info(voip ON "GStreamer found. Call support is enabled.")
+else()
+    add_feature_info(voip OFF "GStreamer not found. Call support is disabled.")
+endif()
+
 ki18n_install(po)
 
 install(FILES org.kde.neochat.desktop DESTINATION ${KDE_INSTALL_APPDIR})

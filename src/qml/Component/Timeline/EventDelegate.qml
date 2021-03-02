@@ -19,6 +19,11 @@ DelegateChooser {
     }
 
     DelegateChoice {
+        roleValue: MessageEventModel.CallInvite
+        delegate: CallInviteDelegate {}
+    }
+
+    DelegateChoice {
         roleValue: MessageEventModel.Emote
         delegate: MessageDelegate {}
     }

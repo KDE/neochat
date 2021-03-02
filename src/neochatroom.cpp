@@ -42,6 +42,9 @@
 #endif
 #include <qt_connection_util.h>
 
+#ifdef GSTREAMER_AVAILABLE
+#include "call/callmanager.h"
+#endif
 #include "controller.h"
 #include "events/joinrulesevent.h"
 #include "neochatconfig.h"
@@ -122,6 +125,13 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
         Q_EMIT canEncryptRoomChanged();
     });
     connect(connection, &Connection::capabilitiesLoaded, this, &NeoChatRoom::maxRoomVersionChanged);
+
+#ifdef GSTREAMER_AVAILABLE
+    connect(this, &Room::callEvent, this, [=](Room *room, const RoomEvent *event) {
+        CallManager::instance().handleCallEvent(static_cast<NeoChatRoom *>(room), event);
+    });
+#endif
+
     connect(this, &Room::changed, this, [this]() {
         Q_EMIT defaultUrlPreviewStateChanged();
     });
@@ -1677,7 +1687,6 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
 
     m_currentPushNotificationState = state;
     Q_EMIT pushNotificationStateChanged(m_currentPushNotificationState);
-
 }
 
 void NeoChatRoom::updatePushNotificationState(QString type)

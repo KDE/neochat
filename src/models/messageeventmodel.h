@@ -53,6 +53,7 @@ public:
         ReadMarker, /**< The local user read marker. */
         Poll, /**< The initial event for a poll. */
         Location, /**< A location event. */
+        CallInvite, /**< An invitation to a call. */
         Other, /**< Anything that cannot be classified as another type. */
     };
     Q_ENUM(DelegateType);

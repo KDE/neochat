@@ -43,6 +43,18 @@ Kirigami.ApplicationWindow {
         source: Qt.resolvedUrl("qrc:/GlobalMenu.qml")
     }
 
+    Connections {
+        target: Controller.callsSupported ? CallManager : undefined
+
+        function onGlobalStateChanged() {
+            if (CallManager.globalState === CallManager.OUTGOING || CallManager.globalState === CallManager.INCOMING) {
+                pageStack.pushDialogLayer("qrc:/CallPage.qml", {}, {
+                    title: i18n("Call")
+                })
+            }
+        }
+    }
+
     // This timer allows to batch update the window size change to reduce
     // the io load and also work around the fact that x/y/width/height are
     // changed when loading the page and overwrite the saved geometry from

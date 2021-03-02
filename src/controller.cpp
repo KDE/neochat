@@ -736,3 +736,12 @@ QVariantList Controller::getSupportedRoomVersions(Quotient::Connection *connecti
 
     return supportedRoomVersions;
 }
+
+bool Controller::callsSupported() const
+{
+#ifdef GSTREAMER_AVAILABLE
+    return true;
+#else
+    return false;
+#endif
+}

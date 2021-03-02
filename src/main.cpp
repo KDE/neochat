@@ -86,12 +86,22 @@
 #ifdef QUOTIENT_07
 #include <keyverificationsession.h>
 #endif
+#include <room.h>
+
 #ifdef HAVE_COLORSCHEME
 #include "colorschemer.h"
 #endif
 #include "models/completionmodel.h"
 #include "models/statemodel.h"
 #include "neochatuser.h"
+
+#ifdef GSTREAMER_AVAILABLE
+#include "call/audiosources.h"
+#include "call/callmanager.h"
+#include "call/callparticipant.h"
+#include "call/videosources.h"
+#include "models/callparticipantsmodel.h"
+#endif
 
 #ifdef HAVE_RUNNER
 #include "runner.h"
@@ -183,6 +193,22 @@ int main(int argc, char *argv[])
 #endif
                        QStringLiteral("https://github.com/quotient-im/libquotient"),
                        KAboutLicense::LGPL_V2_1);
+#ifdef GSTREAMER_AVAILABLE
+    guint major, minor, micro, nano;
+    gst_version(&major, &minor, &micro, &nano);
+    about.addComponent(QStringLiteral("GStreamer"),
+                       i18nc("Description of GStreamer", "Open Source Multimedia Framework"),
+                       i18nc("<version number> (built against <possibly different version number>)",
+                             "%1.%2.%3.%4 (built against %5.%6.%7.%8)",
+                             major,
+                             minor,
+                             micro,
+                             nano,
+                             GST_VERSION_MAJOR,
+                             GST_VERSION_MINOR,
+                             GST_VERSION_MICRO,
+                             GST_VERSION_NANO));
+#endif
 
     KAboutData::setApplicationData(about);
     QGuiApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("org.kde.neochat")));
@@ -263,6 +289,10 @@ int main(int argc, char *argv[])
     qmlRegisterUncreatableType<NeoChatUser>("org.kde.neochat", 1, 0, "NeoChatUser", {});
     qmlRegisterUncreatableType<NeoChatRoom>("org.kde.neochat", 1, 0, "NeoChatRoom", {});
 
+#ifdef GSTREAMER_AVAILABLE
+    qmlRegisterUncreatableType<CallParticipantsModel>("org.kde.neochat", 1, 0, "CallParticipantsModel", "Get through CallManager");
+    qmlRegisterUncreatableType<CallParticipant>("org.kde.neochat", 1, 0, "CallParticipant", "Get through model");
+#endif
     qRegisterMetaType<User *>("User*");
     qRegisterMetaType<User *>("const User*");
     qRegisterMetaType<User *>("const Quotient::User*");
@@ -279,6 +309,13 @@ int main(int argc, char *argv[])
     qmlRegisterUncreatableType<KeyVerificationSession>("org.kde.neochat", 1, 0, "KeyVerificationSession", {});
     qRegisterMetaType<QVector<EmojiEntry>>("QVector<EmojiEntry>");
 #endif
+#endif
+
+#ifdef GSTREAMER_AVAILABLE
+    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "AudioSources", &AudioSources::instance());
+    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "VideoSources", &VideoSources::instance());
+    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "CallManager", &CallManager::instance());
+    qmlRegisterUncreatableType<CallSession>("org.kde.neochat", 1, 0, "CallSession", "ENUM");
 #endif
     qmlRegisterSingletonType("org.kde.neochat", 1, 0, "About", [](QQmlEngine *engine, QJSEngine *) -> QJSValue {
         return engine->toScriptValue(KAboutData::applicationData());
