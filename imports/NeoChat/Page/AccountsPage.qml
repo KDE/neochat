@@ -7,10 +7,12 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
+import Qt.labs.platform 1.1
 
-import org.kde.kirigami 2.12 as Kirigami
+import org.kde.kirigami 2.13 as Kirigami
 
 import org.kde.neochat 1.0
+import NeoChat.Dialog 1.0
 
 Kirigami.ScrollablePage {
     title: i18n("Accounts")
@@ -29,7 +31,7 @@ Kirigami.ScrollablePage {
 
                 text: model.user.displayName
                 subtitle: model.user.id
-                icon: model.connection.user.avatarMediaId ? "image://mxc/" + model.connection.user.avatarMediaId : "im-user"
+                icon: model.user.avatarMediaId ? ("image://mxc/" + model.user.avatarMediaId) : "im-user"
 
                 onClicked: {
                     Controller.activeConnection = model.connection
@@ -80,6 +82,14 @@ Kirigami.ScrollablePage {
         onTriggered: pageStack.layers.push("qrc:/imports/NeoChat/Page/WelcomePage.qml")
     }
 
+    Component {
+        id: openFileDialog
+
+        OpenFileDialog {
+            folder: StandardPaths.writableLocation(StandardPaths.PicturesLocation)
+        }
+    }
+
     Kirigami.OverlaySheet {
         id: userEditSheet
 
@@ -91,6 +101,32 @@ Kirigami.ScrollablePage {
 
         Kirigami.FormLayout {
             anchors.top: passwordsMessage.bottom
+            RowLayout {
+                Kirigami.Avatar {
+                    id: avatar
+                    source: userEditSheet.connection.localUser.avatarMediaId ? ("image://mxc/" + userEditSheet.connection.localUser.avatarMediaId) : ""
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            const fileDialog = openFileDialog.createObject(Controls.ApplicationWindow.Overlay)
+
+                            fileDialog.chosen.connect(function(receivedSource) {
+                                if (!receivedSource) return
+                                parent.source = receivedSource
+                            })
+                            fileDialog.open()
+                        }
+                    }
+                }
+                Controls.Button {
+                    visible: avatar.source.length !== 0
+                    icon.name: "edit-clear"
+
+                    onClicked: avatar.source = ""
+                }
+                Kirigami.FormData.label: i18n("Avatar:")
+            }
             Controls.TextField {
                 id: name
                 text: userEditSheet.connection.localUser.displayName
@@ -113,23 +149,37 @@ Kirigami.ScrollablePage {
                 echoMode: TextInput.Password
             }
 
-            Controls.Button {
-                text: i18n("Save")
-                onClicked: {
-                    if(userEditSheet.connection.localUser.displayName !== name.text)
-                        userEditSheet.connection.localUser.rename(name.text)
-                    if(currentPassword.text !== "" && newPassword.text !== "" && confirmPassword.text !== "") {
-                        if(newPassword.text === confirmPassword.text) {
-                            Controller.changePassword(userEditSheet.connection, currentPassword.text, newPassword.text)
-                        } else {
-                            showPassiveNotification(i18n("Passwords do not match"))
-                            return
+            RowLayout {
+                Controls.Button {
+                    text: i18n("Save")
+                    onClicked: {
+                        if(!Controller.setAvatar(userEditSheet.connection, avatar.source))
+                            showPassiveNotification("The Avatar could not be set")
+                        if(userEditSheet.connection.localUser.displayName !== name.text)
+                            userEditSheet.connection.localUser.rename(name.text)
+                        if(currentPassword.text !== "" && newPassword.text !== "" && confirmPassword.text !== "") {
+                            if(newPassword.text === confirmPassword.text) {
+                                Controller.changePassword(userEditSheet.connection, currentPassword.text, newPassword.text)
+                            } else {
+                                showPassiveNotification(i18n("Passwords do not match"))
+                                return
+                            }
                         }
+                        userEditSheet.close()
+                        currentPassword.text = ""
+                        newPassword.text = ""
+                        confirmPassword.text = ""
                     }
-                    userEditSheet.close()
-                    currentPassword.text = ""
-                    newPassword.text = ""
-                    confirmPassword.text = ""
+                }
+                Controls.Button {
+                    text: i18n("Cancel")
+                    onClicked: {
+                        userEditSheet.close()
+                        avatar.source = userEditSheet.connection.localUser.avatarMediaId ? ("image://mxc/" + userEditSheet.connection.localUser.avatarMediaId) : ""
+                        currentPassword.text = ""
+                        newPassword.text = ""
+                        confirmPassword.text = ""
+                    }
                 }
             }
         }

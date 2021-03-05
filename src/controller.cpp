@@ -441,6 +441,22 @@ void Controller::changePassword(Connection *connection, const QString &currentPa
     });
 }
 
+bool Controller::setAvatar(Connection *connection, const QUrl &avatarSource)
+{
+    User *localUser = connection->user();
+    QString decoded = avatarSource.path();
+    if (decoded.isEmpty()) {
+        connection->callApi<SetAvatarUrlJob>(localUser->id(), "");
+        return true;
+    }
+    if (QImageReader(decoded).read().isNull()) {
+        return false;
+    }
+    else {
+        return localUser->setAvatar(decoded);
+    }
+}
+
 NeochatChangePasswordJob::NeochatChangePasswordJob(const QString &newPassword, bool logoutDevices, const Omittable<QJsonObject> &auth)
     : BaseJob(HttpVerb::Post, QStringLiteral("ChangePasswordJob"), QStringLiteral("/_matrix/client/r0") % "/account/password")
 {

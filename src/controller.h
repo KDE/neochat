@@ -50,6 +50,8 @@ public:
 
     Q_INVOKABLE void changePassword(Quotient::Connection *connection, const QString &currentPassword, const QString &newPassword);
 
+    Q_INVOKABLE bool setAvatar(Quotient::Connection *connection, const QUrl &avatarSource);
+
     [[nodiscard]] int accountCount() const;
 
     [[nodiscard]] static bool quitOnLastWindowClosed();
