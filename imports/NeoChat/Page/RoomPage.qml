@@ -187,7 +187,7 @@ Kirigami.ScrollablePage {
                     onClicked: {
                         attachDialog.close()
 
-                        var fileDialog = openFileDialog.createObject(ApplicationWindow.overlay)
+                        var fileDialog = openFileDialog.createObject(QQC2.ApplicationWindow.overlay)
 
                         fileDialog.chosen.connect(function(path) {
                             if (!path) return
