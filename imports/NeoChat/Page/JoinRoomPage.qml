@@ -111,8 +111,8 @@ Kirigami.ScrollablePage {
             }
             contentItem: RowLayout {
                 Kirigami.Avatar {
-                    Layout.preferredWidth: Kirigami.Units.iconSizes.huge
-                    Layout.preferredHeight: Kirigami.Units.iconSizes.huge
+                    Layout.preferredWidth: Kirigami.Units.iconSizes.normal
+                    Layout.preferredHeight: Kirigami.Units.iconSizes.normal
 
                     source: model.avatar ? ("image://mxc/" + model.avatar) : ""
                     name: name
