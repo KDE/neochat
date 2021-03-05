@@ -311,10 +311,49 @@ ToolBar {
                 onClicked: clearEditReply()
             }
 
+            RowLayout {
+                Layout.fillHeight: true
+                Layout.preferredWidth: Kirigami.Units.gridUnit * 2 + Kirigami.Units.smallSpacing + Kirigami.Units.largeSpacing
+                
+                ToolButton {
+                    id: uploadButton
+
+                    visible: !isReply && !hasAttachment
+
+                    icon.name: "mail-attachment"
+
+                    onClicked: {
+                        if (Clipboard.hasImage) {
+                            attachDialog.open()
+                        } else {
+                            var fileDialog = openFileDialog.createObject(ApplicationWindow.overlay)
+
+                            fileDialog.chosen.connect(function(path) {
+                                if (!path) return
+
+                                root.attach(path)
+                            })
+
+                            fileDialog.open()
+                        }
+                    }
+
+                    ToolTip {
+                        text: i18n("Attach an image or file")
+                    }
+
+                    BusyIndicator {
+                        anchors.fill: parent
+
+                        running: currentRoom && currentRoom.hasFileUploading
+                    }
+                }
+            }
 
             ScrollView {
                 Layout.fillWidth: true
                 Layout.maximumHeight: inputField.lineHeight * 8
+
                 TextArea {
                     id: inputField
                     property real progress: 0
@@ -522,7 +561,6 @@ ToolBar {
                 }
             }
 
-
             ToolButton {
                 id: emojiButton
                 icon.name: "preferences-desktop-emoticons"
@@ -534,40 +572,6 @@ ToolBar {
 
                 ToolTip {
                     text: i18n("Add an Emoji")
-                }
-            }
-
-            ToolButton {
-                id: uploadButton
-
-                visible: !isReply && !hasAttachment
-
-                icon.name: "mail-attachment"
-
-                onClicked: {
-                    if (Clipboard.hasImage) {
-                        attachDialog.open()
-                    } else {
-                        var fileDialog = openFileDialog.createObject(ApplicationWindow.overlay)
-
-                        fileDialog.chosen.connect(function(path) {
-                            if (!path) return
-
-                            root.attach(path)
-                        })
-
-                        fileDialog.open()
-                    }
-                }
-
-                ToolTip {
-                    text: i18n("Attach an image or file")
-                }
-
-                BusyIndicator {
-                    anchors.fill: parent
-
-                    running: currentRoom && currentRoom.hasFileUploading
                 }
             }
 
