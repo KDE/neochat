@@ -4,7 +4,7 @@
  *
  * SPDX-License-Identifier: GPL-3.0-only
  */
-import QtQuick 2.12
+import QtQuick 2.15
 import QtQuick.Controls 2.12 as QQC2
 import QtQuick.Layouts 1.12
 
@@ -48,6 +48,7 @@ Kirigami.ScrollablePage {
 
     ListView {
         id: listView
+
         Kirigami.PlaceholderMessage {
             anchors.centerIn: parent
             width: parent.width - (Kirigami.Units.largeSpacing * 4)
@@ -59,7 +60,8 @@ Kirigami.ScrollablePage {
                 onTriggered: pageStack.layers.push("qrc:/imports/NeoChat/Page/JoinRoomPage.qml", {"connection": activeConnection, "keyword": sortFilterRoomListModel.filterText})
             }
         }
-        model:  SortFilterRoomListModel {
+
+        model: SortFilterRoomListModel {
             id: sortFilterRoomListModel
             sourceModel: RoomListModel {
                 id: roomListModel
@@ -89,6 +91,9 @@ Kirigami.ScrollablePage {
                 }
             }
         }
+
+        reuseItems: true
+        currentIndex: -1 // we don't want any room highlighted by default
 
         delegate: Kirigami.BasicListItem {
             id: roomListItem
