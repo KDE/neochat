@@ -76,7 +76,7 @@ ToolBar {
             }
         }
 
-        RowLayout {
+        ColumnLayout {
             Layout.fillWidth: true
             Layout.margins: 8
 
@@ -84,27 +84,19 @@ ToolBar {
 
             visible: false
 
-            spacing: 8
+            RowLayout {
+                Kirigami.Avatar {
+                    Layout.preferredWidth: Kirigami.Units.gridUnit
+                    Layout.preferredHeight: Kirigami.Units.gridUnit
 
-            Control {
-                Layout.alignment: Qt.AlignTop
+                    source: replyUser ? ("image://mxc/" + replyUser.avatarMediaId) : ""
+                    name: replyUser ? replyUser.name : i18n("No name")
+                }
 
-                padding: 4
-
-                contentItem: RowLayout {
-                    Kirigami.Avatar {
-                        Layout.preferredWidth: Kirigami.Units.gridUnit
-                        Layout.preferredHeight: Kirigami.Units.gridUnit
-
-                        source: replyUser ? ("image://mxc/" + replyUser.avatarMediaId) : ""
-                        name: replyUser ? replyUser.name : i18n("No name")
-                    }
-
-                    Label {
-                        Layout.alignment: Qt.AlignVCenter
-                        text: replyUser ? replyUser.displayName : i18n("No name")
-                        rightPadding: 8
-                    }
+                Label {
+                    Layout.alignment: Qt.AlignVCenter
+                    text: replyUser ? replyUser.displayName : i18n("No name")
+                    rightPadding: 8
                 }
             }
 
@@ -313,8 +305,8 @@ ToolBar {
 
             RowLayout {
                 Layout.fillHeight: true
-                Layout.preferredWidth: Kirigami.Units.gridUnit * 2 + Kirigami.Units.smallSpacing + Kirigami.Units.largeSpacing
-                
+                Layout.preferredWidth: replyItem.visible ? Kirigami.Units.largeSpacing : Kirigami.Units.gridUnit * 2 + Kirigami.Units.smallSpacing + Kirigami.Units.largeSpacing
+
                 ToolButton {
                     id: uploadButton
 
