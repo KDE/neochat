@@ -24,13 +24,15 @@ Flow {
 
             padding: Kirigami.Units.smallSpacing
 
-            background: Rectangle {
-                radius: height / 2
-                Kirigami.Theme.colorSet: Kirigami.Theme.Button
+            background: Kirigami.ShadowedRectangle {
                 color: checked ? Kirigami.Theme.positiveBackgroundColor : Kirigami.Theme.backgroundColor
-                border.color: checked ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.textColor
-                border.width: 1
+                radius: height / 2
+                shadow.size: Kirigami.Units.smallSpacing
+                shadow.color: !model.isHighlighted ? Qt.rgba(0.0, 0.0, 0.0, 0.10) : Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.10)
+                border.color: Kirigami.ColorUtils.tintWithAlpha(color, Kirigami.Theme.textColor, 0.15)
+                border.width: Kirigami.Units.devicePixelRatio
             }
+
 
             checkable: true
 
