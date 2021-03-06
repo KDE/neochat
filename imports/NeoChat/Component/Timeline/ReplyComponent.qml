@@ -31,7 +31,7 @@ QQC2.AbstractButton {
             Layout.alignment: Qt.AlignTop
             visible: Config.showAvatarInTimeline
             source: replyVisible && reply.author.avatarMediaId ? ("image://mxc/" + reply.author.avatarMediaId) : ""
-            name: replyVisible ? reply.author.name : "H"
+            name: replyVisible ? (reply.author.name || "") : "H"
             color: replyVisible ? reply.author.color : Kirigami.Theme.highlightColor
         }
 
@@ -48,6 +48,7 @@ QQC2.AbstractButton {
 
             TextDelegate {
                 Layout.fillWidth: true
+                Layout.leftMargin: 0
                 text: replyVisible ? ("<style>pre {white-space: pre-wrap} a{color: " + Kirigami.Theme.linkColor + ";} .user-pill{}</style>" + reply.display) : ""
                 textFormat: Text.RichText
                 wrapMode: Text.WordWrap

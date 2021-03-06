@@ -16,11 +16,6 @@ import NeoChat.Setting 1.0
 RowLayout {
     id: row
 
-    Item {
-        Layout.minimumWidth: Kirigami.Units.iconSizes.medium
-        Layout.preferredHeight: 1
-    }
-
     Kirigami.Avatar {
         Layout.preferredWidth: Kirigami.Units.iconSizes.small
         Layout.preferredHeight: Kirigami.Units.iconSizes.small

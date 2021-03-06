@@ -127,6 +127,58 @@ Kirigami.ScrollablePage {
         }
     }
 
+    // hover actions on a delegate, activated in TimelineContainer.qml
+    Item {
+        id: hoverActions
+        property bool showEdit
+        property bool hovered: false
+
+        visible: (hovered || hoverHandler.hovered) && !Kirigami.Settings.isMobile
+
+        property var editClicked
+        property var replyClicked
+        property var reacted
+
+        property alias childWidth: hoverActionsRow.width
+        property alias childHeight: hoverActionsRow.height
+
+        RowLayout {
+            id: hoverActionsRow
+            z: 4
+            spacing: 0
+            HoverHandler {
+                id: hoverHandler
+                margin: Kirigami.Units.smallSpacing
+            }
+
+            QQC2.Button {
+                QQC2.ToolTip.text: i18n("React")
+                QQC2.ToolTip.visible: hovered
+                visible: actions.hovered
+                icon.name: "preferences-desktop-emoticons"
+                onClicked: emojiDialog.open();
+                EmojiDialog {
+                    id: emojiDialog
+                    onReact: hoverActions.reacted(emoji)
+                }
+            }
+            QQC2.Button {
+                QQC2.ToolTip.text: i18n("Edit")
+                QQC2.ToolTip.visible: hovered
+                visible: actions.hovered && showEdit
+                icon.name: "document-edit"
+                onClicked: hoverActions.editClicked()
+            }
+            QQC2.Button {
+                QQC2.ToolTip.text: i18n("Reply")
+                QQC2.ToolTip.visible: hovered
+                visible: actions.hovered
+                icon.name: "mail-replied-symbolic"
+                onClicked: hoverActions.replyClicked()
+            }
+        }
+    }
+
     ListView {
         id: messageListView
 
@@ -137,7 +189,7 @@ Kirigami.ScrollablePage {
         readonly property bool isLoaded: page.width * page.height > 10
 
         spacing: Kirigami.Units.smallSpacing
-        clip: true
+        reuseItems: true
 
         verticalLayoutDirection: ListView.BottomToTop
         highlightMoveDuration: 500
@@ -232,51 +284,62 @@ Kirigami.ScrollablePage {
             sourceModel: messageEventModel
         }
 
-        //        populate: Transition {
-        //            NumberAnimation {
-        //                property: "opacity"; from: 0; to: 1
-        //                duration: 200
-        //            }
-        //        }
+        populate: Transition {
+            NumberAnimation {
+                property: "opacity"; from: 0; to: 1
+                duration: Kirigami.Units.shortDuration
+            }
+        }
 
-        //        add: Transition {
-        //            NumberAnimation {
-        //                property: "opacity"; from: 0; to: 1
-        //                duration: 200
-        //            }
-        //        }
+        add: Transition {
+            NumberAnimation {
+                property: "opacity"; from: 0; to: 1
+                duration: Kirigami.Units.shortDuration
+            }
+        }
 
-        //        move: Transition {
-        //            NumberAnimation {
-        //                property: "y"; duration: 200
-        //            }
-        //            NumberAnimation {
-        //                property: "opacity"; to: 1
-        //            }
-        //        }
+        move: Transition {
+            NumberAnimation {
+                property: "y"
+                duration: Kirigami.Units.shortDuration
+            }
+            NumberAnimation {
+                property: "opacity"; to: 1
+            }
+        }
 
-        //        displaced: Transition {
-        //            NumberAnimation {
-        //                property: "y"; duration: 200
-        //                easing.type: Easing.OutQuad
-        //            }
-        //            NumberAnimation {
-        //                property: "opacity"; to: 1
-        //            }
-        //        }
+        displaced: Transition {
+            NumberAnimation {
+                property: "y"
+                duration: Kirigami.Units.shortDuration
+                easing.type: Easing.OutQuad
+            }
+            NumberAnimation {
+                property: "opacity"; to: 1
+            }
+        }
 
         delegate: DelegateChooser {
             id: timelineDelegateChooser
             role: "eventType"
 
+            property bool delegateLoaded: true
+            ListView.onPooled: delegateLoaded = false
+            ListView.onReused: delegateLoaded = true
+
             DelegateChoice {
                 roleValue: "state"
                 delegate: TimelineContainer {
-                    width: messageListView.width
+                    id: container
+                    width: messageListView.width - Kirigami.Units.largeSpacing
+                    isLoaded: timelineDelegateChooser.delegateLoaded
+                    cardBackground: false
+
+                    hoverComponent: hoverActions
 
                     innerObject: StateDelegate {
-                        Layout.maximumWidth: parent.width
-                        Layout.alignment: Qt.AlignHCenter
+                        Layout.maximumWidth: container.width
+                        Layout.alignment: Qt.AlignLeft
                     }
                 }
             }
@@ -284,30 +347,24 @@ Kirigami.ScrollablePage {
             DelegateChoice {
                 roleValue: "emote"
                 delegate: TimelineContainer {
-                    width: messageListView.width
-                    innerObject: MessageDelegate {
-                        Layout.fillWidth: true
-                        Layout.maximumWidth: messageListView.width
+                    width: messageListView.width - Kirigami.Units.largeSpacing
+                    isLoaded: timelineDelegateChooser.delegateLoaded
+                    isEmote: true
+                    mouseArea: MouseArea {
+                        acceptedButtons: Qt.RightButton
+                        anchors.fill: parent
+                        onClicked: openMessageContext(author, display, eventId, toolTip);
+                    }
+                    onReplyClicked: goToEvent(eventID)
+                    onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
+
+                    hoverComponent: hoverActions
+
+                    innerObject: TextDelegate {
                         isEmote: true
-                        mouseArea: MouseArea {
-                            acceptedButtons: Qt.RightButton
-                            anchors.fill: parent
-                            onClicked: openMessageContext(author, display, eventId, toolTip);
-                        }
-                        onReplyClicked: goToEvent(eventID)
-                        onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
-                        innerObject: [
-                            TextDelegate {
-                                isEmote: true
-                                Layout.fillWidth: true
-                                Layout.rightMargin: Kirigami.Units.largeSpacing
-                            },
-                            ReactionDelegate {
-                                Layout.fillWidth: true
-                                Layout.topMargin: 0
-                                Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
-                            }
-                        ]
+                        Layout.fillWidth: true
+                        Layout.rightMargin: Kirigami.Units.largeSpacing
+                        Layout.leftMargin: Kirigami.Units.largeSpacing
                     }
                 }
             }
@@ -315,31 +372,27 @@ Kirigami.ScrollablePage {
             DelegateChoice {
                 roleValue: "message"
                 delegate: TimelineContainer {
-                    width: messageListView.width
-                    innerObject: MessageDelegate {
+                    id: timeline
+                    width: messageListView.width - Kirigami.Units.largeSpacing
+
+                    isLoaded: timelineDelegateChooser.delegateLoaded
+                    onReplyClicked: goToEvent(eventID)
+                    onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
+
+                    hoverComponent: hoverActions
+
+                    innerObject: TextDelegate {
                         Layout.fillWidth: true
-                        Layout.maximumWidth: messageListView.width
-                        onReplyClicked: goToEvent(eventID)
-                        onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
-                        innerObject: [
-                            TextDelegate {
-                                Layout.fillWidth: true
-                                Layout.rightMargin: Kirigami.Units.largeSpacing
-                                TapHandler {
-                                    acceptedButtons: Qt.RightButton
-                                    onTapped: openMessageContext(author, display, eventId, toolTip)
-                                }
-                                TapHandler {
-                                    acceptedButtons: Qt.LeftButton
-                                    onLongPressed: openMessageContext(author, display, eventId, toolTip)
-                                }
-                            },
-                            ReactionDelegate {
-                                Layout.fillWidth: true
-                                Layout.topMargin: 0
-                                Layout.bottomMargin: Kirigami.Units.largeSpacing
-                            }
-                        ]
+                        Layout.rightMargin: Kirigami.Units.largeSpacing
+                        Layout.leftMargin: Kirigami.Units.largeSpacing
+                        TapHandler {
+                            acceptedButtons: Qt.RightButton
+                            onTapped: openMessageContext(author, display, eventId, toolTip)
+                        }
+                        TapHandler {
+                            acceptedButtons: Qt.LeftButton
+                            onLongPressed: openMessageContext(author, display, eventId, toolTip)
+                        }
                     }
                 }
             }
@@ -347,16 +400,16 @@ Kirigami.ScrollablePage {
             DelegateChoice {
                 roleValue: "notice"
                 delegate: TimelineContainer {
-                    width: messageListView.width
+                    width: messageListView.width - Kirigami.Units.largeSpacing
+                    isLoaded: timelineDelegateChooser.delegateLoaded
+                    onReplyClicked: goToEvent(eventID)
+                    onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
 
-                    innerObject: MessageDelegate {
+                    hoverComponent: hoverActions
+                    innerObject: TextDelegate {
                         Layout.fillWidth: true
-                        onReplyClicked: goToEvent(eventID)
-                        onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
-
-                        innerObject: TextDelegate {
-                            Layout.fillWidth: true
-                        }
+                        Layout.rightMargin: Kirigami.Units.largeSpacing
+                        Layout.leftMargin: Kirigami.Units.largeSpacing
                     }
                 }
             }
@@ -364,26 +417,20 @@ Kirigami.ScrollablePage {
             DelegateChoice {
                 roleValue: "image"
                 delegate: TimelineContainer {
-                    width: messageListView.width
+                    width: messageListView.width - Kirigami.Units.largeSpacing
 
-                    innerObject: MessageDelegate {
+                    isLoaded: timelineDelegateChooser.delegateLoaded
+                    onReplyClicked: goToEvent(eventID)
+                    onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
+
+                    hoverComponent: hoverActions
+
+                    innerObject: ImageDelegate {
+                        Layout.minimumWidth: Kirigami.Units.gridUnit * 10
                         Layout.fillWidth: true
-                        onReplyClicked: goToEvent(eventID)
-                        onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
-
-                        innerObject: [
-                            ImageDelegate {
-                                Layout.maximumWidth: parent.width
-                                Layout.minimumWidth: 320
-                                Layout.preferredHeight: info.h / info.w * width
-                            },
-                            ReactionDelegate {
-                                Layout.fillWidth: true
-                                Layout.topMargin: 0
-                                Layout.maximumHeight: 320
-                                Layout.bottomMargin: Kirigami.Units.largeSpacing
-                            }
-                        ]
+                        Layout.preferredHeight: info.h / info.w * width
+                        Layout.maximumHeight: Kirigami.Units.gridUnit * 15
+                        Layout.maximumWidth: Kirigami.Units.gridUnit * 30
                     }
                 }
             }
@@ -391,27 +438,20 @@ Kirigami.ScrollablePage {
             DelegateChoice {
                 roleValue: "sticker"
                 delegate: TimelineContainer {
-                    width: messageListView.width
+                    width: messageListView.width - Kirigami.Units.largeSpacing
 
-                    innerObject: MessageDelegate {
-                        Layout.fillWidth: true
-                        onReplyClicked: goToEvent(eventID)
-                        onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
+                    isLoaded: timelineDelegateChooser.delegateLoaded
+                    onReplyClicked: goToEvent(eventID)
+                    onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
 
-                        innerObject: [
-                            ImageDelegate {
-                                readonly: true
-                                Layout.maximumWidth: parent.width / 2
-                                Layout.minimumWidth: 320
-                                Layout.preferredHeight: info.h / info.w * width
-                            },
-                            ReactionDelegate {
-                                Layout.fillWidth: true
-                                Layout.topMargin: 0
-                                Layout.maximumHeight: 320
-                                Layout.bottomMargin: Kirigami.Units.largeSpacing
-                            }
-                        ]
+                    hoverComponent: hoverActions
+                    cardBackground: false
+
+                    innerObject: ImageDelegate {
+                        readonly: true
+                        Layout.maximumWidth: Kirigami.Units.gridUnit * 10
+                        Layout.minimumWidth: Kirigami.Units.gridUnit * 10
+                        Layout.preferredHeight: info.h / info.w * width
                     }
                 }
             }
@@ -419,25 +459,23 @@ Kirigami.ScrollablePage {
             DelegateChoice {
                 roleValue: "audio"
                 delegate: TimelineContainer {
-                    width: messageListView.width
+                    width: messageListView.width - Kirigami.Units.largeSpacing
 
-                    innerObject: MessageDelegate {
+                    hoverComponent: hoverActions
+
+                    isLoaded: timelineDelegateChooser.delegateLoaded
+                    onReplyClicked: goToEvent(eventID)
+                    onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
+
+                    innerObject: AudioDelegate {
                         Layout.fillWidth: true
-                        onReplyClicked: goToEvent(eventID)
-                        mouseArea: MouseArea {
-                            acceptedButtons: (Kirigami.Settings.isMobile ? Qt.LeftButton : 0) | Qt.RightButton
-                            anchors.fill: parent
-                            onClicked: {
-                                if (mouse.button == Qt.RightButton) {
-                                    openMessageContext(author, display, eventId, toolTip);
-                                }
-                            }
-                            onPressAndHold: openMessageContext(author, display, eventId, toolTip);
+                        TapHandler {
+                            acceptedButtons: Qt.RightButton
+                            onTapped: openFileContext(author, display, eventId, toolTip, progressInfo, parent)
                         }
-                        onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
-
-                        innerObject: AudioDelegate {
-                            Layout.fillWidth: true
+                        TapHandler {
+                            acceptedButtons: Qt.LeftButton
+                            onLongPressed: openFileContext(author, display, eventId, toolTip, progressInfo, parent)
                         }
                     }
                 }
@@ -446,28 +484,29 @@ Kirigami.ScrollablePage {
             DelegateChoice {
                 roleValue: "video"
                 delegate: TimelineContainer {
-                    width: messageListView.width
+                    width: messageListView.width - Kirigami.Units.largeSpacing
 
-                    innerObject: MessageDelegate {
+                    hoverComponent: hoverActions
+
+                    isLoaded: timelineDelegateChooser.delegateLoaded
+                    onReplyClicked: goToEvent(eventID)
+                    onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
+
+                    innerObject: VideoDelegate {
                         Layout.fillWidth: true
-                        onReplyClicked: goToEvent(eventID)
-                        mouseArea: MouseArea {
-                            acceptedButtons: (Kirigami.Settings.isMobile ? Qt.LeftButton : 0) | Qt.RightButton
-                            anchors.fill: parent
-                            onClicked: {
-                                if (mouse.button == Qt.RightButton) {
-                                    openMessageContext(author, display, eventId, toolTip);
-                                }
-                            }
-                            onPressAndHold: openMessageContext(author, display, eventId, toolTip);
-                        }
-                        onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
+                        Layout.minimumWidth: Kirigami.Units.gridUnit * 10
+                        Layout.maximumWidth: Kirigami.Units.gridUnit * 30
+                        Layout.preferredHeight: content.info.h / content.info.w * width
+                        Layout.maximumHeight: Kirigami.Units.gridUnit * 15
+                        Layout.minimumHeight: Kirigami.Units.gridUnit * 5
 
-                        innerObject: VideoDelegate {
-                            Layout.maximumWidth: parent.width
-                            Layout.minimumWidth: 320
-                            Layout.maximumHeight: 320
-                            Layout.preferredHeight: content.info.h / content.info.w * width
+                        TapHandler {
+                            acceptedButtons: Qt.RightButton
+                            onTapped: openFileContext(author, display, eventId, toolTip, progressInfo, parent)
+                        }
+                        TapHandler {
+                            acceptedButtons: Qt.LeftButton
+                            onLongPressed: openFileContext(author, display, eventId, toolTip, progressInfo, parent)
                         }
                     }
                 }
@@ -476,15 +515,23 @@ Kirigami.ScrollablePage {
             DelegateChoice {
                 roleValue: "file"
                 delegate: TimelineContainer {
-                    width: messageListView.width
+                    width: messageListView.width - Kirigami.Units.largeSpacing
 
-                    innerObject: MessageDelegate {
+                    hoverComponent: hoverActions
+
+                    isLoaded: timelineDelegateChooser.delegateLoaded
+                    onReplyClicked: goToEvent(eventID)
+                    onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
+
+                    innerObject: FileDelegate {
                         Layout.fillWidth: true
-                        onReplyClicked: goToEvent(eventID)
-                        onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
-
-                        innerObject: FileDelegate {
-                            Layout.fillWidth: true
+                        TapHandler {
+                            acceptedButtons: Qt.RightButton
+                            onTapped: openFileContext(author, display, eventId, toolTip, progressInfo, parent)
+                        }
+                        TapHandler {
+                            acceptedButtons: Qt.LeftButton
+                            onLongPressed: openFileContext(author, display, eventId, toolTip, progressInfo, parent)
                         }
                     }
                 }
@@ -583,6 +630,18 @@ Kirigami.ScrollablePage {
 
             MessageSourceSheet {}
         }
+
+        Component {
+            id: openFolderDialog
+
+            OpenFolderDialog {}
+        }
+
+        Component {
+            id: fileDelegateContextMenu
+
+            FileDelegateContextMenu {}
+        }
     }
 
     footer: ChatTextInput {
@@ -626,8 +685,6 @@ Kirigami.ScrollablePage {
         }
     }
 
-    Kirigami.Theme.colorSet: Kirigami.Theme.View
-
     function goToEvent(eventID) {
         messageListView.positionViewAtIndex(eventToIndex(eventID), ListView.Contain)
     }
@@ -661,7 +718,56 @@ Kirigami.ScrollablePage {
         return index;
     }
 
-    function openMessageContext(author, message, eventId, toolTip, model) {
+    /// Open message context dialog for file and videos
+    function openFileContext(author, message, eventId, toolTip, progressInfo, file) {
+        const contextMenu = fileDelegateContextMenu.createObject(page, {
+            'author': author,
+            'message': message,
+            'eventId': eventId,
+        });
+        contextMenu.downloadAndOpen.connect(function() {
+            if (file.downloaded) {
+                if (!Qt.openUrlExternally(progressInfo.localPath)) {
+                    Qt.openUrlExternally(progressInfo.localDir);
+                }
+            } else {
+                file.onDownloadedChanged.connect(function() {
+                    if (!Qt.openUrlExternally(progressInfo.localPath)) {
+                        Qt.openUrlExternally(progressInfo.localDir);
+                    }
+                });
+                currentRoom.downloadFile(eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId))
+            }
+        });
+        contextMenu.saveFileAs.connect(function() {
+            const folderDialog = openFolderDialog.createObject(ApplicationWindow.overlay)
+
+            folderDialog.chosen.connect(function(path) {
+                if (!path) {
+                    return;
+                }
+
+                currentRoom.downloadFile(eventId, path + "/" + currentRoom.fileNameToDownload(eventId))
+            })
+
+            folderDialog.open()
+        })
+        contextMenu.viewSource.connect(function() {
+            messageSourceSheet.createObject(page, {
+                'sourceText': toolTip,
+            }).open();
+        });
+        contextMenu.reply.connect(function(replyUser, replyContent) {
+            replyToMessage(replyUser, replyContent, eventId);
+        })
+        contextMenu.remove.connect(function() {
+            currentRoom.redactEvent(eventId);
+        })
+        contextMenu.open();
+    }
+
+    /// Open context menu for normal message
+    function openMessageContext(author, message, eventId, toolTip) {
         const contextMenu = messageDelegateContextMenu.createObject(page, {
             'author': author,
             'message': message,
@@ -671,17 +777,14 @@ Kirigami.ScrollablePage {
             messageSourceSheet.createObject(page, {
                 'sourceText': toolTip,
             }).open();
-            contextMenu.close();
         });
         contextMenu.reply.connect(function(replyUser, replyContent) {
             replyToMessage(replyUser, replyContent, eventId);
-            contextMenu.close();
         })
         contextMenu.remove.connect(function() {
             currentRoom.redactEvent(eventId);
-            contextMenu.close();
         })
-        contextMenu.open()
+        contextMenu.open();
     }
 
     function replyToMessage(replyUser, replyContent, eventId) {

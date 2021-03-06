@@ -10,12 +10,9 @@ import QtQuick.Layouts 1.12
 import org.kde.kirigami 2.13 as Kirigami
 
 Flow {
-    visible: (reaction && reaction.length > 0) ?? false
-
     spacing: Kirigami.Units.largeSpacing
-
     Repeater {
-        model: reaction
+        model: reaction ?? null
 
         delegate: AbstractButton {
             width: Math.max(implicitWidth, height)
@@ -31,8 +28,8 @@ Flow {
                 radius: height / 2
                 Kirigami.Theme.colorSet: Kirigami.Theme.Button
                 color: checked ? Kirigami.Theme.positiveBackgroundColor : Kirigami.Theme.backgroundColor
-		border.color: checked ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.textColor
-		border.width: 1
+                border.color: checked ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.textColor
+                border.width: 1
             }
 
             checkable: true

@@ -31,8 +31,8 @@ Rectangle {
 
     // backgroundColor
     color: Kirigami.Theme.backgroundColor
-    Kirigami.Theme.colorSet: Kirigami.Theme.View
-    Kirigami.Theme.inherit: true
+    Kirigami.Theme.colorSet: Kirigami.Theme.Window
+    Kirigami.Theme.inherit: false
 
     // Confetti
 

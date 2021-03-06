@@ -162,6 +162,8 @@ Kirigami.ApplicationWindow {
         handleVisible: enabled && pageStack.layers.depth < 2 && pageStack.depth < 3
     }
 
+    pageStack.columnView.columnWidth: Kirigami.Units.gridUnit * 17
+
     globalDrawer: Kirigami.GlobalDrawer {
         property bool hasLayer
         contentItem.implicitWidth: columnWidth

@@ -5,11 +5,15 @@
  */
 import QtQuick 2.12
 import QtQuick.Controls 2.12 as QQC2
+import QtQuick.Layouts 1.12
 
 import org.kde.kirigami 2.4 as Kirigami
 
 TextEdit {
     id: contentLabel
+
+    Layout.margins: Kirigami.Units.largeSpacing
+    Layout.topMargin: 0
 
     readonly property var isEmoji: /^(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])+$/
 
