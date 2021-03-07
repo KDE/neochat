@@ -12,25 +12,31 @@ import org.kde.neochat 1.0
 LoginStep {
     id: root
 
-    readonly property var homeserver: customHomeserver.visible ? customHomeserver.text : serverCombo.currentText
+    readonly property string homeserver: customHomeserver.visible ? customHomeserver.text : serverCombo.currentText
     property bool loading: false
+    showBackButton: true
+    showContinueButton: true
 
-    title: i18nc("@title", "Select a Homeserver")
+    title: i18nc("@title", "Register")
+    message: i18n("Select a Homeserver")
+    previousUrl: "qrc:/imports/NeoChat/Component/Login/LoginRegister.qml"
 
     action: Kirigami.Action {
-        enabled: LoginHelper.homeserverReachable && !customHomeserver.visible || customHomeserver.acceptableInput
+        text: Registration.testing ? i18n("Loading") : i18nc("@action:button", "Continue")
+        enabled: Registration.homeserverAvailable && (!customHomeserver.visible || customHomeserver.acceptableInput)
         onTriggered: {
-            // TODO
-            console.log("register todo")
+            processed("qrc:/imports/NeoChat/Component/Login/Username.qml");
         }
     }
 
     onHomeserverChanged: {
-        LoginHelper.testHomeserver("@user:" + homeserver)
+        Registration.homeserver = homeserver
     }
 
     Kirigami.FormLayout {
-        Component.onCompleted: Controller.testHomeserver(homeserver)
+        Component.onCompleted: {
+            Registration.homeserver = homeserver
+        }
 
         QQC2.ComboBox {
             id: serverCombo
@@ -45,17 +51,11 @@ LoginStep {
             Kirigami.FormData.label: i18n("Url:")
             visible: serverCombo.currentIndex === 3
             onTextChanged: {
-                Controller.testHomeserver(text)
+                Registration.homeserver = text
             }
             validator: RegularExpressionValidator {
                 regularExpression: /([a-zA-Z0-9\-]+\.)*[a-zA-Z0-9]+(:[0-9]+)?/
             }
-        }
-
-        QQC2.Button {
-            id: continueButton
-            text: i18nc("@action:button", "Continue")
-            action: root.action
         }
     }
 }

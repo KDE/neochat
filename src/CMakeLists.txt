@@ -32,6 +32,7 @@ add_executable(neochat
     commandmodel.cpp
     webshortcutmodel.cpp
     spellcheckhighlighter.cpp
+    registration.cpp
     ../res.qrc
 )
 
@@ -51,7 +52,7 @@ if(NOT ANDROID)
 endif()
 
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR})
-target_link_libraries(neochat PRIVATE Qt::Quick Qt::Qml Qt::Gui Qt::Network Qt::QuickControls2 KF5::I18n KF5::Kirigami2 KF5::Notifications KF5::ConfigCore KF5::ConfigGui KF5::CoreAddons Quotient cmark::cmark ${QTKEYCHAIN_LIBRARIES})
+target_link_libraries(neochat PRIVATE Qt::Quick Qt::Qml Qt::Gui Qt::Network Qt::QuickControls2 Qt::WebView KF5::I18n KF5::Kirigami2 KF5::Notifications KF5::ConfigCore KF5::ConfigGui KF5::CoreAddons Quotient cmark::cmark ${QTKEYCHAIN_LIBRARIES})
 kconfig_add_kcfg_files(neochat GENERATE_MOC neochatconfig.kcfgc)
 
 if(NEOCHAT_FLATPAK)
@@ -94,6 +95,7 @@ if(ANDROID)
         "gtk-quit"
         "compass"
         "network-connect"
+        "checkmark"
     )
 else()
     target_link_libraries(neochat PRIVATE Qt5::Widgets KF5::KIOWidgets)

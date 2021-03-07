@@ -15,10 +15,11 @@ LoginStep {
     id: login
 
     showContinueButton: true
-    showBackButton: false
+    showBackButton: true
 
     title: i18nc("@title", "Login")
     message: i18n("Enter your Matrix ID")
+    previousUrl: "qrc:/imports/NeoChat/Component/Login/LoginRegister.qml"
 
     Component.onCompleted: {
         LoginHelper.matrixId = ""

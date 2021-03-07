@@ -18,6 +18,7 @@
 #else
 #include <QApplication>
 #endif
+#include <QtWebView>
 
 #include <KAboutData>
 #ifdef HAVE_KDBUSADDONS
@@ -61,6 +62,9 @@
 #ifdef HAVE_COLORSCHEME
 #include "colorschemer.h"
 #endif
+#include "actionshandler.h"
+#include "chatboxhelper.h"
+#include "registration.h"
 
 using namespace Quotient;
 
@@ -74,6 +78,7 @@ int main(int argc, char *argv[])
 
     QNetworkProxyFactory::setUseSystemConfiguration(true);
 
+    QtWebView::initialize();
 #ifdef Q_OS_ANDROID
     QGuiApplication app(argc, argv);
     QQuickStyle::setStyle(QStringLiteral("Material"));
@@ -156,6 +161,7 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "FileType", &fileTypeSingleton);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "LoginHelper", login);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "ChatBoxHelper", &chatBoxHelper);
+    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Registration", &Registration::instance());
     qmlRegisterType<AccountListModel>("org.kde.neochat", 1, 0, "AccountListModel");
     qmlRegisterType<ActionsHandler>("org.kde.neochat", 1, 0, "ActionsHandler");
     qmlRegisterType<ChatDocumentHandler>("org.kde.neochat", 1, 0, "ChatDocumentHandler");
