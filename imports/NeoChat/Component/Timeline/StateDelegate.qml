@@ -19,6 +19,7 @@ RowLayout {
     Kirigami.Avatar {
         Layout.preferredWidth: Kirigami.Units.iconSizes.small
         Layout.preferredHeight: Kirigami.Units.iconSizes.small
+        Layout.alignment: Qt.AlignTop
 
         name: author.name
         source: author.avatarMediaId ? ("image://mxc/" + author.avatarMediaId) : ""
@@ -38,18 +39,10 @@ RowLayout {
 
     Label {
         Layout.alignment: Qt.AlignVCenter
-        text: author.displayName
-        color: Kirigami.Theme.disabledTextColor
-    }
-
-    Label {
         Layout.fillWidth: true
-
-        text: display
-        color: Kirigami.Theme.disabledTextColor
-        font.weight: Font.Medium
-
-        wrapMode: Label.Wrap
+        wrapMode: Text.WordWrap
+        textFormat: Text.RichText
+        text: "<a href=\"https://matrix.to/#/" + author.id + "\" style='color: " + author.color + "'>" + author.displayName + "</a> " + display
         onLinkActivated: Qt.openUrlExternally(link)
     }
 }

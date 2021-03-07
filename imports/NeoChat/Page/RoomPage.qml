@@ -329,18 +329,12 @@ Kirigami.ScrollablePage {
 
             DelegateChoice {
                 roleValue: "state"
-                delegate: TimelineContainer {
-                    id: container
-                    width: messageListView.width - Kirigami.Units.largeSpacing
-                    isLoaded: timelineDelegateChooser.delegateLoaded
-                    cardBackground: false
-
-                    hoverComponent: hoverActions
-
-                    innerObject: StateDelegate {
-                        Layout.maximumWidth: container.width
-                        Layout.alignment: Qt.AlignLeft
-                    }
+                delegate: QQC2.Control {
+                    leftPadding: Kirigami.Units.gridUnit * 1.5 + Kirigami.Units.smallSpacing
+                    topPadding: 0
+                    bottomPadding: 0
+                    contentItem: StateDelegate { }
+                    implicitWidth: messageListView.width - Kirigami.Units.largeSpacing
                 }
             }
 
