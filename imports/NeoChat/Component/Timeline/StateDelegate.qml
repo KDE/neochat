@@ -42,7 +42,7 @@ RowLayout {
         Layout.fillWidth: true
         wrapMode: Text.WordWrap
         textFormat: Text.RichText
-        text: "<a href=\"https://matrix.to/#/" + author.id + "\" style='color: " + author.color + "'>" + author.displayName + "</a> " + display
+        text: "<style>a {text-decoration: none;}</style><a href=\"https://matrix.to/#/" + author.id + "\" style='color: " + author.color + "'>" + author.displayName + "</a> " + display
         onLinkActivated: Qt.openUrlExternally(link)
     }
 }
