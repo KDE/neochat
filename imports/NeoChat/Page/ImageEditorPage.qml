@@ -94,7 +94,18 @@ Kirigami.Page {
                 Kirigami.Action {
                     iconName: rootEditorView.resizing ? "dialog-cancel" : "transform-crop"
                     text: rootEditorView.resizing ? i18n("Cancel") : i18nc("@action:button Crop an image", "Crop");
-                    onTriggered: rootEditorView.resizing = !rootEditorView.resizing;
+                    onTriggered: {
+                        resizeRectangle.width = editImage.paintedWidth
+                        resizeRectangle.height = editImage.paintedHeight
+                        resizeRectangle.x = editImage.horizontalPadding
+                        resizeRectangle.y = editImage.verticalPadding
+                        resizeRectangle.insideX = 100
+                        resizeRectangle.insideY = 100
+                        resizeRectangle.insideWidth = 100
+                        resizeRectangle.insideHeight = 100
+
+                        rootEditorView.resizing = !rootEditorView.resizing;
+                    }
                 },
                 Kirigami.Action {
                     iconName: "dialog-ok"
@@ -144,7 +155,7 @@ Kirigami.Page {
 
         width: editImage.paintedWidth
         height: editImage.paintedHeight
-        x: 0
+        x: editImage.horizontalPadding
         y: editImage.verticalPadding
 
         insideX: 100
@@ -153,23 +164,5 @@ Kirigami.Page {
         insideHeight: 100
 
         onAcceptSize: rootEditorView.crop();
-
-        //resizeHandle: KQuickImageEditor.BasicResizeHandle { }
-
-        /*Rectangle {
-            radius: 2
-            width: Kirigami.Units.gridUnit * 8
-            height: Kirigami.Units.gridUnit * 3
-            anchors.centerIn: parent
-            Kirigami.Theme.colorSet: Kirigami.Theme.View
-            color: Kirigami.Theme.backgroundColor
-            QQC2.Label {
-                anchors.centerIn: parent
-                text: "x: " + (resizeRectangle.x - rootEditorView.contentItem.width + editImage.paintedWidth)
-                    + " y: " +  (resizeRectangle.y - rootEditorView.contentItem.height + editImage.paintedHeight)
-                    + "\nwidth: " + resizeRectangle.width
-                    + " height: " + resizeRectangle.height
-            }
-        }*/
     }
 }
