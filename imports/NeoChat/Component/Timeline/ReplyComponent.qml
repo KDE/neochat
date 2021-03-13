@@ -49,7 +49,7 @@ QQC2.AbstractButton {
             TextDelegate {
                 Layout.fillWidth: true
                 Layout.leftMargin: 0
-                text: replyVisible ? ("<style>pre {white-space: pre-wrap} a{color: " + Kirigami.Theme.linkColor + ";} .user-pill{}</style>" + reply.display) : ""
+                text: replyVisible ? ("<style>pre {white-space: pre-wrap} a{text-decoration: none; color: " + Kirigami.Theme.linkColor + ";} .user-pill{}</style>" + reply.display) : ""
                 textFormat: Text.RichText
                 wrapMode: Text.WordWrap
             }
