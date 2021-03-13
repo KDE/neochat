@@ -6,9 +6,8 @@
  */
 #include "controller.h"
 
-#ifndef Q_OS_ANDROID
 #include <qt5keychain/keychain.h>
-#endif
+
 #include <KConfig>
 #include <KConfigGroup>
 #include <KWindowConfig>
@@ -145,7 +144,6 @@ void Controller::logout(Connection *conn, bool serverSideLogout)
     SettingsGroup("Accounts").remove(conn->userId());
     QFile(accessTokenFileName(AccountSettings(conn->userId()))).remove();
 
-#ifndef Q_OS_ANDROID
     QKeychain::DeletePasswordJob job(qAppName());
     job.setAutoDelete(true);
     job.setKey(conn->userId());
@@ -153,11 +151,7 @@ void Controller::logout(Connection *conn, bool serverSideLogout)
     QKeychain::DeletePasswordJob::connect(&job, &QKeychain::Job::finished, &loop, &QEventLoop::quit);
     job.start();
     loop.exec();
-#else
-    KConfig config("neochat_tokens");
-    KConfigGroup tokensGroup(&config, "Tokens");
-    tokensGroup.deleteEntry(conn->userId());
-#endif
+
     conn->stopSync();
     Q_EMIT conn->stateChanged();
     Q_EMIT conn->loggedOut();
@@ -340,7 +334,6 @@ bool Controller::saveAccessTokenToFile(const AccountSettings &account, const QBy
 
 bool Controller::saveAccessTokenToKeyChain(const AccountSettings &account, const QByteArray &accessToken)
 {
-#ifndef Q_OS_ANDROID
     qDebug() << "Save the access token to the keychain for " << account.userId();
     QKeychain::WritePasswordJob job(qAppName());
     job.setAutoDelete(false);
@@ -355,12 +348,6 @@ bool Controller::saveAccessTokenToKeyChain(const AccountSettings &account, const
         qWarning() << "Could not save access token to the keychain: " << qPrintable(job.errorString());
         return saveAccessTokenToFile(account, accessToken);
     }
-
-#else
-    KConfig config("neochat_tokens");
-    KConfigGroup tokensGroup(&config, "Tokens");
-    tokensGroup.writeEntry(account.userId(), accessToken);
-#endif
     return true;
 }
 

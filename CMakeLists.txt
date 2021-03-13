@@ -48,17 +48,17 @@ set_package_properties(KF5Kirigami2 PROPERTIES
     PURPOSE "Kirigami application UI framework"
 )
 
+find_package(Qt5Keychain)
+set_package_properties(Qt5Keychain PROPERTIES
+    TYPE REQUIRED
+    PURPOSE "Secure storage of account secrets"
+)
+
 if(ANDROID)
     find_package(OpenSSL)
     set_package_properties(OpenSSL PROPERTIES
         TYPE REQUIRED
         PURPOSE "Encrypted communications"
-    )
-else()
-    find_package(Qt5Keychain)
-    set_package_properties(Qt5Keychain PROPERTIES
-        TYPE REQUIRED
-        PURPOSE "Secure storage of account secrets"
     )
 endif()
 
