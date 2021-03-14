@@ -7,6 +7,7 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.12 as QQC2
 import QtQuick.Layouts 1.12
+import QtQml.Models 2.15
 
 import org.kde.kirigami 2.13 as Kirigami
 import org.kde.kitemmodels 1.0
@@ -61,6 +62,14 @@ Kirigami.ScrollablePage {
             }
         }
 
+        ItemSelectionModel {
+            id: itemSelection
+            model: roomListModel
+            onCurrentChanged: {
+                listView.currentIndex = sortFilterRoomListModel.mapFromSource(current).row
+            }
+        }
+
         model: SortFilterRoomListModel {
             id: sortFilterRoomListModel
             sourceModel: RoomListModel {
@@ -68,6 +77,9 @@ Kirigami.ScrollablePage {
                 connection: page.activeConnection
             }
             roomSortOrder: Config.mergeRoomList ? SortFilterRoomListModel.LastActivity : SortFilterRoomListModel.Categories
+            onLayoutChanged: {
+                listView.currentIndex = sortFilterRoomListModel.mapFromSource(itemSelection.currentIndex).row
+            }
         }
 
         section.property: sortFilterRoomListModel.filterText.length === 0 && !Config.mergeRoomList ? "category" : null
@@ -76,6 +88,7 @@ Kirigami.ScrollablePage {
             action: Kirigami.Action {
                 onTriggered: roomListModel.setCategoryVisible(section, !roomListModel.categoryVisible(section))
             }
+            highlighted: sortFilterRoomListModel.mapFromSource(current).row == index
             contentItem: RowLayout {
                 implicitHeight: categoryName.implicitHeight
                 Kirigami.Heading {
@@ -106,6 +119,7 @@ Kirigami.ScrollablePage {
                     var roomItem = roomManager.enterRoom(currentRoom)
                     roomListItem.KeyNavigation.right = roomItem
                     roomItem.focus = true;
+                    itemSelection.setCurrentIndex(sortFilterRoomListModel.mapToSource(sortFilterRoomListModel.index(index, 0)), ItemSelectionModel.SelectCurrent)
                 }
             }
 
