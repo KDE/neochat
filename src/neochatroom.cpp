@@ -69,7 +69,8 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
             avatar_image = this->avatar(128);
         }
 
-        NotificationsManager::instance().postNotification(this, displayName(), sender->displayname(this), eventToString(*lastEvent), avatar_image);
+        NotificationsManager::instance().postNotification(this, displayName(), sender->displayname(this),
+                eventToString(*lastEvent), avatar_image, !lastEvent->id().isEmpty() ? lastEvent->id() : lastEvent->transactionId());
     });
 
     connect(this, &Room::aboutToAddHistoricalMessages, this, &NeoChatRoom::readMarkerLoadedChanged);
