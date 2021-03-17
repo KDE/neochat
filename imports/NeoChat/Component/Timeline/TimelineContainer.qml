@@ -35,6 +35,7 @@ Item {
     signal openExternally()
     signal replyClicked(string eventID)
     signal replyToMessageClicked(var replyUser, string replyContent, string eventID)
+    signal edit(string message, string formattedBody, string eventId)
 
     property alias hovered: controlContainer.hovered
 
@@ -53,7 +54,7 @@ Item {
 
             hoverComponent.editClicked = () => {
                 if (hoverComponent.showEdit) {
-                    chatTextInput.edit(message, model.formattedBody, eventId);
+                    edit(message, model.formattedBody, eventId);
                 } 
             };
             hoverComponent.replyClicked = () => {

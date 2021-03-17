@@ -16,6 +16,7 @@ import org.kde.kitemmodels 1.0
 import org.kde.neochat 1.0
 
 import NeoChat.Component 1.0
+import NeoChat.Component.ChatBox 1.0
 import NeoChat.Component.Timeline 1.0
 import NeoChat.Dialog 1.0
 import NeoChat.Menu.Timeline 1.0
@@ -121,8 +122,8 @@ Kirigami.ScrollablePage {
             switchRoomDown();
         } else if (!(event.modifiers & Qt.ControlModifier) && event.key < Qt.Key_Escape) {
             event.accepted = true;
-            chatTextInput.addText(event.text);
-            chatTextInput.focus();
+            chatBox.addText(event.text);
+            chatBox.focus();
             return;
         }
     }
@@ -181,7 +182,7 @@ Kirigami.ScrollablePage {
 
     ListView {
         id: messageListView
-
+        pixelAligned: true
         visible: !invitation.visible
 
         readonly property int largestVisibleIndex: count > 0 ? indexAt(contentX + (width / 2), contentY + height - 1) : -1
@@ -203,7 +204,7 @@ Kirigami.ScrollablePage {
         function updateReadMarker() {
             if(!noNeedMoreContent && contentY  - 5000 < originY)
                 currentRoom.getPreviousContent(20);
-            const index = eventToIndex(currentRoom.readMarkerEventId)
+            const index = currentRoom.readMarkerEventId ? eventToIndex(currentRoom.readMarkerEventId) : 0
             if(index === -1) {
                 return
             }
@@ -245,7 +246,7 @@ Kirigami.ScrollablePage {
                         fileDialog.chosen.connect(function(path) {
                             if (!path) return
 
-                            chatTextInput.attach(path)
+                            chatBox.attach(path)
                         })
 
                         fileDialog.open()
@@ -265,7 +266,7 @@ Kirigami.ScrollablePage {
                     onClicked: {
                         var localPath = Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/screenshots/" + (new Date()).getTime() + ".png"
                         if (!Clipboard.saveImage(localPath)) return
-                        chatTextInput.attach(localPath)
+                        chatBox.attach(localPath)
                         attachDialog.close()
                     }
                 }
@@ -352,6 +353,7 @@ Kirigami.ScrollablePage {
                     }
                     onReplyClicked: goToEvent(eventID)
                     onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
+                    onEdit: chatBox.edit(message, formattedBody, eventId)
 
                     hoverComponent: hoverActions
 
@@ -373,6 +375,7 @@ Kirigami.ScrollablePage {
                     isLoaded: timelineDelegateChooser.delegateLoaded
                     onReplyClicked: goToEvent(eventID)
                     onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
+                    onEdit: chatBox.edit(message, formattedBody, eventId)
 
                     hoverComponent: hoverActions
 
@@ -399,6 +402,7 @@ Kirigami.ScrollablePage {
                     isLoaded: timelineDelegateChooser.delegateLoaded
                     onReplyClicked: goToEvent(eventID)
                     onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
+                    onEdit: chatBox.edit(message, formattedBody, eventId)
 
                     hoverComponent: hoverActions
                     innerObject: TextDelegate {
@@ -597,7 +601,7 @@ Kirigami.ScrollablePage {
         DropArea {
             id: dropAreaFile
             anchors.fill: parent
-            onDropped: chatTextInput.attach(drop.urls[0])
+            onDropped: chatBox.attach(drop.urls[0])
         }
 
         QQC2.Pane {
@@ -639,11 +643,9 @@ Kirigami.ScrollablePage {
         }
     }
 
-    footer: ChatTextInput {
-        id: chatTextInput
-
+    footer: ChatBox {
+        id: chatBox
         visible: !invitation.visible && !(messageListView.count === 0 && !currentRoom.allHistoryLoaded)
-        Layout.fillWidth: true
     }
 
     background: FancyEffectsContainer {
@@ -673,7 +675,7 @@ Kirigami.ScrollablePage {
 
         Connections {
             enabled: Config.showFancyEffects
-            target: chatTextInput
+            target: chatBox
             onFancyEffectsReasonFound: {
                 fancyEffectsContainer.processFancyEffectsReason(fancyEffect)
             }
@@ -783,10 +785,10 @@ Kirigami.ScrollablePage {
     }
 
     function replyToMessage(replyUser, replyContent, eventId) {
-        chatTextInput.replyUser = replyUser;
-        chatTextInput.replyEventID = eventId;
-        chatTextInput.replyContent = replyContent;
-        chatTextInput.isReply = true;
-        chatTextInput.focus();
+        chatBox.editEventId = "";
+        chatBox.replyUser = replyUser;
+        chatBox.replyEventId = eventId;
+        chatBox.replyContent = replyContent;
+        chatBox.focusInputField();
     }
 }
