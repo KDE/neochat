@@ -196,6 +196,7 @@ Kirigami.ScrollablePage {
 
         model: !isLoaded ? undefined : sortedMessageEventModel
 
+
         onContentYChanged: updateReadMarker()
         onCountChanged: updateReadMarker()
 
@@ -590,7 +591,7 @@ Kirigami.ScrollablePage {
                     currentRoom.getPreviousContent(50)
             }
 
-            positionViewAtBeginning()
+            positionViewAtBeginning();
         }
 
         DropArea {
