@@ -165,7 +165,7 @@ Kirigami.ScrollablePage {
             QQC2.Button {
                 QQC2.ToolTip.text: i18n("Edit")
                 QQC2.ToolTip.visible: hovered
-                visible: actions.hovered && showEdit
+                visible: hoverActions.showEdit
                 icon.name: "document-edit"
                 onClicked: hoverActions.editClicked()
             }

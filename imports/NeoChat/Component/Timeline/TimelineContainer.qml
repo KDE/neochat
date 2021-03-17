@@ -52,7 +52,9 @@ Item {
             hoverComponent.showEdit = author.id === Controller.activeConnection.localUserId && (model.eventType === "emote" || model.eventType === "message");
 
             hoverComponent.editClicked = () => {
-                chatTextInput.edit(message, model.formattedBody, eventId);
+                if (hoverComponent.showEdit) {
+                    chatTextInput.edit(message, model.formattedBody, eventId);
+                } 
             };
             hoverComponent.replyClicked = () => {
                 replyToMessage(author, message, eventId);
