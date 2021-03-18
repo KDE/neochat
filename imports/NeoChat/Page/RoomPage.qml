@@ -131,10 +131,9 @@ Kirigami.ScrollablePage {
     // hover actions on a delegate, activated in TimelineContainer.qml
     Connections {
         target: page.flickable
+        enabled: hoverActions.visible
         function onContentYChanged() {
-            if (hoverActions.visible) {
-                hoverActions.updateFunction();
-            }
+            hoverActions.updateFunction();
         }
     }
     Item {
