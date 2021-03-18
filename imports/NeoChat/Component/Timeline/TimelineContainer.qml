@@ -46,24 +46,29 @@ Item {
     // show hover actions
     onHoveredChanged: {
         if (hovered && !Kirigami.Settings.isMobile) {
-            hoverComponent.parent = controlContainer;
-            hoverComponent.x = Qt.binding(() => controlContainer.width - hoverComponent.childWidth)
-            hoverComponent.y = -Kirigami.Units.largeSpacing * 4
-            hoverComponent.hovered = Qt.binding(() => controlContainer.hovered);
-            hoverComponent.showEdit = author.id === Controller.activeConnection.localUserId && (model.eventType === "emote" || model.eventType === "message");
-
-            hoverComponent.editClicked = () => {
-                if (hoverComponent.showEdit) {
-                    edit(message, model.formattedBody, eventId);
-                } 
-            };
-            hoverComponent.replyClicked = () => {
-                replyToMessage(author, message, eventId);
-            };
-            hoverComponent.reacted = emoji => {
-                currentRoom.toggleReaction(eventId, emoji);
-            };
+            updateHoverComponent();
         }
+    }
+    
+    // updates the global hover component to point to this delegate, and update its position
+    function updateHoverComponent() {
+        hoverComponent.x = column.mapToItem(page, hoverComponentX, hoverComponentY).x;
+        hoverComponent.y = column.mapToItem(page, hoverComponentX, hoverComponentY).y;
+        hoverComponent.hovered = Qt.binding(() => controlContainer.hovered);
+        hoverComponent.showEdit = author.id === Controller.activeConnection.localUserId && (model.eventType === "emote" || model.eventType === "message");
+        hoverComponent.updateFunction = updateHoverComponent;
+        
+        hoverComponent.editClicked = () => {
+            if (hoverComponent.showEdit) {
+                edit(message, model.formattedBody, eventId);
+            } 
+        };
+        hoverComponent.replyClicked = () => {
+            replyToMessage(author, message, eventId);
+        };
+        hoverComponent.reacted = emoji => {
+            currentRoom.toggleReaction(eventId, emoji);
+        };
     }
 
     DragHandler {
