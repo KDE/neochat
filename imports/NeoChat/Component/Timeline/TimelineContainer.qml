@@ -142,9 +142,8 @@ Item {
             // bubble
             QQC2.Control {
                 id: controlContainer
-                Layout.fillWidth: true
                 Layout.maximumWidth: mainColumn.width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 2
-                Layout.preferredHeight: contentItem.implicitHeight
+                implicitHeight: contentItem.implicitHeight
                 topPadding: 0
                 bottomPadding: 0
                 leftPadding: 0
