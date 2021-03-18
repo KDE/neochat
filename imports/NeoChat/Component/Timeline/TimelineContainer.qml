@@ -46,8 +46,9 @@ Item {
     // show hover actions
     onHoveredChanged: {
         if (hovered && !Kirigami.Settings.isMobile) {
-            hoverComponent.x = Qt.binding(() => column.mapToItem(page, hoverComponentX, hoverComponentY).x);
-            hoverComponent.y = Qt.binding(() => column.mapToItem(page, hoverComponentX, hoverComponentY).y);
+            hoverComponent.parent = controlContainer;
+            hoverComponent.x = Qt.binding(() => controlContainer.width - hoverComponent.childWidth)
+            hoverComponent.y = -Kirigami.Units.largeSpacing * 4
             hoverComponent.hovered = Qt.binding(() => controlContainer.hovered);
             hoverComponent.showEdit = author.id === Controller.activeConnection.localUserId && (model.eventType === "emote" || model.eventType === "message");
 

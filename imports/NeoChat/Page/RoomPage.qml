@@ -129,7 +129,7 @@ Kirigami.ScrollablePage {
     }
 
     // hover actions on a delegate, activated in TimelineContainer.qml
-    Item {
+    QQC2.Popup {
         id: hoverActions
         property bool showEdit
         property bool hovered: false
@@ -143,7 +143,9 @@ Kirigami.ScrollablePage {
         property alias childWidth: hoverActionsRow.width
         property alias childHeight: hoverActionsRow.height
 
-        RowLayout {
+        background: Item {}
+
+        contentItem: RowLayout {
             id: hoverActionsRow
             z: 4
             spacing: 0
