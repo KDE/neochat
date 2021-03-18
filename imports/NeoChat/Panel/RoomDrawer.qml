@@ -86,7 +86,7 @@ Kirigami.OverlayDrawer {
 
         Control {
             Layout.fillWidth: true
-            bottomPadding: Kirigami.Units.largeSpacing
+            padding: Kirigami.Units.largeSpacing
             contentItem: ColumnLayout {
                 id: infoLayout
                 Layout.fillWidth: true
