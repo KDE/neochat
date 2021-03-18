@@ -24,7 +24,6 @@ Item {
     readonly property color authorColor: eventType == "notice" ? Kirigami.Theme.activeTextColor : author.color
     readonly property color replyAuthorColor: replyVisible ? reply.author.color : Kirigami.Theme.focusColor
 
-    property alias mouseArea: controlContainer.children
     property bool isEmote: false
     property bool cardBackground: true
     property bool isLoaded

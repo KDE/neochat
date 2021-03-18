@@ -346,11 +346,6 @@ Kirigami.ScrollablePage {
                     width: messageListView.width - Kirigami.Units.largeSpacing
                     isLoaded: timelineDelegateChooser.delegateLoaded
                     isEmote: true
-                    mouseArea: MouseArea {
-                        acceptedButtons: Qt.RightButton
-                        anchors.fill: parent
-                        onClicked: openMessageContext(author, display, eventId, toolTip);
-                    }
                     onReplyClicked: goToEvent(eventID)
                     onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
                     onEdit: chatBox.edit(message, formattedBody, eventId)
@@ -362,6 +357,14 @@ Kirigami.ScrollablePage {
                         Layout.fillWidth: true
                         Layout.rightMargin: Kirigami.Units.largeSpacing
                         Layout.leftMargin: Kirigami.Units.largeSpacing
+                        TapHandler {
+                            acceptedButtons: Qt.RightButton
+                            onTapped: openMessageContext(author, display, eventId, toolTip)
+                        }
+                        TapHandler {
+                            acceptedButtons: Qt.LeftButton
+                            onLongPressed: openMessageContext(author, display, eventId, toolTip)
+                        }
                     }
                 }
             }
