@@ -60,6 +60,11 @@ if(ANDROID)
         TYPE REQUIRED
         PURPOSE "Encrypted communications"
     )
+else()
+    find_package(KF5QQC2DesktopStyle ${KF5_MIN_VERSION} REQUIRED)
+    set_package_properties(KF5QQC2DesktopStyle PROPERTIES
+        TYPE RUNTIME
+    )
 endif()
 
 if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
