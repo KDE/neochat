@@ -174,8 +174,6 @@ Item {
 
                         sourceComponent: RowLayout {
                             id: rowLayout
-                            // maintain loader height
-                            Component.onCompleted: topRow.implicitHeight = rowLayout.implicitHeight
 
                             QQC2.Label {
                                 Layout.fillWidth: true
