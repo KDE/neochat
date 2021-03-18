@@ -1,6 +1,6 @@
-# Neochat
+# NeoChat
 
-Neochat is a client for Matrix, the decentralized communication protocol for instant
+NeoChat is a client for Matrix, the decentralized communication protocol for instant
 messaging. It is a fork of Spectral, using KDE frameworks, most notably Kirigami,
 KConfig and KI18n.
 

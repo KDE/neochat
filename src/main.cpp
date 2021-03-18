@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
 
     QApplication::setOrganizationName("KDE");
 
-    KAboutData about(QStringLiteral("neochat"), i18n("Neochat"), QStringLiteral(NEOCHAT_VERSION_STRING), i18n("Matrix client"), KAboutLicense::GPL_V3, i18n("© 2018-2020 Black Hat, 2020 KDE Community"));
+    KAboutData about(QStringLiteral("neochat"), i18n("NeoChat"), QStringLiteral(NEOCHAT_VERSION_STRING), i18n("Matrix client"), KAboutLicense::GPL_V3, i18n("© 2018-2020 Black Hat, 2020 KDE Community"));
     about.addAuthor(i18n("Black Hat"), QString(), QStringLiteral("bhat@encom.eu.org"));
     about.addAuthor(i18n("Carl Schwan"), QString(), QStringLiteral("carl@carlschwan.eu"));
     about.addAuthor(i18n("Tobias Fella"), QString(), QStringLiteral("fella@posteo.de"));

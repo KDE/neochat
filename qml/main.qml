@@ -212,7 +212,7 @@ Kirigami.ApplicationWindow {
                 shortcut: StandardKey.Preferences
             },
             Kirigami.Action {
-                text: i18n("About Neochat")
+                text: i18n("About NeoChat")
                 icon.name: "help-about"
                 onTriggered: pushReplaceLayer(aboutPage)
                 enabled: pageStack.layers.currentItem.title !== i18n("About")
