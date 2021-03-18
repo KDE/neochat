@@ -88,7 +88,6 @@ Kirigami.ScrollablePage {
             action: Kirigami.Action {
                 onTriggered: roomListModel.setCategoryVisible(section, !roomListModel.categoryVisible(section))
             }
-            highlighted: sortFilterRoomListModel.mapFromSource(current).row == index
             contentItem: RowLayout {
                 implicitHeight: categoryName.implicitHeight
                 Kirigami.Heading {
@@ -111,6 +110,7 @@ Kirigami.ScrollablePage {
         delegate: Kirigami.BasicListItem {
             id: roomListItem
             visible: model.categoryVisible || sortFilterRoomListModel.filterText.length > 0 || Config.mergeRoomList
+            highlighted: listView.currentIndex === index
             focus: true
             icon: undefined
             action: Kirigami.Action {
