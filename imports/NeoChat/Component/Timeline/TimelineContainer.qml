@@ -38,7 +38,7 @@ Item {
 
     property alias hovered: controlContainer.hovered
 
-    implicitHeight: mainColumn.implicitHeight + (readMarker ? Kirigami.Units.smallSpacing : 0)
+    height: mainColumn.childrenRect.height + (readMarker ? Kirigami.Units.smallSpacing : 0)
 
     property int hoverComponentX: column.width - hoverComponent.childWidth + Kirigami.Units.largeSpacing
     property int hoverComponentY: -Kirigami.Units.largeSpacing - hoverComponent.childHeight * 1.5
@@ -111,7 +111,7 @@ Item {
             Layout.leftMargin: Kirigami.Units.largeSpacing
             Layout.rightMargin: Kirigami.Units.smallSpacing
             Layout.bottomMargin: 0
-            Layout.topMargin: showAuthor ? Kirigami.Units.smallSpacing : 0
+            Layout.topMargin: model.showAuthor ? Kirigami.Units.smallSpacing : 0
 
             Kirigami.Avatar {
                 Layout.minimumWidth: Kirigami.Units.gridUnit * 2
@@ -121,7 +121,7 @@ Item {
 
                 Layout.alignment: Qt.AlignTop
 
-                visible: showAuthor && Config.showAvatarInTimeline
+                visible: model.showAuthor && Config.showAvatarInTimeline
                 name: author.name ?? author.displayName
                 source: author.avatarMediaId ? ("image://mxc/" + author.avatarMediaId) : ""
                 color: author.color
@@ -142,7 +142,7 @@ Item {
             Item {
                 Layout.minimumWidth: Kirigami.Units.gridUnit * 2
                 Layout.preferredHeight: 1
-                visible: !showAuthor && Config.showAvatarInTimeline
+                visible: !model.showAuthor && Config.showAvatarInTimeline
             }
 
             // bubble
@@ -162,10 +162,9 @@ Item {
                     Item { // top padding
                         Layout.topMargin: Kirigami.Units.largeSpacing
                     }
-                    // HACK: reload author when the delegate is reloaded, since there are strange issues with ListView reuseItems and the author displayName disappearing
                     Loader {
                         id: topRow
-                        active: isLoaded && showAuthor && !isEmote
+                        active: model.showAuthor && !isEmote
                         visible: active
                         Layout.fillWidth: true
                         Layout.leftMargin: Kirigami.Units.largeSpacing
@@ -174,14 +173,12 @@ Item {
 
                         sourceComponent: RowLayout {
                             id: rowLayout
-                            // maintain loader height
-                            Component.onCompleted: topRow.implicitHeight = rowLayout.implicitHeight
 
                             QQC2.Label {
                                 Layout.fillWidth: true
                                 topInset: 0
 
-                                visible: showAuthor && !isEmote
+                                visible: model.showAuthor && !isEmote
 
                                 text: author.displayName
                                 font.weight: Font.Bold
@@ -189,7 +186,7 @@ Item {
                                 wrapMode: Text.Wrap
                             }
                             QQC2.Label {
-                                visible: showAuthor && !isEmote
+                                visible: model.showAuthor && !isEmote
                                 text: time.toLocaleTimeString(Locale.ShortFormat)
                                 color: Kirigami.Theme.disabledTextColor
                             }
