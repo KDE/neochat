@@ -210,7 +210,7 @@ Item {
 
                 background: Kirigami.ShadowedRectangle {
                     visible: cardBackground
-                    color: Kirigami.Theme.backgroundColor
+                    color: model.isHighlighted ? Kirigami.Theme.positiveBackgroundColor : Kirigami.Theme.backgroundColor
                     radius: Kirigami.Units.smallSpacing
                     shadow.size: Kirigami.Units.smallSpacing
                     shadow.color: !model.isHighlighted ? Qt.rgba(0.0, 0.0, 0.0, 0.10) : Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.10)
