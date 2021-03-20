@@ -14,17 +14,14 @@ import org.kde.neochat 1.0
 Loader {
     id: root
 
-    property string attachmentPath: ""
-    property var attachmentMimetype: FileType.mimeTypeForUrl(attachmentPath)
+    property var attachmentMimetype: FileType.mimeTypeForUrl(ChatBoxHelper.attachmentPath)
     readonly property bool hasImage: attachmentMimetype.valid && FileType.supportedImageFormats.includes(attachmentMimetype.preferredSuffix)
-
-    signal clearAttachmentTriggered()
 
     active: visible
     sourceComponent: Component {
         Pane {
             id: attachmentPane
-            property string baseFileName: attachmentPath.toString().substring(attachmentPath.toString().lastIndexOf('/') + 1, attachmentPath.length)
+            property string baseFileName: ChatBoxHelper.attachmentPath.toString().substring(ChatBoxHelper.attachmentPath.toString().lastIndexOf('/') + 1, ChatBoxHelper.attachmentPath.length)
             Kirigami.Theme.colorSet: Kirigami.Theme.View
 
             contentItem: Item {
@@ -49,7 +46,7 @@ Loader {
                     asynchronous: true
                     cache: false // Cache is not needed. Images will rarely be shown repeatedly.
                     smooth: height == preferredHeight && parent.height == parent.implicitHeight // Don't smooth until height animation stops
-                    source: hasImage ? attachmentPath : ""
+                    source: hasImage ? ChatBoxHelper.attachmentPath : ""
                     visible: hasImage
                     fillMode: Image.PreserveAspectFit
 
@@ -165,14 +162,14 @@ Loader {
                             Component {
                                 id: imageEditorPage
                                 ImageEditorPage {
-                                    imagePath: attachmentPath
+                                    imagePath: ChatBoxHelper.attachmentPath
                                 }
                             }
                             onClicked: {
                                 let imageEditor = applicationWindow().pageStack.layers.push(imageEditorPage);
                                 imageEditor.newPathChanged.connect(function(newPath) {
                                     applicationWindow().pageStack.layers.pop();
-                                    attachmentPath = newPath;
+                                    ChatBoxHelper.attachmentPath = newPath;
                                 });
                             }
                             ToolTip.text: text
@@ -183,9 +180,7 @@ Loader {
                             icon.name: "dialog-cancel"
                             text: i18n("Cancel")
                             display: AbstractButton.IconOnly
-                            onClicked: {
-                                clearAttachmentTriggered();
-                            }
+                            onClicked: ChatBoxHelper.clearAttachment();
                             ToolTip.text: text
                             ToolTip.visible: hovered
                         }

@@ -33,8 +33,6 @@ Item {
     signal saveFileAs()
     signal openExternally()
     signal replyClicked(string eventID)
-    signal replyToMessageClicked(var replyUser, string replyContent, string eventID)
-    signal edit(string message, string formattedBody, string eventId)
 
     property alias hovered: controlContainer.hovered
 
@@ -49,7 +47,7 @@ Item {
             updateHoverComponent();
         }
     }
-    
+
     // updates the global hover component to point to this delegate, and update its position
     function updateHoverComponent() {
         hoverComponent.x = column.mapToItem(page, hoverComponentX, hoverComponentY).x;
@@ -57,14 +55,14 @@ Item {
         hoverComponent.hovered = Qt.binding(() => controlContainer.hovered);
         hoverComponent.showEdit = author.id === Controller.activeConnection.localUserId && (model.eventType === "emote" || model.eventType === "message");
         hoverComponent.updateFunction = updateHoverComponent;
-        
+
         hoverComponent.editClicked = () => {
             if (hoverComponent.showEdit) {
-                edit(message, model.formattedBody, eventId);
-            } 
+                ChatBoxHelper.edit(message, formattedBody, eventId)
+            }
         };
         hoverComponent.replyClicked = () => {
-            replyToMessage(author, message, eventId);
+            ChatBoxHelper.replyToMessage(eventId, message, author);
         };
         hoverComponent.reacted = emoji => {
             currentRoom.toggleReaction(eventId, emoji);
@@ -85,6 +83,7 @@ Item {
             parent.x = 0;
         }
     }
+
     onXChanged: if (x !== 0) {
         applicationWindow().pageStack.interactive = false;
     } else {
@@ -146,7 +145,7 @@ Item {
             }
 
             // bubble
-            QQC2.Control {
+            QQC2.ItemDelegate {
                 id: controlContainer
                 Layout.maximumWidth: mainColumn.width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 2
                 implicitHeight: contentItem.implicitHeight

@@ -22,6 +22,7 @@ add_executable(neochat
     filetypesingleton.cpp
     login.cpp
     stickerevent.cpp
+    chatboxhelper.cpp
     ../res.qrc
 )
 

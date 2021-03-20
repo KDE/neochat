@@ -7,15 +7,13 @@ import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15
 import org.kde.kirigami 2.14 as Kirigami
+import org.kde.neochat 1.0
 
 Loader {
     id: root
-    property bool isEdit: false
+    readonly property bool isEdit: ChatBoxHelper.isEditing
     property var user: null
-    property string content: ""
-    property string avatarMediaUrl: user ? "image://mxc/" + replyUser.avatarMediaId : ""
-
-    signal clearEditReplyTriggered()
+    property string avatarMediaUrl: user ? "image://mxc/" + user.avatarMediaId : ""
 
     active: visible
     sourceComponent: Pane {
@@ -78,9 +76,9 @@ Loader {
                         topPadding: 0
                         bottomPadding: 0
                         text: {
-                            let stylesheet = "<style> a{color:"+Kirigami.Theme.linkColor+";}.user-pill{}</style>"
-                            let userName = user ? "<font color=\""+ user.color +"\">" + user.displayName + "</font>" : ""
-                            return stylesheet + content
+                            const stylesheet = "<style> a{color:"+Kirigami.Theme.linkColor+";}.user-pill{}</style>";
+                            const content = ChatBoxHelper.isReplying ? ChatBoxHelper.replyEventContent : ChatBoxHelper.editContent;
+                            return stylesheet + content;
                         }
                         selectByMouse: true
                         selectByKeyboard: true
@@ -101,9 +99,7 @@ Loader {
                 icon.name: "dialog-cancel"
                 text: i18n("Cancel")
                 display: AbstractButton.IconOnly
-                onClicked: {
-                    clearEditReplyTriggered()
-                }
+                onClicked: ChatBoxHelper.clearEditReply()
                 ToolTip.text: text
                 ToolTip.visible: hovered
             }

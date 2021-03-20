@@ -15,7 +15,7 @@ ToolBar {
     id: chatBar
     property string replyEventId: ""
     property string editEventId: ""
-    property string inputFieldText: currentRoom ? currentRoom.cachedInput : ""
+    property alias inputFieldText: inputField.text
     property alias textField: inputField
     property alias emojiPaneOpened: emojiButton.checked
 
@@ -24,7 +24,6 @@ ToolBar {
     // This use an hack to define: https://doc.qt.io/qt-5/qml-var.html#property-value-initialization-semantics
     property var userAutocompleted: ({})
 
-    signal attachTriggered(string localPath)
     signal closeAllTriggered()
     signal inputFieldForceActiveFocusTriggered()
     signal messageSent()
@@ -220,14 +219,14 @@ ToolBar {
         }
 
         Item {
-            visible: !isReply && (!hasAttachment || uploadingBusySpinner.running)
+            visible: !ChatBoxHelper.isReplying && (!ChatBoxHelper.hasAttachment || uploadingBusySpinner.running)
             implicitWidth: uploadButton.implicitWidth
             implicitHeight: uploadButton.implicitHeight
             ToolButton {
                 id: uploadButton
                 anchors.fill: parent
                 // Matrix does not allow sending attachments in replies
-                visible: !isReply && !hasAttachment && !uploadingBusySpinner.running
+                visible: !ChatBoxHelper.isReplying  && !ChatBoxHelper.hasAttachment && !uploadingBusySpinner.running
                 icon.name: "mail-attachment"
                 text: i18n("Attach an image or file")
                 display: AbstractButton.IconOnly
@@ -239,7 +238,7 @@ ToolBar {
                         var fileDialog = openFileDialog.createObject(ApplicationWindow.overlay)
                         fileDialog.chosen.connect((path) => {
                             if (!path) { return }
-                            attachTriggered(path)
+                            ChatBoxHelper.attachmentPath = path;
                         })
                         fileDialog.open()
                     }
@@ -318,13 +317,21 @@ ToolBar {
         if (!Clipboard.saveImage(localPath)) {
             return;
         }
-        attachTriggered(localPath)
+        ChatBoxHelper.attachmentPath = localPath;
     }
 
     function postMessage() {
         checkForFancyEffectsReason();
-        roomManager.actionsHandler.postMessage(inputField.text.trim(), attachmentPath,
-            replyEventId, editEventId, userAutocompleted);
+        if (ChatBoxHelper.hasAttachment) {
+            // send attachment but don't reset the text
+            roomManager.actionsHandler.postMessage("", ChatBoxHelper.attachmentPath,
+                ChatBoxHelper.replyEventId, ChatBoxHelper.editEventId, {});
+            currentRoom.markAllMessagesAsRead();
+            messageSent();
+            return;
+        }
+        roomManager.actionsHandler.postMessage(inputField.text.trim(), ChatBoxHelper.attachmentPath,
+            ChatBoxHelper.replyEventId, ChatBoxHelper.editEventId, userAutocompleted);
         currentRoom.markAllMessagesAsRead();
         inputField.clear();
         inputField.text = Qt.binding(function() {

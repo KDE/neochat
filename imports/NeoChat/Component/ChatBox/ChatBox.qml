@@ -13,18 +13,7 @@ import org.kde.neochat 1.0
 
 Item {
     id: root
-    readonly property bool isReply: replyEventId.length > 0
-    property var replyUser
-    property alias replyEventId: chatBar.replyEventId
-    property string replyContent: ""
-
-    readonly property bool hasAttachment: attachmentPath.length > 0
-    property string attachmentPath: ""
-
     property alias inputFieldText: chatBar.inputFieldText
-
-    readonly property bool isEdit: editEventId.length > 0
-    property alias editEventId: chatBar.editEventId
 
     signal fancyEffectsReasonFound(string fancyEffect)
 
@@ -76,6 +65,7 @@ Item {
         sourceComponent: EmojiPicker{
             textArea: chatBar.textField
             emojiModel: EmojiModel { id: emojiModel }
+            onChosen: addText(emoji)
         }
         Behavior on height {
             NumberAnimation {
@@ -97,10 +87,8 @@ Item {
 
     ReplyPane {
         id: replyPane
-        visible: isReply || isEdit
-        isEdit: root.isEdit
-        user: root.replyUser
-        content: root.replyContent
+        visible: ChatBoxHelper.isReplying || ChatBoxHelper.isEditing
+        user: ChatBoxHelper.replyUser
         width: parent.width
         height: visible ? implicitHeight : 0
         anchors.bottom: attachmentSeparator.top
@@ -123,8 +111,7 @@ Item {
 
     AttachmentPane {
         id: attachmentPane
-        attachmentPath: root.attachmentPath
-        visible: hasAttachment
+        visible: ChatBoxHelper.hasAttachment
         width: parent.width
         height: visible ? implicitHeight : 0
         anchors.bottom: chatBarSeparator.top
@@ -159,36 +146,9 @@ Item {
                 easing.type: Easing.OutCubic
             }
         }
-    }
 
-    Connections {
-        target: replyPane
-        function onClearEditReplyTriggered() {
-            if (isEdit) {
-                clearEdit()
-            }
-            if (isReply) {
-                clearReply()
-            }
-        }
-    }
-
-    Connections {
-        target: attachmentPane
-        function onClearAttachmentTriggered() {
-            clearAttachment()
-        }
-    }
-
-    Connections {
-        target: chatBar
-        function onAttachTriggered(localPath) {
-            attach(localPath)
-        }
-        function onCloseAllTriggered() {
-            closeAll()
-        }
-        function onMessageSent() {
+        onCloseAllTriggered: closeAll()
+        onMessageSent: {
             closeAll()
             checkForFancyEffectsReason()
         }
@@ -225,70 +185,41 @@ Item {
         root.inputFieldText = inputFieldText.substr(0, inputField.cursorPosition) + str + inputFieldText.substr(inputField.cursorPosition)
     }
 
-    function clearText() {
-        // ChatBar's TextArea syncs currentRoom.cachedInput with the TextArea's text property
-        root.inputFieldText = ""
-    }
-
     function focusInputField() {
         chatBar.inputFieldForceActiveFocusTriggered()
     }
 
-    function edit(editContent, editFormatedContent, editEventId) {
-        // Set the input field in edit mode
-        root.inputFieldText = editContent;
-        root.editEventId = editEventId;
-        root.replyContent = editContent;
+    Connections {
+        target: ChatBoxHelper
 
-        // clean autocompletion list
-        chatBar.userAutocompleted = {};
-
-        // Fill autocompletion list with values extracted from message.
-        // We can't just iterate on every user in the list and try to
-        // find matching display name since some users have display name
-        // matching frequent words and this will marks too many words as
-        // mentions.
-        const regex = /<a href=\"https:\/\/matrix.to\/#\/(@[a-zA-Z09]*:[a-zA-Z09.]*)\">([^<]*)<\/a>/g;
-
-        let match;
-        while ((match = regex.exec(editFormatedContent.toString())) !== null) {
-            chatBar.userAutocompleted[match[2]] = match[1];
+        function onShouldClearText() {
+            root.inputFieldText = "";
         }
-    }
 
-    function clearEdit() {
-        // Clear input when edits are cancelled.
-        // Cached input will be
-        clearText()
-        clearReply()
-        root.editEventId = "";
-    }
+        function onEditing(editContent, editFormatedContent) {
+            // Set the input field in edit mode
+            root.inputFieldText = editContent;
+            //root.replyContent = editContent;
 
-    function attach(localPath) {
-        root.attachmentPath = localPath
-    }
+            // clean autocompletion list
+            chatBar.userAutocompleted = {};
 
-    function clearAttachment() {
-        root.attachmentPath = ""
-    }
+            // Fill autocompletion list with values extracted from message.
+            // We can't just iterate on every user in the list and try to
+            // find matching display name since some users have display name
+            // matching frequent words and this will marks too many words as
+            // mentions.
+            const regex = /<a href=\"https:\/\/matrix.to\/#\/(@[a-zA-Z09]*:[a-zA-Z09.]*)\">([^<]*)<\/a>/g;
 
-    function clearReply() {
-        replyUser = null;
-        root.replyContent = "";
-        root.replyEventId = "";
-        // Don't clear input when replies are cancelled
+            let match;
+            while ((match = regex.exec(editFormatedContent.toString())) !== null) {
+                chatBar.userAutocompleted[match[2]] = match[1];
+            }
+        }
     }
 
     function closeAll() {
-        if (hasAttachment) {
-            clearAttachment();
-        }
-        if (isEdit) {
-            clearEdit();
-        }
-        if (isReply) {
-            clearReply();
-        }
+        ChatBoxHelper.clear();
         chatBar.emojiPaneOpened = false;
     }
 }

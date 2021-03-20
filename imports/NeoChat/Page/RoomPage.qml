@@ -255,7 +255,7 @@ Kirigami.ScrollablePage {
                         fileDialog.chosen.connect(function(path) {
                             if (!path) return
 
-                            chatBox.attach(path)
+                            ChatBoxHelper.attachmentPath = path;
                         })
 
                         fileDialog.open()
@@ -273,10 +273,12 @@ Kirigami.ScrollablePage {
                     icon.name: 'insert-image'
                     text: i18n("Clipboard image")
                     onClicked: {
-                        var localPath = Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/screenshots/" + (new Date()).getTime() + ".png"
-                        if (!Clipboard.saveImage(localPath)) return
-                        chatBox.attach(localPath)
-                        attachDialog.close()
+                        const localPath = Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/screenshots/" + (new Date()).getTime() + ".png"
+                        if (!Clipboard.saveImage(localPath)) {
+                            return;
+                        }
+                        ChatBoxHelper.attachmentPath = localPath;
+                        attachDialog.close();
                     }
                 }
             }
@@ -356,8 +358,6 @@ Kirigami.ScrollablePage {
                     isLoaded: timelineDelegateChooser.delegateLoaded
                     isEmote: true
                     onReplyClicked: goToEvent(eventID)
-                    onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
-                    onEdit: chatBox.edit(message, formattedBody, eventId)
 
                     hoverComponent: hoverActions
 
@@ -386,8 +386,6 @@ Kirigami.ScrollablePage {
 
                     isLoaded: timelineDelegateChooser.delegateLoaded
                     onReplyClicked: goToEvent(eventID)
-                    onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
-                    onEdit: chatBox.edit(message, formattedBody, eventId)
 
                     hoverComponent: hoverActions
 
@@ -413,8 +411,6 @@ Kirigami.ScrollablePage {
                     width: messageListView.width - Kirigami.Units.largeSpacing
                     isLoaded: timelineDelegateChooser.delegateLoaded
                     onReplyClicked: goToEvent(eventID)
-                    onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
-                    onEdit: chatBox.edit(message, formattedBody, eventId)
 
                     hoverComponent: hoverActions
                     innerObject: TextDelegate {
@@ -432,7 +428,6 @@ Kirigami.ScrollablePage {
 
                     isLoaded: timelineDelegateChooser.delegateLoaded
                     onReplyClicked: goToEvent(eventID)
-                    onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
 
                     hoverComponent: hoverActions
 
@@ -453,7 +448,6 @@ Kirigami.ScrollablePage {
 
                     isLoaded: timelineDelegateChooser.delegateLoaded
                     onReplyClicked: goToEvent(eventID)
-                    onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
 
                     hoverComponent: hoverActions
                     cardBackground: false
@@ -476,7 +470,6 @@ Kirigami.ScrollablePage {
 
                     isLoaded: timelineDelegateChooser.delegateLoaded
                     onReplyClicked: goToEvent(eventID)
-                    onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
 
                     innerObject: AudioDelegate {
                         Layout.fillWidth: true
@@ -501,7 +494,6 @@ Kirigami.ScrollablePage {
 
                     isLoaded: timelineDelegateChooser.delegateLoaded
                     onReplyClicked: goToEvent(eventID)
-                    onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
 
                     innerObject: VideoDelegate {
                         Layout.fillWidth: true
@@ -532,7 +524,6 @@ Kirigami.ScrollablePage {
 
                     isLoaded: timelineDelegateChooser.delegateLoaded
                     onReplyClicked: goToEvent(eventID)
-                    onReplyToMessageClicked: replyToMessage(replyUser, replyContent, eventId);
 
                     innerObject: FileDelegate {
                         Layout.fillWidth: true
@@ -613,7 +604,7 @@ Kirigami.ScrollablePage {
         DropArea {
             id: dropAreaFile
             anchors.fill: parent
-            onDropped: chatBox.attach(drop.urls[0])
+            onDropped: ChatBoxHelper.attachmentPath = drop.urls[0]
         }
 
         QQC2.Pane {
@@ -767,7 +758,7 @@ Kirigami.ScrollablePage {
             }).open();
         });
         contextMenu.reply.connect(function(replyUser, replyContent) {
-            replyToMessage(replyUser, replyContent, eventId);
+            ChatBoxHelper.replyToMessage(eventId, replyContent, replyUser);
         })
         contextMenu.remove.connect(function() {
             currentRoom.redactEvent(eventId);
@@ -788,19 +779,11 @@ Kirigami.ScrollablePage {
             }).open();
         });
         contextMenu.reply.connect(function(replyUser, replyContent) {
-            replyToMessage(replyUser, replyContent, eventId);
+            ChatBoxHelper.replyToMessage(eventId, replyContent, replyUser);
         })
         contextMenu.remove.connect(function() {
             currentRoom.redactEvent(eventId);
         })
         contextMenu.open();
-    }
-
-    function replyToMessage(replyUser, replyContent, eventId) {
-        chatBox.editEventId = "";
-        chatBox.replyUser = replyUser;
-        chatBox.replyEventId = eventId;
-        chatBox.replyContent = replyContent;
-        chatBox.focusInputField();
     }
 }
