@@ -25,6 +25,5 @@ QQC2.Popup {
 
     contentItem: EmojiPicker {
         onChosen: react(emoji)
-        emojiModel: EmojiModel {}
     }
 }

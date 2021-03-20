@@ -64,7 +64,6 @@ Item {
         anchors.bottom: replySeparator.top
         sourceComponent: EmojiPicker{
             textArea: chatBar.textField
-            emojiModel: EmojiModel { id: emojiModel }
             onChosen: addText(emoji)
         }
         Behavior on height {

@@ -10,12 +10,12 @@ import org.kde.kirigami 2.13 as Kirigami
 
 import NeoChat.Component 1.0
 
-import org.kde.neochat 1.0
+import org.kde.neochat 1.0 as NeoChat
 
 ColumnLayout {
     property string emojiCategory: "history"
     property var textArea
-    property var emojiModel
+    readonly property var emojiModel: NeoChat.EmojiModel
 
     signal chosen(string emoji)
 

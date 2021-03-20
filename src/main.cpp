@@ -126,7 +126,12 @@ int main(int argc, char *argv[])
     qmlRegisterType<MessageFilterModel>("org.kde.neochat", 1, 0, "MessageFilterModel");
     qmlRegisterType<PublicRoomListModel>("org.kde.neochat", 1, 0, "PublicRoomListModel");
     qmlRegisterType<UserDirectoryListModel>("org.kde.neochat", 1, 0, "UserDirectoryListModel");
-    qmlRegisterType<EmojiModel>("org.kde.neochat", 1, 0, "EmojiModel");
+    qmlRegisterSingletonType<EmojiModel>("org.kde.neochat", 1, 0, "EmojiModel", [](QQmlEngine *engine2, QJSEngine *scriptEngine) -> QObject *
+        {
+            Q_UNUSED(scriptEngine);
+            Q_UNUSED(engine2);
+            return new EmojiModel();
+        });
     qmlRegisterType<SortFilterRoomListModel>("org.kde.neochat", 1, 0, "SortFilterRoomListModel");
     qmlRegisterType<DevicesModel>("org.kde.neochat", 1, 0, "DevicesModel");
     qmlRegisterUncreatableType<RoomMessageEvent>("org.kde.neochat", 1, 0, "RoomMessageEvent", "ENUM");

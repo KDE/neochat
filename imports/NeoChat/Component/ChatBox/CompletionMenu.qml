@@ -23,8 +23,6 @@ Popup {
     property string currentDisplayText: currentItem && currentItem.displayName ? currentItem.displayName : ""
     property string currentUserId: currentItem && currentItem.id ? currentItem.id : ""
 
-    //FIXME: EmojiModel should probably be a singleton
-    property var emojiModel: EmojiModel {}
     property bool isCompletingEmoji: false
     property int beginPosition: 0
     property int endPosition: 0
@@ -49,7 +47,6 @@ Popup {
         ListView {
             id: completionListView
             implicitWidth: contentWidth
-            model: control.model
             delegate: isCompletingEmoji ? emojiDelegate : usernameDelegate
 
             keyNavigationWraps: true
@@ -99,7 +96,7 @@ Popup {
                 Layout.preferredHeight: Kirigami.Units.gridUnit
                 Layout.preferredWidth: textMetrics.tightBoundingRect.width
                 font.pointSize: Kirigami.Units.gridUnit * 0.75
-                text: emojiItem.modelData.unicode
+                text: modelData.unicode
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
             }

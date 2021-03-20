@@ -22,24 +22,36 @@ QVariantList EmojiModel::filterModel(const QString &filter)
         auto emoji = qvariant_cast<Emoji>(e);
         if (emoji.shortname.startsWith(filter)) {
             result.append(e);
+            if (result.length() > 10) {
+                return result;
+            }
         }
     }
     for (const QVariant &e : nature) {
         auto emoji = qvariant_cast<Emoji>(e);
         if (emoji.shortname.startsWith(filter)) {
             result.append(e);
+            if (result.length() > 10) {
+                return result;
+            }
         }
     }
     for (const QVariant &e : food) {
         auto emoji = qvariant_cast<Emoji>(e);
         if (emoji.shortname.startsWith(filter)) {
             result.append(e);
+            if (result.length() > 10) {
+                return result;
+            }
         }
     }
     for (const QVariant &e : activity) {
         auto emoji = qvariant_cast<Emoji>(e);
         if (emoji.shortname.startsWith(filter)) {
             result.append(e);
+            if (result.length() > 10) {
+                return result;
+            }
         }
     }
     for (const QVariant &e : travel) {
@@ -52,18 +64,27 @@ QVariantList EmojiModel::filterModel(const QString &filter)
         auto emoji = qvariant_cast<Emoji>(e);
         if (emoji.shortname.startsWith(filter)) {
             result.append(e);
+            if (result.length() > 10) {
+                return result;
+            }
         }
     }
     for (const QVariant &e : symbols) {
         auto emoji = qvariant_cast<Emoji>(e);
         if (emoji.shortname.startsWith(filter)) {
             result.append(e);
+            if (result.length() > 10) {
+                return result;
+            }
         }
     }
     for (const QVariant &e : flags) {
         auto emoji = qvariant_cast<Emoji>(e);
         if (emoji.shortname.startsWith(filter)) {
             result.append(e);
+            if (result.length() > 10) {
+                return result;
+            }
         }
     }
 

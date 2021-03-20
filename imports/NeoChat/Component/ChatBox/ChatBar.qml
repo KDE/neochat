@@ -204,7 +204,7 @@ ToolBar {
                         completionMenu.model = currentRoom.getUsers(completionInfo.keyword);
                     } else {
                         completionMenu.isCompletingEmoji = true
-                        completionMenu.model = completionMenu.emojiModel.filterModel(completionInfo.keyword);
+                        completionMenu.model = EmojiModel.filterModel(completionInfo.keyword);
                     }
 
                     if (completionMenu.model.length === 0) {
