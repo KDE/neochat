@@ -36,7 +36,8 @@ Item {
 
     property alias hovered: controlContainer.hovered
 
-    height: mainColumn.childrenRect.height + (readMarker ? Kirigami.Units.smallSpacing : 0)
+    //height: mainColumn.childrenRect.height + (readMarker ? Kirigami.Units.smallSpacing : 0)
+    height: mainColumn.implicitHeight + (readMarker ? Kirigami.Units.smallSpacing : 0)
 
     property int hoverComponentX: column.width - hoverComponent.childWidth + Kirigami.Units.largeSpacing
     property int hoverComponentY: -Kirigami.Units.largeSpacing - hoverComponent.childHeight * 1.5
@@ -149,7 +150,7 @@ Item {
                 id: controlContainer
                 Layout.maximumWidth: mainColumn.width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 2
                 implicitHeight: contentItem.implicitHeight
-                topPadding: 0
+                topPadding: Kirigami.Units.largeSpacing
                 bottomPadding: 0
                 leftPadding: 0
                 rightPadding: 0
@@ -158,9 +159,6 @@ Item {
                 contentItem: ColumnLayout {
                     id: column
                     spacing: 0
-                    Item { // top padding
-                        Layout.topMargin: Kirigami.Units.largeSpacing
-                    }
                     Loader {
                         id: topRow
                         active: model.showAuthor && !isEmote

@@ -366,6 +366,7 @@ Kirigami.ScrollablePage {
                         Layout.fillWidth: true
                         Layout.rightMargin: Kirigami.Units.largeSpacing
                         Layout.leftMargin: Kirigami.Units.largeSpacing
+                        Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
                         TapHandler {
                             acceptedButtons: Qt.RightButton
                             onTapped: openMessageContext(author, display, eventId, toolTip)
@@ -392,6 +393,7 @@ Kirigami.ScrollablePage {
                     innerObject: TextDelegate {
                         Layout.fillWidth: true
                         Layout.rightMargin: Kirigami.Units.largeSpacing
+                        Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
                         Layout.leftMargin: Kirigami.Units.largeSpacing
                         TapHandler {
                             acceptedButtons: Qt.RightButton
@@ -417,6 +419,7 @@ Kirigami.ScrollablePage {
                         Layout.fillWidth: true
                         Layout.rightMargin: Kirigami.Units.largeSpacing
                         Layout.leftMargin: Kirigami.Units.largeSpacing
+                        Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
                     }
                 }
             }
