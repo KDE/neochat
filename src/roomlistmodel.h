@@ -98,12 +98,12 @@ private:
     int m_notificationCount = 0;
 
     void connectRoomSignals(NeoChatRoom *room);
+    void handleNotifications();
 
 Q_SIGNALS:
     void connectionChanged();
     void notificationCountChanged();
 
     void roomAdded(NeoChatRoom *_t1);
-    void newMessage(const QString &_t1, const QString &_t2, const QString &_t3, const QString &_t4, const QString &_t5, const QImage &_t6);
     void newHighlight(const QString &_t1, const QString &_t2, const QString &_t3, const QString &_t4, const QString &_t5, const QImage &_t6);
 };

@@ -46,32 +46,6 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
         setFileUploadingProgress(0);
         setHasFileUploading(false);
     });
-    connect(this, &NeoChatRoom::notificationCountChanged, this, [this]() {
-        if (messageEvents().size() == 0) {
-            return;
-        }
-        const RoomEvent *lastEvent = messageEvents().rbegin()->get();
-        if (lastEvent->originTimestamp() < QDateTime::currentDateTime().addSecs(-60)) {
-            return;
-        }
-        if (lastEvent->isStateEvent()) {
-            return;
-        }
-        User *sender = user(lastEvent->senderId());
-        if (sender == localUser()) {
-            return;
-        }
-
-        QImage avatar_image;
-        if (!sender->avatarUrl(this).isEmpty()) {
-            avatar_image = sender->avatar(128, this);
-        } else {
-            avatar_image = this->avatar(128);
-        }
-
-        NotificationsManager::instance().postNotification(this, displayName(), sender->displayname(this),
-                eventToString(*lastEvent), avatar_image, !lastEvent->id().isEmpty() ? lastEvent->id() : lastEvent->transactionId());
-    });
 
     connect(this, &Room::aboutToAddHistoricalMessages, this, &NeoChatRoom::readMarkerLoadedChanged);
 

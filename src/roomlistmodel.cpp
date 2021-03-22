@@ -24,6 +24,9 @@
 #include <KLocalizedString>
 #include <utility>
 
+#include "csapi/notifications.h"
+#include "notificationsmanager.h"
+
 #ifndef Q_OS_ANDROID
 bool useUnityCounter() {
     static const auto Result = QDBusInterface(
@@ -120,6 +123,7 @@ void RoomListModel::setConnection(Connection *connection)
 
     doResetModel();
 
+    handleNotifications();
     Q_EMIT connectionChanged();
 }
 
@@ -175,28 +179,7 @@ void RoomListModel::connectRoomSignals(NeoChatRoom *room)
     connect(room, &Room::addedMessages, this, [=] {
         refresh(room, {LastEventRole});
     });
-    connect(room, &Room::notificationCountChanged, this, [=] {
-        if (room->notificationCount() == 0) {
-            return;
-        }
-        if (room->timelineSize() == 0) {
-            return;
-        }
-        auto *lastEvent = room->lastEvent();
-
-        if (!lastEvent) {
-            return;
-        }
-
-        if (lastEvent->isStateEvent()) {
-            return;
-        }
-        User *sender = room->user(lastEvent->senderId());
-        if (sender == room->localUser()) {
-            return;
-        }
-        Q_EMIT newMessage(room->id(), lastEvent->id(), room->displayName(), sender->displayname(), room->eventToString(*lastEvent), room->avatar(128));
-    });
+    connect(room, &Room::notificationCountChanged, this, &RoomListModel::handleNotifications);
     connect(room, &Room::highlightCountChanged, this, [=] {
         if (room->highlightCount() == 0) {
             return;
@@ -220,6 +203,45 @@ void RoomListModel::connectRoomSignals(NeoChatRoom *room)
         Q_EMIT newHighlight(room->id(), lastEvent->id(), room->displayName(), sender->displayname(), room->eventToString(*lastEvent), room->avatar(128));
     });
     connect(room, &Room::notificationCountChanged, this, &RoomListModel::refreshNotificationCount);
+}
+
+void RoomListModel::handleNotifications()
+{
+    static bool initial = true;
+    static QStringList oldNotifications;
+    auto job = m_connection->callApi<GetNotificationsJob>();
+
+    connect(job, &BaseJob::success, this, [=](){
+        const auto notifications = job->jsonData()["notifications"].toArray();
+        if(initial) {
+            initial = false;
+            for (const auto &n : notifications) {
+                oldNotifications += n.toObject()["event"].toObject()["event_id"].toString();
+            }
+            return;
+        }
+        for (const auto &n : notifications) {
+            const auto notification = n.toObject();
+            if (notification["read"].toBool()) {
+                oldNotifications.removeOne(notification["event"].toObject()["event_id"].toString());
+                continue;
+            }
+            if (oldNotifications.contains(notification["event"].toObject()["event_id"].toString())) {
+                continue;
+            }
+            oldNotifications += notification["event"].toObject()["event_id"].toString();
+            auto room = m_connection->room(notification["room_id"].toString());
+            auto sender = room->user(notification["event"].toObject()["sender"].toString());
+
+            QImage avatar_image;
+            if (!sender->avatarUrl(room).isEmpty()) {
+                avatar_image = sender->avatar(128, room);
+            } else {
+                avatar_image = room->avatar(128);
+            }
+            NotificationsManager::instance().postNotification(dynamic_cast<NeoChatRoom *>(room), room->displayName(), sender->displayname(room), notification["event"].toObject()["content"].toObject()["body"].toString(), avatar_image, notification["event"].toObject()["event_id"].toString());
+        }
+    });
 }
 
 void RoomListModel::refreshNotificationCount()
