@@ -58,8 +58,7 @@ Loader {
                         if (isEdit) {
                             heading = heading.arg(i18n("Editing message:")) + "<br/>"
                         } else {
-                            heading = heading.arg(i18n("Replying to %1:"))
-                            heading = heading.arg(userName) + "<br/>"
+                            heading = heading.arg(i18n("Replying to %1:", userName))
                         }
 
                         return stylesheet + heading
