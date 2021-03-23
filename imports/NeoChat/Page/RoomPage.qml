@@ -94,6 +94,7 @@ Kirigami.ScrollablePage {
     }
 
     Kirigami.PlaceholderMessage {
+        id: loadingIndicator
         anchors.centerIn: parent
         visible: page.currentRoom === null || (messageListView.count === 0 && !page.currentRoom.allHistoryLoaded && !page.currentRoom.isInvite)
         QQC2.BusyIndicator {
@@ -580,7 +581,7 @@ Kirigami.ScrollablePage {
         header: RowLayout {
             id: typingNotification
 
-            visible: currentRoom && currentRoom.usersTyping.length > 0
+            visible: !loadingIndicator.visible && currentRoom && currentRoom.usersTyping.length > 0
             height: visible ? implicitHeight: 0
             spacing: Kirigami.Units.largeSpacing
 
