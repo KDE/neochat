@@ -133,7 +133,6 @@ Loader {
                         visible: modelData.visible
                         action: modelData
                         onClicked: {
-                            modelData.triggered();
                             loadRoot.item.close();
                         }
                     }
