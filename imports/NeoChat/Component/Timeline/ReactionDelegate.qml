@@ -46,17 +46,21 @@ Flow {
             ToolTip.text: {
                 var text = "";
 
-                for (var i = 0; i < modelData.authors.length; i++) {
-                    if (i === modelData.authors.length - 1 && i !== 0) {
-                        text += i18nc("Separate the usernames of users", " and ")
-                    } else if (i !== 0) {
-                        text += ", "
+                for (var i = 0; i < modelData.authors.length && i < 3; i++) {
+                    if (i !== 0) {
+                        if (i < modelData.authors.length - 1) {
+                            text += ", "
+                        } else {
+                            text += i18nc("Separate the usernames of users", " and ")
+                        }
                     }
-
                     text += modelData.authors[i].displayName
                 }
+                if (modelData.authors.length > 3) {
+                    text += i18ncp("%1 is the number of other users", " and %1 other", " and %1 others", modelData.authors.length - 3)
+                }
 
-                text = i18ncp("%1 is the users who reacted and %2 the emoji that was given", "%2 reacted with %3", "%2 reacted with %3", modelData.authors.length, text, modelData.reaction)
+                text = i18ncp("%2 is the users who reacted and %3 the emoji that was given", "%2 reacted with %3", "%2 reacted with %3", modelData.authors.length, text, modelData.reaction)
 
                 return text
             }
