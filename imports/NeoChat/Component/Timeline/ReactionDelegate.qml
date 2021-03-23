@@ -40,6 +40,8 @@ Flow {
 
             onToggled: currentRoom.toggleReaction(eventId, modelData.reaction)
 
+            hoverEnabled: true
+
             ToolTip.visible: hovered
             ToolTip.text: {
                 var text = "";
