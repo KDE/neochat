@@ -81,7 +81,7 @@ Image {
         }
 
         function openContextMenu() {
-            var contextMenu = imageDelegateContextMenu.createObject(root, {'room': currentRoom, 'author': author});
+            var contextMenu = imageDelegateContextMenu.createObject(root, {'room': currentRoom, 'author': author, 'message': message, 'eventId': eventId});
             contextMenu.viewSource.connect(function() {
                 messageSourceSheet.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
             })
