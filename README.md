@@ -23,7 +23,7 @@ and can also directly be downloaded from the [binary factory](https://binary-fac
 
 Nightly builds for [Windows](https://binary-factory.kde.org/job/NeoChat_Nightly_win64/), [MacOS](https://binary-factory.kde.org/job/NeoChat_Nightly_macos/) and [AppImages](https://binary-factory.kde.org/job/NeoChat_Nightly_appimage/) can also be downloaded from the [binary factory](https://binary-factory.kde.org/search/?q=neochat).
 
-![Timeline](https://www.plasma-mobile.org/img/post-2020-10/post-2020-10-neochat-timeline.png)
+![Timeline](https://invent.kde.org/websites/product-screenshots/-/raw/master/neochat/application.png)
 
 ## Features
 
