@@ -92,7 +92,7 @@ Image {
                 roomPanelInput.isReply = true
                 roomPanelInput.focus()
             })
-            contextMenu.redact.connect(function() {
+            contextMenu.remove.connect(function() {
                 currentRoom.redactEvent(eventId)
             })
             contextMenu.popup()
