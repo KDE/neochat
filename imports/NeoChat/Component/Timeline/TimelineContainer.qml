@@ -149,7 +149,7 @@ Item {
             QQC2.ItemDelegate {
                 id: controlContainer
                 Layout.maximumWidth: mainColumn.width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 2
-                implicitHeight: contentItem.implicitHeight
+                implicitHeight: contentItem.implicitHeight + topPadding
                 topPadding: Kirigami.Units.largeSpacing
                 bottomPadding: 0
                 leftPadding: 0

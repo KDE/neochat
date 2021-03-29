@@ -394,7 +394,7 @@ Kirigami.ScrollablePage {
                     innerObject: TextDelegate {
                         Layout.fillWidth: true
                         Layout.rightMargin: Kirigami.Units.largeSpacing
-                        Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
+                        Layout.bottomMargin: Kirigami.Units.largeSpacing
                         Layout.leftMargin: Kirigami.Units.largeSpacing
                         TapHandler {
                             acceptedButtons: Qt.RightButton
@@ -438,6 +438,7 @@ Kirigami.ScrollablePage {
                     innerObject: ImageDelegate {
                         Layout.minimumWidth: Kirigami.Units.gridUnit * 10
                         Layout.fillWidth: true
+                        Layout.bottomMargin: Kirigami.Units.largeSpacing
                         Layout.preferredHeight: info.h / info.w * width
                         Layout.maximumHeight: Kirigami.Units.gridUnit * 15
                         Layout.maximumWidth: Kirigami.Units.gridUnit * 30
