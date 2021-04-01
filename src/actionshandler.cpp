@@ -255,6 +255,9 @@ void ActionsHandler::postMessage(const QString &text,
         if (splittedText.count() > 1) {
             joinRoom(splittedText[0] + ":" + splittedText[1]);
             return;
+        } else if (splittedText[0].indexOf(":") != -1) {
+            joinRoom(splittedText[0]);
+            return;
         }
         else {
             joinRoom(splittedText[0] + ":matrix.org");
