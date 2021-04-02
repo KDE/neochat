@@ -121,6 +121,11 @@ QVariantList ActionsHandler::commands() const
         QStringLiteral("parameter"), i18nc("@label Parameter of a command", "<user-id>"),
         QStringLiteral("help"), i18n("Invites user with given id to current room")
     });
+    commands.append({
+        QStringLiteral("prefix"), QStringLiteral("/react "),
+        QStringLiteral("parameter"), i18nc("@label Parameter of a command", "<reaction text>"),
+        QStringLiteral("help"), i18n("React to this message with a text")
+    });
 
     // TODO more see elements /help action
 
@@ -204,6 +209,7 @@ void ActionsHandler::postMessage(const QString &text,
     static const QString unignorePrefix = QStringLiteral("/unignore ");
     static const QString queryPrefix = QStringLiteral("/query "); // TODO
     static const QString msgPrefix = QStringLiteral("/msg "); // TODO
+    static const QString reactPrefix = QStringLiteral("/react ");
 
     // Admin commands 
 
@@ -321,6 +327,15 @@ void ActionsHandler::postMessage(const QString &text,
 
         const auto *user = m_connection->users()[splittedText[0]];
         m_connection->removeFromIgnoredUsers(user);
+        return;
+    }
+
+    if(rawText.indexOf(reactPrefix) == 0) {
+        if(replyEventId.isEmpty()) {
+            return;
+        }
+        rawText = rawText.remove(0, reactPrefix.length());
+        m_room->toggleReaction(replyEventId, rawText);
         return;
     }
 
