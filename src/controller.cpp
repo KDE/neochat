@@ -32,6 +32,8 @@
 #include <QStringBuilder>
 #include <utility>
 
+#include <signal.h>
+
 #include "csapi/account-data.h"
 #include "csapi/content-repo.h"
 #include "csapi/logout.h"
@@ -79,6 +81,32 @@ Controller::Controller(QObject *parent)
     QTimer::singleShot(0, this, [=] {
         invokeLogin();
     });
+
+    QObject::connect(QApplication::instance(), &QCoreApplication::aboutToQuit, QApplication::instance(), [] {
+        NeoChatConfig::self()->save();
+    });
+
+    // Setup Unix signal handlers
+    const auto unixExitHandler = [](int /*sig*/) -> void {
+        QCoreApplication::quit();
+    };
+
+    const int quitSignals[] = {SIGQUIT, SIGINT, SIGTERM, SIGHUP};
+
+    sigset_t blockingMask;
+    sigemptyset(&blockingMask);
+    for (const auto sig : quitSignals) {
+        sigaddset(&blockingMask, sig);
+    }
+
+    struct sigaction sa;
+    sa.sa_handler = unixExitHandler;
+    sa.sa_mask = blockingMask;
+    sa.sa_flags = 0;
+
+    for (auto sig : quitSignals) {
+        sigaction(sig, &sa, nullptr);
+    }
 }
 
 Controller::~Controller()
