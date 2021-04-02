@@ -327,6 +327,7 @@ void ActionsHandler::postMessage(const QString &text,
     if (cleanedText.indexOf(mePrefix) == 0) {
         cleanedText = cleanedText.remove(0, mePrefix.length());
         messageEventType = RoomMessageEvent::MsgType::Emote;
+        rawText = rawText.remove(0, mePrefix.length());
     } else if (cleanedText.indexOf(noticePrefix) == 0) {
         cleanedText = cleanedText.remove(0, noticePrefix.length());
         messageEventType = RoomMessageEvent::MsgType::Notice;
