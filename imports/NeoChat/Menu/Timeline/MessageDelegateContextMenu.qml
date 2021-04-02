@@ -73,6 +73,8 @@ Loader {
                         Layout.preferredWidth: Kirigami.Units.gridUnit * 3
                         Layout.preferredHeight: Kirigami.Units.gridUnit * 3
                         Layout.alignment: Qt.AlignTop
+                        name: author.displayName
+                        color: author.color
                     }
                     ColumnLayout {
                         Layout.fillWidth: true
