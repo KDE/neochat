@@ -54,6 +54,7 @@ Kirigami.OverlaySheet {
 
                 name: displayName
                 source: avatarMediaId ? ("image://mxc/" + avatarMediaId) : ""
+                color: user.color
 
                 MouseArea {
                     anchors.fill: parent
