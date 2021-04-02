@@ -102,7 +102,7 @@ Kirigami.ScrollablePage {
             width: publicRoomsListView.width
             onClicked: {
                 if (!isJoined) {
-                    roomManager.actionsHandler.joinRoom(connection, roomID)
+                    roomManager.actionsHandler.joinRoom(roomID)
                     justJoined = true;
                 } else {
                     roomManager.enterRoom(connection.room(roomID))
