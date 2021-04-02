@@ -33,10 +33,10 @@ it's very hard to read otherwise.)
 
 ## System/Matrix Information
 
-**Distribution:** Ubuntu 20.04, openSUSE, ....
-**Qt Version:** 5.15.2
-**NeoChat version:** 1.2
-**Quotient version:** 0.6.6
-**Matrix server:** matrix.org, kde.org, ....
+ - **Distribution / Platform:** Ubuntu 20.04, openSUSE, Flatpak, Windows, MacOS, Android, ...
+ - **Qt Version:** 5.15.2
+ - **NeoChat version:** 1.2
+ - **Quotient version:** 0.6.6
+ - **Matrix server:** matrix.org, kde.org, ....
 
 /label ~Bug
