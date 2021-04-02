@@ -44,7 +44,12 @@ Menu {
 
     MenuItem {
         text: i18n("Leave Room")
-        onTriggered: room.forget()
+        onTriggered: {
+            if(roomManager.currentRoom == root.room) {
+                pageStack.pop()
+            }
+            room.forget()
+        }
     }
 
     onClosed: destroy()
