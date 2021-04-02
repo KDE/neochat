@@ -567,8 +567,7 @@ Kirigami.ScrollablePage {
                     if (currentRoom && currentRoom.hasUnreadMessages) {
                         goToEvent(currentRoom.readMarkerEventId)
                     } else {
-                        currentRoom.markAllMessagesAsRead()
-                        messageListView.positionViewAtBeginning()
+                        goToLastMessage();
                     }
                 }
                 icon.name: currentRoom && currentRoom.hasUnreadMessages ? "go-up" : "go-down"
@@ -654,6 +653,11 @@ Kirigami.ScrollablePage {
     footer: ChatBox {
         id: chatBox
         visible: !invitation.visible && !(messageListView.count === 0 && !currentRoom.allHistoryLoaded)
+        onMessageSent: {
+            if (!messageListView.atYEnd) {
+                goToLastMessage();
+            }
+        }
     }
 
     background: FancyEffectsContainer {
@@ -688,6 +692,12 @@ Kirigami.ScrollablePage {
                 fancyEffectsContainer.processFancyEffectsReason(fancyEffect)
             }
         }
+    }
+
+    function goToLastMessage() {
+        currentRoom.markAllMessagesAsRead()
+        // scroll to the very end, i.e to messageListView.YEnd
+        messageListView.positionViewAtIndex(0, ListView.End)
     }
 
     function goToEvent(eventID) {

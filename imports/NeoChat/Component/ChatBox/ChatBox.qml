@@ -16,6 +16,7 @@ Item {
     property alias inputFieldText: chatBar.inputFieldText
 
     signal fancyEffectsReasonFound(string fancyEffect)
+    signal messageSent()
 
     Kirigami.Theme.colorSet: Kirigami.Theme.View
 
@@ -150,6 +151,7 @@ Item {
         onMessageSent: {
             closeAll()
             checkForFancyEffectsReason()
+            root.messageSent();
         }
     }
 
