@@ -40,7 +40,7 @@ a{
 }
 
 .user-pill{}
-</style>" + (isEmote ? "* <a href='https://matrix.to/#/" + author.id + "' style='color: " + author.color + "'>" + author.displayName + "</a> " : "") + display + (isEdited ? (" <span style=\"color: " + Kirigami.Theme.disabledTextColor + "\">" + i18n("(edited)") + "</span>") : "")
+</style>" + (isEmote ? "* <a href='https://matrix.to/#/" + author.id + "' style='color: " + author.color + "'>" + author.displayName + "</a> " : "") + model.display + (isEdited ? (" <span style=\"color: " + Kirigami.Theme.disabledTextColor + "\">" + i18n("(edited)") + "</span>") : "")
 
     color: Kirigami.Theme.textColor
     font.pointSize: isEmoji.test(display) ? Kirigami.Theme.defaultFont.pointSize * 4 : Kirigami.Theme.defaultFont.pointSize
@@ -49,9 +49,7 @@ a{
     wrapMode: Text.WordWrap
     textFormat: Text.RichText
 
-    onLinkActivated: {
-        applicationWindow().handleLink(link, currentRoom)
-    }
+    onLinkActivated: applicationWindow().handleLink(link, currentRoom)
 
     MouseArea {
         anchors.fill: parent

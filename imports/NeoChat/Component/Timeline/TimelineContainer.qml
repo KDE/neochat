@@ -15,7 +15,7 @@ import NeoChat.Setting 1.0
 import NeoChat.Component 1.0
 import NeoChat.Dialog 1.0
 
-Item {
+QQC2.ItemDelegate {
     default property alias innerObject : column.children
     readonly property bool sentByMe: author.isLocalUser
     readonly property bool darkBackground: !sentByMe
@@ -34,10 +34,13 @@ Item {
     signal openExternally()
     signal replyClicked(string eventID)
 
-    property alias hovered: controlContainer.hovered
+    topPadding: 0
+    bottomPadding: 0
+
+    property alias hoveredBubble: controlContainer.hovered
 
     //height: mainColumn.childrenRect.height + (readMarker ? Kirigami.Units.smallSpacing : 0)
-    height: mainColumn.implicitHeight + (readMarker ? Kirigami.Units.smallSpacing : 0)
+    //height: mainColumn.implicitHeight + (readMarker ? Kirigami.Units.smallSpacing : 0)
 
     property int hoverComponentX: column.width - hoverComponent.childWidth + Kirigami.Units.largeSpacing
     property int hoverComponentY: -Kirigami.Units.largeSpacing - hoverComponent.childHeight * 1.5
@@ -70,30 +73,8 @@ Item {
         };
     }
 
-    DragHandler {
-        enabled: Kirigami.Settings.isMobile
-        yAxis.enabled: false
-        xAxis.enabled: true
-        xAxis.maximum: 0
-        xAxis.minimum: -Kirigami.Units.gridUnit * 4
-        onActiveChanged: {
-            applicationWindow().pageStack.interactive = true;
-            if (!active && parent.x < -Kirigami.Units.gridUnit * 3) {
-                replyToMessage(author, message, eventId)
-            }
-            parent.x = 0;
-        }
-    }
-
-    onXChanged: if (x !== 0) {
-        applicationWindow().pageStack.interactive = false;
-    } else {
-        applicationWindow().pageStack.interactive = true;
-    }
-
-    ColumnLayout {
+    contentItem: ColumnLayout {
         id: mainColumn
-        width: parent.width
         spacing: 0
 
         SectionDelegate {
@@ -221,28 +202,21 @@ Item {
             Layout.fillWidth: true
             Layout.leftMargin: Kirigami.Units.gridUnit * 2 + Kirigami.Units.largeSpacing * 2
             Layout.topMargin: active ? Kirigami.Units.smallSpacing : 0
+            //Layout.bottomMargin: readMarker ? Kirigami.Units.smallSpacing : 0
             active: eventType !== "state" && eventType !== "notice" && reaction != undefined && reaction.length > 0
             visible: active
             sourceComponent: ReactionDelegate { }
         }
     }
 
-    Kirigami.Icon {
-        id: replyButton
-        visible: parent.x < - Kirigami.Units.gridUnit * 1
-        opacity: -(parent.x + Kirigami.Units.gridUnit) / Kirigami.Units.gridUnit / 3
-        anchors.left: parent.right
-        anchors.top: parent.top
-        source: "mail-replied-symbolic"
-    }
-
-    Rectangle {
-        width: parent.width * 0.9
-        x: parent.width * 0.05
-        height: Kirigami.Units.smallSpacing / 2
-        anchors.top: mainColumn.bottom
-        anchors.topMargin: Kirigami.Units.smallSpacing
-        visible: readMarker
-        color: Kirigami.Theme.positiveTextColor
+    background: Item {
+        Rectangle {
+            width: parent.width * 0.9
+            x: parent.width * 0.05
+            height: Kirigami.Units.smallSpacing / 2
+            anchors.bottom: parent.bottom
+            visible: readMarker
+            color: Kirigami.Theme.positiveTextColor
+        }
     }
 }
