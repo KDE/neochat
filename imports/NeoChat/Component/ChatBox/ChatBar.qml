@@ -113,7 +113,7 @@ ToolBar {
                     onTriggered: currentRoom.sendTypingNotification(true)
                 }
 
-                Keys.onReturnPressed: {
+                function sendMessage(event) {
                     if (isCompleting) {
                         chatBar.complete();
 
@@ -126,6 +126,9 @@ ToolBar {
                         chatBar.postMessage()
                     }
                 }
+
+                Keys.onReturnPressed: { sendMessage(event) }
+                Keys.onEnterPressed: { sendMessage(event) }
 
                 Keys.onEscapePressed: {
                     closeAllTriggered()
