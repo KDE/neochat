@@ -86,6 +86,7 @@ Controller::Controller(QObject *parent)
         NeoChatConfig::self()->save();
     });
 
+#ifndef Q_OS_WINDOWS
     // Setup Unix signal handlers
     const auto unixExitHandler = [](int /*sig*/) -> void {
         QCoreApplication::quit();
@@ -107,6 +108,7 @@ Controller::Controller(QObject *parent)
     for (auto sig : quitSignals) {
         sigaction(sig, &sa, nullptr);
     }
+#endif
 }
 
 Controller::~Controller()
