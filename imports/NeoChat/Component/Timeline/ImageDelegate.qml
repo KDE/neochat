@@ -63,66 +63,6 @@ Image {
         }
     }
 
-    MouseArea {
-        id: messageMouseArea
-
-        enabled: !img.readonly
-
-        anchors.fill: parent
-
-        acceptedButtons: Qt.LeftButton | Qt.RightButton
-
-        onClicked: {
-            if(mouse.button === Qt.LeftButton) {
-                fullScreenImage.createObject(parent, {"filename": eventId, "localPath": currentRoom.urlToDownload(eventId)}).showFullScreen()
-            } else {
-                openContextMenu()
-            }
-        }
-
-        function openContextMenu() {
-            var contextMenu = imageDelegateContextMenu.createObject(root, {'room': currentRoom, 'author': author, 'message': message, 'eventId': eventId});
-            contextMenu.viewSource.connect(function() {
-                messageSourceSheet.createObject(ApplicationWindow.overlay, {"sourceText": toolTip}).open()
-            })
-            contextMenu.downloadAndOpen.connect(downloadAndOpen)
-            contextMenu.saveFileAs.connect(saveFileAs)
-            contextMenu.reply.connect(function() {
-                roomPanelInput.replyModel = Object.assign({}, model)
-                roomPanelInput.isReply = true
-                roomPanelInput.focus()
-            })
-            contextMenu.remove.connect(function() {
-                currentRoom.redactEvent(eventId)
-            })
-            contextMenu.popup()
-        }
-
-        Component {
-            id: messageSourceSheet
-
-            MessageSourceSheet {}
-        }
-
-        Component {
-            id: openFolderDialog
-
-            OpenFolderDialog {}
-        }
-
-        Component {
-            id: imageDelegateContextMenu
-
-            FileDelegateContextMenu {}
-        }
-
-        Component {
-            id: fullScreenImage
-
-            FullScreenImage {}
-        }
-    }
-
     function saveFileAs() {
         var dialog = fileDialog.createObject(ApplicationWindow.overlay)
         dialog.open()

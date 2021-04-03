@@ -43,7 +43,7 @@ RowLayout {
         Kirigami.Heading {
             Layout.fillWidth: true
             level: 4
-            text: display
+            text: model.display
             wrapMode: Label.Wrap
         }
 

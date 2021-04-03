@@ -438,6 +438,17 @@ Kirigami.ScrollablePage {
                         Layout.preferredHeight: info.h / info.w * width
                         Layout.maximumHeight: Kirigami.Units.gridUnit * 15
                         Layout.maximumWidth: Kirigami.Units.gridUnit * 30
+                        TapHandler {
+                            acceptedButtons: Qt.RightButton
+                            onTapped: openFileContext(author, model.display, eventId, toolTip, progressInfo, parent)
+                        }
+                        TapHandler {
+                            acceptedButtons: Qt.LeftButton
+                            onLongPressed: openFileContext(author, model.display, eventId, toolTip, progressInfo, parent)
+                            onTapped: {
+                                fullScreenImage.createObject(parent, {"filename": eventId, "localPath": currentRoom.urlToDownload(eventId)}).showFullScreen()
+                            }
+                        }
                     }
                 }
             }
@@ -631,15 +642,15 @@ Kirigami.ScrollablePage {
         }
 
         Component {
-            id: openFolderDialog
-
-            OpenFolderDialog {}
-        }
-
-        Component {
             id: fileDelegateContextMenu
 
             FileDelegateContextMenu {}
+        }
+
+        Component {
+            id: fullScreenImage
+
+            FullScreenImage {}
         }
     }
 
@@ -739,71 +750,26 @@ Kirigami.ScrollablePage {
     }
 
     /// Open message context dialog for file and videos
-    function openFileContext(author, message, eventId, toolTip, progressInfo, file) {
+    function openFileContext(author, message, eventId, source, progressInfo, file) {
         const contextMenu = fileDelegateContextMenu.createObject(page, {
             'author': author,
             'message': message,
             'eventId': eventId,
+            'source': source,
+            'file': file,
+            'progressInfo': progressInfo,
         });
-        contextMenu.downloadAndOpen.connect(function() {
-            if (file.downloaded) {
-                if (!Qt.openUrlExternally(progressInfo.localPath)) {
-                    Qt.openUrlExternally(progressInfo.localDir);
-                }
-            } else {
-                file.onDownloadedChanged.connect(function() {
-                    if (!Qt.openUrlExternally(progressInfo.localPath)) {
-                        Qt.openUrlExternally(progressInfo.localDir);
-                    }
-                });
-                currentRoom.downloadFile(eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId))
-            }
-        });
-        contextMenu.saveFileAs.connect(function() {
-            const folderDialog = openFolderDialog.createObject(ApplicationWindow.overlay)
-
-            folderDialog.chosen.connect(function(path) {
-                if (!path) {
-                    return;
-                }
-
-                currentRoom.downloadFile(eventId, path + "/" + currentRoom.fileNameToDownload(eventId))
-            })
-
-            folderDialog.open()
-        })
-        contextMenu.viewSource.connect(function() {
-            messageSourceSheet.createObject(page, {
-                'sourceText': toolTip,
-            }).open();
-        });
-        contextMenu.reply.connect(function(replyUser, replyContent) {
-            ChatBoxHelper.replyToMessage(eventId, replyContent, replyUser);
-        })
-        contextMenu.remove.connect(function() {
-            currentRoom.redactEvent(eventId);
-        })
         contextMenu.open();
     }
 
     /// Open context menu for normal message
-    function openMessageContext(author, message, eventId, toolTip) {
+    function openMessageContext(author, message, eventId, source) {
         const contextMenu = messageDelegateContextMenu.createObject(page, {
             'author': author,
             'message': message,
             'eventId': eventId,
+            'source': source,
         });
-        contextMenu.viewSource.connect(function() {
-            messageSourceSheet.createObject(page, {
-                'sourceText': toolTip,
-            }).open();
-        });
-        contextMenu.reply.connect(function(replyUser, replyContent) {
-            ChatBoxHelper.replyToMessage(eventId, replyContent, replyUser);
-        })
-        contextMenu.remove.connect(function() {
-            currentRoom.redactEvent(eventId);
-        })
         contextMenu.open();
     }
 }

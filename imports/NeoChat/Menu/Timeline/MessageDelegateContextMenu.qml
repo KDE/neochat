@@ -18,33 +18,38 @@ Loader {
     required property var author
     required property string message
     required property string eventId
-
-    signal viewSource()
-    signal reply(var author, string message)
-    signal remove()
+    required property string source
 
     property list<Kirigami.Action> actions: [
         Kirigami.Action {
             text: i18n("Reply")
             icon.name: "mail-replied-symbolic"
-            onTriggered: reply(author, message)
+            onTriggered: {
+                ChatBoxHelper.replyToMessage(eventId, message, author);
+            }
         },
         Kirigami.Action {
             visible: author.id === currentRoom.localUser.id || currentRoom.canSendState("redact")
             text: i18n("Remove")
             icon.name: "edit-delete-remove"
             icon.color: "red"
-            onTriggered: remove()
+            onTriggered: {
+                currentRoom.redactEvent(eventId);
+            }
         },
         Kirigami.Action {
             text: i18n("Copy")
             icon.name: "edit-copy"
-            onTriggered: Clipboard.saveText(message)
+            onTriggered: {
+                Clipboard.saveText(message)
+            }
         },
         Kirigami.Action {
             text: i18n("View Source")
             icon.name: "code-context"
-            onTriggered: viewSource()
+            onTriggered: {
+                messageSourceSheet.createObject(page, {'sourceText': loadRoot.source}).open();
+            }
         }
     ]
 
