@@ -28,6 +28,7 @@ ToolBar {
     signal inputFieldForceActiveFocusTriggered()
     signal messageSent()
     signal pasteImageTriggered()
+    signal editLastUserMessage()
 
     property alias isCompleting: completionMenu.visible
 
@@ -141,6 +142,8 @@ ToolBar {
                         switchRoomUp();
                     } else if (event.key === Qt.Key_V && event.modifiers & Qt.ControlModifier) {
                         chatBar.pasteImage();
+                    } else if (event.key === Qt.Key_Up && !(event.modifiers & Qt.ControlModifier)) {
+                        editLastUserMessage();
                     }
                 }
 

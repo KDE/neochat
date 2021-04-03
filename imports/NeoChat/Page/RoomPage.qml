@@ -651,6 +651,12 @@ Kirigami.ScrollablePage {
                 goToLastMessage();
             }
         }
+        onEditLastUserMessage: {
+            const targetMessage = messageEventModel.getLastLocalUserMessageEventId();
+            if (targetMessage) {
+                ChatBoxHelper.edit(targetMessage["body"], targetMessage["body"], targetMessage["event_id"]);
+            }
+        }
     }
 
     background: FancyEffectsContainer {

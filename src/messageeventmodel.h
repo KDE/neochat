@@ -69,6 +69,7 @@ public:
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
     Q_INVOKABLE [[nodiscard]] int eventIDToIndex(const QString &eventID) const;
+    Q_INVOKABLE [[nodiscard]] QVariant getLastLocalUserMessageEventId();
 
 private Q_SLOTS:
     int refreshEvent(const QString &eventId);

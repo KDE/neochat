@@ -632,3 +632,38 @@ int MessageEventModel::eventIDToIndex(const QString &eventID) const
     }
     return it - m_currentRoom->messageEvents().rbegin() + timelineBaseIndex();
 }
+
+QVariant MessageEventModel::getLastLocalUserMessageEventId()
+{
+    QVariantMap targetMessage;
+    const auto &timelineBottom = m_currentRoom->messageEvents().rbegin();
+
+    // set a cap limit of 35 messages, to prevent loading a lot of messages
+    // in rooms where the user has not sent many messages
+    const auto limit = timelineBottom + std::min(35, m_currentRoom->timelineSize());
+
+    for (auto it = timelineBottom; it != limit; ++it) {
+        auto evt = it->event();
+        auto e = eventCast<const RoomMessageEvent>(evt);
+
+        // check if the current message's sender's id is same as the user's id
+        if ((*it)->senderId() == m_currentRoom->localUser()->id()) {
+            auto content = (*it)->contentJson();
+
+            if (content.contains("m.relates_to")) {
+                // the message has been edited once
+                // so we have to return the id of the related' message instead
+                targetMessage.insert("event_id",content["m.relates_to"].toObject()["event_id"].toString());
+                targetMessage.insert("body", content["formatted_body"].toString());
+                return targetMessage;
+            }
+
+            if (e->msgtype() == MessageEventType::Text) {
+                targetMessage.insert("event_id", (*it)->id());
+                targetMessage.insert("body", content["body"].toString());
+                return targetMessage;
+            }
+        }
+    }
+    return targetMessage;
+}

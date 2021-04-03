@@ -17,6 +17,7 @@ Item {
 
     signal fancyEffectsReasonFound(string fancyEffect)
     signal messageSent()
+    signal editLastUserMessage()
 
     Kirigami.Theme.colorSet: Kirigami.Theme.View
 
@@ -152,6 +153,9 @@ Item {
             closeAll()
             checkForFancyEffectsReason()
             root.messageSent();
+        }
+        onEditLastUserMessage: {
+            root.editLastUserMessage();
         }
     }
 
