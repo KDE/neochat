@@ -29,6 +29,7 @@ ToolBar {
     signal messageSent()
     signal pasteImageTriggered()
     signal editLastUserMessage()
+    signal replyPreviousUserMessage()
 
     property alias isCompleting: completionMenu.visible
 
@@ -142,7 +143,9 @@ ToolBar {
                         switchRoomUp();
                     } else if (event.key === Qt.Key_V && event.modifiers & Qt.ControlModifier) {
                         chatBar.pasteImage();
-                    } else if (event.key === Qt.Key_Up && !(event.modifiers & Qt.ControlModifier)) {
+                    } else if (event.key === Qt.Key_Up && event.modifiers & Qt.ControlModifier) {
+                        replyPreviousUserMessage();
+                    } else if (event.key === Qt.Key_Up) {
                         editLastUserMessage();
                     }
                 }

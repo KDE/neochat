@@ -18,6 +18,7 @@ Item {
     signal fancyEffectsReasonFound(string fancyEffect)
     signal messageSent()
     signal editLastUserMessage()
+    signal replyPreviousUserMessage()
 
     Kirigami.Theme.colorSet: Kirigami.Theme.View
 
@@ -156,6 +157,9 @@ Item {
         }
         onEditLastUserMessage: {
             root.editLastUserMessage();
+        }
+        onReplyPreviousUserMessage: {
+            root.replyPreviousUserMessage();
         }
     }
 

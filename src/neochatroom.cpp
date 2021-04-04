@@ -265,6 +265,17 @@ QVariantList NeoChatRoom::getUsers(const QString &keyword) const
     return matchedList;
 }
 
+QVariantMap NeoChatRoom::getUser(const QString& userID) const
+{
+    NeoChatUser user(userID, connection());
+    return QVariantMap {
+        { QStringLiteral("id"), user.id() },
+        { QStringLiteral("displayName"), user.displayname(this) },
+        { QStringLiteral("avatarMediaId"), user.avatarMediaId(this) },
+        { QStringLiteral("color"), user.color() }
+    };
+}
+
 QUrl NeoChatRoom::urlToMxcUrl(const QUrl &mxcUrl)
 {
     return DownloadFileJob::makeRequestUrl(connection()->homeserver(), mxcUrl);

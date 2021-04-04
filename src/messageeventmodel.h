@@ -70,6 +70,7 @@ public:
 
     Q_INVOKABLE [[nodiscard]] int eventIDToIndex(const QString &eventID) const;
     Q_INVOKABLE [[nodiscard]] QVariant getLastLocalUserMessageEventId();
+    Q_INVOKABLE [[nodiscard]] QVariant getLatestMessageFromIndex(const int baseline);
 
 private Q_SLOTS:
     int refreshEvent(const QString &eventId);

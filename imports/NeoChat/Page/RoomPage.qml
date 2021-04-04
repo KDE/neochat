@@ -657,6 +657,12 @@ Kirigami.ScrollablePage {
                 ChatBoxHelper.edit(targetMessage["body"], targetMessage["body"], targetMessage["event_id"]);
             }
         }
+        onReplyPreviousUserMessage: {
+            const replyResponse = messageEventModel.getLatestMessageFromIndex(0);
+            if (replyResponse && replyResponse["event_id"]) {
+                ChatBoxHelper.replyToMessage(replyResponse["event_id"], replyResponse["event"], replyResponse["sender_id"]);
+            }
+        }
     }
 
     background: FancyEffectsContainer {

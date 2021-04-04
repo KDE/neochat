@@ -92,6 +92,7 @@ public:
     Q_INVOKABLE void saveViewport(int topIndex, int bottomIndex);
 
     Q_INVOKABLE [[nodiscard]] QVariantList getUsers(const QString &keyword) const;
+    Q_INVOKABLE [[nodiscard]] QVariantMap getUser(const QString &userID) const;
 
     Q_INVOKABLE QUrl urlToMxcUrl(const QUrl &mxcUrl);
 

@@ -672,3 +672,43 @@ QVariant MessageEventModel::getLastLocalUserMessageEventId()
     }
     return targetMessage;
 }
+
+QVariant MessageEventModel::getLatestMessageFromIndex(const int baseline)
+{
+    QVariantMap replyResponse;
+    const auto &timelineBottom = m_currentRoom->messageEvents().rbegin() + baseline;
+
+    // set a cap limit of baseline + 35 messages, to prevent loading a lot of messages
+    // in rooms where the user has not sent many messages
+    const auto limit = timelineBottom + std::min(baseline + 35, m_currentRoom->timelineSize());
+
+    for (auto it = timelineBottom; it != limit; ++it) {
+        auto evt = it->event();
+        auto e = eventCast<const RoomMessageEvent>(evt);
+
+        auto content = (*it)->contentJson();
+
+        if (content.contains("m.relates_to")) {
+            auto relatedContent = content["m.relates_to"].toObject();
+
+            if (!relatedContent.contains("m.in_reply_to")) {
+                // the message has been edited once
+                // so we have to return the id of the related' message instead
+                replyResponse.insert("event_id", relatedContent["event_id"].toString());
+                replyResponse.insert("event", content["m.formatted_body"].toString());
+                replyResponse.insert("sender_id", QVariant::fromValue(m_currentRoom->getUser((*it)->senderId())));
+                replyResponse.insert("at", -it->index());
+                return replyResponse;
+            }
+        }
+
+        if (e->msgtype() != MessageEventType::Unknown) {
+            replyResponse.insert("event_id", (*it)->id());
+            replyResponse.insert("event", content["body"].toString());
+            replyResponse.insert("sender_id", QVariant::fromValue(m_currentRoom->getUser((*it)->senderId())));
+            replyResponse.insert("at", -it->index());
+            return replyResponse;
+        }
+    }
+    return replyResponse;
+}
