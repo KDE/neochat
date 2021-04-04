@@ -10,26 +10,26 @@
 
 #include <KConfig>
 #include <KConfigGroup>
-#include <KWindowConfig>
 #include <KLocalizedString>
+#include <KWindowConfig>
 
+#include <QAuthenticator>
 #include <QClipboard>
+#include <QCloseEvent>
 #include <QDebug>
-#include <QQuickWindow>
+#include <QDesktopServices>
 #include <QDir>
 #include <QElapsedTimer>
 #include <QFile>
 #include <QFileInfo>
+#include <QMovie>
+#include <QNetworkReply>
+#include <QPixmap>
+#include <QQuickWindow>
 #include <QStandardPaths>
+#include <QStringBuilder>
 #include <QSysInfo>
 #include <QTimer>
-#include <QCloseEvent>
-#include <QDesktopServices>
-#include <QMovie>
-#include <QPixmap>
-#include <QAuthenticator>
-#include <QNetworkReply>
-#include <QStringBuilder>
 #include <utility>
 
 #include <signal.h>
@@ -61,13 +61,13 @@ Controller::Controller(QObject *parent)
 
 #ifndef Q_OS_ANDROID
     TrayIcon *trayIcon = new TrayIcon(this);
-    if(NeoChatConfig::self()->systemTray()) {
+    if (NeoChatConfig::self()->systemTray()) {
         trayIcon->show();
         connect(trayIcon, &TrayIcon::showWindow, this, &Controller::showWindow);
         QApplication::setQuitOnLastWindowClosed(false);
     }
-    connect(NeoChatConfig::self(), &NeoChatConfig::SystemTrayChanged, this, [=](){
-        if(NeoChatConfig::self()->systemTray()) {
+    connect(NeoChatConfig::self(), &NeoChatConfig::SystemTrayChanged, this, [=]() {
+        if (NeoChatConfig::self()->systemTray()) {
             trayIcon->show();
             connect(trayIcon, &TrayIcon::showWindow, this, &Controller::showWindow);
         } else {
@@ -219,8 +219,8 @@ void Controller::addConnection(Connection *c)
         dropConnection(c);
     });
 
-    connect(c, &Connection::requestFailed, this, [=] (BaseJob *job) {
-        if(job->error() == BaseJob::UserConsentRequiredError) {
+    connect(c, &Connection::requestFailed, this, [=](BaseJob *job) {
+        if (job->error() == BaseJob::UserConsentRequiredError) {
             Q_EMIT userConsentRequired(job->errorUrl());
         }
     });
@@ -381,7 +381,6 @@ bool Controller::saveAccessTokenToKeyChain(const AccountSettings &account, const
     return true;
 }
 
-
 void Controller::playAudio(const QUrl &localFile)
 {
     auto player = new QMediaPlayer;
@@ -468,8 +467,7 @@ bool Controller::setAvatar(Connection *connection, const QUrl &avatarSource)
     }
     if (QImageReader(decoded).read().isNull()) {
         return false;
-    }
-    else {
+    } else {
         return localUser->setAvatar(decoded);
     }
 }
@@ -553,12 +551,10 @@ void Controller::saveWindowGeometry(QQuickWindow *window)
     dataResource.sync();
 }
 
-
 NeochatDeleteDeviceJob::NeochatDeleteDeviceJob(const QString &deviceId, const Omittable<QJsonObject> &auth)
     : Quotient::BaseJob(HttpVerb::Delete, QStringLiteral("DeleteDeviceJob"), QStringLiteral("/_matrix/client/r0/devices/%1").arg(deviceId))
 {
     QJsonObject _data;
     addParam<IfNotEmpty>(_data, QStringLiteral("auth"), auth);
     setRequestData(std::move(_data));
-
 }

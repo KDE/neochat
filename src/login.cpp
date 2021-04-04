@@ -29,7 +29,7 @@ void Login::init()
     m_supportsPassword = false;
     m_ssoUrl = QUrl();
 
-    connect(this, &Login::matrixIdChanged, this, [=](){
+    connect(this, &Login::matrixIdChanged, this, [=]() {
         setHomeserverReachable(false);
 
         if (m_connection) {
@@ -37,7 +37,7 @@ void Login::init()
             m_connection = nullptr;
         }
 
-        if(m_matrixId == "@") {
+        if (m_matrixId == "@") {
             return;
         }
 
@@ -45,7 +45,7 @@ void Login::init()
         Q_EMIT testingChanged();
         m_connection = new Connection(this);
         m_connection->resolveServer(m_matrixId);
-        connect(m_connection, &Connection::loginFlowsChanged, this, [=](){
+        connect(m_connection, &Connection::loginFlowsChanged, this, [=]() {
             setHomeserverReachable(true);
             m_testing = false;
             Q_EMIT testingChanged();
@@ -75,7 +75,7 @@ QString Login::matrixId() const
 void Login::setMatrixId(const QString &matrixId)
 {
     m_matrixId = matrixId;
-    if(!m_matrixId.startsWith('@')) {
+    if (!m_matrixId.startsWith('@')) {
         m_matrixId.prepend('@');
     }
     Q_EMIT matrixIdChanged();
@@ -108,7 +108,8 @@ void Login::login()
     m_isLoggingIn = true;
     Q_EMIT isLoggingInChanged();
 
-    setDeviceName("NeoChat " + QSysInfo::machineHostName() + " " + QSysInfo::productType() + " " + QSysInfo::productVersion() + " " + QSysInfo::currentCpuArchitecture());
+    setDeviceName("NeoChat " + QSysInfo::machineHostName() + " " + QSysInfo::productType() + " " + QSysInfo::productVersion() + " "
+                  + QSysInfo::currentCpuArchitecture());
 
     m_connection = new Connection(this);
     m_connection->resolveServer(m_matrixId);
@@ -171,23 +172,24 @@ QUrl Login::ssoUrl() const
 
 void Login::loginWithSso()
 {
-    SsoSession *session = m_connection->prepareForSso("NeoChat " + QSysInfo::machineHostName() + " " + QSysInfo::productType() + " " + QSysInfo::productVersion() + " " + QSysInfo::currentCpuArchitecture());
+    SsoSession *session = m_connection->prepareForSso("NeoChat " + QSysInfo::machineHostName() + " " + QSysInfo::productType() + " "
+                                                      + QSysInfo::productVersion() + " " + QSysInfo::currentCpuArchitecture());
     m_ssoUrl = session->ssoUrl();
     Q_EMIT ssoUrlChanged();
-    connect(m_connection, &Connection::connected, [=](){
+    connect(m_connection, &Connection::connected, [=]() {
         Q_EMIT connected();
         AccountSettings account(m_connection->userId());
-            account.setKeepLoggedIn(true);
-            account.clearAccessToken(); // Drop the legacy - just in case
-            account.setHomeserver(m_connection->homeserver());
-            account.setDeviceId(m_connection->deviceId());
-            account.setDeviceName(m_deviceName);
-            if (!Controller::instance().saveAccessTokenToKeyChain(account, m_connection->accessToken())) {
-                qWarning() << "Couldn't save access token";
-            }
-            account.sync();
-            Controller::instance().addConnection(m_connection);
-            Controller::instance().setActiveConnection(m_connection);
+        account.setKeepLoggedIn(true);
+        account.clearAccessToken(); // Drop the legacy - just in case
+        account.setHomeserver(m_connection->homeserver());
+        account.setDeviceId(m_connection->deviceId());
+        account.setDeviceName(m_deviceName);
+        if (!Controller::instance().saveAccessTokenToKeyChain(account, m_connection->accessToken())) {
+            qWarning() << "Couldn't save access token";
+        }
+        account.sync();
+        Controller::instance().addConnection(m_connection);
+        Controller::instance().setActiveConnection(m_connection);
     });
     connect(m_connection, &Connection::syncDone, this, [=]() {
         Q_EMIT initialSyncFinished();

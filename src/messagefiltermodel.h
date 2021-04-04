@@ -12,5 +12,4 @@ class MessageFilterModel : public QSortFilterProxyModel
     Q_OBJECT
 public:
     bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
-
 };

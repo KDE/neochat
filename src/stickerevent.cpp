@@ -8,7 +8,8 @@ using namespace Quotient;
 StickerEvent::StickerEvent(const QJsonObject &obj)
     : RoomEvent(typeId(), obj)
     , m_imageContent(EventContent::ImageContent(obj["content"_ls].toObject()))
-{}
+{
+}
 
 QString StickerEvent::body() const
 {

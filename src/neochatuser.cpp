@@ -12,7 +12,7 @@
 
 #include "controller.h"
 
-static Kirigami::PlatformTheme * s_theme = nullptr;
+static Kirigami::PlatformTheme *s_theme = nullptr;
 
 NeoChatUser::NeoChatUser(QString userId, Connection *connection)
     : User(std::move(userId), connection)
@@ -44,5 +44,8 @@ void NeoChatUser::setColor(const QColor &color)
 void NeoChatUser::polishColor()
 {
     // https://github.com/quotient-im/libQuotient/wiki/User-color-coding-standard-draft-proposal
-    setColor(QColor::fromHslF(hueF(), 1 - s_theme->alternateBackgroundColor().saturationF(), -0.7 * s_theme->alternateBackgroundColor().lightnessF() + 0.9, s_theme->textColor().alphaF()));
+    setColor(QColor::fromHslF(hueF(),
+                              1 - s_theme->alternateBackgroundColor().saturationF(),
+                              -0.7 * s_theme->alternateBackgroundColor().lightnessF() + 0.9,
+                              s_theme->textColor().alphaF()));
 }

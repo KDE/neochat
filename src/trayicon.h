@@ -8,12 +8,12 @@
 
 // Modified from mujx/nheko's TrayIcon.
 
-#include <QSystemTrayIcon>
 #include <QAction>
 #include <QIcon>
 #include <QIconEngine>
 #include <QPainter>
 #include <QRect>
+#include <QSystemTrayIcon>
 
 class TrayIcon : public QSystemTrayIcon
 {

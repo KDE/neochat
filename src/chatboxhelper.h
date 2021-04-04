@@ -39,11 +39,11 @@ public:
     QString attachmentPath() const;
     bool hasAttachment() const;
 
-    void setEditEventId(const QString& editEventId);
-    void setEditContent(const QString& editContent);
-    void setReplyEventId(const QString& replyEventId);
-    void setReplyEventContent(const QString& replyEventContent);
-    void setAttachmentPath(const QString& attachmentPath);
+    void setEditEventId(const QString &editEventId);
+    void setEditContent(const QString &editContent);
+    void setReplyEventId(const QString &replyEventId);
+    void setReplyEventContent(const QString &replyEventContent);
+    void setAttachmentPath(const QString &attachmentPath);
     void setReplyUser(const QVariant &replyUser);
 
     Q_INVOKABLE void replyToMessage(const QString &replyEventid, const QString &replyEvent, const QVariant &replyUser);
@@ -54,13 +54,13 @@ public:
 
 Q_SIGNALS:
     void isEditingChanged(bool isEditing);
-    void editEventIdChanged(const QString& editEventId);
+    void editEventIdChanged(const QString &editEventId);
     void editContentChanged();
-    void replyEventIdChanged(const QString& replyEventId);
-    void replyEventContentChanged(const QString& replyEventContent);
+    void replyEventIdChanged(const QString &replyEventId);
+    void replyEventContentChanged(const QString &replyEventContent);
     void replyUserChanged();
     void isReplyingChanged(bool isReplying);
-    void attachmentPathChanged(const QString& attachmentPath);
+    void attachmentPathChanged(const QString &attachmentPath);
     void hasAttachmentChanged(bool hasAttachment);
     void editing(const QString &message, const QString &formattedBody);
     void shouldClearText();

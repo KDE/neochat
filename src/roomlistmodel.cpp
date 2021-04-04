@@ -16,8 +16,8 @@
 #include <QDebug>
 #ifndef Q_OS_ANDROID
 #include <QDBusConnection>
-#include <QDBusMessage>
 #include <QDBusInterface>
+#include <QDBusMessage>
 #endif
 #include <QStandardPaths>
 
@@ -28,10 +28,9 @@
 #include "notificationsmanager.h"
 
 #ifndef Q_OS_ANDROID
-bool useUnityCounter() {
-    static const auto Result = QDBusInterface(
-        "com.canonical.Unity",
-        "/").isValid();
+bool useUnityCounter()
+{
+    static const auto Result = QDBusInterface("com.canonical.Unity", "/").isValid();
 
     return Result;
 }
@@ -61,15 +60,9 @@ RoomListModel::RoomListModel(QObject *parent)
                 dbusUnityProperties["count-visible"] = false;
             }
 
-            auto signal = QDBusMessage::createSignal(
-                "/com/canonical/unity/launcherentry/neochat",
-                "com.canonical.Unity.LauncherEntry",
-                "Update");
+            auto signal = QDBusMessage::createSignal("/com/canonical/unity/launcherentry/neochat", "com.canonical.Unity.LauncherEntry", "Update");
 
-            signal.setArguments({
-                launcherUrl,
-                dbusUnityProperties
-            });
+            signal.setArguments({launcherUrl, dbusUnityProperties});
 
             QDBusConnection::sessionBus().send(signal);
         }
@@ -211,9 +204,9 @@ void RoomListModel::handleNotifications()
     static QStringList oldNotifications;
     auto job = m_connection->callApi<GetNotificationsJob>();
 
-    connect(job, &BaseJob::success, this, [=](){
+    connect(job, &BaseJob::success, this, [=]() {
         const auto notifications = job->jsonData()["notifications"].toArray();
-        if(initial) {
+        if (initial) {
             initial = false;
             for (const auto &n : notifications) {
                 oldNotifications += n.toObject()["event"].toObject()["event_id"].toString();
@@ -239,7 +232,12 @@ void RoomListModel::handleNotifications()
             } else {
                 avatar_image = room->avatar(128);
             }
-            NotificationsManager::instance().postNotification(dynamic_cast<NeoChatRoom *>(room), room->displayName(), sender->displayname(room), notification["event"].toObject()["content"].toObject()["body"].toString(), avatar_image, notification["event"].toObject()["event_id"].toString());
+            NotificationsManager::instance().postNotification(dynamic_cast<NeoChatRoom *>(room),
+                                                              room->displayName(),
+                                                              sender->displayname(room),
+                                                              notification["event"].toObject()["content"].toObject()["body"].toString(),
+                                                              avatar_image,
+                                                              notification["event"].toObject()["event_id"].toString());
         }
     });
 }
@@ -454,8 +452,8 @@ bool RoomListModel::categoryVisible(int category) const
 
 NeoChatRoom *RoomListModel::roomByAliasOrId(const QString &aliasOrId)
 {
-    for(const auto &room : m_rooms) {
-        if(room->aliases().contains(aliasOrId) || room->id() == aliasOrId) {
+    for (const auto &room : m_rooms) {
+        if (room->aliases().contains(aliasOrId) || room->id() == aliasOrId) {
             return room;
         }
     }

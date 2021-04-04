@@ -19,7 +19,7 @@ QString ChatBoxHelper::editEventId() const
     return m_editEventId;
 }
 
-void ChatBoxHelper::setEditEventId(const QString& editEventId)
+void ChatBoxHelper::setEditEventId(const QString &editEventId)
 {
     if (m_editEventId == editEventId) {
         return;
@@ -35,7 +35,7 @@ QString ChatBoxHelper::editContent() const
     return m_editContent;
 }
 
-void ChatBoxHelper::setEditContent(const QString& editContent)
+void ChatBoxHelper::setEditContent(const QString &editContent)
 {
     if (m_editContent == editContent) {
         return;
@@ -50,7 +50,7 @@ QString ChatBoxHelper::replyEventId() const
     return m_replyEventId;
 }
 
-void ChatBoxHelper::setReplyEventId(const QString& replyEventId)
+void ChatBoxHelper::setReplyEventId(const QString &replyEventId)
 {
     if (m_replyEventId == replyEventId) {
         return;
@@ -65,7 +65,7 @@ QString ChatBoxHelper::replyEventContent() const
     return m_replyEventContent;
 }
 
-void ChatBoxHelper::setReplyEventContent(const QString& replyEventContent)
+void ChatBoxHelper::setReplyEventContent(const QString &replyEventContent)
 {
     if (m_replyEventContent == replyEventContent) {
         return;
@@ -86,7 +86,7 @@ QString ChatBoxHelper::attachmentPath() const
     return m_attachmentPath;
 }
 
-void ChatBoxHelper::setAttachmentPath(const QString& attachmentPath)
+void ChatBoxHelper::setAttachmentPath(const QString &attachmentPath)
 {
     if (m_attachmentPath == attachmentPath) {
         return;
@@ -135,7 +135,7 @@ void ChatBoxHelper::clear()
     setReplyUser(QVariant());
 }
 
-void ChatBoxHelper::edit(const QString& message, const QString& formattedBody, const QString& eventId)
+void ChatBoxHelper::edit(const QString &message, const QString &formattedBody, const QString &eventId)
 {
     setEditEventId(eventId);
     setEditContent(message);
@@ -156,7 +156,3 @@ void ChatBoxHelper::clearAttachment()
 {
     setAttachmentPath(QString());
 }
-
-
-
-

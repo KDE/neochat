@@ -6,9 +6,9 @@
 
 #pragma once
 
+#include <QMimeDatabase>
 #include <QObject>
 #include <qqml.h>
-#include <QMimeDatabase>
 
 class FileTypeSingletonPrivate;
 
@@ -27,11 +27,7 @@ public:
     // Most of the code in this public section was copy/pasted from qmimedatabase.h
     Q_INVOKABLE QMimeType mimeTypeForName(const QString &nameOrAlias) const;
 
-    enum MatchMode {
-        MatchDefault,
-        MatchExtension,
-        MatchContent
-    };
+    enum MatchMode { MatchDefault, MatchExtension, MatchContent };
     Q_ENUM(MatchMode)
 
     Q_INVOKABLE QMimeType mimeTypeForFile(const QString &fileName, MatchMode mode = MatchDefault) const;

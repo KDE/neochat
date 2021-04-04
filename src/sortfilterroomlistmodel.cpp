@@ -43,7 +43,8 @@ bool SortFilterRoomListModel::lessThan(const QModelIndex &source_left, const QMo
         const auto categoryRight = static_cast<RoomType::Types>(sourceModel()->data(source_right, RoomListModel::CategoryRole).toInt());
 
         if (categoryLeft == RoomType::Types::Favorite && categoryRight == RoomType::Types::Favorite) {
-            return sourceModel()->data(source_left, RoomListModel::LastActiveTimeRole).toDateTime() > sourceModel()->data(source_right, RoomListModel::LastActiveTimeRole).toDateTime();
+            return sourceModel()->data(source_left, RoomListModel::LastActiveTimeRole).toDateTime()
+                > sourceModel()->data(source_right, RoomListModel::LastActiveTimeRole).toDateTime();
         }
         if (categoryLeft == RoomType::Types::Favorite) {
             return true;
@@ -51,7 +52,8 @@ bool SortFilterRoomListModel::lessThan(const QModelIndex &source_left, const QMo
             return false;
         }
 
-        return sourceModel()->data(source_left, RoomListModel::LastActiveTimeRole).toDateTime() > sourceModel()->data(source_right, RoomListModel::LastActiveTimeRole).toDateTime();
+        return sourceModel()->data(source_left, RoomListModel::LastActiveTimeRole).toDateTime()
+            > sourceModel()->data(source_right, RoomListModel::LastActiveTimeRole).toDateTime();
     }
     if (m_sortOrder != SortFilterRoomListModel::Categories) {
         return QSortFilterProxyModel::lessThan(source_left, source_right);
@@ -59,7 +61,8 @@ bool SortFilterRoomListModel::lessThan(const QModelIndex &source_left, const QMo
     if (sourceModel()->data(source_left, RoomListModel::CategoryRole) != sourceModel()->data(source_right, RoomListModel::CategoryRole)) {
         return sourceModel()->data(source_left, RoomListModel::CategoryRole).toInt() < sourceModel()->data(source_right, RoomListModel::CategoryRole).toInt();
     }
-    return sourceModel()->data(source_left, RoomListModel::LastActiveTimeRole).toDateTime() > sourceModel()->data(source_right, RoomListModel::LastActiveTimeRole).toDateTime();
+    return sourceModel()->data(source_left, RoomListModel::LastActiveTimeRole).toDateTime()
+        > sourceModel()->data(source_right, RoomListModel::LastActiveTimeRole).toDateTime();
 }
 
 void SortFilterRoomListModel::setFilterText(const QString &text)
@@ -76,6 +79,6 @@ QString SortFilterRoomListModel::filterText() const
 bool SortFilterRoomListModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
     Q_UNUSED(source_parent);
-    return sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::NameRole).toString().contains(m_filterText, Qt::CaseInsensitive) &&
-        sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::JoinStateRole).toString() != "upgraded";
+    return sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::NameRole).toString().contains(m_filterText, Qt::CaseInsensitive)
+        && sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::JoinStateRole).toString() != "upgraded";
 }

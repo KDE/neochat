@@ -10,9 +10,9 @@
 #include <QDebug>
 #include <QImage>
 
+#include "knotifications_version.h"
 #include <KLocalizedString>
 #include <KNotification>
-#include "knotifications_version.h"
 #if KNOTIFICATIONS_VERSION >= QT_VERSION_CHECK(5, 81, 0)
 #include <KNotificationReplyAction>
 #endif
@@ -31,7 +31,12 @@ NotificationsManager::NotificationsManager(QObject *parent)
 {
 }
 
-void NotificationsManager::postNotification(NeoChatRoom *room, const QString &roomName, const QString &sender, const QString &text, const QImage &icon, const QString &replyEventId)
+void NotificationsManager::postNotification(NeoChatRoom *room,
+                                            const QString &roomName,
+                                            const QString &sender,
+                                            const QString &text,
+                                            const QImage &icon,
+                                            const QString &replyEventId)
 {
     if (!NeoChatConfig::self()->showNotifications()) {
         return;

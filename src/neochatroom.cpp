@@ -27,11 +27,11 @@
 #include "events/roomcanonicalaliasevent.h"
 #include "events/roommessageevent.h"
 #include "events/roompowerlevelsevent.h"
-#include "stickerevent.h"
 #include "events/typingevent.h"
 #include "jobs/downloadfilejob.h"
 #include "neochatconfig.h"
 #include "notificationsmanager.h"
+#include "stickerevent.h"
 #include "user.h"
 #include "utils.h"
 
@@ -52,7 +52,7 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
     connect(this, &Quotient::Room::eventsHistoryJobChanged, this, &NeoChatRoom::lastActiveTimeChanged);
 
     connect(this, &Room::joinStateChanged, this, [=](JoinState oldState, JoinState newState) {
-        if(oldState == JoinState::Invite && newState != JoinState::Invite) {
+        if (oldState == JoinState::Invite && newState != JoinState::Invite) {
             Q_EMIT isInviteChanged();
         }
     });
@@ -101,7 +101,7 @@ QVariantList NeoChatRoom::getUsersTyping() const
     users.removeAll(localUser());
     QVariantList userVariants;
     for (User *user : users) {
-        userVariants.append(QVariantMap {
+        userVariants.append(QVariantMap{
             {"id", user->id()},
             {"avatarMediaId", user->avatarMediaId(this)},
             {"displayName", user->displayname(this)},
@@ -128,7 +128,8 @@ const RoomMessageEvent *NeoChatRoom::lastEvent(bool ignoreStateEvent) const
             continue;
         }
 
-        if (event->isStateEvent() && (ignoreStateEvent || !NeoChatConfig::self()->showLeaveJoinEvent() || static_cast<const StateEventBase &>(*event).repeatsState())) {
+        if (event->isStateEvent()
+            && (ignoreStateEvent || !NeoChatConfig::self()->showLeaveJoinEvent() || static_cast<const StateEventBase &>(*event).repeatsState())) {
             continue;
         }
 
@@ -252,12 +253,10 @@ QVariantList NeoChatRoom::getUsers(const QString &keyword) const
     for (const auto u : userList) {
         if (u->displayname(this).contains(keyword, Qt::CaseInsensitive)) {
             NeoChatUser user(u->id(), u->connection());
-            QVariantMap userVariant {
-                { QStringLiteral("id"), user.id() },
-                { QStringLiteral("displayName"), user.displayname(this) },
-                { QStringLiteral("avatarMediaId"), user.avatarMediaId(this) },
-                { QStringLiteral("color"), user.color() }
-            };
+            QVariantMap userVariant{{QStringLiteral("id"), user.id()},
+                                    {QStringLiteral("displayName"), user.displayname(this)},
+                                    {QStringLiteral("avatarMediaId"), user.avatarMediaId(this)},
+                                    {QStringLiteral("color"), user.color()}};
 
             matchedList.append(QVariant::fromValue(userVariant));
         }
@@ -357,14 +356,12 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                 }
                 Q_FALLTHROUGH();
             case MembershipType::Join: {
-                QString text {};
+                QString text{};
                 // Part 1: invites and joins
                 if (e.repeatsState()) {
                     text = i18n("joined the room (repeated)");
                 } else if (e.changesMembership()) {
-                    text = e.membership() == MembershipType::Invite
-                            ? i18n("invited %1 to the room", subjectName)
-                            : i18n("joined the room");
+                    text = e.membership() == MembershipType::Invite ? i18n("invited %1 to the room", subjectName) : i18n("joined the room");
                 }
                 if (!text.isEmpty()) {
                     if (!e.reason().isEmpty()) {
@@ -402,9 +399,12 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                 if (e.prevContent() && e.prevContent()->membership == MembershipType::Ban) {
                     return (e.senderId() != e.userId()) ? i18n("unbanned %1", subjectName) : i18n("self-unbanned");
                 }
-                return (e.senderId() != e.userId()) ? i18n("has put %1 out of the room: %2", subjectName, e.contentJson()["reason"_ls].toString().toHtmlEscaped()) : i18n("left the room");
+                return (e.senderId() != e.userId())
+                    ? i18n("has put %1 out of the room: %2", subjectName, e.contentJson()["reason"_ls].toString().toHtmlEscaped())
+                    : i18n("left the room");
             case MembershipType::Ban:
-                return (e.senderId() != e.userId()) ? i18n("banned %1 from the room: %2", subjectName, e.contentJson()["reason"_ls].toString().toHtmlEscaped()) : i18n("self-banned from the room");
+                return (e.senderId() != e.userId()) ? i18n("banned %1 from the room: %2", subjectName, e.contentJson()["reason"_ls].toString().toHtmlEscaped())
+                                                    : i18n("self-banned from the room");
             case MembershipType::Knock:
                 return i18n("knocked");
             default:;
@@ -427,11 +427,14 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
             return i18n("activated End-to-End Encryption");
         },
         [](const RoomCreateEvent &e) {
-            return e.isUpgrade() ? i18n("upgraded the room to version %1", e.version().isEmpty() ? "1" : e.version().toHtmlEscaped()) : i18n("created the room, version %1", e.version().isEmpty() ? "1" : e.version().toHtmlEscaped());
+            return e.isUpgrade() ? i18n("upgraded the room to version %1", e.version().isEmpty() ? "1" : e.version().toHtmlEscaped())
+                                 : i18n("created the room, version %1", e.version().isEmpty() ? "1" : e.version().toHtmlEscaped());
         },
         [](const StateEventBase &e) {
             // A small hack for state events from TWIM bot
-            return e.stateKey() == "twim" ? i18n("updated the database") : e.stateKey().isEmpty() ? i18n("updated %1 state", e.matrixType()) : i18n("updated %1 state for %2", e.matrixType(), e.stateKey().toHtmlEscaped());
+            return e.stateKey() == "twim" ? i18n("updated the database")
+                : e.stateKey().isEmpty()  ? i18n("updated %1 state", e.matrixType())
+                                          : i18n("updated %1 state for %2", e.matrixType(), e.stateKey().toHtmlEscaped());
         },
         i18n("Unknown event"));
 }
@@ -531,29 +534,15 @@ void NeoChatRoom::postHtmlMessage(const QString &text, const QString &html, Mess
         isReply = false;
     }
 
-
     if (isEdit) {
-        QJsonObject json {
+        QJsonObject json{
             {"type", "m.room.message"},
             {"msgtype", msgTypeToString(type)},
             {"body", "* " + text},
             {"format", "org.matrix.custom.html"},
             {"formatted_body", html},
-            {"m.new_content",
-              QJsonObject {
-                {"body", text},
-                {"msgtype", msgTypeToString(type)},
-                {"format", "org.matrix.custom.html"},
-                {"formatted_body", html}
-              }
-            },
-            {"m.relates_to",
-                QJsonObject {
-                    {"rel_type", "m.replace"},
-                    {"event_id", relateToEventId}
-                }
-            }
-        };
+            {"m.new_content", QJsonObject{{"body", text}, {"msgtype", msgTypeToString(type)}, {"format", "org.matrix.custom.html"}, {"formatted_body", html}}},
+            {"m.relates_to", QJsonObject{{"rel_type", "m.replace"}, {"event_id", relateToEventId}}}};
 
         postJson("m.room.message", json);
         return;

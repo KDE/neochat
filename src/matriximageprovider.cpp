@@ -21,7 +21,11 @@ using Quotient::BaseJob;
 ThumbnailResponse::ThumbnailResponse(QString id, QSize size)
     : mediaId(std::move(id))
     , requestedSize(size)
-    , localFile(QStringLiteral("%1/image_provider/%2-%3x%4.png").arg(QStandardPaths::writableLocation(QStandardPaths::CacheLocation), mediaId, QString::number(requestedSize.width()), QString::number(requestedSize.height())))
+    , localFile(QStringLiteral("%1/image_provider/%2-%3x%4.png")
+                    .arg(QStandardPaths::writableLocation(QStandardPaths::CacheLocation),
+                         mediaId,
+                         QString::number(requestedSize.width()),
+                         QString::number(requestedSize.height())))
     , errorStr("Image request hasn't started")
 {
     if (requestedSize.isEmpty()) {

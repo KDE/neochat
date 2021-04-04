@@ -3,11 +3,11 @@
 
 #pragma once
 
-#include "events/roomevent.h"
 #include "events/eventcontent.h"
+#include "events/roomevent.h"
 
-namespace Quotient {
-
+namespace Quotient
+{
 /// Sticker messages are specialised image messages that are displayed without
 /// controls (e.g. no "download" link, or light-box view on click, as would be
 /// displayed for for m.image events).
@@ -31,6 +31,7 @@ public:
 
     /// \brief The URL to the sticker image. This must be a valid mxc:// URI.
     QUrl url() const;
+
 private:
     EventContent::ImageContent m_imageContent;
 };

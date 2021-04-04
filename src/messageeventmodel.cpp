@@ -363,7 +363,8 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     if (role == Qt::DisplayRole) {
         if (evt.isRedacted()) {
             auto reason = evt.redactedBecause()->reason();
-            return (reason.isEmpty()) ? i18n("<i>[This message was deleted]</i>") : i18n("<i>[This message was deleted: %1]</i>").arg(evt.redactedBecause()->reason());
+            return (reason.isEmpty()) ? i18n("<i>[This message was deleted]</i>")
+                                      : i18n("<i>[This message was deleted: %1]</i>").arg(evt.redactedBecause()->reason());
         }
 
         return m_currentRoom->eventToString(evt, Qt::RichText);
@@ -505,7 +506,8 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 
     if (role == IsEditedRole) {
         if (auto e = eventCast<const RoomMessageEvent>(&evt)) {
-            return !e->unsignedJson().isEmpty() && e->unsignedJson().contains("m.relations") && e->unsignedJson()["m.relations"].toObject().contains("m.replace");
+            return !e->unsignedJson().isEmpty() && e->unsignedJson().contains("m.relations")
+                && e->unsignedJson()["m.relations"].toObject().contains("m.replace");
         }
         return false;
     }
@@ -559,14 +561,17 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         };
         const auto &replyEvt = **replyIt;
 
-        return QVariantMap{{"eventId", replyEventId}, {"display", m_currentRoom->eventToString(replyEvt, Qt::RichText)}, {"author", userAtEvent(static_cast<NeoChatUser *>(m_currentRoom->user(replyEvt.senderId())), m_currentRoom, evt)}};
+        return QVariantMap{{"eventId", replyEventId},
+                           {"display", m_currentRoom->eventToString(replyEvt, Qt::RichText)},
+                           {"author", userAtEvent(static_cast<NeoChatUser *>(m_currentRoom->user(replyEvt.senderId())), m_currentRoom, evt)}};
     }
 
     if (role == ShowAuthorRole) {
         for (auto r = row + 1; r < rowCount(); ++r) {
             auto i = index(r);
             if (data(i, SpecialMarksRole) != EventStatus::Hidden) {
-                return data(i, AuthorRole) != data(idx, AuthorRole) || data(i, EventTypeRole) != data(idx, EventTypeRole) || data(idx, TimeRole).toDateTime().msecsTo(data(i, TimeRole).toDateTime()) > 600000;
+                return data(i, AuthorRole) != data(idx, AuthorRole) || data(i, EventTypeRole) != data(idx, EventTypeRole)
+                    || data(idx, TimeRole).toDateTime().msecsTo(data(i, TimeRole).toDateTime()) > 600000;
             }
         }
 
@@ -653,7 +658,7 @@ QVariant MessageEventModel::getLastLocalUserMessageEventId()
             if (content.contains("m.relates_to")) {
                 // the message has been edited once
                 // so we have to return the id of the related' message instead
-                targetMessage.insert("event_id",content["m.relates_to"].toObject()["event_id"].toString());
+                targetMessage.insert("event_id", content["m.relates_to"].toObject()["event_id"].toString());
                 targetMessage.insert("body", content["formatted_body"].toString());
                 return targetMessage;
             }

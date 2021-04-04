@@ -7,16 +7,15 @@
 #include "csapi/joining.h"
 
 #include <KLocalizedString>
-#include <QStringBuilder>
 #include <QDebug>
+#include <QStringBuilder>
 
 ActionsHandler::ActionsHandler(QObject *parent)
     : QObject(parent)
 {
 }
 
-ActionsHandler::~ActionsHandler()
-{};
+ActionsHandler::~ActionsHandler(){};
 
 NeoChatRoom *ActionsHandler::room() const
 {
@@ -48,11 +47,10 @@ void ActionsHandler::setConnection(Connection *connection)
     }
     m_connection = connection;
     if (m_connection != nullptr) {
-        connect(m_connection, &Connection::directChatAvailable,
-                this, [this](Quotient::Room *room) {
-                    room->setDisplayed(true);
-                    Q_EMIT roomJoined(room->id());
-                });
+        connect(m_connection, &Connection::directChatAvailable, this, [this](Quotient::Room *room) {
+            room->setDisplayed(true);
+            Q_EMIT roomJoined(room->id());
+        });
     }
     Q_EMIT connectionChanged();
 }
@@ -61,71 +59,82 @@ QVariantList ActionsHandler::commands() const
 {
     QVariantList commands;
     // Messages commands
-    commands.append({
-        QStringLiteral("prefix"), QStringLiteral("/shrug "),
-        QStringLiteral("parameter"), i18nc("@label Parameter of a command", "<message>"),
-        QStringLiteral("help"), i18n("Prepends ¯\\_(ツ)_/¯ to a plain-text message")
-    });
+    commands.append({QStringLiteral("prefix"),
+                     QStringLiteral("/shrug "),
+                     QStringLiteral("parameter"),
+                     i18nc("@label Parameter of a command", "<message>"),
+                     QStringLiteral("help"),
+                     i18n("Prepends ¯\\_(ツ)_/¯ to a plain-text message")});
 
-    commands.append({
-        QStringLiteral("prefix"), QStringLiteral("/lenny "),
-        QStringLiteral("parameter"), i18nc("@label Parameter of a command", "<message>"),
-        QStringLiteral("help"), i18n("Prepends ( ͡° ͜ʖ ͡°) to a plain-text message")
-    });
+    commands.append({QStringLiteral("prefix"),
+                     QStringLiteral("/lenny "),
+                     QStringLiteral("parameter"),
+                     i18nc("@label Parameter of a command", "<message>"),
+                     QStringLiteral("help"),
+                     i18n("Prepends ( ͡° ͜ʖ ͡°) to a plain-text message")});
 
-    commands.append({
-        QStringLiteral("prefix"), QStringLiteral("/plain "),
-        QStringLiteral("parameter"), i18nc("@label Parameter of a command", "<message>"),
-        QStringLiteral("help"), i18n("Sends a message as plain text, without interpreting it as markdown")
-    });
+    commands.append({QStringLiteral("prefix"),
+                     QStringLiteral("/plain "),
+                     QStringLiteral("parameter"),
+                     i18nc("@label Parameter of a command", "<message>"),
+                     QStringLiteral("help"),
+                     i18n("Sends a message as plain text, without interpreting it as markdown")});
 
-    commands.append({
-        QStringLiteral("prefix"), QStringLiteral("/html "),
-        QStringLiteral("parameter"), i18nc("@label Parameter of a command", "<message>"),
-        QStringLiteral("help"), i18n("Sends a message as html, without interpreting it as markdown")
-    });
+    commands.append({QStringLiteral("prefix"),
+                     QStringLiteral("/html "),
+                     QStringLiteral("parameter"),
+                     i18nc("@label Parameter of a command", "<message>"),
+                     QStringLiteral("help"),
+                     i18n("Sends a message as html, without interpreting it as markdown")});
 
-    commands.append({
-        QStringLiteral("prefix"), QStringLiteral("/rainbow "),
-        QStringLiteral("parameter"), i18nc("@label Parameter of a command", "<message>"),
-        QStringLiteral("help"), i18n("Sends the given message coloured as a rainbow")
-    });
+    commands.append({QStringLiteral("prefix"),
+                     QStringLiteral("/rainbow "),
+                     QStringLiteral("parameter"),
+                     i18nc("@label Parameter of a command", "<message>"),
+                     QStringLiteral("help"),
+                     i18n("Sends the given message coloured as a rainbow")});
 
-    commands.append({
-        QStringLiteral("prefix"), QStringLiteral("/rainbowme "),
-        QStringLiteral("parameter"), i18nc("@label Parameter of a command", "<message>"),
-        QStringLiteral("help"), i18n("Sends the given emote coloured as a rainbow")
-    });
+    commands.append({QStringLiteral("prefix"),
+                     QStringLiteral("/rainbowme "),
+                     QStringLiteral("parameter"),
+                     i18nc("@label Parameter of a command", "<message>"),
+                     QStringLiteral("help"),
+                     i18n("Sends the given emote coloured as a rainbow")});
 
-    commands.append({
-        QStringLiteral("prefix"), QStringLiteral("/me "),
-        QStringLiteral("parameter"), i18nc("@label Parameter of a command", "<message>"),
-        QStringLiteral("help"), i18n("Displays action")
-    });
+    commands.append({QStringLiteral("prefix"),
+                     QStringLiteral("/me "),
+                     QStringLiteral("parameter"),
+                     i18nc("@label Parameter of a command", "<message>"),
+                     QStringLiteral("help"),
+                     i18n("Displays action")});
 
     // Actions commands
-    commands.append({
-        QStringLiteral("prefix"), QStringLiteral("/join "),
-        QStringLiteral("parameter"), i18nc("@label Parameter of a command", "<room-address>"),
-        QStringLiteral("help"), i18n("Joins room with given address")
-    });
+    commands.append({QStringLiteral("prefix"),
+                     QStringLiteral("/join "),
+                     QStringLiteral("parameter"),
+                     i18nc("@label Parameter of a command", "<room-address>"),
+                     QStringLiteral("help"),
+                     i18n("Joins room with given address")});
 
-    commands.append({
-        QStringLiteral("prefix"), QStringLiteral("/part "),
-        QStringLiteral("parameter"), i18nc("@label Parameter of a command", "[<room-address>]"),
-        QStringLiteral("help"), i18n("Leave room")
-    });
+    commands.append({QStringLiteral("prefix"),
+                     QStringLiteral("/part "),
+                     QStringLiteral("parameter"),
+                     i18nc("@label Parameter of a command", "[<room-address>]"),
+                     QStringLiteral("help"),
+                     i18n("Leave room")});
 
-    commands.append({
-        QStringLiteral("prefix"), QStringLiteral("/invite "),
-        QStringLiteral("parameter"), i18nc("@label Parameter of a command", "<user-id>"),
-        QStringLiteral("help"), i18n("Invites user with given id to current room")
-    });
-    commands.append({
-        QStringLiteral("prefix"), QStringLiteral("/react "),
-        QStringLiteral("parameter"), i18nc("@label Parameter of a command", "<reaction text>"),
-        QStringLiteral("help"), i18n("React to this message with a text")
-    });
+    commands.append({QStringLiteral("prefix"),
+                     QStringLiteral("/invite "),
+                     QStringLiteral("parameter"),
+                     i18nc("@label Parameter of a command", "<user-id>"),
+                     QStringLiteral("help"),
+                     i18n("Invites user with given id to current room")});
+    commands.append({QStringLiteral("prefix"),
+                     QStringLiteral("/react "),
+                     QStringLiteral("parameter"),
+                     i18nc("@label Parameter of a command", "<reaction text>"),
+                     QStringLiteral("help"),
+                     i18n("React to this message with a text")});
 
     // TODO more see elements /help action
 
@@ -143,8 +152,7 @@ void ActionsHandler::joinRoom(const QString &alias)
     auto joinRoomJob = m_connection->joinRoom(alias, QStringList{knownServer});
 
     Quotient::JoinRoomJob::connect(joinRoomJob, &JoinRoomJob::failure, [=] {
-        Q_EMIT showMessage(MessageType::Error, i18n("Server error when joining the room \"%1\": %2",
-                    joinRoomJob->errorString()));
+        Q_EMIT showMessage(MessageType::Error, i18n("Server error when joining the room \"%1\": %2", joinRoomJob->errorString()));
     });
     Quotient::JoinRoomJob::connect(joinRoomJob, &JoinRoomJob::success, [this, joinRoomJob] {
         Q_EMIT roomJoined(joinRoomJob->roomId());
@@ -163,16 +171,16 @@ void ActionsHandler::createRoom(const QString &name, const QString &topic)
 }
 
 void ActionsHandler::postMessage(const QString &text,
-        const QString &attachementPath, const QString &replyEventId, const QString &editEventId,
-        const QVariantMap &usernames)
+                                 const QString &attachementPath,
+                                 const QString &replyEventId,
+                                 const QString &editEventId,
+                                 const QVariantMap &usernames)
 {
     QString rawText = text;
     QString cleanedText = text;
 
-
     for (auto it = usernames.constBegin(); it != usernames.constEnd(); it++) {
-        cleanedText = cleanedText.replace(it.key(),
-                "[" + it.key() + "](https://matrix.to/#/" + it.value().toString() + ")");
+        cleanedText = cleanedText.replace(it.key(), "[" + it.key() + "](https://matrix.to/#/" + it.value().toString() + ")");
     }
 
     if (attachementPath.length() > 0) {
@@ -211,13 +219,12 @@ void ActionsHandler::postMessage(const QString &text,
     static const QString msgPrefix = QStringLiteral("/msg "); // TODO
     static const QString reactPrefix = QStringLiteral("/react ");
 
-    // Admin commands 
+    // Admin commands
 
-    static QStringList rainbowColors{"#ff2b00", "#ff5500", "#ff8000", "#ffaa00", "#ffd500",
-        "#ffff00", "#d4ff00", "#aaff00", "#80ff00", "#55ff00", "#2bff00", "#00ff00", "#00ff2b",
-        "#00ff55", "#00ff80", "#00ffaa", "#00ffd5", "#00ffff", "#00d4ff", "#00aaff", "#007fff",
-        "#0055ff", "#002bff", "#0000ff", "#2a00ff", "#5500ff", "#7f00ff", "#aa00ff", "#d400ff",
-        "#ff00ff", "#ff00d4", "#ff00aa", "#ff0080", "#ff0055", "#ff002b", "#ff0000"};
+    static QStringList rainbowColors{"#ff2b00", "#ff5500", "#ff8000", "#ffaa00", "#ffd500", "#ffff00", "#d4ff00", "#aaff00", "#80ff00",
+                                     "#55ff00", "#2bff00", "#00ff00", "#00ff2b", "#00ff55", "#00ff80", "#00ffaa", "#00ffd5", "#00ffff",
+                                     "#00d4ff", "#00aaff", "#007fff", "#0055ff", "#002bff", "#0000ff", "#2a00ff", "#5500ff", "#7f00ff",
+                                     "#aa00ff", "#d400ff", "#ff00ff", "#ff00d4", "#ff00aa", "#ff0080", "#ff0055", "#ff002b", "#ff0000"};
 
     if (cleanedText.indexOf(shrugPrefix) == 0) {
         cleanedText = QStringLiteral("¯\\\\_(ツ)\\_/¯") % cleanedText.remove(0, shrugPrefix.length());
@@ -237,7 +244,7 @@ void ActionsHandler::postMessage(const QString &text,
         for (int i = 0; i < cleanedText.length(); i++) {
             rainbowText = rainbowText % QStringLiteral("<font color='") % rainbowColors.at(i % rainbowColors.length()) % "'>" % cleanedText.at(i) % "</font>";
         }
-        m_room->postHtmlMessage(cleanedText, rainbowText,  RoomMessageEvent::MsgType::Notice, replyEventId, editEventId);
+        m_room->postHtmlMessage(cleanedText, rainbowText, RoomMessageEvent::MsgType::Notice, replyEventId, editEventId);
         return;
     }
 
@@ -264,8 +271,7 @@ void ActionsHandler::postMessage(const QString &text,
         } else if (splittedText[0].indexOf(":") != -1) {
             joinRoom(splittedText[0]);
             return;
-        }
-        else {
+        } else {
             joinRoom(splittedText[0] + ":matrix.org");
         }
         return;
@@ -330,8 +336,8 @@ void ActionsHandler::postMessage(const QString &text,
         return;
     }
 
-    if(rawText.indexOf(reactPrefix) == 0) {
-        if(replyEventId.isEmpty()) {
+    if (rawText.indexOf(reactPrefix) == 0) {
+        if (replyEventId.isEmpty()) {
             return;
         }
         rawText = rawText.remove(0, reactPrefix.length());

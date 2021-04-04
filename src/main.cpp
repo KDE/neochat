@@ -24,6 +24,8 @@
 #include "neochat-version.h"
 
 #include "accountlistmodel.h"
+#include "actionshandler.h"
+#include "chatboxhelper.h"
 #include "chatdocumenthandler.h"
 #include "clipboard.h"
 #include "controller.h"
@@ -46,8 +48,6 @@
 #include "sortfilterroomlistmodel.h"
 #include "userdirectorylistmodel.h"
 #include "userlistmodel.h"
-#include "actionshandler.h"
-#include "chatboxhelper.h"
 
 using namespace Quotient;
 
@@ -85,7 +85,12 @@ int main(int argc, char *argv[])
 
     QApplication::setOrganizationName("KDE");
 
-    KAboutData about(QStringLiteral("neochat"), i18n("NeoChat"), QStringLiteral(NEOCHAT_VERSION_STRING), i18n("Matrix client"), KAboutLicense::GPL_V3, i18n("© 2018-2020 Black Hat, 2020 KDE Community"));
+    KAboutData about(QStringLiteral("neochat"),
+                     i18n("NeoChat"),
+                     QStringLiteral(NEOCHAT_VERSION_STRING),
+                     i18n("Matrix client"),
+                     KAboutLicense::GPL_V3,
+                     i18n("© 2018-2020 Black Hat, 2020 KDE Community"));
     about.addAuthor(i18n("Black Hat"), QString(), QStringLiteral("bhat@encom.eu.org"));
     about.addAuthor(i18n("Carl Schwan"), QString(), QStringLiteral("carl@carlschwan.eu"));
     about.addAuthor(i18n("Tobias Fella"), QString(), QStringLiteral("fella@posteo.de"));
@@ -126,12 +131,11 @@ int main(int argc, char *argv[])
     qmlRegisterType<MessageFilterModel>("org.kde.neochat", 1, 0, "MessageFilterModel");
     qmlRegisterType<PublicRoomListModel>("org.kde.neochat", 1, 0, "PublicRoomListModel");
     qmlRegisterType<UserDirectoryListModel>("org.kde.neochat", 1, 0, "UserDirectoryListModel");
-    qmlRegisterSingletonType<EmojiModel>("org.kde.neochat", 1, 0, "EmojiModel", [](QQmlEngine *engine2, QJSEngine *scriptEngine) -> QObject *
-        {
-            Q_UNUSED(scriptEngine);
-            Q_UNUSED(engine2);
-            return new EmojiModel();
-        });
+    qmlRegisterSingletonType<EmojiModel>("org.kde.neochat", 1, 0, "EmojiModel", [](QQmlEngine *engine2, QJSEngine *scriptEngine) -> QObject * {
+        Q_UNUSED(scriptEngine);
+        Q_UNUSED(engine2);
+        return new EmojiModel();
+    });
     qmlRegisterType<SortFilterRoomListModel>("org.kde.neochat", 1, 0, "SortFilterRoomListModel");
     qmlRegisterType<DevicesModel>("org.kde.neochat", 1, 0, "DevicesModel");
     qmlRegisterUncreatableType<RoomMessageEvent>("org.kde.neochat", 1, 0, "RoomMessageEvent", "ENUM");
@@ -187,7 +191,7 @@ int main(int argc, char *argv[])
     });
     const auto rootObjects = engine.rootObjects();
     for (auto obj : rootObjects) {
-        auto view = qobject_cast<QQuickWindow*>(obj);
+        auto view = qobject_cast<QQuickWindow *>(obj);
         if (view) {
             KConfig dataResource("data", KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
             KConfigGroup windowGroup(&dataResource, "Window");

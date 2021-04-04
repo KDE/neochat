@@ -141,8 +141,16 @@ public Q_SLOTS:
     void sendTypingNotification(bool isTyping);
     /// @param rawText The text as it was typed.
     /// @param cleanedText The text with link to the users.
-    void postMessage(const QString &rawText, const QString &cleanedText, Quotient::MessageEventType type = Quotient::MessageEventType::Text, const QString &replyEventId = QString(), const QString &relateToEventId = QString());
-    void postHtmlMessage(const QString &text, const QString &html, Quotient::MessageEventType type = Quotient::MessageEventType::Text, const QString &replyEventId = QString(), const QString &relateToEventId = QString());
+    void postMessage(const QString &rawText,
+                     const QString &cleanedText,
+                     Quotient::MessageEventType type = Quotient::MessageEventType::Text,
+                     const QString &replyEventId = QString(),
+                     const QString &relateToEventId = QString());
+    void postHtmlMessage(const QString &text,
+                         const QString &html,
+                         Quotient::MessageEventType type = Quotient::MessageEventType::Text,
+                         const QString &replyEventId = QString(),
+                         const QString &relateToEventId = QString());
     void changeAvatar(const QUrl &localFile);
     void addLocalAlias(const QString &alias);
     void removeLocalAlias(const QString &alias);

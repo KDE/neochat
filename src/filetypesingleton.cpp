@@ -9,7 +9,7 @@
 static QStringList byteArrayListToStringList(const QByteArrayList &byteArrayList)
 {
     QStringList stringList;
-    for(const QByteArray &byteArray : byteArrayList) {
+    for (const QByteArray &byteArray : byteArrayList) {
         stringList.append(QString::fromLocal8Bit(byteArray));
     }
     return stringList;
@@ -21,17 +21,18 @@ class FileTypeSingletonPrivate
     Q_DISABLE_COPY(FileTypeSingletonPrivate)
 public:
     FileTypeSingletonPrivate(FileTypeSingleton *qq);
-    FileTypeSingleton * const q_ptr;
+    FileTypeSingleton *const q_ptr;
     QMimeDatabase mimetypeDatabase;
     QStringList supportedImageFormats = byteArrayListToStringList(QImageReader::supportedImageFormats());
     QStringList supportedAnimatedImageFormats = byteArrayListToStringList(QMovie::supportedFormats());
 };
 
-FileTypeSingletonPrivate::FileTypeSingletonPrivate(FileTypeSingleton* qq) : q_ptr(qq)
+FileTypeSingletonPrivate::FileTypeSingletonPrivate(FileTypeSingleton *qq)
+    : q_ptr(qq)
 {
 }
 
-FileTypeSingleton::FileTypeSingleton(QObject* parent)
+FileTypeSingleton::FileTypeSingleton(QObject *parent)
     : QObject(parent)
     , d_ptr(new FileTypeSingletonPrivate(this))
 {
@@ -41,61 +42,61 @@ FileTypeSingleton::~FileTypeSingleton() noexcept
 {
 }
 
-QMimeType FileTypeSingleton::mimeTypeForName(const QString& nameOrAlias) const
+QMimeType FileTypeSingleton::mimeTypeForName(const QString &nameOrAlias) const
 {
     Q_D(const FileTypeSingleton);
     return d->mimetypeDatabase.mimeTypeForName(nameOrAlias);
 }
 
-QMimeType FileTypeSingleton::mimeTypeForFile(const QString& fileName, MatchMode mode) const
+QMimeType FileTypeSingleton::mimeTypeForFile(const QString &fileName, MatchMode mode) const
 {
     Q_D(const FileTypeSingleton);
     return d->mimetypeDatabase.mimeTypeForFile(fileName, static_cast<QMimeDatabase::MatchMode>(mode));
 }
 
-QMimeType FileTypeSingleton::mimeTypeForFile(const QFileInfo& fileInfo, MatchMode mode) const
+QMimeType FileTypeSingleton::mimeTypeForFile(const QFileInfo &fileInfo, MatchMode mode) const
 {
     Q_D(const FileTypeSingleton);
     return d->mimetypeDatabase.mimeTypeForFile(fileInfo, static_cast<QMimeDatabase::MatchMode>(mode));
 }
 
-QList<QMimeType> FileTypeSingleton::mimeTypesForFileName(const QString& fileName) const
+QList<QMimeType> FileTypeSingleton::mimeTypesForFileName(const QString &fileName) const
 {
     Q_D(const FileTypeSingleton);
     return d->mimetypeDatabase.mimeTypesForFileName(fileName);
 }
 
-QMimeType FileTypeSingleton::mimeTypeForData(const QByteArray& data) const
+QMimeType FileTypeSingleton::mimeTypeForData(const QByteArray &data) const
 {
     Q_D(const FileTypeSingleton);
     return d->mimetypeDatabase.mimeTypeForData(data);
 }
 
-QMimeType FileTypeSingleton::mimeTypeForData(QIODevice* device) const
+QMimeType FileTypeSingleton::mimeTypeForData(QIODevice *device) const
 {
     Q_D(const FileTypeSingleton);
     return d->mimetypeDatabase.mimeTypeForData(device);
 }
 
-QMimeType FileTypeSingleton::mimeTypeForUrl(const QUrl& url) const
+QMimeType FileTypeSingleton::mimeTypeForUrl(const QUrl &url) const
 {
     Q_D(const FileTypeSingleton);
     return d->mimetypeDatabase.mimeTypeForUrl(url);
 }
 
-QMimeType FileTypeSingleton::mimeTypeForFileNameAndData(const QString& fileName, QIODevice* device) const
+QMimeType FileTypeSingleton::mimeTypeForFileNameAndData(const QString &fileName, QIODevice *device) const
 {
     Q_D(const FileTypeSingleton);
     return d->mimetypeDatabase.mimeTypeForFileNameAndData(fileName, device);
 }
 
-QMimeType FileTypeSingleton::mimeTypeForFileNameAndData(const QString& fileName, const QByteArray& data) const
+QMimeType FileTypeSingleton::mimeTypeForFileNameAndData(const QString &fileName, const QByteArray &data) const
 {
     Q_D(const FileTypeSingleton);
     return d->mimetypeDatabase.mimeTypeForFileNameAndData(fileName, data);
 }
 
-QString FileTypeSingleton::suffixForFileName(const QString& fileName) const
+QString FileTypeSingleton::suffixForFileName(const QString &fileName) const
 {
     Q_D(const FileTypeSingleton);
     return d->mimetypeDatabase.suffixForFileName(fileName);

@@ -8,8 +8,8 @@
 
 #include <QObject>
 
-#include "csapi/wellknown.h"
 #include "connection.h"
+#include "csapi/wellknown.h"
 
 using namespace Quotient;
 
