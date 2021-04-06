@@ -1,8 +1,5 @@
-/**
- * SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
- *
- * SPDX-License-Identifier: GPL-2.0-or-later
- */
+// SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
+// SPDX-License-Identifier: GPL-2.0-or-later
 
 #pragma once
 

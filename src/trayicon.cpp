@@ -1,9 +1,7 @@
-/**
- * SPDX-FileCopyrightText: 2019 Black Hat <bhat@encom.eu.org>
- * SPDX-FileCopyrightText: 2021 Nicolas Fella <nicolas.fella@gmx.de>
- *
- * SPDX-License-Identifier: GPL-3.0-only
- */
+// SPDX-FileCopyrightText: 2019 Black Hat <bhat@encom.eu.org>
+// SPDX-FileCopyrightText: 2021 Nicolas Fella <nicolas.fella@gmx.de>
+// SPDX-License-Identifier: GPL-3.0-only
+
 #include "trayicon.h"
 
 #include <QCoreApplication>

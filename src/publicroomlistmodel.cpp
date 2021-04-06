@@ -1,8 +1,6 @@
-/**
- * SPDX-FileCopyrightText: 2019-2020 Black Hat <bhat@encom.eu.org>
- *
- * SPDX-License-Identifier: GPL-3.0-only
- */
+// SPDX-FileCopyrightText: 2019-2020 Black Hat <bhat@encom.eu.org>
+// SPDX-License-Identifier: GPL-3.0-only
+
 #include "publicroomlistmodel.h"
 
 PublicRoomListModel::PublicRoomListModel(QObject *parent)
