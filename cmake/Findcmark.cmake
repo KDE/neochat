@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2019 Black Hat <bhat@encom.eu.org>
+# SPDX-License-Identifier: GPL-3.0-only
+
 #
 # CMake module to search for the cmark library
 #

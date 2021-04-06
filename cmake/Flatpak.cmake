@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
+# SPDX-License-Identifier: BSD-2-Clause
+
 include(GNUInstallDirs)
 
 # Include FontConfig config which uses the Emoji One font from the

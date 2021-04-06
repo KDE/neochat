@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2020-2021 Carl Schwan <carl@carlschwan.eu>
+# SPDX-FileCopyrightText: 2020-2021 Nicolas Fella <nicolas.fella@gmx.de>
+# SPDX-FileCopyrightText: 2020-2021 Tobias Fella <fella@posteo.de>
+# SPDX-License-Identifier: BSD-2-Clause
+
 add_executable(neochat
     accountlistmodel.cpp
     controller.cpp
