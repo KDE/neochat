@@ -1,17 +1,15 @@
-/**
- * SPDX-FileCopyrightText: 2019 Black Hat <bhat@encom.eu.org>
- *
- * SPDX-License-Identifier: GPL-3.0-only
- */
-import QtQuick 2.12
-import QtQuick.Controls 2.12
-import org.kde.kirigami 2.14 as Kirigami
-import NeoChat.Dialog 1.0
-import NeoChat.Menu 1.0
+// SPDX-FileCopyrightText: 2019 Black Hat <bhat@encom.eu.org>
+// SPDX-License-Identifier: GPL-3.0-only
+
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import Qt.labs.platform 1.1
+
+import org.kde.kirigami 2.15 as Kirigami
 
 import org.kde.neochat 1.0
-
-import Qt.labs.platform 1.1
+import NeoChat.Dialog 1.0
+import NeoChat.Menu 1.0
 
 MessageDelegateContextMenu {
     id: root

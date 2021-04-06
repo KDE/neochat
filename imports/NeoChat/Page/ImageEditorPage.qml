@@ -1,16 +1,14 @@
-/*
- * SPDX-FileCopyrightText: (C) 2020 Carl Schwan <carl@carlschwan.eu>
- *
- * SPDX-License-Identifier: BSD-2-Clause
- */
+// SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
+// SPDX-License-Identifier: BSD-2-Clause
 
-import QtQuick 2.10
-import QtQuick.Controls 2.1 as QQC2
-import QtQuick.Layouts 1.12
-import org.kde.kirigami 2.12 as Kirigami
+import QtQuick 2.15
+import QtQuick.Controls 2.15 as QQC2
+import QtQuick.Layouts 1.15
+import QtGraphicalEffects 1.15
+import Qt.labs.platform 1.1 as Platform
+
+import org.kde.kirigami 2.15 as Kirigami
 import org.kde.kquickimageeditor 1.0 as KQuickImageEditor
-import QtGraphicalEffects 1.12
-import Qt.labs.platform 1.0 as Platform
 
 Kirigami.Page {
     id: rootEditorView

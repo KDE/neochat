@@ -1,14 +1,12 @@
-/**
- * SPDX-FileCopyrightText: 2021 Alexey Andreyev <aa13q@ya.ru>
- *
- * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
- */
-import QtQuick 2.12
-import QtQuick.Controls 2.12 as Controls
-import QtQuick.Layouts 1.12
-import QtQuick.Particles 2.12
+// SPDX-FileCopyrightText: 2021 Alexey Andreyev <aa13q@ya.ru>
+// SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
 
-import org.kde.kirigami 2.4 as Kirigami
+import QtQuick 2.15
+import QtQuick.Controls 2.15 as Controls
+import QtQuick.Layouts 1.15
+import QtQuick.Particles 2.15
+
+import org.kde.kirigami 2.15 as Kirigami
 
 Rectangle {
     id: item

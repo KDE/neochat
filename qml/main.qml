@@ -1,21 +1,18 @@
-/**
- * SPDX-FileCopyrightText: 2018-2020 Black Hat <bhat@encom.eu.org>
- * SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
- *
- * SPDX-License-Identifier: GPL-3.0-only
- */
-import QtQuick 2.14
-import QtQuick.Controls 2.14 as QQC2
-import QtQuick.Window 2.2
-import QtQuick.Layouts 1.14
+// SPDX-FileCopyrightText: 2018-2020 Black Hat <bhat@encom.eu.org>
+// SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
+// SPDX-License-Identifier: GPL-3.0-only
 
-import org.kde.kirigami 2.12 as Kirigami
+import QtQuick 2.15
+import QtQuick.Controls 2.15 as QQC2
+import QtQuick.Layouts 1.15
+
+import org.kde.kirigami 2.15 as Kirigami
 
 import org.kde.neochat 1.0
 import NeoChat.Component 1.0
-import NeoChat.Panel 1.0
 import NeoChat.Dialog 1.0
 import NeoChat.Page 1.0
+import NeoChat.Panel 1.0
 
 Kirigami.ApplicationWindow {
     id: root

@@ -1,12 +1,10 @@
-/**
- * SPDX-FileCopyrightText: 2019 Black Hat <bhat@encom.eu.org>
- * SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
- *
- * SPDX-License-Identifier: GPL-3.0-only
- */
-import QtQuick 2.12
+// SPDX-FileCopyrightText: 2019 Black Hat <bhat@encom.eu.org>
+// SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
+// SPDX-License-Identifier: GPL-3.0-only
 
-import org.kde.kirigami 2.13 as Kirigami
+import QtQuick 2.15
+
+import org.kde.kirigami 2.15 as Kirigami
 
 Kirigami.Heading {
     level: 4

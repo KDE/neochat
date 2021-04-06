@@ -1,18 +1,16 @@
-/**
- * SPDX-FileCopyrightText: 2019 Black Hat <bhat@encom.eu.org>
- * SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
- *
- * SPDX-License-Identifier: GPL-3.0-only
- */
+// SPDX-FileCopyrightText: 2019 Black Hat <bhat@encom.eu.org>
+// SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
+// SPDX-License-Identifier: GPL-3.0-only
+
 import QtQuick 2.15
-import QtQuick.Controls 2.12 as QQC2
-import QtQuick.Layouts 1.12
+import QtQuick.Controls 2.15 as QQC2
+import QtQuick.Layouts 1.15
 import QtQml.Models 2.15
 
-import org.kde.kirigami 2.13 as Kirigami
+import org.kde.kirigami 2.15 as Kirigami
 import org.kde.kitemmodels 1.0
-import org.kde.neochat 1.0
 
+import org.kde.neochat 1.0
 import NeoChat.Component 1.0
 import NeoChat.Menu 1.0
 

@@ -1,11 +1,10 @@
-/**
- * SPDX-FileCopyrightText: 2019 Black Hat <bhat@encom.eu.org>
- * SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
- *
- * SPDX-License-Identifier: GPL-3.0-only
- */
-import QtQuick 2.12
-import QtQuick.Controls 2.12
+// SPDX-FileCopyrightText: 2019 Black Hat <bhat@encom.eu.org>
+// SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
+// SPDX-License-Identifier: GPL-3.0-only
+
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+
 import NeoChat.Page 1.0
 
 /**

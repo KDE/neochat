@@ -1,15 +1,14 @@
-/* SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.de>
- * SPDX-FileCopyrightText: 2020 Noah Davis <noahadvs@gmail.com>
- * SPDX-License-Identifier: GPL-2.0-or-later
- */
+// SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.de>
+// SPDX-FileCopyrightText: 2020 Noah Davis <noahadvs@gmail.com>
+// SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick 2.15
-import Qt.labs.platform 1.0 as Platform
-import org.kde.kirigami 2.14 as Kirigami
+import Qt.labs.platform 1.1 as Platform
+import org.kde.kirigami 2.15 as Kirigami
 
+import org.kde.neochat 1.0
 import NeoChat.Component.ChatBox 1.0
 import NeoChat.Component.Emoji 1.0
-import org.kde.neochat 1.0
 
 Item {
     id: root
