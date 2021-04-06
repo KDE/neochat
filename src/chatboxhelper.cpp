@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2020 Carl Schwan <carlschwan@kde.org>
-// SPDX-License-Identifier: GPl-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "chatboxhelper.h"
 #include <QDebug>
