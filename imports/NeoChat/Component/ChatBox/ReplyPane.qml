@@ -49,10 +49,10 @@ Loader {
                 Layout.fillWidth: true
                 spacing: fontMetrics.leading
                 Label {
-                    textFormat: TextEdit.RichText
-                    wrapMode: Label.Wrap
+                    Layout.fillWidth: true
+                    textFormat: Text.StyledText
+                    elide: Text.ElideRight
                     text: {
-                        let stylesheet = "<style>.user-pill{}</style>"
                         let heading = "<b>%1</b>"
                         let userName = user ? "<font color=\""+ user.color +"\">" + user.displayName + "</font>" : ""
                         if (isEdit) {
@@ -61,7 +61,7 @@ Loader {
                             heading = heading.arg(i18n("Replying to %1:", userName))
                         }
 
-                        return stylesheet + heading
+                        return heading
                     }
                 }
                 ScrollView {
