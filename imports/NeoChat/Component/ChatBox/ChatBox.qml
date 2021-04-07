@@ -100,6 +100,9 @@ Item {
                 easing.type: Easing.OutCubic
             }
         }
+        onReplyCancelled: {
+            root.focusInputField()
+        }
     }
 
     Kirigami.Separator {

@@ -16,6 +16,8 @@ Loader {
     property var user: null
     property string avatarMediaUrl: user ? "image://mxc/" + user.avatarMediaId : ""
 
+    signal replyCancelled()
+
     active: visible
     sourceComponent: Pane {
         id: replyPane
@@ -99,7 +101,10 @@ Loader {
                 icon.name: "dialog-cancel"
                 text: i18n("Cancel")
                 display: AbstractButton.IconOnly
-                onClicked: ChatBoxHelper.clearEditReply()
+                onClicked: {
+                    ChatBoxHelper.clearEditReply();
+                    root.replyCancelled();
+                }
                 ToolTip.text: text
                 ToolTip.visible: hovered
             }

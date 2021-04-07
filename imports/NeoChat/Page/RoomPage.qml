@@ -167,6 +167,7 @@ Kirigami.ScrollablePage {
                     id: emojiDialog
                     onReact: {
                         page.currentRoom.toggleReaction(hoverActions.event.eventId, emoji);
+                        chatBox.focusInputField();
                     }
                 }
             }
@@ -179,6 +180,7 @@ Kirigami.ScrollablePage {
                     if (hoverActions.showEdit) {
                         ChatBoxHelper.edit(hoverActions.event.message, hoverActions.event.formattedBody, hoverActions.event.eventId)
                     }
+                    chatBox.focusInputField();
                 }
             }
             QQC2.Button {
@@ -187,6 +189,7 @@ Kirigami.ScrollablePage {
                 icon.name: "mail-replied-symbolic"
                 onClicked: {
                     ChatBoxHelper.replyToMessage(hoverActions.event.eventId, hoverActions.event.message, hoverActions.event.author);
+                    chatBox.focusInputField();
                 }
             }
         }
@@ -668,6 +671,7 @@ Kirigami.ScrollablePage {
             const targetMessage = messageEventModel.getLastLocalUserMessageEventId();
             if (targetMessage) {
                 ChatBoxHelper.edit(targetMessage["body"], targetMessage["body"], targetMessage["event_id"]);
+                chatBox.focusInputField();
             }
         }
         onReplyPreviousUserMessage: {

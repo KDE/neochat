@@ -33,7 +33,11 @@ ToolBar {
 
     property alias isCompleting: completionMenu.visible
 
-    onInputFieldForceActiveFocusTriggered: inputField.forceActiveFocus()
+    onInputFieldForceActiveFocusTriggered: {
+        inputField.forceActiveFocus();
+        // set the cursor to the end of the text
+        inputField.cursorPosition = inputField.length;
+    }
 
     position: ToolBar.Footer
 
