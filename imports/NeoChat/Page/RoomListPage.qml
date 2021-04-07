@@ -122,7 +122,7 @@ Kirigami.ScrollablePage {
                     itemSelection.setCurrentIndex(sortFilterRoomListModel.mapToSource(sortFilterRoomListModel.index(index, 0)), ItemSelectionModel.SelectCurrent)
                 }
             }
-
+            bold: unreadCount > 0
             label: name ?? ""
             subtitle: {
                 let txt = (lastEvent == "" ? topic : lastEvent).replace(/(\r\n\t|\n|\r\t)/gm," ")
