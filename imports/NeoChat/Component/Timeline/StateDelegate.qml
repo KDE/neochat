@@ -18,7 +18,7 @@ RowLayout {
         Layout.preferredHeight: Kirigami.Units.iconSizes.small
         Layout.alignment: Qt.AlignTop
 
-        name: author.name
+        name: author.displayName
         source: author.avatarMediaId ? ("image://mxc/" + author.avatarMediaId) : ""
         color: author.color
 
