@@ -271,11 +271,6 @@ Kirigami.ApplicationWindow {
             }
         }
 
-        function onRoomJoined(roomId) {
-            const room = Controller.activeConnection.room(roomId);
-            return roomManager.enterRoom(room);
-        }
-
         function onConnectionDropped() {
             if (Controller.accountCount === 0) {
                 pageStack.clear();
