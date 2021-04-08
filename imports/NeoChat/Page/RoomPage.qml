@@ -46,8 +46,6 @@ Kirigami.ScrollablePage {
             page.header.contentItem.type = messageType === ActionsHandler.Error ? Kirigami.MessageType.Error : Kirigami.MessageType.Information;
             page.header.contentItem.visible = true;
         }
-
-        onHideMessage: page.header.contentItem.visible = false
     }
 
     header: QQC2.Control {
