@@ -179,7 +179,6 @@ Kirigami.ScrollablePage {
             QQC2.Button {
                 QQC2.ToolTip.text: i18n("Reply")
                 QQC2.ToolTip.visible: hovered
-                visible: actions.hovered
                 icon.name: "mail-replied-symbolic"
                 onClicked: hoverActions.replyClicked()
             }
