@@ -632,7 +632,7 @@ int MessageEventModel::eventIDToIndex(const QString &eventID) const
 {
     const auto it = m_currentRoom->findInTimeline(eventID);
     if (it == m_currentRoom->timelineEdge()) {
-        qWarning() << "Trying to find inexistent event:" << eventID;
+        //qWarning() << "Trying to find inexistent event:" << eventID;
         return -1;
     }
     return it - m_currentRoom->messageEvents().rbegin() + timelineBaseIndex();
