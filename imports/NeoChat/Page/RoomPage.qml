@@ -28,6 +28,8 @@ Kirigami.ScrollablePage {
     signal switchRoomUp()
     signal switchRoomDown()
 
+    onCurrentRoomChanged: ChatBoxHelper.clearEditReply()
+
     Connections {
         target: Controller.activeConnection
         function onJoinedRoom(room) {
