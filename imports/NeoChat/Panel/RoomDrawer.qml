@@ -55,12 +55,12 @@ Kirigami.OverlayDrawer {
 
                 ToolButton {
                     Layout.alignment: Qt.AlignRight
-                    icon.name: room.isFavourite ? "rating" : "rating-unrated"
+                    icon.name: room && room.isFavourite ? "rating" : "rating-unrated"
                     checkable: true
-                    checked: room.isFavourite
+                    checked: room.isFavourite ?? false
                     onClicked: room.isFavourite ? room.removeTag("m.favourite") : room.addTag("m.favourite", 1.0)
                     ToolTip {
-                        text: room.isFavourite ? i18n("Remove room from favorites") : i18n("Make room favorite")
+                        text: room && room.isFavourite ? i18n("Remove room from favorites") : i18n("Make room favorite")
                     }
                 }
                 ToolButton {
