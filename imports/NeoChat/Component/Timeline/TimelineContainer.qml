@@ -46,7 +46,7 @@ QQC2.ItemDelegate {
 
     // updates the global hover component to point to this delegate, and update its position
     function updateHoverComponent() {
-        hoverComponent.bubble = controlContainer
+        hoverComponent.bubble = bubble
         hoverComponent.updateFunction = updateHoverComponent;
         hoverComponent.event = model
     }
@@ -104,9 +104,8 @@ QQC2.ItemDelegate {
                 visible: !model.showAuthor && Config.showAvatarInTimeline
             }
 
-            // bubble
             QQC2.ItemDelegate {
-                id: controlContainer
+                id: bubble
                 Layout.maximumWidth: mainColumn.width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 2
                 implicitHeight: contentItem.implicitHeight + topPadding
                 topPadding: Kirigami.Units.largeSpacing
