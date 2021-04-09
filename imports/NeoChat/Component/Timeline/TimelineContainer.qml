@@ -34,8 +34,6 @@ QQC2.ItemDelegate {
     topPadding: 0
     bottomPadding: 0
 
-    property alias hoveredBubble: controlContainer.hovered
-
     //height: mainColumn.childrenRect.height + (readMarker ? Kirigami.Units.smallSpacing : 0)
     //height: mainColumn.implicitHeight + (readMarker ? Kirigami.Units.smallSpacing : 0)
 
@@ -53,21 +51,9 @@ QQC2.ItemDelegate {
     function updateHoverComponent() {
         hoverComponent.x = column.mapToItem(page, hoverComponentX, hoverComponentY).x;
         hoverComponent.y = column.mapToItem(page, hoverComponentX, hoverComponentY).y;
-        hoverComponent.hovered = Qt.binding(() => controlContainer.hovered);
-        hoverComponent.showEdit = author.id === Controller.activeConnection.localUserId && (model.eventType === "emote" || model.eventType === "message");
+        hoverComponent.bubble = controlContainer
         hoverComponent.updateFunction = updateHoverComponent;
-
-        hoverComponent.editClicked = () => {
-            if (hoverComponent.showEdit) {
-                ChatBoxHelper.edit(message, formattedBody, eventId)
-            }
-        };
-        hoverComponent.replyClicked = () => {
-            ChatBoxHelper.replyToMessage(eventId, message, author);
-        };
-        hoverComponent.reacted = emoji => {
-            currentRoom.toggleReaction(eventId, emoji);
-        };
+        hoverComponent.event = model
     }
 
     contentItem: ColumnLayout {

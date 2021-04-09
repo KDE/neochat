@@ -136,16 +136,14 @@ Kirigami.ScrollablePage {
     }
     Item {
         id: hoverActions
-        property bool showEdit
-        property bool hovered: false
+        property var event
+        property bool showEdit: event && (event.author.id === Controller.activeConnection.localUserId && (event.eventType === "emote" || event.eventType === "message"))
+        property var bubble
+        property var hovered: bubble && bubble.hovered
 
         visible: (hovered || hoverHandler.hovered) && !Kirigami.Settings.isMobile
 
         property var updateFunction
-
-        property var editClicked
-        property var replyClicked
-        property var reacted
 
         property alias childWidth: hoverActionsRow.width
         property alias childHeight: hoverActionsRow.height
@@ -166,7 +164,9 @@ Kirigami.ScrollablePage {
                 onClicked: emojiDialog.open();
                 EmojiDialog {
                     id: emojiDialog
-                    onReact: hoverActions.reacted(emoji)
+                    onReact: {
+                        page.currentRoom.toggleReaction(hoverActions.event.eventId, emoji);
+                    }
                 }
             }
             QQC2.Button {
@@ -174,13 +174,19 @@ Kirigami.ScrollablePage {
                 QQC2.ToolTip.visible: hovered
                 visible: hoverActions.showEdit
                 icon.name: "document-edit"
-                onClicked: hoverActions.editClicked()
+                onClicked: {
+                    if (hoverActions.showEdit) {
+                        ChatBoxHelper.edit(hoverActions.event.message, hoverActions.event.formattedBody, hoverActions.event.eventId)
+                    }
+                }
             }
             QQC2.Button {
                 QQC2.ToolTip.text: i18n("Reply")
                 QQC2.ToolTip.visible: hovered
                 icon.name: "mail-replied-symbolic"
-                onClicked: hoverActions.replyClicked()
+                onClicked: {
+                    ChatBoxHelper.replyToMessage(hoverActions.event.eventId, hoverActions.event.message, hoverActions.event.author);
+                }
             }
         }
     }
