@@ -37,9 +37,6 @@ QQC2.ItemDelegate {
     //height: mainColumn.childrenRect.height + (readMarker ? Kirigami.Units.smallSpacing : 0)
     //height: mainColumn.implicitHeight + (readMarker ? Kirigami.Units.smallSpacing : 0)
 
-    property int hoverComponentX: column.width - hoverComponent.childWidth + Kirigami.Units.largeSpacing
-    property int hoverComponentY: -Kirigami.Units.largeSpacing - hoverComponent.childHeight * 1.5
-
     // show hover actions
     onHoveredChanged: {
         if (hovered && !Kirigami.Settings.isMobile) {
@@ -49,8 +46,6 @@ QQC2.ItemDelegate {
 
     // updates the global hover component to point to this delegate, and update its position
     function updateHoverComponent() {
-        hoverComponent.x = column.mapToItem(page, hoverComponentX, hoverComponentY).x;
-        hoverComponent.y = column.mapToItem(page, hoverComponentX, hoverComponentY).y;
         hoverComponent.bubble = controlContainer
         hoverComponent.updateFunction = updateHoverComponent;
         hoverComponent.event = model

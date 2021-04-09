@@ -140,7 +140,8 @@ Kirigami.ScrollablePage {
         property bool showEdit: event && (event.author.id === Controller.activeConnection.localUserId && (event.eventType === "emote" || event.eventType === "message"))
         property var bubble
         property var hovered: bubble && bubble.hovered
-
+        x: bubble.x + Kirigami.Units.largeSpacing + Math.max(bubble.width - childWidth, 0)
+        y: bubble.mapToItem(page, 0, -Kirigami.Units.largeSpacing - hoverActions.childHeight * 1.5).y
         visible: (hovered || hoverHandler.hovered) && !Kirigami.Settings.isMobile
 
         property var updateFunction
