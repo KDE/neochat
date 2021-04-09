@@ -121,7 +121,7 @@ Kirigami.ScrollablePage {
         } else if (!(event.modifiers & Qt.ControlModifier) && event.key < Qt.Key_Escape) {
             event.accepted = true;
             chatBox.addText(event.text);
-            chatBox.focus();
+            chatBox.focusInputField();
             return;
         }
     }
