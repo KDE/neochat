@@ -36,6 +36,7 @@
 
 #include "csapi/account-data.h"
 #include "csapi/content-repo.h"
+#include "csapi/joining.h"
 #include "csapi/logout.h"
 #include "csapi/profile.h"
 #include "csapi/registration.h"
@@ -52,6 +53,8 @@
 #ifndef Q_OS_ANDROID
 #include "trayicon.h"
 #endif
+
+using namespace Quotient;
 
 Controller::Controller(QObject *parent)
     : QObject(parent)
@@ -159,7 +162,7 @@ void Controller::loginWithAccessToken(const QString &serverAddr, const QString &
         setActiveConnection(conn);
     });
     connect(conn, &Connection::networkError, this, [=](QString error, const QString &, int, int) {
-        Q_EMIT errorOccured("Network Error", std::move(error));
+        Q_EMIT errorOccured(i18n("Network Error: %1", error));
     });
     conn->connectWithToken(user, token, deviceName);
 }
@@ -195,7 +198,7 @@ void Controller::logout(Connection *conn, bool serverSideLogout)
     }
     auto logoutJob = conn->callApi<LogoutJob>();
     connect(logoutJob, &LogoutJob::failure, this, [=] {
-        Q_EMIT errorOccured("Server-side Logout Failed", logoutJob->errorString());
+        Q_EMIT errorOccured(i18n("Server-side Logout Failed: %1", logoutJob->errorString()));
     });
 }
 
@@ -267,16 +270,16 @@ void Controller::invokeLogin()
             });
             connect(connection, &Connection::loginError, this, [=](const QString &error, const QString &) {
                 if (error == "Unrecognised access token") {
-                    Q_EMIT errorOccured(i18n("Login Failed"), i18n("Access Token invalid or revoked"));
+                    Q_EMIT errorOccured(i18n("Login Failed: Access Token invalid or revoked"));
                     logout(connection, false);
                 } else {
-                    Q_EMIT errorOccured(i18n("Login Failed"), error);
+                    Q_EMIT errorOccured(i18n("Login Failed", error));
                     logout(connection, true);
                 }
                 Q_EMIT initiated();
             });
             connect(connection, &Connection::networkError, this, [=](const QString &error, const QString &, int, int) {
-                Q_EMIT errorOccured("Network Error", error);
+                Q_EMIT errorOccured(i18n("Network Error: %1", error));
             });
             connection->connectWithToken(account.userId(), accessToken, account.deviceId());
         }
@@ -354,7 +357,7 @@ bool Controller::saveAccessTokenToFile(const AccountSettings &account, const QBy
 
     auto fileDir = QFileInfo(accountTokenFile).dir();
     if (!((fileDir.exists() || fileDir.mkpath(".")) && accountTokenFile.open(QFile::WriteOnly))) {
-        Q_EMIT errorOccured("I/O Denied", "Cannot save access token.");
+        Q_EMIT errorOccured("I/O Denied: Cannot save access token.");
     } else {
         accountTokenFile.write(accessToken);
         return true;
@@ -557,4 +560,33 @@ NeochatDeleteDeviceJob::NeochatDeleteDeviceJob(const QString &deviceId, const Om
     QJsonObject _data;
     addParam<IfNotEmpty>(_data, QStringLiteral("auth"), auth);
     setRequestData(std::move(_data));
+}
+
+void Controller::createRoom(const QString &name, const QString &topic)
+{
+    auto createRoomJob = m_connection->createRoom(Connection::PublishRoom, "", name, topic, QStringList());
+    Quotient::CreateRoomJob::connect(createRoomJob, &CreateRoomJob::failure, [=] {
+        Q_EMIT errorOccured(i18n("Room creation failed: \"%1\"", createRoomJob->errorString()));
+    });
+    Quotient::CreateRoomJob::connect(createRoomJob, &CreateRoomJob::success, [=] {
+        Q_EMIT roomJoined(createRoomJob->roomId());
+    });
+}
+
+void Controller::joinRoom(const QString &alias)
+{
+    if (!alias.contains(":")) {
+        Q_EMIT errorOccured(i18n("The room id you are trying to join is not valid"));
+        return;
+    }
+
+    const auto knownServer = alias.mid(alias.indexOf(":") + 1);
+    auto joinRoomJob = m_connection->joinRoom(alias, QStringList{knownServer});
+
+    connect(joinRoomJob, &JoinRoomJob::failure, [=] {
+        Q_EMIT errorOccured(i18n("Server error when joining the room \"%1\": %2", joinRoomJob->errorString()));
+    });
+    connect(joinRoomJob, &JoinRoomJob::success, [this, joinRoomJob] {
+        Q_EMIT errorOccured(joinRoomJob->roomId());
+    });
 }

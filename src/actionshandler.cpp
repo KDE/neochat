@@ -9,6 +9,8 @@
 #include <QDebug>
 #include <QStringBuilder>
 
+#include "controller.h"
+
 ActionsHandler::ActionsHandler(QObject *parent)
     : QObject(parent)
 {
@@ -48,7 +50,7 @@ void ActionsHandler::setConnection(Connection *connection)
     if (m_connection != nullptr) {
         connect(m_connection, &Connection::directChatAvailable, this, [this](Quotient::Room *room) {
             room->setDisplayed(true);
-            Q_EMIT roomJoined(room->id());
+            Q_EMIT Controller::instance().roomJoined(room->id());
         });
     }
     Q_EMIT connectionChanged();
@@ -138,35 +140,6 @@ QVariantList ActionsHandler::commands() const
     // TODO more see elements /help action
 
     return commands;
-}
-
-void ActionsHandler::joinRoom(const QString &alias)
-{
-    if (!alias.contains(":")) {
-        Q_EMIT showMessage(MessageType::Error, i18n("The room id you are trying to join is not valid"));
-        return;
-    }
-
-    const auto knownServer = alias.mid(alias.indexOf(":") + 1);
-    auto joinRoomJob = m_connection->joinRoom(alias, QStringList{knownServer});
-
-    Quotient::JoinRoomJob::connect(joinRoomJob, &JoinRoomJob::failure, [=] {
-        Q_EMIT showMessage(MessageType::Error, i18n("Server error when joining the room \"%1\": %2", joinRoomJob->errorString()));
-    });
-    Quotient::JoinRoomJob::connect(joinRoomJob, &JoinRoomJob::success, [this, joinRoomJob] {
-        Q_EMIT roomJoined(joinRoomJob->roomId());
-    });
-}
-
-void ActionsHandler::createRoom(const QString &name, const QString &topic)
-{
-    auto createRoomJob = m_connection->createRoom(Connection::PublishRoom, "", name, topic, QStringList());
-    Quotient::CreateRoomJob::connect(createRoomJob, &CreateRoomJob::failure, [=] {
-        Q_EMIT showMessage(MessageType::Error, i18n("Room creation failed: \"%1\"", createRoomJob->errorString()));
-    });
-    Quotient::CreateRoomJob::connect(createRoomJob, &CreateRoomJob::success, [=] {
-        Q_EMIT roomJoined(createRoomJob->roomId());
-    });
 }
 
 void ActionsHandler::postMessage(const QString &text,
@@ -265,13 +238,13 @@ void ActionsHandler::postMessage(const QString &text,
             return;
         }
         if (splittedText.count() > 1) {
-            joinRoom(splittedText[0] + ":" + splittedText[1]);
+            Controller::instance().joinRoom(splittedText[0] + ":" + splittedText[1]);
             return;
         } else if (splittedText[0].indexOf(":") != -1) {
-            joinRoom(splittedText[0]);
+            Controller::instance().joinRoom(splittedText[0]);
             return;
         } else {
-            joinRoom(splittedText[0] + ":matrix.org");
+            Controller::instance().joinRoom(splittedText[0] + ":matrix.org");
         }
         return;
     }

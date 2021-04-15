@@ -50,22 +50,10 @@ Q_SIGNALS:
     /// These messages will be displayed in the room view header.
     void showMessage(MessageType messageType, QString message);
 
-    /// \brief Emitted when an action made the user join a room.
-    ///
-    /// Either when a new room was created, a direct chat was started
-    /// or a group chat was joined. The UI will react to this signal
-    /// and switch to the newly joined room.
-    void roomJoined(QString roomName);
-
     void roomChanged();
     void connectionChanged();
 
 public Q_SLOTS:
-    /// \brief Create new room for a group chat.
-    void createRoom(const QString &name, const QString &topic);
-
-    /// \brief Join a room.
-    void joinRoom(const QString &alias);
 
     /// \brief Post a message.
     ///

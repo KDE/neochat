@@ -60,9 +60,6 @@ Kirigami.ApplicationWindow {
         property var actionsHandler: ActionsHandler {
             room: roomManager.currentRoom
             connection: Controller.activeConnection
-            onRoomJoined: {
-                roomManager.enterRoom(Controller.activeConnection.room(roomName))
-            }
         }
 
         property var currentRoom: null
@@ -293,6 +290,10 @@ Kirigami.ApplicationWindow {
         function onUserConsentRequired(url) {
             consentSheet.url = url
             consentSheet.open()
+        }
+
+        function onRoomJoined(roomName) {
+            roomManager.enterRoom(Controller.activeConnection.room(roomName))
         }
     }
 
