@@ -337,13 +337,13 @@ ToolBar {
         checkForFancyEffectsReason();
         if (ChatBoxHelper.hasAttachment) {
             // send attachment but don't reset the text
-            roomManager.actionsHandler.postMessage("", ChatBoxHelper.attachmentPath,
+            actionsHandler.postMessage("", ChatBoxHelper.attachmentPath,
                 ChatBoxHelper.replyEventId, ChatBoxHelper.editEventId, {});
             currentRoom.markAllMessagesAsRead();
             messageSent();
             return;
         }
-        roomManager.actionsHandler.postMessage(inputField.text.trim(), ChatBoxHelper.attachmentPath,
+        actionsHandler.postMessage(inputField.text.trim(), ChatBoxHelper.attachmentPath,
             ChatBoxHelper.replyEventId, ChatBoxHelper.editEventId, userAutocompleted);
         currentRoom.markAllMessagesAsRead();
         inputField.clear();

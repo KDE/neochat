@@ -44,7 +44,7 @@ Kirigami.ScrollablePage {
 
                 onClicked: {
                     if (!identifierField.isJoined) {
-                        roomManager.actionsHandler.joinRoom(identifierField.text);
+                        Controller.joinRoom(identifierField.text);
                         // When joining the room, the room will be opened
                     }
                     applicationWindow().pageStack.layers.pop();
@@ -97,7 +97,7 @@ Kirigami.ScrollablePage {
             width: publicRoomsListView.width
             onClicked: {
                 if (!isJoined) {
-                    roomManager.actionsHandler.joinRoom(roomID)
+                    Controller.joinRoom(roomID)
                     justJoined = true;
                 } else {
                     roomManager.enterRoom(connection.room(roomID))

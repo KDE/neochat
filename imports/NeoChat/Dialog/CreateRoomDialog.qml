@@ -36,7 +36,7 @@ Kirigami.OverlaySheet {
 
             text: i18nc("@action:button", "Ok")
             onClicked: {
-                roomManager.actionsHandler.createRoom(roomNameField.text, roomTopicField.text);
+                Controller.createRoom(roomNameField.text, roomTopicField.text);
                 root.close();
                 root.destroy();
             }

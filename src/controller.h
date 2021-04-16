@@ -73,10 +73,10 @@ public:
     Q_ENUM(PasswordStatus);
 
     /// \brief Create new room for a group chat.
-    void createRoom(const QString &name, const QString &topic);
+    Q_INVOKABLE void createRoom(const QString &name, const QString &topic);
 
     /// \brief Join a room.
-    void joinRoom(const QString &alias);
+    Q_INVOKABLE void joinRoom(const QString &alias);
 
 private:
     explicit Controller(QObject *parent = nullptr);

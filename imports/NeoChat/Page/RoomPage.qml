@@ -30,6 +30,14 @@ Kirigami.ScrollablePage {
 
     onCurrentRoomChanged: ChatBoxHelper.clearEditReply()
 
+
+    ActionsHandler {
+        id: actionsHandler
+        room: page.currentRoom
+        connection: Controller.activeConnection
+    }
+
+
     Connections {
         target: Controller.activeConnection
         function onJoinedRoom(room) {
@@ -40,7 +48,7 @@ Kirigami.ScrollablePage {
     }
 
     Connections {
-        target: roomManager.actionsHandler
+        target: actionsHandler
         onShowMessage: {
             page.header.contentItem.text = message;
             page.header.contentItem.type = messageType === ActionsHandler.Error ? Kirigami.MessageType.Error : Kirigami.MessageType.Information;

@@ -57,11 +57,6 @@ Kirigami.ApplicationWindow {
     QtObject {
         id: roomManager
 
-        property var actionsHandler: ActionsHandler {
-            room: roomManager.currentRoom
-            connection: Controller.activeConnection
-        }
-
         property var currentRoom: null
         property alias pageStack: root.pageStack
         property var roomList: null
