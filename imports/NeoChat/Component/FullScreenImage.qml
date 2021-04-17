@@ -28,7 +28,14 @@ ApplicationWindow {
         onClicked: root.destroy()
     }
 
+    BusyIndicator {
+	visible: image.status !== Image.Ready
+	anchors.centerIn: parent
+	running: visible
+    }
+
     AnimatedImage {
+	id: image
         anchors.centerIn: parent
 
         width: Math.min(sourceSize.width, root.width)
