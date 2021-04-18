@@ -1,8 +1,7 @@
-/* SPDX-FileCopyrightText: 2015 Klaralvdalens Datakonsult AB
- * SPDX-FileCopyrightText: 2016 The Qt Company Ltd.
- * SPDX-FileCopyrightText: 2021 Noah Davis <noahadvs@gmail.com>
- * SPDX-License-Identifier: LicenseRef-KDE-Accepted-LGPL
- */
+// SPDX-FileCopyrightText: 2015 Klaralvdalens Datakonsult AB
+// SPDX-FileCopyrightText: 2016 The Qt Company Ltd.
+// SPDX-FileCopyrightText: 2021 Noah Davis <noahadvs@gmail.com>
+// SPDX-License-Identifier: LicenseRef-KDE-Accepted-LGPL
 
 #pragma once
 

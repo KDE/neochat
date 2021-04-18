@@ -1,9 +1,6 @@
-/**
- * SPDX-FileCopyrightText: 2018-2019 Black Hat <bhat@encom.eu.org>
- * SPDX-FileCopyrightText: 2019 Kitsune Ral <kitsune-ral@users.sf.net>
- *
- * SPDX-License-Identifier: GPL-3.0-only
- */
+// SPDX-FileCopyrightText: 2018-2019 Black Hat <bhat@encom.eu.org>
+// SPDX-FileCopyrightText: 2019 Kitsune Ral <kitsune-ral@users.sf.net>
+// SPDX-License-Identifier: GPL-3.0-only
 
 #pragma once
 

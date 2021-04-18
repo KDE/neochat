@@ -1,6 +1,5 @@
-/* SPDX-FileCopyrightText: 2021 Noah Davis <noahadvs@gmail.com>
- * SPDX-License-Identifier: LicenseRef-KDE-Accepted-LGPL
- */
+// SPDX-FileCopyrightText: 2021 Noah Davis <noahadvs@gmail.com>
+// SPDX-License-Identifier: LicenseRef-KDE-Accepted-LGPL
 
 #include "filetypesingleton.h"
 #include <QImageReader>
