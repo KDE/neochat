@@ -159,14 +159,16 @@ ToolBar {
                         switchRoomUp();
                         return;
                     }
-                    if (isCompleting) {
-                        let decrementedIndex = completionMenu.currentIndex - 1
-                        // Wrap around to the last item
-                        if (decrementedIndex < 0) {
-                            decrementedIndex = Math.max(completionMenu.count - 1, 0) // 0 if count == 0
-                        }
-                        completionMenu.currentIndex = decrementedIndex
+                    if (!isCompleting) {
+                        nextItemInFocusChain(false).forceActiveFocus(Qt.TabFocusReason)
+                        return
                     }
+                    let decrementedIndex = completionMenu.currentIndex - 1
+                    // Wrap around to the last item
+                    if (decrementedIndex < 0) {
+                        decrementedIndex = Math.max(completionMenu.count - 1, 0) // 0 if count == 0
+                    }
+                    completionMenu.currentIndex = decrementedIndex
                 }
 
                 Keys.onTabPressed: {
@@ -175,6 +177,7 @@ ToolBar {
                         return;
                     }
                     if (!isCompleting) {
+                        nextItemInFocusChain().forceActiveFocus(Qt.TabFocusReason);
                         return;
                     }
 

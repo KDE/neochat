@@ -147,6 +147,7 @@ Kirigami.OverlayDrawer {
 
         Kirigami.ListSectionHeader {
             label: i18n("Members")
+            activeFocusOnTab: false
             Label {
                 Layout.alignment: Qt.AlignRight
                 text: room ? i18np("%1 Member", "%1 Members", room.totalMemberCount) : i18n("No Member Count")
@@ -162,6 +163,7 @@ Kirigami.OverlayDrawer {
                 clip: true
                 headerPositioning: ListView.OverlayHeader
                 boundsBehavior: Flickable.DragOverBounds
+                activeFocusOnTab: true
 
                 header: Pane {
                     padding: Kirigami.Units.smallSpacing

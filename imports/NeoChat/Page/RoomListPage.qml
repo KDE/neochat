@@ -48,6 +48,8 @@ Kirigami.ScrollablePage {
     ListView {
         id: listView
 
+        activeFocusOnTab: true
+
         Kirigami.PlaceholderMessage {
             anchors.centerIn: parent
             width: parent.width - (Kirigami.Units.largeSpacing * 4)
