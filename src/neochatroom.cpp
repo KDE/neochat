@@ -392,7 +392,11 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                     }
                     if (e.avatarUrl().isEmpty()) {
                         text += i18nc("their refers to a singular user", "cleared their avatar");
+#ifdef QUOTIENT_07
+                    } else if (!e.prevContent()->avatarUrl) {
+#else
                     } else if (e.prevContent()->avatarUrl.isEmpty()) {
+#endif
                         text += i18n("set an avatar");
                     } else {
                         text += i18nc("their refers to a singular user", "updated their avatar");
@@ -451,7 +455,11 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
 void NeoChatRoom::changeAvatar(const QUrl &localFile)
 {
     const auto job = connection()->uploadFile(localFile.toLocalFile());
+#ifdef QUOTIENT_07
+    if(isJobPending(job)) {
+#else
     if (isJobRunning(job)) {
+#endif
         connect(job, &BaseJob::success, this, [this, job] {
             connection()->callApi<SetRoomStateWithKeyJob>(id(), "m.room.avatar", localUser()->id(), QJsonObject{{"url", job->contentUri()}});
         });

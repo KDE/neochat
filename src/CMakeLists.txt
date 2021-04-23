@@ -31,6 +31,10 @@ add_executable(neochat
     ../res.qrc
 )
 
+if(${Quotient_VERSION_MINOR} GREATER 6)
+    target_compile_definitions(neochat PRIVATE QUOTIENT_07)
+endif()
+
 ecm_add_app_icon(NEOCHAT_ICON ICONS ${CMAKE_SOURCE_DIR}/128-logo.png)
 
 target_sources(neochat PRIVATE ${NEOCHAT_ICON})

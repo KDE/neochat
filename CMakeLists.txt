@@ -85,10 +85,6 @@ set_package_properties(Quotient PROPERTIES
     PURPOSE "Talk with matrix server"
 )
 
-if(${Quotient_VERSION_MINOR} GREATER 6)
-    message(SEND_ERROR "NeoChat cannot be compiled against a 0.7 version of libQuotient. Use a 0.6 version instead")
-endif()
-
 find_package(cmark)
 set_package_properties(cmark PROPERTIES
     TYPE REQUIRED

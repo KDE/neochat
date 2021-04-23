@@ -395,7 +395,11 @@ void Controller::playAudio(const QUrl &localFile)
 void Controller::changeAvatar(Connection *conn, const QUrl &localFile)
 {
     auto job = conn->uploadFile(localFile.toLocalFile());
+#ifdef QUOTIENT_07
+    if(isJobPending(job)) {
+#else
     if (isJobRunning(job)) {
+#endif
         connect(job, &BaseJob::success, this, [conn, job] {
             conn->callApi<SetAvatarUrlJob>(conn->userId(), job->contentUri());
         });
