@@ -57,8 +57,6 @@ Loader {
             }
             Rectangle {
                 anchors.fill: parent
-                anchors.topMargin: 1
-                anchors.bottomMargin: 1
                 id: typingIndicatorBackground
                 color: Kirigami.Theme.backgroundColor
             }
