@@ -16,7 +16,7 @@ import NeoChat.Dialog 1.0
 
 Kirigami.OverlayDrawer {
     id: roomDrawer
-    property var room
+    readonly property var room: RoomManager.currentRoom
 
     enabled: true
 

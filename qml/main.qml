@@ -28,6 +28,8 @@ Kirigami.ApplicationWindow {
 
     pageStack.initialPage: LoadingPage {}
 
+    property bool roomListLoaded: false
+
     Connections {
         target: root.quitAction
         function onTriggered() {
@@ -50,78 +52,85 @@ Kirigami.ApplicationWindow {
     onXChanged: saveWindowGeometryTimer.restart()
     onYChanged: saveWindowGeometryTimer.restart()
 
-    /**
-     * Manage opening and close rooms
-     * TODO this should probably be moved to C++
-     */
-    QtObject {
-        id: roomManager
 
-        property var currentRoom: null
-        property alias pageStack: root.pageStack
-        property var roomList: null
-        property Item roomItem: null
-
-        readonly property bool hasOpenRoom: currentRoom !== null
-
-        signal leaveRoom(string room);
-        signal openRoom(string room);
-
-        function roomByAliasOrId(aliasOrId) {
-            return Controller.activeConnection.room(aliasOrId)
+    /// Setup keyboard navigation to the room page.
+    function connectRoomToSignal(item) {
+        if (!roomListLoaded) {
+            console.log("Should not happen: no room list page but room page");
         }
+        const roomList = pageStack.get(0);
+        item.switchRoomUp.connect(function() {
+            roomList.goToNextRoom();
+        });
 
-        function openRoomAndEvent(room, event) {
-            enterRoom(room)
-            roomItem.goToEvent(event)
-        }
+        item.switchRoomDown.connect(function() {
+            roomList.goToPreviousRoom();
+        });
+        item.forceActiveFocus();
+        item.KeyNavigation.left = pageStack.get(0);
+    }
 
-        function loadInitialRoom() {
-            if (Config.openRoom) {
-                const room = Controller.activeConnection.room(Config.openRoom);
-                currentRoom = room;
-                roomItem = pageStack.push("qrc:/imports/NeoChat/Page/RoomPage.qml", { 'currentRoom': room, });
-                connectRoomToSignal(roomItem);
-            } else {
-                // TODO create welcome page
-            }
-        }
+    Connections {
+        target: RoomManager
 
-        function enterRoom(room) {
-            if (currentRoom != null) {
-                roomItem.currentRoom = room;
-                pageStack.currentIndex = pageStack.depth - 1;
-            } else {
-                roomItem = pageStack.push("qrc:/imports/NeoChat/Page/RoomPage.qml", { 'currentRoom': room, });
-            }
-            currentRoom = room;
-            Config.openRoom = room.id;
-            Config.save();
+        function onPushRoom(room, event) {
+            const roomItem = pageStack.push("qrc:/imports/NeoChat/Page/RoomPage.qml");
             connectRoomToSignal(roomItem);
-            return roomItem;
+            if (event.length > 0) {
+                roomItem.goToEvent(event);
+            }
         }
 
-        function getBack() {
-            pageStack.replace("qrc:/imports/NeoChat/Page/RoomPage.qml", { 'currentRoom': currentRoom, });
+        function onReplaceRoom(room, event) {
+            const roomItem = pageStack.get(pageStack.depth - 1);
+            pageStack.currentIndex = pageStack.depth - 1;
+            connectRoomToSignal(roomItem);
+            if (event.length > 0) {
+                roomItem.goToEvent(event);
+            }
         }
 
-        function openWindow(room) {
+        function goToEvent(event) {
+            if (event.length > 0) {
+                roomItem.goToEvent(event);
+            }
+            roomItem.forceActiveFocus();
+        }
+
+        function onPushWelcomePage() {
+            // TODO
+        }
+
+        function onOpenRoomInNewWindow(room) {
             const secondayWindow = roomWindow.createObject(applicationWindow(), {currentRoom: room});
             secondayWindow.width = root.width - roomList.width;
             secondayWindow.show();
         }
 
-        function connectRoomToSignal(item) {
-            if (!roomList) {
-                console.log("Should not happen: no room list page but room page");
-            }
-            item.switchRoomUp.connect(function() {
-                roomList.goToNextRoom();
-            });
+        function onShowUserDetail(user) {
+            const roomItem = pageStack.get(pageStack.depth - 1);
+            roomItem.showUserDetail(user);
+        }
 
-            item.switchRoomDown.connect(function() {
-                roomList.goToPreviousRoom();
-            });
+        function onAskDirectChatConfirmation(user) {
+            askDirectChatConfirmationComponent.createObject(QQC2.ApplicationWindow.overlay, {
+                user: user,
+            }).open();
+        }
+
+        function onWarning(title, message) {
+            if (RoomManager.currentRoom) {
+                const roomItem = pageStack.get(pageStack.depth - 1);
+                roomItem.warning(title, message);
+            } else {
+                showPassiveNotification(i18n("Warning: %1", message));
+            }
+        }
+
+        function onOpenLink(url) {
+            openLinkConfirmationComponent.createObject(QQC2.ApplicationWindow.overlay, {
+                url: url,
+            }).open();
         }
     }
 
@@ -146,8 +155,7 @@ Kirigami.ApplicationWindow {
         modal: !root.wideScreen || !enabled
         onEnabledChanged: drawerOpen = enabled && !modal
         onModalChanged: drawerOpen = !modal
-        enabled: roomManager.hasOpenRoom && pageStack.layers.depth < 2 && pageStack.depth < 3
-        room: roomManager.currentRoom
+        enabled: RoomManager.hasOpenRoom && pageStack.layers.depth < 2 && pageStack.depth < 3
         handleVisible: enabled && pageStack.layers.depth < 2 && pageStack.depth < 3
     }
 
@@ -238,7 +246,7 @@ Kirigami.ApplicationWindow {
     Connections {
         target: LoginHelper
         function onInitialSyncFinished() {
-            roomManager.roomList = pageStack.replace(roomListComponent);
+            RoomManager.roomList = pageStack.replace(roomListComponent);
         }
     }
 
@@ -246,32 +254,38 @@ Kirigami.ApplicationWindow {
         target: Controller
 
         function onInitiated() {
-            if (roomManager.hasOpenRoom) {
+            if (RoomManager.hasOpenRoom) {
                 return;
             }
             if (Controller.accountCount === 0) {
                 pageStack.replace("qrc:/imports/NeoChat/Page/WelcomePage.qml", {});
             } else {
-                roomManager.roomList = pageStack.replace(roomListComponent, {'activeConnection': Controller.activeConnection});
-                roomManager.loadInitialRoom();
+                pageStack.replace(roomListComponent, {
+                    activeConnection: Controller.activeConnection
+                });
+                roomListLoaded = true;
+                RoomManager.loadInitialRoom();
             }
         }
 
         function onBusyChanged() {
-            if(!Controller.busy && roomManager.roomList === null) {
-                roomManager.roomList = pageStack.replace(roomListComponent);
+            if(!Controller.busy && roomListLoaded === false) {
+                pageStack.replace(roomListComponent);
+                roomListLoaded = true;
             }
         }
 
         function onConnectionDropped() {
             if (Controller.accountCount === 0) {
+                RoomManager.reset();
                 pageStack.clear();
+                roomListLoaded = false;
                 pageStack.replace("qrc:/imports/NeoChat/Page/WelcomePage.qml");
             }
         }
 
         function onGlobalErrorOccured(error, detail) {
-            showPassiveNotification(error + ": " + detail)
+            showPassiveNotification(i18nc("%1: %2", error, detail));
         }
 
         function onShowWindow() {
@@ -279,7 +293,7 @@ Kirigami.ApplicationWindow {
         }
 
         function onOpenRoom(room) {
-            roomManager.enterRoom(room)
+            RoomManager.enterRoom(room)
         }
 
         function onUserConsentRequired(url) {
@@ -288,14 +302,14 @@ Kirigami.ApplicationWindow {
         }
 
         function onRoomJoined(roomName) {
-            roomManager.enterRoom(Controller.activeConnection.room(roomName))
+            RoomManager.enterRoom(Controller.activeConnection.room(roomName))
         }
     }
 
     Connections {
         target: Controller.activeConnection
         onDirectChatAvailable: {
-            roomManager.enterRoom(Controller.activeConnection.room(directChat.id));
+            RoomManager.enterRoom(Controller.activeConnection.room(directChat.id));
         }
     }
 
@@ -332,36 +346,68 @@ Kirigami.ApplicationWindow {
         RoomWindow {}
     }
 
-    function handleLink(link, currentRoom) {
-        if (link.startsWith("https://matrix.to/")) {
-            var content = link.replace("https://matrix.to/#/", "").replace(/\?.*/, "")
-            if(content.match("^[#!]")) {
-                if(content.includes("/")) {
-                    var result = content.match("([!#].*:.*)/(\\$.*)")
-                    if(!result) {
-                        return
-                    }
-                    if(result[1] == currentRoom.id) {
-                        roomManager.roomItem.goToEvent(result[2])
-                    } else {
-                        roomManager.openRoomAndEvent(roomManager.roomByAliasOrId(result[1]), result[2])
-                    }
-                } else {
-                    roomManager.enterRoom(roomManager.roomByAliasOrId(content))
-                }
-            } else if(content.match("^@")) {
-                let dialog = userDialog.createObject(root.overlay, {room: currentRoom, user: currentRoom.user(content)})
-                dialog.open()
-                console.log(dialog.user)
+    Component {
+        id: userDialog
+        UserDetailDialog {}
+    }
+
+    Component {
+        id: askDirectChatConfirmationComponent
+
+        Kirigami.OverlaySheet {
+            id: askDirectChatConfirmation
+            required property var user;
+
+            parent: QQC2.ApplicationWindow.overlay
+            header: Kirigami.Heading {
+                text: i18n("Start a chat")
             }
-        } else {
-            Qt.openUrlExternally(link)
+            contentItem: QQC2.Label {
+                text: i18n("Do you want to start a chat with %1?", user.displayName)
+                wrapMode: Text.WordWrap
+            }
+            footer: QQC2.DialogButtonBox {
+                standardButtons: QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel
+                onAccepted: {
+                    user.requestDirectChat();
+                    askDirectChatConfirmation.close();
+                }
+                onRejected: askDirectChatConfirmation.close();
+            }
         }
     }
 
     Component {
-        id: userDialog
-        UserDetailDialog {
+        id: openLinkConfirmationComponent
+
+        Kirigami.OverlaySheet {
+            id: openLinkConfirmation
+            required property var url;
+
+            header: Kirigami.Heading {
+                text: i18n("Confirm opening a link")
+            }
+            parent: QQC2.ApplicationWindow.overlay
+            contentItem: ColumnLayout {
+                QQC2.Label {
+                    text: i18n("Do you want to open the link to %1?", `<a href='${url}'>${url}</a>`)
+                    wrapMode: Text.WordWrap
+                }
+                QQC2.CheckBox {
+                    id: dontAskAgain
+                    text: i18n("Don't ask again")
+                }
+            }
+            footer: QQC2.DialogButtonBox {
+                standardButtons: QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel
+                onAccepted: {
+                    Config.confirmLinksAction = dontAskAgain.checked;
+                    Config.save();
+                    Qt.openUrlExternally(url);
+                    openLinkConfirmation.close();
+                }
+                onRejected: openLinkConfirmation.close();
+            }
         }
     }
 }

@@ -5,6 +5,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
+import org.kde.neochat 1.0
 import org.kde.kirigami 2.15 as Kirigami
 
 TextEdit {
@@ -47,7 +48,7 @@ a{
     wrapMode: Text.WordWrap
     textFormat: Text.RichText
 
-    onLinkActivated: applicationWindow().handleLink(link, currentRoom)
+    onLinkActivated: RoomManager.openResource(link)
 
     MouseArea {
         anchors.fill: parent

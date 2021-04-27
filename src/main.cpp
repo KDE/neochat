@@ -10,6 +10,7 @@
 #include <QQmlContext>
 #include <QQuickStyle>
 #include <QQuickWindow>
+#include <QDebug>
 
 #include <KAboutData>
 #ifdef HAVE_KDBUSADDONS
@@ -41,8 +42,9 @@
 #include "neochatuser.h"
 #include "notificationsmanager.h"
 #include "publicroomlistmodel.h"
-#include "room.h"
+#include <room.h>
 #include "roomlistmodel.h"
+#include "roommanager.h"
 #include "sortfilterroomlistmodel.h"
 #include "userdirectorylistmodel.h"
 #include "userlistmodel.h"
@@ -99,6 +101,17 @@ int main(int argc, char *argv[])
 
 #ifdef HAVE_KDBUSADDONS
     KDBusService service(KDBusService::Unique);
+    service.connect(&service,
+                    &KDBusService::activateRequested,
+                    roomManager,
+                    [](const QStringList &arguments, const QString &workingDirectory) {
+                        Q_UNUSED(workingDirectory);
+                        auto args = arguments;
+                        args.removeFirst();
+                        for (const auto &arg : args) {
+                            roomManager->openResource(arg);
+                        }
+                    });
 #endif
 
 #ifdef NEOCHAT_FLATPAK
@@ -117,6 +130,7 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Controller", &Controller::instance());
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Clipboard", &clipboard);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Config", config);
+    qmlRegisterSingletonInstance<RoomManager>("org.kde.neochat", 1, 0, "RoomManager", roomManager);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "FileType", &fileTypeSingleton);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "LoginHelper", login);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "ChatBoxHelper", &chatBoxHelper);
@@ -160,6 +174,7 @@ int main(int argc, char *argv[])
 
     QCommandLineParser parser;
     parser.setApplicationDescription(i18n("Client for the matrix communication protocol"));
+    parser.addPositionalArgument(QStringLiteral("urls"), i18n("Supports appstream: url scheme"));
 
     about.setupCommandLine(&parser);
     parser.process(app);
@@ -173,6 +188,10 @@ int main(int argc, char *argv[])
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
     if (engine.rootObjects().isEmpty()) {
         return -1;
+    }
+
+    if (parser.positionalArguments().length() > 0) {
+        roomManager->setUrlArgument(parser.positionalArguments()[0]);
     }
 
 #ifdef HAVE_KDBUSADDONS

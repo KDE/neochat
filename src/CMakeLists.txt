@@ -13,6 +13,7 @@ add_executable(neochat
     messageeventmodel.cpp
     messagefiltermodel.cpp
     roomlistmodel.cpp
+    roommanager.cpp
     neochatroom.cpp
     neochatuser.cpp
     userlistmodel.cpp

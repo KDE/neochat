@@ -21,7 +21,8 @@ import NeoChat.Menu.Timeline 1.0
 Kirigami.ScrollablePage {
     id: page
 
-    required property var currentRoom
+    /// It's not readonly because of the seperate window view.
+    property var currentRoom: RoomManager.currentRoom
 
     title: currentRoom.displayName
 
@@ -30,19 +31,17 @@ Kirigami.ScrollablePage {
 
     onCurrentRoomChanged: ChatBoxHelper.clearEditReply()
 
-
     ActionsHandler {
         id: actionsHandler
         room: page.currentRoom
         connection: Controller.activeConnection
     }
 
-
     Connections {
         target: Controller.activeConnection
         function onJoinedRoom(room) {
             if(room.id === invitation.id) {
-                roomManager.enterRoom(room);
+                RoomManager.enterRoom(room);
             }
         }
     }
@@ -81,7 +80,7 @@ Kirigami.ScrollablePage {
 
                 onClicked: {
                     page.currentRoom.forget()
-                    roomManager.getBack();
+                    RoomManager.getBack();
                 }
             }
 
@@ -667,6 +666,11 @@ Kirigami.ScrollablePage {
             FullScreenImage {}
         }
 
+        Component {
+            id: userDetailDialog
+
+            UserDetailDialog {}
+        }
 
         header: TypingPane {
             id: typingPane
@@ -744,6 +748,20 @@ Kirigami.ScrollablePage {
                 fancyEffectsContainer.processFancyEffectsReason(fancyEffect)
             }
         }
+    }
+
+
+    function warning(title, message) {
+        page.header.contentItem.text = `${title}<br />${message}`;
+        page.header.contentItem.type =  Kirigami.MessageType.Warning;
+        page.header.contentItem.visible = true;
+    }
+
+    function showUserDetail(user) {
+        userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {
+            room: currentRoom,
+            user: user,
+        }).open();
     }
 
     function goToLastMessage() {

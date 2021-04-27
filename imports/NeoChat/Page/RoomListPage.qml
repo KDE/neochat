@@ -116,16 +116,15 @@ Kirigami.ScrollablePage {
             action: Kirigami.Action {
                 id: enterRoomAction
                 onTriggered: {
-                    var roomItem = roomManager.enterRoom(currentRoom)
-                    roomListItem.KeyNavigation.right = roomItem
-                    roomItem.focus = true;
-                    itemSelection.setCurrentIndex(sortFilterRoomListModel.mapToSource(sortFilterRoomListModel.index(index, 0)), ItemSelectionModel.SelectCurrent)
+                    RoomManager.enterRoom(currentRoom);
+                    itemSelection.setCurrentIndex(sortFilterRoomListModel.mapToSource(
+                        sortFilterRoomListModel.index(index, 0)), ItemSelectionModel.SelectCurrent)
                 }
             }
             bold: unreadCount > 0
             label: name ?? ""
             subtitle: {
-                let txt = (lastEvent == "" ? topic : lastEvent).replace(/(\r\n\t|\n|\r\t)/gm," ")
+                let txt = (lastEvent.length === 0 ? topic : lastEvent).replace(/(\r\n\t|\n|\r\t)/gm, " ")
                 if (txt.length) {
                     return txt
                 }

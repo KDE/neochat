@@ -93,9 +93,7 @@ Loader {
                             Layout.maximumWidth: Kirigami.Units.gridUnit * 24
                             wrapMode: Text.WordWrap
 
-                            onLinkActivated: {
-                                applicationWindow().handleLink(link, currentRoom)
-                            }
+                            onLinkActivated: RoomManager.openResource(link);
                         }
                     }
                 }
@@ -189,9 +187,7 @@ Loader {
                             Layout.fillWidth: true
                             wrapMode: Text.WordWrap
 
-                            onLinkActivated: {
-                                applicationWindow().handleLink(link, currentRoom)
-                            }
+                            onLinkActivated: RoomManager.openResource(link);
                         }
                     }
                 }

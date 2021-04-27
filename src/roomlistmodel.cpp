@@ -222,20 +222,23 @@ void RoomListModel::handleNotifications()
             }
             oldNotifications += notification["event"].toObject()["event_id"].toString();
             auto room = m_connection->room(notification["room_id"].toString());
-            auto sender = room->user(notification["event"].toObject()["sender"].toString());
+            if (room) {
+                // The room might have been deleted (for example rejected invitation).
+                auto sender = room->user(notification["event"].toObject()["sender"].toString());
 
-            QImage avatar_image;
-            if (!sender->avatarUrl(room).isEmpty()) {
-                avatar_image = sender->avatar(128, room);
-            } else {
-                avatar_image = room->avatar(128);
+                QImage avatar_image;
+                if (!sender->avatarUrl(room).isEmpty()) {
+                    avatar_image = sender->avatar(128, room);
+                } else {
+                    avatar_image = room->avatar(128);
+                }
+                NotificationsManager::instance().postNotification(dynamic_cast<NeoChatRoom *>(room),
+                                                                  room->displayName(),
+                                                                  sender->displayname(room),
+                                                                  notification["event"].toObject()["content"].toObject()["body"].toString(),
+                                                                  avatar_image,
+                                                                  notification["event"].toObject()["event_id"].toString());
             }
-            NotificationsManager::instance().postNotification(dynamic_cast<NeoChatRoom *>(room),
-                                                              room->displayName(),
-                                                              sender->displayname(room),
-                                                              notification["event"].toObject()["content"].toObject()["body"].toString(),
-                                                              avatar_image,
-                                                              notification["event"].toObject()["event_id"].toString());
         }
     });
 }
