@@ -578,20 +578,38 @@ Kirigami.ScrollablePage {
 
             id: goReadMarkerFab
 
-            visible: currentRoom && currentRoom.hasUnreadMessages && currentRoom.readMarkerLoaded || !messageListView.atYEnd
+            visible: currentRoom && currentRoom.hasUnreadMessages && currentRoom.readMarkerLoaded
             action: Kirigami.Action {
                 onTriggered: {
-                    if (currentRoom && currentRoom.hasUnreadMessages) {
-                        goToEvent(currentRoom.readMarkerEventId)
-                    } else {
-                        goToLastMessage();
-                    }
+                    goToEvent(currentRoom.readMarkerEventId)
                 }
-                icon.name: currentRoom && currentRoom.hasUnreadMessages ? "go-up" : "go-down"
+                icon.name: "go-up"
             }
 
             QQC2.ToolTip {
-                text: currentRoom && currentRoom.hasUnreadMessages ? i18n("Jump to first unread message") : i18n("Jump to latest message")
+                text: i18n("Jump to first unread message")
+            }
+        }
+        QQC2.RoundButton {
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: Kirigami.Units.largeSpacing
+            anchors.rightMargin: Kirigami.Units.largeSpacing
+            implicitWidth: Kirigami.Units.gridUnit * 2
+            implicitHeight: Kirigami.Units.gridUnit * 2
+
+            id: goMarkAsReadFab
+
+            visible: !messageListView.atYEnd
+            action: Kirigami.Action {
+                onTriggered: {
+                    goToLastMessage();
+                }
+                icon.name: "go-down"
+            }
+
+            QQC2.ToolTip {
+                text: i18n("Jump to latest message")
             }
         }
 
