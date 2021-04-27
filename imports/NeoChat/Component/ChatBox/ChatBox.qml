@@ -86,6 +86,7 @@ Item {
         anchors.bottom: replyPane.top
     }
 
+
     ReplyPane {
         id: replyPane
         visible: ChatBoxHelper.isReplying || ChatBoxHelper.isEditing

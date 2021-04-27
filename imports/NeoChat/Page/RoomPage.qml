@@ -595,23 +595,6 @@ Kirigami.ScrollablePage {
             }
         }
 
-        header: RowLayout {
-            id: typingNotification
-
-            visible: !loadingIndicator.visible && currentRoom && currentRoom.usersTyping.length > 0
-            height: visible ? implicitHeight: 0
-            spacing: Kirigami.Units.largeSpacing
-
-            QQC2.BusyIndicator {
-                Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
-                Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
-            }
-            QQC2.Label {
-                text: visible ? i18ncp("Message displayed when some users are typing", "%2 is typing", "%2 are typing", currentRoom.usersTyping.length, currentRoom.usersTyping.map(user => user.displayName).join(", ")) : ""
-            }
-        }
-
-
         Component.onCompleted: {
             updateReadMarker()
             if (currentRoom) {
@@ -665,7 +648,28 @@ Kirigami.ScrollablePage {
 
             FullScreenImage {}
         }
+
+
+        header: TypingPane {
+            id: typingPane
+            visible: !loadingIndicator.visible && currentRoom && currentRoom.usersTyping.length > 0
+            typingNotification: visible ? i18ncp("Message displayed when some users are typing", "%2 is typing", "%2 are typing", currentRoom.usersTyping.length, currentRoom.usersTyping.map(user => user.displayName).join(", ")) : ""
+            width: parent.width
+            height: visible ? implicitHeight : 0
+            anchors.bottom: attachmentSeparator.top
+            Behavior on height {
+                NumberAnimation {
+                    property: "height"
+                    duration: Kirigami.Units.shortDuration
+                    easing.type: Easing.OutCubic
+                }
+            }
+            z: 2
+        }
+        headerPositioning: ListView.OverlayHeader
+
     }
+
 
     footer: ChatBox {
         id: chatBox
