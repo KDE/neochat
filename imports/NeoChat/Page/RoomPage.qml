@@ -144,9 +144,22 @@ Kirigami.ScrollablePage {
         property bool showEdit: event && (event.author.id === Controller.activeConnection.localUserId && (event.eventType === "emote" || event.eventType === "message"))
         property var bubble
         property var hovered: bubble && bubble.hovered
+        property var visibleDelayed: (hovered || hoverHandler.hovered) && !Kirigami.Settings.isMobile
+        onVisibleDelayedChanged: if (visibleDelayed) {
+            visible = true;
+        } else {
+            // HACK: delay disapearing by 200ms, otherwise this can create some glitches
+            // See https://invent.kde.org/network/neochat/-/issues/333
+            hoverActionsTimer.restart();
+        }
+        Timer {
+            id: hoverActionsTimer
+            interval: 200
+            onTriggered: hoverActions.visible = hoverActions.visibleDelayed;
+        }
         x: bubble.x + Kirigami.Units.largeSpacing + Math.max(bubble.width - childWidth, 0)
         y: bubble.mapToItem(page, 0, -Kirigami.Units.largeSpacing - hoverActions.childHeight * 1.5).y
-        visible: (hovered || hoverHandler.hovered) && !Kirigami.Settings.isMobile
+        visible: false
 
         property var updateFunction
 
@@ -374,7 +387,8 @@ Kirigami.ScrollablePage {
                     innerObject: TextDelegate {
                         isEmote: true
                         Layout.fillWidth: true
-                        Layout.rightMargin: Kirigami.Units.largeSpacing
+  
+                       Layout.rightMargin: Kirigami.Units.largeSpacing
                         Layout.leftMargin: Kirigami.Units.largeSpacing
                         Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
                         TapHandler {
