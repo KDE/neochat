@@ -100,6 +100,7 @@ void RoomManager::enterRoom(NeoChatRoom *room)
 
     m_lastCurrentRoom = std::exchange(m_currentRoom, room);
     Q_EMIT currentRoomChanged();
+    Q_EMIT replaceRoom(m_currentRoom, QString());
 
     NeoChatConfig::self()->setOpenRoom(room->id());
     NeoChatConfig::self()->save();
