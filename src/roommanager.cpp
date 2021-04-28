@@ -105,10 +105,6 @@ void RoomManager::enterRoom(NeoChatRoom *room)
     NeoChatConfig::self()->save();
 }
 
-void RoomManager::getBack()
-{
-}
-
 void RoomManager::openWindow(NeoChatRoom *room)
 {
     // forward the call to QML

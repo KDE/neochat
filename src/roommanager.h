@@ -38,9 +38,6 @@ public:
     /// with the given room.
     Q_INVOKABLE void enterRoom(NeoChatRoom *room);
 
-    /// Force refresh the view to show the last the opened room.
-    Q_INVOKABLE void getBack();
-
     Q_INVOKABLE void openWindow(NeoChatRoom *room);
 
     /// Leave the room and close it if it is open.
