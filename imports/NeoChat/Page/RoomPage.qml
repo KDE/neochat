@@ -78,10 +78,7 @@ Kirigami.ScrollablePage {
                 Layout.alignment : Qt.AlignHCenter
                 text: i18n("Reject")
 
-                onClicked: {
-                    page.currentRoom.forget()
-                    RoomManager.getBack();
-                }
+                onClicked: RoomManager.leave(page.currentRoom);
             }
 
             QQC2.Button {

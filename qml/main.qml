@@ -103,7 +103,7 @@ Kirigami.ApplicationWindow {
 
         function onOpenRoomInNewWindow(room) {
             const secondayWindow = roomWindow.createObject(applicationWindow(), {currentRoom: room});
-            secondayWindow.width = root.width - roomList.width;
+            secondayWindow.width = root.width - pageStack.get(0).width;
             secondayWindow.show();
         }
 

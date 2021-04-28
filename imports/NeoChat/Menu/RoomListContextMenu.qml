@@ -5,6 +5,7 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 
+import org.kde.neochat 1.0
 import NeoChat.Page 1.0
 
 /**
@@ -16,7 +17,7 @@ Menu {
 
     MenuItem {
         text: i18n("Open in new window")
-        onTriggered: roomManager.openWindow(room);
+        onTriggered: RoomManager.openWindow(room);
     }
 
     MenuSeparator {}
@@ -43,12 +44,7 @@ Menu {
 
     MenuItem {
         text: i18n("Leave Room")
-        onTriggered: {
-            if(roomManager.currentRoom == root.room) {
-                pageStack.pop()
-            }
-            room.forget()
-        }
+        onTriggered: RoomManager.leaveRoom()
     }
 
     onClosed: destroy()

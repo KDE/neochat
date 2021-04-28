@@ -43,6 +43,9 @@ public:
 
     Q_INVOKABLE void openWindow(NeoChatRoom *room);
 
+    /// Leave the room and close it if it is open.
+    Q_INVOKABLE void leaveRoom(NeoChatRoom *room);
+
     /// Getter for the currentRoom property.
     NeoChatRoom *currentRoom() const;
 
