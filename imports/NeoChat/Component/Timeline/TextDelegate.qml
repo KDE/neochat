@@ -48,6 +48,8 @@ a{
     wrapMode: Text.WordWrap
     textFormat: Text.RichText
 
+    Layout.fillWidth: true
+
     onLinkActivated: RoomManager.openResource(link)
 
     MouseArea {

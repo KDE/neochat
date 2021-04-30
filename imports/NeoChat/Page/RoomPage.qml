@@ -387,7 +387,6 @@ Kirigami.ScrollablePage {
 
                     innerObject: TextDelegate {
                         isEmote: true
-                        Layout.fillWidth: true
                         Layout.maximumWidth: emoteContainer.width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 4
                         Layout.rightMargin: Kirigami.Units.largeSpacing
                         Layout.leftMargin: Kirigami.Units.largeSpacing
@@ -415,7 +414,6 @@ Kirigami.ScrollablePage {
                     hoverComponent: hoverActions
 
                     innerObject: TextDelegate {
-                        Layout.fillWidth: true
                         Layout.maximumWidth: messageContainer.width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 4
                         Layout.rightMargin: Kirigami.Units.largeSpacing
                         Layout.bottomMargin: Kirigami.Units.largeSpacing
@@ -442,7 +440,6 @@ Kirigami.ScrollablePage {
 
                     hoverComponent: hoverActions
                     innerObject: TextDelegate {
-                        Layout.fillWidth: true
                         Layout.maximumWidth: noticeContainer.width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 4
                         Layout.rightMargin: Kirigami.Units.largeSpacing
                         Layout.leftMargin: Kirigami.Units.largeSpacing
