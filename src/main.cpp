@@ -27,6 +27,7 @@
 #include "chatboxhelper.h"
 #include "chatdocumenthandler.h"
 #include "clipboard.h"
+#include "commandmodel.h"
 #include "controller.h"
 #include "csapi/joining.h"
 #include "csapi/leaving.h"
@@ -147,6 +148,11 @@ int main(int argc, char *argv[])
         Q_UNUSED(scriptEngine);
         Q_UNUSED(engine2);
         return new EmojiModel();
+    });
+    qmlRegisterSingletonType<CommandModel>("org.kde.neochat", 1, 0, "CommandModel", [](QQmlEngine *engine2, QJSEngine *scriptEngine) -> QObject * {
+        Q_UNUSED(scriptEngine);
+        Q_UNUSED(engine2);
+        return new CommandModel();
     });
     qmlRegisterType<SortFilterRoomListModel>("org.kde.neochat", 1, 0, "SortFilterRoomListModel");
     qmlRegisterType<DevicesModel>("org.kde.neochat", 1, 0, "DevicesModel");

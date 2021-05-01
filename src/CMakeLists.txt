@@ -29,6 +29,7 @@ add_executable(neochat
     login.cpp
     stickerevent.cpp
     chatboxhelper.cpp
+    commandmodel.cpp
     ../res.qrc
 )
 

@@ -149,7 +149,7 @@ QVariantMap ChatDocumentHandler::getAutocompletionInfo()
         };
     }
 
-    if (autoCompletePrefix.startsWith("@") || autoCompletePrefix.startsWith(":")) {
+    if (autoCompletePrefix.startsWith("@") || autoCompletePrefix.startsWith(":") || autoCompletePrefix.startsWith("/")) {
         m_autoCompleteBeginPosition = textBeforeCursor.lastIndexOf(" ") + 1; // 1 == space
 
         if (autoCompletePrefix.startsWith("@")) {
@@ -159,6 +159,14 @@ QVariantMap ChatDocumentHandler::getAutocompletionInfo()
                 {"type", AutoCompletionType::User},
             };
         }
+
+        if (autoCompletePrefix.startsWith("/")) {
+            return QVariantMap{
+                {"keyword", autoCompletePrefix},
+                {"type", AutoCompletionType::Command},
+            };
+        }
+
         return QVariantMap{
             {"keyword", autoCompletePrefix},
             {"type", AutoCompletionType::Emoji},

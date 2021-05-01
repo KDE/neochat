@@ -27,6 +27,7 @@ public:
     enum AutoCompletionType {
         User,
         Emoji,
+        Command,
         None,
         Ignore,
     };
