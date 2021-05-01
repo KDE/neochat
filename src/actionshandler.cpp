@@ -199,7 +199,7 @@ void ActionsHandler::postMessage(const QString &text,
                                      "#aa00ff", "#d400ff", "#ff00ff", "#ff00d4", "#ff00aa", "#ff0080", "#ff0055", "#ff002b", "#ff0000"};
 
     if (cleanedText.indexOf(shrugPrefix) == 0) {
-        cleanedText = QStringLiteral("¯\\\\_(ツ)\\_/¯") % cleanedText.remove(0, shrugPrefix.length());
+        cleanedText = QStringLiteral("¯\\_(ツ)_/¯") % cleanedText.remove(0, shrugPrefix.length());
         m_room->postHtmlMessage(cleanedText, cleanedText, messageEventType, replyEventId, editEventId);
         return;
     }
