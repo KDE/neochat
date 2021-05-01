@@ -124,8 +124,8 @@ Popup {
         Kirigami.BasicListItem {
             id: commandItem
             width: ListView.view.width ?? implicitWidth
+            text: "<i>" + modelData.parameter.replace("<", "&lt;").replace(">", "&gt;") + "</i> " +  modelData.help
             property string displayName: modelData.command
-            text: modelData.help
 
             leading: Label {
                 id: commandLabel
