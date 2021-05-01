@@ -36,7 +36,7 @@ public:
     explicit ActionsHandler(QObject *parent = nullptr);
     ~ActionsHandler();
 
-    QVariantList commands() const;
+    static QVariantList commands();
 
     [[nodiscard]] Connection *connection() const;
     void setConnection(Connection *connection);

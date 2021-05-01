@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "actionshandler.h"
+#include "commandmodel.h"
 
 #include "csapi/joining.h"
 
@@ -56,86 +57,66 @@ void ActionsHandler::setConnection(Connection *connection)
     Q_EMIT connectionChanged();
 }
 
-QVariantList ActionsHandler::commands() const
+QVariantList ActionsHandler::commands()
 {
     QVariantList commands;
+
     // Messages commands
-    commands.append({QStringLiteral("prefix"),
-                     QStringLiteral("/shrug "),
-                     QStringLiteral("parameter"),
-                     i18nc("@label Parameter of a command", "<message>"),
-                     QStringLiteral("help"),
-                     i18n("Prepends ¯\\_(ツ)_/¯ to a plain-text message")});
+    commands.append(QVariant::fromValue(Command{
+        QStringLiteral("/me "),
+        QStringLiteral("<message>"),
+        i18n("Displays action")}));
 
-    commands.append({QStringLiteral("prefix"),
-                     QStringLiteral("/lenny "),
-                     QStringLiteral("parameter"),
-                     i18nc("@label Parameter of a command", "<message>"),
-                     QStringLiteral("help"),
-                     i18n("Prepends ( ͡° ͜ʖ ͡°) to a plain-text message")});
+    commands.append(QVariant::fromValue(Command{
+        QStringLiteral("/shrug "),
+        QStringLiteral("<message>"),
+        i18n("Prepends ¯\\_(ツ)_/¯ to a plain-text message")}));
 
-    commands.append({QStringLiteral("prefix"),
-                     QStringLiteral("/plain "),
-                     QStringLiteral("parameter"),
-                     i18nc("@label Parameter of a command", "<message>"),
-                     QStringLiteral("help"),
-                     i18n("Sends a message as plain text, without interpreting it as markdown")});
+    commands.append(QVariant::fromValue(Command{
+        QStringLiteral("/lenny "),
+        QStringLiteral("<message>"),
+        i18n("Prepends ( ͡° ͜ʖ ͡°) to a plain-text message")}));
 
-    commands.append({QStringLiteral("prefix"),
-                     QStringLiteral("/html "),
-                     QStringLiteral("parameter"),
-                     i18nc("@label Parameter of a command", "<message>"),
-                     QStringLiteral("help"),
-                     i18n("Sends a message as html, without interpreting it as markdown")});
+    commands.append(QVariant::fromValue(Command{
+        QStringLiteral("/plain "),
+        QStringLiteral("<message>"),
+        i18n("Sends a message as plain text, without interpreting it as markdown")}));
 
-    commands.append({QStringLiteral("prefix"),
-                     QStringLiteral("/rainbow "),
-                     QStringLiteral("parameter"),
-                     i18nc("@label Parameter of a command", "<message>"),
-                     QStringLiteral("help"),
-                     i18n("Sends the given message coloured as a rainbow")});
+    commands.append(QVariant::fromValue(Command{
+        QStringLiteral("/html "),
+        QStringLiteral("<message>"),
+        i18n("Sends a message as html, without interpreting it as markdown")}));
 
-    commands.append({QStringLiteral("prefix"),
-                     QStringLiteral("/rainbowme "),
-                     QStringLiteral("parameter"),
-                     i18nc("@label Parameter of a command", "<message>"),
-                     QStringLiteral("help"),
-                     i18n("Sends the given emote coloured as a rainbow")});
+    commands.append(QVariant::fromValue(Command{
+        QStringLiteral("/rainbow "),
+        QStringLiteral("<message>"),
+        i18n("Sends the given message coloured as a rainbow")}));
 
-    commands.append({QStringLiteral("prefix"),
-                     QStringLiteral("/me "),
-                     QStringLiteral("parameter"),
-                     i18nc("@label Parameter of a command", "<message>"),
-                     QStringLiteral("help"),
-                     i18n("Displays action")});
+    commands.append(QVariant::fromValue(Command{
+        QStringLiteral("/rainbowme "),
+        QStringLiteral("<message>"),
+        i18n("Sends the given emote coloured as a rainbow")}));
+
 
     // Actions commands
-    commands.append({QStringLiteral("prefix"),
-                     QStringLiteral("/join "),
-                     QStringLiteral("parameter"),
-                     i18nc("@label Parameter of a command", "<room-address>"),
-                     QStringLiteral("help"),
-                     i18n("Joins room with given address")});
+    commands.append(QVariant::fromValue(Command{
+        QStringLiteral("/join "), QStringLiteral("<room-address>"),
+        i18n("Joins room with given address")}));
 
-    commands.append({QStringLiteral("prefix"),
-                     QStringLiteral("/part "),
-                     QStringLiteral("parameter"),
-                     i18nc("@label Parameter of a command", "[<room-address>]"),
-                     QStringLiteral("help"),
-                     i18n("Leave room")});
+    commands.append(QVariant::fromValue(Command{
+        QStringLiteral("/part "),
+        QStringLiteral("[<room-address>]"),
+        i18n("Leave room")}));
 
-    commands.append({QStringLiteral("prefix"),
-                     QStringLiteral("/invite "),
-                     QStringLiteral("parameter"),
-                     i18nc("@label Parameter of a command", "<user-id>"),
-                     QStringLiteral("help"),
-                     i18n("Invites user with given id to current room")});
-    commands.append({QStringLiteral("prefix"),
-                     QStringLiteral("/react "),
-                     QStringLiteral("parameter"),
-                     i18nc("@label Parameter of a command", "<reaction text>"),
-                     QStringLiteral("help"),
-                     i18n("React to this message with a text")});
+    commands.append(QVariant::fromValue(Command{
+        QStringLiteral("/invite "),
+        QStringLiteral("<user-id>"),
+        i18n("Invites user with given id to current room")}));
+
+    commands.append(QVariant::fromValue(Command{
+        QStringLiteral("/react "),
+        QStringLiteral("<reaction text>"),
+        i18n("React to this message with a text")}));
 
     // TODO more see elements /help action
 
