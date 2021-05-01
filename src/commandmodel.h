@@ -10,9 +10,10 @@
 #include <utility>
 
 struct Command {
-    Command(QString u, QString s)
-        : command(std::move(std::move(u)))
-        , help(std::move(std::move(s)))
+    Command(QString p, QString a, QString h)
+        : command(std::move(std::move(p)))
+        , parameter(std::move(std::move(a)))
+        , help(std::move(std::move(h)))
     {
     }
     Command() = default;
@@ -20,6 +21,7 @@ struct Command {
     friend QDataStream &operator<<(QDataStream &arch, const Command &object)
     {
         arch << object.command;
+        arch << object.parameter;
         arch << object.help;
         return arch;
     }
@@ -27,15 +29,18 @@ struct Command {
     friend QDataStream &operator>>(QDataStream &arch, Command &object)
     {
         arch >> object.command;
+        arch >> object.parameter;
         arch >> object.help;
         return arch;
     }
 
     QString command;
+    QString parameter;
     QString help;
 
 Q_GADGET
     Q_PROPERTY(QString command MEMBER command)
+    Q_PROPERTY(QString parameter MEMBER parameter)
     Q_PROPERTY(QString help MEMBER help)
 };
 
