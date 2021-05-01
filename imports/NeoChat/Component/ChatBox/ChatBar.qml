@@ -216,10 +216,13 @@ ToolBar {
                     }
 
                     if (completionInfo.type === ChatDocumentHandler.User) {
-                        completionMenu.isCompletingEmoji = false
+                        completionMenu.completionType = "username"
                         completionMenu.model = currentRoom.getUsers(completionInfo.keyword);
+                    } else if (completionInfo.type === ChatDocumentHandler.Command) {
+                        completionMenu.completionType = "command"
+                        completionMenu.model = CommandModel.filterModel(completionInfo.keyword);
                     } else {
-                        completionMenu.isCompletingEmoji = true
+                        completionMenu.completionType = "emoji"
                         completionMenu.model = EmojiModel.filterModel(completionInfo.keyword);
                     }
 
@@ -358,7 +361,7 @@ ToolBar {
 
     function complete() {
         documentHandler.replaceAutoComplete(completionMenu.currentDisplayText);
-        if (!completionMenu.isCompletingEmoji) {
+        if (completionMenu.completionType == "username") {
             userAutocompleted[completionMenu.currentDisplayText] = completionMenu.currentUserId;
         }
     }

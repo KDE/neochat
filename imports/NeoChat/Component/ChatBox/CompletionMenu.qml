@@ -5,6 +5,7 @@
 import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15
+import Qt.labs.qmlmodels 1.0
 
 import org.kde.kirigami 2.15 as Kirigami
 
@@ -24,7 +25,7 @@ Popup {
     property string currentDisplayText: currentItem && currentItem.displayName ? currentItem.displayName : ""
     property string currentUserId: currentItem && currentItem.id ? currentItem.id : ""
 
-    property bool isCompletingEmoji: false
+    property string completionType: ""
     property int beginPosition: 0
     property int endPosition: 0
 
@@ -48,7 +49,15 @@ Popup {
         ListView {
             id: completionListView
             implicitWidth: contentWidth
-            delegate: isCompletingEmoji ? emojiDelegate : usernameDelegate
+            delegate: {
+                if (completionType == "emoji") {
+                    emojiDelegate
+                } else if (completionType == "command") {
+                    commandDelegate
+                } else if (completionType == "username") {
+                    usernameDelegate
+                }
+            }
 
             keyNavigationWraps: true
 
