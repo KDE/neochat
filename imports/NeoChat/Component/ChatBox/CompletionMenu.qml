@@ -109,4 +109,29 @@ Popup {
             onClicked: completeTriggered();
         }
     }
+
+    Component {
+        id: commandDelegate
+        Kirigami.BasicListItem {
+            id: commandItem
+            width: ListView.view.width ?? implicitWidth
+            property string displayName: modelData.command
+            text: modelData.help
+
+            leading: Label {
+                id: commandLabel
+                Layout.preferredHeight: Kirigami.Units.gridUnit
+                Layout.preferredWidth: textMetrics.tightBoundingRect.width
+                text: modelData.command
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+            }
+            TextMetrics {
+                id: textMetrics
+                text: modelData.command
+                font: commandLabel.font
+            }
+            onClicked: completeTriggered();
+        }
+    }
 }
