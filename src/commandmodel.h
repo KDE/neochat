@@ -58,6 +58,4 @@ public:
 
     Q_INVOKABLE static QVariantList filterModel(const QString &filter);
 
-private:
-    static const QVariantList matrix;
 };

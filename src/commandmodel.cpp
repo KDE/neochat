@@ -4,13 +4,14 @@
 #include <QDebug>
 
 #include "commandmodel.h"
+#include "actionshandler.h"
 
 
 QVariantList CommandModel::filterModel(const QString &filter)
 {
     QVariantList result;
 
-    for (const QVariant &e : matrix) {
+    for (const QVariant &e : ActionsHandler::commands()) {
         auto command = qvariant_cast<Command>(e);
         if (command.command.startsWith(filter)) {
             result.append(e);
@@ -22,11 +23,3 @@ QVariantList CommandModel::filterModel(const QString &filter)
 
     return result;
 }
-
-
-// the help messages are taken from Element (web matrix client, app.element.io)
-const QVariantList CommandModel::matrix = {
-    QVariant::fromValue(Command{"/join", "Join a given room with address"}),
-    QVariant::fromValue(Command{"/me", "Displays action"}),
-
-};
