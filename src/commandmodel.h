@@ -48,7 +48,7 @@ Q_DECLARE_METATYPE(Command)
 
 class CommandModel : public QObject
 {
-Q_OBJECT
+    Q_OBJECT
 
 public:
     explicit CommandModel(QObject *parent = nullptr)

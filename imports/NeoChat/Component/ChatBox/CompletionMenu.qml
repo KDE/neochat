@@ -50,11 +50,11 @@ Popup {
             id: completionListView
             implicitWidth: contentWidth
             delegate: {
-                if (completionType == "emoji") {
+                if (completionType === "emoji") {
                     emojiDelegate
-                } else if (completionType == "command") {
+                } else if (completionType === "command") {
                     commandDelegate
-                } else if (completionType == "username") {
+                } else if (completionType === "username") {
                     usernameDelegate
                 }
             }

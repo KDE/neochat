@@ -361,7 +361,7 @@ ToolBar {
 
     function complete() {
         documentHandler.replaceAutoComplete(completionMenu.currentDisplayText);
-        if (completionMenu.completionType == "username") {
+        if (completionMenu.completionType === "username") {
             userAutocompleted[completionMenu.currentDisplayText] = completionMenu.currentUserId;
         }
     }
