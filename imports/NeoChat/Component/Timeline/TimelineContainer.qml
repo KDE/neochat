@@ -13,6 +13,7 @@ import NeoChat.Component 1.0
 import NeoChat.Dialog 1.0
 
 QQC2.ItemDelegate {
+    id: messageDelegate
     default property alias innerObject : column.children
     readonly property bool sentByMe: author.isLocalUser
     readonly property bool darkBackground: !sentByMe
@@ -71,6 +72,7 @@ QQC2.ItemDelegate {
             Layout.rightMargin: Kirigami.Units.smallSpacing
             Layout.bottomMargin: 0
             Layout.topMargin: model.showAuthor ? Kirigami.Units.smallSpacing : 0
+            Layout.fillWidth: true
 
             Kirigami.Avatar {
                 Layout.minimumWidth: Kirigami.Units.gridUnit * 2
@@ -104,15 +106,15 @@ QQC2.ItemDelegate {
                 visible: !model.showAuthor && Config.showAvatarInTimeline
             }
 
-            QQC2.ItemDelegate {
+            QQC2.Control {
                 id: bubble
-                Layout.maximumWidth: mainColumn.width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 2
                 implicitHeight: contentItem.implicitHeight + topPadding
                 topPadding: Kirigami.Units.largeSpacing
                 bottomPadding: 0
                 leftPadding: 0
                 rightPadding: 0
                 hoverEnabled: true
+                Layout.maximumWidth: mainColumn.width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 2
 
                 contentItem: ColumnLayout {
                     id: column
@@ -172,6 +174,9 @@ QQC2.ItemDelegate {
                     border.color: Kirigami.ColorUtils.tintWithAlpha(color, Kirigami.Theme.textColor, 0.15)
                     border.width: Kirigami.Units.devicePixelRatio
                 }
+            }
+            Item {
+                Layout.fillWidth: true
             }
         }
         Loader {
