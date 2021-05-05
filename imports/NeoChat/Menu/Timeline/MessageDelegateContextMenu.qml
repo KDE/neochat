@@ -62,13 +62,16 @@ Loader {
             leftPadding: 0
             rightPadding: 0
 
+            header: Kirigami.Heading {
+                text: i18nc("@title:menu Message detail dialog", "Message detail")
+            }
+
             contentItem: ColumnLayout {
                 spacing: 0
                 RowLayout {
                     id: headerLayout
                     Layout.fillWidth: true
-                    Layout.leftMargin: Kirigami.Units.largeSpacing
-                    Layout.rightMargin: Kirigami.Units.largeSpacing
+                    Layout.margins: Kirigami.Units.largeSpacing
                     spacing: Kirigami.Units.largeSpacing
                     Kirigami.Avatar {
                         id: avatar
