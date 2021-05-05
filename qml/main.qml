@@ -401,7 +401,7 @@ Kirigami.ApplicationWindow {
             footer: QQC2.DialogButtonBox {
                 standardButtons: QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel
                 onAccepted: {
-                    Config.confirmLinksAction = dontAskAgain.checked;
+                    Config.confirmLinksAction = !dontAskAgain.checked;
                     Config.save();
                     Qt.openUrlExternally(url);
                     openLinkConfirmation.close();
