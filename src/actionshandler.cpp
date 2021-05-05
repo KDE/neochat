@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "actionshandler.h"
-#include "commandmodel.h"
 
 #include "csapi/joining.h"
 

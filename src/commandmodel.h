@@ -4,7 +4,6 @@
 #pragma once
 
 #include <QObject>
-#include <QSettings>
 #include <QVariant>
 #include <QVector>
 #include <utility>
