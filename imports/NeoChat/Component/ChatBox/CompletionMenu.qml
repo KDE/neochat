@@ -46,6 +46,7 @@ Popup {
     implicitHeight: Math.min(completionListView.contentHeight, Kirigami.Units.gridUnit * 5)
 
     contentItem: ScrollView {
+        ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
         ListView {
             id: completionListView
             implicitWidth: contentWidth

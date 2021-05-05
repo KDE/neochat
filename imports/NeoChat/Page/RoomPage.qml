@@ -377,6 +377,7 @@ Kirigami.ScrollablePage {
             DelegateChoice {
                 roleValue: "emote"
                 delegate: TimelineContainer {
+                    id: emoteContainer
                     width: messageListView.width
                     isLoaded: timelineDelegateChooser.delegateLoaded
                     isEmote: true
@@ -387,8 +388,8 @@ Kirigami.ScrollablePage {
                     innerObject: TextDelegate {
                         isEmote: true
                         Layout.fillWidth: true
-  
-                       Layout.rightMargin: Kirigami.Units.largeSpacing
+                        Layout.maximumWidth: emoteContainer.width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 4
+                        Layout.rightMargin: Kirigami.Units.largeSpacing
                         Layout.leftMargin: Kirigami.Units.largeSpacing
                         Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
                         TapHandler {
@@ -406,6 +407,7 @@ Kirigami.ScrollablePage {
             DelegateChoice {
                 roleValue: "message"
                 delegate: TimelineContainer {
+                    id: messageContainer
                     width: messageListView.width
                     isLoaded: timelineDelegateChooser.delegateLoaded
                     onReplyClicked: goToEvent(eventID)
@@ -414,6 +416,7 @@ Kirigami.ScrollablePage {
 
                     innerObject: TextDelegate {
                         Layout.fillWidth: true
+                        Layout.maximumWidth: messageContainer.width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 4
                         Layout.rightMargin: Kirigami.Units.largeSpacing
                         Layout.bottomMargin: Kirigami.Units.largeSpacing
                         Layout.leftMargin: Kirigami.Units.largeSpacing
@@ -432,6 +435,7 @@ Kirigami.ScrollablePage {
             DelegateChoice {
                 roleValue: "notice"
                 delegate: TimelineContainer {
+                    id: noticeContainer
                     width: messageListView.width
                     isLoaded: timelineDelegateChooser.delegateLoaded
                     onReplyClicked: goToEvent(eventID)
@@ -439,6 +443,7 @@ Kirigami.ScrollablePage {
                     hoverComponent: hoverActions
                     innerObject: TextDelegate {
                         Layout.fillWidth: true
+                        Layout.maximumWidth: noticeContainer.width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 4
                         Layout.rightMargin: Kirigami.Units.largeSpacing
                         Layout.leftMargin: Kirigami.Units.largeSpacing
                         Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
