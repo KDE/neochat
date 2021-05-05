@@ -25,7 +25,7 @@ Popup {
     property string currentDisplayText: currentItem && currentItem.displayName ? currentItem.displayName : ""
     property string currentUserId: currentItem && currentItem.id ? currentItem.id : ""
 
-    property string completionType: ""
+    property int completionType: ChatDocumentHandler.Emoji
     property int beginPosition: 0
     property int endPosition: 0
 
@@ -50,11 +50,11 @@ Popup {
             id: completionListView
             implicitWidth: contentWidth
             delegate: {
-                if (completionType === "emoji") {
+                if (completionType === ChatDocumentHandler.Emoji) {
                     emojiDelegate
-                } else if (completionType === "command") {
+                } else if (completionType === ChatDocumentHandler.Command) {
                     commandDelegate
-                } else if (completionType === "username") {
+                } else if (completionType === ChatDocumentHandler.User) {
                     usernameDelegate
                 }
             }

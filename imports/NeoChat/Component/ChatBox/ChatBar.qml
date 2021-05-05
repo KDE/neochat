@@ -215,14 +215,12 @@ ToolBar {
                         return;
                     }
 
+                    completionMenu.completionType = completionInfo.type
                     if (completionInfo.type === ChatDocumentHandler.User) {
-                        completionMenu.completionType = "username"
                         completionMenu.model = currentRoom.getUsers(completionInfo.keyword);
                     } else if (completionInfo.type === ChatDocumentHandler.Command) {
-                        completionMenu.completionType = "command"
                         completionMenu.model = CommandModel.filterModel(completionInfo.keyword);
                     } else {
-                        completionMenu.completionType = "emoji"
                         completionMenu.model = EmojiModel.filterModel(completionInfo.keyword);
                     }
 
