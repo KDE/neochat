@@ -56,6 +56,6 @@ public:
     {
     }
 
-    Q_INVOKABLE static QVariantList filterModel(const QString &filter);
+    Q_INVOKABLE QVariantList filterModel(const QString &filter);
 
 };
