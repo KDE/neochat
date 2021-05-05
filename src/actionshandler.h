@@ -16,9 +16,6 @@ class ActionsHandler : public QObject
 {
     Q_OBJECT
 
-    /// \brief List of command definition. Useful for building an autocompletion
-    /// engine or an help dialog.
-    Q_PROPERTY(QVariantList commands READ commands CONSTANT)
 
     /// \brief The connection that will handle sending the message.
     Q_PROPERTY(Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
@@ -36,7 +33,7 @@ public:
     explicit ActionsHandler(QObject *parent = nullptr);
     ~ActionsHandler();
 
-    static QVariantList commands();
+
 
     [[nodiscard]] Connection *connection() const;
     void setConnection(Connection *connection);
