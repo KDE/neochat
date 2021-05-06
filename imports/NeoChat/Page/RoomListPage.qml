@@ -110,6 +110,8 @@ Kirigami.ScrollablePage {
         delegate: Kirigami.BasicListItem {
             id: roomListItem
             visible: model.categoryVisible || sortFilterRoomListModel.filterText.length > 0 || Config.mergeRoomList
+            topPadding: Kirigami.Units.largeSpacing
+            bottomPadding: Kirigami.Units.largeSpacing
             highlighted: listView.currentIndex === index
             focus: true
             icon: undefined
