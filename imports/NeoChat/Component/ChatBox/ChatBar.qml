@@ -339,6 +339,7 @@ ToolBar {
 
     function postMessage() {
         checkForFancyEffectsReason();
+
         if (ChatBoxHelper.hasAttachment) {
             // send attachment but don't reset the text
             actionsHandler.postMessage("", ChatBoxHelper.attachmentPath,
@@ -347,8 +348,16 @@ ToolBar {
             messageSent();
             return;
         }
-        actionsHandler.postMessage(inputField.text.trim(), ChatBoxHelper.attachmentPath,
-            ChatBoxHelper.replyEventId, ChatBoxHelper.editEventId, userAutocompleted);
+
+        const re = /^s\/([^\/]*)\/([^\/]*)/;
+        if (Config.allowQuickEdit && re.test(inputField.text)) {
+            // send edited messages
+            actionsHandler.postEdit(inputField.text);
+        } else {
+            // send normal message
+            actionsHandler.postMessage(inputField.text.trim(), ChatBoxHelper.attachmentPath,
+                ChatBoxHelper.replyEventId, ChatBoxHelper.editEventId, userAutocompleted);
+        }
         currentRoom.markAllMessagesAsRead();
         inputField.clear();
         inputField.text = Qt.binding(function() {

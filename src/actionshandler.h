@@ -58,6 +58,12 @@ public Q_SLOTS:
     void
     postMessage(const QString &text, const QString &attachementPath, const QString &replyEventId, const QString &editEventId, const QVariantMap &usernames);
 
+    /// \brief Send edit instructions (.e.g s/hallo/hello/)
+    ///
+    /// This will automatically edit the last message posted and send the sed
+    /// instruction to IRC.
+    void postEdit(const QString &text);
+
 private:
     Connection *m_connection = nullptr;
     NeoChatRoom *m_room = nullptr;

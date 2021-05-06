@@ -76,5 +76,13 @@ Kirigami.ScrollablePage {
                 Config.save()
             }
         }
+        QQC2.CheckBox {
+            text: i18n("Use s/text/replacement syntax to edit your last message")
+            checked: Config.allowQuickEdit
+            onToggled: {
+                Config.allowQuickEdit = checked
+                Config.save()
+            }
+        }
     }
 }
