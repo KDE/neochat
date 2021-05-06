@@ -15,20 +15,18 @@ import NeoChat.Component 1.0
 import NeoChat.Dialog 1.0
 import NeoChat.Menu.Timeline 1.0
 
-
-
 RowLayout {
     id: root
     property bool openOnFinished: false
     readonly property bool downloaded: progressInfo && progressInfo.completed
 
-    spacing: 4
+    Layout.margins: Kirigami.Units.largeSpacing
+
+    spacing: Kirigami.Units.largeSpacing
 
     onDownloadedChanged: if (downloaded && openOnFinished) {
         openSavedFile();
     }
-
-    z: -5
 
     ToolButton {
         icon.name: progressInfo.completed ? "document-open" : "document-save"
@@ -49,7 +47,6 @@ RowLayout {
             color: Kirigami.Theme.disabledTextColor
             wrapMode: Label.Wrap
         }
-        Layout.rightMargin: Kirigami.Units.largeSpacing
     }
 
     Component {
