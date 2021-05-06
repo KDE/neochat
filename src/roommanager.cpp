@@ -164,15 +164,9 @@ void RoomManager::joinRoom(Quotient::Connection *account,
 
 bool RoomManager::visitNonMatrix(const QUrl &url)
 {
-    // Return true if the user cancels, treating it as an alternative normal
-    // flow (rather than an abnormal flow when the navigation itself fails).
-    if (NeoChatConfig::self()->confirmLinksAction()) {
-        Q_EMIT openLink(url);
-    } else {
-        if (!QDesktopServices::openUrl(url)) {
-            Q_EMIT warning(i18n("No application for the link"),
-                           i18n("Your operating system could not find an application for the link."));
-        }
+    if (!QDesktopServices::openUrl(url)) {
+        Q_EMIT warning(i18n("No application for the link"),
+                       i18n("Your operating system could not find an application for the link."));
     }
     return true;
 }

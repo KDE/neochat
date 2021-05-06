@@ -126,12 +126,6 @@ Kirigami.ApplicationWindow {
                 showPassiveNotification(i18n("Warning: %1", message));
             }
         }
-
-        function onOpenLink(url) {
-            openLinkConfirmationComponent.createObject(QQC2.ApplicationWindow.overlay, {
-                url: url,
-            }).open();
-        }
     }
 
     function pushReplaceLayer(page, args) {
@@ -373,40 +367,6 @@ Kirigami.ApplicationWindow {
                     askDirectChatConfirmation.close();
                 }
                 onRejected: askDirectChatConfirmation.close();
-            }
-        }
-    }
-
-    Component {
-        id: openLinkConfirmationComponent
-
-        Kirigami.OverlaySheet {
-            id: openLinkConfirmation
-            required property var url;
-
-            header: Kirigami.Heading {
-                text: i18n("Confirm opening a link")
-            }
-            parent: QQC2.ApplicationWindow.overlay
-            contentItem: ColumnLayout {
-                QQC2.Label {
-                    text: i18n("Do you want to open the link to %1?", `<a href='${url}'>${url}</a>`)
-                    wrapMode: Text.WordWrap
-                }
-                QQC2.CheckBox {
-                    id: dontAskAgain
-                    text: i18n("Don't ask again")
-                }
-            }
-            footer: QQC2.DialogButtonBox {
-                standardButtons: QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel
-                onAccepted: {
-                    Config.confirmLinksAction = !dontAskAgain.checked;
-                    Config.save();
-                    Qt.openUrlExternally(url);
-                    openLinkConfirmation.close();
-                }
-                onRejected: openLinkConfirmation.close();
             }
         }
     }

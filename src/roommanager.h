@@ -95,9 +95,6 @@ Q_SIGNALS:
     /// Displays warning to the user.
     void warning(const QString &title, const QString &message);
 
-    /// Ask user to open link and then open it.
-    void openLink(const QUrl &url);
-
 private:
     NeoChatRoom *m_currentRoom;
     NeoChatRoom *m_lastCurrentRoom;
