@@ -28,9 +28,6 @@ Image {
 
     source: "image://mxc/" + mediaId
 
-    sourceSize.width: info.w
-    sourceSize.height: info.h
-
     fillMode: Image.PreserveAspectFit
 
     ToolTip.text: display
