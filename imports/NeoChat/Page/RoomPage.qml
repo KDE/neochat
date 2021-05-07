@@ -157,8 +157,8 @@ Kirigami.ScrollablePage {
             interval: 200
             onTriggered: hoverActions.visible = hoverActions.visibleDelayed;
         }
-        x: bubble.x + Kirigami.Units.largeSpacing + Math.max(bubble.width - childWidth, 0)
-        y: bubble.mapToItem(page, 0, -Kirigami.Units.largeSpacing - hoverActions.childHeight * 1.5).y
+        x: bubble ? (bubble.x + Kirigami.Units.largeSpacing + Math.max(bubble.width - childWidth, 0)) : 0
+        y: bubble ? bubble.mapToItem(page, 0, -Kirigami.Units.largeSpacing - hoverActions.childHeight * 1.5).y : 0
         visible: false
 
         property var updateFunction
@@ -691,7 +691,6 @@ Kirigami.ScrollablePage {
             typingNotification: visible ? i18ncp("Message displayed when some users are typing", "%2 is typing", "%2 are typing", currentRoom.usersTyping.length, currentRoom.usersTyping.map(user => user.displayName).join(", ")) : ""
             width: parent.width
             height: visible ? implicitHeight : 0
-            anchors.bottom: attachmentSeparator.top
             Behavior on height {
                 NumberAnimation {
                     property: "height"
