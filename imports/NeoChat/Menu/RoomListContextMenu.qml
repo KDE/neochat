@@ -44,7 +44,7 @@ Menu {
 
     MenuItem {
         text: i18n("Leave Room")
-        onTriggered: RoomManager.leaveRoom()
+        onTriggered: RoomManager.leaveRoom(room)
     }
 
     onClosed: destroy()
