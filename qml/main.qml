@@ -369,4 +369,21 @@ Kirigami.ApplicationWindow {
             }
         }
     }
+
+    property Item hoverLinkIndicator: QQC2.Control {
+        parent: overlay.parent 
+        property alias text: linkText.text
+        opacity: text.length > 0 ? 1 : 0
+
+        z: 20
+        x: 0
+        y: parent.height - implicitHeight
+        contentItem: QQC2.Label {
+            id: linkText
+        }
+        Kirigami.Theme.colorSet: Kirigami.Theme.View
+        background: Rectangle {
+             color: Kirigami.Theme.backgroundColor
+        }
+    }
 }

@@ -51,6 +51,11 @@ a{
     Layout.fillWidth: true
 
     onLinkActivated: RoomManager.openResource(link)
+    onHoveredLinkChanged: if (hoveredLink.length > 0) {
+        applicationWindow().hoverLinkIndicator.text = hoveredLink;
+    } else {
+        applicationWindow().hoverLinkIndicator.text = "";
+    }
 
     MouseArea {
         anchors.fill: parent
