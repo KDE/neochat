@@ -10,6 +10,7 @@
 
 #include <KAboutData>
 class QKeySequences;
+class QNetworkConfigurationManager;
 
 #include "connection.h"
 #include "csapi/list_public_rooms.h"
@@ -31,6 +32,7 @@ class Controller : public QObject
     Q_PROPERTY(bool busy READ busy WRITE setBusy NOTIFY busyChanged)
     Q_PROPERTY(KAboutData aboutData READ aboutData WRITE setAboutData NOTIFY aboutDataChanged)
     Q_PROPERTY(bool supportSystemTray READ supportSystemTray CONSTANT)
+    Q_PROPERTY(bool isOnline READ isOnline NOTIFY isOnlineChanged)
 
 public:
     static Controller &instance();
@@ -78,6 +80,7 @@ public:
     /// \brief Join a room.
     Q_INVOKABLE void joinRoom(const QString &alias);
 
+    bool isOnline() const;
 private:
     explicit Controller(QObject *parent = nullptr);
     ~Controller() override;
@@ -126,6 +129,7 @@ Q_SIGNALS:
     void openRoom(NeoChatRoom *room);
     void userConsentRequired(QUrl url);
     void testConnectionResult(const QString &connection, bool usable);
+    void isOnlineChanged(bool isOnline);
 
 public Q_SLOTS:
     void logout(Quotient::Connection *conn, bool serverSideLogout);
@@ -133,6 +137,9 @@ public Q_SLOTS:
     void changeAvatar(Quotient::Connection *conn, const QUrl &localFile);
     static void markAllMessagesAsRead(Quotient::Connection *conn);
     void saveWindowGeometry(QQuickWindow *);
+
+private:
+    QNetworkConfigurationManager *m_mgr;
 };
 
 // TODO libQuotient 0.7: Drop

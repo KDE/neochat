@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick 2.15
+import QtQuick.Controls 2.15 as QQC2
 import Qt.labs.platform 1.1 as Platform
 import org.kde.kirigami 2.15 as Kirigami
 
@@ -46,6 +47,31 @@ Item {
             duration: Kirigami.Units.shortDuration
             easing.type: Easing.OutCubic
         }
+    }
+
+    Kirigami.Separator {
+        id: connectionPaneSeparator
+        visible: connectionPane.visible
+        width: parent.width
+        height: visible ? implicitHeight : 0
+        anchors.bottom: connectionPane.top
+        z: 1
+    }
+
+    QQC2.Pane {
+        id: connectionPane
+        padding: fontMetrics.lineSpacing * 0.25
+        spacing: 0
+        Kirigami.Theme.colorSet: Kirigami.Theme.View
+        background: Rectangle {
+            color: Kirigami.Theme.backgroundColor
+        }
+        visible: !Controller.isOnline
+        width: parent.width
+        QQC2.Label {
+            text: i18n("NeoChat is online. Please check your network connection.")
+        }
+        anchors.bottom: emojiPickerLoaderSeparator.top
     }
 
     Kirigami.Separator {

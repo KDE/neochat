@@ -29,6 +29,7 @@
 #include <QSysInfo>
 #include <QTimer>
 #include <utility>
+#include <QNetworkConfigurationManager>
 
 #include <signal.h>
 
@@ -56,6 +57,7 @@ using namespace Quotient;
 
 Controller::Controller(QObject *parent)
     : QObject(parent)
+    , m_mgr(new QNetworkConfigurationManager(this))
 {
     Connection::setRoomType<NeoChatRoom>();
     Connection::setUserType<NeoChatUser>();
@@ -110,6 +112,9 @@ Controller::Controller(QObject *parent)
         sigaction(sig, &sa, nullptr);
     }
 #endif
+
+    connect(m_mgr, &QNetworkConfigurationManager::onlineStateChanged,
+            this, &Controller::isOnlineChanged);
 }
 
 Controller::~Controller()
@@ -573,6 +578,11 @@ void Controller::createRoom(const QString &name, const QString &topic)
     Quotient::CreateRoomJob::connect(createRoomJob, &CreateRoomJob::success, [=] {
         Q_EMIT roomJoined(createRoomJob->roomId());
     });
+}
+
+bool Controller::isOnline() const
+{
+    return m_mgr->isOnline();
 }
 
 void Controller::joinRoom(const QString &alias)
