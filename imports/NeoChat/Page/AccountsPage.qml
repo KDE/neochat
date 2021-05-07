@@ -104,15 +104,27 @@ Kirigami.ScrollablePage {
                     source: userEditSheet.connection.localUser.avatarMediaId ? ("image://mxc/" + userEditSheet.connection.localUser.avatarMediaId) : ""
 
                     MouseArea {
+                        id: mouseArea
                         anchors.fill: parent
+                        property var fileDialog: null;
                         onClicked: {
-                            const fileDialog = openFileDialog.createObject(Controls.ApplicationWindow.Overlay)
+                            if (fileDialog != null) {
+                                return;
+                            }
+
+                            fileDialog = openFileDialog.createObject(Controls.ApplicationWindow.Overlay)
 
                             fileDialog.chosen.connect(function(receivedSource) {
-                                if (!receivedSource) return
-                                parent.source = receivedSource
-                            })
-                            fileDialog.open()
+                                mouseArea.fileDialog = null;
+                                if (!receivedSource) {
+                                    return;
+                                }
+                                parent.source = receivedSource;
+                            });
+                            fileDialog.onRejected.connect(function() {
+                                mouseArea.fileDialog = null;
+                            });
+                            fileDialog.open();
                         }
                     }
                 }
