@@ -110,7 +110,7 @@ Q_SIGNALS:
     /// Either when a new room was created, a direct chat was started
     /// or a group chat was joined. The UI will react to this signal
     /// and switch to the newly joined room.
-    void roomJoined(const QString &roomName);
+    void roomJoined(const QString &room);
 
     /// Error occurred because of server or bug in NeoChat
     void globalErrorOccured(QString error, QString detail);

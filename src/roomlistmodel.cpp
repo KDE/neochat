@@ -24,6 +24,7 @@
 
 #include "csapi/notifications.h"
 #include "notificationsmanager.h"
+#include "roommanager.h"
 
 #ifndef Q_OS_ANDROID
 bool useUnityCounter()
@@ -288,6 +289,7 @@ void RoomListModel::updateRoom(Room *room, Room *prev)
     } else {
         beginInsertRows(QModelIndex(), m_rooms.count(), m_rooms.count());
         doAddRoom(newRoom);
+        RoomManager::instance().enterRoom(qobject_cast<NeoChatRoom *>(newRoom));
         endInsertRows();
     }
 }

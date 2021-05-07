@@ -24,6 +24,12 @@ RoomManager::RoomManager(QObject *parent)
 RoomManager::~RoomManager()
 {}
 
+RoomManager &RoomManager::instance()
+{
+    static RoomManager _instance;
+    return _instance;
+}
+
 NeoChatRoom *RoomManager::currentRoom() const
 {
     return m_currentRoom;
@@ -118,15 +124,14 @@ void RoomManager::openRoomForActiveConnection()
 
 void RoomManager::enterRoom(NeoChatRoom *room)
 {
-    if (!m_currentRoom) {
-        m_lastCurrentRoom = std::exchange(m_currentRoom, room);
-        Q_EMIT currentRoomChanged();
-        Q_EMIT pushRoom(room, QString());
-    }
-
     m_lastCurrentRoom = std::exchange(m_currentRoom, room);
     Q_EMIT currentRoomChanged();
-    Q_EMIT replaceRoom(m_currentRoom, QString());
+
+    if (!m_currentRoom) {
+        Q_EMIT pushRoom(room, QString());
+    } else {
+        Q_EMIT replaceRoom(m_currentRoom, QString());
+    }
 
     // Save last open room
     KConfigGroup lastOpenRoomGroup(&m_config, "LastOpenRoom");

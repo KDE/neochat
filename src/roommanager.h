@@ -31,6 +31,7 @@ class RoomManager : public QObject, public UriResolverBase
 public:
     explicit RoomManager(QObject *parent = nullptr);
     virtual ~RoomManager();
+    static RoomManager &instance();
 
     /// Load the last opened room or the welcome page.
     Q_INVOKABLE void loadInitialRoom();
@@ -104,5 +105,3 @@ private:
     QString m_arg;
     KConfig m_config;
 };
-
-Q_GLOBAL_STATIC(RoomManager, roomManager)

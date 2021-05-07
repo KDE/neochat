@@ -104,13 +104,13 @@ int main(int argc, char *argv[])
     KDBusService service(KDBusService::Unique);
     service.connect(&service,
                     &KDBusService::activateRequested,
-                    roomManager,
+                    &RoomManager::instance(),
                     [](const QStringList &arguments, const QString &workingDirectory) {
                         Q_UNUSED(workingDirectory);
                         auto args = arguments;
                         args.removeFirst();
                         for (const auto &arg : args) {
-                            roomManager->openResource(arg);
+                            RoomManager::instance().openResource(arg);
                         }
                     });
 #endif
@@ -131,7 +131,7 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Controller", &Controller::instance());
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Clipboard", &clipboard);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Config", config);
-    qmlRegisterSingletonInstance<RoomManager>("org.kde.neochat", 1, 0, "RoomManager", roomManager);
+    qmlRegisterSingletonInstance<RoomManager>("org.kde.neochat", 1, 0, "RoomManager", &RoomManager::instance());
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "FileType", &fileTypeSingleton);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "LoginHelper", login);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "ChatBoxHelper", &chatBoxHelper);
@@ -197,7 +197,7 @@ int main(int argc, char *argv[])
     }
 
     if (parser.positionalArguments().length() > 0) {
-        roomManager->setUrlArgument(parser.positionalArguments()[0]);
+        RoomManager::instance().setUrlArgument(parser.positionalArguments()[0]);
     }
 
 #ifdef HAVE_KDBUSADDONS
