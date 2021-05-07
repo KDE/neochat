@@ -239,7 +239,11 @@ Kirigami.ApplicationWindow {
     Connections {
         target: LoginHelper
         function onInitialSyncFinished() {
-            RoomManager.roomList = pageStack.replace(roomListComponent);
+            pageStack.replace(roomListComponent, {
+                activeConnection: Controller.activeConnection
+            });
+            roomListLoaded = true;
+            RoomManager.loadInitialRoom();
         }
     }
 
