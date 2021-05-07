@@ -234,7 +234,6 @@ Kirigami.ApplicationWindow {
         id: roomListComponent
         RoomListPage {
             id: roomList
-            activeConnection: Controller.activeConnection
         }
     }
     Connections {

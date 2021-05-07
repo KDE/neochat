@@ -18,7 +18,6 @@ Kirigami.ScrollablePage {
     id: page
 
     property var enteredRoom
-    required property var activeConnection
 
     function goToNextRoom() {
         do {
@@ -58,7 +57,10 @@ Kirigami.ScrollablePage {
             helpfulAction: Kirigami.Action {
                 icon.name: sortFilterRoomListModel.filterText.length > 0 ? "search" : "list-add"
                 text: sortFilterRoomListModel.filterText.length > 0 ? i18n("Search in room directory") : i18n("Explore rooms")
-                onTriggered: pageStack.layers.push("qrc:/imports/NeoChat/Page/JoinRoomPage.qml", {"connection": activeConnection, "keyword": sortFilterRoomListModel.filterText})
+                onTriggered: pageStack.layers.push("qrc:/imports/NeoChat/Page/JoinRoomPage.qml", {
+                    connection: Controller.activeConnection,
+                    keyword: sortFilterRoomListModel.filterText
+                })
             }
         }
 
@@ -74,7 +76,7 @@ Kirigami.ScrollablePage {
             id: sortFilterRoomListModel
             sourceModel: RoomListModel {
                 id: roomListModel
-                connection: page.activeConnection
+                connection: Controller.activeConnection
             }
             roomSortOrder: Config.mergeRoomList ? SortFilterRoomListModel.LastActivity : SortFilterRoomListModel.Categories
             onLayoutChanged: {
@@ -184,18 +186,28 @@ Kirigami.ScrollablePage {
         }
     }
 
-    footer: RowLayout {
-        visible: accountListTab.count > 1
-        height: visible ? accountListTab.implicitHeight : 0
-        Repeater {
-            id: accountListTab
-            model: AccountListModel { }
-            delegate: QQC2.TabButton {
-                checkable: true
-                checked: Controller.activeConnection.user.id === model.connection.user.id
-                onClicked: Controller.activeConnection = model.connection
-                Layout.fillWidth: true
-                text: model.user.id
+    footer: QQC2.ToolBar {
+        visible: accountList.count > 1
+        height: visible ? implicitHeight : 0
+        leftPadding: 0
+        rightPadding: 0
+        topPadding: 0
+        bottomPadding: 0
+        contentItem: RowLayout {
+            spacing: 0
+            Repeater {
+                id: accountList
+                model: AccountListModel {
+                    id: accountListModel
+                }
+                delegate: Kirigami.BasicListItem {
+                    checkable: true
+                    checked: Controller.activeConnection.localUser.id === model.user.id
+                    onClicked: Controller.activeConnection = model.connection
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    text: model.user.id
+                }
             }
         }
     }
