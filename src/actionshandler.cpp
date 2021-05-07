@@ -12,6 +12,7 @@
 #include <QStringBuilder>
 
 #include "controller.h"
+#include "roommanager.h"
 
 ActionsHandler::ActionsHandler(QObject *parent)
     : QObject(parent)
@@ -52,7 +53,7 @@ void ActionsHandler::setConnection(Connection *connection)
     if (m_connection != nullptr) {
         connect(m_connection, &Connection::directChatAvailable, this, [this](Quotient::Room *room) {
             room->setDisplayed(true);
-            Q_EMIT Controller::instance().roomJoined(room->id());
+            RoomManager::instance().enterRoom(qobject_cast<NeoChatRoom *>(room));
         });
     }
     Q_EMIT connectionChanged();

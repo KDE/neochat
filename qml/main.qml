@@ -289,17 +289,9 @@ Kirigami.ApplicationWindow {
             root.showWindow()
         }
 
-        function onOpenRoom(room) {
-            RoomManager.enterRoom(room)
-        }
-
         function onUserConsentRequired(url) {
             consentSheet.url = url
             consentSheet.open()
-        }
-
-        function onRoomJoined(roomName) {
-            RoomManager.enterRoom(Controller.activeConnection.room(roomName))
         }
     }
 

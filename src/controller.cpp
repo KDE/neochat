@@ -567,9 +567,6 @@ void Controller::createRoom(const QString &name, const QString &topic)
     Quotient::CreateRoomJob::connect(createRoomJob, &CreateRoomJob::failure, [=] {
         Q_EMIT errorOccured(i18n("Room creation failed: \"%1\"", createRoomJob->errorString()));
     });
-    Quotient::CreateRoomJob::connect(createRoomJob, &CreateRoomJob::success, [=] {
-        Q_EMIT roomJoined(createRoomJob->roomId());
-    });
 }
 
 bool Controller::isOnline() const

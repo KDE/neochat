@@ -105,13 +105,6 @@ Q_SIGNALS:
     /// Error occurred because of user inputs
     void errorOccured(const QString &error);
 
-    /// \brief Emitted when an action made the user join a room.
-    ///
-    /// Either when a new room was created, a direct chat was started
-    /// or a group chat was joined. The UI will react to this signal
-    /// and switch to the newly joined room.
-    void roomJoined(const QString &room);
-
     /// Error occurred because of server or bug in NeoChat
     void globalErrorOccured(QString error, QString detail);
     void syncDone();
@@ -126,7 +119,6 @@ Q_SIGNALS:
     void aboutDataChanged();
     void passwordStatus(Controller::PasswordStatus _t1);
     void showWindow();
-    void openRoom(NeoChatRoom *room);
     void userConsentRequired(QUrl url);
     void testConnectionResult(const QString &connection, bool usable);
     void isOnlineChanged(bool isOnline);
