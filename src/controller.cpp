@@ -309,7 +309,6 @@ QByteArray Controller::loadAccessTokenFromFile(const AccountSettings &account)
 
 QByteArray Controller::loadAccessTokenFromKeyChain(const AccountSettings &account)
 {
-#ifndef Q_OS_ANDROID
     qDebug() << "Read the access token from the keychain for " << account.userId();
     QKeychain::ReadPasswordJob job(qAppName());
     job.setAutoDelete(false);
@@ -343,13 +342,6 @@ QByteArray Controller::loadAccessTokenFromKeyChain(const AccountSettings &accoun
     }
 
     return accessToken;
-#else
-    qDebug() << "Saving access token to KConfig";
-    KConfig config("neochat_tokens");
-    KConfigGroup tokensGroup(&config, "Tokens");
-    QString token = tokensGroup.readEntry(account.userId(), QString());
-    return token.toLatin1();
-#endif
 }
 
 bool Controller::saveAccessTokenToFile(const AccountSettings &account, const QByteArray &accessToken)
