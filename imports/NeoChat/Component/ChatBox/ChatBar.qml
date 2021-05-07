@@ -149,7 +149,7 @@ ToolBar {
                         chatBar.pasteImage();
                     } else if (event.key === Qt.Key_Up && event.modifiers & Qt.ControlModifier) {
                         replyPreviousUserMessage();
-                    } else if (event.key === Qt.Key_Up) {
+                    } else if (event.key === Qt.Key_Up && inputField.text.length === 0) {
                         editLastUserMessage();
                     }
                 }
