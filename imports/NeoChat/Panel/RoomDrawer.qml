@@ -196,10 +196,11 @@ Kirigami.OverlayDrawer {
 
                         contentItem: RowLayout {
                             Kirigami.Avatar {
-                                Layout.preferredWidth: height
-                                Layout.fillHeight: true
+                                Layout.preferredWidth: Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 2.5
+                                Layout.preferredHeight: Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 2.5
                                 visible: Config.showAvatarInTimeline
-
+                                sourceSize.height: Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 2.5
+                                sourceSize.width: Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 2.5
                                 source: avatar ? ("image://mxc/" + avatar) : ""
                                 name: name
                             }

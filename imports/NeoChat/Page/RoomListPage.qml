@@ -138,6 +138,8 @@ Kirigami.ScrollablePage {
                 name: model.name || i18n("No Name")
                 implicitWidth: visible ? height : 0
                 visible: Config.showAvatarInTimeline
+                sourceSize.width: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
+                sourceSize.height: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
             }
 
             trailing: RowLayout {

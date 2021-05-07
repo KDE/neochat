@@ -79,6 +79,8 @@ QQC2.ItemDelegate {
                 Layout.minimumHeight: Kirigami.Units.gridUnit * 2
                 Layout.maximumWidth: Kirigami.Units.gridUnit * 2
                 Layout.maximumHeight: Kirigami.Units.gridUnit * 2
+                sourceSize.width: Kirigami.Units.gridUnit * 2
+                sourceSize.height: Kirigami.Units.gridUnit * 2
 
                 Layout.alignment: Qt.AlignTop
 
