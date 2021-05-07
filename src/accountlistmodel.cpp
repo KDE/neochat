@@ -20,7 +20,6 @@ AccountListModel::AccountListModel(QObject *parent)
         endInsertRows();
     });
     connect(&Controller::instance(), &Controller::connectionDropped, this, [=](Connection *conn) {
-        qDebug() << "Dropping connection" << conn->userId();
         if (!conn) {
             qDebug() << "Trying to remove null connection";
             return;
