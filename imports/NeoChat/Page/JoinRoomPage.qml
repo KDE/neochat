@@ -101,7 +101,7 @@ Kirigami.ScrollablePage {
                     Controller.joinRoom(roomID)
                     justJoined = true;
                 } else {
-                    roomManager.enterRoom(connection.room(roomID))
+                    RoomManager.enterRoom(connection.room(roomID))
                 }
                 applicationWindow().pageStack.layers.pop();
             }
