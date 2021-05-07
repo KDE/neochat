@@ -5,6 +5,7 @@
 
 #include <QObject>
 #include <uriresolver.h>
+#include <KConfig>
 
 class NeoChatRoom;
 
@@ -96,9 +97,12 @@ Q_SIGNALS:
     void warning(const QString &title, const QString &message);
 
 private:
+    void openRoomForActiveConnection();
+
     NeoChatRoom *m_currentRoom;
     NeoChatRoom *m_lastCurrentRoom;
     QString m_arg;
+    KConfig m_config;
 };
 
 Q_GLOBAL_STATIC(RoomManager, roomManager)

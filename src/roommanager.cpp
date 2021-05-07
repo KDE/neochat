@@ -7,6 +7,8 @@
 #include "neochatconfig.h"
 #include "controller.h"
 #include <QDesktopServices>
+#include <QStandardPaths>
+#include <KConfigGroup>
 #include <KLocalizedString>
 #include <csapi/joining.h>
 #include <utility>
@@ -15,7 +17,9 @@ RoomManager::RoomManager(QObject *parent)
     : QObject(parent)
     , m_currentRoom(nullptr)
     , m_lastCurrentRoom(nullptr)
-{}
+    , m_config(KConfig("data", KConfig::SimpleConfig, QStandardPaths::AppDataLocation))
+{
+}
 
 RoomManager::~RoomManager()
 {}
@@ -77,14 +81,36 @@ void RoomManager::loadInitialRoom()
         return;
     }
 
-    if (!NeoChatConfig::self()->openRoom().isEmpty()) {
+    openRoomForActiveConnection();
+
+    connect(&Controller::instance(), &Controller::activeConnectionChanged,
+            this, &RoomManager::openRoomForActiveConnection);
+}
+
+void RoomManager::openRoomForActiveConnection()
+{
+    // Read from last open room
+    KConfigGroup lastOpenRoomGroup(&m_config, "LastOpenRoom");
+    QString roomId = lastOpenRoomGroup.readEntry(Controller::instance().activeConnection()->userId(), QString());
+
+    // TODO remove legacy check at some point.
+    if (roomId.isEmpty()) {
+        roomId = NeoChatConfig::self()->openRoom();
+    }
+
+    if (!roomId.isEmpty()) {
         // Here we can cast because the controller has been configured to
         // return NeoChatRoom instead of simple Quotient::Room
         const auto room = qobject_cast<NeoChatRoom *>(
-                Controller::instance().activeConnection()->room(NeoChatConfig::self()->openRoom()));
-        m_lastCurrentRoom = std::exchange(m_currentRoom, room);
-        Q_EMIT currentRoomChanged();
-        Q_EMIT pushRoom(room, QString());
+                Controller::instance().activeConnection()->room(roomId));
+
+        if (room) {
+            m_lastCurrentRoom = std::exchange(m_currentRoom, room);
+            Q_EMIT currentRoomChanged();
+            Q_EMIT pushRoom(room, QString());
+        } else {
+            Q_EMIT pushWelcomePage();
+        }
     } else {
         Q_EMIT pushWelcomePage();
     }
@@ -102,8 +128,10 @@ void RoomManager::enterRoom(NeoChatRoom *room)
     Q_EMIT currentRoomChanged();
     Q_EMIT replaceRoom(m_currentRoom, QString());
 
-    NeoChatConfig::self()->setOpenRoom(room->id());
-    NeoChatConfig::self()->save();
+    // Save last open room
+    KConfigGroup lastOpenRoomGroup(&m_config, "LastOpenRoom");
+    lastOpenRoomGroup.writeEntry(Controller::instance().activeConnection()->userId(), room->id());
+    lastOpenRoomGroup.config()->sync();
 }
 
 void RoomManager::openWindow(NeoChatRoom *room)
