@@ -112,8 +112,8 @@ void ActionsHandler::postMessage(const QString &text,
     auto messageEventType = RoomMessageEvent::MsgType::Text;
 
     // Message commands
-    static const QString shrugPrefix = QStringLiteral("/shrug ");
-    static const QString lennyPrefix = QStringLiteral("/lenny ");
+    static const QString shrugPrefix = QStringLiteral("/shrug");
+    static const QString lennyPrefix = QStringLiteral("/lenny");
     static const QString plainPrefix = QStringLiteral("/plain "); // TODO
     static const QString htmlPrefix = QStringLiteral("/html "); // TODO
     static const QString rainbowPrefix = QStringLiteral("/rainbow ");
