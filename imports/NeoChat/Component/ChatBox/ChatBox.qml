@@ -69,7 +69,7 @@ Item {
         visible: !Controller.isOnline
         width: parent.width
         QQC2.Label {
-            text: i18n("NeoChat is online. Please check your network connection.")
+            text: i18n("NeoChat is offline. Please check your network connection.")
         }
         anchors.bottom: emojiPickerLoaderSeparator.top
     }
