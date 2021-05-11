@@ -9,7 +9,6 @@ import Qt.labs.platform 1.1 as Platform
 import QtMultimedia 5.15
 
 import org.kde.kirigami 2.15 as Kirigami
-import org.kde.kcoreaddons 1.0 as KCA
 
 import org.kde.neochat 1.0
 import NeoChat.Component 1.0
@@ -56,7 +55,7 @@ Control {
             }
 
             Label {
-                text: KCA.Format.formatDuration(audio.position) + "/" + KCA.Format.formatDuration(audio.duration)
+                text: Controller.formatDuration(audio.position) + "/" + Controller.formatDuration(audio.duration)
             }
         }
     }

@@ -9,6 +9,8 @@
 #include <QObject>
 
 #include <KAboutData>
+#include <KFormat>
+
 class QKeySequences;
 class QNetworkConfigurationManager;
 
@@ -81,6 +83,9 @@ public:
     Q_INVOKABLE void joinRoom(const QString &alias);
 
     bool isOnline() const;
+
+    Q_INVOKABLE QString formatDuration(quint64 msecs, KFormat::DurationFormatOptions options = KFormat::DefaultDuration) const;
+    Q_INVOKABLE QString formatByteSize(double size, int precision = 1) const;
 private:
     explicit Controller(QObject *parent = nullptr);
     ~Controller() override;

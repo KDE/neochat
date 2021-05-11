@@ -8,7 +8,6 @@ import QtGraphicalEffects 1.15
 import Qt.labs.platform 1.1
 
 import org.kde.kirigami 2.15 as Kirigami
-import org.kde.kcoreaddons 1.0 as KCA
 
 import org.kde.neochat 1.0
 import NeoChat.Component 1.0
@@ -43,7 +42,7 @@ RowLayout {
 
         Label {
             Layout.fillWidth: true
-            text: !progressInfo.completed && progressInfo.active ? (KCA.Format.formatByteSize(progressInfo.progress) + "/" + KCA.Format.formatByteSize(progressInfo.total)) : KCA.Format.formatByteSize(content.info ? content.info.size : 0)
+            text: !progressInfo.completed && progressInfo.active ? (Controller.formatByteSize(progressInfo.progress) + "/" + Controller.formatByteSize(progressInfo.total)) : Controller.formatByteSize(content.info ? content.info.size : 0)
             color: Kirigami.Theme.disabledTextColor
             wrapMode: Label.Wrap
         }

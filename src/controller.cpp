@@ -591,3 +591,13 @@ void Controller::joinRoom(const QString &alias)
         Q_EMIT errorOccured(joinRoomJob->roomId());
     });
 }
+
+QString Controller::formatByteSize(double size, int precision) const
+{
+    return KFormat().formatByteSize(size, precision);
+}
+
+QString Controller::formatDuration(quint64 msecs, KFormat::DurationFormatOptions options) const
+{
+    return KFormat().formatDuration(msecs, options);
+}
