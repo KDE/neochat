@@ -95,6 +95,9 @@ void RoomManager::loadInitialRoom()
 
 void RoomManager::openRoomForActiveConnection()
 {
+    if(!Controller::instance().activeConnection()) {
+        return;
+    }
     // Read from last open room
     KConfigGroup lastOpenRoomGroup(&m_config, "LastOpenRoom");
     QString roomId = lastOpenRoomGroup.readEntry(Controller::instance().activeConnection()->userId(), QString());
