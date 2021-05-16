@@ -237,7 +237,6 @@ Item {
         function onEditing(editContent, editFormatedContent) {
             // Set the input field in edit mode
             root.inputFieldText = editContent;
-            //root.replyContent = editContent;
 
             // clean autocompletion list
             chatBar.userAutocompleted = {};
@@ -253,6 +252,7 @@ Item {
             while ((match = regex.exec(editFormatedContent.toString())) !== null) {
                 chatBar.userAutocompleted[match[2]] = match[1];
             }
+            chatBox.forceActiveFocus();
         }
     }
 

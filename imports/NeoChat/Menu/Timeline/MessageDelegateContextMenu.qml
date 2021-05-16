@@ -16,31 +16,33 @@ Loader {
     required property var author
     required property string message
     required property string eventId
+    property string eventType: ""
+    property string formattedBody: ""
     required property string source
 
     property list<Kirigami.Action> actions: [
         Kirigami.Action {
+            text: i18n("Edit")
+            icon.name: "document-edit"
+            onTriggered: ChatBoxHelper.edit(message, formattedBody, eventId);
+            visible: eventType.length > 0 && author.id === Controller.activeConnection.localUserId && (eventType === "emote" || eventType === "message")
+        },
+        Kirigami.Action {
             text: i18n("Reply")
             icon.name: "mail-replied-symbolic"
-            onTriggered: {
-                ChatBoxHelper.replyToMessage(eventId, message, author);
-            }
+            onTriggered: ChatBoxHelper.replyToMessage(eventId, message, author);
         },
         Kirigami.Action {
             visible: author.id === currentRoom.localUser.id || currentRoom.canSendState("redact")
             text: i18n("Remove")
             icon.name: "edit-delete-remove"
             icon.color: "red"
-            onTriggered: {
-                currentRoom.redactEvent(eventId);
-            }
+            onTriggered: currentRoom.redactEvent(eventId);
         },
         Kirigami.Action {
             text: i18n("Copy")
             icon.name: "edit-copy"
-            onTriggered: {
-                Clipboard.saveText(message)
-            }
+            onTriggered: Clipboard.saveText(message)
         },
         Kirigami.Action {
             text: i18n("View Source")
@@ -54,6 +56,17 @@ Loader {
     Component {
         id: regularMenu
 
+        QQC2.Menu {
+            Repeater {
+                model: loadRoot.actions
+                QQC2.MenuItem {
+                    visible: modelData.visible
+                    action: modelData
+                    onClicked: loadRoot.item.close();
+                }
+            }
+        }
+        /*
         Kirigami.OverlaySheet {
             id: root
 
@@ -133,18 +146,8 @@ Loader {
                 Kirigami.Separator {
                     Layout.fillWidth: true
                 }
-                Repeater {
-                    model: loadRoot.actions
-                    Kirigami.BasicListItem {
-                        visible: modelData.visible
-                        action: modelData
-                        onClicked: {
-                            loadRoot.item.close();
-                        }
-                    }
-                }
             }
-        }
+        }*/
     }
     Component {
         id: mobileMenu
@@ -254,7 +257,11 @@ Loader {
     }
 
     onStatusChanged: if (status == Loader.Ready) {
-        item.open();
+        if (Kirigami.Settings.isMobile) {
+            item.open();
+        } else {
+            item.popup();
+        }
     }
 }
 

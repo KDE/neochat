@@ -138,6 +138,7 @@ Kirigami.ScrollablePage {
             hoverActions.updateFunction();
         }
     }
+
     Item {
         id: hoverActions
         property var event
@@ -382,22 +383,21 @@ Kirigami.ScrollablePage {
                     isLoaded: timelineDelegateChooser.delegateLoaded
                     isEmote: true
                     onReplyClicked: goToEvent(eventID)
-
                     hoverComponent: hoverActions
 
                     innerObject: TextDelegate {
                         isEmote: true
-                        Layout.maximumWidth: emoteContainer.width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 4
+                        Layout.maximumWidth: emoteContainer.bubbleMaxWidth
                         Layout.rightMargin: Kirigami.Units.largeSpacing
                         Layout.leftMargin: Kirigami.Units.largeSpacing
                         Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
                         TapHandler {
                             acceptedButtons: Qt.RightButton
-                            onTapped: openMessageContext(author, model.display, eventId, toolTip)
+                            onTapped: openMessageContext(author, model.message, eventId, toolTip, eventType, model.formattedBody)
                         }
                         TapHandler {
                             acceptedButtons: Qt.LeftButton
-                            onLongPressed: openMessageContext(author, model.display, eventId, toolTip)
+                            onLongPressed: openMessageContext(author, model.message, eventId, toolTip, eventType, model.formattedBody)
                         }
                     }
                 }
@@ -410,21 +410,20 @@ Kirigami.ScrollablePage {
                     width: messageListView.width
                     isLoaded: timelineDelegateChooser.delegateLoaded
                     onReplyClicked: goToEvent(eventID)
-
                     hoverComponent: hoverActions
 
                     innerObject: TextDelegate {
-                        Layout.maximumWidth: messageContainer.width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 4
+                        Layout.maximumWidth: messageContainer.bubbleMaxWidth
                         Layout.rightMargin: Kirigami.Units.largeSpacing
                         Layout.bottomMargin: Kirigami.Units.largeSpacing
                         Layout.leftMargin: Kirigami.Units.largeSpacing
                         TapHandler {
                             acceptedButtons: Qt.RightButton
-                            onTapped: openMessageContext(author, model.display, eventId, toolTip)
+                            onTapped: openMessageContext(author, model.message, eventId, toolTip, eventType, model.formattedBody)
                         }
                         TapHandler {
                             acceptedButtons: Qt.LeftButton
-                            onLongPressed: openMessageContext(author, model.display, eventId, toolTip)
+                            onLongPressed: openMessageContext(author, model.message, eventId, toolTip, eventType, model.formattedBody)
                         }
                     }
                 }
@@ -438,9 +437,8 @@ Kirigami.ScrollablePage {
                     isLoaded: timelineDelegateChooser.delegateLoaded
                     onReplyClicked: goToEvent(eventID)
 
-                    hoverComponent: hoverActions
                     innerObject: TextDelegate {
-                        Layout.maximumWidth: noticeContainer.width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 4
+                        Layout.maximumWidth: noticeContainer.bubbleMaxWidth
                         Layout.rightMargin: Kirigami.Units.largeSpacing
                         Layout.leftMargin: Kirigami.Units.largeSpacing
                         Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
@@ -451,18 +449,18 @@ Kirigami.ScrollablePage {
             DelegateChoice {
                 roleValue: "image"
                 delegate: TimelineContainer {
+                    id: imageContainer
                     isLoaded: timelineDelegateChooser.delegateLoaded
+                    width: messageListView.width
                     onReplyClicked: goToEvent(eventID)
-
                     hoverComponent: hoverActions
 
                     innerObject: ImageDelegate {
-                        Layout.minimumWidth: Kirigami.Units.gridUnit * 10
-                        Layout.fillWidth: true
+                        Layout.preferredWidth: Kirigami.Units.gridUnit * 15
+                        Layout.maximumWidth: imageContainer.bubbleMaxWidth
                         Layout.bottomMargin: Kirigami.Units.largeSpacing
                         Layout.preferredHeight: info.h / info.w * width
-                        Layout.maximumHeight: Kirigami.Units.gridUnit * 15
-                        Layout.maximumWidth: Kirigami.Units.gridUnit * 30
+                        Layout.maximumHeight: Kirigami.Units.gridUnit * 20
                         TapHandler {
                             acceptedButtons: Qt.RightButton
                             onTapped: openFileContext(author, model.display, eventId, toolTip, progressInfo, parent)
@@ -484,7 +482,6 @@ Kirigami.ScrollablePage {
                     isLoaded: timelineDelegateChooser.delegateLoaded
                     width: messageListView.width
                     onReplyClicked: goToEvent(eventID)
-
                     hoverComponent: hoverActions
                     cardBackground: false
 
@@ -500,14 +497,15 @@ Kirigami.ScrollablePage {
             DelegateChoice {
                 roleValue: "audio"
                 delegate: TimelineContainer {
+                    id: audioContainer
                     width: messageListView.width
-                    hoverComponent: hoverActions
-
                     isLoaded: timelineDelegateChooser.delegateLoaded
                     onReplyClicked: goToEvent(eventID)
+                    hoverComponent: hoverActions
 
                     innerObject: AudioDelegate {
                         Layout.fillWidth: true
+                        Layout.maximumWidth: audioContainer.bubbleMaxWidth
                         TapHandler {
                             acceptedButtons: Qt.RightButton
                             onTapped: openFileContext(author, model.display, eventId, toolTip, progressInfo, parent)
@@ -523,16 +521,15 @@ Kirigami.ScrollablePage {
             DelegateChoice {
                 roleValue: "video"
                 delegate: TimelineContainer {
+                    id: videoContainer
                     width: messageListView.width
-                    hoverComponent: hoverActions
-
                     isLoaded: timelineDelegateChooser.delegateLoaded
                     onReplyClicked: goToEvent(eventID)
+                    hoverComponent: hoverActions
 
                     innerObject: VideoDelegate {
                         Layout.fillWidth: true
-                        Layout.minimumWidth: Kirigami.Units.gridUnit * 10
-                        Layout.maximumWidth: Kirigami.Units.gridUnit * 30
+                        Layout.maximumWidth: videoContainer.bubbleMaxWidth
                         Layout.preferredHeight: content.info.h / content.info.w * width
                         Layout.maximumHeight: Kirigami.Units.gridUnit * 15
                         Layout.minimumHeight: Kirigami.Units.gridUnit * 5
@@ -552,15 +549,14 @@ Kirigami.ScrollablePage {
             DelegateChoice {
                 roleValue: "file"
                 delegate: TimelineContainer {
+                    id: fileContainer
                     width: messageListView.width
-
-                    hoverComponent: hoverActions
-
                     isLoaded: timelineDelegateChooser.delegateLoaded
                     onReplyClicked: goToEvent(eventID)
 
                     innerObject: FileDelegate {
                         Layout.fillWidth: true
+                        Layout.maximumWidth: fileContainer.bubbleMaxWidth
                         TapHandler {
                             acceptedButtons: Qt.RightButton
                             onTapped: openFileContext(author, model.display, eventId, toolTip, progressInfo, parent)
@@ -818,23 +814,26 @@ Kirigami.ScrollablePage {
     /// Open message context dialog for file and videos
     function openFileContext(author, message, eventId, source, progressInfo, file) {
         const contextMenu = fileDelegateContextMenu.createObject(page, {
-            'author': author,
-            'message': message,
-            'eventId': eventId,
-            'source': source,
-            'file': file,
-            'progressInfo': progressInfo,
+            author: author,
+            message: message,
+            eventId: eventId,
+            source: source,
+            file: file,
+            progressInfo: progressInfo,
         });
         contextMenu.open();
     }
 
     /// Open context menu for normal message
-    function openMessageContext(author, message, eventId, source) {
+    function openMessageContext(author, message, eventId, source, eventType, formattedBody) {
+        console.log("message", message)
         const contextMenu = messageDelegateContextMenu.createObject(page, {
-            'author': author,
-            'message': message,
-            'eventId': eventId,
-            'source': source,
+            author: author,
+            message: message,
+            eventId: eventId,
+            formattedBody: formattedBody,
+            source: source,
+            eventType: eventType
         });
         contextMenu.open();
     }

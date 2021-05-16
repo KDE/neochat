@@ -8,7 +8,7 @@ import org.kde.kirigami 2.15 as Kirigami
 
 Kirigami.Heading {
     level: 4
-    text: section
+    text: model.showSection ? section : ""
     verticalAlignment: Text.AlignVCenter
     topPadding: Kirigami.Units.largeSpacing * 2
     bottomPadding: Kirigami.Units.smallSpacing
