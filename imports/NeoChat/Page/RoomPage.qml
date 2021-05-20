@@ -98,8 +98,9 @@ Kirigami.ScrollablePage {
         id: loadingIndicator
         anchors.centerIn: parent
         visible: page.currentRoom === null || (messageListView.count === 0 && !page.currentRoom.allHistoryLoaded && !page.currentRoom.isInvite)
+        text: i18n("Loading")
         QQC2.BusyIndicator {
-            running: true
+            running: loadingIndicator.visible
         }
     }
 
@@ -342,6 +343,7 @@ Kirigami.ScrollablePage {
             }
             NumberAnimation {
                 property: "opacity"; to: 1
+                duration: Kirigami.Units.shortDuration
             }
         }
 
@@ -353,6 +355,7 @@ Kirigami.ScrollablePage {
             }
             NumberAnimation {
                 property: "opacity"; to: 1
+                duration: Kirigami.Units.shortDuration
             }
         }
 
@@ -744,7 +747,7 @@ Kirigami.ScrollablePage {
         Connections {
             enabled: Config.showFancyEffects
             target: messageEventModel
-            onFancyEffectsReasonFound: {
+            function onFancyEffectsReasonFound(fancyEffect) {
                 fancyEffectsContainer.processFancyEffectsReason(fancyEffect)
             }
         }
@@ -752,7 +755,7 @@ Kirigami.ScrollablePage {
         Connections {
             enabled: Config.showFancyEffects
             target: chatBox
-            onFancyEffectsReasonFound: {
+            function onFancyEffectsReasonFound(fancyEffect) {
                 fancyEffectsContainer.processFancyEffectsReason(fancyEffect)
             }
         }

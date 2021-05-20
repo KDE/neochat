@@ -38,6 +38,7 @@ Loader {
                 text: typingNotification
             }
             BusyIndicator {
+                running: root.active
                 Layout.alignment: Qt.AlignRight
                 Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
                 Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
