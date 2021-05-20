@@ -130,7 +130,7 @@ void RoomManager::enterRoom(NeoChatRoom *room)
     m_lastCurrentRoom = std::exchange(m_currentRoom, room);
     Q_EMIT currentRoomChanged();
 
-    if (!m_currentRoom) {
+    if (!m_lastCurrentRoom) {
         Q_EMIT pushRoom(room, QString());
     } else {
         Q_EMIT replaceRoom(m_currentRoom, QString());
