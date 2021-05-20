@@ -322,43 +322,6 @@ Kirigami.ScrollablePage {
             sourceModel: messageEventModel
         }
 
-        populate: Transition {
-            NumberAnimation {
-                property: "opacity"; from: 0; to: 1
-                duration: Kirigami.Units.shortDuration
-            }
-        }
-
-        add: Transition {
-            NumberAnimation {
-                property: "opacity"; from: 0; to: 1
-                duration: Kirigami.Units.shortDuration
-            }
-        }
-
-        move: Transition {
-            NumberAnimation {
-                property: "y"
-                duration: Kirigami.Units.shortDuration
-            }
-            NumberAnimation {
-                property: "opacity"; to: 1
-                duration: Kirigami.Units.shortDuration
-            }
-        }
-
-        displaced: Transition {
-            NumberAnimation {
-                property: "y"
-                duration: Kirigami.Units.shortDuration
-                easing.type: Easing.OutQuad
-            }
-            NumberAnimation {
-                property: "opacity"; to: 1
-                duration: Kirigami.Units.shortDuration
-            }
-        }
-
         delegate: DelegateChooser {
             id: timelineDelegateChooser
             role: "eventType"
