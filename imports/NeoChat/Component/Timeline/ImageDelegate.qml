@@ -15,6 +15,7 @@ import NeoChat.Menu.Timeline 1.0
 Image {
     id: img
 
+    property var content: model.content
     readonly property bool isAnimated: contentType === "image/gif"
 
     property bool openOnFinished: false

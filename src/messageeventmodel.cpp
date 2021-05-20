@@ -559,9 +559,56 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         };
         const auto &replyEvt = **replyIt;
 
-        return QVariantMap{{"eventId", replyEventId},
-                           {"display", m_currentRoom->eventToString(replyEvt, Qt::RichText)},
-                           {"author", userAtEvent(static_cast<NeoChatUser *>(m_currentRoom->user(replyEvt.senderId())), m_currentRoom, evt)}};
+        QString type;
+        if (auto e = eventCast<const RoomMessageEvent>(&replyEvt)) {
+            switch (e->msgtype()) {
+            case MessageEventType::Emote:
+                type = "emote";
+                break;
+            case MessageEventType::Notice:
+                type = "notice";
+                break;
+            case MessageEventType::Image:
+                type = "image";
+                break;
+            case MessageEventType::Audio:
+                type = "audio";
+                break;
+            case MessageEventType::Video:
+                type = "video";
+                break;
+            default:
+                if (e->hasFileContent()) {
+                    type = "file";
+                    break;
+                }
+                type = "message";
+            }
+
+        } else if (is<const StickerEvent>(replyEvt)) {
+            type = "sticker";
+        } else {
+            type = "other";
+        }
+
+        QVariant content;
+        if (auto e = eventCast<const RoomMessageEvent>(&replyEvt)) {
+            // Cannot use e.contentJson() here because some
+            // EventContent classes inject values into the copy of the
+            // content JSON stored in EventContent::Base
+            content = e->hasFileContent() ? QVariant::fromValue(e->content()->originalJson) : QVariant();
+        };
+
+        if (auto e = eventCast<const StickerEvent>(&replyEvt)) {
+            content = QVariant::fromValue(e->image().originalJson);
+        }
+
+        return QVariantMap{
+            {"eventId", replyEventId},
+            {"display", m_currentRoom->eventToString(replyEvt, Qt::RichText)},
+            {"content", content},
+            {"type", type},
+            {"author", userAtEvent(static_cast<NeoChatUser *>(m_currentRoom->user(replyEvt.senderId())), m_currentRoom, evt)}};
     }
 
     if (role == ShowAuthorRole) {

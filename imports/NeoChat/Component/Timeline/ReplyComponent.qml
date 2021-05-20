@@ -14,8 +14,8 @@ import NeoChat.Component.Timeline 1.0
 MouseArea {
     id: replyButton
     Layout.fillWidth: true
-    implicitHeight: replyName.implicitHeight + replyText.implicitHeight + Kirigami.Units.largeSpacing
-    implicitWidth: Math.min(bubbleMaxWidth, Math.max(replyText.implicitWidth, replyName.implicitWidth)) + Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 3
+    implicitHeight: replyName.implicitHeight + (loader.item ? loader.item.height : 0) + Kirigami.Units.largeSpacing
+    implicitWidth: Math.min(bubbleMaxWidth, Math.max((loader.item ? loader.item.width : 0), replyName.implicitWidth)) + Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 3
     Component.onCompleted: {
         parent.Layout.fillWidth = true;
         parent.Layout.preferredWidth = Qt.binding(function() { return implicitWidth; })
@@ -56,18 +56,48 @@ MouseArea {
         elide: Text.ElideRight
     }
 
-    TextDelegate {
-        id: replyText
-        anchors {
-            left: avatatReply.right
-            top: replyName.bottom
-            leftMargin: Kirigami.Units.smallSpacing
-            topMargin: Kirigami.Units.smallSpacing
-            right: parent.right
-            rightMargin: Kirigami.Units.smallSpacing
+    Loader {
+        id: loader
+        anchors.top: replyName.bottom
+        sourceComponent: {
+            switch (reply.type) {
+                case "image":
+                case "sticker":
+                    return imageComponent;
+                case "message":
+                    return textComponent;
+                // TODO support more types
+                default:
+                    return textComponent;
+            }
         }
-        textMessage: reply.display
-        textFormat: Text.RichText
-        wrapMode: Text.WordWrap
+
+        Component {
+            id: textComponent
+            TextDelegate {
+                id: replyText
+                textMessage: reply.display
+                textFormat: Text.RichText
+                wrapMode: Text.WordWrap
+                width: Math.min(implicitWidth, bubbleMaxWidth) - Kirigami.Units.smallSpacing * 5 - avatatReply.width
+                x: Kirigami.Units.smallSpacing * 3 + avatatReply.width
+            }
+        }
+
+        Component {
+            id: imageComponent
+            Image {
+                readonly property var content: reply.content
+                readonly property bool isThumbnail: !(content.info.thumbnail_info == null || content.thumbnailMediaId == null)
+                //    readonly property var info: isThumbnail ? content.info.thumbnail_info : content.info
+                readonly property var info: content.info
+                readonly property string mediaId: isThumbnail ? content.thumbnailMediaId : content.mediaId
+                source: "image://mxc/" + mediaId
+
+                width: bubbleMaxWidth * 0.75 - Kirigami.Units.smallSpacing * 5 - avatatReply.width
+                height: reply.content.info.h / reply.content.info.w * width
+                x: Kirigami.Units.smallSpacing * 3 + avatatReply.width
+            }
+        }
     }
 }
