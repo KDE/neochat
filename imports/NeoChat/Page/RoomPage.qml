@@ -101,6 +101,7 @@ Kirigami.ScrollablePage {
         text: i18n("Loading")
         QQC2.BusyIndicator {
             running: loadingIndicator.visible
+            Layout.alignment: Qt.AlignHCenter
         }
     }
 
