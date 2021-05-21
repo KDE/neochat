@@ -346,11 +346,11 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
         if (room->isFavourite()) {
             return RoomType::Favorite;
         }
-        if (room->isDirectChat()) {
-            return RoomType::Direct;
-        }
         if (room->isLowPriority()) {
             return RoomType::Deprioritized;
+        }
+        if (room->isDirectChat()) {
+            return RoomType::Direct;
         }
         return RoomType::Normal;
     }
