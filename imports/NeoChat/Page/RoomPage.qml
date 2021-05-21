@@ -232,22 +232,11 @@ Kirigami.ScrollablePage {
 
         model: !isLoaded ? undefined : sortedMessageEventModel
 
+        onContentYChanged: fetchMoreContent()
 
-        onContentYChanged: updateReadMarker()
-        onCountChanged: updateReadMarker()
-
-        function updateReadMarker() {
-            if(!noNeedMoreContent && contentY  - 5000 < originY)
+        function fetchMoreContent() {
+            if(!noNeedMoreContent && contentY - 5000 < originY) {
                 currentRoom.getPreviousContent(20);
-            const index = currentRoom.readMarkerEventId ? eventToIndex(currentRoom.readMarkerEventId) : 0
-            if(index === -1) {
-                return
-            }
-            if(firstVisibleIndex() === -1 || lastVisibleIndex() === -1) {
-                return
-            }
-            if(index < firstVisibleIndex() && index > lastVisibleIndex()) {
-                currentRoom.readMarkerEventId = sortedMessageEventModel.data(sortedMessageEventModel.index(lastVisibleIndex(), 0), MessageEventModel.EventIdRole)
             }
         }
 
@@ -536,6 +525,71 @@ Kirigami.ScrollablePage {
                 }
             }
 
+            DelegateChoice {
+                roleValue: "readMarker"
+                delegate: QQC2.ItemDelegate {
+                    padding: Kirigami.Units.largeSpacing
+                    topInset: Kirigami.Units.largeSpacing
+                    topPadding: Kirigami.Units.largeSpacing * 2
+                    width: ListView.view.width - Kirigami.Units.gridUnit
+                    x: Kirigami.Units.gridUnit / 2
+                    contentItem: QQC2.Label {
+                        text: i18nc("Relative time since the room was last read", "Last read: %1", time)
+                    }
+
+                    background: Kirigami.ShadowedRectangle {
+                        color: Kirigami.Theme.backgroundColor
+                        opacity: 0.6
+                        radius: Kirigami.Units.smallSpacing
+                        shadow.size: Kirigami.Units.smallSpacing
+                        shadow.color: Qt.rgba(0.0, 0.0, 0.0, 0.10)
+                        border.color: Kirigami.ColorUtils.tintWithAlpha(color, Kirigami.Theme.textColor, 0.15)
+                        border.width: Kirigami.Units.devicePixelRatio
+                    }
+
+                    Timer {
+                        id: makeMeDisapearTimer
+                        interval: Kirigami.Units.humanMoment * 2
+                        onTriggered: currentRoom.markAllMessagesAsRead();
+                    }
+
+                    ListView.onPooled: makeMeDisapearTimer.stop()
+
+                    ListView.onAdd: {
+                        const view = ListView.view;
+                        if (view.atYEnd) {
+                            makeMeDisapearTimer.start()
+                        }
+                    }
+
+                    // When the read marker is visible and we are at the end of the list,
+                    // start the makeMeDisapearTimer
+                    Connections {
+                        target: ListView.view
+                        function onAtYEndChanged() {
+                            makeMeDisapearTimer.start();
+                        }
+                    }
+
+
+                    ListView.onRemove: {
+                        const view = ListView.view;
+
+                        if (view.atYEnd) {
+                            // easy case just mark everything as read
+                            currentRoom.markAllMessagesAsRead();
+                            return;
+                        }
+
+                        // mark the last visible index 
+                        const lastVisibleIdx = lastVisibleIndex();
+
+                        if (lastVisibleIdx < index) {
+                            currentRoom.readMarkerEventId = sortedMessageEventModel.data(sortedMessageEventModel.index(lastVisibleIdx, 0), MessageEventModel.EventIdRole)
+                        }
+                    }
+                }
+            }
 
             DelegateChoice {
                 roleValue: "other"

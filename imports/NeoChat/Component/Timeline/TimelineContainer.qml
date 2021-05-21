@@ -182,13 +182,4 @@ QQC2.ItemDelegate {
         visible: active
         sourceComponent: ReactionDelegate { }
     }
-
-    Rectangle {
-        width: parent.width * 0.9
-        x: parent.width * 0.05
-        height: Kirigami.Units.smallSpacing / 2
-        anchors.top: loader.bottom
-        visible: readMarker
-        color: Kirigami.Theme.positiveTextColor
-    }
 }

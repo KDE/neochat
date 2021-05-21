@@ -24,7 +24,6 @@ public:
         ContentRole,
         ContentTypeRole,
         HighlightRole,
-        ReadMarkerRole,
         SpecialMarksRole,
         LongOperationRole,
         AnnotationRole,
@@ -44,13 +43,6 @@ public:
         EventResolvedTypeRole,
     };
     Q_ENUM(EventRoles)
-
-    enum BubbleShapes {
-        NoShape = 0,
-        BeginShape,
-        MiddleShape,
-        EndShape,
-    };
 
     explicit MessageEventModel(QObject *parent = nullptr);
     ~MessageEventModel() override;
@@ -76,6 +68,7 @@ private Q_SLOTS:
 private:
     NeoChatRoom *m_currentRoom = nullptr;
     QString lastReadEventId;
+    QPersistentModelIndex m_lastReadEventIndex;
     int rowBelowInserted = -1;
     bool movingEvent = false;
 
@@ -86,6 +79,7 @@ private:
     void refreshLastUserEvents(int baseTimelineRow);
     void refreshEventRoles(int row, const QVector<int> &roles = {});
     int refreshEventRoles(const QString &eventId, const QVector<int> &roles = {});
+    void moveReadMarker(const QString &fromEventId, const QString &toEventId);
 
 Q_SIGNALS:
     void roomChanged();

@@ -19,6 +19,7 @@
 #include <QTimeZone>
 
 #include <KLocalizedString>
+#include <KFormat>
 
 #include "utils.h"
 
@@ -34,7 +35,6 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[ContentRole] = "content";
     roles[ContentTypeRole] = "contentType";
     roles[HighlightRole] = "isHighlighted";
-    roles[ReadMarkerRole] = "readMarker";
     roles[SpecialMarksRole] = "marks";
     roles[LongOperationRole] = "progressInfo";
     roles[AnnotationRole] = "annotation";
@@ -90,6 +90,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
 
     m_currentRoom = room;
     if (room) {
+        m_lastReadEventIndex = QPersistentModelIndex(QModelIndex());
         room->setDisplayed();
         if (m_currentRoom->timelineSize() < 10) {
             room->getPreviousContent(50);
@@ -141,6 +142,10 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         });
         connect(m_currentRoom, &Room::addedMessages, this, [=](int lowest, int biggest) {
             endInsertRows();
+            if (!m_lastReadEventIndex.isValid()) {
+                // no read marker, so see if we need to create one.
+                moveReadMarker(QString(), m_currentRoom->readMarkerEventId());
+            }
             if (biggest < m_currentRoom->maxTimelineIndex()) {
                 auto rowBelowInserted = m_currentRoom->maxTimelineIndex() - biggest + timelineBaseIndex() - 1;
                 refreshEventRoles(rowBelowInserted, {ShowAuthorRole});
@@ -170,9 +175,6 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             }
             refreshRow(timelineBaseIndex()); // Refresh the looks
             refreshLastUserEvents(0);
-            if (m_currentRoom->timelineSize() > 1) { // Refresh above
-                refreshEventRoles(timelineBaseIndex() + 1, {ReadMarkerRole});
-            }
             if (timelineBaseIndex() > 0) { // Refresh below, see #312
                 refreshEventRoles(timelineBaseIndex() - 1, {ShowAuthorRole});
             }
@@ -182,10 +184,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             beginRemoveRows({}, i, i);
         });
         connect(m_currentRoom, &Room::pendingEventDiscarded, this, &MessageEventModel::endRemoveRows);
-        connect(m_currentRoom, &Room::readMarkerMoved, this, [this] {
-            refreshEventRoles(std::exchange(lastReadEventId, m_currentRoom->readMarkerEventId()), {ReadMarkerRole});
-            refreshEventRoles(lastReadEventId, {ReadMarkerRole});
-        });
+        connect(m_currentRoom, &Room::readMarkerMoved, this, &MessageEventModel::moveReadMarker);
         connect(m_currentRoom, &Room::replacedEvent, this, [this](const RoomEvent *newEvent) {
             refreshLastUserEvents(refreshEvent(newEvent->id()) - timelineBaseIndex());
         });
@@ -199,10 +198,6 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         connect(m_currentRoom, &Room::fileTransferCompleted, this, &MessageEventModel::refreshEvent);
         connect(m_currentRoom, &Room::fileTransferFailed, this, &MessageEventModel::refreshEvent);
         connect(m_currentRoom, &Room::fileTransferCancelled, this, &MessageEventModel::refreshEvent);
-        connect(m_currentRoom, &Room::readMarkerForUserMoved, this, [=](User *, const QString &fromEventId, const QString &toEventId) {
-            refreshEventRoles(fromEventId, {UserMarkerRole});
-            refreshEventRoles(toEventId, {UserMarkerRole});
-        });
         connect(m_currentRoom->connection(), &Connection::ignoredUsersListChanged, this, [=] {
             beginResetModel();
             endResetModel();
@@ -233,6 +228,43 @@ void MessageEventModel::refreshEventRoles(int row, const QVector<int> &roles)
 {
     const auto idx = index(row);
     Q_EMIT dataChanged(idx, idx, roles);
+}
+
+void MessageEventModel::moveReadMarker(const QString &fromEventId, const QString &toEventId)
+{
+    const auto timelineIt = m_currentRoom->findInTimeline(toEventId);
+    if (timelineIt == m_currentRoom->timelineEdge()) {
+        return;
+    }
+    int newRow = int(timelineIt - m_currentRoom->messageEvents().rbegin()) + timelineBaseIndex();
+
+    if (!m_lastReadEventIndex.isValid()) {
+        // Not valid index means we don't display any marker yet, in this case
+        // we create the new index and insert the row in case the read marker
+        // need to be displayed.
+        if (newRow > timelineBaseIndex()) {
+            // The user didn't read all the messages yet.
+            beginInsertRows({}, newRow, newRow);
+            m_lastReadEventIndex = QPersistentModelIndex(index(newRow, 0));
+            endInsertRows();
+            return;
+        }
+        // The user read all the messages and we didn't display any read marker yet
+        // => do nothing
+        return;
+    }
+    if (newRow <= timelineBaseIndex()) {
+        // The user read all the messages => remove read marker
+        beginRemoveRows({}, m_lastReadEventIndex.row(), m_lastReadEventIndex.row());
+        m_lastReadEventIndex = QModelIndex();
+        endRemoveRows();
+        return;
+    }
+
+    // The user didn't read all the messages yet but moved the reader marker.
+    beginMoveRows({}, m_lastReadEventIndex.row(), m_lastReadEventIndex.row(), {}, newRow);
+    m_lastReadEventIndex = QPersistentModelIndex(index(newRow, 0));
+    endMoveRows();
 }
 
 int MessageEventModel::refreshEventRoles(const QString &id, const QVector<int> &roles)
@@ -327,7 +359,15 @@ int MessageEventModel::rowCount(const QModelIndex &parent) const
     if (!m_currentRoom || parent.isValid()) {
         return 0;
     }
-    return m_currentRoom->timelineSize();
+
+    const auto firstIt = m_currentRoom->messageEvents().crbegin();
+    if (firstIt != m_currentRoom->messageEvents().crend()) {
+        const auto &firstEvt = **firstIt;
+        return m_currentRoom->timelineSize() + (lastReadEventId != firstEvt.id() ? 1 : 0);
+    } else {
+        return m_currentRoom->timelineSize();
+    }
+
 }
 
 inline QVariantMap userAtEvent(NeoChatUser *user, NeoChatRoom *room, const RoomEvent &evt)
@@ -354,7 +394,22 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     };
 
     bool isPending = row < timelineBaseIndex();
-    const auto timelineIt = m_currentRoom->messageEvents().crbegin() + std::max(0, row - timelineBaseIndex());
+
+    if (m_lastReadEventIndex.row() == row) {
+        switch(role) {
+        case EventTypeRole:
+            return QStringLiteral("readMarker");
+        case TimeRole:
+            {
+                const QDateTime eventDate = data(index(m_lastReadEventIndex.row() + 1, 0), TimeRole).toDateTime();
+                const KFormat format;
+                return format.formatRelativeDateTime(eventDate, QLocale::ShortFormat);
+            }
+        }
+        return {};
+    }
+
+    const auto timelineIt = m_currentRoom->messageEvents().crbegin() + std::max(0, row - timelineBaseIndex() - (m_lastReadEventIndex.isValid() && m_lastReadEventIndex.row() < row ? 1 : 0));
     const auto pendingIt = m_currentRoom->pendingEvents().crbegin() + std::min(row, timelineBaseIndex());
     const auto &evt = isPending ? **pendingIt : **timelineIt;
 
@@ -455,10 +510,6 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 
     if (role == HighlightRole) {
         return m_currentRoom->isEventHighlighted(&evt);
-    }
-
-    if (role == ReadMarkerRole) {
-        return evt.id() == lastReadEventId && row > timelineBaseIndex();
     }
 
     if (role == SpecialMarksRole) {
