@@ -104,7 +104,7 @@ Kirigami.OverlaySheet {
             }
         }
         Kirigami.BasicListItem {
-            visible: user !== room.localUser && room.canSendState("kick")
+            visible: user !== room.localUser && room.canSendState("kick") && room.containsUser(user)
 
             action: Kirigami.Action {
                 text: i18n("Kick this user")
