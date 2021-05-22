@@ -98,6 +98,7 @@ public:
     [[nodiscard]] QString eventToString(const RoomEvent &evt, Qt::TextFormat format = Qt::PlainText, bool removeReply = true) const;
 
     Q_INVOKABLE [[nodiscard]] bool containsUser(const QString &userID) const;
+    Q_INVOKABLE [[nodiscard]] bool isUserBanned(const QString &user) const;
 
     Q_INVOKABLE [[nodiscard]] bool canSendEvent(const QString &eventType) const;
     Q_INVOKABLE [[nodiscard]] bool canSendState(const QString &eventType) const;
