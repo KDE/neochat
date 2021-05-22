@@ -123,7 +123,7 @@ Kirigami.OverlaySheet {
                 icon.name: "im-ban-user"
                 icon.color: Kirigami.Theme.negativeTextColor
                 onTriggered: {
-                    room.banMember(user.id)
+                    room.ban(user.id)
                     root.close()
                 }
             }
