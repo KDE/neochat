@@ -685,3 +685,8 @@ bool NeoChatRoom::isInvite() const
 {
     return joinState() == JoinState::Invite;
 }
+
+bool NeoChatRoom::isUserBanned(const QString &user) const
+{
+    return getCurrentState<RoomMemberEvent>(user)->membership() == MembershipType::Ban;
+}
