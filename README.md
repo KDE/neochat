@@ -1,3 +1,8 @@
+<!--
+    SPDX-FileCopyrightText: 2020-2021 Carl Schwan <carlschwan@kde.org>
+    SPDX-FileCopyrightText: 2020-2021 Tobias Fella <fella@posteo.de>
+    SPDX-License-Identifier: CC0-1.0
+-->
 # NeoChat
 
 NeoChat is a client for Matrix, the decentralized communication protocol for instant
