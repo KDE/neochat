@@ -532,9 +532,6 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         if (is<RedactionEvent>(evt) || is<ReactionEvent>(evt)) {
             return EventStatus::Hidden;
         }
-        if (evt.isRedacted()) {
-            return EventStatus::Hidden;
-        }
 
         if (evt.isStateEvent() && static_cast<const StateEventBase &>(evt).repeatsState()) {
             return EventStatus::Hidden;
