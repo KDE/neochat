@@ -21,7 +21,7 @@ QQC2.ItemDelegate {
     property bool isEmote: false
     property bool cardBackground: true
 
-    readonly property int bubbleMaxWidth: Math.min(width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 4, Kirigami.Units.gridUnit * 20)
+    readonly property int bubbleMaxWidth: !Config.showAvatarInTimeline ? width : Math.min(width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 4, Kirigami.Units.gridUnit * 20)
 
     signal saveFileAs()
     signal openExternally()
@@ -48,20 +48,20 @@ QQC2.ItemDelegate {
         }
     }
 
-    height: sectionDelegate.height + Math.max(avatar.height, bubble.implicitHeight) + loader.height + (model.showAuthor ? Kirigami.Units.smallSpacing : 0)
+    height: sectionDelegate.height + Math.max(avatar.height, bubble.implicitHeight) + loader.height + (model.showAuthor ? Kirigami.Units.smallSpacing : 0) - (Config.showAvatarInTimeline ? 0 : Kirigami.Units.largeSpacing)
 
     SectionDelegate {
         id: sectionDelegate
         width: parent.width
-        anchors.left: parent.left
-        anchors.leftMargin: Kirigami.Units.gridUnit * 2 + Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
+        anchors.left: avatar.left
+        anchors.leftMargin: Kirigami.Units.smallSpacing
         visible: model.showSection
         height: visible ? implicitHeight : 0
     }
 
     Kirigami.Avatar {
         id: avatar
-        width: Kirigami.Units.gridUnit * 2
+        width: visible || Config.showAvatarInTimeline ? Kirigami.Units.gridUnit * 2 : 0
         height: width
         sourceSize.width: width
         sourceSize.height: width
@@ -74,7 +74,7 @@ QQC2.ItemDelegate {
 
         visible: model.showAuthor && Config.showAvatarInTimeline
         name: model.author.name ?? model.author.displayName
-        source: model.author.avatarMediaId ? ("image://mxc/" + model.author.avatarMediaId) : ""
+        source: visible && model.author.avatarMediaId ? ("image://mxc/" + model.author.avatarMediaId) : ""
         color: model.author.color
 
         MouseArea {
@@ -94,7 +94,7 @@ QQC2.ItemDelegate {
 
     QQC2.Control {
         id: bubble
-        topPadding: Kirigami.Units.largeSpacing
+        topPadding: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing : 0
         bottomPadding: 0
         leftPadding: 0
         rightPadding: 0
@@ -103,6 +103,8 @@ QQC2.ItemDelegate {
             top: avatar.top
             left: avatar.right
             leftMargin: Kirigami.Units.smallSpacing
+            right: Config.showAvatarInTimeline ? undefined : parent.right
+            rightMargin: Config.showAvatarInTimeline ? undefined : Kirigami.Units.largeSpacing
         }
 
         contentItem: ColumnLayout {
@@ -112,10 +114,10 @@ QQC2.ItemDelegate {
                 id: rowLayout
                 visible: model.showAuthor && !isEmote
                 Layout.fillWidth: true
-                Layout.leftMargin: Kirigami.Units.largeSpacing
+                Layout.leftMargin: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing : 0
                 Layout.rightMargin: Kirigami.Units.largeSpacing
                 Layout.preferredWidth: nameLabel.implicitWidth + timeLabel.implicitWidth + Kirigami.Units.largeSpacing
-                Layout.maximumWidth: bubbleMaxWidth - Kirigami.Units.largeSpacing * 2
+                Layout.maximumWidth: bubbleMaxWidth
                 implicitHeight: visible ? nameLabel.implicitHeight : 0
 
                 QQC2.Label {
@@ -131,6 +133,19 @@ QQC2.ItemDelegate {
                     font.weight: Font.Bold
                     color: author.color
                     wrapMode: Text.Wrap
+                    MouseArea {
+                        anchors.fill: parent
+                        cursorShape: Qt.PointingHandCursor
+                        onClicked: {
+                            userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {
+                                room: currentRoom,
+                                user: author.object,
+                                displayName: author.displayName,
+                                avatarMediaId: author.avatarMediaId,
+                                avatarUrl: author.avatarUrl
+                            }).open();
+                        }
+                    }
                 }
                 QQC2.Label {
                     id: timeLabel
@@ -157,7 +172,7 @@ QQC2.ItemDelegate {
         }
 
         background: Kirigami.ShadowedRectangle {
-            visible: cardBackground
+            visible: cardBackground && Config.showAvatarInTimeline
             color: model.isHighlighted ? Kirigami.Theme.positiveBackgroundColor : Kirigami.Theme.backgroundColor
             radius: Kirigami.Units.smallSpacing
             shadow.size: Kirigami.Units.smallSpacing
@@ -170,13 +185,12 @@ QQC2.ItemDelegate {
     Loader {
         id: loader
         anchors {
-            left: parent.left
-            leftMargin: Kirigami.Units.gridUnit * 2 + Kirigami.Units.largeSpacing * 2
+            left: bubble.left
             right: parent.right
             top: bubble.bottom
-            topMargin: active ? Kirigami.Units.smallSpacing : 0
+            topMargin: active && Config.showAvatarInTimeline ? Kirigami.Units.smallSpacing : 0
         }
-        height: active ? item.implicitHeight + Kirigami.Units.smallSpacing : 0
+        height: active ? item.implicitHeight : 0
         //Layout.bottomMargin: readMarker ? Kirigami.Units.smallSpacing : 0
         active: eventType !== "state" && eventType !== "notice" && reaction != undefined && reaction.length > 0
         visible: active

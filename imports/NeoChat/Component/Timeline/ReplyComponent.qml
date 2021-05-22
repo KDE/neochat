@@ -32,7 +32,7 @@ MouseArea {
         id: avatatReply
         anchors.left: replyLeftBorder.right
         anchors.leftMargin: Kirigami.Units.smallSpacing
-        width: Kirigami.Units.gridUnit
+        width: visible ? Kirigami.Units.gridUnit : 0
         height: Kirigami.Units.gridUnit
         sourceSize.width: width
         sourceSize.height: height

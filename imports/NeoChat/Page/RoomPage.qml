@@ -343,9 +343,10 @@ Kirigami.ScrollablePage {
 
                     innerObject: TextDelegate {
                         isEmote: true
+                        Layout.fillWidth: !Config.showAvatarInTimeline
                         Layout.maximumWidth: emoteContainer.bubbleMaxWidth
                         Layout.rightMargin: Kirigami.Units.largeSpacing
-                        Layout.leftMargin: Kirigami.Units.largeSpacing
+                        Layout.leftMargin: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing : 0
                         Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
                         TapHandler {
                             acceptedButtons: Qt.RightButton
@@ -369,10 +370,11 @@ Kirigami.ScrollablePage {
                     hoverComponent: hoverActions
 
                     innerObject: TextDelegate {
+                        Layout.fillWidth: !Config.showAvatarInTimeline
                         Layout.maximumWidth: messageContainer.bubbleMaxWidth
                         Layout.rightMargin: Kirigami.Units.largeSpacing
                         Layout.bottomMargin: Kirigami.Units.largeSpacing
-                        Layout.leftMargin: Kirigami.Units.largeSpacing
+                        Layout.leftMargin: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing : 0
                         TapHandler {
                             acceptedButtons: Qt.RightButton
                             onTapped: openMessageContext(author, model.message, eventId, toolTip, eventType, model.formattedBody)
@@ -394,9 +396,10 @@ Kirigami.ScrollablePage {
                     onReplyClicked: goToEvent(eventID)
 
                     innerObject: TextDelegate {
+                        Layout.fillWidth: !Config.showAvatarInTimeline
                         Layout.maximumWidth: noticeContainer.bubbleMaxWidth
                         Layout.rightMargin: Kirigami.Units.largeSpacing
-                        Layout.leftMargin: Kirigami.Units.largeSpacing
+                        Layout.leftMargin: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing : 0
                         Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
                     }
                 }
