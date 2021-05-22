@@ -15,7 +15,7 @@ LoginStep {
     readonly property var homeserver: customHomeserver.visible ? customHomeserver.text : serverCombo.currentText
     property bool loading: false
 
-    title: i18n("@title", "Select a Homeserver")
+    title: i18nc("@title", "Select a Homeserver")
 
     action: Kirigami.Action {
         enabled: LoginHelper.homeserverReachable && !customHomeserver.visible || customHomeserver.acceptableInput
