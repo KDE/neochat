@@ -129,6 +129,19 @@ Kirigami.OverlaySheet {
             }
         }
         Kirigami.BasicListItem {
+            visible: user !== room.localUser && room.canSendState("unban") && room.isUserBanned(user.id)
+
+            action: Kirigami.Action {
+                text: i18n("Unban this user")
+                icon.name: "im-irc"
+                icon.color: Kirigami.Theme.negativeTextColor
+                onTriggered: {
+                    room.unban(user.id)
+                    root.close()
+                }
+            }
+        }
+        Kirigami.BasicListItem {
             action: Kirigami.Action {
                 text: i18n("Open a private chat")
                 icon.name: "document-send"
