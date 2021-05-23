@@ -370,7 +370,7 @@ ToolBar {
 
     function complete() {
         documentHandler.replaceAutoComplete(completionMenu.currentDisplayText);
-        if (completionMenu.completionType === "username") {
+        if (completionMenu.completionType === ChatDocumentHandler.User) {
             userAutocompleted[completionMenu.currentDisplayText] = completionMenu.currentUserId;
         }
     }
