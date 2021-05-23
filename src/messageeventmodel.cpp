@@ -697,7 +697,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             }
         }
 
-        return true;
+        return false;
     }
 
     if (role == ReactionRole) {
