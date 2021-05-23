@@ -232,18 +232,15 @@ Kirigami.ScrollablePage {
 
         model: !isLoaded ? undefined : sortedMessageEventModel
 
-        onContentYChanged: fetchMoreContent()
-
-        function fetchMoreContent() {
-            if(!noNeedMoreContent && contentY - 5000 < originY) {
-                currentRoom.getPreviousContent(20);
-            }
-        }
-
         MessageEventModel {
             id: messageEventModel
 
             room: currentRoom
+        }
+
+        // HACK: The view should do this automatically but doesn't.
+        onAtYBeginningChanged: if (atYBeginning && messageEventModel.canFetchMore(messageEventModel.index(0, 0))) {
+            messageEventModel.fetchMore(messageEventModel.index(0, 0));
         }
 
         QQC2.Popup {
@@ -596,7 +593,11 @@ Kirigami.ScrollablePage {
 
             DelegateChoice {
                 roleValue: "other"
-                delegate: Item {}
+                delegate: Rectangle {
+                    height: 10
+                    width: ListView.view.width
+                    color: "red"
+                }
             }
         }
 
@@ -646,10 +647,10 @@ Kirigami.ScrollablePage {
         }
 
         Component.onCompleted: {
-            updateReadMarker()
             if (currentRoom) {
-                if (currentRoom.timelineSize < 20)
-                    currentRoom.getPreviousContent(50)
+                if (currentRoom.timelineSize < 20) {
+                    currentRoom.getPreviousContent(50);
+                }
             }
 
             positionViewAtBeginning();

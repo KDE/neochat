@@ -370,6 +370,20 @@ int MessageEventModel::rowCount(const QModelIndex &parent) const
 
 }
 
+bool MessageEventModel::canFetchMore(const QModelIndex &parent) const
+{
+    Q_UNUSED(parent);
+
+    return m_currentRoom && !m_currentRoom->eventsHistoryJob() && !m_currentRoom->allHistoryLoaded();
+}
+
+void MessageEventModel::fetchMore(const QModelIndex &parent)
+{
+    Q_UNUSED(parent);
+    m_currentRoom->getPreviousContent(20);
+}
+
+
 inline QVariantMap userAtEvent(NeoChatUser *user, NeoChatRoom *room, const RoomEvent &evt)
 {
     Q_UNUSED(evt)
