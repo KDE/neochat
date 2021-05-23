@@ -221,7 +221,6 @@ Kirigami.ScrollablePage {
         visible: !invitation.visible
 
         readonly property int largestVisibleIndex: count > 0 ? indexAt(contentX + (width / 2), contentY + height - 1) : -1
-        readonly property bool noNeedMoreContent: !currentRoom || currentRoom.eventsHistoryJob || currentRoom.allHistoryLoaded
         readonly property bool isLoaded: page.width * page.height > 10
 
         spacing: Kirigami.Units.smallSpacing

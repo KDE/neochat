@@ -380,7 +380,9 @@ bool MessageEventModel::canFetchMore(const QModelIndex &parent) const
 void MessageEventModel::fetchMore(const QModelIndex &parent)
 {
     Q_UNUSED(parent);
-    m_currentRoom->getPreviousContent(20);
+    if (m_currentRoom) {
+        m_currentRoom->getPreviousContent(20);
+    }
 }
 
 
