@@ -76,6 +76,9 @@ private:
     [[nodiscard]] QDateTime makeMessageTimestamp(const Quotient::Room::rev_iter_t &baseIt) const;
     [[nodiscard]] static QString renderDate(const QDateTime &timestamp);
 
+    bool canFetchMore(const QModelIndex &parent) const override;
+    void fetchMore(const QModelIndex &parent) override;
+
     void refreshLastUserEvents(int baseTimelineRow);
     void refreshEventRoles(int row, const QVector<int> &roles = {});
     int refreshEventRoles(const QString &eventId, const QVector<int> &roles = {});
