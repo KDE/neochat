@@ -143,9 +143,9 @@ Kirigami.ScrollablePage {
 
     Item {
         id: hoverActions
-        property var event
+        property var event: null
         property bool showEdit: event && (event.author.id === Controller.activeConnection.localUserId && (event.eventType === "emote" || event.eventType === "message"))
-        property var bubble
+        property var bubble: null
         property var hovered: bubble && bubble.hovered
         property var visibleDelayed: (hovered || hoverHandler.hovered) && !Kirigami.Settings.isMobile
         onVisibleDelayedChanged: if (visibleDelayed) {

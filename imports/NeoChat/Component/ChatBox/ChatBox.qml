@@ -61,6 +61,10 @@ Item {
     QQC2.Pane {
         id: connectionPane
         padding: fontMetrics.lineSpacing * 0.25
+        FontMetrics {
+            id: fontMetrics
+            font: networkLabel.font
+        }
         spacing: 0
         Kirigami.Theme.colorSet: Kirigami.Theme.View
         background: Rectangle {
@@ -69,6 +73,7 @@ Item {
         visible: !Controller.isOnline
         width: parent.width
         QQC2.Label {
+            id: networkLabel
             text: i18n("NeoChat is offline. Please check your network connection.")
         }
         anchors.bottom: emojiPickerLoaderSeparator.top
