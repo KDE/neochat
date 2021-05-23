@@ -133,7 +133,7 @@ Kirigami.OverlaySheet {
                 text: i18n("Open a private chat")
                 icon.name: "document-send"
                 onTriggered: {
-                    Controller.activeConnection.requestDirectChat(user)
+                    Controller.openOrCreateDirectChat(user);
                     root.close()
                 }
             }
