@@ -47,6 +47,7 @@
 #include "neochatuser.h"
 #include "settings.h"
 #include "utils.h"
+#include "roommanager.h"
 #include <KStandardShortcut>
 
 #ifndef Q_OS_ANDROID
@@ -590,6 +591,17 @@ void Controller::joinRoom(const QString &alias)
     connect(joinRoomJob, &JoinRoomJob::success, [this, joinRoomJob] {
         Q_EMIT errorOccured(joinRoomJob->roomId());
     });
+}
+
+void Controller::openOrCreateDirectChat(NeoChatUser *user)
+{
+    const auto existing = activeConnection()->directChats();
+
+    if (existing.contains(user)) {
+        RoomManager::instance().enterRoom(static_cast<NeoChatRoom *>(activeConnection()->room(existing.value(user))));
+        return;
+    }
+    activeConnection()->requestDirectChat(user);
 }
 
 QString Controller::formatByteSize(double size, int precision) const

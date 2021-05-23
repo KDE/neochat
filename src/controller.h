@@ -21,6 +21,7 @@ class QNetworkConfigurationManager;
 #include "user.h"
 
 class NeoChatRoom;
+class NeoChatUser;
 class QQuickWindow;
 
 using namespace Quotient;
@@ -86,6 +87,8 @@ public:
 
     Q_INVOKABLE QString formatDuration(quint64 msecs, KFormat::DurationFormatOptions options = KFormat::DefaultDuration) const;
     Q_INVOKABLE QString formatByteSize(double size, int precision = 1) const;
+
+    Q_INVOKABLE void openOrCreateDirectChat(NeoChatUser *user);
 private:
     explicit Controller(QObject *parent = nullptr);
     ~Controller() override;
