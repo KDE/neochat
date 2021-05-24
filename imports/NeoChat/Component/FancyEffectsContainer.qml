@@ -8,7 +8,7 @@ import QtQuick.Particles 2.15
 
 import org.kde.kirigami 2.15 as Kirigami
 
-Rectangle {
+Item {
     id: item
     property bool enabled: false
     property int effectInterval: Kirigami.Units.veryLongDuration*10;
@@ -26,11 +26,6 @@ Rectangle {
     function showFireworksEffect() {
         fireworksTimer.start()
     }
-
-    // backgroundColor
-    color: Kirigami.Theme.backgroundColor
-    Kirigami.Theme.colorSet: Kirigami.Theme.Window
-    Kirigami.Theme.inherit: false
 
     // Confetti
 

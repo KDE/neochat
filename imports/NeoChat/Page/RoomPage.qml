@@ -750,6 +750,7 @@ Kirigami.ScrollablePage {
 
     background: FancyEffectsContainer {
         id: fancyEffectsContainer
+        z: 100
 
         enabled: Config.showFancyEffects
 
