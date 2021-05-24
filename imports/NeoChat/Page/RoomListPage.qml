@@ -202,7 +202,7 @@ Kirigami.ScrollablePage {
                 }
                 delegate: Kirigami.BasicListItem {
                     checkable: true
-                    checked: Controller.activeConnection.localUser.id === model.user.id
+                    checked: Controller.activeConnection && Controller.activeConnection.localUser.id === model.user.id
                     onClicked: Controller.activeConnection = model.connection
                     Layout.fillWidth: true
                     Layout.fillHeight: true
