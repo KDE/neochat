@@ -863,7 +863,6 @@ Kirigami.ScrollablePage {
 
     /// Open context menu for normal message
     function openMessageContext(author, message, eventId, source, eventType, formattedBody) {
-        console.log("message", message)
         const contextMenu = messageDelegateContextMenu.createObject(page, {
             author: author,
             message: message,
