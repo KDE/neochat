@@ -33,7 +33,7 @@ add_executable(neochat
     ../res.qrc
 )
 
-if(${Quotient_VERSION_MINOR} GREATER 6)
+if(Quotient_VERSION_MINOR GREATER 6)
     target_compile_definitions(neochat PRIVATE QUOTIENT_07)
 endif()
 

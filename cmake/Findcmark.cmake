@@ -7,14 +7,16 @@
 
 # first try to find cmark-config.cmake
 # path to a file not in the search path can be set with 'cmake -Dcmark_DIR=some/path/'
-find_package(cmark CONFIG)
+find_package(cmark CONFIG QUIET)
 if(cmark_FOUND AND TARGET cmark::cmark)
   # found it!
   return()
 endif()
 
-include(FindPkgConfig)
-pkg_check_modules(PC_CMARK QUIET cmark)
+find_package(PkgConfig QUIET)
+if(PKG_CONFIG_FOUND)
+  pkg_check_modules(PC_CMARK QUIET cmark)
+endif()
 
 if(NOT CMARK_INCLUDE_DIR)
   find_path(CMARK_INCLUDE_DIR
