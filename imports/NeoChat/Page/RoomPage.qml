@@ -237,6 +237,18 @@ Kirigami.ScrollablePage {
             room: currentRoom
         }
 
+        Timer {
+            interval: 1000
+            running: messageListView.atYBeginning
+            triggeredOnStart: true
+            onTriggered: {
+                if (messageListView.atYBeginning && messageEventModel.canFetchMore(messageEventModel.index(0, 0))) {
+                    messageEventModel.fetchMore(messageEventModel.index(0, 0));
+                }
+            }
+            repeat: true
+        }
+
         // HACK: The view should do this automatically but doesn't.
         onAtYBeginningChanged: if (atYBeginning && messageEventModel.canFetchMore(messageEventModel.index(0, 0))) {
             messageEventModel.fetchMore(messageEventModel.index(0, 0));
