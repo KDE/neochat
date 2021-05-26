@@ -3,7 +3,6 @@
 
 #pragma once
 
-#include <QApplication>
 #include <QMediaPlayer>
 #include <QMenu>
 #include <QObject>

@@ -20,7 +20,9 @@
 #include <QElapsedTimer>
 #include <QFile>
 #include <QFileInfo>
+#include <QGuiApplication>
 #include <QMovie>
+#include <QNetworkConfigurationManager>
 #include <QNetworkReply>
 #include <QPixmap>
 #include <QQuickWindow>
@@ -29,7 +31,6 @@
 #include <QSysInfo>
 #include <QTimer>
 #include <utility>
-#include <QNetworkConfigurationManager>
 
 #include <signal.h>
 
@@ -68,7 +69,7 @@ Controller::Controller(QObject *parent)
     if (NeoChatConfig::self()->systemTray()) {
         trayIcon->show();
         connect(trayIcon, &TrayIcon::showWindow, this, &Controller::showWindow);
-        QApplication::setQuitOnLastWindowClosed(false);
+        QGuiApplication::setQuitOnLastWindowClosed(false);
     }
     connect(NeoChatConfig::self(), &NeoChatConfig::SystemTrayChanged, this, [=]() {
         if (NeoChatConfig::self()->systemTray()) {
@@ -78,7 +79,7 @@ Controller::Controller(QObject *parent)
             trayIcon->hide();
             disconnect(trayIcon, &TrayIcon::showWindow, this, &Controller::showWindow);
         }
-        QApplication::setQuitOnLastWindowClosed(!NeoChatConfig::self()->systemTray());
+        QGuiApplication::setQuitOnLastWindowClosed(!NeoChatConfig::self()->systemTray());
     });
 #endif
 
@@ -86,7 +87,7 @@ Controller::Controller(QObject *parent)
         invokeLogin();
     });
 
-    QObject::connect(QApplication::instance(), &QCoreApplication::aboutToQuit, QApplication::instance(), [] {
+    QObject::connect(QGuiApplication::instance(), &QCoreApplication::aboutToQuit, QGuiApplication::instance(), [] {
         NeoChatConfig::self()->save();
     });
 
@@ -497,13 +498,13 @@ int Controller::accountCount() const
 
 bool Controller::quitOnLastWindowClosed()
 {
-    return QApplication::quitOnLastWindowClosed();
+    return QGuiApplication::quitOnLastWindowClosed();
 }
 
 void Controller::setQuitOnLastWindowClosed(bool value)
 {
     if (quitOnLastWindowClosed() != value) {
-        QApplication::setQuitOnLastWindowClosed(value);
+        QGuiApplication::setQuitOnLastWindowClosed(value);
         Q_EMIT quitOnLastWindowClosedChanged();
     }
 }
