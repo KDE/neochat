@@ -5,7 +5,6 @@
 
 #include <cmark.h>
 
-#include <QFileDialog>
 #include <QFileInfo>
 #include <QImageReader>
 #include <QMetaObject>
