@@ -4,7 +4,6 @@
 #pragma once
 
 #include <QMediaPlayer>
-#include <QMenu>
 #include <QObject>
 
 #include <KAboutData>
