@@ -39,7 +39,7 @@ ecm_setup_version(1.1.80
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/neochat-version.h
 )
 
-find_package(Qt5 ${QT_MIN_VERSION} NO_MODULE COMPONENTS Widgets Core Quick Gui QuickControls2 Multimedia Svg)
+find_package(Qt5 ${QT_MIN_VERSION} NO_MODULE COMPONENTS Core Quick Gui QuickControls2 Multimedia Svg)
 set_package_properties(Qt5 PROPERTIES
     TYPE REQUIRED
     PURPOSE "Basic application components"
@@ -67,6 +67,7 @@ if(ANDROID)
         PURPOSE "Encrypted communications"
     )
 else()
+    find_package(Qt5 ${QT_MIN_VERSION} COMPONENTS Widgets)
     find_package(KF5QQC2DesktopStyle ${KF5_MIN_VERSION} REQUIRED)
     set_package_properties(KF5QQC2DesktopStyle PROPERTIES
         TYPE RUNTIME
