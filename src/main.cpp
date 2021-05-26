@@ -12,7 +12,7 @@
 #include <QQuickWindow>
 #include <QDebug>
 
-#if Q_OS_ANDROID
+#ifdef Q_OS_ANDROID
 #include <QGuiApplication>
 #else
 #include <QApplication>
