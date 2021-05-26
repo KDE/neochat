@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
         freopen("CONOUT$", "w", stderr);
     }
 
-    QGuiApplication::setStyle(QStringLiteral("breeze"));
+    QApplication::setStyle(QStringLiteral("breeze"));
     auto font = app.font();
     font.setPointSize(10);
     app.setFont(font);
