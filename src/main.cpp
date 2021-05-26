@@ -12,6 +12,12 @@
 #include <QQuickWindow>
 #include <QDebug>
 
+#if Q_OS_ANDROID
+#include <QGuiApplication>
+#else
+#include <QApplication>
+#endif
+
 #include <KAboutData>
 #ifdef HAVE_KDBUSADDONS
 #include <KDBusService>
@@ -57,7 +63,7 @@ Q_DECL_EXPORT
 #endif
 int main(int argc, char *argv[])
 {
-    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QNetworkProxyFactory::setUseSystemConfiguration(true);
 
@@ -78,13 +84,13 @@ int main(int argc, char *argv[])
         freopen("CONOUT$", "w", stderr);
     }
 
-    QApplication::setStyle(QStringLiteral("breeze"));
+    QGuiApplication::setStyle(QStringLiteral("breeze"));
     auto font = app.font();
     font.setPointSize(10);
     app.setFont(font);
 #endif
 
-    QApplication::setOrganizationName("KDE");
+    QGuiApplication::setOrganizationName("KDE");
 
     KAboutData about(QStringLiteral("neochat"),
                      i18n("NeoChat"),
@@ -98,7 +104,7 @@ int main(int argc, char *argv[])
     about.setOrganizationDomain("kde.org");
 
     KAboutData::setApplicationData(about);
-    QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("org.kde.neochat")));
+    QGuiApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("org.kde.neochat")));
 
 #ifdef HAVE_KDBUSADDONS
     KDBusService service(KDBusService::Unique);
@@ -224,5 +230,5 @@ int main(int argc, char *argv[])
         }
     }
 #endif
-    return QApplication::exec();
+    return app.exec();
 }
