@@ -11,6 +11,7 @@
 #include <QQuickStyle>
 #include <QQuickWindow>
 #include <QDebug>
+#include <QIcon>
 
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
@@ -63,6 +64,7 @@ Q_DECL_EXPORT
 #endif
 int main(int argc, char *argv[])
 {
+    QIcon::setFallbackThemeName("breeze");
     QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QNetworkProxyFactory::setUseSystemConfiguration(true);
