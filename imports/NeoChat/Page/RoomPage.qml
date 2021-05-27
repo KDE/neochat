@@ -720,8 +720,12 @@ Kirigami.ScrollablePage {
         header: TypingPane {
             id: typingPane
             visible: !loadingIndicator.visible && currentRoom && currentRoom.usersTyping.length > 0
-            typingNotification: visible ? i18ncp("Message displayed when some users are typing", "%2 is typing", "%2 are typing", currentRoom.usersTyping.length, currentRoom.usersTyping.map(user => user.displayName).join(", ")) : ""
-            width: parent.width
+            labelText: visible ? i18ncp(
+                "Message displayed when some users are typing", "%2 is typing", "%2 are typing",
+                currentRoom.usersTyping.length,
+                currentRoom.usersTyping.map(user => user.displayName).join(", ")
+            ) : ""
+            anchors.left: parent.left
             height: visible ? implicitHeight : 0
             Behavior on height {
                 NumberAnimation {
