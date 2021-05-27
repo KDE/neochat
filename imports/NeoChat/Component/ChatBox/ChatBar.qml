@@ -76,7 +76,11 @@ ToolBar {
                 * background colors being very different from the QPalette::Base color.
                 * Luckily, none of the Qt QQC2 styles do that and neither do KDE's QQC2 styles.
                 */
-                background: null
+                background: MouseArea {
+                    acceptedButtons: Qt.NoButton
+                    cursorShape: Qt.IBeamCursor
+                    z: 1
+                }
                 leftPadding: mirrored ? 0 : Kirigami.Units.largeSpacing
                 rightPadding: !mirrored ? 0 : Kirigami.Units.largeSpacing
                 topPadding: 0
