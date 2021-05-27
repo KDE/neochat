@@ -23,13 +23,18 @@ Kirigami.ScrollablePage {
 
     /// It's not readonly because of the seperate window view.
     property var currentRoom: RoomManager.currentRoom
+    /// Used to determine if scrolling to the bottom should mark the message as unread
+    property bool hasScrolledUpBefore: false;
 
     title: currentRoom.displayName
 
     signal switchRoomUp()
     signal switchRoomDown()
 
-    onCurrentRoomChanged: ChatBoxHelper.clearEditReply()
+    onCurrentRoomChanged: {
+        hasScrolledUpBefore = false;
+        ChatBoxHelper.clearEditReply()
+    }
 
     ActionsHandler {
         id: actionsHandler
@@ -252,6 +257,13 @@ Kirigami.ScrollablePage {
         // HACK: The view should do this automatically but doesn't.
         onAtYBeginningChanged: if (atYBeginning && messageEventModel.canFetchMore(messageEventModel.index(0, 0))) {
             messageEventModel.fetchMore(messageEventModel.index(0, 0));
+        }
+
+        onAtYEndChanged: if (atYEnd && hasScrolledUpBefore) {
+            currentRoom.markAllMessagesAsRead();
+            hasScrolledUpBefore = false;
+        } else if (!atYEnd) {
+            hasScrolledUpBefore = true;
         }
 
         QQC2.Popup {
