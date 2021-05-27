@@ -649,7 +649,7 @@ Kirigami.ScrollablePage {
         QQC2.RoundButton {
             anchors.right: parent.right
             anchors.bottom: parent.bottom
-            anchors.bottomMargin: Kirigami.Units.largeSpacing
+            anchors.bottomMargin: Kirigami.Units.largeSpacing + messageListView.headerItem.height
             anchors.rightMargin: Kirigami.Units.largeSpacing
             implicitWidth: Kirigami.Units.gridUnit * 2
             implicitHeight: Kirigami.Units.gridUnit * 2
@@ -737,7 +737,7 @@ Kirigami.ScrollablePage {
                 currentRoom.usersTyping.length,
                 currentRoom.usersTyping.map(user => user.displayName).join(", ")
             ) : ""
-            anchors.left: parent.left
+            anchors.right: parent.right
             height: visible ? implicitHeight : 0
             Behavior on height {
                 NumberAnimation {
