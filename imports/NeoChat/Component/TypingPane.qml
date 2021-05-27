@@ -18,7 +18,6 @@ Loader {
     sourceComponent: Pane {
         id: typingPane
 
-        clip: true
         leftPadding: Kirigami.Units.largeSpacing
         rightPadding: Kirigami.Units.largeSpacing
         topPadding: Kirigami.Units.smallSpacing
@@ -94,9 +93,9 @@ Loader {
             }
         }
 
-        leftInset: mirrored ? 0 : -3
-        rightInset: mirrored ? -3 : 0
-        bottomInset: -3
+        leftInset: !mirrored ? 0 : -background.radius
+        rightInset: mirrored ? 0 : -background.radius
+        bottomInset: -background.radius
         background: Rectangle {
             radius: 3
             color: Kirigami.Theme.backgroundColor
