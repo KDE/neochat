@@ -421,6 +421,8 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
                 const KFormat format;
                 return format.formatRelativeDateTime(eventDate, QLocale::ShortFormat);
             }
+        case SpecialMarksRole:
+            return EventStatus::Hidden;
         }
         return {};
     }
