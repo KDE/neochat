@@ -371,7 +371,7 @@ ToolBar {
     function complete() {
         documentHandler.replaceAutoComplete(completionMenu.currentDisplayText);
         if (completionMenu.completionType === ChatDocumentHandler.User) {
-            userAutocompleted[completionMenu.currentDisplayText] = completionMenu.currentUserId;
+            userAutocompleted[completionMenu.currentDisplayText] = completionMenu.currentItem.userId;
         }
     }
 }

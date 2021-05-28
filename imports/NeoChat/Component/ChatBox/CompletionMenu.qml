@@ -22,8 +22,7 @@ Popup {
     property alias delegate: completionListView.delegate
 
     // Autocomplee text
-    property string currentDisplayText: currentItem && currentItem.displayName ? currentItem.displayName : ""
-    property string currentUserId: currentItem && currentItem.id ? currentItem.id : ""
+    property string currentDisplayText: currentItem && (currentItem.displayName ?? "")
 
     property int completionType: ChatDocumentHandler.Emoji
     property int beginPosition: 0
@@ -78,6 +77,7 @@ Popup {
             id: usernameItem
             width: ListView.view.width ?? implicitWidth
             property string displayName: modelData.displayName
+            property string userId: modelData.id
             leading: Kirigami.Avatar {
                 implicitHeight: Kirigami.Units.gridUnit
                 implicitWidth: implicitHeight
@@ -86,11 +86,6 @@ Popup {
             }
             text: modelData.displayName
             onClicked: completeTriggered();
-            Component.onCompleted: {
-                completionMenu.currentUserId = Qt.binding(() => {
-                    return modelData.id ?? "";
-                });
-            }
         }
     }
 
