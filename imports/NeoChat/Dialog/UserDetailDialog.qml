@@ -129,7 +129,7 @@ Kirigami.OverlaySheet {
             }
         }
         Kirigami.BasicListItem {
-            visible: user !== room.localUser && room.canSendState("unban") && room.isUserBanned(user.id)
+            visible: user !== room.localUser && room.canSendState("ban") && room.isUserBanned(user.id)
 
             action: Kirigami.Action {
                 text: i18n("Unban this user")
