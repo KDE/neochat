@@ -15,7 +15,7 @@ MouseArea {
     id: replyButton
     Layout.fillWidth: true
     implicitHeight: replyName.implicitHeight + (loader.item ? loader.item.height : 0) + Kirigami.Units.largeSpacing
-    implicitWidth: Math.min(bubbleMaxWidth, Math.max((loader.item ? loader.item.width : 0), replyName.implicitWidth)) + Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 3
+    implicitWidth: Math.min(bubbleMaxWidth, Math.max((loader.item ? loader.item.width + Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing : 0), replyName.implicitWidth)) + Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 3
     Component.onCompleted: {
         parent.Layout.fillWidth = true;
         parent.Layout.preferredWidth = Qt.binding(function() { return implicitWidth; })
@@ -79,7 +79,7 @@ MouseArea {
                 textMessage: reply.display
                 textFormat: Text.RichText
                 wrapMode: Text.WordWrap
-                width: Math.min(implicitWidth, bubbleMaxWidth) - Kirigami.Units.smallSpacing * 5 - avatatReply.width
+                width: Math.min(implicitWidth, bubbleMaxWidth - Kirigami.Units.largeSpacing * 3)
                 x: Kirigami.Units.smallSpacing * 3 + avatatReply.width
             }
         }
