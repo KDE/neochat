@@ -192,7 +192,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: i18n("Devices")
                 iconName: "network-connect"
-                onTriggered: pageStack.layers.push("qrc:/imports/NeoChat/Page/DevicesPage.qml")
+                onTriggered: pushReplaceLayer("qrc:/imports/NeoChat/Page/DevicesPage.qml")
                 enabled: pageStack.layers.currentItem.title !== i18n("Devices") && Controller.accountCount > 0
             },
             Kirigami.Action {
