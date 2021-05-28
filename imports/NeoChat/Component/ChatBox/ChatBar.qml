@@ -165,12 +165,18 @@ ToolBar {
                         nextItemInFocusChain(false).forceActiveFocus(Qt.TabFocusReason)
                         return
                     }
-                    let decrementedIndex = completionMenu.currentIndex - 1
-                    // Wrap around to the last item
-                    if (decrementedIndex < 0) {
-                        decrementedIndex = Math.max(completionMenu.count - 1, 0) // 0 if count == 0
+                    if (!autoAppeared) {
+                        let decrementedIndex = completionMenu.currentIndex - 1
+                        // Wrap around to the last item
+                        if (decrementedIndex < 0) {
+                            decrementedIndex = Math.max(completionMenu.count - 1, 0) // 0 if count == 0
+                        }
+                        completionMenu.currentIndex = decrementedIndex
+                    } else {
+                        autoAppeared = false;
                     }
-                    completionMenu.currentIndex = decrementedIndex
+
+                    chatBar.complete();
                 }
 
                 Keys.onTabPressed: {
@@ -187,7 +193,7 @@ ToolBar {
 
                     // ignore first time tab was clicked so that user can select
                     // first emoji/user
-                    if (autoAppeared === false) {
+                    if (!autoAppeared) {
                         let incrementedIndex = completionMenu.currentIndex + 1;
                         // Wrap around to the first item
                         if (incrementedIndex > completionMenu.count - 1) {
