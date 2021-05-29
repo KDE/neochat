@@ -682,7 +682,8 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             auto i = index(r);
             if (data(i, SpecialMarksRole) != EventStatus::Hidden) {
                 return data(i, AuthorRole) != data(idx, AuthorRole) || data(i, EventTypeRole) != data(idx, EventTypeRole)
-                    || data(idx, TimeRole).toDateTime().msecsTo(data(i, TimeRole).toDateTime()) > 600000;
+                    || data(idx, TimeRole).toDateTime().msecsTo(data(i, TimeRole).toDateTime()) > 600000
+                    || data(idx, TimeRole).toDateTime().toLocalTime().date().day() != data(i, TimeRole).toDateTime().toLocalTime().date().day();
             }
         }
 
