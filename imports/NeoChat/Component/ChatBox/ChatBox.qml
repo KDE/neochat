@@ -228,6 +228,14 @@ Item {
     }
 
     Connections {
+        target: RoomManager
+
+        function onCurrentRoomChanged() {
+            chatBar.userAutocompleted = {};
+        }
+    }
+
+    Connections {
         target: ChatBoxHelper
 
         function onShouldClearText() {
