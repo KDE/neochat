@@ -62,33 +62,9 @@
   <summary xml:lang="uk">Клієнт matrix, децентралізованого протоколу обміну даними</summary>
   <summary xml:lang="x-test">xxA client for matrix, the decentralized communication protocolxx</summary>
   <description>
-    <p>A client for matrix, the decentralized communication protocol.</p>
-    <p xml:lang="az">Matrix üçün müştəri, mərkəzləşməmiş kommunikasiya protokolu.</p>
-    <p xml:lang="ca">Un client per al Matrix, el protocol de comunicacions descentralitzat.</p>
-    <p xml:lang="ca-valencia">Un client per al Matrix, el protocol de comunicacions descentralitzat.</p>
-    <p xml:lang="cs">Klient pro decentralizovaný komunikační protokol matrix.</p>
-    <p xml:lang="de">Ein Programm für Matrix, das dezentrale Kommunikationsprotokoll.</p>
-    <p xml:lang="en-GB">A client for matrix, the decentralised communication protocol.</p>
-    <p xml:lang="es">Un cliente para Matrix, el protocolo de comunicaciones descentralizado.</p>
-    <p xml:lang="eu">Matrix, deszentralizatutako komunikazio protokolorako bezero bat.</p>
-    <p xml:lang="fi">Asiakas Matrixille, hajautetulle viestintäyhteyskäytännölle.</p>
-    <p xml:lang="fr">Un client « Matrix », le protocole décentralisé de communications.</p>
-    <p xml:lang="hu">Kliens a matrixhoz, a decentralizált kommunikációs protokollhoz.</p>
-    <p xml:lang="ia">Un cliente per Matrix, le protocollo de communication decentralisate.</p>
-    <p xml:lang="id">Klien untuk matrix, protokol komunikasi terdesentralisasi.</p>
-    <p xml:lang="it">Un client per matrix, il protocollo di comunicazione decentralizzato.</p>
-    <p xml:lang="ko">Matrix, 분산 대화 프로토콜 클라이언트입니다.</p>
-    <p xml:lang="nl">Een client voor matrix, het gedecentraliseerde communicatieprotocol.</p>
-    <p xml:lang="nn">Ein klient for Matrix, den desentraliserte lynmeldings­protokollen.</p>
-    <p xml:lang="pa">ਮੈਟਰਿਕਸ, ਸਰਬ-ਸਾਂਝੇ ਸੰਚਾਰ ਪਰੋਟੋਕਾਲ, ਲਈ ਕਲਾਈਂਟ ਹੈ।</p>
-    <p xml:lang="pl">Program do obsługi matriksa, rozproszonego protokołu porozumiewania się.</p>
-    <p xml:lang="pt">Um cliente para o Matrix, o protocolo de comunicação descentralizado.</p>
-    <p xml:lang="pt-BR">Um cliente do Matrix, o protocolo de comunicação descentralizado.</p>
-    <p xml:lang="sk">Klient pre matrix, decentralizovaný komunikačný protokol.</p>
-    <p xml:lang="sl">Odjemalec za matrix, decentralizirani komunikacijski protokol.</p>
-    <p xml:lang="sv">En klient för Matrix, det decentraliserade kommunikationsprotokollet.</p>
-    <p xml:lang="uk">Клієнт matrix, децентралізованого протоколу обміну даними.</p>
-    <p xml:lang="x-test">xxA client for matrix, the decentralized communication protocol.xx</p>
+    <p>NeoChat is a Matrix client. It allows you to send text messages, videos and audio files to your family, colleagues and friends using the Matrix protocol.</p>
+    <p>Matrix is a decentralized communication protocol, putting the user back in control. Currently NeoChat implements large part of the protocol with the exception of encrypted chats and video chat.</p>
+    <p>NeoChat works both on mobile and desktop while providing a consistent user experience.</p>
   </description>
   <url type="homepage">https://apps.kde.org/neochat/</url>
   <url type="bugtracker">https://invent.kde.org/network/neochat/-/issues</url>
@@ -134,6 +110,14 @@
     <content_attribute id="social-chat">intense</content_attribute>
   </content_rating>
   <releases>
+    <release version="1.2.0" date="2021-06-01">
+      <description>
+        <p>NeoChat 1.2 brings a major redesign of the user interface. The chat page is now using bubbles for the messages and the input component was completely rewritten with a nicer look as well.</p>
+        <p>It's now possible to send custom reactions by replying to a comment with /react &lt;message&gt;.</p>
+        <p>NeoChat now supports opening Matrix URIs from your browser.</p>
+      </description>
+      <url>https://carlschwan.eu/2021/06/01/neochat-1.2/</url>
+    </release>
     <release urgency="critical" version="1.1.1" date="2021-02-23"/>
     <release version="1.1.0" date="2021-02-22">
       <description>
@@ -143,7 +127,7 @@
         <p>We added a few commands to NeoChat (/shrug, /lenny, /join, /ignore, ...).</p>
         <p>We improved the Plasma integration a bit. Now the number of unread messages is displayed in the Plasma Taskbar.</p>
       </description>
-      <url>https://carlschwan.eu/2020/02/22/neochat-1.1/</url>
+      <url>https://carlschwan.eu/2021/02/22/neochat-1.1/</url>
     </release>
     <release version="1.0.1" date="2021-01-13">
       <description>
