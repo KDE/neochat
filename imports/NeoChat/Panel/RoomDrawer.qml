@@ -157,6 +157,16 @@ Kirigami.OverlayDrawer {
                 }
             }
 
+            Pane {
+                padding: Kirigami.Units.smallSpacing
+                implicitWidth: parent.width
+                z: 2
+                contentItem: Kirigami.SearchField {
+                    id: userListSearchField
+                    onAccepted: sortedMessageEventModel.filterString = text;
+                }
+            }
+
             ScrollView {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
@@ -167,16 +177,6 @@ Kirigami.OverlayDrawer {
                     headerPositioning: ListView.OverlayHeader
                     boundsBehavior: Flickable.DragOverBounds
                     activeFocusOnTab: true
-
-                    header: Pane {
-                        padding: Kirigami.Units.smallSpacing
-                        implicitWidth: parent.width
-                        z: 2
-                        contentItem: Kirigami.SearchField {
-                            id: userListSearchField
-                            onTextChanged: sortedMessageEventModel.filterString = text;
-                        }
-                    }
 
                     model: KSortFilterProxyModel {
                         id: sortedMessageEventModel
