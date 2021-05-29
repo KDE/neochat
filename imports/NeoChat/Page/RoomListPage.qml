@@ -125,6 +125,8 @@ Kirigami.ScrollablePage {
                         sortFilterRoomListModel.index(index, 0)), ItemSelectionModel.SelectCurrent)
                 }
             }
+            Keys.onEnterPressed: enterRoomAction.trigger()
+            Keys.onReturnPressed: enterRoomAction.trigger()
             bold: unreadCount > 0
             label: name ?? ""
             subtitle: {
