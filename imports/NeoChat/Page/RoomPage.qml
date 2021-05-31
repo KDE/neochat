@@ -660,6 +660,7 @@ Kirigami.ScrollablePage {
             action: Kirigami.Action {
                 onTriggered: {
                     goToLastMessage();
+                    currentRoom.markAllMessagesAsRead();
                 }
                 icon.name: "go-down"
             }
