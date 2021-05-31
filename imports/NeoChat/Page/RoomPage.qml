@@ -260,7 +260,9 @@ Kirigami.ScrollablePage {
         }
 
         onAtYEndChanged: if (atYEnd && hasScrolledUpBefore) {
-            currentRoom.markAllMessagesAsRead();
+            if (QQC2.ApplicationWindow.window.visibility !== QQC2.ApplicationWindow.Hidden) {
+                currentRoom.markAllMessagesAsRead();
+            }
             hasScrolledUpBefore = false;
         } else if (!atYEnd) {
             hasScrolledUpBefore = true;
@@ -573,7 +575,9 @@ Kirigami.ScrollablePage {
                     Timer {
                         id: makeMeDisapearTimer
                         interval: Kirigami.Units.humanMoment * 2
-                        onTriggered: currentRoom.markAllMessagesAsRead();
+                        onTriggered: if (QQC2.ApplicationWindow.window.visibility !== QQC2.ApplicationWindow.Hidden) {
+                            currentRoom.markAllMessagesAsRead();
+                        }
                     }
 
                     ListView.onPooled: makeMeDisapearTimer.stop()
@@ -600,7 +604,9 @@ Kirigami.ScrollablePage {
 
                         if (view.atYEnd) {
                             // easy case just mark everything as read
-                            currentRoom.markAllMessagesAsRead();
+                            if (QQC2.ApplicationWindow.window.visibility !== QQC2.ApplicationWindow.Hidden) {
+                                currentRoom.markAllMessagesAsRead();
+                            }
                             return;
                         }
 
@@ -616,11 +622,7 @@ Kirigami.ScrollablePage {
 
             DelegateChoice {
                 roleValue: "other"
-                delegate: Rectangle {
-                    height: 10
-                    width: ListView.view.width
-                    color: "red"
-                }
+                delegate: Item {}
             }
         }
 
