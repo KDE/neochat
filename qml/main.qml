@@ -52,6 +52,19 @@ Kirigami.ApplicationWindow {
     onXChanged: saveWindowGeometryTimer.restart()
     onYChanged: saveWindowGeometryTimer.restart()
 
+    Shortcut {
+        sequence: "Ctrl+K"
+        onActivated: {
+            quickView.item.open()
+        }
+    }
+
+    Loader {
+        id: quickView
+
+        active: !Kirigami.Settings.isMobile
+        sourceComponent: QuickSwitcher { }
+    }
 
     /// Setup keyboard navigation to the room page.
     function connectRoomToSignal(item) {
