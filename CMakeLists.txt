@@ -68,6 +68,7 @@ if(ANDROID)
     )
 else()
     find_package(Qt5 ${QT_MIN_VERSION} COMPONENTS Widgets)
+    find_package(KF5 ${KF5_MIN_VERSION} COMPONENTS REQUIRED KIO)
     find_package(KF5QQC2DesktopStyle ${KF5_MIN_VERSION} REQUIRED)
     set_package_properties(KF5QQC2DesktopStyle PROPERTIES
         TYPE RUNTIME

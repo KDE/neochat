@@ -56,6 +56,7 @@
 #include "sortfilterroomlistmodel.h"
 #include "userdirectorylistmodel.h"
 #include "userlistmodel.h"
+#include "webshortcutmodel.h"
 
 using namespace Quotient;
 
@@ -147,6 +148,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<ActionsHandler>("org.kde.neochat", 1, 0, "ActionsHandler");
     qmlRegisterType<ChatDocumentHandler>("org.kde.neochat", 1, 0, "ChatDocumentHandler");
     qmlRegisterType<RoomListModel>("org.kde.neochat", 1, 0, "RoomListModel");
+    qmlRegisterType<KWebShortcutModel>("org.kde.neochat", 1, 0, "WebShortcutModel");
     qmlRegisterType<UserListModel>("org.kde.neochat", 1, 0, "UserListModel");
     qmlRegisterType<MessageEventModel>("org.kde.neochat", 1, 0, "MessageEventModel");
     qmlRegisterType<MessageFilterModel>("org.kde.neochat", 1, 0, "MessageFilterModel");

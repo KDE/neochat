@@ -30,6 +30,7 @@ add_executable(neochat
     stickerevent.cpp
     chatboxhelper.cpp
     commandmodel.cpp
+    webshortcutmodel.cpp
     ../res.qrc
 )
 
@@ -91,12 +92,16 @@ if(ANDROID)
         "network-connect"
     )
 else()
-    target_link_libraries(neochat PRIVATE Qt5::Widgets)
+    target_link_libraries(neochat PRIVATE Qt5::Widgets KF5::KIOWidgets)
 endif()
 
 if(TARGET KF5::DBusAddons)
     target_link_libraries(neochat PRIVATE KF5::DBusAddons)
     target_compile_definitions(neochat PRIVATE -DHAVE_KDBUSADDONS)
+endif()
+
+if (TARGET KF5::KIOWidgets)
+    target_compile_definitions(neochat PRIVATE -DHAVE_KIO)
 endif()
 
 install(TARGETS neochat ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})

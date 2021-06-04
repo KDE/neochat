@@ -372,11 +372,11 @@ Kirigami.ScrollablePage {
                         Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
                         TapHandler {
                             acceptedButtons: Qt.RightButton
-                            onTapped: openMessageContext(author, model.message, eventId, toolTip, eventType, model.formattedBody)
+                            onTapped: openMessageContext(author, model.message, eventId, toolTip, eventType, model.formattedBody, parent.selectedText)
                         }
                         TapHandler {
                             acceptedButtons: Qt.LeftButton
-                            onLongPressed: openMessageContext(author, model.message, eventId, toolTip, eventType, model.formattedBody)
+                            onLongPressed: openMessageContext(author, model.message, eventId, toolTip, eventType, model.formattedBody, parent.selectedText)
                         }
                     }
                 }
@@ -399,11 +399,11 @@ Kirigami.ScrollablePage {
                         Layout.leftMargin: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing : 0
                         TapHandler {
                             acceptedButtons: Qt.RightButton
-                            onTapped: openMessageContext(author, model.message, eventId, toolTip, eventType, model.formattedBody)
+                            onTapped: openMessageContext(author, model.message, eventId, toolTip, eventType, model.formattedBody, parent.selectedText)
                         }
                         TapHandler {
                             acceptedButtons: Qt.LeftButton
-                            onLongPressed: openMessageContext(author, model.message, eventId, toolTip, eventType, model.formattedBody)
+                            onLongPressed: openMessageContext(author, model.message, eventId, toolTip, eventType, model.formattedBody, parent.selectedText)
                         }
                     }
                 }
@@ -881,8 +881,9 @@ Kirigami.ScrollablePage {
     }
 
     /// Open context menu for normal message
-    function openMessageContext(author, message, eventId, source, eventType, formattedBody) {
+    function openMessageContext(author, message, eventId, source, eventType, formattedBody, selectedText) {
         const contextMenu = messageDelegateContextMenu.createObject(page, {
+            selectedText: selectedText,
             author: author,
             message: message,
             eventId: eventId,

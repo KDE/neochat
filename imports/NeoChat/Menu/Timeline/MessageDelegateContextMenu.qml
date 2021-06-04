@@ -19,6 +19,7 @@ Loader {
     property string eventType: ""
     property string formattedBody: ""
     required property string source
+    property string selectedText: ""
 
     property list<Kirigami.Action> actions: [
         Kirigami.Action {
@@ -65,89 +66,33 @@ Loader {
                     onClicked: loadRoot.item.close();
                 }
             }
+            QQC2.Menu {
+                id: webshortcutmenu
+                title: i18n("Search for '%1'", webshortcutmodel.trunkatedSearchText)
+                property bool isVisible: selectedText && selectedText.length > 0 && webshortcutmodel.enabled
+                Component.onCompleted: webshortcutmenu.parent.visible = isVisible
+                onIsVisibleChanged: webshortcutmenu.parent.visible = isVisible
+                Instantiator {
+                    model: WebShortcutModel {
+                        id: webshortcutmodel
+                        selectedText: loadRoot.selectedText
+                        onOpenUrl: RoomManager.visitNonMatrix(url)
+                    }
+                    delegate: QQC2.MenuItem {
+                        text: model.display
+                        icon.name: model.decoration
+                        onTriggered: webshortcutmodel.trigger(model.edit)
+                    }
+                    onObjectAdded: webshortcutmenu.insertItem(0, object)
+                }
+                QQC2.MenuSeparator {}
+                QQC2.MenuItem {
+                    text: i18n("Configure Web Shortcuts...")
+                    icon.name: "configure"
+                    onTriggered: webshortcutmodel.configureWebShortcuts()
+                }
+            }
         }
-        /*
-        Kirigami.OverlaySheet {
-            id: root
-
-            parent: applicationWindow().overlay
-
-            leftPadding: 0
-            rightPadding: 0
-
-            header: Kirigami.Heading {
-                text: i18nc("@title:menu Message detail dialog", "Message detail")
-            }
-
-            contentItem: ColumnLayout {
-                spacing: 0
-                RowLayout {
-                    id: headerLayout
-                    Layout.fillWidth: true
-                    Layout.margins: Kirigami.Units.largeSpacing
-                    spacing: Kirigami.Units.largeSpacing
-                    Kirigami.Avatar {
-                        id: avatar
-                        source: author.avatarMediaId ? ("image://mxc/" + author.avatarMediaId) : ""
-                        Layout.preferredWidth: Kirigami.Units.gridUnit * 3
-                        Layout.preferredHeight: Kirigami.Units.gridUnit * 3
-                        Layout.alignment: Qt.AlignTop
-                        name: author.displayName
-                        color: author.color
-                    }
-                    ColumnLayout {
-                        Layout.fillWidth: true
-                        Kirigami.Heading {
-                            level: 3
-                            Layout.fillWidth: true
-                            text: author.displayName
-                            wrapMode: Text.WordWrap
-                        }
-                        QQC2.Label {
-                            text: message
-                            Layout.fillWidth: true
-                            Layout.maximumWidth: Kirigami.Units.gridUnit * 24
-                            wrapMode: Text.WordWrap
-
-                            onLinkActivated: RoomManager.openResource(link);
-                        }
-                    }
-                }
-                Kirigami.Separator {
-                    Layout.fillWidth: true
-                }
-                RowLayout {
-                    spacing: 0
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: Kirigami.Units.gridUnit * 2.5
-                    Repeater {
-                        model: ["👍", "👎️", "😄", "🎉", "🚀", "👀"]
-                        delegate: QQC2.ItemDelegate {
-                            Layout.fillWidth: true
-                            Layout.fillHeight: true
-
-                            contentItem: QQC2.Label {
-                                horizontalAlignment: Text.AlignHCenter
-                                verticalAlignment: Text.AlignVCenter
-
-                                font.pixelSize: 16
-                                font.family: "emoji"
-                                text: modelData
-
-                            }
-
-                            onClicked: {
-                                currentRoom.toggleReaction(eventId, modelData)
-                                loadRoot.item.close();
-                            }
-                        }
-                    }
-                }
-                Kirigami.Separator {
-                    Layout.fillWidth: true
-                }
-            }
-        }*/
     }
     Component {
         id: mobileMenu
