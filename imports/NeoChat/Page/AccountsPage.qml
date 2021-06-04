@@ -97,11 +97,10 @@ Kirigami.ScrollablePage {
         }
 
         Kirigami.FormLayout {
-            anchors.top: passwordsMessage.bottom
             RowLayout {
                 Kirigami.Avatar {
                     id: avatar
-                    source: userEditSheet.connection.localUser.avatarMediaId ? ("image://mxc/" + userEditSheet.connection.localUser.avatarMediaId) : ""
+                    source: userEditSheet.connection && userEditSheet.connection.localUser.avatarMediaId ? ("image://mxc/" + userEditSheet.connection.localUser.avatarMediaId) : ""
 
                     MouseArea {
                         id: mouseArea
@@ -138,7 +137,7 @@ Kirigami.ScrollablePage {
             }
             Controls.TextField {
                 id: name
-                text: userEditSheet.connection.localUser.displayName
+                text: userEditSheet.connection ? userEditSheet.connection.localUser.displayName : ""
                 Kirigami.FormData.label: i18n("Name:")
             }
             Controls.TextField {

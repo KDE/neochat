@@ -44,8 +44,9 @@ target_sources(neochat PRIVATE ${NEOCHAT_ICON})
 
 if(NOT ANDROID)
     target_sources(neochat PRIVATE trayicon.cpp colorschemer.cpp spellcheckhighlighter.cpp)
-    target_link_libraries(neochat PRIVATE KF5::ConfigWidgets KF5::SonnetCore)
+    target_link_libraries(neochat PRIVATE KF5::ConfigWidgets KF5::SonnetCore KF5::WindowSystem)
     target_compile_definitions(neochat PRIVATE -DHAVE_COLORSCHEME)
+    target_compile_definitions(neochat PRIVATE -DHAVE_WINDOWSYSTEM)
 endif()
 
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR})

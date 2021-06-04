@@ -4,6 +4,7 @@
 #pragma once
 
 #include <QMediaPlayer>
+#include <QQuickItem>
 #include <QObject>
 
 #include <KAboutData>
@@ -33,6 +34,7 @@ class Controller : public QObject
     Q_PROPERTY(bool busy READ busy WRITE setBusy NOTIFY busyChanged)
     Q_PROPERTY(KAboutData aboutData READ aboutData WRITE setAboutData NOTIFY aboutDataChanged)
     Q_PROPERTY(bool supportSystemTray READ supportSystemTray CONSTANT)
+    Q_PROPERTY(bool hasWindowSystem READ hasWindowSystem CONSTANT)
     Q_PROPERTY(bool isOnline READ isOnline NOTIFY isOnlineChanged)
 
 public:
@@ -87,6 +89,8 @@ public:
     Q_INVOKABLE QString formatByteSize(double size, int precision = 1) const;
 
     Q_INVOKABLE void openOrCreateDirectChat(NeoChatUser *user);
+
+    Q_INVOKABLE void setBlur(QQuickItem *item, bool blur);
 private:
     explicit Controller(QObject *parent = nullptr);
     ~Controller() override;
@@ -102,6 +106,7 @@ private:
     void saveSettings() const;
 
     KAboutData m_aboutData;
+    bool hasWindowSystem() const;
 
 private Q_SLOTS:
     void invokeLogin();

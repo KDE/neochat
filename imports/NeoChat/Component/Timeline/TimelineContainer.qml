@@ -21,7 +21,7 @@ QQC2.ItemDelegate {
     property bool isEmote: false
     property bool cardBackground: true
 
-    readonly property int bubbleMaxWidth: !Config.showAvatarInTimeline ? width : Math.min(width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 4, Kirigami.Units.gridUnit * 20)
+    readonly property int bubbleMaxWidth: Config.compactLayout && !Config.showAvatarInTimeline ? width : (Config.compactLayout ? width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 4 : Math.min(width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 6, Kirigami.Units.gridUnit * 20))
 
     signal saveFileAs()
     signal openExternally()
@@ -48,7 +48,7 @@ QQC2.ItemDelegate {
         }
     }
 
-    height: sectionDelegate.height + Math.max(avatar.height, bubble.implicitHeight) + loader.height + (model.showAuthor ? Kirigami.Units.smallSpacing : 0) - (Config.showAvatarInTimeline ? 0 : Kirigami.Units.largeSpacing)
+    height: sectionDelegate.height + Math.max(model.showAuthor ? avatar.height : 0, bubble.implicitHeight) + loader.height + (showAuthor ? Kirigami.Units.largeSpacing : 0)
 
     SectionDelegate {
         id: sectionDelegate
@@ -67,7 +67,7 @@ QQC2.ItemDelegate {
         sourceSize.height: width
         anchors {
             top: sectionDelegate.bottom
-            topMargin: model.showAuthor ? Kirigami.Units.smallSpacing * 2 : Kirigami.Units.smallSpacing
+            topMargin: model.showAuthor ? Kirigami.Units.largeSpacing : 0
             left: parent.left
             leftMargin: Kirigami.Units.largeSpacing
         }
@@ -94,18 +94,20 @@ QQC2.ItemDelegate {
 
     QQC2.Control {
         id: bubble
-        topPadding: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing : 0
-        bottomPadding: 0
-        leftPadding: 0
-        rightPadding: 0
+        topPadding: !Config.compactLayout ? Kirigami.Units.largeSpacing : 0
+        bottomPadding: !Config.compactLayout ? Kirigami.Units.largeSpacing : 0
+        leftPadding: Kirigami.Units.smallSpacing
+        rightPadding: Config.compactLayout ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing
         hoverEnabled: true
+
+        state: Config.compactLayout ? "compactLayout" : "default"
         anchors {
             top: avatar.top
             left: avatar.right
-            leftMargin: Kirigami.Units.smallSpacing
-            right: Config.showAvatarInTimeline ? undefined : parent.right
-            rightMargin: Config.showAvatarInTimeline ? undefined : Kirigami.Units.largeSpacing
+            leftMargin: Kirigami.Units.largeSpacing
         }
+        // HACK: anchoring didn't reset anchors.right when switching from parent.right to undefined reliably
+        width: Config.compactLayout ? messageDelegate.width - (Config.showAvatarInTimeline ? Kirigami.Units.gridUnit * 2 : 0) + Kirigami.Units.largeSpacing * 2 : implicitWidth
 
         contentItem: ColumnLayout {
             id: column
@@ -116,7 +118,7 @@ QQC2.ItemDelegate {
                 Layout.fillWidth: true
                 Layout.leftMargin: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing : 0
                 Layout.rightMargin: Kirigami.Units.largeSpacing
-                Layout.preferredWidth: nameLabel.implicitWidth + timeLabel.implicitWidth + Kirigami.Units.largeSpacing
+                Layout.preferredWidth: nameLabel.implicitWidth + timeLabel.implicitWidth + Kirigami.Units.largeSpacing * 2
                 Layout.maximumWidth: bubbleMaxWidth
                 implicitHeight: visible ? nameLabel.implicitHeight : 0
 
@@ -160,7 +162,8 @@ QQC2.ItemDelegate {
                 active: model.reply !== undefined
                 source: 'qrc:imports/NeoChat/Component/Timeline/ReplyComponent.qml'
                 visible: active
-                Layout.bottomMargin: Kirigami.Units.smallSpacing
+                Layout.topMargin: Kirigami.Units.smallSpacing
+                Layout.bottomMargin: Config.compactLayout ? 0 : Kirigami.Units.smallSpacing
 
                 Connections {
                     target: replyLoader.item
@@ -172,7 +175,7 @@ QQC2.ItemDelegate {
         }
 
         background: Kirigami.ShadowedRectangle {
-            visible: cardBackground && Config.showAvatarInTimeline
+            visible: cardBackground && !Config.compactLayout
             color: model.isHighlighted ? Kirigami.Theme.positiveBackgroundColor : Kirigami.Theme.backgroundColor
             radius: Kirigami.Units.smallSpacing
             shadow.size: Kirigami.Units.smallSpacing
@@ -188,7 +191,7 @@ QQC2.ItemDelegate {
             left: bubble.left
             right: parent.right
             top: bubble.bottom
-            topMargin: active && Config.showAvatarInTimeline ? Kirigami.Units.smallSpacing : 0
+            topMargin: active && !Config.compactLayout ? Kirigami.Units.smallSpacing : 0
         }
         height: active ? item.implicitHeight : 0
         //Layout.bottomMargin: readMarker ? Kirigami.Units.smallSpacing : 0

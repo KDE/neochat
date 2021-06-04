@@ -25,6 +25,7 @@ MouseArea {
         id: replyLeftBorder
         width: Kirigami.Units.smallSpacing
         height: parent.height
+        x: Config.compactLayout ? Kirigami.Units.largeSpacing : 0
         color: Kirigami.Theme.highlightColor
     }
 

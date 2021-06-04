@@ -165,7 +165,7 @@ Kirigami.ScrollablePage {
             interval: 200
             onTriggered: hoverActions.visible = hoverActions.visibleDelayed;
         }
-        x: bubble ? (bubble.x + Kirigami.Units.largeSpacing + Math.max(bubble.width - childWidth, 0)) : 0
+        x: bubble ? (bubble.x + Kirigami.Units.largeSpacing + Math.max(bubble.width - childWidth, 0) - (Config.compactLayout ? Kirigami.Units.gridUnit * 3 : 0)) : 0
         y: bubble ? bubble.mapToItem(page, 0, -Kirigami.Units.largeSpacing - hoverActions.childHeight * 1.5).y : 0
         visible: false
 
@@ -228,7 +228,7 @@ Kirigami.ScrollablePage {
         readonly property int largestVisibleIndex: count > 0 ? indexAt(contentX + (width / 2), contentY + height - 1) : -1
         readonly property bool isLoaded: page.width * page.height > 10
 
-        spacing: Kirigami.Units.smallSpacing
+        spacing: Config.compactLayout ? 1 : Kirigami.Units.smallSpacing
         reuseItems: true
 
         verticalLayoutDirection: ListView.BottomToTop
@@ -365,11 +365,10 @@ Kirigami.ScrollablePage {
 
                     innerObject: TextDelegate {
                         isEmote: true
-                        Layout.fillWidth: !Config.showAvatarInTimeline
+                        Layout.fillWidth: Config.compactLayout
                         Layout.maximumWidth: emoteContainer.bubbleMaxWidth
                         Layout.rightMargin: Kirigami.Units.largeSpacing
                         Layout.leftMargin: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing : 0
-                        Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
                         TapHandler {
                             acceptedButtons: Qt.RightButton
                             onTapped: openMessageContext(author, model.message, eventId, toolTip, eventType, model.formattedBody, parent.selectedText)
@@ -392,10 +391,9 @@ Kirigami.ScrollablePage {
                     hoverComponent: hoverActions
 
                     innerObject: TextDelegate {
-                        Layout.fillWidth: !Config.showAvatarInTimeline
+                        Layout.fillWidth: Config.compactLayout
                         Layout.maximumWidth: messageContainer.bubbleMaxWidth
                         Layout.rightMargin: Kirigami.Units.largeSpacing
-                        Layout.bottomMargin: Kirigami.Units.largeSpacing
                         Layout.leftMargin: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing : 0
                         TapHandler {
                             acceptedButtons: Qt.RightButton
@@ -418,11 +416,10 @@ Kirigami.ScrollablePage {
                     onReplyClicked: goToEvent(eventID)
 
                     innerObject: TextDelegate {
-                        Layout.fillWidth: !Config.showAvatarInTimeline
+                        Layout.fillWidth: !Config.compactLayout
                         Layout.maximumWidth: noticeContainer.bubbleMaxWidth
                         Layout.rightMargin: Kirigami.Units.largeSpacing
                         Layout.leftMargin: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing : 0
-                        Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
                     }
                 }
             }
@@ -439,7 +436,6 @@ Kirigami.ScrollablePage {
                     innerObject: ImageDelegate {
                         Layout.preferredWidth: Kirigami.Units.gridUnit * 15
                         Layout.maximumWidth: imageContainer.bubbleMaxWidth
-                        Layout.bottomMargin: Kirigami.Units.largeSpacing
                         Layout.preferredHeight: info.h / info.w * width
                         Layout.maximumHeight: Kirigami.Units.gridUnit * 20
                         TapHandler {

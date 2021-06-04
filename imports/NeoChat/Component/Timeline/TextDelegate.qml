@@ -11,9 +11,6 @@ import org.kde.kirigami 2.15 as Kirigami
 TextEdit {
     id: contentLabel
 
-    Layout.margins: Kirigami.Units.largeSpacing
-    Layout.topMargin: 0
-
     readonly property var isEmoji: /^(<span style='.*'>)?(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])+(<\/span>)?$/
 
     property bool isEmote: false

@@ -196,13 +196,6 @@ Kirigami.ApplicationWindow {
                 enabled: pageStack.layers.currentItem.title !== i18n("Start a Chat") && Controller.accountCount > 0
             },
             Kirigami.Action {
-                text: i18n("Accounts")
-                icon.name: "im-user"
-                onTriggered: pushReplaceLayer("qrc:/imports/NeoChat/Page/AccountsPage.qml")
-                enabled: pageStack.layers.currentItem.title !== i18n("Accounts") && Controller.accountCount > 0
-
-            },
-            Kirigami.Action {
                 text: i18n("Devices")
                 iconName: "network-connect"
                 onTriggered: pushReplaceLayer("qrc:/imports/NeoChat/Page/DevicesPage.qml")
@@ -214,12 +207,6 @@ Kirigami.ApplicationWindow {
                 onTriggered: pushReplaceLayer("qrc:/imports/NeoChat/Page/SettingsPage.qml")
                 enabled: pageStack.layers.currentItem.title !== i18n("Settings")
                 shortcut: StandardKey.Preferences
-            },
-            Kirigami.Action {
-                text: i18n("About NeoChat")
-                icon.name: "help-about"
-                onTriggered: pushReplaceLayer(aboutPage)
-                enabled: pageStack.layers.currentItem.title !== i18n("About")
             },
             Kirigami.Action {
                 text: i18n("Logout")
@@ -236,13 +223,14 @@ Kirigami.ApplicationWindow {
         ]
     }
 
-    Component {
-        id: aboutPage
-        Kirigami.AboutPage {
-            aboutData: Controller.aboutData
-        }
+    Component.onCompleted: Controller.setBlur(pageStack, Config.blur && !Config.compactLayout);
+    Connections {
+        target: Config
+        onBlurChanged: Controller.setBlur(pageStack, Config.blur && !Config.compactLayout);
+        onCompactLayoutChanged: Controller.setBlur(pageStack, Config.blur && !Config.compactLayout);
     }
 
+    color: Config.blur && !Config.compactLayout ? "transparent" : Kirigami.Theme.backgroundColor
     Component {
         id: roomListComponent
         RoomListPage {
