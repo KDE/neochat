@@ -43,7 +43,9 @@ ecm_add_app_icon(NEOCHAT_ICON ICONS ${CMAKE_SOURCE_DIR}/128-logo.png)
 target_sources(neochat PRIVATE ${NEOCHAT_ICON})
 
 if(NOT ANDROID)
-    target_sources(neochat PRIVATE trayicon.cpp)
+    target_sources(neochat PRIVATE trayicon.cpp colorschemer.cpp)
+    target_link_libraries(neochat PRIVATE KF5::ConfigWidgets)
+    target_compile_definitions(neochat PRIVATE -DHAVE_COLORSCHEME)
 endif()
 
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR})

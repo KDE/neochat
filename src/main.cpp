@@ -57,6 +57,9 @@
 #include "userdirectorylistmodel.h"
 #include "userlistmodel.h"
 #include "webshortcutmodel.h"
+#ifdef HAVE_COLORSCHEME
+#include "colorschemer.h"
+#endif
 
 using namespace Quotient;
 
@@ -136,6 +139,14 @@ int main(int argc, char *argv[])
 
     Login *login = new Login();
     ChatBoxHelper chatBoxHelper;
+
+#ifdef HAVE_COLORSCHEME
+    ColorSchemer colorScheme;
+    qmlRegisterSingletonInstance<ColorSchemer>("org.kde.neochat", 1, 0, "ColorSchemer", &colorScheme);
+    if (!config->colorScheme().isEmpty()) {
+        colorScheme.apply(config->colorScheme());
+    }
+#endif
 
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Controller", &Controller::instance());
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Clipboard", &clipboard);
