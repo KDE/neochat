@@ -11,6 +11,9 @@
 #include <QTextDocument>
 
 #include "neochatroom.h"
+#ifndef Q_OS_ANDROID
+#include "spellcheckhighlighter.h"
+#endif
 
 ChatDocumentHandler::ChatDocumentHandler(QObject *parent)
     : QObject(parent)
@@ -34,6 +37,9 @@ void ChatDocumentHandler::setDocument(QQuickTextDocument *document)
         m_document->textDocument()->disconnect(this);
     }
     m_document = document;
+#ifndef Q_OS_ANDROID
+    new SpellcheckHighlighter(m_document->textDocument());
+#endif
     Q_EMIT documentChanged();
 }
 
