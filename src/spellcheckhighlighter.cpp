@@ -42,7 +42,6 @@ SpellcheckHighlighter::SpellcheckHighlighter(QTextDocument *parent)
     mLanguageGuesser{new Sonnet::GuessLanguage()}
 {
     //Danger red from our color scheme
-    mErrorFormat.setForeground(QColor{"#ed1515"});
     mErrorFormat.setUnderlineColor(QColor{"#ed1515"});
     mErrorFormat.setUnderlineStyle(QTextCharFormat::SingleUnderline);
     mQuoteFormat.setForeground(QColor{"#7f8c8d"});
