@@ -57,6 +57,7 @@
 #include "userdirectorylistmodel.h"
 #include "userlistmodel.h"
 #include "webshortcutmodel.h"
+#include "spellcheckhighlighter.h"
 #ifdef HAVE_COLORSCHEME
 #include "colorschemer.h"
 #endif
@@ -158,6 +159,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<AccountListModel>("org.kde.neochat", 1, 0, "AccountListModel");
     qmlRegisterType<ActionsHandler>("org.kde.neochat", 1, 0, "ActionsHandler");
     qmlRegisterType<ChatDocumentHandler>("org.kde.neochat", 1, 0, "ChatDocumentHandler");
+    qmlRegisterType<SpellcheckHighlighter>("org.kde.neochat", 1, 0, "SpellcheckHighlighter");
     qmlRegisterType<RoomListModel>("org.kde.neochat", 1, 0, "RoomListModel");
     qmlRegisterType<KWebShortcutModel>("org.kde.neochat", 1, 0, "WebShortcutModel");
     qmlRegisterType<UserListModel>("org.kde.neochat", 1, 0, "UserListModel");
