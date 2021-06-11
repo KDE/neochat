@@ -256,10 +256,18 @@ void ActionsHandler::postMessage(const QString &text,
     }
 
     if (rawText.indexOf(reactPrefix) == 0) {
+        rawText = rawText.remove(0, reactPrefix.length());
         if (replyEventId.isEmpty()) {
+            for (auto it = m_room->messageEvents().crbegin(); it != m_room->messageEvents().crend(); ++it) {
+                const auto &evt = **it;
+                if (const auto event = eventCast<const RoomMessageEvent>(&evt)) {
+                    m_room->toggleReaction(event->id(), rawText);
+                    return;
+                }
+            }
+            Q_EMIT showMessage(MessageType::Error, i18n("Couldn't find a message to react to"));
             return;
         }
-        rawText = rawText.remove(0, reactPrefix.length());
         m_room->toggleReaction(replyEventId, rawText);
         return;
     }
