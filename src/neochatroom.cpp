@@ -302,7 +302,7 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
     using namespace Quotient;
     return visit(
         evt,
-        [prettyPrint, removeReply](const RoomMessageEvent &e) {
+        [this, prettyPrint, removeReply](const RoomMessageEvent &e) {
             using namespace MessageEventContent;
 
             // 1. prettyPrint/HTML
@@ -313,6 +313,10 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                 }
                 htmlBody.replace(utils::userPillRegExp, R"(<b class="user-pill">\1</b>)");
                 htmlBody.replace(utils::strikethroughRegExp, "<s>\\1</s>");
+
+                auto url = connection()->homeserver();
+                auto base = url.scheme() + QStringLiteral("://") + url.host() + (url.port() != -1 ? ':'+QString::number(url.port()) : QString());
+                htmlBody.replace(utils::mxcImageRegExp, QStringLiteral(R"(<img \1 src="%1/_matrix/media/r0/download/\2/\3" \4 > )").arg(base));
 
                 return htmlBody;
             }
@@ -532,12 +536,14 @@ QString msgTypeToString(MessageEventType msgType)
     }
 }
 
+QString NeoChatRoom::preprocessText(const QString& text)
+{
+    return markdownToHTML(text);
+}
+
 void NeoChatRoom::postMessage(const QString &rawText, const QString &text, MessageEventType type, const QString &replyEventId, const QString &relateToEventId)
 {
-    const auto html = markdownToHTML(text);
-    QString cleanText(text);
-    cleanText.replace(QRegularExpression("\\[(.+)\\]\\(.+\\)"), "\\1");
-    postHtmlMessage(rawText, html, type, replyEventId, relateToEventId);
+    postHtmlMessage(rawText, text, type, replyEventId, relateToEventId);
 }
 
 void NeoChatRoom::postHtmlMessage(const QString &text, const QString &html, MessageEventType type, const QString &replyEventId, const QString &relateToEventId)

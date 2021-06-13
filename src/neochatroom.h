@@ -138,6 +138,8 @@ public Q_SLOTS:
     void acceptInvitation();
     void forget();
     void sendTypingNotification(bool isTyping);
+    QString preprocessText(const QString &text);
+
     /// @param rawText The text as it was typed.
     /// @param cleanedText The text with link to the users.
     void postMessage(const QString &rawText,

@@ -10,9 +10,15 @@ import org.kde.neochat 1.0 as NeoChat
 import NeoChat.Component 1.0
 
 ColumnLayout {
+    id: _picker
+
     property string emojiCategory: "history"
     property var textArea
     readonly property var emojiModel: NeoChat.EmojiModel
+
+    property NeoChat.CustomEmojiModel customModel: NeoChat.CustomEmojiModel {
+        connection: NeoChat.Controller.activeConnection
+    }
 
     signal chosen(string emoji)
 
@@ -29,6 +35,7 @@ ColumnLayout {
         orientation: ListView.Horizontal
 
         model: ListModel {
+            ListElement { label: "custom"; category: "custom" }
             ListElement { label: "⌛️"; category: "history" }
             ListElement { label: "😏"; category: "people" }
             ListElement { label: "🌲"; category: "nature" }
@@ -41,16 +48,23 @@ ColumnLayout {
         }
 
         delegate: ItemDelegate {
-            width: Kirigami.Units.gridUnit * 2
+            id: del
+
+            required property string label
+            required property string category
+
+            width: contentItem.Layout.preferredWidth
             height: Kirigami.Units.gridUnit * 2
 
             contentItem: Kirigami.Heading {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                level: 1
+                level: del.label === "custom" ? 4 : 1
 
-                font.family: 'emoji'
-                text: label
+                Layout.preferredWidth: del.label === "custom" ? implicitWidth + Kirigami.Units.largeSpacing : Kirigami.Units.gridUnit * 2
+
+                font.family: del.label === "custom" ? undefined : 'emoji'
+                text: del.label === "custom" ? i18n("Custom") : del.label
             }
 
             Rectangle {
@@ -87,6 +101,8 @@ ColumnLayout {
 
         model: {
             switch (emojiCategory) {
+            case "custom":
+                return _picker.customModel
             case "history":
                 return emojiModel.history
             case "people":
@@ -118,11 +134,32 @@ ColumnLayout {
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 font.family: 'emoji'
-                text: modelData.unicode
+                text: modelData.isCustom ? "" : modelData.unicode
+            }
+
+            Image {
+                visible: modelData.isCustom
+                source: modelData.unicode
+                anchors.fill: parent
+                anchors.margins: 2
+
+                sourceSize.width: width
+                sourceSize.height: height
+
+                Rectangle {
+                    anchors.fill: parent
+                    visible: parent.status === Image.Loading
+                    radius: height/2
+                    gradient: ShimmerGradient { }
+                }
             }
 
             onClicked: {
-                chosen(modelData.unicode)
+                if (modelData.isCustom) {
+                    chosen(modelData.shortname)
+                } else {
+                    chosen(modelData.unicode)
+                }
                 emojiModel.emojiUsed(modelData)
             }
         }

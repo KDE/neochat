@@ -335,7 +335,7 @@ ToolBar {
                     } else if (completionInfo.type === ChatDocumentHandler.Command) {
                         completionMenu.model = CommandModel.filterModel(completionInfo.keyword);
                     } else {
-                        completionMenu.model = EmojiModel.filterModel(completionInfo.keyword);
+                        completionMenu.model = Array.from(chatBar.customEmojiModel.filterModel(completionInfo.keyword)).concat(EmojiModel.filterModel(completionInfo.keyword))
                     }
 
                     if (completionMenu.model.length === 0) {
@@ -443,6 +443,10 @@ ToolBar {
         }
     }
 
+    property CustomEmojiModel customEmojiModel: CustomEmojiModel {
+        connection: Controller.activeConnection
+    }
+
     function pasteImage() {
         let localPath = Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/screenshots/" + (new Date()).getTime() + ".png";
         if (!Clipboard.saveImage(localPath)) {
@@ -457,7 +461,7 @@ ToolBar {
         if (ChatBoxHelper.hasAttachment) {
             // send attachment but don't reset the text
             actionsHandler.postMessage("", ChatBoxHelper.attachmentPath,
-                ChatBoxHelper.replyEventId, ChatBoxHelper.editEventId, {});
+                ChatBoxHelper.replyEventId, ChatBoxHelper.editEventId, {}, this.customEmojiModel);
             currentRoom.markAllMessagesAsRead();
             messageSent();
             return;
@@ -470,7 +474,7 @@ ToolBar {
         } else {
             // send normal message
             actionsHandler.postMessage(inputField.text.trim(), ChatBoxHelper.attachmentPath,
-                ChatBoxHelper.replyEventId, ChatBoxHelper.editEventId, userAutocompleted);
+                ChatBoxHelper.replyEventId, ChatBoxHelper.editEventId, userAutocompleted, this.customEmojiModel);
         }
         currentRoom.markAllMessagesAsRead();
         inputField.clear();

@@ -22,4 +22,5 @@ static const QRegularExpression removeRichReplyRegex{"<mx-reply>.*?</mx-reply>",
 static const QRegularExpression codePillRegExp{"<pre><code[^>]*>(.*?)</code></pre>", QRegularExpression::DotMatchesEverythingOption};
 static const QRegularExpression userPillRegExp{"(<a href=\"https://matrix.to/#/@.*?:.*?\">.*?</a>)", QRegularExpression::DotMatchesEverythingOption};
 static const QRegularExpression strikethroughRegExp{"<del>(.*?)</del>", QRegularExpression::DotMatchesEverythingOption};
+static const QRegularExpression mxcImageRegExp{R"AAA(<img(.*?)src="mxc:\/\/(.*?)\/(.*?)"(.*?)>)AAA"};
 } // namespace utils

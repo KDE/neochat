@@ -64,7 +64,7 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
     std::unique_ptr<KNotificationReplyAction> replyAction(new KNotificationReplyAction(i18n("Reply")));
     replyAction->setPlaceholderText(i18n("Reply..."));
     QObject::connect(replyAction.get(), &KNotificationReplyAction::replied, [room, replyEventId](const QString &text) {
-        room->postMessage(text, text, RoomMessageEvent::MsgType::Text, replyEventId, QString());
+        room->postMessage(text, room->preprocessText(text), RoomMessageEvent::MsgType::Text, replyEventId, QString());
     });
     notification->setReplyAction(std::move(replyAction));
 #endif

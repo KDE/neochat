@@ -54,6 +54,11 @@ Kirigami.ScrollablePage {
                         onTriggered: pageSettingStack.push("qrc:/imports/NeoChat/Page/AccountsPage.qml")
                     },
                     Kirigami.Action {
+                        text: i18n("Custom Emoji")
+                        icon.name: "preferences-desktop-emoticons"
+                        onTriggered: pageSettingStack.push("qrc:/imports/NeoChat/Settings/Emoticons.qml")
+                    },
+                    Kirigami.Action {
                         text: i18n("About NeoChat")
                         icon.name: "help-about"
                         onTriggered: pageSettingStack.push(aboutPage)

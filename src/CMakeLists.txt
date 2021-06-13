@@ -8,6 +8,8 @@ add_executable(neochat
     controller.cpp
     actionshandler.cpp
     emojimodel.cpp
+    customemojimodel.cpp
+    customemojimodel+network.cpp
     clipboard.cpp
     matriximageprovider.cpp
     messageeventmodel.cpp

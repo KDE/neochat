@@ -13,6 +13,7 @@
 
 #include "controller.h"
 #include "roommanager.h"
+#include "customemojimodel.h"
 
 ActionsHandler::ActionsHandler(QObject *parent)
     : QObject(parent)
@@ -72,7 +73,7 @@ void ActionsHandler::postEdit(const QString &text)
                 if (!match.hasMatch()) {
                     // should not happen but still make sure to send the message normally
                     // just in case.
-                    postMessage(text, QString(), QString(), QString(), QVariantMap());
+                    postMessage(text, QString(), QString(), QString(), QVariantMap(), nullptr);
                 }
                 const QString regex = match.captured(1);
                 const QString replacement = match.captured(2);
@@ -93,10 +94,18 @@ void ActionsHandler::postMessage(const QString &text,
                                  const QString &attachementPath,
                                  const QString &replyEventId,
                                  const QString &editEventId,
-                                 const QVariantMap &usernames)
+                                 const QVariantMap &usernames,
+                                 CustomEmojiModel* cem)
 {
     QString rawText = text;
     QString cleanedText = text;
+
+    auto preprocess = [cem](const QString& it) -> QString {
+        if (cem == nullptr) {
+            return it;
+        }
+        return cem->preprocessText(it);
+    };
 
     for (auto it = usernames.constBegin(); it != usernames.constEnd(); it++) {
         cleanedText = cleanedText.replace(it.key(), "[" + it.key() + "](https://matrix.to/#/" + it.value().toString() + ")");
@@ -163,7 +172,7 @@ void ActionsHandler::postMessage(const QString &text,
         for (int i = 0; i < cleanedText.length(); i++) {
             rainbowText = rainbowText % QStringLiteral("<font color='") % rainbowColors.at(i % rainbowColors.length()) % "'>" % cleanedText.at(i) % "</font>";
         }
-        m_room->postHtmlMessage(cleanedText, rainbowText, RoomMessageEvent::MsgType::Notice, replyEventId, editEventId);
+        m_room->postHtmlMessage(cleanedText, preprocess(rainbowText), RoomMessageEvent::MsgType::Notice, replyEventId, editEventId);
         return;
     }
 
@@ -173,7 +182,7 @@ void ActionsHandler::postMessage(const QString &text,
         for (int i = 0; i < cleanedText.length(); i++) {
             rainbowText = rainbowText % QStringLiteral("<font color='") % rainbowColors.at(i % rainbowColors.length()) % "'>" % cleanedText.at(i) % "</font>";
         }
-        m_room->postHtmlMessage(cleanedText, rainbowText, messageEventType, replyEventId, editEventId);
+        m_room->postHtmlMessage(cleanedText, preprocess(rainbowText), messageEventType, replyEventId, editEventId);
         return;
     }
 
@@ -280,5 +289,5 @@ void ActionsHandler::postMessage(const QString &text,
         cleanedText = cleanedText.remove(0, noticePrefix.length());
         messageEventType = RoomMessageEvent::MsgType::Notice;
     }
-    m_room->postMessage(rawText, cleanedText, messageEventType, replyEventId, editEventId);
+    m_room->postMessage(rawText, preprocess(m_room->preprocessText(cleanedText)), messageEventType, replyEventId, editEventId);
 }

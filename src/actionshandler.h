@@ -10,6 +10,8 @@
 
 using namespace Quotient;
 
+class CustomEmojiModel;
+
 /// \brief Handles user interactions with NeoChat (joining room, creating room,
 /// sending message). Account management is handled by Controller.
 class ActionsHandler : public QObject
@@ -56,7 +58,7 @@ public Q_SLOTS:
     ///
     /// This also interprets commands if any.
     void
-    postMessage(const QString &text, const QString &attachementPath, const QString &replyEventId, const QString &editEventId, const QVariantMap &usernames);
+    postMessage(const QString &text, const QString &attachementPath, const QString &replyEventId, const QString &editEventId, const QVariantMap &usernames, CustomEmojiModel* cem);
 
     /// \brief Send edit instructions (.e.g s/hallo/hello/)
     ///

@@ -58,6 +58,7 @@
 #include "userlistmodel.h"
 #include "webshortcutmodel.h"
 #include "spellcheckhighlighter.h"
+#include "customemojimodel.h"
 #ifdef HAVE_COLORSCHEME
 #include "colorschemer.h"
 #endif
@@ -163,6 +164,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<RoomListModel>("org.kde.neochat", 1, 0, "RoomListModel");
     qmlRegisterType<KWebShortcutModel>("org.kde.neochat", 1, 0, "WebShortcutModel");
     qmlRegisterType<UserListModel>("org.kde.neochat", 1, 0, "UserListModel");
+    qmlRegisterType<CustomEmojiModel>("org.kde.neochat", 1, 0, "CustomEmojiModel");
     qmlRegisterType<MessageEventModel>("org.kde.neochat", 1, 0, "MessageEventModel");
     qmlRegisterType<MessageFilterModel>("org.kde.neochat", 1, 0, "MessageFilterModel");
     qmlRegisterType<PublicRoomListModel>("org.kde.neochat", 1, 0, "PublicRoomListModel");

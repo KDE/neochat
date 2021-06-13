@@ -10,6 +10,7 @@ import Qt.labs.qmlmodels 1.0
 import org.kde.kirigami 2.15 as Kirigami
 
 import org.kde.neochat 1.0
+import NeoChat.Component 1.0
 
 Popup {
     id: control
@@ -94,23 +95,40 @@ Popup {
         Kirigami.BasicListItem {
             id: emojiItem
             width: ListView.view.width ?? implicitWidth
-            property string displayName: modelData.unicode
-            text: modelData.unicode + " " + modelData.shortname
+            property string displayName: modelData.isCustom ? modelData.shortname : modelData.unicode
+            text: modelData.shortname
+            reserveSpaceForSubtitle: true
 
-            leading: Label {
-                id: unicodeLabel
-                Layout.preferredHeight: Kirigami.Units.gridUnit
-                Layout.preferredWidth: textMetrics.tightBoundingRect.width
-                font.pointSize: Kirigami.Units.gridUnit * 0.75
-                text: modelData.unicode
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
+            leading: Image {
+                source: modelData.isCustom ? modelData.unicode : ""
+
+                width: height
+                sourceSize.width: width
+                sourceSize.height: height
+
+                Rectangle {
+                    anchors.fill: parent
+                    visible: parent.status === Image.Loading
+                    radius: height/2
+                    gradient: ShimmerGradient { }
+                }
+
+                Label {
+                    id: unicodeLabel
+
+                    visible: !modelData.isCustom
+
+                    font.family: 'emoji'
+                    font.pixelSize: height - 2
+
+                    text: modelData.unicode
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+
+                    anchors.fill: parent
+                }
             }
-            TextMetrics {
-                id: textMetrics
-                text: modelData.unicode
-                font: unicodeLabel.font
-            }
+
             onClicked: completeTriggered();
         }
     }

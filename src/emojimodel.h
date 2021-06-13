@@ -10,9 +10,10 @@
 #include <utility>
 
 struct Emoji {
-    Emoji(QString u, QString s)
+    Emoji(QString u, QString s, bool isCustom = false)
         : unicode(std::move(std::move(u)))
         , shortname(std::move(std::move(s)))
+        , isCustom(isCustom)
     {
     }
     Emoji() = default;
@@ -28,15 +29,18 @@ struct Emoji {
     {
         arch >> object.unicode;
         arch >> object.shortname;
+        object.isCustom = object.unicode.startsWith("image://");
         return arch;
     }
 
     QString unicode;
     QString shortname;
+    bool isCustom = false;
 
     Q_GADGET
     Q_PROPERTY(QString unicode MEMBER unicode)
     Q_PROPERTY(QString shortname MEMBER shortname)
+    Q_PROPERTY(bool isCustom MEMBER isCustom)
 };
 
 Q_DECLARE_METATYPE(Emoji)
