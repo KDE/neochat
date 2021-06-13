@@ -23,6 +23,8 @@ QQC2.ItemDelegate {
 
     readonly property int bubbleMaxWidth: Config.compactLayout && !Config.showAvatarInTimeline ? width : (Config.compactLayout ? width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 4 : Math.min(width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 6, Kirigami.Units.gridUnit * 20))
 
+    property bool showUserMessageOnRight: Config.showLocalMessagesOnRight && model.author.isLocalUser && !applicationWindow().wideScreen
+
     signal saveFileAs()
     signal openExternally()
     signal replyClicked(string eventID)
@@ -72,7 +74,7 @@ QQC2.ItemDelegate {
             leftMargin: Kirigami.Units.largeSpacing
         }
 
-        visible: model.showAuthor && Config.showAvatarInTimeline
+        visible: model.showAuthor && Config.showAvatarInTimeline && !showUserMessageOnRight
         name: model.author.name ?? model.author.displayName
         source: visible && model.author.avatarMediaId ? ("image://mxc/" + model.author.avatarMediaId) : ""
         color: model.author.color
@@ -100,14 +102,44 @@ QQC2.ItemDelegate {
         rightPadding: Config.compactLayout ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing
         hoverEnabled: true
 
-        state: Config.compactLayout ? "compactLayout" : "default"
+        // state: Config.compactLayout ? "compactLayout" : "default"
+        state: showUserMessageOnRight ? "userMessageOnRight" : "userMessageOnLeft"
+
         anchors {
             top: avatar.top
-            left: avatar.right
             leftMargin: Kirigami.Units.largeSpacing
+            rightMargin: showUserMessageOnRight ? Kirigami.Units.smallSpacing : Kirigami.Units.largeSpacing
         }
         // HACK: anchoring didn't reset anchors.right when switching from parent.right to undefined reliably
         width: Config.compactLayout ? messageDelegate.width - (Config.showAvatarInTimeline ? Kirigami.Units.gridUnit * 2 : 0) + Kirigami.Units.largeSpacing * 2 : implicitWidth
+
+
+        // states for anchor animations on window resize
+        // as setting anchors to undefined did not work reliably
+        states: [
+            State {
+                name: "userMessageOnRight"
+                AnchorChanges {
+                    target: bubble
+                    anchors.left: undefined
+                    anchors.right: parent.right
+                }
+            },
+            State {
+                name: "userMessageOnLeft"
+                AnchorChanges {
+                    target: bubble
+                    anchors.left: avatar.right
+                    anchors.right: undefined
+                }
+            }
+        ]
+
+        transitions: [
+            Transition {
+                AnchorAnimation{duration: Kirigami.Units.longDuration; easing.type: Easing.OutCubic}
+            }
+        ]
 
         contentItem: ColumnLayout {
             id: column
@@ -176,7 +208,15 @@ QQC2.ItemDelegate {
 
         background: Kirigami.ShadowedRectangle {
             visible: cardBackground && !Config.compactLayout
-            color: model.isHighlighted ? Kirigami.Theme.positiveBackgroundColor : Kirigami.Theme.backgroundColor
+            color: {
+                if (model.author.isLocalUser) {
+                    return Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.15)
+                } else if (model.isHighlighted) {
+                    return Kirigami.Theme.positiveBackgroundColor
+                } else {
+                    return Kirigami.Theme.backgroundColor
+                }
+            }
             radius: Kirigami.Units.smallSpacing
             shadow.size: Kirigami.Units.smallSpacing
             shadow.color: !model.isHighlighted ? Qt.rgba(0.0, 0.0, 0.0, 0.10) : Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.10)

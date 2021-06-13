@@ -204,6 +204,14 @@ Kirigami.ScrollablePage {
                     Config.save();
                 }
             }
+            QQC2.CheckBox {
+                text: i18n("Show your messages on the right")
+                checked: Config.showLocalMessagesOnRight
+                onToggled: {
+                    Config.showLocalMessagesOnRight = checked
+                    Config.save()
+                }
+            }
         }
     }
 }
