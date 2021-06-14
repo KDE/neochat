@@ -13,7 +13,9 @@
 struct KWebShortcutModelPrivate
 {
     QString selectedText;
+#ifdef HAVE_KIO
     KUriFilterData filterData;
+#endif
     QStringList searchProviders;
 };
 
@@ -111,14 +113,20 @@ QVariant KWebShortcutModel::data(const QModelIndex &index, int role) const
 
 void KWebShortcutModel::trigger(const QString &data)
 {
+#ifdef HAVE_KIO
      KUriFilterData filterData(data);
      if (KUriFilter::self()->filterSearchUri(filterData, KUriFilter::WebShortcutFilter)) {
         Q_EMIT openUrl(filterData.uri().url());
      }
+#else
+    Q_UNUSED(data);
+#endif
 }
 
 void KWebShortcutModel::configureWebShortcuts()
 {
+#ifdef HAVE_KIO
      auto job = new KIO::CommandLauncherJob("kcmshell5", QStringList() << "webshortcuts", this);
      job->exec();
+#endif
 }
