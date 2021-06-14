@@ -6,7 +6,7 @@
 #include <QAbstractListModel>
 #include <memory>
 
-class KWebShortcutModelPrivate;
+struct KWebShortcutModelPrivate;
 
 //! List model of web shortcuts for a a specified selectedText.
 //!
