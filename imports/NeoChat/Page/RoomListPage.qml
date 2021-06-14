@@ -18,6 +18,24 @@ Kirigami.ScrollablePage {
     id: page
 
     property var enteredRoom
+    property bool collapsedMode: Config.roomListPageWidth === applicationWindow().collapsedPageWidth && applicationWindow().shouldUseSidebars
+
+    onCollapsedModeChanged: if (collapsedMode) {
+        sortFilterRoomListModel.filterText = "";
+        if (page.contentItem && page.contentItem.flickableItem && page.contentItem.flickableItem.QQC2.ScrollBar.vertical) {
+            page.contentItem.flickableItem.QQC2.ScrollBar.vertical.visible = false;
+        }
+    } else {
+        page.contentItem.flickableItem.QQC2.ScrollBar.vertical.visible = true;
+    }
+
+    // HACK: the scrollbar is created with a 0 timer, so we need to set the visible flag
+    // after it has been created
+    Timer {
+        running: true
+        interval: 200 
+        onTriggered: page.contentItem.flickableItem.QQC2.ScrollBar.vertical.visible = !collapsedMode;
+    }
 
     function goToNextRoom() {
         do {
@@ -33,16 +51,50 @@ Kirigami.ScrollablePage {
         listView.currentItem.action.trigger();
     }
 
-    title: i18n("Rooms")
+    titleDelegate: collapsedMode ? empty : searchField
 
-    titleDelegate: Kirigami.SearchField {
-        Layout.topMargin: Kirigami.Units.smallSpacing
-        Layout.bottomMargin: Kirigami.Units.smallSpacing
-        Layout.fillHeight: true
-        Layout.fillWidth: true
-        onTextChanged: sortFilterRoomListModel.filterText = text
-        KeyNavigation.tab: listView
+    Component {
+        id: empty
+        Item {}
     }
+
+    Component {
+        id: searchField
+        Kirigami.SearchField {
+            Layout.topMargin: Kirigami.Units.smallSpacing
+            Layout.bottomMargin: Kirigami.Units.smallSpacing
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            onTextChanged: sortFilterRoomListModel.filterText = text
+            KeyNavigation.tab: listView
+        }
+    }
+
+    header: QQC2.ItemDelegate {
+        visible: page.collapsedMode
+        action: Kirigami.Action {
+            id: enterRoomAction
+            onTriggered: quickView.item.open();
+        }
+        topPadding: Kirigami.Units.largeSpacing
+        leftPadding: Kirigami.Units.largeSpacing
+        rightPadding: Kirigami.Units.largeSpacing
+        bottomPadding: Kirigami.Units.largeSpacing
+        width: visible ? page.width : 0
+        height: visible ? Kirigami.Units.gridUnit * 2 : 0
+
+        Kirigami.Icon {
+            anchors.centerIn: parent
+            width: 22 * Kirigami.Units.devicePixelRatio
+            height: 22 * Kirigami.Units.devicePixelRatio
+            source: "search"
+        }
+        Kirigami.Separator {
+            width: parent.width
+            anchors.bottom: parent.bottom
+        }
+    }
+
 
     ListView {
         id: listView
@@ -63,6 +115,7 @@ Kirigami.ScrollablePage {
                 })
             }
         }
+
 
         ItemSelectionModel {
             id: itemSelection
@@ -97,11 +150,14 @@ Kirigami.ScrollablePage {
                     level: 3
                     text: roomListModel.categoryName(section)
                     Layout.fillWidth: true
+                    elide: Text.ElideRight
+                    visible: !page.collapsedMode
                 }
                 Kirigami.Icon {
-                    source: roomListModel.categoryVisible(section) ? "go-up" : "go-down"
+                    source: page.collapsedMode ? roomListModel.categoryIconName(section) : (roomListModel.categoryVisible(section) ? "go-up" : "go-down")
                     implicitHeight: Kirigami.Units.iconSizes.small
                     implicitWidth: Kirigami.Units.iconSizes.small
+                    Layout.alignment: Qt.AlignHCenter
                 }
             }
         }
@@ -109,87 +165,128 @@ Kirigami.ScrollablePage {
         reuseItems: true
         currentIndex: -1 // we don't want any room highlighted by default
 
-        delegate: Kirigami.BasicListItem {
-            id: roomListItem
-            visible: model.categoryVisible || sortFilterRoomListModel.filterText.length > 0 || Config.mergeRoomList
-            topPadding: Kirigami.Units.largeSpacing
-            bottomPadding: Kirigami.Units.largeSpacing
-            highlighted: listView.currentIndex === index
-            focus: true
-            icon: undefined
-            action: Kirigami.Action {
-                id: enterRoomAction
-                onTriggered: {
-                    RoomManager.enterRoom(currentRoom);
-                    itemSelection.setCurrentIndex(sortFilterRoomListModel.mapToSource(
-                        sortFilterRoomListModel.index(index, 0)), ItemSelectionModel.SelectCurrent)
-                }
-            }
-            Keys.onEnterPressed: enterRoomAction.trigger()
-            Keys.onReturnPressed: enterRoomAction.trigger()
-            bold: unreadCount > 0
-            label: name ?? ""
-            subtitle: {
-                let txt = (lastEvent.length === 0 ? topic : lastEvent).replace(/(\r\n\t|\n|\r\t)/gm, " ")
-                if (txt.length) {
-                    return txt
-                }
-                return " "
-            }
+        delegate: page.collapsedMode ? collapsedModeListComponent : normalModeListComponent
 
-            leading: Kirigami.Avatar {
-                source: avatar ? "image://mxc/" + avatar : ""
-                name: model.name || i18n("No Name")
-                implicitWidth: visible ? height : 0
-                visible: Config.showAvatarInTimeline
-                sourceSize.width: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
-                sourceSize.height: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
-            }
+        Component {
+            id: collapsedModeListComponent
 
-            trailing: RowLayout {
-                QQC2.Label {
-                    text: notificationCount
-                    visible: notificationCount > 0
-                    padding: Kirigami.Units.smallSpacing
-                    color: highlightCount > 0 ? "white" : Kirigami.Theme.textColor
-                    Layout.minimumWidth: height
-                    horizontalAlignment: Text.AlignHCenter
-                    background: Rectangle {
-                        Kirigami.Theme.colorSet: Kirigami.Theme.Button
-                        color: highlightCount > 0 ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.backgroundColor
-                        radius: height / 2
+            QQC2.ItemDelegate {
+                action: Kirigami.Action {
+                    id: enterRoomAction
+                    onTriggered: {
+                        RoomManager.enterRoom(currentRoom);
+                        itemSelection.setCurrentIndex(sortFilterRoomListModel.mapToSource(
+                            sortFilterRoomListModel.index(index, 0)), ItemSelectionModel.SelectCurrent)
                     }
                 }
-                QQC2.Button {
-                    id: configButton
-                    visible: roomListItem.hovered || Kirigami.Settings.isMobile
-                    Accessible.name: i18n("Configure room")
+                Keys.onEnterPressed: enterRoomAction.trigger()
+                Keys.onReturnPressed: enterRoomAction.trigger()
+                topPadding: Kirigami.Units.largeSpacing
+                leftPadding: Kirigami.Units.largeSpacing
+                rightPadding: Kirigami.Units.largeSpacing
+                bottomPadding: Kirigami.Units.largeSpacing
+                width: ListView.view.width
+                height: ListView.view.width
 
-                    action: Kirigami.Action {
-                        id: optionAction
-                        icon.name: "configure"
-                        onTriggered: {
-                            const menu = roomListContextMenu.createObject(page, {"room": currentRoom})
-                            configButton.visible = true
-                            configButton.down = true
-                            menu.closed.connect(function() {
-                                configButton.down = undefined
-                                configButton.visible = Qt.binding(function() { return roomListItem.hovered || Kirigami.Settings.isMobile })
-                            })
-                            menu.popup()
+                contentItem: Kirigami.Avatar {
+                    source: avatar ? "image://mxc/" + avatar : ""
+                    name: model.name || i18n("No Name")
+                    sourceSize.width: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
+                    sourceSize.height: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
+                }
+
+                QQC2.ToolTip {
+                    enabled: text.length !== 0
+                    text: name ?? ""
+                }
+            }
+        }
+
+        Component {
+            id: roomListContextMenu
+            RoomListContextMenu {}
+        }
+
+        Component {
+            id: normalModeListComponent
+            Kirigami.BasicListItem {
+                id: roomListItem
+                visible: model.categoryVisible || sortFilterRoomListModel.filterText.length > 0 || Config.mergeRoomList
+                topPadding: Kirigami.Units.largeSpacing
+                bottomPadding: Kirigami.Units.largeSpacing
+                highlighted: listView.currentIndex === index
+                focus: true
+                icon: undefined
+                action: Kirigami.Action {
+                    id: enterRoomAction
+                    onTriggered: {
+                        RoomManager.enterRoom(currentRoom);
+                        itemSelection.setCurrentIndex(sortFilterRoomListModel.mapToSource(
+                            sortFilterRoomListModel.index(index, 0)), ItemSelectionModel.SelectCurrent)
+                    }
+                }
+                Keys.onEnterPressed: enterRoomAction.trigger()
+                Keys.onReturnPressed: enterRoomAction.trigger()
+                bold: unreadCount > 0
+                label: name ?? ""
+                subtitle: {
+                    let txt = (lastEvent.length === 0 ? topic : lastEvent).replace(/(\r\n\t|\n|\r\t)/gm, " ")
+                    if (txt.length) {
+                        return txt
+                    }
+                    return " "
+                }
+
+                leading: Kirigami.Avatar {
+                    source: avatar ? "image://mxc/" + avatar : ""
+                    name: model.name || i18n("No Name")
+                    implicitWidth: visible ? height : 0
+                    visible: Config.showAvatarInTimeline
+                    sourceSize.width: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
+                    sourceSize.height: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
+                }
+
+                trailing: RowLayout {
+                    QQC2.Label {
+                        text: notificationCount
+                        visible: notificationCount > 0
+                        padding: Kirigami.Units.smallSpacing
+                        color: highlightCount > 0 ? "white" : Kirigami.Theme.textColor
+                        Layout.minimumWidth: height
+                        horizontalAlignment: Text.AlignHCenter
+                        background: Rectangle {
+                            Kirigami.Theme.colorSet: Kirigami.Theme.Button
+                            color: highlightCount > 0 ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.backgroundColor
+                            radius: height / 2
+                        }
+                    }
+                    QQC2.Button {
+                        id: configButton
+                        visible: roomListItem.hovered || Kirigami.Settings.isMobile
+                        Accessible.name: i18n("Configure room")
+
+                        action: Kirigami.Action {
+                            id: optionAction
+                            icon.name: "configure"
+                            onTriggered: {
+                                const menu = roomListContextMenu.createObject(page, {"room": currentRoom})
+                                configButton.visible = true
+                                configButton.down = true
+                                menu.closed.connect(function() {
+                                    configButton.down = undefined
+                                    configButton.visible = Qt.binding(function() { return roomListItem.hovered || Kirigami.Settings.isMobile })
+                                })
+                                menu.popup()
+                            }
                         }
                     }
                 }
             }
         }
-        Component {
-            id: roomListContextMenu
-            RoomListContextMenu {}
-        }
     }
 
     footer: QQC2.ToolBar {
-        visible: accountList.count > 1
+        visible: accountList.count > 1 && !collapsedMode
         height: visible ? implicitHeight : 0
         leftPadding: 0
         rightPadding: 0

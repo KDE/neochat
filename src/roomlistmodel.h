@@ -69,6 +69,7 @@ public:
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
     Q_INVOKABLE [[nodiscard]] static QString categoryName(int section);
+    Q_INVOKABLE [[nodiscard]] static QString categoryIconName(int section);
     Q_INVOKABLE void setCategoryVisible(int category, bool visible);
     Q_INVOKABLE [[nodiscard]] bool categoryVisible(int category) const;
 

@@ -432,6 +432,24 @@ QString RoomListModel::categoryName(int section)
     }
 }
 
+QString RoomListModel::categoryIconName(int section)
+{
+    switch (section) {
+    case 1:
+        return QStringLiteral("user-invisible");
+    case 2:
+        return QStringLiteral("favorite");
+    case 3:
+        return QStringLiteral("dialog-messages");
+    case 4:
+        return QStringLiteral("group");
+    case 5:
+        return QStringLiteral("object-order-lower");
+    default:
+        return QStringLiteral("tools-report-bug");
+    }
+}
+
 void RoomListModel::setCategoryVisible(int category, bool visible)
 {
     beginResetModel();
