@@ -282,6 +282,23 @@ ToolBar {
                     chatBar.complete();
                 }
 
+                // yes, decrement goes up and increment goes down visually.
+                Keys.onUpPressed: (event) => {
+                    if (chatBar.isCompleting) {
+                        event.accepted = true
+                        completionMenu.listView.decrementCurrentIndex()
+                    }
+                    event.accepted = false
+                }
+
+                Keys.onDownPressed: (event) => {
+                    if (chatBar.isCompleting) {
+                        event.accepted = true
+                        completionMenu.listView.incrementCurrentIndex()
+                    }
+                    event.accepted = false
+                }
+
                 Keys.onTabPressed: {
                     if (event.modifiers & Qt.ControlModifier) {
                         switchRoomDown();
@@ -486,6 +503,8 @@ ToolBar {
 
     function complete() {
         documentHandler.replaceAutoComplete(completionMenu.currentDisplayText);
+        completionMenu.model = null
+        chatBar.isCompleting = false
         if (completionMenu.completionType === ChatDocumentHandler.User
             && completionMenu.currentDisplayText.length > 0
             && completionMenu.currentItem.userId.length > 0) {

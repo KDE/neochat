@@ -17,6 +17,7 @@ Popup {
 
     // Expose internal ListView properties.
     property alias model: completionListView.model
+    property alias listView: completionListView
     property alias currentIndex: completionListView.currentIndex
     property alias currentItem: completionListView.currentItem
     property alias count: completionListView.count
@@ -43,7 +44,7 @@ Popup {
         completionListView.currentIndex = 0;
     }
 
-    implicitHeight: Math.min(completionListView.contentHeight, Kirigami.Units.gridUnit * 5)
+    implicitHeight: Math.min(completionListView.contentHeight, Kirigami.Units.gridUnit * 10)
 
     contentItem: ScrollView {
         ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
@@ -97,7 +98,7 @@ Popup {
             width: ListView.view.width ?? implicitWidth
             property string displayName: modelData.isCustom ? modelData.shortname : modelData.unicode
             text: modelData.shortname
-            reserveSpaceForSubtitle: true
+            height: Kirigami.Units.gridUnit * 2
 
             leading: Image {
                 source: modelData.isCustom ? modelData.unicode : ""

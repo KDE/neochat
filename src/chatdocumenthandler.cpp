@@ -197,7 +197,7 @@ void ChatDocumentHandler::replaceAutoComplete(const QString &word)
         }
     }
 
-    cursor.insertHtml(word);
+    cursor.insertHtml(word + " ");
     m_lastState = cursor.block().text();
     cursor.endEditBlock();
 }
