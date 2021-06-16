@@ -140,7 +140,9 @@ void ActionsHandler::postMessage(const QString &text,
     static const QString myavatarPrefix = QStringLiteral("/myavatar "); // TODO
     static const QString invitePrefix = QStringLiteral("/invite ");
     static const QString joinPrefix = QStringLiteral("/join ");
+    static const QString joinShortPrefix = QStringLiteral("/j ");
     static const QString partPrefix = QStringLiteral("/part");
+    static const QString leavePrefix = QStringLiteral("/leave");
     static const QString ignorePrefix = QStringLiteral("/ignore ");
     static const QString unignorePrefix = QStringLiteral("/unignore ");
     static const QString queryPrefix = QStringLiteral("/query "); // TODO
@@ -186,8 +188,12 @@ void ActionsHandler::postMessage(const QString &text,
         return;
     }
 
-    if (rawText.indexOf(joinPrefix) == 0) {
-        rawText = rawText.remove(0, joinPrefix.length());
+    if (rawText.indexOf(joinPrefix) == 0 || rawText.indexOf(joinShortPrefix) == 0) {
+        if (rawText.indexOf(joinPrefix) == 0) {
+            rawText = rawText.remove(0, joinPrefix.length());
+        } else {
+            rawText = rawText.remove(0, joinShortPrefix.length());
+        }
         const QStringList splittedText = rawText.split(" ");
         if (text.count() == 0) {
             Q_EMIT showMessage(MessageType::Error, i18n("Invalid command"));
@@ -216,8 +222,12 @@ void ActionsHandler::postMessage(const QString &text,
         return;
     }
 
-    if (rawText.indexOf(partPrefix) == 0) {
-        rawText = rawText.remove(0, partPrefix.length());
+    if (rawText.indexOf(partPrefix) == 0 || rawText.indexOf(leavePrefix) == 0) {
+        if (rawText.indexOf(partPrefix) == 0) {
+            rawText = rawText.remove(0, partPrefix.length());
+        } else {
+            rawText = rawText.remove(0, leavePrefix.length());
+        }
         const QStringList splittedText = rawText.split(" ");
         if (splittedText.count() == 0 || splittedText[0].isEmpty()) {
             // leave current room
