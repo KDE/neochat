@@ -115,6 +115,10 @@ static bool isSpellcheckable(const QStringRef &token)
     if (!token.at(0).isLetter() || token.at(0).isUpper() || token.startsWith(QStringLiteral("http"))) {
         return false;
     }
+    // part of a slash command
+    if (token.contains("rainbowme") || token.contains("lenny")) {
+        return false;
+    }
     // TODO ignore urls and uppercase?
     return true;
 }
@@ -124,6 +128,11 @@ void SpellcheckHighlighter::highlightBlock(const QString &text)
     // Avoid spellchecking quotes
     if (text.isEmpty() || text.at(0) == QLatin1Char('>')) {
         setFormat(0, text.length(), mQuoteFormat);
+        return;
+    }
+    // Don't spell check certain commands
+    if (text.startsWith("/join") || text.startsWith("/part") || text.startsWith("/invite")) {
+        setFormat(0, text.length(), QTextCharFormat{});
         return;
     }
 #ifndef Q_OS_ANDROID
