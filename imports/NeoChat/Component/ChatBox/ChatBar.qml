@@ -287,6 +287,7 @@ ToolBar {
                     if (chatBar.isCompleting) {
                         event.accepted = true
                         completionMenu.listView.decrementCurrentIndex()
+                        autoAppeared = true;
                     }
                     event.accepted = false
                 }
@@ -295,6 +296,7 @@ ToolBar {
                     if (chatBar.isCompleting) {
                         event.accepted = true
                         completionMenu.listView.incrementCurrentIndex()
+                        autoAppeared = true;
                     }
                     event.accepted = false
                 }
@@ -336,11 +338,18 @@ ToolBar {
                     currentRoom.cachedInput = text
                     autoAppeared = false;
 
-                    const completionInfo = documentHandler.getAutocompletionInfo();
+                    const completionInfo = documentHandler.getAutocompletionInfo(isCompleting);
 
                     if (completionInfo.type === ChatDocumentHandler.Ignore) {
+                        if (completionInfo.keyword) {
+                            // custom emojis
+                            const idx = completionMenu.currentIndex;
+                            completionMenu.model = Array.from(chatBar.customEmojiModel.filterModel(completionInfo.keyword)).concat(EmojiModel.filterModel(completionInfo.keyword))
+                            completionMenu.currentIndex = idx;
+                        }
                         return;
                     }
+
                     if (completionInfo.type === ChatDocumentHandler.None) {
                         isCompleting = false;
                         return;
@@ -359,9 +368,12 @@ ToolBar {
                         isCompleting = false;
                         return;
                     }
-                    isCompleting = true
-                    autoAppeared = true;
-                    completionMenu.endPosition = cursorPosition
+
+                    if (!isCompleting) {
+                        isCompleting = true
+                        autoAppeared = true;
+                        completionMenu.endPosition = cursorPosition
+                    }
                 }
             }
         }
@@ -503,8 +515,6 @@ ToolBar {
 
     function complete() {
         documentHandler.replaceAutoComplete(completionMenu.currentDisplayText);
-        completionMenu.model = null
-        chatBar.isCompleting = false
         if (completionMenu.completionType === ChatDocumentHandler.User
             && completionMenu.currentDisplayText.length > 0
             && completionMenu.currentItem.userId.length > 0) {

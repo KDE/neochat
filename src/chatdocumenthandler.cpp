@@ -123,7 +123,7 @@ void ChatDocumentHandler::setRoom(NeoChatRoom *room)
     Q_EMIT roomChanged();
 }
 
-QVariantMap ChatDocumentHandler::getAutocompletionInfo()
+QVariantMap ChatDocumentHandler::getAutocompletionInfo(bool isAutocompleting)
 {
     QTextCursor cursor = textCursor();
 
@@ -132,9 +132,6 @@ QVariantMap ChatDocumentHandler::getAutocompletionInfo()
         return QVariantMap{
             {"type", AutoCompletionType::Ignore},
         };
-    }
-    if (m_cursorPosition != m_autoCompleteBeginPosition && m_cursorPosition != m_autoCompleteEndPosition) {
-        // we moved our cursor, so cancel autocompletion
     }
 
     QString text = cursor.block().text();
@@ -167,10 +164,17 @@ QVariantMap ChatDocumentHandler::getAutocompletionInfo()
             };
         }
 
-        return QVariantMap{
-            {"keyword", autoCompletePrefix},
-            {"type", AutoCompletionType::Emoji},
-        };
+        if (!isAutocompleting) {
+            return QVariantMap{
+                {"keyword", autoCompletePrefix},
+                {"type", AutoCompletionType::Emoji},
+            };
+        } else {
+            return QVariantMap{
+                {"type", AutoCompletionType::Ignore},
+                {"keyword", autoCompletePrefix},
+            };
+        }
     }
 
     return QVariantMap{
@@ -197,7 +201,7 @@ void ChatDocumentHandler::replaceAutoComplete(const QString &word)
         }
     }
 
-    cursor.insertHtml(word + " ");
+    cursor.insertHtml(word);
     m_lastState = cursor.block().text();
     cursor.endEditBlock();
 }

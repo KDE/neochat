@@ -52,7 +52,7 @@ public:
 
     /// This function will look at the current QTextCursor and determine if there
     /// is the possibility to autocomplete it.
-    Q_INVOKABLE QVariantMap getAutocompletionInfo();
+    Q_INVOKABLE QVariantMap getAutocompletionInfo(bool isAutocompleting);
     Q_INVOKABLE void replaceAutoComplete(const QString &word);
 
 Q_SIGNALS:
