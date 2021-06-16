@@ -63,7 +63,7 @@ ColumnLayout {
 
                 Layout.preferredWidth: del.label === "custom" ? implicitWidth + Kirigami.Units.largeSpacing : Kirigami.Units.gridUnit * 2
 
-                font.family: del.label === "custom" ? undefined : 'emoji'
+                font.family: del.label === "custom" ? "" : 'emoji'
                 text: del.label === "custom" ? i18n("Custom") : del.label
             }
 
@@ -139,7 +139,7 @@ ColumnLayout {
 
             Image {
                 visible: modelData.isCustom
-                source: modelData.unicode
+                source: visible ? modelData.unicode : ""
                 anchors.fill: parent
                 anchors.margins: 2
 
