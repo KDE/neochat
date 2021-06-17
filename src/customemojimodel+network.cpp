@@ -32,9 +32,9 @@ void CustomEmojiModel::fetchEmojies()
         const auto& data = emojies[emoji];
 
         d->emojies << CustomEmoji {
-            .name = emoji,
-            .url = data["url"].toString(),
-            .regexp = QRegularExpression(QStringLiteral(R"((^|[^\\]))") + emoji)
+            emoji,
+            data["url"].toString(),
+            QRegularExpression(QStringLiteral(R"((^|[^\\]))") + emoji)
         };
     }
 
