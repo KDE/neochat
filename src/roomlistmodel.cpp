@@ -364,6 +364,9 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
         return room->highlightCount();
     }
     if (role == LastEventRole) {
+        if (room->lastEventIsSpoiler()) {
+            return QString();
+        }
         return room->lastEventToString();
     }
     if (role == LastActiveTimeRole) {

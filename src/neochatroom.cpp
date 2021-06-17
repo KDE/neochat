@@ -147,6 +147,19 @@ const RoomMessageEvent *NeoChatRoom::lastEvent(bool ignoreStateEvent) const
     return nullptr;
 }
 
+bool NeoChatRoom::lastEventIsSpoiler() const
+{
+    if (auto event = lastEvent()) {
+        if (auto e = eventCast<const RoomMessageEvent>(event)) {
+            if (e->hasTextContent() && e->content() && e->mimeType().name() == "text/html") {
+                auto htmlBody = static_cast<const Quotient::EventContent::TextContent *>(e->content())->body;
+                return htmlBody.contains("data-mx-spoiler");
+            }
+        }
+    }
+    return false;
+}
+
 QString NeoChatRoom::lastEventToString() const
 {
     if (auto event = lastEvent()) {

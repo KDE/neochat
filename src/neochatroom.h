@@ -47,7 +47,14 @@ public:
     /// Convenient way to get the last event but in a string format.
     ///
     /// \see lastEvent
+    /// \see lastEventIsSpoiler
     [[nodiscard]] QString lastEventToString() const;
+
+    /// Convenient way to check if the last event looks like it has spoilers.
+    ///
+    /// \see lastEvent
+    /// \see lastEventToString
+    [[nodiscard]] bool lastEventIsSpoiler() const;
 
     /// Convenient way to get the QDateTime of the last event.
     ///

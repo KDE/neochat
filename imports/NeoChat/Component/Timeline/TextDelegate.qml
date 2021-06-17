@@ -12,9 +12,11 @@ TextEdit {
     id: contentLabel
 
     readonly property var isEmoji: /^(<span style='.*'>)?(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])+(<\/span>)?$/
+    readonly property var hasSpoiler: /data-mx-spoiler/g
 
     property bool isEmote: false
     property string textMessage: model.display
+    property bool spoilerRevealed: !hasSpoiler.test(textMessage)
 
     text: "<style>
 table {
@@ -35,6 +37,12 @@ a{
     color: " + Kirigami.Theme.linkColor + ";
     text-decoration: none;
 }
+" + (!spoilerRevealed ? "
+[data-mx-spoiler] {
+    color: transparent;
+    background: " + Kirigami.Theme.textColor + ";
+}
+" : "") + "
 </style>" + (isEmote ? "* <a href='https://matrix.to/#/" + author.id + "' style='color: " + author.color + "'>" + author.displayName + "</a> " : "") + textMessage + (isEdited ? (" <span style=\"color: " + Kirigami.Theme.disabledTextColor + "\">" + "<span style='font-size: " + Kirigami.Theme.defaultFont.pixelSize +"px'>" + i18n(" (edited)") + "</span>") : "")
 
     color: Kirigami.Theme.textColor
@@ -55,7 +63,11 @@ a{
 
     MouseArea {
         anchors.fill: parent
-        acceptedButtons: Qt.NoButton
-        cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.IBeamCursor
+        acceptedButtons: spoilerRevealed ? Qt.NoButton : Qt.LeftButton
+        cursorShape: (parent.hoveredLink || !spoilerRevealed) ? Qt.PointingHandCursor : Qt.IBeamCursor
+
+        TapHandler {
+            onTapped: spoilerRevealed = true
+        }
     }
 }
