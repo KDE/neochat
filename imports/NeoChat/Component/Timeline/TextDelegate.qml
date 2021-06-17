@@ -17,6 +17,7 @@ TextEdit {
     property bool isEmote: false
     property string textMessage: model.display
     property bool spoilerRevealed: !hasSpoiler.test(textMessage)
+    ListView.onReused: Qt.binding(() => !hasSpoiler.test(textMessage))
 
     text: "<style>
 table {
