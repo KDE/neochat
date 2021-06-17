@@ -36,7 +36,9 @@ Kirigami.ScrollablePage {
             topPadding: 0
             Kirigami.Theme.colorSet: Kirigami.Theme.View
             ListView {
-                Component.onCompleted: actions[0].trigger();
+                Component.onCompleted: if (pageSettingStack.wideMode) {
+                    actions[0].trigger();
+                }
                 property list<Kirigami.Action> actions: [
                     Kirigami.Action {
                         text: i18n("General")
@@ -57,6 +59,11 @@ Kirigami.ScrollablePage {
                         text: i18n("Custom Emoji")
                         icon.name: "preferences-desktop-emoticons"
                         onTriggered: pageSettingStack.push("qrc:/imports/NeoChat/Settings/Emoticons.qml")
+                    },
+                    Kirigami.Action {
+                        text: i18n("Devices")
+                        iconName: "network-connect"
+                        onTriggered: pageSettingStack.push("qrc:/imports/NeoChat/Page/DevicesPage.qml")
                     },
                     Kirigami.Action {
                         text: i18n("About NeoChat")

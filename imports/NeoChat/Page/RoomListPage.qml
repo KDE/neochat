@@ -17,6 +17,8 @@ import NeoChat.Menu 1.0
 Kirigami.ScrollablePage {
     id: page
 
+    title: i18n("Rooms")
+
     property var enteredRoom
     property bool collapsedMode: Config.roomListPageWidth === applicationWindow().collapsedPageWidth && applicationWindow().shouldUseSidebars
 

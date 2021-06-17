@@ -9,43 +9,74 @@ import org.kde.kirigami 2.15 as Kirigami
 
 import org.kde.neochat 1.0
 
-Kirigami.ScrollablePage {
+Kirigami.Page {
     title: i18n("Devices")
 
-    ListView {
-        model: DevicesModel {
-            id: devices
-        }
-        delegate: Kirigami.SwipeListItem {
-            leftPadding: 0
-            rightPadding: 0
-            Kirigami.BasicListItem {
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
+    leftPadding: pageSettingStack.wideMode ? Kirigami.Units.gridUnit : 0
+    topPadding: pageSettingStack.wideMode ? Kirigami.Units.gridUnit : 0
+    bottomPadding: pageSettingStack.wideMode ? Kirigami.Units.gridUnit : 0
+    rightPadding: pageSettingStack.wideMode ? Kirigami.Units.gridUnit : 0
 
-                text: model.displayName
-                subtitle: model.id
-                icon: "network-connect"
-            }
-            actions: [
-                Kirigami.Action {
-                    text: i18n("Edit device name")
-                    iconName: "document-edit"
-                    onTriggered: {
-                        renameSheet.index = model.index
-                        renameSheet.name = model.displayName
-                        renameSheet.open()
-                    }
-                },
-                Kirigami.Action {
-                    text: i18n("Logout device")
-                    iconName: "edit-delete-remove"
-                    onTriggered: {
-                        passwordSheet.index = index
-                        passwordSheet.open()
+    ColumnLayout {
+        anchors.fill: parent
+
+        Connections {
+            target: pageSettingStack
+            onWideModeChanged: scroll.background.visible = pageSettingStack.wideMode
+        }
+
+        Controls.ScrollView {
+            id: scroll
+            Component.onCompleted: background.visible = pageSettingStack.wideMode
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            ListView {
+                clip: true
+                model: DevicesModel {
+                    id: devices
+                }
+
+                Kirigami.PlaceholderMessage {
+                    visible: parent.model.count === 0 // We can assume 0 means loading since there is at least one device
+                    anchors.centerIn: parent
+                    text: i18n("Loading")
+                    Controls.BusyIndicator {
+                        running: parent.visible
                     }
                 }
-            ]
+
+                delegate: Kirigami.SwipeListItem {
+                    leftPadding: 0
+                    rightPadding: 0
+                    Kirigami.BasicListItem {
+                        anchors.top: parent.top
+                        anchors.bottom: parent.bottom
+
+                        text: model.displayName
+                        subtitle: model.id
+                        icon: "network-connect"
+                    }
+                    actions: [
+                        Kirigami.Action {
+                            text: i18n("Edit device name")
+                            iconName: "document-edit"
+                            onTriggered: {
+                                renameSheet.index = model.index
+                                renameSheet.name = model.displayName
+                                renameSheet.open()
+                            }
+                        },
+                        Kirigami.Action {
+                            text: i18n("Logout device")
+                            iconName: "edit-delete-remove"
+                            onTriggered: {
+                                passwordSheet.index = index
+                                passwordSheet.open()
+                            }
+                        }
+                    ]
+                }
+            }
         }
     }
 
