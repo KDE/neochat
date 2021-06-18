@@ -65,6 +65,11 @@ QVariantList CommandModel::commands()
         QStringLiteral("<message>"),
         i18n("Sends the given emote coloured as a rainbow")}));
 
+    commands.append(QVariant::fromValue(Command{
+        QStringLiteral("/spoiler "),
+        QStringLiteral("<message>"),
+        i18n("Sends the given message as a spoiler")}));
+
 
     // Actions commands
     commands.append(QVariant::fromValue(Command{

@@ -128,6 +128,7 @@ void ActionsHandler::postMessage(const QString &text,
     static const QString htmlPrefix = QStringLiteral("/html "); // TODO
     static const QString rainbowPrefix = QStringLiteral("/rainbow ");
     static const QString rainbowmePrefix = QStringLiteral("/rainbowme ");
+    static const QString spoilerPrefix = QStringLiteral("/spoiler ");
     static const QString mePrefix = QStringLiteral("/me ");
     static const QString noticePrefix = QStringLiteral("/notice ");
 
@@ -175,6 +176,14 @@ void ActionsHandler::postMessage(const QString &text,
             rainbowText = rainbowText % QStringLiteral("<font color='") % rainbowColors.at(i % rainbowColors.length()) % "'>" % cleanedText.at(i) % "</font>";
         }
         m_room->postHtmlMessage(cleanedText, preprocess(rainbowText), RoomMessageEvent::MsgType::Notice, replyEventId, editEventId);
+        return;
+    }
+
+    if (cleanedText.indexOf(spoilerPrefix) == 0) {
+        cleanedText = cleanedText.remove(0, spoilerPrefix.length());
+        const QStringList splittedText = rawText.split(" ");
+        QString spoilerHtml = QStringLiteral("<span data-mx-spoiler>") % preprocess(cleanedText) % QStringLiteral("</span>");
+        m_room->postHtmlMessage(cleanedText, spoilerHtml, RoomMessageEvent::MsgType::Notice, replyEventId, editEventId);
         return;
     }
 
