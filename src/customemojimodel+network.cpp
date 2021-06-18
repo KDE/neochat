@@ -23,7 +23,15 @@ void CustomEmojiModel::fetchEmojies()
     if (data == nullptr) {
         return;
     }
-    const auto emojies = data->contentJson()["emoticons"].toObject();
+    QJsonObject emojies = data->contentJson()["images"].toObject();
+
+    //TODO: Remove with stable migration
+    const auto legacyEmojies = data->contentJson()["emoticons"].toObject();
+    for(const auto &emoji : legacyEmojies.keys()) {
+        if(!emojies.contains(emoji)) {
+            emojies[emoji] = legacyEmojies[emoji];
+        }
+    }
 
     beginResetModel();
     d->emojies.clear();
@@ -33,7 +41,7 @@ void CustomEmojiModel::fetchEmojies()
 
         d->emojies << CustomEmoji {
             emoji,
-            data["url"].toString(),
+            data.toObject()["url"].toString(),
             QRegularExpression(QStringLiteral(R"((^|[^\\]))") + emoji)
         };
     }
@@ -51,11 +59,11 @@ void CustomEmojiModel::addEmoji(const QString& name, const QUrl& location)
         connect(job, &BaseJob::success, this, [this, name, job] {
             const auto& data = d->conn->accountData("im.ponies.user_emotes");
             auto json = data != nullptr ? data->contentJson() : QJsonObject();
-            auto emojiData = json["emoticons"].toObject();
+            auto emojiData = json["images"].toObject();
             emojiData[QStringLiteral(":%1:").arg(name)] = QJsonObject({
                 {QStringLiteral("url"), job->contentUri()}
             });
-            json["emoticons"] = emojiData;
+            json["images"] = emojiData;
             d->conn->setAccountData("im.ponies.user_emotes", json);
         });
     }
@@ -68,8 +76,15 @@ void CustomEmojiModel::removeEmoji(const QString& name)
     const auto& data = d->conn->accountData("im.ponies.user_emotes");
     Q_ASSERT(data != nullptr); // something's screwed if we get here with a nullptr
     auto json = data->contentJson();
-    auto emojiData = json["emoticons"].toObject();
-    emojiData.remove(name);
-    json["emoticons"] = emojiData;
+    auto emojiData = json["images"].toObject();
+    if(emojiData.contains(name)) {
+        emojiData.remove(name);
+        json["images"] = emojiData;
+    }
+    emojiData = json["emoticons"].toObject();
+    if(emojiData.contains(name)) {
+        emojiData.remove(name);
+        json["emoticons"] = emojiData;
+    }
     d->conn->setAccountData("im.ponies.user_emotes", json);
 }
