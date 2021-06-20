@@ -116,7 +116,7 @@ static bool isSpellcheckable(const QStringRef &token)
         return false;
     }
     // part of a slash command
-    if (token.contains("rainbowme") || token.contains("lenny")) {
+    if (token.contains("rainbowme") || token.contains("lenny") || token.contains("tableflip") || token.contains("unflip")) {
         return false;
     }
     // TODO ignore urls and uppercase?

@@ -46,6 +46,16 @@ QVariantList CommandModel::commands()
         i18n("Prepends ( ͡° ͜ʖ ͡°) to a plain-text message")}));
 
     commands.append(QVariant::fromValue(Command{
+        QStringLiteral("/tableflip "),
+        QStringLiteral("<message>"),
+        i18n("Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message")}));
+
+    commands.append(QVariant::fromValue(Command{
+        QStringLiteral("/unflip "),
+        QStringLiteral("<message>"),
+        i18n("Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message")}));
+
+    commands.append(QVariant::fromValue(Command{
         QStringLiteral("/plain "),
         QStringLiteral("<message>"),
         i18n("Sends a message as plain text, without interpreting it as markdown")}));

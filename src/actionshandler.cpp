@@ -124,6 +124,8 @@ void ActionsHandler::postMessage(const QString &text,
     // Message commands
     static const QString shrugPrefix = QStringLiteral("/shrug");
     static const QString lennyPrefix = QStringLiteral("/lenny");
+    static const QString tableflipPrefix = QStringLiteral("/tableflip");
+    static const QString unflipPrefix = QStringLiteral("/unflip");
     static const QString plainPrefix = QStringLiteral("/plain "); // TODO
     static const QString htmlPrefix = QStringLiteral("/html "); // TODO
     static const QString rainbowPrefix = QStringLiteral("/rainbow ");
@@ -165,6 +167,18 @@ void ActionsHandler::postMessage(const QString &text,
 
     if (cleanedText.indexOf(lennyPrefix) == 0) {
         cleanedText = QStringLiteral("( ͡° ͜ʖ ͡°)") % cleanedText.remove(0, lennyPrefix.length());
+        m_room->postHtmlMessage(cleanedText, cleanedText, messageEventType, replyEventId, editEventId);
+        return;
+    }
+
+    if (cleanedText.indexOf(tableflipPrefix) == 0) {
+        cleanedText = QStringLiteral("(╯°□°）╯︵ ┻━┻") % cleanedText.remove(0, tableflipPrefix.length());
+        m_room->postHtmlMessage(cleanedText, cleanedText, messageEventType, replyEventId, editEventId);
+        return;
+    }
+
+    if (cleanedText.indexOf(unflipPrefix) == 0) {
+        cleanedText = QStringLiteral("┬──┬ ノ( ゜-゜ノ)") % cleanedText.remove(0, unflipPrefix.length());
         m_room->postHtmlMessage(cleanedText, cleanedText, messageEventType, replyEventId, editEventId);
         return;
     }
