@@ -62,13 +62,12 @@ a{
         applicationWindow().hoverLinkIndicator.text = "";
     }
 
-    MouseArea {
-        anchors.fill: parent
-        acceptedButtons: spoilerRevealed ? Qt.NoButton : Qt.LeftButton
+    HoverHandler {
         cursorShape: (parent.hoveredLink || !spoilerRevealed) ? Qt.PointingHandCursor : Qt.IBeamCursor
+    }
 
-        TapHandler {
-            onTapped: spoilerRevealed = true
-        }
+    TapHandler {
+        enabled: !parent.hoveredLink && !spoilerRevealed
+        onTapped: spoilerRevealed = true
     }
 }
