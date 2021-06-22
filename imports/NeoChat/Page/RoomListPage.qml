@@ -142,6 +142,7 @@ Kirigami.ScrollablePage {
         section.property: sortFilterRoomListModel.filterText.length === 0 && !Config.mergeRoomList ? "category" : null
         section.delegate: Kirigami.ListSectionHeader {
             id: sectionHeader
+            height: implicitHeight
             action: Kirigami.Action {
                 onTriggered: roomListModel.setCategoryVisible(section, !roomListModel.categoryVisible(section))
             }
