@@ -40,6 +40,8 @@ Kirigami.Page {
 
             Layout.fillWidth: true
             Layout.fillHeight: true
+
+            Controls.ScrollBar.horizontal.policy: Controls.ScrollBar.AlwaysOff
             ListView {
                 clip: true
                 model: AccountListModel { }
