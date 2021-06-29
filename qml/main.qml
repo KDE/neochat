@@ -37,6 +37,11 @@ Kirigami.ApplicationWindow {
         }
     }
 
+    Loader {
+        active: !Kirigami.Settings.isMobile
+        source: Qt.resolvedUrl("qrc:/imports/NeoChat/Menu/GlobalMenu.qml")
+    }
+
     // This timer allows to batch update the window size change to reduce
     // the io load and also work around the fact that x/y/width/height are
     // changed when loading the page and overwrite the saved geometry from
