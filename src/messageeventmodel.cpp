@@ -144,7 +144,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             endInsertRows();
             if (!m_lastReadEventIndex.isValid()) {
                 // no read marker, so see if we need to create one.
-                moveReadMarker(QString(), m_currentRoom->readMarkerEventId());
+                moveReadMarker(m_currentRoom->readMarkerEventId());
             }
             if (biggest < m_currentRoom->maxTimelineIndex()) {
                 auto rowBelowInserted = m_currentRoom->maxTimelineIndex() - biggest + timelineBaseIndex() - 1;
@@ -230,7 +230,7 @@ void MessageEventModel::refreshEventRoles(int row, const QVector<int> &roles)
     Q_EMIT dataChanged(idx, idx, roles);
 }
 
-void MessageEventModel::moveReadMarker(const QString &fromEventId, const QString &toEventId)
+void MessageEventModel::moveReadMarker(const QString &toEventId)
 {
     const auto timelineIt = m_currentRoom->findInTimeline(toEventId);
     if (timelineIt == m_currentRoom->timelineEdge()) {
