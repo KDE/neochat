@@ -32,5 +32,6 @@ public:
     Q_INVOKABLE void setName(int index, const QString &name);
 
 private:
+    void fetchDevices();
     QVector<Quotient::Device> m_devices;
 };

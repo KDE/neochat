@@ -10,18 +10,30 @@
 DevicesModel::DevicesModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    GetDevicesJob *job = Controller::instance().activeConnection()->callApi<GetDevicesJob>();
-    connect(job, &BaseJob::success, this, [this, job]() {
-        beginResetModel();
-        m_devices = job->devices();
-        endResetModel();
-    });
+    connect(&Controller::instance(), &Controller::activeConnectionChanged,
+            this, &DevicesModel::fetchDevices);
+
+    fetchDevices();
+}
+
+void DevicesModel::fetchDevices()
+{
+    if (Controller::instance().activeConnection()) {
+        auto job = Controller::instance().activeConnection()->callApi<GetDevicesJob>();
+        connect(job, &BaseJob::success, this, [this, job]() {
+            beginResetModel();
+            m_devices = job->devices();
+            endResetModel();
+        });
+    }
 }
 
 QVariant DevicesModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= rowCount(QModelIndex()))
-        return QVariant();
+    if (index.row() < 0 || index.row() >= rowCount(QModelIndex())) {
+        return {};
+    }
+
     switch (role) {
     case Id:
         return m_devices[index.row()].deviceId;
@@ -33,7 +45,7 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
         if (m_devices[index.row()].lastSeenTs)
             return *m_devices[index.row()].lastSeenTs;
     }
-    return QVariant();
+    return {};
 }
 
 int DevicesModel::rowCount(const QModelIndex &parent) const
