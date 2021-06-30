@@ -10,6 +10,7 @@ import Qt.labs.platform 1.1 as Platform
 import QtQuick.Window 2.15
 
 import org.kde.kirigami 2.15 as Kirigami
+import org.kde.sonnet 1.0 as Sonnet
 
 import org.kde.neochat 1.0
 
@@ -191,7 +192,7 @@ ToolBar {
                     room: currentRoom ?? null
                 }
 
-                SpellcheckHighlighter {
+                Sonnet.SpellcheckHighlighter {
                     id: spellcheckhighlighter
                     document: inputField.textDocument
                     cursorPosition: inputField.cursorPosition
