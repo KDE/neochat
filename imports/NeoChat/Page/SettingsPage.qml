@@ -94,7 +94,7 @@ Kirigami.ScrollablePage {
 
     Component {
         id: spellCheckingPage
-        Sonnet.ConfigView {
+        Sonnet.ConfigPage {
             wideMode: pageSettingStack.wideMode
         }
     }
