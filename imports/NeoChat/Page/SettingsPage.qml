@@ -68,7 +68,7 @@ Kirigami.ScrollablePage {
                     },
                     Kirigami.Action {
                         text: i18n("Spell Checking")
-                        iconName: "network-connect"
+                        iconName: "tools-check-spelling"
                         onTriggered: pageSettingStack.push(spellCheckingPage)
                     },
                     Kirigami.Action {
