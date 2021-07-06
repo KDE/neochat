@@ -194,9 +194,10 @@ void RoomManager::joinRoom(Quotient::Connection *account,
                           const QString &roomAliasOrId,
                           const QStringList &viaServers)
 {
-    // This should trigger a signal in Quotient once done and NeoChat will
-    // react to it and open the newly joined room.
     account->joinRoom(QUrl::toPercentEncoding(roomAliasOrId), viaServers);
+    connectSingleShot(account, &Quotient::Connection::newRoom, this, [=](Quotient::Room *room){
+        enterRoom(dynamic_cast<NeoChatRoom *>(room));
+    });
 }
 
 bool RoomManager::visitNonMatrix(const QUrl &url)

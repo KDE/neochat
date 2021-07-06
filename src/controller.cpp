@@ -581,6 +581,7 @@ bool Controller::isOnline() const
     return m_mgr->isOnline();
 }
 
+// TODO: Remove in favor of RoomManager::joinRoom
 void Controller::joinRoom(const QString &alias)
 {
     if (!alias.contains(":")) {
@@ -589,14 +590,7 @@ void Controller::joinRoom(const QString &alias)
     }
 
     const auto knownServer = alias.mid(alias.indexOf(":") + 1);
-    auto joinRoomJob = m_connection->joinRoom(alias, QStringList{knownServer});
-
-    connect(joinRoomJob, &JoinRoomJob::failure, [=] {
-        Q_EMIT errorOccured(i18n("Server error when joining the room \"%1\": %2", joinRoomJob->errorString()));
-    });
-    connect(joinRoomJob, &JoinRoomJob::success, [this, joinRoomJob] {
-        Q_EMIT errorOccured(joinRoomJob->roomId());
-    });
+    RoomManager::instance().joinRoom(m_connection, alias, QStringList{knownServer});
 }
 
 void Controller::openOrCreateDirectChat(NeoChatUser *user)

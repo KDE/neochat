@@ -289,7 +289,6 @@ void RoomListModel::updateRoom(Room *room, Room *prev)
     } else {
         beginInsertRows(QModelIndex(), m_rooms.count(), m_rooms.count());
         doAddRoom(newRoom);
-        RoomManager::instance().enterRoom(qobject_cast<NeoChatRoom *>(newRoom));
         endInsertRows();
     }
 }
