@@ -53,7 +53,7 @@ Kirigami.ScrollablePage {
 
     Connections {
         target: actionsHandler
-        onShowMessage: {
+        function onShowMessage(messageType, message) {
             page.header.contentItem.text = message;
             page.header.contentItem.type = messageType === ActionsHandler.Error ? Kirigami.MessageType.Error : Kirigami.MessageType.Information;
             page.header.contentItem.visible = true;

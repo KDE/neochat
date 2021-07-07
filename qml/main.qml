@@ -288,8 +288,12 @@ Kirigami.ApplicationWindow {
     Component.onCompleted: Controller.setBlur(pageStack, Config.blur && !Config.compactLayout);
     Connections {
         target: Config
-        onBlurChanged: Controller.setBlur(pageStack, Config.blur && !Config.compactLayout);
-        onCompactLayoutChanged: Controller.setBlur(pageStack, Config.blur && !Config.compactLayout);
+        function onBlurChanged() {
+            Controller.setBlur(pageStack, Config.blur && !Config.compactLayout);
+        }
+        function onCompactLayoutChanged() {
+            Controller.setBlur(pageStack, Config.blur && !Config.compactLayout);
+        }
     }
 
     color: Config.blur && !Config.compactLayout ? "transparent" : Kirigami.Theme.backgroundColor
@@ -360,7 +364,7 @@ Kirigami.ApplicationWindow {
 
     Connections {
         target: Controller.activeConnection
-        onDirectChatAvailable: {
+        function onDirectChatAvailable(directChat) {
             RoomManager.enterRoom(Controller.activeConnection.room(directChat.id));
         }
     }
