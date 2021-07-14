@@ -22,7 +22,7 @@ Kirigami.ScrollablePage {
                     RowLayout {
                         Layout.fillWidth: true
                         Kirigami.Avatar {
-                            color: "blue"
+                            color: "#4a5bcc"
                             Layout.alignment: Qt.AlignTop
                             visible: Config.showAvatarInTimeline
                             Layout.preferredWidth: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing * 2 : 0
@@ -36,7 +36,7 @@ Kirigami.ScrollablePage {
                                     font.weight: Font.Bold
                                     font.pixelSize: 7
                                     text: "Paul Müller"
-                                    color: "blue"
+                                    color: "#4a5bcc"
                                     wrapMode: Text.Wrap
                                 }
                                 QQC2.Label {
@@ -59,7 +59,7 @@ Kirigami.ScrollablePage {
                     RowLayout {
                         Layout.fillWidth: true
                         Kirigami.Avatar {
-                            color: "red"
+                            color: "#9f244b"
                             Layout.alignment: Qt.AlignTop
                             visible: Config.showAvatarInTimeline
                             Layout.preferredWidth: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing * 2 : 0
@@ -73,7 +73,7 @@ Kirigami.ScrollablePage {
                                     font.weight: Font.Bold
                                     font.pixelSize: 7
                                     text: "Jean Paul"
-                                    color: "red"
+                                    color: "#9f244b"
                                     wrapMode: Text.Wrap
                                 }
                                 QQC2.Label {
@@ -109,7 +109,7 @@ Kirigami.ScrollablePage {
                     RowLayout {
                         Layout.fillWidth: true
                         Kirigami.Avatar {
-                            color: "blue"
+                            color: "#4a5bcc"
                             Layout.alignment: Qt.AlignTop
                             visible: Config.showAvatarInTimeline
                             Layout.preferredWidth: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing * 2 : 0
@@ -122,7 +122,7 @@ Kirigami.ScrollablePage {
                                 font.weight: Font.Bold
                                 font.pixelSize: 7
                                 text: "Paul Müller"
-                                color: "blue"
+                                color: "#4a5bcc"
                                 wrapMode: Text.Wrap
                             }
                             QQC2.Label {
@@ -136,7 +136,7 @@ Kirigami.ScrollablePage {
                     RowLayout {
                         Layout.fillWidth: true
                         Kirigami.Avatar {
-                            color: "red"
+                            color: "#9f244b"
                             Layout.alignment: Qt.AlignTop
                             visible: Config.showAvatarInTimeline
                             Layout.preferredWidth: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing * 2 : 0
@@ -149,7 +149,7 @@ Kirigami.ScrollablePage {
                                 font.weight: Font.Bold
                                 font.pixelSize: 7
                                 text: "Jean Paul"
-                                color: "red"
+                                color: "#9f244b"
                                 wrapMode: Text.Wrap
                             }
                             QQC2.Label {
