@@ -153,10 +153,12 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Controller", &Controller::instance());
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Clipboard", &clipboard);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Config", config);
-    qmlRegisterSingletonInstance<RoomManager>("org.kde.neochat", 1, 0, "RoomManager", &RoomManager::instance());
+    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "RoomManager", &RoomManager::instance());
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "FileType", &fileTypeSingleton);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "LoginHelper", login);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "ChatBoxHelper", &chatBoxHelper);
+    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "EmojiModel", new EmojiModel(&app));
+    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "CommandModel", new CommandModel(&app));
     qmlRegisterType<AccountListModel>("org.kde.neochat", 1, 0, "AccountListModel");
     qmlRegisterType<ActionsHandler>("org.kde.neochat", 1, 0, "ActionsHandler");
     qmlRegisterType<ChatDocumentHandler>("org.kde.neochat", 1, 0, "ChatDocumentHandler");
@@ -169,16 +171,6 @@ int main(int argc, char *argv[])
     qmlRegisterType<MessageFilterModel>("org.kde.neochat", 1, 0, "MessageFilterModel");
     qmlRegisterType<PublicRoomListModel>("org.kde.neochat", 1, 0, "PublicRoomListModel");
     qmlRegisterType<UserDirectoryListModel>("org.kde.neochat", 1, 0, "UserDirectoryListModel");
-    qmlRegisterSingletonType<EmojiModel>("org.kde.neochat", 1, 0, "EmojiModel", [](QQmlEngine *engine2, QJSEngine *scriptEngine) -> QObject * {
-        Q_UNUSED(scriptEngine);
-        Q_UNUSED(engine2);
-        return new EmojiModel();
-    });
-    qmlRegisterSingletonType<CommandModel>("org.kde.neochat", 1, 0, "CommandModel", [](QQmlEngine *engine2, QJSEngine *scriptEngine) -> QObject * {
-        Q_UNUSED(scriptEngine);
-        Q_UNUSED(engine2);
-        return new CommandModel();
-    });
     qmlRegisterType<SortFilterRoomListModel>("org.kde.neochat", 1, 0, "SortFilterRoomListModel");
     qmlRegisterType<DevicesModel>("org.kde.neochat", 1, 0, "DevicesModel");
     qmlRegisterUncreatableType<RoomMessageEvent>("org.kde.neochat", 1, 0, "RoomMessageEvent", "ENUM");
