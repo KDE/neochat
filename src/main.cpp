@@ -111,6 +111,8 @@ int main(int argc, char *argv[])
     about.addAuthor(i18n("Tobias Fella"), QString(), QStringLiteral("fella@posteo.de"));
     about.setOrganizationDomain("kde.org");
 
+    about.addComponent(QStringLiteral("libQuotient"), i18n("A Qt5 library to write cross-platform clients for Matrix"), QString(), QStringLiteral("https://github.com/quotient-im/libquotient"), KAboutLicense::LGPL_V2_1);
+
     KAboutData::setApplicationData(about);
     QGuiApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("org.kde.neochat")));
 
