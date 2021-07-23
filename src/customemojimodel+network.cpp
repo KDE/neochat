@@ -39,10 +39,12 @@ void CustomEmojiModel::fetchEmojies()
     for (const auto& emoji : emojies.keys()) {
         const auto& data = emojies[emoji];
 
+        const auto e = emoji.startsWith(":") ? emoji : (QStringLiteral(":") + emoji + QStringLiteral(":"));
+
         d->emojies << CustomEmoji {
-            emoji,
+            e,
             data.toObject()["url"].toString(),
-            QRegularExpression(QStringLiteral(R"((^|[^\\]))") + emoji)
+            QRegularExpression(QStringLiteral(R"((^|[^\\]))") + e)
         };
     }
 
@@ -60,7 +62,7 @@ void CustomEmojiModel::addEmoji(const QString& name, const QUrl& location)
             const auto& data = d->conn->accountData("im.ponies.user_emotes");
             auto json = data != nullptr ? data->contentJson() : QJsonObject();
             auto emojiData = json["images"].toObject();
-            emojiData[QStringLiteral(":%1:").arg(name)] = QJsonObject({
+            emojiData[QStringLiteral("%1").arg(name)] = QJsonObject({
                 {QStringLiteral("url"), job->contentUri()}
             });
             json["images"] = emojiData;
