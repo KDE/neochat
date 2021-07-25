@@ -26,6 +26,8 @@
 #include "notificationsmanager.h"
 #include "roommanager.h"
 
+Q_DECLARE_METATYPE(Quotient::JoinState)
+
 #ifndef Q_OS_ANDROID
 bool useUnityCounter()
 {
@@ -375,7 +377,7 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
         if (!room->successorId().isEmpty()) {
             return QStringLiteral("upgraded");
         }
-        return toCString(room->joinState());
+        return QVariant::fromValue(room->joinState());
     }
     if (role == CurrentRoomRole) {
         return QVariant::fromValue(room);
