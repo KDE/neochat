@@ -27,6 +27,7 @@ Kirigami.ApplicationWindow {
     onClosing: Controller.saveWindowGeometry(root)
 
     pageStack.initialPage: LoadingPage {}
+    pageStack.globalToolBar.canContainHandles: true
 
     property bool roomListLoaded: false
 
