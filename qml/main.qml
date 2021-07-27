@@ -296,7 +296,14 @@ Kirigami.ApplicationWindow {
         }
     }
 
+    // blur effect
     color: Config.blur && !Config.compactLayout ? "transparent" : Kirigami.Theme.backgroundColor
+    
+    // we need to apply the translucency effect separately on top of the color
+    background: Rectangle {
+        color: Config.blur && !Config.compactLayout ? Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 1 - Config.transparency) : "transparent"
+    }
+    
     Component {
         id: roomListComponent
         RoomListPage {
