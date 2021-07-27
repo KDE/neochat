@@ -23,7 +23,4 @@ public:
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
-
-private:
-    QVector<Connection *> m_connections;
 };
