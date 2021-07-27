@@ -77,6 +77,6 @@ private:
     bool m_supportsPassword = false;
     Connection *m_connection = nullptr;
     QUrl m_ssoUrl;
-    bool m_testing;
+    bool m_testing = false;
     bool m_isLoggingIn = false;
 };
