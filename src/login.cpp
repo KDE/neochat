@@ -29,18 +29,15 @@ void Login::init()
     connect(this, &Login::matrixIdChanged, this, [=]() {
         setHomeserverReachable(false);
 
-        if (m_connection) {
-            delete m_connection;
-            m_connection = nullptr;
-        }
-
         if (m_matrixId == "@") {
             return;
         }
 
         m_testing = true;
         Q_EMIT testingChanged();
-        m_connection = new Connection(this);
+        if(!m_connection) {
+            m_connection = new Connection(this);
+        }
         m_connection->resolveServer(m_matrixId);
         connect(m_connection, &Connection::loginFlowsChanged, this, [=]() {
             setHomeserverReachable(true);
@@ -108,7 +105,6 @@ void Login::login()
     setDeviceName("NeoChat " + QSysInfo::machineHostName() + " " + QSysInfo::productType() + " " + QSysInfo::productVersion() + " "
                   + QSysInfo::currentCpuArchitecture());
 
-    m_connection = new Connection(this);
     m_connection->resolveServer(m_matrixId);
 
     connect(m_connection, &Connection::loginFlowsChanged, this, [=]() {
@@ -129,6 +125,7 @@ void Login::login()
             account.sync();
             Controller::instance().addConnection(m_connection);
             Controller::instance().setActiveConnection(m_connection);
+            m_connection = nullptr;
         });
         connect(m_connection, &Connection::networkError, [=](QString error, const QString &, int, int) {
             Q_EMIT Controller::instance().globalErrorOccured(i18n("Network Error"), std::move(error));
@@ -169,6 +166,8 @@ QUrl Login::ssoUrl() const
 
 void Login::loginWithSso()
 {
+    m_connection->resolveServer(m_matrixId);
+
     SsoSession *session = m_connection->prepareForSso("NeoChat " + QSysInfo::machineHostName() + " " + QSysInfo::productType() + " "
                                                       + QSysInfo::productVersion() + " " + QSysInfo::currentCpuArchitecture());
     m_ssoUrl = session->ssoUrl();
@@ -187,6 +186,7 @@ void Login::loginWithSso()
         account.sync();
         Controller::instance().addConnection(m_connection);
         Controller::instance().setActiveConnection(m_connection);
+        m_connection = nullptr;
     });
     connect(m_connection, &Connection::syncDone, this, [=]() {
         Q_EMIT initialSyncFinished();
