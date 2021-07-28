@@ -353,6 +353,14 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
         if (room->isDirectChat()) {
             return RoomType::Direct;
         }
+        const RoomCreateEvent* creationEvent = room->creation();
+        QJsonObject contentJson = creationEvent->contentJson();
+        QJsonObject::const_iterator typeIter = contentJson.find("type");
+        if (typeIter != contentJson.end()) {
+            if (typeIter.value().toString() == "m.space") {
+                return RoomType::Space;
+            }
+        }
         return RoomType::Normal;
     }
     if (role == UnreadCountRole) {
@@ -431,6 +439,8 @@ QString RoomListModel::categoryName(int section)
         return i18n("Normal");
     case 5:
         return i18n("Low priority");
+    case 6:
+        return i18n("Spaces");
     default:
         return "Deadbeef";
     }
@@ -449,6 +459,8 @@ QString RoomListModel::categoryIconName(int section)
         return QStringLiteral("group");
     case 5:
         return QStringLiteral("object-order-lower");
+    case 6:
+        return QStringLiteral("group");
     default:
         return QStringLiteral("tools-report-bug");
     }

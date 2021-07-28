@@ -23,6 +23,7 @@ public:
         Direct,
         Normal,
         Deprioritized,
+        Space,
     };
     Q_ENUM(Types)
 };
