@@ -234,12 +234,12 @@ QDateTime NeoChatRoom::lastActiveTime()
 
 int NeoChatRoom::savedTopVisibleIndex() const
 {
-    return firstDisplayedMarker() == timelineEdge() ? 0 : int(firstDisplayedMarker() - messageEvents().rbegin());
+    return firstDisplayedMarker() == historyEdge() ? 0 : int(firstDisplayedMarker() - messageEvents().rbegin());
 }
 
 int NeoChatRoom::savedBottomVisibleIndex() const
 {
-    return lastDisplayedMarker() == timelineEdge() ? 0 : int(lastDisplayedMarker() - messageEvents().rbegin());
+    return lastDisplayedMarker() == historyEdge() ? 0 : int(lastDisplayedMarker() - messageEvents().rbegin());
 }
 
 void NeoChatRoom::saveViewport(int topIndex, int bottomIndex)
@@ -565,7 +565,7 @@ void NeoChatRoom::postHtmlMessage(const QString &text, const QString &html, Mess
     bool isReply = !replyEventId.isEmpty();
     bool isEdit = !relateToEventId.isEmpty();
     const auto replyIt = findInTimeline(replyEventId);
-    if (replyIt == timelineEdge()) {
+    if (replyIt == historyEdge()) {
         isReply = false;
     }
 
@@ -631,7 +631,7 @@ void NeoChatRoom::toggleReaction(const QString &eventId, const QString &reaction
     }
 
     const auto eventIt = findInTimeline(eventId);
-    if (eventIt == timelineEdge()) {
+    if (eventIt == historyEdge()) {
         return;
     }
 
@@ -696,7 +696,7 @@ bool NeoChatRoom::canSendState(const QString &eventType) const
 bool NeoChatRoom::readMarkerLoaded() const
 {
     const auto it = findInTimeline(readMarkerEventId());
-    return it != timelineEdge();
+    return it != historyEdge();
 }
 
 bool NeoChatRoom::isInvite() const

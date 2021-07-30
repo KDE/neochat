@@ -68,7 +68,7 @@ MessageEventModel::MessageEventModel(QObject *parent)
                 return;
             }
             const auto it = m_currentRoom->findInTimeline(m_currentRoom->readMarkerEventId());
-            if (it == m_currentRoom->timelineEdge()) {
+            if (it == m_currentRoom->historyEdge()) {
                 m_currentRoom->getPreviousContent(50);
             }
         });
@@ -235,7 +235,7 @@ void MessageEventModel::refreshEventRoles(int row, const QVector<int> &roles)
 void MessageEventModel::moveReadMarker(const QString &toEventId)
 {
     const auto timelineIt = m_currentRoom->findInTimeline(toEventId);
-    if (timelineIt == m_currentRoom->timelineEdge()) {
+    if (timelineIt == m_currentRoom->historyEdge()) {
         return;
     }
     int newRow = int(timelineIt - m_currentRoom->messageEvents().rbegin()) + timelineBaseIndex();
@@ -280,7 +280,7 @@ int MessageEventModel::refreshEventRoles(const QString &id, const QVector<int> &
         row = int(pendingIt - m_currentRoom->pendingEvents().begin());
     } else {
         const auto timelineIt = m_currentRoom->findInTimeline(id);
-        if (timelineIt == m_currentRoom->timelineEdge()) {
+        if (timelineIt == m_currentRoom->historyEdge()) {
             qWarning() << "Trying to refresh inexistent event:" << id;
             return -1;
         }
@@ -622,7 +622,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             return {};
         };
         const auto replyIt = m_currentRoom->findInTimeline(replyEventId);
-        if (replyIt == m_currentRoom->timelineEdge()) {
+        if (replyIt == m_currentRoom->historyEdge()) {
             return {};
         };
         const auto &replyEvt = **replyIt;
@@ -745,7 +745,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 int MessageEventModel::eventIDToIndex(const QString &eventID) const
 {
     const auto it = m_currentRoom->findInTimeline(eventID);
-    if (it == m_currentRoom->timelineEdge()) {
+    if (it == m_currentRoom->historyEdge()) {
         //qWarning() << "Trying to find inexistent event:" << eventID;
         return -1;
     }
