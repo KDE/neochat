@@ -78,14 +78,24 @@ void CustomEmojiModel::removeEmoji(const QString& name)
     const auto& data = d->conn->accountData("im.ponies.user_emotes");
     Q_ASSERT(data != nullptr); // something's screwed if we get here with a nullptr
     auto json = data->contentJson();
+    const QString _name = name.mid(1).chopped(1);
     auto emojiData = json["images"].toObject();
+
     if(emojiData.contains(name)) {
         emojiData.remove(name);
+        json["images"] = emojiData;
+    }
+    if(emojiData.contains(_name)) {
+        emojiData.remove(_name);
         json["images"] = emojiData;
     }
     emojiData = json["emoticons"].toObject();
     if(emojiData.contains(name)) {
         emojiData.remove(name);
+        json["emoticons"] = emojiData;
+    }
+    if(emojiData.contains(_name)) {
+        emojiData.remove(_name);
         json["emoticons"] = emojiData;
     }
     d->conn->setAccountData("im.ponies.user_emotes", json);
