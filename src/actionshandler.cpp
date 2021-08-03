@@ -68,7 +68,7 @@ void ActionsHandler::postEdit(const QString &text)
         const auto &evt = **it;
         if (const auto event = eventCast<const RoomMessageEvent>(&evt)) {
             if (event->senderId() == localId && event->hasTextContent()) {
-                static QRegularExpression re("^s/([^/]*)/([^/]*)");
+                static QRegularExpression re("^s/([^/]*)/([^/]*)(/g)?");
                 auto match = re.match(text);
                 if (!match.hasMatch()) {
                     // should not happen but still make sure to send the message normally
@@ -77,13 +77,22 @@ void ActionsHandler::postEdit(const QString &text)
                 }
                 const QString regex = match.captured(1);
                 const QString replacement = match.captured(2);
+                const QString flags = match.captured(3);
                 QString originalString;
                 if (event->content()) {
                     originalString = static_cast<const Quotient::EventContent::TextContent *>(event->content())->body;
                 } else {
                     originalString = event->plainBody();
                 }
-                m_room->postHtmlMessage(text, originalString.replace(regex, replacement), event->msgtype(), "", event->id());
+                if (flags == "/g") {
+                    m_room->postHtmlMessage(text, originalString.replace(regex, replacement), event->msgtype(), "", event->id());
+                } else {
+                    m_room->postHtmlMessage(text,
+                                            originalString.replace(originalString.indexOf(regex), regex.size(), replacement),
+                                            event->msgtype(),
+                                            "",
+                                            event->id());
+                }
                 return;
             }
         }
