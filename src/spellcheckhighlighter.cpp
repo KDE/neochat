@@ -85,10 +85,10 @@ SpellcheckHighlighter::SpellcheckHighlighter(QObject *parent)
     , m_cursorPosition(-1)
 {
     // Danger red from our color scheme
-    mErrorFormat.setForeground(QColor{"#ed1515"});
-    mErrorFormat.setUnderlineColor(QColor{"#ed1515"});
+    mErrorFormat.setForeground(QColor(0xED, 0x15, 0x15));
+    mErrorFormat.setUnderlineColor(QColor(0xED, 0x15, 0x15));
     mErrorFormat.setUnderlineStyle(QTextCharFormat::SingleUnderline);
-    mQuoteFormat.setForeground(QColor{"#7f8c8d"});
+    mQuoteFormat.setForeground(QColor(0x7F, 0x8C, 0x8D));
 #ifndef Q_OS_ANDROID
     if (!mSpellchecker->isValid()) {
         qWarning() << "Spellchecker is invalid";

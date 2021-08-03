@@ -74,9 +74,9 @@ void DevicesModel::logout(int index, const QString &password)
             authData["identifier"] = identifier;
             auto *innerJob = Controller::instance().activeConnection()->callApi<NeochatDeleteDeviceJob>(m_devices[index].deviceId, authData);
             connect(innerJob, &BaseJob::success, this, [this, index]() {
-                Q_EMIT beginRemoveRows(QModelIndex(), index, index);
+                beginRemoveRows(QModelIndex(), index, index);
                 m_devices.remove(index);
-                Q_EMIT endRemoveRows();
+                endRemoveRows();
             });
         }
     });
@@ -86,12 +86,12 @@ void DevicesModel::setName(int index, const QString &name)
 {
     auto job = Controller::instance().activeConnection()->callApi<UpdateDeviceJob>(m_devices[index].deviceId, name);
     QString oldName = m_devices[index].displayName;
-    Q_EMIT beginResetModel();
+    beginResetModel();
     m_devices[index].displayName = name;
-    Q_EMIT endResetModel();
+    endResetModel();
     connect(job, &BaseJob::failure, this, [=]() {
-        Q_EMIT beginResetModel();
+        beginResetModel();
         m_devices[index].displayName = oldName;
-        Q_EMIT endResetModel();
+        endResetModel();
     });
 }
