@@ -47,7 +47,7 @@ Q_SIGNALS:
     /// \brief Show error or information message.
     ///
     /// These messages will be displayed in the room view header.
-    void showMessage(MessageType messageType, QString message);
+    void showMessage(ActionsHandler::MessageType messageType, QString message);
 
     void roomChanged();
     void connectionChanged();

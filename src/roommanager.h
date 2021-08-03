@@ -55,7 +55,7 @@ public:
     UriResolveResult visitUser(User *user, const QString &action) override;
     void joinRoom(Quotient::Connection *account, const QString &roomAliasOrId,
                   const QStringList &viaServers) override;
-    Q_INVOKABLE void visitRoom(Room *room, const QString &eventId) override;
+    Q_INVOKABLE void visitRoom(Quotient::Room *room, const QString &eventId) override;
     Q_INVOKABLE bool visitNonMatrix(const QUrl &url) override;
 
     Q_INVOKABLE void openResource(const QString &idOrUri, const QString &action = {});
@@ -88,11 +88,11 @@ Q_SIGNALS:
 
     /// Ask current room to open the user's details for the give user.
     /// This can assume the user is loaded.
-    void showUserDetail(const User *user);
+    void showUserDetail(const Quotient::User *user);
 
     /// Ask current room to show confirmation dialog to open direct chat.
     /// This can assume the user is loaded.
-    void askDirectChatConfirmation(const User *user);
+    void askDirectChatConfirmation(const Quotient::User *user);
 
     /// Displays warning to the user.
     void warning(const QString &title, const QString &message);

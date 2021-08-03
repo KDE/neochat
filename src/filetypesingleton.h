@@ -29,8 +29,8 @@ public:
     enum MatchMode { MatchDefault, MatchExtension, MatchContent };
     Q_ENUM(MatchMode)
 
-    Q_INVOKABLE QMimeType mimeTypeForFile(const QString &fileName, MatchMode mode = MatchDefault) const;
-    Q_INVOKABLE QMimeType mimeTypeForFile(const QFileInfo &fileInfo, MatchMode mode = MatchDefault) const;
+    Q_INVOKABLE QMimeType mimeTypeForFile(const QString &fileName, FileTypeSingleton::MatchMode mode = MatchDefault) const;
+    Q_INVOKABLE QMimeType mimeTypeForFile(const QFileInfo &fileInfo, FileTypeSingleton::MatchMode mode = MatchDefault) const;
     Q_INVOKABLE QList<QMimeType> mimeTypesForFileName(const QString &fileName) const;
 
     Q_INVOKABLE QMimeType mimeTypeForData(const QByteArray &data) const;

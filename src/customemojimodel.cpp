@@ -91,7 +91,7 @@ QString CustomEmojiModel::preprocessText(const QString &it)
 {
     auto cp = it;
     for (const auto& emoji : qAsConst(d->emojies)) {
-        cp.replace(emoji.regexp, QStringLiteral(R"(<img data-mx-emoticon="" src="%1" alt="%2" title="%2" height="32" vertical-align="middle" />)").arg(emoji.url).arg(emoji.name));
+        cp.replace(emoji.regexp, QStringLiteral(R"(<img data-mx-emoticon="" src="%1" alt="%2" title="%2" height="32" vertical-align="middle" />)").arg(emoji.url, emoji.name));
     }
     return cp;
 }
