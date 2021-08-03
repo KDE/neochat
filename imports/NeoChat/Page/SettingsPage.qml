@@ -51,7 +51,7 @@ Kirigami.ScrollablePage {
                         onTriggered: pageSettingStack.push("qrc:/imports/NeoChat/Settings/AppearanceSettingsPage.qml")
                     },
                     Kirigami.Action {
-                        text: i18n("Account")
+                        text: i18n("Accounts")
                         icon.name: "preferences-system-users"
                         onTriggered: pageSettingStack.push("qrc:/imports/NeoChat/Page/AccountsPage.qml")
                     },
