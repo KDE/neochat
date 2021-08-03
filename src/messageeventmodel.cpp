@@ -185,6 +185,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         });
         connect(m_currentRoom, &Room::pendingEventDiscarded, this, &MessageEventModel::endRemoveRows);
         connect(m_currentRoom, &Room::readMarkerMoved, this, [=](const QString &fromEventId, const QString &toEventId){
+            Q_UNUSED(fromEventId);
             moveReadMarker(toEventId);
         });
         connect(m_currentRoom, &Room::replacedEvent, this, [this](const RoomEvent *newEvent) {
