@@ -84,6 +84,7 @@ void KWebShortcutModel::setSelectedText(const QString &selectedText)
 
 int KWebShortcutModel::rowCount(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent);
 #ifdef HAVE_KIO
     if (d->selectedText.count() > 0) {
         return d->searchProviders.count();

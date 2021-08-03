@@ -477,7 +477,7 @@ bool RoomListModel::categoryVisible(int category) const
 
 NeoChatRoom *RoomListModel::roomByAliasOrId(const QString &aliasOrId)
 {
-    for (const auto &room : m_rooms) {
+    for (const auto &room : qAsConst(m_rooms)) {
         if (room->aliases().contains(aliasOrId) || room->id() == aliasOrId) {
             return room;
         }

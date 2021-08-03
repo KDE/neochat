@@ -126,8 +126,8 @@ void ActionsHandler::postMessage(const QString &text,
     static const QString lennyPrefix = QStringLiteral("/lenny");
     static const QString tableflipPrefix = QStringLiteral("/tableflip");
     static const QString unflipPrefix = QStringLiteral("/unflip");
-    static const QString plainPrefix = QStringLiteral("/plain "); // TODO
-    static const QString htmlPrefix = QStringLiteral("/html "); // TODO
+    //static const QString plainPrefix = QStringLiteral("/plain "); // TODO
+    //static const QString htmlPrefix = QStringLiteral("/html "); // TODO
     static const QString rainbowPrefix = QStringLiteral("/rainbow ");
     static const QString rainbowmePrefix = QStringLiteral("/rainbowme ");
     static const QString spoilerPrefix = QStringLiteral("/spoiler ");
@@ -135,12 +135,12 @@ void ActionsHandler::postMessage(const QString &text,
     static const QString noticePrefix = QStringLiteral("/notice ");
 
     // Actions commands
-    static const QString ddgPrefix = QStringLiteral("/ddg "); // TODO
-    static const QString nickPrefix = QStringLiteral("/nick "); // TODO
-    static const QString meroomnickPrefix = QStringLiteral("/myroomnick "); // TODO
-    static const QString roomavatarPrefix = QStringLiteral("/roomavatar "); // TODO
-    static const QString myroomavatarPrefix = QStringLiteral("/myroomavatar "); // TODO
-    static const QString myavatarPrefix = QStringLiteral("/myavatar "); // TODO
+    //static const QString ddgPrefix = QStringLiteral("/ddg "); // TODO
+    //static const QString nickPrefix = QStringLiteral("/nick "); // TODO
+    //static const QString meroomnickPrefix = QStringLiteral("/myroomnick "); // TODO
+    //static const QString roomavatarPrefix = QStringLiteral("/roomavatar "); // TODO
+    //static const QString myroomavatarPrefix = QStringLiteral("/myroomavatar "); // TODO
+    //static const QString myavatarPrefix = QStringLiteral("/myavatar "); // TODO
     static const QString invitePrefix = QStringLiteral("/invite ");
     static const QString joinPrefix = QStringLiteral("/join ");
     static const QString joinShortPrefix = QStringLiteral("/j ");
@@ -148,8 +148,8 @@ void ActionsHandler::postMessage(const QString &text,
     static const QString leavePrefix = QStringLiteral("/leave");
     static const QString ignorePrefix = QStringLiteral("/ignore ");
     static const QString unignorePrefix = QStringLiteral("/unignore ");
-    static const QString queryPrefix = QStringLiteral("/query "); // TODO
-    static const QString msgPrefix = QStringLiteral("/msg "); // TODO
+    //static const QString queryPrefix = QStringLiteral("/query "); // TODO
+    //static const QString msgPrefix = QStringLiteral("/msg "); // TODO
     static const QString reactPrefix = QStringLiteral("/react ");
 
     // Admin commands

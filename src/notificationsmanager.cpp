@@ -55,7 +55,7 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
     notification->setPixmap(img);
 
     notification->setDefaultAction(i18n("Open NeoChat in this room"));
-    connect(notification, &KNotification::defaultActivated, this, [this, room]() {
+    connect(notification, &KNotification::defaultActivated, this, [&]() {
         RoomManager::instance().enterRoom(room);
         Q_EMIT Controller::instance().showWindow();
     });
@@ -63,7 +63,7 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
 #if KNOTIFICATIONS_VERSION >= QT_VERSION_CHECK(5, 81, 0)
     std::unique_ptr<KNotificationReplyAction> replyAction(new KNotificationReplyAction(i18n("Reply")));
     replyAction->setPlaceholderText(i18n("Reply..."));
-    QObject::connect(replyAction.get(), &KNotificationReplyAction::replied, [room, replyEventId](const QString &text) {
+    connect(replyAction.get(), &KNotificationReplyAction::replied, this, [room, replyEventId](const QString &text) {
         room->postMessage(text, room->preprocessText(text), RoomMessageEvent::MsgType::Text, replyEventId, QString());
     });
     notification->setReplyAction(std::move(replyAction));
