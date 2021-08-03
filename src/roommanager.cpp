@@ -114,11 +114,7 @@ void RoomManager::openRoomForActiveConnection()
                 Controller::instance().activeConnection()->room(roomId));
 
         if (room) {
-            m_lastCurrentRoom = std::exchange(m_currentRoom, room);
-            Q_EMIT currentRoomChanged();
-            Q_EMIT pushRoom(room, QString());
-        } else {
-            Q_EMIT pushWelcomePage();
+            enterRoom(room);
         }
     } else {
         Q_EMIT pushWelcomePage();
