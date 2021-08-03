@@ -8,14 +8,11 @@
 AccountListModel::AccountListModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    connect(&Controller::instance(), &Controller::connectionAdded, this, [=](Connection *conn) {
-        if (!conn) {
-            return;
-        }
-        beginInsertRows(QModelIndex(), Controller::instance().connections().count(), Controller::instance().connections().count());
-        endInsertRows();
+    connect(&Controller::instance(), &Controller::connectionAdded, this, [=]() {
+        beginResetModel();
+        endResetModel();
     });
-    connect(&Controller::instance(), &Controller::connectionDropped, this, [=](Connection *conn) {
+    connect(&Controller::instance(), &Controller::connectionDropped, this, [=]() {
         beginResetModel();
         endResetModel();
     });
