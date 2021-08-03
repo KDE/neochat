@@ -27,6 +27,7 @@ include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMAddAppIcon)
 include(KDEGitCommitHooks)
+include(ECMCheckOutboundLicense)
 
 if(NEOCHAT_FLATPAK)
     include(cmake/Flatpak.cmake)
@@ -125,3 +126,5 @@ file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES src/*.cpp src/*.h)
 kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
 
 kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
+file(GLOB_RECURSE ALL_SOURCE_FILES *.cpp *.h *.qml)
+ecm_check_outbound_license(LICENSES GPL-3.0-only FILES ${ALL_SOURCE_FILES})
