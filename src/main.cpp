@@ -123,6 +123,9 @@ int main(int argc, char *argv[])
                     &RoomManager::instance(),
                     [](const QStringList &arguments, const QString &workingDirectory) {
                         Q_UNUSED(workingDirectory);
+                        if(arguments.isEmpty()) {
+                            return;
+                        }
                         auto args = arguments;
                         args.removeFirst();
                         for (const auto &arg : args) {
