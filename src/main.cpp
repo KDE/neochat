@@ -52,6 +52,7 @@
 #include "models/devicesmodel.h"
 #include "models/emojimodel.h"
 #include "models/keywordnotificationrulemodel.h"
+#include "models/locationsmodel.h"
 #include "models/messageeventmodel.h"
 #include "models/messagefiltermodel.h"
 #include "models/publicroomlistmodel.h"
@@ -235,6 +236,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<CompletionModel>("org.kde.neochat", 1, 0, "CompletionModel");
     qmlRegisterType<StateModel>("org.kde.neochat", 1, 0, "StateModel");
     qmlRegisterType<SearchModel>("org.kde.neochat", 1, 0, "SearchModel");
+    qmlRegisterType<LocationsModel>("org.kde.neochat", 1, 0, "LocationsModel");
 #ifdef QUOTIENT_07
     qmlRegisterType<PollHandler>("org.kde.neochat", 1, 0, "PollHandler");
 #endif

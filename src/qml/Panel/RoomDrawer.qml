@@ -210,6 +210,18 @@ Kirigami.OverlayDrawer {
                 }
             }
             Kirigami.BasicListItem {
+                id: locationsButton
+
+                icon: "map-flat"
+                text: i18n("Show locations for this room")
+
+                onClicked: pageStack.pushDialogLayer("qrc:/LocationsPage.qml", {
+                    room: room
+                }, {
+                    title: i18nc("Locations on a map", "Locations")
+                })
+            }
+            Kirigami.BasicListItem {
                 id: favouriteButton
 
                 icon: room && room.isFavourite ? "rating" : "rating-unrated"
