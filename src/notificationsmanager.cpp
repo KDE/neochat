@@ -55,7 +55,7 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
     notification->setPixmap(img);
 
     notification->setDefaultAction(i18n("Open NeoChat in this room"));
-    connect(notification, &KNotification::defaultActivated, this, [&]() {
+    connect(notification, &KNotification::defaultActivated, this, [=]() {
         RoomManager::instance().enterRoom(room);
         Q_EMIT Controller::instance().showWindow();
     });
