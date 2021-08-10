@@ -215,18 +215,14 @@ void RoomManager::reset()
 
 void RoomManager::leaveRoom(NeoChatRoom *room)
 {
-    // close the room and open the last open room if it exist
-    // other open welcome page.
+    if(m_lastCurrentRoom && room->id() == m_lastCurrentRoom->id()) {
+        m_lastCurrentRoom = nullptr;
+    }
     if (m_currentRoom && m_currentRoom->id() == room->id()) {
-        if (!m_lastCurrentRoom) {
-            Q_EMIT pushWelcomePage();
-            return;
-        }
         m_currentRoom = m_lastCurrentRoom;
         m_lastCurrentRoom = nullptr;
 
         Q_EMIT currentRoomChanged();
-        Q_EMIT replaceRoom(m_lastCurrentRoom, QString());
     }
 
     room->forget();

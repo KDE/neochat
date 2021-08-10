@@ -28,6 +28,17 @@ Kirigami.ScrollablePage {
 
     title: currentRoom.displayName
 
+    Connections {
+        target: RoomManager
+        function onCurrentRoomChanged() {
+            if(!RoomManager.currentRoom) {
+                if(pageStack.lastItem == page) {
+                    pageStack.pop()
+                }
+            }
+        }
+    }
+
     signal switchRoomUp()
     signal switchRoomDown()
 
