@@ -471,7 +471,11 @@ bool Controller::setAvatar(Connection *connection, const QUrl &avatarSource)
     User *localUser = connection->user();
     QString decoded = avatarSource.path();
     if (decoded.isEmpty()) {
-        connection->callApi<SetAvatarUrlJob>(localUser->id(), "");
+#ifdef QUOTIENT_07
+        connection->callApi<SetAvatarUrlJob>(localUser->id(), avatarSource);
+#else
+        connection->callApi<SetAvatarUrlJob>(localUser->id(), QString());
+#endif
         return true;
     }
     if (QImageReader(decoded).read().isNull()) {

@@ -173,8 +173,11 @@ QVariant PublicRoomListModel::data(const QModelIndex &index, int role) const
         if (avatarUrl.isEmpty()) {
             return "";
         }
-
+#ifdef QUOTIENT_07
+        return avatarUrl.url().remove(0, 6);
+#else
         return avatarUrl.remove(0, 6);
+#endif
     }
     if (role == TopicRole) {
         return room.topic;

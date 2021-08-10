@@ -63,7 +63,11 @@ void CustomEmojiModel::addEmoji(const QString& name, const QUrl& location)
             auto json = data != nullptr ? data->contentJson() : QJsonObject();
             auto emojiData = json["images"].toObject();
             emojiData[QStringLiteral("%1").arg(name)] = QJsonObject({
+#ifdef QUOTIENT_07
+                {QStringLiteral("url"), job->contentUri().toString()}
+#else
                 {QStringLiteral("url"), job->contentUri()}
+#endif
             });
             json["images"] = emojiData;
             d->conn->setAccountData("im.ponies.user_emotes", json);
