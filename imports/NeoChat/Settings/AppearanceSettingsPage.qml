@@ -173,14 +173,22 @@ Kirigami.ScrollablePage {
         }
         Kirigami.FormLayout {
             QQC2.CheckBox {
-                text: i18n("Show User Avatar")
+                Kirigami.FormData.label: "Show Avatar:"
+                text: i18n("In Chat")
                 checked: Config.showAvatarInTimeline
                 onToggled: {
-                    Config.showAvatarInTimeline = checked;
-                    Config.save();
+                    Config.showAvatarInTimeline = checked
+                    Config.save()
                 }
             }
-
+            QQC2.CheckBox {
+                text: i18n("In Sidebar")
+                checked: Config.showAvatarInRoomDrawer
+                onToggled: {
+                    Config.showAvatarInRoomDrawer = checked
+                    Config.save()
+                }
+            }
             QQC2.CheckBox {
                 text: i18n("Show Fancy Effects")
                 checked: Config.showFancyEffects
@@ -217,7 +225,7 @@ Kirigami.ScrollablePage {
                         Config.transparency = value;
                         Config.save();
                     }
-                    
+
                     HoverHandler { id: sliderHover }
                     QQC2.ToolTip.visible: sliderHover.hovered && !enabled
                     QQC2.ToolTip.text: i18n("Only enabled if the transparent chat page is enabled.")
