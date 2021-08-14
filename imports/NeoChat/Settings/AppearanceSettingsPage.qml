@@ -98,6 +98,7 @@ Kirigami.ScrollablePage {
                 text: i18n("Bubbles")
                 checked: !Config.compactLayout
                 QQC2.ButtonGroup.group: themeGroup
+                enabled: !Config.isCompactLayoutImmutable
 
                 onToggled: {
                     Config.compactLayout = !checked;
@@ -164,6 +165,7 @@ Kirigami.ScrollablePage {
                 text: i18n("Compact")
                 checked: Config.compactLayout
                 QQC2.ButtonGroup.group: themeGroup
+                enabled: !Config.isCompactLayoutImmutable
 
                 onToggled: {
                     Config.compactLayout = checked;
@@ -180,10 +182,12 @@ Kirigami.ScrollablePage {
                     Config.showAvatarInTimeline = checked
                     Config.save()
                 }
+                enabled: !Config.isShowAvatarInTimelineImmutable
             }
             QQC2.CheckBox {
                 text: i18n("In Sidebar")
                 checked: Config.showAvatarInRoomDrawer
+                enabled: !Config.isShowAvatarInRoomDrawerImmutable
                 onToggled: {
                     Config.showAvatarInRoomDrawer = checked
                     Config.save()
@@ -192,6 +196,7 @@ Kirigami.ScrollablePage {
             QQC2.CheckBox {
                 text: i18n("Show Fancy Effects")
                 checked: Config.showFancyEffects
+                enabled: !Config.isShowFancyEffectsImmutable
                 onToggled: {
                     Config.showFancyEffects = checked;
                     Config.save();
@@ -205,7 +210,7 @@ Kirigami.ScrollablePage {
             QQC2.CheckBox {
                 visible: Controller.hasWindowSystem
                 text: i18n("Use transparent chat page")
-                enabled: !Config.compactLayout
+                enabled: !Config.compactLayout && !Config.isBlurImmutable
                 checked: Config.blur
                 onToggled: {
                     Config.blur = checked;
@@ -214,6 +219,7 @@ Kirigami.ScrollablePage {
             }
             RowLayout {
                 visible: Controller.hasWindowSystem && Config.blur
+                enabled: !Config.isTransparancyImmutable
                 Kirigami.FormData.label: i18n("Transparency:")
                 QQC2.Slider {
                     enabled: !Config.compactLayout && Config.blur
@@ -237,6 +243,7 @@ Kirigami.ScrollablePage {
             QQC2.CheckBox {
                 text: i18n("Show your messages on the right")
                 checked: Config.showLocalMessagesOnRight
+                enabled: !Config.isShowLocalMessagesOnRightImmutable
                 onToggled: {
                     Config.showLocalMessagesOnRight = checked
                     Config.save()

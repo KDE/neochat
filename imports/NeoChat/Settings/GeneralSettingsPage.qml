@@ -18,6 +18,7 @@ Kirigami.ScrollablePage {
                 text: i18n("Close to system tray")
                 checked: Config.systemTray
                 visible: Controller.supportSystemTray
+                enabled: !Config.isSystemTrayImmutable
                 onToggled: {
                     Config.systemTray = checked
                     Config.save()
@@ -29,6 +30,7 @@ Kirigami.ScrollablePage {
                 Kirigami.FormData.label: i18n("Notifications and events:")
                 text: i18n("Show notifications")
                 checked: Config.showNotifications
+                enabled: !Config.isShowNotificationsImmutable
                 onToggled: {
                     Config.showNotifications = checked
                     Config.save()
@@ -37,6 +39,7 @@ Kirigami.ScrollablePage {
             QQC2.CheckBox {
                 text: i18n("Show leave and join events")
                 checked: Config.showLeaveJoinEvent
+                enabled: !Config.isShowLeaveJoinEventImmutable
                 onToggled: {
                     Config.showLeaveJoinEvent = checked
                     Config.save()
@@ -46,6 +49,7 @@ Kirigami.ScrollablePage {
                 Kirigami.FormData.label: i18n("Rooms and private chats:")
                 text: i18n("Separated")
                 checked: !Config.mergeRoomList
+                enabled: !Config.isMergeRoomListImmutable
                 onToggled: {
                     Config.mergeRoomList = false
                     Config.save()
@@ -54,6 +58,7 @@ Kirigami.ScrollablePage {
             QQC2.RadioButton {
                 text: i18n("Intermixed")
                 checked: Config.mergeRoomList
+                enabled: !Config.isMergeRoomListImmutable
                 onToggled: {
                     Config.mergeRoomList = true
                     Config.save()
@@ -62,6 +67,7 @@ Kirigami.ScrollablePage {
             QQC2.CheckBox {
                 text: i18n("Use s/text/replacement syntax to edit your last message")
                 checked: Config.allowQuickEdit
+                enabled: !Config.isAllowQuickEditImmutable
                 onToggled: {
                     Config.allowQuickEdit = checked
                     Config.save()
