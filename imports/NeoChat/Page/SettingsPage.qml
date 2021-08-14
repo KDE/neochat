@@ -7,6 +7,7 @@ import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.15 as Kirigami
+import org.kde.sonnet 1.0 as Sonnet
 
 import org.kde.neochat 1.0
 import NeoChat.Settings 1.0
@@ -66,6 +67,11 @@ Kirigami.ScrollablePage {
                         onTriggered: pageSettingStack.push("qrc:/imports/NeoChat/Page/DevicesPage.qml")
                     },
                     Kirigami.Action {
+                        text: i18n("Spell Checking")
+                        iconName: "tools-check-spelling"
+                        onTriggered: pageSettingStack.push(spellCheckingPage)
+                    },
+                    Kirigami.Action {
                         text: i18n("About NeoChat")
                         icon.name: "help-about"
                         onTriggered: pageSettingStack.push(aboutPage)
@@ -83,6 +89,13 @@ Kirigami.ScrollablePage {
         id: aboutPage
         Kirigami.AboutPage {
             aboutData: Controller.aboutData
+        }
+    }
+
+    Component {
+        id: spellCheckingPage
+        Sonnet.ConfigPage {
+            wideMode: pageSettingStack.wideMode
         }
     }
 }
