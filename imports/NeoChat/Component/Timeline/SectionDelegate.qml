@@ -9,6 +9,8 @@ import org.kde.kirigami 2.15 as Kirigami
 Kirigami.Heading {
     level: 4
     text: model.showSection ? section : ""
+    color: Kirigami.Theme.disabledTextColor
+    horizontalAlignment: Text.AlignHCenter
     verticalAlignment: Text.AlignVCenter
     topPadding: Kirigami.Units.largeSpacing * 2
     bottomPadding: Kirigami.Units.smallSpacing
