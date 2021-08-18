@@ -558,6 +558,22 @@ Kirigami.ScrollablePage {
             }
 
             DelegateChoice {
+                roleValue: "encrypted"
+                delegate: TimelineContainer {
+                    id: encryptedContainer
+                    width: messageListView.width
+                    isLoaded: timelineDelegateChooser.delegateLoaded
+
+                    innerObject: EncryptedDelegate {
+                        Layout.fillWidth: Config.compactLayout
+                        Layout.maximumWidth: encryptedContainer.bubbleMaxWidth
+                        Layout.rightMargin: Kirigami.Units.largeSpacing
+                        Layout.leftMargin: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing : 0
+                    }
+                }
+            }
+
+            DelegateChoice {
                 roleValue: "readMarker"
                 delegate: QQC2.ItemDelegate {
                     padding: Kirigami.Units.largeSpacing

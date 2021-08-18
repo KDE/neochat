@@ -490,6 +490,9 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         if (evt.isStateEvent()) {
             return "state";
         }
+        if (is<const EncryptedEvent>(evt)) {
+            return "encrypted";
+        }
 
         return "other";
     }
