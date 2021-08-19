@@ -361,6 +361,7 @@ Kirigami.ApplicationWindow {
 
         function onShowWindow() {
             root.showWindow()
+            root.raise()
         }
 
         function onUserConsentRequired(url) {
