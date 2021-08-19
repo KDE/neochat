@@ -206,22 +206,31 @@ QQC2.ItemDelegate {
             }
         }
 
-        background: Kirigami.ShadowedRectangle {
-            visible: cardBackground && !Config.compactLayout
-            color: {
-                if (model.author.isLocalUser) {
-                    return Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.15)
-                } else if (model.isHighlighted) {
-                    return Kirigami.Theme.positiveBackgroundColor
-                } else {
-                    return Kirigami.Theme.backgroundColor
-                }
+        background: Item {
+            Rectangle {
+                visible: messageDelegate.hovered
+                color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.15)
+                radius: Kirigami.Units.smallSpacing
+                anchors.fill: parent
             }
-            radius: Kirigami.Units.smallSpacing
-            shadow.size: Kirigami.Units.smallSpacing
-            shadow.color: !model.isHighlighted ? Qt.rgba(0.0, 0.0, 0.0, 0.10) : Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.10)
-            border.color: Kirigami.ColorUtils.tintWithAlpha(color, Kirigami.Theme.textColor, 0.15)
-            border.width: Kirigami.Units.devicePixelRatio
+            Kirigami.ShadowedRectangle {
+                visible: cardBackground && !Config.compactLayout
+                anchors.fill: parent
+                color: {
+                    if (model.author.isLocalUser) {
+                        return Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.15)
+                    } else if (model.isHighlighted) {
+                        return Kirigami.Theme.positiveBackgroundColor
+                    } else {
+                        return Kirigami.Theme.backgroundColor
+                    }
+                }
+                radius: Kirigami.Units.smallSpacing
+                shadow.size: Kirigami.Units.smallSpacing
+                shadow.color: !model.isHighlighted ? Qt.rgba(0.0, 0.0, 0.0, 0.10) : Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.10)
+                border.color: Kirigami.ColorUtils.tintWithAlpha(color, Kirigami.Theme.textColor, 0.15)
+                border.width: Kirigami.Units.devicePixelRatio
+            }
         }
     }
 
