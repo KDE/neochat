@@ -37,6 +37,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[HighlightRole] = "isHighlighted";
     roles[SpecialMarksRole] = "marks";
     roles[LongOperationRole] = "progressInfo";
+    roles[FileMimetypeIcon] = "fileMimetypeIcon";
     roles[AnnotationRole] = "annotation";
     roles[EventResolvedTypeRole] = "eventResolvedType";
     roles[ReplyRole] = "reply";
@@ -534,6 +535,15 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 
     if (role == HighlightRole) {
         return m_currentRoom->isEventHighlighted(&evt);
+    }
+
+    if (role == FileMimetypeIcon) {
+        auto e = eventCast<const RoomMessageEvent>(&evt);
+        if (!e || !e->hasFileContent()) {
+            return QVariant();
+        }
+
+        return e->content()->fileInfo()->mimeType.iconName();
     }
 
     if (role == SpecialMarksRole) {

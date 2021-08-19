@@ -610,7 +610,7 @@ void Controller::openOrCreateDirectChat(NeoChatUser *user)
 
 QString Controller::formatByteSize(double size, int precision) const
 {
-    return KFormat().formatByteSize(size, precision);
+    return QLocale().formattedDataSize(size, precision);
 }
 
 QString Controller::formatDuration(quint64 msecs, KFormat::DurationFormatOptions options) const

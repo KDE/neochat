@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import QtQuick 2.15
-import QtQuick.Controls 2.15
+import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 import QtGraphicalEffects 1.15
 import Qt.labs.platform 1.1
@@ -23,29 +23,82 @@ RowLayout {
 
     spacing: Kirigami.Units.largeSpacing
 
-    onDownloadedChanged: if (downloaded && openOnFinished) {
-        openSavedFile();
-    }
+    states: [
+        State {
+            name: "downloaded"
+            when: progressInfo.completed
 
-    ToolButton {
-        icon.name: progressInfo.completed ? "document-open" : "document-save"
-        onClicked: progressInfo.completed ? openSavedFile() : saveFileAs()
-    }
+            PropertyChanges {
+                target: downloadButton
 
+                icon.name: "document-open"
+
+                QQC2.ToolTip.text: i18nc("tooltip for a button on a message; offers ability to open its downloaded file with an appropriate application", "Open File")
+
+                onClicked: openSavedFile()
+            }
+        },
+        State {
+            name: "downloading"
+            when: progressInfo.active
+
+            PropertyChanges {
+                target: sizeLabel
+                text: i18nc("file download progress", "%1 / %2", Controller.formatByteSize(progressInfo.progress), Controller.formatByteSize(progressInfo.total))
+            }
+            PropertyChanges {
+                target: downloadButton
+                icon.name: "media-playback-stop"
+
+                QQC2.ToolTip.text: i18nc("tooltip for a button on a message; stops downloading the message's file", "Stop Download")
+                onClicked: currentRoom.cancelFileTransfer(eventId)
+            }
+        },
+        State {
+            name: "raw"
+            when: true
+
+            PropertyChanges {
+                target: downloadButton
+
+                onClicked: root.saveFileAs()
+            }
+        }
+    ]
+
+    Kirigami.Icon {
+        id: ikon
+        source: model.fileMimetypeIcon
+        fallback: "unknown"
+    }
     ColumnLayout {
-        Kirigami.Heading {
-            Layout.fillWidth: true
-            level: 4
-            text: model.display
-            wrapMode: Label.Wrap
-        }
+        Layout.alignment: Qt.AlignVCenter
+        Layout.fillWidth: true
 
-        Label {
+        spacing: 0
+
+        QQC2.Label {
+            text: model.display
+            wrapMode: Text.Wrap
+
             Layout.fillWidth: true
-            text: !progressInfo.completed && progressInfo.active ? (Controller.formatByteSize(progressInfo.progress) + "/" + Controller.formatByteSize(progressInfo.total)) : Controller.formatByteSize(content.info ? content.info.size : 0)
-            color: Kirigami.Theme.disabledTextColor
-            wrapMode: Label.Wrap
         }
+        QQC2.Label {
+            id: sizeLabel
+
+            text: Controller.formatByteSize(content.info ? content.info.size : 0)
+            opacity: 0.7
+
+            Layout.fillWidth: true
+        }
+    }
+
+    QQC2.Button {
+        id: downloadButton
+        icon.name: "download"
+
+        QQC2.ToolTip.text: i18nc("tooltip for a button on a message; offers ability to download its file", "Download")
+        QQC2.ToolTip.visible: hovered
     }
 
     Component {
@@ -61,19 +114,9 @@ RowLayout {
     }
 
     function saveFileAs() {
-        var dialog = fileDialog.createObject(ApplicationWindow.overlay)
+        var dialog = fileDialog.createObject(QQC2.ApplicationWindow.overlay)
         dialog.open()
         dialog.currentFile = dialog.folder + "/" + currentRoom.fileNameToDownload(eventId)
-    }
-
-    function downloadAndOpen() {
-        if (downloaded) {
-            openSavedFile();
-        } else {
-            openOnFinished = true;
-            currentRoom.downloadFile(eventId, StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/"
-                + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId));
-        }
     }
 
     function openSavedFile() {

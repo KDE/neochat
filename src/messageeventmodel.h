@@ -30,6 +30,8 @@ public:
         UserMarkerRole,
         FormattedBodyRole,
 
+        FileMimetypeIcon,
+
         ReplyRole,
 
         ShowAuthorRole,
