@@ -177,7 +177,7 @@ Kirigami.ScrollablePage {
             onTriggered: hoverActions.visible = hoverActions.visibleDelayed;
         }
         x: bubble ? (bubble.x + Kirigami.Units.largeSpacing + Math.max(bubble.width - childWidth, 0) - (Config.compactLayout ? Kirigami.Units.gridUnit * 3 : 0)) : 0
-        y: bubble ? bubble.mapToItem(page, 0, -Kirigami.Units.largeSpacing - hoverActions.childHeight * 1.5).y : 0
+        y: bubble ? bubble.mapToItem(parent, 0, 0).y - hoverActions.childHeight + Kirigami.Units.smallSpacing: 0;
         visible: false
 
         property var updateFunction
