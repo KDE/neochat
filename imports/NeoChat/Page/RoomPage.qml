@@ -457,7 +457,7 @@ Kirigami.ScrollablePage {
                             acceptedButtons: Qt.LeftButton
                             onLongPressed: openFileContext(author, model.display, eventId, toolTip, progressInfo, parent)
                             onTapped: {
-                                fullScreenImage.createObject(parent, {"filename": eventId, "localPath": currentRoom.urlToDownload(eventId)}).showFullScreen()
+                                fullScreenImage.createObject(parent, {"filename": eventId, "localPath": currentRoom.urlToDownload(eventId), "blurhash": model.content.info["xyz.amorgan.blurhash"], "imageWidth": content.info.w, "imageHeight": content.info.h}).showFullScreen()
                             }
                         }
                     }

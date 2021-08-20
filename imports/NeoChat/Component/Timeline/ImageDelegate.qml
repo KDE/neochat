@@ -29,6 +29,12 @@ Image {
 
     source: "image://mxc/" + mediaId
 
+    Image {
+        anchors.fill: parent
+        source: "image://blurhash/" + content.info["xyz.amorgan.blurhash"]
+        visible: parent.status !== Image.Ready
+    }
+
     fillMode: Image.PreserveAspectFit
 
     ToolTip.text: display

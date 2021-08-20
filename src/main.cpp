@@ -59,6 +59,7 @@
 #include "webshortcutmodel.h"
 #include "spellcheckhighlighter.h"
 #include "customemojimodel.h"
+#include "blurhashimageprovider.h"
 #ifdef HAVE_COLORSCHEME
 #include "colorschemer.h"
 #endif
@@ -212,6 +213,7 @@ int main(int argc, char *argv[])
 
     engine.addImportPath("qrc:/imports");
     engine.addImageProvider(QLatin1String("mxc"), new MatrixImageProvider);
+    engine.addImageProvider(QLatin1String("blurhash"), new BlurhashImageProvider);
 
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
     if (engine.rootObjects().isEmpty()) {

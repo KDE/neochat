@@ -11,6 +11,9 @@ ApplicationWindow {
 
     property string filename
     property url localPath
+    property string blurhash: ""
+    property int imageWidth: -1
+    property int imageHeight: -1
 
     flags: Qt.FramelessWindowHint | Qt.WA_TranslucentBackground
     visibility: Qt.WindowFullScreen
@@ -29,22 +32,29 @@ ApplicationWindow {
     }
 
     BusyIndicator {
-	visible: image.status !== Image.Ready
-	anchors.centerIn: parent
-	running: visible
+        visible: image.status !== Image.Ready && root.blurhash === ""
+        anchors.centerIn: parent
+        running: visible
     }
 
     AnimatedImage {
-	id: image
+	    id: image
         anchors.centerIn: parent
 
-        width: Math.min(sourceSize.width, root.width)
-        height: Math.min(sourceSize.height, root.height)
+        width: Math.min(root.imageWidth !== -1 ? root.imageWidth : sourceSize.width, root.width)
+        height: Math.min(root.imageHeight !== -1 ? root.imageWidth : sourceSize.height, root.height)
 
-        cache: false
         fillMode: Image.PreserveAspectFit
 
         source: localPath
+
+        Image {
+            anchors.centerIn: parent
+            width: image.width
+            height: image.height
+            source: root.blurhash !== "" ? ("image://blurhash/" + root.blurhash) : ""
+            visible: root.blurhash !== "" && parent.status !== Image.Ready
+        }
     }
 
     Button {

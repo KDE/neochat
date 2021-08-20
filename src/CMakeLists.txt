@@ -34,6 +34,8 @@ add_executable(neochat
     commandmodel.cpp
     webshortcutmodel.cpp
     spellcheckhighlighter.cpp
+    blurhash.cpp
+    blurhashimageprovider.cpp
     ../res.qrc
 )
 
