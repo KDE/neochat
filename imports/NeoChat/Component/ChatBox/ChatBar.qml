@@ -9,7 +9,8 @@ import QtQuick.Templates 2.15 as T
 import Qt.labs.platform 1.1 as Platform
 import QtQuick.Window 2.15
 
-import org.kde.kirigami 2.18 as Kirigami
+import org.kde.kirigami 2.15 as Kirigami
+
 import org.kde.neochat 1.0
 
 ToolBar {
@@ -68,7 +69,7 @@ ToolBar {
                 font: inputField.font
             }
 
-            TextArea {
+            T.TextArea {
                 id: inputField
                 focus: true
                 /* Some QQC2 styles will have their own predefined backgrounds for TextAreas.
@@ -100,9 +101,16 @@ ToolBar {
                 wrapMode: Text.Wrap
                 readOnly: currentRoom.usesEncryption
 
+                palette: Kirigami.Theme.palette
                 Kirigami.Theme.colorSet: Kirigami.Theme.View
                 Kirigami.Theme.inherit: false
-                Kirigami.SpellChecking.enabled: true
+
+                implicitWidth: Math.max(contentWidth + leftPadding + rightPadding,
+                                        implicitBackgroundWidth + leftInset + rightInset,
+                                        placeholder.implicitWidth + leftPadding + rightPadding)
+                implicitHeight: Math.max(contentHeight + topPadding + bottomPadding,
+                                         implicitBackgroundHeight + topInset + bottomInset,
+                                         placeholder.implicitHeight + topPadding + bottomPadding)
 
                 color: Kirigami.Theme.textColor
                 selectionColor: Kirigami.Theme.highlightColor
@@ -115,6 +123,65 @@ ToolBar {
 
                 selectByMouse: !Kirigami.Settings.tabletMode
 
+                cursorDelegate: Loader {
+                    visible: inputField.activeFocus && !inputField.readOnly && inputField.selectionStart === inputField.selectionEnd
+                    active: visible
+                    sourceComponent: CursorDelegate { target: inputField }
+                }
+
+                CursorHandle {
+                    id: selectionStartHandle
+                    target: inputField
+                }
+
+                CursorHandle {
+                    id: selectionEndHandle
+                    target: inputField
+                    isSelectionEnd: true
+                }
+
+                TapHandler {
+                    acceptedDevices: PointerDevice.Mouse | PointerDevice.Stylus
+                    acceptedButtons: Qt.LeftButton | Qt.RightButton
+
+                    // unfortunately, taphandler's pressed event only triggers when the press is lifted
+                    // we need to use the longpress signal since it triggers when the button is first pressed
+                    longPressThreshold: 0
+                    onLongPressed: TextFieldContextMenu.targetClick(point, inputField, spellcheckhighlighter, inputField.positionAt(point.position.x, point.position.y));
+                }
+
+                onPressAndHold: {
+                    if (!Kirigami.Settings.tabletMode) {
+                        return;
+                    }
+                    forceActiveFocus();
+                    cursorPosition = positionAt(event.x, event.y);
+                    selectWord();
+                }
+
+                onFocusChanged: {
+                    if (focus) {
+                        MobileTextActionsToolBar.controlRoot = inputField;
+                    }
+                }
+
+                Label {
+                    id: placeholder
+                    x: inputField.leftPadding
+                    y: inputField.topPadding
+                    width: inputField.width - (inputField.leftPadding + inputField.rightPadding)
+                    height: inputField.height - (inputField.topPadding + inputField.bottomPadding)
+
+                    text: inputField.placeholderText
+                    font: inputField.font
+                    color: Kirigami.Theme.disabledTextColor
+                    horizontalAlignment: inputField.horizontalAlignment
+                    verticalAlignment: inputField.verticalAlignment
+                    visible: !inputField.length && !inputField.preeditText && (!inputField.activeFocus || inputField.horizontalAlignment !== Qt.AlignHCenter)
+                    elide: Text.ElideRight
+                }
+
+
                 ChatDocumentHandler {
                     id: documentHandler
                     document: inputField.textDocument
@@ -122,6 +189,18 @@ ToolBar {
                     selectionStart: inputField.selectionStart
                     selectionEnd: inputField.selectionEnd
                     room: currentRoom ?? null
+                }
+
+                SpellcheckHighlighter {
+                    id: spellcheckhighlighter
+                    document: inputField.textDocument
+                    cursorPosition: inputField.cursorPosition
+                    selectionStart: inputField.selectionStart
+                    selectionEnd: inputField.selectionEnd
+                    onChangeCursorPosition: {
+                        inputField.cursorPosition = start;
+                        inputField.moveCursorSelection(end, TextEdit.SelectCharacters);
+                    }
                 }
 
                 Timer {
@@ -164,6 +243,9 @@ ToolBar {
                 }
 
                 Keys.onPressed: {
+                    // trigger if context menu button is pressed
+                    TextFieldContextMenu.targetKeyPressed(event, inputField)
+
                     if (event.key === Qt.Key_PageDown) {
                         switchRoomDown();
                     } else if (event.key === Qt.Key_PageUp) {
@@ -247,7 +329,10 @@ ToolBar {
                     chatBar.complete();
                 }
 
+                onPressed: MobileTextActionsToolBar.shouldBeVisible = true;
+
                 onTextChanged: {
+                    MobileTextActionsToolBar.shouldBeVisible = false;
                     timeoutTimer.restart()
                     repeatTimer.start()
                     currentRoom.cachedInput = text
