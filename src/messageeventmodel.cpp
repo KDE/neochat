@@ -57,7 +57,6 @@ MessageEventModel::MessageEventModel(QObject *parent)
     using namespace Quotient;
     qmlRegisterAnonymousType<FileTransferInfo>("org.kde.neochat", 1);
     qRegisterMetaType<FileTransferInfo>();
-    qmlRegisterUncreatableType<EventStatus>("org.kde.neochat", 1, 0, "EventStatus", "EventStatus is not an creatable type");
 
     QTimer::singleShot(0, this, [=]() {
         if (!m_currentRoom) {
