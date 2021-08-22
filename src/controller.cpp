@@ -173,7 +173,7 @@ void Controller::loginWithAccessToken(const QString &serverAddr, const QString &
     connect(conn, &Connection::networkError, this, [=](QString error, const QString &, int, int) {
         Q_EMIT errorOccured(i18n("Network Error: %1", error));
     });
-    conn->connectWithToken(user, token, deviceName);
+    conn->assumeIdentity(user, token, deviceName);
 }
 
 void Controller::logout(Connection *conn, bool serverSideLogout)
@@ -290,7 +290,7 @@ void Controller::invokeLogin()
             connect(connection, &Connection::networkError, this, [=](const QString &error, const QString &, int, int) {
                 Q_EMIT errorOccured(i18n("Network Error: %1", error));
             });
-            connection->connectWithToken(account.userId(), accessToken, account.deviceId());
+            connection->assumeIdentity(account.userId(), accessToken, account.deviceId());
         }
     }
     if (accounts.isEmpty()) {
