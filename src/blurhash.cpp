@@ -3,7 +3,15 @@
 
 #include "blurhash.h"
 
+#include <vector>
+
 static char chars[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#$%*+,-.:;=?@[]^_{|}~";
+
+struct Color {
+    float r = 0;
+    float g = 0;
+    float b = 0;
+};
 
 static inline int linearTosRGB(float value)
 {
@@ -75,22 +83,22 @@ bool isValidBlurhash(const char *blurhash)
     return hashLength == 4 + 2 * numX * numY;
 }
 
-void decodeDC(int value, float *r, float *g, float *b)
+void decodeDC(int value, Color *color)
 {
-    *r = sRGBToLinear(value >> 16);
-    *g = sRGBToLinear((value >> 8) & 255);
-    *b = sRGBToLinear(value & 255);
+    color->r = sRGBToLinear(value >> 16);
+    color->g = sRGBToLinear((value >> 8) & 255);
+    color->b = sRGBToLinear(value & 255);
 }
 
-void decodeAC(int value, float maximumValue, float *r, float *g, float *b)
+void decodeAC(int value, float maximumValue, Color *color)
 {
     int quantR = (int)floorf(value / (19 * 19));
     int quantG = (int)floorf(value / 19) % 19;
     int quantB = (int)value % 19;
 
-    *r = signPow(((float)quantR - 9) / 9, 2.0) * maximumValue;
-    *g = signPow(((float)quantG - 9) / 9, 2.0) * maximumValue;
-    *b = signPow(((float)quantB - 9) / 9, 2.0) * maximumValue;
+    color->r = signPow(((float)quantR - 9) / 9, 2.0) * maximumValue;
+    color->g = signPow(((float)quantG - 9) / 9, 2.0) * maximumValue;
+    color->b = signPow(((float)quantB - 9) / 9, 2.0) * maximumValue;
 }
 
 int decodeToArray(const char *blurhash, int width, int height, int punch, int nChannels, uint8_t *pixelArray)
@@ -107,16 +115,17 @@ int decodeToArray(const char *blurhash, int width, int height, int punch, int nC
     int numX = (sizeFlag % 9) + 1;
     int iter = 0;
 
-    float r = 0, g = 0, b = 0;
+    Color color;
     int quantizedMaxValue = decodeToInt(blurhash, 1, 2);
     if (quantizedMaxValue == -1) {
         return -1;
     }
 
-    float maxValue = ((float)(quantizedMaxValue + 1)) / 166;
+    const float maxValue = ((float)(quantizedMaxValue + 1)) / 166;
 
-    int colors_size = numX * numY;
-    float colors[colors_size][3];
+    const int colors_size = numX * numY;
+
+    std::vector<Color> colors(colors_size, {0, 0, 0});
 
     for (iter = 0; iter < colors_size; iter++) {
         if (iter == 0) {
@@ -124,19 +133,15 @@ int decodeToArray(const char *blurhash, int width, int height, int punch, int nC
             if (value == -1) {
                 return -1;
             }
-            decodeDC(value, &r, &g, &b);
-            colors[iter][0] = r;
-            colors[iter][1] = g;
-            colors[iter][2] = b;
+            decodeDC(value, &color);
+            colors[iter] = color;
         } else {
             int value = decodeToInt(blurhash, 4 + iter * 2, 6 + iter * 2);
             if (value == -1) {
                 return -1;
             }
-            decodeAC(value, maxValue * punch, &r, &g, &b);
-            colors[iter][0] = r;
-            colors[iter][1] = g;
-            colors[iter][2] = b;
+            decodeAC(value, maxValue * punch, &color);
+            colors[iter] = color;
         }
     }
 
@@ -152,9 +157,9 @@ int decodeToArray(const char *blurhash, int width, int height, int punch, int nC
                 for (i = 0; i < numX; i++) {
                     float basics = cos((M_PI * x * i) / width) * cos((M_PI * y * j) / height);
                     int idx = i + j * numX;
-                    r += colors[idx][0] * basics;
-                    g += colors[idx][1] * basics;
-                    b += colors[idx][2] * basics;
+                    r += colors[idx].r * basics;
+                    g += colors[idx].g * basics;
+                    b += colors[idx].b * basics;
                 }
             }
 
