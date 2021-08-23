@@ -5,7 +5,9 @@
 
 #include <vector>
 
-static char chars[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#$%*+,-.:;=?@[]^_{|}~";
+namespace
+{
+const char chars[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#$%*+,-.:;=?@[]^_{|}~";
 
 struct Color {
     float r = 0;
@@ -13,7 +15,7 @@ struct Color {
     float b = 0;
 };
 
-static inline int linearTosRGB(float value)
+inline int linearTosRGB(float value)
 {
     float v = fmaxf(0, fminf(1, value));
     if (v <= 0.0031308)
@@ -22,7 +24,7 @@ static inline int linearTosRGB(float value)
         return (1.055 * powf(v, 1 / 2.4) - 0.055) * 255 + 0.5;
 }
 
-static inline float sRGBToLinear(int value)
+inline float sRGBToLinear(int value)
 {
     float v = (float)value / 255;
     if (v <= 0.04045)
@@ -31,12 +33,12 @@ static inline float sRGBToLinear(int value)
         return powf((v + 0.055) / 1.055, 2.4);
 }
 
-static inline float signPow(float value, float exp)
+inline float signPow(float value, float exp)
 {
     return copysignf(powf(fabsf(value), exp), value);
 }
 
-static inline uint8_t clampToUByte(int *src)
+inline uint8_t clampToUByte(int *src)
 {
     if (*src >= 0 && *src <= 255) {
         return *src;
@@ -44,7 +46,7 @@ static inline uint8_t clampToUByte(int *src)
     return (*src < 0) ? 0 : 255;
 }
 
-static inline uint8_t *createByteArray(int size)
+inline uint8_t *createByteArray(int size)
 {
     return (uint8_t *)malloc(size * sizeof(uint8_t));
 }
@@ -66,21 +68,6 @@ int decodeToInt(const char *string, int start, int end)
         value = value * 83 + index;
     }
     return value;
-}
-
-bool isValidBlurhash(const char *blurhash)
-{
-    const int hashLength = strlen(blurhash);
-
-    if (!blurhash || strlen(blurhash) < 6) {
-        return false;
-    }
-
-    int sizeFlag = decodeToInt(blurhash, 0, 1);
-    int numY = (int)floorf(sizeFlag / 9) + 1;
-    int numX = (sizeFlag % 9) + 1;
-
-    return hashLength == 4 + 2 * numX * numY;
 }
 
 void decodeDC(int value, Color *color)
@@ -178,6 +165,7 @@ int decodeToArray(const char *blurhash, int width, int height, int punch, int nC
     }
     return 0;
 }
+}
 
 uint8_t *decode(const char *blurhash, int width, int height, int punch, int nChannels)
 {
@@ -188,4 +176,19 @@ uint8_t *decode(const char *blurhash, int width, int height, int punch, int nCha
         return NULL;
     }
     return pixelArray;
+}
+
+bool isValidBlurhash(const char *blurhash)
+{
+    const int hashLength = strlen(blurhash);
+
+    if (!blurhash || strlen(blurhash) < 6) {
+        return false;
+    }
+
+    int sizeFlag = decodeToInt(blurhash, 0, 1);
+    int numY = (int)floorf(sizeFlag / 9) + 1;
+    int numX = (sizeFlag % 9) + 1;
+
+    return hashLength == 4 + 2 * numX * numY;
 }
