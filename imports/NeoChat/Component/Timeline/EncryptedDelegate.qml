@@ -15,5 +15,4 @@ TextEdit {
     readOnly: true
     wrapMode: Text.WordWrap
     textFormat: Text.RichText
-    width: messageContainer.bubbleMaxWidth
 }
