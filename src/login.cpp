@@ -143,9 +143,8 @@ void Login::login()
         Q_EMIT Controller::instance().globalErrorOccured(i18n("Network Error"), std::move(error));
     });
 
-    connect(m_connection, &Connection::syncDone, this, [=]() {
+    connectSingleShot(m_connection, &Connection::syncDone, this, [=]() {
         Q_EMIT initialSyncFinished();
-        disconnect(m_connection, &Connection::syncDone, this, nullptr);
     });
 }
 
