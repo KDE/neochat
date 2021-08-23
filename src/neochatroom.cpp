@@ -275,15 +275,13 @@ QVariantList NeoChatRoom::getUsers(const QString &keyword) const
     return matchedList;
 }
 
-QVariantMap NeoChatRoom::getUser(const QString& userID) const
+QVariantMap NeoChatRoom::getUser(const QString &userID) const
 {
     NeoChatUser user(userID, connection());
-    return QVariantMap {
-        { QStringLiteral("id"), user.id() },
-        { QStringLiteral("displayName"), user.displayname(this) },
-        { QStringLiteral("avatarMediaId"), user.avatarMediaId(this) },
-        { QStringLiteral("color"), user.color() }
-    };
+    return QVariantMap{{QStringLiteral("id"), user.id()},
+                       {QStringLiteral("displayName"), user.displayname(this)},
+                       {QStringLiteral("avatarMediaId"), user.avatarMediaId(this)},
+                       {QStringLiteral("color"), user.color()}};
 }
 
 QUrl NeoChatRoom::urlToMxcUrl(const QUrl &mxcUrl)
@@ -328,7 +326,7 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                 htmlBody.replace(utils::strikethroughRegExp, "<s>\\1</s>");
 
                 auto url = connection()->homeserver();
-                auto base = url.scheme() + QStringLiteral("://") + url.host() + (url.port() != -1 ? ':'+QString::number(url.port()) : QString());
+                auto base = url.scheme() + QStringLiteral("://") + url.host() + (url.port() != -1 ? ':' + QString::number(url.port()) : QString());
                 htmlBody.replace(utils::mxcImageRegExp, QStringLiteral(R"(<img \1 src="%1/_matrix/media/r0/download/\2/\3" \4 > )").arg(base));
 
                 return htmlBody;
@@ -472,7 +470,7 @@ void NeoChatRoom::changeAvatar(const QUrl &localFile)
 {
     const auto job = connection()->uploadFile(localFile.toLocalFile());
 #ifdef QUOTIENT_07
-    if(isJobPending(job)) {
+    if (isJobPending(job)) {
 #else
     if (isJobRunning(job)) {
 #endif
@@ -553,7 +551,7 @@ QString msgTypeToString(MessageEventType msgType)
     }
 }
 
-QString NeoChatRoom::preprocessText(const QString& text)
+QString NeoChatRoom::preprocessText(const QString &text)
 {
     return markdownToHTML(text);
 }

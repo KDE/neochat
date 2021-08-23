@@ -6,7 +6,7 @@
 
 #include "colorschemer.h"
 
-ColorSchemer::ColorSchemer(QObject* parent)
+ColorSchemer::ColorSchemer(QObject *parent)
     : QObject(parent)
     , c(new KColorSchemeManager(this))
 {

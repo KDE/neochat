@@ -5,13 +5,12 @@
 #include "webshortcutmodel.h"
 
 #ifdef HAVE_KIO
-#include <KUriFilter>
 #include <KIO/CommandLauncherJob>
+#include <KUriFilter>
 #endif
 #include <KStringHandler>
 
-struct KWebShortcutModelPrivate
-{
+struct KWebShortcutModelPrivate {
     QString selectedText;
 #ifdef HAVE_KIO
     KUriFilterData filterData;
@@ -28,7 +27,6 @@ KWebShortcutModel::KWebShortcutModel(QObject *parent)
 KWebShortcutModel::~KWebShortcutModel()
 {
 }
-
 
 QString KWebShortcutModel::selectedText() const
 {
@@ -101,12 +99,12 @@ QVariant KWebShortcutModel::data(const QModelIndex &index, int role) const
 
 #ifdef HAVE_KIO
     switch (role) {
-        case Qt::DisplayRole:
-            return d->searchProviders[index.row()];
-        case Qt::DecorationRole:
-            return d->filterData.iconNameForPreferredSearchProvider(d->searchProviders[index.row()]);
-        case Qt::EditRole:
-            return d->filterData.queryForPreferredSearchProvider(d->searchProviders[index.row()]);
+    case Qt::DisplayRole:
+        return d->searchProviders[index.row()];
+    case Qt::DecorationRole:
+        return d->filterData.iconNameForPreferredSearchProvider(d->searchProviders[index.row()]);
+    case Qt::EditRole:
+        return d->filterData.queryForPreferredSearchProvider(d->searchProviders[index.row()]);
     }
 #endif
     return {};
@@ -115,10 +113,10 @@ QVariant KWebShortcutModel::data(const QModelIndex &index, int role) const
 void KWebShortcutModel::trigger(const QString &data)
 {
 #ifdef HAVE_KIO
-     KUriFilterData filterData(data);
-     if (KUriFilter::self()->filterSearchUri(filterData, KUriFilter::WebShortcutFilter)) {
+    KUriFilterData filterData(data);
+    if (KUriFilter::self()->filterSearchUri(filterData, KUriFilter::WebShortcutFilter)) {
         Q_EMIT openUrl(filterData.uri().url());
-     }
+    }
 #else
     Q_UNUSED(data);
 #endif
@@ -127,7 +125,7 @@ void KWebShortcutModel::trigger(const QString &data)
 void KWebShortcutModel::configureWebShortcuts()
 {
 #ifdef HAVE_KIO
-     auto job = new KIO::CommandLauncherJob("kcmshell5", QStringList() << "webshortcuts", this);
-     job->exec();
+    auto job = new KIO::CommandLauncherJob("kcmshell5", QStringList() << "webshortcuts", this);
+    job->exec();
 #endif
 }

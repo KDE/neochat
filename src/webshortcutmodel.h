@@ -62,6 +62,7 @@ public:
 Q_SIGNALS:
     void selectedTextChanged();
     void openUrl(const QUrl &url);
+
 private:
     std::unique_ptr<KWebShortcutModelPrivate> d;
 };

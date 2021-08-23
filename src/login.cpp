@@ -35,7 +35,7 @@ void Login::init()
 
         m_testing = true;
         Q_EMIT testingChanged();
-        if(!m_connection) {
+        if (!m_connection) {
             m_connection = new Connection(this);
         }
         m_connection->resolveServer(m_matrixId);

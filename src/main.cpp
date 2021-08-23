@@ -2,16 +2,16 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 #include <QCommandLineParser>
+#include <QDebug>
 #include <QFontDatabase>
 #include <QGuiApplication>
+#include <QIcon>
 #include <QNetworkProxy>
 #include <QNetworkProxyFactory>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQuickStyle>
 #include <QQuickWindow>
-#include <QDebug>
-#include <QIcon>
 
 #ifdef Q_OS_ANDROID
 #include <QGuiApplication>
@@ -31,6 +31,7 @@
 
 #include "accountlistmodel.h"
 #include "actionshandler.h"
+#include "blurhashimageprovider.h"
 #include "chatboxhelper.h"
 #include "chatdocumenthandler.h"
 #include "clipboard.h"
@@ -38,6 +39,7 @@
 #include "controller.h"
 #include "csapi/joining.h"
 #include "csapi/leaving.h"
+#include "customemojimodel.h"
 #include "devicesmodel.h"
 #include "emojimodel.h"
 #include "filetypesingleton.h"
@@ -50,16 +52,14 @@
 #include "neochatuser.h"
 #include "notificationsmanager.h"
 #include "publicroomlistmodel.h"
-#include <room.h>
 #include "roomlistmodel.h"
 #include "roommanager.h"
 #include "sortfilterroomlistmodel.h"
+#include "spellcheckhighlighter.h"
 #include "userdirectorylistmodel.h"
 #include "userlistmodel.h"
 #include "webshortcutmodel.h"
-#include "spellcheckhighlighter.h"
-#include "customemojimodel.h"
-#include "blurhashimageprovider.h"
+#include <room.h>
 #ifdef HAVE_COLORSCHEME
 #include "colorschemer.h"
 #endif
@@ -112,27 +112,28 @@ int main(int argc, char *argv[])
     about.addAuthor(i18n("Tobias Fella"), QString(), QStringLiteral("fella@posteo.de"));
     about.setOrganizationDomain("kde.org");
 
-    about.addComponent(QStringLiteral("libQuotient"), i18n("A Qt5 library to write cross-platform clients for Matrix"), QString(), QStringLiteral("https://github.com/quotient-im/libquotient"), KAboutLicense::LGPL_V2_1);
+    about.addComponent(QStringLiteral("libQuotient"),
+                       i18n("A Qt5 library to write cross-platform clients for Matrix"),
+                       QString(),
+                       QStringLiteral("https://github.com/quotient-im/libquotient"),
+                       KAboutLicense::LGPL_V2_1);
 
     KAboutData::setApplicationData(about);
     QGuiApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("org.kde.neochat")));
 
 #ifdef HAVE_KDBUSADDONS
     KDBusService service(KDBusService::Unique);
-    service.connect(&service,
-                    &KDBusService::activateRequested,
-                    &RoomManager::instance(),
-                    [](const QStringList &arguments, const QString &workingDirectory) {
-                        Q_UNUSED(workingDirectory);
-                        if(arguments.isEmpty()) {
-                            return;
-                        }
-                        auto args = arguments;
-                        args.removeFirst();
-                        for (const auto &arg : args) {
-                            RoomManager::instance().openResource(arg);
-                        }
-                    });
+    service.connect(&service, &KDBusService::activateRequested, &RoomManager::instance(), [](const QStringList &arguments, const QString &workingDirectory) {
+        Q_UNUSED(workingDirectory);
+        if (arguments.isEmpty()) {
+            return;
+        }
+        auto args = arguments;
+        args.removeFirst();
+        for (const auto &arg : args) {
+            RoomManager::instance().openResource(arg);
+        }
+    });
 #endif
 
 #ifdef NEOCHAT_FLATPAK

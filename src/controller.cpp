@@ -23,12 +23,12 @@
 #include <QElapsedTimer>
 #include <QFile>
 #include <QFileInfo>
-#include <QQuickItem>
 #include <QGuiApplication>
 #include <QMovie>
 #include <QNetworkConfigurationManager>
 #include <QNetworkReply>
 #include <QPixmap>
+#include <QQuickItem>
 #include <QQuickWindow>
 #include <QStandardPaths>
 #include <QStringBuilder>
@@ -50,9 +50,9 @@
 #include "neochatconfig.h"
 #include "neochatroom.h"
 #include "neochatuser.h"
+#include "roommanager.h"
 #include "settings.h"
 #include "utils.h"
-#include "roommanager.h"
 #include <KStandardShortcut>
 
 #ifndef Q_OS_ANDROID
@@ -119,8 +119,7 @@ Controller::Controller(QObject *parent)
     }
 #endif
 
-    connect(m_mgr, &QNetworkConfigurationManager::onlineStateChanged,
-            this, &Controller::isOnlineChanged);
+    connect(m_mgr, &QNetworkConfigurationManager::onlineStateChanged, this, &Controller::isOnlineChanged);
 }
 
 Controller::~Controller()
@@ -399,7 +398,7 @@ void Controller::changeAvatar(Connection *conn, const QUrl &localFile)
 {
     auto job = conn->uploadFile(localFile.toLocalFile());
 #ifdef QUOTIENT_07
-    if(isJobPending(job)) {
+    if (isJobPending(job)) {
 #else
     if (isJobRunning(job)) {
 #endif
@@ -641,6 +640,5 @@ bool Controller::hasWindowSystem() const
     return true;
 #else
     return false;
-#endif 
+#endif
 }
-

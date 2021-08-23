@@ -79,10 +79,12 @@ SpellcheckHighlighter::SpellcheckHighlighter(QObject *parent)
     : QSyntaxHighlighter(parent)
 #ifndef Q_OS_ANDROID
     , mSpellchecker{new Sonnet::Speller()}
-    , mLanguageGuesser{new Sonnet::GuessLanguage()}
+    , mLanguageGuesser
+{
+    new Sonnet::GuessLanguage()
+}
 #endif
-    , m_document(nullptr)
-    , m_cursorPosition(-1)
+, m_document(nullptr), m_cursorPosition(-1)
 {
     // Danger red from our color scheme
     mErrorFormat.setForeground(QColor(0xED, 0x15, 0x15));
@@ -232,7 +234,7 @@ QStringList SpellcheckHighlighter::suggestions(int mousePosition, int max)
     }
 
     return suggestions;
-#else 
+#else
     return QStringList();
 #endif
 }

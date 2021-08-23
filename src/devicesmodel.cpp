@@ -10,8 +10,7 @@
 DevicesModel::DevicesModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    connect(&Controller::instance(), &Controller::activeConnectionChanged,
-            this, &DevicesModel::fetchDevices);
+    connect(&Controller::instance(), &Controller::activeConnectionChanged, this, &DevicesModel::fetchDevices);
 
     fetchDevices();
 }

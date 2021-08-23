@@ -16,8 +16,8 @@
 #endif
 
 #include "controller.h"
-#include "roommanager.h"
 #include "neochatconfig.h"
+#include "roommanager.h"
 
 NotificationsManager &NotificationsManager::instance()
 {

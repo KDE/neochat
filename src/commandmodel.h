@@ -21,11 +21,10 @@ struct Command {
     QString parameter;
     QString help;
 
-Q_GADGET
+    Q_GADGET
     Q_PROPERTY(QString command MEMBER command)
     Q_PROPERTY(QString parameter MEMBER parameter)
     Q_PROPERTY(QString help MEMBER help)
-
 };
 
 Q_DECLARE_METATYPE(Command)

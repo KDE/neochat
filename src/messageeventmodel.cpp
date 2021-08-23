@@ -18,8 +18,8 @@
 #include <QQmlEngine> // for qmlRegisterType()
 #include <QTimeZone>
 
-#include <KLocalizedString>
 #include <KFormat>
+#include <KLocalizedString>
 
 #include "utils.h"
 
@@ -184,7 +184,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             beginRemoveRows({}, i, i);
         });
         connect(m_currentRoom, &Room::pendingEventDiscarded, this, &MessageEventModel::endRemoveRows);
-        connect(m_currentRoom, &Room::readMarkerMoved, this, [=](const QString &fromEventId, const QString &toEventId){
+        connect(m_currentRoom, &Room::readMarkerMoved, this, [=](const QString &fromEventId, const QString &toEventId) {
             Q_UNUSED(fromEventId);
             moveReadMarker(toEventId);
         });
@@ -370,7 +370,6 @@ int MessageEventModel::rowCount(const QModelIndex &parent) const
     } else {
         return m_currentRoom->timelineSize();
     }
-
 }
 
 bool MessageEventModel::canFetchMore(const QModelIndex &parent) const
@@ -387,7 +386,6 @@ void MessageEventModel::fetchMore(const QModelIndex &parent)
         m_currentRoom->getPreviousContent(20);
     }
 }
-
 
 inline QVariantMap userAtEvent(NeoChatUser *user, NeoChatRoom *room, const RoomEvent &evt)
 {
@@ -415,22 +413,22 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     bool isPending = row < timelineBaseIndex();
 
     if (m_lastReadEventIndex.row() == row) {
-        switch(role) {
+        switch (role) {
         case EventTypeRole:
             return QStringLiteral("readMarker");
-        case TimeRole:
-            {
-                const QDateTime eventDate = data(index(m_lastReadEventIndex.row() + 1, 0), TimeRole).toDateTime();
-                const KFormat format;
-                return format.formatRelativeDateTime(eventDate, QLocale::ShortFormat);
-            }
+        case TimeRole: {
+            const QDateTime eventDate = data(index(m_lastReadEventIndex.row() + 1, 0), TimeRole).toDateTime();
+            const KFormat format;
+            return format.formatRelativeDateTime(eventDate, QLocale::ShortFormat);
+        }
         case SpecialMarksRole:
             return EventStatus::Hidden;
         }
         return {};
     }
 
-    const auto timelineIt = m_currentRoom->messageEvents().crbegin() + std::max(0, row - timelineBaseIndex() - (m_lastReadEventIndex.isValid() && m_lastReadEventIndex.row() < row ? 1 : 0));
+    const auto timelineIt = m_currentRoom->messageEvents().crbegin()
+        + std::max(0, row - timelineBaseIndex() - (m_lastReadEventIndex.isValid() && m_lastReadEventIndex.row() < row ? 1 : 0));
     const auto pendingIt = m_currentRoom->pendingEvents().crbegin() + std::min(row, timelineBaseIndex());
     const auto &evt = isPending ? **pendingIt : **timelineIt;
 
@@ -684,12 +682,11 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             content = QVariant::fromValue(e->image().originalJson);
         }
 
-        return QVariantMap{
-            {"eventId", replyEventId},
-            {"display", m_currentRoom->eventToString(replyEvt, Qt::RichText)},
-            {"content", content},
-            {"type", type},
-            {"author", userAtEvent(static_cast<NeoChatUser *>(m_currentRoom->user(replyEvt.senderId())), m_currentRoom, evt)}};
+        return QVariantMap{{"eventId", replyEventId},
+                           {"display", m_currentRoom->eventToString(replyEvt, Qt::RichText)},
+                           {"content", content},
+                           {"type", type},
+                           {"author", userAtEvent(static_cast<NeoChatUser *>(m_currentRoom->user(replyEvt.senderId())), m_currentRoom, evt)}};
     }
 
     if (role == ShowAuthorRole) {
@@ -759,7 +756,7 @@ int MessageEventModel::eventIDToIndex(const QString &eventID) const
 {
     const auto it = m_currentRoom->findInTimeline(eventID);
     if (it == m_currentRoom->historyEdge()) {
-        //qWarning() << "Trying to find inexistent event:" << eventID;
+        // qWarning() << "Trying to find inexistent event:" << eventID;
         return -1;
     }
     return it - m_currentRoom->messageEvents().rbegin() + timelineBaseIndex();

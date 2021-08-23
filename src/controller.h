@@ -4,8 +4,8 @@
 #pragma once
 
 #include <QMediaPlayer>
-#include <QQuickItem>
 #include <QObject>
+#include <QQuickItem>
 
 #include <KAboutData>
 #include <KFormat>
@@ -91,6 +91,7 @@ public:
     Q_INVOKABLE void openOrCreateDirectChat(NeoChatUser *user);
 
     Q_INVOKABLE void setBlur(QQuickItem *item, bool blur);
+
 private:
     explicit Controller(QObject *parent = nullptr);
     ~Controller() override;

@@ -3,13 +3,14 @@
 
 #pragma once
 
+#include <KConfig>
 #include <QObject>
 #include <uriresolver.h>
-#include <KConfig>
 
 class NeoChatRoom;
 
-namespace Quotient {
+namespace Quotient
+{
 class Room;
 class User;
 }
@@ -53,8 +54,7 @@ public:
 
     // Overrided methods from UriResolverBase
     UriResolveResult visitUser(User *user, const QString &action) override;
-    void joinRoom(Quotient::Connection *account, const QString &roomAliasOrId,
-                  const QStringList &viaServers) override;
+    void joinRoom(Quotient::Connection *account, const QString &roomAliasOrId, const QStringList &viaServers) override;
     Q_INVOKABLE void visitRoom(Quotient::Room *room, const QString &eventId) override;
     Q_INVOKABLE bool visitNonMatrix(const QUrl &url) override;
 

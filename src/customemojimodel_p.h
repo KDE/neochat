@@ -5,15 +5,13 @@
 
 #include "customemojimodel.h"
 
-struct CustomEmoji
-{
+struct CustomEmoji {
     QString name; // with :semicolons:
     QString url; // mxc://
     QRegularExpression regexp;
 };
 
-struct CustomEmojiModel::Private
-{
-    Connection* conn = nullptr;
+struct CustomEmojiModel::Private {
+    Connection *conn = nullptr;
     QList<CustomEmoji> emojies;
 };

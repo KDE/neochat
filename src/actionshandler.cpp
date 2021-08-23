@@ -12,8 +12,8 @@
 #include <QStringBuilder>
 
 #include "controller.h"
-#include "roommanager.h"
 #include "customemojimodel.h"
+#include "roommanager.h"
 
 ActionsHandler::ActionsHandler(QObject *parent)
     : QObject(parent)
@@ -62,7 +62,6 @@ void ActionsHandler::setConnection(Connection *connection)
 
 void ActionsHandler::postEdit(const QString &text)
 {
-
     const auto localId = Controller::instance().activeConnection()->userId();
     for (auto it = m_room->messageEvents().crbegin(); it != m_room->messageEvents().crend(); ++it) {
         const auto &evt = **it;
@@ -104,12 +103,12 @@ void ActionsHandler::postMessage(const QString &text,
                                  const QString &replyEventId,
                                  const QString &editEventId,
                                  const QVariantMap &usernames,
-                                 CustomEmojiModel* cem)
+                                 CustomEmojiModel *cem)
 {
     QString rawText = text;
     QString cleanedText = text;
 
-    auto preprocess = [cem](const QString& it) -> QString {
+    auto preprocess = [cem](const QString &it) -> QString {
         if (cem == nullptr) {
             return it;
         }
@@ -135,8 +134,8 @@ void ActionsHandler::postMessage(const QString &text,
     static const QString lennyPrefix = QStringLiteral("/lenny");
     static const QString tableflipPrefix = QStringLiteral("/tableflip");
     static const QString unflipPrefix = QStringLiteral("/unflip");
-    //static const QString plainPrefix = QStringLiteral("/plain "); // TODO
-    //static const QString htmlPrefix = QStringLiteral("/html "); // TODO
+    // static const QString plainPrefix = QStringLiteral("/plain "); // TODO
+    // static const QString htmlPrefix = QStringLiteral("/html "); // TODO
     static const QString rainbowPrefix = QStringLiteral("/rainbow ");
     static const QString rainbowmePrefix = QStringLiteral("/rainbowme ");
     static const QString spoilerPrefix = QStringLiteral("/spoiler ");
@@ -144,12 +143,12 @@ void ActionsHandler::postMessage(const QString &text,
     static const QString noticePrefix = QStringLiteral("/notice ");
 
     // Actions commands
-    //static const QString ddgPrefix = QStringLiteral("/ddg "); // TODO
-    //static const QString nickPrefix = QStringLiteral("/nick "); // TODO
-    //static const QString meroomnickPrefix = QStringLiteral("/myroomnick "); // TODO
-    //static const QString roomavatarPrefix = QStringLiteral("/roomavatar "); // TODO
-    //static const QString myroomavatarPrefix = QStringLiteral("/myroomavatar "); // TODO
-    //static const QString myavatarPrefix = QStringLiteral("/myavatar "); // TODO
+    // static const QString ddgPrefix = QStringLiteral("/ddg "); // TODO
+    // static const QString nickPrefix = QStringLiteral("/nick "); // TODO
+    // static const QString meroomnickPrefix = QStringLiteral("/myroomnick "); // TODO
+    // static const QString roomavatarPrefix = QStringLiteral("/roomavatar "); // TODO
+    // static const QString myroomavatarPrefix = QStringLiteral("/myroomavatar "); // TODO
+    // static const QString myavatarPrefix = QStringLiteral("/myavatar "); // TODO
     static const QString invitePrefix = QStringLiteral("/invite ");
     static const QString joinPrefix = QStringLiteral("/join ");
     static const QString joinShortPrefix = QStringLiteral("/j ");
@@ -157,8 +156,8 @@ void ActionsHandler::postMessage(const QString &text,
     static const QString leavePrefix = QStringLiteral("/leave");
     static const QString ignorePrefix = QStringLiteral("/ignore ");
     static const QString unignorePrefix = QStringLiteral("/unignore ");
-    //static const QString queryPrefix = QStringLiteral("/query "); // TODO
-    //static const QString msgPrefix = QStringLiteral("/msg "); // TODO
+    // static const QString queryPrefix = QStringLiteral("/query "); // TODO
+    // static const QString msgPrefix = QStringLiteral("/msg "); // TODO
     static const QString reactPrefix = QStringLiteral("/react ");
 
     // Admin commands

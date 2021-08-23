@@ -3,13 +3,13 @@
 // SPDX-License-Identifier: GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 #include "roommanager.h"
-#include "neochatroom.h"
-#include "neochatconfig.h"
 #include "controller.h"
-#include <QDesktopServices>
-#include <QStandardPaths>
+#include "neochatconfig.h"
+#include "neochatroom.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
+#include <QDesktopServices>
+#include <QStandardPaths>
 #include <csapi/joining.h>
 #include <utility>
 
@@ -22,7 +22,8 @@ RoomManager::RoomManager(QObject *parent)
 }
 
 RoomManager::~RoomManager()
-{}
+{
+}
 
 RoomManager &RoomManager::instance()
 {
@@ -37,10 +38,9 @@ NeoChatRoom *RoomManager::currentRoom() const
 
 void RoomManager::openResource(const QString &idOrUri, const QString &action)
 {
-    Uri uri { idOrUri };
+    Uri uri{idOrUri};
     if (!uri.isValid()) {
-        Q_EMIT warning(i18n("Malformed or empty Matrix id"),
-            i18n("%1 is not a correct Matrix identifier", idOrUri));
+        Q_EMIT warning(i18n("Malformed or empty Matrix id"), i18n("%1 is not a correct Matrix identifier", idOrUri));
         return;
     }
     auto account = Controller::instance().activeConnection();
@@ -57,8 +57,7 @@ void RoomManager::openResource(const QString &idOrUri, const QString &action)
 
     const auto result = visitResource(account, uri);
     if (result == Quotient::CouldNotResolve) {
-        Q_EMIT warning(i18n("Room not found"),
-                       i18n("There's no room %1 in the room list. Check the spelling and the account.", idOrUri));
+        Q_EMIT warning(i18n("Room not found"), i18n("There's no room %1 in the room list. Check the spelling and the account.", idOrUri));
     } else { // Invalid cases should have been eliminated earlier
         Q_ASSERT(result == Quotient::UriResolved);
     }
@@ -89,13 +88,12 @@ void RoomManager::loadInitialRoom()
 
     openRoomForActiveConnection();
 
-    connect(&Controller::instance(), &Controller::activeConnectionChanged,
-            this, &RoomManager::openRoomForActiveConnection);
+    connect(&Controller::instance(), &Controller::activeConnectionChanged, this, &RoomManager::openRoomForActiveConnection);
 }
 
 void RoomManager::openRoomForActiveConnection()
 {
-    if(!Controller::instance().activeConnection()) {
+    if (!Controller::instance().activeConnection()) {
         return;
     }
     // Read from last open room
@@ -110,8 +108,7 @@ void RoomManager::openRoomForActiveConnection()
     if (!roomId.isEmpty()) {
         // Here we can cast because the controller has been configured to
         // return NeoChatRoom instead of simple Quotient::Room
-        const auto room = qobject_cast<NeoChatRoom *>(
-                Controller::instance().activeConnection()->room(roomId));
+        const auto room = qobject_cast<NeoChatRoom *>(Controller::instance().activeConnection()->room(roomId));
 
         if (room) {
             enterRoom(room);
@@ -144,7 +141,7 @@ void RoomManager::openWindow(NeoChatRoom *room)
     Q_EMIT openRoomInNewWindow(room);
 }
 
-UriResolveResult RoomManager::visitUser(User* user, const QString &action)
+UriResolveResult RoomManager::visitUser(User *user, const QString &action)
 {
     if (action == "mention" || action.isEmpty()) {
         // send it has QVariantMap because the properties in the
@@ -186,12 +183,10 @@ void RoomManager::visitRoom(Room *room, const QString &eventId)
     }
 }
 
-void RoomManager::joinRoom(Quotient::Connection *account,
-                          const QString &roomAliasOrId,
-                          const QStringList &viaServers)
+void RoomManager::joinRoom(Quotient::Connection *account, const QString &roomAliasOrId, const QStringList &viaServers)
 {
     account->joinRoom(QUrl::toPercentEncoding(roomAliasOrId), viaServers);
-    connectSingleShot(account, &Quotient::Connection::newRoom, this, [=](Quotient::Room *room){
+    connectSingleShot(account, &Quotient::Connection::newRoom, this, [=](Quotient::Room *room) {
         enterRoom(dynamic_cast<NeoChatRoom *>(room));
     });
 }
@@ -199,8 +194,7 @@ void RoomManager::joinRoom(Quotient::Connection *account,
 bool RoomManager::visitNonMatrix(const QUrl &url)
 {
     if (!QDesktopServices::openUrl(url)) {
-        Q_EMIT warning(i18n("No application for the link"),
-                       i18n("Your operating system could not find an application for the link."));
+        Q_EMIT warning(i18n("No application for the link"), i18n("Your operating system could not find an application for the link."));
     }
     return true;
 }
@@ -215,7 +209,7 @@ void RoomManager::reset()
 
 void RoomManager::leaveRoom(NeoChatRoom *room)
 {
-    if(m_lastCurrentRoom && room->id() == m_lastCurrentRoom->id()) {
+    if (m_lastCurrentRoom && room->id() == m_lastCurrentRoom->id()) {
         m_lastCurrentRoom = nullptr;
     }
     if (m_currentRoom && m_currentRoom->id() == room->id()) {

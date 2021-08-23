@@ -18,7 +18,6 @@ class ActionsHandler : public QObject
 {
     Q_OBJECT
 
-
     /// \brief The connection that will handle sending the message.
     Q_PROPERTY(Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
 
@@ -34,8 +33,6 @@ public:
 
     explicit ActionsHandler(QObject *parent = nullptr);
     ~ActionsHandler();
-
-
 
     [[nodiscard]] Connection *connection() const;
     void setConnection(Connection *connection);
@@ -57,8 +54,12 @@ public Q_SLOTS:
     /// \brief Post a message.
     ///
     /// This also interprets commands if any.
-    void
-    postMessage(const QString &text, const QString &attachementPath, const QString &replyEventId, const QString &editEventId, const QVariantMap &usernames, CustomEmojiModel* cem);
+    void postMessage(const QString &text,
+                     const QString &attachementPath,
+                     const QString &replyEventId,
+                     const QString &editEventId,
+                     const QVariantMap &usernames,
+                     CustomEmojiModel *cem);
 
     /// \brief Send edit instructions (.e.g s/hallo/hello/)
     ///

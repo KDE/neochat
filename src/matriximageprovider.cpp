@@ -87,7 +87,7 @@ void ThumbnailResponse::prepareResult()
             errorStr.clear();
         } else if (job->error() == BaseJob::Abandoned) {
             errorStr = i18n("Image request has been cancelled");
-            //qDebug() << "ThumbnailResponse: cancelled for" << mediaId;
+            // qDebug() << "ThumbnailResponse: cancelled for" << mediaId;
         } else {
             errorStr = job->errorString();
             qWarning() << "ThumbnailResponse: no valid image for" << mediaId << "-" << errorStr;

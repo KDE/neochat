@@ -353,7 +353,7 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
         if (room->isDirectChat()) {
             return RoomType::Direct;
         }
-        const RoomCreateEvent* creationEvent = room->creation();
+        const RoomCreateEvent *creationEvent = room->creation();
         QJsonObject contentJson = creationEvent->contentJson();
         QJsonObject::const_iterator typeIter = contentJson.find("type");
         if (typeIter != contentJson.end()) {
