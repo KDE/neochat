@@ -84,7 +84,7 @@ SpellcheckHighlighter::SpellcheckHighlighter(QObject *parent)
     new Sonnet::GuessLanguage()
 }
 #endif
-, m_document(nullptr), m_cursorPosition(-1)
+, m_document(nullptr), m_cursorPosition(-1), m_selectionStart(-1), m_selectionEnd(-1)
 {
     // Danger red from our color scheme
     mErrorFormat.setForeground(QColor(0xED, 0x15, 0x15));
