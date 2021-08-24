@@ -31,7 +31,7 @@ Image {
 
     Image {
         anchors.fill: parent
-        source: "image://blurhash/" + content.info["xyz.amorgan.blurhash"]
+        source: content.info["xyz.amorgan.blurhash"] ? ("image://blurhash/" + content.info["xyz.amorgan.blurhash"]) : ""
         visible: parent.status !== Image.Ready
     }
 
