@@ -22,6 +22,7 @@
 #include <KAboutData>
 #ifdef HAVE_KDBUSADDONS
 #include <KDBusService>
+#include <KWindowSystem>
 #endif
 #include <KLocalizedContext>
 #include <KLocalizedString>
@@ -65,6 +66,18 @@
 #endif
 
 using namespace Quotient;
+
+#ifdef HAVE_KDBUSADDONS
+static void raiseWindow(QWindow *window)
+{
+    if (KWindowSystem::isPlatformWayland()) {
+        KWindowSystem::setCurrentXdgActivationToken(qEnvironmentVariable("XDG_ACTIVATION_TOKEN"));
+        KWindowSystem::activateWindow(window->winId());
+    } else {
+        window->raise();
+    }
+}
+#endif
 
 #ifdef Q_OS_ANDROID
 Q_DECL_EXPORT
@@ -232,7 +245,7 @@ int main(int argc, char *argv[])
             auto view = qobject_cast<QQuickWindow *>(obj);
             if (view) {
                 view->show();
-                view->raise();
+                raiseWindow(view);
                 return;
             }
         }

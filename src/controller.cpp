@@ -12,6 +12,7 @@
 #include <KWindowConfig>
 #ifdef HAVE_WINDOWSYSTEM
 #include <KWindowEffects>
+#include <KWindowSystem>
 #endif
 
 #include <QAuthenticator>
@@ -55,8 +56,10 @@
 #include "utils.h"
 #include <KStandardShortcut>
 
-#ifndef Q_OS_ANDROID
+#if defined(Q_OS_WIN) || defined(Q_OS_MAC)
 #include "trayicon.h"
+#elif !defined(Q_OS_ANDROID)
+#include "trayicon_sni.h"
 #endif
 
 using namespace Quotient;
@@ -631,6 +634,13 @@ void Controller::setBlur(QQuickItem *item, bool blur)
     connect(item->window(), &QQuickWindow::heightChanged, this, setWindows);
     connect(item->window(), &QQuickWindow::widthChanged, this, setWindows);
     setWindows();
+#endif
+}
+
+void Controller::raiseWindow(QWindow *window)
+{
+#ifdef HAVE_WINDOWSYSTEM
+    KWindowSystem::activateWindow(window->winId());
 #endif
 }
 

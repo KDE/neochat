@@ -158,6 +158,7 @@ Kirigami.ApplicationWindow {
         root.show()
         root.raise()
         root.requestActivate()
+        Controller.raiseWindow(root)
     }
 
     contextDrawer: RoomDrawer {

@@ -91,6 +91,7 @@ public:
     Q_INVOKABLE void openOrCreateDirectChat(NeoChatUser *user);
 
     Q_INVOKABLE void setBlur(QQuickItem *item, bool blur);
+    Q_INVOKABLE void raiseWindow(QWindow *window);
 
 private:
     explicit Controller(QObject *parent = nullptr);
