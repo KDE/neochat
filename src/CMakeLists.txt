@@ -98,6 +98,7 @@ if(ANDROID)
         "gtk-quit"
         "compass"
         "network-connect"
+        "list-remove-user"
     )
 else()
     target_link_libraries(neochat PRIVATE Qt5::Widgets KF5::KIOWidgets)
