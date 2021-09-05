@@ -99,6 +99,7 @@ if(ANDROID)
         "compass"
         "network-connect"
         "list-remove-user"
+        "org.kde.neochat"
     )
 else()
     target_link_libraries(neochat PRIVATE Qt5::Widgets KF5::KIOWidgets)
