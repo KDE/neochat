@@ -71,7 +71,6 @@ Q_DECL_EXPORT
 #endif
 int main(int argc, char *argv[])
 {
-    QIcon::setFallbackThemeName("breeze");
     QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QNetworkProxyFactory::setUseSystemConfiguration(true);
@@ -80,6 +79,7 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
     QQuickStyle::setStyle(QStringLiteral("org.kde.breeze"));
 #else
+    QIcon::setFallbackThemeName("breeze");
     QApplication app(argc, argv);
     // Default to org.kde.desktop style unless the user forces another style
     if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
