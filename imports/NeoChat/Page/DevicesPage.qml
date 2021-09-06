@@ -22,7 +22,9 @@ Kirigami.Page {
 
         Connections {
             target: pageSettingStack
-            onWideModeChanged: scroll.background.visible = pageSettingStack.wideMode
+            function onWideModeChanged() {
+                scroll.background.visible = pageSettingStack.wideMode
+            }
         }
 
         Controls.ScrollView {
