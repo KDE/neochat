@@ -14,10 +14,10 @@ import NeoChat.Dialog 1.0
 Kirigami.Page {
     title: i18n("Accounts")
 
-    leftPadding: pageSettingStack.wideMode ? Kirigami.Units.gridUnit : 0
-    topPadding: pageSettingStack.wideMode ? Kirigami.Units.gridUnit : 0
-    bottomPadding: pageSettingStack.wideMode ? Kirigami.Units.gridUnit : 0
-    rightPadding: pageSettingStack.wideMode ? Kirigami.Units.gridUnit : 0
+    leftPadding: pageSettingStack.wideMode ? Kirigami.Units.smallSpacing : 0
+    topPadding: pageSettingStack.wideMode ? Kirigami.Units.smallSpacing : 0
+    bottomPadding: pageSettingStack.wideMode ? Kirigami.Units.smallSpacing : 0
+    rightPadding: pageSettingStack.wideMode ? Kirigami.Units.smallSpacing : 0
 
     actions.main: Kirigami.Action {
         text: i18n("Add an account")
@@ -26,78 +26,81 @@ Kirigami.Page {
         visible: !pageSettingStack.wideMode
     }
 
-    ColumnLayout {
+    Connections {
+        target: pageSettingStack
+        onWideModeChanged: scroll.background.visible = pageSettingStack.wideMode
+    }
+
+    Controls.ScrollView {
+        id: scroll
+        Component.onCompleted: background.visible = pageSettingStack.wideMode
+
         anchors.fill: parent
 
-        Connections {
-            target: pageSettingStack
-            onWideModeChanged: scroll.background.visible = pageSettingStack.wideMode
-        }
+        Controls.ScrollBar.horizontal.policy: Controls.ScrollBar.AlwaysOff
+        ListView {
+            clip: true
+            model: AccountListModel { }
+            delegate: Kirigami.SwipeListItem {
+                leftPadding: 0
+                rightPadding: 0
+                Kirigami.BasicListItem {
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
 
-        Controls.ScrollView {
-            id: scroll
-            Component.onCompleted: background.visible = pageSettingStack.wideMode
+                    text: model.user.displayName
+                    subtitle: model.user.id
+                    icon: model.user.avatarMediaId ? ("image://mxc/" + model.user.avatarMediaId) : "im-user"
 
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-
-            Controls.ScrollBar.horizontal.policy: Controls.ScrollBar.AlwaysOff
-            ListView {
-                clip: true
-                model: AccountListModel { }
-                delegate: Kirigami.SwipeListItem {
-                    leftPadding: 0
-                    rightPadding: 0
-                    Kirigami.BasicListItem {
-                        anchors.top: parent.top
-                        anchors.bottom: parent.bottom
-
-                        text: model.user.displayName
-                        subtitle: model.user.id
-                        icon: model.user.avatarMediaId ? ("image://mxc/" + model.user.avatarMediaId) : "im-user"
-
-                        onClicked: {
-                            Controller.activeConnection = model.connection
-                            pageStack.layers.pop()
+                    onClicked: {
+                        Controller.activeConnection = model.connection
+                        pageStack.layers.pop()
+                    }
+                }
+                actions: [
+                    Kirigami.Action {
+                        text: i18n("Edit this account")
+                        iconName: "document-edit"
+                        onTriggered: {
+                            userEditSheet.connection = model.connection
+                            userEditSheet.open()
+                        }
+                    },
+                    Kirigami.Action {
+                        text: i18n("Logout")
+                        iconName: "im-kick-user"
+                        onTriggered: {
+                            Controller.logout(model.connection, true)
+                            if(Controller.accountCount === 1)
+                                pageStack.layers.pop()
                         }
                     }
-                    actions: [
-                        Kirigami.Action {
-                            text: i18n("Edit this account")
-                            iconName: "document-edit"
-                            onTriggered: {
-                                userEditSheet.connection = model.connection
-                                userEditSheet.open()
-                            }
-                        },
-                        Kirigami.Action {
-                            text: i18n("Logout")
-                            iconName: "im-kick-user"
-                            onTriggered: {
-                                Controller.logout(model.connection, true)
-                                if(Controller.accountCount === 1)
-                                    pageStack.layers.pop()
-                            }
-                        }
-                    ]
-                }
-            }
-        }
-
-
-        RowLayout {
-            Item {
-                Layout.fillWidth: true
-            }
-            Controls.Button {
-                visible: pageSettingStack.wideMode
-                text: i18n("Add an account")
-                icon.name: "list-add-user"
-                onClicked: pageStack.layers.push("qrc:/imports/NeoChat/Page/WelcomePage.qml")
+                ]
             }
         }
     }
 
+    footer: Column {
+        height: visible ? implicitHeight : 0
+        Kirigami.ActionToolBar {
+            alignment: Qt.AlignRight
+            visible: pageSettingStack.wideMode
+            rightPadding: Kirigami.Units.smallSpacing
+            width: parent.width
+            flat: false
+            actions: [
+                Kirigami.Action {
+                    text: i18n("Add an account")
+                    icon.name: "list-add-user"
+                    onTriggered: pageStack.layers.push("qrc:/imports/NeoChat/Page/WelcomePage.qml")
+                }
+            ]
+        }
+        Item {
+            width: parent.width
+            height: Kirigami.Units.smallSpacing
+        }
+    }
     Connections {
         target: Controller
         function onConnectionAdded() {

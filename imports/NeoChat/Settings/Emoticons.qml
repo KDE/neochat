@@ -15,10 +15,10 @@ import NeoChat.Dialog 1.0
 
 Kirigami.Page {
 
-    leftPadding: pageSettingStack.wideMode ? Kirigami.Units.gridUnit : 0
-    topPadding: pageSettingStack.wideMode ? Kirigami.Units.gridUnit : 0
-    bottomPadding: pageSettingStack.wideMode ? Kirigami.Units.gridUnit : 0
-    rightPadding: pageSettingStack.wideMode ? Kirigami.Units.gridUnit : 0
+    leftPadding: pageSettingStack.wideMode ? Kirigami.Units.smallSpacing : 0
+    topPadding: pageSettingStack.wideMode ? Kirigami.Units.smallSpacing : 0
+    bottomPadding: pageSettingStack.wideMode ? Kirigami.Units.smallSpacing : 0
+    rightPadding: pageSettingStack.wideMode ? Kirigami.Units.smallSpacing : 0
 
     ColumnLayout {
         id: column
