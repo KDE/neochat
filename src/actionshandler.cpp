@@ -99,7 +99,7 @@ void ActionsHandler::postEdit(const QString &text)
 }
 
 void ActionsHandler::postMessage(const QString &text,
-                                 const QString &attachementPath,
+                                 const QString &attachmentPath,
                                  const QString &replyEventId,
                                  const QString &editEventId,
                                  const QVariantMap &usernames,
@@ -119,8 +119,8 @@ void ActionsHandler::postMessage(const QString &text,
         cleanedText = cleanedText.replace(it.key(), "[" + it.key() + "](https://matrix.to/#/" + it.value().toString() + ")");
     }
 
-    if (attachementPath.length() > 0) {
-        m_room->uploadFile(attachementPath, cleanedText);
+    if (attachmentPath.length() > 0) {
+        m_room->uploadFile(attachmentPath, cleanedText);
     }
 
     if (cleanedText.length() == 0) {
