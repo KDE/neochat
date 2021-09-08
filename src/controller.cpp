@@ -161,7 +161,6 @@ void Controller::loginWithAccessToken(const QString &serverAddr, const QString &
     connect(conn, &Connection::connected, this, [=] {
         AccountSettings account(conn->userId());
         account.setKeepLoggedIn(true);
-        account.clearAccessToken(); // Drop the legacy - just in case
         account.setHomeserver(conn->homeserver());
         account.setDeviceId(conn->deviceId());
         account.setDeviceName(deviceName);
