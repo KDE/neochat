@@ -115,7 +115,6 @@ void Login::login()
             Q_EMIT isLoggingInChanged();
             AccountSettings account(m_connection->userId());
             account.setKeepLoggedIn(true);
-            account.clearAccessToken(); // Drop the legacy - just in case
             account.setHomeserver(m_connection->homeserver());
             account.setDeviceId(m_connection->deviceId());
             account.setDeviceName(m_deviceName);
@@ -175,7 +174,6 @@ void Login::loginWithSso()
         Q_EMIT connected();
         AccountSettings account(m_connection->userId());
         account.setKeepLoggedIn(true);
-        account.clearAccessToken(); // Drop the legacy - just in case
         account.setHomeserver(m_connection->homeserver());
         account.setDeviceId(m_connection->deviceId());
         account.setDeviceName(m_deviceName);
