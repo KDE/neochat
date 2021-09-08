@@ -17,11 +17,6 @@
 
 #include <QAuthenticator>
 #include <QClipboard>
-#include <QCloseEvent>
-#include <QDebug>
-#include <QDesktopServices>
-#include <QDir>
-#include <QElapsedTimer>
 #include <QFile>
 #include <QFileInfo>
 #include <QGuiApplication>
@@ -44,16 +39,12 @@
 #include "csapi/joining.h"
 #include "csapi/logout.h"
 #include "csapi/profile.h"
-#include "csapi/registration.h"
-#include "csapi/wellknown.h"
 #include "events/eventcontent.h"
-#include "events/roommessageevent.h"
 #include "neochatconfig.h"
 #include "neochatroom.h"
 #include "neochatuser.h"
 #include "roommanager.h"
 #include "settings.h"
-#include "utils.h"
 #include <KStandardShortcut>
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MAC)
