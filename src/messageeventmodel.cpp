@@ -200,7 +200,9 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         connect(m_currentRoom, &Room::fileTransferProgress, this, &MessageEventModel::refreshEvent);
         connect(m_currentRoom, &Room::fileTransferCompleted, this, &MessageEventModel::refreshEvent);
         connect(m_currentRoom, &Room::fileTransferFailed, this, &MessageEventModel::refreshEvent);
+#ifndef QUOTIENT_07
         connect(m_currentRoom, &Room::fileTransferCancelled, this, &MessageEventModel::refreshEvent);
+#endif
         connect(m_currentRoom->connection(), &Connection::ignoredUsersListChanged, this, [=] {
             beginResetModel();
             endResetModel();
