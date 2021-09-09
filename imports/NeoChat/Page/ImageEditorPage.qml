@@ -21,14 +21,14 @@ Kirigami.Page {
     title: i18n("Edit")
     leftPadding: 0
     rightPadding: 0
-
-    
+    topPadding: 0
+    bottomPadding: 0
 
     function crop() {
         const ratioX = editImage.paintedWidth / editImage.nativeWidth;
         const ratioY = editImage.paintedHeight / editImage.nativeHeight;
         rootEditorView.resizing = false
-        imageDoc.crop(resizeRectangle.insideX / ratioX, resizeRectangle.insideY / ratioY, resizeRectangle.insideWidth / ratioX, resizeRectangle.insideHeight / ratioY);
+        imageDoc.crop(selectionTool.selectionX / ratioX, selectionTool.selectionY / ratioY, selectionTool.selectionWidth / ratioX, selectionTool.selectionHeight / ratioY);
     }
 
     actions {
@@ -58,8 +58,11 @@ Kirigami.Page {
 
 
 
-    contentItem: KQuickImageEditor.ImageItem {
+    KQuickImageEditor.ImageItem {
         id: editImage
+        // Assigning this to the contentItem and setting the padding causes weird positioning issues
+        anchors.fill: parent
+        anchors.margins: Kirigami.Units.gridUnit
         fillMode: KQuickImageEditor.ImageItem.PreserveAspectFit
         image: imageDoc.image
 
@@ -76,11 +79,40 @@ Kirigami.Page {
         Shortcut {
             sequence: StandardKey.SaveAs
             onActivated: saveAsAction.trigger();
-        }    anchors.fill: parent
+        }
 
         KQuickImageEditor.ImageDocument {
             id: imageDoc
             path: rootEditorView.imagePath
+        }
+
+        KQuickImageEditor.SelectionTool {
+            id: selectionTool
+            visible: rootEditorView.resizing
+            width: editImage.paintedWidth
+            height: editImage.paintedHeight
+            x: editImage.horizontalPadding
+            y: editImage.verticalPadding
+            KQuickImageEditor.CropBackground {
+                anchors.fill: parent
+                z: -1
+                insideX: selectionTool.selectionX
+                insideY: selectionTool.selectionY
+                insideWidth: selectionTool.selectionWidth
+                insideHeight: selectionTool.selectionHeight
+            }
+            Connections {
+                target: selectionTool.selectionArea
+                function onDoubleClicked() {
+                    rootEditorView.crop()
+                }
+            }
+        }
+        onImageChanged: {
+            selectionTool.selectionX = 0
+            selectionTool.selectionY = 0
+            selectionTool.selectionWidth = Qt.binding(() => selectionTool.width)
+            selectionTool.selectionHeight = Qt.binding(() => selectionTool.height)
         }
     }
 
@@ -144,23 +176,5 @@ Kirigami.Page {
         type: Kirigami.MessageType.Error
         showCloseButton: true
         visible: false
-    }
-
-    KQuickImageEditor.ResizeRectangle {
-        id: resizeRectangle
-
-        visible: rootEditorView.resizing
-
-        width: editImage.paintedWidth
-        height: editImage.paintedHeight
-        x: editImage.horizontalPadding
-        y: editImage.verticalPadding
-
-        insideX: 100
-        insideY: 100
-        insideWidth: 100
-        insideHeight: 100
-
-        onAcceptSize: rootEditorView.crop();
     }
 }
