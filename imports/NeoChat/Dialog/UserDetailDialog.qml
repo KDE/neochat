@@ -142,6 +142,8 @@ Kirigami.OverlaySheet {
             }
         }
         Kirigami.BasicListItem {
+            visible: user !== room.localUser
+
             action: Kirigami.Action {
                 text: i18n("Open a private chat")
                 icon.name: "document-send"
