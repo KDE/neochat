@@ -74,7 +74,7 @@ Kirigami.OverlaySheet {
 
                     elide: Text.ElideRight
                     wrapMode: Text.NoWrap
-                    text: displayName
+                    text: room.htmlSafeMemberName(user.id)
                 }
 
                 QQC2.Label {
