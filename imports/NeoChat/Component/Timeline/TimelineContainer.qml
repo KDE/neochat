@@ -164,6 +164,7 @@ QQC2.ItemDelegate {
                     anchors.rightMargin: Kirigami.Units.smallSpacing
 
                     text: visible ? author.displayName : ""
+                    textFormat: Text.PlainText
                     font.weight: Font.Bold
                     color: author.color
                     wrapMode: Text.Wrap
