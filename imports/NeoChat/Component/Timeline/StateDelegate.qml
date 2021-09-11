@@ -40,6 +40,6 @@ RowLayout {
         wrapMode: Text.WordWrap
         textFormat: Text.RichText
         text: "<style>a {text-decoration: none;}</style><a href=\"https://matrix.to/#/" + author.id + "\" style='color: " + author.color + "'>" + currentRoom.htmlSafeMemberName(author.id) + "</a> " + display
-        onLinkActivated: Qt.openUrlExternally(link)
+        onLinkActivated: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": currentRoom, "user": author.object, "displayName": author.displayName, "avatarMediaId": author.avatarMediaId, "avatarUrl": author.avatarUrl}).open()
     }
 }
