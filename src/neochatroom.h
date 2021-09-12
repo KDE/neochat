@@ -112,6 +112,13 @@ public:
 
     bool isInvite() const;
 
+#ifndef QUOTIENT_07
+    Q_INVOKABLE QString htmlSafeMemberName(const QString &userId) const
+    {
+        return safeMemberName(userId).toHtmlEscaped();
+    }
+#endif
+
 private:
     QString m_cachedInput;
     QSet<const Quotient::RoomEvent *> highlights;
