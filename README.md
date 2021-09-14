@@ -27,7 +27,7 @@ flatpak install kdeapps org.kde.neochat
 ```
 
 A nightly build is also available for Android in the [KDE nightly F-Droid repo](https://community.kde.org/Android/FDroid)
-and can also directly be downloaded from the [binary factory](https://binary-factory.kde.org/view/Android/job/Neochat_android/).
+and can also directly be downloaded from the [binary factory](https://binary-factory.kde.org/view/Android/job/NeoChat_Nightly_android-arm64/).
 
 Nightly builds for [Windows](https://binary-factory.kde.org/job/NeoChat_Nightly_win64/), [MacOS](https://binary-factory.kde.org/job/NeoChat_Nightly_macos/) and [AppImages](https://binary-factory.kde.org/job/NeoChat_Nightly_appimage/) can also be downloaded from the [binary factory](https://binary-factory.kde.org/search/?q=neochat).
 
