@@ -52,7 +52,7 @@ MouseArea {
             right: parent.right
             rightMargin: Kirigami.Units.smallSpacing
         }
-        text: reply.author.displayName
+        text: currentRoom.htmlSafeMemberName(reply.author.id)
         color: reply.author.color
         elide: Text.ElideRight
     }
