@@ -70,6 +70,7 @@ endif()
 if(ANDROID)
     target_link_libraries(neochat PRIVATE Qt5::Svg OpenSSL::SSL)
     kirigami_package_breeze_icons(ICONS
+        "arrow-down"
         "help-about"
         "im-user"
         "im-invisible-user"
