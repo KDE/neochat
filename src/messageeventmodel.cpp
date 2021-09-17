@@ -166,7 +166,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             movingEvent = true;
             // Reverse i because row 0 is bottommost in the model
             const auto row = timelineBaseIndex() - i - 1;
-            Q_ASSERT(beginMoveRows({}, row, row, {}, timelineBaseIndex()));
+            beginMoveRows({}, row, row, {}, timelineBaseIndex());
         });
         connect(m_currentRoom, &Room::pendingEventMerged, this, [this] {
             if (movingEvent) {
