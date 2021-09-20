@@ -79,7 +79,6 @@ MouseArea {
                 id: replyText
                 textMessage: reply.display
                 textFormat: Text.RichText
-                wrapMode: Text.WordWrap
                 width: Math.min(implicitWidth, bubbleMaxWidth - Kirigami.Units.largeSpacing * 3)
                 x: Kirigami.Units.smallSpacing * 3 + avatatReply.width
             }

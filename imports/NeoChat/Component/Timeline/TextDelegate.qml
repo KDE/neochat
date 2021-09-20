@@ -50,7 +50,7 @@ a{
     font.pointSize: model.reply === undefined && isEmoji.test(model.display) ? Kirigami.Theme.defaultFont.pointSize * 4 : Kirigami.Theme.defaultFont.pointSize
     selectByMouse: !Kirigami.Settings.isMobile
     readOnly: true
-    wrapMode: Text.WordWrap
+    wrapMode: Text.Wrap
     textFormat: Text.RichText
 
     Layout.fillWidth: true
