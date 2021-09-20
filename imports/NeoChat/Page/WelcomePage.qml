@@ -30,7 +30,7 @@ Kirigami.ScrollablePage {
 
     Connections {
         target: LoginHelper
-        onErrorOccured: {
+        function onErrorOccured(message) {
             headerMessage.text = message;
             headerMessage.visible = true;
             headerMessage.type = Kirigami.MessageType.Error;

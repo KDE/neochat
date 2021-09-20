@@ -19,10 +19,12 @@ LoginStep {
     Kirigami.FormLayout {
         Connections {
             target: LoginHelper
-            onSsoUrlChanged: {
+            function onSsoUrlChanged() {
                 Qt.openUrlExternally(LoginHelper.ssoUrl)
             }
-            onConnected: processed("qrc:/imports/NeoChat/Component/Login/Loading.qml")
+            function onConnected() {
+                processed("qrc:/imports/NeoChat/Component/Login/Loading.qml")
+            }
         }
 
         QQC2.Button {
