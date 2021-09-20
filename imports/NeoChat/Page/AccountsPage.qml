@@ -49,6 +49,7 @@ Kirigami.Page {
                     anchors.bottom: parent.bottom
 
                     text: model.user.displayName
+                    labelItem.textFormat: Text.PlainText
                     subtitle: model.user.id
                     icon: model.user.avatarMediaId ? ("image://mxc/" + model.user.avatarMediaId) : "im-user"
 
