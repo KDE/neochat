@@ -87,8 +87,8 @@ Kirigami.ScrollablePage {
 
         Kirigami.Icon {
             anchors.centerIn: parent
-            width: 22 * Kirigami.Units.devicePixelRatio
-            height: 22 * Kirigami.Units.devicePixelRatio
+            width: 22
+            height: 22
             source: "search"
         }
         Kirigami.Separator {

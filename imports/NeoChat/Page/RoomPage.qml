@@ -588,7 +588,7 @@ Kirigami.ScrollablePage {
                         shadow.size: Kirigami.Units.smallSpacing
                         shadow.color: Qt.rgba(0.0, 0.0, 0.0, 0.10)
                         border.color: Kirigami.ColorUtils.tintWithAlpha(color, Kirigami.Theme.textColor, 0.15)
-                        border.width: Kirigami.Units.devicePixelRatio
+                        border.width: 1
                     }
 
                     Timer {

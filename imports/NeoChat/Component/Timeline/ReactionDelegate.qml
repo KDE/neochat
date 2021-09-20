@@ -29,7 +29,7 @@ Flow {
                 shadow.size: Kirigami.Units.smallSpacing
                 shadow.color: !model.isHighlighted ? Qt.rgba(0.0, 0.0, 0.0, 0.10) : Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.10)
                 border.color: Kirigami.ColorUtils.tintWithAlpha(color, Kirigami.Theme.textColor, 0.15)
-                border.width: Kirigami.Units.devicePixelRatio
+                border.width: 1
             }
 
 

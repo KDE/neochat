@@ -198,7 +198,7 @@ Kirigami.ApplicationWindow {
         anchors.bottom: parent.bottom
 
         x: root.pageStack.defaultColumnWidth - (width / 2)
-        width: Kirigami.Units.devicePixelRatio * 2
+        width: 2
 
         property int _lastX: -1
         enabled: !Kirigami.Settings.isMobile
