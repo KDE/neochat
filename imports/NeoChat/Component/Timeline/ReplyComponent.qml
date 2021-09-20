@@ -30,7 +30,7 @@ MouseArea {
     }
 
     Kirigami.Avatar {
-        id: avatatReply
+        id: replyAvatar
         anchors.left: replyLeftBorder.right
         anchors.leftMargin: Kirigami.Units.smallSpacing
         width: visible ? Kirigami.Units.gridUnit : 0
@@ -47,7 +47,7 @@ MouseArea {
     QQC2.Label {
         id: replyName
         anchors {
-            left: avatatReply.right
+            left: replyAvatar.right
             leftMargin: Kirigami.Units.smallSpacing
             right: parent.right
             rightMargin: Kirigami.Units.smallSpacing
@@ -80,7 +80,7 @@ MouseArea {
                 textMessage: reply.display
                 textFormat: Text.RichText
                 width: Math.min(implicitWidth, bubbleMaxWidth - Kirigami.Units.largeSpacing * 3)
-                x: Kirigami.Units.smallSpacing * 3 + avatatReply.width
+                x: Kirigami.Units.smallSpacing * 3 + replyAvatar.width
             }
         }
 
@@ -94,9 +94,9 @@ MouseArea {
                 readonly property string mediaId: isThumbnail ? content.thumbnailMediaId : content.mediaId
                 source: "image://mxc/" + mediaId
 
-                width: bubbleMaxWidth * 0.75 - Kirigami.Units.smallSpacing * 5 - avatatReply.width
+                width: bubbleMaxWidth * 0.75 - Kirigami.Units.smallSpacing * 5 - replyAvatar.width
                 height: reply.content.info.h / reply.content.info.w * width
-                x: Kirigami.Units.smallSpacing * 3 + avatatReply.width
+                x: Kirigami.Units.smallSpacing * 3 + replyAvatar.width
             }
         }
     }
