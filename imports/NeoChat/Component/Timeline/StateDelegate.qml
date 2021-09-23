@@ -14,6 +14,7 @@ RowLayout {
     id: row
 
     Kirigami.Avatar {
+        id: icon
         Layout.preferredWidth: Kirigami.Units.iconSizes.small
         Layout.preferredHeight: Kirigami.Units.iconSizes.small
         Layout.alignment: Qt.AlignTop
@@ -37,6 +38,7 @@ RowLayout {
     Label {
         Layout.alignment: Qt.AlignVCenter
         Layout.fillWidth: true
+        Layout.preferredHeight: icon.height
         wrapMode: Text.WordWrap
         textFormat: Text.RichText
         text: "<style>a {text-decoration: none;}</style><a href=\"https://matrix.to/#/" + author.id + "\" style='color: " + author.color + "'>" + currentRoom.htmlSafeMemberName(author.id) + "</a> " + display
