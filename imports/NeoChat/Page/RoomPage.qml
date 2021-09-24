@@ -55,8 +55,8 @@ Kirigami.ScrollablePage {
 
     Connections {
         target: Controller.activeConnection
-        function onJoinedRoom(room) {
-            if(room.id === invitation.id) {
+        function onJoinedRoom(room, invited) {
+            if(page.currentRoom.id === invited.id) {
                 RoomManager.enterRoom(room);
             }
         }
@@ -84,8 +84,6 @@ Kirigami.ScrollablePage {
     Kirigami.PlaceholderMessage {
         id: invitation
 
-        property var id
-
         visible: currentRoom && currentRoom.isInvite
         anchors.centerIn: parent
         text: i18n("Accept this invitation?")
@@ -94,7 +92,7 @@ Kirigami.ScrollablePage {
                 Layout.alignment : Qt.AlignHCenter
                 text: i18n("Reject")
 
-                onClicked: RoomManager.leave(page.currentRoom);
+                onClicked: RoomManager.leaveRoom(page.currentRoom);
             }
 
             QQC2.Button {
@@ -103,8 +101,6 @@ Kirigami.ScrollablePage {
 
                 onClicked: {
                     currentRoom.acceptInvitation();
-                    invitation.id = currentRoom.id
-                    currentRoom = null
                 }
             }
         }
