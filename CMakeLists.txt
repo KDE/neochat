@@ -72,10 +72,11 @@ if(ANDROID)
     )
 else()
     find_package(Qt5 ${QT_MIN_VERSION} COMPONENTS Widgets)
-    find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS QQC2DesktopStyle ConfigWidgets KIO WindowSystem Sonnet SyntaxHighlighting)
+    find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS QQC2DesktopStyle ConfigWidgets KIO WindowSystem Sonnet)
     set_package_properties(KF5QQC2DesktopStyle PROPERTIES
         TYPE RUNTIME
     )
+    ecm_find_qmlmodule(org.kde.syntaxhighlighting 1.0)
 endif()
 
 if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
