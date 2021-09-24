@@ -342,26 +342,26 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
     }
     if (role == CategoryRole) {
         if (room->joinState() == JoinState::Invite) {
-            return RoomType::Invited;
+            return NeoChatRoomType::Invited;
         }
         if (room->isFavourite()) {
-            return RoomType::Favorite;
+            return NeoChatRoomType::Favorite;
         }
         if (room->isLowPriority()) {
-            return RoomType::Deprioritized;
+            return NeoChatRoomType::Deprioritized;
         }
         if (room->isDirectChat()) {
-            return RoomType::Direct;
+            return NeoChatRoomType::Direct;
         }
         const RoomCreateEvent *creationEvent = room->creation();
         QJsonObject contentJson = creationEvent->contentJson();
         QJsonObject::const_iterator typeIter = contentJson.find("type");
         if (typeIter != contentJson.end()) {
             if (typeIter.value().toString() == "m.space") {
-                return RoomType::Space;
+                return NeoChatRoomType::Space;
             }
         }
-        return RoomType::Normal;
+        return NeoChatRoomType::Normal;
     }
     if (role == UnreadCountRole) {
         return room->unreadCount();

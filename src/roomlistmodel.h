@@ -12,7 +12,7 @@
 
 using namespace Quotient;
 
-class RoomType : public QObject
+class NeoChatRoomType : public QObject
 {
     Q_OBJECT
 

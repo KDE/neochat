@@ -36,16 +36,16 @@ bool SortFilterRoomListModel::lessThan(const QModelIndex &source_left, const QMo
 {
     if (m_sortOrder == SortFilterRoomListModel::LastActivity) {
         // display favorite rooms always on top
-        const auto categoryLeft = static_cast<RoomType::Types>(sourceModel()->data(source_left, RoomListModel::CategoryRole).toInt());
-        const auto categoryRight = static_cast<RoomType::Types>(sourceModel()->data(source_right, RoomListModel::CategoryRole).toInt());
+        const auto categoryLeft = static_cast<NeoChatRoomType::Types>(sourceModel()->data(source_left, RoomListModel::CategoryRole).toInt());
+        const auto categoryRight = static_cast<NeoChatRoomType::Types>(sourceModel()->data(source_right, RoomListModel::CategoryRole).toInt());
 
-        if (categoryLeft == RoomType::Types::Favorite && categoryRight == RoomType::Types::Favorite) {
+        if (categoryLeft == NeoChatRoomType::Types::Favorite && categoryRight == NeoChatRoomType::Types::Favorite) {
             return sourceModel()->data(source_left, RoomListModel::LastActiveTimeRole).toDateTime()
                 > sourceModel()->data(source_right, RoomListModel::LastActiveTimeRole).toDateTime();
         }
-        if (categoryLeft == RoomType::Types::Favorite) {
+        if (categoryLeft == NeoChatRoomType::Types::Favorite) {
             return true;
-        } else if (categoryRight == RoomType::Types::Favorite) {
+        } else if (categoryRight == NeoChatRoomType::Types::Favorite) {
             return false;
         }
 
