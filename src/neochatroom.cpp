@@ -53,6 +53,7 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
             Q_EMIT isInviteChanged();
         }
     });
+    connect(this, &Room::displaynameChanged, this, &NeoChatRoom::displayNameChanged);
 }
 
 void NeoChatRoom::uploadFile(const QUrl &url, const QString &body)
@@ -709,4 +710,14 @@ bool NeoChatRoom::isInvite() const
 bool NeoChatRoom::isUserBanned(const QString &user) const
 {
     return getCurrentState<RoomMemberEvent>(user)->membership() == MembershipType::Ban;
+}
+
+QString NeoChatRoom::htmlSafeName() const
+{
+    return name().toHtmlEscaped();
+}
+
+QString NeoChatRoom::htmlSafeDisplayName() const
+{
+    return displayName().toHtmlEscaped();
 }

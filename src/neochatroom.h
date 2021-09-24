@@ -31,6 +31,7 @@ class NeoChatRoom : public Room
     Q_PROPERTY(bool readMarkerLoaded READ readMarkerLoaded NOTIFY readMarkerLoadedChanged)
     Q_PROPERTY(QDateTime lastActiveTime READ lastActiveTime NOTIFY lastActiveTimeChanged)
     Q_PROPERTY(bool isInvite READ isInvite NOTIFY isInviteChanged)
+    Q_PROPERTY(QString htmlSafeDisplayName READ htmlSafeDisplayName NOTIFY displayNameChanged)
 
 public:
     explicit NeoChatRoom(Connection *connection, QString roomId, JoinState joinState = {});
@@ -112,6 +113,9 @@ public:
 
     bool isInvite() const;
 
+    Q_INVOKABLE QString htmlSafeName() const;
+    Q_INVOKABLE QString htmlSafeDisplayName() const;
+
 #ifndef QUOTIENT_07
     Q_INVOKABLE QString htmlSafeMemberName(const QString &userId) const
     {
@@ -146,6 +150,7 @@ Q_SIGNALS:
     void readMarkerLoadedChanged();
     void lastActiveTimeChanged();
     void isInviteChanged();
+    void displayNameChanged();
 
 public Q_SLOTS:
     void uploadFile(const QUrl &url, const QString &body = QString());

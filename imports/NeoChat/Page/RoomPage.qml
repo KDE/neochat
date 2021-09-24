@@ -26,7 +26,7 @@ Kirigami.ScrollablePage {
     /// Used to determine if scrolling to the bottom should mark the message as unread
     property bool hasScrolledUpBefore: false;
 
-    title: currentRoom.displayName
+    title: currentRoom.htmlSafeDisplayName
 
     Connections {
         target: RoomManager
