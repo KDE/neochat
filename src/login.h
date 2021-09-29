@@ -58,7 +58,6 @@ Q_SIGNALS:
     void matrixIdChanged();
     void passwordChanged();
     void deviceNameChanged();
-    void initialSyncFinished();
     void loginFlowsChanged();
     void ssoUrlChanged();
     void connected();

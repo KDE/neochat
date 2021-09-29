@@ -143,7 +143,7 @@ void Login::login()
     });
 
     connectSingleShot(m_connection, &Connection::syncDone, this, [=]() {
-        Q_EMIT initialSyncFinished();
+        Q_EMIT Controller::instance().initiated();
     });
 }
 
@@ -185,9 +185,8 @@ void Login::loginWithSso()
         Controller::instance().setActiveConnection(m_connection);
         m_connection = nullptr;
     });
-    connect(m_connection, &Connection::syncDone, this, [=]() {
-        Q_EMIT initialSyncFinished();
-        disconnect(m_connection, &Connection::syncDone, this, nullptr);
+    connectSingleShot(m_connection, &Connection::syncDone, this, [=]() {
+        Q_EMIT Controller::instance().initiated();
     });
 }
 

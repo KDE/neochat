@@ -312,24 +312,11 @@ Kirigami.ApplicationWindow {
             id: roomList
         }
     }
-    Connections {
-        target: LoginHelper
-        function onInitialSyncFinished() {
-            pageStack.replace(roomListComponent, {
-                activeConnection: Controller.activeConnection
-            });
-            roomListLoaded = true;
-            RoomManager.loadInitialRoom();
-        }
-    }
 
     Connections {
         target: Controller
 
         function onInitiated() {
-            if (RoomManager.hasOpenRoom) {
-                return;
-            }
             if (Controller.accountCount === 0) {
                 pageStack.replace("qrc:/imports/NeoChat/Page/WelcomePage.qml", {});
             } else {
@@ -338,13 +325,6 @@ Kirigami.ApplicationWindow {
                 });
                 roomListLoaded = true;
                 RoomManager.loadInitialRoom();
-            }
-        }
-
-        function onBusyChanged() {
-            if(!Controller.busy && roomListLoaded === false) {
-                pageStack.replace(roomListComponent);
-                roomListLoaded = true;
             }
         }
 

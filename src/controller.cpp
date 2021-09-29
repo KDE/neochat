@@ -266,7 +266,7 @@ void Controller::invokeLogin()
                 addConnection(connection);
                 if (connection->userId() == id) {
                     setActiveConnection(connection);
-                    Q_EMIT initiated();
+                    connectSingleShot(connection, &Connection::syncDone, this, &Controller::initiated);
                 }
             });
             connect(connection, &Connection::loginError, this, [=](const QString &error, const QString &) {
