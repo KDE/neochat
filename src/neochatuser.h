@@ -5,13 +5,7 @@
 
 #include <QObject>
 
-#include "room.h"
 #include "user.h"
-
-namespace Kirigami
-{
-class PlatformTheme;
-}
 
 using namespace Quotient;
 
