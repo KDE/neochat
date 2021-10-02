@@ -73,6 +73,7 @@ public:
     Q_INVOKABLE [[nodiscard]] static QString categoryIconName(int section);
     Q_INVOKABLE void setCategoryVisible(int category, bool visible);
     Q_INVOKABLE [[nodiscard]] bool categoryVisible(int category) const;
+    Q_INVOKABLE [[nodiscard]] int indexForRoom(NeoChatRoom *room) const;
 
     [[nodiscard]] int notificationCount() const
     {

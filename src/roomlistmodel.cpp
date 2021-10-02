@@ -496,3 +496,8 @@ NeoChatRoom *RoomListModel::roomByAliasOrId(const QString &aliasOrId)
     }
     return nullptr;
 }
+
+int RoomListModel::indexForRoom(NeoChatRoom *room) const
+{
+    return m_rooms.indexOf(room);
+}

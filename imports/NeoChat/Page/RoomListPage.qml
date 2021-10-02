@@ -39,6 +39,13 @@ Kirigami.ScrollablePage {
         onTriggered: page.contentItem.flickableItem.QQC2.ScrollBar.vertical.visible = !collapsedMode;
     }
 
+    Connections {
+        target: RoomManager
+        function onCurrentRoomChanged() {
+            itemSelection.setCurrentIndex(roomListModel.index(roomListModel.indexForRoom(RoomManager.currentRoom), 0), ItemSelectionModel.SelectCurrent)
+        }
+    }
+
     function goToNextRoom() {
         do {
             listView.incrementCurrentIndex();
@@ -178,8 +185,6 @@ Kirigami.ScrollablePage {
                     id: enterRoomAction
                     onTriggered: {
                         RoomManager.enterRoom(currentRoom);
-                        itemSelection.setCurrentIndex(sortFilterRoomListModel.mapToSource(
-                            sortFilterRoomListModel.index(index, 0)), ItemSelectionModel.SelectCurrent)
                     }
                 }
                 Keys.onEnterPressed: enterRoomAction.trigger()
@@ -224,8 +229,6 @@ Kirigami.ScrollablePage {
                     id: enterRoomAction
                     onTriggered: {
                         RoomManager.enterRoom(currentRoom);
-                        itemSelection.setCurrentIndex(sortFilterRoomListModel.mapToSource(
-                            sortFilterRoomListModel.index(index, 0)), ItemSelectionModel.SelectCurrent)
                     }
                 }
                 Keys.onEnterPressed: enterRoomAction.trigger()
