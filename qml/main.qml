@@ -31,6 +31,10 @@ Kirigami.ApplicationWindow {
 
     property bool roomListLoaded: false
 
+    property RoomPage roomPage: RoomPage {
+        KeyNavigation.left: pageStack.get(0)
+    }
+
     Connections {
         target: root.quitAction
         function onTriggered() {
@@ -72,38 +76,21 @@ Kirigami.ApplicationWindow {
         sourceComponent: QuickSwitcher { }
     }
 
-    /// Setup keyboard navigation to the room page.
-    function connectRoomToSignal(item) {
-        if (!roomListLoaded) {
-            console.log("Should not happen: no room list page but room page");
-        }
-        const roomList = pageStack.get(0);
-        item.switchRoomUp.connect(function() {
-            roomList.goToNextRoom();
-        });
-
-        item.switchRoomDown.connect(function() {
-            roomList.goToPreviousRoom();
-        });
-        item.forceActiveFocus();
-        item.KeyNavigation.left = pageStack.get(0);
-    }
-
     Connections {
         target: RoomManager
 
         function onPushRoom(room, event) {
-            const roomItem = pageStack.push("qrc:/imports/NeoChat/Page/RoomPage.qml");
-            connectRoomToSignal(roomItem);
+            pageStack.push(roomPage);
+            roomPage.forceActiveFocus();
             if (event.length > 0) {
-                roomItem.goToEvent(event);
+                roomPage.goToEvent(event);
             }
         }
 
         function onReplaceRoom(room, event) {
             const roomItem = pageStack.get(pageStack.depth - 1);
             pageStack.currentIndex = pageStack.depth - 1;
-            connectRoomToSignal(roomItem);
+            roomPage.forceActiveFocus();
             if (event.length > 0) {
                 roomItem.goToEvent(event);
             }
@@ -310,6 +297,16 @@ Kirigami.ApplicationWindow {
         id: roomListComponent
         RoomListPage {
             id: roomList
+
+            Connections {
+                target: root.roomPage
+                function onSwitchRoomUp() {
+                    roomList.goToNextRoom();
+                }
+                function onSwitchRoomDown() {
+                    roomList.goToPreviousRoom();
+                }
+            }
         }
     }
 
