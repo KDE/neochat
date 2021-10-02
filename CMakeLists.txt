@@ -15,7 +15,7 @@ find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(KDE_COMPILERSETTINGS_LEVEL 5.84)
@@ -109,6 +109,10 @@ set_package_properties(KQuickImageEditor PROPERTIES
     URL "https://invent.kde.org/libraries/kquickimageeditor/"
     PURPOSE "Add image editing capability to image attachments"
 )
+
+find_package(QCoro REQUIRED)
+
+qcoro_enable_coroutines()
 
 install(FILES org.kde.neochat.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.neochat.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})

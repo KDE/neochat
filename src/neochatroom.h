@@ -15,6 +15,8 @@
 #include <QPointer>
 #include <QTimer>
 
+#include <qcoro/task.h>
+
 #include "neochatuser.h"
 #include "room.h"
 
@@ -137,6 +139,7 @@ private:
     void onRedaction(const RoomEvent &prevEvent, const RoomEvent &after) override;
 
     static QString markdownToHTML(const QString &markdown);
+    QCoro::Task<void> doDeleteMessagesByUser(const QString &user);
 
 private Q_SLOTS:
     void countChanged();
@@ -175,4 +178,5 @@ public Q_SLOTS:
     void addLocalAlias(const QString &alias);
     void removeLocalAlias(const QString &alias);
     void toggleReaction(const QString &eventId, const QString &reaction);
+    void deleteMessagesByUser(const QString &user);
 };

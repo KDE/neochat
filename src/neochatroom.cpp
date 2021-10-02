@@ -12,10 +12,14 @@
 #include <QTextDocument>
 #include <functional>
 
+#include <qcoro/qcorosignal.h>
+#include <qcoro/task.h>
+
 #include "connection.h"
 #include "csapi/account-data.h"
 #include "csapi/content-repo.h"
 #include "csapi/leaving.h"
+#include "csapi/redaction.h"
 #include "csapi/room_state.h"
 #include "csapi/rooms.h"
 #include "csapi/typing.h"
@@ -720,4 +724,27 @@ QString NeoChatRoom::htmlSafeName() const
 QString NeoChatRoom::htmlSafeDisplayName() const
 {
     return displayName().toHtmlEscaped();
+}
+
+void NeoChatRoom::deleteMessagesByUser(const QString &user)
+{
+    doDeleteMessagesByUser(user);
+}
+
+QCoro::Task<void> NeoChatRoom::doDeleteMessagesByUser(const QString &user)
+{
+    QStringList events;
+    for (const auto &event : messageEvents()) {
+        if (event->senderId() == user && !event->isRedacted() && !event.viewAs<RedactionEvent>() && !event->isStateEvent()) {
+            events += event->id();
+        }
+    }
+    for (const auto &e : events) {
+        auto job = connection()->callApi<RedactEventJob>(id(), QUrl::toPercentEncoding(e), connection()->generateTxnId());
+        co_await qCoro(job, &BaseJob::finished);
+        if (job->error() != BaseJob::Success) {
+            qWarning() << "Error: \"" << job->error() << "\" while deleting messages. Aborting";
+            break;
+        }
+    }
 }

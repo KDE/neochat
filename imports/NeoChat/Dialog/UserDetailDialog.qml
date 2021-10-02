@@ -142,8 +142,19 @@ Kirigami.OverlaySheet {
             }
         }
         Kirigami.BasicListItem {
-            visible: user !== room.localUser
+            visible: user === room.localUser || room.canSendState("redact")
 
+            action: Kirigami.Action {
+                text: i18n("Delete recent messages by this user")
+                icon.name: "delete"
+                icon.color: Kirigami.Theme.negativeTextColor
+                onTriggered: {
+                    room.deleteMessagesByUser(user.id)
+                }
+            }
+        }
+        Kirigami.BasicListItem {
+            visible: user !== room.localUser
             action: Kirigami.Action {
                 text: i18n("Open a private chat")
                 icon.name: "document-send"
