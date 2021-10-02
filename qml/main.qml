@@ -319,7 +319,7 @@ Kirigami.ApplicationWindow {
         function onInitiated() {
             if (Controller.accountCount === 0) {
                 pageStack.replace("qrc:/imports/NeoChat/Page/WelcomePage.qml", {});
-            } else {
+            } else if (!roomListLoaded) {
                 pageStack.replace(roomListComponent, {
                     activeConnection: Controller.activeConnection
                 });
