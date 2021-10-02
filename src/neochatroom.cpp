@@ -434,7 +434,7 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                 return (e.senderId() != e.userId()) ? i18n("banned %1 from the room: %2", subjectName, e.contentJson()["reason"_ls].toString().toHtmlEscaped())
                                                     : i18n("self-banned from the room");
             case MembershipType::Knock:
-                return i18n("knocked");
+                return i18n("requested an invite");
             default:;
             }
             return i18n("made something unknown");
