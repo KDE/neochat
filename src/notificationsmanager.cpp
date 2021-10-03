@@ -60,14 +60,12 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
         Q_EMIT Controller::instance().showWindow();
     });
 
-#if KNOTIFICATIONS_VERSION >= QT_VERSION_CHECK(5, 81, 0)
     std::unique_ptr<KNotificationReplyAction> replyAction(new KNotificationReplyAction(i18n("Reply")));
     replyAction->setPlaceholderText(i18n("Reply..."));
     connect(replyAction.get(), &KNotificationReplyAction::replied, this, [room, replyEventId](const QString &text) {
         room->postMessage(text, room->preprocessText(text), RoomMessageEvent::MsgType::Text, replyEventId, QString());
     });
     notification->setReplyAction(std::move(replyAction));
-#endif
 
     notification->sendEvent();
 
