@@ -18,10 +18,11 @@ Login::Login(QObject *parent)
 void Login::init()
 {
     m_homeserverReachable = false;
-    m_connection = nullptr;
+    m_connection = new Connection();
     m_matrixId = QString();
     m_password = QString();
-    m_deviceName = QString();
+    m_deviceName = QStringLiteral("NeoChat %1 %2 %3 %4")
+                       .arg(QSysInfo::machineHostName(), QSysInfo::productType(), QSysInfo::productVersion(), QSysInfo::currentCpuArchitecture());
     m_supportsSso = false;
     m_supportsPassword = false;
     m_ssoUrl = QUrl();
@@ -47,6 +48,43 @@ void Login::init()
             m_supportsPassword = m_connection->supportsPasswordAuth();
             Q_EMIT loginFlowsChanged();
         });
+    });
+    connect(m_connection, &Connection::connected, this, [=] {
+        Q_EMIT connected();
+        m_isLoggingIn = false;
+        Q_EMIT isLoggingInChanged();
+        Q_ASSERT(m_connection);
+        AccountSettings account(m_connection->userId());
+        account.setKeepLoggedIn(true);
+        account.setHomeserver(m_connection->homeserver());
+        account.setDeviceId(m_connection->deviceId());
+        account.setDeviceName(m_deviceName);
+        if (!Controller::instance().saveAccessTokenToKeyChain(account, m_connection->accessToken())) {
+            qWarning() << "Couldn't save access token";
+        }
+        account.sync();
+        Controller::instance().addConnection(m_connection);
+        Controller::instance().setActiveConnection(m_connection);
+        qWarning() << "Nulling connection";
+        m_connection = nullptr;
+    });
+    connect(m_connection, &Connection::networkError, this, [=](QString error, const QString &, int, int) {
+        Q_EMIT Controller::instance().globalErrorOccured(i18n("Network Error"), std::move(error));
+        m_isLoggingIn = false;
+        Q_EMIT isLoggingInChanged();
+    });
+    connect(m_connection, &Connection::loginError, this, [=](QString error, const QString &) {
+        Q_EMIT errorOccured(i18n("Login Failed: %1", error));
+        m_isLoggingIn = false;
+        Q_EMIT isLoggingInChanged();
+    });
+
+    connect(m_connection, &Connection::resolveError, this, [=](QString error) {
+        Q_EMIT Controller::instance().globalErrorOccured(i18n("Network Error"), std::move(error));
+    });
+
+    connectSingleShot(m_connection, &Connection::syncDone, this, [=]() {
+        Q_EMIT Controller::instance().initiated();
     });
 }
 
@@ -102,49 +140,7 @@ void Login::login()
     m_isLoggingIn = true;
     Q_EMIT isLoggingInChanged();
 
-    setDeviceName("NeoChat " + QSysInfo::machineHostName() + " " + QSysInfo::productType() + " " + QSysInfo::productVersion() + " "
-                  + QSysInfo::currentCpuArchitecture());
-
-    m_connection->resolveServer(m_matrixId);
-
-    connect(m_connection, &Connection::loginFlowsChanged, this, [=]() {
-        m_connection->loginWithPassword(m_matrixId, m_password, m_deviceName, QString());
-        connect(m_connection, &Connection::connected, this, [=] {
-            Q_EMIT connected();
-            m_isLoggingIn = false;
-            Q_EMIT isLoggingInChanged();
-            AccountSettings account(m_connection->userId());
-            account.setKeepLoggedIn(true);
-            account.setHomeserver(m_connection->homeserver());
-            account.setDeviceId(m_connection->deviceId());
-            account.setDeviceName(m_deviceName);
-            if (!Controller::instance().saveAccessTokenToKeyChain(account, m_connection->accessToken())) {
-                qWarning() << "Couldn't save access token";
-            }
-            account.sync();
-            Controller::instance().addConnection(m_connection);
-            Controller::instance().setActiveConnection(m_connection);
-            m_connection = nullptr;
-        });
-        connect(m_connection, &Connection::networkError, [=](QString error, const QString &, int, int) {
-            Q_EMIT Controller::instance().globalErrorOccured(i18n("Network Error"), std::move(error));
-            m_isLoggingIn = false;
-            Q_EMIT isLoggingInChanged();
-        });
-        connect(m_connection, &Connection::loginError, [=](QString error, const QString &) {
-            Q_EMIT errorOccured(i18n("Login Failed: %1", error));
-            m_isLoggingIn = false;
-            Q_EMIT isLoggingInChanged();
-        });
-    });
-
-    connect(m_connection, &Connection::resolveError, this, [=](QString error) {
-        Q_EMIT Controller::instance().globalErrorOccured(i18n("Network Error"), std::move(error));
-    });
-
-    connectSingleShot(m_connection, &Connection::syncDone, this, [=]() {
-        Q_EMIT Controller::instance().initiated();
-    });
+    m_connection->loginWithPassword(m_matrixId, m_password, m_deviceName, QString());
 }
 
 bool Login::supportsPassword() const
@@ -166,28 +162,9 @@ void Login::loginWithSso()
 {
     m_connection->resolveServer(m_matrixId);
 
-    SsoSession *session = m_connection->prepareForSso("NeoChat " + QSysInfo::machineHostName() + " " + QSysInfo::productType() + " "
-                                                      + QSysInfo::productVersion() + " " + QSysInfo::currentCpuArchitecture());
+    SsoSession *session = m_connection->prepareForSso(m_deviceName);
     m_ssoUrl = session->ssoUrl();
     Q_EMIT ssoUrlChanged();
-    connect(m_connection, &Connection::connected, [=]() {
-        Q_EMIT connected();
-        AccountSettings account(m_connection->userId());
-        account.setKeepLoggedIn(true);
-        account.setHomeserver(m_connection->homeserver());
-        account.setDeviceId(m_connection->deviceId());
-        account.setDeviceName(m_deviceName);
-        if (!Controller::instance().saveAccessTokenToKeyChain(account, m_connection->accessToken())) {
-            qWarning() << "Couldn't save access token";
-        }
-        account.sync();
-        Controller::instance().addConnection(m_connection);
-        Controller::instance().setActiveConnection(m_connection);
-        m_connection = nullptr;
-    });
-    connectSingleShot(m_connection, &Connection::syncDone, this, [=]() {
-        Q_EMIT Controller::instance().initiated();
-    });
 }
 
 bool Login::testing() const
