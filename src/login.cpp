@@ -65,7 +65,6 @@ void Login::init()
         account.sync();
         Controller::instance().addConnection(m_connection);
         Controller::instance().setActiveConnection(m_connection);
-        qWarning() << "Nulling connection";
         m_connection = nullptr;
     });
     connect(m_connection, &Connection::networkError, this, [=](QString error, const QString &, int, int) {
