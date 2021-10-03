@@ -40,7 +40,7 @@ void Login::init()
             m_connection = new Connection();
         }
         m_connection->resolveServer(m_matrixId);
-        connect(m_connection, &Connection::loginFlowsChanged, this, [=]() {
+        connectSingleShot(m_connection, &Connection::loginFlowsChanged, this, [=]() {
             setHomeserverReachable(true);
             m_testing = false;
             Q_EMIT testingChanged();
@@ -160,9 +160,10 @@ QUrl Login::ssoUrl() const
 void Login::loginWithSso()
 {
     m_connection->resolveServer(m_matrixId);
-
-    SsoSession *session = m_connection->prepareForSso(m_deviceName);
-    m_ssoUrl = session->ssoUrl();
+    connectSingleShot(m_connection, &Connection::loginFlowsChanged, this, [=]() {
+        SsoSession *session = m_connection->prepareForSso(m_deviceName);
+        m_ssoUrl = session->ssoUrl();
+    });
     Q_EMIT ssoUrlChanged();
 }
 
