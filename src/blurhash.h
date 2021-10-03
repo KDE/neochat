@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2018 Wolt Enterprises
-// SPDX-License-Identifiert: MIT
+// SPDX-License-Identifier: MIT
 
 #pragma once
 
