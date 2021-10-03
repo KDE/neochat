@@ -33,7 +33,11 @@ void ColorSchemer::apply(const QString &name)
 
 int ColorSchemer::indexForScheme(const QString &name) const
 {
-    return c->indexForScheme(name).row();
+    auto index = c->indexForScheme(name).row();
+    if (index == -1) {
+        index = 0;
+    }
+    return index;
 }
 
 QString ColorSchemer::nameForIndex(int index) const
