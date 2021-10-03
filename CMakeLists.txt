@@ -4,7 +4,7 @@
 # SPDX-FileCopyrightText: 2021 Adriaan de Groot <groot@kde.org>
 # SPDX-License-Identifier: BSD-2-Clause
 
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.16)
 
 project(NeoChat)
 
