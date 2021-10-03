@@ -144,7 +144,7 @@ void Controller::loginWithAccessToken(const QString &serverAddr, const QString &
 
     QUrl serverUrl(serverAddr);
 
-    auto conn = new Connection(this);
+    auto conn = new Connection();
     if (serverUrl.isValid()) {
         conn->setHomeserver(serverUrl);
     }
@@ -260,7 +260,7 @@ void Controller::invokeLogin()
         if (!account.homeserver().isEmpty()) {
             auto accessToken = loadAccessTokenFromKeyChain(account);
 
-            auto connection = new Connection(account.homeserver(), this);
+            auto connection = new Connection(account.homeserver());
             connect(connection, &Connection::connected, this, [=] {
                 connection->loadState();
                 addConnection(connection);
