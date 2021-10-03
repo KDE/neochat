@@ -121,7 +121,7 @@ Kirigami.OverlaySheet {
 
                 RowLayout {
                     id: altAlias
-                    Kirigami.FormData.label: i18n("Alt Aliases")
+                    Kirigami.FormData.label: i18n("Other Aliases:")
                     Layout.fillWidth: true
 
                     visible: room.altAliases && room.altAliases.length
@@ -139,7 +139,6 @@ Kirigami.OverlaySheet {
 
                                 Label {
                                     text: modelData
-                                    color: Kirigami.Theme.disabledColor
                                 }
 
                                 ToolButton {
