@@ -478,7 +478,11 @@ bool Controller::setAvatar(Connection *connection, const QUrl &avatarSource)
 }
 
 NeochatChangePasswordJob::NeochatChangePasswordJob(const QString &newPassword, bool logoutDevices, const Omittable<QJsonObject> &auth)
-    : BaseJob(HttpVerb::Post, QStringLiteral("ChangePasswordJob"), QStringLiteral("/_matrix/client/r0") % "/account/password")
+#ifdef QUOTIENT_07
+    : BaseJob(HttpVerb::Post, QStringLiteral("ChangePasswordJob"), "/_matrix/client/r0/account/password")
+#else
+    : BaseJob(HttpVerb::Post, QStringLiteral("ChangePasswordJob"), QStringLiteral("/_matrix/client/r0/account/password"))
+#endif
 {
     QJsonObject _data;
     addParam<>(_data, QStringLiteral("new_password"), newPassword);
@@ -557,7 +561,11 @@ void Controller::saveWindowGeometry(QQuickWindow *window)
 }
 
 NeochatDeleteDeviceJob::NeochatDeleteDeviceJob(const QString &deviceId, const Omittable<QJsonObject> &auth)
+#ifdef QUOTIENT_07
+    : Quotient::BaseJob(HttpVerb::Delete, QStringLiteral("DeleteDeviceJob"), QStringLiteral("/_matrix/client/r0/devices/%1").arg(deviceId).toLatin1())
+#else
     : Quotient::BaseJob(HttpVerb::Delete, QStringLiteral("DeleteDeviceJob"), QStringLiteral("/_matrix/client/r0/devices/%1").arg(deviceId))
+#endif
 {
     QJsonObject _data;
     addParam<IfNotEmpty>(_data, QStringLiteral("auth"), auth);
