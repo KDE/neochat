@@ -371,7 +371,7 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
         },
         [this](const RoomMemberEvent &e) {
             // FIXME: Rewind to the name that was at the time of this event
-            auto subjectName = this->user(e.userId())->displayname();
+            auto subjectName = this->htmlSafeMemberName(e.userId());
             // The below code assumes senderName output in AuthorRole
             switch (e.membership()) {
             case MembershipType::Invite:
