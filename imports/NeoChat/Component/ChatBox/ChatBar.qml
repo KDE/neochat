@@ -174,7 +174,7 @@ ToolBar {
                     horizontalAlignment: inputField.horizontalAlignment
                     verticalAlignment: inputField.verticalAlignment
                     visible: !inputField.length && !inputField.preeditText && (!inputField.activeFocus || inputField.horizontalAlignment !== Qt.AlignHCenter)
-                    elide: Text.ElideRight
+                    wrapMode: Text.Wrap
                 }
 
 
