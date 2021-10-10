@@ -130,7 +130,7 @@ Loader {
                         Kirigami.Heading {
                             level: 3
                             Layout.fillWidth: true
-                            text: author.displayName
+                            text: currentRoom.htmlSafeMemberName(author.id)
                             wrapMode: Text.WordWrap
                         }
                         QQC2.Label {

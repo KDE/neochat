@@ -57,7 +57,7 @@ Loader {
                     elide: Text.ElideRight
                     text: {
                         let heading = "<b>%1</b>"
-                        let userName = user ? "<font color=\""+ user.color +"\">" + user.displayName + "</font>" : ""
+                        let userName = user ? "<font color=\""+ user.color +"\">" + currentRoom.htmlSafeMemberName(user.id) + "</font>" : ""
                         if (isEdit) {
                             heading = heading.arg(i18n("Editing message:")) + "<br/>"
                         } else {
