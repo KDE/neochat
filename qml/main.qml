@@ -80,8 +80,8 @@ Kirigami.ApplicationWindow {
         target: RoomManager
 
         function onPushRoom(room, event) {
-            pageStack.push(roomPage);
-            roomPage.forceActiveFocus();
+            pageStack.push(root.roomPage);
+            root.roomPage.forceActiveFocus();
             if (event.length > 0) {
                 roomPage.goToEvent(event);
             }
@@ -90,7 +90,7 @@ Kirigami.ApplicationWindow {
         function onReplaceRoom(room, event) {
             const roomItem = pageStack.get(pageStack.depth - 1);
             pageStack.currentIndex = pageStack.depth - 1;
-            roomPage.forceActiveFocus();
+            root.roomPage.forceActiveFocus();
             if (event.length > 0) {
                 roomItem.goToEvent(event);
             }
