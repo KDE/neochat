@@ -109,6 +109,7 @@ Kirigami.ScrollablePage {
         id: listView
 
         activeFocusOnTab: true
+        clip: accountList.count > 1
 
         Kirigami.PlaceholderMessage {
             anchors.centerIn: parent
