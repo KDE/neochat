@@ -463,6 +463,9 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                                  : i18n("created the room, version %1", e.version().isEmpty() ? "1" : e.version().toHtmlEscaped());
         },
         [](const StateEventBase &e) {
+            if (e.matrixType() == QLatin1String("m.room.server_acl")) {
+                return i18n("changed the server access control lists for this room");
+            }
             // A small hack for state events from TWIM bot
             return e.stateKey() == "twim" ? i18n("updated the database")
                 : e.stateKey().isEmpty()  ? i18n("updated %1 state", e.matrixType())
