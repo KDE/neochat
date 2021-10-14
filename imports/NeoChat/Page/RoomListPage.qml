@@ -46,6 +46,11 @@ Kirigami.ScrollablePage {
         }
     }
 
+    actions.main: Kirigami.Action {
+        text: i18n("New room")
+        icon.name: "list-add"
+    }
+
     function goToNextRoom() {
         do {
             listView.incrementCurrentIndex();
@@ -70,8 +75,7 @@ Kirigami.ScrollablePage {
     Component {
         id: searchField
         Kirigami.SearchField {
-            Layout.topMargin: Kirigami.Units.smallSpacing
-            Layout.bottomMargin: Kirigami.Units.smallSpacing
+            Layout.margins: Kirigami.Units.smallSpacing
             Layout.fillHeight: true
             Layout.fillWidth: true
             onTextChanged: sortFilterRoomListModel.filterText = text
@@ -271,6 +275,7 @@ Kirigami.ScrollablePage {
                         id: configButton
                         visible: roomListItem.hovered || Kirigami.Settings.isMobile
                         Accessible.name: i18n("Configure room")
+                        flat: true
 
                         action: Kirigami.Action {
                             id: optionAction
