@@ -43,7 +43,7 @@ Loader {
         Kirigami.Action {
             text: i18n("Copy")
             icon.name: "edit-copy"
-            onTriggered: Clipboard.saveText(loadRoot.selectedText)
+            onTriggered: Clipboard.saveText(loadRoot.selectedText === "" ? loadRoot.message : loadRoot.selectedText)
         },
         Kirigami.Action {
             text: i18n("View Source")
