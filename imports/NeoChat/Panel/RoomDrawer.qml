@@ -153,7 +153,7 @@ Kirigami.OverlayDrawer {
                 activeFocusOnTab: false
                 Label {
                     Layout.alignment: Qt.AlignRight
-                    text: room ? i18np("%1 Member", "%1 Members", room.totalMemberCount) : i18n("No Member Count")
+                    text: room ? i18np("%1 Member", "%1 Members", room.joinedCount) : i18n("No Member Count")
                 }
             }
 
