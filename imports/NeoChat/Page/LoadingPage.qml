@@ -7,7 +7,13 @@ import org.kde.kirigami 2.12 as Kirigami
 Kirigami.Page {
     title: i18n("Loading")
 
-    QQC2.BusyIndicator {
+    Kirigami.PlaceholderMessage {
+        id: loadingIndicator
         anchors.centerIn: parent
+        text: i18n("Loading")
+        QQC2.BusyIndicator {
+            running: loadingIndicator.visible
+            Layout.alignment: Qt.AlignHCenter
+        }
     }
 }
