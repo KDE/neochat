@@ -187,6 +187,7 @@ Kirigami.OverlayDrawer {
 
                         sortRole: "perm"
                         filterRole: "name"
+                        filterCaseSensitivity: Qt.CaseInsensitive
                     }
 
                     delegate: Kirigami.AbstractListItem {
