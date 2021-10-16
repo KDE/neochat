@@ -462,6 +462,9 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
             return e.isUpgrade() ? i18n("upgraded the room to version %1", e.version().isEmpty() ? "1" : e.version().toHtmlEscaped())
                                  : i18n("created the room, version %1", e.version().isEmpty() ? "1" : e.version().toHtmlEscaped());
         },
+        [](const RoomPowerLevelsEvent &) {
+            return i18nc("'power level' means permission level", "changed the power levels for this room");
+        },
         [](const StateEventBase &e) {
             if (e.matrixType() == QLatin1String("m.room.server_acl")) {
                 return i18n("changed the server access control lists for this room");
