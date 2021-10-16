@@ -104,7 +104,7 @@ QVariant UserListModel::data(const QModelIndex &index, int role) const
             return UserType::Member;
         }
 
-        if (userPl < pl->powerLevelForState("m.room.message")) {
+        if (userPl < pl->powerLevelForEvent("m.room.message")) {
             return UserType::Muted;
         }
 
