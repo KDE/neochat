@@ -44,6 +44,7 @@
 #include "devicesmodel.h"
 #include "emojimodel.h"
 #include "filetypesingleton.h"
+#include "joinrulesevent.h"
 #include "login.h"
 #include "matriximageprovider.h"
 #include "messageeventmodel.h"

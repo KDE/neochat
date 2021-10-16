@@ -36,6 +36,7 @@ add_executable(neochat
     spellcheckhighlighter.cpp
     blurhash.cpp
     blurhashimageprovider.cpp
+    joinrulesevent.cpp
     ../res.qrc
 )
 

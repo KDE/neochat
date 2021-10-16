@@ -47,7 +47,7 @@ Kirigami.OverlayDrawer {
                         icon.name: "list-add-user"
                         text: i18n("Invite")
                         onClicked: {
-                            applicationWindow().pageStack.layers.push("qrc:/imports/NeoChat/Page/InviteUserPage.qml", {"room": room})
+                            applicationWindow().pageStack.layers.push("qrc:/imports/NeoChat/Page/InviteUserPage.qml", {room: room})
                             roomDrawer.close();
                         }
                     }
@@ -69,12 +69,7 @@ Kirigami.OverlayDrawer {
                     ToolButton {
                         Layout.alignment: Qt.AlignRight
                         icon.name: 'settings-configure'
-                        onClicked: {
-                            roomSettingDialog.createObject(ApplicationWindow.overlay, {"room": room}).open()
-                            if (!wideScreen) {
-                                roomDrawer.close();
-                            }
-                        }
+                        onClicked: ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/imports/NeoChat/RoomSettings/Categories.qml', {room: room})
 
                         ToolTip {
                             text: i18n("Room settings")
@@ -161,6 +156,8 @@ Kirigami.OverlayDrawer {
                 padding: Kirigami.Units.smallSpacing
                 implicitWidth: parent.width
                 z: 2
+                Kirigami.Theme.inherit: false
+                Kirigami.Theme.colorSet: Kirigami.Theme.Window
                 contentItem: Kirigami.SearchField {
                     id: userListSearchField
                     onAccepted: sortedMessageEventModel.filterString = text;
@@ -253,12 +250,6 @@ Kirigami.OverlayDrawer {
         if (room == null) {
             close()
         }
-    }
-
-    Component {
-        id: roomSettingDialog
-
-        RoomSettingsDialog {}
     }
 
     Component {

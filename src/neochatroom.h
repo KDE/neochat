@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include "joinrulesevent.h"
 #include <events/encryptionevent.h>
 #include <events/redactionevent.h>
 #include <events/roomavatarevent.h>
@@ -33,6 +34,7 @@ class NeoChatRoom : public Room
     Q_PROPERTY(bool readMarkerLoaded READ readMarkerLoaded NOTIFY readMarkerLoadedChanged)
     Q_PROPERTY(QDateTime lastActiveTime READ lastActiveTime NOTIFY lastActiveTimeChanged)
     Q_PROPERTY(bool isInvite READ isInvite NOTIFY isInviteChanged)
+    Q_PROPERTY(QString joinRule READ joinRule CONSTANT)
     Q_PROPERTY(QString htmlSafeDisplayName READ htmlSafeDisplayName NOTIFY displayNameChanged)
 
 public:
@@ -65,6 +67,8 @@ public:
     [[nodiscard]] QDateTime lastActiveTime();
 
     bool isEventHighlighted(const Quotient::RoomEvent *e) const;
+
+    [[nodiscard]] QString joinRule() const;
 
     [[nodiscard]] bool hasFileUploading() const
     {

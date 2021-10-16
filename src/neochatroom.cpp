@@ -735,6 +735,11 @@ void NeoChatRoom::deleteMessagesByUser(const QString &user)
     doDeleteMessagesByUser(user);
 }
 
+QString NeoChatRoom::joinRule() const
+{
+    return getCurrentState<JoinRulesEvent>()->joinRule();
+}
+
 QCoro::Task<void> NeoChatRoom::doDeleteMessagesByUser(const QString &user)
 {
     QStringList events;
