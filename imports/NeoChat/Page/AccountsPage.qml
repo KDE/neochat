@@ -133,9 +133,7 @@ Kirigami.Page {
 
         property var connection
 
-        header: Kirigami.Heading {
-            text: i18n("Edit Account")
-        }
+        title: i18n("Edit Account")
 
         Kirigami.FormLayout {
             RowLayout {

@@ -12,9 +12,7 @@ Kirigami.OverlaySheet {
 
     property string sourceText
 
-    header: Kirigami.Heading {
-        text: i18n("Message Source")
-    }
+    title: i18n("Message Source")
 
     TextArea {
         id: sourceTextArea

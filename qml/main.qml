@@ -361,9 +361,7 @@ Kirigami.ApplicationWindow {
 
         property string url: ""
 
-        header: Kirigami.Heading {
-            text: i18n("User consent")
-        }
+        title: i18n("User consent")
 
         QQC2.Label {
             id: label
@@ -402,9 +400,7 @@ Kirigami.ApplicationWindow {
             required property var user;
 
             parent: QQC2.ApplicationWindow.overlay
-            header: Kirigami.Heading {
-                text: i18n("Start a chat")
-            }
+            title: i18n("Start a chat")
             contentItem: QQC2.Label {
                 text: i18n("Do you want to start a chat with %1?", user.displayName)
                 wrapMode: Text.WordWrap

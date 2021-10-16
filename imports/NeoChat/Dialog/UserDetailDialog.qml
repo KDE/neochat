@@ -27,13 +27,7 @@ Kirigami.OverlaySheet {
     rightPadding: 0
     topPadding: 0
 
-    header: Kirigami.Heading {
-        id: heading
-        text: i18nc("@title:menu Account detail dialog", "Account detail")
-        elide: Text.ElideRight
-        QQC2.ToolTip.visible: truncated && hovered
-        QQC2.ToolTip.text: text
-    }
+    title: i18nc("@title:menu Account detail dialog", "Account detail")
 
     contentItem: ColumnLayout {
         spacing: 0

@@ -14,9 +14,7 @@ Kirigami.OverlaySheet {
 
     parent: applicationWindow().overlay
 
-    header: Kirigami.Heading {
-        text: i18n("Create a Room")
-    }
+    title: i18n("Create a Room")
 
     contentItem: Kirigami.FormLayout {
         TextField {

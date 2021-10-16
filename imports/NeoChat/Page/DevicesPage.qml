@@ -82,9 +82,7 @@ Kirigami.Page {
 
         property var index
 
-        header: Kirigami.Heading {
-            text: i18n("Remove device")
-        }
+        title: i18n("Remove device")
         Kirigami.FormLayout {
             Controls.TextField {
                 id: passwordField
@@ -107,9 +105,7 @@ Kirigami.Page {
         property int index
         property string name
 
-        header: Kirigami.Heading {
-            text: i18n("Edit device")
-        }
+        title: i18n("Edit device")
         Kirigami.FormLayout {
             Controls.TextField {
                 id: nameField

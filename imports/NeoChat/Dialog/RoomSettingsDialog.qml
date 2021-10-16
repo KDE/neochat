@@ -22,10 +22,7 @@ Kirigami.OverlaySheet {
     parent: applicationWindow().overlay
 
 
-    header: Kirigami.Heading {
-        text: i18nc("%1 is the room name", "Room Settings - %1", room.displayName)
-        elide: Text.ElideRight
-    }
+    title: i18nc("%1 is the room name", "Room Settings - %1", room.displayName)
 
     contentItem: ColumnLayout {
         RowLayout {
