@@ -5,6 +5,8 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 
+import org.kde.kirigami 2.19 as Kirigami
+
 import org.kde.neochat 1.0
 import NeoChat.Page 1.0
 
@@ -16,11 +18,15 @@ Menu {
     property var room
 
     MenuItem {
+        id: newWindow
         text: i18n("Open in new window")
         onTriggered: RoomManager.openWindow(room);
+        visible: !Kirigami.Settings.isMobile
     }
 
-    MenuSeparator {}
+    MenuSeparator {
+        visible: newWindow.visible
+    }
 
     MenuItem {
         text: room.isFavourite ? i18n("Remove from Favourites") : i18n("Add to Favourites")
