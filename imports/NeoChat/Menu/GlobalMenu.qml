@@ -28,7 +28,7 @@ Labs.MenuBar {
             text: i18nc("menu", "Preferences…")
 
             shortcut: StandardKey.Preferences
-            onTriggered: pushReplaceLayer("qrc:/imports/NeoChat/Page/SettingsPage.qml")
+            onTriggered: pageStack.pushDialogLayer("qrc:/imports/NeoChat/Settings/SettingsPage.qml")
         }
         Labs.MenuItem {
             text: i18nc("menu", "Quit NeoChat")

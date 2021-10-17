@@ -14,6 +14,7 @@ import NeoChat.Component 1.0 as Components
 import NeoChat.Dialog 1.0
 
 Kirigami.Page {
+    title: i18nc('@title:window', 'Custom Emojis')
 
     leftPadding: pageSettingStack.wideMode ? Kirigami.Units.smallSpacing : 0
     topPadding: pageSettingStack.wideMode ? Kirigami.Units.smallSpacing : 0
