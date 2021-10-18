@@ -229,7 +229,6 @@ Kirigami.ScrollablePage {
 
     ListView {
         id: messageListView
-        pixelAligned: true
         visible: !invitation.visible
 
         readonly property int largestVisibleIndex: count > 0 ? indexAt(contentX + (width / 2), contentY + height - 1) : -1
