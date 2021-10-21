@@ -377,11 +377,11 @@ Kirigami.ScrollablePage {
                         Layout.leftMargin: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing : 0
                         TapHandler {
                             acceptedButtons: Qt.RightButton
-                            onTapped: openMessageContext(author, model.message, eventId, toolTip, eventType, model.formattedBody, parent.selectedText)
+                            onTapped: openMessageContext(model, parent.selectedText)
                         }
                         TapHandler {
                             acceptedButtons: Qt.LeftButton
-                            onLongPressed: openMessageContext(author, model.message, eventId, toolTip, eventType, model.formattedBody, parent.selectedText)
+                            onLongPressed: openMessageContext(model, parent.selectedText)
                         }
                     }
                 }
@@ -403,11 +403,11 @@ Kirigami.ScrollablePage {
                         Layout.leftMargin: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing : 0
                         TapHandler {
                             acceptedButtons: Qt.RightButton
-                            onTapped: openMessageContext(author, model.message, eventId, toolTip, eventType, model.formattedBody, parent.selectedText)
+                            onTapped: openMessageContext(model, parent.selectedText)
                         }
                         TapHandler {
                             acceptedButtons: Qt.LeftButton
-                            onLongPressed: openMessageContext(author, model.message, eventId, toolTip, eventType, model.formattedBody, parent.selectedText)
+                            onLongPressed: openMessageContext(model, parent.selectedText)
                         }
                     }
                 }
@@ -446,13 +446,19 @@ Kirigami.ScrollablePage {
                         Layout.maximumHeight: Kirigami.Units.gridUnit * 20
                         TapHandler {
                             acceptedButtons: Qt.RightButton
-                            onTapped: openFileContext(author, model.display, eventId, toolTip, progressInfo, parent)
+                            onTapped: openFileContext(model, parent)
                         }
                         TapHandler {
                             acceptedButtons: Qt.LeftButton
-                            onLongPressed: openFileContext(author, model.display, eventId, toolTip, progressInfo, parent)
+                            onLongPressed: openFileContext(model, parent)
                             onTapped: {
-                                fullScreenImage.createObject(parent, {"filename": eventId, "localPath": currentRoom.urlToDownload(eventId), "blurhash": model.content.info["xyz.amorgan.blurhash"], "imageWidth": content.info.w, "imageHeight": content.info.h}).showFullScreen()
+                                fullScreenImage.createObject(parent, {
+                                    filename: eventId,
+                                    localPath: currentRoom.urlToDownload(eventId),
+                                    blurhash: model.content.info["xyz.amorgan.blurhash"],
+                                    imageWidth: content.info.w,
+                                    imageHeight: content.info.h
+                                }).showFullScreen();
                             }
                         }
                     }
@@ -491,11 +497,11 @@ Kirigami.ScrollablePage {
                         Layout.maximumWidth: audioContainer.bubbleMaxWidth
                         TapHandler {
                             acceptedButtons: Qt.RightButton
-                            onTapped: openFileContext(author, model.display, eventId, toolTip, progressInfo, parent)
+                            onTapped: openFileContext(model, parent)
                         }
                         TapHandler {
                             acceptedButtons: Qt.LeftButton
-                            onLongPressed: openFileContext(author, model.display, eventId, toolTip, progressInfo, parent)
+                            onLongPressed: openFileContext(model, parent)
                         }
                     }
                 }
@@ -519,11 +525,11 @@ Kirigami.ScrollablePage {
 
                         TapHandler {
                             acceptedButtons: Qt.RightButton
-                            onTapped: openFileContext(author, model.display, eventId, toolTip, progressInfo, parent)
+                            onTapped: openFileContext(model, parent)
                         }
                         TapHandler {
                             acceptedButtons: Qt.LeftButton
-                            onLongPressed: openFileContext(author, model.display, eventId, toolTip, progressInfo, parent)
+                            onLongPressed: openFileContext(model, parent)
                         }
                     }
                 }
@@ -542,11 +548,11 @@ Kirigami.ScrollablePage {
                         Layout.maximumWidth: fileContainer.bubbleMaxWidth
                         TapHandler {
                             acceptedButtons: Qt.RightButton
-                            onTapped: openFileContext(author, model.display, eventId, toolTip, progressInfo, parent)
+                            onTapped: openFileContext(model, parent)
                         }
                         TapHandler {
                             acceptedButtons: Qt.LeftButton
-                            onLongPressed: openFileContext(author, model.display, eventId, toolTip, progressInfo, parent)
+                            onLongPressed: openFileContext(model, parent)
                         }
                     }
                 }
@@ -886,28 +892,28 @@ Kirigami.ScrollablePage {
     }
 
     /// Open message context dialog for file and videos
-    function openFileContext(author, message, eventId, source, progressInfo, file) {
+    function openFileContext(event, file) {
         const contextMenu = fileDelegateContextMenu.createObject(page, {
-            author: author,
-            message: message,
-            eventId: eventId,
-            source: source,
+            author: event.author,
+            message: event.message,
+            eventId: event.eventId,
+            source: event.toolTip,
             file: file,
-            progressInfo: progressInfo,
+            progressInfo: event.progressInfo,
         });
         contextMenu.open();
     }
 
     /// Open context menu for normal message
-    function openMessageContext(author, message, eventId, source, eventType, formattedBody, selectedText) {
+    function openMessageContext(event, selectedText) {
         const contextMenu = messageDelegateContextMenu.createObject(page, {
             selectedText: selectedText,
-            author: author,
-            message: message,
-            eventId: eventId,
-            formattedBody: formattedBody,
-            source: source,
-            eventType: eventType
+            author: event.author,
+            message: event.message,
+            eventId: event.eventId,
+            formattedBody: event.formattedBody,
+            source: event.toolTip,
+            eventType: event.eventType
         });
         contextMenu.open();
     }
