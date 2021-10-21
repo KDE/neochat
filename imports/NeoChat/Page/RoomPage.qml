@@ -371,18 +371,8 @@ Kirigami.ScrollablePage {
 
                     innerObject: TextDelegate {
                         isEmote: true
-                        Layout.fillWidth: Config.compactLayout
                         Layout.maximumWidth: emoteContainer.bubbleMaxWidth
-                        Layout.rightMargin: Kirigami.Units.largeSpacing
-                        Layout.leftMargin: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing : 0
-                        TapHandler {
-                            acceptedButtons: Qt.RightButton
-                            onTapped: openMessageContext(model, parent.selectedText)
-                        }
-                        TapHandler {
-                            acceptedButtons: Qt.LeftButton
-                            onLongPressed: openMessageContext(model, parent.selectedText)
-                        }
+                        onRequestOpenMessageContext: openMessageContext(model, parent.selectedText)
                     }
                 }
             }
@@ -397,18 +387,8 @@ Kirigami.ScrollablePage {
                     hoverComponent: hoverActions
 
                     innerObject: TextDelegate {
-                        Layout.fillWidth: Config.compactLayout
                         Layout.maximumWidth: messageContainer.bubbleMaxWidth
-                        Layout.rightMargin: Kirigami.Units.largeSpacing
-                        Layout.leftMargin: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing : 0
-                        TapHandler {
-                            acceptedButtons: Qt.RightButton
-                            onTapped: openMessageContext(model, parent.selectedText)
-                        }
-                        TapHandler {
-                            acceptedButtons: Qt.LeftButton
-                            onLongPressed: openMessageContext(model, parent.selectedText)
-                        }
+                        onRequestOpenMessageContext: openMessageContext(model, parent.selectedText)
                     }
                 }
             }
@@ -423,9 +403,8 @@ Kirigami.ScrollablePage {
 
                     innerObject: TextDelegate {
                         Layout.fillWidth: !Config.compactLayout
+                        hasContextMenu: false
                         Layout.maximumWidth: noticeContainer.bubbleMaxWidth
-                        Layout.rightMargin: Kirigami.Units.largeSpacing
-                        Layout.leftMargin: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing : 0
                     }
                 }
             }

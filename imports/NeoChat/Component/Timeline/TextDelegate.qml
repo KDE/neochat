@@ -17,7 +17,16 @@ TextEdit {
     property bool isEmote: false
     property string textMessage: model.display
     property bool spoilerRevealed: !hasSpoiler.test(textMessage)
+
+    property bool hasContextMenu: true
+
+    signal requestOpenMessageContext()
+
     ListView.onReused: Qt.binding(() => !hasSpoiler.test(textMessage))
+
+    Layout.fillWidth: Config.compactLayout
+    Layout.rightMargin: Kirigami.Units.largeSpacing
+    Layout.leftMargin: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing : 0
 
     text: "<style>
 table {
@@ -53,8 +62,6 @@ a{
     wrapMode: Text.Wrap
     textFormat: Text.RichText
 
-    Layout.fillWidth: true
-
     onLinkActivated: RoomManager.openResource(link)
     onHoveredLinkChanged: if (hoveredLink.length > 0) {
         applicationWindow().hoverLinkIndicator.text = hoveredLink;
@@ -69,5 +76,17 @@ a{
     TapHandler {
         enabled: !parent.hoveredLink && !spoilerRevealed
         onTapped: spoilerRevealed = true
+    }
+
+    TapHandler {
+        acceptedButtons: Qt.RightButton
+        onTapped: openMessageContext(model, parent.selectedText)
+        enabled: hasContextMenu
+    }
+
+    TapHandler {
+        acceptedButtons: Qt.LeftButton
+        onLongPressed: requestOpenMessageContext()
+        enabled: hasContextMenu
     }
 }
