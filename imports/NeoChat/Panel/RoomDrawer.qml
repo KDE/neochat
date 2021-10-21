@@ -18,6 +18,46 @@ Kirigami.OverlayDrawer {
     id: roomDrawer
     readonly property var room: RoomManager.currentRoom
 
+    width: modal ? undefined : actualWidth
+    readonly property int minWidth: Kirigami.Units.gridUnit * 15
+    readonly property int maxWidth: Kirigami.Units.gridUnit * 25
+    readonly property int defaultWidth: Kirigami.Units.gridUnit * 20
+    property int actualWidth: {
+        if (Config.roomDrawerWidth === -1) {
+            return Kirigami.Units.gridUnit * 20;
+        } else {
+            return Config.roomDrawerWidth
+        }
+    }
+
+    MouseArea {
+        anchors.left: parent.left
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.right: undefined
+        width: 2
+        z: 500
+        cursorShape: !Kirigami.Settings.isMobile ? Qt.SplitHCursor : undefined
+        enabled: true
+        visible: true
+        onPressed: _lastX = mapToGlobal(mouseX, mouseY).x
+        onReleased: {
+            Config.roomDrawerWidth = roomDrawer.actualWidth;
+            Config.save();
+        }
+        property real _lastX: -1
+
+        onPositionChanged: {
+            if (_lastX === -1) {
+                return;
+            }
+            if (Qt.application.layoutDirection === Qt.RightToLeft) {
+                roomDrawer.actualWidth = Math.min(roomDrawer.maxWidth, Math.max(roomDrawer.minWidth, Config.roomDrawerWidth - _lastX + mapToGlobal(mouseX, mouseY).x))
+            } else {
+                roomDrawer.actualWidth = Math.min(roomDrawer.maxWidth, Math.max(roomDrawer.minWidth, Config.roomDrawerWidth + _lastX - mapToGlobal(mouseX, mouseY).x))
+            }
+        }
+    }
     enabled: true
 
     edge: Qt.application.layoutDirection == Qt.RightToLeft ? Qt.LeftEdge : Qt.RightEdge
@@ -30,7 +70,6 @@ Kirigami.OverlayDrawer {
         active: roomDrawer.drawerOpen
         sourceComponent: ColumnLayout {
             id: columnLayout
-            anchors.fill: parent
             spacing: 0
             Kirigami.AbstractApplicationHeader {
                 Layout.fillWidth: true
@@ -78,67 +117,61 @@ Kirigami.OverlayDrawer {
                 }
             }
 
-            Control {
+            ColumnLayout {
                 Layout.fillWidth: true
-                padding: Kirigami.Units.largeSpacing
-                contentItem: ColumnLayout {
-                    id: infoLayout
+                Layout.margins: Kirigami.Units.largeSpacing
+                Kirigami.Heading {
+                    text: i18n("Room information")
+                    level: 3
+                }
+                RowLayout {
                     Layout.fillWidth: true
-                    Kirigami.Heading {
-                        text: i18n("Room information")
-                        level: 3
+                    Layout.margins: Kirigami.Units.largeSpacing
+
+                    spacing: Kirigami.Units.largeSpacing
+
+                    Kirigami.Avatar {
+                        Layout.preferredWidth: Kirigami.Units.gridUnit * 3.5
+                        Layout.preferredHeight: Kirigami.Units.gridUnit * 3.5
+
+                        name: room ? room.name : i18n("No name")
+                        source: room ? ("image://mxc/" +  room.avatarMediaId) : ""
                     }
-                    RowLayout {
+
+                    ColumnLayout {
                         Layout.fillWidth: true
-                        Layout.margins: Kirigami.Units.largeSpacing
+                        Layout.alignment: Qt.AlignVCenter
+                        spacing: 0
 
-                        spacing: Kirigami.Units.largeSpacing
-
-                        Kirigami.Avatar {
-                            Layout.preferredWidth: Kirigami.Units.gridUnit * 3.5
-                            Layout.preferredHeight: Kirigami.Units.gridUnit * 3.5
-
-                            name: room ? room.name : i18n("No name")
-                            source: room ? ("image://mxc/" +  room.avatarMediaId) : ""
-                        }
-
-                        ColumnLayout {
+                        Kirigami.Heading {
+                            Layout.maximumWidth: Kirigami.Units.gridUnit * 9
                             Layout.fillWidth: true
-                            Layout.alignment: Qt.AlignVCenter
-                            spacing: 0
-
-                            Kirigami.Heading {
-                                Layout.maximumWidth: Kirigami.Units.gridUnit * 9
-                                Layout.fillWidth: true
-                                level: 1
-                                font.bold: true
-                                wrapMode: Label.Wrap
-                                text: room ? room.displayName : i18n("No name")
-                            }
-                            Label {
-                                Layout.fillWidth: true
-                                text: room && room.canonicalAlias ? room.canonicalAlias : i18n("No Canonical Alias")
-                            }
+                            level: 1
+                            font.bold: true
+                            wrapMode: Label.Wrap
+                            text: room ? room.displayName : i18n("No name")
+                        }
+                        Label {
+                            Layout.fillWidth: true
+                            text: room && room.canonicalAlias ? room.canonicalAlias : i18n("No Canonical Alias")
                         }
                     }
+                }
 
-                    TextEdit {
-                        Layout.maximumWidth: Kirigami.Units.gridUnit * 13
-                        Layout.preferredWidth: Kirigami.Units.gridUnit * 13
-                        Layout.fillWidth: true
-                        text: room && room.topic ? room.topic.replace(replaceLinks, "<a href=\"$1\">$1</a>") : i18n("No Topic")
-                        readonly property var replaceLinks: /\(https:\/\/[^ ]*\)/
-                        textFormat: TextEdit.MarkdownText
-                        wrapMode: Text.WordWrap
-                        selectByMouse: true
-                        color: Kirigami.Theme.textColor
-                        onLinkActivated: Qt.openUrlExternally(link)
-                        readOnly: true
-                        MouseArea {
-                            anchors.fill: parent
-                            acceptedButtons: Qt.NoButton
-                            cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.IBeamCursor
-                        }
+                TextEdit {
+                    Layout.fillWidth: true
+                    text: room && room.topic ? room.topic.replace(replaceLinks, "<a href=\"$1\">$1</a>") : i18n("No Topic")
+                    readonly property var replaceLinks: /\(https:\/\/[^ ]*\)/
+                    textFormat: TextEdit.MarkdownText
+                    wrapMode: Text.WordWrap
+                    selectByMouse: true
+                    color: Kirigami.Theme.textColor
+                    onLinkActivated: Qt.openUrlExternally(link)
+                    readOnly: true
+                    MouseArea {
+                        anchors.fill: parent
+                        acceptedButtons: Qt.NoButton
+                        cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.IBeamCursor
                     }
                 }
             }
