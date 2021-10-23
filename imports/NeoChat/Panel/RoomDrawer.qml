@@ -189,8 +189,11 @@ Kirigami.OverlayDrawer {
                 padding: Kirigami.Units.smallSpacing
                 implicitWidth: parent.width
                 z: 2
-                Kirigami.Theme.inherit: false
-                Kirigami.Theme.colorSet: Kirigami.Theme.Window
+                background: Rectangle {
+                    color: Kirigami.Theme.backgroundColor
+                    Kirigami.Theme.inherit: false
+                    Kirigami.Theme.colorSet: Kirigami.Theme.Window
+                }
                 contentItem: Kirigami.SearchField {
                     id: userListSearchField
                     onAccepted: sortedMessageEventModel.filterString = text;
