@@ -8,7 +8,7 @@ cmake_minimum_required(VERSION 3.16)
 
 project(NeoChat)
 
-set(KF5_MIN_VERSION "5.86.0")
+set(KF5_MIN_VERSION "5.87.0")
 set(QT_MIN_VERSION "5.15.0")
 
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
