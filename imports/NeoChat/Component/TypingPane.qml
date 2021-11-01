@@ -90,6 +90,7 @@ Loader {
                 id: typingLabel
                 elide: Text.ElideRight
                 text: root.labelText
+                textFormat: Text.PlainText
             }
         }
 
