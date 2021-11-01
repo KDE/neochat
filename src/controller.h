@@ -40,8 +40,6 @@ class Controller : public QObject
 public:
     static Controller &instance();
 
-    [[nodiscard]] QVector<Connection *> connections() const;
-
     void setActiveConnection(Connection *connection);
     [[nodiscard]] Connection *activeConnection() const;
 
@@ -97,7 +95,6 @@ private:
     explicit Controller(QObject *parent = nullptr);
     ~Controller() override;
 
-    QVector<Connection *> m_connections;
     QPointer<Connection> m_connection;
     bool m_busy = false;
 

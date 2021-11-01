@@ -303,16 +303,14 @@ Kirigami.ScrollablePage {
             spacing: 0
             Repeater {
                 id: accountList
-                model: AccountListModel {
-                    id: accountListModel
-                }
+                model: AccountRegistry
                 delegate: Kirigami.BasicListItem {
                     checkable: true
-                    checked: Controller.activeConnection && Controller.activeConnection.localUser.id === model.user.id
+                    checked: Controller.activeConnection && Controller.activeConnection.localUserId === model.connection.localUserId
                     onClicked: Controller.activeConnection = model.connection
                     Layout.fillWidth: true
                     Layout.fillHeight: true
-                    text: model.user.id
+                    text: model.connection.localUserId
                 }
             }
         }

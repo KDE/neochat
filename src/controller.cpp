@@ -34,6 +34,7 @@
 
 #include <signal.h>
 
+#include "accountregistry.h"
 #include "csapi/account-data.h"
 #include "csapi/content-repo.h"
 #include "csapi/joining.h"
@@ -45,6 +46,8 @@
 #include "neochatuser.h"
 #include "roommanager.h"
 #include "settings.h"
+#include "utils.h"
+
 #include <KStandardShortcut>
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MAC)
@@ -118,7 +121,7 @@ Controller::Controller(QObject *parent)
 
 Controller::~Controller()
 {
-    for (auto c : qAsConst(m_connections)) {
+    for (auto c : AccountRegistry::instance().accounts()) {
         c->saveState();
     }
 }
@@ -186,28 +189,24 @@ void Controller::logout(Connection *conn, bool serverSideLogout)
     job.start();
     loop.exec();
 
-    conn->stopSync();
-    Q_EMIT conn->stateChanged();
-    Q_EMIT conn->loggedOut();
-    if (conn == activeConnection() && !m_connections.isEmpty()) {
-        setActiveConnection(m_connections[0]);
+    if (conn == activeConnection() && AccountRegistry::instance().count() > 1) {
+        setActiveConnection(AccountRegistry::instance().accounts()[0]);
     } else {
         setActiveConnection(nullptr);
     }
     if (!serverSideLogout) {
         return;
     }
-    auto logoutJob = conn->callApi<LogoutJob>();
-    connect(logoutJob, &LogoutJob::failure, this, [=] {
-        Q_EMIT errorOccured(i18n("Server-side Logout Failed: %1", logoutJob->errorString()));
-    });
+    conn->logout();
 }
 
 void Controller::addConnection(Connection *c)
 {
     Q_ASSERT_X(c, __FUNCTION__, "Attempt to add a null connection");
 
-    m_connections += c;
+#ifndef QUOTIENT_07
+    AccountRegistry::instance().add(c);
+#endif
 
     c->setLazyLoading(true);
 
@@ -240,11 +239,16 @@ void Controller::addConnection(Connection *c)
 void Controller::dropConnection(Connection *c)
 {
     Q_ASSERT_X(c, __FUNCTION__, "Attempt to drop a null connection");
-    m_connections.removeOne(c);
+
+#ifndef QUOTIENT_07
+    AccountRegistry::instance().drop(c);
+#endif
 
     Q_EMIT connectionDropped(c);
     Q_EMIT accountCountChanged();
+#ifndef QUOTIENT_07
     c->deleteLater();
+#endif
 }
 
 void Controller::invokeLogin()
@@ -491,14 +495,9 @@ NeochatChangePasswordJob::NeochatChangePasswordJob(const QString &newPassword, b
     setRequestData(_data);
 }
 
-QVector<Connection *> Controller::connections() const
-{
-    return m_connections;
-}
-
 int Controller::accountCount() const
 {
-    return m_connections.count();
+    return AccountRegistry::instance().count();
 }
 
 bool Controller::quitOnLastWindowClosed()

@@ -42,7 +42,7 @@ Kirigami.Page {
         Controls.ScrollBar.horizontal.policy: Controls.ScrollBar.AlwaysOff
         ListView {
             clip: true
-            model: AccountListModel { }
+            model: AccountRegistry
             delegate: Kirigami.SwipeListItem {
                 leftPadding: 0
                 rightPadding: 0
@@ -50,10 +50,10 @@ Kirigami.Page {
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
 
-                    text: model.user.displayName
+                    text: model.connection.localUser.displayName
                     labelItem.textFormat: Text.PlainText
-                    subtitle: model.user.id
-                    icon: model.user.avatarMediaId ? ("image://mxc/" + model.user.avatarMediaId) : "im-user"
+                    subtitle: model.connection.localUserId
+                    icon: model.connection.localUser.avatarMediaId ? ("image://mxc/" + model.connection.localUser.avatarMediaId) : "im-user"
 
                     onClicked: {
                         Controller.activeConnection = model.connection

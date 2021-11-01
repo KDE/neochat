@@ -310,6 +310,18 @@ Kirigami.ApplicationWindow {
     }
 
     Connections {
+        target: AccountRegistry
+        function onRowsRemoved() {
+            if (AccountRegistry.rowCount() === 0) {
+                RoomManager.reset();
+                pageStack.clear();
+                roomListLoaded = false;
+                pageStack.push("qrc:/imports/NeoChat/Page/WelcomePage.qml");
+            }
+        }
+    }
+
+    Connections {
         target: Controller
 
         function onInitiated() {
@@ -321,15 +333,6 @@ Kirigami.ApplicationWindow {
                 });
                 roomListLoaded = true;
                 RoomManager.loadInitialRoom();
-            }
-        }
-
-        function onConnectionDropped() {
-            if (Controller.accountCount === 0) {
-                RoomManager.reset();
-                pageStack.clear();
-                roomListLoaded = false;
-                pageStack.replace("qrc:/imports/NeoChat/Page/WelcomePage.qml");
             }
         }
 
