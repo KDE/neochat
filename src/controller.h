@@ -145,6 +145,7 @@ public Q_SLOTS:
 
 private:
     QNetworkConfigurationManager *m_mgr;
+    QHash<QString, QSet<QString>> m_turnServers; // userId -> List of TURN servers in the format that gstreamer needs
 };
 
 // TODO libQuotient 0.7: Drop

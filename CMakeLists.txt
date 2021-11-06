@@ -114,6 +114,9 @@ find_package(QCoro REQUIRED)
 
 qcoro_enable_coroutines()
 
+include(FindPkgConfig)
+pkg_check_modules(GSTREAMER IMPORTED_TARGET gstreamer-sdp-1.0>=1.16 gstreamer-webrtc-1.0>=1.16)
+
 if(ANDROID)
     configure_file(${CMAKE_CURRENT_SOURCE_DIR}/android/version.gradle.in ${CMAKE_BINARY_DIR}/version.gradle)
 endif()

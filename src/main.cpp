@@ -66,7 +66,20 @@
 #include "colorschemer.h"
 #endif
 
+#include "voip/audiosources.h"
+#include "voip/devicemonitor.h"
+#include "voip/pipelinemanager.h"
+#include "voip/screencast.h"
+#include "voip/videosources.h"
+#include "voip/webrtcfoo.h"
+#include "voip/windowmodel.h"
+
+#include <gst/gst.h>
+
 using namespace Quotient;
+
+Q_DECLARE_METATYPE(GstDevice *)
+Q_DECLARE_METATYPE(GstElement *)
 
 #ifdef HAVE_KDBUSADDONS
 static void raiseWindow(QWindow *window)
@@ -170,6 +183,25 @@ int main(int argc, char *argv[])
         colorScheme.apply(config->colorScheme());
     }
 #endif
+
+    GError *error;
+    if (!gst_init_check(&argc, &argv, &error)) {
+        qWarning() << "Failed to initialize gstreamer";
+        return -1;
+    }
+    WebRTC();
+
+    g_object_unref(gst_element_factory_make("qmlglsink", nullptr));
+    DeviceMonitor::instance();
+    VideoSources::instance();
+    AudioSources::instance();
+    qmlRegisterSingletonInstance("org.kde.voip", 1, 0, "VideoSources", &VideoSources::instance());
+    qmlRegisterSingletonInstance("org.kde.voip", 1, 0, "AudioSources", &AudioSources::instance());
+    qmlRegisterSingletonInstance("org.kde.voip", 1, 0, "ScreenCastManager", &ScreenCastManager::instance());
+    qmlRegisterSingletonInstance("org.kde.voip", 1, 0, "PipelineManager", &PipelineManager::instance());
+    qmlRegisterSingletonInstance("org.kde.voip", 1, 0, "SinkModel", &SinkModel::instance());
+    qmlRegisterSingletonInstance("org.kde.voip", 1, 0, "WindowModel", &WindowModel::instance());
+    qRegisterMetaType<QVector<GstElement *>>();
 
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Controller", &Controller::instance());
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Clipboard", &clipboard);

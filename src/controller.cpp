@@ -62,6 +62,26 @@ Controller::Controller(QObject *parent)
     Connection::setRoomType<NeoChatRoom>();
     Connection::setUserType<NeoChatUser>();
 
+    connect(this, &Controller::connectionAdded, this, [=, this](Connection *connection) {
+        connection->getTurnServers();
+
+        connect(connection, &Connection::turnServersChanged, this, [=, this](const QJsonObject &data) {
+            m_turnServers[connection->userId()].clear();
+            const auto username = QUrl::toPercentEncoding(data["username"].toString());
+            const auto password = QUrl::toPercentEncoding(data["password"].toString());
+            const auto ttl = data["ttl"].toInt();
+            for (const auto &uri : data["uris"].toArray()) {
+                const auto parts = uri.toString().split(":");
+                const auto port = parts[2].split("?")[0];
+                m_turnServers[connection->userId()] +=
+                    parts[0] + QStringLiteral("://") + username + QStringLiteral(":") + password + QStringLiteral("@") + parts[1] + QStringLiteral(":") + port;
+            }
+            QTimer::singleShot(1000 * ttl, this, [this, connection]() {
+                connection->getTurnServers();
+            });
+        });
+    });
+
 #ifndef Q_OS_ANDROID
     TrayIcon *trayIcon = new TrayIcon(this);
     if (NeoChatConfig::self()->systemTray()) {

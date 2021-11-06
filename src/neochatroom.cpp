@@ -1,3 +1,4 @@
+
 // SPDX-FileCopyrightText: 2018-2020 Black Hat <bhat@encom.eu.org>
 // SPDX-License-Identifier: GPL-3.0-only
 
@@ -24,6 +25,10 @@
 #include "csapi/rooms.h"
 #include "csapi/typing.h"
 #include "events/accountdataevents.h"
+#include "events/callanswerevent.h"
+#include "events/callcandidatesevent.h"
+#include "events/callhangupevent.h"
+#include "events/callinviteevent.h"
 #include "events/reactionevent.h"
 #include "events/roomcanonicalaliasevent.h"
 #include "events/roommessageevent.h"
@@ -35,6 +40,8 @@
 #include "stickerevent.h"
 #include "user.h"
 #include "utils.h"
+
+#include "voip/callhandler.h"
 
 #include <KLocalizedString>
 
@@ -58,6 +65,19 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
         }
     });
     connect(this, &Room::displaynameChanged, this, &NeoChatRoom::displayNameChanged);
+
+    connect(this, &Room::callEvent, this, [=](Quotient::Room *, const Quotient::RoomEvent *event) {
+        // TODO throw away older events
+        if (const auto inviteEvent = eventCast<const CallInviteEvent>(event)) {
+            CallHandler::instance().handleInvite(inviteEvent);
+        } else if (const auto answerEvent = eventCast<const CallAnswerEvent>(event)) {
+            CallHandler::instance().handleAnswer(answerEvent);
+        } else if (const auto candidatesEvent = eventCast<const CallCandidatesEvent>(event)) {
+            CallHandler::instance().handleCandidates(candidatesEvent);
+        } else if (const auto hangupEvent = eventCast<const CallHangupEvent>(event)) {
+            CallHandler::instance().handleHangup(hangupEvent);
+        }
+    });
 }
 
 void NeoChatRoom::uploadFile(const QUrl &url, const QString &body)
