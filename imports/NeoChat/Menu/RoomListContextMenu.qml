@@ -10,6 +10,7 @@ import org.kde.kirigami 2.19 as Kirigami
 import org.kde.neochat 1.0
 import NeoChat.Page 1.0
 
+
 /**
  * Context menu when clicking on a room in the room list
  */
@@ -44,6 +45,18 @@ Menu {
         text: i18n("Mark as Read")
 
         onTriggered: room.markAllMessagesAsRead()
+    }
+
+    MenuItem {
+        text: i18nc("@action:inmenu", "Copy address to clipboard")
+
+        onTriggered: {
+            if (room.canonicalAlias.length === 0) {
+                Clipboard.saveText(room.id)
+            } else {
+                Clipboard.saveText(room.canonicalAlias)
+            }
+        }
     }
 
     MenuSeparator {}
