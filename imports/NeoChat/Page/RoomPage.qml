@@ -28,6 +28,8 @@ Kirigami.ScrollablePage {
 
     title: currentRoom.htmlSafeDisplayName
 
+    KeyNavigation.left: pageStack.get(0)
+
     Connections {
         target: RoomManager
         function onCurrentRoomChanged() {

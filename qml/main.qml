@@ -31,9 +31,7 @@ Kirigami.ApplicationWindow {
 
     property bool roomListLoaded: false
 
-    property RoomPage roomPage: RoomPage {
-        KeyNavigation.left: pageStack.get(0)
-    }
+    property RoomPage roomPage
 
     Connections {
         target: root.quitAction
@@ -80,7 +78,7 @@ Kirigami.ApplicationWindow {
         target: RoomManager
 
         function onPushRoom(room, event) {
-            pageStack.push(root.roomPage);
+            root.roomPage = pageStack.push("qrc:/imports/NeoChat/Page/RoomPage.qml");
             root.roomPage.forceActiveFocus();
             if (event.length > 0) {
                 roomPage.goToEvent(event);
