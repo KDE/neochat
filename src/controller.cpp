@@ -278,7 +278,7 @@ void Controller::invokeLogin()
                     Q_EMIT errorOccured(i18n("Login Failed: Access Token invalid or revoked"));
                     logout(connection, false);
                 } else {
-                    Q_EMIT errorOccured(i18n("Login Failed", error));
+                    Q_EMIT errorOccured(i18n("Login Failed: %1", error));
                     logout(connection, true);
                 }
                 Q_EMIT initiated();
