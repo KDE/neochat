@@ -311,23 +311,30 @@ QByteArray Controller::loadAccessTokenFromFile(const AccountSettings &account)
 
 QByteArray Controller::loadAccessTokenFromKeyChain(const AccountSettings &account)
 {
-    qDebug() << "Read the access token from the keychain for " << account.userId();
-    QKeychain::ReadPasswordJob job(qAppName());
-    job.setAutoDelete(false);
-    job.setKey(account.userId());
-    QEventLoop loop;
-    QKeychain::ReadPasswordJob::connect(&job, &QKeychain::Job::finished, &loop, &QEventLoop::quit);
-    job.start();
-    loop.exec();
+    QKeychain::Error error;
+    QString errorString;
+    do {
+        qDebug() << "Reading access token from the keychain for" << account.userId();
+        QKeychain::ReadPasswordJob job(qAppName());
+        job.setAutoDelete(false);
+        job.setKey(account.userId());
+        QEventLoop loop;
+        QKeychain::ReadPasswordJob::connect(&job, &QKeychain::Job::finished, &loop, &QEventLoop::quit);
+        job.start();
+        loop.exec();
 
-    if (job.error() == QKeychain::Error::NoError) {
-        return job.binaryData();
-    }
+        if (job.error() == QKeychain::Error::NoError) {
+            return job.binaryData();
+        }
+        Q_EMIT globalErrorOccured(i18n("Unable to read access token"), i18n("Please make sure that the keychain is opened."));
+        error = job.error();
+        errorString = job.errorString();
+    } while (error == QKeychain::Error::OtherError);
 
-    qWarning() << "Could not read the access token from the keychain: " << qPrintable(job.errorString());
+    qWarning() << "Could not read the access token from the keychain:" << errorString;
     // no access token from the keychain, try token file
     auto accessToken = loadAccessTokenFromFile(account);
-    if (job.error() == QKeychain::Error::EntryNotFound) {
+    if (error == QKeychain::Error::EntryNotFound) {
         if (!accessToken.isEmpty()) {
             qDebug() << "Migrating the access token from file to the keychain for " << account.userId();
             bool removed = false;

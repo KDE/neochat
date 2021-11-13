@@ -335,7 +335,7 @@ Kirigami.ApplicationWindow {
         }
 
         function onGlobalErrorOccured(error, detail) {
-            showPassiveNotification(i18nc("%1: %2", error, detail));
+            showPassiveNotification(i18n("%1: %2", error, detail));
         }
 
         function onShowWindow() {
