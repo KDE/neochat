@@ -92,7 +92,7 @@ void RoomListModel::setConnection(Connection *connection)
 
     m_connection = connection;
 
-    for (NeoChatRoom *room : qAsConst(m_rooms)) {
+    for (NeoChatRoom *room : std::as_const(m_rooms)) {
         room->disconnect(this);
     }
 
@@ -103,7 +103,7 @@ void RoomListModel::setConnection(Connection *connection)
     connect(connection, &Connection::aboutToDeleteRoom, this, &RoomListModel::deleteRoom);
     connect(connection, &Connection::directChatsListChanged, this, [this, connection](Quotient::DirectChatsMap additions, Quotient::DirectChatsMap removals) {
         auto refreshRooms = [this, &connection](Quotient::DirectChatsMap rooms) {
-            for (const QString &roomID : qAsConst(rooms)) {
+            for (const QString &roomID : std::as_const(rooms)) {
                 auto room = connection->room(roomID);
                 if (room) {
                     refresh(static_cast<NeoChatRoom *>(room));
@@ -249,7 +249,7 @@ void RoomListModel::handleNotifications()
 void RoomListModel::refreshNotificationCount()
 {
     int count = 0;
-    for (auto room : qAsConst(m_rooms)) {
+    for (auto room : std::as_const(m_rooms)) {
         count += room->notificationCount();
     }
     if (m_notificationCount == count) {
@@ -489,7 +489,7 @@ bool RoomListModel::categoryVisible(int category) const
 
 NeoChatRoom *RoomListModel::roomByAliasOrId(const QString &aliasOrId)
 {
-    for (const auto &room : qAsConst(m_rooms)) {
+    for (const auto &room : std::as_const(m_rooms)) {
         if (room->aliases().contains(aliasOrId) || room->id() == aliasOrId) {
             return room;
         }

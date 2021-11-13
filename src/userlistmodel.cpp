@@ -32,7 +32,7 @@ void UserListModel::setRoom(Quotient::Room *room)
     if (m_currentRoom) {
         m_currentRoom->disconnect(this);
         //    m_currentRoom->connection()->disconnect(this);
-        for (User *user : qAsConst(m_users)) {
+        for (User *user : std::as_const(m_users)) {
             user->disconnect(this);
         }
         m_users.clear();
@@ -47,7 +47,7 @@ void UserListModel::setRoom(Quotient::Room *room)
             m_users = m_currentRoom->users();
             std::sort(m_users.begin(), m_users.end(), room->memberSorter());
         }
-        for (User *user : qAsConst(m_users)) {
+        for (User *user : std::as_const(m_users)) {
 #ifdef QUOTIENT_07
             connect(user, &User::defaultAvatarChanged, this, [this, user]() {
                 avatarChanged(user, m_currentRoom);

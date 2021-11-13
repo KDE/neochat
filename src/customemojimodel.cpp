@@ -88,7 +88,7 @@ void CustomEmojiModel::setConnection(Connection *it)
 QString CustomEmojiModel::preprocessText(const QString &it)
 {
     auto cp = it;
-    for (const auto &emoji : qAsConst(d->emojies)) {
+    for (const auto &emoji : std::as_const(d->emojies)) {
         cp.replace(
             emoji.regexp,
             QStringLiteral(R"(<img data-mx-emoticon="" src="%1" alt="%2" title="%2" height="32" vertical-align="middle" />)").arg(emoji.url, emoji.name));
@@ -99,7 +99,7 @@ QString CustomEmojiModel::preprocessText(const QString &it)
 QVariantList CustomEmojiModel::filterModel(const QString &filter)
 {
     QVariantList results;
-    for (const auto &emoji : qAsConst(d->emojies)) {
+    for (const auto &emoji : std::as_const(d->emojies)) {
         if (results.length() >= 10)
             break;
         if (!emoji.name.contains(filter, Qt::CaseInsensitive))
