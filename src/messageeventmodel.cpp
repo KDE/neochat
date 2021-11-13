@@ -353,8 +353,11 @@ void MessageEventModel::refreshLastUserEvents(int baseTimelineRow)
     const auto limit = timelineBottom + std::min(baseTimelineRow + 10, m_currentRoom->timelineSize());
     for (auto it = timelineBottom + std::max(baseTimelineRow - 10, 0); it != limit; ++it) {
         if ((*it)->senderId() == lastSender) {
-            auto idx = index(it - timelineBottom);
-            Q_EMIT dataChanged(idx, idx);
+            // See https://bugreports.qt.io/browse/QTBUG-84093
+            beginRemoveRows(QModelIndex(), it - timelineBottom, it - timelineBottom);
+            endRemoveRows();
+            beginInsertRows(QModelIndex(), it - timelineBottom, it - timelineBottom);
+            endInsertRows();
         }
     }
 }
