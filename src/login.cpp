@@ -27,7 +27,7 @@ void Login::init()
     m_supportsPassword = false;
     m_ssoUrl = QUrl();
 
-    connect(this, &Login::matrixIdChanged, this, [=]() {
+    connect(this, &Login::matrixIdChanged, this, [this]() {
         setHomeserverReachable(false);
 
         if (m_matrixId == "@") {
@@ -40,7 +40,7 @@ void Login::init()
             m_connection = new Connection();
         }
         m_connection->resolveServer(m_matrixId);
-        connectSingleShot(m_connection, &Connection::loginFlowsChanged, this, [=]() {
+        connectSingleShot(m_connection, &Connection::loginFlowsChanged, this, [this]() {
             setHomeserverReachable(true);
             m_testing = false;
             Q_EMIT testingChanged();
@@ -49,7 +49,7 @@ void Login::init()
             Q_EMIT loginFlowsChanged();
         });
     });
-    connect(m_connection, &Connection::connected, this, [=] {
+    connect(m_connection, &Connection::connected, this, [this] {
         Q_EMIT connected();
         m_isLoggingIn = false;
         Q_EMIT isLoggingInChanged();
@@ -67,22 +67,22 @@ void Login::init()
         Controller::instance().setActiveConnection(m_connection);
         m_connection = nullptr;
     });
-    connect(m_connection, &Connection::networkError, this, [=](QString error, const QString &, int, int) {
+    connect(m_connection, &Connection::networkError, this, [this](QString error, const QString &, int, int) {
         Q_EMIT Controller::instance().globalErrorOccured(i18n("Network Error"), std::move(error));
         m_isLoggingIn = false;
         Q_EMIT isLoggingInChanged();
     });
-    connect(m_connection, &Connection::loginError, this, [=](QString error, const QString &) {
+    connect(m_connection, &Connection::loginError, this, [this](QString error, const QString &) {
         Q_EMIT errorOccured(i18n("Login Failed: %1", error));
         m_isLoggingIn = false;
         Q_EMIT isLoggingInChanged();
     });
 
-    connect(m_connection, &Connection::resolveError, this, [=](QString error) {
+    connect(m_connection, &Connection::resolveError, this, [](QString error) {
         Q_EMIT Controller::instance().globalErrorOccured(i18n("Network Error"), std::move(error));
     });
 
-    connectSingleShot(m_connection, &Connection::syncDone, this, [=]() {
+    connectSingleShot(m_connection, &Connection::syncDone, this, [this]() {
         Q_EMIT Controller::instance().initiated();
     });
 }
@@ -160,7 +160,7 @@ QUrl Login::ssoUrl() const
 void Login::loginWithSso()
 {
     m_connection->resolveServer(m_matrixId);
-    connectSingleShot(m_connection, &Connection::loginFlowsChanged, this, [=]() {
+    connectSingleShot(m_connection, &Connection::loginFlowsChanged, this, [this]() {
         SsoSession *session = m_connection->prepareForSso(m_deviceName);
         m_ssoUrl = session->ssoUrl();
     });

@@ -58,12 +58,12 @@ MessageEventModel::MessageEventModel(QObject *parent)
     qmlRegisterAnonymousType<FileTransferInfo>("org.kde.neochat", 1);
     qRegisterMetaType<FileTransferInfo>();
 
-    QTimer::singleShot(0, this, [=]() {
+    QTimer::singleShot(0, this, [this]() {
         if (!m_currentRoom) {
             return;
         }
         m_currentRoom->getPreviousContent(50);
-        connect(this, &QAbstractListModel::rowsInserted, this, [=]() {
+        connect(this, &QAbstractListModel::rowsInserted, this, [this]() {
             if (m_currentRoom->readMarkerEventId().isEmpty()) {
                 return;
             }
@@ -98,7 +98,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         lastReadEventId = room->readMarkerEventId();
 
         using namespace Quotient;
-        connect(m_currentRoom, &Room::aboutToAddNewMessages, this, [=](RoomEventsRange events) {
+        connect(m_currentRoom, &Room::aboutToAddNewMessages, this, [this](RoomEventsRange events) {
             if (NeoChatConfig::self()->showFancyEffects()) {
                 for (auto &event : events) {
                     RoomMessageEvent *message = dynamic_cast<RoomMessageEvent *>(event.get());
@@ -134,13 +134,13 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             }
             beginInsertRows({}, timelineBaseIndex(), timelineBaseIndex() + int(events.size()) - 1);
         });
-        connect(m_currentRoom, &Room::aboutToAddHistoricalMessages, this, [=](RoomEventsRange events) {
+        connect(m_currentRoom, &Room::aboutToAddHistoricalMessages, this, [this](RoomEventsRange events) {
             if (rowCount() > 0) {
                 rowBelowInserted = rowCount() - 1; // See #312
             }
             beginInsertRows({}, rowCount(), rowCount() + int(events.size()) - 1);
         });
-        connect(m_currentRoom, &Room::addedMessages, this, [=](int lowest, int biggest) {
+        connect(m_currentRoom, &Room::addedMessages, this, [this](int lowest, int biggest) {
             endInsertRows();
             if (!m_lastReadEventIndex.isValid()) {
                 // no read marker, so see if we need to create one.
@@ -184,7 +184,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             beginRemoveRows({}, i, i);
         });
         connect(m_currentRoom, &Room::pendingEventDiscarded, this, &MessageEventModel::endRemoveRows);
-        connect(m_currentRoom, &Room::readMarkerMoved, this, [=](const QString &fromEventId, const QString &toEventId) {
+        connect(m_currentRoom, &Room::readMarkerMoved, this, [this](const QString &fromEventId, const QString &toEventId) {
             Q_UNUSED(fromEventId);
             moveReadMarker(toEventId);
         });
@@ -203,7 +203,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
 #ifndef QUOTIENT_07
         connect(m_currentRoom, &Room::fileTransferCancelled, this, &MessageEventModel::refreshEvent);
 #endif
-        connect(m_currentRoom->connection(), &Connection::ignoredUsersListChanged, this, [=] {
+        connect(m_currentRoom->connection(), &Connection::ignoredUsersListChanged, this, [this] {
             beginResetModel();
             endResetModel();
         });

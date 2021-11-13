@@ -75,7 +75,7 @@ void UserDirectoryListModel::search(int count)
 
     job = m_connection->callApi<SearchUserDirectoryJob>(m_keyword, count);
 
-    connect(job, &BaseJob::finished, this, [=] {
+    connect(job, &BaseJob::finished, this, [this] {
         attempted = true;
 
         if (job->status() == BaseJob::Success) {

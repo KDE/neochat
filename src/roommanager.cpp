@@ -186,7 +186,7 @@ void RoomManager::visitRoom(Room *room, const QString &eventId)
 void RoomManager::joinRoom(Quotient::Connection *account, const QString &roomAliasOrId, const QStringList &viaServers)
 {
     account->joinRoom(QUrl::toPercentEncoding(roomAliasOrId), viaServers);
-    connectSingleShot(account, &Quotient::Connection::newRoom, this, [=](Quotient::Room *room) {
+    connectSingleShot(account, &Quotient::Connection::newRoom, this, [this](Quotient::Room *room) {
         enterRoom(dynamic_cast<NeoChatRoom *>(room));
     });
 }

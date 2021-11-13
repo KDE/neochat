@@ -43,7 +43,7 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
 {
     connect(this, &NeoChatRoom::notificationCountChanged, this, &NeoChatRoom::countChanged);
     connect(this, &NeoChatRoom::highlightCountChanged, this, &NeoChatRoom::countChanged);
-    connect(this, &Room::fileTransferCompleted, this, [=] {
+    connect(this, &Room::fileTransferCompleted, this, [this] {
         setFileUploadingProgress(0);
         setHasFileUploading(false);
     });
@@ -52,7 +52,7 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
 
     connect(this, &Quotient::Room::eventsHistoryJobChanged, this, &NeoChatRoom::lastActiveTimeChanged);
 
-    connect(this, &Room::joinStateChanged, this, [=](JoinState oldState, JoinState newState) {
+    connect(this, &Room::joinStateChanged, this, [this](JoinState oldState, JoinState newState) {
         if (oldState == JoinState::Invite && newState != JoinState::Invite) {
             Q_EMIT isInviteChanged();
         }
@@ -68,19 +68,19 @@ void NeoChatRoom::uploadFile(const QUrl &url, const QString &body)
 
     QString txnId = postFile(body.isEmpty() ? url.fileName() : body, url, false);
     setHasFileUploading(true);
-    connect(this, &Room::fileTransferCompleted, [=](const QString &id, const QUrl & /*localFile*/, const QUrl & /*mxcUrl*/) {
+    connect(this, &Room::fileTransferCompleted, [this, txnId](const QString &id, const QUrl & /*localFile*/, const QUrl & /*mxcUrl*/) {
         if (id == txnId) {
             setFileUploadingProgress(0);
             setHasFileUploading(false);
         }
     });
-    connect(this, &Room::fileTransferFailed, [=](const QString &id, const QString & /*error*/) {
+    connect(this, &Room::fileTransferFailed, [this, txnId](const QString &id, const QString & /*error*/) {
         if (id == txnId) {
             setFileUploadingProgress(0);
             setHasFileUploading(false);
         }
     });
-    connect(this, &Room::fileTransferProgress, [=](const QString &id, qint64 progress, qint64 total) {
+    connect(this, &Room::fileTransferProgress, [this, txnId](const QString &id, qint64 progress, qint64 total) {
         if (id == txnId) {
             setFileUploadingProgress(int(float(progress) / float(total) * 100));
         }

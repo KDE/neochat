@@ -101,7 +101,7 @@ void RoomListModel::setConnection(Connection *connection)
     connect(connection, &Connection::joinedRoom, this, &RoomListModel::updateRoom);
     connect(connection, &Connection::leftRoom, this, &RoomListModel::updateRoom);
     connect(connection, &Connection::aboutToDeleteRoom, this, &RoomListModel::deleteRoom);
-    connect(connection, &Connection::directChatsListChanged, this, [=](Quotient::DirectChatsMap additions, Quotient::DirectChatsMap removals) {
+    connect(connection, &Connection::directChatsListChanged, this, [this, connection](Quotient::DirectChatsMap additions, Quotient::DirectChatsMap removals) {
         auto refreshRooms = [this, &connection](Quotient::DirectChatsMap rooms) {
             for (const QString &roomID : qAsConst(rooms)) {
                 auto room = connection->room(roomID);
@@ -152,29 +152,29 @@ void RoomListModel::doAddRoom(Room *r)
 
 void RoomListModel::connectRoomSignals(NeoChatRoom *room)
 {
-    connect(room, &Room::displaynameChanged, this, [=] {
+    connect(room, &Room::displaynameChanged, this, [this, room] {
         refresh(room);
     });
-    connect(room, &Room::unreadMessagesChanged, this, [=] {
+    connect(room, &Room::unreadMessagesChanged, this, [this, room] {
         refresh(room);
     });
-    connect(room, &Room::notificationCountChanged, this, [=] {
+    connect(room, &Room::notificationCountChanged, this, [this, room] {
         refresh(room);
     });
     connect(room, &Room::avatarChanged, this, [this, room] {
         refresh(room, {AvatarRole});
     });
-    connect(room, &Room::tagsChanged, this, [=] {
+    connect(room, &Room::tagsChanged, this, [this, room] {
         refresh(room);
     });
-    connect(room, &Room::joinStateChanged, this, [=] {
+    connect(room, &Room::joinStateChanged, this, [this, room] {
         refresh(room);
     });
-    connect(room, &Room::addedMessages, this, [=] {
+    connect(room, &Room::addedMessages, this, [this, room] {
         refresh(room, {LastEventRole});
     });
     connect(room, &Room::notificationCountChanged, this, &RoomListModel::handleNotifications);
-    connect(room, &Room::highlightCountChanged, this, [=] {
+    connect(room, &Room::highlightCountChanged, this, [this, room] {
         if (room->highlightCount() == 0) {
             return;
         }
@@ -205,7 +205,7 @@ void RoomListModel::handleNotifications()
     static QStringList oldNotifications;
     auto job = m_connection->callApi<GetNotificationsJob>();
 
-    connect(job, &BaseJob::success, this, [=]() {
+    connect(job, &BaseJob::success, this, [this, job]() {
         const auto notifications = job->jsonData()["notifications"].toArray();
         if (initial) {
             initial = false;

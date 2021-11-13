@@ -72,7 +72,7 @@ Controller::Controller(QObject *parent)
         connect(trayIcon, &TrayIcon::showWindow, this, &Controller::showWindow);
         QGuiApplication::setQuitOnLastWindowClosed(false);
     }
-    connect(NeoChatConfig::self(), &NeoChatConfig::SystemTrayChanged, this, [=]() {
+    connect(NeoChatConfig::self(), &NeoChatConfig::SystemTrayChanged, this, [this, trayIcon]() {
         if (NeoChatConfig::self()->systemTray()) {
             trayIcon->show();
             connect(trayIcon, &TrayIcon::showWindow, this, &Controller::showWindow);
@@ -84,7 +84,7 @@ Controller::Controller(QObject *parent)
     });
 #endif
 
-    QTimer::singleShot(0, this, [=] {
+    QTimer::singleShot(0, this, [this] {
         invokeLogin();
     });
 
@@ -152,7 +152,7 @@ void Controller::loginWithAccessToken(const QString &serverAddr, const QString &
         conn->setHomeserver(serverUrl);
     }
 
-    connect(conn, &Connection::connected, this, [=] {
+    connect(conn, &Connection::connected, this, [this, conn, deviceName] {
         AccountSettings account(conn->userId());
         account.setKeepLoggedIn(true);
         account.setHomeserver(conn->homeserver());
@@ -165,7 +165,7 @@ void Controller::loginWithAccessToken(const QString &serverAddr, const QString &
         addConnection(conn);
         setActiveConnection(conn);
     });
-    connect(conn, &Connection::networkError, this, [=](QString error, const QString &, int, int) {
+    connect(conn, &Connection::networkError, this, [this](QString error, const QString &, int, int) {
         Q_EMIT errorOccured(i18n("Network Error: %1", error));
     });
     conn->assumeIdentity(user, token, deviceName);
@@ -210,7 +210,7 @@ void Controller::addConnection(Connection *c)
 
     c->setLazyLoading(true);
 
-    connect(c, &Connection::syncDone, this, [=] {
+    connect(c, &Connection::syncDone, this, [this, c] {
         setBusy(false);
 
         Q_EMIT syncDone();
@@ -218,11 +218,11 @@ void Controller::addConnection(Connection *c)
         c->sync(30000);
         c->saveState();
     });
-    connect(c, &Connection::loggedOut, this, [=] {
+    connect(c, &Connection::loggedOut, this, [this, c] {
         dropConnection(c);
     });
 
-    connect(c, &Connection::requestFailed, this, [=](BaseJob *job) {
+    connect(c, &Connection::requestFailed, this, [this](BaseJob *job) {
         if (job->error() == BaseJob::UserConsentRequiredError) {
             Q_EMIT userConsentRequired(job->errorUrl());
         }
@@ -265,7 +265,7 @@ void Controller::invokeLogin()
             auto accessToken = loadAccessTokenFromKeyChain(account);
 
             auto connection = new Connection(account.homeserver());
-            connect(connection, &Connection::connected, this, [=] {
+            connect(connection, &Connection::connected, this, [this, connection, id] {
                 connection->loadState();
                 addConnection(connection);
                 if (connection->userId() == id) {
@@ -273,7 +273,7 @@ void Controller::invokeLogin()
                     connectSingleShot(connection, &Connection::syncDone, this, &Controller::initiated);
                 }
             });
-            connect(connection, &Connection::loginError, this, [=](const QString &error, const QString &) {
+            connect(connection, &Connection::loginError, this, [this, connection](const QString &error, const QString &) {
                 if (error == "Unrecognised access token") {
                     Q_EMIT errorOccured(i18n("Login Failed: Access Token invalid or revoked"));
                     logout(connection, false);
@@ -283,7 +283,7 @@ void Controller::invokeLogin()
                 }
                 Q_EMIT initiated();
             });
-            connect(connection, &Connection::networkError, this, [=](const QString &error, const QString &, int, int) {
+            connect(connection, &Connection::networkError, this, [this](const QString &error, const QString &, int, int) {
                 Q_EMIT errorOccured(i18n("Network Error: %1", error));
             });
             connection->assumeIdentity(account.userId(), accessToken, account.deviceId());
@@ -386,7 +386,7 @@ void Controller::playAudio(const QUrl &localFile)
     auto player = new QMediaPlayer;
     player->setMedia(localFile);
     player->play();
-    connect(player, &QMediaPlayer::stateChanged, [=] {
+    connect(player, &QMediaPlayer::stateChanged, [player] {
         player->deleteLater();
     });
 }
@@ -574,7 +574,7 @@ NeochatDeleteDeviceJob::NeochatDeleteDeviceJob(const QString &deviceId, const Om
 void Controller::createRoom(const QString &name, const QString &topic)
 {
     auto createRoomJob = m_connection->createRoom(Connection::PublishRoom, "", name, topic, QStringList());
-    Quotient::CreateRoomJob::connect(createRoomJob, &CreateRoomJob::failure, [=] {
+    Quotient::CreateRoomJob::connect(createRoomJob, &CreateRoomJob::failure, [this, createRoomJob] {
         Q_EMIT errorOccured(i18n("Room creation failed: \"%1\"", createRoomJob->errorString()));
     });
 }

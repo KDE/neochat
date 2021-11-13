@@ -49,14 +49,14 @@ void UserListModel::setRoom(Quotient::Room *room)
         }
         for (User *user : qAsConst(m_users)) {
 #ifdef QUOTIENT_07
-            connect(user, &User::defaultAvatarChanged, this, [=]() {
+            connect(user, &User::defaultAvatarChanged, this, [this, user]() {
                 avatarChanged(user, m_currentRoom);
             });
 #else
             connect(user, &User::avatarChanged, this, &UserListModel::avatarChanged);
 #endif
         }
-        connect(m_currentRoom->connection(), &Connection::loggedOut, this, [=] {
+        connect(m_currentRoom->connection(), &Connection::loggedOut, this, [this] {
             setRoom(nullptr);
         });
         qDebug() << m_users.count() << "user(s) in the room";
@@ -154,7 +154,7 @@ void UserListModel::userAdded(Quotient::User *user)
     m_users.insert(pos, user);
     endInsertRows();
 #ifdef QUOTIENT_07
-    connect(user, &User::defaultAvatarChanged, this, [=]() {
+    connect(user, &User::defaultAvatarChanged, this, [this, user]() {
         avatarChanged(user, m_currentRoom);
     });
 #else

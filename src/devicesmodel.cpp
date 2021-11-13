@@ -88,7 +88,7 @@ void DevicesModel::setName(int index, const QString &name)
     beginResetModel();
     m_devices[index].displayName = name;
     endResetModel();
-    connect(job, &BaseJob::failure, this, [=]() {
+    connect(job, &BaseJob::failure, this, [this, index, oldName]() {
         beginResetModel();
         m_devices[index].displayName = oldName;
         endResetModel();
