@@ -65,7 +65,12 @@ MessageDelegateContextMenu {
             text: i18n("View Source")
             icon.name: "code-context"
             onTriggered: {
-                messageSourceSheet.createObject(root, {'sourceText': root.source}).open();
+                applicationWindow().pageStack.pushDialogLayer('qrc:/imports/NeoChat/Menu/Timeline/MessageSourceSheet.qml', {
+                    sourceText: root.source
+                }, {
+                    title: i18n("Message Source"),
+                    width: Kirigami.Units.gridUnit * 25
+                });
             }
         }
     ]

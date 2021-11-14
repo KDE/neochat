@@ -714,12 +714,6 @@ Kirigami.ScrollablePage {
         }
 
         Component {
-            id: messageSourceSheet
-
-            MessageSourceSheet {}
-        }
-
-        Component {
             id: fileDelegateContextMenu
 
             FileDelegateContextMenu {}

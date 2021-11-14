@@ -49,7 +49,12 @@ Loader {
             text: i18n("View Source")
             icon.name: "code-context"
             onTriggered: {
-                messageSourceSheet.createObject(page, {'sourceText': loadRoot.source}).open();
+                applicationWindow().pageStack.pushDialogLayer('qrc:/imports/NeoChat/Menu/Timeline/MessageSourceSheet.qml', {
+                    sourceText: loadRoot.source
+                }, {
+                    title: i18n("Message Source"),
+                    width: Kirigami.Units.gridUnit * 25
+                });
             }
         }
     ]
