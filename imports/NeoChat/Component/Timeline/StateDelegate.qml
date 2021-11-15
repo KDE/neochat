@@ -13,6 +13,8 @@ import NeoChat.Dialog 1.0
 RowLayout {
     id: row
 
+    height: label.contentHeight
+
     Kirigami.Avatar {
         id: icon
         Layout.preferredWidth: Kirigami.Units.iconSizes.small
@@ -36,6 +38,7 @@ RowLayout {
     }
 
     Label {
+        id: label
         Layout.alignment: Qt.AlignVCenter
         Layout.fillWidth: true
         Layout.preferredHeight: icon.height

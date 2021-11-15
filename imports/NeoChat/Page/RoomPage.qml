@@ -356,6 +356,7 @@ Kirigami.ScrollablePage {
                     leftPadding: Kirigami.Units.gridUnit * 1.5 + Kirigami.Units.smallSpacing
                     topPadding: 0
                     bottomPadding: 0
+                    height: contentItem.height
                     contentItem: StateDelegate { }
                     implicitWidth: messageListView.width - Kirigami.Units.largeSpacing
                 }
