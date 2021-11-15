@@ -16,7 +16,6 @@ ApplicationWindow {
     property int imageHeight: -1
 
     flags: Qt.FramelessWindowHint | Qt.WA_TranslucentBackground
-    visibility: Qt.WindowFullScreen
 
     title: i18n("Image View - %1", filename)
 
