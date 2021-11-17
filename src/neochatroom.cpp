@@ -58,6 +58,21 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
         }
     });
     connect(this, &Room::displaynameChanged, this, &NeoChatRoom::displayNameChanged);
+
+    connectSingleShot(this, &Room::baseStateLoaded, this, [this]() {
+        if (this->joinState() != JoinState::Invite) {
+            return;
+        }
+        const QString senderId = getCurrentState<RoomMemberEvent>(localUser()->id())->senderId();
+        QImage avatar_image;
+        if (!user(senderId)->avatarUrl(this).isEmpty()) {
+            avatar_image = user(senderId)->avatar(128, this);
+        } else {
+            qWarning() << "using this room's avatar";
+            avatar_image = avatar(128);
+        }
+        NotificationsManager::instance().postInviteNotification(this, htmlSafeDisplayName(), htmlSafeMemberName(senderId), avatar_image);
+    });
 }
 
 void NeoChatRoom::uploadFile(const QUrl &url, const QString &body)

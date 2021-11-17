@@ -21,6 +21,7 @@ public:
 
     Q_INVOKABLE void
     postNotification(NeoChatRoom *room, const QString &roomName, const QString &sender, const QString &text, const QImage &icon, const QString &replyEventId);
+    void postInviteNotification(NeoChatRoom *room, const QString &title, const QString &sender, const QImage &icon);
 
 private:
     NotificationsManager(QObject *parent = nullptr);

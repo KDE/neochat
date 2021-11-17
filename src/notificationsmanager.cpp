@@ -71,3 +71,30 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
 
     m_notifications.insert(room->id(), notification);
 }
+
+void NotificationsManager::postInviteNotification(NeoChatRoom *room, const QString &title, const QString &sender, const QImage &icon)
+{
+    if (!NeoChatConfig::self()->showNotifications()) {
+        return;
+    }
+    QPixmap img;
+    img.convertFromImage(icon);
+    KNotification *notification = new KNotification("invite");
+    notification->setText(i18n("%1 invited you to a room", sender));
+    notification->setTitle(title);
+    notification->setPixmap(img);
+    notification->setDefaultAction(i18n("Open this invite in NeoChat"));
+    connect(notification, &KNotification::defaultActivated, this, [=]() {
+        RoomManager::instance().enterRoom(room);
+        Q_EMIT Controller::instance().showWindow();
+    });
+    notification->setActions({i18n("Accept Invite"), i18n("Reject Invite")});
+    connect(notification, &KNotification::action1Activated, this, [room]() {
+        room->acceptInvitation();
+    });
+    connect(notification, &KNotification::action2Activated, this, [room]() {
+        RoomManager::instance().leaveRoom(room);
+    });
+    notification->sendEvent();
+    m_notifications.insert(room->id(), notification);
+}
