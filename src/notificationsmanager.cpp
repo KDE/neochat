@@ -83,12 +83,12 @@ void NotificationsManager::postInviteNotification(NeoChatRoom *room, const QStri
     notification->setText(i18n("%1 invited you to a room", sender));
     notification->setTitle(title);
     notification->setPixmap(img);
-    notification->setDefaultAction(i18n("Open this invite in NeoChat"));
+    notification->setDefaultAction(i18n("Open this invitation in NeoChat"));
     connect(notification, &KNotification::defaultActivated, this, [=]() {
         RoomManager::instance().enterRoom(room);
         Q_EMIT Controller::instance().showWindow();
     });
-    notification->setActions({i18n("Accept Invite"), i18n("Reject Invite")});
+    notification->setActions({i18n("Accept Invitation"), i18n("Reject Invitation")});
     connect(notification, &KNotification::action1Activated, this, [room]() {
         room->acceptInvitation();
     });
