@@ -86,6 +86,7 @@ Popup {
                 source: modelData.avatarMediaId ? ("image://mxc/" + modelData.avatarMediaId) : ""
                 color: modelData.color ? Qt.darker(modelData.color, 1.1) : null
             }
+            labelItem.textFormat: Text.PlainText
             text: modelData.displayName
             onClicked: completeTriggered();
         }
