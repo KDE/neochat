@@ -352,9 +352,14 @@ Kirigami.ApplicationWindow {
             showPassiveNotification(i18n("%1: %2", error, detail));
         }
 
-        function onShowWindow() {
+        function onShowWindow(token = null) {
             root.showWindow()
-            root.raise()
+            if (token && KWindowSystem) {
+                KWindowSystem.setCurrentXdgActivationToken(basicNotification.xdgActivationToken)
+                KWindowSystem.activateWindow(root)
+            } else {
+                root.raise()
+            }
         }
 
         function onUserConsentRequired(url) {

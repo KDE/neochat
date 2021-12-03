@@ -68,7 +68,7 @@
 
 using namespace Quotient;
 
-#ifdef HAVE_KDBUSADDONS
+#ifdef HAVE_WINDOWSYSTEM
 static void raiseWindow(QWindow *window)
 {
     if (KWindowSystem::isPlatformWayland()) {
@@ -208,6 +208,12 @@ int main(int argc, char *argv[])
     qRegisterMetaType<NeoChatUser *>("NeoChatUser*");
     qRegisterMetaType<GetRoomEventsJob *>("GetRoomEventsJob*");
     qRegisterMetaType<QMimeType>("QMimeType");
+
+#ifdef HAVE_WINDOWSYSTEM
+    qmlRegisterSingletonType<KWindowSystem>("org.kde.kwindowsystem.private", 1, 0, "KWindowSystem", [](QQmlEngine *, QJSEngine *) -> QObject * {
+        return KWindowSystem::self();
+    });
+#endif
 
     qRegisterMetaTypeStreamOperators<Emoji>();
 

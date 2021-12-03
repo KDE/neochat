@@ -11,6 +11,9 @@
 #include "knotifications_version.h"
 #include <KLocalizedString>
 #include <KNotification>
+#ifdef HAVE_WINDOWSYSTEM
+#include <KWindowSystem>
+#endif
 #if KNOTIFICATIONS_VERSION >= QT_VERSION_CHECK(5, 81, 0)
 #include <KNotificationReplyAction>
 #endif
@@ -85,6 +88,9 @@ void NotificationsManager::postInviteNotification(NeoChatRoom *room, const QStri
     notification->setPixmap(img);
     notification->setDefaultAction(i18n("Open this invitation in NeoChat"));
     connect(notification, &KNotification::defaultActivated, this, [=]() {
+#ifdef HAVE_WINDOWSYSTEM
+        KWindowSystem::setCurrentXdgActivationToken(notification->xdgActivationToken());
+#endif
         RoomManager::instance().enterRoom(room);
         Q_EMIT Controller::instance().showWindow();
     });
