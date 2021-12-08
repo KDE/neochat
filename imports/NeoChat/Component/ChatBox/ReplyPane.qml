@@ -87,7 +87,7 @@ Loader {
                         readOnly: true
                         wrapMode: Label.Wrap
                         textFormat: TextEdit.RichText
-                        background: null
+                        background: Item {}
                         HoverHandler {
                             cursorShape: textArea.hoveredLink ? Qt.PointingHandCursor : Qt.IBeamCursor
                         }
