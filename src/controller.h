@@ -143,6 +143,7 @@ public Q_SLOTS:
     static void playAudio(const QUrl &localFile);
     void changeAvatar(Quotient::Connection *conn, const QUrl &localFile);
     static void markAllMessagesAsRead(Quotient::Connection *conn);
+    void restoreWindowGeometry(QQuickWindow *);
     void saveWindowGeometry(QQuickWindow *);
 
 private:

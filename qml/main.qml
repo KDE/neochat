@@ -22,9 +22,8 @@ Kirigami.ApplicationWindow {
     minimumWidth: Kirigami.Units.gridUnit * 15
     minimumHeight: Kirigami.Units.gridUnit * 20
 
+    visible: false // Will be overridden in Component.onCompleted
     wideScreen: width > columnWidth * 5
-
-    onClosing: Controller.saveWindowGeometry(root)
 
     pageStack.initialPage: LoadingPage {}
     pageStack.globalToolBar.canContainHandles: true
@@ -55,10 +54,17 @@ Kirigami.ApplicationWindow {
         onTriggered: Controller.saveWindowGeometry(root)
     }
 
-    onWidthChanged: saveWindowGeometryTimer.restart()
-    onHeightChanged: saveWindowGeometryTimer.restart()
-    onXChanged: saveWindowGeometryTimer.restart()
-    onYChanged: saveWindowGeometryTimer.restart()
+    Connections {
+        id: saveWindowGeometryConnections
+        enabled: false // Disable on startup to avoid writing wrong values if the window is hidden
+        target: root
+
+        function onClosing() { Controller.saveWindowGeometry(root); }
+        function onWidthChanged() { saveWindowGeometryTimer.restart(); }
+        function onHeightChanged() { saveWindowGeometryTimer.restart(); }
+        function onXChanged() { saveWindowGeometryTimer.restart(); }
+        function onYChanged() { saveWindowGeometryTimer.restart(); }
+    }
 
     Shortcut {
         sequence: "Ctrl+K"
@@ -271,7 +277,15 @@ Kirigami.ApplicationWindow {
         ]
     }
 
-    Component.onCompleted: Controller.setBlur(pageStack, Config.blur && !Config.compactLayout);
+    Component.onCompleted: {
+        Controller.setBlur(pageStack, Config.blur && !Config.compactLayout);
+        if (Config.minimizeToSystemTrayOnStartup && !Kirigami.Settings.isMobile && Controller.supportSystemTray && Config.systemTray) {
+            restoreWindowGeometryConnections.enabled = true; // To restore window size and position
+        } else {
+            visible = true;
+            saveWindowGeometryConnections.enabled = true;
+        }
+    }
     Connections {
         target: Config
         function onBlurChanged() {
@@ -346,6 +360,21 @@ Kirigami.ApplicationWindow {
         function onUserConsentRequired(url) {
             consentSheet.url = url
             consentSheet.open()
+        }
+    }
+
+    Connections {
+        id: restoreWindowGeometryConnections
+        enabled: false
+        target: root
+
+        function onVisibleChanged() {
+            if (!visible) {
+                return;
+            }
+            Controller.restoreWindowGeometry(root);
+            restoreWindowGeometryConnections.enabled = false; // Only restore window geometry for the first time
+            saveWindowGeometryConnections.enabled = true;
         }
     }
 

@@ -26,6 +26,16 @@ Kirigami.ScrollablePage {
                 }
             }
             QQC2.CheckBox {
+                text: i18n("Minimize to system tray on startup")
+                checked: Config.minimizeToSystemTrayOnStartup
+                visible: Controller.supportSystemTray && !Kirigami.Settings.isMobile
+                enabled: Config.systemTray && !Config.isMinimizeToSystemTrayOnStartupImmutable
+                onToggled: {
+                    Config.minimizeToSystemTrayOnStartup = checked
+                    Config.save()
+                }
+            }
+            QQC2.CheckBox {
                 // TODO: When there are enough notification and timeline event
                 // settings, make 2 separate groups with FormData labels.
                 Kirigami.FormData.label: i18n("Notifications and events:")

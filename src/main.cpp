@@ -255,10 +255,9 @@ int main(int argc, char *argv[])
     for (auto obj : rootObjects) {
         auto view = qobject_cast<QQuickWindow *>(obj);
         if (view) {
-            KConfig dataResource("data", KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
-            KConfigGroup windowGroup(&dataResource, "Window");
-            KWindowConfig::restoreWindowSize(view, windowGroup);
-            KWindowConfig::restoreWindowPosition(view, windowGroup);
+            if (view->isVisible()) {
+                Controller::instance().restoreWindowGeometry(view);
+            }
             break;
         }
     }
