@@ -331,7 +331,11 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
     const bool prettyPrint = (format == Qt::RichText);
 
     using namespace Quotient;
+#ifdef QUOTIENT_07
+    return switchOnType(
+#else
     return visit(
+#endif
         evt,
         [this, prettyPrint, removeReply](const RoomMessageEvent &e) {
             using namespace MessageEventContent;
