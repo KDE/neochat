@@ -12,7 +12,7 @@
 TrayIcon::TrayIcon(QObject *parent)
     : QSystemTrayIcon(parent)
 {
-    setIcon(QIcon::fromTheme("org.kde.neochat"));
+    setIcon(QIcon(":/icons/org.kde.neochat.svg"));
     QMenu *menu = new QMenu();
     auto viewAction_ = new QAction(i18n("Show"), parent);
 
