@@ -8,7 +8,7 @@ import QtQuick.Layouts 1.15
 
 Kirigami.CategorizedSettings {
     id: root
-    required property var room
+    property var room
     objectName: "settingsPage"
     actions: [
         Kirigami.SettingAction {
