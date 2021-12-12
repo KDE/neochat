@@ -237,11 +237,21 @@ Kirigami.ScrollablePage {
                 bold: unreadCount > 0
                 label: name ?? ""
                 subtitle: {
-                    let txt = (lastEvent.length === 0 ? topic : lastEvent).replace(/(\r\n\t|\n|\r\t)/gm, " ")
+                    const txt = (lastEvent.length === 0 ? topic : lastEvent).replace(/(\r\n\t|\n|\r\t)/gm, " ")
                     if (txt.length) {
                         return txt
                     }
                     return " "
+                }
+                onPressAndHold: {
+                    const menu = roomListContextMenu.createObject(page, {"room": currentRoom})
+                    configButton.visible = true
+                    configButton.down = true
+                    menu.closed.connect(function() {
+                        configButton.down = undefined
+                        configButton.visible = Qt.binding(function() { return roomListItem.hovered || Kirigami.Settings.isMobile })
+                    })
+                    menu.open()
                 }
 
                 leading: Kirigami.Avatar {
@@ -269,7 +279,7 @@ Kirigami.ScrollablePage {
                     }
                     QQC2.Button {
                         id: configButton
-                        visible: roomListItem.hovered || Kirigami.Settings.isMobile
+                        visible: roomListItem.hovered
                         Accessible.name: i18n("Configure room")
 
                         action: Kirigami.Action {
@@ -283,7 +293,7 @@ Kirigami.ScrollablePage {
                                     configButton.down = undefined
                                     configButton.visible = Qt.binding(function() { return roomListItem.hovered || Kirigami.Settings.isMobile })
                                 })
-                                menu.popup()
+                                menu.open()
                             }
                         }
                     }
