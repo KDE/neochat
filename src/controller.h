@@ -23,6 +23,11 @@ class NeoChatRoom;
 class NeoChatUser;
 class QQuickWindow;
 
+namespace QKeychain
+{
+class ReadPasswordJob;
+}
+
 using namespace Quotient;
 
 class Controller : public QObject
@@ -99,7 +104,7 @@ private:
     bool m_busy = false;
 
     static QByteArray loadAccessTokenFromFile(const AccountSettings &account);
-    QByteArray loadAccessTokenFromKeyChain(const AccountSettings &account);
+    QKeychain::ReadPasswordJob *loadAccessTokenFromKeyChain(const AccountSettings &account);
 
     void loadSettings();
     void saveSettings() const;

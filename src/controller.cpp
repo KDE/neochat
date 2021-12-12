@@ -262,31 +262,48 @@ void Controller::invokeLogin()
             id = accountId;
         }
         if (!account.homeserver().isEmpty()) {
-            auto accessToken = loadAccessTokenFromKeyChain(account);
-
-            auto connection = new Connection(account.homeserver());
-            connect(connection, &Connection::connected, this, [this, connection, id] {
-                connection->loadState();
-                addConnection(connection);
-                if (connection->userId() == id) {
-                    setActiveConnection(connection);
-                    connectSingleShot(connection, &Connection::syncDone, this, &Controller::initiated);
-                }
-            });
-            connect(connection, &Connection::loginError, this, [this, connection](const QString &error, const QString &) {
-                if (error == "Unrecognised access token") {
-                    Q_EMIT errorOccured(i18n("Login Failed: Access Token invalid or revoked"));
-                    logout(connection, false);
+            auto accessTokenLoadingJob = loadAccessTokenFromKeyChain(account);
+            connect(accessTokenLoadingJob, &QKeychain::Job::finished, this, [accountId, id, this, accessTokenLoadingJob](QKeychain::Job *) {
+                AccountSettings account{accountId};
+                QString accessToken;
+                if (accessTokenLoadingJob->error() == QKeychain::Error::NoError) {
+                    accessToken = accessTokenLoadingJob->binaryData();
                 } else {
-                    Q_EMIT errorOccured(i18n("Login Failed: %1", error));
-                    logout(connection, true);
+                    // No access token from the keychain, try token file
+                    // TODO FIXME this code is racy since the file might have
+                    // already been removed. But since the other code do a blocking
+                    // dbus call, the probability are not high that it will happen.
+                    // loadAccessTokenFromFile is also mostly legacy nowadays
+                    accessToken = loadAccessTokenFromFile(account);
+                    if (accessToken.isEmpty()) {
+                        return;
+                    }
                 }
-                Q_EMIT initiated();
+
+                auto connection = new Connection(account.homeserver());
+                connect(connection, &Connection::connected, this, [this, connection, id] {
+                    connection->loadState();
+                    addConnection(connection);
+                    if (connection->userId() == id) {
+                        setActiveConnection(connection);
+                        connectSingleShot(connection, &Connection::syncDone, this, &Controller::initiated);
+                    }
+                });
+                connect(connection, &Connection::loginError, this, [this, connection](const QString &error, const QString &) {
+                    if (error == "Unrecognised access token") {
+                        Q_EMIT errorOccured(i18n("Login Failed: Access Token invalid or revoked"));
+                        logout(connection, false);
+                    } else {
+                        Q_EMIT errorOccured(i18n("Login Failed: %1", error));
+                        logout(connection, true);
+                    }
+                    Q_EMIT initiated();
+                });
+                connect(connection, &Connection::networkError, this, [this](const QString &error, const QString &, int, int) {
+                    Q_EMIT errorOccured(i18n("Network Error: %1", error));
+                });
+                connection->assumeIdentity(account.userId(), accessToken, account.deviceId());
             });
-            connect(connection, &Connection::networkError, this, [this](const QString &error, const QString &, int, int) {
-                Q_EMIT errorOccured(i18n("Network Error: %1", error));
-            });
-            connection->assumeIdentity(account.userId(), accessToken, account.deviceId());
         }
     }
     if (accounts.isEmpty()) {
@@ -309,48 +326,54 @@ QByteArray Controller::loadAccessTokenFromFile(const AccountSettings &account)
     return {};
 }
 
-QByteArray Controller::loadAccessTokenFromKeyChain(const AccountSettings &account)
+QKeychain::ReadPasswordJob *Controller::loadAccessTokenFromKeyChain(const AccountSettings &account)
 {
-    QKeychain::Error error;
-    QString errorString;
-    do {
-        qDebug() << "Reading access token from the keychain for" << account.userId();
-        QKeychain::ReadPasswordJob job(qAppName());
-        job.setAutoDelete(false);
-        job.setKey(account.userId());
-        QEventLoop loop;
-        QKeychain::ReadPasswordJob::connect(&job, &QKeychain::Job::finished, &loop, &QEventLoop::quit);
-        job.start();
-        loop.exec();
+    qDebug() << "Reading access token from the keychain for" << account.userId();
+    auto job = new QKeychain::ReadPasswordJob(qAppName(), this);
+    job->setKey(account.userId());
 
-        if (job.error() == QKeychain::Error::NoError) {
-            return job.binaryData();
-        }
-        Q_EMIT globalErrorOccured(i18n("Unable to read access token"), i18n("Please make sure that the keychain is opened."));
-        error = job.error();
-        errorString = job.errorString();
-    } while (error == QKeychain::Error::OtherError);
-
-    qWarning() << "Could not read the access token from the keychain:" << errorString;
-    // no access token from the keychain, try token file
-    auto accessToken = loadAccessTokenFromFile(account);
-    if (error == QKeychain::Error::EntryNotFound) {
-        if (!accessToken.isEmpty()) {
-            qDebug() << "Migrating the access token from file to the keychain for " << account.userId();
-            bool removed = false;
-            bool saved = saveAccessTokenToKeyChain(account, accessToken);
-            if (saved) {
-                QFile accountTokenFile{accessTokenFileName(account)};
-                removed = accountTokenFile.remove();
-            }
-            if (!(saved && removed)) {
-                qDebug() << "Migrating the access token from the file to the keychain "
-                            "failed";
+    // Handling of errors
+    connect(job, &QKeychain::Job::emitFinishedWithError, this, [this, &account, job](QKeychain::Error error, const QString &errorString) {
+        if (error == QKeychain::Error::EntryNotFound) {
+            // no access token from the keychain, try token file
+            auto accessToken = loadAccessTokenFromFile(account);
+            if (!accessToken.isEmpty()) {
+                qDebug() << "Migrating the access token from file to the keychain for " << account.userId();
+                bool removed = false;
+                bool saved = saveAccessTokenToKeyChain(account, accessToken);
+                if (saved) {
+                    QFile accountTokenFile{accessTokenFileName(account)};
+                    removed = accountTokenFile.remove();
+                }
+                if (!(saved && removed)) {
+                    qDebug() << "Migrating the access token from the file to the keychain "
+                                "failed";
+                }
+                return;
             }
         }
-    }
 
-    return accessToken;
+        switch (error) {
+        case QKeychain::EntryNotFound:
+            Q_EMIT globalErrorOccured(i18n("Access token wasn't found"), i18n("Maybe it was deleted?"));
+            break;
+        case QKeychain::AccessDeniedByUser:
+        case QKeychain::AccessDenied:
+            Q_EMIT globalErrorOccured(i18n("Access to keychain was denied."), i18n("Please allow NeoChat to read the access token"));
+            break;
+        case QKeychain::NoBackendAvailable:
+            Q_EMIT globalErrorOccured(i18n("No keychain available."), i18n("Please install a keychain, e.g. KWallet or GNOME keyring on Linux"));
+            break;
+        case QKeychain::OtherError:
+            Q_EMIT globalErrorOccured(i18n("Unable to read access token"), errorString);
+            break;
+        default:
+            break;
+        }
+    });
+    job->start();
+
+    return job;
 }
 
 bool Controller::saveAccessTokenToFile(const AccountSettings &account, const QByteArray &accessToken)
