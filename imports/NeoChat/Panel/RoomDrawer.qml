@@ -150,6 +150,7 @@ Kirigami.OverlayDrawer {
                             font.bold: true
                             wrapMode: Label.Wrap
                             text: room ? room.displayName : i18n("No name")
+                            textFormat: Text.PlainText
                         }
                         Label {
                             Layout.fillWidth: true
