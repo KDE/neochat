@@ -333,8 +333,11 @@ QKeychain::ReadPasswordJob *Controller::loadAccessTokenFromKeyChain(const Accoun
     job->setKey(account.userId());
 
     // Handling of errors
-    connect(job, &QKeychain::Job::emitFinishedWithError, this, [this, &account, job](QKeychain::Error error, const QString &errorString) {
-        if (error == QKeychain::Error::EntryNotFound) {
+    connect(job, &QKeychain::Job::finished, this, [this, &account, job]() {
+        if (job->error() == QKeychain::Error::NoError) {
+            return;
+        }
+        if (job->error() == QKeychain::Error::EntryNotFound) {
             // no access token from the keychain, try token file
             auto accessToken = loadAccessTokenFromFile(account);
             if (!accessToken.isEmpty()) {
@@ -353,7 +356,7 @@ QKeychain::ReadPasswordJob *Controller::loadAccessTokenFromKeyChain(const Accoun
             }
         }
 
-        switch (error) {
+        switch (job->error()) {
         case QKeychain::EntryNotFound:
             Q_EMIT globalErrorOccured(i18n("Access token wasn't found"), i18n("Maybe it was deleted?"));
             break;
@@ -365,7 +368,7 @@ QKeychain::ReadPasswordJob *Controller::loadAccessTokenFromKeyChain(const Accoun
             Q_EMIT globalErrorOccured(i18n("No keychain available."), i18n("Please install a keychain, e.g. KWallet or GNOME keyring on Linux"));
             break;
         case QKeychain::OtherError:
-            Q_EMIT globalErrorOccured(i18n("Unable to read access token"), errorString);
+            Q_EMIT globalErrorOccured(i18n("Unable to read access token"), job->errorString());
             break;
         default:
             break;
