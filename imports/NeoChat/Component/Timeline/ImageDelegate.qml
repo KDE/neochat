@@ -12,88 +12,116 @@ import NeoChat.Component 1.0
 import NeoChat.Dialog 1.0
 import NeoChat.Menu.Timeline 1.0
 
-Image {
-    id: img
 
-    property var content: model.content
-    readonly property bool isAnimated: contentType === "image/gif"
+TimelineContainer {
+    id: imageDelegate
 
-    property bool openOnFinished: false
-    readonly property bool downloaded: progressInfo && progressInfo.completed
+    width: ListView.view.width
 
-    readonly property bool isThumbnail: !(content.info.thumbnail_info == null || content.thumbnailMediaId == null)
-    //    readonly property var info: isThumbnail ? content.info.thumbnail_info : content.info
-    readonly property var info: content.info
-    readonly property string mediaId: isThumbnail ? content.thumbnailMediaId : content.mediaId
-    property bool readonly: false
+    onReplyClicked: ListView.view.goToEvent(eventID)
+    hoverComponent: hoverActions
 
-    source: "image://mxc/" + mediaId
+    innerObject: Image {
+        id: img
 
-    Image {
-        anchors.fill: parent
-        source: content.info["xyz.amorgan.blurhash"] ? ("image://blurhash/" + content.info["xyz.amorgan.blurhash"]) : ""
-        visible: parent.status !== Image.Ready
-    }
+        property var content: model.content
+        readonly property bool isAnimated: contentType === "image/gif"
 
-    fillMode: Image.PreserveAspectFit
+        property bool openOnFinished: false
+        readonly property bool downloaded: progressInfo && progressInfo.completed
 
-    ToolTip.text: display
-    ToolTip.visible: hoverHandler.hovered
+        readonly property bool isThumbnail: !(content.info.thumbnail_info == null || content.thumbnailMediaId == null)
+        //    readonly property var info: isThumbnail ? content.info.thumbnail_info : content.info
+        readonly property var info: content.info
+        readonly property string mediaId: isThumbnail ? content.thumbnailMediaId : content.mediaId
 
-    HoverHandler {
-        id: hoverHandler
-        enabled: img.readonly
-    }
+        Layout.maximumWidth: imageDelegate.bubbleMaxWidth
+        source: "image://mxc/" + mediaId
 
-    Rectangle {
-        anchors.fill: parent
-
-        visible: progressInfo.active && !downloaded
-
-        color: "#BB000000"
-
-        ProgressBar {
-            anchors.centerIn: parent
-
-            width: parent.width * 0.8
-
-            from: 0
-            to: progressInfo.total
-            value: progressInfo.progress
+        Image {
+            anchors.fill: parent
+            source: content.info["xyz.amorgan.blurhash"] ? ("image://blurhash/" + content.info["xyz.amorgan.blurhash"]) : ""
+            visible: parent.status !== Image.Ready
         }
-    }
 
-    function saveFileAs() {
-        var dialog = fileDialog.createObject(ApplicationWindow.overlay)
-        dialog.open()
-        dialog.currentFile = dialog.folder + "/" + currentRoom.fileNameToDownload(eventId)
-    }
+        fillMode: Image.PreserveAspectFit
 
-    Component {
-        id: fileDialog
+        ToolTip.text: display
+        ToolTip.visible: hoverHandler.hovered
 
-        FileDialog {
-            fileMode: FileDialog.SaveFile
-            folder: StandardPaths.writableLocation(StandardPaths.DownloadLocation)
-            onAccepted: {
-                currentRoom.downloadFile(eventId, file)
+        HoverHandler {
+            id: hoverHandler
+        }
+
+        Rectangle {
+            anchors.fill: parent
+
+            visible: progressInfo.active && !downloaded
+
+            color: "#BB000000"
+
+            ProgressBar {
+                anchors.centerIn: parent
+
+                width: parent.width * 0.8
+
+                from: 0
+                to: progressInfo.total
+                value: progressInfo.progress
             }
         }
-    }
 
-    function downloadAndOpen()
-    {
-        if (downloaded) openSavedFile()
-        else
-        {
-            openOnFinished = true
-            currentRoom.downloadFile(eventId, StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId))
+        function saveFileAs() {
+            var dialog = fileDialog.createObject(ApplicationWindow.overlay)
+            dialog.open()
+            dialog.currentFile = dialog.folder + "/" + currentRoom.fileNameToDownload(eventId)
         }
-    }
 
-    function openSavedFile()
-    {
-        if (Qt.openUrlExternally(progressInfo.localPath)) return;
-        if (Qt.openUrlExternally(progressInfo.localDir)) return;
+        Component {
+            id: fileDialog
+
+            FileDialog {
+                fileMode: FileDialog.SaveFile
+                folder: StandardPaths.writableLocation(StandardPaths.DownloadLocation)
+                onAccepted: {
+                    currentRoom.downloadFile(eventId, file)
+                }
+            }
+        }
+
+        TapHandler {
+            acceptedButtons: Qt.RightButton
+            onTapped: openFileContext(model, parent)
+        }
+
+        TapHandler {
+            acceptedButtons: Qt.LeftButton
+            onLongPressed: openFileContext(model, parent)
+            onTapped: {
+                fullScreenImage.createObject(parent, {
+                    filename: eventId,
+                    localPath: currentRoom.urlToDownload(eventId),
+                    blurhash: model.content.info["xyz.amorgan.blurhash"],
+                    imageWidth: content.info.w,
+                    imageHeight: content.info.h
+                }).showFullScreen();
+            }
+        }
+
+        function downloadAndOpen()
+        {
+            if (downloaded) openSavedFile()
+            else
+            {
+                openOnFinished = true
+                currentRoom.downloadFile(eventId, StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId))
+            }
+        }
+
+        function openSavedFile()
+        {
+            if (Qt.openUrlExternally(progressInfo.localPath)) return;
+            if (Qt.openUrlExternally(progressInfo.localDir)) return;
+        }
     }
 }

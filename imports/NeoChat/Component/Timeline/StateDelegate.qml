@@ -11,9 +11,9 @@ import NeoChat.Component 1.0
 import NeoChat.Dialog 1.0
 
 RowLayout {
-    id: row
-
+    x: Kirigami.Units.gridUnit * 1.5 + Kirigami.Units.smallSpacing
     height: label.contentHeight
+    width: ListView.view.width - Kirigami.Units.largeSpacing - x
 
     Kirigami.Avatar {
         id: icon

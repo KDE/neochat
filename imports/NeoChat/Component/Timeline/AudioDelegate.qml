@@ -15,47 +15,62 @@ import NeoChat.Component 1.0
 import NeoChat.Dialog 1.0
 import NeoChat.Menu.Timeline 1.0
 
-Control {
-    id: root
+TimelineContainer {
+    id: audioDelegate
 
-    Layout.fillWidth: true
+    width: ListView.view.width
+    onReplyClicked: ListView.view.goToEvent(eventID)
+    hoverComponent: hoverActions
+    innerObject: Control {
+        Layout.fillWidth: true
+        Layout.maximumWidth: audioDelegate.bubbleMaxWidth
 
-    Audio {
-        id: audio
-        source: currentRoom.urlToMxcUrl(content.url)
-        autoLoad: false
-    }
+        Audio {
+            id: audio
+            source: currentRoom.urlToMxcUrl(content.url)
+            autoLoad: false
+        }
 
-    contentItem: ColumnLayout {
-        RowLayout {
-            ToolButton {
-                icon.name: audio.playbackState == Audio.PlayingState ? "media-playback-pause" : "media-playback-start"
+        TapHandler {
+            acceptedButtons: Qt.RightButton
+            onTapped: openFileContext(model, parent)
+        }
+        TapHandler {
+            acceptedButtons: Qt.LeftButton
+            onLongPressed: openFileContext(model, parent)
+        }
 
-                onClicked: {
-                    if (audio.playbackState == Audio.PlayingState) {
-                        audio.pause()
-                    } else {
-                        audio.play()
+        contentItem: ColumnLayout {
+            RowLayout {
+                ToolButton {
+                    icon.name: audio.playbackState == Audio.PlayingState ? "media-playback-pause" : "media-playback-start"
+
+                    onClicked: {
+                        if (audio.playbackState == Audio.PlayingState) {
+                            audio.pause()
+                        } else {
+                            audio.play()
+                        }
                     }
                 }
+                Label {
+                    text: model.display
+                }
             }
-            Label {
-                text: model.display
-            }
-        }
-        RowLayout {
-            visible: audio.hasAudio
-            Layout.leftMargin: Kirigami.Units.largeSpacing
-            Layout.rightMargin: Kirigami.Units.largeSpacing
-            // Server doesn't support seeking, so use ProgressBar instead of Slider :(
-            ProgressBar {
-                from: 0
-                to: audio.duration
-                value: audio.position
-            }
+            RowLayout {
+                visible: audio.hasAudio
+                Layout.leftMargin: Kirigami.Units.largeSpacing
+                Layout.rightMargin: Kirigami.Units.largeSpacing
+                // Server doesn't support seeking, so use ProgressBar instead of Slider :(
+                ProgressBar {
+                    from: 0
+                    to: audio.duration
+                    value: audio.position
+                }
 
-            Label {
-                text: Controller.formatDuration(audio.position) + "/" + Controller.formatDuration(audio.duration)
+                Label {
+                    text: Controller.formatDuration(audio.position) + "/" + Controller.formatDuration(audio.duration)
+                }
             }
         }
     }

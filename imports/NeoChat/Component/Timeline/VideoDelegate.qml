@@ -15,130 +15,147 @@ import NeoChat.Component 1.0
 import NeoChat.Dialog 1.0
 import NeoChat.Menu.Timeline 1.0
 
-Video {
-    id: vid
+TimelineContainer {
+    id: videoDelegate
 
-    property bool playOnFinished: false
-    readonly property bool downloaded: progressInfo && progressInfo.completed
+    width: ListView.view.width
 
-    property bool supportStreaming: true
+    onReplyClicked: ListView.view.goToEvent(eventID)
+    hoverComponent: hoverActions
 
-    onDownloadedChanged: {
-        if (downloaded) {
-            vid.source = progressInfo.localPath
+    innerObject: Video {
+        id: vid
+
+        property bool playOnFinished: false
+        readonly property bool downloaded: progressInfo && progressInfo.completed
+
+        property bool supportStreaming: true
+
+        Layout.maximumWidth: videoDelegate.bubbleMaxWidth
+        Layout.fillWidth: true
+        Layout.maximumHeight: Kirigami.Units.gridUnit * 15
+        Layout.minimumHeight: Kirigami.Units.gridUnit * 5
+
+        onDownloadedChanged: {
+            if (downloaded) {
+                vid.source = progressInfo.localPath
+            }
+
+            if (downloaded && playOnFinished) {
+                playSavedFile()
+                playOnFinished = false
+            }
         }
 
-        if (downloaded && playOnFinished) {
-            playSavedFile()
-            playOnFinished = false
+        readonly property int maxWidth: 1000 // TODO messageListView.width
+
+        Layout.preferredWidth: content.info.w > maxWidth ? maxWidth : content.info.w
+        Layout.preferredHeight: content.info.w > maxWidth ? (content.info.h / content.info.w * maxWidth) : content.info.h
+
+        loops: MediaPlayer.Infinite
+
+        fillMode: VideoOutput.PreserveAspectFit
+
+        Component.onCompleted: {
+            if (downloaded) {
+                source = progressInfo.localPath
+            } else {
+                source = currentRoom.urlToMxcUrl(content.url)
+            }
         }
-    }
 
-
-    readonly property int maxWidth: 1000 // TODO messageListView.width
-
-    Layout.preferredWidth: content.info.w > maxWidth ? maxWidth : content.info.w
-    Layout.preferredHeight: content.info.w > maxWidth ? (content.info.h / content.info.w * maxWidth) : content.info.h
-
-    loops: MediaPlayer.Infinite
-
-    fillMode: VideoOutput.PreserveAspectFit
-
-    Component.onCompleted: {
-        if (downloaded) {
-            source = progressInfo.localPath
-        } else {
-            source = currentRoom.urlToMxcUrl(content.url)
+        onDurationChanged: {
+            if (!duration) {
+                vid.supportStreaming = false;
+            }
         }
-    }
 
-    onDurationChanged: {
-        if (!duration) {
-            supportStreaming = false;
+        onErrorChanged: {
+            if (error != MediaPlayer.NoError) {
+                vid.supportStreaming = false;
+            }
         }
-    }
 
-    onErrorChanged: {
-        if (error != MediaPlayer.NoError) {
-            supportStreaming = false;
+        Image {
+            anchors.fill: parent
+
+            visible: vid.playbackState == MediaPlayer.StoppedState || vid.error != MediaPlayer.NoError
+
+            source: "image://mxc/" + content.thumbnailMediaId
+
+            fillMode: Image.PreserveAspectFit
         }
-    }
 
-    Image {
-        readonly property bool isThumbnail: content.info.thumbnail_info && content.thumbnailMediaId
-        readonly property var info: isThumbnail ? content.info.thumbnail_info : content.info
-
-        anchors.fill: parent
-
-        visible: isThumbnail  && (vid.playbackState == MediaPlayer.StoppedState || vid.error != MediaPlayer.NoError)
-
-        source: "image://mxc/" + (isThumbnail ? content.thumbnailMediaId : "")
-
-        sourceSize.width: info.w
-        sourceSize.height: info.h
-
-        fillMode: Image.PreserveAspectFit
-    }
-
-    Label {
-        anchors.centerIn: parent
-
-        visible: vid.playbackState == MediaPlayer.StoppedState || vid.error != MediaPlayer.NoError
-        color: "white"
-        text: i18n("Video")
-        font.pixelSize: 16
-
-        padding: 8
-
-        background: Rectangle {
-            radius: Kirigami.Units.smallSpacing
-            color: "black"
-            opacity: 0.3
-        }
-    }
-
-    Rectangle {
-        anchors.fill: parent
-
-        visible: progressInfo.active && !downloaded
-
-        color: "#BB000000"
-
-        ProgressBar {
+        Label {
             anchors.centerIn: parent
 
-            width: parent.width * 0.8
+            visible: vid.playbackState == MediaPlayer.StoppedState || vid.error != MediaPlayer.NoError
+            color: "white"
+            text: i18n("Video")
+            font.pixelSize: 16
 
-            from: 0
-            to: progressInfo.total
-            value: progressInfo.progress
-        }
-    }
+            padding: 8
 
-    TapHandler {
-        acceptedButtons: Qt.LeftButton
-        onTapped: if (supportStreaming || progressInfo.completed) {
-            if (vid.playbackState == MediaPlayer.PlayingState) {
-                vid.pause()
-            } else {
-                vid.play()
+            background: Rectangle {
+                radius: Kirigami.Units.smallSpacing
+                color: "black"
+                opacity: 0.3
             }
-        } else {
-            downloadAndPlay()
         }
-    }
 
-    function downloadAndPlay() {
-        if (downloaded) {
-            playSavedFile()
-        } else {
-            playOnFinished = true
-            currentRoom.downloadFile(eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId))
+        Rectangle {
+            anchors.fill: parent
+
+            visible: progressInfo.active && !vid.downloaded
+
+            color: "#BB000000"
+
+            ProgressBar {
+                anchors.centerIn: parent
+
+                width: parent.width * 0.8
+
+                from: 0
+                to: progressInfo.total
+                value: progressInfo.progress
+            }
         }
-    }
 
-    function playSavedFile() {
-        vid.stop()
-        vid.play()
+        TapHandler {
+            acceptedButtons: Qt.LeftButton
+            onTapped: if (vid.supportStreaming || progressInfo.completed) {
+                if (vid.playbackState == MediaPlayer.PlayingState) {
+                    vid.pause()
+                } else {
+                    vid.play()
+                }
+            } else {
+                vid.downloadAndPlay()
+            }
+        }
+
+        TapHandler {
+            acceptedButtons: Qt.RightButton
+            onTapped: openFileContext(model, parent)
+        }
+
+        TapHandler {
+            acceptedButtons: Qt.LeftButton
+            onLongPressed: openFileContext(model, parent)
+        }
+
+        function downloadAndPlay() {
+            if (vid.downloaded) {
+                playSavedFile()
+            } else {
+                playOnFinished = true
+                currentRoom.downloadFile(eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId))
+            }
+        }
+
+        function playSavedFile() {
+            vid.stop()
+            vid.play()
+        }
     }
 }

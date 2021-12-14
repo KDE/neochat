@@ -14,113 +14,131 @@ import NeoChat.Component 1.0
 import NeoChat.Dialog 1.0
 import NeoChat.Menu.Timeline 1.0
 
-RowLayout {
-    id: root
-    property bool openOnFinished: false
-    readonly property bool downloaded: progressInfo && progressInfo.completed
+TimelineContainer {
+    id: fileDelegate
+    width: ListView.view.width
 
-    Layout.margins: Kirigami.Units.largeSpacing
+    onReplyClicked: ListView.view.goToEvent(eventID)
+    hoverComponent: hoverActions
 
-    spacing: Kirigami.Units.largeSpacing
+    innerObject: RowLayout {
+        property bool openOnFinished: false
+        readonly property bool downloaded: progressInfo && progressInfo.completed
 
-    states: [
-        State {
-            name: "downloaded"
-            when: progressInfo.completed
-
-            PropertyChanges {
-                target: downloadButton
-
-                icon.name: "document-open"
-
-                QQC2.ToolTip.text: i18nc("tooltip for a button on a message; offers ability to open its downloaded file with an appropriate application", "Open File")
-
-                onClicked: openSavedFile()
-            }
-        },
-        State {
-            name: "downloading"
-            when: progressInfo.active
-
-            PropertyChanges {
-                target: sizeLabel
-                text: i18nc("file download progress", "%1 / %2", Controller.formatByteSize(progressInfo.progress), Controller.formatByteSize(progressInfo.total))
-            }
-            PropertyChanges {
-                target: downloadButton
-                icon.name: "media-playback-stop"
-
-                QQC2.ToolTip.text: i18nc("tooltip for a button on a message; stops downloading the message's file", "Stop Download")
-                onClicked: currentRoom.cancelFileTransfer(eventId)
-            }
-        },
-        State {
-            name: "raw"
-            when: true
-
-            PropertyChanges {
-                target: downloadButton
-
-                onClicked: root.saveFileAs()
-            }
-        }
-    ]
-
-    Kirigami.Icon {
-        id: ikon
-        source: model.fileMimetypeIcon
-        fallback: "unknown"
-    }
-    ColumnLayout {
-        Layout.alignment: Qt.AlignVCenter
         Layout.fillWidth: true
+        Layout.maximumWidth: fileDelegate.bubbleMaxWidth
+        Layout.margins: Kirigami.Units.largeSpacing
 
-        spacing: 0
+        spacing: Kirigami.Units.largeSpacing
 
-        QQC2.Label {
-            text: model.display
-            wrapMode: Text.Wrap
+        states: [
+            State {
+                name: "downloaded"
+                when: progressInfo.completed
 
-            Layout.fillWidth: true
+                PropertyChanges {
+                    target: downloadButton
+
+                    icon.name: "document-open"
+
+                    QQC2.ToolTip.text: i18nc("tooltip for a button on a message; offers ability to open its downloaded file with an appropriate application", "Open File")
+
+                    onClicked: openSavedFile()
+                }
+            },
+            State {
+                name: "downloading"
+                when: progressInfo.active
+
+                PropertyChanges {
+                    target: sizeLabel
+                    text: i18nc("file download progress", "%1 / %2", Controller.formatByteSize(progressInfo.progress), Controller.formatByteSize(progressInfo.total))
+                }
+                PropertyChanges {
+                    target: downloadButton
+                    icon.name: "media-playback-stop"
+
+                    QQC2.ToolTip.text: i18nc("tooltip for a button on a message; stops downloading the message's file", "Stop Download")
+                    onClicked: currentRoom.cancelFileTransfer(eventId)
+                }
+            },
+            State {
+                name: "raw"
+                when: true
+
+                PropertyChanges {
+                    target: downloadButton
+
+                    onClicked: root.saveFileAs()
+                }
+            }
+        ]
+
+        Kirigami.Icon {
+            id: ikon
+            source: model.fileMimetypeIcon
+            fallback: "unknown"
         }
-        QQC2.Label {
-            id: sizeLabel
-
-            text: Controller.formatByteSize(content.info ? content.info.size : 0)
-            opacity: 0.7
-
+        ColumnLayout {
+            Layout.alignment: Qt.AlignVCenter
             Layout.fillWidth: true
-        }
-    }
 
-    QQC2.Button {
-        id: downloadButton
-        icon.name: "download"
+            spacing: 0
 
-        QQC2.ToolTip.text: i18nc("tooltip for a button on a message; offers ability to download its file", "Download")
-        QQC2.ToolTip.visible: hovered
-    }
+            QQC2.Label {
+                text: model.display
+                wrapMode: Text.Wrap
 
-    Component {
-        id: fileDialog
+                Layout.fillWidth: true
+            }
+            QQC2.Label {
+                id: sizeLabel
 
-        FileDialog {
-            fileMode: FileDialog.SaveFile
-            folder: StandardPaths.writableLocation(StandardPaths.DownloadLocation)
-            onAccepted: {
-                currentRoom.downloadFile(eventId, file)
+                text: Controller.formatByteSize(content.info ? content.info.size : 0)
+                opacity: 0.7
+
+                Layout.fillWidth: true
             }
         }
-    }
 
-    function saveFileAs() {
-        var dialog = fileDialog.createObject(QQC2.ApplicationWindow.overlay)
-        dialog.open()
-        dialog.currentFile = dialog.folder + "/" + currentRoom.fileNameToDownload(eventId)
-    }
+        QQC2.Button {
+            id: downloadButton
+            icon.name: "download"
 
-    function openSavedFile() {
-        if (Qt.openUrlExternally(progressInfo.localPath)) return;
-        if (Qt.openUrlExternally(progressInfo.localDir)) return;
+            QQC2.ToolTip.text: i18nc("tooltip for a button on a message; offers ability to download its file", "Download")
+            QQC2.ToolTip.visible: hovered
+        }
+
+        Component {
+            id: fileDialog
+
+            FileDialog {
+                fileMode: FileDialog.SaveFile
+                folder: StandardPaths.writableLocation(StandardPaths.DownloadLocation)
+                onAccepted: {
+                    currentRoom.downloadFile(eventId, file)
+                }
+            }
+        }
+
+        TapHandler {
+            acceptedButtons: Qt.RightButton
+            onTapped: openFileContext(model, parent)
+        }
+        TapHandler {
+            acceptedButtons: Qt.LeftButton
+            onLongPressed: openFileContext(model, parent)
+        }
+
+        function saveFileAs() {
+            var dialog = fileDialog.createObject(QQC2.ApplicationWindow.overlay)
+            dialog.open()
+            dialog.currentFile = dialog.folder + "/" + currentRoom.fileNameToDownload(eventId)
+        }
+
+        function openSavedFile() {
+            if (Qt.openUrlExternally(progressInfo.localPath)) return;
+            if (Qt.openUrlExternally(progressInfo.localDir)) return;
+        }
     }
 }

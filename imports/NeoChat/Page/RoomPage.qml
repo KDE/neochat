@@ -341,282 +341,7 @@ Kirigami.ScrollablePage {
             sourceModel: messageEventModel
         }
 
-        delegate: DelegateChooser {
-            id: timelineDelegateChooser
-            role: "eventType"
-
-            DelegateChoice {
-                roleValue: "state"
-                delegate: QQC2.Control {
-                    leftPadding: Kirigami.Units.gridUnit * 1.5 + Kirigami.Units.smallSpacing
-                    topPadding: 0
-                    bottomPadding: 0
-                    height: contentItem.height
-                    contentItem: StateDelegate { }
-                    implicitWidth: messageListView.width - Kirigami.Units.largeSpacing
-                }
-            }
-
-            DelegateChoice {
-                roleValue: "emote"
-                delegate: TimelineContainer {
-                    id: emoteContainer
-                    width: messageListView.width
-                    isEmote: true
-                    onReplyClicked: goToEvent(eventID)
-                    hoverComponent: hoverActions
-
-                    innerObject: TextDelegate {
-                        isEmote: true
-                        Layout.maximumWidth: emoteContainer.bubbleMaxWidth
-                        onRequestOpenMessageContext: openMessageContext(model, parent.selectedText)
-                    }
-                }
-            }
-
-            DelegateChoice {
-                roleValue: "message"
-                delegate: TimelineContainer {
-                    id: messageContainer
-                    width: messageListView.width
-                    onReplyClicked: goToEvent(eventID)
-                    hoverComponent: hoverActions
-
-                    innerObject: TextDelegate {
-                        Layout.maximumWidth: messageContainer.bubbleMaxWidth
-                        onRequestOpenMessageContext: openMessageContext(model, parent.selectedText)
-                    }
-                }
-            }
-
-            DelegateChoice {
-                roleValue: "notice"
-                delegate: TimelineContainer {
-                    id: noticeContainer
-                    width: messageListView.width
-                    onReplyClicked: goToEvent(eventID)
-
-                    innerObject: TextDelegate {
-                        Layout.fillWidth: !Config.compactLayout
-                        hasContextMenu: false
-                        Layout.maximumWidth: noticeContainer.bubbleMaxWidth
-                    }
-                }
-            }
-
-            DelegateChoice {
-                roleValue: "image"
-                delegate: TimelineContainer {
-                    id: imageContainer
-                    width: messageListView.width
-                    onReplyClicked: goToEvent(eventID)
-                    hoverComponent: hoverActions
-
-                    innerObject: ImageDelegate {
-                        Layout.preferredWidth: Kirigami.Units.gridUnit * 15
-                        Layout.maximumWidth: imageContainer.bubbleMaxWidth
-                        Layout.preferredHeight: info.h / info.w * width
-                        Layout.maximumHeight: Kirigami.Units.gridUnit * 20
-                        TapHandler {
-                            acceptedButtons: Qt.RightButton
-                            onTapped: openFileContext(model, parent)
-                        }
-                        TapHandler {
-                            acceptedButtons: Qt.LeftButton
-                            onLongPressed: openFileContext(model, parent)
-                            onTapped: {
-                                fullScreenImage.createObject(parent, {
-                                    filename: eventId,
-                                    localPath: currentRoom.urlToDownload(eventId),
-                                    blurhash: model.content.info["xyz.amorgan.blurhash"],
-                                    imageWidth: content.info.w,
-                                    imageHeight: content.info.h
-                                }).showFullScreen();
-                            }
-                        }
-                    }
-                }
-            }
-
-            DelegateChoice {
-                roleValue: "sticker"
-                delegate: TimelineContainer {
-                    width: messageListView.width
-                    onReplyClicked: goToEvent(eventID)
-                    hoverComponent: hoverActions
-                    cardBackground: false
-
-                    innerObject: ImageDelegate {
-                        readonly: true
-                        Layout.maximumWidth: Kirigami.Units.gridUnit * 10
-                        Layout.minimumWidth: Kirigami.Units.gridUnit * 10
-                        Layout.preferredHeight: info.h / info.w * width
-                    }
-                }
-            }
-
-            DelegateChoice {
-                roleValue: "audio"
-                delegate: TimelineContainer {
-                    id: audioContainer
-                    width: messageListView.width
-                    onReplyClicked: goToEvent(eventID)
-                    hoverComponent: hoverActions
-
-                    innerObject: AudioDelegate {
-                        Layout.fillWidth: true
-                        Layout.maximumWidth: audioContainer.bubbleMaxWidth
-                        TapHandler {
-                            acceptedButtons: Qt.RightButton
-                            onTapped: openFileContext(model, parent)
-                        }
-                        TapHandler {
-                            acceptedButtons: Qt.LeftButton
-                            onLongPressed: openFileContext(model, parent)
-                        }
-                    }
-                }
-            }
-
-            DelegateChoice {
-                roleValue: "video"
-                delegate: TimelineContainer {
-                    id: videoContainer
-                    width: messageListView.width
-                    onReplyClicked: goToEvent(eventID)
-                    hoverComponent: hoverActions
-
-                    innerObject: VideoDelegate {
-                        Layout.fillWidth: true
-                        Layout.maximumWidth: videoContainer.bubbleMaxWidth
-                        Layout.preferredHeight: content.info.h / content.info.w * width
-                        Layout.maximumHeight: Kirigami.Units.gridUnit * 15
-                        Layout.minimumHeight: Kirigami.Units.gridUnit * 5
-
-                        TapHandler {
-                            acceptedButtons: Qt.RightButton
-                            onTapped: openFileContext(model, parent)
-                        }
-                        TapHandler {
-                            acceptedButtons: Qt.LeftButton
-                            onLongPressed: openFileContext(model, parent)
-                        }
-                    }
-                }
-            }
-
-            DelegateChoice {
-                roleValue: "file"
-                delegate: TimelineContainer {
-                    id: fileContainer
-                    width: messageListView.width
-                    onReplyClicked: goToEvent(eventID)
-
-                    innerObject: FileDelegate {
-                        Layout.fillWidth: true
-                        Layout.maximumWidth: fileContainer.bubbleMaxWidth
-                        TapHandler {
-                            acceptedButtons: Qt.RightButton
-                            onTapped: openFileContext(model, parent)
-                        }
-                        TapHandler {
-                            acceptedButtons: Qt.LeftButton
-                            onLongPressed: openFileContext(model, parent)
-                        }
-                    }
-                }
-            }
-
-            DelegateChoice {
-                roleValue: "encrypted"
-                delegate: TimelineContainer {
-                    id: encryptedContainer
-                    width: messageListView.width
-
-                    innerObject: EncryptedDelegate {
-                        Layout.fillWidth: Config.compactLayout
-                        Layout.maximumWidth: encryptedContainer.bubbleMaxWidth
-                        Layout.rightMargin: Kirigami.Units.largeSpacing
-                        Layout.leftMargin: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing : 0
-                    }
-                }
-            }
-
-            DelegateChoice {
-                roleValue: "readMarker"
-                delegate: QQC2.ItemDelegate {
-                    padding: Kirigami.Units.largeSpacing
-                    topInset: Kirigami.Units.largeSpacing
-                    topPadding: Kirigami.Units.largeSpacing * 2
-                    width: ListView.view.width - Kirigami.Units.gridUnit
-                    x: Kirigami.Units.gridUnit / 2
-                    contentItem: QQC2.Label {
-                        text: i18nc("Relative time since the room was last read", "Last read: %1", time)
-                    }
-
-                    background: Kirigami.ShadowedRectangle {
-                        color: Kirigami.Theme.backgroundColor
-                        opacity: 0.6
-                        radius: Kirigami.Units.smallSpacing
-                        shadow.size: Kirigami.Units.smallSpacing
-                        shadow.color: Qt.rgba(0.0, 0.0, 0.0, 0.10)
-                        border.color: Kirigami.ColorUtils.tintWithAlpha(color, Kirigami.Theme.textColor, 0.15)
-                        border.width: 1
-                    }
-
-                    Timer {
-                        id: makeMeDisapearTimer
-                        interval: Kirigami.Units.humanMoment * 2
-                        onTriggered: if (QQC2.ApplicationWindow.window.visibility !== QQC2.ApplicationWindow.Hidden) {
-                            currentRoom.markAllMessagesAsRead();
-                        }
-                    }
-
-                    ListView.onPooled: makeMeDisapearTimer.stop()
-
-                    ListView.onAdd: {
-                        const view = ListView.view;
-                        if (view.atYEnd) {
-                            makeMeDisapearTimer.start()
-                        }
-                    }
-
-                    // When the read marker is visible and we are at the end of the list,
-                    // start the makeMeDisapearTimer
-                    Connections {
-                        target: ListView.view
-                        function onAtYEndChanged() {
-                            makeMeDisapearTimer.start();
-                        }
-                    }
-
-
-                    ListView.onRemove: {
-                        const view = ListView.view;
-
-                        if (view.atYEnd) {
-                            // easy case just mark everything as read
-                            if (QQC2.ApplicationWindow.window.visibility !== QQC2.ApplicationWindow.Hidden) {
-                                currentRoom.markAllMessagesAsRead();
-                            }
-                            return;
-                        }
-
-                        // mark the last visible index 
-                        const lastVisibleIdx = lastVisibleIndex();
-
-                        if (lastVisibleIdx < index) {
-                            currentRoom.readMarkerEventId = sortedMessageEventModel.data(sortedMessageEventModel.index(lastVisibleIdx, 0), MessageEventModel.EventIdRole)
-                        }
-                    }
-                }
-            }
-
-            DelegateChoice {
-                roleValue: "other"
-                delegate: Item {}
-            }
-        }
+        delegate: EventDelegate {}
 
         QQC2.RoundButton {
             anchors.right: parent.right
@@ -631,7 +356,7 @@ Kirigami.ScrollablePage {
             visible: currentRoom && currentRoom.hasUnreadMessages && currentRoom.readMarkerLoaded
             action: Kirigami.Action {
                 onTriggered: {
-                    goToEvent(currentRoom.readMarkerEventId)
+                    messageListView.goToEvent(currentRoom.readMarkerEventId)
                 }
                 icon.name: "go-up"
             }
@@ -739,6 +464,9 @@ Kirigami.ScrollablePage {
         }
         headerPositioning: ListView.OverlayHeader
 
+        function goToEvent(eventID) {
+            messageListView.positionViewAtIndex(eventToIndex(eventID), ListView.Contain)
+        }
     }
 
 
@@ -818,10 +546,6 @@ Kirigami.ScrollablePage {
         currentRoom.markAllMessagesAsRead()
         // scroll to the very end, i.e to messageListView.YEnd
         messageListView.positionViewAtIndex(0, ListView.End)
-    }
-
-    function goToEvent(eventID) {
-        messageListView.positionViewAtIndex(eventToIndex(eventID), ListView.Contain)
     }
 
     function eventToIndex(eventID) {
