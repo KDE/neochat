@@ -345,10 +345,6 @@ Kirigami.ScrollablePage {
             id: timelineDelegateChooser
             role: "eventType"
 
-            property bool delegateLoaded: true
-            ListView.onPooled: delegateLoaded = false
-            ListView.onReused: delegateLoaded = true
-
             DelegateChoice {
                 roleValue: "state"
                 delegate: QQC2.Control {
@@ -366,7 +362,6 @@ Kirigami.ScrollablePage {
                 delegate: TimelineContainer {
                     id: emoteContainer
                     width: messageListView.width
-                    isLoaded: timelineDelegateChooser.delegateLoaded
                     isEmote: true
                     onReplyClicked: goToEvent(eventID)
                     hoverComponent: hoverActions
@@ -384,7 +379,6 @@ Kirigami.ScrollablePage {
                 delegate: TimelineContainer {
                     id: messageContainer
                     width: messageListView.width
-                    isLoaded: timelineDelegateChooser.delegateLoaded
                     onReplyClicked: goToEvent(eventID)
                     hoverComponent: hoverActions
 
@@ -400,7 +394,6 @@ Kirigami.ScrollablePage {
                 delegate: TimelineContainer {
                     id: noticeContainer
                     width: messageListView.width
-                    isLoaded: timelineDelegateChooser.delegateLoaded
                     onReplyClicked: goToEvent(eventID)
 
                     innerObject: TextDelegate {
@@ -415,7 +408,6 @@ Kirigami.ScrollablePage {
                 roleValue: "image"
                 delegate: TimelineContainer {
                     id: imageContainer
-                    isLoaded: timelineDelegateChooser.delegateLoaded
                     width: messageListView.width
                     onReplyClicked: goToEvent(eventID)
                     hoverComponent: hoverActions
@@ -449,7 +441,6 @@ Kirigami.ScrollablePage {
             DelegateChoice {
                 roleValue: "sticker"
                 delegate: TimelineContainer {
-                    isLoaded: timelineDelegateChooser.delegateLoaded
                     width: messageListView.width
                     onReplyClicked: goToEvent(eventID)
                     hoverComponent: hoverActions
@@ -469,7 +460,6 @@ Kirigami.ScrollablePage {
                 delegate: TimelineContainer {
                     id: audioContainer
                     width: messageListView.width
-                    isLoaded: timelineDelegateChooser.delegateLoaded
                     onReplyClicked: goToEvent(eventID)
                     hoverComponent: hoverActions
 
@@ -493,7 +483,6 @@ Kirigami.ScrollablePage {
                 delegate: TimelineContainer {
                     id: videoContainer
                     width: messageListView.width
-                    isLoaded: timelineDelegateChooser.delegateLoaded
                     onReplyClicked: goToEvent(eventID)
                     hoverComponent: hoverActions
 
@@ -521,7 +510,6 @@ Kirigami.ScrollablePage {
                 delegate: TimelineContainer {
                     id: fileContainer
                     width: messageListView.width
-                    isLoaded: timelineDelegateChooser.delegateLoaded
                     onReplyClicked: goToEvent(eventID)
 
                     innerObject: FileDelegate {
@@ -544,7 +532,6 @@ Kirigami.ScrollablePage {
                 delegate: TimelineContainer {
                     id: encryptedContainer
                     width: messageListView.width
-                    isLoaded: timelineDelegateChooser.delegateLoaded
 
                     innerObject: EncryptedDelegate {
                         Layout.fillWidth: Config.compactLayout

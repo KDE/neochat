@@ -16,7 +16,6 @@ QQC2.ItemDelegate {
     id: messageDelegate
     default property alias innerObject : column.children
     // readonly property bool failed: marks == EventStatus.SendingFailed
-    property bool isLoaded
 
     property bool isEmote: false
     property bool cardBackground: true
