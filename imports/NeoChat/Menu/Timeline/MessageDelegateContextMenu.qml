@@ -74,13 +74,15 @@ Loader {
             QQC2.Menu {
                 id: webshortcutmenu
                 title: i18n("Search for '%1'", webshortcutmodel.trunkatedSearchText)
-                property bool isVisible: selectedText && selectedText.length > 0 && webshortcutmodel.enabled
-                Component.onCompleted: webshortcutmenu.parent.visible = isVisible
+                property bool isVisible: webshortcutmodel.enabled
+                Component.onCompleted: {
+                    webshortcutmenu.parent.visible = isVisible
+                }
                 onIsVisibleChanged: webshortcutmenu.parent.visible = isVisible
                 Instantiator {
                     model: WebShortcutModel {
                         id: webshortcutmodel
-                        selectedText: loadRoot.selectedText
+                        selectedText: loadRoot.selectedText ? loadRoot.selectedText : loadRoot.message
                         onOpenUrl: RoomManager.visitNonMatrix(url)
                     }
                     delegate: QQC2.MenuItem {

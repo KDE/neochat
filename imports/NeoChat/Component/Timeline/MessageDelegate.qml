@@ -19,9 +19,18 @@ TimelineContainer {
     onReplyClicked: ListView.view.goToEvent(eventID)
     hoverComponent: hoverActions
 
-    innerObject: TextDelegate {
+    innerObject: RichLabel {
         isEmote: messageDelegate.isEmote
         Layout.maximumWidth: messageDelegate.bubbleMaxWidth
-        onRequestOpenMessageContext: openMessageContext(model, parent.selectedText)
+
+        TapHandler {
+            acceptedButtons: Qt.RightButton
+            onTapped: openMessageContext(model, parent.selectedText)
+        }
+
+        TapHandler {
+            acceptedButtons: Qt.LeftButton
+            onLongPressed: openMessageContext(model, parent.selectedText)
+        }
     }
 }

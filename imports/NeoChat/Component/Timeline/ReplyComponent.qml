@@ -75,11 +75,10 @@ MouseArea {
 
         Component {
             id: textComponent
-            TextDelegate {
+            RichLabel {
                 id: replyText
                 textMessage: reply.display
                 textFormat: Text.RichText
-                hasContextMenu: false
                 width: Math.min(implicitWidth, bubbleMaxWidth - Kirigami.Units.largeSpacing * 3)
                 x: Kirigami.Units.smallSpacing * 3 + replyAvatar.width
             }

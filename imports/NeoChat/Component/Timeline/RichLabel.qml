@@ -18,10 +18,6 @@ TextEdit {
     property string textMessage: model.display
     property bool spoilerRevealed: !hasSpoiler.test(textMessage)
 
-    property bool hasContextMenu: true
-
-    signal requestOpenMessageContext()
-
     ListView.onReused: Qt.binding(() => !hasSpoiler.test(textMessage))
 
     Layout.fillWidth: Config.compactLayout
@@ -76,17 +72,5 @@ a{
     TapHandler {
         enabled: !parent.hoveredLink && !spoilerRevealed
         onTapped: spoilerRevealed = true
-    }
-
-    TapHandler {
-        acceptedButtons: Qt.RightButton
-        onTapped: openMessageContext(model, parent.selectedText)
-        enabled: hasContextMenu
-    }
-
-    TapHandler {
-        acceptedButtons: Qt.LeftButton
-        onLongPressed: requestOpenMessageContext()
-        enabled: hasContextMenu
     }
 }
