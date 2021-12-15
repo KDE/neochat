@@ -583,7 +583,7 @@ Kirigami.ScrollablePage {
             author: event.author,
             message: event.message,
             eventId: event.eventId,
-            source: event.toolTip,
+            source: event.source,
             file: file,
             progressInfo: event.progressInfo,
         });
@@ -598,7 +598,7 @@ Kirigami.ScrollablePage {
             message: event.message,
             eventId: event.eventId,
             formattedBody: event.formattedBody,
-            source: event.toolTip,
+            source: event.source,
             eventType: event.eventType
         });
         contextMenu.open();

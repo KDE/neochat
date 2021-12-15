@@ -40,6 +40,7 @@ public:
         ReactionRole,
 
         IsEditedRole,
+        SourceRole,
 
         // For debugging
         EventResolvedTypeRole,

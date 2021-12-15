@@ -46,6 +46,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[ShowSectionRole] = "showSection";
     roles[ReactionRole] = "reaction";
     roles[IsEditedRole] = "isEdited";
+    roles[SourceRole] = "source";
     roles[FormattedBodyRole] = "formattedBody";
     return roles;
 }
@@ -456,7 +457,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         return m_currentRoom->eventToString(evt);
     }
 
-    if (role == Qt::ToolTipRole) {
+    if (role == SourceRole) {
         return evt.originalJson();
     }
 
