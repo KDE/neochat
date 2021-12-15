@@ -414,16 +414,6 @@ bool Controller::saveAccessTokenToKeyChain(const AccountSettings &account, const
     return true;
 }
 
-void Controller::playAudio(const QUrl &localFile)
-{
-    auto player = new QMediaPlayer;
-    player->setMedia(localFile);
-    player->play();
-    connect(player, &QMediaPlayer::stateChanged, [player] {
-        player->deleteLater();
-    });
-}
-
 void Controller::changeAvatar(Connection *conn, const QUrl &localFile)
 {
     auto job = conn->uploadFile(localFile.toLocalFile());

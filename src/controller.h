@@ -3,7 +3,6 @@
 
 #pragma once
 
-#include <QMediaPlayer>
 #include <QObject>
 #include <QQuickItem>
 
@@ -140,7 +139,6 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void logout(Quotient::Connection *conn, bool serverSideLogout);
-    static void playAudio(const QUrl &localFile);
     void changeAvatar(Quotient::Connection *conn, const QUrl &localFile);
     static void markAllMessagesAsRead(Quotient::Connection *conn);
     void restoreWindowGeometry(QQuickWindow *);
