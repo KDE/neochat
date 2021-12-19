@@ -11,13 +11,8 @@ import org.kde.kirigami 2.15 as Kirigami
 import org.kde.neochat 1.0
 import NeoChat.Dialog 1.0
 
-Kirigami.Page {
+Kirigami.ScrollablePage {
     title: i18n("Accounts")
-
-    leftPadding: pageSettingStack.wideMode ? Kirigami.Units.smallSpacing : 0
-    topPadding: pageSettingStack.wideMode ? Kirigami.Units.smallSpacing : 0
-    bottomPadding: pageSettingStack.wideMode ? Kirigami.Units.smallSpacing : 0
-    rightPadding: pageSettingStack.wideMode ? Kirigami.Units.smallSpacing : 0
 
     actions.main: Kirigami.Action {
         text: i18n("Add an account")
@@ -26,82 +21,59 @@ Kirigami.Page {
         visible: !pageSettingStack.wideMode
     }
 
-    Connections {
-        target: pageSettingStack
-        function onWideModeChanged() {
-            scroll.background.visible = pageSettingStack.wideMode
-        }
-    }
+    ListView {
+        model: AccountRegistry
+        delegate: Kirigami.SwipeListItem {
+            leftPadding: 0
+            rightPadding: 0
+            Kirigami.BasicListItem {
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
 
-    Controls.ScrollView {
-        id: scroll
-        Component.onCompleted: background.visible = pageSettingStack.wideMode
+                text: model.connection.localUser.displayName
+                labelItem.textFormat: Text.PlainText
+                subtitle: model.connection.localUserId
+                icon: model.connection.localUser.avatarMediaId ? ("image://mxc/" + model.connection.localUser.avatarMediaId) : "im-user"
 
-        anchors.fill: parent
-
-        Controls.ScrollBar.horizontal.policy: Controls.ScrollBar.AlwaysOff
-        ListView {
-            clip: true
-            model: AccountRegistry
-            delegate: Kirigami.SwipeListItem {
-                leftPadding: 0
-                rightPadding: 0
-                Kirigami.BasicListItem {
-                    anchors.top: parent.top
-                    anchors.bottom: parent.bottom
-
-                    text: model.connection.localUser.displayName
-                    labelItem.textFormat: Text.PlainText
-                    subtitle: model.connection.localUserId
-                    icon: model.connection.localUser.avatarMediaId ? ("image://mxc/" + model.connection.localUser.avatarMediaId) : "im-user"
-
-                    onClicked: {
-                        Controller.activeConnection = model.connection
-                        pageStack.layers.pop()
-                    }
+                onClicked: {
+                    Controller.activeConnection = model.connection
+                    pageStack.layers.pop()
                 }
-                actions: [
-                    Kirigami.Action {
-                        text: i18n("Edit this account")
-                        iconName: "document-edit"
-                        onTriggered: {
-                            userEditSheet.connection = model.connection
-                            userEditSheet.open()
-                        }
-                    },
-                    Kirigami.Action {
-                        text: i18n("Logout")
-                        iconName: "im-kick-user"
-                        onTriggered: {
-                            Controller.logout(model.connection, true)
-                            if(Controller.accountCount === 1)
-                                pageStack.layers.pop()
-                        }
-                    }
-                ]
             }
-        }
-    }
-
-    footer: Column {
-        height: visible ? implicitHeight : 0
-        Kirigami.ActionToolBar {
-            alignment: Qt.AlignRight
-            visible: pageSettingStack.wideMode
-            rightPadding: Kirigami.Units.smallSpacing
-            width: parent.width
-            flat: false
             actions: [
                 Kirigami.Action {
-                    text: i18n("Add an account")
-                    icon.name: "list-add-user"
-                    onTriggered: pageStack.layers.push("qrc:/imports/NeoChat/Page/WelcomePage.qml")
+                    text: i18n("Edit this account")
+                    iconName: "document-edit"
+                    onTriggered: {
+                        userEditSheet.connection = model.connection
+                        userEditSheet.open()
+                    }
+                },
+                Kirigami.Action {
+                    text: i18n("Logout")
+                    iconName: "im-kick-user"
+                    onTriggered: {
+                        Controller.logout(model.connection, true)
+                        if(Controller.accountCount === 1)
+                            pageStack.layers.pop()
+                    }
                 }
             ]
         }
-        Item {
+    }
+
+    footer: Controls.ToolBar {
+        Kirigami.Theme.colorSet: Kirigami.Theme.Window
+        Kirigami.ActionToolBar {
+            alignment: Qt.AlignRight
+            rightPadding: Kirigami.Units.smallSpacing
             width: parent.width
-            height: Kirigami.Units.smallSpacing
+            flat: false
+            actions: Kirigami.Action {
+                text: i18n("Add an account")
+                icon.name: "list-add-user"
+                onTriggered: pageStack.layers.push("qrc:/imports/NeoChat/Page/WelcomePage.qml")
+            }
         }
     }
     Connections {

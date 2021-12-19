@@ -13,92 +13,100 @@ import NeoChat.Settings 1.0
 import NeoChat.Component 1.0 as Components
 import NeoChat.Dialog 1.0
 
-Kirigami.Page {
+Kirigami.ScrollablePage {
     title: i18nc('@title:window', 'Custom Emojis')
 
-    leftPadding: pageSettingStack.wideMode ? Kirigami.Units.smallSpacing : 0
-    topPadding: pageSettingStack.wideMode ? Kirigami.Units.smallSpacing : 0
-    bottomPadding: pageSettingStack.wideMode ? Kirigami.Units.smallSpacing : 0
-    rightPadding: pageSettingStack.wideMode ? Kirigami.Units.smallSpacing : 0
+    ListView {
+        model: CustomEmojiModel {
+            id: emojiModel
 
-    ColumnLayout {
-        id: column
-        anchors.fill: parent
-
-        Connections {
-            target: pageSettingStack
-            function onWideModeChanged() {
-                scroll.background.visible = pageSettingStack.wideMode
-            }
+            connection: Controller.activeConnection
         }
 
-        QQC2.ScrollView {
-            id: scroll
-            Component.onCompleted: background.visible = pageSettingStack.wideMode
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-
-            ListView {
-                clip: true
-                model: CustomEmojiModel {
-                    id: emojiModel
-
-                    connection: Controller.activeConnection
-                }
-
-                Kirigami.PlaceholderMessage {
-                    anchors.centerIn: parent
-                    text: i18n("No custom inline stickers found")
-                    visible: parent.model.count === 0
-                }
-
-                delegate: Kirigami.BasicListItem {
-                    id: del
-
-                    required property string name
-                    required property url imageURL
-
-                    text: name
-                    reserveSpaceForSubtitle: true
-
-                    leading: Image {
-                        width: height
-                        sourceSize.width: width
-                        sourceSize.height: height
-                        source: imageURL
-
-                        Rectangle {
-                            anchors.fill: parent
-                            visible: parent.status === Image.Loading
-                            radius: height/2
-                            gradient: Components.ShimmerGradient { }
-                        }
-                    }
-
-                    trailing: QQC2.ToolButton {
-                        width: height
-                        icon.name: "delete"
-                        onClicked: emojiModel.removeEmoji(del.name)
-                    }
-                }
-            }
+        Kirigami.PlaceholderMessage {
+            anchors.centerIn: parent
+            text: i18n("No custom inline stickers found")
+            visible: parent.model.count === 0
         }
 
-        Loader {
-            active: pageSettingStack.wideMode
-            sourceComponent: addEmojiComponent
-            Layout.fillWidth: true
+        delegate: Kirigami.BasicListItem {
+            id: del
+
+            required property string name
+            required property url imageURL
+
+            text: name
+            reserveSpaceForSubtitle: true
+
+            leading: Image {
+                width: height
+                sourceSize.width: width
+                sourceSize.height: height
+                source: imageURL
+
+                Rectangle {
+                    anchors.fill: parent
+                    visible: parent.status === Image.Loading
+                    radius: height/2
+                    gradient: Components.ShimmerGradient { }
+                }
+            }
+
+            trailing: QQC2.ToolButton {
+                width: height
+                icon.name: "delete"
+                onClicked: emojiModel.removeEmoji(del.name)
+            }
         }
     }
 
     footer: QQC2.ToolBar {
-        id: toolbar
-        width: parent.width
-        visible: !pageSettingStack.wideMode
-        height: visible ? implicitHeight : 0
-        contentItem: Loader {
-            active: !pageSettingStack.wideMode
-            sourceComponent: addEmojiComponent
+        Kirigami.Theme.colorSet: Kirigami.Theme.Window
+        Kirigami.ActionToolBar {
+            id: emojiCreator
+            alignment: Qt.AlignRight
+            rightPadding: Kirigami.Units.smallSpacing
+            width: parent.width
+            flat: false
+            property string name
+            actions: [
+                Kirigami.Action {
+                    displayComponent: QQC2.TextField {
+                        id: emojiField
+                        placeholderText: i18n("new_emoji_name_here")
+
+                        validator: RegularExpressionValidator {
+                            regularExpression: /[a-zA-Z_0-9]*/
+                        }
+                        onTextChanged: emojiCreator.name = text
+                    }
+                },
+                Kirigami.Action {
+                    text: i18n("Add Emoji...")
+
+                    enabled: emojiCreator.name.length > 0
+                    property var fileDialog: null
+                    icon.name: 'list-add'
+
+                    onTriggered: {
+                        if (this.fileDialog !== null) {
+                            return;
+                        }
+
+                        this.fileDialog = openFileDialog.createObject(QQC2.Overlay.overlay)
+
+                        this.fileDialog.chosen.connect((url) => {
+                            emojiModel.addEmoji(emojiField.text, url)
+                            this.fileDialog = null
+                        })
+                        this.fileDialog.onRejected.connect(() => {
+                            rej()
+                            this.fileDialog = null
+                        })
+                        this.fileDialog.open()
+                    }
+                }
+            ]
         }
     }
 
@@ -107,50 +115,6 @@ Kirigami.Page {
 
         OpenFileDialog {
             folder: StandardPaths.writableLocation(StandardPaths.PicturesLocation)
-        }
-    }
-
-    property Component addEmojiComponent: RowLayout {
-        Item {
-            Layout.fillWidth: Qt.application.layoutDirection == Qt.LeftToRight
-        }
-
-        QQC2.TextField {
-            id: emojiField
-            placeholderText: i18n("new_emoji_name_here")
-
-            validator: RegularExpressionValidator {
-                regularExpression: /[a-zA-Z_0-9]*/
-            }
-        }
-
-        QQC2.Button {
-            text: i18n("Add Emoji...")
-
-            enabled: emojiField.text != ""
-            property var fileDialog: null
-
-            onClicked: {
-                if (this.fileDialog != null) {
-                    return;
-                }
-
-                this.fileDialog = openFileDialog.createObject(QQC2.Overlay.overlay)
-
-                this.fileDialog.chosen.connect((url) => {
-                    emojiModel.addEmoji(emojiField.text, url)
-                    this.fileDialog = null
-                })
-                this.fileDialog.onRejected.connect(() => {
-                    rej()
-                    this.fileDialog = null
-                })
-                this.fileDialog.open()
-            }
-        }
-
-        Item {
-            Layout.fillWidth: Qt.application.layoutDirection == Qt.RightToLeft
         }
     }
 }
