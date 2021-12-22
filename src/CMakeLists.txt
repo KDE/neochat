@@ -70,6 +70,7 @@ if(NEOCHAT_FLATPAK)
 endif()
 
 if(ANDROID)
+    target_sources(neochat PRIVATE notifyrc.qrc)
     target_link_libraries(neochat PRIVATE Qt5::Svg OpenSSL::SSL)
     kirigami_package_breeze_icons(ICONS
         "arrow-down"
@@ -113,6 +114,7 @@ if(ANDROID)
     )
 else()
     target_link_libraries(neochat PRIVATE Qt5::Widgets KF5::KIOWidgets)
+    install(FILES neochat.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})
 endif()
 
 if(TARGET KF5::DBusAddons)

@@ -126,7 +126,6 @@ install(FILES org.kde.neochat-symbolic.svg DESTINATION ${KDE_INSTALL_FULL_ICONDI
 install(FILES org.kde.neochat-symbolic.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/16x16@2/apps RENAME org.kde.neochat.svg)
 install(FILES org.kde.neochat-symbolic.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/16x16@3/apps RENAME org.kde.neochat.svg)
 install(FILES org.kde.neochat-symbolic.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/symbolic/apps)
-install(FILES neochat.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})
 
 add_definitions(-DQT_NO_FOREACH)
 
