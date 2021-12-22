@@ -136,6 +136,7 @@ add_library(neochat STATIC
     mediasizehelper.h
     eventhandler.cpp
     enums/delegatetype.h
+    colorschemer.cpp
 )
 
 ecm_qt_declare_logging_category(neochat
@@ -175,7 +176,6 @@ ecm_add_app_icon(NEOCHAT_ICON ICONS ${CMAKE_SOURCE_DIR}/128-logo.png)
 target_sources(neochat-app PRIVATE ${NEOCHAT_ICON})
 
 if(NOT ANDROID)
-    target_sources(neochat PRIVATE colorschemer.cpp colorschemer.h)
     if (NOT WIN32 AND NOT APPLE)
         target_sources(neochat PRIVATE trayicon_sni.cpp trayicon_sni.h)
         if(QT_MAJOR_VERSION STREQUAL "6")
@@ -184,8 +184,7 @@ if(NOT ANDROID)
     else()
         target_sources(neochat PRIVATE trayicon.cpp trayicon.h)
     endif()
-    target_link_libraries(neochat PUBLIC KF${QT_MAJOR_VERSION}::ConfigWidgets KF${QT_MAJOR_VERSION}::WindowSystem)
-    target_compile_definitions(neochat PUBLIC -DHAVE_COLORSCHEME)
+    target_link_libraries(neochat PUBLIC KF${QT_MAJOR_VERSION}::WindowSystem)
     target_compile_definitions(neochat PUBLIC -DHAVE_WINDOWSYSTEM)
 endif()
 
@@ -199,7 +198,7 @@ else()
 endif()
 
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR})
-target_link_libraries(neochat PUBLIC Qt::Core Qt::Quick Qt::Qml Qt::Gui Qt::Multimedia Qt::Network Qt::QuickControls2 KF${QT_MAJOR_VERSION}::I18n KF${QT_MAJOR_VERSION}::Kirigami2 KF${QT_MAJOR_VERSION}::Notifications KF${QT_MAJOR_VERSION}::ConfigCore KF${QT_MAJOR_VERSION}::ConfigGui KF${QT_MAJOR_VERSION}::CoreAddons KF${QT_MAJOR_VERSION}::SonnetCore  KF${QT_MAJOR_VERSION}::ItemModels Quotient${QUOTIENT_SUFFIX} cmark::cmark QCoro::Core)
+target_link_libraries(neochat PUBLIC Qt::Core Qt::Quick Qt::Qml Qt::Gui Qt::Multimedia Qt::Network Qt::QuickControls2 KF${QT_MAJOR_VERSION}::I18n KF${QT_MAJOR_VERSION}::Kirigami2 KF${QT_MAJOR_VERSION}::Notifications KF${QT_MAJOR_VERSION}::ConfigCore KF${QT_MAJOR_VERSION}::ConfigGui KF${QT_MAJOR_VERSION}::CoreAddons KF${QT_MAJOR_VERSION}::SonnetCore  KF${QT_MAJOR_VERSION}::ItemModels KF${QT_MAJOR_VERSION}::ConfigWidgets Quotient${QUOTIENT_SUFFIX} cmark::cmark QCoro::Core)
 
 kconfig_add_kcfg_files(neochat GENERATE_MOC neochatconfig.kcfgc)
 

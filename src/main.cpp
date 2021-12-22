@@ -45,6 +45,7 @@
 #include "blurhashimageprovider.h"
 #include "chatdocumenthandler.h"
 #include "clipboard.h"
+#include "colorschemer.h"
 #include "controller.h"
 #include "delegatesizehelper.h"
 #include "enums/delegatetype.h"
@@ -91,9 +92,6 @@
 #include "urlhelper.h"
 #include "windowcontroller.h"
 
-#ifdef HAVE_COLORSCHEME
-#include "colorschemer.h"
-#endif
 #include "models/completionmodel.h"
 #include "models/statemodel.h"
 
@@ -228,13 +226,11 @@ int main(int argc, char *argv[])
     Login *login = new Login();
     UrlHelper urlHelper;
 
-#ifdef HAVE_COLORSCHEME
     ColorSchemer colorScheme;
     qmlRegisterSingletonInstance<ColorSchemer>("org.kde.neochat", 1, 0, "ColorSchemer", &colorScheme);
     if (!config->colorScheme().isEmpty()) {
         colorScheme.apply(config->colorScheme());
     }
-#endif
 
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Controller", &Controller::instance());
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "NotificationsManager", &NotificationsManager::instance());
