@@ -22,6 +22,8 @@
 #include <KAboutData>
 #ifdef HAVE_KDBUSADDONS
 #include <KDBusService>
+#endif
+#ifdef HAVE_WINDOWSYSTEM
 #include <KWindowSystem>
 #endif
 #include <KLocalizedContext>
