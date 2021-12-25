@@ -40,7 +40,7 @@ Kirigami.ApplicationWindow {
     }
 
     Loader {
-        active: !Kirigami.Settings.isMobile
+        active: Kirigami.Settings.hasPlatformMenuBar && !Kirigami.Settings.isMobile
         source: Qt.resolvedUrl("qrc:/imports/NeoChat/Menu/GlobalMenu.qml")
     }
 
@@ -66,16 +66,9 @@ Kirigami.ApplicationWindow {
         function onYChanged() { saveWindowGeometryTimer.restart(); }
     }
 
-    Shortcut {
-        sequence: "Ctrl+K"
-        onActivated: {
-            quickView.item.open()
-        }
-    }
 
     Loader {
         id: quickView
-
         active: !Kirigami.Settings.isMobile
         sourceComponent: QuickSwitcher { }
     }

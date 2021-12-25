@@ -11,6 +11,12 @@ import org.kde.neochat 1.0
 QQC2.Popup {
     id: _popup
 
+    Shortcut {
+        sequence: "Ctrl+K"
+        enabled: !Kirigami.Settings.hasPlatformMenuBar
+        onActivated: _popup.open()
+    }
+
     onVisibleChanged: {
         if (!visible) {
             return
