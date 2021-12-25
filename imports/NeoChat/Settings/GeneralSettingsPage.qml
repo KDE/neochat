@@ -56,6 +56,24 @@ Kirigami.ScrollablePage {
                     Config.save()
                 }
             }
+            QQC2.CheckBox {
+                text: i18n("Show name change events")
+                checked: Config.showRename
+                enabled: !Config.isShowRenameImmutable
+                onToggled: {
+                    Config.showRename = checked
+                    Config.save()
+                }
+            }
+            QQC2.CheckBox {
+                text: i18n("Show avatar update events")
+                checked: Config.showAvatarUpdate
+                enabled: !Config.isShowAvatarUpdateImmutable
+                onToggled: {
+                    Config.showAvatarUpdate = checked
+                    Config.save()
+                }
+            }
             QQC2.RadioButton {
                 Kirigami.FormData.label: i18n("Rooms and private chats:")
                 text: i18n("Separated")
