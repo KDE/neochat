@@ -60,7 +60,6 @@ using namespace Quotient;
 
 Controller::Controller(QObject *parent)
     : QObject(parent)
-    , m_mgr(new QNetworkConfigurationManager(this))
 {
     Connection::setRoomType<NeoChatRoom>();
     Connection::setUserType<NeoChatUser>();
@@ -115,8 +114,6 @@ Controller::Controller(QObject *parent)
         sigaction(sig, &sa, nullptr);
     }
 #endif
-
-    connect(m_mgr, &QNetworkConfigurationManager::onlineStateChanged, this, &Controller::isOnlineChanged);
 }
 
 Controller::~Controller()
@@ -563,9 +560,26 @@ void Controller::setActiveConnection(Connection *connection)
     if (connection == m_connection) {
         return;
     }
+    if (m_connection != nullptr) {
+        disconnect(connection, &Connection::syncError, this, nullptr);
+    }
     m_connection = connection;
     if (connection != nullptr) {
         NeoChatConfig::self()->setActiveConnection(connection->userId());
+        connect(connection, &Connection::networkError, this, [this](QString message, QString details, int retriesTaken, int nextRetryInMilliseconds) {
+            if (!m_isOnline) {
+                return;
+            }
+            m_isOnline = false;
+            Q_EMIT isOnlineChanged(false);
+        });
+        connect(connection, &Connection::syncDone, this, [this] {
+            if (m_isOnline) {
+                return;
+            }
+            m_isOnline = true;
+            Q_EMIT isOnlineChanged(true);
+        });
     } else {
         NeoChatConfig::self()->setActiveConnection(QString());
     }
@@ -612,7 +626,7 @@ void Controller::createRoom(const QString &name, const QString &topic)
 
 bool Controller::isOnline() const
 {
-    return m_mgr->isOnline();
+    return m_isOnline;
 }
 
 // TODO: Remove in favor of RoomManager::joinRoom

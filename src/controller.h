@@ -10,7 +10,6 @@
 #include <KFormat>
 
 class QKeySequences;
-class QNetworkConfigurationManager;
 
 #include "connection.h"
 #include "csapi/list_public_rooms.h"
@@ -107,6 +106,7 @@ private:
 
     void loadSettings();
     void saveSettings() const;
+    bool m_isOnline = true;
 
     KAboutData m_aboutData;
     bool hasWindowSystem() const;
@@ -143,9 +143,6 @@ public Q_SLOTS:
     static void markAllMessagesAsRead(Quotient::Connection *conn);
     void restoreWindowGeometry(QQuickWindow *);
     void saveWindowGeometry(QQuickWindow *);
-
-private:
-    QNetworkConfigurationManager *m_mgr;
 };
 
 // TODO libQuotient 0.7: Drop
