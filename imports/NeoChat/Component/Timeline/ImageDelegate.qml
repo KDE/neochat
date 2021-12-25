@@ -46,7 +46,7 @@ TimelineContainer {
 
         fillMode: Image.PreserveAspectFit
 
-        ToolTip.text: display
+        ToolTip.text: model.display
         ToolTip.visible: hoverHandler.hovered
 
         HoverHandler {
