@@ -276,10 +276,11 @@ void NeoChatRoom::saveViewport(int topIndex, int bottomIndex)
     setLastDisplayedEvent(maxTimelineIndex() - bottomIndex);
 }
 
-QVariantList NeoChatRoom::getUsers(const QString &keyword) const
+QVariantList NeoChatRoom::getUsers(const QString &keyword, int limit) const
 {
     const auto userList = users();
     QVariantList matchedList;
+    int count = 0;
     for (const auto u : userList) {
         if (u->displayname(this).contains(keyword, Qt::CaseInsensitive)) {
             NeoChatUser user(u->id(), u->connection());
@@ -289,6 +290,10 @@ QVariantList NeoChatRoom::getUsers(const QString &keyword) const
                                     {QStringLiteral("color"), user.color()}};
 
             matchedList.append(QVariant::fromValue(userVariant));
+            count++;
+            if (count == limit) { // -1 is infinite
+                break;
+            }
         }
     }
 

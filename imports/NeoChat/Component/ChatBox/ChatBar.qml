@@ -268,7 +268,7 @@ ToolBar {
 
                     completionMenu.completionType = completionInfo.type
                     if (completionInfo.type === ChatDocumentHandler.User) {
-                        completionMenu.model = currentRoom.getUsers(completionInfo.keyword);
+                        completionMenu.model = currentRoom.getUsers(completionInfo.keyword, 10);
                     } else if (completionInfo.type === ChatDocumentHandler.Command) {
                         completionMenu.model = CommandModel.filterModel(completionInfo.keyword);
                     } else {
