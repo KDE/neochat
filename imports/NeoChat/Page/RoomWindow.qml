@@ -12,8 +12,14 @@ Kirigami.ApplicationWindow {
     required property var currentRoom
     minimumWidth: Kirigami.Units.gridUnit * 10
     minimumHeight: Kirigami.Units.gridUnit * 15
+
+    Shortcut {
+        sequence: StandardKey.Cancel
+        onActivated: window.close()
+    }
     pageStack.initialPage: RoomPage {
         visible: true
         currentRoom: window.currentRoom
+        disableCancelShortcut: true
     }
 }

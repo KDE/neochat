@@ -26,6 +26,10 @@ Kirigami.ScrollablePage {
     /// Used to determine if scrolling to the bottom should mark the message as unread
     property bool hasScrolledUpBefore: false;
 
+    /// Disable cancel shortcut. Used by the seperate window since it provide its own
+    /// cancel implementation.
+    property bool disableCancelShortcut: false
+
     title: currentRoom.htmlSafeDisplayName
 
     KeyNavigation.left: pageStack.get(0)
@@ -53,6 +57,12 @@ Kirigami.ScrollablePage {
         id: actionsHandler
         room: page.currentRoom
         connection: Controller.activeConnection
+    }
+
+    Shortcut {
+        sequence: StandardKey.Cancel
+        onActivated: applicationWindow().pageStack.get(0).forceActiveFocus()
+        enabled: !page.disableCancelShortcut
     }
 
     Connections {
