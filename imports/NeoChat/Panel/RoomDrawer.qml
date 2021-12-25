@@ -152,8 +152,13 @@ Kirigami.OverlayDrawer {
                             text: room ? room.displayName : i18n("No name")
                             textFormat: Text.PlainText
                         }
-                        Label {
+                        TextEdit {
                             Layout.fillWidth: true
+                            textFormat: TextEdit.PlainText
+                            wrapMode: Text.WordWrap
+                            selectByMouse: true
+                            color: Kirigami.Theme.textColor
+                            readOnly: true
                             text: room && room.canonicalAlias ? room.canonicalAlias : i18n("No Canonical Alias")
                         }
                     }
