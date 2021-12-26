@@ -63,7 +63,7 @@ ColumnLayout {
 
                 Layout.preferredWidth: del.label === "custom" ? implicitWidth + Kirigami.Units.largeSpacing : Kirigami.Units.gridUnit * 2
 
-                font.family: del.label === "custom" ? "" : 'emoji'
+                font.family: del.label === "custom" ? Kirigami.Theme.defaultFont.family : 'emoji'
                 text: del.label === "custom" ? i18n("Custom") : del.label
             }
 

@@ -95,9 +95,16 @@ Item {
         width: parent.width
         height: visible ? implicitHeight : 0
         anchors.bottom: replySeparator.top
-        sourceComponent: EmojiPicker{
-            textArea: chatBar.textField
-            onChosen: addText(emoji)
+        sourceComponent: QQC2.Pane {
+            topPadding: 0
+            bottomPadding: 0
+            rightPadding: 0
+            leftPadding: 0
+            Kirigami.Theme.colorSet: Kirigami.Theme.View
+            contentItem: EmojiPicker {
+                textArea: chatBar.textField
+                onChosen: addText(emoji)
+            }
         }
         Behavior on height {
             NumberAnimation {
