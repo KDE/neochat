@@ -21,19 +21,20 @@ TimelineContainer {
     onReplyClicked: ListView.view.goToEvent(eventID)
     hoverComponent: hoverActions
 
+    property var content: model.content
+    readonly property bool isAnimated: contentType === "image/gif"
+
+    property bool openOnFinished: false
+    readonly property bool downloaded: progressInfo && progressInfo.completed
+
+    readonly property bool isThumbnail: !(content.info.thumbnail_info == null || content.thumbnailMediaId == null)
+    //    readonly property var info: isThumbnail ? content.info.thumbnail_info : content.info
+    readonly property var info: content.info
+    readonly property string mediaId: isThumbnail ? content.thumbnailMediaId : content.mediaId
+
     innerObject: Image {
         id: img
 
-        property var content: model.content
-        readonly property bool isAnimated: contentType === "image/gif"
-
-        property bool openOnFinished: false
-        readonly property bool downloaded: progressInfo && progressInfo.completed
-
-        readonly property bool isThumbnail: !(content.info.thumbnail_info == null || content.thumbnailMediaId == null)
-        //    readonly property var info: isThumbnail ? content.info.thumbnail_info : content.info
-        readonly property var info: content.info
-        readonly property string mediaId: isThumbnail ? content.thumbnailMediaId : content.mediaId
 
         Layout.maximumWidth: imageDelegate.bubbleMaxWidth
         source: "image://mxc/" + mediaId
@@ -108,18 +109,16 @@ TimelineContainer {
             }
         }
 
-        function downloadAndOpen()
-        {
-            if (downloaded) openSavedFile()
-            else
-            {
+        function downloadAndOpen() {
+            if (downloaded) {
+                openSavedFile()
+            } else {
                 openOnFinished = true
                 currentRoom.downloadFile(eventId, StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId))
             }
         }
 
-        function openSavedFile()
-        {
+        function openSavedFile() {
             if (Qt.openUrlExternally(progressInfo.localPath)) return;
             if (Qt.openUrlExternally(progressInfo.localDir)) return;
         }

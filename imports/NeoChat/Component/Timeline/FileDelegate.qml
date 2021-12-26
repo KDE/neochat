@@ -21,9 +21,20 @@ TimelineContainer {
     onReplyClicked: ListView.view.goToEvent(eventID)
     hoverComponent: hoverActions
 
+    readonly property bool downloaded: progressInfo && progressInfo.completed
+
+    function saveFileAs() {
+        const dialog = fileDialog.createObject(QQC2.ApplicationWindow.overlay)
+        dialog.open()
+        dialog.currentFile = dialog.folder + "/" + currentRoom.fileNameToDownload(eventId)
+    }
+
+    function openSavedFile() {
+        if (Qt.openUrlExternally(progressInfo.localPath)) return;
+        if (Qt.openUrlExternally(progressInfo.localDir)) return;
+    }
+
     innerObject: RowLayout {
-        property bool openOnFinished: false
-        readonly property bool downloaded: progressInfo && progressInfo.completed
 
         Layout.fillWidth: true
         Layout.maximumWidth: fileDelegate.bubbleMaxWidth
@@ -128,17 +139,6 @@ TimelineContainer {
         TapHandler {
             acceptedButtons: Qt.LeftButton
             onLongPressed: openFileContext(model, parent)
-        }
-
-        function saveFileAs() {
-            var dialog = fileDialog.createObject(QQC2.ApplicationWindow.overlay)
-            dialog.open()
-            dialog.currentFile = dialog.folder + "/" + currentRoom.fileNameToDownload(eventId)
-        }
-
-        function openSavedFile() {
-            if (Qt.openUrlExternally(progressInfo.localPath)) return;
-            if (Qt.openUrlExternally(progressInfo.localDir)) return;
         }
     }
 }

@@ -23,34 +23,33 @@ TimelineContainer {
     onReplyClicked: ListView.view.goToEvent(eventID)
     hoverComponent: hoverActions
 
+    property bool playOnFinished: false
+    readonly property bool downloaded: progressInfo && progressInfo.completed
+
+    property bool supportStreaming: true
+    readonly property int maxWidth: 1000 // TODO messageListView.width
+
+    onDownloadedChanged: {
+        if (downloaded) {
+            vid.source = progressInfo.localPath
+        }
+
+        if (downloaded && playOnFinished) {
+            playSavedFile()
+            playOnFinished = false
+        }
+    }
+
     innerObject: Video {
         id: vid
-
-        property bool playOnFinished: false
-        readonly property bool downloaded: progressInfo && progressInfo.completed
-
-        property bool supportStreaming: true
 
         Layout.maximumWidth: videoDelegate.bubbleMaxWidth
         Layout.fillWidth: true
         Layout.maximumHeight: Kirigami.Units.gridUnit * 15
         Layout.minimumHeight: Kirigami.Units.gridUnit * 5
 
-        onDownloadedChanged: {
-            if (downloaded) {
-                vid.source = progressInfo.localPath
-            }
-
-            if (downloaded && playOnFinished) {
-                playSavedFile()
-                playOnFinished = false
-            }
-        }
-
-        readonly property int maxWidth: 1000 // TODO messageListView.width
-
-        Layout.preferredWidth: content.info.w > maxWidth ? maxWidth : content.info.w
-        Layout.preferredHeight: content.info.w > maxWidth ? (content.info.h / content.info.w * maxWidth) : content.info.h
+        Layout.preferredWidth: (model.content.info.w === undefined || model.content.info.w > videoDelegate.maxWidth) ? videoDelegate.maxWidth : content.info.w
+        Layout.preferredHeight: model.content.info.w === undefined ? (videoDelegate.maxWidth * 3 / 4) : (model.content.info.w > videoDelegate.maxWidth ? (model.content.info.h / model.content.info.w * videoDelegate.maxWidth) : model.content.info.h)
 
         loops: MediaPlayer.Infinite
 
@@ -81,7 +80,7 @@ TimelineContainer {
 
             visible: vid.playbackState == MediaPlayer.StoppedState || vid.error != MediaPlayer.NoError
 
-            source: "image://mxc/" + content.thumbnailMediaId
+            source: model.content.thumbnailMediaId ? "image://mxc/" + model.content.thumbnailMediaId : ""
 
             fillMode: Image.PreserveAspectFit
         }
@@ -106,7 +105,7 @@ TimelineContainer {
         Rectangle {
             anchors.fill: parent
 
-            visible: progressInfo.active && !vid.downloaded
+            visible: progressInfo.active && !videoDelegate.downloaded
 
             color: "#BB000000"
 
@@ -130,7 +129,7 @@ TimelineContainer {
                     vid.play()
                 }
             } else {
-                vid.downloadAndPlay()
+                videoDelegate.downloadAndPlay()
             }
         }
 
@@ -143,19 +142,19 @@ TimelineContainer {
             acceptedButtons: Qt.LeftButton
             onLongPressed: openFileContext(model, parent)
         }
+    }
 
-        function downloadAndPlay() {
-            if (vid.downloaded) {
-                playSavedFile()
-            } else {
-                playOnFinished = true
-                currentRoom.downloadFile(eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId))
-            }
+    function downloadAndPlay() {
+        if (vid.downloaded) {
+            playSavedFile()
+        } else {
+            playOnFinished = true
+            currentRoom.downloadFile(eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId))
         }
+    }
 
-        function playSavedFile() {
-            vid.stop()
-            vid.play()
-        }
+    function playSavedFile() {
+        vid.stop()
+        vid.play()
     }
 }
