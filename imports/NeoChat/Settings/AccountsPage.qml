@@ -154,17 +154,20 @@ Kirigami.ScrollablePage {
             Controls.TextField {
                 id: currentPassword
                 Kirigami.FormData.label: i18n("Current Password:")
+                enabled: userEditSheet.connection !== undefined && userEditSheet.connection.canChangePassword !== false
                 echoMode: TextInput.Password
             }
             Controls.TextField {
                 id: newPassword
                 Kirigami.FormData.label: i18n("New Password:")
+                enabled: userEditSheet.connection !== undefined && userEditSheet.connection.canChangePassword !== false
                 echoMode: TextInput.Password
 
             }
             Controls.TextField {
                 id: confirmPassword
                 Kirigami.FormData.label: i18n("Confirm new Password:")
+                enabled: userEditSheet.connection !== undefined && userEditSheet.connection.canChangePassword !== false
                 echoMode: TextInput.Password
             }
 
