@@ -24,8 +24,8 @@ Labs.MenuBar {
         //     text: i18nc("menu", "About NeoChat")
         // }
         Labs.MenuItem {
-            enabled: pageStack.layers.currentItem.title !== i18n("Settings")
-            text: i18nc("menu", "Preferences…")
+            enabled: pageStack.layers.currentItem.title !== i18n("Configure NeoChat...")
+            text: i18nc("menu", "Configure NeoChat...")
 
             shortcut: StandardKey.Preferences
             onTriggered: pageStack.pushDialogLayer("qrc:/imports/NeoChat/Settings/SettingsPage.qml")

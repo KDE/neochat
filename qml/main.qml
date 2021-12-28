@@ -251,10 +251,10 @@ Kirigami.ApplicationWindow {
                 enabled: pageStack.layers.currentItem.title !== i18n("Start a Chat") && Controller.accountCount > 0
             },
             Kirigami.Action {
-                text: i18n("Settings")
+                text: i18n("Configure NeoChat...")
                 icon.name: "settings-configure"
                 onTriggered: pageStack.pushDialogLayer("qrc:/imports/NeoChat/Settings/SettingsPage.qml")
-                enabled: pageStack.layers.currentItem.title !== i18n("Settings")
+                enabled: pageStack.layers.currentItem.title !== i18n("Configure NeoChat...")
                 shortcut: StandardKey.Preferences
             },
             Kirigami.Action {
