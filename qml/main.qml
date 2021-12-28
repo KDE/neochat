@@ -153,7 +153,7 @@ Kirigami.ApplicationWindow {
         onEnabledChanged: drawerOpen = enabled && !modal
         onModalChanged: drawerOpen = !modal
         enabled: RoomManager.hasOpenRoom && pageStack.layers.depth < 2 && pageStack.depth < 3
-        handleVisible: enabled && pageStack.layers.depth < 2 && pageStack.depth < 3
+        handleVisible: enabled && pageStack.layers.depth < 2 && pageStack.depth < 3 && (root.wideScreen || pageStack.currentIndex > 0)
     }
 
     readonly property int defaultPageWidth: Kirigami.Units.gridUnit * 17
@@ -171,6 +171,8 @@ Kirigami.ApplicationWindow {
     }
 
     pageStack.defaultColumnWidth: pageWidth
+    pageStack.globalToolBar.style: Kirigami.ApplicationHeaderStyle.ToolBar
+    pageStack.globalToolBar.showNavigationButtons: pageStack.currentIndex > 0 ? Kirigami.ApplicationHeaderStyle.ShowBackButton : 0
     pageStack.columnView.columnResizeMode: shouldUseSidebars ? Kirigami.ColumnView.FixedColumns : Kirigami.ColumnView.SingleColumn
 
     MouseArea {
