@@ -72,12 +72,6 @@ TimelineContainer {
             }
         }
 
-        function saveFileAs() {
-            var dialog = fileDialog.createObject(ApplicationWindow.overlay)
-            dialog.open()
-            dialog.currentFile = dialog.folder + "/" + currentRoom.fileNameToDownload(eventId)
-        }
-
         Component {
             id: fileDialog
 

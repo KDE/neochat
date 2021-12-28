@@ -24,7 +24,6 @@ QQC2.ItemDelegate {
 
     property bool showUserMessageOnRight: Config.showLocalMessagesOnRight && model.author.isLocalUser && !applicationWindow().wideScreen
 
-    signal saveFileAs()
     signal openExternally()
     signal replyClicked(string eventID)
 

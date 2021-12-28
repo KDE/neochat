@@ -80,7 +80,7 @@ TimelineContainer {
                 PropertyChanges {
                     target: downloadButton
 
-                    onClicked: root.saveFileAs()
+                    onClicked: fileDelegate.saveFileAs()
                 }
             }
         ]
