@@ -137,20 +137,6 @@ int main(int argc, char *argv[])
     KAboutData::setApplicationData(about);
     QGuiApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("org.kde.neochat")));
 
-#ifdef HAVE_KDBUSADDONS
-    KDBusService service(KDBusService::Unique);
-    service.connect(&service, &KDBusService::activateRequested, &RoomManager::instance(), [](const QStringList &arguments, const QString &workingDirectory) {
-        Q_UNUSED(workingDirectory);
-        if (arguments.isEmpty()) {
-            return;
-        }
-        auto args = arguments;
-        args.removeFirst();
-        for (const auto &arg : args) {
-            RoomManager::instance().openResource(arg);
-        }
-    });
-#endif
 
 #ifdef NEOCHAT_FLATPAK
     // Copy over the included FontConfig configuration to the
@@ -248,17 +234,35 @@ int main(int argc, char *argv[])
     }
 
 #ifdef HAVE_KDBUSADDONS
-    QObject::connect(&service, &KDBusService::activateRequested, &engine, [&engine](const QStringList & /*arguments*/, const QString & /*workingDirectory*/) {
-        const auto rootObjects = engine.rootObjects();
-        for (auto obj : rootObjects) {
-            auto view = qobject_cast<QQuickWindow *>(obj);
-            if (view) {
-                view->show();
-                raiseWindow(view);
-                return;
-            }
-        }
-    });
+    KDBusService service(KDBusService::Unique);
+    service.connect(&service,
+                    &KDBusService::activateRequested,
+                    &RoomManager::instance(),
+                    [&engine](const QStringList &arguments, const QString &workingDirectory) {
+                        Q_UNUSED(workingDirectory);
+
+                        // Raise windows
+                        const auto rootObjects = engine.rootObjects();
+                        for (auto obj : rootObjects) {
+                            auto view = qobject_cast<QQuickWindow *>(obj);
+                            if (view) {
+                                view->show();
+                                raiseWindow(view);
+                                return;
+                            }
+                        }
+
+                        // Open matrix uri
+                        if (arguments.isEmpty()) {
+                            return;
+                        }
+                        auto args = arguments;
+                        args.removeFirst();
+                        for (const auto &arg : args) {
+                            RoomManager::instance().openResource(arg);
+                        }
+                    });
+#endif
     const auto rootObjects = engine.rootObjects();
     for (auto obj : rootObjects) {
         auto view = qobject_cast<QQuickWindow *>(obj);
@@ -269,6 +273,5 @@ int main(int argc, char *argv[])
             break;
         }
     }
-#endif
     return app.exec();
 }
