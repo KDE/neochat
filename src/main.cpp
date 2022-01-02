@@ -32,7 +32,12 @@
 
 #include "neochat-version.h"
 
+#ifdef QUOTIENT_07
 #include "accountregistry.h"
+#else
+#include "neochataccountregistry.h"
+#endif
+
 #include "actionshandler.h"
 #include "blurhashimageprovider.h"
 #include "chatboxhelper.h"

@@ -34,7 +34,12 @@
 
 #include <signal.h>
 
+#ifdef QUOTIENT_07
 #include "accountregistry.h"
+#else
+#include "neochataccountregistry.h"
+#endif
+
 #include "csapi/account-data.h"
 #include "csapi/content-repo.h"
 #include "csapi/joining.h"

@@ -36,9 +36,6 @@ if(NEOCHAT_FLATPAK)
     include(cmake/Flatpak.cmake)
 endif()
 
-# Fix a crash due to problems with quotient's event system. Can probably be removed once the reworked event system is in
-cmake_policy(SET CMP0063 OLD)
-
 ecm_setup_version(${PROJECT_VERSION}
     VARIABLE_PREFIX NEOCHAT
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/neochat-version.h
@@ -114,6 +111,10 @@ set_package_properties(KQuickImageEditor PROPERTIES
 find_package(QCoro REQUIRED)
 
 qcoro_enable_coroutines()
+
+if(NOT Quotient_VERSION_MINOR GREATER 6)
+    cmake_policy(SET CMP0063 OLD)
+endif()
 
 if(ANDROID)
     configure_file(${CMAKE_CURRENT_SOURCE_DIR}/android/version.gradle.in ${CMAKE_BINARY_DIR}/version.gradle)

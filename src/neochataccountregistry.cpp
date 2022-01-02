@@ -2,7 +2,7 @@
 // SPDX-FileCopyrightText: Tobias Fella <fella@posteo.de>
 // SPDX-License-Identifier: LGPL-2.1-or-later
 
-#include "accountregistry.h"
+#include "neochataccountregistry.h"
 
 #include "connection.h"
 
