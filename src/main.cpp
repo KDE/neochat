@@ -24,6 +24,7 @@
 #include <KDBusService>
 #endif
 #ifdef HAVE_WINDOWSYSTEM
+#include <kwindowsystem_version.h>
 #include <KWindowSystem>
 #endif
 #include <KLocalizedContext>
@@ -78,12 +79,15 @@ using namespace Quotient;
 #ifdef HAVE_WINDOWSYSTEM
 static void raiseWindow(QWindow *window)
 {
+#if KWINDOWSYSTEM_VERSION >= QT_VERSION_CHECK(5, 91, 0)
+    KWindowSystem::updateStartupId(window);
+#else
     if (KWindowSystem::isPlatformWayland()) {
         KWindowSystem::setCurrentXdgActivationToken(qEnvironmentVariable("XDG_ACTIVATION_TOKEN"));
-        KWindowSystem::activateWindow(window->winId());
-    } else {
-        window->raise();
     }
+#endif
+    KWindowSystem::activateWindow(window->winId());
+    window->raise();
 }
 #endif
 
