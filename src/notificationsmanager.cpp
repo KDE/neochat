@@ -66,6 +66,9 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
     connect(replyAction.get(), &KNotificationReplyAction::replied, this, [room, replyEventId](const QString &text) {
         room->postMessage(text, room->preprocessText(text), RoomMessageEvent::MsgType::Text, replyEventId, QString());
     });
+
+    notification->setHint(QStringLiteral("x-kde-origin-name"), room->localUser()->id());
+
     notification->setReplyAction(std::move(replyAction));
 
     notification->sendEvent();
@@ -99,6 +102,9 @@ void NotificationsManager::postInviteNotification(NeoChatRoom *room, const QStri
     connect(notification, &KNotification::action2Activated, this, [room]() {
         RoomManager::instance().leaveRoom(room);
     });
+
+    notification->setHint(QStringLiteral("x-kde-origin-name"), room->localUser()->id());
+
     notification->sendEvent();
     m_notifications.insert(room->id(), notification);
 }
