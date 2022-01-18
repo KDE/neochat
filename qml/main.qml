@@ -20,7 +20,7 @@ Kirigami.ApplicationWindow {
     property int columnWidth: Kirigami.Units.gridUnit * 13
 
     minimumWidth: Kirigami.Units.gridUnit * 15
-    minimumHeight: Kirigami.Units.gridUnit * 20
+    minimumHeight: Kirigami.Units.gridUnit * 15
 
     visible: false // Will be overridden in Component.onCompleted
     wideScreen: width > columnWidth * 5
