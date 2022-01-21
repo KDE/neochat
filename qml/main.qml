@@ -253,7 +253,9 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: i18n("Configure NeoChat...")
                 icon.name: "settings-configure"
-                onTriggered: pageStack.pushDialogLayer("qrc:/imports/NeoChat/Settings/SettingsPage.qml")
+                onTriggered: pageStack.pushDialogLayer("qrc:/imports/NeoChat/Settings/SettingsPage.qml", {}, {
+                    title: i18n("Configure")
+                })
                 enabled: pageStack.layers.currentItem.title !== i18n("Configure NeoChat...")
                 shortcut: StandardKey.Preferences
             },
