@@ -509,9 +509,9 @@ void NeoChatRoom::changeAvatar(const QUrl &localFile)
 #endif
         connect(job, &BaseJob::success, this, [this, job] {
 #ifdef QUOTIENT_07
-            connection()->callApi<SetRoomStateWithKeyJob>(id(), "m.room.avatar", localUser()->id(), QJsonObject{{"url", job->contentUri().toString()}});
+            connection()->callApi<SetRoomStateWithKeyJob>(id(), "m.room.avatar", QString(), QJsonObject{{"url", job->contentUri().toString()}});
 #else
-            connection()->callApi<SetRoomStateWithKeyJob>(id(), "m.room.avatar", localUser()->id(), QJsonObject{{"url", job->contentUri()}});
+            connection()->callApi<SetRoomStateWithKeyJob>(id(), "m.room.avatar", QString(), QJsonObject{{"url", job->contentUri()}});
 #endif
         });
     }
