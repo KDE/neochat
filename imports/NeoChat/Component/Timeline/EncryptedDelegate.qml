@@ -21,5 +21,6 @@ TimelineContainer {
         wrapMode: Text.WordWrap
         textFormat: Text.RichText
         Layout.maximumWidth: encryptedDelegate.bubbleMaxWidth
+        Layout.leftMargin: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing : 0
     }
 }
