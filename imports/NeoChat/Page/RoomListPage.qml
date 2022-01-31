@@ -321,6 +321,7 @@ Kirigami.ScrollablePage {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
                     text: model.connection.localUserId
+                    subtitle: model.connection.localUser.accountLabel
                 }
             }
         }

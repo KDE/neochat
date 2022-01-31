@@ -152,6 +152,11 @@ Kirigami.ScrollablePage {
                 Kirigami.FormData.label: i18n("Name:")
             }
             Controls.TextField {
+                id: accountLabel
+                text: userEditSheet.connection ? userEditSheet.connection.localUser.accountLabel : ""
+                Kirigami.FormData.label: i18n("Label:")
+            }
+            Controls.TextField {
                 id: currentPassword
                 Kirigami.FormData.label: i18n("Current Password:")
                 enabled: userEditSheet.connection !== undefined && userEditSheet.connection.canChangePassword !== false
@@ -179,6 +184,8 @@ Kirigami.ScrollablePage {
                             showPassiveNotification("The Avatar could not be set")
                         if(userEditSheet.connection.localUser.displayName !== name.text)
                             userEditSheet.connection.localUser.rename(name.text)
+                        if(userEditSheet.connection.localUser.accountLabel !== accountLabel.text)
+                            userEditSheet.connection.localUser.setAccountLabel(accountLabel.text)
                         if(currentPassword.text !== "" && newPassword.text !== "" && confirmPassword.text !== "") {
                             if(newPassword.text === confirmPassword.text) {
                                 Controller.changePassword(userEditSheet.connection, currentPassword.text, newPassword.text)
