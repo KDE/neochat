@@ -9,5 +9,6 @@ class MessageFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
+    MessageFilterModel(QObject *parent = nullptr);
     bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
 };

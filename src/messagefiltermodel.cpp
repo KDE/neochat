@@ -6,6 +6,15 @@
 #include "messageeventmodel.h"
 #include "neochatconfig.h"
 
+MessageFilterModel::MessageFilterModel(QObject *parent)
+    : QSortFilterProxyModel(parent)
+{
+    connect(NeoChatConfig::self(), &NeoChatConfig::ShowLeaveJoinEventChanged, this, [this] {
+        beginResetModel();
+        endResetModel();
+    });
+}
+
 bool MessageFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
 {
     const QModelIndex index = sourceModel()->index(sourceRow, 0, sourceParent);
