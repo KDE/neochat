@@ -122,7 +122,7 @@ Kirigami.ScrollablePage {
         id: loadingIndicator
         anchors.centerIn: parent
         visible: page.currentRoom === null || (messageListView.count === 0 && !page.currentRoom.allHistoryLoaded && !page.currentRoom.isInvite)
-        text: i18n("Loading")
+        text: i18n("Loading…")
         QQC2.BusyIndicator {
             running: loadingIndicator.visible
             Layout.alignment: Qt.AlignHCenter

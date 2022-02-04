@@ -13,7 +13,7 @@ import NeoChat.Component 1.0
 Kirigami.PlaceholderMessage {
     property var showContinueButton: false
     property var showBackButton: false
-    property string title: i18n("Loading")
+    property string title: i18n("Loading…")
 
     anchors.centerIn: parent
 

@@ -50,7 +50,7 @@ LoginStep {
     }
 
     action: Kirigami.Action {
-        text: LoginHelper.testing && matrixIdField.acceptableInput ? i18n("Loading") : i18nc("@action:button", "Continue")
+        text: LoginHelper.testing && matrixIdField.acceptableInput ? i18n("Loading…") : i18nc("@action:button", "Continue")
         onTriggered: {
             if (LoginHelper.supportsSso && LoginHelper.supportsPassword) {
                 processed("qrc:/imports/NeoChat/Component/Login/LoginMethod.qml");
