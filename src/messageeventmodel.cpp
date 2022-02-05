@@ -47,6 +47,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[ReactionRole] = "reaction";
     roles[IsEditedRole] = "isEdited";
     roles[SourceRole] = "source";
+    roles[MimeTypeRole] = "mimeType";
     roles[FormattedBodyRole] = "formattedBody";
     return roles;
 }
@@ -542,6 +543,15 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         }
 
         return e->content()->fileInfo()->mimeType.iconName();
+    }
+
+    if (role == MimeTypeRole) {
+        auto e = eventCast<const RoomMessageEvent>(&evt);
+        if (!e || !e->hasFileContent()) {
+            return QVariant();
+        }
+
+        return e->content()->fileInfo()->mimeType.name();
     }
 
     if (role == SpecialMarksRole) {

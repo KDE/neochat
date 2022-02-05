@@ -595,6 +595,7 @@ Kirigami.ScrollablePage {
             eventId: event.eventId,
             source: event.source,
             file: file,
+            mimeType: event.mimeType,
             progressInfo: event.progressInfo,
         });
         contextMenu.open();

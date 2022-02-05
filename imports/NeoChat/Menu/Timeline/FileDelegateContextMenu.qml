@@ -16,6 +16,7 @@ MessageDelegateContextMenu {
 
     required property var file
     required property var progressInfo
+    required property string mimeType
 
     property list<Kirigami.Action> actions: [
         Kirigami.Action {
@@ -71,6 +72,27 @@ MessageDelegateContextMenu {
                     title: i18n("Message Source"),
                     width: Kirigami.Units.gridUnit * 25
                 });
+            }
+        }
+    ]
+
+    property list<Kirigami.Action> nestedActions: [
+        ShareAction {
+            id: shareAction
+            inputData: {
+                'urls': [],
+                'mimeType': [mimeType]
+            }
+            property string filename: StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId);
+
+            doBeforeSharing: () => {
+                currentRoom.downloadFile(eventId, filename)
+            }
+            Component.onCompleted: {
+                shareAction.inputData = {
+                    urls: [filename],
+                    mimeType: [mimeType]
+                };
             }
         }
     ]

@@ -61,6 +61,12 @@ if(NOT ANDROID)
     target_compile_definitions(neochat PRIVATE -DHAVE_WINDOWSYSTEM)
 endif()
 
+if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
+    target_sources(neochat PRIVATE ../res_desktop.qrc)
+else()
+    target_sources(neochat PRIVATE ../res_android.qrc)
+endif()
+
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR})
 target_link_libraries(neochat PRIVATE Qt::Quick Qt::Qml Qt::Gui Qt::Network Qt::QuickControls2 KF5::I18n KF5::Kirigami2 KF5::Notifications KF5::ConfigCore KF5::ConfigGui KF5::CoreAddons Quotient cmark::cmark ${QTKEYCHAIN_LIBRARIES})
 if(TARGET QCoro5::Coro)

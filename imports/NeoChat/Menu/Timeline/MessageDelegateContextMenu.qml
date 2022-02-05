@@ -21,6 +21,8 @@ Loader {
     required property string source
     property string selectedText: ""
 
+    property list<Kirigami.Action> nestedActions
+
     property list<Kirigami.Action> actions: [
         Kirigami.Action {
             text: i18n("Edit")
@@ -63,9 +65,36 @@ Loader {
         id: regularMenu
 
         QQC2.Menu {
+            id: menu
+            Instantiator {
+                model: loadRoot.nestedActions
+                delegate: QQC2.Menu {
+                    id: menuItem
+                    visible: modelData.visible
+                    title: modelData.text
+
+                    Instantiator {
+                        model: modelData.children
+                        delegate: QQC2.MenuItem {
+                            text: modelData.text
+                            icon.name: modelData.icon.name
+                            onTriggered: modelData.trigger()
+                        }
+                        onObjectAdded: {
+                            menuItem.insertItem(0, object)
+                        }
+                    }
+                }
+                onObjectAdded: {
+                    object.visible = false;
+                    menu.addMenu(object)
+                }
+            }
+
             Repeater {
                 model: loadRoot.actions
                 QQC2.MenuItem {
+                    id: menuItem
                     visible: modelData.visible
                     action: modelData
                     onClicked: loadRoot.item.close();
@@ -106,7 +135,7 @@ Loader {
 
         Kirigami.OverlayDrawer {
             id: drawer
-            height: popupContent.implicitHeight
+            height: stackView.implicitHeight
             edge: Qt.BottomEdge
             padding: 0
             leftPadding: 0
@@ -116,85 +145,146 @@ Loader {
 
             parent: applicationWindow().overlay
 
-            ColumnLayout {
-                id: popupContent
+            QQC2.StackView {
+                id: stackView
                 width: parent.width
-                spacing: 0
-                RowLayout {
-                    id: headerLayout
-                    Layout.fillWidth: true
-                    Layout.margins: Kirigami.Units.largeSpacing
-                    spacing: Kirigami.Units.largeSpacing
-                    Kirigami.Avatar {
-                        id: avatar
-                        source: author.avatarMediaId ? ("image://mxc/" + author.avatarMediaId) : ""
-                        Layout.preferredWidth: Kirigami.Units.gridUnit * 3
-                        Layout.preferredHeight: Kirigami.Units.gridUnit * 3
-                        Layout.alignment: Qt.AlignTop
-                    }
+                implicitHeight: currentItem.implicitHeight
+
+                Component {
+                    id: nestedActionsComponent
                     ColumnLayout {
-                        Layout.fillWidth: true
-                        Kirigami.Heading {
-                            level: 3
-                            Layout.fillWidth: true
-                            text: currentRoom.htmlSafeMemberName(author.id)
-                            wrapMode: Text.WordWrap
+                        id: actionLayout
+                        property string title: ""
+                        property list<Kirigami.Action> actions
+                        width: parent.width
+                        spacing: 0
+                        RowLayout {
+                            QQC2.ToolButton {
+                                icon.name: 'draw-arrow-back'
+                                onClicked: stackView.pop()
+                            }
+                            Kirigami.Heading {
+                                level: 3
+                                Layout.fillWidth: true
+                                text: actionLayout.title
+                                wrapMode: Text.WordWrap
+                            }
                         }
-                        QQC2.Label {
-                            text: message
-                            Layout.fillWidth: true
-                            wrapMode: Text.WordWrap
+                        Repeater {
+                            id: listViewAction
+                            model: actionLayout.actions
 
-                            onLinkActivated: RoomManager.openResource(link);
+                            Kirigami.BasicListItem {
+                                icon: modelData.icon.name
+                                iconColor: modelData.icon.color ?? undefined
+                                enabled: modelData.enabled
+                                visible: modelData.visible
+                                text: modelData.text
+                                onClicked: {
+                                    modelData.triggered()
+                                    loadRoot.item.close();
+                                }
+                                implicitHeight: visible ? Kirigami.Units.gridUnit * 3 : 0
+                            }
                         }
                     }
                 }
-                Kirigami.Separator {
-                    Layout.fillWidth: true
-                }
-                RowLayout {
+                initialItem: ColumnLayout {
+                    id: popupContent
+                    width: parent.width
                     spacing: 0
-                    Layout.fillWidth: true
-                    Layout.preferredHeight: Kirigami.Units.gridUnit * 2.5
-                    Repeater {
-                        model: ["👍", "👎️", "😄", "🎉", "🚀", "👀"]
-                        delegate: QQC2.ItemDelegate {
+                    RowLayout {
+                        id: headerLayout
+                        Layout.fillWidth: true
+                        Layout.margins: Kirigami.Units.largeSpacing
+                        spacing: Kirigami.Units.largeSpacing
+                        Kirigami.Avatar {
+                            id: avatar
+                            source: author.avatarMediaId ? ("image://mxc/" + author.avatarMediaId) : ""
+                            Layout.preferredWidth: Kirigami.Units.gridUnit * 3
+                            Layout.preferredHeight: Kirigami.Units.gridUnit * 3
+                            Layout.alignment: Qt.AlignTop
+                        }
+                        ColumnLayout {
                             Layout.fillWidth: true
-                            Layout.fillHeight: true
-
-                            contentItem: Kirigami.Heading {
-                                horizontalAlignment: Text.AlignHCenter
-                                verticalAlignment: Text.AlignVCenter
-
-                                font.family: "emoji"
-                                text: modelData
+                            Kirigami.Heading {
+                                level: 3
+                                Layout.fillWidth: true
+                                text: currentRoom.htmlSafeMemberName(author.id)
+                                wrapMode: Text.WordWrap
                             }
+                            QQC2.Label {
+                                text: message
+                                Layout.fillWidth: true
+                                wrapMode: Text.WordWrap
 
+                                onLinkActivated: RoomManager.openResource(link);
+                            }
+                        }
+                    }
+                    Kirigami.Separator {
+                        Layout.fillWidth: true
+                    }
+                    RowLayout {
+                        spacing: 0
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: Kirigami.Units.gridUnit * 2.5
+                        Repeater {
+                            model: ["👍", "👎️", "😄", "🎉", "🚀", "👀"]
+                            delegate: QQC2.ItemDelegate {
+                                Layout.fillWidth: true
+                                Layout.fillHeight: true
+
+                                contentItem: Kirigami.Heading {
+                                    horizontalAlignment: Text.AlignHCenter
+                                    verticalAlignment: Text.AlignVCenter
+
+                                    font.family: "emoji"
+                                    text: modelData
+                                }
+
+                                onClicked: {
+                                    currentRoom.toggleReaction(eventId, modelData);
+                                    loadRoot.item.close();
+                                }
+                            }
+                        }
+                    }
+                    Kirigami.Separator {
+                        Layout.fillWidth: true
+                    }
+                    Repeater {
+                        id: listViewAction
+                        model: loadRoot.actions
+
+                        Kirigami.BasicListItem {
+                            icon: modelData.icon.name
+                            iconColor: modelData.icon.color ?? undefined
+                            enabled: modelData.enabled
+                            visible: modelData.visible
+                            text: modelData.text
                             onClicked: {
-                                currentRoom.toggleReaction(eventId, modelData);
+                                modelData.triggered()
                                 loadRoot.item.close();
                             }
+                            implicitHeight: visible ? Kirigami.Units.gridUnit * 3 : 0
                         }
                     }
-                }
-                Kirigami.Separator {
-                    Layout.fillWidth: true
-                }
-                Repeater {
-                    id: listViewAction
-                    model: loadRoot.actions
 
-                    Kirigami.BasicListItem {
-                        icon: modelData.icon.name
-                        iconColor: modelData.icon.color ?? undefined
-                        enabled: modelData.enabled
-                        visible: modelData.visible
-                        text: modelData.text
-                        onClicked: {
-                            modelData.triggered()
-                            loadRoot.item.close();
+                    Repeater {
+                        model: loadRoot.nestedActions
+
+                        Kirigami.BasicListItem {
+                            action: modelData
+                            visible: modelData.visible
+                            implicitHeight: visible ? Kirigami.Units.gridUnit * 3 : 0
+                            onClicked: {
+                                stackView.push(nestedActionsComponent, {
+                                    title: modelData.text,
+                                    actions: modelData.children
+                                });
+                            }
                         }
-                        implicitHeight: visible ? Kirigami.Units.gridUnit * 3 : 0
                     }
                 }
             }
