@@ -354,6 +354,9 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
             return NeoChatRoomType::Direct;
         }
         const RoomCreateEvent *creationEvent = room->creation();
+        if (!creationEvent) {
+            return NeoChatRoomType::Normal;
+        }
         QJsonObject contentJson = creationEvent->contentJson();
         QJsonObject::const_iterator typeIter = contentJson.find("type");
         if (typeIter != contentJson.end()) {
