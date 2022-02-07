@@ -19,6 +19,7 @@ RoomManager::RoomManager(QObject *parent)
     , m_lastCurrentRoom(nullptr)
     , m_config(KConfig("data", KConfig::SimpleConfig, QStandardPaths::AppDataLocation))
 {
+    m_lastRoomConfig = m_config.group("LastOpenRoom");
 }
 
 RoomManager::~RoomManager()
@@ -97,8 +98,7 @@ void RoomManager::openRoomForActiveConnection()
         return;
     }
     // Read from last open room
-    KConfigGroup lastOpenRoomGroup(&m_config, "LastOpenRoom");
-    QString roomId = lastOpenRoomGroup.readEntry(Controller::instance().activeConnection()->userId(), QString());
+    QString roomId = m_lastRoomConfig.readEntry(Controller::instance().activeConnection()->userId(), QString());
 
     // TODO remove legacy check at some point.
     if (roomId.isEmpty()) {
@@ -130,9 +130,7 @@ void RoomManager::enterRoom(NeoChatRoom *room)
     }
 
     // Save last open room
-    KConfigGroup lastOpenRoomGroup(&m_config, "LastOpenRoom");
-    lastOpenRoomGroup.writeEntry(Controller::instance().activeConnection()->userId(), room->id());
-    lastOpenRoomGroup.config()->sync();
+    m_lastRoomConfig.writeEntry(Controller::instance().activeConnection()->userId(), room->id());
 }
 
 void RoomManager::openWindow(NeoChatRoom *room)

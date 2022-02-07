@@ -4,6 +4,7 @@
 #pragma once
 
 #include <KConfig>
+#include <KConfigGroup>
 #include <QObject>
 #include <uriresolver.h>
 
@@ -104,4 +105,5 @@ private:
     NeoChatRoom *m_lastCurrentRoom;
     QString m_arg;
     KConfig m_config;
+    KConfigGroup m_lastRoomConfig;
 };
