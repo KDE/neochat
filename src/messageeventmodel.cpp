@@ -15,6 +15,7 @@
 #include "stickerevent.h"
 
 #include <QDebug>
+#include <QGuiApplication>
 #include <QQmlEngine> // for qmlRegisterType()
 #include <QTimeZone>
 
@@ -74,6 +75,9 @@ MessageEventModel::MessageEventModel(QObject *parent)
                 m_currentRoom->getPreviousContent(50);
             }
         });
+    });
+    connect(static_cast<QGuiApplication *>(QGuiApplication::instance()), &QGuiApplication::paletteChanged, this, [this] {
+        Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole, ReplyRole});
     });
 }
 
