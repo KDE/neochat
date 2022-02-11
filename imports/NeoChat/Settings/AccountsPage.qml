@@ -139,7 +139,7 @@ Kirigami.ScrollablePage {
                     }
                 }
                 Controls.Button {
-                    visible: avatar.source.length !== 0
+                    visible: avatar.source.toString().length !== 0
                     icon.name: "edit-clear"
 
                     onClicked: avatar.source = ""
