@@ -6,10 +6,12 @@
 #include <QFontDatabase>
 #include <QGuiApplication>
 #include <QIcon>
+#include <QNetworkAccessManager>
 #include <QNetworkProxy>
 #include <QNetworkProxyFactory>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QQmlNetworkAccessManagerFactory>
 #include <QQuickStyle>
 #include <QQuickWindow>
 
@@ -60,6 +62,7 @@
 #include "neochatconfig.h"
 #include "neochatroom.h"
 #include "neochatuser.h"
+#include "networkaccessmanager.h"
 #include "notificationsmanager.h"
 #include "publicroomlistmodel.h"
 #include "roomlistmodel.h"
@@ -75,6 +78,14 @@
 #endif
 
 using namespace Quotient;
+
+class NetworkAccessManagerFactory : public QQmlNetworkAccessManagerFactory
+{
+    QNetworkAccessManager *create(QObject *) override
+    {
+        return NetworkAccessManager::instance();
+    }
+};
 
 #ifdef HAVE_WINDOWSYSTEM
 static void raiseWindow(QWindow *window)
@@ -219,6 +230,7 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
     KLocalizedString::setApplicationDomain("neochat");
     QObject::connect(&engine, &QQmlApplicationEngine::quit, &app, &QCoreApplication::quit);
+    engine.setNetworkAccessManagerFactory(new NetworkAccessManagerFactory());
 
     QCommandLineParser parser;
     parser.setApplicationDescription(i18n("Client for the matrix communication protocol"));
