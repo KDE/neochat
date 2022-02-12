@@ -31,12 +31,7 @@ NotificationsManager::NotificationsManager(QObject *parent)
 {
 }
 
-void NotificationsManager::postNotification(NeoChatRoom *room,
-                                            const QString &roomName,
-                                            const QString &sender,
-                                            const QString &text,
-                                            const QImage &icon,
-                                            const QString &replyEventId)
+void NotificationsManager::postNotification(NeoChatRoom *room, const QString &sender, const QString &text, const QImage &icon, const QString &replyEventId)
 {
     if (!NeoChatConfig::self()->showNotifications()) {
         return;
@@ -46,10 +41,10 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
     img.convertFromImage(icon);
     KNotification *notification = new KNotification("message");
 
-    if (sender == roomName) {
+    if (sender == room->displayName()) {
         notification->setTitle(sender);
     } else {
-        notification->setTitle(i18n("%1 (%2)", sender, roomName));
+        notification->setTitle(i18n("%1 (%2)", sender, room->displayName()));
     }
 
     notification->setText(text.toHtmlEscaped());

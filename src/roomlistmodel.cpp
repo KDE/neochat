@@ -236,7 +236,6 @@ void RoomListModel::handleNotifications()
                     avatar_image = room->avatar(128);
                 }
                 NotificationsManager::instance().postNotification(dynamic_cast<NeoChatRoom *>(room),
-                                                                  room->displayName(),
                                                                   sender->displayname(room),
                                                                   notification["event"].toObject()["content"].toObject()["body"].toString(),
                                                                   avatar_image,
