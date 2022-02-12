@@ -31,7 +31,12 @@ NotificationsManager::NotificationsManager(QObject *parent)
 {
 }
 
-void NotificationsManager::postNotification(NeoChatRoom *room, const QString &sender, const QString &text, const QImage &icon, const QString &replyEventId)
+void NotificationsManager::postNotification(NeoChatRoom *room,
+                                            const QString &sender,
+                                            const QString &text,
+                                            const QImage &icon,
+                                            const QString &replyEventId,
+                                            bool canReply)
 {
     if (!NeoChatConfig::self()->showNotifications()) {
         return;
@@ -56,15 +61,17 @@ void NotificationsManager::postNotification(NeoChatRoom *room, const QString &se
         Q_EMIT Controller::instance().showWindow();
     });
 
-    std::unique_ptr<KNotificationReplyAction> replyAction(new KNotificationReplyAction(i18n("Reply")));
-    replyAction->setPlaceholderText(i18n("Reply..."));
-    connect(replyAction.get(), &KNotificationReplyAction::replied, this, [room, replyEventId](const QString &text) {
-        room->postMessage(text, room->preprocessText(text), RoomMessageEvent::MsgType::Text, replyEventId, QString());
-    });
+    if (canReply) {
+        std::unique_ptr<KNotificationReplyAction> replyAction(new KNotificationReplyAction(i18n("Reply")));
+        replyAction->setPlaceholderText(i18n("Reply..."));
+        connect(replyAction.get(), &KNotificationReplyAction::replied, this, [room, replyEventId](const QString &text) {
+            room->postMessage(text, room->preprocessText(text), RoomMessageEvent::MsgType::Text, replyEventId, QString());
+        });
+        notification->setReplyAction(std::move(replyAction));
+    }
 
     notification->setHint(QStringLiteral("x-kde-origin-name"), room->localUser()->id());
 
-    notification->setReplyAction(std::move(replyAction));
 
     notification->sendEvent();
 

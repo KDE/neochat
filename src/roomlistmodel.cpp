@@ -239,7 +239,8 @@ void RoomListModel::handleNotifications()
                                                                   sender->displayname(room),
                                                                   notification["event"].toObject()["content"].toObject()["body"].toString(),
                                                                   avatar_image,
-                                                                  notification["event"].toObject()["event_id"].toString());
+                                                                  notification["event"].toObject()["event_id"].toString(),
+                                                                  true);
             }
         }
     });
