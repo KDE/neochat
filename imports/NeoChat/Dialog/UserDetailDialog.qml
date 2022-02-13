@@ -52,7 +52,7 @@ Kirigami.OverlaySheet {
 
                     onClicked: {
                         if (avatarMediaId) {
-                            fullScreenImage.createObject(parent, {"filename": displayName, "localPath": room.urlToMxcUrl(avatarUrl)}).showFullScreen()
+                            fullScreenImage.createObject(parent, {"filename": displayName, "source": room.urlToMxcUrl(avatarUrl)}).showFullScreen()
                         }
                     }
                 }

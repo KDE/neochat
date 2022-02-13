@@ -44,7 +44,7 @@ public:
 
         IsEditedRole,
         SourceRole,
-
+        MediaUrlRole,
         // For debugging
         EventResolvedTypeRole,
         AuthorIdRole,

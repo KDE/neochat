@@ -311,7 +311,11 @@ QVariantMap NeoChatRoom::getUser(const QString &userID) const
 
 QUrl NeoChatRoom::urlToMxcUrl(const QUrl &mxcUrl)
 {
+#ifdef QUOTIENT_07
+    return connection()->makeMediaUrl(mxcUrl);
+#else
     return DownloadFileJob::makeRequestUrl(connection()->homeserver(), mxcUrl);
+#endif
 }
 
 QString NeoChatRoom::avatarMediaId() const

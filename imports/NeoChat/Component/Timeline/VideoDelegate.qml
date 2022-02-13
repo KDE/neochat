@@ -55,14 +55,6 @@ TimelineContainer {
 
         fillMode: VideoOutput.PreserveAspectFit
 
-        Component.onCompleted: {
-            if (downloaded) {
-                source = progressInfo.localPath
-            } else {
-                source = currentRoom.urlToMxcUrl(content.url)
-            }
-        }
-
         onDurationChanged: {
             if (!duration) {
                 vid.supportStreaming = false;

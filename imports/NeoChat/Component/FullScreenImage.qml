@@ -9,8 +9,8 @@ import org.kde.kirigami 2.15 as Kirigami
 ApplicationWindow {
     id: root
 
+    property alias source: image.source
     property string filename
-    property url localPath
     property string blurhash: ""
     property int imageWidth: -1
     property int imageHeight: -1
@@ -44,8 +44,6 @@ ApplicationWindow {
         height: Math.min(root.imageHeight !== -1 ? root.imageWidth : sourceSize.height, root.height)
 
         fillMode: Image.PreserveAspectFit
-
-        source: localPath
 
         Image {
             anchors.centerIn: parent

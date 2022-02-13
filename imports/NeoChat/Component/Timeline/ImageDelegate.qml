@@ -35,9 +35,9 @@ TimelineContainer {
     innerObject: Image {
         id: img
 
-
         Layout.maximumWidth: imageDelegate.bubbleMaxWidth
-        source: "image://mxc/" + mediaId
+        Layout.maximumHeight: imageDelegate.bubbleMaxWidth / imageDelegate.info.w * imageDelegate.info.h
+        source: model.mediaUrl
 
         Image {
             anchors.fill: parent
@@ -95,7 +95,7 @@ TimelineContainer {
             onTapped: {
                 fullScreenImage.createObject(parent, {
                     filename: eventId,
-                    localPath: currentRoom.urlToDownload(eventId),
+                    source: model.mediaUrl,
                     blurhash: model.content.info["xyz.amorgan.blurhash"],
                     imageWidth: content.info.w,
                     imageHeight: content.info.h
