@@ -606,7 +606,7 @@ Kirigami.ScrollablePage {
         const contextMenu = messageDelegateContextMenu.createObject(page, {
             selectedText: selectedText,
             author: event.author,
-            message: event.message,
+            message: event.display,
             eventId: event.eventId,
             formattedBody: event.formattedBody,
             source: event.source,
