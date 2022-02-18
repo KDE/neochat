@@ -33,7 +33,9 @@ public:
         MimeTypeRole,
         FileMimetypeIcon,
 
+        IsReplyRole,
         ReplyRole,
+        ReplyIdRole,
 
         ShowAuthorRole,
         ShowSectionRole,
@@ -64,6 +66,7 @@ public:
     Q_INVOKABLE [[nodiscard]] int eventIDToIndex(const QString &eventID) const;
     Q_INVOKABLE [[nodiscard]] QVariant getLastLocalUserMessageEventId();
     Q_INVOKABLE [[nodiscard]] QVariant getLatestMessageFromIndex(const int baseline);
+    Q_INVOKABLE void loadReply(const QModelIndex &row);
 
 private Q_SLOTS:
     int refreshEvent(const QString &eventId);
@@ -87,6 +90,8 @@ private:
     void refreshEventRoles(int row, const QVector<int> &roles = {});
     int refreshEventRoles(const QString &eventId, const QVector<int> &roles = {});
     void moveReadMarker(const QString &toEventId);
+
+    std::vector<event_ptr_tt<RoomEvent>> m_extraEvents;
 
 Q_SIGNALS:
     void roomChanged();

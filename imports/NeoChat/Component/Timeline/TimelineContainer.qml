@@ -27,6 +27,12 @@ QQC2.ItemDelegate {
     signal openExternally()
     signal replyClicked(string eventID)
 
+    Component.onCompleted: {
+        if (model.isReply && model.reply === undefined) {
+            messageEventModel.loadReply(sortedMessageEventModel.mapToSource(sortedMessageEventModel.index(model.index, 0)))
+        }
+    }
+
     topPadding: 0
     bottomPadding: 0
     background: null

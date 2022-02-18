@@ -5,6 +5,7 @@
 
 #include "neochatconfig.h"
 #include <connection.h>
+#include <csapi/rooms.h>
 #include <events/reactionevent.h>
 #include <events/redactionevent.h>
 #include <events/roomavatarevent.h>
@@ -41,7 +42,9 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[FileMimetypeIcon] = "fileMimetypeIcon";
     roles[AnnotationRole] = "annotation";
     roles[EventResolvedTypeRole] = "eventResolvedType";
+    roles[IsReplyRole] = "isReply";
     roles[ReplyRole] = "reply";
+    roles[ReplyIdRole] = "replyId";
     roles[UserMarkerRole] = "userMarker";
     roles[ShowAuthorRole] = "showAuthor";
     roles[ShowSectionRole] = "showSection";
@@ -642,19 +645,35 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         return variantList;
     }
 
+    if (role == IsReplyRole) {
+        return !evt.contentJson()["m.relates_to"].toObject()["m.in_reply_to"].toObject()["event_id"].toString().isEmpty();
+    }
+
+    if (role == ReplyIdRole) {
+        return evt.contentJson()["m.relates_to"].toObject()["m.in_reply_to"].toObject()["event_id"].toString();
+    }
+
     if (role == ReplyRole) {
         const QString &replyEventId = evt.contentJson()["m.relates_to"].toObject()["m.in_reply_to"].toObject()["event_id"].toString();
         if (replyEventId.isEmpty()) {
             return {};
         };
         const auto replyIt = m_currentRoom->findInTimeline(replyEventId);
-        if (replyIt == m_currentRoom->historyEdge()) {
+        const RoomEvent *replyPtr = replyIt != m_currentRoom->historyEdge() ? &**replyIt : nullptr;
+        if (!replyPtr) {
+            for (const auto &e : m_extraEvents) {
+                if (e->id() == replyEventId) {
+                    replyPtr = e.get();
+                    break;
+                }
+            }
+        }
+        if (!replyPtr) {
             return {};
-        };
-        const auto &replyEvt = **replyIt;
+        }
 
         QString type;
-        if (auto e = eventCast<const RoomMessageEvent>(&replyEvt)) {
+        if (auto e = eventCast<const RoomMessageEvent>(replyPtr)) {
             switch (e->msgtype()) {
             case MessageEventType::Emote:
                 type = "emote";
@@ -679,29 +698,29 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
                 type = "message";
             }
 
-        } else if (is<const StickerEvent>(replyEvt)) {
+        } else if (is<const StickerEvent>(*replyPtr)) {
             type = "sticker";
         } else {
             type = "other";
         }
 
         QVariant content;
-        if (auto e = eventCast<const RoomMessageEvent>(&replyEvt)) {
+        if (auto e = eventCast<const RoomMessageEvent>(replyPtr)) {
             // Cannot use e.contentJson() here because some
             // EventContent classes inject values into the copy of the
             // content JSON stored in EventContent::Base
             content = e->hasFileContent() ? QVariant::fromValue(e->content()->originalJson) : QVariant();
         };
 
-        if (auto e = eventCast<const StickerEvent>(&replyEvt)) {
+        if (auto e = eventCast<const StickerEvent>(replyPtr)) {
             content = QVariant::fromValue(e->image().originalJson);
         }
 
         return QVariantMap{{"eventId", replyEventId},
-                           {"display", m_currentRoom->eventToString(replyEvt, Qt::RichText)},
+                           {"display", m_currentRoom->eventToString(*replyPtr, Qt::RichText)},
                            {"content", content},
                            {"type", type},
-                           {"author", userAtEvent(static_cast<NeoChatUser *>(m_currentRoom->user(replyEvt.senderId())), m_currentRoom, evt)}};
+                           {"author", userAtEvent(static_cast<NeoChatUser *>(m_currentRoom->user(replyPtr->senderId())), m_currentRoom, evt)}};
     }
 
     if (role == ShowAuthorRole) {
@@ -850,4 +869,14 @@ QVariant MessageEventModel::getLatestMessageFromIndex(const int baseline)
         }
     }
     return replyResponse;
+}
+
+void MessageEventModel::loadReply(const QModelIndex &index)
+{
+    auto job = m_currentRoom->connection()->callApi<GetOneRoomEventJob>(m_currentRoom->id(), data(index, ReplyIdRole).toString());
+    QPersistentModelIndex persistentIndex(index);
+    connect(job, &BaseJob::success, this, [this, job, persistentIndex] {
+        m_extraEvents.push_back(fromJson<event_ptr_tt<RoomEvent>>(job->jsonData()));
+        Q_EMIT dataChanged(persistentIndex, persistentIndex, {ReplyRole});
+    });
 }
