@@ -94,7 +94,15 @@ Kirigami.ScrollablePage {
                 }
             }
             QQC2.CheckBox {
-                text: i18n("Use s/text/replacement syntax to edit your last message")
+                id: quickEditCheckbox
+                Layout.maximumWidth: parent.width
+                contentItem: QQC2.Label {
+                    text: i18n("Use s/text/replacement syntax to edit your last message")
+                    horizontalAlignment: Text.AlignLeft
+                    verticalAlignment: Text.AlignVCenter
+                    leftPadding: quickEditCheckbox.indicator.width + quickEditCheckbox.spacing
+                    wrapMode: QQC2.Label.Wrap
+                }
                 checked: Config.allowQuickEdit
                 enabled: !Config.isAllowQuickEditImmutable
                 onToggled: {
