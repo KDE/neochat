@@ -175,6 +175,7 @@ Kirigami.ScrollablePage {
             }
         }
         Kirigami.FormLayout {
+            Layout.maximumWidth: parent.width
             QQC2.CheckBox {
                 Kirigami.FormData.label: "Show Avatar:"
                 text: i18n("In Chat")
