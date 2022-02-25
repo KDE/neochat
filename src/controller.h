@@ -19,6 +19,7 @@ class QKeySequences;
 
 class NeoChatRoom;
 class NeoChatUser;
+class TrayIcon;
 class QQuickWindow;
 
 namespace QKeychain
@@ -100,6 +101,7 @@ private:
 
     QPointer<Connection> m_connection;
     bool m_busy = false;
+    TrayIcon *m_trayIcon = nullptr;
 
     static QByteArray loadAccessTokenFromFile(const AccountSettings &account);
     QKeychain::ReadPasswordJob *loadAccessTokenFromKeyChain(const AccountSettings &account);

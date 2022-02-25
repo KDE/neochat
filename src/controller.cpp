@@ -70,19 +70,21 @@ Controller::Controller(QObject *parent)
     Connection::setUserType<NeoChatUser>();
 
 #ifndef Q_OS_ANDROID
-    TrayIcon *trayIcon = new TrayIcon(this);
     if (NeoChatConfig::self()->systemTray()) {
-        trayIcon->show();
-        connect(trayIcon, &TrayIcon::showWindow, this, &Controller::showWindow);
+        m_trayIcon = new TrayIcon(this);
+        m_trayIcon->show();
+        connect(m_trayIcon, &TrayIcon::showWindow, this, &Controller::showWindow);
         QGuiApplication::setQuitOnLastWindowClosed(false);
     }
-    connect(NeoChatConfig::self(), &NeoChatConfig::SystemTrayChanged, this, [this, trayIcon]() {
+    connect(NeoChatConfig::self(), &NeoChatConfig::SystemTrayChanged, this, [this]() {
         if (NeoChatConfig::self()->systemTray()) {
-            trayIcon->show();
-            connect(trayIcon, &TrayIcon::showWindow, this, &Controller::showWindow);
+            m_trayIcon = new TrayIcon(this);
+            m_trayIcon->show();
+            connect(m_trayIcon, &TrayIcon::showWindow, this, &Controller::showWindow);
         } else {
-            trayIcon->hide();
-            disconnect(trayIcon, &TrayIcon::showWindow, this, &Controller::showWindow);
+            disconnect(m_trayIcon, &TrayIcon::showWindow, this, &Controller::showWindow);
+            delete m_trayIcon;
+            m_trayIcon = nullptr;
         }
         QGuiApplication::setQuitOnLastWindowClosed(!NeoChatConfig::self()->systemTray());
     });
