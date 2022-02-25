@@ -239,6 +239,11 @@ Kirigami.ScrollablePage {
         }
     }
 
+    CollapseStateProxyModel {
+        id: collapseStateProxyModel
+        sourceModel: sortedMessageEventModel
+    }
+
     ListView {
         id: messageListView
         visible: !invitation.visible
@@ -251,7 +256,7 @@ Kirigami.ScrollablePage {
         verticalLayoutDirection: ListView.BottomToTop
         highlightMoveDuration: 500
 
-        model: !isLoaded ? undefined : sortedMessageEventModel
+        model: !isLoaded ? undefined : collapseStateProxyModel
 
         MessageEventModel {
             id: messageEventModel

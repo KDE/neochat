@@ -46,6 +46,7 @@
 #include "chatboxhelper.h"
 #include "chatdocumenthandler.h"
 #include "clipboard.h"
+#include "collapsestateproxymodel.h"
 #include "commandmodel.h"
 #include "controller.h"
 #include "csapi/joining.h"
@@ -198,6 +199,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<UserListModel>("org.kde.neochat", 1, 0, "UserListModel");
     qmlRegisterType<CustomEmojiModel>("org.kde.neochat", 1, 0, "CustomEmojiModel");
     qmlRegisterType<MessageEventModel>("org.kde.neochat", 1, 0, "MessageEventModel");
+    qmlRegisterType<CollapseStateProxyModel>("org.kde.neochat", 1, 0, "CollapseStateProxyModel");
     qmlRegisterType<MessageFilterModel>("org.kde.neochat", 1, 0, "MessageFilterModel");
     qmlRegisterType<PublicRoomListModel>("org.kde.neochat", 1, 0, "PublicRoomListModel");
     qmlRegisterType<UserDirectoryListModel>("org.kde.neochat", 1, 0, "UserDirectoryListModel");

@@ -53,6 +53,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[SourceRole] = "source";
     roles[MimeTypeRole] = "mimeType";
     roles[FormattedBodyRole] = "formattedBody";
+    roles[AuthorIdRole] = "authorId";
     return roles;
 }
 
@@ -766,6 +767,9 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         }
 
         return res;
+    }
+    if (role == AuthorIdRole) {
+        return evt.senderId();
     }
 
     return {};

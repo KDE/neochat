@@ -47,6 +47,8 @@ public:
 
         // For debugging
         EventResolvedTypeRole,
+        AuthorIdRole,
+        LastRole, // Keep this last
     };
     Q_ENUM(EventRoles)
 
