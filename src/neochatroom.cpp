@@ -509,6 +509,15 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
             if (e.matrixType() == QLatin1String("m.room.server_acl")) {
                 return i18n("changed the server access control lists for this room");
             }
+            if (e.matrixType() == QLatin1String("im.vector.modular.widgets")) {
+                if (e.fullJson()["unsigned"]["prev_content"].toObject().isEmpty()) {
+                    return i18nc("[User] added <name> widget", "added %1 widget", e.contentJson()["name"].toString());
+                }
+                if (e.contentJson().isEmpty()) {
+                    return i18nc("[User] removed <name> widget", "removed %1 widget", e.fullJson()["unsigned"]["prev_content"]["name"].toString());
+                }
+                return i18nc("[User] configured <name> widget", "configured %1 widget", e.contentJson()["name"].toString());
+            }
             return e.stateKey().isEmpty() ? i18n("updated %1 state", e.matrixType())
                                           : i18n("updated %1 state for %2", e.matrixType(), e.stateKey().toHtmlEscaped());
         },
