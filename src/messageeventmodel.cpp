@@ -88,7 +88,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
     if (room) {
         m_lastReadEventIndex = QPersistentModelIndex(QModelIndex());
         room->setDisplayed();
-        if (m_currentRoom->timelineSize() < 10) {
+        if (m_currentRoom->timelineSize() < 10 && !room->allHistoryLoaded()) {
             room->getPreviousContent(50);
         }
         lastReadEventId = room->readMarkerEventId();

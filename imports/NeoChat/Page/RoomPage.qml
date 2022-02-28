@@ -407,12 +407,6 @@ Kirigami.ScrollablePage {
         }
 
         Component.onCompleted: {
-            if (currentRoom) {
-                if (currentRoom.timelineSize < 20) {
-                    currentRoom.getPreviousContent(50);
-                }
-            }
-
             positionViewAtBeginning();
         }
 
