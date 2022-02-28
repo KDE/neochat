@@ -139,17 +139,14 @@ ToolBar {
                 }
 
                 function sendMessage(event) {
-                    if (isCompleting) {
+                    if (isCompleting && completionMenu.count > 0) {
                         chatBar.complete();
-
-                        isCompleting = false;
-                        return;
-                    }
-                    if (event.modifiers & Qt.ShiftModifier) {
+                    } else if (event.modifiers & Qt.ShiftModifier) {
                         inputField.insert(cursorPosition, "\n")
                     } else {
                         chatBar.postMessage()
                     }
+                    isCompleting = false;
                 }
 
                 Keys.onReturnPressed: { sendMessage(event) }
