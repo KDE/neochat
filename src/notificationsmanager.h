@@ -23,8 +23,11 @@ public:
     postNotification(NeoChatRoom *room, const QString &sender, const QString &text, const QImage &icon, const QString &replyEventId, bool canReply);
     void postInviteNotification(NeoChatRoom *room, const QString &title, const QString &sender, const QImage &icon);
 
+    void clearInvitationNotification(const QString &roomId);
+
 private:
     NotificationsManager(QObject *parent = nullptr);
 
     QMultiMap<QString, KNotification *> m_notifications;
+    QHash<QString, QPointer<KNotification>> m_invitations;
 };

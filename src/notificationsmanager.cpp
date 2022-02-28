@@ -89,24 +89,38 @@ void NotificationsManager::postInviteNotification(NeoChatRoom *room, const QStri
     notification->setText(i18n("%1 invited you to a room", sender));
     notification->setTitle(title);
     notification->setPixmap(img);
+    notification->setFlags(KNotification::Persistent);
     notification->setDefaultAction(i18n("Open this invitation in NeoChat"));
     connect(notification, &KNotification::defaultActivated, this, [=]() {
 #if defined(HAVE_WINDOWSYSTEM) && KNOTIFICATIONS_VERSION >= QT_VERSION_CHECK(5, 90, 0)
         KWindowSystem::setCurrentXdgActivationToken(notification->xdgActivationToken());
 #endif
+        notification->close();
         RoomManager::instance().enterRoom(room);
         Q_EMIT Controller::instance().showWindow();
     });
     notification->setActions({i18n("Accept Invitation"), i18n("Reject Invitation")});
-    connect(notification, &KNotification::action1Activated, this, [room]() {
+    connect(notification, &KNotification::action1Activated, this, [this, room, notification]() {
         room->acceptInvitation();
+        notification->close();
     });
-    connect(notification, &KNotification::action2Activated, this, [room]() {
+    connect(notification, &KNotification::action2Activated, this, [this, room, notification]() {
         RoomManager::instance().leaveRoom(room);
+        notification->close();
+    });
+    connect(notification, &KNotification::closed, this, [this, room]() {
+        m_invitations.remove(room->id());
     });
 
     notification->setHint(QStringLiteral("x-kde-origin-name"), room->localUser()->id());
 
     notification->sendEvent();
-    m_notifications.insert(room->id(), notification);
+    m_invitations.insert(room->id(), notification);
+}
+
+void NotificationsManager::clearInvitationNotification(const QString &roomId)
+{
+    if (m_invitations.contains(roomId)) {
+        m_invitations[roomId]->close();
+    }
 }

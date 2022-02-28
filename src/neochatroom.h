@@ -121,6 +121,7 @@ public:
 
     Q_INVOKABLE QString htmlSafeName() const;
     Q_INVOKABLE QString htmlSafeDisplayName() const;
+    Q_INVOKABLE void clearInvitationNotification();
 
 #ifndef QUOTIENT_07
     Q_INVOKABLE QString htmlSafeMemberName(const QString &userId) const

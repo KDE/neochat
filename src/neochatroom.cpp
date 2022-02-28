@@ -806,3 +806,8 @@ QCoro::Task<void> NeoChatRoom::doDeleteMessagesByUser(const QString &user)
         }
     }
 }
+
+void NeoChatRoom::clearInvitationNotification()
+{
+    NotificationsManager::instance().clearInvitationNotification(id());
+}
