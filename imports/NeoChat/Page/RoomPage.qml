@@ -41,10 +41,8 @@ Kirigami.ScrollablePage {
                 if(pageStack.lastItem == page) {
                     pageStack.pop()
                 }
-            } else {
-                if(page.currentRoom.isInvite) {
-                    page.currentRoom.clearInvitationNotification();
-                }
+            } else if (page.currentRoom.isInvite) {
+                page.currentRoom.clearInvitationNotification();
             }
         }
     }
