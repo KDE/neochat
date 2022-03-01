@@ -13,7 +13,7 @@ Kirigami.Page {
         anchors.centerIn: parent
         text: i18n("Loading…")
         QQC2.BusyIndicator {
-            running: loadingIndicator.visible
+            running: false
             Layout.alignment: Qt.AlignHCenter
         }
     }
