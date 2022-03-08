@@ -130,7 +130,7 @@ QVariantList NeoChatRoom::getUsersTyping() const
 
 void NeoChatRoom::sendTypingNotification(bool isTyping)
 {
-    connection()->callApi<SetTypingJob>(BackgroundRequest, localUser()->id(), id(), isTyping, 10000);
+    connection()->callApi<SetTypingJob>(BackgroundRequest, localUser()->id(), id(), isTyping, 5000);
 }
 
 const RoomMessageEvent *NeoChatRoom::lastEvent(bool ignoreStateEvent) const

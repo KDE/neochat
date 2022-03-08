@@ -133,7 +133,7 @@ ToolBar {
                 Timer {
                     id: repeatTimer
                     repeat: true
-                    interval: 5000
+                    interval: 3000
                     triggeredOnStart: true
                     onTriggered: currentRoom.sendTypingNotification(true)
                 }
