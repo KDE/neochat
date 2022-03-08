@@ -292,9 +292,6 @@ void Controller::invokeLogin()
                         setActiveConnection(connection);
                         connectSingleShot(connection, &Connection::syncDone, this, &Controller::initiated);
                     }
-                    if (!connection->nextBatchToken().isEmpty()) {
-                        Q_EMIT initiated();
-                    }
                 });
                 connect(connection, &Connection::loginError, this, [this, connection](const QString &error, const QString &) {
                     if (error == "Unrecognised access token") {
