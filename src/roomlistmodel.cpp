@@ -329,7 +329,7 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
     }
     NeoChatRoom *room = m_rooms.at(index.row());
     if (role == NameRole) {
-        return !room->name().isEmpty() ? room->htmlSafeName() : room->htmlSafeDisplayName();
+        return !room->name().isEmpty() ? room->name() : room->displayName();
     }
     if (role == DisplayNameRole) {
         return room->displayName();

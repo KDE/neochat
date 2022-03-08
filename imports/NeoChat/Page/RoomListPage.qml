@@ -236,6 +236,7 @@ Kirigami.ScrollablePage {
                 Keys.onReturnPressed: enterRoomAction.trigger()
                 bold: unreadCount > 0
                 label: name ?? ""
+                labelItem.textFormat: Text.PlainText
                 subtitle: {
                     const txt = (lastEvent.length === 0 ? topic : lastEvent).replace(/(\r\n\t|\n|\r\t)/gm, " ")
                     if (txt.length) {
