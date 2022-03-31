@@ -252,6 +252,35 @@ QDateTime NeoChatRoom::lastActiveTime()
     return messageEvents().rbegin()->get()->originTimestamp();
 }
 
+QString NeoChatRoom::subtitleText()
+{
+    QString subtitle = this->lastEventToString().size() == 0 ? this->topic() : this->lastEventToString();
+
+    subtitle
+        // replace blockquote, i.e. '> text'
+        .replace(QRegularExpression("(\r\n\t|\n|\r\t|)> "), " ")
+        // replace headings, i.e. "# text"
+        .replace(QRegularExpression("(\r\n\t|\n|\r\t|)\\#{1,6} "), " ")
+        // replace newlines
+        .replace(QRegularExpression("(\r\n\t|\n|\r\t)"), " ")
+        // replace '**text**' and '__text__'
+        .replace(QRegularExpression("(\\*\\*|__)(?=\\S)([^\\r]*\\S)\\1"), "\\2")
+        // replace '*text*' and '_text_'
+        .replace(QRegularExpression("(\\*|_)(?=\\S)([^\\r]*\\S)\\1"), "\\2")
+        // replace '~~text~~'
+        .replace(QRegularExpression("~~(.*)~~"), "\\1")
+        // replace '~text~'
+        .replace(QRegularExpression("~(.*)~"), "\\1")
+        // replace '<del>text</del>'
+        .replace(QRegularExpression("<del>(.*)</del>"), "\\1")
+        // replace '```code```'
+        .replace(QRegularExpression("```([^```]+)```"), "\\1")
+        // replace '`code`'
+        .replace(QRegularExpression("`([^`]+)`"), "\\1");
+
+    return subtitle.size() > 0 ? subtitle : QStringLiteral(" ");
+}
+
 int NeoChatRoom::savedTopVisibleIndex() const
 {
     return firstDisplayedMarker() == historyEdge() ? 0 : int(firstDisplayedMarker() - messageEvents().rbegin());

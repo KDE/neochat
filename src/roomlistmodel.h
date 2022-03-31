@@ -49,6 +49,7 @@ public:
         JoinStateRole,
         CurrentRoomRole,
         CategoryVisibleRole,
+        SubtitleTextRole,
     };
     Q_ENUM(EventRoles)
 

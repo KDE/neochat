@@ -237,13 +237,8 @@ Kirigami.ScrollablePage {
                 bold: unreadCount > 0
                 label: name ?? ""
                 labelItem.textFormat: Text.PlainText
-                subtitle: {
-                    const txt = (lastEvent.length === 0 ? topic : lastEvent).replace(/(\r\n\t|\n|\r\t)/gm, " ")
-                    if (txt.length) {
-                        return txt
-                    }
-                    return " "
-                }
+                subtitle: subtitleText
+                subtitleItem.textFormat: Text.PlainText
                 onPressAndHold: {
                     const menu = roomListContextMenu.createObject(page, {"room": currentRoom})
                     configButton.visible = true

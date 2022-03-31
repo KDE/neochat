@@ -171,7 +171,7 @@ void RoomListModel::connectRoomSignals(NeoChatRoom *room)
         refresh(room);
     });
     connect(room, &Room::addedMessages, this, [this, room] {
-        refresh(room, {LastEventRole});
+        refresh(room, {LastEventRole, SubtitleTextRole});
     });
     connect(room, &Room::notificationCountChanged, this, &RoomListModel::handleNotifications);
     connect(room, &Room::highlightCountChanged, this, [this, room] {
@@ -396,6 +396,9 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
     if (role == CategoryVisibleRole) {
         return m_categoryVisibility.value(data(index, CategoryRole).toInt(), true);
     }
+    if (role == SubtitleTextRole) {
+        return room->subtitleText();
+    }
     return QVariant();
 }
 
@@ -426,6 +429,7 @@ QHash<int, QByteArray> RoomListModel::roleNames() const
     roles[JoinStateRole] = "joinState";
     roles[CurrentRoomRole] = "currentRoom";
     roles[CategoryVisibleRole] = "categoryVisible";
+    roles[SubtitleTextRole] = "subtitleText";
     return roles;
 }
 

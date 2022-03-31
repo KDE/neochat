@@ -66,6 +66,12 @@ public:
     /// \see lastEvent
     [[nodiscard]] QDateTime lastActiveTime();
 
+    /// Get subtitle text for room
+    ///
+    /// Fetches last event and removes markdown formatting
+    /// \see lastEventToString
+    [[nodiscard]] QString subtitleText();
+
     bool isEventHighlighted(const Quotient::RoomEvent *e) const;
 
     [[nodiscard]] QString joinRule() const;
