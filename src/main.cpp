@@ -78,6 +78,11 @@
 #include "colorschemer.h"
 #endif
 
+#ifdef QT_DBUS_LIB
+#include "runner.h"
+#include <QDBusConnection>
+#endif
+
 using namespace Quotient;
 
 class NetworkAccessManagerFactory : public QQmlNetworkAccessManagerFactory
@@ -256,6 +261,11 @@ int main(int argc, char *argv[])
     if (parser.positionalArguments().length() > 0) {
         RoomManager::instance().setUrlArgument(parser.positionalArguments()[0]);
     }
+
+#ifdef QT_DBUS_LIB
+    Runner runner;
+    QDBusConnection::sessionBus().registerObject("/RoomRunner", &runner, QDBusConnection::ExportScriptableContents);
+#endif
 
 #ifdef HAVE_KDBUSADDONS
     KDBusService service(KDBusService::Unique);

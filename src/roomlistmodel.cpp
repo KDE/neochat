@@ -399,6 +399,12 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
     if (role == SubtitleTextRole) {
         return room->subtitleText();
     }
+    if (role == AvatarImageRole) {
+        return room->avatar(128);
+    }
+    if (role == IdRole) {
+        return room->id();
+    }
     return QVariant();
 }
 

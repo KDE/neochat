@@ -50,6 +50,8 @@ public:
         CurrentRoomRole,
         CategoryVisibleRole,
         SubtitleTextRole,
+        AvatarImageRole,
+        IdRole,
     };
     Q_ENUM(EventRoles)
 

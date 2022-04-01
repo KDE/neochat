@@ -63,7 +63,7 @@ if(NOT ANDROID)
 endif()
 
 if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
-    target_sources(neochat PRIVATE ../res_desktop.qrc)
+    target_sources(neochat PRIVATE ../res_desktop.qrc runner.cpp)
 else()
     target_sources(neochat PRIVATE ../res_android.qrc)
 endif()
@@ -139,3 +139,8 @@ if (TARGET KF5::KIOWidgets)
 endif()
 
 install(TARGETS neochat ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
+
+if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
+    install(FILES plasma-runner-neochat.desktop DESTINATION ${KDE_INSTALL_DATAROOTDIR}/krunner/dbusplugins)
+endif()
+
