@@ -44,6 +44,16 @@ Kirigami.ScrollablePage {
                 Controls.ToolButton {
                     display: Controls.AbstractButton.IconOnly
                     action: Kirigami.Action {
+                        text: i18n("Verify device")
+                        iconName: "security-low-symbolic"
+                        onTriggered: {
+                            devices.connection.startKeyVerificationSession(model.id)
+                        }
+                    }
+                }
+                Controls.ToolButton {
+                    display: Controls.AbstractButton.IconOnly
+                    action: Kirigami.Action {
                         text: i18n("Logout device")
                         iconName: "edit-delete-remove"
                         onTriggered: {

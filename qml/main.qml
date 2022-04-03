@@ -13,6 +13,7 @@ import NeoChat.Component 1.0
 import NeoChat.Dialog 1.0
 import NeoChat.Page 1.0
 import NeoChat.Panel 1.0
+import NeoChat.Dialog.KeyVerification 1.0
 
 Kirigami.ApplicationWindow {
     id: root
@@ -106,7 +107,7 @@ Kirigami.ApplicationWindow {
 
         function onOpenRoomInNewWindow(room) {
             const secondayWindow = roomWindow.createObject(applicationWindow(), {currentRoom: room});
-            secondayWindow.width = root.width - pageStack.get(0).width;
+            secondayWiroomWindowndow.width = root.width - pageStack.get(0).width;
             secondayWindow.show();
         }
 
@@ -367,10 +368,22 @@ Kirigami.ApplicationWindow {
         }
     }
 
+    Component {
+        id: keyVerificationDialogComponent
+        KeyVerificationDialog { }
+    }
+
     Connections {
         target: Controller.activeConnection
         function onDirectChatAvailable(directChat) {
             RoomManager.enterRoom(Controller.activeConnection.room(directChat.id));
+        }
+        function onNewKeyVerificationSession(session) {
+            applicationWindow().pageStack.pushDialogLayer(keyVerificationDialogComponent, {
+                session: session,
+            }, {
+                title: i18nc("@title:window", "Session Verification")
+            });
         }
     }
 

@@ -55,6 +55,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[FormattedBodyRole] = "formattedBody";
     roles[AuthorIdRole] = "authorId";
     roles[MediaUrlRole] = "mediaUrl";
+    roles[VerifiedRole] = "verified";
     return roles;
 }
 
@@ -789,6 +790,17 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         }
 #endif
         return m_currentRoom->urlToDownload(evt.id());
+    }
+
+    if (role == VerifiedRole) {
+#ifdef QUOTIENT_07
+        if (evt.originalEvent()) {
+            auto encrypted = dynamic_cast<const EncryptedEvent *>(evt.originalEvent());
+            Q_ASSERT(encrypted);
+            return m_currentRoom->connection()->isVerifiedSession(encrypted->sessionId());
+        }
+        return false;
+#endif
     }
 
     return {};

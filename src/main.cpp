@@ -78,6 +78,9 @@
 #include "userlistmodel.h"
 #include "webshortcutmodel.h"
 #include "windowcontroller.h"
+#ifdef QUOTIENT_07
+#include <keyverificationsession.h>
+#endif
 #ifdef HAVE_COLORSCHEME
 #include "colorschemer.h"
 #endif
@@ -225,6 +228,11 @@ int main(int argc, char *argv[])
     qRegisterMetaType<NeoChatUser *>("NeoChatUser*");
     qRegisterMetaType<GetRoomEventsJob *>("GetRoomEventsJob*");
     qRegisterMetaType<QMimeType>("QMimeType");
+#ifdef QUOTIENT_07
+    qRegisterMetaType<KeyVerificationSession *>("KeyVerificationSession*");
+    qmlRegisterUncreatableType<KeyVerificationSession>("org.kde.neochat", 1, 0, "KeyVerificationSession", {});
+    qRegisterMetaType<QVector<EmojiEntry>>("QVector<EmojiEntry>");
+#endif
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     qRegisterMetaTypeStreamOperators<Emoji>();

@@ -6,11 +6,15 @@
 #include <csapi/device_management.h>
 
 #include "controller.h"
+#include <connection.h>
 
 DevicesModel::DevicesModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    connect(&Controller::instance(), &Controller::activeConnectionChanged, this, &DevicesModel::fetchDevices);
+    connect(&Controller::instance(), &Controller::activeConnectionChanged, this, [=]() {
+        DevicesModel::fetchDevices();
+        Q_EMIT connectionChanged();
+    });
 
     fetchDevices();
 }
@@ -93,4 +97,9 @@ void DevicesModel::setName(int index, const QString &name)
         m_devices[index].displayName = oldName;
         endResetModel();
     });
+}
+
+Connection *DevicesModel::connection() const
+{
+    return Controller::instance().activeConnection();
 }

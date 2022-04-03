@@ -140,6 +140,10 @@ Q_SIGNALS:
     void userConsentRequired(QUrl url);
     void testConnectionResult(const QString &connection, bool usable);
     void isOnlineChanged(bool isOnline);
+    void keyVerificationRequest(int timeLeft, Connection *connection, const QString &transactionId, const QString &deviceId);
+    void keyVerificationStart();
+    void keyVerificationAccept(const QString &commitment);
+    void keyVerificationKey(const QString &sas);
 
 public Q_SLOTS:
     void logout(Quotient::Connection *conn, bool serverSideLogout);

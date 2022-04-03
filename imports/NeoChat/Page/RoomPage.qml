@@ -465,6 +465,18 @@ Kirigami.ScrollablePage {
                     id: hoverHandler
                     margin: Kirigami.Units.smallSpacing
                 }
+                Kirigami.Icon {
+                    source: "security-high"
+                    width: height
+                    height: parent.height
+                    visible: hoverActions.event.verified
+                    HoverHandler {
+                        id: hover
+                    }
+                    QQC2.ToolTip.text: i18n("This message was sent from a verified device")
+                    QQC2.ToolTip.visible: hover.hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                }
 
                 QQC2.Button {
                     QQC2.ToolTip.text: i18n("React")

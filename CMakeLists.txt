@@ -25,12 +25,14 @@ include(FeatureSummary)
 include(ECMSetupVersion)
 include(KDEInstallDirs)
 include(ECMFindQmlModule)
-include(KDEClangFormat)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMAddAppIcon)
 include(KDEGitCommitHooks)
 include(ECMCheckOutboundLicense)
+if (NOT ANDROID)
+    include(KDEClangFormat)
+endif()
 
 if(NEOCHAT_FLATPAK)
     include(cmake/Flatpak.cmake)
@@ -137,11 +139,12 @@ add_subdirectory(src)
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
-file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES src/*.cpp src/*.h)
-kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
+if (NOT ANDROID)
+    file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES src/*.cpp src/*.h)
+    kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
 
-kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
-
+    kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
+endif()
 file(GLOB_RECURSE ALL_SOURCE_FILES *.cpp *.h *.qml)
 # CI installs dependency headers to _install and _build, which break the reuse check
 # Fixes the test by excluding this directory
