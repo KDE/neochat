@@ -78,7 +78,7 @@
 #include "colorschemer.h"
 #endif
 
-#ifdef QT_DBUS_LIB
+#ifdef HAVE_RUNNER
 #include "runner.h"
 #include <QDBusConnection>
 #endif
@@ -262,7 +262,7 @@ int main(int argc, char *argv[])
         RoomManager::instance().setUrlArgument(parser.positionalArguments()[0]);
     }
 
-#ifdef QT_DBUS_LIB
+#ifdef HAVE_RUNNER
     Runner runner;
     QDBusConnection::sessionBus().registerObject("/RoomRunner", &runner, QDBusConnection::ExportScriptableContents);
 #endif

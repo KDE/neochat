@@ -64,6 +64,7 @@ endif()
 
 if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
     target_sources(neochat PRIVATE ../res_desktop.qrc runner.cpp)
+    target_compile_definitions(neochat PRIVATE -DHAVE_RUNNER)
 else()
     target_sources(neochat PRIVATE ../res_android.qrc)
 endif()
