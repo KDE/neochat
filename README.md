@@ -14,7 +14,7 @@ KConfig and KI18n.
 
 ## Get it
 
-A stable release [is available](https://apps.kde.org/en/neochat) for download for Linux distributions.
+A stable release [is available](https://apps.kde.org/neochat) for download for Linux distributions.
 
 
 Along with the stable release, a Flatpak version is available for the nightly
