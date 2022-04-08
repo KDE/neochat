@@ -122,7 +122,7 @@ ToolBar {
 
                 Timer {
                     id: repeatTimer
-                    interval: 3000
+                    interval: 5000
                 }
 
                 function sendMessage(event) {
@@ -131,6 +131,7 @@ ToolBar {
                     } else if (event.modifiers & Qt.ShiftModifier) {
                         inputField.insert(cursorPosition, "\n")
                     } else {
+                        currentRoom.sendTypingNotification(false)
                         chatBar.postMessage()
                     }
                     isCompleting = false;
