@@ -121,21 +121,8 @@ ToolBar {
                 }
 
                 Timer {
-                    id: timeoutTimer
-                    repeat: false
-                    interval: 2000
-                    onTriggered: {
-                        repeatTimer.stop()
-                        currentRoom.sendTypingNotification(false)
-                    }
-                }
-
-                Timer {
                     id: repeatTimer
-                    repeat: true
                     interval: 3000
-                    triggeredOnStart: true
-                    onTriggered: currentRoom.sendTypingNotification(true)
                 }
 
                 function sendMessage(event) {
@@ -241,8 +228,11 @@ ToolBar {
                 }
 
                 onTextChanged: {
-                    timeoutTimer.restart()
+                    if (!repeatTimer.running) {
+                        currentRoom.sendTypingNotification(true)
+                    }
                     repeatTimer.start()
+
                     currentRoom.cachedInput = text
                     autoAppeared = false;
 
