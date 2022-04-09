@@ -140,5 +140,9 @@ file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES src/*.cpp src/*.h)
 kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
 
 kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
+
 file(GLOB_RECURSE ALL_SOURCE_FILES *.cpp *.h *.qml)
+# CI installs dependency headers to _install and _build, which break the reuse check
+# Fixes the test by excluding this directory
+list(FILTER ALL_SOURCE_FILES EXCLUDE REGEX [[_(install|build)/.*]])
 ecm_check_outbound_license(LICENSES GPL-3.0-only FILES ${ALL_SOURCE_FILES})
