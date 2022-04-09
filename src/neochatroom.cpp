@@ -312,7 +312,6 @@ QDateTime NeoChatRoom::lastActiveTime()
 
 QString NeoChatRoom::subtitleText()
 {
-    QString subtitle = this->lastEventToString().size() == 0 ? this->topic() : this->lastEventToString();
     static const QRegularExpression blockquote("(\r\n\t|\n|\r\t|)> ");
     static const QRegularExpression heading("(\r\n\t|\n|\r\t|)\\#{1,6} ");
     static const QRegularExpression newlines("(\r\n\t|\n|\r\t)");
@@ -323,6 +322,7 @@ QString NeoChatRoom::subtitleText()
     static const QRegularExpression del("<del>(.*)</del>");
     static const QRegularExpression multileLineCode("```([^```]+)```");
     static const QRegularExpression singleLinecode("`([^`]+)`");
+    QString subtitle = lastEventToString().size() == 0 ? topic() : lastEventToString();
 
     subtitle
         // replace blockquote, i.e. '> text'

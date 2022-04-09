@@ -26,6 +26,7 @@ include(ECMSetupVersion)
 include(KDEInstallDirs)
 include(ECMFindQmlModule)
 include(KDECMakeSettings)
+include(ECMAddTests)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMAddAppIcon)
 include(KDEGitCommitHooks)
@@ -141,6 +142,10 @@ install(FILES org.kde.neochat.tray.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/h
 add_definitions(-DQT_NO_FOREACH)
 
 add_subdirectory(src)
+if (BUILD_TESTING AND Quotient_VERSION_MINOR GREATER 6)
+    find_package(Qt5 ${QT_MIN_VERSION} NO_MODULE COMPONENTS Test)
+    add_subdirectory(autotests)
+endif()
 
 if(KF5DocTools_FOUND)
     kdoctools_install(po)
