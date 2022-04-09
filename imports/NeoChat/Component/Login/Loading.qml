@@ -23,5 +23,6 @@ Kirigami.PlaceholderMessage {
 
     QQC2.BusyIndicator {
         Layout.alignment: Qt.AlignHCenter
+        running: false
     }
 }
