@@ -37,6 +37,13 @@ Kirigami.ScrollablePage {
         }
     }
 
+    Connections {
+        target: Controller
+        function onInitiated() {
+            pageStack.layers.pop();
+        }
+    }
+
     ColumnLayout {
         Kirigami.Icon {
             source: "org.kde.neochat"
