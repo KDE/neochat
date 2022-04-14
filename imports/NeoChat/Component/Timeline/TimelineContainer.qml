@@ -22,7 +22,10 @@ QQC2.ItemDelegate {
 
     readonly property int bubbleMaxWidth: Config.compactLayout && !Config.showAvatarInTimeline ? width : (Config.compactLayout ? width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 4 : Math.min(width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 6, Kirigami.Units.gridUnit * 20))
 
-    property bool showUserMessageOnRight: Config.showLocalMessagesOnRight && model.author.isLocalUser && !applicationWindow().wideScreen
+    property bool showUserMessageOnRight: Config.showLocalMessagesOnRight &&
+        model.author.isLocalUser &&
+        !applicationWindow().wideScreen &&
+        !Config.compactLayout
 
     signal openExternally()
     signal replyClicked(string eventID)
@@ -78,7 +81,9 @@ QQC2.ItemDelegate {
             leftMargin: Kirigami.Units.largeSpacing
         }
 
-        visible: model.showAuthor && Config.showAvatarInTimeline && !showUserMessageOnRight
+        visible: model.showAuthor &&
+            Config.showAvatarInTimeline &&
+            (Config.compactLayout || !showUserMessageOnRight)
         name: model.author.name ?? model.author.displayName
         source: visible && model.author.avatarMediaId ? ("image://mxc/" + model.author.avatarMediaId) : ""
         color: model.author.color
