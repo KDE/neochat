@@ -1,19 +1,19 @@
 # translation of neochat.po to Slovak
-# Roman Paholik <wizzardsk@gmail.com>, 2020.
+# Roman Paholik <wizzardsk@gmail.com>, 2020, 2022.
 # Matej Mrenica <matejm98mthw@gmail.com>, 2020, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-04-10 00:44+0000\n"
-"PO-Revision-Date: 2021-06-13 18:20+0200\n"
-"Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
-"Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2022-04-18 17:58+0200\n"
+"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.04.2\n"
+"X-Generator: Lokalize 21.12.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #, kde-format
@@ -98,7 +98,7 @@ msgstr "Odpoveď na %1:"
 #: imports/NeoChat/Component/Emoji/EmojiPicker.qml:67
 #, kde-format
 msgid "Custom"
-msgstr ""
+msgstr "Vlastné"
 
 #: imports/NeoChat/Component/FullScreenImage.qml:20
 #, kde-format
@@ -144,10 +144,9 @@ msgstr "Pokračovať"
 #: imports/NeoChat/Page/LoadingPage.qml:14
 #: imports/NeoChat/Page/RoomPage.qml:127
 #: imports/NeoChat/Settings/DevicesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgid "Loading…"
-msgstr "Načítavam"
+msgstr "Načítava sa…"
 
 #: imports/NeoChat/Component/Login/Loading.qml:21
 #, kde-format
@@ -235,19 +234,18 @@ msgid ""
 msgstr ""
 
 #: imports/NeoChat/Component/Timeline/FileDelegate.qml:55
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
 "file with an appropriate application"
 msgid "Open File"
-msgstr "Otvoriť"
+msgstr "Otvoriť súbor"
 
 #: imports/NeoChat/Component/Timeline/FileDelegate.qml:66
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
-msgstr ""
+msgstr "%1 / %2"
 
 #: imports/NeoChat/Component/Timeline/FileDelegate.qml:72
 #, kde-format
@@ -261,7 +259,7 @@ msgstr ""
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
-msgstr ""
+msgstr "Stiahnuť"
 
 #: imports/NeoChat/Component/Timeline/ReactionDelegate.qml:53
 #, kde-format
@@ -376,63 +374,49 @@ msgid "Open a private chat"
 msgstr "Otvoriť súkromný chat"
 
 #: imports/NeoChat/Menu/EditMenu.qml:17
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Undo"
+#, kde-format
 msgctxt "text editing menu action"
 msgid "Undo"
-msgstr "Vrátiť"
+msgstr "Späť"
 
 #: imports/NeoChat/Menu/EditMenu.qml:27
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Redo"
+#, kde-format
 msgctxt "text editing menu action"
 msgid "Redo"
 msgstr "Znovu"
 
 #: imports/NeoChat/Menu/EditMenu.qml:40
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Cut"
+#, kde-format
 msgctxt "text editing menu action"
 msgid "Cut"
 msgstr "Vystrihnúť"
 
 #: imports/NeoChat/Menu/EditMenu.qml:50
-#, fuzzy, kde-format
-#| msgid "Copy"
+#, kde-format
 msgctxt "text editing menu action"
 msgid "Copy"
 msgstr "Kopírovať"
 
 #: imports/NeoChat/Menu/EditMenu.qml:60
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste"
+#, kde-format
 msgctxt "text editing menu action"
 msgid "Paste"
 msgstr "Vložiť"
 
 #: imports/NeoChat/Menu/EditMenu.qml:70
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Delete"
+#, kde-format
 msgctxt "text editing menu action"
 msgid "Delete"
 msgstr "Vymazať"
 
 #: imports/NeoChat/Menu/EditMenu.qml:83
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Select All"
+#, kde-format
 msgctxt "text editing menu action"
 msgid "Select All"
-msgstr "Vybrať všetky"
+msgstr "Vybrať všetko"
 
 #: imports/NeoChat/Menu/GlobalMenu.qml:20
-#, fuzzy, kde-format
-#| msgid "NeoChat"
+#, kde-format
 msgctxt "menu"
 msgid "NeoChat"
 msgstr "NeoChat"
@@ -451,10 +435,9 @@ msgid "Configure NeoChat..."
 msgstr "Nastaviť webové skratky..."
 
 #: imports/NeoChat/Menu/GlobalMenu.qml:32 qml/main.qml:257
-#, fuzzy, kde-format
-#| msgid "Configure room"
+#, kde-format
 msgid "Configure"
-msgstr "Nastaviť miestnosť"
+msgstr "Nastaviť"
 
 #: imports/NeoChat/Menu/GlobalMenu.qml:36
 #, fuzzy, kde-format
@@ -467,7 +450,7 @@ msgstr "O Neochat"
 #, kde-format
 msgctxt "menu"
 msgid "File"
-msgstr ""
+msgstr "Súbor"
 
 #: imports/NeoChat/Menu/GlobalMenu.qml:46
 #, fuzzy, kde-format
@@ -488,7 +471,7 @@ msgstr "Začať rozhovor"
 #, kde-format
 msgctxt "menu"
 msgid "New Group…"
-msgstr ""
+msgstr "Nová skupina..."
 
 #: imports/NeoChat/Menu/GlobalMenu.qml:60
 #, kde-format
@@ -497,15 +480,13 @@ msgid "Browse Chats…"
 msgstr ""
 
 #: imports/NeoChat/Menu/GlobalMenu.qml:65
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "Upraviť"
 
 #: imports/NeoChat/Menu/GlobalMenu.qml:69
-#, fuzzy, kde-format
-#| msgid "View"
+#, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "Zobraziť"
@@ -522,13 +503,13 @@ msgstr ""
 #, kde-format
 msgctxt "menu"
 msgid "Window"
-msgstr ""
+msgstr "Okno"
 
 #: imports/NeoChat/Menu/GlobalMenu.qml:85
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
-msgstr ""
+msgstr "Ukončiť režim celej obrazovky"
 
 #: imports/NeoChat/Menu/GlobalMenu.qml:85
 #, kde-format
@@ -540,7 +521,7 @@ msgstr ""
 #, kde-format
 msgctxt "menu"
 msgid "Help"
-msgstr ""
+msgstr "Pomocník"
 
 #: imports/NeoChat/Menu/GlobalMenu.qml:94
 #, fuzzy, kde-format
@@ -599,23 +580,22 @@ msgstr "Opustiť miestnosť"
 #: imports/NeoChat/Menu/ShareAction.qml:19
 #, kde-format
 msgid "Share"
-msgstr ""
+msgstr "Zdieľať"
 
 #: imports/NeoChat/Menu/ShareAction.qml:20
 #, kde-format
 msgid "Share the selected media"
-msgstr ""
+msgstr "Zdielať vybraté médiá"
 
 #: imports/NeoChat/Menu/ShareDialog.qml:34
-#, fuzzy, kde-format
-#| msgid "Login Failed"
+#, kde-format
 msgid "Sharing failed"
-msgstr "Prihlásenie zlyhalo"
+msgstr "Zdieľanie zlyhalo"
 
 #: imports/NeoChat/Menu/ShareDialog.qml:53
 #, kde-format
 msgid "Shared url for image is <a href='%1'>%1</a>"
-msgstr ""
+msgstr "Webová adresa zdieľaného obrázka je <a href='%1'>%1</a>"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:23
 #, kde-format
@@ -982,7 +962,7 @@ msgstr "Všeobecné"
 #: imports/NeoChat/RoomSettings/Categories.qml:25
 #, kde-format
 msgid "Security"
-msgstr ""
+msgstr "Bezpečnosť"
 
 #: imports/NeoChat/RoomSettings/General.qml:42
 #, fuzzy, kde-format
@@ -1037,7 +1017,7 @@ msgstr "Zobraziť novú miestnosť..."
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:318
 #, kde-format
 msgid "Apply"
-msgstr ""
+msgstr "Použiť"
 
 #: imports/NeoChat/RoomSettings/Security.qml:26
 #, kde-format
@@ -1046,11 +1026,10 @@ msgid "Private (invite only)"
 msgstr ""
 
 #: imports/NeoChat/RoomSettings/Security.qml:27
-#, fuzzy, kde-format
-#| msgid "Accept"
+#, kde-format
 msgctxt "@option:check"
 msgid "Access:"
-msgstr "Prijať"
+msgstr "Prístup:"
 
 #: imports/NeoChat/RoomSettings/Security.qml:32
 #, kde-format
@@ -1073,7 +1052,7 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
-msgstr ""
+msgstr "Verejné"
 
 #: imports/NeoChat/RoomSettings/Security.qml:50
 #, kde-format
@@ -1137,7 +1116,7 @@ msgstr "Meno:"
 #: imports/NeoChat/Settings/AccountsPage.qml:157
 #, kde-format
 msgid "Label:"
-msgstr ""
+msgstr "Popis:"
 
 #: imports/NeoChat/Settings/AccountsPage.qml:161
 #, kde-format
@@ -1204,7 +1183,7 @@ msgstr "Používať priehľadnú stránku chatu"
 #: imports/NeoChat/Settings/AppearanceSettingsPage.qml:225
 #, kde-format
 msgid "Transparency:"
-msgstr ""
+msgstr "Priehľadnosť:"
 
 #: imports/NeoChat/Settings/AppearanceSettingsPage.qml:239
 #, kde-format
@@ -1343,7 +1322,7 @@ msgstr ""
 #: imports/NeoChat/Settings/SettingsPage.qml:33
 #, kde-format
 msgid "Spell Checking"
-msgstr ""
+msgstr "Kontrola pravopisu"
 
 #: imports/NeoChat/Settings/SettingsPage.qml:43
 #, kde-format
@@ -1363,7 +1342,7 @@ msgstr ""
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:124
 #, kde-format
 msgid "Options:"
-msgstr ""
+msgstr "Voľby:"
 
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:126
 #, kde-format
@@ -1483,19 +1462,18 @@ msgstr ""
 msgctxt "[user did something] n times"
 msgid " %1 time"
 msgid_plural " %1 times"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] " %1 krát"
+msgstr[1] " %1 krát"
+msgstr[2] " %1 krát"
 
 #: src/collapsestateproxymodel.cpp:74
 #, kde-format
 msgctxt "[action 1], [action 2 and action 3]"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: src/collapsestateproxymodel.cpp:77
-#, fuzzy, kde-format
-#| msgid " and "
+#, kde-format
 msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
 msgstr " a "
@@ -1976,10 +1954,9 @@ msgid "Open this invitation in NeoChat"
 msgstr "Otvoriť súkromný chat"
 
 #: src/notificationsmanager.cpp:102
-#, fuzzy, kde-format
-#| msgid "Accept this invitation?"
+#, kde-format
 msgid "Accept Invitation"
-msgstr "Prijať pozvanie?"
+msgstr "Prijať pozvánku"
 
 #: src/notificationsmanager.cpp:102
 #, fuzzy, kde-format
@@ -2015,7 +1992,7 @@ msgstr "Nízka priorita"
 #: src/roomlistmodel.cpp:456
 #, kde-format
 msgid "Spaces"
-msgstr ""
+msgstr "Medzery"
 
 #: src/roommanager.cpp:44
 #, kde-format
