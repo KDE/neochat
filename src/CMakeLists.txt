@@ -127,7 +127,7 @@ if(ANDROID)
     )
 else()
     target_link_libraries(neochat PRIVATE Qt5::Widgets KF5::KIOWidgets)
-    install(FILES neochat.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})
+    install(FILES neochat.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFYRCDIR})
 endif()
 
 if(TARGET KF5::DBusAddons)
