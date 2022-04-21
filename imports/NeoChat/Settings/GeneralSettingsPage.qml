@@ -110,6 +110,15 @@ Kirigami.ScrollablePage {
                     Config.save()
                 }
             }
+            QQC2.CheckBox {
+                text: i18n("Send Typing Notifications")
+                checked: Config.typingNotifications
+                enabled: !Config.isTypingNotificationsImmutable
+                onToggled: {
+                    Config.typingNotifications = checked
+                    Config.save()
+                }
+            }
         }
     }
 }

@@ -229,7 +229,7 @@ ToolBar {
                 }
 
                 onTextChanged: {
-                    if (!repeatTimer.running) {
+                    if (!repeatTimer.running && Config.typingNotifications) {
                         currentRoom.sendTypingNotification(true)
                     }
                     repeatTimer.start()
