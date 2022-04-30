@@ -84,7 +84,7 @@ endif()
 find_package(Quotient 0.6)
 set_package_properties(Quotient PROPERTIES
     TYPE REQUIRED
-    DESCRIPTION "Qt wrapper arround Matrix API"
+    DESCRIPTION "Qt wrapper around Matrix API"
     URL "https://github.com/quotient-im/libQuotient/"
     PURPOSE "Talk with matrix server"
 )
