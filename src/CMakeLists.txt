@@ -32,7 +32,6 @@ add_executable(neochat
     chatboxhelper.cpp
     commandmodel.cpp
     webshortcutmodel.cpp
-    spellcheckhighlighter.cpp
     blurhash.cpp
     blurhashimageprovider.cpp
     joinrulesevent.cpp
