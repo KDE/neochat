@@ -22,21 +22,10 @@ Kirigami.ScrollablePage {
     property var enteredRoom
     property bool collapsedMode: Config.roomListPageWidth === applicationWindow().collapsedPageWidth && applicationWindow().shouldUseSidebars
 
+    verticalScrollBarPolicy: collapsedMode ? QQC2.ScrollBar.AlwaysOff : QQC2.ScrollBar.AsNeeded
+
     onCollapsedModeChanged: if (collapsedMode) {
         sortFilterRoomListModel.filterText = "";
-        if (page.contentItem && page.contentItem.flickableItem && page.contentItem.flickableItem.QQC2.ScrollBar.vertical) {
-            page.contentItem.flickableItem.QQC2.ScrollBar.vertical.visible = false;
-        }
-    } else {
-        page.contentItem.flickableItem.QQC2.ScrollBar.vertical.visible = true;
-    }
-
-    // HACK: the scrollbar is created with a 0 timer, so we need to set the visible flag
-    // after it has been created
-    Timer {
-        running: true
-        interval: 200 
-        onTriggered: page.contentItem.flickableItem.QQC2.ScrollBar.vertical.visible = !collapsedMode;
     }
 
     Connections {
