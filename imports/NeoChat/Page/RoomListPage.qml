@@ -68,37 +68,37 @@ Kirigami.ScrollablePage {
         }
     }
 
-    header: QQC2.ItemDelegate {
-        visible: page.collapsedMode
-        action: Kirigami.Action {
-            id: enterRoomAction
-            onTriggered: quickView.item.open();
-        }
-        topPadding: Kirigami.Units.largeSpacing
-        leftPadding: Kirigami.Units.largeSpacing
-        rightPadding: Kirigami.Units.largeSpacing
-        bottomPadding: Kirigami.Units.largeSpacing
-        width: visible ? page.width : 0
-        height: visible ? Kirigami.Units.gridUnit * 2 : 0
-
-        Kirigami.Icon {
-            anchors.centerIn: parent
-            width: 22
-            height: 22
-            source: "search"
-        }
-        Kirigami.Separator {
-            width: parent.width
-            anchors.bottom: parent.bottom
-        }
-    }
-
 
     ListView {
         id: listView
 
         activeFocusOnTab: true
         clip: accountList.count > 1
+
+        header: QQC2.ItemDelegate {
+            visible: page.collapsedMode
+            action: Kirigami.Action {
+                id: enterRoomAction
+                onTriggered: quickView.item.open();
+            }
+            topPadding: Kirigami.Units.largeSpacing
+            leftPadding: Kirigami.Units.largeSpacing
+            rightPadding: Kirigami.Units.largeSpacing
+            bottomPadding: Kirigami.Units.largeSpacing
+            width: visible ? page.width : 0
+            height: visible ? Kirigami.Units.gridUnit * 2 : 0
+
+            Kirigami.Icon {
+                anchors.centerIn: parent
+                width: 22
+                height: 22
+                source: "search"
+            }
+            Kirigami.Separator {
+                width: parent.width
+                anchors.bottom: parent.bottom
+            }
+        }
 
         Kirigami.PlaceholderMessage {
             anchors.centerIn: parent
