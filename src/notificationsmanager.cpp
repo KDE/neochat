@@ -57,6 +57,9 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
 
     notification->setDefaultAction(i18n("Open NeoChat in this room"));
     connect(notification, &KNotification::defaultActivated, this, [=]() {
+#if defined(HAVE_WINDOWSYSTEM) && KNOTIFICATIONS_VERSION >= QT_VERSION_CHECK(5, 90, 0)
+        KWindowSystem::setCurrentXdgActivationToken(notification->xdgActivationToken());
+#endif
         RoomManager::instance().enterRoom(room);
         Q_EMIT Controller::instance().showWindow();
     });
