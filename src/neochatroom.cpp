@@ -650,7 +650,6 @@ void NeoChatRoom::postMessage(const QString &rawText, const QString &text, Messa
 
 void NeoChatRoom::postHtmlMessage(const QString &text, const QString &html, MessageEventType type, const QString &replyEventId, const QString &relateToEventId)
 {
-    bool isRichText = Qt::mightBeRichText(html);
     bool isReply = !replyEventId.isEmpty();
     bool isEdit = !relateToEventId.isEmpty();
     const auto replyIt = findInTimeline(replyEventId);
@@ -696,7 +695,7 @@ void NeoChatRoom::postHtmlMessage(const QString &text, const QString &html, Mess
             "\">In reply to</a> <a href=\"https://matrix.to/#/" +
             replyEvt.senderId() + "\">" + replyEvt.senderId() +
             "</a><br>" + eventToString(replyEvt, Qt::RichText) +
-            "</blockquote></mx-reply>" + (isRichText ? html : text)
+            "</blockquote></mx-reply>" + html
           }
         };
         // clang-format on
@@ -706,11 +705,7 @@ void NeoChatRoom::postHtmlMessage(const QString &text, const QString &html, Mess
         return;
     }
 
-    if (isRichText) {
-        Room::postHtmlMessage(text, html, type);
-    } else {
-        Room::postMessage(text, type);
-    }
+    Room::postHtmlMessage(text, html, type);
 }
 
 void NeoChatRoom::toggleReaction(const QString &eventId, const QString &reaction)
