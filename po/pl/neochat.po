@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-05-13 00:45+0000\n"
-"PO-Revision-Date: 2022-01-24 20:58+0100\n"
+"POT-Creation-Date: 2022-05-16 00:44+0000\n"
+"PO-Revision-Date: 2022-05-15 20:09+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -147,10 +147,9 @@ msgstr "Kontynuuj"
 #: imports/NeoChat/Page/LoadingPage.qml:14
 #: imports/NeoChat/Page/RoomPage.qml:127
 #: imports/NeoChat/Settings/DevicesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgid "Loading…"
-msgstr "Wczytywanie"
+msgstr "Wczytywanie…"
 
 #: imports/NeoChat/Component/Login/Loading.qml:21
 #, kde-format
@@ -581,23 +580,22 @@ msgstr "Opuść pokój"
 #: imports/NeoChat/Menu/ShareAction.qml:19
 #, kde-format
 msgid "Share"
-msgstr ""
+msgstr "Udostępnij"
 
 #: imports/NeoChat/Menu/ShareAction.qml:20
 #, kde-format
 msgid "Share the selected media"
-msgstr ""
+msgstr "Udostępnij zaznaczone treści"
 
 #: imports/NeoChat/Menu/ShareDialog.qml:34
-#, fuzzy, kde-format
-#| msgid "Login Failed"
+#, kde-format
 msgid "Sharing failed"
-msgstr "Nie udało się wejść"
+msgstr "Niepowodzenie udostępniania"
 
 #: imports/NeoChat/Menu/ShareDialog.qml:53
 #, kde-format
 msgid "Shared url for image is <a href='%1'>%1</a>"
-msgstr ""
+msgstr "Adres URL do współdzielenia obrazu to <a href='%1'>%1</a>"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:23
 #, kde-format
@@ -611,7 +609,7 @@ msgstr "Zapisz jako"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:34
-#: imports/NeoChat/Page/RoomPage.qml:233 src/notificationsmanager.cpp:65
+#: imports/NeoChat/Page/RoomPage.qml:233 src/notificationsmanager.cpp:68
 #, kde-format
 msgid "Reply"
 msgstr "Odpowiedz"
@@ -1114,7 +1112,7 @@ msgstr "Nazwa:"
 #: imports/NeoChat/Settings/AccountsPage.qml:157
 #, kde-format
 msgid "Label:"
-msgstr ""
+msgstr "Etykieta:"
 
 #: imports/NeoChat/Settings/AccountsPage.qml:161
 #, kde-format
@@ -1304,10 +1302,9 @@ msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "Użyj składni s/tekst/zastąpienie do zmiany swojej ostatniej wiadomości"
 
 #: imports/NeoChat/Settings/GeneralSettingsPage.qml:114
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Send Typing Notifications"
-msgstr "Pokaż powiadomienia"
+msgstr "Powiadamiaj o pisaniu"
 
 #: imports/NeoChat/Settings/SettingsPage.qml:18
 #, kde-format
@@ -1461,22 +1458,21 @@ msgstr "Nie można znaleźć wiadomości do odpowiedzenia"
 msgctxt "[user did something] n times"
 msgid " %1 time"
 msgid_plural " %1 times"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] " %1 raz"
+msgstr[1] " %1 razy"
+msgstr[2] " %1 razy"
 
 #: src/collapsestateproxymodel.cpp:74
 #, kde-format
 msgctxt "[action 1], [action 2 and action 3]"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: src/collapsestateproxymodel.cpp:77
-#, fuzzy, kde-format
-#| msgid " and "
+#, kde-format
 msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
-msgstr " i "
+msgstr " oraz "
 
 #: src/commandmodel.cpp:31
 #, kde-format
@@ -1888,19 +1884,19 @@ msgstr "zmieniono serwerową listę sterującą dostępem dla tego pokoju"
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
-msgstr ""
+msgstr "dodał %1 element interfejsu"
 
 #: src/neochatroom.cpp:546
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
-msgstr ""
+msgstr "usunął %1 element interfejsu"
 
 #: src/neochatroom.cpp:548
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
-msgstr ""
+msgstr "ustawił %1 element interfejsu"
 
 #: src/neochatroom.cpp:550
 #, kde-format
@@ -1927,27 +1923,27 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat in this room"
 msgstr "Otwórz NeoChat w tym pokoju"
 
-#: src/notificationsmanager.cpp:66
+#: src/notificationsmanager.cpp:69
 #, kde-format
 msgid "Reply..."
 msgstr "Odpowiedz..."
 
-#: src/notificationsmanager.cpp:89
+#: src/notificationsmanager.cpp:92
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 zaprosił cię do pokoju"
 
-#: src/notificationsmanager.cpp:93
+#: src/notificationsmanager.cpp:96
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Otwórz to zaproszenie w NeoChat"
 
-#: src/notificationsmanager.cpp:102
+#: src/notificationsmanager.cpp:105
 #, kde-format
 msgid "Accept Invitation"
 msgstr "Przyjmij zaproszenie"
 
-#: src/notificationsmanager.cpp:102
+#: src/notificationsmanager.cpp:105
 #, kde-format
 msgid "Reject Invitation"
 msgstr "Odrzuć zaproszenie"
