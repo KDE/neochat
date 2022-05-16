@@ -106,20 +106,7 @@ void ActionsHandler::postMessage(const QString &text,
                                  CustomEmojiModel *cem)
 {
     QString rawText = text;
-    auto stringList = text.split(QStringLiteral("```"));
-    QString cleanedText;
-    const auto count = stringList.count();
-    for (int i = 0; i < count; i++) {
-        if (i % 2 == 0) {
-            if (i + 1 != count) {
-                cleanedText += stringList[i].toHtmlEscaped() + QStringLiteral("```");
-            } else {
-                cleanedText += stringList[i].toHtmlEscaped();
-            }
-        } else {
-            cleanedText += stringList[i] + QStringLiteral("```");
-        }
-    }
+    QString cleanedText = text.toHtmlEscaped();
 
     auto preprocess = [cem](const QString &it) -> QString {
         if (cem == nullptr) {
