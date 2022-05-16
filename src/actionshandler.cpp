@@ -106,7 +106,7 @@ void ActionsHandler::postMessage(const QString &text,
                                  CustomEmojiModel *cem)
 {
     QString rawText = text;
-    QString cleanedText = text.toHtmlEscaped();
+    QString cleanedText = text;
 
     auto preprocess = [cem](const QString &it) -> QString {
         if (cem == nullptr) {
