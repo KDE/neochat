@@ -815,6 +815,9 @@ QVariant MessageEventModel::getLastLocalUserMessageEventId()
     for (auto it = timelineBottom; it != limit; ++it) {
         auto evt = it->event();
         auto e = eventCast<const RoomMessageEvent>(evt);
+        if (!e) {
+            return {};
+        }
 
         // check if the current message's sender's id is same as the user's id
         if ((*it)->senderId() == m_currentRoom->localUser()->id()) {
