@@ -391,6 +391,7 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                 auto base = url.scheme() + QStringLiteral("://") + url.host() + (url.port() != -1 ? ':' + QString::number(url.port()) : QString());
                 htmlBody.replace(utils::mxcImageRegExp, QStringLiteral(R"(<img \1 src="%1/_matrix/media/r0/download/\2/\3" \4 > )").arg(base));
 
+                linkifyUrls(htmlBody);
                 return htmlBody;
             }
 
