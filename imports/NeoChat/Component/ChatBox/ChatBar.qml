@@ -94,11 +94,11 @@ ToolBar {
                 //property int lineHeight: contentHeight / lineCount
 
                 text: inputFieldText
-                placeholderText: currentRoom.usesEncryption ? i18n("This room is encrypted. Sending encrypted messages is not yet supported.") : editEventId.length > 0 ? i18n("Edit Message") : i18n("Write your message...")
+                placeholderText: readOnly ? i18n("This room is encrypted. Sending encrypted messages is not yet supported.") : editEventId.length > 0 ? i18n("Edit Message") : currentRoom.usesEncryption ? i18n("Send an encrypted message…") : i18n("Send a message…")
                 verticalAlignment: TextEdit.AlignVCenter
                 horizontalAlignment: TextEdit.AlignLeft
                 wrapMode: Text.Wrap
-                readOnly: currentRoom.usesEncryption
+                readOnly: currentRoom.usesEncryption && !Controller.encryptionSupported
 
                 Kirigami.Theme.colorSet: Kirigami.Theme.View
                 Kirigami.Theme.inherit: false

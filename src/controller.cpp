@@ -707,3 +707,12 @@ QString Controller::plainText(QQuickTextDocument *document) const
 {
     return document->textDocument()->toPlainText();
 }
+
+bool Controller::encryptionSupported() const
+{
+#ifdef QUOTIENT_07
+    return Quotient::encryptionSupported();
+#else
+    return false;
+#endif
+}
