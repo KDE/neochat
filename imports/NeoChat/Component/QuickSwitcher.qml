@@ -24,10 +24,12 @@ QQC2.Popup {
         quickSearch.forceActiveFocus()
         quickSearch.text = ""
     }
+
     anchors.centerIn: QQC2.Overlay.overlay
     background: Kirigami.Card {}
     height: 2 * Math.round(implicitHeight / 2)
     padding: Kirigami.Units.largeSpacing * 2
+
     contentItem: ColumnLayout {
         spacing: Kirigami.Units.largeSpacing * 2
 
@@ -77,11 +79,30 @@ QQC2.Popup {
 
                 required property string avatar
                 required property var currentRoom
+                required property int index
+
+                // When an item is hovered set the currentIndex of listview to it so that it is highlighted
+                onHoveredChanged: {
+                    if (!hovered) {
+                        return
+                    }
+                    cView.currentIndex = index
+                }
+
+                actions.main: Kirigami.Action {
+                    id: enterRoomAction
+                    onTriggered: {
+                        RoomManager.enterRoom(currentRoom);
+
+                        _popup.close()
+                    }
+                }
 
                 source: avatar != "" ? "image://mxc/" + avatar : ""
             }
         }
     }
+
     modal: true
     focus: true
 }
