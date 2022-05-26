@@ -152,7 +152,6 @@ int main(int argc, char *argv[])
     about.addAuthor(i18n("Carl Schwan"), QString(), QStringLiteral("carl@carlschwan.eu"));
     about.addAuthor(i18n("Tobias Fella"), QString(), QStringLiteral("fella@posteo.de"));
     about.setOrganizationDomain("kde.org");
-    about.setBugAddress("https://invent.kde.org/network/neochat/issues");
 
     about.addComponent(QStringLiteral("libQuotient"),
                        i18n("A Qt5 library to write cross-platform clients for Matrix"),
