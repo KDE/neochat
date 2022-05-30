@@ -23,5 +23,9 @@ const EventContent::ImageContent &StickerEvent::image() const
 
 QUrl StickerEvent::url() const
 {
+#ifdef QUOTIENT_07
     return m_imageContent.url();
+#else
+    return m_imageContent.url;
+#endif
 }

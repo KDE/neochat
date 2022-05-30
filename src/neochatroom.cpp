@@ -83,7 +83,11 @@ void NeoChatRoom::uploadFile(const QUrl &url, const QString &body)
 
     QString txnId = postFile(body.isEmpty() ? url.fileName() : body, url, false);
     setHasFileUploading(true);
+#ifdef QUOTIENT_07
     connect(this, &Room::fileTransferCompleted, [this, txnId](const QString &id, FileSourceInfo) {
+#else
+    connect(this, &Room::fileTransferCompleted, [this, txnId](const QString &id, const QUrl & /*localFile*/, const QUrl & /*mxcUrl*/) {
+#endif
         if (id == txnId) {
             setFileUploadingProgress(0);
             setHasFileUploading(false);
