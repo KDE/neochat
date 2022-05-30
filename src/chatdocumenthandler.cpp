@@ -204,6 +204,12 @@ void ChatDocumentHandler::replaceAutoComplete(const QString &word)
     }
 
     cursor.insertHtml(word);
+
+    // Add space after autocomplete if not already there
+    if (!cursor.block().text().endsWith(QStringLiteral(" "))) {
+        cursor.insertText(QStringLiteral(" "));
+    }
+
     m_lastState = cursor.block().text();
     cursor.endEditBlock();
 }
