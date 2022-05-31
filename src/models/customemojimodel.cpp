@@ -11,12 +11,6 @@
 
 using namespace Quotient;
 
-#ifdef QUOTIENT_07
-#define running isJobPending
-#else
-#define running isJobRunning
-#endif
-
 void CustomEmojiModel::fetchEmojis()
 {
     if (!Controller::instance().activeConnection()) {
@@ -57,18 +51,12 @@ void CustomEmojiModel::addEmoji(const QString &name, const QUrl &location)
 
     auto job = Controller::instance().activeConnection()->uploadFile(location.toLocalFile());
 
-    if (running(job)) {
-        connect(job, &BaseJob::success, this, [this, name, job] {
+    if (isJobPending(job)) {
+        connect(job, &BaseJob::success, this, [name, job] {
             const auto &data = Controller::instance().activeConnection()->accountData("im.ponies.user_emotes");
             auto json = data != nullptr ? data->contentJson() : QJsonObject();
             auto emojiData = json["images"].toObject();
-            emojiData[QStringLiteral("%1").arg(name)] = QJsonObject({
-#ifdef QUOTIENT_07
-                {QStringLiteral("url"), job->contentUri().toString()}
-#else
-          {QStringLiteral("url"), job->contentUri()}
-#endif
-            });
+            emojiData[QStringLiteral("%1").arg(name)] = QJsonObject({{QStringLiteral("url"), job->contentUri().toString()}});
             json["images"] = emojiData;
             Controller::instance().activeConnection()->setAccountData("im.ponies.user_emotes", json);
         });
@@ -141,8 +129,9 @@ QVariant CustomEmojiModel::data(const QModelIndex &idx, int role) const
         return QUrl(QStringLiteral("image://mxc/") + data.url.mid(6));
     case Roles::MxcUrl:
         return data.url.mid(6);
+    default:
+        return {};
     }
-
     return QVariant();
 }
 

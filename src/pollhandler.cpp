@@ -34,7 +34,7 @@ void PollHandler::setRoom(NeoChatRoom *room)
     connect(room, &NeoChatRoom::aboutToAddNewMessages, this, [this](Quotient::RoomEventsRange events) {
         for (const auto &event : events) {
             if (event->is<PollEndEvent>()) {
-                auto pl = m_room->getCurrentState<RoomPowerLevelsEvent>();
+                auto pl = m_room->currentState().get<RoomPowerLevelsEvent>();
                 auto userPl = pl->powerLevelForUser(event->senderId());
                 if (event->senderId() == (*m_room->findInTimeline(m_pollStartEventId))->senderId() || userPl >= pl->redact()) {
                     m_hasEnded = true;
@@ -75,7 +75,7 @@ void PollHandler::checkLoadRelations()
     connect(job, &BaseJob::success, this, [this, job]() {
         for (const auto &event : job->chunk()) {
             if (event->is<PollEndEvent>()) {
-                auto pl = m_room->getCurrentState<RoomPowerLevelsEvent>();
+                auto pl = m_room->currentState().get<RoomPowerLevelsEvent>();
                 auto userPl = pl->powerLevelForUser(event->senderId());
                 if (event->senderId() == (*m_room->findInTimeline(m_pollStartEventId))->senderId() || userPl >= pl->redact()) {
                     m_hasEnded = true;

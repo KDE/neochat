@@ -23,15 +23,9 @@ class Connection;
 class Room;
 }
 
-namespace QKeychain
-{
-class ReadPasswordJob;
-}
-
 class Controller : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(int accountCount READ accountCount NOTIFY accountCountChanged)
     Q_PROPERTY(bool quitOnLastWindowClosed READ quitOnLastWindowClosed WRITE setQuitOnLastWindowClosed NOTIFY quitOnLastWindowClosedChanged)
     Q_PROPERTY(Quotient::Connection *activeConnection READ activeConnection WRITE setActiveConnection NOTIFY activeConnectionChanged)
     Q_PROPERTY(bool busy READ busy WRITE setBusy NOTIFY busyChanged)
@@ -40,7 +34,6 @@ class Controller : public QObject
     Q_PROPERTY(bool isOnline READ isOnline NOTIFY isOnlineChanged)
     Q_PROPERTY(bool encryptionSupported READ encryptionSupported CONSTANT)
     Q_PROPERTY(int activeConnectionIndex READ activeConnectionIndex NOTIFY activeConnectionIndexChanged)
-    Q_PROPERTY(int quotientMinorVersion READ quotientMinorVersion CONSTANT)
     Q_PROPERTY(bool isFlatpak READ isFlatpak CONSTANT)
 
 public:
@@ -49,16 +42,9 @@ public:
     void setActiveConnection(Quotient::Connection *connection);
     [[nodiscard]] Quotient::Connection *activeConnection() const;
 
-    void addConnection(Quotient::Connection *c);
-    void dropConnection(Quotient::Connection *c);
-
-    Q_INVOKABLE void loginWithAccessToken(const QString &, const QString &, const QString &, const QString &);
-
     Q_INVOKABLE void changePassword(Quotient::Connection *connection, const QString &currentPassword, const QString &newPassword);
 
     Q_INVOKABLE bool setAvatar(Quotient::Connection *connection, const QUrl &avatarSource);
-
-    [[nodiscard]] int accountCount() const;
 
     [[nodiscard]] static bool quitOnLastWindowClosed();
     void setQuitOnLastWindowClosed(bool value);
@@ -67,8 +53,6 @@ public:
     void setBusy(bool busy);
 
     [[nodiscard]] bool supportSystemTray() const;
-
-    bool saveAccessTokenToKeyChain(const Quotient::AccountSettings &account, const QByteArray &accessToken);
 
     int activeConnectionIndex() const;
 
@@ -100,7 +84,6 @@ public:
 
     Q_INVOKABLE void setApplicationProxy();
 
-    int quotientMinorVersion() const;
     bool isFlatpak() const;
 
 private:
@@ -110,20 +93,15 @@ private:
     bool m_busy = false;
     TrayIcon *m_trayIcon = nullptr;
 
-    QKeychain::ReadPasswordJob *loadAccessTokenFromKeyChain(const Quotient::AccountSettings &account);
-
     void loadSettings();
     void saveSettings() const;
     bool m_isOnline = true;
     QMap<Quotient::Room *, int> m_notificationCounts;
 
     bool hasWindowSystem() const;
-#ifdef QUOTIENT_07
     void handleNotifications(QPointer<Quotient::Connection> connection);
-#endif
 
 private Q_SLOTS:
-    void invokeLogin();
     void showWindow();
 
 Q_SIGNALS:
@@ -136,7 +114,6 @@ Q_SIGNALS:
     void syncDone();
     void connectionAdded(Quotient::Connection *_t1);
     void connectionDropped(Quotient::Connection *_t1);
-    void accountCountChanged();
     void initiated();
     void notificationClicked(const QString &_t1, const QString &_t2);
     void quitOnLastWindowClosedChanged();
@@ -154,13 +131,12 @@ Q_SIGNALS:
     void roomAdded(NeoChatRoom *room);
 
 public Q_SLOTS:
-    void logout(Quotient::Connection *conn, bool serverSideLogout);
     void changeAvatar(Quotient::Connection *conn, const QUrl &localFile);
     static void markAllMessagesAsRead(Quotient::Connection *conn);
     void saveWindowGeometry();
 };
 
-// TODO libQuotient 0.7: Drop
+// TODO libQuotient 0.?: Drop
 class NeochatChangePasswordJob : public Quotient::BaseJob
 {
 public:

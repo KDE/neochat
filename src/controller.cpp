@@ -31,11 +31,7 @@
 
 #include <signal.h>
 
-#ifdef QUOTIENT_07
-#include "accountregistry.h"
-#else
-#include "neochataccountregistry.h"
-#endif
+#include <accountregistry.h>
 
 #include <connection.h>
 #include <csapi/content-repo.h>
@@ -43,11 +39,8 @@
 #include <csapi/profile.h>
 #include <jobs/downloadfilejob.h>
 #include <qt_connection_util.h>
-
-#ifdef QUOTIENT_07
 #include <csapi/notifications.h>
 #include <eventstats.h>
-#endif
 
 #include "neochatconfig.h"
 #include "neochatroom.h"
@@ -55,6 +48,8 @@
 #include "notificationsmanager.h"
 #include "roommanager.h"
 #include "windowcontroller.h"
+
+#include <accountregistry.h>
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MAC)
 #include "trayicon.h"
@@ -93,9 +88,27 @@ Controller::Controller(QObject *parent)
     });
 #endif
 
-    QTimer::singleShot(0, this, [this] {
-        invokeLogin();
+    connectUntil(&Accounts, &AccountRegistry::rowsInserted, this, [this]() {
+        if (auto *connection = Accounts.get(NeoChatConfig::self()->activeConnection())) {
+            connectSingleShot(connection, &Connection::loadedRoomState, this, [this, connection]() {
+                setActiveConnection(connection);
+            });
+            return true;
+        }
+        return false;
     });
+
+    connect(&Accounts, &AccountRegistry::rowsRemoved, this, [this]() {
+        if (!Accounts.isLoggedIn(NeoChatConfig::self()->activeConnection())) {
+            if (Accounts.size() > 0) {
+                setActiveConnection(Accounts.accounts().at(0));
+            } else {
+                setActiveConnection(nullptr);
+            }
+        }
+    });
+
+    QMetaObject::invokeMethod(&Accounts, &AccountRegistry::invokeLogin);
 
     QObject::connect(QGuiApplication::instance(), &QCoreApplication::aboutToQuit, QGuiApplication::instance(), [] {
         NeoChatConfig::self()->save();
@@ -125,23 +138,29 @@ Controller::Controller(QObject *parent)
     }
 #endif
 
-    connect(&AccountRegistry::instance(), &AccountRegistry::accountCountChanged, this, &Controller::activeConnectionIndexChanged);
+    connect(&Accounts, &AccountRegistry::accountCountChanged, this, &Controller::activeConnectionIndexChanged);
 
-#ifdef QUOTIENT_07
     static int oldAccountCount = 0;
-    connect(&AccountRegistry::instance(), &AccountRegistry::accountCountChanged, this, [=]() {
-        if (AccountRegistry::instance().size() > oldAccountCount) {
-            auto connection = AccountRegistry::instance().accounts()[AccountRegistry::instance().size() - 1];
-            connect(connection, &Connection::syncDone, this, [=]() {
-                handleNotifications(connection);
+    connect(&Accounts, &AccountRegistry::accountCountChanged, this, [this]() {
+        if (Accounts.size() > oldAccountCount) {
+            auto connection = Accounts.accounts()[Accounts.size() - 1];
+            connect(connection, &Connection::syncDone, this, [this, connection]() {
+                bool changes = false;
+                for (const auto &room : connection->allRooms()) {
+                    if (m_notificationCounts[room] != room->unreadStats().notableCount) {
+                        m_notificationCounts[room] = room->unreadStats().notableCount;
+                        changes = true;
+                    }
+                }
+                if (changes) {
+                    handleNotifications(connection);
+                }
             });
         }
-        oldAccountCount = AccountRegistry::instance().size();
+        oldAccountCount = Accounts.size();
     });
-#endif
 }
 
-#ifdef QUOTIENT_07
 void Controller::handleNotifications(QPointer<Quotient::Connection> connection)
 {
     static QStringList initial;
@@ -215,7 +234,6 @@ void Controller::handleNotifications(QPointer<Quotient::Connection> connection)
         }
     });
 }
-#endif
 
 Controller &Controller::instance()
 {
@@ -228,239 +246,10 @@ void Controller::showWindow()
     WindowController::instance().showAndRaiseWindow(QString());
 }
 
-void Controller::loginWithAccessToken(const QString &serverAddr, const QString &user, const QString &token, const QString &deviceName)
-{
-    if (user.isEmpty() || token.isEmpty()) {
-        return;
-    }
-
-    QUrl serverUrl(serverAddr);
-
-    auto conn = new Connection();
-    if (serverUrl.isValid()) {
-        conn->setHomeserver(serverUrl);
-    }
-
-    connect(conn, &Connection::connected, this, [this, conn, deviceName] {
-        AccountSettings account(conn->userId());
-        account.setKeepLoggedIn(true);
-        account.setHomeserver(conn->homeserver());
-        account.setDeviceId(conn->deviceId());
-        account.setDeviceName(deviceName);
-        if (!saveAccessTokenToKeyChain(account, conn->accessToken())) {
-            qWarning() << "Couldn't save access token";
-        }
-        account.sync();
-        addConnection(conn);
-        setActiveConnection(conn);
-    });
-    connect(conn, &Connection::networkError, this, [this](QString error, const QString &, int, int) {
-        Q_EMIT errorOccured(i18n("Network Error: %1", error));
-    });
-    conn->assumeIdentity(user, token, deviceName);
-}
-
-void Controller::logout(Connection *conn, bool serverSideLogout)
-{
-    if (!conn) {
-        qCritical() << "Attempt to logout null connection";
-        return;
-    }
-
-    SettingsGroup("Accounts").remove(conn->userId());
-
-    QKeychain::DeletePasswordJob job(qAppName());
-    job.setAutoDelete(true);
-    job.setKey(conn->userId());
-    QEventLoop loop;
-    QKeychain::DeletePasswordJob::connect(&job, &QKeychain::Job::finished, &loop, &QEventLoop::quit);
-    job.start();
-    loop.exec();
-
-    if (AccountRegistry::instance().count() > 1) {
-        // Only set the connection if the the account being logged out is currently active
-        if (conn == activeConnection()) {
-            setActiveConnection(AccountRegistry::instance().accounts()[0]);
-        }
-    } else {
-        setActiveConnection(nullptr);
-    }
-    if (!serverSideLogout) {
-        return;
-    }
-    conn->logout();
-}
-
-void Controller::addConnection(Connection *c)
-{
-    Q_ASSERT_X(c, __FUNCTION__, "Attempt to add a null connection");
-
-#ifndef QUOTIENT_07
-    AccountRegistry::instance().add(c);
-#endif
-
-    c->setLazyLoading(true);
-
-    connect(c, &Connection::syncDone, this, [this, c] {
-        setBusy(false);
-
-        Q_EMIT syncDone();
-
-        c->sync(30000);
-        c->saveState();
-    });
-    connect(c, &Connection::loggedOut, this, [this, c] {
-        dropConnection(c);
-    });
-
-    connect(c, &Connection::requestFailed, this, [this](BaseJob *job) {
-        if (job->error() == BaseJob::UserConsentRequiredError) {
-            Q_EMIT userConsentRequired(job->errorUrl());
-        }
-    });
-
-    setBusy(true);
-
-    c->sync();
-
-    Q_EMIT connectionAdded(c);
-    Q_EMIT accountCountChanged();
-}
-
-void Controller::dropConnection(Connection *c)
-{
-    Q_ASSERT_X(c, __FUNCTION__, "Attempt to drop a null connection");
-
-#ifndef QUOTIENT_07
-    AccountRegistry::instance().drop(c);
-#endif
-
-    Q_EMIT connectionDropped(c);
-    Q_EMIT accountCountChanged();
-#ifndef QUOTIENT_07
-    c->deleteLater();
-#endif
-}
-
-void Controller::invokeLogin()
-{
-    const auto accounts = SettingsGroup("Accounts").childGroups();
-    QString id = NeoChatConfig::self()->activeConnection();
-    for (const auto &accountId : accounts) {
-        AccountSettings account{accountId};
-        if (id.isEmpty()) {
-            // handle case where the account config is empty
-            id = accountId;
-        }
-        if (!account.homeserver().isEmpty()) {
-            auto accessTokenLoadingJob = loadAccessTokenFromKeyChain(account);
-            connect(accessTokenLoadingJob, &QKeychain::Job::finished, this, [accountId, id, this, accessTokenLoadingJob](QKeychain::Job *) {
-                AccountSettings account{accountId};
-                QString accessToken;
-                if (accessTokenLoadingJob->error() == QKeychain::Error::NoError) {
-                    accessToken = accessTokenLoadingJob->binaryData();
-                } else {
-                    return;
-                }
-
-                auto connection = new Connection(account.homeserver());
-                connect(connection, &Connection::connected, this, [this, connection, id] {
-                    connection->loadState();
-                    addConnection(connection);
-                    if (connection->userId() == id) {
-                        setActiveConnection(connection);
-                        connectSingleShot(connection, &Connection::syncDone, this, &Controller::initiated);
-                    }
-                });
-                connect(connection, &Connection::loginError, this, [this, connection](const QString &error, const QString &) {
-                    if (error == "Unrecognised access token") {
-                        Q_EMIT errorOccured(i18n("Login Failed: Access Token invalid or revoked"));
-                        logout(connection, false);
-                    } else if (error == "Connection closed") {
-                        Q_EMIT errorOccured(i18n("Login Failed: %1", error));
-                        // Failed due to network connection issue. This might happen when the homeserver is
-                        // temporary down, or the user trying to re-launch NeoChat in a network that cannot
-                        // connect to the homeserver. In this case, we don't want to do logout().
-                    } else {
-                        Q_EMIT errorOccured(i18n("Login Failed: %1", error));
-                        logout(connection, true);
-                    }
-                    Q_EMIT initiated();
-                });
-                connect(connection, &Connection::networkError, this, [this](const QString &error, const QString &, int, int) {
-                    Q_EMIT errorOccured(i18n("Network Error: %1", error));
-                });
-                connection->assumeIdentity(account.userId(), accessToken, account.deviceId());
-            });
-        }
-    }
-    if (accounts.isEmpty()) {
-        Q_EMIT initiated();
-    }
-}
-
-QKeychain::ReadPasswordJob *Controller::loadAccessTokenFromKeyChain(const AccountSettings &account)
-{
-    qDebug() << "Reading access token from the keychain for" << account.userId();
-    auto job = new QKeychain::ReadPasswordJob(qAppName(), this);
-    job->setKey(account.userId());
-
-    // Handling of errors
-    connect(job, &QKeychain::Job::finished, this, [this, &account, job]() {
-        if (job->error() == QKeychain::Error::NoError) {
-            return;
-        }
-
-        switch (job->error()) {
-        case QKeychain::EntryNotFound:
-            Q_EMIT globalErrorOccured(i18n("Access token wasn't found"), i18n("Maybe it was deleted?"));
-            break;
-        case QKeychain::AccessDeniedByUser:
-        case QKeychain::AccessDenied:
-            Q_EMIT globalErrorOccured(i18n("Access to keychain was denied."), i18n("Please allow NeoChat to read the access token"));
-            break;
-        case QKeychain::NoBackendAvailable:
-            Q_EMIT globalErrorOccured(i18n("No keychain available."), i18n("Please install a keychain, e.g. KWallet or GNOME keyring on Linux"));
-            break;
-        case QKeychain::OtherError:
-            Q_EMIT globalErrorOccured(i18n("Unable to read access token"), job->errorString());
-            break;
-        default:
-            break;
-        }
-    });
-    job->start();
-
-    return job;
-}
-
-bool Controller::saveAccessTokenToKeyChain(const AccountSettings &account, const QByteArray &accessToken)
-{
-    qDebug() << "Save the access token to the keychain for " << account.userId();
-    QKeychain::WritePasswordJob job(qAppName());
-    job.setAutoDelete(false);
-    job.setKey(account.userId());
-    job.setBinaryData(accessToken);
-    QEventLoop loop;
-    QKeychain::WritePasswordJob::connect(&job, &QKeychain::Job::finished, &loop, &QEventLoop::quit);
-    job.start();
-    loop.exec();
-
-    if (job.error()) {
-        qWarning() << "Could not save access token to the keychain: " << qPrintable(job.errorString());
-        return false;
-    }
-    return true;
-}
-
 void Controller::changeAvatar(Connection *conn, const QUrl &localFile)
 {
     auto job = conn->uploadFile(localFile.toLocalFile());
-#ifdef QUOTIENT_07
     if (isJobPending(job)) {
-#else
-    if (isJobRunning(job)) {
-#endif
         connect(job, &BaseJob::success, this, [conn, job] {
             conn->callApi<SetAvatarUrlJob>(conn->userId(), job->contentUri());
         });
@@ -487,7 +276,7 @@ bool Controller::supportSystemTray() const
 
 void Controller::changePassword(Connection *connection, const QString &currentPassword, const QString &newPassword)
 {
-    NeochatChangePasswordJob *job = connection->callApi<NeochatChangePasswordJob>(newPassword, false);
+    auto *job = connection->callApi<NeochatChangePasswordJob>(newPassword, false);
     connect(job, &BaseJob::result, this, [this, job, currentPassword, newPassword, connection] {
         if (job->error() == 103) {
             QJsonObject replyData = job->jsonData();
@@ -498,7 +287,7 @@ void Controller::changePassword(Connection *connection, const QString &currentPa
             authData["user"] = connection->user()->id();
             QJsonObject identifier = {{"type", "m.id.user"}, {"user", connection->user()->id()}};
             authData["identifier"] = identifier;
-            NeochatChangePasswordJob *innerJob = connection->callApi<NeochatChangePasswordJob>(newPassword, false, authData);
+            auto *innerJob = connection->callApi<NeochatChangePasswordJob>(newPassword, false, authData);
             connect(innerJob, &BaseJob::success, this, [this]() {
                 Q_EMIT passwordStatus(PasswordStatus::Success);
             });
@@ -518,11 +307,7 @@ bool Controller::setAvatar(Connection *connection, const QUrl &avatarSource)
     User *localUser = connection->user();
     QString decoded = avatarSource.path();
     if (decoded.isEmpty()) {
-#ifdef QUOTIENT_07
         connection->callApi<SetAvatarUrlJob>(localUser->id(), avatarSource);
-#else
-        connection->callApi<SetAvatarUrlJob>(localUser->id(), QString());
-#endif
         return true;
     }
     if (QImageReader(decoded).read().isNull()) {
@@ -533,11 +318,7 @@ bool Controller::setAvatar(Connection *connection, const QUrl &avatarSource)
 }
 
 NeochatChangePasswordJob::NeochatChangePasswordJob(const QString &newPassword, bool logoutDevices, const Omittable<QJsonObject> &auth)
-#ifdef QUOTIENT_07
     : BaseJob(HttpVerb::Post, QStringLiteral("ChangePasswordJob"), "/_matrix/client/r0/account/password")
-#else
-    : BaseJob(HttpVerb::Post, QStringLiteral("ChangePasswordJob"), QStringLiteral("/_matrix/client/r0/account/password"))
-#endif
 {
     QJsonObject _data;
     addParam<>(_data, QStringLiteral("new_password"), newPassword);
@@ -546,9 +327,12 @@ NeochatChangePasswordJob::NeochatChangePasswordJob(const QString &newPassword, b
     setRequestData(_data);
 }
 
-int Controller::accountCount() const
+NeochatDeleteDeviceJob::NeochatDeleteDeviceJob(const QString &deviceId, const Omittable<QJsonObject> &auth)
+    : Quotient::BaseJob(HttpVerb::Delete, QStringLiteral("DeleteDeviceJob"), QStringLiteral("/matrix/client/r0/devices/%1").arg(deviceId).toLatin1())
 {
-    return AccountRegistry::instance().count();
+    QJsonObject _data;
+    addParam<IfNotEmpty>(_data, QStringLiteral("auth"), auth);
+    setRequestData(std::move(_data));
 }
 
 bool Controller::quitOnLastWindowClosed()
@@ -629,18 +413,6 @@ void Controller::saveWindowGeometry()
     WindowController::instance().saveGeometry();
 }
 
-NeochatDeleteDeviceJob::NeochatDeleteDeviceJob(const QString &deviceId, const Omittable<QJsonObject> &auth)
-#ifdef QUOTIENT_07
-    : Quotient::BaseJob(HttpVerb::Delete, QStringLiteral("DeleteDeviceJob"), QStringLiteral("/_matrix/client/r0/devices/%1").arg(deviceId).toLatin1())
-#else
-    : Quotient::BaseJob(HttpVerb::Delete, QStringLiteral("DeleteDeviceJob"), QStringLiteral("/_matrix/client/r0/devices/%1").arg(deviceId))
-#endif
-{
-    QJsonObject _data;
-    addParam<IfNotEmpty>(_data, QStringLiteral("auth"), auth);
-    setRequestData(std::move(_data));
-}
-
 void Controller::createRoom(const QString &name, const QString &topic)
 {
     auto createRoomJob = m_connection->createRoom(Connection::PublishRoom, "", name, topic, QStringList());
@@ -651,7 +423,7 @@ void Controller::createRoom(const QString &name, const QString &topic)
         this,
         &Controller::roomAdded,
         this,
-        [this](NeoChatRoom *room) {
+        [](NeoChatRoom *room) {
             RoomManager::instance().enterRoom(room);
         },
         Qt::QueuedConnection);
@@ -731,11 +503,7 @@ QString Controller::plainText(QQuickTextDocument *document) const
 
 bool Controller::encryptionSupported() const
 {
-#ifdef QUOTIENT_07
     return Quotient::encryptionSupported();
-#else
-    return false;
-#endif
 }
 
 void Controller::forceRefreshTextDocument(QQuickTextDocument *textDocument, QQuickItem *item)
@@ -776,29 +544,10 @@ void Controller::setApplicationProxy()
 
 int Controller::activeConnectionIndex() const
 {
-#ifdef QUOTIENT_07
     auto result = std::find_if(Accounts.accounts().begin(), Accounts.accounts().end(), [this](const auto &it) {
         return it == m_connection;
     });
     return result - Accounts.accounts().begin();
-#else
-    for (int i = 0; i < AccountRegistry::instance().rowCount(); i++) {
-        if (AccountRegistry::instance().data(AccountRegistry::instance().index(i, 0), AccountRegistry::UserIdRole).toString() == m_connection->userId()) {
-            return i;
-        }
-    }
-    return 0;
-#endif
-}
-
-int Controller::quotientMinorVersion() const
-{
-// TODO libQuotient 0.7: Replace with version function from libQuotient
-#ifdef QUOTIENT_07
-    return 7;
-#else
-    return 6;
-#endif
 }
 
 bool Controller::isFlatpak() const

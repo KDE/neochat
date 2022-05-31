@@ -68,12 +68,6 @@ set_package_properties(KF${QT_MAJOR_VERSION}Kirigami2 PROPERTIES
         )
 find_package(KF${QT_MAJOR_VERSION}KirigamiAddons 0.7.2 REQUIRED)
 
-find_package(Qt${QT_MAJOR_VERSION}Keychain)
-set_package_properties(Qt${QT_MAJOR_VERSION}Keychain PROPERTIES
-    TYPE REQUIRED
-    PURPOSE "Secure storage of account secrets"
-)
-
 if(ANDROID)
     find_package(OpenSSL)
     set_package_properties(OpenSSL PROPERTIES
@@ -93,7 +87,7 @@ if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
     find_package(KF${QT_MAJOR_VERSION}DBusAddons ${KF_MIN_VERSION} REQUIRED)
 endif()
 
-find_package(Quotient 0.6)
+find_package(Quotient 0.7)
 set_package_properties(Quotient PROPERTIES
     TYPE REQUIRED
     DESCRIPTION "Qt wrapper around Matrix API"
@@ -131,9 +125,7 @@ set_package_properties(KF${QT_MAJOR_VERSION}DocTools PROPERTIES DESCRIPTION
     TYPE OPTIONAL
 )
 
-if(NOT Quotient_VERSION_MINOR GREATER 6)
-    cmake_policy(SET CMP0063 OLD)
-endif()
+find_package(Sqlite3)
 
 if(ANDROID)
     find_package(Sqlite3)
@@ -150,7 +142,7 @@ install(FILES org.kde.neochat.tray.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/h
 add_definitions(-DQT_NO_FOREACH)
 
 add_subdirectory(src)
-if (BUILD_TESTING AND Quotient_VERSION_MINOR GREATER 6)
+if (BUILD_TESTING)
     find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} NO_MODULE COMPONENTS Test)
     add_subdirectory(autotests)
 endif()

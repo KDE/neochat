@@ -30,7 +30,6 @@ add_library(neochat STATIC
     models/devicesmodel.cpp
     filetypesingleton.cpp
     login.cpp
-    stickerevent.cpp
     models/webshortcutmodel.cpp
     blurhash.cpp
     blurhashimageprovider.cpp
@@ -47,7 +46,11 @@ add_library(neochat STATIC
     filetransferpseudojob.cpp
     models/searchmodel.cpp
     texthandler.cpp
+    pollevent.cpp
+    pollhandler.cpp
 )
+
+target_compile_definitions(neochat PUBLIC "-DQT_NO_KEYWORDS")
 
 add_executable(neochat-app
     main.cpp
@@ -59,14 +62,6 @@ target_include_directories(neochat-app PRIVATE ${CMAKE_BINARY_DIR})
 target_link_libraries(neochat-app PRIVATE
     neochat
 )
-
-if(Quotient_VERSION_MINOR GREATER 6)
-    target_compile_definitions(neochat PUBLIC QUOTIENT_07)
-    target_sources(neochat PRIVATE pollevent.cpp pollhandler.cpp)
-else()
-    target_compile_definitions(neochat PUBLIC QUOTIENT_VERSION=\"${Quotient_VERSION}\")
-    target_sources(neochat PRIVATE neochataccountregistry.cpp)
-endif()
 
 ecm_add_app_icon(NEOCHAT_ICON ICONS ${CMAKE_SOURCE_DIR}/128-logo.png)
 
@@ -95,6 +90,7 @@ endif()
 
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR})
 target_link_libraries(neochat PUBLIC Qt::Core Qt::Quick Qt::Qml Qt::Gui Qt::Multimedia Qt::Network Qt::QuickControls2 KF${QT_MAJOR_VERSION}::I18n KF${QT_MAJOR_VERSION}::Kirigami2 KF${QT_MAJOR_VERSION}::Notifications KF${QT_MAJOR_VERSION}::ConfigCore KF${QT_MAJOR_VERSION}::ConfigGui KF${QT_MAJOR_VERSION}::CoreAddons KF${QT_MAJOR_VERSION}::SonnetCore  KF${QT_MAJOR_VERSION}::ItemModels Quotient cmark::cmark ${QTKEYCHAIN_LIBRARIES} QCoro::Core)
+
 kconfig_add_kcfg_files(neochat GENERATE_MOC neochatconfig.kcfgc)
 
 if(NEOCHAT_FLATPAK)

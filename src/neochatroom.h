@@ -735,7 +735,6 @@ public:
      */
     void setSavedText(const QString &savedText);
 
-#ifdef QUOTIENT_07
     /**
      * @brief Get a PollHandler object for the given event Id.
      *
@@ -747,7 +746,6 @@ public:
      * @sa PollHandler
      */
     Q_INVOKABLE PollHandler *poll(const QString &eventId);
-#endif
 
 private:
     QSet<const Quotient::RoomEvent *> highlights;
@@ -775,9 +773,7 @@ private:
     QVector<Mention> m_mentions;
     QVector<Mention> m_editMentions;
     QString m_savedText;
-#ifdef QUOTIENT_07
     QCache<QString, PollHandler> m_polls;
-#endif
 
 private Q_SLOTS:
     void countChanged();

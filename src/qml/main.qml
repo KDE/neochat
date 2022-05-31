@@ -232,23 +232,11 @@ Kirigami.ApplicationWindow {
     }
 
     Connections {
-        target: AccountRegistry
-        function onRowsRemoved() {
-            if (AccountRegistry.rowCount() === 0) {
-                RoomManager.reset();
-                pageStack.clear();
-                roomListLoaded = false;
-                pageStack.push("qrc:/WelcomePage.qml");
-            }
-        }
-    }
-
-    Connections {
         target: Controller
 
-        function onInitiated() {
-            if (Controller.accountCount === 0) {
-                pageStack.replace("qrc:/WelcomePage.qml", {});
+        function onActiveConnectionChanged() {
+            if (!Controller.activeConnection) {
+                pageStack.replace("qrc:/imports/NeoChat/Page/WelcomePage.qml", {});
             } else if (!roomListLoaded) {
                 pageStack.replace(roomListComponent, {
                     activeConnection: Controller.activeConnection

@@ -11,12 +11,10 @@
 #include <events/roomavatarevent.h>
 #include <events/roommemberevent.h>
 #include <events/simplestateevents.h>
+#include <events/stickerevent.h>
 #include <user.h>
 
-#ifdef QUOTIENT_07
 #include "pollevent.h"
-#endif
-#include "stickerevent.h"
 
 #include <QDebug>
 #include <QGuiApplication>
@@ -109,11 +107,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         if (m_currentRoom->timelineSize() < 10 && !room->allHistoryLoaded()) {
             room->getPreviousContent(50);
         }
-#ifdef QUOTIENT_07
         lastReadEventId = room->lastFullyReadEventId();
-#else
-        lastReadEventId = room->readMarkerEventId();
-#endif
 
         using namespace Quotient;
         connect(m_currentRoom, &Room::aboutToAddNewMessages, this, [this](RoomEventsRange events) {
@@ -162,11 +156,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             endInsertRows();
             if (!m_lastReadEventIndex.isValid()) {
                 // no read marker, so see if we need to create one.
-#ifdef QUOTIENT_07
                 moveReadMarker(m_currentRoom->lastFullyReadEventId());
-#else
-                moveReadMarker(m_currentRoom->readMarkerEventId());
-#endif
             }
             if (biggest < m_currentRoom->maxTimelineIndex()) {
                 auto rowBelowInserted = m_currentRoom->maxTimelineIndex() - biggest + timelineBaseIndex() - 1;
@@ -207,7 +197,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             beginRemoveRows({}, i, i);
         });
         connect(m_currentRoom, &Room::pendingEventDiscarded, this, &MessageEventModel::endRemoveRows);
-        connect(m_currentRoom, &Room::readMarkerMoved, this, [this](const QString &fromEventId, const QString &toEventId) {
+        connect(m_currentRoom, &Room::fullyReadMarkerMoved, this, [this](const QString &fromEventId, const QString &toEventId) {
             Q_UNUSED(fromEventId);
             moveReadMarker(toEventId);
         });
@@ -230,9 +220,6 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         connect(m_currentRoom, &Room::fileTransferProgress, this, &MessageEventModel::refreshEvent);
         connect(m_currentRoom, &Room::fileTransferCompleted, this, &MessageEventModel::refreshEvent);
         connect(m_currentRoom, &Room::fileTransferFailed, this, &MessageEventModel::refreshEvent);
-#ifndef QUOTIENT_07
-        connect(m_currentRoom, &Room::fileTransferCancelled, this, &MessageEventModel::refreshEvent);
-#endif
         connect(m_currentRoom->connection(), &Connection::ignoredUsersListChanged, this, [this] {
             beginResetModel();
             endResetModel();
@@ -498,7 +485,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == SourceRole) {
-        return evt.originalJson();
+        return QJsonDocument(evt.fullJson()).toJson();
     }
 
     if (role == DelegateTypeRole) {
@@ -534,20 +521,18 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         if (is<const EncryptedEvent>(evt)) {
             return DelegateType::Encrypted;
         }
-#ifdef QUOTIENT_07
         if (is<PollStartEvent>(evt)) {
             if (evt.isRedacted()) {
                 return DelegateType::Message;
             }
             return DelegateType::Poll;
         }
-#endif
 
         return DelegateType::Other;
     }
 
     if (role == EventResolvedTypeRole) {
-        return EventTypeRegistry::getMatrixType(evt.type());
+        return evt.type();
     }
 
     if (role == AuthorRole) {
@@ -646,7 +631,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             return EventStatus::Hidden;
         }
 
-        if (evt.isStateEvent() && static_cast<const StateEventBase &>(evt).repeatsState()) {
+        if (evt.isStateEvent() && static_cast<const StateEvent &>(evt).repeatsState()) {
             return EventStatus::Hidden;
         }
 
@@ -820,22 +805,13 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == ReadMarkersRole) {
-#ifdef QUOTIENT_07
         auto userIds = room()->userIdsAtEvent(evt.id());
         userIds.remove(m_currentRoom->localUser()->id());
-#else
-        auto userIds = room()->usersAtEventId(evt.id());
-        userIds.removeAll(m_currentRoom->localUser());
-#endif
 
         QVariantList users;
         users.reserve(userIds.size());
         for (const auto &userId : userIds) {
-#ifdef QUOTIENT_07
             auto user = static_cast<NeoChatUser *>(m_currentRoom->user(userId));
-#else
-            auto user = static_cast<NeoChatUser *>(userId);
-#endif
             users += userAtEvent(user, m_currentRoom, evt);
         }
 
@@ -843,24 +819,15 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == ReadMarkersStringRole) {
-#ifdef QUOTIENT_07
         auto userIds = room()->userIdsAtEvent(evt.id());
         userIds.remove(m_currentRoom->localUser()->id());
-#else
-        auto userIds = room()->usersAtEventId(evt.id());
-        userIds.removeAll(m_currentRoom->localUser());
-#endif
         /**
          * The string ends up in the form
          * "x users: user1DisplayName, user2DisplayName, etc."
          */
         QString readMarkersString = i18np("1 user: ", "%1 users: ", userIds.size());
         for (const auto &userId : userIds) {
-#ifdef QUOTIENT_07
             auto user = static_cast<NeoChatUser *>(m_currentRoom->user(userId));
-#else
-            auto user = static_cast<NeoChatUser *>(userId);
-#endif
             readMarkersString += user->displayname(m_currentRoom) + i18nc("list separator", ", ");
         }
         readMarkersString.chop(2);
@@ -868,18 +835,13 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == ShowReadMarkersRole) {
-#ifdef QUOTIENT_07
         auto userIds = room()->userIdsAtEvent(evt.id());
         userIds.remove(m_currentRoom->localUser()->id());
-#else
-        auto userIds = room()->usersAtEventId(evt.id());
-        userIds.removeAll(m_currentRoom->localUser());
-#endif
         return userIds.size() > 0;
     }
 
     if (role == ReactionRole) {
-        const auto &annotations = m_currentRoom->relatedEvents(evt, EventRelation::Annotation());
+        const auto &annotations = m_currentRoom->relatedEvents(evt, EventRelation::AnnotationType);
         if (annotations.isEmpty()) {
             return {};
         };
@@ -889,7 +851,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
                 continue;
             }
             if (auto e = eventCast<const ReactionEvent>(a)) {
-                reactions[e->relation().key].append(static_cast<NeoChatUser *>(m_currentRoom->user(e->senderId())));
+                reactions[e->eventId()].append(static_cast<NeoChatUser *>(m_currentRoom->user(e->senderId())));
             }
         }
 
@@ -916,7 +878,6 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == MediaUrlRole) {
-#ifdef QUOTIENT_07
         if (auto e = eventCast<const RoomMessageEvent>(&evt)) {
             if (!e->hasFileContent()) {
                 return QVariant();
@@ -933,7 +894,6 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         // if (auto e = eventCast<const StickerEvent>(&evt)) {
         //     return m_currentRoom->makeMediaUrl(e->id(), e->url());
         // }
-#endif
 
         // Construct link in the same form as urlToDownload as that function doesn't work for stickers
         if (auto e = eventCast<const StickerEvent>(&evt)) {
@@ -948,14 +908,12 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == VerifiedRole) {
-#ifdef QUOTIENT_07
 #ifdef Quotient_E2EE_ENABLED
         if (evt.originalEvent()) {
             auto encrypted = dynamic_cast<const EncryptedEvent *>(evt.originalEvent());
             Q_ASSERT(encrypted);
             return m_currentRoom->connection()->isVerifiedSession(encrypted->sessionId().toLatin1());
         }
-#endif
 #endif
         return false;
     }
@@ -983,7 +941,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == IsPendingRole) {
-        return row < m_currentRoom->pendingEvents().size();
+        return row < static_cast<int>(m_currentRoom->pendingEvents().size());
     }
 
     return {};

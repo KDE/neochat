@@ -11,11 +11,7 @@
 #include <KNotification>
 #include <KNotificationReplyAction>
 
-#ifdef QUOTIENT_07
 #include <accountregistry.h>
-#else
-#include "neochataccountregistry.h"
-#endif
 
 #include <connection.h>
 #include <csapi/pushrules.h>
@@ -72,11 +68,7 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
     connect(notification, &KNotification::defaultActivated, this, [=]() {
         WindowController::instance().showAndRaiseWindow(notification->xdgActivationToken());
         if (room->localUser()->id() != Controller::instance().activeConnection()->userId()) {
-#ifdef QUOTIENT_07
             Controller::instance().setActiveConnection(Accounts.get(room->localUser()->id()));
-#else
-            Controller::instance().setActiveConnection(AccountRegistry::instance().get(room->localUser()->id()));
-#endif
         }
         RoomManager::instance().enterRoom(room);
     });

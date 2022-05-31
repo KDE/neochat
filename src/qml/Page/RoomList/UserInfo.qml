@@ -76,7 +76,7 @@ QQC2.ToolBar {
             visible: switchUserButton.checked
             onVisibleChanged: if (visible) accounts.forceActiveFocus()
             clip: true
-            model: AccountRegistry
+            model: Accounts
 
             keyNavigationEnabled: false
             Keys.onDownPressed: {

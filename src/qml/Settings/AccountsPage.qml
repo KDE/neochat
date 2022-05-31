@@ -27,7 +27,7 @@ Kirigami.ScrollablePage {
                 }
 
                 Repeater {
-                    model: AccountRegistry
+                    model: Accounts
                     delegate: MobileForm.AbstractFormDelegate {
                         Layout.fillWidth: true
                         onClicked: pageSettingStack.pushDialogLayer("qrc:/AccountEditorPage.qml", {

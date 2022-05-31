@@ -44,13 +44,9 @@ void UserListModel::setRoom(NeoChatRoom *room)
             std::sort(m_users.begin(), m_users.end(), room->memberSorter());
         }
         for (User *user : std::as_const(m_users)) {
-#ifdef QUOTIENT_07
             connect(user, &User::defaultAvatarChanged, this, [this, user]() {
                 avatarChanged(user, m_currentRoom);
             });
-#else
-            connect(user, &User::avatarChanged, this, &UserListModel::avatarChanged);
-#endif
         }
         connect(m_currentRoom->connection(), &Connection::loggedOut, this, [this]() {
             setRoom(nullptr);
@@ -96,15 +92,14 @@ QVariant UserListModel::data(const QModelIndex &index, int role) const
         return QVariant::fromValue(user);
     }
     if (role == PowerLevelRole) {
-        auto pl = m_currentRoom->getCurrentState<RoomPowerLevelsEvent>();
+        auto pl = m_currentRoom->currentState().get<RoomPowerLevelsEvent>();
+        if (!pl) {
+            return 0;
+        }
         return pl->powerLevelForUser(user->id());
     }
     if (role == PowerLevelStringRole) {
-#ifdef QUOTIENT_07
         auto pl = m_currentRoom->currentState().get<RoomPowerLevelsEvent>();
-#else
-        auto pl = m_currentRoom->getCurrentState<RoomPowerLevelsEvent>();
-#endif
         // User might not in the room yet, in this case pl can be nullptr.
         // e.g. When invited but user not accepted or denied the invitation.
         if (!pl) {
@@ -143,13 +138,9 @@ void UserListModel::userAdded(Quotient::User *user)
     beginInsertRows(QModelIndex(), pos, pos);
     m_users.insert(pos, user);
     endInsertRows();
-#ifdef QUOTIENT_07
     connect(user, &User::defaultAvatarChanged, this, [this, user]() {
         avatarChanged(user, m_currentRoom);
     });
-#else
-    connect(user, &Quotient::User::avatarChanged, this, &UserListModel::avatarChanged);
-#endif
 }
 
 void UserListModel::userRemoved(Quotient::User *user)
@@ -188,13 +179,9 @@ void UserListModel::refreshAll()
         std::sort(m_users.begin(), m_users.end(), m_currentRoom->memberSorter());
     }
     for (User *user : std::as_const(m_users)) {
-#ifdef QUOTIENT_07
         connect(user, &User::defaultAvatarChanged, this, [this, user]() {
             avatarChanged(user, m_currentRoom);
         });
-#else
-        connect(user, &User::avatarChanged, this, &UserListModel::avatarChanged);
-#endif
     }
     connect(m_currentRoom->connection(), &Connection::loggedOut, this, [this]() {
         setRoom(nullptr);

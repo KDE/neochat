@@ -8,9 +8,7 @@
 #include <KLocalizedString>
 #include <connection.h>
 
-#ifdef QUOTIENT_07
 #include <csapi/search.h>
-#endif
 
 using namespace Quotient;
 
@@ -34,7 +32,6 @@ void SearchModel::setSearchText(const QString &searchText)
 
 void SearchModel::search()
 {
-#ifdef QUOTIENT_07
     Q_ASSERT(m_connection);
     setSearching(true);
     if (m_job) {
@@ -43,20 +40,26 @@ void SearchModel::search()
     }
 
     SearchJob::RoomEventsCriteria criteria{
-        m_searchText,
-        {},
-        RoomEventFilter{
-            .rooms = {m_room->id()},
-        },
-        "recent",
-        SearchJob::IncludeEventContext{3, 3, true},
-        false,
-        none,
+        .searchTerm = m_searchText,
+        .keys = {},
+        .filter =
+            RoomEventFilter{
+                .unreadThreadNotifications = none,
+                .lazyLoadMembers = true,
+                .includeRedundantMembers = false,
+                .notRooms = {},
+                .rooms = {m_room->id()},
+                .containsUrl = false,
+            },
+        .orderBy = "recent",
+        .eventContext = SearchJob::IncludeEventContext{3, 3, true},
+        .includeState = false,
+        .groupings = none,
     };
 
     auto job = m_connection->callApi<SearchJob>(SearchJob::Categories{criteria});
     m_job = job;
-    connect(job, &BaseJob::finished, this, [=] {
+    connect(job, &BaseJob::finished, this, [this, job] {
         beginResetModel();
         m_result = job->searchCategories().roomEvents;
         endResetModel();
@@ -64,7 +67,6 @@ void SearchModel::search()
         m_job = nullptr;
         // TODO error handling
     });
-#endif
 }
 
 Connection *SearchModel::connection() const
@@ -80,7 +82,6 @@ void SearchModel::setConnection(Connection *connection)
 
 QVariant SearchModel::data(const QModelIndex &index, int role) const
 {
-#ifdef QUOTIENT_07
     auto row = index.row();
     const auto &event = *m_result->results[row].result;
     switch (role) {
@@ -110,17 +111,14 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
         return event.originTimestamp();
     }
     return MessageEventModel::DelegateType::Message;
-#endif
-    return {};
 }
 
 int SearchModel::rowCount(const QModelIndex &parent) const
 {
-#ifdef QUOTIENT_07
+    Q_UNUSED(parent);
     if (m_result.has_value()) {
         return m_result->results.size();
     }
-#endif
     return 0;
 }
 

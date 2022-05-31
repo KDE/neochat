@@ -67,7 +67,7 @@ QHash<int, QByteArray> DevicesModel::roleNames() const
 
 void DevicesModel::logout(int index, const QString &password)
 {
-    auto job = Controller::instance().activeConnection()->callApi<NeochatDeleteDeviceJob>(m_devices[index].deviceId);
+    auto job = Controller::instance().activeConnection()->callApi<DeleteDeviceJob>(m_devices[index].deviceId);
 
     connect(job, &BaseJob::result, this, [this, job, password, index] {
         auto onSuccess = [this, index]() {

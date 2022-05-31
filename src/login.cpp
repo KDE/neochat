@@ -3,16 +3,13 @@
 
 #include "login.h"
 
-#ifdef QUOTIENT_07
 #include <accountregistry.h>
-#else
-#include "neochataccountregistry.h"
-#endif
 
 #include <connection.h>
 #include <qt_connection_util.h>
 
 #include "controller.h"
+#include "neochatroom.h"
 
 #include <KLocalizedString>
 
@@ -43,7 +40,7 @@ void Login::init()
             return;
         }
 
-        m_isLoggedIn = AccountRegistry::instance().isLoggedIn(m_matrixId);
+        m_isLoggedIn = Accounts.isLoggedIn(m_matrixId);
         Q_EMIT isLoggedInChanged();
         if (m_isLoggedIn) {
             return;
@@ -74,11 +71,7 @@ void Login::init()
         account.setHomeserver(m_connection->homeserver());
         account.setDeviceId(m_connection->deviceId());
         account.setDeviceName(m_deviceName);
-        if (!Controller::instance().saveAccessTokenToKeyChain(account, m_connection->accessToken())) {
-            qWarning() << "Couldn't save access token";
-        }
         account.sync();
-        Controller::instance().addConnection(m_connection);
         Controller::instance().setActiveConnection(m_connection);
         m_connection = nullptr;
     });
@@ -97,8 +90,9 @@ void Login::init()
         Q_EMIT Controller::instance().globalErrorOccured(i18n("Network Error"), std::move(error));
     });
 
-    connectSingleShot(m_connection, &Connection::syncDone, this, [this]() {
-        Q_EMIT Controller::instance().initiated();
+    connectSingleShot(m_connection, &Connection::loadedRoomState, this, [this]() {
+        Controller::instance().setActiveConnection(m_connection);
+        // TODO close settings window
     });
 }
 

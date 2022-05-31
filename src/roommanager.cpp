@@ -11,9 +11,7 @@
 #include <QQuickTextDocument>
 #include <QStandardPaths>
 #include <csapi/joining.h>
-#ifdef QUOTIENT_07
 #include <csapi/knocking.h>
-#endif
 #include <qt_connection_util.h>
 #include <user.h>
 
@@ -158,16 +156,12 @@ UriResolveResult RoomManager::visitUser(User *user, const QString &action)
 {
     if (action == "mention" || action.isEmpty()) {
         // send it has QVariantMap because the properties in the
-#ifdef QUOTIENT_07
         user->load();
-#endif
         Q_EMIT showUserDetail(user);
     } else if (action == "_interactive") {
         user->requestDirectChat();
     } else if (action == "chat") {
-#ifdef QUOTIENT_07
         user->load();
-#endif
         Q_EMIT askDirectChatConfirmation(user);
     } else {
         return Quotient::IncorrectAction;
@@ -210,8 +204,6 @@ void RoomManager::joinRoom(Quotient::Connection *account, const QString &roomAli
     });
 }
 
-// TODO: maybe need use the function upstream later
-#ifdef QUOTIENT_07
 void RoomManager::knockRoom(Quotient::Connection *account, const QString &roomAliasOrId, const QString &reason, const QStringList &viaServers)
 {
     auto *const job = account->callApi<KnockRoomJob>(roomAliasOrId, viaServers, reason);
@@ -229,7 +221,6 @@ void RoomManager::knockRoom(Quotient::Connection *account, const QString &roomAl
         }
     });
 }
-#endif
 
 bool RoomManager::visitNonMatrix(const QUrl &url)
 {

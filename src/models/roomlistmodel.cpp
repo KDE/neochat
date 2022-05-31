@@ -8,6 +8,7 @@
 #include "neochatroom.h"
 #include "roommanager.h"
 #include "user.h"
+#include <eventstats.h>
 
 #include <QDebug>
 #if QT_VERSION < QT_VERSION_CHECK(6, 6, 0)
@@ -21,11 +22,6 @@
 #include <KLocalizedString>
 #include <QGuiApplication>
 #include <utility>
-
-#ifndef QUOTIENT_07
-#include "notificationsmanager.h"
-#include <csapi/notifications.h>
-#endif
 
 using namespace Quotient;
 
@@ -151,7 +147,7 @@ void RoomListModel::connectRoomSignals(NeoChatRoom *room)
     connect(room, &Room::displaynameChanged, this, [this, room] {
         refresh(room, {DisplayNameRole, NameRole});
     });
-    connect(room, &Room::unreadMessagesChanged, this, [this, room] {
+    connect(room, &Room::unreadStatsChanged, this, [this, room] {
         refresh(room, {UnreadCountRole, NotificationCountRole, HighlightCountRole});
     });
     connect(room, &Room::notificationCountChanged, this, [this, room] {
@@ -172,70 +168,8 @@ void RoomListModel::connectRoomSignals(NeoChatRoom *room)
     connect(room, &Room::pendingEventMerged, this, [this, room] {
         refresh(room, {LastEventRole, SubtitleTextRole});
     });
-#ifndef QUOTIENT_07
-    connect(room, &Room::notificationCountChanged, this, &RoomListModel::handleNotifications);
-#endif
-
-#ifndef QUOTIENT_07
-    connect(room, &Room::notificationCountChanged, this, &RoomListModel::refreshNotificationCount);
-#else
     connect(room, &Room::unreadStatsChanged, this, &RoomListModel::refreshNotificationCount);
-#endif
 }
-
-#ifndef QUOTIENT_07
-void RoomListModel::handleNotifications()
-{
-    static bool initial = true;
-    static QStringList oldNotifications;
-    auto job = m_connection->callApi<GetNotificationsJob>();
-
-    connect(job, &BaseJob::success, this, [this, job]() {
-        const auto notifications = job->jsonData()["notifications"].toArray();
-        if (initial) {
-            initial = false;
-            for (const auto &n : notifications) {
-                oldNotifications += n.toObject()["event"].toObject()["event_id"].toString();
-            }
-            return;
-        }
-        for (const auto &n : notifications) {
-            const auto notification = n.toObject();
-            if (notification["read"].toBool()) {
-                oldNotifications.removeOne(notification["event"].toObject()["event_id"].toString());
-                continue;
-            }
-            if (oldNotifications.contains(notification["event"].toObject()["event_id"].toString())) {
-                continue;
-            }
-            oldNotifications += notification["event"].toObject()["event_id"].toString();
-
-            auto room = m_connection->room(notification["room_id"].toString());
-            auto currentRoom = RoomManager::instance().currentRoom();
-            bool roomIsActive = currentRoom && room->id() == currentRoom->id();
-
-            // If room exists, room is NOT active OR the application is NOT active, show notification
-            if (room && !(roomIsActive && QGuiApplication::applicationState() == Qt::ApplicationActive)) {
-                // The room might have been deleted (for example rejected invitation).
-                auto sender = room->user(notification["event"].toObject()["sender"].toString());
-
-                QImage avatar_image;
-                if (!sender->avatarUrl(room).isEmpty()) {
-                    avatar_image = sender->avatar(128, room);
-                } else {
-                    avatar_image = room->avatar(128);
-                }
-                NotificationsManager::instance().postNotification(dynamic_cast<NeoChatRoom *>(room),
-                                                                  sender->displayname(room),
-                                                                  notification["event"].toObject()["content"].toObject()["body"].toString(),
-                                                                  avatar_image,
-                                                                  notification["event"].toObject()["event_id"].toString(),
-                                                                  true);
-            }
-        }
-    });
-}
-#endif
 
 void RoomListModel::refreshNotificationCount()
 {
@@ -361,7 +295,7 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
         return NeoChatRoomType::Normal;
     }
     if (role == UnreadCountRole) {
-        return room->unreadCount();
+        return room->unreadStats().notableCount;
     }
     if (role == NotificationCountRole) {
         return room->notificationCount();

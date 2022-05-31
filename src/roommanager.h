@@ -59,10 +59,7 @@ public:
     // Overrided methods from UriResolverBase
     UriResolveResult visitUser(User *user, const QString &action) override;
     void joinRoom(Quotient::Connection *account, const QString &roomAliasOrId, const QStringList &viaServers) override;
-    // TODO: it need also override in the feature?
-#ifdef QUOTIENT_07
     void knockRoom(Quotient::Connection *account, const QString &roomAliasOrId, const QString &reason, const QStringList &viaServers);
-#endif
     Q_INVOKABLE void visitRoom(Quotient::Room *room, const QString &eventId) override;
     Q_INVOKABLE bool visitNonMatrix(const QUrl &url) override;
 
