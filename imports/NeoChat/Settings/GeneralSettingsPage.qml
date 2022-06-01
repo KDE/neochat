@@ -119,6 +119,15 @@ Kirigami.ScrollablePage {
                     Config.save()
                 }
             }
+            QQC2.CheckBox {
+                text: i18n("Automatically hide/unhide the room information when resizing the window")
+                checked: Config.autoRoomInfoDrawer
+                enabled: !Config.isAutoRoomInfoDrawerImmutable
+                onToggled: {
+                    Config.autoRoomInfoDrawer = checked
+                    Config.save()
+                }
+            }
         }
     }
 }

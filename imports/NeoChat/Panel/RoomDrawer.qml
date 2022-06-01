@@ -19,6 +19,7 @@ Kirigami.OverlayDrawer {
     readonly property var room: RoomManager.currentRoom
 
     width: modal ? undefined : actualWidth
+
     readonly property int minWidth: Kirigami.Units.gridUnit * 15
     readonly property int maxWidth: Kirigami.Units.gridUnit * 25
     readonly property int defaultWidth: Kirigami.Units.gridUnit * 20
@@ -61,6 +62,10 @@ Kirigami.OverlayDrawer {
     enabled: true
 
     edge: Qt.application.layoutDirection == Qt.RightToLeft ? Qt.LeftEdge : Qt.RightEdge
+
+    // If modal has been changed and the drawer is closed automatically then dim on popup open will have been switched off in main.qml so switch it back on after the animation completes.
+    // This is to avoid dim being active for a split second when the drawer is switched to modal which looks terrible.
+    onAnimatingChanged: if (dim === false) dim = undefined
 
     topPadding: 0
     leftPadding: 0

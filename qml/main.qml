@@ -148,10 +148,14 @@ Kirigami.ApplicationWindow {
 
     contextDrawer: RoomDrawer {
         id: contextDrawer
-        edge: Qt.application.layoutDirection == Qt.RightToLeft ? Qt.LeftEdge : Qt.RightEdge
         modal: !root.wideScreen || !enabled
         onEnabledChanged: drawerOpen = enabled && !modal
-        onModalChanged: drawerOpen = !modal
+        onModalChanged: {
+            if (Config.autoRoomInfoDrawer) {
+                drawerOpen = !modal
+                dim = false
+            }
+        }
         enabled: RoomManager.hasOpenRoom && pageStack.layers.depth < 2 && pageStack.depth < 3
         handleVisible: enabled && pageStack.layers.depth < 2 && pageStack.depth < 3 && (root.wideScreen || pageStack.currentIndex > 0)
     }
