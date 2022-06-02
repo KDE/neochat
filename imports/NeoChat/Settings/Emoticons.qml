@@ -5,6 +5,8 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
+import Qt.labs.platform 1.1
+
 import org.kde.kirigami 2.15 as Kirigami
 
 import org.kde.neochat 1.0
@@ -96,7 +98,7 @@ Kirigami.ScrollablePage {
                         this.fileDialog = openFileDialog.createObject(QQC2.Overlay.overlay)
 
                         this.fileDialog.chosen.connect((url) => {
-                            emojiModel.addEmoji(emojiField.text, url)
+                            emojiModel.addEmoji(emojiCreator.name, url)
                             this.fileDialog = null
                         })
                         this.fileDialog.onRejected.connect(() => {
