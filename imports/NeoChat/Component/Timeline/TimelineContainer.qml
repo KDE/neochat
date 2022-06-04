@@ -52,6 +52,7 @@ QQC2.ItemDelegate {
     function updateHoverComponent() {
         if (hoverComponent) {
             hoverComponent.bubble = bubble
+            hoverComponent.updateFunction = updateHoverComponent;
             hoverComponent.event = model
         }
     }
