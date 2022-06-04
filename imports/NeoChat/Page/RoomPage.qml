@@ -167,80 +167,6 @@ Kirigami.ScrollablePage {
         }
     }
 
-    Item {
-        id: hoverActions
-        property var event: null
-        property bool showEdit: event && (event.author.id === Controller.activeConnection.localUserId && (event.eventType === "emote" || event.eventType === "message"))
-        property var bubble: null
-        property var hovered: bubble && bubble.hovered
-        property var visibleDelayed: (hovered || hoverHandler.hovered) && !Kirigami.Settings.isMobile
-        onVisibleDelayedChanged: if (visibleDelayed) {
-            visible = true;
-        } else {
-            // HACK: delay disapearing by 200ms, otherwise this can create some glitches
-            // See https://invent.kde.org/network/neochat/-/issues/333
-            hoverActionsTimer.restart();
-        }
-        Timer {
-            id: hoverActionsTimer
-            interval: 200
-            onTriggered: hoverActions.visible = hoverActions.visibleDelayed;
-        }
-        x: bubble ? (bubble.x + Kirigami.Units.largeSpacing + Math.max(bubble.width - childWidth, 0) - (Config.compactLayout ? Kirigami.Units.gridUnit * 3 : 0)) : 0
-        y: bubble ? bubble.mapToItem(parent, 0, 0).y - hoverActions.childHeight + Kirigami.Units.smallSpacing: 0;
-        visible: false
-
-        property var updateFunction
-
-        property alias childWidth: hoverActionsRow.width
-        property alias childHeight: hoverActionsRow.height
-
-        RowLayout {
-            id: hoverActionsRow
-            z: 4
-            spacing: 0
-            HoverHandler {
-                id: hoverHandler
-                margin: Kirigami.Units.smallSpacing
-            }
-
-            QQC2.Button {
-                QQC2.ToolTip.text: i18n("React")
-                QQC2.ToolTip.visible: hovered
-                icon.name: "preferences-desktop-emoticons"
-                onClicked: emojiDialog.open();
-                EmojiDialog {
-                    id: emojiDialog
-                    onReact: {
-                        page.currentRoom.toggleReaction(hoverActions.event.eventId, emoji);
-                        chatBox.focusInputField();
-                    }
-                }
-            }
-            QQC2.Button {
-                QQC2.ToolTip.text: i18n("Edit")
-                QQC2.ToolTip.visible: hovered
-                visible: hoverActions.showEdit
-                icon.name: "document-edit"
-                onClicked: {
-                    if (hoverActions.showEdit) {
-                        ChatBoxHelper.edit(hoverActions.event.message, hoverActions.event.formattedBody, hoverActions.event.eventId)
-                    }
-                    chatBox.focusInputField();
-                }
-            }
-            QQC2.Button {
-                QQC2.ToolTip.text: i18n("Reply")
-                QQC2.ToolTip.visible: hovered
-                icon.name: "mail-replied-symbolic"
-                onClicked: {
-                    ChatBoxHelper.replyToMessage(hoverActions.event.eventId, hoverActions.event.message, hoverActions.event.author);
-                    chatBox.focusInputField();
-                }
-            }
-        }
-    }
-
     CollapseStateProxyModel {
         id: collapseStateProxyModel
         sourceModel: sortedMessageEventModel
@@ -477,6 +403,80 @@ Kirigami.ScrollablePage {
 
         function goToEvent(eventID) {
             messageListView.positionViewAtIndex(eventToIndex(eventID), ListView.Contain)
+        }
+
+        Item {
+            id: hoverActions
+            property var event: null
+            property bool showEdit: event && (event.author.id === Controller.activeConnection.localUserId && (event.eventType === "emote" || event.eventType === "message"))
+            property var bubble: null
+            property var hovered: bubble && bubble.hovered
+            property var visibleDelayed: (hovered || hoverHandler.hovered) && !Kirigami.Settings.isMobile
+            onVisibleDelayedChanged: if (visibleDelayed) {
+                visible = true;
+            } else {
+                // HACK: delay disapearing by 200ms, otherwise this can create some glitches
+                // See https://invent.kde.org/network/neochat/-/issues/333
+                hoverActionsTimer.restart();
+            }
+            Timer {
+                id: hoverActionsTimer
+                interval: 200
+                onTriggered: hoverActions.visible = hoverActions.visibleDelayed;
+            }
+            x: bubble ? (bubble.x + Kirigami.Units.largeSpacing + Math.max(bubble.width - childWidth, 0) - (Config.compactLayout ? Kirigami.Units.gridUnit * 3 : 0)) : 0
+            y: bubble ? bubble.mapToItem(parent, 0, 0).y - hoverActions.childHeight + Kirigami.Units.smallSpacing: 0;
+            visible: false
+
+            property var updateFunction
+
+            property alias childWidth: hoverActionsRow.width
+            property alias childHeight: hoverActionsRow.height
+
+            RowLayout {
+                id: hoverActionsRow
+                z: 4
+                spacing: 0
+                HoverHandler {
+                    id: hoverHandler
+                    margin: Kirigami.Units.smallSpacing
+                }
+
+                QQC2.Button {
+                    QQC2.ToolTip.text: i18n("React")
+                    QQC2.ToolTip.visible: hovered
+                    icon.name: "preferences-desktop-emoticons"
+                    onClicked: emojiDialog.open();
+                    EmojiDialog {
+                        id: emojiDialog
+                        onReact: {
+                            page.currentRoom.toggleReaction(hoverActions.event.eventId, emoji);
+                            chatBox.focusInputField();
+                        }
+                    }
+                }
+                QQC2.Button {
+                    QQC2.ToolTip.text: i18n("Edit")
+                    QQC2.ToolTip.visible: hovered
+                    visible: hoverActions.showEdit
+                    icon.name: "document-edit"
+                    onClicked: {
+                        if (hoverActions.showEdit) {
+                            ChatBoxHelper.edit(hoverActions.event.message, hoverActions.event.formattedBody, hoverActions.event.eventId)
+                        }
+                        chatBox.focusInputField();
+                    }
+                }
+                QQC2.Button {
+                    QQC2.ToolTip.text: i18n("Reply")
+                    QQC2.ToolTip.visible: hovered
+                    icon.name: "mail-replied-symbolic"
+                    onClicked: {
+                        ChatBoxHelper.replyToMessage(hoverActions.event.eventId, hoverActions.event.message, hoverActions.event.author);
+                        chatBox.focusInputField();
+                    }
+                }
+            }
         }
     }
 
