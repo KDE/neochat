@@ -20,6 +20,7 @@
 #include <QStandardPaths>
 
 #include <KLocalizedString>
+#include <QGuiApplication>
 #include <utility>
 
 #include "csapi/notifications.h"
@@ -225,7 +226,9 @@ void RoomListModel::handleNotifications()
             }
             oldNotifications += notification["event"].toObject()["event_id"].toString();
             auto room = m_connection->room(notification["room_id"].toString());
-            if (room) {
+
+            // If room exists, room is NOT active OR the application is NOT active, show notification
+            if (room && !(room->id() == RoomManager::instance().currentRoom()->id() && QGuiApplication::applicationState() == Qt::ApplicationActive)) {
                 // The room might have been deleted (for example rejected invitation).
                 auto sender = room->user(notification["event"].toObject()["sender"].toString());
 
