@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-06-03 00:45+0000\n"
+"POT-Creation-Date: 2022-06-05 00:47+0000\n"
 "PO-Revision-Date: 2022-05-04 11:44+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -32,7 +32,7 @@ msgstr "Pièces jointes :"
 #: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:159
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:28
 #: imports/NeoChat/Page/ImageEditorPage.qml:21
-#: imports/NeoChat/Page/RoomPage.qml:221
+#: imports/NeoChat/Page/RoomPage.qml:459
 #, kde-format
 msgid "Edit"
 msgstr "Modifier"
@@ -602,7 +602,7 @@ msgstr "Enregistrer sous"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:34
-#: imports/NeoChat/Page/RoomPage.qml:233 src/notificationsmanager.cpp:68
+#: imports/NeoChat/Page/RoomPage.qml:471 src/notificationsmanager.cpp:68
 #, kde-format
 msgid "Reply"
 msgstr "Répondre"
@@ -812,43 +812,43 @@ msgstr "Rejeter"
 msgid "Accept"
 msgstr "Accepter"
 
-#: imports/NeoChat/Page/RoomPage.qml:208
-#, kde-format
-msgid "React"
-msgstr "Réaction"
-
-#: imports/NeoChat/Page/RoomPage.qml:309
+#: imports/NeoChat/Page/RoomPage.qml:235
 #, kde-format
 msgid "Choose local file"
 msgstr "Sélectionner un fichier local"
 
-#: imports/NeoChat/Page/RoomPage.qml:335
+#: imports/NeoChat/Page/RoomPage.qml:261
 #, kde-format
 msgid "Clipboard image"
 msgstr "Image du presse-papier"
 
-#: imports/NeoChat/Page/RoomPage.qml:382
+#: imports/NeoChat/Page/RoomPage.qml:308
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Aller au premier message non lu."
 
-#: imports/NeoChat/Page/RoomPage.qml:405
+#: imports/NeoChat/Page/RoomPage.qml:331
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Aller au message le plus ancien."
 
-#: imports/NeoChat/Page/RoomPage.qml:429
+#: imports/NeoChat/Page/RoomPage.qml:355
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Faites glisser les éléments ici pour les partager"
 
-#: imports/NeoChat/Page/RoomPage.qml:461
+#: imports/NeoChat/Page/RoomPage.qml:387
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 est entrain d'écrire"
 msgstr[1] "%2 sont entrain d'écrire"
+
+#: imports/NeoChat/Page/RoomPage.qml:446
+#, kde-format
+msgid "React"
+msgstr "Réaction"
 
 #: imports/NeoChat/Page/StartChatPage.qml:39
 #, kde-format
@@ -1957,32 +1957,32 @@ msgstr "Accepter une invitation"
 msgid "Reject Invitation"
 msgstr "Rejeter une invitation"
 
-#: src/roomlistmodel.cpp:446
+#: src/roomlistmodel.cpp:449
 #, kde-format
 msgid "Invited"
 msgstr "Invité"
 
-#: src/roomlistmodel.cpp:448
+#: src/roomlistmodel.cpp:451
 #, kde-format
 msgid "Favorite"
 msgstr "Préféré"
 
-#: src/roomlistmodel.cpp:450
+#: src/roomlistmodel.cpp:453
 #, kde-format
 msgid "Direct Messages"
 msgstr "Messages directs"
 
-#: src/roomlistmodel.cpp:452
+#: src/roomlistmodel.cpp:455
 #, kde-format
 msgid "Normal"
 msgstr "Normal"
 
-#: src/roomlistmodel.cpp:454
+#: src/roomlistmodel.cpp:457
 #, kde-format
 msgid "Low priority"
 msgstr "Basse priorité"
 
-#: src/roomlistmodel.cpp:456
+#: src/roomlistmodel.cpp:459
 #, kde-format
 msgid "Spaces"
 msgstr "Espaces"

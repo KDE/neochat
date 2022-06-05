@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-06-03 00:45+0000\n"
+"POT-Creation-Date: 2022-06-05 00:47+0000\n"
 "PO-Revision-Date: 2022-06-03 06:21+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
-"%100<=4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.0.1\n"
 
 #, kde-format
@@ -38,7 +38,7 @@ msgstr "Priloga:"
 #: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:159
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:28
 #: imports/NeoChat/Page/ImageEditorPage.qml:21
-#: imports/NeoChat/Page/RoomPage.qml:221
+#: imports/NeoChat/Page/RoomPage.qml:459
 #, kde-format
 msgid "Edit"
 msgstr "Uredi"
@@ -609,7 +609,7 @@ msgstr "Shrani kot"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:34
-#: imports/NeoChat/Page/RoomPage.qml:233 src/notificationsmanager.cpp:68
+#: imports/NeoChat/Page/RoomPage.qml:471 src/notificationsmanager.cpp:68
 #, kde-format
 msgid "Reply"
 msgstr "Odgovori"
@@ -819,37 +819,32 @@ msgstr "Zavračam"
 msgid "Accept"
 msgstr "Sprejemam"
 
-#: imports/NeoChat/Page/RoomPage.qml:208
-#, kde-format
-msgid "React"
-msgstr "Reagiraj"
-
-#: imports/NeoChat/Page/RoomPage.qml:309
+#: imports/NeoChat/Page/RoomPage.qml:235
 #, kde-format
 msgid "Choose local file"
 msgstr "Izberi lokalno datoteko"
 
-#: imports/NeoChat/Page/RoomPage.qml:335
+#: imports/NeoChat/Page/RoomPage.qml:261
 #, kde-format
 msgid "Clipboard image"
 msgstr "Slika odložišča"
 
-#: imports/NeoChat/Page/RoomPage.qml:382
+#: imports/NeoChat/Page/RoomPage.qml:308
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Skoči na prvo neprebrano sporočilo"
 
-#: imports/NeoChat/Page/RoomPage.qml:405
+#: imports/NeoChat/Page/RoomPage.qml:331
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Skoči na nedavno sporočilo"
 
-#: imports/NeoChat/Page/RoomPage.qml:429
+#: imports/NeoChat/Page/RoomPage.qml:355
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Povleci predmete sem, da jih deliš z drugimi"
 
-#: imports/NeoChat/Page/RoomPage.qml:461
+#: imports/NeoChat/Page/RoomPage.qml:387
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -858,6 +853,11 @@ msgstr[0] "%2 tipka"
 msgstr[1] "%2 tipkata"
 msgstr[2] "%2 tipkajo"
 msgstr[3] "%2 tipka"
+
+#: imports/NeoChat/Page/RoomPage.qml:446
+#, kde-format
+msgid "React"
+msgstr "Reagiraj"
 
 #: imports/NeoChat/Page/StartChatPage.qml:39
 #, kde-format
@@ -1958,32 +1958,32 @@ msgstr "Sprejmi povabilo"
 msgid "Reject Invitation"
 msgstr "Zavrnil povabilo"
 
-#: src/roomlistmodel.cpp:446
+#: src/roomlistmodel.cpp:449
 #, kde-format
 msgid "Invited"
 msgstr "Povabljen"
 
-#: src/roomlistmodel.cpp:448
+#: src/roomlistmodel.cpp:451
 #, kde-format
 msgid "Favorite"
 msgstr "Priljubljen"
 
-#: src/roomlistmodel.cpp:450
+#: src/roomlistmodel.cpp:453
 #, kde-format
 msgid "Direct Messages"
 msgstr "Neposredna sporočila"
 
-#: src/roomlistmodel.cpp:452
+#: src/roomlistmodel.cpp:455
 #, kde-format
 msgid "Normal"
 msgstr "Normalno"
 
-#: src/roomlistmodel.cpp:454
+#: src/roomlistmodel.cpp:457
 #, kde-format
 msgid "Low priority"
 msgstr "Nizka prednost"
 
-#: src/roomlistmodel.cpp:456
+#: src/roomlistmodel.cpp:459
 #, kde-format
 msgid "Spaces"
 msgstr "Presledki"
