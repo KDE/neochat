@@ -20,7 +20,7 @@ QQC2.ItemDelegate {
     property bool isEmote: false
     property bool cardBackground: true
 
-    readonly property int bubbleMaxWidth: Config.compactLayout && !Config.showAvatarInTimeline ? width : (Config.compactLayout ? width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 4 : Math.min(width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 6, Kirigami.Units.gridUnit * 20))
+    readonly property int bubbleMaxWidth: Config.compactLayout && !Config.showAvatarInTimeline ? width - Kirigami.Units.largeSpacing * 4 : (Config.compactLayout ? width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 4 : Math.min(width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 6, Kirigami.Units.gridUnit * 20))
 
     property bool showUserMessageOnRight: Config.showLocalMessagesOnRight &&
         model.author.isLocalUser &&
@@ -105,8 +105,8 @@ QQC2.ItemDelegate {
 
     QQC2.Control {
         id: bubble
-        topPadding: !Config.compactLayout ? Kirigami.Units.largeSpacing : 0
-        bottomPadding: !Config.compactLayout ? Kirigami.Units.largeSpacing : 0
+        topPadding: Config.compactLayout ? Kirigami.Units.smallSpacing / 2 : Kirigami.Units.largeSpacing
+        bottomPadding: Config.compactLayout ? Kirigami.Units.mediumSpacing / 2 : Kirigami.Units.largeSpacing
         leftPadding: Kirigami.Units.smallSpacing
         rightPadding: Config.compactLayout ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing
         hoverEnabled: true
@@ -250,7 +250,7 @@ QQC2.ItemDelegate {
             left: bubble.left
             right: parent.right
             top: bubble.bottom
-            topMargin: active && !Config.compactLayout ? Kirigami.Units.smallSpacing : 0
+            topMargin: active && Config.compactLayout ? 0 : Kirigami.Units.smallSpacing
         }
         height: active ? item.implicitHeight : 0
         //Layout.bottomMargin: readMarker ? Kirigami.Units.smallSpacing : 0
