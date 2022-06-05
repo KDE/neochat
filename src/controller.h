@@ -15,6 +15,10 @@
 #include <Quotient/jobs/basejob.h>
 #include <Quotient/settings.h>
 
+#ifdef HAVE_KUNIFIEDPUSH
+#include <qcoro/task.h>
+#endif
+
 class NeoChatRoom;
 class TrayIcon;
 class QQuickTextDocument;
@@ -177,6 +181,11 @@ private:
     explicit Controller(QObject *parent = nullptr);
 
     QPointer<NeoChatConnection> m_connection;
+
+#ifdef HAVE_KUNIFIEDPUSH
+    QCoro::Task<void> setupPush(const QString &endpoint);
+#endif
+
     TrayIcon *m_trayIcon = nullptr;
 
     QKeychain::ReadPasswordJob *loadAccessTokenFromKeyChain(const Quotient::AccountSettings &account);

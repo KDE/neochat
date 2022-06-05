@@ -14,6 +14,13 @@
 #include <KWindowEffects>
 #endif
 
+#ifdef HAVE_KUNIFIEDPUSH
+#include <KUnifiedPush/Connector>
+#include <QCoroNetworkReply>
+#include <QDBusConnection>
+#include <qcoro/qcorosignal.h>
+#endif
+
 #include <QFile>
 #include <QFileInfo>
 #include <QGuiApplication>
@@ -41,6 +48,11 @@
 #include "roommanager.h"
 #include "windowcontroller.h"
 
+#ifdef HAVE_KUNIFIEDPUSH
+#include <Quotient/csapi/pusher.h>
+#include <Quotient/networkaccessmanager.h>
+#endif
+
 #if defined(Q_OS_WIN) || defined(Q_OS_MAC)
 #include "trayicon.h"
 #elif !defined(Q_OS_ANDROID)
@@ -49,9 +61,54 @@
 
 using namespace Quotient;
 
+#ifdef HAVE_KUNIFIEDPUSH
+QCoro::Task<void> Controller::setupPush(const QString &endpoint)
+{
+    while (!activeConnection()) {
+        co_await qCoro(this, &Controller::activeConnectionChanged);
+    }
+    QUrl gatewayEndpoint(endpoint);
+    gatewayEndpoint.setPath("/_matrix/push/v1/notify");
+    QNetworkRequest checkGateway(gatewayEndpoint);
+    auto reply = co_await NetworkAccessManager::instance()->get(checkGateway);
+    const QJsonObject replyJson = QJsonDocument::fromJson(reply->readAll()).object();
+    if (replyJson["unifiedpush"]["gateway"].toString() == QStringLiteral("matrix")) {
+        Controller::instance().activeConnection()->callApi<PostPusherJob>(endpoint,
+                                                                          "http",
+                                                                          "neochat-foo1",
+                                                                          "NeoChat",
+                                                                          "Device 1",
+                                                                          "en",
+                                                                          PostPusherJob::PusherData{{gatewayEndpoint.toString()}, " "});
+    } else {
+        qWarning() << "There's no gateway";
+    }
+}
+#endif
+
 Controller::Controller(QObject *parent)
     : QObject(parent)
 {
+#ifdef HAVE_KUNIFIEDPUSH
+    const auto serviceName = QStringLiteral("org.kde.neochat.notifier");
+    if (!QDBusConnection::sessionBus().registerService(serviceName)) {
+        qCritical() << "Service name already in use";
+        return;
+    }
+    auto connector = new KUnifiedPush::Connector(serviceName);
+    connect(connector, &KUnifiedPush::Connector::stateChanged, [](auto state) {
+        // TODO ?
+    });
+    connect(connector, &KUnifiedPush::Connector::messageReceived, [](const auto &msg) {
+        NotificationsManager::instance().postPushNotification(msg);
+    });
+    connect(connector, &KUnifiedPush::Connector::endpointChanged, [this](const auto &endpoint) {
+        setupPush(endpoint);
+    });
+
+    connector->registerClient(i18n("Receiving Matrix messages"));
+#endif
+
     Connection::setRoomType<NeoChatRoom>();
 
     setApplicationProxy();

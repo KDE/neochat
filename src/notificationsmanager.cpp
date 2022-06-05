@@ -6,6 +6,8 @@
 #include <memory>
 
 #include <QGuiApplication>
+#include <QJsonArray>
+#include <QJsonDocument>
 
 #include <KLocalizedString>
 #include <KNotification>
@@ -324,6 +326,35 @@ QPixmap NotificationsManager::createNotificationImage(const QImage &icon, NeoCha
     }
 
     return QPixmap::fromImage(roundedImage);
+}
+
+void NotificationsManager::postPushNotification(const QByteArray &message)
+{
+    KNotification *notification = new KNotification("message"_ls);
+
+    const auto json = QJsonDocument::fromJson(message).object();
+
+    auto sender = json["notification"_ls]["sender_display_name"_ls].toString();
+    auto roomName = json["notification"_ls]["room_name"_ls].toString();
+    auto roomId = json["notification"_ls]["room_id"_ls].toString();
+    auto text = json["notification"_ls]["content"_ls]["body"_ls].toString();
+
+    if (sender == roomName) {
+        notification->setTitle(sender);
+    } else {
+        notification->setTitle(i18n("%1 (%2)", sender, roomName));
+    }
+
+    notification->setText(text.toHtmlEscaped());
+
+    notification->setDefaultAction(i18n("Open NeoChat in this room"));
+    connect(notification, &KNotification::defaultActivated, this, [=]() {
+        WindowController::instance().showAndRaiseWindow(notification->xdgActivationToken());
+    });
+
+    notification->sendEvent();
+
+    m_notifications.insert(roomId, notification);
 }
 
 #include "moc_notificationsmanager.cpp"

@@ -68,6 +68,8 @@ set_package_properties(KF6Kirigami2 PROPERTIES
         )
 find_package(KF6KirigamiAddons 0.7.2 REQUIRED)
 
+find_package(KUnifiedPush)
+
 if(ANDROID)
     find_package(OpenSSL)
     set_package_properties(OpenSSL PROPERTIES

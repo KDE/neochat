@@ -81,6 +81,7 @@ public:
      * Nothing happens if the given room doesn't have an invite notification.
      */
     void clearInvitationNotification(const QString &roomId);
+    void postPushNotification(const QByteArray &message);
 
     /**
      * @brief Handle the notifications for the given connection.
