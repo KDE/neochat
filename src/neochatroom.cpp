@@ -614,6 +614,7 @@ QString NeoChatRoom::markdownToHTML(const QString &markdown)
     result.replace(QRegularExpression("(<br />)*$"), "");
     result.replace("<p>", "");
     result.replace("</p>", "");
+    result.replace("\n", "<br>");
 
     return result;
 }
