@@ -229,14 +229,11 @@ Kirigami.ScrollablePage {
                 subtitle: subtitleText
                 subtitleItem.textFormat: Text.PlainText
                 onPressAndHold: {
-                    const menu = roomListContextMenu.createObject(page, {"room": currentRoom})
-                    configButton.visible = true
-                    configButton.down = true
-                    menu.closed.connect(function() {
-                        configButton.down = undefined
-                        configButton.visible = Qt.binding(function() { return roomListItem.hovered || Kirigami.Settings.isMobile })
-                    })
-                    menu.open()
+                    createRoomListContextMenu()
+                }
+                TapHandler {
+                    acceptedButtons: Qt.RightButton
+                    onTapped: createRoomListContextMenu()
                 }
 
                 leading: Kirigami.Avatar {
@@ -271,17 +268,21 @@ Kirigami.ScrollablePage {
                             id: optionAction
                             icon.name: "configure"
                             onTriggered: {
-                                const menu = roomListContextMenu.createObject(page, {"room": currentRoom})
-                                configButton.visible = true
-                                configButton.down = true
-                                menu.closed.connect(function() {
-                                    configButton.down = undefined
-                                    configButton.visible = Qt.binding(function() { return roomListItem.hovered || Kirigami.Settings.isMobile })
-                                })
-                                menu.open()
+                                createRoomListContextMenu()
                             }
                         }
                     }
+                }
+
+                function createRoomListContextMenu() {
+                    const menu = roomListContextMenu.createObject(page, {"room": currentRoom})
+                    configButton.visible = true
+                    configButton.down = true
+                    menu.closed.connect(function() {
+                        configButton.down = undefined
+                        configButton.visible = Qt.binding(function() { return roomListItem.hovered || Kirigami.Settings.isMobile })
+                    })
+                    menu.open()
                 }
             }
         }
