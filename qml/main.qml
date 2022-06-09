@@ -407,7 +407,7 @@ Kirigami.ApplicationWindow {
         }
         footer: QQC2.Button {
             text: i18n("Open")
-            onClicked: Qt.openUrlExternally(consentSheet.url)
+            onClicked: UrlHelper.openUrl(consentSheet.url)
         }
     }
 

@@ -69,6 +69,7 @@
 #include "roomlistmodel.h"
 #include "roommanager.h"
 #include "sortfilterroomlistmodel.h"
+#include "urlhelper.h"
 #include "userdirectorylistmodel.h"
 #include "userlistmodel.h"
 #include "webshortcutmodel.h"
@@ -175,6 +176,7 @@ int main(int argc, char *argv[])
 
     Login *login = new Login();
     ChatBoxHelper chatBoxHelper;
+    UrlHelper urlHelper;
 
 #ifdef HAVE_COLORSCHEME
     ColorSchemer colorScheme;
@@ -191,6 +193,7 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "FileType", &fileTypeSingleton);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "LoginHelper", login);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "ChatBoxHelper", &chatBoxHelper);
+    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "UrlHelper", &urlHelper);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "EmojiModel", new EmojiModel(&app));
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "CommandModel", new CommandModel(&app));
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "AccountRegistry", &Quotient::AccountRegistry::instance());

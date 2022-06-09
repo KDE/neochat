@@ -115,8 +115,8 @@ TimelineContainer {
         }
 
         function openSavedFile() {
-            if (Qt.openUrlExternally(progressInfo.localPath)) return;
-            if (Qt.openUrlExternally(progressInfo.localDir)) return;
+            if (UrlHelper.openUrl(progressInfo.localPath)) return;
+            if (UrlHelper.openUrl(progressInfo.localDir)) return;
         }
     }
 }

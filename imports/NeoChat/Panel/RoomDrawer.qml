@@ -179,7 +179,7 @@ Kirigami.OverlayDrawer {
                     wrapMode: Text.WordWrap
                     selectByMouse: true
                     color: Kirigami.Theme.textColor
-                    onLinkActivated: Qt.openUrlExternally(link)
+                    onLinkActivated: UrlHelper.openUrl(link)
                     readOnly: true
                     MouseArea {
                         anchors.fill: parent

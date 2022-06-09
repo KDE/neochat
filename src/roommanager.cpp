@@ -13,6 +13,10 @@
 #include <csapi/joining.h>
 #include <utility>
 
+#ifndef Q_OS_ANDROID
+#include <KIO/OpenUrlJob>
+#endif
+
 RoomManager::RoomManager(QObject *parent)
     : QObject(parent)
     , m_currentRoom(nullptr)
@@ -191,9 +195,19 @@ void RoomManager::joinRoom(Quotient::Connection *account, const QString &roomAli
 
 bool RoomManager::visitNonMatrix(const QUrl &url)
 {
+#ifdef Q_OS_ANDROID
     if (!QDesktopServices::openUrl(url)) {
         Q_EMIT warning(i18n("No application for the link"), i18n("Your operating system could not find an application for the link."));
     }
+#else
+    auto *job = new KIO::OpenUrlJob(url);
+    connect(job, &KJob::finished, this, [this](KJob *job) {
+        if (job->error()) {
+            Q_EMIT warning(i18n("Could not open URL"), job->errorString());
+        }
+    });
+    job->start();
+#endif
     return true;
 }
 

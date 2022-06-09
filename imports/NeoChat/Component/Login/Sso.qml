@@ -20,7 +20,7 @@ LoginStep {
         Connections {
             target: LoginHelper
             function onSsoUrlChanged() {
-                Qt.openUrlExternally(LoginHelper.ssoUrl)
+                UrlHelper.openUrl(LoginHelper.ssoUrl)
             }
             function onConnected() {
                 processed("qrc:/imports/NeoChat/Component/Login/Loading.qml")

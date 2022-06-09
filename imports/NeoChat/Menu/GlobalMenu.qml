@@ -92,7 +92,7 @@ Labs.MenuBar {
 
         Labs.MenuItem {
             text: i18nc("menu", "Matrix FAQ")
-            onTriggered: Qt.openUrlExternally("https://matrix.org/faq/")
+            onTriggered: UrlHelper.openUrl("https://matrix.org/faq/")
         }
     }
 }

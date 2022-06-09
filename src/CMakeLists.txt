@@ -36,6 +36,7 @@ add_executable(neochat
     blurhashimageprovider.cpp
     joinrulesevent.cpp
     collapsestateproxymodel.cpp
+    urlhelper.cpp
     ../res.qrc
 )
 

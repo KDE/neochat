@@ -24,13 +24,13 @@ MessageDelegateContextMenu {
             icon.name: "document-open"
             onTriggered: {
                 if (file.downloaded) {
-                    if (!Qt.openUrlExternally(progressInfo.localPath)) {
-                        Qt.openUrlExternally(progressInfo.localDir);
+                    if (!UrlHelper.openUrl(progressInfo.localPath)) {
+                        UrlHelper.openUrl(progressInfo.localDir);
                     }
                 } else {
                     file.onDownloadedChanged.connect(function() {
-                        if (!Qt.openUrlExternally(progressInfo.localPath)) {
-                            Qt.openUrlExternally(progressInfo.localDir);
+                        if (!UrlHelper.openUrl(progressInfo.localPath)) {
+                            UrlHelper.openUrl(progressInfo.localDir);
                         }
                     });
                     currentRoom.downloadFile(eventId, StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId))
