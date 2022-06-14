@@ -492,14 +492,14 @@ Kirigami.ScrollablePage {
         onEditLastUserMessage: {
             const targetMessage = messageEventModel.getLastLocalUserMessageEventId();
             if (targetMessage) {
-                ChatBoxHelper.edit(targetMessage["body"], targetMessage["body"], targetMessage["event_id"]);
+                ChatBoxHelper.edit(targetMessage["message"], targetMessage["formattedBody"], targetMessage["event_id"]);
                 chatBox.focusInputField();
             }
         }
         onReplyPreviousUserMessage: {
             const replyResponse = messageEventModel.getLatestMessageFromIndex(0);
             if (replyResponse && replyResponse["event_id"]) {
-                ChatBoxHelper.replyToMessage(replyResponse["event_id"], replyResponse["event"], replyResponse["sender_id"]);
+                ChatBoxHelper.replyToMessage(replyResponse["event_id"], replyResponse["message"], replyResponse["sender_id"]);
             }
         }
     }

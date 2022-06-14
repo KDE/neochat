@@ -823,17 +823,21 @@ QVariant MessageEventModel::getLastLocalUserMessageEventId()
         if ((*it)->senderId() == m_currentRoom->localUser()->id()) {
             auto content = (*it)->contentJson();
 
-            if (content.contains("m.relates_to")) {
-                // the message has been edited once
-                // so we have to return the id of the related' message instead
-                targetMessage.insert("event_id", content["m.relates_to"].toObject()["event_id"].toString());
-                targetMessage.insert("body", content["formatted_body"].toString());
-                return targetMessage;
-            }
+            if (e->msgtype() != MessageEventType::Unknown) {
+                QString eventId;
+                if (content.contains("m.new_content")) {
+                    // The message has been edited so we have to return the id of the original message instead of the replacement
+                    eventId = content["m.relates_to"].toObject()["event_id"].toString();
+                } else {
+                    // For any message that isn't an edit return the id of the current message
+                    eventId = (*it)->id();
+                }
+                targetMessage.insert("event_id", eventId);
+                targetMessage.insert("formattedBody", content["formatted_body"].toString());
+                // Need to get the message from the original eventId or body will have * on the front
+                QModelIndex idx = index(eventIDToIndex(eventId), 0);
+                targetMessage.insert("message", idx.data(Qt::UserRole + 2));
 
-            if (e->msgtype() == MessageEventType::Text) {
-                targetMessage.insert("event_id", (*it)->id());
-                targetMessage.insert("body", content["body"].toString());
                 return targetMessage;
             }
         }
@@ -856,23 +860,19 @@ QVariant MessageEventModel::getLatestMessageFromIndex(const int baseline)
 
         auto content = (*it)->contentJson();
 
-        if (content.contains("m.relates_to")) {
-            auto relatedContent = content["m.relates_to"].toObject();
-
-            if (!relatedContent.contains("m.in_reply_to")) {
-                // the message has been edited once
-                // so we have to return the id of the related' message instead
-                replyResponse.insert("event_id", relatedContent["event_id"].toString());
-                replyResponse.insert("event", content["m.formatted_body"].toString());
-                replyResponse.insert("sender_id", QVariant::fromValue(m_currentRoom->getUser((*it)->senderId())));
-                replyResponse.insert("at", -it->index());
-                return replyResponse;
-            }
-        }
-
         if (e->msgtype() != MessageEventType::Unknown) {
-            replyResponse.insert("event_id", (*it)->id());
-            replyResponse.insert("event", content["body"].toString());
+            QString eventId;
+            if (content.contains("m.new_content")) {
+                // The message has been edited so we have to return the id of the original message instead of the replacement
+                eventId = content["m.relates_to"].toObject()["event_id"].toString();
+            } else {
+                // For any message that isn't an edit return the id of the current message
+                eventId = (*it)->id();
+            }
+            replyResponse.insert("event_id", eventId);
+            // Need to get the message from the original eventId or body will have * on the front
+            QModelIndex idx = index(eventIDToIndex(eventId), 0);
+            replyResponse.insert("message", idx.data(Qt::UserRole + 2));
             replyResponse.insert("sender_id", QVariant::fromValue(m_currentRoom->getUser((*it)->senderId())));
             replyResponse.insert("at", -it->index());
             return replyResponse;
