@@ -72,9 +72,11 @@ Kirigami.OverlayDrawer {
     rightPadding: 0
     Kirigami.Theme.colorSet: Kirigami.Theme.View
     contentItem: Loader {
+        id: loader
         active: roomDrawer.drawerOpen
         sourceComponent: ColumnLayout {
             id: columnLayout
+            property alias userSearchText: userListSearchField.text
             spacing: 0
             Kirigami.AbstractApplicationHeader {
                 Layout.fillWidth: true
@@ -294,6 +296,7 @@ Kirigami.OverlayDrawer {
     }
 
     onRoomChanged: {
+        loader.item.userSearchText = ""
         if (room == null) {
             close()
         }
