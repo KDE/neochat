@@ -313,10 +313,10 @@ Kirigami.ApplicationWindow {
             Connections {
                 target: root.roomPage
                 function onSwitchRoomUp() {
-                    roomList.goToNextRoom();
+                    roomList.goToPreviousRoom();
                 }
                 function onSwitchRoomDown() {
-                    roomList.goToPreviousRoom();
+                    roomList.goToNextRoom();
                 }
             }
         }
