@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-06-16 00:47+0000\n"
-"PO-Revision-Date: 2022-06-03 06:21+0200\n"
+"POT-Creation-Date: 2022-06-18 00:44+0000\n"
+"PO-Revision-Date: 2022-06-17 22:29+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.0.1\n"
 
 #, kde-format
@@ -875,53 +875,53 @@ msgctxt "@action:button"
 msgid "Back"
 msgstr "Nazaj"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:92
+#: imports/NeoChat/Panel/RoomDrawer.qml:94
 #, kde-format
 msgid "Invite"
 msgstr "Povabi"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:110
+#: imports/NeoChat/Panel/RoomDrawer.qml:112
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Odstrani sobo izmed priljubljenih"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:110
+#: imports/NeoChat/Panel/RoomDrawer.qml:112
 #, kde-format
 msgid "Make room favorite"
 msgstr "Proglasi sobo za priljubljeno"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:119
+#: imports/NeoChat/Panel/RoomDrawer.qml:121
 #, kde-format
 msgid "Room settings"
 msgstr "Nastavitve sobe"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:129
+#: imports/NeoChat/Panel/RoomDrawer.qml:131
 #, kde-format
 msgid "Room information"
 msgstr "Informacije o sobi"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:142
-#: imports/NeoChat/Panel/RoomDrawer.qml:157
+#: imports/NeoChat/Panel/RoomDrawer.qml:144
+#: imports/NeoChat/Panel/RoomDrawer.qml:159
 #, kde-format
 msgid "No name"
 msgstr "Brez imena"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:167
+#: imports/NeoChat/Panel/RoomDrawer.qml:169
 #, kde-format
 msgid "No Canonical Alias"
 msgstr "Ni kanoničnega sinonima"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:174
+#: imports/NeoChat/Panel/RoomDrawer.qml:176
 #, kde-format
 msgid "No Topic"
 msgstr "Ni teme debate"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:191
+#: imports/NeoChat/Panel/RoomDrawer.qml:193
 #, kde-format
 msgid "Members"
 msgstr "Člani"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:195
+#: imports/NeoChat/Panel/RoomDrawer.qml:197
 #, kde-format
 msgid "%1 Member"
 msgid_plural "%1 Members"
@@ -930,27 +930,27 @@ msgstr[1] "%1 člana"
 msgstr[2] "%1 člani"
 msgstr[3] "%1 članov"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:195
+#: imports/NeoChat/Panel/RoomDrawer.qml:197
 #, kde-format
 msgid "No Member Count"
 msgstr "Ni števila članov"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:267
+#: imports/NeoChat/Panel/RoomDrawer.qml:269
 #, kde-format
 msgid "Owner"
 msgstr "Lastnik"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:270
+#: imports/NeoChat/Panel/RoomDrawer.qml:272
 #, kde-format
 msgid "Admin"
 msgstr "Skrbnik"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:273
+#: imports/NeoChat/Panel/RoomDrawer.qml:275
 #, kde-format
 msgid "Mod"
 msgstr "Moderator"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:276
+#: imports/NeoChat/Panel/RoomDrawer.qml:278
 #, kde-format
 msgid "Muted"
 msgstr "Utišan"
@@ -1630,10 +1630,9 @@ msgid "Matrix client"
 msgstr "Matrixov odjemalec"
 
 #: src/main.cpp:150
-#, fuzzy, kde-format
-#| msgid "© 2018-2020 Black Hat, 2020-2021 KDE Community"
+#, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
-msgstr "© 2018-2020 Black Hat, 2020-2021 skupnost KDE"
+msgstr "© 2018-2020 Black Hat, 2020-2022 skupnost KDE"
 
 #: src/main.cpp:151
 #, kde-format
