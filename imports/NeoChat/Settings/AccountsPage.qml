@@ -23,42 +23,42 @@ Kirigami.ScrollablePage {
 
     ListView {
         model: AccountRegistry
-        delegate: Kirigami.SwipeListItem {
-            leftPadding: 0
-            rightPadding: 0
-            Kirigami.BasicListItem {
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
+        delegate: Kirigami.BasicListItem {
+            text: model.connection.localUser.displayName
+            labelItem.textFormat: Text.PlainText
+            subtitle: model.connection.localUserId
+            icon: model.connection.localUser.avatarMediaId ? ("image://mxc/" + model.connection.localUser.avatarMediaId) : "im-user"
 
-                text: model.connection.localUser.displayName
-                labelItem.textFormat: Text.PlainText
-                subtitle: model.connection.localUserId
-                icon: model.connection.localUser.avatarMediaId ? ("image://mxc/" + model.connection.localUser.avatarMediaId) : "im-user"
+            onClicked: {
+                Controller.activeConnection = model.connection
+                pageStack.layers.pop()
+            }
 
-                onClicked: {
-                    Controller.activeConnection = model.connection
-                    pageStack.layers.pop()
+            trailing: RowLayout {
+                Controls.ToolButton {
+                    display: Controls.AbstractButton.IconOnly
+                    action: Kirigami.Action {
+                        text: i18n("Edit this account")
+                        iconName: "document-edit"
+                        onTriggered: {
+                            userEditSheet.connection = model.connection
+                            userEditSheet.open()
+                        }
+                    }
+                }
+                Controls.ToolButton {
+                    display: Controls.AbstractButton.IconOnly
+                    action: Kirigami.Action {
+                        text: i18n("Logout")
+                        iconName: "im-kick-user"
+                        onTriggered: {
+                            Controller.logout(model.connection, true)
+                            if(Controller.accountCount === 1)
+                                pageStack.layers.pop()
+                        }
+                    }
                 }
             }
-            actions: [
-                Kirigami.Action {
-                    text: i18n("Edit this account")
-                    iconName: "document-edit"
-                    onTriggered: {
-                        userEditSheet.connection = model.connection
-                        userEditSheet.open()
-                    }
-                },
-                Kirigami.Action {
-                    text: i18n("Logout")
-                    iconName: "im-kick-user"
-                    onTriggered: {
-                        Controller.logout(model.connection, true)
-                        if(Controller.accountCount === 1)
-                            pageStack.layers.pop()
-                    }
-                }
-            ]
         }
     }
 

@@ -26,36 +26,35 @@ Kirigami.ScrollablePage {
             }
         }
 
-        delegate: Kirigami.SwipeListItem {
-            leftPadding: 0
-            rightPadding: 0
-            Kirigami.BasicListItem {
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-
-                text: model.displayName
-                subtitle: model.id
-                icon: "network-connect"
-            }
-            actions: [
-                Kirigami.Action {
-                    text: i18n("Edit device name")
-                    iconName: "document-edit"
-                    onTriggered: {
-                        renameSheet.index = model.index
-                        renameSheet.name = model.displayName
-                        renameSheet.open()
-                    }
-                },
-                Kirigami.Action {
-                    text: i18n("Logout device")
-                    iconName: "edit-delete-remove"
-                    onTriggered: {
-                        passwordSheet.index = index
-                        passwordSheet.open()
+        delegate: Kirigami.BasicListItem {
+            text: model.displayName
+            subtitle: model.id
+            icon: "network-connect"
+            trailing: RowLayout {
+                Controls.ToolButton {
+                    display: Controls.AbstractButton.IconOnly
+                    action: Kirigami.Action {
+                        text: i18n("Edit device name")
+                        iconName: "document-edit"
+                        onTriggered: {
+                            renameSheet.index = model.index
+                            renameSheet.name = model.displayName
+                            renameSheet.open()
+                        }
                     }
                 }
-            ]
+                Controls.ToolButton {
+                    display: Controls.AbstractButton.IconOnly
+                    action: Kirigami.Action {
+                        text: i18n("Logout device")
+                        iconName: "edit-delete-remove"
+                        onTriggered: {
+                            passwordSheet.index = index
+                            passwordSheet.open()
+                        }
+                    }
+                }
+            }
         }
     }
 
