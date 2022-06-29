@@ -57,6 +57,11 @@ Loader {
                 }
             }
 
+            MenuItem {
+                text: i18n("Room settings")
+                onTriggered: ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/imports/NeoChat/RoomSettings/Categories.qml', {room: room})
+            }
+
             MenuSeparator {}
 
             MenuItem {
