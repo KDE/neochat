@@ -19,8 +19,11 @@ QQC2.ItemDelegate {
     property bool isEmote: false
     property bool cardBackground: true
 
-    readonly property int bubbleMaxWidth: Kirigami.Units.gridUnit * 20
-    readonly property int delegateMaxWidth: Config.compactLayout ? messageListView.width : Math.min(messageListView.width, Kirigami.Units.gridUnit * 40)
+    // The bubble and delegate widths are allowed to grow once the ListView gets beyond a certain size
+    // extraWidth defines this as the excess after a certain ListView width, capped to a max value
+    readonly property int extraWidth: Math.min((messageListView.width - Kirigami.Units.gridUnit * 40), Kirigami.Units.gridUnit * 20)
+    readonly property int bubbleMaxWidth: Kirigami.Units.gridUnit * 20 + extraWidth * 0.5
+    readonly property int delegateMaxWidth: Config.compactLayout ? messageListView.width : Math.min(messageListView.width, Kirigami.Units.gridUnit * 40 + extraWidth)
     readonly property int contentMaxWidth: Config.compactLayout ? width - (Config.showAvatarInTimeline ? Kirigami.Units.gridUnit * 2 : 0) - Kirigami.Units.largeSpacing * 4 : Math.min(width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 6, bubbleMaxWidth)
 
     property bool showUserMessageOnRight: Config.showLocalMessagesOnRight &&
@@ -38,6 +41,7 @@ QQC2.ItemDelegate {
     topPadding: 0
     bottomPadding: 0
     width: delegateMaxWidth
+    height: sectionDelegate.height + Math.max(model.showAuthor ? avatar.height : 0, bubble.implicitHeight) + loader.height + (showAuthor ? Kirigami.Units.largeSpacing : 0)
     background: null
 
     property Item hoverComponent
@@ -84,8 +88,6 @@ QQC2.ItemDelegate {
             AnchorAnimation{duration: Kirigami.Units.longDuration; easing.type: Easing.OutCubic}
         }
     ]
-
-    height: sectionDelegate.height + Math.max(model.showAuthor ? avatar.height : 0, bubble.implicitHeight) + loader.height + (showAuthor ? Kirigami.Units.largeSpacing : 0)
 
     SectionDelegate {
         id: sectionDelegate

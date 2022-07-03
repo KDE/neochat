@@ -245,7 +245,7 @@ Kirigami.ScrollablePage {
             QQC2.CheckBox {
                 text: i18n("Show your messages on the right")
                 checked: Config.showLocalMessagesOnRight
-                enabled: !Config.isShowLocalMessagesOnRightImmutable
+                enabled: !Config.isShowLocalMessagesOnRightImmutable && !Config.compactLayout
                 onToggled: {
                     Config.showLocalMessagesOnRight = checked
                     Config.save()
