@@ -19,12 +19,11 @@ QQC2.ItemDelegate {
     property bool isEmote: false
     property bool cardBackground: true
 
+    readonly property int delegateMaxWidth: Math.min(messageListView.width, Kirigami.Units.gridUnit * 40)
     readonly property int bubbleMaxWidth: Config.compactLayout && !Config.showAvatarInTimeline ? width - Kirigami.Units.largeSpacing * 4 : (Config.compactLayout ? width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 4 : Math.min(width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 6, Kirigami.Units.gridUnit * 20))
 
     property bool showUserMessageOnRight: Config.showLocalMessagesOnRight &&
-        model.author.isLocalUser &&
-        !applicationWindow().wideScreen &&
-        !Config.compactLayout
+        model.author.isLocalUser && !Config.compactLayout
 
     signal openExternally()
     signal replyClicked(string eventID)
@@ -37,6 +36,7 @@ QQC2.ItemDelegate {
 
     topPadding: 0
     bottomPadding: 0
+    width: delegateMaxWidth
     background: null
     property Item hoverComponent
 

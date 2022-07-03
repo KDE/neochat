@@ -17,7 +17,6 @@ import NeoChat.Menu.Timeline 1.0
 TimelineContainer {
     id: audioDelegate
 
-    width: ListView.view.width
     onReplyClicked: ListView.view.goToEvent(eventID)
     hoverComponent: hoverActions
     innerObject: Control {

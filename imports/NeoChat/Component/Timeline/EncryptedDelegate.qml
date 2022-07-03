@@ -10,7 +10,6 @@ import org.kde.neochat 1.0
 
 TimelineContainer {
     id: encryptedDelegate
-    width: ListView.view.width
 
     innerObject: TextEdit {
         text: i18n("This message is encrypted and the sender has not shared the key with this device.")

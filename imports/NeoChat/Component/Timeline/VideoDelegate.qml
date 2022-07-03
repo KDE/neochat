@@ -17,8 +17,6 @@ import NeoChat.Menu.Timeline 1.0
 TimelineContainer {
     id: videoDelegate
 
-    width: ListView.view.width
-
     onReplyClicked: ListView.view.goToEvent(eventID)
     hoverComponent: hoverActions
 

@@ -13,7 +13,6 @@ import org.kde.neochat 1.0
 TimelineContainer {
     id: messageDelegate
 
-    width: ListView.view.width
     property bool isEmote: false
 
     onReplyClicked: ListView.view.goToEvent(eventID)
