@@ -15,11 +15,11 @@ MouseArea {
     id: replyButton
     Layout.fillWidth: true
     implicitHeight: replyName.implicitHeight + (loader.item ? loader.item.height : 0) + Kirigami.Units.largeSpacing
-    implicitWidth: Math.min(bubbleMaxWidth, Math.max((loader.item ? loader.item.width + Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing : 0), replyName.implicitWidth)) + Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 3
+    implicitWidth: Math.min(contentMaxWidth, Math.max((loader.item ? loader.item.width + Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing : 0), replyName.implicitWidth)) + Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 3
     Component.onCompleted: {
         parent.Layout.fillWidth = true;
         parent.Layout.preferredWidth = Qt.binding(function() { return implicitWidth; })
-        parent.Layout.maximumWidth = Qt.binding(function() { return bubbleMaxWidth + Kirigami.Units.largeSpacing * 2; })
+        parent.Layout.maximumWidth = Qt.binding(function() { return contentMaxWidth + Kirigami.Units.largeSpacing * 2; })
     }
     Rectangle {
         id: replyLeftBorder
@@ -79,7 +79,7 @@ MouseArea {
                 id: replyText
                 textMessage: reply.display
                 textFormat: Text.RichText
-                width: Math.min(implicitWidth, bubbleMaxWidth - Kirigami.Units.largeSpacing * 3)
+                width: Math.min(implicitWidth, contentMaxWidth - Kirigami.Units.largeSpacing * 3)
                 x: Kirigami.Units.smallSpacing * 3 + replyAvatar.width
             }
         }
@@ -94,7 +94,7 @@ MouseArea {
                 readonly property string mediaId: isThumbnail ? content.thumbnailMediaId : content.mediaId
                 source: "image://mxc/" + mediaId
 
-                width: bubbleMaxWidth * 0.75 - Kirigami.Units.smallSpacing * 5 - replyAvatar.width
+                width: contentMaxWidth * 0.75 - Kirigami.Units.smallSpacing * 5 - replyAvatar.width
                 height: reply.content.info.h / reply.content.info.w * width
                 x: Kirigami.Units.smallSpacing * 3 + replyAvatar.width
             }

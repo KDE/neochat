@@ -20,7 +20,7 @@ TimelineContainer {
 
     innerObject: RichLabel {
         isEmote: messageDelegate.isEmote
-        Layout.maximumWidth: messageDelegate.bubbleMaxWidth
+        Layout.maximumWidth: messageDelegate.contentMaxWidth
 
         TapHandler {
             acceptedButtons: Qt.RightButton

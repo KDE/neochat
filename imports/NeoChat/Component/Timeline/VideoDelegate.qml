@@ -40,7 +40,7 @@ TimelineContainer {
     innerObject: Video {
         id: vid
 
-        Layout.maximumWidth: videoDelegate.bubbleMaxWidth
+        Layout.maximumWidth: videoDelegate.contentMaxWidth
         Layout.fillWidth: true
         Layout.maximumHeight: Kirigami.Units.gridUnit * 15
         Layout.minimumHeight: Kirigami.Units.gridUnit * 5

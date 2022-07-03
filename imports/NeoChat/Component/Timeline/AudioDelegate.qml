@@ -21,7 +21,7 @@ TimelineContainer {
     hoverComponent: hoverActions
     innerObject: Control {
         Layout.fillWidth: true
-        Layout.maximumWidth: audioDelegate.bubbleMaxWidth
+        Layout.maximumWidth: audioDelegate.contentMaxWidth
 
         Audio {
             id: audio

@@ -32,8 +32,8 @@ TimelineContainer {
     innerObject: Image {
         id: img
 
-        Layout.maximumWidth: imageDelegate.bubbleMaxWidth
-        Layout.maximumHeight: imageDelegate.bubbleMaxWidth / imageDelegate.info.w * imageDelegate.info.h
+        Layout.maximumWidth: imageDelegate.contentMaxWidth
+        Layout.maximumHeight: imageDelegate.contentMaxWidth / imageDelegate.info.w * imageDelegate.info.h
         Layout.preferredWidth: imageDelegate.info.w
         Layout.preferredHeight: imageDelegate.info.h
         source: model.mediaUrl

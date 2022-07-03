@@ -35,7 +35,7 @@ TimelineContainer {
     innerObject: RowLayout {
 
         Layout.fillWidth: true
-        Layout.maximumWidth: fileDelegate.bubbleMaxWidth
+        Layout.maximumWidth: fileDelegate.contentMaxWidth
         Layout.margins: Kirigami.Units.largeSpacing
 
         spacing: Kirigami.Units.largeSpacing

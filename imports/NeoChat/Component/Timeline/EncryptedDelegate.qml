@@ -19,7 +19,7 @@ TimelineContainer {
         readOnly: true
         wrapMode: Text.WordWrap
         textFormat: Text.RichText
-        Layout.maximumWidth: encryptedDelegate.bubbleMaxWidth
+        Layout.maximumWidth: encryptedDelegate.contentMaxWidth
         Layout.leftMargin: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing : 0
     }
 }

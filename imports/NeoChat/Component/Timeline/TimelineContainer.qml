@@ -19,8 +19,9 @@ QQC2.ItemDelegate {
     property bool isEmote: false
     property bool cardBackground: true
 
-    readonly property int delegateMaxWidth: Math.min(messageListView.width, Kirigami.Units.gridUnit * 40)
-    readonly property int bubbleMaxWidth: Config.compactLayout && !Config.showAvatarInTimeline ? width - Kirigami.Units.largeSpacing * 4 : (Config.compactLayout ? width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 4 : Math.min(width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 6, Kirigami.Units.gridUnit * 20))
+    readonly property int bubbleMaxWidth: Kirigami.Units.gridUnit * 20
+    readonly property int delegateMaxWidth: Config.compactLayout ? messageListView.width : Math.min(messageListView.width, Kirigami.Units.gridUnit * 40)
+    readonly property int contentMaxWidth: Config.compactLayout ? width - (Config.showAvatarInTimeline ? Kirigami.Units.gridUnit * 2 : 0) - Kirigami.Units.largeSpacing * 4 : Math.min(width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 6, bubbleMaxWidth)
 
     property bool showUserMessageOnRight: Config.showLocalMessagesOnRight &&
         model.author.isLocalUser && !Config.compactLayout
@@ -38,6 +39,7 @@ QQC2.ItemDelegate {
     bottomPadding: 0
     width: delegateMaxWidth
     background: null
+
     property Item hoverComponent
 
     // show hover actions
@@ -55,6 +57,33 @@ QQC2.ItemDelegate {
             hoverComponent.event = model
         }
     }
+
+    state: Config.compactLayout ? "alignLeft" : "alignCentre"
+    // Align left when in compact mode and centre when using bubbles
+    states: [
+        State {
+            name: "alignLeft"
+            AnchorChanges {
+                target: messageDelegate
+                anchors.horizontalCenter: undefined
+                anchors.left: parent ? parent.left : undefined
+            }
+        },
+        State {
+            name: "alignCentre"
+            AnchorChanges {
+                target: messageDelegate
+                anchors.horizontalCenter: parent ? parent.horizontalCenter : undefined
+                anchors.left: undefined
+            }
+        }
+    ]
+
+    transitions: [
+        Transition {
+            AnchorAnimation{duration: Kirigami.Units.longDuration; easing.type: Easing.OutCubic}
+        }
+    ]
 
     height: sectionDelegate.height + Math.max(model.showAuthor ? avatar.height : 0, bubble.implicitHeight) + loader.height + (showAuthor ? Kirigami.Units.largeSpacing : 0)
 
@@ -110,9 +139,6 @@ QQC2.ItemDelegate {
         rightPadding: Config.compactLayout ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing
         hoverEnabled: true
 
-        // state: Config.compactLayout ? "compactLayout" : "default"
-        state: showUserMessageOnRight ? "userMessageOnRight" : "userMessageOnLeft"
-
         anchors {
             top: avatar.top
             leftMargin: Kirigami.Units.largeSpacing
@@ -121,7 +147,7 @@ QQC2.ItemDelegate {
         // HACK: anchoring didn't reset anchors.right when switching from parent.right to undefined reliably
         width: Config.compactLayout ? messageDelegate.width - (Config.showAvatarInTimeline ? Kirigami.Units.gridUnit * 2 : 0) + Kirigami.Units.largeSpacing * 2 : implicitWidth
 
-
+        state: showUserMessageOnRight ? "userMessageOnRight" : "userMessageOnLeft"
         // states for anchor animations on window resize
         // as setting anchors to undefined did not work reliably
         states: [
@@ -159,7 +185,7 @@ QQC2.ItemDelegate {
                 Layout.leftMargin: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing : 0
                 Layout.rightMargin: Kirigami.Units.largeSpacing
                 Layout.preferredWidth: nameLabel.implicitWidth + timeLabel.implicitWidth + Kirigami.Units.largeSpacing * 2
-                Layout.maximumWidth: bubbleMaxWidth
+                Layout.maximumWidth: contentMaxWidth
                 implicitHeight: visible ? nameLabel.implicitHeight : 0
 
                 QQC2.Label {
