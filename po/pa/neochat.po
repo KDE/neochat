@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-06-24 00:43+0000\n"
+"POT-Creation-Date: 2022-07-06 00:46+0000\n"
 "PO-Revision-Date: 2021-12-31 11:06-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -530,31 +530,31 @@ msgid "Open in new window"
 msgstr "ਨਵੀਂ ਵਿੰਡੋ ਵਿੱਚ ਖੋਲ੍ਹੋ"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:37
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:115
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:120
 #, kde-format
 msgid "Remove from Favourites"
 msgstr "ਮਨਪਸੰਦ ਵਿੱਚੋਂ ਹਟਾਓ"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:37
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:115
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:120
 #, kde-format
 msgid "Add to Favourites"
 msgstr "ਮਨਪਸੰਦ ਵਿੱਚ ਜੋੜੋ"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:42
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:126
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:131
 #, kde-format
 msgid "Reprioritize"
 msgstr "ਮੁੜ ਤਰਜੀਹ ਦਿਓ"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:42
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:126
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:131
 #, kde-format
 msgid "Deprioritize"
 msgstr "ਤਰਜੀਹ ਘਟਾਓ"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:47
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:132
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:137
 #, kde-format
 msgid "Mark as Read"
 msgstr "ਪੜ੍ਹਿਆ ਵਜੋਂ ਨਿਸ਼ਾਨੀ ਲਾਓ"
@@ -565,8 +565,14 @@ msgctxt "@action:inmenu"
 msgid "Copy address to clipboard"
 msgstr "ਸਿਰਨਾਵਾਂ ਕਲਿੱਪਬੋਰਡ ਵਿੱਚ ਕਾਪੀ ਕਰੋ"
 
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:63
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:137
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:61
+#: imports/NeoChat/Panel/RoomDrawer.qml:121
+#, kde-format
+msgid "Room settings"
+msgstr "ਰੂਮ ਸੈਟਿੰਗਾਂ"
+
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:68
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:142
 #, kde-format
 msgid "Leave Room"
 msgstr "ਰੂਮ ਨੂੰ ਛੱਡੋ"
@@ -881,11 +887,6 @@ msgstr "ਪਸੰਦ ਵਿੱਚੋਂ ਰੂਮ ਹਟਾਓ"
 #, kde-format
 msgid "Make room favorite"
 msgstr "ਰੂਮ ਪਸੰਦੀਦਾ ਬਣਾਓ"
-
-#: imports/NeoChat/Panel/RoomDrawer.qml:121
-#, kde-format
-msgid "Room settings"
-msgstr "ਰੂਮ ਸੈਟਿੰਗਾਂ"
 
 #: imports/NeoChat/Panel/RoomDrawer.qml:131
 #, kde-format
@@ -1607,48 +1608,48 @@ msgstr ""
 msgid "Network Error"
 msgstr "ਨੈੱਟਵਰਕ ਗ਼ਲਤੀ"
 
-#: src/main.cpp:146
+#: src/main.cpp:147
 #, kde-format
 msgid "NeoChat"
 msgstr "ਨਿਓ-ਚੈਟ"
 
-#: src/main.cpp:148
+#: src/main.cpp:149
 #, kde-format
 msgid "Matrix client"
 msgstr "ਮੈਟਰਿਕਸ ਕਲਾਈਂਟ"
 
-#: src/main.cpp:150
+#: src/main.cpp:151
 #, fuzzy, kde-format
 #| msgid "© 2018-2020 Black Hat, 2020-2021 KDE Community"
 msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2021 KDE Community"
 
-#: src/main.cpp:151
+#: src/main.cpp:152
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:152
+#: src/main.cpp:153
 #, kde-format
 msgid "Carl Schwan"
 msgstr "ਕਾਰਲ ਸਚਵਾਨ"
 
-#: src/main.cpp:153
+#: src/main.cpp:154
 #, kde-format
 msgid "Tobias Fella"
 msgstr "ਟੋਬਿਸ ਫੇਲਾ"
 
-#: src/main.cpp:157
+#: src/main.cpp:158
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr ""
 
-#: src/main.cpp:240
+#: src/main.cpp:243
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr ""
 
-#: src/main.cpp:241
+#: src/main.cpp:244
 #, kde-format
 msgid "Supports appstream: url scheme"
 msgstr ""
@@ -1977,36 +1978,41 @@ msgstr "ਘੱਟ ਤਰਜੀਹ"
 msgid "Spaces"
 msgstr ""
 
-#: src/roommanager.cpp:44
+#: src/roommanager.cpp:48
 #, kde-format
 msgid "Malformed or empty Matrix id"
 msgstr ""
 
-#: src/roommanager.cpp:44
+#: src/roommanager.cpp:48
 #, kde-format
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 ਠੀਕ ਮੈਟਰਿਕਸ ਪਛਾਣਕਰਤਾ ਨਹੀਂ ਹੈ"
 
-#: src/roommanager.cpp:61
+#: src/roommanager.cpp:65
 #, kde-format
 msgid "Room not found"
 msgstr "ਰੂਮ ਨਹੀ ਲੱਭਿਆ"
 
-#: src/roommanager.cpp:61
+#: src/roommanager.cpp:65
 #, kde-format
 msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
 msgstr "ਰੂਮ ਸੂਚੀ ਵਿੱਚ ਕੋਈ %1 ਰੂਮ ਨਹੀਂ ਹੈ। ਸ਼ਬਦ ਜੋੜ ਅਤੇ ਖਾਤੇ ਦੀ ਜਾਂਚ ਕਰੋ।"
 
-#: src/roommanager.cpp:195
+#: src/roommanager.cpp:200
 #, kde-format
 msgid "No application for the link"
 msgstr "ਲਿੰਕ ਲਈ ਕੋਈ ਐਪਲੀਕੇਸ਼ਨ ਨਹੀਂ ਹੈ"
 
-#: src/roommanager.cpp:195
+#: src/roommanager.cpp:200
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "ਤੁਹਾਡਾ ਓਪਰੇਟਿੰਗ ਸਿਸਟਮ ਲਿੰਕ ਲਈ ਕੋਈ ਐਪਲੀਕੇਸ਼ਨ ਨਹੀਂ ਲੱਭ ਸਕਿਆ ਹੈ।"
+
+#: src/roommanager.cpp:206
+#, kde-format
+msgid "Could not open URL"
+msgstr ""
 
 #: src/trayicon.cpp:17
 #, kde-format

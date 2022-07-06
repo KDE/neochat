@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-06-24 00:43+0000\n"
+"POT-Creation-Date: 2022-07-06 00:46+0000\n"
 "PO-Revision-Date: 2022-05-18 21:35+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -531,31 +531,31 @@ msgid "Open in new window"
 msgstr "Aperi in nove fenestra"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:37
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:115
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:120
 #, kde-format
 msgid "Remove from Favourites"
 msgstr "Remove ex favoritos"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:37
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:115
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:120
 #, kde-format
 msgid "Add to Favourites"
 msgstr "Adde a favoritos"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:42
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:126
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:131
 #, kde-format
 msgid "Reprioritize"
 msgstr "Repone prioritate"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:42
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:126
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:131
 #, kde-format
 msgid "Deprioritize"
 msgstr "Leva prioritate"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:47
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:132
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:137
 #, kde-format
 msgid "Mark as Read"
 msgstr "Marca como legite"
@@ -566,8 +566,14 @@ msgctxt "@action:inmenu"
 msgid "Copy address to clipboard"
 msgstr "Copia adresse a area de transferentia"
 
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:63
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:137
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:61
+#: imports/NeoChat/Panel/RoomDrawer.qml:121
+#, kde-format
+msgid "Room settings"
+msgstr "Preferentias de sala"
+
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:68
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:142
 #, kde-format
 msgid "Leave Room"
 msgstr "Lassa sala"
@@ -882,11 +888,6 @@ msgstr "Remove sala ex favoritos"
 #, kde-format
 msgid "Make room favorite"
 msgstr "Face sala favorite"
-
-#: imports/NeoChat/Panel/RoomDrawer.qml:121
-#, kde-format
-msgid "Room settings"
-msgstr "Preferentias de sala"
 
 #: imports/NeoChat/Panel/RoomDrawer.qml:131
 #, kde-format
@@ -1608,50 +1609,50 @@ msgstr "Iste id de sala que tu es essayante a unir non es valid"
 msgid "Network Error"
 msgstr "Error de rete"
 
-#: src/main.cpp:146
+#: src/main.cpp:147
 #, kde-format
 msgid "NeoChat"
 msgstr "Neochat"
 
-#: src/main.cpp:148
+#: src/main.cpp:149
 #, kde-format
 msgid "Matrix client"
 msgstr "Cliente de Matrix"
 
-#: src/main.cpp:150
+#: src/main.cpp:151
 #, fuzzy, kde-format
 #| msgid "© 2018-2020 Black Hat, 2020-2021 KDE Community"
 msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
 msgstr "© 2018-2020-2021 Black Hat, 2020 Communitate de KDE"
 
-#: src/main.cpp:151
+#: src/main.cpp:152
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:152
+#: src/main.cpp:153
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:153
+#: src/main.cpp:154
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:157
+#: src/main.cpp:158
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr ""
 "Un bibliotheca de Qt5 per scriber clientes de cross-platform (platteformas "
 "cruciate) per Matrix"
 
-#: src/main.cpp:240
+#: src/main.cpp:243
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Cliente per le protocollo de cmmmunication de matrice"
 
-#: src/main.cpp:241
+#: src/main.cpp:244
 #, kde-format
 msgid "Supports appstream: url scheme"
 msgstr "Supporta appstream: url schema"
@@ -1980,22 +1981,22 @@ msgstr "Basse prioritate"
 msgid "Spaces"
 msgstr "Spatios"
 
-#: src/roommanager.cpp:44
+#: src/roommanager.cpp:48
 #, kde-format
 msgid "Malformed or empty Matrix id"
 msgstr "Malformate o Id de Matrice vacue"
 
-#: src/roommanager.cpp:44
+#: src/roommanager.cpp:48
 #, kde-format
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 non es un correcte identificator de matrice"
 
-#: src/roommanager.cpp:61
+#: src/roommanager.cpp:65
 #, kde-format
 msgid "Room not found"
 msgstr "Sala non trovate"
 
-#: src/roommanager.cpp:61
+#: src/roommanager.cpp:65
 #, kde-format
 msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
@@ -2003,15 +2004,20 @@ msgstr ""
 "Il non ha sala %1 in le lista de sala. Verifica le orthographia (spelling) e "
 "le conto."
 
-#: src/roommanager.cpp:195
+#: src/roommanager.cpp:200
 #, kde-format
 msgid "No application for the link"
 msgstr "Necun application per le ligamine"
 
-#: src/roommanager.cpp:195
+#: src/roommanager.cpp:200
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "Tu systema operative non poteva trovar un application per le ligamine."
+
+#: src/roommanager.cpp:206
+#, kde-format
+msgid "Could not open URL"
+msgstr ""
 
 #: src/trayicon.cpp:17
 #, kde-format
