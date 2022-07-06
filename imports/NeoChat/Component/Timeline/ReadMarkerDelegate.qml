@@ -11,11 +11,44 @@ import org.kde.kirigami 2.15 as Kirigami
 import org.kde.neochat 1.0
 
 QQC2.ItemDelegate {
+    id: readMarkerDelegate
     padding: Kirigami.Units.largeSpacing
     topInset: Kirigami.Units.largeSpacing
     topPadding: Kirigami.Units.largeSpacing * 2
-    width: ListView.view.width - Kirigami.Units.gridUnit
-    x: Kirigami.Units.gridUnit / 2
+
+    // extraWidth defines how the delegate can grow after the listView gets very wide
+    readonly property int extraWidth: messageListView.width >= Kirigami.Units.gridUnit * 46 ? Math.min((messageListView.width - Kirigami.Units.gridUnit * 46), Kirigami.Units.gridUnit * 20) : 0
+    readonly property int delegateMaxWidth: Config.compactLayout ? messageListView.width : Math.min(messageListView.width, Kirigami.Units.gridUnit * 40 + extraWidth)
+
+    width: delegateMaxWidth
+
+    state: Config.compactLayout ? "alignLeft" : "alignCentre"
+    // Align left when in compact mode and centre when using bubbles
+    states: [
+        State {
+            name: "alignLeft"
+            AnchorChanges {
+                target: readMarkerDelegate
+                anchors.horizontalCenter: undefined
+                anchors.left: parent ? parent.left : undefined
+            }
+        },
+        State {
+            name: "alignCentre"
+            AnchorChanges {
+                target: readMarkerDelegate
+                anchors.horizontalCenter: parent ? parent.horizontalCenter : undefined
+                anchors.left: undefined
+            }
+        }
+    ]
+
+    transitions: [
+        Transition {
+            AnchorAnimation{duration: Kirigami.Units.longDuration; easing.type: Easing.OutCubic}
+        }
+    ]
+
     contentItem: QQC2.Label {
         text: i18nc("Relative time since the room was last read", "Last read: %1", time)
     }

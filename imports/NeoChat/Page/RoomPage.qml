@@ -409,6 +409,7 @@ Kirigami.ScrollablePage {
             id: hoverActions
             property var event: null
             property bool showEdit: event && (event.author.id === Controller.activeConnection.localUserId && (event.eventType === "emote" || event.eventType === "message"))
+            property var delegate: null
             property var bubble: null
             property var hovered: bubble && bubble.hovered
             property var visibleDelayed: (hovered || hoverHandler.hovered) && !Kirigami.Settings.isMobile
@@ -424,7 +425,7 @@ Kirigami.ScrollablePage {
                 interval: 200
                 onTriggered: hoverActions.visible = hoverActions.visibleDelayed;
             }
-            x: bubble ? (bubble.x + Kirigami.Units.largeSpacing + Math.max(bubble.width - childWidth, 0) - (Config.compactLayout ? Kirigami.Units.gridUnit * 3 : 0)) : 0
+            x: delegate && bubble ? (delegate.x + bubble.x + Kirigami.Units.largeSpacing + Math.max(bubble.width - childWidth, 0) - (Config.compactLayout ? Kirigami.Units.gridUnit * 3 : 0)) : 0
             y: bubble ? bubble.mapToItem(parent, 0, 0).y - hoverActions.childHeight + Kirigami.Units.smallSpacing: 0;
             visible: false
 

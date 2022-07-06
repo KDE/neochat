@@ -56,6 +56,7 @@ QQC2.ItemDelegate {
     // updates the global hover component to point to this delegate, and update its position
     function updateHoverComponent() {
         if (hoverComponent) {
+            hoverComponent.delegate = messageDelegate
             hoverComponent.bubble = bubble
             hoverComponent.updateFunction = updateHoverComponent;
             hoverComponent.event = model
