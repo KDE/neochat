@@ -18,9 +18,11 @@ QQC2.ItemDelegate {
 
     // extraWidth defines how the delegate can grow after the listView gets very wide
     readonly property int extraWidth: messageListView.width >= Kirigami.Units.gridUnit * 46 ? Math.min((messageListView.width - Kirigami.Units.gridUnit * 46), Kirigami.Units.gridUnit * 20) : 0
-    readonly property int delegateMaxWidth: Config.compactLayout ? messageListView.width : Math.min(messageListView.width, Kirigami.Units.gridUnit * 40 + extraWidth)
+    readonly property int delegateMaxWidth: Config.compactLayout ? messageListView.width - Kirigami.Units.largeSpacing * 2 : Math.min(messageListView.width - Kirigami.Units.largeSpacing * 2, Kirigami.Units.gridUnit * 40 + extraWidth)
 
     width: delegateMaxWidth
+    anchors.leftMargin: Kirigami.Units.largeSpacing
+    anchors.rightMargin: Kirigami.Units.largeSpacing
 
     state: Config.compactLayout ? "alignLeft" : "alignCentre"
     // Align left when in compact mode and centre when using bubbles
