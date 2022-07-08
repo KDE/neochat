@@ -21,7 +21,6 @@
 #include <QFileInfo>
 #include <QGuiApplication>
 #include <QMovie>
-#include <QNetworkConfigurationManager>
 #include <QNetworkReply>
 #include <QPixmap>
 #include <QQuickItem>
