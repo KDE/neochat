@@ -231,7 +231,9 @@ int main(int argc, char *argv[])
     });
 #endif
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     qRegisterMetaTypeStreamOperators<Emoji>();
+#endif
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));

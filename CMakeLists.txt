@@ -41,8 +41,8 @@ ecm_setup_version(${PROJECT_VERSION}
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/neochat-version.h
 )
 
-find_package(Qt5 ${QT_MIN_VERSION} NO_MODULE COMPONENTS Core Quick Gui QuickControls2 Multimedia Svg)
-set_package_properties(Qt5 PROPERTIES
+find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} NO_MODULE COMPONENTS Core Quick Gui QuickControls2 Multimedia Svg)
+set_package_properties(Qt${QT_MAJOR_VERSION} PROPERTIES
     TYPE REQUIRED
     PURPOSE "Basic application components"
 )
@@ -56,8 +56,8 @@ set_package_properties(KF5Kirigami2 PROPERTIES
     PURPOSE "Kirigami application UI framework"
 )
 
-find_package(Qt5Keychain)
-set_package_properties(Qt5Keychain PROPERTIES
+find_package(Qt${QT_MAJOR_VERSION}Keychain)
+set_package_properties(Qt${QT_MAJOR_VERSION}Keychain PROPERTIES
     TYPE REQUIRED
     PURPOSE "Secure storage of account secrets"
 )
@@ -69,7 +69,7 @@ if(ANDROID)
         PURPOSE "Encrypted communications"
     )
 else()
-    find_package(Qt5 ${QT_MIN_VERSION} COMPONENTS Widgets)
+    find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} COMPONENTS Widgets)
     find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS QQC2DesktopStyle ConfigWidgets KIO WindowSystem)
     set_package_properties(KF5QQC2DesktopStyle PROPERTIES
         TYPE RUNTIME
@@ -109,8 +109,8 @@ set_package_properties(KQuickImageEditor PROPERTIES
     PURPOSE "Add image editing capability to image attachments"
 )
 
-find_package(QCoro5 COMPONENTS Core QUIET)
-if(NOT QCoro5_FOUND)
+find_package(QCoro${QT_MAJOR_VERSION} COMPONENTS Core QUIET)
+if(NOT QCoro${QT_MAJOR_VERSION}_FOUND)
     find_package(QCoro REQUIRED)
 endif()
 

@@ -151,6 +151,7 @@ private:
 
     static QString markdownToHTML(const QString &markdown);
     QCoro::Task<void> doDeleteMessagesByUser(const QString &user);
+    QCoro::Task<void> doUploadFile(QUrl url, QString body = QString());
 
 private Q_SLOTS:
     void countChanged();
