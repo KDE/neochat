@@ -3,7 +3,7 @@
 # SPDX-FileCopyrightText: 2020-2021 Tobias Fella <fella@posteo.de>
 # SPDX-License-Identifier: BSD-2-Clause
 
-add_executable(neochat
+add_library(neochat STATIC
     controller.cpp
     actionshandler.cpp
     emojimodel.cpp
@@ -21,7 +21,6 @@ add_executable(neochat
     publicroomlistmodel.cpp
     userdirectorylistmodel.cpp
     utils.cpp
-    main.cpp
     notificationsmanager.cpp
     sortfilterroomlistmodel.cpp
     chatdocumenthandler.cpp
@@ -37,11 +36,21 @@ add_executable(neochat
     joinrulesevent.cpp
     collapsestateproxymodel.cpp
     urlhelper.cpp
+)
+
+add_executable(neochat-app
+    main.cpp
     ../res.qrc
 )
 
+target_include_directories(neochat-app PRIVATE ${CMAKE_BINARY_DIR})
+
+target_link_libraries(neochat-app PRIVATE
+    neochat
+)
+
 if(Quotient_VERSION_MINOR GREATER 6)
-    target_compile_definitions(neochat PRIVATE QUOTIENT_07)
+    target_compile_definitions(neochat PUBLIC QUOTIENT_07)
 else()
     target_sources(neochat PRIVATE neochataccountregistry.cpp)
 endif()
@@ -57,34 +66,37 @@ if(NOT ANDROID)
     else()
         target_sources(neochat PRIVATE trayicon.cpp)
     endif()
-    target_link_libraries(neochat PRIVATE KF5::ConfigWidgets KF5::WindowSystem)
-    target_compile_definitions(neochat PRIVATE -DHAVE_COLORSCHEME)
-    target_compile_definitions(neochat PRIVATE -DHAVE_WINDOWSYSTEM)
+    target_link_libraries(neochat PUBLIC KF5::ConfigWidgets KF5::WindowSystem)
+    target_compile_definitions(neochat PUBLIC -DHAVE_COLORSCHEME)
+    target_compile_definitions(neochat PUBLIC -DHAVE_WINDOWSYSTEM)
 endif()
 
 if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
-    target_sources(neochat PRIVATE ../res_desktop.qrc runner.cpp)
-    target_compile_definitions(neochat PRIVATE -DHAVE_RUNNER)
+    target_sources(neochat-app PRIVATE ../res_desktop.qrc)
+    target_compile_definitions(neochat PUBLIC -DHAVE_RUNNER)
+    target_sources(neochat PRIVATE runner.cpp)
 else()
-    target_sources(neochat PRIVATE ../res_android.qrc)
+    target_sources(neochat-app PRIVATE ../res_android.qrc)
 endif()
 
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR})
-target_link_libraries(neochat PRIVATE Qt::Core Qt::Quick Qt::Qml Qt::Gui Qt::Multimedia Qt::Network Qt::QuickControls2 KF5::I18n KF5::Kirigami2 KF5::Notifications KF5::ConfigCore KF5::ConfigGui KF5::CoreAddons Quotient cmark::cmark ${QTKEYCHAIN_LIBRARIES})
-if(TARGET QCoro${QT_MAJOR_VERSION}::Coro)
-    target_link_libraries(neochat PRIVATE QCoro${QT_MAJOR_VERSION}::Coro)
+target_link_libraries(neochat PUBLIC Qt::Core Qt::Quick Qt::Qml Qt::Gui Qt::Multimedia Qt::Network Qt::QuickControls2 KF5::I18n KF5::Kirigami2 KF5::Notifications KF5::ConfigCore KF5::ConfigGui KF5::CoreAddons Quotient cmark::cmark ${QTKEYCHAIN_LIBRARIES})
+if(TARGET QCoro5::Coro)
+    target_link_libraries(neochat PUBLIC QCoro5::Coro)
 else()
-    target_link_libraries(neochat PRIVATE QCoro::QCoro)
+    target_link_libraries(neochat PUBLIC QCoro::QCoro)
 endif()
 kconfig_add_kcfg_files(neochat GENERATE_MOC neochatconfig.kcfgc)
 
 if(NEOCHAT_FLATPAK)
-    target_compile_definitions(neochat PRIVATE NEOCHAT_FLATPAK)
+    target_compile_definitions(neochat PUBLIC NEOCHAT_FLATPAK)
 endif()
 
 if(ANDROID)
     target_sources(neochat PRIVATE notifyrc.qrc)
     target_link_libraries(neochat PRIVATE Qt::Svg OpenSSL::SSL)
+    target_sources(neochat-app PRIVATE notifyrc.qrc)
+    target_link_libraries(neochat PUBLIC Qt::Svg OpenSSL::SSL)
     kirigami_package_breeze_icons(ICONS
         "arrow-down"
         "help-about"
@@ -126,20 +138,22 @@ if(ANDROID)
         "preferences-desktop-theme-global"
     )
 else()
-    target_link_libraries(neochat PRIVATE Qt::Widgets KF5::KIOWidgets)
+    target_link_libraries(neochat PUBLIC Qt::Widgets KF5::KIOWidgets)
     install(FILES neochat.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFYRCDIR})
 endif()
 
+set_target_properties(neochat-app PROPERTIES OUTPUT_NAME "neochat")
+
 if(TARGET KF5::DBusAddons)
-    target_link_libraries(neochat PRIVATE KF5::DBusAddons)
-    target_compile_definitions(neochat PRIVATE -DHAVE_KDBUSADDONS)
+    target_link_libraries(neochat PUBLIC KF5::DBusAddons)
+    target_compile_definitions(neochat PUBLIC -DHAVE_KDBUSADDONS)
 endif()
 
 if (TARGET KF5::KIOWidgets)
-    target_compile_definitions(neochat PRIVATE -DHAVE_KIO)
+    target_compile_definitions(neochat PUBLIC -DHAVE_KIO)
 endif()
 
-install(TARGETS neochat ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS neochat-app ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 
 if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
     install(FILES plasma-runner-neochat.desktop DESTINATION ${KDE_INSTALL_DATAROOTDIR}/krunner/dbusplugins)
