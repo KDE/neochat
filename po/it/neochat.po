@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-07-06 00:46+0000\n"
+"POT-Creation-Date: 2022-07-09 00:45+0000\n"
 "PO-Revision-Date: 2022-06-17 00:38+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -34,7 +34,7 @@ msgstr "Allegato:"
 
 #: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:159
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: imports/NeoChat/Page/ImageEditorPage.qml:21
+#: imports/NeoChat/Page/ImageEditorPage.qml:20
 #: imports/NeoChat/Page/RoomPage.qml:459
 #, kde-format
 msgid "Edit"
@@ -42,7 +42,7 @@ msgstr "Modifica"
 
 #: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:181
 #: imports/NeoChat/Component/ChatBox/ReplyPane.qml:102
-#: imports/NeoChat/Page/ImageEditorPage.qml:126
+#: imports/NeoChat/Page/ImageEditorPage.qml:125
 #: imports/NeoChat/Settings/AccountsPage.qml:204
 #, kde-format
 msgid "Cancel"
@@ -235,7 +235,7 @@ msgstr ""
 "Questo messaggio è cifrato e il mittente non ha condiviso la chiave con "
 "questo dispositivo."
 
-#: imports/NeoChat/Component/Timeline/FileDelegate.qml:55
+#: imports/NeoChat/Component/Timeline/FileDelegate.qml:54
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -243,20 +243,20 @@ msgctxt ""
 msgid "Open File"
 msgstr "Apri file"
 
-#: imports/NeoChat/Component/Timeline/FileDelegate.qml:66
+#: imports/NeoChat/Component/Timeline/FileDelegate.qml:65
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: imports/NeoChat/Component/Timeline/FileDelegate.qml:72
+#: imports/NeoChat/Component/Timeline/FileDelegate.qml:71
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
 msgid "Stop Download"
 msgstr "Ferma lo scaricamento"
 
-#: imports/NeoChat/Component/Timeline/FileDelegate.qml:119
+#: imports/NeoChat/Component/Timeline/FileDelegate.qml:118
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
@@ -296,7 +296,7 @@ msgstr "Ultima lettura: %1"
 msgid " (edited)"
 msgstr " (modificato)"
 
-#: imports/NeoChat/Component/Timeline/VideoDelegate.qml:85
+#: imports/NeoChat/Component/Timeline/VideoDelegate.qml:84
 #, kde-format
 msgid "Video"
 msgstr "Video"
@@ -649,19 +649,19 @@ msgstr "Cerca «%1»"
 msgid "Configure Web Shortcuts..."
 msgstr "Configura le scorciatoie web..."
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:37
+#: imports/NeoChat/Page/ImageEditorPage.qml:36
 #, kde-format
 msgctxt "@action:button Undo modification"
 msgid "Undo"
 msgstr "Annulla"
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:44
+#: imports/NeoChat/Page/ImageEditorPage.qml:43
 #, kde-format
 msgctxt "@action:button Accept image modification"
 msgid "Accept"
 msgstr "Accetta"
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:52
+#: imports/NeoChat/Page/ImageEditorPage.qml:51
 #, kde-format
 msgid ""
 "Unable to save file. Check if you have the correct permission to edit the "
@@ -670,32 +670,32 @@ msgstr ""
 "Impossibile salvare il file. Controlla se hai il permesso per modificare la "
 "cartella della cache."
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:126
-#: imports/NeoChat/Page/ImageEditorPage.qml:143
+#: imports/NeoChat/Page/ImageEditorPage.qml:125
+#: imports/NeoChat/Page/ImageEditorPage.qml:142
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
 msgstr "Ritaglia"
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:148
+#: imports/NeoChat/Page/ImageEditorPage.qml:147
 #, kde-format
 msgctxt "@action:button Rotate an image to the left"
 msgid "Rotate left"
 msgstr "Ruota a sinistra"
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:154
+#: imports/NeoChat/Page/ImageEditorPage.qml:153
 #, kde-format
 msgctxt "@action:button Rotate an image to the right"
 msgid "Rotate right"
 msgstr "Ruota a destra"
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:160
+#: imports/NeoChat/Page/ImageEditorPage.qml:159
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
 msgstr "Ribalta"
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:166
+#: imports/NeoChat/Page/ImageEditorPage.qml:165
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
@@ -1546,63 +1546,63 @@ msgstr "Invita l'utente con l'ID specificato nella stanza attuale"
 msgid "React to this message with a text"
 msgstr "Reagisci a questo messaggio con del testo"
 
-#: src/controller.cpp:173 src/controller.cpp:307
+#: src/controller.cpp:172 src/controller.cpp:306
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Errore di rete: %1"
 
-#: src/controller.cpp:298
+#: src/controller.cpp:297
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Accesso non riuscito: token di accesso non valido o revocato"
 
-#: src/controller.cpp:301 src/login.cpp:76
+#: src/controller.cpp:300 src/login.cpp:76
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Accesso non riuscito: %1"
 
-#: src/controller.cpp:365
+#: src/controller.cpp:364
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Il token di accesso non è stato trovato"
 
-#: src/controller.cpp:365
+#: src/controller.cpp:364
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Forse è stato eliminato?"
 
-#: src/controller.cpp:369
+#: src/controller.cpp:368
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "L'accesso al portachiavi è stato negato."
 
-#: src/controller.cpp:369
+#: src/controller.cpp:368
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Consenti a Neochat di leggere il token di accesso"
 
-#: src/controller.cpp:372
+#: src/controller.cpp:371
 #, kde-format
 msgid "No keychain available."
 msgstr "Nessun portachiavi trovato."
 
-#: src/controller.cpp:372
+#: src/controller.cpp:371
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Installa un portachiavi, ad es. KWallet o il portachiavi di GNOME su Linux"
 
-#: src/controller.cpp:375
+#: src/controller.cpp:374
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Impossibile leggere il token di accesso"
 
-#: src/controller.cpp:630
+#: src/controller.cpp:629
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "Creazione della stanza non riuscita: «%1»"
 
-#: src/controller.cpp:643
+#: src/controller.cpp:642
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "L'ID della stanza che stai tentando di entrare non è valida"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-07-06 00:46+0000\n"
+"POT-Creation-Date: 2022-07-09 00:45+0000\n"
 "PO-Revision-Date: 2021-09-10 20:27+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -37,7 +37,7 @@ msgstr "Eranskina:"
 
 #: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:159
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: imports/NeoChat/Page/ImageEditorPage.qml:21
+#: imports/NeoChat/Page/ImageEditorPage.qml:20
 #: imports/NeoChat/Page/RoomPage.qml:459
 #, kde-format
 msgid "Edit"
@@ -45,7 +45,7 @@ msgstr "Editatu"
 
 #: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:181
 #: imports/NeoChat/Component/ChatBox/ReplyPane.qml:102
-#: imports/NeoChat/Page/ImageEditorPage.qml:126
+#: imports/NeoChat/Page/ImageEditorPage.qml:125
 #: imports/NeoChat/Settings/AccountsPage.qml:204
 #, kde-format
 msgid "Cancel"
@@ -239,7 +239,7 @@ msgid ""
 msgstr ""
 "Mezu hau zifratuta dago eta igorleak ez du gakoa gailu honekin partekatu."
 
-#: imports/NeoChat/Component/Timeline/FileDelegate.qml:55
+#: imports/NeoChat/Component/Timeline/FileDelegate.qml:54
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -247,20 +247,20 @@ msgctxt ""
 msgid "Open File"
 msgstr "Ireki fitxategia"
 
-#: imports/NeoChat/Component/Timeline/FileDelegate.qml:66
+#: imports/NeoChat/Component/Timeline/FileDelegate.qml:65
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: imports/NeoChat/Component/Timeline/FileDelegate.qml:72
+#: imports/NeoChat/Component/Timeline/FileDelegate.qml:71
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
 msgid "Stop Download"
 msgstr "Gelditu zama-jaistea"
 
-#: imports/NeoChat/Component/Timeline/FileDelegate.qml:119
+#: imports/NeoChat/Component/Timeline/FileDelegate.qml:118
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
@@ -300,7 +300,7 @@ msgstr "Azken irakurketa: %1"
 msgid " (edited)"
 msgstr "(editatu da)"
 
-#: imports/NeoChat/Component/Timeline/VideoDelegate.qml:85
+#: imports/NeoChat/Component/Timeline/VideoDelegate.qml:84
 #, kde-format
 msgid "Video"
 msgstr "Bideoa"
@@ -657,19 +657,19 @@ msgstr "Bilatu «%1»"
 msgid "Configure Web Shortcuts..."
 msgstr "Konfiguratu web-lasterbideak..."
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:37
+#: imports/NeoChat/Page/ImageEditorPage.qml:36
 #, kde-format
 msgctxt "@action:button Undo modification"
 msgid "Undo"
 msgstr "Desegin"
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:44
+#: imports/NeoChat/Page/ImageEditorPage.qml:43
 #, kde-format
 msgctxt "@action:button Accept image modification"
 msgid "Accept"
 msgstr "Onartu"
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:52
+#: imports/NeoChat/Page/ImageEditorPage.qml:51
 #, kde-format
 msgid ""
 "Unable to save file. Check if you have the correct permission to edit the "
@@ -678,32 +678,32 @@ msgstr ""
 "Ezin da fitxategia gorde. Egiaztatu cache direktorioa editatzeko baimen "
 "zuzenak dituzun."
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:126
-#: imports/NeoChat/Page/ImageEditorPage.qml:143
+#: imports/NeoChat/Page/ImageEditorPage.qml:125
+#: imports/NeoChat/Page/ImageEditorPage.qml:142
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
 msgstr "Moztu"
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:148
+#: imports/NeoChat/Page/ImageEditorPage.qml:147
 #, kde-format
 msgctxt "@action:button Rotate an image to the left"
 msgid "Rotate left"
 msgstr "Biratu ezkerrera"
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:154
+#: imports/NeoChat/Page/ImageEditorPage.qml:153
 #, kde-format
 msgctxt "@action:button Rotate an image to the right"
 msgid "Rotate right"
 msgstr "Biratu eskuinera"
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:160
+#: imports/NeoChat/Page/ImageEditorPage.qml:159
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
 msgstr "Irauli"
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:166
+#: imports/NeoChat/Page/ImageEditorPage.qml:165
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
@@ -1563,64 +1563,64 @@ msgstr "Emandako IDa duen erabiltzailea uneko gelara gonbidatzen du"
 msgid "React to this message with a text"
 msgstr "Erreakzionatu mezu honi testu batekin"
 
-#: src/controller.cpp:173 src/controller.cpp:307
+#: src/controller.cpp:172 src/controller.cpp:306
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Sareko errorea: %1"
 
-#: src/controller.cpp:298
+#: src/controller.cpp:297
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Saio-hastea huts egin du: Sartzeko token baliogabea edo indargabetua"
 
-#: src/controller.cpp:301 src/login.cpp:76
+#: src/controller.cpp:300 src/login.cpp:76
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Saio-hastea huts egin du: %1"
 
-#: src/controller.cpp:365
+#: src/controller.cpp:364
 #, fuzzy, kde-format
 #| msgid "Access Token (Optional)"
 msgid "Access token wasn't found"
 msgstr "Sarbide tokena (hautazkoa)"
 
-#: src/controller.cpp:365
+#: src/controller.cpp:364
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr ""
 
-#: src/controller.cpp:369
+#: src/controller.cpp:368
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr ""
 
-#: src/controller.cpp:369
+#: src/controller.cpp:368
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr ""
 
-#: src/controller.cpp:372
+#: src/controller.cpp:371
 #, fuzzy, kde-format
 #| msgid "No users available"
 msgid "No keychain available."
 msgstr "Ez dago erabiltzaile erabilgarririk"
 
-#: src/controller.cpp:372
+#: src/controller.cpp:371
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 
-#: src/controller.cpp:375
+#: src/controller.cpp:374
 #, kde-format
 msgid "Unable to read access token"
 msgstr ""
 
-#: src/controller.cpp:630
+#: src/controller.cpp:629
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "Gela sortzea huts egin du: «%1»"
 
-#: src/controller.cpp:643
+#: src/controller.cpp:642
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Batzen saiatzen ari zaren gelaren IDa ez da baliozkoa"

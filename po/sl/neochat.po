@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-07-06 00:46+0000\n"
+"POT-Creation-Date: 2022-07-09 00:45+0000\n"
 "PO-Revision-Date: 2022-07-07 08:13+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
-"%100<=4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.1\n"
 
 #, kde-format
@@ -37,7 +37,7 @@ msgstr "Priloga:"
 
 #: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:159
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: imports/NeoChat/Page/ImageEditorPage.qml:21
+#: imports/NeoChat/Page/ImageEditorPage.qml:20
 #: imports/NeoChat/Page/RoomPage.qml:459
 #, kde-format
 msgid "Edit"
@@ -45,7 +45,7 @@ msgstr "Uredi"
 
 #: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:181
 #: imports/NeoChat/Component/ChatBox/ReplyPane.qml:102
-#: imports/NeoChat/Page/ImageEditorPage.qml:126
+#: imports/NeoChat/Page/ImageEditorPage.qml:125
 #: imports/NeoChat/Settings/AccountsPage.qml:204
 #, kde-format
 msgid "Cancel"
@@ -236,7 +236,7 @@ msgid ""
 msgstr ""
 "To sporočilo je šifrirano in pošiljatelj še ni delil ključa s to napravo."
 
-#: imports/NeoChat/Component/Timeline/FileDelegate.qml:55
+#: imports/NeoChat/Component/Timeline/FileDelegate.qml:54
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -244,20 +244,20 @@ msgctxt ""
 msgid "Open File"
 msgstr "Odpri datoteko"
 
-#: imports/NeoChat/Component/Timeline/FileDelegate.qml:66
+#: imports/NeoChat/Component/Timeline/FileDelegate.qml:65
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: imports/NeoChat/Component/Timeline/FileDelegate.qml:72
+#: imports/NeoChat/Component/Timeline/FileDelegate.qml:71
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
 msgid "Stop Download"
 msgstr "Ustavi prenos"
 
-#: imports/NeoChat/Component/Timeline/FileDelegate.qml:119
+#: imports/NeoChat/Component/Timeline/FileDelegate.qml:118
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
@@ -301,7 +301,7 @@ msgstr "Zadnje prebrano: %1"
 msgid " (edited)"
 msgstr " (urejano)"
 
-#: imports/NeoChat/Component/Timeline/VideoDelegate.qml:85
+#: imports/NeoChat/Component/Timeline/VideoDelegate.qml:84
 #, kde-format
 msgid "Video"
 msgstr "Video"
@@ -654,19 +654,19 @@ msgstr "Poišči za '%1'"
 msgid "Configure Web Shortcuts..."
 msgstr "Nastavi spletne bližnjice…"
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:37
+#: imports/NeoChat/Page/ImageEditorPage.qml:36
 #, kde-format
 msgctxt "@action:button Undo modification"
 msgid "Undo"
 msgstr "Razveljavi"
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:44
+#: imports/NeoChat/Page/ImageEditorPage.qml:43
 #, kde-format
 msgctxt "@action:button Accept image modification"
 msgid "Accept"
 msgstr "Sprejmi"
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:52
+#: imports/NeoChat/Page/ImageEditorPage.qml:51
 #, kde-format
 msgid ""
 "Unable to save file. Check if you have the correct permission to edit the "
@@ -675,32 +675,32 @@ msgstr ""
 "Datoteke ni mogoče shraniti. Preverite, ali imate ustrezno dovoljenje za "
 "urejanje predpomnilnika imenika."
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:126
-#: imports/NeoChat/Page/ImageEditorPage.qml:143
+#: imports/NeoChat/Page/ImageEditorPage.qml:125
+#: imports/NeoChat/Page/ImageEditorPage.qml:142
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
 msgstr "Obreži"
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:148
+#: imports/NeoChat/Page/ImageEditorPage.qml:147
 #, kde-format
 msgctxt "@action:button Rotate an image to the left"
 msgid "Rotate left"
 msgstr "Zasukaj v levo"
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:154
+#: imports/NeoChat/Page/ImageEditorPage.qml:153
 #, kde-format
 msgctxt "@action:button Rotate an image to the right"
 msgid "Rotate right"
 msgstr "Zasukaj v desno"
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:160
+#: imports/NeoChat/Page/ImageEditorPage.qml:159
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
 msgstr "Prevrni"
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:166
+#: imports/NeoChat/Page/ImageEditorPage.qml:165
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
@@ -1555,62 +1555,62 @@ msgstr "Povabi uporabnika z dano identifikacijo v trenutno sobo"
 msgid "React to this message with a text"
 msgstr "Odzovi se na to sporočilo z besedilom"
 
-#: src/controller.cpp:173 src/controller.cpp:307
+#: src/controller.cpp:172 src/controller.cpp:306
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Napaka omrežja: %1"
 
-#: src/controller.cpp:298
+#: src/controller.cpp:297
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Neuspela prijava: Žeton za dostop je neveljaven ali preklican"
 
-#: src/controller.cpp:301 src/login.cpp:76
+#: src/controller.cpp:300 src/login.cpp:76
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Prijava je spodletela: %1"
 
-#: src/controller.cpp:365
+#: src/controller.cpp:364
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Žetona za dostop ni bilo mogoče najti"
 
-#: src/controller.cpp:365
+#: src/controller.cpp:364
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Ali je bil mogoče izbrisan?"
 
-#: src/controller.cpp:369
+#: src/controller.cpp:368
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Dostop do verige ključev je bil zavrnjen."
 
-#: src/controller.cpp:369
+#: src/controller.cpp:368
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Dovolite, da NeoChat prebere žeton za dostop"
 
-#: src/controller.cpp:372
+#: src/controller.cpp:371
 #, kde-format
 msgid "No keychain available."
 msgstr "Nobene verige ključev ni na voljo."
 
-#: src/controller.cpp:372
+#: src/controller.cpp:371
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr "Namestite verigo ključev, npr. KWallet ali GNOME Keyring v Linux"
 
-#: src/controller.cpp:375
+#: src/controller.cpp:374
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Žetona za dostop ni mogoče prebrati"
 
-#: src/controller.cpp:630
+#: src/controller.cpp:629
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "Ustvarjanje sobe ni uspelo: \"%1\""
 
-#: src/controller.cpp:643
+#: src/controller.cpp:642
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Identifikacija sobe, kamor se poskušate pridružiti, ni veljavna"

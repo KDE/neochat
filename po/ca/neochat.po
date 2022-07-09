@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-07-06 00:46+0000\n"
+"POT-Creation-Date: 2022-07-09 00:45+0000\n"
 "PO-Revision-Date: 2022-07-06 12:29+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -36,7 +36,7 @@ msgstr "Adjunt:"
 
 #: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:159
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: imports/NeoChat/Page/ImageEditorPage.qml:21
+#: imports/NeoChat/Page/ImageEditorPage.qml:20
 #: imports/NeoChat/Page/RoomPage.qml:459
 #, kde-format
 msgid "Edit"
@@ -44,7 +44,7 @@ msgstr "Edita"
 
 #: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:181
 #: imports/NeoChat/Component/ChatBox/ReplyPane.qml:102
-#: imports/NeoChat/Page/ImageEditorPage.qml:126
+#: imports/NeoChat/Page/ImageEditorPage.qml:125
 #: imports/NeoChat/Settings/AccountsPage.qml:204
 #, kde-format
 msgid "Cancel"
@@ -240,7 +240,7 @@ msgstr ""
 "Aquest missatge està encriptat i el remitent no ha compartit la clau amb "
 "aquest dispositiu."
 
-#: imports/NeoChat/Component/Timeline/FileDelegate.qml:55
+#: imports/NeoChat/Component/Timeline/FileDelegate.qml:54
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -248,20 +248,20 @@ msgctxt ""
 msgid "Open File"
 msgstr "Obre el fitxer"
 
-#: imports/NeoChat/Component/Timeline/FileDelegate.qml:66
+#: imports/NeoChat/Component/Timeline/FileDelegate.qml:65
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: imports/NeoChat/Component/Timeline/FileDelegate.qml:72
+#: imports/NeoChat/Component/Timeline/FileDelegate.qml:71
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
 msgid "Stop Download"
 msgstr "Atura la baixada"
 
-#: imports/NeoChat/Component/Timeline/FileDelegate.qml:119
+#: imports/NeoChat/Component/Timeline/FileDelegate.qml:118
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
@@ -301,7 +301,7 @@ msgstr "Última lectura: %1"
 msgid " (edited)"
 msgstr " (editat)"
 
-#: imports/NeoChat/Component/Timeline/VideoDelegate.qml:85
+#: imports/NeoChat/Component/Timeline/VideoDelegate.qml:84
 #, kde-format
 msgid "Video"
 msgstr "Vídeo"
@@ -654,19 +654,19 @@ msgstr "Cerca «%1»"
 msgid "Configure Web Shortcuts..."
 msgstr "Configura les dreceres web..."
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:37
+#: imports/NeoChat/Page/ImageEditorPage.qml:36
 #, kde-format
 msgctxt "@action:button Undo modification"
 msgid "Undo"
 msgstr "Desfés"
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:44
+#: imports/NeoChat/Page/ImageEditorPage.qml:43
 #, kde-format
 msgctxt "@action:button Accept image modification"
 msgid "Accept"
 msgstr "Accepta"
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:52
+#: imports/NeoChat/Page/ImageEditorPage.qml:51
 #, kde-format
 msgid ""
 "Unable to save file. Check if you have the correct permission to edit the "
@@ -675,32 +675,32 @@ msgstr ""
 "No es pot desar el fitxer. Comproveu que teniu el permís correcte per a "
 "editar el directori de la memòria cau."
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:126
-#: imports/NeoChat/Page/ImageEditorPage.qml:143
+#: imports/NeoChat/Page/ImageEditorPage.qml:125
+#: imports/NeoChat/Page/ImageEditorPage.qml:142
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
 msgstr "Escapça"
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:148
+#: imports/NeoChat/Page/ImageEditorPage.qml:147
 #, kde-format
 msgctxt "@action:button Rotate an image to the left"
 msgid "Rotate left"
 msgstr "Gira a l'esquerra"
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:154
+#: imports/NeoChat/Page/ImageEditorPage.qml:153
 #, kde-format
 msgctxt "@action:button Rotate an image to the right"
 msgid "Rotate right"
 msgstr "Gira a la dreta"
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:160
+#: imports/NeoChat/Page/ImageEditorPage.qml:159
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
 msgstr "Inverteix"
 
-#: imports/NeoChat/Page/ImageEditorPage.qml:166
+#: imports/NeoChat/Page/ImageEditorPage.qml:165
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
@@ -1550,64 +1550,64 @@ msgstr "Convida a l'usuari amb l'ID indicat a la sala actual"
 msgid "React to this message with a text"
 msgstr "Reacciona a aquest missatge amb un text"
 
-#: src/controller.cpp:173 src/controller.cpp:307
+#: src/controller.cpp:172 src/controller.cpp:306
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Error de la xarxa: %1"
 
-#: src/controller.cpp:298
+#: src/controller.cpp:297
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr ""
 "Ha fallat l'inici de sessió: El testimoni d'accés no és vàlid o està revocat"
 
-#: src/controller.cpp:301 src/login.cpp:76
+#: src/controller.cpp:300 src/login.cpp:76
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Ha fallat l'inici de la sessió: %1"
 
-#: src/controller.cpp:365
+#: src/controller.cpp:364
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "No s'ha trobat el testimoni d'accés"
 
-#: src/controller.cpp:365
+#: src/controller.cpp:364
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Potser s'ha suprimit?"
 
-#: src/controller.cpp:369
+#: src/controller.cpp:368
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "S'ha denegat l'accés al clauer."
 
-#: src/controller.cpp:369
+#: src/controller.cpp:368
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Permeteu que el NeoChat llegeixi el testimoni d'accés"
 
-#: src/controller.cpp:372
+#: src/controller.cpp:371
 #, kde-format
 msgid "No keychain available."
 msgstr "No hi ha cap clauer disponible."
 
-#: src/controller.cpp:372
+#: src/controller.cpp:371
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Instal·leu un clauer, p. ex. el KWallet o l'anell de claus del GNOME al Linux"
 
-#: src/controller.cpp:375
+#: src/controller.cpp:374
 #, kde-format
 msgid "Unable to read access token"
 msgstr "No s'ha pogut llegir el testimoni d'accés"
 
-#: src/controller.cpp:630
+#: src/controller.cpp:629
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "Ha fallat la creació de la sala: «%1»"
 
-#: src/controller.cpp:643
+#: src/controller.cpp:642
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "L'ID de la sala a la qual esteu intentant entrar no és vàlida"
