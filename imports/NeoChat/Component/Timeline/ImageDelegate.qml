@@ -18,6 +18,8 @@ TimelineContainer {
     onReplyClicked: ListView.view.goToEvent(eventID)
     hoverComponent: hoverActions
 
+    onOpenContextMenu: openFileContext(model, imageDelegate)
+
     property var content: model.content
     readonly property bool isAnimated: contentType === "image/gif"
 
@@ -81,11 +83,6 @@ TimelineContainer {
                     currentRoom.downloadFile(eventId, file)
                 }
             }
-        }
-
-        TapHandler {
-            acceptedButtons: Qt.RightButton
-            onTapped: openFileContext(model, parent)
         }
 
         TapHandler {

@@ -26,6 +26,8 @@ TimelineContainer {
     property bool supportStreaming: true
     readonly property int maxWidth: 1000 // TODO messageListView.width
 
+    onOpenContextMenu: openFileContext(model, vid)
+
     onDownloadedChanged: {
         if (downloaded) {
             vid.source = progressInfo.localPath
@@ -120,16 +122,6 @@ TimelineContainer {
             } else {
                 videoDelegate.downloadAndPlay()
             }
-        }
-
-        TapHandler {
-            acceptedButtons: Qt.RightButton
-            onTapped: openFileContext(model, parent)
-        }
-
-        TapHandler {
-            acceptedButtons: Qt.LeftButton
-            onLongPressed: openFileContext(model, parent)
         }
     }
 

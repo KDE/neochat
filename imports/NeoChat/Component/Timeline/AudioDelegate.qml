@@ -18,6 +18,9 @@ TimelineContainer {
     id: audioDelegate
 
     onReplyClicked: ListView.view.goToEvent(eventID)
+
+    onOpenContextMenu: openFileContext(model, audioDelegate)
+
     hoverComponent: hoverActions
     innerObject: Control {
         Layout.fillWidth: true
@@ -27,15 +30,6 @@ TimelineContainer {
             id: audio
             source: currentRoom.urlToMxcUrl(content.url)
             autoLoad: false
-        }
-
-        TapHandler {
-            acceptedButtons: Qt.RightButton
-            onTapped: openFileContext(model, parent)
-        }
-        TapHandler {
-            acceptedButtons: Qt.LeftButton
-            onLongPressed: openFileContext(model, parent)
         }
 
         contentItem: ColumnLayout {

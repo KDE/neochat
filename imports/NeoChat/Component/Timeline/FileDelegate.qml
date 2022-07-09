@@ -19,6 +19,8 @@ TimelineContainer {
     onReplyClicked: ListView.view.goToEvent(eventID)
     hoverComponent: hoverActions
 
+    onOpenContextMenu: openFileContext(model, fileDelegate)
+
     readonly property bool downloaded: progressInfo && progressInfo.completed
 
     function saveFileAs() {
@@ -128,15 +130,6 @@ TimelineContainer {
                     currentRoom.downloadFile(eventId, file)
                 }
             }
-        }
-
-        TapHandler {
-            acceptedButtons: Qt.RightButton
-            onTapped: openFileContext(model, parent)
-        }
-        TapHandler {
-            acceptedButtons: Qt.LeftButton
-            onLongPressed: openFileContext(model, parent)
         }
     }
 }

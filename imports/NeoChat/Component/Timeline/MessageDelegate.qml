@@ -14,22 +14,14 @@ TimelineContainer {
     id: messageDelegate
 
     property bool isEmote: false
+    onOpenContextMenu: openMessageContext(model, parent.selectedText, Controller.plainText(label.textDocument))
 
     onReplyClicked: ListView.view.goToEvent(eventID)
     hoverComponent: hoverActions
 
     innerObject: RichLabel {
+        id: label
         isEmote: messageDelegate.isEmote
-        Layout.maximumWidth: messageDelegate.contentMaxWidth
-
-        TapHandler {
-            acceptedButtons: Qt.RightButton
-            onTapped: openMessageContext(model, parent.selectedText, Controller.plainText(parent.textDocument))
-        }
-
-        TapHandler {
-            acceptedButtons: Qt.LeftButton
-            onLongPressed: openMessageContext(model, parent.selectedText, Controller.plainText(parent.textDocument))
-        }
+        Layout.maximumWidth: messageDelegate.bubbleMaxWidth
     }
 }

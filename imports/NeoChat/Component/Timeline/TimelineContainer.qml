@@ -12,12 +12,14 @@ import NeoChat.Component 1.0
 import NeoChat.Dialog 1.0
 
 QQC2.ItemDelegate {
-    id: messageDelegate
+    id: timelineContainer
     default property alias innerObject : column.children
     // readonly property bool failed: marks == EventStatus.SendingFailed
 
     property bool isEmote: false
     property bool cardBackground: true
+
+    signal openContextMenu
 
     // The bubble and delegate widths are allowed to grow once the ListView gets beyond a certain size
     // extraWidth defines this as the excess after a certain ListView width, capped to a max value
@@ -148,7 +150,7 @@ QQC2.ItemDelegate {
             rightMargin: showUserMessageOnRight ? Kirigami.Units.smallSpacing : Kirigami.Units.largeSpacing
         }
         // HACK: anchoring didn't reset anchors.right when switching from parent.right to undefined reliably
-        width: Config.compactLayout ? messageDelegate.width - (Config.showAvatarInTimeline ? Kirigami.Units.gridUnit * 2 : 0) + Kirigami.Units.largeSpacing * 2 : implicitWidth
+        width: Config.compactLayout ? timelineContainer.width - (Config.showAvatarInTimeline ? Kirigami.Units.gridUnit * 2 : 0) + Kirigami.Units.largeSpacing * 2 : implicitWidth
 
         state: showUserMessageOnRight ? "userMessageOnRight" : "userMessageOnLeft"
         // states for anchor animations on window resize
@@ -253,7 +255,7 @@ QQC2.ItemDelegate {
 
         background: Item {
             Rectangle {
-                visible: messageDelegate.hovered
+                visible: timelineContainer.hovered
                 color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.15)
                 radius: Kirigami.Units.smallSpacing
                 anchors.fill: parent
@@ -292,5 +294,15 @@ QQC2.ItemDelegate {
         active: eventType !== "state" && eventType !== "notice" && reaction != undefined && reaction.length > 0
         visible: active
         sourceComponent: ReactionDelegate { }
+    }
+
+    TapHandler {
+        acceptedButtons: Qt.RightButton
+        onTapped: timelineContainer.openContextMenu()
+    }
+
+    TapHandler {
+        acceptedButtons: Qt.LeftButton
+        onLongPressed: timelineContainer.openContextMenu()
     }
 }
