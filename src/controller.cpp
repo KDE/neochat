@@ -24,10 +24,12 @@
 #include <QNetworkReply>
 #include <QPixmap>
 #include <QQuickItem>
+#include <QQuickTextDocument>
 #include <QQuickWindow>
 #include <QStandardPaths>
 #include <QStringBuilder>
 #include <QSysInfo>
+#include <QTextDocument>
 #include <QTimer>
 #include <utility>
 
@@ -699,4 +701,9 @@ bool Controller::hasWindowSystem() const
 #else
     return false;
 #endif
+}
+
+QString Controller::plainText(QQuickTextDocument *document) const
+{
+    return document->textDocument()->toPlainText();
 }

@@ -598,12 +598,13 @@ Kirigami.ScrollablePage {
             file: file,
             mimeType: event.mimeType,
             progressInfo: event.progressInfo,
+            plainMessage: event.message,
         });
         contextMenu.open();
     }
 
     /// Open context menu for normal message
-    function openMessageContext(event, selectedText) {
+    function openMessageContext(event, selectedText, plainMessage) {
         const contextMenu = messageDelegateContextMenu.createObject(page, {
             selectedText: selectedText,
             author: event.author,
@@ -611,7 +612,8 @@ Kirigami.ScrollablePage {
             eventId: event.eventId,
             formattedBody: event.formattedBody,
             source: event.source,
-            eventType: event.eventType
+            eventType: event.eventType,
+            plainMessage: plainMessage,
         });
         contextMenu.open();
     }

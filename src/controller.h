@@ -21,6 +21,7 @@ class NeoChatRoom;
 class NeoChatUser;
 class TrayIcon;
 class QQuickWindow;
+class QQuickTextDocument;
 
 namespace QKeychain
 {
@@ -94,6 +95,7 @@ public:
 
     Q_INVOKABLE void setBlur(QQuickItem *item, bool blur);
     Q_INVOKABLE void raiseWindow(QWindow *window);
+    Q_INVOKABLE QString plainText(QQuickTextDocument *document) const;
 
 private:
     explicit Controller(QObject *parent = nullptr);

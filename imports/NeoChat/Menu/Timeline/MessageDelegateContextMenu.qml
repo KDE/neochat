@@ -20,6 +20,7 @@ Loader {
     property string formattedBody: ""
     required property string source
     property string selectedText: ""
+    required property string plainMessage
 
     property list<Kirigami.Action> nestedActions
 
@@ -45,7 +46,7 @@ Loader {
         Kirigami.Action {
             text: i18n("Copy")
             icon.name: "edit-copy"
-            onTriggered: Clipboard.saveText(loadRoot.selectedText === "" ? loadRoot.message : loadRoot.selectedText)
+            onTriggered: Clipboard.saveText(loadRoot.selectedText === "" ? loadRoot.plainMessage : loadRoot.selectedText)
         },
         Kirigami.Action {
             text: i18n("View Source")
@@ -111,7 +112,7 @@ Loader {
                 Instantiator {
                     model: WebShortcutModel {
                         id: webshortcutmodel
-                        selectedText: loadRoot.selectedText ? loadRoot.selectedText : loadRoot.message
+                        selectedText: loadRoot.selectedText ? loadRoot.selectedText : loadRoot.plainMessage
                         onOpenUrl: RoomManager.visitNonMatrix(url)
                     }
                     delegate: QQC2.MenuItem {

@@ -25,12 +25,12 @@ TimelineContainer {
 
         TapHandler {
             acceptedButtons: Qt.RightButton
-            onTapped: openMessageContext(model, parent.selectedText)
+            onTapped: openMessageContext(model, parent.selectedText, Controller.plainText(parent.textDocument))
         }
 
         TapHandler {
             acceptedButtons: Qt.LeftButton
-            onLongPressed: openMessageContext(model, parent.selectedText)
+            onLongPressed: openMessageContext(model, parent.selectedText, Controller.plainText(parent.textDocument))
         }
     }
 }
