@@ -63,8 +63,8 @@ QQC2.ItemDelegate {
         }
     }
 
-    state: Config.compactLayout ? "alignLeft" : "alignCentre"
-    // Align left when in compact mode and centre when using bubbles
+    state: Config.compactLayout ? "alignLeft" : "alignCenter"
+    // Align left when in compact mode and center when using bubbles
     states: [
         State {
             name: "alignLeft"
@@ -75,7 +75,7 @@ QQC2.ItemDelegate {
             }
         },
         State {
-            name: "alignCentre"
+            name: "alignCenter"
             AnchorChanges {
                 target: messageDelegate
                 anchors.horizontalCenter: parent ? parent.horizontalCenter : undefined
