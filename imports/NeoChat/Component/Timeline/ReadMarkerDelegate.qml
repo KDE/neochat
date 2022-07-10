@@ -47,7 +47,10 @@ QQC2.ItemDelegate {
 
     transitions: [
         Transition {
-            AnchorAnimation{duration: Kirigami.Units.longDuration; easing.type: Easing.OutCubic}
+            AnchorAnimation {
+                duration: Kirigami.Units.longDuration
+                easing.type: Easing.OutCubic
+            }
         }
     ]
 
