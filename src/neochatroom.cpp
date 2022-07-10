@@ -633,7 +633,7 @@ void NeoChatRoom::removeLocalAlias(const QString &alias)
 QString NeoChatRoom::markdownToHTML(const QString &markdown)
 {
     const auto str = markdown.toUtf8();
-    char *tmp_buf = cmark_markdown_to_html(str.constData(), str.size(), CMARK_OPT_DEFAULT);
+    char *tmp_buf = cmark_markdown_to_html(str.constData(), str.size(), CMARK_OPT_HARDBREAKS);
 
     const std::string html(tmp_buf);
 
@@ -641,11 +641,9 @@ QString NeoChatRoom::markdownToHTML(const QString &markdown)
 
     auto result = QString::fromStdString(html).trimmed();
 
-    result.replace("<!-- raw HTML omitted -->", "<br />");
-    result.replace(QRegularExpression("(<br />)*$"), "");
+    result.replace("<!-- raw HTML omitted -->", "");
     result.replace("<p>", "");
     result.replace("</p>", "");
-    result.replace("\n", "<br>");
 
     return result;
 }
