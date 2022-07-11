@@ -7,19 +7,53 @@ import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.15 as Kirigami
 
+import org.kde.neochat 1.0
 import NeoChat.Component 1.0
 import NeoChat.Dialog 1.0
 
 Control {
-    x: Kirigami.Units.gridUnit * 1.5 + Kirigami.Units.smallSpacing
-    width: ListView.view.width - Kirigami.Units.largeSpacing - x
+    id: stateDelegate
+    // extraWidth defines how the delegate can grow after the listView gets very wide
+    readonly property int extraWidth: messageListView.width >= Kirigami.Units.gridUnit * 46 ? Math.min((messageListView.width - Kirigami.Units.gridUnit * 46), Kirigami.Units.gridUnit * 20) : 0
+    readonly property int delegateMaxWidth: Config.compactLayout ? messageListView.width: Math.min(messageListView.width, Kirigami.Units.gridUnit * 40 + extraWidth)
+
+    width: delegateMaxWidth
+//     anchors.leftMargin: Kirigami.Units.largeSpacing
+//     anchors.rightMargin: Kirigami.Units.largeSpacing
+
+    state: Config.compactLayout ? "alignLeft" : "alignCenter"
+    // Align left when in compact mode and center when using bubbles
+    states: [
+        State {
+            name: "alignLeft"
+            AnchorChanges {
+                target: stateDelegate
+                anchors.horizontalCenter: undefined
+                anchors.left: parent ? parent.left : undefined
+            }
+        },
+        State {
+            name: "alignCenter"
+            AnchorChanges {
+                target: stateDelegate
+                anchors.horizontalCenter: parent ? parent.horizontalCenter : undefined
+                anchors.left: undefined
+            }
+        }
+    ]
+
+    transitions: [
+        Transition {
+            AnchorAnimation{duration: Kirigami.Units.longDuration; easing.type: Easing.OutCubic}
+        }
+    ]
 
     height: sectionDelegate.height + rowLayout.height
     SectionDelegate {
         id: sectionDelegate
-        width: parent.width
         anchors.top: parent.top
-        anchors.leftMargin: Kirigami.Units.smallSpacing
+        anchors.left: parent.left
+        anchors.right: parent.right
         visible: model.showSection
         height: visible ? implicitHeight : 0
     }
@@ -27,8 +61,11 @@ Control {
     RowLayout {
         id: rowLayout
         height: label.contentHeight
-        width: parent.width
         anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.leftMargin: Kirigami.Units.gridUnit * 1.5 + Kirigami.Units.smallSpacing + (Config.compactLayout ? Kirigami.Units.largeSpacing * 1.25 : 0)
+        anchors.rightMargin: Kirigami.Units.largeSpacing
 
         Kirigami.Avatar {
             id: icon
