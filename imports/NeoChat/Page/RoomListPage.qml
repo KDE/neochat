@@ -232,7 +232,6 @@ Kirigami.ScrollablePage {
                     createRoomListContextMenu()
                 }
                 TapHandler {
-                    enabled: !Kirigami.Settings.isMobile
                     acceptedButtons: Qt.RightButton
                     onTapped: createRoomListContextMenu()
                 }
