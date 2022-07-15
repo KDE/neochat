@@ -22,7 +22,7 @@ TextEdit {
 
     Layout.fillWidth: Config.compactLayout
     Layout.rightMargin: Kirigami.Units.largeSpacing
-    Layout.leftMargin: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing : 0
+    Layout.leftMargin: Kirigami.Units.largeSpacing
 
     text: "<style>
 table {

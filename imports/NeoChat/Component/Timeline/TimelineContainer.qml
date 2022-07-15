@@ -196,15 +196,13 @@ QQC2.ItemDelegate {
                     topInset: 0
 
                     visible: model.showAuthor && !isEmote
-                    anchors.left: rowLayout.left
-                    anchors.right: timeLabel.left
-                    anchors.rightMargin: Kirigami.Units.smallSpacing
+                    width: Math.min(contentMaxWidth - timeLabel.width, implicitWidth)
 
                     text: visible ? author.displayName : ""
                     textFormat: Text.PlainText
                     font.weight: Font.Bold
                     color: author.color
-                    wrapMode: Text.Wrap
+                    elide: Text.ElideRight
                     MouseArea {
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
@@ -221,10 +219,18 @@ QQC2.ItemDelegate {
                 }
                 QQC2.Label {
                     id: timeLabel
-                    anchors.right: rowLayout.right
+                    leftPadding: Kirigami.Units.largeSpacing
+                    rightPadding: Kirigami.Units.largeSpacing
+                    anchors.left: nameLabel.right
                     visible: model.showAuthor && !isEmote
-                    text: visible ? time.toLocaleTimeString(Locale.ShortFormat) : ""
+                    text: visible ? time.toLocaleTimeString(Qt.locale(), Locale.ShortFormat) : ""
                     color: Kirigami.Theme.disabledTextColor
+                    QQC2.ToolTip.visible: hoverHandler.hovered
+                    QQC2.ToolTip.text: time.toLocaleString(Qt.locale(), Locale.LongFormat)
+
+                    HoverHandler {
+                        id: hoverHandler
+                    }
                 }
             }
             Loader {
@@ -234,6 +240,7 @@ QQC2.ItemDelegate {
                 visible: active
                 Layout.topMargin: Kirigami.Units.smallSpacing
                 Layout.bottomMargin: Config.compactLayout ? 0 : Kirigami.Units.smallSpacing
+                Layout.leftMargin: Config.compactLayout ? 0 : Kirigami.Units.largeSpacing
 
                 Connections {
                     target: replyLoader.item
