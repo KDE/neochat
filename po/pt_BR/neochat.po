@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-07-14 00:45+0000\n"
-"PO-Revision-Date: 2022-06-22 16:19-0300\n"
+"POT-Creation-Date: 2022-07-15 00:46+0000\n"
+"PO-Revision-Date: 2022-07-12 16:13-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -63,9 +63,16 @@ msgid "Edit Message"
 msgstr "Editar mensagem"
 
 #: imports/NeoChat/Component/ChatBox/ChatBar.qml:97
-#, kde-format
-msgid "Write your message..."
-msgstr "Escreva sua mensagem..."
+#, fuzzy, kde-format
+#| msgid "Send message"
+msgid "Send an encrypted message…"
+msgstr "Enviar mensagem"
+
+#: imports/NeoChat/Component/ChatBox/ChatBar.qml:97
+#, fuzzy, kde-format
+#| msgid "Send message"
+msgid "Send a message…"
+msgstr "Enviar mensagem"
 
 #: imports/NeoChat/Component/ChatBox/ChatBar.qml:290
 #, kde-format
@@ -1307,6 +1314,8 @@ msgstr "Mostrar notificações de digitação"
 #, kde-format
 msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr ""
+"Ocultar/exibir automaticamente as informações da sala ao redimensionar a "
+"janela"
 
 #: imports/NeoChat/Settings/SettingsPage.qml:18
 #, kde-format
@@ -2017,12 +2026,15 @@ msgstr ""
 #: src/roommanager.cpp:206
 #, kde-format
 msgid "Could not open URL"
-msgstr ""
+msgstr "Não foi possível abrir a URL"
 
 #: src/trayicon.cpp:17
 #, kde-format
 msgid "Show"
 msgstr "Mostrar"
+
+#~ msgid "Write your message..."
+#~ msgstr "Escreva sua mensagem..."
 
 #~ msgid "Settings"
 #~ msgstr "Configurações"

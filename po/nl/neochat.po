@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-07-14 00:45+0000\n"
+"POT-Creation-Date: 2022-07-15 00:46+0000\n"
 "PO-Revision-Date: 2022-07-06 08:36+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -62,9 +62,16 @@ msgid "Edit Message"
 msgstr "Bericht bewerken"
 
 #: imports/NeoChat/Component/ChatBox/ChatBar.qml:97
-#, kde-format
-msgid "Write your message..."
-msgstr "Schrijf uw bericht..."
+#, fuzzy, kde-format
+#| msgid "Send message"
+msgid "Send an encrypted message…"
+msgstr "Bericht verzenden"
+
+#: imports/NeoChat/Component/ChatBox/ChatBar.qml:97
+#, fuzzy, kde-format
+#| msgid "Send message"
+msgid "Send a message…"
+msgstr "Bericht verzenden"
 
 #: imports/NeoChat/Component/ChatBox/ChatBar.qml:290
 #, kde-format
@@ -2024,6 +2031,9 @@ msgstr "Kon de URL niet openen"
 #, kde-format
 msgid "Show"
 msgstr "Tonen"
+
+#~ msgid "Write your message..."
+#~ msgstr "Schrijf uw bericht..."
 
 #~ msgid "Settings"
 #~ msgstr "Instellingen"
