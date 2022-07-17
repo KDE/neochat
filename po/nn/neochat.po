@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-07-12 00:46+0000\n"
+"POT-Creation-Date: 2022-07-15 00:46+0000\n"
 "PO-Revision-Date: 2021-12-15 11:17+0100\n"
 "Last-Translator: Oystein Steffensen-Alvaervik <ystein@posteo.net>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -38,7 +38,7 @@ msgstr "Vedlegg:"
 #: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:159
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:29
 #: imports/NeoChat/Page/ImageEditorPage.qml:20
-#: imports/NeoChat/Page/RoomPage.qml:459
+#: imports/NeoChat/Page/RoomPage.qml:463
 #, kde-format
 msgid "Edit"
 msgstr "Rediger"
@@ -64,8 +64,13 @@ msgstr "Rediger melding"
 
 #: imports/NeoChat/Component/ChatBox/ChatBar.qml:97
 #, kde-format
-msgid "Write your message..."
-msgstr "Skriv melding …"
+msgid "Send an encrypted message…"
+msgstr ""
+
+#: imports/NeoChat/Component/ChatBox/ChatBar.qml:97
+#, kde-format
+msgid "Send a message…"
+msgstr ""
 
 #: imports/NeoChat/Component/ChatBox/ChatBar.qml:290
 #, kde-format
@@ -228,14 +233,14 @@ msgstr "Logg inn"
 msgid "Complete the authentication steps in your browser"
 msgstr "Stadfest autentiserings­stega via nettlesaren"
 
-#: imports/NeoChat/Component/Timeline/EncryptedDelegate.qml:16
+#: imports/NeoChat/Component/Timeline/EncryptedDelegate.qml:15
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
 "device."
 msgstr ""
 
-#: imports/NeoChat/Component/Timeline/FileDelegate.qml:54
+#: imports/NeoChat/Component/Timeline/FileDelegate.qml:53
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -243,20 +248,20 @@ msgctxt ""
 msgid "Open File"
 msgstr ""
 
-#: imports/NeoChat/Component/Timeline/FileDelegate.qml:65
+#: imports/NeoChat/Component/Timeline/FileDelegate.qml:64
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr ""
 
-#: imports/NeoChat/Component/Timeline/FileDelegate.qml:71
+#: imports/NeoChat/Component/Timeline/FileDelegate.qml:70
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
 msgid "Stop Download"
 msgstr ""
 
-#: imports/NeoChat/Component/Timeline/FileDelegate.qml:118
+#: imports/NeoChat/Component/Timeline/FileDelegate.qml:117
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
@@ -285,7 +290,7 @@ msgid_plural "%2 reacted with %3"
 msgstr[0] "%2 reagerte med %3"
 msgstr[1] "%2 reagerte med %3"
 
-#: imports/NeoChat/Component/Timeline/ReadMarkerDelegate.qml:20
+#: imports/NeoChat/Component/Timeline/ReadMarkerDelegate.qml:58
 #, kde-format
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
@@ -296,7 +301,7 @@ msgstr ""
 msgid " (edited)"
 msgstr ""
 
-#: imports/NeoChat/Component/Timeline/VideoDelegate.qml:84
+#: imports/NeoChat/Component/Timeline/VideoDelegate.qml:82
 #, kde-format
 msgid "Video"
 msgstr "Video"
@@ -610,7 +615,7 @@ msgstr "Lagra som"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:35
-#: imports/NeoChat/Page/RoomPage.qml:471 src/notificationsmanager.cpp:68
+#: imports/NeoChat/Page/RoomPage.qml:475 src/notificationsmanager.cpp:68
 #, kde-format
 msgid "Reply"
 msgstr "Svar"
@@ -853,7 +858,7 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 skriv"
 msgstr[1] "%2 skriv"
 
-#: imports/NeoChat/Page/RoomPage.qml:446
+#: imports/NeoChat/Page/RoomPage.qml:450
 #, kde-format
 msgid "React"
 msgstr "Reager"
