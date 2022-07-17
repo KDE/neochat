@@ -17,6 +17,8 @@ Kirigami.ScrollablePage {
             id: devices
         }
 
+        anchors.fill: parent
+
         Kirigami.PlaceholderMessage {
             visible: parent.model.count === 0 // We can assume 0 means loading since there is at least one device
             anchors.centerIn: parent

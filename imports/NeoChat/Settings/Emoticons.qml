@@ -19,9 +19,10 @@ Kirigami.ScrollablePage {
     title: i18nc('@title:window', 'Custom Emojis')
 
     ListView {
+        anchors.fill: parent
+
         model: CustomEmojiModel {
             id: emojiModel
-
             connection: Controller.activeConnection
         }
 

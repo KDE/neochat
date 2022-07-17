@@ -23,6 +23,7 @@ Kirigami.ScrollablePage {
 
     ListView {
         model: AccountRegistry
+        anchors.fill: parent
         delegate: Kirigami.BasicListItem {
             text: model.connection.localUser.displayName
             labelItem.textFormat: Text.PlainText
@@ -30,31 +31,39 @@ Kirigami.ScrollablePage {
             icon: model.connection.localUser.avatarMediaId ? ("image://mxc/" + model.connection.localUser.avatarMediaId) : "im-user"
 
             onClicked: {
-                Controller.activeConnection = model.connection
-                pageStack.layers.pop()
+                Controller.activeConnection = model.connection;
+                pageStack.layers.pop();
             }
 
             trailing: RowLayout {
                 Controls.ToolButton {
                     display: Controls.AbstractButton.IconOnly
+                    Controls.ToolTip {
+                        text: parent.action.text
+                    }
                     action: Kirigami.Action {
                         text: i18n("Edit this account")
                         iconName: "document-edit"
-                        onTriggered: {
-                            userEditSheet.connection = model.connection
-                            userEditSheet.open()
-                        }
+                        onTriggered: pageSettingStack.pushDialogLayer(Qt.resolvedUrl('./AccountEditorPage.qml'), {
+                            connection: model.connection
+                        }, {
+                            title: i18n('Account editor')
+                        });
                     }
                 }
                 Controls.ToolButton {
                     display: Controls.AbstractButton.IconOnly
+                    Controls.ToolTip {
+                        text: parent.action.text
+                    }
                     action: Kirigami.Action {
                         text: i18n("Logout")
                         iconName: "im-kick-user"
                         onTriggered: {
-                            Controller.logout(model.connection, true)
-                            if(Controller.accountCount === 1)
-                                pageStack.layers.pop()
+                            Controller.logout(model.connection, true);
+                            if (Controller.accountCount === 1) {
+                                pageStack.layers.pop();
+                            }
                         }
                     }
                 }
@@ -76,141 +85,29 @@ Kirigami.ScrollablePage {
             }
         }
     }
-    Connections {
+
+    property Connections connection: Connections {
         target: Controller
         function onConnectionAdded() {
             if (pageStack.layers.depth > 2)
                 pageStack.layers.pop()
         }
         function onPasswordStatus(status) {
-            if(status == Controller.Success)
-                showPassiveNotification(i18n("Password changed successfully"))
-            else if(status == Controller.Wrong)
-                showPassiveNotification(i18n("Wrong password entered"))
-            else
-                showPassiveNotification(i18n("Unknown problem while trying to change password"))
+            if (status === Controller.Success) {
+                showPassiveNotification(i18n("Password changed successfully"));
+            } else if (status === Controller.Wrong) {
+                showPassiveNotification(i18n("Wrong password entered"));
+            } else {
+                showPassiveNotification(i18n("Unknown problem while trying to change password"));
+            }
         }
     }
 
-    Component {
+    property Component openFileDialog: Component {
         id: openFileDialog
 
         OpenFileDialog {
             folder: StandardPaths.writableLocation(StandardPaths.PicturesLocation)
-        }
-    }
-
-    Kirigami.OverlaySheet {
-        id: userEditSheet
-
-        property var connection
-
-        title: i18n("Edit Account")
-
-        Kirigami.FormLayout {
-            RowLayout {
-                Kirigami.Avatar {
-                    id: avatar
-                    source: userEditSheet.connection && userEditSheet.connection.localUser.avatarMediaId ? ("image://mxc/" + userEditSheet.connection.localUser.avatarMediaId) : ""
-
-                    MouseArea {
-                        id: mouseArea
-                        anchors.fill: parent
-                        property var fileDialog: null;
-                        onClicked: {
-                            if (fileDialog != null) {
-                                return;
-                            }
-
-                            fileDialog = openFileDialog.createObject(Controls.ApplicationWindow.Overlay)
-
-                            fileDialog.chosen.connect(function(receivedSource) {
-                                mouseArea.fileDialog = null;
-                                if (!receivedSource) {
-                                    return;
-                                }
-                                parent.source = receivedSource;
-                            });
-                            fileDialog.onRejected.connect(function() {
-                                mouseArea.fileDialog = null;
-                            });
-                            fileDialog.open();
-                        }
-                    }
-                }
-                Controls.Button {
-                    visible: avatar.source.toString().length !== 0
-                    icon.name: "edit-clear"
-
-                    onClicked: avatar.source = ""
-                }
-                Kirigami.FormData.label: i18n("Avatar:")
-            }
-            Controls.TextField {
-                id: name
-                text: userEditSheet.connection ? userEditSheet.connection.localUser.displayName : ""
-                Kirigami.FormData.label: i18n("Name:")
-            }
-            Controls.TextField {
-                id: accountLabel
-                text: userEditSheet.connection ? userEditSheet.connection.localUser.accountLabel : ""
-                Kirigami.FormData.label: i18n("Label:")
-            }
-            Controls.TextField {
-                id: currentPassword
-                Kirigami.FormData.label: i18n("Current Password:")
-                enabled: userEditSheet.connection !== undefined && userEditSheet.connection.canChangePassword !== false
-                echoMode: TextInput.Password
-            }
-            Controls.TextField {
-                id: newPassword
-                Kirigami.FormData.label: i18n("New Password:")
-                enabled: userEditSheet.connection !== undefined && userEditSheet.connection.canChangePassword !== false
-                echoMode: TextInput.Password
-
-            }
-            Controls.TextField {
-                id: confirmPassword
-                Kirigami.FormData.label: i18n("Confirm new Password:")
-                enabled: userEditSheet.connection !== undefined && userEditSheet.connection.canChangePassword !== false
-                echoMode: TextInput.Password
-            }
-
-            RowLayout {
-                Controls.Button {
-                    text: i18n("Save")
-                    onClicked: {
-                        if(!Controller.setAvatar(userEditSheet.connection, avatar.source))
-                            showPassiveNotification("The Avatar could not be set")
-                        if(userEditSheet.connection.localUser.displayName !== name.text)
-                            userEditSheet.connection.localUser.rename(name.text)
-                        if(userEditSheet.connection.localUser.accountLabel !== accountLabel.text)
-                            userEditSheet.connection.localUser.setAccountLabel(accountLabel.text)
-                        if(currentPassword.text !== "" && newPassword.text !== "" && confirmPassword.text !== "") {
-                            if(newPassword.text === confirmPassword.text) {
-                                Controller.changePassword(userEditSheet.connection, currentPassword.text, newPassword.text)
-                            } else {
-                                showPassiveNotification(i18n("Passwords do not match"))
-                                return
-                            }
-                        }
-                        userEditSheet.close()
-                        currentPassword.text = ""
-                        newPassword.text = ""
-                        confirmPassword.text = ""
-                    }
-                }
-                Controls.Button {
-                    text: i18n("Cancel")
-                    onClicked: {
-                        userEditSheet.close()
-                        avatar.source = userEditSheet.connection.localUser.avatarMediaId ? ("image://mxc/" + userEditSheet.connection.localUser.avatarMediaId) : ""
-                        currentPassword.text = ""
-                        newPassword.text = ""
-                        confirmPassword.text = ""
-                    }
-                }
-            }
         }
     }
 }
