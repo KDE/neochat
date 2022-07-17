@@ -20,7 +20,7 @@ Kirigami.ScrollablePage {
         anchors.fill: parent
 
         Kirigami.PlaceholderMessage {
-            visible: parent.model.count === 0 // We can assume 0 means loading since there is at least one device
+            visible: parent.count === 0 // We can assume 0 means loading since there is at least one device
             anchors.centerIn: parent
             text: i18n("Loading…")
             Controls.BusyIndicator {

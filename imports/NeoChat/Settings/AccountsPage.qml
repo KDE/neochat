@@ -86,7 +86,7 @@ Kirigami.ScrollablePage {
         }
     }
 
-    property Connections connection: Connections {
+    Connections {
         target: Controller
         function onConnectionAdded() {
             if (pageStack.layers.depth > 2)
