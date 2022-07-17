@@ -14,6 +14,7 @@ Kirigami.ScrollablePage {
     title: i18nc('@title:window', 'General')
     ColumnLayout {
         Kirigami.FormLayout {
+            Layout.fillWidth: true
             QQC2.CheckBox {
                 Kirigami.FormData.label: i18n("General settings:")
                 text: i18n("Close to system tray")
@@ -96,19 +97,16 @@ Kirigami.ScrollablePage {
             QQC2.CheckBox {
                 id: quickEditCheckbox
                 Layout.maximumWidth: parent.width
-                contentItem: QQC2.Label {
-                    text: i18n("Use s/text/replacement syntax to edit your last message")
-                    horizontalAlignment: Text.AlignLeft
-                    verticalAlignment: Text.AlignVCenter
-                    leftPadding: quickEditCheckbox.indicator.width + quickEditCheckbox.spacing
-                    wrapMode: QQC2.Label.Wrap
-                }
+                text: i18n("Use s/text/replacement syntax to edit your last message")
                 checked: Config.allowQuickEdit
                 enabled: !Config.isAllowQuickEditImmutable
                 onToggled: {
                     Config.allowQuickEdit = checked
                     Config.save()
                 }
+
+                // TODO KF5.97 remove this line
+                Component.onCompleted: this.contentItem.wrap = QQC2.Label.Wrap
             }
             QQC2.CheckBox {
                 text: i18n("Send Typing Notifications")
@@ -121,12 +119,16 @@ Kirigami.ScrollablePage {
             }
             QQC2.CheckBox {
                 text: i18n("Automatically hide/unhide the room information when resizing the window")
+                Layout.maximumWidth: parent.width
                 checked: Config.autoRoomInfoDrawer
                 enabled: !Config.isAutoRoomInfoDrawerImmutable
                 onToggled: {
                     Config.autoRoomInfoDrawer = checked
                     Config.save()
                 }
+
+                // TODO KF5.97 remove this line
+                Component.onCompleted: this.contentItem.wrap = QQC2.Label.Wrap
             }
         }
     }
