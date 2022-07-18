@@ -59,7 +59,7 @@ a{
     textFormat: Text.RichText
 
     onLinkActivated: RoomManager.openResource(link)
-    onHoveredLinkChanged: if (hoveredLink.length > 0) {
+    onHoveredLinkChanged: if (hoveredLink.length > 0 && hoveredLink !== "1") {
         applicationWindow().hoverLinkIndicator.text = hoveredLink;
     } else {
         applicationWindow().hoverLinkIndicator.text = "";
