@@ -217,6 +217,9 @@ Kirigami.OverlayDrawer {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
 
+                // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
+                ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+
                 ListView {
                     id: userListView
                     clip: true

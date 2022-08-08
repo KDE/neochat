@@ -47,6 +47,7 @@ Popup {
     implicitHeight: Math.min(completionListView.contentHeight, Kirigami.Units.gridUnit * 10)
 
     contentItem: ScrollView {
+        // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
         ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
         ListView {
             id: completionListView

@@ -71,6 +71,10 @@ Loader {
                     Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                     Layout.fillWidth: true
                     Layout.maximumHeight: fontMetrics.lineSpacing * 8 - fontMetrics.leading
+
+                    // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
+                    ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+
                     TextArea {
                         id: textArea
                         leftPadding: 0

@@ -22,6 +22,10 @@ Kirigami.Page {
     ScrollView {
         anchors.fill: parent
         contentWidth: availableWidth
+
+        // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
+        ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+
         TextArea {
             id: sourceTextArea
             text: sourceText

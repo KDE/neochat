@@ -63,6 +63,9 @@ ToolBar {
             Layout.maximumHeight: fontMetrics.lineSpacing * 8 - fontMetrics.leading
                                 + inputField.topPadding + inputField.bottomPadding
 
+            // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
+            ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+
             FontMetrics {
                 id: fontMetrics
                 font: inputField.font

@@ -190,6 +190,10 @@ Kirigami.Page {
             Layout.fillHeight: true
             enabled: autodetectLanguageCheckbox.checked
             Component.onCompleted: background.visible = wideMode
+
+            // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
+            QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
+
             ListView {
                 clip: true
                 model: settings.dictionaryModel
@@ -254,6 +258,10 @@ Kirigami.Page {
             }
             QQC2.ScrollView {
                 anchors.fill: parent
+
+                // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
+                QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
+
                 ListView {
                     model: settings.currentIgnoreList
                     delegate: Kirigami.BasicListItem {
