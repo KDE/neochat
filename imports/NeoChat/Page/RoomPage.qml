@@ -23,6 +23,7 @@ Kirigami.ScrollablePage {
 
     /// It's not readonly because of the seperate window view.
     property var currentRoom: RoomManager.currentRoom
+    property bool loading: page.currentRoom === null || (messageListView.count === 0 && !page.currentRoom.allHistoryLoaded && !page.currentRoom.isInvite)
     /// Used to determine if scrolling to the bottom should mark the message as unread
     property bool hasScrolledUpBefore: false;
 
@@ -53,6 +54,25 @@ Kirigami.ScrollablePage {
     onCurrentRoomChanged: {
         hasScrolledUpBefore = false;
         ChatBoxHelper.clearEditReply()
+    }
+
+    Connections {
+        target: messageEventModel
+        function onRowsInserted() {
+            markReadIfVisibleTimer.restart()
+        }
+    }
+
+    Timer {
+        id: markReadIfVisibleTimer
+        interval: 1000
+        onTriggered: {
+            if (loading || !currentRoom.readMarkerLoaded || !applicationWindow().active) {
+                restart()
+            } else {
+                markReadIfVisible()
+            }
+        }
     }
 
     ActionsHandler {
@@ -123,7 +143,7 @@ Kirigami.ScrollablePage {
     Kirigami.PlaceholderMessage {
         id: loadingIndicator
         anchors.centerIn: parent
-        visible: page.currentRoom === null || (messageListView.count === 0 && !page.currentRoom.allHistoryLoaded && !page.currentRoom.isInvite)
+        visible: loading
         text: i18n("Loading…")
         QQC2.BusyIndicator {
             running: loadingIndicator.visible
@@ -590,6 +610,14 @@ Kirigami.ScrollablePage {
             i++
         }
         return index;
+    }
+
+    // Mark all messages as read if all unread messages are visible to the user
+    function markReadIfVisible() {
+        let readMarkerRow = eventToIndex(currentRoom.readMarkerEventId)
+        if (readMarkerRow > 0 && readMarkerRow < firstVisibleIndex()) {
+            currentRoom.markAllMessagesAsRead()
+        }
     }
 
     /// Open message context dialog for file and videos
