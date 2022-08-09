@@ -193,6 +193,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             }
             refreshEventRoles(eventId, {ReactionRole, Qt::DisplayRole});
         });
+        connect(m_currentRoom, &Room::newFileTransfer, this, &MessageEventModel::refreshEvent);
         connect(m_currentRoom, &Room::fileTransferProgress, this, &MessageEventModel::refreshEvent);
         connect(m_currentRoom, &Room::fileTransferCompleted, this, &MessageEventModel::refreshEvent);
         connect(m_currentRoom, &Room::fileTransferFailed, this, &MessageEventModel::refreshEvent);
