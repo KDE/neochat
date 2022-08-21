@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-08-10 00:46+0000\n"
-"PO-Revision-Date: 2022-07-23 23:37+0200\n"
+"PO-Revision-Date: 2022-08-13 21:49+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.07.70\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -69,10 +69,9 @@ msgid "Send an encrypted message…"
 msgstr "Eine verschlüsselte Nachricht senden ..."
 
 #: imports/NeoChat/Component/ChatBox/ChatBar.qml:100
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgid "Send a message…"
-msgstr "Nachricht senden"
+msgstr "Eine Nachricht senden ..."
 
 #: imports/NeoChat/Component/ChatBox/ChatBar.qml:293
 #, kde-format
@@ -373,7 +372,7 @@ msgstr "Verbannung diese Benutzers aufheben"
 #: imports/NeoChat/Dialog/UserDetailDialog.qml:142
 #, kde-format
 msgid "Delete recent messages by this user"
-msgstr ""
+msgstr "Kürzliche Nachrichten dieses Benutzers löschen"
 
 #: imports/NeoChat/Dialog/UserDetailDialog.qml:153
 #, kde-format
@@ -480,7 +479,7 @@ msgstr "Neue Gruppe ..."
 #, kde-format
 msgctxt "menu"
 msgid "Browse Chats…"
-msgstr ""
+msgstr "Chats durchsuchen ..."
 
 #: imports/NeoChat/Menu/GlobalMenu.qml:65
 #, kde-format
@@ -1256,7 +1255,7 @@ msgstr "Minimieren"
 #: imports/NeoChat/Settings/GeneralSettingsPage.qml:30
 #, kde-format
 msgid "Minimize to system tray on startup"
-msgstr ""
+msgstr "Beim Start in den Systemabschnitt der Kontrollleiste minimieren"
 
 #: imports/NeoChat/Settings/GeneralSettingsPage.qml:42
 #, kde-format
@@ -1274,16 +1273,14 @@ msgid "Show leave and join events"
 msgstr "Ereignisse vom Beitreten und Verlassen anzeigen"
 
 #: imports/NeoChat/Settings/GeneralSettingsPage.qml:61
-#, fuzzy, kde-format
-#| msgid "Show leave and join events"
+#, kde-format
 msgid "Show name change events"
-msgstr "Ereignisse vom Beitreten und Verlassen anzeigen"
+msgstr "Namensänderungen anzeigen"
 
 #: imports/NeoChat/Settings/GeneralSettingsPage.qml:70
-#, fuzzy, kde-format
-#| msgid "Show leave and join events"
+#, kde-format
 msgid "Show avatar update events"
-msgstr "Ereignisse vom Beitreten und Verlassen anzeigen"
+msgstr "Avataränderungen anzeigen"
 
 #: imports/NeoChat/Settings/GeneralSettingsPage.qml:79
 #, kde-format
@@ -1308,15 +1305,16 @@ msgstr ""
 "bearbeiten"
 
 #: imports/NeoChat/Settings/GeneralSettingsPage.qml:112
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Send Typing Notifications"
-msgstr "Benachrichtigungen anzeigen"
+msgstr "Tippbenachrichtigungen senden"
 
 #: imports/NeoChat/Settings/GeneralSettingsPage.qml:121
 #, kde-format
 msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr ""
+"Automatisch Rauminformationen anzeigen/ausblenden wenn die Fenstergröße "
+"geändert wird"
 
 #: imports/NeoChat/Settings/SettingsPage.qml:18
 #, kde-format
@@ -1572,31 +1570,29 @@ msgid "Login Failed: %1"
 msgstr "Anmeldung fehlgeschlagen: %1"
 
 #: src/controller.cpp:366
-#, fuzzy, kde-format
-#| msgid "Access Token (Optional)"
+#, kde-format
 msgid "Access token wasn't found"
-msgstr "Zugangs-Token (optional)"
+msgstr "Zugangs-Token kann nicht gefunden werden"
 
 #: src/controller.cpp:366
 #, kde-format
 msgid "Maybe it was deleted?"
-msgstr ""
+msgstr "Vielleicht ist es gelöscht worden?"
 
 #: src/controller.cpp:370
 #, kde-format
 msgid "Access to keychain was denied."
-msgstr ""
+msgstr "Der Zugriff auf das Schlüsselbund ist verweigert worden."
 
 #: src/controller.cpp:370
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
-msgstr ""
+msgstr "Bitte erlauben Sie NeoChat, das Zugangs-Token zu lesen"
 
 #: src/controller.cpp:373
-#, fuzzy, kde-format
-#| msgid "No users available"
+#, kde-format
 msgid "No keychain available."
-msgstr "Keine Benutzer verfügbar"
+msgstr "Kein Schlüsselbund verfügbar."
 
 #: src/controller.cpp:373
 #, kde-format
@@ -1606,7 +1602,7 @@ msgstr ""
 #: src/controller.cpp:376
 #, kde-format
 msgid "Unable to read access token"
-msgstr ""
+msgstr "Das Zugangs-Token kann nicht gelesen werden"
 
 #: src/controller.cpp:631
 #, kde-format
@@ -1657,6 +1653,8 @@ msgstr "Tobias Fella"
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr ""
+"Eine Qt5-Bibliothek zum Schreiben vo plattformübergreifenden Programmen für "
+"Matrix"
 
 #: src/main.cpp:245
 #, kde-format
@@ -1898,19 +1896,19 @@ msgstr ""
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
-msgstr ""
+msgstr "hat %1-Element hinzugrfügt"
 
 #: src/neochatroom.cpp:581
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
-msgstr ""
+msgstr "hat %1-Element entfernt"
 
 #: src/neochatroom.cpp:583
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
-msgstr ""
+msgstr "hat %1-Element eingerichtet"
 
 #: src/neochatroom.cpp:585
 #, kde-format
@@ -1948,10 +1946,9 @@ msgid "%1 invited you to a room"
 msgstr "%1 hat Sie in einen Raum eingeladen"
 
 #: src/notificationsmanager.cpp:96
-#, fuzzy, kde-format
-#| msgid "Open a private chat"
+#, kde-format
 msgid "Open this invitation in NeoChat"
-msgstr "Privaten Chat öffnen"
+msgstr "Diese Einladung in NeoChat öffnen"
 
 #: src/notificationsmanager.cpp:105
 #, kde-format
@@ -2029,7 +2026,7 @@ msgstr "Ihr Betriebssystem konnte keine Anwendung für die Verknüpfung finden."
 #: src/roommanager.cpp:206
 #, kde-format
 msgid "Could not open URL"
-msgstr ""
+msgstr "Adresse kann nicht geöffnet werden"
 
 #: src/trayicon.cpp:17
 #, kde-format
