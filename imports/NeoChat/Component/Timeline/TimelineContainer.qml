@@ -58,7 +58,7 @@ QQC2.ItemDelegate {
     // updates the global hover component to point to this delegate, and update its position
     function updateHoverComponent() {
         if (hoverComponent) {
-            hoverComponent.delegate = messageDelegate
+            hoverComponent.delegate = timelineContainer
             hoverComponent.bubble = bubble
             hoverComponent.updateFunction = updateHoverComponent;
             hoverComponent.event = model
@@ -71,7 +71,7 @@ QQC2.ItemDelegate {
         State {
             name: "alignLeft"
             AnchorChanges {
-                target: messageDelegate
+                target: timelineContainer
                 anchors.horizontalCenter: undefined
                 anchors.left: parent ? parent.left : undefined
             }
@@ -79,7 +79,7 @@ QQC2.ItemDelegate {
         State {
             name: "alignCenter"
             AnchorChanges {
-                target: messageDelegate
+                target: timelineContainer
                 anchors.horizontalCenter: parent ? parent.horizontalCenter : undefined
                 anchors.left: undefined
             }
