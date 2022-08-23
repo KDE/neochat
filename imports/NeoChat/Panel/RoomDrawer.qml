@@ -299,7 +299,9 @@ Kirigami.OverlayDrawer {
     }
 
     onRoomChanged: {
-        loader.item.userSearchText = ""
+        if (loader.active) {
+            loader.item.userSearchText = ""
+        }
         if (room == null) {
             close()
         }
