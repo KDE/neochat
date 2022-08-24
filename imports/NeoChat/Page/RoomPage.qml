@@ -408,7 +408,7 @@ Kirigami.ScrollablePage {
                 currentRoom.usersTyping.length,
                 currentRoom.usersTyping.map(user => user.displayName).join(", ")
             ) : ""
-            anchors.right: parent.right
+            anchors.left: parent.left
             height: visible ? implicitHeight : 0
             Behavior on height {
                 NumberAnimation {
