@@ -55,7 +55,7 @@ We welcome contributions in this direction.
 
 ## Contact
 
-You can reach the maintainers at #neochat:kde.org, if you are already on Matrix.
+You can reach the maintainers at [#neochat:kde.org](https://matrix.to/#/#neochat:kde.org), if you are already on Matrix.
 Development happens in http://invent.kde.org/network/neochat (not in GitHub).
 
 ## Acknowledgement
