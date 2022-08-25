@@ -148,11 +148,7 @@ ToolBar {
                 }
 
                 Keys.onPressed: {
-                    if (event.key === Qt.Key_PageDown) {
-                        switchRoomDown();
-                    } else if (event.key === Qt.Key_PageUp) {
-                        switchRoomUp();
-                    } else if (event.key === Qt.Key_V && event.modifiers & Qt.ControlModifier) {
+                    if (event.key === Qt.Key_V && event.modifiers & Qt.ControlModifier) {
                         chatBar.pasteImage();
                     } else if (event.key === Qt.Key_Up && event.modifiers & Qt.ControlModifier) {
                         replyPreviousUserMessage();
