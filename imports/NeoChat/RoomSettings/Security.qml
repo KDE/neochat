@@ -22,7 +22,7 @@ Kirigami.ScrollablePage {
         Kirigami.FormLayout {
             Layout.fillWidth: true
 
-            CheckBox {
+            RadioButton {
                 text: i18nc("@option:check", "Private (invite only)")
                 Kirigami.FormData.label: i18nc("@option:check", "Access:")
                 checked: room.joinRule === "invite"
@@ -32,7 +32,7 @@ Kirigami.ScrollablePage {
                 text: i18n("Only invited people can join.")
                 font: Kirigami.Theme.smallFont
             }
-            CheckBox {
+            RadioButton {
                 text: i18nc("@option:check", "Space members")
                 checked: room.joinRule === "restricted"
                 enabled: false
@@ -41,7 +41,7 @@ Kirigami.ScrollablePage {
                 text: i18n("Anyone in a space can find and join.")
                 font: Kirigami.Theme.smallFont
             }
-            CheckBox {
+            RadioButton {
                 text: i18nc("@option:check", "Public")
                 checked: room.joinRule === "public"
                 enabled: false
