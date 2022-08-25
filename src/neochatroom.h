@@ -72,6 +72,8 @@ public:
     /// \see lastEventToString
     [[nodiscard]] QString subtitleText();
 
+    [[nodiscard]] bool isSpace();
+
     bool isEventHighlighted(const Quotient::RoomEvent *e) const;
 
     [[nodiscard]] QString joinRule() const;

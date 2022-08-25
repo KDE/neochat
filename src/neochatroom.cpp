@@ -30,6 +30,7 @@
 #include "events/accountdataevents.h"
 #include "events/reactionevent.h"
 #include "events/roomcanonicalaliasevent.h"
+#include "events/roomcreateevent.h"
 #include "events/roommessageevent.h"
 #include "events/roompowerlevelsevent.h"
 #include "events/typingevent.h"
@@ -868,4 +869,18 @@ QCoro::Task<void> NeoChatRoom::doDeleteMessagesByUser(const QString &user)
 void NeoChatRoom::clearInvitationNotification()
 {
     NotificationsManager::instance().clearInvitationNotification(id());
+}
+
+bool NeoChatRoom::isSpace()
+{
+    const auto creationEvent = this->creation();
+    if (!creationEvent) {
+        return false;
+    }
+
+#ifdef QUOTIENT_07
+    return creationEvent->roomType() == RoomType::Space;
+#else
+    return false;
+#endif
 }

@@ -69,6 +69,8 @@
 #include "roomlistmodel.h"
 #include "roommanager.h"
 #include "sortfilterroomlistmodel.h"
+#include "sortfilterspacelistmodel.h"
+#include "spacehierarchycache.h"
 #include "urlhelper.h"
 #include "userdirectorylistmodel.h"
 #include "userlistmodel.h"
@@ -177,6 +179,7 @@ int main(int argc, char *argv[])
     Login *login = new Login();
     ChatBoxHelper chatBoxHelper;
     UrlHelper urlHelper;
+    SpaceHierarchyCache spaceHierarchyCache;
 
 #ifdef HAVE_COLORSCHEME
     ColorSchemer colorScheme;
@@ -197,6 +200,7 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "EmojiModel", new EmojiModel(&app));
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "CommandModel", new CommandModel(&app));
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "AccountRegistry", &Quotient::AccountRegistry::instance());
+    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "SpaceHierarchyCache", &spaceHierarchyCache);
     qmlRegisterType<ActionsHandler>("org.kde.neochat", 1, 0, "ActionsHandler");
     qmlRegisterType<ChatDocumentHandler>("org.kde.neochat", 1, 0, "ChatDocumentHandler");
     qmlRegisterType<RoomListModel>("org.kde.neochat", 1, 0, "RoomListModel");
@@ -209,6 +213,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<PublicRoomListModel>("org.kde.neochat", 1, 0, "PublicRoomListModel");
     qmlRegisterType<UserDirectoryListModel>("org.kde.neochat", 1, 0, "UserDirectoryListModel");
     qmlRegisterType<SortFilterRoomListModel>("org.kde.neochat", 1, 0, "SortFilterRoomListModel");
+    qmlRegisterType<SortFilterSpaceListModel>("org.kde.neochat", 1, 0, "SortFilterSpaceListModel");
     qmlRegisterType<DevicesModel>("org.kde.neochat", 1, 0, "DevicesModel");
     qmlRegisterUncreatableType<RoomMessageEvent>("org.kde.neochat", 1, 0, "RoomMessageEvent", "ENUM");
     qmlRegisterUncreatableType<NeoChatRoomType>("org.kde.neochat", 1, 0, "NeoChatRoomType", "ENUM");

@@ -76,6 +76,23 @@ QString SortFilterRoomListModel::filterText() const
 bool SortFilterRoomListModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
     Q_UNUSED(source_parent);
-    return sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::NameRole).toString().contains(m_filterText, Qt::CaseInsensitive)
-        && sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::JoinStateRole).toString() != "upgraded";
+
+    bool acceptRoom = sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::NameRole).toString().contains(m_filterText, Qt::CaseInsensitive)
+        && sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::JoinStateRole).toString() != "upgraded"
+        && sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::IsSpaceRole).toBool() == false;
+
+    if (m_activeSpaceRooms.empty())
+        return acceptRoom;
+    else
+        return std::find(m_activeSpaceRooms.begin(),
+                         m_activeSpaceRooms.end(),
+                         sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::IdRole).toString())
+            != m_activeSpaceRooms.end()
+            && acceptRoom;
+}
+
+void SortFilterRoomListModel::setActiveSpaceRooms(QVector<QString> activeSpaceRooms)
+{
+    this->m_activeSpaceRooms = activeSpaceRooms;
+    invalidate();
 }

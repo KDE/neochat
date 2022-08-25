@@ -15,6 +15,95 @@ import NeoChat.Component 1.0
 import NeoChat.Menu 1.0
 
 Kirigami.ScrollablePage {
+
+    header: ColumnLayout {
+        visible: !page.collapsedMode
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        spacing: 0
+
+        ListView {
+            id: spaceList
+            property string activeSpaceId: ''
+
+            orientation: Qt.Horizontal
+            spacing: Kirigami.Units.largeSpacing
+            clip:true
+            visible: spaceList.count > 0
+
+            Layout.preferredHeight: Kirigami.Units.gridUnit * 3
+            Layout.fillWidth: true
+
+            model: SortFilterSpaceListModel {
+                id: sortFilterSpaceListModel
+                sourceModel: RoomListModel {
+                    id: spaceListModel
+                    connection: Controller.activeConnection
+                }
+            }
+
+
+            Connections {
+                target: SpaceHierarchyCache
+                function onSpaceHierarchyChanged() {
+                    if (spaceList.activeSpaceId !== '') {
+                        sortFilterRoomListModel.activeSpaceRooms = SpaceHierarchyCache.getRoomListForSpace(spaceList.activeSpaceId, false);
+                    }
+                }
+            }
+
+            header: QQC2.Control {
+                contentItem: QQC2.RoundButton {
+                    id: homeButton
+                    flat: true
+                    padding: Kirigami.Units.gridUnit / 2
+                    icon.name: "home"
+                    text: i18nc('@action:button', 'Show All Rooms')
+                    display: QQC2.AbstractButton.IconOnly
+
+                    onClicked: {
+                        sortFilterRoomListModel.activeSpaceRooms = [];
+                        spaceList.activeSpaceId = '';
+                        listView.positionViewAtIndex(0, ListView.Beginning);
+                    }
+
+                    QQC2.ToolTip {
+                        text: homeButton.text
+                    }
+                }
+            }
+
+            delegate: QQC2.Control {
+                required property string avatar
+                required property var currentRoom
+                required property int index
+                required property string id
+                implicitWidth: ListView.view.headerItem.implicitWidth
+                implicitHeight: ListView.view.headerItem.implicitHeight
+
+                contentItem: Kirigami.Avatar {
+                    id: del
+
+                    actions.main: Kirigami.Action {
+                        id: enterSpaceAction
+                        onTriggered: {
+                            spaceList.activeSpaceId = id;
+                            sortFilterRoomListModel.activeSpaceRooms = SpaceHierarchyCache.getRoomListForSpace(id, true);
+                        }
+                    }
+
+                    QQC2.ToolTip {
+                        text: currentRoom.displayName
+                    }
+
+                    source: avatar !== "" ? "image://mxc/" + avatar : ""
+                }
+            }
+        }
+        Kirigami.Separator {
+            Layout.fillWidth: true
+        }
+    }
     id: page
 
     title: i18n("Rooms")
@@ -68,7 +157,6 @@ Kirigami.ScrollablePage {
         }
     }
 
-
     ListView {
         id: listView
 
@@ -99,6 +187,8 @@ Kirigami.ScrollablePage {
                 anchors.bottom: parent.bottom
             }
         }
+
+        Layout.fillWidth: true
 
         Kirigami.PlaceholderMessage {
             anchors.centerIn: parent

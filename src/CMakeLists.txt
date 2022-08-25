@@ -14,6 +14,8 @@ add_library(neochat STATIC
     messageeventmodel.cpp
     messagefiltermodel.cpp
     roomlistmodel.cpp
+    sortfilterspacelistmodel.cpp
+    spacehierarchycache.cpp
     roommanager.cpp
     neochatroom.cpp
     neochatuser.cpp

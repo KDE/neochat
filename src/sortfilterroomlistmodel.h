@@ -11,6 +11,7 @@ class SortFilterRoomListModel : public QSortFilterProxyModel
 
     Q_PROPERTY(RoomSortOrder roomSortOrder READ roomSortOrder WRITE setRoomSortOrder NOTIFY roomSortOrderChanged)
     Q_PROPERTY(QString filterText READ filterText READ filterText WRITE setFilterText NOTIFY filterTextChanged)
+    Q_PROPERTY(QVector<QString> activeSpaceRooms WRITE setActiveSpaceRooms)
 
 public:
     enum RoomSortOrder {
@@ -30,6 +31,8 @@ public:
 
     [[nodiscard]] bool lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const override;
 
+    Q_INVOKABLE void setActiveSpaceRooms(QVector<QString> activeSpaceRooms);
+
 protected:
     [[nodiscard]] bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 
@@ -40,4 +43,5 @@ Q_SIGNALS:
 private:
     RoomSortOrder m_sortOrder = Categories;
     QString m_filterText;
+    QVector<QString> m_activeSpaceRooms;
 };
