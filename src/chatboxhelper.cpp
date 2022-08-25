@@ -131,8 +131,8 @@ void ChatBoxHelper::clear()
     setEditContent(QString());
     setReplyEventId(QString());
     setReplyEventContent(QString());
-    setAttachmentPath(QString());
     setReplyUser(QVariant());
+    setAttachmentPath(QString());
 }
 
 void ChatBoxHelper::edit(const QString &message, const QString &formattedBody, const QString &eventId)
@@ -149,6 +149,7 @@ void ChatBoxHelper::clearEditReply()
     setReplyEventId(QString());
     setReplyEventContent(QString());
     setReplyUser(QVariant());
+    setAttachmentPath(QString());
     Q_EMIT shouldClearText();
 }
 

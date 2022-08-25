@@ -106,7 +106,7 @@ Loader {
                 text: i18n("Cancel")
                 display: AbstractButton.IconOnly
                 onClicked: {
-                    ChatBoxHelper.clearEditReply();
+                    ChatBoxHelper.clear();
                     root.replyCancelled();
                 }
                 ToolTip.text: text
