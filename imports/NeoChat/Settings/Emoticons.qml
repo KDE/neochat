@@ -102,7 +102,6 @@ Kirigami.ScrollablePage {
                             this.fileDialog = null
                         })
                         this.fileDialog.onRejected.connect(() => {
-                            rej()
                             this.fileDialog = null
                         })
                         this.fileDialog.open()
