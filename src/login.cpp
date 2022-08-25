@@ -156,7 +156,10 @@ void Login::login()
     m_isLoggingIn = true;
     Q_EMIT isLoggingInChanged();
 
-    m_connection->loginWithPassword(m_matrixId, m_password, m_deviceName, QString());
+    // Some servers do not have a .well_known file. So we login via the username part from the mxid,
+    // rather than with the full mxid, as that would lead to an invalid user.
+    QStringRef username(&m_matrixId, 1, m_matrixId.indexOf(":") - 1);
+    m_connection->loginWithPassword(username.toString(), m_password, m_deviceName, QString());
 }
 
 bool Login::supportsPassword() const

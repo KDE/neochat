@@ -29,7 +29,7 @@ LoginStep {
             Kirigami.FormData.label: i18n("Matrix ID:")
             placeholderText: "@user:matrix.org"
             onTextChanged: {
-                if(acceptableInput) {
+                if (acceptableInput) {
                     LoginHelper.matrixId = text
                 }
             }
