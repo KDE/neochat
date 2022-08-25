@@ -167,9 +167,9 @@ Kirigami.ScrollablePage {
 
     Keys.onPressed: {
         if (event.key === Qt.Key_PageDown && (event.modifiers & Qt.ControlModifier)) {
-            switchRoomUp();
-        } else if (event.key === Qt.Key_PageUp && (event.modifiers & Qt.ControlModifier)) {
             switchRoomDown();
+        } else if (event.key === Qt.Key_PageUp && (event.modifiers & Qt.ControlModifier)) {
+            switchRoomUp();
         } else if (!(event.modifiers & Qt.ControlModifier) && event.key < Qt.Key_Escape) {
             event.accepted = true;
             chatBox.addText(event.text);
