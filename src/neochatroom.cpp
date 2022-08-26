@@ -41,6 +41,7 @@
 #include "user.h"
 #include "utils.h"
 #include <events/eventcontent.h>
+#include <qt_connection_util.h>
 
 #include <KLocalizedString>
 

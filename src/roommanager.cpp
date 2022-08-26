@@ -11,6 +11,7 @@
 #include <QDesktopServices>
 #include <QStandardPaths>
 #include <csapi/joining.h>
+#include <qt_connection_util.h>
 #include <utility>
 
 #ifndef Q_OS_ANDROID

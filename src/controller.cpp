@@ -53,6 +53,7 @@
 #include "roommanager.h"
 #include "settings.h"
 #include "utils.h"
+#include <qt_connection_util.h>
 
 #include <KStandardShortcut>
 
