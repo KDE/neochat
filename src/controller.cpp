@@ -125,13 +125,6 @@ Controller::Controller(QObject *parent)
 #endif
 }
 
-Controller::~Controller()
-{
-    for (auto c : AccountRegistry::instance().accounts()) {
-        c->saveState();
-    }
-}
-
 Controller &Controller::instance()
 {
     static Controller _instance;

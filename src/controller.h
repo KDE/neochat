@@ -101,7 +101,6 @@ public:
 
 private:
     explicit Controller(QObject *parent = nullptr);
-    ~Controller() override;
 
     QPointer<Connection> m_connection;
     bool m_busy = false;
