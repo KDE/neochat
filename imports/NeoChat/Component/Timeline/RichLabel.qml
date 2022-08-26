@@ -44,6 +44,10 @@ a{
     text-decoration: none;
 }
 " + (!spoilerRevealed ? "
+[data-mx-spoiler] a {
+    color: transparent;
+    background: " + Kirigami.Theme.textColor + ";
+}
 [data-mx-spoiler] {
     color: transparent;
     background: " + Kirigami.Theme.textColor + ";
@@ -58,7 +62,10 @@ a{
     wrapMode: Text.Wrap
     textFormat: Text.RichText
 
-    onLinkActivated: RoomManager.openResource(link)
+    onLinkActivated: {
+        spoilerRevealed = true
+        RoomManager.openResource(link)
+    }
     onHoveredLinkChanged: if (hoveredLink.length > 0 && hoveredLink !== "1") {
         applicationWindow().hoverLinkIndicator.text = hoveredLink;
     } else {
