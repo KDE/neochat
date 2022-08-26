@@ -348,6 +348,7 @@ Kirigami.ScrollablePage {
                             visible: notificationCount > 0
                             Kirigami.Theme.colorSet: Kirigami.Theme.Button
                             color: highlightCount > 0 ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.disabledTextColor
+                            opacity: highlightCount > 0 ? 1 : 0.3
                             radius: height / 2
                         }
                     }
