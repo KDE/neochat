@@ -338,13 +338,14 @@ Kirigami.ScrollablePage {
 
                 trailing: RowLayout {
                     QQC2.Label {
-                        text: notificationCount > 0 ? notificationCount : ""
+                        text: notificationCount > 0 ? notificationCount : "●"
                         visible: unreadCount > 0
                         padding: Kirigami.Units.smallSpacing
                         color: Kirigami.Theme.textColor
                         Layout.minimumWidth: height
                         horizontalAlignment: Text.AlignHCenter
                         background: Rectangle {
+                            visible: notificationCount > 0
                             Kirigami.Theme.colorSet: Kirigami.Theme.Button
                             color: highlightCount > 0 ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.disabledTextColor
                             radius: height / 2
