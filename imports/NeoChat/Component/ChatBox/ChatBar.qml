@@ -277,14 +277,14 @@ ToolBar {
         }
 
         Item {
-            visible: !ChatBoxHelper.isReplying && (!ChatBoxHelper.hasAttachment || uploadingBusySpinner.running)
+            visible: !chatBoxHelper.isReplying && (!chatBoxHelper.hasAttachment || uploadingBusySpinner.running)
             implicitWidth: uploadButton.implicitWidth
             implicitHeight: uploadButton.implicitHeight
             ToolButton {
                 id: uploadButton
                 anchors.fill: parent
                 // Matrix does not allow sending attachments in replies
-                visible: !ChatBoxHelper.isReplying  && !ChatBoxHelper.hasAttachment && !uploadingBusySpinner.running
+                visible: !chatBoxHelper.isReplying  && !chatBoxHelper.hasAttachment && !uploadingBusySpinner.running
                 icon.name: "mail-attachment"
                 text: i18n("Attach an image or file")
                 display: AbstractButton.IconOnly
@@ -296,7 +296,7 @@ ToolBar {
                         var fileDialog = openFileDialog.createObject(ApplicationWindow.overlay)
                         fileDialog.chosen.connect((path) => {
                             if (!path) { return }
-                            ChatBoxHelper.attachmentPath = path;
+                            chatBoxHelper.attachmentPath = path;
                         })
                         fileDialog.open()
                     }
@@ -379,16 +379,16 @@ ToolBar {
         if (!Clipboard.saveImage(localPath)) {
             return;
         }
-        ChatBoxHelper.attachmentPath = localPath;
+        chatBoxHelper.attachmentPath = localPath;
     }
 
     function postMessage() {
         checkForFancyEffectsReason();
 
-        if (ChatBoxHelper.hasAttachment) {
+        if (chatBoxHelper.hasAttachment) {
             // send attachment but don't reset the text
-            actionsHandler.postMessage("", ChatBoxHelper.attachmentPath,
-                ChatBoxHelper.replyEventId, ChatBoxHelper.editEventId, {}, this.customEmojiModel);
+            actionsHandler.postMessage("", chatBoxHelper.attachmentPath,
+                chatBoxHelper.replyEventId, chatBoxHelper.editEventId, {}, this.customEmojiModel);
             currentRoom.markAllMessagesAsRead();
             messageSent();
             return;
@@ -400,8 +400,8 @@ ToolBar {
             actionsHandler.postEdit(inputField.text);
         } else {
             // send normal message
-            actionsHandler.postMessage(inputField.text.trim(), ChatBoxHelper.attachmentPath,
-                ChatBoxHelper.replyEventId, ChatBoxHelper.editEventId, userAutocompleted, this.customEmojiModel);
+            actionsHandler.postMessage(inputField.text.trim(), chatBoxHelper.attachmentPath,
+                chatBoxHelper.replyEventId, chatBoxHelper.editEventId, userAutocompleted, this.customEmojiModel);
         }
         currentRoom.markAllMessagesAsRead();
         inputField.clear();

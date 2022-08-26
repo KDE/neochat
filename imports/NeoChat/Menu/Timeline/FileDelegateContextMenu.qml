@@ -50,7 +50,7 @@ MessageDelegateContextMenu {
             text: i18n("Reply")
             icon.name: "mail-replied-symbolic"
             onTriggered: {
-                ChatBoxHelper.replyToMessage(eventId, message, author);
+                chatBoxHelper.replyToMessage(eventId, message, author);
             }
         },
         Kirigami.Action {

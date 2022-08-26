@@ -195,13 +195,13 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "RoomManager", &RoomManager::instance());
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "FileType", &fileTypeSingleton);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "LoginHelper", login);
-    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "ChatBoxHelper", &chatBoxHelper);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "UrlHelper", &urlHelper);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "EmojiModel", new EmojiModel(&app));
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "CommandModel", new CommandModel(&app));
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "AccountRegistry", &Quotient::AccountRegistry::instance());
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "SpaceHierarchyCache", &spaceHierarchyCache);
     qmlRegisterType<ActionsHandler>("org.kde.neochat", 1, 0, "ActionsHandler");
+    qmlRegisterType<ChatBoxHelper>("org.kde.neochat", 1, 0, "ChatBoxHelper");
     qmlRegisterType<ChatDocumentHandler>("org.kde.neochat", 1, 0, "ChatDocumentHandler");
     qmlRegisterType<RoomListModel>("org.kde.neochat", 1, 0, "RoomListModel");
     qmlRegisterType<KWebShortcutModel>("org.kde.neochat", 1, 0, "WebShortcutModel");

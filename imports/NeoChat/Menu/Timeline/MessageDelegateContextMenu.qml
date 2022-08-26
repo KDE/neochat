@@ -28,13 +28,13 @@ Loader {
         Kirigami.Action {
             text: i18n("Edit")
             icon.name: "document-edit"
-            onTriggered: ChatBoxHelper.edit(message, formattedBody, eventId);
+            onTriggered: chatBoxHelper.edit(message, formattedBody, eventId);
             visible: eventType.length > 0 && author.id === Controller.activeConnection.localUserId && (eventType === "emote" || eventType === "message")
         },
         Kirigami.Action {
             text: i18n("Reply")
             icon.name: "mail-replied-symbolic"
-            onTriggered: ChatBoxHelper.replyToMessage(eventId, message, author);
+            onTriggered: chatBoxHelper.replyToMessage(eventId, message, author);
         },
         Kirigami.Action {
             visible: author.id === currentRoom.localUser.id || currentRoom.canSendState("redact")

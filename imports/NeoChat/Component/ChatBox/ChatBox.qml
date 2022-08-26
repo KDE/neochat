@@ -127,8 +127,8 @@ Item {
 
     ReplyPane {
         id: replyPane
-        visible: ChatBoxHelper.isReplying || ChatBoxHelper.isEditing
-        user: ChatBoxHelper.replyUser
+        visible: chatBoxHelper.isReplying || chatBoxHelper.isEditing
+        user: chatBoxHelper.replyUser
         width: parent.width
         height: visible ? implicitHeight : 0
         anchors.bottom: attachmentSeparator.top
@@ -154,7 +154,7 @@ Item {
 
     AttachmentPane {
         id: attachmentPane
-        visible: ChatBoxHelper.hasAttachment
+        visible: chatBoxHelper.hasAttachment
         width: parent.width
         height: visible ? implicitHeight : 0
         anchors.bottom: chatBarSeparator.top
@@ -248,7 +248,7 @@ Item {
     }
 
     Connections {
-        target: ChatBoxHelper
+        target: chatBoxHelper
 
         function onShouldClearText() {
             root.inputFieldText = "";
@@ -277,7 +277,7 @@ Item {
     }
 
     function closeAll() {
-        ChatBoxHelper.clear();
+        chatBoxHelper.clear();
         chatBar.emojiPaneOpened = false;
     }
 }

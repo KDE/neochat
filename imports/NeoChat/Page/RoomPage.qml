@@ -53,7 +53,7 @@ Kirigami.ScrollablePage {
 
     onCurrentRoomChanged: {
         hasScrolledUpBefore = false;
-        ChatBoxHelper.clearEditReply()
+        chatBoxHelper.clearEditReply()
     }
 
     Connections {
@@ -79,6 +79,10 @@ Kirigami.ScrollablePage {
         id: actionsHandler
         room: page.currentRoom
         connection: Controller.activeConnection
+    }
+
+    ChatBoxHelper {
+        id: chatBoxHelper
     }
 
     Shortcut {
@@ -262,7 +266,7 @@ Kirigami.ScrollablePage {
                         fileDialog.chosen.connect(function(path) {
                             if (!path) return
 
-                            ChatBoxHelper.attachmentPath = path;
+                            chatBoxHelper.attachmentPath = path;
                         })
 
                         fileDialog.open()
@@ -284,7 +288,7 @@ Kirigami.ScrollablePage {
                         if (!Clipboard.saveImage(localPath)) {
                             return;
                         }
-                        ChatBoxHelper.attachmentPath = localPath;
+                        chatBoxHelper.attachmentPath = localPath;
                         attachDialog.close();
                     }
                 }
@@ -359,7 +363,7 @@ Kirigami.ScrollablePage {
         DropArea {
             id: dropAreaFile
             anchors.fill: parent
-            onDropped: ChatBoxHelper.attachmentPath = drop.urls[0]
+            onDropped: chatBoxHelper.attachmentPath = drop.urls[0]
         }
 
         QQC2.Pane {
@@ -486,7 +490,7 @@ Kirigami.ScrollablePage {
                     icon.name: "document-edit"
                     onClicked: {
                         if (hoverActions.showEdit) {
-                            ChatBoxHelper.edit(hoverActions.event.message, hoverActions.event.formattedBody, hoverActions.event.eventId)
+                            chatBoxHelper.edit(hoverActions.event.message, hoverActions.event.formattedBody, hoverActions.event.eventId)
                         }
                         chatBox.focusInputField();
                     }
@@ -496,7 +500,7 @@ Kirigami.ScrollablePage {
                     QQC2.ToolTip.visible: hovered
                     icon.name: "mail-replied-symbolic"
                     onClicked: {
-                        ChatBoxHelper.replyToMessage(hoverActions.event.eventId, hoverActions.event.message, hoverActions.event.author);
+                        chatBoxHelper.replyToMessage(hoverActions.event.eventId, hoverActions.event.message, hoverActions.event.author);
                         chatBox.focusInputField();
                     }
                 }
@@ -516,14 +520,14 @@ Kirigami.ScrollablePage {
         onEditLastUserMessage: {
             const targetMessage = messageEventModel.getLastLocalUserMessageEventId();
             if (targetMessage) {
-                ChatBoxHelper.edit(targetMessage["message"], targetMessage["formattedBody"], targetMessage["event_id"]);
+                chatBoxHelper.edit(targetMessage["message"], targetMessage["formattedBody"], targetMessage["event_id"]);
                 chatBox.focusInputField();
             }
         }
         onReplyPreviousUserMessage: {
             const replyResponse = messageEventModel.getLatestMessageFromIndex(0);
             if (replyResponse && replyResponse["event_id"]) {
-                ChatBoxHelper.replyToMessage(replyResponse["event_id"], replyResponse["message"], replyResponse["sender_id"]);
+                chatBoxHelper.replyToMessage(replyResponse["event_id"], replyResponse["message"], replyResponse["sender_id"]);
             }
         }
     }

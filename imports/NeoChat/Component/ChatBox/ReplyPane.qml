@@ -12,7 +12,7 @@ import org.kde.neochat 1.0
 
 Loader {
     id: root
-    readonly property bool isEdit: ChatBoxHelper.isEditing
+    readonly property bool isEdit: chatBoxHelper.isEditing
     property var user: null
     property string avatarMediaUrl: user ? "image://mxc/" + user.avatarMediaId : ""
 
@@ -83,7 +83,7 @@ Loader {
                         bottomPadding: 0
                         text: {
                             const stylesheet = "<style> a{color:"+Kirigami.Theme.linkColor+";}.user-pill{}</style>";
-                            const content = ChatBoxHelper.isReplying ? ChatBoxHelper.replyEventContent : ChatBoxHelper.editContent;
+                            const content = chatBoxHelper.isReplying ? chatBoxHelper.replyEventContent : chatBoxHelper.editContent;
                             return stylesheet + content;
                         }
                         selectByMouse: true
@@ -106,7 +106,7 @@ Loader {
                 text: i18n("Cancel")
                 display: AbstractButton.IconOnly
                 onClicked: {
-                    ChatBoxHelper.clear();
+                    chatBoxHelper.clear();
                     root.replyCancelled();
                 }
                 ToolTip.text: text
