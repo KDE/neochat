@@ -55,6 +55,9 @@ void SpaceHierarchyCache::populateSpaceHierarchy(const QString &spaceId)
         const auto rooms = job->rooms();
         QVector<QString> roomList;
         for (unsigned long i = 0; i < rooms.size(); ++i) {
+            for (const auto &state : rooms[i].childrenState) {
+                roomList.push_back(state->stateKey());
+            }
             roomList.push_back(rooms.at(i).roomId);
         }
         m_spaceHierarchy.insert(spaceId, roomList);
