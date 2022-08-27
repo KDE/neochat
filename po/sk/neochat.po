@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-26 00:45+0000\n"
+"POT-Creation-Date: 2022-08-27 00:47+0000\n"
 "PO-Revision-Date: 2022-04-18 17:58+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -34,7 +34,7 @@ msgstr "Príloha:"
 #: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:159
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:29
 #: imports/NeoChat/Page/ImageEditorPage.qml:20
-#: imports/NeoChat/Page/RoomPage.qml:483
+#: imports/NeoChat/Page/RoomPage.qml:487
 #, kde-format
 msgid "Edit"
 msgstr "Upraviť"
@@ -42,7 +42,7 @@ msgstr "Upraviť"
 #: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:181
 #: imports/NeoChat/Component/ChatBox/ReplyPane.qml:106
 #: imports/NeoChat/Page/ImageEditorPage.qml:125
-#: imports/NeoChat/Settings/AccountsPage.qml:204
+#: imports/NeoChat/Settings/AccountEditorPage.qml:123
 #, kde-format
 msgid "Cancel"
 msgstr "Zrušiť"
@@ -72,17 +72,17 @@ msgstr "Odoslať správu"
 msgid "Send a message…"
 msgstr "Odoslať správu"
 
-#: imports/NeoChat/Component/ChatBox/ChatBar.qml:293
+#: imports/NeoChat/Component/ChatBox/ChatBar.qml:289
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Pripojiť obrázok alebo súbor"
 
-#: imports/NeoChat/Component/ChatBox/ChatBar.qml:323
+#: imports/NeoChat/Component/ChatBox/ChatBar.qml:319
 #, kde-format
 msgid "Add an Emoji"
 msgstr "Pridať emoji"
 
-#: imports/NeoChat/Component/ChatBox/ChatBar.qml:334
+#: imports/NeoChat/Component/ChatBox/ChatBar.qml:330
 #, kde-format
 msgid "Send message"
 msgstr "Odoslať správu"
@@ -149,8 +149,8 @@ msgstr "Pokračovať"
 #: imports/NeoChat/Component/Login/Login.qml:53
 #: imports/NeoChat/Page/LoadingPage.qml:9
 #: imports/NeoChat/Page/LoadingPage.qml:14
-#: imports/NeoChat/Page/RoomPage.qml:147
-#: imports/NeoChat/Settings/DevicesPage.qml:23
+#: imports/NeoChat/Page/RoomPage.qml:151
+#: imports/NeoChat/Settings/DevicesPage.qml:25
 #, kde-format
 msgid "Loading…"
 msgstr "Načítava sa…"
@@ -298,7 +298,7 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Naposledy prečítané: %1"
 
-#: imports/NeoChat/Component/Timeline/RichLabel.qml:52
+#: imports/NeoChat/Component/Timeline/RichLabel.qml:56
 #, kde-format
 msgid " (edited)"
 msgstr "(upravené)"
@@ -622,7 +622,7 @@ msgstr "Uložiť ako"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:35
-#: imports/NeoChat/Page/RoomPage.qml:495 src/notificationsmanager.cpp:68
+#: imports/NeoChat/Page/RoomPage.qml:499 src/notificationsmanager.cpp:68
 #, kde-format
 msgid "Reply"
 msgstr "Odpovedať"
@@ -812,52 +812,52 @@ msgstr "Prehliadať miestnosti"
 msgid "No Name"
 msgstr "Bez názvu"
 
-#: imports/NeoChat/Page/RoomListPage.qml:356
+#: imports/NeoChat/Page/RoomListPage.qml:358
 #, kde-format
 msgid "Configure room"
 msgstr "Nastaviť miestnosť"
 
-#: imports/NeoChat/Page/RoomPage.qml:123
+#: imports/NeoChat/Page/RoomPage.qml:127
 #, kde-format
 msgid "Accept this invitation?"
 msgstr "Prijať pozvanie?"
 
-#: imports/NeoChat/Page/RoomPage.qml:127
+#: imports/NeoChat/Page/RoomPage.qml:131
 #, kde-format
 msgid "Reject"
 msgstr "Odmietnuť"
 
-#: imports/NeoChat/Page/RoomPage.qml:134
+#: imports/NeoChat/Page/RoomPage.qml:138
 #, kde-format
 msgid "Accept"
 msgstr "Prijať"
 
-#: imports/NeoChat/Page/RoomPage.qml:255
+#: imports/NeoChat/Page/RoomPage.qml:259
 #, kde-format
 msgid "Choose local file"
 msgstr "Vybrať miestny súbor"
 
-#: imports/NeoChat/Page/RoomPage.qml:281
+#: imports/NeoChat/Page/RoomPage.qml:285
 #, kde-format
 msgid "Clipboard image"
 msgstr "Obrázok schránky"
 
-#: imports/NeoChat/Page/RoomPage.qml:328
+#: imports/NeoChat/Page/RoomPage.qml:332
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Skočiť na prvú neprečítanú správu"
 
-#: imports/NeoChat/Page/RoomPage.qml:351
+#: imports/NeoChat/Page/RoomPage.qml:355
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Prejsť na najnovšiu správu"
 
-#: imports/NeoChat/Page/RoomPage.qml:375
+#: imports/NeoChat/Page/RoomPage.qml:379
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Presuňte položky sem na zdieľanie"
 
-#: imports/NeoChat/Page/RoomPage.qml:407
+#: imports/NeoChat/Page/RoomPage.qml:411
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -866,7 +866,7 @@ msgstr[0] "%2 píše"
 msgstr[1] "%2 píšu"
 msgstr[2] "%2 píšu"
 
-#: imports/NeoChat/Page/RoomPage.qml:470
+#: imports/NeoChat/Page/RoomPage.qml:474
 #, kde-format
 msgid "React"
 msgstr "Reagovať"
@@ -1068,6 +1068,53 @@ msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr ""
 
+#: imports/NeoChat/Settings/AccountEditorPage.qml:17
+#, kde-format
+msgid "Edit Account"
+msgstr "Upraviť účet"
+
+#: imports/NeoChat/Settings/AccountEditorPage.qml:58
+#, kde-format
+msgid "Avatar:"
+msgstr "Avatar:"
+
+#: imports/NeoChat/Settings/AccountEditorPage.qml:63
+#: imports/NeoChat/Settings/DevicesPage.qml:95
+#, kde-format
+msgid "Name:"
+msgstr "Meno:"
+
+#: imports/NeoChat/Settings/AccountEditorPage.qml:68
+#, kde-format
+msgid "Label:"
+msgstr "Popis:"
+
+#: imports/NeoChat/Settings/AccountEditorPage.qml:72
+#, kde-format
+msgid "Current Password:"
+msgstr "Aktuálne heslo:"
+
+#: imports/NeoChat/Settings/AccountEditorPage.qml:78
+#, kde-format
+msgid "New Password:"
+msgstr "Nové heslo:"
+
+#: imports/NeoChat/Settings/AccountEditorPage.qml:85
+#, kde-format
+msgid "Confirm new Password:"
+msgstr "Potvrdiť nové heslo:"
+
+#: imports/NeoChat/Settings/AccountEditorPage.qml:98
+#: imports/NeoChat/Settings/DevicesPage.qml:99
+#, kde-format
+msgid "Save"
+msgstr "Uložiť"
+
+#: imports/NeoChat/Settings/AccountEditorPage.qml:115
+#, kde-format
+msgid "Passwords do not match"
+msgstr "Heslá sa nezhodujú"
+
 #: imports/NeoChat/Settings/AccountsPage.qml:15
 #: imports/NeoChat/Settings/SettingsPage.qml:23
 #, kde-format
@@ -1075,82 +1122,35 @@ msgid "Accounts"
 msgstr "Kontá"
 
 #: imports/NeoChat/Settings/AccountsPage.qml:18
-#: imports/NeoChat/Settings/AccountsPage.qml:73
+#: imports/NeoChat/Settings/AccountsPage.qml:82
 #, kde-format
 msgid "Add an account"
 msgstr "Pridať konto"
 
-#: imports/NeoChat/Settings/AccountsPage.qml:41
+#: imports/NeoChat/Settings/AccountsPage.qml:45
 #, kde-format
 msgid "Edit this account"
 msgstr "Upraviť tento účet"
 
-#: imports/NeoChat/Settings/AccountsPage.qml:52 qml/main.qml:267
+#: imports/NeoChat/Settings/AccountsPage.qml:60 qml/main.qml:267
 #, kde-format
 msgid "Logout"
 msgstr "Odhlásenie"
 
-#: imports/NeoChat/Settings/AccountsPage.qml:87
+#: imports/NeoChat/Settings/AccountsPage.qml:97
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Heslo úspešne zmenené"
 
-#: imports/NeoChat/Settings/AccountsPage.qml:89
+#: imports/NeoChat/Settings/AccountsPage.qml:99
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Zadané nesprávne heslo"
 
-#: imports/NeoChat/Settings/AccountsPage.qml:91
+#: imports/NeoChat/Settings/AccountsPage.qml:101
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Neznámy problém pri pokuse o zmenu hesla"
-
-#: imports/NeoChat/Settings/AccountsPage.qml:108
-#, kde-format
-msgid "Edit Account"
-msgstr "Upraviť účet"
-
-#: imports/NeoChat/Settings/AccountsPage.qml:147
-#, kde-format
-msgid "Avatar:"
-msgstr "Avatar:"
-
-#: imports/NeoChat/Settings/AccountsPage.qml:152
-#: imports/NeoChat/Settings/DevicesPage.qml:93
-#, kde-format
-msgid "Name:"
-msgstr "Meno:"
-
-#: imports/NeoChat/Settings/AccountsPage.qml:157
-#, kde-format
-msgid "Label:"
-msgstr "Popis:"
-
-#: imports/NeoChat/Settings/AccountsPage.qml:161
-#, kde-format
-msgid "Current Password:"
-msgstr "Aktuálne heslo:"
-
-#: imports/NeoChat/Settings/AccountsPage.qml:167
-#, kde-format
-msgid "New Password:"
-msgstr "Nové heslo:"
-
-#: imports/NeoChat/Settings/AccountsPage.qml:174
-#, kde-format
-msgid "Confirm new Password:"
-msgstr "Potvrdiť nové heslo:"
-
-#: imports/NeoChat/Settings/AccountsPage.qml:181
-#: imports/NeoChat/Settings/DevicesPage.qml:97
-#, kde-format
-msgid "Save"
-msgstr "Uložiť"
-
-#: imports/NeoChat/Settings/AccountsPage.qml:193
-#, kde-format
-msgid "Passwords do not match"
-msgstr "Heslá sa nezhodujú"
 
 #: imports/NeoChat/Settings/AppearanceSettingsPage.qml:99
 #, kde-format
@@ -1209,47 +1209,47 @@ msgstr ""
 msgid "Devices"
 msgstr "Zariadenia"
 
-#: imports/NeoChat/Settings/DevicesPage.qml:37
+#: imports/NeoChat/Settings/DevicesPage.qml:39
 #, kde-format
 msgid "Edit device name"
 msgstr "Upraviť názov zariadenia"
 
-#: imports/NeoChat/Settings/DevicesPage.qml:49
+#: imports/NeoChat/Settings/DevicesPage.qml:51
 #, kde-format
 msgid "Logout device"
 msgstr "Odhlásiť zariadenie"
 
-#: imports/NeoChat/Settings/DevicesPage.qml:66
+#: imports/NeoChat/Settings/DevicesPage.qml:68
 #, kde-format
 msgid "Remove device"
 msgstr "Odstrániť zariadenie"
 
-#: imports/NeoChat/Settings/DevicesPage.qml:70
+#: imports/NeoChat/Settings/DevicesPage.qml:72
 #, kde-format
 msgid "Password:"
 msgstr "Heslo:"
 
-#: imports/NeoChat/Settings/DevicesPage.qml:74
+#: imports/NeoChat/Settings/DevicesPage.qml:76
 #, kde-format
 msgid "Confirm"
 msgstr "Potvrdiť"
 
-#: imports/NeoChat/Settings/DevicesPage.qml:89
+#: imports/NeoChat/Settings/DevicesPage.qml:91
 #, kde-format
 msgid "Edit device"
 msgstr "Upraviť zariadenie"
 
-#: imports/NeoChat/Settings/Emoticons.qml:30
+#: imports/NeoChat/Settings/Emoticons.qml:31
 #, kde-format
 msgid "No custom inline stickers found"
 msgstr ""
 
-#: imports/NeoChat/Settings/Emoticons.qml:78
+#: imports/NeoChat/Settings/Emoticons.qml:79
 #, kde-format
 msgid "new_emoji_name_here"
 msgstr ""
 
-#: imports/NeoChat/Settings/Emoticons.qml:87
+#: imports/NeoChat/Settings/Emoticons.qml:88
 #, fuzzy, kde-format
 #| msgid "Add an Emoji"
 msgid "Add Emoji..."
@@ -1572,69 +1572,69 @@ msgstr "Pozve používateľa s daným ID do aktuálnej miestnosti"
 msgid "React to this message with a text"
 msgstr "Reagovať na túto správu textom"
 
-#: src/controller.cpp:174 src/controller.cpp:308
+#: src/controller.cpp:168 src/controller.cpp:302
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Chyba siete: %1"
 
-#: src/controller.cpp:299
+#: src/controller.cpp:293
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Prihlásenie zlyhalo: Prístupový token je neplatný alebo odvolaný"
 
-#: src/controller.cpp:302 src/login.cpp:76
+#: src/controller.cpp:296 src/login.cpp:77
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Prihlásenie zlyhalo: %1"
 
-#: src/controller.cpp:366
+#: src/controller.cpp:360
 #, fuzzy, kde-format
 #| msgid "Access Token (Optional)"
 msgid "Access token wasn't found"
 msgstr "Prístupový token (voliteľný)"
 
-#: src/controller.cpp:366
+#: src/controller.cpp:360
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr ""
 
-#: src/controller.cpp:370
+#: src/controller.cpp:364
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr ""
 
-#: src/controller.cpp:370
+#: src/controller.cpp:364
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr ""
 
-#: src/controller.cpp:373
+#: src/controller.cpp:367
 #, fuzzy, kde-format
 #| msgid "No users available"
 msgid "No keychain available."
 msgstr "Nie sú k dispozícii žiadni používatelia"
 
-#: src/controller.cpp:373
+#: src/controller.cpp:367
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 
-#: src/controller.cpp:376
+#: src/controller.cpp:370
 #, kde-format
 msgid "Unable to read access token"
 msgstr ""
 
-#: src/controller.cpp:631
+#: src/controller.cpp:625
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "Vytvorenie miestnosti zlyhalo: \"%1\""
 
-#: src/controller.cpp:644
+#: src/controller.cpp:638
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Miestnosť, do ktorej sa pokúšate pripojiť, je neplatná"
 
-#: src/login.cpp:71 src/login.cpp:82
+#: src/login.cpp:72 src/login.cpp:83
 #, kde-format
 msgid "Network Error"
 msgstr "Chyba siete"
@@ -1695,252 +1695,252 @@ msgstr "ID média „%1“ nezodpovedá vzoru server/mediaId"
 msgid "Image request has been cancelled"
 msgstr "Žiadosť o obrázok bola zrušená"
 
-#: src/messageeventmodel.cpp:326
+#: src/messageeventmodel.cpp:327
 #, kde-format
 msgid "Today"
 msgstr "Dnes"
 
-#: src/messageeventmodel.cpp:329
+#: src/messageeventmodel.cpp:330
 #, kde-format
 msgid "Yesterday"
 msgstr "Včera"
 
-#: src/messageeventmodel.cpp:332
+#: src/messageeventmodel.cpp:333
 #, kde-format
 msgid "The day before yesterday"
 msgstr "Predvčerom"
 
-#: src/messageeventmodel.cpp:434
+#: src/messageeventmodel.cpp:435
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Táto správa bola odstránená]</i>"
 
-#: src/messageeventmodel.cpp:435
+#: src/messageeventmodel.cpp:436
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Táto správa bola odstránená: %1]</i>"
 
-#: src/messageeventmodel.cpp:514
+#: src/messageeventmodel.cpp:515
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[REVIDOVANÉ]"
 
-#: src/messageeventmodel.cpp:514
+#: src/messageeventmodel.cpp:515
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[REVIDOVANÉ: %1]"
 
-#: src/neochatroom.cpp:440
+#: src/neochatroom.cpp:441
 #, kde-format
 msgid "a file"
 msgstr "súbor"
 
-#: src/neochatroom.cpp:484
+#: src/neochatroom.cpp:485
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "znovu pozval %1 do miestnosti"
 
-#: src/neochatroom.cpp:486
+#: src/neochatroom.cpp:487
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:495
+#: src/neochatroom.cpp:496
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "pripojil sa k miestnosti (opakovane)"
 
-#: src/neochatroom.cpp:497
+#: src/neochatroom.cpp:498
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "pozval %1 do miestnosti"
 
-#: src/neochatroom.cpp:497
+#: src/neochatroom.cpp:498
 #, kde-format
 msgid "joined the room"
 msgstr "sa pripojil k miestnosti"
 
-#: src/neochatroom.cpp:501
+#: src/neochatroom.cpp:502
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:508
+#: src/neochatroom.cpp:509
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "vymazali svoje zobrazované meno"
 
-#: src/neochatroom.cpp:510
+#: src/neochatroom.cpp:511
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "zmenili svoje zobrazované meno na %1"
 
-#: src/neochatroom.cpp:515
+#: src/neochatroom.cpp:516
 #, kde-format
 msgid " and "
 msgstr " a "
 
-#: src/neochatroom.cpp:518
+#: src/neochatroom.cpp:519
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "vymazali svojho avatara"
 
-#: src/neochatroom.cpp:524
+#: src/neochatroom.cpp:525
 #, kde-format
 msgid "set an avatar"
 msgstr "nastavil avatar"
 
-#: src/neochatroom.cpp:526
+#: src/neochatroom.cpp:527
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "aktualizovali avatara"
 
-#: src/neochatroom.cpp:533
+#: src/neochatroom.cpp:534
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "stiahol pozvanie %1"
 
-#: src/neochatroom.cpp:533
+#: src/neochatroom.cpp:534
 #, kde-format
 msgid "rejected the invitation"
 msgstr "odmietol pozvanie"
 
-#: src/neochatroom.cpp:537
+#: src/neochatroom.cpp:538
 #, kde-format
 msgid "unbanned %1"
 msgstr "zrušený zákaz prístupu %1"
 
-#: src/neochatroom.cpp:537
+#: src/neochatroom.cpp:538
 #, kde-format
 msgid "self-unbanned"
 msgstr ""
 
-#: src/neochatroom.cpp:540
+#: src/neochatroom.cpp:541
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "dal %1 z miestnosti: %2"
 
-#: src/neochatroom.cpp:541
+#: src/neochatroom.cpp:542
 #, kde-format
 msgid "left the room"
 msgstr "opustil miestnosť"
 
-#: src/neochatroom.cpp:543
+#: src/neochatroom.cpp:544
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "zakázal %1 z miestnosti: %2"
 
-#: src/neochatroom.cpp:544
+#: src/neochatroom.cpp:545
 #, kde-format
 msgid "self-banned from the room"
 msgstr ""
 
-#: src/neochatroom.cpp:546
+#: src/neochatroom.cpp:547
 #, fuzzy, kde-format
 #| msgid "rejected the invitation"
 msgid "requested an invite"
 msgstr "odmietol pozvanie"
 
-#: src/neochatroom.cpp:549
+#: src/neochatroom.cpp:550
 #, kde-format
 msgid "made something unknown"
 msgstr "urobil niečo neznáme"
 
-#: src/neochatroom.cpp:552
+#: src/neochatroom.cpp:553
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "vyčistil hlavný alias miestnosti"
 
-#: src/neochatroom.cpp:552
+#: src/neochatroom.cpp:553
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "nastaviť hlavný alias miestnosti na: %1"
 
-#: src/neochatroom.cpp:555
+#: src/neochatroom.cpp:556
 #, kde-format
 msgid "cleared the room name"
 msgstr "vyčistil názov miestnosti"
 
-#: src/neochatroom.cpp:555
+#: src/neochatroom.cpp:556
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "nastavil názov miestnosti na: %1"
 
-#: src/neochatroom.cpp:558
+#: src/neochatroom.cpp:559
 #, kde-format
 msgid "cleared the topic"
 msgstr "vyčistil tému"
 
-#: src/neochatroom.cpp:558
+#: src/neochatroom.cpp:559
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "nastavil tému na: %1"
 
-#: src/neochatroom.cpp:561
+#: src/neochatroom.cpp:562
 #, kde-format
 msgid "changed the room avatar"
 msgstr "zmenil avatara miestnosti"
 
-#: src/neochatroom.cpp:564
+#: src/neochatroom.cpp:565
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "aktivoval End-to-End šifrovanie"
 
-#: src/neochatroom.cpp:567
+#: src/neochatroom.cpp:568
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "Aktualizoval miestnosť na verziu %1"
 
-#: src/neochatroom.cpp:568
+#: src/neochatroom.cpp:569
 #, kde-format
 msgid "created the room, version %1"
 msgstr "vytvoril miestnosť, verzia %1"
 
-#: src/neochatroom.cpp:571
+#: src/neochatroom.cpp:572
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr ""
 
-#: src/neochatroom.cpp:575
+#: src/neochatroom.cpp:576
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr ""
 
-#: src/neochatroom.cpp:579
+#: src/neochatroom.cpp:580
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr ""
 
-#: src/neochatroom.cpp:582
+#: src/neochatroom.cpp:583
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr ""
 
-#: src/neochatroom.cpp:584
+#: src/neochatroom.cpp:585
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr ""
 
-#: src/neochatroom.cpp:586
+#: src/neochatroom.cpp:587
 #, kde-format
 msgid "updated %1 state"
 msgstr "aktualizoval %1 stav"
 
-#: src/neochatroom.cpp:587
+#: src/neochatroom.cpp:588
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "aktualizoval %1 stav pre %2"
 
-#: src/neochatroom.cpp:589
+#: src/neochatroom.cpp:590
 #, kde-format
 msgid "Unknown event"
 msgstr "Neznáma udalosť"
@@ -2013,39 +2013,39 @@ msgstr "Nízka priorita"
 msgid "Spaces"
 msgstr "Medzery"
 
-#: src/roommanager.cpp:48
+#: src/roommanager.cpp:49
 #, kde-format
 msgid "Malformed or empty Matrix id"
 msgstr "Poškodené alebo prázdne Matrix ID"
 
-#: src/roommanager.cpp:48
+#: src/roommanager.cpp:49
 #, kde-format
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 nie je správny Matrix identifikátor"
 
-#: src/roommanager.cpp:65
+#: src/roommanager.cpp:66
 #, kde-format
 msgid "Room not found"
 msgstr "Miestnosť sa nenašla"
 
-#: src/roommanager.cpp:65
+#: src/roommanager.cpp:66
 #, kde-format
 msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
 msgstr ""
 "V zozname izieb nie je žiadna miestnosť %1. Skontrolujte pravopis a účet."
 
-#: src/roommanager.cpp:200
+#: src/roommanager.cpp:201
 #, kde-format
 msgid "No application for the link"
 msgstr "Žiadna aplikácia pre odkaz"
 
-#: src/roommanager.cpp:200
+#: src/roommanager.cpp:201
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "Váš operačný systém nemohol nájsť aplikáciu pre odkaz."
 
-#: src/roommanager.cpp:206
+#: src/roommanager.cpp:207
 #, kde-format
 msgid "Could not open URL"
 msgstr ""
