@@ -405,9 +405,7 @@ ToolBar {
         }
         currentRoom.markAllMessagesAsRead();
         inputField.clear();
-        inputField.text = Qt.binding(function() {
-            return currentRoom ? currentRoom.cachedInput : "";
-        });
+        inputField.text = currentRoom ? currentRoom.cachedInput : "";
         messageSent()
     }
 
