@@ -14,6 +14,7 @@ ApplicationWindow {
     property string blurhash: ""
     property int imageWidth: -1
     property int imageHeight: -1
+    property var modelData
 
     flags: Qt.FramelessWindowHint | Qt.WA_TranslucentBackground
 
@@ -51,6 +52,24 @@ ApplicationWindow {
             height: image.height
             source: root.blurhash !== "" ? ("image://blurhash/" + root.blurhash) : ""
             visible: root.blurhash !== "" && parent.status !== Image.Ready
+        }
+
+        TapHandler {
+            acceptedButtons: Qt.RightButton
+            onTapped: {
+                const contextMenu = fileDelegateContextMenu.createObject(parent, {
+                    author: modelData.author,
+                    message: modelData.message,
+                    eventId: modelData.eventId,
+                    source: modelData.source,
+                    file: root.parent,
+                    mimeType: modelData.mimeType,
+                    progressInfo: modelData.progressInfo,
+                    plainMessage: modelData.message,
+                });
+                contextMenu.closeFullscreen.connect(root.destroy)
+                contextMenu.open();
+            }
         }
     }
 

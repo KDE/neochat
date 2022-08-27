@@ -91,10 +91,11 @@ TimelineContainer {
             onTapped: {
                 fullScreenImage.createObject(parent, {
                     filename: eventId,
-                    source: model.mediaUrl,
+                    source: mediaUrl,
                     blurhash: model.content.info["xyz.amorgan.blurhash"],
                     imageWidth: content.info.w,
-                    imageHeight: content.info.h
+                    imageHeight: content.info.h,
+                    modelData: model
                 }).showFullScreen();
             }
         }

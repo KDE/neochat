@@ -14,6 +14,8 @@ import NeoChat.Menu 1.0
 MessageDelegateContextMenu {
     id: root
 
+    signal closeFullscreen
+
     required property var file
     required property var progressInfo
     required property string mimeType
@@ -51,6 +53,7 @@ MessageDelegateContextMenu {
             icon.name: "mail-replied-symbolic"
             onTriggered: {
                 chatBoxHelper.replyToMessage(eventId, message, author);
+                root.closeFullscreen()
             }
         },
         Kirigami.Action {
@@ -60,6 +63,7 @@ MessageDelegateContextMenu {
             icon.color: "red"
             onTriggered: {
                 currentRoom.redactEvent(eventId);
+                root.closeFullscreen()
             }
         },
         Kirigami.Action {
@@ -72,6 +76,7 @@ MessageDelegateContextMenu {
                     title: i18n("Message Source"),
                     width: Kirigami.Units.gridUnit * 25
                 });
+                root.closeFullscreen()
             }
         }
     ]
