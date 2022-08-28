@@ -25,7 +25,7 @@ Kirigami.CategorizedSettings {
             page: Qt.resolvedUrl("AccountsPage.qml")
         },
         Kirigami.SettingAction {
-            text: i18n("Custom Emoji")
+            text: i18n("Custom Emojis")
             icon.name: "preferences-desktop-emoticons"
             page: Qt.resolvedUrl("Emoticons.qml")
         },
