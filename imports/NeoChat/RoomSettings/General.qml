@@ -21,7 +21,7 @@ Kirigami.ScrollablePage {
     readonly property bool canChangeTopic: room.canSendState("m.room.topic")
     readonly property bool canChangeCanonicalAlias: room.canSendState("m.room.canonical_alias")
 
-    title: i18n('General')
+    title: i18n("General")
 
     ColumnLayout {
         Kirigami.FormLayout {

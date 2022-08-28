@@ -16,7 +16,7 @@ Kirigami.ScrollablePage {
 
     property var room
 
-    title: i18n('Security')
+    title: i18n("Security")
 
     ColumnLayout {
         Kirigami.FormLayout {

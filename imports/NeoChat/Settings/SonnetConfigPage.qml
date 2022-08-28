@@ -47,7 +47,7 @@ Kirigami.Page {
             dialog.close();
         }
     }
-    title: i18nc('@window:title', 'Spellchecking')
+    title: i18nc("@window:title", "Spellchecking")
 
     QQC2.Dialog {
         id: applyDialog

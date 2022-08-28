@@ -47,7 +47,7 @@ Kirigami.ScrollablePage {
                         onTriggered: pageSettingStack.pushDialogLayer(Qt.resolvedUrl('./AccountEditorPage.qml'), {
                             connection: model.connection
                         }, {
-                            title: i18n('Account editor')
+                            title: i18n("Account editor")
                         });
                     }
                 }

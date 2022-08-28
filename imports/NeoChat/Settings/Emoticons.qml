@@ -16,7 +16,7 @@ import NeoChat.Component 1.0 as Components
 import NeoChat.Dialog 1.0
 
 Kirigami.ScrollablePage {
-    title: i18nc('@title:window', 'Custom Emojis')
+    title: i18nc("@title:window", "Custom Emojis")
 
     ListView {
         anchors.fill: parent

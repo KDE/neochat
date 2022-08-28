@@ -58,7 +58,7 @@ Kirigami.ScrollablePage {
                     flat: true
                     padding: Kirigami.Units.gridUnit / 2
                     icon.name: "home"
-                    text: i18nc('@action:button', 'Show All Rooms')
+                    text: i18nc("@action:button", "Show All Rooms")
                     display: QQC2.AbstractButton.IconOnly
 
                     onClicked: {

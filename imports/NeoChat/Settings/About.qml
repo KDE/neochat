@@ -7,6 +7,6 @@ import org.kde.kirigami 2.15 as Kirigami
 import org.kde.neochat 1.0
 
 Kirigami.AboutPage {
-    title: i18nc('@title:window', 'About NeoChat')
+    title: i18nc("@title:window", "About NeoChat")
     aboutData: Controller.aboutData
 }
