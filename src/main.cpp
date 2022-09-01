@@ -290,9 +290,12 @@ int main(int argc, char *argv[])
                     [&engine](const QStringList &arguments, const QString &workingDirectory) {
                         Q_UNUSED(workingDirectory);
 
-                        // Raise windows
                         QWindow *window = windowFromEngine(&engine);
-                        window->show();
+
+                        if (!window->isVisible()) {
+                            window->show();
+                        }
+
                         raiseWindow(window);
 
                         // Open matrix uri
