@@ -12,7 +12,6 @@
 #include <KWindowConfig>
 #ifdef HAVE_WINDOWSYSTEM
 #include <KWindowEffects>
-#include <KWindowSystem>
 #endif
 
 #include <QAuthenticator>
@@ -53,6 +52,7 @@
 #include "roommanager.h"
 #include "settings.h"
 #include "utils.h"
+#include "windowcontroller.h"
 #include <qt_connection_util.h>
 
 #include <KStandardShortcut>
@@ -129,6 +129,11 @@ Controller &Controller::instance()
 {
     static Controller _instance;
     return _instance;
+}
+
+void Controller::showWindow()
+{
+    WindowController::instance().showAndRaiseWindow(QString());
 }
 
 inline QString accessTokenFileName(const AccountSettings &account)
@@ -589,21 +594,9 @@ void Controller::setActiveConnection(Connection *connection)
     Q_EMIT activeConnectionChanged();
 }
 
-void Controller::restoreWindowGeometry(QWindow *window)
+void Controller::saveWindowGeometry()
 {
-    KConfig dataResource("data", KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
-    KConfigGroup windowGroup(&dataResource, "Window");
-    KWindowConfig::restoreWindowSize(window, windowGroup);
-    KWindowConfig::restoreWindowPosition(window, windowGroup);
-}
-
-void Controller::saveWindowGeometry(QQuickWindow *window)
-{
-    KConfig dataResource("data", KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
-    KConfigGroup windowGroup(&dataResource, "Window");
-    KWindowConfig::saveWindowPosition(window, windowGroup);
-    KWindowConfig::saveWindowSize(window, windowGroup);
-    dataResource.sync();
+    WindowController::instance().saveGeometry();
 }
 
 NeochatDeleteDeviceJob::NeochatDeleteDeviceJob(const QString &deviceId, const Omittable<QJsonObject> &auth)
@@ -678,13 +671,6 @@ void Controller::setBlur(QQuickItem *item, bool blur)
     connect(item->window(), &QQuickWindow::heightChanged, this, setWindows);
     connect(item->window(), &QQuickWindow::widthChanged, this, setWindows);
     setWindows();
-#endif
-}
-
-void Controller::raiseWindow(QWindow *window)
-{
-#ifdef HAVE_WINDOWSYSTEM
-    KWindowSystem::activateWindow(window->winId());
 #endif
 }
 

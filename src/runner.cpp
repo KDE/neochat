@@ -8,6 +8,7 @@
 #include "roomlistmodel.h"
 #include "roommanager.h"
 #include "runner.h"
+#include "windowcontroller.h"
 
 RemoteImage Runner::serializeImage(const QImage &image)
 {
@@ -90,5 +91,6 @@ void Runner::Run(const QString &id, const QString &actionId)
     }
 
     RoomManager::instance().enterRoom(room);
-    Q_EMIT Controller::instance().showWindow();
+
+    WindowController::instance().showAndRaiseWindow(QString());
 }

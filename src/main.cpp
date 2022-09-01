@@ -75,6 +75,7 @@
 #include "userdirectorylistmodel.h"
 #include "userlistmodel.h"
 #include "webshortcutmodel.h"
+#include "windowcontroller.h"
 #include <room.h>
 #ifdef HAVE_COLORSCHEME
 #include "colorschemer.h"
@@ -94,21 +95,6 @@ class NetworkAccessManagerFactory : public QQmlNetworkAccessManagerFactory
         return NetworkAccessManager::instance();
     }
 };
-
-#ifdef HAVE_WINDOWSYSTEM
-static void raiseWindow(QWindow *window)
-{
-#if KWINDOWSYSTEM_VERSION >= QT_VERSION_CHECK(5, 91, 0)
-    KWindowSystem::updateStartupId(window);
-#else
-    if (KWindowSystem::isPlatformWayland()) {
-        KWindowSystem::setCurrentXdgActivationToken(qEnvironmentVariable("XDG_ACTIVATION_TOKEN"));
-    }
-#endif
-    KWindowSystem::activateWindow(window->winId());
-    window->raise();
-}
-#endif
 
 static QWindow *windowFromEngine(QQmlApplicationEngine *engine)
 {
@@ -238,12 +224,6 @@ int main(int argc, char *argv[])
     qRegisterMetaType<GetRoomEventsJob *>("GetRoomEventsJob*");
     qRegisterMetaType<QMimeType>("QMimeType");
 
-#ifdef HAVE_WINDOWSYSTEM
-    qmlRegisterSingletonType<KWindowSystem>("org.kde.kwindowsystem.private", 1, 0, "KWindowSystem", [](QQmlEngine *, QJSEngine *) -> QObject * {
-        return KWindowSystem::self();
-    });
-#endif
-
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     qRegisterMetaTypeStreamOperators<Emoji>();
 #endif
@@ -291,12 +271,9 @@ int main(int argc, char *argv[])
                         Q_UNUSED(workingDirectory);
 
                         QWindow *window = windowFromEngine(&engine);
+                        KWindowSystem::updateStartupId(window);
 
-                        if (!window->isVisible()) {
-                            window->show();
-                        }
-
-                        raiseWindow(window);
+                        WindowController::instance().showAndRaiseWindow(QString());
 
                         // Open matrix uri
                         if (arguments.isEmpty()) {
@@ -312,9 +289,8 @@ int main(int argc, char *argv[])
 
     QWindow *window = windowFromEngine(&engine);
 
-    if (window->isVisible()) {
-        Controller::instance().restoreWindowGeometry(window);
-    }
+    WindowController::instance().setWindow(window);
+    WindowController::instance().restoreGeometry();
 
     return app.exec();
 }

@@ -51,7 +51,7 @@ Kirigami.ApplicationWindow {
     Timer {
         id: saveWindowGeometryTimer
         interval: 1000
-        onTriggered: Controller.saveWindowGeometry(root)
+        onTriggered: Controller.saveWindowGeometry()
     }
 
     Connections {
@@ -59,7 +59,7 @@ Kirigami.ApplicationWindow {
         enabled: false // Disable on startup to avoid writing wrong values if the window is hidden
         target: root
 
-        function onClosing() { Controller.saveWindowGeometry(root); }
+        function onClosing() { Controller.saveWindowGeometry(); }
         function onWidthChanged() { saveWindowGeometryTimer.restart(); }
         function onHeightChanged() { saveWindowGeometryTimer.restart(); }
         function onXChanged() { saveWindowGeometryTimer.restart(); }
@@ -137,13 +137,6 @@ Kirigami.ApplicationWindow {
         } else {
             pageStack.layers.push(page, args);
         }
-    }
-
-    function showWindow() {
-        root.show()
-        root.raise()
-        root.requestActivate()
-        Controller.raiseWindow(root)
     }
 
     contextDrawer: RoomDrawer {
@@ -351,16 +344,6 @@ Kirigami.ApplicationWindow {
 
         function onGlobalErrorOccured(error, detail) {
             showPassiveNotification(i18n("%1: %2", error, detail));
-        }
-
-        function onShowWindow(token = null) {
-            root.showWindow()
-            if (token && KWindowSystem) {
-                KWindowSystem.setCurrentXdgActivationToken(basicNotification.xdgActivationToken)
-                KWindowSystem.activateWindow(root)
-            } else {
-                root.raise()
-            }
         }
 
         function onUserConsentRequired(url) {

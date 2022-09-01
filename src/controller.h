@@ -95,7 +95,6 @@ public:
     Q_INVOKABLE void openOrCreateDirectChat(NeoChatUser *user);
 
     Q_INVOKABLE void setBlur(QQuickItem *item, bool blur);
-    Q_INVOKABLE void raiseWindow(QWindow *window);
     Q_INVOKABLE QString plainText(QQuickTextDocument *document) const;
     bool encryptionSupported() const;
 
@@ -118,6 +117,7 @@ private:
 
 private Q_SLOTS:
     void invokeLogin();
+    void showWindow();
 
 Q_SIGNALS:
     void busyChanged();
@@ -137,7 +137,6 @@ Q_SIGNALS:
     void activeConnectionChanged();
     void aboutDataChanged();
     void passwordStatus(Controller::PasswordStatus _t1);
-    void showWindow();
     void userConsentRequired(QUrl url);
     void testConnectionResult(const QString &connection, bool usable);
     void isOnlineChanged(bool isOnline);
@@ -146,8 +145,7 @@ public Q_SLOTS:
     void logout(Quotient::Connection *conn, bool serverSideLogout);
     void changeAvatar(Quotient::Connection *conn, const QUrl &localFile);
     static void markAllMessagesAsRead(Quotient::Connection *conn);
-    void restoreWindowGeometry(QWindow *);
-    void saveWindowGeometry(QQuickWindow *);
+    void saveWindowGeometry();
 };
 
 // TODO libQuotient 0.7: Drop

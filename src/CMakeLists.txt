@@ -38,6 +38,7 @@ add_library(neochat STATIC
     joinrulesevent.cpp
     collapsestateproxymodel.cpp
     urlhelper.cpp
+    windowcontroller.cpp
 )
 
 add_executable(neochat-app

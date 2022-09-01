@@ -19,6 +19,7 @@
 #include "controller.h"
 #include "neochatconfig.h"
 #include "roommanager.h"
+#include "windowcontroller.h"
 
 NotificationsManager &NotificationsManager::instance()
 {
@@ -57,11 +58,8 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
 
     notification->setDefaultAction(i18n("Open NeoChat in this room"));
     connect(notification, &KNotification::defaultActivated, this, [=]() {
-#if defined(HAVE_WINDOWSYSTEM) && KNOTIFICATIONS_VERSION >= QT_VERSION_CHECK(5, 90, 0)
-        KWindowSystem::setCurrentXdgActivationToken(notification->xdgActivationToken());
-#endif
         RoomManager::instance().enterRoom(room);
-        Q_EMIT Controller::instance().showWindow();
+        WindowController::instance().showAndRaiseWindow(notification->xdgActivationToken());
     });
 
     if (canReply) {
@@ -95,12 +93,9 @@ void NotificationsManager::postInviteNotification(NeoChatRoom *room, const QStri
     notification->setFlags(KNotification::Persistent);
     notification->setDefaultAction(i18n("Open this invitation in NeoChat"));
     connect(notification, &KNotification::defaultActivated, this, [=]() {
-#if defined(HAVE_WINDOWSYSTEM) && KNOTIFICATIONS_VERSION >= QT_VERSION_CHECK(5, 90, 0)
-        KWindowSystem::setCurrentXdgActivationToken(notification->xdgActivationToken());
-#endif
         notification->close();
         RoomManager::instance().enterRoom(room);
-        Q_EMIT Controller::instance().showWindow();
+        WindowController::instance().showAndRaiseWindow(notification->xdgActivationToken());
     });
     notification->setActions({i18n("Accept Invitation"), i18n("Reject Invitation")});
     connect(notification, &KNotification::action1Activated, this, [this, room, notification]() {
