@@ -110,6 +110,14 @@ static void raiseWindow(QWindow *window)
 }
 #endif
 
+static QWindow *windowFromEngine(QQmlApplicationEngine *engine)
+{
+    const auto rootObjects = engine->rootObjects();
+    auto *window = qobject_cast<QQuickWindow *>(rootObjects.first());
+    Q_ASSERT(window);
+    return window;
+}
+
 #ifdef Q_OS_ANDROID
 Q_DECL_EXPORT
 #endif
@@ -283,15 +291,9 @@ int main(int argc, char *argv[])
                         Q_UNUSED(workingDirectory);
 
                         // Raise windows
-                        const auto rootObjects = engine.rootObjects();
-                        for (auto obj : rootObjects) {
-                            auto view = qobject_cast<QQuickWindow *>(obj);
-                            if (view) {
-                                view->show();
-                                raiseWindow(view);
-                                return;
-                            }
-                        }
+                        QWindow *window = windowFromEngine(&engine);
+                        window->show();
+                        raiseWindow(window);
 
                         // Open matrix uri
                         if (arguments.isEmpty()) {
@@ -304,15 +306,12 @@ int main(int argc, char *argv[])
                         }
                     });
 #endif
-    const auto rootObjects = engine.rootObjects();
-    for (auto obj : rootObjects) {
-        auto view = qobject_cast<QQuickWindow *>(obj);
-        if (view) {
-            if (view->isVisible()) {
-                Controller::instance().restoreWindowGeometry(view);
-            }
-            break;
-        }
+
+    QWindow *window = windowFromEngine(&engine);
+
+    if (window->isVisible()) {
+        Controller::instance().restoreWindowGeometry(window);
     }
+
     return app.exec();
 }

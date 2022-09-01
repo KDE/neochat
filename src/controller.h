@@ -20,7 +20,7 @@ class QKeySequences;
 class NeoChatRoom;
 class NeoChatUser;
 class TrayIcon;
-class QQuickWindow;
+class QWindow;
 class QQuickTextDocument;
 
 namespace QKeychain
@@ -146,7 +146,7 @@ public Q_SLOTS:
     void logout(Quotient::Connection *conn, bool serverSideLogout);
     void changeAvatar(Quotient::Connection *conn, const QUrl &localFile);
     static void markAllMessagesAsRead(Quotient::Connection *conn);
-    void restoreWindowGeometry(QQuickWindow *);
+    void restoreWindowGeometry(QWindow *);
     void saveWindowGeometry(QQuickWindow *);
 };
 

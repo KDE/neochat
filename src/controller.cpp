@@ -589,7 +589,7 @@ void Controller::setActiveConnection(Connection *connection)
     Q_EMIT activeConnectionChanged();
 }
 
-void Controller::restoreWindowGeometry(QQuickWindow *window)
+void Controller::restoreWindowGeometry(QWindow *window)
 {
     KConfig dataResource("data", KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
     KConfigGroup windowGroup(&dataResource, "Window");
