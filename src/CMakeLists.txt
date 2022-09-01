@@ -144,7 +144,9 @@ else()
     install(FILES neochat.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFYRCDIR})
 endif()
 
-set_target_properties(neochat-app PROPERTIES OUTPUT_NAME "neochat")
+if(NOT ANDROID)
+    set_target_properties(neochat-app PROPERTIES OUTPUT_NAME "neochat")
+endif()
 
 if(TARGET KF5::DBusAddons)
     target_link_libraries(neochat PUBLIC KF5::DBusAddons)
