@@ -8,17 +8,25 @@
 
 namespace Quotient
 {
+#ifdef QUOTIENT_07
+class JoinRulesEvent : public StateEvent
+#else
 class JoinRulesEvent : public StateEventBase
+#endif
 {
 public:
+#ifdef QUOTIENT_07
+    QUO_EVENT(JoinRulesEvent, "m.room.join_rules")
+#else
     DEFINE_EVENT_TYPEID("m.room.join_rules", JoinRulesEvent)
+#endif
 
-    explicit JoinRulesEvent()
-        : StateEventBase(typeId(), matrixTypeId())
-    {
-    }
     explicit JoinRulesEvent(const QJsonObject &obj)
+#ifdef QUOTIENT_07
+        : StateEvent(obj)
+#else
         : StateEventBase(typeId(), obj)
+#endif
     {
     }
 

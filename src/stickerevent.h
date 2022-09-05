@@ -14,7 +14,11 @@ namespace Quotient
 class StickerEvent : public RoomEvent
 {
 public:
+#ifdef QUOTIENT_07
+    QUO_EVENT(StickerEvent, "m.sticker")
+#else
     DEFINE_EVENT_TYPEID("m.sticker", StickerEvent)
+#endif
 
     explicit StickerEvent(const QJsonObject &obj);
 
