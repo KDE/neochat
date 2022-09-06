@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-28 00:45+0000\n"
+"POT-Creation-Date: 2022-09-06 00:45+0000\n"
 "PO-Revision-Date: 2022-08-26 23:44+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -308,7 +308,7 @@ msgstr " (diedit)"
 msgid "Video"
 msgstr "Video"
 
-#: imports/NeoChat/Dialog/CreateRoomDialog.qml:17 qml/main.qml:248
+#: imports/NeoChat/Dialog/CreateRoomDialog.qml:17 qml/main.qml:241
 #, kde-format
 msgid "Create a Room"
 msgstr "Buat sebuah Ruangan"
@@ -428,7 +428,7 @@ msgctxt "menu"
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: imports/NeoChat/Menu/GlobalMenu.qml:27 qml/main.qml:258 qml/main.qml:263
+#: imports/NeoChat/Menu/GlobalMenu.qml:27 qml/main.qml:251 qml/main.qml:256
 #, kde-format
 msgid "Configure NeoChat..."
 msgstr "Konfigurasi NeoChat..."
@@ -439,7 +439,7 @@ msgctxt "menu"
 msgid "Configure NeoChat..."
 msgstr "Konfigurasi NeoChat..."
 
-#: imports/NeoChat/Menu/GlobalMenu.qml:32 qml/main.qml:261
+#: imports/NeoChat/Menu/GlobalMenu.qml:32 qml/main.qml:254
 #, kde-format
 msgid "Configure"
 msgstr "Konfigurasikan"
@@ -464,8 +464,8 @@ msgstr "Obrolan Privat Baru..."
 
 #: imports/NeoChat/Menu/GlobalMenu.qml:47
 #: imports/NeoChat/Menu/GlobalMenu.qml:52
-#: imports/NeoChat/Page/StartChatPage.qml:19 qml/main.qml:242 qml/main.qml:245
-#: qml/main.qml:255
+#: imports/NeoChat/Page/StartChatPage.qml:19 qml/main.qml:235 qml/main.qml:238
+#: qml/main.qml:248
 #, kde-format
 msgid "Start a Chat"
 msgstr "Mulai sebuah Obrolan"
@@ -617,7 +617,7 @@ msgstr "Simpan Sebagai"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:52
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:35
-#: imports/NeoChat/Page/RoomPage.qml:499 src/notificationsmanager.cpp:68
+#: imports/NeoChat/Page/RoomPage.qml:499 src/notificationsmanager.cpp:66
 #, kde-format
 msgid "Reply"
 msgstr "Balas"
@@ -741,7 +741,7 @@ msgstr "Tidak ada pengguna yang tersedia"
 msgid "Send invitation"
 msgstr "Kirim undangan"
 
-#: imports/NeoChat/Page/JoinRoomPage.qml:20 qml/main.qml:239
+#: imports/NeoChat/Page/JoinRoomPage.qml:20 qml/main.qml:232
 #, kde-format
 msgid "Explore Rooms"
 msgstr "Jelajahi Ruangan"
@@ -796,7 +796,7 @@ msgstr "Bergabung ke beberapa ruangan untuk memulai"
 msgid "Search in room directory"
 msgstr "Cari di direktori ruangan"
 
-#: imports/NeoChat/Page/RoomListPage.qml:200 qml/main.qml:236
+#: imports/NeoChat/Page/RoomListPage.qml:200 qml/main.qml:229
 #, kde-format
 msgid "Explore rooms"
 msgstr "Jelajahi ruangan"
@@ -1121,7 +1121,7 @@ msgstr "Tambahkan sebuah akun"
 msgid "Edit this account"
 msgstr "Edit akun ini"
 
-#: imports/NeoChat/Settings/AccountsPage.qml:60 qml/main.qml:267
+#: imports/NeoChat/Settings/AccountsPage.qml:60 qml/main.qml:260
 #, kde-format
 msgid "Logout"
 msgstr "Keluar dari Akun"
@@ -1409,22 +1409,22 @@ msgstr "Hapus kata"
 msgid "Warning: %1"
 msgstr "Peringatan: %1"
 
-#: qml/main.qml:273 src/trayicon.cpp:30
+#: qml/main.qml:266 src/trayicon.cpp:30
 #, kde-format
 msgid "Quit"
 msgstr "Keluar"
 
-#: qml/main.qml:353
+#: qml/main.qml:346
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: qml/main.qml:399
+#: qml/main.qml:382
 #, kde-format
 msgid "User consent"
 msgstr "Persetujuan pengguna"
 
-#: qml/main.qml:404
+#: qml/main.qml:387
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -1433,17 +1433,17 @@ msgstr ""
 "Homeserver Anda membutuhkan Anda untuk menerima syarat dan kondisi sebelum "
 "Anda dapat menggunakannya. Mohon klik tombol dibawah untuk membacanya."
 
-#: qml/main.qml:409
+#: qml/main.qml:392
 #, kde-format
 msgid "Open"
 msgstr "Buka"
 
-#: qml/main.qml:438
+#: qml/main.qml:421
 #, kde-format
 msgid "Start a chat"
 msgstr "Mulai sebuah obrolan"
 
-#: qml/main.qml:440
+#: qml/main.qml:423
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Apakah Anda ingin memulai sebuah obrolan dengan %1?"
@@ -1551,63 +1551,63 @@ msgstr "Mengundang pengguna dengan ID yang dicantumkan ke ruangan saat ini"
 msgid "React to this message with a text"
 msgstr "Bereaksi ke pesan ini dengan sebuah teks"
 
-#: src/controller.cpp:168 src/controller.cpp:302
+#: src/controller.cpp:173 src/controller.cpp:307
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Kesalahan Jaringan: %1"
 
-#: src/controller.cpp:293
+#: src/controller.cpp:298
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Login Gagal: Token Pengaksesan tidak valid atau dicabut"
 
-#: src/controller.cpp:296 src/login.cpp:77
+#: src/controller.cpp:301 src/login.cpp:77
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Login Gagal: %1"
 
-#: src/controller.cpp:360
+#: src/controller.cpp:365
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Token pengaksesan tidak ditemukan"
 
-#: src/controller.cpp:360
+#: src/controller.cpp:365
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Mungkin terhapus?"
 
-#: src/controller.cpp:364
+#: src/controller.cpp:369
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Akses ke keychain ditolak."
 
-#: src/controller.cpp:364
+#: src/controller.cpp:369
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Mohon izinkan NeoChat untuk membaca token pengaksesan"
 
-#: src/controller.cpp:367
+#: src/controller.cpp:372
 #, kde-format
 msgid "No keychain available."
 msgstr "Tidak ada keychain yang tersedia."
 
-#: src/controller.cpp:367
+#: src/controller.cpp:372
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Mohon instal sebuah keychain, seperti KWallet atau GNOME Keyring di Linux"
 
-#: src/controller.cpp:370
+#: src/controller.cpp:375
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Tidak dapat membaca token pengaksesan"
 
-#: src/controller.cpp:625
+#: src/controller.cpp:618
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "Pembuatan ruangan gagal: \"%1\""
 
-#: src/controller.cpp:638
+#: src/controller.cpp:631
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "ID ruangan yang Anda coba bergabung tidak valid"
@@ -1617,48 +1617,48 @@ msgstr "ID ruangan yang Anda coba bergabung tidak valid"
 msgid "Network Error"
 msgstr "Kesalahan Jaringan"
 
-#: src/main.cpp:149
+#: src/main.cpp:143
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:151
+#: src/main.cpp:145
 #, kde-format
 msgid "Matrix client"
 msgstr "Klien Matrix"
 
-#: src/main.cpp:153
+#: src/main.cpp:147
 #, fuzzy, kde-format
 #| msgid "© 2018-2020 Black Hat, 2020-2021 KDE Community"
 msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2021 Komunitas KDE"
 
-#: src/main.cpp:154
+#: src/main.cpp:148
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:155
+#: src/main.cpp:149
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:156
+#: src/main.cpp:150
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:160
+#: src/main.cpp:154
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr "Sebuah pustaka Qt5 untuk membuat klien lintas platform untuk Matrix"
 
-#: src/main.cpp:250
+#: src/main.cpp:238
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Klien untuk protokol komunikasi Matrix"
 
-#: src/main.cpp:251
+#: src/main.cpp:239
 #, kde-format
 msgid "Supports appstream: url scheme"
 msgstr "Mendukung skema URL appstream:"
@@ -1922,37 +1922,37 @@ msgstr "memperbarui status %1 untuk %2"
 msgid "Unknown event"
 msgstr "Peristiwa tidak diketahui"
 
-#: src/notificationsmanager.cpp:52
+#: src/notificationsmanager.cpp:53
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/notificationsmanager.cpp:58
+#: src/notificationsmanager.cpp:59
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Buka NeoChat di ruangan ini"
 
-#: src/notificationsmanager.cpp:69
+#: src/notificationsmanager.cpp:67
 #, kde-format
 msgid "Reply..."
 msgstr "Balas..."
 
-#: src/notificationsmanager.cpp:92
+#: src/notificationsmanager.cpp:90
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 mengundang Anda ke sebuah ruangan"
 
-#: src/notificationsmanager.cpp:96
+#: src/notificationsmanager.cpp:94
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Buka undangan ini di NeoChat"
 
-#: src/notificationsmanager.cpp:105
+#: src/notificationsmanager.cpp:100
 #, kde-format
 msgid "Accept Invitation"
 msgstr "Terima Undangan"
 
-#: src/notificationsmanager.cpp:105
+#: src/notificationsmanager.cpp:100
 #, kde-format
 msgid "Reject Invitation"
 msgstr "Tolak Undangan"

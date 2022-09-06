@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-28 00:45+0000\n"
+"POT-Creation-Date: 2022-09-06 00:45+0000\n"
 "PO-Revision-Date: 2021-11-08 09:39+0100\n"
 "Last-Translator: Kristof Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -311,7 +311,7 @@ msgstr "(szerkesztve)"
 msgid "Video"
 msgstr "Videó"
 
-#: imports/NeoChat/Dialog/CreateRoomDialog.qml:17 qml/main.qml:248
+#: imports/NeoChat/Dialog/CreateRoomDialog.qml:17 qml/main.qml:241
 #, kde-format
 msgid "Create a Room"
 msgstr "Szoba létrehozása"
@@ -431,7 +431,7 @@ msgctxt "menu"
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: imports/NeoChat/Menu/GlobalMenu.qml:27 qml/main.qml:258 qml/main.qml:263
+#: imports/NeoChat/Menu/GlobalMenu.qml:27 qml/main.qml:251 qml/main.qml:256
 #, fuzzy, kde-format
 #| msgid "Configure Web Shortcuts..."
 msgid "Configure NeoChat..."
@@ -444,7 +444,7 @@ msgctxt "menu"
 msgid "Configure NeoChat..."
 msgstr "Webes parancsikonok konfigurálása ..."
 
-#: imports/NeoChat/Menu/GlobalMenu.qml:32 qml/main.qml:261
+#: imports/NeoChat/Menu/GlobalMenu.qml:32 qml/main.qml:254
 #, fuzzy, kde-format
 #| msgid "Configure room"
 msgid "Configure"
@@ -470,8 +470,8 @@ msgstr "Új privát csevegés..."
 
 #: imports/NeoChat/Menu/GlobalMenu.qml:47
 #: imports/NeoChat/Menu/GlobalMenu.qml:52
-#: imports/NeoChat/Page/StartChatPage.qml:19 qml/main.qml:242 qml/main.qml:245
-#: qml/main.qml:255
+#: imports/NeoChat/Page/StartChatPage.qml:19 qml/main.qml:235 qml/main.qml:238
+#: qml/main.qml:248
 #, kde-format
 msgid "Start a Chat"
 msgstr "Csevegés indítása"
@@ -624,7 +624,7 @@ msgstr "Mentés másként"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:52
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:35
-#: imports/NeoChat/Page/RoomPage.qml:499 src/notificationsmanager.cpp:68
+#: imports/NeoChat/Page/RoomPage.qml:499 src/notificationsmanager.cpp:66
 #, kde-format
 msgid "Reply"
 msgstr "Válasz"
@@ -748,7 +748,7 @@ msgstr "Nincsenek felhasználók"
 msgid "Send invitation"
 msgstr "Meghívás küldése"
 
-#: imports/NeoChat/Page/JoinRoomPage.qml:20 qml/main.qml:239
+#: imports/NeoChat/Page/JoinRoomPage.qml:20 qml/main.qml:232
 #, kde-format
 msgid "Explore Rooms"
 msgstr "Szobák felfedezése"
@@ -803,7 +803,7 @@ msgstr "Csatlakozz néhány szobához kezdésként"
 msgid "Search in room directory"
 msgstr "Keresés a szobakönyvtárban"
 
-#: imports/NeoChat/Page/RoomListPage.qml:200 qml/main.qml:236
+#: imports/NeoChat/Page/RoomListPage.qml:200 qml/main.qml:229
 #, kde-format
 msgid "Explore rooms"
 msgstr "Szobák felfedezése"
@@ -1128,7 +1128,7 @@ msgstr "Fiók hozzáadása"
 msgid "Edit this account"
 msgstr "Fiók szerkesztése"
 
-#: imports/NeoChat/Settings/AccountsPage.qml:60 qml/main.qml:267
+#: imports/NeoChat/Settings/AccountsPage.qml:60 qml/main.qml:260
 #, kde-format
 msgid "Logout"
 msgstr "Kijelentkezés"
@@ -1420,22 +1420,22 @@ msgstr "Törlés"
 msgid "Warning: %1"
 msgstr "Figyelmeztetés: %1"
 
-#: qml/main.qml:273 src/trayicon.cpp:30
+#: qml/main.qml:266 src/trayicon.cpp:30
 #, kde-format
 msgid "Quit"
 msgstr "Kilépés"
 
-#: qml/main.qml:353
+#: qml/main.qml:346
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: qml/main.qml:399
+#: qml/main.qml:382
 #, kde-format
 msgid "User consent"
 msgstr "Felhasználói hozzájárulás"
 
-#: qml/main.qml:404
+#: qml/main.qml:387
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -1444,17 +1444,17 @@ msgstr ""
 "A kezdőkiszolgálója a használati feltételek elfogadását kéri, mielőtt "
 "használhatná azt. Kattintson a lenti gombra az elolvasásukhoz."
 
-#: qml/main.qml:409
+#: qml/main.qml:392
 #, kde-format
 msgid "Open"
 msgstr "Megnyitás"
 
-#: qml/main.qml:438
+#: qml/main.qml:421
 #, kde-format
 msgid "Start a chat"
 msgstr "Csevegés indítása"
 
-#: qml/main.qml:440
+#: qml/main.qml:423
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Szeretnél csevegést indítani vele: %1 ?"
@@ -1562,66 +1562,66 @@ msgstr "A megadott azonosítójú felhasználó meghívása ebbe a szobába"
 msgid "React to this message with a text"
 msgstr "Válasz erre az üzenetre szöveggel"
 
-#: src/controller.cpp:168 src/controller.cpp:302
+#: src/controller.cpp:173 src/controller.cpp:307
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Hálózati hiba: %1"
 
-#: src/controller.cpp:293
+#: src/controller.cpp:298
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr ""
 "Sikertelen bejelentkezés: A hozzáférést biztosító token érvénytelen vagy "
 "visszavonták"
 
-#: src/controller.cpp:296 src/login.cpp:77
+#: src/controller.cpp:301 src/login.cpp:77
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Sikertelen bejelentkezés: %1"
 
-#: src/controller.cpp:360
+#: src/controller.cpp:365
 #, fuzzy, kde-format
 #| msgid "Access Token (Optional)"
 msgid "Access token wasn't found"
 msgstr "Hozzáférési token (opcionális)"
 
-#: src/controller.cpp:360
+#: src/controller.cpp:365
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr ""
 
-#: src/controller.cpp:364
+#: src/controller.cpp:369
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr ""
 
-#: src/controller.cpp:364
+#: src/controller.cpp:369
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr ""
 
-#: src/controller.cpp:367
+#: src/controller.cpp:372
 #, fuzzy, kde-format
 #| msgid "No users available"
 msgid "No keychain available."
 msgstr "Nincsenek felhasználók"
 
-#: src/controller.cpp:367
+#: src/controller.cpp:372
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 
-#: src/controller.cpp:370
+#: src/controller.cpp:375
 #, kde-format
 msgid "Unable to read access token"
 msgstr ""
 
-#: src/controller.cpp:625
+#: src/controller.cpp:618
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "A szoba létrehozása nem sikerült: „%1”"
 
-#: src/controller.cpp:638
+#: src/controller.cpp:631
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "A szobaazonosító, amelyhez csatlakozni szeretne, érvénytelen"
@@ -1631,48 +1631,48 @@ msgstr "A szobaazonosító, amelyhez csatlakozni szeretne, érvénytelen"
 msgid "Network Error"
 msgstr "Hálózati hiba"
 
-#: src/main.cpp:149
+#: src/main.cpp:143
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:151
+#: src/main.cpp:145
 #, kde-format
 msgid "Matrix client"
 msgstr "Matrix kliens"
 
-#: src/main.cpp:153
+#: src/main.cpp:147
 #, fuzzy, kde-format
 #| msgid "© 2018-2020 Black Hat, 2020-2021 KDE Community"
 msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
 msgstr "© Black Hat, 2018-2020, A KDE közösség, 2020-2021"
 
-#: src/main.cpp:154
+#: src/main.cpp:148
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:155
+#: src/main.cpp:149
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:156
+#: src/main.cpp:150
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:160
+#: src/main.cpp:154
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr "Qt5 könyvtár cross-platform Matrix kliensek létrehozásához"
 
-#: src/main.cpp:250
+#: src/main.cpp:238
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Kliens a matrix kommunikációs protokollhoz"
 
-#: src/main.cpp:251
+#: src/main.cpp:239
 #, kde-format
 msgid "Supports appstream: url scheme"
 msgstr "Támogatja az 'appstream:' url sémát"
@@ -1936,40 +1936,40 @@ msgstr "frissítette a(z) %1 állapotát erre: %2"
 msgid "Unknown event"
 msgstr "Ismeretlen esemény"
 
-#: src/notificationsmanager.cpp:52
+#: src/notificationsmanager.cpp:53
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/notificationsmanager.cpp:58
+#: src/notificationsmanager.cpp:59
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "NeoChat megnyitása ebben a szobában"
 
-#: src/notificationsmanager.cpp:69
+#: src/notificationsmanager.cpp:67
 #, kde-format
 msgid "Reply..."
 msgstr "Válasz..."
 
-#: src/notificationsmanager.cpp:92
+#: src/notificationsmanager.cpp:90
 #, fuzzy, kde-format
 #| msgid "invited %1 to the room"
 msgid "%1 invited you to a room"
 msgstr "meghívta őt a szobába: %1"
 
-#: src/notificationsmanager.cpp:96
+#: src/notificationsmanager.cpp:94
 #, fuzzy, kde-format
 #| msgid "Open a private chat"
 msgid "Open this invitation in NeoChat"
 msgstr "Egy privát csevegés megnyitása"
 
-#: src/notificationsmanager.cpp:105
+#: src/notificationsmanager.cpp:100
 #, fuzzy, kde-format
 #| msgid "Accept this invitation?"
 msgid "Accept Invitation"
 msgstr "Elfogadod a meghívást?"
 
-#: src/notificationsmanager.cpp:105
+#: src/notificationsmanager.cpp:100
 #, fuzzy, kde-format
 #| msgid "Reject"
 msgid "Reject Invitation"
