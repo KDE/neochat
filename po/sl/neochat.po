@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-06 00:45+0000\n"
+"POT-Creation-Date: 2022-09-07 00:48+0000\n"
 "PO-Revision-Date: 2022-07-16 14:07+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -779,6 +779,12 @@ msgstr "Globalno"
 msgid "Joined"
 msgstr "Pridružen"
 
+#: imports/NeoChat/Page/RoomListPage.qml:61
+#, kde-format
+msgctxt "@action:button"
+msgid "Show All Rooms"
+msgstr ""
+
 #: imports/NeoChat/Page/RoomListPage.qml:109
 #, kde-format
 msgid "Rooms"
@@ -962,12 +968,14 @@ msgid "Muted"
 msgstr "Utišan"
 
 #: imports/NeoChat/RoomSettings/Categories.qml:15
+#: imports/NeoChat/RoomSettings/General.qml:24
 #: imports/NeoChat/Settings/SettingsPage.qml:13
 #, kde-format
 msgid "General"
 msgstr "Splošno"
 
 #: imports/NeoChat/RoomSettings/Categories.qml:25
+#: imports/NeoChat/RoomSettings/Security.qml:19
 #, kde-format
 msgid "Security"
 msgstr "Varnost"
@@ -1064,6 +1072,13 @@ msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "Kdorkoli lahko najde in se pridruži."
 
+#: imports/NeoChat/Settings/About.qml:10
+#, fuzzy, kde-format
+#| msgid "About NeoChat"
+msgctxt "@title:window"
+msgid "About NeoChat"
+msgstr "O programu NeoChat"
+
 #: imports/NeoChat/Settings/AccountEditorPage.qml:17
 #, kde-format
 msgid "Edit Account"
@@ -1128,6 +1143,13 @@ msgstr "Dodaj račun"
 msgid "Edit this account"
 msgstr "Uredi ta račun"
 
+#: imports/NeoChat/Settings/AccountsPage.qml:50
+#, fuzzy, kde-format
+#| msgctxt "@title:menu Account detail dialog"
+#| msgid "Account detail"
+msgid "Account editor"
+msgstr "Podrobnosti računa"
+
 #: imports/NeoChat/Settings/AccountsPage.qml:60 qml/main.qml:260
 #, kde-format
 msgid "Logout"
@@ -1147,6 +1169,13 @@ msgstr "Vneseno napačno geslo"
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Neznana težava ob poskusu zamenjave gesla"
+
+#: imports/NeoChat/Settings/AppearanceSettingsPage.qml:15
+#, fuzzy, kde-format
+#| msgid "Appearance"
+msgctxt "@title:window"
+msgid "Appearance"
+msgstr "Videz"
 
 #: imports/NeoChat/Settings/AppearanceSettingsPage.qml:99
 #, kde-format
@@ -1234,6 +1263,13 @@ msgstr "Potrdi"
 msgid "Edit device"
 msgstr "Uredi napravo"
 
+#: imports/NeoChat/Settings/Emoticons.qml:19
+#, fuzzy, kde-format
+#| msgid "Custom Emoji"
+msgctxt "@title:window"
+msgid "Custom Emojis"
+msgstr "Emodži po meri"
+
 #: imports/NeoChat/Settings/Emoticons.qml:31
 #, kde-format
 msgid "No custom inline stickers found"
@@ -1248,6 +1284,13 @@ msgstr "ime_novega_emodžija_tukaj"
 #, kde-format
 msgid "Add Emoji..."
 msgstr "Dodaj čustvenčka..."
+
+#: imports/NeoChat/Settings/GeneralSettingsPage.qml:14
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title:window"
+msgid "General"
+msgstr "Splošno"
 
 #: imports/NeoChat/Settings/GeneralSettingsPage.qml:19
 #, kde-format
@@ -1327,8 +1370,9 @@ msgid "Appearance"
 msgstr "Videz"
 
 #: imports/NeoChat/Settings/SettingsPage.qml:28
-#, kde-format
-msgid "Custom Emoji"
+#, fuzzy, kde-format
+#| msgid "Custom Emoji"
+msgid "Custom Emojis"
 msgstr "Emodži po meri"
 
 #: imports/NeoChat/Settings/SettingsPage.qml:33
@@ -1340,6 +1384,13 @@ msgstr "Preverjanje črkovanja"
 #, kde-format
 msgid "About NeoChat"
 msgstr "O programu NeoChat"
+
+#: imports/NeoChat/Settings/SonnetConfigPage.qml:50
+#, fuzzy, kde-format
+#| msgid "Spell Checking"
+msgctxt "@window:title"
+msgid "Spellchecking"
+msgstr "Preverjanje črkovanja"
 
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:94
 #, kde-format

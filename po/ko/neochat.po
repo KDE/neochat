@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-06 00:45+0000\n"
+"POT-Creation-Date: 2022-09-07 00:48+0000\n"
 "PO-Revision-Date: 2022-08-09 13:27+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -773,6 +773,12 @@ msgstr "전역"
 msgid "Joined"
 msgstr "입장함"
 
+#: imports/NeoChat/Page/RoomListPage.qml:61
+#, kde-format
+msgctxt "@action:button"
+msgid "Show All Rooms"
+msgstr ""
+
 #: imports/NeoChat/Page/RoomListPage.qml:109
 #, kde-format
 msgid "Rooms"
@@ -950,12 +956,14 @@ msgid "Muted"
 msgstr "음소거됨"
 
 #: imports/NeoChat/RoomSettings/Categories.qml:15
+#: imports/NeoChat/RoomSettings/General.qml:24
 #: imports/NeoChat/Settings/SettingsPage.qml:13
 #, kde-format
 msgid "General"
 msgstr "일반"
 
 #: imports/NeoChat/RoomSettings/Categories.qml:25
+#: imports/NeoChat/RoomSettings/Security.qml:19
 #, kde-format
 msgid "Security"
 msgstr "보안"
@@ -1052,6 +1060,13 @@ msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "누구나 찾고 등록할 수 있습니다."
 
+#: imports/NeoChat/Settings/About.qml:10
+#, fuzzy, kde-format
+#| msgid "About NeoChat"
+msgctxt "@title:window"
+msgid "About NeoChat"
+msgstr "NeoChat 정보"
+
 #: imports/NeoChat/Settings/AccountEditorPage.qml:17
 #, kde-format
 msgid "Edit Account"
@@ -1116,6 +1131,13 @@ msgstr "계정 추가"
 msgid "Edit this account"
 msgstr "이 계정 편집"
 
+#: imports/NeoChat/Settings/AccountsPage.qml:50
+#, fuzzy, kde-format
+#| msgctxt "@title:menu Account detail dialog"
+#| msgid "Account detail"
+msgid "Account editor"
+msgstr "계정 정보"
+
 #: imports/NeoChat/Settings/AccountsPage.qml:60 qml/main.qml:260
 #, kde-format
 msgid "Logout"
@@ -1135,6 +1157,13 @@ msgstr "암호가 잘못됨"
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "암호를 변경하는 중 알 수 없는 오류 발생"
+
+#: imports/NeoChat/Settings/AppearanceSettingsPage.qml:15
+#, fuzzy, kde-format
+#| msgid "Appearance"
+msgctxt "@title:window"
+msgid "Appearance"
+msgstr "모양"
 
 #: imports/NeoChat/Settings/AppearanceSettingsPage.qml:99
 #, kde-format
@@ -1222,6 +1251,13 @@ msgstr "확인"
 msgid "Edit device"
 msgstr "장치 편집"
 
+#: imports/NeoChat/Settings/Emoticons.qml:19
+#, fuzzy, kde-format
+#| msgid "Custom Emoji"
+msgctxt "@title:window"
+msgid "Custom Emojis"
+msgstr "사용자 정의 이모지"
+
 #: imports/NeoChat/Settings/Emoticons.qml:31
 #, kde-format
 msgid "No custom inline stickers found"
@@ -1236,6 +1272,13 @@ msgstr "새_이모지_이름_입력"
 #, kde-format
 msgid "Add Emoji..."
 msgstr "이모지 추가..."
+
+#: imports/NeoChat/Settings/GeneralSettingsPage.qml:14
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title:window"
+msgid "General"
+msgstr "일반"
 
 #: imports/NeoChat/Settings/GeneralSettingsPage.qml:19
 #, kde-format
@@ -1313,8 +1356,9 @@ msgid "Appearance"
 msgstr "모양"
 
 #: imports/NeoChat/Settings/SettingsPage.qml:28
-#, kde-format
-msgid "Custom Emoji"
+#, fuzzy, kde-format
+#| msgid "Custom Emoji"
+msgid "Custom Emojis"
 msgstr "사용자 정의 이모지"
 
 #: imports/NeoChat/Settings/SettingsPage.qml:33
@@ -1326,6 +1370,13 @@ msgstr "맞춤법 검사"
 #, kde-format
 msgid "About NeoChat"
 msgstr "NeoChat 정보"
+
+#: imports/NeoChat/Settings/SonnetConfigPage.qml:50
+#, fuzzy, kde-format
+#| msgid "Spell Checking"
+msgctxt "@window:title"
+msgid "Spellchecking"
+msgstr "맞춤법 검사"
 
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:94
 #, kde-format

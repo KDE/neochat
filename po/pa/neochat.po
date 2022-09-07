@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-06 00:45+0000\n"
+"POT-Creation-Date: 2022-09-07 00:48+0000\n"
 "PO-Revision-Date: 2021-12-31 11:06-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -775,6 +775,12 @@ msgstr "ਗਲੋਬਲ"
 msgid "Joined"
 msgstr "ਦਾਖਲ ਹੋਏ"
 
+#: imports/NeoChat/Page/RoomListPage.qml:61
+#, kde-format
+msgctxt "@action:button"
+msgid "Show All Rooms"
+msgstr ""
+
 #: imports/NeoChat/Page/RoomListPage.qml:109
 #, kde-format
 msgid "Rooms"
@@ -954,12 +960,14 @@ msgid "Muted"
 msgstr "ਮੌਨ ਕੀਤਾ"
 
 #: imports/NeoChat/RoomSettings/Categories.qml:15
+#: imports/NeoChat/RoomSettings/General.qml:24
 #: imports/NeoChat/Settings/SettingsPage.qml:13
 #, kde-format
 msgid "General"
 msgstr "ਆਮ"
 
 #: imports/NeoChat/RoomSettings/Categories.qml:25
+#: imports/NeoChat/RoomSettings/Security.qml:19
 #, kde-format
 msgid "Security"
 msgstr "ਸੁਰੱਖਿਆ"
@@ -1056,6 +1064,13 @@ msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "ਕੋਈ ਵੀ ਲੱਭ ਤੇ ਜੁਆਇੰਨ ਕਰ ਸਕਦਾ ਹੈ।"
 
+#: imports/NeoChat/Settings/About.qml:10
+#, fuzzy, kde-format
+#| msgid "About NeoChat"
+msgctxt "@title:window"
+msgid "About NeoChat"
+msgstr "ਨਿਓ-ਚੈਟ ਬਾਰੇ"
+
 #: imports/NeoChat/Settings/AccountEditorPage.qml:17
 #, kde-format
 msgid "Edit Account"
@@ -1120,6 +1135,13 @@ msgstr "ਖਾਤਾ ਜੋੜੋ"
 msgid "Edit this account"
 msgstr "ਇਹ ਖਾਤੇ ਨੂੰ ਸੋਧੋ"
 
+#: imports/NeoChat/Settings/AccountsPage.qml:50
+#, fuzzy, kde-format
+#| msgctxt "@title:menu Account detail dialog"
+#| msgid "Account detail"
+msgid "Account editor"
+msgstr "ਖਾਤੇ ਦਾ ਵੇਰਵਾ"
+
 #: imports/NeoChat/Settings/AccountsPage.qml:60 qml/main.qml:260
 #, kde-format
 msgid "Logout"
@@ -1139,6 +1161,13 @@ msgstr "ਗਲਤ ਪਾਸਵਰਡ ਦਿੱਤਾ"
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "ਪਾਸਵਰਡ ਬਦਲਣ ਦੇ ਦੌਰਾਨ ਅਣਪਛਾਤੀ ਗਲਤੀ ਆਈ"
+
+#: imports/NeoChat/Settings/AppearanceSettingsPage.qml:15
+#, fuzzy, kde-format
+#| msgid "Appearance"
+msgctxt "@title:window"
+msgid "Appearance"
+msgstr "ਦਿੱਖ"
 
 #: imports/NeoChat/Settings/AppearanceSettingsPage.qml:99
 #, kde-format
@@ -1226,6 +1255,13 @@ msgstr "ਤਸਦੀਕ ਕਰੋ"
 msgid "Edit device"
 msgstr "ਡਿਵਾਈਸ ਨੂੰ ਸੋਧੋ"
 
+#: imports/NeoChat/Settings/Emoticons.qml:19
+#, fuzzy, kde-format
+#| msgid "Custom"
+msgctxt "@title:window"
+msgid "Custom Emojis"
+msgstr "ਕਸਟਮ"
+
 #: imports/NeoChat/Settings/Emoticons.qml:31
 #, kde-format
 msgid "No custom inline stickers found"
@@ -1240,6 +1276,13 @@ msgstr ""
 #, kde-format
 msgid "Add Emoji..."
 msgstr "...ਈਮੋਜ਼ੀ ਜੋੜੋ"
+
+#: imports/NeoChat/Settings/GeneralSettingsPage.qml:14
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title:window"
+msgid "General"
+msgstr "ਆਮ"
 
 #: imports/NeoChat/Settings/GeneralSettingsPage.qml:19
 #, kde-format
@@ -1320,9 +1363,10 @@ msgid "Appearance"
 msgstr "ਦਿੱਖ"
 
 #: imports/NeoChat/Settings/SettingsPage.qml:28
-#, kde-format
-msgid "Custom Emoji"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Custom"
+msgid "Custom Emojis"
+msgstr "ਕਸਟਮ"
 
 #: imports/NeoChat/Settings/SettingsPage.qml:33
 #, kde-format
@@ -1333,6 +1377,12 @@ msgstr ""
 #, kde-format
 msgid "About NeoChat"
 msgstr "ਨਿਓ-ਚੈਟ ਬਾਰੇ"
+
+#: imports/NeoChat/Settings/SonnetConfigPage.qml:50
+#, kde-format
+msgctxt "@window:title"
+msgid "Spellchecking"
+msgstr ""
 
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:94
 #, kde-format

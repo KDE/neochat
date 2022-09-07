@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-06 00:45+0000\n"
+"POT-Creation-Date: 2022-09-07 00:48+0000\n"
 "PO-Revision-Date: 2022-07-21 18:59+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -774,6 +774,12 @@ msgstr "Yleisasetukset"
 msgid "Joined"
 msgstr "Liitytty"
 
+#: imports/NeoChat/Page/RoomListPage.qml:61
+#, kde-format
+msgctxt "@action:button"
+msgid "Show All Rooms"
+msgstr ""
+
 #: imports/NeoChat/Page/RoomListPage.qml:109
 #, kde-format
 msgid "Rooms"
@@ -953,12 +959,14 @@ msgid "Muted"
 msgstr "Vaimennettu"
 
 #: imports/NeoChat/RoomSettings/Categories.qml:15
+#: imports/NeoChat/RoomSettings/General.qml:24
 #: imports/NeoChat/Settings/SettingsPage.qml:13
 #, kde-format
 msgid "General"
 msgstr "Perusasetukset"
 
 #: imports/NeoChat/RoomSettings/Categories.qml:25
+#: imports/NeoChat/RoomSettings/Security.qml:19
 #, kde-format
 msgid "Security"
 msgstr "Tietoturva"
@@ -1055,6 +1063,13 @@ msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "Kuka tahansa voi löytää ja liittyä."
 
+#: imports/NeoChat/Settings/About.qml:10
+#, fuzzy, kde-format
+#| msgid "About NeoChat"
+msgctxt "@title:window"
+msgid "About NeoChat"
+msgstr "Tietoa Neochatistä"
+
 #: imports/NeoChat/Settings/AccountEditorPage.qml:17
 #, kde-format
 msgid "Edit Account"
@@ -1119,6 +1134,13 @@ msgstr "Lisää tili"
 msgid "Edit this account"
 msgstr "Muokkaa tätä tiliä"
 
+#: imports/NeoChat/Settings/AccountsPage.qml:50
+#, fuzzy, kde-format
+#| msgctxt "@title:menu Account detail dialog"
+#| msgid "Account detail"
+msgid "Account editor"
+msgstr "Tilin tiedot"
+
 #: imports/NeoChat/Settings/AccountsPage.qml:60 qml/main.qml:260
 #, kde-format
 msgid "Logout"
@@ -1138,6 +1160,13 @@ msgstr "Annettiin väärä salasana"
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Tuntematon ongelma yritettäessä vaihtaa salasanaa"
+
+#: imports/NeoChat/Settings/AppearanceSettingsPage.qml:15
+#, fuzzy, kde-format
+#| msgid "Appearance"
+msgctxt "@title:window"
+msgid "Appearance"
+msgstr "Ulkoasu"
 
 #: imports/NeoChat/Settings/AppearanceSettingsPage.qml:99
 #, kde-format
@@ -1225,6 +1254,13 @@ msgstr "Vahvista"
 msgid "Edit device"
 msgstr "Muokkaa laitetta"
 
+#: imports/NeoChat/Settings/Emoticons.qml:19
+#, fuzzy, kde-format
+#| msgid "Custom Emoji"
+msgctxt "@title:window"
+msgid "Custom Emojis"
+msgstr "Mukautettu emoji"
+
 #: imports/NeoChat/Settings/Emoticons.qml:31
 #, kde-format
 msgid "No custom inline stickers found"
@@ -1239,6 +1275,13 @@ msgstr "uuden_emojin_nimi_tähän"
 #, kde-format
 msgid "Add Emoji..."
 msgstr "Lisää emoji…"
+
+#: imports/NeoChat/Settings/GeneralSettingsPage.qml:14
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title:window"
+msgid "General"
+msgstr "Perusasetukset"
 
 #: imports/NeoChat/Settings/GeneralSettingsPage.qml:19
 #, kde-format
@@ -1317,8 +1360,9 @@ msgid "Appearance"
 msgstr "Ulkoasu"
 
 #: imports/NeoChat/Settings/SettingsPage.qml:28
-#, kde-format
-msgid "Custom Emoji"
+#, fuzzy, kde-format
+#| msgid "Custom Emoji"
+msgid "Custom Emojis"
 msgstr "Mukautettu emoji"
 
 #: imports/NeoChat/Settings/SettingsPage.qml:33
@@ -1330,6 +1374,13 @@ msgstr "Oikeinkirjoituksen tarkistus"
 #, kde-format
 msgid "About NeoChat"
 msgstr "Tietoa Neochatistä"
+
+#: imports/NeoChat/Settings/SonnetConfigPage.qml:50
+#, fuzzy, kde-format
+#| msgid "Spell Checking"
+msgctxt "@window:title"
+msgid "Spellchecking"
+msgstr "Oikeinkirjoituksen tarkistus"
 
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:94
 #, kde-format

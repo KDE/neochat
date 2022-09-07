@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-06 00:45+0000\n"
+"POT-Creation-Date: 2022-09-07 00:48+0000\n"
 "PO-Revision-Date: 2022-08-20 14:18\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -771,6 +771,12 @@ msgstr "全局"
 msgid "Joined"
 msgstr "已加入"
 
+#: imports/NeoChat/Page/RoomListPage.qml:61
+#, kde-format
+msgctxt "@action:button"
+msgid "Show All Rooms"
+msgstr ""
+
 #: imports/NeoChat/Page/RoomListPage.qml:109
 #, kde-format
 msgid "Rooms"
@@ -948,12 +954,14 @@ msgid "Muted"
 msgstr "已静音"
 
 #: imports/NeoChat/RoomSettings/Categories.qml:15
+#: imports/NeoChat/RoomSettings/General.qml:24
 #: imports/NeoChat/Settings/SettingsPage.qml:13
 #, kde-format
 msgid "General"
 msgstr "常规"
 
 #: imports/NeoChat/RoomSettings/Categories.qml:25
+#: imports/NeoChat/RoomSettings/Security.qml:19
 #, kde-format
 msgid "Security"
 msgstr ""
@@ -1050,6 +1058,13 @@ msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr ""
 
+#: imports/NeoChat/Settings/About.qml:10
+#, fuzzy, kde-format
+#| msgid "About NeoChat"
+msgctxt "@title:window"
+msgid "About NeoChat"
+msgstr "关于 NeoChat"
+
 #: imports/NeoChat/Settings/AccountEditorPage.qml:17
 #, kde-format
 msgid "Edit Account"
@@ -1114,6 +1129,13 @@ msgstr "添加账户"
 msgid "Edit this account"
 msgstr "编辑此账户"
 
+#: imports/NeoChat/Settings/AccountsPage.qml:50
+#, fuzzy, kde-format
+#| msgctxt "@title:menu Account detail dialog"
+#| msgid "Account detail"
+msgid "Account editor"
+msgstr "账户详情"
+
 #: imports/NeoChat/Settings/AccountsPage.qml:60 qml/main.qml:260
 #, kde-format
 msgid "Logout"
@@ -1133,6 +1155,13 @@ msgstr "输入的密码错误"
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "尝试更改密码时出现未知问题"
+
+#: imports/NeoChat/Settings/AppearanceSettingsPage.qml:15
+#, fuzzy, kde-format
+#| msgid "Appearance"
+msgctxt "@title:window"
+msgid "Appearance"
+msgstr "外观"
 
 #: imports/NeoChat/Settings/AppearanceSettingsPage.qml:99
 #, kde-format
@@ -1220,6 +1249,13 @@ msgstr "确认"
 msgid "Edit device"
 msgstr "编辑设备"
 
+#: imports/NeoChat/Settings/Emoticons.qml:19
+#, fuzzy, kde-format
+#| msgid "Custom Emoji"
+msgctxt "@title:window"
+msgid "Custom Emojis"
+msgstr "自定义表情"
+
 #: imports/NeoChat/Settings/Emoticons.qml:31
 #, kde-format
 msgid "No custom inline stickers found"
@@ -1234,6 +1270,13 @@ msgstr ""
 #, kde-format
 msgid "Add Emoji..."
 msgstr ""
+
+#: imports/NeoChat/Settings/GeneralSettingsPage.qml:14
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title:window"
+msgid "General"
+msgstr "常规"
 
 #: imports/NeoChat/Settings/GeneralSettingsPage.qml:19
 #, kde-format
@@ -1311,8 +1354,9 @@ msgid "Appearance"
 msgstr "外观"
 
 #: imports/NeoChat/Settings/SettingsPage.qml:28
-#, kde-format
-msgid "Custom Emoji"
+#, fuzzy, kde-format
+#| msgid "Custom Emoji"
+msgid "Custom Emojis"
 msgstr "自定义表情"
 
 #: imports/NeoChat/Settings/SettingsPage.qml:33
@@ -1324,6 +1368,12 @@ msgstr ""
 #, kde-format
 msgid "About NeoChat"
 msgstr "关于 NeoChat"
+
+#: imports/NeoChat/Settings/SonnetConfigPage.qml:50
+#, kde-format
+msgctxt "@window:title"
+msgid "Spellchecking"
+msgstr ""
 
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:94
 #, kde-format

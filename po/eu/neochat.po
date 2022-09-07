@@ -4,13 +4,13 @@
 # KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2020, 2021.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2020, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-06 00:45+0000\n"
-"PO-Revision-Date: 2021-09-10 20:27+0200\n"
+"POT-Creation-Date: 2022-09-07 00:48+0000\n"
+"PO-Revision-Date: 2022-09-06 09:30+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.08.1\n"
+"X-Generator: Lokalize 22.08.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -65,16 +65,14 @@ msgid "Edit Message"
 msgstr "Editatu mezua"
 
 #: imports/NeoChat/Component/ChatBox/ChatBar.qml:100
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgid "Send an encrypted message…"
-msgstr "Bidali mezua"
+msgstr "Bidali zifratutako mezu bat..."
 
 #: imports/NeoChat/Component/ChatBox/ChatBar.qml:100
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgid "Send a message…"
-msgstr "Bidali mezua"
+msgstr "Bidali mezua bat..."
 
 #: imports/NeoChat/Component/ChatBox/ChatBar.qml:289
 #, kde-format
@@ -155,15 +153,14 @@ msgstr "Jarraitu"
 #: imports/NeoChat/Page/LoadingPage.qml:14
 #: imports/NeoChat/Page/RoomPage.qml:151
 #: imports/NeoChat/Settings/DevicesPage.qml:25
-#, fuzzy, kde-format
-#| msgid "Loading"
+#, kde-format
 msgid "Loading…"
-msgstr "Zamatzen"
+msgstr "Zamatzen..."
 
 #: imports/NeoChat/Component/Login/Loading.qml:21
 #, kde-format
 msgid "Please wait. This might take a little while."
-msgstr ""
+msgstr "Itxoin mesedez. Horrek denboratxo bat behar izan dezake."
 
 #: imports/NeoChat/Component/Login/Login.qml:20
 #: imports/NeoChat/Component/Login/Sso.qml:16
@@ -377,7 +374,7 @@ msgstr "Erabiltzaile hau debekatzeari utzi"
 #: imports/NeoChat/Dialog/UserDetailDialog.qml:142
 #, kde-format
 msgid "Delete recent messages by this user"
-msgstr ""
+msgstr "Ezabatu erabiltzaile horren azken aldiko mezuak"
 
 #: imports/NeoChat/Dialog/UserDetailDialog.qml:153
 #, kde-format
@@ -433,23 +430,20 @@ msgid "NeoChat"
 msgstr "NeoChat"
 
 #: imports/NeoChat/Menu/GlobalMenu.qml:27 qml/main.qml:251 qml/main.qml:256
-#, fuzzy, kde-format
-#| msgid "Configure Web Shortcuts..."
+#, kde-format
 msgid "Configure NeoChat..."
-msgstr "Konfiguratu web-lasterbideak..."
+msgstr "Konfiguratu NeoChat..."
 
 #: imports/NeoChat/Menu/GlobalMenu.qml:28
-#, fuzzy, kde-format
-#| msgid "Configure Web Shortcuts..."
+#, kde-format
 msgctxt "menu"
 msgid "Configure NeoChat..."
-msgstr "Konfiguratu web-lasterbideak..."
+msgstr "Konfiguratu NeoChat..."
 
 #: imports/NeoChat/Menu/GlobalMenu.qml:32 qml/main.qml:254
-#, fuzzy, kde-format
-#| msgid "Configure room"
+#, kde-format
 msgid "Configure"
-msgstr "Konfiguratu gela"
+msgstr "Konfiguratu"
 
 #: imports/NeoChat/Menu/GlobalMenu.qml:36
 #, kde-format
@@ -578,7 +572,7 @@ msgstr "Markatu irakurritako gisa"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy address to clipboard"
-msgstr ""
+msgstr "Kopiatu helbidea arbelera"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:61
 #: imports/NeoChat/Panel/RoomDrawer.qml:121
@@ -595,23 +589,22 @@ msgstr "Irten gelatik"
 #: imports/NeoChat/Menu/ShareAction.qml:19
 #, kde-format
 msgid "Share"
-msgstr ""
+msgstr "Partekatu"
 
 #: imports/NeoChat/Menu/ShareAction.qml:20
 #, kde-format
 msgid "Share the selected media"
-msgstr ""
+msgstr "Partekatu hautatutako multimedia"
 
 #: imports/NeoChat/Menu/ShareDialog.qml:34
-#, fuzzy, kde-format
-#| msgid "Login Failed"
+#, kde-format
 msgid "Sharing failed"
-msgstr "Saio-hastea huts egin du"
+msgstr "Partekatzea huts egin du"
 
 #: imports/NeoChat/Menu/ShareDialog.qml:53
 #, kde-format
 msgid "Shared url for image is <a href='%1'>%1</a>"
-msgstr ""
+msgstr "Irudirako partekatutako URLa <a href='%1'>%1</a> da"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:25
 #, kde-format
@@ -783,6 +776,12 @@ msgstr "Orokorra"
 #, kde-format
 msgid "Joined"
 msgstr "Batu da"
+
+#: imports/NeoChat/Page/RoomListPage.qml:61
+#, kde-format
+msgctxt "@action:button"
+msgid "Show All Rooms"
+msgstr ""
 
 #: imports/NeoChat/Page/RoomListPage.qml:109
 #, kde-format
@@ -963,22 +962,22 @@ msgid "Muted"
 msgstr "Isilarazita"
 
 #: imports/NeoChat/RoomSettings/Categories.qml:15
+#: imports/NeoChat/RoomSettings/General.qml:24
 #: imports/NeoChat/Settings/SettingsPage.qml:13
 #, kde-format
 msgid "General"
 msgstr "Orokorra"
 
 #: imports/NeoChat/RoomSettings/Categories.qml:25
+#: imports/NeoChat/RoomSettings/Security.qml:19
 #, kde-format
 msgid "Security"
-msgstr ""
+msgstr "Segurtasuna"
 
 #: imports/NeoChat/RoomSettings/General.qml:42
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "updated their avatar"
+#, kde-format
 msgid "Update avatar"
-msgstr "bere abatarra eguneratu du"
+msgstr "Eguneratu abatara"
 
 #: imports/NeoChat/RoomSettings/General.qml:60
 #, kde-format
@@ -996,10 +995,9 @@ msgid "Canonical Alias:"
 msgstr "Ezizen kanonikoa:"
 
 #: imports/NeoChat/RoomSettings/General.qml:98
-#, fuzzy, kde-format
-#| msgid "Alt Aliases"
+#, kde-format
 msgid "Other Aliases:"
-msgstr "Ordezko ezizenak"
+msgstr "Beste ezizen batzuk:"
 
 #: imports/NeoChat/RoomSettings/General.qml:142
 #, kde-format
@@ -1026,49 +1024,54 @@ msgstr "Ikusi gela berria..."
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:326
 #, kde-format
 msgid "Apply"
-msgstr ""
+msgstr "Ezarri"
 
 #: imports/NeoChat/RoomSettings/Security.qml:26
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
-msgstr ""
+msgstr "Pribatua (gonbidapenarekin bakarrik)"
 
 #: imports/NeoChat/RoomSettings/Security.qml:27
-#, fuzzy, kde-format
-#| msgid "Accept"
+#, kde-format
 msgctxt "@option:check"
 msgid "Access:"
-msgstr "Onartu"
+msgstr "Sartu:"
 
 #: imports/NeoChat/RoomSettings/Security.qml:32
 #, kde-format
 msgid "Only invited people can join."
-msgstr ""
+msgstr "Gonbidatutako jendea bakarrik batu daiteke."
 
 #: imports/NeoChat/RoomSettings/Security.qml:36
-#, fuzzy, kde-format
-#| msgid "Spaces"
+#, kde-format
 msgctxt "@option:check"
 msgid "Space members"
-msgstr "Zuriuneak"
+msgstr "Tokiko kideak"
 
 #: imports/NeoChat/RoomSettings/Security.qml:41
 #, kde-format
 msgid "Anyone in a space can find and join."
-msgstr ""
+msgstr "Toki bateko edonork bilatu eta batu daiteke."
 
 #: imports/NeoChat/RoomSettings/Security.qml:45
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
-msgstr ""
+msgstr "Publikoa"
 
 #: imports/NeoChat/RoomSettings/Security.qml:50
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
-msgstr ""
+msgstr "Edonork bilatu eta batu daiteke."
+
+#: imports/NeoChat/Settings/About.qml:10
+#, fuzzy, kde-format
+#| msgid "About NeoChat"
+msgctxt "@title:window"
+msgid "About NeoChat"
+msgstr "Neochat-i buruz"
 
 #: imports/NeoChat/Settings/AccountEditorPage.qml:17
 #, kde-format
@@ -1089,7 +1092,7 @@ msgstr "Izena:"
 #: imports/NeoChat/Settings/AccountEditorPage.qml:68
 #, kde-format
 msgid "Label:"
-msgstr ""
+msgstr "Labela:"
 
 #: imports/NeoChat/Settings/AccountEditorPage.qml:72
 #, kde-format
@@ -1134,6 +1137,13 @@ msgstr "Gehitu kontu bat"
 msgid "Edit this account"
 msgstr "Editatu kontua hau"
 
+#: imports/NeoChat/Settings/AccountsPage.qml:50
+#, fuzzy, kde-format
+#| msgctxt "@title:menu Account detail dialog"
+#| msgid "Account detail"
+msgid "Account editor"
+msgstr "Kontuaren xehetasuna"
+
 #: imports/NeoChat/Settings/AccountsPage.qml:60 qml/main.qml:260
 #, kde-format
 msgid "Logout"
@@ -1153,6 +1163,13 @@ msgstr "Pasahitz okerra sartu da"
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Arazo ezezaguna pasahitza aldatzen saiatzean"
+
+#: imports/NeoChat/Settings/AppearanceSettingsPage.qml:15
+#, fuzzy, kde-format
+#| msgid "Appearance"
+msgctxt "@title:window"
+msgid "Appearance"
+msgstr "Itxura"
 
 #: imports/NeoChat/Settings/AppearanceSettingsPage.qml:99
 #, kde-format
@@ -1240,6 +1257,13 @@ msgstr "Berretsi"
 msgid "Edit device"
 msgstr "Editatu gailua"
 
+#: imports/NeoChat/Settings/Emoticons.qml:19
+#, fuzzy, kde-format
+#| msgid "Custom Emoji"
+msgctxt "@title:window"
+msgid "Custom Emojis"
+msgstr "Norberak finkatutako Emoji"
+
 #: imports/NeoChat/Settings/Emoticons.qml:31
 #, kde-format
 msgid "No custom inline stickers found"
@@ -1255,6 +1279,13 @@ msgstr "emoji_izen_berria_hemen"
 msgid "Add Emoji..."
 msgstr "Gehitu Emoji..."
 
+#: imports/NeoChat/Settings/GeneralSettingsPage.qml:14
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title:window"
+msgid "General"
+msgstr "Orokorra"
+
 #: imports/NeoChat/Settings/GeneralSettingsPage.qml:19
 #, kde-format
 msgid "General settings:"
@@ -1268,7 +1299,7 @@ msgstr "Itxi sistemako erretilura"
 #: imports/NeoChat/Settings/GeneralSettingsPage.qml:30
 #, kde-format
 msgid "Minimize to system tray on startup"
-msgstr ""
+msgstr "Ikonotu sistemaren erretilura abiatzean"
 
 #: imports/NeoChat/Settings/GeneralSettingsPage.qml:42
 #, kde-format
@@ -1286,16 +1317,14 @@ msgid "Show leave and join events"
 msgstr "Erakutsi irteera eta batze gertakariak"
 
 #: imports/NeoChat/Settings/GeneralSettingsPage.qml:61
-#, fuzzy, kde-format
-#| msgid "Show leave and join events"
+#, kde-format
 msgid "Show name change events"
-msgstr "Erakutsi irteera eta batze gertakariak"
+msgstr "Erakutsi izena aldatzeko gertakariak"
 
 #: imports/NeoChat/Settings/GeneralSettingsPage.qml:70
-#, fuzzy, kde-format
-#| msgid "Show leave and join events"
+#, kde-format
 msgid "Show avatar update events"
-msgstr "Erakutsi irteera eta batze gertakariak"
+msgstr "Erakutsi abatara eguneratzeko gertakariak"
 
 #: imports/NeoChat/Settings/GeneralSettingsPage.qml:79
 #, kde-format
@@ -1318,15 +1347,16 @@ msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "Erabili «s/testua/ordezkoa» sintaxia zure azken mezua editatzeko"
 
 #: imports/NeoChat/Settings/GeneralSettingsPage.qml:112
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Send Typing Notifications"
-msgstr "Erakutsi jakinarazpenak"
+msgstr "Bidali tekleatze-jakinarazpenak"
 
 #: imports/NeoChat/Settings/GeneralSettingsPage.qml:121
 #, kde-format
 msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr ""
+"Leihoaren neurria aldatzean, automatikoki erakutsi/ezkutatu gelaren "
+"informazioa"
 
 #: imports/NeoChat/Settings/SettingsPage.qml:18
 #, kde-format
@@ -1334,8 +1364,9 @@ msgid "Appearance"
 msgstr "Itxura"
 
 #: imports/NeoChat/Settings/SettingsPage.qml:28
-#, kde-format
-msgid "Custom Emoji"
+#, fuzzy, kde-format
+#| msgid "Custom Emoji"
+msgid "Custom Emojis"
 msgstr "Norberak finkatutako Emoji"
 
 #: imports/NeoChat/Settings/SettingsPage.qml:33
@@ -1348,46 +1379,52 @@ msgstr "Ortografia egiaztatzea"
 msgid "About NeoChat"
 msgstr "Neochat-i buruz"
 
+#: imports/NeoChat/Settings/SonnetConfigPage.qml:50
+#, fuzzy, kde-format
+#| msgid "Spell Checking"
+msgctxt "@window:title"
+msgid "Spellchecking"
+msgstr "Ortografia egiaztatzea"
+
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:94
 #, kde-format
 msgid "Selected default language:"
-msgstr ""
+msgstr "Hautatutako hizkuntza lehenetsia:"
 
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:105
 #, kde-format
 msgid "Open Personal Dictionary"
-msgstr ""
+msgstr "Ireki hiztegi pertsonala"
 
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:124
 #, kde-format
 msgid "Options:"
-msgstr ""
+msgstr "Aukerak:"
 
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:126
 #, kde-format
 msgid "Enable automatic spell checking"
-msgstr ""
+msgstr "Gaitu ortografia zuzenketa automatikoa"
 
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:137
 #, kde-format
 msgid "Ignore uppercase words"
-msgstr ""
+msgstr "Ezikusi hizki larriz dauden hitzak"
 
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:148
 #, kde-format
 msgid "Ignore hyphenated words"
-msgstr ""
+msgstr "Ez ikusi marratxo bidez zatitutako hitzak"
 
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:160
 #, kde-format
 msgid "Detect language automatically"
-msgstr ""
+msgstr "Hizkuntza automatikoki antzeman"
 
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:172
-#, fuzzy, kde-format
-#| msgid "Spell Checking"
+#, kde-format
 msgid "Spell checking languages"
-msgstr "Ortografia egiaztatzea"
+msgstr "Ortografia zuzentzeko hizkuntza"
 
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:180
 #, kde-format
@@ -1395,31 +1432,30 @@ msgid ""
 "%1 will provide spell checking and suggestions for the languages listed here "
 "when autodetection is enabled."
 msgstr ""
+"%1(e)k, hemen zerrendatutako hizkuntzetarako, ortografia zuzenketa eta "
+"iradokizunak emango ditu, antzemate automatikoa gaituta dagoenean."
 
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:226
 #, kde-format
 msgid "Add a new word to your personal dictionary…"
-msgstr ""
+msgstr "Gehitu hitz berri bat zure hiztegi pertsonalera..."
 
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:229
 #, kde-format
 msgctxt "@action:button"
 msgid "Add word"
-msgstr ""
+msgstr "Gehitu hitza"
 
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:248
-#, fuzzy, kde-format
-#| msgid "Spell Checking"
+#, kde-format
 msgid "Spell checking dictionary"
-msgstr "Ortografia egiaztatzea"
+msgstr "Ortografia zuzentzeko hiztegia"
 
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:278
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:309
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Delete"
+#, kde-format
 msgid "Delete word"
-msgstr "Ezabatu"
+msgstr "Ezabatu hitza"
 
 #: qml/main.qml:129
 #, kde-format
@@ -1483,18 +1519,17 @@ msgstr "Ezin izan da erreakzionatzeko mezurik aurkitu"
 msgctxt "[user did something] n times"
 msgid " %1 time"
 msgid_plural " %1 times"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Aldi %1ean"
+msgstr[1] "%1 aldiz"
 
 #: src/collapsestateproxymodel.cpp:74
 #, kde-format
 msgctxt "[action 1], [action 2 and action 3]"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: src/collapsestateproxymodel.cpp:77
-#, fuzzy, kde-format
-#| msgid " and "
+#, kde-format
 msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
 msgstr " eta "
@@ -1586,41 +1621,40 @@ msgid "Login Failed: %1"
 msgstr "Saio-hastea huts egin du: %1"
 
 #: src/controller.cpp:365
-#, fuzzy, kde-format
-#| msgid "Access Token (Optional)"
+#, kde-format
 msgid "Access token wasn't found"
-msgstr "Sarbide tokena (hautazkoa)"
+msgstr "Sartzeko tokena ez du aurkitu"
 
 #: src/controller.cpp:365
 #, kde-format
 msgid "Maybe it was deleted?"
-msgstr ""
+msgstr "Agian ezabatu egin da?"
 
 #: src/controller.cpp:369
 #, kde-format
 msgid "Access to keychain was denied."
-msgstr ""
+msgstr "Gako-katerako sarrera ukatu egin da."
 
 #: src/controller.cpp:369
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
-msgstr ""
+msgstr "Mesedez, utzi NeoChat-i sartzeko tokena irakurtzen"
 
 #: src/controller.cpp:372
-#, fuzzy, kde-format
-#| msgid "No users available"
+#, kde-format
 msgid "No keychain available."
-msgstr "Ez dago erabiltzaile erabilgarririk"
+msgstr "Ez dago gako-kate erabilgarririk."
 
 #: src/controller.cpp:372
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
+"Mesedez, instalatu gako-kate bat, adib. KWallet edo «GNOME keyring» Linux-en"
 
 #: src/controller.cpp:375
 #, kde-format
 msgid "Unable to read access token"
-msgstr ""
+msgstr "Ez da sartzeko tokena irakurtzeko gai"
 
 #: src/controller.cpp:618
 #, kde-format
@@ -1648,10 +1682,9 @@ msgid "Matrix client"
 msgstr "Matrix bezeroa"
 
 #: src/main.cpp:147
-#, fuzzy, kde-format
-#| msgid "© 2018-2020 Black Hat, 2020-2021 KDE Community"
+#, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
-msgstr "© 2018-2020 Black Hat, 2020-2021 KDE komunitatea"
+msgstr "© 2018-2020 Black Hat, 2020-2022 KDE komunitatea"
 
 #: src/main.cpp:148
 #, kde-format
@@ -1839,10 +1872,9 @@ msgid "self-banned from the room"
 msgstr "bere buruari gela honetara sartzeko debekua ezarrita"
 
 #: src/neochatroom.cpp:547
-#, fuzzy, kde-format
-#| msgid "rejected the invitation"
+#, kde-format
 msgid "requested an invite"
-msgstr "gonbidapena errefusatu du"
+msgstr "gonbidapen bat eskatu du"
 
 #: src/neochatroom.cpp:550
 #, kde-format
@@ -1903,30 +1935,31 @@ msgstr "gela sortu da, %1 bertsioa"
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
-msgstr ""
+msgstr "gela honetako ahalmen mailak aldatu dira"
 
 #: src/neochatroom.cpp:576
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr ""
+"gela honetarako zerbitzarirako sarrera-kontroleko zerrendak aldatu zituen"
 
 #: src/neochatroom.cpp:580
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
-msgstr ""
+msgstr "trepeta %1 gehitu da"
 
 #: src/neochatroom.cpp:583
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
-msgstr ""
+msgstr "trepeta %1 kendu da"
 
 #: src/neochatroom.cpp:585
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
-msgstr ""
+msgstr "trepeta %1 konfiguratu da"
 
 #: src/neochatroom.cpp:587
 #, kde-format
@@ -1959,28 +1992,24 @@ msgid "Reply..."
 msgstr "Erantzun..."
 
 #: src/notificationsmanager.cpp:90
-#, fuzzy, kde-format
-#| msgid "invited %1 to the room"
+#, kde-format
 msgid "%1 invited you to a room"
-msgstr "%1 gelara gonbidatu du"
+msgstr "%1(e)k gela batera gonbidatu zaitu"
 
 #: src/notificationsmanager.cpp:94
-#, fuzzy, kde-format
-#| msgid "Open a private chat"
+#, kde-format
 msgid "Open this invitation in NeoChat"
-msgstr "Ireki berriketa pribatu bat"
+msgstr "Ireki gonbidapen hau NeoChat-en"
 
 #: src/notificationsmanager.cpp:100
-#, fuzzy, kde-format
-#| msgid "Accept this invitation?"
+#, kde-format
 msgid "Accept Invitation"
-msgstr "Gonbidapen hau onartu?"
+msgstr "Onartu gonbidapena"
 
 #: src/notificationsmanager.cpp:100
-#, fuzzy, kde-format
-#| msgid "Reject"
+#, kde-format
 msgid "Reject Invitation"
-msgstr "Errefusatu"
+msgstr "Errefusatu gonbidapena"
 
 #: src/roomlistmodel.cpp:455
 #, kde-format
@@ -2010,7 +2039,7 @@ msgstr "Lehentasun txikia"
 #: src/roomlistmodel.cpp:465
 #, kde-format
 msgid "Spaces"
-msgstr "Zuriuneak"
+msgstr "Tokiak"
 
 #: src/roommanager.cpp:49
 #, kde-format
@@ -2047,7 +2076,7 @@ msgstr ""
 #: src/roommanager.cpp:207
 #, kde-format
 msgid "Could not open URL"
-msgstr ""
+msgstr "Ezin izan du URLa ireki"
 
 #: src/trayicon.cpp:17
 #, kde-format

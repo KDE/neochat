@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-06 00:45+0000\n"
+"POT-Creation-Date: 2022-09-07 00:48+0000\n"
 "PO-Revision-Date: 2022-05-11 21:33+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -774,6 +774,12 @@ msgstr "Глобальная"
 msgid "Joined"
 msgstr "%1 заходит на %2"
 
+#: imports/NeoChat/Page/RoomListPage.qml:61
+#, kde-format
+msgctxt "@action:button"
+msgid "Show All Rooms"
+msgstr ""
+
 #: imports/NeoChat/Page/RoomListPage.qml:109
 #, kde-format
 msgid "Rooms"
@@ -955,12 +961,14 @@ msgid "Muted"
 msgstr "Звук выключен"
 
 #: imports/NeoChat/RoomSettings/Categories.qml:15
+#: imports/NeoChat/RoomSettings/General.qml:24
 #: imports/NeoChat/Settings/SettingsPage.qml:13
 #, fuzzy, kde-format
 msgid "General"
 msgstr "Общие"
 
 #: imports/NeoChat/RoomSettings/Categories.qml:25
+#: imports/NeoChat/RoomSettings/Security.qml:19
 #, fuzzy, kde-format
 msgid "Security"
 msgstr "Безопасность"
@@ -1057,6 +1065,12 @@ msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr ""
 
+#: imports/NeoChat/Settings/About.qml:10
+#, kde-format
+msgctxt "@title:window"
+msgid "About NeoChat"
+msgstr ""
+
 #: imports/NeoChat/Settings/AccountEditorPage.qml:17
 #, fuzzy, kde-format
 msgid "Edit Account"
@@ -1121,6 +1135,11 @@ msgstr ""
 msgid "Edit this account"
 msgstr ""
 
+#: imports/NeoChat/Settings/AccountsPage.qml:50
+#, fuzzy, kde-format
+msgid "Account editor"
+msgstr "Учётные записи"
+
 #: imports/NeoChat/Settings/AccountsPage.qml:60 qml/main.qml:260
 #, fuzzy, kde-format
 msgid "Logout"
@@ -1140,6 +1159,13 @@ msgstr ""
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr ""
+
+#: imports/NeoChat/Settings/AppearanceSettingsPage.qml:15
+#, fuzzy, kde-format
+#| msgid "Appearance"
+msgctxt "@title:window"
+msgid "Appearance"
+msgstr "Внешний вид"
 
 #: imports/NeoChat/Settings/AppearanceSettingsPage.qml:99
 #, kde-format
@@ -1227,6 +1253,12 @@ msgstr "Подтвердить"
 msgid "Edit device"
 msgstr ""
 
+#: imports/NeoChat/Settings/Emoticons.qml:19
+#, fuzzy, kde-format
+msgctxt "@title:window"
+msgid "Custom Emojis"
+msgstr "Другой"
+
 #: imports/NeoChat/Settings/Emoticons.qml:31
 #, kde-format
 msgid "No custom inline stickers found"
@@ -1241,6 +1273,12 @@ msgstr ""
 #, kde-format
 msgid "Add Emoji..."
 msgstr ""
+
+#: imports/NeoChat/Settings/GeneralSettingsPage.qml:14
+#, fuzzy, kde-format
+msgctxt "@title:window"
+msgid "General"
+msgstr "Общие"
 
 #: imports/NeoChat/Settings/GeneralSettingsPage.qml:19
 #, fuzzy, kde-format
@@ -1318,9 +1356,9 @@ msgid "Appearance"
 msgstr "Внешний вид"
 
 #: imports/NeoChat/Settings/SettingsPage.qml:28
-#, kde-format
-msgid "Custom Emoji"
-msgstr ""
+#, fuzzy, kde-format
+msgid "Custom Emojis"
+msgstr "Другой"
 
 #: imports/NeoChat/Settings/SettingsPage.qml:33
 #, kde-format
@@ -1331,6 +1369,13 @@ msgstr "Проверка орфографии"
 #, kde-format
 msgid "About NeoChat"
 msgstr ""
+
+#: imports/NeoChat/Settings/SonnetConfigPage.qml:50
+#, fuzzy, kde-format
+#| msgid "Spell Checking"
+msgctxt "@window:title"
+msgid "Spellchecking"
+msgstr "Проверка орфографии"
 
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:94
 #, kde-format
