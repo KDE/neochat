@@ -272,7 +272,7 @@ Kirigami.OverlayDrawer {
                         label: name
 
                         onClicked: {
-                            const popup = userDetailDialog.createObject(ApplicationWindow.overlay, {"room": room, "user": user, "displayName": name, "avatarMediaId": avatar})
+                            const popup = userDetailDialog.createObject(ApplicationWindow.overlay, {room: room, user: user, displayName: name, avatarMediaId: avatar})
                             popup.closed.connect(function() {
                                 userListItem.highlighted = false
                             })

@@ -45,7 +45,7 @@ Labs.MenuBar {
         Labs.MenuItem {
             text: i18nc("menu", "New Private Chat…")
             enabled: pageStack.layers.currentItem.title !== i18n("Start a Chat") && Controller.accountCount > 0
-            onTriggered: pushReplaceLayer("qrc:/imports/NeoChat/Page/StartChatPage.qml", {"connection": Controller.activeConnection})
+            onTriggered: pushReplaceLayer("qrc:/imports/NeoChat/Page/StartChatPage.qml", {connection: Controller.activeConnection})
         }
         Labs.MenuItem {
             text: i18nc("menu", "New Group…")
@@ -58,7 +58,7 @@ Labs.MenuBar {
         }
         Labs.MenuItem {
             text: i18nc("menu", "Browse Chats…")
-            onTriggered: pushReplaceLayer("qrc:/imports/NeoChat/Page/JoinRoomPage.qml", {"connection": Controller.activeConnection})
+            onTriggered: pushReplaceLayer("qrc:/imports/NeoChat/Page/JoinRoomPage.qml", {connection: Controller.activeConnection})
         }
     }
     EditMenu {

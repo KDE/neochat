@@ -368,7 +368,7 @@ Kirigami.ScrollablePage {
                 }
 
                 function createRoomListContextMenu() {
-                    const menu = roomListContextMenu.createObject(page, {"room": currentRoom})
+                    const menu = roomListContextMenu.createObject(page, {room: currentRoom})
                     configButton.visible = true
                     configButton.down = true
                     menu.closed.connect(function() {
