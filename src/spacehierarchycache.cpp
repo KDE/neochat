@@ -5,7 +5,7 @@
 
 #include "controller.h"
 #ifdef QUOTIENT_07
-#include "csapi/space_hierarchy.h"
+#include <csapi/space_hierarchy.h>
 #endif
 #include "neochatroom.h"
 

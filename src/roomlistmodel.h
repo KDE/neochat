@@ -3,10 +3,11 @@
 
 #pragma once
 
-#include "connection.h"
-#include "events/roomevent.h"
+#include <connection.h>
+#include <events/roomevent.h>
+#include <room.h>
+
 #include "neochatroom.h"
-#include "room.h"
 
 #include <QAbstractListModel>
 

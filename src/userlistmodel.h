@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "room.h"
+#include <room.h>
 
 #include <QAbstractListModel>
 #include <QObject>

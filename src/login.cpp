@@ -2,11 +2,13 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "login.h"
-#include "connection.h"
+
+#include <connection.h>
+#include <qt_connection_util.h>
+
 #include "controller.h"
 
 #include <QUrl>
-#include <qt_connection_util.h>
 
 #include <KLocalizedString>
 

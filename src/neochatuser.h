@@ -5,7 +5,7 @@
 
 #include <QObject>
 
-#include "user.h"
+#include <user.h>
 
 using namespace Quotient;
 

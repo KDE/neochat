@@ -6,7 +6,7 @@
 #include <QAbstractListModel>
 
 #include "neochatroom.h"
-#include "room.h"
+#include <room.h>
 
 class MessageEventModel : public QAbstractListModel
 {

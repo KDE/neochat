@@ -11,11 +11,11 @@
 
 class QKeySequences;
 
-#include "connection.h"
-#include "csapi/list_public_rooms.h"
-#include "room.h"
-#include "settings.h"
-#include "user.h"
+#include <connection.h>
+#include <csapi/list_public_rooms.h>
+#include <room.h>
+#include <settings.h>
+#include <user.h>
 
 class NeoChatRoom;
 class NeoChatUser;

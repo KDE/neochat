@@ -19,29 +19,30 @@
 #include <qcoro/qcorosignal.h>
 #include <qcoro/task.h>
 
-#include "connection.h"
-#include "csapi/account-data.h"
-#include "csapi/content-repo.h"
-#include "csapi/leaving.h"
-#include "csapi/redaction.h"
-#include "csapi/room_state.h"
-#include "csapi/rooms.h"
-#include "csapi/typing.h"
-#include "events/accountdataevents.h"
-#include "events/reactionevent.h"
-#include "events/roomcanonicalaliasevent.h"
-#include "events/roomcreateevent.h"
-#include "events/roommessageevent.h"
-#include "events/roompowerlevelsevent.h"
-#include "events/typingevent.h"
-#include "jobs/downloadfilejob.h"
+#include <connection.h>
+#include <csapi/account-data.h>
+#include <csapi/content-repo.h>
+#include <csapi/leaving.h>
+#include <csapi/redaction.h>
+#include <csapi/room_state.h>
+#include <csapi/rooms.h>
+#include <csapi/typing.h>
+#include <events/accountdataevents.h>
+#include <events/eventcontent.h>
+#include <events/reactionevent.h>
+#include <events/roomcanonicalaliasevent.h>
+#include <events/roomcreateevent.h>
+#include <events/roommessageevent.h>
+#include <events/roompowerlevelsevent.h>
+#include <events/typingevent.h>
+#include <jobs/downloadfilejob.h>
+#include <qt_connection_util.h>
+#include <user.h>
+
 #include "neochatconfig.h"
 #include "notificationsmanager.h"
 #include "stickerevent.h"
-#include "user.h"
 #include "utils.h"
-#include <events/eventcontent.h>
-#include <qt_connection_util.h>
 
 #include <KLocalizedString>
 

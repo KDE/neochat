@@ -23,9 +23,9 @@
 #include <QGuiApplication>
 #include <utility>
 
-#include "csapi/notifications.h"
 #include "notificationsmanager.h"
 #include "roommanager.h"
+#include <csapi/notifications.h>
 
 Q_DECLARE_METATYPE(Quotient::JoinState)
 

@@ -11,6 +11,7 @@
 #include <events/roommemberevent.h>
 #include <events/roommessageevent.h>
 #include <events/simplestateevents.h>
+#include <room.h>
 
 #include <QObject>
 #include <QPointer>
@@ -19,7 +20,6 @@
 #include <qcoro/task.h>
 
 #include "neochatuser.h"
-#include "room.h"
 
 using namespace Quotient;
 

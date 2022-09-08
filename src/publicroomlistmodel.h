@@ -6,9 +6,8 @@
 #include <QAbstractListModel>
 #include <QObject>
 
-#include "connection.h"
-#include "csapi/definitions/public_rooms_response.h"
-#include "csapi/list_public_rooms.h"
+#include <connection.h>
+#include <csapi/list_public_rooms.h>
 
 using namespace Quotient;
 

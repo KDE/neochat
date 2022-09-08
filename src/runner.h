@@ -166,4 +166,3 @@ private:
     SortFilterRoomListModel m_model;
     RoomListModel m_sourceModel;
 };
-

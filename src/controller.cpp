@@ -40,20 +40,21 @@
 #include "neochataccountregistry.h"
 #endif
 
-#include "csapi/account-data.h"
-#include "csapi/content-repo.h"
-#include "csapi/joining.h"
-#include "csapi/logout.h"
-#include "csapi/profile.h"
-#include "events/eventcontent.h"
+#include <csapi/account-data.h>
+#include <csapi/content-repo.h>
+#include <csapi/joining.h>
+#include <csapi/logout.h>
+#include <csapi/profile.h>
+#include <events/eventcontent.h>
+#include <qt_connection_util.h>
+#include <settings.h>
+
 #include "neochatconfig.h"
 #include "neochatroom.h"
 #include "neochatuser.h"
 #include "roommanager.h"
-#include "settings.h"
 #include "utils.h"
 #include "windowcontroller.h"
-#include <qt_connection_util.h>
 
 #include <KStandardShortcut>
 

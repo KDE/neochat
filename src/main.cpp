@@ -26,8 +26,8 @@
 #include <KDBusService>
 #endif
 #ifdef HAVE_WINDOWSYSTEM
-#include <kwindowsystem_version.h>
 #include <KWindowSystem>
+#include <kwindowsystem_version.h>
 #endif
 #include <KLocalizedContext>
 #include <KLocalizedString>
@@ -36,10 +36,15 @@
 #include "neochat-version.h"
 
 #ifdef QUOTIENT_07
-#include "accountregistry.h"
+#include <accountregistry.h>
 #else
 #include "neochataccountregistry.h"
 #endif
+
+#include <csapi/joining.h>
+#include <csapi/leaving.h>
+#include <networkaccessmanager.h>
+#include <room.h>
 
 #include "actionshandler.h"
 #include "blurhashimageprovider.h"
@@ -49,8 +54,6 @@
 #include "collapsestateproxymodel.h"
 #include "commandmodel.h"
 #include "controller.h"
-#include "csapi/joining.h"
-#include "csapi/leaving.h"
 #include "customemojimodel.h"
 #include "devicesmodel.h"
 #include "emojimodel.h"
@@ -63,7 +66,6 @@
 #include "neochatconfig.h"
 #include "neochatroom.h"
 #include "neochatuser.h"
-#include "networkaccessmanager.h"
 #include "notificationsmanager.h"
 #include "publicroomlistmodel.h"
 #include "roomlistmodel.h"
@@ -76,7 +78,6 @@
 #include "userlistmodel.h"
 #include "webshortcutmodel.h"
 #include "windowcontroller.h"
-#include <room.h>
 #ifdef HAVE_COLORSCHEME
 #include "colorschemer.h"
 #endif
@@ -158,7 +159,6 @@ int main(int argc, char *argv[])
 
     KAboutData::setApplicationData(about);
     QGuiApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("org.kde.neochat")));
-
 
 #ifdef NEOCHAT_FLATPAK
     // Copy over the included FontConfig configuration to the

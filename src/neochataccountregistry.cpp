@@ -4,7 +4,7 @@
 
 #include "neochataccountregistry.h"
 
-#include "connection.h"
+#include <connection.h>
 
 using namespace Quotient;
 

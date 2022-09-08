@@ -4,10 +4,9 @@
 #include "userlistmodel.h"
 
 #include <connection.h>
+#include <events/roompowerlevelsevent.h>
 #include <room.h>
 #include <user.h>
-
-#include "events/roompowerlevelsevent.h"
 
 #include <QDebug>
 #include <QElapsedTimer>

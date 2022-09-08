@@ -6,8 +6,8 @@
 #include <QAbstractListModel>
 #include <QObject>
 
-#include "connection.h"
-#include "csapi/users.h"
+#include <connection.h>
+#include <csapi/users.h>
 
 using namespace Quotient;
 

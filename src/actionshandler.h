@@ -5,8 +5,8 @@
 
 #include <QObject>
 
-#include "connection.h"
 #include "neochatroom.h"
+#include <connection.h>
 
 using namespace Quotient;
 
