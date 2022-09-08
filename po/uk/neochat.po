@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-07 00:48+0000\n"
-"PO-Revision-Date: 2022-07-15 09:07+0300\n"
+"POT-Creation-Date: 2022-09-08 00:47+0000\n"
+"PO-Revision-Date: 2022-09-07 15:56+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -788,7 +788,7 @@ msgstr "Долучення виконано"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show All Rooms"
-msgstr ""
+msgstr "Показати усі кімнати"
 
 #: imports/NeoChat/Page/RoomListPage.qml:109
 #, kde-format
@@ -1078,8 +1078,7 @@ msgid "Anyone can find and join."
 msgstr "Будь-хто може шукати і долучатися."
 
 #: imports/NeoChat/Settings/About.qml:10
-#, fuzzy, kde-format
-#| msgid "About NeoChat"
+#, kde-format
 msgctxt "@title:window"
 msgid "About NeoChat"
 msgstr "Про NeoChat"
@@ -1149,11 +1148,9 @@ msgid "Edit this account"
 msgstr "Редагувати цей обліковий запис"
 
 #: imports/NeoChat/Settings/AccountsPage.qml:50
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Account detail dialog"
-#| msgid "Account detail"
+#, kde-format
 msgid "Account editor"
-msgstr "Параметри облікового запису"
+msgstr "Редактор облікових записів"
 
 #: imports/NeoChat/Settings/AccountsPage.qml:60 qml/main.qml:260
 #, kde-format
@@ -1176,8 +1173,7 @@ msgid "Unknown problem while trying to change password"
 msgstr "Невідома проблема під час спроби змінити пароль"
 
 #: imports/NeoChat/Settings/AppearanceSettingsPage.qml:15
-#, fuzzy, kde-format
-#| msgid "Appearance"
+#, kde-format
 msgctxt "@title:window"
 msgid "Appearance"
 msgstr "Вигляд"
@@ -1191,6 +1187,12 @@ msgstr "Бульки"
 #, kde-format
 msgid "Compact"
 msgstr "Компактна"
+
+#: imports/NeoChat/Settings/AppearanceSettingsPage.qml:180
+#, fuzzy, kde-format
+#| msgid "Show User Avatar"
+msgid "Show Avatar:"
+msgstr "Показати аватар користувача"
 
 #: imports/NeoChat/Settings/AppearanceSettingsPage.qml:181
 #, kde-format
@@ -1269,8 +1271,7 @@ msgid "Edit device"
 msgstr "Редагування запису пристрою"
 
 #: imports/NeoChat/Settings/Emoticons.qml:19
-#, fuzzy, kde-format
-#| msgid "Custom Emoji"
+#, kde-format
 msgctxt "@title:window"
 msgid "Custom Emojis"
 msgstr "Нетипові емодзі"
@@ -1291,8 +1292,7 @@ msgid "Add Emoji..."
 msgstr "Додати емодзі…"
 
 #: imports/NeoChat/Settings/GeneralSettingsPage.qml:14
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:window"
 msgid "General"
 msgstr "Загальне"
@@ -1376,8 +1376,7 @@ msgid "Appearance"
 msgstr "Вигляд"
 
 #: imports/NeoChat/Settings/SettingsPage.qml:28
-#, fuzzy, kde-format
-#| msgid "Custom Emoji"
+#, kde-format
 msgid "Custom Emojis"
 msgstr "Нетипові емодзі"
 
@@ -1392,8 +1391,7 @@ msgid "About NeoChat"
 msgstr "Про NeoChat"
 
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:50
-#, fuzzy, kde-format
-#| msgid "Spell Checking"
+#, kde-format
 msgctxt "@window:title"
 msgid "Spellchecking"
 msgstr "Перевірка правопису"
@@ -2166,9 +2164,6 @@ msgstr "Показати"
 
 #~ msgid "knocked"
 #~ msgstr "штурхнуто"
-
-#~ msgid "Show User Avatar"
-#~ msgstr "Показати аватар користувача"
 
 #~ msgid "Account"
 #~ msgstr "Обліковий запис"

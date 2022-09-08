@@ -1,5 +1,5 @@
 # Translation for neochat.po to Euskara/Basque (eu).
-# Copyright (C) 2020-2021, This file is copyright:
+# Copyright (C) 2020-2022, This file is copyright:
 # This file is distributed under the same license as the neochat package.
 # KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
 #
@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-07 00:48+0000\n"
-"PO-Revision-Date: 2022-09-06 09:30+0200\n"
+"POT-Creation-Date: 2022-09-08 00:47+0000\n"
+"PO-Revision-Date: 2022-09-07 07:38+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -781,7 +781,7 @@ msgstr "Batu da"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show All Rooms"
-msgstr ""
+msgstr "Erakutsi gela guztiak"
 
 #: imports/NeoChat/Page/RoomListPage.qml:109
 #, kde-format
@@ -1067,8 +1067,7 @@ msgid "Anyone can find and join."
 msgstr "Edonork bilatu eta batu daiteke."
 
 #: imports/NeoChat/Settings/About.qml:10
-#, fuzzy, kde-format
-#| msgid "About NeoChat"
+#, kde-format
 msgctxt "@title:window"
 msgid "About NeoChat"
 msgstr "Neochat-i buruz"
@@ -1138,11 +1137,9 @@ msgid "Edit this account"
 msgstr "Editatu kontua hau"
 
 #: imports/NeoChat/Settings/AccountsPage.qml:50
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Account detail dialog"
-#| msgid "Account detail"
+#, kde-format
 msgid "Account editor"
-msgstr "Kontuaren xehetasuna"
+msgstr "Kontu-editorea"
 
 #: imports/NeoChat/Settings/AccountsPage.qml:60 qml/main.qml:260
 #, kde-format
@@ -1165,8 +1162,7 @@ msgid "Unknown problem while trying to change password"
 msgstr "Arazo ezezaguna pasahitza aldatzen saiatzean"
 
 #: imports/NeoChat/Settings/AppearanceSettingsPage.qml:15
-#, fuzzy, kde-format
-#| msgid "Appearance"
+#, kde-format
 msgctxt "@title:window"
 msgid "Appearance"
 msgstr "Itxura"
@@ -1180,6 +1176,12 @@ msgstr "Burbuilak"
 #, kde-format
 msgid "Compact"
 msgstr "Trinkoa"
+
+#: imports/NeoChat/Settings/AppearanceSettingsPage.qml:180
+#, fuzzy, kde-format
+#| msgid "Show User Avatar"
+msgid "Show Avatar:"
+msgstr "Erakutsi erabiltzailearen abatarra"
 
 #: imports/NeoChat/Settings/AppearanceSettingsPage.qml:181
 #, kde-format
@@ -1258,11 +1260,10 @@ msgid "Edit device"
 msgstr "Editatu gailua"
 
 #: imports/NeoChat/Settings/Emoticons.qml:19
-#, fuzzy, kde-format
-#| msgid "Custom Emoji"
+#, kde-format
 msgctxt "@title:window"
 msgid "Custom Emojis"
-msgstr "Norberak finkatutako Emoji"
+msgstr "Norberak finkatutako Emojiak"
 
 #: imports/NeoChat/Settings/Emoticons.qml:31
 #, kde-format
@@ -1280,8 +1281,7 @@ msgid "Add Emoji..."
 msgstr "Gehitu Emoji..."
 
 #: imports/NeoChat/Settings/GeneralSettingsPage.qml:14
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:window"
 msgid "General"
 msgstr "Orokorra"
@@ -1364,10 +1364,9 @@ msgid "Appearance"
 msgstr "Itxura"
 
 #: imports/NeoChat/Settings/SettingsPage.qml:28
-#, fuzzy, kde-format
-#| msgid "Custom Emoji"
+#, kde-format
 msgid "Custom Emojis"
-msgstr "Norberak finkatutako Emoji"
+msgstr "Norberak finkatutako Emojiak"
 
 #: imports/NeoChat/Settings/SettingsPage.qml:33
 #, kde-format
@@ -1380,11 +1379,10 @@ msgid "About NeoChat"
 msgstr "Neochat-i buruz"
 
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:50
-#, fuzzy, kde-format
-#| msgid "Spell Checking"
+#, kde-format
 msgctxt "@window:title"
 msgid "Spellchecking"
-msgstr "Ortografia egiaztatzea"
+msgstr "Ortografia-aztertzea"
 
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:94
 #, kde-format
@@ -1404,7 +1402,7 @@ msgstr "Aukerak:"
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:126
 #, kde-format
 msgid "Enable automatic spell checking"
-msgstr "Gaitu ortografia zuzenketa automatikoa"
+msgstr "Gaitu ortografia-azterketa automatikoa"
 
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:137
 #, kde-format
@@ -1424,7 +1422,7 @@ msgstr "Hizkuntza automatikoki antzeman"
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:172
 #, kde-format
 msgid "Spell checking languages"
-msgstr "Ortografia zuzentzeko hizkuntza"
+msgstr "Ortografia-aztertzeko hizkuntza"
 
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:180
 #, kde-format
@@ -1432,7 +1430,7 @@ msgid ""
 "%1 will provide spell checking and suggestions for the languages listed here "
 "when autodetection is enabled."
 msgstr ""
-"%1(e)k, hemen zerrendatutako hizkuntzetarako, ortografia zuzenketa eta "
+"%1(e)k, hemen zerrendatutako hizkuntzetarako, ortografia-azterketa eta "
 "iradokizunak emango ditu, antzemate automatikoa gaituta dagoenean."
 
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:226
@@ -1449,7 +1447,7 @@ msgstr "Gehitu hitza"
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:248
 #, kde-format
 msgid "Spell checking dictionary"
-msgstr "Ortografia zuzentzeko hiztegia"
+msgstr "Ortografia-aztertzeko hiztegia"
 
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:278
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:309
@@ -2060,7 +2058,7 @@ msgstr "Gela ez da aurkitu"
 #, kde-format
 msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
-msgstr "Gelen zerrendan ez dago %1 gelarik. Egiaztatu ortografia eta kontua."
+msgstr "Gelen zerrendan ez dago %1 gelarik. Ortografia eta kontua aztertu."
 
 #: src/roommanager.cpp:201
 #, kde-format
@@ -2144,9 +2142,6 @@ msgstr "Erakutsi"
 
 #~ msgid "knocked"
 #~ msgstr "atea jo du"
-
-#~ msgid "Show User Avatar"
-#~ msgstr "Erakutsi erabiltzailearen abatarra"
 
 #~ msgid "Account"
 #~ msgstr "Kontua"
