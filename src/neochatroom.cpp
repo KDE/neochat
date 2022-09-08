@@ -39,6 +39,8 @@
 #include <jobs/downloadfilejob.h>
 #include <qt_connection_util.h>
 #include <user.h>
+#include <csapi/report_content.h>
+#include <events/eventcontent.h>
 
 #include "controller.h"
 #include "neochatconfig.h"
@@ -1081,4 +1083,14 @@ void NeoChatRoom::updatePushNotificationState(QString type)
     // If neither a room or override rule exist for the room then the setting must be default
     m_currentPushNotificationState = PushNotificationState::Default;
     Q_EMIT pushNotificationStateChanged(m_currentPushNotificationState);
+}
+
+void NeoChatRoom::reportEvent(const QString &eventId, const QString &reason)
+{
+    auto job = connection()->callApi<ReportContentJob>(id(), eventId, -50, reason);
+    connect(job, &BaseJob::finished, this, [this, job]() {
+        if (job->error() == BaseJob::Success) {
+            Q_EMIT positiveMessage(i18n("Report sent successfully."));
+        }
+    });
 }

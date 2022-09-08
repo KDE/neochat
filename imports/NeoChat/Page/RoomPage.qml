@@ -105,17 +105,17 @@ Kirigami.ScrollablePage {
         function onShowMessage(messageType, message) {
             page.header.contentItem.text = message;
             page.header.contentItem.type = messageType === ActionsHandler.Error ? Kirigami.MessageType.Error : Kirigami.MessageType.Information;
-            page.header.contentItem.visible = true;
+            page.header.visible = true;
         }
     }
 
     header: QQC2.Control {
         height: visible ? implicitHeight : 0
-        visible: contentItem.visible
+        visible: false
         padding: Kirigami.Units.smallSpacing
         contentItem: Kirigami.InlineMessage {
             showCloseButton: true
-            visible: false
+            visible: true
         }
     }
 
@@ -174,6 +174,15 @@ Kirigami.ScrollablePage {
             chatBox.addText(event.text);
             chatBox.focusInputField();
             return;
+        }
+    }
+
+    Connections {
+        target: currentRoom
+        function onPositiveMessage(message) {
+            page.header.contentItem.text = message;
+            page.header.contentItem.type =  Kirigami.MessageType.Positive;
+            page.header.visible = true;
         }
     }
 
@@ -582,7 +591,7 @@ Kirigami.ScrollablePage {
     function warning(title, message) {
         page.header.contentItem.text = `${title}<br />${message}`;
         page.header.contentItem.type =  Kirigami.MessageType.Warning;
-        page.header.contentItem.visible = true;
+        page.header.visible = true;
     }
 
     function showUserDetail(user) {

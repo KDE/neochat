@@ -147,6 +147,7 @@ public:
     Q_INVOKABLE QString htmlSafeName() const;
     Q_INVOKABLE QString htmlSafeDisplayName() const;
     Q_INVOKABLE void clearInvitationNotification();
+    Q_INVOKABLE void reportEvent(const QString &eventId, const QString &reason);
 
     Q_INVOKABLE void setPushNotificationState(PushNotificationState::State state);
 
@@ -192,6 +193,7 @@ Q_SIGNALS:
     void isInviteChanged();
     void displayNameChanged();
     void pushNotificationStateChanged(PushNotificationState::State state);
+    void positiveMessage(const QString &message);
 
 public Q_SLOTS:
     void uploadFile(const QUrl &url, const QString &body = QString());
