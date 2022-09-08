@@ -14,6 +14,8 @@ import NeoChat.Component 1.0
 Kirigami.OverlaySheet {
     id: root
 
+    signal closed()
+
     property var room
     property var user
 
@@ -162,6 +164,12 @@ Kirigami.OverlaySheet {
             id: fullScreenImage
 
             FullScreenImage {}
+        }
+    }
+
+    onSheetOpenChanged: {
+        if (!sheetOpen) {
+            closed()
         }
     }
 }

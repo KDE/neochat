@@ -18,7 +18,7 @@ Kirigami.OverlayDrawer {
     id: roomDrawer
     readonly property var room: RoomManager.currentRoom
 
-    width: modal ? undefined : actualWidth
+    width: actualWidth
 
     readonly property int minWidth: Kirigami.Units.gridUnit * 15
     readonly property int maxWidth: Kirigami.Units.gridUnit * 25
@@ -77,48 +77,70 @@ Kirigami.OverlayDrawer {
         sourceComponent: ColumnLayout {
             id: columnLayout
             property alias userSearchText: userListSearchField.text
+            property alias highlightedUser: userListView.currentIndex
             spacing: 0
+
             Kirigami.AbstractApplicationHeader {
                 Layout.fillWidth: true
                 topPadding: Kirigami.Units.smallSpacing / 2;
                 bottomPadding: Kirigami.Units.smallSpacing / 2;
-                rightPadding: Kirigami.Units.smallSpacing
-                leftPadding: Kirigami.Units.smallSpacing
+                rightPadding: Kirigami.Units.largeSpacing
+                leftPadding: Kirigami.Units.largeSpacing
 
                 RowLayout {
                     anchors.fill: parent
-                    spacing: 0
+                    spacing: Kirigami.Units.smallSpacing
 
+                    Kirigami.Heading {
+                        Layout.fillWidth: true
+                        text: i18n("Room information")
+                        level: 1
+                    }
                     ToolButton {
+                        id: inviteButton
+
+                        Layout.alignment: Qt.AlignRight
                         icon.name: "list-add-user"
-                        text: i18n("Invite")
+                        text: i18n("Invite user to room")
+                        display: AbstractButton.IconOnly
+
                         onClicked: {
                             applicationWindow().pageStack.layers.push("qrc:/imports/NeoChat/Page/InviteUserPage.qml", {room: room})
                             roomDrawer.close();
                         }
-                    }
-                    Item {
-                        // HACK otherwise rating item is not right aligned
-                        Layout.fillWidth: true
-                    }
 
+                        ToolTip {
+                            text: inviteButton.text
+                        }
+                    }
                     ToolButton {
+                        id: favouriteButton
+
                         Layout.alignment: Qt.AlignRight
                         icon.name: room && room.isFavourite ? "rating" : "rating-unrated"
                         checkable: true
                         checked: room && room.isFavourite
+                        text: room && room.isFavourite ? i18n("Remove room from favorites") : i18n("Make room favorite")
+                        display: AbstractButton.IconOnly
+
                         onClicked: room.isFavourite ? room.removeTag("m.favourite") : room.addTag("m.favourite", 1.0)
+
                         ToolTip {
-                            text: room && room.isFavourite ? i18n("Remove room from favorites") : i18n("Make room favorite")
+                            text: favouriteButton.text
                         }
                     }
                     ToolButton {
+                        id: settingsButton
+
                         Layout.alignment: Qt.AlignRight
                         icon.name: 'settings-configure'
+                        text: i18n("Room settings")
+                        display: AbstractButton.IconOnly
+
                         onClicked: ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/imports/NeoChat/RoomSettings/Categories.qml', {room: room})
 
                         ToolTip {
-                            text: i18n("Room settings")
+                            text: settingsButton.text
                         }
                     }
                 }
@@ -127,14 +149,11 @@ Kirigami.OverlayDrawer {
             ColumnLayout {
                 Layout.fillWidth: true
                 Layout.margins: Kirigami.Units.largeSpacing
-                Kirigami.Heading {
-                    text: i18n("Room information")
-                    level: 3
-                }
+                spacing: Kirigami.Units.largeSpacing
+
                 RowLayout {
                     Layout.fillWidth: true
-                    Layout.margins: Kirigami.Units.largeSpacing
-
+                    Layout.leftMargin: Kirigami.Units.smallSpacing
                     spacing: Kirigami.Units.largeSpacing
 
                     Kirigami.Avatar {
@@ -151,10 +170,9 @@ Kirigami.OverlayDrawer {
                         spacing: 0
 
                         Kirigami.Heading {
-                            Layout.maximumWidth: Kirigami.Units.gridUnit * 9
                             Layout.fillWidth: true
                             level: 1
-                            font.bold: true
+                            type: Kirigami.Heading.Type.Primary
                             wrapMode: Label.Wrap
                             text: room ? room.displayName : i18n("No name")
                             textFormat: Text.PlainText
@@ -192,16 +210,23 @@ Kirigami.OverlayDrawer {
             Kirigami.ListSectionHeader {
                 label: i18n("Members")
                 activeFocusOnTab: false
+
                 Label {
                     Layout.alignment: Qt.AlignRight
                     text: room ? i18np("%1 Member", "%1 Members", room.joinedCount) : i18n("No Member Count")
                 }
             }
 
-            Pane {
-                padding: Kirigami.Units.smallSpacing
-                implicitWidth: parent.width
-                z: 2
+            Control {
+                Layout.fillWidth: true
+
+                // Note need to set padding individually to guarantee it will always work
+                // see note - https://doc.qt.io/qt-6/qml-qtquick-controls2-control.html#padding-prop
+                topPadding: Kirigami.Units.smallSpacing
+                bottomPadding: Kirigami.Units.smallSpacing
+                rightPadding: Kirigami.Units.largeSpacing
+                leftPadding: Kirigami.Units.largeSpacing
+
                 background: Rectangle {
                     color: Kirigami.Theme.backgroundColor
                     Kirigami.Theme.inherit: false
@@ -209,6 +234,7 @@ Kirigami.OverlayDrawer {
                 }
                 contentItem: Kirigami.SearchField {
                     id: userListSearchField
+
                     onAccepted: sortedMessageEventModel.filterString = text;
                 }
             }
@@ -223,8 +249,6 @@ Kirigami.OverlayDrawer {
                 ListView {
                     id: userListView
                     clip: true
-                    headerPositioning: ListView.OverlayHeader
-                    boundsBehavior: Flickable.DragOverBounds
                     activeFocusOnTab: true
 
                     model: KSortFilterProxyModel {
@@ -239,58 +263,50 @@ Kirigami.OverlayDrawer {
                         filterCaseSensitivity: Qt.CaseInsensitive
                     }
 
-                    delegate: Kirigami.AbstractListItem {
-                        width: userListView.width
+                    delegate: Kirigami.BasicListItem {
+                        id: userListItem
+
                         implicitHeight: Kirigami.Units.gridUnit * 2
-                        z: 1
+                        leftPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
 
-                        contentItem: RowLayout {
-                            Kirigami.Avatar {
-                                Layout.preferredWidth: Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 2.5
-                                Layout.preferredHeight: Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 2.5
-                                visible: Config.showAvatarInRoomDrawer
-                                sourceSize.height: Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 2.5
-                                sourceSize.width: Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 2.5
-                                source: avatar ? ("image://mxc/" + avatar) : ""
-                                name: name
-                            }
+                        label: name
 
-                            Label {
-                                Layout.fillWidth: true
-
-                                text: name
-                                textFormat: Text.PlainText
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                            }
-
-                            Label {
-                                visible: perm != UserType.Member
-
-                                text: {
-                                    if (perm == UserType.Owner) {
-                                        return i18n("Owner")
-                                    }
-                                    if (perm == UserType.Admin) {
-                                        return i18n("Admin")
-                                    }
-                                    if (perm == UserType.Moderator) {
-                                        return i18n("Mod")
-                                    }
-                                    if (perm == UserType.Muted) {
-                                        return i18n("Muted")
-                                    }
-                                    return ""
-                                }
-                                color: Kirigami.Theme.disabledTextColor
-                                font.pixelSize: 12
-                                textFormat: Text.PlainText
-                                wrapMode: Text.NoWrap
-                            }
+                        onClicked: {
+                            const popup = userDetailDialog.createObject(ApplicationWindow.overlay, {"room": room, "user": user, "displayName": name, "avatarMediaId": avatar})
+                            popup.closed.connect(function() {
+                                userListItem.highlighted = false
+                            })
+                            popup.open()
                         }
 
-                        action: Kirigami.Action {
-                            onTriggered: userDetailDialog.createObject(ApplicationWindow.overlay, {"room": room, "user": user, "displayName": name, "avatarMediaId": avatar}).open()
+                        leading: Kirigami.Avatar {
+                            implicitWidth: height
+                            sourceSize.height: Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 2.5
+                            sourceSize.width: Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 2.5
+                            source: avatar ? ("image://mxc/" + avatar) : ""
+                            name: name
+                        }
+
+                        trailing: Label {
+                            visible: perm != UserType.Member
+
+                            text: {
+                                switch (perm) {
+                                    case UserType.Owner:
+                                        return i18n("Owner");
+                                    case UserType.Admin:
+                                        return i18n("Admin");
+                                    case UserType.Moderator:
+                                        return i18n("Mod");
+                                    case UserType.Muted:
+                                        return i18n("Muted");
+                                    default:
+                                        return "";
+                                }
+                            }
+                            color: Kirigami.Theme.disabledTextColor
+                            textFormat: Text.PlainText
+                            wrapMode: Text.NoWrap
                         }
                     }
                 }
@@ -301,6 +317,7 @@ Kirigami.OverlayDrawer {
     onRoomChanged: {
         if (loader.active) {
             loader.item.userSearchText = ""
+            loader.item.highlightedUser = -1
         }
         if (room == null) {
             close()
