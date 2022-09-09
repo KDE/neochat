@@ -23,6 +23,7 @@
 #include <csapi/account-data.h>
 #include <csapi/content-repo.h>
 #include <csapi/leaving.h>
+#include <csapi/pushrules.h>
 #include <csapi/redaction.h>
 #include <csapi/room_state.h>
 #include <csapi/rooms.h>
@@ -39,6 +40,7 @@
 #include <qt_connection_util.h>
 #include <user.h>
 
+#include "controller.h"
 #include "neochatconfig.h"
 #include "notificationsmanager.h"
 #include "stickerevent.h"
@@ -49,6 +51,7 @@
 NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinState)
     : Room(connection, std::move(roomId), joinState)
 {
+    connect(connection, &Connection::accountDataChanged, this, &NeoChatRoom::updatePushNotificationState);
     connect(this, &NeoChatRoom::notificationCountChanged, this, &NeoChatRoom::countChanged);
     connect(this, &NeoChatRoom::highlightCountChanged, this, &NeoChatRoom::countChanged);
     connect(this, &Room::fileTransferCompleted, this, [this] {
@@ -885,4 +888,197 @@ bool NeoChatRoom::isSpace()
 #else
     return false;
 #endif
+}
+
+void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
+{
+    // The caller should never try to set the state to unknown.
+    // It exists only as a default state to diable the settings options until the actual state is retrieved from the server.
+    if (state == PushNotificationState::Unknown) {
+        Q_ASSERT(false);
+        return;
+    }
+
+    /**
+     * This stops updatePushNotificationState from temporarily changing
+     * m_pushNotificationStateUpdating to default after the exisitng rules are deleted but
+     * before a new rule is added.
+     * The value is set to false after the rule enable job is successful.
+     */
+    m_pushNotificationStateUpdating = true;
+
+    /**
+     * First remove any exisiting room rules of the wrong type.
+     * Note to prevent race conditions any rule that is going ot be overridden later is not removed.
+     * If the default push notification state is chosen any exisiting rule needs to be removed.
+     */
+    QJsonObject accountData = connection()->accountDataJson("m.push_rules");
+
+    // For default and mute check for a room rule and remove if found.
+    if (state == PushNotificationState::Default || state == PushNotificationState::Mute) {
+        QJsonArray roomRuleArray = accountData["global"].toObject()["room"].toArray();
+        for (const auto &i : roomRuleArray) {
+            QJsonObject roomRule = i.toObject();
+            if (roomRule["rule_id"] == id()) {
+                Controller::instance().activeConnection()->callApi<DeletePushRuleJob>("global", "room", id());
+            }
+        }
+    }
+
+    // For default, all and @mentions and keywords check for an override rule and remove if found.
+    if (state == PushNotificationState::Default || state == PushNotificationState::All || state == PushNotificationState::MentionKeyword) {
+        QJsonArray overrideRuleArray = accountData["global"].toObject()["override"].toArray();
+        for (const auto &i : overrideRuleArray) {
+            QJsonObject overrideRule = i.toObject();
+            if (overrideRule["rule_id"] == id()) {
+                Controller::instance().activeConnection()->callApi<DeletePushRuleJob>("global", "override", id());
+            }
+        }
+    }
+
+    if (state == PushNotificationState::Mute) {
+        /**
+         * To mute a room an override rule with "don't notify is set".
+         *
+         * Setup the rule action to "don't notify" to stop all room notifications
+         * see https://spec.matrix.org/v1.3/client-server-api/#actions
+         *
+         * "actions": [
+         *      "don't_notify"
+         * ]
+         */
+        const QVector<QVariant> actions = {"dont_notify"};
+        /**
+         * Setup the push condition to get all events for the current room
+         * see https://spec.matrix.org/v1.3/client-server-api/#conditions-1
+         *
+         * "conditions": [
+         *      {
+         *          "key": "type",
+         *          "kind": "event_match",
+         *          "pattern": "room_id"
+         *      }
+         * ]
+         */
+        PushCondition pushCondition;
+        pushCondition.kind = "event_match";
+        pushCondition.key = "room_id";
+        pushCondition.pattern = id();
+        const QVector<PushCondition> conditions = {pushCondition};
+
+        // Add new override rule and make sure it's enabled
+        auto job = Controller::instance().activeConnection()->callApi<SetPushRuleJob>("global", "override", id(), actions, "", "", conditions, "");
+        connect(job, &BaseJob::success, this, [this]() {
+            auto enableJob = Controller::instance().activeConnection()->callApi<SetPushRuleEnabledJob>("global", "override", id(), true);
+            connect(enableJob, &BaseJob::success, this, [this]() {
+                m_pushNotificationStateUpdating = false;
+            });
+        });
+    } else if (state == PushNotificationState::MentionKeyword) {
+        /**
+         * To only get notifcations for @ mentions and keywords a room rule with "don't_notify" is set.
+         *
+         * Note -  This works becuase a default override rule which catches all user mentions will
+         * take precedent and notify. See https://spec.matrix.org/v1.3/client-server-api/#default-override-rules. Any keywords will also have a similar override
+         * rule.
+         *
+         * Setup the rule action to "don't notify" to stop all room event notifications
+         * see https://spec.matrix.org/v1.3/client-server-api/#actions
+         *
+         * "actions": [
+         *      "don't_notify"
+         * ]
+         */
+        const QVector<QVariant> actions = {"dont_notify"};
+        // No conditions for a room rule
+        const QVector<PushCondition> conditions;
+
+        auto setJob = Controller::instance().activeConnection()->callApi<SetPushRuleJob>("global", "room", id(), actions, "", "", conditions, "");
+        connect(setJob, &BaseJob::success, this, [this]() {
+            auto enableJob = Controller::instance().activeConnection()->callApi<SetPushRuleEnabledJob>("global", "room", id(), true);
+            connect(enableJob, &BaseJob::success, this, [this]() {
+                m_pushNotificationStateUpdating = false;
+            });
+        });
+    } else if (state == PushNotificationState::All) {
+        /**
+         * To send a notification for all room messages a room rule with "notify" is set.
+         *
+         * Setup the rule action to "notify" so all room events give notifications.
+         * Tweeks is also set to follow default sound settings
+         * see https://spec.matrix.org/v1.3/client-server-api/#actions
+         *
+         * "actions": [
+         *      "notify",
+         *      {
+         *          "set_tweek": "sound",
+         *          "value": "default",
+         *      }
+         * ]
+         */
+        QJsonObject tweaks;
+        tweaks.insert("set_tweak", "sound");
+        tweaks.insert("value", "default");
+        const QVector<QVariant> actions = {"notify", tweaks};
+        // No conditions for a room rule
+        const QVector<PushCondition> conditions;
+
+        // Add new room rule and make sure enabled
+        auto setJob = Controller::instance().activeConnection()->callApi<SetPushRuleJob>("global", "room", id(), actions, "", "", conditions, "");
+        connect(setJob, &BaseJob::success, this, [this]() {
+            auto enableJob = Controller::instance().activeConnection()->callApi<SetPushRuleEnabledJob>("global", "room", id(), true);
+            connect(enableJob, &BaseJob::success, this, [this]() {
+                m_pushNotificationStateUpdating = false;
+            });
+        });
+    }
+
+    m_currentPushNotificationState = state;
+    Q_EMIT pushNotificationStateChanged(m_currentPushNotificationState);
+
+}
+
+void NeoChatRoom::updatePushNotificationState(QString type)
+{
+    if (type != "m.push_rules" || m_pushNotificationStateUpdating) {
+        return;
+    }
+
+    QJsonObject accountData = connection()->accountDataJson("m.push_rules");
+
+    // First look for a room rule with the room id
+    QJsonArray roomRuleArray = accountData["global"].toObject()["room"].toArray();
+    for (const auto &i : roomRuleArray) {
+        QJsonObject roomRule = i.toObject();
+        if (roomRule["rule_id"] == id()) {
+            QString notifyAction = roomRule["actions"].toArray()[0].toString();
+            if (notifyAction == "notify") {
+                m_currentPushNotificationState = PushNotificationState::All;
+                Q_EMIT pushNotificationStateChanged(m_currentPushNotificationState);
+                return;
+            } else if (notifyAction == "dont_notify") {
+                m_currentPushNotificationState = PushNotificationState::MentionKeyword;
+                Q_EMIT pushNotificationStateChanged(m_currentPushNotificationState);
+                return;
+            }
+        }
+    }
+
+    // Check for an override rule with the room id
+    QJsonArray overrideRuleArray = accountData["global"].toObject()["override"].toArray();
+    for (const auto &i : overrideRuleArray) {
+        QJsonObject overrideRule = i.toObject();
+        if (overrideRule["rule_id"] == id()) {
+            QString notifyAction = overrideRule["actions"].toArray()[0].toString();
+            if (notifyAction == "dont_notify") {
+                m_currentPushNotificationState = PushNotificationState::Mute;
+                Q_EMIT pushNotificationStateChanged(m_currentPushNotificationState);
+                return;
+            }
+        }
+    }
+
+    // If neither a room or override rule exist for the room then the setting must be default
+    m_currentPushNotificationState = PushNotificationState::Default;
+    Q_EMIT pushNotificationStateChanged(m_currentPushNotificationState);
 }

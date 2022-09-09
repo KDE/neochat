@@ -3,12 +3,12 @@
 
 import QtQuick 2.15
 import org.kde.kirigami 2.18 as Kirigami
-import QtQuick.Controls 2.15 as Controls
 import QtQuick.Layouts 1.15
 
 Kirigami.CategorizedSettings {
     id: root
     property var room
+
     objectName: "settingsPage"
     actions: [
         Kirigami.SettingAction {
@@ -25,6 +25,16 @@ Kirigami.CategorizedSettings {
             text: i18n("Security")
             icon.name: "security-low"
             page: Qt.resolvedUrl("Security.qml")
+            initialProperties: {
+                return {
+                    room: root.room
+                }
+            }
+        },
+        Kirigami.SettingAction {
+            text: i18n("Notifications")
+            icon.name: "notifications"
+            page: Qt.resolvedUrl("PushNotification.qml")
             initialProperties: {
                 return {
                     room: root.room

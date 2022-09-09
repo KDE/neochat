@@ -10,11 +10,13 @@
 
 #include <KNotification>
 
+#include "neochatconfig.h"
 #include "neochatroom.h"
 
 class NotificationsManager : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(bool globalNotificationsEnabled MEMBER m_globalNotificationsEnabled WRITE setGlobalNotificationsEnabled NOTIFY globalNotificationsEnabledChanged)
 
 public:
     static NotificationsManager &instance();
@@ -25,9 +27,19 @@ public:
 
     void clearInvitationNotification(const QString &roomId);
 
+    Q_INVOKABLE void setGlobalNotificationsEnabled(bool enabled);
+
 private:
     NotificationsManager(QObject *parent = nullptr);
 
     QMultiMap<QString, KNotification *> m_notifications;
     QHash<QString, QPointer<KNotification>> m_invitations;
+
+    bool m_globalNotificationsEnabled;
+
+private Q_SLOTS:
+    void updateGlobalNotificationsEnabled(QString type);
+
+Q_SIGNALS:
+    void globalNotificationsEnabledChanged(bool newState);
 };

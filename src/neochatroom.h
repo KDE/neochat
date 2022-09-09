@@ -23,6 +23,21 @@
 
 using namespace Quotient;
 
+class PushNotificationState : public QObject
+{
+    Q_OBJECT
+
+public:
+    enum State {
+        Unknown,
+        Default,
+        Mute,
+        MentionKeyword,
+        All,
+    };
+    Q_ENUM(State);
+};
+
 class NeoChatRoom : public Room
 {
     Q_OBJECT
@@ -36,6 +51,8 @@ class NeoChatRoom : public Room
     Q_PROPERTY(bool isInvite READ isInvite NOTIFY isInviteChanged)
     Q_PROPERTY(QString joinRule READ joinRule CONSTANT)
     Q_PROPERTY(QString htmlSafeDisplayName READ htmlSafeDisplayName NOTIFY displayNameChanged)
+    Q_PROPERTY(PushNotificationState::State pushNotificationState MEMBER m_currentPushNotificationState WRITE setPushNotificationState NOTIFY
+                   pushNotificationStateChanged)
 
 public:
     explicit NeoChatRoom(Connection *connection, QString roomId, JoinState joinState = {});
@@ -131,6 +148,8 @@ public:
     Q_INVOKABLE QString htmlSafeDisplayName() const;
     Q_INVOKABLE void clearInvitationNotification();
 
+    Q_INVOKABLE void setPushNotificationState(PushNotificationState::State state);
+
 #ifndef QUOTIENT_07
     Q_INVOKABLE QString htmlSafeMemberName(const QString &userId) const
     {
@@ -145,6 +164,9 @@ private:
     bool m_hasFileUploading = false;
     int m_fileUploadingProgress = 0;
 
+    PushNotificationState::State m_currentPushNotificationState = PushNotificationState::State::Unknown;
+    bool m_pushNotificationStateUpdating = false;
+
     void checkForHighlights(const Quotient::TimelineItem &ti);
 
     void onAddNewTimelineEvents(timeline_iter_t from) override;
@@ -157,6 +179,7 @@ private:
 
 private Q_SLOTS:
     void countChanged();
+    void updatePushNotificationState(QString type);
 
 Q_SIGNALS:
     void cachedInputChanged();
@@ -168,6 +191,7 @@ Q_SIGNALS:
     void lastActiveTimeChanged();
     void isInviteChanged();
     void displayNameChanged();
+    void pushNotificationStateChanged(PushNotificationState::State state);
 
 public Q_SLOTS:
     void uploadFile(const QUrl &url, const QString &body = QString());

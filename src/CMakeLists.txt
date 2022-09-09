@@ -139,6 +139,7 @@ if(ANDROID)
         "org.kde.neochat"
         "preferences-system-users"
         "preferences-desktop-theme-global"
+        "notifications"
     )
 else()
     target_link_libraries(neochat PUBLIC Qt::Widgets KF5::KIOWidgets)

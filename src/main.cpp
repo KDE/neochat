@@ -184,6 +184,7 @@ int main(int argc, char *argv[])
 #endif
 
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Controller", &Controller::instance());
+    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "NotificationsManager", &NotificationsManager::instance());
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Clipboard", &clipboard);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Config", config);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "RoomManager", &RoomManager::instance());
@@ -210,6 +211,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<SortFilterSpaceListModel>("org.kde.neochat", 1, 0, "SortFilterSpaceListModel");
     qmlRegisterType<DevicesModel>("org.kde.neochat", 1, 0, "DevicesModel");
     qmlRegisterUncreatableType<RoomMessageEvent>("org.kde.neochat", 1, 0, "RoomMessageEvent", "ENUM");
+    qmlRegisterUncreatableType<PushNotificationState>("org.kde.neochat", 1, 0, "PushNotificationState", "ENUM");
     qmlRegisterUncreatableType<NeoChatRoomType>("org.kde.neochat", 1, 0, "NeoChatRoomType", "ENUM");
     qmlRegisterUncreatableType<UserType>("org.kde.neochat", 1, 0, "UserType", "ENUM");
 

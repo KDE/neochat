@@ -46,6 +46,7 @@ Kirigami.ScrollablePage {
                 onToggled: {
                     Config.showNotifications = checked
                     Config.save()
+                    NotificationsManager.globalNotificationsEnabled = checked
                 }
             }
             QQC2.CheckBox {
