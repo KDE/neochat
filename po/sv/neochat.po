@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-09 00:46+0000\n"
+"POT-Creation-Date: 2022-09-10 00:44+0000\n"
 "PO-Revision-Date: 2022-08-03 09:45+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -615,7 +615,7 @@ msgstr "Spara som"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:52
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:35
-#: imports/NeoChat/Page/RoomPage.qml:499 src/notificationsmanager.cpp:66
+#: imports/NeoChat/Page/RoomPage.qml:499 src/notificationsmanager.cpp:73
 #, kde-format
 msgid "Reply"
 msgstr "Svara"
@@ -961,7 +961,7 @@ msgstr "Tystad"
 
 #: imports/NeoChat/RoomSettings/Categories.qml:15
 #: imports/NeoChat/RoomSettings/General.qml:24
-#: imports/NeoChat/Settings/SettingsPage.qml:13
+#: imports/NeoChat/Settings/SettingsPage.qml:12
 #, kde-format
 msgid "General"
 msgstr "Allmänt"
@@ -971,6 +971,12 @@ msgstr "Allmänt"
 #, kde-format
 msgid "Security"
 msgstr "Säkerhet"
+
+#: imports/NeoChat/RoomSettings/Categories.qml:35
+#, fuzzy, kde-format
+#| msgid "Show notifications"
+msgid "Notifications"
+msgstr "Visa underrättelser"
 
 #: imports/NeoChat/RoomSettings/General.qml:42
 #, kde-format
@@ -1023,6 +1029,33 @@ msgstr "Visa nytt rum..."
 #, kde-format
 msgid "Apply"
 msgstr "Verkställ"
+
+#: imports/NeoChat/RoomSettings/PushNotification.qml:23
+#, kde-format
+msgid "Default"
+msgstr ""
+
+#: imports/NeoChat/RoomSettings/PushNotification.qml:24
+#, fuzzy, kde-format
+#| msgid "Show notifications"
+msgid "Room notifications setting:"
+msgstr "Visa underrättelser"
+
+#: imports/NeoChat/RoomSettings/PushNotification.qml:32
+#, fuzzy, kde-format
+#| msgid "Send message"
+msgid "All messages"
+msgstr "Skicka meddelande"
+
+#: imports/NeoChat/RoomSettings/PushNotification.qml:40
+#, kde-format
+msgid "@mentions and keywords"
+msgstr ""
+
+#: imports/NeoChat/RoomSettings/PushNotification.qml:48
+#, kde-format
+msgid "Off"
+msgstr ""
 
 #: imports/NeoChat/RoomSettings/Security.qml:26
 #, kde-format
@@ -1119,7 +1152,7 @@ msgid "Passwords do not match"
 msgstr "Lösenord stämmer inte"
 
 #: imports/NeoChat/Settings/AccountsPage.qml:15
-#: imports/NeoChat/Settings/SettingsPage.qml:23
+#: imports/NeoChat/Settings/SettingsPage.qml:22
 #, kde-format
 msgid "Accounts"
 msgstr "Konton"
@@ -1226,7 +1259,7 @@ msgid "Show your messages on the right"
 msgstr "Visa dina meddelanden till höger"
 
 #: imports/NeoChat/Settings/DevicesPage.qml:13
-#: imports/NeoChat/Settings/SettingsPage.qml:38
+#: imports/NeoChat/Settings/SettingsPage.qml:37
 #, kde-format
 msgid "Devices"
 msgstr "Enheter"
@@ -1315,70 +1348,70 @@ msgstr "Underrättelser och händelser:"
 msgid "Show notifications"
 msgstr "Visa underrättelser"
 
-#: imports/NeoChat/Settings/GeneralSettingsPage.qml:52
+#: imports/NeoChat/Settings/GeneralSettingsPage.qml:53
 #, kde-format
 msgid "Show leave and join events"
 msgstr "Visa händelserna lämna och gå med"
 
-#: imports/NeoChat/Settings/GeneralSettingsPage.qml:61
+#: imports/NeoChat/Settings/GeneralSettingsPage.qml:62
 #, kde-format
 msgid "Show name change events"
 msgstr "Visa namnändringshändelser"
 
-#: imports/NeoChat/Settings/GeneralSettingsPage.qml:70
+#: imports/NeoChat/Settings/GeneralSettingsPage.qml:71
 #, kde-format
 msgid "Show avatar update events"
 msgstr "Visa uppdateringshändelser för avatarer"
 
-#: imports/NeoChat/Settings/GeneralSettingsPage.qml:79
+#: imports/NeoChat/Settings/GeneralSettingsPage.qml:80
 #, kde-format
 msgid "Rooms and private chats:"
 msgstr "Rum och privata chatter:"
 
-#: imports/NeoChat/Settings/GeneralSettingsPage.qml:80
+#: imports/NeoChat/Settings/GeneralSettingsPage.qml:81
 #, kde-format
 msgid "Separated"
 msgstr "Separerade"
 
-#: imports/NeoChat/Settings/GeneralSettingsPage.qml:89
+#: imports/NeoChat/Settings/GeneralSettingsPage.qml:90
 #, kde-format
 msgid "Intermixed"
 msgstr "Blandade"
 
-#: imports/NeoChat/Settings/GeneralSettingsPage.qml:100
+#: imports/NeoChat/Settings/GeneralSettingsPage.qml:101
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr ""
 "Använd syntaxen s/text/ersättning för att redigera ditt senaste meddelande"
 
-#: imports/NeoChat/Settings/GeneralSettingsPage.qml:112
+#: imports/NeoChat/Settings/GeneralSettingsPage.qml:113
 #, kde-format
 msgid "Send Typing Notifications"
 msgstr "Skicka skrivunderrättelser"
 
-#: imports/NeoChat/Settings/GeneralSettingsPage.qml:121
+#: imports/NeoChat/Settings/GeneralSettingsPage.qml:122
 #, kde-format
 msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr ""
 "Dölj eller visa rumsinformation automatiskt när fönstrets storlek ändras"
 
-#: imports/NeoChat/Settings/SettingsPage.qml:18
+#: imports/NeoChat/Settings/SettingsPage.qml:17
 #, kde-format
 msgid "Appearance"
 msgstr "Utseende"
 
-#: imports/NeoChat/Settings/SettingsPage.qml:28
+#: imports/NeoChat/Settings/SettingsPage.qml:27
 #, fuzzy, kde-format
 #| msgid "Custom Emoji"
 msgid "Custom Emojis"
 msgstr "Egen emoji"
 
-#: imports/NeoChat/Settings/SettingsPage.qml:33
+#: imports/NeoChat/Settings/SettingsPage.qml:32
 #, kde-format
 msgid "Spell Checking"
 msgstr "Stavningskontroll"
 
-#: imports/NeoChat/Settings/SettingsPage.qml:43
+#: imports/NeoChat/Settings/SettingsPage.qml:42
 #, kde-format
 msgid "About NeoChat"
 msgstr "Om NeoChat"
@@ -1709,12 +1742,12 @@ msgstr "Tobias Fella"
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr "Att Qt5-bibliotek för att skriva Matrix-klienter för flera plattformar"
 
-#: src/main.cpp:238
+#: src/main.cpp:240
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Klient för kommunikationsprotokollet Matrix"
 
-#: src/main.cpp:239
+#: src/main.cpp:241
 #, kde-format
 msgid "Supports appstream: url scheme"
 msgstr "Stöder appstream: webbadresschema"
@@ -1764,251 +1797,251 @@ msgstr "[ÄNDRAD]"
 msgid "[REDACTED: %1]"
 msgstr "[ÄNDRAD: %1]"
 
-#: src/neochatroom.cpp:442
+#: src/neochatroom.cpp:445
 #, kde-format
 msgid "a file"
 msgstr "en fil"
 
-#: src/neochatroom.cpp:486
+#: src/neochatroom.cpp:489
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "bjöd in %1 till rummet igen"
 
-#: src/neochatroom.cpp:488
+#: src/neochatroom.cpp:491
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:497
+#: src/neochatroom.cpp:500
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "gick med i rummet (upprepat)"
 
-#: src/neochatroom.cpp:499
+#: src/neochatroom.cpp:502
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "bjöd in %1 till rummet"
 
-#: src/neochatroom.cpp:499
+#: src/neochatroom.cpp:502
 #, kde-format
 msgid "joined the room"
 msgstr "gick med i rummet"
 
-#: src/neochatroom.cpp:503
+#: src/neochatroom.cpp:506
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:510
+#: src/neochatroom.cpp:513
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "tog bort sitt visningsnamn"
 
-#: src/neochatroom.cpp:512
+#: src/neochatroom.cpp:515
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "ändrade sitt visningsnamn till %1"
 
-#: src/neochatroom.cpp:517
+#: src/neochatroom.cpp:520
 #, kde-format
 msgid " and "
 msgstr " och "
 
-#: src/neochatroom.cpp:520
+#: src/neochatroom.cpp:523
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "tog bort sin avatar"
 
-#: src/neochatroom.cpp:526
+#: src/neochatroom.cpp:529
 #, kde-format
 msgid "set an avatar"
 msgstr "tilldela en avatar"
 
-#: src/neochatroom.cpp:528
+#: src/neochatroom.cpp:531
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "uppdaterade sin avatar"
 
-#: src/neochatroom.cpp:535
+#: src/neochatroom.cpp:538
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "drog tillbaka inbjudan av %1"
 
-#: src/neochatroom.cpp:535
+#: src/neochatroom.cpp:538
 #, kde-format
 msgid "rejected the invitation"
 msgstr "nekade till inbjudan"
 
-#: src/neochatroom.cpp:539
+#: src/neochatroom.cpp:542
 #, kde-format
 msgid "unbanned %1"
 msgstr "tog bort bannlysning av %1"
 
-#: src/neochatroom.cpp:539
+#: src/neochatroom.cpp:542
 #, kde-format
 msgid "self-unbanned"
 msgstr "tog bort bannlysning av sig själv"
 
-#: src/neochatroom.cpp:542
+#: src/neochatroom.cpp:545
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "har flyttat %1 utanför rummet: %2"
 
-#: src/neochatroom.cpp:543
+#: src/neochatroom.cpp:546
 #, kde-format
 msgid "left the room"
 msgstr "lämnade rummet"
 
-#: src/neochatroom.cpp:545
+#: src/neochatroom.cpp:548
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "bannlyste %1 från rummet: %2"
 
-#: src/neochatroom.cpp:546
+#: src/neochatroom.cpp:549
 #, kde-format
 msgid "self-banned from the room"
 msgstr "bannlyste sig själv från rummet"
 
-#: src/neochatroom.cpp:548
+#: src/neochatroom.cpp:551
 #, kde-format
 msgid "requested an invite"
 msgstr "frågade efter en inbjudan"
 
-#: src/neochatroom.cpp:551
+#: src/neochatroom.cpp:554
 #, kde-format
 msgid "made something unknown"
 msgstr "gjorde någonting okänt"
 
-#: src/neochatroom.cpp:554
+#: src/neochatroom.cpp:557
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "tog bort rummets huvudalias"
 
-#: src/neochatroom.cpp:554
+#: src/neochatroom.cpp:557
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "ställde in rummets huvudalias till: %1"
 
-#: src/neochatroom.cpp:557
+#: src/neochatroom.cpp:560
 #, kde-format
 msgid "cleared the room name"
 msgstr "tog bort rummets namn"
 
-#: src/neochatroom.cpp:557
+#: src/neochatroom.cpp:560
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "ställ in rummets namn till: %1"
 
-#: src/neochatroom.cpp:560
+#: src/neochatroom.cpp:563
 #, kde-format
 msgid "cleared the topic"
 msgstr "tog bort ämnet"
 
-#: src/neochatroom.cpp:560
+#: src/neochatroom.cpp:563
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "ställ in ämnet till: %1"
 
-#: src/neochatroom.cpp:563
+#: src/neochatroom.cpp:566
 #, kde-format
 msgid "changed the room avatar"
 msgstr "ändrade rummets avatar"
 
-#: src/neochatroom.cpp:566
+#: src/neochatroom.cpp:569
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "aktiverade kryptering hela vägen"
 
-#: src/neochatroom.cpp:569
+#: src/neochatroom.cpp:572
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "uppgraderade rummet till version %1"
 
-#: src/neochatroom.cpp:570
+#: src/neochatroom.cpp:573
 #, kde-format
 msgid "created the room, version %1"
 msgstr "skapade rummet, version %1"
 
-#: src/neochatroom.cpp:573
+#: src/neochatroom.cpp:576
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "ändrade rummets effektnivåer"
 
-#: src/neochatroom.cpp:577
+#: src/neochatroom.cpp:580
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "ändrade serverns åtkomstkontrollista för rummet"
 
-#: src/neochatroom.cpp:581
+#: src/neochatroom.cpp:584
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "lade till grafisk komponent %1"
 
-#: src/neochatroom.cpp:584
+#: src/neochatroom.cpp:587
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "tog bort grafisk komponent %1"
 
-#: src/neochatroom.cpp:586
+#: src/neochatroom.cpp:589
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "ställde in grafisk komponent %1"
 
-#: src/neochatroom.cpp:588
+#: src/neochatroom.cpp:591
 #, kde-format
 msgid "updated %1 state"
 msgstr "uppdaterade tillstånd %1"
 
-#: src/neochatroom.cpp:589
+#: src/neochatroom.cpp:592
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "uppdaterade tillstånd %1 för %2"
 
-#: src/neochatroom.cpp:591
+#: src/neochatroom.cpp:594
 #, kde-format
 msgid "Unknown event"
 msgstr "Okänd händelse"
 
-#: src/notificationsmanager.cpp:53
+#: src/notificationsmanager.cpp:60
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/notificationsmanager.cpp:59
+#: src/notificationsmanager.cpp:66
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Öppna NeoChat för rummet"
 
-#: src/notificationsmanager.cpp:67
+#: src/notificationsmanager.cpp:74
 #, kde-format
 msgid "Reply..."
 msgstr "Svara..."
 
-#: src/notificationsmanager.cpp:90
+#: src/notificationsmanager.cpp:96
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 bjöd in dig till ett rum"
 
-#: src/notificationsmanager.cpp:94
+#: src/notificationsmanager.cpp:100
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Öppna inbjudan i NeoChat"
 
-#: src/notificationsmanager.cpp:100
+#: src/notificationsmanager.cpp:106
 #, kde-format
 msgid "Accept Invitation"
 msgstr "Acceptera inbjudan"
 
-#: src/notificationsmanager.cpp:100
+#: src/notificationsmanager.cpp:106
 #, kde-format
 msgid "Reject Invitation"
 msgstr "Avslå inbjudan"
