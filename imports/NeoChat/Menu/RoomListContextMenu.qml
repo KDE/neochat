@@ -24,7 +24,7 @@ Loader {
         Menu {
             MenuItem {
                 id: newWindow
-                text: i18n("Open in new window")
+                text: i18n("Open in New Window")
                 onTriggered: RoomManager.openWindow(room);
                 visible: !Kirigami.Settings.isMobile
             }
@@ -49,7 +49,7 @@ Loader {
             }
 
             MenuItem {
-                text: i18nc("@action:inmenu", "Copy address to clipboard")
+                text: i18nc("@action:inmenu", "Copy Address to Clipboard")
                 onTriggered: if (room.canonicalAlias.length === 0) {
                     Clipboard.saveText(room.id)
                 } else {
@@ -57,8 +57,53 @@ Loader {
                 }
             }
 
+            Menu {
+                title: i18n("Notification State")
+
+                MenuItem {
+                    text: i18n("Follow Global Setting")
+                    checkable: true
+                    autoExclusive: true
+                    checked: room.pushNotificationState === PushNotificationState.Default
+                    enabled: room.pushNotificationState != PushNotificationState.Unknown
+                    onTriggered: {
+                        room.pushNotificationState = PushNotificationState.Default
+                    }
+                }
+                MenuItem {
+                    text: i18nc("As in 'notify for all messages'","All")
+                    checkable: true
+                    autoExclusive: true
+                    checked: room.pushNotificationState === PushNotificationState.All
+                    enabled: room.pushNotificationState != PushNotificationState.Unknown
+                    onTriggered: {
+                        room.pushNotificationState = PushNotificationState.All
+                    }
+                }
+                MenuItem {
+                    text: i18nc("As in 'notify when the user is mentioned or the message contains a set keyword'","@Mentions and Keywords")
+                    checkable: true
+                    autoExclusive: true
+                    checked: room.pushNotificationState === PushNotificationState.MentionKeyword
+                    enabled: room.pushNotificationState != PushNotificationState.Unknown
+                    onTriggered: {
+                        room.pushNotificationState = PushNotificationState.MentionKeyword
+                    }
+                }
+                MenuItem {
+                    text: i18nc("As in 'do not notify for any messages'","Off")
+                    checkable: true
+                    autoExclusive: true
+                    checked: room.pushNotificationState === PushNotificationState.Mute
+                    enabled: room.pushNotificationState != PushNotificationState.Unknown
+                    onTriggered: {
+                        room.pushNotificationState = PushNotificationState.Mute
+                    }
+                }
+            }
+
             MenuItem {
-                text: i18n("Room settings")
+                text: i18n("Room Settings")
                 onTriggered: ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/imports/NeoChat/RoomSettings/Categories.qml', {room: room})
             }
 

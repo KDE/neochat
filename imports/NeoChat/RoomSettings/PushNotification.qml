@@ -20,7 +20,7 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
 
             QQC2.RadioButton {
-                text: i18n("Default")
+                text: i18n("Follow global setting")
                 Kirigami.FormData.label: i18n("Room notifications setting:")
                 checked: room.pushNotificationState === PushNotificationState.Default
                 enabled: room.pushNotificationState != PushNotificationState.Unknown
@@ -29,7 +29,7 @@ Kirigami.ScrollablePage {
                 }
             }
             QQC2.RadioButton {
-                text: i18n("All messages")
+                text: i18nc("As in 'notify for all messages'","All")
                 checked: room.pushNotificationState === PushNotificationState.All
                 enabled: room.pushNotificationState != PushNotificationState.Unknown
                 onToggled: {
@@ -37,7 +37,7 @@ Kirigami.ScrollablePage {
                 }
             }
             QQC2.RadioButton {
-                text: i18n("@mentions and keywords")
+                text: i18nc("As in 'notify when the user is mentioned or the message contains a set keyword'","@Mentions and Keywords")
                 checked: room.pushNotificationState === PushNotificationState.MentionKeyword
                 enabled: room.pushNotificationState != PushNotificationState.Unknown
                 onToggled: {
@@ -45,7 +45,7 @@ Kirigami.ScrollablePage {
                 }
             }
             QQC2.RadioButton {
-                text: i18n("Off")
+                text: i18nc("As in 'do not notify for any messages'","Off")
                 checked: room.pushNotificationState === PushNotificationState.Mute
                 enabled: room.pushNotificationState != PushNotificationState.Unknown
                 onToggled: {
