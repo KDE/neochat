@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-10 00:44+0000\n"
-"PO-Revision-Date: 2022-09-10 08:00+0200\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2022-09-11 07:16+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
 "%100<=4 ? 2 : 3);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Lokalize 22.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -536,54 +536,93 @@ msgid "Matrix FAQ"
 msgstr "Pogosta vprašanja o Matrixu"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:27
-#, kde-format
-msgid "Open in new window"
+#, fuzzy, kde-format
+#| msgid "Open in new window"
+msgid "Open in New Window"
 msgstr "Odpri v novem oknu"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:37
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:120
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:165
 #, kde-format
 msgid "Remove from Favourites"
 msgstr "Odstrani iz priljubljenih"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:37
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:120
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:165
 #, kde-format
 msgid "Add to Favourites"
 msgstr "Dodaj med priljubljene"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:42
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:131
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:176
 #, kde-format
 msgid "Reprioritize"
 msgstr "Ponovno določi prednost"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:42
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:131
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:176
 #, kde-format
 msgid "Deprioritize"
 msgstr "Odtegni prednost"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:47
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:137
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:182
 #, kde-format
 msgid "Mark as Read"
 msgstr "Označi kot prebrano"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Copy address to clipboard"
 msgctxt "@action:inmenu"
-msgid "Copy address to clipboard"
+msgid "Copy Address to Clipboard"
 msgstr "Kopiraj naslov na odložišče"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:61
-#: imports/NeoChat/Panel/RoomDrawer.qml:137
+#, fuzzy, kde-format
+#| msgid "Notifications"
+msgid "Notification State"
+msgstr "Obvestila"
+
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:64
 #, kde-format
-msgid "Room settings"
+msgid "Follow Global Setting"
+msgstr ""
+
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:74
+#: imports/NeoChat/RoomSettings/PushNotification.qml:32
+#, kde-format
+msgctxt "As in 'notify for all messages'"
+msgid "All"
+msgstr ""
+
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:84
+#: imports/NeoChat/RoomSettings/PushNotification.qml:40
+#, fuzzy, kde-format
+#| msgid "@mentions and keywords"
+msgctxt ""
+"As in 'notify when the user is mentioned or the message contains a set "
+"keyword'"
+msgid "@Mentions and Keywords"
+msgstr "@omembe in ključne besede"
+
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:94
+#: imports/NeoChat/RoomSettings/PushNotification.qml:48
+#, fuzzy, kde-format
+#| msgid "Off"
+msgctxt "As in 'do not notify for any messages'"
+msgid "Off"
+msgstr "Izklopljeno"
+
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:106
+#, fuzzy, kde-format
+#| msgid "Room settings"
+msgid "Room Settings"
 msgstr "Nastavitve sobe"
 
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:68
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:142
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:113
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:187
 #, kde-format
 msgid "Leave Room"
 msgstr "Zapusti sobo"
@@ -912,6 +951,11 @@ msgstr "Odstrani sobo izmed priljubljenih"
 msgid "Make room favorite"
 msgstr "Proglasi sobo za priljubljeno"
 
+#: imports/NeoChat/Panel/RoomDrawer.qml:137
+#, kde-format
+msgid "Room settings"
+msgstr "Nastavitve sobe"
+
 #: imports/NeoChat/Panel/RoomDrawer.qml:163
 #: imports/NeoChat/Panel/RoomDrawer.qml:177
 #, kde-format
@@ -981,10 +1025,9 @@ msgid "Security"
 msgstr "Varnost"
 
 #: imports/NeoChat/RoomSettings/Categories.qml:35
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Notifications"
-msgstr "Prikaži obvestila"
+msgstr "Obvestila"
 
 #: imports/NeoChat/RoomSettings/General.qml:42
 #, kde-format
@@ -1040,30 +1083,13 @@ msgstr "Uveljavi"
 
 #: imports/NeoChat/RoomSettings/PushNotification.qml:23
 #, kde-format
-msgid "Default"
+msgid "Follow global setting"
 msgstr ""
 
 #: imports/NeoChat/RoomSettings/PushNotification.qml:24
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Room notifications setting:"
-msgstr "Prikaži obvestila"
-
-#: imports/NeoChat/RoomSettings/PushNotification.qml:32
-#, fuzzy, kde-format
-#| msgid "Send message"
-msgid "All messages"
-msgstr "Pošlji sporočilo"
-
-#: imports/NeoChat/RoomSettings/PushNotification.qml:40
-#, kde-format
-msgid "@mentions and keywords"
-msgstr ""
-
-#: imports/NeoChat/RoomSettings/PushNotification.qml:48
-#, kde-format
-msgid "Off"
-msgstr ""
+msgstr "Nastavitve sobnih obvestil:"
 
 #: imports/NeoChat/RoomSettings/Security.qml:26
 #, kde-format
@@ -2115,6 +2141,13 @@ msgstr "Ni bilo mogoče odpreti URL"
 #, kde-format
 msgid "Show"
 msgstr "Prikaži"
+
+#~ msgid "Default"
+#~ msgstr "Privzeto"
+
+#~| msgid "Send message"
+#~ msgid "All messages"
+#~ msgstr "Vsa sporočila"
 
 #~ msgid "Invite"
 #~ msgstr "Povabi"

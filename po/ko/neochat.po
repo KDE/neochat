@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-10 00:44+0000\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
 "PO-Revision-Date: 2022-08-09 13:27+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -530,54 +530,91 @@ msgid "Matrix FAQ"
 msgstr "Matrix FAQ"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:27
-#, kde-format
-msgid "Open in new window"
+#, fuzzy, kde-format
+#| msgid "Open in new window"
+msgid "Open in New Window"
 msgstr "새 창으로 열기"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:37
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:120
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:165
 #, kde-format
 msgid "Remove from Favourites"
 msgstr "책갈피에서 삭제"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:37
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:120
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:165
 #, kde-format
 msgid "Add to Favourites"
 msgstr "책갈피에 추가"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:42
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:131
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:176
 #, kde-format
 msgid "Reprioritize"
 msgstr "우선 순위 증가"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:42
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:131
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:176
 #, kde-format
 msgid "Deprioritize"
 msgstr "우선 순위 감소"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:47
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:137
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:182
 #, kde-format
 msgid "Mark as Read"
 msgstr "읽은 상태로 표시"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Copy address to clipboard"
 msgctxt "@action:inmenu"
-msgid "Copy address to clipboard"
+msgid "Copy Address to Clipboard"
 msgstr "클립보드에 주소 복사"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:61
-#: imports/NeoChat/Panel/RoomDrawer.qml:137
+#, fuzzy, kde-format
+#| msgid "Show notifications"
+msgid "Notification State"
+msgstr "알림 표시"
+
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:64
 #, kde-format
-msgid "Room settings"
+msgid "Follow Global Setting"
+msgstr ""
+
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:74
+#: imports/NeoChat/RoomSettings/PushNotification.qml:32
+#, kde-format
+msgctxt "As in 'notify for all messages'"
+msgid "All"
+msgstr ""
+
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:84
+#: imports/NeoChat/RoomSettings/PushNotification.qml:40
+#, kde-format
+msgctxt ""
+"As in 'notify when the user is mentioned or the message contains a set "
+"keyword'"
+msgid "@Mentions and Keywords"
+msgstr ""
+
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:94
+#: imports/NeoChat/RoomSettings/PushNotification.qml:48
+#, kde-format
+msgctxt "As in 'do not notify for any messages'"
+msgid "Off"
+msgstr ""
+
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:106
+#, fuzzy, kde-format
+#| msgid "Room settings"
+msgid "Room Settings"
 msgstr "대화방 설정"
 
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:68
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:142
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:113
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:187
 #, kde-format
 msgid "Leave Room"
 msgstr "대화방 떠나기"
@@ -904,6 +941,11 @@ msgstr "책갈피에서 대화방 삭제"
 msgid "Make room favorite"
 msgstr "책갈피에 대화방 추가"
 
+#: imports/NeoChat/Panel/RoomDrawer.qml:137
+#, kde-format
+msgid "Room settings"
+msgstr "대화방 설정"
+
 #: imports/NeoChat/Panel/RoomDrawer.qml:163
 #: imports/NeoChat/Panel/RoomDrawer.qml:177
 #, kde-format
@@ -1029,7 +1071,7 @@ msgstr "적용"
 
 #: imports/NeoChat/RoomSettings/PushNotification.qml:23
 #, kde-format
-msgid "Default"
+msgid "Follow global setting"
 msgstr ""
 
 #: imports/NeoChat/RoomSettings/PushNotification.qml:24
@@ -1037,22 +1079,6 @@ msgstr ""
 #| msgid "Show notifications"
 msgid "Room notifications setting:"
 msgstr "알림 표시"
-
-#: imports/NeoChat/RoomSettings/PushNotification.qml:32
-#, fuzzy, kde-format
-#| msgid "Send message"
-msgid "All messages"
-msgstr "메시지 보내기"
-
-#: imports/NeoChat/RoomSettings/PushNotification.qml:40
-#, kde-format
-msgid "@mentions and keywords"
-msgstr ""
-
-#: imports/NeoChat/RoomSettings/PushNotification.qml:48
-#, kde-format
-msgid "Off"
-msgstr ""
 
 #: imports/NeoChat/RoomSettings/Security.qml:26
 #, kde-format
@@ -2110,6 +2136,11 @@ msgstr "URL을 열 수 없음"
 #, kde-format
 msgid "Show"
 msgstr "표시"
+
+#, fuzzy
+#~| msgid "Send message"
+#~ msgid "All messages"
+#~ msgstr "메시지 보내기"
 
 #~ msgid "Invite"
 #~ msgstr "초대"

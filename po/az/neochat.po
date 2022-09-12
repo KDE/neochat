@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-10 00:44+0000\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -530,54 +530,91 @@ msgid "Matrix FAQ"
 msgstr "Matrix FAQ"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:27
-#, kde-format
-msgid "Open in new window"
+#, fuzzy, kde-format
+#| msgid "Open in new window"
+msgid "Open in New Window"
 msgstr "Yeni pəncərədə açın"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:37
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:120
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:165
 #, kde-format
 msgid "Remove from Favourites"
 msgstr "Seçilmişlərdən silmək"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:37
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:120
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:165
 #, kde-format
 msgid "Add to Favourites"
 msgstr "Seçilmişlərə əlavə etmək"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:42
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:131
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:176
 #, kde-format
 msgid "Reprioritize"
 msgstr "Üstünlüyünü dəyişmək"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:42
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:131
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:176
 #, kde-format
 msgid "Deprioritize"
 msgstr "Üstünlüyünü ləğv etmək"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:47
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:137
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:182
 #, kde-format
 msgid "Mark as Read"
 msgstr "Oxunmuş kimi işarələmək"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Copy address to clipboard"
 msgctxt "@action:inmenu"
-msgid "Copy address to clipboard"
+msgid "Copy Address to Clipboard"
 msgstr "Ünvanı mübadilə yaddaşına kopyalayın"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:61
-#: imports/NeoChat/Panel/RoomDrawer.qml:137
+#, fuzzy, kde-format
+#| msgid "Show notifications"
+msgid "Notification State"
+msgstr "Bildirişlərdə göstərmək"
+
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:64
 #, kde-format
-msgid "Room settings"
+msgid "Follow Global Setting"
+msgstr ""
+
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:74
+#: imports/NeoChat/RoomSettings/PushNotification.qml:32
+#, kde-format
+msgctxt "As in 'notify for all messages'"
+msgid "All"
+msgstr ""
+
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:84
+#: imports/NeoChat/RoomSettings/PushNotification.qml:40
+#, kde-format
+msgctxt ""
+"As in 'notify when the user is mentioned or the message contains a set "
+"keyword'"
+msgid "@Mentions and Keywords"
+msgstr ""
+
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:94
+#: imports/NeoChat/RoomSettings/PushNotification.qml:48
+#, kde-format
+msgctxt "As in 'do not notify for any messages'"
+msgid "Off"
+msgstr ""
+
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:106
+#, fuzzy, kde-format
+#| msgid "Room settings"
+msgid "Room Settings"
 msgstr "Otaq ayarları"
 
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:68
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:142
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:113
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:187
 #, kde-format
 msgid "Leave Room"
 msgstr "Otağı tərk etmək"
@@ -905,6 +942,11 @@ msgstr "Otağı seçilmişlərdən silin"
 msgid "Make room favorite"
 msgstr "Otağı seçilmiş edin"
 
+#: imports/NeoChat/Panel/RoomDrawer.qml:137
+#, kde-format
+msgid "Room settings"
+msgstr "Otaq ayarları"
+
 #: imports/NeoChat/Panel/RoomDrawer.qml:163
 #: imports/NeoChat/Panel/RoomDrawer.qml:177
 #, kde-format
@@ -1031,7 +1073,7 @@ msgstr "Tətbiq edin"
 
 #: imports/NeoChat/RoomSettings/PushNotification.qml:23
 #, kde-format
-msgid "Default"
+msgid "Follow global setting"
 msgstr ""
 
 #: imports/NeoChat/RoomSettings/PushNotification.qml:24
@@ -1039,22 +1081,6 @@ msgstr ""
 #| msgid "Show notifications"
 msgid "Room notifications setting:"
 msgstr "Bildirişlərdə göstərmək"
-
-#: imports/NeoChat/RoomSettings/PushNotification.qml:32
-#, fuzzy, kde-format
-#| msgid "Send message"
-msgid "All messages"
-msgstr "İsmarıcı göndərin"
-
-#: imports/NeoChat/RoomSettings/PushNotification.qml:40
-#, kde-format
-msgid "@mentions and keywords"
-msgstr ""
-
-#: imports/NeoChat/RoomSettings/PushNotification.qml:48
-#, kde-format
-msgid "Off"
-msgstr ""
 
 #: imports/NeoChat/RoomSettings/Security.qml:26
 #, kde-format
@@ -2117,6 +2143,11 @@ msgstr "URL açıla bilmir"
 #, kde-format
 msgid "Show"
 msgstr "Göstərmək"
+
+#, fuzzy
+#~| msgid "Send message"
+#~ msgid "All messages"
+#~ msgstr "İsmarıcı göndərin"
 
 #~ msgid "Invite"
 #~ msgstr "Dəvət edin"

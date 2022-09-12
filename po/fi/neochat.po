@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-10 00:44+0000\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
 "PO-Revision-Date: 2022-07-21 18:59+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -531,54 +531,91 @@ msgid "Matrix FAQ"
 msgstr "Matrixin UKK"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:27
-#, kde-format
-msgid "Open in new window"
+#, fuzzy, kde-format
+#| msgid "Open in new window"
+msgid "Open in New Window"
 msgstr "Avaa uuteen ikkunaan"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:37
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:120
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:165
 #, kde-format
 msgid "Remove from Favourites"
 msgstr "Poista suosikeista"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:37
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:120
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:165
 #, kde-format
 msgid "Add to Favourites"
 msgstr "Lisää suosikkeihin"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:42
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:131
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:176
 #, kde-format
 msgid "Reprioritize"
 msgstr "Muuta etusijaisuuksia"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:42
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:131
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:176
 #, kde-format
 msgid "Deprioritize"
 msgstr "Vähennä etusijaisuutta"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:47
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:137
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:182
 #, kde-format
 msgid "Mark as Read"
 msgstr "Merkitse luetuksi"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Copy address to clipboard"
 msgctxt "@action:inmenu"
-msgid "Copy address to clipboard"
+msgid "Copy Address to Clipboard"
 msgstr "Kopioi osoite leikepöydälle"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:61
-#: imports/NeoChat/Panel/RoomDrawer.qml:137
+#, fuzzy, kde-format
+#| msgid "Show notifications"
+msgid "Notification State"
+msgstr "Näytä ilmoitukset"
+
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:64
 #, kde-format
-msgid "Room settings"
+msgid "Follow Global Setting"
+msgstr ""
+
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:74
+#: imports/NeoChat/RoomSettings/PushNotification.qml:32
+#, kde-format
+msgctxt "As in 'notify for all messages'"
+msgid "All"
+msgstr ""
+
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:84
+#: imports/NeoChat/RoomSettings/PushNotification.qml:40
+#, kde-format
+msgctxt ""
+"As in 'notify when the user is mentioned or the message contains a set "
+"keyword'"
+msgid "@Mentions and Keywords"
+msgstr ""
+
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:94
+#: imports/NeoChat/RoomSettings/PushNotification.qml:48
+#, kde-format
+msgctxt "As in 'do not notify for any messages'"
+msgid "Off"
+msgstr ""
+
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:106
+#, fuzzy, kde-format
+#| msgid "Room settings"
+msgid "Room Settings"
 msgstr "Huoneen asetukset"
 
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:68
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:142
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:113
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:187
 #, kde-format
 msgid "Leave Room"
 msgstr "Poistu huoneesta"
@@ -906,6 +943,11 @@ msgstr "Poista huone suosikeista"
 msgid "Make room favorite"
 msgstr "Merkitse huone suosikiksi"
 
+#: imports/NeoChat/Panel/RoomDrawer.qml:137
+#, kde-format
+msgid "Room settings"
+msgstr "Huoneen asetukset"
+
 #: imports/NeoChat/Panel/RoomDrawer.qml:163
 #: imports/NeoChat/Panel/RoomDrawer.qml:177
 #, kde-format
@@ -1032,7 +1074,7 @@ msgstr "Käytä"
 
 #: imports/NeoChat/RoomSettings/PushNotification.qml:23
 #, kde-format
-msgid "Default"
+msgid "Follow global setting"
 msgstr ""
 
 #: imports/NeoChat/RoomSettings/PushNotification.qml:24
@@ -1040,22 +1082,6 @@ msgstr ""
 #| msgid "Show notifications"
 msgid "Room notifications setting:"
 msgstr "Näytä ilmoitukset"
-
-#: imports/NeoChat/RoomSettings/PushNotification.qml:32
-#, fuzzy, kde-format
-#| msgid "Send message"
-msgid "All messages"
-msgstr "Lähetä viesti"
-
-#: imports/NeoChat/RoomSettings/PushNotification.qml:40
-#, kde-format
-msgid "@mentions and keywords"
-msgstr ""
-
-#: imports/NeoChat/RoomSettings/PushNotification.qml:48
-#, kde-format
-msgid "Off"
-msgstr ""
 
 #: imports/NeoChat/RoomSettings/Security.qml:26
 #, kde-format
@@ -2113,6 +2139,11 @@ msgstr "Verkko-osoitetta ei voitu avata"
 #, kde-format
 msgid "Show"
 msgstr "Näytä"
+
+#, fuzzy
+#~| msgid "Send message"
+#~ msgid "All messages"
+#~ msgstr "Lähetä viesti"
 
 #~ msgid "Invite"
 #~ msgstr "Kutsu"
