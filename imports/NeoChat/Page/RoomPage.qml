@@ -8,7 +8,7 @@ import QtQuick.Layouts 1.15
 import Qt.labs.platform 1.1 as Platform
 import Qt.labs.qmlmodels 1.0
 
-import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigami 2.19 as Kirigami
 import org.kde.kitemmodels 1.0
 
 import org.kde.neochat 1.0
@@ -144,15 +144,10 @@ Kirigami.ScrollablePage {
         }
     }
 
-    Kirigami.PlaceholderMessage {
+    Kirigami.LoadingPlaceholder {
         id: loadingIndicator
         anchors.centerIn: parent
         visible: loading
-        text: i18n("Loading…")
-        QQC2.BusyIndicator {
-            running: loadingIndicator.visible
-            Layout.alignment: Qt.AlignHCenter
-        }
     }
 
     focus: true

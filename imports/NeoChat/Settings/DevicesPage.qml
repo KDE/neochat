@@ -5,7 +5,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15 as Controls
 import QtQuick.Layouts 1.15
 
-import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigami 2.19 as Kirigami
 
 import org.kde.neochat 1.0
 
@@ -19,13 +19,9 @@ Kirigami.ScrollablePage {
 
         anchors.fill: parent
 
-        Kirigami.PlaceholderMessage {
+        Kirigami.LoadingPlaceholder {
             visible: parent.count === 0 // We can assume 0 means loading since there is at least one device
             anchors.centerIn: parent
-            text: i18n("Loading…")
-            Controls.BusyIndicator {
-                running: parent.visible
-            }
         }
 
         delegate: Kirigami.BasicListItem {

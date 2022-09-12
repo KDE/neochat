@@ -3,18 +3,11 @@
 
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.12 as QQC2
-import org.kde.kirigami 2.12 as Kirigami
+import org.kde.kirigami 2.19 as Kirigami
 
 Kirigami.Page {
-    title: i18n("Loading…")
-
-    Kirigami.PlaceholderMessage {
+    Kirigami.LoadingPlaceholder {
         id: loadingIndicator
         anchors.centerIn: parent
-        text: i18n("Loading…")
-        QQC2.BusyIndicator {
-            running: false
-            Layout.alignment: Qt.AlignHCenter
-        }
     }
 }
