@@ -454,6 +454,7 @@ Kirigami.ScrollablePage {
             property int childOffset: userMsg && Config.showLocalMessagesOnRight && !Config.compactLayout ? (bubble ? bubble.width : 0) - childWidth : Math.max((bubble ? bubble.width : 0) - childWidth, 0)
             x: delegate && bubble ? (delegate.x + bubble.x + Kirigami.Units.largeSpacing + childOffset - (Config.compactLayout ? Kirigami.Units.gridUnit * 3 : 0)) : 0
             y: bubble ? bubble.mapToItem(parent, 0, 0).y - hoverActions.childHeight + Kirigami.Units.smallSpacing: 0;
+
             visible: false
 
             property var updateFunction
@@ -473,6 +474,7 @@ Kirigami.ScrollablePage {
                 QQC2.Button {
                     QQC2.ToolTip.text: i18n("React")
                     QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                     icon.name: "preferences-desktop-emoticons"
                     onClicked: emojiDialog.open();
                     EmojiDialog {
@@ -486,6 +488,7 @@ Kirigami.ScrollablePage {
                 QQC2.Button {
                     QQC2.ToolTip.text: i18n("Edit")
                     QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                     visible: hoverActions.showEdit
                     icon.name: "document-edit"
                     onClicked: {
@@ -498,6 +501,7 @@ Kirigami.ScrollablePage {
                 QQC2.Button {
                     QQC2.ToolTip.text: i18n("Reply")
                     QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                     icon.name: "mail-replied-symbolic"
                     onClicked: {
                         chatBoxHelper.replyToMessage(hoverActions.event.eventId, hoverActions.event.message, hoverActions.event.author);

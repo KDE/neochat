@@ -237,6 +237,7 @@ Kirigami.ScrollablePage {
                     HoverHandler { id: sliderHover }
                     QQC2.ToolTip.visible: sliderHover.hovered && !enabled
                     QQC2.ToolTip.text: i18n("Only enabled if the transparent chat page is enabled.")
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                 }
                 QQC2.Label {
                     text: Math.round(Config.transparency * 100) + "%"

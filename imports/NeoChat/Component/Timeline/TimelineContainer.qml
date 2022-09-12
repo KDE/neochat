@@ -229,6 +229,7 @@ QQC2.ItemDelegate {
                     color: Kirigami.Theme.disabledTextColor
                     QQC2.ToolTip.visible: hoverHandler.hovered
                     QQC2.ToolTip.text: time.toLocaleString(Qt.locale(), Locale.LongFormat)
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
                     HoverHandler {
                         id: hoverHandler

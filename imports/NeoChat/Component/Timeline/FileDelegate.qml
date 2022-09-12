@@ -53,6 +53,7 @@ TimelineContainer {
                     icon.name: "document-open"
 
                     QQC2.ToolTip.text: i18nc("tooltip for a button on a message; offers ability to open its downloaded file with an appropriate application", "Open File")
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
                     onClicked: openSavedFile()
                 }
@@ -70,6 +71,7 @@ TimelineContainer {
                     icon.name: "media-playback-stop"
 
                     QQC2.ToolTip.text: i18nc("tooltip for a button on a message; stops downloading the message's file", "Stop Download")
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                     onClicked: currentRoom.cancelFileTransfer(eventId)
                 }
             },
