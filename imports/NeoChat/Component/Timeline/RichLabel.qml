@@ -56,6 +56,8 @@ a{
 </style>" + (isEmote ? "* <a href='https://matrix.to/#/" + author.id + "' style='color: " + author.color + "'>" + author.displayName + "</a> " : "") + textMessage + (isEdited ? (" <span style=\"color: " + Kirigami.Theme.disabledTextColor + "\">" + "<span style='font-size: " + Kirigami.Theme.defaultFont.pixelSize +"px'>" + i18n(" (edited)") + "</span>") : "")
 
     color: Kirigami.Theme.textColor
+    selectedTextColor: Kirigami.Theme.highlightedTextColor
+    selectionColor: Kirigami.Theme.highlightColor
     font.pointSize: model.reply === undefined && isEmoji.test(model.display) ? Kirigami.Theme.defaultFont.pointSize * 4 : Kirigami.Theme.defaultFont.pointSize
     selectByMouse: !Kirigami.Settings.isMobile
     readOnly: true

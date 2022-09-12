@@ -183,6 +183,8 @@ Kirigami.OverlayDrawer {
                             wrapMode: Text.WordWrap
                             selectByMouse: true
                             color: Kirigami.Theme.textColor
+                            selectedTextColor: Kirigami.Theme.highlightedTextColor
+                            selectionColor: Kirigami.Theme.highlightColor
                             readOnly: true
                             text: room && room.canonicalAlias ? room.canonicalAlias : i18n("No Canonical Alias")
                         }
@@ -197,6 +199,8 @@ Kirigami.OverlayDrawer {
                     wrapMode: Text.WordWrap
                     selectByMouse: true
                     color: Kirigami.Theme.textColor
+                    selectedTextColor: Kirigami.Theme.highlightedTextColor
+                    selectionColor: Kirigami.Theme.highlightColor
                     onLinkActivated: UrlHelper.openUrl(link)
                     readOnly: true
                     MouseArea {
