@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2022-09-13 00:45+0000\n"
 "PO-Revision-Date: 2022-05-11 21:33+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -36,7 +36,7 @@ msgstr "Вложения:"
 #: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:159
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:29
 #: imports/NeoChat/Page/ImageEditorPage.qml:20
-#: imports/NeoChat/Page/RoomPage.qml:487
+#: imports/NeoChat/Page/RoomPage.qml:484
 #, fuzzy, kde-format
 msgid "Edit"
 msgstr "Изменить"
@@ -147,10 +147,6 @@ msgstr "Продолжить"
 
 #: imports/NeoChat/Component/Login/Loading.qml:16
 #: imports/NeoChat/Component/Login/Login.qml:53
-#: imports/NeoChat/Page/LoadingPage.qml:9
-#: imports/NeoChat/Page/LoadingPage.qml:14
-#: imports/NeoChat/Page/RoomPage.qml:151
-#: imports/NeoChat/Settings/DevicesPage.qml:25
 #, kde-format
 msgid "Loading…"
 msgstr "Загрузка..."
@@ -248,20 +244,20 @@ msgctxt ""
 msgid "Open File"
 msgstr "Открыть файл"
 
-#: imports/NeoChat/Component/Timeline/FileDelegate.qml:66
+#: imports/NeoChat/Component/Timeline/FileDelegate.qml:67
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: imports/NeoChat/Component/Timeline/FileDelegate.qml:72
+#: imports/NeoChat/Component/Timeline/FileDelegate.qml:73
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
 msgid "Stop Download"
 msgstr ""
 
-#: imports/NeoChat/Component/Timeline/FileDelegate.qml:119
+#: imports/NeoChat/Component/Timeline/FileDelegate.qml:121
 #, fuzzy, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
@@ -650,7 +646,7 @@ msgstr "Сохранить как"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:52
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:35
-#: imports/NeoChat/Page/RoomPage.qml:499 src/notificationsmanager.cpp:73
+#: imports/NeoChat/Page/RoomPage.qml:497 src/notificationsmanager.cpp:73
 #, fuzzy, kde-format
 msgid "Reply"
 msgstr "Ответить"
@@ -864,32 +860,32 @@ msgstr "Отклонить"
 msgid "Accept"
 msgstr "Принять"
 
-#: imports/NeoChat/Page/RoomPage.qml:259
+#: imports/NeoChat/Page/RoomPage.qml:254
 #, kde-format
 msgid "Choose local file"
 msgstr ""
 
-#: imports/NeoChat/Page/RoomPage.qml:285
+#: imports/NeoChat/Page/RoomPage.qml:280
 #, kde-format
 msgid "Clipboard image"
 msgstr ""
 
-#: imports/NeoChat/Page/RoomPage.qml:332
+#: imports/NeoChat/Page/RoomPage.qml:327
 #, fuzzy, kde-format
 msgid "Jump to first unread message"
 msgstr "Перейти к первому непрочитанному письму"
 
-#: imports/NeoChat/Page/RoomPage.qml:355
+#: imports/NeoChat/Page/RoomPage.qml:350
 #, kde-format
 msgid "Jump to latest message"
 msgstr ""
 
-#: imports/NeoChat/Page/RoomPage.qml:379
+#: imports/NeoChat/Page/RoomPage.qml:374
 #, kde-format
 msgid "Drag items here to share them"
 msgstr ""
 
-#: imports/NeoChat/Page/RoomPage.qml:411
+#: imports/NeoChat/Page/RoomPage.qml:406
 #, fuzzy, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -898,7 +894,7 @@ msgstr[0] "%1 набирает сообщение…"
 msgstr[1] ""
 msgstr[2] ""
 
-#: imports/NeoChat/Page/RoomPage.qml:474
+#: imports/NeoChat/Page/RoomPage.qml:470
 #, kde-format
 msgid "React"
 msgstr ""
@@ -950,22 +946,22 @@ msgstr ""
 msgid "No name"
 msgstr "Без имени"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:187
+#: imports/NeoChat/Panel/RoomDrawer.qml:189
 #, kde-format
 msgid "No Canonical Alias"
 msgstr ""
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:194
+#: imports/NeoChat/Panel/RoomDrawer.qml:196
 #, kde-format
 msgid "No Topic"
 msgstr ""
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:211
+#: imports/NeoChat/Panel/RoomDrawer.qml:215
 #, kde-format
 msgid "Members"
 msgstr "Участники"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:216
+#: imports/NeoChat/Panel/RoomDrawer.qml:220
 #, fuzzy, kde-format
 msgid "%1 Member"
 msgid_plural "%1 Members"
@@ -973,27 +969,27 @@ msgstr[0] "член"
 msgstr[1] "Участники:"
 msgstr[2] "Участники:"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:216
+#: imports/NeoChat/Panel/RoomDrawer.qml:220
 #, kde-format
 msgid "No Member Count"
 msgstr ""
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:296
+#: imports/NeoChat/Panel/RoomDrawer.qml:300
 #, kde-format
 msgid "Owner"
 msgstr "Владелец"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:298
+#: imports/NeoChat/Panel/RoomDrawer.qml:302
 #, kde-format
 msgid "Admin"
 msgstr "Администратор"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:300
+#: imports/NeoChat/Panel/RoomDrawer.qml:304
 #, kde-format
 msgid "Mod"
 msgstr "|x|"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:302
+#: imports/NeoChat/Panel/RoomDrawer.qml:306
 #, fuzzy, kde-format
 msgid "Muted"
 msgstr "Звук выключен"
@@ -1135,7 +1131,7 @@ msgid "Avatar:"
 msgstr "Аватар"
 
 #: imports/NeoChat/Settings/AccountEditorPage.qml:63
-#: imports/NeoChat/Settings/DevicesPage.qml:95
+#: imports/NeoChat/Settings/DevicesPage.qml:91
 #, fuzzy, kde-format
 msgid "Name:"
 msgstr "Имя:"
@@ -1161,7 +1157,7 @@ msgid "Confirm new Password:"
 msgstr ""
 
 #: imports/NeoChat/Settings/AccountEditorPage.qml:98
-#: imports/NeoChat/Settings/DevicesPage.qml:99
+#: imports/NeoChat/Settings/DevicesPage.qml:95
 #, fuzzy, kde-format
 msgid "Save"
 msgstr "Сохранить"
@@ -1270,7 +1266,7 @@ msgstr "Прозрачность"
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr ""
 
-#: imports/NeoChat/Settings/AppearanceSettingsPage.qml:246
+#: imports/NeoChat/Settings/AppearanceSettingsPage.qml:247
 #, kde-format
 msgid "Show your messages on the right"
 msgstr ""
@@ -1281,32 +1277,32 @@ msgstr ""
 msgid "Devices"
 msgstr "Устройства"
 
-#: imports/NeoChat/Settings/DevicesPage.qml:39
+#: imports/NeoChat/Settings/DevicesPage.qml:35
 #, kde-format
 msgid "Edit device name"
 msgstr ""
 
-#: imports/NeoChat/Settings/DevicesPage.qml:51
+#: imports/NeoChat/Settings/DevicesPage.qml:47
 #, kde-format
 msgid "Logout device"
 msgstr ""
 
-#: imports/NeoChat/Settings/DevicesPage.qml:68
+#: imports/NeoChat/Settings/DevicesPage.qml:64
 #, kde-format
 msgid "Remove device"
 msgstr ""
 
-#: imports/NeoChat/Settings/DevicesPage.qml:72
+#: imports/NeoChat/Settings/DevicesPage.qml:68
 #, kde-format
 msgid "Password:"
 msgstr "Пароль:"
 
-#: imports/NeoChat/Settings/DevicesPage.qml:76
+#: imports/NeoChat/Settings/DevicesPage.qml:72
 #, fuzzy, kde-format
 msgid "Confirm"
 msgstr "Подтвердить"
 
-#: imports/NeoChat/Settings/DevicesPage.qml:91
+#: imports/NeoChat/Settings/DevicesPage.qml:87
 #, kde-format
 msgid "Edit device"
 msgstr ""

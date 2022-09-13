@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2022-09-13 00:45+0000\n"
 "PO-Revision-Date: 2021-12-31 11:06-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -35,7 +35,7 @@ msgstr "ਨੱਥੀ:"
 #: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:159
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:29
 #: imports/NeoChat/Page/ImageEditorPage.qml:20
-#: imports/NeoChat/Page/RoomPage.qml:487
+#: imports/NeoChat/Page/RoomPage.qml:484
 #, kde-format
 msgid "Edit"
 msgstr "ਸੋਧੋ"
@@ -146,10 +146,6 @@ msgstr "ਜਾਰੀ ਰੱਖੋ"
 
 #: imports/NeoChat/Component/Login/Loading.qml:16
 #: imports/NeoChat/Component/Login/Login.qml:53
-#: imports/NeoChat/Page/LoadingPage.qml:9
-#: imports/NeoChat/Page/LoadingPage.qml:14
-#: imports/NeoChat/Page/RoomPage.qml:151
-#: imports/NeoChat/Settings/DevicesPage.qml:25
 #, fuzzy, kde-format
 #| msgid "Loading"
 msgid "Loading…"
@@ -248,20 +244,20 @@ msgctxt ""
 msgid "Open File"
 msgstr "ਫਾਇਲ ਖੋਲ੍ਹੋ"
 
-#: imports/NeoChat/Component/Timeline/FileDelegate.qml:66
+#: imports/NeoChat/Component/Timeline/FileDelegate.qml:67
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: imports/NeoChat/Component/Timeline/FileDelegate.qml:72
+#: imports/NeoChat/Component/Timeline/FileDelegate.qml:73
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
 msgid "Stop Download"
 msgstr "ਡਾਊਨਲੋਡ ਨੂੰ ਰੋਕੋ"
 
-#: imports/NeoChat/Component/Timeline/FileDelegate.qml:119
+#: imports/NeoChat/Component/Timeline/FileDelegate.qml:121
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
@@ -654,7 +650,7 @@ msgstr "ਇੰਝ ਸੰਭਾਲੋ"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:52
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:35
-#: imports/NeoChat/Page/RoomPage.qml:499 src/notificationsmanager.cpp:73
+#: imports/NeoChat/Page/RoomPage.qml:497 src/notificationsmanager.cpp:73
 #, kde-format
 msgid "Reply"
 msgstr "ਜਵਾਬ ਦਿਓ"
@@ -869,32 +865,32 @@ msgstr "ਰੱਦ ਕਰੋ"
 msgid "Accept"
 msgstr "ਮਨਜ਼ੂਰ ਕਰੋ"
 
-#: imports/NeoChat/Page/RoomPage.qml:259
+#: imports/NeoChat/Page/RoomPage.qml:254
 #, kde-format
 msgid "Choose local file"
 msgstr "ਲੋਕਲ ਫਾਇਲ ਚੁਣੋ"
 
-#: imports/NeoChat/Page/RoomPage.qml:285
+#: imports/NeoChat/Page/RoomPage.qml:280
 #, kde-format
 msgid "Clipboard image"
 msgstr "ਕਲਿੱਪਬੋਰਡ ਚਿੱਤਰ"
 
-#: imports/NeoChat/Page/RoomPage.qml:332
+#: imports/NeoChat/Page/RoomPage.qml:327
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "ਪਹਿਲੇ ਨਾ-ਪੜ੍ਹੇ ਸੁਨੇਹੇ ਉੱਤੇ ਜਾਓ"
 
-#: imports/NeoChat/Page/RoomPage.qml:355
+#: imports/NeoChat/Page/RoomPage.qml:350
 #, kde-format
 msgid "Jump to latest message"
 msgstr "ਸਭ ਤੋਂ ਨਵੇ ਸੁਨੇਹੇ ਉੱਤੇ ਜਾਓ"
 
-#: imports/NeoChat/Page/RoomPage.qml:379
+#: imports/NeoChat/Page/RoomPage.qml:374
 #, kde-format
 msgid "Drag items here to share them"
 msgstr ""
 
-#: imports/NeoChat/Page/RoomPage.qml:411
+#: imports/NeoChat/Page/RoomPage.qml:406
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -902,7 +898,7 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 ਲਿਖ ਰਹੇ ਹਨ"
 msgstr[1] "%2 ਲਿਖ ਰਹੇ ਹਨ"
 
-#: imports/NeoChat/Page/RoomPage.qml:474
+#: imports/NeoChat/Page/RoomPage.qml:470
 #, kde-format
 msgid "React"
 msgstr "ਅਸਰ"
@@ -955,49 +951,49 @@ msgstr "ਰੂਮ ਸੈਟਿੰਗਾਂ"
 msgid "No name"
 msgstr "ਕੋਈ ਨਾਂ ਨਹੀਂ"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:187
+#: imports/NeoChat/Panel/RoomDrawer.qml:189
 #, kde-format
 msgid "No Canonical Alias"
 msgstr ""
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:194
+#: imports/NeoChat/Panel/RoomDrawer.qml:196
 #, kde-format
 msgid "No Topic"
 msgstr "ਕੋਈ ਵਿਸ਼ਾ ਨਹੀਂ"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:211
+#: imports/NeoChat/Panel/RoomDrawer.qml:215
 #, kde-format
 msgid "Members"
 msgstr "ਮੈਂਬਰ"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:216
+#: imports/NeoChat/Panel/RoomDrawer.qml:220
 #, kde-format
 msgid "%1 Member"
 msgid_plural "%1 Members"
 msgstr[0] "%1 ਮੈਂਬਰ"
 msgstr[1] "%1 ਮੈਂਬਰ"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:216
+#: imports/NeoChat/Panel/RoomDrawer.qml:220
 #, kde-format
 msgid "No Member Count"
 msgstr "ਕੋਈ ਮੈਂਬਰ ਗਿਣਤੀ ਨਹੀਂ"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:296
+#: imports/NeoChat/Panel/RoomDrawer.qml:300
 #, kde-format
 msgid "Owner"
 msgstr "ਮਾਲਕ"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:298
+#: imports/NeoChat/Panel/RoomDrawer.qml:302
 #, kde-format
 msgid "Admin"
 msgstr "ਐਡਮਿਨ"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:300
+#: imports/NeoChat/Panel/RoomDrawer.qml:304
 #, kde-format
 msgid "Mod"
 msgstr "ਮੋਡ"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:302
+#: imports/NeoChat/Panel/RoomDrawer.qml:306
 #, kde-format
 msgid "Muted"
 msgstr "ਮੌਨ ਕੀਤਾ"
@@ -1142,7 +1138,7 @@ msgid "Avatar:"
 msgstr "ਅਵਤਾਰ:"
 
 #: imports/NeoChat/Settings/AccountEditorPage.qml:63
-#: imports/NeoChat/Settings/DevicesPage.qml:95
+#: imports/NeoChat/Settings/DevicesPage.qml:91
 #, kde-format
 msgid "Name:"
 msgstr "ਨਾਂ:"
@@ -1168,7 +1164,7 @@ msgid "Confirm new Password:"
 msgstr "ਨਵੇਂ ਪਾਸਵਰਡ ਤਸਦੀਕ:"
 
 #: imports/NeoChat/Settings/AccountEditorPage.qml:98
-#: imports/NeoChat/Settings/DevicesPage.qml:99
+#: imports/NeoChat/Settings/DevicesPage.qml:95
 #, kde-format
 msgid "Save"
 msgstr "ਸੰਭਾਲੋ"
@@ -1280,7 +1276,7 @@ msgstr "ਪਾਦਰਸ਼ਤਾ:"
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr ""
 
-#: imports/NeoChat/Settings/AppearanceSettingsPage.qml:246
+#: imports/NeoChat/Settings/AppearanceSettingsPage.qml:247
 #, kde-format
 msgid "Show your messages on the right"
 msgstr ""
@@ -1291,32 +1287,32 @@ msgstr ""
 msgid "Devices"
 msgstr "ਡਿਵਾਈਸ"
 
-#: imports/NeoChat/Settings/DevicesPage.qml:39
+#: imports/NeoChat/Settings/DevicesPage.qml:35
 #, kde-format
 msgid "Edit device name"
 msgstr "ਡਿਵਾਈਸ ਦਾ ਨਾਂ ਸੋਧੋ"
 
-#: imports/NeoChat/Settings/DevicesPage.qml:51
+#: imports/NeoChat/Settings/DevicesPage.qml:47
 #, kde-format
 msgid "Logout device"
 msgstr "ਡਿਵਾਈਸ ਤੋਂ ਲਾਗ ਆਉਟ"
 
-#: imports/NeoChat/Settings/DevicesPage.qml:68
+#: imports/NeoChat/Settings/DevicesPage.qml:64
 #, kde-format
 msgid "Remove device"
 msgstr "ਡਿਵਾਈਸ ਨੂੰ ਹਟਾਓ"
 
-#: imports/NeoChat/Settings/DevicesPage.qml:72
+#: imports/NeoChat/Settings/DevicesPage.qml:68
 #, kde-format
 msgid "Password:"
 msgstr "ਪਾਸਵਰਡ:"
 
-#: imports/NeoChat/Settings/DevicesPage.qml:76
+#: imports/NeoChat/Settings/DevicesPage.qml:72
 #, kde-format
 msgid "Confirm"
 msgstr "ਤਸਦੀਕ ਕਰੋ"
 
-#: imports/NeoChat/Settings/DevicesPage.qml:91
+#: imports/NeoChat/Settings/DevicesPage.qml:87
 #, kde-format
 msgid "Edit device"
 msgstr "ਡਿਵਾਈਸ ਨੂੰ ਸੋਧੋ"
