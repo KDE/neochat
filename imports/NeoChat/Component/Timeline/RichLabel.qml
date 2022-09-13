@@ -24,6 +24,8 @@ TextEdit {
     Layout.rightMargin: Kirigami.Units.largeSpacing
     Layout.leftMargin: Kirigami.Units.largeSpacing
 
+    persistentSelection: true
+
     text: "<style>
 table {
     width:100%;

@@ -14,7 +14,7 @@ TimelineContainer {
     id: messageDelegate
 
     property bool isEmote: false
-    onOpenContextMenu: openMessageContext(model, parent.selectedText, Controller.plainText(label.textDocument))
+    onOpenContextMenu: openMessageContext(model, label.selectedText, Controller.plainText(label.textDocument))
 
     onReplyClicked: ListView.view.goToEvent(eventID)
     hoverComponent: hoverActions
