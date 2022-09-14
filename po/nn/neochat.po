@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-10 00:44+0000\n"
+"POT-Creation-Date: 2022-09-13 00:45+0000\n"
 "PO-Revision-Date: 2021-12-15 11:17+0100\n"
 "Last-Translator: Oystein Steffensen-Alvaervik <ystein@posteo.net>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -38,7 +38,7 @@ msgstr "Vedlegg:"
 #: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:159
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:29
 #: imports/NeoChat/Page/ImageEditorPage.qml:20
-#: imports/NeoChat/Page/RoomPage.qml:487
+#: imports/NeoChat/Page/RoomPage.qml:484
 #, kde-format
 msgid "Edit"
 msgstr "Rediger"
@@ -147,10 +147,6 @@ msgstr "Hald fram"
 
 #: imports/NeoChat/Component/Login/Loading.qml:16
 #: imports/NeoChat/Component/Login/Login.qml:53
-#: imports/NeoChat/Page/LoadingPage.qml:9
-#: imports/NeoChat/Page/LoadingPage.qml:14
-#: imports/NeoChat/Page/RoomPage.qml:151
-#: imports/NeoChat/Settings/DevicesPage.qml:25
 #, kde-format
 msgid "Loading…"
 msgstr ""
@@ -248,20 +244,20 @@ msgctxt ""
 msgid "Open File"
 msgstr ""
 
-#: imports/NeoChat/Component/Timeline/FileDelegate.qml:66
+#: imports/NeoChat/Component/Timeline/FileDelegate.qml:67
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr ""
 
-#: imports/NeoChat/Component/Timeline/FileDelegate.qml:72
+#: imports/NeoChat/Component/Timeline/FileDelegate.qml:73
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
 msgid "Stop Download"
 msgstr ""
 
-#: imports/NeoChat/Component/Timeline/FileDelegate.qml:119
+#: imports/NeoChat/Component/Timeline/FileDelegate.qml:121
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
@@ -532,35 +528,35 @@ msgstr ""
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:27
 #, kde-format
-msgid "Open in new window"
-msgstr "Opna i nytt vindauge"
+msgid "Open in New Window"
+msgstr ""
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:37
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:120
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:165
 #, kde-format
 msgid "Remove from Favourites"
 msgstr "Fjern frå favorittar"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:37
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:120
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:165
 #, kde-format
 msgid "Add to Favourites"
 msgstr "Legg til favorittar"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:42
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:131
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:176
 #, kde-format
 msgid "Reprioritize"
 msgstr "Reprioriter"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:42
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:131
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:176
 #, kde-format
 msgid "Deprioritize"
 msgstr "Nedprioriter"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:47
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:137
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:182
 #, kde-format
 msgid "Mark as Read"
 msgstr "Merk som lesen"
@@ -568,17 +564,49 @@ msgstr "Merk som lesen"
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:52
 #, kde-format
 msgctxt "@action:inmenu"
-msgid "Copy address to clipboard"
+msgid "Copy Address to Clipboard"
 msgstr ""
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:61
-#: imports/NeoChat/Panel/RoomDrawer.qml:137
 #, kde-format
-msgid "Room settings"
-msgstr "Romval"
+msgid "Notification State"
+msgstr ""
 
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:68
-#: imports/NeoChat/Menu/RoomListContextMenu.qml:142
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:64
+#, kde-format
+msgid "Follow Global Setting"
+msgstr ""
+
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:74
+#: imports/NeoChat/RoomSettings/PushNotification.qml:32
+#, kde-format
+msgctxt "As in 'notify for all messages'"
+msgid "All"
+msgstr ""
+
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:84
+#: imports/NeoChat/RoomSettings/PushNotification.qml:40
+#, kde-format
+msgctxt ""
+"As in 'notify when the user is mentioned or the message contains a set "
+"keyword'"
+msgid "@Mentions and Keywords"
+msgstr ""
+
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:94
+#: imports/NeoChat/RoomSettings/PushNotification.qml:48
+#, kde-format
+msgctxt "As in 'do not notify for any messages'"
+msgid "Off"
+msgstr ""
+
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:106
+#, kde-format
+msgid "Room Settings"
+msgstr ""
+
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:113
+#: imports/NeoChat/Menu/RoomListContextMenu.qml:187
 #, kde-format
 msgid "Leave Room"
 msgstr "Forlat rommet"
@@ -615,7 +643,7 @@ msgstr "Lagra som"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:52
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:35
-#: imports/NeoChat/Page/RoomPage.qml:499 src/notificationsmanager.cpp:73
+#: imports/NeoChat/Page/RoomPage.qml:497 src/notificationsmanager.cpp:73
 #, kde-format
 msgid "Reply"
 msgstr "Svar"
@@ -831,32 +859,32 @@ msgstr "Avvis"
 msgid "Accept"
 msgstr "Godta"
 
-#: imports/NeoChat/Page/RoomPage.qml:259
+#: imports/NeoChat/Page/RoomPage.qml:254
 #, kde-format
 msgid "Choose local file"
 msgstr "Vel lokal fil"
 
-#: imports/NeoChat/Page/RoomPage.qml:285
+#: imports/NeoChat/Page/RoomPage.qml:280
 #, kde-format
 msgid "Clipboard image"
 msgstr "Utklippstavle-bilete"
 
-#: imports/NeoChat/Page/RoomPage.qml:332
+#: imports/NeoChat/Page/RoomPage.qml:327
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Gå til første ulesne melding"
 
-#: imports/NeoChat/Page/RoomPage.qml:355
+#: imports/NeoChat/Page/RoomPage.qml:350
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Gå til nyaste melding"
 
-#: imports/NeoChat/Page/RoomPage.qml:379
+#: imports/NeoChat/Page/RoomPage.qml:374
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Dra element her for å dela dei"
 
-#: imports/NeoChat/Page/RoomPage.qml:411
+#: imports/NeoChat/Page/RoomPage.qml:406
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -864,7 +892,7 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 skriv"
 msgstr[1] "%2 skriv"
 
-#: imports/NeoChat/Page/RoomPage.qml:474
+#: imports/NeoChat/Page/RoomPage.qml:470
 #, kde-format
 msgid "React"
 msgstr "Reager"
@@ -905,55 +933,60 @@ msgstr "Fjern rom frå favorittar"
 msgid "Make room favorite"
 msgstr "Gjer rom til favoritt"
 
+#: imports/NeoChat/Panel/RoomDrawer.qml:137
+#, kde-format
+msgid "Room settings"
+msgstr "Romval"
+
 #: imports/NeoChat/Panel/RoomDrawer.qml:163
 #: imports/NeoChat/Panel/RoomDrawer.qml:177
 #, kde-format
 msgid "No name"
 msgstr "Namnlaus"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:187
+#: imports/NeoChat/Panel/RoomDrawer.qml:189
 #, kde-format
 msgid "No Canonical Alias"
 msgstr "Manglar kanonisk alias"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:194
+#: imports/NeoChat/Panel/RoomDrawer.qml:196
 #, kde-format
 msgid "No Topic"
 msgstr "Manglar emne"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:211
+#: imports/NeoChat/Panel/RoomDrawer.qml:215
 #, kde-format
 msgid "Members"
 msgstr "Medlemmar"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:216
+#: imports/NeoChat/Panel/RoomDrawer.qml:220
 #, kde-format
 msgid "%1 Member"
 msgid_plural "%1 Members"
 msgstr[0] "%1 medlem"
 msgstr[1] "%1 medlemmar"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:216
+#: imports/NeoChat/Panel/RoomDrawer.qml:220
 #, kde-format
 msgid "No Member Count"
 msgstr "Manglar medlemstal"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:296
+#: imports/NeoChat/Panel/RoomDrawer.qml:300
 #, kde-format
 msgid "Owner"
 msgstr "Eigar"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:298
+#: imports/NeoChat/Panel/RoomDrawer.qml:302
 #, kde-format
 msgid "Admin"
 msgstr "Administrator"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:300
+#: imports/NeoChat/Panel/RoomDrawer.qml:304
 #, kde-format
 msgid "Mod"
 msgstr "Mod"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:302
+#: imports/NeoChat/Panel/RoomDrawer.qml:306
 #, kde-format
 msgid "Muted"
 msgstr "Dempa"
@@ -1030,27 +1063,12 @@ msgstr ""
 
 #: imports/NeoChat/RoomSettings/PushNotification.qml:23
 #, kde-format
-msgid "Default"
+msgid "Follow global setting"
 msgstr ""
 
 #: imports/NeoChat/RoomSettings/PushNotification.qml:24
 #, kde-format
 msgid "Room notifications setting:"
-msgstr ""
-
-#: imports/NeoChat/RoomSettings/PushNotification.qml:32
-#, kde-format
-msgid "All messages"
-msgstr ""
-
-#: imports/NeoChat/RoomSettings/PushNotification.qml:40
-#, kde-format
-msgid "@mentions and keywords"
-msgstr ""
-
-#: imports/NeoChat/RoomSettings/PushNotification.qml:48
-#, kde-format
-msgid "Off"
 msgstr ""
 
 #: imports/NeoChat/RoomSettings/Security.qml:26
@@ -1110,7 +1128,7 @@ msgid "Avatar:"
 msgstr "Avatar:"
 
 #: imports/NeoChat/Settings/AccountEditorPage.qml:63
-#: imports/NeoChat/Settings/DevicesPage.qml:95
+#: imports/NeoChat/Settings/DevicesPage.qml:91
 #, kde-format
 msgid "Name:"
 msgstr "Namn:"
@@ -1136,7 +1154,7 @@ msgid "Confirm new Password:"
 msgstr "Stadfest passord:"
 
 #: imports/NeoChat/Settings/AccountEditorPage.qml:98
-#: imports/NeoChat/Settings/DevicesPage.qml:99
+#: imports/NeoChat/Settings/DevicesPage.qml:95
 #, kde-format
 msgid "Save"
 msgstr "Lagra"
@@ -1244,7 +1262,7 @@ msgstr ""
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr ""
 
-#: imports/NeoChat/Settings/AppearanceSettingsPage.qml:246
+#: imports/NeoChat/Settings/AppearanceSettingsPage.qml:247
 #, kde-format
 msgid "Show your messages on the right"
 msgstr ""
@@ -1255,32 +1273,32 @@ msgstr ""
 msgid "Devices"
 msgstr "Einingar"
 
-#: imports/NeoChat/Settings/DevicesPage.qml:39
+#: imports/NeoChat/Settings/DevicesPage.qml:35
 #, kde-format
 msgid "Edit device name"
 msgstr "Rediger einingsnamn"
 
-#: imports/NeoChat/Settings/DevicesPage.qml:51
+#: imports/NeoChat/Settings/DevicesPage.qml:47
 #, kde-format
 msgid "Logout device"
 msgstr "Logg ut av eininga"
 
-#: imports/NeoChat/Settings/DevicesPage.qml:68
+#: imports/NeoChat/Settings/DevicesPage.qml:64
 #, kde-format
 msgid "Remove device"
 msgstr "Fjern eininga"
 
-#: imports/NeoChat/Settings/DevicesPage.qml:72
+#: imports/NeoChat/Settings/DevicesPage.qml:68
 #, kde-format
 msgid "Password:"
 msgstr "Passord:"
 
-#: imports/NeoChat/Settings/DevicesPage.qml:76
+#: imports/NeoChat/Settings/DevicesPage.qml:72
 #, kde-format
 msgid "Confirm"
 msgstr "Stadfest"
 
-#: imports/NeoChat/Settings/DevicesPage.qml:91
+#: imports/NeoChat/Settings/DevicesPage.qml:87
 #, kde-format
 msgid "Edit device"
 msgstr "Rediger eining"
