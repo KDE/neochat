@@ -159,7 +159,7 @@ if (TARGET KF5::KIOWidgets)
     target_compile_definitions(neochat PUBLIC -DHAVE_KIO)
 endif()
 
-install(TARGETS neochat-app ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS neochat-app ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
     install(FILES plasma-runner-neochat.desktop DESTINATION ${KDE_INSTALL_DATAROOTDIR}/krunner/dbusplugins)
