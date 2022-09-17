@@ -9,6 +9,6 @@ install(
     FILES
         ${CMAKE_CURRENT_SOURCE_DIR}/cmake/Flatpak/99-noto-mono-color-emoji.conf
     DESTINATION
-        ${CMAKE_INSTALL_SYSCONFDIR}/fontconfig/fonts.conf
+        ${CMAKE_INSTALL_SYSCONFDIR}/fonts/local.conf
 )
 
