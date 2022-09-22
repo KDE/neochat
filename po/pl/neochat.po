@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-14 00:45+0000\n"
+"POT-Creation-Date: 2022-09-22 00:44+0000\n"
 "PO-Revision-Date: 2022-07-30 19:21+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -37,7 +37,7 @@ msgstr "Załącznik:"
 #: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:159
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:29
 #: imports/NeoChat/Page/ImageEditorPage.qml:20
-#: imports/NeoChat/Page/RoomPage.qml:484
+#: imports/NeoChat/Page/RoomPage.qml:496
 #, kde-format
 msgid "Edit"
 msgstr "Edytuj"
@@ -307,7 +307,7 @@ msgstr " (edytowana)"
 msgid "Video"
 msgstr "Wideo"
 
-#: imports/NeoChat/Dialog/CreateRoomDialog.qml:17 qml/main.qml:241
+#: imports/NeoChat/Dialog/CreateRoomDialog.qml:17 qml/main.qml:242
 #, kde-format
 msgid "Create a Room"
 msgstr "Stwórz pokój"
@@ -327,6 +327,205 @@ msgstr "Temat pokoju"
 msgctxt "@action:button"
 msgid "Ok"
 msgstr "Ok"
+
+#: imports/NeoChat/Dialog/KeyVerification/EmojiSas.qml:23
+#, kde-format
+msgid ""
+"Confirm the emoji below are displayed on both devices, in the same order."
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/EmojiSas.qml:39
+#, kde-format
+msgid "They match"
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/EmojiSas.qml:45
+#, kde-format
+msgid "They don't match"
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:14
+#, fuzzy, kde-format
+#| msgid "Show notifications"
+msgid "Session Verification"
+msgstr "Pokaż powiadomienia"
+
+#: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:36
+#, kde-format
+msgid "Waiting for device to accept verification."
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:42
+#, kde-format
+msgid "Incoming key verification request from device **%1**"
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:48
+#, kde-format
+msgid "Waiting for other party to verify."
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:54
+#, kde-format
+msgid "Compare a set of emoji on both devices"
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:62
+#, kde-format
+msgid "Successfully verified device **%1**"
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:73
+#: imports/NeoChat/Page/RoomPage.qml:138
+#, kde-format
+msgid "Accept"
+msgstr "Zaakceptuj"
+
+#: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:79
+#, fuzzy, kde-format
+#| msgid "Timeline:"
+msgid "Decline"
+msgstr "Oś czasu:"
+
+#: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:21
+#, kde-format
+msgid "The session verification was canceled for unknown reason."
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:23
+#, kde-format
+msgid "The session verification timed out."
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:25
+#, kde-format
+msgid "The session verification timed out for remote party."
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:27
+#, kde-format
+msgid "You canceled the session verification."
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:29
+#, kde-format
+msgid "The remote party canceled the session verification."
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:31
+#, kde-format
+msgid ""
+"The session verification was canceled because we received an unexpected "
+"message."
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:33
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it received an "
+"unexpected message."
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:35
+#, kde-format
+msgid ""
+"The session verification was canceled because it received a message for an "
+"unknown session."
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:37
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it received a "
+"message for an unknown session."
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:39
+#, kde-format
+msgid ""
+"The session verification was canceled because NeoChat is unable to handle "
+"this verification method."
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:41
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it is unable to "
+"handle this verification method."
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:43
+#, kde-format
+msgid "The session verification was canceled because the keys are incorrect."
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:45
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because the keys are "
+"incorrect."
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:47
+#, kde-format
+msgid ""
+"The session verification was canceled because it verifies an unexpected user."
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:49
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it verifies an "
+"unexpected user."
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:51
+#, kde-format
+msgid ""
+"The session verification was canceled because we received an invalid message."
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:53
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because it received an "
+"invalid message."
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:55
+#: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:57
+#, kde-format
+msgid "The session was accepted on a different device"
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:59
+#, kde-format
+msgid "The session verification was canceled because of a mismatched key."
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:61
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because of a mismatched "
+"key."
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:63
+#, kde-format
+msgid "The session verification was canceled because the keys do not match."
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:65
+#, kde-format
+msgid ""
+"The remote party canceled the session verification because the keys do not "
+"match."
+msgstr ""
+
+#: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:67
+#, kde-format
+msgid "The session verification was canceled due to an unknown error."
+msgstr ""
 
 #: imports/NeoChat/Dialog/OpenFileDialog.qml:12
 #, kde-format
@@ -427,7 +626,7 @@ msgctxt "menu"
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: imports/NeoChat/Menu/GlobalMenu.qml:27 qml/main.qml:251 qml/main.qml:256
+#: imports/NeoChat/Menu/GlobalMenu.qml:27 qml/main.qml:252 qml/main.qml:257
 #, kde-format
 msgid "Configure NeoChat..."
 msgstr "Ustawienia NeoChata..."
@@ -438,7 +637,7 @@ msgctxt "menu"
 msgid "Configure NeoChat..."
 msgstr "Ustawienia NeoChata..."
 
-#: imports/NeoChat/Menu/GlobalMenu.qml:32 qml/main.qml:254
+#: imports/NeoChat/Menu/GlobalMenu.qml:32 qml/main.qml:255
 #, kde-format
 msgid "Configure"
 msgstr "Ustawienia"
@@ -463,8 +662,8 @@ msgstr "Nowa rozmowa prywatna..."
 
 #: imports/NeoChat/Menu/GlobalMenu.qml:47
 #: imports/NeoChat/Menu/GlobalMenu.qml:52
-#: imports/NeoChat/Page/StartChatPage.qml:19 qml/main.qml:235 qml/main.qml:238
-#: qml/main.qml:248
+#: imports/NeoChat/Page/StartChatPage.qml:19 qml/main.qml:236 qml/main.qml:239
+#: qml/main.qml:249
 #, kde-format
 msgid "Start a Chat"
 msgstr "Rozpocznij rozmowę"
@@ -653,7 +852,7 @@ msgstr "Zapisz jako"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:52
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:35
-#: imports/NeoChat/Page/RoomPage.qml:497 src/notificationsmanager.cpp:73
+#: imports/NeoChat/Page/RoomPage.qml:509 src/notificationsmanager.cpp:73
 #, kde-format
 msgid "Reply"
 msgstr "Odpowiedz"
@@ -777,7 +976,7 @@ msgstr "Brak dostępnych użytkowników"
 msgid "Send invitation"
 msgstr "Wyślij zaproszenie"
 
-#: imports/NeoChat/Page/JoinRoomPage.qml:20 qml/main.qml:232
+#: imports/NeoChat/Page/JoinRoomPage.qml:20 qml/main.qml:233
 #, kde-format
 msgid "Explore Rooms"
 msgstr "Przeglądaj pokoje"
@@ -838,7 +1037,7 @@ msgstr "Aby rozpocząć, dołącz do dowolnego pokoju"
 msgid "Search in room directory"
 msgstr "Szukaj w katalogu pokojów"
 
-#: imports/NeoChat/Page/RoomListPage.qml:200 qml/main.qml:229
+#: imports/NeoChat/Page/RoomListPage.qml:200 qml/main.qml:230
 #, kde-format
 msgid "Explore rooms"
 msgstr "Przeglądaj pokoje"
@@ -863,11 +1062,6 @@ msgstr "Czy przyjąć to zaproszenie?"
 #, kde-format
 msgid "Reject"
 msgstr "Odrzuć"
-
-#: imports/NeoChat/Page/RoomPage.qml:138
-#, kde-format
-msgid "Accept"
-msgstr "Zaakceptuj"
 
 #: imports/NeoChat/Page/RoomPage.qml:254
 #, kde-format
@@ -903,7 +1097,12 @@ msgstr[0] "%2 pisze"
 msgstr[1] "%2 piszą"
 msgstr[2] "%2 pisze"
 
-#: imports/NeoChat/Page/RoomPage.qml:470
+#: imports/NeoChat/Page/RoomPage.qml:476
+#, kde-format
+msgid "This message was sent from a verified device"
+msgstr ""
+
+#: imports/NeoChat/Page/RoomPage.qml:482
 #, kde-format
 msgid "React"
 msgstr "Dodaj reakcję"
@@ -1144,7 +1343,7 @@ msgid "Avatar:"
 msgstr "Awatar:"
 
 #: imports/NeoChat/Settings/AccountEditorPage.qml:63
-#: imports/NeoChat/Settings/DevicesPage.qml:91
+#: imports/NeoChat/Settings/DevicesPage.qml:101
 #, kde-format
 msgid "Name:"
 msgstr "Nazwa:"
@@ -1170,7 +1369,7 @@ msgid "Confirm new Password:"
 msgstr "Potwierdź nowe hasło:"
 
 #: imports/NeoChat/Settings/AccountEditorPage.qml:98
-#: imports/NeoChat/Settings/DevicesPage.qml:95
+#: imports/NeoChat/Settings/DevicesPage.qml:105
 #, kde-format
 msgid "Save"
 msgstr "Zapisz"
@@ -1204,7 +1403,7 @@ msgstr "Edytuj to konto"
 msgid "Account editor"
 msgstr "Szczegóły konta"
 
-#: imports/NeoChat/Settings/AccountsPage.qml:60 qml/main.qml:260
+#: imports/NeoChat/Settings/AccountsPage.qml:60 qml/main.qml:261
 #, kde-format
 msgid "Logout"
 msgstr "Wyloguj"
@@ -1299,26 +1498,32 @@ msgid "Edit device name"
 msgstr "Edytuj nazwę urządzenia"
 
 #: imports/NeoChat/Settings/DevicesPage.qml:47
+#, fuzzy, kde-format
+#| msgid "Edit device"
+msgid "Verify device"
+msgstr "Edytuj urządzenie"
+
+#: imports/NeoChat/Settings/DevicesPage.qml:57
 #, kde-format
 msgid "Logout device"
 msgstr "Wyloguj urządzenie"
 
-#: imports/NeoChat/Settings/DevicesPage.qml:64
+#: imports/NeoChat/Settings/DevicesPage.qml:74
 #, kde-format
 msgid "Remove device"
 msgstr "Usuń urządzenie"
 
-#: imports/NeoChat/Settings/DevicesPage.qml:68
+#: imports/NeoChat/Settings/DevicesPage.qml:78
 #, kde-format
 msgid "Password:"
 msgstr "Hasło:"
 
-#: imports/NeoChat/Settings/DevicesPage.qml:72
+#: imports/NeoChat/Settings/DevicesPage.qml:82
 #, kde-format
 msgid "Confirm"
 msgstr "Potwierdź"
 
-#: imports/NeoChat/Settings/DevicesPage.qml:87
+#: imports/NeoChat/Settings/DevicesPage.qml:97
 #, kde-format
 msgid "Edit device"
 msgstr "Edytuj urządzenie"
@@ -1521,27 +1726,34 @@ msgstr "Słownik sprawdzania pisowni"
 msgid "Delete word"
 msgstr "Usuń słowo"
 
-#: qml/main.qml:129
+#: qml/main.qml:130
 #, kde-format
 msgid "Warning: %1"
 msgstr "Ostrzeżenie: %1"
 
-#: qml/main.qml:266 src/trayicon.cpp:30
+#: qml/main.qml:267 src/trayicon.cpp:30
 #, kde-format
 msgid "Quit"
 msgstr "Zakończ"
 
-#: qml/main.qml:346
+#: qml/main.qml:347
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: qml/main.qml:382
+#: qml/main.qml:385
+#, fuzzy, kde-format
+#| msgid "Show notifications"
+msgctxt "@title:window"
+msgid "Session Verification"
+msgstr "Pokaż powiadomienia"
+
+#: qml/main.qml:395
 #, kde-format
 msgid "User consent"
 msgstr "Zgoda użytkownika"
 
-#: qml/main.qml:387
+#: qml/main.qml:400
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -1550,17 +1762,17 @@ msgstr ""
 "Twój serwer domowy wymaga zgody na jego warunki, zanim będzie można go "
 "używać. Aby je przeczytać, naciśnij na przycisk poniżej."
 
-#: qml/main.qml:392
+#: qml/main.qml:405
 #, kde-format
 msgid "Open"
 msgstr "Otwórz"
 
-#: qml/main.qml:421
+#: qml/main.qml:434
 #, kde-format
 msgid "Start a chat"
 msgstr "Rozpocznij rozmowę"
 
-#: qml/main.qml:423
+#: qml/main.qml:436
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Czy chcesz rozpocząć rozmowę z %1?"
@@ -1733,47 +1945,47 @@ msgstr "Id pokoju, do którego próbujesz dołączyć, jest nieprawidłowy"
 msgid "Network Error"
 msgstr "Błąd sieci"
 
-#: src/main.cpp:144
+#: src/main.cpp:147
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:146
+#: src/main.cpp:149
 #, kde-format
 msgid "Matrix client"
 msgstr "Klient Matrix"
 
-#: src/main.cpp:148
+#: src/main.cpp:151
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2022 Społeczność KDE"
 
-#: src/main.cpp:149
+#: src/main.cpp:152
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:150
+#: src/main.cpp:153
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:151
+#: src/main.cpp:154
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:155
+#: src/main.cpp:158
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr "Biblioteka Qt5 do pisania wieloplatformowych programów dla Matriksa"
 
-#: src/main.cpp:240
+#: src/main.cpp:248
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Program do obsługi protokołu matrix"
 
-#: src/main.cpp:241
+#: src/main.cpp:249
 #, kde-format
 msgid "Supports appstream: url scheme"
 msgstr "Obsługuje strumień aplikacji: schemat url"
@@ -1788,37 +2000,37 @@ msgstr "ID pliku multimedialnego '%1' nie przestrzega wzorca serwera/mediaId"
 msgid "Image request has been cancelled"
 msgstr "Żądanie wiadomości zostało anulowane"
 
-#: src/messageeventmodel.cpp:327
+#: src/messageeventmodel.cpp:328
 #, kde-format
 msgid "Today"
 msgstr "Dzisiaj"
 
-#: src/messageeventmodel.cpp:330
+#: src/messageeventmodel.cpp:331
 #, kde-format
 msgid "Yesterday"
 msgstr "Wczoraj"
 
-#: src/messageeventmodel.cpp:333
+#: src/messageeventmodel.cpp:334
 #, kde-format
 msgid "The day before yesterday"
 msgstr "Przedwczoraj"
 
-#: src/messageeventmodel.cpp:435
+#: src/messageeventmodel.cpp:436
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Wiadomość została usunięta]</i>"
 
-#: src/messageeventmodel.cpp:436
+#: src/messageeventmodel.cpp:437
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Wiadomość została usunięta: %1]</i>"
 
-#: src/messageeventmodel.cpp:515
+#: src/messageeventmodel.cpp:516
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[ZREDAGOWANO]"
 
-#: src/messageeventmodel.cpp:515
+#: src/messageeventmodel.cpp:516
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[ZREDAGOWANO: %1]"
@@ -2223,9 +2435,6 @@ msgstr "Pokaż"
 
 #~ msgid "Server error when joining the room \"%1\": %2"
 #~ msgstr "Błąd serwera przy próbie dołączenia do pokoju \"%1\": %2"
-
-#~ msgid "Timeline:"
-#~ msgstr "Oś czasu:"
 
 #~ msgid "About"
 #~ msgstr "O"
