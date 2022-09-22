@@ -141,6 +141,7 @@ int main(int argc, char *argv[])
     font.setPointSize(10);
     app.setFont(font);
 #endif
+    KLocalizedString::setApplicationDomain("neochat");
 
     QGuiApplication::setOrganizationName("KDE");
 
@@ -242,7 +243,6 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
-    KLocalizedString::setApplicationDomain("neochat");
     QObject::connect(&engine, &QQmlApplicationEngine::quit, &app, &QCoreApplication::quit);
     engine.setNetworkAccessManagerFactory(new NetworkAccessManagerFactory());
 
