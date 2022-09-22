@@ -159,7 +159,7 @@ QVariantMap ChatDocumentHandler::getAutocompletionInfo(bool isAutocompleting)
             };
         }
 
-        if (autoCompletePrefix.startsWith("/")) {
+        if (autoCompletePrefix.startsWith("/") && text.trimmed().length() <= 1) {
             return QVariantMap{
                 {"keyword", autoCompletePrefix},
                 {"type", AutoCompletionType::Command},
