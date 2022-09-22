@@ -11,7 +11,7 @@
 DevicesModel::DevicesModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    connect(&Controller::instance(), &Controller::activeConnectionChanged, this, [=]() {
+    connect(&Controller::instance(), &Controller::activeConnectionChanged, this, [this]() {
         DevicesModel::fetchDevices();
         Q_EMIT connectionChanged();
     });

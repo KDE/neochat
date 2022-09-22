@@ -8,6 +8,7 @@
 
 bool CollapseStateProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
+    Q_UNUSED(source_parent);
     return sourceModel()->data(sourceModel()->index(source_row, 0), MessageEventModel::EventTypeRole)
         != QLatin1String("state") // If this is not a state, show it
         || sourceModel()->data(sourceModel()->index(source_row + 1, 0), MessageEventModel::EventTypeRole)

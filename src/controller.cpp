@@ -574,7 +574,7 @@ void Controller::setActiveConnection(Connection *connection)
     m_connection = connection;
     if (connection != nullptr) {
         NeoChatConfig::self()->setActiveConnection(connection->userId());
-        connect(connection, &Connection::networkError, this, [this](QString message, QString details, int retriesTaken, int nextRetryInMilliseconds) {
+        connect(connection, &Connection::networkError, this, [this]() {
             if (!m_isOnline) {
                 return;
             }
