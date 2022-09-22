@@ -19,9 +19,22 @@ TimelineContainer {
     onReplyClicked: ListView.view.goToEvent(eventID)
     hoverComponent: hoverActions
 
-    innerObject: RichLabel {
-        id: label
-        isEmote: messageDelegate.isEmote
-        Layout.maximumWidth: messageDelegate.bubbleMaxWidth
+    innerObject: ColumnLayout {
+        RichLabel {
+            id: label
+            isEmote: messageDelegate.isEmote
+            Layout.maximumWidth: messageDelegate.bubbleMaxWidth
+        }
+        Loader {
+            id: linkPreviewLoader
+            Layout.rightMargin: Kirigami.Units.largeSpacing
+            Layout.leftMargin: Kirigami.Units.largeSpacing
+            height: active ? item.implicitHeight : 0
+            active: !currentRoom.usesEncryption && model.display && model.display.includes("http")
+            visible: active
+            sourceComponent: LinkPreviewDelegate {
+                anchors.verticalCenter: parent.verticalCenter
+            }
+        }
     }
 }

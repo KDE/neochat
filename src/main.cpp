@@ -59,6 +59,7 @@
 #include "emojimodel.h"
 #include "filetypesingleton.h"
 #include "joinrulesevent.h"
+#include "linkpreviewer.h"
 #include "login.h"
 #include "matriximageprovider.h"
 #include "messageeventmodel.h"
@@ -213,6 +214,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<SortFilterRoomListModel>("org.kde.neochat", 1, 0, "SortFilterRoomListModel");
     qmlRegisterType<SortFilterSpaceListModel>("org.kde.neochat", 1, 0, "SortFilterSpaceListModel");
     qmlRegisterType<DevicesModel>("org.kde.neochat", 1, 0, "DevicesModel");
+    qmlRegisterType<LinkPreviewer>("org.kde.neochat", 1, 0, "LinkPreviewer");
     qmlRegisterUncreatableType<RoomMessageEvent>("org.kde.neochat", 1, 0, "RoomMessageEvent", "ENUM");
     qmlRegisterUncreatableType<PushNotificationState>("org.kde.neochat", 1, 0, "PushNotificationState", "ENUM");
     qmlRegisterUncreatableType<NeoChatRoomType>("org.kde.neochat", 1, 0, "NeoChatRoomType", "ENUM");
