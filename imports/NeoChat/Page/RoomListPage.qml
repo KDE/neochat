@@ -42,16 +42,6 @@ Kirigami.ScrollablePage {
                 }
             }
 
-
-            Connections {
-                target: SpaceHierarchyCache
-                function onSpaceHierarchyChanged() {
-                    if (spaceList.activeSpaceId !== '') {
-                        sortFilterRoomListModel.activeSpaceRooms = SpaceHierarchyCache.getRoomListForSpace(spaceList.activeSpaceId, false);
-                    }
-                }
-            }
-
             header: QQC2.Control {
                 contentItem: QQC2.RoundButton {
                     id: homeButton
@@ -62,7 +52,7 @@ Kirigami.ScrollablePage {
                     display: QQC2.AbstractButton.IconOnly
 
                     onClicked: {
-                        sortFilterRoomListModel.activeSpaceRooms = [];
+                        sortFilterRoomListModel.activeSpaceId = "";
                         spaceList.activeSpaceId = '';
                         listView.positionViewAtIndex(0, ListView.Beginning);
                     }
@@ -82,13 +72,10 @@ Kirigami.ScrollablePage {
                 implicitHeight: ListView.view.headerItem.implicitHeight
 
                 contentItem: Kirigami.Avatar {
-                    id: del
-
                     actions.main: Kirigami.Action {
-                        id: enterSpaceAction
                         onTriggered: {
                             spaceList.activeSpaceId = id;
-                            sortFilterRoomListModel.activeSpaceRooms = SpaceHierarchyCache.getRoomListForSpace(id, true);
+                            sortFilterRoomListModel.activeSpaceId = id;
                         }
                     }
 

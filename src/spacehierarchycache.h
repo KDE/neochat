@@ -13,14 +13,20 @@ class SpaceHierarchyCache : public QObject
     Q_OBJECT
 
 public:
-    explicit SpaceHierarchyCache(QObject *parent = nullptr);
+    static SpaceHierarchyCache &instance()
+    {
+        static SpaceHierarchyCache _instance;
+        return _instance;
+    }
 
-    [[nodiscard]] Q_INVOKABLE QVector<QString> getRoomListForSpace(const QString &spaceId, bool updateCache);
+    [[nodiscard]] QVector<QString> &getRoomListForSpace(const QString &spaceId, bool updateCache);
 
 Q_SIGNALS:
     void spaceHierarchyChanged();
 
 private:
+    explicit SpaceHierarchyCache(QObject *parent = nullptr);
+
     QVector<QString> m_activeSpaceRooms;
     QHash<QString, QVector<QString>> m_spaceHierarchy;
     void cacheSpaceHierarchy();

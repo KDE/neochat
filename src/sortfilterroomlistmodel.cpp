@@ -4,6 +4,7 @@
 #include "sortfilterroomlistmodel.h"
 
 #include "roomlistmodel.h"
+#include "spacehierarchycache.h"
 
 SortFilterRoomListModel::SortFilterRoomListModel(QObject *parent)
     : QSortFilterProxyModel(parent)
@@ -81,18 +82,23 @@ bool SortFilterRoomListModel::filterAcceptsRow(int source_row, const QModelIndex
         && sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::JoinStateRole).toString() != "upgraded"
         && sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::IsSpaceRole).toBool() == false;
 
-    if (m_activeSpaceRooms.empty())
+    if (m_activeSpaceId.isEmpty()) {
         return acceptRoom;
-    else
-        return std::find(m_activeSpaceRooms.begin(),
-                         m_activeSpaceRooms.end(),
-                         sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::IdRole).toString())
-            != m_activeSpaceRooms.end()
+    } else {
+        const auto &rooms = SpaceHierarchyCache::instance().getRoomListForSpace(m_activeSpaceId, false);
+        return std::find(rooms.begin(), rooms.end(), sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::IdRole).toString()) != rooms.end()
             && acceptRoom;
+    }
 }
 
-void SortFilterRoomListModel::setActiveSpaceRooms(QVector<QString> activeSpaceRooms)
+QString SortFilterRoomListModel::activeSpaceId() const
 {
-    this->m_activeSpaceRooms = activeSpaceRooms;
+    return m_activeSpaceId;
+}
+
+void SortFilterRoomListModel::setActiveSpaceId(const QString &spaceId)
+{
+    m_activeSpaceId = spaceId;
+    Q_EMIT activeSpaceIdChanged();
     invalidate();
 }

@@ -178,7 +178,6 @@ int main(int argc, char *argv[])
     Login *login = new Login();
     ChatBoxHelper chatBoxHelper;
     UrlHelper urlHelper;
-    SpaceHierarchyCache spaceHierarchyCache;
 
 #ifdef HAVE_COLORSCHEME
     ColorSchemer colorScheme;
@@ -199,7 +198,7 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "EmojiModel", new EmojiModel(&app));
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "CommandModel", new CommandModel(&app));
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "AccountRegistry", &Quotient::AccountRegistry::instance());
-    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "SpaceHierarchyCache", &spaceHierarchyCache);
+    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "SpaceHierarchyCache", &SpaceHierarchyCache::instance());
     qmlRegisterType<ActionsHandler>("org.kde.neochat", 1, 0, "ActionsHandler");
     qmlRegisterType<ChatBoxHelper>("org.kde.neochat", 1, 0, "ChatBoxHelper");
     qmlRegisterType<ChatDocumentHandler>("org.kde.neochat", 1, 0, "ChatDocumentHandler");

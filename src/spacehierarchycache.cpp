@@ -66,7 +66,7 @@ void SpaceHierarchyCache::populateSpaceHierarchy(const QString &spaceId)
 #endif
 }
 
-QVector<QString> SpaceHierarchyCache::getRoomListForSpace(const QString &spaceId, bool updateCache)
+QVector<QString> &SpaceHierarchyCache::getRoomListForSpace(const QString &spaceId, bool updateCache)
 {
     if (updateCache) {
         populateSpaceHierarchy(spaceId);
