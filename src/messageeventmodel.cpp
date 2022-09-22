@@ -542,12 +542,17 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == MimeTypeRole) {
-        auto e = eventCast<const RoomMessageEvent>(&evt);
-        if (!e || !e->hasFileContent()) {
-            return QVariant();
+        if (auto e = eventCast<const RoomMessageEvent>(&evt)) {
+            if (!e || !e->hasFileContent()) {
+                return QVariant();
+            }
+
+            return e->content()->fileInfo()->mimeType.name();
         }
 
-        return e->content()->fileInfo()->mimeType.name();
+        if (auto e = eventCast<const StickerEvent>(&evt)) {
+            return e->image().mimeType.name();
+        }
     }
 
     if (role == SpecialMarksRole) {
@@ -788,7 +793,22 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
                 return m_currentRoom->makeMediaUrl(e->id(), e->content()->originalJson["url"].toString());
             }
         }
+
+        // Requires https://github.com/quotient-im/libQuotient/pull/570
+        // if (auto e = eventCast<const StickerEvent>(&evt)) {
+        //     return m_currentRoom->makeMediaUrl(e->id(), e->url());
+        // }
 #endif
+
+        // Construct link in the same form as urlToDownload as that function doesn't work for stickers
+        if (auto e = eventCast<const StickerEvent>(&evt)) {
+            auto url = QUrl(m_currentRoom->connection()->homeserver().toString() + "/_matrix/media/r0/download/" + e->url().toString().remove("mxc://"));
+            QUrlQuery q(url.query());
+            q.addQueryItem("allow_remote", "true");
+            url.setQuery(q);
+            return url;
+        }
+
         return m_currentRoom->urlToDownload(evt.id());
     }
 

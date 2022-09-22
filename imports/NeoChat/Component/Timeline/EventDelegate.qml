@@ -42,9 +42,7 @@ DelegateChooser {
 
     DelegateChoice {
         roleValue: "sticker"
-        delegate: ImageDelegate {
-            cardBackground: false
-        }
+        delegate: ImageDelegate {}
     }
 
     DelegateChoice {
