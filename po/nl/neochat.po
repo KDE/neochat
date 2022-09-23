@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-22 00:44+0000\n"
-"PO-Revision-Date: 2022-09-12 12:33+0200\n"
+"POT-Creation-Date: 2022-09-23 00:45+0000\n"
+"PO-Revision-Date: 2022-09-22 23:39+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -329,47 +329,48 @@ msgstr "OK"
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
 msgstr ""
+"Bevestig dat de onderstaande emoji getoond worden op beide apparaten, in "
+"dezelfde volgorde."
 
 #: imports/NeoChat/Dialog/KeyVerification/EmojiSas.qml:39
 #, kde-format
 msgid "They match"
-msgstr ""
+msgstr "Ze komen overeen"
 
 #: imports/NeoChat/Dialog/KeyVerification/EmojiSas.qml:45
 #, kde-format
 msgid "They don't match"
-msgstr ""
+msgstr "Ze komen niet overeen"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:14
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Session Verification"
-msgstr "Meldingen tonen"
+msgstr "Verificatie van sessie"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:36
 #, kde-format
 msgid "Waiting for device to accept verification."
-msgstr ""
+msgstr "Wacht op apparaat om verificatie te accepteren."
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:42
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
-msgstr ""
+msgstr "Inkomend verzoek voor verificatie van sleutel van apparaat **%1**"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:48
 #, kde-format
 msgid "Waiting for other party to verify."
-msgstr ""
+msgstr "Wacht op andere partij om te verifiëren."
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:54
 #, kde-format
 msgid "Compare a set of emoji on both devices"
-msgstr ""
+msgstr "Een set emoji vergelijken op beide apparaten"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:62
 #, kde-format
 msgid "Successfully verified device **%1**"
-msgstr ""
+msgstr "Apparaat **%1** is met succes geverifieerd"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:73
 #: imports/NeoChat/Page/RoomPage.qml:138
@@ -378,35 +379,34 @@ msgid "Accept"
 msgstr "Accepteren"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:79
-#, fuzzy, kde-format
-#| msgid "Timeline:"
+#, kde-format
 msgid "Decline"
-msgstr "Tijdlijn:"
+msgstr "Afwijzen"
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:21
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
-msgstr ""
+msgstr "Verificatie van de sessie is geannuleerd om onbekende reden."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:23
 #, kde-format
 msgid "The session verification timed out."
-msgstr ""
+msgstr "Verificatie van sessie overschreed tijdslimiet."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:25
 #, kde-format
 msgid "The session verification timed out for remote party."
-msgstr ""
+msgstr "Verificatie van sessie overschreed tijdslimiet voor partij op afstand."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:27
 #, kde-format
 msgid "You canceled the session verification."
-msgstr ""
+msgstr "Verificatie van sessie is door u geannuleerd."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:29
 #, kde-format
 msgid "The remote party canceled the session verification."
-msgstr ""
+msgstr "Verificatie van sessie is de partij op afstand geannuleerd."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:31
 #, kde-format
@@ -414,6 +414,8 @@ msgid ""
 "The session verification was canceled because we received an unexpected "
 "message."
 msgstr ""
+"Verificatie van de sessie is geannuleerd omdat we een onverwacht bericht "
+"ontvingen."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:33
 #, kde-format
@@ -421,6 +423,8 @@ msgid ""
 "The remote party canceled the session verification because it received an "
 "unexpected message."
 msgstr ""
+"Verificatie van de sessie is geannuleerd door de partij op afstand omdat het "
+"een onverwacht bericht ontving."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:35
 #, kde-format
@@ -428,6 +432,8 @@ msgid ""
 "The session verification was canceled because it received a message for an "
 "unknown session."
 msgstr ""
+"Verificatie van de sessie is geannuleerd omdat het een bericht ontving voor "
+"een onbekende sessie."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:37
 #, kde-format
@@ -435,6 +441,8 @@ msgid ""
 "The remote party canceled the session verification because it received a "
 "message for an unknown session."
 msgstr ""
+"Verificatie van de sessie is geannuleerd door de partij op afstand omdat het "
+"een bericht ontving voor een onbekende sessie."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:39
 #, kde-format
@@ -442,6 +450,8 @@ msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
 "this verification method."
 msgstr ""
+"Verificatie van de sessie is geannuleerd omdat NeoChat niet in staat is deze "
+"verificatiemethode te behandelen."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:41
 #, kde-format
@@ -449,11 +459,14 @@ msgid ""
 "The remote party canceled the session verification because it is unable to "
 "handle this verification method."
 msgstr ""
+"Verificatie van de sessie is geannuleerd door de partij op afstand omdat het "
+"niet in staat is deze verificatiemethode te behandelen."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:43
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
 msgstr ""
+"Verificatie van de sessie is geannuleerd omdat de sleutels onjuist zijn."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:45
 #, kde-format
@@ -461,12 +474,16 @@ msgid ""
 "The remote party canceled the session verification because the keys are "
 "incorrect."
 msgstr ""
+"Verificatie van sessie is de partij op afstand geannuleerd omdat de sleutels "
+"onjuist zijn."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:47
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
 msgstr ""
+"Verificatie van de sessie is geannuleerd omdat het een onverwachte gebruiker "
+"verifieert."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:49
 #, kde-format
@@ -474,12 +491,16 @@ msgid ""
 "The remote party canceled the session verification because it verifies an "
 "unexpected user."
 msgstr ""
+"Verificatie van de sessie is geannuleerd door de partij op afstand omdat het "
+"een onverwachte gebruiker verifieert."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:51
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
 msgstr ""
+"Verificatie van de sessie is geannuleerd omdat we een ongeldig bericht "
+"ontvingen."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:53
 #, kde-format
@@ -487,17 +508,21 @@ msgid ""
 "The remote party canceled the session verification because it received an "
 "invalid message."
 msgstr ""
+"Verificatie van de sessie is geannuleerd door de partij op afstand omdat het "
+"een ongeldig bericht ontving."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:55
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:57
 #, kde-format
 msgid "The session was accepted on a different device"
-msgstr ""
+msgstr "De sessie is geaccepteerd op een ander apparaat"
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:59
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
 msgstr ""
+"Verificatie van de sessie is geannuleerd omdat een sleutels niet overeen "
+"kwam."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:61
 #, kde-format
@@ -505,11 +530,15 @@ msgid ""
 "The remote party canceled the session verification because of a mismatched "
 "key."
 msgstr ""
+"Verificatie van de sessie door de partij op afstand is geannuleerd omdat een "
+"sleutel niet overeen kwam."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:63
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
 msgstr ""
+"Verificatie van de sessie is geannuleerd omdat de sleutels niet overeen "
+"kwamen."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:65
 #, kde-format
@@ -517,11 +546,13 @@ msgid ""
 "The remote party canceled the session verification because the keys do not "
 "match."
 msgstr ""
+"Verificatie van sessie door de partij op afstand is geannuleerd omdat de "
+"sleutels niet overeen kwamen."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:67
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
-msgstr ""
+msgstr "Verificatie van de sessie is geannuleerd vanwege een onbekende fout."
 
 #: imports/NeoChat/Dialog/OpenFileDialog.qml:12
 #, kde-format
@@ -1090,7 +1121,7 @@ msgstr[1] "%2 zijn bezig met het typen"
 #: imports/NeoChat/Page/RoomPage.qml:476
 #, kde-format
 msgid "This message was sent from a verified device"
-msgstr ""
+msgstr "Dit bericht is verzonden van een geverifieerd apparaat"
 
 #: imports/NeoChat/Page/RoomPage.qml:482
 #, kde-format
@@ -1479,10 +1510,9 @@ msgid "Edit device name"
 msgstr "Apparaatnaam bewerken"
 
 #: imports/NeoChat/Settings/DevicesPage.qml:47
-#, fuzzy, kde-format
-#| msgid "Edit device"
+#, kde-format
 msgid "Verify device"
-msgstr "Apparaat bewerken"
+msgstr "Apparaat verifiëren"
 
 #: imports/NeoChat/Settings/DevicesPage.qml:57
 #, kde-format
@@ -1722,11 +1752,10 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: qml/main.qml:385
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
-msgstr "Meldingen tonen"
+msgstr "Verificatie van sessie"
 
 #: qml/main.qml:395
 #, kde-format
@@ -1769,7 +1798,7 @@ msgstr "Ongeldig commando"
 msgid "Couldn't find a message to react to"
 msgstr "Kon geen bericht vinden om op te reageren"
 
-#: src/collapsestateproxymodel.cpp:67
+#: src/collapsestateproxymodel.cpp:68
 #, kde-format
 msgctxt "[user did something] n times"
 msgid " %1 time"
@@ -1777,13 +1806,13 @@ msgid_plural " %1 times"
 msgstr[0] " %1 keer"
 msgstr[1] " %1 keren"
 
-#: src/collapsestateproxymodel.cpp:74
+#: src/collapsestateproxymodel.cpp:75
 #, kde-format
 msgctxt "[action 1], [action 2 and action 3]"
 msgid ", "
 msgstr ", "
 
-#: src/collapsestateproxymodel.cpp:77
+#: src/collapsestateproxymodel.cpp:78
 #, kde-format
 msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
@@ -1926,47 +1955,47 @@ msgstr "Het room-id waaraan u mee wilt doen is niet geldig"
 msgid "Network Error"
 msgstr "Netwerkfout"
 
-#: src/main.cpp:147
+#: src/main.cpp:149
 #, kde-format
 msgid "NeoChat"
 msgstr "Neochat"
 
-#: src/main.cpp:149
+#: src/main.cpp:151
 #, kde-format
 msgid "Matrix client"
 msgstr "Matrix-client"
 
-#: src/main.cpp:151
+#: src/main.cpp:153
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2022 KDE-gemeenschap"
 
-#: src/main.cpp:152
+#: src/main.cpp:154
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:153
+#: src/main.cpp:155
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:154
+#: src/main.cpp:156
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:158
+#: src/main.cpp:160
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr "Een Qt5 bibliotheek om cross-platform clients voor Matrix te schrijven"
 
-#: src/main.cpp:248
+#: src/main.cpp:250
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Client voor het matrix communicatieprotocol"
 
-#: src/main.cpp:249
+#: src/main.cpp:251
 #, kde-format
 msgid "Supports appstream: url scheme"
 msgstr "Ondersteunt appstream: url schema"
