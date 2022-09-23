@@ -26,15 +26,23 @@ LoginStep {
                 processed("qrc:/imports/NeoChat/Component/Login/Loading.qml")
             }
         }
+        RowLayout {
+            QQC2.Button {
+                text: i18nc("@action:button", "Back")
 
-        QQC2.Button {
-            text: i18n("Login")
-            onClicked: {
-                LoginHelper.loginWithSso()
-                root.showMessage(i18n("Complete the authentication steps in your browser"))
+                onClicked: {
+                    module.source = "qrc:/imports/NeoChat/Component/Login/Login.qml"
+                }
             }
-            Component.onCompleted: forceActiveFocus()
-            Keys.onReturnPressed: clicked()
+            QQC2.Button {
+                text: i18n("Login")
+                onClicked: {
+                    LoginHelper.loginWithSso()
+                    root.showMessage(i18n("Complete the authentication steps in your browser"))
+                }
+                Component.onCompleted: forceActiveFocus()
+                Keys.onReturnPressed: clicked()
+            }
         }
     }
 }
