@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-23 00:45+0000\n"
-"PO-Revision-Date: 2022-09-12 07:03+0200\n"
+"PO-Revision-Date: 2022-09-23 08:28+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -331,47 +331,47 @@ msgstr "Ados"
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
 msgstr ""
+"Baieztatu beheko emojiak bi galuetan azaltzen direla, hurrenkera berean."
 
 #: imports/NeoChat/Dialog/KeyVerification/EmojiSas.qml:39
 #, kde-format
 msgid "They match"
-msgstr ""
+msgstr "Bat datoz"
 
 #: imports/NeoChat/Dialog/KeyVerification/EmojiSas.qml:45
 #, kde-format
 msgid "They don't match"
-msgstr ""
+msgstr "Ez datoz bat"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:14
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Session Verification"
-msgstr "Erakutsi jakinarazpenak"
+msgstr "Saioa egiaztatzea"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:36
 #, kde-format
 msgid "Waiting for device to accept verification."
-msgstr ""
+msgstr "Gailuak egiaztapena onartzeko zain."
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:42
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
-msgstr ""
+msgstr "Gakoa egiaztatzeko **%1** gailuaren sarrerako eskaera"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:48
 #, kde-format
 msgid "Waiting for other party to verify."
-msgstr ""
+msgstr "Beste aldea egiaztatzeko zain."
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:54
 #, kde-format
 msgid "Compare a set of emoji on both devices"
-msgstr ""
+msgstr "Konparatu emoji multzo bat bi gailuetan"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:62
 #, kde-format
 msgid "Successfully verified device **%1**"
-msgstr ""
+msgstr "**%1** gailuaren egiaztatze arrakastatsua"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:73
 #: imports/NeoChat/Page/RoomPage.qml:138
@@ -380,35 +380,34 @@ msgid "Accept"
 msgstr "Onartu"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:79
-#, fuzzy, kde-format
-#| msgid "Timeline:"
+#, kde-format
 msgid "Decline"
-msgstr "Denbora-lerroa:"
+msgstr "Uko egin"
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:21
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
-msgstr ""
+msgstr "Saioa egiaztatzea bertan behera utzi da, arrazoi ezezagunengatik."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:23
 #, kde-format
 msgid "The session verification timed out."
-msgstr ""
+msgstr "Saioa egiaztatzeko denbora-muga gainditu da."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:25
 #, kde-format
 msgid "The session verification timed out for remote party."
-msgstr ""
+msgstr "Saioa egiaztatzeko denbora-muga gainditu da urrutiko alderdian."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:27
 #, kde-format
 msgid "You canceled the session verification."
-msgstr ""
+msgstr "Saioa egiaztatzea bertan behera utzi duzu."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:29
 #, kde-format
 msgid "The remote party canceled the session verification."
-msgstr ""
+msgstr "Urrutiko aldeak saioa egiaztatzea bertan behera utzi du."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:31
 #, kde-format
@@ -416,6 +415,7 @@ msgid ""
 "The session verification was canceled because we received an unexpected "
 "message."
 msgstr ""
+"Saioa egiaztatzea bertan behera utzi da, ustekabeko mezu bat jaso dugulako."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:33
 #, kde-format
@@ -423,6 +423,8 @@ msgid ""
 "The remote party canceled the session verification because it received an "
 "unexpected message."
 msgstr ""
+"Urrutiko aldeak saioa egiaztatzea bertan behera utzi du, ustekabeko mezu bat "
+"jaso duelako."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:35
 #, kde-format
@@ -430,6 +432,8 @@ msgid ""
 "The session verification was canceled because it received a message for an "
 "unknown session."
 msgstr ""
+"Saioa egiaztatzea bertan behera utzi da, saio ezezagun baterako mezu bat "
+"jaso duelako."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:37
 #, kde-format
@@ -437,6 +441,8 @@ msgid ""
 "The remote party canceled the session verification because it received a "
 "message for an unknown session."
 msgstr ""
+"Urrutiko aldeak saioa egiaztatzea bertan behera utzi du, saio ezezagun "
+"beterako mezua bat jaso duelako."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:39
 #, kde-format
@@ -444,6 +450,8 @@ msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
 "this verification method."
 msgstr ""
+"Saioa egiaztatzea bertan behera utzi da, NeoChat ez delako egiaztatzeko "
+"metodo hau maneiatzeko gai."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:41
 #, kde-format
@@ -451,11 +459,13 @@ msgid ""
 "The remote party canceled the session verification because it is unable to "
 "handle this verification method."
 msgstr ""
+"Urrutiko aldeak saioa egiaztatzea bertan behera utzi du, ez delako "
+"egiaztatzeko metodo hau maneiatzeko gai."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:43
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
-msgstr ""
+msgstr "Saioa egiaztatzea bertan behera utzi da, gakoak okerrak direlako."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:45
 #, kde-format
@@ -463,12 +473,16 @@ msgid ""
 "The remote party canceled the session verification because the keys are "
 "incorrect."
 msgstr ""
+"Urrutiko aldeak saioa egiaztatzea bertan behera utzi du, gakoak okerrak "
+"direlako."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:47
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
 msgstr ""
+"Saioa egiaztatzea bertan behera utzi da, ustekabeko erabiltzaile bat "
+"egiaztatzen duelako."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:49
 #, kde-format
@@ -476,12 +490,15 @@ msgid ""
 "The remote party canceled the session verification because it verifies an "
 "unexpected user."
 msgstr ""
+"Urrutiko aldeak saioa bertan behera utzi du, ustekabeko erabiltzaile bat "
+"egiaztatzen duelako."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:51
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
 msgstr ""
+"Saioa egiaztatzea bertan behera utzi da, mezu baliogabe bat jaso dugulako."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:53
 #, kde-format
@@ -489,17 +506,19 @@ msgid ""
 "The remote party canceled the session verification because it received an "
 "invalid message."
 msgstr ""
+"Urrutiko aldeak saioa egiaztatzea bertan behera utzi du, mezu baliogabe bat "
+"jaso duelako."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:55
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:57
 #, kde-format
 msgid "The session was accepted on a different device"
-msgstr ""
+msgstr "Saioa beste gailu batean onartu da"
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:59
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
-msgstr ""
+msgstr "Saioa egiaztatzea bertan behera utzi da gakoa bat ez etortzeagatik."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:61
 #, kde-format
@@ -507,11 +526,13 @@ msgid ""
 "The remote party canceled the session verification because of a mismatched "
 "key."
 msgstr ""
+"Urrutiko aldeak saioa egiaztatzea bertan behera utzi du, gakoa bat ez "
+"etortzeagatik."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:63
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
-msgstr ""
+msgstr "Saioa egiaztatzea bertan behera utzi da, gakoak ez datozelako bat."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:65
 #, kde-format
@@ -519,11 +540,13 @@ msgid ""
 "The remote party canceled the session verification because the keys do not "
 "match."
 msgstr ""
+"Urrutiko aldeak saioa egiaztatzea bertan behera utzi du, gakoak ez "
+"datozelako bat."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:67
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
-msgstr ""
+msgstr "Saioa egiaztatzea bertan behera utzi da, errore ezezagun bat dela eta."
 
 #: imports/NeoChat/Dialog/OpenFileDialog.qml:12
 #, kde-format
@@ -1092,7 +1115,7 @@ msgstr[1] "%2 tekleatzen ari dira"
 #: imports/NeoChat/Page/RoomPage.qml:476
 #, kde-format
 msgid "This message was sent from a verified device"
-msgstr ""
+msgstr "Mezu hau egiaztatutako gailu batetik bidali da"
 
 #: imports/NeoChat/Page/RoomPage.qml:482
 #, kde-format
@@ -1481,10 +1504,9 @@ msgid "Edit device name"
 msgstr "Editatu gailuaren izena"
 
 #: imports/NeoChat/Settings/DevicesPage.qml:47
-#, fuzzy, kde-format
-#| msgid "Edit device"
+#, kde-format
 msgid "Verify device"
-msgstr "Editatu gailua"
+msgstr "Egiaztatu gailua"
 
 #: imports/NeoChat/Settings/DevicesPage.qml:57
 #, kde-format
@@ -1723,11 +1745,10 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: qml/main.qml:385
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
-msgstr "Erakutsi jakinarazpenak"
+msgstr "Saioa egiaztatzea"
 
 #: qml/main.qml:395
 #, kde-format

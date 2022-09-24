@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-23 00:45+0000\n"
-"PO-Revision-Date: 2022-09-13 07:24+0200\n"
+"PO-Revision-Date: 2022-09-23 08:01+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.1.1\n"
 
 #, kde-format
@@ -333,47 +333,48 @@ msgstr "V redu"
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
 msgstr ""
+"Potrdi, da so čustvenčki spodaj prikazani na obeh napravah v enakem "
+"zaporedju."
 
 #: imports/NeoChat/Dialog/KeyVerification/EmojiSas.qml:39
 #, kde-format
 msgid "They match"
-msgstr ""
+msgstr "Se ujemajo"
 
 #: imports/NeoChat/Dialog/KeyVerification/EmojiSas.qml:45
 #, kde-format
 msgid "They don't match"
-msgstr ""
+msgstr "Se ne ujemajo"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:14
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Session Verification"
-msgstr "Prikaži obvestila"
+msgstr "Verifikacija seje"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:36
 #, kde-format
 msgid "Waiting for device to accept verification."
-msgstr ""
+msgstr "Čakanje na napravo, da sprejme verifikacijo."
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:42
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
-msgstr ""
+msgstr "Prihajajoča zahtevek verifikacije ključa iz naprave **%1**"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:48
 #, kde-format
 msgid "Waiting for other party to verify."
-msgstr ""
+msgstr "Čakanje na verifikacijo druge stranke."
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:54
 #, kde-format
 msgid "Compare a set of emoji on both devices"
-msgstr ""
+msgstr "Primerjaj zbirke čustvenčkov na obeh napravah"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:62
 #, kde-format
 msgid "Successfully verified device **%1**"
-msgstr ""
+msgstr "Uspešno verificirana naprava **%1**"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:73
 #: imports/NeoChat/Page/RoomPage.qml:138
@@ -382,35 +383,34 @@ msgid "Accept"
 msgstr "Sprejemam"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:79
-#, fuzzy, kde-format
-#| msgid "Online"
+#, kde-format
 msgid "Decline"
-msgstr "Priklopljeno na omrežje"
+msgstr "Odkloni"
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:21
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
-msgstr ""
+msgstr "Verifikacija seje je bila prekinjena zaradi neznanega vzroka."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:23
 #, kde-format
 msgid "The session verification timed out."
-msgstr ""
+msgstr "Verifikacija seje je potekla."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:25
 #, kde-format
 msgid "The session verification timed out for remote party."
-msgstr ""
+msgstr "Verifikacija seje je potekla na oddaljeni strani."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:27
 #, kde-format
 msgid "You canceled the session verification."
-msgstr ""
+msgstr "Preklicali ste verifikacijo seje."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:29
 #, kde-format
 msgid "The remote party canceled the session verification."
-msgstr ""
+msgstr "Oddaljena stran je preklicala verifikacijo seje."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:31
 #, kde-format
@@ -418,6 +418,8 @@ msgid ""
 "The session verification was canceled because we received an unexpected "
 "message."
 msgstr ""
+"Verifikacija seje je bila preklicana, ker smo sprejeli nepričakovano "
+"sporočilo."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:33
 #, kde-format
@@ -425,6 +427,8 @@ msgid ""
 "The remote party canceled the session verification because it received an "
 "unexpected message."
 msgstr ""
+"Verifikacija seje je bila preklicana na oddaljeni strani, ker so sprejeli "
+"nepričakovano sporočilo."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:35
 #, kde-format
@@ -432,6 +436,8 @@ msgid ""
 "The session verification was canceled because it received a message for an "
 "unknown session."
 msgstr ""
+"Verifikacija seje je bila preklicana, ker je bilo sprejeto sporočilo neznane "
+"seje."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:37
 #, kde-format
@@ -439,6 +445,8 @@ msgid ""
 "The remote party canceled the session verification because it received a "
 "message for an unknown session."
 msgstr ""
+"Verifikacijo seje je preklicala oddaljena stran, ker je sprejela sporočilo "
+"neznane seje."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:39
 #, kde-format
@@ -446,6 +454,8 @@ msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
 "this verification method."
 msgstr ""
+"Verifikacija seje je bila preklicana, ker NeoChat ni sposoben obravnavati te "
+"metode verifikacije."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:41
 #, kde-format
@@ -453,11 +463,13 @@ msgid ""
 "The remote party canceled the session verification because it is unable to "
 "handle this verification method."
 msgstr ""
+"Verifikacijo seje je preklicala oddaljena stran, ker ni sposobna obravnavati "
+"te metode verifikacije."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:43
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
-msgstr ""
+msgstr "Verifikacija seje je bila preklicana, ker so ključi nekorektni."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:45
 #, kde-format
@@ -465,12 +477,15 @@ msgid ""
 "The remote party canceled the session verification because the keys are "
 "incorrect."
 msgstr ""
+"Verifikacijo seje je preklicala oddaljena stran, ker so ključi nekorektni."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:47
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
 msgstr ""
+"Verifikacija seje je bila preklicana, ker verificira nepričakovanega "
+"uporabnika."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:49
 #, kde-format
@@ -478,12 +493,15 @@ msgid ""
 "The remote party canceled the session verification because it verifies an "
 "unexpected user."
 msgstr ""
+"Verifikacija seje je preklicala oddaljena stran, ker verificira "
+"nepričakovanega uporabnika."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:51
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
 msgstr ""
+"Verifikacija seje je bila preklicana, ker smo sprejeli neveljavno sporočilo."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:53
 #, kde-format
@@ -491,17 +509,19 @@ msgid ""
 "The remote party canceled the session verification because it received an "
 "invalid message."
 msgstr ""
+"Verifikacija seje je preklicala oddaljena stran, ker je sprejela neveljavno "
+"sporočilo."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:55
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:57
 #, kde-format
 msgid "The session was accepted on a different device"
-msgstr ""
+msgstr "Ta seja je bila sprejeta na drugačni napravi"
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:59
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
-msgstr ""
+msgstr "Verifikacija seje je bila preklicana zaradi neustreznega ključa."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:61
 #, kde-format
@@ -509,11 +529,12 @@ msgid ""
 "The remote party canceled the session verification because of a mismatched "
 "key."
 msgstr ""
+"Verifikacijo seje je preklicala oddaljena stran zaradi neustreznega ključa."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:63
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
-msgstr ""
+msgstr "Verifikacija seje je bila preklicana, ker se ključa ne ujemata."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:65
 #, kde-format
@@ -521,11 +542,12 @@ msgid ""
 "The remote party canceled the session verification because the keys do not "
 "match."
 msgstr ""
+"Verifikacijo seje je preklicala oddaljena stran, ker se ključa ne ujemata."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:67
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
-msgstr ""
+msgstr "Verifikacija seje je bila preklicana zaradi neznane napake."
 
 #: imports/NeoChat/Dialog/OpenFileDialog.qml:12
 #, kde-format
@@ -1096,7 +1118,7 @@ msgstr[3] "%2 tipka"
 #: imports/NeoChat/Page/RoomPage.qml:476
 #, kde-format
 msgid "This message was sent from a verified device"
-msgstr ""
+msgstr "To sporočilo je bilo poslano iz verificirane naprave"
 
 #: imports/NeoChat/Page/RoomPage.qml:482
 #, kde-format
@@ -1487,10 +1509,9 @@ msgid "Edit device name"
 msgstr "Uredi ime naprave"
 
 #: imports/NeoChat/Settings/DevicesPage.qml:47
-#, fuzzy, kde-format
-#| msgid "Edit device"
+#, kde-format
 msgid "Verify device"
-msgstr "Uredi napravo"
+msgstr "Verificiraj napravo"
 
 #: imports/NeoChat/Settings/DevicesPage.qml:57
 #, kde-format
@@ -1729,11 +1750,10 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: qml/main.qml:385
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
-msgstr "Prikaži obvestila"
+msgstr "Verifikacija seje"
 
 #: qml/main.qml:395
 #, kde-format
