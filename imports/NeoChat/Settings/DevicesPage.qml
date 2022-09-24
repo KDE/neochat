@@ -43,6 +43,7 @@ Kirigami.ScrollablePage {
                 }
                 Controls.ToolButton {
                     display: Controls.AbstractButton.IconOnly
+                    visible: Controller.encryptionSupported
                     action: Kirigami.Action {
                         text: i18n("Verify device")
                         iconName: "security-low-symbolic"

@@ -232,9 +232,11 @@ int main(int argc, char *argv[])
     qRegisterMetaType<GetRoomEventsJob *>("GetRoomEventsJob*");
     qRegisterMetaType<QMimeType>("QMimeType");
 #ifdef QUOTIENT_07
+#ifdef Quotient_E2EE_ENABLED
     qRegisterMetaType<KeyVerificationSession *>("KeyVerificationSession*");
     qmlRegisterUncreatableType<KeyVerificationSession>("org.kde.neochat", 1, 0, "KeyVerificationSession", {});
     qRegisterMetaType<QVector<EmojiEntry>>("QVector<EmojiEntry>");
+#endif
 #endif
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
