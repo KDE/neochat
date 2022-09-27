@@ -21,8 +21,6 @@ TextEdit {
     ListView.onReused: Qt.binding(() => !hasSpoiler.test(textMessage))
 
     Layout.fillWidth: Config.compactLayout
-    Layout.rightMargin: Kirigami.Units.largeSpacing
-    Layout.leftMargin: Kirigami.Units.largeSpacing
 
     persistentSelection: true
 

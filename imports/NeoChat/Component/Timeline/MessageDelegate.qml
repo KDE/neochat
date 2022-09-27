@@ -27,8 +27,6 @@ TimelineContainer {
         }
         Loader {
             id: linkPreviewLoader
-            Layout.rightMargin: Kirigami.Units.largeSpacing
-            Layout.leftMargin: Kirigami.Units.largeSpacing
             height: active ? item.implicitHeight : 0
             active: !currentRoom.usesEncryption && model.display && model.display.includes("http")
             visible: active

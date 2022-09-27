@@ -140,8 +140,8 @@ QQC2.ItemDelegate {
         id: bubble
         topPadding: Config.compactLayout ? Kirigami.Units.smallSpacing / 2 : Kirigami.Units.largeSpacing
         bottomPadding: Config.compactLayout ? Kirigami.Units.mediumSpacing / 2 : Kirigami.Units.largeSpacing
-        leftPadding: Kirigami.Units.smallSpacing
-        rightPadding: Config.compactLayout ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing
+        leftPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
+        rightPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
         hoverEnabled: true
 
         anchors {
@@ -182,14 +182,12 @@ QQC2.ItemDelegate {
 
         contentItem: ColumnLayout {
             id: column
-            spacing: 0
+            spacing: Kirigami.Units.smallSpacing
             Item {
                 id: rowLayout
                 visible: model.showAuthor && !isEmote
                 Layout.fillWidth: true
-                Layout.leftMargin: Config.showAvatarInTimeline ? Kirigami.Units.largeSpacing : 0
-                Layout.rightMargin: Kirigami.Units.largeSpacing
-                Layout.preferredWidth: nameLabel.implicitWidth + timeLabel.implicitWidth + Kirigami.Units.largeSpacing * 2
+                Layout.preferredWidth: nameLabel.implicitWidth + timeLabel.implicitWidth
                 Layout.maximumWidth: contentMaxWidth
                 implicitHeight: visible ? nameLabel.implicitHeight : 0
 
@@ -222,7 +220,6 @@ QQC2.ItemDelegate {
                 QQC2.Label {
                     id: timeLabel
                     leftPadding: Kirigami.Units.largeSpacing
-                    rightPadding: Kirigami.Units.largeSpacing
                     anchors.left: nameLabel.right
                     visible: model.showAuthor && !isEmote
                     text: visible ? time.toLocaleTimeString(Qt.locale(), Locale.ShortFormat) : ""
@@ -241,9 +238,6 @@ QQC2.ItemDelegate {
                 active: model.reply !== undefined
                 source: 'qrc:imports/NeoChat/Component/Timeline/ReplyComponent.qml'
                 visible: active
-                Layout.topMargin: Kirigami.Units.smallSpacing
-                Layout.bottomMargin: Config.compactLayout ? 0 : Kirigami.Units.smallSpacing
-                Layout.leftMargin: Config.compactLayout ? 0 : Kirigami.Units.largeSpacing
 
                 Connections {
                     target: replyLoader.item
