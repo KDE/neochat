@@ -15,7 +15,7 @@ MouseArea {
     id: replyButton
     Layout.fillWidth: true
     implicitHeight: replyName.implicitHeight + (loader.item ? loader.item.height : 0) + Kirigami.Units.largeSpacing
-    implicitWidth: Math.min(contentMaxWidth, Math.max((loader.item ? loader.item.width + Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing : 0), replyName.implicitWidth)) + Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 3
+    implicitWidth: Math.min(contentMaxWidth, Math.max((loader.item ? loader.item.width : 0), replyName.implicitWidth)) + Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing
     Component.onCompleted: {
         parent.Layout.fillWidth = true;
         parent.Layout.preferredWidth = Qt.binding(function() { return implicitWidth; })

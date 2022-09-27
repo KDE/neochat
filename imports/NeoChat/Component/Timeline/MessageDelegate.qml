@@ -20,13 +20,14 @@ TimelineContainer {
     hoverComponent: hoverActions
 
     innerObject: ColumnLayout {
+        Layout.maximumWidth: messageDelegate.contentMaxWidth
         RichLabel {
             id: label
             isEmote: messageDelegate.isEmote
-            Layout.maximumWidth: messageDelegate.bubbleMaxWidth
         }
         Loader {
             id: linkPreviewLoader
+            Layout.fillWidth: true
             height: active ? item.implicitHeight : 0
             active: !currentRoom.usesEncryption && model.display && model.display.includes("http")
             visible: active
