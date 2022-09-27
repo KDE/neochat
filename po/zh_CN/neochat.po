@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-25 00:44+0000\n"
+"POT-Creation-Date: 2022-09-27 00:45+0000\n"
 "PO-Revision-Date: 2022-09-20 01:57\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -39,7 +39,7 @@ msgstr "附件："
 #: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:159
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:29
 #: imports/NeoChat/Page/ImageEditorPage.qml:20
-#: imports/NeoChat/Page/RoomPage.qml:496
+#: imports/NeoChat/Page/RoomPage.qml:505
 #, kde-format
 msgid "Edit"
 msgstr "编辑"
@@ -841,7 +841,7 @@ msgstr "另存为"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:52
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:35
-#: imports/NeoChat/Page/RoomPage.qml:509 src/notificationsmanager.cpp:73
+#: imports/NeoChat/Page/RoomPage.qml:518 src/notificationsmanager.cpp:73
 #, kde-format
 msgid "Reply"
 msgstr "回复"
@@ -854,12 +854,29 @@ msgstr "移除"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:70
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:52
+#: imports/NeoChat/Menu/Timeline/ReportSheet.qml:32
+#, kde-format
+msgctxt ""
+"@action:button 'Report' as in 'Report this event to the administrators'"
+msgid "Report"
+msgstr ""
+
+#: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:74
+#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:56
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgctxt "@title"
+msgid "Report Message"
+msgstr "编辑消息"
+
+#: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:79
+#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:61
 #, kde-format
 msgid "View Source"
 msgstr "查看来源"
 
-#: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:76
-#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:58
+#: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:85
+#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:67
 #: imports/NeoChat/Menu/Timeline/MessageSourceSheet.qml:20
 #, kde-format
 msgid "Message Source"
@@ -870,15 +887,33 @@ msgstr "消息来源"
 msgid "Copy"
 msgstr "复制"
 
-#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:106
+#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:115
 #, kde-format
 msgid "Search for '%1'"
 msgstr ""
 
-#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:127
+#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:136
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "配置网页快捷键..."
+
+#: imports/NeoChat/Menu/Timeline/ReportSheet.qml:16
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgid "Report Message"
+msgstr "编辑消息"
+
+#: imports/NeoChat/Menu/Timeline/ReportSheet.qml:20
+#, kde-format
+msgid "Reason for reporting this message"
+msgstr ""
+
+#: imports/NeoChat/Menu/Timeline/ReportSheet.qml:41
+#: imports/NeoChat/Page/InviteUserPage.qml:22
+#, kde-format
+msgctxt "@action"
+msgid "Cancel"
+msgstr "取消"
 
 #: imports/NeoChat/Page/ImageEditorPage.qml:36
 #, kde-format
@@ -934,12 +969,6 @@ msgstr "镜像"
 #, kde-format
 msgid "Invite a User"
 msgstr "邀请用户"
-
-#: imports/NeoChat/Page/InviteUserPage.qml:22
-#, kde-format
-msgctxt "@action"
-msgid "Cancel"
-msgstr "取消"
 
 #: imports/NeoChat/Page/InviteUserPage.qml:35
 #: imports/NeoChat/Page/StartChatPage.qml:31
@@ -1050,44 +1079,44 @@ msgstr "要接受此邀请吗？"
 msgid "Reject"
 msgstr "拒绝"
 
-#: imports/NeoChat/Page/RoomPage.qml:254
+#: imports/NeoChat/Page/RoomPage.qml:263
 #, kde-format
 msgid "Choose local file"
 msgstr "选择本地文件"
 
-#: imports/NeoChat/Page/RoomPage.qml:280
+#: imports/NeoChat/Page/RoomPage.qml:289
 #, kde-format
 msgid "Clipboard image"
 msgstr "剪贴板图像"
 
-#: imports/NeoChat/Page/RoomPage.qml:327
+#: imports/NeoChat/Page/RoomPage.qml:336
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "跳转到第一条未读消息"
 
-#: imports/NeoChat/Page/RoomPage.qml:350
+#: imports/NeoChat/Page/RoomPage.qml:359
 #, kde-format
 msgid "Jump to latest message"
 msgstr "跳转到最新消息"
 
-#: imports/NeoChat/Page/RoomPage.qml:374
+#: imports/NeoChat/Page/RoomPage.qml:383
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "拖动项目到此处来分享"
 
-#: imports/NeoChat/Page/RoomPage.qml:406
+#: imports/NeoChat/Page/RoomPage.qml:415
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 正在輸入"
 
-#: imports/NeoChat/Page/RoomPage.qml:476
+#: imports/NeoChat/Page/RoomPage.qml:485
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr ""
 
-#: imports/NeoChat/Page/RoomPage.qml:482
+#: imports/NeoChat/Page/RoomPage.qml:491
 #, kde-format
 msgid "React"
 msgstr "互动"
@@ -2002,219 +2031,225 @@ msgstr ""
 msgid "[REDACTED: %1]"
 msgstr ""
 
-#: src/neochatroom.cpp:445
+#: src/neochatroom.cpp:447
 #, kde-format
 msgid "a file"
 msgstr "1 个文件"
 
-#: src/neochatroom.cpp:489
+#: src/neochatroom.cpp:491
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "重新邀请 %1 到聊天室"
 
-#: src/neochatroom.cpp:491
+#: src/neochatroom.cpp:493
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr "：%1"
 
-#: src/neochatroom.cpp:500
+#: src/neochatroom.cpp:502
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "加入了聊天室 (多次)"
 
-#: src/neochatroom.cpp:502
+#: src/neochatroom.cpp:504
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "邀请 %1 进入聊天室"
 
-#: src/neochatroom.cpp:502
+#: src/neochatroom.cpp:504
 #, kde-format
 msgid "joined the room"
 msgstr "加入了房间"
 
-#: src/neochatroom.cpp:506
+#: src/neochatroom.cpp:508
 #, kde-format
 msgid ": %1"
 msgstr "：%1"
 
-#: src/neochatroom.cpp:513
+#: src/neochatroom.cpp:515
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "清除了显示名称"
 
-#: src/neochatroom.cpp:515
+#: src/neochatroom.cpp:517
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "将显示名称更改为 %1"
 
-#: src/neochatroom.cpp:520
+#: src/neochatroom.cpp:522
 #, kde-format
 msgid " and "
 msgstr " 和 "
 
-#: src/neochatroom.cpp:523
+#: src/neochatroom.cpp:525
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "清除了头像"
 
-#: src/neochatroom.cpp:529
+#: src/neochatroom.cpp:531
 #, kde-format
 msgid "set an avatar"
 msgstr "设置头像"
 
-#: src/neochatroom.cpp:531
+#: src/neochatroom.cpp:533
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "更新头像"
 
-#: src/neochatroom.cpp:538
+#: src/neochatroom.cpp:540
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "退回 %1 的邀请"
 
-#: src/neochatroom.cpp:538
+#: src/neochatroom.cpp:540
 #, kde-format
 msgid "rejected the invitation"
 msgstr "拒绝邀请"
 
-#: src/neochatroom.cpp:542
+#: src/neochatroom.cpp:544
 #, kde-format
 msgid "unbanned %1"
 msgstr "取消封禁 %1"
 
-#: src/neochatroom.cpp:542
+#: src/neochatroom.cpp:544
 #, kde-format
 msgid "self-unbanned"
 msgstr "自取消封禁"
 
-#: src/neochatroom.cpp:545
+#: src/neochatroom.cpp:547
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr ""
 
-#: src/neochatroom.cpp:546
+#: src/neochatroom.cpp:548
 #, kde-format
 msgid "left the room"
 msgstr "离开聊天室"
 
-#: src/neochatroom.cpp:548
+#: src/neochatroom.cpp:550
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "从聊天室封禁了 %1 : %2"
 
-#: src/neochatroom.cpp:549
+#: src/neochatroom.cpp:551
 #, kde-format
 msgid "self-banned from the room"
 msgstr ""
 
-#: src/neochatroom.cpp:551
+#: src/neochatroom.cpp:553
 #, kde-format
 msgid "requested an invite"
 msgstr ""
 
-#: src/neochatroom.cpp:554
+#: src/neochatroom.cpp:556
 #, kde-format
 msgid "made something unknown"
 msgstr ""
 
-#: src/neochatroom.cpp:557
+#: src/neochatroom.cpp:559
 #, kde-format
 msgid "cleared the room main alias"
 msgstr ""
 
-#: src/neochatroom.cpp:557
+#: src/neochatroom.cpp:559
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "设置房间主别名为: %1"
 
-#: src/neochatroom.cpp:560
+#: src/neochatroom.cpp:562
 #, kde-format
 msgid "cleared the room name"
 msgstr "清除了聊天室名称"
 
-#: src/neochatroom.cpp:560
+#: src/neochatroom.cpp:562
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "将聊天室名称设置为： %1"
 
-#: src/neochatroom.cpp:563
+#: src/neochatroom.cpp:565
 #, kde-format
 msgid "cleared the topic"
 msgstr "清除了话题"
 
-#: src/neochatroom.cpp:563
+#: src/neochatroom.cpp:565
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "将话题设置为： %1"
 
-#: src/neochatroom.cpp:566
+#: src/neochatroom.cpp:568
 #, kde-format
 msgid "changed the room avatar"
 msgstr "更改了聊天室头像"
 
-#: src/neochatroom.cpp:569
+#: src/neochatroom.cpp:571
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "激活了端到端加密"
 
-#: src/neochatroom.cpp:572
+#: src/neochatroom.cpp:574
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "升级了聊天室到 %1 版本"
 
-#: src/neochatroom.cpp:573
+#: src/neochatroom.cpp:575
 #, kde-format
 msgid "created the room, version %1"
 msgstr "创建了房间，版本为 %1"
 
-#: src/neochatroom.cpp:576
+#: src/neochatroom.cpp:578
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr ""
 
-#: src/neochatroom.cpp:580
+#: src/neochatroom.cpp:582
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr ""
 
-#: src/neochatroom.cpp:584
+#: src/neochatroom.cpp:586
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr ""
 
-#: src/neochatroom.cpp:587
+#: src/neochatroom.cpp:589
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr ""
 
-#: src/neochatroom.cpp:589
+#: src/neochatroom.cpp:591
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr ""
 
-#: src/neochatroom.cpp:591
+#: src/neochatroom.cpp:593
 #, kde-format
 msgid "updated %1 state"
 msgstr "更新了 %1 的状态"
 
-#: src/neochatroom.cpp:592
+#: src/neochatroom.cpp:594
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "更新了 %1 的状态为 %2"
 
-#: src/neochatroom.cpp:594
+#: src/neochatroom.cpp:596
 #, kde-format
 msgid "Unknown event"
 msgstr "未知事件"
+
+#: src/neochatroom.cpp:1093
+#, fuzzy, kde-format
+#| msgid "Password changed successfully"
+msgid "Report sent successfully."
+msgstr "密码修改成功"
 
 #: src/notificationsmanager.cpp:60
 #, kde-format

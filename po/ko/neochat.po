@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-25 00:44+0000\n"
+"POT-Creation-Date: 2022-09-27 00:45+0000\n"
 "PO-Revision-Date: 2022-08-09 13:27+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -35,7 +35,7 @@ msgstr "첨부:"
 #: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:159
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:29
 #: imports/NeoChat/Page/ImageEditorPage.qml:20
-#: imports/NeoChat/Page/RoomPage.qml:496
+#: imports/NeoChat/Page/RoomPage.qml:505
 #, kde-format
 msgid "Edit"
 msgstr "편집"
@@ -846,7 +846,7 @@ msgstr "다른 이름으로 저장"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:52
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:35
-#: imports/NeoChat/Page/RoomPage.qml:509 src/notificationsmanager.cpp:73
+#: imports/NeoChat/Page/RoomPage.qml:518 src/notificationsmanager.cpp:73
 #, kde-format
 msgid "Reply"
 msgstr "답장"
@@ -859,12 +859,29 @@ msgstr "삭제"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:70
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:52
+#: imports/NeoChat/Menu/Timeline/ReportSheet.qml:32
+#, kde-format
+msgctxt ""
+"@action:button 'Report' as in 'Report this event to the administrators'"
+msgid "Report"
+msgstr ""
+
+#: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:74
+#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:56
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgctxt "@title"
+msgid "Report Message"
+msgstr "메시지 편집"
+
+#: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:79
+#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:61
 #, kde-format
 msgid "View Source"
 msgstr "소스 보기"
 
-#: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:76
-#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:58
+#: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:85
+#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:67
 #: imports/NeoChat/Menu/Timeline/MessageSourceSheet.qml:20
 #, kde-format
 msgid "Message Source"
@@ -875,15 +892,33 @@ msgstr "메시지 소스"
 msgid "Copy"
 msgstr "복사"
 
-#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:106
+#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:115
 #, kde-format
 msgid "Search for '%1'"
 msgstr "'%1' 검색"
 
-#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:127
+#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:136
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "웹 바로 가기 설정..."
+
+#: imports/NeoChat/Menu/Timeline/ReportSheet.qml:16
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgid "Report Message"
+msgstr "메시지 편집"
+
+#: imports/NeoChat/Menu/Timeline/ReportSheet.qml:20
+#, kde-format
+msgid "Reason for reporting this message"
+msgstr ""
+
+#: imports/NeoChat/Menu/Timeline/ReportSheet.qml:41
+#: imports/NeoChat/Page/InviteUserPage.qml:22
+#, kde-format
+msgctxt "@action"
+msgid "Cancel"
+msgstr "취소"
 
 #: imports/NeoChat/Page/ImageEditorPage.qml:36
 #, kde-format
@@ -941,12 +976,6 @@ msgstr "좌우 뒤집기"
 #, kde-format
 msgid "Invite a User"
 msgstr "사용자 초대"
-
-#: imports/NeoChat/Page/InviteUserPage.qml:22
-#, kde-format
-msgctxt "@action"
-msgid "Cancel"
-msgstr "취소"
 
 #: imports/NeoChat/Page/InviteUserPage.qml:35
 #: imports/NeoChat/Page/StartChatPage.qml:31
@@ -1057,44 +1086,44 @@ msgstr "이 초대를 수락하시겠습니까?"
 msgid "Reject"
 msgstr "거부"
 
-#: imports/NeoChat/Page/RoomPage.qml:254
+#: imports/NeoChat/Page/RoomPage.qml:263
 #, kde-format
 msgid "Choose local file"
 msgstr "로컬 파일 선택"
 
-#: imports/NeoChat/Page/RoomPage.qml:280
+#: imports/NeoChat/Page/RoomPage.qml:289
 #, kde-format
 msgid "Clipboard image"
 msgstr "클립보드의 그림"
 
-#: imports/NeoChat/Page/RoomPage.qml:327
+#: imports/NeoChat/Page/RoomPage.qml:336
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "첫 읽지 않은 메시지로 이동"
 
-#: imports/NeoChat/Page/RoomPage.qml:350
+#: imports/NeoChat/Page/RoomPage.qml:359
 #, kde-format
 msgid "Jump to latest message"
 msgstr "최신 메시지로 이동"
 
-#: imports/NeoChat/Page/RoomPage.qml:374
+#: imports/NeoChat/Page/RoomPage.qml:383
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "공유할 항목을 여기에 드래그"
 
-#: imports/NeoChat/Page/RoomPage.qml:406
+#: imports/NeoChat/Page/RoomPage.qml:415
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 님이 메시지를 입력하는 중"
 
-#: imports/NeoChat/Page/RoomPage.qml:476
+#: imports/NeoChat/Page/RoomPage.qml:485
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr ""
 
-#: imports/NeoChat/Page/RoomPage.qml:482
+#: imports/NeoChat/Page/RoomPage.qml:491
 #, kde-format
 msgid "React"
 msgstr "반응"
@@ -2023,221 +2052,227 @@ msgstr "[검열됨]"
 msgid "[REDACTED: %1]"
 msgstr "[검열됨: %1]"
 
-#: src/neochatroom.cpp:445
+#: src/neochatroom.cpp:447
 #, kde-format
 msgid "a file"
 msgstr "파일"
 
-#: src/neochatroom.cpp:489
+#: src/neochatroom.cpp:491
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "%1 님을 대화방에 다시 초대함"
 
-#: src/neochatroom.cpp:491
+#: src/neochatroom.cpp:493
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
 # 여기서부터 등장하는 소문자로 시작하는 메시지는 대화명 바로 뒤에 나오므로 메시지 앞에 대화명이 있다고 가정하고 번역해야 함.
-#: src/neochatroom.cpp:500
+#: src/neochatroom.cpp:502
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "님이 대화방에 입장함(반복됨)"
 
-#: src/neochatroom.cpp:502
+#: src/neochatroom.cpp:504
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "님이 %1 님을 대화방에 초대함"
 
-#: src/neochatroom.cpp:502
+#: src/neochatroom.cpp:504
 #, kde-format
 msgid "joined the room"
 msgstr "님이 대화방에 입장함"
 
-#: src/neochatroom.cpp:506
+#: src/neochatroom.cpp:508
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:513
+#: src/neochatroom.cpp:515
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "님이 표시 이름을 지움"
 
-#: src/neochatroom.cpp:515
+#: src/neochatroom.cpp:517
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "님이 표시 이름을 %1(으)로 변경함|/|표시 이름을 %1$[으 %1]로 변경함"
 
-#: src/neochatroom.cpp:520
+#: src/neochatroom.cpp:522
 #, kde-format
 msgid " and "
 msgstr " 및 "
 
-#: src/neochatroom.cpp:523
+#: src/neochatroom.cpp:525
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "님이 아바타를 지움"
 
-#: src/neochatroom.cpp:529
+#: src/neochatroom.cpp:531
 #, kde-format
 msgid "set an avatar"
 msgstr "님이 아바타를 설정함"
 
-#: src/neochatroom.cpp:531
+#: src/neochatroom.cpp:533
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "님이 아바타를 업데이트함"
 
-#: src/neochatroom.cpp:538
+#: src/neochatroom.cpp:540
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "님이 %1 님의 초대를 거절함"
 
-#: src/neochatroom.cpp:538
+#: src/neochatroom.cpp:540
 #, kde-format
 msgid "rejected the invitation"
 msgstr "님이 초대를 거절함"
 
-#: src/neochatroom.cpp:542
+#: src/neochatroom.cpp:544
 #, kde-format
 msgid "unbanned %1"
 msgstr "님이 %1 님의 차단을 해제함"
 
-#: src/neochatroom.cpp:542
+#: src/neochatroom.cpp:544
 #, kde-format
 msgid "self-unbanned"
 msgstr "님이 자기 자신의 차단을 해제함"
 
-#: src/neochatroom.cpp:545
+#: src/neochatroom.cpp:547
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "님이 %1 님을 대화방에서 추방함: %2"
 
-#: src/neochatroom.cpp:546
+#: src/neochatroom.cpp:548
 #, kde-format
 msgid "left the room"
 msgstr "님이 대화방을 떠남"
 
-#: src/neochatroom.cpp:548
+#: src/neochatroom.cpp:550
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "님이 %1 님을 대화방에서 차단함: %2"
 
-#: src/neochatroom.cpp:549
+#: src/neochatroom.cpp:551
 #, kde-format
 msgid "self-banned from the room"
 msgstr "님이 대화방에서 자기 자신을 차단함"
 
-#: src/neochatroom.cpp:551
+#: src/neochatroom.cpp:553
 #, kde-format
 msgid "requested an invite"
 msgstr "님이 초대를 요청함"
 
-#: src/neochatroom.cpp:554
+#: src/neochatroom.cpp:556
 #, kde-format
 msgid "made something unknown"
 msgstr "님이 알 수 없는 무언가를 함"
 
-#: src/neochatroom.cpp:557
+#: src/neochatroom.cpp:559
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "님이 대화방 주 별명을 지움"
 
-#: src/neochatroom.cpp:557
+#: src/neochatroom.cpp:559
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "님이 대화방 주 별명을 다음으로 설정함: %1"
 
-#: src/neochatroom.cpp:560
+#: src/neochatroom.cpp:562
 #, kde-format
 msgid "cleared the room name"
 msgstr "님이 대화방 이름을 지움"
 
-#: src/neochatroom.cpp:560
+#: src/neochatroom.cpp:562
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "님이 대화방 이름을 다음으로 설정함: %1"
 
-#: src/neochatroom.cpp:563
+#: src/neochatroom.cpp:565
 #, kde-format
 msgid "cleared the topic"
 msgstr "님이 대화방 주제를 삭제함"
 
-#: src/neochatroom.cpp:563
+#: src/neochatroom.cpp:565
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "님이 대화방 주제를 설정함: %1"
 
-#: src/neochatroom.cpp:566
+#: src/neochatroom.cpp:568
 #, kde-format
 msgid "changed the room avatar"
 msgstr "님이 대화방 아바타를 변경함"
 
-#: src/neochatroom.cpp:569
+#: src/neochatroom.cpp:571
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "님이 종단간 암호화를 활성화함"
 
-#: src/neochatroom.cpp:572
+#: src/neochatroom.cpp:574
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "님이 대화방을 버전 %1(으)로 업그레이드함"
 
-#: src/neochatroom.cpp:573
+#: src/neochatroom.cpp:575
 #, kde-format
 msgid "created the room, version %1"
 msgstr "님이 대화방을 만듦, 버전 %1"
 
-#: src/neochatroom.cpp:576
+#: src/neochatroom.cpp:578
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "님이 이 대화방의 권한 수준을 변경함"
 
-#: src/neochatroom.cpp:580
+#: src/neochatroom.cpp:582
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "님이 이 대화방의 서버 측 접근 권한 목록을 변경함"
 
-#: src/neochatroom.cpp:584
+#: src/neochatroom.cpp:586
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "님이 %1 위젯을 추가함"
 
-#: src/neochatroom.cpp:587
+#: src/neochatroom.cpp:589
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "님이 %1 위젯을 삭제함"
 
-#: src/neochatroom.cpp:589
+#: src/neochatroom.cpp:591
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "님이 %1 위젯을 설정함"
 
-#: src/neochatroom.cpp:591
+#: src/neochatroom.cpp:593
 #, kde-format
 msgid "updated %1 state"
 msgstr "님이 %1 상태를 업데이트함"
 
-#: src/neochatroom.cpp:592
+#: src/neochatroom.cpp:594
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr ""
 "님이 %1 상태를 %2(으)로 업데이트함|/|님이 %1 상태를 %2$[으 %2]로 업데이트함"
 
-#: src/neochatroom.cpp:594
+#: src/neochatroom.cpp:596
 #, kde-format
 msgid "Unknown event"
 msgstr "알 수 없는 이벤트"
+
+#: src/neochatroom.cpp:1093
+#, fuzzy, kde-format
+#| msgid "Password changed successfully"
+msgid "Report sent successfully."
+msgstr "암호가 변경됨"
 
 #: src/notificationsmanager.cpp:60
 #, kde-format
