@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-27 00:45+0000\n"
-"PO-Revision-Date: 2022-08-03 09:45+0200\n"
+"POT-Creation-Date: 2022-09-28 00:48+0000\n"
+"PO-Revision-Date: 2022-09-27 21:17+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -234,7 +234,7 @@ msgid ""
 "device."
 msgstr ""
 "Meddelandet är krypterat och avsändaren har inte delat nyckeln med den här "
-"enheten."
+"apparaten."
 
 #: imports/NeoChat/Component/Timeline/FileDelegate.qml:55
 #, kde-format
@@ -292,7 +292,7 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Senast läst: %1"
 
-#: imports/NeoChat/Component/Timeline/RichLabel.qml:58
+#: imports/NeoChat/Component/Timeline/RichLabel.qml:56
 #, kde-format
 msgid " (edited)"
 msgstr " (redigerad)"
@@ -332,18 +332,17 @@ msgstr ""
 #: imports/NeoChat/Dialog/KeyVerification/EmojiSas.qml:39
 #, kde-format
 msgid "They match"
-msgstr ""
+msgstr "De stämmer"
 
 #: imports/NeoChat/Dialog/KeyVerification/EmojiSas.qml:45
 #, kde-format
 msgid "They don't match"
-msgstr ""
+msgstr "De stämmer inte"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:14
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Session Verification"
-msgstr "Visa underrättelser"
+msgstr "Sessionsverifikation"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:36
 #, kde-format
@@ -377,10 +376,9 @@ msgid "Accept"
 msgstr "Acceptera"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:79
-#, fuzzy, kde-format
-#| msgid "Timeline:"
+#, kde-format
 msgid "Decline"
-msgstr "Tidslinje:"
+msgstr "Neka"
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:21
 #, kde-format
@@ -726,8 +724,7 @@ msgid "Matrix FAQ"
 msgstr "Vanliga frågor om Matrix"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:27
-#, fuzzy, kde-format
-#| msgid "Open in new window"
+#, kde-format
 msgid "Open in New Window"
 msgstr "Öppna i nytt fönster"
 
@@ -762,30 +759,27 @@ msgid "Mark as Read"
 msgstr "Markera som läst"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:52
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy address to clipboard"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Address to Clipboard"
 msgstr "Kopiera adress till klippbordet"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:61
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Notification State"
-msgstr "Visa underrättelser"
+msgstr "Underrättelsetillstånd"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:64
 #, kde-format
 msgid "Follow Global Setting"
-msgstr ""
+msgstr "Använd global inställning"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:74
 #: imports/NeoChat/RoomSettings/PushNotification.qml:32
 #, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All"
-msgstr ""
+msgstr "Alla"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:84
 #: imports/NeoChat/RoomSettings/PushNotification.qml:40
@@ -794,18 +788,17 @@ msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
 "keyword'"
 msgid "@Mentions and Keywords"
-msgstr ""
+msgstr "@Omnämnanden och nyckelord"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:94
 #: imports/NeoChat/RoomSettings/PushNotification.qml:48
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
-msgstr ""
+msgstr "Av"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:106
-#, fuzzy, kde-format
-#| msgid "Room settings"
+#, kde-format
 msgid "Room Settings"
 msgstr "Rumsinställningar"
 
@@ -865,15 +858,14 @@ msgstr "Ta bort"
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
-msgstr ""
+msgstr "Rapportera"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:74
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:56
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgctxt "@title"
 msgid "Report Message"
-msgstr "Redigera meddelande"
+msgstr "Rapportera meddelande"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:79
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:61
@@ -904,15 +896,14 @@ msgid "Configure Web Shortcuts..."
 msgstr "Anpassa webbgenvägar..."
 
 #: imports/NeoChat/Menu/Timeline/ReportSheet.qml:16
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgid "Report Message"
-msgstr "Redigera meddelande"
+msgstr "Rapportera meddelande"
 
 #: imports/NeoChat/Menu/Timeline/ReportSheet.qml:20
 #, kde-format
 msgid "Reason for reporting this message"
-msgstr ""
+msgstr "Anledning att meddelandet rapporteras"
 
 #: imports/NeoChat/Menu/Timeline/ReportSheet.qml:41
 #: imports/NeoChat/Page/InviteUserPage.qml:22
@@ -1039,7 +1030,7 @@ msgstr "Sammanfogat"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show All Rooms"
-msgstr ""
+msgstr "Visa alla rum"
 
 #: imports/NeoChat/Page/RoomListPage.qml:109
 #, kde-format
@@ -1123,7 +1114,7 @@ msgstr[1] "%2 skriver"
 #: imports/NeoChat/Page/RoomPage.qml:485
 #, kde-format
 msgid "This message was sent from a verified device"
-msgstr ""
+msgstr "Meddelandet skickades från en verifierad apparat"
 
 #: imports/NeoChat/Page/RoomPage.qml:491
 #, kde-format
@@ -1152,10 +1143,9 @@ msgid "Room information"
 msgstr "Rumsinformation"
 
 #: imports/NeoChat/Panel/RoomDrawer.qml:104
-#, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
+#, kde-format
 msgid "Invite user to room"
-msgstr "%1 bjöd in dig till ett rum"
+msgstr "Bjöd in användare till ett rum"
 
 #: imports/NeoChat/Panel/RoomDrawer.qml:123
 #, kde-format
@@ -1239,10 +1229,9 @@ msgid "Security"
 msgstr "Säkerhet"
 
 #: imports/NeoChat/RoomSettings/Categories.qml:35
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Notifications"
-msgstr "Visa underrättelser"
+msgstr "Underrättelser"
 
 #: imports/NeoChat/RoomSettings/General.qml:42
 #, kde-format
@@ -1302,10 +1291,9 @@ msgid "Follow global setting"
 msgstr ""
 
 #: imports/NeoChat/RoomSettings/PushNotification.qml:24
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Room notifications setting:"
-msgstr "Visa underrättelser"
+msgstr "Inställning av rumsunderrättelser:"
 
 #: imports/NeoChat/RoomSettings/Security.qml:26
 #, kde-format
@@ -1348,8 +1336,7 @@ msgid "Anyone can find and join."
 msgstr "Alla kan hitta och gå med."
 
 #: imports/NeoChat/Settings/About.qml:10
-#, fuzzy, kde-format
-#| msgid "About NeoChat"
+#, kde-format
 msgctxt "@title:window"
 msgid "About NeoChat"
 msgstr "Om NeoChat"
@@ -1419,11 +1406,9 @@ msgid "Edit this account"
 msgstr "Redigera kontot"
 
 #: imports/NeoChat/Settings/AccountsPage.qml:50
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Account detail dialog"
-#| msgid "Account detail"
+#, kde-format
 msgid "Account editor"
-msgstr "Kontoinformation"
+msgstr "Kontoeditor"
 
 #: imports/NeoChat/Settings/AccountsPage.qml:60 qml/main.qml:261
 #, kde-format
@@ -1446,8 +1431,7 @@ msgid "Unknown problem while trying to change password"
 msgstr "Okänt problem vid försök att ändra lösenord"
 
 #: imports/NeoChat/Settings/AppearanceSettingsPage.qml:15
-#, fuzzy, kde-format
-#| msgid "Appearance"
+#, kde-format
 msgctxt "@title:window"
 msgid "Appearance"
 msgstr "Utseende"
@@ -1463,10 +1447,9 @@ msgid "Compact"
 msgstr "Kompakt"
 
 #: imports/NeoChat/Settings/AppearanceSettingsPage.qml:180
-#, fuzzy, kde-format
-#| msgid "Show User Avatar"
+#, kde-format
 msgid "Show Avatar:"
-msgstr "Visa användarens avatar"
+msgstr "Visa avatar:"
 
 #: imports/NeoChat/Settings/AppearanceSettingsPage.qml:181
 #, kde-format
@@ -1512,28 +1495,27 @@ msgstr "Visa dina meddelanden till höger"
 #: imports/NeoChat/Settings/SettingsPage.qml:37
 #, kde-format
 msgid "Devices"
-msgstr "Enheter"
+msgstr "Apparater"
 
 #: imports/NeoChat/Settings/DevicesPage.qml:35
 #, kde-format
 msgid "Edit device name"
-msgstr "Redigera enhetsnamn"
+msgstr "Redigera apparatnamn"
 
 #: imports/NeoChat/Settings/DevicesPage.qml:48
-#, fuzzy, kde-format
-#| msgid "Edit device"
+#, kde-format
 msgid "Verify device"
-msgstr "Redigera enhet"
+msgstr "Verifiera apparat"
 
 #: imports/NeoChat/Settings/DevicesPage.qml:58
 #, kde-format
 msgid "Logout device"
-msgstr "Logga ut enhet"
+msgstr "Logga ut från apparat"
 
 #: imports/NeoChat/Settings/DevicesPage.qml:75
 #, kde-format
 msgid "Remove device"
-msgstr "Ta bort enhet"
+msgstr "Ta bort apparat"
 
 #: imports/NeoChat/Settings/DevicesPage.qml:79
 #, kde-format
@@ -1548,14 +1530,13 @@ msgstr "Bekräfta"
 #: imports/NeoChat/Settings/DevicesPage.qml:98
 #, kde-format
 msgid "Edit device"
-msgstr "Redigera enhet"
+msgstr "Redigera apparat"
 
 #: imports/NeoChat/Settings/Emoticons.qml:19
-#, fuzzy, kde-format
-#| msgid "Custom Emoji"
+#, kde-format
 msgctxt "@title:window"
 msgid "Custom Emojis"
-msgstr "Egen emoji"
+msgstr "Egna emoji"
 
 #: imports/NeoChat/Settings/Emoticons.qml:31
 #, kde-format
@@ -1573,8 +1554,7 @@ msgid "Add Emoji..."
 msgstr "Lägg till emoji..."
 
 #: imports/NeoChat/Settings/GeneralSettingsPage.qml:14
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:window"
 msgid "General"
 msgstr "Allmänt"
@@ -1657,10 +1637,9 @@ msgid "Appearance"
 msgstr "Utseende"
 
 #: imports/NeoChat/Settings/SettingsPage.qml:27
-#, fuzzy, kde-format
-#| msgid "Custom Emoji"
+#, kde-format
 msgid "Custom Emojis"
-msgstr "Egen emoji"
+msgstr "Egna emoji"
 
 #: imports/NeoChat/Settings/SettingsPage.qml:32
 #, kde-format
@@ -1673,8 +1652,7 @@ msgid "About NeoChat"
 msgstr "Om NeoChat"
 
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:50
-#, fuzzy, kde-format
-#| msgid "Spell Checking"
+#, kde-format
 msgctxt "@window:title"
 msgid "Spellchecking"
 msgstr "Stavningskontroll"
@@ -1766,11 +1744,10 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: qml/main.qml:385
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
-msgstr "Visa underrättelser"
+msgstr "Sessionsverifikation"
 
 #: qml/main.qml:395
 #, kde-format
@@ -2275,10 +2252,9 @@ msgid "Unknown event"
 msgstr "Okänd händelse"
 
 #: src/neochatroom.cpp:1093
-#, fuzzy, kde-format
-#| msgid "Password changed successfully"
+#, kde-format
 msgid "Report sent successfully."
-msgstr "Lösenord ändrat med lyckat resultat"
+msgstr "Rapport skickades med lyckat resultat."
 
 #: src/notificationsmanager.cpp:60
 #, kde-format
