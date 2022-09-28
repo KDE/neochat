@@ -280,6 +280,9 @@ Kirigami.OverlayDrawer {
                             popup.closed.connect(function() {
                                 userListItem.highlighted = false
                             })
+                            if (roomDrawer.modal) {
+                                roomDrawer.close()
+                            }
                             popup.open()
                         }
 
