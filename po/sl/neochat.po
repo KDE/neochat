@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-28 00:48+0000\n"
-"PO-Revision-Date: 2022-09-23 08:01+0200\n"
+"PO-Revision-Date: 2022-09-28 07:35+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.1.1\n"
 
 #, kde-format
@@ -887,15 +887,14 @@ msgstr "Odstrani"
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
-msgstr ""
+msgstr "Poročilo"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:74
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:56
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgctxt "@title"
 msgid "Report Message"
-msgstr "Uredi sporočilo"
+msgstr "Poročaj sporočilo"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:79
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:61
@@ -926,15 +925,14 @@ msgid "Configure Web Shortcuts..."
 msgstr "Nastavi spletne bližnjice…"
 
 #: imports/NeoChat/Menu/Timeline/ReportSheet.qml:16
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgid "Report Message"
-msgstr "Uredi sporočilo"
+msgstr "Poročaj sporočilo"
 
 #: imports/NeoChat/Menu/Timeline/ReportSheet.qml:20
 #, kde-format
 msgid "Reason for reporting this message"
-msgstr ""
+msgstr "Razlog za poročanje tega sporočila"
 
 #: imports/NeoChat/Menu/Timeline/ReportSheet.qml:41
 #: imports/NeoChat/Page/InviteUserPage.qml:22
@@ -2287,10 +2285,9 @@ msgid "Unknown event"
 msgstr "Neznan dogodek"
 
 #: src/neochatroom.cpp:1093
-#, fuzzy, kde-format
-#| msgid "Password changed successfully"
+#, kde-format
 msgid "Report sent successfully."
-msgstr "Uspešno zamenjano geslo"
+msgstr "Poročilo uspešno poslano."
 
 #: src/notificationsmanager.cpp:60
 #, kde-format

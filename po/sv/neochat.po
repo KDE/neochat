@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-28 00:48+0000\n"
-"PO-Revision-Date: 2022-09-27 21:17+0200\n"
+"PO-Revision-Date: 2022-09-28 16:37+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -234,7 +234,7 @@ msgid ""
 "device."
 msgstr ""
 "Meddelandet är krypterat och avsändaren har inte delat nyckeln med den här "
-"apparaten."
+"enheten."
 
 #: imports/NeoChat/Component/Timeline/FileDelegate.qml:55
 #, kde-format
@@ -327,7 +327,7 @@ msgstr "Ok"
 #, kde-format
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
-msgstr ""
+msgstr "Bekräfta att emoji nedan visas på båda enheter, i samma ordning."
 
 #: imports/NeoChat/Dialog/KeyVerification/EmojiSas.qml:39
 #, kde-format
@@ -347,27 +347,27 @@ msgstr "Sessionsverifikation"
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:36
 #, kde-format
 msgid "Waiting for device to accept verification."
-msgstr ""
+msgstr "Väntar på att enheten ska acceptera verifikation."
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:42
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
-msgstr ""
+msgstr "Inkommande begäran om nyckelverifikation från enhet **%1**"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:48
 #, kde-format
 msgid "Waiting for other party to verify."
-msgstr ""
+msgstr "Väntar på att andra sidan ska verifiera."
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:54
 #, kde-format
 msgid "Compare a set of emoji on both devices"
-msgstr ""
+msgstr "Jämför en uppsättning emoji på båda enheter"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:62
 #, kde-format
 msgid "Successfully verified device **%1**"
-msgstr ""
+msgstr "Verifierade enhet **%1** med lyckat resultat"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:73
 #: imports/NeoChat/Page/RoomPage.qml:138
@@ -383,27 +383,27 @@ msgstr "Neka"
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:21
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
-msgstr ""
+msgstr "Sessionsverifikationen avbröts av okänd anledning."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:23
 #, kde-format
 msgid "The session verification timed out."
-msgstr ""
+msgstr "Tidsgräns för sessionsverifikation gick ut."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:25
 #, kde-format
 msgid "The session verification timed out for remote party."
-msgstr ""
+msgstr "Tidsgräns för sessionsverifikation gick ut för motparten."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:27
 #, kde-format
 msgid "You canceled the session verification."
-msgstr ""
+msgstr "Du avbröt sessionsverifikationen."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:29
 #, kde-format
 msgid "The remote party canceled the session verification."
-msgstr ""
+msgstr "Den andra parten avbröt sessionsverifikation."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:31
 #, kde-format
@@ -411,6 +411,7 @@ msgid ""
 "The session verification was canceled because we received an unexpected "
 "message."
 msgstr ""
+"Sessionsverifikationen avbröts eftersom vi tog emot ett oväntat meddelande."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:33
 #, kde-format
@@ -418,6 +419,8 @@ msgid ""
 "The remote party canceled the session verification because it received an "
 "unexpected message."
 msgstr ""
+"Den andra parten avbröt sessionsverifikationen eftersom ett oväntat "
+"meddelande togs emot."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:35
 #, kde-format
@@ -425,6 +428,8 @@ msgid ""
 "The session verification was canceled because it received a message for an "
 "unknown session."
 msgstr ""
+"Sessionsverifikationen avbröts eftersom den tog emot ett meddelande för en "
+"okänd session."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:37
 #, kde-format
@@ -432,6 +437,8 @@ msgid ""
 "The remote party canceled the session verification because it received a "
 "message for an unknown session."
 msgstr ""
+"Den andra parten avbröt sessionsverifikationen eftersom den tog emot ett "
+"meddelande för en okänd session."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:39
 #, kde-format
@@ -439,6 +446,8 @@ msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
 "this verification method."
 msgstr ""
+"Sessionsverifikationen avbröts eftersom NeoChat inte kan hantera "
+"verifikationsmetoden."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:41
 #, kde-format
@@ -446,11 +455,13 @@ msgid ""
 "The remote party canceled the session verification because it is unable to "
 "handle this verification method."
 msgstr ""
+"Den andra parten avbröt sessionsverifikationen eftersom den inte kan hantera "
+"verifikationsmetoden."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:43
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
-msgstr ""
+msgstr "Sessionsverifikationen avbröts eftersom nycklarna är felaktiga."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:45
 #, kde-format
@@ -458,12 +469,15 @@ msgid ""
 "The remote party canceled the session verification because the keys are "
 "incorrect."
 msgstr ""
+"Den andra parten avbröt sessionsverifikationen eftersom nycklarna är "
+"felaktiga."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:47
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
 msgstr ""
+"Sessionsverifikationen avbröts eftersom den verifierar en oväntad användare."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:49
 #, kde-format
@@ -471,12 +485,15 @@ msgid ""
 "The remote party canceled the session verification because it verifies an "
 "unexpected user."
 msgstr ""
+"Den andra parten avbröt sessionsverifikationen eftersom den verifierar en "
+"oväntad användare."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:51
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
 msgstr ""
+"Sessionsverifikationen avbröts eftersom vi tog emot ett ogiltigt meddelande."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:53
 #, kde-format
@@ -484,17 +501,19 @@ msgid ""
 "The remote party canceled the session verification because it received an "
 "invalid message."
 msgstr ""
+"Den andra parten avbröt sessionsverifikationen eftersom den tog emot ett "
+"ogiltigt meddelande."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:55
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:57
 #, kde-format
 msgid "The session was accepted on a different device"
-msgstr ""
+msgstr "Sessionen accepterades med en annan enhet"
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:59
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
-msgstr ""
+msgstr "Sessionsverifikationen avbröts på grund av en nyckel som inte matchar."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:61
 #, kde-format
@@ -502,11 +521,13 @@ msgid ""
 "The remote party canceled the session verification because of a mismatched "
 "key."
 msgstr ""
+"Den andra parten avbröt sessionsverifikationen på grund av en nyckel som "
+"inte matchar."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:63
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
-msgstr ""
+msgstr "Sessionsverifikationen avbröts eftersom nycklarna inte matchar."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:65
 #, kde-format
@@ -514,11 +535,13 @@ msgid ""
 "The remote party canceled the session verification because the keys do not "
 "match."
 msgstr ""
+"Den andra parten avbröt sessionsverifikationen eftersom nycklarna inte "
+"matchar."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:67
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
-msgstr ""
+msgstr "Sessionsverifikationen avbröts på grund av ett okänt fel."
 
 #: imports/NeoChat/Dialog/OpenFileDialog.qml:12
 #, kde-format
@@ -1114,7 +1137,7 @@ msgstr[1] "%2 skriver"
 #: imports/NeoChat/Page/RoomPage.qml:485
 #, kde-format
 msgid "This message was sent from a verified device"
-msgstr "Meddelandet skickades från en verifierad apparat"
+msgstr "Meddelandet skickades från en verifierad enhet"
 
 #: imports/NeoChat/Page/RoomPage.qml:491
 #, kde-format
@@ -1288,7 +1311,7 @@ msgstr "Verkställ"
 #: imports/NeoChat/RoomSettings/PushNotification.qml:23
 #, kde-format
 msgid "Follow global setting"
-msgstr ""
+msgstr "Använd global inställning"
 
 #: imports/NeoChat/RoomSettings/PushNotification.qml:24
 #, kde-format
@@ -1495,27 +1518,27 @@ msgstr "Visa dina meddelanden till höger"
 #: imports/NeoChat/Settings/SettingsPage.qml:37
 #, kde-format
 msgid "Devices"
-msgstr "Apparater"
+msgstr "Enheter"
 
 #: imports/NeoChat/Settings/DevicesPage.qml:35
 #, kde-format
 msgid "Edit device name"
-msgstr "Redigera apparatnamn"
+msgstr "Redigera enhetsnamn"
 
 #: imports/NeoChat/Settings/DevicesPage.qml:48
 #, kde-format
 msgid "Verify device"
-msgstr "Verifiera apparat"
+msgstr "Verifiera enhet"
 
 #: imports/NeoChat/Settings/DevicesPage.qml:58
 #, kde-format
 msgid "Logout device"
-msgstr "Logga ut från apparat"
+msgstr "Logga ut från enhet"
 
 #: imports/NeoChat/Settings/DevicesPage.qml:75
 #, kde-format
 msgid "Remove device"
-msgstr "Ta bort apparat"
+msgstr "Ta bort enhet"
 
 #: imports/NeoChat/Settings/DevicesPage.qml:79
 #, kde-format
@@ -1530,7 +1553,7 @@ msgstr "Bekräfta"
 #: imports/NeoChat/Settings/DevicesPage.qml:98
 #, kde-format
 msgid "Edit device"
-msgstr "Redigera apparat"
+msgstr "Redigera enhet"
 
 #: imports/NeoChat/Settings/Emoticons.qml:19
 #, kde-format
