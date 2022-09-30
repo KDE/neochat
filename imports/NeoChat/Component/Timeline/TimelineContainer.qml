@@ -42,9 +42,16 @@ QQC2.ItemDelegate {
 
     topPadding: 0
     bottomPadding: 0
+    topInset: showAuthor ? Kirigami.Units.largeSpacing : (Config.compactLayout ? 1 : Kirigami.Units.smallSpacing)
+    leftInset: Kirigami.Units.smallSpacing
+    rightInset: Kirigami.Units.smallSpacing
     width: delegateMaxWidth
-    height: sectionDelegate.height + Math.max(model.showAuthor ? avatar.height : 0, bubble.implicitHeight) + loader.height + (showAuthor ? Kirigami.Units.largeSpacing : 0)
-    background: null
+    height: sectionDelegate.height + Math.max(model.showAuthor ? avatar.height : 0, bubble.implicitHeight) + loader.height + (showAuthor ? Kirigami.Units.largeSpacing : (Config.compactLayout ? 1 : Kirigami.Units.smallSpacing))
+    background: Rectangle {
+        visible: timelineContainer.hovered
+        color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.15)
+        radius: Kirigami.Units.smallSpacing
+    }
 
     property Item hoverComponent
 
@@ -103,15 +110,20 @@ QQC2.ItemDelegate {
 
     Kirigami.Avatar {
         id: avatar
-        width: visible || Config.showAvatarInTimeline ? Kirigami.Units.gridUnit * 2 : 0
+        width: visible || Config.showAvatarInTimeline ? Kirigami.Units.gridUnit * 2 + Kirigami.Units.smallSpacing * 2 : 0
         height: width
+        padding: Kirigami.Units.smallSpacing
+        topInset: Kirigami.Units.smallSpacing
+        bottomInset: Kirigami.Units.smallSpacing
+        leftInset: Kirigami.Units.smallSpacing
+        rightInset: Kirigami.Units.smallSpacing
         sourceSize.width: width
         sourceSize.height: width
         anchors {
             top: sectionDelegate.bottom
-            topMargin: model.showAuthor ? Kirigami.Units.largeSpacing : 0
+            topMargin: model.showAuthor ? Kirigami.Units.largeSpacing : (Config.compactLayout ? 1 : Kirigami.Units.smallSpacing)
             left: parent.left
-            leftMargin: Kirigami.Units.largeSpacing
+            leftMargin: Kirigami.Units.smallSpacing
         }
 
         visible: model.showAuthor &&
@@ -146,7 +158,7 @@ QQC2.ItemDelegate {
 
         anchors {
             top: avatar.top
-            leftMargin: Kirigami.Units.largeSpacing
+            leftMargin: Kirigami.Units.smallSpacing
             rightMargin: showUserMessageOnRight ? Kirigami.Units.smallSpacing : Kirigami.Units.largeSpacing
         }
         // HACK: anchoring didn't reset anchors.right when switching from parent.right to undefined reliably
@@ -249,12 +261,6 @@ QQC2.ItemDelegate {
         }
 
         background: Item {
-            Rectangle {
-                visible: timelineContainer.hovered
-                color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.15)
-                radius: Kirigami.Units.smallSpacing
-                anchors.fill: parent
-            }
             Kirigami.ShadowedRectangle {
                 visible: cardBackground && !Config.compactLayout
                 anchors.fill: parent
