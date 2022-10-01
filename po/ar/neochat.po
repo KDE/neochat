@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-28 00:48+0000\n"
+"POT-Creation-Date: 2022-10-01 00:48+0000\n"
 "PO-Revision-Date: 2022-09-27 15:36+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -188,7 +188,7 @@ msgid "Login with single sign-on"
 msgstr "الولوج بواسطة تسجيل مفرد"
 
 #: imports/NeoChat/Component/Login/LoginRegister.qml:20
-#: imports/NeoChat/Component/Login/Sso.qml:31
+#: imports/NeoChat/Component/Login/Sso.qml:38
 #, kde-format
 msgid "Login"
 msgstr "ولوج"
@@ -222,7 +222,14 @@ msgctxt "@action:button"
 msgid "Login"
 msgstr "لج"
 
-#: imports/NeoChat/Component/Login/Sso.qml:34
+#: imports/NeoChat/Component/Login/Sso.qml:31
+#: imports/NeoChat/Page/WelcomePage.qml:73
+#, kde-format
+msgctxt "@action:button"
+msgid "Back"
+msgstr "عُد"
+
+#: imports/NeoChat/Component/Login/Sso.qml:41
 #, kde-format
 msgid "Complete the authentication steps in your browser"
 msgstr "أكمل خطوات الاستيثاق في متصفحك"
@@ -1143,12 +1150,6 @@ msgstr "دردشة"
 msgid "Welcome to Matrix"
 msgstr "أهلا في ماتركس"
 
-#: imports/NeoChat/Page/WelcomePage.qml:73
-#, kde-format
-msgctxt "@action:button"
-msgid "Back"
-msgstr "عُد"
-
 #: imports/NeoChat/Panel/RoomDrawer.qml:96
 #, kde-format
 msgid "Room information"
@@ -1211,22 +1212,22 @@ msgstr[5] "%1 عضو"
 msgid "No Member Count"
 msgstr "بلا عدد أعضاء"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:300
+#: imports/NeoChat/Panel/RoomDrawer.qml:303
 #, kde-format
 msgid "Owner"
 msgstr "مالك"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:302
+#: imports/NeoChat/Panel/RoomDrawer.qml:305
 #, kde-format
 msgid "Admin"
 msgstr "مدير"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:304
+#: imports/NeoChat/Panel/RoomDrawer.qml:307
 #, kde-format
 msgid "Mod"
 msgstr "مشرف"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:306
+#: imports/NeoChat/Panel/RoomDrawer.qml:309
 #, kde-format
 msgid "Muted"
 msgstr "مكتوم"

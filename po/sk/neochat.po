@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-28 00:48+0000\n"
+"POT-Creation-Date: 2022-10-01 00:48+0000\n"
 "PO-Revision-Date: 2022-04-18 17:58+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -190,7 +190,7 @@ msgid "Login with single sign-on"
 msgstr "Prihláste sa pomocou jednotného prihlásenia"
 
 #: imports/NeoChat/Component/Login/LoginRegister.qml:20
-#: imports/NeoChat/Component/Login/Sso.qml:31
+#: imports/NeoChat/Component/Login/Sso.qml:38
 #, kde-format
 msgid "Login"
 msgstr "Prihlásenie"
@@ -224,7 +224,14 @@ msgctxt "@action:button"
 msgid "Login"
 msgstr "Prihlásenie"
 
-#: imports/NeoChat/Component/Login/Sso.qml:34
+#: imports/NeoChat/Component/Login/Sso.qml:31
+#: imports/NeoChat/Page/WelcomePage.qml:73
+#, kde-format
+msgctxt "@action:button"
+msgid "Back"
+msgstr "Späť"
+
+#: imports/NeoChat/Component/Login/Sso.qml:41
 #, kde-format
 msgid "Complete the authentication steps in your browser"
 msgstr "Dokončite kroky overenia totožnosti v prehliadači"
@@ -1146,12 +1153,6 @@ msgstr "Rozhovor"
 msgid "Welcome to Matrix"
 msgstr "Vitajte v Matrixe"
 
-#: imports/NeoChat/Page/WelcomePage.qml:73
-#, kde-format
-msgctxt "@action:button"
-msgid "Back"
-msgstr "Späť"
-
 #: imports/NeoChat/Panel/RoomDrawer.qml:96
 #, kde-format
 msgid "Room information"
@@ -1212,22 +1213,22 @@ msgstr[2] "%1 Členov"
 msgid "No Member Count"
 msgstr "Žiadny počet členov"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:300
+#: imports/NeoChat/Panel/RoomDrawer.qml:303
 #, kde-format
 msgid "Owner"
 msgstr "Vlastník"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:302
+#: imports/NeoChat/Panel/RoomDrawer.qml:305
 #, kde-format
 msgid "Admin"
 msgstr "Správca"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:304
+#: imports/NeoChat/Panel/RoomDrawer.qml:307
 #, kde-format
 msgid "Mod"
 msgstr "Moderátor"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:306
+#: imports/NeoChat/Panel/RoomDrawer.qml:309
 #, kde-format
 msgid "Muted"
 msgstr "Stlmený"

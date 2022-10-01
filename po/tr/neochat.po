@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-28 00:48+0000\n"
+"POT-Creation-Date: 2022-10-01 00:48+0000\n"
 "PO-Revision-Date: 2022-09-27 11:35+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -188,7 +188,7 @@ msgid "Login with single sign-on"
 msgstr "Tek giriş ile oturum açın"
 
 #: imports/NeoChat/Component/Login/LoginRegister.qml:20
-#: imports/NeoChat/Component/Login/Sso.qml:31
+#: imports/NeoChat/Component/Login/Sso.qml:38
 #, kde-format
 msgid "Login"
 msgstr "Giriş"
@@ -222,7 +222,14 @@ msgctxt "@action:button"
 msgid "Login"
 msgstr "Oturum Aç"
 
-#: imports/NeoChat/Component/Login/Sso.qml:34
+#: imports/NeoChat/Component/Login/Sso.qml:31
+#: imports/NeoChat/Page/WelcomePage.qml:73
+#, kde-format
+msgctxt "@action:button"
+msgid "Back"
+msgstr "Geri"
+
+#: imports/NeoChat/Component/Login/Sso.qml:41
 #, kde-format
 msgid "Complete the authentication steps in your browser"
 msgstr "Kimlik doğrulama adımlarını tarayıcınızda tamamlayın"
@@ -1152,12 +1159,6 @@ msgstr "Sohbet"
 msgid "Welcome to Matrix"
 msgstr "Matrix'e hoş geldiniz"
 
-#: imports/NeoChat/Page/WelcomePage.qml:73
-#, kde-format
-msgctxt "@action:button"
-msgid "Back"
-msgstr "Geri"
-
 #: imports/NeoChat/Panel/RoomDrawer.qml:96
 #, kde-format
 msgid "Room information"
@@ -1216,22 +1217,22 @@ msgstr[1] "%1 Üye"
 msgid "No Member Count"
 msgstr "Üye Sayısı Yok"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:300
+#: imports/NeoChat/Panel/RoomDrawer.qml:303
 #, kde-format
 msgid "Owner"
 msgstr "Sahip"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:302
+#: imports/NeoChat/Panel/RoomDrawer.qml:305
 #, kde-format
 msgid "Admin"
 msgstr "Yönetici"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:304
+#: imports/NeoChat/Panel/RoomDrawer.qml:307
 #, kde-format
 msgid "Mod"
 msgstr "Mod"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:306
+#: imports/NeoChat/Panel/RoomDrawer.qml:309
 #, kde-format
 msgid "Muted"
 msgstr "Sessize Alınmış"

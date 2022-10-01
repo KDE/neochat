@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-28 00:48+0000\n"
+"POT-Creation-Date: 2022-10-01 00:48+0000\n"
 "PO-Revision-Date: 2022-09-20 01:57\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -191,7 +191,7 @@ msgid "Login with single sign-on"
 msgstr ""
 
 #: imports/NeoChat/Component/Login/LoginRegister.qml:20
-#: imports/NeoChat/Component/Login/Sso.qml:31
+#: imports/NeoChat/Component/Login/Sso.qml:38
 #, kde-format
 msgid "Login"
 msgstr "登录"
@@ -225,7 +225,14 @@ msgctxt "@action:button"
 msgid "Login"
 msgstr "登录"
 
-#: imports/NeoChat/Component/Login/Sso.qml:34
+#: imports/NeoChat/Component/Login/Sso.qml:31
+#: imports/NeoChat/Page/WelcomePage.qml:73
+#, kde-format
+msgctxt "@action:button"
+msgid "Back"
+msgstr "返回"
+
+#: imports/NeoChat/Component/Login/Sso.qml:41
 #, kde-format
 msgid "Complete the authentication steps in your browser"
 msgstr "请完成在您浏览器中的身份验证步骤"
@@ -1131,12 +1138,6 @@ msgstr "聊天"
 msgid "Welcome to Matrix"
 msgstr "欢迎使用 Matrix"
 
-#: imports/NeoChat/Page/WelcomePage.qml:73
-#, kde-format
-msgctxt "@action:button"
-msgid "Back"
-msgstr "返回"
-
 #: imports/NeoChat/Panel/RoomDrawer.qml:96
 #, kde-format
 msgid "Room information"
@@ -1194,22 +1195,22 @@ msgstr[0] "%1 位成员"
 msgid "No Member Count"
 msgstr ""
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:300
+#: imports/NeoChat/Panel/RoomDrawer.qml:303
 #, kde-format
 msgid "Owner"
 msgstr "所有者"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:302
+#: imports/NeoChat/Panel/RoomDrawer.qml:305
 #, kde-format
 msgid "Admin"
 msgstr "管理员"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:304
+#: imports/NeoChat/Panel/RoomDrawer.qml:307
 #, kde-format
 msgid "Mod"
 msgstr "协管员"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:306
+#: imports/NeoChat/Panel/RoomDrawer.qml:309
 #, kde-format
 msgid "Muted"
 msgstr "已静音"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-28 00:48+0000\n"
+"POT-Creation-Date: 2022-10-01 00:48+0000\n"
 "PO-Revision-Date: 2022-09-27 18:27+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -189,7 +189,7 @@ msgid "Login with single sign-on"
 msgstr "Aanmelden met eenmalig aanmelden"
 
 #: imports/NeoChat/Component/Login/LoginRegister.qml:20
-#: imports/NeoChat/Component/Login/Sso.qml:31
+#: imports/NeoChat/Component/Login/Sso.qml:38
 #, kde-format
 msgid "Login"
 msgstr "Aanmelden"
@@ -223,7 +223,14 @@ msgctxt "@action:button"
 msgid "Login"
 msgstr "Aanmelden"
 
-#: imports/NeoChat/Component/Login/Sso.qml:34
+#: imports/NeoChat/Component/Login/Sso.qml:31
+#: imports/NeoChat/Page/WelcomePage.qml:73
+#, kde-format
+msgctxt "@action:button"
+msgid "Back"
+msgstr "Terug"
+
+#: imports/NeoChat/Component/Login/Sso.qml:41
 #, kde-format
 msgid "Complete the authentication steps in your browser"
 msgstr "De authentificatiestappen in your browser voltooien"
@@ -1165,12 +1172,6 @@ msgstr "Chat"
 msgid "Welcome to Matrix"
 msgstr "Welkom bij Matrix"
 
-#: imports/NeoChat/Page/WelcomePage.qml:73
-#, kde-format
-msgctxt "@action:button"
-msgid "Back"
-msgstr "Terug"
-
 #: imports/NeoChat/Panel/RoomDrawer.qml:96
 #, kde-format
 msgid "Room information"
@@ -1229,22 +1230,22 @@ msgstr[1] "%1 leden"
 msgid "No Member Count"
 msgstr "Geen aantal leden"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:300
+#: imports/NeoChat/Panel/RoomDrawer.qml:303
 #, kde-format
 msgid "Owner"
 msgstr "Eigenaar"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:302
+#: imports/NeoChat/Panel/RoomDrawer.qml:305
 #, kde-format
 msgid "Admin"
 msgstr "Admin"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:304
+#: imports/NeoChat/Panel/RoomDrawer.qml:307
 #, kde-format
 msgid "Mod"
 msgstr "Mod"
 
-#: imports/NeoChat/Panel/RoomDrawer.qml:306
+#: imports/NeoChat/Panel/RoomDrawer.qml:309
 #, kde-format
 msgid "Muted"
 msgstr "Gedempt"
