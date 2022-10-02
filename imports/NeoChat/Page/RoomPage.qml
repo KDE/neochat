@@ -429,6 +429,11 @@ Kirigami.ScrollablePage {
         }
         headerPositioning: ListView.OverlayHeader
 
+        footer: QQC2.BusyIndicator {
+            anchors.centerIn: parent
+            visible: !currentRoom.allHistoryLoaded && !loading
+        }
+
         function goToEvent(eventID) {
             messageListView.positionViewAtIndex(eventToIndex(eventID), ListView.Contain)
         }
