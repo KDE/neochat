@@ -430,7 +430,9 @@ Kirigami.ScrollablePage {
         headerPositioning: ListView.OverlayHeader
 
         function goToEvent(eventID) {
-            messageListView.positionViewAtIndex(eventToIndex(eventID), ListView.Contain)
+            const index = eventToIndex(eventID)
+            messageListView.positionViewAtIndex(index, ListView.Center)
+            itemAtIndex(index).isTemporaryHighlighted = true
         }
 
         Item {

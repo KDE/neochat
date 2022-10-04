@@ -18,6 +18,17 @@ QQC2.ItemDelegate {
 
     property bool isEmote: false
     property bool cardBackground: true
+    property bool isHighlighted: model.isHighlighted || isTemporaryHighlighted
+    property bool isTemporaryHighlighted: false
+
+    onIsTemporaryHighlightedChanged: if (isTemporaryHighlighted) temporaryHighlightTimer.start()
+
+    Timer {
+        id: temporaryHighlightTimer
+
+        interval: 1500
+        onTriggered: isTemporaryHighlighted = false
+    }
 
     signal openContextMenu
 
@@ -262,12 +273,13 @@ QQC2.ItemDelegate {
 
         background: Item {
             Kirigami.ShadowedRectangle {
+                id: bubbleBackground
                 visible: cardBackground && !Config.compactLayout
                 anchors.fill: parent
                 color: {
                     if (model.author.isLocalUser) {
                         return Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.15)
-                    } else if (model.isHighlighted) {
+                    } else if (timelineContainer.isHighlighted) {
                         return Kirigami.Theme.positiveBackgroundColor
                     } else {
                         return Kirigami.Theme.backgroundColor
@@ -275,9 +287,13 @@ QQC2.ItemDelegate {
                 }
                 radius: Kirigami.Units.smallSpacing
                 shadow.size: Kirigami.Units.smallSpacing
-                shadow.color: !model.isHighlighted ? Qt.rgba(0.0, 0.0, 0.0, 0.10) : Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.10)
+                shadow.color: timelineContainer.isHighlighted ? Qt.rgba(0.0, 0.0, 0.0, 0.10) : Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.10)
                 border.color: Kirigami.ColorUtils.tintWithAlpha(color, Kirigami.Theme.textColor, 0.15)
                 border.width: 1
+
+                Behavior on color {
+                    ColorAnimation {target: bubbleBackground; duration: Kirigami.Units.veryLongDuration; easing.type: Easing.InOutCubic}
+                }
             }
         }
     }
