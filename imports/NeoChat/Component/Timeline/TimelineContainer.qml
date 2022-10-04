@@ -206,20 +206,16 @@ QQC2.ItemDelegate {
         contentItem: ColumnLayout {
             id: column
             spacing: Kirigami.Units.smallSpacing
-            Item {
+            RowLayout {
                 id: rowLayout
+
+                spacing: Kirigami.Units.smallSpacing
                 visible: model.showAuthor && !isEmote
-                Layout.fillWidth: true
-                Layout.preferredWidth: nameLabel.implicitWidth + timeLabel.implicitWidth
-                Layout.maximumWidth: contentMaxWidth
-                implicitHeight: visible ? nameLabel.implicitHeight : 0
 
                 QQC2.Label {
                     id: nameLabel
-                    topInset: 0
 
-                    visible: model.showAuthor && !isEmote
-                    width: Math.min(contentMaxWidth - timeLabel.width, implicitWidth)
+                    Layout.maximumWidth: contentMaxWidth - timeLabel.implicitWidth - rowLayout.spacing
 
                     text: visible ? author.displayName : ""
                     textFormat: Text.PlainText
@@ -242,9 +238,7 @@ QQC2.ItemDelegate {
                 }
                 QQC2.Label {
                     id: timeLabel
-                    leftPadding: Kirigami.Units.largeSpacing
-                    anchors.left: nameLabel.right
-                    visible: model.showAuthor && !isEmote
+
                     text: visible ? time.toLocaleTimeString(Qt.locale(), Locale.ShortFormat) : ""
                     color: Kirigami.Theme.disabledTextColor
                     QQC2.ToolTip.visible: hoverHandler.hovered
