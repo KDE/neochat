@@ -15,7 +15,24 @@ TextEdit {
     readonly property var hasSpoiler: /data-mx-spoiler/g
 
     property bool isEmote: false
-    property string textMessage: model.display
+
+    /* Turn all links which aren't already in <a> tags into <a> hyperlinks */
+    readonly property var linkRegex: /(href=["'])?(\b(https?):\/\/[^\s\<\>\"\'\\]+)/g
+    property string textMessage: model.display.includes("http")
+        ? model.display.replace(linkRegex, function() {
+            if (arguments[1]) {
+                return arguments[0];
+            } else {
+                var l = arguments[2];
+                if ([".", ","].includes(l[l.length-1])) {
+                    var link = l.substring(0, l.length-1);
+                    var leftover = l[l.length-1];
+                    return "<a href=\"" + link + "\">" + link + "</a>" + leftover;
+                }
+                return "<a href=\"" + l + "\">" + l + "</a>";
+          }
+        })
+        : model.display
     property bool spoilerRevealed: !hasSpoiler.test(textMessage)
 
     ListView.onReused: Qt.binding(() => !hasSpoiler.test(textMessage))
