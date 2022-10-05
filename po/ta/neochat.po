@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-04 00:44+0000\n"
-"PO-Revision-Date: 2022-09-27 21:36+0530\n"
+"POT-Creation-Date: 2022-10-05 00:46+0000\n"
+"PO-Revision-Date: 2022-10-04 21:36+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -35,7 +35,7 @@ msgstr "உடனிணைப்பு:"
 #: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:159
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:29
 #: imports/NeoChat/Page/ImageEditorPage.qml:20
-#: imports/NeoChat/Page/RoomPage.qml:505
+#: imports/NeoChat/Page/RoomPage.qml:507
 #, kde-format
 msgid "Edit"
 msgstr "திருத்து"
@@ -299,7 +299,7 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "கடைசியாக படித்தது: %1"
 
-#: imports/NeoChat/Component/Timeline/RichLabel.qml:56
+#: imports/NeoChat/Component/Timeline/RichLabel.qml:73
 #, kde-format
 msgid " (edited)"
 msgstr "(திருத்தப்பட்டது)"
@@ -412,7 +412,7 @@ msgstr "அமர்வு உறுதிப்பாட்டை நீங்�
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:29
 #, kde-format
 msgid "The remote party canceled the session verification."
-msgstr "தொலை தரப்பினர் அமர்வு உறுதிப்பாட்டை ரத்து செய்தார்."
+msgstr "தொலை தரப்பு, அமர்வு உறுதிப்பாட்டை ரத்து செய்த‍து."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:31
 #, kde-format
@@ -426,14 +426,14 @@ msgstr "எதிர்பாராத பதிலால் அமர்வு 
 msgid ""
 "The remote party canceled the session verification because it received an "
 "unexpected message."
-msgstr "தொலை தரப்பினர், எதிர்பாராத பதிலைப் பெற்றதால் அமர்வு உறுதிப்பாட்டை ரத்து செய்தார்."
+msgstr "தொலை தரப்பு, எதிர்பாராத பதிலைப் பெற்றதால் அமர்வு உறுதிப்பாட்டை ரத்து செய்த‍து."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:35
 #, kde-format
 msgid ""
 "The session verification was canceled because it received a message for an "
 "unknown session."
-msgstr "எதிர்பாராத பதிலால் அமர்வு உறுதிப்பாடு ரத்து செய்யப்பட்டது."
+msgstr "தெரியாத அமர்வுக்கான பதில் பெறப்பட்டதால் அமர்வு உறுதிப்பாடு ரத்து செய்யப்பட்டது."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:37
 #, kde-format
@@ -441,6 +441,7 @@ msgid ""
 "The remote party canceled the session verification because it received a "
 "message for an unknown session."
 msgstr ""
+"தெரியாத அமர்வுக்கான பதிலை தொலை தரப்பு பெற்றதால் அமர்வு உறுதிப்பாட்டை ரத்து செய்த‍து."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:39
 #, kde-format
@@ -448,6 +449,8 @@ msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
 "this verification method."
 msgstr ""
+"இந்த உறுதிப்பாடு முறையை நியோச்சாட்டால் கையாள முடியாத‍தால், அமர்வு உறுதிப்பாட்டு ரத்து "
+"செய்யப்பட்டது."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:41
 #, kde-format
@@ -455,24 +458,27 @@ msgid ""
 "The remote party canceled the session verification because it is unable to "
 "handle this verification method."
 msgstr ""
+"தொலை தரப்பால் இந்த உறுதிப்பாடு முறையை கையாள முடியாத‍தால், அமர்வு உறுதிப்பாட்டை ரத்து "
+"செய்த‍து."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:43
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
-msgstr ""
+msgstr "சாவிகள் தவறாக உள்ளதால் அமர்வு உறுதிப்பாட்டு ரத்து செய்யப்பட்டது."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:45
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys are "
 "incorrect."
-msgstr ""
+msgstr "சாவிகள் தவறாக உள்ளதால் தொலை தரப்பு அமர்வு உறுதிப்பாட்டை ரத்து செய்த‍து."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:47
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
 msgstr ""
+"எதிர்பாராத பயனரை உறுதிப்படுத்த முயற்சித்த‍தால் அமர்வு உறுதிப்பாடு ரத்து செய்யப்பட்டது."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:49
 #, kde-format
@@ -480,12 +486,14 @@ msgid ""
 "The remote party canceled the session verification because it verifies an "
 "unexpected user."
 msgstr ""
+"எதிர்பாராத பயனரை உறுதிப்படுத்த முயற்சித்த‍தால் தொலை தரப்பு அமர்வு உறுதிப்பாட்டை ரத்து "
+"செய்த‍து."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:51
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
-msgstr ""
+msgstr "செல்லுபடியாகாத பதிலால் அமர்வு உறுதிப்பாடு ரத்து செய்யப்பட்டது."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:53
 #, kde-format
@@ -493,41 +501,42 @@ msgid ""
 "The remote party canceled the session verification because it received an "
 "invalid message."
 msgstr ""
+"தொலை தரப்பு, செல்லுபடியாகாத பதிலைப் பெற்றதால் அமர்வு உறுதிப்பாட்டை ரத்து செய்த‍து."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:55
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:57
 #, kde-format
 msgid "The session was accepted on a different device"
-msgstr ""
+msgstr "அமர்வு, வேறு சாதனத்தில் ஏற்கப்பட்டுள்ளது"
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:59
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
-msgstr ""
+msgstr "சாவிகள் பொருந்தாமையால் அமர்வு உறுதிப்பாட்டு ரத்து செய்யப்பட்டது."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:61
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because of a mismatched "
 "key."
-msgstr ""
+msgstr "சாவிகள் பொருந்தாமையால் தொலை தரப்பு, அமர்வு உறுதிப்பாட்டை ரத்து செய்த‍து."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:63
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
-msgstr ""
+msgstr "சாவிகள் பொருந்தாமையால் அமர்வு உறுதிப்பாட்டு ரத்து செய்யப்பட்டது."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:65
 #, kde-format
 msgid ""
 "The remote party canceled the session verification because the keys do not "
 "match."
-msgstr ""
+msgstr "சாவிகள் பொருந்தாமையால் தொலை தரப்பு அமர்வு உறுதிப்பாட்டை ரத்து செய்த‍து."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:67
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
-msgstr ""
+msgstr "தெரியாத சிக்கலால் அமர்வு உறுதிப்பாட்டு ரத்து செய்யப்பட்டது."
 
 #: imports/NeoChat/Dialog/OpenFileDialog.qml:12
 #, kde-format
@@ -849,7 +858,7 @@ msgstr "இவ்வாறு சேமி"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:52
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:35
-#: imports/NeoChat/Page/RoomPage.qml:518 src/notificationsmanager.cpp:73
+#: imports/NeoChat/Page/RoomPage.qml:520 src/notificationsmanager.cpp:73
 #, kde-format
 msgid "Reply"
 msgstr "பதிலளி"
@@ -867,15 +876,14 @@ msgstr "நீக்கு"
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
-msgstr ""
+msgstr "புகாரளி"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:74
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:56
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgctxt "@title"
 msgid "Report Message"
-msgstr "செய்தியைத் திருத்து"
+msgstr "செய்தியைப் பற்றி புகாரளித்தல்"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:79
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:61
@@ -906,15 +914,14 @@ msgid "Configure Web Shortcuts..."
 msgstr "இணைய சுருக்குவழிகளை அமை..."
 
 #: imports/NeoChat/Menu/Timeline/ReportSheet.qml:16
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgid "Report Message"
-msgstr "செய்தியைத் திருத்து"
+msgstr "செய்தியைப் பற்றி புகாரளி"
 
 #: imports/NeoChat/Menu/Timeline/ReportSheet.qml:20
 #, kde-format
 msgid "Reason for reporting this message"
-msgstr ""
+msgstr "இச்செய்தியைப்பற்றி புகாரளிப்பதற்கான காரணம்"
 
 #: imports/NeoChat/Menu/Timeline/ReportSheet.qml:41
 #: imports/NeoChat/Page/InviteUserPage.qml:22
@@ -1122,12 +1129,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 தட்டச்சிடுகிறார்"
 msgstr[1] "%2 தட்டச்சிடுகிறார்கள்"
 
-#: imports/NeoChat/Page/RoomPage.qml:485
+#: imports/NeoChat/Page/RoomPage.qml:487
 #, kde-format
 msgid "This message was sent from a verified device"
-msgstr ""
+msgstr "உறுதிப்படுத்தப்பட்டுள்ள சாதனத்திலிருந்து இச்செய்தி அனுப்பப்பட்டது"
 
-#: imports/NeoChat/Page/RoomPage.qml:491
+#: imports/NeoChat/Page/RoomPage.qml:493
 #, kde-format
 msgid "React"
 msgstr "எதிர்வினையிடு"
@@ -1508,10 +1515,9 @@ msgid "Edit device name"
 msgstr "சாதனத்தின் பெயரைத் திருத்து"
 
 #: imports/NeoChat/Settings/DevicesPage.qml:48
-#, fuzzy, kde-format
-#| msgid "Edit device"
+#, kde-format
 msgid "Verify device"
-msgstr "சாதனத்தைத் திருத்து"
+msgstr "சாதனத்தை உறுதிப்படுத்து"
 
 #: imports/NeoChat/Settings/DevicesPage.qml:58
 #, kde-format
@@ -1707,6 +1713,8 @@ msgid ""
 "%1 will provide spell checking and suggestions for the languages listed here "
 "when autodetection is enabled."
 msgstr ""
+"தானாக கண்டறியும் அம்சம் இயக்கப்பட்டிருப்பின், கீழுள்ள மொழிகளுக்கான சொல் திருத்தத்தையும் "
+"பரிந்துரைகளையும் %1 வழங்கும்."
 
 #: imports/NeoChat/Settings/SonnetConfigPage.qml:226
 #, kde-format
@@ -1746,11 +1754,10 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: qml/main.qml:385
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
-msgstr "அறிவிப்புகளைக் காட்டு"
+msgstr "அமர்வு உறுதிப்பாடு"
 
 #: qml/main.qml:395
 #, kde-format
@@ -1900,7 +1907,7 @@ msgstr "நுழைவு தோல்வியடைந்தது: %1"
 #: src/controller.cpp:366
 #, kde-format
 msgid "Access token wasn't found"
-msgstr ""
+msgstr "அணுகல் டோக்கன் கண்டுபிடிக்கப்படவில்லை"
 
 #: src/controller.cpp:366
 #, kde-format
@@ -1910,28 +1917,28 @@ msgstr "நீக்கப்பட்டுள்ளதா?"
 #: src/controller.cpp:370
 #, kde-format
 msgid "Access to keychain was denied."
-msgstr ""
+msgstr "சாவிக்கொத்தை அணுக முடியவில்லை"
 
 #: src/controller.cpp:370
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
-msgstr ""
+msgstr "அணுகல் டோக்கனை படிக்க நியோச்சாட்டை அனுமதிக்கவும்"
 
 #: src/controller.cpp:373
-#, fuzzy, kde-format
-#| msgid "No users available"
+#, kde-format
 msgid "No keychain available."
-msgstr "எந்த பயனர்களும் கிடைக்கவில்லை"
+msgstr "எந்த சாவிக்கொத்தும் கிடைக்கவில்லை"
 
 #: src/controller.cpp:373
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
+"ஓர் சாவிக்கொத்து நிரலை நிறுவுங்கள், எ.கா. லினக்ஸில் KWallet அல்லது GNOME keyring."
 
 #: src/controller.cpp:376
 #, kde-format
 msgid "Unable to read access token"
-msgstr ""
+msgstr "அணுகல் டோக்கனை படிக்க முடியவில்லை"
 
 #: src/controller.cpp:619
 #, kde-format
@@ -1961,22 +1968,22 @@ msgstr "Matrix வாங்கி"
 #: src/main.cpp:153
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
-msgstr ""
+msgstr "© 2018-2020 பிளாக் ஹாட், 2020-2022 கே.டீ.யீ. சமூகம்"
 
 #: src/main.cpp:154
 #, kde-format
 msgid "Black Hat"
-msgstr ""
+msgstr "பிளாக் ஹாட்"
 
 #: src/main.cpp:155
 #, kde-format
 msgid "Carl Schwan"
-msgstr ""
+msgstr "கார்ல் ஷுவான்"
 
 #: src/main.cpp:156
 #, kde-format
 msgid "Tobias Fella"
-msgstr ""
+msgstr "டோபியாஸ் ஃபெல்லா"
 
 #: src/main.cpp:160
 #, kde-format
@@ -2253,10 +2260,9 @@ msgid "Unknown event"
 msgstr "தெரியாத நிகழ்வு"
 
 #: src/neochatroom.cpp:1093
-#, fuzzy, kde-format
-#| msgid "Password changed successfully"
+#, kde-format
 msgid "Report sent successfully."
-msgstr "கடவுச்சொல் வெற்றிகரமாக மாற்றப்பட்டது"
+msgstr "புகார் வெற்றிகரமாக அனுப்பப்பட்டுள்ளது."
 
 #: src/notificationsmanager.cpp:60
 #, kde-format
