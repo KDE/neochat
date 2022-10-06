@@ -113,7 +113,11 @@ void PublicRoomListModel::next(int count)
         return;
     }
 
+#ifdef QUOTIENT_07
     job = m_connection->callApi<QueryPublicRoomsJob>(m_server, count, nextBatch, QueryPublicRoomsJob::Filter{m_keyword, {}});
+#else
+    job = m_connection->callApi<QueryPublicRoomsJob>(m_server, count, nextBatch, QueryPublicRoomsJob::Filter{m_keyword});
+#endif
 
     connect(job, &BaseJob::finished, this, [this] {
         attempted = true;
