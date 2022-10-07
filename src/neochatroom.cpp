@@ -11,10 +11,8 @@
 #include <QTextDocument>
 #include <functional>
 
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
 #include <QMediaMetaData>
 #include <QMediaPlayer>
-#endif
 
 #include <qcoro/qcorosignal.h>
 #include <qcoro/task.h>
@@ -99,7 +97,6 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body)
         co_return;
     }
 
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     auto mime = QMimeDatabase().mimeTypeForUrl(url);
     QFileInfo fileInfo(url.toLocalFile());
     EventContent::TypedBase *content;
@@ -110,13 +107,22 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body)
         content = new EventContent::AudioContent(url, fileInfo.size(), mime, fileInfo.fileName());
     } else if (mime.name().startsWith("video/")) {
         QMediaPlayer player;
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
         player.setSource(url);
+#else
+        player.setMedia(url);
+#endif
         co_await qCoro(&player, &QMediaPlayer::mediaStatusChanged);
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
         auto resolution = player.metaData().value(QMediaMetaData::Resolution).toSize();
+#else
+        auto resolution = player.metaData(QMediaMetaData::Resolution).toSize();
+#endif
         content = new EventContent::VideoContent(url, fileInfo.size(), mime, resolution, fileInfo.fileName());
     } else {
         content = new EventContent::FileContent(url, fileInfo.size(), mime, fileInfo.fileName());
     }
+#ifdef QUOTIENT_07
     QString txnId = postFile(body.isEmpty() ? url.fileName() : body, content);
 #else
     QString txnId = postFile(body.isEmpty() ? url.fileName() : body, url, false);
