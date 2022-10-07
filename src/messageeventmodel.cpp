@@ -720,7 +720,10 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     if (role == ShowAuthorRole) {
         for (auto r = row + 1; r < rowCount(); ++r) {
             auto i = index(r);
-            if (data(i, SpecialMarksRole) != EventStatus::Hidden) {
+            // Note !itemData(i).empty() is a check for instances where rows have been removed, e.g. when the read marker is moved.
+            // While the row is removed the subsequent row indexes are not changed so we need to skip over the removed index.
+            // See - https://doc.qt.io/qt-5/qabstractitemmodel.html#beginRemoveRows
+            if (data(i, SpecialMarksRole) != EventStatus::Hidden && !itemData(i).empty()) {
                 return data(i, AuthorRole) != data(idx, AuthorRole) || data(i, EventTypeRole) == "state"
                     || data(i, TimeRole).toDateTime().msecsTo(data(idx, TimeRole).toDateTime()) > 600000
                     || data(i, TimeRole).toDateTime().toLocalTime().date().day() != data(idx, TimeRole).toDateTime().toLocalTime().date().day();
@@ -733,7 +736,10 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     if (role == ShowSectionRole) {
         for (auto r = row + 1; r < rowCount(); ++r) {
             auto i = index(r);
-            if (data(i, SpecialMarksRole) != EventStatus::Hidden) {
+            // Note !itemData(i).empty() is a check for instances where rows have been removed, e.g. when the read marker is moved.
+            // While the row is removed the subsequent row indexes are not changed so we need to skip over the removed index.
+            // See - https://doc.qt.io/qt-5/qabstractitemmodel.html#beginRemoveRows
+            if (data(i, SpecialMarksRole) != EventStatus::Hidden && !itemData(i).empty()) {
                 const auto day = data(idx, TimeRole).toDateTime().toLocalTime().date().dayOfYear();
                 const auto previousEventDay = data(i, TimeRole).toDateTime().toLocalTime().date().dayOfYear();
                 return day != previousEventDay;
