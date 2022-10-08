@@ -18,16 +18,19 @@ LoginStep {
     showBackButton: false
 
     title: i18nc("@title", "Login")
-    message: i18n("Enter your Matrix ID")
+    message: i18n("Welcome to NeoChat!")
 
     Component.onCompleted: {
         LoginHelper.matrixId = ""
     }
 
+    QQC2.Label {
+        text: "To get started, enter your matrix ID:"
+    }
+
     Kirigami.FormLayout {
         QQC2.TextField {
             id: matrixIdField
-            Kirigami.FormData.label: i18n("Matrix ID:")
             placeholderText: "@user:matrix.org"
             onTextChanged: {
                 if(acceptableInput) {

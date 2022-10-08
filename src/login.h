@@ -23,6 +23,8 @@ class Login : public QObject
     Q_PROPERTY(bool supportsPassword READ supportsPassword NOTIFY loginFlowsChanged STORED false)
     Q_PROPERTY(QUrl ssoUrl READ ssoUrl NOTIFY ssoUrlChanged)
     Q_PROPERTY(bool isLoggingIn READ isLoggingIn NOTIFY isLoggingInChanged)
+    Q_PROPERTY(QUrl loginAvatar READ loginAvatar NOTIFY loginAvatarChanged STORED false)
+    Q_PROPERTY(QString loginName READ loginName NOTIFY loginNameChanged STORED false)
 
 public:
     explicit Login(QObject *parent = nullptr);
@@ -52,7 +54,12 @@ public:
     Q_INVOKABLE void login();
     Q_INVOKABLE void loginWithSso();
 
+    QUrl loginAvatar() const;
+    QString loginName() const;
+
 Q_SIGNALS:
+    void loginAvatarChanged();
+    void loginNameChanged();
     void homeserverReachableChanged();
     void testHomeserverFinished();
     void matrixIdChanged();
@@ -76,6 +83,8 @@ private:
     bool m_supportsPassword = false;
     Quotient::Connection *m_connection = nullptr;
     QUrl m_ssoUrl;
+    QUrl m_loginAvatar;
     bool m_testing = false;
     bool m_isLoggingIn = false;
+    QString m_loginName;
 };

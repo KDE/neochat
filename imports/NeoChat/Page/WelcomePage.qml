@@ -44,11 +44,40 @@ Kirigami.ScrollablePage {
         }
     }
 
+    property var showAvatar: LoginHelper.loginAvatar != ""
+
     ColumnLayout {
-        Kirigami.Icon {
-            source: "org.kde.neochat"
-            Layout.fillWidth: true
-            Layout.preferredHeight: Kirigami.Units.gridUnit * 16
+        Item {
+            Layout.preferredHeight: Kirigami.Units.gridUnit * 10
+            Layout.preferredWidth: Kirigami.Units.gridUnit * 8
+            Layout.alignment: Qt.AlignHCenter
+
+            ColumnLayout {
+                anchors.fill: parent
+
+                Kirigami.Icon {
+                    source: "org.kde.neochat"
+                    visible: !welcomePage.showAvatar
+                    Layout.fillHeight: true
+                    Layout.alignment: Qt.AlignHCenter
+                    implicitWidth: height
+                }
+
+                Kirigami.Avatar {
+                    visible: welcomePage.showAvatar
+                    source: LoginHelper.loginAvatar
+                    name: LoginHelper.loginName
+                    Layout.fillHeight: true
+                    implicitWidth: height
+                    Layout.alignment: Qt.AlignHCenter
+               }
+
+                Controls.Label {
+                    text: LoginHelper.loginName
+                    font.pointSize: 24
+                    Layout.alignment: Qt.AlignHCenter
+                }
+            }
         }
         Controls.Label {
             Layout.fillWidth: true

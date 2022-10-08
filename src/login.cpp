@@ -13,11 +13,22 @@
 #include <KLocalizedString>
 
 using namespace Quotient;
+#include <csapi/profile.h>
 
 Login::Login(QObject *parent)
     : QObject(parent)
 {
     init();
+}
+
+QUrl Login::loginAvatar() const
+{
+    return m_loginAvatar;
+}
+
+QString Login::loginName() const
+{
+    return m_loginName;
 }
 
 void Login::init()
@@ -34,6 +45,10 @@ void Login::init()
 
     connect(this, &Login::matrixIdChanged, this, [this]() {
         setHomeserverReachable(false);
+        m_loginAvatar = QString();
+        m_loginName = QString();
+        Q_EMIT loginNameChanged();
+        Q_EMIT loginAvatarChanged();
 
         if (m_matrixId == "@") {
             return;
@@ -52,6 +67,17 @@ void Login::init()
             m_supportsSso = m_connection->supportsSso();
             m_supportsPassword = m_connection->supportsPasswordAuth();
             Q_EMIT loginFlowsChanged();
+
+            GetUserProfileJob *job = m_connection->callApi<GetUserProfileJob>(m_matrixId);
+            connect(job, &BaseJob::result, this, [this, job] {
+                auto foundAvatar = job->avatarUrl();
+                m_loginAvatar = QUrl(QStringLiteral("%1/_matrix/media/r0/download/%2")
+                                         .arg(m_connection->homeserver().toString())
+                                         .arg(foundAvatar.authority() + foundAvatar.path()));
+                m_loginName = job->displayname();
+                Q_EMIT loginAvatarChanged();
+                Q_EMIT loginNameChanged();
+            });
         });
     });
     connect(m_connection, &Connection::connected, this, [this] {
