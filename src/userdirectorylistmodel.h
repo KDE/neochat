@@ -6,10 +6,12 @@
 #include <QAbstractListModel>
 #include <QObject>
 
-#include <connection.h>
 #include <csapi/users.h>
 
-using namespace Quotient;
+namespace Quotient
+{
+class Connection;
+}
 
 class UserDirectoryListModel : public QAbstractListModel
 {
@@ -33,11 +35,11 @@ public:
 
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
-    [[nodiscard]] Connection *connection() const
+    [[nodiscard]] Quotient::Connection *connection() const
     {
         return m_connection;
     }
-    void setConnection(Connection *conn);
+    void setConnection(Quotient::Connection *conn);
 
     [[nodiscard]] QString keyword() const
     {
@@ -53,15 +55,15 @@ public:
     Q_INVOKABLE void search(int count = 50);
 
 private:
-    Connection *m_connection = nullptr;
+    Quotient::Connection *m_connection = nullptr;
     QString m_keyword;
     bool m_limited = false;
 
     bool attempted = false;
 
-    QVector<SearchUserDirectoryJob::User> users;
+    QVector<Quotient::SearchUserDirectoryJob::User> users;
 
-    SearchUserDirectoryJob *job = nullptr;
+    Quotient::SearchUserDirectoryJob *job = nullptr;
 
 Q_SIGNALS:
     void connectionChanged();

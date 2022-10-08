@@ -5,6 +5,11 @@
 
 #include "controller.h"
 
+#include <connection.h>
+#include <csapi/content-repo.h>
+
+using namespace Quotient;
+
 LinkPreviewer::LinkPreviewer(QObject *parent)
     : QObject(parent)
     , m_loaded(false)

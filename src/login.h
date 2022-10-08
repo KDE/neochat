@@ -4,12 +4,12 @@
 #pragma once
 
 #include <QObject>
+#include <QUrl>
 
-#include <connection.h>
-#include <csapi/wellknown.h>
-
-using namespace Quotient;
-
+namespace Quotient
+{
+class Connection;
+}
 class Login : public QObject
 {
     Q_OBJECT
@@ -74,7 +74,7 @@ private:
     QString m_deviceName;
     bool m_supportsSso = false;
     bool m_supportsPassword = false;
-    Connection *m_connection = nullptr;
+    Quotient::Connection *m_connection = nullptr;
     QUrl m_ssoUrl;
     bool m_testing = false;
     bool m_isLoggingIn = false;

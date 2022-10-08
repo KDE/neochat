@@ -3,15 +3,17 @@
 
 #pragma once
 
-#include <connection.h>
 #include <events/roomevent.h>
-#include <room.h>
-
-#include "neochatroom.h"
 
 #include <QAbstractListModel>
 
-using namespace Quotient;
+class NeoChatRoom;
+
+namespace Quotient
+{
+class Connection;
+class Room;
+}
 
 class NeoChatRoomType : public QObject
 {
@@ -32,7 +34,7 @@ public:
 class RoomListModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
+    Q_PROPERTY(Quotient::Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
     Q_PROPERTY(int notificationCount READ notificationCount NOTIFY notificationCountChanged)
 
 public:
@@ -60,11 +62,11 @@ public:
     RoomListModel(QObject *parent = nullptr);
     ~RoomListModel() override;
 
-    [[nodiscard]] Connection *connection() const
+    [[nodiscard]] Quotient::Connection *connection() const
     {
         return m_connection;
     }
-    void setConnection(Connection *connection);
+    void setConnection(Quotient::Connection *connection);
     void doResetModel();
 
     Q_INVOKABLE [[nodiscard]] NeoChatRoom *roomAt(int row) const;
@@ -95,7 +97,7 @@ private Q_SLOTS:
     void refreshNotificationCount();
 
 private:
-    Connection *m_connection = nullptr;
+    Quotient::Connection *m_connection = nullptr;
     QList<NeoChatRoom *> m_rooms;
 
     QMap<int, bool> m_categoryVisibility;

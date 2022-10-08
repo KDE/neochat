@@ -1,13 +1,14 @@
 // SPDX-FileCopyrightText: 2022 Nicolas Fella <nicolas.fella@gmx.de>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
+#include "runner.h"
+
 #include <QDBusMetaType>
 
 #include "controller.h"
 #include "neochatroom.h"
 #include "roomlistmodel.h"
 #include "roommanager.h"
-#include "runner.h"
 #include "windowcontroller.h"
 
 RemoteImage Runner::serializeImage(const QImage &image)

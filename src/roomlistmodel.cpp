@@ -4,28 +4,25 @@
 #include "roomlistmodel.h"
 
 #include "neochatconfig.h"
+#include "neochatroom.h"
+#include "notificationsmanager.h"
+#include "roommanager.h"
 #include "user.h"
-#include "utils.h"
 
-#include "events/roomevent.h"
-
-#include <QBrush>
-#include <QColor>
 #include <QDebug>
 #ifndef Q_OS_ANDROID
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <QDBusMessage>
 #endif
-#include <QStandardPaths>
 
 #include <KLocalizedString>
 #include <QGuiApplication>
 #include <utility>
 
-#include "notificationsmanager.h"
-#include "roommanager.h"
 #include <csapi/notifications.h>
+
+using namespace Quotient;
 
 Q_DECLARE_METATYPE(Quotient::JoinState)
 

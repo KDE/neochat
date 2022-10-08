@@ -9,6 +9,8 @@
 #endif
 #include "neochatroom.h"
 
+using namespace Quotient;
+
 SpaceHierarchyCache::SpaceHierarchyCache(QObject *parent)
     : QObject{parent}
 {

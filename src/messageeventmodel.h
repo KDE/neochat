@@ -6,7 +6,6 @@
 #include <QAbstractListModel>
 
 #include "neochatroom.h"
-#include <room.h>
 
 class MessageEventModel : public QAbstractListModel
 {
@@ -94,7 +93,7 @@ private:
     int refreshEventRoles(const QString &eventId, const QVector<int> &roles = {});
     void moveReadMarker(const QString &toEventId);
 
-    std::vector<event_ptr_tt<RoomEvent>> m_extraEvents;
+    std::vector<Quotient::event_ptr_tt<Quotient::RoomEvent>> m_extraEvents;
 
 Q_SIGNALS:
     void roomChanged();

@@ -3,10 +3,8 @@
 
 #pragma once
 
-#include <QPair>
-#include <QSortFilterProxyModel>
-
 #include "messageeventmodel.h"
+#include <QSortFilterProxyModel>
 
 class CollapseStateProxyModel : public QSortFilterProxyModel
 {

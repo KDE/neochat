@@ -9,13 +9,8 @@
 #include <KAboutData>
 #include <KFormat>
 
-class QKeySequences;
-
-#include <connection.h>
-#include <csapi/list_public_rooms.h>
-#include <room.h>
+#include <jobs/basejob.h>
 #include <settings.h>
-#include <user.h>
 
 class NeoChatRoom;
 class NeoChatUser;
@@ -23,19 +18,22 @@ class TrayIcon;
 class QWindow;
 class QQuickTextDocument;
 
+namespace Quotient
+{
+class Connection;
+}
+
 namespace QKeychain
 {
 class ReadPasswordJob;
 }
-
-using namespace Quotient;
 
 class Controller : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(int accountCount READ accountCount NOTIFY accountCountChanged)
     Q_PROPERTY(bool quitOnLastWindowClosed READ quitOnLastWindowClosed WRITE setQuitOnLastWindowClosed NOTIFY quitOnLastWindowClosedChanged)
-    Q_PROPERTY(Connection *activeConnection READ activeConnection WRITE setActiveConnection NOTIFY activeConnectionChanged)
+    Q_PROPERTY(Quotient::Connection *activeConnection READ activeConnection WRITE setActiveConnection NOTIFY activeConnectionChanged)
     Q_PROPERTY(bool busy READ busy WRITE setBusy NOTIFY busyChanged)
     Q_PROPERTY(KAboutData aboutData READ aboutData WRITE setAboutData NOTIFY aboutDataChanged)
     Q_PROPERTY(bool supportSystemTray READ supportSystemTray CONSTANT)
@@ -46,11 +44,11 @@ class Controller : public QObject
 public:
     static Controller &instance();
 
-    void setActiveConnection(Connection *connection);
-    [[nodiscard]] Connection *activeConnection() const;
+    void setActiveConnection(Quotient::Connection *connection);
+    [[nodiscard]] Quotient::Connection *activeConnection() const;
 
-    void addConnection(Connection *c);
-    void dropConnection(Connection *c);
+    void addConnection(Quotient::Connection *c);
+    void dropConnection(Quotient::Connection *c);
 
     Q_INVOKABLE void loginWithAccessToken(const QString &, const QString &, const QString &, const QString &);
 
@@ -71,8 +69,8 @@ public:
 
     [[nodiscard]] bool supportSystemTray() const;
 
-    bool saveAccessTokenToFile(const AccountSettings &account, const QByteArray &accessToken);
-    bool saveAccessTokenToKeyChain(const AccountSettings &account, const QByteArray &accessToken);
+    bool saveAccessTokenToFile(const Quotient::AccountSettings &account, const QByteArray &accessToken);
+    bool saveAccessTokenToKeyChain(const Quotient::AccountSettings &account, const QByteArray &accessToken);
 
     enum PasswordStatus {
         Success,
@@ -101,12 +99,12 @@ public:
 private:
     explicit Controller(QObject *parent = nullptr);
 
-    QPointer<Connection> m_connection;
+    QPointer<Quotient::Connection> m_connection;
     bool m_busy = false;
     TrayIcon *m_trayIcon = nullptr;
 
-    static QByteArray loadAccessTokenFromFile(const AccountSettings &account);
-    QKeychain::ReadPasswordJob *loadAccessTokenFromKeyChain(const AccountSettings &account);
+    static QByteArray loadAccessTokenFromFile(const Quotient::AccountSettings &account);
+    QKeychain::ReadPasswordJob *loadAccessTokenFromKeyChain(const Quotient::AccountSettings &account);
 
     void loadSettings();
     void saveSettings() const;
@@ -140,7 +138,7 @@ Q_SIGNALS:
     void userConsentRequired(QUrl url);
     void testConnectionResult(const QString &connection, bool usable);
     void isOnlineChanged(bool isOnline);
-    void keyVerificationRequest(int timeLeft, Connection *connection, const QString &transactionId, const QString &deviceId);
+    void keyVerificationRequest(int timeLeft, Quotient::Connection *connection, const QString &transactionId, const QString &deviceId);
     void keyVerificationStart();
     void keyVerificationAccept(const QString &commitment);
     void keyVerificationKey(const QString &sas);
@@ -153,14 +151,14 @@ public Q_SLOTS:
 };
 
 // TODO libQuotient 0.7: Drop
-class NeochatChangePasswordJob : public BaseJob
+class NeochatChangePasswordJob : public Quotient::BaseJob
 {
 public:
-    explicit NeochatChangePasswordJob(const QString &newPassword, bool logoutDevices, const Omittable<QJsonObject> &auth = none);
+    explicit NeochatChangePasswordJob(const QString &newPassword, bool logoutDevices, const Quotient::Omittable<QJsonObject> &auth = Quotient::none);
 };
 
-class NeochatDeleteDeviceJob : public BaseJob
+class NeochatDeleteDeviceJob : public Quotient::BaseJob
 {
 public:
-    explicit NeochatDeleteDeviceJob(const QString &deviceId, const Omittable<QJsonObject> &auth = none);
+    explicit NeochatDeleteDeviceJob(const QString &deviceId, const Quotient::Omittable<QJsonObject> &auth = Quotient::none);
 };

@@ -4,7 +4,6 @@
 #pragma once
 
 #include <events/stateevent.h>
-#include <quotient_common.h>
 
 namespace Quotient
 {
@@ -34,4 +33,4 @@ public:
     QJsonArray allow() const;
 };
 REGISTER_EVENT_TYPE(JoinRulesEvent)
-} // namespace Quotient
+}

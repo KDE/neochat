@@ -4,18 +4,18 @@
 #pragma once
 
 #include <QAbstractListModel>
-
 #include <memory>
 
-#include "connection.h"
-
-using namespace Quotient;
+namespace Quotient
+{
+class Connection;
+}
 
 class CustomEmojiModel : public QAbstractListModel
 {
     Q_OBJECT
 
-    Q_PROPERTY(Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
+    Q_PROPERTY(Quotient::Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
 
 public:
     // constructors
@@ -32,8 +32,8 @@ public:
 
     // property setters
 
-    Connection *connection() const;
-    void setConnection(Connection *it);
+    Quotient::Connection *connection() const;
+    void setConnection(Quotient::Connection *it);
     Q_SIGNAL void connectionChanged();
 
     // QML functions

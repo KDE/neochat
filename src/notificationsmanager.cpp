@@ -5,24 +5,24 @@
 
 #include <memory>
 
-#include <QDebug>
 #include <QImage>
 
-#include "knotifications_version.h"
 #include <KLocalizedString>
 #include <KNotification>
-#ifdef HAVE_WINDOWSYSTEM
-#include <KWindowSystem>
-#endif
 #include <KNotificationReplyAction>
 
-#include "csapi/pushrules.h"
-#include "jobs/basejob.h"
+#include <connection.h>
+#include <csapi/pushrules.h>
+#include <jobs/basejob.h>
+#include <user.h>
 
 #include "controller.h"
 #include "neochatconfig.h"
+#include "neochatroom.h"
 #include "roommanager.h"
 #include "windowcontroller.h"
+
+using namespace Quotient;
 
 NotificationsManager &NotificationsManager::instance()
 {

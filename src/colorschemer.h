@@ -3,7 +3,6 @@
 
 #pragma once
 
-#include <QIdentityProxyModel>
 #include <QObject>
 
 class QAbstractItemModel;

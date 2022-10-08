@@ -3,6 +3,11 @@
 
 #include "userdirectorylistmodel.h"
 
+#include <connection.h>
+#include <room.h>
+
+using namespace Quotient;
+
 UserDirectoryListModel::UserDirectoryListModel(QObject *parent)
     : QAbstractListModel(parent)
 {

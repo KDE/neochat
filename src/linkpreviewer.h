@@ -3,12 +3,8 @@
 
 #pragma once
 
-#include <connection.h>
-#include <csapi/content-repo.h>
-
 #include <QObject>
-
-using namespace Quotient;
+#include <QUrl>
 
 class LinkPreviewer : public QObject
 {

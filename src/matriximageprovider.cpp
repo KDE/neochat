@@ -13,8 +13,9 @@
 #include <KLocalizedString>
 
 #include "controller.h"
+#include <connection.h>
 
-using Quotient::BaseJob;
+using namespace Quotient;
 
 ThumbnailResponse::ThumbnailResponse(QString id, QSize size)
     : mediaId(std::move(id))

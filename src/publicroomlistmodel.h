@@ -6,15 +6,17 @@
 #include <QAbstractListModel>
 #include <QObject>
 
-#include <connection.h>
 #include <csapi/list_public_rooms.h>
 
-using namespace Quotient;
+namespace Quotient
+{
+class Connection;
+}
 
 class PublicRoomListModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
+    Q_PROPERTY(Quotient::Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
     Q_PROPERTY(QString server READ server WRITE setServer NOTIFY serverChanged)
     Q_PROPERTY(QString keyword READ keyword WRITE setKeyword NOTIFY keywordChanged)
     Q_PROPERTY(bool hasMore READ hasMore NOTIFY hasMoreChanged)
@@ -39,11 +41,11 @@ public:
 
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
-    [[nodiscard]] Connection *connection() const
+    [[nodiscard]] Quotient::Connection *connection() const
     {
         return m_connection;
     }
-    void setConnection(Connection *conn);
+    void setConnection(Quotient::Connection *conn);
 
     [[nodiscard]] QString server() const
     {
@@ -62,16 +64,16 @@ public:
     Q_INVOKABLE void next(int count = 50);
 
 private:
-    Connection *m_connection = nullptr;
+    Quotient::Connection *m_connection = nullptr;
     QString m_server;
     QString m_keyword;
 
     bool attempted = false;
     QString nextBatch;
 
-    QVector<PublicRoomsChunk> rooms;
+    QVector<Quotient::PublicRoomsChunk> rooms;
 
-    QueryPublicRoomsJob *job = nullptr;
+    Quotient::QueryPublicRoomsJob *job = nullptr;
 
 Q_SIGNALS:
     void connectionChanged();

@@ -4,9 +4,6 @@
 #pragma once
 
 #include <QObject>
-#include <QVariant>
-#include <QVector>
-#include <utility>
 
 struct Command {
     Command(const QString &p, const QString &a, const QString &h)

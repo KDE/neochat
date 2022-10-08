@@ -3,8 +3,6 @@
 
 #pragma once
 
-#include <room.h>
-
 #include <QAbstractListModel>
 #include <QObject>
 
@@ -13,7 +11,7 @@ namespace Quotient
 class Connection;
 class Room;
 class User;
-} // namespace Quotient
+}
 
 class UserType : public QObject
 {

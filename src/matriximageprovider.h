@@ -6,10 +6,8 @@
 
 #include <QQuickAsyncImageProvider>
 
-#include <connection.h>
 #include <jobs/mediathumbnailjob.h>
 
-#include <QAtomicPointer>
 #include <QReadWriteLock>
 
 namespace Quotient

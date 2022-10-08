@@ -14,23 +14,16 @@
 #include <KWindowEffects>
 #endif
 
-#include <QAuthenticator>
-#include <QClipboard>
 #include <QFile>
 #include <QFileInfo>
 #include <QGuiApplication>
-#include <QMovie>
-#include <QNetworkReply>
-#include <QPixmap>
+#include <QImageReader>
 #include <QQuickItem>
 #include <QQuickTextDocument>
 #include <QQuickWindow>
 #include <QStandardPaths>
 #include <QStringBuilder>
-#include <QSysInfo>
-#include <QTextDocument>
 #include <QTimer>
-#include <utility>
 
 #include <signal.h>
 
@@ -40,23 +33,17 @@
 #include "neochataccountregistry.h"
 #endif
 
-#include <csapi/account-data.h>
+#include <connection.h>
 #include <csapi/content-repo.h>
-#include <csapi/joining.h>
 #include <csapi/logout.h>
 #include <csapi/profile.h>
-#include <events/eventcontent.h>
 #include <qt_connection_util.h>
-#include <settings.h>
 
 #include "neochatconfig.h"
 #include "neochatroom.h"
 #include "neochatuser.h"
 #include "roommanager.h"
-#include "utils.h"
 #include "windowcontroller.h"
-
-#include <KStandardShortcut>
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MAC)
 #include "trayicon.h"

@@ -7,6 +7,9 @@
 
 #include "controller.h"
 #include <connection.h>
+#include <user.h>
+
+using namespace Quotient;
 
 DevicesModel::DevicesModel(QObject *parent)
     : QAbstractListModel(parent)

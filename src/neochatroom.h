@@ -3,25 +3,11 @@
 
 #pragma once
 
-#include "joinrulesevent.h"
-#include <events/encryptionevent.h>
-#include <events/redactionevent.h>
-#include <events/roomavatarevent.h>
-#include <events/roomcreateevent.h>
-#include <events/roommemberevent.h>
-#include <events/roommessageevent.h>
-#include <events/simplestateevents.h>
 #include <room.h>
 
 #include <QObject>
-#include <QPointer>
-#include <QTimer>
-
+#include <events/roomevent.h>
 #include <qcoro/task.h>
-
-#include "neochatuser.h"
-
-using namespace Quotient;
 
 class PushNotificationState : public QObject
 {
@@ -38,7 +24,7 @@ public:
     Q_ENUM(State);
 };
 
-class NeoChatRoom : public Room
+class NeoChatRoom : public Quotient::Room
 {
     Q_OBJECT
     Q_PROPERTY(QVariantList usersTyping READ getUsersTyping NOTIFY typingChanged)
@@ -55,7 +41,7 @@ class NeoChatRoom : public Room
                    pushNotificationStateChanged)
 
 public:
-    explicit NeoChatRoom(Connection *connection, QString roomId, JoinState joinState = {});
+    explicit NeoChatRoom(Quotient::Connection *connection, QString roomId, Quotient::JoinState joinState = {});
 
     [[nodiscard]] QVariantList getUsersTyping() const;
 
@@ -64,7 +50,7 @@ public:
     /// This function respect the showLeaveJoinEvent setting and discard
     /// other not interesting events. This function can return an empty pointer
     /// when the room is empty of RoomMessageEvent.
-    [[nodiscard]] const RoomMessageEvent *lastEvent(bool ignoreStateEvent = false) const;
+    [[nodiscard]] const Quotient::RoomMessageEvent *lastEvent(bool ignoreStateEvent = false) const;
 
     /// Convenient way to get the last event but in a string format.
     ///
@@ -134,7 +120,7 @@ public:
 
     [[nodiscard]] QString avatarMediaId() const;
 
-    [[nodiscard]] QString eventToString(const RoomEvent &evt, Qt::TextFormat format = Qt::PlainText, bool removeReply = true) const;
+    [[nodiscard]] QString eventToString(const Quotient::RoomEvent &evt, Qt::TextFormat format = Qt::PlainText, bool removeReply = true) const;
 
     Q_INVOKABLE [[nodiscard]] bool containsUser(const QString &userID) const;
     Q_INVOKABLE [[nodiscard]] bool isUserBanned(const QString &user) const;
@@ -172,7 +158,7 @@ private:
 
     void onAddNewTimelineEvents(timeline_iter_t from) override;
     void onAddHistoricalTimelineEvents(rev_iter_t from) override;
-    void onRedaction(const RoomEvent &prevEvent, const RoomEvent &after) override;
+    void onRedaction(const Quotient::RoomEvent &prevEvent, const Quotient::RoomEvent &after) override;
 
     static QString markdownToHTML(const QString &markdown);
     QCoro::Task<void> doDeleteMessagesByUser(const QString &user);

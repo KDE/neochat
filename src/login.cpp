@@ -12,6 +12,8 @@
 
 #include <KLocalizedString>
 
+using namespace Quotient;
+
 Login::Login(QObject *parent)
     : QObject(parent)
 {

@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "chatboxhelper.h"
-#include <QDebug>
 
 ChatBoxHelper::ChatBoxHelper(QObject *parent)
     : QObject(parent)

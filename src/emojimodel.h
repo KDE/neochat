@@ -5,9 +5,6 @@
 
 #include <QObject>
 #include <QSettings>
-#include <QVariant>
-#include <QVector>
-#include <utility>
 
 struct Emoji {
     Emoji(QString u, QString s, bool isCustom = false)
@@ -85,5 +82,6 @@ private:
     static const QVariantList symbols;
     static const QVariantList flags;
 
+    // TODO: Port away from QSettings
     QSettings m_settings;
 };

@@ -6,6 +6,8 @@
 #include "messageeventmodel.h"
 #include "neochatconfig.h"
 
+using namespace Quotient;
+
 MessageFilterModel::MessageFilterModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {

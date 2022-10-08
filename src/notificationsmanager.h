@@ -6,12 +6,11 @@
 #include <QImage>
 #include <QMap>
 #include <QObject>
+#include <QPointer>
 #include <QString>
 
-#include <KNotification>
-
-#include "neochatconfig.h"
-#include "neochatroom.h"
+class KNotification;
+class NeoChatRoom;
 
 class NotificationsManager : public QObject
 {

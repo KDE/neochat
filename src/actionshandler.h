@@ -5,11 +5,12 @@
 
 #include <QObject>
 
-#include "neochatroom.h"
-#include <connection.h>
+namespace Quotient
+{
+class Connection;
+}
 
-using namespace Quotient;
-
+class NeoChatRoom;
 class CustomEmojiModel;
 
 /// \brief Handles user interactions with NeoChat (joining room, creating room,
@@ -19,7 +20,7 @@ class ActionsHandler : public QObject
     Q_OBJECT
 
     /// \brief The connection that will handle sending the message.
-    Q_PROPERTY(Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
+    Q_PROPERTY(Quotient::Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
 
     /// \brief The connection that will handle sending the message.
     Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
@@ -34,8 +35,8 @@ public:
     explicit ActionsHandler(QObject *parent = nullptr);
     ~ActionsHandler();
 
-    [[nodiscard]] Connection *connection() const;
-    void setConnection(Connection *connection);
+    [[nodiscard]] Quotient::Connection *connection() const;
+    void setConnection(Quotient::Connection *connection);
 
     [[nodiscard]] NeoChatRoom *room() const;
     void setRoom(NeoChatRoom *room);
@@ -68,6 +69,6 @@ public Q_SLOTS:
     void postEdit(const QString &text);
 
 private:
-    Connection *m_connection = nullptr;
+    Quotient::Connection *m_connection = nullptr;
     NeoChatRoom *m_room = nullptr;
 };

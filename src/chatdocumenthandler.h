@@ -3,13 +3,11 @@
 
 #pragma once
 
-#include <QFont>
 #include <QObject>
-#include <QQuickTextDocument>
 #include <QTextCursor>
-#include <QUrl>
 
 class QTextDocument;
+class QQuickTextDocument;
 class NeoChatRoom;
 class Controller;
 

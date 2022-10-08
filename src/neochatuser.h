@@ -7,16 +7,14 @@
 
 #include <user.h>
 
-using namespace Quotient;
-
-class NeoChatUser : public User
+class NeoChatUser : public Quotient::User
 {
     Q_OBJECT
     Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged)
     // Only valid for the local user
     Q_PROPERTY(QString accountLabel READ accountLabel WRITE setAccountLabel NOTIFY accountLabelChanged)
 public:
-    NeoChatUser(QString userId, Connection *connection);
+    NeoChatUser(QString userId, Quotient::Connection *connection);
 
 public Q_SLOTS:
     QColor color();

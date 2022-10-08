@@ -7,8 +7,6 @@
 
 #include <csapi/definitions/client_device.h>
 
-using namespace Quotient;
-
 namespace Quotient
 {
 class Connection;
@@ -18,7 +16,7 @@ class DevicesModel : public QAbstractListModel
 {
     Q_OBJECT
 
-    Q_PROPERTY(Connection *connection READ connection NOTIFY connectionChanged)
+    Q_PROPERTY(Quotient::Connection *connection READ connection NOTIFY connectionChanged)
 
 public:
     enum Roles {
@@ -38,7 +36,7 @@ public:
     Q_INVOKABLE void logout(int index, const QString &password);
     Q_INVOKABLE void setName(int index, const QString &name);
 
-    Connection *connection() const;
+    Quotient::Connection *connection() const;
 
 Q_SIGNALS:
     void connectionChanged();

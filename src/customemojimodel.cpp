@@ -4,6 +4,10 @@
 #include "customemojimodel_p.h"
 #include "emojimodel.h"
 
+#include <connection.h>
+
+using namespace Quotient;
+
 enum Roles {
     Name,
     ImageURL,

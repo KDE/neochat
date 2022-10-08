@@ -3,7 +3,6 @@
 
 #include <csapi/account-data.h>
 #include <csapi/content-repo.h>
-#include <csapi/profile.h>
 
 #include "customemojimodel_p.h"
 

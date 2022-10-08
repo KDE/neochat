@@ -4,6 +4,8 @@
 #pragma once
 
 #include "customemojimodel.h"
+#include <QRegularExpression>
+#include <connection.h>
 
 struct CustomEmoji {
     QString name; // with :semicolons:
@@ -12,6 +14,6 @@ struct CustomEmoji {
 };
 
 struct CustomEmojiModel::Private {
-    Connection *conn = nullptr;
+    Quotient::Connection *conn = nullptr;
     QList<CustomEmoji> emojies;
 };

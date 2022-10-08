@@ -3,17 +3,7 @@
 
 #pragma once
 
-#include <room.h>
-#include <user.h>
-
-#include <QObject>
 #include <QRegularExpression>
-#include <QString>
-
-#include <events/redactionevent.h>
-#include <events/roomavatarevent.h>
-#include <events/roommemberevent.h>
-#include <events/simplestateevents.h>
 
 namespace utils
 {
@@ -23,4 +13,4 @@ static const QRegularExpression codePillRegExp{"<pre><code[^>]*>(.*?)</code></pr
 static const QRegularExpression userPillRegExp{"(<a href=\"https://matrix.to/#/@.*?:.*?\">.*?</a>)", QRegularExpression::DotMatchesEverythingOption};
 static const QRegularExpression strikethroughRegExp{"<del>(.*?)</del>", QRegularExpression::DotMatchesEverythingOption};
 static const QRegularExpression mxcImageRegExp{R"AAA(<img(.*?)src="mxc:\/\/(.*?)\/(.*?)"(.*?)>)AAA"};
-} // namespace utils
+}

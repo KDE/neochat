@@ -23,7 +23,10 @@
 #include <KFormat>
 #include <KLocalizedString>
 
+#include "neochatuser.h"
 #include "utils.h"
+
+using namespace Quotient;
 
 QHash<int, QByteArray> MessageEventModel::roleNames() const
 {

@@ -3,7 +3,6 @@
 
 #include <KLocalizedString>
 
-#include "actionshandler.h"
 #include "commandmodel.h"
 
 QVariantList CommandModel::filterModel(const QString &filter)

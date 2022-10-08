@@ -3,6 +3,10 @@
 
 #include "publicroomlistmodel.h"
 
+#include <connection.h>
+
+using namespace Quotient;
+
 PublicRoomListModel::PublicRoomListModel(QObject *parent)
     : QAbstractListModel(parent)
 {

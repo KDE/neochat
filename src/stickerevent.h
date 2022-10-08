@@ -40,4 +40,4 @@ private:
     EventContent::ImageContent m_imageContent;
 };
 REGISTER_EVENT_TYPE(StickerEvent)
-} // namespace Quotient
+}

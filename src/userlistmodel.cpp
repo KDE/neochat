@@ -5,14 +5,11 @@
 
 #include <connection.h>
 #include <events/roompowerlevelsevent.h>
-#include <room.h>
-#include <user.h>
 
-#include <QDebug>
-#include <QElapsedTimer>
-#include <QPixmap>
-
+#include "neochatroom.h"
 #include "neochatuser.h"
+
+using namespace Quotient;
 
 UserListModel::UserListModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -26,7 +23,6 @@ void UserListModel::setRoom(Quotient::Room *room)
         return;
     }
 
-    using namespace Quotient;
     beginResetModel();
     if (m_currentRoom) {
         m_currentRoom->disconnect(this);

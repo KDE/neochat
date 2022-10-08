@@ -9,6 +9,8 @@
 
 #include <connection.h>
 
+using namespace Quotient;
+
 NeoChatUser::NeoChatUser(QString userId, Connection *connection)
     : User(std::move(userId), connection)
 {

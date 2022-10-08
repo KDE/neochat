@@ -2,17 +2,13 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "actionshandler.h"
-#include "controller.h"
-
-#include <csapi/joining.h>
-#include <events/roommessageevent.h>
 
 #include <KLocalizedString>
-#include <QDebug>
 #include <QStringBuilder>
 
 #include "controller.h"
 #include "customemojimodel.h"
+#include "neochatroom.h"
 #include "roommanager.h"
 
 ActionsHandler::ActionsHandler(QObject *parent)

@@ -6,13 +6,11 @@
 #include "controller.h"
 #include "neochatconfig.h"
 #include "neochatroom.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
 #include <QDesktopServices>
 #include <QStandardPaths>
-#include <csapi/joining.h>
 #include <qt_connection_util.h>
-#include <utility>
+#include <user.h>
 
 #ifndef Q_OS_ANDROID
 #include <KIO/OpenUrlJob>
