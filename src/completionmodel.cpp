@@ -55,7 +55,7 @@ QVariant CompletionModel::data(const QModelIndex &index, int role) const
             return m_filterModel->data(filterIndex, UserListModel::NameRole);
         }
         if (role == Subtitle) {
-            return m_filterModel->data(filterIndex, UserListModel::UserIDRole);
+            return m_filterModel->data(filterIndex, UserListModel::UserIdRole);
         }
         if (role == Icon) {
             return m_filterModel->data(filterIndex, UserListModel::AvatarRole);
@@ -114,7 +114,7 @@ void CompletionModel::updateCompletion()
 {
     if (text().startsWith(QLatin1Char('@'))) {
         m_filterModel->setSourceModel(m_userListModel);
-        m_filterModel->setFilterRole(UserListModel::UserIDRole);
+        m_filterModel->setFilterRole(UserListModel::UserIdRole);
         m_filterModel->setSecondaryFilterRole(UserListModel::NameRole);
         m_filterModel->setFullText(m_fullText);
         m_filterModel->setFilterText(m_text);

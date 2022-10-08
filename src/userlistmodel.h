@@ -6,11 +6,12 @@
 #include <QAbstractListModel>
 #include <QObject>
 
+class NeoChatRoom;
+
 namespace Quotient
 {
-class Connection;
-class Room;
 class User;
+class Room;
 }
 
 class UserType : public QObject
@@ -31,11 +32,11 @@ public:
 class UserListModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(Quotient::Room *room READ room WRITE setRoom NOTIFY roomChanged)
+    Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
 public:
     enum EventRoles {
-        NameRole = Qt::DisplayRole,
-        UserIDRole,
+        NameRole = Qt::UserRole + 1,
+        UserIdRole,
         AvatarRole,
         ObjectRole,
         PermRole,
@@ -43,11 +44,9 @@ public:
 
     UserListModel(QObject *parent = nullptr);
 
-    [[nodiscard]] Quotient::Room *room() const
-    {
-        return m_currentRoom;
-    }
-    void setRoom(Quotient::Room *room);
+    [[nodiscard]] NeoChatRoom *room() const;
+    void setRoom(NeoChatRoom *room);
+
     [[nodiscard]] Quotient::User *userAt(QModelIndex index) const;
 
     [[nodiscard]] QVariant data(const QModelIndex &index, int role = NameRole) const override;
@@ -65,7 +64,7 @@ private Q_SLOTS:
     void avatarChanged(Quotient::User *user, const Quotient::Room *context);
 
 private:
-    Quotient::Room *m_currentRoom;
+    NeoChatRoom *m_currentRoom;
     QList<Quotient::User *> m_users;
 
     int findUserPos(Quotient::User *user) const;

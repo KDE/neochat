@@ -17,7 +17,7 @@ UserListModel::UserListModel(QObject *parent)
 {
 }
 
-void UserListModel::setRoom(Quotient::Room *room)
+void UserListModel::setRoom(NeoChatRoom *room)
 {
     if (m_currentRoom == room) {
         return;
@@ -51,13 +51,17 @@ void UserListModel::setRoom(Quotient::Room *room)
             connect(user, &User::avatarChanged, this, &UserListModel::avatarChanged);
 #endif
         }
-        connect(m_currentRoom->connection(), &Connection::loggedOut, this, [this] {
+        connect(m_currentRoom->connection(), &Connection::loggedOut, this, [this]() {
             setRoom(nullptr);
         });
-        qDebug() << m_users.count() << "user(s) in the room";
     }
     endResetModel();
     Q_EMIT roomChanged();
+}
+
+NeoChatRoom *UserListModel::room() const
+{
+    return m_currentRoom;
 }
 
 Quotient::User *UserListModel::userAt(QModelIndex index) const
@@ -75,14 +79,13 @@ QVariant UserListModel::data(const QModelIndex &index, int role) const
     }
 
     if (index.row() >= m_users.count()) {
-        qDebug() << "UserListModel, something's wrong: index.row() >= m_users.count()";
-        return {};
+        return QStringLiteral("DEADBEEF");
     }
     auto user = m_users.at(index.row());
     if (role == NameRole) {
         return user->displayname(m_currentRoom);
     }
-    if (role == UserIDRole) {
+    if (role == UserIdRole) {
         return user->id();
     }
     if (role == AvatarRole) {
@@ -187,7 +190,7 @@ void UserListModel::avatarChanged(Quotient::User *user, const Quotient::Room *co
     }
 }
 
-int UserListModel::findUserPos(User *user) const
+int UserListModel::findUserPos(Quotient::User *user) const
 {
     return findUserPos(m_currentRoom->roomMembername(user));
 }
@@ -202,7 +205,7 @@ QHash<int, QByteArray> UserListModel::roleNames() const
     QHash<int, QByteArray> roles;
 
     roles[NameRole] = "name";
-    roles[UserIDRole] = "userId";
+    roles[UserIdRole] = "userId";
     roles[AvatarRole] = "avatar";
     roles[ObjectRole] = "user";
     roles[PermRole] = "perm";
