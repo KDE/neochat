@@ -2,12 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 #include <QCommandLineParser>
-#include <QDebug>
-#include <QFontDatabase>
-#include <QGuiApplication>
 #include <QIcon>
-#include <QNetworkAccessManager>
-#include <QNetworkProxy>
 #include <QNetworkProxyFactory>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
@@ -27,11 +22,9 @@
 #endif
 #ifdef HAVE_WINDOWSYSTEM
 #include <KWindowSystem>
-#include <kwindowsystem_version.h>
 #endif
 #include <KLocalizedContext>
 #include <KLocalizedString>
-#include <KWindowConfig>
 
 #include "neochat-version.h"
 
@@ -41,8 +34,6 @@
 #include "neochataccountregistry.h"
 #endif
 
-#include <csapi/joining.h>
-#include <csapi/leaving.h>
 #include <networkaccessmanager.h>
 #include <room.h>
 
