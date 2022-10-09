@@ -141,6 +141,10 @@ if(ANDROID)
         "preferences-system-users"
         "preferences-desktop-theme-global"
         "notifications"
+        "zoom-in"
+        "zoom-out"
+        "image-rotate-left-symbolic"
+        "image-rotate-right-symbolic"
     )
 else()
     target_link_libraries(neochat PUBLIC Qt::Widgets KF5::KIOWidgets)

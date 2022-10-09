@@ -6,6 +6,8 @@ import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import Qt.labs.platform 1.1
 
+import org.kde.kirigami 2.15 as Kirigami
+
 import org.kde.neochat 1.0
 import NeoChat.Component 1.0
 import NeoChat.Dialog 1.0
@@ -50,6 +52,7 @@ TimelineContainer {
 
         ToolTip.text: model.display
         ToolTip.visible: hoverHandler.hovered
+        ToolTip.delay: Kirigami.Units.toolTipDelay
 
         HoverHandler {
             id: hoverHandler
@@ -89,15 +92,19 @@ TimelineContainer {
             acceptedButtons: Qt.LeftButton
             onLongPressed: openFileContext(model, parent)
             onTapped: {
-                fullScreenImage.createObject(parent, {
-                    filename: eventId,
-                    source: mediaUrl,
-                    blurhash: model.content.info["xyz.amorgan.blurhash"],
-                    imageWidth: content.info.w,
-                    imageHeight: content.info.h,
-                    modelData: model
-                }).showFullScreen();
+                img.ToolTip.hide()
+                fullScreenImage.open()
             }
+        }
+
+        FullScreenImage {
+            id: fullScreenImage
+            filename: eventId
+            source: mediaUrl
+            blurhash: model.content.info["xyz.amorgan.blurhash"]
+            imageWidth: content.info.w
+            imageHeight: content.info.h
+            modelData: model
         }
 
         function downloadAndOpen() {
