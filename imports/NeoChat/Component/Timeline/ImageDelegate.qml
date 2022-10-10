@@ -37,9 +37,9 @@ TimelineContainer {
         id: img
 
         Layout.maximumWidth: imageDelegate.contentMaxWidth
-        Layout.maximumHeight: imageDelegate.contentMaxWidth / imageDelegate.info.w * imageDelegate.info.h
-        Layout.preferredWidth: imageDelegate.info.w
-        Layout.preferredHeight: imageDelegate.info.h
+        Layout.maximumHeight: imageDelegate.contentMaxWidth / sourceSize.width * sourceSize.height
+        Layout.preferredWidth: imageDelegate.info.w > 0 ? imageDelegate.info.w : sourceSize.width
+        Layout.preferredHeight: imageDelegate.info.h > 0 ? imageDelegate.info.h : sourceSize.height
         source: model.mediaUrl
 
         Image {
