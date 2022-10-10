@@ -14,6 +14,7 @@ Kirigami.LoadingPlaceholder {
     property var showContinueButton: false
     property var showBackButton: false
     text: i18n("Synchronizing with your homeserver…")
+    icon.name: "cloud-download"
 
     anchors.centerIn: parent
 

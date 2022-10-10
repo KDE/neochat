@@ -25,6 +25,7 @@ LoginStep {
         onTriggered: {
             LoginHelper.login();
         }
+        iconName: "go-next"
     }
 
     Connections {

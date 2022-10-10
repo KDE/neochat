@@ -44,8 +44,6 @@ Kirigami.ScrollablePage {
         }
     }
 
-    property var showAvatar: LoginHelper.loginAvatar != ""
-
     ColumnLayout {
         Item {
             Layout.preferredHeight: Kirigami.Units.gridUnit * 10
@@ -152,6 +150,7 @@ Kirigami.ScrollablePage {
                 onClicked: {
                     module.source = welcomePage.currentStep.previousUrl
                 }
+                icon.name: "go-back"
             }
 
             Controls.Button {
@@ -164,6 +163,7 @@ Kirigami.ScrollablePage {
         }
 
         Kirigami.LoadingPlaceholder {
+            icon.name: "online"
             opacity: LoginHelper.testing ? 1 : 0
             text: i18n("Connecting to your homeserver...")
             Behavior on opacity { NumberAnimation {} }

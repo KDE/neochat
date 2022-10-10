@@ -66,5 +66,6 @@ LoginStep {
             }
         }
         enabled: LoginHelper.homeserverReachable
+        iconName: "go-next"
     }
 }
