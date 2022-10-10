@@ -14,7 +14,7 @@ import NeoChat.Component 1.0
 LoginStep {
     id: login
 
-    showContinueButton: true
+    showContinueButton: LoginHelper.homeserverReachable
     showBackButton: false
 
     title: i18nc("@title", "Login")
@@ -25,7 +25,7 @@ LoginStep {
     }
 
     QQC2.Label {
-        text: "To get started, enter your matrix ID:"
+        text: i18n("To get started, enter your matrix ID:")
     }
 
     Kirigami.FormLayout {
@@ -35,6 +35,8 @@ LoginStep {
             onTextChanged: {
                 if(acceptableInput) {
                     LoginHelper.matrixId = text
+                } else {
+                    LoginHelper.matrixId = ""
                 }
             }
 
