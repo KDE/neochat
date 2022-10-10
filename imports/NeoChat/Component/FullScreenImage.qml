@@ -209,8 +209,8 @@ Popup {
 
                 property var scaleFactor: 1
                 property int rotationAngle: 0
-                property var rotationInsensitiveWidth: Math.min(root.imageWidth !== -1 ? root.imageWidth : sourceSize.width, imageContainer.width - Kirigami.Units.largeSpacing * 2)
-                property var rotationInsensitiveHeight: Math.min(root.imageHeight !== -1 ? root.imageHeight : sourceSize.height, imageContainer.height - Kirigami.Units.largeSpacing * 2)
+                property var rotationInsensitiveWidth: Math.min(root.imageWidth > 0 ? root.imageWidth : sourceSize.width, imageContainer.width - Kirigami.Units.largeSpacing * 2)
+                property var rotationInsensitiveHeight: Math.min(root.imageHeight > 0 ? root.imageHeight : sourceSize.height, imageContainer.height - Kirigami.Units.largeSpacing * 2)
 
                 anchors.centerIn: parent
                 width: rotationAngle % 180 === 0 ? rotationInsensitiveWidth : rotationInsensitiveHeight
