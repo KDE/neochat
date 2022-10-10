@@ -48,7 +48,7 @@ set_package_properties(Qt${QT_MAJOR_VERSION} PROPERTIES
     TYPE REQUIRED
     PURPOSE "Basic application components"
 )
-find_package(KF5 ${KF5_MIN_VERSION} COMPONENTS Kirigami2 I18n Notifications Config CoreAddons)
+find_package(KF5 ${KF5_MIN_VERSION} COMPONENTS Kirigami2 I18n Notifications Config CoreAddons Sonnet)
 set_package_properties(KF5 PROPERTIES
     TYPE REQUIRED
     PURPOSE "Basic application components"
@@ -76,7 +76,6 @@ else()
     set_package_properties(KF5QQC2DesktopStyle PROPERTIES
         TYPE RUNTIME
     )
-    ecm_find_qmlmodule(org.kde.sonnet 1.0)
     ecm_find_qmlmodule(org.kde.syntaxhighlighting 1.0)
 endif()
 

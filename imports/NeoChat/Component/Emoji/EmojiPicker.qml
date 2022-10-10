@@ -6,7 +6,7 @@ import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import org.kde.kirigami 2.15 as Kirigami
 
-import org.kde.neochat 1.0 as NeoChat
+import org.kde.neochat 1.0
 import NeoChat.Component 1.0
 
 ColumnLayout {
@@ -14,11 +14,7 @@ ColumnLayout {
 
     property string emojiCategory: "history"
     property var textArea
-    readonly property var emojiModel: NeoChat.EmojiModel
-
-    property NeoChat.CustomEmojiModel customModel: NeoChat.CustomEmojiModel {
-        connection: NeoChat.Controller.activeConnection
-    }
+    readonly property var emojiModel: EmojiModel
 
     signal chosen(string emoji)
 
@@ -102,7 +98,7 @@ ColumnLayout {
         model: {
             switch (emojiCategory) {
             case "custom":
-                return _picker.customModel
+                return CustomEmojiModel
             case "history":
                 return emojiModel.history
             case "people":

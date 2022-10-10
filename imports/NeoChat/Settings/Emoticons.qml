@@ -21,10 +21,7 @@ Kirigami.ScrollablePage {
     ListView {
         anchors.fill: parent
 
-        model: CustomEmojiModel {
-            id: emojiModel
-            connection: Controller.activeConnection
-        }
+        model: CustomEmojiModel
 
         Kirigami.PlaceholderMessage {
             anchors.centerIn: parent
@@ -99,7 +96,7 @@ Kirigami.ScrollablePage {
                         this.fileDialog = openFileDialog.createObject(QQC2.Overlay.overlay)
 
                         this.fileDialog.chosen.connect((url) => {
-                            emojiModel.addEmoji(emojiCreator.name, url)
+                            CustomEmojiModel.addEmoji(emojiCreator.name, url)
                             this.fileDialog = null
                         })
                         this.fileDialog.onRejected.connect(() => {

@@ -4,7 +4,9 @@
 #include <csapi/account-data.h>
 #include <csapi/content-repo.h>
 
-#include "customemojimodel_p.h"
+#include "controller.h"
+#include "customemojimodel.h"
+#include <connection.h>
 
 #ifdef QUOTIENT_07
 #define running isJobPending
@@ -12,35 +14,35 @@
 #define running isJobRunning
 #endif
 
-void CustomEmojiModel::fetchEmojies()
+void CustomEmojiModel::fetchEmojis()
 {
-    if (d->conn == nullptr) {
+    if (!Controller::instance().activeConnection()) {
         return;
     }
 
-    const auto &data = d->conn->accountData("im.ponies.user_emotes");
+    const auto &data = Controller::instance().activeConnection()->accountData("im.ponies.user_emotes");
     if (data == nullptr) {
         return;
     }
-    QJsonObject emojies = data->contentJson()["images"].toObject();
+    QJsonObject emojis = data->contentJson()["images"].toObject();
 
     // TODO: Remove with stable migration
-    const auto legacyEmojies = data->contentJson()["emoticons"].toObject();
-    for (const auto &emoji : legacyEmojies.keys()) {
-        if (!emojies.contains(emoji)) {
-            emojies[emoji] = legacyEmojies[emoji];
+    const auto legacyEmojis = data->contentJson()["emoticons"].toObject();
+    for (const auto &emoji : legacyEmojis.keys()) {
+        if (!emojis.contains(emoji)) {
+            emojis[emoji] = legacyEmojis[emoji];
         }
     }
 
     beginResetModel();
-    d->emojies.clear();
+    m_emojis.clear();
 
-    for (const auto &emoji : emojies.keys()) {
-        const auto &data = emojies[emoji];
+    for (const auto &emoji : emojis.keys()) {
+        const auto &data = emojis[emoji];
 
         const auto e = emoji.startsWith(":") ? emoji : (QStringLiteral(":") + emoji + QStringLiteral(":"));
 
-        d->emojies << CustomEmoji{e, data.toObject()["url"].toString(), QRegularExpression(QStringLiteral(R"((^|[^\\]))") + e)};
+        m_emojis << CustomEmoji{e, data.toObject()["url"].toString(), QRegularExpression(QStringLiteral(R"((^|[^\\]))") + e)};
     }
 
     endResetModel();
@@ -50,11 +52,11 @@ void CustomEmojiModel::addEmoji(const QString &name, const QUrl &location)
 {
     using namespace Quotient;
 
-    auto job = d->conn->uploadFile(location.toLocalFile());
+    auto job = Controller::instance().activeConnection()->uploadFile(location.toLocalFile());
 
     if (running(job)) {
         connect(job, &BaseJob::success, this, [this, name, job] {
-            const auto &data = d->conn->accountData("im.ponies.user_emotes");
+            const auto &data = Controller::instance().activeConnection()->accountData("im.ponies.user_emotes");
             auto json = data != nullptr ? data->contentJson() : QJsonObject();
             auto emojiData = json["images"].toObject();
             emojiData[QStringLiteral("%1").arg(name)] = QJsonObject({
@@ -65,7 +67,7 @@ void CustomEmojiModel::addEmoji(const QString &name, const QUrl &location)
 #endif
             });
             json["images"] = emojiData;
-            d->conn->setAccountData("im.ponies.user_emotes", json);
+            Controller::instance().activeConnection()->setAccountData("im.ponies.user_emotes", json);
         });
     }
 }
@@ -74,8 +76,8 @@ void CustomEmojiModel::removeEmoji(const QString &name)
 {
     using namespace Quotient;
 
-    const auto &data = d->conn->accountData("im.ponies.user_emotes");
-    Q_ASSERT(data != nullptr); // something's screwed if we get here with a nullptr
+    const auto &data = Controller::instance().activeConnection()->accountData("im.ponies.user_emotes");
+    Q_ASSERT(data);
     auto json = data->contentJson();
     const QString _name = name.mid(1).chopped(1);
     auto emojiData = json["images"].toObject();
@@ -97,5 +99,5 @@ void CustomEmojiModel::removeEmoji(const QString &name)
         emojiData.remove(_name);
         json["emoticons"] = emojiData;
     }
-    d->conn->setAccountData("im.ponies.user_emotes", json);
+    Controller::instance().activeConnection()->setAccountData("im.ponies.user_emotes", json);
 }

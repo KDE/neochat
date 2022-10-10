@@ -6,8 +6,11 @@
 #include <room.h>
 
 #include <QObject>
-#include <events/roomevent.h>
+#include <QTextCursor>
+
 #include <qcoro/task.h>
+
+class NeoChatUser;
 
 class PushNotificationState : public QObject
 {
@@ -24,11 +27,20 @@ public:
     Q_ENUM(State);
 };
 
+struct Mention {
+    QTextCursor cursor;
+    QString text;
+    int start = 0;
+    int position = 0;
+    QString id;
+};
+
 class NeoChatRoom : public Quotient::Room
 {
+
+
     Q_OBJECT
     Q_PROPERTY(QVariantList usersTyping READ getUsersTyping NOTIFY typingChanged)
-    Q_PROPERTY(QString cachedInput MEMBER m_cachedInput NOTIFY cachedInputChanged)
     Q_PROPERTY(bool hasFileUploading READ hasFileUploading WRITE setHasFileUploading NOTIFY hasFileUploadingChanged)
     Q_PROPERTY(int fileUploadingProgress READ fileUploadingProgress NOTIFY fileUploadingProgressChanged)
     Q_PROPERTY(QString avatarMediaId READ avatarMediaId NOTIFY avatarChanged STORED false)
@@ -40,7 +52,24 @@ class NeoChatRoom : public Quotient::Room
     Q_PROPERTY(PushNotificationState::State pushNotificationState MEMBER m_currentPushNotificationState WRITE setPushNotificationState NOTIFY
                    pushNotificationStateChanged)
 
+    // Due to problems with QTextDocument, unlike the other properties here, chatBoxText is *not* used to store the text when switching rooms
+    Q_PROPERTY(QString chatBoxText READ chatBoxText WRITE setChatBoxText NOTIFY chatBoxTextChanged)
+    Q_PROPERTY(QString chatBoxReplyId READ chatBoxReplyId WRITE setChatBoxReplyId NOTIFY chatBoxReplyIdChanged)
+    Q_PROPERTY(QString chatBoxEditId READ chatBoxEditId WRITE setChatBoxEditId NOTIFY chatBoxEditIdChanged)
+    Q_PROPERTY(NeoChatUser *chatBoxReplyUser READ chatBoxReplyUser NOTIFY chatBoxReplyIdChanged)
+    Q_PROPERTY(QString chatBoxReplyMessage READ chatBoxReplyMessage NOTIFY chatBoxReplyIdChanged)
+    Q_PROPERTY(NeoChatUser *chatBoxEditUser READ chatBoxEditUser NOTIFY chatBoxEditIdChanged)
+    Q_PROPERTY(QString chatBoxEditMessage READ chatBoxEditMessage NOTIFY chatBoxEditIdChanged)
+    Q_PROPERTY(QString chatBoxAttachmentPath READ chatBoxAttachmentPath WRITE setChatBoxAttachmentPath NOTIFY chatBoxAttachmentPathChanged)
+
 public:
+    enum MessageType {
+        Positive,
+        Info,
+        Error,
+    };
+    Q_ENUM(MessageType);
+
     explicit NeoChatRoom(Quotient::Connection *connection, QString roomId, Quotient::JoinState joinState = {});
 
     [[nodiscard]] QVariantList getUsersTyping() const;
@@ -137,6 +166,29 @@ public:
 
     Q_INVOKABLE void setPushNotificationState(PushNotificationState::State state);
 
+    QString chatBoxText() const;
+    void setChatBoxText(const QString &text);
+
+    QString chatBoxReplyId() const;
+    void setChatBoxReplyId(const QString &replyId);
+
+    NeoChatUser *chatBoxReplyUser() const;
+    QString chatBoxReplyMessage() const;
+
+    QString chatBoxEditId() const;
+    void setChatBoxEditId(const QString &editId);
+
+    NeoChatUser *chatBoxEditUser() const;
+    QString chatBoxEditMessage() const;
+
+    QString chatBoxAttachmentPath() const;
+    void setChatBoxAttachmentPath(const QString &attachmentPath);
+
+    QVector<Mention> *mentions();
+
+    QString savedText() const;
+    void setSavedText(const QString &savedText);
+
 #ifndef QUOTIENT_07
     Q_INVOKABLE QString htmlSafeMemberName(const QString &userId) const
     {
@@ -145,7 +197,6 @@ public:
 #endif
 
 private:
-    QString m_cachedInput;
     QSet<const Quotient::RoomEvent *> highlights;
 
     bool m_hasFileUploading = false;
@@ -160,9 +211,15 @@ private:
     void onAddHistoricalTimelineEvents(rev_iter_t from) override;
     void onRedaction(const Quotient::RoomEvent &prevEvent, const Quotient::RoomEvent &after) override;
 
-    static QString markdownToHTML(const QString &markdown);
     QCoro::Task<void> doDeleteMessagesByUser(const QString &user);
     QCoro::Task<void> doUploadFile(QUrl url, QString body = QString());
+
+    QString m_chatBoxText;
+    QString m_chatBoxReplyId;
+    QString m_chatBoxEditId;
+    QString m_chatBoxAttachmentPath;
+    QVector<Mention> m_mentions;
+    QString m_savedText;
 
 private Q_SLOTS:
     void countChanged();
@@ -179,14 +236,17 @@ Q_SIGNALS:
     void isInviteChanged();
     void displayNameChanged();
     void pushNotificationStateChanged(PushNotificationState::State state);
-    void positiveMessage(const QString &message);
+    void showMessage(MessageType messageType, const QString &message);
+    void chatBoxTextChanged();
+    void chatBoxReplyIdChanged();
+    void chatBoxEditIdChanged();
+    void chatBoxAttachmentPathChanged();
 
 public Q_SLOTS:
     void uploadFile(const QUrl &url, const QString &body = QString());
     void acceptInvitation();
     void forget();
     void sendTypingNotification(bool isTyping);
-    QString preprocessText(const QString &text);
 
     /// @param rawText The text as it was typed.
     /// @param cleanedText The text with link to the users.

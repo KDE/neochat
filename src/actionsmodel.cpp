@@ -1,0 +1,401 @@
+// SPDX-FileCopyrightText: 2022 Tobias Fella <fella@posteo.de>
+// SPDX-License-Identifier: LGPL-2.0-or-later
+
+#include "actionsmodel.h"
+
+#include "controller.h"
+#include "neochatroom.h"
+#include "neochatuser.h"
+#include <events/roommemberevent.h>
+
+#include <KLocalizedString>
+
+using Action = ActionsModel::Action;
+using namespace Quotient;
+
+QStringList rainbowColors{"#ff2b00", "#ff5500", "#ff8000", "#ffaa00", "#ffd500", "#ffff00", "#d4ff00", "#aaff00", "#80ff00", "#55ff00", "#2bff00", "#00ff00",
+                          "#00ff2b", "#00ff55", "#00ff80", "#00ffaa", "#00ffd5", "#00ffff", "#00d4ff", "#00aaff", "#007fff", "#0055ff", "#002bff", "#0000ff",
+                          "#2a00ff", "#5500ff", "#7f00ff", "#aa00ff", "#d400ff", "#ff00ff", "#ff00d4", "#ff00aa", "#ff0080", "#ff0055", "#ff002b", "#ff0000"};
+
+QVector<ActionsModel::Action> actions{
+    Action{
+        QStringLiteral("shrug"),
+        [](const QString &message, NeoChatRoom *) {
+            return QStringLiteral("¯\\\\_(ツ)_/¯ %1").arg(message);
+        },
+        true,
+        std::nullopt,
+        kli18n("<message>"),
+        kli18n("Prepends ¯\\_(ツ)_/¯ to a plain-text message"),
+    },
+    Action{
+        QStringLiteral("lenny"),
+        [](const QString &message, NeoChatRoom *) {
+            return QStringLiteral("( ͡° ͜ʖ ͡°) %1").arg(message);
+        },
+        true,
+        std::nullopt,
+        kli18n("<message>"),
+        kli18n("Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"),
+    },
+    Action{
+        QStringLiteral("tableflip"),
+        [](const QString &message, NeoChatRoom *) {
+            return QStringLiteral("(╯°□°）╯︵ ┻━┻ %1").arg(message);
+        },
+        true,
+        std::nullopt,
+        kli18n("<message>"),
+        kli18n("Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"),
+    },
+    Action{
+        QStringLiteral("unflip"),
+        [](const QString &message, NeoChatRoom *) {
+            return QStringLiteral("┬──┬ ノ( ゜-゜ノ) %1").arg(message);
+        },
+        true,
+        std::nullopt,
+        kli18n("<message>"),
+        kli18n("Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"),
+    },
+    Action{
+        QStringLiteral("rainbow"),
+        [](const QString &text, NeoChatRoom *room) {
+            QString rainbowText;
+            for (int i = 0; i < text.length(); i++) {
+                rainbowText += QStringLiteral("<font color='%2'>%3</font>").arg(rainbowColors[i % rainbowColors.length()], text.at(i));
+            }
+            // Ideally, we would just return rainbowText and let that do the rest, but the colors don't survive markdownToHTML.
+            room->postMessage(QStringLiteral("/rainbow %1").arg(text),
+                              rainbowText,
+                              RoomMessageEvent::MsgType::Text,
+                              room->chatBoxReplyId(),
+                              room->chatBoxEditId());
+            return QString();
+        },
+        false,
+        std::nullopt,
+        kli18n("<message>"),
+        kli18n("Sends the given message colored as a rainbow"),
+    },
+    Action{
+        QStringLiteral("rainbowme"),
+        [](const QString &text, NeoChatRoom *room) {
+            QString rainbowText;
+            for (int i = 0; i < text.length(); i++) {
+                rainbowText += QStringLiteral("<font color='%2'>%3</font>").arg(rainbowColors[i % rainbowColors.length()], text.at(i));
+            }
+            // Ideally, we would just return rainbowText and let that do the rest, but the colors don't survive markdownToHTML.
+            room->postMessage(QStringLiteral("/rainbow %1").arg(text),
+                              rainbowText,
+                              RoomMessageEvent::MsgType::Emote,
+                              room->chatBoxReplyId(),
+                              room->chatBoxEditId());
+            return QString();
+        },
+        false,
+        std::nullopt,
+        kli18n("<message>"),
+        kli18n("Sends the given emote colored as a rainbow"),
+    },
+    Action{
+        QStringLiteral("spoiler"),
+        [](const QString &text, NeoChatRoom *room) {
+            // Ideally, we would just return rainbowText and let that do the rest, but the colors don't survive markdownToHTML.
+            room->postMessage(QStringLiteral("/rainbow %1").arg(text),
+                              QStringLiteral("<span data-mx-spoiler>%1</span>").arg(text),
+                              RoomMessageEvent::MsgType::Text,
+                              room->chatBoxReplyId(),
+                              room->chatBoxEditId());
+            return QString();
+        },
+        false,
+        std::nullopt,
+        kli18n("<message>"),
+        kli18n("Sends the given message as a spoiler"),
+    },
+    Action{
+        QStringLiteral("me"),
+        [](const QString &text, NeoChatRoom *) {
+            return text;
+        },
+        true,
+        RoomMessageEvent::MsgType::Emote,
+        kli18n("<message>"),
+        kli18n("Sends the given emote"),
+    },
+    Action{
+        QStringLiteral("notice"),
+        [](const QString &text, NeoChatRoom *) {
+            return text;
+        },
+        true,
+        RoomMessageEvent::MsgType::Notice,
+        kli18n("<message>"),
+        kli18n("Sends the given message as a notice"),
+    },
+    Action{
+        QStringLiteral("invite"),
+        [](const QString &text, NeoChatRoom *room) {
+            static const QRegularExpression mxidRegex(
+                QStringLiteral(R"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"));
+            auto regexMatch = mxidRegex.match(text);
+            if (!regexMatch.hasMatch()) {
+                Q_EMIT room->showMessage(NeoChatRoom::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
+                return QString();
+            }
+#ifdef QUOTIENT_07
+            if (room->currentState().get<RoomMemberEvent>(text)->membership() == Membership::Invite) {
+                Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("<user> is already invited to this room.", "%1 is already invited to this room.", text));
+                return QString();
+            }
+            if (room->currentState().get<RoomMemberEvent>(text)->membership() == Membership::Ban) {
+                Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("<user> is banned from this room.", "%1 is banned from this room.", text));
+                return QString();
+            }
+#endif
+            if (room->localUser()->id() == text) {
+                Q_EMIT room->showMessage(NeoChatRoom::Positive, i18n("You are already in this room."));
+                return QString();
+            }
+            if (room->users().contains(room->user(text))) {
+                Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("<user> is already in this room.", "%1 is already in this room.", text));
+                return QString();
+            }
+            room->inviteToRoom(text);
+            Q_EMIT room->showMessage(NeoChatRoom::Positive, i18nc("<username> was invited into this room", "%1 was invited into this room", text));
+            return QString();
+        },
+        false,
+        std::nullopt,
+        kli18n("<user id>"),
+        kli18n("Invites the user to this room"),
+    },
+    Action{
+        QStringLiteral("join"),
+        [](const QString &text, NeoChatRoom *room) {
+            QRegularExpression roomRegex(QStringLiteral(R"(^[#!][^:]+:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?)"));
+            auto regexMatch = roomRegex.match(text);
+            if (!regexMatch.hasMatch()) {
+                Q_EMIT room->showMessage(NeoChatRoom::Error,
+                                         i18nc("'<text>' does not look like a room id or alias.", "'%1' does not look like a room id or alias.", text));
+                return QString();
+            }
+            if (Controller::instance().activeConnection()->room(text) || Controller::instance().activeConnection()->roomByAlias(text)) {
+                Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("You are already in room <roomname>.", "You are already in room %1.", text));
+                return QString();
+            }
+            Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("Joining room <roomname>.", "Joining room %1.", text));
+            Controller::instance().joinRoom(text);
+            return QString();
+        },
+        false,
+        std::nullopt,
+        kli18n("<room alias or id>"),
+        kli18n("Joins the given room"),
+    },
+    Action{
+        QStringLiteral("j"),
+        [](const QString &text, NeoChatRoom *room) {
+            QRegularExpression roomRegex(QStringLiteral(R"(^[#!][^:]+:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?)"));
+            auto regexMatch = roomRegex.match(text);
+            if (!regexMatch.hasMatch()) {
+                Q_EMIT room->showMessage(NeoChatRoom::Error,
+                                         i18nc("'<text>' does not look like a room id or alias.", "'%1' does not look like a room id or alias.", text));
+                return QString();
+            }
+            if (Controller::instance().activeConnection()->room(text) || Controller::instance().activeConnection()->roomByAlias(text)) {
+                Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("You are already in room <roomname>.", "You are already in room %1.", text));
+                return QString();
+            }
+            Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("Joining room <roomname>.", "Joining room %1.", text));
+            Controller::instance().joinRoom(text);
+            return QString();
+        },
+        false,
+        std::nullopt,
+        kli18n("<room alias or id>"),
+        kli18n("Joins the given room"),
+    },
+    Action{
+        QStringLiteral("part"),
+        [](const QString &text, NeoChatRoom *room) {
+            if (text.isEmpty()) {
+                Q_EMIT room->showMessage(NeoChatRoom::Info, i18n("Leaving this room."));
+                room->connection()->leaveRoom(room);
+            } else {
+                QRegularExpression roomRegex(QStringLiteral(R"(^[#!][^:]+:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?)"));
+                auto regexMatch = roomRegex.match(text);
+                if (!regexMatch.hasMatch()) {
+                    Q_EMIT room->showMessage(NeoChatRoom::Error,
+                                             i18nc("'<text>' does not look like a room id or alias.", "'%1' does not look like a room id or alias.", text));
+                    return QString();
+                }
+                auto leaving = room->connection()->room(text);
+                if (!leaving) {
+                    leaving = room->connection()->roomByAlias(text);
+                }
+                if (leaving) {
+                    Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("Leaving room <roomname>.", "Leaving room %1.", text));
+                    room->connection()->leaveRoom(leaving);
+                } else {
+                    Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("Room <roomname> not found", "Room %1 not found.", text));
+                }
+            }
+            return QString();
+        },
+        false,
+        std::nullopt,
+        kli18n("[<room alias or id>]"),
+        kli18n("Leaves the given room or this room, if there is none given"),
+    },
+    Action{
+        QStringLiteral("leave"),
+        [](const QString &text, NeoChatRoom *room) {
+            if (text.isEmpty()) {
+                Q_EMIT room->showMessage(NeoChatRoom::Info, i18n("Leaving this room."));
+                room->connection()->leaveRoom(room);
+            } else {
+                QRegularExpression roomRegex(QStringLiteral(R"(^[#!][^:]+:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?)"));
+                auto regexMatch = roomRegex.match(text);
+                if (!regexMatch.hasMatch()) {
+                    Q_EMIT room->showMessage(NeoChatRoom::Error,
+                                             i18nc("'<text>' does not look like a room id or alias.", "'%1' does not look like a room id or alias.", text));
+                    return QString();
+                }
+                auto leaving = room->connection()->room(text);
+                if (!leaving) {
+                    leaving = room->connection()->roomByAlias(text);
+                }
+                if (leaving) {
+                    Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("Leaving room <roomname>.", "Leaving room %1.", text));
+                    room->connection()->leaveRoom(leaving);
+                } else {
+                    Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("Room <roomname> not found", "Room %1 not found.", text));
+                }
+            }
+            return QString();
+        },
+        false,
+        std::nullopt,
+        kli18n("[<room alias or id>]"),
+        kli18n("Leaves the given room or this room, if there is none given"),
+    },
+    Action{
+        QStringLiteral("ignore"),
+        [](const QString &text, NeoChatRoom *room) {
+            static const QRegularExpression mxidRegex(
+                QStringLiteral(R"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"));
+            auto regexMatch = mxidRegex.match(text);
+            if (!regexMatch.hasMatch()) {
+                Q_EMIT room->showMessage(NeoChatRoom::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
+                return QString();
+            }
+            auto user = room->connection()->users()[text];
+            if (room->connection()->ignoredUsers().contains(user->id())) {
+                Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("<username> is already ignored.", "%1 is already ignored.", text));
+                return QString();
+            }
+            if (user) {
+                room->connection()->addToIgnoredUsers(user);
+                Q_EMIT room->showMessage(NeoChatRoom::Positive, i18nc("<username> is now ignored", "%1 is now ignored.", text));
+            } else {
+                Q_EMIT room->showMessage(NeoChatRoom::Error, i18nc("<username> is not a known user", "%1 is not a known user.", text));
+            }
+            return QString();
+        },
+        false,
+        std::nullopt,
+        kli18n("<user id>"),
+        kli18n("Ignores the given user"),
+    },
+    Action{
+        QStringLiteral("unignore"),
+        [](const QString &text, NeoChatRoom *room) {
+            static const QRegularExpression mxidRegex(
+                QStringLiteral(R"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"));
+            auto regexMatch = mxidRegex.match(text);
+            if (!regexMatch.hasMatch()) {
+                Q_EMIT room->showMessage(NeoChatRoom::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
+                return QString();
+            }
+            auto user = room->connection()->users()[text];
+            if (user) {
+                if (!room->connection()->ignoredUsers().contains(user->id())) {
+                    Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("<username> is not ignored.", "%1 is not ignored.", text));
+                    return QString();
+                }
+                room->connection()->removeFromIgnoredUsers(user);
+                Q_EMIT room->showMessage(NeoChatRoom::Positive, i18nc("<username> is no longer ignored.", "%1 is no longer ignored.", text));
+            } else {
+                Q_EMIT room->showMessage(NeoChatRoom::Error, i18nc("<username> is not a known user", "%1 is not a known user.", text));
+            }
+            return QString();
+        },
+        false,
+        std::nullopt,
+        kli18n("<user id>"),
+        kli18n("Unignores the given user"),
+    },
+    Action{
+        QStringLiteral("react"),
+        [](const QString &text, NeoChatRoom *room) {
+            QString replyEventId = room->chatBoxReplyId();
+            if (replyEventId.isEmpty()) {
+                for (auto it = room->messageEvents().crbegin(); it != room->messageEvents().crend(); it++) {
+                    const auto &evt = **it;
+                    if (const auto event = eventCast<const RoomMessageEvent>(&evt)) {
+                        room->toggleReaction(event->id(), text);
+                        return QString();
+                    }
+                }
+            }
+            room->toggleReaction(replyEventId, text);
+            return QString();
+        },
+        false,
+        std::nullopt,
+        kli18n("<reaction text>"),
+        kli18n("React to the message with the given text"),
+    },
+};
+
+int ActionsModel::rowCount(const QModelIndex &parent) const
+{
+    Q_UNUSED(parent);
+    return actions.size();
+}
+
+QVariant ActionsModel::data(const QModelIndex &index, int role) const
+{
+    if (index.row() < 0 || index.row() >= actions.size()) {
+        return {};
+    }
+    if (role == Prefix) {
+        return actions[index.row()].prefix;
+    }
+    if (role == Description) {
+        return actions[index.row()].description.toString();
+    }
+    if (role == CompletionType) {
+        return QStringLiteral("action");
+    }
+    if (role == Parameters) {
+        return actions[index.row()].parameters.toString();
+    }
+    return {};
+}
+
+QHash<int, QByteArray> ActionsModel::roleNames() const
+{
+    return {
+        {Prefix, "prefix"},
+        {Description, "description"},
+        {CompletionType, "completionType"},
+    };
+}
+
+QVector<Action> &ActionsModel::allActions() const
+{
+    return actions;
+}

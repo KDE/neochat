@@ -337,6 +337,9 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
     if (role == AvatarRole) {
         return room->avatarMediaId();
     }
+    if (role == CanonicalAliasRole) {
+        return room->canonicalAlias();
+    }
     if (role == TopicRole) {
         return room->topic();
     }
@@ -429,6 +432,7 @@ QHash<int, QByteArray> RoomListModel::roleNames() const
     roles[NameRole] = "name";
     roles[DisplayNameRole] = "displayName";
     roles[AvatarRole] = "avatar";
+    roles[CanonicalAliasRole] = "canonicalAlias";
     roles[TopicRole] = "topic";
     roles[CategoryRole] = "category";
     roles[UnreadCountRole] = "unreadCount";

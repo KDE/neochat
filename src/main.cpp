@@ -39,11 +39,9 @@
 
 #include "actionshandler.h"
 #include "blurhashimageprovider.h"
-#include "chatboxhelper.h"
 #include "chatdocumenthandler.h"
 #include "clipboard.h"
 #include "collapsestateproxymodel.h"
-#include "commandmodel.h"
 #include "controller.h"
 #include "customemojimodel.h"
 #include "devicesmodel.h"
@@ -76,6 +74,8 @@
 #ifdef HAVE_COLORSCHEME
 #include "colorschemer.h"
 #endif
+#include "completionmodel.h"
+#include "neochatuser.h"
 
 #ifdef HAVE_RUNNER
 #include "runner.h"
@@ -167,7 +167,6 @@ int main(int argc, char *argv[])
     FileTypeSingleton fileTypeSingleton;
 
     Login *login = new Login();
-    ChatBoxHelper chatBoxHelper;
     UrlHelper urlHelper;
 
 #ifdef HAVE_COLORSCHEME
@@ -187,20 +186,18 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "LoginHelper", login);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "UrlHelper", &urlHelper);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "EmojiModel", new EmojiModel(&app));
-    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "CommandModel", new CommandModel(&app));
 #ifdef QUOTIENT_07
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "AccountRegistry", &Quotient::Accounts);
 #else
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "AccountRegistry", &Quotient::AccountRegistry::instance());
 #endif
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "SpaceHierarchyCache", &SpaceHierarchyCache::instance());
+    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "CustomEmojiModel", &CustomEmojiModel::instance());
     qmlRegisterType<ActionsHandler>("org.kde.neochat", 1, 0, "ActionsHandler");
-    qmlRegisterType<ChatBoxHelper>("org.kde.neochat", 1, 0, "ChatBoxHelper");
     qmlRegisterType<ChatDocumentHandler>("org.kde.neochat", 1, 0, "ChatDocumentHandler");
     qmlRegisterType<RoomListModel>("org.kde.neochat", 1, 0, "RoomListModel");
     qmlRegisterType<KWebShortcutModel>("org.kde.neochat", 1, 0, "WebShortcutModel");
     qmlRegisterType<UserListModel>("org.kde.neochat", 1, 0, "UserListModel");
-    qmlRegisterType<CustomEmojiModel>("org.kde.neochat", 1, 0, "CustomEmojiModel");
     qmlRegisterType<MessageEventModel>("org.kde.neochat", 1, 0, "MessageEventModel");
     qmlRegisterType<CollapseStateProxyModel>("org.kde.neochat", 1, 0, "CollapseStateProxyModel");
     qmlRegisterType<MessageFilterModel>("org.kde.neochat", 1, 0, "MessageFilterModel");
@@ -210,10 +207,12 @@ int main(int argc, char *argv[])
     qmlRegisterType<SortFilterSpaceListModel>("org.kde.neochat", 1, 0, "SortFilterSpaceListModel");
     qmlRegisterType<DevicesModel>("org.kde.neochat", 1, 0, "DevicesModel");
     qmlRegisterType<LinkPreviewer>("org.kde.neochat", 1, 0, "LinkPreviewer");
+    qmlRegisterType<CompletionModel>("org.kde.neochat", 1, 0, "CompletionModel");
     qmlRegisterUncreatableType<RoomMessageEvent>("org.kde.neochat", 1, 0, "RoomMessageEvent", "ENUM");
     qmlRegisterUncreatableType<PushNotificationState>("org.kde.neochat", 1, 0, "PushNotificationState", "ENUM");
     qmlRegisterUncreatableType<NeoChatRoomType>("org.kde.neochat", 1, 0, "NeoChatRoomType", "ENUM");
     qmlRegisterUncreatableType<UserType>("org.kde.neochat", 1, 0, "UserType", "ENUM");
+    qmlRegisterUncreatableType<NeoChatUser>("org.kde.neochat", 1, 0, "NeoChatUser", {});
 
     qRegisterMetaType<User *>("User*");
     qRegisterMetaType<User *>("const User*");

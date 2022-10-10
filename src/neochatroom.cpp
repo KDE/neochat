@@ -3,8 +3,6 @@
 
 #include "neochatroom.h"
 
-#include <cmark.h>
-
 #include <QFileInfo>
 #include <QMetaObject>
 #include <QMimeDatabase>
@@ -642,24 +640,6 @@ void NeoChatRoom::removeLocalAlias(const QString &alias)
     setLocalAliases(a);
 }
 
-QString NeoChatRoom::markdownToHTML(const QString &markdown)
-{
-    const auto str = markdown.toUtf8();
-    char *tmp_buf = cmark_markdown_to_html(str.constData(), str.size(), CMARK_OPT_HARDBREAKS);
-
-    const std::string html(tmp_buf);
-
-    free(tmp_buf);
-
-    auto result = QString::fromStdString(html).trimmed();
-
-    result.replace("<!-- raw HTML omitted -->", "");
-    result.replace("<p>", "");
-    result.replace("</p>", "");
-
-    return result;
-}
-
 QString msgTypeToString(MessageEventType msgType)
 {
     switch (msgType) {
@@ -682,11 +662,6 @@ QString msgTypeToString(MessageEventType msgType)
     default:
         return "m.text";
     }
-}
-
-QString NeoChatRoom::preprocessText(const QString &text)
-{
-    return markdownToHTML(text);
 }
 
 void NeoChatRoom::postMessage(const QString &rawText, const QString &text, MessageEventType type, const QString &replyEventId, const QString &relateToEventId)
@@ -1094,7 +1069,99 @@ void NeoChatRoom::reportEvent(const QString &eventId, const QString &reason)
     auto job = connection()->callApi<ReportContentJob>(id(), eventId, -50, reason);
     connect(job, &BaseJob::finished, this, [this, job]() {
         if (job->error() == BaseJob::Success) {
-            Q_EMIT positiveMessage(i18n("Report sent successfully."));
+            Q_EMIT showMessage(Positive, i18n("Report sent successfully."));
+            Q_EMIT showMessage(MessageType::Positive, i18n("Report sent successfully."));
         }
     });
+}
+
+QString NeoChatRoom::chatBoxText() const
+{
+    return m_chatBoxText;
+}
+
+void NeoChatRoom::setChatBoxText(const QString &text)
+{
+    m_chatBoxText = text;
+    Q_EMIT chatBoxTextChanged();
+}
+
+QString NeoChatRoom::chatBoxReplyId() const
+{
+    return m_chatBoxReplyId;
+}
+
+void NeoChatRoom::setChatBoxReplyId(const QString &replyId)
+{
+    m_chatBoxReplyId = replyId;
+    Q_EMIT chatBoxReplyIdChanged();
+}
+
+QString NeoChatRoom::chatBoxEditId() const
+{
+    return m_chatBoxEditId;
+}
+
+void NeoChatRoom::setChatBoxEditId(const QString &editId)
+{
+    m_chatBoxEditId = editId;
+    Q_EMIT chatBoxEditIdChanged();
+}
+
+NeoChatUser *NeoChatRoom::chatBoxReplyUser() const
+{
+    if (m_chatBoxReplyId.isEmpty()) {
+        return nullptr;
+    }
+    return static_cast<NeoChatUser *>(user((*findInTimeline(m_chatBoxReplyId))->senderId()));
+}
+
+QString NeoChatRoom::chatBoxReplyMessage() const
+{
+    if (m_chatBoxReplyId.isEmpty()) {
+        return {};
+    }
+    return eventToString(*static_cast<const RoomMessageEvent *>(&**findInTimeline(m_chatBoxReplyId)));
+}
+
+NeoChatUser *NeoChatRoom::chatBoxEditUser() const
+{
+    if (m_chatBoxEditId.isEmpty()) {
+        return nullptr;
+    }
+    return static_cast<NeoChatUser *>(user((*findInTimeline(m_chatBoxEditId))->senderId()));
+}
+
+QString NeoChatRoom::chatBoxEditMessage() const
+{
+    if (m_chatBoxEditId.isEmpty()) {
+        return {};
+    }
+    return eventToString(*static_cast<const RoomMessageEvent *>(&**findInTimeline(m_chatBoxEditId)));
+}
+
+QString NeoChatRoom::chatBoxAttachmentPath() const
+{
+    return m_chatBoxAttachmentPath;
+}
+
+void NeoChatRoom::setChatBoxAttachmentPath(const QString &attachmentPath)
+{
+    m_chatBoxAttachmentPath = attachmentPath;
+    Q_EMIT chatBoxAttachmentPathChanged();
+}
+
+QVector<Mention> *NeoChatRoom::mentions()
+{
+    return &m_mentions;
+}
+
+QString NeoChatRoom::savedText() const
+{
+    return m_savedText;
+}
+
+void NeoChatRoom::setSavedText(const QString &savedText)
+{
+    m_savedText = savedText;
 }

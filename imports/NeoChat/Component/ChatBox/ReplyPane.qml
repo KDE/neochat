@@ -11,10 +11,8 @@ import org.kde.kirigami 2.14 as Kirigami
 import org.kde.neochat 1.0
 
 Loader {
-    id: root
-    readonly property bool isEdit: chatBoxHelper.isEditing
-    property var user: null
-    property string avatarMediaUrl: user ? "image://mxc/" + user.avatarMediaId : ""
+    id: replyPane
+    property NeoChatUser user: currentRoom.chatBoxReplyUser ?? currentRoom.chatBoxEditUser
 
     signal replyCancelled()
 
@@ -40,7 +38,7 @@ Loader {
                 Layout.alignment: textContentLayout.height > avatar.height ? Qt.AlignHCenter | Qt.AlignTop : Qt.AlignCenter
                 Layout.preferredWidth: Layout.preferredHeight
                 Layout.preferredHeight: fontMetrics.lineSpacing * 2 - fontMetrics.leading
-                source: root.avatarMediaUrl
+                source: user ? "image://mxc/" + currentRoom.getUser(user.id).avatarMediaId : ""
                 name: user ? user.displayName : ""
                 color: user ? user.color : "transparent"
                 visible: Boolean(user)
@@ -58,7 +56,7 @@ Loader {
                     text: {
                         let heading = "<b>%1</b>"
                         let userName = user ? "<font color=\""+ user.color +"\">" + currentRoom.htmlSafeMemberName(user.id) + "</font>" : ""
-                        if (isEdit) {
+                        if (currentRoom.chatBoxEditId.length > 0) {
                             heading = heading.arg(i18n("Editing message:")) + "<br/>"
                         } else {
                             heading = heading.arg(i18n("Replying to %1:", userName))
@@ -67,6 +65,7 @@ Loader {
                         return heading
                     }
                 }
+                //TODO edit user mentions
                 ScrollView {
                     Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                     Layout.fillWidth: true
@@ -81,11 +80,7 @@ Loader {
                         rightPadding: 0
                         topPadding: 0
                         bottomPadding: 0
-                        text: {
-                            const stylesheet = "<style> a{color:"+Kirigami.Theme.linkColor+";}.user-pill{}</style>";
-                            const content = chatBoxHelper.isReplying ? chatBoxHelper.replyEventContent : chatBoxHelper.editContent;
-                            return stylesheet + content;
-                        }
+                        text: "<style> a{color:" + Kirigami.Theme.linkColor + ";}.user-pill{}</style>" + (currentRoom.chatBoxEditId.length > 0 ? currentRoom.chatBoxEditMessage : currentRoom.chatBoxReplyMessage)
                         selectByMouse: true
                         selectByKeyboard: true
                         readOnly: true
@@ -99,15 +94,16 @@ Loader {
                 }
             }
 
-            Button {
-                id: cancelReplyButton
-                Layout.alignment: avatar.Layout.alignment
-                icon.name: "dialog-cancel"
-                text: i18n("Cancel")
+            ToolButton {
                 display: AbstractButton.IconOnly
-                onClicked: {
-                    chatBoxHelper.clear();
-                    root.replyCancelled();
+                action: Kirigami.Action {
+                    text: i18nc("@action:button", "Cancel reply")
+                    icon.name: "dialog-close"
+                    onTriggered: {
+                        currentRoom.chatBoxReplyId = "";
+                        currentRoom.chatBoxEditId = "";
+                    }
+                    shortcut: "Escape"
                 }
                 ToolTip.text: text
                 ToolTip.visible: hovered

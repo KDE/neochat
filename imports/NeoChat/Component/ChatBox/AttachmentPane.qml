@@ -12,16 +12,17 @@ import org.kde.neochat 1.0
 import NeoChat.Page 1.0
 
 Loader {
-    id: root
+    id: attachmentPaneLoader
 
-    property var attachmentMimetype: FileType.mimeTypeForUrl(chatBoxHelper.attachmentPath)
+    readonly property var attachmentMimetype: FileType.mimeTypeForUrl(attachmentPaneLoader.attachmentPath)
     readonly property bool hasImage: attachmentMimetype.valid && FileType.supportedImageFormats.includes(attachmentMimetype.preferredSuffix)
+    readonly property string attachmentPath: currentRoom.chatBoxAttachmentPath
+    readonly property string baseFileName: attachmentPath.substring(attachmentPath.lastIndexOf('/') + 1, attachmentPath.length)
 
     active: visible
     sourceComponent: Component {
         Pane {
             id: attachmentPane
-            property string baseFileName: chatBoxHelper.attachmentPath.toString().substring(chatBoxHelper.attachmentPath.toString().lastIndexOf('/') + 1, chatBoxHelper.attachmentPath.length)
             Kirigami.Theme.colorSet: Kirigami.Theme.View
 
             contentItem: Item {
@@ -45,8 +46,8 @@ Loader {
                     width: Math.min(implicitWidth, attachmentPane.availableWidth)
                     asynchronous: true
                     cache: false // Cache is not needed. Images will rarely be shown repeatedly.
-                    smooth: height == preferredHeight && parent.height == parent.implicitHeight // Don't smooth until height animation stops
-                    source: hasImage ? chatBoxHelper.attachmentPath : ""
+                    smooth: height === preferredHeight && parent.height === parent.implicitHeight // Don't smooth until height animation stops
+                    source: hasImage ? attachmentPaneLoader.attachmentPath : ""
                     visible: hasImage
                     fillMode: Image.PreserveAspectFit
 
@@ -152,7 +153,7 @@ Loader {
                         Item {
                             Layout.fillWidth: true
                         }
-                        Button {
+                        ToolButton {
                             id: editImageButton
                             visible: hasImage
                             icon.name: "document-edit"
@@ -162,25 +163,25 @@ Loader {
                             Component {
                                 id: imageEditorPage
                                 ImageEditorPage {
-                                    imagePath: chatBoxHelper.attachmentPath
+                                    imagePath: attachmentPaneLoader.attachmentPath
                                 }
                             }
                             onClicked: {
                                 let imageEditor = applicationWindow().pageStack.layers.push(imageEditorPage);
                                 imageEditor.newPathChanged.connect(function(newPath) {
                                     applicationWindow().pageStack.layers.pop();
-                                    chatBoxHelper.attachmentPath = newPath;
+                                    attachmentPaneLoader.attachmentPath = newPath;
                                 });
                             }
                             ToolTip.text: text
                             ToolTip.visible: hovered
                         }
-                        Button {
+                        ToolButton {
                             id: cancelAttachmentButton
-                            icon.name: "dialog-cancel"
-                            text: i18n("Cancel")
+                            icon.name: "dialog-close"
+                            text: i18n("Cancel sending Image")
                             display: AbstractButton.IconOnly
-                            onClicked: chatBoxHelper.clearAttachment();
+                            onClicked: currentRoom.chatBoxAttachmentPath = "";
                             ToolTip.text: text
                             ToolTip.visible: hovered
                         }

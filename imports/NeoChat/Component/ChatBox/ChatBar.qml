@@ -5,8 +5,6 @@
 import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15
-import QtQuick.Templates 2.15 as T
-import Qt.labs.platform 1.1 as Platform
 import QtQuick.Window 2.15
 
 import org.kde.kirigami 2.18 as Kirigami
@@ -14,25 +12,13 @@ import org.kde.neochat 1.0
 
 ToolBar {
     id: chatBar
-    property string replyEventId: ""
-    property string editEventId: ""
     property alias inputFieldText: inputField.text
     property alias textField: inputField
     property alias emojiPaneOpened: emojiButton.checked
 
-    // store each user we autoComplete here, this will be helpful later to generate
-    // the matrix.to links.
-    // This use an hack to define: https://doc.qt.io/qt-5/qml-var.html#property-value-initialization-semantics
-    property var userAutocompleted: ({})
-
     signal closeAllTriggered()
     signal inputFieldForceActiveFocusTriggered()
     signal messageSent()
-    signal pasteImageTriggered()
-    signal editLastUserMessage()
-    signal replyPreviousUserMessage()
-
-    property alias isCompleting: completionMenu.visible
 
     onInputFieldForceActiveFocusTriggered: {
         inputField.forceActiveFocus();
@@ -92,12 +78,7 @@ ToolBar {
                 topPadding: 0
                 bottomPadding: 0
 
-                property real progress: 0
-                property bool autoAppeared: false
-                //property int lineHeight: contentHeight / lineCount
-
-                text: inputFieldText
-                placeholderText: readOnly ? i18n("This room is encrypted. Sending encrypted messages is not yet supported.") : editEventId.length > 0 ? i18n("Edit Message") : currentRoom.usesEncryption ? i18n("Send an encrypted message…") : i18n("Send a message…")
+                placeholderText: readOnly ? i18n("This room is encrypted. Sending encrypted messages is not yet supported.") : currentRoom.chatBoxEditId.length > 0 ? i18n("Edit Message") : currentRoom.usesEncryption ? i18n("Send an encrypted message…") : i18n("Send a message…")
                 verticalAlignment: TextEdit.AlignVCenter
                 horizontalAlignment: TextEdit.AlignLeft
                 wrapMode: Text.Wrap
@@ -105,7 +86,6 @@ ToolBar {
 
                 Kirigami.Theme.colorSet: Kirigami.Theme.View
                 Kirigami.Theme.inherit: false
-                Kirigami.SpellChecking.enabled: true
 
                 color: Kirigami.Theme.textColor
                 selectionColor: Kirigami.Theme.highlightColor
@@ -114,117 +94,54 @@ ToolBar {
 
                 selectByMouse: !Kirigami.Settings.tabletMode
 
-                ChatDocumentHandler {
-                    id: documentHandler
-                    document: inputField.textDocument
-                    cursorPosition: inputField.cursorPosition
-                    selectionStart: inputField.selectionStart
-                    selectionEnd: inputField.selectionEnd
-                    room: currentRoom ?? null
-                }
-
-                Timer {
-                    id: repeatTimer
-                    interval: 5000
-                }
-
-                function sendMessage(event) {
-                    if (isCompleting && completionMenu.count > 0) {
-                        chatBar.complete();
+                Keys.onEnterPressed: {
+                    if (completionMenu.visible) {
+                        completionMenu.complete()
                     } else if (event.modifiers & Qt.ShiftModifier) {
                         inputField.insert(cursorPosition, "\n")
                     } else {
-                        currentRoom.sendTypingNotification(false)
-                        chatBar.postMessage()
+                        chatBar.postMessage();
                     }
-                    isCompleting = false;
+                }
+                Keys.onReturnPressed: {
+                    if (completionMenu.visible) {
+                        completionMenu.complete()
+                    } else if (event.modifiers & Qt.ShiftModifier) {
+                        inputField.insert(cursorPosition, "\n")
+                    } else {
+                        chatBar.postMessage();
+                    }
                 }
 
-                Keys.onReturnPressed: { sendMessage(event) }
-                Keys.onEnterPressed: { sendMessage(event) }
-
-                Keys.onEscapePressed: {
-                    closeAllTriggered()
+                Keys.onTabPressed: {
+                    if (completionMenu.visible) {
+                        completionMenu.complete()
+                    }
                 }
 
                 Keys.onPressed: {
                     if (event.key === Qt.Key_V && event.modifiers & Qt.ControlModifier) {
                         chatBar.pasteImage();
                     } else if (event.key === Qt.Key_Up && event.modifiers & Qt.ControlModifier) {
-                        replyPreviousUserMessage();
+                        let replyEvent = messageEventModel.getLatestMessageFromIndex(0)
+                        if (replyEvent && replyEvent["event_id"]) {
+                            currentRoom.chatBoxReplyId = replyEvent["event_id"]
+                        }
                     } else if (event.key === Qt.Key_Up && inputField.text.length === 0) {
-                        editLastUserMessage();
-                    }
-                }
-
-                Keys.onBacktabPressed: {
-                    if (event.modifiers & Qt.ControlModifier) {
-                        switchRoomUp();
-                        return;
-                    }
-                    if (!isCompleting) {
-                        nextItemInFocusChain(false).forceActiveFocus(Qt.TabFocusReason)
-                        return
-                    }
-                    if (!autoAppeared) {
-                        let decrementedIndex = completionMenu.currentIndex - 1
-                        // Wrap around to the last item
-                        if (decrementedIndex < 0) {
-                            decrementedIndex = Math.max(completionMenu.count - 1, 0) // 0 if count == 0
+                        let editEvent = messageEventModel.getLastLocalUserMessageEventId()
+                        if (editEvent) {
+                            currentRoom.chatBoxEditId = editEvent["event_id"]
                         }
-                        completionMenu.currentIndex = decrementedIndex
-                    } else {
-                        autoAppeared = false;
+                    } else if (event.key === Qt.Key_Up && completionMenu.visible) {
+                        completionMenu.decrementIndex()
+                    } else if (event.key === Qt.Key_Down && completionMenu.visible) {
+                        completionMenu.incrementIndex()
                     }
-
-                    chatBar.complete();
                 }
 
-                // yes, decrement goes up and increment goes down visually.
-                Keys.onUpPressed: (event) => {
-                    if (chatBar.isCompleting) {
-                        event.accepted = true
-                        completionMenu.listView.decrementCurrentIndex()
-                        autoAppeared = true;
-                    }
-                    event.accepted = false
-                }
-
-                Keys.onDownPressed: (event) => {
-                    if (chatBar.isCompleting) {
-                        event.accepted = true
-                        completionMenu.listView.incrementCurrentIndex()
-                        autoAppeared = true;
-                    }
-                    event.accepted = false
-                }
-
-                Keys.onTabPressed: {
-                    if (event.modifiers & Qt.ControlModifier) {
-                        switchRoomDown();
-                        return;
-                    }
-                    if (!isCompleting) {
-                        nextItemInFocusChain().forceActiveFocus(Qt.TabFocusReason);
-                        return;
-                    }
-
-                    // TODO detect moved cursor
-
-                    // ignore first time tab was clicked so that user can select
-                    // first emoji/user
-                    if (!autoAppeared) {
-                        let incrementedIndex = completionMenu.currentIndex + 1;
-                        // Wrap around to the first item
-                        if (incrementedIndex > completionMenu.count - 1) {
-                            incrementedIndex = 0
-                        }
-                        completionMenu.currentIndex = incrementedIndex;
-                    } else {
-                        autoAppeared = false;
-                    }
-
-                    chatBar.complete();
+                Timer {
+                    id: repeatTimer
+                    interval: 5000
                 }
 
                 onTextChanged: {
@@ -233,58 +150,20 @@ ToolBar {
                     }
                     repeatTimer.start()
 
-                    currentRoom.cachedInput = text
-                    autoAppeared = false;
-
-                    const completionInfo = documentHandler.getAutocompletionInfo(isCompleting);
-
-                    if (completionInfo.type === ChatDocumentHandler.Ignore) {
-                        if (completionInfo.keyword) {
-                            // custom emojis
-                            const idx = completionMenu.currentIndex;
-                            completionMenu.model = Array.from(chatBar.customEmojiModel.filterModel(completionInfo.keyword)).concat(EmojiModel.filterModel(completionInfo.keyword))
-                            completionMenu.currentIndex = idx;
-                        }
-                        return;
-                    }
-
-                    if (completionInfo.type === ChatDocumentHandler.None) {
-                        isCompleting = false;
-                        return;
-                    }
-
-                    completionMenu.completionType = completionInfo.type
-                    if (completionInfo.type === ChatDocumentHandler.User) {
-                        completionMenu.model = currentRoom.getUsers(completionInfo.keyword, 10);
-                    } else if (completionInfo.type === ChatDocumentHandler.Command) {
-                        completionMenu.model = CommandModel.filterModel(completionInfo.keyword);
-                    } else {
-                        completionMenu.model = Array.from(chatBar.customEmojiModel.filterModel(completionInfo.keyword)).concat(EmojiModel.filterModel(completionInfo.keyword))
-                    }
-
-                    if (completionMenu.model.length === 0) {
-                        isCompleting = false;
-                        return;
-                    }
-
-                    if (!isCompleting) {
-                        isCompleting = true
-                        autoAppeared = true;
-                        completionMenu.endPosition = cursorPosition
-                    }
+                    currentRoom.chatBoxText = text
                 }
             }
         }
 
         Item {
-            visible: !chatBoxHelper.isReplying && (!chatBoxHelper.hasAttachment || uploadingBusySpinner.running)
+            visible: currentRoom.chatBoxReplyId.length === 0 && (currentRoom.chatBoxAttachmentPath.length === 0 || uploadingBusySpinner.running)
             implicitWidth: uploadButton.implicitWidth
             implicitHeight: uploadButton.implicitHeight
             ToolButton {
                 id: uploadButton
                 anchors.fill: parent
                 // Matrix does not allow sending attachments in replies
-                visible: !chatBoxHelper.isReplying  && !chatBoxHelper.hasAttachment && !uploadingBusySpinner.running
+                visible: currentRoom.chatBoxReplyId.length === 0  && currentRoom.chatBoxAttachmentPath.length === 0 && !uploadingBusySpinner.running
                 icon.name: "mail-attachment"
                 text: i18n("Attach an image or file")
                 display: AbstractButton.IconOnly
@@ -295,8 +174,10 @@ ToolBar {
                     } else {
                         var fileDialog = openFileDialog.createObject(ApplicationWindow.overlay)
                         fileDialog.chosen.connect((path) => {
-                            if (!path) { return }
-                            chatBoxHelper.attachmentPath = path;
+                            if (!path) {
+                                return;
+                            }
+                            currentRoom.chatBoxAttachmentPath = path;
                         })
                         fileDialog.open()
                     }
@@ -339,24 +220,12 @@ ToolBar {
         }
     }
 
-    Action {
-        id: pasteAction
-        shortcut: StandardKey.Paste
-        onTriggered: {
-            if (Clipboard.hasImage) {
-                pasteImageTriggered();
-            }
-            activeFocusItem.paste();
-        }
-    }
-
     CompletionMenu {
         id: completionMenu
-        width: parent.width
-        //height: 80 //Math.min(implicitHeight, delegate.implicitHeight * 6)
         height: implicitHeight
-        y: -height - 1
+        y: -height - 5
         z: 1
+        chatDocumentHandler: documentHandler
         Behavior on height {
             NumberAnimation {
                 property: "height"
@@ -364,59 +233,42 @@ ToolBar {
                 easing.type: Easing.OutCubic
             }
         }
-        onCompleteTriggered: {
-            complete()
-            isCompleting = false;
+    }
+
+    Connections {
+        target: currentRoom
+        function onChatBoxEditIdChanged() {
+            chatBar.inputFieldText = currentRoom.chatBoxEditMessage
         }
     }
 
-    property CustomEmojiModel customEmojiModel: CustomEmojiModel {
-        connection: Controller.activeConnection
+    ChatDocumentHandler {
+        id: documentHandler
+        document: inputField.textDocument
+        cursorPosition: inputField.cursorPosition
+        selectionStart: inputField.selectionStart
+        selectionEnd: inputField.selectionEnd
+        Component.onCompleted: {
+            RoomManager.chatDocumentHandler = documentHandler;
+        }
     }
+
 
     function pasteImage() {
-        let localPath = Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/screenshots/" + (new Date()).getTime() + ".png";
-        if (!Clipboard.saveImage(localPath)) {
+        let localPath = Clipboard.saveImage();
+        if (localPath.length === 0) {
             return;
         }
-        chatBoxHelper.attachmentPath = localPath;
+        currentRoom.chatBoxAttachmentPath = localPath
     }
 
     function postMessage() {
-        checkForFancyEffectsReason();
+        actionsHandler.handleMessage();
 
-        if (chatBoxHelper.hasAttachment) {
-            // send attachment but don't reset the text
-            actionsHandler.postMessage("", chatBoxHelper.attachmentPath,
-                chatBoxHelper.replyEventId, chatBoxHelper.editEventId, {}, this.customEmojiModel);
-            currentRoom.markAllMessagesAsRead();
-            messageSent();
-            return;
-        }
-
-        const re = /^s\/([^\/]*)\/([^\/]*)/;
-        if (Config.allowQuickEdit && re.test(inputField.text)) {
-            // send edited messages
-            actionsHandler.postEdit(inputField.text);
-        } else {
-            // send normal message
-            actionsHandler.postMessage(inputField.text.trim(), chatBoxHelper.attachmentPath,
-                chatBoxHelper.replyEventId, chatBoxHelper.editEventId, userAutocompleted, this.customEmojiModel);
-        }
         currentRoom.markAllMessagesAsRead();
         inputField.clear();
-        inputField.text = Qt.binding(function() {
-            return currentRoom ? currentRoom.cachedInput : "";
-        });
+        currentRoom.chatBoxReplyId = "";
+        currentRoom.chatBoxEditId = "";
         messageSent()
-    }
-
-    function complete() {
-        documentHandler.replaceAutoComplete(completionMenu.currentDisplayText);
-        if (completionMenu.completionType === ChatDocumentHandler.User
-            && completionMenu.currentDisplayText.length > 0
-            && completionMenu.currentItem.userId.length > 0) {
-            userAutocompleted[completionMenu.currentDisplayText] = completionMenu.currentItem.userId;
-        }
     }
 }

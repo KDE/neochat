@@ -30,8 +30,6 @@ add_library(neochat STATIC
     filetypesingleton.cpp
     login.cpp
     stickerevent.cpp
-    chatboxhelper.cpp
-    commandmodel.cpp
     webshortcutmodel.cpp
     blurhash.cpp
     blurhashimageprovider.cpp
@@ -40,6 +38,9 @@ add_library(neochat STATIC
     urlhelper.cpp
     windowcontroller.cpp
     linkpreviewer.cpp
+    completionmodel.cpp
+    completionproxymodel.cpp
+    actionsmodel.cpp
 )
 
 add_executable(neochat-app
@@ -84,7 +85,7 @@ else()
 endif()
 
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR})
-target_link_libraries(neochat PUBLIC Qt::Core Qt::Quick Qt::Qml Qt::Gui Qt::Multimedia Qt::Network Qt::QuickControls2 KF5::I18n KF5::Kirigami2 KF5::Notifications KF5::ConfigCore KF5::ConfigGui KF5::CoreAddons Quotient cmark::cmark ${QTKEYCHAIN_LIBRARIES})
+target_link_libraries(neochat PUBLIC Qt::Core Qt::Quick Qt::Qml Qt::Gui Qt::Multimedia Qt::Network Qt::QuickControls2 KF5::I18n KF5::Kirigami2 KF5::Notifications KF5::ConfigCore KF5::ConfigGui KF5::CoreAddons KF5::SonnetCore Quotient cmark::cmark ${QTKEYCHAIN_LIBRARIES})
 if(TARGET QCoro5::Coro)
     target_link_libraries(neochat PUBLIC QCoro5::Coro)
 else()

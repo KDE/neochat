@@ -53,7 +53,6 @@ Kirigami.ScrollablePage {
 
     onCurrentRoomChanged: {
         hasScrolledUpBefore = false;
-        chatBoxHelper.clearEditReply()
     }
 
     Connections {
@@ -78,11 +77,6 @@ Kirigami.ScrollablePage {
     ActionsHandler {
         id: actionsHandler
         room: page.currentRoom
-        connection: Controller.activeConnection
-    }
-
-    ChatBoxHelper {
-        id: chatBoxHelper
     }
 
     Shortcut {
@@ -101,10 +95,10 @@ Kirigami.ScrollablePage {
     }
 
     Connections {
-        target: actionsHandler
+        target: currentRoom
         function onShowMessage(messageType, message) {
             page.header.contentItem.text = message;
-            page.header.contentItem.type = messageType === ActionsHandler.Error ? Kirigami.MessageType.Error : Kirigami.MessageType.Information;
+            page.header.contentItem.type = messageType === ActionsHandler.Error ? Kirigami.MessageType.Error : messageType === ActionsHandler.Positive ? Kirigami.MessageType.Positive : Kirigami.MessageType.Information;
             page.header.visible = true;
         }
     }
@@ -174,15 +168,6 @@ Kirigami.ScrollablePage {
             chatBox.addText(event.text);
             chatBox.focusInputField();
             return;
-        }
-    }
-
-    Connections {
-        target: currentRoom
-        function onPositiveMessage(message) {
-            page.header.contentItem.text = message;
-            page.header.contentItem.type =  Kirigami.MessageType.Positive;
-            page.header.visible = true;
         }
     }
 
@@ -268,9 +253,10 @@ Kirigami.ScrollablePage {
                         var fileDialog = openFileDialog.createObject(QQC2.ApplicationWindow.overlay)
 
                         fileDialog.chosen.connect(function(path) {
-                            if (!path) return
-
-                            chatBoxHelper.attachmentPath = path;
+                            if (!path) {
+                                return;
+                            }
+                            currentRoom.chatBoxAttachmentPath = path;
                         })
 
                         fileDialog.open()
@@ -292,7 +278,7 @@ Kirigami.ScrollablePage {
                         if (!Clipboard.saveImage(localPath)) {
                             return;
                         }
-                        chatBoxHelper.attachmentPath = localPath;
+                        currentRoom.chatBoxAttachmentPath = localPath;
                         attachDialog.close();
                     }
                 }
@@ -367,7 +353,7 @@ Kirigami.ScrollablePage {
         DropArea {
             id: dropAreaFile
             anchors.fill: parent
-            onDropped: chatBoxHelper.attachmentPath = drop.urls[0]
+            onDropped: currentRoom.chatBoxAttachmentPath = drop.urls[0];
         }
 
         QQC2.Pane {
@@ -510,9 +496,8 @@ Kirigami.ScrollablePage {
                     visible: hoverActions.showEdit
                     icon.name: "document-edit"
                     onClicked: {
-                        if (hoverActions.showEdit) {
-                            chatBoxHelper.edit(hoverActions.event.message, hoverActions.event.formattedBody, hoverActions.event.eventId)
-                        }
+                        currentRoom.chatBoxEditId = hoverActions.event.eventId;
+                        currentRoom.chatBoxReplyId = "";
                         chatBox.focusInputField();
                     }
                 }
@@ -522,7 +507,8 @@ Kirigami.ScrollablePage {
                     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                     icon.name: "mail-replied-symbolic"
                     onClicked: {
-                        chatBoxHelper.replyToMessage(hoverActions.event.eventId, hoverActions.event.message, hoverActions.event.author);
+                        currentRoom.chatBoxReplyId = hoverActions.event.eventId;
+                        currentRoom.chatBoxEditId = "";
                         chatBox.focusInputField();
                     }
                 }
@@ -534,22 +520,10 @@ Kirigami.ScrollablePage {
     footer: ChatBox {
         id: chatBox
         visible: !invitation.visible && !(messageListView.count === 0 && !currentRoom.allHistoryLoaded)
+        width: parent.width
         onMessageSent: {
             if (!messageListView.atYEnd) {
                 goToLastMessage();
-            }
-        }
-        onEditLastUserMessage: {
-            const targetMessage = messageEventModel.getLastLocalUserMessageEventId();
-            if (targetMessage) {
-                chatBoxHelper.edit(targetMessage["message"], targetMessage["formattedBody"], targetMessage["event_id"]);
-                chatBox.focusInputField();
-            }
-        }
-        onReplyPreviousUserMessage: {
-            const replyResponse = messageEventModel.getLatestMessageFromIndex(0);
-            if (replyResponse && replyResponse["event_id"]) {
-                chatBoxHelper.replyToMessage(replyResponse["event_id"], replyResponse["message"], replyResponse["sender_id"]);
             }
         }
     }
@@ -582,8 +556,8 @@ Kirigami.ScrollablePage {
 
         Connections {
             enabled: Config.showFancyEffects
-            target: chatBox
-            function onFancyEffectsReasonFound(fancyEffect) {
+            target: actionsHandler
+            function onShowEffect(fancyEffect) {
                 fancyEffectsContainer.processFancyEffectsReason(fancyEffect)
             }
         }

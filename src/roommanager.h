@@ -8,6 +8,8 @@
 #include <QObject>
 #include <uriresolver.h>
 
+#include "chatdocumenthandler.h"
+
 class NeoChatRoom;
 
 namespace Quotient
@@ -29,6 +31,7 @@ class RoomManager : public QObject, public UriResolverBase
     /// This property holds whether a room is currently open in NeoChat.
     /// \sa room
     Q_PROPERTY(bool hasOpenRoom READ hasOpenRoom NOTIFY currentRoomChanged)
+    Q_PROPERTY(ChatDocumentHandler *chatDocumentHandler READ chatDocumentHandler WRITE setChatDocumentHandler NOTIFY chatDocumentHandlerChanged)
 
 public:
     explicit RoomManager(QObject *parent = nullptr);
@@ -64,6 +67,9 @@ public:
     /// Call this when the current used connection is dropped.
     Q_INVOKABLE void reset();
 
+    ChatDocumentHandler *chatDocumentHandler() const;
+    void setChatDocumentHandler(ChatDocumentHandler *handler);
+
     void setUrlArgument(const QString &arg);
 
 Q_SIGNALS:
@@ -98,6 +104,8 @@ Q_SIGNALS:
     /// Displays warning to the user.
     void warning(const QString &title, const QString &message);
 
+    void chatDocumentHandlerChanged();
+
 private:
     void openRoomForActiveConnection();
 
@@ -106,4 +114,5 @@ private:
     QString m_arg;
     KConfig m_config;
     KConfigGroup m_lastRoomConfig;
+    ChatDocumentHandler *m_chatDocumentHandler;
 };

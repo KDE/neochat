@@ -34,7 +34,7 @@ class UserListModel : public QAbstractListModel
     Q_PROPERTY(Quotient::Room *room READ room WRITE setRoom NOTIFY roomChanged)
 public:
     enum EventRoles {
-        NameRole = Qt::UserRole + 1,
+        NameRole = Qt::DisplayRole,
         UserIDRole,
         AvatarRole,
         ObjectRole,

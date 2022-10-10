@@ -16,6 +16,7 @@
 #include <jobs/basejob.h>
 #include <user.h>
 
+#include "actionshandler.h"
 #include "controller.h"
 #include "neochatconfig.h"
 #include "neochatroom.h"
@@ -73,7 +74,7 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
         std::unique_ptr<KNotificationReplyAction> replyAction(new KNotificationReplyAction(i18n("Reply")));
         replyAction->setPlaceholderText(i18n("Reply..."));
         connect(replyAction.get(), &KNotificationReplyAction::replied, this, [room, replyEventId](const QString &text) {
-            room->postMessage(text, room->preprocessText(text), RoomMessageEvent::MsgType::Text, replyEventId, QString());
+            room->postMessage(text, markdownToHTML(text), RoomMessageEvent::MsgType::Text, replyEventId, QString());
         });
         notification->setReplyAction(std::move(replyAction));
     }

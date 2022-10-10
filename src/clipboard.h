@@ -23,7 +23,7 @@ public:
     [[nodiscard]] bool hasImage() const;
     [[nodiscard]] QImage image() const;
 
-    Q_INVOKABLE bool saveImage(const QUrl &localPath) const;
+    Q_INVOKABLE QString saveImage(QString localPath = {}) const;
 
     Q_INVOKABLE void saveText(QString message);
 

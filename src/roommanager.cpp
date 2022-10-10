@@ -10,6 +10,7 @@
 #include <QDesktopServices>
 #include <QStandardPaths>
 #include <qt_connection_util.h>
+#include <QQuickTextDocument>
 #include <user.h>
 
 #ifndef Q_OS_ANDROID
@@ -123,6 +124,12 @@ void RoomManager::openRoomForActiveConnection()
 
 void RoomManager::enterRoom(NeoChatRoom *room)
 {
+    if (m_chatDocumentHandler) {
+        // We're doing these things here because it is critical that they are switched at the same time
+        m_currentRoom->setSavedText(m_chatDocumentHandler->document()->textDocument()->toPlainText());
+        m_chatDocumentHandler->setRoom(room);
+        m_chatDocumentHandler->document()->textDocument()->setPlainText(room->savedText());
+    }
     m_lastCurrentRoom = std::exchange(m_currentRoom, room);
     Q_EMIT currentRoomChanged();
 
@@ -231,4 +238,16 @@ void RoomManager::leaveRoom(NeoChatRoom *room)
     }
 
     room->forget();
+}
+
+ChatDocumentHandler *RoomManager::chatDocumentHandler() const
+{
+    return m_chatDocumentHandler;
+}
+
+void RoomManager::setChatDocumentHandler(ChatDocumentHandler *handler)
+{
+    m_chatDocumentHandler = handler;
+    m_chatDocumentHandler->setRoom(m_currentRoom);
+    Q_EMIT chatDocumentHandlerChanged();
 }

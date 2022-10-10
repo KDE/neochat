@@ -1,48 +1,39 @@
 // SPDX-FileCopyrightText: 2021 Carson Black <uhhadd@gmail.com>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-#include "customemojimodel_p.h"
+#include "customemojimodel.h"
+#include "controller.h"
 #include "emojimodel.h"
 
 #include <connection.h>
 
 using namespace Quotient;
 
-enum Roles {
-    Name,
-    ImageURL,
-    ModelData, // for emulating the regular emoji model's usage, otherwise the UI code would get too complicated
-};
-
 CustomEmojiModel::CustomEmojiModel(QObject *parent)
     : QAbstractListModel(parent)
-    , d(new Private)
 {
-    connect(this, &CustomEmojiModel::connectionChanged, this, &CustomEmojiModel::fetchEmojies);
-    connect(this, &CustomEmojiModel::connectionChanged, this, [this]() {
-        if (!d->conn)
+    connect(&Controller::instance(), &Controller::activeConnectionChanged, this, [this]() {
+        if (!Controller::instance().activeConnection()) {
             return;
-
-        connect(d->conn, &Connection::accountDataChanged, this, [this](const QString &id) {
+        }
+        CustomEmojiModel::fetchEmojis();
+        disconnect(nullptr, &Connection::accountDataChanged, this, nullptr);
+        connect(Controller::instance().activeConnection(), &Connection::accountDataChanged, this, [this](const QString &id) {
             if (id != QStringLiteral("im.ponies.user_emotes")) {
                 return;
             }
-            fetchEmojies();
+            fetchEmojis();
         });
     });
-}
-
-CustomEmojiModel::~CustomEmojiModel()
-{
 }
 
 QVariant CustomEmojiModel::data(const QModelIndex &idx, int role) const
 {
     const auto row = idx.row();
-    if (row >= d->emojies.length()) {
+    if (row >= m_emojis.length()) {
         return QVariant();
     }
-    const auto &data = d->emojies[row];
+    const auto &data = m_emojis[row];
 
     switch (Roles(role)) {
     case Roles::ModelData:
@@ -51,6 +42,8 @@ QVariant CustomEmojiModel::data(const QModelIndex &idx, int role) const
         return data.name;
     case Roles::ImageURL:
         return QUrl(QStringLiteral("image://mxc/") + data.url.mid(6));
+    case Roles::MxcUrl:
+        return data.url.mid(6);
     }
 
     return QVariant();
@@ -60,7 +53,7 @@ int CustomEmojiModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
 
-    return d->emojies.length();
+    return m_emojis.length();
 }
 
 QHash<int, QByteArray> CustomEmojiModel::roleNames() const
@@ -69,41 +62,25 @@ QHash<int, QByteArray> CustomEmojiModel::roleNames() const
         {Name, "name"},
         {ImageURL, "imageURL"},
         {ModelData, "modelData"},
+        {MxcUrl, "mxcUrl"},
     };
 }
 
-Connection *CustomEmojiModel::connection() const
+QString CustomEmojiModel::preprocessText(const QString &text)
 {
-    return d->conn;
-}
-
-void CustomEmojiModel::setConnection(Connection *it)
-{
-    if (d->conn == it) {
-        return;
-    }
-    if (d->conn != nullptr) {
-        disconnect(d->conn, nullptr, this, nullptr);
-    }
-    d->conn = it;
-    Q_EMIT connectionChanged();
-}
-
-QString CustomEmojiModel::preprocessText(const QString &it)
-{
-    auto cp = it;
-    for (const auto &emoji : std::as_const(d->emojies)) {
-        cp.replace(
+    auto handledText = text;
+    for (const auto &emoji : std::as_const(m_emojis)) {
+        handledText.replace(
             emoji.regexp,
             QStringLiteral(R"(<img data-mx-emoticon="" src="%1" alt="%2" title="%2" height="32" vertical-align="middle" />)").arg(emoji.url, emoji.name));
     }
-    return cp;
+    return handledText;
 }
 
 QVariantList CustomEmojiModel::filterModel(const QString &filter)
 {
     QVariantList results;
-    for (const auto &emoji : std::as_const(d->emojies)) {
+    for (const auto &emoji : std::as_const(m_emojis)) {
         if (results.length() >= 10)
             break;
         if (!emoji.name.contains(filter, Qt::CaseInsensitive))

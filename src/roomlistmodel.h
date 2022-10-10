@@ -42,6 +42,7 @@ public:
         NameRole = Qt::UserRole + 1,
         DisplayNameRole,
         AvatarRole,
+        CanonicalAliasRole,
         TopicRole,
         CategoryRole,
         UnreadCountRole,

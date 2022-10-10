@@ -4,30 +4,33 @@
 #pragma once
 
 #include <QObject>
+
 #include <QTextCursor>
+
+#include "userlistmodel.h"
 
 class QTextDocument;
 class QQuickTextDocument;
 class NeoChatRoom;
-class Controller;
+class SyntaxHighlighter;
+class CompletionModel;
 
 class ChatDocumentHandler : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QQuickTextDocument *document READ document WRITE setDocument NOTIFY documentChanged)
     Q_PROPERTY(int cursorPosition READ cursorPosition WRITE setCursorPosition NOTIFY cursorPositionChanged)
-    Q_PROPERTY(int selectionStart READ selectionStart WRITE setSelectionStart NOTIFY selectionStartChanged)
-    Q_PROPERTY(int selectionEnd READ selectionEnd WRITE setSelectionEnd NOTIFY selectionEndChanged)
+    Q_PROPERTY(CompletionModel *completionModel READ completionModel NOTIFY completionModelChanged)
 
-    Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
+    Q_PROPERTY(NeoChatRoom *room READ room NOTIFY roomChanged)
 
 public:
     enum AutoCompletionType {
         User,
+        Room,
         Emoji,
         Command,
         None,
-        Ignore,
     };
     Q_ENUM(AutoCompletionType)
 
@@ -39,44 +42,34 @@ public:
     [[nodiscard]] int cursorPosition() const;
     void setCursorPosition(int position);
 
-    [[nodiscard]] int selectionStart() const;
-    void setSelectionStart(int position);
-
-    [[nodiscard]] int selectionEnd() const;
-    void setSelectionEnd(int position);
-
     [[nodiscard]] NeoChatRoom *room() const;
     void setRoom(NeoChatRoom *room);
 
-    /// This function will look at the current QTextCursor and determine if there
-    /// is the possibility to autocomplete it.
-    Q_INVOKABLE QVariantMap getAutocompletionInfo(bool isAutocompleting);
-    Q_INVOKABLE void replaceAutoComplete(const QString &word);
+    Q_INVOKABLE void complete(int index);
 
+    void updateCompletions();
+    CompletionModel *completionModel() const;
 Q_SIGNALS:
     void documentChanged();
     void cursorPositionChanged();
-    void selectionStartChanged();
-    void selectionEndChanged();
     void roomChanged();
-    void joinRoom(QString roomName);
+    void completionModelChanged();
 
 private:
-    [[nodiscard]] QTextCursor textCursor() const;
-    [[nodiscard]] QTextDocument *textDocument() const;
+    int completionStartIndex() const;
 
     QQuickTextDocument *m_document;
 
-    NeoChatRoom *m_room;
+    NeoChatRoom *m_room = nullptr;
+    bool completionVisible = false;
 
     int m_cursorPosition;
-    int m_selectionStart;
-    int m_selectionEnd;
 
-    int m_autoCompleteBeginPosition = -1;
-    int m_autoCompleteEndPosition = -1;
+    SyntaxHighlighter *m_highlighter = nullptr;
 
-    QString m_lastState;
+    AutoCompletionType m_completionType = None;
+
+    CompletionModel *m_completionModel = nullptr;
 };
 
 Q_DECLARE_METATYPE(ChatDocumentHandler::AutoCompletionType);

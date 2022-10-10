@@ -5,38 +5,37 @@
 
 #include <QAbstractListModel>
 #include <memory>
+#include <QRegularExpression>
 
-namespace Quotient
-{
-class Connection;
-}
+struct CustomEmoji {
+    QString name; // with :semicolons:
+    QString url; // mxc://
+    QRegularExpression regexp;
+};
 
 class CustomEmojiModel : public QAbstractListModel
 {
     Q_OBJECT
 
-    Q_PROPERTY(Quotient::Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
-
 public:
-    // constructors
+    enum Roles {
+        Name,
+        ImageURL,
+        ModelData, // for emulating the regular emoji model's usage, otherwise the UI code would get too complicated
+        MxcUrl,
+    };
+    Q_ENUM(Roles);
 
-    explicit CustomEmojiModel(QObject *parent = nullptr);
-    ~CustomEmojiModel();
-
-    // model
+    static CustomEmojiModel &instance()
+    {
+        static CustomEmojiModel _instance;
+        return _instance;
+    }
 
     QVariant data(const QModelIndex &idx, int role = Qt::DisplayRole) const override;
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
     QHash<int, QByteArray> roleNames() const override;
-
-    // property setters
-
-    Quotient::Connection *connection() const;
-    void setConnection(Quotient::Connection *it);
-    Q_SIGNAL void connectionChanged();
-
-    // QML functions
 
     Q_INVOKABLE QString preprocessText(const QString &it);
     Q_INVOKABLE QVariantList filterModel(const QString &filter);
@@ -44,8 +43,8 @@ public:
     Q_INVOKABLE void removeEmoji(const QString &name);
 
 private:
-    struct Private;
-    std::unique_ptr<Private> d;
+    explicit CustomEmojiModel(QObject *parent = nullptr);
+    QList<CustomEmoji> m_emojis;
 
-    void fetchEmojies();
+    void fetchEmojis();
 };

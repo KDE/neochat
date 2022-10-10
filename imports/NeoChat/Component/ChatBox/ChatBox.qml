@@ -4,58 +4,26 @@
 
 import QtQuick 2.15
 import QtQuick.Controls 2.15 as QQC2
-import Qt.labs.platform 1.1 as Platform
+import QtQuick.Layouts 1.15
 import org.kde.kirigami 2.15 as Kirigami
 
 import org.kde.neochat 1.0
 import NeoChat.Component.ChatBox 1.0
 import NeoChat.Component.Emoji 1.0
 
-Item {
-    id: root
+ColumnLayout {
+    id: chatBox
+
     property alias inputFieldText: chatBar.inputFieldText
 
-    signal fancyEffectsReasonFound(string fancyEffect)
     signal messageSent()
-    signal editLastUserMessage()
-    signal replyPreviousUserMessage()
 
-    Kirigami.Theme.colorSet: Kirigami.Theme.View
-
-    implicitWidth: {
-        let w = 0
-        for(let i = 0; i < visibleChildren.length; ++i) {
-            w = Math.max(w, Math.ceil(visibleChildren[i].implicitWidth))
-        }
-        return w
-    }
-    implicitHeight: {
-        let h = 0
-        for(let i = 0; i < visibleChildren.length; ++i) {
-            h += Math.ceil(visibleChildren[i].implicitHeight)
-        }
-        return h
-    }
-
-    // For some reason, this is needed to make the height animation work even though
-    // it used to work and height should be directly affected by implicitHeight
-    height: implicitHeight
-
-    Behavior on height {
-        NumberAnimation {
-            property: "height"
-            duration: Kirigami.Units.shortDuration
-            easing.type: Easing.OutCubic
-        }
-    }
+    spacing: 0
 
     Kirigami.Separator {
         id: connectionPaneSeparator
         visible: connectionPane.visible
-        width: parent.width
-        height: visible ? implicitHeight : 0
-        anchors.bottom: connectionPane.top
-        z: 1
+        Layout.fillWidth: true
     }
 
     QQC2.Pane {
@@ -71,30 +39,25 @@ Item {
             color: Kirigami.Theme.backgroundColor
         }
         visible: !Controller.isOnline
-        width: parent.width
+        Layout.fillWidth: true
         QQC2.Label {
             id: networkLabel
             text: i18n("NeoChat is offline. Please check your network connection.")
         }
-        anchors.bottom: emojiPickerLoaderSeparator.top
     }
 
     Kirigami.Separator {
         id: emojiPickerLoaderSeparator
         visible: emojiPickerLoader.visible
-        width: parent.width
+        Layout.fillWidth: true
         height: visible ? implicitHeight : 0
-        anchors.bottom: emojiPickerLoader.top
-        z: 1
     }
 
     Loader {
         id: emojiPickerLoader
         active: visible
         visible: chatBar.emojiPaneOpened
-        width: parent.width
-        height: visible ? implicitHeight : 0
-        anchors.bottom: replySeparator.top
+        Layout.fillWidth: true
         sourceComponent: QQC2.Pane {
             topPadding: 0
             bottomPadding: 0
@@ -106,178 +69,79 @@ Item {
                 onChosen: addText(emoji)
             }
         }
-        Behavior on height {
-            NumberAnimation {
-                property: "height"
-                duration: Kirigami.Units.shortDuration
-                easing.type: Easing.OutCubic
-            }
-        }
 
     }
 
     Kirigami.Separator {
         id: replySeparator
         visible: replyPane.visible
-        width: parent.width
-        height: visible ? implicitHeight : 0
-        anchors.bottom: replyPane.top
+        Layout.fillWidth: true
     }
-
 
     ReplyPane {
         id: replyPane
-        visible: chatBoxHelper.isReplying || chatBoxHelper.isEditing
-        user: chatBoxHelper.replyUser
-        width: parent.width
-        height: visible ? implicitHeight : 0
-        anchors.bottom: attachmentSeparator.top
-        Behavior on height {
-            NumberAnimation {
-                property: "height"
-                duration: Kirigami.Units.shortDuration
-                easing.type: Easing.OutCubic
-            }
-        }
+        visible: currentRoom.chatBoxReplyId.length > 0 || currentRoom.chatBoxEditId.length > 0
+        Layout.fillWidth: true
+
         onReplyCancelled: {
-            root.focusInputField()
+            chatBox.focusInputField()
         }
     }
 
     Kirigami.Separator {
         id: attachmentSeparator
         visible: attachmentPane.visible
-        width: parent.width
-        height: visible ? implicitHeight : 0
-        anchors.bottom: attachmentPane.top
+        Layout.fillWidth: true
     }
 
     AttachmentPane {
         id: attachmentPane
-        visible: chatBoxHelper.hasAttachment
-        width: parent.width
-        height: visible ? implicitHeight : 0
-        anchors.bottom: chatBarSeparator.top
-        Behavior on height {
-            NumberAnimation {
-                property: "height"
-                duration: Kirigami.Units.shortDuration
-                easing.type: Easing.OutCubic
-            }
-        }
+        visible: currentRoom.chatBoxAttachmentPath.length > 0
+        Layout.fillWidth: true
     }
 
     Kirigami.Separator {
         id: chatBarSeparator
         visible: chatBar.visible
-        width: parent.width
-        height: visible ? implicitHeight : 0
-        anchors.bottom: chatBar.top
+
+        Layout.fillWidth: true
     }
 
     ChatBar {
         id: chatBar
         visible: currentRoom.canSendEvent("m.room.message")
-        width: parent.width
-        height: visible ? implicitHeight : 0
-        anchors.bottom: parent.bottom
 
-        Behavior on height {
-            NumberAnimation {
-                property: "height"
-                duration: Kirigami.Units.shortDuration
-                easing.type: Easing.OutCubic
-            }
-        }
+        Layout.fillWidth: true
 
         onCloseAllTriggered: closeAll()
         onMessageSent: {
             closeAll()
-            checkForFancyEffectsReason()
-            root.messageSent();
-        }
-        onEditLastUserMessage: {
-            root.editLastUserMessage();
-        }
-        onReplyPreviousUserMessage: {
-            root.replyPreviousUserMessage();
-        }
-    }
-
-    function checkForFancyEffectsReason() {
-        if (!Config.showFancyEffects) {
-            return
+            chatBox.messageSent();
         }
 
-        let text = root.inputFieldText.trim()
-        if (text.includes('\u{2744}')) {
-            root.fancyEffectsReasonFound("snowflake")
-        }
-        if (text.includes('\u{1F386}')) {
-            root.fancyEffectsReasonFound("fireworks")
-        }
-        if (text.includes('\u{1F387}')) {
-            root.fancyEffectsReasonFound("fireworks")
-        }
-        if (text.includes('\u{1F389}')) {
-            root.fancyEffectsReasonFound("confetti")
-        }
-        if (text.includes('\u{1F38A}')) {
-            root.fancyEffectsReasonFound("confetti")
+        Behavior on implicitHeight {
+            NumberAnimation {
+                property: "implicitHeight"
+                duration: Kirigami.Units.shortDuration
+                easing.type: Easing.OutCubic
+            }
         }
     }
 
     function addText(text) {
-        root.inputFieldText = inputFieldText + text
+        chatBox.inputFieldText = inputFieldText + text
     }
 
     function insertText(str) {
-        root.inputFieldText = inputFieldText.substr(0, inputField.cursorPosition) + str + inputFieldText.substr(inputField.cursorPosition)
+        chatBox.inputFieldText = inputFieldText.substr(0, inputField.cursorPosition) + str + inputFieldText.substr(inputField.cursorPosition)
     }
 
     function focusInputField() {
         chatBar.inputFieldForceActiveFocusTriggered()
     }
 
-    Connections {
-        target: RoomManager
-
-        function onCurrentRoomChanged() {
-            chatBar.userAutocompleted = {};
-        }
-    }
-
-    Connections {
-        target: chatBoxHelper
-
-        function onShouldClearText() {
-            root.inputFieldText = "";
-        }
-
-        function onEditing(editContent, editFormatedContent) {
-            // Set the input field in edit mode
-            root.inputFieldText = editContent;
-
-            // clean autocompletion list
-            chatBar.userAutocompleted = {};
-
-            // Fill autocompletion list with values extracted from message.
-            // We can't just iterate on every user in the list and try to
-            // find matching display name since some users have display name
-            // matching frequent words and this will marks too many words as
-            // mentions.
-            const regex = /<a href=\"https:\/\/matrix.to\/#\/(@[a-zA-Z09]*:[a-zA-Z09.]*)\">([^<]*)<\/a>/g;
-
-            let match;
-            while ((match = regex.exec(editFormatedContent.toString())) !== null) {
-                chatBar.userAutocompleted[match[2]] = match[1];
-            }
-            chatBox.forceActiveFocus();
-        }
-    }
-
     function closeAll() {
-        chatBoxHelper.clear();
+        // TODO clear();
         chatBar.emojiPaneOpened = false;
     }
 }
