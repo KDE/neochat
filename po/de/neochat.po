@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-09 00:48+0000\n"
+"POT-Creation-Date: 2022-10-10 00:46+0000\n"
 "PO-Revision-Date: 2022-08-13 21:49+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -108,12 +108,38 @@ msgstr "Antwort an %1:"
 msgid "Custom"
 msgstr "Benutzerdefiniert"
 
-#: imports/NeoChat/Component/FullScreenImage.qml:21
-#, kde-format
-msgid "Image View - %1"
-msgstr "Bildansicht - %1"
-
 #: imports/NeoChat/Component/FullScreenImage.qml:80
+#, fuzzy, kde-format
+#| msgid "Room settings"
+msgid "Zoom in"
+msgstr "Raum-Einstellungen"
+
+#: imports/NeoChat/Component/FullScreenImage.qml:99
+#, kde-format
+msgid "Zoom out"
+msgstr ""
+
+#: imports/NeoChat/Component/FullScreenImage.qml:118
+#, fuzzy, kde-format
+#| msgctxt "@action:button Rotate an image to the left"
+#| msgid "Rotate left"
+msgid "Rotate left"
+msgstr "Nach links drehen"
+
+#: imports/NeoChat/Component/FullScreenImage.qml:132
+#, fuzzy, kde-format
+#| msgctxt "@action:button Rotate an image to the right"
+#| msgid "Rotate right"
+msgid "Rotate right"
+msgstr "Nach rechts drehen"
+
+#: imports/NeoChat/Component/FullScreenImage.qml:146
+#, fuzzy, kde-format
+#| msgid "Save As"
+msgid "Save as"
+msgstr "Speichern unter"
+
+#: imports/NeoChat/Component/FullScreenImage.qml:164
 #, kde-format
 msgid "Close"
 msgstr "Schließen"
@@ -2393,6 +2419,9 @@ msgstr "Adresse kann nicht geöffnet werden"
 #, kde-format
 msgid "Show"
 msgstr "Anzeigen"
+
+#~ msgid "Image View - %1"
+#~ msgstr "Bildansicht - %1"
 
 #, fuzzy
 #~| msgid "Send message"

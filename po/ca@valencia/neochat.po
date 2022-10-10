@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-09 00:48+0000\n"
+"POT-Creation-Date: 2022-10-10 00:46+0000\n"
 "PO-Revision-Date: 2022-09-27 17:44+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -111,12 +111,38 @@ msgstr "S'està responent a %1:"
 msgid "Custom"
 msgstr "Personalitzat"
 
-#: imports/NeoChat/Component/FullScreenImage.qml:21
-#, kde-format
-msgid "Image View - %1"
-msgstr "Vista de la imatge - %1"
-
 #: imports/NeoChat/Component/FullScreenImage.qml:80
+#, fuzzy, kde-format
+#| msgid "Room Settings"
+msgid "Zoom in"
+msgstr "Configuració de la sala"
+
+#: imports/NeoChat/Component/FullScreenImage.qml:99
+#, kde-format
+msgid "Zoom out"
+msgstr ""
+
+#: imports/NeoChat/Component/FullScreenImage.qml:118
+#, fuzzy, kde-format
+#| msgctxt "@action:button Rotate an image to the left"
+#| msgid "Rotate left"
+msgid "Rotate left"
+msgstr "Gira a l'esquerra"
+
+#: imports/NeoChat/Component/FullScreenImage.qml:132
+#, fuzzy, kde-format
+#| msgctxt "@action:button Rotate an image to the right"
+#| msgid "Rotate right"
+msgid "Rotate right"
+msgstr "Gira a la dreta"
+
+#: imports/NeoChat/Component/FullScreenImage.qml:146
+#, fuzzy, kde-format
+#| msgid "Save As"
+msgid "Save as"
+msgstr "Anomena i guarda"
+
+#: imports/NeoChat/Component/FullScreenImage.qml:164
 #, kde-format
 msgid "Close"
 msgstr "Tanca"
@@ -2406,3 +2432,6 @@ msgstr "No s'ha pogut obrir l'URL"
 #, kde-format
 msgid "Show"
 msgstr "Mostra"
+
+#~ msgid "Image View - %1"
+#~ msgstr "Vista de la imatge - %1"
