@@ -99,7 +99,7 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body)
     QFileInfo fileInfo(url.toLocalFile());
     EventContent::TypedBase *content;
     if (mime.name().startsWith("image/")) {
-        QImage image;
+        QImage image(url.toLocalFile());
         content = new EventContent::ImageContent(url, fileInfo.size(), mime, image.size(), fileInfo.fileName());
     } else if (mime.name().startsWith("audio/")) {
         content = new EventContent::AudioContent(url, fileInfo.size(), mime, fileInfo.fileName());
