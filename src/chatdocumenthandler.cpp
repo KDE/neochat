@@ -242,3 +242,33 @@ CompletionModel *ChatDocumentHandler::completionModel() const
 {
     return m_completionModel;
 }
+
+int ChatDocumentHandler::selectionStart() const
+{
+    return m_selectionStart;
+}
+
+void ChatDocumentHandler::setSelectionStart(int position)
+{
+    if (position == m_selectionStart) {
+        return;
+    }
+
+    m_selectionStart = position;
+    Q_EMIT selectionStartChanged();
+}
+
+int ChatDocumentHandler::selectionEnd() const
+{
+    return m_selectionEnd;
+}
+
+void ChatDocumentHandler::setSelectionEnd(int position)
+{
+    if (position == m_selectionEnd) {
+        return;
+    }
+
+    m_selectionEnd = position;
+    Q_EMIT selectionEndChanged();
+}

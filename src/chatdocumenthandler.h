@@ -20,6 +20,9 @@ class ChatDocumentHandler : public QObject
     Q_OBJECT
     Q_PROPERTY(QQuickTextDocument *document READ document WRITE setDocument NOTIFY documentChanged)
     Q_PROPERTY(int cursorPosition READ cursorPosition WRITE setCursorPosition NOTIFY cursorPositionChanged)
+    Q_PROPERTY(int selectionStart READ selectionStart WRITE setSelectionStart NOTIFY selectionStartChanged)
+    Q_PROPERTY(int selectionEnd READ selectionEnd WRITE setSelectionEnd NOTIFY selectionEndChanged)
+
     Q_PROPERTY(CompletionModel *completionModel READ completionModel NOTIFY completionModelChanged)
 
     Q_PROPERTY(NeoChatRoom *room READ room NOTIFY roomChanged)
@@ -42,6 +45,12 @@ public:
     [[nodiscard]] int cursorPosition() const;
     void setCursorPosition(int position);
 
+    [[nodiscard]] int selectionStart() const;
+    void setSelectionStart(int position);
+
+    [[nodiscard]] int selectionEnd() const;
+    void setSelectionEnd(int position);
+
     [[nodiscard]] NeoChatRoom *room() const;
     void setRoom(NeoChatRoom *room);
 
@@ -54,6 +63,8 @@ Q_SIGNALS:
     void cursorPositionChanged();
     void roomChanged();
     void completionModelChanged();
+    void selectionStartChanged();
+    void selectionEndChanged();
 
 private:
     int completionStartIndex() const;
@@ -64,6 +75,8 @@ private:
     bool completionVisible = false;
 
     int m_cursorPosition;
+    int m_selectionStart;
+    int m_selectionEnd;
 
     SyntaxHighlighter *m_highlighter = nullptr;
 
