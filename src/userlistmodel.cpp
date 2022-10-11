@@ -192,7 +192,7 @@ void UserListModel::avatarChanged(Quotient::User *user, const Quotient::Room *co
 
 int UserListModel::findUserPos(Quotient::User *user) const
 {
-    return findUserPos(m_currentRoom->roomMembername(user));
+    return findUserPos(m_currentRoom->safeMemberName(user->id()));
 }
 
 int UserListModel::findUserPos(const QString &username) const
