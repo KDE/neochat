@@ -340,6 +340,12 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
     if (role == TopicRole) {
         return room->topic();
     }
+    if (role == FavoritedRole) {
+        return room->isFavourite();
+    }
+    if (role == AttentionRole) {
+        return room->notificationCount() + room->unreadCount() + room->highlightCount() > 0;
+    }
     if (role == CategoryRole) {
         if (room->joinState() == JoinState::Invite) {
             return NeoChatRoomType::Invited;

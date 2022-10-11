@@ -56,6 +56,10 @@ public:
         AvatarImageRole,
         IdRole,
         IsSpaceRole,
+        // Whether or not the room is favorited
+        FavoritedRole,
+        // Whether or not the room needs attention, ie, pings, mentions, unread
+        AttentionRole,
     };
     Q_ENUM(EventRoles)
 

@@ -33,34 +33,72 @@ SortFilterRoomListModel::RoomSortOrder SortFilterRoomListModel::roomSortOrder() 
     return m_sortOrder;
 }
 
+static const QVector<RoomListModel::EventRoles> categorySortPriorities{
+  // Favorites at the top
+  RoomListModel::FavoritedRole,
+  // Group by categories
+  RoomListModel::CategoryRole,
+  // Within each category, pull relevant ones to the top
+  RoomListModel::AttentionRole,
+  RoomListModel::HighlightCountRole,
+  RoomListModel::NotificationCountRole,
+  RoomListModel::UnreadCountRole,
+  // Finally sort by last activity time
+  RoomListModel::LastActiveTimeRole
+};
+
+static const QVector<RoomListModel::EventRoles> alphabeticalSortPriorities {
+  // Does exactly what it says on the tin.
+  (RoomListModel::EventRoles)Qt::DisplayRole
+};
+
+static const QVector<RoomListModel::EventRoles> activitySortPriorities{
+  // Anything useful at the top, quiet rooms at the bottom
+  RoomListModel::AttentionRole,
+  // Organize by highlights, notifications, unread favorites, all other unread, in that order
+  RoomListModel::HighlightCountRole,
+  RoomListModel::NotificationCountRole,
+  RoomListModel::FavoritedRole,
+  RoomListModel::UnreadCountRole,
+  // Finally sort by last activity time
+  RoomListModel::LastActiveTimeRole
+};
+
+bool SortFilterRoomListModel::roleCmp(RoomListModel::EventRoles role, const QVariant &sortLeft, const QVariant &sortRight) const
+{
+    switch(role) {
+        case RoomListModel::FavoritedRole:
+            return (sortLeft == sortRight) ? false : sortLeft.toBool();
+        case RoomListModel::CategoryRole:
+            return sortLeft < sortRight;
+        default:
+            return sortLeft > sortRight;
+    }
+}
+
+bool SortFilterRoomListModel::prioritiesCmp(const QVector<RoomListModel::EventRoles>& priorities, const QModelIndex &source_left, const QModelIndex &source_right) const
+{
+    for(RoomListModel::EventRoles sortRole : priorities) {
+        const auto sortLeft = sourceModel()->data(source_left, sortRole);
+        const auto sortRight = sourceModel()->data(source_right, sortRole);
+        if (sortLeft != sortRight) {
+            return roleCmp(sortRole, sortLeft, sortRight);
+        }
+    }
+    return QSortFilterProxyModel::lessThan(source_left, source_right);
+}
+
 bool SortFilterRoomListModel::lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const
 {
-    if (m_sortOrder == SortFilterRoomListModel::LastActivity) {
-        // display favorite rooms always on top
-        const auto categoryLeft = static_cast<NeoChatRoomType::Types>(sourceModel()->data(source_left, RoomListModel::CategoryRole).toInt());
-        const auto categoryRight = static_cast<NeoChatRoomType::Types>(sourceModel()->data(source_right, RoomListModel::CategoryRole).toInt());
-
-        if (categoryLeft == NeoChatRoomType::Types::Favorite && categoryRight == NeoChatRoomType::Types::Favorite) {
-            return sourceModel()->data(source_left, RoomListModel::LastActiveTimeRole).toDateTime()
-                > sourceModel()->data(source_right, RoomListModel::LastActiveTimeRole).toDateTime();
-        }
-        if (categoryLeft == NeoChatRoomType::Types::Favorite) {
-            return true;
-        } else if (categoryRight == NeoChatRoomType::Types::Favorite) {
-            return false;
-        }
-
-        return sourceModel()->data(source_left, RoomListModel::LastActiveTimeRole).toDateTime()
-            > sourceModel()->data(source_right, RoomListModel::LastActiveTimeRole).toDateTime();
+    switch(m_sortOrder) {
+        case SortFilterRoomListModel::Alphabetical:
+          return prioritiesCmp(alphabeticalSortPriorities, source_left, source_right);
+        case SortFilterRoomListModel::Categories:
+          return prioritiesCmp(categorySortPriorities, source_left, source_right);
+        case SortFilterRoomListModel::LastActivity:
+          return prioritiesCmp(activitySortPriorities, source_left, source_right);
     }
-    if (m_sortOrder != SortFilterRoomListModel::Categories) {
-        return QSortFilterProxyModel::lessThan(source_left, source_right);
-    }
-    if (sourceModel()->data(source_left, RoomListModel::CategoryRole) != sourceModel()->data(source_right, RoomListModel::CategoryRole)) {
-        return sourceModel()->data(source_left, RoomListModel::CategoryRole).toInt() < sourceModel()->data(source_right, RoomListModel::CategoryRole).toInt();
-    }
-    return sourceModel()->data(source_left, RoomListModel::LastActiveTimeRole).toDateTime()
-        > sourceModel()->data(source_right, RoomListModel::LastActiveTimeRole).toDateTime();
+    return QSortFilterProxyModel::lessThan(source_left, source_right);
 }
 
 void SortFilterRoomListModel::setFilterText(const QString &text)

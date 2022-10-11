@@ -4,6 +4,7 @@
 #pragma once
 
 #include <QSortFilterProxyModel>
+#include "roomlistmodel.h"
 
 class SortFilterRoomListModel : public QSortFilterProxyModel
 {
@@ -46,4 +47,7 @@ private:
     RoomSortOrder m_sortOrder = Categories;
     QString m_filterText;
     QString m_activeSpaceId;
+
+    bool prioritiesCmp(const QVector<RoomListModel::EventRoles>& priorities, const QModelIndex &left, const QModelIndex &right) const;
+    bool roleCmp(RoomListModel::EventRoles role, const QVariant& left, const QVariant& right) const;
 };
