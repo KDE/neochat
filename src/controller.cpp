@@ -39,9 +39,15 @@
 #include <csapi/profile.h>
 #include <qt_connection_util.h>
 
+#ifdef QUOTIENT_07
+#include <csapi/notifications.h>
+#include <eventstats.h>
+#endif
+
 #include "neochatconfig.h"
 #include "neochatroom.h"
 #include "neochatuser.h"
+#include "notificationsmanager.h"
 #include "roommanager.h"
 #include "windowcontroller.h"
 
@@ -111,7 +117,80 @@ Controller::Controller(QObject *parent)
         sigaction(sig, &sa, nullptr);
     }
 #endif
+
+#ifdef QUOTIENT_07
+    static int oldAccountCount = 0;
+    connect(&AccountRegistry::instance(), &AccountRegistry::accountCountChanged, this, [=]() {
+        if (AccountRegistry::instance().size() > oldAccountCount) {
+            auto connection = AccountRegistry::instance().accounts()[AccountRegistry::instance().size() - 1];
+            connect(connection, &Connection::syncDone, this, [=]() {
+                bool changes = false;
+                for (const auto &room : connection->allRooms()) {
+                    if (m_notificationCounts[room] != room->unreadStats().notableCount) {
+                        m_notificationCounts[room] = room->unreadStats().notableCount;
+                        changes = true;
+                    }
+                }
+                if (changes) {
+                    handleNotifications();
+                }
+            });
+        }
+        oldAccountCount = AccountRegistry::instance().size();
+    });
+#endif
 }
+
+#ifdef QUOTIENT_07
+void Controller::handleNotifications()
+{
+    static bool initial = true;
+    static QStringList oldNotifications;
+    auto job = m_connection->callApi<GetNotificationsJob>();
+
+    connect(job, &BaseJob::success, this, [this, job]() {
+        const auto notifications = job->jsonData()["notifications"].toArray();
+        if (initial) {
+            initial = false;
+            for (const auto &n : notifications) {
+                oldNotifications += n.toObject()["event"].toObject()["event_id"].toString();
+            }
+            return;
+        }
+        for (const auto &n : notifications) {
+            const auto notification = n.toObject();
+            if (notification["read"].toBool()) {
+                oldNotifications.removeOne(notification["event"].toObject()["event_id"].toString());
+                continue;
+            }
+            if (oldNotifications.contains(notification["event"].toObject()["event_id"].toString())) {
+                continue;
+            }
+            oldNotifications += notification["event"].toObject()["event_id"].toString();
+            auto room = m_connection->room(notification["room_id"].toString());
+
+            // If room exists, room is NOT active OR the application is NOT active, show notification
+            if (room && !(room->id() == RoomManager::instance().currentRoom()->id() && QGuiApplication::applicationState() == Qt::ApplicationActive)) {
+                // The room might have been deleted (for example rejected invitation).
+                auto sender = room->user(notification["event"].toObject()["sender"].toString());
+
+                QImage avatar_image;
+                if (!sender->avatarUrl(room).isEmpty()) {
+                    avatar_image = sender->avatar(128, room);
+                } else {
+                    avatar_image = room->avatar(128);
+                }
+                NotificationsManager::instance().postNotification(dynamic_cast<NeoChatRoom *>(room),
+                                                                  sender->displayname(room),
+                                                                  notification["event"].toObject()["content"].toObject()["body"].toString(),
+                                                                  avatar_image,
+                                                                  notification["event"].toObject()["event_id"].toString(),
+                                                                  true);
+            }
+        }
+    });
+}
+#endif
 
 Controller &Controller::instance()
 {

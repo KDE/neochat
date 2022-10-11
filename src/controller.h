@@ -21,6 +21,7 @@ class QQuickTextDocument;
 namespace Quotient
 {
 class Connection;
+class Room;
 }
 
 namespace QKeychain
@@ -111,9 +112,13 @@ private:
     void loadSettings();
     void saveSettings() const;
     bool m_isOnline = true;
+    QMap<Quotient::Room *, int> m_notificationCounts;
 
     KAboutData m_aboutData;
     bool hasWindowSystem() const;
+#ifdef QUOTIENT_07
+    void handleNotifications();
+#endif
 
 private Q_SLOTS:
     void invokeLogin();

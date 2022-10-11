@@ -5,7 +5,6 @@
 
 #include "neochatconfig.h"
 #include "neochatroom.h"
-#include "notificationsmanager.h"
 #include "roommanager.h"
 #include "user.h"
 
@@ -20,7 +19,10 @@
 #include <QGuiApplication>
 #include <utility>
 
+#ifndef QUOTIENT_07
+#include "notificationsmanager.h"
 #include <csapi/notifications.h>
+#endif
 
 using namespace Quotient;
 
@@ -115,7 +117,6 @@ void RoomListModel::setConnection(Connection *connection)
 
     doResetModel();
 
-    handleNotifications();
     Q_EMIT connectionChanged();
 }
 
@@ -171,7 +172,9 @@ void RoomListModel::connectRoomSignals(NeoChatRoom *room)
     connect(room, &Room::addedMessages, this, [this, room] {
         refresh(room, {LastEventRole, SubtitleTextRole});
     });
+#ifndef QUOTIENT_07
     connect(room, &Room::notificationCountChanged, this, &RoomListModel::handleNotifications);
+#endif
     connect(room, &Room::highlightCountChanged, this, [this, room] {
         if (room->highlightCount() == 0) {
             return;
@@ -197,6 +200,7 @@ void RoomListModel::connectRoomSignals(NeoChatRoom *room)
     connect(room, &Room::notificationCountChanged, this, &RoomListModel::refreshNotificationCount);
 }
 
+#ifndef QUOTIENT_07
 void RoomListModel::handleNotifications()
 {
     static bool initial = true;
@@ -245,6 +249,7 @@ void RoomListModel::handleNotifications()
         }
     });
 }
+#endif
 
 void RoomListModel::refreshNotificationCount()
 {
