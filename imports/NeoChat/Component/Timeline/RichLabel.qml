@@ -50,8 +50,6 @@ TextEdit {
 
     ListView.onReused: Qt.binding(() => !hasSpoiler.test(textMessage))
 
-    Layout.fillWidth: true
-
     persistentSelection: true
 
     text: "<style>

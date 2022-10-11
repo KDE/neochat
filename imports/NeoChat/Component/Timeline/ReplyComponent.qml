@@ -11,93 +11,118 @@ import org.kde.kirigami 2.15 as Kirigami
 import org.kde.neochat 1.0
 import NeoChat.Component.Timeline 1.0
 
-MouseArea {
-    id: replyButton
-    Layout.fillWidth: true
-    implicitHeight: replyName.implicitHeight + (loader.item ? loader.item.height : 0) + Kirigami.Units.largeSpacing
-    implicitWidth: Math.min(contentMaxWidth, Math.max((loader.item ? loader.item.width : 0), replyName.implicitWidth)) + Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing
-    Component.onCompleted: {
-        parent.Layout.fillWidth = true;
-        parent.Layout.preferredWidth = Qt.binding(function() { return implicitWidth; })
-        parent.Layout.maximumWidth = Qt.binding(function() { return contentMaxWidth + Kirigami.Units.largeSpacing * 2; })
-    }
-    Rectangle {
-        id: replyLeftBorder
-        width: Kirigami.Units.smallSpacing
-        height: parent.height
-        x: Config.compactLayout ? Kirigami.Units.largeSpacing : 0
-        color: Kirigami.Theme.highlightColor
-    }
+Item {
+    id: replyComponent
 
-    Kirigami.Avatar {
-        id: replyAvatar
-        anchors.left: replyLeftBorder.right
-        anchors.leftMargin: Kirigami.Units.smallSpacing
-        width: visible ? Kirigami.Units.gridUnit : 0
-        height: Kirigami.Units.gridUnit
-        sourceSize.width: width
-        sourceSize.height: height
-        Layout.alignment: Qt.AlignTop
-        visible: Config.showAvatarInTimeline
-        source: reply.author.avatarMediaId ? ("image://mxc/" + reply.author.avatarMediaId) : ""
-        name: reply.author.name || ""
-        color: reply.author.color
-    }
+    signal replyClicked()
 
-    QQC2.Label {
-        id: replyName
-        anchors {
-            left: replyAvatar.right
-            leftMargin: Kirigami.Units.smallSpacing
-            right: parent.right
-            rightMargin: Kirigami.Units.smallSpacing
+    property var name
+    property alias avatar: replyAvatar.source
+    property var color
+
+    implicitWidth: mainLayout.implicitWidth
+    implicitHeight: mainLayout.implicitHeight
+
+    GridLayout {
+        id: mainLayout
+
+        anchors.fill: parent
+
+        rows: 2
+        columns: 3
+        rowSpacing: Kirigami.Units.smallSpacing
+        columnSpacing: Kirigami.Units.largeSpacing
+
+        Rectangle {
+            id: verticalBorder
+
+            Layout.fillHeight: true
+            Layout.rowSpan: 2
+
+            implicitWidth: Kirigami.Units.smallSpacing
+            color: replyComponent.color
         }
-        text: currentRoom.htmlSafeMemberName(reply.author.id)
-        color: reply.author.color
-        elide: Text.ElideRight
-    }
+        Kirigami.Avatar {
+            id: replyAvatar
 
-    Loader {
-        id: loader
-        anchors.top: replyName.bottom
-        sourceComponent: {
-            switch (reply.type) {
-                case "image":
-                case "sticker":
-                    return imageComponent;
-                case "message":
-                    return textComponent;
-                // TODO support more types
-                default:
-                    return textComponent;
+            implicitWidth: Kirigami.Units.iconSizes.small
+            implicitHeight: Kirigami.Units.iconSizes.small
+
+            name: replyComponent.name || ""
+            color: replyComponent.color
+        }
+        QQC2.Label {
+            Layout.fillWidth: true
+
+            color: replyComponent.color
+            text: replyComponent.name
+            elide: Text.ElideRight
+        }
+        Loader {
+            id: loader
+
+            Layout.fillWidth: true
+            Layout.columnSpan: 2
+
+            sourceComponent: {
+                switch (reply.type) {
+                    case "image":
+                    case "sticker":
+                        return imageComponent;
+                    case "message":
+                    case "notice":
+                        return textComponent;
+                    case "file":
+                    case "video":
+                    case "audio":
+                        return mimeComponent;
+                    case "encrypted":
+                        return encryptedComponent;
+                    default:
+                        return textComponent;
+                }
             }
         }
+    }
 
-        Component {
-            id: textComponent
-            RichLabel {
-                id: replyText
-                textMessage: reply.display
-                textFormat: Text.RichText
-                width: Math.min(implicitWidth, contentMaxWidth - Kirigami.Units.largeSpacing * 3)
-                x: Kirigami.Units.smallSpacing * 3 + replyAvatar.width
-            }
+    MouseArea {
+        anchors.fill: parent
+        onClicked: {
+            replyComponent.replyClicked()
         }
+    }
 
-        Component {
-            id: imageComponent
-            Image {
-                readonly property var content: reply.content
-                readonly property bool isThumbnail: !(content.info.thumbnail_info == null || content.thumbnailMediaId == null)
-                //    readonly property var info: isThumbnail ? content.info.thumbnail_info : content.info
-                readonly property var info: content.info
-                readonly property string mediaId: isThumbnail ? content.thumbnailMediaId : content.mediaId
-                source: "image://mxc/" + mediaId
-
-                width: contentMaxWidth * 0.75 - Kirigami.Units.smallSpacing * 5 - replyAvatar.width
-                height: reply.content.info.h / reply.content.info.w * width
-                x: Kirigami.Units.smallSpacing * 3 + replyAvatar.width
-            }
+    Component {
+        id: textComponent
+        RichLabel {
+            textMessage: reply.display
+            textFormat: Text.RichText
+        }
+    }
+    Component {
+        id: imageComponent
+        Image {
+            id: image
+            readonly property var content: reply.content
+            readonly property bool isThumbnail: !(content.info.thumbnail_info == null || content.thumbnailMediaId == null)
+            readonly property var info: content.info
+            readonly property string mediaId: isThumbnail ? content.thumbnailMediaId : content.mediaId
+            source: "image://mxc/" + mediaId
+        }
+    }
+    Component {
+        id: mimeComponent
+        MimeComponent {
+            mimeIconSource: reply.content.info.mimetype.replace("/", "-")
+            label: reply.display
+            subLabel: reply.type === "file" ? Controller.formatByteSize(reply.content.info ? reply.content.info.size : 0) : Controller.formatDuration(reply.content.info.duration)
+        }
+    }
+    Component {
+        id: encryptedComponent
+        RichLabel {
+            textMessage: i18n("This message is encrypted and the sender has not shared the key with this device.")
+            textFormat: Text.RichText
         }
     }
 }

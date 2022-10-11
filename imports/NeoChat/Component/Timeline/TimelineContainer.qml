@@ -252,13 +252,21 @@ QQC2.ItemDelegate {
             }
             Loader {
                 id: replyLoader
+
+                Layout.maximumWidth: contentMaxWidth
+
                 active: model.reply !== undefined
-                source: 'qrc:imports/NeoChat/Component/Timeline/ReplyComponent.qml'
                 visible: active
+
+                sourceComponent: ReplyComponent {
+                    name: currentRoom.htmlSafeMemberName(reply.author.id)
+                    avatar: reply.author.avatarMediaId ? ("image://mxc/" + reply.author.avatarMediaId) : ""
+                    color: reply.author.color
+                }
 
                 Connections {
                     target: replyLoader.item
-                    function onClicked() {
+                    function onReplyClicked() {
                         replyClicked(reply.eventId)
                     }
                 }

@@ -23,6 +23,7 @@ TimelineContainer {
         Layout.maximumWidth: messageDelegate.contentMaxWidth
         RichLabel {
             id: label
+            Layout.fillWidth: true
             isEmote: messageDelegate.isEmote
         }
         Loader {
