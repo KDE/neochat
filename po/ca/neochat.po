@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-10 00:46+0000\n"
-"PO-Revision-Date: 2022-09-27 17:44+0200\n"
+"POT-Creation-Date: 2022-10-11 00:46+0000\n"
+"PO-Revision-Date: 2022-10-10 09:44+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -30,28 +30,25 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "txemaq@gmail.com"
 
-#: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:140
+#: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:141
 #, kde-format
 msgid "Attachment:"
 msgstr "Adjunt:"
 
-#: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:159
+#: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:160
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:29
 #: imports/NeoChat/Page/ImageEditorPage.qml:20
-#: imports/NeoChat/Page/RoomPage.qml:507
+#: imports/NeoChat/Page/RoomPage.qml:493
 #, kde-format
 msgid "Edit"
 msgstr "Edita"
 
-#: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:181
-#: imports/NeoChat/Component/ChatBox/ReplyPane.qml:106
-#: imports/NeoChat/Page/ImageEditorPage.qml:125
-#: imports/NeoChat/Settings/AccountEditorPage.qml:123
+#: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:182
 #, kde-format
-msgid "Cancel"
-msgstr "Cancel·la"
+msgid "Cancel sending Image"
+msgstr ""
 
-#: imports/NeoChat/Component/ChatBox/ChatBar.qml:100
+#: imports/NeoChat/Component/ChatBox/ChatBar.qml:81
 #, kde-format
 msgid ""
 "This room is encrypted. Sending encrypted messages is not yet supported."
@@ -59,86 +56,87 @@ msgstr ""
 "Aquesta sala està encriptada. Encara no es permet l'enviament de missatges "
 "encriptats."
 
-#: imports/NeoChat/Component/ChatBox/ChatBar.qml:100
+#: imports/NeoChat/Component/ChatBox/ChatBar.qml:81
 #, kde-format
 msgid "Edit Message"
 msgstr "Edita el missatge"
 
-#: imports/NeoChat/Component/ChatBox/ChatBar.qml:100
+#: imports/NeoChat/Component/ChatBox/ChatBar.qml:81
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Envia un missatge encriptat…"
 
-#: imports/NeoChat/Component/ChatBox/ChatBar.qml:100
+#: imports/NeoChat/Component/ChatBox/ChatBar.qml:81
 #, kde-format
 msgid "Send a message…"
 msgstr "Envia un missatge…"
 
-#: imports/NeoChat/Component/ChatBox/ChatBar.qml:289
+#: imports/NeoChat/Component/ChatBox/ChatBar.qml:168
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Adjunta una imatge o un fitxer"
 
-#: imports/NeoChat/Component/ChatBox/ChatBar.qml:319
+#: imports/NeoChat/Component/ChatBox/ChatBar.qml:200
 #, kde-format
 msgid "Add an Emoji"
 msgstr "Afegeix un emoji"
 
-#: imports/NeoChat/Component/ChatBox/ChatBar.qml:330
+#: imports/NeoChat/Component/ChatBox/ChatBar.qml:211
 #, kde-format
 msgid "Send message"
 msgstr "Envia un missatge"
 
-#: imports/NeoChat/Component/ChatBox/ChatBox.qml:77
+#: imports/NeoChat/Component/ChatBox/ChatBox.qml:45
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr ""
 "El NeoChat està en fora de línia. Comproveu l'estat de la vostra connexió de "
 "xarxa."
 
-#: imports/NeoChat/Component/ChatBox/ReplyPane.qml:62
+#: imports/NeoChat/Component/ChatBox/ReplyPane.qml:60
 #, kde-format
 msgid "Editing message:"
 msgstr "Missatge en edició:"
 
-#: imports/NeoChat/Component/ChatBox/ReplyPane.qml:64
+#: imports/NeoChat/Component/ChatBox/ReplyPane.qml:62
 #, kde-format
 msgid "Replying to %1:"
 msgstr "S'està responent a %1:"
 
-#: imports/NeoChat/Component/Emoji/EmojiPicker.qml:67
+#: imports/NeoChat/Component/ChatBox/ReplyPane.qml:100
+#, fuzzy, kde-format
+#| msgid "Cancel"
+msgctxt "@action:button"
+msgid "Cancel reply"
+msgstr "Cancel·la"
+
+#: imports/NeoChat/Component/Emoji/EmojiPicker.qml:63
 #, kde-format
 msgid "Custom"
 msgstr "Personalitzat"
 
 #: imports/NeoChat/Component/FullScreenImage.qml:80
-#, fuzzy, kde-format
-#| msgid "Room Settings"
+#, kde-format
 msgid "Zoom in"
-msgstr "Configuració de la sala"
+msgstr "Amplia"
 
 #: imports/NeoChat/Component/FullScreenImage.qml:99
 #, kde-format
 msgid "Zoom out"
-msgstr ""
+msgstr "Redueix"
 
 #: imports/NeoChat/Component/FullScreenImage.qml:118
-#, fuzzy, kde-format
-#| msgctxt "@action:button Rotate an image to the left"
-#| msgid "Rotate left"
+#, kde-format
 msgid "Rotate left"
 msgstr "Gira a l'esquerra"
 
 #: imports/NeoChat/Component/FullScreenImage.qml:132
-#, fuzzy, kde-format
-#| msgctxt "@action:button Rotate an image to the right"
-#| msgid "Rotate right"
+#, kde-format
 msgid "Rotate right"
 msgstr "Gira a la dreta"
 
 #: imports/NeoChat/Component/FullScreenImage.qml:146
-#, fuzzy, kde-format
-#| msgid "Save As"
+#, kde-format
 msgid "Save as"
 msgstr "Desa com a"
 
@@ -411,7 +409,7 @@ msgid "Successfully verified device **%1**"
 msgstr "Dispositiu **%1** verificat correctament"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: imports/NeoChat/Page/RoomPage.qml:138
+#: imports/NeoChat/Page/RoomPage.qml:132
 #, kde-format
 msgid "Accept"
 msgstr "Accepta"
@@ -910,20 +908,20 @@ msgid "Save As"
 msgstr "Desa com a"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:52
-#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:35
-#: imports/NeoChat/Page/RoomPage.qml:520 src/notificationsmanager.cpp:73
+#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:38
+#: imports/NeoChat/Page/RoomPage.qml:505 src/notificationsmanager.cpp:74
 #, kde-format
 msgid "Reply"
 msgstr "Respon"
 
-#: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:61
-#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:41
+#: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:62
+#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:47
 #, kde-format
 msgid "Remove"
 msgstr "Elimina"
 
-#: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:70
-#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:52
+#: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:71
+#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:58
 #: imports/NeoChat/Menu/Timeline/ReportSheet.qml:32
 #, kde-format
 msgctxt ""
@@ -931,37 +929,37 @@ msgctxt ""
 msgid "Report"
 msgstr "Informa"
 
-#: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:74
-#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:56
+#: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:75
+#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:62
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Informa del missatge"
 
-#: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:79
-#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:61
+#: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:80
+#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:67
 #, kde-format
 msgid "View Source"
 msgstr "Mostra el codi font"
 
-#: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:85
-#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:67
+#: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:86
+#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:73
 #: imports/NeoChat/Menu/Timeline/MessageSourceSheet.qml:20
 #, kde-format
 msgid "Message Source"
 msgstr "Codi font del missatge"
 
-#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:47
+#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:53
 #, kde-format
 msgid "Copy"
 msgstr "Copia"
 
-#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:115
+#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:121
 #, kde-format
 msgid "Search for '%1'"
 msgstr "Cerca «%1»"
 
-#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:136
+#: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:142
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "Configura les dreceres web..."
@@ -1003,6 +1001,12 @@ msgid ""
 msgstr ""
 "No es pot desar el fitxer. Comproveu que teniu el permís correcte per a "
 "editar el directori de la memòria cau."
+
+#: imports/NeoChat/Page/ImageEditorPage.qml:125
+#: imports/NeoChat/Settings/AccountEditorPage.qml:123
+#, kde-format
+msgid "Cancel"
+msgstr "Cancel·la"
 
 #: imports/NeoChat/Page/ImageEditorPage.qml:125
 #: imports/NeoChat/Page/ImageEditorPage.qml:142
@@ -1139,42 +1143,42 @@ msgstr "Sense nom"
 msgid "Configure room"
 msgstr "Configura la sala"
 
-#: imports/NeoChat/Page/RoomPage.qml:127
+#: imports/NeoChat/Page/RoomPage.qml:121
 #, kde-format
 msgid "Accept this invitation?"
 msgstr "Accepteu aquesta invitació?"
 
-#: imports/NeoChat/Page/RoomPage.qml:131
+#: imports/NeoChat/Page/RoomPage.qml:125
 #, kde-format
 msgid "Reject"
 msgstr "Rebutja"
 
-#: imports/NeoChat/Page/RoomPage.qml:263
+#: imports/NeoChat/Page/RoomPage.qml:248
 #, kde-format
 msgid "Choose local file"
 msgstr "Trieu un fitxer local"
 
-#: imports/NeoChat/Page/RoomPage.qml:289
+#: imports/NeoChat/Page/RoomPage.qml:275
 #, kde-format
 msgid "Clipboard image"
 msgstr "Imatge del porta-retalls"
 
-#: imports/NeoChat/Page/RoomPage.qml:336
+#: imports/NeoChat/Page/RoomPage.qml:322
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Ves al primer missatge sense llegir"
 
-#: imports/NeoChat/Page/RoomPage.qml:359
+#: imports/NeoChat/Page/RoomPage.qml:345
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Ves al darrer missatge"
 
-#: imports/NeoChat/Page/RoomPage.qml:383
+#: imports/NeoChat/Page/RoomPage.qml:369
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Arrossegueu aquí els elements per a compartir"
 
-#: imports/NeoChat/Page/RoomPage.qml:415
+#: imports/NeoChat/Page/RoomPage.qml:401
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -1182,12 +1186,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 està escrivint"
 msgstr[1] "%2 estan escrivint"
 
-#: imports/NeoChat/Page/RoomPage.qml:487
+#: imports/NeoChat/Page/RoomPage.qml:473
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "El missatge s'ha enviat des d'un dispositiu verificat"
 
-#: imports/NeoChat/Page/RoomPage.qml:493
+#: imports/NeoChat/Page/RoomPage.qml:479
 #, kde-format
 msgid "React"
 msgstr "Reacciona"
@@ -1603,17 +1607,17 @@ msgctxt "@title:window"
 msgid "Custom Emojis"
 msgstr "Emojis personalitzats"
 
-#: imports/NeoChat/Settings/Emoticons.qml:31
+#: imports/NeoChat/Settings/Emoticons.qml:28
 #, kde-format
 msgid "No custom inline stickers found"
 msgstr "No s'ha trobat cap adhesiu personalitzat en línia"
 
-#: imports/NeoChat/Settings/Emoticons.qml:79
+#: imports/NeoChat/Settings/Emoticons.qml:76
 #, kde-format
 msgid "new_emoji_name_here"
 msgstr "nom_emoji_nou"
 
-#: imports/NeoChat/Settings/Emoticons.qml:88
+#: imports/NeoChat/Settings/Emoticons.qml:85
 #, kde-format
 msgid "Add Emoji..."
 msgstr "Afegeix un emoji..."
@@ -1843,17 +1847,223 @@ msgstr "Inicia un xat"
 msgid "Do you want to start a chat with %1?"
 msgstr "Voleu iniciar un xat amb %1?"
 
-#: src/actionshandler.cpp:226 src/actionshandler.cpp:245
-#: src/actionshandler.cpp:272 src/actionshandler.cpp:277
-#: src/actionshandler.cpp:290 src/actionshandler.cpp:295
-#, kde-format
-msgid "Invalid command"
-msgstr "Ordre no vàlida"
+#: src/actionsmodel.cpp:28 src/actionsmodel.cpp:38 src/actionsmodel.cpp:48
+#: src/actionsmodel.cpp:58 src/actionsmodel.cpp:78 src/actionsmodel.cpp:98
+#: src/actionsmodel.cpp:114 src/actionsmodel.cpp:124 src/actionsmodel.cpp:134
+#, fuzzy
+#| msgid "Send message"
+msgid "<message>"
+msgstr "Envia un missatge"
 
-#: src/actionshandler.cpp:314
+#: src/actionsmodel.cpp:29 src/commandmodel.cpp:32
 #, kde-format
-msgid "Couldn't find a message to react to"
-msgstr "No s'ha pogut cap missatge al qual reaccionar"
+msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
+msgstr "Prefixa ¯\\_(ツ)_/¯ a un missatge de text net"
+
+#: src/actionsmodel.cpp:39 src/commandmodel.cpp:34
+#, kde-format
+msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
+msgstr "Prefixa ( ͡° ͜ʖ ͡°) a un missatge de text net"
+
+# skip-rule: t-par_obe_tan
+#: src/actionsmodel.cpp:49 src/commandmodel.cpp:37
+#, kde-format
+msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
+msgstr "Prefixa (╯°□°）╯︵ ┻━┻ a un missatge de text net"
+
+#: src/actionsmodel.cpp:59 src/commandmodel.cpp:40
+#, kde-format
+msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
+msgstr "Prefixa ┬──┬ ノ( ゜-゜ノ) a un missatge de text net"
+
+#: src/actionsmodel.cpp:79
+#, fuzzy
+#| msgid "Sends the given message coloured as a rainbow"
+msgid "Sends the given message colored as a rainbow"
+msgstr "Envia el missatge indicat acolorit com un arc de Sant Martí"
+
+#: src/actionsmodel.cpp:99
+#, fuzzy
+#| msgid "Sends the given emote coloured as a rainbow"
+msgid "Sends the given emote colored as a rainbow"
+msgstr "Envia l'emote donada acolorida com un arc de Sant Martí"
+
+#: src/actionsmodel.cpp:115 src/commandmodel.cpp:54
+#, kde-format
+msgid "Sends the given message as a spoiler"
+msgstr "Envia el missatge indicat com un espòiler"
+
+#: src/actionsmodel.cpp:125
+#, fuzzy
+#| msgid "Sends the given message as a spoiler"
+msgid "Sends the given emote"
+msgstr "Envia el missatge indicat com un espòiler"
+
+#: src/actionsmodel.cpp:135
+#, fuzzy
+#| msgid "Sends the given message as a spoiler"
+msgid "Sends the given message as a notice"
+msgstr "Envia el missatge indicat com un espòiler"
+
+#: src/actionsmodel.cpp:144 src/actionsmodel.cpp:291 src/actionsmodel.cpp:319
+#, kde-format
+msgctxt "'<text>' does not look like a matrix id."
+msgid "'%1' does not look like a matrix id."
+msgstr ""
+
+#: src/actionsmodel.cpp:149
+#, fuzzy, kde-format
+#| msgid "reinvited %1 to the room"
+msgctxt "<user> is already invited to this room."
+msgid "%1 is already invited to this room."
+msgstr "s'ha tornat a convidar %1 a la sala"
+
+#: src/actionsmodel.cpp:153
+#, fuzzy, kde-format
+#| msgid "self-banned from the room"
+msgctxt "<user> is banned from this room."
+msgid "%1 is banned from this room."
+msgstr "ell mateix s'ha vetat a la sala"
+
+#: src/actionsmodel.cpp:158
+#, fuzzy, kde-format
+#| msgid "Open NeoChat in this room"
+msgid "You are already in this room."
+msgstr "Obre el NeoChat en aquesta sala"
+
+#: src/actionsmodel.cpp:162
+#, fuzzy, kde-format
+#| msgid "Open NeoChat in this room"
+msgctxt "<user> is already in this room."
+msgid "%1 is already in this room."
+msgstr "Obre el NeoChat en aquesta sala"
+
+#: src/actionsmodel.cpp:166
+#, fuzzy, kde-format
+#| msgid "%1 invited you to a room"
+msgctxt "<username> was invited into this room"
+msgid "%1 was invited into this room"
+msgstr "%1 us ha convidat a la sala"
+
+#: src/actionsmodel.cpp:171 src/actionsmodel.cpp:309 src/actionsmodel.cpp:337
+msgid "<user id>"
+msgstr ""
+
+#: src/actionsmodel.cpp:172
+#, fuzzy
+#| msgid "Invite user to room"
+msgid "Invites the user to this room"
+msgstr "Convida un usuari a la sala"
+
+#: src/actionsmodel.cpp:181 src/actionsmodel.cpp:204 src/actionsmodel.cpp:231
+#: src/actionsmodel.cpp:263
+#, kde-format
+msgctxt "'<text>' does not look like a room id or alias."
+msgid "'%1' does not look like a room id or alias."
+msgstr ""
+
+#: src/actionsmodel.cpp:185 src/actionsmodel.cpp:208
+#, kde-format
+msgctxt "You are already in room <roomname>."
+msgid "You are already in room %1."
+msgstr ""
+
+#: src/actionsmodel.cpp:188 src/actionsmodel.cpp:211
+#, fuzzy, kde-format
+#| msgid "Configure room"
+msgctxt "Joining room <roomname>."
+msgid "Joining room %1."
+msgstr "Configura la sala"
+
+#: src/actionsmodel.cpp:194 src/actionsmodel.cpp:217
+msgid "<room alias or id>"
+msgstr ""
+
+#: src/actionsmodel.cpp:195 src/actionsmodel.cpp:218
+#, fuzzy
+#| msgid "joined the room"
+msgid "Joins the given room"
+msgstr "ha entrat a la sala"
+
+#: src/actionsmodel.cpp:224 src/actionsmodel.cpp:256
+#, fuzzy, kde-format
+#| msgid "Open NeoChat in this room"
+msgid "Leaving this room."
+msgstr "Obre el NeoChat en aquesta sala"
+
+#: src/actionsmodel.cpp:239 src/actionsmodel.cpp:271
+#, fuzzy, kde-format
+#| msgid "Leave room"
+msgctxt "Leaving room <roomname>."
+msgid "Leaving room %1."
+msgstr "Surt de la sala"
+
+#: src/actionsmodel.cpp:242 src/actionsmodel.cpp:274
+#, fuzzy, kde-format
+#| msgid "Room not found"
+msgctxt "Room <roomname> not found"
+msgid "Room %1 not found."
+msgstr "No s'ha trobat la sala"
+
+#: src/actionsmodel.cpp:249 src/actionsmodel.cpp:281
+msgid "[<room alias or id>]"
+msgstr ""
+
+#: src/actionsmodel.cpp:250 src/actionsmodel.cpp:282
+msgid "Leaves the given room or this room, if there is none given"
+msgstr ""
+
+#: src/actionsmodel.cpp:296
+#, kde-format
+msgctxt "<username> is already ignored."
+msgid "%1 is already ignored."
+msgstr ""
+
+#: src/actionsmodel.cpp:301
+#, kde-format
+msgctxt "<username> is now ignored"
+msgid "%1 is now ignored."
+msgstr ""
+
+#: src/actionsmodel.cpp:303 src/actionsmodel.cpp:331
+#, kde-format
+msgctxt "<username> is not a known user"
+msgid "%1 is not a known user."
+msgstr ""
+
+#: src/actionsmodel.cpp:310
+#, fuzzy
+#| msgid "Ignore this user"
+msgid "Ignores the given user"
+msgstr "Ignora aquest usuari"
+
+#: src/actionsmodel.cpp:325
+#, kde-format
+msgctxt "<username> is not ignored."
+msgid "%1 is not ignored."
+msgstr ""
+
+#: src/actionsmodel.cpp:329
+#, kde-format
+msgctxt "<username> is no longer ignored."
+msgid "%1 is no longer ignored."
+msgstr ""
+
+#: src/actionsmodel.cpp:338
+#, fuzzy
+#| msgid "Unignore this user"
+msgid "Unignores the given user"
+msgstr "No ignoris aquest usuari"
+
+#: src/actionsmodel.cpp:358
+msgid "<reaction text>"
+msgstr ""
+
+#: src/actionsmodel.cpp:359
+#, fuzzy
+#| msgid "React to this message with a text"
+msgid "React to the message with the given text"
+msgstr "Reacciona a aquest missatge amb un text"
 
 #: src/collapsestateproxymodel.cpp:68
 #, kde-format
@@ -1880,27 +2090,6 @@ msgstr " i "
 msgid "Displays action"
 msgstr "Mostra una acció"
 
-#: src/commandmodel.cpp:32
-#, kde-format
-msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
-msgstr "Prefixa ¯\\_(ツ)_/¯ a un missatge de text net"
-
-#: src/commandmodel.cpp:34
-#, kde-format
-msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
-msgstr "Prefixa ( ͡° ͜ʖ ͡°) a un missatge de text net"
-
-# skip-rule: t-par_obe_tan
-#: src/commandmodel.cpp:37
-#, kde-format
-msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
-msgstr "Prefixa (╯°□°）╯︵ ┻━┻ a un missatge de text net"
-
-#: src/commandmodel.cpp:40
-#, kde-format
-msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
-msgstr "Prefixa ┬──┬ ノ( ゜-゜ノ) a un missatge de text net"
-
 #: src/commandmodel.cpp:43
 #, kde-format
 msgid "Sends a message as plain text, without interpreting it as markdown"
@@ -1920,11 +2109,6 @@ msgstr "Envia el missatge indicat acolorit com un arc de Sant Martí"
 #, kde-format
 msgid "Sends the given emote coloured as a rainbow"
 msgstr "Envia l'emote donada acolorida com un arc de Sant Martí"
-
-#: src/commandmodel.cpp:54
-#, kde-format
-msgid "Sends the given message as a spoiler"
-msgstr "Envia el missatge indicat com un espòiler"
 
 #: src/commandmodel.cpp:57
 #, kde-format
@@ -2049,12 +2233,12 @@ msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr ""
 "Una biblioteca Qt5 per a escriure clients multiplataforma per al Matrix"
 
-#: src/main.cpp:246
+#: src/main.cpp:245
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Client per al protocol de comunicacions Matrix"
 
-#: src/main.cpp:247
+#: src/main.cpp:246
 #, kde-format
 msgid "Supports appstream: url scheme"
 msgstr "Implementa l'esquema d'URL «appstream:»"
@@ -2104,307 +2288,307 @@ msgstr "[REDACTAT]"
 msgid "[REDACTED: %1]"
 msgstr "[REDACTAT: %1]"
 
-#: src/neochatroom.cpp:451
+#: src/neochatroom.cpp:449
 #, kde-format
 msgid "a file"
 msgstr "un fitxer"
 
-#: src/neochatroom.cpp:495
+#: src/neochatroom.cpp:493
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "s'ha tornat a convidar %1 a la sala"
 
-#: src/neochatroom.cpp:497
+#: src/neochatroom.cpp:495
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:506
+#: src/neochatroom.cpp:504
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "ha entrat a la sala (repetit)"
 
-#: src/neochatroom.cpp:508
+#: src/neochatroom.cpp:506
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "s'ha convidat %1 a la sala"
 
-#: src/neochatroom.cpp:508
+#: src/neochatroom.cpp:506
 #, kde-format
 msgid "joined the room"
 msgstr "ha entrat a la sala"
 
-#: src/neochatroom.cpp:512
+#: src/neochatroom.cpp:510
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:519
+#: src/neochatroom.cpp:517
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "ha netejat el seu nom a mostrar"
 
-#: src/neochatroom.cpp:521
+#: src/neochatroom.cpp:519
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "ha canviat el seu nom a mostrar a %1"
 
-#: src/neochatroom.cpp:526
+#: src/neochatroom.cpp:524
 #, kde-format
 msgid " and "
 msgstr " i "
 
-#: src/neochatroom.cpp:529
+#: src/neochatroom.cpp:527
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "ha netejat el seu avatar"
 
-#: src/neochatroom.cpp:535
+#: src/neochatroom.cpp:533
 #, kde-format
 msgid "set an avatar"
 msgstr "ha definit un avatar"
 
-#: src/neochatroom.cpp:537
+#: src/neochatroom.cpp:535
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "ha actualitzat el seu avatar"
 
-#: src/neochatroom.cpp:544
+#: src/neochatroom.cpp:542
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "retira la invitació de %1"
 
-#: src/neochatroom.cpp:544
+#: src/neochatroom.cpp:542
 #, kde-format
 msgid "rejected the invitation"
 msgstr "ha rebutjat la invitació"
 
-#: src/neochatroom.cpp:548
+#: src/neochatroom.cpp:546
 #, kde-format
 msgid "unbanned %1"
 msgstr "s'ha aixecat el veto de %1"
 
-#: src/neochatroom.cpp:548
+#: src/neochatroom.cpp:546
 #, kde-format
 msgid "self-unbanned"
 msgstr "ell mateix s'ha aixecat el veto"
 
-#: src/neochatroom.cpp:551
+#: src/neochatroom.cpp:549
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "ha posat %1 fora de la sala: %2"
 
-#: src/neochatroom.cpp:552
+#: src/neochatroom.cpp:550
 #, kde-format
 msgid "left the room"
 msgstr "ha deixat la sala"
 
-#: src/neochatroom.cpp:554
+#: src/neochatroom.cpp:552
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "s'ha vetat %1 a la sala: %2"
 
-#: src/neochatroom.cpp:555
+#: src/neochatroom.cpp:553
 #, kde-format
 msgid "self-banned from the room"
 msgstr "ell mateix s'ha vetat a la sala"
 
-#: src/neochatroom.cpp:557
+#: src/neochatroom.cpp:555
 #, kde-format
 msgid "requested an invite"
 msgstr "s'ha sol·licitat una invitació"
 
-#: src/neochatroom.cpp:560
+#: src/neochatroom.cpp:558
 #, kde-format
 msgid "made something unknown"
 msgstr "s'ha fet quelcom desconegut"
 
-#: src/neochatroom.cpp:563
+#: src/neochatroom.cpp:561
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "s'ha netejat l'àlies principal de la sala"
 
-#: src/neochatroom.cpp:563
+#: src/neochatroom.cpp:561
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "s'ha definit l'àlies principal de la sala a: %1"
 
-#: src/neochatroom.cpp:566
+#: src/neochatroom.cpp:564
 #, kde-format
 msgid "cleared the room name"
 msgstr "s'ha netejat el nom de la sala"
 
-#: src/neochatroom.cpp:566
+#: src/neochatroom.cpp:564
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "s'ha definit el nom de la sala a: %1"
 
-#: src/neochatroom.cpp:569
+#: src/neochatroom.cpp:567
 #, kde-format
 msgid "cleared the topic"
 msgstr "s'ha netejat el tema"
 
-#: src/neochatroom.cpp:569
+#: src/neochatroom.cpp:567
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "s'ha definit el tema a: %1"
 
-#: src/neochatroom.cpp:572
+#: src/neochatroom.cpp:570
 #, kde-format
 msgid "changed the room avatar"
 msgstr "s'ha canviat l'avatar de la sala"
 
-#: src/neochatroom.cpp:575
+#: src/neochatroom.cpp:573
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "s'ha activat l'encriptatge d'extrem a extrem"
 
-#: src/neochatroom.cpp:578
+#: src/neochatroom.cpp:576
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "la sala s'ha actualitzat a la versió %1"
 
-#: src/neochatroom.cpp:579
+#: src/neochatroom.cpp:577
 #, kde-format
 msgid "created the room, version %1"
 msgstr "la sala s'ha creat, versió %1"
 
-#: src/neochatroom.cpp:582
+#: src/neochatroom.cpp:580
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "s'han canviat els nivells de permís d'aquesta sala"
 
-#: src/neochatroom.cpp:586
+#: src/neochatroom.cpp:584
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr ""
 "les llistes de control d'accés del servidor han canviat per a aquesta sala"
 
-#: src/neochatroom.cpp:590
+#: src/neochatroom.cpp:588
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "ha afegit el giny %1"
 
-#: src/neochatroom.cpp:593
+#: src/neochatroom.cpp:591
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "ha eliminat el giny %1"
 
-#: src/neochatroom.cpp:595
+#: src/neochatroom.cpp:593
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "ha configurat el giny %1"
 
-#: src/neochatroom.cpp:597
+#: src/neochatroom.cpp:595
 #, kde-format
 msgid "updated %1 state"
 msgstr "s'ha actualitzat l'estat de %1"
 
-#: src/neochatroom.cpp:598
+#: src/neochatroom.cpp:596
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "s'ha actualitzat l'estat de %1 per %2"
 
-#: src/neochatroom.cpp:600
+#: src/neochatroom.cpp:598
 #, kde-format
 msgid "Unknown event"
 msgstr "Esdeveniment desconegut"
 
-#: src/neochatroom.cpp:1097
+#: src/neochatroom.cpp:1072 src/neochatroom.cpp:1073
 #, kde-format
 msgid "Report sent successfully."
 msgstr "L'informe s'ha enviat correctament."
 
-#: src/notificationsmanager.cpp:60
+#: src/notificationsmanager.cpp:61
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/notificationsmanager.cpp:66
+#: src/notificationsmanager.cpp:67
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Obre el NeoChat en aquesta sala"
 
-#: src/notificationsmanager.cpp:74
+#: src/notificationsmanager.cpp:75
 #, kde-format
 msgid "Reply..."
 msgstr "Respon..."
 
-#: src/notificationsmanager.cpp:96
+#: src/notificationsmanager.cpp:97
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 us ha convidat a la sala"
 
-#: src/notificationsmanager.cpp:100
+#: src/notificationsmanager.cpp:101
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Obre aquesta invitació en el NeoChat"
 
-#: src/notificationsmanager.cpp:106
+#: src/notificationsmanager.cpp:107
 #, kde-format
 msgid "Accept Invitation"
 msgstr "Accepta la invitació"
 
-#: src/notificationsmanager.cpp:106
+#: src/notificationsmanager.cpp:107
 #, kde-format
 msgid "Reject Invitation"
 msgstr "Rebutja la invitació"
 
-#: src/roomlistmodel.cpp:452
+#: src/roomlistmodel.cpp:456
 #, kde-format
 msgid "Invited"
 msgstr "Convidat"
 
-#: src/roomlistmodel.cpp:454
+#: src/roomlistmodel.cpp:458
 #, kde-format
 msgid "Favorite"
 msgstr "Preferit"
 
-#: src/roomlistmodel.cpp:456
+#: src/roomlistmodel.cpp:460
 #, kde-format
 msgid "Direct Messages"
 msgstr "Missatges directes"
 
-#: src/roomlistmodel.cpp:458
+#: src/roomlistmodel.cpp:462
 #, kde-format
 msgid "Normal"
 msgstr "Normal"
 
-#: src/roomlistmodel.cpp:460
+#: src/roomlistmodel.cpp:464
 #, kde-format
 msgid "Low priority"
 msgstr "Prioritat baixa"
 
-#: src/roomlistmodel.cpp:462
+#: src/roomlistmodel.cpp:466
 #, kde-format
 msgid "Spaces"
 msgstr "Espais"
 
-#: src/roommanager.cpp:47
+#: src/roommanager.cpp:48
 #, kde-format
 msgid "Malformed or empty Matrix id"
 msgstr "ID de Matrix amb format incorrecte o buida"
 
-#: src/roommanager.cpp:47
+#: src/roommanager.cpp:48
 #, kde-format
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 no és cap identificador correcte de Matrix"
 
-#: src/roommanager.cpp:64
+#: src/roommanager.cpp:65
 #, kde-format
 msgid "Room not found"
 msgstr "No s'ha trobat la sala"
 
-#: src/roommanager.cpp:64
+#: src/roommanager.cpp:65
 #, kde-format
 msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
@@ -2412,17 +2596,17 @@ msgstr ""
 "No hi ha cap sala %1 a la llista de sales. Comproveu l'ortografia i el "
 "compte."
 
-#: src/roommanager.cpp:199
+#: src/roommanager.cpp:206
 #, kde-format
 msgid "No application for the link"
 msgstr "No hi ha cap aplicació per a l'enllaç"
 
-#: src/roommanager.cpp:199
+#: src/roommanager.cpp:206
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "El sistema operatiu no ha pogut trobar cap aplicació per a l'enllaç."
 
-#: src/roommanager.cpp:205
+#: src/roommanager.cpp:212
 #, kde-format
 msgid "Could not open URL"
 msgstr "No s'ha pogut obrir l'URL"
@@ -2431,6 +2615,12 @@ msgstr "No s'ha pogut obrir l'URL"
 #, kde-format
 msgid "Show"
 msgstr "Mostra"
+
+#~ msgid "Invalid command"
+#~ msgstr "Ordre no vàlida"
+
+#~ msgid "Couldn't find a message to react to"
+#~ msgstr "No s'ha pogut cap missatge al qual reaccionar"
 
 #~ msgid "Image View - %1"
 #~ msgstr "Vista de la imatge - %1"
