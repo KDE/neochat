@@ -17,20 +17,33 @@ TextEdit {
     property bool isEmote: false
 
     /* Turn all links which aren't already in <a> tags into <a> hyperlinks */
+    readonly property var customEmojiLinksRegex: /data-mx-emoticon=""  src="(\bhttps?:\/\/[^\s\<\>\"\']*[^\s\<\>\"\'])/g
+    readonly property var customEmojiLinks: {
+        let links = [];
+        // we need all this because QML JS doesn't support String.matchAll introduced in ECMAScript 2020
+        let match = customEmojiLinksRegex.exec(model.display);
+        while (match !== null) {
+            links.push(match[1])
+            match = customEmojiLinksRegex.exec(model.display);
+        }
+        return links;
+    }
     readonly property var linkRegex: /(href=["'])?(\b(https?):\/\/[^\s\<\>\"\'\\]+)/g
     property string textMessage: model.display.includes("http")
         ? model.display.replace(linkRegex, function() {
+            if (customEmojiLinks && customEmojiLinks.includes(arguments[0])) {
+                return arguments[0];
+            }
             if (arguments[1]) {
                 return arguments[0];
-            } else {
-                var l = arguments[2];
-                if ([".", ","].includes(l[l.length-1])) {
-                    var link = l.substring(0, l.length-1);
-                    var leftover = l[l.length-1];
-                    return "<a href=\"" + link + "\">" + link + "</a>" + leftover;
-                }
-                return "<a href=\"" + l + "\">" + l + "</a>";
-          }
+            }
+            const l = arguments[2];
+            if ([".", ","].includes(l[l.length-1])) {
+                const link = l.substring(0, l.length-1);
+                const leftover = l[l.length-1];
+                return `<a href="${link}">${link}</a>${leftover}`;
+            }
+            return `<a href="${l}">${l}</a>`;
         })
         : model.display
     property bool spoilerRevealed: !hasSpoiler.test(textMessage)

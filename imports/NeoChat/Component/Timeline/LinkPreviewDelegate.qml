@@ -11,9 +11,22 @@ import org.kde.neochat 1.0
 
 RowLayout {
     id: row
+    readonly property var customEmojiLinksRegex: /data-mx-emoticon=""  src="(\bhttps?:\/\/[^\s\<\>\"\']*[^\s\<\>\"\'])/g
+    readonly property var customEmojiLinks: {
+        let links = [];
+        // we need all this because QML JS doesn't support String.matchAll introduced in ECMAScript 2020
+        let match = customEmojiLinksRegex.exec(model.display);
+        while (match !== null) {
+            links.push(match[1])
+            match = customEmojiLinksRegex.exec(model.display);
+        }
+        return links;
+    }
     property var links: model.display.match(/(\bhttps?:\/\/[^\s\<\>\"\']*[^\s\<\>\"\'])/g)
-        // don't show previews for room links or user mentions
-        .filter(link => !link.includes("https://matrix.to"))
+        // don't show previews for room links or user mentions or custom emojis
+        .filter(link => !(
+            link.includes("https://matrix.to") || (customEmojiLinks && customEmojiLinks.includes(link))
+        ))
         // remove ending fullstops and commas
         .map(link => (link.length && [".", ","].includes(link[link.length-1])) ? link.substring(0, link.length-1) : link)
     LinkPreviewer {
