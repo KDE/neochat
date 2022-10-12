@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-11 00:46+0000\n"
-"PO-Revision-Date: 2022-10-10 18:40+0300\n"
+"POT-Creation-Date: 2022-10-12 00:46+0000\n"
+"PO-Revision-Date: 2022-10-11 12:57+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -46,7 +46,7 @@ msgstr "Змінити"
 #: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:182
 #, kde-format
 msgid "Cancel sending Image"
-msgstr ""
+msgstr "Скасувати надсилання зображення"
 
 #: imports/NeoChat/Component/ChatBox/ChatBar.qml:81
 #, kde-format
@@ -104,11 +104,10 @@ msgid "Replying to %1:"
 msgstr "Відповідаємо %1:"
 
 #: imports/NeoChat/Component/ChatBox/ReplyPane.qml:100
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
-msgstr "Скасувати"
+msgstr "Скасувати відповідь"
 
 #: imports/NeoChat/Component/Emoji/EmojiPicker.qml:63
 #, kde-format
@@ -265,6 +264,7 @@ msgid "Complete the authentication steps in your browser"
 msgstr "Завершіть кроки розпізнавання у вашій програмі для перегляду інтернету"
 
 #: imports/NeoChat/Component/Timeline/EncryptedDelegate.qml:15
+#: imports/NeoChat/Component/Timeline/ReplyComponent.qml:124
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -333,7 +333,7 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Востаннє прочитано: %1"
 
-#: imports/NeoChat/Component/Timeline/RichLabel.qml:73
+#: imports/NeoChat/Component/Timeline/RichLabel.qml:84
 #, kde-format
 msgid " (edited)"
 msgstr " (змінено)"
@@ -1853,9 +1853,6 @@ msgstr "Хочете розпочати спілкування з %1?"
 #: src/actionsmodel.cpp:28 src/actionsmodel.cpp:38 src/actionsmodel.cpp:48
 #: src/actionsmodel.cpp:58 src/actionsmodel.cpp:78 src/actionsmodel.cpp:98
 #: src/actionsmodel.cpp:114 src/actionsmodel.cpp:124 src/actionsmodel.cpp:134
-#, fuzzy
-#| msgctxt "@label Parameter of a command"
-#| msgid "<message>"
 msgid "<message>"
 msgstr "<повідомлення>"
 
@@ -1880,14 +1877,10 @@ msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
 msgstr "Дописати ┬──┬ ノ( ゜-゜ノ) перед звичайним текстовим повідомленням"
 
 #: src/actionsmodel.cpp:79
-#, fuzzy
-#| msgid "Sends the given message coloured as a rainbow"
 msgid "Sends the given message colored as a rainbow"
 msgstr "Надіслати вказане повідомлення розфарбованим у кольори веселки"
 
 #: src/actionsmodel.cpp:99
-#, fuzzy
-#| msgid "Sends the given emote coloured as a rainbow"
 msgid "Sends the given emote colored as a rainbow"
 msgstr "Надіслати вказану емоцію розфарбованою у кольори веселки"
 
@@ -1897,182 +1890,153 @@ msgid "Sends the given message as a spoiler"
 msgstr "Надіслати вказане повідомлення як спойлер"
 
 #: src/actionsmodel.cpp:125
-#, fuzzy
-#| msgid "Sends the given message as a spoiler"
 msgid "Sends the given emote"
-msgstr "Надіслати вказане повідомлення як спойлер"
+msgstr "Надіслати вказану емоцію"
 
 #: src/actionsmodel.cpp:135
-#, fuzzy
-#| msgid "Sends the given message as a spoiler"
 msgid "Sends the given message as a notice"
-msgstr "Надіслати вказане повідомлення як спойлер"
+msgstr "Надіслати вказане повідомлення як зауваження"
 
 #: src/actionsmodel.cpp:144 src/actionsmodel.cpp:291 src/actionsmodel.cpp:319
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
-msgstr ""
+msgstr "Здається, «%1» не є ідентифікатором matrix."
 
 #: src/actionsmodel.cpp:149
-#, fuzzy, kde-format
-#| msgid "reinvited %1 to the room"
+#, kde-format
 msgctxt "<user> is already invited to this room."
 msgid "%1 is already invited to this room."
-msgstr "повторно запрошено %1 до кімнати"
+msgstr "%1 вже запрошено до цієї кімнати."
 
 #: src/actionsmodel.cpp:153
-#, fuzzy, kde-format
-#| msgid "self-banned from the room"
+#, kde-format
 msgctxt "<user> is banned from this room."
 msgid "%1 is banned from this room."
-msgstr "самозаблоковується у кімнаті"
+msgstr "%1 заблоковано у цій кімнаті."
 
 #: src/actionsmodel.cpp:158
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgid "You are already in this room."
-msgstr "Відкрити NeoChat у цій кімнаті"
+msgstr "Ви вже перебуваєте у цій кімнаті."
 
 #: src/actionsmodel.cpp:162
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgctxt "<user> is already in this room."
 msgid "%1 is already in this room."
-msgstr "Відкрити NeoChat у цій кімнаті"
+msgstr "%1 вже перебуває у цій кімнаті."
 
 #: src/actionsmodel.cpp:166
-#, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
+#, kde-format
 msgctxt "<username> was invited into this room"
 msgid "%1 was invited into this room"
-msgstr "Вас запрошено до кімнати %1"
+msgstr "%1 було запрошено до цієї кімнати"
 
 #: src/actionsmodel.cpp:171 src/actionsmodel.cpp:309 src/actionsmodel.cpp:337
-#, fuzzy
-#| msgctxt "@label Parameter of a command"
-#| msgid "<user-id>"
 msgid "<user id>"
-msgstr "<ідентифікатор_користувача>"
+msgstr "<ідентифікатор користувача>"
 
 #: src/actionsmodel.cpp:172
-#, fuzzy
-#| msgid "Invite user to room"
 msgid "Invites the user to this room"
-msgstr "Запросити користувача до кімнати"
+msgstr "Запрошує користувача до цієї кімнати"
 
 #: src/actionsmodel.cpp:181 src/actionsmodel.cpp:204 src/actionsmodel.cpp:231
 #: src/actionsmodel.cpp:263
 #, kde-format
 msgctxt "'<text>' does not look like a room id or alias."
 msgid "'%1' does not look like a room id or alias."
-msgstr ""
+msgstr "Здається, «%1» не є ідентифікатором або альтернативною назвою кімнати."
 
 #: src/actionsmodel.cpp:185 src/actionsmodel.cpp:208
 #, kde-format
 msgctxt "You are already in room <roomname>."
 msgid "You are already in room %1."
-msgstr ""
+msgstr "Ви вже перебуваєте у кімнаті %1."
 
 #: src/actionsmodel.cpp:188 src/actionsmodel.cpp:211
-#, fuzzy, kde-format
-#| msgid "Configure room"
+#, kde-format
 msgctxt "Joining room <roomname>."
 msgid "Joining room %1."
-msgstr "Налаштувати кімнату"
+msgstr "Долучається до кімнати %1."
 
 #: src/actionsmodel.cpp:194 src/actionsmodel.cpp:217
 msgid "<room alias or id>"
-msgstr ""
+msgstr "<альтернативна назва або ідентифікатор кімнати>"
 
 #: src/actionsmodel.cpp:195 src/actionsmodel.cpp:218
-#, fuzzy
-#| msgid "joined the room"
 msgid "Joins the given room"
-msgstr "долучається до кімнати"
+msgstr "Долучається до вказаної кімнати"
 
 #: src/actionsmodel.cpp:224 src/actionsmodel.cpp:256
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgid "Leaving this room."
-msgstr "Відкрити NeoChat у цій кімнаті"
+msgstr "Полишаємо цю кімнату."
 
 #: src/actionsmodel.cpp:239 src/actionsmodel.cpp:271
-#, fuzzy, kde-format
-#| msgid "Leave room"
+#, kde-format
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
-msgstr "Покинути кімнату"
+msgstr "Полишаємо кімнату %1."
 
 #: src/actionsmodel.cpp:242 src/actionsmodel.cpp:274
-#, fuzzy, kde-format
-#| msgid "Room not found"
+#, kde-format
 msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
-msgstr "Кімнату не знайдено"
+msgstr "Кімнати %1 не знайдено."
 
 #: src/actionsmodel.cpp:249 src/actionsmodel.cpp:281
 msgid "[<room alias or id>]"
-msgstr ""
+msgstr "[<альтернативна назва або ідентифікатор кімнати>]"
 
 #: src/actionsmodel.cpp:250 src/actionsmodel.cpp:282
 msgid "Leaves the given room or this room, if there is none given"
-msgstr ""
+msgstr "Полишає вказану кімнату або цю кімнату, якщо кімнату не вказано"
 
 #: src/actionsmodel.cpp:296
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
-msgstr ""
+msgstr "%1 вже додано до ігнорованих."
 
 #: src/actionsmodel.cpp:301
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
-msgstr ""
+msgstr "%1 тепер є ігнорованим."
 
 #: src/actionsmodel.cpp:303 src/actionsmodel.cpp:331
 #, kde-format
 msgctxt "<username> is not a known user"
 msgid "%1 is not a known user."
-msgstr ""
+msgstr "%1 не є відомим користувачем."
 
 #: src/actionsmodel.cpp:310
-#, fuzzy
-#| msgid "Ignore this user"
 msgid "Ignores the given user"
-msgstr "Ігнорувати цього користувача"
+msgstr "Ігнорує вказаного користувача"
 
 #: src/actionsmodel.cpp:325
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
-msgstr ""
+msgstr "%1 не включено до ігнорованих."
 
 #: src/actionsmodel.cpp:329
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
-msgstr ""
+msgstr "%1 Ігнорується."
 
 #: src/actionsmodel.cpp:338
-#, fuzzy
-#| msgid "Unignore this user"
 msgid "Unignores the given user"
-msgstr "Скасувати ігнорування цього користувача"
+msgstr "Скасовує ігнорування вказаного користувача"
 
 #: src/actionsmodel.cpp:358
-#, fuzzy
-#| msgctxt "@label Parameter of a command"
-#| msgid "<reaction text>"
 msgid "<reaction text>"
 msgstr "<текст реакції>"
 
 #: src/actionsmodel.cpp:359
-#, fuzzy
-#| msgid "React to this message with a text"
 msgid "React to the message with the given text"
-msgstr "Зреагувати на це повідомлення текстом"
+msgstr "Зреагувати на це повідомлення вказаним текстом"
 
 #: src/collapsestateproxymodel.cpp:68
 #, kde-format

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-11 00:46+0000\n"
-"PO-Revision-Date: 2022-09-29 23:57+0100\n"
+"POT-Creation-Date: 2022-10-12 00:46+0000\n"
+"PO-Revision-Date: 2022-10-11 17:12+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -43,7 +43,7 @@ msgstr "Editar"
 #: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:182
 #, kde-format
 msgid "Cancel sending Image"
-msgstr ""
+msgstr "Cancelar o Envio da Imagem"
 
 #: imports/NeoChat/Component/ChatBox/ChatBar.qml:81
 #, kde-format
@@ -99,11 +99,10 @@ msgid "Replying to %1:"
 msgstr "A responder a %1:"
 
 #: imports/NeoChat/Component/ChatBox/ReplyPane.qml:100
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
-msgstr "Cancelar"
+msgstr "Cancelar a resposta"
 
 #: imports/NeoChat/Component/Emoji/EmojiPicker.qml:63
 #, kde-format
@@ -111,35 +110,29 @@ msgid "Custom"
 msgstr "Personalizado"
 
 #: imports/NeoChat/Component/FullScreenImage.qml:80
-#, fuzzy, kde-format
-#| msgid "Room Settings"
+#, kde-format
 msgid "Zoom in"
-msgstr "Configuração da Sala"
+msgstr "Ampliar"
 
 #: imports/NeoChat/Component/FullScreenImage.qml:99
 #, kde-format
 msgid "Zoom out"
-msgstr ""
+msgstr "Reduzir"
 
 #: imports/NeoChat/Component/FullScreenImage.qml:118
-#, fuzzy, kde-format
-#| msgctxt "@action:button Rotate an image to the left"
-#| msgid "Rotate left"
+#, kde-format
 msgid "Rotate left"
 msgstr "Rodar à esquerda"
 
 #: imports/NeoChat/Component/FullScreenImage.qml:132
-#, fuzzy, kde-format
-#| msgctxt "@action:button Rotate an image to the right"
-#| msgid "Rotate right"
+#, kde-format
 msgid "Rotate right"
 msgstr "Rodar à direita"
 
 #: imports/NeoChat/Component/FullScreenImage.qml:146
-#, fuzzy, kde-format
-#| msgid "Save As"
+#, kde-format
 msgid "Save as"
-msgstr "Gravar Como"
+msgstr "Gravar como"
 
 #: imports/NeoChat/Component/FullScreenImage.qml:164
 #, kde-format
@@ -266,6 +259,7 @@ msgid "Complete the authentication steps in your browser"
 msgstr "Terminar os passos de autenticação no seu navegador"
 
 #: imports/NeoChat/Component/Timeline/EncryptedDelegate.qml:15
+#: imports/NeoChat/Component/Timeline/ReplyComponent.qml:124
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -330,7 +324,7 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Última leitura: %1"
 
-#: imports/NeoChat/Component/Timeline/RichLabel.qml:73
+#: imports/NeoChat/Component/Timeline/RichLabel.qml:84
 #, kde-format
 msgid " (edited)"
 msgstr " (editado)"
@@ -1849,10 +1843,8 @@ msgstr "Deseja iniciar uma conversa com %1?"
 #: src/actionsmodel.cpp:28 src/actionsmodel.cpp:38 src/actionsmodel.cpp:48
 #: src/actionsmodel.cpp:58 src/actionsmodel.cpp:78 src/actionsmodel.cpp:98
 #: src/actionsmodel.cpp:114 src/actionsmodel.cpp:124 src/actionsmodel.cpp:134
-#, fuzzy
-#| msgid "Send message"
 msgid "<message>"
-msgstr "Enviar uma mensagem"
+msgstr "<mensagem>"
 
 #: src/actionsmodel.cpp:29 src/commandmodel.cpp:32
 #, kde-format
@@ -1875,16 +1867,12 @@ msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
 msgstr "Antecede ┬──┬ ノ( ゜-゜ノ) a uma mensagem de texto simples"
 
 #: src/actionsmodel.cpp:79
-#, fuzzy
-#| msgid "Sends the given message coloured as a rainbow"
 msgid "Sends the given message colored as a rainbow"
-msgstr "Envia a mensagem colorida como um arco-íris"
+msgstr "Envia a mensagem indicada, colorida como um arco-íris"
 
 #: src/actionsmodel.cpp:99
-#, fuzzy
-#| msgid "Sends the given emote coloured as a rainbow"
 msgid "Sends the given emote colored as a rainbow"
-msgstr "Envia o ícone emotivo colorido como um arco-íris"
+msgstr "Envia o ícone emotivo indicado, colorido como um arco-íris"
 
 #: src/actionsmodel.cpp:115 src/commandmodel.cpp:54
 #, kde-format
@@ -1892,176 +1880,153 @@ msgid "Sends the given message as a spoiler"
 msgstr "Envia a mensagem indicada como uma revelação"
 
 #: src/actionsmodel.cpp:125
-#, fuzzy
-#| msgid "Sends the given message as a spoiler"
 msgid "Sends the given emote"
-msgstr "Envia a mensagem indicada como uma revelação"
+msgstr "Envia o ícone emotivo indicado"
 
 #: src/actionsmodel.cpp:135
-#, fuzzy
-#| msgid "Sends the given message as a spoiler"
 msgid "Sends the given message as a notice"
-msgstr "Envia a mensagem indicada como uma revelação"
+msgstr "Envia a mensagem indicada como um aviso"
 
 #: src/actionsmodel.cpp:144 src/actionsmodel.cpp:291 src/actionsmodel.cpp:319
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
-msgstr ""
+msgstr "O '%1' não parece ser um ID do Matrix."
 
 #: src/actionsmodel.cpp:149
-#, fuzzy, kde-format
-#| msgid "reinvited %1 to the room"
+#, kde-format
 msgctxt "<user> is already invited to this room."
 msgid "%1 is already invited to this room."
-msgstr "voltou a convidar o %1 para a sala"
+msgstr "O %1 já foi convidado para esta sala."
 
 #: src/actionsmodel.cpp:153
-#, fuzzy, kde-format
-#| msgid "self-banned from the room"
+#, kde-format
 msgctxt "<user> is banned from this room."
 msgid "%1 is banned from this room."
-msgstr "expulsou-se a si próprio da sala"
+msgstr "O %1 foi expulso desta sala."
 
 #: src/actionsmodel.cpp:158
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgid "You are already in this room."
-msgstr "Abrir o NeoChat nesta sala"
+msgstr "Já se encontra nesta sala."
 
 #: src/actionsmodel.cpp:162
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgctxt "<user> is already in this room."
 msgid "%1 is already in this room."
-msgstr "Abrir o NeoChat nesta sala"
+msgstr "O %1 já se encontra nesta sala."
 
 #: src/actionsmodel.cpp:166
-#, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
+#, kde-format
 msgctxt "<username> was invited into this room"
 msgid "%1 was invited into this room"
-msgstr "%1 convidou-o para uma sala"
+msgstr "O %1 foi convidado para esta sala"
 
 #: src/actionsmodel.cpp:171 src/actionsmodel.cpp:309 src/actionsmodel.cpp:337
 msgid "<user id>"
-msgstr ""
+msgstr "<ID do utilizador>"
 
 #: src/actionsmodel.cpp:172
-#, fuzzy
-#| msgid "Invite user to room"
 msgid "Invites the user to this room"
-msgstr "Convidar o utilizador para a sala"
+msgstr "Convida o utilizador para esta sala"
 
 #: src/actionsmodel.cpp:181 src/actionsmodel.cpp:204 src/actionsmodel.cpp:231
 #: src/actionsmodel.cpp:263
 #, kde-format
 msgctxt "'<text>' does not look like a room id or alias."
 msgid "'%1' does not look like a room id or alias."
-msgstr ""
+msgstr "O '%1' não parece ser um ID ou alcunha de sala."
 
 #: src/actionsmodel.cpp:185 src/actionsmodel.cpp:208
 #, kde-format
 msgctxt "You are already in room <roomname>."
 msgid "You are already in room %1."
-msgstr ""
+msgstr "Já se encontra na sala %1."
 
 #: src/actionsmodel.cpp:188 src/actionsmodel.cpp:211
-#, fuzzy, kde-format
-#| msgid "Configure room"
+#, kde-format
 msgctxt "Joining room <roomname>."
 msgid "Joining room %1."
-msgstr "Configurar a sala"
+msgstr "A juntar-se à sala %1."
 
 #: src/actionsmodel.cpp:194 src/actionsmodel.cpp:217
 msgid "<room alias or id>"
-msgstr ""
+msgstr "<ID ou alcunha da sala>"
 
 #: src/actionsmodel.cpp:195 src/actionsmodel.cpp:218
-#, fuzzy
-#| msgid "joined the room"
 msgid "Joins the given room"
-msgstr "juntou-se à sala"
+msgstr "Junta-se à sala indicada"
 
 #: src/actionsmodel.cpp:224 src/actionsmodel.cpp:256
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgid "Leaving this room."
-msgstr "Abrir o NeoChat nesta sala"
+msgstr "A sair desta sala."
 
 #: src/actionsmodel.cpp:239 src/actionsmodel.cpp:271
-#, fuzzy, kde-format
-#| msgid "Leave room"
+#, kde-format
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
-msgstr "Sair da sala"
+msgstr "A sair da sala %1."
 
 #: src/actionsmodel.cpp:242 src/actionsmodel.cpp:274
-#, fuzzy, kde-format
-#| msgid "Room not found"
+#, kde-format
 msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
-msgstr "Sala não encontrada"
+msgstr "A sala %1 não foi encontrada."
 
 #: src/actionsmodel.cpp:249 src/actionsmodel.cpp:281
 msgid "[<room alias or id>]"
-msgstr ""
+msgstr "[<ID ou alcunha da sala>]"
 
 #: src/actionsmodel.cpp:250 src/actionsmodel.cpp:282
 msgid "Leaves the given room or this room, if there is none given"
-msgstr ""
+msgstr "Sai da sala indicada ou desta sala, caso não seja indicada nenhuma"
 
 #: src/actionsmodel.cpp:296
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
-msgstr ""
+msgstr "O %1 já está a ser ignorado."
 
 #: src/actionsmodel.cpp:301
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
-msgstr ""
+msgstr "O %1 está agora ignorado."
 
 #: src/actionsmodel.cpp:303 src/actionsmodel.cpp:331
 #, kde-format
 msgctxt "<username> is not a known user"
 msgid "%1 is not a known user."
-msgstr ""
+msgstr "O %1 não é um utilizador conhecido."
 
 #: src/actionsmodel.cpp:310
-#, fuzzy
-#| msgid "Ignore this user"
 msgid "Ignores the given user"
-msgstr "Ignorar este utilizador"
+msgstr "Ignora o utilizador indicado"
 
 #: src/actionsmodel.cpp:325
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
-msgstr ""
+msgstr "O %1 não está ignorado."
 
 #: src/actionsmodel.cpp:329
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
-msgstr ""
+msgstr "O %1 já não é mais ignorado."
 
 #: src/actionsmodel.cpp:338
-#, fuzzy
-#| msgid "Unignore this user"
 msgid "Unignores the given user"
-msgstr "Reactivar este utilizador"
+msgstr "Reactiva o utilizador indicado"
 
 #: src/actionsmodel.cpp:358
 msgid "<reaction text>"
-msgstr ""
+msgstr "<texto da reacção>"
 
 #: src/actionsmodel.cpp:359
-#, fuzzy
-#| msgid "React to this message with a text"
 msgid "React to the message with the given text"
-msgstr "Reagir a esta mensagem com um texto"
+msgstr "Reagir a esta mensagem com o texto indicado"
 
 #: src/collapsestateproxymodel.cpp:68
 #, kde-format
@@ -2611,12 +2576,3 @@ msgstr "Não foi possível abrir o URL"
 #, kde-format
 msgid "Show"
 msgstr "Mostrar"
-
-#~ msgid "Invalid command"
-#~ msgstr "Comando inválido"
-
-#~ msgid "Couldn't find a message to react to"
-#~ msgstr "Não foi possível encontrar uma mensagem com que reagir"
-
-#~ msgid "Image View - %1"
-#~ msgstr "Área da Imagem - %1"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-11 00:46+0000\n"
-"PO-Revision-Date: 2022-09-30 11:05+0200\n"
+"POT-Creation-Date: 2022-10-12 00:46+0000\n"
+"PO-Revision-Date: 2022-10-11 07:14+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -44,7 +44,7 @@ msgstr "ჩასწორება"
 #: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:182
 #, kde-format
 msgid "Cancel sending Image"
-msgstr ""
+msgstr "გამოსახულების გაგზავნის გაუქმება"
 
 #: imports/NeoChat/Component/ChatBox/ChatBar.qml:81
 #, kde-format
@@ -99,11 +99,10 @@ msgid "Replying to %1:"
 msgstr "%1-ის პასუხი:"
 
 #: imports/NeoChat/Component/ChatBox/ReplyPane.qml:100
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
-msgstr "_გაუქმება"
+msgstr "პასუხის გაუქმება"
 
 #: imports/NeoChat/Component/Emoji/EmojiPicker.qml:63
 #, kde-format
@@ -111,35 +110,29 @@ msgid "Custom"
 msgstr "ხელით მითითებული"
 
 #: imports/NeoChat/Component/FullScreenImage.qml:80
-#, fuzzy, kde-format
-#| msgid "Room settings"
+#, kde-format
 msgid "Zoom in"
-msgstr "ოთახის მორგება"
+msgstr "გადიდება"
 
 #: imports/NeoChat/Component/FullScreenImage.qml:99
 #, kde-format
 msgid "Zoom out"
-msgstr ""
+msgstr "დაპატარავება"
 
 #: imports/NeoChat/Component/FullScreenImage.qml:118
-#, fuzzy, kde-format
-#| msgctxt "@action:button Rotate an image to the left"
-#| msgid "Rotate left"
+#, kde-format
 msgid "Rotate left"
 msgstr "მარცხნივ მოტრიალება"
 
 #: imports/NeoChat/Component/FullScreenImage.qml:132
-#, fuzzy, kde-format
-#| msgctxt "@action:button Rotate an image to the right"
-#| msgid "Rotate right"
+#, kde-format
 msgid "Rotate right"
 msgstr "მარჯვნივ მოტრიალება"
 
 #: imports/NeoChat/Component/FullScreenImage.qml:146
-#, fuzzy, kde-format
-#| msgid "Save As"
+#, kde-format
 msgid "Save as"
-msgstr "შენახვა როგორც"
+msgstr "შენახვა, როგორც"
 
 #: imports/NeoChat/Component/FullScreenImage.qml:164
 #, kde-format
@@ -266,6 +259,7 @@ msgid "Complete the authentication steps in your browser"
 msgstr ""
 
 #: imports/NeoChat/Component/Timeline/EncryptedDelegate.qml:15
+#: imports/NeoChat/Component/Timeline/ReplyComponent.qml:124
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -328,7 +322,7 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "ბოლოს წაიკითხა: %1"
 
-#: imports/NeoChat/Component/Timeline/RichLabel.qml:73
+#: imports/NeoChat/Component/Timeline/RichLabel.qml:84
 #, kde-format
 msgid " (edited)"
 msgstr " (ჩასწორებულია)"
@@ -565,7 +559,7 @@ msgstr "გთხოვთ, აირჩიოთ ფაილი"
 #, kde-format
 msgctxt "@title:menu Account detail dialog"
 msgid "Account detail"
-msgstr ""
+msgstr "ანგარიშის დეტალები"
 
 #: imports/NeoChat/Dialog/UserDetailDialog.qml:79
 #, kde-format
@@ -575,27 +569,27 @@ msgstr "ონლაინ"
 #: imports/NeoChat/Dialog/UserDetailDialog.qml:94
 #, kde-format
 msgid "Unignore this user"
-msgstr ""
+msgstr "ამ მომხმარებლის იგნორის გაუქმება"
 
 #: imports/NeoChat/Dialog/UserDetailDialog.qml:94
 #, kde-format
 msgid "Ignore this user"
-msgstr ""
+msgstr "ამ მომხმარებლის იგნორირება"
 
 #: imports/NeoChat/Dialog/UserDetailDialog.qml:106
 #, kde-format
 msgid "Kick this user"
-msgstr ""
+msgstr "ამ მომხმარებლის გაგდება"
 
 #: imports/NeoChat/Dialog/UserDetailDialog.qml:118
 #, kde-format
 msgid "Ban this user"
-msgstr ""
+msgstr "ამ მომხმარებლის დაბანვა"
 
 #: imports/NeoChat/Dialog/UserDetailDialog.qml:131
 #, kde-format
 msgid "Unban this user"
-msgstr ""
+msgstr "ამ მომხმარებლის ბანის მოხსნა"
 
 #: imports/NeoChat/Dialog/UserDetailDialog.qml:144
 #, kde-format
@@ -605,7 +599,7 @@ msgstr ""
 #: imports/NeoChat/Dialog/UserDetailDialog.qml:155
 #, kde-format
 msgid "Open a private chat"
-msgstr ""
+msgstr "პირადი საუბრის გახსნა"
 
 #: imports/NeoChat/Menu/EditMenu.qml:17
 #, kde-format
@@ -727,7 +721,7 @@ msgctxt ""
 "menu item that opens a UI element called the 'Quick Switcher', which offers "
 "a fast keyboard-based interface for switching in between chats."
 msgid "Open Quick Switcher"
-msgstr ""
+msgstr "სწრაფი გადამრთველის გახსნა"
 
 #: imports/NeoChat/Menu/GlobalMenu.qml:78
 #, kde-format
@@ -836,13 +830,13 @@ msgstr "გამორთული"
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:106
 #, kde-format
 msgid "Room Settings"
-msgstr ""
+msgstr "ოთახის მორგება"
 
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:113
 #: imports/NeoChat/Menu/RoomListContextMenu.qml:187
 #, kde-format
 msgid "Leave Room"
-msgstr ""
+msgstr "ოთახიდან გასვლა"
 
 #: imports/NeoChat/Menu/ShareAction.qml:19
 #, kde-format
@@ -852,17 +846,17 @@ msgstr "გაზიარება"
 #: imports/NeoChat/Menu/ShareAction.qml:20
 #, kde-format
 msgid "Share the selected media"
-msgstr ""
+msgstr "მონიშნული მედიის გაზიარება"
 
 #: imports/NeoChat/Menu/ShareDialog.qml:34
 #, kde-format
 msgid "Sharing failed"
-msgstr ""
+msgstr "გაზიარების შეცდომა"
 
 #: imports/NeoChat/Menu/ShareDialog.qml:53
 #, kde-format
 msgid "Shared url for image is <a href='%1'>%1</a>"
-msgstr ""
+msgstr "გამოსახულების გაზიარებული URL-ია <a href='%1'>%1</a>"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:25
 #, kde-format
@@ -914,7 +908,7 @@ msgstr "წყაროს ნახვა"
 #: imports/NeoChat/Menu/Timeline/MessageSourceSheet.qml:20
 #, kde-format
 msgid "Message Source"
-msgstr ""
+msgstr "შეტყობინების წყარო"
 
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:53
 #, kde-format
@@ -1007,24 +1001,24 @@ msgstr "სარკე"
 #: imports/NeoChat/Page/InviteUserPage.qml:17
 #, kde-format
 msgid "Invite a User"
-msgstr ""
+msgstr "მომხმარებლის მოწვევა"
 
 #: imports/NeoChat/Page/InviteUserPage.qml:35
 #: imports/NeoChat/Page/StartChatPage.qml:31
 #, kde-format
 msgid "Find a user..."
-msgstr ""
+msgstr "მომხმარებლის პოვნა..."
 
 #: imports/NeoChat/Page/InviteUserPage.qml:42
 #, kde-format
 msgid "Add"
-msgstr ""
+msgstr "დამატება"
 
 #: imports/NeoChat/Page/InviteUserPage.qml:71
 #: imports/NeoChat/Page/StartChatPage.qml:135
 #, kde-format
 msgid "No users available"
-msgstr ""
+msgstr "მომხმარებლები ხელმისაწვდომი არაა"
 
 #: imports/NeoChat/Page/InviteUserPage.qml:121
 #, kde-format
@@ -1034,17 +1028,17 @@ msgstr "მოსაწვევის გაგზავნა"
 #: imports/NeoChat/Page/JoinRoomPage.qml:20 qml/main.qml:233
 #, kde-format
 msgid "Explore Rooms"
-msgstr ""
+msgstr "ოთახების დათვალიერება"
 
 #: imports/NeoChat/Page/JoinRoomPage.qml:35
 #, kde-format
 msgid "Find a room..."
-msgstr ""
+msgstr "ოთახის პოვნა..."
 
 #: imports/NeoChat/Page/JoinRoomPage.qml:43
 #, kde-format
 msgid "View"
-msgstr ""
+msgstr "ნახვა"
 
 #: imports/NeoChat/Page/JoinRoomPage.qml:43
 #, kde-format
@@ -1064,23 +1058,23 @@ msgstr "გლობალური"
 #: imports/NeoChat/Page/JoinRoomPage.qml:131
 #, kde-format
 msgid "Joined"
-msgstr ""
+msgstr "შეერთებული"
 
 #: imports/NeoChat/Page/RoomListPage.qml:51
 #, kde-format
 msgctxt "@action:button"
 msgid "Show All Rooms"
-msgstr ""
+msgstr "ყველა ოთახის ჩვენება"
 
 #: imports/NeoChat/Page/RoomListPage.qml:96
 #, kde-format
 msgid "Rooms"
-msgstr ""
+msgstr "ოთახები"
 
 #: imports/NeoChat/Page/RoomListPage.qml:184
 #, kde-format
 msgid "No rooms found"
-msgstr ""
+msgstr "ოთახები ვერ ვიპოვე"
 
 #: imports/NeoChat/Page/RoomListPage.qml:184
 #, kde-format
@@ -1095,23 +1089,23 @@ msgstr ""
 #: imports/NeoChat/Page/RoomListPage.qml:187 qml/main.qml:230
 #, kde-format
 msgid "Explore rooms"
-msgstr ""
+msgstr "ოთახების დათვალიერება"
 
 #: imports/NeoChat/Page/RoomListPage.qml:268
 #: imports/NeoChat/Page/RoomListPage.qml:319
 #, kde-format
 msgid "No Name"
-msgstr ""
+msgstr "სახელის გარეშე"
 
 #: imports/NeoChat/Page/RoomListPage.qml:345
 #, kde-format
 msgid "Configure room"
-msgstr ""
+msgstr "ოთახის მორგება"
 
 #: imports/NeoChat/Page/RoomPage.qml:121
 #, kde-format
 msgid "Accept this invitation?"
-msgstr ""
+msgstr "დავეთანხმო მოსაწვევს?"
 
 #: imports/NeoChat/Page/RoomPage.qml:125
 #, kde-format
@@ -1121,7 +1115,7 @@ msgstr "უარყოფა"
 #: imports/NeoChat/Page/RoomPage.qml:248
 #, kde-format
 msgid "Choose local file"
-msgstr ""
+msgstr "აირჩიეთ ლოკალური ფაილი"
 
 #: imports/NeoChat/Page/RoomPage.qml:275
 #, kde-format
@@ -1148,8 +1142,8 @@ msgstr ""
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
 msgid_plural "%2 are typing"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%2 კრეფს"
+msgstr[1] "%2 კრეფს"
 
 #: imports/NeoChat/Page/RoomPage.qml:473
 #, kde-format
@@ -1270,17 +1264,17 @@ msgstr "გაფრთხილებები"
 #: imports/NeoChat/RoomSettings/General.qml:42
 #, kde-format
 msgid "Update avatar"
-msgstr ""
+msgstr "ავატარის განახლება"
 
 #: imports/NeoChat/RoomSettings/General.qml:60
 #, kde-format
 msgid "Room Name:"
-msgstr ""
+msgstr "ოთახის სახელი:"
 
 #: imports/NeoChat/RoomSettings/General.qml:68
 #, kde-format
 msgid "Room topic:"
-msgstr ""
+msgstr "ოთახის თემა:"
 
 #: imports/NeoChat/RoomSettings/General.qml:81
 #, kde-format
@@ -1290,7 +1284,7 @@ msgstr ""
 #: imports/NeoChat/RoomSettings/General.qml:98
 #, kde-format
 msgid "Other Aliases:"
-msgstr ""
+msgstr "სხვა მეტსახელები:"
 
 #: imports/NeoChat/RoomSettings/General.qml:142
 #, kde-format
@@ -1300,17 +1294,17 @@ msgstr ""
 #: imports/NeoChat/RoomSettings/General.qml:144
 #, kde-format
 msgid "See older messages..."
-msgstr ""
+msgstr "ძველი შეტყობინებების ნახვა..."
 
 #: imports/NeoChat/RoomSettings/General.qml:162
 #, kde-format
 msgid "This room has been replaced."
-msgstr ""
+msgstr "ეს ოთახი გამოცვლილია."
 
 #: imports/NeoChat/RoomSettings/General.qml:164
 #, kde-format
 msgid "See new room..."
-msgstr ""
+msgstr "ახალი ოთახის ნახვა..."
 
 #: imports/NeoChat/RoomSettings/General.qml:188
 #: imports/NeoChat/RoomSettings/Security.qml:64
@@ -1322,7 +1316,7 @@ msgstr "გამოყენება"
 #: imports/NeoChat/RoomSettings/PushNotification.qml:23
 #, kde-format
 msgid "Follow global setting"
-msgstr ""
+msgstr "გლობალური პარამეტრის მიყოლა"
 
 #: imports/NeoChat/RoomSettings/PushNotification.qml:24
 #, kde-format
@@ -1383,13 +1377,13 @@ msgstr "ანგარიშის ჩასწორება"
 #: imports/NeoChat/Settings/AccountEditorPage.qml:58
 #, kde-format
 msgid "Avatar:"
-msgstr ""
+msgstr "ავატარი:"
 
 #: imports/NeoChat/Settings/AccountEditorPage.qml:63
 #: imports/NeoChat/Settings/DevicesPage.qml:102
 #, kde-format
 msgid "Name:"
-msgstr ""
+msgstr "სახელი:"
 
 #: imports/NeoChat/Settings/AccountEditorPage.qml:68
 #, kde-format
@@ -1409,18 +1403,18 @@ msgstr "ახალი პაროლი:"
 #: imports/NeoChat/Settings/AccountEditorPage.qml:85
 #, kde-format
 msgid "Confirm new Password:"
-msgstr ""
+msgstr "დაადასტურეთ ახალი პაროლი:"
 
 #: imports/NeoChat/Settings/AccountEditorPage.qml:98
 #: imports/NeoChat/Settings/DevicesPage.qml:106
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "შენახვა"
 
 #: imports/NeoChat/Settings/AccountEditorPage.qml:115
 #, kde-format
 msgid "Passwords do not match"
-msgstr ""
+msgstr "პაროლები არ ემთხვევა"
 
 #: imports/NeoChat/Settings/AccountsPage.qml:15
 #: imports/NeoChat/Settings/SettingsPage.qml:22
@@ -1437,12 +1431,12 @@ msgstr "ახალი ანგარიშის დამატება"
 #: imports/NeoChat/Settings/AccountsPage.qml:45
 #, kde-format
 msgid "Edit this account"
-msgstr ""
+msgstr "ამ ანგარიშის ჩასწორება"
 
 #: imports/NeoChat/Settings/AccountsPage.qml:50
 #, kde-format
 msgid "Account editor"
-msgstr ""
+msgstr "ანგარიშების რედაქტორი"
 
 #: imports/NeoChat/Settings/AccountsPage.qml:60 qml/main.qml:261
 #, kde-format
@@ -1457,7 +1451,7 @@ msgstr "პაროლი წარმატებით შეიცვალ�
 #: imports/NeoChat/Settings/AccountsPage.qml:99
 #, kde-format
 msgid "Wrong password entered"
-msgstr ""
+msgstr "შეყვანილი პაროლი არასწორია"
 
 #: imports/NeoChat/Settings/AccountsPage.qml:101
 #, kde-format
@@ -1483,7 +1477,7 @@ msgstr "დაპატარავება"
 #: imports/NeoChat/Settings/AppearanceSettingsPage.qml:180
 #, kde-format
 msgid "Show Avatar:"
-msgstr ""
+msgstr "ავატარის ჩვენება:"
 
 #: imports/NeoChat/Settings/AppearanceSettingsPage.qml:181
 #, kde-format
@@ -1513,7 +1507,7 @@ msgstr ""
 #: imports/NeoChat/Settings/AppearanceSettingsPage.qml:225
 #, kde-format
 msgid "Transparency:"
-msgstr ""
+msgstr "გამჭვირვალობა:"
 
 #: imports/NeoChat/Settings/AppearanceSettingsPage.qml:239
 #, kde-format
@@ -1809,10 +1803,8 @@ msgstr ""
 #: src/actionsmodel.cpp:28 src/actionsmodel.cpp:38 src/actionsmodel.cpp:48
 #: src/actionsmodel.cpp:58 src/actionsmodel.cpp:78 src/actionsmodel.cpp:98
 #: src/actionsmodel.cpp:114 src/actionsmodel.cpp:124 src/actionsmodel.cpp:134
-#, fuzzy
-#| msgid "Send message"
 msgid "<message>"
-msgstr "შეტყობინების გაგზავნა"
+msgstr "<message>"
 
 #: src/actionsmodel.cpp:29 src/commandmodel.cpp:32
 #, kde-format
@@ -2049,7 +2041,7 @@ msgstr ""
 #: src/commandmodel.cpp:59
 #, kde-format
 msgid "Leave room"
-msgstr ""
+msgstr "ოთახიდან გასვლა"
 
 #: src/commandmodel.cpp:61
 #, kde-format
@@ -2124,7 +2116,7 @@ msgstr ""
 #: src/login.cpp:76 src/login.cpp:87
 #, kde-format
 msgid "Network Error"
-msgstr ""
+msgstr "ქსელის შეცდომა"
 
 #: src/main.cpp:140
 #, kde-format
@@ -2219,7 +2211,7 @@ msgstr ""
 #: src/neochatroom.cpp:449
 #, kde-format
 msgid "a file"
-msgstr ""
+msgstr "ფაილი"
 
 #: src/neochatroom.cpp:493
 #, kde-format
@@ -2267,7 +2259,7 @@ msgstr ""
 #: src/neochatroom.cpp:524
 #, kde-format
 msgid " and "
-msgstr ""
+msgstr " და "
 
 #: src/neochatroom.cpp:527
 #, kde-format
@@ -2428,7 +2420,7 @@ msgstr ""
 #: src/neochatroom.cpp:598
 #, kde-format
 msgid "Unknown event"
-msgstr ""
+msgstr "უცნობი მოვლენა"
 
 #: src/neochatroom.cpp:1072 src/neochatroom.cpp:1073
 #, kde-format
@@ -2448,7 +2440,7 @@ msgstr ""
 #: src/notificationsmanager.cpp:75
 #, kde-format
 msgid "Reply..."
-msgstr ""
+msgstr "პასუხი…"
 
 #: src/notificationsmanager.cpp:97
 #, kde-format
@@ -2463,12 +2455,12 @@ msgstr ""
 #: src/notificationsmanager.cpp:107
 #, kde-format
 msgid "Accept Invitation"
-msgstr ""
+msgstr "მოსაწვევის მიღება"
 
 #: src/notificationsmanager.cpp:107
 #, kde-format
 msgid "Reject Invitation"
-msgstr ""
+msgstr "მოსაწვევის უარყოფა"
 
 #: src/roomlistmodel.cpp:456
 #, kde-format
@@ -2513,7 +2505,7 @@ msgstr ""
 #: src/roommanager.cpp:65
 #, kde-format
 msgid "Room not found"
-msgstr ""
+msgstr "ოთახი ვერ ვიპოვე"
 
 #: src/roommanager.cpp:65
 #, kde-format
