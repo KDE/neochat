@@ -18,9 +18,19 @@ QQC2.Popup {
     focus: true
     closePolicy: QQC2.Popup.CloseOnEscape | QQC2.Popup.CloseOnPressOutsideParent
     margins: 0
-    padding: Kirigami.Units.smallSpacing
-    implicitWidth: Kirigami.Units.gridUnit * 15
+    padding: 1
+    implicitWidth: Kirigami.Units.gridUnit * 16
     implicitHeight: Kirigami.Units.gridUnit * 20
+
+    background: Rectangle {
+        Kirigami.Theme.inherit: false
+        Kirigami.Theme.colorSet: Kirigami.Theme.View
+        color: Kirigami.Theme.backgroundColor
+        border.width: 1
+        border.color: Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.backgroundColor,
+                                                              Kirigami.Theme.textColor,
+                                                              0.15)
+    }
 
     contentItem: EmojiPicker {
         onChosen: react(emoji)
