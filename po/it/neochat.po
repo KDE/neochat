@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-12 00:46+0000\n"
-"PO-Revision-Date: 2022-09-13 14:33+0200\n"
+"PO-Revision-Date: 2022-10-11 00:27+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.08.0\n"
+"X-Generator: Lokalize 22.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -110,33 +110,27 @@ msgid "Custom"
 msgstr "Personalizzato"
 
 #: imports/NeoChat/Component/FullScreenImage.qml:80
-#, fuzzy, kde-format
-#| msgid "Room Settings"
+#, kde-format
 msgid "Zoom in"
-msgstr "Impostazioni della stanza"
+msgstr "Ingrandisci"
 
 #: imports/NeoChat/Component/FullScreenImage.qml:99
 #, kde-format
 msgid "Zoom out"
-msgstr ""
+msgstr "Rimpicciolisci"
 
 #: imports/NeoChat/Component/FullScreenImage.qml:118
-#, fuzzy, kde-format
-#| msgctxt "@action:button Rotate an image to the left"
-#| msgid "Rotate left"
+#, kde-format
 msgid "Rotate left"
 msgstr "Ruota a sinistra"
 
 #: imports/NeoChat/Component/FullScreenImage.qml:132
-#, fuzzy, kde-format
-#| msgctxt "@action:button Rotate an image to the right"
-#| msgid "Rotate right"
+#, kde-format
 msgid "Rotate right"
 msgstr "Ruota a destra"
 
 #: imports/NeoChat/Component/FullScreenImage.qml:146
-#, fuzzy, kde-format
-#| msgid "Save As"
+#, kde-format
 msgid "Save as"
 msgstr "Salva come"
 
@@ -366,47 +360,48 @@ msgstr "Ok"
 msgid ""
 "Confirm the emoji below are displayed on both devices, in the same order."
 msgstr ""
+"Conferma che le emoji sottostanti siano visualizzate su entrambi i "
+"dispositivi, nello stesso ordine."
 
 #: imports/NeoChat/Dialog/KeyVerification/EmojiSas.qml:39
 #, kde-format
 msgid "They match"
-msgstr ""
+msgstr "Corrispondono"
 
 #: imports/NeoChat/Dialog/KeyVerification/EmojiSas.qml:45
 #, kde-format
 msgid "They don't match"
-msgstr ""
+msgstr "Non corrispondono"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:14
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Session Verification"
-msgstr "Mostra le notifiche"
+msgstr "Verifica della sessione"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:36
 #, kde-format
 msgid "Waiting for device to accept verification."
-msgstr ""
+msgstr "In attesa che il dispositivo accetti la verifica."
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:42
 #, kde-format
 msgid "Incoming key verification request from device **%1**"
-msgstr ""
+msgstr "Richiesta di verifica della chiave in entrata dal dispositivo **%1**"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:48
 #, kde-format
 msgid "Waiting for other party to verify."
-msgstr ""
+msgstr "In attesa che l'altra parte verifichi."
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:54
 #, kde-format
 msgid "Compare a set of emoji on both devices"
-msgstr ""
+msgstr "Confronta un set di emoji su entrambi i dispositivi"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:62
 #, kde-format
 msgid "Successfully verified device **%1**"
-msgstr ""
+msgstr "Dispositivo **%1** verificato correttamente"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:73
 #: imports/NeoChat/Page/RoomPage.qml:132
@@ -415,35 +410,34 @@ msgid "Accept"
 msgstr "Accetta"
 
 #: imports/NeoChat/Dialog/KeyVerification/KeyVerificationDialog.qml:79
-#, fuzzy, kde-format
-#| msgid "Timeline:"
+#, kde-format
 msgid "Decline"
-msgstr "Linea temporale:"
+msgstr "Rifiuta"
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:21
 #, kde-format
 msgid "The session verification was canceled for unknown reason."
-msgstr ""
+msgstr "La verifica della sessione è stata annullata per motivi sconosciuti."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:23
 #, kde-format
 msgid "The session verification timed out."
-msgstr ""
+msgstr "La verifica della sessione è scaduta."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:25
 #, kde-format
 msgid "The session verification timed out for remote party."
-msgstr ""
+msgstr "La verifica della sessione è scaduta per la parte remota."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:27
 #, kde-format
 msgid "You canceled the session verification."
-msgstr ""
+msgstr "Hai annullato la verifica della sessione."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:29
 #, kde-format
 msgid "The remote party canceled the session verification."
-msgstr ""
+msgstr "La parte remota ha annullato la verifica della sessione."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:31
 #, kde-format
@@ -451,6 +445,8 @@ msgid ""
 "The session verification was canceled because we received an unexpected "
 "message."
 msgstr ""
+"La verifica della sessione è stata annullata perché abbiamo ricevuto un "
+"messaggio imprevisto."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:33
 #, kde-format
@@ -458,6 +454,8 @@ msgid ""
 "The remote party canceled the session verification because it received an "
 "unexpected message."
 msgstr ""
+"La parte remota ha annullato la verifica della sessione perché ha ricevuto "
+"un messaggio imprevisto."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:35
 #, kde-format
@@ -465,6 +463,8 @@ msgid ""
 "The session verification was canceled because it received a message for an "
 "unknown session."
 msgstr ""
+"La verifica della sessione è stata annullata perché ha ricevuto un messaggio "
+"per una sessione sconosciuta."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:37
 #, kde-format
@@ -472,6 +472,8 @@ msgid ""
 "The remote party canceled the session verification because it received a "
 "message for an unknown session."
 msgstr ""
+"La parte remota ha annullato la verifica della sessione perché ha ricevuto "
+"un messaggio per una sessione sconosciuta."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:39
 #, kde-format
@@ -479,6 +481,8 @@ msgid ""
 "The session verification was canceled because NeoChat is unable to handle "
 "this verification method."
 msgstr ""
+"La verifica della sessione è stata annullata perché NeoChat non è in grado "
+"di gestire questo metodo di verifica."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:41
 #, kde-format
@@ -486,11 +490,15 @@ msgid ""
 "The remote party canceled the session verification because it is unable to "
 "handle this verification method."
 msgstr ""
+"La parte remota ha annullato la verifica della sessione perché non è in "
+"grado di gestire questo metodo di verifica."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:43
 #, kde-format
 msgid "The session verification was canceled because the keys are incorrect."
 msgstr ""
+"La verifica della sessione è stata annullata perché le chiavi non sono "
+"corrette."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:45
 #, kde-format
@@ -498,12 +506,16 @@ msgid ""
 "The remote party canceled the session verification because the keys are "
 "incorrect."
 msgstr ""
+"La parte remota ha annullato la verifica della sessione perché le chiavi non "
+"sono corrette."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:47
 #, kde-format
 msgid ""
 "The session verification was canceled because it verifies an unexpected user."
 msgstr ""
+"La verifica della sessione è stata annullata perché verifica un utente "
+"imprevisto."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:49
 #, kde-format
@@ -511,12 +523,16 @@ msgid ""
 "The remote party canceled the session verification because it verifies an "
 "unexpected user."
 msgstr ""
+"La parte remota ha annullato la verifica della sessione perché verifica un "
+"utente imprevisto."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:51
 #, kde-format
 msgid ""
 "The session verification was canceled because we received an invalid message."
 msgstr ""
+"La verifica della sessione è stata annullata perché abbiamo ricevuto un "
+"messaggio non valido."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:53
 #, kde-format
@@ -524,17 +540,21 @@ msgid ""
 "The remote party canceled the session verification because it received an "
 "invalid message."
 msgstr ""
+"La parte remota ha annullato la verifica della sessione perché ha ricevuto "
+"un messaggio non valido."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:55
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:57
 #, kde-format
 msgid "The session was accepted on a different device"
-msgstr ""
+msgstr "La sessione è stata accettata su un dispositivo diverso"
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:59
 #, kde-format
 msgid "The session verification was canceled because of a mismatched key."
 msgstr ""
+"La verifica della sessione è stata annullata a causa di una chiave non "
+"corrispondente."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:61
 #, kde-format
@@ -542,11 +562,15 @@ msgid ""
 "The remote party canceled the session verification because of a mismatched "
 "key."
 msgstr ""
+"La parte remota ha annullato la verifica della sessione a causa di una "
+"chiave non corrispondente."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:63
 #, kde-format
 msgid "The session verification was canceled because the keys do not match."
 msgstr ""
+"La verifica della sessione è stata annullata perché le chiavi non "
+"corrispondono."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:65
 #, kde-format
@@ -554,11 +578,15 @@ msgid ""
 "The remote party canceled the session verification because the keys do not "
 "match."
 msgstr ""
+"La parte remota ha annullato la verifica della sessione perché le chiavi non "
+"corrispondono."
 
 #: imports/NeoChat/Dialog/KeyVerification/VerificationCanceled.qml:67
 #, kde-format
 msgid "The session verification was canceled due to an unknown error."
 msgstr ""
+"La verifica della sessione è stata annullata a causa di un errore "
+"sconosciuto."
 
 #: imports/NeoChat/Dialog/OpenFileDialog.qml:12
 #, kde-format
@@ -898,15 +926,14 @@ msgstr "Rimuovi"
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
 msgid "Report"
-msgstr ""
+msgstr "Segnala"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:75
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:62
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgctxt "@title"
 msgid "Report Message"
-msgstr "Modifica messaggio"
+msgstr "Messaggio della segnalazione"
 
 #: imports/NeoChat/Menu/Timeline/FileDelegateContextMenu.qml:80
 #: imports/NeoChat/Menu/Timeline/MessageDelegateContextMenu.qml:67
@@ -937,15 +964,14 @@ msgid "Configure Web Shortcuts..."
 msgstr "Configura le scorciatoie web..."
 
 #: imports/NeoChat/Menu/Timeline/ReportSheet.qml:16
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgid "Report Message"
-msgstr "Modifica messaggio"
+msgstr "Messaggio della segnalazione"
 
 #: imports/NeoChat/Menu/Timeline/ReportSheet.qml:20
 #, kde-format
 msgid "Reason for reporting this message"
-msgstr ""
+msgstr "Motivo della segnalazione di questo messaggio"
 
 #: imports/NeoChat/Menu/Timeline/ReportSheet.qml:41
 #: imports/NeoChat/Page/InviteUserPage.qml:22
@@ -1162,7 +1188,7 @@ msgstr[1] "%2 stanno scrivendo"
 #: imports/NeoChat/Page/RoomPage.qml:473
 #, kde-format
 msgid "This message was sent from a verified device"
-msgstr ""
+msgstr "Questo messaggio è stato inviato da un dispositivo verificato"
 
 #: imports/NeoChat/Page/RoomPage.qml:479
 #, kde-format
@@ -1545,10 +1571,9 @@ msgid "Edit device name"
 msgstr "Modifica il nome del dispositivo"
 
 #: imports/NeoChat/Settings/DevicesPage.qml:48
-#, fuzzy, kde-format
-#| msgid "Edit device"
+#, kde-format
 msgid "Verify device"
-msgstr "Modifica il dispositivo"
+msgstr "Verifica il dispositivo"
 
 #: imports/NeoChat/Settings/DevicesPage.qml:58
 #, kde-format
@@ -1788,11 +1813,10 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: qml/main.qml:385
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
-msgstr "Mostra le notifiche"
+msgstr "Verifica della sessione"
 
 #: qml/main.qml:395
 #, kde-format
@@ -2484,10 +2508,9 @@ msgid "Unknown event"
 msgstr "Evento sconosciuto"
 
 #: src/neochatroom.cpp:1072 src/neochatroom.cpp:1073
-#, fuzzy, kde-format
-#| msgid "Password changed successfully"
+#, kde-format
 msgid "Report sent successfully."
-msgstr "Password modificata correttamente"
+msgstr "Segnalazione inviata correttamente."
 
 #: src/notificationsmanager.cpp:61
 #, kde-format
