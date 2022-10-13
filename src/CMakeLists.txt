@@ -8,7 +8,6 @@ add_library(neochat STATIC
     actionshandler.cpp
     emojimodel.cpp
     customemojimodel.cpp
-    customemojimodel+network.cpp
     clipboard.cpp
     matriximageprovider.cpp
     messageeventmodel.cpp
