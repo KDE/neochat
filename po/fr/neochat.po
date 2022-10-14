@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-12 00:46+0000\n"
-"PO-Revision-Date: 2022-10-10 20:59+0200\n"
+"POT-Creation-Date: 2022-10-14 00:47+0000\n"
+"PO-Revision-Date: 2022-10-13 15:01+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -40,7 +40,7 @@ msgstr "Modifier"
 #: imports/NeoChat/Component/ChatBox/AttachmentPane.qml:182
 #, kde-format
 msgid "Cancel sending Image"
-msgstr ""
+msgstr "Annuler l'envoi d'image"
 
 #: imports/NeoChat/Component/ChatBox/ChatBar.qml:81
 #, kde-format
@@ -96,13 +96,12 @@ msgid "Replying to %1:"
 msgstr "Réponse à %1 :"
 
 #: imports/NeoChat/Component/ChatBox/ReplyPane.qml:100
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
-msgstr "Annuler"
+msgstr "Annuler la réponse"
 
-#: imports/NeoChat/Component/Emoji/EmojiPicker.qml:63
+#: imports/NeoChat/Component/Emoji/EmojiPicker.qml:62
 #, kde-format
 msgid "Custom"
 msgstr "Personnalisé"
@@ -1849,9 +1848,6 @@ msgstr "Voulez-vous démarrer une discussion avec %1 ?"
 #: src/actionsmodel.cpp:28 src/actionsmodel.cpp:38 src/actionsmodel.cpp:48
 #: src/actionsmodel.cpp:58 src/actionsmodel.cpp:78 src/actionsmodel.cpp:98
 #: src/actionsmodel.cpp:114 src/actionsmodel.cpp:124 src/actionsmodel.cpp:134
-#, fuzzy
-#| msgctxt "@label Parameter of a command"
-#| msgid "<message>"
 msgid "<message>"
 msgstr "<message>"
 
@@ -1908,7 +1904,7 @@ msgstr "Envoie le message fourni comme un pourriciel"
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
-msgstr ""
+msgstr "« %1 » ne ressemble pas à un identifiant « Matrix »."
 
 #: src/actionsmodel.cpp:149
 #, fuzzy, kde-format
@@ -1931,11 +1927,10 @@ msgid "You are already in this room."
 msgstr "Ouvrir Neochat dans cette salon"
 
 #: src/actionsmodel.cpp:162
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgctxt "<user> is already in this room."
 msgid "%1 is already in this room."
-msgstr "Ouvrir Neochat dans cette salon"
+msgstr "%1 est déjà présent dans ce salon ."
 
 #: src/actionsmodel.cpp:166
 #, fuzzy, kde-format
@@ -1945,11 +1940,8 @@ msgid "%1 was invited into this room"
 msgstr "%1 vous a invité dans un salon"
 
 #: src/actionsmodel.cpp:171 src/actionsmodel.cpp:309 src/actionsmodel.cpp:337
-#, fuzzy
-#| msgctxt "@label Parameter of a command"
-#| msgid "<user-id>"
 msgid "<user id>"
-msgstr "<user-id>"
+msgstr "<user id>"
 
 #: src/actionsmodel.cpp:172
 #, fuzzy
@@ -1962,94 +1954,86 @@ msgstr "Inviter des utilisateurs dans un salon"
 #, kde-format
 msgctxt "'<text>' does not look like a room id or alias."
 msgid "'%1' does not look like a room id or alias."
-msgstr ""
+msgstr "« %1 » ne ressemble pas à un identifiant ou un alias de salon."
 
 #: src/actionsmodel.cpp:185 src/actionsmodel.cpp:208
 #, kde-format
 msgctxt "You are already in room <roomname>."
 msgid "You are already in room %1."
-msgstr ""
+msgstr "Vous êtes déjà présent dans le salon %1."
 
 #: src/actionsmodel.cpp:188 src/actionsmodel.cpp:211
-#, fuzzy, kde-format
-#| msgid "Configure room"
+#, kde-format
 msgctxt "Joining room <roomname>."
 msgid "Joining room %1."
-msgstr "Configurer un salon"
+msgstr "Connexion au salon %1."
 
 #: src/actionsmodel.cpp:194 src/actionsmodel.cpp:217
 msgid "<room alias or id>"
-msgstr ""
+msgstr "<room alias or id>"
 
 #: src/actionsmodel.cpp:195 src/actionsmodel.cpp:218
-#, fuzzy
-#| msgid "joined the room"
 msgid "Joins the given room"
-msgstr "a rejoint le salon"
+msgstr "Se connecte au salon fourni"
 
 #: src/actionsmodel.cpp:224 src/actionsmodel.cpp:256
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgid "Leaving this room."
-msgstr "Ouvrir Neochat dans cette salon"
+msgstr "Déconnexion de ce salon."
 
 #: src/actionsmodel.cpp:239 src/actionsmodel.cpp:271
-#, fuzzy, kde-format
-#| msgid "Leave room"
+#, kde-format
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
-msgstr "Quitter un salon"
+msgstr "Déconnexion du salon %1."
 
 #: src/actionsmodel.cpp:242 src/actionsmodel.cpp:274
-#, fuzzy, kde-format
-#| msgid "Room not found"
+#, kde-format
 msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
-msgstr "Impossible de trouver un salon"
+msgstr "Impossible de trouver le salon %1."
 
 #: src/actionsmodel.cpp:249 src/actionsmodel.cpp:281
 msgid "[<room alias or id>]"
-msgstr ""
+msgstr "[<room alias or id>]"
 
 #: src/actionsmodel.cpp:250 src/actionsmodel.cpp:282
 msgid "Leaves the given room or this room, if there is none given"
-msgstr ""
+msgstr "Quitte le salon fourni ou ce salon, si aucun paramètre n'est fourni."
 
 #: src/actionsmodel.cpp:296
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
-msgstr ""
+msgstr "%1 est déjà ignoré."
 
 #: src/actionsmodel.cpp:301
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
-msgstr ""
+msgstr "%1 est maintenant ignoré."
 
 #: src/actionsmodel.cpp:303 src/actionsmodel.cpp:331
 #, kde-format
 msgctxt "<username> is not a known user"
 msgid "%1 is not a known user."
-msgstr ""
+msgstr "%1 n'est pas un utilisateur connu."
 
 #: src/actionsmodel.cpp:310
-#, fuzzy
-#| msgid "Ignore this user"
 msgid "Ignores the given user"
-msgstr "Ignorer cet utilisateur"
+msgstr "Ignore un utilisateur donné"
 
 #: src/actionsmodel.cpp:325
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
-msgstr ""
+msgstr "%1 est pris en compte."
 
 #: src/actionsmodel.cpp:329
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
-msgstr ""
+msgstr "%1 n'est plus ignoré maintenant."
 
 #: src/actionsmodel.cpp:338
 #, fuzzy
@@ -2058,11 +2042,8 @@ msgid "Unignores the given user"
 msgstr "Re-considérer cet utilisateur"
 
 #: src/actionsmodel.cpp:358
-#, fuzzy
-#| msgctxt "@label Parameter of a command"
-#| msgid "<reaction text>"
 msgid "<reaction text>"
-msgstr "<texte de réaction>"
+msgstr "<reaction text>"
 
 #: src/actionsmodel.cpp:359
 #, fuzzy
