@@ -31,7 +31,7 @@ TimelineContainer {
             Layout.fillWidth: true
             height: active ? item.implicitHeight : 0
             active: !currentRoom.usesEncryption && model.display && model.display.includes("http")
-            visible: active
+            visible: Config.showLinkPreview && active
             sourceComponent: LinkPreviewDelegate {
                 anchors.verticalCenter: parent.verticalCenter
             }

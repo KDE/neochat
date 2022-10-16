@@ -252,6 +252,14 @@ Kirigami.ScrollablePage {
                     Config.save()
                 }
             }
+            QQC2.CheckBox {
+                text: i18n("Show links preview in the chat messages")
+                checked: Config.showLinkPreview
+                onToggled: {
+                    Config.showLinkPreview = checked
+                    Config.save()
+                }
+            }
         }
     }
 }
