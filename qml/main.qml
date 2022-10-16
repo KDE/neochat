@@ -142,11 +142,24 @@ Kirigami.ApplicationWindow {
 
     contextDrawer: RoomDrawer {
         id: contextDrawer
+
+        // This is a memory for all user initiated actions on the drawer, i.e. clicking the button
+        // It is used to ensure that user choice is remembered when changing pages and expanding and contracting the window width
+        property bool drawerUserState: Config.autoRoomInfoDrawer
+
+        // Connect to the onClicked function of the RoomDrawer handle button
+        Connections {
+            target: contextDrawer.handle.children[0]
+            function onClicked() {
+                contextDrawer.drawerUserState = contextDrawer.drawerOpen
+            }
+        }
+
         modal: !root.wideScreen || !enabled
         onEnabledChanged: drawerOpen = enabled && !modal
         onModalChanged: {
             if (Config.autoRoomInfoDrawer) {
-                drawerOpen = !modal
+                drawerOpen = !modal && drawerUserState
                 dim = false
             }
         }
