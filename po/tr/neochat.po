@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-14 00:47+0000\n"
+"POT-Creation-Date: 2022-10-17 00:46+0000\n"
 "PO-Revision-Date: 2022-10-11 13:14+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -331,7 +331,7 @@ msgstr " (düzenlendi)"
 msgid "Video"
 msgstr "Video"
 
-#: imports/NeoChat/Dialog/CreateRoomDialog.qml:17 qml/main.qml:242
+#: imports/NeoChat/Dialog/CreateRoomDialog.qml:17 qml/main.qml:255
 #, kde-format
 msgid "Create a Room"
 msgstr "Bir Oda Oluştur"
@@ -671,7 +671,7 @@ msgctxt "menu"
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: imports/NeoChat/Menu/GlobalMenu.qml:27 qml/main.qml:252 qml/main.qml:257
+#: imports/NeoChat/Menu/GlobalMenu.qml:27 qml/main.qml:265 qml/main.qml:270
 #, kde-format
 msgid "Configure NeoChat..."
 msgstr "NeoChat'i Yapılandır..."
@@ -682,7 +682,7 @@ msgctxt "menu"
 msgid "Configure NeoChat..."
 msgstr "NeoChat'i Yapılandır..."
 
-#: imports/NeoChat/Menu/GlobalMenu.qml:32 qml/main.qml:255
+#: imports/NeoChat/Menu/GlobalMenu.qml:32 qml/main.qml:268
 #, kde-format
 msgid "Configure"
 msgstr "Yapılandır"
@@ -707,8 +707,8 @@ msgstr "Yeni Özel Sohbet…"
 
 #: imports/NeoChat/Menu/GlobalMenu.qml:47
 #: imports/NeoChat/Menu/GlobalMenu.qml:52
-#: imports/NeoChat/Page/StartChatPage.qml:19 qml/main.qml:236 qml/main.qml:239
-#: qml/main.qml:249
+#: imports/NeoChat/Page/StartChatPage.qml:19 qml/main.qml:249 qml/main.qml:252
+#: qml/main.qml:262
 #, kde-format
 msgid "Start a Chat"
 msgstr "Bir Sohbet Başlat"
@@ -1049,7 +1049,7 @@ msgstr "Kullanıcı yok"
 msgid "Send invitation"
 msgstr "Davet gönder"
 
-#: imports/NeoChat/Page/JoinRoomPage.qml:20 qml/main.qml:233
+#: imports/NeoChat/Page/JoinRoomPage.qml:20 qml/main.qml:246
 #, kde-format
 msgid "Explore Rooms"
 msgstr "Odaları Keşfet"
@@ -1110,7 +1110,7 @@ msgstr "Başlamak için odalara katılın"
 msgid "Search in room directory"
 msgstr "Oda dizininde ara"
 
-#: imports/NeoChat/Page/RoomListPage.qml:187 qml/main.qml:230
+#: imports/NeoChat/Page/RoomListPage.qml:187 qml/main.qml:243
 #, kde-format
 msgid "Explore rooms"
 msgstr "Odaları Keşfet"
@@ -1462,7 +1462,7 @@ msgstr "Bu hesabı düzenle"
 msgid "Account editor"
 msgstr "Hesap düzenleyici"
 
-#: imports/NeoChat/Settings/AccountsPage.qml:60 qml/main.qml:261
+#: imports/NeoChat/Settings/AccountsPage.qml:60 qml/main.qml:274
 #, kde-format
 msgid "Logout"
 msgstr "Oturumu Kapat"
@@ -1542,6 +1542,11 @@ msgstr "Yalnızca saydam sohbet sayfası etkinse çalışır."
 #, kde-format
 msgid "Show your messages on the right"
 msgstr "İletilerinizi sağda göster"
+
+#: imports/NeoChat/Settings/AppearanceSettingsPage.qml:256
+#, kde-format
+msgid "Show links preview in the chat messages"
+msgstr ""
 
 #: imports/NeoChat/Settings/DevicesPage.qml:13
 #: imports/NeoChat/Settings/SettingsPage.qml:37
@@ -1784,28 +1789,28 @@ msgstr "Sözcük sil"
 msgid "Warning: %1"
 msgstr "Uyarı: %1"
 
-#: qml/main.qml:267 src/trayicon.cpp:30
+#: qml/main.qml:280 src/trayicon.cpp:30
 #, kde-format
 msgid "Quit"
 msgstr "Çık"
 
-#: qml/main.qml:347
+#: qml/main.qml:360
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: qml/main.qml:385
+#: qml/main.qml:398
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Oturum Doğrulama"
 
-#: qml/main.qml:395
+#: qml/main.qml:408
 #, kde-format
 msgid "User consent"
 msgstr "Kullanıcı onayı"
 
-#: qml/main.qml:400
+#: qml/main.qml:413
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -1814,17 +1819,17 @@ msgstr ""
 "Ana sunucunuz, kullanım öncesinde kullanım koşullarını kabul etmenizi "
 "gerektiriyor. Okumak için aşağıdaki düğmeye tıklayın."
 
-#: qml/main.qml:405
+#: qml/main.qml:418
 #, kde-format
 msgid "Open"
 msgstr "Aç"
 
-#: qml/main.qml:434
+#: qml/main.qml:447
 #, kde-format
 msgid "Start a chat"
 msgstr "Bir sohbet başlat"
 
-#: qml/main.qml:436
+#: qml/main.qml:449
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "%1 ile bir sohbet başlatmak istiyor musunuz?"

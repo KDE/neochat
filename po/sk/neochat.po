@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-14 00:47+0000\n"
+"POT-Creation-Date: 2022-10-17 00:46+0000\n"
 "PO-Revision-Date: 2022-04-18 17:58+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -342,7 +342,7 @@ msgstr "(upravené)"
 msgid "Video"
 msgstr "Video"
 
-#: imports/NeoChat/Dialog/CreateRoomDialog.qml:17 qml/main.qml:242
+#: imports/NeoChat/Dialog/CreateRoomDialog.qml:17 qml/main.qml:255
 #, kde-format
 msgid "Create a Room"
 msgstr "Vytvoriť miestnosť"
@@ -661,7 +661,7 @@ msgctxt "menu"
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: imports/NeoChat/Menu/GlobalMenu.qml:27 qml/main.qml:252 qml/main.qml:257
+#: imports/NeoChat/Menu/GlobalMenu.qml:27 qml/main.qml:265 qml/main.qml:270
 #, fuzzy, kde-format
 #| msgid "Configure Web Shortcuts..."
 msgid "Configure NeoChat..."
@@ -674,7 +674,7 @@ msgctxt "menu"
 msgid "Configure NeoChat..."
 msgstr "Nastaviť webové skratky..."
 
-#: imports/NeoChat/Menu/GlobalMenu.qml:32 qml/main.qml:255
+#: imports/NeoChat/Menu/GlobalMenu.qml:32 qml/main.qml:268
 #, kde-format
 msgid "Configure"
 msgstr "Nastaviť"
@@ -701,8 +701,8 @@ msgstr "Otvoriť súkromný chat"
 
 #: imports/NeoChat/Menu/GlobalMenu.qml:47
 #: imports/NeoChat/Menu/GlobalMenu.qml:52
-#: imports/NeoChat/Page/StartChatPage.qml:19 qml/main.qml:236 qml/main.qml:239
-#: qml/main.qml:249
+#: imports/NeoChat/Page/StartChatPage.qml:19 qml/main.qml:249 qml/main.qml:252
+#: qml/main.qml:262
 #, kde-format
 msgid "Start a Chat"
 msgstr "Začať rozhovor"
@@ -1049,7 +1049,7 @@ msgstr "Nie sú k dispozícii žiadni používatelia"
 msgid "Send invitation"
 msgstr "Odoslať pozvanie"
 
-#: imports/NeoChat/Page/JoinRoomPage.qml:20 qml/main.qml:233
+#: imports/NeoChat/Page/JoinRoomPage.qml:20 qml/main.qml:246
 #, kde-format
 msgid "Explore Rooms"
 msgstr "Prehliadať miestnosti"
@@ -1110,7 +1110,7 @@ msgstr "Pripojte sa k niektorým miestnostiam a začnite"
 msgid "Search in room directory"
 msgstr "Vyhľadajte v adresári miestnosti"
 
-#: imports/NeoChat/Page/RoomListPage.qml:187 qml/main.qml:230
+#: imports/NeoChat/Page/RoomListPage.qml:187 qml/main.qml:243
 #, kde-format
 msgid "Explore rooms"
 msgstr "Prehliadať miestnosti"
@@ -1474,7 +1474,7 @@ msgstr "Upraviť tento účet"
 msgid "Account editor"
 msgstr "Podrobnosti konta"
 
-#: imports/NeoChat/Settings/AccountsPage.qml:60 qml/main.qml:261
+#: imports/NeoChat/Settings/AccountsPage.qml:60 qml/main.qml:274
 #, kde-format
 msgid "Logout"
 msgstr "Odhlásenie"
@@ -1556,6 +1556,11 @@ msgstr ""
 #: imports/NeoChat/Settings/AppearanceSettingsPage.qml:247
 #, kde-format
 msgid "Show your messages on the right"
+msgstr ""
+
+#: imports/NeoChat/Settings/AppearanceSettingsPage.qml:256
+#, kde-format
+msgid "Show links preview in the chat messages"
 msgstr ""
 
 #: imports/NeoChat/Settings/DevicesPage.qml:13
@@ -1807,29 +1812,29 @@ msgstr "Vymazať"
 msgid "Warning: %1"
 msgstr "Upozornenie: %1"
 
-#: qml/main.qml:267 src/trayicon.cpp:30
+#: qml/main.qml:280 src/trayicon.cpp:30
 #, kde-format
 msgid "Quit"
 msgstr "Ukončiť"
 
-#: qml/main.qml:347
+#: qml/main.qml:360
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: qml/main.qml:385
+#: qml/main.qml:398
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Zobraziť upozornenia"
 
-#: qml/main.qml:395
+#: qml/main.qml:408
 #, kde-format
 msgid "User consent"
 msgstr "Používateľský súhlas"
 
-#: qml/main.qml:400
+#: qml/main.qml:413
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -1839,17 +1844,17 @@ msgstr ""
 "zmluvnými podmienkami. Ak si ich chcete prečítať, kliknite na tlačidlo "
 "nižšie."
 
-#: qml/main.qml:405
+#: qml/main.qml:418
 #, kde-format
 msgid "Open"
 msgstr "Otvoriť"
 
-#: qml/main.qml:434
+#: qml/main.qml:447
 #, kde-format
 msgid "Start a chat"
 msgstr "Začať rozhovor"
 
-#: qml/main.qml:436
+#: qml/main.qml:449
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Chcete začať rozhovor s %1?"

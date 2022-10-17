@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-14 00:47+0000\n"
+"POT-Creation-Date: 2022-10-17 00:46+0000\n"
 "PO-Revision-Date: 2022-09-28 16:37+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -340,7 +340,7 @@ msgstr " (redigerad)"
 msgid "Video"
 msgstr "Video"
 
-#: imports/NeoChat/Dialog/CreateRoomDialog.qml:17 qml/main.qml:242
+#: imports/NeoChat/Dialog/CreateRoomDialog.qml:17 qml/main.qml:255
 #, kde-format
 msgid "Create a Room"
 msgstr "Skapa ett rum"
@@ -680,7 +680,7 @@ msgctxt "menu"
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: imports/NeoChat/Menu/GlobalMenu.qml:27 qml/main.qml:252 qml/main.qml:257
+#: imports/NeoChat/Menu/GlobalMenu.qml:27 qml/main.qml:265 qml/main.qml:270
 #, kde-format
 msgid "Configure NeoChat..."
 msgstr "Anpassa NeoChat..."
@@ -691,7 +691,7 @@ msgctxt "menu"
 msgid "Configure NeoChat..."
 msgstr "Anpassa NeoChat..."
 
-#: imports/NeoChat/Menu/GlobalMenu.qml:32 qml/main.qml:255
+#: imports/NeoChat/Menu/GlobalMenu.qml:32 qml/main.qml:268
 #, kde-format
 msgid "Configure"
 msgstr "Anpassa"
@@ -716,8 +716,8 @@ msgstr "Ny privat chatt..."
 
 #: imports/NeoChat/Menu/GlobalMenu.qml:47
 #: imports/NeoChat/Menu/GlobalMenu.qml:52
-#: imports/NeoChat/Page/StartChatPage.qml:19 qml/main.qml:236 qml/main.qml:239
-#: qml/main.qml:249
+#: imports/NeoChat/Page/StartChatPage.qml:19 qml/main.qml:249 qml/main.qml:252
+#: qml/main.qml:262
 #, kde-format
 msgid "Start a Chat"
 msgstr "Starta en chatt"
@@ -1058,7 +1058,7 @@ msgstr "Inga användare tillgängliga"
 msgid "Send invitation"
 msgstr "Skicka inbjudan"
 
-#: imports/NeoChat/Page/JoinRoomPage.qml:20 qml/main.qml:233
+#: imports/NeoChat/Page/JoinRoomPage.qml:20 qml/main.qml:246
 #, kde-format
 msgid "Explore Rooms"
 msgstr "Utforska rum"
@@ -1119,7 +1119,7 @@ msgstr "Gå med i några rum för att komma igång"
 msgid "Search in room directory"
 msgstr "Sök i rumkatalog"
 
-#: imports/NeoChat/Page/RoomListPage.qml:187 qml/main.qml:230
+#: imports/NeoChat/Page/RoomListPage.qml:187 qml/main.qml:243
 #, kde-format
 msgid "Explore rooms"
 msgstr "Utforska rum"
@@ -1471,7 +1471,7 @@ msgstr "Redigera kontot"
 msgid "Account editor"
 msgstr "Kontoeditor"
 
-#: imports/NeoChat/Settings/AccountsPage.qml:60 qml/main.qml:261
+#: imports/NeoChat/Settings/AccountsPage.qml:60 qml/main.qml:274
 #, kde-format
 msgid "Logout"
 msgstr "Logga ut"
@@ -1551,6 +1551,11 @@ msgstr "Bara aktiverad om den genomskinliga chattsidan är aktiverad."
 #, kde-format
 msgid "Show your messages on the right"
 msgstr "Visa dina meddelanden till höger"
+
+#: imports/NeoChat/Settings/AppearanceSettingsPage.qml:256
+#, kde-format
+msgid "Show links preview in the chat messages"
+msgstr ""
 
 #: imports/NeoChat/Settings/DevicesPage.qml:13
 #: imports/NeoChat/Settings/SettingsPage.qml:37
@@ -1794,28 +1799,28 @@ msgstr "Ta bort ord"
 msgid "Warning: %1"
 msgstr "Varning: %1"
 
-#: qml/main.qml:267 src/trayicon.cpp:30
+#: qml/main.qml:280 src/trayicon.cpp:30
 #, kde-format
 msgid "Quit"
 msgstr "Avsluta"
 
-#: qml/main.qml:347
+#: qml/main.qml:360
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: qml/main.qml:385
+#: qml/main.qml:398
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Sessionsverifikation"
 
-#: qml/main.qml:395
+#: qml/main.qml:408
 #, kde-format
 msgid "User consent"
 msgstr "Användargodkännande"
 
-#: qml/main.qml:400
+#: qml/main.qml:413
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -1824,17 +1829,17 @@ msgstr ""
 "Din hemserver kräver att du godkänner dess villkor innan den kan användas. "
 "Klicka på knappen nedan för att läsa dem."
 
-#: qml/main.qml:405
+#: qml/main.qml:418
 #, kde-format
 msgid "Open"
 msgstr "Öppna"
 
-#: qml/main.qml:434
+#: qml/main.qml:447
 #, kde-format
 msgid "Start a chat"
 msgstr "Starta en chatt"
 
-#: qml/main.qml:436
+#: qml/main.qml:449
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Vill du starta en chatt med %1?"

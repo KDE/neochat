@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-14 00:47+0000\n"
+"POT-Creation-Date: 2022-10-17 00:46+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -339,7 +339,7 @@ msgstr " (düzəliş edildi)"
 msgid "Video"
 msgstr "Video"
 
-#: imports/NeoChat/Dialog/CreateRoomDialog.qml:17 qml/main.qml:242
+#: imports/NeoChat/Dialog/CreateRoomDialog.qml:17 qml/main.qml:255
 #, kde-format
 msgid "Create a Room"
 msgstr "Otaq yaratmaq"
@@ -658,7 +658,7 @@ msgctxt "menu"
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: imports/NeoChat/Menu/GlobalMenu.qml:27 qml/main.qml:252 qml/main.qml:257
+#: imports/NeoChat/Menu/GlobalMenu.qml:27 qml/main.qml:265 qml/main.qml:270
 #, kde-format
 msgid "Configure NeoChat..."
 msgstr "NeoChat'ı tənzimləyin"
@@ -669,7 +669,7 @@ msgctxt "menu"
 msgid "Configure NeoChat..."
 msgstr "NeoChat'ı tənzimləyin..."
 
-#: imports/NeoChat/Menu/GlobalMenu.qml:32 qml/main.qml:255
+#: imports/NeoChat/Menu/GlobalMenu.qml:32 qml/main.qml:268
 #, kde-format
 msgid "Configure"
 msgstr "Tənzimləyin"
@@ -694,8 +694,8 @@ msgstr "Yeni məxfi söhbət..."
 
 #: imports/NeoChat/Menu/GlobalMenu.qml:47
 #: imports/NeoChat/Menu/GlobalMenu.qml:52
-#: imports/NeoChat/Page/StartChatPage.qml:19 qml/main.qml:236 qml/main.qml:239
-#: qml/main.qml:249
+#: imports/NeoChat/Page/StartChatPage.qml:19 qml/main.qml:249 qml/main.qml:252
+#: qml/main.qml:262
 #, kde-format
 msgid "Start a Chat"
 msgstr "Söhbətə başlayın"
@@ -1043,7 +1043,7 @@ msgstr "İstifadəçilər yoxdur"
 msgid "Send invitation"
 msgstr "Dəvət göndərmək"
 
-#: imports/NeoChat/Page/JoinRoomPage.qml:20 qml/main.qml:233
+#: imports/NeoChat/Page/JoinRoomPage.qml:20 qml/main.qml:246
 #, kde-format
 msgid "Explore Rooms"
 msgstr "Otaqlara baxış"
@@ -1104,7 +1104,7 @@ msgstr "Başlamaq üçün bəzi otaqlara qoşulun"
 msgid "Search in room directory"
 msgstr "Otaq kataloqunda axtarın"
 
-#: imports/NeoChat/Page/RoomListPage.qml:187 qml/main.qml:230
+#: imports/NeoChat/Page/RoomListPage.qml:187 qml/main.qml:243
 #, kde-format
 msgid "Explore rooms"
 msgstr "Otaqlara baxış"
@@ -1462,7 +1462,7 @@ msgstr "Bu hesaba düzəliş edin"
 msgid "Account editor"
 msgstr "İstifadəçi hesabı təfərrüatları"
 
-#: imports/NeoChat/Settings/AccountsPage.qml:60 qml/main.qml:261
+#: imports/NeoChat/Settings/AccountsPage.qml:60 qml/main.qml:274
 #, kde-format
 msgid "Logout"
 msgstr "Çıxış"
@@ -1544,6 +1544,11 @@ msgstr "Yalnız şəffaf söhbət səhifəsi aktiv olduqda aktivdir."
 #, kde-format
 msgid "Show your messages on the right"
 msgstr "İsmarıcınızı sağda göstərin"
+
+#: imports/NeoChat/Settings/AppearanceSettingsPage.qml:256
+#, kde-format
+msgid "Show links preview in the chat messages"
+msgstr ""
 
 #: imports/NeoChat/Settings/DevicesPage.qml:13
 #: imports/NeoChat/Settings/SettingsPage.qml:37
@@ -1794,29 +1799,29 @@ msgstr "Sözü silin"
 msgid "Warning: %1"
 msgstr "Xəbərdarlıq: %1"
 
-#: qml/main.qml:267 src/trayicon.cpp:30
+#: qml/main.qml:280 src/trayicon.cpp:30
 #, kde-format
 msgid "Quit"
 msgstr "Çıxış"
 
-#: qml/main.qml:347
+#: qml/main.qml:360
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: qml/main.qml:385
+#: qml/main.qml:398
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Bildirişlərdə göstərmək"
 
-#: qml/main.qml:395
+#: qml/main.qml:408
 #, kde-format
 msgid "User consent"
 msgstr "İstifadəçi razılığı"
 
-#: qml/main.qml:400
+#: qml/main.qml:413
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -1825,17 +1830,17 @@ msgstr ""
 "Əsas server, onu istifadə etmədən öncə onun şərtlərini və razılaşmalarını "
 "qəbul etmənizi tələb edir. Onları oxumaq üçün aşağıdakı düyməni vurun."
 
-#: qml/main.qml:405
+#: qml/main.qml:418
 #, kde-format
 msgid "Open"
 msgstr "Açmaq"
 
-#: qml/main.qml:434
+#: qml/main.qml:447
 #, kde-format
 msgid "Start a chat"
 msgstr "Söhbətə başlayın"
 
-#: qml/main.qml:436
+#: qml/main.qml:449
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "%1 ilə söhbətə başlamaq istəyirsiniz?"
