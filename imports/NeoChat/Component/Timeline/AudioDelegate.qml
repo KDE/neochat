@@ -21,8 +21,7 @@ TimelineContainer {
     onDownloadedChanged: audio.play()
 
     hoverComponent: hoverActions
-    innerObject: Control {
-        Layout.fillWidth: true
+    innerObject: ColumnLayout {
         Layout.maximumWidth: audioDelegate.contentMaxWidth
 
         Audio {
@@ -82,41 +81,47 @@ TimelineContainer {
             }
         ]
 
-        contentItem: ColumnLayout {
-            RowLayout {
-                ToolButton {
-                    id: playButton
-                }
-                Label {
-                    text: model.display
-                    wrapMode: Text.Wrap
-                    Layout.fillWidth: true
-                }
+        RowLayout {
+            ToolButton {
+                id: playButton
             }
-            ProgressBar {
-                id: downloadBar
-                visible: false
+            Label {
+                text: model.display
+                wrapMode: Text.Wrap
+                Layout.fillWidth: true
+            }
+        }
+        ProgressBar {
+            id: downloadBar
+            visible: false
+            Layout.fillWidth: true
+            from: 0
+            to: model.content.info.size
+            value: model.progressInfo.progress
+        }
+        RowLayout {
+            visible: audio.hasAudio
+
+            Slider {
                 Layout.fillWidth: true
                 from: 0
-                to: model.content.info.size
-                value: model.progressInfo.progress
+                to: audio.duration
+                value: audio.position
+                onMoved: audio.seek(value)
             }
-            RowLayout {
-                visible: audio.hasAudio
-                Layout.leftMargin: Kirigami.Units.largeSpacing
-                Layout.rightMargin: Kirigami.Units.largeSpacing
 
-                Slider {
-                    from: 0
-                    to: audio.duration
-                    value: audio.position
-                    onMoved: audio.seek(value)
-                }
+            Label {
+                visible: audioDelegate.contentMaxWidth > Kirigami.Units.gridUnit * 12
 
-                Label {
-                    text: Controller.formatDuration(audio.position) + "/" + Controller.formatDuration(audio.duration)
-                }
+                text: Controller.formatDuration(audio.position) + "/" + Controller.formatDuration(audio.duration)
             }
+        }
+        Label {
+            Layout.alignment: Qt.AlignRight
+            Layout.rightMargin: Kirigami.Units.smallSpacing
+            visible: audio.hasAudio && audioDelegate.contentMaxWidth < Kirigami.Units.gridUnit * 12
+
+            text: Controller.formatDuration(audio.position) + "/" + Controller.formatDuration(audio.duration)
         }
     }
 }
