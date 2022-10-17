@@ -369,27 +369,17 @@ Kirigami.ScrollablePage {
     }
 
     footer: QQC2.ToolBar {
-        visible: accountList.count > 1 && !collapsedMode
+        visible: AccountRegistry.accountCount > 1 && !collapsedMode
         height: visible ? implicitHeight : 0
-        leftPadding: 0
-        rightPadding: 0
-        topPadding: 0
-        bottomPadding: 0
-        contentItem: RowLayout {
-            spacing: 0
-            Repeater {
-                id: accountList
-                model: AccountRegistry
-                delegate: Kirigami.BasicListItem {
-                    checkable: true
-                    checked: Controller.activeConnection && Controller.activeConnection.localUserId === model.connection.localUserId
-                    onClicked: Controller.activeConnection = model.connection
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    text: model.connection.localUserId
-                    subtitle: model.connection.localUser.accountLabel
-                }
-            }
+
+        contentItem: QQC2.ComboBox {
+            id: accountList
+
+            model: AccountRegistry
+            textRole: "userId"
+            valueRole: "connection"
+            onActivated: Controller.activeConnection = currentValue
+            Component.onCompleted: currentIndex = indexOfValue(Controller.activeConnection)
         }
     }
 }

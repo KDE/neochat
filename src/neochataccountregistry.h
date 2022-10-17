@@ -15,9 +15,12 @@ class Connection;
 class AccountRegistry : public QAbstractListModel
 {
     Q_OBJECT
+    Q_PROPERTY(int accountCount READ count NOTIFY accountCountChanged);
+
 public:
     enum EventRoles {
         ConnectionRole = Qt::UserRole + 1,
+        UserIdRole = Qt::DisplayRole,
     };
 
     static AccountRegistry &instance()
@@ -39,6 +42,9 @@ public:
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
+
+Q_SIGNALS:
+    void accountCountChanged();
 
 private:
     AccountRegistry();

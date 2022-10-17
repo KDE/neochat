@@ -15,6 +15,7 @@ void AccountRegistry::add(Connection *c)
     beginInsertRows(QModelIndex(), m_accounts.size(), m_accounts.size());
     m_accounts += c;
     endInsertRows();
+    emit accountCountChanged();
 }
 
 void AccountRegistry::drop(Connection *c)
@@ -23,6 +24,7 @@ void AccountRegistry::drop(Connection *c)
     m_accounts.removeOne(c);
     endRemoveRows();
     Q_ASSERT(!m_accounts.contains(c));
+    emit accountCountChanged();
 }
 
 bool AccountRegistry::isLoggedIn(const QString &userId) const
@@ -51,8 +53,13 @@ QVariant AccountRegistry::data(const QModelIndex &index, int role) const
 
     const auto account = m_accounts[index.row()];
 
-    if (role == ConnectionRole) {
-        return QVariant::fromValue(account);
+    switch (role) {
+        case ConnectionRole:
+            return QVariant::fromValue(account);
+        case UserIdRole:
+            return QVariant::fromValue(account->userId());
+        default:
+            return {};
     }
 
     return {};
@@ -69,7 +76,7 @@ int AccountRegistry::rowCount(const QModelIndex &parent) const
 
 QHash<int, QByteArray> AccountRegistry::roleNames() const
 {
-    return {{ConnectionRole, "connection"}};
+    return {{ConnectionRole, "connection"}, {UserIdRole, "userId"}};
 }
 
 bool AccountRegistry::isEmpty() const
