@@ -96,6 +96,8 @@ public:
     Q_INVOKABLE QString plainText(QQuickTextDocument *document) const;
     bool encryptionSupported() const;
 
+    Q_INVOKABLE void forceRefreshTextDocument(QQuickTextDocument *textDocument, QQuickItem *item);
+
 private:
     explicit Controller(QObject *parent = nullptr);
 
