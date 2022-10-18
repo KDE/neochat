@@ -127,4 +127,11 @@ Kirigami.ScrollablePage {
             onClicked: root.closeDialog();
         }
     }
+    Component {
+        id: openFileDialog
+
+        OpenFileDialog {
+            folder: StandardPaths.writableLocation(StandardPaths.PicturesLocation)
+        }
+    }
 }

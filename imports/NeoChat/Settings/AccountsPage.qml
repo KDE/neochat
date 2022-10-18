@@ -102,12 +102,4 @@ Kirigami.ScrollablePage {
             }
         }
     }
-
-    property Component openFileDialog: Component {
-        id: openFileDialog
-
-        OpenFileDialog {
-            folder: StandardPaths.writableLocation(StandardPaths.PicturesLocation)
-        }
-    }
 }
