@@ -35,8 +35,6 @@ QString markdownToHTML(const QString &markdown)
     auto result = QString::fromStdString(html).trimmed();
 
     result.replace("<!-- raw HTML omitted -->", "");
-    result.replace("<p>", "");
-    result.replace("</p>", "");
 
     return result;
 }
