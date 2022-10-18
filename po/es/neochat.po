@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-17 00:46+0000\n"
-"PO-Revision-Date: 2022-10-12 00:19+0200\n"
+"POT-Creation-Date: 2022-10-18 00:44+0000\n"
+"PO-Revision-Date: 2022-10-17 17:54+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -326,7 +326,7 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Última lectura: %1"
 
-#: imports/NeoChat/Component/Timeline/RichLabel.qml:84
+#: imports/NeoChat/Component/Timeline/RichLabel.qml:89
 #, kde-format
 msgid " (edited)"
 msgstr " (editado)"
@@ -1562,7 +1562,7 @@ msgstr "Mostrar sus mensajes a la derecha"
 #: imports/NeoChat/Settings/AppearanceSettingsPage.qml:256
 #, kde-format
 msgid "Show links preview in the chat messages"
-msgstr ""
+msgstr "Mostrar vista previa de los enlaces en los mensajes del chat"
 
 #: imports/NeoChat/Settings/DevicesPage.qml:13
 #: imports/NeoChat/Settings/SettingsPage.qml:37
@@ -2105,63 +2105,63 @@ msgstr "Invita al usuario con el ID indicado a la sala actual"
 msgid "React to this message with a text"
 msgstr "Reaccionar a este mensaje con un texto"
 
-#: src/controller.cpp:161 src/controller.cpp:295
+#: src/controller.cpp:240 src/controller.cpp:374
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Error de red: %1"
 
-#: src/controller.cpp:286
+#: src/controller.cpp:365
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Inicio de sesión fallido: Token de acceso no válido o revocado"
 
-#: src/controller.cpp:289 src/login.cpp:81
+#: src/controller.cpp:368 src/login.cpp:81
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "El inicio de sesión ha fallado: %1"
 
-#: src/controller.cpp:353
+#: src/controller.cpp:432
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "El token de acceso no se ha encontrado"
 
-#: src/controller.cpp:353
+#: src/controller.cpp:432
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "¿Es posible que se haya borrado?"
 
-#: src/controller.cpp:357
+#: src/controller.cpp:436
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Se ha denegado el acceso a la cadena de claves."
 
-#: src/controller.cpp:357
+#: src/controller.cpp:436
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Por favor, permita que NeoChat pueda leer el token de acceso"
 
-#: src/controller.cpp:360
+#: src/controller.cpp:439
 #, kde-format
 msgid "No keychain available."
 msgstr "Ninguna cadena de claves disponible."
 
-#: src/controller.cpp:360
+#: src/controller.cpp:439
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Instale una cadena de claves, como KWallet o el llavero de GNOME en Linux"
 
-#: src/controller.cpp:363
+#: src/controller.cpp:442
 #, kde-format
 msgid "Unable to read access token"
 msgstr "No se ha podido leer el token de acceso"
 
-#: src/controller.cpp:606
+#: src/controller.cpp:685
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "La creación de la sala ha fallado: «%1»"
 
-#: src/controller.cpp:619
+#: src/controller.cpp:698
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "El ID de la sala a la que está intentando unirse no es válido"
@@ -2516,32 +2516,32 @@ msgstr "Aceptar la invitación"
 msgid "Reject Invitation"
 msgstr "Rechazar la invitación"
 
-#: src/roomlistmodel.cpp:456
+#: src/roomlistmodel.cpp:461
 #, kde-format
 msgid "Invited"
 msgstr "Invitado"
 
-#: src/roomlistmodel.cpp:458
+#: src/roomlistmodel.cpp:463
 #, kde-format
 msgid "Favorite"
 msgstr "Favorito"
 
-#: src/roomlistmodel.cpp:460
+#: src/roomlistmodel.cpp:465
 #, kde-format
 msgid "Direct Messages"
 msgstr "Mensajes directos"
 
-#: src/roomlistmodel.cpp:462
+#: src/roomlistmodel.cpp:467
 #, kde-format
 msgid "Normal"
 msgstr "Normal"
 
-#: src/roomlistmodel.cpp:464
+#: src/roomlistmodel.cpp:469
 #, kde-format
 msgid "Low priority"
 msgstr "Baja prioridad"
 
-#: src/roomlistmodel.cpp:466
+#: src/roomlistmodel.cpp:471
 #, kde-format
 msgid "Spaces"
 msgstr "Espacios"

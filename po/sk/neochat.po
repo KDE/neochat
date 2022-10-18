@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-17 00:46+0000\n"
+"POT-Creation-Date: 2022-10-18 00:44+0000\n"
 "PO-Revision-Date: 2022-04-18 17:58+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -332,7 +332,7 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Naposledy prečítané: %1"
 
-#: imports/NeoChat/Component/Timeline/RichLabel.qml:84
+#: imports/NeoChat/Component/Timeline/RichLabel.qml:89
 #, kde-format
 msgid " (edited)"
 msgstr "(upravené)"
@@ -2150,64 +2150,64 @@ msgstr "Pozve používateľa s daným ID do aktuálnej miestnosti"
 msgid "React to this message with a text"
 msgstr "Reagovať na túto správu textom"
 
-#: src/controller.cpp:161 src/controller.cpp:295
+#: src/controller.cpp:240 src/controller.cpp:374
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Chyba siete: %1"
 
-#: src/controller.cpp:286
+#: src/controller.cpp:365
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Prihlásenie zlyhalo: Prístupový token je neplatný alebo odvolaný"
 
-#: src/controller.cpp:289 src/login.cpp:81
+#: src/controller.cpp:368 src/login.cpp:81
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Prihlásenie zlyhalo: %1"
 
-#: src/controller.cpp:353
+#: src/controller.cpp:432
 #, fuzzy, kde-format
 #| msgid "Access Token (Optional)"
 msgid "Access token wasn't found"
 msgstr "Prístupový token (voliteľný)"
 
-#: src/controller.cpp:353
+#: src/controller.cpp:432
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr ""
 
-#: src/controller.cpp:357
+#: src/controller.cpp:436
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr ""
 
-#: src/controller.cpp:357
+#: src/controller.cpp:436
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr ""
 
-#: src/controller.cpp:360
+#: src/controller.cpp:439
 #, fuzzy, kde-format
 #| msgid "No users available"
 msgid "No keychain available."
 msgstr "Nie sú k dispozícii žiadni používatelia"
 
-#: src/controller.cpp:360
+#: src/controller.cpp:439
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 
-#: src/controller.cpp:363
+#: src/controller.cpp:442
 #, kde-format
 msgid "Unable to read access token"
 msgstr ""
 
-#: src/controller.cpp:606
+#: src/controller.cpp:685
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "Vytvorenie miestnosti zlyhalo: \"%1\""
 
-#: src/controller.cpp:619
+#: src/controller.cpp:698
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Miestnosť, do ktorej sa pokúšate pripojiť, je neplatná"
@@ -2567,32 +2567,32 @@ msgstr "Prijať pozvánku"
 msgid "Reject Invitation"
 msgstr "Odmietnuť"
 
-#: src/roomlistmodel.cpp:456
+#: src/roomlistmodel.cpp:461
 #, kde-format
 msgid "Invited"
 msgstr "Pozvaný"
 
-#: src/roomlistmodel.cpp:458
+#: src/roomlistmodel.cpp:463
 #, kde-format
 msgid "Favorite"
 msgstr "Obľúbené"
 
-#: src/roomlistmodel.cpp:460
+#: src/roomlistmodel.cpp:465
 #, kde-format
 msgid "Direct Messages"
 msgstr "Priame správy"
 
-#: src/roomlistmodel.cpp:462
+#: src/roomlistmodel.cpp:467
 #, kde-format
 msgid "Normal"
 msgstr "Normálne"
 
-#: src/roomlistmodel.cpp:464
+#: src/roomlistmodel.cpp:469
 #, kde-format
 msgid "Low priority"
 msgstr "Nízka priorita"
 
-#: src/roomlistmodel.cpp:466
+#: src/roomlistmodel.cpp:471
 #, kde-format
 msgid "Spaces"
 msgstr "Medzery"
