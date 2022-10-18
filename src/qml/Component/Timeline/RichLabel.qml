@@ -44,6 +44,7 @@ TextEdit {
     property bool spoilerRevealed: !hasSpoiler.test(textMessage)
 
     ListView.onReused: Qt.binding(() => !hasSpoiler.test(textMessage))
+    onTextMessageChanged: text = MessageFormatter.format(textMessage, contentLabel.textDocument, contentLabel)
 
     persistentSelection: true
 
@@ -52,6 +53,7 @@ TextEdit {
         Controller.forceRefreshTextDocument(root.textDocument, root)
     }
 
+    /*
     text: "<style>
 table {
     width:100%;
@@ -84,7 +86,11 @@ a{
     background: " + Kirigami.Theme.textColor + ";
 }
 " : "") + "
+<<<<<<< HEAD:src/qml/Component/Timeline/RichLabel.qml
 </style>" + textMessage
+=======
+</style>" + (isEmote ? "* <a href='https://matrix.to/#/" + author.id + "' style='color: " + author.color + "'>" + author.displayName + "</a> " : "") + textMessage + (isEdited ? (" <span style=\"color: " + Kirigami.Theme.disabledTextColor + "\">" + "<span style='font-size: " + Kirigami.Theme.defaultFont.pixelSize +"px'>" + i18n(" (edited)") + "</span>") : "")
+    */
 
     color: Kirigami.Theme.textColor
     selectedTextColor: Kirigami.Theme.highlightedTextColor

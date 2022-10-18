@@ -107,6 +107,8 @@
 #include <Windows.h>
 #endif
 
+#include "messageformatter.h"
+
 using namespace Quotient;
 
 class NetworkAccessManagerFactory : public QQmlNetworkAccessManagerFactory
@@ -228,6 +230,12 @@ int main(int argc, char *argv[])
     Login *login = new Login();
     UrlHelper urlHelper;
 
+    MessageFormatter formatter;
+    // formatter.formatInternal("<p>hrrejoire</p>\n<pre><code class=\"language-js\">var i = 0; i++; function\n</code></pre>\n<p>rekore</p>\n", new
+    // QTextDocument);
+
+    // return 0;
+
 #ifdef HAVE_COLORSCHEME
     ColorSchemer colorScheme;
     qmlRegisterSingletonInstance<ColorSchemer>("org.kde.neochat", 1, 0, "ColorSchemer", &colorScheme);
@@ -236,6 +244,7 @@ int main(int argc, char *argv[])
     }
 #endif
 
+    qmlRegisterSingletonInstance<MessageFormatter>("org.kde.neochat", 1, 0, "MessageFormatter", &formatter);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Controller", &Controller::instance());
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "NotificationsManager", &NotificationsManager::instance());
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Clipboard", &clipboard);
