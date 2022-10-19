@@ -44,7 +44,7 @@ add_library(neochat STATIC
 
 add_executable(neochat-app
     main.cpp
-    ../res.qrc
+    res.qrc
 )
 
 target_include_directories(neochat-app PRIVATE ${CMAKE_BINARY_DIR})
@@ -76,11 +76,11 @@ if(NOT ANDROID)
 endif()
 
 if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
-    target_sources(neochat-app PRIVATE ../res_desktop.qrc)
+    target_sources(neochat-app PRIVATE res_desktop.qrc)
     target_compile_definitions(neochat PUBLIC -DHAVE_RUNNER)
     target_sources(neochat PRIVATE runner.cpp)
 else()
-    target_sources(neochat-app PRIVATE ../res_android.qrc)
+    target_sources(neochat-app PRIVATE res_android.qrc)
 endif()
 
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR})

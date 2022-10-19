@@ -6,15 +6,11 @@ Files: 128-logo.png icons/* logo.png org.kde.neochat.svg org.kde.neochat.tray.sv
 Copyright: 2020 Carson Black <uhhadd@gmail.com>
 License: LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
 
-Files: qtquickcontrols2.conf
-Copyright: 2020 Tobias Fella <fella@posteo.de>
-License: CC0-1.0
-
 Files: android/res/drawable/splash.xml
 Copyright: 2020 Tobias Fella <fella@posteo.de>
 License: BSD-2-Clause
 
-Files: */qmldir .gitignore
+Files: .gitignore
 Copyright: None
 License: CC0-1.0
 
@@ -22,7 +18,7 @@ Files: .gitlab/issue_templates/bug.md
 Copyright: 2021 Carl Schwan <carlschwan@kde.org>
 License: CC0-1.0
 
-Files: res.qrc res_android.qrc res_desktop.qrc
+Files: src/res.qrc src/res_android.qrc src/res_desktop.qrc
 Copyright: None
 License: CC0-1.0
 
@@ -38,7 +34,7 @@ Files: src/neochat.notifyrc
 Copyright: 2020 Tobias Fella <fella@posteo.de>
 License: BSD-2-Clause
 
-Files: imports/NeoChat/Component/confetti.png imports/NeoChat/Component/glowdot.png
+Files: src/qml/Component/confetti.png src/qml/Component/glowdot.png
 Copyright: 2021 Alexey Andreyev <aa13q@ya.ru>
 License: CC0-1.0
 
