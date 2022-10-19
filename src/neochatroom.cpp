@@ -37,6 +37,10 @@
 #include "neochatconfig.h"
 #include "neochatuser.h"
 #include "notificationsmanager.h"
+#ifdef QUOTIENT_07
+#include "pollevent.h"
+#include "pollhandler.h"
+#endif
 #include "stickerevent.h"
 #include "utils.h"
 
@@ -182,7 +186,7 @@ void NeoChatRoom::sendTypingNotification(bool isTyping)
     connection()->callApi<SetTypingJob>(BackgroundRequest, localUser()->id(), id(), isTyping, 10000);
 }
 
-const RoomMessageEvent *NeoChatRoom::lastEvent(bool ignoreStateEvent) const
+const RoomEvent *NeoChatRoom::lastEvent(bool ignoreStateEvent) const
 {
     for (auto timelineItem = messageEvents().rbegin(); timelineItem < messageEvents().rend(); timelineItem++) {
         const RoomEvent *event = timelineItem->get();
@@ -212,6 +216,11 @@ const RoomMessageEvent *NeoChatRoom::lastEvent(bool ignoreStateEvent) const
         if (auto lastEvent = eventCast<const RoomMessageEvent>(event)) {
             return lastEvent;
         }
+#ifdef QUOTIENT_07
+        if (auto lastEvent = eventCast<const PollStartEvent>(event)) {
+            return lastEvent;
+        }
+#endif
     }
     return nullptr;
 }
@@ -621,6 +630,11 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
             return e.stateKey().isEmpty() ? i18n("updated %1 state", e.matrixType())
                                           : i18n("updated %1 state for %2", e.matrixType(), e.stateKey().toHtmlEscaped());
         },
+#ifdef QUOTIENT_07
+        [](const PollStartEvent &e) {
+            return e.question();
+        },
+#endif
         i18n("Unknown event"));
 }
 
@@ -1201,3 +1215,16 @@ bool NeoChatRoom::canEncryptRoom() const
 #endif
     return false;
 }
+
+#ifdef QUOTIENT_07
+PollHandler *NeoChatRoom::poll(const QString &eventId)
+{
+    if (!m_polls.contains(eventId)) {
+        auto handler = new PollHandler(this);
+        handler->setRoom(this);
+        handler->setPollStartEventId(eventId);
+        m_polls.insert(eventId, handler);
+    }
+    return m_polls[eventId];
+}
+#endif

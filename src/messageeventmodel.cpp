@@ -13,6 +13,9 @@
 #include <events/simplestateevents.h>
 #include <user.h>
 
+#ifdef QUOTIENT_07
+#include "pollevent.h"
+#endif
 #include "stickerevent.h"
 
 #include <QDebug>
@@ -496,6 +499,15 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         if (is<const EncryptedEvent>(evt)) {
             return DelegateType::Encrypted;
         }
+#ifdef QUOTIENT_07
+        if (is<PollStartEvent>(evt)) {
+            if (evt.isRedacted()) {
+                return DelegateType::Message;
+            }
+            return DelegateType::Poll;
+        }
+#endif
+
         return DelegateType::Other;
     }
 
@@ -532,6 +544,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         if (auto e = eventCast<const StickerEvent>(&evt)) {
             return QVariant::fromValue(e->image().originalJson);
         }
+        return evt.contentJson();
     }
 
     if (role == HighlightRole) {

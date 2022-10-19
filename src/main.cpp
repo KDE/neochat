@@ -57,6 +57,9 @@
 #include "neochatroom.h"
 #include "neochatuser.h"
 #include "notificationsmanager.h"
+#ifdef QUOTIENT_07
+#include "pollhandler.h"
+#endif
 #include "publicroomlistmodel.h"
 #include "roomlistmodel.h"
 #include "roommanager.h"
@@ -210,6 +213,9 @@ int main(int argc, char *argv[])
     qmlRegisterType<DevicesModel>("org.kde.neochat", 1, 0, "DevicesModel");
     qmlRegisterType<LinkPreviewer>("org.kde.neochat", 1, 0, "LinkPreviewer");
     qmlRegisterType<CompletionModel>("org.kde.neochat", 1, 0, "CompletionModel");
+#ifdef QUOTIENT_07
+    qmlRegisterType<PollHandler>("org.kde.neochat", 1, 0, "PollHandler");
+#endif
     qmlRegisterUncreatableType<RoomMessageEvent>("org.kde.neochat", 1, 0, "RoomMessageEvent", "ENUM");
     qmlRegisterUncreatableType<PushNotificationState>("org.kde.neochat", 1, 0, "PushNotificationState", "ENUM");
     qmlRegisterUncreatableType<NeoChatRoomType>("org.kde.neochat", 1, 0, "NeoChatRoomType", "ENUM");

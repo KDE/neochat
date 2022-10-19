@@ -149,6 +149,9 @@ void Controller::handleNotifications()
 {
     static bool initial = true;
     static QStringList oldNotifications;
+    if (!m_connection) {
+        return;
+    }
     auto job = m_connection->callApi<GetNotificationsJob>();
 
     connect(job, &BaseJob::success, this, [this, job]() {
@@ -177,7 +180,18 @@ void Controller::handleNotifications()
                 // The room might have been deleted (for example rejected invitation).
                 auto sender = room->user(notification["event"].toObject()["sender"].toString());
 
-                auto body = notification["event"].toObject()["content"].toObject()["body"].toString();
+                QString body;
+
+                if (notification["event"].toObject()["type"].toString() == "org.matrix.msc3381.poll.start") {
+                    body = notification["event"]
+                               .toObject()["content"]
+                               .toObject()["org.matrix.msc3381.poll.start"]
+                               .toObject()["question"]
+                               .toObject()["body"]
+                               .toString();
+                } else {
+                    body = notification["event"].toObject()["content"].toObject()["body"].toString();
+                }
 
                 if (notification["event"]["type"] == "m.room.encrypted") {
 #ifdef Quotient_E2EE_ENABLED

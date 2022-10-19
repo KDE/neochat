@@ -71,6 +71,11 @@ DelegateChooser {
     }
 
     DelegateChoice {
+        roleValue: MessageEventModel.Poll
+        delegate: PollDelegate {}
+    }
+
+    DelegateChoice {
         roleValue: MessageEventModel.Other
         delegate: Item {}
     }

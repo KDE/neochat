@@ -25,6 +25,7 @@ public:
         State,
         Encrypted,
         ReadMarker,
+        Poll,
         Other,
     };
     Q_ENUM(DelegateType);

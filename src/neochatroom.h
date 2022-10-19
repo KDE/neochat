@@ -5,11 +5,13 @@
 
 #include <room.h>
 
+#include <QCache>
 #include <QObject>
 #include <QTextCursor>
 
 #include <qcoro/task.h>
 
+class PollHandler;
 class NeoChatUser;
 
 class PushNotificationState : public QObject
@@ -80,7 +82,7 @@ public:
     /// This function respect the showLeaveJoinEvent setting and discard
     /// other not interesting events. This function can return an empty pointer
     /// when the room is empty of RoomMessageEvent.
-    [[nodiscard]] const Quotient::RoomMessageEvent *lastEvent(bool ignoreStateEvent = false) const;
+    [[nodiscard]] const Quotient::RoomEvent *lastEvent(bool ignoreStateEvent = false) const;
 
     /// Convenient way to get the last event but in a string format.
     ///
@@ -192,6 +194,10 @@ public:
 
     bool canEncryptRoom() const;
 
+#ifdef QUOTIENT_07
+    Q_INVOKABLE PollHandler *poll(const QString &eventId);
+#endif
+
 #ifndef QUOTIENT_07
     Q_INVOKABLE QString htmlSafeMemberName(const QString &userId) const
     {
@@ -223,6 +229,9 @@ private:
     QString m_chatBoxAttachmentPath;
     QVector<Mention> m_mentions;
     QString m_savedText;
+#ifdef QUOTIENT_07
+    QCache<QString, PollHandler> m_polls;
+#endif
 
 private Q_SLOTS:
     void countChanged();
