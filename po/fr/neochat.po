@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-18 00:44+0000\n"
-"PO-Revision-Date: 2022-10-13 15:01+0200\n"
+"PO-Revision-Date: 2022-10-18 12:45+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1558,7 +1558,7 @@ msgstr "Afficher vos messages sur la droite"
 #: imports/NeoChat/Settings/AppearanceSettingsPage.qml:256
 #, kde-format
 msgid "Show links preview in the chat messages"
-msgstr ""
+msgstr "Afficher des aperçus des liens dans les messages du salon"
 
 #: imports/NeoChat/Settings/DevicesPage.qml:13
 #: imports/NeoChat/Settings/SettingsPage.qml:37
@@ -1877,14 +1877,10 @@ msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
 msgstr "Ajoute « ¯\\_(ツ)_/¯ » à un message en texte brut"
 
 #: src/actionsmodel.cpp:79
-#, fuzzy
-#| msgid "Sends the given message coloured as a rainbow"
 msgid "Sends the given message colored as a rainbow"
-msgstr "Envoie le message fourni coloré comme un arc-en-ciel"
+msgstr "Envoie le message fourni coloré comme un arc-en-ciel."
 
 #: src/actionsmodel.cpp:99
-#, fuzzy
-#| msgid "Sends the given emote coloured as a rainbow"
 msgid "Sends the given emote colored as a rainbow"
 msgstr "Envoie l'émoticône fournie, colorée comme un arc-en-ciel."
 
@@ -1894,16 +1890,12 @@ msgid "Sends the given message as a spoiler"
 msgstr "Envoie le message fourni comme un pourriciel"
 
 #: src/actionsmodel.cpp:125
-#, fuzzy
-#| msgid "Sends the given message as a spoiler"
 msgid "Sends the given emote"
-msgstr "Envoie le message fourni comme un pourriciel"
+msgstr "Envoie l'émoticône fournie"
 
 #: src/actionsmodel.cpp:135
-#, fuzzy
-#| msgid "Sends the given message as a spoiler"
 msgid "Sends the given message as a notice"
-msgstr "Envoie le message fourni comme un pourriciel"
+msgstr "Envoie le message fourni comme un avis"
 
 #: src/actionsmodel.cpp:144 src/actionsmodel.cpp:291 src/actionsmodel.cpp:319
 #, kde-format
@@ -1912,24 +1904,21 @@ msgid "'%1' does not look like a matrix id."
 msgstr "« %1 » ne ressemble pas à un identifiant « Matrix »."
 
 #: src/actionsmodel.cpp:149
-#, fuzzy, kde-format
-#| msgid "reinvited %1 to the room"
+#, kde-format
 msgctxt "<user> is already invited to this room."
 msgid "%1 is already invited to this room."
-msgstr "Ré-invité %1 dans le salon"
+msgstr "%1 est déjà invité dans ce salon."
 
 #: src/actionsmodel.cpp:153
-#, fuzzy, kde-format
-#| msgid "self-banned from the room"
+#, kde-format
 msgctxt "<user> is banned from this room."
 msgid "%1 is banned from this room."
-msgstr "auto-banni du salon"
+msgstr "%1 est banni de ce salon."
 
 #: src/actionsmodel.cpp:158
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgid "You are already in this room."
-msgstr "Ouvrir Neochat dans cette salon"
+msgstr "Vous êtes déjà dans ce salon."
 
 #: src/actionsmodel.cpp:162
 #, kde-format
@@ -1938,21 +1927,18 @@ msgid "%1 is already in this room."
 msgstr "%1 est déjà présent dans ce salon ."
 
 #: src/actionsmodel.cpp:166
-#, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
+#, kde-format
 msgctxt "<username> was invited into this room"
 msgid "%1 was invited into this room"
-msgstr "%1 vous a invité dans un salon"
+msgstr "%1 a été invité dans ce salon."
 
 #: src/actionsmodel.cpp:171 src/actionsmodel.cpp:309 src/actionsmodel.cpp:337
 msgid "<user id>"
 msgstr "<user id>"
 
 #: src/actionsmodel.cpp:172
-#, fuzzy
-#| msgid "Invite user to room"
 msgid "Invites the user to this room"
-msgstr "Inviter des utilisateurs dans un salon"
+msgstr "Invite un utilisateur dans ce salon"
 
 #: src/actionsmodel.cpp:181 src/actionsmodel.cpp:204 src/actionsmodel.cpp:231
 #: src/actionsmodel.cpp:263
@@ -2041,20 +2027,16 @@ msgid "%1 is no longer ignored."
 msgstr "%1 n'est plus ignoré maintenant."
 
 #: src/actionsmodel.cpp:338
-#, fuzzy
-#| msgid "Unignore this user"
 msgid "Unignores the given user"
-msgstr "Re-considérer cet utilisateur"
+msgstr "Reprendre en compte l’utilisateur donné"
 
 #: src/actionsmodel.cpp:358
 msgid "<reaction text>"
 msgstr "<reaction text>"
 
 #: src/actionsmodel.cpp:359
-#, fuzzy
-#| msgid "React to this message with a text"
 msgid "React to the message with the given text"
-msgstr "Réagir à ce message avec un texte"
+msgstr "Réagir à ce message avec un texte donné"
 
 #: src/collapsestateproxymodel.cpp:68
 #, kde-format
