@@ -140,7 +140,7 @@ QQC2.ItemDelegate {
         visible: model.showAuthor &&
             Config.showAvatarInTimeline &&
             (Config.compactLayout || !showUserMessageOnRight)
-        name: model.author.name ?? model.author.displayName
+        name: model.displayNameForInitials
         source: visible && model.author.avatarMediaId ? ("image://mxc/" + model.author.avatarMediaId) : ""
         color: model.author.color
 

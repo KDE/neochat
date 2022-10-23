@@ -48,6 +48,9 @@ public:
         EventResolvedTypeRole,
         AuthorIdRole,
         VerifiedRole,
+
+        // Sender's displayname, always without the matrix id
+        DisplayNameForInitialsRole,
         LastRole, // Keep this last
     };
     Q_ENUM(EventRoles)

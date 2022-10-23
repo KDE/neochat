@@ -59,6 +59,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[AuthorIdRole] = "authorId";
     roles[MediaUrlRole] = "mediaUrl";
     roles[VerifiedRole] = "verified";
+    roles[DisplayNameForInitialsRole] = "displayNameForInitials";
     return roles;
 }
 
@@ -832,6 +833,11 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         return false;
 #endif
 #endif
+    }
+
+    if (role == DisplayNameForInitialsRole) {
+        auto user = static_cast<NeoChatUser *>(isPending ? m_currentRoom->localUser() : m_currentRoom->user(evt.senderId()));
+        return user->displayname(m_currentRoom).remove(QStringLiteral(" (%1)").arg(user->id()));
     }
 
     return {};
