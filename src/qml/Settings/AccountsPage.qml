@@ -27,7 +27,12 @@ Kirigami.ScrollablePage {
             text: model.connection.localUser.displayName
             labelItem.textFormat: Text.PlainText
             subtitle: model.connection.localUserId
-            icon: model.connection.localUser.avatarMediaId ? ("image://mxc/" + model.connection.localUser.avatarMediaId) : "im-user"
+
+            leading: Kirigami.Avatar {
+                name: model.connection.localUser.displayName ?? model.connection.localUser.id
+                source: model.connection.localUser.avatarMediaId ? ("image://mxc/" + model.connection.localUser.avatarMediaId) : ""
+                width: height
+            }
 
             onClicked: {
                 Controller.activeConnection = model.connection;

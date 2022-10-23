@@ -22,6 +22,7 @@ Kirigami.ScrollablePage {
                 Kirigami.Avatar {
                     id: avatar
                     source: root.connection && root.connection.localUser.avatarMediaId ? ("image://mxc/" + root.connection.localUser.avatarMediaId) : ""
+                    name: root.connection.localUser.displayName ?? root.connection.localUser.id
 
                     MouseArea {
                         id: mouseArea
