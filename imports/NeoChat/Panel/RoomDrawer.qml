@@ -291,7 +291,7 @@ Kirigami.OverlayDrawer {
                             sourceSize.height: Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 2.5
                             sourceSize.width: Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 2.5
                             source: avatar ? ("image://mxc/" + avatar) : ""
-                            name: name
+                            name: model.userId
                         }
 
                         trailing: Label {
