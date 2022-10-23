@@ -174,6 +174,16 @@ void Controller::handleNotifications()
                 // The room might have been deleted (for example rejected invitation).
                 auto sender = room->user(notification["event"].toObject()["sender"].toString());
 
+                auto body = notification["event"].toObject()["content"].toObject()["body"].toString();
+
+                if (notification["event"]["type"] == "m.room.encrypted") {
+                    auto decrypted = m_connection->decryptNotification(notification);
+                    body = decrypted["content"].toObject()["body"].toString();
+                    if (body.isEmpty()) {
+                        body = i18n("Encrypted Message");
+                    }
+                }
+
                 QImage avatar_image;
                 if (!sender->avatarUrl(room).isEmpty()) {
                     avatar_image = sender->avatar(128, room);
@@ -182,7 +192,7 @@ void Controller::handleNotifications()
                 }
                 NotificationsManager::instance().postNotification(dynamic_cast<NeoChatRoom *>(room),
                                                                   sender->displayname(room),
-                                                                  notification["event"].toObject()["content"].toObject()["body"].toString(),
+                                                                  body,
                                                                   avatar_image,
                                                                   notification["event"].toObject()["event_id"].toString(),
                                                                   true);
