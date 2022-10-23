@@ -79,6 +79,8 @@ Kirigami.ScrollablePage {
                         }
                     }
 
+                    name: currentRoom.displayName
+
                     QQC2.ToolTip {
                         text: currentRoom.displayName
                     }
