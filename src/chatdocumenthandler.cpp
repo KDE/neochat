@@ -10,6 +10,7 @@
 #include <QSyntaxHighlighter>
 #include <QTextBlock>
 #include <QTextDocument>
+#include <QTimer>
 
 #include <Sonnet/BackgroundChecker>
 #include <Sonnet/Settings>
@@ -28,6 +29,7 @@ public:
     Sonnet::Settings settings;
     QList<QPair<int, QString>> errors;
     QString previousText;
+    QTimer rehighlightTimer;
     SyntaxHighlighter(QObject *parent)
         : QSyntaxHighlighter(parent)
     {
@@ -39,9 +41,14 @@ public:
 
         connect(checker, &Sonnet::BackgroundChecker::misspelling, this, [this](const QString &word, int start) {
             errors += {start, word};
-            rehighlight();
             checker->continueChecking();
         });
+        connect(checker, &Sonnet::BackgroundChecker::done, this, [this]() {
+            rehighlightTimer.start();
+        });
+        rehighlightTimer.setInterval(100);
+        rehighlightTimer.setSingleShot(true);
+        rehighlightTimer.callOnTimeout(this, &QSyntaxHighlighter::rehighlight);
     }
     void highlightBlock(const QString &text) override
     {
