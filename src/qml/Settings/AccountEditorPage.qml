@@ -70,7 +70,7 @@ Kirigami.ScrollablePage {
             Controls.TextField {
                 id: currentPassword
                 Kirigami.FormData.label: i18n("Current Password:")
-                enabled: roto.connection !== undefined && root.connection.canChangePassword !== false
+                enabled: root.connection !== undefined && root.connection.canChangePassword !== false
                 echoMode: TextInput.Password
             }
             Controls.TextField {
