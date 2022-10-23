@@ -113,7 +113,6 @@ CustomEmojiModel::CustomEmojiModel(QObject *parent)
             return;
         }
         CustomEmojiModel::fetchEmojis();
-        disconnect(nullptr, &Connection::accountDataChanged, this, nullptr);
         connect(Controller::instance().activeConnection(), &Connection::accountDataChanged, this, [this](const QString &id) {
             if (id != QStringLiteral("im.ponies.user_emotes")) {
                 return;

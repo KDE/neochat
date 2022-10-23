@@ -635,7 +635,7 @@ void Controller::setActiveConnection(Connection *connection)
         return;
     }
     if (m_connection != nullptr) {
-        disconnect(connection, &Connection::syncError, this, nullptr);
+        disconnect(m_connection, &Connection::syncError, this, nullptr);
     }
     m_connection = connection;
     if (connection != nullptr) {

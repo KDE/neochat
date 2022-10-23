@@ -102,7 +102,7 @@ ChatDocumentHandler::ChatDocumentHandler(QObject *parent)
         m_completionModel->setRoom(m_room);
         static NeoChatRoom *previousRoom = nullptr;
         if (previousRoom) {
-            disconnect(nullptr, &NeoChatRoom::chatBoxTextChanged, this, nullptr);
+            disconnect(previousRoom, &NeoChatRoom::chatBoxTextChanged, this, nullptr);
         }
         previousRoom = m_room;
         connect(m_room, &NeoChatRoom::chatBoxTextChanged, this, [this]() {
