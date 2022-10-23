@@ -31,7 +31,7 @@ Kirigami.ScrollablePage {
     /// cancel implementation.
     property bool disableCancelShortcut: false
 
-    title: currentRoom.htmlSafeDisplayName
+    title: currentRoom.displayName
 
     KeyNavigation.left: pageStack.get(0)
 
