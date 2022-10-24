@@ -31,7 +31,7 @@ RowLayout {
         .map(link => (link.length && [".", ","].includes(link[link.length-1])) ? link.substring(0, link.length-1) : link)
     LinkPreviewer {
         id: lp
-        url: links[0]
+        url: links.length > 0 ? links[0] : ""
     }
     visible: lp.loaded && lp.title
     Rectangle {
