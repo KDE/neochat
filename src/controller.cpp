@@ -177,8 +177,10 @@ void Controller::handleNotifications()
                 auto body = notification["event"].toObject()["content"].toObject()["body"].toString();
 
                 if (notification["event"]["type"] == "m.room.encrypted") {
+#ifdef QUOTIENT_E2EE_ENABLED
                     auto decrypted = m_connection->decryptNotification(notification);
                     body = decrypted["content"].toObject()["body"].toString();
+#endif
                     if (body.isEmpty()) {
                         body = i18n("Encrypted Message");
                     }
