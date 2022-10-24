@@ -461,7 +461,7 @@ Kirigami.ScrollablePage {
                     source: "security-high"
                     width: height
                     height: parent.height
-                    visible: hoverActions.event.verified
+                    visible: hoverActions.event ? hoverActions.event.verified : false
                     HoverHandler {
                         id: hover
                     }

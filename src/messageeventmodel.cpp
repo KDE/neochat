@@ -831,9 +831,9 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             Q_ASSERT(encrypted);
             return m_currentRoom->connection()->isVerifiedSession(encrypted->sessionId());
         }
+#endif
+#endif
         return false;
-#endif
-#endif
     }
 
     if (role == DisplayNameForInitialsRole) {
