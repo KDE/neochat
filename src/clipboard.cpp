@@ -33,6 +33,9 @@ QImage Clipboard::image() const
 
 QString Clipboard::saveImage(QString localPath) const
 {
+    if (!QDir().exists(QStringLiteral("%1/screenshots").arg(QStandardPaths::writableLocation(QStandardPaths::CacheLocation)))) {
+        QDir().mkdir(QStringLiteral("%1/screenshots").arg(QStandardPaths::writableLocation(QStandardPaths::CacheLocation)));
+    }
     if (localPath.isEmpty()) {
         localPath = QStringLiteral("file://%1/screenshots/%2.png")
                         .arg(QStandardPaths::writableLocation(QStandardPaths::CacheLocation),
