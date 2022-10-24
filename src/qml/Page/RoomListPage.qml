@@ -13,20 +13,19 @@ import org.kde.kitemmodels 1.0
 import org.kde.neochat 1.0
 
 Kirigami.ScrollablePage {
+    id: page
 
     header: ColumnLayout {
         visible: !page.collapsedMode
-        Layout.fillWidth: true
-        Layout.fillHeight: true
         spacing: 0
 
         ListView {
             id: spaceList
-            property string activeSpaceId: ''
+            property string activeSpaceId: ""
 
             orientation: Qt.Horizontal
-            spacing: Kirigami.Units.largeSpacing
-            clip:true
+            spacing: Kirigami.Units.smallSpacing
+            clip: true
             visible: spaceList.count > 0
 
             Layout.preferredHeight: Kirigami.Units.gridUnit * 3
@@ -61,37 +60,55 @@ Kirigami.ScrollablePage {
                 }
             }
 
-            delegate: QQC2.Control {
+            delegate: QQC2.ItemDelegate {
                 required property string avatar
                 required property var currentRoom
                 required property int index
                 required property string id
-                implicitWidth: ListView.view.headerItem.implicitWidth
-                implicitHeight: ListView.view.headerItem.implicitHeight
+
+                height: parent.height
+                width: height
+                leftPadding: topPadding
+                rightPadding: topPadding
 
                 contentItem: Kirigami.Avatar {
-                    actions.main: Kirigami.Action {
-                        onTriggered: {
-                            spaceList.activeSpaceId = id;
-                            sortFilterRoomListModel.activeSpaceId = id;
-                        }
-                    }
-
                     name: currentRoom.displayName
-
-                    QQC2.ToolTip {
-                        text: currentRoom.displayName
-                    }
-
                     source: avatar !== "" ? "image://mxc/" + avatar : ""
                 }
+
+                onClicked: {
+                    spaceList.activeSpaceId = id;
+                    sortFilterRoomListModel.activeSpaceId = id;
+                }
+
+                QQC2.ToolTip {
+                    text: currentRoom.displayName
+                }
+
+                onPressAndHold: {
+                    spaceList.createContextMenu(currentRoom)
+                }
+                TapHandler {
+                    acceptedButtons: Qt.RightButton
+                    acceptedDevices: PointerDevice.Mouse
+                    onTapped: spaceList.createContextMenu(currentRoom)
+                }
+            }
+            function createContextMenu(room) {
+                const menu = spaceListContextMenu.createObject(page, {room: room})
+                menu.open()
             }
         }
+
         Kirigami.Separator {
             Layout.fillWidth: true
         }
+
+        Component {
+            id: spaceListContextMenu
+            SpaceListContextMenu {}
+        }
     }
-    id: page
 
     title: i18n("Rooms")
 
