@@ -383,6 +383,9 @@ Kirigami.ApplicationWindow {
 
     Connections {
         target: Controller.activeConnection
+
+        //TODO Remove this when the E2EE flag in libQuotient goes away
+        ignoreUnknownSignals: true
         function onDirectChatAvailable(directChat) {
             RoomManager.enterRoom(Controller.activeConnection.room(directChat.id));
         }
