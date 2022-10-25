@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-24 00:48+0000\n"
-"PO-Revision-Date: 2022-10-17 06:03+0200\n"
+"POT-Creation-Date: 2022-10-25 00:46+0000\n"
+"PO-Revision-Date: 2022-10-24 06:55+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -285,69 +285,68 @@ msgstr "Emandako IDa duen erabiltzailea uneko gelara gonbidatzen du"
 msgid "React to this message with a text"
 msgstr "Erreakzionatu mezu honi testu batekin"
 
-#: src/controller.cpp:183
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#: src/controller.cpp:185
+#, kde-format
 msgid "Encrypted Message"
-msgstr "Editatu mezua"
+msgstr "Zifratutako mezua"
 
-#: src/controller.cpp:250 src/controller.cpp:384
+#: src/controller.cpp:252 src/controller.cpp:386
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Sareko errorea: %1"
 
-#: src/controller.cpp:375
+#: src/controller.cpp:377
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Saio-hastea huts egin du: Sartzeko token baliogabea edo indargabetua"
 
-#: src/controller.cpp:378 src/login.cpp:81
+#: src/controller.cpp:380 src/login.cpp:81
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Saio-hastea huts egin du: %1"
 
-#: src/controller.cpp:442
+#: src/controller.cpp:444
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Sartzeko tokena ez du aurkitu"
 
-#: src/controller.cpp:442
+#: src/controller.cpp:444
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Agian ezabatu egin da?"
 
-#: src/controller.cpp:446
+#: src/controller.cpp:448
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Gako-katerako sarrera ukatu egin da."
 
-#: src/controller.cpp:446
+#: src/controller.cpp:448
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Mesedez, utzi NeoChat-i sartzeko tokena irakurtzen"
 
-#: src/controller.cpp:449
+#: src/controller.cpp:451
 #, kde-format
 msgid "No keychain available."
 msgstr "Ez dago gako-kate erabilgarririk."
 
-#: src/controller.cpp:449
+#: src/controller.cpp:451
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Mesedez, instalatu gako-kate bat, adib. KWallet edo «GNOME keyring» Linux-en"
 
-#: src/controller.cpp:452
+#: src/controller.cpp:454
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Ez da sartzeko tokena irakurtzeko gai"
 
-#: src/controller.cpp:695
+#: src/controller.cpp:697
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "Gela sortzea huts egin du: «%1»"
 
-#: src/controller.cpp:708
+#: src/controller.cpp:710
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Batzen saiatzen ari zaren gelaren IDa ez da baliozkoa"
@@ -1310,7 +1309,7 @@ msgstr "Ireki berriketa pribatu bat"
 msgid "Warning: %1"
 msgstr "Abisua: %1"
 
-#: src/qml/main.qml:238 src/qml/Page/RoomListPage.qml:187
+#: src/qml/main.qml:238 src/qml/Page/RoomListPage.qml:204
 #, kde-format
 msgid "Explore rooms"
 msgstr "Esploratu gelak"
@@ -1352,18 +1351,18 @@ msgstr "Irten"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/qml/main.qml:393
+#: src/qml/main.qml:396
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Saioa egiaztatzea"
 
-#: src/qml/main.qml:403
+#: src/qml/main.qml:406
 #, kde-format
 msgid "User consent"
 msgstr "Erabiltzailearen onarpena"
 
-#: src/qml/main.qml:408
+#: src/qml/main.qml:411
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -1373,17 +1372,17 @@ msgstr ""
 "terminoak eta baldintzak onartzea eskatzen dizu. Mesedez, egiozu klik beheko "
 "botoiari haiek irakurtzeko."
 
-#: src/qml/main.qml:413
+#: src/qml/main.qml:416
 #, kde-format
 msgid "Open"
 msgstr "Ireki"
 
-#: src/qml/main.qml:442
+#: src/qml/main.qml:445
 #, kde-format
 msgid "Start a chat"
 msgstr "Hasi berriketa bat"
 
-#: src/qml/main.qml:444
+#: src/qml/main.qml:447
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "%1(r)ekin berriketa bat abiatu nahi duzu?"
@@ -1558,6 +1557,7 @@ msgid "Mark as Read"
 msgstr "Markatu irakurritako gisa"
 
 #: src/qml/Menu/RoomListContextMenu.qml:51
+#: src/qml/Menu/SpaceListContextMenu.qml:25
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Address to Clipboard"
@@ -1626,6 +1626,20 @@ msgstr "Partekatzea huts egin du"
 #, kde-format
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "Irudirako partekatutako URLa <a href='%1'>%1</a> da"
+
+#: src/qml/Menu/SpaceListContextMenu.qml:34
+#, fuzzy, kde-format
+#| msgid "Settings"
+msgctxt "'Space' is a matrix space"
+msgid "Space Settings"
+msgstr "Ezarpenak"
+
+#: src/qml/Menu/SpaceListContextMenu.qml:41
+#: src/qml/Menu/SpaceListContextMenu.qml:96
+#, kde-format
+msgctxt "'Space' is a matrix space"
+msgid "Leave Space"
+msgstr ""
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:23
 #, kde-format
@@ -1815,38 +1829,38 @@ msgstr "Orokorra"
 msgid "Joined"
 msgstr "Batu da"
 
-#: src/qml/Page/RoomListPage.qml:49
+#: src/qml/Page/RoomListPage.qml:48
 #, kde-format
 msgctxt "@action:button"
 msgid "Show All Rooms"
 msgstr "Erakutsi gela guztiak"
 
-#: src/qml/Page/RoomListPage.qml:96
+#: src/qml/Page/RoomListPage.qml:113
 #, kde-format
 msgid "Rooms"
 msgstr "Gelak"
 
-#: src/qml/Page/RoomListPage.qml:184
+#: src/qml/Page/RoomListPage.qml:201
 #, kde-format
 msgid "No rooms found"
 msgstr "Ez da gelarik aurkitu"
 
-#: src/qml/Page/RoomListPage.qml:184
+#: src/qml/Page/RoomListPage.qml:201
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Hasteko, batu gela batzuetara"
 
-#: src/qml/Page/RoomListPage.qml:187
+#: src/qml/Page/RoomListPage.qml:204
 #, kde-format
 msgid "Search in room directory"
 msgstr "Bilatu gelen direktorioan"
 
-#: src/qml/Page/RoomListPage.qml:268 src/qml/Page/RoomListPage.qml:319
+#: src/qml/Page/RoomListPage.qml:285 src/qml/Page/RoomListPage.qml:336
 #, kde-format
 msgid "No Name"
 msgstr "Izenik gabe"
 
-#: src/qml/Page/RoomListPage.qml:345
+#: src/qml/Page/RoomListPage.qml:362
 #, kde-format
 msgid "Configure room"
 msgstr "Konfiguratu gela"
@@ -2590,9 +2604,6 @@ msgstr "Erakutsi"
 
 #~ msgid "Write your message..."
 #~ msgstr "Idatzi zure mezua..."
-
-#~ msgid "Settings"
-#~ msgstr "Ezarpenak"
 
 #~ msgctxt "menu"
 #~ msgid "Preferences…"

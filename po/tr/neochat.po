@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-24 00:48+0000\n"
-"PO-Revision-Date: 2022-10-17 12:32+0300\n"
+"POT-Creation-Date: 2022-10-25 00:46+0000\n"
+"PO-Revision-Date: 2022-10-24 16:57+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -281,69 +281,68 @@ msgstr "Verilen kullanıcı kimliğini geçerli odaya davet eder"
 msgid "React to this message with a text"
 msgstr "Bu iletiye bir metin ile tepki ver"
 
-#: src/controller.cpp:183
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#: src/controller.cpp:185
+#, kde-format
 msgid "Encrypted Message"
-msgstr "İleti Düzenle"
+msgstr "Şifreli İleti"
 
-#: src/controller.cpp:250 src/controller.cpp:384
+#: src/controller.cpp:252 src/controller.cpp:386
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Ağ Hatası: %1"
 
-#: src/controller.cpp:375
+#: src/controller.cpp:377
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr ""
 "Oturum Açma Başarısız: Erişim jetonu geçersiz veya yürürlükten kaldırılmış"
 
-#: src/controller.cpp:378 src/login.cpp:81
+#: src/controller.cpp:380 src/login.cpp:81
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Oturum Açma Başarısız: %1"
 
-#: src/controller.cpp:442
+#: src/controller.cpp:444
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Erişim jetonu bulunamadı"
 
-#: src/controller.cpp:442
+#: src/controller.cpp:444
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Silinmiş olabilir mi?"
 
-#: src/controller.cpp:446
+#: src/controller.cpp:448
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Anahtar zincirine erişim reddedildi."
 
-#: src/controller.cpp:446
+#: src/controller.cpp:448
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Lütfen, NeoChat'in erişim jetonunu okumasına izin verin"
 
-#: src/controller.cpp:449
+#: src/controller.cpp:451
 #, kde-format
 msgid "No keychain available."
 msgstr "Kullanılabilir anahtar zinciri yok."
 
-#: src/controller.cpp:449
+#: src/controller.cpp:451
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr "Lütfen bir anahtar zinciri kurun; örn. KWallet veya GNOME keyring"
 
-#: src/controller.cpp:452
+#: src/controller.cpp:454
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Erişim jetonu okunamıyor"
 
-#: src/controller.cpp:695
+#: src/controller.cpp:697
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "Oda oluşturulamadı: \"%1\""
 
-#: src/controller.cpp:708
+#: src/controller.cpp:710
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Katılmaya çalıştığınız oda geçerli değil"
@@ -1300,7 +1299,7 @@ msgstr "Özel bir sohbet açın"
 msgid "Warning: %1"
 msgstr "Uyarı: %1"
 
-#: src/qml/main.qml:238 src/qml/Page/RoomListPage.qml:187
+#: src/qml/main.qml:238 src/qml/Page/RoomListPage.qml:204
 #, kde-format
 msgid "Explore rooms"
 msgstr "Odaları Keşfet"
@@ -1342,18 +1341,18 @@ msgstr "Çık"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/qml/main.qml:393
+#: src/qml/main.qml:396
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Oturum Doğrulama"
 
-#: src/qml/main.qml:403
+#: src/qml/main.qml:406
 #, kde-format
 msgid "User consent"
 msgstr "Kullanıcı onayı"
 
-#: src/qml/main.qml:408
+#: src/qml/main.qml:411
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -1362,17 +1361,17 @@ msgstr ""
 "Ana sunucunuz, kullanım öncesinde kullanım koşullarını kabul etmenizi "
 "gerektiriyor. Okumak için aşağıdaki düğmeye tıklayın."
 
-#: src/qml/main.qml:413
+#: src/qml/main.qml:416
 #, kde-format
 msgid "Open"
 msgstr "Aç"
 
-#: src/qml/main.qml:442
+#: src/qml/main.qml:445
 #, kde-format
 msgid "Start a chat"
 msgstr "Bir sohbet başlat"
 
-#: src/qml/main.qml:444
+#: src/qml/main.qml:447
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "%1 ile bir sohbet başlatmak istiyor musunuz?"
@@ -1547,6 +1546,7 @@ msgid "Mark as Read"
 msgstr "Okundu Olarak İmle"
 
 #: src/qml/Menu/RoomListContextMenu.qml:51
+#: src/qml/Menu/SpaceListContextMenu.qml:25
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Address to Clipboard"
@@ -1615,6 +1615,20 @@ msgstr "Paylaşma başarısız"
 #, kde-format
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "Paylaşılan görselin URL'si <a href='%1'>%1</a>"
+
+#: src/qml/Menu/SpaceListContextMenu.qml:34
+#, fuzzy, kde-format
+#| msgid "Room Settings"
+msgctxt "'Space' is a matrix space"
+msgid "Space Settings"
+msgstr "Oda Ayarları"
+
+#: src/qml/Menu/SpaceListContextMenu.qml:41
+#: src/qml/Menu/SpaceListContextMenu.qml:96
+#, kde-format
+msgctxt "'Space' is a matrix space"
+msgid "Leave Space"
+msgstr ""
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:23
 #, kde-format
@@ -1804,38 +1818,38 @@ msgstr "Global"
 msgid "Joined"
 msgstr "Katılınan"
 
-#: src/qml/Page/RoomListPage.qml:49
+#: src/qml/Page/RoomListPage.qml:48
 #, kde-format
 msgctxt "@action:button"
 msgid "Show All Rooms"
 msgstr "Tüm Odaları Göster"
 
-#: src/qml/Page/RoomListPage.qml:96
+#: src/qml/Page/RoomListPage.qml:113
 #, kde-format
 msgid "Rooms"
 msgstr "Odalar"
 
-#: src/qml/Page/RoomListPage.qml:184
+#: src/qml/Page/RoomListPage.qml:201
 #, kde-format
 msgid "No rooms found"
 msgstr "Oda bulunamadı"
 
-#: src/qml/Page/RoomListPage.qml:184
+#: src/qml/Page/RoomListPage.qml:201
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Başlamak için odalara katılın"
 
-#: src/qml/Page/RoomListPage.qml:187
+#: src/qml/Page/RoomListPage.qml:204
 #, kde-format
 msgid "Search in room directory"
 msgstr "Oda dizininde ara"
 
-#: src/qml/Page/RoomListPage.qml:268 src/qml/Page/RoomListPage.qml:319
+#: src/qml/Page/RoomListPage.qml:285 src/qml/Page/RoomListPage.qml:336
 #, kde-format
 msgid "No Name"
 msgstr "Adsız"
 
-#: src/qml/Page/RoomListPage.qml:345
+#: src/qml/Page/RoomListPage.qml:362
 #, kde-format
 msgid "Configure room"
 msgstr "Odayı yapılandır"

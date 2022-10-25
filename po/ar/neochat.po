@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-24 00:48+0000\n"
-"PO-Revision-Date: 2022-10-22 18:18+0400\n"
+"POT-Creation-Date: 2022-10-25 00:46+0000\n"
+"PO-Revision-Date: 2022-10-24 22:12+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -285,68 +285,67 @@ msgstr "يدعو المستخدم بمعرف معين للغرفة الحالي�
 msgid "React to this message with a text"
 msgstr "تفاعل مع هذه الرسالة بنص"
 
-#: src/controller.cpp:183
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#: src/controller.cpp:185
+#, kde-format
 msgid "Encrypted Message"
-msgstr "تحرير رسالة"
+msgstr "رسالة معمّاة"
 
-#: src/controller.cpp:250 src/controller.cpp:384
+#: src/controller.cpp:252 src/controller.cpp:386
 #, kde-format
 msgid "Network Error: %1"
 msgstr "خطأ شبكي: %1"
 
-#: src/controller.cpp:375
+#: src/controller.cpp:377
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "فشل الولوج: رمز النفاذ غير صالحة أو سحبت"
 
-#: src/controller.cpp:378 src/login.cpp:81
+#: src/controller.cpp:380 src/login.cpp:81
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "فشل الولوج: %1"
 
-#: src/controller.cpp:442
+#: src/controller.cpp:444
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "رمز النفاذ غير موجود"
 
-#: src/controller.cpp:442
+#: src/controller.cpp:444
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "ربما حذفت؟"
 
-#: src/controller.cpp:446
+#: src/controller.cpp:448
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "رفض النفاذ إلى حَمَّالَة المَفَاتِيح"
 
-#: src/controller.cpp:446
+#: src/controller.cpp:448
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "الرجاء السماح لنيوتشات بقراءة رمز النفاذ"
 
-#: src/controller.cpp:449
+#: src/controller.cpp:451
 #, kde-format
 msgid "No keychain available."
 msgstr "لا تتوفر حَمَّالَة المَفَاتِيح"
 
-#: src/controller.cpp:449
+#: src/controller.cpp:451
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr "الرجاء تثبيت حَمَّالَة مَفَاتِيح مثل محفظتك من كدي أو غنوم Keyring على لينكس"
 
-#: src/controller.cpp:452
+#: src/controller.cpp:454
 #, kde-format
 msgid "Unable to read access token"
 msgstr "غير قادر على قراءة رقم النفاذ"
 
-#: src/controller.cpp:695
+#: src/controller.cpp:697
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "فشل إنشاء غرفة: \"%1\""
 
-#: src/controller.cpp:708
+#: src/controller.cpp:710
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "رقم التعريفي للغرفة التي تحاول الانضمام إليها غير صحيح"
@@ -1290,7 +1289,7 @@ msgstr "افتح دردشة خاصة"
 msgid "Warning: %1"
 msgstr "تحذير: %1"
 
-#: src/qml/main.qml:238 src/qml/Page/RoomListPage.qml:187
+#: src/qml/main.qml:238 src/qml/Page/RoomListPage.qml:204
 #, kde-format
 msgid "Explore rooms"
 msgstr "استكشف الغرف"
@@ -1332,18 +1331,18 @@ msgstr "أنهِ"
 msgid "%1: %2"
 msgstr "‏%1: ‏%2"
 
-#: src/qml/main.qml:393
+#: src/qml/main.qml:396
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "تَثَبّت الجلسة"
 
-#: src/qml/main.qml:403
+#: src/qml/main.qml:406
 #, kde-format
 msgid "User consent"
 msgstr "موافقة المستخدم"
 
-#: src/qml/main.qml:408
+#: src/qml/main.qml:411
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -1352,17 +1351,17 @@ msgstr ""
 "يتطلب منك الخادم المنزلي الخاص بك الموافقة على الشروط والأحكام الخاصة به قبل "
 "أن تتمكن من استخدامه. الرجاء الضغط على الزر أدناه لقراءتها."
 
-#: src/qml/main.qml:413
+#: src/qml/main.qml:416
 #, kde-format
 msgid "Open"
 msgstr "افتح"
 
-#: src/qml/main.qml:442
+#: src/qml/main.qml:445
 #, kde-format
 msgid "Start a chat"
 msgstr "ابدأ دردشة"
 
-#: src/qml/main.qml:444
+#: src/qml/main.qml:447
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "هل ترغب في بَدء دردشة مع %1؟"
@@ -1537,6 +1536,7 @@ msgid "Mark as Read"
 msgstr "علّم كمقروءة"
 
 #: src/qml/Menu/RoomListContextMenu.qml:51
+#: src/qml/Menu/SpaceListContextMenu.qml:25
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Address to Clipboard"
@@ -1605,6 +1605,20 @@ msgstr "فشلت المشاركة"
 #, kde-format
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "عنوان الصورة المشارك بها هو <a href='%1'>%1</a>"
+
+#: src/qml/Menu/SpaceListContextMenu.qml:34
+#, fuzzy, kde-format
+#| msgid "Room Settings"
+msgctxt "'Space' is a matrix space"
+msgid "Space Settings"
+msgstr "إعدادات الغرفة"
+
+#: src/qml/Menu/SpaceListContextMenu.qml:41
+#: src/qml/Menu/SpaceListContextMenu.qml:96
+#, kde-format
+msgctxt "'Space' is a matrix space"
+msgid "Leave Space"
+msgstr ""
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:23
 #, kde-format
@@ -1794,38 +1808,38 @@ msgstr "عموميّ"
 msgid "Joined"
 msgstr "انضم"
 
-#: src/qml/Page/RoomListPage.qml:49
+#: src/qml/Page/RoomListPage.qml:48
 #, kde-format
 msgctxt "@action:button"
 msgid "Show All Rooms"
 msgstr "أظهر كل الغرف"
 
-#: src/qml/Page/RoomListPage.qml:96
+#: src/qml/Page/RoomListPage.qml:113
 #, kde-format
 msgid "Rooms"
 msgstr "الغرف"
 
-#: src/qml/Page/RoomListPage.qml:184
+#: src/qml/Page/RoomListPage.qml:201
 #, kde-format
 msgid "No rooms found"
 msgstr "لم يعثر على غرف"
 
-#: src/qml/Page/RoomListPage.qml:184
+#: src/qml/Page/RoomListPage.qml:201
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "انضم لبعض الغرف لتبدأ"
 
-#: src/qml/Page/RoomListPage.qml:187
+#: src/qml/Page/RoomListPage.qml:204
 #, kde-format
 msgid "Search in room directory"
 msgstr "ابحث في دليل الغرف"
 
-#: src/qml/Page/RoomListPage.qml:268 src/qml/Page/RoomListPage.qml:319
+#: src/qml/Page/RoomListPage.qml:285 src/qml/Page/RoomListPage.qml:336
 #, kde-format
 msgid "No Name"
 msgstr "بلا اسم"
 
-#: src/qml/Page/RoomListPage.qml:345
+#: src/qml/Page/RoomListPage.qml:362
 #, kde-format
 msgid "Configure room"
 msgstr "اضبط الغرفة"

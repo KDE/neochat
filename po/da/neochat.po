@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-24 00:48+0000\n"
+"POT-Creation-Date: 2022-10-25 00:46+0000\n"
 "PO-Revision-Date: 2020-12-13 17:28+0100\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -283,70 +283,70 @@ msgstr ""
 msgid "React to this message with a text"
 msgstr ""
 
-#: src/controller.cpp:183
+#: src/controller.cpp:185
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgid "Encrypted Message"
 msgstr "Send besked"
 
-#: src/controller.cpp:250 src/controller.cpp:384
+#: src/controller.cpp:252 src/controller.cpp:386
 #, fuzzy, kde-format
 #| msgid "Network Error"
 msgid "Network Error: %1"
 msgstr "Netværksfejl"
 
-#: src/controller.cpp:375
+#: src/controller.cpp:377
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr ""
 
-#: src/controller.cpp:378 src/login.cpp:81
+#: src/controller.cpp:380 src/login.cpp:81
 #, fuzzy, kde-format
 #| msgid "Login Failed"
 msgid "Login Failed: %1"
 msgstr "Login mislykkedes"
 
-#: src/controller.cpp:442
+#: src/controller.cpp:444
 #, kde-format
 msgid "Access token wasn't found"
 msgstr ""
 
-#: src/controller.cpp:442
+#: src/controller.cpp:444
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr ""
 
-#: src/controller.cpp:446
+#: src/controller.cpp:448
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr ""
 
-#: src/controller.cpp:446
+#: src/controller.cpp:448
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr ""
 
-#: src/controller.cpp:449
+#: src/controller.cpp:451
 #, kde-format
 msgid "No keychain available."
 msgstr ""
 
-#: src/controller.cpp:449
+#: src/controller.cpp:451
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 
-#: src/controller.cpp:452
+#: src/controller.cpp:454
 #, kde-format
 msgid "Unable to read access token"
 msgstr ""
 
-#: src/controller.cpp:695
+#: src/controller.cpp:697
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr ""
 
-#: src/controller.cpp:708
+#: src/controller.cpp:710
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr ""
@@ -1303,7 +1303,7 @@ msgstr ""
 msgid "Warning: %1"
 msgstr ""
 
-#: src/qml/main.qml:238 src/qml/Page/RoomListPage.qml:187
+#: src/qml/main.qml:238 src/qml/Page/RoomListPage.qml:204
 #, kde-format
 msgid "Explore rooms"
 msgstr ""
@@ -1345,37 +1345,37 @@ msgstr ""
 msgid "%1: %2"
 msgstr ""
 
-#: src/qml/main.qml:393
+#: src/qml/main.qml:396
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr ""
 
-#: src/qml/main.qml:403
+#: src/qml/main.qml:406
 #, fuzzy, kde-format
 #| msgid "Username"
 msgid "User consent"
 msgstr "Brugernavn"
 
-#: src/qml/main.qml:408
+#: src/qml/main.qml:411
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
 "being able to use it. Please click the button below to read them."
 msgstr ""
 
-#: src/qml/main.qml:413
+#: src/qml/main.qml:416
 #, kde-format
 msgid "Open"
 msgstr ""
 
-#: src/qml/main.qml:442
+#: src/qml/main.qml:445
 #, fuzzy, kde-format
 #| msgid "Start a Chat"
 msgid "Start a chat"
 msgstr "Start en chat"
 
-#: src/qml/main.qml:444
+#: src/qml/main.qml:447
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr ""
@@ -1558,6 +1558,7 @@ msgid "Mark as Read"
 msgstr "Markér som læst"
 
 #: src/qml/Menu/RoomListContextMenu.qml:51
+#: src/qml/Menu/SpaceListContextMenu.qml:25
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Address to Clipboard"
@@ -1627,6 +1628,20 @@ msgstr "Login mislykkedes"
 #: src/qml/Menu/ShareDialog.qml:53
 #, kde-format
 msgid "Shared url for image is <a href='%1'>%1</a>"
+msgstr ""
+
+#: src/qml/Menu/SpaceListContextMenu.qml:34
+#, fuzzy, kde-format
+#| msgid "Settings"
+msgctxt "'Space' is a matrix space"
+msgid "Space Settings"
+msgstr "Indstillinger"
+
+#: src/qml/Menu/SpaceListContextMenu.qml:41
+#: src/qml/Menu/SpaceListContextMenu.qml:96
+#, kde-format
+msgctxt "'Space' is a matrix space"
+msgid "Leave Space"
 msgstr ""
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:23
@@ -1817,38 +1832,38 @@ msgstr "Global"
 msgid "Joined"
 msgstr "Gik med"
 
-#: src/qml/Page/RoomListPage.qml:49
+#: src/qml/Page/RoomListPage.qml:48
 #, kde-format
 msgctxt "@action:button"
 msgid "Show All Rooms"
 msgstr ""
 
-#: src/qml/Page/RoomListPage.qml:96
+#: src/qml/Page/RoomListPage.qml:113
 #, kde-format
 msgid "Rooms"
 msgstr ""
 
-#: src/qml/Page/RoomListPage.qml:184
+#: src/qml/Page/RoomListPage.qml:201
 #, kde-format
 msgid "No rooms found"
 msgstr ""
 
-#: src/qml/Page/RoomListPage.qml:184
+#: src/qml/Page/RoomListPage.qml:201
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr ""
 
-#: src/qml/Page/RoomListPage.qml:187
+#: src/qml/Page/RoomListPage.qml:204
 #, kde-format
 msgid "Search in room directory"
 msgstr ""
 
-#: src/qml/Page/RoomListPage.qml:268 src/qml/Page/RoomListPage.qml:319
+#: src/qml/Page/RoomListPage.qml:285 src/qml/Page/RoomListPage.qml:336
 #, kde-format
 msgid "No Name"
 msgstr "Intet navn"
 
-#: src/qml/Page/RoomListPage.qml:345
+#: src/qml/Page/RoomListPage.qml:362
 #, kde-format
 msgid "Configure room"
 msgstr ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-24 00:48+0000\n"
+"POT-Creation-Date: 2022-10-25 00:46+0000\n"
 "PO-Revision-Date: 2022-10-18 09:05+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -285,68 +285,68 @@ msgstr "Povabi uporabnika z dano identifikacijo v trenutno sobo"
 msgid "React to this message with a text"
 msgstr "Odzovi se na to sporočilo z besedilom"
 
-#: src/controller.cpp:183
+#: src/controller.cpp:185
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgid "Encrypted Message"
 msgstr "Uredi sporočilo"
 
-#: src/controller.cpp:250 src/controller.cpp:384
+#: src/controller.cpp:252 src/controller.cpp:386
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Napaka omrežja: %1"
 
-#: src/controller.cpp:375
+#: src/controller.cpp:377
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Neuspela prijava: Žeton za dostop je neveljaven ali preklican"
 
-#: src/controller.cpp:378 src/login.cpp:81
+#: src/controller.cpp:380 src/login.cpp:81
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Prijava je spodletela: %1"
 
-#: src/controller.cpp:442
+#: src/controller.cpp:444
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Žetona za dostop ni bilo mogoče najti"
 
-#: src/controller.cpp:442
+#: src/controller.cpp:444
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Ali je bil mogoče izbrisan?"
 
-#: src/controller.cpp:446
+#: src/controller.cpp:448
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Dostop do verige ključev je bil zavrnjen."
 
-#: src/controller.cpp:446
+#: src/controller.cpp:448
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Dovolite, da NeoChat prebere žeton za dostop"
 
-#: src/controller.cpp:449
+#: src/controller.cpp:451
 #, kde-format
 msgid "No keychain available."
 msgstr "Nobene verige ključev ni na voljo."
 
-#: src/controller.cpp:449
+#: src/controller.cpp:451
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr "Namestite verigo ključev, npr. KWallet ali GNOME Keyring v Linux"
 
-#: src/controller.cpp:452
+#: src/controller.cpp:454
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Žetona za dostop ni mogoče prebrati"
 
-#: src/controller.cpp:695
+#: src/controller.cpp:697
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "Ustvarjanje sobe ni uspelo: \"%1\""
 
-#: src/controller.cpp:708
+#: src/controller.cpp:710
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Identifikacija sobe, kamor se poskušate pridružiti, ni veljavna"
@@ -1309,7 +1309,7 @@ msgstr "Odpri zasebni razgovor"
 msgid "Warning: %1"
 msgstr "Opozorilo: %1"
 
-#: src/qml/main.qml:238 src/qml/Page/RoomListPage.qml:187
+#: src/qml/main.qml:238 src/qml/Page/RoomListPage.qml:204
 #, kde-format
 msgid "Explore rooms"
 msgstr "Razišči sobe"
@@ -1351,18 +1351,18 @@ msgstr "Zapusti"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/qml/main.qml:393
+#: src/qml/main.qml:396
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Verifikacija seje"
 
-#: src/qml/main.qml:403
+#: src/qml/main.qml:406
 #, kde-format
 msgid "User consent"
 msgstr "Privoljenje uporabnika"
 
-#: src/qml/main.qml:408
+#: src/qml/main.qml:411
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -1371,17 +1371,17 @@ msgstr ""
 "Vaš domači strežnik zahteva, da se strinjate s pogoji njegove rabe pred "
 "dovoljenjem za uporabo. Prosimo, kliknite spodnji gumb, da jih preberete."
 
-#: src/qml/main.qml:413
+#: src/qml/main.qml:416
 #, kde-format
 msgid "Open"
 msgstr "Odpri"
 
-#: src/qml/main.qml:442
+#: src/qml/main.qml:445
 #, kde-format
 msgid "Start a chat"
 msgstr "Začni pogovor"
 
-#: src/qml/main.qml:444
+#: src/qml/main.qml:447
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Ali želite začeti pogovor s %1?"
@@ -1556,6 +1556,7 @@ msgid "Mark as Read"
 msgstr "Označi kot prebrano"
 
 #: src/qml/Menu/RoomListContextMenu.qml:51
+#: src/qml/Menu/SpaceListContextMenu.qml:25
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Address to Clipboard"
@@ -1624,6 +1625,20 @@ msgstr "Deljenje ni uspelo"
 #, kde-format
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "Deljena povezava za sliko je <a href='%1'>%1</a>"
+
+#: src/qml/Menu/SpaceListContextMenu.qml:34
+#, fuzzy, kde-format
+#| msgid "Room Settings"
+msgctxt "'Space' is a matrix space"
+msgid "Space Settings"
+msgstr "Nastavitve sobe"
+
+#: src/qml/Menu/SpaceListContextMenu.qml:41
+#: src/qml/Menu/SpaceListContextMenu.qml:96
+#, kde-format
+msgctxt "'Space' is a matrix space"
+msgid "Leave Space"
+msgstr ""
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:23
 #, kde-format
@@ -1813,38 +1828,38 @@ msgstr "Globalno"
 msgid "Joined"
 msgstr "Pridružen"
 
-#: src/qml/Page/RoomListPage.qml:49
+#: src/qml/Page/RoomListPage.qml:48
 #, kde-format
 msgctxt "@action:button"
 msgid "Show All Rooms"
 msgstr "Prikaži vse sobe"
 
-#: src/qml/Page/RoomListPage.qml:96
+#: src/qml/Page/RoomListPage.qml:113
 #, kde-format
 msgid "Rooms"
 msgstr "Sobe"
 
-#: src/qml/Page/RoomListPage.qml:184
+#: src/qml/Page/RoomListPage.qml:201
 #, kde-format
 msgid "No rooms found"
 msgstr "Nobene sobe ni mogoče najti"
 
-#: src/qml/Page/RoomListPage.qml:184
+#: src/qml/Page/RoomListPage.qml:201
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Pridruži se nekaj sobam za začetek"
 
-#: src/qml/Page/RoomListPage.qml:187
+#: src/qml/Page/RoomListPage.qml:204
 #, kde-format
 msgid "Search in room directory"
 msgstr "Poišči v imeniku sob"
 
-#: src/qml/Page/RoomListPage.qml:268 src/qml/Page/RoomListPage.qml:319
+#: src/qml/Page/RoomListPage.qml:285 src/qml/Page/RoomListPage.qml:336
 #, kde-format
 msgid "No Name"
 msgstr "Ni imena"
 
-#: src/qml/Page/RoomListPage.qml:345
+#: src/qml/Page/RoomListPage.qml:362
 #, kde-format
 msgid "Configure room"
 msgstr "Nastavi sobo"

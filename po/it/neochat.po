@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-24 00:48+0000\n"
+"POT-Creation-Date: 2022-10-25 00:46+0000\n"
 "PO-Revision-Date: 2022-10-11 00:27+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -317,69 +317,69 @@ msgstr "Invita l'utente con l'ID specificato nella stanza attuale"
 msgid "React to this message with a text"
 msgstr "Reagisci a questo messaggio con del testo"
 
-#: src/controller.cpp:183
+#: src/controller.cpp:185
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgid "Encrypted Message"
 msgstr "Modifica messaggio"
 
-#: src/controller.cpp:250 src/controller.cpp:384
+#: src/controller.cpp:252 src/controller.cpp:386
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Errore di rete: %1"
 
-#: src/controller.cpp:375
+#: src/controller.cpp:377
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Accesso non riuscito: token di accesso non valido o revocato"
 
-#: src/controller.cpp:378 src/login.cpp:81
+#: src/controller.cpp:380 src/login.cpp:81
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Accesso non riuscito: %1"
 
-#: src/controller.cpp:442
+#: src/controller.cpp:444
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Il token di accesso non è stato trovato"
 
-#: src/controller.cpp:442
+#: src/controller.cpp:444
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Forse è stato eliminato?"
 
-#: src/controller.cpp:446
+#: src/controller.cpp:448
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "L'accesso al portachiavi è stato negato."
 
-#: src/controller.cpp:446
+#: src/controller.cpp:448
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Consenti a Neochat di leggere il token di accesso"
 
-#: src/controller.cpp:449
+#: src/controller.cpp:451
 #, kde-format
 msgid "No keychain available."
 msgstr "Nessun portachiavi trovato."
 
-#: src/controller.cpp:449
+#: src/controller.cpp:451
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Installa un portachiavi, ad es. KWallet o il portachiavi di GNOME su Linux"
 
-#: src/controller.cpp:452
+#: src/controller.cpp:454
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Impossibile leggere il token di accesso"
 
-#: src/controller.cpp:695
+#: src/controller.cpp:697
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "Creazione della stanza non riuscita: «%1»"
 
-#: src/controller.cpp:708
+#: src/controller.cpp:710
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "L'ID della stanza che stai tentando di entrare non è valida"
@@ -1353,7 +1353,7 @@ msgstr "Apri una chat privata"
 msgid "Warning: %1"
 msgstr "Avviso: %1"
 
-#: src/qml/main.qml:238 src/qml/Page/RoomListPage.qml:187
+#: src/qml/main.qml:238 src/qml/Page/RoomListPage.qml:204
 #, kde-format
 msgid "Explore rooms"
 msgstr "Esplora le stanze"
@@ -1395,18 +1395,18 @@ msgstr "Esci"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/qml/main.qml:393
+#: src/qml/main.qml:396
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Verifica della sessione"
 
-#: src/qml/main.qml:403
+#: src/qml/main.qml:406
 #, kde-format
 msgid "User consent"
 msgstr "Consenso dell'utente"
 
-#: src/qml/main.qml:408
+#: src/qml/main.qml:411
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -1415,17 +1415,17 @@ msgstr ""
 "Il tuo server ti richiede di accettare i suoi termini e le sue condizioni "
 "prima di poterlo utilizzare. Fai clic sul pulsante in basso per leggerli."
 
-#: src/qml/main.qml:413
+#: src/qml/main.qml:416
 #, kde-format
 msgid "Open"
 msgstr "Apri"
 
-#: src/qml/main.qml:442
+#: src/qml/main.qml:445
 #, kde-format
 msgid "Start a chat"
 msgstr "Avvia una chat"
 
-#: src/qml/main.qml:444
+#: src/qml/main.qml:447
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Vuoi iniziare una chat con %1?"
@@ -1600,6 +1600,7 @@ msgid "Mark as Read"
 msgstr "Marca come letto"
 
 #: src/qml/Menu/RoomListContextMenu.qml:51
+#: src/qml/Menu/SpaceListContextMenu.qml:25
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Address to Clipboard"
@@ -1668,6 +1669,20 @@ msgstr "Condivisione non riuscita"
 #, kde-format
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "URL condiviso per l'immagine è <a href='%1'>%1</a>"
+
+#: src/qml/Menu/SpaceListContextMenu.qml:34
+#, fuzzy, kde-format
+#| msgid "Settings"
+msgctxt "'Space' is a matrix space"
+msgid "Space Settings"
+msgstr "Impostazioni"
+
+#: src/qml/Menu/SpaceListContextMenu.qml:41
+#: src/qml/Menu/SpaceListContextMenu.qml:96
+#, kde-format
+msgctxt "'Space' is a matrix space"
+msgid "Leave Space"
+msgstr ""
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:23
 #, kde-format
@@ -1857,38 +1872,38 @@ msgstr "Globale"
 msgid "Joined"
 msgstr "Entrato"
 
-#: src/qml/Page/RoomListPage.qml:49
+#: src/qml/Page/RoomListPage.qml:48
 #, kde-format
 msgctxt "@action:button"
 msgid "Show All Rooms"
 msgstr "Mostra tutte le stanze"
 
-#: src/qml/Page/RoomListPage.qml:96
+#: src/qml/Page/RoomListPage.qml:113
 #, kde-format
 msgid "Rooms"
 msgstr "Stanze"
 
-#: src/qml/Page/RoomListPage.qml:184
+#: src/qml/Page/RoomListPage.qml:201
 #, kde-format
 msgid "No rooms found"
 msgstr "Nessuna stanza trovata"
 
-#: src/qml/Page/RoomListPage.qml:184
+#: src/qml/Page/RoomListPage.qml:201
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Entra in qualche stanza per iniziare"
 
-#: src/qml/Page/RoomListPage.qml:187
+#: src/qml/Page/RoomListPage.qml:204
 #, kde-format
 msgid "Search in room directory"
 msgstr "Cerca nella cartella delle stanze"
 
-#: src/qml/Page/RoomListPage.qml:268 src/qml/Page/RoomListPage.qml:319
+#: src/qml/Page/RoomListPage.qml:285 src/qml/Page/RoomListPage.qml:336
 #, kde-format
 msgid "No Name"
 msgstr "Senza nome"
 
-#: src/qml/Page/RoomListPage.qml:345
+#: src/qml/Page/RoomListPage.qml:362
 #, kde-format
 msgid "Configure room"
 msgstr "Configura la stanza"
@@ -2635,9 +2650,6 @@ msgstr "Mostra"
 
 #~ msgid "Write your message..."
 #~ msgstr "Scrivi il tuo messaggio..."
-
-#~ msgid "Settings"
-#~ msgstr "Impostazioni"
 
 #~ msgctxt "menu"
 #~ msgid "Preferences…"
