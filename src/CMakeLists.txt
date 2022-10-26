@@ -40,6 +40,7 @@ add_library(neochat STATIC
     completionmodel.cpp
     completionproxymodel.cpp
     actionsmodel.cpp
+    serverlistmodel.cpp
 )
 
 add_executable(neochat-app

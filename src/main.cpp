@@ -60,6 +60,7 @@
 #include "publicroomlistmodel.h"
 #include "roomlistmodel.h"
 #include "roommanager.h"
+#include "serverlistmodel.h"
 #include "sortfilterroomlistmodel.h"
 #include "sortfilterspacelistmodel.h"
 #include "spacehierarchycache.h"
@@ -203,6 +204,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<MessageFilterModel>("org.kde.neochat", 1, 0, "MessageFilterModel");
     qmlRegisterType<PublicRoomListModel>("org.kde.neochat", 1, 0, "PublicRoomListModel");
     qmlRegisterType<UserDirectoryListModel>("org.kde.neochat", 1, 0, "UserDirectoryListModel");
+    qmlRegisterType<ServerListModel>("org.kde.neochat", 1, 0, "ServerListModel");
     qmlRegisterType<SortFilterRoomListModel>("org.kde.neochat", 1, 0, "SortFilterRoomListModel");
     qmlRegisterType<SortFilterSpaceListModel>("org.kde.neochat", 1, 0, "SortFilterSpaceListModel");
     qmlRegisterType<DevicesModel>("org.kde.neochat", 1, 0, "DevicesModel");

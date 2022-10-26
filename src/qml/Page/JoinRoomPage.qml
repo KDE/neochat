@@ -5,6 +5,8 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
+import Qt.labs.qmlmodels 1.0
+
 import org.kde.kirigami 2.15 as Kirigami
 
 import org.kde.neochat 1.0
@@ -52,27 +54,122 @@ Kirigami.ScrollablePage {
             }
 
             ComboBox {
-                Layout.maximumWidth: 120
-
                 id: serverField
 
-                editable: currentIndex == 1
+                // TODO: in KF6 we should be able to switch to using implicitContentWidthPolicy
+                Layout.preferredWidth: Kirigami.Units.gridUnit * 10
 
-                model: [i18n("Local"), i18n("Global"), "matrix.org"]
+                Component.onCompleted: currentIndex = 0
 
-                onCurrentIndexChanged: {
-                    if (currentIndex == 0) {
-                        server = ""
-                    } else if (currentIndex == 2) {
-                        server = "matrix.org"
+                textRole: "url"
+                valueRole: "url"
+                model: ServerListModel {
+                    id: serverListModel
+                }
+
+                delegate: Kirigami.BasicListItem {
+                    id: serverItem
+
+                    label: isAddServerDelegate ? i18n("Add New Server") : url
+                    subtitle: isHomeServer ? i18n("Home Server") : ""
+
+                    onClicked: if (isAddServerDelegate) {
+                        addServerSheet.open()
+                    }
+
+                    trailing: ToolButton {
+                        visible: isAddServerDelegate || isDeletable
+                        icon.name: isAddServerDelegate ? "list-add" : "dialog-close"
+                        text: i18n("Add new server")
+                        Accessible.name: text
+                        display: AbstractButton.IconOnly
+
+                        onClicked: {
+                            if (serverField.currentIndex === index && isDeletable) {
+                                serverField.currentIndex = 0
+                                server = serverField.currentValue
+                                serverField.popup.close()
+                            }
+                            if (isAddServerDelegate) {
+                                addServerSheet.open()
+                                serverItem.clicked()
+                            } else {
+                                serverListModel.removeServerAtIndex(index)
+                            }
+                        }
                     }
                 }
 
-                Keys.onReturnPressed: {
-                    if (currentIndex == 1) {
-                        server = editText
+                onActivated: {
+                    if (currentIndex !== count - 1) {
+                        server = currentValue
                     }
                 }
+
+                Kirigami.OverlaySheet {
+                    id: addServerSheet
+
+                    parent: applicationWindow().overlay
+
+                    title: i18nc("@title:window", "Add server")
+
+                    onSheetOpenChanged: if (!serverUrlField.isValidServer && !sheetOpen) {
+                            serverField.currentIndex = 0
+                            server = serverField.currentValue
+                        } else if (sheetOpen) {
+                            serverUrlField.forceActiveFocus()
+                        }
+
+                    contentItem: Kirigami.FormLayout {
+                        Label {
+                            Layout.minimumWidth: Kirigami.Units.gridUnit * 20
+
+                            text: serverUrlField.length > 0 ? (serverUrlField.acceptableInput ? (serverUrlField.isValidServer ? i18n("Valid server entered") : i18n("This server cannot be resolved or has already been added")) : i18n("The entered text is not a valid url")) : i18n("Enter server url e.g. kde.org")
+                            color: serverUrlField.length > 0 ? (serverUrlField.acceptableInput ? (serverUrlField.isValidServer ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.negativeTextColor) : Kirigami.Theme.negativeTextColor) : Kirigami.Theme.textColor
+                        }
+                        TextField {
+                            id: serverUrlField
+
+                            property bool isValidServer: false
+
+                            Kirigami.FormData.label: i18n("Server URL")
+                            onTextChanged: {
+                                if(acceptableInput) {
+                                    serverListModel.checkServer(text)
+                                }
+                            }
+
+                            validator: RegularExpressionValidator {
+                                regularExpression: /^[a-zA-Z0-9-]{1,61}\.([a-zA-Z]{2,}|[a-zA-Z0-9-]{2,}\.[a-zA-Z]{2,3})$/
+                            }
+
+                            Connections {
+                                target: serverListModel
+                                function onServerCheckComplete(url, valid) {
+                                    if (url == serverUrlField.text && valid) {
+                                        serverUrlField.isValidServer = true
+                                    }
+                                }
+                            }
+                        }
+
+                        Button {
+                            id: okButton
+
+                            text: i18nc("@action:button", "Ok")
+                            enabled: serverUrlField.acceptableInput && serverUrlField.isValidServer
+                            onClicked: {
+                                serverListModel.addServer(serverUrlField.text)
+                                serverField.currentIndex = serverField.indexOfValue(serverUrlField.text)
+                                // console.log(serverField.delegate.label)
+                                server = serverField.currentValue
+                                serverUrlField.text = ""
+                                addServerSheet.close();
+                            }
+                        }
+                    }
+                }
+
             }
         }
     }
