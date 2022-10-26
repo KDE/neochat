@@ -234,25 +234,16 @@ Kirigami.ScrollablePage {
         section.delegate: Kirigami.ListSectionHeader {
             id: sectionHeader
             height: implicitHeight
+            label: roomListModel.categoryName(section)
             action: Kirigami.Action {
                 onTriggered: roomListModel.setCategoryVisible(section, !roomListModel.categoryVisible(section))
             }
-            contentItem: RowLayout {
-                implicitHeight: categoryName.implicitHeight
-                Kirigami.Heading {
-                    id: categoryName
-                    level: 3
-                    text: roomListModel.categoryName(section)
-                    Layout.fillWidth: true
-                    elide: Text.ElideRight
-                    visible: !page.collapsedMode
-                }
-                Kirigami.Icon {
-                    source: page.collapsedMode ? roomListModel.categoryIconName(section) : (roomListModel.categoryVisible(section) ? "go-up" : "go-down")
-                    implicitHeight: Kirigami.Units.iconSizes.small
-                    implicitWidth: Kirigami.Units.iconSizes.small
-                    Layout.alignment: Qt.AlignHCenter
-                }
+            contentItem.children: QQC2.ToolButton {
+                icon.name: page.collapsedMode ? roomListModel.categoryIconName(section) : (roomListModel.categoryVisible(section) ? "go-up" : "go-down")
+                icon.width: Kirigami.Units.iconSizes.small
+                icon.height: Kirigami.Units.iconSizes.small
+
+                onClicked: roomListModel.setCategoryVisible(section, !roomListModel.categoryVisible(section))
             }
         }
 
