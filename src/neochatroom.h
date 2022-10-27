@@ -61,6 +61,7 @@ class NeoChatRoom : public Quotient::Room
     Q_PROPERTY(NeoChatUser *chatBoxEditUser READ chatBoxEditUser NOTIFY chatBoxEditIdChanged)
     Q_PROPERTY(QString chatBoxEditMessage READ chatBoxEditMessage NOTIFY chatBoxEditIdChanged)
     Q_PROPERTY(QString chatBoxAttachmentPath READ chatBoxAttachmentPath WRITE setChatBoxAttachmentPath NOTIFY chatBoxAttachmentPathChanged)
+    Q_PROPERTY(bool canEncryptRoom READ canEncryptRoom NOTIFY canEncryptRoomChanged)
 
 public:
     enum MessageType {
@@ -189,6 +190,8 @@ public:
     QString savedText() const;
     void setSavedText(const QString &savedText);
 
+    bool canEncryptRoom() const;
+
 #ifndef QUOTIENT_07
     Q_INVOKABLE QString htmlSafeMemberName(const QString &userId) const
     {
@@ -241,6 +244,7 @@ Q_SIGNALS:
     void chatBoxReplyIdChanged();
     void chatBoxEditIdChanged();
     void chatBoxAttachmentPathChanged();
+    void canEncryptRoomChanged();
 
 public Q_SLOTS:
     void uploadFile(const QUrl &url, const QString &body = QString());

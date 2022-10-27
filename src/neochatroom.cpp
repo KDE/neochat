@@ -67,6 +67,7 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
     connect(this, &Room::displaynameChanged, this, &NeoChatRoom::displayNameChanged);
 
     connectSingleShot(this, &Room::baseStateLoaded, this, [this]() {
+        Q_EMIT canEncryptRoomChanged();
         if (this->joinState() != JoinState::Invite) {
             return;
         }
@@ -79,6 +80,9 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
             avatar_image = avatar(128);
         }
         NotificationsManager::instance().postInviteNotification(this, htmlSafeDisplayName(), htmlSafeMemberName(senderId), avatar_image);
+    });
+    connect(this, &Room::changed, this, [this] {
+        Q_EMIT canEncryptRoomChanged();
     });
 }
 
@@ -1164,4 +1168,14 @@ QString NeoChatRoom::savedText() const
 void NeoChatRoom::setSavedText(const QString &savedText)
 {
     m_savedText = savedText;
+}
+
+bool NeoChatRoom::canEncryptRoom() const
+{
+#ifdef QUOTIENT_07
+#ifdef Quotient_E2EE_ENABLED
+    return !usesEncryption() && canSendState("m.room.encryption");
+#endif
+#endif
+    return false;
 }

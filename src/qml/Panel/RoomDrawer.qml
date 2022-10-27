@@ -127,6 +127,22 @@ Kirigami.OverlayDrawer {
                         }
                     }
                     ToolButton {
+                        id: encryptButton
+
+                        Layout.alignment: Qt.AlignRight
+                        icon.name: 'channel-insecure-symbolic'
+                        enabled: roomDrawer.room.canEncryptRoom
+                        visible: !roomDrawer.room.usesEncryption && Controller.encryptionSupported
+                        text: i18n("Enable encryption")
+                        display: AbstractButton.IconOnly
+
+                        onClicked: roomDrawer.room.activateEncryption()
+
+                        ToolTip {
+                            text: encryptButton.text
+                        }
+                    }
+                    ToolButton {
                         id: settingsButton
 
                         Layout.alignment: Qt.AlignRight

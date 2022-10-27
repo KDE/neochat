@@ -146,6 +146,7 @@ if(ANDROID)
         "zoom-out"
         "image-rotate-left-symbolic"
         "image-rotate-right-symbolic"
+        "channel-insecure-symbolic"
     )
 else()
     target_link_libraries(neochat PUBLIC Qt::Widgets KF5::KIOWidgets)
