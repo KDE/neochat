@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-25 00:46+0000\n"
+"POT-Creation-Date: 2022-10-27 00:46+0000\n"
 "PO-Revision-Date: 2022-08-19 15:06-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -388,48 +388,48 @@ msgstr "O id da sala em que você está tentando entrar não é válido"
 msgid "Network Error"
 msgstr "Erro de rede"
 
-#: src/main.cpp:140
+#: src/main.cpp:141
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:142
+#: src/main.cpp:143
 #, kde-format
 msgid "Matrix client"
 msgstr "Cliente Matrix"
 
-#: src/main.cpp:144
+#: src/main.cpp:145
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2022 A comunidade KDE"
 
-#: src/main.cpp:145
+#: src/main.cpp:146
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:146
+#: src/main.cpp:147
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:147
+#: src/main.cpp:148
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:151
+#: src/main.cpp:152
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr ""
 "Uma biblioteca Qt5 para escrever clientes multiplataformas para o Matrix"
 
-#: src/main.cpp:245
+#: src/main.cpp:247
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Cliente para o protocolo de comunicação Matrix"
 
-#: src/main.cpp:246
+#: src/main.cpp:248
 #, kde-format
 msgid "Supports appstream: url scheme"
 msgstr "Suporte ao esquema appstream: url"
@@ -1066,7 +1066,7 @@ msgstr "Nome da sala"
 msgid "Room Topic"
 msgstr "Assunto da sala"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:34
+#: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:159
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -1332,7 +1332,7 @@ msgstr "Aviso: %1"
 msgid "Explore rooms"
 msgstr "Explorar salas"
 
-#: src/qml/main.qml:241 src/qml/Page/JoinRoomPage.qml:19
+#: src/qml/main.qml:241 src/qml/Page/JoinRoomPage.qml:21
 #, kde-format
 msgid "Explore Rooms"
 msgstr "Explorar salas"
@@ -1824,32 +1824,69 @@ msgstr "Nenhum usuário disponível"
 msgid "Send invitation"
 msgstr "Enviar convite"
 
-#: src/qml/Page/JoinRoomPage.qml:34
+#: src/qml/Page/JoinRoomPage.qml:36
 #, kde-format
 msgid "Find a room..."
 msgstr "Encontrar uma sala..."
 
-#: src/qml/Page/JoinRoomPage.qml:42
+#: src/qml/Page/JoinRoomPage.qml:44
 #, kde-format
 msgid "View"
 msgstr "Visualizar"
 
-#: src/qml/Page/JoinRoomPage.qml:42
+#: src/qml/Page/JoinRoomPage.qml:44
 #, kde-format
 msgid "Join"
 msgstr "Entrar"
 
-#: src/qml/Page/JoinRoomPage.qml:61
+#: src/qml/Page/JoinRoomPage.qml:73
 #, kde-format
-msgid "Local"
-msgstr "Local"
+msgid "Add New Server"
+msgstr ""
 
-#: src/qml/Page/JoinRoomPage.qml:61
+#: src/qml/Page/JoinRoomPage.qml:74
+#, fuzzy, kde-format
+#| msgid "Homeserver:"
+msgid "Home Server"
+msgstr "Servidor doméstico:"
+
+#: src/qml/Page/JoinRoomPage.qml:83
 #, kde-format
-msgid "Global"
-msgstr "Global"
+msgid "Add new server"
+msgstr ""
 
-#: src/qml/Page/JoinRoomPage.qml:130
+#: src/qml/Page/JoinRoomPage.qml:114
+#, kde-format
+msgctxt "@title:window"
+msgid "Add server"
+msgstr ""
+
+#: src/qml/Page/JoinRoomPage.qml:127
+#, kde-format
+msgid "Valid server entered"
+msgstr ""
+
+#: src/qml/Page/JoinRoomPage.qml:127
+#, kde-format
+msgid "This server cannot be resolved or has already been added"
+msgstr ""
+
+#: src/qml/Page/JoinRoomPage.qml:127
+#, kde-format
+msgid "The entered text is not a valid url"
+msgstr ""
+
+#: src/qml/Page/JoinRoomPage.qml:127
+#, kde-format
+msgid "Enter server url e.g. kde.org"
+msgstr ""
+
+#: src/qml/Page/JoinRoomPage.qml:135
+#, kde-format
+msgid "Server URL"
+msgstr ""
+
+#: src/qml/Page/JoinRoomPage.qml:227
 #, kde-format
 msgid "Joined"
 msgstr "Entrou"
@@ -1880,12 +1917,12 @@ msgstr "Entre em algumas salas para começar"
 msgid "Search in room directory"
 msgstr "Pesquisar na lista de salas"
 
-#: src/qml/Page/RoomListPage.qml:285 src/qml/Page/RoomListPage.qml:336
+#: src/qml/Page/RoomListPage.qml:276 src/qml/Page/RoomListPage.qml:327
 #, kde-format
 msgid "No Name"
 msgstr "Nenhum nome"
 
-#: src/qml/Page/RoomListPage.qml:362
+#: src/qml/Page/RoomListPage.qml:353
 #, kde-format
 msgid "Configure room"
 msgstr "Configurar sala"
@@ -2624,6 +2661,12 @@ msgstr "Não foi possível abrir a URL"
 #, kde-format
 msgid "Show"
 msgstr "Mostrar"
+
+#~ msgid "Local"
+#~ msgstr "Local"
+
+#~ msgid "Global"
+#~ msgstr "Global"
 
 #~ msgid "Invalid command"
 #~ msgstr "Comando inválido"

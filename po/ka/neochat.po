@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-25 00:46+0000\n"
+"POT-Creation-Date: 2022-10-27 00:46+0000\n"
 "PO-Revision-Date: 2022-10-25 06:40+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -351,47 +351,47 @@ msgstr ""
 msgid "Network Error"
 msgstr "ქსელის შეცდომა"
 
-#: src/main.cpp:140
+#: src/main.cpp:141
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:142
+#: src/main.cpp:143
 #, kde-format
 msgid "Matrix client"
 msgstr ""
 
-#: src/main.cpp:144
+#: src/main.cpp:145
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
 msgstr ""
 
-#: src/main.cpp:145
+#: src/main.cpp:146
 #, kde-format
 msgid "Black Hat"
 msgstr ""
 
-#: src/main.cpp:146
+#: src/main.cpp:147
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:147
+#: src/main.cpp:148
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:151
+#: src/main.cpp:152
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr ""
 
-#: src/main.cpp:245
+#: src/main.cpp:247
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr ""
 
-#: src/main.cpp:246
+#: src/main.cpp:248
 #, kde-format
 msgid "Supports appstream: url scheme"
 msgstr ""
@@ -1017,7 +1017,7 @@ msgstr "ოთახის სახელი"
 msgid "Room Topic"
 msgstr "ოთახის თემა"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:34
+#: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:159
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -1281,7 +1281,7 @@ msgstr "გაფრთხილება: %1"
 msgid "Explore rooms"
 msgstr "ოთახების დათვალიერება"
 
-#: src/qml/main.qml:241 src/qml/Page/JoinRoomPage.qml:19
+#: src/qml/main.qml:241 src/qml/Page/JoinRoomPage.qml:21
 #, kde-format
 msgid "Explore Rooms"
 msgstr "ოთახების დათვალიერება"
@@ -1760,32 +1760,69 @@ msgstr "მომხმარებლები ხელმისაწვდ�
 msgid "Send invitation"
 msgstr "მოსაწვევის გაგზავნა"
 
-#: src/qml/Page/JoinRoomPage.qml:34
+#: src/qml/Page/JoinRoomPage.qml:36
 #, kde-format
 msgid "Find a room..."
 msgstr "ოთახის პოვნა..."
 
-#: src/qml/Page/JoinRoomPage.qml:42
+#: src/qml/Page/JoinRoomPage.qml:44
 #, kde-format
 msgid "View"
 msgstr "ნახვა"
 
-#: src/qml/Page/JoinRoomPage.qml:42
+#: src/qml/Page/JoinRoomPage.qml:44
 #, kde-format
 msgid "Join"
 msgstr "შეერთება"
 
-#: src/qml/Page/JoinRoomPage.qml:61
+#: src/qml/Page/JoinRoomPage.qml:73
 #, kde-format
-msgid "Local"
-msgstr "ლოკალური"
+msgid "Add New Server"
+msgstr ""
 
-#: src/qml/Page/JoinRoomPage.qml:61
+#: src/qml/Page/JoinRoomPage.qml:74
+#, fuzzy, kde-format
+#| msgid "Homeserver:"
+msgid "Home Server"
+msgstr "Homeserver:"
+
+#: src/qml/Page/JoinRoomPage.qml:83
 #, kde-format
-msgid "Global"
-msgstr "გლობალური"
+msgid "Add new server"
+msgstr ""
 
-#: src/qml/Page/JoinRoomPage.qml:130
+#: src/qml/Page/JoinRoomPage.qml:114
+#, kde-format
+msgctxt "@title:window"
+msgid "Add server"
+msgstr ""
+
+#: src/qml/Page/JoinRoomPage.qml:127
+#, kde-format
+msgid "Valid server entered"
+msgstr ""
+
+#: src/qml/Page/JoinRoomPage.qml:127
+#, kde-format
+msgid "This server cannot be resolved or has already been added"
+msgstr ""
+
+#: src/qml/Page/JoinRoomPage.qml:127
+#, kde-format
+msgid "The entered text is not a valid url"
+msgstr ""
+
+#: src/qml/Page/JoinRoomPage.qml:127
+#, kde-format
+msgid "Enter server url e.g. kde.org"
+msgstr ""
+
+#: src/qml/Page/JoinRoomPage.qml:135
+#, kde-format
+msgid "Server URL"
+msgstr ""
+
+#: src/qml/Page/JoinRoomPage.qml:227
 #, kde-format
 msgid "Joined"
 msgstr "შეერთებული"
@@ -1816,12 +1853,12 @@ msgstr ""
 msgid "Search in room directory"
 msgstr ""
 
-#: src/qml/Page/RoomListPage.qml:285 src/qml/Page/RoomListPage.qml:336
+#: src/qml/Page/RoomListPage.qml:276 src/qml/Page/RoomListPage.qml:327
 #, kde-format
 msgid "No Name"
 msgstr "სახელის გარეშე"
 
-#: src/qml/Page/RoomListPage.qml:362
+#: src/qml/Page/RoomListPage.qml:353
 #, kde-format
 msgid "Configure room"
 msgstr "ოთახის მორგება"
@@ -2539,6 +2576,12 @@ msgstr ""
 #, kde-format
 msgid "Show"
 msgstr "ჩვენება"
+
+#~ msgid "Local"
+#~ msgstr "ლოკალური"
+
+#~ msgid "Global"
+#~ msgstr "გლობალური"
 
 #~ msgid "Invalid command"
 #~ msgstr "არასწორი ბრძანება"
