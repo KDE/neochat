@@ -228,7 +228,7 @@ bool NeoChatRoom::lastEventIsSpoiler() const
 QString NeoChatRoom::lastEventToString() const
 {
     if (auto event = lastEvent()) {
-        return htmlSafeMemberName(event->senderId()) + (event->isStateEvent() ? " " : ": ") + eventToString(*event);
+        return memberName(event->senderId()) + (event->isStateEvent() ? " " : ": ") + eventToString(*event);
     }
     return QLatin1String("");
 }

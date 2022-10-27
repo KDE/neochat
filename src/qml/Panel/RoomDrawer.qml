@@ -271,6 +271,7 @@ Kirigami.OverlayDrawer {
                         leftPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
 
                         label: name
+                        labelItem.textFormat: Text.PlainText
 
                         onClicked: {
                             const popup = userDetailDialog.createObject(ApplicationWindow.overlay, {room: room, user: user, displayName: name, avatarMediaId: avatar})
