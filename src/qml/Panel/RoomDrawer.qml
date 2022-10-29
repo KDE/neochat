@@ -218,26 +218,15 @@ Kirigami.OverlayDrawer {
                 }
             }
 
-            Control {
+            Kirigami.SearchField {
+                id: userListSearchField
+
                 Layout.fillWidth: true
+                Layout.leftMargin: Kirigami.Units.largeSpacing - 1
+                Layout.rightMargin: Kirigami.Units.largeSpacing - 1
+                Layout.bottomMargin: Kirigami.Units.smallSpacing
 
-                // Note need to set padding individually to guarantee it will always work
-                // see note - https://doc.qt.io/qt-6/qml-qtquick-controls2-control.html#padding-prop
-                topPadding: Kirigami.Units.smallSpacing
-                bottomPadding: Kirigami.Units.smallSpacing
-                rightPadding: Kirigami.Units.largeSpacing
-                leftPadding: Kirigami.Units.largeSpacing
-
-                background: Rectangle {
-                    color: Kirigami.Theme.backgroundColor
-                    Kirigami.Theme.inherit: false
-                    Kirigami.Theme.colorSet: Kirigami.Theme.Window
-                }
-                contentItem: Kirigami.SearchField {
-                    id: userListSearchField
-
-                    onAccepted: sortedMessageEventModel.filterString = text;
-                }
+                onAccepted: sortedMessageEventModel.filterString = text;
             }
 
             ScrollView {
