@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-28 00:45+0000\n"
-"PO-Revision-Date: 2022-10-25 06:40+0200\n"
+"PO-Revision-Date: 2022-10-28 06:27+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -79,19 +79,19 @@ msgstr ""
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
-msgstr ""
+msgstr "\"%1\" matrix ID-ს არ ჰგავს."
 
 #: src/actionsmodel.cpp:149
 #, kde-format
 msgctxt "<user> is already invited to this room."
 msgid "%1 is already invited to this room."
-msgstr ""
+msgstr "%1 ამ ოთახში უკვე მოწვეულია."
 
 #: src/actionsmodel.cpp:153
 #, kde-format
 msgctxt "<user> is banned from this room."
 msgid "%1 is banned from this room."
-msgstr ""
+msgstr "%1 დაიბანა ამ ოთახიდან."
 
 #: src/actionsmodel.cpp:158
 #, kde-format
@@ -112,11 +112,11 @@ msgstr ""
 
 #: src/actionsmodel.cpp:171 src/actionsmodel.cpp:309 src/actionsmodel.cpp:337
 msgid "<user id>"
-msgstr ""
+msgstr "<მომხმარებლის id>"
 
 #: src/actionsmodel.cpp:172
 msgid "Invites the user to this room"
-msgstr ""
+msgstr "მოიწვევს მომმხარებელს ამ ოთახში"
 
 #: src/actionsmodel.cpp:181 src/actionsmodel.cpp:204 src/actionsmodel.cpp:231
 #: src/actionsmodel.cpp:263
@@ -135,7 +135,7 @@ msgstr ""
 #, kde-format
 msgctxt "Joining room <roomname>."
 msgid "Joining room %1."
-msgstr ""
+msgstr "შესვლა ოთახში %1."
 
 #: src/actionsmodel.cpp:194 src/actionsmodel.cpp:217
 msgid "<room alias or id>"
@@ -143,12 +143,12 @@ msgstr ""
 
 #: src/actionsmodel.cpp:195 src/actionsmodel.cpp:218
 msgid "Joins the given room"
-msgstr ""
+msgstr "მითითებულ ოთახში შესვლა"
 
 #: src/actionsmodel.cpp:224 src/actionsmodel.cpp:256
 #, kde-format
 msgid "Leaving this room."
-msgstr ""
+msgstr "ოთახიდან გასვლა."
 
 #: src/actionsmodel.cpp:239 src/actionsmodel.cpp:271
 #, kde-format
@@ -160,7 +160,7 @@ msgstr ""
 #, kde-format
 msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
-msgstr ""
+msgstr "ოთახი %1 ვერ ვიპოვე."
 
 #: src/actionsmodel.cpp:249 src/actionsmodel.cpp:281
 msgid "[<room alias or id>]"
@@ -309,12 +309,12 @@ msgstr ""
 #: src/controller.cpp:444
 #, kde-format
 msgid "Maybe it was deleted?"
-msgstr ""
+msgstr "შეიძლება წაშლილია?"
 
 #: src/controller.cpp:448
 #, kde-format
 msgid "Access to keychain was denied."
-msgstr ""
+msgstr "ბრელოკთან წვდომა აკრძალულია."
 
 #: src/controller.cpp:448
 #, kde-format
@@ -324,7 +324,7 @@ msgstr ""
 #: src/controller.cpp:451
 #, kde-format
 msgid "No keychain available."
-msgstr ""
+msgstr "ბრელოკი მიუწვდომელია."
 
 #: src/controller.cpp:451
 #, kde-format
@@ -359,7 +359,7 @@ msgstr "NeoChat"
 #: src/main.cpp:143
 #, kde-format
 msgid "Matrix client"
-msgstr ""
+msgstr "Matrix -ის კლიენტი"
 
 #: src/main.cpp:145
 #, kde-format
@@ -822,7 +822,7 @@ msgstr "აირჩიეთ Homeserver"
 #: src/qml/Component/Login/Homeserver.qml:38
 #, kde-format
 msgid "Homeserver:"
-msgstr "Homeserver:"
+msgstr "სახლის სერვერი:"
 
 #: src/qml/Component/Login/Homeserver.qml:39
 #, kde-format
@@ -1778,29 +1778,28 @@ msgstr "შეერთება"
 #: src/qml/Page/JoinRoomPage.qml:73
 #, kde-format
 msgid "Add New Server"
-msgstr ""
+msgstr "ახალი სერვერის დამატება"
 
 #: src/qml/Page/JoinRoomPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Homeserver:"
+#, kde-format
 msgid "Home Server"
-msgstr "Homeserver:"
+msgstr "სახლის სერვერი"
 
 #: src/qml/Page/JoinRoomPage.qml:83
 #, kde-format
 msgid "Add new server"
-msgstr ""
+msgstr "ახალი სერვერის დამატება"
 
 #: src/qml/Page/JoinRoomPage.qml:114
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
-msgstr ""
+msgstr "სერვერის დამატება"
 
 #: src/qml/Page/JoinRoomPage.qml:127
 #, kde-format
 msgid "Valid server entered"
-msgstr ""
+msgstr "შეყვანილი სერვერი სწორია"
 
 #: src/qml/Page/JoinRoomPage.qml:127
 #, kde-format
@@ -1820,7 +1819,7 @@ msgstr ""
 #: src/qml/Page/JoinRoomPage.qml:135
 #, kde-format
 msgid "Server URL"
-msgstr ""
+msgstr "სერვერის URL"
 
 #: src/qml/Page/JoinRoomPage.qml:227
 #, kde-format
@@ -1964,7 +1963,7 @@ msgstr ""
 #: src/qml/Panel/RoomDrawer.qml:193
 #, kde-format
 msgid "No Topic"
-msgstr ""
+msgstr "უსათაურო"
 
 #: src/qml/Panel/RoomDrawer.qml:212
 #, kde-format
@@ -2084,7 +2083,7 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
-msgstr ""
+msgstr "პირადი (მხოლოდ მოსაწვევით)"
 
 #: src/qml/RoomSettings/Security.qml:25
 #, kde-format
@@ -2429,7 +2428,7 @@ msgstr "მართლწერის შემოწმება"
 #: src/qml/Settings/SettingsPage.qml:42
 #, kde-format
 msgid "About NeoChat"
-msgstr ""
+msgstr "NeoChat-ს შესახებ"
 
 #: src/qml/Settings/SonnetConfigPage.qml:50
 #, kde-format
