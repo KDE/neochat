@@ -2,13 +2,13 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import QtQuick 2.15
-import QtQuick.Controls 2.15
+import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 import Qt.labs.platform 1.1
 
 import org.kde.kirigami 2.15 as Kirigami
 
-Popup {
+QQC2.Popup {
     id: root
 
     property alias source: image.source
@@ -18,8 +18,8 @@ Popup {
     property int imageHeight: -1
     property var modelData
 
-    parent: Overlay.overlay
-    closePolicy: Popup.CloseOnEscape
+    parent: QQC2.Overlay.overlay
+    closePolicy: QQC2.Popup.CloseOnEscape
     width: parent.width
     height: parent.height
     modal: true
@@ -32,7 +32,7 @@ Popup {
         anchors.fill: parent
         spacing: Kirigami.Units.largeSpacing
 
-        Control {
+        QQC2.Control {
             Layout.fillWidth: true
 
             contentItem: RowLayout {
@@ -52,7 +52,7 @@ Popup {
                     Layout.fillWidth: true
                     spacing: 0
 
-                    Label {
+                    QQC2.Label {
                         id: nameLabel
 
                         text: modelData.author.displayName
@@ -60,13 +60,13 @@ Popup {
                         font.weight: Font.Bold
                         color: author.color
                     }
-                    Label {
+                    QQC2.Label {
                         id: timeLabel
 
                         text: time.toLocaleString(Qt.locale(), Locale.ShortFormat)
                     }
                 }
-                Label {
+                QQC2.Label {
                     id: imageLabel
                     Layout.fillWidth: true
                     Layout.leftMargin: Kirigami.Units.largeSpacing
@@ -75,14 +75,14 @@ Popup {
                     font.weight: Font.Bold
                     elide: Text.ElideRight
                 }
-                ToolButton {
+                QQC2.ToolButton {
                     Layout.preferredWidth: Kirigami.Units.gridUnit * 2
                     Layout.preferredHeight: Kirigami.Units.gridUnit * 2
 
                     text: i18n("Zoom in")
                     Accessible.name: text
                     icon.name: "zoom-in"
-                    display: AbstractButton.IconOnly
+                    display: QQC2.AbstractButton.IconOnly
                     onClicked: {
                         image.scaleFactor = image.scaleFactor + 0.25
                         if (image.scaleFactor > 3) {
@@ -90,18 +90,18 @@ Popup {
                         }
                     }
 
-                    ToolTip.text: text
-                    ToolTip.delay: Kirigami.Units.toolTipDelay
-                    ToolTip.visible: hovered
+                    QQC2.ToolTip.text: text
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                    QQC2.ToolTip.visible: hovered
                 }
-                ToolButton {
+                QQC2.ToolButton {
                     Layout.preferredWidth: Kirigami.Units.gridUnit * 2
                     Layout.preferredHeight: Kirigami.Units.gridUnit * 2
 
                     text: i18n("Zoom out")
                     Accessible.name: text
                     icon.name: "zoom-out"
-                    display: AbstractButton.IconOnly
+                    display: QQC2.AbstractButton.IconOnly
                     onClicked: {
                         image.scaleFactor = image.scaleFactor - 0.25
                         if (image.scaleFactor < 0.25) {
@@ -109,71 +109,71 @@ Popup {
                         }
                     }
 
-                    ToolTip.text: text
-                    ToolTip.delay: Kirigami.Units.toolTipDelay
-                    ToolTip.visible: hovered
+                    QQC2.ToolTip.text: text
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                    QQC2.ToolTip.visible: hovered
                 }
-                ToolButton {
+                QQC2.ToolButton {
                     Layout.preferredWidth: Kirigami.Units.gridUnit * 2
                     Layout.preferredHeight: Kirigami.Units.gridUnit * 2
 
                     text: i18n("Rotate left")
                     Accessible.name: text
                     icon.name: "image-rotate-left-symbolic"
-                    display: AbstractButton.IconOnly
+                    display: QQC2.AbstractButton.IconOnly
                     onClicked: image.rotationAngle = image.rotationAngle - 90
 
-                    ToolTip.text: text
-                    ToolTip.delay: Kirigami.Units.toolTipDelay
-                    ToolTip.visible: hovered
+                    QQC2.ToolTip.text: text
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                    QQC2.ToolTip.visible: hovered
                 }
-                ToolButton {
+                QQC2.ToolButton {
                     Layout.preferredWidth: Kirigami.Units.gridUnit * 2
                     Layout.preferredHeight: Kirigami.Units.gridUnit * 2
 
                     text: i18n("Rotate right")
                     Accessible.name: text
                     icon.name: "image-rotate-right-symbolic"
-                    display: AbstractButton.IconOnly
+                    display: QQC2.AbstractButton.IconOnly
                     onClicked: image.rotationAngle = image.rotationAngle + 90
 
-                    ToolTip.text: text
-                    ToolTip.delay: Kirigami.Units.toolTipDelay
-                    ToolTip.visible: hovered
+                    QQC2.ToolTip.text: text
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                    QQC2.ToolTip.visible: hovered
                 }
-                ToolButton {
+                QQC2.ToolButton {
                     Layout.preferredWidth: Kirigami.Units.gridUnit * 2
                     Layout.preferredHeight: Kirigami.Units.gridUnit * 2
 
                     text: i18n("Save as")
                     Accessible.name: text
                     icon.name: "document-save"
-                    display: AbstractButton.IconOnly
+                    display: QQC2.AbstractButton.IconOnly
                     onClicked: {
                         var dialog = saveAsDialog.createObject(ApplicationWindow.overlay)
                         dialog.open()
                         dialog.currentFile = dialog.folder + "/" + currentRoom.fileNameToDownload(eventId)
                     }
 
-                    ToolTip.text: text
-                    ToolTip.delay: Kirigami.Units.toolTipDelay
-                    ToolTip.visible: hovered
+                    QQC2.ToolTip.text: text
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                    QQC2.ToolTip.visible: hovered
                 }
-                ToolButton {
+                QQC2.ToolButton {
                     Layout.preferredWidth: Kirigami.Units.gridUnit * 2
                     Layout.preferredHeight: Kirigami.Units.gridUnit * 2
 
                     text: i18n("Close")
                     Accessible.name: text
                     icon.name: "dialog-close"
-                    display: AbstractButton.IconOnly
+                    display: QQC2.AbstractButton.IconOnly
                     onClicked: {
                         root.close()
                     }
 
-                    ToolTip.text: text
-                    ToolTip.delay: Kirigami.Units.toolTipDelay
-                    ToolTip.visible: hovered
+                    QQC2.ToolTip.text: text
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                    QQC2.ToolTip.visible: hovered
                 }
             }
 
@@ -191,7 +191,7 @@ Popup {
             }
         }
 
-        BusyIndicator {
+        QQC2.BusyIndicator {
             Layout.fillWidth: true
             visible: image.status !== Image.Ready && root.blurhash === ""
             running: visible

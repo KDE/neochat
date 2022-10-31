@@ -4,7 +4,7 @@
 
 import QtQuick 2.15
 import QtQuick.Layouts 1.15
-import QtQuick.Controls 2.15
+import QtQuick.Controls 2.15 as QQC2
 
 import org.kde.kirigami 2.14 as Kirigami
 
@@ -17,7 +17,7 @@ Loader {
     signal replyCancelled()
 
     active: visible
-    sourceComponent: Pane {
+    sourceComponent: QQC2.Pane {
         id: replyPane
 
         Kirigami.Theme.colorSet: Kirigami.Theme.View
@@ -49,7 +49,7 @@ Loader {
                 Layout.alignment: Qt.AlignCenter
                 Layout.fillWidth: true
                 spacing: fontMetrics.leading
-                Label {
+                QQC2.Label {
                     Layout.fillWidth: true
                     textFormat: Text.StyledText
                     elide: Text.ElideRight
@@ -66,15 +66,15 @@ Loader {
                     }
                 }
                 //TODO edit user mentions
-                ScrollView {
+                QQC2.ScrollView {
                     Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                     Layout.fillWidth: true
                     Layout.maximumHeight: fontMetrics.lineSpacing * 8 - fontMetrics.leading
 
                     // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
-                    ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+                    QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
 
-                    TextArea {
+                    QQC2.TextArea {
                         id: textArea
                         leftPadding: 0
                         rightPadding: 0
@@ -84,7 +84,7 @@ Loader {
                         selectByMouse: true
                         selectByKeyboard: true
                         readOnly: true
-                        wrapMode: Label.Wrap
+                        wrapMode: QQC2.Label.Wrap
                         textFormat: TextEdit.RichText
                         background: Item {}
                         HoverHandler {
@@ -94,8 +94,8 @@ Loader {
                 }
             }
 
-            ToolButton {
-                display: AbstractButton.IconOnly
+            QQC2.ToolButton {
+                display: QQC2.AbstractButton.IconOnly
                 action: Kirigami.Action {
                     text: i18nc("@action:button", "Cancel reply")
                     icon.name: "dialog-close"
@@ -105,8 +105,8 @@ Loader {
                     }
                     shortcut: "Escape"
                 }
-                ToolTip.text: text
-                ToolTip.visible: hovered
+                QQC2.ToolTip.text: text
+                QQC2.ToolTip.visible: hovered
             }
         }
 

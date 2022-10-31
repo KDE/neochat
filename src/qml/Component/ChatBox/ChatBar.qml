@@ -4,13 +4,13 @@
 
 import QtQuick 2.15
 import QtQuick.Layouts 1.15
-import QtQuick.Controls 2.15
+import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Window 2.15
 
 import org.kde.kirigami 2.18 as Kirigami
 import org.kde.neochat 1.0
 
-ToolBar {
+QQC2.ToolBar {
     id: chatBar
     property alias inputFieldText: inputField.text
     property alias textField: inputField
@@ -26,7 +26,7 @@ ToolBar {
         inputField.cursorPosition = inputField.length;
     }
 
-    position: ToolBar.Footer
+    position: QQC2.ToolBar.Footer
 
     Kirigami.Theme.colorSet: Kirigami.Theme.View
 
@@ -41,7 +41,7 @@ ToolBar {
     contentItem: RowLayout {
         spacing: chatBar.spacing
 
-        ScrollView {
+        QQC2.ScrollView {
             Layout.fillHeight: true
             Layout.fillWidth: true
             Layout.minimumHeight: inputField.implicitHeight
@@ -50,14 +50,14 @@ ToolBar {
                                 + inputField.topPadding + inputField.bottomPadding
 
             // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
-            ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+            QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
 
             FontMetrics {
                 id: fontMetrics
                 font: inputField.font
             }
 
-            TextArea {
+            QQC2.TextArea {
                 id: inputField
                 focus: true
                 /* Some QQC2 styles will have their own predefined backgrounds for TextAreas.
@@ -159,20 +159,20 @@ ToolBar {
             visible: currentRoom.chatBoxReplyId.length === 0 && (currentRoom.chatBoxAttachmentPath.length === 0 || uploadingBusySpinner.running)
             implicitWidth: uploadButton.implicitWidth
             implicitHeight: uploadButton.implicitHeight
-            ToolButton {
+            QQC2.ToolButton {
                 id: uploadButton
                 anchors.fill: parent
                 // Matrix does not allow sending attachments in replies
                 visible: currentRoom.chatBoxReplyId.length === 0  && currentRoom.chatBoxAttachmentPath.length === 0 && !uploadingBusySpinner.running
                 icon.name: "mail-attachment"
                 text: i18n("Attach an image or file")
-                display: AbstractButton.IconOnly
+                display: QQC2.AbstractButton.IconOnly
 
                 onClicked: {
                     if (Clipboard.hasImage) {
                         attachDialog.open()
                     } else {
-                        var fileDialog = openFileDialog.createObject(ApplicationWindow.overlay)
+                        var fileDialog = openFileDialog.createObject(QQC2.ApplicationWindow.overlay)
                         fileDialog.chosen.connect((path) => {
                             if (!path) {
                                 return;
@@ -183,10 +183,10 @@ ToolBar {
                     }
                 }
 
-                ToolTip.text: text
-                ToolTip.visible: hovered
+                QQC2.ToolTip.text: text
+                QQC2.ToolTip.visible: hovered
             }
-            BusyIndicator {
+            QQC2.BusyIndicator {
                 id: uploadingBusySpinner
                 anchors.fill: parent
                 visible: running
@@ -194,29 +194,29 @@ ToolBar {
             }
         }
 
-        ToolButton {
+        QQC2.ToolButton {
             id: emojiButton
             icon.name: "smiley"
             text: i18n("Add an Emoji")
-            display: AbstractButton.IconOnly
+            display: QQC2.AbstractButton.IconOnly
             checkable: true
 
-            ToolTip.text: text
-            ToolTip.visible: hovered
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
         }
 
-        ToolButton {
+        QQC2.ToolButton {
             id: sendButton
             icon.name: "document-send"
             text: i18n("Send message")
-            display: AbstractButton.IconOnly
+            display: QQC2.AbstractButton.IconOnly
 
             onClicked: {
                 chatBar.postMessage()
             }
 
-            ToolTip.text: text
-            ToolTip.visible: hovered
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
         }
     }
 

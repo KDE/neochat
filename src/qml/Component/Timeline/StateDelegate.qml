@@ -2,14 +2,14 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import QtQuick 2.15
-import QtQuick.Controls 2.15
+import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.15 as Kirigami
 
 import org.kde.neochat 1.0
 
-Control {
+QQC2.Control {
     id: stateDelegate
 
     readonly property bool sectionVisible: model.showSection
@@ -88,11 +88,11 @@ Control {
 
                 MouseArea {
                     anchors.fill: parent
-                    onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {room: currentRoom, user: author.object, displayName: author.displayName, avatarMediaId: author.avatarMediaId, avatarUrl: author.avatarUrl}).open()
+                    onClicked: userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {room: currentRoom, user: author.object, displayName: author.displayName, avatarMediaId: author.avatarMediaId, avatarUrl: author.avatarUrl}).open()
                 }
             }
 
-            Label {
+            QQC2.Label {
                 id: label
                 Layout.alignment: Qt.AlignVCenter
                 Layout.fillWidth: true

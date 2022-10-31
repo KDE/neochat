@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import QtQuick 2.15
-import QtQuick.Controls 2.15
+import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 import Qt.labs.qmlmodels 1.0
 
@@ -22,7 +22,7 @@ Kirigami.ScrollablePage {
 
     Component.onCompleted: identifierField.forceActiveFocus()
 
-    header: Control {
+    header: QQC2.Control {
         padding: Kirigami.Units.largeSpacing
         contentItem: RowLayout {
             Kirigami.SearchField {
@@ -36,7 +36,7 @@ Kirigami.ScrollablePage {
                 placeholderText: i18n("Find a room...")
             }
 
-            Button {
+            QQC2.Button {
                 id: joinButton
 
                 visible: identifierField.isRoomAlias
@@ -53,7 +53,7 @@ Kirigami.ScrollablePage {
                 }
             }
 
-            ComboBox {
+            QQC2.ComboBox {
                 id: serverField
 
                 // TODO: in KF6 we should be able to switch to using implicitContentWidthPolicy
@@ -77,12 +77,12 @@ Kirigami.ScrollablePage {
                         addServerSheet.open()
                     }
 
-                    trailing: ToolButton {
+                    trailing: QQC2.ToolButton {
                         visible: isAddServerDelegate || isDeletable
                         icon.name: isAddServerDelegate ? "list-add" : "dialog-close"
                         text: i18n("Add new server")
                         Accessible.name: text
-                        display: AbstractButton.IconOnly
+                        display: QQC2.AbstractButton.IconOnly
 
                         onClicked: {
                             if (serverField.currentIndex === index && isDeletable) {
@@ -121,13 +121,13 @@ Kirigami.ScrollablePage {
                         }
 
                     contentItem: Kirigami.FormLayout {
-                        Label {
+                        QQC2.Label {
                             Layout.minimumWidth: Kirigami.Units.gridUnit * 20
 
                             text: serverUrlField.length > 0 ? (serverUrlField.acceptableInput ? (serverUrlField.isValidServer ? i18n("Valid server entered") : i18n("This server cannot be resolved or has already been added")) : i18n("The entered text is not a valid url")) : i18n("Enter server url e.g. kde.org")
                             color: serverUrlField.length > 0 ? (serverUrlField.acceptableInput ? (serverUrlField.isValidServer ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.negativeTextColor) : Kirigami.Theme.negativeTextColor) : Kirigami.Theme.textColor
                         }
-                        TextField {
+                        QQC2.TextField {
                             id: serverUrlField
 
                             property bool isValidServer: false
@@ -153,7 +153,7 @@ Kirigami.ScrollablePage {
                             }
                         }
 
-                        Button {
+                        QQC2.Button {
                             id: okButton
 
                             text: i18nc("@action:button", "Ok")
@@ -222,13 +222,13 @@ Kirigami.ScrollablePage {
                             elide: Text.ElideRight
                             wrapMode: Text.NoWrap
                         }
-                        Label {
+                        QQC2.Label {
                             visible: isJoined || justJoined
                             text: i18n("Joined")
                             color: Kirigami.Theme.linkColor
                         }
                     }
-                    Label {
+                    QQC2.Label {
                         Layout.fillWidth: true
                         visible: text
                         text: topic ? topic.replace(/(\r\n\t|\n|\r\t)/gm," ") : ""
@@ -244,7 +244,7 @@ Kirigami.ScrollablePage {
                             implicitHeight: Kirigami.Units.iconSizes.small
                             implicitWidth: Kirigami.Units.iconSizes.small
                         }
-                        Label {
+                        QQC2.Label {
                             text: memberCount + " " + (alias ?? roomID)
                             color: Kirigami.Theme.disabledTextColor
                             elide: Text.ElideRight

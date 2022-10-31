@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import QtQuick 2.15
-import QtQuick.Controls 2.15
+import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.15 as Kirigami
@@ -104,7 +104,7 @@ Kirigami.ScrollablePage {
                         wrapMode: Text.NoWrap
                     }
 
-                    Label {
+                    QQC2.Label {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
 
@@ -115,7 +115,7 @@ Kirigami.ScrollablePage {
                     }
                 }
 
-                ToolButton {
+                QQC2.ToolButton {
                     visible: !inRoom
                     icon.name: "document-send"
                     text: i18n("Send invitation")

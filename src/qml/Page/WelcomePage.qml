@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick 2.15
-import QtQuick.Controls 2.15 as Controls
+import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.15 as Kirigami
@@ -16,7 +16,7 @@ Kirigami.ScrollablePage {
 
     title: module.item.title ?? i18n("Welcome")
 
-    header: Controls.Control {
+    header: QQC2.Control {
         contentItem: Kirigami.InlineMessage {
             id: headerMessage
             type: Kirigami.MessageType.Error
@@ -49,7 +49,7 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             Layout.preferredHeight: Kirigami.Units.gridUnit * 16
         }
-        Controls.Label {
+        QQC2.Label {
             Layout.fillWidth: true
             horizontalAlignment: Text.AlignHCenter
             font.pixelSize: 25
@@ -68,7 +68,7 @@ Kirigami.ScrollablePage {
         RowLayout {
             Layout.alignment: Qt.AlignHCenter
 
-            Controls.Button {
+            QQC2.Button {
                 text: i18nc("@action:button", "Back")
 
                 enabled: welcomePage.currentStep.previousUrl !== ""
@@ -79,7 +79,7 @@ Kirigami.ScrollablePage {
                 }
             }
 
-            Controls.Button {
+            QQC2.Button {
                 id: continueButton
                 enabled: welcomePage.currentStep.acceptable
                 visible: welcomePage.currentStep.showContinueButton

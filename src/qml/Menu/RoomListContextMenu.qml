@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import QtQuick 2.15
-import QtQuick.Controls 2.15
+import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.19 as Kirigami
@@ -20,8 +20,8 @@ Loader {
 
     Component {
         id: regularMenu
-        Menu {
-            MenuItem {
+        QQC2.Menu {
+            QQC2.MenuItem {
                 id: newWindow
                 text: i18n("Open in New Window")
                 icon.name: "window-new"
@@ -29,29 +29,29 @@ Loader {
                 visible: !Kirigami.Settings.isMobile
             }
 
-            MenuSeparator {
+            QQC2.MenuSeparator {
                 visible: newWindow.visible
             }
 
-            MenuItem {
+            QQC2.MenuItem {
                 text: room.isFavourite ? i18n("Remove from Favourites") : i18n("Add to Favourites")
                 icon.name: room.isFavourite ? "bookmark-remove" : "bookmark-new"
                 onTriggered: room.isFavourite ? room.removeTag("m.favourite") : room.addTag("m.favourite", 1.0)
             }
 
-            MenuItem {
+            QQC2.MenuItem {
                 text: room.isLowPriority ? i18n("Reprioritize") : i18n("Deprioritize")
                 icon.name: room.isLowPriority ? "arrow-up" : "arrow-down"
                 onTriggered: room.isLowPriority ? room.removeTag("m.lowpriority") : room.addTag("m.lowpriority", 1.0)
             }
 
-            MenuItem {
+            QQC2.MenuItem {
                 text: i18n("Mark as Read")
                 icon.name: "checkmark"
                 onTriggered: room.markAllMessagesAsRead()
             }
 
-            MenuItem {
+            QQC2.MenuItem {
                 text: i18nc("@action:inmenu", "Copy Address to Clipboard")
                 icon.name: "edit-copy"
                 onTriggered: if (room.canonicalAlias.length === 0) {
@@ -61,10 +61,10 @@ Loader {
                 }
             }
 
-            Menu {
+            QQC2.Menu {
                 title: i18n("Notification State")
 
-                MenuItem {
+                QQC2.MenuItem {
                     text: i18n("Follow Global Setting")
                     icon.name: "globe"
                     checkable: true
@@ -75,7 +75,7 @@ Loader {
                         room.pushNotificationState = PushNotificationState.Default
                     }
                 }
-                MenuItem {
+                QQC2.MenuItem {
                     text: i18nc("As in 'notify for all messages'","All")
                     icon.name: "notifications"
                     checkable: true
@@ -86,7 +86,7 @@ Loader {
                         room.pushNotificationState = PushNotificationState.All
                     }
                 }
-                MenuItem {
+                QQC2.MenuItem {
                     text: i18nc("As in 'notify when the user is mentioned or the message contains a set keyword'","@Mentions and Keywords")
                     icon.name: "im-user"
                     checkable: true
@@ -97,7 +97,7 @@ Loader {
                         room.pushNotificationState = PushNotificationState.MentionKeyword
                     }
                 }
-                MenuItem {
+                QQC2.MenuItem {
                     text: i18nc("As in 'do not notify for any messages'","Off")
                     icon.name: "notifications-disabled"
                     checkable: true
@@ -110,15 +110,15 @@ Loader {
                 }
             }
 
-            MenuItem {
+            QQC2.MenuItem {
                 text: i18n("Room Settings")
                 icon.name: "configure"
                 onTriggered: ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room})
             }
 
-            MenuSeparator {}
+            QQC2.MenuSeparator {}
 
-            MenuItem {
+            QQC2.MenuItem {
                 text: i18n("Leave Room")
                 icon.name: "go-previous"
                 onTriggered: RoomManager.leaveRoom(room)
@@ -168,7 +168,7 @@ Loader {
                         text: room.displayName
                         wrapMode: Text.WordWrap
                     }
-                    ToolButton {
+                    QQC2.ToolButton {
                         checked: room.isFavourite
                         checkable: true
                         icon.name: 'favorite'
@@ -176,7 +176,7 @@ Loader {
                         onClicked: room.isFavourite ? room.removeTag("m.favourite") : room.addTag("m.favourite", 1.0)
                     }
 
-                    ToolButton {
+                    QQC2.ToolButton {
                         icon.name: 'settings-configure'
                         onClicked: ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room})
                     }

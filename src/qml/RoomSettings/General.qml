@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import QtQuick 2.15
-import QtQuick.Controls 2.15
+import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 import org.kde.kirigami 2.15 as Kirigami
 
@@ -31,7 +31,7 @@ Kirigami.ScrollablePage {
                 name: room.name
                 source: room.avatarMediaId ? ("image://mxc/" + room.avatarMediaId) : ""
 
-                RoundButton {
+                QQC2.RoundButton {
                     anchors.right: parent.right
                     anchors.bottom: parent.bottom
                     height: Kirigami.Units.gridUnits
@@ -52,14 +52,14 @@ Kirigami.ScrollablePage {
                     }
                 }
             }
-            TextField {
+            QQC2.TextField {
                 id: roomNameField
                 text: room.name
                 Kirigami.FormData.label: i18n("Room Name:")
                 enabled: canChangeName
             }
 
-            TextArea {
+            QQC2.TextArea {
                 id: roomTopicField
                 Layout.fillWidth: true
                 text: room.topic
@@ -73,7 +73,7 @@ Kirigami.ScrollablePage {
                 visible: canonicalAliasComboBox.visible || altAlias.visible
             }
 
-            ComboBox {
+            QQC2.ComboBox {
                 id: canonicalAliasComboBox
                 visible: room.aliases && room.aliases.length
                 Kirigami.FormData.label: i18n("Canonical Alias:")
@@ -109,11 +109,11 @@ Kirigami.ScrollablePage {
                         delegate: RowLayout {
                             Layout.maximumWidth: parent.width
 
-                            Label {
+                            QQC2.Label {
                                 text: modelData
                             }
 
-                            ToolButton {
+                            QQC2.ToolButton {
                                 icon.name: ""
                                 onClicked: room.removeLocalAlias(modelData)
                             }
@@ -128,7 +128,7 @@ Kirigami.ScrollablePage {
             visible: next.visible || prev.visible 
         }
 
-        Control {
+        QQC2.Control {
             id: next
             Layout.fillWidth: true
 
@@ -148,7 +148,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        Control {
+        QQC2.Control {
             id: prev
             Layout.fillWidth: true
 
@@ -175,12 +175,12 @@ Kirigami.ScrollablePage {
         }
     }
 
-    footer: ToolBar {
+    footer: QQC2.ToolBar {
         contentItem: RowLayout {
             Item {
                 Layout.fillWidth: true
             }
-            Button {
+            QQC2.Button {
                 Layout.alignment: Qt.AlignRight
                 enabled: room.name !== roomNameField.text || room.topic !== roomTopicField.text
                 text: i18n("Apply")

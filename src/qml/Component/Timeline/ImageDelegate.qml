@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import QtQuick 2.15
-import QtQuick.Controls 2.15
+import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 import Qt.labs.platform 1.1
 
@@ -45,9 +45,9 @@ TimelineContainer {
 
         fillMode: Image.PreserveAspectFit
 
-        ToolTip.text: model.display
-        ToolTip.visible: hoverHandler.hovered
-        ToolTip.delay: Kirigami.Units.toolTipDelay
+        QQC2.ToolTip.text: model.display
+        QQC2.ToolTip.visible: hoverHandler.hovered
+        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
         HoverHandler {
             id: hoverHandler
@@ -60,7 +60,7 @@ TimelineContainer {
 
             color: "#BB000000"
 
-            ProgressBar {
+            QQC2.ProgressBar {
                 anchors.centerIn: parent
 
                 width: parent.width * 0.8

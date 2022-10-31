@@ -7,7 +7,7 @@
 
 import QtQuick 2.7
 import QtQuick.Layouts 1.3
-import QtQuick.Controls 2.15 as Controls
+import QtQuick.Controls 2.15 as QQC2
 import org.kde.purpose 1.0 as Purpose
 import org.kde.notification 1.0
 import org.kde.kirigami 2.14 as Kirigami
@@ -23,7 +23,7 @@ Kirigami.Page {
     property alias index: jobView.index
     property alias model: jobView.model
 
-    Controls.Action {
+    QQC2.Action {
         shortcut: 'Escape'
         onTriggered: window.closeDialog()
     }

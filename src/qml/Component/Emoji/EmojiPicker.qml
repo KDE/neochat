@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import QtQuick 2.15
-import QtQuick.Controls 2.15
+import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 import org.kde.kirigami 2.15 as Kirigami
 
@@ -19,10 +19,10 @@ ColumnLayout {
 
     spacing: 0
 
-    ScrollView {
+    QQC2.ScrollView {
         Layout.fillWidth: true
-        Layout.preferredHeight: Kirigami.Units.gridUnit * 2 + ScrollBar.horizontal.height + 2 // for the focus line
-        ScrollBar.horizontal.height: ScrollBar.horizontal.visible ? ScrollBar.horizontal.implicitHeight : 0
+        Layout.preferredHeight: Kirigami.Units.gridUnit * 2 + QQC2.ScrollBar.horizontal.height + 2 // for the focus line
+        QQC2.ScrollBar.horizontal.height: QQC2.ScrollBar.horizontal.visible ? QQC2.ScrollBar.horizontal.implicitHeight : 0
 
         ListView {
             clip: true
@@ -41,7 +41,7 @@ ColumnLayout {
                 ListElement { label: "🏁"; category: "flags" }
             }
 
-            delegate: ItemDelegate {
+            delegate: QQC2.ItemDelegate {
                 id: del
 
                 required property string label
@@ -82,7 +82,7 @@ ColumnLayout {
         Layout.preferredHeight: 1
     }
 
-    ScrollView {
+   QQC2.ScrollView {
         Layout.fillWidth: true
         Layout.preferredHeight: Kirigami.Units.gridUnit * 8
         Layout.fillHeight: true
@@ -119,7 +119,7 @@ ColumnLayout {
                 return null
             }
 
-            delegate: ItemDelegate {
+            delegate: QQC2.ItemDelegate {
                 width: Kirigami.Units.gridUnit * 2
                 height: Kirigami.Units.gridUnit * 2
 

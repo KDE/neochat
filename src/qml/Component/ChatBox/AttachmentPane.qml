@@ -4,7 +4,7 @@
 
 import QtQuick 2.15
 import QtQuick.Layouts 1.15
-import QtQuick.Controls 2.15
+import QtQuick.Controls 2.15 as QQC2
 
 import org.kde.kirigami 2.15 as Kirigami
 
@@ -20,7 +20,7 @@ Loader {
 
     active: visible
     sourceComponent: Component {
-        Pane {
+        QQC2.Pane {
             id: attachmentPane
             Kirigami.Theme.colorSet: Kirigami.Theme.View
 
@@ -72,7 +72,7 @@ Loader {
                     }
                 }
 
-                BusyIndicator {
+                QQC2.BusyIndicator {
                     id: imageBusyIndicator
                     anchors {
                         horizontalCenter: parent.horizontalCenter
@@ -98,7 +98,7 @@ Loader {
                         source: attachmentMimetype.iconName
                     }
 
-                    Label {
+                    QQC2.Label {
                         id: fileLabel
                         text: baseFileName
                     }
@@ -115,7 +115,7 @@ Loader {
 
                 // Using a toolbar to get a button spacing consistent with what the QQC2 style normally has
                 // Also has some accessibility info
-                ToolBar {
+                QQC2.ToolBar {
                     id: toolBar
                     width: parent.width
                     anchors.top: parent.top
@@ -130,7 +130,7 @@ Loader {
 
                     contentItem: RowLayout {
                         spacing: parent.spacing
-                        Label {
+                        QQC2.Label {
                             Layout.leftMargin: -attachmentPane.leftPadding
                             Layout.topMargin: -attachmentPane.topPadding
                             leftPadding: cancelAttachmentButton.leftPadding + 1 + attachmentPane.leftPadding
@@ -152,12 +152,12 @@ Loader {
                         Item {
                             Layout.fillWidth: true
                         }
-                        ToolButton {
+                        QQC2.ToolButton {
                             id: editImageButton
                             visible: hasImage
                             icon.name: "document-edit"
                             text: i18n("Edit")
-                            display: AbstractButton.IconOnly
+                            display: QQC2.AbstractButton.IconOnly
 
                             Component {
                                 id: imageEditorPage
@@ -172,17 +172,17 @@ Loader {
                                     attachmentPaneLoader.attachmentPath = newPath;
                                 });
                             }
-                            ToolTip.text: text
-                            ToolTip.visible: hovered
+                            QQC2.ToolTip.text: text
+                            QQC2.ToolTip.visible: hovered
                         }
-                        ToolButton {
+                        QQC2.ToolButton {
                             id: cancelAttachmentButton
                             icon.name: "dialog-close"
                             text: i18n("Cancel sending Image")
-                            display: AbstractButton.IconOnly
+                            display: QQC2.AbstractButton.IconOnly
                             onClicked: currentRoom.chatBoxAttachmentPath = "";
-                            ToolTip.text: text
-                            ToolTip.visible: hovered
+                            QQC2.ToolTip.text: text
+                            QQC2.ToolTip.visible: hovered
                         }
                     }
                     background: null

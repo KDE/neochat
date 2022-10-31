@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import QtQuick 2.15
-import QtQuick.Controls 2.15
+import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 import QtMultimedia 5.15
 import Qt.labs.platform 1.1 as Platform
@@ -70,7 +70,7 @@ TimelineContainer {
             fillMode: Image.PreserveAspectFit
         }
 
-        Label {
+        QQC2.Label {
             anchors.centerIn: parent
 
             visible: vid.playbackState == MediaPlayer.StoppedState || vid.error != MediaPlayer.NoError
@@ -94,7 +94,7 @@ TimelineContainer {
 
             color: "#BB000000"
 
-            ProgressBar {
+            QQC2.ProgressBar {
                 anchors.centerIn: parent
 
                 width: parent.width * 0.8

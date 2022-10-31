@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick 2.15
-import QtQuick.Controls 2.15 as Controls
+import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.19 as Kirigami
@@ -29,8 +29,8 @@ Kirigami.ScrollablePage {
             subtitle: model.id
             icon: "network-connect"
             trailing: RowLayout {
-                Controls.ToolButton {
-                    display: Controls.AbstractButton.IconOnly
+                QQC2.ToolButton {
+                    display: QQC2.AbstractButton.IconOnly
                     action: Kirigami.Action {
                         text: i18n("Edit device name")
                         iconName: "document-edit"
@@ -41,8 +41,8 @@ Kirigami.ScrollablePage {
                         }
                     }
                 }
-                Controls.ToolButton {
-                    display: Controls.AbstractButton.IconOnly
+                QQC2.ToolButton {
+                    display: QQC2.AbstractButton.IconOnly
                     visible: Controller.encryptionSupported
                     action: Kirigami.Action {
                         text: i18n("Verify device")
@@ -52,8 +52,8 @@ Kirigami.ScrollablePage {
                         }
                     }
                 }
-                Controls.ToolButton {
-                    display: Controls.AbstractButton.IconOnly
+                QQC2.ToolButton {
+                    display: QQC2.AbstractButton.IconOnly
                     action: Kirigami.Action {
                         text: i18n("Logout device")
                         iconName: "edit-delete-remove"
@@ -74,12 +74,12 @@ Kirigami.ScrollablePage {
 
         title: i18n("Remove device")
         Kirigami.FormLayout {
-            Controls.TextField {
+            QQC2.TextField {
                 id: passwordField
                 Kirigami.FormData.label: i18n("Password:")
                 echoMode: TextInput.Password
             }
-            Controls.Button {
+            QQC2.Button {
                 text: i18n("Confirm")
                 onClicked: {
                     devices.logout(passwordSheet.index, passwordField.text)
@@ -97,12 +97,12 @@ Kirigami.ScrollablePage {
 
         title: i18n("Edit device")
         Kirigami.FormLayout {
-            Controls.TextField {
+            QQC2.TextField {
                 id: nameField
                 Kirigami.FormData.label: i18n("Name:")
                 text: renameSheet.name
             }
-            Controls.Button {
+            QQC2.Button {
                 text: i18n("Save")
                 onClicked: {
                     devices.setName(renameSheet.index, nameField.text)

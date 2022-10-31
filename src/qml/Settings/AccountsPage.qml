@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick 2.15
-import QtQuick.Controls 2.15 as Controls
+import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 import Qt.labs.platform 1.1
 
@@ -40,9 +40,9 @@ Kirigami.ScrollablePage {
             }
 
             trailing: RowLayout {
-                Controls.ToolButton {
-                    display: Controls.AbstractButton.IconOnly
-                    Controls.ToolTip {
+                QQC2.ToolButton {
+                    display: QQC2.AbstractButton.IconOnly
+                    QQC2.ToolTip {
                         text: parent.action.text
                     }
                     action: Kirigami.Action {
@@ -55,9 +55,9 @@ Kirigami.ScrollablePage {
                         });
                     }
                 }
-                Controls.ToolButton {
-                    display: Controls.AbstractButton.IconOnly
-                    Controls.ToolTip {
+                QQC2.ToolButton {
+                    display: QQC2.AbstractButton.IconOnly
+                    QQC2.ToolTip {
                         text: parent.action.text
                     }
                     action: Kirigami.Action {
@@ -75,7 +75,7 @@ Kirigami.ScrollablePage {
         }
     }
 
-    footer: Controls.ToolBar {
+    footer: QQC2.ToolBar {
         Kirigami.Theme.colorSet: Kirigami.Theme.Window
         Kirigami.ActionToolBar {
             alignment: Qt.AlignRight

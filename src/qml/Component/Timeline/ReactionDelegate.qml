@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import QtQuick 2.15
-import QtQuick.Controls 2.15
+import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.15 as Kirigami
@@ -14,10 +14,10 @@ Flow {
     Repeater {
         model: reaction ?? null
 
-        delegate: AbstractButton {
+        delegate: QQC2.AbstractButton {
             width: Math.max(implicitWidth, height)
 
-            contentItem: Label {
+            contentItem: QQC2.Label {
                 horizontalAlignment: Text.AlignHCenter
                 text: modelData.reaction + " " + modelData.count
             }
@@ -41,8 +41,8 @@ Flow {
 
             hoverEnabled: true
 
-            ToolTip.visible: hovered
-            ToolTip.text: {
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.text: {
                 var text = "";
 
                 for (var i = 0; i < modelData.authors.length && i < 3; i++) {

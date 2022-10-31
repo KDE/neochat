@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import QtQuick 2.15
-import QtQuick.Controls 2.15
+import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 import org.kde.kirigami 2.15 as Kirigami
 
@@ -16,19 +16,19 @@ Kirigami.OverlaySheet {
     title: i18n("Create a Room")
 
     contentItem: Kirigami.FormLayout {
-        TextField {
+        QQC2.TextField {
             id: roomNameField
             Kirigami.FormData.label: i18n("Room Name")
             onAccepted: roomTopicField.forceActiveFocus();
         }
 
-        TextField {
+        QQC2.TextField {
             id: roomTopicField
             Kirigami.FormData.label: i18n("Room Topic")
             onAccepted: okButton.forceActiveFocus();
         }
 
-        Button {
+        QQC2.Button {
             id: okButton
 
             text: i18nc("@action:button", "Ok")

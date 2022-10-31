@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick 2.14
-import QtQuick.Controls 2.14
+import QtQuick.Controls 2.14 as QQC2
 import QtQuick.Layouts 1.14
 
 /// Step for the login/registration flow

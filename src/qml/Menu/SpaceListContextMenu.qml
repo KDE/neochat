@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import QtQuick 2.15
-import QtQuick.Controls 2.15
+import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.19 as Kirigami
@@ -20,8 +20,8 @@ Loader {
 
     Component {
         id: regularMenu
-        Menu {
-            MenuItem {
+        QQC2.Menu {
+            QQC2.MenuItem {
                 text: i18nc("@action:inmenu", "Copy Address to Clipboard")
                 onTriggered: if (room.canonicalAlias.length === 0) {
                     Clipboard.saveText(room.id)
@@ -30,14 +30,14 @@ Loader {
                 }
             }
 
-            MenuItem {
+            QQC2.MenuItem {
                 text: i18nc("'Space' is a matrix space", "Space Settings")
                 onTriggered: ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room})
             }
 
-            MenuSeparator {}
+            QQC2.MenuSeparator {}
 
-            MenuItem {
+            QQC2.MenuItem {
                 text: i18nc("'Space' is a matrix space", "Leave Space")
                 onTriggered: RoomManager.leaveRoom(room)
             }
@@ -87,7 +87,7 @@ Loader {
                         wrapMode: Text.WordWrap
                     }
 
-                    ToolButton {
+                    QQC2.ToolButton {
                         icon.name: 'settings-configure'
                         onClicked: ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room})
                     }

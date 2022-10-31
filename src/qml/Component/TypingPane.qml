@@ -6,7 +6,7 @@
 
 import QtQuick 2.15
 import QtQuick.Layouts 1.15
-import QtQuick.Controls 2.15
+import QtQuick.Controls 2.15 as QQC2
 import org.kde.kirigami 2.14 as Kirigami
 import org.kde.neochat 1.0
 
@@ -15,7 +15,7 @@ Loader {
     property string labelText: ""
 
     active: visible
-    sourceComponent: Pane {
+    sourceComponent: QQC2.Pane {
         id: typingPane
 
         leftPadding: Kirigami.Units.largeSpacing
@@ -86,7 +86,7 @@ Loader {
                     }
                 }
             }
-            Label {
+            QQC2.Label {
                 id: typingLabel
                 elide: Text.ElideRight
                 text: root.labelText

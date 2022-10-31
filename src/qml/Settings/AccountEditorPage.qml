@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick 2.15
-import QtQuick.Controls 2.15 as Controls
+import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 import Qt.labs.platform 1.1
 
@@ -33,7 +33,7 @@ Kirigami.ScrollablePage {
                                 return;
                             }
 
-                            fileDialog = openFileDialog.createObject(Controls.ApplicationWindow.Overlay)
+                            fileDialog = openFileDialog.createObject(QQC2.ApplicationWindow.Overlay)
 
                             fileDialog.chosen.connect(function(receivedSource) {
                                 mouseArea.fileDialog = null;
@@ -49,7 +49,7 @@ Kirigami.ScrollablePage {
                         }
                     }
                 }
-                Controls.Button {
+                QQC2.Button {
                     visible: avatar.source.toString().length !== 0
                     icon.name: "edit-clear"
 
@@ -57,30 +57,30 @@ Kirigami.ScrollablePage {
                 }
                 Kirigami.FormData.label: i18n("Avatar:")
             }
-            Controls.TextField {
+            QQC2.TextField {
                 id: name
                 text: root.connection ? root.connection.localUser.displayName : ""
                 Kirigami.FormData.label: i18n("Name:")
             }
-            Controls.TextField {
+            QQC2.TextField {
                 id: accountLabel
                 text: root.connection ? root.connection.localUser.accountLabel : ""
                 Kirigami.FormData.label: i18n("Label:")
             }
-            Controls.TextField {
+            QQC2.TextField {
                 id: currentPassword
                 Kirigami.FormData.label: i18n("Current Password:")
                 enabled: root.connection !== undefined && root.connection.canChangePassword !== false
                 echoMode: TextInput.Password
             }
-            Controls.TextField {
+            QQC2.TextField {
                 id: newPassword
                 Kirigami.FormData.label: i18n("New Password:")
                 enabled: root.connection !== undefined && root.connection.canChangePassword !== false
                 echoMode: TextInput.Password
 
             }
-            Controls.TextField {
+            QQC2.TextField {
                 id: confirmPassword
                 Kirigami.FormData.label: i18n("Confirm new Password:")
                 enabled: root.connection !== undefined && root.connection.canChangePassword !== false
@@ -94,7 +94,7 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
         }
 
-        Controls.Button {
+        QQC2.Button {
             text: i18n("Save")
             Layout.bottomMargin: Kirigami.Units.smallSpacing
             Layout.topMargin: Kirigami.Units.smallSpacing
@@ -119,7 +119,7 @@ Kirigami.ScrollablePage {
                 root.closeDialog();
             }
         }
-        Controls.Button {
+        QQC2.Button {
             text: i18n("Cancel")
             Layout.rightMargin: Kirigami.Units.smallSpacing
             Layout.bottomMargin: Kirigami.Units.smallSpacing

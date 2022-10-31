@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import QtQuick 2.15
-import QtQuick.Controls 2.15
+import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.15 as Kirigami
@@ -17,7 +17,7 @@ Kirigami.ScrollablePage {
 
     title: i18n("Start a Chat")
 
-    header: Control {
+    header: QQC2.Control {
         padding: Kirigami.Units.largeSpacing
         contentItem: RowLayout {
             Kirigami.SearchField {
@@ -32,7 +32,7 @@ Kirigami.ScrollablePage {
                 onAccepted: userDictListModel.search()
             }
 
-            Button {
+            QQC2.Button {
                 visible: identifierField.isUserID
 
                 text: i18n("Chat")
@@ -89,7 +89,7 @@ Kirigami.ScrollablePage {
                         wrapMode: Text.NoWrap
                     }
 
-                    Label {
+                    QQC2.Label {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
 
@@ -100,7 +100,7 @@ Kirigami.ScrollablePage {
                     }
                 }
 
-                Button {
+                QQC2.Button {
                     id: joinChatButton
                     Layout.alignment: Qt.AlignRight
                     visible: directChats && directChats.length > 0
@@ -112,7 +112,7 @@ Kirigami.ScrollablePage {
                     }
                 }
 
-                Button {
+                QQC2.Button {
                     Layout.alignment: Qt.AlignRight
                     icon.name: "irc-join-channel"
                     // We wants to make sure an user can't start more than one

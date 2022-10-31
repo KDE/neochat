@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick 2.15
-import QtQuick.Controls 2.15
+import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 import QtMultimedia 5.15
 
@@ -80,16 +80,16 @@ TimelineContainer {
         ]
 
         RowLayout {
-            ToolButton {
+            QQC2.ToolButton {
                 id: playButton
             }
-            Label {
+            QQC2.Label {
                 text: model.display
                 wrapMode: Text.Wrap
                 Layout.fillWidth: true
             }
         }
-        ProgressBar {
+        QQC2.ProgressBar {
             id: downloadBar
             visible: false
             Layout.fillWidth: true
@@ -100,7 +100,7 @@ TimelineContainer {
         RowLayout {
             visible: audio.hasAudio
 
-            Slider {
+            QQC2.Slider {
                 Layout.fillWidth: true
                 from: 0
                 to: audio.duration
@@ -108,13 +108,13 @@ TimelineContainer {
                 onMoved: audio.seek(value)
             }
 
-            Label {
+            QQC2.Label {
                 visible: audioDelegate.contentMaxWidth > Kirigami.Units.gridUnit * 12
 
                 text: Controller.formatDuration(audio.position) + "/" + Controller.formatDuration(audio.duration)
             }
         }
-        Label {
+        QQC2.Label {
             Layout.alignment: Qt.AlignRight
             Layout.rightMargin: Kirigami.Units.smallSpacing
             visible: audio.hasAudio && audioDelegate.contentMaxWidth < Kirigami.Units.gridUnit * 12

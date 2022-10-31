@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import QtQuick 2.15
-import QtQuick.Controls 2.15
+import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.15 as Kirigami
@@ -93,24 +93,24 @@ Kirigami.OverlayDrawer {
                         text: i18n("Room information")
                         level: 1
                     }
-                    ToolButton {
+                    QQC2.ToolButton {
                         id: inviteButton
 
                         Layout.alignment: Qt.AlignRight
                         icon.name: "list-add-user"
                         text: i18n("Invite user to room")
-                        display: AbstractButton.IconOnly
+                        display: QQC2.AbstractButton.IconOnly
 
                         onClicked: {
                             applicationWindow().pageStack.layers.push("qrc:/InviteUserPage.qml", {room: room})
                             roomDrawer.close();
                         }
 
-                        ToolTip {
+                        QQC2.ToolTip {
                             text: inviteButton.text
                         }
                     }
-                    ToolButton {
+                    QQC2.ToolButton {
                         id: favouriteButton
 
                         Layout.alignment: Qt.AlignRight
@@ -118,15 +118,15 @@ Kirigami.OverlayDrawer {
                         checkable: true
                         checked: room && room.isFavourite
                         text: room && room.isFavourite ? i18n("Remove room from favorites") : i18n("Make room favorite")
-                        display: AbstractButton.IconOnly
+                        display: QQC2.AbstractButton.IconOnly
 
                         onClicked: room.isFavourite ? room.removeTag("m.favourite") : room.addTag("m.favourite", 1.0)
 
-                        ToolTip {
+                        QQC2.ToolTip {
                             text: favouriteButton.text
                         }
                     }
-                    ToolButton {
+                    QQC2.ToolButton {
                         id: encryptButton
 
                         Layout.alignment: Qt.AlignRight
@@ -134,25 +134,25 @@ Kirigami.OverlayDrawer {
                         enabled: roomDrawer.room.canEncryptRoom
                         visible: !roomDrawer.room.usesEncryption && Controller.encryptionSupported
                         text: i18n("Enable encryption")
-                        display: AbstractButton.IconOnly
+                        display: QQC2.AbstractButton.IconOnly
 
                         onClicked: roomDrawer.room.activateEncryption()
 
-                        ToolTip {
+                        QQC2.ToolTip {
                             text: encryptButton.text
                         }
                     }
-                    ToolButton {
+                    QQC2.ToolButton {
                         id: settingsButton
 
                         Layout.alignment: Qt.AlignRight
                         icon.name: 'settings-configure'
                         text: i18n("Room settings")
-                        display: AbstractButton.IconOnly
+                        display: QQC2.AbstractButton.IconOnly
 
-                        onClicked: ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room})
+                        onClicked: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room})
 
-                        ToolTip {
+                        QQC2.ToolTip {
                             text: settingsButton.text
                         }
                     }
@@ -186,7 +186,7 @@ Kirigami.OverlayDrawer {
                             Layout.fillWidth: true
                             level: 1
                             type: Kirigami.Heading.Type.Primary
-                            wrapMode: Label.Wrap
+                            wrapMode: QQC2.Label.Wrap
                             text: room ? room.displayName : i18n("No name")
                             textFormat: Text.PlainText
                         }
@@ -228,7 +228,7 @@ Kirigami.OverlayDrawer {
                 label: i18n("Members")
                 activeFocusOnTab: false
 
-                Label {
+                QQC2.Label {
                     Layout.alignment: Qt.AlignRight
                     text: room ? i18np("%1 Member", "%1 Members", room.joinedCount) : i18n("No Member Count")
                 }
@@ -245,12 +245,12 @@ Kirigami.OverlayDrawer {
                 onAccepted: sortedMessageEventModel.filterString = text;
             }
 
-            ScrollView {
+            QQC2.ScrollView {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
 
                 // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
-                ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+                QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
 
                 ListView {
                     id: userListView
@@ -297,7 +297,7 @@ Kirigami.OverlayDrawer {
                             name: model.userId
                         }
 
-                        trailing: Label {
+                        trailing: QQC2.Label {
                             visible: perm != UserType.Member
 
                             text: {

@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import QtQuick 2.15
-import QtQuick.Controls 2.15
+import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 import org.kde.kirigami 2.15 as Kirigami
 
@@ -20,43 +20,43 @@ Kirigami.ScrollablePage {
         Kirigami.FormLayout {
             Layout.fillWidth: true
 
-            RadioButton {
+            QQC2.RadioButton {
                 text: i18nc("@option:check", "Private (invite only)")
                 Kirigami.FormData.label: i18nc("@option:check", "Access:")
                 checked: room.joinRule === "invite"
                 enabled: false
             }
-            Label {
+            QQC2.Label {
                 text: i18n("Only invited people can join.")
                 font: Kirigami.Theme.smallFont
             }
-            RadioButton {
+            QQC2.RadioButton {
                 text: i18nc("@option:check", "Space members")
                 checked: room.joinRule === "restricted"
                 enabled: false
             }
-            Label {
+            QQC2.Label {
                 text: i18n("Anyone in a space can find and join.")
                 font: Kirigami.Theme.smallFont
             }
-            RadioButton {
+            QQC2.RadioButton {
                 text: i18nc("@option:check", "Public")
                 checked: room.joinRule === "public"
                 enabled: false
             }
-            Label {
+            QQC2.Label {
                 text: i18nc("@option:check", "Anyone can find and join.") + room.joinRule
                 font: Kirigami.Theme.smallFont
             }
         }
     }
 
-    footer: ToolBar {
+    footer: QQC2.ToolBar {
         contentItem: RowLayout {
             Item {
                 Layout.fillWidth: true
             }
-            Button {
+            QQC2.Button {
                 Layout.alignment: Qt.AlignRight
                 enabled: false
                 text: i18n("Apply")
