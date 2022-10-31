@@ -69,8 +69,8 @@ Kirigami.ScrollablePage {
                     Layout.preferredWidth: height
                     Layout.fillHeight: true
 
-                    source: avatar
-                    name: name
+                    source: model.avatar ? ("image://mxc/" + model.avatar) : ""
+                    name: model.name
                 }
 
                 ColumnLayout {
@@ -94,7 +94,6 @@ Kirigami.ScrollablePage {
                         Layout.fillHeight: true
 
                         text: userID
-                        color: Kirigami.Theme.disabledColor
                         textFormat: Text.PlainText
                         elide: Text.ElideRight
                         wrapMode: Text.NoWrap
