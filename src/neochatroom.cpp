@@ -553,8 +553,15 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                     ? i18n("has put %1 out of the room: %2", subjectName, e.contentJson()["reason"_ls].toString().toHtmlEscaped())
                     : i18n("left the room");
             case MembershipType::Ban:
-                return (e.senderId() != e.userId()) ? i18n("banned %1 from the room: %2", subjectName, e.contentJson()["reason"_ls].toString().toHtmlEscaped())
-                                                    : i18n("self-banned from the room");
+                if (e.senderId() != e.userId()) {
+                    if (e.reason().isEmpty()) {
+                        return i18n("banned %1 from the room", subjectName);
+                    } else {
+                        return i18n("banned %1 from the room: %2", subjectName, e.reason().toHtmlEscaped());
+                    }
+                } else {
+                    return i18n("self-banned from the room");
+                }
             case MembershipType::Knock:
                 return i18n("requested an invite");
             default:;
