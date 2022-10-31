@@ -842,7 +842,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == AuthorDisplayNameRole) {
-        if (!evt.unsignedJson()["prev_content"]["displayname"].isNull()) {
+        if (is<RoomMemberEvent>(evt) && !evt.unsignedJson()["prev_content"]["displayname"].isNull() && evt.stateKey() == evt.senderId()) {
             auto previousDisplayName = evt.unsignedJson()["prev_content"]["displayname"].toString().toHtmlEscaped();
             if (previousDisplayName.isEmpty()) {
                 previousDisplayName = evt.senderId();
@@ -850,7 +850,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             return previousDisplayName;
         } else {
             auto author = static_cast<NeoChatUser *>(isPending ? m_currentRoom->localUser() : m_currentRoom->user(evt.senderId()));
-            m_currentRoom->htmlSafeMemberName(author->id());
+            return m_currentRoom->htmlSafeMemberName(author->id());
         }
     }
 
