@@ -245,7 +245,7 @@ int main(int argc, char *argv[])
 
     QCommandLineParser parser;
     parser.setApplicationDescription(i18n("Client for the matrix communication protocol"));
-    parser.addPositionalArgument(QStringLiteral("urls"), i18n("Supports appstream: url scheme"));
+    parser.addPositionalArgument(QStringLiteral("urls"), i18n("Supports matrix: url scheme"));
 
     about.setupCommandLine(&parser);
     parser.process(app);
