@@ -117,6 +117,12 @@ endif()
 
 qcoro_enable_coroutines()
 
+find_package(KF5DocTools ${KF5_MIN_VERSION})
+set_package_properties(KF5DocTools PROPERTIES DESCRIPTION
+    "Tools to generate documentation"
+    TYPE OPTIONAL
+)
+
 if(NOT Quotient_VERSION_MINOR GREATER 6)
     cmake_policy(SET CMP0063 OLD)
 endif()
@@ -135,6 +141,11 @@ install(FILES org.kde.neochat.tray.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/h
 add_definitions(-DQT_NO_FOREACH)
 
 add_subdirectory(src)
+
+if(KF5DocTools_FOUND)
+    kdoctools_install(po)
+    add_subdirectory(doc)
+endif()
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
