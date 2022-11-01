@@ -65,17 +65,17 @@ Item {
 
             sourceComponent: {
                 switch (reply.type) {
-                    case "image":
-                    case "sticker":
+                    case MessageEventModel.Image:
+                    case MessageEventModel.Sticker:
                         return imageComponent;
-                    case "message":
-                    case "notice":
+                    case MessageEventModel.Message:
+                    case MessageEventModel.Notice:
                         return textComponent;
-                    case "file":
-                    case "video":
-                    case "audio":
+                    case MessageEventModel.File:
+                    case MessageEventModel.Video:
+                    case MessageEventModel.Audio:
                         return mimeComponent;
-                    case "encrypted":
+                    case MessageEventModel.Encrypted:
                         return encryptedComponent;
                     default:
                         return textComponent;
@@ -114,7 +114,7 @@ Item {
         MimeComponent {
             mimeIconSource: reply.content.info.mimetype.replace("/", "-")
             label: reply.display
-            subLabel: reply.type === "file" ? Controller.formatByteSize(reply.content.info ? reply.content.info.size : 0) : Controller.formatDuration(reply.content.info.duration)
+            subLabel: reply.type === MessageEventModel.File ? Controller.formatByteSize(reply.content.info ? reply.content.info.size : 0) : Controller.formatDuration(reply.content.info.duration)
         }
     }
     Component {

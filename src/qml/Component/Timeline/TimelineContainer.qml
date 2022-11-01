@@ -308,7 +308,7 @@ QQC2.ItemDelegate {
         }
         height: active ? item.implicitHeight : 0
         //Layout.bottomMargin: readMarker ? Kirigami.Units.smallSpacing : 0
-        active: eventType !== "state" && eventType !== "notice" && reaction != undefined && reaction.length > 0
+        active: eventType !== MessageEventModel.State && eventType !== MessageEventModel.Notice && reaction != undefined && reaction.length > 0
         visible: active
         sourceComponent: ReactionDelegate { }
     }

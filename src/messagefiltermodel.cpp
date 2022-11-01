@@ -29,11 +29,11 @@ bool MessageFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sour
 
     const QString eventType = index.data(MessageEventModel::EventTypeRole).toString();
 
-    if (eventType == QLatin1String("other")) {
+    if (eventType == MessageEventModel::Other) {
         return false;
     }
 
-    if (!NeoChatConfig::self()->showLeaveJoinEvent() && eventType == QLatin1String("state")) {
+    if (!NeoChatConfig::self()->showLeaveJoinEvent() && eventType == MessageEventModel::State) {
         return false;
     }
 

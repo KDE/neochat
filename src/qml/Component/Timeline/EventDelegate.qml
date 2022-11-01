@@ -14,64 +14,64 @@ DelegateChooser {
     role: "eventType"
 
     DelegateChoice {
-        roleValue: "state"
+        roleValue: MessageEventModel.State
         delegate: StateDelegate {}
     }
 
     DelegateChoice {
-        roleValue: "emote"
+        roleValue: MessageEventModel.Emote
         delegate: MessageDelegate {
             isEmote: true
         }
     }
 
     DelegateChoice {
-        roleValue: "message"
+        roleValue: MessageEventModel.Message
         delegate: MessageDelegate {}
     }
 
     DelegateChoice {
-        roleValue: "notice"
+        roleValue: MessageEventModel.Notice
         delegate: MessageDelegate {}
     }
 
     DelegateChoice {
-        roleValue: "image"
+        roleValue: MessageEventModel.Image
         delegate: ImageDelegate {}
     }
 
     DelegateChoice {
-        roleValue: "sticker"
+        roleValue: MessageEventModel.Sticker
         delegate: ImageDelegate {}
     }
 
     DelegateChoice {
-        roleValue: "audio"
+        roleValue: MessageEventModel.Audio
         delegate: AudioDelegate {}
     }
 
     DelegateChoice {
-        roleValue: "video"
+        roleValue: MessageEventModel.Video
         delegate: VideoDelegate {}
     }
 
     DelegateChoice {
-        roleValue: "file"
+        roleValue: MessageEventModel.File
         delegate: FileDelegate {}
     }
 
     DelegateChoice {
-        roleValue: "encrypted"
+        roleValue: MessageEventModel.Encrypted
         delegate: EncryptedDelegate {}
     }
 
     DelegateChoice {
-        roleValue: "readMarker"
+        roleValue: MessageEventModel.ReadMarker
         delegate: ReadMarkerDelegate {}
     }
 
     DelegateChoice {
-        roleValue: "other"
+        roleValue: MessageEventModel.Other
         delegate: Item {}
     }
 }

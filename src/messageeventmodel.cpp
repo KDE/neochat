@@ -420,7 +420,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     if (m_lastReadEventIndex.row() == row) {
         switch (role) {
         case EventTypeRole:
-            return QStringLiteral("readMarker");
+            return DelegateType::ReadMarker;
         case TimeRole: {
             const QDateTime eventDate = data(index(m_lastReadEventIndex.row() + 1, 0), TimeRole).toDateTime();
             const KFormat format;
@@ -467,35 +467,34 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         if (auto e = eventCast<const RoomMessageEvent>(&evt)) {
             switch (e->msgtype()) {
             case MessageEventType::Emote:
-                return "emote";
+                return DelegateType::Emote;
             case MessageEventType::Notice:
-                return "notice";
+                return DelegateType::Notice;
             case MessageEventType::Image:
-                return "image";
+                return DelegateType::Image;
             case MessageEventType::Audio:
-                return "audio";
+                return DelegateType::Audio;
             case MessageEventType::Video:
-                return "video";
+                return DelegateType::Video;
             default:
                 break;
             }
             if (e->hasFileContent()) {
-                return "file";
+                return DelegateType::File;
             }
 
-            return "message";
+            return DelegateType::Message;
         }
         if (is<const StickerEvent>(evt)) {
-            return "sticker";
+            return DelegateType::Sticker;
         }
         if (evt.isStateEvent()) {
-            return "state";
+            return DelegateType::State;
         }
         if (is<const EncryptedEvent>(evt)) {
-            return "encrypted";
+            return DelegateType::Encrypted;
         }
-
-        return "other";
+        return DelegateType::Other;
     }
 
     if (role == EventResolvedTypeRole) {
@@ -671,36 +670,36 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             return {};
         }
 
-        QString type;
+        DelegateType type;
         if (auto e = eventCast<const RoomMessageEvent>(replyPtr)) {
             switch (e->msgtype()) {
             case MessageEventType::Emote:
-                type = "emote";
+                type = DelegateType::Emote;
                 break;
             case MessageEventType::Notice:
-                type = "notice";
+                type = DelegateType::Notice;
                 break;
             case MessageEventType::Image:
-                type = "image";
+                type = DelegateType::Image;
                 break;
             case MessageEventType::Audio:
-                type = "audio";
+                type = DelegateType::Audio;
                 break;
             case MessageEventType::Video:
-                type = "video";
+                type = DelegateType::Video;
                 break;
             default:
                 if (e->hasFileContent()) {
-                    type = "file";
+                    type = DelegateType::File;
                     break;
                 }
-                type = "message";
+                type = DelegateType::Message;
             }
 
         } else if (is<const StickerEvent>(*replyPtr)) {
-            type = "sticker";
+            type = DelegateType::Sticker;
         } else {
-            type = "other";
+            type = DelegateType::Other;
         }
 
         QVariant content;
@@ -729,7 +728,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             // While the row is removed the subsequent row indexes are not changed so we need to skip over the removed index.
             // See - https://doc.qt.io/qt-5/qabstractitemmodel.html#beginRemoveRows
             if (data(i, SpecialMarksRole) != EventStatus::Hidden && !itemData(i).empty()) {
-                return data(i, AuthorRole) != data(idx, AuthorRole) || data(i, EventTypeRole) == "state"
+                return data(i, AuthorRole) != data(idx, AuthorRole) || data(i, EventTypeRole) == MessageEventModel::State
                     || data(i, TimeRole).toDateTime().msecsTo(data(idx, TimeRole).toDateTime()) > 600000
                     || data(i, TimeRole).toDateTime().toLocalTime().date().day() != data(idx, TimeRole).toDateTime().toLocalTime().date().day();
             }

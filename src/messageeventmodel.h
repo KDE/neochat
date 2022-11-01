@@ -13,6 +13,22 @@ class MessageEventModel : public QAbstractListModel
     Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
 
 public:
+    enum DelegateType {
+        Emote,
+        Notice,
+        Image,
+        Audio,
+        Video,
+        File,
+        Message,
+        Sticker,
+        State,
+        Encrypted,
+        ReadMarker,
+        Other,
+    };
+    Q_ENUM(DelegateType);
+
     enum EventRoles {
         EventTypeRole = Qt::UserRole + 1,
         MessageRole,

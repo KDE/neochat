@@ -10,9 +10,9 @@ bool CollapseStateProxyModel::filterAcceptsRow(int source_row, const QModelIndex
 {
     Q_UNUSED(source_parent);
     return sourceModel()->data(sourceModel()->index(source_row, 0), MessageEventModel::EventTypeRole)
-        != QLatin1String("state") // If this is not a state, show it
+        != MessageEventModel::DelegateType::State // If this is not a state, show it
         || sourceModel()->data(sourceModel()->index(source_row + 1, 0), MessageEventModel::EventTypeRole)
-        != QLatin1String("state") // If this is the first state in a block, show it. TODO hidden events?
+        != MessageEventModel::DelegateType::State // If this is the first state in a block, show it. TODO hidden events?
         || sourceModel()->data(sourceModel()->index(source_row, 0), MessageEventModel::ShowSectionRole).toBool() // If it's a new day, show it
         || sourceModel()->data(sourceModel()->index(source_row, 0), MessageEventModel::EventResolvedTypeRole)
         != sourceModel()->data(sourceModel()->index(source_row + 1, 0),
@@ -41,7 +41,8 @@ QString CollapseStateProxyModel::aggregateEventToString(int sourceRow) const
     QStringList parts;
     for (int i = sourceRow; i >= 0; i--) {
         parts += sourceModel()->data(sourceModel()->index(i, 0), Qt::DisplayRole).toString();
-        if (sourceModel()->data(sourceModel()->index(i, 0), MessageEventModel::EventTypeRole) != QLatin1String("state") // If it's not a state event
+        if (sourceModel()->data(sourceModel()->index(i, 0), MessageEventModel::EventTypeRole)
+                != MessageEventModel::DelegateType::State // If it's not a state event
             || (i > 0
                 && sourceModel()->data(sourceModel()->index(i, 0), MessageEventModel::EventResolvedTypeRole)
                     != sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::EventResolvedTypeRole)) // or of a different type
