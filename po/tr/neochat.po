@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-31 00:45+0000\n"
-"PO-Revision-Date: 2022-10-27 04:49+0300\n"
+"POT-Creation-Date: 2022-11-01 00:47+0000\n"
+"PO-Revision-Date: 2022-10-31 17:18+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -542,121 +542,127 @@ msgstr "%1 kişisini odadan dışarı çıkardı: %2"
 msgid "left the room"
 msgstr "odadan çıktı"
 
-#: src/neochatroom.cpp:556
+#: src/neochatroom.cpp:558
+#, fuzzy, kde-format
+#| msgid "banned %1 from the room: %2"
+msgid "banned %1 from the room"
+msgstr "%1 kişisini odadan yasakladı: %2"
+
+#: src/neochatroom.cpp:560
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "%1 kişisini odadan yasakladı: %2"
 
-#: src/neochatroom.cpp:557
+#: src/neochatroom.cpp:563
 #, kde-format
 msgid "self-banned from the room"
 msgstr "kendini yasakladı"
 
-#: src/neochatroom.cpp:559
+#: src/neochatroom.cpp:566
 #, kde-format
 msgid "requested an invite"
 msgstr "bir davet istedi"
 
-#: src/neochatroom.cpp:562
+#: src/neochatroom.cpp:569
 #, kde-format
 msgid "made something unknown"
 msgstr "bilinmeyen bir şeyler yaptı"
 
-#: src/neochatroom.cpp:565
+#: src/neochatroom.cpp:572
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "oda ana armasını sildi"
 
-#: src/neochatroom.cpp:565
+#: src/neochatroom.cpp:572
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "oda ana armasını %1 olarak ayarladı"
 
-#: src/neochatroom.cpp:568
+#: src/neochatroom.cpp:575
 #, kde-format
 msgid "cleared the room name"
 msgstr "oda adını sildi"
 
-#: src/neochatroom.cpp:568
+#: src/neochatroom.cpp:575
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "oda adını %1 olarak ayarladı"
 
-#: src/neochatroom.cpp:571
+#: src/neochatroom.cpp:578
 #, kde-format
 msgid "cleared the topic"
 msgstr "konuyu sildi"
 
-#: src/neochatroom.cpp:571
+#: src/neochatroom.cpp:578
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "konuyu %1 olarak ayarladı"
 
-#: src/neochatroom.cpp:574
+#: src/neochatroom.cpp:581
 #, kde-format
 msgid "changed the room avatar"
 msgstr "oda avatarını değiştirdi"
 
-#: src/neochatroom.cpp:577
+#: src/neochatroom.cpp:584
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "uçtan uca şifrelemeyi etkinleştirdi"
 
-#: src/neochatroom.cpp:580
+#: src/neochatroom.cpp:587
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "odayı %1 sürümüne güncelledi"
 
-#: src/neochatroom.cpp:581
+#: src/neochatroom.cpp:588
 #, kde-format
 msgid "created the room, version %1"
 msgstr "odayı oluşturdu, sürüm %1"
 
-#: src/neochatroom.cpp:584
+#: src/neochatroom.cpp:591
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "bu oda için izin düzeylerini değiştirdi"
 
-#: src/neochatroom.cpp:588
+#: src/neochatroom.cpp:595
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "bu oda için sunucu erişim denetim listelerini değiştirdi"
 
-#: src/neochatroom.cpp:592
+#: src/neochatroom.cpp:599
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "%1 araç takımını ekledi"
 
-#: src/neochatroom.cpp:595
+#: src/neochatroom.cpp:602
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "%1 araç takımını kaldırdı"
 
-#: src/neochatroom.cpp:597
+#: src/neochatroom.cpp:604
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "%1 araç takımını yapılandırdı"
 
-#: src/neochatroom.cpp:599
+#: src/neochatroom.cpp:606
 #, kde-format
 msgid "updated %1 state"
 msgstr "%1 durumu güncelledi"
 
-#: src/neochatroom.cpp:600
+#: src/neochatroom.cpp:607
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "%2 için %1 durumu güncelledi"
 
-#: src/neochatroom.cpp:602
+#: src/neochatroom.cpp:609
 #, kde-format
 msgid "Unknown event"
 msgstr "Bilinmeyen olay"
 
-#: src/neochatroom.cpp:1076 src/neochatroom.cpp:1077
+#: src/neochatroom.cpp:1083 src/neochatroom.cpp:1084
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapor başarıyla gönderildi."
@@ -1975,7 +1981,7 @@ msgstr "Odayı sık kullanılanlara ekle"
 #: src/qml/Panel/RoomDrawer.qml:136
 #, kde-format
 msgid "Enable encryption"
-msgstr ""
+msgstr "Şifrelemeyi etkinleştir"
 
 #: src/qml/Panel/RoomDrawer.qml:150
 #, kde-format

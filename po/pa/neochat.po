@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-31 00:45+0000\n"
+"POT-Creation-Date: 2022-11-01 00:47+0000\n"
 "PO-Revision-Date: 2021-12-31 11:06-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -573,121 +573,127 @@ msgstr ""
 msgid "left the room"
 msgstr "ਰੂਮ ਛੱਡਿਆ"
 
-#: src/neochatroom.cpp:556
+#: src/neochatroom.cpp:558
+#, fuzzy, kde-format
+#| msgid "banned %1 from the room: %2"
+msgid "banned %1 from the room"
+msgstr "%1 ਨੂੰ ਰੂਮ ਤੋਂ ਪਾਬੰਦੀ ਲਾਈ: %2"
+
+#: src/neochatroom.cpp:560
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "%1 ਨੂੰ ਰੂਮ ਤੋਂ ਪਾਬੰਦੀ ਲਾਈ: %2"
 
-#: src/neochatroom.cpp:557
+#: src/neochatroom.cpp:563
 #, kde-format
 msgid "self-banned from the room"
 msgstr ""
 
-#: src/neochatroom.cpp:559
+#: src/neochatroom.cpp:566
 #, kde-format
 msgid "requested an invite"
 msgstr "ਸੱਦੇ ਲਈ ਬੇਨਤੀ ਕਰੋ"
 
-#: src/neochatroom.cpp:562
+#: src/neochatroom.cpp:569
 #, kde-format
 msgid "made something unknown"
 msgstr ""
 
-#: src/neochatroom.cpp:565
+#: src/neochatroom.cpp:572
 #, kde-format
 msgid "cleared the room main alias"
 msgstr ""
 
-#: src/neochatroom.cpp:565
+#: src/neochatroom.cpp:572
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr ""
 
-#: src/neochatroom.cpp:568
+#: src/neochatroom.cpp:575
 #, kde-format
 msgid "cleared the room name"
 msgstr "ਰੂਮ ਦਾ ਨਾਂ ਮਿਟਾਇਆ"
 
-#: src/neochatroom.cpp:568
+#: src/neochatroom.cpp:575
 #, kde-format
 msgid "set the room name to: %1"
 msgstr ""
 
-#: src/neochatroom.cpp:571
+#: src/neochatroom.cpp:578
 #, kde-format
 msgid "cleared the topic"
 msgstr "ਵਿਸ਼ੇ ਨੂੰ ਮਿਟਾਇਆ"
 
-#: src/neochatroom.cpp:571
+#: src/neochatroom.cpp:578
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "ਵਿਸ਼ਾ ਨਿਯਤ ਕੀਤਾ: %1"
 
-#: src/neochatroom.cpp:574
+#: src/neochatroom.cpp:581
 #, kde-format
 msgid "changed the room avatar"
 msgstr "ਰੂਮ ਅਵਤਾਰ ਬਦਲਿਆ"
 
-#: src/neochatroom.cpp:577
+#: src/neochatroom.cpp:584
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "ਸਿਰੇ ਤੋਂ ਸਿਰੇ ਤੱਕ ਇੰਕ੍ਰਿਪਸ਼ਨ ਸਰਗਰਮ ਕੀਤੀ"
 
-#: src/neochatroom.cpp:580
+#: src/neochatroom.cpp:587
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "ਰੂਮ ਨੂੰ %1 ਵਰਜ਼ਨ ਲਈ ਅੱਪਗਰੇਡ ਕੀਤਾ"
 
-#: src/neochatroom.cpp:581
+#: src/neochatroom.cpp:588
 #, kde-format
 msgid "created the room, version %1"
 msgstr "ਰੂਮ ਬਣਾਇਆ, ਵਰਜ਼ਨ %1"
 
-#: src/neochatroom.cpp:584
+#: src/neochatroom.cpp:591
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr ""
 
-#: src/neochatroom.cpp:588
+#: src/neochatroom.cpp:595
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr ""
 
-#: src/neochatroom.cpp:592
+#: src/neochatroom.cpp:599
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr ""
 
-#: src/neochatroom.cpp:595
+#: src/neochatroom.cpp:602
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr ""
 
-#: src/neochatroom.cpp:597
+#: src/neochatroom.cpp:604
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr ""
 
-#: src/neochatroom.cpp:599
+#: src/neochatroom.cpp:606
 #, kde-format
 msgid "updated %1 state"
 msgstr "%1 ਹਾਲਤ ਅੱਪਡੇਟ ਕੀਤੀ"
 
-#: src/neochatroom.cpp:600
+#: src/neochatroom.cpp:607
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "%2 ਲਈ %1 ਹਾਲਤ ਅੱਪਡੇਟ ਕੀਤੀ"
 
-#: src/neochatroom.cpp:602
+#: src/neochatroom.cpp:609
 #, kde-format
 msgid "Unknown event"
 msgstr "ਅਣਪਛਾਤਾ ਈਵੈਂਟ"
 
-#: src/neochatroom.cpp:1076 src/neochatroom.cpp:1077
+#: src/neochatroom.cpp:1083 src/neochatroom.cpp:1084
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgid "Report sent successfully."
