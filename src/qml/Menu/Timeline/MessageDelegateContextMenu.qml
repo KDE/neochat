@@ -15,7 +15,7 @@ Loader {
     required property var author
     required property string message
     required property string eventId
-    property string eventType: ""
+    property var eventType
     property string formattedBody: ""
     required property string source
     property string selectedText: ""
@@ -31,7 +31,7 @@ Loader {
                 currentRoom.chatBoxEditId = eventId;
                 currentRoom.chatBoxReplyId = "";
             }
-            visible: eventType.length > 0 && author.id === Controller.activeConnection.localUserId && (eventType === MessageEventModel.Emote || eventType === MessageEventModel.Message)
+            visible: author.id === Controller.activeConnection.localUserId && (loadRoot.eventType === MessageEventModel.Emote || loadRoot.eventType === MessageEventModel.Message)
         },
         Kirigami.Action {
             text: i18n("Reply")

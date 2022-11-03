@@ -420,7 +420,7 @@ Kirigami.ScrollablePage {
             id: hoverActions
             property var event: null
             property bool userMsg: event && event.author.id === Controller.activeConnection.localUserId
-            property bool showEdit: event && (userMsg && (event.eventType === MessageEventType.Emote || event.eventType === MessageEventModel.Message))
+            property bool showEdit: event && (userMsg && (event.eventType === MessageEventModel.Emote || event.eventType === MessageEventModel.Message))
             property var delegate: null
             property var bubble: null
             property var hovered: bubble && bubble.hovered
