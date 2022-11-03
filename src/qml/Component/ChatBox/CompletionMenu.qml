@@ -56,6 +56,8 @@ Popup {
         delegate: Kirigami.BasicListItem {
             text: model.text
             subtitle: model.subtitle ?? ""
+            labelItem.textFormat: Text.PlainText
+            subtitleItem.textFormat: Text.PlainText
             leading: RowLayout {
                 Kirigami.Avatar {
                     visible: model.icon !== "invalid"
