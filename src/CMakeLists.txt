@@ -152,6 +152,7 @@ if(ANDROID)
         "image-rotate-right-symbolic"
         "channel-insecure-symbolic"
         "download"
+        "smiley"
     )
 else()
     target_link_libraries(neochat PUBLIC Qt::Widgets KF5::KIOWidgets)

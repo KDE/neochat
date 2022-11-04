@@ -196,7 +196,7 @@ ToolBar {
 
         ToolButton {
             id: emojiButton
-            icon.name: "preferences-desktop-emoticons"
+            icon.name: "smiley"
             text: i18n("Add an Emoji")
             display: AbstractButton.IconOnly
             checkable: true
