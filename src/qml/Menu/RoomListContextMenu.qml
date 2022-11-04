@@ -24,6 +24,7 @@ Loader {
             MenuItem {
                 id: newWindow
                 text: i18n("Open in New Window")
+                icon.name: "window-new"
                 onTriggered: RoomManager.openWindow(room);
                 visible: !Kirigami.Settings.isMobile
             }
@@ -34,21 +35,25 @@ Loader {
 
             MenuItem {
                 text: room.isFavourite ? i18n("Remove from Favourites") : i18n("Add to Favourites")
+                icon.name: room.isFavourite ? "bookmark-remove" : "bookmark-new"
                 onTriggered: room.isFavourite ? room.removeTag("m.favourite") : room.addTag("m.favourite", 1.0)
             }
 
             MenuItem {
                 text: room.isLowPriority ? i18n("Reprioritize") : i18n("Deprioritize")
+                icon.name: room.isLowPriority ? "arrow-up" : "arrow-down"
                 onTriggered: room.isLowPriority ? room.removeTag("m.lowpriority") : room.addTag("m.lowpriority", 1.0)
             }
 
             MenuItem {
                 text: i18n("Mark as Read")
+                icon.name: "checkmark"
                 onTriggered: room.markAllMessagesAsRead()
             }
 
             MenuItem {
                 text: i18nc("@action:inmenu", "Copy Address to Clipboard")
+                icon.name: "edit-copy"
                 onTriggered: if (room.canonicalAlias.length === 0) {
                     Clipboard.saveText(room.id)
                 } else {
@@ -61,6 +66,7 @@ Loader {
 
                 MenuItem {
                     text: i18n("Follow Global Setting")
+                    icon.name: "globe"
                     checkable: true
                     autoExclusive: true
                     checked: room.pushNotificationState === PushNotificationState.Default
@@ -71,6 +77,7 @@ Loader {
                 }
                 MenuItem {
                     text: i18nc("As in 'notify for all messages'","All")
+                    icon.name: "notifications"
                     checkable: true
                     autoExclusive: true
                     checked: room.pushNotificationState === PushNotificationState.All
@@ -81,6 +88,7 @@ Loader {
                 }
                 MenuItem {
                     text: i18nc("As in 'notify when the user is mentioned or the message contains a set keyword'","@Mentions and Keywords")
+                    icon.name: "im-user"
                     checkable: true
                     autoExclusive: true
                     checked: room.pushNotificationState === PushNotificationState.MentionKeyword
@@ -91,6 +99,7 @@ Loader {
                 }
                 MenuItem {
                     text: i18nc("As in 'do not notify for any messages'","Off")
+                    icon.name: "notifications-disabled"
                     checkable: true
                     autoExclusive: true
                     checked: room.pushNotificationState === PushNotificationState.Mute
@@ -103,6 +112,7 @@ Loader {
 
             MenuItem {
                 text: i18n("Room Settings")
+                icon.name: "configure"
                 onTriggered: ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room})
             }
 
@@ -110,6 +120,7 @@ Loader {
 
             MenuItem {
                 text: i18n("Leave Room")
+                icon.name: "go-previous"
                 onTriggered: RoomManager.leaveRoom(room)
             }
 
@@ -173,17 +184,20 @@ Loader {
 
                 Kirigami.BasicListItem {
                     text: room.isLowPriority ? i18n("Reprioritize") : i18n("Deprioritize")
+                    icon: room.isLowPriority ? "arrow-up" : "arrow-down"
                     onClicked: room.isLowPriority ? room.removeTag("m.lowpriority") : room.addTag("m.lowpriority", 1.0)
                     implicitHeight: visible ? Kirigami.Units.gridUnit * 3 : 0
                 }
 
                 Kirigami.BasicListItem {
                     text: i18n("Mark as Read")
+                    icon: "checkmark"
                     onClicked: room.markAllMessagesAsRead()
                     implicitHeight: visible ? Kirigami.Units.gridUnit * 3 : 0
                 }
                 Kirigami.BasicListItem {
                     text: i18n("Leave Room")
+                    icon: "go-previous"
                     onClicked: RoomManager.leaveRoom(room)
                     implicitHeight: visible ? Kirigami.Units.gridUnit * 3 : 0
                 }

@@ -104,6 +104,8 @@ if(ANDROID)
     target_link_libraries(neochat PUBLIC Qt::Svg OpenSSL::SSL)
     kirigami_package_breeze_icons(ICONS
         "arrow-down"
+        "arrow-up"
+        "checkmark"
         "help-about"
         "im-user"
         "im-invisible-user"
@@ -123,6 +125,7 @@ if(ANDROID)
         "user-others"
         "media-playback-pause"
         "media-playback-start"
+        "go-previous"
         "go-up"
         "go-down"
         "list-add"
