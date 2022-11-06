@@ -45,7 +45,7 @@ void CustomEmojiModel::fetchEmojis()
 
         const auto e = emoji.startsWith(":") ? emoji : (QStringLiteral(":") + emoji + QStringLiteral(":"));
 
-        m_emojis << CustomEmoji{e, data.toObject()["url"].toString(), QRegularExpression(QStringLiteral(R"((^|[^\\]))") + e)};
+        m_emojis << CustomEmoji{e, data.toObject()["url"].toString(), QRegularExpression(e)};
     }
 
     endResetModel();
