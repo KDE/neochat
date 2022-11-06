@@ -296,6 +296,9 @@ int MessageEventModel::refreshEventRoles(const QString &id, const QVector<int> &
             return -1;
         }
         row = int(timelineIt - m_currentRoom->messageEvents().rbegin()) + timelineBaseIndex();
+        if (data(index(row, 0), EventTypeRole).toInt() == ReadMarker || data(index(row, 0), EventTypeRole).toInt() == Other) {
+            row++;
+        }
     }
     refreshEventRoles(row, roles);
     return row;
