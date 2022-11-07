@@ -56,8 +56,8 @@ void LinkPreviewer::setUrl(QUrl url)
 
         connect(job, &BaseJob::success, this, [this, job]() {
             const auto json = job->jsonData();
-            m_title = json["og:title"].toString();
-            m_description = json["og:description"].toString();
+            m_title = json["og:title"].toString().trimmed();
+            m_description = json["og:description"].toString().trimmed();
             m_imageSource = json["og:image"].toString();
             m_loaded = true;
             Q_EMIT titleChanged();
