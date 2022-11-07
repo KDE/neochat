@@ -77,10 +77,14 @@ void ActionsHandler::handleMessage()
     });
 
     for (const auto &mention : *m_room->mentions()) {
+        if (mention.text.isEmpty() || mention.id.isEmpty()) {
+            continue;
+        }
         handledText = handledText.replace(mention.cursor.anchor(),
                                           mention.cursor.position() - mention.cursor.anchor(),
                                           QStringLiteral("[%1](https://matrix.to/#/%2)").arg(mention.text, mention.id));
     }
+    m_room->mentions()->clear();
 
     if (NeoChatConfig::allowQuickEdit()) {
         QRegularExpression sed("^s/([^/]*)/([^/]*)(/g)?$");
