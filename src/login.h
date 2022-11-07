@@ -23,6 +23,7 @@ class Login : public QObject
     Q_PROPERTY(bool supportsPassword READ supportsPassword NOTIFY loginFlowsChanged STORED false)
     Q_PROPERTY(QUrl ssoUrl READ ssoUrl NOTIFY ssoUrlChanged)
     Q_PROPERTY(bool isLoggingIn READ isLoggingIn NOTIFY isLoggingInChanged)
+    Q_PROPERTY(bool isLoggedIn READ isLoggedIn NOTIFY isLoggedInChanged)
 
 public:
     explicit Login(QObject *parent = nullptr);
@@ -49,6 +50,8 @@ public:
 
     bool isLoggingIn() const;
 
+    bool isLoggedIn() const;
+
     Q_INVOKABLE void login();
     Q_INVOKABLE void loginWithSso();
 
@@ -64,6 +67,7 @@ Q_SIGNALS:
     void errorOccured(QString message);
     void testingChanged();
     void isLoggingInChanged();
+    void isLoggedInChanged();
 
 private:
     void setHomeserverReachable(bool reachable);
@@ -78,4 +82,5 @@ private:
     QUrl m_ssoUrl;
     bool m_testing = false;
     bool m_isLoggingIn = false;
+    bool m_isLoggedIn = false;
 };

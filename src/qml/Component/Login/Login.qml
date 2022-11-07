@@ -49,7 +49,7 @@ LoginStep {
     }
 
     action: Kirigami.Action {
-        text: LoginHelper.testing && matrixIdField.acceptableInput ? i18n("Loading…") : i18nc("@action:button", "Continue")
+        text: LoginHelper.testing && matrixIdField.acceptableInput ? (LoginHelper.isLoggedIn ? i18n("Already logged in") : i18n("Loading…")) : i18nc("@action:button", "Continue")
         onTriggered: {
             if (LoginHelper.supportsSso && LoginHelper.supportsPassword) {
                 processed("qrc:/LoginMethod.qml");

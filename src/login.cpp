@@ -3,6 +3,12 @@
 
 #include "login.h"
 
+#ifdef QUOTIENT_07
+#include <accountregistry.h>
+#else
+#include "neochataccountregistry.h"
+#endif
+
 #include <connection.h>
 #include <qt_connection_util.h>
 
@@ -36,6 +42,12 @@ void Login::init()
         setHomeserverReachable(false);
 
         if (m_matrixId == "@") {
+            return;
+        }
+
+        m_isLoggedIn = AccountRegistry::instance().isLoggedIn(m_matrixId);
+        Q_EMIT isLoggedInChanged();
+        if (m_isLoggedIn) {
             return;
         }
 
@@ -180,4 +192,9 @@ bool Login::testing() const
 bool Login::isLoggingIn() const
 {
     return m_isLoggingIn;
+}
+
+bool Login::isLoggedIn() const
+{
+    return m_isLoggedIn;
 }
