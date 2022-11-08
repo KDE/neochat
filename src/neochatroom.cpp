@@ -304,28 +304,38 @@ QDateTime NeoChatRoom::lastActiveTime()
 QString NeoChatRoom::subtitleText()
 {
     QString subtitle = this->lastEventToString().size() == 0 ? this->topic() : this->lastEventToString();
+    static QRegularExpression blockquote("(\r\n\t|\n|\r\t|)> ");
+    static QRegularExpression heading("(\r\n\t|\n|\r\t|)\\#{1,6} ");
+    static QRegularExpression newlines("(\r\n\t|\n|\r\t)");
+    static QRegularExpression bold1("(\\*\\*|__)(?=\\S)([^\\r]*\\S)\\1");
+    static QRegularExpression bold2("(\\*|_)(?=\\S)([^\\r]*\\S)\\1");
+    static QRegularExpression strike1("~~(.*)~~");
+    static QRegularExpression strike2("~(.*)~");
+    static QRegularExpression del("<del>(.*)</del>");
+    static QRegularExpression multileLineCode("```([^```]+)```");
+    static QRegularExpression singleLinecode("`([^`]+)`");
 
     subtitle
         // replace blockquote, i.e. '> text'
-        .replace(QRegularExpression("(\r\n\t|\n|\r\t|)> "), " ")
+        .replace(blockquote, " ")
         // replace headings, i.e. "# text"
-        .replace(QRegularExpression("(\r\n\t|\n|\r\t|)\\#{1,6} "), " ")
+        .replace(heading, " ")
         // replace newlines
-        .replace(QRegularExpression("(\r\n\t|\n|\r\t)"), " ")
+        .replace(newlines, " ")
         // replace '**text**' and '__text__'
-        .replace(QRegularExpression("(\\*\\*|__)(?=\\S)([^\\r]*\\S)\\1"), "\\2")
+        .replace(bold1, "\\2")
         // replace '*text*' and '_text_'
-        .replace(QRegularExpression("(\\*|_)(?=\\S)([^\\r]*\\S)\\1"), "\\2")
+        .replace(bold2, "\\2")
         // replace '~~text~~'
-        .replace(QRegularExpression("~~(.*)~~"), "\\1")
+        .replace(strike1, "\\1")
         // replace '~text~'
-        .replace(QRegularExpression("~(.*)~"), "\\1")
+        .replace(strike2, "\\1")
         // replace '<del>text</del>'
-        .replace(QRegularExpression("<del>(.*)</del>"), "\\1")
+        .replace(del, "\\1")
         // replace '```code```'
-        .replace(QRegularExpression("```([^```]+)```"), "\\1")
+        .replace(multileLineCode, "\\1")
         // replace '`code`'
-        .replace(QRegularExpression("`([^`]+)`"), "\\1");
+        .replace(singleLinecode, "\\1");
 
     return subtitle.size() > 0 ? subtitle : QStringLiteral(" ");
 }
