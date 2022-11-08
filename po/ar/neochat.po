@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-05 00:46+0000\n"
-"PO-Revision-Date: 2022-11-01 12:28+0400\n"
+"POT-Creation-Date: 2022-11-08 00:46+0000\n"
+"PO-Revision-Date: 2022-11-07 19:05+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -300,7 +300,7 @@ msgstr "خطأ شبكي: %1"
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "فشل الولوج: رمز النفاذ غير صالحة أو سحبت"
 
-#: src/controller.cpp:380 src/login.cpp:81
+#: src/controller.cpp:380 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "فشل الولوج: %1"
@@ -350,7 +350,7 @@ msgstr "فشل إنشاء غرفة: \"%1\""
 msgid "The room id you are trying to join is not valid"
 msgstr "رقم التعريفي للغرفة التي تحاول الانضمام إليها غير صحيح"
 
-#: src/login.cpp:76 src/login.cpp:87
+#: src/login.cpp:88 src/login.cpp:99
 #, kde-format
 msgid "Network Error"
 msgstr "خطأ شبكيّ"
@@ -396,10 +396,9 @@ msgid "Client for the matrix communication protocol"
 msgstr "عميل لميفاق الاتصال ماتركس"
 
 #: src/main.cpp:248
-#, fuzzy, kde-format
-#| msgid "Supports appstream: url scheme"
+#, kde-format
 msgid "Supports matrix: url scheme"
-msgstr "يدعم مخطّط مسارات appstream:‎"
+msgstr "يدعم ماتركس:‎ مخطط الروابط"
 
 #: src/matriximageprovider.cpp:35
 #, kde-format
@@ -875,6 +874,11 @@ msgstr "أدخل معرفك لماتركس"
 #, kde-format
 msgid "Matrix ID:"
 msgstr "معرف ماتركس:"
+
+#: src/qml/Component/Login/Login.qml:52
+#, kde-format
+msgid "Already logged in"
+msgstr ""
 
 #: src/qml/Component/Login/LoginMethod.qml:14
 #, kde-format

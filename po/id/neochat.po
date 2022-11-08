@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-05 00:46+0000\n"
+"POT-Creation-Date: 2022-11-08 00:46+0000\n"
 "PO-Revision-Date: 2022-10-10 18:36+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -326,7 +326,7 @@ msgstr "Kesalahan Jaringan: %1"
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Pemasukan Gagal: Token Pengaksesan tidak absah atau dicabut"
 
-#: src/controller.cpp:380 src/login.cpp:81
+#: src/controller.cpp:380 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Pemasukan Gagal: %1"
@@ -377,7 +377,7 @@ msgstr "Pembuatan ruangan gagal: \"%1\""
 msgid "The room id you are trying to join is not valid"
 msgstr "ID ruangan yang Anda coba bergabung tidak absah"
 
-#: src/login.cpp:76 src/login.cpp:87
+#: src/login.cpp:88 src/login.cpp:99
 #, kde-format
 msgid "Network Error"
 msgstr "Kesalahan Jaringan"
@@ -912,6 +912,11 @@ msgstr "Masukkan ID Matrix Anda"
 #, kde-format
 msgid "Matrix ID:"
 msgstr "ID Matrix:"
+
+#: src/qml/Component/Login/Login.qml:52
+#, kde-format
+msgid "Already logged in"
+msgstr ""
 
 #: src/qml/Component/Login/LoginMethod.qml:14
 #, kde-format

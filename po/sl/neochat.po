@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-05 00:46+0000\n"
+"POT-Creation-Date: 2022-11-08 00:46+0000\n"
 "PO-Revision-Date: 2022-11-03 08:38+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -300,7 +300,7 @@ msgstr "Napaka omrežja: %1"
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Neuspela prijava: Žeton za dostop je neveljaven ali preklican"
 
-#: src/controller.cpp:380 src/login.cpp:81
+#: src/controller.cpp:380 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Prijava je spodletela: %1"
@@ -350,7 +350,7 @@ msgstr "Ustvarjanje sobe ni uspelo: \"%1\""
 msgid "The room id you are trying to join is not valid"
 msgstr "Identifikacija sobe, kamor se poskušate pridružiti, ni veljavna"
 
-#: src/login.cpp:76 src/login.cpp:87
+#: src/login.cpp:88 src/login.cpp:99
 #, kde-format
 msgid "Network Error"
 msgstr "Napaka omrežja"
@@ -874,6 +874,11 @@ msgstr "Vnesite vaš Matrix ID"
 #, kde-format
 msgid "Matrix ID:"
 msgstr "Matrixov ID:"
+
+#: src/qml/Component/Login/Login.qml:52
+#, kde-format
+msgid "Already logged in"
+msgstr ""
 
 #: src/qml/Component/Login/LoginMethod.qml:14
 #, kde-format

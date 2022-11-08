@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-05 00:46+0000\n"
+"POT-Creation-Date: 2022-11-08 00:46+0000\n"
 "PO-Revision-Date: 2022-11-02 13:53+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -295,7 +295,7 @@ msgstr "Erro de Rede: %1"
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Autenticação sem Sucesso: Código de Acesso inválido ou revogado"
 
-#: src/controller.cpp:380 src/login.cpp:81
+#: src/controller.cpp:380 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Autenticação sem Sucesso: %1"
@@ -347,7 +347,7 @@ msgstr "Não foi possível criar a sala: \"%1\""
 msgid "The room id you are trying to join is not valid"
 msgstr "O ID da sala a se que está a tentar ligar não é válido"
 
-#: src/login.cpp:76 src/login.cpp:87
+#: src/login.cpp:88 src/login.cpp:99
 #, kde-format
 msgid "Network Error"
 msgstr "Erro de Rede"
@@ -874,6 +874,11 @@ msgstr "Indique o seu ID do Matrix"
 #, kde-format
 msgid "Matrix ID:"
 msgstr "ID do Matrix:"
+
+#: src/qml/Component/Login/Login.qml:52
+#, kde-format
+msgid "Already logged in"
+msgstr ""
 
 #: src/qml/Component/Login/LoginMethod.qml:14
 #, kde-format

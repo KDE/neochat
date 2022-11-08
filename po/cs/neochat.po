@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-05 00:46+0000\n"
+"POT-Creation-Date: 2022-11-08 00:46+0000\n"
 "PO-Revision-Date: 2022-02-11 15:44+0100\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -306,7 +306,7 @@ msgstr "Chyba sítě: %1"
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr ""
 
-#: src/controller.cpp:380 src/login.cpp:81
+#: src/controller.cpp:380 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Přihlášení selhalo: %1"
@@ -356,7 +356,7 @@ msgstr ""
 msgid "The room id you are trying to join is not valid"
 msgstr ""
 
-#: src/login.cpp:76 src/login.cpp:87
+#: src/login.cpp:88 src/login.cpp:99
 #, kde-format
 msgid "Network Error"
 msgstr "Chyba sítě"
@@ -888,6 +888,11 @@ msgstr ""
 #: src/qml/Component/Login/Login.qml:29
 #, kde-format
 msgid "Matrix ID:"
+msgstr ""
+
+#: src/qml/Component/Login/Login.qml:52
+#, kde-format
+msgid "Already logged in"
 msgstr ""
 
 #: src/qml/Component/Login/LoginMethod.qml:14

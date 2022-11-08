@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-05 00:46+0000\n"
+"POT-Creation-Date: 2022-11-08 00:46+0000\n"
 "PO-Revision-Date: 2022-09-28 16:37+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -333,7 +333,7 @@ msgstr "Nätverksfel: %1"
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Inloggning misslyckades: Åtkomstsymbol ogiltig eller återkallad"
 
-#: src/controller.cpp:380 src/login.cpp:81
+#: src/controller.cpp:380 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Inloggning misslyckades: %1"
@@ -384,7 +384,7 @@ msgstr "Misslyckades skapa rum: \"%1\""
 msgid "The room id you are trying to join is not valid"
 msgstr "Identifikationen för rummet som du försöker gå med i är inte giltig"
 
-#: src/login.cpp:76 src/login.cpp:87
+#: src/login.cpp:88 src/login.cpp:99
 #, kde-format
 msgid "Network Error"
 msgstr "Nätverksfel"
@@ -918,6 +918,11 @@ msgstr "Ange Matrix-identifierare"
 #, kde-format
 msgid "Matrix ID:"
 msgstr "Matrix-identifierare"
+
+#: src/qml/Component/Login/Login.qml:52
+#, kde-format
+msgid "Already logged in"
+msgstr ""
 
 #: src/qml/Component/Login/LoginMethod.qml:14
 #, kde-format

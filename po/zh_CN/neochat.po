@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-05 00:46+0000\n"
+"POT-Creation-Date: 2022-11-08 00:46+0000\n"
 "PO-Revision-Date: 2022-11-06 01:07\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -298,7 +298,7 @@ msgstr ""
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr ""
 
-#: src/controller.cpp:380 src/login.cpp:81
+#: src/controller.cpp:380 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "登录失败：%1"
@@ -348,7 +348,7 @@ msgstr ""
 msgid "The room id you are trying to join is not valid"
 msgstr ""
 
-#: src/login.cpp:76 src/login.cpp:87
+#: src/login.cpp:88 src/login.cpp:99
 #, kde-format
 msgid "Network Error"
 msgstr "网络错误"
@@ -872,6 +872,11 @@ msgstr "输入您的 Matrix ID"
 #, kde-format
 msgid "Matrix ID:"
 msgstr "Matrix ID:"
+
+#: src/qml/Component/Login/Login.qml:52
+#, kde-format
+msgid "Already logged in"
+msgstr ""
 
 #: src/qml/Component/Login/LoginMethod.qml:14
 #, kde-format

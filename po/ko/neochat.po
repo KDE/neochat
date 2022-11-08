@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-05 00:46+0000\n"
+"POT-Creation-Date: 2022-11-08 00:46+0000\n"
 "PO-Revision-Date: 2022-08-09 13:27+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -324,7 +324,7 @@ msgstr "네트워크 오류: %1"
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "로그인 실패: 접근 토큰이 잘못되었거나 취소됨"
 
-#: src/controller.cpp:380 src/login.cpp:81
+#: src/controller.cpp:380 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "로그인 실패: %1"
@@ -374,7 +374,7 @@ msgstr "대화방 생성 실패: \"%1\""
 msgid "The room id you are trying to join is not valid"
 msgstr "입장하려는 대화방의 ID가 잘못됨"
 
-#: src/login.cpp:76 src/login.cpp:87
+#: src/login.cpp:88 src/login.cpp:99
 #, kde-format
 msgid "Network Error"
 msgstr "네트워크 오류"
@@ -912,6 +912,11 @@ msgstr "Matrix ID 입력"
 #, kde-format
 msgid "Matrix ID:"
 msgstr "Matrix ID:"
+
+#: src/qml/Component/Login/Login.qml:52
+#, kde-format
+msgid "Already logged in"
+msgstr ""
 
 #: src/qml/Component/Login/LoginMethod.qml:14
 #, kde-format

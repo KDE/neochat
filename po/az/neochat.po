@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-05 00:46+0000\n"
+"POT-Creation-Date: 2022-11-08 00:46+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -332,7 +332,7 @@ msgstr "Şəbəkə xətası: %1"
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Giriş baş tutmadı: Giriş Tokeni səhvdir və ya ləğv edilib"
 
-#: src/controller.cpp:380 src/login.cpp:81
+#: src/controller.cpp:380 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Giriş alınmadı: %1"
@@ -383,7 +383,7 @@ msgstr "Otaq yaradıla bilmədi: \"%1\""
 msgid "The room id you are trying to join is not valid"
 msgstr "Qoşulmağa cəhd etdiyiniz otaq İD-si doğru deyil"
 
-#: src/login.cpp:76 src/login.cpp:87
+#: src/login.cpp:88 src/login.cpp:99
 #, kde-format
 msgid "Network Error"
 msgstr "Şəbəkə xətası"
@@ -920,6 +920,11 @@ msgstr "Matrix İD-zi daxil edin"
 #, kde-format
 msgid "Matrix ID:"
 msgstr "Matrix ID:"
+
+#: src/qml/Component/Login/Login.qml:52
+#, kde-format
+msgid "Already logged in"
+msgstr ""
 
 #: src/qml/Component/Login/LoginMethod.qml:14
 #, kde-format
