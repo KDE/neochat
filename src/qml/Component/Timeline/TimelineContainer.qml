@@ -14,6 +14,8 @@ QQC2.ItemDelegate {
     default property alias innerObject : column.children
     // readonly property bool failed: marks == EventStatus.SendingFailed
 
+    readonly property bool sectionVisible: model.showSection
+
     property bool isEmote: false
     property bool cardBackground: true
     property bool isHighlighted: model.isHighlighted || isTemporaryHighlighted
@@ -55,7 +57,7 @@ QQC2.ItemDelegate {
     leftInset: Kirigami.Units.smallSpacing
     rightInset: Kirigami.Units.smallSpacing
     width: delegateMaxWidth
-    height: sectionDelegate.height + Math.max(model.showAuthor ? avatar.height : 0, bubble.implicitHeight) + loader.height + (showAuthor ? Kirigami.Units.largeSpacing : (Config.compactLayout ? 1 : Kirigami.Units.smallSpacing))
+    height: sectionDelegate.height + Math.max(model.showAuthor ? avatar.height : 0, bubble.implicitHeight) + loader.height + loader.anchors.topMargin + avatar.anchors.topMargin
     background: Rectangle {
         visible: timelineContainer.hovered
         color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.15)
@@ -110,11 +112,11 @@ QQC2.ItemDelegate {
 
     SectionDelegate {
         id: sectionDelegate
-        width: parent.width
-        anchors.left: avatar.left
-        anchors.leftMargin: Kirigami.Units.smallSpacing
-        visible: model.showSection
+        anchors.left: timelineContainer.left
+        anchors.right: timelineContainer.right
+        visible: sectionVisible
         height: visible ? implicitHeight : 0
+        labelText: model.showSection ? section : ""
     }
 
     Kirigami.Avatar {
@@ -304,10 +306,9 @@ QQC2.ItemDelegate {
             left: bubble.left
             right: parent.right
             top: bubble.bottom
-            topMargin: active && Config.compactLayout ? 0 : Kirigami.Units.smallSpacing
+            topMargin: active ? Kirigami.Units.smallSpacing : 0
         }
         height: active ? item.implicitHeight : 0
-        //Layout.bottomMargin: readMarker ? Kirigami.Units.smallSpacing : 0
         active: eventType !== MessageEventModel.State && eventType !== MessageEventModel.Notice && reaction != undefined && reaction.length > 0
         visible: active
         sourceComponent: ReactionDelegate { }

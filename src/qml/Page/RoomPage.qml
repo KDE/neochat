@@ -187,8 +187,12 @@ Kirigami.ScrollablePage {
         readonly property int largestVisibleIndex: count > 0 ? indexAt(contentX + (width / 2), contentY + height - 1) : -1
         readonly property bool isLoaded: page.width * page.height > 10
 
+        // Spacing needs to be zero or the top sectionLabel overlay will be disrupted.
+        // This is because itemAt returns null in the spaces.
+        // All spacing should be handled by the delegates themselves
         spacing: 0
-
+        // Ensures that the top item is not covered by sectionBanner if the page is scrolled all the way up
+        // topMargin: sectionBanner.height
         verticalLayoutDirection: ListView.BottomToTop
         highlightMoveDuration: 500
 
@@ -225,6 +229,40 @@ Kirigami.ScrollablePage {
         } else if (!atYEnd) {
             hasScrolledUpBefore = true;
         }
+
+        // Not rendered because the sections are part of the TimelineContainer.qml, this is only so that items have the section property available for use by sectionBanner.
+        // This is due to the fact that the ListView verticalLayout is BottomToTop.
+        // This also flips the sections which would appear at the bottom but for a timeline they still need to be at the top (bottom from the qml perspective).
+        // There is currently no option to put section headings at the bottom in qml.
+        section.property: "section"
+
+        readonly property var sectionBannerItem: contentHeight >= height ? itemAtIndex(sectionBannerIndex()) : undefined
+
+        function sectionBannerIndex() {
+            let center = messageListView.x + messageListView.width / 2;
+            let yStart = messageListView.y + messageListView.contentY;
+            let index = -1
+            let i = 0
+            while (index === -1 && i < 100) {
+                index = messageListView.indexAt(center, yStart + i);
+                i++;
+            }
+            return index
+        }
+
+        footer: SectionDelegate {
+            id: sectionBanner
+
+            anchors.left: parent.left
+            anchors.leftMargin: messageListView.sectionBannerItem ? messageListView.sectionBannerItem.x : 0
+            anchors.right: parent.right
+
+            maxWidth: messageListView.sectionBannerItem ? messageListView.sectionBannerItem.width - Kirigami.Units.largeSpacing * 2 : 0
+            z: 3
+            visible: messageListView.sectionBannerItem && messageListView.sectionBannerItem.ListView.section != ""
+            labelText: messageListView.sectionBannerItem ? messageListView.sectionBannerItem.ListView.section : ""
+        }
+        footerPositioning: ListView.OverlayHeader
 
         QQC2.Popup {
             anchors.centerIn: parent
@@ -589,7 +627,7 @@ Kirigami.ScrollablePage {
         let center = messageListView.x + messageListView.width / 2;
         let index = -1
         let i = 0
-        while(index === -1 && i < 100) {
+        while (index === -1 && i < 100) {
             index = messageListView.indexAt(center, messageListView.y + messageListView.contentY + i);
             i++;
         }
@@ -600,7 +638,7 @@ Kirigami.ScrollablePage {
         let center = messageListView.x + messageListView.width / 2;
         let index = -1
         let i = 0
-        while(index === -1 && i < 100) {
+        while (index === -1 && i < 100) {
             index = messageListView.indexAt(center, messageListView.y + messageListView.contentY + messageListView.height - i);
             i++
         }

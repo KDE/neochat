@@ -11,13 +11,14 @@ import org.kde.neochat 1.0
 
 Control {
     id: stateDelegate
+
+    readonly property bool sectionVisible: model.showSection
+
     // extraWidth defines how the delegate can grow after the listView gets very wide
     readonly property int extraWidth: messageListView.width >= Kirigami.Units.gridUnit * 46 ? Math.min((messageListView.width - Kirigami.Units.gridUnit * 46), Kirigami.Units.gridUnit * 20) : 0
     readonly property int delegateMaxWidth: Config.compactLayout ? messageListView.width: Math.min(messageListView.width, Kirigami.Units.gridUnit * 40 + extraWidth)
 
     width: delegateMaxWidth
-//     anchors.leftMargin: Kirigami.Units.largeSpacing
-//     anchors.rightMargin: Kirigami.Units.largeSpacing
 
     state: Config.compactLayout ? "alignLeft" : "alignCenter"
     // Align left when in compact mode and center when using bubbles
@@ -46,56 +47,60 @@ Control {
         }
     ]
 
-    height: sectionDelegate.height + rowLayout.height
-    SectionDelegate {
-        id: sectionDelegate
+    height: columnLayout.implicitHeight + columnLayout.anchors.topMargin
+
+    ColumnLayout {
+        id: columnLayout
+        spacing: sectionVisible ? Kirigami.Units.largeSpacing : 0
         anchors.top: parent.top
+        anchors.topMargin: sectionVisible ? 0 : Kirigami.Units.largeSpacing
         anchors.left: parent.left
         anchors.right: parent.right
-        visible: model.showSection
-        height: visible ? implicitHeight : 0
-    }
 
-    RowLayout {
-        id: rowLayout
-        height: label.contentHeight
-        anchors.bottom: parent.bottom
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.leftMargin: Kirigami.Units.gridUnit * 1.5 + Kirigami.Units.smallSpacing + (Config.compactLayout ? Kirigami.Units.largeSpacing * 1.25 : 0)
-        anchors.rightMargin: Kirigami.Units.largeSpacing
-
-        Kirigami.Avatar {
-            id: icon
-            Layout.preferredWidth: Kirigami.Units.iconSizes.small
-            Layout.preferredHeight: Kirigami.Units.iconSizes.small
-            Layout.alignment: Qt.AlignTop
-
-            name: model.displayNameForInitials
-            source: author.avatarMediaId ? ("image://mxc/" + author.avatarMediaId) : ""
-            color: author.color
-
-            Component {
-                id: userDetailDialog
-
-                UserDetailDialog {}
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {room: currentRoom, user: author.object, displayName: author.displayName, avatarMediaId: author.avatarMediaId, avatarUrl: author.avatarUrl}).open()
-            }
+        SectionDelegate {
+            id: sectionDelegate
+            Layout.fillWidth: true
+            visible: sectionVisible
+            labelText: sectionVisible ? section : ""
         }
 
-        Label {
-            id: label
-            Layout.alignment: Qt.AlignVCenter
+        RowLayout {
+            id: rowLayout
+            implicitHeight: label.contentHeight
             Layout.fillWidth: true
-            Layout.preferredHeight: icon.height
-            wrapMode: Text.WordWrap
-            textFormat: Text.RichText
-            text: `<style>a {text-decoration: none;}</style><a href="https://matrix.to/#/${author.id}" style="color: ${author.color}">${model.authorDisplayName}</a> ${aggregateDisplay}`
-            onLinkActivated: userDetailDialog.createObject(ApplicationWindow.overlay, {room: currentRoom, user: author.object, displayName: author.displayName, avatarMediaId: author.avatarMediaId, avatarUrl: author.avatarUrl}).open()
+            Layout.leftMargin: Kirigami.Units.gridUnit * 1.5 + Kirigami.Units.smallSpacing * 1.5 + (Config.compactLayout ? Kirigami.Units.largeSpacing * 1.25 : 0)
+            Layout.rightMargin: Kirigami.Units.largeSpacing
+
+            Kirigami.Avatar {
+                id: icon
+                Layout.preferredWidth: Kirigami.Units.iconSizes.small
+                Layout.preferredHeight: Kirigami.Units.iconSizes.small
+
+                name: author.displayName
+                source: author.avatarMediaId ? ("image://mxc/" + author.avatarMediaId) : ""
+                color: author.color
+
+                Component {
+                    id: userDetailDialog
+
+                    UserDetailDialog {}
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: userDetailDialog.createObject(ApplicationWindow.overlay, {room: currentRoom, user: author.object, displayName: author.displayName, avatarMediaId: author.avatarMediaId, avatarUrl: author.avatarUrl}).open()
+                }
+            }
+
+            Label {
+                id: label
+                Layout.alignment: Qt.AlignVCenter
+                Layout.fillWidth: true
+                wrapMode: Text.WordWrap
+                textFormat: Text.RichText
+                text: `<style>a {text-decoration: none;}</style><a href="https://matrix.to/#/${author.id}" style="color: ${author.color}">${currentRoom.htmlSafeMemberName(author.id)}</a> ${aggregateDisplay}`
+                onLinkActivated: userDetailDialog.createObject(ApplicationWindow.overlay, {room: currentRoom, user: author.object, displayName: author.displayName, avatarMediaId: author.avatarMediaId, avatarUrl: author.avatarUrl}).open()
+            }
         }
     }
 }
