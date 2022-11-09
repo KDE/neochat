@@ -125,6 +125,7 @@ if(ANDROID)
         "user-others"
         "media-playback-pause"
         "media-playback-start"
+        "media-playback-stop"
         "go-previous"
         "go-up"
         "go-down"
@@ -150,6 +151,7 @@ if(ANDROID)
         "image-rotate-left-symbolic"
         "image-rotate-right-symbolic"
         "channel-insecure-symbolic"
+        "download"
     )
 else()
     target_link_libraries(neochat PUBLIC Qt::Widgets KF5::KIOWidgets)
