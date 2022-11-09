@@ -172,6 +172,9 @@ void RoomListModel::connectRoomSignals(NeoChatRoom *room)
     connect(room, &Room::addedMessages, this, [this, room] {
         refresh(room, {LastEventRole, SubtitleTextRole});
     });
+    connect(room, &Room::pendingEventMerged, this, [this, room] {
+        refresh(room, {LastEventRole, SubtitleTextRole});
+    });
 #ifndef QUOTIENT_07
     connect(room, &Room::notificationCountChanged, this, &RoomListModel::handleNotifications);
 #endif
