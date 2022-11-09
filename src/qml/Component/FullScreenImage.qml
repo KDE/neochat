@@ -26,6 +26,8 @@ Popup {
     padding: 0
     background: null
 
+    Keys.onBackPressed: root.close()
+
     ColumnLayout {
         anchors.fill: parent
         spacing: Kirigami.Units.largeSpacing
