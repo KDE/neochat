@@ -63,9 +63,9 @@ void ActionsHandler::handleMessage()
 {
     checkEffects();
     if (!m_room->chatBoxAttachmentPath().isEmpty()) {
-        auto path = m_room->chatBoxAttachmentPath();
-        path = path.mid(path.lastIndexOf('/') + 1);
-        m_room->uploadFile(m_room->chatBoxAttachmentPath(), m_room->chatBoxText().isEmpty() ? path : m_room->chatBoxText());
+        QUrl url(m_room->chatBoxAttachmentPath());
+        auto path = url.isLocalFile() ? url.toLocalFile() : url.toString();
+        m_room->uploadFile(path, m_room->chatBoxText().isEmpty() ? path.mid(path.lastIndexOf('/') + 1) : m_room->chatBoxText());
         m_room->setChatBoxAttachmentPath({});
         m_room->setChatBoxText({});
         return;
