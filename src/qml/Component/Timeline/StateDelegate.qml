@@ -98,7 +98,7 @@ Control {
                 Layout.fillWidth: true
                 wrapMode: Text.WordWrap
                 textFormat: Text.RichText
-                text: `<style>a {text-decoration: none;}</style><a href="https://matrix.to/#/${author.id}" style="color: ${author.color}">${currentRoom.htmlSafeMemberName(author.id)}</a> ${aggregateDisplay}`
+                text: `<style>a {text-decoration: none;}</style><a href="https://matrix.to/#/${author.id}" style="color: ${author.color}">${model.authorDisplayName}</a> ${aggregateDisplay}`
                 onLinkActivated: RoomManager.openResource(link)
             }
         }
