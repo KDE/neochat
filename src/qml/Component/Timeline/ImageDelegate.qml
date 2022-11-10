@@ -29,11 +29,13 @@ TimelineContainer {
     readonly property var info: content.info
     readonly property string mediaId: isThumbnail ? content.thumbnailMediaId : content.mediaId
 
+    readonly property var maxWidth: Kirigami.Units.gridUnit * 30
+
     innerObject: Image {
         id: img
 
-        Layout.maximumWidth: imageDelegate.contentMaxWidth
-        Layout.maximumHeight: imageDelegate.contentMaxWidth / sourceSize.width * sourceSize.height
+        Layout.maximumWidth: Math.min(imageDelegate.contentMaxWidth, imageDelegate.maxWidth)
+        Layout.maximumHeight: Math.min(imageDelegate.contentMaxWidth / sourceSize.width * sourceSize.height, imageDelegate.maxWidth / sourceSize.width * sourceSize.height)
         Layout.preferredWidth: imageDelegate.info.w > 0 ? imageDelegate.info.w : sourceSize.width
         Layout.preferredHeight: imageDelegate.info.h > 0 ? imageDelegate.info.h : sourceSize.height
         source: model.mediaUrl
