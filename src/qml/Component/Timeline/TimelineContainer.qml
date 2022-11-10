@@ -316,6 +316,7 @@ QQC2.ItemDelegate {
 
     TapHandler {
         acceptedButtons: Qt.RightButton
+        acceptedDevices: PointerDevice.Mouse
         onTapped: timelineContainer.openContextMenu()
     }
 

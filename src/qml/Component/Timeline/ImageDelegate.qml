@@ -88,7 +88,6 @@ TimelineContainer {
 
         TapHandler {
             acceptedButtons: Qt.LeftButton
-            onLongPressed: openFileContext(model, parent)
             onTapped: {
                 img.ToolTip.hide()
                 fullScreenImage.open()
