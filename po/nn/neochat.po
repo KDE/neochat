@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-05 00:46+0000\n"
+"POT-Creation-Date: 2022-11-09 00:47+0000\n"
 "PO-Revision-Date: 2021-12-15 11:17+0100\n"
 "Last-Translator: Oystein Steffensen-Alvaervik <ystein@posteo.net>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -298,7 +298,7 @@ msgstr ""
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr ""
 
-#: src/controller.cpp:380 src/login.cpp:81
+#: src/controller.cpp:380 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Feil ved innlogging: %1"
@@ -348,7 +348,7 @@ msgstr "Feil ved romregistrering: «%1»"
 msgid "The room id you are trying to join is not valid"
 msgstr "Rom-ID-en du prøver å bruka, er ikkje gyldig"
 
-#: src/login.cpp:76 src/login.cpp:87
+#: src/login.cpp:88 src/login.cpp:99
 #, kde-format
 msgid "Network Error"
 msgstr "Nettverksfeil"
@@ -681,7 +681,7 @@ msgstr "Opna NeoChat i dette rommet"
 #: src/notificationsmanager.cpp:74
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:500
+#: src/qml/Page/RoomPage.qml:538
 #, kde-format
 msgid "Reply"
 msgstr "Svar"
@@ -718,7 +718,7 @@ msgstr "Vedlegg:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:159
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:488
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:526
 #, kde-format
 msgid "Edit"
 msgstr "Rediger"
@@ -873,6 +873,11 @@ msgstr "Skriv inn Matrix-ID"
 #, kde-format
 msgid "Matrix ID:"
 msgstr "Matrix-ID:"
+
+#: src/qml/Component/Login/Login.qml:52
+#, kde-format
+msgid "Already logged in"
+msgstr ""
 
 #: src/qml/Component/Login/LoginMethod.qml:14
 #, kde-format
@@ -1883,32 +1888,32 @@ msgstr "Vil du godta invitasjonen?"
 msgid "Reject"
 msgstr "Avvis"
 
-#: src/qml/Page/RoomPage.qml:243
+#: src/qml/Page/RoomPage.qml:281
 #, kde-format
 msgid "Choose local file"
 msgstr "Vel lokal fil"
 
-#: src/qml/Page/RoomPage.qml:270
+#: src/qml/Page/RoomPage.qml:308
 #, kde-format
 msgid "Clipboard image"
 msgstr "Utklippstavle-bilete"
 
-#: src/qml/Page/RoomPage.qml:317
+#: src/qml/Page/RoomPage.qml:355
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Gå til første ulesne melding"
 
-#: src/qml/Page/RoomPage.qml:340
+#: src/qml/Page/RoomPage.qml:378
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Gå til nyaste melding"
 
-#: src/qml/Page/RoomPage.qml:364
+#: src/qml/Page/RoomPage.qml:402
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Dra element her for å dela dei"
 
-#: src/qml/Page/RoomPage.qml:396
+#: src/qml/Page/RoomPage.qml:434
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -1916,12 +1921,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 skriv"
 msgstr[1] "%2 skriv"
 
-#: src/qml/Page/RoomPage.qml:468
+#: src/qml/Page/RoomPage.qml:506
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr ""
 
-#: src/qml/Page/RoomPage.qml:474
+#: src/qml/Page/RoomPage.qml:512
 #, kde-format
 msgid "React"
 msgstr "Reager"
