@@ -541,6 +541,9 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                         text += i18nc("their refers to a singular user", "updated their avatar");
                     }
                 }
+                if (text.isEmpty()) {
+                    text = i18nc("<user> changed nothing", "changed nothing");
+                }
                 return text;
             }
             case MembershipType::Leave:
