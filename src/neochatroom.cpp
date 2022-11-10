@@ -489,6 +489,8 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
 #endif
                 }
             }
+            subjectName = QStringLiteral("<a href=\"https://matrix.to/#/%1\" style=\"color: %2\">%3</a>")
+                              .arg(e.userId(), static_cast<NeoChatUser *>(user(e.userId()))->color().name(), subjectName);
 
             // The below code assumes senderName output in AuthorRole
             switch (e.membership()) {
