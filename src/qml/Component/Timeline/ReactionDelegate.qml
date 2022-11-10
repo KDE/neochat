@@ -53,7 +53,7 @@ Flow {
                             text += i18nc("Separate the usernames of users", " and ")
                         }
                     }
-                    text += modelData.authors[i].displayName
+                    text += currentRoom.htmlSafeMemberName(modelData.authors[i].id)
                 }
                 if (modelData.authors.length > 3) {
                     text += i18ncp("%1 is the number of other users", " and %1 other", " and %1 others", modelData.authors.length - 3)
