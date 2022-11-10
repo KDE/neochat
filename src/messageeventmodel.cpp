@@ -61,6 +61,8 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[VerifiedRole] = "verified";
     roles[DisplayNameForInitialsRole] = "displayNameForInitials";
     roles[AuthorDisplayNameRole] = "authorDisplayName";
+    roles[IsNameChangeRole] = "isNameChange";
+    roles[IsAvatarChangeRole] = "isAvatarChange";
     return roles;
 }
 
@@ -851,6 +853,22 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             auto author = static_cast<NeoChatUser *>(isPending ? m_currentRoom->localUser() : m_currentRoom->user(evt.senderId()));
             return m_currentRoom->htmlSafeMemberName(author->id());
         }
+    }
+
+    if (role == IsNameChangeRole) {
+        auto roomMemberEvent = eventCast<const RoomMemberEvent>(&evt);
+        if (roomMemberEvent) {
+            return roomMemberEvent->isRename();
+        }
+        return false;
+    }
+
+    if (role == IsAvatarChangeRole) {
+        auto roomMemberEvent = eventCast<const RoomMemberEvent>(&evt);
+        if (roomMemberEvent) {
+            return roomMemberEvent->isAvatarUpdate();
+        }
+        return false;
     }
 
     return {};

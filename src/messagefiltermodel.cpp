@@ -15,6 +15,16 @@ MessageFilterModel::MessageFilterModel(QObject *parent)
         beginResetModel();
         endResetModel();
     });
+
+    connect(NeoChatConfig::self(), &NeoChatConfig::ShowRenameChanged, this, [this] {
+        beginResetModel();
+        endResetModel();
+    });
+
+    connect(NeoChatConfig::self(), &NeoChatConfig::ShowAvatarUpdateChanged, this, [this] {
+        beginResetModel();
+        endResetModel();
+    });
 }
 
 bool MessageFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
@@ -22,6 +32,13 @@ bool MessageFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sour
     const QModelIndex index = sourceModel()->index(sourceRow, 0, sourceParent);
 
     const int specialMarks = index.data(MessageEventModel::SpecialMarksRole).toInt();
+    if (index.data(MessageEventModel::IsNameChangeRole).toBool() && !NeoChatConfig::self()->showRename()) {
+        return false;
+    }
+
+    if (index.data(MessageEventModel::IsAvatarChangeRole).toBool() && !NeoChatConfig::self()->showAvatarUpdate()) {
+        return false;
+    }
 
     if (specialMarks == EventStatus::Hidden || specialMarks == EventStatus::Replaced) {
         return false;

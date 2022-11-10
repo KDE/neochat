@@ -68,6 +68,8 @@ public:
         DisplayNameForInitialsRole,
         // The displayname for the event's sender; for name change events, the old displayname
         AuthorDisplayNameRole,
+        IsNameChangeRole,
+        IsAvatarChangeRole,
         LastRole, // Keep this last
     };
     Q_ENUM(EventRoles)

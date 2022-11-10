@@ -518,14 +518,14 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                     return text;
                 }
                 // Part 2: profile changes of joined members
-                if (e.isRename() && NeoChatConfig::self()->showRename()) {
+                if (e.isRename()) {
                     if (e.displayName().isEmpty()) {
                         text = i18nc("their refers to a singular user", "cleared their display name");
                     } else {
                         text = i18nc("their refers to a singular user", "changed their display name to %1", e.displayName().toHtmlEscaped());
                     }
                 }
-                if (e.isAvatarUpdate() && NeoChatConfig::self()->showAvatarUpdate()) {
+                if (e.isAvatarUpdate()) {
                     if (!text.isEmpty()) {
                         text += i18n(" and ");
                     }
