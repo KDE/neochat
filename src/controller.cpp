@@ -720,8 +720,11 @@ void Controller::openOrCreateDirectChat(NeoChatUser *user)
     const auto existing = activeConnection()->directChats();
 
     if (existing.contains(user)) {
-        RoomManager::instance().enterRoom(static_cast<NeoChatRoom *>(activeConnection()->room(existing.value(user))));
-        return;
+        const auto &room = static_cast<NeoChatRoom *>(activeConnection()->room(existing.value(user)));
+        if (room) {
+            RoomManager::instance().enterRoom(room);
+            return;
+        }
     }
     activeConnection()->requestDirectChat(user);
 }
