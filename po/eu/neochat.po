@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-09 00:47+0000\n"
+"POT-Creation-Date: 2022-11-11 00:45+0000\n"
 "PO-Revision-Date: 2022-11-08 07:07+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -411,37 +411,37 @@ msgstr "«%1» ID euskarriak ez du jarraitzen zerbitzari/mediaId eredua"
 msgid "Image request has been cancelled"
 msgstr "Irudi eskaera bertan behera utzi da"
 
-#: src/messageeventmodel.cpp:333
+#: src/messageeventmodel.cpp:335
 #, kde-format
 msgid "Today"
 msgstr "Gaur"
 
-#: src/messageeventmodel.cpp:336
+#: src/messageeventmodel.cpp:338
 #, kde-format
 msgid "Yesterday"
 msgstr "Atzo"
 
-#: src/messageeventmodel.cpp:339
+#: src/messageeventmodel.cpp:341
 #, kde-format
 msgid "The day before yesterday"
 msgstr "Herenegun"
 
-#: src/messageeventmodel.cpp:441
+#: src/messageeventmodel.cpp:443
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Mezu hau ezabatu egin da]</i>"
 
-#: src/messageeventmodel.cpp:442
+#: src/messageeventmodel.cpp:444
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Mezu hau ezabatu egin da: %1]</i>"
 
-#: src/messageeventmodel.cpp:520
+#: src/messageeventmodel.cpp:522
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[ERREDAKZIO LANA DU]"
 
-#: src/messageeventmodel.cpp:520
+#: src/messageeventmodel.cpp:522
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[ERREDAKZIOAK LANA DU: %1]"
@@ -451,222 +451,228 @@ msgstr "[ERREDAKZIOAK LANA DU: %1]"
 msgid "a file"
 msgstr "fitxategi bat"
 
-#: src/neochatroom.cpp:497
+#: src/neochatroom.cpp:499
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "%1 gelara berriz gonbidatua"
 
-#: src/neochatroom.cpp:499
+#: src/neochatroom.cpp:501
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:508
+#: src/neochatroom.cpp:510
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "gelara batu da (errepikatuta)"
 
-#: src/neochatroom.cpp:510
+#: src/neochatroom.cpp:512
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "%1 gelara gonbidatu du"
 
-#: src/neochatroom.cpp:510
+#: src/neochatroom.cpp:512
 #, kde-format
 msgid "joined the room"
 msgstr "gelara batu da"
 
-#: src/neochatroom.cpp:514
+#: src/neochatroom.cpp:516
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:521
+#: src/neochatroom.cpp:523
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "azaldutako bere izena garbitu du"
 
-#: src/neochatroom.cpp:523
+#: src/neochatroom.cpp:525
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "azaldutako bere izena «%1»(e)ra aldatu du"
 
-#: src/neochatroom.cpp:528
+#: src/neochatroom.cpp:530
 #, kde-format
 msgid " and "
 msgstr " eta "
 
-#: src/neochatroom.cpp:531
+#: src/neochatroom.cpp:533
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "bere abatarra garbitu du"
 
-#: src/neochatroom.cpp:537
+#: src/neochatroom.cpp:539
 #, kde-format
 msgid "set an avatar"
 msgstr "ezarri abatar bat"
 
-#: src/neochatroom.cpp:539
+#: src/neochatroom.cpp:541
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "bere abatarra eguneratu du"
 
-#: src/neochatroom.cpp:546
+#: src/neochatroom.cpp:545
+#, kde-format
+msgctxt "<user> changed nothing"
+msgid "changed nothing"
+msgstr ""
+
+#: src/neochatroom.cpp:551
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "%1(r)en gonbita erretiratu du"
 
-#: src/neochatroom.cpp:546
+#: src/neochatroom.cpp:551
 #, kde-format
 msgid "rejected the invitation"
 msgstr "gonbidapena errefusatu du"
 
-#: src/neochatroom.cpp:550
+#: src/neochatroom.cpp:555
 #, kde-format
 msgid "unbanned %1"
 msgstr "%1(e)ri debekua kendu zaio"
 
-#: src/neochatroom.cpp:550
+#: src/neochatroom.cpp:555
 #, kde-format
 msgid "self-unbanned"
 msgstr "bere buruari debekua kenduta"
 
-#: src/neochatroom.cpp:553
+#: src/neochatroom.cpp:558
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "%1 gelatik kanporatu du: %2"
 
-#: src/neochatroom.cpp:554
+#: src/neochatroom.cpp:559
 #, kde-format
 msgid "left the room"
 msgstr "gela utzi du"
 
-#: src/neochatroom.cpp:558
+#: src/neochatroom.cpp:563
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "%1(e)ri gelan sartzea debekatu zaio"
 
-#: src/neochatroom.cpp:560
+#: src/neochatroom.cpp:565
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "%1 gela honetan sartzeko debekua: %2"
 
-#: src/neochatroom.cpp:563
+#: src/neochatroom.cpp:568
 #, kde-format
 msgid "self-banned from the room"
 msgstr "bere buruari gela honetara sartzeko debekua ezarrita"
 
-#: src/neochatroom.cpp:566
+#: src/neochatroom.cpp:571
 #, kde-format
 msgid "requested an invite"
 msgstr "gonbidapen bat eskatu du"
 
-#: src/neochatroom.cpp:569
+#: src/neochatroom.cpp:574
 #, kde-format
 msgid "made something unknown"
 msgstr "zerbait ezezaguna egin du"
 
-#: src/neochatroom.cpp:572
+#: src/neochatroom.cpp:577
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "gelaren ezizen nagusia garbitu da"
 
-#: src/neochatroom.cpp:572
+#: src/neochatroom.cpp:577
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "ezarri gelako ezizen nagusia honetara: %1"
 
-#: src/neochatroom.cpp:575
+#: src/neochatroom.cpp:580
 #, kde-format
 msgid "cleared the room name"
 msgstr "gelako izena garbitu da"
 
-#: src/neochatroom.cpp:575
+#: src/neochatroom.cpp:580
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "ezarri gelaren izana honetara: %1"
 
-#: src/neochatroom.cpp:578
+#: src/neochatroom.cpp:583
 #, kde-format
 msgid "cleared the topic"
 msgstr "gaia garbitu da"
 
-#: src/neochatroom.cpp:578
+#: src/neochatroom.cpp:583
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "ezarri gai honetara: %1"
 
-#: src/neochatroom.cpp:581
+#: src/neochatroom.cpp:586
 #, kde-format
 msgid "changed the room avatar"
 msgstr "gelako abatarra aldatu da"
 
-#: src/neochatroom.cpp:584
+#: src/neochatroom.cpp:589
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "muturren arteko zifratzea aktibatu da"
 
-#: src/neochatroom.cpp:587
+#: src/neochatroom.cpp:592
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "gela %1 bertsiora bertsio-berritu da"
 
-#: src/neochatroom.cpp:588
+#: src/neochatroom.cpp:593
 #, kde-format
 msgid "created the room, version %1"
 msgstr "gela sortu da, %1 bertsioa"
 
-#: src/neochatroom.cpp:591
+#: src/neochatroom.cpp:596
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "gela honetako ahalmen mailak aldatu dira"
 
-#: src/neochatroom.cpp:595
+#: src/neochatroom.cpp:600
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr ""
 "gela honetarako zerbitzarirako sarrera-kontroleko zerrendak aldatu zituen"
 
-#: src/neochatroom.cpp:599
+#: src/neochatroom.cpp:604
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "trepeta %1 gehitu da"
 
-#: src/neochatroom.cpp:602
+#: src/neochatroom.cpp:607
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "trepeta %1 kendu da"
 
-#: src/neochatroom.cpp:604
+#: src/neochatroom.cpp:609
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "trepeta %1 konfiguratu da"
 
-#: src/neochatroom.cpp:606
+#: src/neochatroom.cpp:611
 #, kde-format
 msgid "updated %1 state"
 msgstr "%1 egoera eguneratu da"
 
-#: src/neochatroom.cpp:607
+#: src/neochatroom.cpp:612
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "%2(r)en %1 egoera eguneratu da"
 
-#: src/neochatroom.cpp:609
+#: src/neochatroom.cpp:614
 #, kde-format
 msgid "Unknown event"
 msgstr "Gertaera ezezaguna"
 
-#: src/neochatroom.cpp:1083 src/neochatroom.cpp:1084
+#: src/neochatroom.cpp:1088 src/neochatroom.cpp:1089
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Txosten bidalketa arrakastatsua."
