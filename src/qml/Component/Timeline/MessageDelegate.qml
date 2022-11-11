@@ -16,9 +16,6 @@ TimelineContainer {
     property bool isEmote: false
     onOpenContextMenu: openMessageContext(model, label.selectedText, Controller.plainText(label.textDocument))
 
-    onReplyClicked: ListView.view.goToEvent(eventID)
-    hoverComponent: hoverActions
-
     innerObject: ColumnLayout {
         Layout.maximumWidth: messageDelegate.contentMaxWidth
         RichLabel {
@@ -29,7 +26,6 @@ TimelineContainer {
         Loader {
             id: linkPreviewLoader
             Layout.fillWidth: true
-            height: active ? item.implicitHeight : 0
             active: !currentRoom.usesEncryption && model.display && model.display.includes("http")
             visible: Config.showLinkPreview && active
             sourceComponent: LinkPreviewDelegate {

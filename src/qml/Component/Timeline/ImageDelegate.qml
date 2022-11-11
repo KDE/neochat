@@ -13,9 +13,6 @@ import org.kde.neochat 1.0
 TimelineContainer {
     id: imageDelegate
 
-    onReplyClicked: ListView.view.goToEvent(eventID)
-    hoverComponent: hoverActions
-
     onOpenContextMenu: openFileContext(model, imageDelegate)
 
     property var content: model.content

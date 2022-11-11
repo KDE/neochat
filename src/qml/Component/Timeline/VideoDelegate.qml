@@ -14,9 +14,6 @@ import org.kde.neochat 1.0
 TimelineContainer {
     id: videoDelegate
 
-    onReplyClicked: ListView.view.goToEvent(eventID)
-    hoverComponent: hoverActions
-
     property bool playOnFinished: false
     readonly property bool downloaded: progressInfo && progressInfo.completed
 

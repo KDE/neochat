@@ -13,15 +13,13 @@ import org.kde.neochat 1.0
 TimelineContainer {
     id: audioDelegate
 
-    onReplyClicked: ListView.view.goToEvent(eventID)
-
     onOpenContextMenu: openFileContext(model, audioDelegate)
 
     readonly property bool downloaded: model.progressInfo && model.progressInfo.completed
     onDownloadedChanged: audio.play()
 
-    hoverComponent: hoverActions
     innerObject: ColumnLayout {
+        Layout.fillWidth: true
         Layout.maximumWidth: audioDelegate.contentMaxWidth
 
         Audio {

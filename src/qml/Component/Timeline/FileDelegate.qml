@@ -13,9 +13,6 @@ import org.kde.neochat 1.0
 TimelineContainer {
     id: fileDelegate
 
-    onReplyClicked: ListView.view.goToEvent(eventID)
-    hoverComponent: hoverActions
-
     onOpenContextMenu: openFileContext(model, fileDelegate)
 
     readonly property bool downloaded: progressInfo && progressInfo.completed

@@ -463,6 +463,7 @@ Kirigami.ScrollablePage {
             property var bubble: null
             property var hovered: bubble && bubble.hovered
             property var visibleDelayed: (hovered || hoverHandler.hovered) && !Kirigami.Settings.isMobile
+            property var updateFunction
             onVisibleDelayedChanged: if (visibleDelayed) {
                 visible = true;
             } else {
@@ -481,8 +482,6 @@ Kirigami.ScrollablePage {
             y: bubble ? bubble.mapToItem(parent, 0, 0).y - hoverActions.childHeight + Kirigami.Units.smallSpacing: 0;
 
             visible: false
-
-            property var updateFunction
 
             property alias childWidth: hoverActionsRow.width
             property alias childHeight: hoverActionsRow.height
