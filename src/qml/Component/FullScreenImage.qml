@@ -204,7 +204,7 @@ Popup {
             Layout.bottomMargin: Kirigami.Units.largeSpacing
             clip: true
 
-            Image {
+            AnimatedImage {
                 id: image
 
                 property var scaleFactor: 1

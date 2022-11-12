@@ -28,7 +28,7 @@ TimelineContainer {
 
     readonly property var maxWidth: Kirigami.Units.gridUnit * 30
 
-    innerObject: Image {
+    innerObject: AnimatedImage {
         id: img
 
         Layout.maximumWidth: Math.min(imageDelegate.contentMaxWidth, imageDelegate.maxWidth)
@@ -87,6 +87,7 @@ TimelineContainer {
             acceptedButtons: Qt.LeftButton
             onTapped: {
                 img.ToolTip.hide()
+                img.paused = true
                 fullScreenImage.open()
             }
         }
@@ -99,6 +100,8 @@ TimelineContainer {
             imageWidth: content.info.w
             imageHeight: content.info.h
             modelData: model
+
+            onClosed: img.paused = false
         }
 
         function downloadAndOpen() {
