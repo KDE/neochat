@@ -72,12 +72,6 @@ Kirigami.OverlaySheet {
                     text: room.htmlSafeMemberName(user.id)
                 }
 
-                QQC2.Label {
-                    Layout.fillWidth: true
-
-                    text: i18n("Online")
-                    color: Kirigami.Theme.disabledTextColor
-                }
                 Kirigami.Heading {
                     level: 5
                     text: user.id
