@@ -304,16 +304,16 @@ QDateTime NeoChatRoom::lastActiveTime()
 QString NeoChatRoom::subtitleText()
 {
     QString subtitle = this->lastEventToString().size() == 0 ? this->topic() : this->lastEventToString();
-    static QRegularExpression blockquote("(\r\n\t|\n|\r\t|)> ");
-    static QRegularExpression heading("(\r\n\t|\n|\r\t|)\\#{1,6} ");
-    static QRegularExpression newlines("(\r\n\t|\n|\r\t)");
-    static QRegularExpression bold1("(\\*\\*|__)(?=\\S)([^\\r]*\\S)\\1");
-    static QRegularExpression bold2("(\\*|_)(?=\\S)([^\\r]*\\S)\\1");
-    static QRegularExpression strike1("~~(.*)~~");
-    static QRegularExpression strike2("~(.*)~");
-    static QRegularExpression del("<del>(.*)</del>");
-    static QRegularExpression multileLineCode("```([^```]+)```");
-    static QRegularExpression singleLinecode("`([^`]+)`");
+    static const QRegularExpression blockquote("(\r\n\t|\n|\r\t|)> ");
+    static const QRegularExpression heading("(\r\n\t|\n|\r\t|)\\#{1,6} ");
+    static const QRegularExpression newlines("(\r\n\t|\n|\r\t)");
+    static const QRegularExpression bold1("(\\*\\*|__)(?=\\S)([^\\r]*\\S)\\1");
+    static const QRegularExpression bold2("(\\*|_)(?=\\S)([^\\r]*\\S)\\1");
+    static const QRegularExpression strike1("~~(.*)~~");
+    static const QRegularExpression strike2("~(.*)~");
+    static const QRegularExpression del("<del>(.*)</del>");
+    static const QRegularExpression multileLineCode("```([^```]+)```");
+    static const QRegularExpression singleLinecode("`([^`]+)`");
 
     subtitle
         // replace blockquote, i.e. '> text'
