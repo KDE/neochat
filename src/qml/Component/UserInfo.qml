@@ -136,6 +136,15 @@ QQC2.ToolBar {
                     anchors.margins: Kirigami.Units.smallSpacing
                     source: mediaId ? ("image://mxc/" + mediaId) : ""
                     name: Controller.activeConnection.localUser.displayName ?? Controller.activeConnection.localUser.id
+                    actions.main: Kirigami.Action {
+                        text: i18n("Edit this account")
+                        iconName: "document-edit"
+                        onTriggered: pageStack.pushDialogLayer(Qt.resolvedUrl('./AccountEditorPage.qml'), {
+                            connection: Controller.activeConnection
+                        }, {
+                            title: i18n("Account editor")
+                        });
+                    }
                 }
             }
             ColumnLayout {
