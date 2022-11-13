@@ -140,6 +140,7 @@ if(ANDROID)
         "edit-copy"
         "gtk-quit"
         "compass"
+        "computer"
         "network-connect"
         "list-remove-user"
         "org.kde.neochat"

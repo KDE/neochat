@@ -18,6 +18,7 @@
 #include <QFileInfo>
 #include <QGuiApplication>
 #include <QImageReader>
+#include <QNetworkProxy>
 #include <QQuickItem>
 #include <QQuickTextDocument>
 #include <QQuickWindow>
@@ -64,6 +65,8 @@ Controller::Controller(QObject *parent)
 {
     Connection::setRoomType<NeoChatRoom>();
     Connection::setUserType<NeoChatUser>();
+
+    setApplicationProxy();
 
 #ifndef Q_OS_ANDROID
     if (NeoChatConfig::self()->systemTray()) {
@@ -783,4 +786,30 @@ void Controller::forceRefreshTextDocument(QQuickTextDocument *textDocument, QQui
 {
     // HACK: Workaround bug QTBUG 93281
     connect(textDocument->textDocument(), SIGNAL(imagesLoaded()), item, SLOT(updateWholeDocument()));
+}
+
+void Controller::setApplicationProxy()
+{
+    NeoChatConfig *cfg = NeoChatConfig::self();
+    QNetworkProxy proxy;
+
+    // type match to ProxyType from neochatconfig.kcfg
+    switch (cfg->proxyType()) {
+    case 1: // HTTP
+        proxy.setType(QNetworkProxy::HttpProxy);
+        proxy.setHostName(cfg->proxyHost());
+        proxy.setPort(cfg->proxyPort());
+        break;
+    case 2: // SOCKS 5
+        proxy.setType(QNetworkProxy::Socks5Proxy);
+        proxy.setHostName(cfg->proxyHost());
+        proxy.setPort(cfg->proxyPort());
+        break;
+    case 0: // System Default
+    default:
+        // do nothing
+        break;
+    }
+
+    QNetworkProxy::setApplicationProxy(proxy);
 }

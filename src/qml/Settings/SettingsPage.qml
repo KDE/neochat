@@ -34,8 +34,13 @@ Kirigami.CategorizedSettings {
             page: Qt.resolvedUrl("SonnetConfigPage.qml")
         },
         Kirigami.SettingAction {
-            text: i18n("Devices")
+            text: i18n("Network Proxy")
             iconName: "network-connect"
+            page: Qt.resolvedUrl("NetworkProxyPage.qml")
+        },
+        Kirigami.SettingAction {
+            text: i18n("Devices")
+            iconName: "computer"
             page: Qt.resolvedUrl("DevicesPage.qml")
         },
         Kirigami.SettingAction {

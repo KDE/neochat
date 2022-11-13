@@ -99,6 +99,8 @@ public:
 
     Q_INVOKABLE void forceRefreshTextDocument(QQuickTextDocument *textDocument, QQuickItem *item);
 
+    Q_INVOKABLE void setApplicationProxy();
+
 private:
     explicit Controller(QObject *parent = nullptr);
 

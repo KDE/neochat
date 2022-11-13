@@ -98,5 +98,30 @@
       <default>true</default>
     </entry>
   </group>
+  <group name="NetworkProxy">
+    <entry name="ProxyType" type="Enum">
+      <label>The type of proxy used by the application.</label>
+      <choices>
+        <choice name="System">
+          <label>System Default</label>
+        </choice>
+        <choice name="HTTP">
+          <label>HTTP</label>
+        </choice>
+        <choice name="Socks5">
+          <label>Socks5</label>
+        </choice>
+        <default>System</default>
+      </choices>
+    </entry>
+    <entry name="ProxyHost" type="String">
+      <label>IP or hostname of the proxy</label>
+      <default>127.0.0.1</default>
+    </entry>
+    <entry name="ProxyPort" type="int">
+      <label>The port number of the proxy</label>
+      <default>1080</default>
+    </entry>
+  </group>
 </kcfg>
 
