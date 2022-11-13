@@ -813,3 +813,20 @@ void Controller::setApplicationProxy()
 
     QNetworkProxy::setApplicationProxy(proxy);
 }
+
+int Controller::activeConnectionIndex() const
+{
+#ifdef QUOTIENT_07
+    auto result = std::find_if(Accounts.accounts().begin(), Accounts.accounts().end(), [this](const auto &it) {
+        return it == m_connection;
+    });
+    return result - Accounts.accounts().begin();
+#else
+    for (int i = 0; i < AccountRegistry::instance().rowCount(); i++) {
+        if (AccountRegistry::instance().data(AccountRegistry::instance().index(i, 0), AccountRegistry::UserIdRole).toString() == m_connection->userId()) {
+            return i;
+        }
+    }
+    return 0;
+#endif
+}

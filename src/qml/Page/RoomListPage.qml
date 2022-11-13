@@ -165,7 +165,7 @@ Kirigami.ScrollablePage {
         id: listView
 
         activeFocusOnTab: true
-        clip: accountList.count > 1
+        clip: AccountRegistry.count > 1
 
         header: QQC2.ItemDelegate {
             visible: page.collapsedMode
@@ -376,18 +376,7 @@ Kirigami.ScrollablePage {
         }
     }
 
-    footer: QQC2.ToolBar {
-        visible: AccountRegistry.accountCount > 1 && !collapsedMode
-        height: visible ? implicitHeight : 0
-
-        contentItem: QQC2.ComboBox {
-            id: accountList
-
-            model: AccountRegistry
-            textRole: "userId"
-            valueRole: "connection"
-            onActivated: Controller.activeConnection = currentValue
-            Component.onCompleted: currentIndex = indexOfValue(Controller.activeConnection)
-        }
+    footer: UserInfo {
+        width: parent.width
     }
 }

@@ -41,6 +41,7 @@ class Controller : public QObject
     Q_PROPERTY(bool hasWindowSystem READ hasWindowSystem CONSTANT)
     Q_PROPERTY(bool isOnline READ isOnline NOTIFY isOnlineChanged)
     Q_PROPERTY(bool encryptionSupported READ encryptionSupported CONSTANT)
+    Q_PROPERTY(int activeConnectionIndex READ activeConnectionIndex CONSTANT)
 
 public:
     static Controller &instance();
@@ -72,6 +73,8 @@ public:
 
     bool saveAccessTokenToFile(const Quotient::AccountSettings &account, const QByteArray &accessToken);
     bool saveAccessTokenToKeyChain(const Quotient::AccountSettings &account, const QByteArray &accessToken);
+
+    int activeConnectionIndex() const;
 
     enum PasswordStatus {
         Success,
