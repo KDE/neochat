@@ -41,7 +41,7 @@ class Controller : public QObject
     Q_PROPERTY(bool hasWindowSystem READ hasWindowSystem CONSTANT)
     Q_PROPERTY(bool isOnline READ isOnline NOTIFY isOnlineChanged)
     Q_PROPERTY(bool encryptionSupported READ encryptionSupported CONSTANT)
-    Q_PROPERTY(int activeConnectionIndex READ activeConnectionIndex CONSTANT)
+    Q_PROPERTY(int activeConnectionIndex READ activeConnectionIndex NOTIFY activeConnectionIndexChanged)
 
 public:
     static Controller &instance();
@@ -154,6 +154,7 @@ Q_SIGNALS:
     void keyVerificationStart();
     void keyVerificationAccept(const QString &commitment);
     void keyVerificationKey(const QString &sas);
+    void activeConnectionIndexChanged();
 
 public Q_SLOTS:
     void logout(Quotient::Connection *conn, bool serverSideLogout);

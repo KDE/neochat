@@ -121,6 +121,8 @@ Controller::Controller(QObject *parent)
     }
 #endif
 
+    connect(&AccountRegistry::instance(), &AccountRegistry::accountCountChanged, this, &Controller::activeConnectionIndexChanged);
+
 #ifdef QUOTIENT_07
     static int oldAccountCount = 0;
     connect(&AccountRegistry::instance(), &AccountRegistry::accountCountChanged, this, [=]() {
@@ -688,6 +690,7 @@ void Controller::setActiveConnection(Connection *connection)
     }
     NeoChatConfig::self()->save();
     Q_EMIT activeConnectionChanged();
+    Q_EMIT activeConnectionIndexChanged();
 }
 
 void Controller::saveWindowGeometry()

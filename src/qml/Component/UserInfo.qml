@@ -58,7 +58,7 @@ QQC2.ToolBar {
                 text: i18n("Add Account")
                 subtitle: i18n("Log in to an existing account")
                 onClicked: {
-                    pageStack.pushDialogLayer("qrc:/WelcomePage.qml")
+                    pageStack.pushDialogLayer("qrc:/WelcomePage.qml", {}, {title: i18nc("@title:window", "Login")})
                     userInfo.accountsListVisible = false
                     accounts.currentIndex = Controller.activeConnectionIndex
                 }
@@ -100,7 +100,7 @@ QQC2.ToolBar {
             }
 
             width: parent.width
-            height: contentHeight
+            Layout.preferredHeight: contentHeight
             delegate: Kirigami.BasicListItem {
                 leftPadding: topPadding
                 leading: Kirigami.Avatar {
