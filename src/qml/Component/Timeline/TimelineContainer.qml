@@ -40,7 +40,7 @@ ColumnLayout {
     // extraWidth defines this as the excess after a certain ListView width, capped to a max value
     readonly property int extraWidth: messageListView.width >= Kirigami.Units.gridUnit * 46 ? Math.min((messageListView.width - Kirigami.Units.gridUnit * 46), Kirigami.Units.gridUnit * 20) : 0
     readonly property int bubbleMaxWidth: Kirigami.Units.gridUnit * 20 + extraWidth * 0.5
-    readonly property int delegateWidth: Config.compactLayout ? messageListView.width : Math.min(messageListView.width, Kirigami.Units.gridUnit * 40 + extraWidth)
+    readonly property int delegateWidth: Config.compactLayout ? messageListView.width - Kirigami.Units.smallSpacing - (ListView.view.width >= Kirigami.Units.gridUnit * 20 ? Kirigami.Units.gridUnit * 2 + Kirigami.Units.largeSpacing : 0) : Math.min(messageListView.width, Kirigami.Units.gridUnit * 40 + extraWidth)
     readonly property int contentMaxWidth: Config.compactLayout ? width - (Config.showAvatarInTimeline ? Kirigami.Units.gridUnit * 2 : 0) - Kirigami.Units.largeSpacing * 4 : Math.min(width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 6, bubbleMaxWidth)
 
     width: delegateWidth

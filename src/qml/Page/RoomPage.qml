@@ -478,7 +478,7 @@ Kirigami.ScrollablePage {
             }
 
             property int childOffset: userMsg && Config.showLocalMessagesOnRight && !Config.compactLayout ? (bubble ? bubble.width : 0) - childWidth : Math.max((bubble ? bubble.width : 0) - childWidth, 0)
-            x: delegate && bubble ? (delegate.x + bubble.x + Kirigami.Units.largeSpacing + childOffset - (Config.compactLayout ? Kirigami.Units.gridUnit * 3 + (delegate.width >= Kirigami.Units.gridUnit * 20 ? Kirigami.Units.gridUnit * 2 : 0 ): 0) - (userMsg && !Config.compactLayout ? Kirigami.Units.gridUnit : 0)) : 0
+            x: delegate && bubble ? (delegate.x + bubble.x + Kirigami.Units.largeSpacing + childOffset - (Config.compactLayout ? Kirigami.Units.gridUnit * 3: 0) - (userMsg && !Config.compactLayout ? Kirigami.Units.gridUnit : 0)) : 0
             y: bubble ? bubble.mapToItem(parent, 0, 0).y - hoverActions.childHeight + Kirigami.Units.smallSpacing: 0;
 
             visible: false
