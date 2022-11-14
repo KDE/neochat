@@ -14,7 +14,7 @@ TimelineContainer {
     id: pollDelegate
 
     readonly property var data: model
-    property PollHandler pollHandler: currentRoom.poll(model.eventId)
+    property var pollHandler: currentRoom.poll(model.eventId)
 
     innerObject: ColumnLayout {
         Label {
