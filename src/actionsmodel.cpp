@@ -282,6 +282,36 @@ QVector<ActionsModel::Action> actions{
         kli18n("Leaves the given room or this room, if there is none given"),
     },
     Action{
+        QStringLiteral("nick"),
+        [](const QString &text, NeoChatRoom *room) {
+            if (text.isEmpty()) {
+                Q_EMIT room->showMessage(NeoChatRoom::Error, i18n("No new nickname provided, no changes will happen."));
+            } else {
+                room->connection()->user()->rename(text);
+            }
+            return QString();
+        },
+        false,
+        std::nullopt,
+        kli18n("<display name>"),
+        kli18n("Changes your global display name"),
+    },
+    Action{
+        QStringLiteral("roomnick"),
+        [](const QString &text, NeoChatRoom *room) {
+            if (text.isEmpty()) {
+                Q_EMIT room->showMessage(NeoChatRoom::Error, i18n("No new nickname provided, no changes will happen."));
+            } else {
+                room->connection()->user()->rename(text, room);
+            }
+            return QString();
+        },
+        false,
+        std::nullopt,
+        kli18n("<display name>"),
+        kli18n("Changes your display name in this room"),
+    },
+    Action{
         QStringLiteral("ignore"),
         [](const QString &text, NeoChatRoom *room) {
             static const QRegularExpression mxidRegex(
