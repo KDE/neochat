@@ -148,12 +148,14 @@ QQC2.ToolBar {
                 }
             }
             ColumnLayout {
+                Layout.fillWidth: true
                 spacing: 0
                 QQC2.Label {
                     id: displayNameLabel
                     text: Controller.activeConnection.localUser.displayName
                     textFormat: Text.PlainText
                     elide: Text.ElideRight
+                    Layout.fillWidth: true
                 }
                 QQC2.Label {
                     text: (Controller.activeConnection.localUser.accountLabel.length > 0 ? (Controller.activeConnection.localUser.accountLabel + " ") : "") + Controller.activeConnection.localUser.id
@@ -161,10 +163,8 @@ QQC2.ToolBar {
                     opacity: 0.7
                     textFormat: Text.PlainText
                     elide: Text.ElideRight
+                    Layout.fillWidth: true
                 }
-            }
-            Item {
-                Layout.fillWidth: true
             }
             QQC2.ToolButton {
                 icon.name: "system-switch-user"
@@ -177,6 +177,8 @@ QQC2.ToolBar {
                 QQC2.ToolTip.text: text
                 QQC2.ToolTip.visible: hovered
                 QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                Layout.minimumWidth: Layout.preferredWidth
+                Layout.alignment: Qt.AlignRight
             }
             QQC2.ToolButton {
                 icon.name: "list-add"
@@ -186,6 +188,8 @@ QQC2.ToolBar {
                 QQC2.ToolTip.text: text
                 QQC2.ToolTip.visible: hovered
                 QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                Layout.minimumWidth: Layout.preferredWidth
+                Layout.alignment: Qt.AlignRight
                 visible: false
             }
             QQC2.ToolButton {
@@ -193,6 +197,8 @@ QQC2.ToolBar {
                 onClicked: pageStack.pushDialogLayer("qrc:/SettingsPage.qml", {}, { title: i18n("Configure") })
                 text: i18n("Open Settings")
                 display: QQC2.AbstractButton.IconOnly
+                Layout.minimumWidth: Layout.preferredWidth
+                Layout.alignment: Qt.AlignRight
                 QQC2.ToolTip {
                     text: parent.text
                 }
