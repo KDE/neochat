@@ -1,0 +1,122 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Ukrainian "INCLUDE">
+]>
+<!--
+SPDX-FileCopyrightText: 2022 Carl Schwan <carl@carlschwan.eu>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>Інструкція користувача NeoChat</title>
+<author
+><firstname
+>Carl</firstname
+><surname
+>Schwan</surname
+> <contrib
+>Сторінка підручника NeoChat.</contrib
+> <email
+>carl@carlschwan.eu</email
+></author>
+<date
+>1 листопада 2022 року</date>
+<releaseinfo
+>22.09</releaseinfo>
+<productname
+>NeoChat</productname>
+</refentryinfo>
+
+<refmeta>
+  <refentrytitle>
+    <command
+>neochat</command>
+  </refentrytitle>
+  <manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+  <refname
+>neochat</refname>
+  <refpurpose
+>Клієнтська програма для взаємодії за допомогою протоколу обміну повідомленнями matrix</refpurpose>
+  </refnamediv>
+  <!-- body begins here -->
+  <refsynopsisdiv id='synopsis'>
+  <cmdsynopsis
+><command
+>neochat</command
+> <arg choice="opt"
+><replaceable
+>Адреса</replaceable
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+
+<refsect1 id="description">
+  <title
+>Опис</title>
+  <para
+><command
+>neochat</command
+> є програма для спілкування за допомогою протоколу matrix, яка працює на робочих станціях і мобільних пристроях. </para>
+</refsect1>
+
+<refsect1 id="options"
+><title
+>Параметри</title>
+<variablelist>
+  <varlistentry>
+  <term
+><option
+>Адреса</option
+></term>
+  <listitem>
+    <para
+>Адреса matrix для користувача або кімнати. Приклади: matrix:u/user:example.org і matrix:r/root:example.org. Використання параметра призведе до того, що NeoChat спробує відкрити вказану кімнату або сеанс спілкування. </para>
+  </listitem>
+  </varlistentry>
+</variablelist>
+</refsect1>
+
+<refsect1 id="bug">
+  <title
+>Як повідомити про вади</title>
+  <para
+>Ви можете повідомляти про вади та запити щодо реалізації нових можливостей на сайті <ulink url="https://bugs.kde.org/enter_bug.cgi?product=NeoChat&amp;component=General"
+>https://bugs.kde.org/enter_bug.cgi?product=NeoChat&amp;component=General</ulink
+></para>
+</refsect1>
+
+<refsect1>
+  <title
+>Додаткові відомості</title>
+  <simplelist>
+    <member
+>Список поширених питань щодо Matrix <ulink url="https://matrix.org/faq/"
+>https://matrix.org/faq/</ulink
+> </member>
+    <member
+>kf5options(7)</member>
+    <member
+>qt5options(7)</member>
+  </simplelist>
+</refsect1>
+
+<refsect1 id="copyright"
+><title
+>Авторські права</title>
+<para
+>&copy; Tobias Fella, 2020-2022 </para>
+<para
+>&copy; Carl Schwan, 2020-2022 </para>
+<para
+>Ліцензування: GNU General Public Version 3 або пізніша версія &lt;<ulink url="https://www.gnu.org/licenses/gpl-3.0.html"
+>https://www.gnu.org/licenses/gpl-3.0.html</ulink
+>&gt;</para>
+</refsect1>
+</refentry>
