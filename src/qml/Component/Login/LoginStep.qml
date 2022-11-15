@@ -17,7 +17,7 @@ ColumnLayout {
 
     /// Process this module, this is called by the continue button.
     /// Should call \sa processed when it finish successfully.
-    property Action action: null
+    property QQC2.Action action: null
 
     /// Called when switching to the next step.
     signal processed(url nextUrl)
