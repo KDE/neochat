@@ -45,6 +45,7 @@ add_library(neochat STATIC
     serverlistmodel.cpp
     statemodel.cpp
     filetransferpseudojob.cpp
+    searchmodel.cpp
 )
 
 add_executable(neochat-app

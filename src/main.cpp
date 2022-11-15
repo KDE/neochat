@@ -59,6 +59,7 @@
 #include "neochatroom.h"
 #include "neochatuser.h"
 #include "notificationsmanager.h"
+#include "searchmodel.h"
 #ifdef QUOTIENT_07
 #include "pollhandler.h"
 #endif
@@ -228,6 +229,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<LinkPreviewer>("org.kde.neochat", 1, 0, "LinkPreviewer");
     qmlRegisterType<CompletionModel>("org.kde.neochat", 1, 0, "CompletionModel");
     qmlRegisterType<StateModel>("org.kde.neochat", 1, 0, "StateModel");
+    qmlRegisterType<SearchModel>("org.kde.neochat", 1, 0, "SearchModel");
 #ifdef QUOTIENT_07
     qmlRegisterType<PollHandler>("org.kde.neochat", 1, 0, "PollHandler");
 #endif

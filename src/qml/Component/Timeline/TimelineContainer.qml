@@ -20,7 +20,7 @@ ColumnLayout {
 
     default property alias innerObject : column.children
 
-    property Item hoverComponent: hoverActions
+    property Item hoverComponent: hoverActions ?? null
     property bool isEmote: false
     property bool cardBackground: true
     property bool showUserMessageOnRight: Config.showLocalMessagesOnRight && model.author.isLocalUser && !Config.compactLayout
@@ -106,6 +106,9 @@ ColumnLayout {
 
         // Show hover actions by updating the global hover component to this delegate
         function updateHoverComponent() {
+            if (!hoverComponent) {
+                return;
+            }
             if (hovered && !Kirigami.Settings.isMobile) {
                 hoverComponent.delegate = root
                 hoverComponent.bubble = bubble
@@ -229,10 +232,10 @@ ColumnLayout {
                     QQC2.Label {
                         id: timeLabel
 
-                        text: visible ? time.toLocaleTimeString(Qt.locale(), Locale.ShortFormat) : ""
+                        text: visible ? model.time.toLocaleTimeString(Qt.locale(), Locale.ShortFormat) : ""
                         color: Kirigami.Theme.disabledTextColor
                         QQC2.ToolTip.visible: hoverHandler.hovered
-                        QQC2.ToolTip.text: time.toLocaleString(Qt.locale(), Locale.LongFormat)
+                        QQC2.ToolTip.text: model.time.toLocaleString(Qt.locale(), Locale.LongFormat)
                         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
                         HoverHandler {
@@ -268,6 +271,7 @@ ColumnLayout {
                     id: bubbleBackground
                     visible: cardBackground && !Config.compactLayout
                     anchors.fill: parent
+                    Kirigami.Theme.colorSet: Kirigami.Theme.View
                     color: {
                         if (model.author.isLocalUser) {
                             return Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.15)

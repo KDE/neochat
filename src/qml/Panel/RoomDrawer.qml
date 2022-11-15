@@ -112,6 +112,23 @@ Kirigami.OverlayDrawer {
                         }
                     }
                     QQC2.ToolButton {
+                        id: searchButton
+
+                        Layout.alignment: Qt.AlignRight
+                        icon.name: "search"
+                        text: i18n("Search in this room")
+                        display: QQC2.AbstractButton.IconOnly
+                        visible: Controller.quotientMinorVersion > 6
+
+                        onClicked: {
+                            pageStack.pushDialogLayer("qrc:/SearchPage.qml", {
+                                currentRoom: room
+                            }, {
+                                title: i18nc("@action:title", "Search")
+                            })
+                        }
+                    }
+                    QQC2.ToolButton {
                         id: inviteButton
 
                         Layout.alignment: Qt.AlignRight
