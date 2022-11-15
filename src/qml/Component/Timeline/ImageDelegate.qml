@@ -86,7 +86,7 @@ TimelineContainer {
         TapHandler {
             acceptedButtons: Qt.LeftButton
             onTapped: {
-                img.ToolTip.hide()
+                img.QQC2.ToolTip.hide()
                 img.paused = true
                 fullScreenImage.open()
             }
