@@ -16,22 +16,10 @@ TextEdit {
 
     property bool isEmote: false
 
-    /* Turn all links which aren't already in <a> tags into <a> hyperlinks */
-    readonly property var customEmojiLinksRegex: /data-mx-emoticon=""  src="(\bhttps?:\/\/[^\s\<\>\"\']*[^\s\<\>\"\'])/g
-    readonly property var customEmojiLinks: {
-        let links = [];
-        // we need all this because QML JS doesn't support String.matchAll introduced in ECMAScript 2020
-        let match = customEmojiLinksRegex.exec(model.display);
-        while (match !== null) {
-            links.push(match[1])
-            match = customEmojiLinksRegex.exec(model.display);
-        }
-        return links;
-    }
     readonly property var linkRegex: /(href=["'])?(\b(https?):\/\/[^\s\<\>\"\'\\]+)/g
     property string textMessage: model.display.includes("http")
         ? model.display.replace(linkRegex, function() {
-            if (customEmojiLinks && customEmojiLinks.includes(arguments[0])) {
+            if (arguments[0].includes("/_matrix/media/r0/download/")) {
                 return arguments[0];
             }
             if (arguments[1]) {
