@@ -874,6 +874,20 @@ QString NeoChatRoom::joinRule() const
     return getCurrentState<JoinRulesEvent>()->joinRule();
 }
 
+void NeoChatRoom::setJoinRule(const QString &joinRule)
+{
+    if (!canSendState("m.room.join_rules")) {
+        qWarning() << "Power level too low to set join rules";
+        return;
+    }
+#ifdef QUOTIENT_07
+    setState("m.room.join_rules", "", QJsonObject{{"join_rule", joinRule}});
+#else
+    setState<JoinRulesEvent>(QJsonObject{{"type", "m.room.join_rules"}, {"state_key", ""}, {"content", QJsonObject{{"join_rule", joinRule}}}});
+#endif
+    // Not emitting joinRuleChanged() here, since that would override the change in the UI with the *current* value, which is not the *new* value.
+}
+
 QCoro::Task<void> NeoChatRoom::doDeleteMessagesByUser(const QString &user)
 {
     QStringList events;
