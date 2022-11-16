@@ -6,6 +6,7 @@ import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
 import org.kde.neochat 1.0
 
@@ -15,55 +16,90 @@ Kirigami.ScrollablePage {
     property bool proxyConfigChanged: false
 
     ColumnLayout {
-        Kirigami.FormLayout {
+        MobileForm.FormCard {
+            Layout.topMargin: Kirigami.Units.largeSpacing
             Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                spacing: 0
+                MobileForm.FormCardHeader {
+                    title: i18n("Network Proxy")
+                }
+                MobileForm.FormRadioDelegate {
+                    text: i18n("System Default")
+                    checked: currentType === 0
+                    enabled: !Config.isProxyTypeImmutable
+                    onToggled: {
+                        currentType = 0
+                    }
+                }
+                MobileForm.FormRadioDelegate {
+                    text: i18n("HTTP")
+                    checked: currentType === 1
+                    enabled: !Config.isProxyTypeImmutable
+                    onToggled: {
+                        currentType = 1
+                    }
+                }
+                MobileForm.FormRadioDelegate {
+                    text: i18n("Socks5")
+                    checked: currentType === 2
+                    enabled: !Config.isProxyTypeImmutable
+                    onToggled: {
+                        currentType = 2
+                    }
+                }
+            }
+        }
 
-            QQC2.RadioButton {
-                Kirigami.FormData.label: i18n("Network Proxy")
-                text: i18n("System Default")
-                checked: currentType === 0
-                enabled: !Config.isProxyTypeImmutable
-                onToggled: {
-                    currentType = 0
+        MobileForm.FormCard {
+            Layout.topMargin: Kirigami.Units.largeSpacing
+            Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                spacing: 0
+                MobileForm.FormCardHeader {
+                    title: i18n("Proxy Settings")
                 }
-            }
-            QQC2.RadioButton {
-                text: i18n("HTTP")
-                checked: currentType === 1
-                enabled: !Config.isProxyTypeImmutable
-                onToggled: {
-                    currentType = 1
+                // TODO: switch to FormTextFieldDelegate once kirigami-addons got a new release
+                MobileForm.AbstractFormDelegate {
+                    Layout.fillWidth: true
+                    contentItem: RowLayout {
+                        QQC2.Label {
+                            text: i18n("Host")
+                            Layout.fillWidth: true
+                        }
+                        QQC2.TextField {
+                            id: hostField
+                            Kirigami.FormData.label: i18n("Proxy Host")
+                            text: Config.proxyHost
+                            inputMethodHints: Qt.ImhUrlCharactersOnly
+                            onEditingFinished: {
+                                proxyConfigChanged = true
+                            }
+                        }
+                    }
                 }
-            }
-            QQC2.RadioButton {
-                text: i18n("Socks5")
-                checked: currentType === 2
-                enabled: !Config.isProxyTypeImmutable
-                onToggled: {
-                    currentType = 2
-                }
-            }
-            QQC2.TextField {
-                id: hostField
-                Kirigami.FormData.label: i18n("Proxy Host")
-                text: Config.proxyHost
-                inputMethodHints: Qt.ImhUrlCharactersOnly
-                onEditingFinished: {
-                    proxyConfigChanged = true
-                }
-            }
-            QQC2.SpinBox {
-                id: portField
-                Kirigami.FormData.label: i18n("Proxy Port")
-                value: Config.proxyPort
-                from: 0
-                to: 65536
-                validator: IntValidator {bottom: from; top: to}
-                textFromValue: function(value, locale) {
-                    return value // it will add a thousands separator if we don't do this, not sure why
-                }
-                onValueChanged: {
-                    proxyConfigChanged = true
+                MobileForm.AbstractFormDelegate {
+                    Layout.fillWidth: true
+                    contentItem: RowLayout {
+                        QQC2.Label {
+                            text: i18n("Peeker width")
+                            Layout.fillWidth: true
+                        }
+                        QQC2.SpinBox {
+                            id: portField
+                            Kirigami.FormData.label: i18n("Proxy Port")
+                            value: Config.proxyPort
+                            from: 0
+                            to: 65536
+                            validator: IntValidator {bottom: from; top: to}
+                            textFromValue: function(value, locale) {
+                                return value // it will add a thousands separator if we don't do this, not sure why
+                            }
+                            onValueChanged: {
+                                proxyConfigChanged = true
+                            }
+                        }
+                    }
                 }
             }
         }
