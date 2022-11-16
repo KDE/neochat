@@ -269,7 +269,7 @@ Kirigami.ApplicationWindow {
                 text: i18n("Logout")
                 icon.name: "list-remove-user"
                 enabled: Controller.accountCount > 0
-                onTriggered: Controller.logout(Controller.activeConnection, true)
+                onTriggered: confirmLogoutDialog.open()
             },
             Kirigami.Action {
                 text: i18n("Quit")
@@ -278,6 +278,10 @@ Kirigami.ApplicationWindow {
                 onTriggered: Qt.quit()
             }
         ]
+    }
+
+    ConfirmLogoutDialog {
+        id: confirmLogoutDialog
     }
 
     Component.onCompleted: {
