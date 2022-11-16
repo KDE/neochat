@@ -6,86 +6,83 @@ import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 import Qt.labs.platform 1.1
 
-import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigami 2.19 as Kirigami
+import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
 import org.kde.neochat 1.0
 
 Kirigami.ScrollablePage {
     title: i18n("Accounts")
+    leftPadding: 0
+    rightPadding: 0
 
-    actions.main: Kirigami.Action {
-        text: i18n("Add an account")
-        icon.name: "list-add-user"
-        onTriggered: pageStack.layers.push("qrc:/WelcomePage.qml")
-        visible: !pageSettingStack.wideMode
-    }
+    ColumnLayout {
+        MobileForm.FormCard {
+            Layout.topMargin: Kirigami.Units.largeSpacing
+            Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                spacing: 0
+                MobileForm.FormCardHeader {
+                    title: i18n("Accounts")
+                }
 
-    ListView {
-        model: AccountRegistry
-        anchors.fill: parent
-        delegate: Kirigami.BasicListItem {
-            text: model.connection.localUser.displayName
-            labelItem.textFormat: Text.PlainText
-            subtitle: model.connection.localUserId
-
-            leading: Kirigami.Avatar {
-                name: model.connection.localUser.displayName ?? model.connection.localUser.id
-                source: model.connection.localUser.avatarMediaId ? ("image://mxc/" + model.connection.localUser.avatarMediaId) : ""
-                width: height
-            }
-
-            onClicked: {
-                Controller.activeConnection = model.connection;
-                pageStack.layers.pop();
-            }
-
-            trailing: RowLayout {
-                QQC2.ToolButton {
-                    display: QQC2.AbstractButton.IconOnly
-                    QQC2.ToolTip {
-                        text: parent.action.text
-                    }
-                    action: Kirigami.Action {
-                        text: i18n("Edit this account")
-                        iconName: "document-edit"
-                        onTriggered: pageSettingStack.pushDialogLayer(Qt.resolvedUrl('./AccountEditorPage.qml'), {
+                Repeater {
+                    model: AccountRegistry
+                    delegate: MobileForm.FormButtonDelegate {
+                        onClicked: pageSettingStack.pushDialogLayer("qrc:/AccountEditorPage.qml", {
                             connection: model.connection
                         }, {
                             title: i18n("Account editor")
-                        });
-                    }
-                }
-                QQC2.ToolButton {
-                    display: QQC2.AbstractButton.IconOnly
-                    QQC2.ToolTip {
-                        text: parent.action.text
-                    }
-                    action: Kirigami.Action {
-                        text: i18n("Logout")
-                        iconName: "im-kick-user"
-                        onTriggered: {
-                            Controller.logout(model.connection, true);
-                            if (Controller.accountCount === 1) {
-                                pageStack.layers.pop();
+                        })
+
+                        contentItem: RowLayout {
+                            Kirigami.Avatar {
+                                name: model.connection.localUser.displayName ?? model.connection.localUser.id
+                                source: model.connection.localUser.avatarMediaId ? ("image://mxc/" + model.connection.localUser.avatarMediaId) : ""
+
+                                Layout.rightMargin: Kirigami.Units.largeSpacing
+                                implicitWidth: Kirigami.Units.iconSizes.medium
+                                implicitHeight: Kirigami.Units.iconSizes.medium
+                            }
+
+                            ColumnLayout {
+                                Layout.fillWidth: true
+                                spacing: Kirigami.Units.smallSpacing
+
+                                QQC2.Label {
+                                    Layout.fillWidth: true
+                                    text: model.connection.localUser.displayName
+                                    textFormat: Text.PlainText
+                                    elide: Text.ElideRight
+                                    wrapMode: Text.Wrap
+                                    maximumLineCount: 2
+                                    color: Kirigami.Theme.textColor
+                                }
+
+                                QQC2.Label {
+                                    Layout.fillWidth: true
+                                    text: model.connection.localUserId
+                                    color: Kirigami.Theme.disabledTextColor
+                                    font: Kirigami.Theme.smallFont
+                                    elide: Text.ElideRight
+                                }
+                            }
+
+                            MobileForm.FormArrow {
+                                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                                direction: MobileForm.FormArrow.Right
                             }
                         }
                     }
                 }
-            }
-        }
-    }
+                MobileForm.FormDelegateSeparator { below: addAccountDelegate }
 
-    footer: QQC2.ToolBar {
-        Kirigami.Theme.colorSet: Kirigami.Theme.Window
-        Kirigami.ActionToolBar {
-            alignment: Qt.AlignRight
-            rightPadding: Kirigami.Units.smallSpacing
-            width: parent.width
-            flat: false
-            actions: Kirigami.Action {
-                text: i18n("Add an account")
-                icon.name: "list-add-user"
-                onTriggered: pageStack.layers.push("qrc:/WelcomePage.qml")
+                MobileForm.FormButtonDelegate {
+                    id: addAccountDelegate
+                    text: i18n("Add Account")
+                    icon.name: "list-add"
+                    onClicked: pageStack.layers.push("qrc:/WelcomePage.qml")
+                }
             }
         }
     }
@@ -93,8 +90,9 @@ Kirigami.ScrollablePage {
     Connections {
         target: Controller
         function onConnectionAdded() {
-            if (pageStack.layers.depth > 2)
+            if (pageStack.layers.depth > 2) {
                 pageStack.layers.pop()
+            }
         }
         function onPasswordStatus(status) {
             if (status === Controller.Success) {

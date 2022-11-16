@@ -80,6 +80,8 @@ else()
     ecm_find_qmlmodule(org.kde.syntaxhighlighting 1.0)
 endif()
 
+ecm_find_qmlmodule(org.kde.kirigamiaddons.labs.mobileform 0.1)
+
 if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
     find_package(KF5DBusAddons ${KF5_MIN_VERSION} REQUIRED)
 endif()
