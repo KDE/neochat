@@ -40,6 +40,8 @@ ColumnLayout {
         Layout.fillWidth: true
         QQC2.Label {
             id: networkLabel
+            width: parent.width
+            wrapMode: Text.Wrap
             text: i18n("NeoChat is offline. Please check your network connection.")
         }
     }
