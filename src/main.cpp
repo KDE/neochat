@@ -81,6 +81,7 @@
 #endif
 #include "completionmodel.h"
 #include "neochatuser.h"
+#include "statemodel.h"
 
 #ifdef HAVE_RUNNER
 #include "runner.h"
@@ -214,6 +215,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<DevicesModel>("org.kde.neochat", 1, 0, "DevicesModel");
     qmlRegisterType<LinkPreviewer>("org.kde.neochat", 1, 0, "LinkPreviewer");
     qmlRegisterType<CompletionModel>("org.kde.neochat", 1, 0, "CompletionModel");
+    qmlRegisterType<StateModel>("org.kde.neochat", 1, 0, "StateModel");
 #ifdef QUOTIENT_07
     qmlRegisterType<PollHandler>("org.kde.neochat", 1, 0, "PollHandler");
 #endif

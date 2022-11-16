@@ -847,3 +847,13 @@ int Controller::activeConnectionIndex() const
     return 0;
 #endif
 }
+
+int Controller::quotientMinorVersion() const
+{
+// TODO libQuotient 0.7: Replace with version function from libQuotient
+#ifdef QUOTIENT_07
+    return 7;
+#else
+    return 6;
+#endif
+}

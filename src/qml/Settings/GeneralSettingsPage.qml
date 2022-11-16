@@ -174,5 +174,25 @@ Kirigami.ScrollablePage {
                 }
             }
         }
+
+        MobileForm.FormCard {
+            Layout.topMargin: Kirigami.Units.largeSpacing
+            Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                spacing: 0
+                MobileForm.FormCardHeader {
+                    title: i18n("Developer Settings")
+                }
+                MobileForm.FormCheckDelegate {
+                    text: i18n("Enable Developer Tools")
+                    checked: Config.developerTools
+                    enabled: !Config.isDeveloperToolsImmutable
+                    onToggled: {
+                        Config.developerTools = checked
+                        Config.save()
+                    }
+                }
+            }
+        }
     }
 }

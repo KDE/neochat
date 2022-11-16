@@ -42,6 +42,7 @@ class Controller : public QObject
     Q_PROPERTY(bool isOnline READ isOnline NOTIFY isOnlineChanged)
     Q_PROPERTY(bool encryptionSupported READ encryptionSupported CONSTANT)
     Q_PROPERTY(int activeConnectionIndex READ activeConnectionIndex NOTIFY activeConnectionIndexChanged)
+    Q_PROPERTY(int quotientMinorVersion READ quotientMinorVersion CONSTANT)
 
 public:
     static Controller &instance();
@@ -103,6 +104,8 @@ public:
     Q_INVOKABLE void forceRefreshTextDocument(QQuickTextDocument *textDocument, QQuickItem *item);
 
     Q_INVOKABLE void setApplicationProxy();
+
+    int quotientMinorVersion() const;
 
 private:
     explicit Controller(QObject *parent = nullptr);

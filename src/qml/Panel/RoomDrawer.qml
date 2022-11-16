@@ -94,6 +94,24 @@ Kirigami.OverlayDrawer {
                         level: 1
                     }
                     QQC2.ToolButton {
+                        id: devtoolsButton
+
+                        Layout.alignment: Qt.AlignRight
+                        icon.name: "tools"
+                        text: i18n("Open developer tools")
+                        display: QQC2.AbstractButton.IconOnly
+                        visible: Config.developerTools && Controller.quotientMinorVersion > 6
+
+                        onClicked: {
+                            applicationWindow().pageStack.layers.push("qrc:/DevtoolsPage.qml", {room: room}, {title: i18n("Developer Tools")})
+                            roomDrawer.close();
+                        }
+
+                        QQC2.ToolTip {
+                            text: devtoolsButton.text
+                        }
+                    }
+                    QQC2.ToolButton {
                         id: inviteButton
 
                         Layout.alignment: Qt.AlignRight

@@ -17,7 +17,7 @@ Kirigami.Page {
     rightPadding: 0
     bottomPadding: 0
 
-    title: i18n("Message Source")
+    title: i18n("Event Source")
 
     QQC2.ScrollView {
         anchors.fill: parent
