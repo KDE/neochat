@@ -59,25 +59,16 @@ Kirigami.ScrollablePage {
                 MobileForm.FormCardHeader {
                     title: i18n("Proxy Settings")
                 }
-                // TODO: switch to FormTextFieldDelegate once kirigami-addons got a new release
-                MobileForm.AbstractFormDelegate {
-                    Layout.fillWidth: true
-                    contentItem: RowLayout {
-                        QQC2.Label {
-                            text: i18n("Host")
-                            Layout.fillWidth: true
-                        }
-                        QQC2.TextField {
-                            id: hostField
-                            Kirigami.FormData.label: i18n("Proxy Host")
-                            text: Config.proxyHost
-                            inputMethodHints: Qt.ImhUrlCharactersOnly
-                            onEditingFinished: {
-                                proxyConfigChanged = true
-                            }
-                        }
+                MobileForm.FormTextFieldDelegate {
+                    id: hostField
+                    label: i18n("Host")
+                    text: Config.proxyHost
+//                    inputMethodHints: Qt.ImhUrlCharactersOnly
+                    onEditingFinished: {
+                        proxyConfigChanged = true
                     }
                 }
+                // we probably still need a FormSpinBoxDelegate
                 MobileForm.AbstractFormDelegate {
                     Layout.fillWidth: true
                     contentItem: RowLayout {
