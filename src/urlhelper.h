@@ -10,4 +10,5 @@ class UrlHelper : public QObject
     Q_OBJECT
 public:
     Q_INVOKABLE void openUrl(const QUrl &url);
+    Q_INVOKABLE void copyTo(const QUrl &origin, const QUrl &destination);
 };

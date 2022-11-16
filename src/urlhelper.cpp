@@ -3,6 +3,7 @@
 
 #include "urlhelper.h"
 
+#include <QFile>
 #include <QtGlobal>
 
 #ifdef Q_OS_ANDROID
@@ -21,4 +22,10 @@ void UrlHelper::openUrl(const QUrl &url)
     auto *job = new KIO::OpenUrlJob(url);
     job->start();
 #endif
+}
+
+void UrlHelper::copyTo(const QUrl &origin, const QUrl &destination)
+{
+    QFile originFile(origin.toLocalFile());
+    originFile.copy(destination.toLocalFile());
 }

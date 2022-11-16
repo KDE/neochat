@@ -42,8 +42,25 @@ TimelineContainer {
 
         states: [
             State {
+                name: "downloadedInstant"
+                when: progressInfo.completed && autoOpenFile
+
+                PropertyChanges {
+                    target: openButton
+                    icon.name: "document-open"
+                    onClicked: openSavedFile()
+                }
+
+                PropertyChanges {
+                    target: downloadButton
+                    icon.name: "download"
+                    QQC2.ToolTip.text: i18nc("tooltip for a button on a message; offers ability to download its file", "Download")
+                    onClicked: saveFileAs()
+                }
+            },
+            State {
                 name: "downloaded"
-                when: progressInfo.completed
+                when: progressInfo.completed && !autoOpenFile
 
                 PropertyChanges {
                     target: openButton
@@ -52,11 +69,8 @@ TimelineContainer {
 
                 PropertyChanges {
                     target: downloadButton
-
                     icon.name: "document-open"
-
                     QQC2.ToolTip.text: i18nc("tooltip for a button on a message; offers ability to open its downloaded file with an appropriate application", "Open File")
-
                     onClicked: openSavedFile()
                 }
             },
@@ -76,7 +90,6 @@ TimelineContainer {
                 PropertyChanges {
                     target: downloadButton
                     icon.name: "media-playback-stop"
-
                     QQC2.ToolTip.text: i18nc("tooltip for a button on a message; stops downloading the message's file", "Stop Download")
                     onClicked: currentRoom.cancelFileTransfer(eventId)
                 }
@@ -87,7 +100,6 @@ TimelineContainer {
 
                 PropertyChanges {
                     target: downloadButton
-
                     onClicked: fileDelegate.saveFileAs()
                 }
             }
@@ -148,7 +160,11 @@ TimelineContainer {
             FileDialog {
                 fileMode: FileDialog.SaveFile
                 folder: StandardPaths.writableLocation(StandardPaths.DownloadLocation)
-                onAccepted: currentRoom.downloadFile(eventId, file)
+                onAccepted: if (openSavedFile) {
+                    UrlHelper.copyTo(progressInfo.localPath, file)
+                } else {
+                    currentRoom.downloadFile(eventId, file);
+                }
             }
         }
     }
