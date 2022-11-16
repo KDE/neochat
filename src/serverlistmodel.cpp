@@ -45,7 +45,7 @@ ServerListModel::ServerListModel(QObject *parent)
     }
     // Add add server delegate entry
     m_servers.append(Server{
-        QStringLiteral(""),
+        QString(),
         false,
         true,
         false,
