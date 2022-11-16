@@ -72,22 +72,8 @@ Kirigami.ScrollablePage {
             contentItem: ColumnLayout {
                 spacing: 0
                 MobileForm.FormCardHeader {
-                    title: i18n("Notifications and events")
+                    title: i18n("Timeline Events")
                 }
-                MobileForm.FormCheckDelegate {
-                    id: showNotificationsDelegate
-                    // TODO: When there are enough notification and timeline event
-                    // settings, make 2 separate groups with FormData labels.
-                    text: i18n("Show notifications")
-                    checked: Config.showNotifications
-                    enabled: !Config.isShowNotificationsImmutable
-                    onToggled: {
-                        Config.showNotifications = checked
-                        Config.save()
-                    }
-                }
-
-                MobileForm.FormDelegateSeparator { above: showNotificationsDelegate; below: showLeaveJoinEventDelegate }
 
                 MobileForm.FormCheckDelegate {
                     id: showLeaveJoinEventDelegate

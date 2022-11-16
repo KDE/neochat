@@ -211,7 +211,7 @@ private:
     bool m_hasFileUploading = false;
     int m_fileUploadingProgress = 0;
 
-    PushNotificationState::State m_currentPushNotificationState = PushNotificationState::State::Unknown;
+    PushNotificationState::State m_currentPushNotificationState = PushNotificationState::Unknown;
     bool m_pushNotificationStateUpdating = false;
 
     void checkForHighlights(const Quotient::TimelineItem &ti);

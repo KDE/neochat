@@ -49,6 +49,7 @@
 #include "filetypesingleton.h"
 #include "joinrulesevent.h"
 #include "linkpreviewer.h"
+#include "keywordnotificationrulemodel.h"
 #include "login.h"
 #include "matriximageprovider.h"
 #include "messageeventmodel.h"
@@ -216,8 +217,10 @@ int main(int argc, char *argv[])
 #ifdef QUOTIENT_07
     qmlRegisterType<PollHandler>("org.kde.neochat", 1, 0, "PollHandler");
 #endif
+    qmlRegisterType<KeywordNotificationRuleModel>("org.kde.neochat", 1, 0, "KeywordNotificationRuleModel");
     qmlRegisterUncreatableType<RoomMessageEvent>("org.kde.neochat", 1, 0, "RoomMessageEvent", "ENUM");
     qmlRegisterUncreatableType<PushNotificationState>("org.kde.neochat", 1, 0, "PushNotificationState", "ENUM");
+    qmlRegisterUncreatableType<PushNotificationAction>("org.kde.neochat", 1, 0, "PushNotificationAction", "ENUM");
     qmlRegisterUncreatableType<NeoChatRoomType>("org.kde.neochat", 1, 0, "NeoChatRoomType", "ENUM");
     qmlRegisterUncreatableType<UserType>("org.kde.neochat", 1, 0, "UserType", "ENUM");
     qmlRegisterUncreatableType<NeoChatUser>("org.kde.neochat", 1, 0, "NeoChatUser", {});

@@ -19,6 +19,11 @@ Kirigami.CategorizedSettings {
             page: Qt.resolvedUrl("AppearanceSettingsPage.qml")
         },
         Kirigami.SettingAction {
+            text: i18n("Notifications")
+            icon.name: "preferences-desktop-notification"
+            page: Qt.resolvedUrl("GlobalNotificationsPage.qml")
+        },
+        Kirigami.SettingAction {
             text: i18n("Accounts")
             icon.name: "preferences-system-users"
             page: Qt.resolvedUrl("AccountsPage.qml")

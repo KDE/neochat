@@ -21,6 +21,7 @@ add_library(neochat STATIC
     userlistmodel.cpp
     publicroomlistmodel.cpp
     userdirectorylistmodel.cpp
+    keywordnotificationrulemodel.cpp
     utils.cpp
     notificationsmanager.cpp
     sortfilterroomlistmodel.cpp
@@ -138,6 +139,7 @@ if(ANDROID)
         "rating-unrated"
         "search"
         "mail-replied-symbolic"
+        "edit-clear"
         "edit-copy"
         "gtk-quit"
         "compass"
@@ -148,6 +150,10 @@ if(ANDROID)
         "preferences-system-users"
         "preferences-desktop-theme-global"
         "notifications"
+        "notifications-disabled"
+        "audio-volume-high"
+        "audio-volume-muted"
+        "draw-highlight"
         "zoom-in"
         "zoom-out"
         "image-rotate-left-symbolic"
