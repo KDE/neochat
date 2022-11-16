@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-15 00:46+0000\n"
-"PO-Revision-Date: 2022-11-14 17:52+0100\n"
+"POT-Creation-Date: 2022-11-16 00:47+0000\n"
+"PO-Revision-Date: 2022-11-15 07:53+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -77,7 +77,7 @@ msgstr "Pošlji dan čustvenček"
 msgid "Sends the given message as a notice"
 msgstr "Pošlji dano sporočilo kot obvestilo"
 
-#: src/actionsmodel.cpp:144 src/actionsmodel.cpp:291 src/actionsmodel.cpp:319
+#: src/actionsmodel.cpp:144 src/actionsmodel.cpp:321 src/actionsmodel.cpp:349
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
@@ -112,7 +112,7 @@ msgctxt "<username> was invited into this room"
 msgid "%1 was invited into this room"
 msgstr "%1 je bi povabljen v to sobo"
 
-#: src/actionsmodel.cpp:171 src/actionsmodel.cpp:309 src/actionsmodel.cpp:337
+#: src/actionsmodel.cpp:171 src/actionsmodel.cpp:339 src/actionsmodel.cpp:367
 msgid "<user id>"
 msgstr "<uporabnikov določilnik>"
 
@@ -172,49 +172,72 @@ msgstr "[<vzdeve sobe ali določilnik>]"
 msgid "Leaves the given room or this room, if there is none given"
 msgstr "Zapušča dano sobo ali to sobo, če ni nobene določene"
 
-#: src/actionsmodel.cpp:296
+#: src/actionsmodel.cpp:288 src/actionsmodel.cpp:303
+#, kde-format
+msgid "No new nickname provided, no changes will happen."
+msgstr ""
+
+#: src/actionsmodel.cpp:296 src/actionsmodel.cpp:311
+msgid "<display name>"
+msgstr ""
+
+#: src/actionsmodel.cpp:297
+#, fuzzy
+#| msgctxt "their refers to a singular user"
+#| msgid "changed their display name to %1"
+msgid "Changes your global display name"
+msgstr "je spremenil ime prikaza na %1"
+
+#: src/actionsmodel.cpp:312
+#, fuzzy
+#| msgctxt "their refers to a singular user"
+#| msgid "changed their display name to %1"
+msgid "Changes your display name in this room"
+msgstr "je spremenil ime prikaza na %1"
+
+#: src/actionsmodel.cpp:326
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
 msgstr "%1 je že prezrt."
 
-#: src/actionsmodel.cpp:301
+#: src/actionsmodel.cpp:331
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
 msgstr "%1 je zdaj prezrt."
 
-#: src/actionsmodel.cpp:303 src/actionsmodel.cpp:331
+#: src/actionsmodel.cpp:333 src/actionsmodel.cpp:361
 #, kde-format
 msgctxt "<username> is not a known user"
 msgid "%1 is not a known user."
 msgstr "%1 ni znan uporabnik."
 
-#: src/actionsmodel.cpp:310
+#: src/actionsmodel.cpp:340
 msgid "Ignores the given user"
 msgstr "Prezri danega uporabnika"
 
-#: src/actionsmodel.cpp:325
+#: src/actionsmodel.cpp:355
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
 msgstr "%1 ni prezrt."
 
-#: src/actionsmodel.cpp:329
+#: src/actionsmodel.cpp:359
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
 msgstr "%1 ni več prezrt."
 
-#: src/actionsmodel.cpp:338
+#: src/actionsmodel.cpp:368
 msgid "Unignores the given user"
 msgstr "Od-prezri danega uporabnika"
 
-#: src/actionsmodel.cpp:358
+#: src/actionsmodel.cpp:388
 msgid "<reaction text>"
 msgstr "<besedilo odziva>"
 
-#: src/actionsmodel.cpp:359
+#: src/actionsmodel.cpp:389
 msgid "React to the message with the given text"
 msgstr "Odzovi se na to sporočilo z danim besedilom"
 
@@ -988,16 +1011,16 @@ msgstr "Prenos"
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Glede na glas %1 uporabnika"
+msgstr[1] "Glede na glasova %1 uporabnikov"
+msgstr[2] "Glede na glasove %1 uporabnikov"
+msgstr[3] "Glede na glasove %1 uporabnikov"
 
 #: src/qml/Component/Timeline/PollDelegate.qml:48
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
-msgstr ""
+msgstr "(Končano)"
 
 #: src/qml/Component/Timeline/ReactionDelegate.qml:53
 #, kde-format
@@ -1031,7 +1054,7 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Zadnje prebrano: %1"
 
-#: src/qml/Component/Timeline/RichLabel.qml:89
+#: src/qml/Component/Timeline/RichLabel.qml:77
 #, kde-format
 msgid " (edited)"
 msgstr " (urejano)"
@@ -1042,19 +1065,17 @@ msgid "Video"
 msgstr "Video"
 
 #: src/qml/Component/UserInfo.qml:58
-#, fuzzy, kde-format
-#| msgid "Add an account"
+#, kde-format
 msgid "Add Account"
 msgstr "Dodaj račun"
 
 #: src/qml/Component/UserInfo.qml:59
 #, kde-format
 msgid "Log in to an existing account"
-msgstr ""
+msgstr "Prijavite se na obstoječi račun"
 
 #: src/qml/Component/UserInfo.qml:61
-#, fuzzy, kde-format
-#| msgid "Login"
+#, kde-format
 msgctxt "@title:window"
 msgid "Login"
 msgstr "Prijava"
@@ -1072,25 +1093,23 @@ msgstr "Urejevalnik računa"
 #: src/qml/Component/UserInfo.qml:174
 #, kde-format
 msgid "Switch User"
-msgstr ""
+msgstr "Preklopi uporabnika"
 
-#: src/qml/Component/UserInfo.qml:184 src/qml/Page/InviteUserPage.qml:42
+#: src/qml/Component/UserInfo.qml:186 src/qml/Page/InviteUserPage.qml:42
 #, kde-format
 msgid "Add"
 msgstr "Dodaj"
 
-#: src/qml/Component/UserInfo.qml:193 src/qml/main.qml:263
+#: src/qml/Component/UserInfo.qml:197 src/qml/main.qml:263
 #: src/qml/Menu/GlobalMenu.qml:28
 #, kde-format
 msgid "Configure"
 msgstr "Nastavi"
 
-#: src/qml/Component/UserInfo.qml:194
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Space Settings"
+#: src/qml/Component/UserInfo.qml:198
+#, kde-format
 msgid "Open Settings"
-msgstr "Nastavitve prostora"
+msgstr "Odpri nastavitve"
 
 #: src/qml/Dialog/CreateRoomDialog.qml:16 src/qml/main.qml:250
 #, kde-format
@@ -2518,36 +2537,34 @@ msgstr ""
 
 #: src/qml/Settings/NetworkProxyPage.qml:22
 #: src/qml/Settings/SettingsPage.qml:37
-#, fuzzy, kde-format
-#| msgid "Network Error"
+#, kde-format
 msgid "Network Proxy"
-msgstr "Napaka omrežja"
+msgstr "Omrežni posrednik"
 
 #: src/qml/Settings/NetworkProxyPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Default"
+#, kde-format
 msgid "System Default"
-msgstr "Privzeto"
+msgstr "Sistemsko privzeto"
 
 #: src/qml/Settings/NetworkProxyPage.qml:31
 #, kde-format
 msgid "HTTP"
-msgstr ""
+msgstr "HTTP"
 
 #: src/qml/Settings/NetworkProxyPage.qml:39
 #, kde-format
 msgid "Socks5"
-msgstr ""
+msgstr "Socks5"
 
 #: src/qml/Settings/NetworkProxyPage.qml:48
 #, kde-format
 msgid "Proxy Host"
-msgstr ""
+msgstr "Gostitelj posrednika"
 
 #: src/qml/Settings/NetworkProxyPage.qml:57
 #, kde-format
 msgid "Proxy Port"
-msgstr ""
+msgstr "Vrata posrednika"
 
 #: src/qml/Settings/SettingsPage.qml:17
 #, kde-format

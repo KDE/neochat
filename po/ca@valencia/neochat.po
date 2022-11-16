@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-15 00:46+0000\n"
-"PO-Revision-Date: 2022-11-11 09:17+0100\n"
-"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
+"POT-Creation-Date: 2022-11-16 00:47+0000\n"
+"PO-Revision-Date: 2022-11-15 16:48+0100\n"
+"Last-Translator: Antoni Bella <antonibella5@yahoo.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
 "MIME-Version: 1.0\n"
@@ -78,7 +78,7 @@ msgstr "Envia l'emote indicada"
 msgid "Sends the given message as a notice"
 msgstr "Envia el missatge indicat com una nota"
 
-#: src/actionsmodel.cpp:144 src/actionsmodel.cpp:291 src/actionsmodel.cpp:319
+#: src/actionsmodel.cpp:144 src/actionsmodel.cpp:321 src/actionsmodel.cpp:349
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
@@ -113,7 +113,7 @@ msgctxt "<username> was invited into this room"
 msgid "%1 was invited into this room"
 msgstr "%1 se l'ha convidat a esta sala"
 
-#: src/actionsmodel.cpp:171 src/actionsmodel.cpp:309 src/actionsmodel.cpp:337
+#: src/actionsmodel.cpp:171 src/actionsmodel.cpp:339 src/actionsmodel.cpp:367
 msgid "<user id>"
 msgstr "<ID d'usuari>"
 
@@ -173,49 +173,72 @@ msgstr "[<alias o ID de sala>]"
 msgid "Leaves the given room or this room, if there is none given"
 msgstr "Ix de la sala indicada o d'esta sala, si no se n'ha indicat cap"
 
-#: src/actionsmodel.cpp:296
+#: src/actionsmodel.cpp:288 src/actionsmodel.cpp:303
+#, kde-format
+msgid "No new nickname provided, no changes will happen."
+msgstr ""
+
+#: src/actionsmodel.cpp:296 src/actionsmodel.cpp:311
+msgid "<display name>"
+msgstr ""
+
+#: src/actionsmodel.cpp:297
+#, fuzzy
+#| msgctxt "their refers to a singular user"
+#| msgid "changed their display name to %1"
+msgid "Changes your global display name"
+msgstr "ha canviat el seu nom que s'ha de mostrar a %1"
+
+#: src/actionsmodel.cpp:312
+#, fuzzy
+#| msgctxt "their refers to a singular user"
+#| msgid "changed their display name to %1"
+msgid "Changes your display name in this room"
+msgstr "ha canviat el seu nom que s'ha de mostrar a %1"
+
+#: src/actionsmodel.cpp:326
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
 msgstr "%1 ja és ignorat."
 
-#: src/actionsmodel.cpp:301
+#: src/actionsmodel.cpp:331
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
 msgstr "%1 ara és ignorat."
 
-#: src/actionsmodel.cpp:303 src/actionsmodel.cpp:331
+#: src/actionsmodel.cpp:333 src/actionsmodel.cpp:361
 #, kde-format
 msgctxt "<username> is not a known user"
 msgid "%1 is not a known user."
 msgstr "%1 no és un usuari conegut."
 
-#: src/actionsmodel.cpp:310
+#: src/actionsmodel.cpp:340
 msgid "Ignores the given user"
 msgstr "Ignora l'usuari indicat"
 
-#: src/actionsmodel.cpp:325
+#: src/actionsmodel.cpp:355
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
 msgstr "%1 no està ignorat."
 
-#: src/actionsmodel.cpp:329
+#: src/actionsmodel.cpp:359
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
 msgstr "%1 ja no es troba ignorat."
 
-#: src/actionsmodel.cpp:338
+#: src/actionsmodel.cpp:368
 msgid "Unignores the given user"
 msgstr "Deixa d'ignorar l'usuari indicat"
 
-#: src/actionsmodel.cpp:358
+#: src/actionsmodel.cpp:388
 msgid "<reaction text>"
 msgstr "<text de reacció>"
 
-#: src/actionsmodel.cpp:359
+#: src/actionsmodel.cpp:389
 msgid "React to the message with the given text"
 msgstr "Reacciona al missatge amb el text indicat"
 
@@ -996,14 +1019,14 @@ msgstr "Baixa"
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Basat en els vots d'%1 usuari"
+msgstr[1] "Basat en els vots de %1 usuaris"
 
 #: src/qml/Component/Timeline/PollDelegate.qml:48
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
-msgstr ""
+msgstr "(Finalitzat)"
 
 #: src/qml/Component/Timeline/ReactionDelegate.qml:53
 #, kde-format
@@ -1033,7 +1056,7 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Última lectura: %1"
 
-#: src/qml/Component/Timeline/RichLabel.qml:89
+#: src/qml/Component/Timeline/RichLabel.qml:77
 #, kde-format
 msgid " (edited)"
 msgstr " (editat)"
@@ -1044,19 +1067,17 @@ msgid "Video"
 msgstr "Vídeo"
 
 #: src/qml/Component/UserInfo.qml:58
-#, fuzzy, kde-format
-#| msgid "Add an account"
+#, kde-format
 msgid "Add Account"
 msgstr "Afig un compte"
 
 #: src/qml/Component/UserInfo.qml:59
 #, kde-format
 msgid "Log in to an existing account"
-msgstr ""
+msgstr "Inicia la sessió amb un compte existent"
 
 #: src/qml/Component/UserInfo.qml:61
-#, fuzzy, kde-format
-#| msgid "Login"
+#, kde-format
 msgctxt "@title:window"
 msgid "Login"
 msgstr "Inici de sessió"
@@ -1074,25 +1095,23 @@ msgstr "Editor de comptes"
 #: src/qml/Component/UserInfo.qml:174
 #, kde-format
 msgid "Switch User"
-msgstr ""
+msgstr "Canvia d'usuari"
 
-#: src/qml/Component/UserInfo.qml:184 src/qml/Page/InviteUserPage.qml:42
+#: src/qml/Component/UserInfo.qml:186 src/qml/Page/InviteUserPage.qml:42
 #, kde-format
 msgid "Add"
 msgstr "Afig"
 
-#: src/qml/Component/UserInfo.qml:193 src/qml/main.qml:263
+#: src/qml/Component/UserInfo.qml:197 src/qml/main.qml:263
 #: src/qml/Menu/GlobalMenu.qml:28
 #, kde-format
 msgid "Configure"
 msgstr "Configura"
 
-#: src/qml/Component/UserInfo.qml:194
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Space Settings"
+#: src/qml/Component/UserInfo.qml:198
+#, kde-format
 msgid "Open Settings"
-msgstr "Configuració dels espais"
+msgstr "Obri la configuració"
 
 #: src/qml/Dialog/CreateRoomDialog.qml:16 src/qml/main.qml:250
 #, kde-format
@@ -2525,35 +2544,34 @@ msgstr ""
 
 #: src/qml/Settings/NetworkProxyPage.qml:22
 #: src/qml/Settings/SettingsPage.qml:37
-#, fuzzy, kde-format
-#| msgid "Network Error"
+#, kde-format
 msgid "Network Proxy"
-msgstr "S'ha produït un error de la xarxa"
+msgstr "Servidor intermediari de la xarxa"
 
 #: src/qml/Settings/NetworkProxyPage.qml:23
 #, kde-format
 msgid "System Default"
-msgstr ""
+msgstr "Predeterminada del sistema"
 
 #: src/qml/Settings/NetworkProxyPage.qml:31
 #, kde-format
 msgid "HTTP"
-msgstr ""
+msgstr "HTTP"
 
 #: src/qml/Settings/NetworkProxyPage.qml:39
 #, kde-format
 msgid "Socks5"
-msgstr ""
+msgstr "Socks5"
 
 #: src/qml/Settings/NetworkProxyPage.qml:48
 #, kde-format
 msgid "Proxy Host"
-msgstr ""
+msgstr "Servidor intermediari"
 
 #: src/qml/Settings/NetworkProxyPage.qml:57
 #, kde-format
 msgid "Proxy Port"
-msgstr ""
+msgstr "Port del servidor intermediari"
 
 #: src/qml/Settings/SettingsPage.qml:17
 #, kde-format
@@ -2724,6 +2742,3 @@ msgstr "No s'ha pogut obrir l'URL"
 #, kde-format
 msgid "Show"
 msgstr "Mostra"
-
-#~ msgid "Online"
-#~ msgstr "Connectat"

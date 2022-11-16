@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-15 00:46+0000\n"
+"POT-Creation-Date: 2022-11-16 00:47+0000\n"
 "PO-Revision-Date: 2022-11-08 19:57+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -74,7 +74,7 @@ msgstr "விருப்பமான முகவடியை அனுப்�
 msgid "Sends the given message as a notice"
 msgstr "செய்தியை அறிக்கையாக அனுப்பும்"
 
-#: src/actionsmodel.cpp:144 src/actionsmodel.cpp:291 src/actionsmodel.cpp:319
+#: src/actionsmodel.cpp:144 src/actionsmodel.cpp:321 src/actionsmodel.cpp:349
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
@@ -109,7 +109,7 @@ msgctxt "<username> was invited into this room"
 msgid "%1 was invited into this room"
 msgstr "%1 இவ்வரங்குக்கு அழைக்கப்பட்டுள்ளார்"
 
-#: src/actionsmodel.cpp:171 src/actionsmodel.cpp:309 src/actionsmodel.cpp:337
+#: src/actionsmodel.cpp:171 src/actionsmodel.cpp:339 src/actionsmodel.cpp:367
 msgid "<user id>"
 msgstr "<பயனர் பெயர்>"
 
@@ -171,49 +171,72 @@ msgstr ""
 "குறிப்பிட்ட அரங்கிலிருந்து (எதுவும் குறிப்பிடப்படா பட்சத்தில் தற்போதைய அரங்கிலிருந்து) "
 "வெளியேறும்"
 
-#: src/actionsmodel.cpp:296
+#: src/actionsmodel.cpp:288 src/actionsmodel.cpp:303
+#, kde-format
+msgid "No new nickname provided, no changes will happen."
+msgstr ""
+
+#: src/actionsmodel.cpp:296 src/actionsmodel.cpp:311
+msgid "<display name>"
+msgstr ""
+
+#: src/actionsmodel.cpp:297
+#, fuzzy
+#| msgctxt "their refers to a singular user"
+#| msgid "changed their display name to %1"
+msgid "Changes your global display name"
+msgstr "அவருடைய காட்டப்படும் பெயரை %1 என்று மாற்றினார்"
+
+#: src/actionsmodel.cpp:312
+#, fuzzy
+#| msgctxt "their refers to a singular user"
+#| msgid "changed their display name to %1"
+msgid "Changes your display name in this room"
+msgstr "அவருடைய காட்டப்படும் பெயரை %1 என்று மாற்றினார்"
+
+#: src/actionsmodel.cpp:326
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
 msgstr "%1 ஏற்கனவே பொருட்படுத்தப்படாமல் உள்ளார்."
 
-#: src/actionsmodel.cpp:301
+#: src/actionsmodel.cpp:331
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
 msgstr "%1 இனிமேல் பொருட்படுத்தப்பட மாட்டார்."
 
-#: src/actionsmodel.cpp:303 src/actionsmodel.cpp:331
+#: src/actionsmodel.cpp:333 src/actionsmodel.cpp:361
 #, kde-format
 msgctxt "<username> is not a known user"
 msgid "%1 is not a known user."
 msgstr "%1 நமக்கு தெரிந்த பயனர் அல்ல."
 
-#: src/actionsmodel.cpp:310
+#: src/actionsmodel.cpp:340
 msgid "Ignores the given user"
 msgstr "குறிப்பிட்ட பயனரை பொருட்படுத்தப்படாதவராக அமைக்கும்"
 
-#: src/actionsmodel.cpp:325
+#: src/actionsmodel.cpp:355
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
 msgstr "%1 பொருட்படுத்தப்படாமல் இல்லை."
 
-#: src/actionsmodel.cpp:329
+#: src/actionsmodel.cpp:359
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
 msgstr "%1 இனிமேல் பொருட்படுத்தப்படுவார்."
 
-#: src/actionsmodel.cpp:338
+#: src/actionsmodel.cpp:368
 msgid "Unignores the given user"
 msgstr "குறிப்பிட்ட பயனரை பொருட்படுத்த வேண்டியவராக அமைக்கும்"
 
-#: src/actionsmodel.cpp:358
+#: src/actionsmodel.cpp:388
 msgid "<reaction text>"
 msgstr "<எதிர்வினையின் உரை>"
 
-#: src/actionsmodel.cpp:359
+#: src/actionsmodel.cpp:389
 msgid "React to the message with the given text"
 msgstr "குறிப்பிட்ட உரையுடன் செய்திக்கு எதிர்வினையிடு"
 
@@ -1026,7 +1049,7 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "கடைசியாக படித்தது: %1"
 
-#: src/qml/Component/Timeline/RichLabel.qml:89
+#: src/qml/Component/Timeline/RichLabel.qml:77
 #, kde-format
 msgid " (edited)"
 msgstr "(திருத்தப்பட்டது)"
@@ -1069,18 +1092,18 @@ msgstr "கணக்கு திருத்தி"
 msgid "Switch User"
 msgstr ""
 
-#: src/qml/Component/UserInfo.qml:184 src/qml/Page/InviteUserPage.qml:42
+#: src/qml/Component/UserInfo.qml:186 src/qml/Page/InviteUserPage.qml:42
 #, kde-format
 msgid "Add"
 msgstr "சேர்"
 
-#: src/qml/Component/UserInfo.qml:193 src/qml/main.qml:263
+#: src/qml/Component/UserInfo.qml:197 src/qml/main.qml:263
 #: src/qml/Menu/GlobalMenu.qml:28
 #, kde-format
 msgid "Configure"
 msgstr "அமை"
 
-#: src/qml/Component/UserInfo.qml:194
+#: src/qml/Component/UserInfo.qml:198
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgid "Open Settings"

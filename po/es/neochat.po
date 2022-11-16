@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-15 00:46+0000\n"
-"PO-Revision-Date: 2022-11-14 03:48+0100\n"
+"POT-Creation-Date: 2022-11-16 00:47+0000\n"
+"PO-Revision-Date: 2022-11-16 01:19+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -76,7 +76,7 @@ msgstr "Envía el sentimiento especificado"
 msgid "Sends the given message as a notice"
 msgstr "Envía el mensaje indicado como aviso"
 
-#: src/actionsmodel.cpp:144 src/actionsmodel.cpp:291 src/actionsmodel.cpp:319
+#: src/actionsmodel.cpp:144 src/actionsmodel.cpp:321 src/actionsmodel.cpp:349
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
@@ -111,7 +111,7 @@ msgctxt "<username> was invited into this room"
 msgid "%1 was invited into this room"
 msgstr "%1 ha sido invitado a esta sala"
 
-#: src/actionsmodel.cpp:171 src/actionsmodel.cpp:309 src/actionsmodel.cpp:337
+#: src/actionsmodel.cpp:171 src/actionsmodel.cpp:339 src/actionsmodel.cpp:367
 msgid "<user id>"
 msgstr "<id de usuario>"
 
@@ -171,49 +171,72 @@ msgstr "[<alias o id. de sala>]"
 msgid "Leaves the given room or this room, if there is none given"
 msgstr "Sale de la sala indicada o de esta sala, si no se indica ninguna"
 
-#: src/actionsmodel.cpp:296
+#: src/actionsmodel.cpp:288 src/actionsmodel.cpp:303
+#, kde-format
+msgid "No new nickname provided, no changes will happen."
+msgstr ""
+
+#: src/actionsmodel.cpp:296 src/actionsmodel.cpp:311
+msgid "<display name>"
+msgstr ""
+
+#: src/actionsmodel.cpp:297
+#, fuzzy
+#| msgctxt "their refers to a singular user"
+#| msgid "changed their display name to %1"
+msgid "Changes your global display name"
+msgstr "ha cambiado su nombre a mostrar a %1"
+
+#: src/actionsmodel.cpp:312
+#, fuzzy
+#| msgctxt "their refers to a singular user"
+#| msgid "changed their display name to %1"
+msgid "Changes your display name in this room"
+msgstr "ha cambiado su nombre a mostrar a %1"
+
+#: src/actionsmodel.cpp:326
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
 msgstr "%1 ya está ignorado."
 
-#: src/actionsmodel.cpp:301
+#: src/actionsmodel.cpp:331
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
 msgstr "Ahora se ignora a %1."
 
-#: src/actionsmodel.cpp:303 src/actionsmodel.cpp:331
+#: src/actionsmodel.cpp:333 src/actionsmodel.cpp:361
 #, kde-format
 msgctxt "<username> is not a known user"
 msgid "%1 is not a known user."
 msgstr "%1 no es un usuario conocido."
 
-#: src/actionsmodel.cpp:310
+#: src/actionsmodel.cpp:340
 msgid "Ignores the given user"
 msgstr "Ignorar al usuario indicado"
 
-#: src/actionsmodel.cpp:325
+#: src/actionsmodel.cpp:355
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
 msgstr "No se ignora a %1."
 
-#: src/actionsmodel.cpp:329
+#: src/actionsmodel.cpp:359
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
 msgstr "Ya no se ignora a %1."
 
-#: src/actionsmodel.cpp:338
+#: src/actionsmodel.cpp:368
 msgid "Unignores the given user"
 msgstr "Dejar de ignorar al usuario indicado"
 
-#: src/actionsmodel.cpp:358
+#: src/actionsmodel.cpp:388
 msgid "<reaction text>"
 msgstr "<texto de reacción>"
 
-#: src/actionsmodel.cpp:359
+#: src/actionsmodel.cpp:389
 msgid "React to the message with the given text"
 msgstr "Reaccionar al mensaje con el texto indicado"
 
@@ -991,14 +1014,14 @@ msgstr "Descargar"
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Según los votos de %1 usuario"
+msgstr[1] "Según los votos de %1 usuarios"
 
 #: src/qml/Component/Timeline/PollDelegate.qml:48
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
-msgstr ""
+msgstr "(Finalizada)"
 
 #: src/qml/Component/Timeline/ReactionDelegate.qml:53
 #, kde-format
@@ -1028,7 +1051,7 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Última lectura: %1"
 
-#: src/qml/Component/Timeline/RichLabel.qml:89
+#: src/qml/Component/Timeline/RichLabel.qml:77
 #, kde-format
 msgid " (edited)"
 msgstr " (editado)"
@@ -1049,8 +1072,7 @@ msgid "Log in to an existing account"
 msgstr "Iniciar sesión en una cuenta existente"
 
 #: src/qml/Component/UserInfo.qml:61
-#, fuzzy, kde-format
-#| msgid "Login"
+#, kde-format
 msgctxt "@title:window"
 msgid "Login"
 msgstr "Inicio de sesión"
@@ -1070,18 +1092,18 @@ msgstr "Editor de la cuenta"
 msgid "Switch User"
 msgstr "Cambiar usuario"
 
-#: src/qml/Component/UserInfo.qml:184 src/qml/Page/InviteUserPage.qml:42
+#: src/qml/Component/UserInfo.qml:186 src/qml/Page/InviteUserPage.qml:42
 #, kde-format
 msgid "Add"
 msgstr "Añadir"
 
-#: src/qml/Component/UserInfo.qml:193 src/qml/main.qml:263
+#: src/qml/Component/UserInfo.qml:197 src/qml/main.qml:263
 #: src/qml/Menu/GlobalMenu.qml:28
 #, kde-format
 msgid "Configure"
 msgstr "Configurar"
 
-#: src/qml/Component/UserInfo.qml:194
+#: src/qml/Component/UserInfo.qml:198
 #, kde-format
 msgid "Open Settings"
 msgstr "Abrir las preferencias"

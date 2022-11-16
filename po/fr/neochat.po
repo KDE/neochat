@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-15 00:46+0000\n"
+"POT-Creation-Date: 2022-11-16 00:47+0000\n"
 "PO-Revision-Date: 2022-11-13 19:51+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -71,7 +71,7 @@ msgstr "Envoie l'émoticône fournie"
 msgid "Sends the given message as a notice"
 msgstr "Envoie le message fourni comme un avis"
 
-#: src/actionsmodel.cpp:144 src/actionsmodel.cpp:291 src/actionsmodel.cpp:319
+#: src/actionsmodel.cpp:144 src/actionsmodel.cpp:321 src/actionsmodel.cpp:349
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
@@ -106,7 +106,7 @@ msgctxt "<username> was invited into this room"
 msgid "%1 was invited into this room"
 msgstr "%1 a été invité dans ce salon."
 
-#: src/actionsmodel.cpp:171 src/actionsmodel.cpp:309 src/actionsmodel.cpp:337
+#: src/actionsmodel.cpp:171 src/actionsmodel.cpp:339 src/actionsmodel.cpp:367
 msgid "<user id>"
 msgstr "<user id>"
 
@@ -166,49 +166,72 @@ msgstr "[<room alias or id>]"
 msgid "Leaves the given room or this room, if there is none given"
 msgstr "Quitte le salon fourni ou ce salon, si aucun paramètre n'est fourni."
 
-#: src/actionsmodel.cpp:296
+#: src/actionsmodel.cpp:288 src/actionsmodel.cpp:303
+#, kde-format
+msgid "No new nickname provided, no changes will happen."
+msgstr ""
+
+#: src/actionsmodel.cpp:296 src/actionsmodel.cpp:311
+msgid "<display name>"
+msgstr ""
+
+#: src/actionsmodel.cpp:297
+#, fuzzy
+#| msgctxt "their refers to a singular user"
+#| msgid "changed their display name to %1"
+msgid "Changes your global display name"
+msgstr "a modifié leur nom d'affichage en %1"
+
+#: src/actionsmodel.cpp:312
+#, fuzzy
+#| msgctxt "their refers to a singular user"
+#| msgid "changed their display name to %1"
+msgid "Changes your display name in this room"
+msgstr "a modifié leur nom d'affichage en %1"
+
+#: src/actionsmodel.cpp:326
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
 msgstr "%1 est déjà ignoré."
 
-#: src/actionsmodel.cpp:301
+#: src/actionsmodel.cpp:331
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
 msgstr "%1 est maintenant ignoré."
 
-#: src/actionsmodel.cpp:303 src/actionsmodel.cpp:331
+#: src/actionsmodel.cpp:333 src/actionsmodel.cpp:361
 #, kde-format
 msgctxt "<username> is not a known user"
 msgid "%1 is not a known user."
 msgstr "%1 n'est pas un utilisateur connu."
 
-#: src/actionsmodel.cpp:310
+#: src/actionsmodel.cpp:340
 msgid "Ignores the given user"
 msgstr "Ignore un utilisateur donné"
 
-#: src/actionsmodel.cpp:325
+#: src/actionsmodel.cpp:355
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
 msgstr "%1 est pris en compte."
 
-#: src/actionsmodel.cpp:329
+#: src/actionsmodel.cpp:359
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
 msgstr "%1 n'est plus ignoré maintenant."
 
-#: src/actionsmodel.cpp:338
+#: src/actionsmodel.cpp:368
 msgid "Unignores the given user"
 msgstr "Reprendre en compte l’utilisateur donné"
 
-#: src/actionsmodel.cpp:358
+#: src/actionsmodel.cpp:388
 msgid "<reaction text>"
 msgstr "<reaction text>"
 
-#: src/actionsmodel.cpp:359
+#: src/actionsmodel.cpp:389
 msgid "React to the message with the given text"
 msgstr "Réagir à ce message avec un texte donné"
 
@@ -1029,7 +1052,7 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Dernier lu : %1"
 
-#: src/qml/Component/Timeline/RichLabel.qml:89
+#: src/qml/Component/Timeline/RichLabel.qml:77
 #, kde-format
 msgid " (edited)"
 msgstr " (modifié)"
@@ -1072,18 +1095,18 @@ msgstr "Éditeur de comptes"
 msgid "Switch User"
 msgstr ""
 
-#: src/qml/Component/UserInfo.qml:184 src/qml/Page/InviteUserPage.qml:42
+#: src/qml/Component/UserInfo.qml:186 src/qml/Page/InviteUserPage.qml:42
 #, kde-format
 msgid "Add"
 msgstr "Ajouter"
 
-#: src/qml/Component/UserInfo.qml:193 src/qml/main.qml:263
+#: src/qml/Component/UserInfo.qml:197 src/qml/main.qml:263
 #: src/qml/Menu/GlobalMenu.qml:28
 #, kde-format
 msgid "Configure"
 msgstr "Configurer"
 
-#: src/qml/Component/UserInfo.qml:194
+#: src/qml/Component/UserInfo.qml:198
 #, fuzzy, kde-format
 #| msgctxt "'Space' is a matrix space"
 #| msgid "Space Settings"

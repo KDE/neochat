@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-15 00:46+0000\n"
-"PO-Revision-Date: 2022-11-02 05:23+0100\n"
+"POT-Creation-Date: 2022-11-16 00:47+0000\n"
+"PO-Revision-Date: 2022-11-15 07:11+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -75,7 +75,7 @@ msgstr ""
 msgid "Sends the given message as a notice"
 msgstr ""
 
-#: src/actionsmodel.cpp:144 src/actionsmodel.cpp:291 src/actionsmodel.cpp:319
+#: src/actionsmodel.cpp:144 src/actionsmodel.cpp:321 src/actionsmodel.cpp:349
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
@@ -110,7 +110,7 @@ msgctxt "<username> was invited into this room"
 msgid "%1 was invited into this room"
 msgstr "%1 მოწვეულია ამ ოთახში"
 
-#: src/actionsmodel.cpp:171 src/actionsmodel.cpp:309 src/actionsmodel.cpp:337
+#: src/actionsmodel.cpp:171 src/actionsmodel.cpp:339 src/actionsmodel.cpp:367
 msgid "<user id>"
 msgstr "<მომხმარებლის id>"
 
@@ -170,49 +170,72 @@ msgstr "[<ოთახის მეტსახელი ან id>]"
 msgid "Leaves the given room or this room, if there is none given"
 msgstr "მითითებული ოთახიდან, ან, თუ მითითებული არაა, მიმდინარე ოთახიდან გასვლა"
 
-#: src/actionsmodel.cpp:296
+#: src/actionsmodel.cpp:288 src/actionsmodel.cpp:303
+#, kde-format
+msgid "No new nickname provided, no changes will happen."
+msgstr ""
+
+#: src/actionsmodel.cpp:296 src/actionsmodel.cpp:311
+msgid "<display name>"
+msgstr ""
+
+#: src/actionsmodel.cpp:297
+#, fuzzy
+#| msgctxt "their refers to a singular user"
+#| msgid "changed their display name to %1"
+msgid "Changes your global display name"
+msgstr "შეცვალა საჩვენებელი სახელი %1-ზე"
+
+#: src/actionsmodel.cpp:312
+#, fuzzy
+#| msgctxt "their refers to a singular user"
+#| msgid "changed their display name to %1"
+msgid "Changes your display name in this room"
+msgstr "შეცვალა საჩვენებელი სახელი %1-ზე"
+
+#: src/actionsmodel.cpp:326
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
 msgstr "%1 უკვე დაიგნორებულია."
 
-#: src/actionsmodel.cpp:301
+#: src/actionsmodel.cpp:331
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
 msgstr "%1 ახლა დაიგნორებულია."
 
-#: src/actionsmodel.cpp:303 src/actionsmodel.cpp:331
+#: src/actionsmodel.cpp:333 src/actionsmodel.cpp:361
 #, kde-format
 msgctxt "<username> is not a known user"
 msgid "%1 is not a known user."
 msgstr "%1 იცნობი მომხმარებელია."
 
-#: src/actionsmodel.cpp:310
+#: src/actionsmodel.cpp:340
 msgid "Ignores the given user"
 msgstr "მითითებული მომხმარებლის დაიგნორება"
 
-#: src/actionsmodel.cpp:325
+#: src/actionsmodel.cpp:355
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
 msgstr "%1 იგნორირებული არაა."
 
-#: src/actionsmodel.cpp:329
+#: src/actionsmodel.cpp:359
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
 msgstr "%1 იგნორირებული აღარაა."
 
-#: src/actionsmodel.cpp:338
+#: src/actionsmodel.cpp:368
 msgid "Unignores the given user"
 msgstr "მითითებული მომხმარებლის იგნორის მოხსნა"
 
-#: src/actionsmodel.cpp:358
+#: src/actionsmodel.cpp:388
 msgid "<reaction text>"
 msgstr "<რეაქციის ტექსტი>"
 
-#: src/actionsmodel.cpp:359
+#: src/actionsmodel.cpp:389
 msgid "React to the message with the given text"
 msgstr ""
 
@@ -1021,7 +1044,7 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "ბოლოს წაიკითხა: %1"
 
-#: src/qml/Component/Timeline/RichLabel.qml:89
+#: src/qml/Component/Timeline/RichLabel.qml:77
 #, kde-format
 msgid " (edited)"
 msgstr " (ჩასწორებულია)"
@@ -1032,10 +1055,9 @@ msgid "Video"
 msgstr "ვიდეო"
 
 #: src/qml/Component/UserInfo.qml:58
-#, fuzzy, kde-format
-#| msgid "Add an account"
+#, kde-format
 msgid "Add Account"
-msgstr "ახალი ანგარიშის დამატება"
+msgstr "ანგარიშის დამატება"
 
 #: src/qml/Component/UserInfo.qml:59
 #, kde-format
@@ -1043,8 +1065,7 @@ msgid "Log in to an existing account"
 msgstr ""
 
 #: src/qml/Component/UserInfo.qml:61
-#, fuzzy, kde-format
-#| msgid "Login"
+#, kde-format
 msgctxt "@title:window"
 msgid "Login"
 msgstr "შესვლა"
@@ -1062,25 +1083,23 @@ msgstr "ანგარიშების რედაქტორი"
 #: src/qml/Component/UserInfo.qml:174
 #, kde-format
 msgid "Switch User"
-msgstr ""
+msgstr "მომხმარებლის გადართვა"
 
-#: src/qml/Component/UserInfo.qml:184 src/qml/Page/InviteUserPage.qml:42
+#: src/qml/Component/UserInfo.qml:186 src/qml/Page/InviteUserPage.qml:42
 #, kde-format
 msgid "Add"
 msgstr "დამატება"
 
-#: src/qml/Component/UserInfo.qml:193 src/qml/main.qml:263
+#: src/qml/Component/UserInfo.qml:197 src/qml/main.qml:263
 #: src/qml/Menu/GlobalMenu.qml:28
 #, kde-format
 msgid "Configure"
 msgstr "მორგება"
 
-#: src/qml/Component/UserInfo.qml:194
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Space Settings"
+#: src/qml/Component/UserInfo.qml:198
+#, kde-format
 msgid "Open Settings"
-msgstr "სივრცის მორგება"
+msgstr "პარამეტრების გახსნა"
 
 #: src/qml/Dialog/CreateRoomDialog.qml:16 src/qml/main.qml:250
 #, kde-format
@@ -2251,7 +2270,7 @@ msgstr "ანგარიშები"
 #: src/qml/Settings/AccountsPage.qml:17 src/qml/Settings/AccountsPage.qml:86
 #, kde-format
 msgid "Add an account"
-msgstr "ახალი ანგარიშის დამატება"
+msgstr "ანგარიშის დამატება"
 
 #: src/qml/Settings/AccountsPage.qml:101
 #, kde-format
@@ -2474,25 +2493,24 @@ msgstr ""
 
 #: src/qml/Settings/NetworkProxyPage.qml:22
 #: src/qml/Settings/SettingsPage.qml:37
-#, fuzzy, kde-format
-#| msgid "Network Error"
+#, kde-format
 msgid "Network Proxy"
-msgstr "ქსელის შეცდომა"
+msgstr "ქსელის პროქსი"
 
 #: src/qml/Settings/NetworkProxyPage.qml:23
 #, kde-format
 msgid "System Default"
-msgstr ""
+msgstr "სისტემის ნაგულისხმები"
 
 #: src/qml/Settings/NetworkProxyPage.qml:31
 #, kde-format
 msgid "HTTP"
-msgstr ""
+msgstr "HTTP"
 
 #: src/qml/Settings/NetworkProxyPage.qml:39
 #, kde-format
 msgid "Socks5"
-msgstr ""
+msgstr "Socks5"
 
 #: src/qml/Settings/NetworkProxyPage.qml:48
 #, kde-format
