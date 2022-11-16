@@ -279,7 +279,7 @@ Kirigami.OverlayDrawer {
                         labelItem.textFormat: Text.PlainText
 
                         onClicked: {
-                            const popup = userDetailDialog.createObject(ApplicationWindow.overlay, {room: room, user: user, displayName: name, avatarMediaId: avatar})
+                            const popup = userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {room: room, user: user, displayName: name, avatarMediaId: avatar})
                             popup.closed.connect(function() {
                                 userListItem.highlighted = false
                             })
