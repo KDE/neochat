@@ -1251,6 +1251,6 @@ bool NeoChatRoom::downloadTempFile(const QString &eventId)
         return false;
     }
 
-    downloadFile(eventId, file.fileName());
+    downloadFile(eventId, QUrl::fromLocalFile(file.fileName()));
     return true;
 }

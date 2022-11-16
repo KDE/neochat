@@ -29,8 +29,7 @@ TimelineContainer {
     }
 
     function openSavedFile() {
-        if (UrlHelper.openUrl(progressInfo.localPath)) return;
-        if (UrlHelper.openUrl(progressInfo.localDir)) return;
+        UrlHelper.openUrl(progressInfo.localPath);
     }
 
     innerObject: RowLayout {
