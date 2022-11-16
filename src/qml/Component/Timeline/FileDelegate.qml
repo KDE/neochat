@@ -16,6 +16,11 @@ TimelineContainer {
     onOpenContextMenu: openFileContext(model, fileDelegate)
 
     readonly property bool downloaded: progressInfo && progressInfo.completed
+    property bool autoOpenFile: false
+
+    onDownloadedChanged: if (autoOpenFile) {
+        openSavedFile();
+    }
 
     function saveFileAs() {
         const dialog = fileDialog.createObject(QQC2.ApplicationWindow.overlay)
@@ -42,12 +47,16 @@ TimelineContainer {
                 when: progressInfo.completed
 
                 PropertyChanges {
+                    target: openButton
+                    visible: false
+                }
+
+                PropertyChanges {
                     target: downloadButton
 
                     icon.name: "document-open"
 
                     QQC2.ToolTip.text: i18nc("tooltip for a button on a message; offers ability to open its downloaded file with an appropriate application", "Open File")
-                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
                     onClicked: openSavedFile()
                 }
@@ -55,6 +64,11 @@ TimelineContainer {
             State {
                 name: "downloading"
                 when: progressInfo.active
+
+                PropertyChanges {
+                    target: openButton
+                    visible: false
+                }
 
                 PropertyChanges {
                     target: sizeLabel
@@ -65,7 +79,6 @@ TimelineContainer {
                     icon.name: "media-playback-stop"
 
                     QQC2.ToolTip.text: i18nc("tooltip for a button on a message; stops downloading the message's file", "Stop Download")
-                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                     onClicked: currentRoom.cancelFileTransfer(eventId)
                 }
             },
@@ -82,10 +95,10 @@ TimelineContainer {
         ]
 
         Kirigami.Icon {
-            id: ikon
             source: model.fileMimetypeIcon
             fallback: "unknown"
         }
+
         ColumnLayout {
             Layout.alignment: Qt.AlignVCenter
             Layout.fillWidth: true
@@ -109,11 +122,25 @@ TimelineContainer {
         }
 
         QQC2.Button {
+            id: openButton
+            icon.name: "document-open"
+            onClicked: {
+                autoOpenFile = true;
+                currentRoom.downloadTempFile(eventId);
+            }
+
+            QQC2.ToolTip.text: i18nc("tooltip for a button on a message; offers ability to open its downloaded file with an appropriate application", "Open File")
+            QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+        }
+
+        QQC2.Button {
             id: downloadButton
             icon.name: "download"
 
             QQC2.ToolTip.text: i18nc("tooltip for a button on a message; offers ability to download its file", "Download")
             QQC2.ToolTip.visible: hovered
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
         }
 
         Component {
@@ -122,9 +149,7 @@ TimelineContainer {
             FileDialog {
                 fileMode: FileDialog.SaveFile
                 folder: StandardPaths.writableLocation(StandardPaths.DownloadLocation)
-                onAccepted: {
-                    currentRoom.downloadFile(eventId, file)
-                }
+                onAccepted: currentRoom.downloadFile(eventId, file)
             }
         }
     }

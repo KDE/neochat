@@ -39,8 +39,6 @@ struct Mention {
 
 class NeoChatRoom : public Quotient::Room
 {
-
-
     Q_OBJECT
     Q_PROPERTY(QVariantList usersTyping READ getUsersTyping NOTIFY typingChanged)
     Q_PROPERTY(bool hasFileUploading READ hasFileUploading WRITE setHasFileUploading NOTIFY hasFileUploadingChanged)
@@ -194,6 +192,8 @@ public:
     void setSavedText(const QString &savedText);
 
     bool canEncryptRoom() const;
+
+    Q_INVOKABLE bool downloadTempFile(const QString &eventId);
 
 #ifdef QUOTIENT_07
     Q_INVOKABLE PollHandler *poll(const QString &eventId);

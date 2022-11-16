@@ -6,6 +6,7 @@
 #include <QFileInfo>
 #include <QMetaObject>
 #include <QMimeDatabase>
+#include <QTemporaryFile>
 #include <QTextDocument>
 #include <functional>
 
@@ -1241,3 +1242,15 @@ PollHandler *NeoChatRoom::poll(const QString &eventId)
     return m_polls[eventId];
 }
 #endif
+
+bool NeoChatRoom::downloadTempFile(const QString &eventId)
+{
+    QTemporaryFile file;
+    file.setAutoRemove(false);
+    if (!file.open()) {
+        return false;
+    }
+
+    downloadFile(eventId, file.fileName());
+    return true;
+}
