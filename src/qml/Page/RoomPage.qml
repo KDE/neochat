@@ -343,6 +343,7 @@ Kirigami.ScrollablePage {
 
             id: goReadMarkerFab
 
+            z: 2
             visible: currentRoom && currentRoom.hasUnreadMessages && currentRoom.readMarkerLoaded
             action: Kirigami.Action {
                 onTriggered: {
@@ -365,6 +366,7 @@ Kirigami.ScrollablePage {
 
             id: goMarkAsReadFab
 
+            z: 2
             visible: !messageListView.atYEnd
             action: Kirigami.Action {
                 onTriggered: {
