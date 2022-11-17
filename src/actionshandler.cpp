@@ -139,6 +139,10 @@ void ActionsHandler::handleMessage()
 
     handledText = CustomEmojiModel::instance().preprocessText(handledText);
     handledText = markdownToHTML(handledText);
+    if (handledText.count("<p>") == 1 && handledText.count("</p>") == 1) {
+        handledText.remove("<p>");
+        handledText.remove("</p>");
+    }
 
     if (handledText.length() == 0) {
         return;
