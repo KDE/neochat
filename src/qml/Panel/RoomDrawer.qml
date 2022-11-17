@@ -154,7 +154,11 @@ Kirigami.OverlayDrawer {
                         text: i18n("Enable encryption")
                         display: QQC2.AbstractButton.IconOnly
 
-                        onClicked: roomDrawer.room.activateEncryption()
+                        onClicked: {
+                            let dialog = confirmEncryptionDialog.createObject(applicationWindow(), {room: roomDrawer.room});
+                            roomDrawer.close();
+                            dialog.open();
+                        }
 
                         QQC2.ToolTip {
                             text: encryptButton.text
@@ -356,5 +360,11 @@ Kirigami.OverlayDrawer {
         id: userDetailDialog
 
         UserDetailDialog {}
+    }
+
+    Component {
+        id: confirmEncryptionDialog
+
+        ConfirmEncryptionDialog {}
     }
 }
