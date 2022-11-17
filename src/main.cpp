@@ -150,9 +150,10 @@ int main(int argc, char *argv[])
                      i18n("Matrix client"),
                      KAboutLicense::GPL_V3,
                      i18n("© 2018-2020 Black Hat, 2020-2022 KDE Community"));
-    about.addAuthor(i18n("Black Hat"), QString(), QStringLiteral("bhat@encom.eu.org"));
-    about.addAuthor(i18n("Carl Schwan"), QString(), QStringLiteral("carl@carlschwan.eu"));
-    about.addAuthor(i18n("Tobias Fella"), QString(), QStringLiteral("fella@posteo.de"));
+    about.addAuthor(i18n("Carl Schwan"), i18n("Maintainer"), QStringLiteral("carl@carlschwan.eu"), QStringLiteral("https://carlschwan.eu"));
+    about.addAuthor(i18n("Tobias Fella"), i18n("Maintainer"), QStringLiteral("fella@posteo.de"));
+    about.addAuthor(i18n("James Graham"), i18n("Maintainer"), QStringLiteral("james.h.graham@protonmail.com"));
+    about.addCredit(i18n("Black Hat"), i18n("Original author of Spectral"), QStringLiteral("bhat@encom.eu.org"));
     about.setOrganizationDomain("kde.org");
 
     about.addComponent(QStringLiteral("libQuotient"),
