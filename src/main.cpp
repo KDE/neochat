@@ -154,6 +154,7 @@ int main(int argc, char *argv[])
     about.addAuthor(i18n("Tobias Fella"), i18n("Maintainer"), QStringLiteral("fella@posteo.de"));
     about.addAuthor(i18n("James Graham"), i18n("Maintainer"), QStringLiteral("james.h.graham@protonmail.com"));
     about.addCredit(i18n("Black Hat"), i18n("Original author of Spectral"), QStringLiteral("bhat@encom.eu.org"));
+    about.addCredit(i18n(" Alexey Rusakov "), i18n("Maintainer of Quotient"), QStringLiteral("Kitsune-Ral@users.sf.net"));
     about.setOrganizationDomain("kde.org");
 
     about.addComponent(QStringLiteral("libQuotient"),
