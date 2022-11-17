@@ -40,7 +40,7 @@ Kirigami.ScrollablePage {
                     Accessible.name: i18n("Update avatar")
                     enabled: canChangeAvatar
                     onClicked: {
-                        const fileDialog = openFileDialog.createObject(ApplicationWindow.overlay)
+                        const fileDialog = openFileDialog.createObject(QQC2.ApplicationWindow.overlay)
 
                         fileDialog.chosen.connect(function(path) {
                             if (!path) return
