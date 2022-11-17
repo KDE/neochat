@@ -135,8 +135,9 @@ int main(int argc, char *argv[])
     }
 
     QApplication::setStyle(QStringLiteral("breeze"));
-    auto font = app.font();
+    QFont font(QStringLiteral("Segoe UI Emoji"));
     font.setPointSize(10);
+    font.setHintingPreference(QFont::PreferNoHinting);
     app.setFont(font);
 #endif
     KLocalizedString::setApplicationDomain("neochat");
