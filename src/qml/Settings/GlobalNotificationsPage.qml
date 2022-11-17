@@ -14,12 +14,11 @@ Kirigami.ScrollablePage {
     title: i18nc("@title:window", "Notifications")
     ColumnLayout {
         id: notificationLayout
-        anchors.fill: parent
 
         MobileForm.FormCard {
             Layout.fillWidth: true
 
-            contentItem: MobileForm.FormSwitchDelegate {
+            contentItem: MobileForm.FormCheckDelegate {
                 text: i18n("Enable notifications for this account")
                 checked: Config.showNotifications
                 enabled: !Config.isShowNotificationsImmutable
