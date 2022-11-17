@@ -178,7 +178,7 @@ Loader {
 
                     QQC2.ToolButton {
                         icon.name: 'settings-configure'
-                        onClicked: ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room})
+                        onClicked: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room})
                     }
                 }
 

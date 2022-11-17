@@ -150,7 +150,7 @@ QQC2.Popup {
                     icon.name: "document-save"
                     display: QQC2.AbstractButton.IconOnly
                     onClicked: {
-                        var dialog = saveAsDialog.createObject(ApplicationWindow.overlay)
+                        var dialog = saveAsDialog.createObject(QQC2.ApplicationWindow.overlay)
                         dialog.open()
                         dialog.currentFile = dialog.folder + "/" + currentRoom.fileNameToDownload(eventId)
                     }
