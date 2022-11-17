@@ -36,6 +36,7 @@
 
 #include <networkaccessmanager.h>
 #include <room.h>
+#include <util.h>
 
 #include "actionshandler.h"
 #include "blurhashimageprovider.h"
@@ -155,7 +156,14 @@ int main(int argc, char *argv[])
 
     about.addComponent(QStringLiteral("libQuotient"),
                        i18n("A Qt5 library to write cross-platform clients for Matrix"),
-                       QString(),
+#ifdef QUOTIENT_07
+                       i18nc("<version number> (built against <possibly different version number>)",
+                             "%1 (built against %2)",
+                             Quotient::versionString(),
+                             QStringLiteral(Quotient_VERSION_STRING)),
+#else
+                       QStringLiteral(QUOTIENT_VERSION),
+#endif
                        QStringLiteral("https://github.com/quotient-im/libquotient"),
                        KAboutLicense::LGPL_V2_1);
 

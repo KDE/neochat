@@ -60,6 +60,7 @@ if(Quotient_VERSION_MINOR GREATER 6)
     target_compile_definitions(neochat PUBLIC QUOTIENT_07)
     target_sources(neochat PRIVATE pollevent.cpp pollhandler.cpp)
 else()
+    target_compile_definitions(neochat PUBLIC QUOTIENT_VERSION=\"${Quotient_VERSION}\")
     target_sources(neochat PRIVATE neochataccountregistry.cpp)
 endif()
 
