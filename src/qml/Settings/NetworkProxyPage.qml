@@ -63,7 +63,7 @@ Kirigami.ScrollablePage {
                     id: hostField
                     label: i18n("Host")
                     text: Config.proxyHost
-//                    inputMethodHints: Qt.ImhUrlCharactersOnly
+                    inputMethodHints: Qt.ImhUrlCharactersOnly
                     onEditingFinished: {
                         proxyConfigChanged = true
                     }
@@ -73,12 +73,11 @@ Kirigami.ScrollablePage {
                     Layout.fillWidth: true
                     contentItem: RowLayout {
                         QQC2.Label {
-                            text: i18n("Peeker width")
+                            text: i18n("Port")
                             Layout.fillWidth: true
                         }
                         QQC2.SpinBox {
                             id: portField
-                            Kirigami.FormData.label: i18n("Proxy Port")
                             value: Config.proxyPort
                             from: 0
                             to: 65536
