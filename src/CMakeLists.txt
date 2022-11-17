@@ -162,6 +162,7 @@ if(ANDROID)
         "channel-insecure-symbolic"
         "download"
         "smiley"
+        "tools-check-spelling"
     )
 else()
     target_link_libraries(neochat PUBLIC Qt::Widgets KF5::KIOWidgets)
