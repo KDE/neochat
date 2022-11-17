@@ -134,11 +134,15 @@ Kirigami.OverlaySheet {
             visible: user === room.localUser || room.canSendState("redact")
 
             action: Kirigami.Action {
-                text: i18n("Delete recent messages by this user")
+                text: i18n("Remove recent messages by this user")
                 icon.name: "delete"
                 icon.color: Kirigami.Theme.negativeTextColor
                 onTriggered: {
-                    room.deleteMessagesByUser(user.id)
+                    applicationWindow().pageStack.pushDialogLayer("qrc:/RemoveSheet.qml", {room: root.room, userId: user.id}, {
+                        title: i18nc("@title", "Remove Messages"),
+                        width: Kirigami.Units.gridUnit * 25
+                    })
+                    root.close()
                 }
             }
         }

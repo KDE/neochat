@@ -60,10 +60,10 @@ MessageDelegateContextMenu {
             text: i18n("Remove")
             icon.name: "edit-delete-remove"
             icon.color: "red"
-            onTriggered: {
-                currentRoom.redactEvent(eventId);
-                root.closeFullscreen()
-            }
+            onTriggered: applicationWindow().pageStack.pushDialogLayer("qrc:/RemoveSheet.qml", {room: currentRoom, eventId: eventId}, {
+                title: i18nc("@title", "Remove Message"),
+                width: Kirigami.Units.gridUnit * 25
+            })
         },
         Kirigami.Action {
             text: i18nc("@action:button 'Report' as in 'Report this event to the administrators'", "Report")

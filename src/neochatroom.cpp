@@ -864,9 +864,9 @@ QString NeoChatRoom::htmlSafeDisplayName() const
     return displayName().toHtmlEscaped();
 }
 
-void NeoChatRoom::deleteMessagesByUser(const QString &user)
+void NeoChatRoom::deleteMessagesByUser(const QString &user, const QString &reason)
 {
-    doDeleteMessagesByUser(user);
+    doDeleteMessagesByUser(user, reason);
 }
 
 QString NeoChatRoom::joinRule() const
@@ -888,7 +888,7 @@ void NeoChatRoom::setJoinRule(const QString &joinRule)
     // Not emitting joinRuleChanged() here, since that would override the change in the UI with the *current* value, which is not the *new* value.
 }
 
-QCoro::Task<void> NeoChatRoom::doDeleteMessagesByUser(const QString &user)
+QCoro::Task<void> NeoChatRoom::doDeleteMessagesByUser(const QString &user, QString reason)
 {
     QStringList events;
     for (const auto &event : messageEvents()) {
@@ -897,7 +897,7 @@ QCoro::Task<void> NeoChatRoom::doDeleteMessagesByUser(const QString &user)
         }
     }
     for (const auto &e : events) {
-        auto job = connection()->callApi<RedactEventJob>(id(), QUrl::toPercentEncoding(e), connection()->generateTxnId());
+        auto job = connection()->callApi<RedactEventJob>(id(), QUrl::toPercentEncoding(e), connection()->generateTxnId(), reason);
         co_await qCoro(job, &BaseJob::finished);
         if (job->error() != BaseJob::Success) {
             qWarning() << "Error: \"" << job->error() << "\" while deleting messages. Aborting";

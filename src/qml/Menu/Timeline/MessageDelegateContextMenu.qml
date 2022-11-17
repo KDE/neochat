@@ -46,7 +46,10 @@ Loader {
             text: i18n("Remove")
             icon.name: "edit-delete-remove"
             icon.color: "red"
-            onTriggered: currentRoom.redactEvent(eventId);
+            onTriggered: applicationWindow().pageStack.pushDialogLayer("qrc:/RemoveSheet.qml", {room: currentRoom, eventId: eventId}, {
+                title: i18nc("@title", "Remove Message"),
+                width: Kirigami.Units.gridUnit * 25
+            })
         },
         Kirigami.Action {
             text: i18n("Copy")

@@ -221,7 +221,7 @@ private:
     void onAddHistoricalTimelineEvents(rev_iter_t from) override;
     void onRedaction(const Quotient::RoomEvent &prevEvent, const Quotient::RoomEvent &after) override;
 
-    QCoro::Task<void> doDeleteMessagesByUser(const QString &user);
+    QCoro::Task<void> doDeleteMessagesByUser(const QString &user, QString reason);
     QCoro::Task<void> doUploadFile(QUrl url, QString body = QString());
 
     QString m_chatBoxText;
@@ -279,5 +279,5 @@ public Q_SLOTS:
     void addLocalAlias(const QString &alias);
     void removeLocalAlias(const QString &alias);
     void toggleReaction(const QString &eventId, const QString &reaction);
-    void deleteMessagesByUser(const QString &user);
+    void deleteMessagesByUser(const QString &user, const QString &reason);
 };
