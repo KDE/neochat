@@ -113,7 +113,7 @@ Loader {
             QQC2.MenuItem {
                 text: i18n("Room Settings")
                 icon.name: "configure"
-                onTriggered: ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room})
+                onTriggered: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room})
             }
 
             QQC2.MenuSeparator {}
