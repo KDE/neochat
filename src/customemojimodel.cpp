@@ -163,13 +163,20 @@ QHash<int, QByteArray> CustomEmojiModel::roleNames() const
 
 QString CustomEmojiModel::preprocessText(const QString &text)
 {
-    auto handledText = text;
-    for (const auto &emoji : std::as_const(m_emojis)) {
-        handledText.replace(
-            emoji.regexp,
-            QStringLiteral(R"(<img data-mx-emoticon="" src="%1" alt="%2" title="%2" height="32" vertical-align="middle" />)").arg(emoji.url, emoji.name));
+    auto parts = text.split("```");
+    bool skip = true;
+    for (auto &part : parts) {
+        skip = !skip;
+        if (skip) {
+            continue;
+        }
+        for (const auto &emoji : std::as_const(m_emojis)) {
+            part.replace(
+                emoji.regexp,
+                QStringLiteral(R"(<img data-mx-emoticon="" src="%1" alt="%2" title="%2" height="32" vertical-align="middle" />)").arg(emoji.url, emoji.name));
+        }
     }
-    return handledText;
+    return parts.join("```");
 }
 
 QVariantList CustomEmojiModel::filterModel(const QString &filter)

@@ -26,7 +26,7 @@ using namespace Quotient;
 QString markdownToHTML(const QString &markdown)
 {
     const auto str = markdown.toUtf8();
-    char *tmp_buf = cmark_markdown_to_html(str.constData(), str.size(), CMARK_OPT_HARDBREAKS);
+    char *tmp_buf = cmark_markdown_to_html(str.constData(), str.size(), CMARK_OPT_HARDBREAKS | CMARK_OPT_UNSAFE);
 
     const std::string html(tmp_buf);
 
@@ -137,8 +137,8 @@ void ActionsHandler::handleMessage()
         }
     }
 
-    handledText = markdownToHTML(handledText);
     handledText = CustomEmojiModel::instance().preprocessText(handledText);
+    handledText = markdownToHTML(handledText);
 
     if (handledText.length() == 0) {
         return;
