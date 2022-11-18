@@ -7,6 +7,7 @@
 #include "neochatroom.h"
 #include "neochatuser.h"
 #include <events/roommemberevent.h>
+#include <events/roompowerlevelsevent.h>
 
 #include <KLocalizedString>
 
@@ -387,6 +388,119 @@ QVector<ActionsModel::Action> actions{
         std::nullopt,
         kli18n("<reaction text>"),
         kli18n("React to the message with the given text"),
+    },
+    Action{
+        QStringLiteral("ban"),
+        [](const QString &text, NeoChatRoom *room) {
+            auto parts = text.split(QLatin1String(" "));
+            static const QRegularExpression mxidRegex(
+                QStringLiteral(R"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"));
+            auto regexMatch = mxidRegex.match(parts[0]);
+            if (!regexMatch.hasMatch()) {
+                Q_EMIT room->showMessage(NeoChatRoom::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
+                return QString();
+            }
+#ifdef QUOTIENT_07
+            auto state = room->currentState().get<RoomMemberEvent>(parts[0]);
+            if (state && state->membership() == Membership::Ban) {
+                Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("<user> is already banned from this room.", "%1 is already banned from this room.", text));
+                return QString();
+            }
+#endif
+            auto plEvent = room->getCurrentState<RoomPowerLevelsEvent>();
+            if (plEvent->ban() > plEvent->powerLevelForUser(room->localUser()->id())) {
+                Q_EMIT room->showMessage(NeoChatRoom::Error, i18n("You are not allowed to ban users from this room."));
+                return QString();
+            }
+            if (plEvent->powerLevelForUser(room->localUser()->id()) <= plEvent->powerLevelForUser(parts[0])) {
+                Q_EMIT room->showMessage(
+                    NeoChatRoom::Error,
+                    i18nc("You are not allowed to ban <username> from this room.", "You are not allowed to ban %1 from this room.", parts[0]));
+                return QString();
+            }
+            room->ban(parts[0], parts.size() > 1 ? parts.mid(1).join(" ") : QString());
+            Q_EMIT room->showMessage(NeoChatRoom::Positive, i18nc("<username> was banned from this room.", "%1 was banned from this room.", parts[0]));
+            return QString();
+        },
+        false,
+        std::nullopt,
+        kli18n("<user id> [<reason>]"),
+        kli18n("Bans the given user"),
+    },
+    Action{
+        QStringLiteral("unban"),
+        [](const QString &text, NeoChatRoom *room) {
+            static const QRegularExpression mxidRegex(
+                QStringLiteral(R"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"));
+            auto regexMatch = mxidRegex.match(text);
+            if (!regexMatch.hasMatch()) {
+                Q_EMIT room->showMessage(NeoChatRoom::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
+                return QString();
+            }
+            auto plEvent = room->getCurrentState<RoomPowerLevelsEvent>();
+            if (plEvent->ban() > plEvent->powerLevelForUser(room->localUser()->id())) {
+                Q_EMIT room->showMessage(NeoChatRoom::Error, i18n("You are not allowed to unban users from this room."));
+                return QString();
+            }
+#ifdef QUOTIENT_07
+            auto state = room->currentState().get<RoomMemberEvent>(text);
+            if (state && state->membership() != Membership::Ban) {
+                Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("<user> is not banned from this room.", "%1 is not banned from this room.", text));
+                return QString();
+            }
+#endif
+            room->unban(text);
+            Q_EMIT room->showMessage(NeoChatRoom::Positive, i18nc("<username> was unbanned from this room.", "%1 was unbanned from this room.", text));
+
+            return QString();
+        },
+        false,
+        std::nullopt,
+        kli18n("<user id>"),
+        kli18n("Removes the ban of the given user"),
+    },
+    Action{
+        QStringLiteral("kick"),
+        [](const QString &text, NeoChatRoom *room) {
+            auto parts = text.split(QLatin1String(" "));
+            static const QRegularExpression mxidRegex(
+                QStringLiteral(R"((^|[][[:space:](){}`'";])([!#@][-a-z0-9_=#/.]{1,252}:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?))"));
+            auto regexMatch = mxidRegex.match(parts[0]);
+            if (!regexMatch.hasMatch()) {
+                Q_EMIT room->showMessage(NeoChatRoom::Error,
+                                         i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", parts[0]));
+                return QString();
+            }
+            if (parts[0] == room->localUser()->id()) {
+                Q_EMIT room->showMessage(NeoChatRoom::Error, i18n("You cannot kick yourself from the room."));
+                return QString();
+            }
+#ifdef QUOTIENT_07
+            if (!room->isMember(parts[0])) {
+                Q_EMIT room->showMessage(NeoChatRoom::Error, i18nc("<username> is not in this room", "%1 is not in this room.", parts[0]));
+                return QString();
+            }
+#endif
+            auto plEvent = room->getCurrentState<RoomPowerLevelsEvent>();
+            auto kick = plEvent->kick();
+            if (plEvent->powerLevelForUser(room->localUser()->id()) < kick) {
+                Q_EMIT room->showMessage(NeoChatRoom::Error, i18n("You are not allowed to kick users from this room."));
+                return QString();
+            }
+            if (plEvent->powerLevelForUser(room->localUser()->id()) <= plEvent->powerLevelForUser(parts[0])) {
+                Q_EMIT room->showMessage(
+                    NeoChatRoom::Error,
+                    i18nc("You are not allowed to kick <username> from this room", "You are not allowed to kick %1 from this room.", parts[0]));
+                return QString();
+            }
+            room->kickMember(parts[0], parts.size() > 1 ? parts.mid(1).join(" ") : QString());
+            Q_EMIT room->showMessage(NeoChatRoom::Positive, i18nc("<username> was kicked from this room.", "%1 was kicked from this room.", parts[0]));
+            return QString();
+        },
+        false,
+        std::nullopt,
+        kli18n("<user id> [<reason>]"),
+        kli18n("Removes the user from the room"),
     },
 };
 
