@@ -11,7 +11,7 @@ import org.kde.neochat 1.0
 ColumnLayout {
     id: _picker
 
-    property string emojiCategory: "history"
+    property var emojiCategory: EmojiModel.History
     property var textArea
     readonly property var emojiModel: EmojiModel
 
@@ -28,24 +28,9 @@ ColumnLayout {
             clip: true
             orientation: ListView.Horizontal
 
-            model: ListModel {
-                ListElement { label: "custom"; category: "custom" }
-                ListElement { label: "⌛️"; category: "history" }
-                ListElement { label: "😏"; category: "people" }
-                ListElement { label: "🌲"; category: "nature" }
-                ListElement { label: "🍛"; category: "food"}
-                ListElement { label: "🚁"; category: "activity" }
-                ListElement { label: "🚅"; category: "travel" }
-                ListElement { label: "💡"; category: "objects" }
-                ListElement { label: "🔣"; category: "symbols" }
-                ListElement { label: "🏁"; category: "flags" }
-            }
-
+            model: EmojiModel.categories
             delegate: QQC2.ItemDelegate {
                 id: del
-
-                required property string label
-                required property string category
 
                 width: contentItem.Layout.preferredWidth
                 height: Kirigami.Units.gridUnit * 2
@@ -53,12 +38,12 @@ ColumnLayout {
                 contentItem: Kirigami.Heading {
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
-                    level: del.label === "custom" ? 4 : 1
+                    level: modelData.category === EmojiModel.Custom ? 4 : 1
 
-                    Layout.preferredWidth: del.label === "custom" ? implicitWidth + Kirigami.Units.largeSpacing : Kirigami.Units.gridUnit * 2
+                    Layout.preferredWidth: modelData.category === EmojiModel.Custom ? implicitWidth + Kirigami.Units.largeSpacing : Kirigami.Units.gridUnit * 2
 
-                    font.family: del.label === "custom" ? Kirigami.Theme.defaultFont.family : 'emoji'
-                    text: del.label === "custom" ? i18n("Custom") : del.label
+                    font.family: modelData.category === EmojiModel.Custom ? Kirigami.Theme.defaultFont.family : 'emoji'
+                    text: modelData.category === EmojiModel.Custom ? i18n("Custom") : modelData.emoji
                 }
 
                 Rectangle {
@@ -67,12 +52,12 @@ ColumnLayout {
                     width: parent.width
                     height: 2
 
-                    visible: emojiCategory === category
+                    visible: _picker.emojiCategory === modelData.category
 
                     color: Kirigami.Theme.focusColor
                 }
 
-                onClicked: emojiCategory = category
+                onClicked: _picker.emojiCategory = modelData.category
             }
         }
     }
@@ -93,31 +78,7 @@ ColumnLayout {
 
             clip: true
 
-            model: {
-                switch (emojiCategory) {
-                case "custom":
-                    return CustomEmojiModel
-                case "history":
-                    return emojiModel.history
-                case "people":
-                    return emojiModel.people
-                case "nature":
-                    return emojiModel.nature
-                case "food":
-                    return emojiModel.food
-                case "activity":
-                    return emojiModel.activity
-                case "travel":
-                    return emojiModel.travel
-                case "objects":
-                    return emojiModel.objects
-                case "symbols":
-                    return emojiModel.symbols
-                case "flags":
-                    return emojiModel.flags
-                }
-                return null
-            }
+            model: _picker.emojiCategory === EmojiModel.Custom ? CustomEmojiModel : EmojiModel.emojis(_picker.emojiCategory)
 
             delegate: QQC2.ItemDelegate {
                 width: Kirigami.Units.gridUnit * 2
@@ -150,7 +111,7 @@ ColumnLayout {
 
                 onClicked: {
                     if (modelData.isCustom) {
-                        chosen(modelData.shortname)
+                        chosen(modelData.shortName)
                     } else {
                         chosen(modelData.unicode)
                     }
