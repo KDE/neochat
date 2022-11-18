@@ -498,13 +498,12 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
             // FIXME: Rewind to the name that was at the time of this event
             auto subjectName = this->htmlSafeMemberName(e.userId());
             if (e.membership() == MembershipType::Leave) {
-                auto displayName = e.prevContent()->displayName;
 #ifdef QUOTIENT_07
-                if (displayName) {
-                    subjectName = sanitized(*displayName).toHtmlEscaped();
+                if (e.prevContent() && e.prevContent()->displayName) {
+                    subjectName = sanitized(*e.prevContent()->displayName).toHtmlEscaped();
 #else
-                if (displayName.isEmpty()) {
-                    subjectName = sanitized(displayName).toHtmlEscaped();
+                if (e.prevContent() && e.prevContent()->displayName.isEmpty()) {
+                    subjectName = sanitized(e.prevContent()->displayName).toHtmlEscaped();
 #endif
                 }
             }
