@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-17 00:45+0000\n"
-"PO-Revision-Date: 2022-11-16 19:18+0300\n"
+"POT-Creation-Date: 2022-11-18 00:45+0000\n"
+"PO-Revision-Date: 2022-11-17 18:24+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -34,23 +34,19 @@ msgstr "emir_sari@icloud.com"
 msgid "<message>"
 msgstr "<ileti>"
 
-#: src/actionsmodel.cpp:29 src/commandmodel.cpp:32
-#, kde-format
+#: src/actionsmodel.cpp:29
 msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
 msgstr "Bir düz metin iletiye ¯\\_(ツ)_/¯ ekler"
 
-#: src/actionsmodel.cpp:39 src/commandmodel.cpp:34
-#, kde-format
+#: src/actionsmodel.cpp:39
 msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
 msgstr "Bir düz metin iletiye ( ͡° ͜ʖ ͡°) ekler"
 
-#: src/actionsmodel.cpp:49 src/commandmodel.cpp:37
-#, kde-format
+#: src/actionsmodel.cpp:49
 msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
 msgstr "Bir düz metin iletiye (╯°□°）╯︵ ┻━┻ ekler"
 
-#: src/actionsmodel.cpp:59 src/commandmodel.cpp:40
-#, kde-format
+#: src/actionsmodel.cpp:59
 msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
 msgstr "Bir düz metin iletiye ┬──┬ ノ( ゜-゜ノ) ekler"
 
@@ -62,8 +58,7 @@ msgstr "Verilen iletiyi gökkuşağı renklerinde gönderir"
 msgid "Sends the given emote colored as a rainbow"
 msgstr "Verilen gülücüğü gökkuşağı renklerinde gönderir"
 
-#: src/actionsmodel.cpp:115 src/commandmodel.cpp:54
-#, kde-format
+#: src/actionsmodel.cpp:115
 msgid "Sends the given message as a spoiler"
 msgstr "Verilen iletiyi tatkaçıran olarak gönderir"
 
@@ -253,51 +248,6 @@ msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
 msgstr " ve "
 
-#: src/commandmodel.cpp:30
-#, kde-format
-msgid "Displays action"
-msgstr "Eylemi görüntüler"
-
-#: src/commandmodel.cpp:43
-#, kde-format
-msgid "Sends a message as plain text, without interpreting it as markdown"
-msgstr "Bir iletiyi, onu Markdown olarak işlemeden düz metin olarak gönder"
-
-#: src/commandmodel.cpp:46
-#, kde-format
-msgid "Sends a message as html, without interpreting it as markdown"
-msgstr "Bir iletiyi, onu Markdown olarak işlemeden HTML olarak gönder"
-
-#: src/commandmodel.cpp:49
-#, kde-format
-msgid "Sends the given message coloured as a rainbow"
-msgstr "Verilen iletiyi gökkuşağı renklerinde gönderir"
-
-#: src/commandmodel.cpp:52
-#, kde-format
-msgid "Sends the given emote coloured as a rainbow"
-msgstr "Verilen gülücüğü gökkuşağı renklerinde gönderir"
-
-#: src/commandmodel.cpp:57
-#, kde-format
-msgid "Joins room with given address"
-msgstr "Verilen adresteki odaya katılır"
-
-#: src/commandmodel.cpp:59
-#, kde-format
-msgid "Leave room"
-msgstr "Odadan ayrıl"
-
-#: src/commandmodel.cpp:61
-#, kde-format
-msgid "Invites user with given id to current room"
-msgstr "Verilen kullanıcı kimliğini geçerli odaya davet eder"
-
-#: src/commandmodel.cpp:63
-#, kde-format
-msgid "React to this message with a text"
-msgstr "Bu iletiye bir metin ile tepki ver"
-
 #: src/controller.cpp:204
 #, kde-format
 msgid "Encrypted Message"
@@ -369,47 +319,53 @@ msgstr "Katılmaya çalıştığınız oda geçerli değil"
 msgid "Network Error"
 msgstr "Ağ Hatası"
 
-#: src/main.cpp:146
+#: src/main.cpp:147
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:148
+#: src/main.cpp:149
 #, kde-format
 msgid "Matrix client"
 msgstr "Matrix istemcisi"
 
-#: src/main.cpp:150
+#: src/main.cpp:151
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2022 KDE Topluluğu"
 
-#: src/main.cpp:151
+#: src/main.cpp:152
 #, kde-format
 msgid "Black Hat"
 msgstr "Kara Şapka"
 
-#: src/main.cpp:152
+#: src/main.cpp:153
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:153
+#: src/main.cpp:154
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:157
+#: src/main.cpp:158
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr "Matrix için çapraz platform istemciler yazmak için bir Qt5 kitaplığı"
 
-#: src/main.cpp:258
+#: src/main.cpp:161
+#, kde-format
+msgctxt "<version number> (built against <possibly different version number>)"
+msgid "%1 (built against %2)"
+msgstr ""
+
+#: src/main.cpp:266
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Matrix iletişim protokolü için istemci"
 
-#: src/main.cpp:259
+#: src/main.cpp:267
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "matrix: url şemasını destekler"
@@ -702,7 +658,7 @@ msgstr "Bu odada NeoChat'i açın"
 #: src/notificationsmanager.cpp:77
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:537
+#: src/qml/Page/RoomPage.qml:539
 #, kde-format
 msgid "Reply"
 msgstr "Yanıtla"
@@ -739,7 +695,7 @@ msgstr "İlişik:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:159
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:525
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:527
 #, kde-format
 msgid "Edit"
 msgstr "Düzenle"
@@ -1095,25 +1051,39 @@ msgstr "Yapılandır"
 msgid "Open Settings"
 msgstr "Ayarları Aç"
 
-#: src/qml/Dialog/ConfirmLogoutDialog.qml:14
-#: src/qml/Dialog/ConfirmLogoutDialog.qml:33
-#: src/qml/Settings/AccountEditorPage.qml:217
-#: src/qml/Settings/AccountEditorPage.qml:221
+#: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
+#: src/qml/Dialog/ConfirmEncryptionDialog.qml:36
+#, fuzzy, kde-format
+#| msgid "activated End-to-End Encryption"
+msgid "Activate Encryption"
+msgstr "uçtan uca şifrelemeyi etkinleştirdi"
+
+#: src/qml/Dialog/ConfirmEncryptionDialog.qml:20
 #, kde-format
-msgid "Sign out"
+msgid ""
+"It will not be possible to deactivate the encryption after it is enabled."
 msgstr ""
 
-#: src/qml/Dialog/ConfirmLogoutDialog.qml:17
-#, kde-format
-msgid "Are you sure you want to sign out?"
-msgstr ""
-
+#: src/qml/Dialog/ConfirmEncryptionDialog.qml:30
 #: src/qml/Dialog/ConfirmLogoutDialog.qml:27
 #: src/qml/Page/ImageEditorPage.qml:125
 #: src/qml/Settings/AccountEditorPage.qml:169
 #, kde-format
 msgid "Cancel"
 msgstr "İptal"
+
+#: src/qml/Dialog/ConfirmLogoutDialog.qml:14
+#: src/qml/Dialog/ConfirmLogoutDialog.qml:33
+#: src/qml/Settings/AccountEditorPage.qml:217
+#: src/qml/Settings/AccountEditorPage.qml:221
+#, kde-format
+msgid "Sign out"
+msgstr "Çıkış Yap"
+
+#: src/qml/Dialog/ConfirmLogoutDialog.qml:17
+#, kde-format
+msgid "Are you sure you want to sign out?"
+msgstr "Çıkış yapmak istediğinize emin misiniz?"
 
 #: src/qml/Dialog/CreateRoomDialog.qml:16 src/qml/main.qml:250
 #, kde-format
@@ -1393,11 +1363,20 @@ msgid "Unban this user"
 msgstr "Bu kullanıcının yasağını kaldır"
 
 #: src/qml/Dialog/UserDetailDialog.qml:137
-#, kde-format
-msgid "Delete recent messages by this user"
+#, fuzzy, kde-format
+#| msgid "Delete recent messages by this user"
+msgid "Remove recent messages by this user"
 msgstr "Bu kullanıcının gönderdiği son iletileri sil"
 
-#: src/qml/Dialog/UserDetailDialog.qml:148
+#: src/qml/Dialog/UserDetailDialog.qml:142
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Report Message"
+msgctxt "@title"
+msgid "Remove Messages"
+msgstr "İletiyi Bildir"
+
+#: src/qml/Dialog/UserDetailDialog.qml:152
 #, kde-format
 msgid "Open a private chat"
 msgstr "Özel bir sohbet açın"
@@ -1666,23 +1645,23 @@ msgid "Follow Global Setting"
 msgstr "Global Ayarı İzle"
 
 #: src/qml/Menu/RoomListContextMenu.qml:79
-#: src/qml/RoomSettings/PushNotification.qml:32
+#: src/qml/RoomSettings/PushNotification.qml:37
 #, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All"
 msgstr "Tümü"
 
 #: src/qml/Menu/RoomListContextMenu.qml:90
-#: src/qml/RoomSettings/PushNotification.qml:40
+#: src/qml/RoomSettings/PushNotification.qml:45
 #, kde-format
 msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
 "keyword'"
 msgid "@Mentions and Keywords"
-msgstr "@Sözetmeler ve Anahtar Sözcükler"
+msgstr "@Değinmeleri ve Anahtar Sözcükler"
 
 #: src/qml/Menu/RoomListContextMenu.qml:101
-#: src/qml/RoomSettings/PushNotification.qml:48
+#: src/qml/RoomSettings/PushNotification.qml:53
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
@@ -1748,8 +1727,17 @@ msgstr "Farklı Kaydet"
 msgid "Remove"
 msgstr "Kaldır"
 
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:64
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:50
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Report Message"
+msgctxt "@title"
+msgid "Remove Message"
+msgstr "İletiyi Bildir"
+
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:69
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:57
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:60
 #: src/qml/Menu/Timeline/ReportSheet.qml:32
 #, kde-format
 msgctxt ""
@@ -1758,45 +1746,82 @@ msgid "Report"
 msgstr "Bildir"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:73
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:61
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:64
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "İletiyi Bildir"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:78
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:66
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:69
 #, kde-format
 msgid "View Source"
 msgstr "Kaynağını Göster"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:84
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:72
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:75
 #, kde-format
 msgid "Message Source"
 msgstr "İleti Kaynağı"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:52
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:55
 #, kde-format
 msgid "Copy"
 msgstr "Kopyala"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:120
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:123
 #, kde-format
 msgid "Search for '%1'"
 msgstr "'%1' ara"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:141
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:144
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "Web Kısayollarını Yapılandır..."
 
 #: src/qml/Menu/Timeline/MessageSourceSheet.qml:20
 #: src/qml/Page/DevtoolsPage.qml:29
-#, fuzzy, kde-format
-#| msgid "View Source"
+#, kde-format
 msgid "Event Source"
-msgstr "Kaynağını Göster"
+msgstr "Olay Kaynağı"
+
+#: src/qml/Menu/Timeline/RemoveSheet.qml:18
+#, fuzzy, kde-format
+#| msgid "Report Message"
+msgid "Remove Messages"
+msgstr "İletiyi Bildir"
+
+#: src/qml/Menu/Timeline/RemoveSheet.qml:18
+#, fuzzy, kde-format
+#| msgid "Report Message"
+msgid "Remove Message"
+msgstr "İletiyi Bildir"
+
+#: src/qml/Menu/Timeline/RemoveSheet.qml:22
+#, fuzzy, kde-format
+#| msgid "Reason for reporting this message"
+msgid "Reason for removing this user's recent messages"
+msgstr "Bu iletiyi bildirme nedeni"
+
+#: src/qml/Menu/Timeline/RemoveSheet.qml:22
+#, fuzzy, kde-format
+#| msgid "Reason for reporting this message"
+msgid "Reason for removing this message"
+msgstr "Bu iletiyi bildirme nedeni"
+
+#: src/qml/Menu/Timeline/RemoveSheet.qml:34
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@action:button 'Remove' as in 'Remove this message'"
+msgid "Remove"
+msgstr "Kaldır"
+
+#: src/qml/Menu/Timeline/RemoveSheet.qml:47
+#: src/qml/Menu/Timeline/ReportSheet.qml:41 src/qml/Page/InviteUserPage.qml:22
+#, kde-format
+msgctxt "@action"
+msgid "Cancel"
+msgstr "İptal"
 
 #: src/qml/Menu/Timeline/ReportSheet.qml:16
 #, kde-format
@@ -1808,16 +1833,10 @@ msgstr "İletiyi Bildir"
 msgid "Reason for reporting this message"
 msgstr "Bu iletiyi bildirme nedeni"
 
-#: src/qml/Menu/Timeline/ReportSheet.qml:41 src/qml/Page/InviteUserPage.qml:22
-#, kde-format
-msgctxt "@action"
-msgid "Cancel"
-msgstr "İptal"
-
 #: src/qml/Page/DevtoolsPage.qml:15
 #, kde-format
 msgid "Room State - %1"
-msgstr ""
+msgstr "Oda Durumu - %1"
 
 #: src/qml/Page/ImageEditorPage.qml:36
 #, kde-format
@@ -2012,22 +2031,22 @@ msgstr "Yerel dosya seçin"
 msgid "Clipboard image"
 msgstr "Pano görseli"
 
-#: src/qml/Page/RoomPage.qml:355
+#: src/qml/Page/RoomPage.qml:356
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "İlk okunmamış iletiye atla"
 
-#: src/qml/Page/RoomPage.qml:378
+#: src/qml/Page/RoomPage.qml:380
 #, kde-format
 msgid "Jump to latest message"
 msgstr "En son iletiye atla"
 
-#: src/qml/Page/RoomPage.qml:402
+#: src/qml/Page/RoomPage.qml:404
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Onları paylaşmak için ögeleri buraya sürükleyin"
 
-#: src/qml/Page/RoomPage.qml:434
+#: src/qml/Page/RoomPage.qml:436
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2035,12 +2054,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 yazıyor"
 msgstr[1] "%2 yazıyor"
 
-#: src/qml/Page/RoomPage.qml:505
+#: src/qml/Page/RoomPage.qml:507
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "Bu ileti, doğrulanan bir aygıttan gönderildi"
 
-#: src/qml/Page/RoomPage.qml:511
+#: src/qml/Page/RoomPage.qml:513
 #, kde-format
 msgid "React"
 msgstr "Tepki"
@@ -2063,12 +2082,12 @@ msgstr "Oda bilgisi"
 #: src/qml/Panel/RoomDrawer.qml:101
 #, kde-format
 msgid "Open developer tools"
-msgstr ""
+msgstr "Geliştirici araçlarını aç"
 
 #: src/qml/Panel/RoomDrawer.qml:106
 #, kde-format
 msgid "Developer Tools"
-msgstr ""
+msgstr "Geliştirici Araçları"
 
 #: src/qml/Panel/RoomDrawer.qml:119
 #, kde-format
@@ -2090,59 +2109,59 @@ msgstr "Odayı sık kullanılanlara ekle"
 msgid "Enable encryption"
 msgstr "Şifrelemeyi etkinleştir"
 
-#: src/qml/Panel/RoomDrawer.qml:168
+#: src/qml/Panel/RoomDrawer.qml:172
 #, kde-format
 msgid "Room settings"
 msgstr "Oda ayarları"
 
-#: src/qml/Panel/RoomDrawer.qml:194 src/qml/Panel/RoomDrawer.qml:208
+#: src/qml/Panel/RoomDrawer.qml:198 src/qml/Panel/RoomDrawer.qml:212
 #, kde-format
 msgid "No name"
 msgstr "Adsız"
 
-#: src/qml/Panel/RoomDrawer.qml:220
+#: src/qml/Panel/RoomDrawer.qml:224
 #, kde-format
 msgid "No Canonical Alias"
 msgstr "Kurallı Arma Yok"
 
-#: src/qml/Panel/RoomDrawer.qml:227
+#: src/qml/Panel/RoomDrawer.qml:231
 #, kde-format
 msgid "No Topic"
 msgstr "Konu Yok"
 
-#: src/qml/Panel/RoomDrawer.qml:246
+#: src/qml/Panel/RoomDrawer.qml:250
 #, kde-format
 msgid "Members"
 msgstr "Üyeler"
 
-#: src/qml/Panel/RoomDrawer.qml:251
+#: src/qml/Panel/RoomDrawer.qml:255
 #, kde-format
 msgid "%1 Member"
 msgid_plural "%1 Members"
 msgstr[0] "%1 Üye"
 msgstr[1] "%1 Üye"
 
-#: src/qml/Panel/RoomDrawer.qml:251
+#: src/qml/Panel/RoomDrawer.qml:255
 #, kde-format
 msgid "No Member Count"
 msgstr "Üye Sayısı Yok"
 
-#: src/qml/Panel/RoomDrawer.qml:324
+#: src/qml/Panel/RoomDrawer.qml:328
 #, kde-format
 msgid "Owner"
 msgstr "Sahip"
 
-#: src/qml/Panel/RoomDrawer.qml:326
+#: src/qml/Panel/RoomDrawer.qml:330
 #, kde-format
 msgid "Admin"
 msgstr "Yönetici"
 
-#: src/qml/Panel/RoomDrawer.qml:328
+#: src/qml/Panel/RoomDrawer.qml:332
 #, kde-format
 msgid "Mod"
 msgstr "Mod"
 
-#: src/qml/Panel/RoomDrawer.qml:330
+#: src/qml/Panel/RoomDrawer.qml:334
 #, kde-format
 msgid "Muted"
 msgstr "Sessize Alınmış"
@@ -2153,7 +2172,7 @@ msgstr "Sessize Alınmış"
 msgid "General"
 msgstr "Genel"
 
-#: src/qml/RoomSettings/Categories.qml:25 src/qml/RoomSettings/Security.qml:17
+#: src/qml/RoomSettings/Categories.qml:25 src/qml/RoomSettings/Security.qml:18
 #, kde-format
 msgid "Security"
 msgstr "Güvenlik"
@@ -2208,64 +2227,69 @@ msgstr "Bu oda, başkasıyla değiştirildi."
 msgid "See new room..."
 msgstr "Yeni odayı gör..."
 
-#: src/qml/RoomSettings/General.qml:186 src/qml/RoomSettings/Security.qml:78
-#: src/qml/Settings/NetworkProxyPage.qml:107
+#: src/qml/RoomSettings/General.qml:186 src/qml/RoomSettings/Security.qml:71
+#: src/qml/Settings/NetworkProxyPage.qml:106
 #: src/qml/Settings/SonnetConfigPage.qml:326
 #, kde-format
 msgid "Apply"
 msgstr "Uygula"
 
-#: src/qml/RoomSettings/PushNotification.qml:23
+#: src/qml/RoomSettings/PushNotification.qml:26
+#, fuzzy, kde-format
+#| msgid "Room notifications setting:"
+msgid "Room notifications setting"
+msgstr "Oda bildirimleri ayarı:"
+
+#: src/qml/RoomSettings/PushNotification.qml:29
 #, kde-format
 msgid "Follow global setting"
 msgstr "Global ayarı izle"
 
-#: src/qml/RoomSettings/PushNotification.qml:24
-#, kde-format
-msgid "Room notifications setting:"
-msgstr "Oda bildirimleri ayarı:"
+#: src/qml/RoomSettings/Security.qml:27
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Access:"
+msgctxt "@option:check"
+msgid "Access"
+msgstr "Eriş:"
 
-#: src/qml/RoomSettings/Security.qml:24
+#: src/qml/RoomSettings/Security.qml:30
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "Özel (yalnızca davetliler)"
 
-#: src/qml/RoomSettings/Security.qml:25
-#, kde-format
-msgctxt "@option:check"
-msgid "Access:"
-msgstr "Eriş:"
-
-#: src/qml/RoomSettings/Security.qml:33
+#: src/qml/RoomSettings/Security.qml:31
 #, kde-format
 msgid "Only invited people can join."
 msgstr "Yalnızca davet edilen kişiler katılabilir."
 
-#: src/qml/RoomSettings/Security.qml:37
+#: src/qml/RoomSettings/Security.qml:39
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "Alan üyeleri"
 
-#: src/qml/RoomSettings/Security.qml:45
+#: src/qml/RoomSettings/Security.qml:41 src/qml/RoomSettings/Security.qml:43
 #, kde-format
 msgid "Anyone in a space can find and join."
 msgstr "Bir alandaki herkes bulabilir ve katılabilir."
 
-#: src/qml/RoomSettings/Security.qml:53
+#: src/qml/RoomSettings/Security.qml:42
 #, kde-format
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
 msgstr ""
+"Bu ayarı etkinleştirmek için odayı daha yeni bir sürüme yükseltmeniz "
+"gerekiyor."
 
-#: src/qml/RoomSettings/Security.qml:56
+#: src/qml/RoomSettings/Security.qml:51
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "Herkese Açık"
 
-#: src/qml/RoomSettings/Security.qml:64
+#: src/qml/RoomSettings/Security.qml:52
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
@@ -2283,13 +2307,11 @@ msgid "Edit Account"
 msgstr "Hesap Düzenle"
 
 #: src/qml/Settings/AccountEditorPage.qml:28
-#, fuzzy, kde-format
-#| msgid "Room information"
+#, kde-format
 msgid "User information"
-msgstr "Oda bilgisi"
+msgstr "Kullanıcı bilgisi"
 
 #: src/qml/Settings/AccountEditorPage.qml:75
-#: src/qml/Settings/DevicesPage.qml:102
 #, kde-format
 msgid "Name:"
 msgstr "Ad:"
@@ -2301,22 +2323,19 @@ msgstr "Etiket:"
 
 #: src/qml/Settings/AccountEditorPage.qml:91
 #: src/qml/Settings/AccountEditorPage.qml:156
-#: src/qml/Settings/DevicesPage.qml:106
 #, kde-format
 msgid "Save"
 msgstr "Kaydet"
 
 #: src/qml/Settings/AccountEditorPage.qml:117
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Password"
+#, kde-format
 msgid "Password"
 msgstr "Parola"
 
 #: src/qml/Settings/AccountEditorPage.qml:121
 #, kde-format
 msgid "Your server doesn't support changing your password"
-msgstr ""
+msgstr "Sunucunuz, parolanızı değiştirmeyi desteklemiyor"
 
 #: src/qml/Settings/AccountEditorPage.qml:125
 #, kde-format
@@ -2334,8 +2353,7 @@ msgid "Confirm new Password:"
 msgstr "Yeni parolayı onayla:"
 
 #: src/qml/Settings/AccountEditorPage.qml:142
-#, fuzzy, kde-format
-#| msgid "Passwords do not match"
+#, kde-format
 msgid "Passwords don't match"
 msgstr "Parolalar uyuşmuyor"
 
@@ -2345,16 +2363,14 @@ msgid "Passwords do not match"
 msgstr "Parolalar uyuşmuyor"
 
 #: src/qml/Settings/AccountEditorPage.qml:186
-#, fuzzy, kde-format
-#| msgid "Room information"
+#, kde-format
 msgid "Server Information"
-msgstr "Oda bilgisi"
+msgstr "Sunucu Bilgisi"
 
 #: src/qml/Settings/AccountEditorPage.qml:189
-#, fuzzy, kde-format
-#| msgid "Homeserver:"
+#, kde-format
 msgid "Homeserver url"
-msgstr "Ana Sunucu:"
+msgstr "Ana Sunucu URL'si"
 
 #: src/qml/Settings/AccountsPage.qml:15 src/qml/Settings/AccountsPage.qml:26
 #: src/qml/Settings/SettingsPage.qml:27
@@ -2384,10 +2400,9 @@ msgid "Appearance"
 msgstr "Görünüş"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:25
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgid "General theme"
-msgstr "Genel"
+msgstr "Genel tema"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:113
 #, kde-format
@@ -2400,10 +2415,9 @@ msgid "Compact"
 msgstr "Sıkışık"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:201
-#, fuzzy, kde-format
-#| msgid "Decline"
+#, kde-format
 msgid "Timeline"
-msgstr "Reddet"
+msgstr "Zaman Akışı"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:205
 #, kde-format
@@ -2416,10 +2430,9 @@ msgid "Use transparent chat page"
 msgstr "Saydam sohbet sayfası kullan"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:250
-#, fuzzy, kde-format
-#| msgid "Transparency:"
+#, kde-format
 msgid "Transparency"
-msgstr "Saydamlık:"
+msgstr "Saydamlık"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:267
 #, kde-format
@@ -2437,10 +2450,9 @@ msgid "Show links preview in the chat messages"
 msgstr "Sohbet iletilerinde bağlantı önizlemelerini göster"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:305
-#, fuzzy, kde-format
-#| msgid "Show Avatar:"
+#, kde-format
 msgid "Show Avatar"
-msgstr "Avatarı Göster:"
+msgstr "Avatarı Göster"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:309
 #, kde-format
@@ -2453,50 +2465,51 @@ msgid "In Sidebar"
 msgstr "Kenar çubuğunda"
 
 #: src/qml/Settings/ColorScheme.qml:15
-#, fuzzy, kde-format
-#| msgid "Theme:"
+#, kde-format
 msgid "Themes"
-msgstr "Tema:"
+msgstr "Temalar"
 
-#: src/qml/Settings/DevicesPage.qml:13 src/qml/Settings/SettingsPage.qml:47
+#: src/qml/Settings/DevicesPage.qml:14 src/qml/Settings/DevicesPage.qml:26
+#: src/qml/Settings/SettingsPage.qml:47
 #, kde-format
 msgid "Devices"
 msgstr "Aygıtlar"
 
-#: src/qml/Settings/DevicesPage.qml:35
+#: src/qml/Settings/DevicesPage.qml:85
+#, fuzzy, kde-format
+#| msgid "Edit device name"
+msgid "New device name"
+msgstr "Aygıt adını düzenle"
+
+#: src/qml/Settings/DevicesPage.qml:113
 #, kde-format
 msgid "Edit device name"
 msgstr "Aygıt adını düzenle"
 
-#: src/qml/Settings/DevicesPage.qml:48
+#: src/qml/Settings/DevicesPage.qml:122
 #, kde-format
 msgid "Verify device"
 msgstr "Aygıtı doğrula"
 
-#: src/qml/Settings/DevicesPage.qml:58
+#: src/qml/Settings/DevicesPage.qml:132
 #, kde-format
 msgid "Logout device"
 msgstr "Aygıttan çıkış yap"
 
-#: src/qml/Settings/DevicesPage.qml:75
+#: src/qml/Settings/DevicesPage.qml:152
 #, kde-format
 msgid "Remove device"
 msgstr "Aygıtı kaldır"
 
-#: src/qml/Settings/DevicesPage.qml:79
+#: src/qml/Settings/DevicesPage.qml:156
 #, kde-format
 msgid "Password:"
 msgstr "Parola:"
 
-#: src/qml/Settings/DevicesPage.qml:83
+#: src/qml/Settings/DevicesPage.qml:160
 #, kde-format
 msgid "Confirm"
 msgstr "Onayla"
-
-#: src/qml/Settings/DevicesPage.qml:98
-#, kde-format
-msgid "Edit device"
-msgstr "Aygıtı düzenle"
 
 #: src/qml/Settings/Emoticons.qml:15
 #, kde-format
@@ -2527,10 +2540,9 @@ msgid "General"
 msgstr "Genel"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:25
-#, fuzzy, kde-format
-#| msgid "General settings:"
+#, kde-format
 msgid "General settings"
-msgstr "Genel ayarlar:"
+msgstr "Genel ayarlar"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:30
 #, kde-format
@@ -2551,7 +2563,7 @@ msgstr ""
 #: src/qml/Settings/GeneralSettingsPage.qml:75
 #, kde-format
 msgid "Timeline Events"
-msgstr ""
+msgstr "Zaman Akışı Olayları"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:80
 #, kde-format
@@ -2569,10 +2581,9 @@ msgid "Show avatar update events"
 msgstr "Avatar güncelleme olaylarını göster"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:123
-#, fuzzy, kde-format
-#| msgid "Rooms and private chats:"
+#, kde-format
 msgid "Rooms and private chats"
-msgstr "Odalar ve özel sohbetler:"
+msgstr "Odalar ve özel sohbetler"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:126
 #, kde-format
@@ -2585,11 +2596,10 @@ msgid "Intermixed"
 msgstr "Karışık"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:152
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "Chat Editor"
 msgid "Editor:"
-msgstr "Düzenle"
+msgstr "Düzenleyici:"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:156
 #, kde-format
@@ -2602,116 +2612,105 @@ msgid "Send Typing Notifications"
 msgstr "Yazıyor bildirimlerini gönder"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:184
-#, fuzzy, kde-format
-#| msgid "Open Settings"
+#, kde-format
 msgid "Developer Settings"
-msgstr "Ayarları Aç"
+msgstr "Geliştirici Ayarları"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:187
 #, kde-format
 msgid "Enable Developer Tools"
-msgstr ""
+msgstr "Geliştirici Araçlarını Etkinleştir"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:14
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@title:window"
 msgid "Notifications"
 msgstr "Bildirimler"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:23
+#: src/qml/Settings/GlobalNotificationsPage.qml:22
 #, kde-format
 msgid "Enable notifications for this account"
-msgstr ""
+msgstr "Bu hesap için bildirimleri etkinleştir"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:41
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#: src/qml/Settings/GlobalNotificationsPage.qml:40
+#, kde-format
 msgid "Room Notifications"
-msgstr "Bildirimler"
+msgstr "Oda Bildirimleri"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:44
+#: src/qml/Settings/GlobalNotificationsPage.qml:43
 #, kde-format
 msgid "Messages in one-to-one chats"
-msgstr ""
+msgstr "Birebir sohbetlerdeki iletiler"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:58
+#: src/qml/Settings/GlobalNotificationsPage.qml:57
 #, kde-format
 msgid "Encrypted messages in one-to-one chats"
-msgstr ""
+msgstr "Birebir sohbetlerdeki şifrelenmiş iletiler"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:74
+#: src/qml/Settings/GlobalNotificationsPage.qml:73
 #, kde-format
 msgid "Messages in group chats"
-msgstr ""
+msgstr "Grup sohbetlerdeki iletiler"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:88
+#: src/qml/Settings/GlobalNotificationsPage.qml:87
 #, kde-format
 msgid "Messages in encrypted group chats"
-msgstr ""
+msgstr "Şifreli grup sohbetlerdeki iletiler"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:104
+#: src/qml/Settings/GlobalNotificationsPage.qml:103
 #, kde-format
 msgid "Room upgrade messages"
-msgstr ""
+msgstr "Oda yükseltme iletileri"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:129
+#: src/qml/Settings/GlobalNotificationsPage.qml:128
 #, kde-format
 msgid "@Mentions"
-msgstr ""
+msgstr "@Değinmeleri"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:132
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
+#: src/qml/Settings/GlobalNotificationsPage.qml:131
+#, kde-format
 msgid "Messages containing my display name"
-msgstr "ekran adını sildi"
+msgstr "Benim ekran adımı içeren iletiler"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:148
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#: src/qml/Settings/GlobalNotificationsPage.qml:147
+#, kde-format
 msgid "Whole room (@room) notifications"
-msgstr "Bildirimleri göster"
+msgstr "Tüm oda (@oda) bildirimleri"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:173
+#: src/qml/Settings/GlobalNotificationsPage.qml:172
 #, kde-format
 msgid "Keywords"
-msgstr ""
+msgstr "Anahtar Sözcükler"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:177
+#: src/qml/Settings/GlobalNotificationsPage.qml:176
 #, kde-format
 msgid "Messages containing my keywords"
-msgstr ""
+msgstr "Anahtar sözcüklerimi içeren iletiler"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:226
+#: src/qml/Settings/GlobalNotificationsPage.qml:225
 #, kde-format
 msgid "Keyword…"
-msgstr ""
+msgstr "Anahtar Sözcük..."
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:244
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add word"
+#: src/qml/Settings/GlobalNotificationsPage.qml:243
+#, kde-format
 msgid "Add keyword"
-msgstr "Sözcük ekle"
+msgstr "Anahtar sözcük ekle"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:271
-#, fuzzy, kde-format
-#| msgid "Invited"
+#: src/qml/Settings/GlobalNotificationsPage.qml:270
+#, kde-format
 msgid "Invites"
-msgstr "Davet Edildi"
+msgstr "Davetler"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:274
-#, fuzzy, kde-format
-#| msgid "Invite user to room"
+#: src/qml/Settings/GlobalNotificationsPage.qml:273
+#, kde-format
 msgid "Invites to a room"
-msgstr "Kullanıcıyı odaya davet et"
+msgstr "Bir odaya olan davetler"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:290
-#, fuzzy, kde-format
-#| msgid "Send invitation"
+#: src/qml/Settings/GlobalNotificationsPage.qml:289
+#, kde-format
 msgid "Call invitation"
-msgstr "Davet gönder"
+msgstr "Çağrı daveti"
 
 #: src/qml/Settings/NetworkProxyPage.qml:25
 #: src/qml/Settings/SettingsPage.qml:42
@@ -2735,49 +2734,39 @@ msgid "Socks5"
 msgstr "Socks5"
 
 #: src/qml/Settings/NetworkProxyPage.qml:60
-#, fuzzy, kde-format
-#| msgid "Room Settings"
+#, kde-format
 msgid "Proxy Settings"
-msgstr "Oda Ayarları"
+msgstr "Vekil Ayarları"
 
 #: src/qml/Settings/NetworkProxyPage.qml:64
 #, kde-format
 msgid "Host"
-msgstr ""
+msgstr "Makine"
 
 #: src/qml/Settings/NetworkProxyPage.qml:76
 #, kde-format
-msgid "Peeker width"
+msgid "Port"
 msgstr ""
 
-#: src/qml/Settings/NetworkProxyPage.qml:81
+#: src/qml/Settings/NotificationRuleItem.qml:65
 #, kde-format
-msgid "Proxy Port"
-msgstr "Vekil Kapısı"
-
-#: src/qml/Settings/NotificationRuleItem.qml:65
-#, fuzzy, kde-format
-#| msgid "Show notifications"
 msgid "Disable notifications"
-msgstr "Bildirimleri göster"
+msgstr "Bildirimleri devre dışı bırak"
 
 #: src/qml/Settings/NotificationRuleItem.qml:65
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Enable notifications"
-msgstr "Bildirimleri göster"
+msgstr "Bildirimleri etkinleştir"
 
 #: src/qml/Settings/NotificationRuleItem.qml:87
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Mute notifications"
-msgstr "Bildirimleri göster"
+msgstr "Bildirimleri sessize al"
 
 #: src/qml/Settings/NotificationRuleItem.qml:87
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Unmute notifications"
-msgstr "Bildirimleri göster"
+msgstr "Bildirimleri sessizden çıkar"
 
 #: src/qml/Settings/NotificationRuleItem.qml:109
 #, kde-format
@@ -2785,7 +2774,7 @@ msgctxt ""
 "As in clicking this button will switch off highlights for messages that "
 "match this rule"
 msgid "Disable message highlights"
-msgstr ""
+msgstr "İleti vurgularını devre dışı bırak"
 
 #: src/qml/Settings/NotificationRuleItem.qml:109
 #, kde-format
@@ -2793,13 +2782,12 @@ msgctxt ""
 "As in clicking this button will switch on highlights for messages that match "
 "this rule"
 msgid "Enable message highlights"
-msgstr ""
+msgstr "İleti vurgularını etkinleştir"
 
 #: src/qml/Settings/NotificationRuleItem.qml:131
-#, fuzzy, kde-format
-#| msgid "Delete word"
+#, kde-format
 msgid "Delete keyword"
-msgstr "Sözcük sil"
+msgstr "Anahtar sözcük sil"
 
 #: src/qml/Settings/SettingsPage.qml:17
 #, kde-format
@@ -2968,6 +2956,42 @@ msgstr "URL açılamadı"
 #, kde-format
 msgid "Show"
 msgstr "Göster"
+
+#~ msgid "Displays action"
+#~ msgstr "Eylemi görüntüler"
+
+#~ msgid "Sends a message as plain text, without interpreting it as markdown"
+#~ msgstr "Bir iletiyi, onu Markdown olarak işlemeden düz metin olarak gönder"
+
+#~ msgid "Sends a message as html, without interpreting it as markdown"
+#~ msgstr "Bir iletiyi, onu Markdown olarak işlemeden HTML olarak gönder"
+
+#~ msgid "Sends the given message coloured as a rainbow"
+#~ msgstr "Verilen iletiyi gökkuşağı renklerinde gönderir"
+
+#~ msgid "Sends the given emote coloured as a rainbow"
+#~ msgstr "Verilen gülücüğü gökkuşağı renklerinde gönderir"
+
+#~ msgid "Joins room with given address"
+#~ msgstr "Verilen adresteki odaya katılır"
+
+#~ msgid "Leave room"
+#~ msgstr "Odadan ayrıl"
+
+#~ msgid "Invites user with given id to current room"
+#~ msgstr "Verilen kullanıcı kimliğini geçerli odaya davet eder"
+
+#~ msgid "React to this message with a text"
+#~ msgstr "Bu iletiye bir metin ile tepki ver"
+
+#~ msgid "Edit device"
+#~ msgstr "Aygıtı düzenle"
+
+#~ msgid "Peeker width"
+#~ msgstr "Dikizci genişliği"
+
+#~ msgid "Proxy Port"
+#~ msgstr "Vekil Kapısı"
 
 #~ msgid "Avatar:"
 #~ msgstr "Avatar:"

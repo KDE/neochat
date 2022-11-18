@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-17 00:45+0000\n"
+"POT-Creation-Date: 2022-11-18 00:45+0000\n"
 "PO-Revision-Date: 2021-12-31 11:06-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -36,23 +36,19 @@ msgstr "alam.yellow@gmail.com"
 msgid "<message>"
 msgstr "<message>"
 
-#: src/actionsmodel.cpp:29 src/commandmodel.cpp:32
-#, kde-format
+#: src/actionsmodel.cpp:29
 msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
 msgstr "ਸਰਲ ਲਿਖਤ ਸੁਨੇਹੇ ਦੇ ਅੱਗੇ ¯\\_(ツ)_/¯  ਜੋੜਦਾ ਹੈ"
 
-#: src/actionsmodel.cpp:39 src/commandmodel.cpp:34
-#, kde-format
+#: src/actionsmodel.cpp:39
 msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
 msgstr "ਸਰਲ ਲਿਖਤ ਸੁਨੇਹੇ ਦੇ ਅੱਗੇ ( ͡° ͜ʖ ͡°) ਜੋੜਦਾ ਹੈ"
 
-#: src/actionsmodel.cpp:49 src/commandmodel.cpp:37
-#, kde-format
+#: src/actionsmodel.cpp:49
 msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
 msgstr "ਸਰਲ ਲਿਖਤ ਸੁਨੇਹੇ ਦੇ ਅੱਗੇ  (╯°□°）╯︵ ┻━┻ ਜੋੜਦਾ ਹੈ"
 
-#: src/actionsmodel.cpp:59 src/commandmodel.cpp:40
-#, kde-format
+#: src/actionsmodel.cpp:59
 msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
 msgstr "ਸਰਲ ਲਿਖਤ ਸੁਨੇਹੇ ਦੇ ਅੱਗੇ  ┬──┬ ノ( ゜-゜ノ) ਜੋੜਦਾ ਹੈ"
 
@@ -64,8 +60,7 @@ msgstr ""
 msgid "Sends the given emote colored as a rainbow"
 msgstr ""
 
-#: src/actionsmodel.cpp:115 src/commandmodel.cpp:54
-#, kde-format
+#: src/actionsmodel.cpp:115
 msgid "Sends the given message as a spoiler"
 msgstr ""
 
@@ -281,51 +276,6 @@ msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
 msgstr " ਅਤੇ "
 
-#: src/commandmodel.cpp:30
-#, kde-format
-msgid "Displays action"
-msgstr "ਕਾਰਵਾਈ ਦਿਖਾਓ"
-
-#: src/commandmodel.cpp:43
-#, kde-format
-msgid "Sends a message as plain text, without interpreting it as markdown"
-msgstr ""
-
-#: src/commandmodel.cpp:46
-#, kde-format
-msgid "Sends a message as html, without interpreting it as markdown"
-msgstr ""
-
-#: src/commandmodel.cpp:49
-#, kde-format
-msgid "Sends the given message coloured as a rainbow"
-msgstr ""
-
-#: src/commandmodel.cpp:52
-#, kde-format
-msgid "Sends the given emote coloured as a rainbow"
-msgstr ""
-
-#: src/commandmodel.cpp:57
-#, kde-format
-msgid "Joins room with given address"
-msgstr "ਦਿੱਤੇ ਸਿਰਨਾਵਾਂ ਨਾਲ ਰੂਮ ਜੁਆਇੰਨ ਕਰੋ"
-
-#: src/commandmodel.cpp:59
-#, kde-format
-msgid "Leave room"
-msgstr "ਰੂਮ ਨੂੰ ਛੱਡੋ"
-
-#: src/commandmodel.cpp:61
-#, kde-format
-msgid "Invites user with given id to current room"
-msgstr ""
-
-#: src/commandmodel.cpp:63
-#, kde-format
-msgid "React to this message with a text"
-msgstr "ਇਸ ਸੁਨੇਹੇ ਨੂੰ ਲਿਖਤ ਨਾਲ ਅਸਰ ਦਿਓ"
-
 #: src/controller.cpp:204
 #, fuzzy, kde-format
 #| msgid "Edit Message"
@@ -399,48 +349,54 @@ msgstr ""
 msgid "Network Error"
 msgstr "ਨੈੱਟਵਰਕ ਗ਼ਲਤੀ"
 
-#: src/main.cpp:146
+#: src/main.cpp:147
 #, kde-format
 msgid "NeoChat"
 msgstr "ਨਿਓ-ਚੈਟ"
 
-#: src/main.cpp:148
+#: src/main.cpp:149
 #, kde-format
 msgid "Matrix client"
 msgstr "ਮੈਟਰਿਕਸ ਕਲਾਈਂਟ"
 
-#: src/main.cpp:150
+#: src/main.cpp:151
 #, fuzzy, kde-format
 #| msgid "© 2018-2020 Black Hat, 2020-2021 KDE Community"
 msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2021 KDE Community"
 
-#: src/main.cpp:151
+#: src/main.cpp:152
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:152
+#: src/main.cpp:153
 #, kde-format
 msgid "Carl Schwan"
 msgstr "ਕਾਰਲ ਸਚਵਾਨ"
 
-#: src/main.cpp:153
+#: src/main.cpp:154
 #, kde-format
 msgid "Tobias Fella"
 msgstr "ਟੋਬਿਸ ਫੇਲਾ"
 
-#: src/main.cpp:157
+#: src/main.cpp:158
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr ""
 
-#: src/main.cpp:258
+#: src/main.cpp:161
+#, kde-format
+msgctxt "<version number> (built against <possibly different version number>)"
+msgid "%1 (built against %2)"
+msgstr ""
+
+#: src/main.cpp:266
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr ""
 
-#: src/main.cpp:259
+#: src/main.cpp:267
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr ""
@@ -735,7 +691,7 @@ msgstr "ਇਸ ਰੂਮ ਵਿੱਚ ਨਿਓ-ਚੈਟ ਖੋਲ੍ਹੋ"
 #: src/notificationsmanager.cpp:77
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:537
+#: src/qml/Page/RoomPage.qml:539
 #, kde-format
 msgid "Reply"
 msgstr "ਜਵਾਬ ਦਿਓ"
@@ -772,7 +728,7 @@ msgstr "ਨੱਥੀ:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:159
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:525
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:527
 #, kde-format
 msgid "Edit"
 msgstr "ਸੋਧੋ"
@@ -1144,6 +1100,27 @@ msgstr "ਰੂਮ ਦੀ ਸੰਰਚਨਾ"
 msgid "Open Settings"
 msgstr "ਸੈਟਿੰਗਾਂ"
 
+#: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
+#: src/qml/Dialog/ConfirmEncryptionDialog.qml:36
+#, fuzzy, kde-format
+#| msgid "activated End-to-End Encryption"
+msgid "Activate Encryption"
+msgstr "ਸਿਰੇ ਤੋਂ ਸਿਰੇ ਤੱਕ ਇੰਕ੍ਰਿਪਸ਼ਨ ਸਰਗਰਮ ਕੀਤੀ"
+
+#: src/qml/Dialog/ConfirmEncryptionDialog.qml:20
+#, kde-format
+msgid ""
+"It will not be possible to deactivate the encryption after it is enabled."
+msgstr ""
+
+#: src/qml/Dialog/ConfirmEncryptionDialog.qml:30
+#: src/qml/Dialog/ConfirmLogoutDialog.qml:27
+#: src/qml/Page/ImageEditorPage.qml:125
+#: src/qml/Settings/AccountEditorPage.qml:169
+#, kde-format
+msgid "Cancel"
+msgstr "ਰੱਦ ਕਰੋ"
+
 #: src/qml/Dialog/ConfirmLogoutDialog.qml:14
 #: src/qml/Dialog/ConfirmLogoutDialog.qml:33
 #: src/qml/Settings/AccountEditorPage.qml:217
@@ -1156,13 +1133,6 @@ msgstr ""
 #, kde-format
 msgid "Are you sure you want to sign out?"
 msgstr ""
-
-#: src/qml/Dialog/ConfirmLogoutDialog.qml:27
-#: src/qml/Page/ImageEditorPage.qml:125
-#: src/qml/Settings/AccountEditorPage.qml:169
-#, kde-format
-msgid "Cancel"
-msgstr "ਰੱਦ ਕਰੋ"
 
 #: src/qml/Dialog/CreateRoomDialog.qml:16 src/qml/main.qml:250
 #, kde-format
@@ -1422,10 +1392,17 @@ msgstr "ਇਹ ਵਰਤੋਂਕਾਰ ਤੋਂ ਪਾਬੰਦੀ ਹਟਾ�
 
 #: src/qml/Dialog/UserDetailDialog.qml:137
 #, kde-format
-msgid "Delete recent messages by this user"
+msgid "Remove recent messages by this user"
 msgstr ""
 
-#: src/qml/Dialog/UserDetailDialog.qml:148
+#: src/qml/Dialog/UserDetailDialog.qml:142
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgctxt "@title"
+msgid "Remove Messages"
+msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
+
+#: src/qml/Dialog/UserDetailDialog.qml:152
 #, kde-format
 msgid "Open a private chat"
 msgstr "ਪ੍ਰਾਈਵੇਟ ਚੈਟ ਵਿੱਚ ਖੋਲ੍ਹੋ"
@@ -1697,14 +1674,14 @@ msgid "Follow Global Setting"
 msgstr ""
 
 #: src/qml/Menu/RoomListContextMenu.qml:79
-#: src/qml/RoomSettings/PushNotification.qml:32
+#: src/qml/RoomSettings/PushNotification.qml:37
 #, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All"
 msgstr ""
 
 #: src/qml/Menu/RoomListContextMenu.qml:90
-#: src/qml/RoomSettings/PushNotification.qml:40
+#: src/qml/RoomSettings/PushNotification.qml:45
 #, kde-format
 msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
@@ -1713,7 +1690,7 @@ msgid "@Mentions and Keywords"
 msgstr ""
 
 #: src/qml/Menu/RoomListContextMenu.qml:101
-#: src/qml/RoomSettings/PushNotification.qml:48
+#: src/qml/RoomSettings/PushNotification.qml:53
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
@@ -1782,8 +1759,16 @@ msgstr "ਇੰਝ ਸੰਭਾਲੋ"
 msgid "Remove"
 msgstr "ਹਟਾਓ"
 
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:64
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:50
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgctxt "@title"
+msgid "Remove Message"
+msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
+
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:69
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:57
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:60
 #: src/qml/Menu/Timeline/ReportSheet.qml:32
 #, kde-format
 msgctxt ""
@@ -1792,7 +1777,7 @@ msgid "Report"
 msgstr ""
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:73
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:61
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:64
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@title"
@@ -1800,28 +1785,28 @@ msgid "Report Message"
 msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:78
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:66
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:69
 #, kde-format
 msgid "View Source"
 msgstr "ਸਰੋਤ ਵੇਖੋ"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:84
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:72
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:75
 #, kde-format
 msgid "Message Source"
 msgstr "ਸੁਨੇਹੇ ਦਾ ਸਰੋਤ"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:52
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:55
 #, kde-format
 msgid "Copy"
 msgstr "ਕਾਪੀ ਕਰੋ"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:120
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:123
 #, kde-format
 msgid "Search for '%1'"
 msgstr "'%1' ਲਈ ਖੋਜੋ"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:141
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:144
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "...ਵੈੱਬ ਸ਼ਾਰਟਕੱਟਾਂ ਦੀ ਸੰਰਚਨਾ ਕਰੋ"
@@ -1833,6 +1818,42 @@ msgstr "...ਵੈੱਬ ਸ਼ਾਰਟਕੱਟਾਂ ਦੀ ਸੰਰਚਨਾ �
 msgid "Event Source"
 msgstr "ਸਰੋਤ ਵੇਖੋ"
 
+#: src/qml/Menu/Timeline/RemoveSheet.qml:18
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgid "Remove Messages"
+msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
+
+#: src/qml/Menu/Timeline/RemoveSheet.qml:18
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgid "Remove Message"
+msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
+
+#: src/qml/Menu/Timeline/RemoveSheet.qml:22
+#, kde-format
+msgid "Reason for removing this user's recent messages"
+msgstr ""
+
+#: src/qml/Menu/Timeline/RemoveSheet.qml:22
+#, kde-format
+msgid "Reason for removing this message"
+msgstr ""
+
+#: src/qml/Menu/Timeline/RemoveSheet.qml:34
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "@action:button 'Remove' as in 'Remove this message'"
+msgid "Remove"
+msgstr "ਹਟਾਓ"
+
+#: src/qml/Menu/Timeline/RemoveSheet.qml:47
+#: src/qml/Menu/Timeline/ReportSheet.qml:41 src/qml/Page/InviteUserPage.qml:22
+#, kde-format
+msgctxt "@action"
+msgid "Cancel"
+msgstr "ਰੱਦ ਕਰੋ"
+
 #: src/qml/Menu/Timeline/ReportSheet.qml:16
 #, fuzzy, kde-format
 #| msgid "Edit Message"
@@ -1843,12 +1864,6 @@ msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
 #, kde-format
 msgid "Reason for reporting this message"
 msgstr ""
-
-#: src/qml/Menu/Timeline/ReportSheet.qml:41 src/qml/Page/InviteUserPage.qml:22
-#, kde-format
-msgctxt "@action"
-msgid "Cancel"
-msgstr "ਰੱਦ ਕਰੋ"
 
 #: src/qml/Page/DevtoolsPage.qml:15
 #, fuzzy, kde-format
@@ -2050,22 +2065,22 @@ msgstr "ਲੋਕਲ ਫਾਇਲ ਚੁਣੋ"
 msgid "Clipboard image"
 msgstr "ਕਲਿੱਪਬੋਰਡ ਚਿੱਤਰ"
 
-#: src/qml/Page/RoomPage.qml:355
+#: src/qml/Page/RoomPage.qml:356
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "ਪਹਿਲੇ ਨਾ-ਪੜ੍ਹੇ ਸੁਨੇਹੇ ਉੱਤੇ ਜਾਓ"
 
-#: src/qml/Page/RoomPage.qml:378
+#: src/qml/Page/RoomPage.qml:380
 #, kde-format
 msgid "Jump to latest message"
 msgstr "ਸਭ ਤੋਂ ਨਵੇ ਸੁਨੇਹੇ ਉੱਤੇ ਜਾਓ"
 
-#: src/qml/Page/RoomPage.qml:402
+#: src/qml/Page/RoomPage.qml:404
 #, kde-format
 msgid "Drag items here to share them"
 msgstr ""
 
-#: src/qml/Page/RoomPage.qml:434
+#: src/qml/Page/RoomPage.qml:436
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2073,12 +2088,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 ਲਿਖ ਰਹੇ ਹਨ"
 msgstr[1] "%2 ਲਿਖ ਰਹੇ ਹਨ"
 
-#: src/qml/Page/RoomPage.qml:505
+#: src/qml/Page/RoomPage.qml:507
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr ""
 
-#: src/qml/Page/RoomPage.qml:511
+#: src/qml/Page/RoomPage.qml:513
 #, kde-format
 msgid "React"
 msgstr "ਅਸਰ"
@@ -2129,59 +2144,59 @@ msgstr "ਰੂਮ ਪਸੰਦੀਦਾ ਬਣਾਓ"
 msgid "Enable encryption"
 msgstr ""
 
-#: src/qml/Panel/RoomDrawer.qml:168
+#: src/qml/Panel/RoomDrawer.qml:172
 #, kde-format
 msgid "Room settings"
 msgstr "ਰੂਮ ਸੈਟਿੰਗਾਂ"
 
-#: src/qml/Panel/RoomDrawer.qml:194 src/qml/Panel/RoomDrawer.qml:208
+#: src/qml/Panel/RoomDrawer.qml:198 src/qml/Panel/RoomDrawer.qml:212
 #, kde-format
 msgid "No name"
 msgstr "ਕੋਈ ਨਾਂ ਨਹੀਂ"
 
-#: src/qml/Panel/RoomDrawer.qml:220
+#: src/qml/Panel/RoomDrawer.qml:224
 #, kde-format
 msgid "No Canonical Alias"
 msgstr ""
 
-#: src/qml/Panel/RoomDrawer.qml:227
+#: src/qml/Panel/RoomDrawer.qml:231
 #, kde-format
 msgid "No Topic"
 msgstr "ਕੋਈ ਵਿਸ਼ਾ ਨਹੀਂ"
 
-#: src/qml/Panel/RoomDrawer.qml:246
+#: src/qml/Panel/RoomDrawer.qml:250
 #, kde-format
 msgid "Members"
 msgstr "ਮੈਂਬਰ"
 
-#: src/qml/Panel/RoomDrawer.qml:251
+#: src/qml/Panel/RoomDrawer.qml:255
 #, kde-format
 msgid "%1 Member"
 msgid_plural "%1 Members"
 msgstr[0] "%1 ਮੈਂਬਰ"
 msgstr[1] "%1 ਮੈਂਬਰ"
 
-#: src/qml/Panel/RoomDrawer.qml:251
+#: src/qml/Panel/RoomDrawer.qml:255
 #, kde-format
 msgid "No Member Count"
 msgstr "ਕੋਈ ਮੈਂਬਰ ਗਿਣਤੀ ਨਹੀਂ"
 
-#: src/qml/Panel/RoomDrawer.qml:324
+#: src/qml/Panel/RoomDrawer.qml:328
 #, kde-format
 msgid "Owner"
 msgstr "ਮਾਲਕ"
 
-#: src/qml/Panel/RoomDrawer.qml:326
+#: src/qml/Panel/RoomDrawer.qml:330
 #, kde-format
 msgid "Admin"
 msgstr "ਐਡਮਿਨ"
 
-#: src/qml/Panel/RoomDrawer.qml:328
+#: src/qml/Panel/RoomDrawer.qml:332
 #, kde-format
 msgid "Mod"
 msgstr "ਮੋਡ"
 
-#: src/qml/Panel/RoomDrawer.qml:330
+#: src/qml/Panel/RoomDrawer.qml:334
 #, kde-format
 msgid "Muted"
 msgstr "ਮੌਨ ਕੀਤਾ"
@@ -2192,7 +2207,7 @@ msgstr "ਮੌਨ ਕੀਤਾ"
 msgid "General"
 msgstr "ਆਮ"
 
-#: src/qml/RoomSettings/Categories.qml:25 src/qml/RoomSettings/Security.qml:17
+#: src/qml/RoomSettings/Categories.qml:25 src/qml/RoomSettings/Security.qml:18
 #, kde-format
 msgid "Security"
 msgstr "ਸੁਰੱਖਿਆ"
@@ -2248,65 +2263,67 @@ msgstr "ਇਸ ਰੂਮ ਨੂੰ ਬਦਲਿਆ ਗਿਆ ਹੈ।"
 msgid "See new room..."
 msgstr "ਨਵਾਂ ਰੂਮ ਵੇਖੋ..."
 
-#: src/qml/RoomSettings/General.qml:186 src/qml/RoomSettings/Security.qml:78
-#: src/qml/Settings/NetworkProxyPage.qml:107
+#: src/qml/RoomSettings/General.qml:186 src/qml/RoomSettings/Security.qml:71
+#: src/qml/Settings/NetworkProxyPage.qml:106
 #: src/qml/Settings/SonnetConfigPage.qml:326
 #, kde-format
 msgid "Apply"
 msgstr "ਲਾਗੂ ਕਰੋ"
 
-#: src/qml/RoomSettings/PushNotification.qml:23
+#: src/qml/RoomSettings/PushNotification.qml:26
+#, fuzzy, kde-format
+#| msgid "Show notifications"
+msgid "Room notifications setting"
+msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
+
+#: src/qml/RoomSettings/PushNotification.qml:29
 #, kde-format
 msgid "Follow global setting"
 msgstr ""
 
-#: src/qml/RoomSettings/PushNotification.qml:24
+#: src/qml/RoomSettings/Security.qml:27
 #, fuzzy, kde-format
-#| msgid "Show notifications"
-msgid "Room notifications setting:"
-msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
+#| msgctxt "@option:check"
+#| msgid "Access:"
+msgctxt "@option:check"
+msgid "Access"
+msgstr "ਪਹੁੰਚ:"
 
-#: src/qml/RoomSettings/Security.qml:24
+#: src/qml/RoomSettings/Security.qml:30
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "ਪ੍ਰਾਈਵੇਟ (ਸਿਰਫ਼ ਸੱਦੇ ਰਾਹੀਂ)"
 
-#: src/qml/RoomSettings/Security.qml:25
-#, kde-format
-msgctxt "@option:check"
-msgid "Access:"
-msgstr "ਪਹੁੰਚ:"
-
-#: src/qml/RoomSettings/Security.qml:33
+#: src/qml/RoomSettings/Security.qml:31
 #, kde-format
 msgid "Only invited people can join."
 msgstr "ਸਿਰਫ਼ ਸੱਦਾ ਪ੍ਰਾਪਤ ਲੋਕ ਹੀ ਜੁਆਇੰਨ ਕਰ ਸਕਦੇ ਹਨ।"
 
-#: src/qml/RoomSettings/Security.qml:37
+#: src/qml/RoomSettings/Security.qml:39
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "ਥਾਂ ਦੇ ਮੈਂਬਰ"
 
-#: src/qml/RoomSettings/Security.qml:45
+#: src/qml/RoomSettings/Security.qml:41 src/qml/RoomSettings/Security.qml:43
 #, kde-format
 msgid "Anyone in a space can find and join."
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:53
+#: src/qml/RoomSettings/Security.qml:42
 #, kde-format
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:56
+#: src/qml/RoomSettings/Security.qml:51
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "ਪਬਲਿਕ"
 
-#: src/qml/RoomSettings/Security.qml:64
+#: src/qml/RoomSettings/Security.qml:52
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
@@ -2331,7 +2348,6 @@ msgid "User information"
 msgstr "ਰੂਮ ਦੀ ਜਾਣਕਾਰੀ"
 
 #: src/qml/Settings/AccountEditorPage.qml:75
-#: src/qml/Settings/DevicesPage.qml:102
 #, kde-format
 msgid "Name:"
 msgstr "ਨਾਂ:"
@@ -2343,7 +2359,6 @@ msgstr ""
 
 #: src/qml/Settings/AccountEditorPage.qml:91
 #: src/qml/Settings/AccountEditorPage.qml:156
-#: src/qml/Settings/DevicesPage.qml:106
 #, kde-format
 msgid "Save"
 msgstr "ਸੰਭਾਲੋ"
@@ -2501,46 +2516,48 @@ msgstr "ਬਾਹੀ ਵਿੱਚ"
 msgid "Themes"
 msgstr "ਥੀਮ:"
 
-#: src/qml/Settings/DevicesPage.qml:13 src/qml/Settings/SettingsPage.qml:47
+#: src/qml/Settings/DevicesPage.qml:14 src/qml/Settings/DevicesPage.qml:26
+#: src/qml/Settings/SettingsPage.qml:47
 #, kde-format
 msgid "Devices"
 msgstr "ਡਿਵਾਈਸ"
 
-#: src/qml/Settings/DevicesPage.qml:35
+#: src/qml/Settings/DevicesPage.qml:85
+#, fuzzy, kde-format
+#| msgid "Edit device name"
+msgid "New device name"
+msgstr "ਡਿਵਾਈਸ ਦਾ ਨਾਂ ਸੋਧੋ"
+
+#: src/qml/Settings/DevicesPage.qml:113
 #, kde-format
 msgid "Edit device name"
 msgstr "ਡਿਵਾਈਸ ਦਾ ਨਾਂ ਸੋਧੋ"
 
-#: src/qml/Settings/DevicesPage.qml:48
+#: src/qml/Settings/DevicesPage.qml:122
 #, fuzzy, kde-format
 #| msgid "Edit device"
 msgid "Verify device"
 msgstr "ਡਿਵਾਈਸ ਨੂੰ ਸੋਧੋ"
 
-#: src/qml/Settings/DevicesPage.qml:58
+#: src/qml/Settings/DevicesPage.qml:132
 #, kde-format
 msgid "Logout device"
 msgstr "ਡਿਵਾਈਸ ਤੋਂ ਲਾਗ ਆਉਟ"
 
-#: src/qml/Settings/DevicesPage.qml:75
+#: src/qml/Settings/DevicesPage.qml:152
 #, kde-format
 msgid "Remove device"
 msgstr "ਡਿਵਾਈਸ ਨੂੰ ਹਟਾਓ"
 
-#: src/qml/Settings/DevicesPage.qml:79
+#: src/qml/Settings/DevicesPage.qml:156
 #, kde-format
 msgid "Password:"
 msgstr "ਪਾਸਵਰਡ:"
 
-#: src/qml/Settings/DevicesPage.qml:83
+#: src/qml/Settings/DevicesPage.qml:160
 #, kde-format
 msgid "Confirm"
 msgstr "ਤਸਦੀਕ ਕਰੋ"
-
-#: src/qml/Settings/DevicesPage.qml:98
-#, kde-format
-msgid "Edit device"
-msgstr "ਡਿਵਾਈਸ ਨੂੰ ਸੋਧੋ"
 
 #: src/qml/Settings/Emoticons.qml:15
 #, fuzzy, kde-format
@@ -2667,93 +2684,93 @@ msgctxt "@title:window"
 msgid "Notifications"
 msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:23
+#: src/qml/Settings/GlobalNotificationsPage.qml:22
 #, kde-format
 msgid "Enable notifications for this account"
 msgstr ""
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:41
+#: src/qml/Settings/GlobalNotificationsPage.qml:40
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgid "Room Notifications"
 msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:44
+#: src/qml/Settings/GlobalNotificationsPage.qml:43
 #, kde-format
 msgid "Messages in one-to-one chats"
 msgstr ""
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:58
+#: src/qml/Settings/GlobalNotificationsPage.qml:57
 #, kde-format
 msgid "Encrypted messages in one-to-one chats"
 msgstr ""
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:74
+#: src/qml/Settings/GlobalNotificationsPage.qml:73
 #, kde-format
 msgid "Messages in group chats"
 msgstr ""
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:88
+#: src/qml/Settings/GlobalNotificationsPage.qml:87
 #, kde-format
 msgid "Messages in encrypted group chats"
 msgstr ""
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:104
+#: src/qml/Settings/GlobalNotificationsPage.qml:103
 #, kde-format
 msgid "Room upgrade messages"
 msgstr ""
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:129
+#: src/qml/Settings/GlobalNotificationsPage.qml:128
 #, kde-format
 msgid "@Mentions"
 msgstr ""
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:132
+#: src/qml/Settings/GlobalNotificationsPage.qml:131
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "cleared their display name"
 msgid "Messages containing my display name"
 msgstr "ਆਪਣੇ ਵੇਖਾਉਣ ਵਾਲੇ ਨਾਂ ਮਿਟਾਏ"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:148
+#: src/qml/Settings/GlobalNotificationsPage.qml:147
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgid "Whole room (@room) notifications"
 msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਓ"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:173
+#: src/qml/Settings/GlobalNotificationsPage.qml:172
 #, kde-format
 msgid "Keywords"
 msgstr ""
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:177
+#: src/qml/Settings/GlobalNotificationsPage.qml:176
 #, kde-format
 msgid "Messages containing my keywords"
 msgstr ""
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:226
+#: src/qml/Settings/GlobalNotificationsPage.qml:225
 #, kde-format
 msgid "Keyword…"
 msgstr ""
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:244
+#: src/qml/Settings/GlobalNotificationsPage.qml:243
 #, kde-format
 msgid "Add keyword"
 msgstr ""
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:271
+#: src/qml/Settings/GlobalNotificationsPage.qml:270
 #, fuzzy, kde-format
 #| msgid "Invite"
 msgid "Invites"
 msgstr "ਸੱਦਾ"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:274
+#: src/qml/Settings/GlobalNotificationsPage.qml:273
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgid "Invites to a room"
 msgstr "%1 ਨੇ ਤੁਹਾਨੂੰ ਰੂਮ ਲਈ ਸੱਦਾ ਦਿੱਤਾ"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:290
+#: src/qml/Settings/GlobalNotificationsPage.qml:289
 #, fuzzy, kde-format
 #| msgid "Send invitation"
 msgid "Call invitation"
@@ -2794,12 +2811,7 @@ msgstr ""
 
 #: src/qml/Settings/NetworkProxyPage.qml:76
 #, kde-format
-msgid "Peeker width"
-msgstr ""
-
-#: src/qml/Settings/NetworkProxyPage.qml:81
-#, kde-format
-msgid "Proxy Port"
+msgid "Port"
 msgstr ""
 
 #: src/qml/Settings/NotificationRuleItem.qml:65
@@ -3014,6 +3026,21 @@ msgstr ""
 #, kde-format
 msgid "Show"
 msgstr "ਵੇਖਾਓ"
+
+#~ msgid "Displays action"
+#~ msgstr "ਕਾਰਵਾਈ ਦਿਖਾਓ"
+
+#~ msgid "Joins room with given address"
+#~ msgstr "ਦਿੱਤੇ ਸਿਰਨਾਵਾਂ ਨਾਲ ਰੂਮ ਜੁਆਇੰਨ ਕਰੋ"
+
+#~ msgid "Leave room"
+#~ msgstr "ਰੂਮ ਨੂੰ ਛੱਡੋ"
+
+#~ msgid "React to this message with a text"
+#~ msgstr "ਇਸ ਸੁਨੇਹੇ ਨੂੰ ਲਿਖਤ ਨਾਲ ਅਸਰ ਦਿਓ"
+
+#~ msgid "Edit device"
+#~ msgstr "ਡਿਵਾਈਸ ਨੂੰ ਸੋਧੋ"
 
 #~ msgid "Avatar:"
 #~ msgstr "ਅਵਤਾਰ:"
