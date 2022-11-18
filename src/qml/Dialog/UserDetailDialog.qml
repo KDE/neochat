@@ -112,7 +112,10 @@ Kirigami.OverlaySheet {
                 icon.name: "im-ban-user"
                 icon.color: Kirigami.Theme.negativeTextColor
                 onTriggered: {
-                    room.ban(user.id)
+                    applicationWindow().pageStack.pushDialogLayer("qrc:/BanSheet.qml", {room: room, userId: user.id}, {
+                        title: i18nc("@title", "Ban User"),
+                        width: Kirigami.Units.gridUnit * 25
+                    })
                     root.close()
                 }
             }
