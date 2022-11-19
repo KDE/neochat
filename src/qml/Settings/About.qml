@@ -7,15 +7,7 @@ import org.kde.kirigami 2.15 as Kirigami
 import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 import org.kde.neochat 1.0
 
-Kirigami.ScrollablePage {
+MobileForm.AboutPage {
     title: i18nc("@title:window", "About NeoChat")
-    leftPadding: 0
-    rightPadding: 0
-
-    ColumnLayout {
-        MobileForm.AboutCard {
-            Layout.fillWidth: true
-            aboutData: Controller.aboutData
-        }
-    }
+    aboutData: Controller.aboutData
 }
