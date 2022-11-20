@@ -108,31 +108,6 @@ Kirigami.ScrollablePage {
         }
     }
 
-    Kirigami.PlaceholderMessage {
-        id: invitation
-
-        visible: currentRoom && currentRoom.isInvite
-        anchors.centerIn: parent
-        text: i18n("Accept this invitation?")
-        RowLayout {
-            QQC2.Button {
-                Layout.alignment : Qt.AlignHCenter
-                text: i18n("Reject")
-
-                onClicked: RoomManager.leaveRoom(page.currentRoom);
-            }
-
-            QQC2.Button {
-                Layout.alignment : Qt.AlignHCenter
-                text: i18n("Accept")
-
-                onClicked: {
-                    currentRoom.acceptInvitation();
-                }
-            }
-        }
-    }
-
     Kirigami.LoadingPlaceholder {
         id: loadingIndicator
         anchors.centerIn: parent
@@ -182,7 +157,6 @@ Kirigami.ScrollablePage {
 
     ListView {
         id: messageListView
-        visible: !invitation.visible
 
         readonly property int largestVisibleIndex: count > 0 ? indexAt(contentX + (width / 2), contentY + height - 1) : -1
         readonly property bool isLoaded: page.width * page.height > 10
@@ -195,6 +169,32 @@ Kirigami.ScrollablePage {
         // topMargin: sectionBanner.height
         verticalLayoutDirection: ListView.BottomToTop
         highlightMoveDuration: 500
+
+        // HACK: Needs to be here because the flickable in ScrollablePage gets all mouse events.
+        Kirigami.PlaceholderMessage {
+            id: invitation
+
+            visible: currentRoom && currentRoom.isInvite
+            anchors.centerIn: parent
+            text: i18n("Accept this invitation?")
+            RowLayout {
+                QQC2.Button {
+                    Layout.alignment : Qt.AlignHCenter
+                    text: i18n("Reject")
+
+                    onClicked: RoomManager.leaveRoom(page.currentRoom);
+                }
+
+                QQC2.Button {
+                    Layout.alignment : Qt.AlignHCenter
+                    text: i18n("Accept")
+
+                    onClicked: {
+                        currentRoom.acceptInvitation();
+                    }
+                }
+            }
+        }
 
         model: !isLoaded ? undefined : collapseStateProxyModel
 
