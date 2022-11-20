@@ -291,8 +291,11 @@ void Controller::logout(Connection *conn, bool serverSideLogout)
     job.start();
     loop.exec();
 
-    if (conn == activeConnection() && AccountRegistry::instance().count() > 1) {
-        setActiveConnection(AccountRegistry::instance().accounts()[0]);
+    if (AccountRegistry::instance().count() > 1) {
+        // Only set the connection if the the account being logged out is currently active
+        if (conn == activeConnection()) {
+            setActiveConnection(AccountRegistry::instance().accounts()[0]);
+        }
     } else {
         setActiveConnection(nullptr);
     }

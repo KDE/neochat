@@ -233,7 +233,7 @@ Kirigami.ScrollablePage {
                     Layout.fillWidth: true
                     text: i18n("Sign out")
                     onClicked: {
-                        Controller.logout(model.connection, true);
+                        Controller.logout(root.connection, true);
                         root.closeDialog();
                         if (Controller.accountCount === 1) {
                             pageStack.layers.pop();
