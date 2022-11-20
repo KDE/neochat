@@ -91,7 +91,7 @@ void ActionsHandler::handleMessage()
         auto match = sed.match(m_room->chatBoxText());
         if (match.hasMatch()) {
             const QString regex = match.captured(1);
-            const QString replacement = match.captured(2);
+            const QString replacement = match.captured(2).toHtmlEscaped();
             const QString flags = match.captured(3);
 
             for (auto it = m_room->messageEvents().crbegin(); it != m_room->messageEvents().crend(); it++) {
@@ -143,7 +143,6 @@ void ActionsHandler::handleMessage()
     if (handledText.length() == 0) {
         return;
     }
-
     m_room->postMessage(m_room->chatBoxText(), handledText, messageType, m_room->chatBoxReplyId(), m_room->chatBoxEditId());
 }
 
