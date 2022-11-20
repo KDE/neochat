@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-19 00:45+0000\n"
-"PO-Revision-Date: 2022-11-17 06:51+0100\n"
+"PO-Revision-Date: 2022-11-19 06:57+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -357,7 +357,7 @@ msgstr ""
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
-msgstr ""
+msgstr "%1 (აგებულია %2-ით)"
 
 #: src/main.cpp:266
 #, kde-format
@@ -392,12 +392,12 @@ msgstr "გუშინ"
 #: src/messageeventmodel.cpp:347
 #, kde-format
 msgid "The day before yesterday"
-msgstr ""
+msgstr "გუშინწინ"
 
 #: src/messageeventmodel.cpp:449
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
-msgstr ""
+msgstr "<i>[ეს შეტყობინება წაშლილია]</i>"
 
 #: src/messageeventmodel.cpp:450
 #, kde-format
@@ -438,7 +438,7 @@ msgstr ""
 #: src/neochatroom.cpp:530
 #, kde-format
 msgid "invited %1 to the room"
-msgstr ""
+msgstr "%1 მოწვეულია ოთახში"
 
 #: src/neochatroom.cpp:530
 #, kde-format
@@ -498,7 +498,7 @@ msgstr ""
 #: src/neochatroom.cpp:569
 #, kde-format
 msgid "rejected the invitation"
-msgstr ""
+msgstr "უარი მოსაწვევზე"
 
 #: src/neochatroom.cpp:573
 #, kde-format
@@ -508,7 +508,7 @@ msgstr "ბანი მოხსნილია %1"
 #: src/neochatroom.cpp:573
 #, kde-format
 msgid "self-unbanned"
-msgstr ""
+msgstr "თვით-განბლოკილი"
 
 #: src/neochatroom.cpp:576
 #, kde-format
@@ -670,12 +670,12 @@ msgstr "პასუხი…"
 #: src/notificationsmanager.cpp:100
 #, kde-format
 msgid "%1 invited you to a room"
-msgstr ""
+msgstr "%1 -მა ოთახში მოგიწვიათ"
 
 #: src/notificationsmanager.cpp:104
 #, kde-format
 msgid "Open this invitation in NeoChat"
-msgstr ""
+msgstr "ამ მოსაწვევის NeoChat-ში გახსნა"
 
 #: src/notificationsmanager.cpp:110
 #, kde-format
@@ -854,7 +854,7 @@ msgstr "Matrix ID:"
 #: src/qml/Component/Login/Login.qml:52
 #, kde-format
 msgid "Already logged in"
-msgstr ""
+msgstr "უკვე შესულია"
 
 #: src/qml/Component/Login/LoginMethod.qml:14
 #, kde-format
@@ -915,7 +915,7 @@ msgstr "უკან"
 #: src/qml/Component/Login/Sso.qml:40
 #, kde-format
 msgid "Complete the authentication steps in your browser"
-msgstr ""
+msgstr "დაასრულეთ ავთენტიკაციის ნაბიჯები თქვენს ბრაუზერში"
 
 #: src/qml/Component/Timeline/EncryptedDelegate.qml:15
 #: src/qml/Component/Timeline/ReplyComponent.qml:123
@@ -964,7 +964,7 @@ msgstr[1] ""
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
-msgstr ""
+msgstr "(დასრულდა)"
 
 #: src/qml/Component/Timeline/ReactionDelegate.qml:53
 #, kde-format
@@ -1012,7 +1012,7 @@ msgstr "ანგარიშის დამატება"
 #: src/qml/Component/UserInfo.qml:59
 #, kde-format
 msgid "Log in to an existing account"
-msgstr ""
+msgstr "შედით არსებულ ანგარიშზე"
 
 #: src/qml/Component/UserInfo.qml:61
 #, kde-format
@@ -1053,10 +1053,9 @@ msgstr "პარამეტრების გახსნა"
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:36
-#, fuzzy, kde-format
-#| msgid "activated End-to-End Encryption"
+#, kde-format
 msgid "Activate Encryption"
-msgstr "გაააქტიურა გამჭოლი დაშიფვრა"
+msgstr "დაშიფვრის გააქტიურება"
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:20
 #, kde-format
@@ -1083,7 +1082,7 @@ msgstr "გასვლა"
 #: src/qml/Dialog/ConfirmLogoutDialog.qml:19
 #, kde-format
 msgid "Are you sure you want to sign out?"
-msgstr ""
+msgstr "დარწმუნებული ბრძანდებით, რომ გნებავთ, გახვიდეთ?"
 
 #: src/qml/Dialog/CreateRoomDialog.qml:16 src/qml/main.qml:250
 #, kde-format
@@ -1150,7 +1149,7 @@ msgstr ""
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:62
 #, kde-format
 msgid "Successfully verified device **%1**"
-msgstr ""
+msgstr "მოწყობილობა **%1** წარმატებით გადამოწმდა"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
 #: src/qml/Page/RoomPage.qml:127
@@ -1171,7 +1170,7 @@ msgstr ""
 #: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:23
 #, kde-format
 msgid "The session verification timed out."
-msgstr ""
+msgstr "სესიის შემოწმების დრო გავიდა"
 
 #: src/qml/Dialog/KeyVerification/VerificationCanceled.qml:25
 #, kde-format
@@ -1345,11 +1344,10 @@ msgid "Remove recent messages by this user"
 msgstr ""
 
 #: src/qml/Dialog/UserDetailDialog.qml:142
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
-msgstr "პირდაპირი შეტყობინებები"
+msgstr "შეტყობინებების წაშლა"
 
 #: src/qml/Dialog/UserDetailDialog.qml:152
 #, kde-format
@@ -1407,7 +1405,7 @@ msgstr "სესიის გადამოწმება"
 #: src/qml/main.qml:410
 #, kde-format
 msgid "User consent"
-msgstr ""
+msgstr "მომხმარებლის თანხმობა"
 
 #: src/qml/main.qml:415
 #, kde-format
@@ -1702,11 +1700,10 @@ msgstr "წაშლა"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:64
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:50
-#, fuzzy, kde-format
-#| msgid "Remove device"
+#, kde-format
 msgctxt "@title"
 msgid "Remove Message"
-msgstr "მოწყობილობის წაშლა"
+msgstr "შეტყობინების წაშლა"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:69
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:60
@@ -1758,16 +1755,14 @@ msgid "Event Source"
 msgstr "მოვლენის წყარო"
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:18
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgid "Remove Messages"
-msgstr "პირდაპირი შეტყობინებები"
+msgstr "შეტყობინებების წაშლა"
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:18
-#, fuzzy, kde-format
-#| msgid "Remove device"
+#, kde-format
 msgid "Remove Message"
-msgstr "მოწყობილობის წაშლა"
+msgstr "შეტყობინების წაშლა"
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:22
 #, kde-format
@@ -1780,8 +1775,7 @@ msgid "Reason for removing this message"
 msgstr ""
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:34
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "წაშლა"
@@ -1806,7 +1800,7 @@ msgstr ""
 #: src/qml/Page/DevtoolsPage.qml:15
 #, kde-format
 msgid "Room State - %1"
-msgstr ""
+msgstr "ოთახის მდგომარეობა - %1"
 
 #: src/qml/Page/ImageEditorPage.qml:36
 #, kde-format
@@ -1931,7 +1925,7 @@ msgstr ""
 #: src/qml/Page/JoinRoomPage.qml:127
 #, kde-format
 msgid "Enter server url e.g. kde.org"
-msgstr ""
+msgstr "შეიყვანეთ სერვერის URL. მაგ: kde.org"
 
 #: src/qml/Page/JoinRoomPage.qml:135
 #, kde-format
@@ -2203,10 +2197,9 @@ msgid "Apply"
 msgstr "გამოყენება"
 
 #: src/qml/RoomSettings/PushNotification.qml:26
-#, fuzzy, kde-format
-#| msgid "Room Notifications"
+#, kde-format
 msgid "Room notifications setting"
-msgstr "ოთახის გაფრთხილებები"
+msgstr "ოთახის შეტყობინებების პარამეტრები"
 
 #: src/qml/RoomSettings/PushNotification.qml:29
 #, kde-format
@@ -2214,12 +2207,10 @@ msgid "Follow global setting"
 msgstr "გლობალური პარამეტრის მიყოლა"
 
 #: src/qml/RoomSettings/Security.qml:27
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Access:"
+#, kde-format
 msgctxt "@option:check"
 msgid "Access"
-msgstr "წვდომა:"
+msgstr "წვდომა"
 
 #: src/qml/RoomSettings/Security.qml:30
 #, kde-format
@@ -2442,10 +2433,9 @@ msgid "Devices"
 msgstr "მოწყობილობები"
 
 #: src/qml/Settings/DevicesPage.qml:85
-#, fuzzy, kde-format
-#| msgid "Edit device name"
+#, kde-format
 msgid "New device name"
-msgstr "მოწყობილობის სახელის ჩასწორება"
+msgstr "ახალი მოწყობილობის სახელი"
 
 #: src/qml/Settings/DevicesPage.qml:113
 #, kde-format
@@ -2481,7 +2471,7 @@ msgstr "დადასტურება"
 #, kde-format
 msgctxt "@title:window"
 msgid "Custom Emojis"
-msgstr ""
+msgstr "მორგებული ემოჯიები"
 
 #: src/qml/Settings/Emoticons.qml:24
 #, kde-format
@@ -2762,7 +2752,7 @@ msgstr "გარემოს იერსახე"
 #: src/qml/Settings/SettingsPage.qml:32
 #, kde-format
 msgid "Custom Emojis"
-msgstr ""
+msgstr "მორგებული ემოჯიები"
 
 #: src/qml/Settings/SettingsPage.qml:37
 #, kde-format

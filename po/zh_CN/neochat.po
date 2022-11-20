@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-19 00:45+0000\n"
-"PO-Revision-Date: 2022-11-06 01:07\n"
+"PO-Revision-Date: 2022-11-19 14:49\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -63,7 +63,7 @@ msgstr ""
 
 #: src/actionsmodel.cpp:115
 msgid "Sends the given message as a spoiler"
-msgstr ""
+msgstr "发送消息，并将此消息标记为防剧透"
 
 #: src/actionsmodel.cpp:125
 msgid "Sends the given emote"
@@ -71,7 +71,7 @@ msgstr ""
 
 #: src/actionsmodel.cpp:135
 msgid "Sends the given message as a notice"
-msgstr ""
+msgstr "发送消息，并将此消息标记为一条通知"
 
 #: src/actionsmodel.cpp:144 src/actionsmodel.cpp:321 src/actionsmodel.cpp:349
 #, kde-format
@@ -178,18 +178,12 @@ msgid "<display name>"
 msgstr ""
 
 #: src/actionsmodel.cpp:297
-#, fuzzy
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
 msgid "Changes your global display name"
-msgstr "将显示名称更改为 %1"
+msgstr ""
 
 #: src/actionsmodel.cpp:312
-#, fuzzy
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
 msgid "Changes your display name in this room"
-msgstr "将显示名称更改为 %1"
+msgstr ""
 
 #: src/actionsmodel.cpp:326
 #, kde-format
@@ -710,7 +704,7 @@ msgstr "编辑"
 #: src/qml/Component/ChatBox/AttachmentPane.qml:181
 #, kde-format
 msgid "Cancel sending Image"
-msgstr ""
+msgstr "取消发送图片"
 
 #: src/qml/Component/ChatBox/ChatBar.qml:81
 #, kde-format
@@ -726,12 +720,12 @@ msgstr "编辑消息"
 #: src/qml/Component/ChatBox/ChatBar.qml:81
 #, kde-format
 msgid "Send an encrypted message…"
-msgstr ""
+msgstr "发送一条加密消息..."
 
 #: src/qml/Component/ChatBox/ChatBar.qml:81
 #, kde-format
 msgid "Send a message…"
-msgstr ""
+msgstr "发送一条消息..."
 
 #: src/qml/Component/ChatBox/ChatBar.qml:168
 #, kde-format
@@ -930,7 +924,7 @@ msgstr "请完成在您浏览器中的身份验证步骤"
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
 "device."
-msgstr ""
+msgstr "此消息已加密，但发送者尚未与此设备共享密钥。"
 
 #: src/qml/Component/Timeline/FileDelegate.qml:49
 #, kde-format
@@ -1009,10 +1003,9 @@ msgid "Video"
 msgstr "视频"
 
 #: src/qml/Component/UserInfo.qml:58 src/qml/Settings/AccountsPage.qml:82
-#, fuzzy, kde-format
-#| msgid "Add an account"
+#, kde-format
 msgid "Add Account"
-msgstr "添加账户"
+msgstr ""
 
 #: src/qml/Component/UserInfo.qml:59
 #, kde-format
@@ -1020,11 +1013,10 @@ msgid "Log in to an existing account"
 msgstr ""
 
 #: src/qml/Component/UserInfo.qml:61
-#, fuzzy, kde-format
-#| msgid "Login"
+#, kde-format
 msgctxt "@title:window"
 msgid "Login"
-msgstr "登录"
+msgstr ""
 
 #: src/qml/Component/UserInfo.qml:140
 #, kde-format
@@ -1050,20 +1042,18 @@ msgstr "添加"
 #: src/qml/Menu/GlobalMenu.qml:28
 #, kde-format
 msgid "Configure"
-msgstr ""
+msgstr "配置"
 
 #: src/qml/Component/UserInfo.qml:198
-#, fuzzy, kde-format
-#| msgid "Room settings"
+#, kde-format
 msgid "Open Settings"
-msgstr "聊天室设置"
+msgstr ""
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:36
-#, fuzzy, kde-format
-#| msgid "activated End-to-End Encryption"
+#, kde-format
 msgid "Activate Encryption"
-msgstr "激活了端到端加密"
+msgstr ""
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:20
 #, kde-format
@@ -1352,11 +1342,10 @@ msgid "Remove recent messages by this user"
 msgstr ""
 
 #: src/qml/Dialog/UserDetailDialog.qml:142
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
-msgstr "私聊"
+msgstr ""
 
 #: src/qml/Dialog/UserDetailDialog.qml:152
 #, kde-format
@@ -1388,7 +1377,7 @@ msgstr "开始聊天"
 #: src/qml/main.qml:260 src/qml/main.qml:265 src/qml/Menu/GlobalMenu.qml:23
 #, kde-format
 msgid "Configure NeoChat..."
-msgstr ""
+msgstr "配置 NeoChat..."
 
 #: src/qml/main.qml:269
 #, kde-format
@@ -1492,7 +1481,7 @@ msgstr "NeoChat"
 #, kde-format
 msgctxt "menu"
 msgid "Configure NeoChat..."
-msgstr ""
+msgstr "配置 NeoChat..."
 
 #: src/qml/Menu/GlobalMenu.qml:32
 #, kde-format
@@ -1711,11 +1700,10 @@ msgstr "移除"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:64
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:50
-#, fuzzy, kde-format
-#| msgid "Remove device"
+#, kde-format
 msgctxt "@title"
 msgid "Remove Message"
-msgstr "移除设备"
+msgstr ""
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:69
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:60
@@ -1737,7 +1725,7 @@ msgstr ""
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:69
 #, kde-format
 msgid "View Source"
-msgstr "查看来源"
+msgstr "查看源码"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:84
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:75
@@ -1762,22 +1750,19 @@ msgstr "配置网页快捷键..."
 
 #: src/qml/Menu/Timeline/MessageSourceSheet.qml:20
 #: src/qml/Page/DevtoolsPage.qml:29
-#, fuzzy, kde-format
-#| msgid "View Source"
+#, kde-format
 msgid "Event Source"
-msgstr "查看来源"
+msgstr ""
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:18
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgid "Remove Messages"
-msgstr "私聊"
+msgstr ""
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:18
-#, fuzzy, kde-format
-#| msgid "Remove device"
+#, kde-format
 msgid "Remove Message"
-msgstr "移除设备"
+msgstr ""
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:22
 #, kde-format
@@ -1790,11 +1775,10 @@ msgid "Reason for removing this message"
 msgstr ""
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:34
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
-msgstr "移除"
+msgstr ""
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:47
 #: src/qml/Menu/Timeline/ReportSheet.qml:41 src/qml/Page/InviteUserPage.qml:22
@@ -2211,10 +2195,9 @@ msgid "Apply"
 msgstr ""
 
 #: src/qml/RoomSettings/PushNotification.qml:26
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Room notifications setting"
-msgstr "显示通知"
+msgstr ""
 
 #: src/qml/RoomSettings/PushNotification.qml:29
 #, kde-format
@@ -2222,11 +2205,10 @@ msgid "Follow global setting"
 msgstr ""
 
 #: src/qml/RoomSettings/Security.qml:27
-#, fuzzy, kde-format
-#| msgid "Accept"
+#, kde-format
 msgctxt "@option:check"
 msgid "Access"
-msgstr "接受"
+msgstr ""
 
 #: src/qml/RoomSettings/Security.qml:30
 #, kde-format
@@ -2280,10 +2262,9 @@ msgid "Edit Account"
 msgstr "编辑账户"
 
 #: src/qml/Settings/AccountEditorPage.qml:28
-#, fuzzy, kde-format
-#| msgid "Room information"
+#, kde-format
 msgid "User information"
-msgstr "聊天室信息"
+msgstr ""
 
 #: src/qml/Settings/AccountEditorPage.qml:75
 #, kde-format
@@ -2302,11 +2283,9 @@ msgid "Save"
 msgstr "保存"
 
 #: src/qml/Settings/AccountEditorPage.qml:117
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Password"
+#, kde-format
 msgid "Password"
-msgstr "密码"
+msgstr ""
 
 #: src/qml/Settings/AccountEditorPage.qml:121
 #, kde-format
@@ -2329,10 +2308,9 @@ msgid "Confirm new Password:"
 msgstr "确认新密码："
 
 #: src/qml/Settings/AccountEditorPage.qml:142
-#, fuzzy, kde-format
-#| msgid "Passwords do not match"
+#, kde-format
 msgid "Passwords don't match"
-msgstr "密码不匹配"
+msgstr ""
 
 #: src/qml/Settings/AccountEditorPage.qml:164
 #, kde-format
@@ -2340,16 +2318,14 @@ msgid "Passwords do not match"
 msgstr "密码不匹配"
 
 #: src/qml/Settings/AccountEditorPage.qml:186
-#, fuzzy, kde-format
-#| msgid "Room information"
+#, kde-format
 msgid "Server Information"
-msgstr "聊天室信息"
+msgstr ""
 
 #: src/qml/Settings/AccountEditorPage.qml:189
-#, fuzzy, kde-format
-#| msgid "Homeserver:"
+#, kde-format
 msgid "Homeserver url"
-msgstr "主服务器："
+msgstr ""
 
 #: src/qml/Settings/AccountsPage.qml:15 src/qml/Settings/AccountsPage.qml:26
 #: src/qml/Settings/SettingsPage.qml:27
@@ -2379,10 +2355,9 @@ msgid "Appearance"
 msgstr ""
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:25
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgid "General theme"
-msgstr "常规"
+msgstr ""
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:113
 #, kde-format
@@ -2430,10 +2405,9 @@ msgid "Show links preview in the chat messages"
 msgstr ""
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:305
-#, fuzzy, kde-format
-#| msgid "Avatar:"
+#, kde-format
 msgid "Show Avatar"
-msgstr "头像："
+msgstr ""
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:309
 #, kde-format
@@ -2446,10 +2420,9 @@ msgid "In Sidebar"
 msgstr ""
 
 #: src/qml/Settings/ColorScheme.qml:15
-#, fuzzy, kde-format
-#| msgid "Theme:"
+#, kde-format
 msgid "Themes"
-msgstr "主题："
+msgstr ""
 
 #: src/qml/Settings/DevicesPage.qml:14 src/qml/Settings/DevicesPage.qml:26
 #: src/qml/Settings/SettingsPage.qml:47
@@ -2458,10 +2431,9 @@ msgid "Devices"
 msgstr "设备"
 
 #: src/qml/Settings/DevicesPage.qml:85
-#, fuzzy, kde-format
-#| msgid "Edit device name"
+#, kde-format
 msgid "New device name"
-msgstr "编辑设备名称"
+msgstr ""
 
 #: src/qml/Settings/DevicesPage.qml:113
 #, kde-format
@@ -2522,10 +2494,9 @@ msgid "General"
 msgstr ""
 
 #: src/qml/Settings/GeneralSettingsPage.qml:25
-#, fuzzy, kde-format
-#| msgid "Room settings"
+#, kde-format
 msgid "General settings"
-msgstr "聊天室设置"
+msgstr ""
 
 #: src/qml/Settings/GeneralSettingsPage.qml:30
 #, kde-format
@@ -2535,12 +2506,12 @@ msgstr "关闭到系统托盘"
 #: src/qml/Settings/GeneralSettingsPage.qml:44
 #, kde-format
 msgid "Minimize to system tray on startup"
-msgstr ""
+msgstr "启动时最小化到系统托盘"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:58
 #, kde-format
 msgid "Automatically hide/unhide the room information when resizing the window"
-msgstr ""
+msgstr "调整窗口大小时自动展示/隐藏房间信息"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:75
 #, kde-format
@@ -2563,10 +2534,9 @@ msgid "Show avatar update events"
 msgstr ""
 
 #: src/qml/Settings/GeneralSettingsPage.qml:123
-#, fuzzy, kde-format
-#| msgid "Rooms and private chats:"
+#, kde-format
 msgid "Rooms and private chats"
-msgstr "聊天室和私聊："
+msgstr ""
 
 #: src/qml/Settings/GeneralSettingsPage.qml:126
 #, kde-format
@@ -2579,27 +2549,25 @@ msgid "Intermixed"
 msgstr "混合"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:152
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "Chat Editor"
 msgid "Editor:"
-msgstr "编辑"
+msgstr ""
 
 #: src/qml/Settings/GeneralSettingsPage.qml:156
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
-msgstr ""
+msgstr "使用 s/原始文本/替换文本 语法来修改你的上一条信息"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:167
 #, kde-format
 msgid "Send Typing Notifications"
-msgstr ""
+msgstr "发送输入中状态"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:184
-#, fuzzy, kde-format
-#| msgid "Room settings"
+#, kde-format
 msgid "Developer Settings"
-msgstr "聊天室设置"
+msgstr ""
 
 #: src/qml/Settings/GeneralSettingsPage.qml:187
 #, kde-format
@@ -2607,11 +2575,10 @@ msgid "Enable Developer Tools"
 msgstr ""
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:14
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgctxt "@title:window"
 msgid "Notifications"
-msgstr "显示通知"
+msgstr ""
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:22
 #, kde-format
@@ -2619,10 +2586,9 @@ msgid "Enable notifications for this account"
 msgstr ""
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Room Notifications"
-msgstr "显示通知"
+msgstr ""
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:43
 #, kde-format
@@ -2655,17 +2621,14 @@ msgid "@Mentions"
 msgstr ""
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:131
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
+#, kde-format
 msgid "Messages containing my display name"
-msgstr "清除了显示名称"
+msgstr ""
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:147
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Whole room (@room) notifications"
-msgstr "显示通知"
+msgstr ""
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:172
 #, kde-format
@@ -2688,29 +2651,25 @@ msgid "Add keyword"
 msgstr ""
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:270
-#, fuzzy, kde-format
-#| msgid "Invited"
+#, kde-format
 msgid "Invites"
-msgstr "已邀请"
+msgstr ""
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:273
-#, fuzzy, kde-format
-#| msgid "invited %1 to the room"
+#, kde-format
 msgid "Invites to a room"
-msgstr "邀请 %1 进入聊天室"
+msgstr ""
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:289
-#, fuzzy, kde-format
-#| msgid "Send invitation"
+#, kde-format
 msgid "Call invitation"
-msgstr "发送邀请"
+msgstr ""
 
 #: src/qml/Settings/NetworkProxyPage.qml:25
 #: src/qml/Settings/SettingsPage.qml:42
-#, fuzzy, kde-format
-#| msgid "Network Error"
+#, kde-format
 msgid "Network Proxy"
-msgstr "网络错误"
+msgstr ""
 
 #: src/qml/Settings/NetworkProxyPage.qml:28
 #, kde-format
@@ -2728,10 +2687,9 @@ msgid "Socks5"
 msgstr ""
 
 #: src/qml/Settings/NetworkProxyPage.qml:60
-#, fuzzy, kde-format
-#| msgid "Room settings"
+#, kde-format
 msgid "Proxy Settings"
-msgstr "聊天室设置"
+msgstr ""
 
 #: src/qml/Settings/NetworkProxyPage.qml:64
 #, kde-format
@@ -2744,28 +2702,24 @@ msgid "Port"
 msgstr ""
 
 #: src/qml/Settings/NotificationRuleItem.qml:65
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Disable notifications"
-msgstr "显示通知"
+msgstr ""
 
 #: src/qml/Settings/NotificationRuleItem.qml:65
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Enable notifications"
-msgstr "显示通知"
+msgstr ""
 
 #: src/qml/Settings/NotificationRuleItem.qml:87
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Mute notifications"
-msgstr "显示通知"
+msgstr ""
 
 #: src/qml/Settings/NotificationRuleItem.qml:87
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Unmute notifications"
-msgstr "显示通知"
+msgstr ""
 
 #: src/qml/Settings/NotificationRuleItem.qml:109
 #, kde-format
@@ -2832,7 +2786,7 @@ msgstr ""
 #: src/qml/Settings/SonnetConfigPage.qml:126
 #, kde-format
 msgid "Enable automatic spell checking"
-msgstr ""
+msgstr "启用自动拼写检查"
 
 #: src/qml/Settings/SonnetConfigPage.qml:137
 #, kde-format
@@ -2847,7 +2801,7 @@ msgstr ""
 #: src/qml/Settings/SonnetConfigPage.qml:160
 #, kde-format
 msgid "Detect language automatically"
-msgstr ""
+msgstr "自动检测语言"
 
 #: src/qml/Settings/SonnetConfigPage.qml:172
 #, kde-format
@@ -2953,18 +2907,3 @@ msgstr ""
 #, kde-format
 msgid "Show"
 msgstr "显示"
-
-#~ msgid "Leave room"
-#~ msgstr "离开聊天室"
-
-#~ msgid "Edit device"
-#~ msgstr "编辑设备"
-
-#~ msgid "Add an account"
-#~ msgstr "添加账户"
-
-#~ msgid "Notifications and events:"
-#~ msgstr "通知和事件："
-
-#~ msgid "Online"
-#~ msgstr "在线"

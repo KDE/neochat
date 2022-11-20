@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-19 00:45+0000\n"
-"PO-Revision-Date: 2022-11-18 12:01+0100\n"
+"PO-Revision-Date: 2022-11-19 19:32+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -361,7 +361,7 @@ msgstr "Knjižnica Qt5 za pisanje odjemalcev za več platform za Matrix"
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
-msgstr ""
+msgstr "%1 (zgrajeno na %2)"
 
 #: src/main.cpp:266
 #, kde-format
@@ -1063,16 +1063,15 @@ msgstr "Odpri nastavitve"
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:36
-#, fuzzy, kde-format
-#| msgid "activated End-to-End Encryption"
+#, kde-format
 msgid "Activate Encryption"
-msgstr "je aktiviral šifriranje od točke do točke"
+msgstr "Aktiviraj šifriranje"
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:20
 #, kde-format
 msgid ""
 "It will not be possible to deactivate the encryption after it is enabled."
-msgstr ""
+msgstr "Ne bo mogoče deaktivirati šifriranja, potem ko je omogočeno."
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:30
 #: src/qml/Dialog/ConfirmLogoutDialog.qml:29
@@ -1374,18 +1373,15 @@ msgid "Unban this user"
 msgstr "Prekini prepoved temu uporabniku"
 
 #: src/qml/Dialog/UserDetailDialog.qml:137
-#, fuzzy, kde-format
-#| msgid "Delete recent messages by this user"
+#, kde-format
 msgid "Remove recent messages by this user"
-msgstr "Zbriši zadnja sporočila tega uporabnika"
+msgstr "Odstrani nedavna sporočila tega uporabnika"
 
 #: src/qml/Dialog/UserDetailDialog.qml:142
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Report Message"
+#, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
-msgstr "Poročaj sporočilo"
+msgstr "Odstrani sporočila"
 
 #: src/qml/Dialog/UserDetailDialog.qml:152
 #, kde-format
@@ -1740,12 +1736,10 @@ msgstr "Odstrani"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:64
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:50
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Report Message"
+#, kde-format
 msgctxt "@title"
 msgid "Remove Message"
-msgstr "Poročaj sporočilo"
+msgstr "Odstrani sporočilo"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:69
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:60
@@ -1797,32 +1791,27 @@ msgid "Event Source"
 msgstr "Vir dogodka"
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:18
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Remove Messages"
-msgstr "Poročaj sporočilo"
+msgstr "Odstrani sporočila"
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:18
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Remove Message"
-msgstr "Poročaj sporočilo"
+msgstr "Odstrani sporočilo"
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:22
-#, fuzzy, kde-format
-#| msgid "Reason for reporting this message"
+#, kde-format
 msgid "Reason for removing this user's recent messages"
-msgstr "Razlog za poročanje tega sporočila"
+msgstr "Razlog za odstranjevanje nedavnih sporočil tega uporabnika"
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:22
-#, fuzzy, kde-format
-#| msgid "Reason for reporting this message"
+#, kde-format
 msgid "Reason for removing this message"
-msgstr "Razlog za poročanje tega sporočila"
+msgstr "Razlog za odstranjevanje tega sporočila"
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:34
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Odstrani"
@@ -2250,10 +2239,9 @@ msgid "Apply"
 msgstr "Uveljavi"
 
 #: src/qml/RoomSettings/PushNotification.qml:26
-#, fuzzy, kde-format
-#| msgid "Room notifications setting:"
+#, kde-format
 msgid "Room notifications setting"
-msgstr "Nastavitve sobnih obvestil:"
+msgstr "Nastavitve sobnih obvestil"
 
 #: src/qml/RoomSettings/PushNotification.qml:29
 #, kde-format
@@ -2261,12 +2249,10 @@ msgid "Follow global setting"
 msgstr "Sledi globalni nastavitvi"
 
 #: src/qml/RoomSettings/Security.qml:27
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Access:"
+#, kde-format
 msgctxt "@option:check"
 msgid "Access"
-msgstr "Dostop:"
+msgstr "Dostop"
 
 #: src/qml/RoomSettings/Security.qml:30
 #, kde-format
@@ -2490,10 +2476,9 @@ msgid "Devices"
 msgstr "Naprave"
 
 #: src/qml/Settings/DevicesPage.qml:85
-#, fuzzy, kde-format
-#| msgid "Edit device name"
+#, kde-format
 msgid "New device name"
-msgstr "Uredi ime naprave"
+msgstr "Novo ime naprave"
 
 #: src/qml/Settings/DevicesPage.qml:113
 #, kde-format
@@ -2761,7 +2746,7 @@ msgstr "Gostitelj"
 #: src/qml/Settings/NetworkProxyPage.qml:76
 #, kde-format
 msgid "Port"
-msgstr ""
+msgstr "Vrata"
 
 #: src/qml/Settings/NotificationRuleItem.qml:65
 #, kde-format
