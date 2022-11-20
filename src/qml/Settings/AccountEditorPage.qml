@@ -18,6 +18,8 @@ Kirigami.ScrollablePage {
 
     readonly property bool compact: width > Kirigami.Units.gridUnit * 30 ? 2 : 1
 
+    leftPadding: 0
+    rightPadding: 0
     ColumnLayout {
         MobileForm.FormCard {
             Layout.topMargin: Kirigami.Units.largeSpacing
@@ -29,9 +31,14 @@ Kirigami.ScrollablePage {
                 }
                 MobileForm.AbstractFormDelegate {
                     Layout.fillWidth: true
+                    background: Item {}
                     contentItem: RowLayout {
+                        Item {
+                            Layout.fillWidth: true
+                        }
                         Kirigami.Avatar {
                             id: avatar
+                            Layout.alignment: Qt.AlignRight
                             source: root.connection && root.connection.localUser.avatarMediaId ? ("image://mxc/" + root.connection.localUser.avatarMediaId) : ""
                             name: root.connection.localUser.displayName ?? root.connection.localUser.id
 
@@ -60,10 +67,16 @@ Kirigami.ScrollablePage {
                             }
                         }
                         QQC2.Button {
+                            Layout.alignment: Qt.AlignLeft
                             visible: avatar.source.toString().length !== 0
                             icon.name: "edit-clear"
+                            text: i18n("Remove current avatar")
+                            display: QQC2.AbstractButton.IconOnly
 
                             onClicked: avatar.source = ""
+
+                            QQC2.ToolTip.text: text
+                            QQC2.ToolTip.visible: hovered
                         }
                         Item {
                             Layout.fillWidth: true

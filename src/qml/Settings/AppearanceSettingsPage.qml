@@ -26,13 +26,18 @@ Kirigami.ScrollablePage {
                 }
 
                 MobileForm.AbstractFormDelegate {
+                    id: timelineModeSetting
                     Layout.fillWidth: true
                     background: Item {}
                     contentItem: RowLayout {
                         Layout.alignment: Qt.AlignCenter
-                        spacing: Kirigami.Units.gridUnit * 2
+                        spacing: Kirigami.Units.largeSpacing
+                        Item {
+                            Layout.fillWidth: true
+                        }
                         QQC2.ButtonGroup { id: themeGroup }
                         ThemeRadioButton {
+                            thin: timelineModeSetting.width < Kirigami.Units.gridUnit * 22
                             innerObject: [
                                 RowLayout {
                                     Layout.fillWidth: true
@@ -121,7 +126,8 @@ Kirigami.ScrollablePage {
                             }
                         }
                         ThemeRadioButton {
-                            Layout.alignment: Qt.AlignRight
+                            // Layout.alignment: Qt.AlignRight
+                            thin: timelineModeSetting.width < Kirigami.Units.gridUnit * 22
                             innerObject: [
                                 RowLayout {
                                     Layout.fillWidth: true
@@ -187,6 +193,9 @@ Kirigami.ScrollablePage {
                                 Config.compactLayout = checked;
                                 Config.save();
                             }
+                        }
+                        Item {
+                            Layout.fillWidth: true
                         }
                     }
                 }

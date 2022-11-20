@@ -15,11 +15,12 @@ QQC2.RadioButton {
     implicitHeight: contentItem.implicitHeight
 
     property alias innerObject: contentLayout.children
+    property bool thin
 
     contentItem: ColumnLayout {
         Kirigami.ShadowedRectangle {
             implicitWidth: implicitHeight * 1.6
-            implicitHeight: Kirigami.Units.gridUnit * 6
+            implicitHeight: delegate.thin ? Kirigami.Units.gridUnit * 5 : Kirigami.Units.gridUnit * 6
             radius: Kirigami.Units.smallSpacing
             Kirigami.Theme.inherit: false
             Kirigami.Theme.colorSet: Kirigami.Theme.View

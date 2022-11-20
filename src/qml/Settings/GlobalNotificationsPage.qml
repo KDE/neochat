@@ -12,6 +12,8 @@ import org.kde.neochat 1.0
 
 Kirigami.ScrollablePage {
     title: i18nc("@title:window", "Notifications")
+    leftPadding: 0
+    rightPadding: 0
     ColumnLayout {
         id: notificationLayout
 

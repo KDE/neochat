@@ -15,6 +15,8 @@ Kirigami.ScrollablePage {
     property int currentType
     property bool proxyConfigChanged: false
 
+    leftPadding: 0
+    rightPadding: 0
     ColumnLayout {
         MobileForm.FormCard {
             Layout.topMargin: Kirigami.Units.largeSpacing

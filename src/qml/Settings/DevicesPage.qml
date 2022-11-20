@@ -25,12 +25,13 @@ Kirigami.ScrollablePage {
                 MobileForm.FormCardHeader {
                     title: i18n("Devices")
                 }
-
-                Kirigami.LoadingPlaceholder {
-                    Layout.alignment: Qt.AlignHCenter
-                    visible: parent.count === 0 // We can assume 0 means loading since there is at least one device
+                MobileForm.AbstractFormDelegate {
+                    Layout.fillWidth: true
+                    visible: deviceRepeater.count === 0 // We can assume 0 means loading since there is at least one device
+                    contentItem: Kirigami.LoadingPlaceholder { }
                 }
                 Repeater {
+                    id: deviceRepeater
                     model: DevicesModel {
                         id: devices
                     }
