@@ -429,7 +429,7 @@ Kirigami.ScrollablePage {
             UserDetailDialog {}
         }
 
-        header: TypingPane {
+        TypingPane {
             id: typingPane
             visible: !loadingIndicator.visible && currentRoom && currentRoom.usersTyping.length > 0
             labelText: visible ? i18ncp(
@@ -438,6 +438,7 @@ Kirigami.ScrollablePage {
                 currentRoom.usersTyping.map(user => user.displayName).join(", ")
             ) : ""
             anchors.left: parent.left
+            anchors.bottom: parent.bottom
             height: visible ? implicitHeight : 0
             Behavior on height {
                 NumberAnimation {
@@ -448,7 +449,6 @@ Kirigami.ScrollablePage {
             }
             z: 2
         }
-        headerPositioning: ListView.OverlayHeader
 
         function goToEvent(eventID) {
             const index = eventToIndex(eventID)
