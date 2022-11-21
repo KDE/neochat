@@ -58,6 +58,7 @@ Kirigami.ScrollablePage {
                     text: i18n("Automatically hide/unhide the room information when resizing the window")
                     checked: Config.autoRoomInfoDrawer
                     enabled: !Config.isAutoRoomInfoDrawerImmutable
+                    visible: Qt.platform.os !== "android"
                     onToggled: {
                         Config.autoRoomInfoDrawer = checked
                         Config.save()

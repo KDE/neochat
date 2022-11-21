@@ -224,7 +224,7 @@ Kirigami.ScrollablePage {
 
                 Loader {
                     id: colorSchemeDelegate
-                    visible: item !== null
+                    visible: item !== null && Qt.platform.os !== "android"
                     source: "qrc:/ColorScheme.qml"
                     Layout.fillWidth: true
                 }

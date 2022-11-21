@@ -37,6 +37,7 @@ Kirigami.CategorizedSettings {
             text: i18n("Spell Checking")
             iconName: "tools-check-spelling"
             page: Qt.resolvedUrl("SonnetConfigPage.qml")
+            visible: Qt.platform.os !== "android"
         },
         Kirigami.SettingAction {
             text: i18n("Network Proxy")
