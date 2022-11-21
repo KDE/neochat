@@ -22,4 +22,8 @@ Kirigami.ApplicationWindow {
         currentRoom: window.currentRoom
         disableCancelShortcut: true
     }
+
+    onCurrentRoomChanged: if (!currentRoom) {
+        window.close()
+    }
 }
