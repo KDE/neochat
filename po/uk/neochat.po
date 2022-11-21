@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-19 00:45+0000\n"
+"POT-Creation-Date: 2022-11-21 00:46+0000\n"
 "PO-Revision-Date: 2022-11-18 08:46+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -30,205 +30,316 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "yurchor@ukr.net"
 
-#: src/actionsmodel.cpp:28 src/actionsmodel.cpp:38 src/actionsmodel.cpp:48
-#: src/actionsmodel.cpp:58 src/actionsmodel.cpp:78 src/actionsmodel.cpp:98
-#: src/actionsmodel.cpp:114 src/actionsmodel.cpp:124 src/actionsmodel.cpp:134
+#: src/actionsmodel.cpp:29 src/actionsmodel.cpp:39 src/actionsmodel.cpp:49
+#: src/actionsmodel.cpp:59 src/actionsmodel.cpp:79 src/actionsmodel.cpp:99
+#: src/actionsmodel.cpp:115 src/actionsmodel.cpp:125 src/actionsmodel.cpp:135
 msgid "<message>"
 msgstr "<повідомлення>"
 
-#: src/actionsmodel.cpp:29
+#: src/actionsmodel.cpp:30
 msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
 msgstr "Дописати ¯\\_(ツ)_/¯ перед звичайним текстовим повідомленням"
 
-#: src/actionsmodel.cpp:39
+#: src/actionsmodel.cpp:40
 msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
 msgstr "Дописати ( ͡° ͜ʖ ͡°) перед звичайним текстовим повідомленням"
 
-#: src/actionsmodel.cpp:49
+#: src/actionsmodel.cpp:50
 msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
 msgstr "Дописати (╯°□°）╯︵ ┻━┻ перед звичайним текстовим повідомленням"
 
-#: src/actionsmodel.cpp:59
+#: src/actionsmodel.cpp:60
 msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
 msgstr "Дописати ┬──┬ ノ( ゜-゜ノ) перед звичайним текстовим повідомленням"
 
-#: src/actionsmodel.cpp:79
+#: src/actionsmodel.cpp:80
 msgid "Sends the given message colored as a rainbow"
 msgstr "Надіслати вказане повідомлення розфарбованим у кольори веселки"
 
-#: src/actionsmodel.cpp:99
+#: src/actionsmodel.cpp:100
 msgid "Sends the given emote colored as a rainbow"
 msgstr "Надіслати вказану емоцію розфарбованою у кольори веселки"
 
-#: src/actionsmodel.cpp:115
+#: src/actionsmodel.cpp:116
 msgid "Sends the given message as a spoiler"
 msgstr "Надіслати вказане повідомлення як спойлер"
 
-#: src/actionsmodel.cpp:125
+#: src/actionsmodel.cpp:126
 msgid "Sends the given emote"
 msgstr "Надіслати вказану емоцію"
 
-#: src/actionsmodel.cpp:135
+#: src/actionsmodel.cpp:136
 msgid "Sends the given message as a notice"
 msgstr "Надіслати вказане повідомлення як зауваження"
 
-#: src/actionsmodel.cpp:144 src/actionsmodel.cpp:321 src/actionsmodel.cpp:349
+#: src/actionsmodel.cpp:145 src/actionsmodel.cpp:322 src/actionsmodel.cpp:350
+#: src/actionsmodel.cpp:400 src/actionsmodel.cpp:437 src/actionsmodel.cpp:471
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
 msgstr "Здається, «%1» не є ідентифікатором matrix."
 
-#: src/actionsmodel.cpp:149
+#: src/actionsmodel.cpp:150
 #, kde-format
 msgctxt "<user> is already invited to this room."
 msgid "%1 is already invited to this room."
 msgstr "%1 вже запрошено до цієї кімнати."
 
-#: src/actionsmodel.cpp:153
+#: src/actionsmodel.cpp:154
 #, kde-format
 msgctxt "<user> is banned from this room."
 msgid "%1 is banned from this room."
 msgstr "%1 заблоковано у цій кімнаті."
 
-#: src/actionsmodel.cpp:158
+#: src/actionsmodel.cpp:159
 #, kde-format
 msgid "You are already in this room."
 msgstr "Ви вже перебуваєте у цій кімнаті."
 
-#: src/actionsmodel.cpp:162
+#: src/actionsmodel.cpp:163
 #, kde-format
 msgctxt "<user> is already in this room."
 msgid "%1 is already in this room."
 msgstr "%1 вже перебуває у цій кімнаті."
 
-#: src/actionsmodel.cpp:166
+#: src/actionsmodel.cpp:167
 #, kde-format
 msgctxt "<username> was invited into this room"
 msgid "%1 was invited into this room"
 msgstr "%1 було запрошено до цієї кімнати"
 
-#: src/actionsmodel.cpp:171 src/actionsmodel.cpp:339 src/actionsmodel.cpp:367
+#: src/actionsmodel.cpp:172 src/actionsmodel.cpp:340 src/actionsmodel.cpp:368
+#: src/actionsmodel.cpp:459
 msgid "<user id>"
 msgstr "<ідентифікатор користувача>"
 
-#: src/actionsmodel.cpp:172
+#: src/actionsmodel.cpp:173
 msgid "Invites the user to this room"
 msgstr "Запрошує користувача до цієї кімнати"
 
-#: src/actionsmodel.cpp:181 src/actionsmodel.cpp:204 src/actionsmodel.cpp:231
-#: src/actionsmodel.cpp:263
+#: src/actionsmodel.cpp:182 src/actionsmodel.cpp:205 src/actionsmodel.cpp:232
+#: src/actionsmodel.cpp:264
 #, kde-format
 msgctxt "'<text>' does not look like a room id or alias."
 msgid "'%1' does not look like a room id or alias."
 msgstr "Здається, «%1» не є ідентифікатором або альтернативною назвою кімнати."
 
-#: src/actionsmodel.cpp:185 src/actionsmodel.cpp:208
+#: src/actionsmodel.cpp:186 src/actionsmodel.cpp:209
 #, kde-format
 msgctxt "You are already in room <roomname>."
 msgid "You are already in room %1."
 msgstr "Ви вже перебуваєте у кімнаті %1."
 
-#: src/actionsmodel.cpp:188 src/actionsmodel.cpp:211
+#: src/actionsmodel.cpp:189 src/actionsmodel.cpp:212
 #, kde-format
 msgctxt "Joining room <roomname>."
 msgid "Joining room %1."
 msgstr "Долучається до кімнати %1."
 
-#: src/actionsmodel.cpp:194 src/actionsmodel.cpp:217
+#: src/actionsmodel.cpp:195 src/actionsmodel.cpp:218
 msgid "<room alias or id>"
 msgstr "<альтернативна назва або ідентифікатор кімнати>"
 
-#: src/actionsmodel.cpp:195 src/actionsmodel.cpp:218
+#: src/actionsmodel.cpp:196 src/actionsmodel.cpp:219
 msgid "Joins the given room"
 msgstr "Долучається до вказаної кімнати"
 
-#: src/actionsmodel.cpp:224 src/actionsmodel.cpp:256
+#: src/actionsmodel.cpp:225 src/actionsmodel.cpp:257
 #, kde-format
 msgid "Leaving this room."
 msgstr "Полишаємо цю кімнату."
 
-#: src/actionsmodel.cpp:239 src/actionsmodel.cpp:271
+#: src/actionsmodel.cpp:240 src/actionsmodel.cpp:272
 #, kde-format
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
 msgstr "Полишаємо кімнату %1."
 
-#: src/actionsmodel.cpp:242 src/actionsmodel.cpp:274
+#: src/actionsmodel.cpp:243 src/actionsmodel.cpp:275
 #, kde-format
 msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
 msgstr "Кімнати %1 не знайдено."
 
-#: src/actionsmodel.cpp:249 src/actionsmodel.cpp:281
+#: src/actionsmodel.cpp:250 src/actionsmodel.cpp:282
 msgid "[<room alias or id>]"
 msgstr "[<альтернативна назва або ідентифікатор кімнати>]"
 
-#: src/actionsmodel.cpp:250 src/actionsmodel.cpp:282
+#: src/actionsmodel.cpp:251 src/actionsmodel.cpp:283
 msgid "Leaves the given room or this room, if there is none given"
 msgstr "Полишає вказану кімнату або цю кімнату, якщо кімнату не вказано"
 
-#: src/actionsmodel.cpp:288 src/actionsmodel.cpp:303
+#: src/actionsmodel.cpp:289 src/actionsmodel.cpp:304
 #, kde-format
 msgid "No new nickname provided, no changes will happen."
 msgstr "Не вказано нового псевдоніма, ніяких змін внесено не буде."
 
-#: src/actionsmodel.cpp:296 src/actionsmodel.cpp:311
+#: src/actionsmodel.cpp:297 src/actionsmodel.cpp:312
 msgid "<display name>"
 msgstr "<показане ім'я>"
 
-#: src/actionsmodel.cpp:297
+#: src/actionsmodel.cpp:298
 msgid "Changes your global display name"
 msgstr "Змінює ваше загальне показане ім'я"
 
-#: src/actionsmodel.cpp:312
+#: src/actionsmodel.cpp:313
 msgid "Changes your display name in this room"
 msgstr "Змінює ваше показане ім'я у цій кімнаті"
 
-#: src/actionsmodel.cpp:326
+#: src/actionsmodel.cpp:327
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
 msgstr "%1 вже додано до ігнорованих."
 
-#: src/actionsmodel.cpp:331
+#: src/actionsmodel.cpp:332
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
 msgstr "%1 тепер є ігнорованим."
 
-#: src/actionsmodel.cpp:333 src/actionsmodel.cpp:361
+#: src/actionsmodel.cpp:334 src/actionsmodel.cpp:362
 #, kde-format
 msgctxt "<username> is not a known user"
 msgid "%1 is not a known user."
 msgstr "%1 не є відомим користувачем."
 
-#: src/actionsmodel.cpp:340
+#: src/actionsmodel.cpp:341
 msgid "Ignores the given user"
 msgstr "Ігнорує вказаного користувача"
 
-#: src/actionsmodel.cpp:355
+#: src/actionsmodel.cpp:356
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
 msgstr "%1 не включено до ігнорованих."
 
-#: src/actionsmodel.cpp:359
+#: src/actionsmodel.cpp:360
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
 msgstr "%1 Ігнорується."
 
-#: src/actionsmodel.cpp:368
+#: src/actionsmodel.cpp:369
 msgid "Unignores the given user"
 msgstr "Скасовує ігнорування вказаного користувача"
 
-#: src/actionsmodel.cpp:388
+#: src/actionsmodel.cpp:389
 msgid "<reaction text>"
 msgstr "<текст реакції>"
 
-#: src/actionsmodel.cpp:389
+#: src/actionsmodel.cpp:390
 msgid "React to the message with the given text"
 msgstr "Зреагувати на це повідомлення вказаним текстом"
+
+#: src/actionsmodel.cpp:406
+#, fuzzy, kde-format
+#| msgctxt "<user> is banned from this room."
+#| msgid "%1 is banned from this room."
+msgctxt "<user> is already banned from this room."
+msgid "%1 is already banned from this room."
+msgstr "%1 заблоковано у цій кімнаті."
+
+#: src/actionsmodel.cpp:412
+#, fuzzy, kde-format
+#| msgid "You are already in this room."
+msgid "You are not allowed to ban users from this room."
+msgstr "Ви вже перебуваєте у цій кімнаті."
+
+#: src/actionsmodel.cpp:418
+#, fuzzy, kde-format
+#| msgid "You are already in this room."
+msgctxt "You are not allowed to ban <username> from this room."
+msgid "You are not allowed to ban %1 from this room."
+msgstr "Ви вже перебуваєте у цій кімнаті."
+
+#: src/actionsmodel.cpp:422
+#, fuzzy, kde-format
+#| msgctxt "<user> is banned from this room."
+#| msgid "%1 is banned from this room."
+msgctxt "<username> was banned from this room."
+msgid "%1 was banned from this room."
+msgstr "%1 заблоковано у цій кімнаті."
+
+#: src/actionsmodel.cpp:427 src/actionsmodel.cpp:502
+#, fuzzy
+#| msgid "<user id>"
+msgid "<user id> [<reason>]"
+msgstr "<ідентифікатор користувача>"
+
+#: src/actionsmodel.cpp:428
+#, fuzzy
+#| msgid "Ignores the given user"
+msgid "Bans the given user"
+msgstr "Ігнорує вказаного користувача"
+
+#: src/actionsmodel.cpp:442
+#, fuzzy, kde-format
+#| msgid "You are already in this room."
+msgid "You are not allowed to unban users from this room."
+msgstr "Ви вже перебуваєте у цій кімнаті."
+
+#: src/actionsmodel.cpp:448
+#, fuzzy, kde-format
+#| msgctxt "<user> is banned from this room."
+#| msgid "%1 is banned from this room."
+msgctxt "<user> is not banned from this room."
+msgid "%1 is not banned from this room."
+msgstr "%1 заблоковано у цій кімнаті."
+
+#: src/actionsmodel.cpp:453
+#, fuzzy, kde-format
+#| msgctxt "<user> is banned from this room."
+#| msgid "%1 is banned from this room."
+msgctxt "<username> was unbanned from this room."
+msgid "%1 was unbanned from this room."
+msgstr "%1 заблоковано у цій кімнаті."
+
+#: src/actionsmodel.cpp:460
+#, fuzzy
+#| msgid "Ignores the given user"
+msgid "Removes the ban of the given user"
+msgstr "Ігнорує вказаного користувача"
+
+#: src/actionsmodel.cpp:475
+#, kde-format
+msgid "You cannot kick yourself from the room."
+msgstr ""
+
+#: src/actionsmodel.cpp:480
+#, fuzzy, kde-format
+#| msgctxt "<user> is already in this room."
+#| msgid "%1 is already in this room."
+msgctxt "<username> is not in this room"
+msgid "%1 is not in this room."
+msgstr "%1 вже перебуває у цій кімнаті."
+
+#: src/actionsmodel.cpp:487
+#, fuzzy, kde-format
+#| msgid "You are already in this room."
+msgid "You are not allowed to kick users from this room."
+msgstr "Ви вже перебуваєте у цій кімнаті."
+
+#: src/actionsmodel.cpp:493
+#, fuzzy, kde-format
+#| msgid "You are already in this room."
+msgctxt "You are not allowed to kick <username> from this room"
+msgid "You are not allowed to kick %1 from this room."
+msgstr "Ви вже перебуваєте у цій кімнаті."
+
+#: src/actionsmodel.cpp:497
+#, fuzzy, kde-format
+#| msgctxt "<user> is banned from this room."
+#| msgid "%1 is banned from this room."
+msgctxt "<username> was kicked from this room."
+msgid "%1 was kicked from this room."
+msgstr "%1 заблоковано у цій кімнаті."
+
+#: src/actionsmodel.cpp:503
+#, fuzzy
+#| msgid "Invites the user to this room"
+msgid "Removes the user from the room"
+msgstr "Запрошує користувача до цієї кімнати"
 
 #: src/collapsestateproxymodel.cpp:69
 #, kde-format
@@ -257,64 +368,64 @@ msgstr " і "
 msgid "Encrypted Message"
 msgstr "Зашифроване повідомлення"
 
-#: src/controller.cpp:271 src/controller.cpp:405
+#: src/controller.cpp:271 src/controller.cpp:408
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Помилка у мережі: %1"
 
-#: src/controller.cpp:396
+#: src/controller.cpp:399
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Невдала спроба увійти: жетон доступу є некоректним або його відкликано"
 
-#: src/controller.cpp:399 src/login.cpp:93
+#: src/controller.cpp:402 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Невдала спроба увійти: %1"
 
-#: src/controller.cpp:463
+#: src/controller.cpp:466
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Не знайдено жетона доступу"
 
-#: src/controller.cpp:463
+#: src/controller.cpp:466
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Можливо, його вилучено?"
 
-#: src/controller.cpp:467
+#: src/controller.cpp:470
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Відмовлено у доступі до засобу керування ключами."
 
-#: src/controller.cpp:467
+#: src/controller.cpp:470
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Будь ласка, дозвольте NeoChat читання жетона доступу"
 
-#: src/controller.cpp:470
+#: src/controller.cpp:473
 #, kde-format
 msgid "No keychain available."
 msgstr "Немає доступних засобів керування ключами."
 
-#: src/controller.cpp:470
+#: src/controller.cpp:473
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Будь ласка, встановіть засіб керування ключами, наприклад KWallet або GNOME "
 "keyring у Linux"
 
-#: src/controller.cpp:473
+#: src/controller.cpp:476
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Не вдалося прочитати жетон доступу"
 
-#: src/controller.cpp:717
+#: src/controller.cpp:720
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "Не вдалося створити кімнату: «%1»"
 
-#: src/controller.cpp:730
+#: src/controller.cpp:733
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Ідентифікатор кімнати, до якої ви хочете приєднатися, є некоректним"
@@ -324,55 +435,55 @@ msgstr "Ідентифікатор кімнати, до якої ви хочет
 msgid "Network Error"
 msgstr "Помилка у мережі"
 
-#: src/main.cpp:147
+#: src/main.cpp:148
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:149
+#: src/main.cpp:150
 #, kde-format
 msgid "Matrix client"
 msgstr "Клієнт Matrix"
 
-#: src/main.cpp:151
+#: src/main.cpp:152
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
 msgstr "© Black Hat, 2018-2020, Спільнота KDE, 2020–2022"
 
-#: src/main.cpp:152
+#: src/main.cpp:153
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:153
+#: src/main.cpp:154
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:154
+#: src/main.cpp:155
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:158
+#: src/main.cpp:159
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr ""
 "Бібліотека Qt5 для написання багатоплатформових клієнтських програм для "
 "Matrix"
 
-#: src/main.cpp:161
+#: src/main.cpp:162
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (зібрано з %2)"
 
-#: src/main.cpp:266
+#: src/main.cpp:267
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Клієнт для протоколу обміну даними matrix"
 
-#: src/main.cpp:267
+#: src/main.cpp:268
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Передбачає підтримку схеми адрес matrix:"
@@ -1087,15 +1198,15 @@ msgstr "Після вмикання шифрування його не можн�
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:30
 #: src/qml/Dialog/ConfirmLogoutDialog.qml:29
 #: src/qml/Page/ImageEditorPage.qml:125
-#: src/qml/Settings/AccountEditorPage.qml:169
+#: src/qml/Settings/AccountEditorPage.qml:182
 #, kde-format
 msgid "Cancel"
 msgstr "Скасувати"
 
 #: src/qml/Dialog/ConfirmLogoutDialog.qml:16
 #: src/qml/Dialog/ConfirmLogoutDialog.qml:35
-#: src/qml/Settings/AccountEditorPage.qml:217
-#: src/qml/Settings/AccountEditorPage.qml:221
+#: src/qml/Settings/AccountEditorPage.qml:230
+#: src/qml/Settings/AccountEditorPage.qml:234
 #, kde-format
 msgid "Sign out"
 msgstr "Вийти"
@@ -1175,7 +1286,7 @@ msgid "Successfully verified device **%1**"
 msgstr "Успішно перевірено пристрій **%1**"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:127
+#: src/qml/Page/RoomPage.qml:190
 #, kde-format
 msgid "Accept"
 msgstr "Прийняти"
@@ -2024,12 +2135,12 @@ msgstr "Без назви"
 msgid "Configure room"
 msgstr "Налаштувати кімнату"
 
-#: src/qml/Page/RoomPage.qml:116
+#: src/qml/Page/RoomPage.qml:179
 #, kde-format
 msgid "Accept this invitation?"
 msgstr "Прийняти це запрошення?"
 
-#: src/qml/Page/RoomPage.qml:120
+#: src/qml/Page/RoomPage.qml:183
 #, kde-format
 msgid "Reject"
 msgstr "Відкинути"
@@ -2245,7 +2356,7 @@ msgid "See new room..."
 msgstr "Переглянути нову кімнату…"
 
 #: src/qml/RoomSettings/General.qml:186 src/qml/RoomSettings/Security.qml:71
-#: src/qml/Settings/NetworkProxyPage.qml:106
+#: src/qml/Settings/NetworkProxyPage.qml:108
 #: src/qml/Settings/SonnetConfigPage.qml:326
 #, kde-format
 msgid "Apply"
@@ -2319,68 +2430,73 @@ msgstr "Про NeoChat"
 msgid "Edit Account"
 msgstr "Зміна облікового запису"
 
-#: src/qml/Settings/AccountEditorPage.qml:28
+#: src/qml/Settings/AccountEditorPage.qml:30
 #, kde-format
 msgid "User information"
 msgstr "Відомості про користувача"
 
-#: src/qml/Settings/AccountEditorPage.qml:75
+#: src/qml/Settings/AccountEditorPage.qml:73
+#, kde-format
+msgid "Remove current avatar"
+msgstr ""
+
+#: src/qml/Settings/AccountEditorPage.qml:88
 #, kde-format
 msgid "Name:"
 msgstr "Ім'я:"
 
-#: src/qml/Settings/AccountEditorPage.qml:80
+#: src/qml/Settings/AccountEditorPage.qml:93
 #, kde-format
 msgid "Label:"
 msgstr "Мітка:"
 
-#: src/qml/Settings/AccountEditorPage.qml:91
-#: src/qml/Settings/AccountEditorPage.qml:156
+#: src/qml/Settings/AccountEditorPage.qml:104
+#: src/qml/Settings/AccountEditorPage.qml:169
 #, kde-format
 msgid "Save"
 msgstr "Зберегти"
 
-#: src/qml/Settings/AccountEditorPage.qml:117
+#: src/qml/Settings/AccountEditorPage.qml:130
 #, kde-format
 msgid "Password"
 msgstr "Пароль"
 
-#: src/qml/Settings/AccountEditorPage.qml:121
+#: src/qml/Settings/AccountEditorPage.qml:134
 #, kde-format
 msgid "Your server doesn't support changing your password"
 msgstr "На вашому сервері не передбачено підтримки зміни вашого пароля"
 
-#: src/qml/Settings/AccountEditorPage.qml:125
+#: src/qml/Settings/AccountEditorPage.qml:138
 #, kde-format
 msgid "Current Password:"
 msgstr "Поточний пароль:"
 
-#: src/qml/Settings/AccountEditorPage.qml:131
+#: src/qml/Settings/AccountEditorPage.qml:144
 #, kde-format
 msgid "New Password:"
 msgstr "Новий пароль:"
 
-#: src/qml/Settings/AccountEditorPage.qml:137
+#: src/qml/Settings/AccountEditorPage.qml:150
 #, kde-format
 msgid "Confirm new Password:"
 msgstr "Підтвердження нового пароля:"
 
-#: src/qml/Settings/AccountEditorPage.qml:142
+#: src/qml/Settings/AccountEditorPage.qml:155
 #, kde-format
 msgid "Passwords don't match"
 msgstr "Паролі не збігаються"
 
-#: src/qml/Settings/AccountEditorPage.qml:164
+#: src/qml/Settings/AccountEditorPage.qml:177
 #, kde-format
 msgid "Passwords do not match"
 msgstr "Паролі не збігаються"
 
-#: src/qml/Settings/AccountEditorPage.qml:186
+#: src/qml/Settings/AccountEditorPage.qml:199
 #, kde-format
 msgid "Server Information"
 msgstr "Інформація про сервер"
 
-#: src/qml/Settings/AccountEditorPage.qml:189
+#: src/qml/Settings/AccountEditorPage.qml:202
 #, kde-format
 msgid "Homeserver url"
 msgstr "Адреса домашнього сервера"
@@ -2417,62 +2533,62 @@ msgstr "Вигляд"
 msgid "General theme"
 msgstr "Загальна тема"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:113
+#: src/qml/Settings/AppearanceSettingsPage.qml:118
 #, kde-format
 msgid "Bubbles"
 msgstr "Бульки"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:181
+#: src/qml/Settings/AppearanceSettingsPage.qml:187
 #, kde-format
 msgid "Compact"
 msgstr "Компактна"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:201
+#: src/qml/Settings/AppearanceSettingsPage.qml:210
 #, kde-format
 msgid "Timeline"
 msgstr "Розклад"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:205
+#: src/qml/Settings/AppearanceSettingsPage.qml:214
 #, kde-format
 msgid "Show Fancy Effects"
 msgstr "Показати красиві ефекти"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:232
+#: src/qml/Settings/AppearanceSettingsPage.qml:241
 #, kde-format
 msgid "Use transparent chat page"
 msgstr "Скористатися прозорою сторінкою спілкування"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:250
+#: src/qml/Settings/AppearanceSettingsPage.qml:259
 #, kde-format
 msgid "Transparency"
 msgstr "Прозорість"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:267
+#: src/qml/Settings/AppearanceSettingsPage.qml:276
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr "Увімкнено лише тоді, коли увімкнено прозору сторінку спілкування."
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:280
+#: src/qml/Settings/AppearanceSettingsPage.qml:289
 #, kde-format
 msgid "Show your messages on the right"
 msgstr "Показати ваші повідомлення праворуч"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:293
+#: src/qml/Settings/AppearanceSettingsPage.qml:302
 #, kde-format
 msgid "Show links preview in the chat messages"
 msgstr "Показувати попередній перегляд посилань у повідомленнях спілкування"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:305
+#: src/qml/Settings/AppearanceSettingsPage.qml:314
 #, kde-format
 msgid "Show Avatar"
 msgstr "Показувати аватар"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:309
+#: src/qml/Settings/AppearanceSettingsPage.qml:318
 #, kde-format
 msgid "In Chat"
 msgstr "На панелі спілкування"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:319
+#: src/qml/Settings/AppearanceSettingsPage.qml:328
 #, kde-format
 msgid "In Sidebar"
 msgstr "На бічній панелі"
@@ -2488,37 +2604,37 @@ msgstr "Теми"
 msgid "Devices"
 msgstr "Пристрої"
 
-#: src/qml/Settings/DevicesPage.qml:85
+#: src/qml/Settings/DevicesPage.qml:86
 #, kde-format
 msgid "New device name"
 msgstr "Нова назва пристрою"
 
-#: src/qml/Settings/DevicesPage.qml:113
+#: src/qml/Settings/DevicesPage.qml:114
 #, kde-format
 msgid "Edit device name"
 msgstr "Змінити назву пристрою"
 
-#: src/qml/Settings/DevicesPage.qml:122
+#: src/qml/Settings/DevicesPage.qml:123
 #, kde-format
 msgid "Verify device"
 msgstr "Перевірити пристрій"
 
-#: src/qml/Settings/DevicesPage.qml:132
+#: src/qml/Settings/DevicesPage.qml:133
 #, kde-format
 msgid "Logout device"
 msgstr "Вийти з пристрою"
 
-#: src/qml/Settings/DevicesPage.qml:152
+#: src/qml/Settings/DevicesPage.qml:153
 #, kde-format
 msgid "Remove device"
 msgstr "Вилучити пристрій"
 
-#: src/qml/Settings/DevicesPage.qml:156
+#: src/qml/Settings/DevicesPage.qml:157
 #, kde-format
 msgid "Password:"
 msgstr "Пароль:"
 
-#: src/qml/Settings/DevicesPage.qml:160
+#: src/qml/Settings/DevicesPage.qml:161
 #, kde-format
 msgid "Confirm"
 msgstr "Підтвердити"
@@ -2641,123 +2757,123 @@ msgctxt "@title:window"
 msgid "Notifications"
 msgstr "Сповіщення"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:22
+#: src/qml/Settings/GlobalNotificationsPage.qml:24
 #, kde-format
 msgid "Enable notifications for this account"
 msgstr "Увімкнути сповіщення для цього облікового запису"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:40
+#: src/qml/Settings/GlobalNotificationsPage.qml:42
 #, kde-format
 msgid "Room Notifications"
 msgstr "Сповіщення кімнати"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:43
+#: src/qml/Settings/GlobalNotificationsPage.qml:45
 #, kde-format
 msgid "Messages in one-to-one chats"
 msgstr "Повідомлення у спілкуванні один на один"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:57
+#: src/qml/Settings/GlobalNotificationsPage.qml:59
 #, kde-format
 msgid "Encrypted messages in one-to-one chats"
 msgstr "Зашифровані повідомлення у спілкуваннях один на один"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:73
+#: src/qml/Settings/GlobalNotificationsPage.qml:75
 #, kde-format
 msgid "Messages in group chats"
 msgstr "Повідомлення у групових спілкуваннях"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:87
+#: src/qml/Settings/GlobalNotificationsPage.qml:89
 #, kde-format
 msgid "Messages in encrypted group chats"
 msgstr "Повідомлення у зашифрованих групових спілкуваннях"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:103
+#: src/qml/Settings/GlobalNotificationsPage.qml:105
 #, kde-format
 msgid "Room upgrade messages"
 msgstr "Повідомлення щодо оновлення кімнат"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:128
+#: src/qml/Settings/GlobalNotificationsPage.qml:130
 #, kde-format
 msgid "@Mentions"
 msgstr "@Згадування"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:131
+#: src/qml/Settings/GlobalNotificationsPage.qml:133
 #, kde-format
 msgid "Messages containing my display name"
 msgstr "Повідомлення, що містять ваше показане ім'я"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:147
+#: src/qml/Settings/GlobalNotificationsPage.qml:149
 #, kde-format
 msgid "Whole room (@room) notifications"
 msgstr "Усі сповіщення кімнати (@кімната)"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:172
+#: src/qml/Settings/GlobalNotificationsPage.qml:174
 #, kde-format
 msgid "Keywords"
 msgstr "Ключові слова"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:176
+#: src/qml/Settings/GlobalNotificationsPage.qml:178
 #, kde-format
 msgid "Messages containing my keywords"
 msgstr "Повідомлення, які містять ваші ключові слова"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:225
+#: src/qml/Settings/GlobalNotificationsPage.qml:227
 #, kde-format
 msgid "Keyword…"
 msgstr "Ключове слово…"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:243
+#: src/qml/Settings/GlobalNotificationsPage.qml:245
 #, kde-format
 msgid "Add keyword"
 msgstr "Додати ключове слово"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:270
+#: src/qml/Settings/GlobalNotificationsPage.qml:272
 #, kde-format
 msgid "Invites"
 msgstr "Запрошення"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:273
+#: src/qml/Settings/GlobalNotificationsPage.qml:275
 #, kde-format
 msgid "Invites to a room"
 msgstr "Запрошує до кімнати"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:289
+#: src/qml/Settings/GlobalNotificationsPage.qml:291
 #, kde-format
 msgid "Call invitation"
 msgstr "Запрошення до дзвінка"
 
-#: src/qml/Settings/NetworkProxyPage.qml:25
+#: src/qml/Settings/NetworkProxyPage.qml:27
 #: src/qml/Settings/SettingsPage.qml:42
 #, kde-format
 msgid "Network Proxy"
 msgstr "Проксі-сервер мережі"
 
-#: src/qml/Settings/NetworkProxyPage.qml:28
+#: src/qml/Settings/NetworkProxyPage.qml:30
 #, kde-format
 msgid "System Default"
 msgstr "Типовий для системи"
 
-#: src/qml/Settings/NetworkProxyPage.qml:36
+#: src/qml/Settings/NetworkProxyPage.qml:38
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: src/qml/Settings/NetworkProxyPage.qml:44
+#: src/qml/Settings/NetworkProxyPage.qml:46
 #, kde-format
 msgid "Socks5"
 msgstr "Socks5"
 
-#: src/qml/Settings/NetworkProxyPage.qml:60
+#: src/qml/Settings/NetworkProxyPage.qml:62
 #, kde-format
 msgid "Proxy Settings"
 msgstr "Налаштування проксі"
 
-#: src/qml/Settings/NetworkProxyPage.qml:64
+#: src/qml/Settings/NetworkProxyPage.qml:66
 #, kde-format
 msgid "Host"
 msgstr "Вузол"
 
-#: src/qml/Settings/NetworkProxyPage.qml:76
+#: src/qml/Settings/NetworkProxyPage.qml:78
 #, kde-format
 msgid "Port"
 msgstr "Порт"
