@@ -4,6 +4,7 @@
 #pragma once
 
 #include <QObject>
+#include <QUrl>
 
 class UrlHelper : public QObject
 {
