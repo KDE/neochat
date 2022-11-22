@@ -20,6 +20,17 @@ QQC2.ItemDelegate {
     readonly property int extraWidth: messageListView.width >= Kirigami.Units.gridUnit * 46 ? Math.min((messageListView.width - Kirigami.Units.gridUnit * 46), Kirigami.Units.gridUnit * 20) : 0
     readonly property int delegateMaxWidth: Config.compactLayout ? messageListView.width - Kirigami.Units.largeSpacing * 2 : Math.min(messageListView.width - Kirigami.Units.largeSpacing * 2, Kirigami.Units.gridUnit * 40 + extraWidth)
 
+    property bool isTemporaryHighlighted: false
+
+    onIsTemporaryHighlightedChanged: if (isTemporaryHighlighted) temporaryHighlightTimer.start()
+
+    Timer {
+        id: temporaryHighlightTimer
+
+        interval: 1500
+        onTriggered: isTemporaryHighlighted = false
+    }
+
     width: delegateMaxWidth
     anchors.leftMargin: Kirigami.Units.largeSpacing
     anchors.rightMargin: Kirigami.Units.largeSpacing
@@ -59,58 +70,22 @@ QQC2.ItemDelegate {
     }
 
     background: Kirigami.ShadowedRectangle {
-        color: Kirigami.Theme.backgroundColor
-        opacity: 0.6
+        color: {
+            if (readMarkerDelegate.isTemporaryHighlighted) {
+                return Kirigami.Theme.positiveBackgroundColor
+            } else {
+                return Kirigami.Theme.backgroundColor
+            }
+        }
+        opacity: readMarkerDelegate.isTemporaryHighlighted ? 1 : 0.6
         radius: Kirigami.Units.smallSpacing
         shadow.size: Kirigami.Units.smallSpacing
         shadow.color: Qt.rgba(0.0, 0.0, 0.0, 0.10)
         border.color: Kirigami.ColorUtils.tintWithAlpha(color, Kirigami.Theme.textColor, 0.15)
         border.width: 1
-    }
 
-    Timer {
-        id: makeMeDisapearTimer
-        interval: Kirigami.Units.humanMoment * 2
-        onTriggered: if (QQC2.ApplicationWindow.window.visibility !== QQC2.ApplicationWindow.Hidden) {
-            currentRoom.markAllMessagesAsRead();
-        }
-    }
-
-    ListView.onPooled: makeMeDisapearTimer.stop()
-
-    ListView.onAdd: {
-        const view = ListView.view;
-        if (view.atYEnd) {
-            makeMeDisapearTimer.start()
-        }
-    }
-
-    // When the read marker is visible and we are at the end of the list,
-    // start the makeMeDisapearTimer
-    Connections {
-        target: ListView.view
-        function onAtYEndChanged() {
-            makeMeDisapearTimer.start();
-        }
-    }
-
-
-    ListView.onRemove: {
-        const view = ListView.view;
-
-        if (view.atYEnd) {
-            // easy case just mark everything as read
-            if (QQC2.ApplicationWindow.window.visibility !== QQC2.ApplicationWindow.Hidden) {
-                currentRoom.markAllMessagesAsRead();
-            }
-            return;
-        }
-
-        // mark the last visible index
-        const lastVisibleIdx = lastVisibleIndex();
-
-        if (lastVisibleIdx < index) {
-            currentRoom.readMarkerEventId = sortedMessageEventModel.data(sortedMessageEventModel.index(lastVisibleIdx, 0), MessageEventModel.EventIdRole)
+        Behavior on color {
+            ColorAnimation {target: bubbleBackground; duration: Kirigami.Units.veryLongDuration; easing.type: Easing.InOutCubic}
         }
     }
 }

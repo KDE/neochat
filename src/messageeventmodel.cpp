@@ -102,7 +102,11 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         if (m_currentRoom->timelineSize() < 10 && !room->allHistoryLoaded()) {
             room->getPreviousContent(50);
         }
+#ifdef QUOTIENT_07
+        lastReadEventId = room->lastFullyReadEventId();
+#else
         lastReadEventId = room->readMarkerEventId();
+#endif
 
         using namespace Quotient;
         connect(m_currentRoom, &Room::aboutToAddNewMessages, this, [this](RoomEventsRange events) {
@@ -151,7 +155,11 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             endInsertRows();
             if (!m_lastReadEventIndex.isValid()) {
                 // no read marker, so see if we need to create one.
+#ifdef QUOTIENT_07
+                moveReadMarker(m_currentRoom->lastFullyReadEventId());
+#else
                 moveReadMarker(m_currentRoom->readMarkerEventId());
+#endif
             }
             if (biggest < m_currentRoom->maxTimelineIndex()) {
                 auto rowBelowInserted = m_currentRoom->maxTimelineIndex() - biggest + timelineBaseIndex() - 1;

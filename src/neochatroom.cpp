@@ -851,7 +851,11 @@ bool NeoChatRoom::canSendState(const QString &eventType) const
 
 bool NeoChatRoom::readMarkerLoaded() const
 {
+#ifdef QUOTIENT_07
+    const auto it = findInTimeline(lastFullyReadEventId());
+#else
     const auto it = findInTimeline(readMarkerEventId());
+#endif
     return it != historyEdge();
 }
 

@@ -649,7 +649,7 @@ Kirigami.ScrollablePage {
     // Mark all messages as read if all unread messages are visible to the user
     function markReadIfVisible() {
         let readMarkerRow = eventToIndex(currentRoom.readMarkerEventId)
-        if (readMarkerRow > 0 && readMarkerRow < firstVisibleIndex()) {
+        if (readMarkerRow > 0 && readMarkerRow < firstVisibleIndex() && messageListView.atYEnd) {
             currentRoom.markAllMessagesAsRead()
         }
     }
