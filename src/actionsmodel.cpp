@@ -100,6 +100,17 @@ QVector<ActionsModel::Action> actions{
         kli18n("Sends the given emote colored as a rainbow"),
     },
     Action{
+        QStringLiteral("plain"),
+        [](const QString &text, NeoChatRoom *room) {
+            room->postMessage(text, text.toHtmlEscaped(), RoomMessageEvent::MsgType::Text, {}, {});
+            return QString();
+        },
+        false,
+        std::nullopt,
+        kli18n("<message>"),
+        kli18n("Sends the given given message as plain text"),
+    },
+    Action{
         QStringLiteral("spoiler"),
         [](const QString &text, NeoChatRoom *room) {
             // Ideally, we would just return rainbowText and let that do the rest, but the colors don't survive markdownToHTML.
