@@ -160,10 +160,10 @@ TimelineContainer {
             FileDialog {
                 fileMode: FileDialog.SaveFile
                 folder: StandardPaths.writableLocation(StandardPaths.DownloadLocation)
-                onAccepted: if (openSavedFile) {
+                onAccepted: if (autoOpenFile) {
                     UrlHelper.copyTo(progressInfo.localPath, file)
                 } else {
-                    currentRoom.downloadFile(eventId, file);
+                    currentRoom.download(eventId, file);
                 }
             }
         }

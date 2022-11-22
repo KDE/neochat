@@ -42,9 +42,14 @@
 #include "pollevent.h"
 #include "pollhandler.h"
 #endif
+#include "filetransferpseudojob.h"
 #include "stickerevent.h"
 #include "utils.h"
 
+#ifndef Q_OS_ANDROID
+#include <KIO/Job>
+#endif
+#include <KJobTrackerInterface>
 #include <KLocalizedString>
 
 using namespace Quotient;
@@ -154,6 +159,14 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body)
             setFileUploadingProgress(int(float(progress) / float(total) * 100));
         }
     });
+#ifndef Q_OS_ANDROID
+    auto job = new FileTransferPseudoJob(FileTransferPseudoJob::Upload, url.toLocalFile(), txnId);
+    connect(this, &Room::fileTransferProgress, job, &FileTransferPseudoJob::fileTransferProgress);
+    connect(this, &Room::fileTransferCompleted, job, &FileTransferPseudoJob::fileTransferCompleted);
+    connect(this, &Room::fileTransferFailed, job, &FileTransferPseudoJob::fileTransferFailed);
+    KIO::getJobTracker()->registerJob(job);
+    job->start();
+#endif
 }
 
 void NeoChatRoom::acceptInvitation()
@@ -1266,6 +1279,19 @@ bool NeoChatRoom::downloadTempFile(const QString &eventId)
         return false;
     }
 
-    downloadFile(eventId, QUrl::fromLocalFile(file.fileName()));
+    download(eventId, QUrl::fromLocalFile(file.fileName()));
     return true;
+}
+
+void NeoChatRoom::download(const QString &eventId, const QUrl &localFilename)
+{
+    downloadFile(eventId, localFilename);
+#ifndef Q_OS_ANDROID
+    auto job = new FileTransferPseudoJob(FileTransferPseudoJob::Download, localFilename.toLocalFile(), eventId);
+    connect(this, &Room::fileTransferProgress, job, &FileTransferPseudoJob::fileTransferProgress);
+    connect(this, &Room::fileTransferCompleted, job, &FileTransferPseudoJob::fileTransferCompleted);
+    connect(this, &Room::fileTransferFailed, job, &FileTransferPseudoJob::fileTransferFailed);
+    KIO::getJobTracker()->registerJob(job);
+    job->start();
+#endif
 }

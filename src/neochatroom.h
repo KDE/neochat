@@ -168,6 +168,8 @@ public:
 
     Q_INVOKABLE void setPushNotificationState(PushNotificationState::State state);
 
+    Q_INVOKABLE void download(const QString &eventId, const QUrl &localFilename = {});
+
     QString chatBoxText() const;
     void setChatBoxText(const QString &text);
 
