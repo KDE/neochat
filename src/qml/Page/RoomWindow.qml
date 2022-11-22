@@ -25,6 +25,7 @@ Kirigami.ApplicationWindow {
 
     onCurrentRoomChanged: if (!currentRoom) {
         window.close()
+    }
 
     property Item hoverLinkIndicator: QQC2.Control {
         parent: overlay.parent
