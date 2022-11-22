@@ -229,7 +229,7 @@ Kirigami.OverlayDrawer {
                 TextEdit {
                     Layout.fillWidth: true
                     text: room && room.topic ? room.topic.replace(replaceLinks, "<a href=\"$1\">$1</a>") : i18n("No Topic")
-                    readonly property var replaceLinks: /(https:\/\/[^ ]*)/
+                    readonly property var replaceLinks: /(http[s]?:\/\/[^ \r\n]*)/g
                     textFormat: TextEdit.MarkdownText
                     wrapMode: Text.WordWrap
                     selectByMouse: true
