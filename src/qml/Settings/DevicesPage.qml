@@ -123,7 +123,7 @@ Kirigami.ScrollablePage {
                                     text: i18n("Verify device")
                                     iconName: "security-low-symbolic"
                                     onTriggered: {
-                                        devices.connection.startKeyVerificationSession(model.id)
+                                        devices.connection.startKeyVerificationSession(devices.connection.localUserId, model.id)
                                     }
                                 }
                             }
