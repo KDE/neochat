@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-22 00:45+0000\n"
-"PO-Revision-Date: 2022-11-18 09:56+0000\n"
+"POT-Creation-Date: 2022-11-23 00:47+0000\n"
+"PO-Revision-Date: 2022-11-22 13:08+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -19,7 +19,8 @@ msgstr ""
 
 #: src/actionsmodel.cpp:29 src/actionsmodel.cpp:39 src/actionsmodel.cpp:49
 #: src/actionsmodel.cpp:59 src/actionsmodel.cpp:79 src/actionsmodel.cpp:99
-#: src/actionsmodel.cpp:115 src/actionsmodel.cpp:125 src/actionsmodel.cpp:135
+#: src/actionsmodel.cpp:110 src/actionsmodel.cpp:126 src/actionsmodel.cpp:136
+#: src/actionsmodel.cpp:146
 msgid "<message>"
 msgstr "<mensagem>"
 
@@ -47,228 +48,226 @@ msgstr "Envia a mensagem indicada, colorida como um arco-íris"
 msgid "Sends the given emote colored as a rainbow"
 msgstr "Envia o ícone emotivo indicado, colorido como um arco-íris"
 
-#: src/actionsmodel.cpp:116
+#: src/actionsmodel.cpp:111
+#, fuzzy
+#| msgid "Sends the given message as a notice"
+msgid "Sends the given given message as plain text"
+msgstr "Envia a mensagem indicada como um aviso"
+
+#: src/actionsmodel.cpp:127
 msgid "Sends the given message as a spoiler"
 msgstr "Envia a mensagem indicada como uma revelação"
 
-#: src/actionsmodel.cpp:126
+#: src/actionsmodel.cpp:137
 msgid "Sends the given emote"
 msgstr "Envia o ícone emotivo indicado"
 
-#: src/actionsmodel.cpp:136
+#: src/actionsmodel.cpp:147
 msgid "Sends the given message as a notice"
 msgstr "Envia a mensagem indicada como um aviso"
 
-#: src/actionsmodel.cpp:145 src/actionsmodel.cpp:322 src/actionsmodel.cpp:350
-#: src/actionsmodel.cpp:400 src/actionsmodel.cpp:437 src/actionsmodel.cpp:471
+#: src/actionsmodel.cpp:156 src/actionsmodel.cpp:333 src/actionsmodel.cpp:361
+#: src/actionsmodel.cpp:411 src/actionsmodel.cpp:448 src/actionsmodel.cpp:482
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
 msgstr "O '%1' não parece ser um ID do Matrix."
 
-#: src/actionsmodel.cpp:150
+#: src/actionsmodel.cpp:161
 #, kde-format
 msgctxt "<user> is already invited to this room."
 msgid "%1 is already invited to this room."
 msgstr "O %1 já foi convidado para esta sala."
 
-#: src/actionsmodel.cpp:154
+#: src/actionsmodel.cpp:165
 #, kde-format
 msgctxt "<user> is banned from this room."
 msgid "%1 is banned from this room."
 msgstr "O %1 foi expulso desta sala."
 
-#: src/actionsmodel.cpp:159
+#: src/actionsmodel.cpp:170
 #, kde-format
 msgid "You are already in this room."
 msgstr "Já se encontra nesta sala."
 
-#: src/actionsmodel.cpp:163
+#: src/actionsmodel.cpp:174
 #, kde-format
 msgctxt "<user> is already in this room."
 msgid "%1 is already in this room."
 msgstr "O %1 já se encontra nesta sala."
 
-#: src/actionsmodel.cpp:167
+#: src/actionsmodel.cpp:178
 #, kde-format
 msgctxt "<username> was invited into this room"
 msgid "%1 was invited into this room"
 msgstr "O %1 foi convidado para esta sala"
 
-#: src/actionsmodel.cpp:172 src/actionsmodel.cpp:340 src/actionsmodel.cpp:368
-#: src/actionsmodel.cpp:459
+#: src/actionsmodel.cpp:183 src/actionsmodel.cpp:351 src/actionsmodel.cpp:379
+#: src/actionsmodel.cpp:470
 msgid "<user id>"
 msgstr "<ID do utilizador>"
 
-#: src/actionsmodel.cpp:173
+#: src/actionsmodel.cpp:184
 msgid "Invites the user to this room"
 msgstr "Convida o utilizador para esta sala"
 
-#: src/actionsmodel.cpp:182 src/actionsmodel.cpp:205 src/actionsmodel.cpp:232
-#: src/actionsmodel.cpp:264
+#: src/actionsmodel.cpp:193 src/actionsmodel.cpp:216 src/actionsmodel.cpp:243
+#: src/actionsmodel.cpp:275
 #, kde-format
 msgctxt "'<text>' does not look like a room id or alias."
 msgid "'%1' does not look like a room id or alias."
 msgstr "O '%1' não parece ser um ID ou alcunha de sala."
 
-#: src/actionsmodel.cpp:186 src/actionsmodel.cpp:209
+#: src/actionsmodel.cpp:197 src/actionsmodel.cpp:220
 #, kde-format
 msgctxt "You are already in room <roomname>."
 msgid "You are already in room %1."
 msgstr "Já se encontra na sala %1."
 
-#: src/actionsmodel.cpp:189 src/actionsmodel.cpp:212
+#: src/actionsmodel.cpp:200 src/actionsmodel.cpp:223
 #, kde-format
 msgctxt "Joining room <roomname>."
 msgid "Joining room %1."
 msgstr "A juntar-se à sala %1."
 
-#: src/actionsmodel.cpp:195 src/actionsmodel.cpp:218
+#: src/actionsmodel.cpp:206 src/actionsmodel.cpp:229
 msgid "<room alias or id>"
 msgstr "<ID ou alcunha da sala>"
 
-#: src/actionsmodel.cpp:196 src/actionsmodel.cpp:219
+#: src/actionsmodel.cpp:207 src/actionsmodel.cpp:230
 msgid "Joins the given room"
 msgstr "Junta-se à sala indicada"
 
-#: src/actionsmodel.cpp:225 src/actionsmodel.cpp:257
+#: src/actionsmodel.cpp:236 src/actionsmodel.cpp:268
 #, kde-format
 msgid "Leaving this room."
 msgstr "A sair desta sala."
 
-#: src/actionsmodel.cpp:240 src/actionsmodel.cpp:272
+#: src/actionsmodel.cpp:251 src/actionsmodel.cpp:283
 #, kde-format
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
 msgstr "A sair da sala %1."
 
-#: src/actionsmodel.cpp:243 src/actionsmodel.cpp:275
+#: src/actionsmodel.cpp:254 src/actionsmodel.cpp:286
 #, kde-format
 msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
 msgstr "A sala %1 não foi encontrada."
 
-#: src/actionsmodel.cpp:250 src/actionsmodel.cpp:282
+#: src/actionsmodel.cpp:261 src/actionsmodel.cpp:293
 msgid "[<room alias or id>]"
 msgstr "[<ID ou alcunha da sala>]"
 
-#: src/actionsmodel.cpp:251 src/actionsmodel.cpp:283
+#: src/actionsmodel.cpp:262 src/actionsmodel.cpp:294
 msgid "Leaves the given room or this room, if there is none given"
 msgstr "Sai da sala indicada ou desta sala, caso não seja indicada nenhuma"
 
-#: src/actionsmodel.cpp:289 src/actionsmodel.cpp:304
+#: src/actionsmodel.cpp:300 src/actionsmodel.cpp:315
 #, kde-format
 msgid "No new nickname provided, no changes will happen."
 msgstr ""
 "Não foi indicada nenhuma nova alcunha, pelo que não irão ocorrer "
 "modificações."
 
-#: src/actionsmodel.cpp:297 src/actionsmodel.cpp:312
+#: src/actionsmodel.cpp:308 src/actionsmodel.cpp:323
 msgid "<display name>"
 msgstr "<nome visível>"
 
-#: src/actionsmodel.cpp:298
+#: src/actionsmodel.cpp:309
 msgid "Changes your global display name"
 msgstr "Muda o seu nome visível global"
 
-#: src/actionsmodel.cpp:313
+#: src/actionsmodel.cpp:324
 msgid "Changes your display name in this room"
 msgstr "Muda o seu nome visível nesta sala"
 
-#: src/actionsmodel.cpp:327
+#: src/actionsmodel.cpp:338
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
 msgstr "O %1 já está a ser ignorado."
 
-#: src/actionsmodel.cpp:332
+#: src/actionsmodel.cpp:343
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
 msgstr "O %1 está agora ignorado."
 
-#: src/actionsmodel.cpp:334 src/actionsmodel.cpp:362
+#: src/actionsmodel.cpp:345 src/actionsmodel.cpp:373
 #, kde-format
 msgctxt "<username> is not a known user"
 msgid "%1 is not a known user."
 msgstr "O %1 não é um utilizador conhecido."
 
-#: src/actionsmodel.cpp:341
+#: src/actionsmodel.cpp:352
 msgid "Ignores the given user"
 msgstr "Ignora o utilizador indicado"
 
-#: src/actionsmodel.cpp:356
+#: src/actionsmodel.cpp:367
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
 msgstr "O %1 não está ignorado."
 
-#: src/actionsmodel.cpp:360
+#: src/actionsmodel.cpp:371
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
 msgstr "O %1 já não é mais ignorado."
 
-#: src/actionsmodel.cpp:369
+#: src/actionsmodel.cpp:380
 msgid "Unignores the given user"
 msgstr "Reactiva o utilizador indicado"
 
-#: src/actionsmodel.cpp:389
+#: src/actionsmodel.cpp:400
 msgid "<reaction text>"
 msgstr "<texto da reacção>"
 
-#: src/actionsmodel.cpp:390
+#: src/actionsmodel.cpp:401
 msgid "React to the message with the given text"
 msgstr "Reagir a esta mensagem com o texto indicado"
 
-#: src/actionsmodel.cpp:406
-#, fuzzy, kde-format
-#| msgctxt "<user> is banned from this room."
-#| msgid "%1 is banned from this room."
+#: src/actionsmodel.cpp:417
+#, kde-format
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
-msgstr "O %1 foi expulso desta sala."
+msgstr "O %1 já foi expulso desta sala."
 
-#: src/actionsmodel.cpp:412
-#, fuzzy, kde-format
-#| msgid "You are already in this room."
+#: src/actionsmodel.cpp:423
+#, kde-format
 msgid "You are not allowed to ban users from this room."
-msgstr "Já se encontra nesta sala."
+msgstr "Não tem permissão para expulsar os utilizadores desta sala."
 
-#: src/actionsmodel.cpp:418
+#: src/actionsmodel.cpp:429
 #, fuzzy, kde-format
-#| msgid "You are already in this room."
 msgctxt "You are not allowed to ban <username> from this room."
 msgid "You are not allowed to ban %1 from this room."
-msgstr "Já se encontra nesta sala."
+msgstr "Não tem permissão para expulsar o %1 desta sala."
 
-#: src/actionsmodel.cpp:422
-#, fuzzy, kde-format
-#| msgctxt "<user> is banned from this room."
-#| msgid "%1 is banned from this room."
+#: src/actionsmodel.cpp:433
+#, kde-format
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
 msgstr "O %1 foi expulso desta sala."
 
-#: src/actionsmodel.cpp:427 src/actionsmodel.cpp:502
-#, fuzzy
-#| msgid "<user id>"
+#: src/actionsmodel.cpp:438 src/actionsmodel.cpp:513
 msgid "<user id> [<reason>]"
-msgstr "<ID do utilizador>"
+msgstr "<ID do utilizador> [<razão>]"
 
-#: src/actionsmodel.cpp:428
+#: src/actionsmodel.cpp:439
 #, fuzzy
 #| msgid "Ignores the given user"
 msgid "Bans the given user"
 msgstr "Ignora o utilizador indicado"
 
-#: src/actionsmodel.cpp:442
+#: src/actionsmodel.cpp:453
 #, fuzzy, kde-format
 #| msgid "You are already in this room."
 msgid "You are not allowed to unban users from this room."
 msgstr "Já se encontra nesta sala."
 
-#: src/actionsmodel.cpp:448
+#: src/actionsmodel.cpp:459
 #, fuzzy, kde-format
 #| msgctxt "<user> is banned from this room."
 #| msgid "%1 is banned from this room."
@@ -276,7 +275,7 @@ msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
 msgstr "O %1 foi expulso desta sala."
 
-#: src/actionsmodel.cpp:453
+#: src/actionsmodel.cpp:464
 #, fuzzy, kde-format
 #| msgctxt "<user> is banned from this room."
 #| msgid "%1 is banned from this room."
@@ -284,18 +283,18 @@ msgctxt "<username> was unbanned from this room."
 msgid "%1 was unbanned from this room."
 msgstr "O %1 foi expulso desta sala."
 
-#: src/actionsmodel.cpp:460
+#: src/actionsmodel.cpp:471
 #, fuzzy
 #| msgid "Ignores the given user"
 msgid "Removes the ban of the given user"
 msgstr "Ignora o utilizador indicado"
 
-#: src/actionsmodel.cpp:475
+#: src/actionsmodel.cpp:486
 #, kde-format
 msgid "You cannot kick yourself from the room."
-msgstr ""
+msgstr "Não se pode expulsar a si próprio da sala."
 
-#: src/actionsmodel.cpp:480
+#: src/actionsmodel.cpp:491
 #, fuzzy, kde-format
 #| msgctxt "<user> is already in this room."
 #| msgid "%1 is already in this room."
@@ -303,20 +302,20 @@ msgctxt "<username> is not in this room"
 msgid "%1 is not in this room."
 msgstr "O %1 já se encontra nesta sala."
 
-#: src/actionsmodel.cpp:487
+#: src/actionsmodel.cpp:498
 #, fuzzy, kde-format
 #| msgid "You are already in this room."
 msgid "You are not allowed to kick users from this room."
 msgstr "Já se encontra nesta sala."
 
-#: src/actionsmodel.cpp:493
+#: src/actionsmodel.cpp:504
 #, fuzzy, kde-format
 #| msgid "You are already in this room."
 msgctxt "You are not allowed to kick <username> from this room"
 msgid "You are not allowed to kick %1 from this room."
 msgstr "Já se encontra nesta sala."
 
-#: src/actionsmodel.cpp:497
+#: src/actionsmodel.cpp:508
 #, fuzzy, kde-format
 #| msgctxt "<user> is banned from this room."
 #| msgid "%1 is banned from this room."
@@ -324,7 +323,7 @@ msgctxt "<username> was kicked from this room."
 msgid "%1 was kicked from this room."
 msgstr "O %1 foi expulso desta sala."
 
-#: src/actionsmodel.cpp:503
+#: src/actionsmodel.cpp:514
 #, fuzzy
 #| msgid "Invites the user to this room"
 msgid "Removes the user from the room"
@@ -445,7 +444,7 @@ msgstr "Carl Schwan"
 #: src/main.cpp:153 src/main.cpp:154 src/main.cpp:155
 #, kde-format
 msgid "Maintainer"
-msgstr ""
+msgstr "Manutenção"
 
 #: src/main.cpp:154
 #, kde-format
@@ -455,7 +454,7 @@ msgstr "Tobias Fella"
 #: src/main.cpp:155
 #, kde-format
 msgid "James Graham"
-msgstr ""
+msgstr "James Graham"
 
 #: src/main.cpp:156
 #, kde-format
@@ -465,17 +464,17 @@ msgstr "Black Hat"
 #: src/main.cpp:156
 #, kde-format
 msgid "Original author of Spectral"
-msgstr ""
+msgstr "Autor original do Spectral"
 
 #: src/main.cpp:157
 #, kde-format
 msgid "Alexey Rusakov"
-msgstr ""
+msgstr "Alexey Rusakov"
 
 #: src/main.cpp:157
 #, kde-format
 msgid "Maintainer of Quotient"
-msgstr ""
+msgstr "Manutenção do Quotient"
 
 #: src/main.cpp:158
 #, kde-format
@@ -521,37 +520,37 @@ msgstr "O ID do conteúdo '%1' não segue o padrão 'server/mediaId'"
 msgid "Image request has been cancelled"
 msgstr "O pedido da imagem foi cancelado"
 
-#: src/messageeventmodel.cpp:341
+#: src/messageeventmodel.cpp:349
 #, kde-format
 msgid "Today"
 msgstr "Hoje"
 
-#: src/messageeventmodel.cpp:344
+#: src/messageeventmodel.cpp:352
 #, kde-format
 msgid "Yesterday"
 msgstr "Ontem"
 
-#: src/messageeventmodel.cpp:347
+#: src/messageeventmodel.cpp:355
 #, kde-format
 msgid "The day before yesterday"
 msgstr "O dia antes de ontem"
 
-#: src/messageeventmodel.cpp:449
+#: src/messageeventmodel.cpp:457
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Esta mensagem foi removida]</i>"
 
-#: src/messageeventmodel.cpp:450
+#: src/messageeventmodel.cpp:458
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Esta mensagem foi removida: %1]</i>"
 
-#: src/messageeventmodel.cpp:537
+#: src/messageeventmodel.cpp:545
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[REDIGIDO]"
 
-#: src/messageeventmodel.cpp:537
+#: src/messageeventmodel.cpp:545
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[REDIGIDO: %1]"
@@ -781,7 +780,7 @@ msgstr "actualizou o estado de %1 para %2"
 msgid "Unknown event"
 msgstr "Evento desconhecido"
 
-#: src/neochatroom.cpp:1137 src/neochatroom.cpp:1138
+#: src/neochatroom.cpp:1141 src/neochatroom.cpp:1142
 #, kde-format
 msgid "Report sent successfully."
 msgstr "O relatório foi enviado com sucesso."
@@ -1135,7 +1134,7 @@ msgid_plural "%2 reacted with %3"
 msgstr[0] "%2 reagiu com %3"
 msgstr[1] "%2 reagiram com %3"
 
-#: src/qml/Component/Timeline/ReadMarkerDelegate.qml:58
+#: src/qml/Component/Timeline/ReadMarkerDelegate.qml:69
 #, kde-format
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
@@ -2453,7 +2452,7 @@ msgstr "Informação do utilizador"
 #: src/qml/Settings/AccountEditorPage.qml:73
 #, kde-format
 msgid "Remove current avatar"
-msgstr ""
+msgstr "Remover o avatar actual"
 
 #: src/qml/Settings/AccountEditorPage.qml:88
 #, kde-format
