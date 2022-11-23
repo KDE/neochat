@@ -108,7 +108,7 @@ QVector<ActionsModel::Action> actions{
         false,
         std::nullopt,
         kli18n("<message>"),
-        kli18n("Sends the given given message as plain text"),
+        kli18n("Sends the given message as plain text"),
     },
     Action{
         QStringLiteral("spoiler"),
