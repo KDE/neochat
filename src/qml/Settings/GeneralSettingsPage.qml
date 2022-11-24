@@ -150,7 +150,7 @@ Kirigami.ScrollablePage {
             contentItem: ColumnLayout {
                 spacing: 0
                 MobileForm.FormCardHeader {
-                    title: i18nc("Chat Editor", "Editor:")
+                    title: i18nc("Chat Editor", "Editor")
                 }
                 MobileForm.FormCheckDelegate {
                     id: quickEditCheckbox
@@ -165,7 +165,7 @@ Kirigami.ScrollablePage {
                 MobileForm.FormDelegateSeparator { above: quickEditCheckbox; below: typingNotificationsDelegate }
                 MobileForm.FormCheckDelegate {
                     id: typingNotificationsDelegate
-                    text: i18n("Send Typing Notifications")
+                    text: i18n("Send typing notifications")
                     checked: Config.typingNotifications
                     enabled: !Config.isTypingNotificationsImmutable
                     onToggled: {
@@ -185,7 +185,7 @@ Kirigami.ScrollablePage {
                     title: i18n("Developer Settings")
                 }
                 MobileForm.FormCheckDelegate {
-                    text: i18n("Enable Developer Tools")
+                    text: i18n("Enable developer tools")
                     checked: Config.developerTools
                     enabled: !Config.isDeveloperToolsImmutable
                     onToggled: {

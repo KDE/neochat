@@ -199,19 +199,26 @@ Kirigami.ScrollablePage {
                         }
                     }
                 }
+                
+                MobileForm.FormDelegateSeparator { below: colorSchemeDelegate.item ; visible: colorSchemeDelegate.visible }
+                
+                Loader {
+                    id: colorSchemeDelegate
+                    visible: item !== null && Qt.platform.os !== "android"
+                    source: "qrc:/ColorScheme.qml"
+                    Layout.fillWidth: true
+                }
             }
         }
+        
         MobileForm.FormCard {
             Layout.topMargin: Kirigami.Units.largeSpacing
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: 0
-                MobileForm.FormCardHeader {
-                    title: i18n("Timeline")
-                }
                 MobileForm.FormCheckDelegate {
                     id: showFancyEffectsDelegate
-                    text: i18n("Show Fancy Effects")
+                    text: i18n("Show fancy effects in chat")
                     checked: Config.showFancyEffects
                     enabled: !Config.isShowFancyEffectsImmutable
                     onToggled: {
@@ -220,20 +227,7 @@ Kirigami.ScrollablePage {
                     }
                 }
 
-                MobileForm.FormDelegateSeparator { above: showFancyEffectsDelegate ; below: colorSchemeDelegate }
-
-                Loader {
-                    id: colorSchemeDelegate
-                    visible: item !== null && Qt.platform.os !== "android"
-                    source: "qrc:/ColorScheme.qml"
-                    Layout.fillWidth: true
-                }
-
-                MobileForm.FormDelegateSeparator {
-                    above: colorSchemeDelegate
-                    below: hasWindowSystemDelegate
-                    visible: colorSchemeDelegate.visible
-                }
+                MobileForm.FormDelegateSeparator { above: showFancyEffectsDelegate ; below: hasWindowSystemDelegate }
 
                 MobileForm.FormCheckDelegate {
                     id: hasWindowSystemDelegate
@@ -254,6 +248,7 @@ Kirigami.ScrollablePage {
                     Layout.fillWidth: true
                     visible: Controller.hasWindowSystem && Config.blur
                     enabled: !Config.isTransparancyImmutable
+                    background: Item {}
                     contentItem: ColumnLayout {
                         QQC2.Label {
                             text: i18n("Transparency")
@@ -306,16 +301,21 @@ Kirigami.ScrollablePage {
                         Config.save()
                     }
                 }
-
-                MobileForm.FormDelegateSeparator { above: showLinkPreviewDelegate; below: showAvatarDelegate }
-
-                MobileForm.FormSectionText {
-                    id: showAvatarDelegate
-                    text: i18n("Show Avatar")
+            }
+        }
+        
+        MobileForm.FormCard {
+            Layout.topMargin: Kirigami.Units.largeSpacing
+            Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                spacing: 0
+                
+                MobileForm.FormCardHeader {
+                    title: i18n("Show Avatar")
                 }
-
+                
                 MobileForm.FormCheckDelegate {
-                    text: i18n("In Chat")
+                    text: i18n("In chat")
                     checked: Config.showAvatarInTimeline
                     onToggled: {
                         Config.showAvatarInTimeline = checked
@@ -325,7 +325,7 @@ Kirigami.ScrollablePage {
                 }
 
                 MobileForm.FormCheckDelegate {
-                    text: i18n("In Sidebar")
+                    text: i18n("In sidebar")
                     checked: Config.showAvatarInRoomDrawer
                     enabled: !Config.isShowAvatarInRoomDrawerImmutable
                     onToggled: {

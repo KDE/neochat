@@ -12,7 +12,7 @@ import org.kde.neochat 1.0
 
 MobileForm.FormComboBoxDelegate {
     Layout.fillWidth: true
-    text: i18n("Themes")
+    text: i18n("Color theme")
     textRole: "display"
     valueRole: "display"
     model: ColorSchemer.model
