@@ -70,6 +70,7 @@ QQC2.ItemDelegate {
     }
 
     background: Kirigami.ShadowedRectangle {
+        id: readMarkerBackground
         color: {
             if (readMarkerDelegate.isTemporaryHighlighted) {
                 return Kirigami.Theme.positiveBackgroundColor
@@ -85,7 +86,7 @@ QQC2.ItemDelegate {
         border.width: 1
 
         Behavior on color {
-            ColorAnimation {target: bubbleBackground; duration: Kirigami.Units.veryLongDuration; easing.type: Easing.InOutCubic}
+            ColorAnimation {target: readMarkerBackground; duration: Kirigami.Units.veryLongDuration; easing.type: Easing.InOutCubic}
         }
     }
 }
