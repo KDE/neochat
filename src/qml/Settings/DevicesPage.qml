@@ -92,12 +92,14 @@ Kirigami.ScrollablePage {
 
                                 rightActions: [
                                     Kirigami.Action {
+                                        text: i18n("Cancel editing display name")
                                         icon.name: "edit-delete-remove"
                                         onTriggered: {
                                             deviceDelegate.editDeviceName = false
                                         }
                                     },
                                     Kirigami.Action {
+                                        text: i18n("Confirm new display name")
                                         icon.name: "checkmark"
                                         visible: nameField.text != model.displayName
                                         onTriggered: {
@@ -111,31 +113,46 @@ Kirigami.ScrollablePage {
                             QQC2.ToolButton {
                                 display: QQC2.AbstractButton.IconOnly
                                 action: Kirigami.Action {
+                                    id: editDeviceAction
                                     text: i18n("Edit device name")
                                     iconName: "document-edit"
                                     onTriggered: deviceDelegate.editDeviceName = true
+                                }
+                                QQC2.ToolTip {
+                                    text: editDeviceAction.text
+                                    delay: Kirigami.Units.toolTipDelay
                                 }
                             }
                             QQC2.ToolButton {
                                 display: QQC2.AbstractButton.IconOnly
                                 visible: Controller.encryptionSupported
                                 action: Kirigami.Action {
+                                    id: verifyDeviceAction
                                     text: i18n("Verify device")
                                     iconName: "security-low-symbolic"
                                     onTriggered: {
                                         devices.connection.startKeyVerificationSession(devices.connection.localUserId, model.id)
                                     }
                                 }
+                                QQC2.ToolTip {
+                                    text: verifyDeviceAction.text
+                                    delay: Kirigami.Units.toolTipDelay
+                                }
                             }
                             QQC2.ToolButton {
                                 display: QQC2.AbstractButton.IconOnly
                                 action: Kirigami.Action {
+                                    id: logoutDeviceAction
                                     text: i18n("Logout device")
                                     iconName: "edit-delete-remove"
                                     onTriggered: {
                                         passwordSheet.index = index
                                         passwordSheet.open()
                                     }
+                                }
+                                QQC2.ToolTip {
+                                    text: logoutDeviceAction.text
+                                    delay: Kirigami.Units.toolTipDelay
                                 }
                             }
                         }
