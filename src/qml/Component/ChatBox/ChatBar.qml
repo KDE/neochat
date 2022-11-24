@@ -15,6 +15,7 @@ QQC2.ToolBar {
     property alias inputFieldText: inputField.text
     property alias textField: inputField
     property alias emojiPaneOpened: emojiButton.checked
+    property alias cursorPosition: inputField.cursorPosition
 
     signal closeAllTriggered()
     signal inputFieldForceActiveFocusTriggered()

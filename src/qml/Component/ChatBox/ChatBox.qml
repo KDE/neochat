@@ -66,7 +66,7 @@ ColumnLayout {
             Kirigami.Theme.colorSet: Kirigami.Theme.View
             contentItem: EmojiPicker {
                 textArea: chatBar.textField
-                onChosen: addText(emoji)
+                onChosen: insertText(emoji)
             }
         }
 
@@ -128,12 +128,10 @@ ColumnLayout {
         }
     }
 
-    function addText(text) {
-        chatBox.inputFieldText = inputFieldText + text
-    }
-
     function insertText(str) {
-        chatBox.inputFieldText = inputFieldText.substr(0, inputField.cursorPosition) + str + inputFieldText.substr(inputField.cursorPosition)
+        let index = chatBar.cursorPosition;
+        chatBox.inputFieldText = inputFieldText.substr(0, chatBar.cursorPosition) + str + inputFieldText.substr(chatBar.cursorPosition);
+        chatBar.cursorPosition = index + str.length;
     }
 
     function focusInputField() {
