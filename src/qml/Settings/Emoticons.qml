@@ -110,6 +110,7 @@ Kirigami.ScrollablePage {
 
         OpenFileDialog {
             folder: StandardPaths.writableLocation(StandardPaths.PicturesLocation)
+            nameFilters: [i18n("Images (*.png *.gif *.webp)")]
         }
     }
 }
