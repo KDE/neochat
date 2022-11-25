@@ -541,17 +541,6 @@ void Controller::markAllMessagesAsRead(Connection *conn)
     }
 }
 
-void Controller::setAboutData(const KAboutData &aboutData)
-{
-    m_aboutData = aboutData;
-    Q_EMIT aboutDataChanged();
-}
-
-KAboutData Controller::aboutData() const
-{
-    return m_aboutData;
-}
-
 bool Controller::supportSystemTray() const
 {
 #ifdef Q_OS_ANDROID

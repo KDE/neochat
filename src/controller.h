@@ -6,7 +6,6 @@
 #include <QObject>
 #include <QQuickItem>
 
-#include <KAboutData>
 #include <KFormat>
 
 #include <jobs/basejob.h>
@@ -36,7 +35,6 @@ class Controller : public QObject
     Q_PROPERTY(bool quitOnLastWindowClosed READ quitOnLastWindowClosed WRITE setQuitOnLastWindowClosed NOTIFY quitOnLastWindowClosedChanged)
     Q_PROPERTY(Quotient::Connection *activeConnection READ activeConnection WRITE setActiveConnection NOTIFY activeConnectionChanged)
     Q_PROPERTY(bool busy READ busy WRITE setBusy NOTIFY busyChanged)
-    Q_PROPERTY(KAboutData aboutData READ aboutData WRITE setAboutData NOTIFY aboutDataChanged)
     Q_PROPERTY(bool supportSystemTray READ supportSystemTray CONSTANT)
     Q_PROPERTY(bool hasWindowSystem READ hasWindowSystem CONSTANT)
     Q_PROPERTY(bool isOnline READ isOnline NOTIFY isOnlineChanged)
@@ -66,9 +64,6 @@ public:
 
     [[nodiscard]] bool busy() const;
     void setBusy(bool busy);
-
-    void setAboutData(const KAboutData &aboutData);
-    [[nodiscard]] KAboutData aboutData() const;
 
     [[nodiscard]] bool supportSystemTray() const;
 
@@ -122,7 +117,6 @@ private:
     bool m_isOnline = true;
     QMap<Quotient::Room *, int> m_notificationCounts;
 
-    KAboutData m_aboutData;
     bool hasWindowSystem() const;
 #ifdef QUOTIENT_07
     void handleNotifications();
@@ -148,7 +142,6 @@ Q_SIGNALS:
     void quitOnLastWindowClosedChanged();
     void unreadCountChanged();
     void activeConnectionChanged();
-    void aboutDataChanged();
     void passwordStatus(Controller::PasswordStatus _t1);
     void userConsentRequired(QUrl url);
     void testConnectionResult(const QString &connection, bool usable);

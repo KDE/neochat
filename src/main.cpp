@@ -256,6 +256,9 @@ int main(int argc, char *argv[])
     qRegisterMetaType<QVector<EmojiEntry>>("QVector<EmojiEntry>");
 #endif
 #endif
+    qmlRegisterSingletonType("org.kde.neochat", 1, 0, "About", [](QQmlEngine *engine, QJSEngine *) -> QJSValue {
+        return engine->toScriptValue(KAboutData::applicationData());
+    });
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     qRegisterMetaTypeStreamOperators<Emoji>();
@@ -273,8 +276,6 @@ int main(int argc, char *argv[])
     about.setupCommandLine(&parser);
     parser.process(app);
     about.processCommandLine(&parser);
-
-    Controller::instance().setAboutData(about);
 
     engine.addImageProvider(QLatin1String("mxc"), new MatrixImageProvider);
     engine.addImageProvider(QLatin1String("blurhash"), new BlurhashImageProvider);

@@ -9,5 +9,5 @@ import org.kde.neochat 1.0
 
 MobileForm.AboutPage {
     title: i18nc("@title:window", "About NeoChat")
-    aboutData: Controller.aboutData
+    aboutData: About
 }
