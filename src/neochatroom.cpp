@@ -859,7 +859,15 @@ bool NeoChatRoom::canSendState(const QString &eventType) const
     auto pl = plEvent->powerLevelForState(eventType);
     auto currentPl = plEvent->powerLevelForUser(localUser()->id());
 
+#ifndef QUOTIENT_07
+    if (eventType == "m.room.history_visibility") {
+        return false;
+    } else {
+        return currentPl >= pl;
+    }
+#else
     return currentPl >= pl;
+#endif
 }
 
 bool NeoChatRoom::readMarkerLoaded() const
@@ -914,6 +922,32 @@ void NeoChatRoom::setJoinRule(const QString &joinRule)
     setState<JoinRulesEvent>(QJsonObject{{"type", "m.room.join_rules"}, {"state_key", ""}, {"content", QJsonObject{{"join_rule", joinRule}}}});
 #endif
     // Not emitting joinRuleChanged() here, since that would override the change in the UI with the *current* value, which is not the *new* value.
+}
+
+QString NeoChatRoom::historyVisibility() const
+{
+#ifdef QUOTIENT_07
+    return currentState().get("m.room.history_visibility")->contentJson()["history_visibility"_ls].toString();
+#else
+    return getCurrentState("m.room.history_visibility")->contentJson()["history_visibility"_ls].toString();
+#endif
+}
+
+void NeoChatRoom::setHistoryVisibility(const QString &historyVisibilityRule)
+{
+    if (!canSendState("m.room.history_visibility")) {
+        qWarning() << "Power level too low to set history visibility";
+        return;
+    }
+
+#ifdef QUOTIENT_07
+    setState("m.room.history_visibility", "", QJsonObject{{"history_visibility", historyVisibilityRule}});
+#else
+    qWarning() << "Quotient 0.7 required to set history visibility";
+    return;
+#endif
+
+    // Not emitting historyVisibilityChanged() here, since that would override the change in the UI with the *current* value, which is not the *new* value.
 }
 
 QCoro::Task<void> NeoChatRoom::doDeleteMessagesByUser(const QString &user, QString reason)

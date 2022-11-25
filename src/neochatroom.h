@@ -48,6 +48,7 @@ class NeoChatRoom : public Quotient::Room
     Q_PROPERTY(QDateTime lastActiveTime READ lastActiveTime NOTIFY lastActiveTimeChanged)
     Q_PROPERTY(bool isInvite READ isInvite NOTIFY isInviteChanged)
     Q_PROPERTY(QString joinRule READ joinRule WRITE setJoinRule NOTIFY joinRuleChanged)
+    Q_PROPERTY(QString historyVisibility READ historyVisibility WRITE setHistoryVisibility NOTIFY historyVisibilityChanged)
     Q_PROPERTY(QString htmlSafeDisplayName READ htmlSafeDisplayName NOTIFY displayNameChanged)
     Q_PROPERTY(PushNotificationState::State pushNotificationState MEMBER m_currentPushNotificationState WRITE setPushNotificationState NOTIFY
                    pushNotificationStateChanged)
@@ -111,6 +112,9 @@ public:
 
     [[nodiscard]] QString joinRule() const;
     void setJoinRule(const QString &joinRule);
+
+    [[nodiscard]] QString historyVisibility() const;
+    void setHistoryVisibility(const QString &historyVisibilityRule);
 
     [[nodiscard]] bool hasFileUploading() const
     {
@@ -258,6 +262,7 @@ Q_SIGNALS:
     void chatBoxAttachmentPathChanged();
     void canEncryptRoomChanged();
     void joinRuleChanged();
+    void historyVisibilityChanged();
 
 public Q_SLOTS:
     void uploadFile(const QUrl &url, const QString &body = QString());

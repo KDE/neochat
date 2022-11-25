@@ -58,6 +58,53 @@ Kirigami.ScrollablePage {
                 }
             }
         }
+
+        MobileForm.FormCard {
+            Layout.topMargin: Kirigami.Units.largeSpacing
+            Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                spacing: 0
+                MobileForm.FormCardHeader {
+                    title: i18nc("@option:check", "Message history visibility")
+                }
+                MobileForm.FormRadioDelegate {
+                    text: i18nc("@option:check", "Anyone")
+                    description: i18nc("@option:check", "Anyone, regardless of whether they have joined, can view history.")
+                    checked: room.historyVisibility === "world_readable"
+                    enabled: room.canSendState("m.room.history_visibility")
+                    onCheckedChanged: if (checked) {
+                        room.historyVisibility = "world_readable"
+                    }
+                }
+                MobileForm.FormRadioDelegate {
+                    text: i18nc("@option:check", "Members only")
+                    description: i18nc("@option:check", "All members can view the entire message history, even before they joined.")
+                    checked: room.historyVisibility === "shared"
+                    enabled: room.canSendState("m.room.history_visibility")
+                    onCheckedChanged: if (checked) {
+                        room.historyVisibility = "shared"
+                    }
+                }
+                MobileForm.FormRadioDelegate {
+                    text: i18nc("@option:check", "Members only (since invite)")
+                    description: i18nc("@option:check", "New members can view the message history from the point they were invited to the room.")
+                    checked: room.historyVisibility === "invited"
+                    enabled: room.canSendState("m.room.history_visibility")
+                    onCheckedChanged: if (checked) {
+                        room.historyVisibility = "invited"
+                    }
+                }
+                MobileForm.FormRadioDelegate {
+                    text: i18nc("@option:check", "Members only (since joining)")
+                    description: i18nc("@option:check", "New members can view the message history from the point they joined the room.")
+                    checked: room.historyVisibility === "joined"
+                    enabled: room.canSendState("m.room.history_visibility")
+                    onCheckedChanged: if (checked) {
+                        room.historyVisibility = "joined"
+                    }
+                }
+            }
+        }
     }
 
     footer: QQC2.ToolBar {
