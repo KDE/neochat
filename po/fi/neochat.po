@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-24 00:45+0000\n"
+"POT-Creation-Date: 2022-11-25 00:46+0000\n"
 "PO-Revision-Date: 2022-07-21 18:59+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1227,7 +1227,7 @@ msgstr "(muokattu)"
 msgid "Video"
 msgstr "Video"
 
-#: src/qml/Component/UserInfo.qml:58 src/qml/Settings/AccountsPage.qml:82
+#: src/qml/Component/UserInfo.qml:58 src/qml/Settings/AccountsPage.qml:83
 #, fuzzy, kde-format
 #| msgid "Add an account"
 msgid "Add Account"
@@ -1250,7 +1250,7 @@ msgstr "Kirjaudu"
 msgid "Edit this account"
 msgstr "Muokkaa tätä tiliä"
 
-#: src/qml/Component/UserInfo.qml:145 src/qml/Settings/AccountsPage.qml:35
+#: src/qml/Component/UserInfo.qml:145 src/qml/Settings/AccountsPage.qml:36
 #, fuzzy, kde-format
 #| msgctxt "@title:menu Account detail dialog"
 #| msgid "Account detail"
@@ -2606,17 +2606,17 @@ msgstr "Kotipalvelin:"
 msgid "Accounts"
 msgstr "Tilit"
 
-#: src/qml/Settings/AccountsPage.qml:99
+#: src/qml/Settings/AccountsPage.qml:100
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Salasanan vaihto onnistui"
 
-#: src/qml/Settings/AccountsPage.qml:101
+#: src/qml/Settings/AccountsPage.qml:102
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Annettiin väärä salasana"
 
-#: src/qml/Settings/AccountsPage.qml:103
+#: src/qml/Settings/AccountsPage.qml:104
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Tuntematon ongelma yritettäessä vaihtaa salasanaa"
@@ -2644,39 +2644,34 @@ msgstr "Kuplat"
 msgid "Compact"
 msgstr "Tiivis"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:210
+#: src/qml/Settings/AppearanceSettingsPage.qml:221
 #, fuzzy, kde-format
-#| msgid "Timeline:"
-msgid "Timeline"
-msgstr "Aikajana:"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:214
-#, kde-format
-msgid "Show Fancy Effects"
+#| msgid "Show Fancy Effects"
+msgid "Show fancy effects in chat"
 msgstr "Näytä erityistehosteet"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:241
+#: src/qml/Settings/AppearanceSettingsPage.qml:235
 #, kde-format
 msgid "Use transparent chat page"
 msgstr "Käytä läpikuultavaa keskustelusivua"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:259
+#: src/qml/Settings/AppearanceSettingsPage.qml:254
 #, fuzzy, kde-format
 #| msgid "Transparency:"
 msgid "Transparency"
 msgstr "Läpikuultavuus:"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:276
+#: src/qml/Settings/AppearanceSettingsPage.qml:271
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr "Käytössä vain, jos läpikuultava keskustelusivu on käytössä."
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:289
+#: src/qml/Settings/AppearanceSettingsPage.qml:284
 #, kde-format
 msgid "Show your messages on the right"
 msgstr "Näytä viestisi oikealla"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:302
+#: src/qml/Settings/AppearanceSettingsPage.qml:297
 #, kde-format
 msgid "Show links preview in the chat messages"
 msgstr ""
@@ -2689,19 +2684,19 @@ msgstr "Näytä käyttäjän avatar"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:318
 #, kde-format
-msgid "In Chat"
-msgstr "Keskustelussa"
+msgid "In chat"
+msgstr ""
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:328
-#, kde-format
-msgid "In Sidebar"
+#, fuzzy, kde-format
+#| msgid "In Sidebar"
+msgid "In sidebar"
 msgstr "Sivupaneelissa"
 
 #: src/qml/Settings/ColorScheme.qml:15
-#, fuzzy, kde-format
-#| msgid "Theme:"
-msgid "Themes"
-msgstr "Teema:"
+#, kde-format
+msgid "Color theme"
+msgstr ""
 
 #: src/qml/Settings/DevicesPage.qml:14 src/qml/Settings/DevicesPage.qml:26
 #: src/qml/Settings/SettingsPage.qml:48
@@ -2715,33 +2710,47 @@ msgstr "Laitteet"
 msgid "New device name"
 msgstr "Muokkaa laitteen nimeä"
 
-#: src/qml/Settings/DevicesPage.qml:114
+#: src/qml/Settings/DevicesPage.qml:95
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "Cancel editing display name"
+msgstr "tyhjensi näyttönimensä"
+
+#: src/qml/Settings/DevicesPage.qml:102
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "Confirm new display name"
+msgstr "tyhjensi näyttönimensä"
+
+#: src/qml/Settings/DevicesPage.qml:117
 #, kde-format
 msgid "Edit device name"
 msgstr "Muokkaa laitteen nimeä"
 
-#: src/qml/Settings/DevicesPage.qml:123
+#: src/qml/Settings/DevicesPage.qml:131
 #, fuzzy, kde-format
 #| msgid "Edit device"
 msgid "Verify device"
 msgstr "Muokkaa laitetta"
 
-#: src/qml/Settings/DevicesPage.qml:133
+#: src/qml/Settings/DevicesPage.qml:146
 #, kde-format
 msgid "Logout device"
 msgstr "Kirjaa laite ulos"
 
-#: src/qml/Settings/DevicesPage.qml:153
+#: src/qml/Settings/DevicesPage.qml:170
 #, kde-format
 msgid "Remove device"
 msgstr "Poista laite"
 
-#: src/qml/Settings/DevicesPage.qml:157
+#: src/qml/Settings/DevicesPage.qml:174
 #, kde-format
 msgid "Password:"
 msgstr "Salasana:"
 
-#: src/qml/Settings/DevicesPage.qml:161
+#: src/qml/Settings/DevicesPage.qml:178
 #, kde-format
 msgid "Confirm"
 msgstr "Vahvista"
@@ -2838,7 +2847,7 @@ msgstr "Yhdistetty"
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "Chat Editor"
-msgid "Editor:"
+msgid "Editor"
 msgstr "Muokkaa"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:157
@@ -2847,8 +2856,9 @@ msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "Muokkaa viimeisintä viestiäsi s/teksti/korvaus-syntaksilla"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:168
-#, kde-format
-msgid "Send Typing Notifications"
+#, fuzzy, kde-format
+#| msgid "Send Typing Notifications"
+msgid "Send typing notifications"
 msgstr "Näytä ilmoitus kirjoittamisesta"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:185
@@ -2859,7 +2869,7 @@ msgstr "Asetukset"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:188
 #, kde-format
-msgid "Enable Developer Tools"
+msgid "Enable developer tools"
 msgstr ""
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:14
@@ -3216,6 +3226,19 @@ msgstr "Verkko-osoitetta ei voitu avata"
 #, kde-format
 msgid "Show"
 msgstr "Näytä"
+
+#, fuzzy
+#~| msgid "Timeline:"
+#~ msgid "Timeline"
+#~ msgstr "Aikajana:"
+
+#~ msgid "In Chat"
+#~ msgstr "Keskustelussa"
+
+#, fuzzy
+#~| msgid "Theme:"
+#~ msgid "Themes"
+#~ msgstr "Teema:"
 
 #~ msgid "Displays action"
 #~ msgstr "Näyttää toiminnan"

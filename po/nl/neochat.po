@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-24 00:45+0000\n"
+"POT-Creation-Date: 2022-11-25 00:46+0000\n"
 "PO-Revision-Date: 2022-11-22 11:39+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -1159,7 +1159,7 @@ msgstr " (bewerkt)"
 msgid "Video"
 msgstr "Video"
 
-#: src/qml/Component/UserInfo.qml:58 src/qml/Settings/AccountsPage.qml:82
+#: src/qml/Component/UserInfo.qml:58 src/qml/Settings/AccountsPage.qml:83
 #, kde-format
 msgid "Add Account"
 msgstr "Account toevoegen"
@@ -1180,7 +1180,7 @@ msgstr "Aanmelden"
 msgid "Edit this account"
 msgstr "Dit account bewerken"
 
-#: src/qml/Component/UserInfo.qml:145 src/qml/Settings/AccountsPage.qml:35
+#: src/qml/Component/UserInfo.qml:145 src/qml/Settings/AccountsPage.qml:36
 #, kde-format
 msgid "Account editor"
 msgstr "Accountbewerker"
@@ -2536,17 +2536,17 @@ msgstr "Homeserver-url"
 msgid "Accounts"
 msgstr "Accounts"
 
-#: src/qml/Settings/AccountsPage.qml:99
+#: src/qml/Settings/AccountsPage.qml:100
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Wachtwoord is met succes gewijzigd"
 
-#: src/qml/Settings/AccountsPage.qml:101
+#: src/qml/Settings/AccountsPage.qml:102
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Verkeerde wachtwoord ingevoerd"
 
-#: src/qml/Settings/AccountsPage.qml:103
+#: src/qml/Settings/AccountsPage.qml:104
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Onbekend probleem bij poging het wachtwoord te wijzigen"
@@ -2572,37 +2572,33 @@ msgstr "Bellen"
 msgid "Compact"
 msgstr "Compact"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:210
-#, kde-format
-msgid "Timeline"
-msgstr "Tijdlijn"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:214
-#, kde-format
-msgid "Show Fancy Effects"
+#: src/qml/Settings/AppearanceSettingsPage.qml:221
+#, fuzzy, kde-format
+#| msgid "Show Fancy Effects"
+msgid "Show fancy effects in chat"
 msgstr "Elegante effecten tonen"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:241
+#: src/qml/Settings/AppearanceSettingsPage.qml:235
 #, kde-format
 msgid "Use transparent chat page"
 msgstr "Transparante chat-pagina gebruiken"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:259
+#: src/qml/Settings/AppearanceSettingsPage.qml:254
 #, kde-format
 msgid "Transparency"
 msgstr "Transparantie"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:276
+#: src/qml/Settings/AppearanceSettingsPage.qml:271
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr "Alleen ingeschakeld als de transparente chat-pagina is ingeschakeld."
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:289
+#: src/qml/Settings/AppearanceSettingsPage.qml:284
 #, kde-format
 msgid "Show your messages on the right"
 msgstr "Uw berichten rechts tonen"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:302
+#: src/qml/Settings/AppearanceSettingsPage.qml:297
 #, kde-format
 msgid "Show links preview in the chat messages"
 msgstr "Voorbeeld van koppelingen in de chatberichten tonen"
@@ -2614,18 +2610,19 @@ msgstr "Avatar tonen"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:318
 #, kde-format
-msgid "In Chat"
-msgstr "In Chat"
+msgid "In chat"
+msgstr ""
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:328
-#, kde-format
-msgid "In Sidebar"
+#, fuzzy, kde-format
+#| msgid "In Sidebar"
+msgid "In sidebar"
 msgstr "In zijbalk"
 
 #: src/qml/Settings/ColorScheme.qml:15
 #, kde-format
-msgid "Themes"
-msgstr "Thema's"
+msgid "Color theme"
+msgstr ""
 
 #: src/qml/Settings/DevicesPage.qml:14 src/qml/Settings/DevicesPage.qml:26
 #: src/qml/Settings/SettingsPage.qml:48
@@ -2638,32 +2635,46 @@ msgstr "Apparaten"
 msgid "New device name"
 msgstr "Nieuwe apparaatnaam"
 
-#: src/qml/Settings/DevicesPage.qml:114
+#: src/qml/Settings/DevicesPage.qml:95
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "Cancel editing display name"
+msgstr "heeft zijn/haar schermnaam gewist"
+
+#: src/qml/Settings/DevicesPage.qml:102
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "Confirm new display name"
+msgstr "heeft zijn/haar schermnaam gewist"
+
+#: src/qml/Settings/DevicesPage.qml:117
 #, kde-format
 msgid "Edit device name"
 msgstr "Apparaatnaam bewerken"
 
-#: src/qml/Settings/DevicesPage.qml:123
+#: src/qml/Settings/DevicesPage.qml:131
 #, kde-format
 msgid "Verify device"
 msgstr "Apparaat verifiëren"
 
-#: src/qml/Settings/DevicesPage.qml:133
+#: src/qml/Settings/DevicesPage.qml:146
 #, kde-format
 msgid "Logout device"
 msgstr "Afmeldapparaat"
 
-#: src/qml/Settings/DevicesPage.qml:153
+#: src/qml/Settings/DevicesPage.qml:170
 #, kde-format
 msgid "Remove device"
 msgstr "Apparaat verwijderen"
 
-#: src/qml/Settings/DevicesPage.qml:157
+#: src/qml/Settings/DevicesPage.qml:174
 #, kde-format
 msgid "Password:"
 msgstr "Wachtwoord:"
 
-#: src/qml/Settings/DevicesPage.qml:161
+#: src/qml/Settings/DevicesPage.qml:178
 #, kde-format
 msgid "Confirm"
 msgstr "Bevestigen"
@@ -2754,9 +2765,11 @@ msgid "Intermixed"
 msgstr "Onderling gemengd"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:153
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "Chat Editor"
+#| msgid "Editor:"
 msgctxt "Chat Editor"
-msgid "Editor:"
+msgid "Editor"
 msgstr "Editor:"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:157
@@ -2766,8 +2779,9 @@ msgstr ""
 "syntaxis s/tekst/vervanging gebruiken om uw laatste bericht te bewerken"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:168
-#, kde-format
-msgid "Send Typing Notifications"
+#, fuzzy, kde-format
+#| msgid "Send Typing Notifications"
+msgid "Send typing notifications"
 msgstr "Meldingen over typen verzenden"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:185
@@ -2776,8 +2790,9 @@ msgid "Developer Settings"
 msgstr "Instellingen voor ontwikkelaar"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:188
-#, kde-format
-msgid "Enable Developer Tools"
+#, fuzzy, kde-format
+#| msgid "Enable Developer Tools"
+msgid "Enable developer tools"
 msgstr "Hulpmiddelen voor ontwikkelaars inschakelen"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:14
@@ -3117,6 +3132,15 @@ msgstr "Kon de URL niet openen"
 #, kde-format
 msgid "Show"
 msgstr "Tonen"
+
+#~ msgid "Timeline"
+#~ msgstr "Tijdlijn"
+
+#~ msgid "In Chat"
+#~ msgstr "In Chat"
+
+#~ msgid "Themes"
+#~ msgstr "Thema's"
 
 #~ msgid "Displays action"
 #~ msgstr "Toont actie"

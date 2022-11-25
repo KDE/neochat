@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-24 00:45+0000\n"
+"POT-Creation-Date: 2022-11-25 00:46+0000\n"
 "PO-Revision-Date: 2021-11-08 09:39+0100\n"
 "Last-Translator: Kristof Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1242,7 +1242,7 @@ msgstr "(szerkesztve)"
 msgid "Video"
 msgstr "Videó"
 
-#: src/qml/Component/UserInfo.qml:58 src/qml/Settings/AccountsPage.qml:82
+#: src/qml/Component/UserInfo.qml:58 src/qml/Settings/AccountsPage.qml:83
 #, fuzzy, kde-format
 #| msgid "Add an account"
 msgid "Add Account"
@@ -1265,7 +1265,7 @@ msgstr "Bejelentkezés"
 msgid "Edit this account"
 msgstr "Fiók szerkesztése"
 
-#: src/qml/Component/UserInfo.qml:145 src/qml/Settings/AccountsPage.qml:35
+#: src/qml/Component/UserInfo.qml:145 src/qml/Settings/AccountsPage.qml:36
 #, fuzzy, kde-format
 #| msgctxt "@title:menu Account detail dialog"
 #| msgid "Account detail"
@@ -2625,17 +2625,17 @@ msgstr "Homeserver:"
 msgid "Accounts"
 msgstr "Fiókok"
 
-#: src/qml/Settings/AccountsPage.qml:99
+#: src/qml/Settings/AccountsPage.qml:100
 #, kde-format
 msgid "Password changed successfully"
 msgstr "A jelszó megváltoztatása sikeres"
 
-#: src/qml/Settings/AccountsPage.qml:101
+#: src/qml/Settings/AccountsPage.qml:102
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Hibás jelszó"
 
-#: src/qml/Settings/AccountsPage.qml:103
+#: src/qml/Settings/AccountsPage.qml:104
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Ismeretlen hiba történt a jelszó megváltoztatásakor"
@@ -2663,40 +2663,35 @@ msgstr "Buborékok"
 msgid "Compact"
 msgstr "Kompakt"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:210
+#: src/qml/Settings/AppearanceSettingsPage.qml:221
 #, fuzzy, kde-format
-#| msgid "Timeline:"
-msgid "Timeline"
-msgstr "Idővonal:"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:214
-#, kde-format
-msgid "Show Fancy Effects"
+#| msgid "Show Fancy Effects"
+msgid "Show fancy effects in chat"
 msgstr "Díszítőeffektek megjelenítése"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:241
+#: src/qml/Settings/AppearanceSettingsPage.qml:235
 #, kde-format
 msgid "Use transparent chat page"
 msgstr "Átlátszó csevegőoldal használata"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:259
+#: src/qml/Settings/AppearanceSettingsPage.qml:254
 #, fuzzy, kde-format
 #| msgid "Transparency:"
 msgid "Transparency"
 msgstr "Átlátszóság:"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:276
+#: src/qml/Settings/AppearanceSettingsPage.qml:271
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr ""
 "Csak akkor engedélyezett, ha az átlátszó csevegőoldal engedélyezve van."
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:289
+#: src/qml/Settings/AppearanceSettingsPage.qml:284
 #, kde-format
 msgid "Show your messages on the right"
 msgstr "Saját üzetek megjelenítése a jobb oldalon"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:302
+#: src/qml/Settings/AppearanceSettingsPage.qml:297
 #, kde-format
 msgid "Show links preview in the chat messages"
 msgstr ""
@@ -2709,19 +2704,19 @@ msgstr "Profilkép megjelenítése"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:318
 #, kde-format
-msgid "In Chat"
-msgstr "A csevegésben"
+msgid "In chat"
+msgstr ""
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:328
-#, kde-format
-msgid "In Sidebar"
+#, fuzzy, kde-format
+#| msgid "In Sidebar"
+msgid "In sidebar"
 msgstr "Az oldalsávban"
 
 #: src/qml/Settings/ColorScheme.qml:15
-#, fuzzy, kde-format
-#| msgid "Theme:"
-msgid "Themes"
-msgstr "Téma:"
+#, kde-format
+msgid "Color theme"
+msgstr ""
 
 #: src/qml/Settings/DevicesPage.qml:14 src/qml/Settings/DevicesPage.qml:26
 #: src/qml/Settings/SettingsPage.qml:48
@@ -2735,33 +2730,47 @@ msgstr "Eszközök"
 msgid "New device name"
 msgstr "Eszköznév szerkesztése"
 
-#: src/qml/Settings/DevicesPage.qml:114
+#: src/qml/Settings/DevicesPage.qml:95
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "Cancel editing display name"
+msgstr "törölte a megjelenített nevét"
+
+#: src/qml/Settings/DevicesPage.qml:102
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "Confirm new display name"
+msgstr "törölte a megjelenített nevét"
+
+#: src/qml/Settings/DevicesPage.qml:117
 #, kde-format
 msgid "Edit device name"
 msgstr "Eszköznév szerkesztése"
 
-#: src/qml/Settings/DevicesPage.qml:123
+#: src/qml/Settings/DevicesPage.qml:131
 #, fuzzy, kde-format
 #| msgid "Edit device"
 msgid "Verify device"
 msgstr "Eszköz szerkesztése"
 
-#: src/qml/Settings/DevicesPage.qml:133
+#: src/qml/Settings/DevicesPage.qml:146
 #, kde-format
 msgid "Logout device"
 msgstr "Eszköz kijelentkeztetése"
 
-#: src/qml/Settings/DevicesPage.qml:153
+#: src/qml/Settings/DevicesPage.qml:170
 #, kde-format
 msgid "Remove device"
 msgstr "Eszköz eltávolítása"
 
-#: src/qml/Settings/DevicesPage.qml:157
+#: src/qml/Settings/DevicesPage.qml:174
 #, kde-format
 msgid "Password:"
 msgstr "Jelszó:"
 
-#: src/qml/Settings/DevicesPage.qml:161
+#: src/qml/Settings/DevicesPage.qml:178
 #, kde-format
 msgid "Confirm"
 msgstr "Megerősítés"
@@ -2859,7 +2868,7 @@ msgstr "Keverve"
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "Chat Editor"
-msgid "Editor:"
+msgid "Editor"
 msgstr "Szerkesztés"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:157
@@ -2871,7 +2880,7 @@ msgstr ""
 #: src/qml/Settings/GeneralSettingsPage.qml:168
 #, fuzzy, kde-format
 #| msgid "Show notifications"
-msgid "Send Typing Notifications"
+msgid "Send typing notifications"
 msgstr "Értesítések megjelenítése"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:185
@@ -2882,7 +2891,7 @@ msgstr "Beállítások"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:188
 #, kde-format
-msgid "Enable Developer Tools"
+msgid "Enable developer tools"
 msgstr ""
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:14
@@ -3239,6 +3248,19 @@ msgstr ""
 #, kde-format
 msgid "Show"
 msgstr "Megjelenítés"
+
+#, fuzzy
+#~| msgid "Timeline:"
+#~ msgid "Timeline"
+#~ msgstr "Idővonal:"
+
+#~ msgid "In Chat"
+#~ msgstr "A csevegésben"
+
+#, fuzzy
+#~| msgid "Theme:"
+#~ msgid "Themes"
+#~ msgstr "Téma:"
 
 #~ msgid "Displays action"
 #~ msgstr "Művelet megjelenítése"

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-24 00:45+0000\n"
-"PO-Revision-Date: 2022-11-22 21:42+0400\n"
+"POT-Creation-Date: 2022-11-25 00:46+0000\n"
+"PO-Revision-Date: 2022-11-24 09:52+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -50,10 +50,8 @@ msgid "Sends the given emote colored as a rainbow"
 msgstr "يرسل التعبيرات المعطاة ملونة على شكل قوس قزح"
 
 #: src/actionsmodel.cpp:111
-#, fuzzy
-#| msgid "Sends the given message as a notice"
 msgid "Sends the given message as plain text"
-msgstr "يرسل الرسالة المعطاة كإشعار"
+msgstr "يرسل الرسالة المعطاة نص صرف"
 
 #: src/actionsmodel.cpp:127
 msgid "Sends the given message as a spoiler"
@@ -401,34 +399,28 @@ msgid "The room id you are trying to join is not valid"
 msgstr "رقم التعريفي للغرفة التي تحاول الانضمام إليها غير صحيح"
 
 #: src/filetransferpseudojob.cpp:47
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to download its file"
-#| msgid "Download"
+#, kde-format
 msgctxt "Job heading, like 'Copying'"
 msgid "Downloading"
-msgstr "نزّل"
+msgstr "يُنزّل"
 
 #: src/filetransferpseudojob.cpp:47
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgctxt "Job heading, like 'Copying'"
 msgid "Uploading"
-msgstr "يحمّل..."
+msgstr "يرفع"
 
 #: src/filetransferpseudojob.cpp:48
-#, fuzzy, kde-format
-#| msgid "View Source"
+#, kde-format
 msgctxt "The URL being downloaded/uploaded"
 msgid "Source"
-msgstr "اعرض المصدر"
+msgstr "المصدر"
 
 #: src/filetransferpseudojob.cpp:49
-#, fuzzy, kde-format
-#| msgid "Send invitation"
+#, kde-format
 msgctxt "The location being downloaded to"
 msgid "Destination"
-msgstr "أرسل دعوة"
+msgstr "المقصد"
 
 #: src/login.cpp:88 src/login.cpp:99
 #, kde-format
@@ -1171,7 +1163,7 @@ msgstr " (معدل)"
 msgid "Video"
 msgstr "فيديو"
 
-#: src/qml/Component/UserInfo.qml:58 src/qml/Settings/AccountsPage.qml:82
+#: src/qml/Component/UserInfo.qml:58 src/qml/Settings/AccountsPage.qml:83
 #, kde-format
 msgid "Add Account"
 msgstr "أضف حسابًا"
@@ -1192,7 +1184,7 @@ msgstr "ولوج"
 msgid "Edit this account"
 msgstr "حرر هذا الحساب"
 
-#: src/qml/Component/UserInfo.qml:145 src/qml/Settings/AccountsPage.qml:35
+#: src/qml/Component/UserInfo.qml:145 src/qml/Settings/AccountsPage.qml:36
 #, kde-format
 msgid "Account editor"
 msgstr "تفاصيل الحساب"
@@ -2521,17 +2513,17 @@ msgstr "رابط الخادم المنزل"
 msgid "Accounts"
 msgstr "الحسابات"
 
-#: src/qml/Settings/AccountsPage.qml:99
+#: src/qml/Settings/AccountsPage.qml:100
 #, kde-format
 msgid "Password changed successfully"
 msgstr "كلمة السر غيّرت بنجاح"
 
-#: src/qml/Settings/AccountsPage.qml:101
+#: src/qml/Settings/AccountsPage.qml:102
 #, kde-format
 msgid "Wrong password entered"
 msgstr "أدخلت كلمة سر خاطئة"
 
-#: src/qml/Settings/AccountsPage.qml:103
+#: src/qml/Settings/AccountsPage.qml:104
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "مشكلة غير معروفة أثناء محاولة تغيير كلمة السر"
@@ -2557,37 +2549,33 @@ msgstr "فقاعات"
 msgid "Compact"
 msgstr "مُدمج"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:210
-#, kde-format
-msgid "Timeline"
-msgstr "الخط الزمني"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:214
-#, kde-format
-msgid "Show Fancy Effects"
+#: src/qml/Settings/AppearanceSettingsPage.qml:221
+#, fuzzy, kde-format
+#| msgid "Show Fancy Effects"
+msgid "Show fancy effects in chat"
 msgstr "أظهر تأثيرات خيالية"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:241
+#: src/qml/Settings/AppearanceSettingsPage.qml:235
 #, kde-format
 msgid "Use transparent chat page"
 msgstr "استخدم صفحة دردشة شفافة"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:259
+#: src/qml/Settings/AppearanceSettingsPage.qml:254
 #, kde-format
 msgid "Transparency"
 msgstr "الشفافية"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:276
+#: src/qml/Settings/AppearanceSettingsPage.qml:271
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr "فعله فقط في حالة تفعيل شفافية صفحة الدردشة."
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:289
+#: src/qml/Settings/AppearanceSettingsPage.qml:284
 #, kde-format
 msgid "Show your messages on the right"
 msgstr "أظهر رسائلك في اليمين"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:302
+#: src/qml/Settings/AppearanceSettingsPage.qml:297
 #, kde-format
 msgid "Show links preview in the chat messages"
 msgstr "أظهر معاينة الروابط في رسائل الدردشة"
@@ -2599,18 +2587,19 @@ msgstr "اعرض الصورة الرمزية"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:318
 #, kde-format
-msgid "In Chat"
-msgstr "في الدردشة"
+msgid "In chat"
+msgstr ""
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:328
-#, kde-format
-msgid "In Sidebar"
+#, fuzzy, kde-format
+#| msgid "In Sidebar"
+msgid "In sidebar"
 msgstr "في الشريط الجانبي"
 
 #: src/qml/Settings/ColorScheme.qml:15
 #, kde-format
-msgid "Themes"
-msgstr "السّمات"
+msgid "Color theme"
+msgstr ""
 
 #: src/qml/Settings/DevicesPage.qml:14 src/qml/Settings/DevicesPage.qml:26
 #: src/qml/Settings/SettingsPage.qml:48
@@ -2623,32 +2612,46 @@ msgstr "الأجهزة"
 msgid "New device name"
 msgstr "اسم الجهاز الجديد"
 
-#: src/qml/Settings/DevicesPage.qml:114
+#: src/qml/Settings/DevicesPage.qml:95
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "Cancel editing display name"
+msgstr "مسح اسمهم"
+
+#: src/qml/Settings/DevicesPage.qml:102
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "Confirm new display name"
+msgstr "مسح اسمهم"
+
+#: src/qml/Settings/DevicesPage.qml:117
 #, kde-format
 msgid "Edit device name"
 msgstr "حرر اسم الجهاز"
 
-#: src/qml/Settings/DevicesPage.qml:123
+#: src/qml/Settings/DevicesPage.qml:131
 #, kde-format
 msgid "Verify device"
 msgstr "تَثَبّت من الجهاز"
 
-#: src/qml/Settings/DevicesPage.qml:133
+#: src/qml/Settings/DevicesPage.qml:146
 #, kde-format
 msgid "Logout device"
 msgstr "اخرج الجهاز"
 
-#: src/qml/Settings/DevicesPage.qml:153
+#: src/qml/Settings/DevicesPage.qml:170
 #, kde-format
 msgid "Remove device"
 msgstr "أزل الجهاز"
 
-#: src/qml/Settings/DevicesPage.qml:157
+#: src/qml/Settings/DevicesPage.qml:174
 #, kde-format
 msgid "Password:"
 msgstr "كلمة السر:"
 
-#: src/qml/Settings/DevicesPage.qml:161
+#: src/qml/Settings/DevicesPage.qml:178
 #, kde-format
 msgid "Confirm"
 msgstr "أكد"
@@ -2737,9 +2740,11 @@ msgid "Intermixed"
 msgstr "مختلط"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:153
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "Chat Editor"
+#| msgid "Editor:"
 msgctxt "Chat Editor"
-msgid "Editor:"
+msgid "Editor"
 msgstr "المحرر:"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:157
@@ -2748,8 +2753,9 @@ msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "استخدم بناء الجملة s/النص_القديم/نص_جديد لتعديل رسالتك الأخيرة"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:168
-#, kde-format
-msgid "Send Typing Notifications"
+#, fuzzy, kde-format
+#| msgid "Send Typing Notifications"
+msgid "Send typing notifications"
 msgstr "أرسل إشعار الكتابة"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:185
@@ -2758,8 +2764,9 @@ msgid "Developer Settings"
 msgstr "إعدادات المطور"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:188
-#, kde-format
-msgid "Enable Developer Tools"
+#, fuzzy, kde-format
+#| msgid "Enable Developer Tools"
+msgid "Enable developer tools"
 msgstr "مكّن أدوات المطوّر"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:14
@@ -3097,6 +3104,15 @@ msgstr "تعذر فتح الوصلة"
 #, kde-format
 msgid "Show"
 msgstr "أظهر"
+
+#~ msgid "Timeline"
+#~ msgstr "الخط الزمني"
+
+#~ msgid "In Chat"
+#~ msgstr "في الدردشة"
+
+#~ msgid "Themes"
+#~ msgstr "السّمات"
 
 #~ msgid "Displays action"
 #~ msgstr "إجراء العرض"

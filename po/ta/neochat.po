@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-24 00:45+0000\n"
+"POT-Creation-Date: 2022-11-25 00:46+0000\n"
 "PO-Revision-Date: 2022-11-22 21:37+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -1161,7 +1161,7 @@ msgstr "(திருத்தப்பட்டது)"
 msgid "Video"
 msgstr "ஒளிக்காட்சி"
 
-#: src/qml/Component/UserInfo.qml:58 src/qml/Settings/AccountsPage.qml:82
+#: src/qml/Component/UserInfo.qml:58 src/qml/Settings/AccountsPage.qml:83
 #, kde-format
 msgid "Add Account"
 msgstr "கணக்கைச் சேர்"
@@ -1182,7 +1182,7 @@ msgstr "நுழைவு"
 msgid "Edit this account"
 msgstr "இந்தக் கணக்கைத் திருத்து"
 
-#: src/qml/Component/UserInfo.qml:145 src/qml/Settings/AccountsPage.qml:35
+#: src/qml/Component/UserInfo.qml:145 src/qml/Settings/AccountsPage.qml:36
 #, kde-format
 msgid "Account editor"
 msgstr "கணக்கு திருத்தி"
@@ -2511,17 +2511,17 @@ msgstr "தாய் சேவையக முகவரி"
 msgid "Accounts"
 msgstr "கணக்குகள்"
 
-#: src/qml/Settings/AccountsPage.qml:99
+#: src/qml/Settings/AccountsPage.qml:100
 #, kde-format
 msgid "Password changed successfully"
 msgstr "கடவுச்சொல் வெற்றிகரமாக மாற்றப்பட்டது"
 
-#: src/qml/Settings/AccountsPage.qml:101
+#: src/qml/Settings/AccountsPage.qml:102
 #, kde-format
 msgid "Wrong password entered"
 msgstr "தவறான கடவுச்சொல் உள்ளிடப்பட்டது"
 
-#: src/qml/Settings/AccountsPage.qml:103
+#: src/qml/Settings/AccountsPage.qml:104
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "கடவுச்சொல்லை மாற்றும்போது தெரியாத சிக்கல்"
@@ -2547,37 +2547,33 @@ msgstr "குமிழிகள்"
 msgid "Compact"
 msgstr "சுருக்கமானது"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:210
-#, kde-format
-msgid "Timeline"
-msgstr "காலவரிசை"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:214
-#, kde-format
-msgid "Show Fancy Effects"
+#: src/qml/Settings/AppearanceSettingsPage.qml:221
+#, fuzzy, kde-format
+#| msgid "Show Fancy Effects"
+msgid "Show fancy effects in chat"
 msgstr "ஆடம்பரமான அசைவூட்டங்களைக் காட்டு/"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:241
+#: src/qml/Settings/AppearanceSettingsPage.qml:235
 #, kde-format
 msgid "Use transparent chat page"
 msgstr "ஒளிபுகும் உரையாடல் பக்கத்தைப் பயன்படுத்து"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:259
+#: src/qml/Settings/AppearanceSettingsPage.qml:254
 #, kde-format
 msgid "Transparency"
 msgstr "ஒளிபுகுமை"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:276
+#: src/qml/Settings/AppearanceSettingsPage.qml:271
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr "ஒளிபுகும் உரையாடல் பக்கம் இயக்கப்பட்டிருந்தால் மட்டும் இயங்கும்."
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:289
+#: src/qml/Settings/AppearanceSettingsPage.qml:284
 #, kde-format
 msgid "Show your messages on the right"
 msgstr "உங்கள் செய்திகளை வலது பக்கத்தில் காட்டு"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:302
+#: src/qml/Settings/AppearanceSettingsPage.qml:297
 #, kde-format
 msgid "Show links preview in the chat messages"
 msgstr "உரையாடல்களில் இணைப்புகளின் முன்னோட்டத்தைக் காட்டு"
@@ -2589,18 +2585,19 @@ msgstr "சின்னத்தைக் காட்டு"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:318
 #, kde-format
-msgid "In Chat"
-msgstr "உரையாடலில்"
+msgid "In chat"
+msgstr ""
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:328
-#, kde-format
-msgid "In Sidebar"
+#, fuzzy, kde-format
+#| msgid "In Sidebar"
+msgid "In sidebar"
 msgstr "பக்கப்பட்டையில்"
 
 #: src/qml/Settings/ColorScheme.qml:15
 #, kde-format
-msgid "Themes"
-msgstr "தோற்றத்திட்டங்கள்"
+msgid "Color theme"
+msgstr ""
 
 #: src/qml/Settings/DevicesPage.qml:14 src/qml/Settings/DevicesPage.qml:26
 #: src/qml/Settings/SettingsPage.qml:48
@@ -2614,32 +2611,46 @@ msgstr "சாதனங்கள்"
 msgid "New device name"
 msgstr "சாதனத்தின் புதிய பெயர்"
 
-#: src/qml/Settings/DevicesPage.qml:114
+#: src/qml/Settings/DevicesPage.qml:95
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "Cancel editing display name"
+msgstr "அவருடைய காட்டப்படும் பெயரை காலியாக்கினார்"
+
+#: src/qml/Settings/DevicesPage.qml:102
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "Confirm new display name"
+msgstr "அவருடைய காட்டப்படும் பெயரை காலியாக்கினார்"
+
+#: src/qml/Settings/DevicesPage.qml:117
 #, kde-format
 msgid "Edit device name"
 msgstr "சாதனத்தின் பெயரைத் திருத்து"
 
-#: src/qml/Settings/DevicesPage.qml:123
+#: src/qml/Settings/DevicesPage.qml:131
 #, kde-format
 msgid "Verify device"
 msgstr "சாதனத்தை உறுதிப்படுத்து"
 
-#: src/qml/Settings/DevicesPage.qml:133
+#: src/qml/Settings/DevicesPage.qml:146
 #, kde-format
 msgid "Logout device"
 msgstr "சாதனத்தை வெளியேற்று"
 
-#: src/qml/Settings/DevicesPage.qml:153
+#: src/qml/Settings/DevicesPage.qml:170
 #, kde-format
 msgid "Remove device"
 msgstr "சாதனத்தை நீக்கு"
 
-#: src/qml/Settings/DevicesPage.qml:157
+#: src/qml/Settings/DevicesPage.qml:174
 #, kde-format
 msgid "Password:"
 msgstr "கடவுச்சொல்:"
 
-#: src/qml/Settings/DevicesPage.qml:161
+#: src/qml/Settings/DevicesPage.qml:178
 #, kde-format
 msgid "Confirm"
 msgstr "உறுதிசெய்"
@@ -2728,9 +2739,11 @@ msgid "Intermixed"
 msgstr "கலந்து காட்டப்படும்"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:153
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "Chat Editor"
+#| msgid "Editor:"
 msgctxt "Chat Editor"
-msgid "Editor:"
+msgid "Editor"
 msgstr "உரைத்திருத்தி"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:157
@@ -2739,8 +2752,9 @@ msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "உங்கள் கடைசி செய்தியை s/text/replacement என்ற பாங்கில் திருத்து"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:168
-#, kde-format
-msgid "Send Typing Notifications"
+#, fuzzy, kde-format
+#| msgid "Send Typing Notifications"
+msgid "Send typing notifications"
 msgstr "தட்டச்சிடுவதை அறிவி"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:185
@@ -2749,8 +2763,9 @@ msgid "Developer Settings"
 msgstr "நிரலாளர்களுக்கான அமைப்புகள்"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:188
-#, kde-format
-msgid "Enable Developer Tools"
+#, fuzzy, kde-format
+#| msgid "Enable Developer Tools"
+msgid "Enable developer tools"
 msgstr "நிரலாக்க கருவிகளை இயக்கு"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:14
@@ -3090,6 +3105,15 @@ msgstr "முகவரியைத் திறக்க முடியவி�
 #, kde-format
 msgid "Show"
 msgstr "காட்டு"
+
+#~ msgid "Timeline"
+#~ msgstr "காலவரிசை"
+
+#~ msgid "In Chat"
+#~ msgstr "உரையாடலில்"
+
+#~ msgid "Themes"
+#~ msgstr "தோற்றத்திட்டங்கள்"
 
 #~ msgid "Displays action"
 #~ msgstr "செயல்முறையைக் காட்டும்"

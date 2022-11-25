@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-24 00:45+0000\n"
-"PO-Revision-Date: 2022-11-23 19:16+0300\n"
+"POT-Creation-Date: 2022-11-25 00:46+0000\n"
+"PO-Revision-Date: 2022-11-24 16:39+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -50,8 +50,6 @@ msgid "Sends the given emote colored as a rainbow"
 msgstr "Verilen gülücüğü gökkuşağı renklerinde gönderir"
 
 #: src/actionsmodel.cpp:111
-#, fuzzy
-#| msgid "Sends the given given message as plain text"
 msgid "Sends the given message as plain text"
 msgstr "Verilen iletiyi düz metin olarak gönderir"
 
@@ -398,34 +396,28 @@ msgid "The room id you are trying to join is not valid"
 msgstr "Katılmaya çalıştığınız oda geçerli değil"
 
 #: src/filetransferpseudojob.cpp:47
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to download its file"
-#| msgid "Download"
+#, kde-format
 msgctxt "Job heading, like 'Copying'"
 msgid "Downloading"
-msgstr "İndir"
+msgstr "İndiriliyor"
 
 #: src/filetransferpseudojob.cpp:47
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgctxt "Job heading, like 'Copying'"
 msgid "Uploading"
-msgstr "Yükleniyor…"
+msgstr "Karşıya Yükleniyor…"
 
 #: src/filetransferpseudojob.cpp:48
-#, fuzzy, kde-format
-#| msgid "View Source"
+#, kde-format
 msgctxt "The URL being downloaded/uploaded"
 msgid "Source"
-msgstr "Kaynağını Göster"
+msgstr "Kaynak"
 
 #: src/filetransferpseudojob.cpp:49
-#, fuzzy, kde-format
-#| msgid "Send invitation"
+#, kde-format
 msgctxt "The location being downloaded to"
 msgid "Destination"
-msgstr "Davet gönder"
+msgstr "Hedef"
 
 #: src/login.cpp:88 src/login.cpp:99
 #, kde-format
@@ -1156,7 +1148,7 @@ msgstr " (düzenlendi)"
 msgid "Video"
 msgstr "Video"
 
-#: src/qml/Component/UserInfo.qml:58 src/qml/Settings/AccountsPage.qml:82
+#: src/qml/Component/UserInfo.qml:58 src/qml/Settings/AccountsPage.qml:83
 #, kde-format
 msgid "Add Account"
 msgstr "Hesap Ekle"
@@ -1177,7 +1169,7 @@ msgstr "Giriş Yap"
 msgid "Edit this account"
 msgstr "Bu hesabı düzenle"
 
-#: src/qml/Component/UserInfo.qml:145 src/qml/Settings/AccountsPage.qml:35
+#: src/qml/Component/UserInfo.qml:145 src/qml/Settings/AccountsPage.qml:36
 #, kde-format
 msgid "Account editor"
 msgstr "Hesap düzenleyici"
@@ -2523,17 +2515,17 @@ msgstr "Ana Sunucu URL'si"
 msgid "Accounts"
 msgstr "Hesaplar"
 
-#: src/qml/Settings/AccountsPage.qml:99
+#: src/qml/Settings/AccountsPage.qml:100
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Parola başarıyla değiştirildi"
 
-#: src/qml/Settings/AccountsPage.qml:101
+#: src/qml/Settings/AccountsPage.qml:102
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Yanlış parola girildi"
 
-#: src/qml/Settings/AccountsPage.qml:103
+#: src/qml/Settings/AccountsPage.qml:104
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Parolayı değiştirmeye çalışırken bilinmeyen sorun"
@@ -2559,37 +2551,33 @@ msgstr "Baloncuklar"
 msgid "Compact"
 msgstr "Sıkışık"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:210
-#, kde-format
-msgid "Timeline"
-msgstr "Zaman Akışı"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:214
-#, kde-format
-msgid "Show Fancy Effects"
+#: src/qml/Settings/AppearanceSettingsPage.qml:221
+#, fuzzy, kde-format
+#| msgid "Show Fancy Effects"
+msgid "Show fancy effects in chat"
 msgstr "Janjanlı efektleri göster"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:241
+#: src/qml/Settings/AppearanceSettingsPage.qml:235
 #, kde-format
 msgid "Use transparent chat page"
 msgstr "Saydam sohbet sayfası kullan"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:259
+#: src/qml/Settings/AppearanceSettingsPage.qml:254
 #, kde-format
 msgid "Transparency"
 msgstr "Saydamlık"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:276
+#: src/qml/Settings/AppearanceSettingsPage.qml:271
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr "Yalnızca saydam sohbet sayfası etkinse çalışır."
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:289
+#: src/qml/Settings/AppearanceSettingsPage.qml:284
 #, kde-format
 msgid "Show your messages on the right"
 msgstr "İletilerinizi sağda göster"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:302
+#: src/qml/Settings/AppearanceSettingsPage.qml:297
 #, kde-format
 msgid "Show links preview in the chat messages"
 msgstr "Sohbet iletilerinde bağlantı önizlemelerini göster"
@@ -2601,18 +2589,19 @@ msgstr "Avatarı Göster"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:318
 #, kde-format
-msgid "In Chat"
-msgstr "Sohbette"
+msgid "In chat"
+msgstr ""
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:328
-#, kde-format
-msgid "In Sidebar"
+#, fuzzy, kde-format
+#| msgid "In Sidebar"
+msgid "In sidebar"
 msgstr "Kenar çubuğunda"
 
 #: src/qml/Settings/ColorScheme.qml:15
 #, kde-format
-msgid "Themes"
-msgstr "Temalar"
+msgid "Color theme"
+msgstr ""
 
 #: src/qml/Settings/DevicesPage.qml:14 src/qml/Settings/DevicesPage.qml:26
 #: src/qml/Settings/SettingsPage.qml:48
@@ -2625,32 +2614,46 @@ msgstr "Aygıtlar"
 msgid "New device name"
 msgstr "Yeni aygıt adı"
 
-#: src/qml/Settings/DevicesPage.qml:114
+#: src/qml/Settings/DevicesPage.qml:95
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "Cancel editing display name"
+msgstr "ekran adını sildi"
+
+#: src/qml/Settings/DevicesPage.qml:102
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "Confirm new display name"
+msgstr "ekran adını sildi"
+
+#: src/qml/Settings/DevicesPage.qml:117
 #, kde-format
 msgid "Edit device name"
 msgstr "Aygıt adını düzenle"
 
-#: src/qml/Settings/DevicesPage.qml:123
+#: src/qml/Settings/DevicesPage.qml:131
 #, kde-format
 msgid "Verify device"
 msgstr "Aygıtı doğrula"
 
-#: src/qml/Settings/DevicesPage.qml:133
+#: src/qml/Settings/DevicesPage.qml:146
 #, kde-format
 msgid "Logout device"
 msgstr "Aygıttan çıkış yap"
 
-#: src/qml/Settings/DevicesPage.qml:153
+#: src/qml/Settings/DevicesPage.qml:170
 #, kde-format
 msgid "Remove device"
 msgstr "Aygıtı kaldır"
 
-#: src/qml/Settings/DevicesPage.qml:157
+#: src/qml/Settings/DevicesPage.qml:174
 #, kde-format
 msgid "Password:"
 msgstr "Parola:"
 
-#: src/qml/Settings/DevicesPage.qml:161
+#: src/qml/Settings/DevicesPage.qml:178
 #, kde-format
 msgid "Confirm"
 msgstr "Onayla"
@@ -2740,9 +2743,11 @@ msgid "Intermixed"
 msgstr "Karışık"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:153
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "Chat Editor"
+#| msgid "Editor:"
 msgctxt "Chat Editor"
-msgid "Editor:"
+msgid "Editor"
 msgstr "Düzenleyici:"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:157
@@ -2751,8 +2756,9 @@ msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "Son iletinizi düzenlemek için s/metin/yenisi sözdizimini kullan"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:168
-#, kde-format
-msgid "Send Typing Notifications"
+#, fuzzy, kde-format
+#| msgid "Send Typing Notifications"
+msgid "Send typing notifications"
 msgstr "Yazıyor bildirimlerini gönder"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:185
@@ -2761,8 +2767,9 @@ msgid "Developer Settings"
 msgstr "Geliştirici Ayarları"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:188
-#, kde-format
-msgid "Enable Developer Tools"
+#, fuzzy, kde-format
+#| msgid "Enable Developer Tools"
+msgid "Enable developer tools"
 msgstr "Geliştirici Araçlarını Etkinleştir"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:14
@@ -3100,3 +3107,12 @@ msgstr "URL açılamadı"
 #, kde-format
 msgid "Show"
 msgstr "Göster"
+
+#~ msgid "Timeline"
+#~ msgstr "Zaman Akışı"
+
+#~ msgid "In Chat"
+#~ msgstr "Sohbette"
+
+#~ msgid "Themes"
+#~ msgstr "Temalar"

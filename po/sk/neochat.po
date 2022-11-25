@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-24 00:45+0000\n"
+"POT-Creation-Date: 2022-11-25 00:46+0000\n"
 "PO-Revision-Date: 2022-04-18 17:58+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1243,7 +1243,7 @@ msgstr "(upravené)"
 msgid "Video"
 msgstr "Video"
 
-#: src/qml/Component/UserInfo.qml:58 src/qml/Settings/AccountsPage.qml:82
+#: src/qml/Component/UserInfo.qml:58 src/qml/Settings/AccountsPage.qml:83
 #, fuzzy, kde-format
 #| msgid "Add an account"
 msgid "Add Account"
@@ -1266,7 +1266,7 @@ msgstr "Prihlásenie"
 msgid "Edit this account"
 msgstr "Upraviť tento účet"
 
-#: src/qml/Component/UserInfo.qml:145 src/qml/Settings/AccountsPage.qml:35
+#: src/qml/Component/UserInfo.qml:145 src/qml/Settings/AccountsPage.qml:36
 #, fuzzy, kde-format
 #| msgctxt "@title:menu Account detail dialog"
 #| msgid "Account detail"
@@ -2631,17 +2631,17 @@ msgstr "Domáci server:"
 msgid "Accounts"
 msgstr "Kontá"
 
-#: src/qml/Settings/AccountsPage.qml:99
+#: src/qml/Settings/AccountsPage.qml:100
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Heslo úspešne zmenené"
 
-#: src/qml/Settings/AccountsPage.qml:101
+#: src/qml/Settings/AccountsPage.qml:102
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Zadané nesprávne heslo"
 
-#: src/qml/Settings/AccountsPage.qml:103
+#: src/qml/Settings/AccountsPage.qml:104
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Neznámy problém pri pokuse o zmenu hesla"
@@ -2669,39 +2669,34 @@ msgstr "Bubliny"
 msgid "Compact"
 msgstr "Kompaktné"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:210
+#: src/qml/Settings/AppearanceSettingsPage.qml:221
 #, fuzzy, kde-format
-#| msgid "Timeline:"
-msgid "Timeline"
-msgstr "Časová os:"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:214
-#, kde-format
-msgid "Show Fancy Effects"
+#| msgid "Show Fancy Effects"
+msgid "Show fancy effects in chat"
 msgstr "Zobraziť pekné efekty"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:241
+#: src/qml/Settings/AppearanceSettingsPage.qml:235
 #, kde-format
 msgid "Use transparent chat page"
 msgstr "Používať priehľadnú stránku chatu"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:259
+#: src/qml/Settings/AppearanceSettingsPage.qml:254
 #, fuzzy, kde-format
 #| msgid "Transparency:"
 msgid "Transparency"
 msgstr "Priehľadnosť:"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:276
+#: src/qml/Settings/AppearanceSettingsPage.qml:271
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr ""
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:289
+#: src/qml/Settings/AppearanceSettingsPage.qml:284
 #, kde-format
 msgid "Show your messages on the right"
 msgstr ""
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:302
+#: src/qml/Settings/AppearanceSettingsPage.qml:297
 #, kde-format
 msgid "Show links preview in the chat messages"
 msgstr ""
@@ -2713,21 +2708,19 @@ msgid "Show Avatar"
 msgstr "Zobraziť avatara používateľa"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:318
-#, fuzzy, kde-format
-#| msgid "Chat"
-msgid "In Chat"
-msgstr "Rozhovor"
+#, kde-format
+msgid "In chat"
+msgstr ""
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:328
 #, kde-format
-msgid "In Sidebar"
+msgid "In sidebar"
 msgstr ""
 
 #: src/qml/Settings/ColorScheme.qml:15
-#, fuzzy, kde-format
-#| msgid "Theme:"
-msgid "Themes"
-msgstr "Téma:"
+#, kde-format
+msgid "Color theme"
+msgstr ""
 
 #: src/qml/Settings/DevicesPage.qml:14 src/qml/Settings/DevicesPage.qml:26
 #: src/qml/Settings/SettingsPage.qml:48
@@ -2741,33 +2734,47 @@ msgstr "Zariadenia"
 msgid "New device name"
 msgstr "Upraviť názov zariadenia"
 
-#: src/qml/Settings/DevicesPage.qml:114
+#: src/qml/Settings/DevicesPage.qml:95
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "Cancel editing display name"
+msgstr "vymazali svoje zobrazované meno"
+
+#: src/qml/Settings/DevicesPage.qml:102
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "Confirm new display name"
+msgstr "vymazali svoje zobrazované meno"
+
+#: src/qml/Settings/DevicesPage.qml:117
 #, kde-format
 msgid "Edit device name"
 msgstr "Upraviť názov zariadenia"
 
-#: src/qml/Settings/DevicesPage.qml:123
+#: src/qml/Settings/DevicesPage.qml:131
 #, fuzzy, kde-format
 #| msgid "Edit device"
 msgid "Verify device"
 msgstr "Upraviť zariadenie"
 
-#: src/qml/Settings/DevicesPage.qml:133
+#: src/qml/Settings/DevicesPage.qml:146
 #, kde-format
 msgid "Logout device"
 msgstr "Odhlásiť zariadenie"
 
-#: src/qml/Settings/DevicesPage.qml:153
+#: src/qml/Settings/DevicesPage.qml:170
 #, kde-format
 msgid "Remove device"
 msgstr "Odstrániť zariadenie"
 
-#: src/qml/Settings/DevicesPage.qml:157
+#: src/qml/Settings/DevicesPage.qml:174
 #, kde-format
 msgid "Password:"
 msgstr "Heslo:"
 
-#: src/qml/Settings/DevicesPage.qml:161
+#: src/qml/Settings/DevicesPage.qml:178
 #, kde-format
 msgid "Confirm"
 msgstr "Potvrdiť"
@@ -2866,7 +2873,7 @@ msgstr "Premiešané"
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "Chat Editor"
-msgid "Editor:"
+msgid "Editor"
 msgstr "Upraviť"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:157
@@ -2877,7 +2884,7 @@ msgstr "Na úpravu svojej poslednej správy použite syntax s/text/náhrada"
 #: src/qml/Settings/GeneralSettingsPage.qml:168
 #, fuzzy, kde-format
 #| msgid "Show notifications"
-msgid "Send Typing Notifications"
+msgid "Send typing notifications"
 msgstr "Zobraziť upozornenia"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:185
@@ -2888,7 +2895,7 @@ msgstr "Nastavenia"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:188
 #, kde-format
-msgid "Enable Developer Tools"
+msgid "Enable developer tools"
 msgstr ""
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:14
@@ -3245,6 +3252,21 @@ msgstr ""
 #, kde-format
 msgid "Show"
 msgstr "Zobraziť"
+
+#, fuzzy
+#~| msgid "Timeline:"
+#~ msgid "Timeline"
+#~ msgstr "Časová os:"
+
+#, fuzzy
+#~| msgid "Chat"
+#~ msgid "In Chat"
+#~ msgstr "Rozhovor"
+
+#, fuzzy
+#~| msgid "Theme:"
+#~ msgid "Themes"
+#~ msgstr "Téma:"
 
 #~ msgid "Displays action"
 #~ msgstr "Zobrazí akciu"

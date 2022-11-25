@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-24 00:45+0000\n"
-"PO-Revision-Date: 2022-11-18 08:08+0100\n"
+"POT-Creation-Date: 2022-11-25 00:46+0000\n"
+"PO-Revision-Date: 2022-11-24 06:05+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -52,10 +52,8 @@ msgid "Sends the given emote colored as a rainbow"
 msgstr "Emandako aurpegiera ostadar gisa koloreztatuta bidaltzen du"
 
 #: src/actionsmodel.cpp:111
-#, fuzzy
-#| msgid "Sends the given message as a notice"
 msgid "Sends the given message as plain text"
-msgstr "Emandako mezua oharpen gisa bidaltzen du"
+msgstr "Emandako mezua testu arrunt gisa bidaltzen du"
 
 #: src/actionsmodel.cpp:127
 msgid "Sends the given message as a spoiler"
@@ -231,113 +229,88 @@ msgid "React to the message with the given text"
 msgstr "Erreakzionatu mezuari emanik testuarekin"
 
 #: src/actionsmodel.cpp:417
-#, fuzzy, kde-format
-#| msgctxt "<user> is banned from this room."
-#| msgid "%1 is banned from this room."
+#, kde-format
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
-msgstr "%1 gela honetan debekatuta dago."
+msgstr "%1 gela honetan dagoeneko debekatuta dago."
 
 #: src/actionsmodel.cpp:423
-#, fuzzy, kde-format
-#| msgid "You are already in this room."
+#, kde-format
 msgid "You are not allowed to ban users from this room."
-msgstr "Dagoeneko gela honetan zaude."
+msgstr "Ez zaizu uzten gela honetan erabiltzaileak debekatzen."
 
 #: src/actionsmodel.cpp:429
-#, fuzzy, kde-format
-#| msgid "You are already in this room."
+#, kde-format
 msgctxt "You are not allowed to ban <username> from this room."
 msgid "You are not allowed to ban %1 from this room."
-msgstr "Dagoeneko gela honetan zaude."
+msgstr "Ez zaizu uzten gela honetan %1 debekatzen."
 
 #: src/actionsmodel.cpp:433
-#, fuzzy, kde-format
-#| msgctxt "<user> is banned from this room."
-#| msgid "%1 is banned from this room."
+#, kde-format
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
-msgstr "%1 gela honetan debekatuta dago."
+msgstr "%1 gela honetan debekatuta da."
 
 #: src/actionsmodel.cpp:438 src/actionsmodel.cpp:513
-#, fuzzy
-#| msgid "<user id>"
 msgid "<user id> [<reason>]"
-msgstr "<erabiltzaile-id>"
+msgstr "<erabiltzaile-id> [<arrazoia>]"
 
 #: src/actionsmodel.cpp:439
-#, fuzzy
-#| msgid "Ignores the given user"
 msgid "Bans the given user"
-msgstr "Emaniko erabiltzaileari ezikusi egiten dio"
+msgstr "Emaniko erabiltzailea debekatzen du"
 
 #: src/actionsmodel.cpp:453
-#, fuzzy, kde-format
-#| msgid "You are already in this room."
+#, kde-format
 msgid "You are not allowed to unban users from this room."
-msgstr "Dagoeneko gela honetan zaude."
+msgstr "Ez zaizu uzten gela honetan erabiltzaileei debekua kentzen."
 
 #: src/actionsmodel.cpp:459
-#, fuzzy, kde-format
-#| msgctxt "<user> is banned from this room."
-#| msgid "%1 is banned from this room."
+#, kde-format
 msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
-msgstr "%1 gela honetan debekatuta dago."
+msgstr "%1 ez dago gela honetan debekatuta."
 
 #: src/actionsmodel.cpp:464
-#, fuzzy, kde-format
-#| msgctxt "<user> is banned from this room."
-#| msgid "%1 is banned from this room."
+#, kde-format
 msgctxt "<username> was unbanned from this room."
 msgid "%1 was unbanned from this room."
-msgstr "%1 gela honetan debekatuta dago."
+msgstr "%1(e)ri gela honetako debekatua kendu zaio."
 
 #: src/actionsmodel.cpp:471
-#, fuzzy
-#| msgid "Ignores the given user"
 msgid "Removes the ban of the given user"
-msgstr "Emaniko erabiltzaileari ezikusi egiten dio"
+msgstr "Emaniko erabiltzailearen kentzen du"
 
 #: src/actionsmodel.cpp:486
 #, kde-format
 msgid "You cannot kick yourself from the room."
-msgstr ""
+msgstr "Ezin duzu zeure burua gelatik bota."
 
 #: src/actionsmodel.cpp:491
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgctxt "<username> is not in this room"
 msgid "%1 is not in this room."
-msgstr "%1 dagoeneko gela honetan dago."
+msgstr "%1 ez dago gela honetan."
 
 #: src/actionsmodel.cpp:498
-#, fuzzy, kde-format
-#| msgid "You are already in this room."
+#, kde-format
 msgid "You are not allowed to kick users from this room."
-msgstr "Dagoeneko gela honetan zaude."
+msgstr "Ez zaizu gelatik erabiltzaileak botatzen uzten."
 
 #: src/actionsmodel.cpp:504
-#, fuzzy, kde-format
-#| msgid "You are already in this room."
+#, kde-format
 msgctxt "You are not allowed to kick <username> from this room"
 msgid "You are not allowed to kick %1 from this room."
-msgstr "Dagoeneko gela honetan zaude."
+msgstr "Ez zaizu gelatik %1 erabiltzailea botatzen uzten."
 
 #: src/actionsmodel.cpp:508
-#, fuzzy, kde-format
-#| msgctxt "<user> is banned from this room."
-#| msgid "%1 is banned from this room."
+#, kde-format
 msgctxt "<username> was kicked from this room."
 msgid "%1 was kicked from this room."
-msgstr "%1 gela honetan debekatuta dago."
+msgstr "%1 gela honetatik bota da."
 
 #: src/actionsmodel.cpp:514
-#, fuzzy
-#| msgid "Invites the user to this room"
 msgid "Removes the user from the room"
-msgstr "Erabiltzailea gela honetara gonbidatzen du"
+msgstr "Erabiltzailea gelatik kentzen du"
 
 #: src/collapsestateproxymodel.cpp:69
 #, kde-format
@@ -426,34 +399,28 @@ msgid "The room id you are trying to join is not valid"
 msgstr "Batzen saiatzen ari zaren gelaren IDa ez da baliozkoa"
 
 #: src/filetransferpseudojob.cpp:47
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to download its file"
-#| msgid "Download"
+#, kde-format
 msgctxt "Job heading, like 'Copying'"
 msgid "Downloading"
-msgstr "Zama-jaitsi"
+msgstr "Zama-jaisten"
 
 #: src/filetransferpseudojob.cpp:47
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgctxt "Job heading, like 'Copying'"
 msgid "Uploading"
-msgstr "Zamatzen..."
+msgstr "Zama-igotzen"
 
 #: src/filetransferpseudojob.cpp:48
-#, fuzzy, kde-format
-#| msgid "View Source"
+#, kde-format
 msgctxt "The URL being downloaded/uploaded"
 msgid "Source"
-msgstr "Ikusi sorburua"
+msgstr "Sorburua"
 
 #: src/filetransferpseudojob.cpp:49
-#, fuzzy, kde-format
-#| msgid "Send invitation"
+#, kde-format
 msgctxt "The location being downloaded to"
 msgid "Destination"
-msgstr "Bidali gonbita"
+msgstr "Jomuga"
 
 #: src/login.cpp:88 src/login.cpp:99
 #, kde-format
@@ -483,7 +450,7 @@ msgstr "Carl Schwan"
 #: src/main.cpp:153 src/main.cpp:154 src/main.cpp:155
 #, kde-format
 msgid "Maintainer"
-msgstr ""
+msgstr "Arduraduna"
 
 #: src/main.cpp:154
 #, kde-format
@@ -493,7 +460,7 @@ msgstr "Tobias Fella"
 #: src/main.cpp:155
 #, kde-format
 msgid "James Graham"
-msgstr ""
+msgstr "James Graham"
 
 #: src/main.cpp:156
 #, kde-format
@@ -503,17 +470,17 @@ msgstr "Black Hat"
 #: src/main.cpp:156
 #, kde-format
 msgid "Original author of Spectral"
-msgstr ""
+msgstr "«Spectral»en Jatorrizko egilea"
 
 #: src/main.cpp:157
 #, kde-format
 msgid "Alexey Rusakov"
-msgstr ""
+msgstr "Alexey Rusakov"
 
 #: src/main.cpp:157
 #, kde-format
 msgid "Maintainer of Quotient"
-msgstr ""
+msgstr "«Quotient»en arduraduna"
 
 #: src/main.cpp:158
 #, kde-format
@@ -1188,7 +1155,7 @@ msgstr "(editatu da)"
 msgid "Video"
 msgstr "Bideoa"
 
-#: src/qml/Component/UserInfo.qml:58 src/qml/Settings/AccountsPage.qml:82
+#: src/qml/Component/UserInfo.qml:58 src/qml/Settings/AccountsPage.qml:83
 #, kde-format
 msgid "Add Account"
 msgstr "Gehitu kontua"
@@ -1209,7 +1176,7 @@ msgstr "Saio-hasi"
 msgid "Edit this account"
 msgstr "Editatu kontu hau"
 
-#: src/qml/Component/UserInfo.qml:145 src/qml/Settings/AccountsPage.qml:35
+#: src/qml/Component/UserInfo.qml:145 src/qml/Settings/AccountsPage.qml:36
 #, kde-format
 msgid "Account editor"
 msgstr "Kontu-editorea"
@@ -2487,7 +2454,7 @@ msgstr "Erabiltzailearen informazioa"
 #: src/qml/Settings/AccountEditorPage.qml:73
 #, kde-format
 msgid "Remove current avatar"
-msgstr ""
+msgstr "Kendu uneko abatarra"
 
 #: src/qml/Settings/AccountEditorPage.qml:88
 #, kde-format
@@ -2556,17 +2523,17 @@ msgstr "Etxeko zerbitzariaren URLa"
 msgid "Accounts"
 msgstr "Kontuak"
 
-#: src/qml/Settings/AccountsPage.qml:99
+#: src/qml/Settings/AccountsPage.qml:100
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Pasahitza behar bezala aldatu da"
 
-#: src/qml/Settings/AccountsPage.qml:101
+#: src/qml/Settings/AccountsPage.qml:102
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Pasahitz okerra sartu da"
 
-#: src/qml/Settings/AccountsPage.qml:103
+#: src/qml/Settings/AccountsPage.qml:104
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Arazo ezezaguna pasahitza aldatzen saiatzean"
@@ -2592,37 +2559,33 @@ msgstr "Burbuilak"
 msgid "Compact"
 msgstr "Trinkoa"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:210
-#, kde-format
-msgid "Timeline"
-msgstr "Denbora-lerroa"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:214
-#, kde-format
-msgid "Show Fancy Effects"
+#: src/qml/Settings/AppearanceSettingsPage.qml:221
+#, fuzzy, kde-format
+#| msgid "Show Fancy Effects"
+msgid "Show fancy effects in chat"
 msgstr "Erakutsi efektu dotoreak"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:241
+#: src/qml/Settings/AppearanceSettingsPage.qml:235
 #, kde-format
 msgid "Use transparent chat page"
 msgstr "Erabili berriketa orri gardena"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:259
+#: src/qml/Settings/AppearanceSettingsPage.qml:254
 #, kde-format
 msgid "Transparency"
 msgstr "Gardentasuna"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:276
+#: src/qml/Settings/AppearanceSettingsPage.qml:271
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr "Berriketa orri gardena gaituta badago bakarrik gaituko da."
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:289
+#: src/qml/Settings/AppearanceSettingsPage.qml:284
 #, kde-format
 msgid "Show your messages on the right"
 msgstr "Erakutsi zure mezuak eskuinean"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:302
+#: src/qml/Settings/AppearanceSettingsPage.qml:297
 #, kde-format
 msgid "Show links preview in the chat messages"
 msgstr "Erakutsi estekaren aurreikuspegia berriketa-mezuetan"
@@ -2634,18 +2597,19 @@ msgstr "Erakutsi abatarra"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:318
 #, kde-format
-msgid "In Chat"
-msgstr "Berriketan"
+msgid "In chat"
+msgstr ""
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:328
-#, kde-format
-msgid "In Sidebar"
+#, fuzzy, kde-format
+#| msgid "In Sidebar"
+msgid "In sidebar"
 msgstr "Alboko-barran"
 
 #: src/qml/Settings/ColorScheme.qml:15
 #, kde-format
-msgid "Themes"
-msgstr "Gaiak"
+msgid "Color theme"
+msgstr ""
 
 #: src/qml/Settings/DevicesPage.qml:14 src/qml/Settings/DevicesPage.qml:26
 #: src/qml/Settings/SettingsPage.qml:48
@@ -2658,32 +2622,46 @@ msgstr "Gailuak"
 msgid "New device name"
 msgstr "Gailu berriaren izena"
 
-#: src/qml/Settings/DevicesPage.qml:114
+#: src/qml/Settings/DevicesPage.qml:95
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "Cancel editing display name"
+msgstr "azaldutako bere izena garbitu du"
+
+#: src/qml/Settings/DevicesPage.qml:102
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "Confirm new display name"
+msgstr "azaldutako bere izena garbitu du"
+
+#: src/qml/Settings/DevicesPage.qml:117
 #, kde-format
 msgid "Edit device name"
 msgstr "Editatu gailuaren izena"
 
-#: src/qml/Settings/DevicesPage.qml:123
+#: src/qml/Settings/DevicesPage.qml:131
 #, kde-format
 msgid "Verify device"
 msgstr "Egiaztatu gailua"
 
-#: src/qml/Settings/DevicesPage.qml:133
+#: src/qml/Settings/DevicesPage.qml:146
 #, kde-format
 msgid "Logout device"
 msgstr "Gailua saio-itxi"
 
-#: src/qml/Settings/DevicesPage.qml:153
+#: src/qml/Settings/DevicesPage.qml:170
 #, kde-format
 msgid "Remove device"
 msgstr "Kendu gailua"
 
-#: src/qml/Settings/DevicesPage.qml:157
+#: src/qml/Settings/DevicesPage.qml:174
 #, kde-format
 msgid "Password:"
 msgstr "Pasahitza:"
 
-#: src/qml/Settings/DevicesPage.qml:161
+#: src/qml/Settings/DevicesPage.qml:178
 #, kde-format
 msgid "Confirm"
 msgstr "Berretsi"
@@ -2774,9 +2752,11 @@ msgid "Intermixed"
 msgstr "Elkarren artean nahastuta"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:153
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "Chat Editor"
+#| msgid "Editor:"
 msgctxt "Chat Editor"
-msgid "Editor:"
+msgid "Editor"
 msgstr "Editorea:"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:157
@@ -2785,8 +2765,9 @@ msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "Erabili «s/testua/ordezko sintaxia» zure azken mezua editatzeko"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:168
-#, kde-format
-msgid "Send Typing Notifications"
+#, fuzzy, kde-format
+#| msgid "Send Typing Notifications"
+msgid "Send typing notifications"
 msgstr "Bidali tekleatze-jakinarazpenak"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:185
@@ -2795,8 +2776,9 @@ msgid "Developer Settings"
 msgstr "Garatzailearen ezarpenak"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:188
-#, kde-format
-msgid "Enable Developer Tools"
+#, fuzzy, kde-format
+#| msgid "Enable Developer Tools"
+msgid "Enable developer tools"
 msgstr "Gaitu garatzailearen tresnak"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:14
@@ -3135,6 +3117,15 @@ msgstr "Ezin izan du URLa ireki"
 #, kde-format
 msgid "Show"
 msgstr "Erakutsi"
+
+#~ msgid "Timeline"
+#~ msgstr "Denbora-lerroa"
+
+#~ msgid "In Chat"
+#~ msgstr "Berriketan"
+
+#~ msgid "Themes"
+#~ msgstr "Gaiak"
 
 #~ msgid "Displays action"
 #~ msgstr "Ekintza azaltzen du"

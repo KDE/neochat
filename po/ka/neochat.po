@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-24 00:45+0000\n"
+"POT-Creation-Date: 2022-11-25 00:46+0000\n"
 "PO-Revision-Date: 2022-11-22 07:53+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1155,7 +1155,7 @@ msgstr " (ჩასწორებულია)"
 msgid "Video"
 msgstr "ვიდეო"
 
-#: src/qml/Component/UserInfo.qml:58 src/qml/Settings/AccountsPage.qml:82
+#: src/qml/Component/UserInfo.qml:58 src/qml/Settings/AccountsPage.qml:83
 #, kde-format
 msgid "Add Account"
 msgstr "ანგარიშის დამატება"
@@ -1176,7 +1176,7 @@ msgstr "შესვლა"
 msgid "Edit this account"
 msgstr "ამ ანგარიშის ჩასწორება"
 
-#: src/qml/Component/UserInfo.qml:145 src/qml/Settings/AccountsPage.qml:35
+#: src/qml/Component/UserInfo.qml:145 src/qml/Settings/AccountsPage.qml:36
 #, kde-format
 msgid "Account editor"
 msgstr "ანგარიშების რედაქტორი"
@@ -2491,17 +2491,17 @@ msgstr "სახლის სერვერის URL"
 msgid "Accounts"
 msgstr "ანგარიშები"
 
-#: src/qml/Settings/AccountsPage.qml:99
+#: src/qml/Settings/AccountsPage.qml:100
 #, kde-format
 msgid "Password changed successfully"
 msgstr "პაროლი წარმატებით შეიცვალა"
 
-#: src/qml/Settings/AccountsPage.qml:101
+#: src/qml/Settings/AccountsPage.qml:102
 #, kde-format
 msgid "Wrong password entered"
 msgstr "შეყვანილი პაროლი არასწორია"
 
-#: src/qml/Settings/AccountsPage.qml:103
+#: src/qml/Settings/AccountsPage.qml:104
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr ""
@@ -2527,37 +2527,32 @@ msgstr "ბუშტები"
 msgid "Compact"
 msgstr "დაპატარავება"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:210
+#: src/qml/Settings/AppearanceSettingsPage.qml:221
 #, kde-format
-msgid "Timeline"
-msgstr "თაიმლაინი"
-
-#: src/qml/Settings/AppearanceSettingsPage.qml:214
-#, kde-format
-msgid "Show Fancy Effects"
+msgid "Show fancy effects in chat"
 msgstr ""
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:241
+#: src/qml/Settings/AppearanceSettingsPage.qml:235
 #, kde-format
 msgid "Use transparent chat page"
 msgstr ""
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:259
+#: src/qml/Settings/AppearanceSettingsPage.qml:254
 #, kde-format
 msgid "Transparency"
 msgstr "გამჭვირვალობა"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:276
+#: src/qml/Settings/AppearanceSettingsPage.qml:271
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr ""
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:289
+#: src/qml/Settings/AppearanceSettingsPage.qml:284
 #, kde-format
 msgid "Show your messages on the right"
 msgstr ""
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:302
+#: src/qml/Settings/AppearanceSettingsPage.qml:297
 #, kde-format
 msgid "Show links preview in the chat messages"
 msgstr ""
@@ -2569,18 +2564,19 @@ msgstr "ავატარის ჩვენება"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:318
 #, kde-format
-msgid "In Chat"
-msgstr "ჩატში"
+msgid "In chat"
+msgstr ""
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:328
-#, kde-format
-msgid "In Sidebar"
+#, fuzzy, kde-format
+#| msgid "In Sidebar"
+msgid "In sidebar"
 msgstr "გვერდით ზოლში"
 
 #: src/qml/Settings/ColorScheme.qml:15
 #, kde-format
-msgid "Themes"
-msgstr "თემები"
+msgid "Color theme"
+msgstr ""
 
 #: src/qml/Settings/DevicesPage.qml:14 src/qml/Settings/DevicesPage.qml:26
 #: src/qml/Settings/SettingsPage.qml:48
@@ -2593,32 +2589,46 @@ msgstr "მოწყობილობები"
 msgid "New device name"
 msgstr "ახალი მოწყობილობის სახელი"
 
-#: src/qml/Settings/DevicesPage.qml:114
+#: src/qml/Settings/DevicesPage.qml:95
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "Cancel editing display name"
+msgstr "გაასუფთავა მისი საჩვენებელი სახელი"
+
+#: src/qml/Settings/DevicesPage.qml:102
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "Confirm new display name"
+msgstr "გაასუფთავა მისი საჩვენებელი სახელი"
+
+#: src/qml/Settings/DevicesPage.qml:117
 #, kde-format
 msgid "Edit device name"
 msgstr "მოწყობილობის სახელის ჩასწორება"
 
-#: src/qml/Settings/DevicesPage.qml:123
+#: src/qml/Settings/DevicesPage.qml:131
 #, kde-format
 msgid "Verify device"
 msgstr "მოწყობილობის შემოწმება"
 
-#: src/qml/Settings/DevicesPage.qml:133
+#: src/qml/Settings/DevicesPage.qml:146
 #, kde-format
 msgid "Logout device"
 msgstr "მოწყობილობიდან გასვლა"
 
-#: src/qml/Settings/DevicesPage.qml:153
+#: src/qml/Settings/DevicesPage.qml:170
 #, kde-format
 msgid "Remove device"
 msgstr "მოწყობილობის წაშლა"
 
-#: src/qml/Settings/DevicesPage.qml:157
+#: src/qml/Settings/DevicesPage.qml:174
 #, kde-format
 msgid "Password:"
 msgstr "პაროლი:"
 
-#: src/qml/Settings/DevicesPage.qml:161
+#: src/qml/Settings/DevicesPage.qml:178
 #, kde-format
 msgid "Confirm"
 msgstr "დადასტურება"
@@ -2707,9 +2717,11 @@ msgid "Intermixed"
 msgstr ""
 
 #: src/qml/Settings/GeneralSettingsPage.qml:153
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "Chat Editor"
+#| msgid "Editor:"
 msgctxt "Chat Editor"
-msgid "Editor:"
+msgid "Editor"
 msgstr "ჩასწორება:"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:157
@@ -2718,9 +2730,10 @@ msgid "Use s/text/replacement syntax to edit your last message"
 msgstr ""
 
 #: src/qml/Settings/GeneralSettingsPage.qml:168
-#, kde-format
-msgid "Send Typing Notifications"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Unmute notifications"
+msgid "Send typing notifications"
+msgstr "გაფრთხილებების დადუმების მოხსნა"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:185
 #, kde-format
@@ -2728,9 +2741,10 @@ msgid "Developer Settings"
 msgstr "დეველოპერის პარამეტრები"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:188
-#, kde-format
-msgid "Enable Developer Tools"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Developer Tools"
+msgid "Enable developer tools"
+msgstr "პროგრამირება"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:14
 #, kde-format
@@ -3065,6 +3079,15 @@ msgstr "URL-ის გახსნის შეცდომა"
 #, kde-format
 msgid "Show"
 msgstr "ჩვენება"
+
+#~ msgid "Timeline"
+#~ msgstr "თაიმლაინი"
+
+#~ msgid "In Chat"
+#~ msgstr "ჩატში"
+
+#~ msgid "Themes"
+#~ msgstr "თემები"
 
 #~ msgid "Displays action"
 #~ msgstr "ქმედების ჩვენება"
