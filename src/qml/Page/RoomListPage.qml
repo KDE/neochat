@@ -332,6 +332,15 @@ Kirigami.ScrollablePage {
                 }
 
                 trailing: RowLayout {
+                    Kirigami.Icon {
+                        source: "notifications-disabled"
+                        enabled: false
+                        implicitWidth: Kirigami.Units.iconSizes.smallMedium
+                        implicitHeight: Kirigami.Units.iconSizes.smallMedium
+                        Layout.rightMargin: Kirigami.Units.smallSpacing
+                        visible: currentRoom.pushNotificationState === PushNotificationState.Mute && !configButton.visible && unreadCount <= 0
+                        Accessible.name: i18n("Muted room")
+                    }
                     QQC2.Label {
                         text: notificationCount > 0 ? notificationCount : "●"
                         visible: unreadCount > 0
