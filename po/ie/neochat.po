@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-25 00:46+0000\n"
+"POT-Creation-Date: 2022-11-26 00:46+0000\n"
 "PO-Revision-Date: 2022-10-28 19:18+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -415,15 +415,82 @@ msgstr ""
 msgid "Unable to read access token"
 msgstr "Ne posset acessar «%s»"
 
-#: src/controller.cpp:720
+#: src/controller.cpp:709
 #, fuzzy, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "Ne successat crear un contextu OpenGL"
 
-#: src/controller.cpp:733
+#: src/controller.cpp:722
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Li ID de chambre a quel vu vole adherer vos es ínvalid"
+
+#: src/emojimodel.cpp:128
+#, kde-format
+msgctxt "Previously used emojis"
+msgid "History"
+msgstr ""
+
+#: src/emojimodel.cpp:133
+#, fuzzy, kde-format
+msgctxt "'Custom' is a category of emoji"
+msgid "Custom"
+msgstr "Nonstandard"
+
+#: src/emojimodel.cpp:138
+#, kde-format
+msgctxt "'Smileys' is a category of emoji"
+msgid "Smileys"
+msgstr ""
+
+#: src/emojimodel.cpp:143
+#, kde-format
+msgctxt "'People' is a category of emoji"
+msgid "People"
+msgstr ""
+
+#: src/emojimodel.cpp:148
+#, kde-format
+msgctxt "'Nature' is a category of emoji"
+msgid "Nature"
+msgstr ""
+
+#: src/emojimodel.cpp:153
+#, kde-format
+msgctxt "'Food' is a category of emoji"
+msgid "Food"
+msgstr ""
+
+#: src/emojimodel.cpp:158
+#, kde-format
+msgctxt "'Activities' is a category of emoji"
+msgid "Activities"
+msgstr ""
+
+#: src/emojimodel.cpp:163
+#, kde-format
+msgctxt "'Travel' is  a category of emoji"
+msgid "Travel"
+msgstr ""
+
+#: src/emojimodel.cpp:168
+#, fuzzy, kde-format
+#| msgid "Reject"
+msgctxt "'Objects' is a category of emoji"
+msgid "Objects"
+msgstr "Rejecter"
+
+#: src/emojimodel.cpp:173
+#, kde-format
+msgctxt "'Symbols' is a category of emoji"
+msgid "Symbols"
+msgstr ""
+
+#: src/emojimodel.cpp:178
+#, kde-format
+msgctxt "'Flags' is a category of emoji"
+msgid "Flags"
+msgstr ""
 
 #: src/filetransferpseudojob.cpp:47
 #, fuzzy, kde-format
@@ -539,12 +606,12 @@ msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr ""
 
-#: src/main.cpp:270
+#: src/main.cpp:273
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Un cliente del protocol de communication Matrix"
 
-#: src/main.cpp:271
+#: src/main.cpp:274
 #, fuzzy, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Ínsupportat schema de URL"
@@ -819,7 +886,7 @@ msgstr "actualisat %1 statu"
 msgid "Unknown event"
 msgstr "Ínconosset eveniment"
 
-#: src/neochatroom.cpp:1154 src/neochatroom.cpp:1155
+#: src/neochatroom.cpp:1188 src/neochatroom.cpp:1189
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Raport sta inviat successosimen."
@@ -884,38 +951,38 @@ msgstr "Modificar"
 msgid "Cancel sending Image"
 msgstr "Anullar emission del image"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:81
+#: src/qml/Component/ChatBox/ChatBar.qml:82
 #, kde-format
 msgid ""
 "This room is encrypted. Sending encrypted messages is not yet supported."
 msgstr ""
 
-#: src/qml/Component/ChatBox/ChatBar.qml:81
+#: src/qml/Component/ChatBox/ChatBar.qml:82
 #, fuzzy, kde-format
 msgid "Edit Message"
 msgstr "Modificar…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:81
+#: src/qml/Component/ChatBox/ChatBar.qml:82
 #, fuzzy, kde-format
 msgid "Send an encrypted message…"
 msgstr "Ciffrat missage"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:81
+#: src/qml/Component/ChatBox/ChatBar.qml:82
 #, fuzzy, kde-format
 msgid "Send a message…"
 msgstr "Ne successat inviar un missage D-Bus"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:168
+#: src/qml/Component/ChatBox/ChatBar.qml:169
 #, fuzzy, kde-format
 msgid "Attach an image or file"
 msgstr "Atachar un file"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:200
+#: src/qml/Component/ChatBox/ChatBar.qml:201
 #, kde-format
 msgid "Add an Emoji"
 msgstr "Adjunter un emoji"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:211
+#: src/qml/Component/ChatBox/ChatBar.qml:212
 #, kde-format
 msgid "Send message"
 msgstr "Inviar li missage"
@@ -941,7 +1008,7 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Anullar li response"
 
-#: src/qml/Component/Emoji/EmojiPicker.qml:61
+#: src/qml/Component/Emoji/EmojiPicker.qml:46
 #, fuzzy, kde-format
 msgid "Custom"
 msgstr "Nonstandard"
@@ -1517,18 +1584,25 @@ msgstr "Remover"
 msgid "Ban this user"
 msgstr "Bannir ti usator"
 
-#: src/qml/Dialog/UserDetailDialog.qml:124
+#: src/qml/Dialog/UserDetailDialog.qml:116
+#, fuzzy, kde-format
+#| msgid "Ban this user"
+msgctxt "@title"
+msgid "Ban User"
+msgstr "Bannir ti usator"
+
+#: src/qml/Dialog/UserDetailDialog.qml:127
 #, kde-format
 msgid "Unban this user"
 msgstr "Debannir ti usator"
 
-#: src/qml/Dialog/UserDetailDialog.qml:137
+#: src/qml/Dialog/UserDetailDialog.qml:140
 #, fuzzy, kde-format
 #| msgid "Delete recent messages by this user"
 msgid "Remove recent messages by this user"
 msgstr "Remover recent missages de ti usator"
 
-#: src/qml/Dialog/UserDetailDialog.qml:142
+#: src/qml/Dialog/UserDetailDialog.qml:145
 #, fuzzy, kde-format
 #| msgctxt "@title"
 #| msgid "Report Message"
@@ -1536,7 +1610,7 @@ msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Raportar li missage"
 
-#: src/qml/Dialog/UserDetailDialog.qml:152
+#: src/qml/Dialog/UserDetailDialog.qml:155
 #, kde-format
 msgid "Open a private chat"
 msgstr "Aperte un privat conversation"
@@ -1869,6 +1943,31 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr ""
 
+#: src/qml/Menu/Timeline/BanSheet.qml:16
+#, fuzzy, kde-format
+#| msgid "Ban this user"
+msgid "Ban User"
+msgstr "Bannir ti usator"
+
+#: src/qml/Menu/Timeline/BanSheet.qml:20
+#, fuzzy, kde-format
+msgid "Reason for banning this user"
+msgstr "Raportante spam..."
+
+#: src/qml/Menu/Timeline/BanSheet.qml:32
+#, kde-format
+msgctxt "@action:button 'Ban' as in 'Ban this user'"
+msgid "Ban"
+msgstr ""
+
+#: src/qml/Menu/Timeline/BanSheet.qml:41
+#: src/qml/Menu/Timeline/RemoveSheet.qml:47
+#: src/qml/Menu/Timeline/ReportSheet.qml:41 src/qml/Page/InviteUserPage.qml:22
+#, kde-format
+msgctxt "@action"
+msgid "Cancel"
+msgstr "Anullar"
+
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:23
 #, fuzzy, kde-format
 msgid "Open Externally"
@@ -1972,13 +2071,6 @@ msgstr "Raportante spam..."
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Remover"
-
-#: src/qml/Menu/Timeline/RemoveSheet.qml:47
-#: src/qml/Menu/Timeline/ReportSheet.qml:41 src/qml/Page/InviteUserPage.qml:22
-#, kde-format
-msgctxt "@action"
-msgid "Cancel"
-msgstr "Anullar"
 
 #: src/qml/Menu/Timeline/ReportSheet.qml:16
 #, kde-format
@@ -2383,7 +2475,7 @@ msgstr "Missage esset respondet"
 msgid "See new room..."
 msgstr "Vu have un nov invitation a un chambre"
 
-#: src/qml/RoomSettings/General.qml:186 src/qml/RoomSettings/Security.qml:71
+#: src/qml/RoomSettings/General.qml:186 src/qml/RoomSettings/Security.qml:118
 #: src/qml/Settings/NetworkProxyPage.qml:108
 #: src/qml/Settings/SonnetConfigPage.qml:326
 #, kde-format
@@ -2447,6 +2539,65 @@ msgstr "Public"
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "Ne successat trovar un io-slave por protocol «%1»."
+
+#: src/qml/RoomSettings/Security.qml:68
+#, kde-format
+msgctxt "@option:check"
+msgid "Message history visibility"
+msgstr ""
+
+#: src/qml/RoomSettings/Security.qml:71
+#, kde-format
+msgctxt "@option:check"
+msgid "Anyone"
+msgstr ""
+
+#: src/qml/RoomSettings/Security.qml:72
+#, kde-format
+msgctxt "@option:check"
+msgid "Anyone, regardless of whether they have joined, can view history."
+msgstr ""
+
+#: src/qml/RoomSettings/Security.qml:80
+#, fuzzy, kde-format
+#| msgid "Members"
+msgctxt "@option:check"
+msgid "Members only"
+msgstr "Membres"
+
+#: src/qml/RoomSettings/Security.qml:81
+#, kde-format
+msgctxt "@option:check"
+msgid ""
+"All members can view the entire message history, even before they joined."
+msgstr ""
+
+#: src/qml/RoomSettings/Security.qml:89
+#, kde-format
+msgctxt "@option:check"
+msgid "Members only (since invite)"
+msgstr ""
+
+#: src/qml/RoomSettings/Security.qml:90
+#, kde-format
+msgctxt "@option:check"
+msgid ""
+"New members can view the message history from the point they were invited to "
+"the room."
+msgstr ""
+
+#: src/qml/RoomSettings/Security.qml:98
+#, kde-format
+msgctxt "@option:check"
+msgid "Members only (since joining)"
+msgstr ""
+
+#: src/qml/RoomSettings/Security.qml:99
+#, kde-format
+msgctxt "@option:check"
+msgid ""
+"New members can view the message history from the point they joined the room."
+msgstr ""
 
 #: src/qml/Settings/About.qml:11
 #, kde-format
@@ -2702,6 +2853,11 @@ msgstr "Fa cader ci por crear un nov playlist"
 #, kde-format
 msgid "Add Emoji..."
 msgstr "Adjunter un emoji..."
+
+#: src/qml/Settings/Emoticons.qml:113
+#, kde-format
+msgid "Images (*.png *.gif *.webp)"
+msgstr ""
 
 #: src/qml/Settings/GeneralSettingsPage.qml:15
 #: src/qml/Settings/NetworkProxyPage.qml:14

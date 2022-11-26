@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-25 00:46+0000\n"
-"PO-Revision-Date: 2022-11-24 06:05+0100\n"
+"POT-Creation-Date: 2022-11-26 00:46+0000\n"
+"PO-Revision-Date: 2022-11-25 20:26+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -388,15 +388,83 @@ msgstr ""
 msgid "Unable to read access token"
 msgstr "Ez da sartzeko tokena irakurtzeko gai"
 
-#: src/controller.cpp:720
+#: src/controller.cpp:709
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "Gela sortzea huts egin du: «%1»"
 
-#: src/controller.cpp:733
+#: src/controller.cpp:722
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Batzen saiatzen ari zaren gelaren IDa ez da baliozkoa"
+
+#: src/emojimodel.cpp:128
+#, kde-format
+msgctxt "Previously used emojis"
+msgid "History"
+msgstr ""
+
+#: src/emojimodel.cpp:133
+#, fuzzy, kde-format
+#| msgid "Custom"
+msgctxt "'Custom' is a category of emoji"
+msgid "Custom"
+msgstr "Norberak finkatua"
+
+#: src/emojimodel.cpp:138
+#, kde-format
+msgctxt "'Smileys' is a category of emoji"
+msgid "Smileys"
+msgstr ""
+
+#: src/emojimodel.cpp:143
+#, kde-format
+msgctxt "'People' is a category of emoji"
+msgid "People"
+msgstr ""
+
+#: src/emojimodel.cpp:148
+#, kde-format
+msgctxt "'Nature' is a category of emoji"
+msgid "Nature"
+msgstr ""
+
+#: src/emojimodel.cpp:153
+#, kde-format
+msgctxt "'Food' is a category of emoji"
+msgid "Food"
+msgstr ""
+
+#: src/emojimodel.cpp:158
+#, kde-format
+msgctxt "'Activities' is a category of emoji"
+msgid "Activities"
+msgstr ""
+
+#: src/emojimodel.cpp:163
+#, kde-format
+msgctxt "'Travel' is  a category of emoji"
+msgid "Travel"
+msgstr ""
+
+#: src/emojimodel.cpp:168
+#, fuzzy, kde-format
+#| msgid "Reject"
+msgctxt "'Objects' is a category of emoji"
+msgid "Objects"
+msgstr "Errefusatu"
+
+#: src/emojimodel.cpp:173
+#, kde-format
+msgctxt "'Symbols' is a category of emoji"
+msgid "Symbols"
+msgstr ""
+
+#: src/emojimodel.cpp:178
+#, kde-format
+msgctxt "'Flags' is a category of emoji"
+msgid "Flags"
+msgstr ""
 
 #: src/filetransferpseudojob.cpp:47
 #, kde-format
@@ -505,12 +573,12 @@ msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (%2 erabiliz eraikia)"
 
-#: src/main.cpp:270
+#: src/main.cpp:273
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Matrix, deszentralizatutako komunikazio protokolorako bezeroa"
 
-#: src/main.cpp:271
+#: src/main.cpp:274
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "matrix onartzen du: URL eskema"
@@ -786,7 +854,7 @@ msgstr "%2(r)en %1 egoera eguneratu da"
 msgid "Unknown event"
 msgstr "Gertaera ezezaguna"
 
-#: src/neochatroom.cpp:1154 src/neochatroom.cpp:1155
+#: src/neochatroom.cpp:1188 src/neochatroom.cpp:1189
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Txosten bidalketa arrakastatsua."
@@ -851,7 +919,7 @@ msgstr "Editatu"
 msgid "Cancel sending Image"
 msgstr "Utzi bertan behera irudi bidalketa"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:81
+#: src/qml/Component/ChatBox/ChatBar.qml:82
 #, kde-format
 msgid ""
 "This room is encrypted. Sending encrypted messages is not yet supported."
@@ -859,32 +927,32 @@ msgstr ""
 "Gela hau zifratuta dago. Zifratutako mezuak bidaltzeko euskarria falta da "
 "oraindik."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:81
+#: src/qml/Component/ChatBox/ChatBar.qml:82
 #, kde-format
 msgid "Edit Message"
 msgstr "Editatu mezua"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:81
+#: src/qml/Component/ChatBox/ChatBar.qml:82
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Bidali zifratutako mezu bat..."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:81
+#: src/qml/Component/ChatBox/ChatBar.qml:82
 #, kde-format
 msgid "Send a message…"
 msgstr "Bidali mezua bat..."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:168
+#: src/qml/Component/ChatBox/ChatBar.qml:169
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Erantsi irudi edo fitxategi bat"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:200
+#: src/qml/Component/ChatBox/ChatBar.qml:201
 #, kde-format
 msgid "Add an Emoji"
 msgstr "Gehitu Emoji bat"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:211
+#: src/qml/Component/ChatBox/ChatBar.qml:212
 #, kde-format
 msgid "Send message"
 msgstr "Bidali mezua"
@@ -910,7 +978,7 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Utzi erantzuna bertan behera"
 
-#: src/qml/Component/Emoji/EmojiPicker.qml:61
+#: src/qml/Component/Emoji/EmojiPicker.qml:46
 #, kde-format
 msgid "Custom"
 msgstr "Norberak finkatua"
@@ -1509,23 +1577,30 @@ msgstr "Kanporatu erabiltzaile hau"
 msgid "Ban this user"
 msgstr "Debekatu erabiltzaile hau"
 
-#: src/qml/Dialog/UserDetailDialog.qml:124
+#: src/qml/Dialog/UserDetailDialog.qml:116
+#, fuzzy, kde-format
+#| msgid "Ban this user"
+msgctxt "@title"
+msgid "Ban User"
+msgstr "Debekatu erabiltzaile hau"
+
+#: src/qml/Dialog/UserDetailDialog.qml:127
 #, kde-format
 msgid "Unban this user"
 msgstr "Erabiltzaile hau debekatzeari utzi"
 
-#: src/qml/Dialog/UserDetailDialog.qml:137
+#: src/qml/Dialog/UserDetailDialog.qml:140
 #, kde-format
 msgid "Remove recent messages by this user"
 msgstr "Kendu erabiltzaile horren azken aldiko mezuak"
 
-#: src/qml/Dialog/UserDetailDialog.qml:142
+#: src/qml/Dialog/UserDetailDialog.qml:145
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Kendu mezuak"
 
-#: src/qml/Dialog/UserDetailDialog.qml:152
+#: src/qml/Dialog/UserDetailDialog.qml:155
 #, kde-format
 msgid "Open a private chat"
 msgstr "Ireki berriketa pribatu bat"
@@ -1861,6 +1936,32 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "Utzi espazioa"
 
+#: src/qml/Menu/Timeline/BanSheet.qml:16
+#, fuzzy, kde-format
+#| msgid "Ban this user"
+msgid "Ban User"
+msgstr "Debekatu erabiltzaile hau"
+
+#: src/qml/Menu/Timeline/BanSheet.qml:20
+#, fuzzy, kde-format
+#| msgid "Reason for removing this message"
+msgid "Reason for banning this user"
+msgstr "Mezu hori kentzeko arrazoia"
+
+#: src/qml/Menu/Timeline/BanSheet.qml:32
+#, kde-format
+msgctxt "@action:button 'Ban' as in 'Ban this user'"
+msgid "Ban"
+msgstr ""
+
+#: src/qml/Menu/Timeline/BanSheet.qml:41
+#: src/qml/Menu/Timeline/RemoveSheet.qml:47
+#: src/qml/Menu/Timeline/ReportSheet.qml:41 src/qml/Page/InviteUserPage.qml:22
+#, kde-format
+msgctxt "@action"
+msgid "Cancel"
+msgstr "Utzi"
+
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:23
 #, kde-format
 msgid "Open Externally"
@@ -1958,13 +2059,6 @@ msgstr "Mezu hori kentzeko arrazoia"
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Kendu"
-
-#: src/qml/Menu/Timeline/RemoveSheet.qml:47
-#: src/qml/Menu/Timeline/ReportSheet.qml:41 src/qml/Page/InviteUserPage.qml:22
-#, kde-format
-msgctxt "@action"
-msgid "Cancel"
-msgstr "Utzi"
 
 #: src/qml/Menu/Timeline/ReportSheet.qml:16
 #, kde-format
@@ -2370,7 +2464,7 @@ msgstr "Gela hau ordezkatu egin da."
 msgid "See new room..."
 msgstr "Ikusi gela berria..."
 
-#: src/qml/RoomSettings/General.qml:186 src/qml/RoomSettings/Security.qml:71
+#: src/qml/RoomSettings/General.qml:186 src/qml/RoomSettings/Security.qml:118
 #: src/qml/Settings/NetworkProxyPage.qml:108
 #: src/qml/Settings/SonnetConfigPage.qml:326
 #, kde-format
@@ -2434,6 +2528,65 @@ msgstr "Publikoa"
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "Edonork bilatu eta batu daiteke."
+
+#: src/qml/RoomSettings/Security.qml:68
+#, kde-format
+msgctxt "@option:check"
+msgid "Message history visibility"
+msgstr ""
+
+#: src/qml/RoomSettings/Security.qml:71
+#, kde-format
+msgctxt "@option:check"
+msgid "Anyone"
+msgstr ""
+
+#: src/qml/RoomSettings/Security.qml:72
+#, kde-format
+msgctxt "@option:check"
+msgid "Anyone, regardless of whether they have joined, can view history."
+msgstr ""
+
+#: src/qml/RoomSettings/Security.qml:80
+#, fuzzy, kde-format
+#| msgid "Members"
+msgctxt "@option:check"
+msgid "Members only"
+msgstr "Kideak"
+
+#: src/qml/RoomSettings/Security.qml:81
+#, kde-format
+msgctxt "@option:check"
+msgid ""
+"All members can view the entire message history, even before they joined."
+msgstr ""
+
+#: src/qml/RoomSettings/Security.qml:89
+#, kde-format
+msgctxt "@option:check"
+msgid "Members only (since invite)"
+msgstr ""
+
+#: src/qml/RoomSettings/Security.qml:90
+#, kde-format
+msgctxt "@option:check"
+msgid ""
+"New members can view the message history from the point they were invited to "
+"the room."
+msgstr ""
+
+#: src/qml/RoomSettings/Security.qml:98
+#, kde-format
+msgctxt "@option:check"
+msgid "Members only (since joining)"
+msgstr ""
+
+#: src/qml/RoomSettings/Security.qml:99
+#, kde-format
+msgctxt "@option:check"
+msgid ""
+"New members can view the message history from the point they joined the room."
+msgstr ""
 
 #: src/qml/Settings/About.qml:11
 #, kde-format
@@ -2560,10 +2713,9 @@ msgid "Compact"
 msgstr "Trinkoa"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:221
-#, fuzzy, kde-format
-#| msgid "Show Fancy Effects"
+#, kde-format
 msgid "Show fancy effects in chat"
-msgstr "Erakutsi efektu dotoreak"
+msgstr "Erakutsi efektu dotoreak berriketan"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:235
 #, kde-format
@@ -2598,18 +2750,17 @@ msgstr "Erakutsi abatarra"
 #: src/qml/Settings/AppearanceSettingsPage.qml:318
 #, kde-format
 msgid "In chat"
-msgstr ""
+msgstr "Berriketan"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:328
-#, fuzzy, kde-format
-#| msgid "In Sidebar"
+#, kde-format
 msgid "In sidebar"
 msgstr "Alboko-barran"
 
 #: src/qml/Settings/ColorScheme.qml:15
 #, kde-format
 msgid "Color theme"
-msgstr ""
+msgstr "Kolore-gaia"
 
 #: src/qml/Settings/DevicesPage.qml:14 src/qml/Settings/DevicesPage.qml:26
 #: src/qml/Settings/SettingsPage.qml:48
@@ -2623,18 +2774,14 @@ msgid "New device name"
 msgstr "Gailu berriaren izena"
 
 #: src/qml/Settings/DevicesPage.qml:95
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
+#, kde-format
 msgid "Cancel editing display name"
-msgstr "azaldutako bere izena garbitu du"
+msgstr "Utzi azaldutako izena editatzea"
 
 #: src/qml/Settings/DevicesPage.qml:102
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
+#, kde-format
 msgid "Confirm new display name"
-msgstr "azaldutako bere izena garbitu du"
+msgstr "Berretsi azaldutako izen berria"
 
 #: src/qml/Settings/DevicesPage.qml:117
 #, kde-format
@@ -2686,6 +2833,11 @@ msgstr "emoji_izen_berria_hemen"
 #, kde-format
 msgid "Add Emoji..."
 msgstr "Gehitu Emoji..."
+
+#: src/qml/Settings/Emoticons.qml:113
+#, kde-format
+msgid "Images (*.png *.gif *.webp)"
+msgstr ""
 
 #: src/qml/Settings/GeneralSettingsPage.qml:15
 #: src/qml/Settings/NetworkProxyPage.qml:14
@@ -2752,12 +2904,10 @@ msgid "Intermixed"
 msgstr "Elkarren artean nahastuta"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:153
-#, fuzzy, kde-format
-#| msgctxt "Chat Editor"
-#| msgid "Editor:"
+#, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
-msgstr "Editorea:"
+msgstr "Editorea"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:157
 #, kde-format
@@ -2765,8 +2915,7 @@ msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "Erabili «s/testua/ordezko sintaxia» zure azken mezua editatzeko"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:168
-#, fuzzy, kde-format
-#| msgid "Send Typing Notifications"
+#, kde-format
 msgid "Send typing notifications"
 msgstr "Bidali tekleatze-jakinarazpenak"
 
@@ -2776,8 +2925,7 @@ msgid "Developer Settings"
 msgstr "Garatzailearen ezarpenak"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:188
-#, fuzzy, kde-format
-#| msgid "Enable Developer Tools"
+#, kde-format
 msgid "Enable developer tools"
 msgstr "Gaitu garatzailearen tresnak"
 
