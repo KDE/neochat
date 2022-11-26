@@ -16,6 +16,8 @@ TextEdit {
 
     property bool isEmote: false
 
+    property bool isDelegate: false
+
     readonly property var linkRegex: /(href=["'])?(\b(https?):\/\/[^\s\<\>\"\'\\]+)/g
     property string textMessage: model.display.includes("http")
         ? model.display.replace(linkRegex, function() {
@@ -41,8 +43,11 @@ TextEdit {
     persistentSelection: true
 
     // Work around QTBUG 93281
-    Component.onCompleted: if (text.includes("<img")) {
-        Controller.forceRefreshTextDocument(contentLabel.textDocument, contentLabel)
+    Component.onCompleted: {
+        updateSelection();
+        if (text.includes("<img")) {
+            Controller.forceRefreshTextDocument(contentLabel.textDocument, contentLabel)
+        }
     }
 
     text: "<style>
@@ -102,5 +107,27 @@ a{
     TapHandler {
         enabled: !parent.hoveredLink && !spoilerRevealed
         onTapped: spoilerRevealed = true
+    }
+
+    Connections {
+        target: selectionArea
+        enabled: contentLabel.isDelegate
+        function onSelectionChanged() {
+            updateSelection();
+        }
+    }
+
+    function updateSelection() {
+        if (index < selectionArea.lowerIndex || index > selectionArea.upperIndex) {
+            contentLabel.select(0, 0);
+        } else if (index > selectionArea.lowerIndex && index < selectionArea.upperIndex) {
+            contentLabel.selectAll();
+        } else if (index === selectionArea.selectionStartIndex && index === selectionArea.selectionEndIndex) {
+            contentLabel.select(selectionArea.upperPos, selectionArea.lowerPos);
+        } else if (index === selectionArea.upperIndex) {
+            contentLabel.select(selectionArea.upperPos, contentLabel.length);
+        } else if (index === selectionArea.lowerIndex) {
+            contentLabel.select(0, selectionArea.lowerPos);
+        }
     }
 }
