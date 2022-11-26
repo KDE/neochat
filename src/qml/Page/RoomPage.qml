@@ -389,6 +389,7 @@ Kirigami.ScrollablePage {
             id: dropAreaFile
             anchors.fill: parent
             onDropped: currentRoom.chatBoxAttachmentPath = drop.urls[0];
+            enabled: !Controller.isFlatpak
         }
 
         QQC2.Pane {

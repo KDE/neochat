@@ -849,3 +849,12 @@ int Controller::quotientMinorVersion() const
     return 6;
 #endif
 }
+
+bool Controller::isFlatpak() const
+{
+#ifdef NEOCHAT_FLATPAK
+    return true;
+#else
+    return false;
+#endif
+}

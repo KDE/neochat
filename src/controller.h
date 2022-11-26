@@ -41,6 +41,7 @@ class Controller : public QObject
     Q_PROPERTY(bool encryptionSupported READ encryptionSupported CONSTANT)
     Q_PROPERTY(int activeConnectionIndex READ activeConnectionIndex NOTIFY activeConnectionIndexChanged)
     Q_PROPERTY(int quotientMinorVersion READ quotientMinorVersion CONSTANT)
+    Q_PROPERTY(bool isFlatpak READ isFlatpak CONSTANT)
 
 public:
     static Controller &instance();
@@ -101,6 +102,7 @@ public:
     Q_INVOKABLE void setApplicationProxy();
 
     int quotientMinorVersion() const;
+    bool isFlatpak() const;
 
 private:
     explicit Controller(QObject *parent = nullptr);
