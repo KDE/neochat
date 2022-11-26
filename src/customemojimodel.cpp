@@ -134,6 +134,8 @@ QVariant CustomEmojiModel::data(const QModelIndex &idx, int role) const
     case Roles::ModelData:
         return QVariant::fromValue(Emoji(QStringLiteral("image://mxc/") + data.url.mid(6), data.name, true));
     case Roles::Name:
+    case Roles::DisplayRole:
+    case Roles::ReplacedTextRole:
         return data.name;
     case Roles::ImageURL:
         return QUrl(QStringLiteral("image://mxc/") + data.url.mid(6));

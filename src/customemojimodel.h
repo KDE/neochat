@@ -19,10 +19,12 @@ class CustomEmojiModel : public QAbstractListModel
 
 public:
     enum Roles {
-        Name,
+        Name = Qt::DisplayRole,
         ImageURL,
         ModelData, // for emulating the regular emoji model's usage, otherwise the UI code would get too complicated
-        MxcUrl,
+        MxcUrl = 50,
+        DisplayRole = 51,
+        ReplacedTextRole = 52,
     };
     Q_ENUM(Roles);
 

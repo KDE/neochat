@@ -39,10 +39,15 @@ QVariant EmojiModel::data(const QModelIndex &index, int role) const
         }
         auto emoji = category[row].value<Emoji>();
         switch (role) {
-        case TextRole:
-            return emoji.shortName;
+        case ShortNameRole:
+            return QStringLiteral(":%1:").arg(emoji.shortName);
         case UnicodeRole:
+        case ReplacedTextRole:
             return emoji.unicode;
+        case InvalidRole:
+            return QStringLiteral("invalid");
+        case DisplayRole:
+            return QStringLiteral("%2   :%1:").arg(emoji.shortName, emoji.unicode);
         }
     }
     return {};
@@ -50,7 +55,7 @@ QVariant EmojiModel::data(const QModelIndex &index, int role) const
 
 QHash<int, QByteArray> EmojiModel::roleNames() const
 {
-    return {{TextRole, "text"}, {UnicodeRole, "unicode"}};
+    return {{ShortNameRole, "shortName"}, {UnicodeRole, "unicode"}};
 }
 
 QMultiHash<QString, QVariant> EmojiModel::_tones = {

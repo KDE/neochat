@@ -235,7 +235,7 @@ void ChatDocumentHandler::complete(int index)
         m_room->mentions()->push_back({cursor, alias, 0, 0, alias});
         m_highlighter->rehighlight();
     } else if (m_completionModel->autoCompletionType() == ChatDocumentHandler::Emoji) {
-        auto shortcode = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::Text).toString();
+        auto shortcode = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::ReplacedText).toString();
         auto text = m_room->chatBoxText();
         auto at = text.lastIndexOf(QLatin1Char(':'));
         QTextCursor cursor(document()->textDocument());

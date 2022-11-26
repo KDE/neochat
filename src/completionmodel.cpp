@@ -8,6 +8,7 @@
 #include "chatdocumenthandler.h"
 #include "completionproxymodel.h"
 #include "customemojimodel.h"
+#include "emojimodel.h"
 #include "neochatroom.h"
 #include "roomlistmodel.h"
 #include "userlistmodel.h"
@@ -16,11 +17,14 @@ CompletionModel::CompletionModel(QObject *parent)
     : QAbstractListModel(parent)
     , m_filterModel(new CompletionProxyModel())
     , m_userListModel(new UserListModel(this))
+    , m_emojiModel(new KConcatenateRowsProxyModel(this))
 {
     connect(this, &CompletionModel::textChanged, this, &CompletionModel::updateCompletion);
     connect(this, &CompletionModel::roomChanged, this, [this]() {
         m_userListModel->setRoom(m_room);
     });
+    m_emojiModel->addSourceModel(&CustomEmojiModel::instance());
+    m_emojiModel->addSourceModel(&EmojiModel::instance());
 }
 
 QString CompletionModel::text() const
@@ -90,10 +94,13 @@ QVariant CompletionModel::data(const QModelIndex &index, int role) const
     }
     if (m_autoCompletionType == ChatDocumentHandler::Emoji) {
         if (role == Text) {
-            return m_filterModel->data(filterIndex, CustomEmojiModel::Name);
+            return m_filterModel->data(filterIndex, CustomEmojiModel::DisplayRole);
         }
         if (role == Icon) {
             return m_filterModel->data(filterIndex, CustomEmojiModel::MxcUrl);
+        }
+        if (role == ReplacedText) {
+            return m_filterModel->data(filterIndex, CustomEmojiModel::ReplacedTextRole);
         }
     }
 
@@ -140,7 +147,7 @@ void CompletionModel::updateCompletion()
                && (m_fullText.indexOf(QLatin1Char(':'), 1) == -1
                    || (m_fullText.indexOf(QLatin1Char(' ')) != -1 && m_fullText.indexOf(QLatin1Char(':'), 1) > m_fullText.indexOf(QLatin1Char(' '), 1)))) {
         m_autoCompletionType = ChatDocumentHandler::Emoji;
-        m_filterModel->setSourceModel(&CustomEmojiModel::instance());
+        m_filterModel->setSourceModel(m_emojiModel);
         m_filterModel->setFilterRole(CustomEmojiModel::Name);
         m_filterModel->setSecondaryFilterRole(-1);
         m_filterModel->setFullText(m_fullText);

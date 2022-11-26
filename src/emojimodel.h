@@ -51,11 +51,18 @@ class EmojiModel : public QAbstractListModel
     Q_PROPERTY(QVariantList categories READ categories CONSTANT)
 
 public:
-    explicit EmojiModel(QObject *parent = nullptr);
+    static EmojiModel &instance()
+    {
+        static EmojiModel _instance;
+        return _instance;
+    }
 
     enum RoleNames {
-        TextRole = Qt::DisplayRole,
+        ShortNameRole = Qt::DisplayRole,
         UnicodeRole,
+        InvalidRole = 50,
+        DisplayRole = 51,
+        ReplacedTextRole = 52,
     };
     Q_ENUM(RoleNames);
 
@@ -100,4 +107,5 @@ private:
 
     // TODO: Port away from QSettings
     QSettings m_settings;
+    EmojiModel(QObject *parent = nullptr);
 };

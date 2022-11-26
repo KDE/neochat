@@ -5,6 +5,8 @@
 
 #include <QSortFilterProxyModel>
 
+#include <KConcatenateRowsProxyModel>
+
 #include "chatdocumenthandler.h"
 
 class CompletionProxyModel;
@@ -64,4 +66,5 @@ private:
 
     UserListModel *m_userListModel;
     RoomListModel *m_roomListModel;
+    KConcatenateRowsProxyModel *m_emojiModel;
 };
