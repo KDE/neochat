@@ -23,6 +23,7 @@ Kirigami.ScrollablePage {
                 spacing: 0
                 MobileForm.FormCardHeader {
                     title: i18n("General settings")
+                    visible: Qt.platform.os !== "android"
                 }
 
                 MobileForm.FormCheckDelegate {
