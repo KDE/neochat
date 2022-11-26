@@ -4,16 +4,15 @@
 #pragma once
 
 #include <QObject>
-
+#include <QQuickTextDocument>
 #include <QTextCursor>
 
+#include "completionmodel.h"
 #include "userlistmodel.h"
 
 class QTextDocument;
-class QQuickTextDocument;
 class NeoChatRoom;
 class SyntaxHighlighter;
-class CompletionModel;
 
 class ChatDocumentHandler : public QObject
 {
@@ -28,15 +27,6 @@ class ChatDocumentHandler : public QObject
     Q_PROPERTY(NeoChatRoom *room READ room NOTIFY roomChanged)
 
 public:
-    enum AutoCompletionType {
-        User,
-        Room,
-        Emoji,
-        Command,
-        None,
-    };
-    Q_ENUM(AutoCompletionType)
-
     explicit ChatDocumentHandler(QObject *parent = nullptr);
 
     [[nodiscard]] QQuickTextDocument *document() const;
@@ -80,9 +70,7 @@ private:
 
     SyntaxHighlighter *m_highlighter = nullptr;
 
-    AutoCompletionType m_completionType = None;
+    CompletionModel::AutoCompletionType m_completionType = CompletionModel::None;
 
     CompletionModel *m_completionModel = nullptr;
 };
-
-Q_DECLARE_METATYPE(ChatDocumentHandler::AutoCompletionType);

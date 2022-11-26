@@ -51,7 +51,7 @@ bool MessageFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sour
         return false;
     }
 
-    const QString eventType = index.data(MessageEventModel::EventTypeRole).toString();
+    const auto eventType = index.data(MessageEventModel::EventTypeRole).toInt();
 
     if (eventType == MessageEventModel::Other) {
         return false;

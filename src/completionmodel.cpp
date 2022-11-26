@@ -42,7 +42,7 @@ void CompletionModel::setText(const QString &text, const QString &fullText)
 int CompletionModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    if (m_autoCompletionType == ChatDocumentHandler::None) {
+    if (m_autoCompletionType == None) {
         return 0;
     }
     return m_filterModel->rowCount();
@@ -54,7 +54,7 @@ QVariant CompletionModel::data(const QModelIndex &index, int role) const
         return {};
     }
     auto filterIndex = m_filterModel->index(index.row(), 0);
-    if (m_autoCompletionType == ChatDocumentHandler::User) {
+    if (m_autoCompletionType == User) {
         if (role == Text) {
             return m_filterModel->data(filterIndex, UserListModel::NameRole);
         }
@@ -66,7 +66,7 @@ QVariant CompletionModel::data(const QModelIndex &index, int role) const
         }
     }
 
-    if (m_autoCompletionType == ChatDocumentHandler::Command) {
+    if (m_autoCompletionType == Command) {
         if (role == Text) {
             return m_filterModel->data(filterIndex, ActionsModel::Prefix).toString() + QStringLiteral(" ")
                 + m_filterModel->data(filterIndex, ActionsModel::Parameters).toString();
@@ -81,7 +81,7 @@ QVariant CompletionModel::data(const QModelIndex &index, int role) const
             return m_filterModel->data(filterIndex, ActionsModel::Prefix);
         }
     }
-    if (m_autoCompletionType == ChatDocumentHandler::Room) {
+    if (m_autoCompletionType == Room) {
         if (role == Text) {
             return m_filterModel->data(filterIndex, RoomListModel::DisplayNameRole);
         }
@@ -92,7 +92,7 @@ QVariant CompletionModel::data(const QModelIndex &index, int role) const
             return m_filterModel->data(filterIndex, RoomListModel::AvatarRole);
         }
     }
-    if (m_autoCompletionType == ChatDocumentHandler::Emoji) {
+    if (m_autoCompletionType == Emoji) {
         if (role == Text) {
             return m_filterModel->data(filterIndex, CustomEmojiModel::DisplayRole);
         }
@@ -125,7 +125,7 @@ void CompletionModel::updateCompletion()
         m_filterModel->setSecondaryFilterRole(UserListModel::NameRole);
         m_filterModel->setFullText(m_fullText);
         m_filterModel->setFilterText(m_text);
-        m_autoCompletionType = ChatDocumentHandler::User;
+        m_autoCompletionType = User;
         m_filterModel->invalidate();
     } else if (text().startsWith(QLatin1Char('/'))) {
         m_filterModel->setSourceModel(&ActionsModel::instance());
@@ -133,10 +133,10 @@ void CompletionModel::updateCompletion()
         m_filterModel->setSecondaryFilterRole(-1);
         m_filterModel->setFullText(m_fullText);
         m_filterModel->setFilterText(m_text.mid(1));
-        m_autoCompletionType = ChatDocumentHandler::Command;
+        m_autoCompletionType = Command;
         m_filterModel->invalidate();
     } else if (text().startsWith(QLatin1Char('#'))) {
-        m_autoCompletionType = ChatDocumentHandler::Room;
+        m_autoCompletionType = Room;
         m_filterModel->setSourceModel(m_roomListModel);
         m_filterModel->setFilterRole(RoomListModel::CanonicalAliasRole);
         m_filterModel->setSecondaryFilterRole(RoomListModel::DisplayNameRole);
@@ -146,15 +146,15 @@ void CompletionModel::updateCompletion()
     } else if (text().startsWith(QLatin1Char(':'))
                && (m_fullText.indexOf(QLatin1Char(':'), 1) == -1
                    || (m_fullText.indexOf(QLatin1Char(' ')) != -1 && m_fullText.indexOf(QLatin1Char(':'), 1) > m_fullText.indexOf(QLatin1Char(' '), 1)))) {
-        m_autoCompletionType = ChatDocumentHandler::Emoji;
         m_filterModel->setSourceModel(m_emojiModel);
+        m_autoCompletionType = Emoji;
         m_filterModel->setFilterRole(CustomEmojiModel::Name);
         m_filterModel->setSecondaryFilterRole(-1);
         m_filterModel->setFullText(m_fullText);
         m_filterModel->setFilterText(m_text);
         m_filterModel->invalidate();
     } else {
-        m_autoCompletionType = ChatDocumentHandler::None;
+        m_autoCompletionType = None;
     }
     beginResetModel();
     endResetModel();
@@ -171,12 +171,12 @@ void CompletionModel::setRoom(NeoChatRoom *room)
     Q_EMIT roomChanged();
 }
 
-ChatDocumentHandler::AutoCompletionType CompletionModel::autoCompletionType() const
+CompletionModel::AutoCompletionType CompletionModel::autoCompletionType() const
 {
     return m_autoCompletionType;
 }
 
-void CompletionModel::setAutoCompletionType(ChatDocumentHandler::AutoCompletionType autoCompletionType)
+void CompletionModel::setAutoCompletionType(AutoCompletionType autoCompletionType)
 {
     m_autoCompletionType = autoCompletionType;
     Q_EMIT autoCompletionTypeChanged();

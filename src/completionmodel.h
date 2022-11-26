@@ -7,7 +7,7 @@
 
 #include <KConcatenateRowsProxyModel>
 
-#include "chatdocumenthandler.h"
+#include "roomlistmodel.h"
 
 class CompletionProxyModel;
 class UserListModel;
@@ -19,10 +19,19 @@ class CompletionModel : public QAbstractListModel
     Q_OBJECT
     Q_PROPERTY(QString text READ text NOTIFY textChanged)
     Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
-    Q_PROPERTY(ChatDocumentHandler::AutoCompletionType autoCompletionType READ autoCompletionType NOTIFY autoCompletionTypeChanged);
+    Q_PROPERTY(AutoCompletionType autoCompletionType READ autoCompletionType NOTIFY autoCompletionTypeChanged);
     Q_PROPERTY(RoomListModel *roomListModel READ roomListModel WRITE setRoomListModel NOTIFY roomListModelChanged);
 
 public:
+    enum AutoCompletionType {
+        User,
+        Room,
+        Emoji,
+        Command,
+        None,
+    };
+    Q_ENUM(AutoCompletionType)
+
     enum Roles {
         Text = Qt::DisplayRole,
         Subtitle,
@@ -47,7 +56,7 @@ public:
     RoomListModel *roomListModel() const;
     void setRoomListModel(RoomListModel *roomListModel);
 
-    ChatDocumentHandler::AutoCompletionType autoCompletionType() const;
+    AutoCompletionType autoCompletionType() const;
 
 Q_SIGNALS:
     void textChanged();
@@ -60,11 +69,12 @@ private:
     QString m_fullText;
     CompletionProxyModel *m_filterModel;
     NeoChatRoom *m_room = nullptr;
-    ChatDocumentHandler::AutoCompletionType m_autoCompletionType = ChatDocumentHandler::None;
+    AutoCompletionType m_autoCompletionType = None;
 
-    void setAutoCompletionType(ChatDocumentHandler::AutoCompletionType autoCompletionType);
+    void setAutoCompletionType(AutoCompletionType autoCompletionType);
 
     UserListModel *m_userListModel;
     RoomListModel *m_roomListModel;
     KConcatenateRowsProxyModel *m_emojiModel;
 };
+Q_DECLARE_METATYPE(CompletionModel::AutoCompletionType);

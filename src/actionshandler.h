@@ -7,7 +7,8 @@
 
 #include <events/roommessageevent.h>
 
-class NeoChatRoom;
+#include "neochatroom.h"
+
 class CustomEmojiModel;
 class NeoChatRoom;
 
