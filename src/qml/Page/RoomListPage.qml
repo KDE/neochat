@@ -57,6 +57,7 @@ Kirigami.ScrollablePage {
                     QQC2.ToolTip {
                         text: homeButton.text
                     }
+                    Accessible.name: text
                 }
             }
 
@@ -80,6 +81,8 @@ Kirigami.ScrollablePage {
                     spaceList.activeSpaceId = id;
                     sortFilterRoomListModel.activeSpaceId = id;
                 }
+
+                Accessible.name: currentRoom.displayName
 
                 QQC2.ToolTip {
                     text: currentRoom.displayName
