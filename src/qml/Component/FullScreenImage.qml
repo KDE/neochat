@@ -293,8 +293,10 @@ QQC2.Popup {
         id: saveAsDialog
         FileDialog {
             fileMode: FileDialog.SaveFile
-            folder: StandardPaths.writableLocation(StandardPaths.DownloadLocation)
+            folder: Config.lastSaveDirectory.length > 0 ? Config.lastSaveDirectory : StandardPaths.writableLocation(StandardPaths.DownloadLocation)
             onAccepted: {
+                Config.lastSaveDirectory = folder
+                Config.save()
                 if (!currentFile) {
                     return;
                 }

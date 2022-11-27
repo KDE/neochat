@@ -113,11 +113,13 @@ MessageDelegateContextMenu {
         id: saveAsDialog
         FileDialog {
             fileMode: FileDialog.SaveFile
-            folder: StandardPaths.writableLocation(StandardPaths.DownloadLocation)
+            folder: Config.lastSaveDirectory.length > 0 ? Config.lastSaveDirectory : StandardPaths.writableLocation(StandardPaths.DownloadLocation)
             onAccepted: {
                 if (!currentFile) {
                     return;
                 }
+                Config.lastSaveDirectory = folder
+                Config.save()
                 currentRoom.downloadFile(eventId, currentFile)
             }
         }

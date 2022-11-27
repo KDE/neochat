@@ -159,11 +159,15 @@ TimelineContainer {
 
             FileDialog {
                 fileMode: FileDialog.SaveFile
-                folder: StandardPaths.writableLocation(StandardPaths.DownloadLocation)
-                onAccepted: if (autoOpenFile) {
-                    UrlHelper.copyTo(progressInfo.localPath, file)
-                } else {
-                    currentRoom.download(eventId, file);
+                folder: Config.lastSaveDirectory.length > 0 ? Config.lastSaveDirectory : StandardPaths.writableLocation(StandardPaths.DownloadLocation)
+                onAccepted: {
+                    Config.lastSaveDirectory = folder
+                    Config.save()
+                    if (autoOpenFile) {
+                        UrlHelper.copyTo(progressInfo.localPath, file)
+                    } else {
+                        currentRoom.download(eventId, file);
+                    }
                 }
             }
         }
