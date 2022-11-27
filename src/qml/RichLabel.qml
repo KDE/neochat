@@ -43,13 +43,18 @@ TextEdit {
      */
     property bool spoilerRevealed: !hasSpoiler.test(textMessage)
 
+    property bool isDelegate: false
+
     ListView.onReused: Qt.binding(() => !hasSpoiler.test(textMessage))
 
     persistentSelection: true
 
     // Work around QTBUG 93281
-    Component.onCompleted: if (text.includes("<img")) {
-        Controller.forceRefreshTextDocument(root.textDocument, root)
+    Component.onCompleted: {
+        updateSelection()
+        if (text.includes("<img")) {
+            Controller.forceRefreshTextDocument(root.textDocument, root)
+        }
     }
 
     text: "<style>
@@ -115,5 +120,27 @@ a{
     TapHandler {
         enabled: !parent.hoveredLink && !spoilerRevealed
         onTapped: spoilerRevealed = true
+    }
+
+    Connections {
+        target: selectionArea
+        enabled: root.isDelegate
+        function onSelectionChanged() {
+            updateSelection();
+        }
+    }
+
+    function updateSelection() {
+        if (index < selectionArea.lowerIndex || index > selectionArea.upperIndex) {
+            root.select(0, 0);
+        } else if (index > selectionArea.lowerIndex && index < selectionArea.upperIndex) {
+            root.selectAll();
+        } else if (index === selectionArea.selectionStartIndex && index === selectionArea.selectionEndIndex) {
+            root.select(selectionArea.upperPos, selectionArea.lowerPos);
+        } else if (index === selectionArea.upperIndex) {
+            root.select(selectionArea.upperPos, root.length);
+        } else if (index === selectionArea.lowerIndex) {
+            root.select(0, selectionArea.lowerPos);
+        }
     }
 }

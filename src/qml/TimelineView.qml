@@ -341,6 +341,66 @@ QQC2.ScrollView {
             }
         }
 
+        function indexAtRelative(x, y) {
+            return indexAt(x + contentX, y + contentY)
+        }
+
+        MouseArea {
+            id: selectionArea
+
+            anchors.fill: parent
+
+            property int selectionStartIndex
+            property int selectionEndIndex
+            property int selectionStartPos
+            property int selectionEndPos
+
+            property int upperIndex: selectionStartIndex > selectionEndIndex ? selectionStartIndex : selectionEndIndex
+            property int upperPos: selectionStartIndex > selectionEndIndex ? selectionStartPos : (selectionStartIndex == selectionEndIndex ? (selectionStartPos > selectionEndPos ? selectionEndPos : selectionStartPos) : selectionEndPos)
+            property int lowerIndex: selectionStartIndex > selectionEndIndex ? selectionEndIndex : selectionStartIndex
+            property int lowerPos: selectionStartIndex > selectionEndIndex ? selectionEndPos : (selectionStartIndex == selectionEndIndex ? (selectionStartPos > selectionEndPos ? selectionStartPos : selectionEndPos) : selectionStartPos)
+
+            signal selectionChanged
+
+            function indexAndPos(x, y) {
+                const index = messageListView.indexAtRelative(x, y);
+                if (index == -1) {
+                    return;
+                }
+                const item = messageListView.itemAtIndex(index);
+                const relItemY = item.y - messageListView.contentY;
+                const pos = item.positionAt(x, y - relItemY);
+                return [index, pos]
+            }
+
+            onPressed: {
+                [selectionArea.selectionEndIndex, selectionArea.selectionEndPos] = selectionArea.indexAndPos(mouse.x, mouse.y);
+                [selectionArea.selectionStartIndex, selectionArea.selectionStartPos] = selectionArea.indexAndPos(mouse.x, mouse.y);
+                selectionChanged();
+            }
+            onPositionChanged: {
+                if (!pressed) {
+                    return
+                }
+                [selectionEndIndex, selectionEndPos] = selectionArea.indexAndPos(mouse.x, mouse.y);
+                selectionChanged();
+            }
+        }
+
+        Kirigami.Action {
+            onTriggered: {
+                var text = ""
+                for (let i = selectionArea.upperIndex; i >= selectionArea.lowerIndex; i--) {
+                    text += messageListView.itemAtIndex(i).selectedText
+                    if (i > selectionArea.lowerIndex) {
+                        text += " "
+                    }
+                }
+                Clipboard.saveText(text)
+            }
+            shortcut: "Ctrl+C"
+        }
+
         function showMaximizedMedia(index) {
             var popup = maximizeComponent.createObject(QQC2.ApplicationWindow.overlay, {
                     initialIndex: index

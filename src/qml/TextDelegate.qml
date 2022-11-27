@@ -17,6 +17,14 @@ import org.kde.neochat.config
 MessageDelegate {
     id: root
 
+    function positionAt(x, y) {
+        let point = label.mapFromItem(root, x, y)
+        return label.positionAt(point.x, point.y)
+    }
+
+    property alias selectedText: label.selectedText
+
+
     /**
      * @brief The link preview properties.
      *
@@ -54,6 +62,7 @@ MessageDelegate {
                 acceptedButtons: Qt.LeftButton
                 onLongPressed: root.openContextMenu()
             }
+            isDelegate: true
         }
         Loader {
             Layout.fillWidth: true
