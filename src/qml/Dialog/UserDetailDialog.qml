@@ -160,6 +160,15 @@ Kirigami.OverlaySheet {
                 }
             }
         }
+        Kirigami.BasicListItem {
+            action: Kirigami.Action {
+                text: i18n("Copy link")
+                icon.name: "username-copy"
+                onTriggered: {
+                    Clipboard.saveText("https://matrix.to/#/" + user.id)
+                }
+            }
+        }
         Component {
             id: fullScreenImage
 

@@ -165,6 +165,8 @@ if(ANDROID)
         "download"
         "smiley"
         "tools-check-spelling"
+        "username-copy"
+        "edit-copy"
     )
 else()
     target_link_libraries(neochat PUBLIC Qt::Widgets KF5::KIOWidgets)

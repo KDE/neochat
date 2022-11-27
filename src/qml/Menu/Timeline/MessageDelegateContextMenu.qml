@@ -76,6 +76,13 @@ Loader {
                     width: Kirigami.Units.gridUnit * 25
                 });
             }
+        },
+        Kirigami.Action {
+            text: i18n("Copy Link")
+            icon.name: "edit-copy"
+            onTriggered: {
+                Clipboard.saveText("https://matrix.to/#/" + currentRoom.id + "/" + loadRoot.eventId)
+            }
         }
     ]
 
