@@ -137,6 +137,9 @@ QQC2.ToolBar {
                         completionMenu.decrementIndex()
                     } else if (event.key === Qt.Key_Down && completionMenu.visible) {
                         completionMenu.incrementIndex()
+                    } else if (event.key === Qt.Key_Backspace && inputField.text.length <= 1) {
+                        currentRoom.sendTypingNotification(false)
+                        repeatTimer.stop()
                     }
                 }
 
@@ -147,10 +150,10 @@ QQC2.ToolBar {
 
                 onTextChanged: {
                     if (!repeatTimer.running && Config.typingNotifications) {
-                        currentRoom.sendTypingNotification(true)
+                        var textExists = text.length > 0
+                        currentRoom.sendTypingNotification(textExists)
+                        textExists ? repeatTimer.start() : repeatTimer.stop()
                     }
-                    repeatTimer.start()
-
                     currentRoom.chatBoxText = text
                 }
             }
@@ -267,7 +270,7 @@ QQC2.ToolBar {
 
     function postMessage() {
         actionsHandler.handleMessage();
-
+        repeatTimer.stop()
         currentRoom.markAllMessagesAsRead();
         inputField.clear();
         currentRoom.chatBoxReplyId = "";
