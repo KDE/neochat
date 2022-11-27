@@ -81,6 +81,8 @@ QQC2.Popup {
                 required property var currentRoom
                 required property int index
 
+                name: currentRoom.displayName
+
                 // When an item is hovered set the currentIndex of listview to it so that it is highlighted
                 onHoveredChanged: {
                     if (!hovered) {
