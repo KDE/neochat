@@ -47,6 +47,7 @@ Kirigami.ScrollablePage {
     signal switchRoomDown()
 
     onCurrentRoomChanged: {
+        applicationWindow().hoverLinkIndicator.text = "";
         hasScrolledUpBefore = false;
     }
 
