@@ -71,6 +71,7 @@ public:
         AuthorDisplayNameRole,
         IsNameChangeRole,
         IsAvatarChangeRole,
+        IsRedactedRole,
         LastRole, // Keep this last
     };
     Q_ENUM(EventRoles)

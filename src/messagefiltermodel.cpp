@@ -25,6 +25,10 @@ MessageFilterModel::MessageFilterModel(QObject *parent)
         beginResetModel();
         endResetModel();
     });
+    connect(NeoChatConfig::self(), &NeoChatConfig::ShowDeletedMessagesChanged, this, [this] {
+        beginResetModel();
+        endResetModel();
+    });
 }
 
 bool MessageFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
@@ -37,6 +41,9 @@ bool MessageFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sour
     }
 
     if (index.data(MessageEventModel::IsAvatarChangeRole).toBool() && !NeoChatConfig::self()->showAvatarUpdate()) {
+        return false;
+    }
+    if (index.data(MessageEventModel::IsRedactedRole).toBool() && !NeoChatConfig::self()->showDeletedMessages()) {
         return false;
     }
 

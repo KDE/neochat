@@ -66,6 +66,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[AuthorDisplayNameRole] = "authorDisplayName";
     roles[IsNameChangeRole] = "isNameChange";
     roles[IsAvatarChangeRole] = "isAvatarChange";
+    roles[IsRedactedRole] = "isRedacted";
     return roles;
 }
 
@@ -893,6 +894,9 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             return roomMemberEvent->isAvatarUpdate();
         }
         return false;
+    }
+    if (role == IsRedactedRole) {
+        return evt.isRedacted();
     }
 
     return {};

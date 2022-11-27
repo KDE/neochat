@@ -113,6 +113,19 @@ Kirigami.ScrollablePage {
                         Config.save()
                     }
                 }
+
+                MobileForm.FormDelegateSeparator { above: showAvatarChangeDelegate; below: showDeletedMessages }
+
+                MobileForm.FormCheckDelegate {
+                    id: showDeletedMessages
+                    text: i18n("Show deleted messages")
+                    checked: Config.showDeletedMessages
+                    enabled: !Config.isShowDeletedMessagesImmutable
+                    onToggled: {
+                        Config.showDeletedMessages = checked
+                        Config.save()
+                    }
+                }
             }
         }
 
