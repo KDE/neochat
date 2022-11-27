@@ -158,6 +158,7 @@ Loader {
                     Kirigami.Avatar {
                         id: avatar
                         source: room.avatarMediaId ? ("image://mxc/" + room.avatarMediaId) : ""
+                        name: room.displayName
                         Layout.preferredWidth: Kirigami.Units.gridUnit * 3
                         Layout.preferredHeight: Kirigami.Units.gridUnit * 3
                         Layout.alignment: Qt.AlignTop
@@ -166,7 +167,7 @@ Loader {
                         level: 5
                         Layout.fillWidth: true
                         text: room.displayName
-                        wrapMode: Text.WordWrap
+                        elide: Text.ElideRight
                     }
                     QQC2.ToolButton {
                         checked: room.isFavourite
@@ -178,7 +179,10 @@ Loader {
 
                     QQC2.ToolButton {
                         icon.name: 'settings-configure'
-                        onClicked: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room})
+                        onClicked: {
+                            QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room})
+                            drawer.close()
+                        }
                     }
                 }
 
@@ -198,7 +202,10 @@ Loader {
                 Kirigami.BasicListItem {
                     text: i18n("Leave Room")
                     icon: "go-previous"
-                    onClicked: RoomManager.leaveRoom(room)
+                    onClicked: {
+                        RoomManager.leaveRoom(room)
+                        drawer.close()
+                    }
                     implicitHeight: visible ? Kirigami.Units.gridUnit * 3 : 0
                 }
             }
