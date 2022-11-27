@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:46+0000\n"
-"PO-Revision-Date: 2022-11-25 19:20+0300\n"
+"POT-Creation-Date: 2022-11-27 00:46+0000\n"
+"PO-Revision-Date: 2022-11-26 18:57+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -395,73 +395,71 @@ msgstr "Oda oluşturulamadı: \"%1\""
 msgid "The room id you are trying to join is not valid"
 msgstr "Katılmaya çalıştığınız oda geçerli değil"
 
-#: src/emojimodel.cpp:128
+#: src/emojimodel.cpp:133
 #, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
-msgstr ""
+msgstr "Geçmiş"
 
-#: src/emojimodel.cpp:133
-#, fuzzy, kde-format
-#| msgid "Custom"
+#: src/emojimodel.cpp:138
+#, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Özel"
 
-#: src/emojimodel.cpp:138
+#: src/emojimodel.cpp:143
 #, kde-format
 msgctxt "'Smileys' is a category of emoji"
 msgid "Smileys"
-msgstr ""
-
-#: src/emojimodel.cpp:143
-#, kde-format
-msgctxt "'People' is a category of emoji"
-msgid "People"
-msgstr ""
+msgstr "Gülümsemeler"
 
 #: src/emojimodel.cpp:148
 #, kde-format
-msgctxt "'Nature' is a category of emoji"
-msgid "Nature"
-msgstr ""
+msgctxt "'People' is a category of emoji"
+msgid "People"
+msgstr "Kişiler"
 
 #: src/emojimodel.cpp:153
 #, kde-format
-msgctxt "'Food' is a category of emoji"
-msgid "Food"
-msgstr ""
+msgctxt "'Nature' is a category of emoji"
+msgid "Nature"
+msgstr "Doğa"
 
 #: src/emojimodel.cpp:158
 #, kde-format
-msgctxt "'Activities' is a category of emoji"
-msgid "Activities"
-msgstr ""
+msgctxt "'Food' is a category of emoji"
+msgid "Food"
+msgstr "Yemek"
 
 #: src/emojimodel.cpp:163
 #, kde-format
-msgctxt "'Travel' is  a category of emoji"
-msgid "Travel"
-msgstr ""
+msgctxt "'Activities' is a category of emoji"
+msgid "Activities"
+msgstr "Etkinlikler"
 
 #: src/emojimodel.cpp:168
-#, fuzzy, kde-format
-#| msgid "Reject"
-msgctxt "'Objects' is a category of emoji"
-msgid "Objects"
-msgstr "Reddet"
+#, kde-format
+msgctxt "'Travel' is  a category of emoji"
+msgid "Travel"
+msgstr "Yolculuk"
 
 #: src/emojimodel.cpp:173
 #, kde-format
-msgctxt "'Symbols' is a category of emoji"
-msgid "Symbols"
-msgstr ""
+msgctxt "'Objects' is a category of emoji"
+msgid "Objects"
+msgstr "Nesneler"
 
 #: src/emojimodel.cpp:178
 #, kde-format
+msgctxt "'Symbols' is a category of emoji"
+msgid "Symbols"
+msgstr "Semboller"
+
+#: src/emojimodel.cpp:183
+#, kde-format
 msgctxt "'Flags' is a category of emoji"
 msgid "Flags"
-msgstr ""
+msgstr "Bayraklar"
 
 #: src/filetransferpseudojob.cpp:47
 #, kde-format
@@ -868,7 +866,7 @@ msgstr "Bu odada NeoChat'i açın"
 #: src/notificationsmanager.cpp:77
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:539
+#: src/qml/Page/RoomPage.qml:540
 #, kde-format
 msgid "Reply"
 msgstr "Yanıtla"
@@ -905,7 +903,7 @@ msgstr "İlişik:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:159
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:527
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:528
 #, kde-format
 msgid "Edit"
 msgstr "Düzenle"
@@ -1206,7 +1204,7 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Son okunma: %1"
 
-#: src/qml/Component/Timeline/RichLabel.qml:77
+#: src/qml/Component/Timeline/RichLabel.qml:82
 #, kde-format
 msgid " (edited)"
 msgstr " (düzenlendi)"
@@ -1571,11 +1569,10 @@ msgid "Ban this user"
 msgstr "Bu kullanıcıyı yasakla"
 
 #: src/qml/Dialog/UserDetailDialog.qml:116
-#, fuzzy, kde-format
-#| msgid "Ban this user"
+#, kde-format
 msgctxt "@title"
 msgid "Ban User"
-msgstr "Bu kullanıcıyı yasakla"
+msgstr "Kullanıcıyı Yasakla"
 
 #: src/qml/Dialog/UserDetailDialog.qml:127
 #, kde-format
@@ -1929,22 +1926,20 @@ msgid "Leave Space"
 msgstr "Alandan Ayrıl"
 
 #: src/qml/Menu/Timeline/BanSheet.qml:16
-#, fuzzy, kde-format
-#| msgid "Ban this user"
+#, kde-format
 msgid "Ban User"
-msgstr "Bu kullanıcıyı yasakla"
+msgstr "Kullanıcıyı Yasakla"
 
 #: src/qml/Menu/Timeline/BanSheet.qml:20
-#, fuzzy, kde-format
-#| msgid "Reason for removing this message"
+#, kde-format
 msgid "Reason for banning this user"
-msgstr "Bu iletiyi kaldırma gerekçesi"
+msgstr "Kullanıcıyı yasaklama gerekçesi"
 
 #: src/qml/Menu/Timeline/BanSheet.qml:32
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
-msgstr ""
+msgstr "Yasakla"
 
 #: src/qml/Menu/Timeline/BanSheet.qml:41
 #: src/qml/Menu/Timeline/RemoveSheet.qml:47
@@ -2235,7 +2230,13 @@ msgstr "Oda dizininde ara"
 msgid "No Name"
 msgstr "Adsız"
 
-#: src/qml/Page/RoomListPage.qml:353
+#: src/qml/Page/RoomListPage.qml:342
+#, fuzzy, kde-format
+#| msgid "Muted"
+msgid "Muted room"
+msgstr "Sessize Alınmış"
+
+#: src/qml/Page/RoomListPage.qml:362
 #, kde-format
 msgid "Configure room"
 msgstr "Odayı yapılandır"
@@ -2270,12 +2271,12 @@ msgstr "İlk okunmamış iletiye atla"
 msgid "Jump to latest message"
 msgstr "En son iletiye atla"
 
-#: src/qml/Page/RoomPage.qml:404
+#: src/qml/Page/RoomPage.qml:405
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Onları paylaşmak için ögeleri buraya sürükleyin"
 
-#: src/qml/Page/RoomPage.qml:436
+#: src/qml/Page/RoomPage.qml:437
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2283,12 +2284,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 yazıyor"
 msgstr[1] "%2 yazıyor"
 
-#: src/qml/Page/RoomPage.qml:507
+#: src/qml/Page/RoomPage.qml:508
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "Bu ileti, doğrulanan bir aygıttan gönderildi"
 
-#: src/qml/Page/RoomPage.qml:513
+#: src/qml/Page/RoomPage.qml:514
 #, kde-format
 msgid "React"
 msgstr "Tepki"
@@ -2525,26 +2526,25 @@ msgstr "Herkes bulabilir ve katılabilir."
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
-msgstr ""
+msgstr "İleti geçmişi görünürlüğü"
 
 #: src/qml/RoomSettings/Security.qml:71
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
-msgstr ""
+msgstr "Herkes"
 
 #: src/qml/RoomSettings/Security.qml:72
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
-msgstr ""
+msgstr "Katılıp katılmadığına bakılmaksızın herkes geçmişi görüntüleyebilir."
 
 #: src/qml/RoomSettings/Security.qml:80
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgctxt "@option:check"
 msgid "Members only"
-msgstr "Üyeler"
+msgstr "Yalnızca üyeler"
 
 #: src/qml/RoomSettings/Security.qml:81
 #, kde-format
@@ -2552,12 +2552,13 @@ msgctxt "@option:check"
 msgid ""
 "All members can view the entire message history, even before they joined."
 msgstr ""
+"Tüm üyeler, katılmadan önce bile tüm ileti geçmişini görüntüleyebilirler."
 
 #: src/qml/RoomSettings/Security.qml:89
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
-msgstr ""
+msgstr "Yalnızca üyeler (davetten bu yana)"
 
 #: src/qml/RoomSettings/Security.qml:90
 #, kde-format
@@ -2566,12 +2567,14 @@ msgid ""
 "New members can view the message history from the point they were invited to "
 "the room."
 msgstr ""
+"Yeni üyeler, odaya davet edildikleri andan itibaren ileti geçmişini "
+"görüntüleyebilirler."
 
 #: src/qml/RoomSettings/Security.qml:98
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
-msgstr ""
+msgstr "Yalnızca üyeler (katılımdan bu yana)"
 
 #: src/qml/RoomSettings/Security.qml:99
 #, kde-format
@@ -2579,6 +2582,7 @@ msgctxt "@option:check"
 msgid ""
 "New members can view the message history from the point they joined the room."
 msgstr ""
+"Yeni üyeler, odaya katıldıkları andan itibaren iletileri görüntüleyebilirler."
 
 #: src/qml/Settings/About.qml:11
 #, kde-format
@@ -2829,7 +2833,7 @@ msgstr "Emoji Ekle..."
 #: src/qml/Settings/Emoticons.qml:113
 #, kde-format
 msgid "Images (*.png *.gif *.webp)"
-msgstr ""
+msgstr "Görseller (*.png *.gif *.webp)"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:15
 #: src/qml/Settings/NetworkProxyPage.qml:14
@@ -2843,79 +2847,79 @@ msgstr "Genel"
 msgid "General settings"
 msgstr "Genel ayarlar"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:30
+#: src/qml/Settings/GeneralSettingsPage.qml:31
 #, kde-format
 msgid "Close to system tray"
 msgstr "Sistem tepsisine kapat"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:44
+#: src/qml/Settings/GeneralSettingsPage.qml:45
 #, kde-format
 msgid "Minimize to system tray on startup"
 msgstr "Başlangıçta sistem tepsisine küçült"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:58
+#: src/qml/Settings/GeneralSettingsPage.qml:59
 #, kde-format
 msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr ""
 "Pencereyi yeniden boyutlandırırken oda bilgisini kendiliğinden göster/gizle"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:76
+#: src/qml/Settings/GeneralSettingsPage.qml:77
 #, kde-format
 msgid "Timeline Events"
 msgstr "Zaman Akışı Olayları"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:81
+#: src/qml/Settings/GeneralSettingsPage.qml:82
 #, kde-format
 msgid "Show leave and join events"
 msgstr "Ayrılma ve katılma efektlerini göster"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:94
+#: src/qml/Settings/GeneralSettingsPage.qml:95
 #, kde-format
 msgid "Show name change events"
 msgstr "Ad değişikliği olaylarını göster"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:107
+#: src/qml/Settings/GeneralSettingsPage.qml:108
 #, kde-format
 msgid "Show avatar update events"
 msgstr "Avatar güncelleme olaylarını göster"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:124
+#: src/qml/Settings/GeneralSettingsPage.qml:125
 #, kde-format
 msgid "Rooms and private chats"
 msgstr "Odalar ve özel sohbetler"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:127
+#: src/qml/Settings/GeneralSettingsPage.qml:128
 #, kde-format
 msgid "Separated"
 msgstr "Ayrı"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:136
+#: src/qml/Settings/GeneralSettingsPage.qml:137
 #, kde-format
 msgid "Intermixed"
 msgstr "Karışık"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:153
+#: src/qml/Settings/GeneralSettingsPage.qml:154
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Düzenleyici"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:157
+#: src/qml/Settings/GeneralSettingsPage.qml:158
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "Son iletinizi düzenlemek için s/metin/yenisi sözdizimini kullan"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:168
+#: src/qml/Settings/GeneralSettingsPage.qml:169
 #, kde-format
 msgid "Send typing notifications"
 msgstr "Yazıyor bildirimlerini gönder"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:185
+#: src/qml/Settings/GeneralSettingsPage.qml:186
 #, kde-format
 msgid "Developer Settings"
 msgstr "Geliştirici Ayarları"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:188
+#: src/qml/Settings/GeneralSettingsPage.qml:189
 #, kde-format
 msgid "Enable developer tools"
 msgstr "Geliştirici araçlarını etkinleştir"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:46+0000\n"
+"POT-Creation-Date: 2022-11-27 00:46+0000\n"
 "PO-Revision-Date: 2022-09-18 12:14+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -455,69 +455,69 @@ msgstr "Room creation failed: \"%1\""
 msgid "The room id you are trying to join is not valid"
 msgstr "The room ID you are trying to join is not valid"
 
-#: src/emojimodel.cpp:128
+#: src/emojimodel.cpp:133
 #, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
 msgstr ""
 
-#: src/emojimodel.cpp:133
+#: src/emojimodel.cpp:138
 #, fuzzy, kde-format
 #| msgid "Custom"
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Custom"
 
-#: src/emojimodel.cpp:138
+#: src/emojimodel.cpp:143
 #, kde-format
 msgctxt "'Smileys' is a category of emoji"
 msgid "Smileys"
 msgstr ""
 
-#: src/emojimodel.cpp:143
+#: src/emojimodel.cpp:148
 #, kde-format
 msgctxt "'People' is a category of emoji"
 msgid "People"
 msgstr ""
 
-#: src/emojimodel.cpp:148
+#: src/emojimodel.cpp:153
 #, kde-format
 msgctxt "'Nature' is a category of emoji"
 msgid "Nature"
 msgstr ""
 
-#: src/emojimodel.cpp:153
+#: src/emojimodel.cpp:158
 #, kde-format
 msgctxt "'Food' is a category of emoji"
 msgid "Food"
 msgstr ""
 
-#: src/emojimodel.cpp:158
+#: src/emojimodel.cpp:163
 #, kde-format
 msgctxt "'Activities' is a category of emoji"
 msgid "Activities"
 msgstr ""
 
-#: src/emojimodel.cpp:163
+#: src/emojimodel.cpp:168
 #, kde-format
 msgctxt "'Travel' is  a category of emoji"
 msgid "Travel"
 msgstr ""
 
-#: src/emojimodel.cpp:168
+#: src/emojimodel.cpp:173
 #, fuzzy, kde-format
 #| msgid "Reject"
 msgctxt "'Objects' is a category of emoji"
 msgid "Objects"
 msgstr "Reject"
 
-#: src/emojimodel.cpp:173
+#: src/emojimodel.cpp:178
 #, kde-format
 msgctxt "'Symbols' is a category of emoji"
 msgid "Symbols"
 msgstr ""
 
-#: src/emojimodel.cpp:178
+#: src/emojimodel.cpp:183
 #, kde-format
 msgctxt "'Flags' is a category of emoji"
 msgid "Flags"
@@ -937,7 +937,7 @@ msgstr "Open NeoChat in this room"
 #: src/notificationsmanager.cpp:77
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:539
+#: src/qml/Page/RoomPage.qml:540
 #, kde-format
 msgid "Reply"
 msgstr "Reply"
@@ -974,7 +974,7 @@ msgstr "Attachment:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:159
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:527
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:528
 #, kde-format
 msgid "Edit"
 msgstr "Edit"
@@ -1285,7 +1285,7 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Last read: %1"
 
-#: src/qml/Component/Timeline/RichLabel.qml:77
+#: src/qml/Component/Timeline/RichLabel.qml:82
 #, kde-format
 msgid " (edited)"
 msgstr " (edited)"
@@ -2309,7 +2309,13 @@ msgstr "Search in room directory"
 msgid "No Name"
 msgstr "No Name"
 
-#: src/qml/Page/RoomListPage.qml:353
+#: src/qml/Page/RoomListPage.qml:342
+#, fuzzy, kde-format
+#| msgid "Muted"
+msgid "Muted room"
+msgstr "Muted"
+
+#: src/qml/Page/RoomListPage.qml:362
 #, kde-format
 msgid "Configure room"
 msgstr "Configure room"
@@ -2344,12 +2350,12 @@ msgstr "Jump to first unread message"
 msgid "Jump to latest message"
 msgstr "Jump to latest message"
 
-#: src/qml/Page/RoomPage.qml:404
+#: src/qml/Page/RoomPage.qml:405
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Drag items here to share them"
 
-#: src/qml/Page/RoomPage.qml:436
+#: src/qml/Page/RoomPage.qml:437
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2357,12 +2363,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 is typing"
 msgstr[1] "%2 are typing"
 
-#: src/qml/Page/RoomPage.qml:507
+#: src/qml/Page/RoomPage.qml:508
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr ""
 
-#: src/qml/Page/RoomPage.qml:513
+#: src/qml/Page/RoomPage.qml:514
 #, kde-format
 msgid "React"
 msgstr "React"
@@ -2936,83 +2942,83 @@ msgstr "General"
 msgid "General settings"
 msgstr "General settings:"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:30
+#: src/qml/Settings/GeneralSettingsPage.qml:31
 #, kde-format
 msgid "Close to system tray"
 msgstr "Close to system tray"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:44
+#: src/qml/Settings/GeneralSettingsPage.qml:45
 #, kde-format
 msgid "Minimize to system tray on startup"
 msgstr "Minimise to system tray on startup"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:58
+#: src/qml/Settings/GeneralSettingsPage.qml:59
 #, kde-format
 msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr ""
 "Automatically hide/unhide the room information when resizing the window"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:76
+#: src/qml/Settings/GeneralSettingsPage.qml:77
 #, kde-format
 msgid "Timeline Events"
 msgstr ""
 
-#: src/qml/Settings/GeneralSettingsPage.qml:81
+#: src/qml/Settings/GeneralSettingsPage.qml:82
 #, kde-format
 msgid "Show leave and join events"
 msgstr "Show leave and join events"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:94
+#: src/qml/Settings/GeneralSettingsPage.qml:95
 #, kde-format
 msgid "Show name change events"
 msgstr "Show name change events"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:107
+#: src/qml/Settings/GeneralSettingsPage.qml:108
 #, kde-format
 msgid "Show avatar update events"
 msgstr "Show avatar update events"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:124
+#: src/qml/Settings/GeneralSettingsPage.qml:125
 #, fuzzy, kde-format
 #| msgid "Rooms and private chats:"
 msgid "Rooms and private chats"
 msgstr "Rooms and private chats:"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:127
+#: src/qml/Settings/GeneralSettingsPage.qml:128
 #, kde-format
 msgid "Separated"
 msgstr "Separated"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:136
+#: src/qml/Settings/GeneralSettingsPage.qml:137
 #, kde-format
 msgid "Intermixed"
 msgstr "Intermixed"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:153
+#: src/qml/Settings/GeneralSettingsPage.qml:154
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Edit"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:157
+#: src/qml/Settings/GeneralSettingsPage.qml:158
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "Use s/text/replacement syntax to edit your last message"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:168
+#: src/qml/Settings/GeneralSettingsPage.qml:169
 #, fuzzy, kde-format
 #| msgid "Send Typing Notifications"
 msgid "Send typing notifications"
 msgstr "Send Typing Notifications"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:185
+#: src/qml/Settings/GeneralSettingsPage.qml:186
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgid "Developer Settings"
 msgstr "Settings"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:188
+#: src/qml/Settings/GeneralSettingsPage.qml:189
 #, kde-format
 msgid "Enable developer tools"
 msgstr ""

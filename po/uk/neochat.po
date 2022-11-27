@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:46+0000\n"
-"PO-Revision-Date: 2022-11-25 09:35+0200\n"
+"POT-Creation-Date: 2022-11-27 00:46+0000\n"
+"PO-Revision-Date: 2022-11-26 11:01+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -400,73 +400,71 @@ msgstr "Не вдалося створити кімнату: «%1»"
 msgid "The room id you are trying to join is not valid"
 msgstr "Ідентифікатор кімнати, до якої ви хочете приєднатися, є некоректним"
 
-#: src/emojimodel.cpp:128
+#: src/emojimodel.cpp:133
 #, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
-msgstr ""
+msgstr "Журнал"
 
-#: src/emojimodel.cpp:133
-#, fuzzy, kde-format
-#| msgid "Custom"
+#: src/emojimodel.cpp:138
+#, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Нетипова"
 
-#: src/emojimodel.cpp:138
+#: src/emojimodel.cpp:143
 #, kde-format
 msgctxt "'Smileys' is a category of emoji"
 msgid "Smileys"
-msgstr ""
-
-#: src/emojimodel.cpp:143
-#, kde-format
-msgctxt "'People' is a category of emoji"
-msgid "People"
-msgstr ""
+msgstr "Смайл"
 
 #: src/emojimodel.cpp:148
 #, kde-format
-msgctxt "'Nature' is a category of emoji"
-msgid "Nature"
-msgstr ""
+msgctxt "'People' is a category of emoji"
+msgid "People"
+msgstr "Люди"
 
 #: src/emojimodel.cpp:153
 #, kde-format
-msgctxt "'Food' is a category of emoji"
-msgid "Food"
-msgstr ""
+msgctxt "'Nature' is a category of emoji"
+msgid "Nature"
+msgstr "Природа"
 
 #: src/emojimodel.cpp:158
 #, kde-format
-msgctxt "'Activities' is a category of emoji"
-msgid "Activities"
-msgstr ""
+msgctxt "'Food' is a category of emoji"
+msgid "Food"
+msgstr "Їжа"
 
 #: src/emojimodel.cpp:163
 #, kde-format
-msgctxt "'Travel' is  a category of emoji"
-msgid "Travel"
-msgstr ""
+msgctxt "'Activities' is a category of emoji"
+msgid "Activities"
+msgstr "Діяльність"
 
 #: src/emojimodel.cpp:168
-#, fuzzy, kde-format
-#| msgid "Reject"
-msgctxt "'Objects' is a category of emoji"
-msgid "Objects"
-msgstr "Відкинути"
+#, kde-format
+msgctxt "'Travel' is  a category of emoji"
+msgid "Travel"
+msgstr "Подорожі"
 
 #: src/emojimodel.cpp:173
 #, kde-format
-msgctxt "'Symbols' is a category of emoji"
-msgid "Symbols"
-msgstr ""
+msgctxt "'Objects' is a category of emoji"
+msgid "Objects"
+msgstr "Об'єкти"
 
 #: src/emojimodel.cpp:178
 #, kde-format
+msgctxt "'Symbols' is a category of emoji"
+msgid "Symbols"
+msgstr "Символи"
+
+#: src/emojimodel.cpp:183
+#, kde-format
 msgctxt "'Flags' is a category of emoji"
 msgid "Flags"
-msgstr ""
+msgstr "Прапорці"
 
 #: src/filetransferpseudojob.cpp:47
 #, kde-format
@@ -877,7 +875,7 @@ msgstr "Відкрити NeoChat у цій кімнаті"
 #: src/notificationsmanager.cpp:77
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:539
+#: src/qml/Page/RoomPage.qml:540
 #, kde-format
 msgid "Reply"
 msgstr "Відповісти"
@@ -914,7 +912,7 @@ msgstr "Долучення:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:159
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:527
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:528
 #, kde-format
 msgid "Edit"
 msgstr "Змінити"
@@ -1227,7 +1225,7 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Востаннє прочитано: %1"
 
-#: src/qml/Component/Timeline/RichLabel.qml:77
+#: src/qml/Component/Timeline/RichLabel.qml:82
 #, kde-format
 msgid " (edited)"
 msgstr " (змінено)"
@@ -1592,11 +1590,10 @@ msgid "Ban this user"
 msgstr "Заблокувати цього користувача"
 
 #: src/qml/Dialog/UserDetailDialog.qml:116
-#, fuzzy, kde-format
-#| msgid "Ban this user"
+#, kde-format
 msgctxt "@title"
 msgid "Ban User"
-msgstr "Заблокувати цього користувача"
+msgstr "Заблокувати користувача"
 
 #: src/qml/Dialog/UserDetailDialog.qml:127
 #, kde-format
@@ -1951,22 +1948,20 @@ msgid "Leave Space"
 msgstr "Полишити простір"
 
 #: src/qml/Menu/Timeline/BanSheet.qml:16
-#, fuzzy, kde-format
-#| msgid "Ban this user"
+#, kde-format
 msgid "Ban User"
-msgstr "Заблокувати цього користувача"
+msgstr "Заблокувати користувача"
 
 #: src/qml/Menu/Timeline/BanSheet.qml:20
-#, fuzzy, kde-format
-#| msgid "Reason for removing this message"
+#, kde-format
 msgid "Reason for banning this user"
-msgstr "Причина вилучення цього повідомлення"
+msgstr "Причина блокування цього користувача"
 
 #: src/qml/Menu/Timeline/BanSheet.qml:32
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
-msgstr ""
+msgstr "Заблокувати"
 
 #: src/qml/Menu/Timeline/BanSheet.qml:41
 #: src/qml/Menu/Timeline/RemoveSheet.qml:47
@@ -2257,7 +2252,13 @@ msgstr "Шукати у каталозі кімнат"
 msgid "No Name"
 msgstr "Без назви"
 
-#: src/qml/Page/RoomListPage.qml:353
+#: src/qml/Page/RoomListPage.qml:342
+#, fuzzy, kde-format
+#| msgid "Muted"
+msgid "Muted room"
+msgstr "Вимкнено"
+
+#: src/qml/Page/RoomListPage.qml:362
 #, kde-format
 msgid "Configure room"
 msgstr "Налаштувати кімнату"
@@ -2292,12 +2293,12 @@ msgstr "Перейти до першого непрочитаного повід
 msgid "Jump to latest message"
 msgstr "Перейти до останнього повідомлення"
 
-#: src/qml/Page/RoomPage.qml:404
+#: src/qml/Page/RoomPage.qml:405
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Перетягніть пункти сюди, щоб оприлюднити їх"
 
-#: src/qml/Page/RoomPage.qml:436
+#: src/qml/Page/RoomPage.qml:437
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2307,12 +2308,12 @@ msgstr[1] "%2 вводять текст…"
 msgstr[2] "%2 вводять текст…"
 msgstr[3] "%2 вводить текст…"
 
-#: src/qml/Page/RoomPage.qml:507
+#: src/qml/Page/RoomPage.qml:508
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "Це повідомлення було надіслано із перевіреного пристрою"
 
-#: src/qml/Page/RoomPage.qml:513
+#: src/qml/Page/RoomPage.qml:514
 #, kde-format
 msgid "React"
 msgstr "Реагувати"
@@ -2550,26 +2551,27 @@ msgstr "Будь-хто може шукати і долучатися."
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
-msgstr ""
+msgstr "Видимість журналу повідомлень"
 
 #: src/qml/RoomSettings/Security.qml:71
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
-msgstr ""
+msgstr "Будь-хто"
 
 #: src/qml/RoomSettings/Security.qml:72
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr ""
+"Будь-хто, незалежно від того, чи долучилися вони до кімнати, може "
+"переглядати журнал."
 
 #: src/qml/RoomSettings/Security.qml:80
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgctxt "@option:check"
 msgid "Members only"
-msgstr "Учасники"
+msgstr "Лише учасники"
 
 #: src/qml/RoomSettings/Security.qml:81
 #, kde-format
@@ -2577,12 +2579,14 @@ msgctxt "@option:check"
 msgid ""
 "All members can view the entire message history, even before they joined."
 msgstr ""
+"Усі учасники можуть переглядати увесь журнал повідомлень, навіть до "
+"долучення."
 
 #: src/qml/RoomSettings/Security.qml:89
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
-msgstr ""
+msgstr "Лише учасники (з моменту запрошення)"
 
 #: src/qml/RoomSettings/Security.qml:90
 #, kde-format
@@ -2591,12 +2595,14 @@ msgid ""
 "New members can view the message history from the point they were invited to "
 "the room."
 msgstr ""
+"Нові учасники можуть переглядати журнал повідомлень з моменту, коли їх "
+"запрошено до кімнати."
 
 #: src/qml/RoomSettings/Security.qml:98
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
-msgstr ""
+msgstr "Лише учасники (з моменту долучення)"
 
 #: src/qml/RoomSettings/Security.qml:99
 #, kde-format
@@ -2604,6 +2610,8 @@ msgctxt "@option:check"
 msgid ""
 "New members can view the message history from the point they joined the room."
 msgstr ""
+"Нові учасники можуть переглядати журнал повідомлень з моменту долучення до "
+"кімнати."
 
 #: src/qml/Settings/About.qml:11
 #, kde-format
@@ -2854,7 +2862,7 @@ msgstr "Додати емодзі…"
 #: src/qml/Settings/Emoticons.qml:113
 #, kde-format
 msgid "Images (*.png *.gif *.webp)"
-msgstr ""
+msgstr "зображення (*.png *.gif *.webp)"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:15
 #: src/qml/Settings/NetworkProxyPage.qml:14
@@ -2868,81 +2876,81 @@ msgstr "Загальне"
 msgid "General settings"
 msgstr "Загальні параметри"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:30
+#: src/qml/Settings/GeneralSettingsPage.qml:31
 #, kde-format
 msgid "Close to system tray"
 msgstr "Згорнути до лотка системи"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:44
+#: src/qml/Settings/GeneralSettingsPage.qml:45
 #, kde-format
 msgid "Minimize to system tray on startup"
 msgstr "Згортати до системного лотка після запуску"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:58
+#: src/qml/Settings/GeneralSettingsPage.qml:59
 #, kde-format
 msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr ""
 "Автоматично ховати/показувати дані щодо кімнати при зміні розмірів вікна"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:76
+#: src/qml/Settings/GeneralSettingsPage.qml:77
 #, kde-format
 msgid "Timeline Events"
 msgstr "Події розкладу"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:81
+#: src/qml/Settings/GeneralSettingsPage.qml:82
 #, kde-format
 msgid "Show leave and join events"
 msgstr "Показувати події з виходу і приєднання"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:94
+#: src/qml/Settings/GeneralSettingsPage.qml:95
 #, kde-format
 msgid "Show name change events"
 msgstr "Показувати події зі зміни імені"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:107
+#: src/qml/Settings/GeneralSettingsPage.qml:108
 #, kde-format
 msgid "Show avatar update events"
 msgstr "Показувати події з оновлення аватарів"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:124
+#: src/qml/Settings/GeneralSettingsPage.qml:125
 #, kde-format
 msgid "Rooms and private chats"
 msgstr "Кімнати і особисті спілкування"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:127
+#: src/qml/Settings/GeneralSettingsPage.qml:128
 #, kde-format
 msgid "Separated"
 msgstr "Окремо"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:136
+#: src/qml/Settings/GeneralSettingsPage.qml:137
 #, kde-format
 msgid "Intermixed"
 msgstr "Разом"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:153
+#: src/qml/Settings/GeneralSettingsPage.qml:154
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Редактор"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:157
+#: src/qml/Settings/GeneralSettingsPage.qml:158
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr ""
 "Для редагування вашого останнього повідомлення скористайтеся синтаксисом s/"
 "текст/заміна"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:168
+#: src/qml/Settings/GeneralSettingsPage.qml:169
 #, kde-format
 msgid "Send typing notifications"
 msgstr "Надсилати сповіщення щодо введення"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:185
+#: src/qml/Settings/GeneralSettingsPage.qml:186
 #, kde-format
 msgid "Developer Settings"
 msgstr "Параметри розробки"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:188
+#: src/qml/Settings/GeneralSettingsPage.qml:189
 #, kde-format
 msgid "Enable developer tools"
 msgstr "Увімкнути інструменти розробника"

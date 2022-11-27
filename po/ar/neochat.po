@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:46+0000\n"
-"PO-Revision-Date: 2022-11-24 09:52+0400\n"
+"POT-Creation-Date: 2022-11-27 00:46+0000\n"
+"PO-Revision-Date: 2022-11-26 11:13+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -398,73 +398,71 @@ msgstr "فشل إنشاء غرفة: \"%1\""
 msgid "The room id you are trying to join is not valid"
 msgstr "رقم التعريفي للغرفة التي تحاول الانضمام إليها غير صحيح"
 
-#: src/emojimodel.cpp:128
+#: src/emojimodel.cpp:133
 #, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
-msgstr ""
+msgstr "السابقة"
 
-#: src/emojimodel.cpp:133
-#, fuzzy, kde-format
-#| msgid "Custom"
+#: src/emojimodel.cpp:138
+#, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "مخصّص"
 
-#: src/emojimodel.cpp:138
+#: src/emojimodel.cpp:143
 #, kde-format
 msgctxt "'Smileys' is a category of emoji"
 msgid "Smileys"
-msgstr ""
-
-#: src/emojimodel.cpp:143
-#, kde-format
-msgctxt "'People' is a category of emoji"
-msgid "People"
-msgstr ""
+msgstr "التعبيرات"
 
 #: src/emojimodel.cpp:148
 #, kde-format
-msgctxt "'Nature' is a category of emoji"
-msgid "Nature"
-msgstr ""
+msgctxt "'People' is a category of emoji"
+msgid "People"
+msgstr "أشخاص"
 
 #: src/emojimodel.cpp:153
 #, kde-format
-msgctxt "'Food' is a category of emoji"
-msgid "Food"
-msgstr ""
+msgctxt "'Nature' is a category of emoji"
+msgid "Nature"
+msgstr "طبيعة"
 
 #: src/emojimodel.cpp:158
 #, kde-format
-msgctxt "'Activities' is a category of emoji"
-msgid "Activities"
-msgstr ""
+msgctxt "'Food' is a category of emoji"
+msgid "Food"
+msgstr "مطاعم وطعام"
 
 #: src/emojimodel.cpp:163
 #, kde-format
-msgctxt "'Travel' is  a category of emoji"
-msgid "Travel"
-msgstr ""
+msgctxt "'Activities' is a category of emoji"
+msgid "Activities"
+msgstr "أنشطة"
 
 #: src/emojimodel.cpp:168
-#, fuzzy, kde-format
-#| msgid "Reject"
-msgctxt "'Objects' is a category of emoji"
-msgid "Objects"
-msgstr "ارفض"
+#, kde-format
+msgctxt "'Travel' is  a category of emoji"
+msgid "Travel"
+msgstr "سفر"
 
 #: src/emojimodel.cpp:173
 #, kde-format
-msgctxt "'Symbols' is a category of emoji"
-msgid "Symbols"
-msgstr ""
+msgctxt "'Objects' is a category of emoji"
+msgid "Objects"
+msgstr "كائنات"
 
 #: src/emojimodel.cpp:178
 #, kde-format
+msgctxt "'Symbols' is a category of emoji"
+msgid "Symbols"
+msgstr "رموز"
+
+#: src/emojimodel.cpp:183
+#, kde-format
 msgctxt "'Flags' is a category of emoji"
 msgid "Flags"
-msgstr ""
+msgstr "أعلام"
 
 #: src/filetransferpseudojob.cpp:47
 #, kde-format
@@ -871,7 +869,7 @@ msgstr "افتح نيوتشات في هذه الغرفة"
 #: src/notificationsmanager.cpp:77
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:539
+#: src/qml/Page/RoomPage.qml:540
 #, kde-format
 msgid "Reply"
 msgstr "ردّ"
@@ -908,7 +906,7 @@ msgstr "المرفق:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:159
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:527
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:528
 #, kde-format
 msgid "Edit"
 msgstr "حرّر"
@@ -1221,7 +1219,7 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "آخر قراءة: %1"
 
-#: src/qml/Component/Timeline/RichLabel.qml:77
+#: src/qml/Component/Timeline/RichLabel.qml:82
 #, kde-format
 msgid " (edited)"
 msgstr " (معدل)"
@@ -1563,11 +1561,10 @@ msgid "Ban this user"
 msgstr "احظر هذا المستخدم"
 
 #: src/qml/Dialog/UserDetailDialog.qml:116
-#, fuzzy, kde-format
-#| msgid "Ban this user"
+#, kde-format
 msgctxt "@title"
 msgid "Ban User"
-msgstr "احظر هذا المستخدم"
+msgstr "احظر مستخدم"
 
 #: src/qml/Dialog/UserDetailDialog.qml:127
 #, kde-format
@@ -1921,22 +1918,20 @@ msgid "Leave Space"
 msgstr "اترك الفضاء"
 
 #: src/qml/Menu/Timeline/BanSheet.qml:16
-#, fuzzy, kde-format
-#| msgid "Ban this user"
+#, kde-format
 msgid "Ban User"
-msgstr "احظر هذا المستخدم"
+msgstr "احظر مستخدم"
 
 #: src/qml/Menu/Timeline/BanSheet.qml:20
-#, fuzzy, kde-format
-#| msgid "Reason for removing this message"
+#, kde-format
 msgid "Reason for banning this user"
-msgstr "سبب إزالة هذه الرسالة"
+msgstr "سبب حظر هذه المستخدم"
 
 #: src/qml/Menu/Timeline/BanSheet.qml:32
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
-msgstr ""
+msgstr "احظر"
 
 #: src/qml/Menu/Timeline/BanSheet.qml:41
 #: src/qml/Menu/Timeline/RemoveSheet.qml:47
@@ -2227,7 +2222,13 @@ msgstr "ابحث في دليل الغرف"
 msgid "No Name"
 msgstr "بلا اسم"
 
-#: src/qml/Page/RoomListPage.qml:353
+#: src/qml/Page/RoomListPage.qml:342
+#, fuzzy, kde-format
+#| msgid "Muted"
+msgid "Muted room"
+msgstr "مكتوم"
+
+#: src/qml/Page/RoomListPage.qml:362
 #, kde-format
 msgid "Configure room"
 msgstr "اضبط الغرفة"
@@ -2262,12 +2263,12 @@ msgstr "اقفز إلى أول رسالة غير المقروءة"
 msgid "Jump to latest message"
 msgstr "اقفز إلى أحدث رسالة"
 
-#: src/qml/Page/RoomPage.qml:404
+#: src/qml/Page/RoomPage.qml:405
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "اسحب عناصر هنا لتشاركهم"
 
-#: src/qml/Page/RoomPage.qml:436
+#: src/qml/Page/RoomPage.qml:437
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2279,12 +2280,12 @@ msgstr[3] "‏%2 يكتبون"
 msgstr[4] "‏%2 يكتبون"
 msgstr[5] "‏%2 يكتبون"
 
-#: src/qml/Page/RoomPage.qml:507
+#: src/qml/Page/RoomPage.qml:508
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "هذه الرسالة أرسلت من جهاز متَثَبّت منه"
 
-#: src/qml/Page/RoomPage.qml:513
+#: src/qml/Page/RoomPage.qml:514
 #, kde-format
 msgid "React"
 msgstr "تفاعل"
@@ -2523,39 +2524,38 @@ msgstr "أي أحد يمكنه العثور عليها والانضمام"
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
-msgstr ""
+msgstr "ظهور الرسائل القديمة"
 
 #: src/qml/RoomSettings/Security.qml:71
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
-msgstr ""
+msgstr "أي أحد"
 
 #: src/qml/RoomSettings/Security.qml:72
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
-msgstr ""
+msgstr "أي أحد - بغض النظر إن كان منضم أم لا - يمكنه رؤية الرسائل القديمة."
 
 #: src/qml/RoomSettings/Security.qml:80
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgctxt "@option:check"
 msgid "Members only"
-msgstr "الأعضاء"
+msgstr "الأعضاء فقط"
 
 #: src/qml/RoomSettings/Security.qml:81
 #, kde-format
 msgctxt "@option:check"
 msgid ""
 "All members can view the entire message history, even before they joined."
-msgstr ""
+msgstr "كل الأعضاء يستطيعون رؤية الرسائل القديمة حتى قبل تاريخ الانضمام."
 
 #: src/qml/RoomSettings/Security.qml:89
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
-msgstr ""
+msgstr "الأعضاء فقط (من تاريخ الدعوة)"
 
 #: src/qml/RoomSettings/Security.qml:90
 #, kde-format
@@ -2564,19 +2564,20 @@ msgid ""
 "New members can view the message history from the point they were invited to "
 "the room."
 msgstr ""
+"يمكن للأعضاء الجدد أن يرو الرسائل القديمة من تاريخ دعوتهم للانضمام للغرفة."
 
 #: src/qml/RoomSettings/Security.qml:98
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
-msgstr ""
+msgstr "الأعضاء فقط (منذ تاريخ الانضمام)"
 
 #: src/qml/RoomSettings/Security.qml:99
 #, kde-format
 msgctxt "@option:check"
 msgid ""
 "New members can view the message history from the point they joined the room."
-msgstr ""
+msgstr "يمكن للأعضاء الجدد أن يرو الرسائل القديمة من تاريخ الانضمام للغرفة."
 
 #: src/qml/Settings/About.qml:11
 #, kde-format
@@ -2703,10 +2704,9 @@ msgid "Compact"
 msgstr "مُدمج"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:221
-#, fuzzy, kde-format
-#| msgid "Show Fancy Effects"
+#, kde-format
 msgid "Show fancy effects in chat"
-msgstr "أظهر تأثيرات خيالية"
+msgstr "أظهر التأثيرات الخيالية في الدردشة"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:235
 #, kde-format
@@ -2741,18 +2741,17 @@ msgstr "اعرض الصورة الرمزية"
 #: src/qml/Settings/AppearanceSettingsPage.qml:318
 #, kde-format
 msgid "In chat"
-msgstr ""
+msgstr "في الدردشة"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:328
-#, fuzzy, kde-format
-#| msgid "In Sidebar"
+#, kde-format
 msgid "In sidebar"
 msgstr "في الشريط الجانبي"
 
 #: src/qml/Settings/ColorScheme.qml:15
 #, kde-format
 msgid "Color theme"
-msgstr ""
+msgstr "سمة الألوان"
 
 #: src/qml/Settings/DevicesPage.qml:14 src/qml/Settings/DevicesPage.qml:26
 #: src/qml/Settings/SettingsPage.qml:48
@@ -2766,18 +2765,14 @@ msgid "New device name"
 msgstr "اسم الجهاز الجديد"
 
 #: src/qml/Settings/DevicesPage.qml:95
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
+#, kde-format
 msgid "Cancel editing display name"
-msgstr "مسح اسمهم"
+msgstr "ألغ تحرير اسم العرض"
 
 #: src/qml/Settings/DevicesPage.qml:102
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
+#, kde-format
 msgid "Confirm new display name"
-msgstr "مسح اسمهم"
+msgstr "أكّد اسم العرض الجديد"
 
 #: src/qml/Settings/DevicesPage.qml:117
 #, kde-format
@@ -2833,7 +2828,7 @@ msgstr "أضف صورة تعبيرية…"
 #: src/qml/Settings/Emoticons.qml:113
 #, kde-format
 msgid "Images (*.png *.gif *.webp)"
-msgstr ""
+msgstr "صور (*.png *.gif *.webp)"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:15
 #: src/qml/Settings/NetworkProxyPage.qml:14
@@ -2847,83 +2842,79 @@ msgstr "عامّ"
 msgid "General settings"
 msgstr "إعدادات عامّة"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:30
+#: src/qml/Settings/GeneralSettingsPage.qml:31
 #, kde-format
 msgid "Close to system tray"
 msgstr "أغلق إلى صينية النظام"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:44
+#: src/qml/Settings/GeneralSettingsPage.qml:45
 #, kde-format
 msgid "Minimize to system tray on startup"
 msgstr "صغر إلى صينية النظام عند البدء"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:58
+#: src/qml/Settings/GeneralSettingsPage.qml:59
 #, kde-format
 msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr "أخفِ/أظهر معلومات الغرفة تلقائيًا عند تغيير حجم النافذة"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:76
+#: src/qml/Settings/GeneralSettingsPage.qml:77
 #, kde-format
 msgid "Timeline Events"
 msgstr "الخط الزمني للأحداث"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:81
+#: src/qml/Settings/GeneralSettingsPage.qml:82
 #, kde-format
 msgid "Show leave and join events"
 msgstr "أظهر أحداث الانضمام و الترك"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:94
+#: src/qml/Settings/GeneralSettingsPage.qml:95
 #, kde-format
 msgid "Show name change events"
 msgstr "أظهر أحداث تغيير الاسم"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:107
+#: src/qml/Settings/GeneralSettingsPage.qml:108
 #, kde-format
 msgid "Show avatar update events"
 msgstr "أظهر أحداث تحديث الصورة الرمزية"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:124
+#: src/qml/Settings/GeneralSettingsPage.qml:125
 #, kde-format
 msgid "Rooms and private chats"
 msgstr "الغرف والدردشات الخاصة"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:127
+#: src/qml/Settings/GeneralSettingsPage.qml:128
 #, kde-format
 msgid "Separated"
 msgstr "منفصل"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:136
+#: src/qml/Settings/GeneralSettingsPage.qml:137
 #, kde-format
 msgid "Intermixed"
 msgstr "مختلط"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:153
-#, fuzzy, kde-format
-#| msgctxt "Chat Editor"
-#| msgid "Editor:"
+#: src/qml/Settings/GeneralSettingsPage.qml:154
+#, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
-msgstr "المحرر:"
+msgstr "المحرّر"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:157
+#: src/qml/Settings/GeneralSettingsPage.qml:158
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "استخدم بناء الجملة s/النص_القديم/نص_جديد لتعديل رسالتك الأخيرة"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:168
-#, fuzzy, kde-format
-#| msgid "Send Typing Notifications"
+#: src/qml/Settings/GeneralSettingsPage.qml:169
+#, kde-format
 msgid "Send typing notifications"
 msgstr "أرسل إشعار الكتابة"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:185
+#: src/qml/Settings/GeneralSettingsPage.qml:186
 #, kde-format
 msgid "Developer Settings"
 msgstr "إعدادات المطور"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:188
-#, fuzzy, kde-format
-#| msgid "Enable Developer Tools"
+#: src/qml/Settings/GeneralSettingsPage.qml:189
+#, kde-format
 msgid "Enable developer tools"
 msgstr "مكّن أدوات المطوّر"
 
