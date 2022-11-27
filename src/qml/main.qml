@@ -159,7 +159,7 @@ Kirigami.ApplicationWindow {
             }
         }
         enabled: RoomManager.hasOpenRoom && pageStack.layers.depth < 2 && pageStack.depth < 3
-        handleVisible: enabled && pageStack.layers.depth < 2 && pageStack.depth < 3 && (root.wideScreen || pageStack.currentIndex > 0)
+        handleVisible: enabled && (pageStack.visibleItems.length > 1 || pageStack.currentIndex > 0)
     }
 
     readonly property int defaultPageWidth: Kirigami.Units.gridUnit * 17
