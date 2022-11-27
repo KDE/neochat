@@ -3,6 +3,7 @@
 
 #include "sortfilterroomlistmodel.h"
 
+#include "neochatconfig.h"
 #include "roomlistmodel.h"
 #include "spacehierarchycache.h"
 
@@ -13,6 +14,15 @@ SortFilterRoomListModel::SortFilterRoomListModel(QObject *parent)
     invalidateFilter();
     connect(this, &SortFilterRoomListModel::filterTextChanged, this, [this]() {
         invalidateFilter();
+    });
+    connect(NeoChatConfig::self(), &NeoChatConfig::ShowRenameChanged, this, [this] {
+        invalidate();
+    });
+    connect(NeoChatConfig::self(), &NeoChatConfig::ShowAvatarUpdateChanged, this, [this] {
+        invalidate();
+    });
+    connect(NeoChatConfig::self(), &NeoChatConfig::ShowLeaveJoinEventChanged, this, [this] {
+        invalidate();
     });
 }
 
