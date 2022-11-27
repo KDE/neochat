@@ -68,7 +68,6 @@ public:
 
     [[nodiscard]] bool supportSystemTray() const;
 
-    bool saveAccessTokenToFile(const Quotient::AccountSettings &account, const QByteArray &accessToken);
     bool saveAccessTokenToKeyChain(const Quotient::AccountSettings &account, const QByteArray &accessToken);
 
     int activeConnectionIndex() const;
@@ -111,7 +110,6 @@ private:
     bool m_busy = false;
     TrayIcon *m_trayIcon = nullptr;
 
-    static QByteArray loadAccessTokenFromFile(const Quotient::AccountSettings &account);
     QKeychain::ReadPasswordJob *loadAccessTokenFromKeyChain(const Quotient::AccountSettings &account);
 
     void loadSettings();

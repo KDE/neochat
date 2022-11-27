@@ -234,13 +234,6 @@ void Controller::showWindow()
     WindowController::instance().showAndRaiseWindow(QString());
 }
 
-inline QString accessTokenFileName(const AccountSettings &account)
-{
-    QString fileName = account.userId();
-    fileName.replace(':', '_');
-    return QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + '/' + fileName;
-}
-
 void Controller::loginWithAccessToken(const QString &serverAddr, const QString &user, const QString &token, const QString &deviceName)
 {
     if (user.isEmpty() || token.isEmpty()) {
@@ -281,7 +274,6 @@ void Controller::logout(Connection *conn, bool serverSideLogout)
     }
 
     SettingsGroup("Accounts").remove(conn->userId());
-    QFile(accessTokenFileName(AccountSettings(conn->userId()))).remove();
 
     QKeychain::DeletePasswordJob job(qAppName());
     job.setAutoDelete(true);
@@ -374,15 +366,7 @@ void Controller::invokeLogin()
                 if (accessTokenLoadingJob->error() == QKeychain::Error::NoError) {
                     accessToken = accessTokenLoadingJob->binaryData();
                 } else {
-                    // No access token from the keychain, try token file
-                    // TODO FIXME this code is racy since the file might have
-                    // already been removed. But since the other code do a blocking
-                    // dbus call, the probability are not high that it will happen.
-                    // loadAccessTokenFromFile is also mostly legacy nowadays
-                    accessToken = loadAccessTokenFromFile(account);
-                    if (accessToken.isEmpty()) {
-                        return;
-                    }
+                    return;
                 }
 
                 auto connection = new Connection(account.homeserver());
@@ -416,21 +400,6 @@ void Controller::invokeLogin()
     }
 }
 
-QByteArray Controller::loadAccessTokenFromFile(const AccountSettings &account)
-{
-    QFile accountTokenFile{accessTokenFileName(account)};
-    if (accountTokenFile.open(QFile::ReadOnly)) {
-        if (accountTokenFile.size() < 1024) {
-            return accountTokenFile.readAll();
-        }
-
-        qWarning() << "File" << accountTokenFile.fileName() << "is" << accountTokenFile.size() << "bytes long - too long for a token, ignoring it.";
-    }
-    qWarning() << "Could not open access token file" << accountTokenFile.fileName();
-
-    return {};
-}
-
 QKeychain::ReadPasswordJob *Controller::loadAccessTokenFromKeyChain(const AccountSettings &account)
 {
     qDebug() << "Reading access token from the keychain for" << account.userId();
@@ -441,24 +410,6 @@ QKeychain::ReadPasswordJob *Controller::loadAccessTokenFromKeyChain(const Accoun
     connect(job, &QKeychain::Job::finished, this, [this, &account, job]() {
         if (job->error() == QKeychain::Error::NoError) {
             return;
-        }
-        if (job->error() == QKeychain::Error::EntryNotFound) {
-            // no access token from the keychain, try token file
-            auto accessToken = loadAccessTokenFromFile(account);
-            if (!accessToken.isEmpty()) {
-                qDebug() << "Migrating the access token from file to the keychain for " << account.userId();
-                bool removed = false;
-                bool saved = saveAccessTokenToKeyChain(account, accessToken);
-                if (saved) {
-                    QFile accountTokenFile{accessTokenFileName(account)};
-                    removed = accountTokenFile.remove();
-                }
-                if (!(saved && removed)) {
-                    qDebug() << "Migrating the access token from the file to the keychain "
-                                "failed";
-                }
-                return;
-            }
         }
 
         switch (job->error()) {
@@ -484,22 +435,6 @@ QKeychain::ReadPasswordJob *Controller::loadAccessTokenFromKeyChain(const Accoun
     return job;
 }
 
-bool Controller::saveAccessTokenToFile(const AccountSettings &account, const QByteArray &accessToken)
-{
-    // (Re-)Make a dedicated file for access_token.
-    QFile accountTokenFile{accessTokenFileName(account)};
-    accountTokenFile.remove(); // Just in case
-
-    auto fileDir = QFileInfo(accountTokenFile).dir();
-    if (!((fileDir.exists() || fileDir.mkpath(".")) && accountTokenFile.open(QFile::WriteOnly))) {
-        Q_EMIT errorOccured("I/O Denied: Cannot save access token.");
-    } else {
-        accountTokenFile.write(accessToken);
-        return true;
-    }
-    return false;
-}
-
 bool Controller::saveAccessTokenToKeyChain(const AccountSettings &account, const QByteArray &accessToken)
 {
     qDebug() << "Save the access token to the keychain for " << account.userId();
@@ -514,7 +449,7 @@ bool Controller::saveAccessTokenToKeyChain(const AccountSettings &account, const
 
     if (job.error()) {
         qWarning() << "Could not save access token to the keychain: " << qPrintable(job.errorString());
-        return saveAccessTokenToFile(account, accessToken);
+        return false;
     }
     return true;
 }
