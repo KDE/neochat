@@ -1,0 +1,157 @@
+// SPDX-FileCopyrightText: None
+// SPDX-License-Identifier: LGPL-2.0-or-later
+// This file is auto-generated. All changes will be lost. See tools/README.md
+// clang-format off
+
+#include <QString>
+#include <QHash>
+#include "../../emojimap.h"
+
+class ocEmojiMap: public EmojiMap {
+
+public:
+    QHash<EmojiModel::Category, QVector<Emoji>> langEmojiMap()
+    {
+        QHash<EmojiModel::Category, QVector<Emoji>> _emojis;
+        _emojis[EmojiModel::Smileys].append(Emoji{QString::fromUtf8("\U00002764\U0000200D\U0001F525"), QStringLiteral("còr en fòc")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F9D1\U0000200D\U0001F393"), QStringLiteral("estudiant")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F9D1\U0000200D\U0001F3EB"), QStringLiteral("professor")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F9D1\U0000200D\U00002696"), QStringLiteral("jutge")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F9D1\U0000200D\U0001F33E"), QStringLiteral("pagès")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F9D1\U0000200D\U0001F527"), QStringLiteral("mecanician")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F468\U0000200D\U0001F527"), QStringLiteral("mecanician (òme)")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F469\U0000200D\U0001F527"), QStringLiteral("mecaniciana")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F9D1\U0000200D\U0001F52C"), QStringLiteral("scientific")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F9D1\U0000200D\U0001F3A4"), QStringLiteral("cantaire")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F9D1\U0000200D\U0001F680"), QStringLiteral("astronauta")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F9D1\U0000200D\U0001F692"), QStringLiteral("pompièr")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F9DA\U0000200D\U00002642"), QStringLiteral("fada (òme)")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F9DA\U0000200D\U00002640"), QStringLiteral("fada (femna)")});
+        _emojis[EmojiModel::Smileys].append(Emoji{QString::fromUtf8("\U0001F602"), QStringLiteral("cara amb lagremas de jòia")});
+        _emojis[EmojiModel::Smileys].append(Emoji{QString::fromUtf8("\U0001F637"), QStringLiteral("cara amb masqueta medicala")});
+        _emojis[EmojiModel::Smileys].append(Emoji{QString::fromUtf8("\U0001F49A"), QStringLiteral("còr verd")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F9B5"), QStringLiteral("camba")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F9B6"), QStringLiteral("pè")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F442"), QStringLiteral("aurelha")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F443"), QStringLiteral("nas")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F9E0"), QStringLiteral("cervèl")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001FAC1"), QStringLiteral("palmons")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F9B7"), QStringLiteral("dent")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F9B4"), QStringLiteral("òs")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F440"), QStringLiteral("uèlhs")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F441"), QStringLiteral("uèlh")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F445"), QStringLiteral("lenga")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F444"), QStringLiteral("boca")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F476"), QStringLiteral("nenet")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F466"), QStringLiteral("dròlle")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F467"), QStringLiteral("dròlla")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F468"), QStringLiteral("òme")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F469"), QStringLiteral("femna")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F385"), QStringLiteral("Paire Nadal")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F9DA"), QStringLiteral("fada")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F9DB"), QStringLiteral("vampire")});
+        _emojis[EmojiModel::People].append(Emoji{QString::fromUtf8("\U0001F9DE"), QStringLiteral("gèni")});
+        _emojis[EmojiModel::Nature].append(Emoji{QString::fromUtf8("\U0001F415"), QStringLiteral("can")});
+        _emojis[EmojiModel::Nature].append(Emoji{QString::fromUtf8("\U0001F43A"), QStringLiteral("lop")});
+        _emojis[EmojiModel::Nature].append(Emoji{QString::fromUtf8("\U0001F98A"), QStringLiteral("rainal")});
+        _emojis[EmojiModel::Nature].append(Emoji{QString::fromUtf8("\U0001F431"), QStringLiteral("cara cat")});
+        _emojis[EmojiModel::Nature].append(Emoji{QString::fromUtf8("\U0001F408"), QStringLiteral("cat")});
+        _emojis[EmojiModel::Nature].append(Emoji{QString::fromUtf8("\U0001F42F"), QStringLiteral("cara de tigre")});
+        _emojis[EmojiModel::Nature].append(Emoji{QString::fromUtf8("\U0001F405"), QStringLiteral("tigre")});
+        _emojis[EmojiModel::Nature].append(Emoji{QString::fromUtf8("\U0001F40E"), QStringLiteral("chaval")});
+        _emojis[EmojiModel::Nature].append(Emoji{QString::fromUtf8("\U0001F993"), QStringLiteral("zèbre")});
+        _emojis[EmojiModel::Nature].append(Emoji{QString::fromUtf8("\U0001F42E"), QStringLiteral("cara de vaca")});
+        _emojis[EmojiModel::Nature].append(Emoji{QString::fromUtf8("\U0001F404"), QStringLiteral("vaca")});
+        _emojis[EmojiModel::Nature].append(Emoji{QString::fromUtf8("\U0001F437"), QStringLiteral("cara de tesson")});
+        _emojis[EmojiModel::Nature].append(Emoji{QString::fromUtf8("\U0001F416"), QStringLiteral("tesson")});
+        _emojis[EmojiModel::Nature].append(Emoji{QString::fromUtf8("\U0001F418"), QStringLiteral("elefant")});
+        _emojis[EmojiModel::Nature].append(Emoji{QString::fromUtf8("\U0001F401"), QStringLiteral("mirga")});
+        _emojis[EmojiModel::Nature].append(Emoji{QString::fromUtf8("\U0001F400"), QStringLiteral("rat")});
+        _emojis[EmojiModel::Nature].append(Emoji{QString::fromUtf8("\U0001F43B"), QStringLiteral("ors")});
+        _emojis[EmojiModel::Nature].append(Emoji{QString::fromUtf8("\U0001F428"), QStringLiteral("coalà")});
+        _emojis[EmojiModel::Nature].append(Emoji{QString::fromUtf8("\U0001F9A1"), QStringLiteral("tais")});
+        _emojis[EmojiModel::Nature].append(Emoji{QString::fromUtf8("\U0001F426"), QStringLiteral("aucèl")});
+        _emojis[EmojiModel::Nature].append(Emoji{QString::fromUtf8("\U0001F989"), QStringLiteral("chòt")});
+        _emojis[EmojiModel::Nature].append(Emoji{QString::fromUtf8("\U0001F438"), QStringLiteral("granhòta")});
+        _emojis[EmojiModel::Nature].append(Emoji{QString::fromUtf8("\U0001F41F"), QStringLiteral("peis")});
+        _emojis[EmojiModel::Nature].append(Emoji{QString::fromUtf8("\U0001F982"), QStringLiteral("escorpion")});
+        _emojis[EmojiModel::Nature].append(Emoji{QString::fromUtf8("\U0001F490"), QStringLiteral("flòc")});
+        _emojis[EmojiModel::Nature].append(Emoji{QString::fromUtf8("\U0001F337"), QStringLiteral("tulipa")});
+        _emojis[EmojiModel::Nature].append(Emoji{QString::fromUtf8("\U0001F334"), QStringLiteral("palmièr")});
+        _emojis[EmojiModel::Nature].append(Emoji{QString::fromUtf8("\U0001F335"), QStringLiteral("cactus")});
+        _emojis[EmojiModel::Food].append(Emoji{QString::fromUtf8("\U0001F348"), QStringLiteral("melon")});
+        _emojis[EmojiModel::Food].append(Emoji{QString::fromUtf8("\U0001F349"), QStringLiteral("pastèca")});
+        _emojis[EmojiModel::Food].append(Emoji{QString::fromUtf8("\U0001F350"), QStringLiteral("pera")});
+        _emojis[EmojiModel::Food].append(Emoji{QString::fromUtf8("\U0001FAD2"), QStringLiteral("oliva")});
+        _emojis[EmojiModel::Food].append(Emoji{QString::fromUtf8("\U0001F35E"), QStringLiteral("pan")});
+        _emojis[EmojiModel::Food].append(Emoji{QString::fromUtf8("\U0001F95A"), QStringLiteral("uòu")});
+        _emojis[EmojiModel::Food].append(Emoji{QString::fromUtf8("\U0001F9C2"), QStringLiteral("sal")});
+        _emojis[EmojiModel::Travel].append(Emoji{QString::fromUtf8("\U0001F9ED"), QStringLiteral("compàs")});
+        _emojis[EmojiModel::Travel].append(Emoji{QString::fromUtf8("\U000026F0"), QStringLiteral("montanha")});
+        _emojis[EmojiModel::Travel].append(Emoji{QString::fromUtf8("\U0001F3DF"), QStringLiteral("estadi")});
+        _emojis[EmojiModel::Travel].append(Emoji{QString::fromUtf8("\U0001F9F1"), QStringLiteral("brica")});
+        _emojis[EmojiModel::Travel].append(Emoji{QString::fromUtf8("\U0001F3E0"), QStringLiteral("ostal")});
+        _emojis[EmojiModel::Travel].append(Emoji{QString::fromUtf8("\U0001F3E6"), QStringLiteral("banca")});
+        _emojis[EmojiModel::Travel].append(Emoji{QString::fromUtf8("\U0001F3EB"), QStringLiteral("escòla")});
+        _emojis[EmojiModel::Travel].append(Emoji{QString::fromUtf8("\U0001F3F0"), QStringLiteral("castèl")});
+        _emojis[EmojiModel::Travel].append(Emoji{QString::fromUtf8("\U000026EA"), QStringLiteral("glèsia")});
+        _emojis[EmojiModel::Travel].append(Emoji{QString::fromUtf8("\U000026F2"), QStringLiteral("font")});
+        _emojis[EmojiModel::Travel].append(Emoji{QString::fromUtf8("\U0001F686"), QStringLiteral("tren")});
+        _emojis[EmojiModel::Travel].append(Emoji{QString::fromUtf8("\U0001F687"), QStringLiteral("mètro")});
+        _emojis[EmojiModel::Travel].append(Emoji{QString::fromUtf8("\U0001F689"), QStringLiteral("estacion")});
+        _emojis[EmojiModel::Travel].append(Emoji{QString::fromUtf8("\U0001F68A"), QStringLiteral("tram")});
+        _emojis[EmojiModel::Travel].append(Emoji{QString::fromUtf8("\U0001F68C"), QStringLiteral("bus")});
+        _emojis[EmojiModel::Travel].append(Emoji{QString::fromUtf8("\U0001F6B2"), QStringLiteral("bicicleta")});
+        _emojis[EmojiModel::Travel].append(Emoji{QString::fromUtf8("\U00002B50"), QStringLiteral("estèla")});
+        _emojis[EmojiModel::Travel].append(Emoji{QString::fromUtf8("\U0001F308"), QStringLiteral("arcolan")});
+        _emojis[EmojiModel::Travel].append(Emoji{QString::fromUtf8("\U0001F525"), QStringLiteral("fòc")});
+        _emojis[EmojiModel::Activities].append(Emoji{QString::fromUtf8("\U0001F383"), QStringLiteral("coja")});
+        _emojis[EmojiModel::Activities].append(Emoji{QString::fromUtf8("\U0001F384"), QStringLiteral("Arbre de Nadal")});
+        _emojis[EmojiModel::Activities].append(Emoji{QString::fromUtf8("\U0001F381"), QStringLiteral("present")});
+        _emojis[EmojiModel::Activities].append(Emoji{QString::fromUtf8("\U0001F3C9"), QStringLiteral("rugby")});
+        _emojis[EmojiModel::Activities].append(Emoji{QString::fromUtf8("\U0001F3BE"), QStringLiteral("tenís")});
+        _emojis[EmojiModel::Activities].append(Emoji{QString::fromUtf8("\U0001F3AE"), QStringLiteral("jòc vidèo")});
+        _emojis[EmojiModel::Activities].append(Emoji{QString::fromUtf8("\U0001F579"), QStringLiteral("maneta")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F456"), QStringLiteral("bragas")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F9E3"), QStringLiteral("eissarpa")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F9E4"), QStringLiteral("gants")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F9E6"), QStringLiteral("cauceta")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F3A9"), QStringLiteral("capèl")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F48D"), QStringLiteral("anèl")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F514"), QStringLiteral("campana")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F3A4"), QStringLiteral("microfòn")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F4FB"), QStringLiteral("ràdio")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001FA97"), QStringLiteral("acordeon")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0000260E"), QStringLiteral("telefòn")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F5A8"), QStringLiteral("imprimenta")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U00002328"), QStringLiteral("clavièr")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F4BF"), QStringLiteral("disc optic")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F4C0"), QStringLiteral("dvd")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F4FA"), QStringLiteral("television")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F4F7"), QStringLiteral("camèra")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F4F9"), QStringLiteral("camèra (v)")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F56F"), QStringLiteral("candèla")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F4D7"), QStringLiteral("libre verd")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F4D8"), QStringLiteral("libre blau")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F4DA"), QStringLiteral("libres")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F516"), QStringLiteral("marcapagina")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F3F7"), QStringLiteral("etiqueta")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001FA99"), QStringLiteral("pèça")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F4B3"), QStringLiteral("carta de crèdit")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F4C5"), QStringLiteral("calendièr")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F511"), QStringLiteral("clau")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F528"), QStringLiteral("martèl")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F517"), QStringLiteral("ligam")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U000026D3"), QStringLiteral("cadenas")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001FA9C"), QStringLiteral("escala")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F489"), QStringLiteral("seringa")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F6AA"), QStringLiteral("pòrta")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001FA9E"), QStringLiteral("miralh")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001FA9F"), QStringLiteral("fenèstra")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F6CF"), QStringLiteral("lièch")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001FA91"), QStringLiteral("cadièra")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F6BF"), QStringLiteral("docha")});
+        _emojis[EmojiModel::Objects].append(Emoji{QString::fromUtf8("\U0001F9FC"), QStringLiteral("sabon")});
+        _emojis[EmojiModel::Symbols].append(Emoji{QString::fromUtf8("\U0001F3E7"), QStringLiteral("avertiment")});
+        _emojis[EmojiModel::Symbols].append(Emoji{QString::fromUtf8("\U0001F3A6"), QStringLiteral("cinèma")});
+};
