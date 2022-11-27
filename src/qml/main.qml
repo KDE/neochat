@@ -238,13 +238,13 @@ Kirigami.ApplicationWindow {
                 text: i18n("Explore rooms")
                 icon.name: "compass"
                 onTriggered: pushReplaceLayer("qrc:/JoinRoomPage.qml", {connection: Controller.activeConnection})
-                enabled: pageStack.layers.currentItem.title !== i18n("Explore Rooms") && Controller.accountCount > 0
+                enabled: pageStack.layers.depth === 1 && Controller.accountCount > 0
             },
             Kirigami.Action {
                 text: i18n("Start a Chat")
                 icon.name: "irc-join-channel"
                 onTriggered: pushReplaceLayer("qrc:/StartChatPage.qml", {connection: Controller.activeConnection})
-                enabled: pageStack.layers.currentItem.title !== i18n("Start a Chat") && Controller.accountCount > 0
+                enabled: pageStack.layers.depth === 1 && Controller.accountCount > 0
             },
             Kirigami.Action {
                 text: i18n("Create a Room")
@@ -262,7 +262,7 @@ Kirigami.ApplicationWindow {
                 onTriggered: pageStack.pushDialogLayer("qrc:/SettingsPage.qml", {}, {
                     title: i18n("Configure")
                 })
-                enabled: pageStack.layers.currentItem.title !== i18n("Configure NeoChat...")
+                enabled: pageStack.layers.depth === 1
                 shortcut: StandardKey.Preferences
             },
             Kirigami.Action {
