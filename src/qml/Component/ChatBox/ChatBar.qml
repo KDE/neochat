@@ -239,7 +239,9 @@ QQC2.ToolBar {
     Connections {
         target: currentRoom
         function onChatBoxEditIdChanged() {
-            chatBar.inputFieldText = currentRoom.chatBoxEditMessage
+            if (currentRoom.chatBoxEditMessage.length > 0) {
+                chatBar.inputFieldText = currentRoom.chatBoxEditMessage
+            }
         }
     }
 

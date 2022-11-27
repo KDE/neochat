@@ -1209,6 +1209,9 @@ QString NeoChatRoom::chatBoxReplyId() const
 
 void NeoChatRoom::setChatBoxReplyId(const QString &replyId)
 {
+    if (replyId == m_chatBoxReplyId) {
+        return;
+    }
     m_chatBoxReplyId = replyId;
     Q_EMIT chatBoxReplyIdChanged();
 }
@@ -1220,6 +1223,9 @@ QString NeoChatRoom::chatBoxEditId() const
 
 void NeoChatRoom::setChatBoxEditId(const QString &editId)
 {
+    if (editId == m_chatBoxEditId) {
+        return;
+    }
     m_chatBoxEditId = editId;
     Q_EMIT chatBoxEditIdChanged();
 }
