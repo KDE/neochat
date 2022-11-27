@@ -96,6 +96,7 @@ Item {
         RichLabel {
             textMessage: reply.display
             textFormat: Text.RichText
+            isReplyLabel: true
         }
     }
     Component {

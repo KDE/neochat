@@ -15,6 +15,7 @@ TextEdit {
     readonly property var hasSpoiler: /data-mx-spoiler/g
 
     property bool isEmote: false
+    property bool isReplyLabel: false
 
     readonly property var linkRegex: /(href=["'])?(\b(https?):\/\/[^\s\<\>\"\'\\]+)/g
     property string textMessage: model.display.includes("http")
@@ -74,7 +75,7 @@ a{
     background: " + Kirigami.Theme.textColor + ";
 }
 " : "") + "
-</style>" + textMessage + (isEdited ? (" <span style=\"color: " + Kirigami.Theme.disabledTextColor + "\">" + "<span style='font-size: " + Kirigami.Theme.defaultFont.pixelSize +"px'>" + i18n(" (edited)") + "</span>") : "")
+</style>" + textMessage + (isEdited && !contentLabel.isReplyLabel ? (" <span style=\"color: " + Kirigami.Theme.disabledTextColor + "\">" + "<span style='font-size: " + Kirigami.Theme.defaultFont.pixelSize +"px'>" + i18n(" (edited)") + "</span>") : "")
 
     color: Kirigami.Theme.textColor
     selectedTextColor: Kirigami.Theme.highlightedTextColor
