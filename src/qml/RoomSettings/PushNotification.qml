@@ -16,6 +16,9 @@ Kirigami.ScrollablePage {
 
     title: i18nc('@title:window', 'Notifications')
 
+    leftPadding: 0
+    rightPadding: 0
+
     ColumnLayout {
         MobileForm.FormCard {
             Layout.topMargin: Kirigami.Units.largeSpacing

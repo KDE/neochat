@@ -17,6 +17,9 @@ Kirigami.ScrollablePage {
 
     title: i18n("Security")
 
+    leftPadding: 0
+    rightPadding: 0
+
     ColumnLayout {
         MobileForm.FormCard {
             Layout.topMargin: Kirigami.Units.largeSpacing
