@@ -150,6 +150,7 @@ Loader {
                 QQC2.MenuItem {
                     text: i18n("Configure Web Shortcuts...")
                     icon.name: "configure"
+                    visible: !Controller.isFlatpak
                     onTriggered: webshortcutmodel.configureWebShortcuts()
                 }
             }
