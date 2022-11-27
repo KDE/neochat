@@ -6,6 +6,7 @@
 #include "controller.h"
 #include "neochatroom.h"
 #include "neochatuser.h"
+#include "roommanager.h"
 #include <events/roommemberevent.h>
 #include <events/roompowerlevelsevent.h>
 
@@ -193,8 +194,9 @@ QVector<ActionsModel::Action> actions{
                                          i18nc("'<text>' does not look like a room id or alias.", "'%1' does not look like a room id or alias.", text));
                 return QString();
             }
-            if (Controller::instance().activeConnection()->room(text) || Controller::instance().activeConnection()->roomByAlias(text)) {
-                Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("You are already in room <roomname>.", "You are already in room %1.", text));
+            auto targetRoom = text.startsWith(QLatin1Char('!')) ? room->connection()->room(text) : room->connection()->roomByAlias(text);
+            if (targetRoom) {
+                RoomManager::instance().enterRoom(dynamic_cast<NeoChatRoom *>(targetRoom));
                 return QString();
             }
             Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("Joining room <roomname>.", "Joining room %1.", text));
