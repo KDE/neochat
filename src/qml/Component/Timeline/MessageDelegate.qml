@@ -13,13 +13,6 @@ import org.kde.neochat 1.0
 TimelineContainer {
     id: messageDelegate
 
-    function positionAt(x, y) {
-        let point = label.mapFromItem(messageDelegate, x, y)
-        return label.positionAt(point.x, point.y)
-    }
-
-    property alias selectedText: label.selectedText
-
     property bool isEmote: false
     onOpenContextMenu: openMessageContext(model, label.selectedText, Controller.plainText(label.textDocument))
 
@@ -29,7 +22,6 @@ TimelineContainer {
             id: label
             Layout.fillWidth: true
             isEmote: messageDelegate.isEmote
-            isDelegate: true
         }
         Loader {
             id: linkPreviewLoader
