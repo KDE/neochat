@@ -195,7 +195,7 @@ Kirigami.OverlayDrawer {
                         Layout.preferredWidth: Kirigami.Units.gridUnit * 3.5
                         Layout.preferredHeight: Kirigami.Units.gridUnit * 3.5
 
-                        name: room ? room.name : i18n("No name")
+                        name: room ? room.displayName : ""
                         source: room ? ("image://mxc/" +  room.avatarMediaId) : ""
                     }
 
