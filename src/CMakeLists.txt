@@ -91,12 +91,7 @@ else()
 endif()
 
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR})
-target_link_libraries(neochat PUBLIC Qt::Core Qt::Quick Qt::Qml Qt::Gui Qt::Multimedia Qt::Network Qt::QuickControls2 KF5::I18n KF5::Kirigami2 KF5::Notifications KF5::ConfigCore KF5::ConfigGui KF5::CoreAddons KF5::SonnetCore  KF5::ItemModels Quotient cmark::cmark ${QTKEYCHAIN_LIBRARIES})
-if(TARGET QCoro5::Coro)
-    target_link_libraries(neochat PUBLIC QCoro5::Coro)
-else()
-    target_link_libraries(neochat PUBLIC QCoro::QCoro)
-endif()
+target_link_libraries(neochat PUBLIC Qt::Core Qt::Quick Qt::Qml Qt::Gui Qt::Multimedia Qt::Network Qt::QuickControls2 KF5::I18n KF5::Kirigami2 KF5::Notifications KF5::ConfigCore KF5::ConfigGui KF5::CoreAddons KF5::SonnetCore  KF5::ItemModels Quotient cmark::cmark ${QTKEYCHAIN_LIBRARIES} QCoro::Core)
 kconfig_add_kcfg_files(neochat GENERATE_MOC neochatconfig.kcfgc)
 
 if(NEOCHAT_FLATPAK)
