@@ -348,6 +348,7 @@ Kirigami.ScrollablePage {
             visible: currentRoom && currentRoom.hasUnreadMessages && currentRoom.readMarkerLoaded
             action: Kirigami.Action {
                 onTriggered: {
+                    chatBox.focusInputField();
                     messageListView.goToEvent(currentRoom.readMarkerEventId)
                 }
                 icon.name: "go-up"
@@ -360,7 +361,7 @@ Kirigami.ScrollablePage {
         QQC2.RoundButton {
             anchors.right: parent.right
             anchors.bottom: parent.bottom
-            anchors.bottomMargin: Kirigami.Units.largeSpacing + messageListView.headerItem.height
+            anchors.bottomMargin: Kirigami.Units.largeSpacing
             anchors.rightMargin: Kirigami.Units.largeSpacing
             implicitWidth: Kirigami.Units.gridUnit * 2
             implicitHeight: Kirigami.Units.gridUnit * 2
@@ -371,6 +372,7 @@ Kirigami.ScrollablePage {
             visible: !messageListView.atYEnd
             action: Kirigami.Action {
                 onTriggered: {
+                    chatBox.focusInputField();
                     goToLastMessage();
                     currentRoom.markAllMessagesAsRead();
                 }
