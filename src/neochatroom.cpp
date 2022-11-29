@@ -473,13 +473,6 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                 auto base = url.scheme() + QStringLiteral("://") + url.host() + (url.port() != -1 ? ':' + QString::number(url.port()) : QString());
                 htmlBody.replace(utils::mxcImageRegExp, QStringLiteral(R"(<img \1 src="%1/_matrix/media/r0/download/\2/\3" \4 > )").arg(base));
 
-                if (e.msgtype() == MessageEventType::Emote) {
-                    auto author = static_cast<NeoChatUser *>(user(e.senderId()));
-                    int firstPara = htmlBody.indexOf("<p>");
-                    htmlBody.insert(firstPara == -1 ? 0 : firstPara + 3,
-                                    "* <a href='https://matrix.to/#/" + author->id() + "' style='color: " + author->color().name() + "'>"
-                                        + author->displayname(this) + "</a> ");
-                }
                 return htmlBody;
             }
 
@@ -501,18 +494,14 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                 plainBody = e.plainBody();
             }
 
-            if (removeReply) {
-                plainBody = plainBody.remove(utils::removeReplyRegex);
-            }
             if (prettyPrint) {
-                plainBody = Quotient::prettyPrint(plainBody);
+                if (removeReply) {
+                    plainBody.remove(utils::removeReplyRegex);
+                }
+                return Quotient::prettyPrint(plainBody);
             }
-            if (e.msgtype() == MessageEventType::Emote) {
-                auto author = static_cast<NeoChatUser *>(user(e.senderId()));
-                plainBody.remove("/me");
-                plainBody.insert(0,
-                                 "* <a href='https://matrix.to/#/" + author->id() + "' style='color: " + author->color().name() + "'>"
-                                     + author->displayname(this) + "</a> ");
+            if (removeReply) {
+                return plainBody.remove(utils::removeReplyRegex);
             }
             return plainBody;
         },
