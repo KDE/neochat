@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include <qobjectdefs.h>
 #include <room.h>
 
 #include <QCache>
@@ -200,6 +201,16 @@ public:
     bool canEncryptRoom() const;
 
     Q_INVOKABLE bool downloadTempFile(const QString &eventId);
+
+    /*
+     * Map an alias to the room
+     *
+     * Note: this is different to setLocalAliases as that can only
+     * get the room to publish and alias that is already mapped.
+     */
+    Q_INVOKABLE void mapAlias(const QString &alias);
+    Q_INVOKABLE void unmapAlias(const QString &alias);
+    Q_INVOKABLE void setCanonicalAlias(const QString &newAlias);
 
 #ifdef QUOTIENT_07
     Q_INVOKABLE PollHandler *poll(const QString &eventId);

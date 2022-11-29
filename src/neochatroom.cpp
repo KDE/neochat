@@ -17,6 +17,7 @@
 #include <qcoro/task.h>
 
 #include <connection.h>
+#include <csapi/directory.h>
 #include <csapi/pushrules.h>
 #include <csapi/redaction.h>
 #include <csapi/report_content.h>
@@ -1323,4 +1324,47 @@ void NeoChatRoom::download(const QString &eventId, const QUrl &localFilename)
     KIO::getJobTracker()->registerJob(job);
     job->start();
 #endif
+}
+
+void NeoChatRoom::mapAlias(const QString &alias)
+{
+    auto getLocalAliasesJob = connection()->callApi<GetLocalAliasesJob>(id());
+    connect(getLocalAliasesJob, &BaseJob::success, this, [this, getLocalAliasesJob, alias] {
+        if (getLocalAliasesJob->aliases().contains(alias)) {
+            return;
+        } else {
+            auto setRoomAliasJob = connection()->callApi<SetRoomAliasJob>(alias, id());
+            connect(setRoomAliasJob, &BaseJob::success, this, [this, alias] {
+                auto newAltAliases = altAliases();
+                newAltAliases.append(alias);
+                setLocalAliases(newAltAliases);
+            });
+        }
+    });
+}
+
+void NeoChatRoom::unmapAlias(const QString &alias)
+{
+    connection()->callApi<DeleteRoomAliasJob>(alias);
+}
+
+void NeoChatRoom::setCanonicalAlias(const QString &newAlias)
+{
+    QString oldCanonicalAlias = canonicalAlias();
+    Room::setCanonicalAlias(newAlias);
+
+    connect(this, &Room::namesChanged, this, [this, newAlias, oldCanonicalAlias] {
+        if (canonicalAlias() == newAlias) {
+            // If the new canonical alias is already a published alt alias remove it otherwise it will be in both lists.
+            // The server doesn't prevent this so we need to handle it.
+            auto newAltAliases = altAliases();
+            if (!oldCanonicalAlias.isEmpty()) {
+                newAltAliases.append(oldCanonicalAlias);
+            }
+            if (newAltAliases.contains(newAlias)) {
+                newAltAliases.removeAll(newAlias);
+                Room::setLocalAliases(newAltAliases);
+            }
+        }
+    });
 }
