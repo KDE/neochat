@@ -390,5 +390,6 @@ Kirigami.ScrollablePage {
 
     footer: UserInfo {
         width: parent.width
+        visible: !page.collapsedMode
     }
 }
