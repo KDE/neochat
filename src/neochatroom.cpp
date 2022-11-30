@@ -109,7 +109,7 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body)
     }
 
     auto mime = QMimeDatabase().mimeTypeForUrl(url);
-    QFileInfo fileInfo(url.toLocalFile());
+    QFileInfo fileInfo(url.isLocalFile() ? url.toLocalFile() : url.toString());
     EventContent::TypedBase *content;
     if (mime.name().startsWith("image/")) {
         QImage image(url.toLocalFile());
