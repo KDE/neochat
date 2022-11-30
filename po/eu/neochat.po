@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-29 00:46+0000\n"
-"PO-Revision-Date: 2022-11-27 08:07+0100\n"
+"POT-Creation-Date: 2022-11-30 00:47+0000\n"
+"PO-Revision-Date: 2022-11-29 05:26+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -337,63 +337,63 @@ msgstr " eta "
 msgid "Encrypted Message"
 msgstr "Zifratutako mezua"
 
-#: src/controller.cpp:271 src/controller.cpp:408
+#: src/controller.cpp:264 src/controller.cpp:392
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Sareko errorea: %1"
 
-#: src/controller.cpp:399
+#: src/controller.cpp:383
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Saio-hastea huts egin du: Sartzeko token baliogabea edo indargabetua"
 
-#: src/controller.cpp:402 src/login.cpp:93
+#: src/controller.cpp:386 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Saio-hastea huts egin du: %1"
 
-#: src/controller.cpp:466
+#: src/controller.cpp:417
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Sartzeko tokena ez du aurkitu"
 
-#: src/controller.cpp:466
+#: src/controller.cpp:417
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Agian ezabatu egin da?"
 
-#: src/controller.cpp:470
+#: src/controller.cpp:421
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Gako-katerako sarrera ukatu egin da."
 
-#: src/controller.cpp:470
+#: src/controller.cpp:421
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Mesedez, utzi NeoChat-i sartzeko tokena irakurtzen"
 
-#: src/controller.cpp:473
+#: src/controller.cpp:424
 #, kde-format
 msgid "No keychain available."
 msgstr "Ez dago gako-kate erabilgarririk."
 
-#: src/controller.cpp:473
+#: src/controller.cpp:424
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Mesedez, instalatu gako-kate bat, adib. KWallet edo «GNOME keyring» Linux-en"
 
-#: src/controller.cpp:476
+#: src/controller.cpp:427
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Ez da sartzeko tokena irakurtzeko gai"
 
-#: src/controller.cpp:709
+#: src/controller.cpp:644
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "Gela sortzea huts egin du: «%1»"
 
-#: src/controller.cpp:722
+#: src/controller.cpp:657
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Batzen saiatzen ari zaren gelaren IDa ez da baliozkoa"
@@ -626,233 +626,233 @@ msgstr "[ERREDAKZIO LANA DU]"
 msgid "[REDACTED: %1]"
 msgstr "[ERREDAKZIOAK LANA DU: %1]"
 
-#: src/neochatroom.cpp:493
+#: src/neochatroom.cpp:487
 #, kde-format
 msgid "a file"
 msgstr "fitxategi bat"
 
-#: src/neochatroom.cpp:542
+#: src/neochatroom.cpp:532
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "%1 gelara berriz gonbidatua"
 
-#: src/neochatroom.cpp:544
+#: src/neochatroom.cpp:534
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:553
+#: src/neochatroom.cpp:543
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "gelara batu da (errepikatuta)"
 
-#: src/neochatroom.cpp:555
+#: src/neochatroom.cpp:545
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "%1 gelara gonbidatu du"
 
-#: src/neochatroom.cpp:555
+#: src/neochatroom.cpp:545
 #, kde-format
 msgid "joined the room"
 msgstr "gelara batu da"
 
-#: src/neochatroom.cpp:559
+#: src/neochatroom.cpp:549
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:566
+#: src/neochatroom.cpp:556
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "azaldutako bere izena garbitu du"
 
-#: src/neochatroom.cpp:568
+#: src/neochatroom.cpp:558
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "azaldutako bere izena «%1»(e)ra aldatu du"
 
-#: src/neochatroom.cpp:573
+#: src/neochatroom.cpp:563
 #, kde-format
 msgid " and "
 msgstr " eta "
 
-#: src/neochatroom.cpp:576
+#: src/neochatroom.cpp:566
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "bere abatarra garbitu du"
 
-#: src/neochatroom.cpp:582
+#: src/neochatroom.cpp:572
 #, kde-format
 msgid "set an avatar"
 msgstr "ezarri abatar bat"
 
-#: src/neochatroom.cpp:584
+#: src/neochatroom.cpp:574
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "bere abatarra eguneratu du"
 
-#: src/neochatroom.cpp:588
+#: src/neochatroom.cpp:578
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "ez da ezer aldatu"
 
-#: src/neochatroom.cpp:594
+#: src/neochatroom.cpp:584
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "%1(r)en gonbita erretiratu du"
 
-#: src/neochatroom.cpp:594
+#: src/neochatroom.cpp:584
 #, kde-format
 msgid "rejected the invitation"
 msgstr "gonbidapena errefusatu du"
 
-#: src/neochatroom.cpp:598
+#: src/neochatroom.cpp:588
 #, kde-format
 msgid "unbanned %1"
 msgstr "%1(e)ri debekua altxatu zaio"
 
-#: src/neochatroom.cpp:598
+#: src/neochatroom.cpp:588
 #, kde-format
 msgid "self-unbanned"
 msgstr "bere buruari debekua altxatuta"
 
-#: src/neochatroom.cpp:601
+#: src/neochatroom.cpp:591
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "%1 gelatik kanporatu du: %2"
 
-#: src/neochatroom.cpp:602
+#: src/neochatroom.cpp:592
 #, kde-format
 msgid "left the room"
 msgstr "gela utzi du"
 
-#: src/neochatroom.cpp:606
+#: src/neochatroom.cpp:596
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "%1(e)ri gelarako debekua ipini zaio"
 
-#: src/neochatroom.cpp:608
+#: src/neochatroom.cpp:598
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "%1(e)ri gelarako debekua ipini zaio: %2"
 
-#: src/neochatroom.cpp:611
+#: src/neochatroom.cpp:601
 #, kde-format
 msgid "self-banned from the room"
 msgstr "bere buruari gela honetarako debekua ipinita"
 
-#: src/neochatroom.cpp:614
+#: src/neochatroom.cpp:604
 #, kde-format
 msgid "requested an invite"
 msgstr "gonbidapen bat eskatu du"
 
-#: src/neochatroom.cpp:617
+#: src/neochatroom.cpp:607
 #, kde-format
 msgid "made something unknown"
 msgstr "zerbait ezezaguna egin du"
 
-#: src/neochatroom.cpp:620
+#: src/neochatroom.cpp:610
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "gelaren ezizen nagusia garbitu da"
 
-#: src/neochatroom.cpp:620
+#: src/neochatroom.cpp:610
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "ezarri gelako ezizen nagusia honetara: %1"
 
-#: src/neochatroom.cpp:623
+#: src/neochatroom.cpp:613
 #, kde-format
 msgid "cleared the room name"
 msgstr "gelako izena garbitu da"
 
-#: src/neochatroom.cpp:623
+#: src/neochatroom.cpp:613
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "ezarri gelaren izana honetara: %1"
 
-#: src/neochatroom.cpp:626
+#: src/neochatroom.cpp:616
 #, kde-format
 msgid "cleared the topic"
 msgstr "gaia garbitu da"
 
-#: src/neochatroom.cpp:626
+#: src/neochatroom.cpp:616
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "ezarri gai honetara: %1"
 
-#: src/neochatroom.cpp:629
+#: src/neochatroom.cpp:619
 #, kde-format
 msgid "changed the room avatar"
 msgstr "gelako abatarra aldatu da"
 
-#: src/neochatroom.cpp:632
+#: src/neochatroom.cpp:622
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "muturren arteko zifratzea aktibatu da"
 
-#: src/neochatroom.cpp:635
+#: src/neochatroom.cpp:625
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "gela %1 bertsiora bertsio-berritu da"
 
-#: src/neochatroom.cpp:636
+#: src/neochatroom.cpp:626
 #, kde-format
 msgid "created the room, version %1"
 msgstr "gela sortu da, %1 bertsioa"
 
-#: src/neochatroom.cpp:639
+#: src/neochatroom.cpp:629
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "gela honetako ahalmen mailak aldatu dira"
 
-#: src/neochatroom.cpp:643
+#: src/neochatroom.cpp:633
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr ""
 "gela honetarako zerbitzarirako sarrera-kontroleko zerrendak aldatu zituen"
 
-#: src/neochatroom.cpp:647
+#: src/neochatroom.cpp:637
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "trepeta %1 gehitu da"
 
-#: src/neochatroom.cpp:650
+#: src/neochatroom.cpp:640
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "trepeta %1 kendu da"
 
-#: src/neochatroom.cpp:652
+#: src/neochatroom.cpp:642
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "trepeta %1 konfiguratu da"
 
-#: src/neochatroom.cpp:654
+#: src/neochatroom.cpp:644
 #, kde-format
 msgid "updated %1 state"
 msgstr "%1 egoera eguneratu da"
 
-#: src/neochatroom.cpp:655
+#: src/neochatroom.cpp:645
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "%2(r)en %1 egoera eguneratu da"
 
-#: src/neochatroom.cpp:662
+#: src/neochatroom.cpp:652
 #, kde-format
 msgid "Unknown event"
 msgstr "Gertaera ezezaguna"
 
-#: src/neochatroom.cpp:1188 src/neochatroom.cpp:1189
+#: src/neochatroom.cpp:1178 src/neochatroom.cpp:1179
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Txosten bidalketa arrakastatsua."
@@ -1603,10 +1603,9 @@ msgid "Open a private chat"
 msgstr "Ireki berriketa pribatu bat"
 
 #: src/qml/Dialog/UserDetailDialog.qml:165
-#, fuzzy, kde-format
-#| msgid "Copy"
+#, kde-format
 msgid "Copy link"
-msgstr "Kopiatu"
+msgstr "Kopiatu esteka"
 
 #: src/qml/main.qml:125
 #, kde-format
@@ -1618,19 +1617,13 @@ msgstr "Abisua: %1"
 msgid "Explore rooms"
 msgstr "Esploratu gelak"
 
-#: src/qml/main.qml:241 src/qml/Page/JoinRoomPage.qml:21
-#, kde-format
-msgid "Explore Rooms"
-msgstr "Esploratu gelak"
-
-#: src/qml/main.qml:244 src/qml/main.qml:247 src/qml/main.qml:257
-#: src/qml/Menu/GlobalMenu.qml:43 src/qml/Menu/GlobalMenu.qml:48
-#: src/qml/Page/StartChatPage.qml:18
+#: src/qml/main.qml:244 src/qml/main.qml:257 src/qml/Menu/GlobalMenu.qml:43
+#: src/qml/Menu/GlobalMenu.qml:48 src/qml/Page/StartChatPage.qml:18
 #, kde-format
 msgid "Start a Chat"
 msgstr "Hasi berriketa bat"
 
-#: src/qml/main.qml:260 src/qml/main.qml:265 src/qml/Menu/GlobalMenu.qml:23
+#: src/qml/main.qml:260 src/qml/Menu/GlobalMenu.qml:23
 #, kde-format
 msgid "Configure NeoChat..."
 msgstr "Konfiguratu NeoChat..."
@@ -2020,10 +2013,9 @@ msgid "Copy"
 msgstr "Kopiatu"
 
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:81
-#, fuzzy, kde-format
-#| msgid "Copy"
+#, kde-format
 msgid "Copy Link"
-msgstr "Kopiatu"
+msgstr "Kopiatu esteka"
 
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:130
 #, kde-format
@@ -2152,6 +2144,11 @@ msgstr "Ez dago erabiltzaile erabilgarririk"
 #, kde-format
 msgid "Send invitation"
 msgstr "Bidali gonbita"
+
+#: src/qml/Page/JoinRoomPage.qml:21
+#, kde-format
+msgid "Explore Rooms"
+msgstr "Esploratu gelak"
 
 #: src/qml/Page/JoinRoomPage.qml:36
 #, kde-format
@@ -2415,7 +2412,7 @@ msgstr "Moderatzailea"
 msgid "Muted"
 msgstr "Isilarazita"
 
-#: src/qml/RoomSettings/Categories.qml:15 src/qml/RoomSettings/General.qml:22
+#: src/qml/RoomSettings/Categories.qml:15 src/qml/RoomSettings/General.qml:19
 #: src/qml/Settings/SettingsPage.qml:12
 #, kde-format
 msgid "General"
@@ -2431,57 +2428,91 @@ msgstr "Segurtasuna"
 msgid "Notifications"
 msgstr "Jakinarazpenak"
 
-#: src/qml/RoomSettings/General.qml:40
+#: src/qml/RoomSettings/General.qml:30
+#, fuzzy, kde-format
+#| msgid "Room information"
+msgid "Room Information"
+msgstr "Gelaren informazioa"
+
+#: src/qml/RoomSettings/General.qml:50
 #, kde-format
 msgid "Update avatar"
 msgstr "Eguneratu abatarra"
 
-#: src/qml/RoomSettings/General.qml:58
-#, kde-format
-msgid "Room Name:"
+#: src/qml/RoomSettings/General.qml:75
+#, fuzzy, kde-format
+#| msgid "Room Name:"
+msgid "Room name:"
 msgstr "Gelaren izena:"
 
-#: src/qml/RoomSettings/General.qml:66
+#: src/qml/RoomSettings/General.qml:87
 #, kde-format
 msgid "Room topic:"
 msgstr "Gelaren gaia:"
 
-#: src/qml/RoomSettings/General.qml:79
+#: src/qml/RoomSettings/General.qml:109
+#: src/qml/Settings/AccountEditorPage.qml:104
+#: src/qml/Settings/AccountEditorPage.qml:169
 #, kde-format
-msgid "Canonical Alias:"
-msgstr "Ezizen kanonikoa:"
+msgid "Save"
+msgstr "Gorde"
 
-#: src/qml/RoomSettings/General.qml:96
-#, kde-format
-msgid "Other Aliases:"
+#: src/qml/RoomSettings/General.qml:129
+#, fuzzy, kde-format
+#| msgid "Other Aliases:"
+msgid "Aliases"
 msgstr "Beste ezizen batzuk:"
 
-#: src/qml/RoomSettings/General.qml:140
+#: src/qml/RoomSettings/General.qml:133
+#, fuzzy, kde-format
+#| msgid "No Canonical Alias"
+msgid "No canonical alias set"
+msgstr "Ez dago ezizen kanonikorik"
+
+#: src/qml/RoomSettings/General.qml:146
+#, kde-format
+msgid "Make this alias the room's canonical alias"
+msgstr ""
+
+#: src/qml/RoomSettings/General.qml:161
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Delete"
+msgid "Delete alias"
+msgstr "Ezabatu"
+
+#: src/qml/RoomSettings/General.qml:186
+#, kde-format
+msgid "#new_alias:server.org"
+msgstr ""
+
+#: src/qml/RoomSettings/General.qml:203
+#: src/qml/Settings/GlobalNotificationsPage.qml:245
+#, kde-format
+msgid "Add keyword"
+msgstr "Gehitu gako-hitza"
+
+#: src/qml/RoomSettings/General.qml:226
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "Gela honek beste elkarrizketa bat du."
 
-#: src/qml/RoomSettings/General.qml:142
-#, kde-format
-msgid "See older messages..."
+#: src/qml/RoomSettings/General.qml:230
+#, fuzzy, kde-format
+#| msgid "See older messages..."
+msgid "See older messages…"
 msgstr "Ikusi mezu zaharragoak..."
 
-#: src/qml/RoomSettings/General.qml:160
+#: src/qml/RoomSettings/General.qml:241
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Gela hau ordezkatu egin da."
 
-#: src/qml/RoomSettings/General.qml:162
-#, kde-format
-msgid "See new room..."
+#: src/qml/RoomSettings/General.qml:245
+#, fuzzy, kde-format
+#| msgid "See new room..."
+msgid "See new room…"
 msgstr "Ikusi gela berria..."
-
-#: src/qml/RoomSettings/General.qml:186 src/qml/RoomSettings/Security.qml:121
-#: src/qml/Settings/NetworkProxyPage.qml:108
-#: src/qml/Settings/SonnetConfigPage.qml:326
-#, kde-format
-msgid "Apply"
-msgstr "Ezarri"
 
 #: src/qml/RoomSettings/PushNotification.qml:29
 #, kde-format
@@ -2604,6 +2635,13 @@ msgstr ""
 "Partaide berriek mezuen historia ikus dezakete, gelara batu ziren unetik "
 "aurrera."
 
+#: src/qml/RoomSettings/Security.qml:121
+#: src/qml/Settings/NetworkProxyPage.qml:108
+#: src/qml/Settings/SonnetConfigPage.qml:326
+#, kde-format
+msgid "Apply"
+msgstr "Ezarri"
+
 #: src/qml/Settings/About.qml:11
 #, kde-format
 msgctxt "@title:window"
@@ -2634,12 +2672,6 @@ msgstr "Izena:"
 #, kde-format
 msgid "Label:"
 msgstr "Labela:"
-
-#: src/qml/Settings/AccountEditorPage.qml:104
-#: src/qml/Settings/AccountEditorPage.qml:169
-#, kde-format
-msgid "Save"
-msgstr "Gorde"
 
 #: src/qml/Settings/AccountEditorPage.qml:130
 #, kde-format
@@ -2905,10 +2937,9 @@ msgid "Show avatar update events"
 msgstr "Erakutsi abatara eguneratzeko gertakariak"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:121
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgid "Show deleted messages"
-msgstr "Bidali mezua"
+msgstr "Erakutsi ezabatutako mezuak"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:138
 #, kde-format
@@ -3021,11 +3052,6 @@ msgstr "Nire gako-hitzak dituzten mezuak"
 #, kde-format
 msgid "Keyword…"
 msgstr "Gako-hitza…"
-
-#: src/qml/Settings/GlobalNotificationsPage.qml:245
-#, kde-format
-msgid "Add keyword"
-msgstr "Gehitu gako-hitza"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:272
 #, kde-format
@@ -3287,6 +3313,9 @@ msgstr "Ezin izan du URLa ireki"
 #, kde-format
 msgid "Show"
 msgstr "Erakutsi"
+
+#~ msgid "Canonical Alias:"
+#~ msgstr "Ezizen kanonikoa:"
 
 #~ msgid "Timeline"
 #~ msgstr "Denbora-lerroa"

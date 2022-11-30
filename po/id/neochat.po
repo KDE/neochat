@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-29 00:46+0000\n"
+"POT-Creation-Date: 2022-11-30 00:47+0000\n"
 "PO-Revision-Date: 2022-11-22 20:51+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -355,63 +355,63 @@ msgstr " dan "
 msgid "Encrypted Message"
 msgstr "Pesan Terenkripsi"
 
-#: src/controller.cpp:271 src/controller.cpp:408
+#: src/controller.cpp:264 src/controller.cpp:392
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Kesalahan Jaringan: %1"
 
-#: src/controller.cpp:399
+#: src/controller.cpp:383
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Pemasukan Gagal: Token Pengaksesan tidak absah atau dicabut"
 
-#: src/controller.cpp:402 src/login.cpp:93
+#: src/controller.cpp:386 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Pemasukan Gagal: %1"
 
-#: src/controller.cpp:466
+#: src/controller.cpp:417
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Token pengaksesan tidak ditemukan"
 
-#: src/controller.cpp:466
+#: src/controller.cpp:417
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Mungkin terhapus?"
 
-#: src/controller.cpp:470
+#: src/controller.cpp:421
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Akses ke rantai kunci ditolak."
 
-#: src/controller.cpp:470
+#: src/controller.cpp:421
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Mohon izinkan NeoChat untuk membaca token pengaksesan"
 
-#: src/controller.cpp:473
+#: src/controller.cpp:424
 #, kde-format
 msgid "No keychain available."
 msgstr "Tidak ada keychain yang tersedia."
 
-#: src/controller.cpp:473
+#: src/controller.cpp:424
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Mohon instal sebuah rantai kunci, seperti KWallet atau GNOME Keyring di Linux"
 
-#: src/controller.cpp:476
+#: src/controller.cpp:427
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Tidak dapat membaca token pengaksesan"
 
-#: src/controller.cpp:709
+#: src/controller.cpp:644
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "Pembuatan ruangan gagal: \"%1\""
 
-#: src/controller.cpp:722
+#: src/controller.cpp:657
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "ID ruangan yang Anda coba bergabung tidak absah"
@@ -652,232 +652,232 @@ msgstr "[DIHAPUS]"
 msgid "[REDACTED: %1]"
 msgstr "[DIHAPUS: %1]"
 
-#: src/neochatroom.cpp:493
+#: src/neochatroom.cpp:487
 #, kde-format
 msgid "a file"
 msgstr "sebuah berkas"
 
-#: src/neochatroom.cpp:542
+#: src/neochatroom.cpp:532
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "mengundang ulang %1 ke ruangan ini"
 
-#: src/neochatroom.cpp:544
+#: src/neochatroom.cpp:534
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:553
+#: src/neochatroom.cpp:543
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "bergabung ke ruangan ini (lagi)"
 
-#: src/neochatroom.cpp:555
+#: src/neochatroom.cpp:545
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "mengundang %1 ke ruangan ini"
 
-#: src/neochatroom.cpp:555
+#: src/neochatroom.cpp:545
 #, kde-format
 msgid "joined the room"
 msgstr "bergabung ke ruangan ini"
 
-#: src/neochatroom.cpp:559
+#: src/neochatroom.cpp:549
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:566
+#: src/neochatroom.cpp:556
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "menghapus nama tampilannya"
 
-#: src/neochatroom.cpp:568
+#: src/neochatroom.cpp:558
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "mengubah nama tampilan ke %1"
 
-#: src/neochatroom.cpp:573
+#: src/neochatroom.cpp:563
 #, kde-format
 msgid " and "
 msgstr " dan "
 
-#: src/neochatroom.cpp:576
+#: src/neochatroom.cpp:566
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "menghapus avatarnya"
 
-#: src/neochatroom.cpp:582
+#: src/neochatroom.cpp:572
 #, kde-format
 msgid "set an avatar"
 msgstr "menetapkan sebuah avatar"
 
-#: src/neochatroom.cpp:584
+#: src/neochatroom.cpp:574
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "memperbarui avatarnya"
 
-#: src/neochatroom.cpp:588
+#: src/neochatroom.cpp:578
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "tidak mengubah apa pun"
 
-#: src/neochatroom.cpp:594
+#: src/neochatroom.cpp:584
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "membatalkan undangannya %1"
 
-#: src/neochatroom.cpp:594
+#: src/neochatroom.cpp:584
 #, kde-format
 msgid "rejected the invitation"
 msgstr "menolak undangannya"
 
-#: src/neochatroom.cpp:598
+#: src/neochatroom.cpp:588
 #, kde-format
 msgid "unbanned %1"
 msgstr "menghilangkan cekalannya %1"
 
-#: src/neochatroom.cpp:598
+#: src/neochatroom.cpp:588
 #, kde-format
 msgid "self-unbanned"
 msgstr "menghilangkan cekalannya sendiri"
 
-#: src/neochatroom.cpp:601
+#: src/neochatroom.cpp:591
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "mengeluarkan %1 dari ruangan: %2"
 
-#: src/neochatroom.cpp:602
+#: src/neochatroom.cpp:592
 #, kde-format
 msgid "left the room"
 msgstr "keluar dari ruangan ini"
 
-#: src/neochatroom.cpp:606
+#: src/neochatroom.cpp:596
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "mencekal %1 dari ruangan"
 
-#: src/neochatroom.cpp:608
+#: src/neochatroom.cpp:598
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "mencekal %1 dari ruangan ini: %2"
 
-#: src/neochatroom.cpp:611
+#: src/neochatroom.cpp:601
 #, kde-format
 msgid "self-banned from the room"
 msgstr "mencekal dirinya dari ruangan ini"
 
-#: src/neochatroom.cpp:614
+#: src/neochatroom.cpp:604
 #, kde-format
 msgid "requested an invite"
 msgstr "meminta sebuah undangan"
 
-#: src/neochatroom.cpp:617
+#: src/neochatroom.cpp:607
 #, kde-format
 msgid "made something unknown"
 msgstr "membuat sebuah hal yang tidak diketahui"
 
-#: src/neochatroom.cpp:620
+#: src/neochatroom.cpp:610
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "menghapus alias utama ruangan ini"
 
-#: src/neochatroom.cpp:620
+#: src/neochatroom.cpp:610
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "menetapkan alias utama ruangan ini ke: %1"
 
-#: src/neochatroom.cpp:623
+#: src/neochatroom.cpp:613
 #, kde-format
 msgid "cleared the room name"
 msgstr "menghapus nama ruangan ini"
 
-#: src/neochatroom.cpp:623
+#: src/neochatroom.cpp:613
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "menetapkan nama ruangan ini ke: %1"
 
-#: src/neochatroom.cpp:626
+#: src/neochatroom.cpp:616
 #, kde-format
 msgid "cleared the topic"
 msgstr "menghapus topiknya"
 
-#: src/neochatroom.cpp:626
+#: src/neochatroom.cpp:616
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "menetapkan topiknya ke: %1"
 
-#: src/neochatroom.cpp:629
+#: src/neochatroom.cpp:619
 #, kde-format
 msgid "changed the room avatar"
 msgstr "mengubah avatar ruangan ini"
 
-#: src/neochatroom.cpp:632
+#: src/neochatroom.cpp:622
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "diaktifkan Enkripsi Ujung ke Ujung"
 
-#: src/neochatroom.cpp:635
+#: src/neochatroom.cpp:625
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "meningkatkan ruangan ini ke versi %1"
 
-#: src/neochatroom.cpp:636
+#: src/neochatroom.cpp:626
 #, kde-format
 msgid "created the room, version %1"
 msgstr "membuat ruangan ini, versi %1"
 
-#: src/neochatroom.cpp:639
+#: src/neochatroom.cpp:629
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "mengubah tingkat daya untuk ruangan ini"
 
-#: src/neochatroom.cpp:643
+#: src/neochatroom.cpp:633
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "mengubah daftar kontrol pengaksesan server untuk ruangan ini"
 
-#: src/neochatroom.cpp:647
+#: src/neochatroom.cpp:637
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "menambahkan widget %1"
 
-#: src/neochatroom.cpp:650
+#: src/neochatroom.cpp:640
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "menghapus widget %1"
 
-#: src/neochatroom.cpp:652
+#: src/neochatroom.cpp:642
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "mengatur widget %1"
 
-#: src/neochatroom.cpp:654
+#: src/neochatroom.cpp:644
 #, kde-format
 msgid "updated %1 state"
 msgstr "memperbarui status %1"
 
-#: src/neochatroom.cpp:655
+#: src/neochatroom.cpp:645
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "memperbarui status %1 untuk %2"
 
-#: src/neochatroom.cpp:662
+#: src/neochatroom.cpp:652
 #, kde-format
 msgid "Unknown event"
 msgstr "Peristiwa tidak diketahui"
 
-#: src/neochatroom.cpp:1188 src/neochatroom.cpp:1189
+#: src/neochatroom.cpp:1178 src/neochatroom.cpp:1179
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Laporan berhasil dikirim."
@@ -1639,19 +1639,13 @@ msgstr "Peringatan: %1"
 msgid "Explore rooms"
 msgstr "Jelajahi ruangan"
 
-#: src/qml/main.qml:241 src/qml/Page/JoinRoomPage.qml:21
-#, kde-format
-msgid "Explore Rooms"
-msgstr "Jelajahi Ruangan"
-
-#: src/qml/main.qml:244 src/qml/main.qml:247 src/qml/main.qml:257
-#: src/qml/Menu/GlobalMenu.qml:43 src/qml/Menu/GlobalMenu.qml:48
-#: src/qml/Page/StartChatPage.qml:18
+#: src/qml/main.qml:244 src/qml/main.qml:257 src/qml/Menu/GlobalMenu.qml:43
+#: src/qml/Menu/GlobalMenu.qml:48 src/qml/Page/StartChatPage.qml:18
 #, kde-format
 msgid "Start a Chat"
 msgstr "Mulai sebuah Obrolan"
 
-#: src/qml/main.qml:260 src/qml/main.qml:265 src/qml/Menu/GlobalMenu.qml:23
+#: src/qml/main.qml:260 src/qml/Menu/GlobalMenu.qml:23
 #, kde-format
 msgid "Configure NeoChat..."
 msgstr "Konfigurasi NeoChat..."
@@ -2175,6 +2169,11 @@ msgstr "Tidak ada pengguna yang tersedia"
 msgid "Send invitation"
 msgstr "Kirim undangan"
 
+#: src/qml/Page/JoinRoomPage.qml:21
+#, kde-format
+msgid "Explore Rooms"
+msgstr "Jelajahi Ruangan"
+
 #: src/qml/Page/JoinRoomPage.qml:36
 #, kde-format
 msgid "Find a room..."
@@ -2438,7 +2437,7 @@ msgstr "Mod"
 msgid "Muted"
 msgstr "Dibisukan"
 
-#: src/qml/RoomSettings/Categories.qml:15 src/qml/RoomSettings/General.qml:22
+#: src/qml/RoomSettings/Categories.qml:15 src/qml/RoomSettings/General.qml:19
 #: src/qml/Settings/SettingsPage.qml:12
 #, kde-format
 msgid "General"
@@ -2454,57 +2453,91 @@ msgstr "Keamanan"
 msgid "Notifications"
 msgstr "Notifikasi"
 
-#: src/qml/RoomSettings/General.qml:40
+#: src/qml/RoomSettings/General.qml:30
+#, fuzzy, kde-format
+#| msgid "Room information"
+msgid "Room Information"
+msgstr "Informasi ruangan"
+
+#: src/qml/RoomSettings/General.qml:50
 #, kde-format
 msgid "Update avatar"
 msgstr "Perbarui avatar"
 
-#: src/qml/RoomSettings/General.qml:58
-#, kde-format
-msgid "Room Name:"
+#: src/qml/RoomSettings/General.qml:75
+#, fuzzy, kde-format
+#| msgid "Room Name:"
+msgid "Room name:"
 msgstr "Nama Ruangan:"
 
-#: src/qml/RoomSettings/General.qml:66
+#: src/qml/RoomSettings/General.qml:87
 #, kde-format
 msgid "Room topic:"
 msgstr "Topik ruangan:"
 
-#: src/qml/RoomSettings/General.qml:79
+#: src/qml/RoomSettings/General.qml:109
+#: src/qml/Settings/AccountEditorPage.qml:104
+#: src/qml/Settings/AccountEditorPage.qml:169
 #, kde-format
-msgid "Canonical Alias:"
-msgstr "Alias Kanonik:"
+msgid "Save"
+msgstr "Simpan"
 
-#: src/qml/RoomSettings/General.qml:96
-#, kde-format
-msgid "Other Aliases:"
+#: src/qml/RoomSettings/General.qml:129
+#, fuzzy, kde-format
+#| msgid "Other Aliases:"
+msgid "Aliases"
 msgstr "Alias Lainnya:"
 
-#: src/qml/RoomSettings/General.qml:140
+#: src/qml/RoomSettings/General.qml:133
+#, fuzzy, kde-format
+#| msgid "No Canonical Alias"
+msgid "No canonical alias set"
+msgstr "Tidak Ada Alias Kanonik"
+
+#: src/qml/RoomSettings/General.qml:146
+#, kde-format
+msgid "Make this alias the room's canonical alias"
+msgstr ""
+
+#: src/qml/RoomSettings/General.qml:161
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Delete"
+msgid "Delete alias"
+msgstr "Hapus"
+
+#: src/qml/RoomSettings/General.qml:186
+#, kde-format
+msgid "#new_alias:server.org"
+msgstr ""
+
+#: src/qml/RoomSettings/General.qml:203
+#: src/qml/Settings/GlobalNotificationsPage.qml:245
+#, kde-format
+msgid "Add keyword"
+msgstr "Tambahkan kata kunci"
+
+#: src/qml/RoomSettings/General.qml:226
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "Ruangan ini melanjutkan sebuah percakapan."
 
-#: src/qml/RoomSettings/General.qml:142
-#, kde-format
-msgid "See older messages..."
+#: src/qml/RoomSettings/General.qml:230
+#, fuzzy, kde-format
+#| msgid "See older messages..."
+msgid "See older messages…"
 msgstr "Lihat pesan-pesan lama..."
 
-#: src/qml/RoomSettings/General.qml:160
+#: src/qml/RoomSettings/General.qml:241
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Ruangan ini telah diganti."
 
-#: src/qml/RoomSettings/General.qml:162
-#, kde-format
-msgid "See new room..."
+#: src/qml/RoomSettings/General.qml:245
+#, fuzzy, kde-format
+#| msgid "See new room..."
+msgid "See new room…"
 msgstr "Lihat ruangan baru..."
-
-#: src/qml/RoomSettings/General.qml:186 src/qml/RoomSettings/Security.qml:121
-#: src/qml/Settings/NetworkProxyPage.qml:108
-#: src/qml/Settings/SonnetConfigPage.qml:326
-#, kde-format
-msgid "Apply"
-msgstr "Terapkan"
 
 #: src/qml/RoomSettings/PushNotification.qml:29
 #, kde-format
@@ -2623,6 +2656,13 @@ msgid ""
 "New members can view the message history from the point they joined the room."
 msgstr ""
 
+#: src/qml/RoomSettings/Security.qml:121
+#: src/qml/Settings/NetworkProxyPage.qml:108
+#: src/qml/Settings/SonnetConfigPage.qml:326
+#, kde-format
+msgid "Apply"
+msgstr "Terapkan"
+
 #: src/qml/Settings/About.qml:11
 #, kde-format
 msgctxt "@title:window"
@@ -2653,12 +2693,6 @@ msgstr "Nama:"
 #, kde-format
 msgid "Label:"
 msgstr "Label:"
-
-#: src/qml/Settings/AccountEditorPage.qml:104
-#: src/qml/Settings/AccountEditorPage.qml:169
-#, kde-format
-msgid "Save"
-msgstr "Simpan"
 
 #: src/qml/Settings/AccountEditorPage.qml:130
 #, kde-format
@@ -3051,11 +3085,6 @@ msgstr "Pesan berisi kata kunci saya"
 msgid "Keyword…"
 msgstr "Kata Kunci..."
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:245
-#, kde-format
-msgid "Add keyword"
-msgstr "Tambahkan kata kunci"
-
 #: src/qml/Settings/GlobalNotificationsPage.qml:272
 #, kde-format
 msgid "Invites"
@@ -3316,6 +3345,9 @@ msgstr "Tidak dapat membuka URL"
 #, kde-format
 msgid "Show"
 msgstr "Tampilkan"
+
+#~ msgid "Canonical Alias:"
+#~ msgstr "Alias Kanonik:"
 
 #~ msgid "Timeline"
 #~ msgstr "Linimasa"

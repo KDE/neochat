@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-29 00:46+0000\n"
-"PO-Revision-Date: 2022-11-27 09:37+0200\n"
+"POT-Creation-Date: 2022-11-30 00:47+0000\n"
+"PO-Revision-Date: 2022-11-29 11:05+0200\n"
 "Last-Translator: Fracture dept <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -338,64 +338,64 @@ msgstr " і "
 msgid "Encrypted Message"
 msgstr "Зашифроване повідомлення"
 
-#: src/controller.cpp:271 src/controller.cpp:408
+#: src/controller.cpp:264 src/controller.cpp:392
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Помилка у мережі: %1"
 
-#: src/controller.cpp:399
+#: src/controller.cpp:383
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Невдала спроба увійти: жетон доступу є некоректним або його відкликано"
 
-#: src/controller.cpp:402 src/login.cpp:93
+#: src/controller.cpp:386 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Невдала спроба увійти: %1"
 
-#: src/controller.cpp:466
+#: src/controller.cpp:417
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Не знайдено жетона доступу"
 
-#: src/controller.cpp:466
+#: src/controller.cpp:417
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Можливо, його вилучено?"
 
-#: src/controller.cpp:470
+#: src/controller.cpp:421
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Відмовлено у доступі до засобу керування ключами."
 
-#: src/controller.cpp:470
+#: src/controller.cpp:421
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Будь ласка, дозвольте NeoChat читання жетона доступу"
 
-#: src/controller.cpp:473
+#: src/controller.cpp:424
 #, kde-format
 msgid "No keychain available."
 msgstr "Немає доступних засобів керування ключами."
 
-#: src/controller.cpp:473
+#: src/controller.cpp:424
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Будь ласка, встановіть засіб керування ключами, наприклад KWallet або GNOME "
 "keyring у Linux"
 
-#: src/controller.cpp:476
+#: src/controller.cpp:427
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Не вдалося прочитати жетон доступу"
 
-#: src/controller.cpp:709
+#: src/controller.cpp:644
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "Не вдалося створити кімнату: «%1»"
 
-#: src/controller.cpp:722
+#: src/controller.cpp:657
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Ідентифікатор кімнати, до якої ви хочете приєднатися, є некоректним"
@@ -632,232 +632,232 @@ msgstr "[ЗМІНЕНО]"
 msgid "[REDACTED: %1]"
 msgstr "[ЗМІНЕНО: %1]"
 
-#: src/neochatroom.cpp:493
+#: src/neochatroom.cpp:487
 #, kde-format
 msgid "a file"
 msgstr "файл"
 
-#: src/neochatroom.cpp:542
+#: src/neochatroom.cpp:532
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "повторно запрошено %1 до кімнати"
 
-#: src/neochatroom.cpp:544
+#: src/neochatroom.cpp:534
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:553
+#: src/neochatroom.cpp:543
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "долучається до кімнати (повторно)"
 
-#: src/neochatroom.cpp:555
+#: src/neochatroom.cpp:545
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "запрошено %1 до кімнати"
 
-#: src/neochatroom.cpp:555
+#: src/neochatroom.cpp:545
 #, kde-format
 msgid "joined the room"
 msgstr "долучається до кімнати"
 
-#: src/neochatroom.cpp:559
+#: src/neochatroom.cpp:549
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:566
+#: src/neochatroom.cpp:556
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "вилучено своє показане ім'я"
 
-#: src/neochatroom.cpp:568
+#: src/neochatroom.cpp:558
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "змінено своє показане ім'я на %1"
 
-#: src/neochatroom.cpp:573
+#: src/neochatroom.cpp:563
 #, kde-format
 msgid " and "
 msgstr " і "
 
-#: src/neochatroom.cpp:576
+#: src/neochatroom.cpp:566
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "вилучено свій аватар"
 
-#: src/neochatroom.cpp:582
+#: src/neochatroom.cpp:572
 #, kde-format
 msgid "set an avatar"
 msgstr "встановлено аватар"
 
-#: src/neochatroom.cpp:584
+#: src/neochatroom.cpp:574
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "оновлено свій аватар"
 
-#: src/neochatroom.cpp:588
+#: src/neochatroom.cpp:578
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "нічого не змінено"
 
-#: src/neochatroom.cpp:594
+#: src/neochatroom.cpp:584
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "відкликано запрошення %1"
 
-#: src/neochatroom.cpp:594
+#: src/neochatroom.cpp:584
 #, kde-format
 msgid "rejected the invitation"
 msgstr "відкинуто запрошення"
 
-#: src/neochatroom.cpp:598
+#: src/neochatroom.cpp:588
 #, kde-format
 msgid "unbanned %1"
 msgstr "розблоковано %1"
 
-#: src/neochatroom.cpp:598
+#: src/neochatroom.cpp:588
 #, kde-format
 msgid "self-unbanned"
 msgstr "саморозблоковується"
 
-#: src/neochatroom.cpp:601
+#: src/neochatroom.cpp:591
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "викинуто %1 з кімнати: %2"
 
-#: src/neochatroom.cpp:602
+#: src/neochatroom.cpp:592
 #, kde-format
 msgid "left the room"
 msgstr "полишає кімнату"
 
-#: src/neochatroom.cpp:606
+#: src/neochatroom.cpp:596
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "заблоковано %1 у кімнаті"
 
-#: src/neochatroom.cpp:608
+#: src/neochatroom.cpp:598
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "заблоковано %1 у кімнаті: %2"
 
-#: src/neochatroom.cpp:611
+#: src/neochatroom.cpp:601
 #, kde-format
 msgid "self-banned from the room"
 msgstr "самозаблоковується у кімнаті"
 
-#: src/neochatroom.cpp:614
+#: src/neochatroom.cpp:604
 #, kde-format
 msgid "requested an invite"
 msgstr "надіслано запит щодо запрошення"
 
-#: src/neochatroom.cpp:617
+#: src/neochatroom.cpp:607
 #, kde-format
 msgid "made something unknown"
 msgstr "виконано щось невідоме"
 
-#: src/neochatroom.cpp:620
+#: src/neochatroom.cpp:610
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "вилучено основний варіант назви кімнати"
 
-#: src/neochatroom.cpp:620
+#: src/neochatroom.cpp:610
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "встановлено основний варіант назви кімнати: %1"
 
-#: src/neochatroom.cpp:623
+#: src/neochatroom.cpp:613
 #, kde-format
 msgid "cleared the room name"
 msgstr "вилучено назву кімнати"
 
-#: src/neochatroom.cpp:623
+#: src/neochatroom.cpp:613
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "встановлено назву кімнати: %1"
 
-#: src/neochatroom.cpp:626
+#: src/neochatroom.cpp:616
 #, kde-format
 msgid "cleared the topic"
 msgstr "вилучено тему"
 
-#: src/neochatroom.cpp:626
+#: src/neochatroom.cpp:616
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "встановлено тему: %1"
 
-#: src/neochatroom.cpp:629
+#: src/neochatroom.cpp:619
 #, kde-format
 msgid "changed the room avatar"
 msgstr "змінено аватар кімнати"
 
-#: src/neochatroom.cpp:632
+#: src/neochatroom.cpp:622
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "активовано наскрізне шифрування"
 
-#: src/neochatroom.cpp:635
+#: src/neochatroom.cpp:625
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "оновлено версію кімнати до %1"
 
-#: src/neochatroom.cpp:636
+#: src/neochatroom.cpp:626
 #, kde-format
 msgid "created the room, version %1"
 msgstr "створено кімнату, версія %1"
 
-#: src/neochatroom.cpp:639
+#: src/neochatroom.cpp:629
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "змінено рівні прав доступу для цієї кімнати"
 
-#: src/neochatroom.cpp:643
+#: src/neochatroom.cpp:633
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "Для цієї кімнати змінено списки керування доступом на сервері"
 
-#: src/neochatroom.cpp:647
+#: src/neochatroom.cpp:637
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "додано віджет %1"
 
-#: src/neochatroom.cpp:650
+#: src/neochatroom.cpp:640
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "вилучено віджет %1"
 
-#: src/neochatroom.cpp:652
+#: src/neochatroom.cpp:642
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "налаштовано віджет %1"
 
-#: src/neochatroom.cpp:654
+#: src/neochatroom.cpp:644
 #, kde-format
 msgid "updated %1 state"
 msgstr "оновлено стан %1"
 
-#: src/neochatroom.cpp:655
+#: src/neochatroom.cpp:645
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "оновлено стан %1 для %2"
 
-#: src/neochatroom.cpp:662
+#: src/neochatroom.cpp:652
 #, kde-format
 msgid "Unknown event"
 msgstr "Невідома подія"
 
-#: src/neochatroom.cpp:1188 src/neochatroom.cpp:1189
+#: src/neochatroom.cpp:1178 src/neochatroom.cpp:1179
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Скаргу успішно надіслано."
@@ -1617,10 +1617,9 @@ msgid "Open a private chat"
 msgstr "Відкрити особисте спілкування"
 
 #: src/qml/Dialog/UserDetailDialog.qml:165
-#, fuzzy, kde-format
-#| msgid "Copy"
+#, kde-format
 msgid "Copy link"
-msgstr "Копіювати"
+msgstr "Копіювати посилання"
 
 #: src/qml/main.qml:125
 #, kde-format
@@ -1632,19 +1631,13 @@ msgstr "Попередження: %1"
 msgid "Explore rooms"
 msgstr "Ознайомитися з кімнатами"
 
-#: src/qml/main.qml:241 src/qml/Page/JoinRoomPage.qml:21
-#, kde-format
-msgid "Explore Rooms"
-msgstr "Ознайомитися з кімнатами"
-
-#: src/qml/main.qml:244 src/qml/main.qml:247 src/qml/main.qml:257
-#: src/qml/Menu/GlobalMenu.qml:43 src/qml/Menu/GlobalMenu.qml:48
-#: src/qml/Page/StartChatPage.qml:18
+#: src/qml/main.qml:244 src/qml/main.qml:257 src/qml/Menu/GlobalMenu.qml:43
+#: src/qml/Menu/GlobalMenu.qml:48 src/qml/Page/StartChatPage.qml:18
 #, kde-format
 msgid "Start a Chat"
 msgstr "Почати спілкування"
 
-#: src/qml/main.qml:260 src/qml/main.qml:265 src/qml/Menu/GlobalMenu.qml:23
+#: src/qml/main.qml:260 src/qml/Menu/GlobalMenu.qml:23
 #, kde-format
 msgid "Configure NeoChat..."
 msgstr "Налаштувати NeoChat…"
@@ -2034,10 +2027,9 @@ msgid "Copy"
 msgstr "Копіювати"
 
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:81
-#, fuzzy, kde-format
-#| msgid "Copy"
+#, kde-format
 msgid "Copy Link"
-msgstr "Копіювати"
+msgstr "Копіювати посилання"
 
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:130
 #, kde-format
@@ -2166,6 +2158,11 @@ msgstr "Немає доступних користувачів"
 #, kde-format
 msgid "Send invitation"
 msgstr "Надіслати запрошення"
+
+#: src/qml/Page/JoinRoomPage.qml:21
+#, kde-format
+msgid "Explore Rooms"
+msgstr "Ознайомитися з кімнатами"
 
 #: src/qml/Page/JoinRoomPage.qml:36
 #, kde-format
@@ -2433,7 +2430,7 @@ msgstr "Мод"
 msgid "Muted"
 msgstr "Вимкнено"
 
-#: src/qml/RoomSettings/Categories.qml:15 src/qml/RoomSettings/General.qml:22
+#: src/qml/RoomSettings/Categories.qml:15 src/qml/RoomSettings/General.qml:19
 #: src/qml/Settings/SettingsPage.qml:12
 #, kde-format
 msgid "General"
@@ -2449,57 +2446,91 @@ msgstr "Захист"
 msgid "Notifications"
 msgstr "Сповіщення"
 
-#: src/qml/RoomSettings/General.qml:40
+#: src/qml/RoomSettings/General.qml:30
+#, fuzzy, kde-format
+#| msgid "Room information"
+msgid "Room Information"
+msgstr "Відомості щодо кімнати"
+
+#: src/qml/RoomSettings/General.qml:50
 #, kde-format
 msgid "Update avatar"
 msgstr "Оновити аватар"
 
-#: src/qml/RoomSettings/General.qml:58
-#, kde-format
-msgid "Room Name:"
+#: src/qml/RoomSettings/General.qml:75
+#, fuzzy, kde-format
+#| msgid "Room Name:"
+msgid "Room name:"
 msgstr "Назва кімнати:"
 
-#: src/qml/RoomSettings/General.qml:66
+#: src/qml/RoomSettings/General.qml:87
 #, kde-format
 msgid "Room topic:"
 msgstr "Тема кімнати:"
 
-#: src/qml/RoomSettings/General.qml:79
+#: src/qml/RoomSettings/General.qml:109
+#: src/qml/Settings/AccountEditorPage.qml:104
+#: src/qml/Settings/AccountEditorPage.qml:169
 #, kde-format
-msgid "Canonical Alias:"
-msgstr "Канонічний варіант назви:"
+msgid "Save"
+msgstr "Зберегти"
 
-#: src/qml/RoomSettings/General.qml:96
-#, kde-format
-msgid "Other Aliases:"
+#: src/qml/RoomSettings/General.qml:129
+#, fuzzy, kde-format
+#| msgid "Other Aliases:"
+msgid "Aliases"
 msgstr "Інші альтернативні назви:"
 
-#: src/qml/RoomSettings/General.qml:140
+#: src/qml/RoomSettings/General.qml:133
+#, fuzzy, kde-format
+#| msgid "No Canonical Alias"
+msgid "No canonical alias set"
+msgstr "Немає канонічного варіанта назви"
+
+#: src/qml/RoomSettings/General.qml:146
+#, kde-format
+msgid "Make this alias the room's canonical alias"
+msgstr ""
+
+#: src/qml/RoomSettings/General.qml:161
+#, fuzzy, kde-format
+#| msgctxt "text editing menu action"
+#| msgid "Delete"
+msgid "Delete alias"
+msgstr "Вилучити"
+
+#: src/qml/RoomSettings/General.qml:186
+#, kde-format
+msgid "#new_alias:server.org"
+msgstr ""
+
+#: src/qml/RoomSettings/General.qml:203
+#: src/qml/Settings/GlobalNotificationsPage.qml:245
+#, kde-format
+msgid "Add keyword"
+msgstr "Додати ключове слово"
+
+#: src/qml/RoomSettings/General.qml:226
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "У цій кімнаті продовжується інше спілкування."
 
-#: src/qml/RoomSettings/General.qml:142
-#, kde-format
-msgid "See older messages..."
+#: src/qml/RoomSettings/General.qml:230
+#, fuzzy, kde-format
+#| msgid "See older messages..."
+msgid "See older messages…"
 msgstr "Переглянути старі повідомлення…"
 
-#: src/qml/RoomSettings/General.qml:160
+#: src/qml/RoomSettings/General.qml:241
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Цю кімнат було замінено."
 
-#: src/qml/RoomSettings/General.qml:162
-#, kde-format
-msgid "See new room..."
+#: src/qml/RoomSettings/General.qml:245
+#, fuzzy, kde-format
+#| msgid "See new room..."
+msgid "See new room…"
 msgstr "Переглянути нову кімнату…"
-
-#: src/qml/RoomSettings/General.qml:186 src/qml/RoomSettings/Security.qml:121
-#: src/qml/Settings/NetworkProxyPage.qml:108
-#: src/qml/Settings/SonnetConfigPage.qml:326
-#, kde-format
-msgid "Apply"
-msgstr "Застосувати"
 
 #: src/qml/RoomSettings/PushNotification.qml:29
 #, kde-format
@@ -2624,6 +2655,13 @@ msgstr ""
 "Нові учасники можуть переглядати журнал повідомлень з моменту долучення до "
 "кімнати."
 
+#: src/qml/RoomSettings/Security.qml:121
+#: src/qml/Settings/NetworkProxyPage.qml:108
+#: src/qml/Settings/SonnetConfigPage.qml:326
+#, kde-format
+msgid "Apply"
+msgstr "Застосувати"
+
 #: src/qml/Settings/About.qml:11
 #, kde-format
 msgctxt "@title:window"
@@ -2654,12 +2692,6 @@ msgstr "Ім'я:"
 #, kde-format
 msgid "Label:"
 msgstr "Мітка:"
-
-#: src/qml/Settings/AccountEditorPage.qml:104
-#: src/qml/Settings/AccountEditorPage.qml:169
-#, kde-format
-msgid "Save"
-msgstr "Зберегти"
 
 #: src/qml/Settings/AccountEditorPage.qml:130
 #, kde-format
@@ -2924,10 +2956,9 @@ msgid "Show avatar update events"
 msgstr "Показувати події з оновлення аватарів"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:121
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgid "Show deleted messages"
-msgstr "Надіслати повідомлення"
+msgstr "Показувати вилучені повідомлення"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:138
 #, kde-format
@@ -3042,11 +3073,6 @@ msgstr "Повідомлення, які містять ваші ключові 
 #, kde-format
 msgid "Keyword…"
 msgstr "Ключове слово…"
-
-#: src/qml/Settings/GlobalNotificationsPage.qml:245
-#, kde-format
-msgid "Add keyword"
-msgstr "Додати ключове слово"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:272
 #, kde-format
@@ -3311,6 +3337,9 @@ msgstr "Не вдається відкрити адресу"
 #, kde-format
 msgid "Show"
 msgstr "Показати"
+
+#~ msgid "Canonical Alias:"
+#~ msgstr "Канонічний варіант назви:"
 
 #~ msgid "Timeline"
 #~ msgstr "Розклад"
