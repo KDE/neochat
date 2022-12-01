@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-30 00:47+0000\n"
-"PO-Revision-Date: 2022-11-27 07:24+0100\n"
+"PO-Revision-Date: 2022-11-30 07:45+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.1.1\n"
 
 #: src/actionsmodel.cpp:30 src/actionsmodel.cpp:40 src/actionsmodel.cpp:50
@@ -760,12 +760,12 @@ msgstr "je naredil nekaj neznanega"
 #: src/neochatroom.cpp:610
 #, kde-format
 msgid "cleared the room main alias"
-msgstr "je očistil glavni sinonim sobe"
+msgstr "je očistil glavni vzdevek sobe"
 
 #: src/neochatroom.cpp:610
 #, kde-format
 msgid "set the room main alias to: %1"
-msgstr "je nastavil sinonim sobe na: %1"
+msgstr "nastavi vzdevek sobe na: %1"
 
 #: src/neochatroom.cpp:613
 #, kde-format
@@ -1605,10 +1605,9 @@ msgid "Open a private chat"
 msgstr "Odpri zasebni razgovor"
 
 #: src/qml/Dialog/UserDetailDialog.qml:165
-#, fuzzy, kde-format
-#| msgid "Copy"
+#, kde-format
 msgid "Copy link"
-msgstr "Kopiraj"
+msgstr "Kopiraj povezavo"
 
 #: src/qml/main.qml:125
 #, kde-format
@@ -2015,10 +2014,9 @@ msgid "Copy"
 msgstr "Kopiraj"
 
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:81
-#, fuzzy, kde-format
-#| msgid "Copy"
+#, kde-format
 msgid "Copy Link"
-msgstr "Kopiraj"
+msgstr "Kopiraj povezavo"
 
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:130
 #, kde-format
@@ -2373,7 +2371,7 @@ msgstr "Brez imena"
 #: src/qml/Panel/RoomDrawer.qml:224
 #, kde-format
 msgid "No Canonical Alias"
-msgstr "Ni kanoničnega sinonima"
+msgstr "Ni kanoničnega vzdevka"
 
 #: src/qml/Panel/RoomDrawer.qml:231
 #, kde-format
@@ -2436,8 +2434,7 @@ msgid "Notifications"
 msgstr "Obvestila"
 
 #: src/qml/RoomSettings/General.qml:30
-#, fuzzy, kde-format
-#| msgid "Room information"
+#, kde-format
 msgid "Room Information"
 msgstr "Informacije o sobi"
 
@@ -2447,8 +2444,7 @@ msgid "Update avatar"
 msgstr "Posodobil avatar"
 
 #: src/qml/RoomSettings/General.qml:75
-#, fuzzy, kde-format
-#| msgid "Room Name:"
+#, kde-format
 msgid "Room name:"
 msgstr "Ime sobe:"
 
@@ -2465,33 +2461,29 @@ msgid "Save"
 msgstr "Shrani"
 
 #: src/qml/RoomSettings/General.qml:129
-#, fuzzy, kde-format
-#| msgid "Other Aliases:"
+#, kde-format
 msgid "Aliases"
-msgstr "Ostali sinonimi:"
+msgstr "Vzdevki"
 
 #: src/qml/RoomSettings/General.qml:133
-#, fuzzy, kde-format
-#| msgid "No Canonical Alias"
+#, kde-format
 msgid "No canonical alias set"
-msgstr "Ni kanoničnega sinonima"
+msgstr "Ni nastavljenega kanoničnega vzdevka"
 
 #: src/qml/RoomSettings/General.qml:146
 #, kde-format
 msgid "Make this alias the room's canonical alias"
-msgstr ""
+msgstr "Nastavi ta vzdevek kot kanonični vzdevek sobe"
 
 #: src/qml/RoomSettings/General.qml:161
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Delete"
+#, kde-format
 msgid "Delete alias"
-msgstr "Zbriši"
+msgstr "Zbriši vzdevek"
 
 #: src/qml/RoomSettings/General.qml:186
 #, kde-format
 msgid "#new_alias:server.org"
-msgstr ""
+msgstr "#new_alias:server.org"
 
 #: src/qml/RoomSettings/General.qml:203
 #: src/qml/Settings/GlobalNotificationsPage.qml:245
@@ -2505,10 +2497,9 @@ msgid "This room continues another conversation."
 msgstr "Ta soba nadaljuje z drugo debato."
 
 #: src/qml/RoomSettings/General.qml:230
-#, fuzzy, kde-format
-#| msgid "See older messages..."
+#, kde-format
 msgid "See older messages…"
-msgstr "Poglej starejša sporočila..."
+msgstr "Poglej starejša sporočila…"
 
 #: src/qml/RoomSettings/General.qml:241
 #, kde-format
@@ -2516,10 +2507,9 @@ msgid "This room has been replaced."
 msgstr "Ta soba je bila zamenjana."
 
 #: src/qml/RoomSettings/General.qml:245
-#, fuzzy, kde-format
-#| msgid "See new room..."
+#, kde-format
 msgid "See new room…"
-msgstr "Poglej novo sobo..."
+msgstr "Poglej novo sobo…"
 
 #: src/qml/RoomSettings/PushNotification.qml:29
 #, kde-format
@@ -2943,10 +2933,9 @@ msgid "Show avatar update events"
 msgstr "Prikaži dogodke posodobitve avatarjev"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:121
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgid "Show deleted messages"
-msgstr "Pošlji sporočilo"
+msgstr "Prikaži zbrisana sporočila"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:138
 #, kde-format
