@@ -36,7 +36,7 @@ Kirigami.ScrollablePage {
             onAccepted: userDictListModel.search()
         }
 
-        Button {
+        QQC2.Button {
             visible: identifierField.isUserID
 
             text: i18n("Add")
