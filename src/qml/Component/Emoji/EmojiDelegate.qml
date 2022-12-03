@@ -13,7 +13,7 @@ QQC2.ItemDelegate {
     property bool showTones: false
 
     QQC2.ToolTip.text: emojiDelegate.name
-    QQC2.ToolTip.visible: hovered
+    QQC2.ToolTip.visible: hovered && emojiDelegate.name !== ""
     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
     leftInset: Kirigami.Units.smallSpacing
     topInset: Kirigami.Units.smallSpacing

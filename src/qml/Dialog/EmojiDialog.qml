@@ -13,6 +13,7 @@ QQC2.Popup {
 
     property bool includeCustom: false
     property bool closeOnChosen: true
+    property bool showQuickReaction: false
 
     signal chosen(string emoji)
 
@@ -44,6 +45,7 @@ QQC2.Popup {
     contentItem: EmojiPicker {
         height: 400
         includeCustom: emojiPopup.includeCustom
+        showQuickReaction: emojiPopup.showQuickReaction
         onChosen: {
             emojiPopup.chosen(emoji)
             if (emojiPopup.closeOnChosen) emojiPopup.close()

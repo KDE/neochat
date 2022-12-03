@@ -11,6 +11,7 @@ ColumnLayout {
     id: root
 
     property bool includeCustom: false
+    property bool showQuickReaction: false
 
     readonly property var currentEmojiModel: {
         if (includeCustom) {
@@ -89,5 +90,36 @@ ColumnLayout {
         onChosen: root.chosen(unicode)
         header: categories
         Keys.forwardTo: searchField
+    }
+
+    Kirigami.Separator {
+        visible: showQuickReaction
+        Layout.fillWidth: true
+        Layout.preferredHeight: 1
+    }
+
+    QQC2.ScrollView {
+        visible: showQuickReaction
+        Layout.fillWidth: true
+        Layout.preferredHeight: root.categoryIconSize + QQC2.ScrollBar.horizontal.height
+        QQC2.ScrollBar.horizontal.height: QQC2.ScrollBar.horizontal.visible ? QQC2.ScrollBar.horizontal.implicitHeight : 0
+
+        ListView {
+            id: quickReactions
+            Layout.fillWidth: true
+
+            model: ["👍", "👎", "😄", "🎉", "😕", "❤", "🚀", "👀"]
+
+            delegate: EmojiDelegate {
+                emoji: modelData
+
+                height: root.categoryIconSize
+                width: height
+
+                onClicked: root.chosen(modelData)
+            }
+
+            orientation: Qt.Horizontal
+        }
     }
 }
