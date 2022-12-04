@@ -88,6 +88,7 @@ QQC2.Control {
 
                 MouseArea {
                     anchors.fill: parent
+                    cursorShape: Qt.PointingHandCursor
                     onClicked: userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {room: currentRoom, user: author.object, displayName: author.displayName, avatarMediaId: author.avatarMediaId, avatarUrl: author.avatarUrl}).open()
                 }
             }
