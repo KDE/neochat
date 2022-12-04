@@ -329,7 +329,7 @@ QString NeoChatRoom::subtitleText()
 {
     static const QRegularExpression blockquote("(\r\n\t|\n|\r\t|)> ");
     static const QRegularExpression heading("(\r\n\t|\n|\r\t|)\\#{1,6} ");
-    static const QRegularExpression newlines("(\r\n\t|\n|\r\t)");
+    static const QRegularExpression newlines("(\r\n\t|\n|\r\t|\r\n)");
     static const QRegularExpression bold1("(\\*\\*|__)(?=\\S)([^\\r]*\\S)\\1");
     static const QRegularExpression bold2("(\\*|_)(?=\\S)([^\\r]*\\S)\\1");
     static const QRegularExpression strike1("~~(.*)~~");
