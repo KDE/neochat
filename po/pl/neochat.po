@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-30 00:47+0000\n"
-"PO-Revision-Date: 2022-09-28 20:42+0200\n"
+"PO-Revision-Date: 2022-12-03 09:27+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -17,15 +17,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 22.04.1\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #: src/actionsmodel.cpp:30 src/actionsmodel.cpp:40 src/actionsmodel.cpp:50
 #: src/actionsmodel.cpp:60 src/actionsmodel.cpp:80 src/actionsmodel.cpp:100
 #: src/actionsmodel.cpp:111 src/actionsmodel.cpp:127 src/actionsmodel.cpp:137
 #: src/actionsmodel.cpp:147
-#, fuzzy
-#| msgctxt "@label Parameter of a command"
-#| msgid "<message>"
 msgid "<message>"
 msgstr "<wiadomość>"
 
@@ -46,330 +43,272 @@ msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
 msgstr "Poprzedza ┬──┬ ノ( ゜-゜ノ) w zwykłej wiadomości tekstowej"
 
 #: src/actionsmodel.cpp:81
-#, fuzzy
-#| msgid "Sends the given message coloured as a rainbow"
 msgid "Sends the given message colored as a rainbow"
 msgstr "Wysyła daną wiadomość w barwach tęczy"
 
 #: src/actionsmodel.cpp:101
-#, fuzzy
-#| msgid "Sends the given emote coloured as a rainbow"
 msgid "Sends the given emote colored as a rainbow"
 msgstr "Wysyła daną emotikonę w barwach tęczy"
 
 #: src/actionsmodel.cpp:112
-#, fuzzy
-#| msgid "Sends the given message as a spoiler"
 msgid "Sends the given message as plain text"
-msgstr "Wysyła daną wiadomość jako spojler"
+msgstr "Wysyła daną wiadomość w postaci zwykłego tekstu"
 
 #: src/actionsmodel.cpp:128
 msgid "Sends the given message as a spoiler"
 msgstr "Wysyła daną wiadomość jako spojler"
 
 #: src/actionsmodel.cpp:138
-#, fuzzy
-#| msgid "Sends the given message as a spoiler"
 msgid "Sends the given emote"
-msgstr "Wysyła daną wiadomość jako spojler"
+msgstr "Wysyła daną emotikonę"
 
 #: src/actionsmodel.cpp:148
-#, fuzzy
-#| msgid "Sends the given message as a spoiler"
 msgid "Sends the given message as a notice"
-msgstr "Wysyła daną wiadomość jako spojler"
+msgstr "Wysyła daną wiadomość jako powiadomienie"
 
 #: src/actionsmodel.cpp:157 src/actionsmodel.cpp:335 src/actionsmodel.cpp:363
 #: src/actionsmodel.cpp:413 src/actionsmodel.cpp:450 src/actionsmodel.cpp:484
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
-msgstr ""
+msgstr "'%1' nie wygląda jak identyfikator matriksa."
 
 #: src/actionsmodel.cpp:162
-#, fuzzy, kde-format
-#| msgid "reinvited %1 to the room"
+#, kde-format
 msgctxt "<user> is already invited to this room."
 msgid "%1 is already invited to this room."
-msgstr "zaprosił(a) ponownie %1 do pokoju"
+msgstr "%1 został już zaproszony do tego pokoju."
 
 #: src/actionsmodel.cpp:166
-#, fuzzy, kde-format
-#| msgid "self-banned from the room"
+#, kde-format
 msgctxt "<user> is banned from this room."
 msgid "%1 is banned from this room."
-msgstr "samozbanowany(a) z pokoju"
+msgstr "%1 jest zbanowany w tym pokoju."
 
 #: src/actionsmodel.cpp:171
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgid "You are already in this room."
-msgstr "Otwórz NeoChat w tym pokoju"
+msgstr "Już jesteś w tym pokoju."
 
 #: src/actionsmodel.cpp:175
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgctxt "<user> is already in this room."
 msgid "%1 is already in this room."
-msgstr "Otwórz NeoChat w tym pokoju"
+msgstr "%1 przebywa już w tym pokoju."
 
 #: src/actionsmodel.cpp:179
-#, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
+#, kde-format
 msgctxt "<username> was invited into this room"
 msgid "%1 was invited into this room"
-msgstr "%1 zaprosił cię do pokoju"
+msgstr "%1 został zaproszony do tego pokoju"
 
 #: src/actionsmodel.cpp:184 src/actionsmodel.cpp:353 src/actionsmodel.cpp:381
 #: src/actionsmodel.cpp:472
-#, fuzzy
-#| msgctxt "@label Parameter of a command"
-#| msgid "<user-id>"
 msgid "<user id>"
 msgstr "<id-użytkownika>"
 
 #: src/actionsmodel.cpp:185
-#, fuzzy
-#| msgid "Invite user to room"
 msgid "Invites the user to this room"
-msgstr "Zaproś użytkownika do pokoju"
+msgstr "Zaprasza użytkownika do tego pokoju"
 
 #: src/actionsmodel.cpp:194 src/actionsmodel.cpp:218 src/actionsmodel.cpp:245
 #: src/actionsmodel.cpp:277
 #, kde-format
 msgctxt "'<text>' does not look like a room id or alias."
 msgid "'%1' does not look like a room id or alias."
-msgstr ""
+msgstr "'%1' nie wygląda jak identyfikator pokoju, czy alias."
 
 #: src/actionsmodel.cpp:202 src/actionsmodel.cpp:225
-#, fuzzy, kde-format
-#| msgid "Configure room"
+#, kde-format
 msgctxt "Joining room <roomname>."
 msgid "Joining room %1."
-msgstr "Ustawienia pokoju"
+msgstr "Dołączanie do pokoju %1."
 
 #: src/actionsmodel.cpp:208 src/actionsmodel.cpp:231
 msgid "<room alias or id>"
-msgstr ""
+msgstr "<alias lub id pokoju>"
 
 #: src/actionsmodel.cpp:209 src/actionsmodel.cpp:232
-#, fuzzy
-#| msgid "joined the room"
 msgid "Joins the given room"
-msgstr "dołączył(a) do pokoju"
+msgstr "Dołącza do danego pokoju"
 
 #: src/actionsmodel.cpp:222
 #, kde-format
 msgctxt "You are already in room <roomname>."
 msgid "You are already in room %1."
-msgstr ""
+msgstr "Już przebywasz w tym pokoju %1."
 
 #: src/actionsmodel.cpp:238 src/actionsmodel.cpp:270
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgid "Leaving this room."
-msgstr "Otwórz NeoChat w tym pokoju"
+msgstr "Opuszcza ten pokój."
 
 #: src/actionsmodel.cpp:253 src/actionsmodel.cpp:285
-#, fuzzy, kde-format
-#| msgid "Leave room"
+#, kde-format
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
-msgstr "Opuść pokój"
+msgstr "Opuszczanie pokoju %1."
 
 #: src/actionsmodel.cpp:256 src/actionsmodel.cpp:288
-#, fuzzy, kde-format
-#| msgid "Room not found"
+#, kde-format
 msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
-msgstr "Nie znaleziono pokoju"
+msgstr "Nie znaleziono pokoju %1."
 
 #: src/actionsmodel.cpp:263 src/actionsmodel.cpp:295
 msgid "[<room alias or id>]"
-msgstr ""
+msgstr "[<alias lub id pokoju>]"
 
 #: src/actionsmodel.cpp:264 src/actionsmodel.cpp:296
 msgid "Leaves the given room or this room, if there is none given"
-msgstr ""
+msgstr "Opuszcza dany pokój lub ten pokój, jeśli nie podano żadnego"
 
 #: src/actionsmodel.cpp:302 src/actionsmodel.cpp:317
 #, kde-format
 msgid "No new nickname provided, no changes will happen."
-msgstr ""
+msgstr "Nie podano nowego pseudonimu, więc nie nastąpi żadna zmiana."
 
 #: src/actionsmodel.cpp:310 src/actionsmodel.cpp:325
 msgid "<display name>"
-msgstr ""
+msgstr "<wyświetlana nazwa>"
 
 #: src/actionsmodel.cpp:311
-#, fuzzy
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
 msgid "Changes your global display name"
-msgstr "zmienił(a) swoją wyświetlaną nazwę na %1"
+msgstr "Zmienia twoją globalną, wyświetlaną nazwę"
 
 #: src/actionsmodel.cpp:326
-#, fuzzy
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
 msgid "Changes your display name in this room"
-msgstr "zmienił(a) swoją wyświetlaną nazwę na %1"
+msgstr "Zmienia twoją wyświetlaną nazwę w tym pokoju"
 
 #: src/actionsmodel.cpp:340
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
-msgstr ""
+msgstr "%1 jest już wyciszony."
 
 #: src/actionsmodel.cpp:345
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
-msgstr ""
+msgstr "%1 jest teraz wyciszony."
 
 #: src/actionsmodel.cpp:347 src/actionsmodel.cpp:375
 #, kde-format
 msgctxt "<username> is not a known user"
 msgid "%1 is not a known user."
-msgstr ""
+msgstr "%1 nie jest znanym użytkownikiem."
 
 #: src/actionsmodel.cpp:354
-#, fuzzy
-#| msgid "Ignore this user"
 msgid "Ignores the given user"
-msgstr "Wycisz tego użytkownika"
+msgstr "Wycisza danego użytkownika"
 
 #: src/actionsmodel.cpp:369
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
-msgstr ""
+msgstr "%1 nie jest wyciszony."
 
 #: src/actionsmodel.cpp:373
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
-msgstr ""
+msgstr "%1 nie jest już wyciszony."
 
 #: src/actionsmodel.cpp:382
-#, fuzzy
-#| msgid "Unignore this user"
 msgid "Unignores the given user"
-msgstr "Usuń wyciszenie tego użytkownika"
+msgstr "Usuwa wyciszenie danego użytkownika"
 
 #: src/actionsmodel.cpp:402
 msgid "<reaction text>"
-msgstr ""
+msgstr "<tekst reakcji>"
 
 #: src/actionsmodel.cpp:403
-#, fuzzy
-#| msgid "React to this message with a text"
 msgid "React to the message with the given text"
-msgstr "Zareaguj na tę wiadomość tekstem"
+msgstr "Zareaguj na tę wiadomość danym tekstem"
 
 #: src/actionsmodel.cpp:419
-#, fuzzy, kde-format
-#| msgid "self-banned from the room"
+#, kde-format
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
-msgstr "samozbanowany(a) z pokoju"
+msgstr "%1 został już zbanowany w tym pokoju"
 
 #: src/actionsmodel.cpp:425
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgid "You are not allowed to ban users from this room."
-msgstr "Otwórz NeoChat w tym pokoju"
+msgstr "Nie masz pozwolenia na banowanie użytkowników w tym pokoju."
 
 #: src/actionsmodel.cpp:431
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgctxt "You are not allowed to ban <username> from this room."
 msgid "You are not allowed to ban %1 from this room."
-msgstr "Otwórz NeoChat w tym pokoju"
+msgstr "Nie masz pozwolenia na zbanowanie %1 w tym pokoju."
 
 #: src/actionsmodel.cpp:435
-#, fuzzy, kde-format
-#| msgid "self-banned from the room"
+#, kde-format
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
-msgstr "samozbanowany(a) z pokoju"
+msgstr "%1 został zbanowany w tym pokoju."
 
 #: src/actionsmodel.cpp:440 src/actionsmodel.cpp:515
-#, fuzzy
-#| msgctxt "@label Parameter of a command"
-#| msgid "<user-id>"
 msgid "<user id> [<reason>]"
-msgstr "<id-użytkownika>"
+msgstr "<id-użytkownika> [<powód>]"
 
 #: src/actionsmodel.cpp:441
-#, fuzzy
-#| msgid "Ignore this user"
 msgid "Bans the given user"
-msgstr "Wycisz tego użytkownika"
+msgstr "Banuje danego użytkownika"
 
 #: src/actionsmodel.cpp:455
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgid "You are not allowed to unban users from this room."
-msgstr "Otwórz NeoChat w tym pokoju"
+msgstr "Nie masz pozwolenia na odbanowywanie użytkowników w tym pokoju."
 
 #: src/actionsmodel.cpp:461
-#, fuzzy, kde-format
-#| msgid "self-banned from the room"
+#, kde-format
 msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
-msgstr "samozbanowany(a) z pokoju"
+msgstr "%1 nie jest zbanowany w tym pokoju"
 
 #: src/actionsmodel.cpp:466
-#, fuzzy, kde-format
-#| msgid "self-banned from the room"
+#, kde-format
 msgctxt "<username> was unbanned from this room."
 msgid "%1 was unbanned from this room."
-msgstr "samozbanowany(a) z pokoju"
+msgstr "%1 został odbanowany w tym pokoju"
 
 #: src/actionsmodel.cpp:473
-#, fuzzy
-#| msgid "Ignore this user"
 msgid "Removes the ban of the given user"
-msgstr "Wycisz tego użytkownika"
+msgstr "Usuwa bana na danego użytkownika"
 
 #: src/actionsmodel.cpp:488
 #, kde-format
 msgid "You cannot kick yourself from the room."
-msgstr ""
+msgstr "Nie możesz wykopać samego siebie z pokoju."
 
 #: src/actionsmodel.cpp:493
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgctxt "<username> is not in this room"
 msgid "%1 is not in this room."
-msgstr "Otwórz NeoChat w tym pokoju"
+msgstr "%1 nie przebywa w tym pokoju."
 
 #: src/actionsmodel.cpp:500
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgid "You are not allowed to kick users from this room."
-msgstr "Otwórz NeoChat w tym pokoju"
+msgstr "Nie masz pozwolenia na wykopywanie użytkowników z tego pokoju."
 
 #: src/actionsmodel.cpp:506
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgctxt "You are not allowed to kick <username> from this room"
 msgid "You are not allowed to kick %1 from this room."
-msgstr "Otwórz NeoChat w tym pokoju"
+msgstr "Nie masz pozwolenia na wykopanie %1 z tego pokoju."
 
 #: src/actionsmodel.cpp:510
-#, fuzzy, kde-format
-#| msgid "self-banned from the room"
+#, kde-format
 msgctxt "<username> was kicked from this room."
 msgid "%1 was kicked from this room."
-msgstr "samozbanowany(a) z pokoju"
+msgstr "%1 został wykopany z tego pokoju."
 
 #: src/actionsmodel.cpp:516
-#, fuzzy
-#| msgid "Invite user to room"
 msgid "Removes the user from the room"
-msgstr "Zaproś użytkownika do pokoju"
+msgstr "Usuwa użytkownika z pokoju"
 
 #: src/collapsestateproxymodel.cpp:69
 #, kde-format
@@ -393,10 +332,9 @@ msgid " and "
 msgstr " oraz "
 
 #: src/controller.cpp:204
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgid "Encrypted Message"
-msgstr "Edytuj wiadomość"
+msgstr "Zaszyfrowana wiadomość"
 
 #: src/controller.cpp:264 src/controller.cpp:392
 #, kde-format
@@ -462,99 +400,91 @@ msgstr "Id pokoju, do którego próbujesz dołączyć, jest nieprawidłowy"
 #, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
-msgstr ""
+msgstr "Historia"
 
 #: src/emojimodel.cpp:138
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
-msgstr "Własny"
+msgstr "Własne"
 
 #: src/emojimodel.cpp:143
 #, kde-format
 msgctxt "'Smileys' is a category of emoji"
 msgid "Smileys"
-msgstr ""
+msgstr "Uśmiechy"
 
 #: src/emojimodel.cpp:148
 #, kde-format
 msgctxt "'People' is a category of emoji"
 msgid "People"
-msgstr ""
+msgstr "Ludzie"
 
 #: src/emojimodel.cpp:153
 #, kde-format
 msgctxt "'Nature' is a category of emoji"
 msgid "Nature"
-msgstr ""
+msgstr "Natura"
 
 #: src/emojimodel.cpp:158
 #, kde-format
 msgctxt "'Food' is a category of emoji"
 msgid "Food"
-msgstr ""
+msgstr "Jedzenie"
 
 #: src/emojimodel.cpp:163
 #, kde-format
 msgctxt "'Activities' is a category of emoji"
 msgid "Activities"
-msgstr ""
+msgstr "Aktywności"
 
 #: src/emojimodel.cpp:168
 #, kde-format
 msgctxt "'Travel' is  a category of emoji"
 msgid "Travel"
-msgstr ""
+msgstr "Podróże"
 
 #: src/emojimodel.cpp:173
-#, fuzzy, kde-format
-#| msgid "Reject"
+#, kde-format
 msgctxt "'Objects' is a category of emoji"
 msgid "Objects"
-msgstr "Odrzuć"
+msgstr "Obiekty"
 
 #: src/emojimodel.cpp:178
 #, kde-format
 msgctxt "'Symbols' is a category of emoji"
 msgid "Symbols"
-msgstr ""
+msgstr "Symbole"
 
 #: src/emojimodel.cpp:183
 #, kde-format
 msgctxt "'Flags' is a category of emoji"
 msgid "Flags"
-msgstr ""
+msgstr "Flagi"
 
 #: src/filetransferpseudojob.cpp:47
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to download its file"
-#| msgid "Download"
+#, kde-format
 msgctxt "Job heading, like 'Copying'"
 msgid "Downloading"
-msgstr "Pobierz"
+msgstr "Pobieranie"
 
 #: src/filetransferpseudojob.cpp:47
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgctxt "Job heading, like 'Copying'"
 msgid "Uploading"
-msgstr "Wczytywanie…"
+msgstr "Wysyłanie"
 
 #: src/filetransferpseudojob.cpp:48
-#, fuzzy, kde-format
-#| msgid "View Source"
+#, kde-format
 msgctxt "The URL being downloaded/uploaded"
 msgid "Source"
-msgstr "Pokaż źródło"
+msgstr "Miejsce źródłowe"
 
 #: src/filetransferpseudojob.cpp:49
-#, fuzzy, kde-format
-#| msgid "Send invitation"
+#, kde-format
 msgctxt "The location being downloaded to"
 msgid "Destination"
-msgstr "Wyślij zaproszenie"
+msgstr "Miejsce docelowe"
 
 #: src/login.cpp:88 src/login.cpp:99
 #, kde-format
@@ -584,7 +514,7 @@ msgstr "Carl Schwan"
 #: src/main.cpp:153 src/main.cpp:154 src/main.cpp:155
 #, kde-format
 msgid "Maintainer"
-msgstr ""
+msgstr "Opiekun"
 
 #: src/main.cpp:154
 #, kde-format
@@ -594,27 +524,27 @@ msgstr "Tobias Fella"
 #: src/main.cpp:155
 #, kde-format
 msgid "James Graham"
-msgstr ""
+msgstr "James Graham"
 
 #: src/main.cpp:156
 #, kde-format
 msgid "Black Hat"
-msgstr "Black Hat"
+msgstr "Czarny kapelusz"
 
 #: src/main.cpp:156
 #, kde-format
 msgid "Original author of Spectral"
-msgstr ""
+msgstr "Pierwotny autor Spectral"
 
 #: src/main.cpp:157
 #, kde-format
 msgid "Alexey Rusakov"
-msgstr ""
+msgstr "Alexey Rusakov"
 
 #: src/main.cpp:157
 #, kde-format
 msgid "Maintainer of Quotient"
-msgstr ""
+msgstr "Opiekun Quotient"
 
 #: src/main.cpp:158
 #, kde-format
@@ -637,7 +567,7 @@ msgstr "Biblioteka Qt5 do pisania wieloplatformowych programów dla Matriksa"
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
-msgstr ""
+msgstr "%1 (zbudowane na %2)"
 
 #: src/main.cpp:273
 #, kde-format
@@ -645,10 +575,9 @@ msgid "Client for the matrix communication protocol"
 msgstr "Program do obsługi protokołu matrix"
 
 #: src/main.cpp:274
-#, fuzzy, kde-format
-#| msgid "Supports appstream: url scheme"
+#, kde-format
 msgid "Supports matrix: url scheme"
-msgstr "Obsługuje strumień aplikacji: schemat url"
+msgstr "Obsługuje matriksa: schemat url"
 
 #: src/matriximageprovider.cpp:35
 #, kde-format
@@ -769,7 +698,7 @@ msgstr "zmienił(a) swój awatar"
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
-msgstr ""
+msgstr "nie zmienił niczego"
 
 #: src/neochatroom.cpp:584
 #, kde-format
@@ -802,10 +731,9 @@ msgid "left the room"
 msgstr "opuścił(a) pokój"
 
 #: src/neochatroom.cpp:596
-#, fuzzy, kde-format
-#| msgid "banned %1 from the room: %2"
+#, kde-format
 msgid "banned %1 from the room"
-msgstr "zbanował(a) %1 z pokoju: %2"
+msgstr "zbanował %1 w tym pokoju"
 
 #: src/neochatroom.cpp:598
 #, kde-format
@@ -984,7 +912,7 @@ msgstr "Edytuj"
 #: src/qml/Component/ChatBox/AttachmentPane.qml:181
 #, kde-format
 msgid "Cancel sending Image"
-msgstr ""
+msgstr "Przerwij wysyłanie obrazu"
 
 #: src/qml/Component/ChatBox/ChatBar.qml:82
 #, kde-format
@@ -1040,11 +968,10 @@ msgid "Replying to %1:"
 msgstr "Odpowiadanie %1:"
 
 #: src/qml/Component/ChatBox/ReplyPane.qml:100
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
-msgstr "Anuluj"
+msgstr "Przerwij odpowiadanie"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:46
 #, kde-format
@@ -1052,33 +979,27 @@ msgid "Custom"
 msgstr "Własny"
 
 #: src/qml/Component/FullScreenImage.qml:82
-#, fuzzy, kde-format
-#| msgid "Room Settings"
+#, kde-format
 msgid "Zoom in"
-msgstr "Ustawienia pokoju"
+msgstr "Powiększ"
 
 #: src/qml/Component/FullScreenImage.qml:101
 #, kde-format
 msgid "Zoom out"
-msgstr ""
+msgstr "Pomniejsz"
 
 #: src/qml/Component/FullScreenImage.qml:120
-#, fuzzy, kde-format
-#| msgctxt "@action:button Rotate an image to the left"
-#| msgid "Rotate left"
+#, kde-format
 msgid "Rotate left"
 msgstr "Obróć w lewo"
 
 #: src/qml/Component/FullScreenImage.qml:134
-#, fuzzy, kde-format
-#| msgctxt "@action:button Rotate an image to the right"
-#| msgid "Rotate right"
+#, kde-format
 msgid "Rotate right"
 msgstr "Obróć w prawo"
 
 #: src/qml/Component/FullScreenImage.qml:148
-#, fuzzy, kde-format
-#| msgid "Save As"
+#, kde-format
 msgid "Save as"
 msgstr "Zapisz jako"
 
@@ -1139,7 +1060,7 @@ msgstr "ID Matriksa:"
 #: src/qml/Component/Login/Login.qml:52
 #, kde-format
 msgid "Already logged in"
-msgstr ""
+msgstr "Już zalogowany"
 
 #: src/qml/Component/Login/Login.qml:52
 #, kde-format
@@ -1251,15 +1172,15 @@ msgstr "Zatrzymaj pobieranie"
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Na podstawie głosu %1 użytkownika"
+msgstr[1] "Na podstawie głosów %1 użytkowników"
+msgstr[2] "Na podstawie głosów %1 użytkowników"
 
 #: src/qml/Component/Timeline/PollDelegate.qml:48
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
-msgstr ""
+msgstr "(Zakończone)"
 
 #: src/qml/Component/Timeline/ReactionDelegate.qml:53
 #, kde-format
@@ -1302,22 +1223,20 @@ msgid "Video"
 msgstr "Wideo"
 
 #: src/qml/Component/UserInfo.qml:58 src/qml/Settings/AccountsPage.qml:83
-#, fuzzy, kde-format
-#| msgid "Add an account"
+#, kde-format
 msgid "Add Account"
 msgstr "Dodaj konto"
 
 #: src/qml/Component/UserInfo.qml:59
 #, kde-format
 msgid "Log in to an existing account"
-msgstr ""
+msgstr "Wejdź na istniejące konto"
 
 #: src/qml/Component/UserInfo.qml:61
-#, fuzzy, kde-format
-#| msgid "Login"
+#, kde-format
 msgctxt "@title:window"
 msgid "Login"
-msgstr "Wejdź"
+msgstr "Logowanie"
 
 #: src/qml/Component/UserInfo.qml:140
 #, kde-format
@@ -1332,7 +1251,7 @@ msgstr "Edytor konta"
 #: src/qml/Component/UserInfo.qml:174
 #, kde-format
 msgid "Switch User"
-msgstr ""
+msgstr "Przełącz użytkownika"
 
 #: src/qml/Component/UserInfo.qml:186 src/qml/Page/InviteUserPage.qml:42
 #, kde-format
@@ -1346,23 +1265,21 @@ msgid "Configure"
 msgstr "Ustawienia"
 
 #: src/qml/Component/UserInfo.qml:198
-#, fuzzy, kde-format
-#| msgid "Settings"
+#, kde-format
 msgid "Open Settings"
-msgstr "Ustawienia"
+msgstr "Otwórz ustawienia"
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:36
-#, fuzzy, kde-format
-#| msgid "activated End-to-End Encryption"
+#, kde-format
 msgid "Activate Encryption"
-msgstr "aktywował(a) szyfrowanie End-to-End"
+msgstr "Włącz szyfrowanie"
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:20
 #, kde-format
 msgid ""
 "It will not be possible to deactivate the encryption after it is enabled."
-msgstr ""
+msgstr "Nie będzie można wyłączyć szyfrowania po jego włączeniu."
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:30
 #: src/qml/Dialog/ConfirmLogoutDialog.qml:29
@@ -1378,12 +1295,12 @@ msgstr "Anuluj"
 #: src/qml/Settings/AccountEditorPage.qml:234
 #, kde-format
 msgid "Sign out"
-msgstr ""
+msgstr "Wypisz"
 
 #: src/qml/Dialog/ConfirmLogoutDialog.qml:19
 #, kde-format
 msgid "Are you sure you want to sign out?"
-msgstr ""
+msgstr "Czy na pewno chcesz się wypisać?"
 
 #: src/qml/Dialog/CreateRoomDialog.qml:16 src/qml/main.qml:250
 #, kde-format
@@ -1652,11 +1569,10 @@ msgid "Ban this user"
 msgstr "Zbanuj tego użytkownika"
 
 #: src/qml/Dialog/UserDetailDialog.qml:116
-#, fuzzy, kde-format
-#| msgid "Ban this user"
+#, kde-format
 msgctxt "@title"
 msgid "Ban User"
-msgstr "Zbanuj tego użytkownika"
+msgstr "Zbanuj użytkownika"
 
 #: src/qml/Dialog/UserDetailDialog.qml:127
 #, kde-format
@@ -1664,18 +1580,15 @@ msgid "Unban this user"
 msgstr "Odbanuj tego użytkownika"
 
 #: src/qml/Dialog/UserDetailDialog.qml:140
-#, fuzzy, kde-format
-#| msgid "Delete recent messages by this user"
+#, kde-format
 msgid "Remove recent messages by this user"
-msgstr "Usuń ostatnie wiadomości po tym użytkowniku"
+msgstr "Usuń ostatnie wiadomości tego użytkownika"
 
 #: src/qml/Dialog/UserDetailDialog.qml:145
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Report Message"
+#, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
-msgstr "Zgłoś wiadomość"
+msgstr "Usuń wiadomości"
 
 #: src/qml/Dialog/UserDetailDialog.qml:155
 #, kde-format
@@ -1683,10 +1596,9 @@ msgid "Open a private chat"
 msgstr "Rozpocznij prywatną rozmowę"
 
 #: src/qml/Dialog/UserDetailDialog.qml:165
-#, fuzzy, kde-format
-#| msgid "Copy"
+#, kde-format
 msgid "Copy link"
-msgstr "Skopiuj"
+msgstr "Skopiuj odnośnik"
 
 #: src/qml/main.qml:125
 #, kde-format
@@ -2000,36 +1912,33 @@ msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "Adres URL do współdzielenia obrazu to <a href='%1'>%1</a>"
 
 #: src/qml/Menu/SpaceListContextMenu.qml:34
-#, fuzzy, kde-format
-#| msgid "Settings"
+#, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
-msgstr "Ustawienia"
+msgstr "Ustawienia space"
 
 #: src/qml/Menu/SpaceListContextMenu.qml:41
 #: src/qml/Menu/SpaceListContextMenu.qml:96
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
-msgstr ""
+msgstr "Opuść Space"
 
 #: src/qml/Menu/Timeline/BanSheet.qml:16
-#, fuzzy, kde-format
-#| msgid "Ban this user"
+#, kde-format
 msgid "Ban User"
-msgstr "Zbanuj tego użytkownika"
+msgstr "Zbanuj użytkownika"
 
 #: src/qml/Menu/Timeline/BanSheet.qml:20
-#, fuzzy, kde-format
-#| msgid "Reason for reporting this message"
+#, kde-format
 msgid "Reason for banning this user"
-msgstr "Powód zgłoszenia tej wiadomości"
+msgstr "Powód zbanowania tego użytkownika"
 
 #: src/qml/Menu/Timeline/BanSheet.qml:32
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
-msgstr ""
+msgstr "Zbanuj"
 
 #: src/qml/Menu/Timeline/BanSheet.qml:41
 #: src/qml/Menu/Timeline/RemoveSheet.qml:47
@@ -2057,12 +1966,10 @@ msgstr "Usuń"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:64
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:50
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Report Message"
+#, kde-format
 msgctxt "@title"
 msgid "Remove Message"
-msgstr "Zgłoś wiadomość"
+msgstr "Usuń wiadomość"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:69
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:60
@@ -2098,10 +2005,9 @@ msgid "Copy"
 msgstr "Skopiuj"
 
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:81
-#, fuzzy, kde-format
-#| msgid "Copy"
+#, kde-format
 msgid "Copy Link"
-msgstr "Skopiuj"
+msgstr "Skopiuj odnośnik"
 
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:130
 #, kde-format
@@ -2115,38 +2021,32 @@ msgstr "Ustawienia skrótów sieciowych..."
 
 #: src/qml/Menu/Timeline/MessageSourceSheet.qml:20
 #: src/qml/Page/DevtoolsPage.qml:29
-#, fuzzy, kde-format
-#| msgid "View Source"
+#, kde-format
 msgid "Event Source"
-msgstr "Pokaż źródło"
+msgstr "Źródło wydarzenia"
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:18
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Remove Messages"
-msgstr "Zgłoś wiadomość"
+msgstr "Usuń wiadomości"
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:18
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Remove Message"
-msgstr "Zgłoś wiadomość"
+msgstr "Usuń wiadomość"
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:22
-#, fuzzy, kde-format
-#| msgid "Reason for reporting this message"
+#, kde-format
 msgid "Reason for removing this user's recent messages"
-msgstr "Powód zgłoszenia tej wiadomości"
+msgstr "Powód usunięcia ostatnich wiadomości tego użytkownika"
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:22
-#, fuzzy, kde-format
-#| msgid "Reason for reporting this message"
+#, kde-format
 msgid "Reason for removing this message"
-msgstr "Powód zgłoszenia tej wiadomości"
+msgstr "Powód usunięcia tej wiadomości"
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:34
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Usuń"
@@ -2162,11 +2062,9 @@ msgid "Reason for reporting this message"
 msgstr "Powód zgłoszenia tej wiadomości"
 
 #: src/qml/Page/DevtoolsPage.qml:15
-#, fuzzy, kde-format
-#| msgctxt "%1 is the room name"
-#| msgid "Room Settings - %1"
+#, kde-format
 msgid "Room State - %1"
-msgstr "Ustawienia pokoju — %1"
+msgstr "Stan pokoju — %1"
 
 #: src/qml/Page/ImageEditorPage.qml:36
 #, kde-format
@@ -2262,49 +2160,48 @@ msgstr "Dołącz"
 #: src/qml/Page/JoinRoomPage.qml:73
 #, kde-format
 msgid "Add New Server"
-msgstr ""
+msgstr "Dodaj nowy serwer"
 
 #: src/qml/Page/JoinRoomPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Homeserver:"
+#, kde-format
 msgid "Home Server"
-msgstr "Serwer domowy:"
+msgstr "Serwer domowy"
 
 #: src/qml/Page/JoinRoomPage.qml:83
 #, kde-format
 msgid "Add new server"
-msgstr ""
+msgstr "Dodaj nowy serwer"
 
 #: src/qml/Page/JoinRoomPage.qml:114
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
-msgstr ""
+msgstr "Dodawanie serwera"
 
 #: src/qml/Page/JoinRoomPage.qml:127
 #, kde-format
 msgid "Valid server entered"
-msgstr ""
+msgstr "Wpisano prawidłowy serwer"
 
 #: src/qml/Page/JoinRoomPage.qml:127
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
-msgstr ""
+msgstr "Nie można ustalić położenia tego serwera lub już został dodany"
 
 #: src/qml/Page/JoinRoomPage.qml:127
 #, kde-format
 msgid "The entered text is not a valid url"
-msgstr ""
+msgstr "Wpisany tekst jest nieprawidłowym adresem url"
 
 #: src/qml/Page/JoinRoomPage.qml:127
 #, kde-format
 msgid "Enter server url e.g. kde.org"
-msgstr ""
+msgstr "Wpisz adres URL serwera np. kde.org"
 
 #: src/qml/Page/JoinRoomPage.qml:135
 #, kde-format
 msgid "Server URL"
-msgstr ""
+msgstr "Adres URL serwera"
 
 #: src/qml/Page/JoinRoomPage.qml:227
 #, kde-format
@@ -2343,10 +2240,9 @@ msgid "No Name"
 msgstr "Brak nazwy"
 
 #: src/qml/Page/RoomListPage.qml:345
-#, fuzzy, kde-format
-#| msgid "Muted"
+#, kde-format
 msgid "Muted room"
-msgstr "Wyciszony(-a)"
+msgstr "Wyciszony pokój"
 
 #: src/qml/Page/RoomListPage.qml:365
 #, kde-format
@@ -2425,12 +2321,12 @@ msgstr "Informacje o pokoju"
 #: src/qml/Panel/RoomDrawer.qml:101
 #, kde-format
 msgid "Open developer tools"
-msgstr ""
+msgstr "Otwórz narzędzia programistów"
 
 #: src/qml/Panel/RoomDrawer.qml:106
 #, kde-format
 msgid "Developer Tools"
-msgstr ""
+msgstr "Narzędzia programistów"
 
 #: src/qml/Panel/RoomDrawer.qml:119
 #, kde-format
@@ -2450,7 +2346,7 @@ msgstr "Dodaj pokój do ulubionych"
 #: src/qml/Panel/RoomDrawer.qml:154
 #, kde-format
 msgid "Enable encryption"
-msgstr ""
+msgstr "Włącz szyfrowanie"
 
 #: src/qml/Panel/RoomDrawer.qml:172
 #, kde-format
@@ -2527,10 +2423,9 @@ msgid "Notifications"
 msgstr "Powiadomienia"
 
 #: src/qml/RoomSettings/General.qml:30
-#, fuzzy, kde-format
-#| msgid "Room information"
+#, kde-format
 msgid "Room Information"
-msgstr "Informacje o pokoju"
+msgstr "Szczegóły pokoju"
 
 #: src/qml/RoomSettings/General.qml:50
 #, kde-format
@@ -2538,8 +2433,7 @@ msgid "Update avatar"
 msgstr "Uaktualnij awatar"
 
 #: src/qml/RoomSettings/General.qml:75
-#, fuzzy, kde-format
-#| msgid "Room Name:"
+#, kde-format
 msgid "Room name:"
 msgstr "Nazwa pokoju:"
 
@@ -2556,41 +2450,35 @@ msgid "Save"
 msgstr "Zapisz"
 
 #: src/qml/RoomSettings/General.qml:129
-#, fuzzy, kde-format
-#| msgid "Other Aliases:"
+#, kde-format
 msgid "Aliases"
-msgstr "Inne aliasy:"
+msgstr "Aliasy"
 
 #: src/qml/RoomSettings/General.qml:133
-#, fuzzy, kde-format
-#| msgid "No Canonical Alias"
+#, kde-format
 msgid "No canonical alias set"
-msgstr "Brak kanonicznego aliasu"
+msgstr "Nie ustawiono kanonicznego aliasu"
 
 #: src/qml/RoomSettings/General.qml:146
 #, kde-format
 msgid "Make this alias the room's canonical alias"
-msgstr ""
+msgstr "Uczyń ten alias kanonicznym aliasem pokoju"
 
 #: src/qml/RoomSettings/General.qml:161
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Delete"
+#, kde-format
 msgid "Delete alias"
-msgstr "Usuń"
+msgstr "Usuń alias"
 
 #: src/qml/RoomSettings/General.qml:186
 #, kde-format
 msgid "#new_alias:server.org"
-msgstr ""
+msgstr "#new_alias:server.org"
 
 #: src/qml/RoomSettings/General.qml:203
 #: src/qml/Settings/GlobalNotificationsPage.qml:245
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add word"
+#, kde-format
 msgid "Add keyword"
-msgstr "Dodaj słowo"
+msgstr "Dodaj słowo kluczowe"
 
 #: src/qml/RoomSettings/General.qml:226
 #, kde-format
@@ -2598,8 +2486,7 @@ msgid "This room continues another conversation."
 msgstr "W tym pokoju nadal toczona jest rozmowa."
 
 #: src/qml/RoomSettings/General.qml:230
-#, fuzzy, kde-format
-#| msgid "See older messages..."
+#, kde-format
 msgid "See older messages…"
 msgstr "Zobacz starsze wiadomości…"
 
@@ -2609,14 +2496,12 @@ msgid "This room has been replaced."
 msgstr "Ten pokój został zastąpiony."
 
 #: src/qml/RoomSettings/General.qml:245
-#, fuzzy, kde-format
-#| msgid "See new room..."
+#, kde-format
 msgid "See new room…"
 msgstr "Zobacz nowy pokój…"
 
 #: src/qml/RoomSettings/PushNotification.qml:29
-#, fuzzy, kde-format
-#| msgid "Room notifications setting:"
+#, kde-format
 msgid "Room notifications setting"
 msgstr "Ustawienia powiadomień pokoju"
 
@@ -2626,12 +2511,10 @@ msgid "Follow global setting"
 msgstr "Zgodnie z ustawieniami ogólnymi"
 
 #: src/qml/RoomSettings/Security.qml:30
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Access:"
+#, kde-format
 msgctxt "@option:check"
 msgid "Access"
-msgstr "Dostęp:"
+msgstr "Dostęp"
 
 #: src/qml/RoomSettings/Security.qml:33
 #, kde-format
@@ -2660,6 +2543,7 @@ msgstr "Każdy w przestrzeni może odszukać i dołączyć."
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
 msgstr ""
+"Aby móc włączyć to ustawienie, należy uaktualnić ten pokój do nowej wersji."
 
 #: src/qml/RoomSettings/Security.qml:54
 #, kde-format
@@ -2677,26 +2561,25 @@ msgstr "Każdy może odszukać i dołączyć."
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
-msgstr ""
+msgstr "Widoczność historii wiadomości"
 
 #: src/qml/RoomSettings/Security.qml:74
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
-msgstr ""
+msgstr "Ktokolwiek"
 
 #: src/qml/RoomSettings/Security.qml:75
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
-msgstr ""
+msgstr "Historię może przeglądać ktokolwiek, niezależnie czy dołączył."
 
 #: src/qml/RoomSettings/Security.qml:83
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgctxt "@option:check"
 msgid "Members only"
-msgstr "Członkowie"
+msgstr "Tylko członkowie"
 
 #: src/qml/RoomSettings/Security.qml:84
 #, kde-format
@@ -2704,12 +2587,14 @@ msgctxt "@option:check"
 msgid ""
 "All members can view the entire message history, even before they joined."
 msgstr ""
+"Wszyscy członkowie mogą przeglądać całą historię rozmów, nawet tę sprzed ich "
+"dołączenia."
 
 #: src/qml/RoomSettings/Security.qml:92
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
-msgstr ""
+msgstr "Tylko członkowie (od zaproszenia)"
 
 #: src/qml/RoomSettings/Security.qml:93
 #, kde-format
@@ -2718,12 +2603,13 @@ msgid ""
 "New members can view the message history from the point they were invited to "
 "the room."
 msgstr ""
+"Nowi członkowie mogą przeglądać historię rozmów od czasu ich zaproszenia."
 
 #: src/qml/RoomSettings/Security.qml:101
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
-msgstr ""
+msgstr "Tylko członkowie (od dołączenia)"
 
 #: src/qml/RoomSettings/Security.qml:102
 #, kde-format
@@ -2731,6 +2617,7 @@ msgctxt "@option:check"
 msgid ""
 "New members can view the message history from the point they joined the room."
 msgstr ""
+"Nowi członkowie mogą przeglądać historię rozmów od czasu ich dołączenia."
 
 #: src/qml/RoomSettings/Security.qml:121
 #: src/qml/Settings/NetworkProxyPage.qml:108
@@ -2751,15 +2638,14 @@ msgid "Edit Account"
 msgstr "Edytuj konto"
 
 #: src/qml/Settings/AccountEditorPage.qml:30
-#, fuzzy, kde-format
-#| msgid "Room information"
+#, kde-format
 msgid "User information"
-msgstr "Informacje o pokoju"
+msgstr "Szczegóły użytkownika"
 
 #: src/qml/Settings/AccountEditorPage.qml:73
 #, kde-format
 msgid "Remove current avatar"
-msgstr ""
+msgstr "Usuń bieżącego awatara"
 
 #: src/qml/Settings/AccountEditorPage.qml:88
 #, kde-format
@@ -2772,16 +2658,14 @@ msgid "Label:"
 msgstr "Etykieta:"
 
 #: src/qml/Settings/AccountEditorPage.qml:130
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Password"
+#, kde-format
 msgid "Password"
 msgstr "Hasło"
 
 #: src/qml/Settings/AccountEditorPage.qml:134
 #, kde-format
 msgid "Your server doesn't support changing your password"
-msgstr ""
+msgstr "Twój serwer nie obsługuje zmieniania twojego hasła"
 
 #: src/qml/Settings/AccountEditorPage.qml:138
 #, kde-format
@@ -2799,8 +2683,7 @@ msgid "Confirm new Password:"
 msgstr "Potwierdź nowe hasło:"
 
 #: src/qml/Settings/AccountEditorPage.qml:155
-#, fuzzy, kde-format
-#| msgid "Passwords do not match"
+#, kde-format
 msgid "Passwords don't match"
 msgstr "Hasła nie są sobie równe"
 
@@ -2810,16 +2693,14 @@ msgid "Passwords do not match"
 msgstr "Hasła nie są sobie równe"
 
 #: src/qml/Settings/AccountEditorPage.qml:199
-#, fuzzy, kde-format
-#| msgid "Room information"
+#, kde-format
 msgid "Server Information"
-msgstr "Informacje o pokoju"
+msgstr "Szczegóły serwera"
 
 #: src/qml/Settings/AccountEditorPage.qml:202
-#, fuzzy, kde-format
-#| msgid "Homeserver:"
+#, kde-format
 msgid "Homeserver url"
-msgstr "Serwer domowy:"
+msgstr "Adres URL serwera domowego"
 
 #: src/qml/Settings/AccountsPage.qml:15 src/qml/Settings/AccountsPage.qml:26
 #: src/qml/Settings/SettingsPage.qml:27
@@ -2849,10 +2730,9 @@ msgid "Appearance"
 msgstr "Wygląd"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:25
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgid "General theme"
-msgstr "Ogólne"
+msgstr "Ogólny wygląd"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:118
 #, kde-format
@@ -2865,10 +2745,9 @@ msgid "Compact"
 msgstr "Zwarty"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:221
-#, fuzzy, kde-format
-#| msgid "Show Fancy Effects"
+#, kde-format
 msgid "Show fancy effects in chat"
-msgstr "Pokaż ciekawe efekty"
+msgstr "Pokaż ciekawe efekty w rozmowie"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:235
 #, kde-format
@@ -2876,10 +2755,9 @@ msgid "Use transparent chat page"
 msgstr "Użyj przezroczystej strony rozmowy"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:254
-#, fuzzy, kde-format
-#| msgid "Transparency:"
+#, kde-format
 msgid "Transparency"
-msgstr "Przezroczystość:"
+msgstr "Przezroczystość"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:271
 #, kde-format
@@ -2894,29 +2772,27 @@ msgstr "Pokaż swoje wiadomości po prawej"
 #: src/qml/Settings/AppearanceSettingsPage.qml:297
 #, kde-format
 msgid "Show links preview in the chat messages"
-msgstr ""
+msgstr "Pokaż podglądy odnośników w wiadomościach rozmowy"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:314
-#, fuzzy, kde-format
-#| msgid "Show Avatar:"
+#, kde-format
 msgid "Show Avatar"
-msgstr "Pokaż awatar:"
+msgstr "Pokaż awatar"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:318
 #, kde-format
 msgid "In chat"
-msgstr ""
+msgstr "W rozmowie"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:328
-#, fuzzy, kde-format
-#| msgid "In Sidebar"
+#, kde-format
 msgid "In sidebar"
 msgstr "Na pasku bocznym"
 
 #: src/qml/Settings/ColorScheme.qml:15
 #, kde-format
 msgid "Color theme"
-msgstr ""
+msgstr "Zestaw kolorów"
 
 #: src/qml/Settings/DevicesPage.qml:14 src/qml/Settings/DevicesPage.qml:26
 #: src/qml/Settings/SettingsPage.qml:48
@@ -2925,24 +2801,19 @@ msgid "Devices"
 msgstr "Urządzenia"
 
 #: src/qml/Settings/DevicesPage.qml:86
-#, fuzzy, kde-format
-#| msgid "Edit device name"
+#, kde-format
 msgid "New device name"
-msgstr "Edytuj nazwę urządzenia"
+msgstr "Nazwa nowego urządzenia"
 
 #: src/qml/Settings/DevicesPage.qml:95
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
+#, kde-format
 msgid "Cancel editing display name"
-msgstr "wyczyścił(a) swoją wyświetlaną nazwę"
+msgstr "Przerwij zmianę wyświetlanej nazwy"
 
 #: src/qml/Settings/DevicesPage.qml:102
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
+#, kde-format
 msgid "Confirm new display name"
-msgstr "wyczyścił(a) swoją wyświetlaną nazwę"
+msgstr "Potwierdź nową wyświetlaną nazwę"
 
 #: src/qml/Settings/DevicesPage.qml:117
 #, kde-format
@@ -2998,7 +2869,7 @@ msgstr "Dodaj Emoji..."
 #: src/qml/Settings/Emoticons.qml:113
 #, kde-format
 msgid "Images (*.png *.gif *.webp)"
-msgstr ""
+msgstr "Obrazy (*.png *.gif *.webp)"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:15
 #: src/qml/Settings/NetworkProxyPage.qml:14
@@ -3008,10 +2879,9 @@ msgid "General"
 msgstr "Ogólne"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:25
-#, fuzzy, kde-format
-#| msgid "General settings:"
+#, kde-format
 msgid "General settings"
-msgstr "Ustawienia ogólne:"
+msgstr "Ustawienia ogólne"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:31
 #, kde-format
@@ -3031,7 +2901,7 @@ msgstr "Sam ukryj/odkryj szczegóły pokoju przy zmienianiu rozmiaru okna"
 #: src/qml/Settings/GeneralSettingsPage.qml:77
 #, kde-format
 msgid "Timeline Events"
-msgstr ""
+msgstr "Wydarzenia na osi czasu"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:82
 #, kde-format
@@ -3049,16 +2919,14 @@ msgid "Show avatar update events"
 msgstr "Pokaż uaktualnienia awatarów"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:121
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgid "Show deleted messages"
-msgstr "Wyślij wiadomość"
+msgstr "Pokaż usunięte wiadomości"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:138
-#, fuzzy, kde-format
-#| msgid "Rooms and private chats:"
+#, kde-format
 msgid "Rooms and private chats"
-msgstr "Pokoje i prywatne rozmowy:"
+msgstr "Pokoje i prywatne rozmowy"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:141
 #, kde-format
@@ -3071,11 +2939,10 @@ msgid "Intermixed"
 msgstr "Złączone"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:167
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
-msgstr "Edytuj"
+msgstr "Edytor"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:171
 #, kde-format
@@ -3083,25 +2950,22 @@ msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "Użyj składni s/tekst/zastąpienie do zmiany swojej ostatniej wiadomości"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:182
-#, fuzzy, kde-format
-#| msgid "Send Typing Notifications"
+#, kde-format
 msgid "Send typing notifications"
 msgstr "Powiadamiaj o pisaniu"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:199
-#, fuzzy, kde-format
-#| msgid "Settings"
+#, kde-format
 msgid "Developer Settings"
-msgstr "Ustawienia"
+msgstr "Ustawienia programisty"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:202
 #, kde-format
 msgid "Enable developer tools"
-msgstr ""
+msgstr "Włącz narzędzia programistów"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:14
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@title:window"
 msgid "Notifications"
 msgstr "Powiadomienia"
@@ -3109,151 +2973,138 @@ msgstr "Powiadomienia"
 #: src/qml/Settings/GlobalNotificationsPage.qml:24
 #, kde-format
 msgid "Enable notifications for this account"
-msgstr ""
+msgstr "Włącz powiadomienia dla tego konta"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:42
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgid "Room Notifications"
-msgstr "Powiadomienia"
+msgstr "Powiadomienia pokoju"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:45
 #, kde-format
 msgid "Messages in one-to-one chats"
-msgstr ""
+msgstr "Wiadomości w rozmowach jeden na jednego"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:59
 #, kde-format
 msgid "Encrypted messages in one-to-one chats"
-msgstr ""
+msgstr "Zaszyfrowane wiadomości w rozmowach jeden na jednego"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:75
 #, kde-format
 msgid "Messages in group chats"
-msgstr ""
+msgstr "Wiadomości w rozmowach grupowych"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:89
 #, kde-format
 msgid "Messages in encrypted group chats"
-msgstr ""
+msgstr "Wiadomości w zaszyfrowanych rozmowach grupowych"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:105
 #, kde-format
 msgid "Room upgrade messages"
-msgstr ""
+msgstr "Wiadomości uaktualnień pokoju"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:130
 #, kde-format
 msgid "@Mentions"
-msgstr ""
+msgstr "@Wspomnienia"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:133
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
+#, kde-format
 msgid "Messages containing my display name"
-msgstr "wyczyścił(a) swoją wyświetlaną nazwę"
+msgstr "Wiadomości zawierające moją wyświetlaną nazwę"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:149
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Whole room (@room) notifications"
-msgstr "Pokaż powiadomienia"
+msgstr "Powiadomienia w całym pokoju (@room)"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:174
 #, kde-format
 msgid "Keywords"
-msgstr ""
+msgstr "Słowa kluczowe"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:178
 #, kde-format
 msgid "Messages containing my keywords"
-msgstr ""
+msgstr "Wiadomości zawierające moje słowa kluczowe"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:227
 #, kde-format
 msgid "Keyword…"
-msgstr ""
+msgstr "Słowo kluczowe…"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:272
-#, fuzzy, kde-format
-#| msgid "Invite"
+#, kde-format
 msgid "Invites"
-msgstr "Zaproś"
+msgstr "Zaproszenia"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:275
-#, fuzzy, kde-format
-#| msgid "Invite user to room"
+#, kde-format
 msgid "Invites to a room"
-msgstr "Zaproś użytkownika do pokoju"
+msgstr "Zaprasza do pokoju"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:291
-#, fuzzy, kde-format
-#| msgid "Send invitation"
+#, kde-format
 msgid "Call invitation"
-msgstr "Wyślij zaproszenie"
+msgstr "Zaproszenie do rozmowy"
 
 #: src/qml/Settings/NetworkProxyPage.qml:27
 #: src/qml/Settings/SettingsPage.qml:43
-#, fuzzy, kde-format
-#| msgid "Network Error"
+#, kde-format
 msgid "Network Proxy"
-msgstr "Błąd sieci"
+msgstr "Pośrednik sieciowy"
 
 #: src/qml/Settings/NetworkProxyPage.qml:30
 #, kde-format
 msgid "System Default"
-msgstr ""
+msgstr "Domyślne systemowe"
 
 #: src/qml/Settings/NetworkProxyPage.qml:38
 #, kde-format
 msgid "HTTP"
-msgstr ""
+msgstr "HTTP"
 
 #: src/qml/Settings/NetworkProxyPage.qml:46
 #, kde-format
 msgid "Socks5"
-msgstr ""
+msgstr "SOCKS5"
 
 #: src/qml/Settings/NetworkProxyPage.qml:62
-#, fuzzy, kde-format
-#| msgid "Room Settings"
+#, kde-format
 msgid "Proxy Settings"
-msgstr "Ustawienia pokoju"
+msgstr "Ustawienia pośrednika"
 
 #: src/qml/Settings/NetworkProxyPage.qml:66
 #, kde-format
 msgid "Host"
-msgstr ""
+msgstr "Gospodarz"
 
 #: src/qml/Settings/NetworkProxyPage.qml:78
 #, kde-format
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 #: src/qml/Settings/NotificationRuleItem.qml:65
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Disable notifications"
-msgstr "Pokaż powiadomienia"
+msgstr "Wyłącz powiadomienia"
 
 #: src/qml/Settings/NotificationRuleItem.qml:65
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Enable notifications"
-msgstr "Pokaż powiadomienia"
+msgstr "Włącz powiadomienia"
 
 #: src/qml/Settings/NotificationRuleItem.qml:87
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Mute notifications"
-msgstr "Pokaż powiadomienia"
+msgstr "Wycisz powiadomienia"
 
 #: src/qml/Settings/NotificationRuleItem.qml:87
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Unmute notifications"
-msgstr "Pokaż powiadomienia"
+msgstr "Usuń wyciszenie powiadomień"
 
 #: src/qml/Settings/NotificationRuleItem.qml:109
 #, kde-format
@@ -3261,7 +3112,7 @@ msgctxt ""
 "As in clicking this button will switch off highlights for messages that "
 "match this rule"
 msgid "Disable message highlights"
-msgstr ""
+msgstr "Wyłącz skróty wiadomości"
 
 #: src/qml/Settings/NotificationRuleItem.qml:109
 #, kde-format
@@ -3269,13 +3120,12 @@ msgctxt ""
 "As in clicking this button will switch on highlights for messages that match "
 "this rule"
 msgid "Enable message highlights"
-msgstr ""
+msgstr "Włącz skróty wiadomości"
 
 #: src/qml/Settings/NotificationRuleItem.qml:131
-#, fuzzy, kde-format
-#| msgid "Delete word"
+#, kde-format
 msgid "Delete keyword"
-msgstr "Usuń słowo"
+msgstr "Usuń słowo kluczowe"
 
 #: src/qml/Settings/SettingsPage.qml:17
 #, kde-format
