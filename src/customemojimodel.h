@@ -11,6 +11,10 @@ struct CustomEmoji {
     QString name; // with :semicolons:
     QString url; // mxc://
     QRegularExpression regexp;
+
+    Q_GADGET
+    Q_PROPERTY(QString unicode MEMBER url)
+    Q_PROPERTY(QString name MEMBER name)
 };
 
 class CustomEmojiModel : public QAbstractListModel

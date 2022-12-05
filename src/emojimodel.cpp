@@ -8,8 +8,8 @@
 
 #include <algorithm>
 
+#include "customemojimodel.h"
 #include <KLocalizedString>
-#include <qnamespace.h>
 
 EmojiModel::EmojiModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -69,6 +69,13 @@ QVariantList EmojiModel::history() const
 
 QVariantList EmojiModel::filterModel(const QString &filter, bool limit)
 {
+    auto emojis = CustomEmojiModel::instance().filterModel(filter);
+    emojis += filterModelNoCustom(filter, limit);
+    return emojis;
+}
+
+QVariantList EmojiModel::filterModelNoCustom(const QString &filter, bool limit)
+{
     QVariantList result;
 
     for (const auto &e : _emojis.values()) {
@@ -82,7 +89,6 @@ QVariantList EmojiModel::filterModel(const QString &filter, bool limit)
             }
         }
     }
-
     return result;
 }
 
@@ -110,11 +116,27 @@ QVariantList EmojiModel::emojis(Category category) const
     if (category == History) {
         return history();
     }
+    if (category == HistoryNoCustom) {
+        QVariantList list;
+        for (const auto &e : history()) {
+            auto emoji = qvariant_cast<Emoji>(e);
+            if (!emoji.isCustom) {
+                list.append(e);
+            }
+        }
+        return list;
+    }
+    if (category == Custom) {
+        return CustomEmojiModel::instance().filterModel({});
+    }
     return _emojis[category];
 }
 
 QVariantList EmojiModel::tones(const QString &baseEmoji) const
 {
+    if (baseEmoji.endsWith("tone")) {
+        return _tones.values(baseEmoji.split(":")[0]);
+    }
     return _tones.values(baseEmoji);
 }
 
@@ -123,20 +145,10 @@ QHash<EmojiModel::Category, QVariantList> EmojiModel::_emojis;
 QVariantList EmojiModel::categories() const
 {
     return QVariantList{
-        // {QVariantMap{
-        //     {"category", EmojiModel::Search},
-        //     {"name", i18nc("Search for emojis", "Search")},
-        //     {"emoji", QStringLiteral("🔎")},
-        // }},
         {QVariantMap{
-            {"category", EmojiModel::History},
+            {"category", EmojiModel::HistoryNoCustom},
             {"name", i18nc("Previously used emojis", "History")},
             {"emoji", QStringLiteral("⌛️")},
-        }},
-        {QVariantMap{
-            {"category", EmojiModel::Custom},
-            {"name", i18nc("'Custom' is a category of emoji", "Custom")},
-            {"emoji", QStringLiteral("😏")},
         }},
         {QVariantMap{
             {"category", EmojiModel::Smileys},
@@ -184,4 +196,24 @@ QVariantList EmojiModel::categories() const
             {"emoji", QStringLiteral("🏁")},
         }},
     };
+}
+
+QVariantList EmojiModel::categoriesWithCustom() const
+{
+    auto cats = categories();
+    cats.removeAt(0);
+    cats.insert(0,
+                QVariantMap{
+                    {"category", EmojiModel::History},
+                    {"name", i18nc("Previously used emojis", "History")},
+                    {"emoji", QStringLiteral("⌛️")},
+                });
+    cats.insert(1,
+                QVariantMap{
+                    {"category", EmojiModel::Custom},
+                    {"name", i18nc("'Custom' is a category of emoji", "Custom")},
+                    {"emoji", QStringLiteral("🖼️")},
+                });
+    ;
+    return cats;
 }

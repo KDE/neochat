@@ -49,6 +49,7 @@ class EmojiModel : public QAbstractListModel
 
     Q_PROPERTY(QVariantList history READ history NOTIFY historyChanged)
     Q_PROPERTY(QVariantList categories READ categories CONSTANT)
+    Q_PROPERTY(QVariantList categoriesWithCustom READ categoriesWithCustom CONSTANT)
 
 public:
     static EmojiModel &instance()
@@ -69,7 +70,9 @@ public:
     enum Category {
         Custom,
         Search,
+        SearchNoCustom,
         History,
+        HistoryNoCustom,
         Smileys,
         People,
         Nature,
@@ -89,11 +92,14 @@ public:
 
     Q_INVOKABLE QVariantList history() const;
     Q_INVOKABLE static QVariantList filterModel(const QString &filter, bool limit = true);
+    Q_INVOKABLE static QVariantList filterModelNoCustom(const QString &filter, bool limit = true);
+
     Q_INVOKABLE QVariantList emojis(Category category) const;
 
     Q_INVOKABLE QVariantList tones(const QString &baseEmoji) const;
 
     QVariantList categories() const;
+    QVariantList categoriesWithCustom() const;
 
 Q_SIGNALS:
     void historyChanged();

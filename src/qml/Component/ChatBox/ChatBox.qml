@@ -57,15 +57,21 @@ ColumnLayout {
         id: emojiPickerLoader
         active: visible
         visible: chatBar.emojiPaneOpened
+        onItemChanged: if (visible) {
+            emojiPickerLoader.item.forceActiveFocus()
+        }
         Layout.fillWidth: true
         sourceComponent: QQC2.Pane {
+            onActiveFocusChanged: if(activeFocus) {
+                emojiPicker.forceActiveFocus()
+            }
             topPadding: 0
             bottomPadding: 0
             rightPadding: 0
             leftPadding: 0
             Kirigami.Theme.colorSet: Kirigami.Theme.View
             contentItem: EmojiPicker {
-                textArea: chatBar.textField
+                id: emojiPicker
                 onChosen: insertText(emoji)
             }
         }

@@ -9,29 +9,38 @@ import org.kde.kirigami 2.15 as Kirigami
 import org.kde.neochat 1.0
 
 QQC2.Popup {
-    id: root
-
+    id: emojiPopup
     signal react(string emoji)
+
+    Connections {
+        target: RoomManager
+        function onCurrentRoomChanged() {
+            emojiPopup.close()
+        }
+    }
+
+    background: Kirigami.ShadowedRectangle {
+        Kirigami.Theme.colorSet: Kirigami.Theme.View
+        color: Kirigami.Theme.backgroundColor
+        radius: Kirigami.Units.smallSpacing
+        shadow.size: Kirigami.Units.smallSpacing
+        shadow.color: Qt.rgba(0.0, 0.0, 0.0, 0.10)
+        border.color: Kirigami.ColorUtils.tintWithAlpha(color, Kirigami.Theme.textColor, 0.15)
+        border.width: 2
+    }
 
     modal: true
     focus: true
     closePolicy: QQC2.Popup.CloseOnEscape | QQC2.Popup.CloseOnPressOutsideParent
     margins: 0
-    padding: 1
-    implicitWidth: Kirigami.Units.gridUnit * 16
-    implicitHeight: Kirigami.Units.gridUnit * 20
+    padding: 2
 
-    background: Rectangle {
-        Kirigami.Theme.inherit: false
-        Kirigami.Theme.colorSet: Kirigami.Theme.View
-        color: Kirigami.Theme.backgroundColor
-        border.width: 1
-        border.color: Kirigami.ColorUtils.linearInterpolation(Kirigami.Theme.backgroundColor,
-                                                              Kirigami.Theme.textColor,
-                                                              0.15)
-    }
-
-    contentItem: EmojiPicker {
-        onChosen: react(emoji)
+    implicitHeight: Kirigami.Units.gridUnit * 20 + 2 * padding
+    width: Math.min(contentItem.categoryIconSize * contentItem.categoryCount + 2 * padding, QQC2.Overlay.overlay.width)
+    contentItem: ReactionPicker {
+        onChosen: {
+            react(emoji)
+            emojiPopup.close()
+        }
     }
 }
