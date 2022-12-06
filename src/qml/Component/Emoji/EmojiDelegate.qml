@@ -15,6 +15,10 @@ QQC2.ItemDelegate {
     QQC2.ToolTip.text: emojiDelegate.name
     QQC2.ToolTip.visible: hovered
     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+    leftInset: Kirigami.Units.smallSpacing
+    topInset: Kirigami.Units.smallSpacing
+    rightInset: Kirigami.Units.smallSpacing
+    bottomInset: Kirigami.Units.smallSpacing
 
     contentItem: Item {
         Kirigami.Heading {
@@ -43,8 +47,10 @@ QQC2.ItemDelegate {
 
     background: Rectangle {
         color: emojiDelegate.checked ? Kirigami.Theme.highlightColor : Kirigami.Theme.backgroundColor
+        radius: Kirigami.Units.smallSpacing
 
         Rectangle {
+            radius: Kirigami.Units.smallSpacing
             anchors.fill: parent
             color: Kirigami.Theme.highlightColor
             opacity: emojiDelegate.hovered && !emojiDelegate.pressed ? 0.2 : 0

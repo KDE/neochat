@@ -20,7 +20,7 @@ ColumnLayout {
         }
     }
 
-    readonly property int categoryIconSize: 45
+    readonly property int categoryIconSize: Math.round(Kirigami.Units.gridUnit * 2.5)
     readonly property var currentCategory: currentEmojiModel[categories.currentIndex].category
     readonly property alias categoryCount: categories.count
 
@@ -81,7 +81,7 @@ ColumnLayout {
 
     EmojiGrid {
         id: emojiGrid
-        targetIconSize: root.categoryIconSize
+        targetIconSize: root.currentCategory === EmojiModel.Custom ? Kirigami.Units.gridUnit * 3 : root.categoryIconSize  // Custom emojis are bigger
         model: searchField.text.length === 0 ? EmojiModel.emojis(root.currentCategory) : (root.includeCustom ? EmojiModel.filterModel(searchField.text, false) : EmojiModel.filterModelNoCustom(searchField.text, false))
         Layout.fillWidth: true
         Layout.fillHeight: true
