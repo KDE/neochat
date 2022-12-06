@@ -4,6 +4,7 @@
 #include <QVariant>
 
 #include "emojimodel.h"
+#include "emojitones.h"
 #include <QDebug>
 
 #include <algorithm>
@@ -59,10 +60,6 @@ QHash<int, QByteArray> EmojiModel::roleNames() const
 {
     return {{ShortNameRole, "shortName"}, {UnicodeRole, "unicode"}};
 }
-
-QMultiHash<QString, QVariant> EmojiModel::_tones = {
-#include "emojitones.h"
-};
 
 QVariantList EmojiModel::history() const
 {
@@ -137,9 +134,9 @@ QVariantList EmojiModel::emojis(Category category) const
 QVariantList EmojiModel::tones(const QString &baseEmoji) const
 {
     if (baseEmoji.endsWith("tone")) {
-        return _tones.values(baseEmoji.split(":")[0]);
+        return EmojiTones::_tones.values(baseEmoji.split(":")[0]);
     }
-    return _tones.values(baseEmoji);
+    return EmojiTones::_tones.values(baseEmoji);
 }
 
 QHash<EmojiModel::Category, QVariantList> EmojiModel::_emojis;

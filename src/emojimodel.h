@@ -8,16 +8,16 @@
 #include <QSettings>
 
 struct Emoji {
-    Emoji(QString u, QString s, bool isCustom = false)
-        : unicode(std::move(std::move(u)))
-        , shortName(std::move(std::move(s)))
+    Emoji(QString unicode, QString shortname, bool isCustom = false)
+        : unicode(std::move(unicode))
+        , shortName(std::move(shortname))
         , isCustom(isCustom)
     {
     }
-    Emoji(QString u, QString s, QString d)
-        : unicode(std::move(std::move(u)))
-        , shortName(std::move(std::move(s)))
-        , description(std::move(std::move(d)))
+    Emoji(QString unicode, QString shortname, QString description)
+        : unicode(std::move(unicode))
+        , shortName(std::move(shortname))
+        , description(std::move(description))
     {
     }
     Emoji() = default;
@@ -118,7 +118,6 @@ public Q_SLOTS:
 
 private:
     static QHash<Category, QVariantList> _emojis;
-    static QMultiHash<QString, QVariant> _tones;
 
     // TODO: Port away from QSettings
     QSettings m_settings;

@@ -36,7 +36,7 @@ file.write("// SPDX-License-Identifier: LGPL-2.0-or-later\n")
 file.write("// This file is auto-generated. All changes will be lost. See tools/update-emojis.py\n")
 file.write("// clang-format off\n")
 
-tones_file = open("../src/emojitones.h", "w")
+tones_file = open("../src/emojitones_data.h", "w")
 # REUSE-IgnoreStart
 tones_file.write("// SPDX-FileCopyrightText: None\n")
 tones_file.write("// SPDX-License-Identifier: LGPL-2.0-or-later\n")

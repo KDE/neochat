@@ -7,6 +7,7 @@ add_library(neochat STATIC
     controller.cpp
     actionshandler.cpp
     emojimodel.cpp
+    emojitones.cpp
     customemojimodel.cpp
     clipboard.cpp
     matriximageprovider.cpp
