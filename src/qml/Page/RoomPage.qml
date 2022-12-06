@@ -521,7 +521,7 @@ Kirigami.ScrollablePage {
                     onClicked: emojiDialog.open();
                     EmojiDialog {
                         id: emojiDialog
-                        onReact: {
+                        onChosen: {
                             page.currentRoom.toggleReaction(hoverActions.event.eventId, emoji);
                             chatBox.focusInputField();
                         }

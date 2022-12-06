@@ -14,7 +14,6 @@ QQC2.ToolBar {
     id: chatBar
     property alias inputFieldText: inputField.text
     property alias textField: inputField
-    property alias emojiPaneOpened: emojiButton.checked
     property alias cursorPosition: inputField.cursorPosition
 
     signal closeAllTriggered()
@@ -205,6 +204,14 @@ QQC2.ToolBar {
             display: QQC2.AbstractButton.IconOnly
             checkable: true
 
+            onClicked: {
+                if (emojiDialog.visible) {
+                    emojiDialog.close()
+                } else {
+                    emojiDialog.open()
+                }
+            }
+
             QQC2.ToolTip.text: text
             QQC2.ToolTip.visible: hovered
         }
@@ -222,6 +229,19 @@ QQC2.ToolBar {
             QQC2.ToolTip.text: text
             QQC2.ToolTip.visible: hovered
         }
+    }
+
+    EmojiDialog {
+        id: emojiDialog
+        x: parent.width - implicitWidth
+        y: -implicitHeight - Kirigami.Units.smallSpacing
+
+        modal: false
+        includeCustom: true
+        closeOnChosen: false
+
+        onChosen: insertText(emoji)
+        onClosed: if (emojiButton.checked) emojiButton.checked = false
     }
 
     CompletionMenu {

@@ -10,7 +10,11 @@ import org.kde.neochat 1.0
 
 QQC2.Popup {
     id: emojiPopup
-    signal react(string emoji)
+
+    property bool includeCustom: false
+    property bool closeOnChosen: true
+
+    signal chosen(string emoji)
 
     Connections {
         target: RoomManager
@@ -37,10 +41,12 @@ QQC2.Popup {
 
     implicitHeight: Kirigami.Units.gridUnit * 20 + 2 * padding
     width: Math.min(contentItem.categoryIconSize * contentItem.categoryCount + 2 * padding, QQC2.Overlay.overlay.width)
-    contentItem: ReactionPicker {
+    contentItem: EmojiPicker {
+        height: 400
+        includeCustom: emojiPopup.includeCustom
         onChosen: {
-            react(emoji)
-            emojiPopup.close()
+            emojiPopup.chosen(emoji)
+            if (emojiPopup.closeOnChosen) emojiPopup.close()
         }
     }
 }

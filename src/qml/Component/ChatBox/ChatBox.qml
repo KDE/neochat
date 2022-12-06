@@ -47,38 +47,6 @@ ColumnLayout {
     }
 
     Kirigami.Separator {
-        id: emojiPickerLoaderSeparator
-        visible: emojiPickerLoader.visible
-        Layout.fillWidth: true
-        height: visible ? implicitHeight : 0
-    }
-
-    Loader {
-        id: emojiPickerLoader
-        active: visible
-        visible: chatBar.emojiPaneOpened
-        onItemChanged: if (visible) {
-            emojiPickerLoader.item.forceActiveFocus()
-        }
-        Layout.fillWidth: true
-        sourceComponent: QQC2.Pane {
-            onActiveFocusChanged: if(activeFocus) {
-                emojiPicker.forceActiveFocus()
-            }
-            topPadding: 0
-            bottomPadding: 0
-            rightPadding: 0
-            leftPadding: 0
-            Kirigami.Theme.colorSet: Kirigami.Theme.View
-            contentItem: EmojiPicker {
-                id: emojiPicker
-                onChosen: insertText(emoji)
-            }
-        }
-
-    }
-
-    Kirigami.Separator {
         id: replySeparator
         visible: replyPane.visible
         Layout.fillWidth: true
