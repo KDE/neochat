@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-30 00:47+0000\n"
+"POT-Creation-Date: 2022-12-06 00:45+0000\n"
 "PO-Revision-Date: 2022-08-19 15:06-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -459,73 +459,73 @@ msgstr "Criação de sala falhou: \"%1\""
 msgid "The room id you are trying to join is not valid"
 msgstr "O id da sala em que você está tentando entrar não é válido"
 
-#: src/emojimodel.cpp:133
+#: src/emojimodel.cpp:150 src/emojimodel.cpp:208
 #, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
 msgstr ""
 
-#: src/emojimodel.cpp:138
-#, fuzzy, kde-format
-#| msgid "Custom"
-msgctxt "'Custom' is a category of emoji"
-msgid "Custom"
-msgstr "Personalizado"
-
-#: src/emojimodel.cpp:143
+#: src/emojimodel.cpp:155
 #, kde-format
 msgctxt "'Smileys' is a category of emoji"
 msgid "Smileys"
 msgstr ""
 
-#: src/emojimodel.cpp:148
+#: src/emojimodel.cpp:160
 #, kde-format
 msgctxt "'People' is a category of emoji"
 msgid "People"
 msgstr ""
 
-#: src/emojimodel.cpp:153
+#: src/emojimodel.cpp:165
 #, kde-format
 msgctxt "'Nature' is a category of emoji"
 msgid "Nature"
 msgstr ""
 
-#: src/emojimodel.cpp:158
+#: src/emojimodel.cpp:170
 #, kde-format
 msgctxt "'Food' is a category of emoji"
 msgid "Food"
 msgstr ""
 
-#: src/emojimodel.cpp:163
+#: src/emojimodel.cpp:175
 #, kde-format
 msgctxt "'Activities' is a category of emoji"
 msgid "Activities"
 msgstr ""
 
-#: src/emojimodel.cpp:168
+#: src/emojimodel.cpp:180
 #, kde-format
 msgctxt "'Travel' is  a category of emoji"
 msgid "Travel"
 msgstr ""
 
-#: src/emojimodel.cpp:173
+#: src/emojimodel.cpp:185
 #, fuzzy, kde-format
 #| msgid "Reject"
 msgctxt "'Objects' is a category of emoji"
 msgid "Objects"
 msgstr "Rejeitar"
 
-#: src/emojimodel.cpp:178
+#: src/emojimodel.cpp:190
 #, kde-format
 msgctxt "'Symbols' is a category of emoji"
 msgid "Symbols"
 msgstr ""
 
-#: src/emojimodel.cpp:183
+#: src/emojimodel.cpp:195
 #, kde-format
 msgctxt "'Flags' is a category of emoji"
 msgid "Flags"
 msgstr ""
+
+#: src/emojimodel.cpp:214
+#, fuzzy, kde-format
+#| msgid "Custom"
+msgctxt "'Custom' is a category of emoji"
+msgid "Custom"
+msgstr "Personalizado"
 
 #: src/filetransferpseudojob.cpp:47
 #, fuzzy, kde-format
@@ -1049,43 +1049,44 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Cancelar"
 
-#: src/qml/Component/Emoji/EmojiPicker.qml:46
-#, kde-format
-msgid "Custom"
-msgstr "Personalizado"
+#: src/qml/Component/Emoji/EmojiGrid.qml:77
+#, fuzzy, kde-format
+#| msgid "Custom Emoji"
+msgid "No emojis"
+msgstr "Emoji personalizado"
 
-#: src/qml/Component/FullScreenImage.qml:82
+#: src/qml/Component/FullScreenImage.qml:80
 #, fuzzy, kde-format
 #| msgid "Room settings"
 msgid "Zoom in"
 msgstr "Configurações da sala"
 
-#: src/qml/Component/FullScreenImage.qml:101
+#: src/qml/Component/FullScreenImage.qml:99
 #, kde-format
 msgid "Zoom out"
 msgstr ""
 
-#: src/qml/Component/FullScreenImage.qml:120
+#: src/qml/Component/FullScreenImage.qml:118
 #, fuzzy, kde-format
 #| msgctxt "@action:button Rotate an image to the left"
 #| msgid "Rotate left"
 msgid "Rotate left"
 msgstr "Girar à esquerda"
 
-#: src/qml/Component/FullScreenImage.qml:134
+#: src/qml/Component/FullScreenImage.qml:132
 #, fuzzy, kde-format
 #| msgctxt "@action:button Rotate an image to the right"
 #| msgid "Rotate right"
 msgid "Rotate right"
 msgstr "Girar à direita"
 
-#: src/qml/Component/FullScreenImage.qml:148
+#: src/qml/Component/FullScreenImage.qml:146
 #, fuzzy, kde-format
 #| msgid "Save As"
 msgid "Save as"
 msgstr "Salvar como"
 
-#: src/qml/Component/FullScreenImage.qml:166
+#: src/qml/Component/FullScreenImage.qml:164
 #, kde-format
 msgid "Close"
 msgstr "Fechar"
@@ -3448,6 +3449,9 @@ msgstr "Não foi possível abrir a URL"
 #, kde-format
 msgid "Show"
 msgstr "Mostrar"
+
+#~ msgid "Custom"
+#~ msgstr "Personalizado"
 
 #~ msgid "Canonical Alias:"
 #~ msgstr "Apelido canônico:"

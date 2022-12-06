@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-30 00:47+0000\n"
+"POT-Creation-Date: 2022-12-06 00:45+0000\n"
 "PO-Revision-Date: 2022-11-30 06:06+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -394,71 +394,71 @@ msgstr "ოთახის შექმნის შეცდომა: %1"
 msgid "The room id you are trying to join is not valid"
 msgstr "ოთახის ID, რომელშიც შესვლასაც ცდილობთ, არასწორია"
 
-#: src/emojimodel.cpp:133
+#: src/emojimodel.cpp:150 src/emojimodel.cpp:208
 #, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
 msgstr "ისტორია"
 
-#: src/emojimodel.cpp:138
-#, kde-format
-msgctxt "'Custom' is a category of emoji"
-msgid "Custom"
-msgstr "მორგებული"
-
-#: src/emojimodel.cpp:143
+#: src/emojimodel.cpp:155
 #, kde-format
 msgctxt "'Smileys' is a category of emoji"
 msgid "Smileys"
 msgstr "სიცილაკები"
 
-#: src/emojimodel.cpp:148
+#: src/emojimodel.cpp:160
 #, kde-format
 msgctxt "'People' is a category of emoji"
 msgid "People"
 msgstr "ხალხი"
 
-#: src/emojimodel.cpp:153
+#: src/emojimodel.cpp:165
 #, kde-format
 msgctxt "'Nature' is a category of emoji"
 msgid "Nature"
 msgstr "ბუნება"
 
-#: src/emojimodel.cpp:158
+#: src/emojimodel.cpp:170
 #, kde-format
 msgctxt "'Food' is a category of emoji"
 msgid "Food"
 msgstr "საჭმელი"
 
-#: src/emojimodel.cpp:163
+#: src/emojimodel.cpp:175
 #, kde-format
 msgctxt "'Activities' is a category of emoji"
 msgid "Activities"
 msgstr "ქმედებები"
 
-#: src/emojimodel.cpp:168
+#: src/emojimodel.cpp:180
 #, kde-format
 msgctxt "'Travel' is  a category of emoji"
 msgid "Travel"
 msgstr "მოგზაურობა"
 
-#: src/emojimodel.cpp:173
+#: src/emojimodel.cpp:185
 #, kde-format
 msgctxt "'Objects' is a category of emoji"
 msgid "Objects"
 msgstr "ობიექტები"
 
-#: src/emojimodel.cpp:178
+#: src/emojimodel.cpp:190
 #, kde-format
 msgctxt "'Symbols' is a category of emoji"
 msgid "Symbols"
 msgstr "სიმბოლოები"
 
-#: src/emojimodel.cpp:183
+#: src/emojimodel.cpp:195
 #, kde-format
 msgctxt "'Flags' is a category of emoji"
 msgid "Flags"
 msgstr "ალმები"
+
+#: src/emojimodel.cpp:214
+#, kde-format
+msgctxt "'Custom' is a category of emoji"
+msgid "Custom"
+msgstr "მორგებული"
 
 #: src/filetransferpseudojob.cpp:47
 #, kde-format
@@ -971,37 +971,38 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "პასუხის გაუქმება"
 
-#: src/qml/Component/Emoji/EmojiPicker.qml:46
-#, kde-format
-msgid "Custom"
-msgstr "ხელით მითითებული"
+#: src/qml/Component/Emoji/EmojiGrid.qml:77
+#, fuzzy, kde-format
+#| msgid "Custom Emojis"
+msgid "No emojis"
+msgstr "მორგებული ემოჯიები"
 
-#: src/qml/Component/FullScreenImage.qml:82
+#: src/qml/Component/FullScreenImage.qml:80
 #, kde-format
 msgid "Zoom in"
 msgstr "გადიდება"
 
-#: src/qml/Component/FullScreenImage.qml:101
+#: src/qml/Component/FullScreenImage.qml:99
 #, kde-format
 msgid "Zoom out"
 msgstr "დაპატარავება"
 
-#: src/qml/Component/FullScreenImage.qml:120
+#: src/qml/Component/FullScreenImage.qml:118
 #, kde-format
 msgid "Rotate left"
 msgstr "მარცხნივ მოტრიალება"
 
-#: src/qml/Component/FullScreenImage.qml:134
+#: src/qml/Component/FullScreenImage.qml:132
 #, kde-format
 msgid "Rotate right"
 msgstr "მარჯვნივ მოტრიალება"
 
-#: src/qml/Component/FullScreenImage.qml:148
+#: src/qml/Component/FullScreenImage.qml:146
 #, kde-format
 msgid "Save as"
 msgstr "შენახვა, როგორც"
 
-#: src/qml/Component/FullScreenImage.qml:166
+#: src/qml/Component/FullScreenImage.qml:164
 #, kde-format
 msgid "Close"
 msgstr "დახურვა"
@@ -3260,6 +3261,9 @@ msgstr "URL-ის გახსნის შეცდომა"
 #, kde-format
 msgid "Show"
 msgstr "ჩვენება"
+
+#~ msgid "Custom"
+#~ msgstr "ხელით მითითებული"
 
 #~ msgid "Timeline"
 #~ msgstr "თაიმლაინი"

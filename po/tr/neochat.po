@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-30 00:47+0000\n"
+"POT-Creation-Date: 2022-12-06 00:45+0000\n"
 "PO-Revision-Date: 2022-11-30 17:19+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -395,71 +395,71 @@ msgstr "Oda oluşturulamadı: \"%1\""
 msgid "The room id you are trying to join is not valid"
 msgstr "Katılmaya çalıştığınız oda geçerli değil"
 
-#: src/emojimodel.cpp:133
+#: src/emojimodel.cpp:150 src/emojimodel.cpp:208
 #, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
 msgstr "Geçmiş"
 
-#: src/emojimodel.cpp:138
-#, kde-format
-msgctxt "'Custom' is a category of emoji"
-msgid "Custom"
-msgstr "Özel"
-
-#: src/emojimodel.cpp:143
+#: src/emojimodel.cpp:155
 #, kde-format
 msgctxt "'Smileys' is a category of emoji"
 msgid "Smileys"
 msgstr "Gülümsemeler"
 
-#: src/emojimodel.cpp:148
+#: src/emojimodel.cpp:160
 #, kde-format
 msgctxt "'People' is a category of emoji"
 msgid "People"
 msgstr "Kişiler"
 
-#: src/emojimodel.cpp:153
+#: src/emojimodel.cpp:165
 #, kde-format
 msgctxt "'Nature' is a category of emoji"
 msgid "Nature"
 msgstr "Doğa"
 
-#: src/emojimodel.cpp:158
+#: src/emojimodel.cpp:170
 #, kde-format
 msgctxt "'Food' is a category of emoji"
 msgid "Food"
 msgstr "Yemek"
 
-#: src/emojimodel.cpp:163
+#: src/emojimodel.cpp:175
 #, kde-format
 msgctxt "'Activities' is a category of emoji"
 msgid "Activities"
 msgstr "Etkinlikler"
 
-#: src/emojimodel.cpp:168
+#: src/emojimodel.cpp:180
 #, kde-format
 msgctxt "'Travel' is  a category of emoji"
 msgid "Travel"
 msgstr "Yolculuk"
 
-#: src/emojimodel.cpp:173
+#: src/emojimodel.cpp:185
 #, kde-format
 msgctxt "'Objects' is a category of emoji"
 msgid "Objects"
 msgstr "Nesneler"
 
-#: src/emojimodel.cpp:178
+#: src/emojimodel.cpp:190
 #, kde-format
 msgctxt "'Symbols' is a category of emoji"
 msgid "Symbols"
 msgstr "Semboller"
 
-#: src/emojimodel.cpp:183
+#: src/emojimodel.cpp:195
 #, kde-format
 msgctxt "'Flags' is a category of emoji"
 msgid "Flags"
 msgstr "Bayraklar"
+
+#: src/emojimodel.cpp:214
+#, kde-format
+msgctxt "'Custom' is a category of emoji"
+msgid "Custom"
+msgstr "Özel"
 
 #: src/filetransferpseudojob.cpp:47
 #, kde-format
@@ -970,37 +970,38 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Yanıtı İptal Et"
 
-#: src/qml/Component/Emoji/EmojiPicker.qml:46
-#, kde-format
-msgid "Custom"
-msgstr "Özel"
+#: src/qml/Component/Emoji/EmojiGrid.qml:77
+#, fuzzy, kde-format
+#| msgid "Custom Emojis"
+msgid "No emojis"
+msgstr "Özel Emojiler"
 
-#: src/qml/Component/FullScreenImage.qml:82
+#: src/qml/Component/FullScreenImage.qml:80
 #, kde-format
 msgid "Zoom in"
 msgstr "Yakınlaştır"
 
-#: src/qml/Component/FullScreenImage.qml:101
+#: src/qml/Component/FullScreenImage.qml:99
 #, kde-format
 msgid "Zoom out"
 msgstr "Uzaklaştır"
 
-#: src/qml/Component/FullScreenImage.qml:120
+#: src/qml/Component/FullScreenImage.qml:118
 #, kde-format
 msgid "Rotate left"
 msgstr "Sola Döndür"
 
-#: src/qml/Component/FullScreenImage.qml:134
+#: src/qml/Component/FullScreenImage.qml:132
 #, kde-format
 msgid "Rotate right"
 msgstr "Sağa Döndür"
 
-#: src/qml/Component/FullScreenImage.qml:148
+#: src/qml/Component/FullScreenImage.qml:146
 #, kde-format
 msgid "Save as"
 msgstr "Farklı Kaydet"
 
-#: src/qml/Component/FullScreenImage.qml:166
+#: src/qml/Component/FullScreenImage.qml:164
 #, kde-format
 msgid "Close"
 msgstr "Kapat"
@@ -3294,6 +3295,9 @@ msgstr "URL açılamadı"
 #, kde-format
 msgid "Show"
 msgstr "Göster"
+
+#~ msgid "Custom"
+#~ msgstr "Özel"
 
 #~ msgid "Canonical Alias:"
 #~ msgstr "Kurallı Arma:"
