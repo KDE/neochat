@@ -14,6 +14,12 @@ struct Emoji {
         , isCustom(isCustom)
     {
     }
+    Emoji(QString u, QString s, QString d)
+        : unicode(std::move(std::move(u)))
+        , shortName(std::move(std::move(s)))
+        , description(std::move(std::move(d)))
+    {
+    }
     Emoji() = default;
 
     friend QDataStream &operator<<(QDataStream &arch, const Emoji &object)
@@ -33,11 +39,13 @@ struct Emoji {
 
     QString unicode;
     QString shortName;
+    QString description;
     bool isCustom = false;
 
     Q_GADGET
     Q_PROPERTY(QString unicode MEMBER unicode)
     Q_PROPERTY(QString shortName MEMBER shortName)
+    Q_PROPERTY(QString description MEMBER description)
     Q_PROPERTY(bool isCustom MEMBER isCustom)
 };
 
@@ -64,6 +72,7 @@ public:
         InvalidRole = 50,
         DisplayRole = 51,
         ReplacedTextRole = 52,
+        DescriptionRole = 53,
     };
     Q_ENUM(RoleNames);
 

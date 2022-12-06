@@ -79,6 +79,7 @@ for line in response.text.split("\n"):
 
         x = re.search(".*E[0-9]+.[0-9] ", parts[1])
         description = parts[1].removeprefix(x.group())
+        shortcode = description
         if "flag:" in description:
             description = "Flag of " + description.split(": ")[1]
 
@@ -87,12 +88,15 @@ for line in response.text.split("\n"):
 
         is_skin_tone = "skin tone" in description
 
-        if not is_skin_tone and escaped_sequence in emoji_unicode_shortname_map:
-            description = emoji_unicode_shortname_map[escaped_sequence]
+        if escaped_sequence in emoji_unicode_shortname_map:
+            shortcode = emoji_unicode_shortname_map[escaped_sequence]
+
+        emoji_args = 'QString::fromUtf8("{0}"), QStringLiteral("{1}"), QStringLiteral("{2}")'.format(escaped_sequence, shortcode, description)
+        emoji_qvariant = 'QVariant::fromValue(Emoji{' + emoji_args + '})'
 
         if is_skin_tone:
-            tones_file.write("{\"" + description.split(":")[0] + "\", QVariant::fromValue(Emoji{QString::fromUtf8(\"" + escaped_sequence + "\"), QStringLiteral(\"" + description + "\")})},\n")
+            tones_file.write("{\"" + description.split(":")[0] + "\", " + emoji_qvariant + "},\n")
             continue
-        file.write("_emojis[" + group + "].append(QVariant::fromValue(Emoji{QString::fromUtf8(\"" + escaped_sequence + "\"), QStringLiteral(\"" + description + "\")}));\n")
+        file.write("_emojis[" + group + "].append(" + emoji_qvariant + ");\n")
 file.close()
 tones_file.close()

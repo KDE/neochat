@@ -13,6 +13,7 @@ class CompletionProxyModel : public QSortFilterProxyModel
 
 public:
     bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
+    bool lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const override;
 
     int secondaryFilterRole() const;
     void setSecondaryFilterRole(int role);

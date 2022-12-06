@@ -48,6 +48,8 @@ QVariant EmojiModel::data(const QModelIndex &index, int role) const
             return QStringLiteral("invalid");
         case DisplayRole:
             return QStringLiteral("%2   :%1:").arg(emoji.shortName, emoji.unicode);
+        case DescriptionRole:
+            return emoji.description;
         }
     }
     return {};

@@ -102,6 +102,9 @@ QVariant CompletionModel::data(const QModelIndex &index, int role) const
         if (role == ReplacedText) {
             return m_filterModel->data(filterIndex, CustomEmojiModel::ReplacedTextRole);
         }
+        if (role == Subtitle) {
+            return m_filterModel->data(filterIndex, EmojiModel::DescriptionRole);
+        }
     }
 
     return {};
@@ -149,7 +152,7 @@ void CompletionModel::updateCompletion()
         m_filterModel->setSourceModel(m_emojiModel);
         m_autoCompletionType = Emoji;
         m_filterModel->setFilterRole(CustomEmojiModel::Name);
-        m_filterModel->setSecondaryFilterRole(-1);
+        m_filterModel->setSecondaryFilterRole(EmojiModel::DescriptionRole);
         m_filterModel->setFullText(m_fullText);
         m_filterModel->setFilterText(m_text);
         m_filterModel->invalidate();

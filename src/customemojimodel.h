@@ -29,6 +29,7 @@ public:
         MxcUrl = 50,
         DisplayRole = 51,
         ReplacedTextRole = 52,
+        DescriptionRole = 53, // also invalid, reserved
     };
     Q_ENUM(Roles);
 

@@ -25,6 +25,17 @@ bool CompletionProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &so
 #endif
 }
 
+bool CompletionProxyModel::lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const
+{
+    if (m_secondaryFilterRole == -1)
+        return QSortFilterProxyModel::lessThan(source_left, source_right);
+    bool left_primary = sourceModel()->data(source_left, filterRole()).toString().startsWith(m_filterText, Qt::CaseInsensitive);
+    bool right_primary = sourceModel()->data(source_right, filterRole()).toString().startsWith(m_filterText, Qt::CaseInsensitive);
+    if (left_primary != right_primary)
+        return left_primary;
+    return QSortFilterProxyModel::lessThan(source_left, source_right);
+}
+
 int CompletionProxyModel::secondaryFilterRole() const
 {
     return m_secondaryFilterRole;
