@@ -93,6 +93,25 @@ Kirigami.ScrollablePage {
                         }
                     }
                 }
+                MobileForm.FormTextFieldDelegate {
+                    id: userField
+                    label: i18n("User")
+                    text: Config.proxyUser
+                    inputMethodHints: Qt.ImhUrlCharactersOnly
+                    onEditingFinished: {
+                        proxyConfigChanged = true
+                    }
+                }
+                MobileForm.FormTextFieldDelegate {
+                    id: passwordField
+                    label: i18n("Password")
+                    text: Config.proxyPassword
+                    echoMode: TextInput.Password
+                    inputMethodHints: Qt.ImhUrlCharactersOnly
+                    onEditingFinished: {
+                        proxyConfigChanged = true
+                    }
+                }
             }
         }
     }
@@ -111,6 +130,8 @@ Kirigami.ScrollablePage {
                     Config.proxyType = currentType
                     Config.proxyHost = hostField.text
                     Config.proxyPort = portField.value
+                    Config.proxyUser = userField.text
+                    Config.proxyPassword = passwordField.text
                     Config.save()
                     proxyConfigChanged = false
                     Controller.setApplicationProxy()

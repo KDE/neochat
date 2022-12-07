@@ -743,11 +743,15 @@ void Controller::setApplicationProxy()
         proxy.setType(QNetworkProxy::HttpProxy);
         proxy.setHostName(cfg->proxyHost());
         proxy.setPort(cfg->proxyPort());
+        proxy.setUser(cfg->proxyUser());
+        proxy.setPassword(cfg->proxyPassword());
         break;
     case 2: // SOCKS 5
         proxy.setType(QNetworkProxy::Socks5Proxy);
         proxy.setHostName(cfg->proxyHost());
         proxy.setPort(cfg->proxyPort());
+        proxy.setUser(cfg->proxyUser());
+        proxy.setPassword(cfg->proxyPassword());
         break;
     case 0: // System Default
     default:
