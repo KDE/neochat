@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-07 00:47+0000\n"
+"POT-Creation-Date: 2022-12-08 00:45+0000\n"
 "PO-Revision-Date: 2022-12-06 18:39+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -400,67 +400,67 @@ msgstr "Не вдалося створити кімнату: «%1»"
 msgid "The room id you are trying to join is not valid"
 msgstr "Ідентифікатор кімнати, до якої ви хочете приєднатися, є некоректним"
 
-#: src/emojimodel.cpp:150 src/emojimodel.cpp:208
+#: src/emojimodel.cpp:149 src/emojimodel.cpp:207
 #, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
 msgstr "Журнал"
 
-#: src/emojimodel.cpp:155
+#: src/emojimodel.cpp:154
 #, kde-format
 msgctxt "'Smileys' is a category of emoji"
 msgid "Smileys"
 msgstr "Смайл"
 
-#: src/emojimodel.cpp:160
+#: src/emojimodel.cpp:159
 #, kde-format
 msgctxt "'People' is a category of emoji"
 msgid "People"
 msgstr "Люди"
 
-#: src/emojimodel.cpp:165
+#: src/emojimodel.cpp:164
 #, kde-format
 msgctxt "'Nature' is a category of emoji"
 msgid "Nature"
 msgstr "Природа"
 
-#: src/emojimodel.cpp:170
+#: src/emojimodel.cpp:169
 #, kde-format
 msgctxt "'Food' is a category of emoji"
 msgid "Food"
 msgstr "Їжа"
 
-#: src/emojimodel.cpp:175
+#: src/emojimodel.cpp:174
 #, kde-format
 msgctxt "'Activities' is a category of emoji"
 msgid "Activities"
 msgstr "Діяльність"
 
-#: src/emojimodel.cpp:180
+#: src/emojimodel.cpp:179
 #, kde-format
 msgctxt "'Travel' is  a category of emoji"
 msgid "Travel"
 msgstr "Подорожі"
 
-#: src/emojimodel.cpp:185
+#: src/emojimodel.cpp:184
 #, kde-format
 msgctxt "'Objects' is a category of emoji"
 msgid "Objects"
 msgstr "Об'єкти"
 
-#: src/emojimodel.cpp:190
+#: src/emojimodel.cpp:189
 #, kde-format
 msgctxt "'Symbols' is a category of emoji"
 msgid "Symbols"
 msgstr "Символи"
 
-#: src/emojimodel.cpp:195
+#: src/emojimodel.cpp:194
 #, kde-format
 msgctxt "'Flags' is a category of emoji"
 msgid "Flags"
 msgstr "Прапорці"
 
-#: src/emojimodel.cpp:214
+#: src/emojimodel.cpp:213
 #, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
@@ -875,7 +875,7 @@ msgstr "Відкрити NeoChat у цій кімнаті"
 #: src/notificationsmanager.cpp:77
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:543
+#: src/qml/Page/RoomPage.qml:544
 #, kde-format
 msgid "Reply"
 msgstr "Відповісти"
@@ -912,7 +912,7 @@ msgstr "Долучення:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:159
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:531
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:532
 #, kde-format
 msgid "Edit"
 msgstr "Змінити"
@@ -2648,7 +2648,7 @@ msgstr ""
 "кімнати."
 
 #: src/qml/RoomSettings/Security.qml:121
-#: src/qml/Settings/NetworkProxyPage.qml:108
+#: src/qml/Settings/NetworkProxyPage.qml:127
 #: src/qml/Settings/SonnetConfigPage.qml:326
 #, kde-format
 msgid "Apply"
@@ -2686,6 +2686,7 @@ msgid "Label:"
 msgstr "Мітка:"
 
 #: src/qml/Settings/AccountEditorPage.qml:130
+#: src/qml/Settings/NetworkProxyPage.qml:107
 #, kde-format
 msgid "Password"
 msgstr "Пароль"
@@ -3116,6 +3117,12 @@ msgstr "Вузол"
 #, kde-format
 msgid "Port"
 msgstr "Порт"
+
+#: src/qml/Settings/NetworkProxyPage.qml:98
+#, fuzzy, kde-format
+#| msgid "Ban User"
+msgid "User"
+msgstr "Заблокувати користувача"
 
 #: src/qml/Settings/NotificationRuleItem.qml:65
 #, kde-format
