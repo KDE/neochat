@@ -23,7 +23,7 @@ Kirigami.ScrollablePage {
             contentItem: MobileForm.FormCheckDelegate {
                 text: i18n("Enable notifications for this account")
                 checked: Config.showNotifications
-                enabled: !Config.isShowNotificationsImmutable
+                enabled: !Config.isShowNotificationsImmutable && Controller.activeConnection
                 onToggled: {
                     Config.showNotifications = checked
                     Config.save()
@@ -225,6 +225,7 @@ Kirigami.ScrollablePage {
                             Layout.fillWidth: true
 
                             placeholderText: i18n("Keyword…")
+                            enabled: NotificationsManager.keywordNotificationAction !== PushNotificationAction.Unknown
 
                             rightActions: Kirigami.Action {
                                 icon.name: "edit-clear"
@@ -246,6 +247,7 @@ Kirigami.ScrollablePage {
                             Accessible.name: text
                             icon.name: "list-add"
                             display: QQC2.AbstractButton.IconOnly
+                            enabled: NotificationsManager.keywordNotificationAction !== PushNotificationAction.Unknown
 
                             onClicked: {
                                 keywordNotificationRuleModel.addKeyword(keywordAddField.text, PushNotificationAction.On)

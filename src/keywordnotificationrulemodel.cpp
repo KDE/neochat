@@ -15,7 +15,9 @@
 KeywordNotificationRuleModel::KeywordNotificationRuleModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    controllerConnectionChanged();
+    if (Controller::instance().activeConnection()) {
+        controllerConnectionChanged();
+    }
     connect(&Controller::instance(), &Controller::activeConnectionChanged, this, &KeywordNotificationRuleModel::controllerConnectionChanged);
 }
 
