@@ -27,7 +27,7 @@ Kirigami.ScrollablePage {
                 }
                 MobileForm.AbstractFormDelegate {
                     Layout.fillWidth: true
-                    visible: deviceRepeater.count === 0 // We can assume 0 means loading since there is at least one device
+                    visible: Controller.activeConnection && deviceRepeater.count === 0 // We can assume 0 means loading since there is at least one device
                     contentItem: Kirigami.LoadingPlaceholder { }
                 }
                 Repeater {
@@ -159,6 +159,14 @@ Kirigami.ScrollablePage {
                     }
                 }
             }
+        }
+        Kirigami.InlineMessage {
+            Layout.fillWidth: true
+            Layout.maximumWidth: Kirigami.Units.gridUnit * 30
+            Layout.alignment: Qt.AlignHCenter
+            text: i18n("Please login to view the signed-in devices for your account.")
+            type: Kirigami.MessageType.Information
+            visible: !Controller.activeConnection
         }
     }
 
