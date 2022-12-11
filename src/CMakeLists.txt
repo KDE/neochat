@@ -167,7 +167,12 @@ if(ANDROID)
         "smiley"
         "tools-check-spelling"
         "username-copy"
-        "edit-copy"
+        "system-switch-user"
+        "bookmark-new"
+        "bookmark-remove"
+        "favorite"
+        "window-new"
+        "globe"
     )
 else()
     target_link_libraries(neochat PUBLIC Qt::Widgets KF5::KIOWidgets)
