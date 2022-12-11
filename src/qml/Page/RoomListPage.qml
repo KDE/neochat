@@ -361,7 +361,7 @@ Kirigami.ScrollablePage {
                     }
                     QQC2.Button {
                         id: configButton
-                        visible: roomListItem.hovered
+                        visible: roomListItem.hovered && !Kirigami.Settings.isMobile
                         Accessible.name: i18n("Configure room")
 
                         action: Kirigami.Action {
