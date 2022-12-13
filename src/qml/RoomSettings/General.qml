@@ -176,6 +176,7 @@ Kirigami.ScrollablePage {
                 }
                 MobileForm.AbstractFormDelegate {
                     Layout.fillWidth: true
+                    visible: room.canSendState("m.room.canonical_alias")
 
                     contentItem : RowLayout {
                         Kirigami.ActionTextField {
@@ -200,7 +201,7 @@ Kirigami.ScrollablePage {
                         QQC2.Button {
                             id: addButton
 
-                            text: i18n("Add keyword")
+                            text: i18n("Add new alias")
                             Accessible.name: text
                             icon.name: "list-add"
                             display: QQC2.AbstractButton.IconOnly
