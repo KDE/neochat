@@ -82,13 +82,14 @@ Item {
                 }
             }
         }
-    }
-
-    MouseArea {
-        anchors.fill: parent
-        cursorShape: Qt.PointingHandCursor
-        onClicked: {
-            replyComponent.replyClicked()
+        HoverHandler{
+            cursorShape: Qt.PointingHandCursor
+        }
+        TapHandler {
+            acceptedButtons: Qt.LeftButton
+            onTapped: {
+                replyComponent.replyClicked()
+            }
         }
     }
 
@@ -98,6 +99,18 @@ Item {
             textMessage: reply.display
             textFormat: Text.RichText
             isReplyLabel: true
+
+            HoverHandler{
+                enabled: !hoveredLink
+                cursorShape: Qt.PointingHandCursor
+            }
+            TapHandler {
+                enabled: !hoveredLink
+                acceptedButtons: Qt.LeftButton
+                onTapped: {
+                    replyComponent.replyClicked()
+                }
+            }
         }
     }
     Component {
