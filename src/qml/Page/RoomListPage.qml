@@ -376,11 +376,13 @@ Kirigami.ScrollablePage {
 
                 function createRoomListContextMenu() {
                     const menu = roomListContextMenu.createObject(page, {room: currentRoom})
-                    configButton.visible = true
-                    configButton.down = true
+                    if (!Kirigami.Settings.isMobile) {
+                        configButton.visible = true
+                        configButton.down = true
+                    }
                     menu.closed.connect(function() {
                         configButton.down = undefined
-                        configButton.visible = Qt.binding(function() { return roomListItem.hovered || Kirigami.Settings.isMobile })
+                        configButton.visible = Qt.binding(function() { return roomListItem.hovered && !Kirigami.Settings.isMobile })
                     })
                     menu.open()
                 }
