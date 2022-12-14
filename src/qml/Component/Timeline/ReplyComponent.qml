@@ -82,14 +82,12 @@ Item {
                 }
             }
         }
-        HoverHandler{
+        HoverHandler {
             cursorShape: Qt.PointingHandCursor
         }
         TapHandler {
             acceptedButtons: Qt.LeftButton
-            onTapped: {
-                replyComponent.replyClicked()
-            }
+            onTapped: replyComponent.replyClicked()
         }
     }
 
@@ -100,16 +98,14 @@ Item {
             textFormat: Text.RichText
             isReplyLabel: true
 
-            HoverHandler{
+            HoverHandler {
                 enabled: !hoveredLink
                 cursorShape: Qt.PointingHandCursor
             }
             TapHandler {
                 enabled: !hoveredLink
                 acceptedButtons: Qt.LeftButton
-                onTapped: {
-                    replyComponent.replyClicked()
-                }
+                onTapped: replyComponent.replyClicked()
             }
         }
     }
