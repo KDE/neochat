@@ -265,6 +265,32 @@ int main(int argc, char *argv[])
 #endif
 
     QQmlApplicationEngine engine;
+
+#ifdef HAVE_KDBUSADDONS
+    KDBusService service(KDBusService::Unique);
+    service.connect(&service,
+                    &KDBusService::activateRequested,
+                    &RoomManager::instance(),
+                    [&engine](const QStringList &arguments, const QString &workingDirectory) {
+                        Q_UNUSED(workingDirectory);
+
+                        QWindow *window = windowFromEngine(&engine);
+                        KWindowSystem::updateStartupId(window);
+
+                        WindowController::instance().showAndRaiseWindow(QString());
+
+                        // Open matrix uri
+                        if (arguments.isEmpty()) {
+                            return;
+                        }
+                        auto args = arguments;
+                        args.removeFirst();
+                        for (const auto &arg : args) {
+                            RoomManager::instance().openResource(arg);
+                        }
+                    });
+#endif
+
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
     QObject::connect(&engine, &QQmlApplicationEngine::quit, &app, &QCoreApplication::quit);
     engine.setNetworkAccessManagerFactory(new NetworkAccessManagerFactory());
@@ -292,31 +318,6 @@ int main(int argc, char *argv[])
 #ifdef HAVE_RUNNER
     Runner runner;
     QDBusConnection::sessionBus().registerObject("/RoomRunner", &runner, QDBusConnection::ExportScriptableContents);
-#endif
-
-#ifdef HAVE_KDBUSADDONS
-    KDBusService service(KDBusService::Unique);
-    service.connect(&service,
-                    &KDBusService::activateRequested,
-                    &RoomManager::instance(),
-                    [&engine](const QStringList &arguments, const QString &workingDirectory) {
-                        Q_UNUSED(workingDirectory);
-
-                        QWindow *window = windowFromEngine(&engine);
-                        KWindowSystem::updateStartupId(window);
-
-                        WindowController::instance().showAndRaiseWindow(QString());
-
-                        // Open matrix uri
-                        if (arguments.isEmpty()) {
-                            return;
-                        }
-                        auto args = arguments;
-                        args.removeFirst();
-                        for (const auto &arg : args) {
-                            RoomManager::instance().openResource(arg);
-                        }
-                    });
 #endif
 
     QWindow *window = windowFromEngine(&engine);
