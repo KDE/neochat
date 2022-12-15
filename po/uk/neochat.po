@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-12 00:47+0000\n"
+"POT-Creation-Date: 2022-12-15 00:48+0000\n"
 "PO-Revision-Date: 2022-12-12 16:37+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -1139,7 +1139,7 @@ msgid "Complete the authentication steps in your browser"
 msgstr "Завершіть кроки розпізнавання у вашій програмі для перегляду інтернету"
 
 #: src/qml/Component/Timeline/EncryptedDelegate.qml:15
-#: src/qml/Component/Timeline/ReplyComponent.qml:124
+#: src/qml/Component/Timeline/ReplyComponent.qml:134
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -2493,33 +2493,33 @@ msgstr "Зробити цю альтернативу основною альте
 msgid "Delete alias"
 msgstr "Вилучити альтернативу"
 
-#: src/qml/RoomSettings/General.qml:186
+#: src/qml/RoomSettings/General.qml:187
 #, kde-format
 msgid "#new_alias:server.org"
 msgstr "#нова_альтернатива:сервер.org"
 
-#: src/qml/RoomSettings/General.qml:203
-#: src/qml/Settings/GlobalNotificationsPage.qml:246
-#, kde-format
-msgid "Add keyword"
-msgstr "Додати ключове слово"
+#: src/qml/RoomSettings/General.qml:204
+#, fuzzy, kde-format
+#| msgid "Add new server"
+msgid "Add new alias"
+msgstr "Додати новий сервер"
 
-#: src/qml/RoomSettings/General.qml:226
+#: src/qml/RoomSettings/General.qml:227
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "У цій кімнаті продовжується інше спілкування."
 
-#: src/qml/RoomSettings/General.qml:230
+#: src/qml/RoomSettings/General.qml:231
 #, kde-format
 msgid "See older messages…"
 msgstr "Переглянути старі повідомлення…"
 
-#: src/qml/RoomSettings/General.qml:241
+#: src/qml/RoomSettings/General.qml:242
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Цю кімнат було замінено."
 
-#: src/qml/RoomSettings/General.qml:245
+#: src/qml/RoomSettings/General.qml:246
 #, kde-format
 msgid "See new room…"
 msgstr "Переглянути нову кімнату…"
@@ -3073,6 +3073,11 @@ msgstr "Повідомлення, які містять ваші ключові 
 #, kde-format
 msgid "Keyword…"
 msgstr "Ключове слово…"
+
+#: src/qml/Settings/GlobalNotificationsPage.qml:246
+#, kde-format
+msgid "Add keyword"
+msgstr "Додати ключове слово"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:274
 #, kde-format

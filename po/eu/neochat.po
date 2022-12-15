@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-12 00:47+0000\n"
-"PO-Revision-Date: 2022-12-08 21:17+0100\n"
+"POT-Creation-Date: 2022-12-15 00:48+0000\n"
+"PO-Revision-Date: 2022-12-14 09:50+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #: src/actionsmodel.cpp:30 src/actionsmodel.cpp:40 src/actionsmodel.cpp:50
 #: src/actionsmodel.cpp:60 src/actionsmodel.cpp:80 src/actionsmodel.cpp:100
@@ -1132,7 +1132,7 @@ msgid "Complete the authentication steps in your browser"
 msgstr "Osatu autentifikatzeko urratsak zure arakatzailean"
 
 #: src/qml/Component/Timeline/EncryptedDelegate.qml:15
-#: src/qml/Component/Timeline/ReplyComponent.qml:124
+#: src/qml/Component/Timeline/ReplyComponent.qml:134
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -2475,33 +2475,33 @@ msgstr "Egin ezizen hau gelako ezizen kanonikoa"
 msgid "Delete alias"
 msgstr "Ezabatu ezizena"
 
-#: src/qml/RoomSettings/General.qml:186
+#: src/qml/RoomSettings/General.qml:187
 #, kde-format
 msgid "#new_alias:server.org"
 msgstr "#new_alias:server.org"
 
-#: src/qml/RoomSettings/General.qml:203
-#: src/qml/Settings/GlobalNotificationsPage.qml:246
-#, kde-format
-msgid "Add keyword"
-msgstr "Gehitu gako-hitza"
+#: src/qml/RoomSettings/General.qml:204
+#, fuzzy, kde-format
+#| msgid "Add new server"
+msgid "Add new alias"
+msgstr "Gehitu zerbitzari berria"
 
-#: src/qml/RoomSettings/General.qml:226
+#: src/qml/RoomSettings/General.qml:227
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "Gela honek beste elkarrizketa bat du."
 
-#: src/qml/RoomSettings/General.qml:230
+#: src/qml/RoomSettings/General.qml:231
 #, kde-format
 msgid "See older messages…"
 msgstr "Ikusi mezu zaharragoak..."
 
-#: src/qml/RoomSettings/General.qml:241
+#: src/qml/RoomSettings/General.qml:242
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Gela hau ordezkatu egin da."
 
-#: src/qml/RoomSettings/General.qml:245
+#: src/qml/RoomSettings/General.qml:246
 #, kde-format
 msgid "See new room…"
 msgstr "Ikusi gela berria..."
@@ -2842,7 +2842,7 @@ msgstr "Gailua saio-itxi"
 #: src/qml/Settings/DevicesPage.qml:167
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
-msgstr ""
+msgstr "Mesedez, saio-hasi zure kontuan izen-emandako gailuak ikusteko."
 
 #: src/qml/Settings/DevicesPage.qml:178
 #, kde-format
@@ -3050,6 +3050,11 @@ msgstr "Nire gako-hitzak dituzten mezuak"
 #, kde-format
 msgid "Keyword…"
 msgstr "Gako-hitza…"
+
+#: src/qml/Settings/GlobalNotificationsPage.qml:246
+#, kde-format
+msgid "Add keyword"
+msgstr "Gehitu gako-hitza"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:274
 #, kde-format
