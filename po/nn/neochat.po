@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-08 00:45+0000\n"
+"POT-Creation-Date: 2022-12-16 00:50+0000\n"
 "PO-Revision-Date: 2021-12-15 11:17+0100\n"
 "Last-Translator: Øystein Steffensen-Alværvik <oysteins.omsetting@protonmail."
 "com>\n"
@@ -570,12 +570,12 @@ msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr ""
 
-#: src/main.cpp:273
+#: src/main.cpp:299
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Lynmeldings­klient for Matrix-protokollen"
 
-#: src/main.cpp:274
+#: src/main.cpp:300
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr ""
@@ -1129,7 +1129,7 @@ msgid "Complete the authentication steps in your browser"
 msgstr "Stadfest autentiserings­stega via nettlesaren"
 
 #: src/qml/Component/Timeline/EncryptedDelegate.qml:15
-#: src/qml/Component/Timeline/ReplyComponent.qml:124
+#: src/qml/Component/Timeline/ReplyComponent.qml:134
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -2445,33 +2445,32 @@ msgstr ""
 msgid "Delete alias"
 msgstr ""
 
-#: src/qml/RoomSettings/General.qml:186
+#: src/qml/RoomSettings/General.qml:187
 #, kde-format
 msgid "#new_alias:server.org"
 msgstr ""
 
-#: src/qml/RoomSettings/General.qml:203
-#: src/qml/Settings/GlobalNotificationsPage.qml:245
+#: src/qml/RoomSettings/General.qml:204
 #, kde-format
-msgid "Add keyword"
+msgid "Add new alias"
 msgstr ""
 
-#: src/qml/RoomSettings/General.qml:226
+#: src/qml/RoomSettings/General.qml:227
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "Rommet inneheld framhald av ei anna samtale."
 
-#: src/qml/RoomSettings/General.qml:230
+#: src/qml/RoomSettings/General.qml:231
 #, kde-format
 msgid "See older messages…"
 msgstr ""
 
-#: src/qml/RoomSettings/General.qml:241
+#: src/qml/RoomSettings/General.qml:242
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Rommet er bytt ut."
 
-#: src/qml/RoomSettings/General.qml:245
+#: src/qml/RoomSettings/General.qml:246
 #, kde-format
 msgid "See new room…"
 msgstr ""
@@ -2802,17 +2801,22 @@ msgstr ""
 msgid "Logout device"
 msgstr "Logg ut av eininga"
 
-#: src/qml/Settings/DevicesPage.qml:170
+#: src/qml/Settings/DevicesPage.qml:167
+#, kde-format
+msgid "Please login to view the signed-in devices for your account."
+msgstr ""
+
+#: src/qml/Settings/DevicesPage.qml:178
 #, kde-format
 msgid "Remove device"
 msgstr "Fjern eininga"
 
-#: src/qml/Settings/DevicesPage.qml:174
+#: src/qml/Settings/DevicesPage.qml:182
 #, kde-format
 msgid "Password:"
 msgstr "Passord:"
 
-#: src/qml/Settings/DevicesPage.qml:178
+#: src/qml/Settings/DevicesPage.qml:186
 #, kde-format
 msgid "Confirm"
 msgstr "Stadfest"
@@ -3007,17 +3011,22 @@ msgstr ""
 msgid "Keyword…"
 msgstr ""
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:272
+#: src/qml/Settings/GlobalNotificationsPage.qml:246
+#, kde-format
+msgid "Add keyword"
+msgstr ""
+
+#: src/qml/Settings/GlobalNotificationsPage.qml:274
 #, kde-format
 msgid "Invites"
 msgstr ""
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:275
+#: src/qml/Settings/GlobalNotificationsPage.qml:277
 #, kde-format
 msgid "Invites to a room"
 msgstr ""
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:291
+#: src/qml/Settings/GlobalNotificationsPage.qml:293
 #, kde-format
 msgid "Call invitation"
 msgstr ""
