@@ -172,7 +172,7 @@ Kirigami.OverlayDrawer {
                         text: i18n("Room settings")
                         display: QQC2.AbstractButton.IconOnly
 
-                        onClicked: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room})
+                        onClicked: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room}, { title: i18n("Room Settings") })
 
                         QQC2.ToolTip {
                             text: settingsButton.text

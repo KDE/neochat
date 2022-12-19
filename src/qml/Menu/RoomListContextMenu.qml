@@ -113,7 +113,7 @@ Loader {
             QQC2.MenuItem {
                 text: i18n("Room Settings")
                 icon.name: "configure"
-                onTriggered: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room})
+                onTriggered: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room}, { title: i18n("Room Settings") })
             }
 
             QQC2.MenuSeparator {}
@@ -180,7 +180,7 @@ Loader {
                     QQC2.ToolButton {
                         icon.name: 'settings-configure'
                         onClicked: {
-                            QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room})
+                            QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room}, { title: i18n("Room Settings") })
                             drawer.close()
                         }
                     }

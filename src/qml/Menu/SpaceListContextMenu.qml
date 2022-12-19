@@ -32,7 +32,7 @@ Loader {
 
             QQC2.MenuItem {
                 text: i18nc("'Space' is a matrix space", "Space Settings")
-                onTriggered: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room})
+                onTriggered: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room}, { title: i18n("Space Settings") })
             }
 
             QQC2.MenuSeparator {}
@@ -89,7 +89,7 @@ Loader {
 
                     QQC2.ToolButton {
                         icon.name: 'settings-configure'
-                        onClicked: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room})
+                        onClicked: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room}, { title: i18n("Space Settings") })
                     }
                 }
                 Kirigami.BasicListItem {
