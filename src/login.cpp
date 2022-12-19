@@ -14,8 +14,6 @@
 
 #include "controller.h"
 
-#include <QUrl>
-
 #include <KLocalizedString>
 
 using namespace Quotient;

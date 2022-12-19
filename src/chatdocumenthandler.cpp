@@ -5,7 +5,6 @@
 
 #include <QQmlFile>
 #include <QQmlFileSelector>
-#include <QQuickTextDocument>
 #include <QStringBuilder>
 #include <QSyntaxHighlighter>
 #include <QTextBlock>
@@ -16,7 +15,6 @@
 #include <Sonnet/Settings>
 
 #include "actionsmodel.h"
-#include "completionmodel.h"
 #include "neochatroom.h"
 #include "roomlistmodel.h"
 

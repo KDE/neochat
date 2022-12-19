@@ -5,7 +5,6 @@
 
 #include <memory>
 
-#include <QImage>
 #include <QJsonArray>
 
 #include <KLocalizedString>

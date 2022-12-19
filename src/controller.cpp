@@ -19,7 +19,6 @@
 #include <QGuiApplication>
 #include <QImageReader>
 #include <QNetworkProxy>
-#include <QQuickItem>
 #include <QQuickTextDocument>
 #include <QQuickWindow>
 #include <QStandardPaths>

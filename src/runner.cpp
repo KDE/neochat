@@ -7,7 +7,6 @@
 
 #include "controller.h"
 #include "neochatroom.h"
-#include "roomlistmodel.h"
 #include "roommanager.h"
 #include "windowcontroller.h"
 

@@ -17,9 +17,8 @@
 #include "controller.h"
 #include "customemojimodel.h"
 #include "neochatconfig.h"
-#include "neochatroom.h"
-#include "roommanager.h"
 #include "neochatuser.h"
+#include "roommanager.h"
 
 using namespace Quotient;
 

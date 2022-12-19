@@ -14,7 +14,6 @@
 #include <QMediaPlayer>
 
 #include <qcoro/qcorosignal.h>
-#include <qcoro/task.h>
 
 #include <connection.h>
 #include <csapi/directory.h>

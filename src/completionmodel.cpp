@@ -10,7 +10,6 @@
 #include "customemojimodel.h"
 #include "emojimodel.h"
 #include "neochatroom.h"
-#include "roomlistmodel.h"
 #include "userlistmodel.h"
 
 CompletionModel::CompletionModel(QObject *parent)
