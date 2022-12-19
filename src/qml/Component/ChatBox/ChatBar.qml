@@ -16,7 +16,6 @@ QQC2.ToolBar {
     property alias textField: inputField
     property alias cursorPosition: inputField.cursorPosition
 
-    signal closeAllTriggered()
     signal inputFieldForceActiveFocusTriggered()
     signal messageSent()
 

@@ -87,9 +87,7 @@ ColumnLayout {
 
         Layout.fillWidth: true
 
-        onCloseAllTriggered: closeAll()
         onMessageSent: {
-            closeAll()
             chatBox.messageSent();
         }
 
@@ -110,10 +108,5 @@ ColumnLayout {
 
     function focusInputField() {
         chatBar.inputFieldForceActiveFocusTriggered()
-    }
-
-    function closeAll() {
-        // TODO clear();
-        chatBar.emojiPaneOpened = false;
     }
 }
