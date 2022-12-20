@@ -199,8 +199,20 @@ Kirigami.ScrollablePage {
                         }
                     }
                 }
+
+                MobileForm.FormDelegateSeparator { below: compactRoomListDelegate }
+
+                MobileForm.FormCheckDelegate {
+                    id: compactRoomListDelegate
+                    text: i18n("Use compact room list")
+                    checked: Config.compactRoomList
+                    onToggled: {
+                        Config.compactRoomList = checked;
+                        Config.save();
+                    }
+                }
                 
-                MobileForm.FormDelegateSeparator { below: colorSchemeDelegate.item ; visible: colorSchemeDelegate.visible }
+                MobileForm.FormDelegateSeparator { above: compactRoomListDelegate ; below: colorSchemeDelegate.item ; visible: colorSchemeDelegate.visible }
                 
                 Loader {
                     id: colorSchemeDelegate

@@ -316,6 +316,7 @@ Kirigami.ScrollablePage {
                 labelItem.textFormat: Text.PlainText
                 subtitle: subtitleText
                 subtitleItem.textFormat: Text.PlainText
+                subtitleItem.visible: !Config.compactRoomList
                 onPressAndHold: {
                     createRoomListContextMenu()
                 }
@@ -347,8 +348,8 @@ Kirigami.ScrollablePage {
                     QQC2.Label {
                         text: notificationCount > 0 ? notificationCount : "●"
                         visible: unreadCount > 0
-                        padding: Kirigami.Units.smallSpacing
                         color: Kirigami.Theme.textColor
+                        Layout.rightMargin: Kirigami.Units.smallSpacing
                         Layout.minimumWidth: height
                         horizontalAlignment: Text.AlignHCenter
                         background: Rectangle {
@@ -361,7 +362,7 @@ Kirigami.ScrollablePage {
                     }
                     QQC2.Button {
                         id: configButton
-                        visible: roomListItem.hovered && !Kirigami.Settings.isMobile
+                        visible: roomListItem.hovered && !Kirigami.Settings.isMobile && !Config.compactRoomList
                         Accessible.name: i18n("Configure room")
 
                         action: Kirigami.Action {
@@ -376,13 +377,13 @@ Kirigami.ScrollablePage {
 
                 function createRoomListContextMenu() {
                     const menu = roomListContextMenu.createObject(page, {room: currentRoom})
-                    if (!Kirigami.Settings.isMobile) {
+                    if (!Kirigami.Settings.isMobile && !Config.compactRoomList) {
                         configButton.visible = true
                         configButton.down = true
                     }
                     menu.closed.connect(function() {
                         configButton.down = undefined
-                        configButton.visible = Qt.binding(function() { return roomListItem.hovered && !Kirigami.Settings.isMobile })
+                        configButton.visible = Qt.binding(function() { return roomListItem.hovered && !Kirigami.Settings.isMobile && !Config.compactRoomList })
                     })
                     menu.open()
                 }
