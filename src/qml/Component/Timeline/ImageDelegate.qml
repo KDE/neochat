@@ -31,10 +31,30 @@ TimelineContainer {
     innerObject: AnimatedImage {
         id: img
 
+        property var imageWidth: {
+            if (imageDelegate.info.w > 0) {
+                return imageDelegate.info.w;
+            } else if (sourceSize.width > 0) {
+                return sourceSize.width;
+            } else {
+                return imageDelegate.contentMaxWidth;
+            }
+        }
+        property var imageHeight: {
+            if (imageDelegate.info.h > 0) {
+                return imageDelegate.info.h;
+            } else if (sourceSize.height > 0) {
+                return sourceSize.height;
+            } else {
+                // Default to a 16:9 placeholder
+                return imageDelegate.contentMaxWidth / 16 * 9;
+            }
+        }
+
         Layout.maximumWidth: Math.min(imageDelegate.contentMaxWidth, imageDelegate.maxWidth)
-        Layout.maximumHeight: Math.min(imageDelegate.contentMaxWidth / sourceSize.width * sourceSize.height, imageDelegate.maxWidth / sourceSize.width * sourceSize.height)
-        Layout.preferredWidth: imageDelegate.info.w > 0 ? imageDelegate.info.w : sourceSize.width
-        Layout.preferredHeight: imageDelegate.info.h > 0 ? imageDelegate.info.h : sourceSize.height
+        Layout.maximumHeight: Math.min(imageDelegate.contentMaxWidth / imageWidth * imageHeight, imageDelegate.maxWidth / imageWidth * imageHeight)
+        Layout.preferredWidth: imageWidth
+        Layout.preferredHeight: imageHeight
         source: model.mediaUrl
 
         Image {
