@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-23 00:46+0000\n"
-"PO-Revision-Date: 2022-12-21 08:13+0100\n"
+"PO-Revision-Date: 2022-12-24 06:42+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #: src/actionsmodel.cpp:30 src/actionsmodel.cpp:40 src/actionsmodel.cpp:50
@@ -2322,22 +2322,20 @@ msgid "React"
 msgstr "Reagiraj"
 
 #: src/qml/Page/SearchPage.qml:17
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
-msgstr "Neposredna sporočila"
+msgstr "Išči sporočila"
 
 #: src/qml/Page/SearchPage.qml:58
 #, kde-format
 msgid "Enter a text to start searching"
-msgstr ""
+msgstr "Vnesite besedilo, da začnem iskati"
 
 #: src/qml/Page/SearchPage.qml:64
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgid "No results found"
-msgstr "Nobene sobe ni mogoče najti"
+msgstr "Ni najdenih zadetkov"
 
 #: src/qml/Page/StartChatPage.qml:38
 #, kde-format
@@ -2365,16 +2363,15 @@ msgid "Developer Tools"
 msgstr "Razvojna orodja"
 
 #: src/qml/Panel/RoomDrawer.qml:119
-#, fuzzy, kde-format
-#| msgid "Leaving this room."
+#, kde-format
 msgid "Search in this room"
-msgstr "Zapušča to sobo."
+msgstr "Išči v tej sobi"
 
 #: src/qml/Panel/RoomDrawer.qml:127
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
-msgstr ""
+msgstr "Išči"
 
 #: src/qml/Panel/RoomDrawer.qml:136
 #, kde-format
