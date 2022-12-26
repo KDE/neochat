@@ -24,9 +24,10 @@ Kirigami.OverlaySheet {
 
     parent: applicationWindow().overlay
 
-    leftPadding: 0
-    rightPadding: 0
+    leftPadding: Kirigami.Units.smallSpacing
+    rightPadding: Kirigami.Units.smallSpacing
     topPadding: 0
+    bottomPadding: 0
 
     title: i18nc("@title:menu Account detail dialog", "Account detail")
 
@@ -36,8 +37,8 @@ Kirigami.OverlaySheet {
             Layout.fillWidth: true
             Layout.leftMargin: Kirigami.Units.largeSpacing
             Layout.rightMargin: Kirigami.Units.largeSpacing
-            Layout.topMargin: Kirigami.Units.smallSpacing
-            Layout.bottomMargin: Kirigami.Units.smallSpacing
+            Layout.topMargin: Kirigami.Units.largeSpacing
+            Layout.bottomMargin: Kirigami.Units.largeSpacing
             spacing: Kirigami.Units.largeSpacing
 
             Kirigami.Avatar {
@@ -47,16 +48,6 @@ Kirigami.OverlaySheet {
                 name: displayName
                 source: avatarMediaId ? ("image://mxc/" + avatarMediaId) : ""
                 color: user.color
-
-                MouseArea {
-                    anchors.fill: parent
-
-                    onClicked: {
-                        if (avatarMediaId) {
-                            fullScreenImage.createObject(parent, {filename: displayName, source: room.urlToMxcUrl(avatarUrl)}).showFullScreen()
-                        }
-                    }
-                }
             }
 
             ColumnLayout {
@@ -79,7 +70,9 @@ Kirigami.OverlaySheet {
             }
         }
 
-        QQC2.MenuSeparator {}
+        Kirigami.Separator {
+            Layout.fillWidth: true
+        }
 
         Kirigami.BasicListItem {
             visible: user !== room.localUser
@@ -168,11 +161,6 @@ Kirigami.OverlaySheet {
                     Clipboard.saveText("https://matrix.to/#/" + user.id)
                 }
             }
-        }
-        Component {
-            id: fullScreenImage
-
-            FullScreenImage {}
         }
     }
 
