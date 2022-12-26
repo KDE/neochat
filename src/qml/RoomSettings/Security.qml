@@ -14,6 +14,7 @@ Kirigami.ScrollablePage {
     id: root
 
     property var room
+    property string needUpgradeRoom: i18n("You need to upgrade this room to a newer version to enable this setting.")
 
     title: i18n("Security")
 
@@ -40,14 +41,23 @@ Kirigami.ScrollablePage {
                 }
                 MobileForm.FormRadioDelegate {
                     text: i18nc("@option:check", "Space members")
-                    description: !["8", "9", "10"].includes(room.version)
-                                    ? i18n("Anyone in a space can find and join.") + '\n' +
-                                      i18n("You need to upgrade this room to a newer version to enable this setting.")
-                                    : i18n("Anyone in a space can find and join.")
+                    description: i18n("Anyone in a space can find and join.") +
+                                 (!["8", "9", "10"].includes(room.version) ? `\n${needUpgradeRoom}` : "")
                     checked: room.joinRule === "restricted"
                     enabled: room.canSendState("m.room.join_rules") && ["8", "9", "10"].includes(room.version) && false
                     onCheckedChanged: if (checked) {
                         room.joinRule = "restricted";
+                    }
+                }
+                MobileForm.FormRadioDelegate {
+                    text: i18nc("@option:check", "Knock")
+                    description: i18n("People not in the room need to request an invite to join the room.") +
+                                 (!["7", "8", "9", "10"].includes(room.version) ? `\n${needUpgradeRoom}` : "")
+                    checked: room.joinRule === "knock"
+                    // https://spec.matrix.org/v1.4/rooms/#feature-matrix
+                    enabled: room.canSendState("m.room.join_rules") && ["7", "8", "9", "10"].includes(room.version)
+                    onCheckedChanged: if (checked) {
+                        room.joinRule = "knock";
                     }
                 }
                 MobileForm.FormRadioDelegate {
