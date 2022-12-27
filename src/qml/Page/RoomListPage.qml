@@ -354,7 +354,7 @@ Kirigami.ScrollablePage {
                     source: avatar ? "image://mxc/" + avatar : ""
                     name: model.name || i18n("No Name")
                     implicitWidth: visible ? height : 0
-                    visible: Config.showAvatarInTimeline
+                    visible: Config.showAvatarInRoomDrawer
                     sourceSize.width: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
                     sourceSize.height: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
                 }
