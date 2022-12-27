@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-23 00:46+0000\n"
+"POT-Creation-Date: 2022-12-27 00:48+0000\n"
 "PO-Revision-Date: 2021-12-31 11:06-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -1600,62 +1600,62 @@ msgstr ""
 msgid "Please choose a file"
 msgstr "ਫਾਇਲ ਚੁਣੋ ਜੀ"
 
-#: src/qml/Dialog/UserDetailDialog.qml:31
+#: src/qml/Dialog/UserDetailDialog.qml:32
 #, kde-format
 msgctxt "@title:menu Account detail dialog"
 msgid "Account detail"
 msgstr "ਖਾਤੇ ਦਾ ਵੇਰਵਾ"
 
-#: src/qml/Dialog/UserDetailDialog.qml:87
+#: src/qml/Dialog/UserDetailDialog.qml:80
 #, kde-format
 msgid "Unignore this user"
 msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਅਣਡਿੱਠਾ ਕਰੋ"
 
-#: src/qml/Dialog/UserDetailDialog.qml:87
+#: src/qml/Dialog/UserDetailDialog.qml:80
 #, kde-format
 msgid "Ignore this user"
 msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਅਣਡਿੱਠਾ ਨਾ ਕਰੋ"
 
-#: src/qml/Dialog/UserDetailDialog.qml:99
+#: src/qml/Dialog/UserDetailDialog.qml:92
 #, kde-format
 msgid "Kick this user"
 msgstr "ਇਸ ਵਰਤੋਂਕਾਰ ਨੂੰ ਕਿੱਕ ਕਰੋ"
 
-#: src/qml/Dialog/UserDetailDialog.qml:111
+#: src/qml/Dialog/UserDetailDialog.qml:104
 #, kde-format
 msgid "Ban this user"
 msgstr "ਇਹ ਵਰਤੋਂਕਾਰ ਉੱਤੇ ਪਾਬੰਦੀ ਲਾਓ"
 
-#: src/qml/Dialog/UserDetailDialog.qml:116
+#: src/qml/Dialog/UserDetailDialog.qml:109
 #, fuzzy, kde-format
 #| msgid "Ban this user"
 msgctxt "@title"
 msgid "Ban User"
 msgstr "ਇਹ ਵਰਤੋਂਕਾਰ ਉੱਤੇ ਪਾਬੰਦੀ ਲਾਓ"
 
-#: src/qml/Dialog/UserDetailDialog.qml:127
+#: src/qml/Dialog/UserDetailDialog.qml:120
 #, kde-format
 msgid "Unban this user"
 msgstr "ਇਹ ਵਰਤੋਂਕਾਰ ਤੋਂ ਪਾਬੰਦੀ ਹਟਾਓ"
 
-#: src/qml/Dialog/UserDetailDialog.qml:140
+#: src/qml/Dialog/UserDetailDialog.qml:133
 #, kde-format
 msgid "Remove recent messages by this user"
 msgstr ""
 
-#: src/qml/Dialog/UserDetailDialog.qml:145
+#: src/qml/Dialog/UserDetailDialog.qml:138
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
 
-#: src/qml/Dialog/UserDetailDialog.qml:155
+#: src/qml/Dialog/UserDetailDialog.qml:148
 #, kde-format
 msgid "Open a private chat"
 msgstr "ਪ੍ਰਾਈਵੇਟ ਚੈਟ ਵਿੱਚ ਖੋਲ੍ਹੋ"
 
-#: src/qml/Dialog/UserDetailDialog.qml:165
+#: src/qml/Dialog/UserDetailDialog.qml:158
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgid "Copy link"
@@ -2322,18 +2322,18 @@ msgstr "ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਕੁਝ ਰੂਮ ਜੁਆਇੰਨ ਕ
 msgid "Search in room directory"
 msgstr "ਰੂਮ ਦੀ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਖੋਜੋ"
 
-#: src/qml/Page/RoomListPage.qml:279 src/qml/Page/RoomListPage.qml:330
+#: src/qml/Page/RoomListPage.qml:279 src/qml/Page/RoomListPage.qml:331
 #, kde-format
 msgid "No Name"
 msgstr "ਕੋਈ ਨਾਂ ਨਹੀਂ"
 
-#: src/qml/Page/RoomListPage.qml:345
+#: src/qml/Page/RoomListPage.qml:346
 #, fuzzy, kde-format
 #| msgid "Muted"
 msgid "Muted room"
 msgstr "ਮੌਨ ਕੀਤਾ"
 
-#: src/qml/Page/RoomListPage.qml:365
+#: src/qml/Page/RoomListPage.qml:366
 #, kde-format
 msgid "Configure room"
 msgstr "ਰੂਮ ਦੀ ਸੰਰਚਨਾ"
@@ -2877,50 +2877,55 @@ msgstr "ਬੁਲਬੁਲੇ"
 msgid "Compact"
 msgstr "ਸੰਖੇਪ"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:221
+#: src/qml/Settings/AppearanceSettingsPage.qml:207
+#, kde-format
+msgid "Use compact room list"
+msgstr ""
+
+#: src/qml/Settings/AppearanceSettingsPage.qml:233
 #, fuzzy, kde-format
 #| msgid "Show Fancy Effects"
 msgid "Show fancy effects in chat"
 msgstr "ਹਾਸੇ ਠੱਠੇ ਵਾਲੇ ਪਰਭਾਵ ਵੇਖਾਓ"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:235
+#: src/qml/Settings/AppearanceSettingsPage.qml:247
 #, kde-format
 msgid "Use transparent chat page"
 msgstr "ਪਾਰਦਰਸ਼ੀ ਗੱਲਬਾਤ ਸਫ਼ੇ ਵਰਤੋਂ"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:254
+#: src/qml/Settings/AppearanceSettingsPage.qml:266
 #, fuzzy, kde-format
 #| msgid "Transparency:"
 msgid "Transparency"
 msgstr "ਪਾਦਰਸ਼ਤਾ:"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:271
+#: src/qml/Settings/AppearanceSettingsPage.qml:283
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr ""
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:284
+#: src/qml/Settings/AppearanceSettingsPage.qml:296
 #, kde-format
 msgid "Show your messages on the right"
 msgstr ""
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:297
+#: src/qml/Settings/AppearanceSettingsPage.qml:309
 #, kde-format
 msgid "Show links preview in the chat messages"
 msgstr ""
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:314
+#: src/qml/Settings/AppearanceSettingsPage.qml:326
 #, fuzzy, kde-format
 #| msgid "Show User Avatar"
 msgid "Show Avatar"
 msgstr "ਵਰਤੋਂਕਾਰ ਅਵਤਾਰ ਵੇਖਾਓ"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:318
+#: src/qml/Settings/AppearanceSettingsPage.qml:330
 #, kde-format
 msgid "In chat"
 msgstr ""
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:328
+#: src/qml/Settings/AppearanceSettingsPage.qml:340
 #, fuzzy, kde-format
 #| msgid "In Sidebar"
 msgid "In sidebar"

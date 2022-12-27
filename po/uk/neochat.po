@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-23 00:46+0000\n"
+"POT-Creation-Date: 2022-12-27 00:48+0000\n"
 "PO-Revision-Date: 2022-12-23 08:52+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -1563,60 +1563,60 @@ msgstr "Перевірку сеансу скасовано через невід
 msgid "Please choose a file"
 msgstr "Будь ласка, виберіть файл"
 
-#: src/qml/Dialog/UserDetailDialog.qml:31
+#: src/qml/Dialog/UserDetailDialog.qml:32
 #, kde-format
 msgctxt "@title:menu Account detail dialog"
 msgid "Account detail"
 msgstr "Параметри облікового запису"
 
-#: src/qml/Dialog/UserDetailDialog.qml:87
+#: src/qml/Dialog/UserDetailDialog.qml:80
 #, kde-format
 msgid "Unignore this user"
 msgstr "Скасувати ігнорування цього користувача"
 
-#: src/qml/Dialog/UserDetailDialog.qml:87
+#: src/qml/Dialog/UserDetailDialog.qml:80
 #, kde-format
 msgid "Ignore this user"
 msgstr "Ігнорувати цього користувача"
 
-#: src/qml/Dialog/UserDetailDialog.qml:99
+#: src/qml/Dialog/UserDetailDialog.qml:92
 #, kde-format
 msgid "Kick this user"
 msgstr "Викинути цього користувача"
 
-#: src/qml/Dialog/UserDetailDialog.qml:111
+#: src/qml/Dialog/UserDetailDialog.qml:104
 #, kde-format
 msgid "Ban this user"
 msgstr "Заблокувати цього користувача"
 
-#: src/qml/Dialog/UserDetailDialog.qml:116
+#: src/qml/Dialog/UserDetailDialog.qml:109
 #, kde-format
 msgctxt "@title"
 msgid "Ban User"
 msgstr "Заблокувати користувача"
 
-#: src/qml/Dialog/UserDetailDialog.qml:127
+#: src/qml/Dialog/UserDetailDialog.qml:120
 #, kde-format
 msgid "Unban this user"
 msgstr "Розблокувати цього користувача"
 
-#: src/qml/Dialog/UserDetailDialog.qml:140
+#: src/qml/Dialog/UserDetailDialog.qml:133
 #, kde-format
 msgid "Remove recent messages by this user"
 msgstr "Вилучити нещодавні повідомлення від цього користувача"
 
-#: src/qml/Dialog/UserDetailDialog.qml:145
+#: src/qml/Dialog/UserDetailDialog.qml:138
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Вилучення повідомлень"
 
-#: src/qml/Dialog/UserDetailDialog.qml:155
+#: src/qml/Dialog/UserDetailDialog.qml:148
 #, kde-format
 msgid "Open a private chat"
 msgstr "Відкрити особисте спілкування"
 
-#: src/qml/Dialog/UserDetailDialog.qml:165
+#: src/qml/Dialog/UserDetailDialog.qml:158
 #, kde-format
 msgid "Copy link"
 msgstr "Копіювати посилання"
@@ -2264,17 +2264,17 @@ msgstr "Спочатку, приєднайтеся до кімнат"
 msgid "Search in room directory"
 msgstr "Шукати у каталозі кімнат"
 
-#: src/qml/Page/RoomListPage.qml:279 src/qml/Page/RoomListPage.qml:330
+#: src/qml/Page/RoomListPage.qml:279 src/qml/Page/RoomListPage.qml:331
 #, kde-format
 msgid "No Name"
 msgstr "Без назви"
 
-#: src/qml/Page/RoomListPage.qml:345
+#: src/qml/Page/RoomListPage.qml:346
 #, kde-format
 msgid "Muted room"
 msgstr "Кімната із вимкненим спілкуванням"
 
-#: src/qml/Page/RoomListPage.qml:365
+#: src/qml/Page/RoomListPage.qml:366
 #, kde-format
 msgid "Configure room"
 msgstr "Налаштувати кімнату"
@@ -2807,47 +2807,52 @@ msgstr "Бульки"
 msgid "Compact"
 msgstr "Компактна"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:221
+#: src/qml/Settings/AppearanceSettingsPage.qml:207
+#, kde-format
+msgid "Use compact room list"
+msgstr ""
+
+#: src/qml/Settings/AppearanceSettingsPage.qml:233
 #, kde-format
 msgid "Show fancy effects in chat"
 msgstr "Показувати красиві ефекти у спілкуванні"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:235
+#: src/qml/Settings/AppearanceSettingsPage.qml:247
 #, kde-format
 msgid "Use transparent chat page"
 msgstr "Скористатися прозорою сторінкою спілкування"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:254
+#: src/qml/Settings/AppearanceSettingsPage.qml:266
 #, kde-format
 msgid "Transparency"
 msgstr "Прозорість"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:271
+#: src/qml/Settings/AppearanceSettingsPage.qml:283
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr "Увімкнено лише тоді, коли увімкнено прозору сторінку спілкування."
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:284
+#: src/qml/Settings/AppearanceSettingsPage.qml:296
 #, kde-format
 msgid "Show your messages on the right"
 msgstr "Показати ваші повідомлення праворуч"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:297
+#: src/qml/Settings/AppearanceSettingsPage.qml:309
 #, kde-format
 msgid "Show links preview in the chat messages"
 msgstr "Показувати попередній перегляд посилань у повідомленнях спілкування"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:314
+#: src/qml/Settings/AppearanceSettingsPage.qml:326
 #, kde-format
 msgid "Show Avatar"
 msgstr "Показувати аватар"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:318
+#: src/qml/Settings/AppearanceSettingsPage.qml:330
 #, kde-format
 msgid "In chat"
 msgstr "У спілкуванні"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:328
+#: src/qml/Settings/AppearanceSettingsPage.qml:340
 #, kde-format
 msgid "In sidebar"
 msgstr "На бічній панелі"

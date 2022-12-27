@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-23 00:46+0000\n"
+"POT-Creation-Date: 2022-12-27 00:48+0000\n"
 "PO-Revision-Date: 2022-12-24 06:16+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1532,60 +1532,60 @@ msgstr "სესიის გადამოწმება უცნობი 
 msgid "Please choose a file"
 msgstr "გთხოვთ, აირჩიოთ ფაილი"
 
-#: src/qml/Dialog/UserDetailDialog.qml:31
+#: src/qml/Dialog/UserDetailDialog.qml:32
 #, kde-format
 msgctxt "@title:menu Account detail dialog"
 msgid "Account detail"
 msgstr "ანგარიშის დეტალები"
 
-#: src/qml/Dialog/UserDetailDialog.qml:87
+#: src/qml/Dialog/UserDetailDialog.qml:80
 #, kde-format
 msgid "Unignore this user"
 msgstr "ამ მომხმარებლის იგნორის გაუქმება"
 
-#: src/qml/Dialog/UserDetailDialog.qml:87
+#: src/qml/Dialog/UserDetailDialog.qml:80
 #, kde-format
 msgid "Ignore this user"
 msgstr "ამ მომხმარებლის იგნორირება"
 
-#: src/qml/Dialog/UserDetailDialog.qml:99
+#: src/qml/Dialog/UserDetailDialog.qml:92
 #, kde-format
 msgid "Kick this user"
 msgstr "ამ მომხმარებლის გაგდება"
 
-#: src/qml/Dialog/UserDetailDialog.qml:111
+#: src/qml/Dialog/UserDetailDialog.qml:104
 #, kde-format
 msgid "Ban this user"
 msgstr "ამ მომხმარებლის დაბანვა"
 
-#: src/qml/Dialog/UserDetailDialog.qml:116
+#: src/qml/Dialog/UserDetailDialog.qml:109
 #, kde-format
 msgctxt "@title"
 msgid "Ban User"
 msgstr "მომხმარებლის ბანი"
 
-#: src/qml/Dialog/UserDetailDialog.qml:127
+#: src/qml/Dialog/UserDetailDialog.qml:120
 #, kde-format
 msgid "Unban this user"
 msgstr "ამ მომხმარებლის ბანის მოხსნა"
 
-#: src/qml/Dialog/UserDetailDialog.qml:140
+#: src/qml/Dialog/UserDetailDialog.qml:133
 #, kde-format
 msgid "Remove recent messages by this user"
 msgstr "ამ მომხმარებლის უახლესი შეტყობინებების წაშლა"
 
-#: src/qml/Dialog/UserDetailDialog.qml:145
+#: src/qml/Dialog/UserDetailDialog.qml:138
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "შეტყობინებების წაშლა"
 
-#: src/qml/Dialog/UserDetailDialog.qml:155
+#: src/qml/Dialog/UserDetailDialog.qml:148
 #, kde-format
 msgid "Open a private chat"
 msgstr "პირადი საუბრის გახსნა"
 
-#: src/qml/Dialog/UserDetailDialog.qml:165
+#: src/qml/Dialog/UserDetailDialog.qml:158
 #, kde-format
 msgid "Copy link"
 msgstr "ბმულის კოპირება"
@@ -2232,17 +2232,17 @@ msgstr "დასაწყისისთვის შეუერთდით �
 msgid "Search in room directory"
 msgstr "ოთახების დირექტორიაში ძებნა"
 
-#: src/qml/Page/RoomListPage.qml:279 src/qml/Page/RoomListPage.qml:330
+#: src/qml/Page/RoomListPage.qml:279 src/qml/Page/RoomListPage.qml:331
 #, kde-format
 msgid "No Name"
 msgstr "სახელის გარეშე"
 
-#: src/qml/Page/RoomListPage.qml:345
+#: src/qml/Page/RoomListPage.qml:346
 #, kde-format
 msgid "Muted room"
 msgstr "დადუმებული ოთახი"
 
-#: src/qml/Page/RoomListPage.qml:365
+#: src/qml/Page/RoomListPage.qml:366
 #, kde-format
 msgid "Configure room"
 msgstr "ოთახის მორგება"
@@ -2769,47 +2769,52 @@ msgstr "ბუშტები"
 msgid "Compact"
 msgstr "დაპატარავება"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:221
+#: src/qml/Settings/AppearanceSettingsPage.qml:207
+#, kde-format
+msgid "Use compact room list"
+msgstr ""
+
+#: src/qml/Settings/AppearanceSettingsPage.qml:233
 #, kde-format
 msgid "Show fancy effects in chat"
 msgstr "საუბარში მოდური ეფექტების ჩვენება"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:235
+#: src/qml/Settings/AppearanceSettingsPage.qml:247
 #, kde-format
 msgid "Use transparent chat page"
 msgstr "გამჭვირვალე საუბრის გვერდის გამოყენება"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:254
+#: src/qml/Settings/AppearanceSettingsPage.qml:266
 #, kde-format
 msgid "Transparency"
 msgstr "გამჭვირვალობა"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:271
+#: src/qml/Settings/AppearanceSettingsPage.qml:283
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr "ხელმისაწვდომია, თუ გამჭვირვალე საუბრის გვერდები ჩართულია."
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:284
+#: src/qml/Settings/AppearanceSettingsPage.qml:296
 #, kde-format
 msgid "Show your messages on the right"
 msgstr "თქვენი შეტყობინებების მარჯვენა მხარეს ჩვენება"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:297
+#: src/qml/Settings/AppearanceSettingsPage.qml:309
 #, kde-format
 msgid "Show links preview in the chat messages"
 msgstr "საუბრის შეტყობინებებში ბმულის მინიატურების ჩვენება"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:314
+#: src/qml/Settings/AppearanceSettingsPage.qml:326
 #, kde-format
 msgid "Show Avatar"
 msgstr "ავატარის ჩვენება"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:318
+#: src/qml/Settings/AppearanceSettingsPage.qml:330
 #, kde-format
 msgid "In chat"
 msgstr "ჩატში"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:328
+#: src/qml/Settings/AppearanceSettingsPage.qml:340
 #, kde-format
 msgid "In sidebar"
 msgstr "გვერდით ზოლში"

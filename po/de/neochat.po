@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-23 00:46+0000\n"
+"POT-Creation-Date: 2022-12-27 00:48+0000\n"
 "PO-Revision-Date: 2022-10-12 10:22+0200\n"
 "Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -1604,63 +1604,63 @@ msgstr ""
 msgid "Please choose a file"
 msgstr "Bitte wählen Sie eine Datei aus"
 
-#: src/qml/Dialog/UserDetailDialog.qml:31
+#: src/qml/Dialog/UserDetailDialog.qml:32
 #, kde-format
 msgctxt "@title:menu Account detail dialog"
 msgid "Account detail"
 msgstr "Kontodetail"
 
-#: src/qml/Dialog/UserDetailDialog.qml:87
+#: src/qml/Dialog/UserDetailDialog.qml:80
 #, kde-format
 msgid "Unignore this user"
 msgstr "Diesen Benutzer nicht mehr ignorieren"
 
-#: src/qml/Dialog/UserDetailDialog.qml:87
+#: src/qml/Dialog/UserDetailDialog.qml:80
 #, kde-format
 msgid "Ignore this user"
 msgstr "Diesen Benutzer ignorieren"
 
-#: src/qml/Dialog/UserDetailDialog.qml:99
+#: src/qml/Dialog/UserDetailDialog.qml:92
 #, kde-format
 msgid "Kick this user"
 msgstr "Diesen Benutzer rauswerfen"
 
-#: src/qml/Dialog/UserDetailDialog.qml:111
+#: src/qml/Dialog/UserDetailDialog.qml:104
 #, kde-format
 msgid "Ban this user"
 msgstr "Diesen Benutzer verbannen"
 
-#: src/qml/Dialog/UserDetailDialog.qml:116
+#: src/qml/Dialog/UserDetailDialog.qml:109
 #, fuzzy, kde-format
 #| msgid "Ban this user"
 msgctxt "@title"
 msgid "Ban User"
 msgstr "Diesen Benutzer verbannen"
 
-#: src/qml/Dialog/UserDetailDialog.qml:127
+#: src/qml/Dialog/UserDetailDialog.qml:120
 #, kde-format
 msgid "Unban this user"
 msgstr "Verbannung dieses Benutzers aufheben"
 
-#: src/qml/Dialog/UserDetailDialog.qml:140
+#: src/qml/Dialog/UserDetailDialog.qml:133
 #, fuzzy, kde-format
 #| msgid "Delete recent messages by this user"
 msgid "Remove recent messages by this user"
 msgstr "Kürzliche Nachrichten dieses Benutzers löschen"
 
-#: src/qml/Dialog/UserDetailDialog.qml:145
+#: src/qml/Dialog/UserDetailDialog.qml:138
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Nachricht bearbeiten"
 
-#: src/qml/Dialog/UserDetailDialog.qml:155
+#: src/qml/Dialog/UserDetailDialog.qml:148
 #, kde-format
 msgid "Open a private chat"
 msgstr "Privaten Chat öffnen"
 
-#: src/qml/Dialog/UserDetailDialog.qml:165
+#: src/qml/Dialog/UserDetailDialog.qml:158
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgid "Copy link"
@@ -2329,18 +2329,18 @@ msgstr "Einen Raum betreten, um zu beginnen"
 msgid "Search in room directory"
 msgstr "Raumverzeichnis durchsuchen"
 
-#: src/qml/Page/RoomListPage.qml:279 src/qml/Page/RoomListPage.qml:330
+#: src/qml/Page/RoomListPage.qml:279 src/qml/Page/RoomListPage.qml:331
 #, kde-format
 msgid "No Name"
 msgstr "Unbenannt"
 
-#: src/qml/Page/RoomListPage.qml:345
+#: src/qml/Page/RoomListPage.qml:346
 #, fuzzy, kde-format
 #| msgid "Muted"
 msgid "Muted room"
 msgstr "Stumm"
 
-#: src/qml/Page/RoomListPage.qml:365
+#: src/qml/Page/RoomListPage.qml:366
 #, kde-format
 msgid "Configure room"
 msgstr "Raum konfigurieren"
@@ -2887,50 +2887,55 @@ msgstr "Blasen"
 msgid "Compact"
 msgstr "Kompakt"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:221
+#: src/qml/Settings/AppearanceSettingsPage.qml:207
+#, kde-format
+msgid "Use compact room list"
+msgstr ""
+
+#: src/qml/Settings/AppearanceSettingsPage.qml:233
 #, fuzzy, kde-format
 #| msgid "Show Fancy Effects"
 msgid "Show fancy effects in chat"
 msgstr "Ausgefallene Effekte anzeigen"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:235
+#: src/qml/Settings/AppearanceSettingsPage.qml:247
 #, kde-format
 msgid "Use transparent chat page"
 msgstr "Transparente Chat-Seite verwenden"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:254
+#: src/qml/Settings/AppearanceSettingsPage.qml:266
 #, fuzzy, kde-format
 #| msgid "Transparency:"
 msgid "Transparency"
 msgstr "Transparenz:"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:271
+#: src/qml/Settings/AppearanceSettingsPage.qml:283
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr ""
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:284
+#: src/qml/Settings/AppearanceSettingsPage.qml:296
 #, kde-format
 msgid "Show your messages on the right"
 msgstr "Ihre Nachrichten rechts anzeigen"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:297
+#: src/qml/Settings/AppearanceSettingsPage.qml:309
 #, kde-format
 msgid "Show links preview in the chat messages"
 msgstr ""
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:314
+#: src/qml/Settings/AppearanceSettingsPage.qml:326
 #, fuzzy, kde-format
 #| msgid "Show User Avatar"
 msgid "Show Avatar"
 msgstr "Benutzer-Avatar anzeigen"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:318
+#: src/qml/Settings/AppearanceSettingsPage.qml:330
 #, kde-format
 msgid "In chat"
 msgstr ""
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:328
+#: src/qml/Settings/AppearanceSettingsPage.qml:340
 #, fuzzy, kde-format
 #| msgid "In Sidebar"
 msgid "In sidebar"
