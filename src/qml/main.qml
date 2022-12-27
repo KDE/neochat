@@ -24,6 +24,7 @@ Kirigami.ApplicationWindow {
     pageStack.initialPage: LoadingPage {}
     pageStack.globalToolBar.canContainHandles: true
 
+    property RoomListPage roomListPage
     property bool roomListLoaded: false
 
     property RoomPage roomPage
@@ -164,7 +165,7 @@ Kirigami.ApplicationWindow {
 
     readonly property int defaultPageWidth: Kirigami.Units.gridUnit * 17
     readonly property int minPageWidth: Kirigami.Units.gridUnit * 10
-    readonly property int collapsedPageWidth: Kirigami.Units.gridUnit * 3 - Kirigami.Units.smallSpacing * 3
+    readonly property int collapsedPageWidth: Kirigami.Units.gridUnit * 3 - Kirigami.Units.smallSpacing * 3 + (roomListPage.contentItem.QQC2.ScrollBar.vertical.visible ? roomListPage.contentItem.QQC2.ScrollBar.vertical.width : 0)
     readonly property bool shouldUseSidebars: RoomManager.hasOpenRoom && (Config.roomListPageWidth > minPageWidth ? root.width >= Kirigami.Units.gridUnit * 35 : root.width > Kirigami.Units.gridUnit * 27) && roomListLoaded
     readonly property int pageWidth: {
         if (Config.roomListPageWidth === -1) {
@@ -351,6 +352,7 @@ Kirigami.ApplicationWindow {
                     activeConnection: Controller.activeConnection
                 });
                 roomListLoaded = true;
+                roomListPage = pageStack.currentItem
                 RoomManager.loadInitialRoom();
             }
         }

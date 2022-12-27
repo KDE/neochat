@@ -116,9 +116,7 @@ Kirigami.ScrollablePage {
     title: i18n("Rooms")
 
     property var enteredRoom
-    property bool collapsedMode: Config.roomListPageWidth === applicationWindow().collapsedPageWidth && applicationWindow().shouldUseSidebars
-
-    verticalScrollBarPolicy: collapsedMode ? QQC2.ScrollBar.AlwaysOff : QQC2.ScrollBar.AsNeeded
+    property bool collapsedMode: Config.roomListPageWidth < applicationWindow().minPageWidth && applicationWindow().shouldUseSidebars
 
     onCollapsedModeChanged: if (collapsedMode) {
         sortFilterRoomListModel.filterText = "";
@@ -180,7 +178,7 @@ Kirigami.ScrollablePage {
             leftPadding: Kirigami.Units.largeSpacing
             rightPadding: Kirigami.Units.largeSpacing
             bottomPadding: Kirigami.Units.largeSpacing
-            width: visible ? page.width : 0
+            width: visible ? ListView.view.width : 0
             height: visible ? Kirigami.Units.gridUnit * 2 : 0
 
             Kirigami.Icon {
@@ -234,19 +232,44 @@ Kirigami.ScrollablePage {
         }
 
         section.property: sortFilterRoomListModel.filterText.length === 0 && !Config.mergeRoomList ? "category" : null
-        section.delegate: Kirigami.ListSectionHeader {
-            id: sectionHeader
-            height: implicitHeight
-            label: roomListModel.categoryName(section)
-            action: Kirigami.Action {
-                onTriggered: roomListModel.setCategoryVisible(section, !roomListModel.categoryVisible(section))
-            }
-            contentItem.children: QQC2.ToolButton {
-                icon.name: page.collapsedMode ? roomListModel.categoryIconName(section) : (roomListModel.categoryVisible(section) ? "go-up" : "go-down")
-                icon.width: Kirigami.Units.iconSizes.small
-                icon.height: Kirigami.Units.iconSizes.small
+        section.delegate: page.collapsedMode ? foldButton : sectionHeader
 
-                onClicked: roomListModel.setCategoryVisible(section, !roomListModel.categoryVisible(section))
+        Component {
+            id: sectionHeader
+            Kirigami.ListSectionHeader {
+                height: implicitHeight
+                label: roomListModel.categoryName(section)
+                action: Kirigami.Action {
+                    onTriggered: roomListModel.setCategoryVisible(section, !roomListModel.categoryVisible(section))
+                }
+                contentItem.children: QQC2.ToolButton {
+                    icon.name: (roomListModel.categoryVisible(section) ? "go-up" : "go-down")
+                    icon.width: Kirigami.Units.iconSizes.small
+                    icon.height: Kirigami.Units.iconSizes.small
+
+                    onClicked: roomListModel.setCategoryVisible(section, !roomListModel.categoryVisible(section))
+                }
+            }
+        }
+        Component {
+            id: foldButton
+            Item {
+                width: ListView.view.width
+                height: visible ? width : 0
+                QQC2.ToolButton {
+                    id: button
+                    anchors.centerIn: parent
+
+                    icon.name: hovered ? (roomListModel.categoryVisible(section) ? "go-up" : "go-down") : roomListModel.categoryIconName(section)
+                    icon.width: Kirigami.Units.iconSizes.smallMedium
+                    icon.height: Kirigami.Units.iconSizes.smallMedium
+
+                    onClicked: roomListModel.setCategoryVisible(section, !roomListModel.categoryVisible(section))
+
+                    QQC2.ToolTip.text: roomListModel.categoryName(section)
+                    QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                }
             }
         }
 
@@ -272,7 +295,8 @@ Kirigami.ScrollablePage {
                 rightPadding: Kirigami.Units.largeSpacing
                 bottomPadding: Kirigami.Units.largeSpacing
                 width: ListView.view.width
-                height: ListView.view.width
+                height: visible ? ListView.view.width : 0
+                visible: model.categoryVisible || sortFilterRoomListModel.filterText.length > 0 || Config.mergeRoomList
 
                 contentItem: Kirigami.Avatar {
                     source: avatar ? "image://mxc/" + avatar : ""
