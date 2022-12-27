@@ -33,10 +33,7 @@ TimelineContainer {
     }
 
     innerObject: RowLayout {
-
-        Layout.fillWidth: true
-        Layout.maximumWidth: fileDelegate.contentMaxWidth
-        Layout.margins: Kirigami.Units.largeSpacing
+        Layout.maximumWidth: Math.min(fileDelegate.contentMaxWidth, implicitWidth)
 
         spacing: Kirigami.Units.largeSpacing
 
@@ -111,24 +108,16 @@ TimelineContainer {
         }
 
         ColumnLayout {
-            Layout.alignment: Qt.AlignVCenter
-            Layout.fillWidth: true
-
             spacing: 0
-
             QQC2.Label {
                 text: model.display
                 wrapMode: Text.Wrap
-
-                Layout.fillWidth: true
             }
             QQC2.Label {
                 id: sizeLabel
 
                 text: Controller.formatByteSize(content.info ? content.info.size : 0)
                 opacity: 0.7
-
-                Layout.fillWidth: true
             }
         }
 
