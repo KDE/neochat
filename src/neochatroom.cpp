@@ -600,8 +600,10 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                 } else {
                     return i18n("self-banned from the room");
                 }
-            case MembershipType::Knock:
-                return i18n("requested an invite");
+            case MembershipType::Knock: {
+                QString reason(e.contentJson()["reason"_ls].toString().toHtmlEscaped());
+                return reason.isEmpty() ? i18n("requested an invite") : i18n("requested an invite with reason: %1", reason);
+            }
             default:;
             }
             return i18n("made something unknown");

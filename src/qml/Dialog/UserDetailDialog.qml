@@ -98,6 +98,19 @@ Kirigami.OverlaySheet {
             }
         }
         Kirigami.BasicListItem {
+            visible: user !== room.localUser && room.canSendState("invite") && !room.containsUser(user.id)
+
+            action: Kirigami.Action {
+                enabled: !room.isUserBanned(user.id)
+                text: i18n("Invite this user")
+                icon.name: "list-add-user"
+                onTriggered: {
+                    room.inviteToRoom(user.id)
+                    root.close()
+                }
+            }
+        }
+        Kirigami.BasicListItem {
             visible: user !== room.localUser && room.canSendState("ban") && !room.isUserBanned(user.id)
 
             action: Kirigami.Action {
