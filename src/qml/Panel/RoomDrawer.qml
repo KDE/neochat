@@ -75,7 +75,7 @@ Kirigami.OverlayDrawer {
             id: columnLayout
             property alias userSearchText: userListSearchField.text
             property alias highlightedUser: userListView.currentIndex
-            spacing: 0
+            spacing: Kirigami.Units.largeSpacing
 
             Kirigami.AbstractApplicationHeader {
                 Layout.fillWidth: true
@@ -86,111 +86,19 @@ Kirigami.OverlayDrawer {
 
                 RowLayout {
                     anchors.fill: parent
-                    spacing: Kirigami.Units.smallSpacing
-
                     Kirigami.Heading {
                         Layout.fillWidth: true
                         text: i18n("Room information")
                         level: 1
                     }
                     QQC2.ToolButton {
-                        id: devtoolsButton
-
-                        Layout.alignment: Qt.AlignRight
-                        icon.name: "tools"
-                        text: i18n("Open developer tools")
-                        display: QQC2.AbstractButton.IconOnly
-                        visible: Config.developerTools && Controller.quotientMinorVersion > 6
-
-                        onClicked: {
-                            applicationWindow().pageStack.layers.push("qrc:/DevtoolsPage.qml", {room: room}, {title: i18n("Developer Tools")})
-                            roomDrawer.close();
-                        }
-
-                        QQC2.ToolTip {
-                            text: devtoolsButton.text
-                        }
-                    }
-                    QQC2.ToolButton {
-                        id: searchButton
-
-                        Layout.alignment: Qt.AlignRight
-                        icon.name: "search"
-                        text: i18n("Search in this room")
-                        display: QQC2.AbstractButton.IconOnly
-                        visible: Controller.quotientMinorVersion > 6
-
-                        onClicked: {
-                            pageStack.pushDialogLayer("qrc:/SearchPage.qml", {
-                                currentRoom: room
-                            }, {
-                                title: i18nc("@action:title", "Search")
-                            })
-                        }
-                    }
-                    QQC2.ToolButton {
-                        id: inviteButton
-
-                        Layout.alignment: Qt.AlignRight
-                        icon.name: "list-add-user"
-                        text: i18n("Invite user to room")
-                        display: QQC2.AbstractButton.IconOnly
-
-                        onClicked: {
-                            applicationWindow().pageStack.layers.push("qrc:/InviteUserPage.qml", {room: room})
-                            roomDrawer.close();
-                        }
-
-                        QQC2.ToolTip {
-                            text: inviteButton.text
-                        }
-                    }
-                    QQC2.ToolButton {
-                        id: favouriteButton
-
-                        Layout.alignment: Qt.AlignRight
-                        icon.name: room && room.isFavourite ? "rating" : "rating-unrated"
-                        checkable: true
-                        checked: room && room.isFavourite
-                        text: room && room.isFavourite ? i18n("Remove room from favorites") : i18n("Make room favorite")
-                        display: QQC2.AbstractButton.IconOnly
-
-                        onClicked: room.isFavourite ? room.removeTag("m.favourite") : room.addTag("m.favourite", 1.0)
-
-                        QQC2.ToolTip {
-                            text: favouriteButton.text
-                        }
-                    }
-                    QQC2.ToolButton {
-                        id: encryptButton
-
-                        Layout.alignment: Qt.AlignRight
-                        icon.name: 'channel-insecure-symbolic'
-                        enabled: roomDrawer.room.canEncryptRoom
-                        visible: !roomDrawer.room.usesEncryption && Controller.encryptionSupported
-                        text: i18n("Enable encryption")
-                        display: QQC2.AbstractButton.IconOnly
-
-                        onClicked: {
-                            let dialog = confirmEncryptionDialog.createObject(applicationWindow(), {room: roomDrawer.room});
-                            roomDrawer.close();
-                            dialog.open();
-                        }
-
-                        QQC2.ToolTip {
-                            text: encryptButton.text
-                        }
-                    }
-                    QQC2.ToolButton {
                         id: settingsButton
 
-                        Layout.alignment: Qt.AlignRight
-                        icon.name: 'settings-configure'
+                        icon.name: "settings-configure"
                         text: i18n("Room settings")
                         display: QQC2.AbstractButton.IconOnly
 
                         onClicked: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room}, { title: i18n("Room Settings") })
-
                         QQC2.ToolTip {
                             text: settingsButton.text
                         }
@@ -198,68 +106,130 @@ Kirigami.OverlayDrawer {
                 }
             }
 
-            ColumnLayout {
+            RowLayout {
                 Layout.fillWidth: true
-                Layout.margins: Kirigami.Units.largeSpacing
+                Layout.leftMargin: Kirigami.Units.largeSpacing
                 spacing: Kirigami.Units.largeSpacing
 
-                RowLayout {
-                    Layout.fillWidth: true
-                    Layout.leftMargin: Kirigami.Units.smallSpacing
-                    spacing: Kirigami.Units.largeSpacing
+                Kirigami.Avatar {
+                    Layout.preferredWidth: Kirigami.Units.gridUnit * 3.5
+                    Layout.preferredHeight: Kirigami.Units.gridUnit * 3.5
 
-                    Kirigami.Avatar {
-                        Layout.preferredWidth: Kirigami.Units.gridUnit * 3.5
-                        Layout.preferredHeight: Kirigami.Units.gridUnit * 3.5
-
-                        name: room ? room.displayName : ""
-                        source: room ? ("image://mxc/" +  room.avatarMediaId) : ""
-                    }
-
-                    ColumnLayout {
-                        Layout.fillWidth: true
-                        Layout.alignment: Qt.AlignVCenter
-                        spacing: 0
-
-                        Kirigami.Heading {
-                            Layout.fillWidth: true
-                            level: 1
-                            type: Kirigami.Heading.Type.Primary
-                            wrapMode: QQC2.Label.Wrap
-                            text: room ? room.displayName : i18n("No name")
-                            textFormat: Text.PlainText
-                        }
-                        TextEdit {
-                            Layout.fillWidth: true
-                            textFormat: TextEdit.PlainText
-                            wrapMode: Text.WordWrap
-                            selectByMouse: true
-                            color: Kirigami.Theme.textColor
-                            selectedTextColor: Kirigami.Theme.highlightedTextColor
-                            selectionColor: Kirigami.Theme.highlightColor
-                            readOnly: true
-                            text: room && room.canonicalAlias ? room.canonicalAlias : i18n("No Canonical Alias")
-                        }
-                    }
+                    name: room ? room.displayName : ""
+                    source: room ? ("image://mxc/" +  room.avatarMediaId) : ""
                 }
 
-                TextEdit {
+                ColumnLayout {
                     Layout.fillWidth: true
-                    text: room && room.topic ? room.topic.replace(replaceLinks, "<a href=\"$1\">$1</a>") : i18n("No Topic")
-                    readonly property var replaceLinks: /(http[s]?:\/\/[^ \r\n]*)/g
-                    textFormat: TextEdit.MarkdownText
-                    wrapMode: Text.WordWrap
-                    selectByMouse: true
-                    color: Kirigami.Theme.textColor
-                    selectedTextColor: Kirigami.Theme.highlightedTextColor
-                    selectionColor: Kirigami.Theme.highlightColor
-                    onLinkActivated: UrlHelper.openUrl(link)
-                    readOnly: true
-                    MouseArea {
-                        anchors.fill: parent
-                        acceptedButtons: Qt.NoButton
-                        cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.IBeamCursor
+                    Layout.alignment: Qt.AlignVCenter
+                    spacing: 0
+
+                    Kirigami.Heading {
+                        Layout.fillWidth: true
+                        level: 1
+                        type: Kirigami.Heading.Type.Primary
+                        wrapMode: QQC2.Label.Wrap
+                        text: room ? room.displayName : i18n("No name")
+                        textFormat: Text.PlainText
                     }
+                    TextEdit {
+                        Layout.fillWidth: true
+                        textFormat: TextEdit.PlainText
+                        wrapMode: Text.WordWrap
+                        selectByMouse: true
+                        color: Kirigami.Theme.textColor
+                        selectedTextColor: Kirigami.Theme.highlightedTextColor
+                        selectionColor: Kirigami.Theme.highlightColor
+                        readOnly: true
+                        text: room && room.canonicalAlias ? room.canonicalAlias : i18n("No Canonical Alias")
+                    }
+                }
+            }
+
+            TextEdit {
+                Layout.leftMargin: Kirigami.Units.largeSpacing
+                Layout.rightMargin: Kirigami.Units.largeSpacing
+                Layout.fillWidth: true
+                text: room && room.topic ? room.topic.replace(replaceLinks, "<a href=\"$1\">$1</a>") : i18n("No Topic")
+                readonly property var replaceLinks: /(http[s]?:\/\/[^ \r\n]*)/g
+                textFormat: TextEdit.MarkdownText
+                wrapMode: Text.WordWrap
+                selectByMouse: true
+                color: Kirigami.Theme.textColor
+                selectedTextColor: Kirigami.Theme.highlightedTextColor
+                selectionColor: Kirigami.Theme.highlightColor
+                onLinkActivated: UrlHelper.openUrl(link)
+                readOnly: true
+                MouseArea {
+                    anchors.fill: parent
+                    acceptedButtons: Qt.NoButton
+                    cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.IBeamCursor
+                }
+            }
+
+            Kirigami.ListSectionHeader {
+                label: i18n("Options")
+                activeFocusOnTab: false
+            }
+
+            Kirigami.BasicListItem {
+                id: devtoolsButton
+
+                icon: "tools"
+                text: i18n("Open developer tools")
+                visible: Config.developerTools
+
+                onClicked: {
+                    applicationWindow().pageStack.layers.push("qrc:/DevtoolsPage.qml", {room: room}, {title: i18n("Developer Tools")})
+                    roomDrawer.close();
+                }
+            }
+            Kirigami.BasicListItem {
+                id: searchButton
+
+                icon: "search"
+                text: i18n("Search in this room")
+
+                onClicked: {
+                    pageStack.pushDialogLayer("qrc:/SearchPage.qml", {
+                        currentRoom: room
+                    }, {
+                        title: i18nc("@action:title", "Search")
+                    })
+                }
+            }
+            Kirigami.BasicListItem {
+                id: inviteButton
+
+                Layout.alignment: Qt.AlignRight
+                icon: "list-add-user"
+                text: i18n("Invite user to room")
+
+                onClicked: {
+                    applicationWindow().pageStack.layers.push("qrc:/InviteUserPage.qml", {room: room})
+                    roomDrawer.close();
+                }
+            }
+            Kirigami.BasicListItem {
+                id: favouriteButton
+
+                icon: room && room.isFavourite ? "rating" : "rating-unrated"
+                text: room && room.isFavourite ? i18n("Remove room from favorites") : i18n("Make room favorite")
+
+                onClicked: room.isFavourite ? room.removeTag("m.favourite") : room.addTag("m.favourite", 1.0)
+            }
+            Kirigami.BasicListItem {
+                id: encryptButton
+
+                icon: "channel-insecure-symbolic"
+                enabled: roomDrawer.room.canEncryptRoom
+                visible: !roomDrawer.room.usesEncryption && Controller.encryptionSupported
+                text: i18n("Enable encryption")
+
+                onClicked: {
+                    let dialog = confirmEncryptionDialog.createObject(applicationWindow(), {room: roomDrawer.room});
+                    roomDrawer.close();
+                    dialog.open();
                 }
             }
 
