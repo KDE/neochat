@@ -48,6 +48,7 @@ Kirigami.ScrollablePage {
 
     onCurrentRoomChanged: {
         applicationWindow().hoverLinkIndicator.text = "";
+        messageListView.positionViewAtBeginning();
         hasScrolledUpBefore = false;
     }
 
