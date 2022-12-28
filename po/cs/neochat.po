@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-27 00:48+0000\n"
+"POT-Creation-Date: 2022-12-28 00:49+0000\n"
 "PO-Revision-Date: 2022-02-11 15:44+0100\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -789,111 +789,116 @@ msgstr ""
 msgid "self-banned from the room"
 msgstr ""
 
-#: src/neochatroom.cpp:604
+#: src/neochatroom.cpp:605
 #, kde-format
 msgid "requested an invite"
 msgstr ""
 
-#: src/neochatroom.cpp:607
+#: src/neochatroom.cpp:605
+#, kde-format
+msgid "requested an invite with reason: %1"
+msgstr ""
+
+#: src/neochatroom.cpp:609
 #, kde-format
 msgid "made something unknown"
 msgstr ""
 
-#: src/neochatroom.cpp:610
+#: src/neochatroom.cpp:612
 #, kde-format
 msgid "cleared the room main alias"
 msgstr ""
 
-#: src/neochatroom.cpp:610
+#: src/neochatroom.cpp:612
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr ""
 
-#: src/neochatroom.cpp:613
+#: src/neochatroom.cpp:615
 #, kde-format
 msgid "cleared the room name"
 msgstr ""
 
-#: src/neochatroom.cpp:613
+#: src/neochatroom.cpp:615
 #, kde-format
 msgid "set the room name to: %1"
 msgstr ""
 
-#: src/neochatroom.cpp:616
+#: src/neochatroom.cpp:618
 #, kde-format
 msgid "cleared the topic"
 msgstr ""
 
-#: src/neochatroom.cpp:616
+#: src/neochatroom.cpp:618
 #, kde-format
 msgid "set the topic to: %1"
 msgstr ""
 
-#: src/neochatroom.cpp:619
+#: src/neochatroom.cpp:621
 #, kde-format
 msgid "changed the room avatar"
 msgstr ""
 
-#: src/neochatroom.cpp:622
+#: src/neochatroom.cpp:624
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr ""
 
-#: src/neochatroom.cpp:625
+#: src/neochatroom.cpp:627
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr ""
 
-#: src/neochatroom.cpp:626
+#: src/neochatroom.cpp:628
 #, kde-format
 msgid "created the room, version %1"
 msgstr ""
 
-#: src/neochatroom.cpp:629
+#: src/neochatroom.cpp:631
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr ""
 
-#: src/neochatroom.cpp:633
+#: src/neochatroom.cpp:635
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr ""
 
-#: src/neochatroom.cpp:637
+#: src/neochatroom.cpp:639
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr ""
 
-#: src/neochatroom.cpp:640
+#: src/neochatroom.cpp:642
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr ""
 
-#: src/neochatroom.cpp:642
+#: src/neochatroom.cpp:644
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr ""
 
-#: src/neochatroom.cpp:644
+#: src/neochatroom.cpp:646
 #, kde-format
 msgid "updated %1 state"
 msgstr ""
 
-#: src/neochatroom.cpp:645
+#: src/neochatroom.cpp:647
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr ""
 
-#: src/neochatroom.cpp:652
+#: src/neochatroom.cpp:654
 #, kde-format
 msgid "Unknown event"
 msgstr ""
 
-#: src/neochatroom.cpp:1178 src/neochatroom.cpp:1179
+#: src/neochatroom.cpp:1180 src/neochatroom.cpp:1181
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Hlášení bylo úspěšně odesláno."
@@ -1185,16 +1190,16 @@ msgid ""
 "device."
 msgstr ""
 
-#: src/qml/Component/Timeline/FileDelegate.qml:57
-#: src/qml/Component/Timeline/FileDelegate.qml:152
+#: src/qml/Component/Timeline/FileDelegate.qml:54
+#: src/qml/Component/Timeline/FileDelegate.qml:141
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
 msgstr "Stáhnout"
 
-#: src/qml/Component/Timeline/FileDelegate.qml:73
-#: src/qml/Component/Timeline/FileDelegate.qml:143
+#: src/qml/Component/Timeline/FileDelegate.qml:70
+#: src/qml/Component/Timeline/FileDelegate.qml:132
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -1202,13 +1207,13 @@ msgctxt ""
 msgid "Open File"
 msgstr "Otevřít soubor"
 
-#: src/qml/Component/Timeline/FileDelegate.qml:88
+#: src/qml/Component/Timeline/FileDelegate.qml:85
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: src/qml/Component/Timeline/FileDelegate.qml:93
+#: src/qml/Component/Timeline/FileDelegate.qml:90
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
@@ -1307,7 +1312,7 @@ msgstr ""
 msgid "Add"
 msgstr "Přidat"
 
-#: src/qml/Component/UserInfo.qml:197 src/qml/main.qml:263
+#: src/qml/Component/UserInfo.qml:197 src/qml/main.qml:264
 #: src/qml/Menu/GlobalMenu.qml:28
 #, kde-format
 msgid "Configure"
@@ -1352,7 +1357,7 @@ msgstr ""
 msgid "Are you sure you want to sign out?"
 msgstr ""
 
-#: src/qml/Dialog/CreateRoomDialog.qml:16 src/qml/main.qml:250
+#: src/qml/Dialog/CreateRoomDialog.qml:16 src/qml/main.qml:251
 #, kde-format
 msgid "Create a Room"
 msgstr ""
@@ -1596,110 +1601,116 @@ msgstr ""
 msgid "Kick this user"
 msgstr ""
 
-#: src/qml/Dialog/UserDetailDialog.qml:104
+#: src/qml/Dialog/UserDetailDialog.qml:105
+#, fuzzy, kde-format
+#| msgid "Unban this user"
+msgid "Invite this user"
+msgstr "Od blokovat tohoto uživatele"
+
+#: src/qml/Dialog/UserDetailDialog.qml:117
 #, kde-format
 msgid "Ban this user"
 msgstr ""
 
-#: src/qml/Dialog/UserDetailDialog.qml:109
+#: src/qml/Dialog/UserDetailDialog.qml:122
 #, kde-format
 msgctxt "@title"
 msgid "Ban User"
 msgstr ""
 
-#: src/qml/Dialog/UserDetailDialog.qml:120
+#: src/qml/Dialog/UserDetailDialog.qml:133
 #, kde-format
 msgid "Unban this user"
 msgstr "Od blokovat tohoto uživatele"
 
-#: src/qml/Dialog/UserDetailDialog.qml:133
+#: src/qml/Dialog/UserDetailDialog.qml:146
 #, kde-format
 msgid "Remove recent messages by this user"
 msgstr ""
 
-#: src/qml/Dialog/UserDetailDialog.qml:138
+#: src/qml/Dialog/UserDetailDialog.qml:151
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Nahlásit zprávu"
 
-#: src/qml/Dialog/UserDetailDialog.qml:148
+#: src/qml/Dialog/UserDetailDialog.qml:161
 #, kde-format
 msgid "Open a private chat"
 msgstr ""
 
-#: src/qml/Dialog/UserDetailDialog.qml:158
+#: src/qml/Dialog/UserDetailDialog.qml:171
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgid "Copy link"
 msgstr "Kopírovat"
 
-#: src/qml/main.qml:125
+#: src/qml/main.qml:126
 #, kde-format
 msgid "Warning: %1"
 msgstr "Varování: %1"
 
-#: src/qml/main.qml:238 src/qml/Page/RoomListPage.qml:207
+#: src/qml/main.qml:239 src/qml/Page/RoomListPage.qml:205
 #, kde-format
 msgid "Explore rooms"
 msgstr ""
 
-#: src/qml/main.qml:244 src/qml/main.qml:257 src/qml/Menu/GlobalMenu.qml:43
+#: src/qml/main.qml:245 src/qml/main.qml:258 src/qml/Menu/GlobalMenu.qml:43
 #: src/qml/Menu/GlobalMenu.qml:48 src/qml/Page/StartChatPage.qml:18
 #, kde-format
 msgid "Start a Chat"
 msgstr "Zahájit rozhovor"
 
-#: src/qml/main.qml:260 src/qml/Menu/GlobalMenu.qml:23
+#: src/qml/main.qml:261 src/qml/Menu/GlobalMenu.qml:23
 #, kde-format
 msgid "Configure NeoChat..."
 msgstr ""
 
-#: src/qml/main.qml:269
+#: src/qml/main.qml:270
 #, kde-format
 msgid "Logout"
 msgstr "Odhlásit se"
 
-#: src/qml/main.qml:275 src/trayicon.cpp:30
+#: src/qml/main.qml:276 src/trayicon.cpp:30
 #, kde-format
 msgid "Quit"
 msgstr "Ukončit"
 
-#: src/qml/main.qml:359
+#: src/qml/main.qml:361
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/qml/main.qml:400
+#: src/qml/main.qml:402
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr ""
 
-#: src/qml/main.qml:410
+#: src/qml/main.qml:412
 #, kde-format
 msgid "User consent"
 msgstr ""
 
-#: src/qml/main.qml:415
+#: src/qml/main.qml:417
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
 "being able to use it. Please click the button below to read them."
 msgstr ""
 
-#: src/qml/main.qml:420
+#: src/qml/main.qml:422
 #, kde-format
 msgid "Open"
 msgstr "Otevřít"
 
-#: src/qml/main.qml:449
+#: src/qml/main.qml:451
 #, kde-format
 msgid "Start a chat"
 msgstr "Zahájit rozhovor"
 
-#: src/qml/main.qml:451
+#: src/qml/main.qml:453
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Přejete si začít rozhovor s %1?"
@@ -2267,33 +2278,33 @@ msgstr ""
 msgid "Rooms"
 msgstr "Místnosti"
 
-#: src/qml/Page/RoomListPage.qml:204
+#: src/qml/Page/RoomListPage.qml:202
 #, kde-format
 msgid "No rooms found"
 msgstr ""
 
-#: src/qml/Page/RoomListPage.qml:204
+#: src/qml/Page/RoomListPage.qml:202
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr ""
 
-#: src/qml/Page/RoomListPage.qml:207
+#: src/qml/Page/RoomListPage.qml:205
 #, kde-format
 msgid "Search in room directory"
 msgstr ""
 
-#: src/qml/Page/RoomListPage.qml:279 src/qml/Page/RoomListPage.qml:331
+#: src/qml/Page/RoomListPage.qml:303 src/qml/Page/RoomListPage.qml:355
 #, kde-format
 msgid "No Name"
 msgstr "Bez názvu"
 
-#: src/qml/Page/RoomListPage.qml:346
+#: src/qml/Page/RoomListPage.qml:370
 #, fuzzy, kde-format
 #| msgid "Muted"
 msgid "Muted room"
 msgstr "Ztlumený"
 
-#: src/qml/Page/RoomListPage.qml:366
+#: src/qml/Page/RoomListPage.qml:390
 #, kde-format
 msgid "Configure room"
 msgstr ""
@@ -2491,7 +2502,7 @@ msgstr "Ztlumený"
 msgid "General"
 msgstr "Obecné"
 
-#: src/qml/RoomSettings/Categories.qml:25 src/qml/RoomSettings/Security.qml:18
+#: src/qml/RoomSettings/Categories.qml:25 src/qml/RoomSettings/Security.qml:19
 #, kde-format
 msgid "Security"
 msgstr "Bezpečnost"
@@ -2595,7 +2606,13 @@ msgstr "Upozornění"
 msgid "Follow global setting"
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:30
+#: src/qml/RoomSettings/Security.qml:17
+#, kde-format
+msgid ""
+"You need to upgrade this room to a newer version to enable this setting."
+msgstr ""
+
+#: src/qml/RoomSettings/Security.qml:31
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Access:"
@@ -2603,85 +2620,90 @@ msgctxt "@option:check"
 msgid "Access"
 msgstr "Přístup:"
 
-#: src/qml/RoomSettings/Security.qml:33
+#: src/qml/RoomSettings/Security.qml:34
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:34
+#: src/qml/RoomSettings/Security.qml:35
 #, kde-format
 msgid "Only invited people can join."
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:42
+#: src/qml/RoomSettings/Security.qml:43
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:44 src/qml/RoomSettings/Security.qml:46
+#: src/qml/RoomSettings/Security.qml:44
 #, kde-format
 msgid "Anyone in a space can find and join."
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:45
+#: src/qml/RoomSettings/Security.qml:53
 #, kde-format
-msgid ""
-"You need to upgrade this room to a newer version to enable this setting."
+msgctxt "@option:check"
+msgid "Knock"
 msgstr ""
 
 #: src/qml/RoomSettings/Security.qml:54
+#, kde-format
+msgid "People not in the room need to request an invite to join the room."
+msgstr ""
+
+#: src/qml/RoomSettings/Security.qml:64
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "Veřejný"
 
-#: src/qml/RoomSettings/Security.qml:55
+#: src/qml/RoomSettings/Security.qml:65
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:71
+#: src/qml/RoomSettings/Security.qml:81
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:74
+#: src/qml/RoomSettings/Security.qml:84
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:75
+#: src/qml/RoomSettings/Security.qml:85
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:83
+#: src/qml/RoomSettings/Security.qml:93
 #, fuzzy, kde-format
 #| msgid "Members"
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "Členové"
 
-#: src/qml/RoomSettings/Security.qml:84
+#: src/qml/RoomSettings/Security.qml:94
 #, kde-format
 msgctxt "@option:check"
 msgid ""
 "All members can view the entire message history, even before they joined."
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:92
+#: src/qml/RoomSettings/Security.qml:102
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:93
+#: src/qml/RoomSettings/Security.qml:103
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -2689,20 +2711,20 @@ msgid ""
 "the room."
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:101
+#: src/qml/RoomSettings/Security.qml:111
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:102
+#: src/qml/RoomSettings/Security.qml:112
 #, kde-format
 msgctxt "@option:check"
 msgid ""
 "New members can view the message history from the point they joined the room."
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:121
+#: src/qml/RoomSettings/Security.qml:131
 #: src/qml/Settings/NetworkProxyPage.qml:127
 #: src/qml/Settings/SonnetConfigPage.qml:326
 #, kde-format

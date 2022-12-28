@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-27 00:48+0000\n"
-"PO-Revision-Date: 2022-12-24 06:16+0100\n"
+"POT-Creation-Date: 2022-12-28 00:49+0000\n"
+"PO-Revision-Date: 2022-12-27 07:33+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -744,111 +744,117 @@ msgstr "დაბანა %1 ოთახიდან: %2"
 msgid "self-banned from the room"
 msgstr "ოთახიდან თავი დაიბანეთ"
 
-#: src/neochatroom.cpp:604
+#: src/neochatroom.cpp:605
 #, kde-format
 msgid "requested an invite"
 msgstr "მოითხოვა მოწვევა"
 
-#: src/neochatroom.cpp:607
+#: src/neochatroom.cpp:605
+#, fuzzy, kde-format
+#| msgid "requested an invite"
+msgid "requested an invite with reason: %1"
+msgstr "მოითხოვა მოწვევა"
+
+#: src/neochatroom.cpp:609
 #, kde-format
 msgid "made something unknown"
 msgstr "რაღაც უცნობი ქნა"
 
-#: src/neochatroom.cpp:610
+#: src/neochatroom.cpp:612
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "ოთახის მთავარი მეტსახელი გასუფთავებულია"
 
-#: src/neochatroom.cpp:610
+#: src/neochatroom.cpp:612
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "დააყენა ოთახის მთავარი მეტსახელი: %1"
 
-#: src/neochatroom.cpp:613
+#: src/neochatroom.cpp:615
 #, kde-format
 msgid "cleared the room name"
 msgstr "გაასუფთავა ოთახის სახელი"
 
-#: src/neochatroom.cpp:613
+#: src/neochatroom.cpp:615
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "ოთახის მეტსახელი დაყენებულია: %1"
 
-#: src/neochatroom.cpp:616
+#: src/neochatroom.cpp:618
 #, kde-format
 msgid "cleared the topic"
 msgstr "გაასუფთავა სათაური"
 
-#: src/neochatroom.cpp:616
+#: src/neochatroom.cpp:618
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "თემა დააყენა: %1"
 
-#: src/neochatroom.cpp:619
+#: src/neochatroom.cpp:621
 #, kde-format
 msgid "changed the room avatar"
 msgstr "შეცვალა ოთახის ავატარი"
 
-#: src/neochatroom.cpp:622
+#: src/neochatroom.cpp:624
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "გაააქტიურა გამჭოლი დაშიფვრა"
 
-#: src/neochatroom.cpp:625
+#: src/neochatroom.cpp:627
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "ოთახის ვერსია განაახლა %1-მდე"
 
-#: src/neochatroom.cpp:626
+#: src/neochatroom.cpp:628
 #, kde-format
 msgid "created the room, version %1"
 msgstr "შექნა ოთახი, ვერსია %1"
 
-#: src/neochatroom.cpp:629
+#: src/neochatroom.cpp:631
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "ამ ოთახზე წვდომის უფლებები შეიცვლა"
 
-#: src/neochatroom.cpp:633
+#: src/neochatroom.cpp:635
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "ამ ოთახისთვის სერვერის წვდომის კონტროლის სიები შეიცვალა"
 
-#: src/neochatroom.cpp:637
+#: src/neochatroom.cpp:639
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "დაამატა ვიჯეტი %1"
 
-#: src/neochatroom.cpp:640
+#: src/neochatroom.cpp:642
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "წაშალა ვიჯეტი %1"
 
-#: src/neochatroom.cpp:642
+#: src/neochatroom.cpp:644
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "მოირგო ვიჯეტი %1"
 
-#: src/neochatroom.cpp:644
+#: src/neochatroom.cpp:646
 #, kde-format
 msgid "updated %1 state"
 msgstr "განაახლა %1-ის მდგომარეობა"
 
-#: src/neochatroom.cpp:645
+#: src/neochatroom.cpp:647
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "განაახლა %1-ის მდგომარეობა %2-სთვის"
 
-#: src/neochatroom.cpp:652
+#: src/neochatroom.cpp:654
 #, kde-format
 msgid "Unknown event"
 msgstr "უცნობი მოვლენა"
 
-#: src/neochatroom.cpp:1178 src/neochatroom.cpp:1179
+#: src/neochatroom.cpp:1180 src/neochatroom.cpp:1181
 #, kde-format
 msgid "Report sent successfully."
 msgstr "ანგარიში წარმატებით გაიგზავნა."
@@ -1136,16 +1142,16 @@ msgstr ""
 "ეს შეტყობინება დაშიფრულია და გამომგზავნს ამ მოწყობილობისთვის გასაღები არ "
 "გაუზიარებია."
 
-#: src/qml/Component/Timeline/FileDelegate.qml:57
-#: src/qml/Component/Timeline/FileDelegate.qml:152
+#: src/qml/Component/Timeline/FileDelegate.qml:54
+#: src/qml/Component/Timeline/FileDelegate.qml:141
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
 msgstr "ჩამოტვირთვა"
 
-#: src/qml/Component/Timeline/FileDelegate.qml:73
-#: src/qml/Component/Timeline/FileDelegate.qml:143
+#: src/qml/Component/Timeline/FileDelegate.qml:70
+#: src/qml/Component/Timeline/FileDelegate.qml:132
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -1153,13 +1159,13 @@ msgctxt ""
 msgid "Open File"
 msgstr "ფაილის გახსნა"
 
-#: src/qml/Component/Timeline/FileDelegate.qml:88
+#: src/qml/Component/Timeline/FileDelegate.qml:85
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: src/qml/Component/Timeline/FileDelegate.qml:93
+#: src/qml/Component/Timeline/FileDelegate.qml:90
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
@@ -1253,7 +1259,7 @@ msgstr "მომხმარებლის გადართვა"
 msgid "Add"
 msgstr "დამატება"
 
-#: src/qml/Component/UserInfo.qml:197 src/qml/main.qml:263
+#: src/qml/Component/UserInfo.qml:197 src/qml/main.qml:264
 #: src/qml/Menu/GlobalMenu.qml:28
 #, kde-format
 msgid "Configure"
@@ -1297,7 +1303,7 @@ msgstr "გასვლა"
 msgid "Are you sure you want to sign out?"
 msgstr "დარწმუნებული ბრძანდებით, რომ გნებავთ, გახვიდეთ?"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:16 src/qml/main.qml:250
+#: src/qml/Dialog/CreateRoomDialog.qml:16 src/qml/main.qml:251
 #, kde-format
 msgid "Create a Room"
 msgstr "ახალი ოთახის შექმნა"
@@ -1553,91 +1559,97 @@ msgstr "ამ მომხმარებლის იგნორირებ�
 msgid "Kick this user"
 msgstr "ამ მომხმარებლის გაგდება"
 
-#: src/qml/Dialog/UserDetailDialog.qml:104
+#: src/qml/Dialog/UserDetailDialog.qml:105
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgid "Invite this user"
+msgstr "ამ მომხმარებლის იგნორირება"
+
+#: src/qml/Dialog/UserDetailDialog.qml:117
 #, kde-format
 msgid "Ban this user"
 msgstr "ამ მომხმარებლის დაბანვა"
 
-#: src/qml/Dialog/UserDetailDialog.qml:109
+#: src/qml/Dialog/UserDetailDialog.qml:122
 #, kde-format
 msgctxt "@title"
 msgid "Ban User"
 msgstr "მომხმარებლის ბანი"
 
-#: src/qml/Dialog/UserDetailDialog.qml:120
+#: src/qml/Dialog/UserDetailDialog.qml:133
 #, kde-format
 msgid "Unban this user"
 msgstr "ამ მომხმარებლის ბანის მოხსნა"
 
-#: src/qml/Dialog/UserDetailDialog.qml:133
+#: src/qml/Dialog/UserDetailDialog.qml:146
 #, kde-format
 msgid "Remove recent messages by this user"
 msgstr "ამ მომხმარებლის უახლესი შეტყობინებების წაშლა"
 
-#: src/qml/Dialog/UserDetailDialog.qml:138
+#: src/qml/Dialog/UserDetailDialog.qml:151
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "შეტყობინებების წაშლა"
 
-#: src/qml/Dialog/UserDetailDialog.qml:148
+#: src/qml/Dialog/UserDetailDialog.qml:161
 #, kde-format
 msgid "Open a private chat"
 msgstr "პირადი საუბრის გახსნა"
 
-#: src/qml/Dialog/UserDetailDialog.qml:158
+#: src/qml/Dialog/UserDetailDialog.qml:171
 #, kde-format
 msgid "Copy link"
 msgstr "ბმულის კოპირება"
 
-#: src/qml/main.qml:125
+#: src/qml/main.qml:126
 #, kde-format
 msgid "Warning: %1"
 msgstr "გაფრთხილება: %1"
 
-#: src/qml/main.qml:238 src/qml/Page/RoomListPage.qml:207
+#: src/qml/main.qml:239 src/qml/Page/RoomListPage.qml:205
 #, kde-format
 msgid "Explore rooms"
 msgstr "ოთახების დათვალიერება"
 
-#: src/qml/main.qml:244 src/qml/main.qml:257 src/qml/Menu/GlobalMenu.qml:43
+#: src/qml/main.qml:245 src/qml/main.qml:258 src/qml/Menu/GlobalMenu.qml:43
 #: src/qml/Menu/GlobalMenu.qml:48 src/qml/Page/StartChatPage.qml:18
 #, kde-format
 msgid "Start a Chat"
 msgstr "საუბრის დაწყება"
 
-#: src/qml/main.qml:260 src/qml/Menu/GlobalMenu.qml:23
+#: src/qml/main.qml:261 src/qml/Menu/GlobalMenu.qml:23
 #, kde-format
 msgid "Configure NeoChat..."
 msgstr "NeoChat-ის მორგება..."
 
-#: src/qml/main.qml:269
+#: src/qml/main.qml:270
 #, kde-format
 msgid "Logout"
 msgstr "გასვლა"
 
-#: src/qml/main.qml:275 src/trayicon.cpp:30
+#: src/qml/main.qml:276 src/trayicon.cpp:30
 #, kde-format
 msgid "Quit"
 msgstr "დატოვება"
 
-#: src/qml/main.qml:359
+#: src/qml/main.qml:361
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/qml/main.qml:400
+#: src/qml/main.qml:402
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "სესიის გადამოწმება"
 
-#: src/qml/main.qml:410
+#: src/qml/main.qml:412
 #, kde-format
 msgid "User consent"
 msgstr "მომხმარებლის თანხმობა"
 
-#: src/qml/main.qml:415
+#: src/qml/main.qml:417
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -1646,17 +1658,17 @@ msgstr ""
 "თქვენი სახლის სერვერის გამოყენებამდე საჭიროა მის პირობებს და ლიცენზიას "
 "დაეთანხმოთ. მის წასაკითხად ქვემოთ ღილაკს დააჭირეთ."
 
-#: src/qml/main.qml:420
+#: src/qml/main.qml:422
 #, kde-format
 msgid "Open"
 msgstr "გახსნა"
 
-#: src/qml/main.qml:449
+#: src/qml/main.qml:451
 #, kde-format
 msgid "Start a chat"
 msgstr "საუბრის დაწყება"
 
-#: src/qml/main.qml:451
+#: src/qml/main.qml:453
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "გნებავთ დაიწყოთ საუბარი %1-სთან?"
@@ -2217,32 +2229,32 @@ msgstr "ყველა ოთახის ჩვენება"
 msgid "Rooms"
 msgstr "ოთახები"
 
-#: src/qml/Page/RoomListPage.qml:204
+#: src/qml/Page/RoomListPage.qml:202
 #, kde-format
 msgid "No rooms found"
 msgstr "ოთახები ვერ ვიპოვე"
 
-#: src/qml/Page/RoomListPage.qml:204
+#: src/qml/Page/RoomListPage.qml:202
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "დასაწყისისთვის შეუერთდით რომელიმე ოთახს"
 
-#: src/qml/Page/RoomListPage.qml:207
+#: src/qml/Page/RoomListPage.qml:205
 #, kde-format
 msgid "Search in room directory"
 msgstr "ოთახების დირექტორიაში ძებნა"
 
-#: src/qml/Page/RoomListPage.qml:279 src/qml/Page/RoomListPage.qml:331
+#: src/qml/Page/RoomListPage.qml:303 src/qml/Page/RoomListPage.qml:355
 #, kde-format
 msgid "No Name"
 msgstr "სახელის გარეშე"
 
-#: src/qml/Page/RoomListPage.qml:346
+#: src/qml/Page/RoomListPage.qml:370
 #, kde-format
 msgid "Muted room"
 msgstr "დადუმებული ოთახი"
 
-#: src/qml/Page/RoomListPage.qml:366
+#: src/qml/Page/RoomListPage.qml:390
 #, kde-format
 msgid "Configure room"
 msgstr "ოთახის მორგება"
@@ -2435,7 +2447,7 @@ msgstr "ხმა გამორთული"
 msgid "General"
 msgstr "ზოგადი"
 
-#: src/qml/RoomSettings/Categories.qml:25 src/qml/RoomSettings/Security.qml:18
+#: src/qml/RoomSettings/Categories.qml:25 src/qml/RoomSettings/Security.qml:19
 #, kde-format
 msgid "Security"
 msgstr "უსაფრთხოება"
@@ -2532,78 +2544,89 @@ msgstr "ოთახის შეტყობინებების პარ�
 msgid "Follow global setting"
 msgstr "გლობალური პარამეტრის მიყოლა"
 
-#: src/qml/RoomSettings/Security.qml:30
-#, kde-format
-msgctxt "@option:check"
-msgid "Access"
-msgstr "წვდომა"
-
-#: src/qml/RoomSettings/Security.qml:33
-#, kde-format
-msgctxt "@option:check"
-msgid "Private (invite only)"
-msgstr "პირადი (მხოლოდ მოსაწვევით)"
-
-#: src/qml/RoomSettings/Security.qml:34
-#, kde-format
-msgid "Only invited people can join."
-msgstr "შემოსვლა მხოლოდ მოწვეულ ხალხს სეუძლია."
-
-#: src/qml/RoomSettings/Security.qml:42
-#, kde-format
-msgctxt "@option:check"
-msgid "Space members"
-msgstr "სივრცის წევრები"
-
-#: src/qml/RoomSettings/Security.qml:44 src/qml/RoomSettings/Security.qml:46
-#, kde-format
-msgid "Anyone in a space can find and join."
-msgstr "სივრცეში მყოფს ყველას შეუძლია პოვნა და შემოსვლა."
-
-#: src/qml/RoomSettings/Security.qml:45
+#: src/qml/RoomSettings/Security.qml:17
 #, kde-format
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
 msgstr ""
 "ამ პარამეტრის ჩასართავად ამ ოთახის უფრო ახალ ვერსიაზე განახლება გჭირდებათ."
 
+#: src/qml/RoomSettings/Security.qml:31
+#, kde-format
+msgctxt "@option:check"
+msgid "Access"
+msgstr "წვდომა"
+
+#: src/qml/RoomSettings/Security.qml:34
+#, kde-format
+msgctxt "@option:check"
+msgid "Private (invite only)"
+msgstr "პირადი (მხოლოდ მოსაწვევით)"
+
+#: src/qml/RoomSettings/Security.qml:35
+#, kde-format
+msgid "Only invited people can join."
+msgstr "შემოსვლა მხოლოდ მოწვეულ ხალხს სეუძლია."
+
+#: src/qml/RoomSettings/Security.qml:43
+#, kde-format
+msgctxt "@option:check"
+msgid "Space members"
+msgstr "სივრცის წევრები"
+
+#: src/qml/RoomSettings/Security.qml:44
+#, kde-format
+msgid "Anyone in a space can find and join."
+msgstr "სივრცეში მყოფს ყველას შეუძლია პოვნა და შემოსვლა."
+
+#: src/qml/RoomSettings/Security.qml:53
+#, kde-format
+msgctxt "@option:check"
+msgid "Knock"
+msgstr ""
+
 #: src/qml/RoomSettings/Security.qml:54
+#, kde-format
+msgid "People not in the room need to request an invite to join the room."
+msgstr ""
+
+#: src/qml/RoomSettings/Security.qml:64
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "საჯარო"
 
-#: src/qml/RoomSettings/Security.qml:55
+#: src/qml/RoomSettings/Security.qml:65
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "პოვნა და შემოსვლა ყველას შეუძლია."
 
-#: src/qml/RoomSettings/Security.qml:71
+#: src/qml/RoomSettings/Security.qml:81
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr "შეტყობინებების ისტორიის ხილვადობა"
 
-#: src/qml/RoomSettings/Security.qml:74
+#: src/qml/RoomSettings/Security.qml:84
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr "ყველა"
 
-#: src/qml/RoomSettings/Security.qml:75
+#: src/qml/RoomSettings/Security.qml:85
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr "ყველას, იმის მიუხედავად, როგორ მოხვდა არხზე, ისტორიის ნახვა შეუძლია."
 
-#: src/qml/RoomSettings/Security.qml:83
+#: src/qml/RoomSettings/Security.qml:93
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "მხოლოდ წევრები"
 
-#: src/qml/RoomSettings/Security.qml:84
+#: src/qml/RoomSettings/Security.qml:94
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -2612,13 +2635,13 @@ msgstr ""
 "ყველა წევრს შეუძლია შეტყობინებების სრული ისტორიის ნახვა მაშინაც კი, სანამ "
 "არხს შემოუერთდებიან."
 
-#: src/qml/RoomSettings/Security.qml:92
+#: src/qml/RoomSettings/Security.qml:102
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr "მხოლოდ წევრებს (მოწვევიდან)"
 
-#: src/qml/RoomSettings/Security.qml:93
+#: src/qml/RoomSettings/Security.qml:103
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -2628,13 +2651,13 @@ msgstr ""
 "ახალ წევრებს შეტყობინებების ისტორიის ნახვა მათი ოთახში მოწვევის მომენტის "
 "შემდეგ შეუძლიათ."
 
-#: src/qml/RoomSettings/Security.qml:101
+#: src/qml/RoomSettings/Security.qml:111
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr "მხოლოდ წევრებს (მოწვევიდან)"
 
-#: src/qml/RoomSettings/Security.qml:102
+#: src/qml/RoomSettings/Security.qml:112
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -2643,7 +2666,7 @@ msgstr ""
 "ახალ წევრებს შეტყობინებების ისტორიის ნახვა მათი ოთახში შემოსვლის მომენტის "
 "შემდეგ შეუძლიათ."
 
-#: src/qml/RoomSettings/Security.qml:121
+#: src/qml/RoomSettings/Security.qml:131
 #: src/qml/Settings/NetworkProxyPage.qml:127
 #: src/qml/Settings/SonnetConfigPage.qml:326
 #, kde-format
@@ -2772,7 +2795,7 @@ msgstr "დაპატარავება"
 #: src/qml/Settings/AppearanceSettingsPage.qml:207
 #, kde-format
 msgid "Use compact room list"
-msgstr ""
+msgstr "ოთახების სიის კომპაქტური ვარიანტის გამოყენება"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:233
 #, kde-format

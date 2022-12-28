@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-27 00:48+0000\n"
+"POT-Creation-Date: 2022-12-28 00:49+0000\n"
 "PO-Revision-Date: 2022-12-15 07:00+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque\n"
@@ -747,112 +747,118 @@ msgstr "%1(e)ri gelarako debekua ipini zaio: %2"
 msgid "self-banned from the room"
 msgstr "bere buruari gela honetarako debekua ipinita"
 
-#: src/neochatroom.cpp:604
+#: src/neochatroom.cpp:605
 #, kde-format
 msgid "requested an invite"
 msgstr "gonbidapen bat eskatu du"
 
-#: src/neochatroom.cpp:607
+#: src/neochatroom.cpp:605
+#, fuzzy, kde-format
+#| msgid "requested an invite"
+msgid "requested an invite with reason: %1"
+msgstr "gonbidapen bat eskatu du"
+
+#: src/neochatroom.cpp:609
 #, kde-format
 msgid "made something unknown"
 msgstr "zerbait ezezaguna egin du"
 
-#: src/neochatroom.cpp:610
+#: src/neochatroom.cpp:612
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "gelaren ezizen nagusia garbitu da"
 
-#: src/neochatroom.cpp:610
+#: src/neochatroom.cpp:612
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "ezarri gelako ezizen nagusia honetara: %1"
 
-#: src/neochatroom.cpp:613
+#: src/neochatroom.cpp:615
 #, kde-format
 msgid "cleared the room name"
 msgstr "gelako izena garbitu da"
 
-#: src/neochatroom.cpp:613
+#: src/neochatroom.cpp:615
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "ezarri gelaren izana honetara: %1"
 
-#: src/neochatroom.cpp:616
+#: src/neochatroom.cpp:618
 #, kde-format
 msgid "cleared the topic"
 msgstr "gaia garbitu da"
 
-#: src/neochatroom.cpp:616
+#: src/neochatroom.cpp:618
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "ezarri gai honetara: %1"
 
-#: src/neochatroom.cpp:619
+#: src/neochatroom.cpp:621
 #, kde-format
 msgid "changed the room avatar"
 msgstr "gelako abatarra aldatu da"
 
-#: src/neochatroom.cpp:622
+#: src/neochatroom.cpp:624
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "muturren arteko zifratzea aktibatu da"
 
-#: src/neochatroom.cpp:625
+#: src/neochatroom.cpp:627
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "gela %1 bertsiora bertsio-berritu da"
 
-#: src/neochatroom.cpp:626
+#: src/neochatroom.cpp:628
 #, kde-format
 msgid "created the room, version %1"
 msgstr "gela sortu da, %1 bertsioa"
 
-#: src/neochatroom.cpp:629
+#: src/neochatroom.cpp:631
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "gela honetako ahalmen mailak aldatu dira"
 
-#: src/neochatroom.cpp:633
+#: src/neochatroom.cpp:635
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr ""
 "gela honetarako zerbitzarirako sarrera-kontroleko zerrendak aldatu zituen"
 
-#: src/neochatroom.cpp:637
+#: src/neochatroom.cpp:639
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "trepeta %1 gehitu da"
 
-#: src/neochatroom.cpp:640
+#: src/neochatroom.cpp:642
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "trepeta %1 kendu da"
 
-#: src/neochatroom.cpp:642
+#: src/neochatroom.cpp:644
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "trepeta %1 konfiguratu da"
 
-#: src/neochatroom.cpp:644
+#: src/neochatroom.cpp:646
 #, kde-format
 msgid "updated %1 state"
 msgstr "%1 egoera eguneratu da"
 
-#: src/neochatroom.cpp:645
+#: src/neochatroom.cpp:647
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "%2(r)en %1 egoera eguneratu da"
 
-#: src/neochatroom.cpp:652
+#: src/neochatroom.cpp:654
 #, kde-format
 msgid "Unknown event"
 msgstr "Gertaera ezezaguna"
 
-#: src/neochatroom.cpp:1178 src/neochatroom.cpp:1179
+#: src/neochatroom.cpp:1180 src/neochatroom.cpp:1181
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Txosten bidalketa arrakastatsua."
@@ -1140,16 +1146,16 @@ msgid ""
 msgstr ""
 "Mezu hau zifratuta dago eta igorleak ez du gakoa gailu honekin partekatu."
 
-#: src/qml/Component/Timeline/FileDelegate.qml:57
-#: src/qml/Component/Timeline/FileDelegate.qml:152
+#: src/qml/Component/Timeline/FileDelegate.qml:54
+#: src/qml/Component/Timeline/FileDelegate.qml:141
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
 msgstr "Zama-jaitsi"
 
-#: src/qml/Component/Timeline/FileDelegate.qml:73
-#: src/qml/Component/Timeline/FileDelegate.qml:143
+#: src/qml/Component/Timeline/FileDelegate.qml:70
+#: src/qml/Component/Timeline/FileDelegate.qml:132
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -1157,13 +1163,13 @@ msgctxt ""
 msgid "Open File"
 msgstr "Ireki fitxategia"
 
-#: src/qml/Component/Timeline/FileDelegate.qml:88
+#: src/qml/Component/Timeline/FileDelegate.qml:85
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: src/qml/Component/Timeline/FileDelegate.qml:93
+#: src/qml/Component/Timeline/FileDelegate.qml:90
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
@@ -1257,7 +1263,7 @@ msgstr "Aldatu erabiltzailea"
 msgid "Add"
 msgstr "Gehitu"
 
-#: src/qml/Component/UserInfo.qml:197 src/qml/main.qml:263
+#: src/qml/Component/UserInfo.qml:197 src/qml/main.qml:264
 #: src/qml/Menu/GlobalMenu.qml:28
 #, kde-format
 msgid "Configure"
@@ -1301,7 +1307,7 @@ msgstr "Saio-itxi"
 msgid "Are you sure you want to sign out?"
 msgstr "Ziur zaude saio-itxi nahi duzula?"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:16 src/qml/main.qml:250
+#: src/qml/Dialog/CreateRoomDialog.qml:16 src/qml/main.qml:251
 #, kde-format
 msgid "Create a Room"
 msgstr "Sortu gela bat"
@@ -1570,91 +1576,97 @@ msgstr "Ez ikusi erabiltzaile hau"
 msgid "Kick this user"
 msgstr "Kanporatu erabiltzaile hau"
 
-#: src/qml/Dialog/UserDetailDialog.qml:104
+#: src/qml/Dialog/UserDetailDialog.qml:105
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgid "Invite this user"
+msgstr "Ez ikusi erabiltzaile hau"
+
+#: src/qml/Dialog/UserDetailDialog.qml:117
 #, kde-format
 msgid "Ban this user"
 msgstr "Debekatua erabiltzaile honi"
 
-#: src/qml/Dialog/UserDetailDialog.qml:109
+#: src/qml/Dialog/UserDetailDialog.qml:122
 #, kde-format
 msgctxt "@title"
 msgid "Ban User"
 msgstr "Debekua erabiltzaileari"
 
-#: src/qml/Dialog/UserDetailDialog.qml:120
+#: src/qml/Dialog/UserDetailDialog.qml:133
 #, kde-format
 msgid "Unban this user"
 msgstr "Erabiltzailearen debekua altxatzea"
 
-#: src/qml/Dialog/UserDetailDialog.qml:133
+#: src/qml/Dialog/UserDetailDialog.qml:146
 #, kde-format
 msgid "Remove recent messages by this user"
 msgstr "Kendu erabiltzaile horren azken aldiko mezuak"
 
-#: src/qml/Dialog/UserDetailDialog.qml:138
+#: src/qml/Dialog/UserDetailDialog.qml:151
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Kendu mezuak"
 
-#: src/qml/Dialog/UserDetailDialog.qml:148
+#: src/qml/Dialog/UserDetailDialog.qml:161
 #, kde-format
 msgid "Open a private chat"
 msgstr "Ireki berriketa pribatu bat"
 
-#: src/qml/Dialog/UserDetailDialog.qml:158
+#: src/qml/Dialog/UserDetailDialog.qml:171
 #, kde-format
 msgid "Copy link"
 msgstr "Kopiatu esteka"
 
-#: src/qml/main.qml:125
+#: src/qml/main.qml:126
 #, kde-format
 msgid "Warning: %1"
 msgstr "Abisua: %1"
 
-#: src/qml/main.qml:238 src/qml/Page/RoomListPage.qml:207
+#: src/qml/main.qml:239 src/qml/Page/RoomListPage.qml:205
 #, kde-format
 msgid "Explore rooms"
 msgstr "Esploratu gelak"
 
-#: src/qml/main.qml:244 src/qml/main.qml:257 src/qml/Menu/GlobalMenu.qml:43
+#: src/qml/main.qml:245 src/qml/main.qml:258 src/qml/Menu/GlobalMenu.qml:43
 #: src/qml/Menu/GlobalMenu.qml:48 src/qml/Page/StartChatPage.qml:18
 #, kde-format
 msgid "Start a Chat"
 msgstr "Hasi berriketa bat"
 
-#: src/qml/main.qml:260 src/qml/Menu/GlobalMenu.qml:23
+#: src/qml/main.qml:261 src/qml/Menu/GlobalMenu.qml:23
 #, kde-format
 msgid "Configure NeoChat..."
 msgstr "Konfiguratu NeoChat..."
 
-#: src/qml/main.qml:269
+#: src/qml/main.qml:270
 #, kde-format
 msgid "Logout"
 msgstr "Saio-itxi"
 
-#: src/qml/main.qml:275 src/trayicon.cpp:30
+#: src/qml/main.qml:276 src/trayicon.cpp:30
 #, kde-format
 msgid "Quit"
 msgstr "Irten"
 
-#: src/qml/main.qml:359
+#: src/qml/main.qml:361
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/qml/main.qml:400
+#: src/qml/main.qml:402
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Saioa egiaztatzea"
 
-#: src/qml/main.qml:410
+#: src/qml/main.qml:412
 #, kde-format
 msgid "User consent"
 msgstr "Erabiltzailearen onarpena"
 
-#: src/qml/main.qml:415
+#: src/qml/main.qml:417
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -1664,17 +1676,17 @@ msgstr ""
 "terminoak eta baldintzak onartzea eskatzen dizu. Mesedez, egiozu klik beheko "
 "botoiari haiek irakurtzeko."
 
-#: src/qml/main.qml:420
+#: src/qml/main.qml:422
 #, kde-format
 msgid "Open"
 msgstr "Ireki"
 
-#: src/qml/main.qml:449
+#: src/qml/main.qml:451
 #, kde-format
 msgid "Start a chat"
 msgstr "Hasi berriketa bat"
 
-#: src/qml/main.qml:451
+#: src/qml/main.qml:453
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "%1(r)ekin berriketa bat abiatu nahi duzu?"
@@ -2237,32 +2249,32 @@ msgstr "Erakutsi gela guztiak"
 msgid "Rooms"
 msgstr "Gelak"
 
-#: src/qml/Page/RoomListPage.qml:204
+#: src/qml/Page/RoomListPage.qml:202
 #, kde-format
 msgid "No rooms found"
 msgstr "Ez da gelarik aurkitu"
 
-#: src/qml/Page/RoomListPage.qml:204
+#: src/qml/Page/RoomListPage.qml:202
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Hasteko, batu gela batzuetara"
 
-#: src/qml/Page/RoomListPage.qml:207
+#: src/qml/Page/RoomListPage.qml:205
 #, kde-format
 msgid "Search in room directory"
 msgstr "Bilatu gelen direktorioan"
 
-#: src/qml/Page/RoomListPage.qml:279 src/qml/Page/RoomListPage.qml:331
+#: src/qml/Page/RoomListPage.qml:303 src/qml/Page/RoomListPage.qml:355
 #, kde-format
 msgid "No Name"
 msgstr "Izenik gabe"
 
-#: src/qml/Page/RoomListPage.qml:346
+#: src/qml/Page/RoomListPage.qml:370
 #, kde-format
 msgid "Muted room"
 msgstr "Isilarazitako gela"
 
-#: src/qml/Page/RoomListPage.qml:366
+#: src/qml/Page/RoomListPage.qml:390
 #, kde-format
 msgid "Configure room"
 msgstr "Konfiguratu gela"
@@ -2458,7 +2470,7 @@ msgstr "Isilarazita"
 msgid "General"
 msgstr "Orokorra"
 
-#: src/qml/RoomSettings/Categories.qml:25 src/qml/RoomSettings/Security.qml:18
+#: src/qml/RoomSettings/Categories.qml:25 src/qml/RoomSettings/Security.qml:19
 #, kde-format
 msgid "Security"
 msgstr "Segurtasuna"
@@ -2555,35 +2567,7 @@ msgstr "Gelako jakinarazpenen ezarpena"
 msgid "Follow global setting"
 msgstr "Jarraitu ezarpen orokorra"
 
-#: src/qml/RoomSettings/Security.qml:30
-#, kde-format
-msgctxt "@option:check"
-msgid "Access"
-msgstr "Sarbidea"
-
-#: src/qml/RoomSettings/Security.qml:33
-#, kde-format
-msgctxt "@option:check"
-msgid "Private (invite only)"
-msgstr "Pribatua (gonbidatuak bakarrik)"
-
-#: src/qml/RoomSettings/Security.qml:34
-#, kde-format
-msgid "Only invited people can join."
-msgstr "Gonbidatutako jendea bakarrik batu daiteke."
-
-#: src/qml/RoomSettings/Security.qml:42
-#, kde-format
-msgctxt "@option:check"
-msgid "Space members"
-msgstr "Tokiko partaideak"
-
-#: src/qml/RoomSettings/Security.qml:44 src/qml/RoomSettings/Security.qml:46
-#, kde-format
-msgid "Anyone in a space can find and join."
-msgstr "Toki bateko edonork bilatu eta batu daiteke."
-
-#: src/qml/RoomSettings/Security.qml:45
+#: src/qml/RoomSettings/Security.qml:17
 #, kde-format
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
@@ -2591,43 +2575,83 @@ msgstr ""
 "Gela hau bertsio berriago batera bertsio-berritu behar duzu ezarpen hau "
 "gaitzeko."
 
+#: src/qml/RoomSettings/Security.qml:31
+#, kde-format
+msgctxt "@option:check"
+msgid "Access"
+msgstr "Sarbidea"
+
+#: src/qml/RoomSettings/Security.qml:34
+#, kde-format
+msgctxt "@option:check"
+msgid "Private (invite only)"
+msgstr "Pribatua (gonbidatuak bakarrik)"
+
+#: src/qml/RoomSettings/Security.qml:35
+#, kde-format
+msgid "Only invited people can join."
+msgstr "Gonbidatutako jendea bakarrik batu daiteke."
+
+#: src/qml/RoomSettings/Security.qml:43
+#, kde-format
+msgctxt "@option:check"
+msgid "Space members"
+msgstr "Tokiko partaideak"
+
+#: src/qml/RoomSettings/Security.qml:44
+#, kde-format
+msgid "Anyone in a space can find and join."
+msgstr "Toki bateko edonork bilatu eta batu daiteke."
+
+#: src/qml/RoomSettings/Security.qml:53
+#, fuzzy, kde-format
+#| msgid "knocked"
+msgctxt "@option:check"
+msgid "Knock"
+msgstr "atea jo du"
+
 #: src/qml/RoomSettings/Security.qml:54
+#, kde-format
+msgid "People not in the room need to request an invite to join the room."
+msgstr ""
+
+#: src/qml/RoomSettings/Security.qml:64
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "Publikoa"
 
-#: src/qml/RoomSettings/Security.qml:55
+#: src/qml/RoomSettings/Security.qml:65
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "Edonork bilatu eta batu daiteke."
 
-#: src/qml/RoomSettings/Security.qml:71
+#: src/qml/RoomSettings/Security.qml:81
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr "Mezuen historiaren ikusgaitasuna"
 
-#: src/qml/RoomSettings/Security.qml:74
+#: src/qml/RoomSettings/Security.qml:84
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr "Edonork"
 
-#: src/qml/RoomSettings/Security.qml:75
+#: src/qml/RoomSettings/Security.qml:85
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr "Edonork, batu gabekoak ere, historia ikus dezake."
 
-#: src/qml/RoomSettings/Security.qml:83
+#: src/qml/RoomSettings/Security.qml:93
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "Partaideak bakarrik"
 
-#: src/qml/RoomSettings/Security.qml:84
+#: src/qml/RoomSettings/Security.qml:94
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -2635,13 +2659,13 @@ msgid ""
 msgstr ""
 "Partaide guztiek ikus dezakete mezuen historia osoa, baita batu aurrekoa ere."
 
-#: src/qml/RoomSettings/Security.qml:92
+#: src/qml/RoomSettings/Security.qml:102
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr "Partaideak bakarrik (gonbitetik aurrera)"
 
-#: src/qml/RoomSettings/Security.qml:93
+#: src/qml/RoomSettings/Security.qml:103
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -2651,13 +2675,13 @@ msgstr ""
 "Partaide berriek mezuen historia ikus dezakete, gelara gonbidatu zituzten "
 "unetik aurrera."
 
-#: src/qml/RoomSettings/Security.qml:101
+#: src/qml/RoomSettings/Security.qml:111
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr "Partaideak bakarrik (batzetik aurrera)"
 
-#: src/qml/RoomSettings/Security.qml:102
+#: src/qml/RoomSettings/Security.qml:112
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -2666,7 +2690,7 @@ msgstr ""
 "Partaide berriek mezuen historia ikus dezakete, gelara batu ziren unetik "
 "aurrera."
 
-#: src/qml/RoomSettings/Security.qml:121
+#: src/qml/RoomSettings/Security.qml:131
 #: src/qml/Settings/NetworkProxyPage.qml:127
 #: src/qml/Settings/SonnetConfigPage.qml:326
 #, kde-format
@@ -3503,9 +3527,6 @@ msgstr "Erakutsi"
 
 #~ msgid "updated the database"
 #~ msgstr "Datu-basea eguneratu da"
-
-#~ msgid "knocked"
-#~ msgstr "atea jo du"
 
 #~ msgid "Account"
 #~ msgstr "Kontua"

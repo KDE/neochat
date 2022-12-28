@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-27 00:48+0000\n"
+"POT-Creation-Date: 2022-12-28 00:49+0000\n"
 "PO-Revision-Date: 2022-12-21 12:30+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -802,111 +802,117 @@ msgstr "excludite (banned) %1 ex le sala: %2"
 msgid "self-banned from the room"
 msgstr "auto excludite (self-banned9 ab le sala"
 
-#: src/neochatroom.cpp:604
+#: src/neochatroom.cpp:605
 #, kde-format
 msgid "requested an invite"
 msgstr "requerite un  invitation"
 
-#: src/neochatroom.cpp:607
+#: src/neochatroom.cpp:605
+#, fuzzy, kde-format
+#| msgid "requested an invite"
+msgid "requested an invite with reason: %1"
+msgstr "requerite un  invitation"
+
+#: src/neochatroom.cpp:609
 #, kde-format
 msgid "made something unknown"
 msgstr "facite alcun cosas incognite"
 
-#: src/neochatroom.cpp:610
+#: src/neochatroom.cpp:612
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "clarate le alias principal de sala"
 
-#: src/neochatroom.cpp:610
+#: src/neochatroom.cpp:612
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "fixa le alias principal de sala a : %1"
 
-#: src/neochatroom.cpp:613
+#: src/neochatroom.cpp:615
 #, kde-format
 msgid "cleared the room name"
 msgstr "clarate le nomine de sala"
 
-#: src/neochatroom.cpp:613
+#: src/neochatroom.cpp:615
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "fixa le nomine de sala a: %1"
 
-#: src/neochatroom.cpp:616
+#: src/neochatroom.cpp:618
 #, kde-format
 msgid "cleared the topic"
 msgstr "clarate le topico"
 
-#: src/neochatroom.cpp:616
+#: src/neochatroom.cpp:618
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "fix le topico a: %1"
 
-#: src/neochatroom.cpp:619
+#: src/neochatroom.cpp:621
 #, kde-format
 msgid "changed the room avatar"
 msgstr "campiate le avatr de sala"
 
-#: src/neochatroom.cpp:622
+#: src/neochatroom.cpp:624
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "activate cryptation End-to-End"
 
-#: src/neochatroom.cpp:625
+#: src/neochatroom.cpp:627
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "actualisate le sala a version %1"
 
-#: src/neochatroom.cpp:626
+#: src/neochatroom.cpp:628
 #, kde-format
 msgid "created the room, version %1"
 msgstr "create le sala, version %1"
 
-#: src/neochatroom.cpp:629
+#: src/neochatroom.cpp:631
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "Cambiate le nvello de potentia per iste salc"
 
-#: src/neochatroom.cpp:633
+#: src/neochatroom.cpp:635
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "cambiate le listas de controlo de accesso de servitor per iste sala"
 
-#: src/neochatroom.cpp:637
+#: src/neochatroom.cpp:639
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "addite %1 widget"
 
-#: src/neochatroom.cpp:640
+#: src/neochatroom.cpp:642
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "removite %1 widget"
 
-#: src/neochatroom.cpp:642
+#: src/neochatroom.cpp:644
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "configurate %1 widget"
 
-#: src/neochatroom.cpp:644
+#: src/neochatroom.cpp:646
 #, kde-format
 msgid "updated %1 state"
 msgstr "actualisate stato %1"
 
-#: src/neochatroom.cpp:645
+#: src/neochatroom.cpp:647
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "actualisate stato %1 per %2"
 
-#: src/neochatroom.cpp:652
+#: src/neochatroom.cpp:654
 #, kde-format
 msgid "Unknown event"
 msgstr "Evento incognite"
 
-#: src/neochatroom.cpp:1178 src/neochatroom.cpp:1179
+#: src/neochatroom.cpp:1180 src/neochatroom.cpp:1181
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgid "Report sent successfully."
@@ -1198,16 +1204,16 @@ msgstr ""
 "Iste message es cryptate e le mittente non ha compartite le clave con iste "
 "dispositivo."
 
-#: src/qml/Component/Timeline/FileDelegate.qml:57
-#: src/qml/Component/Timeline/FileDelegate.qml:152
+#: src/qml/Component/Timeline/FileDelegate.qml:54
+#: src/qml/Component/Timeline/FileDelegate.qml:141
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
 msgstr "Discarga"
 
-#: src/qml/Component/Timeline/FileDelegate.qml:73
-#: src/qml/Component/Timeline/FileDelegate.qml:143
+#: src/qml/Component/Timeline/FileDelegate.qml:70
+#: src/qml/Component/Timeline/FileDelegate.qml:132
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -1215,13 +1221,13 @@ msgctxt ""
 msgid "Open File"
 msgstr "Aperi file"
 
-#: src/qml/Component/Timeline/FileDelegate.qml:88
+#: src/qml/Component/Timeline/FileDelegate.qml:85
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: src/qml/Component/Timeline/FileDelegate.qml:93
+#: src/qml/Component/Timeline/FileDelegate.qml:90
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
@@ -1318,7 +1324,7 @@ msgstr "Commuta Usator"
 msgid "Add"
 msgstr "Adde"
 
-#: src/qml/Component/UserInfo.qml:197 src/qml/main.qml:263
+#: src/qml/Component/UserInfo.qml:197 src/qml/main.qml:264
 #: src/qml/Menu/GlobalMenu.qml:28
 #, kde-format
 msgid "Configure"
@@ -1364,7 +1370,7 @@ msgstr ""
 msgid "Are you sure you want to sign out?"
 msgstr ""
 
-#: src/qml/Dialog/CreateRoomDialog.qml:16 src/qml/main.qml:250
+#: src/qml/Dialog/CreateRoomDialog.qml:16 src/qml/main.qml:251
 #, kde-format
 msgid "Create a Room"
 msgstr "Crea un Sala"
@@ -1609,95 +1615,101 @@ msgstr "Ignora iste usator"
 msgid "Kick this user"
 msgstr "Calca iste usator"
 
-#: src/qml/Dialog/UserDetailDialog.qml:104
+#: src/qml/Dialog/UserDetailDialog.qml:105
+#, fuzzy, kde-format
+#| msgid "Ignore this user"
+msgid "Invite this user"
+msgstr "Ignora iste usator"
+
+#: src/qml/Dialog/UserDetailDialog.qml:117
 #, kde-format
 msgid "Ban this user"
 msgstr "Prohibi iste usator"
 
-#: src/qml/Dialog/UserDetailDialog.qml:109
+#: src/qml/Dialog/UserDetailDialog.qml:122
 #, fuzzy, kde-format
 #| msgid "Ban this user"
 msgctxt "@title"
 msgid "Ban User"
 msgstr "Prohibi iste usator"
 
-#: src/qml/Dialog/UserDetailDialog.qml:120
+#: src/qml/Dialog/UserDetailDialog.qml:133
 #, kde-format
 msgid "Unban this user"
 msgstr "Leva prohibition (unban) ab iste usator"
 
-#: src/qml/Dialog/UserDetailDialog.qml:133
+#: src/qml/Dialog/UserDetailDialog.qml:146
 #, fuzzy, kde-format
 #| msgid "Delete recent messages by this user"
 msgid "Remove recent messages by this user"
 msgstr "Dele messages recente per iste usator"
 
-#: src/qml/Dialog/UserDetailDialog.qml:138
+#: src/qml/Dialog/UserDetailDialog.qml:151
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Remove messages"
 
-#: src/qml/Dialog/UserDetailDialog.qml:148
+#: src/qml/Dialog/UserDetailDialog.qml:161
 #, kde-format
 msgid "Open a private chat"
 msgstr "Aperi in conversation private"
 
-#: src/qml/Dialog/UserDetailDialog.qml:158
+#: src/qml/Dialog/UserDetailDialog.qml:171
 #, kde-format
 msgid "Copy link"
 msgstr "Copia Ligamine"
 
-#: src/qml/main.qml:125
+#: src/qml/main.qml:126
 #, kde-format
 msgid "Warning: %1"
 msgstr "Aviso: %1"
 
-#: src/qml/main.qml:238 src/qml/Page/RoomListPage.qml:207
+#: src/qml/main.qml:239 src/qml/Page/RoomListPage.qml:205
 #, kde-format
 msgid "Explore rooms"
 msgstr "Explora salas"
 
-#: src/qml/main.qml:244 src/qml/main.qml:257 src/qml/Menu/GlobalMenu.qml:43
+#: src/qml/main.qml:245 src/qml/main.qml:258 src/qml/Menu/GlobalMenu.qml:43
 #: src/qml/Menu/GlobalMenu.qml:48 src/qml/Page/StartChatPage.qml:18
 #, kde-format
 msgid "Start a Chat"
 msgstr "Initia un conversation"
 
-#: src/qml/main.qml:260 src/qml/Menu/GlobalMenu.qml:23
+#: src/qml/main.qml:261 src/qml/Menu/GlobalMenu.qml:23
 #, kde-format
 msgid "Configure NeoChat..."
 msgstr "Configura NeoChat..."
 
-#: src/qml/main.qml:269
+#: src/qml/main.qml:270
 #, kde-format
 msgid "Logout"
 msgstr "Clausura de session"
 
-#: src/qml/main.qml:275 src/trayicon.cpp:30
+#: src/qml/main.qml:276 src/trayicon.cpp:30
 #, kde-format
 msgid "Quit"
 msgstr "Quita"
 
-#: src/qml/main.qml:359
+#: src/qml/main.qml:361
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/qml/main.qml:400
+#: src/qml/main.qml:402
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Monsta notificationes"
 
-#: src/qml/main.qml:410
+#: src/qml/main.qml:412
 #, kde-format
 msgid "User consent"
 msgstr "Consenso de usator"
 
-#: src/qml/main.qml:415
+#: src/qml/main.qml:417
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -1707,17 +1719,17 @@ msgstr ""
 "conditiones ante poter usar lo. Pro favor tu clicca le button a basso per "
 "leger los."
 
-#: src/qml/main.qml:420
+#: src/qml/main.qml:422
 #, kde-format
 msgid "Open"
 msgstr "Aperi"
 
-#: src/qml/main.qml:449
+#: src/qml/main.qml:451
 #, kde-format
 msgid "Start a chat"
 msgstr "Initia un conversation"
 
-#: src/qml/main.qml:451
+#: src/qml/main.qml:453
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Tu vole initiar un conversation con %1"
@@ -2296,33 +2308,33 @@ msgstr ""
 msgid "Rooms"
 msgstr "Salas"
 
-#: src/qml/Page/RoomListPage.qml:204
+#: src/qml/Page/RoomListPage.qml:202
 #, kde-format
 msgid "No rooms found"
 msgstr "Nulle salas trovat"
 
-#: src/qml/Page/RoomListPage.qml:204
+#: src/qml/Page/RoomListPage.qml:202
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Uni alcun salas per initiar"
 
-#: src/qml/Page/RoomListPage.qml:207
+#: src/qml/Page/RoomListPage.qml:205
 #, kde-format
 msgid "Search in room directory"
 msgstr "cerca in directorio de sala"
 
-#: src/qml/Page/RoomListPage.qml:279 src/qml/Page/RoomListPage.qml:331
+#: src/qml/Page/RoomListPage.qml:303 src/qml/Page/RoomListPage.qml:355
 #, kde-format
 msgid "No Name"
 msgstr "necun nomine"
 
-#: src/qml/Page/RoomListPage.qml:346
+#: src/qml/Page/RoomListPage.qml:370
 #, fuzzy, kde-format
 #| msgid "Muted"
 msgid "Muted room"
 msgstr "Silentiate"
 
-#: src/qml/Page/RoomListPage.qml:366
+#: src/qml/Page/RoomListPage.qml:390
 #, kde-format
 msgid "Configure room"
 msgstr "Configura sala"
@@ -2519,7 +2531,7 @@ msgstr "Silentiate"
 msgid "General"
 msgstr "General"
 
-#: src/qml/RoomSettings/Categories.qml:25 src/qml/RoomSettings/Security.qml:18
+#: src/qml/RoomSettings/Categories.qml:25 src/qml/RoomSettings/Security.qml:19
 #, kde-format
 msgid "Security"
 msgstr "Securitate"
@@ -2625,91 +2637,103 @@ msgstr "Monsta notificationes"
 msgid "Follow global setting"
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:30
-#, kde-format
-msgctxt "@option:check"
-msgid "Access"
-msgstr "Accesso"
-
-#: src/qml/RoomSettings/Security.qml:33
-#, kde-format
-msgctxt "@option:check"
-msgid "Private (invite only)"
-msgstr "Private (solmente invita)"
-
-#: src/qml/RoomSettings/Security.qml:34
-#, kde-format
-msgid "Only invited people can join."
-msgstr "Solmente personas invitate pote unir se"
-
-#: src/qml/RoomSettings/Security.qml:42
-#, kde-format
-msgctxt "@option:check"
-msgid "Space members"
-msgstr "Membros de spatio"
-
-#: src/qml/RoomSettings/Security.qml:44 src/qml/RoomSettings/Security.qml:46
-#, kde-format
-msgid "Anyone in a space can find and join."
-msgstr "Alcun in un spatio pote trovar e unir."
-
-#: src/qml/RoomSettings/Security.qml:45
+#: src/qml/RoomSettings/Security.qml:17
 #, kde-format
 msgid ""
 "You need to upgrade this room to a newer version to enable this setting."
 msgstr ""
 
+#: src/qml/RoomSettings/Security.qml:31
+#, kde-format
+msgctxt "@option:check"
+msgid "Access"
+msgstr "Accesso"
+
+#: src/qml/RoomSettings/Security.qml:34
+#, kde-format
+msgctxt "@option:check"
+msgid "Private (invite only)"
+msgstr "Private (solmente invita)"
+
+#: src/qml/RoomSettings/Security.qml:35
+#, kde-format
+msgid "Only invited people can join."
+msgstr "Solmente personas invitate pote unir se"
+
+#: src/qml/RoomSettings/Security.qml:43
+#, kde-format
+msgctxt "@option:check"
+msgid "Space members"
+msgstr "Membros de spatio"
+
+#: src/qml/RoomSettings/Security.qml:44
+#, kde-format
+msgid "Anyone in a space can find and join."
+msgstr "Alcun in un spatio pote trovar e unir."
+
+#: src/qml/RoomSettings/Security.qml:53
+#, fuzzy, kde-format
+#| msgid "knocked"
+msgctxt "@option:check"
+msgid "Knock"
+msgstr "colpate (knocked9"
+
 #: src/qml/RoomSettings/Security.qml:54
+#, kde-format
+msgid "People not in the room need to request an invite to join the room."
+msgstr ""
+
+#: src/qml/RoomSettings/Security.qml:64
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "Public"
 
-#: src/qml/RoomSettings/Security.qml:55
+#: src/qml/RoomSettings/Security.qml:65
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "Alcun pote trvar e unir."
 
-#: src/qml/RoomSettings/Security.qml:71
+#: src/qml/RoomSettings/Security.qml:81
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:74
+#: src/qml/RoomSettings/Security.qml:84
 #, fuzzy, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr "Quicunque:"
 
-#: src/qml/RoomSettings/Security.qml:75
+#: src/qml/RoomSettings/Security.qml:85
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:83
+#: src/qml/RoomSettings/Security.qml:93
 #, fuzzy, kde-format
 #| msgid "Members"
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "Membros"
 
-#: src/qml/RoomSettings/Security.qml:84
+#: src/qml/RoomSettings/Security.qml:94
 #, kde-format
 msgctxt "@option:check"
 msgid ""
 "All members can view the entire message history, even before they joined."
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:92
+#: src/qml/RoomSettings/Security.qml:102
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:93
+#: src/qml/RoomSettings/Security.qml:103
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -2717,20 +2741,20 @@ msgid ""
 "the room."
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:101
+#: src/qml/RoomSettings/Security.qml:111
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:102
+#: src/qml/RoomSettings/Security.qml:112
 #, kde-format
 msgctxt "@option:check"
 msgid ""
 "New members can view the message history from the point they joined the room."
 msgstr ""
 
-#: src/qml/RoomSettings/Security.qml:121
+#: src/qml/RoomSettings/Security.qml:131
 #: src/qml/Settings/NetworkProxyPage.qml:127
 #: src/qml/Settings/SonnetConfigPage.qml:326
 #, kde-format
@@ -3598,9 +3622,6 @@ msgstr "Monstra "
 
 #~ msgid "updated the database"
 #~ msgstr "actualisate le base de datos"
-
-#~ msgid "knocked"
-#~ msgstr "colpate (knocked9"
 
 #~ msgid "Account"
 #~ msgstr "Conto"
