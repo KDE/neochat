@@ -119,6 +119,14 @@ Kirigami.ScrollablePage {
                         }
                     }
                 }
+                MobileForm.FormTextDelegate {
+                    text: i18n("Room ID")
+                    description: room.id
+                }
+                MobileForm.FormTextDelegate {
+                    text: i18n("Room version")
+                    description: room.version
+                }
             }
         }
         MobileForm.FormCard {
