@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-28 00:49+0000\n"
+"POT-Creation-Date: 2022-12-29 00:52+0000\n"
 "PO-Revision-Date: 2022-12-10 11:08+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -873,7 +873,7 @@ msgstr "Otwórz NeoChat w tym pokoju"
 #: src/notificationsmanager.cpp:76
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:544
+#: src/qml/Page/RoomPage.qml:545
 #, kde-format
 msgid "Reply"
 msgstr "Odpowiedz"
@@ -910,7 +910,7 @@ msgstr "Załącznik:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:159
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:532
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:533
 #, kde-format
 msgid "Edit"
 msgstr "Edytuj"
@@ -1378,7 +1378,7 @@ msgid "Successfully verified device **%1**"
 msgstr "Pomyślnie sprawdzono urządzenie  **%1**"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:191
+#: src/qml/Page/RoomPage.qml:192
 #, kde-format
 msgid "Accept"
 msgstr "Zaakceptuj"
@@ -2271,42 +2271,42 @@ msgstr "Wyciszony pokój"
 msgid "Configure room"
 msgstr "Ustawienia pokoju"
 
-#: src/qml/Page/RoomPage.qml:180
+#: src/qml/Page/RoomPage.qml:181
 #, kde-format
 msgid "Accept this invitation?"
 msgstr "Czy przyjąć to zaproszenie?"
 
-#: src/qml/Page/RoomPage.qml:184
+#: src/qml/Page/RoomPage.qml:185
 #, kde-format
 msgid "Reject"
 msgstr "Odrzuć"
 
-#: src/qml/Page/RoomPage.qml:282
+#: src/qml/Page/RoomPage.qml:283
 #, kde-format
 msgid "Choose local file"
 msgstr "Wybierz plik lokalny"
 
-#: src/qml/Page/RoomPage.qml:309
+#: src/qml/Page/RoomPage.qml:310
 #, kde-format
 msgid "Clipboard image"
 msgstr "Obraz ze schowka"
 
-#: src/qml/Page/RoomPage.qml:358
+#: src/qml/Page/RoomPage.qml:359
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Przeskocz do pierwszej nieprzeczytanej wiadomości"
 
-#: src/qml/Page/RoomPage.qml:383
+#: src/qml/Page/RoomPage.qml:384
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Przeskocz do ostatniej wiadomości"
 
-#: src/qml/Page/RoomPage.qml:408
+#: src/qml/Page/RoomPage.qml:409
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Przeciągnij tutaj elementy, aby je udostępnić"
 
-#: src/qml/Page/RoomPage.qml:440
+#: src/qml/Page/RoomPage.qml:441
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2315,12 +2315,12 @@ msgstr[0] "%2 pisze"
 msgstr[1] "%2 piszą"
 msgstr[2] "%2 pisze"
 
-#: src/qml/Page/RoomPage.qml:511
+#: src/qml/Page/RoomPage.qml:512
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "Wiadomość tę wysłano ze sprawdzonego urządzenia"
 
-#: src/qml/Page/RoomPage.qml:517
+#: src/qml/Page/RoomPage.qml:518
 #, kde-format
 msgid "React"
 msgstr "Dodaj reakcję"
@@ -2501,53 +2501,65 @@ msgstr "Temat pokoju:"
 msgid "Save"
 msgstr "Zapisz"
 
-#: src/qml/RoomSettings/General.qml:129
+#: src/qml/RoomSettings/General.qml:123
+#, fuzzy, kde-format
+#| msgid "Rooms"
+msgid "Room ID"
+msgstr "Pokoje"
+
+#: src/qml/RoomSettings/General.qml:127
+#, fuzzy, kde-format
+#| msgid "Room information"
+msgid "Room version"
+msgstr "Informacje o pokoju"
+
+#: src/qml/RoomSettings/General.qml:137
 #, kde-format
 msgid "Aliases"
 msgstr "Aliasy"
 
-#: src/qml/RoomSettings/General.qml:133
+#: src/qml/RoomSettings/General.qml:141
 #, kde-format
 msgid "No canonical alias set"
 msgstr "Nie ustawiono kanonicznego aliasu"
 
-#: src/qml/RoomSettings/General.qml:146
+#: src/qml/RoomSettings/General.qml:154
 #, kde-format
 msgid "Make this alias the room's canonical alias"
 msgstr "Uczyń ten alias kanonicznym aliasem pokoju"
 
-#: src/qml/RoomSettings/General.qml:161
+#: src/qml/RoomSettings/General.qml:169
 #, kde-format
 msgid "Delete alias"
 msgstr "Usuń alias"
 
-#: src/qml/RoomSettings/General.qml:187
+#: src/qml/RoomSettings/General.qml:195
 #, kde-format
 msgid "#new_alias:server.org"
 msgstr "#new_alias:server.org"
 
-#: src/qml/RoomSettings/General.qml:204
+#: src/qml/RoomSettings/General.qml:212
 #, fuzzy, kde-format
 #| msgid "Add new server"
 msgid "Add new alias"
 msgstr "Dodaj nowy serwer"
 
-#: src/qml/RoomSettings/General.qml:227
+#: src/qml/RoomSettings/General.qml:235
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "W tym pokoju nadal toczona jest rozmowa."
 
-#: src/qml/RoomSettings/General.qml:231
+#: src/qml/RoomSettings/General.qml:239
 #, kde-format
 msgid "See older messages…"
 msgstr "Zobacz starsze wiadomości…"
 
-#: src/qml/RoomSettings/General.qml:242
+#: src/qml/RoomSettings/General.qml:250
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Ten pokój został zastąpiony."
 
-#: src/qml/RoomSettings/General.qml:246
+#: src/qml/RoomSettings/General.qml:254
 #, kde-format
 msgid "See new room…"
 msgstr "Zobacz nowy pokój…"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-28 00:49+0000\n"
+"POT-Creation-Date: 2022-12-29 00:52+0000\n"
 "PO-Revision-Date: 2022-12-24 06:42+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -875,7 +875,7 @@ msgstr "Odpri Neo-chat v tej sobi"
 #: src/notificationsmanager.cpp:76
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:544
+#: src/qml/Page/RoomPage.qml:545
 #, kde-format
 msgid "Reply"
 msgstr "Odgovori"
@@ -912,7 +912,7 @@ msgstr "Priloga:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:159
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:532
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:533
 #, kde-format
 msgid "Edit"
 msgstr "Uredi"
@@ -1380,7 +1380,7 @@ msgid "Successfully verified device **%1**"
 msgstr "Uspešno verificirana naprava **%1**"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:191
+#: src/qml/Page/RoomPage.qml:192
 #, kde-format
 msgid "Accept"
 msgstr "Sprejemam"
@@ -2278,42 +2278,42 @@ msgstr "Utišana soba"
 msgid "Configure room"
 msgstr "Nastavi sobo"
 
-#: src/qml/Page/RoomPage.qml:180
+#: src/qml/Page/RoomPage.qml:181
 #, kde-format
 msgid "Accept this invitation?"
 msgstr "Ali sprejemate povabilo?"
 
-#: src/qml/Page/RoomPage.qml:184
+#: src/qml/Page/RoomPage.qml:185
 #, kde-format
 msgid "Reject"
 msgstr "Zavračam"
 
-#: src/qml/Page/RoomPage.qml:282
+#: src/qml/Page/RoomPage.qml:283
 #, kde-format
 msgid "Choose local file"
 msgstr "Izberi lokalno datoteko"
 
-#: src/qml/Page/RoomPage.qml:309
+#: src/qml/Page/RoomPage.qml:310
 #, kde-format
 msgid "Clipboard image"
 msgstr "Slika odložišča"
 
-#: src/qml/Page/RoomPage.qml:358
+#: src/qml/Page/RoomPage.qml:359
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Skoči na prvo neprebrano sporočilo"
 
-#: src/qml/Page/RoomPage.qml:383
+#: src/qml/Page/RoomPage.qml:384
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Skoči na nedavno sporočilo"
 
-#: src/qml/Page/RoomPage.qml:408
+#: src/qml/Page/RoomPage.qml:409
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Povleci predmete sem, da jih deliš z drugimi"
 
-#: src/qml/Page/RoomPage.qml:440
+#: src/qml/Page/RoomPage.qml:441
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2323,12 +2323,12 @@ msgstr[1] "%2 tipkata"
 msgstr[2] "%2 tipkajo"
 msgstr[3] "%2 tipka"
 
-#: src/qml/Page/RoomPage.qml:511
+#: src/qml/Page/RoomPage.qml:512
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "To sporočilo je bilo poslano iz verificirane naprave"
 
-#: src/qml/Page/RoomPage.qml:517
+#: src/qml/Page/RoomPage.qml:518
 #, kde-format
 msgid "React"
 msgstr "Reagiraj"
@@ -2507,52 +2507,64 @@ msgstr "Tema debate sobe:"
 msgid "Save"
 msgstr "Shrani"
 
-#: src/qml/RoomSettings/General.qml:129
+#: src/qml/RoomSettings/General.qml:123
+#, fuzzy, kde-format
+#| msgid "Rooms"
+msgid "Room ID"
+msgstr "Sobe"
+
+#: src/qml/RoomSettings/General.qml:127
+#, fuzzy, kde-format
+#| msgid "Room information"
+msgid "Room version"
+msgstr "Informacije o sobi"
+
+#: src/qml/RoomSettings/General.qml:137
 #, kde-format
 msgid "Aliases"
 msgstr "Vzdevki"
 
-#: src/qml/RoomSettings/General.qml:133
+#: src/qml/RoomSettings/General.qml:141
 #, kde-format
 msgid "No canonical alias set"
 msgstr "Ni nastavljenega kanoničnega vzdevka"
 
-#: src/qml/RoomSettings/General.qml:146
+#: src/qml/RoomSettings/General.qml:154
 #, kde-format
 msgid "Make this alias the room's canonical alias"
 msgstr "Nastavi ta vzdevek kot kanonični vzdevek sobe"
 
-#: src/qml/RoomSettings/General.qml:161
+#: src/qml/RoomSettings/General.qml:169
 #, kde-format
 msgid "Delete alias"
 msgstr "Zbriši vzdevek"
 
-#: src/qml/RoomSettings/General.qml:187
+#: src/qml/RoomSettings/General.qml:195
 #, kde-format
 msgid "#new_alias:server.org"
 msgstr "#new_alias:server.org"
 
-#: src/qml/RoomSettings/General.qml:204
+#: src/qml/RoomSettings/General.qml:212
 #, kde-format
 msgid "Add new alias"
 msgstr "Dodaj novi vzdevek"
 
-#: src/qml/RoomSettings/General.qml:227
+#: src/qml/RoomSettings/General.qml:235
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "Ta soba nadaljuje z drugo debato."
 
-#: src/qml/RoomSettings/General.qml:231
+#: src/qml/RoomSettings/General.qml:239
 #, kde-format
 msgid "See older messages…"
 msgstr "Poglej starejša sporočila…"
 
-#: src/qml/RoomSettings/General.qml:242
+#: src/qml/RoomSettings/General.qml:250
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Ta soba je bila zamenjana."
 
-#: src/qml/RoomSettings/General.qml:246
+#: src/qml/RoomSettings/General.qml:254
 #, kde-format
 msgid "See new room…"
 msgstr "Poglej novo sobo…"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-28 00:49+0000\n"
+"POT-Creation-Date: 2022-12-29 00:52+0000\n"
 "PO-Revision-Date: 2022-12-15 07:00+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque\n"
@@ -876,7 +876,7 @@ msgstr "Ireki NeoChat gela honetan"
 #: src/notificationsmanager.cpp:76
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:544
+#: src/qml/Page/RoomPage.qml:545
 #, kde-format
 msgid "Reply"
 msgstr "Erantzun"
@@ -913,7 +913,7 @@ msgstr "Eranskina:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:159
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:532
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:533
 #, kde-format
 msgid "Edit"
 msgstr "Editatu"
@@ -1376,7 +1376,7 @@ msgid "Successfully verified device **%1**"
 msgstr "**%1** gailuaren egiaztatze arrakastatsua"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:191
+#: src/qml/Page/RoomPage.qml:192
 #, kde-format
 msgid "Accept"
 msgstr "Onartu"
@@ -2279,42 +2279,42 @@ msgstr "Isilarazitako gela"
 msgid "Configure room"
 msgstr "Konfiguratu gela"
 
-#: src/qml/Page/RoomPage.qml:180
+#: src/qml/Page/RoomPage.qml:181
 #, kde-format
 msgid "Accept this invitation?"
 msgstr "Gonbidapen hau onartu?"
 
-#: src/qml/Page/RoomPage.qml:184
+#: src/qml/Page/RoomPage.qml:185
 #, kde-format
 msgid "Reject"
 msgstr "Errefusatu"
 
-#: src/qml/Page/RoomPage.qml:282
+#: src/qml/Page/RoomPage.qml:283
 #, kde-format
 msgid "Choose local file"
 msgstr "Hautatu tokiko fitxategia"
 
-#: src/qml/Page/RoomPage.qml:309
+#: src/qml/Page/RoomPage.qml:310
 #, kde-format
 msgid "Clipboard image"
 msgstr "Arbelako irudia"
 
-#: src/qml/Page/RoomPage.qml:358
+#: src/qml/Page/RoomPage.qml:359
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Jauzi irakurri gabeko lehenengo mezura"
 
-#: src/qml/Page/RoomPage.qml:383
+#: src/qml/Page/RoomPage.qml:384
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Jauzi azken mezura"
 
-#: src/qml/Page/RoomPage.qml:408
+#: src/qml/Page/RoomPage.qml:409
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Arrastatu elementuak hona haiek partekatzeko"
 
-#: src/qml/Page/RoomPage.qml:440
+#: src/qml/Page/RoomPage.qml:441
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2322,12 +2322,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 tekleatzen ari da"
 msgstr[1] "%2 tekleatzen ari dira"
 
-#: src/qml/Page/RoomPage.qml:511
+#: src/qml/Page/RoomPage.qml:512
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "Mezu hau egiaztatutako gailu batetik bidali da"
 
-#: src/qml/Page/RoomPage.qml:517
+#: src/qml/Page/RoomPage.qml:518
 #, kde-format
 msgid "React"
 msgstr "Erreakzioa"
@@ -2507,52 +2507,64 @@ msgstr "Gelaren gaia:"
 msgid "Save"
 msgstr "Gorde"
 
-#: src/qml/RoomSettings/General.qml:129
+#: src/qml/RoomSettings/General.qml:123
+#, fuzzy, kde-format
+#| msgid "Rooms"
+msgid "Room ID"
+msgstr "Gelak"
+
+#: src/qml/RoomSettings/General.qml:127
+#, fuzzy, kde-format
+#| msgid "Room information"
+msgid "Room version"
+msgstr "Gelaren informazioa"
+
+#: src/qml/RoomSettings/General.qml:137
 #, kde-format
 msgid "Aliases"
 msgstr "Ezizenak"
 
-#: src/qml/RoomSettings/General.qml:133
+#: src/qml/RoomSettings/General.qml:141
 #, kde-format
 msgid "No canonical alias set"
 msgstr "Ez da ezizen kanonikorik ezarri"
 
-#: src/qml/RoomSettings/General.qml:146
+#: src/qml/RoomSettings/General.qml:154
 #, kde-format
 msgid "Make this alias the room's canonical alias"
 msgstr "Egin ezizen hau gelako ezizen kanonikoa"
 
-#: src/qml/RoomSettings/General.qml:161
+#: src/qml/RoomSettings/General.qml:169
 #, kde-format
 msgid "Delete alias"
 msgstr "Ezabatu ezizena"
 
-#: src/qml/RoomSettings/General.qml:187
+#: src/qml/RoomSettings/General.qml:195
 #, kde-format
 msgid "#new_alias:server.org"
 msgstr "#ezizen_berria:server.org"
 
-#: src/qml/RoomSettings/General.qml:204
+#: src/qml/RoomSettings/General.qml:212
 #, kde-format
 msgid "Add new alias"
 msgstr "Gehitu ezizen berria"
 
-#: src/qml/RoomSettings/General.qml:227
+#: src/qml/RoomSettings/General.qml:235
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "Gela honek beste elkarrizketa bat du."
 
-#: src/qml/RoomSettings/General.qml:231
+#: src/qml/RoomSettings/General.qml:239
 #, kde-format
 msgid "See older messages…"
 msgstr "Ikusi mezu zaharragoak..."
 
-#: src/qml/RoomSettings/General.qml:242
+#: src/qml/RoomSettings/General.qml:250
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Gela hau ordezkatu egin da."
 
-#: src/qml/RoomSettings/General.qml:246
+#: src/qml/RoomSettings/General.qml:254
 #, kde-format
 msgid "See new room…"
 msgstr "Ikusi gela berria..."

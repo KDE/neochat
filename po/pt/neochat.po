@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-28 00:49+0000\n"
-"PO-Revision-Date: 2022-12-23 20:55+0000\n"
+"POT-Creation-Date: 2022-12-29 00:52+0000\n"
+"PO-Revision-Date: 2022-12-28 18:23+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -754,10 +754,9 @@ msgid "requested an invite"
 msgstr "solicitou um convite"
 
 #: src/neochatroom.cpp:605
-#, fuzzy, kde-format
-#| msgid "requested an invite"
+#, kde-format
 msgid "requested an invite with reason: %1"
-msgstr "solicitou um convite"
+msgstr "solicitou um convite pela razão: %1"
 
 #: src/neochatroom.cpp:609
 #, kde-format
@@ -876,7 +875,7 @@ msgstr "Abrir o NeoChat nesta sala"
 #: src/notificationsmanager.cpp:76
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:544
+#: src/qml/Page/RoomPage.qml:545
 #, kde-format
 msgid "Reply"
 msgstr "Responder"
@@ -913,7 +912,7 @@ msgstr "Anexo:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:159
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:532
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:533
 #, kde-format
 msgid "Edit"
 msgstr "Editar"
@@ -1378,7 +1377,7 @@ msgid "Successfully verified device **%1**"
 msgstr "O dispositivo **%1** foi verificado com sucesso"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:191
+#: src/qml/Page/RoomPage.qml:192
 #, kde-format
 msgid "Accept"
 msgstr "Aceitar"
@@ -1584,10 +1583,9 @@ msgid "Kick this user"
 msgstr "Expulsar este utilizador"
 
 #: src/qml/Dialog/UserDetailDialog.qml:105
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgid "Invite this user"
-msgstr "Ignorar este utilizador"
+msgstr "Convidar este utilizador"
 
 #: src/qml/Dialog/UserDetailDialog.qml:117
 #, kde-format
@@ -2283,42 +2281,42 @@ msgstr "Sala em silêncio"
 msgid "Configure room"
 msgstr "Configurar a sala"
 
-#: src/qml/Page/RoomPage.qml:180
+#: src/qml/Page/RoomPage.qml:181
 #, kde-format
 msgid "Accept this invitation?"
 msgstr "Deseja aceitar este convite?"
 
-#: src/qml/Page/RoomPage.qml:184
+#: src/qml/Page/RoomPage.qml:185
 #, kde-format
 msgid "Reject"
 msgstr "Rejeitar"
 
-#: src/qml/Page/RoomPage.qml:282
+#: src/qml/Page/RoomPage.qml:283
 #, kde-format
 msgid "Choose local file"
 msgstr "Escolher um ficheiro local"
 
-#: src/qml/Page/RoomPage.qml:309
+#: src/qml/Page/RoomPage.qml:310
 #, kde-format
 msgid "Clipboard image"
 msgstr "Imagem da área de transferência"
 
-#: src/qml/Page/RoomPage.qml:358
+#: src/qml/Page/RoomPage.qml:359
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Ir para a primeira mensagem não-lida"
 
-#: src/qml/Page/RoomPage.qml:383
+#: src/qml/Page/RoomPage.qml:384
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Ir para a última mensagem"
 
-#: src/qml/Page/RoomPage.qml:408
+#: src/qml/Page/RoomPage.qml:409
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Arraste os itens para aqui para os partilhar"
 
-#: src/qml/Page/RoomPage.qml:440
+#: src/qml/Page/RoomPage.qml:441
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2326,12 +2324,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 está a escrever"
 msgstr[1] "%2 estão a escrever"
 
-#: src/qml/Page/RoomPage.qml:511
+#: src/qml/Page/RoomPage.qml:512
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "Esta mensagem foi enviada a partir de um dispositivo verificado"
 
-#: src/qml/Page/RoomPage.qml:517
+#: src/qml/Page/RoomPage.qml:518
 #, kde-format
 msgid "React"
 msgstr "Reagir"
@@ -2508,52 +2506,64 @@ msgstr "Tópico da sala:"
 msgid "Save"
 msgstr "Gravar"
 
-#: src/qml/RoomSettings/General.qml:129
+#: src/qml/RoomSettings/General.qml:123
+#, fuzzy, kde-format
+#| msgid "Rooms"
+msgid "Room ID"
+msgstr "Salas"
+
+#: src/qml/RoomSettings/General.qml:127
+#, fuzzy, kde-format
+#| msgid "Room information"
+msgid "Room version"
+msgstr "Informação da sala"
+
+#: src/qml/RoomSettings/General.qml:137
 #, kde-format
 msgid "Aliases"
 msgstr "Alcunhas"
 
-#: src/qml/RoomSettings/General.qml:133
+#: src/qml/RoomSettings/General.qml:141
 #, kde-format
 msgid "No canonical alias set"
 msgstr "Sem alcunha canónica definida"
 
-#: src/qml/RoomSettings/General.qml:146
+#: src/qml/RoomSettings/General.qml:154
 #, kde-format
 msgid "Make this alias the room's canonical alias"
 msgstr "Torna este nome a alcunha canónica da sala"
 
-#: src/qml/RoomSettings/General.qml:161
+#: src/qml/RoomSettings/General.qml:169
 #, kde-format
 msgid "Delete alias"
 msgstr "Apagar a alcunha"
 
-#: src/qml/RoomSettings/General.qml:187
+#: src/qml/RoomSettings/General.qml:195
 #, kde-format
 msgid "#new_alias:server.org"
 msgstr "#nova_alcunha:servidor.org"
 
-#: src/qml/RoomSettings/General.qml:204
+#: src/qml/RoomSettings/General.qml:212
 #, kde-format
 msgid "Add new alias"
 msgstr "Adicionar uma nova alcunha"
 
-#: src/qml/RoomSettings/General.qml:227
+#: src/qml/RoomSettings/General.qml:235
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "Esta sala prossegue com outra conversa."
 
-#: src/qml/RoomSettings/General.qml:231
+#: src/qml/RoomSettings/General.qml:239
 #, kde-format
 msgid "See older messages…"
 msgstr "Ver as mensagens mais antigas…"
 
-#: src/qml/RoomSettings/General.qml:242
+#: src/qml/RoomSettings/General.qml:250
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Esta sala foi substituída."
 
-#: src/qml/RoomSettings/General.qml:246
+#: src/qml/RoomSettings/General.qml:254
 #, kde-format
 msgid "See new room…"
 msgstr "Ver a sala nova…"
@@ -2606,12 +2616,12 @@ msgstr "Qualquer pessoa num espaço poderá pesquisar e ligar-se."
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
-msgstr ""
+msgstr "Bater"
 
 #: src/qml/RoomSettings/Security.qml:54
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
-msgstr ""
+msgstr "As pessoas fora da sala precisam de um convite para se juntar à sala"
 
 #: src/qml/RoomSettings/Security.qml:64
 #, kde-format
@@ -2819,7 +2829,7 @@ msgstr "Compacto"
 #: src/qml/Settings/AppearanceSettingsPage.qml:207
 #, kde-format
 msgid "Use compact room list"
-msgstr ""
+msgstr "Mostrar a lista de salas compacta"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:233
 #, kde-format

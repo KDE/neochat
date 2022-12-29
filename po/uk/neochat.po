@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-28 00:49+0000\n"
-"PO-Revision-Date: 2022-12-27 08:38+0200\n"
+"POT-Creation-Date: 2022-12-29 00:52+0000\n"
+"PO-Revision-Date: 2022-12-28 08:22+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -759,10 +759,9 @@ msgid "requested an invite"
 msgstr "надіслано запит щодо запрошення"
 
 #: src/neochatroom.cpp:605
-#, fuzzy, kde-format
-#| msgid "requested an invite"
+#, kde-format
 msgid "requested an invite with reason: %1"
-msgstr "надіслано запит щодо запрошення"
+msgstr "надіслано запит щодо запрошення з поясненням причини: %1"
 
 #: src/neochatroom.cpp:609
 #, kde-format
@@ -881,7 +880,7 @@ msgstr "Відкрити NeoChat у цій кімнаті"
 #: src/notificationsmanager.cpp:76
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:544
+#: src/qml/Page/RoomPage.qml:545
 #, kde-format
 msgid "Reply"
 msgstr "Відповісти"
@@ -918,7 +917,7 @@ msgstr "Долучення:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:159
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:532
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:533
 #, kde-format
 msgid "Edit"
 msgstr "Змінити"
@@ -1391,7 +1390,7 @@ msgid "Successfully verified device **%1**"
 msgstr "Успішно перевірено пристрій **%1**"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:191
+#: src/qml/Page/RoomPage.qml:192
 #, kde-format
 msgid "Accept"
 msgstr "Прийняти"
@@ -1591,10 +1590,9 @@ msgid "Kick this user"
 msgstr "Викинути цього користувача"
 
 #: src/qml/Dialog/UserDetailDialog.qml:105
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgid "Invite this user"
-msgstr "Ігнорувати цього користувача"
+msgstr "Запросити цього користувача"
 
 #: src/qml/Dialog/UserDetailDialog.qml:117
 #, kde-format
@@ -2291,42 +2289,42 @@ msgstr "Кімната із вимкненим спілкуванням"
 msgid "Configure room"
 msgstr "Налаштувати кімнату"
 
-#: src/qml/Page/RoomPage.qml:180
+#: src/qml/Page/RoomPage.qml:181
 #, kde-format
 msgid "Accept this invitation?"
 msgstr "Прийняти це запрошення?"
 
-#: src/qml/Page/RoomPage.qml:184
+#: src/qml/Page/RoomPage.qml:185
 #, kde-format
 msgid "Reject"
 msgstr "Відкинути"
 
-#: src/qml/Page/RoomPage.qml:282
+#: src/qml/Page/RoomPage.qml:283
 #, kde-format
 msgid "Choose local file"
 msgstr "Виберіть локальний файл"
 
-#: src/qml/Page/RoomPage.qml:309
+#: src/qml/Page/RoomPage.qml:310
 #, kde-format
 msgid "Clipboard image"
 msgstr "Зображення з буфера"
 
-#: src/qml/Page/RoomPage.qml:358
+#: src/qml/Page/RoomPage.qml:359
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Перейти до першого непрочитаного повідомлення"
 
-#: src/qml/Page/RoomPage.qml:383
+#: src/qml/Page/RoomPage.qml:384
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Перейти до останнього повідомлення"
 
-#: src/qml/Page/RoomPage.qml:408
+#: src/qml/Page/RoomPage.qml:409
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Перетягніть пункти сюди, щоб оприлюднити їх"
 
-#: src/qml/Page/RoomPage.qml:440
+#: src/qml/Page/RoomPage.qml:441
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2336,12 +2334,12 @@ msgstr[1] "%2 вводять текст…"
 msgstr[2] "%2 вводять текст…"
 msgstr[3] "%2 вводить текст…"
 
-#: src/qml/Page/RoomPage.qml:511
+#: src/qml/Page/RoomPage.qml:512
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "Це повідомлення було надіслано із перевіреного пристрою"
 
-#: src/qml/Page/RoomPage.qml:517
+#: src/qml/Page/RoomPage.qml:518
 #, kde-format
 msgid "React"
 msgstr "Реагувати"
@@ -2520,52 +2518,64 @@ msgstr "Тема кімнати:"
 msgid "Save"
 msgstr "Зберегти"
 
-#: src/qml/RoomSettings/General.qml:129
+#: src/qml/RoomSettings/General.qml:123
+#, fuzzy, kde-format
+#| msgid "Rooms"
+msgid "Room ID"
+msgstr "Кімнати"
+
+#: src/qml/RoomSettings/General.qml:127
+#, fuzzy, kde-format
+#| msgid "Room information"
+msgid "Room version"
+msgstr "Відомості щодо кімнати"
+
+#: src/qml/RoomSettings/General.qml:137
 #, kde-format
 msgid "Aliases"
 msgstr "Альтернативи"
 
-#: src/qml/RoomSettings/General.qml:133
+#: src/qml/RoomSettings/General.qml:141
 #, kde-format
 msgid "No canonical alias set"
 msgstr "Не встановлено канонічної альтернативи"
 
-#: src/qml/RoomSettings/General.qml:146
+#: src/qml/RoomSettings/General.qml:154
 #, kde-format
 msgid "Make this alias the room's canonical alias"
 msgstr "Зробити цю альтернативу основною альтернативою кімнати"
 
-#: src/qml/RoomSettings/General.qml:161
+#: src/qml/RoomSettings/General.qml:169
 #, kde-format
 msgid "Delete alias"
 msgstr "Вилучити альтернативу"
 
-#: src/qml/RoomSettings/General.qml:187
+#: src/qml/RoomSettings/General.qml:195
 #, kde-format
 msgid "#new_alias:server.org"
 msgstr "#нова_альтернатива:сервер.org"
 
-#: src/qml/RoomSettings/General.qml:204
+#: src/qml/RoomSettings/General.qml:212
 #, kde-format
 msgid "Add new alias"
 msgstr "Додати новий псевдонім"
 
-#: src/qml/RoomSettings/General.qml:227
+#: src/qml/RoomSettings/General.qml:235
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "У цій кімнаті продовжується інше спілкування."
 
-#: src/qml/RoomSettings/General.qml:231
+#: src/qml/RoomSettings/General.qml:239
 #, kde-format
 msgid "See older messages…"
 msgstr "Переглянути старі повідомлення…"
 
-#: src/qml/RoomSettings/General.qml:242
+#: src/qml/RoomSettings/General.qml:250
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Цю кімнат було замінено."
 
-#: src/qml/RoomSettings/General.qml:246
+#: src/qml/RoomSettings/General.qml:254
 #, kde-format
 msgid "See new room…"
 msgstr "Переглянути нову кімнату…"
@@ -2616,16 +2626,16 @@ msgid "Anyone in a space can find and join."
 msgstr "Будь-хто у просторі може шукати і долучатися."
 
 #: src/qml/RoomSettings/Security.qml:53
-#, fuzzy, kde-format
-#| msgid "knocked"
+#, kde-format
 msgctxt "@option:check"
 msgid "Knock"
-msgstr "штурхнуто"
+msgstr "Постукати"
 
 #: src/qml/RoomSettings/Security.qml:54
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
+"Ті, кого немає у кімнаті, мають надіслати запити щодо запрошення до кімнати."
 
 #: src/qml/RoomSettings/Security.qml:64
 #, kde-format
