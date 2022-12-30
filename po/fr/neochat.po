@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-29 00:52+0000\n"
-"PO-Revision-Date: 2022-12-27 17:36+0100\n"
+"PO-Revision-Date: 2022-12-29 11:06+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -754,10 +754,9 @@ msgid "requested an invite"
 msgstr "Nécessite une invitation."
 
 #: src/neochatroom.cpp:605
-#, fuzzy, kde-format
-#| msgid "requested an invite"
+#, kde-format
 msgid "requested an invite with reason: %1"
-msgstr "Nécessite une invitation."
+msgstr "A demandé une invitation avec le motif : %1"
 
 #: src/neochatroom.cpp:609
 #, kde-format
@@ -1588,10 +1587,9 @@ msgid "Kick this user"
 msgstr "Rejeter cet utilisateur"
 
 #: src/qml/Dialog/UserDetailDialog.qml:105
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgid "Invite this user"
-msgstr "Ignorer cet utilisateur"
+msgstr "Inviter cet utilisateur"
 
 #: src/qml/Dialog/UserDetailDialog.qml:117
 #, kde-format
@@ -2623,16 +2621,17 @@ msgstr ""
 "N'importe quelle personne dans un espace peut trouver et rejoindre le salon."
 
 #: src/qml/RoomSettings/Security.qml:53
-#, fuzzy, kde-format
-#| msgid "knocked"
+#, kde-format
 msgctxt "@option:check"
 msgid "Knock"
-msgstr "tapé à la porte"
+msgstr "Frapper à la porte"
 
 #: src/qml/RoomSettings/Security.qml:54
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
+"Les personnes en dehors du salon doivent recevoir une invitation pour "
+"rejoindre le salon."
 
 #: src/qml/RoomSettings/Security.qml:64
 #, kde-format

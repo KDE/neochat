@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-29 00:52+0000\n"
-"PO-Revision-Date: 2022-12-16 11:46+0100\n"
+"PO-Revision-Date: 2022-12-28 20:15+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -752,10 +752,9 @@ msgid "requested an invite"
 msgstr "ha richiesto un invito"
 
 #: src/neochatroom.cpp:605
-#, fuzzy, kde-format
-#| msgid "requested an invite"
+#, kde-format
 msgid "requested an invite with reason: %1"
-msgstr "ha richiesto un invito"
+msgstr "ha richiesto un invito con motivo: %1"
 
 #: src/neochatroom.cpp:609
 #, kde-format
@@ -1587,10 +1586,9 @@ msgid "Kick this user"
 msgstr "Espelli questo utente"
 
 #: src/qml/Dialog/UserDetailDialog.qml:105
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgid "Invite this user"
-msgstr "Ignora questo utente"
+msgstr "Invita questo utente"
 
 #: src/qml/Dialog/UserDetailDialog.qml:117
 #, kde-format
@@ -1950,9 +1948,7 @@ msgstr "Impostazioni degli spazi"
 
 #: src/qml/Menu/SpaceListContextMenu.qml:35
 #: src/qml/Menu/SpaceListContextMenu.qml:92
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Space Settings"
+#, kde-format
 msgid "Space Settings"
 msgstr "Impostazioni degli spazi"
 
@@ -2342,22 +2338,20 @@ msgid "React"
 msgstr "Reagisci"
 
 #: src/qml/Page/SearchPage.qml:17
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
-msgstr "Messaggi diretti"
+msgstr "Cerca messaggi"
 
 #: src/qml/Page/SearchPage.qml:58
 #, kde-format
 msgid "Enter a text to start searching"
-msgstr ""
+msgstr "Inserisci un testo per iniziare la ricerca"
 
 #: src/qml/Page/SearchPage.qml:64
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgid "No results found"
-msgstr "Nessuna stanza trovata"
+msgstr "Nessun risultato trovato"
 
 #: src/qml/Page/StartChatPage.qml:38
 #, kde-format
@@ -2385,16 +2379,15 @@ msgid "Developer Tools"
 msgstr "Strumenti di sviluppo"
 
 #: src/qml/Panel/RoomDrawer.qml:119
-#, fuzzy, kde-format
-#| msgid "Leaving this room."
+#, kde-format
 msgid "Search in this room"
-msgstr "Lascia questa stanza."
+msgstr "Cerca in questa stanza"
 
 #: src/qml/Panel/RoomDrawer.qml:127
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
-msgstr ""
+msgstr "Cerca"
 
 #: src/qml/Panel/RoomDrawer.qml:136
 #, kde-format
@@ -2625,16 +2618,17 @@ msgid "Anyone in a space can find and join."
 msgstr "Chiunque in uno spazio può trovare e partecipare."
 
 #: src/qml/RoomSettings/Security.qml:53
-#, fuzzy, kde-format
-#| msgid "knocked"
+#, kde-format
 msgctxt "@option:check"
 msgid "Knock"
-msgstr "ha bussato"
+msgstr "Bussa"
 
 #: src/qml/RoomSettings/Security.qml:54
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
+"Le persone che non sono nella stanza devono richiedere un invito per "
+"entrarvi."
 
 #: src/qml/RoomSettings/Security.qml:64
 #, kde-format
@@ -2843,7 +2837,7 @@ msgstr "Compatta"
 #: src/qml/Settings/AppearanceSettingsPage.qml:207
 #, kde-format
 msgid "Use compact room list"
-msgstr ""
+msgstr "Usa l'elenco  delle stanze compatto"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:233
 #, kde-format
