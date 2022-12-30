@@ -83,7 +83,7 @@ Kirigami.ScrollablePage {
                             value: Config.proxyPort
                             from: 0
                             to: 65536
-                            validator: IntValidator {bottom: from; top: to}
+                            validator: IntValidator {bottom: portField.from; top: portField.to}
                             textFromValue: function(value, locale) {
                                 return value // it will add a thousands separator if we don't do this, not sure why
                             }
