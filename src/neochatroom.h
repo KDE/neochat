@@ -65,6 +65,13 @@ class NeoChatRoom : public Quotient::Room
     Q_PROPERTY(QString chatBoxAttachmentPath READ chatBoxAttachmentPath WRITE setChatBoxAttachmentPath NOTIFY chatBoxAttachmentPathChanged)
     Q_PROPERTY(bool canEncryptRoom READ canEncryptRoom NOTIFY canEncryptRoomChanged)
 
+    /**
+     * @brief Get the maximum room version that the server supports.
+     *
+     * Only returns main integer room versions (i.e. no msc room versions).
+     */
+    Q_PROPERTY(int maxRoomVersion READ maxRoomVersion NOTIFY maxRoomVersionChanged)
+
 public:
     enum MessageType {
         Positive,
@@ -223,6 +230,8 @@ public:
     }
 #endif
 
+    int maxRoomVersion() const;
+
 private:
     QSet<const Quotient::RoomEvent *> highlights;
 
@@ -274,6 +283,7 @@ Q_SIGNALS:
     void canEncryptRoomChanged();
     void joinRuleChanged();
     void historyVisibilityChanged();
+    void maxRoomVersionChanged();
 
 public Q_SLOTS:
     void uploadFile(const QUrl &url, const QString &body = QString());

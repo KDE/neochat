@@ -94,6 +94,7 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
     connect(this, &Room::changed, this, [this] {
         Q_EMIT canEncryptRoomChanged();
     });
+    connect(connection, &Connection::capabilitiesLoaded, this, &NeoChatRoom::maxRoomVersionChanged);
 }
 
 void NeoChatRoom::uploadFile(const QUrl &url, const QString &body)
@@ -1369,4 +1370,15 @@ void NeoChatRoom::setCanonicalAlias(const QString &newAlias)
             }
         }
     });
+}
+
+int NeoChatRoom::maxRoomVersion() const
+{
+    int maxVersion = 0;
+    for (auto roomVersion : connection()->availableRoomVersions()) {
+        if (roomVersion.id.toInt() > maxVersion) {
+            maxVersion = roomVersion.id.toInt();
+        }
+    }
+    return maxVersion;
 }

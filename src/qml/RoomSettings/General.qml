@@ -126,6 +126,25 @@ Kirigami.ScrollablePage {
                 MobileForm.FormTextDelegate {
                     text: i18n("Room version")
                     description: room.version
+
+                    contentItem.children: QQC2.Button {
+                        visible: room.canSwitchVersions()
+                        enabled: room.version < room.maxRoomVersion
+                        text: i18n("Upgrade Room")
+                        icon.name: "arrow-up-double"
+
+                        onClicked: {
+                            if (room.canSwitchVersions()) {
+                                roomUpgradeSheet.currentRoomVersion = room.version
+                                roomUpgradeSheet.open()
+                            }
+                        }
+
+                        QQC2.ToolTip {
+                            text: text
+                            delay: Kirigami.Units.toolTipDelay
+                        }
+                    }
                 }
             }
         }
@@ -263,6 +282,30 @@ Kirigami.ScrollablePage {
             id: openFileDialog
 
             OpenFileDialog {}
+        }
+
+        Kirigami.OverlaySheet {
+            id: roomUpgradeSheet
+
+            property var currentRoomVersion
+
+            title: i18n("Upgrade the Room")
+            Kirigami.FormLayout {
+                QQC2.SpinBox {
+                    id: spinBox
+                    Kirigami.FormData.label: i18n("Select new version")
+                    from: room.version
+                    to: room.maxRoomVersion
+                    value: room.version
+                }
+                QQC2.Button {
+                    text: i18n("Confirm")
+                    onClicked: {
+                        room.switchVersion(spinBox.value)
+                        roomUpgradeSheet.close()
+                    }
+                }
+            }
         }
     }
 }
