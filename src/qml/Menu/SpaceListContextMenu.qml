@@ -22,6 +22,11 @@ Loader {
         id: regularMenu
         QQC2.Menu {
             QQC2.MenuItem {
+                text: i18nc("'Space' is a matrix space", "View Space")
+                onTriggered: RoomManager.enterRoom(room);
+            }
+
+            QQC2.MenuItem {
                 text: i18nc("@action:inmenu", "Copy Address to Clipboard")
                 onTriggered: if (room.canonicalAlias.length === 0) {
                     Clipboard.saveText(room.id)
