@@ -389,7 +389,6 @@ Kirigami.ScrollablePage {
                         TextMetrics {
                             id: notificationCountTextMetrics
                             text: notificationCountLabel.text
-                            onTextChanged: console.log(text, advanceWidth)
                         }
                     }
                     QQC2.Button {
