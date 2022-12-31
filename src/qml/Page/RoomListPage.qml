@@ -370,11 +370,13 @@ Kirigami.ScrollablePage {
                         Accessible.name: i18n("Muted room")
                     }
                     QQC2.Label {
+                        id: notificationCountLabel
                         text: notificationCount > 0 ? notificationCount : "●"
                         visible: unreadCount > 0
                         color: Kirigami.Theme.textColor
                         Layout.rightMargin: Kirigami.Units.smallSpacing
-                        Layout.minimumWidth: height
+                        Layout.minimumHeight: Kirigami.Units.iconSizes.smallMedium
+                        Layout.minimumWidth: Math.max(notificationCountTextMetrics.advanceWidth + Kirigami.Units.smallSpacing * 2, height)
                         horizontalAlignment: Text.AlignHCenter
                         background: Rectangle {
                             visible: notificationCount > 0
@@ -382,6 +384,12 @@ Kirigami.ScrollablePage {
                             color: highlightCount > 0 ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.disabledTextColor
                             opacity: highlightCount > 0 ? 1 : 0.3
                             radius: height / 2
+                        }
+
+                        TextMetrics {
+                            id: notificationCountTextMetrics
+                            text: notificationCountLabel.text
+                            onTextChanged: console.log(text, advanceWidth)
                         }
                     }
                     QQC2.Button {
