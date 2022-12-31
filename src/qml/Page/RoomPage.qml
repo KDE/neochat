@@ -261,7 +261,7 @@ Kirigami.ScrollablePage {
 
             maxWidth: messageListView.sectionBannerItem ? messageListView.sectionBannerItem.width - Kirigami.Units.largeSpacing * 2 : 0
             z: 3
-            visible: messageListView.sectionBannerItem != undefined && messageListView.sectionBannerItem.ListView.section != ""
+            visible: messageListView.sectionBannerItem != undefined && messageListView.sectionBannerItem.ListView.section != "" && !Config.blur
             labelText: messageListView.sectionBannerItem ? messageListView.sectionBannerItem.ListView.section : ""
         }
         footerPositioning: ListView.OverlayHeader
