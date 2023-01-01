@@ -28,7 +28,7 @@ Kirigami.ScrollablePage {
             clip: true
             visible: spaceList.count > 0
 
-            Layout.preferredHeight: Kirigami.Units.gridUnit * 3
+            Layout.preferredHeight: Kirigami.Units.gridUnit * 2
             Layout.fillWidth: true
 
             model: SortFilterSpaceListModel {
@@ -39,26 +39,28 @@ Kirigami.ScrollablePage {
                 }
             }
 
-            header: QQC2.Control {
-                contentItem: QQC2.RoundButton {
-                    id: homeButton
-                    flat: true
-                    padding: Kirigami.Units.gridUnit / 2
-                    icon.name: "home"
-                    text: i18nc("@action:button", "Show All Rooms")
-                    display: QQC2.AbstractButton.IconOnly
+            header: QQC2.ItemDelegate {
+                id: homeButton
+                icon.name: "home"
+                text: i18nc("@action:button", "Show All Rooms")
+                height: parent.height
+                width: height
+                leftPadding: topPadding
+                rightPadding: topPadding
 
-                    onClicked: {
-                        sortFilterRoomListModel.activeSpaceId = "";
-                        spaceList.activeSpaceId = '';
-                        listView.positionViewAtIndex(0, ListView.Beginning);
-                    }
-
-                    QQC2.ToolTip {
-                        text: homeButton.text
-                    }
-                    Accessible.name: text
+                contentItem: Kirigami.Icon {
+                    source: "home"
                 }
+
+                onClicked: {
+                    sortFilterRoomListModel.activeSpaceId = "";
+                    spaceList.activeSpaceId = '';
+                    listView.positionViewAtIndex(0, ListView.Beginning);
+                }
+
+                QQC2.ToolTip.text: homeButton.text
+                QQC2.ToolTip.visible: hovered
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
             }
 
             delegate: QQC2.ItemDelegate {
@@ -84,9 +86,9 @@ Kirigami.ScrollablePage {
 
                 Accessible.name: currentRoom.displayName
 
-                QQC2.ToolTip {
-                    text: currentRoom.displayName
-                }
+                QQC2.ToolTip.text: currentRoom.displayName
+                QQC2.ToolTip.visible: hovered
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
                 onPressAndHold: {
                     spaceList.createContextMenu(currentRoom)
