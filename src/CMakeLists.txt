@@ -159,7 +159,7 @@ if(ANDROID)
         "zoom-out"
         "image-rotate-left-symbolic"
         "image-rotate-right-symbolic"
-        "channel-insecure-symbolic"
+        "channel-secure-symbolic"
         "download"
         "smiley"
         "tools-check-spelling"

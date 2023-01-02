@@ -23,6 +23,29 @@ Kirigami.ScrollablePage {
 
     ColumnLayout {
         MobileForm.FormCard {
+            visible: Controller.encryptionSupported
+            Layout.topMargin: Kirigami.Units.largeSpacing
+            Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                spacing: 0
+                MobileForm.FormCardHeader {
+                    title: i18nc("@option:check", "Encryption")
+                }
+                MobileForm.FormSwitchDelegate {
+                    id: enableEncryptionSwitch
+                    text: i18n("Enable encryption")
+                    description: i18nc("option:check", "Once enabled, encryption cannot be disabled.")
+                    enabled: room.canEncryptRoom
+                    checked: room.usesEncryption
+                    onToggled: if (checked) {
+                        let dialog = confirmEncryptionDialog.createObject(applicationWindow(), {room: room});
+                        dialog.open();
+                    }
+                }
+            }
+        }
+
+        MobileForm.FormCard {
             Layout.topMargin: Kirigami.Units.largeSpacing
             Layout.fillWidth: true
             contentItem: ColumnLayout {
@@ -130,6 +153,26 @@ Kirigami.ScrollablePage {
                 enabled: false
                 text: i18n("Apply")
             }
+        }
+    }
+
+    Component {
+        id: confirmEncryptionDialog
+
+        ConfirmEncryptionDialog {
+            onClosed: {
+                // At the point this is executed, the state in the room is not yet changed.
+                // The value will be updated when room.onEncryption() emitted.
+                // This is in case if user simply closed the dialog.
+                enableEncryptionSwitch.checked = false
+            }
+        }
+    }
+
+    Connections {
+        target: room
+        onEncryption: {
+            enableEncryptionSwitch.checked = room.usesEncryption
         }
     }
 }

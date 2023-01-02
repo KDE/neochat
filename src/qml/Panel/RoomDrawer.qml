@@ -117,6 +117,23 @@ Kirigami.OverlayDrawer {
 
                     name: room ? room.displayName : ""
                     source: room ? ("image://mxc/" +  room.avatarMediaId) : ""
+
+                    Rectangle {
+                        visible: room.usesEncryption
+                        color: Kirigami.Theme.backgroundColor
+
+                        width: Kirigami.Units.gridUnit
+                        height: Kirigami.Units.gridUnit
+                        anchors.bottom: parent.bottom
+                        anchors.right: parent.right
+
+                        radius: width / 2
+
+                        Kirigami.Icon {
+                            source: "channel-secure-symbolic"
+                            anchors.fill: parent
+                        }
+                    }
                 }
 
                 ColumnLayout {
@@ -205,20 +222,6 @@ Kirigami.OverlayDrawer {
                 text: room && room.isFavourite ? i18n("Remove room from favorites") : i18n("Make room favorite")
 
                 onClicked: room.isFavourite ? room.removeTag("m.favourite") : room.addTag("m.favourite", 1.0)
-            }
-            Kirigami.BasicListItem {
-                id: encryptButton
-
-                icon: "channel-insecure-symbolic"
-                enabled: roomDrawer.room.canEncryptRoom
-                visible: !roomDrawer.room.usesEncryption && Controller.encryptionSupported
-                text: i18n("Enable encryption")
-
-                onClicked: {
-                    let dialog = confirmEncryptionDialog.createObject(applicationWindow(), {room: roomDrawer.room});
-                    roomDrawer.close();
-                    dialog.open();
-                }
             }
 
             Kirigami.ListSectionHeader {
@@ -362,11 +365,5 @@ Kirigami.OverlayDrawer {
         id: userDetailDialog
 
         UserDetailDialog {}
-    }
-
-    Component {
-        id: confirmEncryptionDialog
-
-        ConfirmEncryptionDialog {}
     }
 }
