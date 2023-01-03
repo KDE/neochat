@@ -24,6 +24,13 @@ QQC2.Popup {
         }
     }
 
+    onVisibleChanged: {
+        if (!visible) {
+            return
+        }
+        emojiPicker.forceActiveFocus()
+    }
+
     background: Kirigami.ShadowedRectangle {
         Kirigami.Theme.colorSet: Kirigami.Theme.View
         color: Kirigami.Theme.backgroundColor
@@ -43,6 +50,7 @@ QQC2.Popup {
     implicitHeight: Kirigami.Units.gridUnit * 20 + 2 * padding
     width: Math.min(contentItem.categoryIconSize * contentItem.categoryCount + 2 * padding, QQC2.Overlay.overlay.width)
     contentItem: EmojiPicker {
+        id: emojiPicker
         height: 400
         includeCustom: emojiPopup.includeCustom
         showQuickReaction: emojiPopup.showQuickReaction

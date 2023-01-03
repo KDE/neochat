@@ -27,6 +27,10 @@ ColumnLayout {
 
     signal chosen(string emoji)
 
+    onActiveFocusChanged: if (activeFocus) {
+        searchField.forceActiveFocus()
+    }
+
     spacing: 0
 
     QQC2.ScrollView {
@@ -78,6 +82,12 @@ ColumnLayout {
         id: searchField
         Layout.margins: Kirigami.Units.smallSpacing
         Layout.fillWidth: true
+
+        /**
+         * The focus is manged by the parent and we don't want to use the standard
+         * shortcut as it could block other SearchFields from using it.
+         */
+        focusSequence: ""
     }
 
     EmojiGrid {

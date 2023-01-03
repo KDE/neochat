@@ -251,6 +251,8 @@ Kirigami.OverlayDrawer {
                 Layout.rightMargin: Kirigami.Units.largeSpacing - 1
                 Layout.bottomMargin: Kirigami.Units.smallSpacing
 
+                focusSequence: "Ctrl+Shift+F"
+
                 onAccepted: sortedMessageEventModel.filterString = text;
             }
 

@@ -40,6 +40,11 @@ QQC2.Popup {
             // we used to be able to expect that the text field wouldn't attempt to
             // perform a mini-DDOS attack using signals.
             autoAccept: false
+            /**
+             * The focus is manged by the popup and we don't want to use the standard
+             * shortcut as it could block other SearchFields from using it.
+             */
+            focusSequence: ""
 
             Layout.preferredWidth: Kirigami.Units.gridUnit * 21 // 3 * 7 = 21, roughly 7 avatars on screen
             Keys.onLeftPressed: cView.decrementCurrentIndex()
