@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-02 01:01+0000\n"
+"POT-Creation-Date: 2023-01-04 00:48+0000\n"
 "PO-Revision-Date: 2022-02-11 15:44+0100\n"
-"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
+"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -21,10 +21,8 @@ msgstr ""
 #: src/actionsmodel.cpp:60 src/actionsmodel.cpp:80 src/actionsmodel.cpp:100
 #: src/actionsmodel.cpp:111 src/actionsmodel.cpp:127 src/actionsmodel.cpp:137
 #: src/actionsmodel.cpp:147
-#, fuzzy
-#| msgid "Send message"
 msgid "<message>"
-msgstr "Poslat správu"
+msgstr ""
 
 #: src/actionsmodel.cpp:31
 msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
@@ -51,10 +49,8 @@ msgid "Sends the given emote colored as a rainbow"
 msgstr ""
 
 #: src/actionsmodel.cpp:112
-#, fuzzy
-#| msgid "React to this message with a text"
 msgid "Sends the given message as plain text"
-msgstr "Zareagovat na tuto zprávu textem"
+msgstr ""
 
 #: src/actionsmodel.cpp:128
 msgid "Sends the given message as a spoiler"
@@ -141,24 +137,21 @@ msgid "You are already in room %1."
 msgstr ""
 
 #: src/actionsmodel.cpp:238 src/actionsmodel.cpp:270
-#, fuzzy, kde-format
-#| msgid "Leave room"
+#, kde-format
 msgid "Leaving this room."
-msgstr "Opustit místnost"
+msgstr ""
 
 #: src/actionsmodel.cpp:253 src/actionsmodel.cpp:285
-#, fuzzy, kde-format
-#| msgid "Leave room"
+#, kde-format
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
-msgstr "Opustit místnost"
+msgstr ""
 
 #: src/actionsmodel.cpp:256 src/actionsmodel.cpp:288
-#, fuzzy, kde-format
-#| msgid "Room not found"
+#, kde-format
 msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
-msgstr "Místnost nenalezena"
+msgstr ""
 
 #: src/actionsmodel.cpp:263 src/actionsmodel.cpp:295
 msgid "[<room alias or id>]"
@@ -220,29 +213,22 @@ msgid "%1 is no longer ignored."
 msgstr ""
 
 #: src/actionsmodel.cpp:382
-#, fuzzy
-#| msgid "Unban this user"
 msgid "Unignores the given user"
-msgstr "Od blokovat tohoto uživatele"
+msgstr ""
 
 #: src/actionsmodel.cpp:402
 msgid "<reaction text>"
 msgstr ""
 
 #: src/actionsmodel.cpp:403
-#, fuzzy
-#| msgid "React to this message with a text"
 msgid "React to the message with the given text"
-msgstr "Zareagovat na tuto zprávu textem"
+msgstr ""
 
 #: src/actionsmodel.cpp:419
-#, fuzzy, kde-format
-#| msgctxt "%1 is the number of other users"
-#| msgid " and %1 other"
-#| msgid_plural " and %1 others"
+#, kde-format
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
-msgstr " a 1 další"
+msgstr ""
 
 #: src/actionsmodel.cpp:425
 #, kde-format
@@ -256,23 +242,18 @@ msgid "You are not allowed to ban %1 from this room."
 msgstr ""
 
 #: src/actionsmodel.cpp:435
-#, fuzzy, kde-format
-#| msgctxt "%1 is the number of other users"
-#| msgid " and %1 other"
-#| msgid_plural " and %1 others"
+#, kde-format
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
-msgstr " a 1 další"
+msgstr ""
 
 #: src/actionsmodel.cpp:440 src/actionsmodel.cpp:515
 msgid "<user id> [<reason>]"
 msgstr ""
 
 #: src/actionsmodel.cpp:441
-#, fuzzy
-#| msgid "Unban this user"
 msgid "Bans the given user"
-msgstr "Od blokovat tohoto uživatele"
+msgstr ""
 
 #: src/actionsmodel.cpp:455
 #, kde-format
@@ -280,28 +261,20 @@ msgid "You are not allowed to unban users from this room."
 msgstr ""
 
 #: src/actionsmodel.cpp:461
-#, fuzzy, kde-format
-#| msgctxt "%1 is the number of other users"
-#| msgid " and %1 other"
-#| msgid_plural " and %1 others"
+#, kde-format
 msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
-msgstr " a 1 další"
+msgstr ""
 
 #: src/actionsmodel.cpp:466
-#, fuzzy, kde-format
-#| msgctxt "%1 is the number of other users"
-#| msgid " and %1 other"
-#| msgid_plural " and %1 others"
+#, kde-format
 msgctxt "<username> was unbanned from this room."
 msgid "%1 was unbanned from this room."
-msgstr " a 1 další"
+msgstr ""
 
 #: src/actionsmodel.cpp:473
-#, fuzzy
-#| msgid "Unban this user"
 msgid "Removes the ban of the given user"
-msgstr "Od blokovat tohoto uživatele"
+msgstr ""
 
 #: src/actionsmodel.cpp:488
 #, kde-format
@@ -309,11 +282,10 @@ msgid "You cannot kick yourself from the room."
 msgstr ""
 
 #: src/actionsmodel.cpp:493
-#, fuzzy, kde-format
-#| msgid "Leave room"
+#, kde-format
 msgctxt "<username> is not in this room"
 msgid "%1 is not in this room."
-msgstr "Opustit místnost"
+msgstr ""
 
 #: src/actionsmodel.cpp:500
 #, kde-format
@@ -327,21 +299,14 @@ msgid "You are not allowed to kick %1 from this room."
 msgstr ""
 
 #: src/actionsmodel.cpp:510
-#, fuzzy, kde-format
-#| msgctxt "%1 is the number of other users"
-#| msgid " and %1 other"
-#| msgid_plural " and %1 others"
+#, kde-format
 msgctxt "<username> was kicked from this room."
 msgid "%1 was kicked from this room."
-msgstr " a 1 další"
+msgstr ""
 
 #: src/actionsmodel.cpp:516
-#, fuzzy
-#| msgctxt "%1 is the number of other users"
-#| msgid " and %1 other"
-#| msgid_plural " and %1 others"
 msgid "Removes the user from the room"
-msgstr " a 1 další"
+msgstr ""
 
 #: src/collapsestateproxymodel.cpp:68
 #, kde-format
@@ -365,10 +330,9 @@ msgid " and "
 msgstr ""
 
 #: src/controller.cpp:203
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgid "Encrypted Message"
-msgstr "Upravit zprávu"
+msgstr "Zašifrovaná zpráva"
 
 #: src/controller.cpp:263 src/controller.cpp:391
 #, kde-format
@@ -473,11 +437,10 @@ msgid "Travel"
 msgstr ""
 
 #: src/emojimodel.cpp:184
-#, fuzzy, kde-format
-#| msgid "Reject"
+#, kde-format
 msgctxt "'Objects' is a category of emoji"
 msgid "Objects"
-msgstr "Odmítnout"
+msgstr ""
 
 #: src/emojimodel.cpp:189
 #, kde-format
@@ -492,40 +455,34 @@ msgid "Flags"
 msgstr ""
 
 #: src/emojimodel.cpp:213
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
-msgstr "Vlastní"
+msgstr ""
 
 #: src/filetransferpseudojob.cpp:47
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to download its file"
-#| msgid "Download"
+#, kde-format
 msgctxt "Job heading, like 'Copying'"
 msgid "Downloading"
-msgstr "Stáhnout"
+msgstr "Stahuji"
 
 #: src/filetransferpseudojob.cpp:47
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgctxt "Job heading, like 'Copying'"
 msgid "Uploading"
-msgstr "Probíhá načítání…"
+msgstr ""
 
 #: src/filetransferpseudojob.cpp:48
-#, fuzzy, kde-format
-#| msgid "View Source"
+#, kde-format
 msgctxt "The URL being downloaded/uploaded"
 msgid "Source"
-msgstr "Zobrazit zdroj"
+msgstr ""
 
 #: src/filetransferpseudojob.cpp:49
 #, kde-format
 msgctxt "The location being downloaded to"
 msgid "Destination"
-msgstr ""
+msgstr "Cíl"
 
 #: src/login.cpp:86 src/login.cpp:97
 #, kde-format
@@ -555,7 +512,7 @@ msgstr "Carl Schwan"
 #: src/main.cpp:154 src/main.cpp:155 src/main.cpp:156
 #, kde-format
 msgid "Maintainer"
-msgstr ""
+msgstr "Správce"
 
 #: src/main.cpp:155
 #, kde-format
@@ -565,7 +522,7 @@ msgstr "Tobias Fella"
 #: src/main.cpp:156
 #, kde-format
 msgid "James Graham"
-msgstr ""
+msgstr "James Graham"
 
 #: src/main.cpp:157
 #, kde-format
@@ -772,12 +729,9 @@ msgid "left the room"
 msgstr ""
 
 #: src/neochatroom.cpp:597
-#, fuzzy, kde-format
-#| msgctxt "%1 is the number of other users"
-#| msgid " and %1 other"
-#| msgid_plural " and %1 others"
+#, kde-format
 msgid "banned %1 from the room"
-msgstr " a 1 další"
+msgstr ""
 
 #: src/neochatroom.cpp:599
 #, kde-format
@@ -1015,45 +969,38 @@ msgid "Replying to %1:"
 msgstr "Odpovídáte %1:"
 
 #: src/qml/Component/ChatBox/ReplyPane.qml:100
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
-msgstr "Zrušit"
+msgstr ""
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:77
-#, fuzzy, kde-format
-#| msgid "Custom Emojis"
+#, kde-format
 msgid "No emojis"
-msgstr "Vlastní emotikon"
+msgstr ""
 
 #: src/qml/Component/FullScreenImage.qml:80
 #, kde-format
 msgid "Zoom in"
-msgstr ""
+msgstr "Přiblížit"
 
 #: src/qml/Component/FullScreenImage.qml:99
 #, kde-format
 msgid "Zoom out"
-msgstr ""
+msgstr "Oddálit"
 
 #: src/qml/Component/FullScreenImage.qml:118
-#, fuzzy, kde-format
-#| msgctxt "@action:button Rotate an image to the left"
-#| msgid "Rotate left"
+#, kde-format
 msgid "Rotate left"
 msgstr "Otočit doleva"
 
 #: src/qml/Component/FullScreenImage.qml:132
-#, fuzzy, kde-format
-#| msgctxt "@action:button Rotate an image to the right"
-#| msgid "Rotate right"
+#, kde-format
 msgid "Rotate right"
 msgstr "Otočit doprava"
 
 #: src/qml/Component/FullScreenImage.qml:146
-#, fuzzy, kde-format
-#| msgid "Save As"
+#, kde-format
 msgid "Save as"
 msgstr "Uložit jako"
 
@@ -1275,8 +1222,7 @@ msgid "Video"
 msgstr "Video"
 
 #: src/qml/Component/UserInfo.qml:58 src/qml/Settings/AccountsPage.qml:83
-#, fuzzy, kde-format
-#| msgid "Add an account"
+#, kde-format
 msgid "Add Account"
 msgstr "Přidat účet"
 
@@ -1286,11 +1232,10 @@ msgid "Log in to an existing account"
 msgstr ""
 
 #: src/qml/Component/UserInfo.qml:61
-#, fuzzy, kde-format
-#| msgid "Login"
+#, kde-format
 msgctxt "@title:window"
 msgid "Login"
-msgstr "Přihlášení"
+msgstr ""
 
 #: src/qml/Component/UserInfo.qml:140
 #, kde-format
@@ -1305,7 +1250,7 @@ msgstr ""
 #: src/qml/Component/UserInfo.qml:174
 #, kde-format
 msgid "Switch User"
-msgstr ""
+msgstr "Přepnout uživatele"
 
 #: src/qml/Component/UserInfo.qml:186 src/qml/Page/InviteUserPage.qml:42
 #, kde-format
@@ -1319,10 +1264,9 @@ msgid "Configure"
 msgstr "Nastavit"
 
 #: src/qml/Component/UserInfo.qml:198
-#, fuzzy, kde-format
-#| msgid "Spaces"
+#, kde-format
 msgid "Open Settings"
-msgstr "Mezery"
+msgstr ""
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:36
@@ -1602,10 +1546,9 @@ msgid "Kick this user"
 msgstr ""
 
 #: src/qml/Dialog/UserDetailDialog.qml:105
-#, fuzzy, kde-format
-#| msgid "Unban this user"
+#, kde-format
 msgid "Invite this user"
-msgstr "Od blokovat tohoto uživatele"
+msgstr ""
 
 #: src/qml/Dialog/UserDetailDialog.qml:117
 #, kde-format
@@ -1629,11 +1572,10 @@ msgid "Remove recent messages by this user"
 msgstr ""
 
 #: src/qml/Dialog/UserDetailDialog.qml:151
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
-msgstr "Nahlásit zprávu"
+msgstr ""
 
 #: src/qml/Dialog/UserDetailDialog.qml:161
 #, kde-format
@@ -1641,10 +1583,9 @@ msgid "Open a private chat"
 msgstr ""
 
 #: src/qml/Dialog/UserDetailDialog.qml:171
-#, fuzzy, kde-format
-#| msgid "Copy"
+#, kde-format
 msgid "Copy link"
-msgstr "Kopírovat"
+msgstr "Kopírovat odkaz"
 
 #: src/qml/main.qml:126
 #, kde-format
@@ -1958,25 +1899,22 @@ msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "Sdílená adresa obrázku je <a href='%1'>%1</a>"
 
 #: src/qml/Menu/SpaceListContextMenu.qml:25
-#, fuzzy, kde-format
-#| msgid "View Source"
+#, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
-msgstr "Zobrazit zdroj"
+msgstr ""
 
 #: src/qml/Menu/SpaceListContextMenu.qml:39
-#, fuzzy, kde-format
-#| msgid "Spaces"
+#, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
-msgstr "Mezery"
+msgstr ""
 
 #: src/qml/Menu/SpaceListContextMenu.qml:40
 #: src/qml/Menu/SpaceListContextMenu.qml:97
-#, fuzzy, kde-format
-#| msgid "Spaces"
+#, kde-format
 msgid "Space Settings"
-msgstr "Mezery"
+msgstr ""
 
 #: src/qml/Menu/SpaceListContextMenu.qml:46
 #: src/qml/Menu/SpaceListContextMenu.qml:101
@@ -1991,10 +1929,9 @@ msgid "Ban User"
 msgstr ""
 
 #: src/qml/Menu/Timeline/BanSheet.qml:20
-#, fuzzy, kde-format
-#| msgid "Unban this user"
+#, kde-format
 msgid "Reason for banning this user"
-msgstr "Od blokovat tohoto uživatele"
+msgstr ""
 
 #: src/qml/Menu/Timeline/BanSheet.qml:32
 #, kde-format
@@ -2028,11 +1965,10 @@ msgstr "Odstranit"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:64
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:50
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgctxt "@title"
 msgid "Remove Message"
-msgstr "Nahlásit zprávu"
+msgstr ""
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:69
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:60
@@ -2068,10 +2004,9 @@ msgid "Copy"
 msgstr "Kopírovat"
 
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:81
-#, fuzzy, kde-format
-#| msgid "Copy"
+#, kde-format
 msgid "Copy Link"
-msgstr "Kopírovat"
+msgstr "Kopírovat odkaz"
 
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:130
 #, kde-format
@@ -2085,22 +2020,19 @@ msgstr "Nastavit webové zkratky..."
 
 #: src/qml/Menu/Timeline/MessageSourceSheet.qml:20
 #: src/qml/Page/DevtoolsPage.qml:29
-#, fuzzy, kde-format
-#| msgid "View Source"
+#, kde-format
 msgid "Event Source"
-msgstr "Zobrazit zdroj"
+msgstr ""
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:18
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Remove Messages"
-msgstr "Nahlásit zprávu"
+msgstr ""
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:18
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Remove Message"
-msgstr "Nahlásit zprávu"
+msgstr ""
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:22
 #, kde-format
@@ -2113,11 +2045,10 @@ msgid "Reason for removing this message"
 msgstr ""
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:34
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
-msgstr "Odstranit"
+msgstr ""
 
 #: src/qml/Menu/Timeline/ReportSheet.qml:16
 #, kde-format
@@ -2267,7 +2198,7 @@ msgstr ""
 #: src/qml/Page/JoinRoomPage.qml:135
 #, kde-format
 msgid "Server URL"
-msgstr ""
+msgstr "URL serveru"
 
 #: src/qml/Page/JoinRoomPage.qml:227
 #, kde-format
@@ -2306,10 +2237,9 @@ msgid "No Name"
 msgstr "Bez názvu"
 
 #: src/qml/Page/RoomListPage.qml:372
-#, fuzzy, kde-format
-#| msgid "Muted"
+#, kde-format
 msgid "Muted room"
-msgstr "Ztlumený"
+msgstr ""
 
 #: src/qml/Page/RoomListPage.qml:399
 #, kde-format
@@ -2371,11 +2301,10 @@ msgid "React"
 msgstr "Zareagovat"
 
 #: src/qml/Page/SearchPage.qml:17
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
-msgstr "Nahlásit zprávu"
+msgstr ""
 
 #: src/qml/Page/SearchPage.qml:58
 #, kde-format
@@ -2383,10 +2312,9 @@ msgid "Enter a text to start searching"
 msgstr ""
 
 #: src/qml/Page/SearchPage.qml:64
-#, fuzzy, kde-format
-#| msgid "Room not found"
+#, kde-format
 msgid "No results found"
-msgstr "Místnost nenalezena"
+msgstr "Nenalezeny žádné výsledky"
 
 #: src/qml/Page/StartChatPage.qml:38
 #, kde-format
@@ -2424,10 +2352,9 @@ msgid "No Topic"
 msgstr ""
 
 #: src/qml/Panel/RoomDrawer.qml:171
-#, fuzzy, kde-format
-#| msgid "Options:"
+#, kde-format
 msgid "Options"
-msgstr "Volby:"
+msgstr "Možnosti"
 
 #: src/qml/Panel/RoomDrawer.qml:179
 #, kde-format
@@ -2440,10 +2367,9 @@ msgid "Developer Tools"
 msgstr ""
 
 #: src/qml/Panel/RoomDrawer.qml:191
-#, fuzzy, kde-format
-#| msgid "Leave room"
+#, kde-format
 msgid "Search in this room"
-msgstr "Opustit místnost"
+msgstr ""
 
 #: src/qml/Panel/RoomDrawer.qml:197
 #, kde-format
@@ -2489,22 +2415,22 @@ msgstr[2] "%1 Členů"
 msgid "No Member Count"
 msgstr ""
 
-#: src/qml/Panel/RoomDrawer.qml:315
+#: src/qml/Panel/RoomDrawer.qml:317
 #, kde-format
 msgid "Owner"
 msgstr "Vlastník"
 
-#: src/qml/Panel/RoomDrawer.qml:317
+#: src/qml/Panel/RoomDrawer.qml:319
 #, kde-format
 msgid "Admin"
 msgstr "Administrátor"
 
-#: src/qml/Panel/RoomDrawer.qml:319
+#: src/qml/Panel/RoomDrawer.qml:321
 #, kde-format
 msgid "Mod"
 msgstr "Mod"
 
-#: src/qml/Panel/RoomDrawer.qml:321
+#: src/qml/Panel/RoomDrawer.qml:323
 #, kde-format
 msgid "Muted"
 msgstr "Ztlumený"
@@ -2526,10 +2452,9 @@ msgid "Notifications"
 msgstr "Upozornění"
 
 #: src/qml/RoomSettings/General.qml:30
-#, fuzzy, kde-format
-#| msgid "Room not found"
+#, kde-format
 msgid "Room Information"
-msgstr "Místnost nenalezena"
+msgstr ""
 
 #: src/qml/RoomSettings/General.qml:50
 #, kde-format
@@ -2537,10 +2462,9 @@ msgid "Update avatar"
 msgstr "Aktualizovat avatara"
 
 #: src/qml/RoomSettings/General.qml:75
-#, fuzzy, kde-format
-#| msgid "Room Name:"
+#, kde-format
 msgid "Room name:"
-msgstr "Název místnosti:"
+msgstr ""
 
 #: src/qml/RoomSettings/General.qml:87
 #, kde-format
@@ -2555,28 +2479,24 @@ msgid "Save"
 msgstr "Uložit"
 
 #: src/qml/RoomSettings/General.qml:123
-#, fuzzy, kde-format
-#| msgid "Rooms"
+#, kde-format
 msgid "Room ID"
-msgstr "Místnosti"
+msgstr ""
 
 #: src/qml/RoomSettings/General.qml:127
-#, fuzzy, kde-format
-#| msgid "Room not found"
+#, kde-format
 msgid "Room version"
-msgstr "Místnost nenalezena"
+msgstr ""
 
 #: src/qml/RoomSettings/General.qml:133
-#, fuzzy, kde-format
-#| msgid "Leave Room"
+#, kde-format
 msgid "Upgrade Room"
-msgstr "Opustit místnost"
+msgstr ""
 
 #: src/qml/RoomSettings/General.qml:156
-#, fuzzy, kde-format
-#| msgid "Other Aliases:"
+#, kde-format
 msgid "Aliases"
-msgstr "Jiné aliasy:"
+msgstr "Zkratky"
 
 #: src/qml/RoomSettings/General.qml:160
 #, kde-format
@@ -2589,11 +2509,9 @@ msgid "Make this alias the room's canonical alias"
 msgstr ""
 
 #: src/qml/RoomSettings/General.qml:188
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Delete"
+#, kde-format
 msgid "Delete alias"
-msgstr "Smazat"
+msgstr ""
 
 #: src/qml/RoomSettings/General.qml:214
 #, kde-format
@@ -2611,10 +2529,9 @@ msgid "This room continues another conversation."
 msgstr ""
 
 #: src/qml/RoomSettings/General.qml:258
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgid "See older messages…"
-msgstr "Poslat správu"
+msgstr ""
 
 #: src/qml/RoomSettings/General.qml:269
 #, kde-format
@@ -2642,10 +2559,9 @@ msgid "Confirm"
 msgstr "Potvrdit"
 
 #: src/qml/RoomSettings/PushNotification.qml:29
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgid "Room notifications setting"
-msgstr "Upozornění"
+msgstr ""
 
 #: src/qml/RoomSettings/PushNotification.qml:32
 #, kde-format
@@ -2659,12 +2575,10 @@ msgid ""
 msgstr ""
 
 #: src/qml/RoomSettings/Security.qml:31
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Access:"
+#, kde-format
 msgctxt "@option:check"
 msgid "Access"
-msgstr "Přístup:"
+msgstr ""
 
 #: src/qml/RoomSettings/Security.qml:34
 #, kde-format
@@ -2730,11 +2644,10 @@ msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr ""
 
 #: src/qml/RoomSettings/Security.qml:93
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgctxt "@option:check"
 msgid "Members only"
-msgstr "Členové"
+msgstr ""
 
 #: src/qml/RoomSettings/Security.qml:94
 #, kde-format
@@ -2791,7 +2704,7 @@ msgstr "Upravit účet"
 #: src/qml/Settings/AccountEditorPage.qml:30
 #, kde-format
 msgid "User information"
-msgstr ""
+msgstr "Informace o uživateli"
 
 #: src/qml/Settings/AccountEditorPage.qml:73
 #, kde-format
@@ -2810,9 +2723,7 @@ msgstr "Popisek:"
 
 #: src/qml/Settings/AccountEditorPage.qml:130
 #: src/qml/Settings/NetworkProxyPage.qml:107
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Password"
+#, kde-format
 msgid "Password"
 msgstr "Heslo"
 
@@ -2837,10 +2748,9 @@ msgid "Confirm new Password:"
 msgstr ""
 
 #: src/qml/Settings/AccountEditorPage.qml:155
-#, fuzzy, kde-format
-#| msgid "Passwords do not match"
+#, kde-format
 msgid "Passwords don't match"
-msgstr "Hesla se neshodují"
+msgstr ""
 
 #: src/qml/Settings/AccountEditorPage.qml:177
 #, kde-format
@@ -2850,14 +2760,12 @@ msgstr "Hesla se neshodují"
 #: src/qml/Settings/AccountEditorPage.qml:199
 #, kde-format
 msgid "Server Information"
-msgstr ""
+msgstr "Informace o serveru"
 
 #: src/qml/Settings/AccountEditorPage.qml:202
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Select a Homeserver"
+#, kde-format
 msgid "Homeserver url"
-msgstr "Vyberte domácí server"
+msgstr ""
 
 #: src/qml/Settings/AccountsPage.qml:15 src/qml/Settings/AccountsPage.qml:26
 #: src/qml/Settings/SettingsPage.qml:27
@@ -2887,10 +2795,9 @@ msgid "Appearance"
 msgstr ""
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:25
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgid "General theme"
-msgstr "Obecné"
+msgstr ""
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:118
 #, kde-format
@@ -2917,11 +2824,13 @@ msgstr ""
 msgid "Use transparent chat page"
 msgstr "Použít průhlednou stránku pro rozhovor"
 
+# Přechod sklouznutí má posunovače, kde vlevo (žádný výběr) znamená průhlednost a vpravo (výběr 100 %) znamená neprůhlednost.
+#
+# Opačně to nedává smysl.
 #: src/qml/Settings/AppearanceSettingsPage.qml:266
-#, fuzzy, kde-format
-#| msgid "Transparency:"
+#, kde-format
 msgid "Transparency"
-msgstr "Průhlednost:"
+msgstr "Průhlednost"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:283
 #, kde-format
@@ -2939,10 +2848,9 @@ msgid "Show links preview in the chat messages"
 msgstr ""
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:326
-#, fuzzy, kde-format
-#| msgid "Avatar:"
+#, kde-format
 msgid "Show Avatar"
-msgstr "Avatar:"
+msgstr ""
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:330
 #, kde-format
@@ -2950,15 +2858,14 @@ msgid "In chat"
 msgstr ""
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:340
-#, fuzzy, kde-format
-#| msgid "In Sidebar"
+#, kde-format
 msgid "In sidebar"
-msgstr "V postranním panelu"
+msgstr ""
 
 #: src/qml/Settings/ColorScheme.qml:15
 #, kde-format
 msgid "Color theme"
-msgstr ""
+msgstr "Barevný motiv"
 
 #: src/qml/Settings/DevicesPage.qml:14 src/qml/Settings/DevicesPage.qml:26
 #: src/qml/Settings/SettingsPage.qml:48
@@ -3045,10 +2952,9 @@ msgid "General"
 msgstr ""
 
 #: src/qml/Settings/GeneralSettingsPage.qml:25
-#, fuzzy, kde-format
-#| msgid "General settings:"
+#, kde-format
 msgid "General settings"
-msgstr "Obecná nastavení:"
+msgstr "Obecná nastavení"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:31
 #, kde-format
@@ -3086,10 +2992,9 @@ msgid "Show avatar update events"
 msgstr ""
 
 #: src/qml/Settings/GeneralSettingsPage.qml:121
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgid "Show deleted messages"
-msgstr "Poslat správu"
+msgstr ""
 
 #: src/qml/Settings/GeneralSettingsPage.qml:138
 #, kde-format
@@ -3107,11 +3012,10 @@ msgid "Intermixed"
 msgstr ""
 
 #: src/qml/Settings/GeneralSettingsPage.qml:167
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
-msgstr "Upravit"
+msgstr ""
 
 #: src/qml/Settings/GeneralSettingsPage.qml:171
 #, kde-format
@@ -3119,16 +3023,14 @@ msgid "Use s/text/replacement syntax to edit your last message"
 msgstr ""
 
 #: src/qml/Settings/GeneralSettingsPage.qml:182
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Send typing notifications"
-msgstr "Zobrazit upozornění"
+msgstr ""
 
 #: src/qml/Settings/GeneralSettingsPage.qml:199
-#, fuzzy, kde-format
-#| msgid "Spaces"
+#, kde-format
 msgid "Developer Settings"
-msgstr "Mezery"
+msgstr ""
 
 #: src/qml/Settings/GeneralSettingsPage.qml:202
 #, kde-format
@@ -3136,11 +3038,10 @@ msgid "Enable developer tools"
 msgstr ""
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:14
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@title:window"
 msgid "Notifications"
-msgstr "Upozornění"
+msgstr ""
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:24
 #, kde-format
@@ -3148,10 +3049,9 @@ msgid "Enable notifications for this account"
 msgstr ""
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:42
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgid "Room Notifications"
-msgstr "Upozornění"
+msgstr ""
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:45
 #, kde-format
@@ -3189,15 +3089,14 @@ msgid "Messages containing my display name"
 msgstr ""
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:149
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Whole room (@room) notifications"
-msgstr "Zobrazit upozornění"
+msgstr ""
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:174
 #, kde-format
 msgid "Keywords"
-msgstr ""
+msgstr "Klíčová slova"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:178
 #, kde-format
@@ -3210,16 +3109,14 @@ msgid "Keyword…"
 msgstr ""
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:246
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add word"
+#, kde-format
 msgid "Add keyword"
-msgstr "Přidat slovo"
+msgstr ""
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:274
 #, kde-format
 msgid "Invites"
-msgstr ""
+msgstr "Pozvánky"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:277
 #, kde-format
@@ -3227,77 +3124,70 @@ msgid "Invites to a room"
 msgstr ""
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:293
-#, fuzzy, kde-format
-#| msgid "Accept Invitation"
+#, kde-format
 msgid "Call invitation"
-msgstr "Přijmout pozvánku"
+msgstr ""
 
 #: src/qml/Settings/NetworkProxyPage.qml:27
 #: src/qml/Settings/SettingsPage.qml:43
-#, fuzzy, kde-format
-#| msgid "Network Error"
+#, kde-format
 msgid "Network Proxy"
-msgstr "Chyba sítě"
+msgstr "Proxy"
 
 #: src/qml/Settings/NetworkProxyPage.qml:30
 #, kde-format
 msgid "System Default"
-msgstr ""
+msgstr "Výchozí systémový"
 
 #: src/qml/Settings/NetworkProxyPage.qml:38
 #, kde-format
 msgid "HTTP"
-msgstr ""
+msgstr "HTTP"
 
 #: src/qml/Settings/NetworkProxyPage.qml:46
 #, kde-format
 msgid "Socks5"
-msgstr ""
+msgstr "Socks5"
 
 #: src/qml/Settings/NetworkProxyPage.qml:62
-#, fuzzy, kde-format
-#| msgid "Spaces"
+#, kde-format
 msgid "Proxy Settings"
-msgstr "Mezery"
+msgstr "Nastavení proxy"
 
 #: src/qml/Settings/NetworkProxyPage.qml:66
 #, kde-format
 msgid "Host"
-msgstr ""
+msgstr "Hostitel"
 
 #: src/qml/Settings/NetworkProxyPage.qml:78
 #, kde-format
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 #: src/qml/Settings/NetworkProxyPage.qml:98
 #, kde-format
 msgid "User"
+msgstr "Uživatel"
+
+#: src/qml/Settings/NotificationRuleItem.qml:65
+#, kde-format
+msgid "Disable notifications"
 msgstr ""
 
 #: src/qml/Settings/NotificationRuleItem.qml:65
-#, fuzzy, kde-format
-#| msgid "Show notifications"
-msgid "Disable notifications"
-msgstr "Zobrazit upozornění"
-
-#: src/qml/Settings/NotificationRuleItem.qml:65
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Enable notifications"
-msgstr "Zobrazit upozornění"
+msgstr ""
 
 #: src/qml/Settings/NotificationRuleItem.qml:87
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Mute notifications"
-msgstr "Zobrazit upozornění"
+msgstr ""
 
 #: src/qml/Settings/NotificationRuleItem.qml:87
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Unmute notifications"
-msgstr "Zobrazit upozornění"
+msgstr ""
 
 #: src/qml/Settings/NotificationRuleItem.qml:109
 #, kde-format
@@ -3316,10 +3206,9 @@ msgid "Enable message highlights"
 msgstr ""
 
 #: src/qml/Settings/NotificationRuleItem.qml:131
-#, fuzzy, kde-format
-#| msgid "Delete word"
+#, kde-format
 msgid "Delete keyword"
-msgstr "Odstranit slovo"
+msgstr ""
 
 #: src/qml/Settings/SettingsPage.qml:17
 #, kde-format
@@ -3486,40 +3375,3 @@ msgstr ""
 #, kde-format
 msgid "Show"
 msgstr "Zobrazit"
-
-#~ msgid "Custom"
-#~ msgstr "Vlastní"
-
-#, fuzzy
-#~| msgid "Decline"
-#~ msgid "Timeline"
-#~ msgstr "Odmítnout"
-
-#~ msgid "In Chat"
-#~ msgstr "V rozhovoru"
-
-#, fuzzy
-#~| msgid "Theme:"
-#~ msgid "Themes"
-#~ msgstr "Motiv:"
-
-#~ msgid "Leave room"
-#~ msgstr "Opustit místnost"
-
-#~ msgid "Add an account"
-#~ msgstr "Přidat účet"
-
-#~ msgid "Online"
-#~ msgstr "Připojen"
-
-#~ msgid "Local"
-#~ msgstr "Místní"
-
-#~ msgid "Global"
-#~ msgstr "Globální"
-
-#~ msgid "Invalid command"
-#~ msgstr "Neplatný příkaz"
-
-#~ msgid "Image View - %1"
-#~ msgstr "Prohlížeč obrázků - %1"

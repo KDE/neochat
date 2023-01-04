@@ -2,22 +2,22 @@
 # This file is distributed under the same license as the neochat package.
 #
 #
-# Matjaž Jeran <matjaz.jeran@amis.net>, 2020, 2021, 2022.
+# Matjaž Jeran <matjaz.jeran@amis.net>, 2020, 2021, 2022, 2023.
 # Martin Srebotnjak <miles@filmsi.net>, 2021,2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-02 01:01+0000\n"
-"PO-Revision-Date: 2022-12-24 06:42+0100\n"
+"POT-Creation-Date: 2023-01-04 00:48+0000\n"
+"PO-Revision-Date: 2023-01-03 16:46+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #: src/actionsmodel.cpp:30 src/actionsmodel.cpp:40 src/actionsmodel.cpp:50
@@ -753,10 +753,9 @@ msgid "requested an invite"
 msgstr "je zahteval povabilo"
 
 #: src/neochatroom.cpp:606
-#, fuzzy, kde-format
-#| msgid "requested an invite"
+#, kde-format
 msgid "requested an invite with reason: %1"
-msgstr "je zahteval povabilo"
+msgstr "je zahteval povabilo z razlogom: %1"
 
 #: src/neochatroom.cpp:610
 #, kde-format
@@ -1579,10 +1578,9 @@ msgid "Kick this user"
 msgstr "Brcni tega uporabnika"
 
 #: src/qml/Dialog/UserDetailDialog.qml:105
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgid "Invite this user"
-msgstr "Prezri tega uporabnika"
+msgstr "Povabi tega uporabnika"
 
 #: src/qml/Dialog/UserDetailDialog.qml:117
 #, kde-format
@@ -1935,11 +1933,10 @@ msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "Deljena povezava za sliko je <a href='%1'>%1</a>"
 
 #: src/qml/Menu/SpaceListContextMenu.qml:25
-#, fuzzy, kde-format
-#| msgid "View Source"
+#, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
-msgstr "Poglej vir"
+msgstr "Poglej prostor"
 
 #: src/qml/Menu/SpaceListContextMenu.qml:39
 #, kde-format
@@ -2392,10 +2389,9 @@ msgid "No Topic"
 msgstr "Ni teme debate"
 
 #: src/qml/Panel/RoomDrawer.qml:171
-#, fuzzy, kde-format
-#| msgid "Options:"
+#, kde-format
 msgid "Options"
-msgstr "Možnosti:"
+msgstr "Možnosti"
 
 #: src/qml/Panel/RoomDrawer.qml:179
 #, kde-format
@@ -2457,22 +2453,22 @@ msgstr[3] "%1 članov"
 msgid "No Member Count"
 msgstr "Ni števila članov"
 
-#: src/qml/Panel/RoomDrawer.qml:315
+#: src/qml/Panel/RoomDrawer.qml:317
 #, kde-format
 msgid "Owner"
 msgstr "Lastnik"
 
-#: src/qml/Panel/RoomDrawer.qml:317
+#: src/qml/Panel/RoomDrawer.qml:319
 #, kde-format
 msgid "Admin"
 msgstr "Skrbnik"
 
-#: src/qml/Panel/RoomDrawer.qml:319
+#: src/qml/Panel/RoomDrawer.qml:321
 #, kde-format
 msgid "Mod"
 msgstr "Moderator"
 
-#: src/qml/Panel/RoomDrawer.qml:321
+#: src/qml/Panel/RoomDrawer.qml:323
 #, kde-format
 msgid "Muted"
 msgstr "Utišan"
@@ -2521,22 +2517,19 @@ msgid "Save"
 msgstr "Shrani"
 
 #: src/qml/RoomSettings/General.qml:123
-#, fuzzy, kde-format
-#| msgid "Rooms"
+#, kde-format
 msgid "Room ID"
-msgstr "Sobe"
+msgstr "ID sobe"
 
 #: src/qml/RoomSettings/General.qml:127
-#, fuzzy, kde-format
-#| msgid "Room information"
+#, kde-format
 msgid "Room version"
-msgstr "Informacije o sobi"
+msgstr "Različica sobe"
 
 #: src/qml/RoomSettings/General.qml:133
-#, fuzzy, kde-format
-#| msgid "Explore Rooms"
+#, kde-format
 msgid "Upgrade Room"
-msgstr "Razišči sobe"
+msgstr "Nadgradi sobo"
 
 #: src/qml/RoomSettings/General.qml:156
 #, kde-format
@@ -2589,16 +2582,14 @@ msgid "See new room…"
 msgstr "Poglej novo sobo…"
 
 #: src/qml/RoomSettings/General.qml:292
-#, fuzzy, kde-format
-#| msgid "left the room"
+#, kde-format
 msgid "Upgrade the Room"
-msgstr "je zapustil sobo"
+msgstr "Nadgradi sobo"
 
 #: src/qml/RoomSettings/General.qml:296
-#, fuzzy, kde-format
-#| msgid "See new room…"
+#, kde-format
 msgid "Select new version"
-msgstr "Poglej novo sobo…"
+msgstr "Izberi novo različico"
 
 #: src/qml/RoomSettings/General.qml:302 src/qml/Settings/DevicesPage.qml:186
 #, kde-format
@@ -2654,12 +2645,14 @@ msgstr "Vsak v prostoru lahko najde in se pridruži."
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
-msgstr ""
+msgstr "Potrkaj"
 
 #: src/qml/RoomSettings/Security.qml:54
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
+"Osebe, ki niso v sobi potrebujejo zahtevek za povabilo, da se pridružijo "
+"sobi."
 
 #: src/qml/RoomSettings/Security.qml:64
 #, kde-format
@@ -2866,7 +2859,7 @@ msgstr "Strnjeno"
 #: src/qml/Settings/AppearanceSettingsPage.qml:207
 #, kde-format
 msgid "Use compact room list"
-msgstr ""
+msgstr "Uporabi kompaktni seznam sob"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:233
 #, kde-format
