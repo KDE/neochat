@@ -5,9 +5,7 @@
 #include <QSignalSpy>
 #include <QTest>
 
-#define protected public // please don't hate me
 #include "neochatroom.h"
-#undef protected
 
 #include <connection.h>
 #include <quotient_common.h>
@@ -15,12 +13,23 @@
 
 using namespace Quotient;
 
+class TestRoom : public NeoChatRoom
+{
+public:
+    using NeoChatRoom::NeoChatRoom;
+
+    void update(SyncRoomData &&data, bool fromCache = false)
+    {
+        Room::updateData(std::move(data), fromCache);
+    }
+};
+
 class NeoChatRoomTest : public QObject {
     Q_OBJECT
 
 private:
     Connection *connection = nullptr;
-    NeoChatRoom *room = nullptr;
+    TestRoom *room = nullptr;
 
 private Q_SLOTS:
     void initTestCase();
@@ -31,7 +40,7 @@ private Q_SLOTS:
 void NeoChatRoomTest::initTestCase()
 {
     connection = Connection::makeMockConnection(QStringLiteral("@bob:kde.org"));
-    room = new NeoChatRoom(connection, QStringLiteral("#myroom:kde.org"), JoinState::Join);
+    room = new TestRoom(connection, QStringLiteral("#myroom:kde.org"), JoinState::Join);
 
     auto json = QJsonDocument::fromJson(R"EVENT({
   "account_data": {
@@ -121,7 +130,7 @@ void NeoChatRoomTest::initTestCase()
   }
 })EVENT");
     SyncRoomData roomData(QStringLiteral("@bob:kde.org"), JoinState::Join, json.object());
-    room->updateData(std::move(roomData));
+    room->update(std::move(roomData));
 }
 
 void NeoChatRoomTest::subtitleTextTest()
