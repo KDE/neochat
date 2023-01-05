@@ -199,18 +199,6 @@ Kirigami.OverlayDrawer {
                 }
             }
             Kirigami.BasicListItem {
-                id: inviteButton
-
-                Layout.alignment: Qt.AlignRight
-                icon: "list-add-user"
-                text: i18n("Invite user to room")
-
-                onClicked: {
-                    applicationWindow().pageStack.layers.push("qrc:/InviteUserPage.qml", {room: room})
-                    roomDrawer.close();
-                }
-            }
-            Kirigami.BasicListItem {
                 id: favouriteButton
 
                 icon: room && room.isFavourite ? "rating" : "rating-unrated"
@@ -236,6 +224,30 @@ Kirigami.OverlayDrawer {
             Kirigami.ListSectionHeader {
                 label: i18n("Members")
                 activeFocusOnTab: false
+                spacing: 0
+
+                QQC2.ToolButton {
+                    id: memberSearchToggle
+                    checkable: true
+                    icon.name: "search"
+                    QQC2.ToolTip.text: i18n("Search user in room")
+                    QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                }
+
+                QQC2.ToolButton {
+                    visible: roomDrawer.room.canSendState("invite")
+                    icon.name: "list-add-user"
+
+                    onClicked: {
+                        applicationWindow().pageStack.layers.push("qrc:/InviteUserPage.qml", {room: roomDrawer.room})
+                        roomDrawer.close();
+                    }
+
+                    QQC2.ToolTip.text: i18n("Invite user to room")
+                    QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                }
 
                 QQC2.Label {
                     Layout.alignment: Qt.AlignRight
@@ -245,6 +257,7 @@ Kirigami.OverlayDrawer {
 
             Kirigami.SearchField {
                 id: userListSearchField
+                visible: memberSearchToggle.checked
 
                 Layout.fillWidth: true
                 Layout.leftMargin: Kirigami.Units.largeSpacing - 1
