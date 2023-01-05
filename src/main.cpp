@@ -72,6 +72,7 @@
 #include "spacehierarchycache.h"
 #include "urlhelper.h"
 #include "userdirectorylistmodel.h"
+#include "userfiltermodel.h"
 #include "userlistmodel.h"
 #include "webshortcutmodel.h"
 #include "windowcontroller.h"
@@ -220,6 +221,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<MessageEventModel>("org.kde.neochat", 1, 0, "MessageEventModel");
     qmlRegisterType<CollapseStateProxyModel>("org.kde.neochat", 1, 0, "CollapseStateProxyModel");
     qmlRegisterType<MessageFilterModel>("org.kde.neochat", 1, 0, "MessageFilterModel");
+    qmlRegisterType<UserFilterModel>("org.kde.neochat", 1, 0, "UserFilterModel");
     qmlRegisterType<PublicRoomListModel>("org.kde.neochat", 1, 0, "PublicRoomListModel");
     qmlRegisterType<UserDirectoryListModel>("org.kde.neochat", 1, 0, "UserDirectoryListModel");
     qmlRegisterType<ServerListModel>("org.kde.neochat", 1, 0, "ServerListModel");

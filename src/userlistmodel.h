@@ -3,6 +3,8 @@
 
 #pragma once
 
+#include <room.h>
+
 #include <QAbstractListModel>
 #include <QObject>
 
@@ -40,6 +42,7 @@ public:
         AvatarRole,
         ObjectRole,
         PermRole,
+        PowerLevelRole,
     };
 
     UserListModel(QObject *parent = nullptr);
@@ -54,13 +57,17 @@ public:
 
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 
+    // Q_INVOKABLE
+
 Q_SIGNALS:
     void roomChanged();
+    void usersRefreshed();
 
 private Q_SLOTS:
     void userAdded(Quotient::User *user);
     void userRemoved(Quotient::User *user);
     void refresh(Quotient::User *user, const QVector<int> &roles = {});
+    void refreshAll();
     void avatarChanged(Quotient::User *user, const Quotient::Room *context);
 
 private:

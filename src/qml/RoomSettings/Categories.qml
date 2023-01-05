@@ -32,6 +32,16 @@ Kirigami.CategorizedSettings {
             }
         },
         Kirigami.SettingAction {
+            text: i18n("Permissions")
+            icon.name: "visibility"
+            page: Qt.resolvedUrl("Permissions.qml")
+            initialProperties: {
+                return {
+                    room: root.room
+                }
+            }
+        },
+        Kirigami.SettingAction {
             text: i18n("Notifications")
             icon.name: "notifications"
             page: Qt.resolvedUrl("PushNotification.qml")

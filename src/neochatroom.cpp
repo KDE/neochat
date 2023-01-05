@@ -31,6 +31,9 @@
 #include <events/roompowerlevelsevent.h>
 #include <events/simplestateevents.h>
 #include <jobs/downloadfilejob.h>
+#ifndef QUOTIENT_07
+#include <joinstate.h>
+#endif
 #include <qt_connection_util.h>
 
 #include "controller.h"
@@ -941,6 +944,305 @@ void NeoChatRoom::setHistoryVisibility(const QString &historyVisibilityRule)
 #endif
 
     // Not emitting historyVisibilityChanged() here, since that would override the change in the UI with the *current* value, which is not the *new* value.
+}
+
+void NeoChatRoom::setUserPowerLevel(const QString &userID, const int &powerLevel)
+{
+    if (joinedCount() <= 1) {
+        qWarning() << "Cannot modify the power level of the only user";
+        return;
+    }
+    if (!canSendState("m.room.power_levels")) {
+        qWarning() << "Power level too low to set user power levels";
+        return;
+    }
+#ifdef QUOTIENT_07
+    if (!isMember(userID)) {
+#else
+    if (memberJoinState(user(userID)) == JoinState::Join) {
+#endif
+        qWarning() << "User is not a member of this room so power level cannot be set";
+        return;
+    }
+    int clampPowerLevel = std::clamp(powerLevel, 0, 100);
+
+#ifdef QUOTIENT_07
+    auto powerLevelContent = currentState().get("m.room.power_levels")->contentJson();
+#else
+    auto powerLevelContent = getCurrentState<RoomPowerLevelsEvent>()->contentJson();
+#endif
+    auto powerLevelUserOverrides = powerLevelContent["users"].toObject();
+
+    if (powerLevelUserOverrides[userID] != clampPowerLevel) {
+        powerLevelUserOverrides[userID] = clampPowerLevel;
+        powerLevelContent["users"] = powerLevelUserOverrides;
+
+#ifdef QUOTIENT_07
+        setState("m.room.power_levels", "", powerLevelContent);
+#else
+        setState<RoomPowerLevelsEvent>(QJsonObject{{"type", "m.room.power_levels"}, {"state_key", ""}, {"content", powerLevelContent}});
+#endif
+    }
+}
+
+int NeoChatRoom::powerLevel(const QString &eventName, const bool &isStateEvent) const
+{
+#ifdef QUOTIENT_07
+    const auto powerLevelEvent = currentState().get<RoomPowerLevelsEvent>();
+#else
+    const auto powerLevelEvent = getCurrentState<RoomPowerLevelsEvent>();
+#endif
+    if (eventName == "ban") {
+        return powerLevelEvent->ban();
+    } else if (eventName == "kick") {
+        return powerLevelEvent->kick();
+    } else if (eventName == "invite") {
+        return powerLevelEvent->invite();
+    } else if (eventName == "redact") {
+        return powerLevelEvent->redact();
+    } else if (eventName == "users_default") {
+        return powerLevelEvent->usersDefault();
+    } else if (eventName == "state_default") {
+        return powerLevelEvent->stateDefault();
+    } else if (eventName == "events_default") {
+        return powerLevelEvent->eventsDefault();
+    } else if (isStateEvent) {
+        return powerLevelEvent->powerLevelForState(eventName);
+    } else {
+        return powerLevelEvent->powerLevelForEvent(eventName);
+    }
+}
+
+void NeoChatRoom::setPowerLevel(const QString &eventName, const int &newPowerLevel, const bool &isStateEvent)
+{
+#ifdef QUOTIENT_07
+    auto powerLevelContent = currentState().get("m.room.power_levels")->contentJson();
+#else
+    auto powerLevelContent = getCurrentState<RoomPowerLevelsEvent>()->contentJson();
+#endif
+    int clampPowerLevel = std::clamp(newPowerLevel, 0, 100);
+    int powerLevel = 0;
+
+    if (powerLevelContent.contains(eventName)) {
+        powerLevel = powerLevelContent[eventName].toInt();
+
+        if (powerLevel != clampPowerLevel) {
+            powerLevelContent[eventName] = clampPowerLevel;
+        }
+    } else {
+        auto eventPowerLevels = powerLevelContent["events"].toObject();
+
+        if (eventPowerLevels.contains(eventName)) {
+            powerLevel = eventPowerLevels[eventName].toInt();
+        } else {
+            if (isStateEvent) {
+                powerLevel = powerLevelContent["state_default"].toInt();
+            } else {
+                powerLevel = powerLevelContent["events_default"].toInt();
+            }
+        }
+
+        if (powerLevel != clampPowerLevel) {
+            eventPowerLevels[eventName] = clampPowerLevel;
+            powerLevelContent["events"] = eventPowerLevels;
+        }
+    }
+
+#ifdef QUOTIENT_07
+    setState("m.room.power_levels", "", powerLevelContent);
+#else
+    setState<RoomPowerLevelsEvent>(QJsonObject{{"type", "m.room.power_levels"}, {"state_key", ""}, {"content", powerLevelContent}});
+#endif
+}
+
+int NeoChatRoom::defaultUserPowerLevel() const
+{
+    return powerLevel("users_default");
+}
+
+void NeoChatRoom::setDefaultUserPowerLevel(const int &newPowerLevel)
+{
+    setPowerLevel("users_default", newPowerLevel);
+}
+
+int NeoChatRoom::invitePowerLevel() const
+{
+    return powerLevel("invite");
+}
+
+void NeoChatRoom::setInvitePowerLevel(const int &newPowerLevel)
+{
+    setPowerLevel("invite", newPowerLevel);
+}
+
+int NeoChatRoom::kickPowerLevel() const
+{
+    return powerLevel("kick");
+}
+
+void NeoChatRoom::setKickPowerLevel(const int &newPowerLevel)
+{
+    setPowerLevel("kick", newPowerLevel);
+}
+
+int NeoChatRoom::banPowerLevel() const
+{
+    return powerLevel("ban");
+}
+
+void NeoChatRoom::setBanPowerLevel(const int &newPowerLevel)
+{
+    setPowerLevel("ban", newPowerLevel);
+}
+
+int NeoChatRoom::redactPowerLevel() const
+{
+    return powerLevel("redact");
+}
+
+void NeoChatRoom::setRedactPowerLevel(const int &newPowerLevel)
+{
+    setPowerLevel("redact", newPowerLevel);
+}
+
+int NeoChatRoom::statePowerLevel() const
+{
+    return powerLevel("state_default");
+}
+
+void NeoChatRoom::setStatePowerLevel(const int &newPowerLevel)
+{
+    setPowerLevel("state_default", newPowerLevel);
+}
+
+int NeoChatRoom::defaultEventPowerLevel() const
+{
+    return powerLevel("events_default");
+}
+
+void NeoChatRoom::setDefaultEventPowerLevel(const int &newPowerLevel)
+{
+    setPowerLevel("events_default", newPowerLevel);
+}
+
+int NeoChatRoom::powerLevelPowerLevel() const
+{
+    return powerLevel("m.room.power_levels", true);
+}
+
+void NeoChatRoom::setPowerLevelPowerLevel(const int &newPowerLevel)
+{
+    setPowerLevel("m.room.power_levels", newPowerLevel, true);
+}
+
+int NeoChatRoom::namePowerLevel() const
+{
+    return powerLevel("m.room.name", true);
+}
+
+void NeoChatRoom::setNamePowerLevel(const int &newPowerLevel)
+{
+    setPowerLevel("m.room.name", newPowerLevel, true);
+}
+
+int NeoChatRoom::avatarPowerLevel() const
+{
+    return powerLevel("m.room.avatar", true);
+}
+
+void NeoChatRoom::setAvatarPowerLevel(const int &newPowerLevel)
+{
+    setPowerLevel("m.room.avatar", newPowerLevel, true);
+}
+
+int NeoChatRoom::canonicalAliasPowerLevel() const
+{
+    return powerLevel("m.room.canonical_alias", true);
+}
+
+void NeoChatRoom::setCanonicalAliasPowerLevel(const int &newPowerLevel)
+{
+    setPowerLevel("m.room.canonical_alias", newPowerLevel, true);
+}
+
+int NeoChatRoom::topicPowerLevel() const
+{
+    return powerLevel("m.room.topic", true);
+}
+
+void NeoChatRoom::setTopicPowerLevel(const int &newPowerLevel)
+{
+    setPowerLevel("m.room.topic", newPowerLevel, true);
+}
+
+int NeoChatRoom::encryptionPowerLevel() const
+{
+    return powerLevel("m.room.encryption", true);
+}
+
+void NeoChatRoom::setEncryptionPowerLevel(const int &newPowerLevel)
+{
+    setPowerLevel("m.room.encryption", newPowerLevel, true);
+}
+
+int NeoChatRoom::historyVisibilityPowerLevel() const
+{
+    return powerLevel("m.room.history_visibility", true);
+}
+
+void NeoChatRoom::setHistoryVisibilityPowerLevel(const int &newPowerLevel)
+{
+    setPowerLevel("m.room.history_visibility", newPowerLevel, true);
+}
+
+int NeoChatRoom::pinnedEventsPowerLevel() const
+{
+    return powerLevel("m.room.pinned_events", true);
+}
+
+void NeoChatRoom::setPinnedEventsPowerLevel(const int &newPowerLevel)
+{
+    setPowerLevel("m.room.pinned_events", newPowerLevel, true);
+}
+
+int NeoChatRoom::tombstonePowerLevel() const
+{
+    return powerLevel("m.room.tombstone", true);
+}
+
+void NeoChatRoom::setTombstonePowerLevel(const int &newPowerLevel)
+{
+    setPowerLevel("m.room.tombstone", newPowerLevel, true);
+}
+
+int NeoChatRoom::serverAclPowerLevel() const
+{
+    return powerLevel("m.room.server_acl", true);
+}
+
+void NeoChatRoom::setServerAclPowerLevel(const int &newPowerLevel)
+{
+    setPowerLevel("m.room.server_acl", newPowerLevel, true);
+}
+
+int NeoChatRoom::spaceChildPowerLevel() const
+{
+    return powerLevel("m.space.child", true);
+}
+
+void NeoChatRoom::setSpaceChildPowerLevel(const int &newPowerLevel)
+{
+    setPowerLevel("m.space.child", newPowerLevel, true);
+}
+
+int NeoChatRoom::spaceParentPowerLevel() const
+{
+    return powerLevel("m.space.parent", true);
+}
+
+void NeoChatRoom::setSpaceParentPowerLevel(const int &newPowerLevel)
+{
+    setPowerLevel("m.space.parent", newPowerLevel, true);
 }
 
 QCoro::Task<void> NeoChatRoom::doDeleteMessagesByUser(const QString &user, QString reason)

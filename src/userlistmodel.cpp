@@ -38,6 +38,7 @@ void UserListModel::setRoom(NeoChatRoom *room)
         connect(m_currentRoom, &Room::userRemoved, this, &UserListModel::userRemoved);
         connect(m_currentRoom, &Room::memberAboutToRename, this, &UserListModel::userRemoved);
         connect(m_currentRoom, &Room::memberRenamed, this, &UserListModel::userAdded);
+        connect(m_currentRoom, &Room::changed, this, &UserListModel::refreshAll);
         {
             m_users = m_currentRoom->users();
             std::sort(m_users.begin(), m_users.end(), room->memberSorter());
@@ -132,6 +133,10 @@ QVariant UserListModel::data(const QModelIndex &index, int role) const
 
         return UserType::Member;
     }
+    if (role == PowerLevelRole) {
+        auto pl = m_currentRoom->getCurrentState<RoomPowerLevelsEvent>();
+        return pl->powerLevelForUser(user->id());
+    }
 
     return {};
 }
@@ -183,6 +188,34 @@ void UserListModel::refresh(Quotient::User *user, const QVector<int> &roles)
     }
 }
 
+void UserListModel::refreshAll()
+{
+    beginResetModel();
+    for (User *user : std::as_const(m_users)) {
+        user->disconnect(this);
+    }
+    m_users.clear();
+
+    {
+        m_users = m_currentRoom->users();
+        std::sort(m_users.begin(), m_users.end(), m_currentRoom->memberSorter());
+    }
+    for (User *user : std::as_const(m_users)) {
+#ifdef QUOTIENT_07
+        connect(user, &User::defaultAvatarChanged, this, [this, user]() {
+            avatarChanged(user, m_currentRoom);
+        });
+#else
+        connect(user, &User::avatarChanged, this, &UserListModel::avatarChanged);
+#endif
+    }
+    connect(m_currentRoom->connection(), &Connection::loggedOut, this, [this]() {
+        setRoom(nullptr);
+    });
+    endResetModel();
+    Q_EMIT usersRefreshed();
+}
+
 void UserListModel::avatarChanged(Quotient::User *user, const Quotient::Room *context)
 {
     if (context == m_currentRoom) {
@@ -209,6 +242,7 @@ QHash<int, QByteArray> UserListModel::roleNames() const
     roles[AvatarRole] = "avatar";
     roles[ObjectRole] = "user";
     roles[PermRole] = "perm";
+    roles[PowerLevelRole] = "powerLevel";
 
     return roles;
 }

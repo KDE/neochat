@@ -47,9 +47,32 @@ class NeoChatRoom : public Quotient::Room
     Q_PROPERTY(QString avatarMediaId READ avatarMediaId NOTIFY avatarChanged STORED false)
     Q_PROPERTY(bool readMarkerLoaded READ readMarkerLoaded NOTIFY readMarkerLoadedChanged)
     Q_PROPERTY(QDateTime lastActiveTime READ lastActiveTime NOTIFY lastActiveTimeChanged)
+    Q_PROPERTY(bool isSpace READ isSpace CONSTANT)
     Q_PROPERTY(bool isInvite READ isInvite NOTIFY isInviteChanged)
     Q_PROPERTY(QString joinRule READ joinRule WRITE setJoinRule NOTIFY joinRuleChanged)
     Q_PROPERTY(QString historyVisibility READ historyVisibility WRITE setHistoryVisibility NOTIFY historyVisibilityChanged)
+
+    // Properties for the various permission levels for the room
+    Q_PROPERTY(int defaultUserPowerLevel READ defaultUserPowerLevel WRITE setDefaultUserPowerLevel NOTIFY defaultUserPowerLevelChanged)
+    Q_PROPERTY(int invitePowerLevel READ invitePowerLevel WRITE setInvitePowerLevel NOTIFY invitePowerLevelChanged)
+    Q_PROPERTY(int kickPowerLevel READ kickPowerLevel WRITE setKickPowerLevel NOTIFY kickPowerLevelChanged)
+    Q_PROPERTY(int banPowerLevel READ banPowerLevel WRITE setBanPowerLevel NOTIFY banPowerLevelChanged)
+    Q_PROPERTY(int redactPowerLevel READ redactPowerLevel WRITE setRedactPowerLevel NOTIFY redactPowerLevelChanged)
+    Q_PROPERTY(int statePowerLevel READ statePowerLevel WRITE setStatePowerLevel NOTIFY statePowerLevelChanged)
+    Q_PROPERTY(int defaultEventPowerLevel READ defaultEventPowerLevel WRITE setDefaultEventPowerLevel NOTIFY defaultEventPowerLevelChanged)
+    Q_PROPERTY(int powerLevelPowerLevel READ powerLevelPowerLevel WRITE setPowerLevelPowerLevel NOTIFY powerLevelPowerLevelChanged)
+    Q_PROPERTY(int namePowerLevel READ namePowerLevel WRITE setNamePowerLevel NOTIFY namePowerLevelChanged)
+    Q_PROPERTY(int avatarPowerLevel READ avatarPowerLevel WRITE setAvatarPowerLevel NOTIFY avatarPowerLevelChanged)
+    Q_PROPERTY(int canonicalAliasPowerLevel READ canonicalAliasPowerLevel WRITE setCanonicalAliasPowerLevel NOTIFY canonicalAliasPowerLevelChanged)
+    Q_PROPERTY(int topicPowerLevel READ topicPowerLevel WRITE setTopicPowerLevel NOTIFY topicPowerLevelChanged)
+    Q_PROPERTY(int encryptionPowerLevel READ encryptionPowerLevel WRITE setEncryptionPowerLevel NOTIFY encryptionPowerLevelChanged)
+    Q_PROPERTY(int historyVisibilityPowerLevel READ historyVisibilityPowerLevel WRITE setHistoryVisibilityPowerLevel NOTIFY historyVisibilityPowerLevelChanged)
+    Q_PROPERTY(int pinnedEventsPowerLevel READ pinnedEventsPowerLevel WRITE setPinnedEventsPowerLevel NOTIFY pinnedEventsPowerLevelChanged)
+    Q_PROPERTY(int tombstonePowerLevel READ tombstonePowerLevel WRITE setTombstonePowerLevel NOTIFY tombstonePowerLevelChanged)
+    Q_PROPERTY(int serverAclPowerLevel READ serverAclPowerLevel WRITE setServerAclPowerLevel NOTIFY serverAclPowerLevelChanged)
+    Q_PROPERTY(int spaceChildPowerLevel READ spaceChildPowerLevel WRITE setSpaceChildPowerLevel NOTIFY spaceChildPowerLevelChanged)
+    Q_PROPERTY(int spaceParentPowerLevel READ spaceParentPowerLevel WRITE setSpaceParentPowerLevel NOTIFY spaceParentPowerLevelChanged)
+
     Q_PROPERTY(QString htmlSafeDisplayName READ htmlSafeDisplayName NOTIFY displayNameChanged)
     Q_PROPERTY(PushNotificationState::State pushNotificationState MEMBER m_currentPushNotificationState WRITE setPushNotificationState NOTIFY
                    pushNotificationStateChanged)
@@ -123,6 +146,68 @@ public:
 
     [[nodiscard]] QString historyVisibility() const;
     void setHistoryVisibility(const QString &historyVisibilityRule);
+
+    Q_INVOKABLE void setUserPowerLevel(const QString &userID, const int &powerLevel);
+
+    [[nodiscard]] int powerLevel(const QString &eventName, const bool &isStateEvent = false) const;
+    void setPowerLevel(const QString &eventName, const int &newPowerLevel, const bool &isStateEvent = false);
+
+    [[nodiscard]] int defaultUserPowerLevel() const;
+    void setDefaultUserPowerLevel(const int &newPowerLevel);
+
+    [[nodiscard]] int invitePowerLevel() const;
+    void setInvitePowerLevel(const int &newPowerLevel);
+
+    [[nodiscard]] int kickPowerLevel() const;
+    void setKickPowerLevel(const int &newPowerLevel);
+
+    [[nodiscard]] int banPowerLevel() const;
+    void setBanPowerLevel(const int &newPowerLevel);
+
+    [[nodiscard]] int redactPowerLevel() const;
+    void setRedactPowerLevel(const int &newPowerLevel);
+
+    [[nodiscard]] int statePowerLevel() const;
+    void setStatePowerLevel(const int &newPowerLevel);
+
+    [[nodiscard]] int defaultEventPowerLevel() const;
+    void setDefaultEventPowerLevel(const int &newPowerLevel);
+
+    [[nodiscard]] int powerLevelPowerLevel() const;
+    void setPowerLevelPowerLevel(const int &newPowerLevel);
+
+    [[nodiscard]] int namePowerLevel() const;
+    void setNamePowerLevel(const int &newPowerLevel);
+
+    [[nodiscard]] int avatarPowerLevel() const;
+    void setAvatarPowerLevel(const int &newPowerLevel);
+
+    [[nodiscard]] int canonicalAliasPowerLevel() const;
+    void setCanonicalAliasPowerLevel(const int &newPowerLevel);
+
+    [[nodiscard]] int topicPowerLevel() const;
+    void setTopicPowerLevel(const int &newPowerLevel);
+
+    [[nodiscard]] int encryptionPowerLevel() const;
+    void setEncryptionPowerLevel(const int &newPowerLevel);
+
+    [[nodiscard]] int historyVisibilityPowerLevel() const;
+    void setHistoryVisibilityPowerLevel(const int &newPowerLevel);
+
+    [[nodiscard]] int pinnedEventsPowerLevel() const;
+    void setPinnedEventsPowerLevel(const int &newPowerLevel);
+
+    [[nodiscard]] int tombstonePowerLevel() const;
+    void setTombstonePowerLevel(const int &newPowerLevel);
+
+    [[nodiscard]] int serverAclPowerLevel() const;
+    void setServerAclPowerLevel(const int &newPowerLevel);
+
+    [[nodiscard]] int spaceChildPowerLevel() const;
+    void setSpaceChildPowerLevel(const int &newPowerLevel);
+
+    [[nodiscard]] int spaceParentPowerLevel() const;
+    void setSpaceParentPowerLevel(const int &newPowerLevel);
 
     [[nodiscard]] bool hasFileUploading() const
     {
@@ -284,6 +369,25 @@ Q_SIGNALS:
     void joinRuleChanged();
     void historyVisibilityChanged();
     void maxRoomVersionChanged();
+    void defaultUserPowerLevelChanged();
+    void invitePowerLevelChanged();
+    void kickPowerLevelChanged();
+    void banPowerLevelChanged();
+    void redactPowerLevelChanged();
+    void statePowerLevelChanged();
+    void defaultEventPowerLevelChanged();
+    void powerLevelPowerLevelChanged();
+    void namePowerLevelChanged();
+    void avatarPowerLevelChanged();
+    void canonicalAliasPowerLevelChanged();
+    void topicPowerLevelChanged();
+    void encryptionPowerLevelChanged();
+    void historyVisibilityPowerLevelChanged();
+    void pinnedEventsPowerLevelChanged();
+    void tombstonePowerLevelChanged();
+    void serverAclPowerLevelChanged();
+    void spaceChildPowerLevelChanged();
+    void spaceParentPowerLevelChanged();
 
 public Q_SLOTS:
     void uploadFile(const QUrl &url, const QString &body = QString());

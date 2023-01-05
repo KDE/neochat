@@ -20,6 +20,7 @@ add_library(neochat STATIC
     neochatroom.cpp
     neochatuser.cpp
     userlistmodel.cpp
+    userfiltermodel.cpp
     publicroomlistmodel.cpp
     userdirectorylistmodel.cpp
     keywordnotificationrulemodel.cpp
@@ -169,6 +170,7 @@ if(ANDROID)
         "favorite"
         "window-new"
         "globe"
+        "visibility"
     )
 else()
     target_link_libraries(neochat PUBLIC Qt::Widgets KF5::KIOWidgets)
