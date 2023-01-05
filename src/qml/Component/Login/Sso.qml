@@ -20,6 +20,9 @@ LoginStep {
             target: LoginHelper
             function onSsoUrlChanged() {
                 UrlHelper.openUrl(LoginHelper.ssoUrl)
+                root.showMessage(i18n("Complete the authentication steps in your browser"))
+                loginButton.enabled = true
+                loginButton.text = i18n("Login")
             }
             function onConnected() {
                 processed("qrc:/Loading.qml")
@@ -34,10 +37,12 @@ LoginStep {
                 }
             }
             QQC2.Button {
+                id: loginButton
                 text: i18n("Login")
                 onClicked: {
                     LoginHelper.loginWithSso()
-                    root.showMessage(i18n("Complete the authentication steps in your browser"))
+                    loginButton.enabled = false
+                    loginButton.text = i18n("Loading…")
                 }
                 Component.onCompleted: forceActiveFocus()
                 Keys.onReturnPressed: clicked()

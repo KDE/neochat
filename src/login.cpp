@@ -181,8 +181,8 @@ void Login::loginWithSso()
     connectSingleShot(m_connection, &Connection::loginFlowsChanged, this, [this]() {
         SsoSession *session = m_connection->prepareForSso(m_deviceName);
         m_ssoUrl = session->ssoUrl();
+        Q_EMIT ssoUrlChanged();
     });
-    Q_EMIT ssoUrlChanged();
 }
 
 bool Login::testing() const
