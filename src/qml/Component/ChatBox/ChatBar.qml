@@ -129,6 +129,9 @@ QQC2.ToolBar {
                     } else if (event.key === Qt.Key_Up && inputField.text.length === 0) {
                         let editEvent = messageEventModel.getLastLocalUserMessageEventId()
                         if (editEvent) {
+                            if(editEvent["m.relates_to"]) {
+                                currentRoom.chatBoxReplyId = editEvent["m.relates_to"]["m.in_reply_to"]["event_id"];
+                            }
                             currentRoom.chatBoxEditId = editEvent["event_id"]
                         }
                     } else if (event.key === Qt.Key_Up && completionMenu.visible) {

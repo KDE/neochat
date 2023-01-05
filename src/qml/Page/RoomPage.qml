@@ -537,7 +537,7 @@ Kirigami.ScrollablePage {
                     icon.name: "document-edit"
                     onClicked: {
                         currentRoom.chatBoxEditId = hoverActions.event.eventId;
-                        currentRoom.chatBoxReplyId = "";
+                        currentRoom.chatBoxReplyId = hoverActions.event.replyId;
                         chatBox.focusInputField();
                     }
                 }
@@ -682,6 +682,7 @@ Kirigami.ScrollablePage {
             author: event.author,
             message: event.display,
             eventId: event.eventId,
+            replyEventId: event.replyId,
             formattedBody: event.formattedBody,
             source: event.source,
             eventType: event.eventType,
