@@ -739,14 +739,18 @@ void NeoChatRoom::postHtmlMessage(const QString &text, const QString &html, Mess
     }
 
     if (isEdit) {
-        QJsonObject json{
-            {"type", "m.room.message"},
-            {"msgtype", msgTypeToString(type)},
-            {"body", "* " + text},
-            {"format", "org.matrix.custom.html"},
-            {"formatted_body", html},
-            {"m.new_content", QJsonObject{{"body", text}, {"msgtype", msgTypeToString(type)}, {"format", "org.matrix.custom.html"}, {"formatted_body", html}}},
-            {"m.relates_to", QJsonObject{{"rel_type", "m.replace"}, {"event_id", relateToEventId}}}};
+        QJsonObject content{{"body", text}, {"msgtype", msgTypeToString(type)}, {"format", "org.matrix.custom.html"}, {"formatted_body", html}};
+        if (isReply) {
+            content["m.relates_to"] = QJsonObject{{"m.in_reply_to", QJsonObject{{"event_id", replyEventId}}}};
+        }
+
+        QJsonObject json{{"type", "m.room.message"},
+                         {"msgtype", msgTypeToString(type)},
+                         {"body", "* " + text},
+                         {"format", "org.matrix.custom.html"},
+                         {"formatted_body", html},
+                         {"m.new_content", content},
+                         {"m.relates_to", QJsonObject{{"rel_type", "m.replace"}, {"event_id", relateToEventId}}}};
 
         postJson("m.room.message", json);
         return;
@@ -1427,7 +1431,6 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
 
     m_currentPushNotificationState = state;
     Q_EMIT pushNotificationStateChanged(m_currentPushNotificationState);
-
 }
 
 void NeoChatRoom::updatePushNotificationState(QString type)

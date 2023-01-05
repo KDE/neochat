@@ -15,6 +15,7 @@ Loader {
     required property var author
     required property string message
     required property string eventId
+    property string replyEventId
     property var eventType
     property string formattedBody: ""
     required property string source
@@ -29,7 +30,7 @@ Loader {
             icon.name: "document-edit"
             onTriggered: {
                 currentRoom.chatBoxEditId = eventId;
-                currentRoom.chatBoxReplyId = "";
+                currentRoom.chatBoxReplyId = replyEventId;
             }
             visible: author.id === Controller.activeConnection.localUserId && (loadRoot.eventType === MessageEventModel.Emote || loadRoot.eventType === MessageEventModel.Message)
         },

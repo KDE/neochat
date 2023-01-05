@@ -937,12 +937,24 @@ QVariant MessageEventModel::getLastLocalUserMessageEventId()
                 if (content.contains("m.new_content")) {
                     // The message has been edited so we have to return the id of the original message instead of the replacement
                     eventId = content["m.relates_to"].toObject()["event_id"].toString();
+                    e = eventCast<const RoomMessageEvent>(m_currentRoom->findInTimeline(eventId)->event());
+                    if (!e) {
+                        return {};
+                    }
+
+                    content = e->contentJson();
                 } else {
                     // For any message that isn't an edit return the id of the current message
                     eventId = (*it)->id();
                 }
                 targetMessage.insert("event_id", eventId);
                 targetMessage.insert("formattedBody", content["formatted_body"].toString());
+
+                // keep reply relationship
+                if (content.contains("m.relates_to")) {
+                    targetMessage.insert("m.relates_to", content["m.relates_to"].toObject());
+                }
+
                 // Need to get the message from the original eventId or body will have * on the front
                 QModelIndex idx = index(eventIDToIndex(eventId), 0);
                 targetMessage.insert("message", idx.data(Qt::UserRole + 2));
