@@ -52,8 +52,8 @@ QString Clipboard::saveImage(QString localPath) const
     }
 
     QDir dir;
-    if (!dir.exists(localPath)) {
-        dir.mkpath(localPath);
+    if (!dir.exists(QFileInfo(url.fileName()).absoluteFilePath())) {
+        dir.mkpath(QFileInfo(url.fileName()).absoluteFilePath());
     }
 
     image.save(url.toLocalFile());
