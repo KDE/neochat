@@ -85,6 +85,7 @@ QQC2.ToolBar {
 
                 Kirigami.Theme.colorSet: Kirigami.Theme.View
                 Kirigami.Theme.inherit: false
+                Kirigami.SpellChecking.enabled: true
 
                 color: Kirigami.Theme.textColor
                 selectionColor: Kirigami.Theme.highlightColor
