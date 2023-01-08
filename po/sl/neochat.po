@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-06 00:47+0000\n"
-"PO-Revision-Date: 2023-01-03 16:46+0100\n"
+"PO-Revision-Date: 2023-01-07 09:45+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #: src/actionsmodel.cpp:30 src/actionsmodel.cpp:40 src/actionsmodel.cpp:50
 #: src/actionsmodel.cpp:60 src/actionsmodel.cpp:80 src/actionsmodel.cpp:100
@@ -2430,10 +2430,9 @@ msgid "Members"
 msgstr "Člani"
 
 #: src/qml/Panel/RoomDrawer.qml:236
-#, fuzzy, kde-format
-#| msgid "Search in this room"
+#, kde-format
 msgid "Search user in room"
-msgstr "Išči v tej sobi"
+msgstr "Išči uporabnika v sobi"
 
 #: src/qml/Panel/RoomDrawer.qml:250
 #, kde-format
@@ -2492,7 +2491,7 @@ msgstr "Varnost"
 #: src/qml/RoomSettings/Categories.qml:35
 #, kde-format
 msgid "Permissions"
-msgstr ""
+msgstr "Dovoljenja"
 
 #: src/qml/RoomSettings/Categories.qml:45 src/qml/Settings/SettingsPage.qml:22
 #, kde-format
@@ -2611,161 +2610,144 @@ msgstr "Potrdi"
 #: src/qml/RoomSettings/Permissions.qml:42
 #, kde-format
 msgid "Privileged Users"
-msgstr ""
+msgstr "Uporabniki s prednostjo"
 
 #: src/qml/RoomSettings/Permissions.qml:71
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgid "Member"
-msgstr "Člani"
+msgstr "Član"
 
 #: src/qml/RoomSettings/Permissions.qml:228
 #, kde-format
 msgid "Default permissions"
-msgstr ""
+msgstr "Privzeta dovoljenja"
 
 #: src/qml/RoomSettings/Permissions.qml:231
 #, kde-format
 msgid "Default user power level"
-msgstr ""
+msgstr "Raven moči privzetega uporabnika"
 
 #: src/qml/RoomSettings/Permissions.qml:232
 #, kde-format
 msgid "This is power level for all new users when joining the room"
-msgstr ""
+msgstr "To je raven moči za vse nove uporabnike, ko se pridružijo v sobi"
 
 #: src/qml/RoomSettings/Permissions.qml:240
-#, fuzzy, kde-format
-#| msgctxt "'power level' means permission level"
-#| msgid "changed the power levels for this room"
+#, kde-format
 msgid "Default power level to set the room state"
-msgstr "spremenil ravni moči za to sobo"
+msgstr "Privzeta raven moči nastavitev te sobe"
 
 #: src/qml/RoomSettings/Permissions.qml:241
 #, kde-format
 msgid "This is used for all state events that do not have their own entry here"
-msgstr ""
+msgstr "To je uporabljeno za vse dogodke, ki nimajo lastnega vnosa tukaj"
 
 #: src/qml/RoomSettings/Permissions.qml:249
 #, kde-format
 msgid "Default power level to send messages"
-msgstr ""
+msgstr "Privzeta raven moči za pošiljanje sporočil"
 
 #: src/qml/RoomSettings/Permissions.qml:250
 #, kde-format
 msgid ""
 "This is used for all message events that do not have their own entry here"
 msgstr ""
+"To je uporabljeno za vse sporočilne dogodke, ki nimajo lastnega vnosa tukaj"
 
 #: src/qml/RoomSettings/Permissions.qml:266
 #, kde-format
 msgid "Basic permissions"
-msgstr ""
+msgstr "Osnovna dovoljenja"
 
 #: src/qml/RoomSettings/Permissions.qml:269
-#, fuzzy, kde-format
-#| msgid "Invite a User"
+#, kde-format
 msgid "Invite users"
-msgstr "Povabi uporabnika"
+msgstr "Povabi uporabnike"
 
 #: src/qml/RoomSettings/Permissions.qml:277
-#, fuzzy, kde-format
-#| msgid "Kick this user"
+#, kde-format
 msgid "Kick users"
-msgstr "Brcni tega uporabnika"
+msgstr "Brcni uporabnike"
 
 #: src/qml/RoomSettings/Permissions.qml:285
-#, fuzzy, kde-format
-#| msgid "Ban User"
+#, kde-format
 msgid "Ban users"
-msgstr "Prepovej uporabnika"
+msgstr "Prepovej uporabnike"
 
 #: src/qml/RoomSettings/Permissions.qml:293
-#, fuzzy, kde-format
-#| msgid "Remove recent messages by this user"
+#, kde-format
 msgid "Remove message sent by other users"
-msgstr "Odstrani nedavna sporočila tega uporabnika"
+msgstr "Odstrani sporočilo poslano od drugih uporabnikov"
 
 #: src/qml/RoomSettings/Permissions.qml:309
 #, kde-format
 msgid "Event permissions"
-msgstr ""
+msgstr "Dovoljenja dogodkov"
 
 #: src/qml/RoomSettings/Permissions.qml:312
 #, kde-format
 msgid "Change user permissions"
-msgstr ""
+msgstr "Spremeni dovoljenja uporabnika"
 
 #: src/qml/RoomSettings/Permissions.qml:321
-#, fuzzy, kde-format
-#| msgid "cleared the room name"
+#, kde-format
 msgid "Change the room name"
-msgstr "je obrisal ime sobe"
+msgstr "Spremeni ime sobe"
 
 #: src/qml/RoomSettings/Permissions.qml:330
-#, fuzzy, kde-format
-#| msgid "changed the room avatar"
+#, kde-format
 msgid "Change the room avatar"
-msgstr "je spremenil avatar sobe"
+msgstr "Spremeni avatarja sobe"
 
 #: src/qml/RoomSettings/Permissions.qml:339
-#, fuzzy, kde-format
-#| msgid "Make this alias the room's canonical alias"
+#, kde-format
 msgid "Change the room canonical alias"
-msgstr "Nastavi ta vzdevek kot kanonični vzdevek sobe"
+msgstr "Spremeni kanonični vzdevek sobe"
 
 #: src/qml/RoomSettings/Permissions.qml:348
-#, fuzzy, kde-format
-#| msgid "changed the room avatar"
+#, kde-format
 msgid "Change the room topic"
-msgstr "je spremenil avatar sobe"
+msgstr "Spremeni temo sobe"
 
 #: src/qml/RoomSettings/Permissions.qml:357
-#, fuzzy, kde-format
-#| msgid "Enable encryption"
+#, kde-format
 msgid "Enable encryption for the room"
-msgstr "Omogoči šifriranje"
+msgstr "Omogoči šifriranje za sobo"
 
 #: src/qml/RoomSettings/Permissions.qml:366
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Message history visibility"
+#, kde-format
 msgid "Change the room history visibility"
-msgstr "Vidnost zgodovine sporočil"
+msgstr "Spremeni vidnost zgodovine sporočil"
 
 #: src/qml/RoomSettings/Permissions.qml:375
-#, fuzzy, kde-format
-#| msgid "Timeline Events"
+#, kde-format
 msgid "Set pinned events"
-msgstr "Dogodki na časovnici"
+msgstr "Nastavi fiksirane dogodke"
 
 #: src/qml/RoomSettings/Permissions.qml:384
-#, fuzzy, kde-format
-#| msgid "Upgrade the Room"
+#, kde-format
 msgid "Upgrade the room"
 msgstr "Nadgradi sobo"
 
 #: src/qml/RoomSettings/Permissions.qml:393
-#, fuzzy, kde-format
-#| msgid "changed the server access control lists for this room"
+#, kde-format
 msgid "Set the room server access control list (ACL)"
-msgstr "spremenil sezname za nadzor dostopa do strežnika za to sobo"
+msgstr "Nastavi seznam nadzora dostopa do strežnika za to sobo"
 
 #: src/qml/RoomSettings/Permissions.qml:403
 #, kde-format
 msgid "Set the children of this space"
-msgstr ""
+msgstr "Nastavi otroke tega prostora"
 
 #: src/qml/RoomSettings/Permissions.qml:412
-#, fuzzy, kde-format
-#| msgid "Invites the user to this room"
+#, kde-format
 msgid "Set the parent space of this room"
-msgstr "Povabi uporabnika v to sobo"
+msgstr "Nastavi starševski prostor te sobe"
 
 #: src/qml/RoomSettings/Permissions.qml:425
 #, kde-format
 msgid "Edit user power level"
-msgstr ""
+msgstr "Uredi raven moči uporabnika"
 
 #: src/qml/RoomSettings/PushNotification.qml:29
 #, kde-format
@@ -2785,11 +2767,10 @@ msgstr ""
 "Da bi omogočili to nastavitev, morate posodobiti to sobo na novo različico."
 
 #: src/qml/RoomSettings/Security.qml:32
-#, fuzzy, kde-format
-#| msgid "Enable encryption"
+#, kde-format
 msgctxt "@option:check"
 msgid "Encryption"
-msgstr "Omogoči šifriranje"
+msgstr "Šifriranje"
 
 #: src/qml/RoomSettings/Security.qml:36
 #, kde-format
@@ -2797,11 +2778,10 @@ msgid "Enable encryption"
 msgstr "Omogoči šifriranje"
 
 #: src/qml/RoomSettings/Security.qml:37
-#, fuzzy, kde-format
-#| msgid "Only enabled if the transparent chat page is enabled."
+#, kde-format
 msgctxt "option:check"
 msgid "Once enabled, encryption cannot be disabled."
-msgstr "Omogočeno je le, če je omogočena prosojna stran za klepet."
+msgstr "Ko je enkrat omogočeno, šifriranja ni več mogoče onemogočiti."
 
 #: src/qml/RoomSettings/Security.qml:54
 #, kde-format

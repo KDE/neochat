@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the neochat package.
 #
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2020, 2021, 2022.
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-06 00:47+0000\n"
-"PO-Revision-Date: 2022-12-31 16:25+0100\n"
+"PO-Revision-Date: 2023-01-06 12:02+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -2432,10 +2432,9 @@ msgid "Members"
 msgstr "Leden"
 
 #: src/qml/Panel/RoomDrawer.qml:236
-#, fuzzy, kde-format
-#| msgid "Search in this room"
+#, kde-format
 msgid "Search user in room"
-msgstr "In deze room zoeken"
+msgstr "Gebruiker in room zoeken"
 
 #: src/qml/Panel/RoomDrawer.qml:250
 #, kde-format
@@ -2492,7 +2491,7 @@ msgstr "Beveiliging"
 #: src/qml/RoomSettings/Categories.qml:35
 #, kde-format
 msgid "Permissions"
-msgstr ""
+msgstr "Toegangsrechten"
 
 #: src/qml/RoomSettings/Categories.qml:45 src/qml/Settings/SettingsPage.qml:22
 #, kde-format
@@ -2611,161 +2610,148 @@ msgstr "Bevestigen"
 #: src/qml/RoomSettings/Permissions.qml:42
 #, kde-format
 msgid "Privileged Users"
-msgstr ""
+msgstr "Gebruikers met privileges"
 
 #: src/qml/RoomSettings/Permissions.qml:71
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgid "Member"
-msgstr "Leden"
+msgstr "Lid"
 
 #: src/qml/RoomSettings/Permissions.qml:228
 #, kde-format
 msgid "Default permissions"
-msgstr ""
+msgstr "Standaard rechten"
 
 #: src/qml/RoomSettings/Permissions.qml:231
 #, kde-format
 msgid "Default user power level"
-msgstr ""
+msgstr "Standaard niveau van macht van gebruiker"
 
 #: src/qml/RoomSettings/Permissions.qml:232
 #, kde-format
 msgid "This is power level for all new users when joining the room"
 msgstr ""
+"Dit is niveau van macht voor alle nieuwe gebruikers bij meedoen in de room"
 
 #: src/qml/RoomSettings/Permissions.qml:240
-#, fuzzy, kde-format
-#| msgctxt "'power level' means permission level"
-#| msgid "changed the power levels for this room"
+#, kde-format
 msgid "Default power level to set the room state"
-msgstr "de energieniveaus voor deze room zijn gewijzigd"
+msgstr "Standaard niveau van macht om de status van de room in te stellen"
 
 #: src/qml/RoomSettings/Permissions.qml:241
 #, kde-format
 msgid "This is used for all state events that do not have their own entry here"
 msgstr ""
+"Dit wordt gebruikt voor alle statusgebeurtenissen die niet hun eigen ingang "
+"hier hebben"
 
 #: src/qml/RoomSettings/Permissions.qml:249
 #, kde-format
 msgid "Default power level to send messages"
-msgstr ""
+msgstr "Standaard niveau van macht om berichten te verzenden"
 
 #: src/qml/RoomSettings/Permissions.qml:250
 #, kde-format
 msgid ""
 "This is used for all message events that do not have their own entry here"
 msgstr ""
+"Dit wordt gebruikt voor alle berichtgebeurtenissen die niet hun eigen ingang "
+"hier hebben"
 
 #: src/qml/RoomSettings/Permissions.qml:266
 #, kde-format
 msgid "Basic permissions"
-msgstr ""
+msgstr "Basis rechten"
 
 #: src/qml/RoomSettings/Permissions.qml:269
-#, fuzzy, kde-format
-#| msgid "Invite a User"
+#, kde-format
 msgid "Invite users"
-msgstr "Een gebruiker uitnodigen"
+msgstr "Gebruikers inviteren"
 
 #: src/qml/RoomSettings/Permissions.qml:277
-#, fuzzy, kde-format
-#| msgid "Kick this user"
+#, kde-format
 msgid "Kick users"
-msgstr "Deze gebruiker een schop geven"
+msgstr "Gebruikers er uit sturen"
 
 #: src/qml/RoomSettings/Permissions.qml:285
-#, fuzzy, kde-format
-#| msgid "Ban User"
+#, kde-format
 msgid "Ban users"
-msgstr "Gebruiker verbannen"
+msgstr "Gebruikers verbannen"
 
 #: src/qml/RoomSettings/Permissions.qml:293
-#, fuzzy, kde-format
-#| msgid "Remove recent messages by this user"
+#, kde-format
 msgid "Remove message sent by other users"
-msgstr "Recente berichten van deze gebruiker verwijderen"
+msgstr "Berichten gezonden door andere gebruiker verwijderen"
 
 #: src/qml/RoomSettings/Permissions.qml:309
 #, kde-format
 msgid "Event permissions"
-msgstr ""
+msgstr "Rechten voor gebeurtenissen"
 
 #: src/qml/RoomSettings/Permissions.qml:312
 #, kde-format
 msgid "Change user permissions"
-msgstr ""
+msgstr "Gebruikersrechten wijzigen"
 
 #: src/qml/RoomSettings/Permissions.qml:321
-#, fuzzy, kde-format
-#| msgid "cleared the room name"
+#, kde-format
 msgid "Change the room name"
-msgstr "naam van de room gewist"
+msgstr "Naam van de room wijzigen"
 
 #: src/qml/RoomSettings/Permissions.qml:330
-#, fuzzy, kde-format
-#| msgid "changed the room avatar"
+#, kde-format
 msgid "Change the room avatar"
-msgstr "room-avatar tonen is gewijzigd"
+msgstr "Avatar van de room wijzigen"
 
 #: src/qml/RoomSettings/Permissions.qml:339
-#, fuzzy, kde-format
-#| msgid "Make this alias the room's canonical alias"
+#, kde-format
 msgid "Change the room canonical alias"
-msgstr "Deze alias de canonieke alias van de room maken"
+msgstr "Canonieke alias van de room wijzigen"
 
 #: src/qml/RoomSettings/Permissions.qml:348
-#, fuzzy, kde-format
-#| msgid "changed the room avatar"
+#, kde-format
 msgid "Change the room topic"
-msgstr "room-avatar tonen is gewijzigd"
+msgstr "Onderwerp van de room wijzigen"
 
 #: src/qml/RoomSettings/Permissions.qml:357
-#, fuzzy, kde-format
-#| msgid "Enable encryption"
+#, kde-format
 msgid "Enable encryption for the room"
-msgstr "Versleuteling inschakelen"
+msgstr "Versleuteling inschakelen voor de room"
 
 #: src/qml/RoomSettings/Permissions.qml:366
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Message history visibility"
+#, kde-format
 msgid "Change the room history visibility"
-msgstr "Zichtbaarheid van geschiedenis van berichten"
+msgstr "Zichtbaarheid van geschiedenis van de room wijzigen"
 
 #: src/qml/RoomSettings/Permissions.qml:375
-#, fuzzy, kde-format
-#| msgid "Timeline Events"
+#, kde-format
 msgid "Set pinned events"
-msgstr "Tijdlijn van gebeurtenissen"
+msgstr "Vastgezette gebeurtenissen instellen"
 
 #: src/qml/RoomSettings/Permissions.qml:384
-#, fuzzy, kde-format
-#| msgid "Upgrade the Room"
+#, kde-format
 msgid "Upgrade the room"
 msgstr "De room opwaarderen"
 
 #: src/qml/RoomSettings/Permissions.qml:393
-#, fuzzy, kde-format
-#| msgid "changed the server access control lists for this room"
+#, kde-format
 msgid "Set the room server access control list (ACL)"
-msgstr "de toegangscontrolelijst voor deze room is gewijzigd"
+msgstr "De toegangscontrolelijst (ACL) voor de roomserver instellen"
 
 #: src/qml/RoomSettings/Permissions.qml:403
 #, kde-format
 msgid "Set the children of this space"
-msgstr ""
+msgstr "De kinderen van deze ruimte instellen"
 
 #: src/qml/RoomSettings/Permissions.qml:412
-#, fuzzy, kde-format
-#| msgid "Invites the user to this room"
+#, kde-format
 msgid "Set the parent space of this room"
-msgstr "Nodigt de gebruiker uit in deze room"
+msgstr "De ouderruimte van deze room instellen"
 
 #: src/qml/RoomSettings/Permissions.qml:425
 #, kde-format
 msgid "Edit user power level"
-msgstr ""
+msgstr "Niveau van macht van gebruiker bewerken"
 
 #: src/qml/RoomSettings/PushNotification.qml:29
 #, kde-format
@@ -2786,11 +2772,10 @@ msgstr ""
 "te schakelen."
 
 #: src/qml/RoomSettings/Security.qml:32
-#, fuzzy, kde-format
-#| msgid "Enable encryption"
+#, kde-format
 msgctxt "@option:check"
 msgid "Encryption"
-msgstr "Versleuteling inschakelen"
+msgstr "Versleuteling"
 
 #: src/qml/RoomSettings/Security.qml:36
 #, kde-format
@@ -2798,11 +2783,10 @@ msgid "Enable encryption"
 msgstr "Versleuteling inschakelen"
 
 #: src/qml/RoomSettings/Security.qml:37
-#, fuzzy, kde-format
-#| msgid "Only enabled if the transparent chat page is enabled."
+#, kde-format
 msgctxt "option:check"
 msgid "Once enabled, encryption cannot be disabled."
-msgstr "Alleen ingeschakeld als de transparente chat-pagina is ingeschakeld."
+msgstr "Na ingeschakeld, kan versleuteling niet worden uitgeschakeld."
 
 #: src/qml/RoomSettings/Security.qml:54
 #, kde-format
