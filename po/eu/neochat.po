@@ -10,15 +10,15 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-06 00:47+0000\n"
-"PO-Revision-Date: 2023-01-01 11:49+0100\n"
+"PO-Revision-Date: 2023-01-08 09:45+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
-"Language-Team: Basque <kde-i18n-eu@kde.org>\n"
+"Language-Team: Basque <>kde-i18n-eu@kde.org\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #: src/actionsmodel.cpp:30 src/actionsmodel.cpp:40 src/actionsmodel.cpp:50
 #: src/actionsmodel.cpp:60 src/actionsmodel.cpp:80 src/actionsmodel.cpp:100
@@ -2427,10 +2427,9 @@ msgid "Members"
 msgstr "Partaideak"
 
 #: src/qml/Panel/RoomDrawer.qml:236
-#, fuzzy, kde-format
-#| msgid "Search in this room"
+#, kde-format
 msgid "Search user in room"
-msgstr "Bilatu gela honetan"
+msgstr "Bilatu erabiltzailea gelan"
 
 #: src/qml/Panel/RoomDrawer.qml:250
 #, kde-format
@@ -2487,7 +2486,7 @@ msgstr "Segurtasuna"
 #: src/qml/RoomSettings/Categories.qml:35
 #, kde-format
 msgid "Permissions"
-msgstr ""
+msgstr "Baimenak"
 
 #: src/qml/RoomSettings/Categories.qml:45 src/qml/Settings/SettingsPage.qml:22
 #, kde-format
@@ -2606,162 +2605,144 @@ msgstr "Berretsi"
 #: src/qml/RoomSettings/Permissions.qml:42
 #, kde-format
 msgid "Privileged Users"
-msgstr ""
+msgstr "Pribilegiodun erabiltzaileak"
 
 #: src/qml/RoomSettings/Permissions.qml:71
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgid "Member"
-msgstr "Partaideak"
+msgstr "Partaidea"
 
 #: src/qml/RoomSettings/Permissions.qml:228
 #, kde-format
 msgid "Default permissions"
-msgstr ""
+msgstr "Lehenetsitako baimenak"
 
 #: src/qml/RoomSettings/Permissions.qml:231
 #, kde-format
 msgid "Default user power level"
-msgstr ""
+msgstr "Erabiltzaileen ahalmen maila lehenetsia"
 
 #: src/qml/RoomSettings/Permissions.qml:232
 #, kde-format
 msgid "This is power level for all new users when joining the room"
-msgstr ""
+msgstr "Hori da gelara batzean erabiltzaile berrien ahalmen maila"
 
 #: src/qml/RoomSettings/Permissions.qml:240
-#, fuzzy, kde-format
-#| msgctxt "'power level' means permission level"
-#| msgid "changed the power levels for this room"
+#, kde-format
 msgid "Default power level to set the room state"
-msgstr "gela honetako ahalmen mailak aldatu dira"
+msgstr "Gelaren egoera ezartzeko ahalmen maila lehenetsia"
 
 #: src/qml/RoomSettings/Permissions.qml:241
 #, kde-format
 msgid "This is used for all state events that do not have their own entry here"
 msgstr ""
+"Hau, hemen sarrerarik ez duten egoera-gertaera guzietarako erabiltzen da"
 
 #: src/qml/RoomSettings/Permissions.qml:249
 #, kde-format
 msgid "Default power level to send messages"
-msgstr ""
+msgstr "Mezuak bidaltzeko ahalmen maila lehenetsia"
 
 #: src/qml/RoomSettings/Permissions.qml:250
 #, kde-format
 msgid ""
 "This is used for all message events that do not have their own entry here"
-msgstr ""
+msgstr "Hau, hemen sarrerarik ez duten mezu-gertaera guzietarako erabiltzen da"
 
 #: src/qml/RoomSettings/Permissions.qml:266
 #, kde-format
 msgid "Basic permissions"
-msgstr ""
+msgstr "Oinarrizko baimenak"
 
 #: src/qml/RoomSettings/Permissions.qml:269
-#, fuzzy, kde-format
-#| msgid "Invite a User"
+#, kde-format
 msgid "Invite users"
-msgstr "Gonbidatu erabiltzaile bat"
+msgstr "Erabiltzaileak gonbidatzea"
 
 #: src/qml/RoomSettings/Permissions.qml:277
-#, fuzzy, kde-format
-#| msgid "Kick this user"
+#, kde-format
 msgid "Kick users"
-msgstr "Kanporatu erabiltzaile hau"
+msgstr "Erabiltzaileak kanporatzea"
 
 #: src/qml/RoomSettings/Permissions.qml:285
-#, fuzzy, kde-format
-#| msgid "Ban User"
+#, kde-format
 msgid "Ban users"
-msgstr "Debekua erabiltzaileari"
+msgstr "Erabiltzaileak debekatzea"
 
 #: src/qml/RoomSettings/Permissions.qml:293
-#, fuzzy, kde-format
-#| msgid "Remove recent messages by this user"
+#, kde-format
 msgid "Remove message sent by other users"
-msgstr "Kendu erabiltzaile horren azken aldiko mezuak"
+msgstr "Beste erabiltzaileek bidalitako mezua kentzea"
 
 #: src/qml/RoomSettings/Permissions.qml:309
 #, kde-format
 msgid "Event permissions"
-msgstr ""
+msgstr "Gertaeren baimenak"
 
 #: src/qml/RoomSettings/Permissions.qml:312
 #, kde-format
 msgid "Change user permissions"
-msgstr ""
+msgstr "Erabiltzaileen baimenak aldatzea"
 
 #: src/qml/RoomSettings/Permissions.qml:321
-#, fuzzy, kde-format
-#| msgid "cleared the room name"
+#, kde-format
 msgid "Change the room name"
-msgstr "gelako izena garbitu da"
+msgstr "Gelaren izena aldatzea"
 
 #: src/qml/RoomSettings/Permissions.qml:330
-#, fuzzy, kde-format
-#| msgid "changed the room avatar"
+#, kde-format
 msgid "Change the room avatar"
-msgstr "gelako abatarra aldatu da"
+msgstr "Gelako abatarra aldatzea"
 
 #: src/qml/RoomSettings/Permissions.qml:339
-#, fuzzy, kde-format
-#| msgid "Make this alias the room's canonical alias"
+#, kde-format
 msgid "Change the room canonical alias"
-msgstr "Egin ezizen hau gelako ezizen kanonikoa"
+msgstr "Gelaren ezizen kanonikoa aldatzea"
 
 #: src/qml/RoomSettings/Permissions.qml:348
-#, fuzzy, kde-format
-#| msgid "changed the room avatar"
+#, kde-format
 msgid "Change the room topic"
-msgstr "gelako abatarra aldatu da"
+msgstr "Gelako gaia aldatzea"
 
 #: src/qml/RoomSettings/Permissions.qml:357
-#, fuzzy, kde-format
-#| msgid "Enable encryption"
+#, kde-format
 msgid "Enable encryption for the room"
-msgstr "Gaitu zifratzea"
+msgstr "Gelarako zifratzea gaitzea"
 
 #: src/qml/RoomSettings/Permissions.qml:366
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Message history visibility"
+#, kde-format
 msgid "Change the room history visibility"
-msgstr "Mezuen historiaren ikusgaitasuna"
+msgstr "Gelako historiaren ikusgaitasuna aldatzea"
 
 #: src/qml/RoomSettings/Permissions.qml:375
-#, fuzzy, kde-format
-#| msgid "Timeline Events"
+#, kde-format
 msgid "Set pinned events"
-msgstr "Denbora-lerroko ekitaldiak"
+msgstr "Iltzatutako gertaerak ezartzea"
 
 #: src/qml/RoomSettings/Permissions.qml:384
-#, fuzzy, kde-format
-#| msgid "Upgrade the Room"
+#, kde-format
 msgid "Upgrade the room"
-msgstr "Gela bertsio-berritu"
+msgstr "Gela bertsio-berritzea"
 
 #: src/qml/RoomSettings/Permissions.qml:393
-#, fuzzy, kde-format
-#| msgid "changed the server access control lists for this room"
+#, kde-format
 msgid "Set the room server access control list (ACL)"
-msgstr ""
-"gela honetarako zerbitzarirako sarrera-kontroleko zerrendak aldatu zituen"
+msgstr "Gelako zerbitzariaren sarbide kontrolerako zerrenda (ACL) ezartzea"
 
 #: src/qml/RoomSettings/Permissions.qml:403
 #, kde-format
 msgid "Set the children of this space"
-msgstr ""
+msgstr "Toki honen haurra ezartzea"
 
 #: src/qml/RoomSettings/Permissions.qml:412
-#, fuzzy, kde-format
-#| msgid "Invites the user to this room"
+#, kde-format
 msgid "Set the parent space of this room"
-msgstr "Erabiltzailea gela honetara gonbidatzen du"
+msgstr "Gela honen guraso tokia ezartzea"
 
 #: src/qml/RoomSettings/Permissions.qml:425
 #, kde-format
 msgid "Edit user power level"
-msgstr ""
+msgstr "Erabiltzailearen ahalmen maila editatzea"
 
 #: src/qml/RoomSettings/PushNotification.qml:29
 #, kde-format
@@ -2782,11 +2763,10 @@ msgstr ""
 "gaitzeko."
 
 #: src/qml/RoomSettings/Security.qml:32
-#, fuzzy, kde-format
-#| msgid "Enable encryption"
+#, kde-format
 msgctxt "@option:check"
 msgid "Encryption"
-msgstr "Gaitu zifratzea"
+msgstr "Zifratzea"
 
 #: src/qml/RoomSettings/Security.qml:36
 #, kde-format
@@ -2794,11 +2774,10 @@ msgid "Enable encryption"
 msgstr "Gaitu zifratzea"
 
 #: src/qml/RoomSettings/Security.qml:37
-#, fuzzy, kde-format
-#| msgid "Only enabled if the transparent chat page is enabled."
+#, kde-format
 msgctxt "option:check"
 msgid "Once enabled, encryption cannot be disabled."
-msgstr "Berriketa orri gardena gaituta badago bakarrik gaituko da."
+msgstr "Gaitu ondoren, ezin da ezgaitu."
 
 #: src/qml/RoomSettings/Security.qml:54
 #, kde-format
