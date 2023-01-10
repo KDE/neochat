@@ -11,7 +11,7 @@ import org.kde.kirigami 2.15 as Kirigami
 TextEdit {
     id: contentLabel
 
-    readonly property var isEmoji: /^(<span style='.*'>)?(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])+(<\/span>)?$/
+    readonly property var isEmoji: /^(<span style='.*'>)?(\u00a9|\u00ae|[\u20D0-\u2fff]|[\u3190-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])+(<\/span>)?$/
     readonly property var hasSpoiler: /data-mx-spoiler/g
 
     property bool isEmote: false
