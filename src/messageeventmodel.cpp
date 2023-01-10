@@ -439,7 +439,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         case EventTypeRole:
             return DelegateType::ReadMarker;
         case TimeRole: {
-            const QDateTime eventDate = data(index(m_lastReadEventIndex.row() + 1, 0), TimeRole).toDateTime();
+            const QDateTime eventDate = data(index(m_lastReadEventIndex.row() + 1, 0), TimeRole).toDateTime().toLocalTime();
             const KFormat format;
             return format.formatRelativeDateTime(eventDate, QLocale::ShortFormat);
         }
