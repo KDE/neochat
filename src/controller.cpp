@@ -128,16 +128,7 @@ Controller::Controller(QObject *parent)
         if (AccountRegistry::instance().size() > oldAccountCount) {
             auto connection = AccountRegistry::instance().accounts()[AccountRegistry::instance().size() - 1];
             connect(connection, &Connection::syncDone, this, [=]() {
-                bool changes = false;
-                for (const auto &room : connection->allRooms()) {
-                    if (m_notificationCounts[room] != room->unreadStats().notableCount) {
-                        m_notificationCounts[room] = room->unreadStats().notableCount;
-                        changes = true;
-                    }
-                }
-                if (changes) {
-                    handleNotifications();
-                }
+                handleNotifications(connection);
             });
         }
         oldAccountCount = AccountRegistry::instance().size();
@@ -146,19 +137,16 @@ Controller::Controller(QObject *parent)
 }
 
 #ifdef QUOTIENT_07
-void Controller::handleNotifications()
+void Controller::handleNotifications(QPointer<Quotient::Connection> connection)
 {
-    static bool initial = true;
+    static QStringList initial;
     static QStringList oldNotifications;
-    if (!m_connection) {
-        return;
-    }
-    auto job = m_connection->callApi<GetNotificationsJob>();
+    auto job = connection->callApi<GetNotificationsJob>();
 
-    connect(job, &BaseJob::success, this, [this, job]() {
+    connect(job, &BaseJob::success, this, [job, connection]() {
         const auto notifications = job->jsonData()["notifications"].toArray();
-        if (initial) {
-            initial = false;
+        if (!initial.contains(connection->user()->id())) {
+            initial.append(connection->user()->id());
             for (const auto &n : notifications) {
                 oldNotifications += n.toObject()["event"].toObject()["event_id"].toString();
             }
@@ -174,7 +162,7 @@ void Controller::handleNotifications()
                 continue;
             }
             oldNotifications += notification["event"].toObject()["event_id"].toString();
-            auto room = m_connection->room(notification["room_id"].toString());
+            auto room = connection->room(notification["room_id"].toString());
 
             // If room exists, room is NOT active OR the application is NOT active, show notification
             if (room && !(room->id() == RoomManager::instance().currentRoom()->id() && QGuiApplication::applicationState() == Qt::ApplicationActive)) {
@@ -196,7 +184,7 @@ void Controller::handleNotifications()
 
                 if (notification["event"]["type"] == "m.room.encrypted") {
 #ifdef Quotient_E2EE_ENABLED
-                    auto decrypted = m_connection->decryptNotification(notification);
+                    auto decrypted = connection->decryptNotification(notification);
                     body = decrypted["content"].toObject()["body"].toString();
 #endif
                     if (body.isEmpty()) {

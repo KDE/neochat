@@ -119,7 +119,7 @@ private:
 
     bool hasWindowSystem() const;
 #ifdef QUOTIENT_07
-    void handleNotifications();
+    void handleNotifications(QPointer<Quotient::Connection> connection);
 #endif
 
 private Q_SLOTS:

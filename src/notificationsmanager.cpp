@@ -11,6 +11,12 @@
 #include <KNotification>
 #include <KNotificationReplyAction>
 
+#ifdef QUOTIENT_07
+#include <accountregistry.h>
+#else
+#include "neochataccountregistry.h"
+#endif
+
 #include <connection.h>
 #include <csapi/pushrules.h>
 #include <jobs/basejob.h>
@@ -68,6 +74,13 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
 
     notification->setDefaultAction(i18n("Open NeoChat in this room"));
     connect(notification, &KNotification::defaultActivated, this, [=]() {
+        if (room->localUser()->id() != Controller::instance().activeConnection()->userId()) {
+#ifdef QUOTIENT_07
+            Controller::instance().setActiveConnection(Accounts.get(room->localUser()->id()));
+#else
+            Controller::instance().setActiveConnection(AccountRegistry::instance().get(room->localUser()->id()));
+#endif
+        }
         RoomManager::instance().enterRoom(room);
         WindowController::instance().showAndRaiseWindow(notification->xdgActivationToken());
     });
