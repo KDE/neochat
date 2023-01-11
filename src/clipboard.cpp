@@ -33,13 +33,14 @@ QImage Clipboard::image() const
 
 QString Clipboard::saveImage(QString localPath) const
 {
-    if (!QDir().exists(QStringLiteral("%1/screenshots").arg(QStandardPaths::writableLocation(QStandardPaths::CacheLocation)))) {
-        QDir().mkdir(QStringLiteral("%1/screenshots").arg(QStandardPaths::writableLocation(QStandardPaths::CacheLocation)));
+    QString imageDir(QStringLiteral("%1/screenshots").arg(QStandardPaths::writableLocation(QStandardPaths::CacheLocation)));
+
+    if (!QDir().exists(imageDir)) {
+        QDir().mkdir(imageDir);
     }
+
     if (localPath.isEmpty()) {
-        localPath = QStringLiteral("file://%1/screenshots/%2.png")
-                        .arg(QStandardPaths::writableLocation(QStandardPaths::CacheLocation),
-                             QDateTime::currentDateTime().toString(QStringLiteral("yyyy-MM-dd-hh-mm-ss")));
+        localPath = QStringLiteral("file://%1/%2.png").arg(imageDir, QDateTime::currentDateTime().toString(QStringLiteral("yyyy-MM-dd-hh-mm-ss")));
     }
     QUrl url(localPath);
     if (!url.isLocalFile()) {
@@ -51,14 +52,11 @@ QString Clipboard::saveImage(QString localPath) const
         return {};
     }
 
-    QDir dir;
-    if (!dir.exists(QFileInfo(url.fileName()).absoluteFilePath())) {
-        dir.mkpath(QFileInfo(url.fileName()).absoluteFilePath());
+    if (image.save(url.toLocalFile())) {
+        return localPath;
+    } else {
+        return {};
     }
-
-    image.save(url.toLocalFile());
-
-    return localPath;
 }
 
 void Clipboard::saveText(QString message)
