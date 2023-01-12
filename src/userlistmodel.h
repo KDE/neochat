@@ -27,6 +27,7 @@ public:
         Moderator,
         Member,
         Muted,
+        Custom,
     };
     Q_ENUM(Types)
 };
@@ -41,8 +42,8 @@ public:
         UserIdRole,
         AvatarRole,
         ObjectRole,
-        PermRole,
         PowerLevelRole,
+        PowerLevelStringRole,
     };
 
     UserListModel(QObject *parent = nullptr);
@@ -56,8 +57,6 @@ public:
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
-
-    // Q_INVOKABLE
 
 Q_SIGNALS:
     void roomChanged();

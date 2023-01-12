@@ -291,7 +291,8 @@ Kirigami.OverlayDrawer {
                             room: roomDrawer.room
                         }
 
-                        sortRole: "perm"
+                        sortRole: "powerLevel"
+                        sortOrder: Qt.DescendingOrder
                         filterRole: "name"
                         filterCaseSensitivity: Qt.CaseInsensitive
                     }
@@ -325,22 +326,9 @@ Kirigami.OverlayDrawer {
                         }
 
                         trailing: QQC2.Label {
-                            visible: perm != UserType.Member
+                            visible: powerLevel > 0
 
-                            text: {
-                                switch (perm) {
-                                    case UserType.Owner:
-                                        return i18n("Owner");
-                                    case UserType.Admin:
-                                        return i18n("Admin");
-                                    case UserType.Moderator:
-                                        return i18n("Mod");
-                                    case UserType.Muted:
-                                        return i18n("Muted");
-                                    default:
-                                        return "";
-                                }
-                            }
+                            text: powerLevelString
                             color: Kirigami.Theme.disabledTextColor
                             textFormat: Text.PlainText
                             wrapMode: Text.NoWrap

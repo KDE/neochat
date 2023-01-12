@@ -44,10 +44,11 @@ Kirigami.ScrollablePage {
                 Repeater {
                     model: KSortFilterProxyModel {
                         sourceModel: userListModel
-                        sortRole: "perm"
+                        sortRole: "powerLevel"
+                        sortOrder: Qt.DescendingOrder
                         filterRowCallback: function(source_row, source_parent) {
-                            let permRole = sourceModel.data(sourceModel.index(source_row, 0, source_parent), Qt.UserRole + 5)
-                            return permRole != UserType.Muted && permRole != UserType.Member;
+                            let powerLevelRole = sourceModel.data(sourceModel.index(source_row, 0, source_parent), Qt.UserRole + 5)
+                            return powerLevelRole > 0;
                         }
                     }
                     delegate: MobileForm.FormTextDelegate {
@@ -57,22 +58,7 @@ Kirigami.ScrollablePage {
                             spacing: Kirigami.Units.largeSpacing
                             QQC2.Label {
                                 visible: !room.canSendState("m.room.power_levels")
-                                text: {
-                                    switch (perm) {
-                                        case UserType.Owner:
-                                            return i18n("Owner");
-                                        case UserType.Admin:
-                                            return i18n("Admin");
-                                        case UserType.Moderator:
-                                            return i18n("Mod");
-                                        case UserType.Muted:
-                                            return i18n("Muted");
-                                        case UserType.Member:
-                                            return i18n("Member");
-                                        default:
-                                            return ""
-                                    }
-                                }
+                                text: powerLevelString
                                 color: Kirigami.Theme.disabledTextColor
                             }
                             QQC2.ComboBox {
@@ -191,22 +177,9 @@ Kirigami.ScrollablePage {
                                     }
 
                                     trailing: QQC2.Label {
-                                        visible: perm != UserType.Member
+                                        visible: powerLevel > 0
 
-                                        text: {
-                                            switch (perm) {
-                                                case UserType.Owner:
-                                                    return i18n("Owner");
-                                                case UserType.Admin:
-                                                    return i18n("Admin");
-                                                case UserType.Moderator:
-                                                    return i18n("Mod");
-                                                case UserType.Muted:
-                                                    return i18n("Muted");
-                                                default:
-                                                    return "";
-                                            }
-                                        }
+                                        text: powerLevelString
                                         color: Kirigami.Theme.disabledTextColor
                                         textFormat: Text.PlainText
                                         wrapMode: Text.NoWrap

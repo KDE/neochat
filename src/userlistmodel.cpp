@@ -95,47 +95,28 @@ QVariant UserListModel::data(const QModelIndex &index, int role) const
     if (role == ObjectRole) {
         return QVariant::fromValue(user);
     }
-    if (role == PermRole) {
-        auto pl = m_currentRoom->getCurrentState<RoomPowerLevelsEvent>();
-        auto userPl = pl->powerLevelForUser(user->id());
-
-        if (userPl == pl->content().usersDefault) { // Shortcut
-            return UserType::Member;
-        }
-
-        if (userPl < pl->powerLevelForEvent("m.room.message")) {
-            return UserType::Muted;
-        }
-
-        auto userPls = pl->users();
-
-        int highestPl = pl->usersDefault();
-        QHash<QString, int>::const_iterator i = userPls.constBegin();
-        while (i != userPls.constEnd()) {
-            if (i.value() > highestPl) {
-                highestPl = i.value();
-            }
-
-            ++i;
-        }
-
-        if (userPl == highestPl) {
-            return UserType::Owner;
-        }
-
-        if (userPl >= pl->powerLevelForState("m.room.power_levels")) {
-            return UserType::Admin;
-        }
-
-        if (userPl >= pl->ban() || userPl >= pl->kick() || userPl >= pl->redact()) {
-            return UserType::Moderator;
-        }
-
-        return UserType::Member;
-    }
     if (role == PowerLevelRole) {
         auto pl = m_currentRoom->getCurrentState<RoomPowerLevelsEvent>();
         return pl->powerLevelForUser(user->id());
+    }
+    if (role == PowerLevelStringRole) {
+#ifdef QUOTIENT_07
+        auto pl = m_currentRoom->currentState().get<RoomPowerLevelsEvent>();
+#else
+        auto pl = m_currentRoom->getCurrentState<RoomPowerLevelsEvent>();
+#endif
+        auto userPl = pl->powerLevelForUser(user->id());
+
+        switch (userPl) {
+        case 0:
+            return QStringLiteral("Member");
+        case 50:
+            return QStringLiteral("Moderator");
+        case 100:
+            return QStringLiteral("Admin");
+        default:
+            return QStringLiteral("Custom");
+        }
     }
 
     return {};
@@ -241,8 +222,8 @@ QHash<int, QByteArray> UserListModel::roleNames() const
     roles[UserIdRole] = "userId";
     roles[AvatarRole] = "avatar";
     roles[ObjectRole] = "user";
-    roles[PermRole] = "perm";
     roles[PowerLevelRole] = "powerLevel";
+    roles[PowerLevelStringRole] = "powerLevelString";
 
     return roles;
 }
