@@ -105,6 +105,12 @@ QVariant UserListModel::data(const QModelIndex &index, int role) const
 #else
         auto pl = m_currentRoom->getCurrentState<RoomPowerLevelsEvent>();
 #endif
+        // User might not in the room yet, in this case pl can be nullptr.
+        // e.g. When invited but user not accepted or denied the invitation.
+        if (!pl) {
+            return QStringLiteral("Not Available");
+        }
+
         auto userPl = pl->powerLevelForUser(user->id());
 
         switch (userPl) {
