@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-12 00:55+0000\n"
-"PO-Revision-Date: 2023-01-06 22:30+0300\n"
+"POT-Creation-Date: 2023-01-13 00:56+0000\n"
+"PO-Revision-Date: 2023-01-13 00:20+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #: src/actionsmodel.cpp:30 src/actionsmodel.cpp:40 src/actionsmodel.cpp:50
 #: src/actionsmodel.cpp:60 src/actionsmodel.cpp:80 src/actionsmodel.cpp:100
@@ -924,6 +924,8 @@ msgid ""
 "This room is encrypted. Build libQuotient with encryption enabled to send "
 "encrypted messages."
 msgstr ""
+"Bu oda şifreli. Şifreli iletiler göndermek için libQuotient'i şifreleme "
+"etkinleştirilmiş olarak yapın."
 
 #: src/qml/Component/ChatBox/ChatBar.qml:80
 #, kde-format
@@ -2441,30 +2443,6 @@ msgstr[1] "%1 Üye"
 msgid "No Member Count"
 msgstr "Üye Sayısı Yok"
 
-#: src/qml/Panel/RoomDrawer.qml:333 src/qml/RoomSettings/Permissions.qml:63
-#: src/qml/RoomSettings/Permissions.qml:199
-#, kde-format
-msgid "Owner"
-msgstr "Sahip"
-
-#: src/qml/Panel/RoomDrawer.qml:335 src/qml/RoomSettings/Permissions.qml:65
-#: src/qml/RoomSettings/Permissions.qml:201
-#, kde-format
-msgid "Admin"
-msgstr "Yönetici"
-
-#: src/qml/Panel/RoomDrawer.qml:337 src/qml/RoomSettings/Permissions.qml:67
-#: src/qml/RoomSettings/Permissions.qml:203
-#, kde-format
-msgid "Mod"
-msgstr "Mod"
-
-#: src/qml/Panel/RoomDrawer.qml:339 src/qml/RoomSettings/Permissions.qml:69
-#: src/qml/RoomSettings/Permissions.qml:205
-#, kde-format
-msgid "Muted"
-msgstr "Sessize Alınmış"
-
 #: src/qml/RoomSettings/Categories.qml:15 src/qml/RoomSettings/General.qml:19
 #: src/qml/Settings/SettingsPage.qml:12
 #, kde-format
@@ -2589,7 +2567,7 @@ msgid "Select new version"
 msgstr "Yeni sürüm seç"
 
 #: src/qml/RoomSettings/General.qml:302
-#: src/qml/RoomSettings/Permissions.qml:445
+#: src/qml/RoomSettings/Permissions.qml:418
 #: src/qml/Settings/DevicesPage.qml:186
 #, kde-format
 msgid "Confirm"
@@ -2600,140 +2578,135 @@ msgstr "Onayla"
 msgid "Privileged Users"
 msgstr "Ayrıcalıklı Kullanıcılar"
 
-#: src/qml/RoomSettings/Permissions.qml:71
-#, kde-format
-msgid "Member"
-msgstr "Üye"
-
-#: src/qml/RoomSettings/Permissions.qml:228
+#: src/qml/RoomSettings/Permissions.qml:201
 #, kde-format
 msgid "Default permissions"
 msgstr "Öntanımlı izinler"
 
-#: src/qml/RoomSettings/Permissions.qml:231
+#: src/qml/RoomSettings/Permissions.qml:204
 #, kde-format
 msgid "Default user power level"
 msgstr "Öntanımlı kullanıcı güç düzeyi"
 
-#: src/qml/RoomSettings/Permissions.qml:232
+#: src/qml/RoomSettings/Permissions.qml:205
 #, kde-format
 msgid "This is power level for all new users when joining the room"
 msgstr "Bu, odaya katılan tüm yeni kullanıcıların güç düzeyidir"
 
-#: src/qml/RoomSettings/Permissions.qml:240
+#: src/qml/RoomSettings/Permissions.qml:213
 #, kde-format
 msgid "Default power level to set the room state"
 msgstr "Oda durumunu ayarlamak için öntanımlı güç düzeyi"
 
-#: src/qml/RoomSettings/Permissions.qml:241
+#: src/qml/RoomSettings/Permissions.qml:214
 #, kde-format
 msgid "This is used for all state events that do not have their own entry here"
 msgstr ""
 "Bu, burada kendi özel girdisi olmayan tüm durum olayları için kullanılır"
 
-#: src/qml/RoomSettings/Permissions.qml:249
+#: src/qml/RoomSettings/Permissions.qml:222
 #, kde-format
 msgid "Default power level to send messages"
 msgstr "İleti göndermek için öntanımlı güç düzeyi"
 
-#: src/qml/RoomSettings/Permissions.qml:250
+#: src/qml/RoomSettings/Permissions.qml:223
 #, kde-format
 msgid ""
 "This is used for all message events that do not have their own entry here"
 msgstr ""
 "Bu, burada kendi özel girdisi olmayan tüm ileti olayları için kullanılır"
 
-#: src/qml/RoomSettings/Permissions.qml:266
+#: src/qml/RoomSettings/Permissions.qml:239
 #, kde-format
 msgid "Basic permissions"
 msgstr "Temel izinler"
 
-#: src/qml/RoomSettings/Permissions.qml:269
+#: src/qml/RoomSettings/Permissions.qml:242
 #, kde-format
 msgid "Invite users"
 msgstr "Kullanıcılar davet et"
 
-#: src/qml/RoomSettings/Permissions.qml:277
+#: src/qml/RoomSettings/Permissions.qml:250
 #, kde-format
 msgid "Kick users"
 msgstr "Kullanıcılar kov"
 
-#: src/qml/RoomSettings/Permissions.qml:285
+#: src/qml/RoomSettings/Permissions.qml:258
 #, kde-format
 msgid "Ban users"
 msgstr "Kullanıcılar yasakla"
 
-#: src/qml/RoomSettings/Permissions.qml:293
+#: src/qml/RoomSettings/Permissions.qml:266
 #, kde-format
 msgid "Remove message sent by other users"
 msgstr "Diğer kullanıcılar tarafından gönderilen iletiyi kaldır"
 
-#: src/qml/RoomSettings/Permissions.qml:309
+#: src/qml/RoomSettings/Permissions.qml:282
 #, kde-format
 msgid "Event permissions"
 msgstr "Olay izinleri"
 
-#: src/qml/RoomSettings/Permissions.qml:312
+#: src/qml/RoomSettings/Permissions.qml:285
 #, kde-format
 msgid "Change user permissions"
 msgstr "Kullanıcı izinlerini değiştir"
 
-#: src/qml/RoomSettings/Permissions.qml:321
+#: src/qml/RoomSettings/Permissions.qml:294
 #, kde-format
 msgid "Change the room name"
 msgstr "Oda adını değiştir"
 
-#: src/qml/RoomSettings/Permissions.qml:330
+#: src/qml/RoomSettings/Permissions.qml:303
 #, kde-format
 msgid "Change the room avatar"
 msgstr "Oda avatarını değiştir"
 
-#: src/qml/RoomSettings/Permissions.qml:339
+#: src/qml/RoomSettings/Permissions.qml:312
 #, kde-format
 msgid "Change the room canonical alias"
 msgstr "Oda resmi armasını değiştir"
 
-#: src/qml/RoomSettings/Permissions.qml:348
+#: src/qml/RoomSettings/Permissions.qml:321
 #, kde-format
 msgid "Change the room topic"
 msgstr "Oda konusunu değiştir"
 
-#: src/qml/RoomSettings/Permissions.qml:357
+#: src/qml/RoomSettings/Permissions.qml:330
 #, kde-format
 msgid "Enable encryption for the room"
 msgstr "Oda için şifrelemeyi etkinleştir"
 
-#: src/qml/RoomSettings/Permissions.qml:366
+#: src/qml/RoomSettings/Permissions.qml:339
 #, kde-format
 msgid "Change the room history visibility"
 msgstr "Oda geçmişi görünürlüğünü değiştir"
 
-#: src/qml/RoomSettings/Permissions.qml:375
+#: src/qml/RoomSettings/Permissions.qml:348
 #, kde-format
 msgid "Set pinned events"
 msgstr "Sabitlenmiş olayları ayarla"
 
-#: src/qml/RoomSettings/Permissions.qml:384
+#: src/qml/RoomSettings/Permissions.qml:357
 #, kde-format
 msgid "Upgrade the room"
 msgstr "Odayı yükselt"
 
-#: src/qml/RoomSettings/Permissions.qml:393
+#: src/qml/RoomSettings/Permissions.qml:366
 #, kde-format
 msgid "Set the room server access control list (ACL)"
 msgstr "Oda sunucu erişim denetim listesini (ACL) ayarla"
 
-#: src/qml/RoomSettings/Permissions.qml:403
+#: src/qml/RoomSettings/Permissions.qml:376
 #, kde-format
 msgid "Set the children of this space"
 msgstr "Bu alanın alt ögelerini ayarla"
 
-#: src/qml/RoomSettings/Permissions.qml:412
+#: src/qml/RoomSettings/Permissions.qml:385
 #, kde-format
 msgid "Set the parent space of this room"
 msgstr "Odanın üst alanını ayarla"
 
-#: src/qml/RoomSettings/Permissions.qml:425
+#: src/qml/RoomSettings/Permissions.qml:398
 #, kde-format
 msgid "Edit user power level"
 msgstr "Kullanıcı güç düzeyini düzenle"
@@ -3580,6 +3553,21 @@ msgstr "URL açılamadı"
 #, kde-format
 msgid "Show"
 msgstr "Göster"
+
+#~ msgid "Owner"
+#~ msgstr "Sahip"
+
+#~ msgid "Admin"
+#~ msgstr "Yönetici"
+
+#~ msgid "Mod"
+#~ msgstr "Mod"
+
+#~ msgid "Muted"
+#~ msgstr "Sessize Alınmış"
+
+#~ msgid "Member"
+#~ msgstr "Üye"
 
 #~ msgid ""
 #~ "This room is encrypted. Sending encrypted messages is not yet supported."

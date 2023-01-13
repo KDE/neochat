@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-12 00:55+0000\n"
-"PO-Revision-Date: 2023-01-10 21:40+0530\n"
+"POT-Creation-Date: 2023-01-13 00:56+0000\n"
+"PO-Revision-Date: 2023-01-12 21:28+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -926,6 +926,8 @@ msgid ""
 "This room is encrypted. Build libQuotient with encryption enabled to send "
 "encrypted messages."
 msgstr ""
+"இவ்வரங்கு மறையாக்கம் செய்யப்பட்டுள்ளது. மறையாக்கிய செய்திகளை அனுப்ப, libQuotient தனை "
+"மறையாக்க ஆதரவுடன் இரும‍மாக்குங்கள்"
 
 #: src/qml/Component/ChatBox/ChatBar.qml:80
 #, kde-format
@@ -2428,30 +2430,6 @@ msgstr[1] "%1 உறுப்பினர்கள்"
 msgid "No Member Count"
 msgstr "உறுப்பினர்களின் எண்ணிக்கை தெரியாதது"
 
-#: src/qml/Panel/RoomDrawer.qml:333 src/qml/RoomSettings/Permissions.qml:63
-#: src/qml/RoomSettings/Permissions.qml:199
-#, kde-format
-msgid "Owner"
-msgstr "உரிமையாளர்"
-
-#: src/qml/Panel/RoomDrawer.qml:335 src/qml/RoomSettings/Permissions.qml:65
-#: src/qml/RoomSettings/Permissions.qml:201
-#, kde-format
-msgid "Admin"
-msgstr "நிர்வாகி"
-
-#: src/qml/Panel/RoomDrawer.qml:337 src/qml/RoomSettings/Permissions.qml:67
-#: src/qml/RoomSettings/Permissions.qml:203
-#, kde-format
-msgid "Mod"
-msgstr "நடுவர்"
-
-#: src/qml/Panel/RoomDrawer.qml:339 src/qml/RoomSettings/Permissions.qml:69
-#: src/qml/RoomSettings/Permissions.qml:205
-#, kde-format
-msgid "Muted"
-msgstr "அடக்கப்பட்டுள்ளார்"
-
 #: src/qml/RoomSettings/Categories.qml:15 src/qml/RoomSettings/General.qml:19
 #: src/qml/Settings/SettingsPage.qml:12
 #, kde-format
@@ -2576,7 +2554,7 @@ msgid "Select new version"
 msgstr "புதிய பதிப்பைத் தேர்ந்தெடுங்கள்"
 
 #: src/qml/RoomSettings/General.qml:302
-#: src/qml/RoomSettings/Permissions.qml:445
+#: src/qml/RoomSettings/Permissions.qml:418
 #: src/qml/Settings/DevicesPage.qml:186
 #, kde-format
 msgid "Confirm"
@@ -2587,141 +2565,136 @@ msgstr "உறுதிசெய்"
 msgid "Privileged Users"
 msgstr "சிறப்புரிமையுடைய பயனர்கள்"
 
-#: src/qml/RoomSettings/Permissions.qml:71
-#, kde-format
-msgid "Member"
-msgstr "உறுப்பினர்"
-
-#: src/qml/RoomSettings/Permissions.qml:228
+#: src/qml/RoomSettings/Permissions.qml:201
 #, kde-format
 msgid "Default permissions"
 msgstr "இயல்பிருப்பு அனுமதிகள்"
 
-#: src/qml/RoomSettings/Permissions.qml:231
+#: src/qml/RoomSettings/Permissions.qml:204
 #, kde-format
 msgid "Default user power level"
 msgstr "பயனர்களின் இயல்பிருப்பு உரிமையளவு"
 
-#: src/qml/RoomSettings/Permissions.qml:232
+#: src/qml/RoomSettings/Permissions.qml:205
 #, kde-format
 msgid "This is power level for all new users when joining the room"
 msgstr "அரங்கில் புதிதாக சேரும் பயனர்களுக்கான உரிமையளவு இது"
 
-#: src/qml/RoomSettings/Permissions.qml:240
+#: src/qml/RoomSettings/Permissions.qml:213
 #, kde-format
 msgid "Default power level to set the room state"
 msgstr "அரங்கின் நிலையை மாற்றுவதற்கான இயல்பிருப்பு உரிமையளவு"
 
-#: src/qml/RoomSettings/Permissions.qml:241
+#: src/qml/RoomSettings/Permissions.qml:214
 #, kde-format
 msgid "This is used for all state events that do not have their own entry here"
 msgstr ""
 "கீழே தனிப்பட்ட பதிவைக் கொண்டிராத அனைத்து நிலைகுறித்த செயல்களுக்கும் இது பயன்படுத்தப்படும்"
 
-#: src/qml/RoomSettings/Permissions.qml:249
+#: src/qml/RoomSettings/Permissions.qml:222
 #, kde-format
 msgid "Default power level to send messages"
 msgstr "செய்திகளை அனுப்புவதற்கான இயல்பிருப்பு உரிமையளவு"
 
-#: src/qml/RoomSettings/Permissions.qml:250
+#: src/qml/RoomSettings/Permissions.qml:223
 #, kde-format
 msgid ""
 "This is used for all message events that do not have their own entry here"
 msgstr ""
 "கீழே தனிப்பட்ட பதிவைக் கொண்டிராத அனைத்து செய்திகுறித்த செயல்களுக்கும் இது பயன்படுத்தப்படும்"
 
-#: src/qml/RoomSettings/Permissions.qml:266
+#: src/qml/RoomSettings/Permissions.qml:239
 #, kde-format
 msgid "Basic permissions"
 msgstr "அடிப்படை அனுமதிகள்"
 
-#: src/qml/RoomSettings/Permissions.qml:269
+#: src/qml/RoomSettings/Permissions.qml:242
 #, kde-format
 msgid "Invite users"
 msgstr "பயனர்களை வரவழைப்பது"
 
-#: src/qml/RoomSettings/Permissions.qml:277
+#: src/qml/RoomSettings/Permissions.qml:250
 #, kde-format
 msgid "Kick users"
 msgstr "பயனர்களை வெளியேற்றுவது"
 
-#: src/qml/RoomSettings/Permissions.qml:285
+#: src/qml/RoomSettings/Permissions.qml:258
 #, kde-format
 msgid "Ban users"
 msgstr "பயனர்களைத் தடை செய்வது"
 
-#: src/qml/RoomSettings/Permissions.qml:293
+#: src/qml/RoomSettings/Permissions.qml:266
 #, kde-format
 msgid "Remove message sent by other users"
 msgstr "இன்னொரு பயனர் அனுப்பிய செய்தியை நீக்குவது"
 
-#: src/qml/RoomSettings/Permissions.qml:309
+#: src/qml/RoomSettings/Permissions.qml:282
 #, kde-format
 msgid "Event permissions"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:312
+#: src/qml/RoomSettings/Permissions.qml:285
 #, kde-format
 msgid "Change user permissions"
 msgstr "பயனர்களின் அனுமதிகளை மாற்றுவது"
 
-#: src/qml/RoomSettings/Permissions.qml:321
+#: src/qml/RoomSettings/Permissions.qml:294
 #, kde-format
 msgid "Change the room name"
 msgstr "அரங்கின் பெயரை மாற்றுவது"
 
-#: src/qml/RoomSettings/Permissions.qml:330
+#: src/qml/RoomSettings/Permissions.qml:303
 #, kde-format
 msgid "Change the room avatar"
 msgstr "அரங்கின் சின்னத்தை மாற்றுவது"
 
-#: src/qml/RoomSettings/Permissions.qml:339
+#: src/qml/RoomSettings/Permissions.qml:312
 #, kde-format
 msgid "Change the room canonical alias"
 msgstr "இதை அரங்கின் செந்தர மாற்றுப்பெயரை மாற்றுவது"
 
-#: src/qml/RoomSettings/Permissions.qml:348
+#: src/qml/RoomSettings/Permissions.qml:321
 #, kde-format
 msgid "Change the room topic"
 msgstr "அரங்கின் தலைப்பை மாற்றுவது"
 
-#: src/qml/RoomSettings/Permissions.qml:357
+#: src/qml/RoomSettings/Permissions.qml:330
 #, kde-format
 msgid "Enable encryption for the room"
 msgstr "அரங்கில் மறையாக்கத்தை நீக்குவது"
 
-#: src/qml/RoomSettings/Permissions.qml:366
+#: src/qml/RoomSettings/Permissions.qml:339
 #, kde-format
 msgid "Change the room history visibility"
 msgstr "செய்தி வரலாற்றின் புலப்பாட்டை மாற்றுவது"
 
-#: src/qml/RoomSettings/Permissions.qml:375
+#: src/qml/RoomSettings/Permissions.qml:348
 #, fuzzy, kde-format
 #| msgid "Timeline Events"
 msgid "Set pinned events"
 msgstr "காலவரிசையிலுள்ளவை"
 
-#: src/qml/RoomSettings/Permissions.qml:384
+#: src/qml/RoomSettings/Permissions.qml:357
 #, kde-format
 msgid "Upgrade the room"
 msgstr "அரங்கைப் புதுப்பிப்பது"
 
-#: src/qml/RoomSettings/Permissions.qml:393
+#: src/qml/RoomSettings/Permissions.qml:366
 #, kde-format
 msgid "Set the room server access control list (ACL)"
 msgstr "அரங்கிற்கான சேவையக அணுகல் கட்டுப்பாட்டு பட்டியலை (ACL-ஐ) மாற்றிவது"
 
-#: src/qml/RoomSettings/Permissions.qml:403
+#: src/qml/RoomSettings/Permissions.qml:376
 #, kde-format
 msgid "Set the children of this space"
 msgstr "இவ்விடத்தில் சார்ந்த அரங்குகளை அமைப்பது"
 
-#: src/qml/RoomSettings/Permissions.qml:412
+#: src/qml/RoomSettings/Permissions.qml:385
 #, kde-format
 msgid "Set the parent space of this room"
 msgstr "இவ்வரங்கின் தாய் இடத்தை அமைப்பது"
 
-#: src/qml/RoomSettings/Permissions.qml:425
+#: src/qml/RoomSettings/Permissions.qml:398
 #, kde-format
 msgid "Edit user power level"
 msgstr "பயனர்களின் உரிமையளவை மாற்றுவது"
@@ -3565,6 +3538,21 @@ msgstr "முகவரியைத் திறக்க முடியவி�
 #, kde-format
 msgid "Show"
 msgstr "காட்டு"
+
+#~ msgid "Owner"
+#~ msgstr "உரிமையாளர்"
+
+#~ msgid "Admin"
+#~ msgstr "நிர்வாகி"
+
+#~ msgid "Mod"
+#~ msgstr "நடுவர்"
+
+#~ msgid "Muted"
+#~ msgstr "அடக்கப்பட்டுள்ளார்"
+
+#~ msgid "Member"
+#~ msgstr "உறுப்பினர்"
 
 #~ msgid ""
 #~ "This room is encrypted. Sending encrypted messages is not yet supported."

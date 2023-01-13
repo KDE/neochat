@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-06 00:47+0000\n"
+"POT-Creation-Date: 2023-01-12 00:55+0000\n"
 "PO-Revision-Date: 2021-12-15 11:17+0100\n"
 "Last-Translator: Øystein Steffensen-Alværvik <oysteins.omsetting@protonmail."
 "com>\n"
@@ -332,67 +332,67 @@ msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
 msgstr ""
 
-#: src/controller.cpp:203
+#: src/controller.cpp:191
 #, kde-format
 msgid "Encrypted Message"
 msgstr ""
 
-#: src/controller.cpp:263 src/controller.cpp:391
+#: src/controller.cpp:251 src/controller.cpp:379
 #, kde-format
 msgid "Network Error: %1"
 msgstr ""
 
-#: src/controller.cpp:382
+#: src/controller.cpp:370
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr ""
 
-#: src/controller.cpp:385 src/login.cpp:91
+#: src/controller.cpp:373 src/login.cpp:91
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Feil ved innlogging: %1"
 
-#: src/controller.cpp:416
+#: src/controller.cpp:404
 #, kde-format
 msgid "Access token wasn't found"
 msgstr ""
 
-#: src/controller.cpp:416
+#: src/controller.cpp:404
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr ""
 
-#: src/controller.cpp:420
+#: src/controller.cpp:408
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr ""
 
-#: src/controller.cpp:420
+#: src/controller.cpp:408
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr ""
 
-#: src/controller.cpp:423
+#: src/controller.cpp:411
 #, kde-format
 msgid "No keychain available."
 msgstr ""
 
-#: src/controller.cpp:423
+#: src/controller.cpp:411
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 
-#: src/controller.cpp:426
+#: src/controller.cpp:414
 #, kde-format
 msgid "Unable to read access token"
 msgstr ""
 
-#: src/controller.cpp:643
+#: src/controller.cpp:631
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "Feil ved romregistrering: «%1»"
 
-#: src/controller.cpp:656
+#: src/controller.cpp:644
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Rom-ID-en du prøver å bruka, er ikkje gyldig"
@@ -861,17 +861,17 @@ msgstr "Ukjend hending"
 msgid "Report sent successfully."
 msgstr ""
 
-#: src/notificationsmanager.cpp:63
+#: src/notificationsmanager.cpp:69
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/notificationsmanager.cpp:69
+#: src/notificationsmanager.cpp:75
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Opna NeoChat i dette rommet"
 
-#: src/notificationsmanager.cpp:76
+#: src/notificationsmanager.cpp:89
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
 #: src/qml/Page/RoomPage.qml:545
@@ -879,27 +879,27 @@ msgstr "Opna NeoChat i dette rommet"
 msgid "Reply"
 msgstr "Svar"
 
-#: src/notificationsmanager.cpp:77
+#: src/notificationsmanager.cpp:90
 #, kde-format
 msgid "Reply..."
 msgstr "Svar …"
 
-#: src/notificationsmanager.cpp:99
+#: src/notificationsmanager.cpp:112
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr ""
 
-#: src/notificationsmanager.cpp:103
+#: src/notificationsmanager.cpp:116
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr ""
 
-#: src/notificationsmanager.cpp:109
+#: src/notificationsmanager.cpp:122
 #, kde-format
 msgid "Accept Invitation"
 msgstr ""
 
-#: src/notificationsmanager.cpp:109
+#: src/notificationsmanager.cpp:122
 #, kde-format
 msgid "Reject Invitation"
 msgstr ""
@@ -924,7 +924,8 @@ msgstr ""
 #: src/qml/Component/ChatBox/ChatBar.qml:80
 #, kde-format
 msgid ""
-"This room is encrypted. Sending encrypted messages is not yet supported."
+"This room is encrypted. Build libQuotient with encryption enabled to send "
+"encrypted messages."
 msgstr ""
 
 #: src/qml/Component/ChatBox/ChatBar.qml:80

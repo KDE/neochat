@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-12 00:55+0000\n"
+"POT-Creation-Date: 2023-01-13 00:56+0000\n"
 "PO-Revision-Date: 2023-01-06 06:19+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -2430,30 +2430,6 @@ msgstr[1] "%1 წევრი"
 msgid "No Member Count"
 msgstr "წევრების რაოდენობის გარეშე"
 
-#: src/qml/Panel/RoomDrawer.qml:333 src/qml/RoomSettings/Permissions.qml:63
-#: src/qml/RoomSettings/Permissions.qml:199
-#, kde-format
-msgid "Owner"
-msgstr "მფლობელი"
-
-#: src/qml/Panel/RoomDrawer.qml:335 src/qml/RoomSettings/Permissions.qml:65
-#: src/qml/RoomSettings/Permissions.qml:201
-#, kde-format
-msgid "Admin"
-msgstr "ადმინისტრატორი"
-
-#: src/qml/Panel/RoomDrawer.qml:337 src/qml/RoomSettings/Permissions.qml:67
-#: src/qml/RoomSettings/Permissions.qml:203
-#, kde-format
-msgid "Mod"
-msgstr "მოდი"
-
-#: src/qml/Panel/RoomDrawer.qml:339 src/qml/RoomSettings/Permissions.qml:69
-#: src/qml/RoomSettings/Permissions.qml:205
-#, kde-format
-msgid "Muted"
-msgstr "ხმა გამორთული"
-
 #: src/qml/RoomSettings/Categories.qml:15 src/qml/RoomSettings/General.qml:19
 #: src/qml/Settings/SettingsPage.qml:12
 #, kde-format
@@ -2578,7 +2554,7 @@ msgid "Select new version"
 msgstr "აირჩიეთ ახალი ვერსია"
 
 #: src/qml/RoomSettings/General.qml:302
-#: src/qml/RoomSettings/Permissions.qml:445
+#: src/qml/RoomSettings/Permissions.qml:418
 #: src/qml/Settings/DevicesPage.qml:186
 #, kde-format
 msgid "Confirm"
@@ -2589,44 +2565,39 @@ msgstr "დადასტურება"
 msgid "Privileged Users"
 msgstr "პრივილეგირებული მომხმარებლები"
 
-#: src/qml/RoomSettings/Permissions.qml:71
-#, kde-format
-msgid "Member"
-msgstr "წევრი"
-
-#: src/qml/RoomSettings/Permissions.qml:228
+#: src/qml/RoomSettings/Permissions.qml:201
 #, kde-format
 msgid "Default permissions"
 msgstr "ნაგულისხმები წვდომები"
 
-#: src/qml/RoomSettings/Permissions.qml:231
+#: src/qml/RoomSettings/Permissions.qml:204
 #, kde-format
 msgid "Default user power level"
 msgstr "მომხმარებლის წვდომის ნაგულისხმები დონე"
 
-#: src/qml/RoomSettings/Permissions.qml:232
+#: src/qml/RoomSettings/Permissions.qml:205
 #, kde-format
 msgid "This is power level for all new users when joining the room"
 msgstr "ეს ოთახში შემოსვლისას ახალი მომხმარებლების წვდომის დონეა"
 
-#: src/qml/RoomSettings/Permissions.qml:240
+#: src/qml/RoomSettings/Permissions.qml:213
 #, kde-format
 msgid "Default power level to set the room state"
 msgstr "ოთახის მდგომარეობის დასაყენებელი უფლებების ნაგულისხმები დონე"
 
-#: src/qml/RoomSettings/Permissions.qml:241
+#: src/qml/RoomSettings/Permissions.qml:214
 #, kde-format
 msgid "This is used for all state events that do not have their own entry here"
 msgstr ""
 "გამოიყენება ყველა მდგომარეობის მოვლენისთვის, რომელსაც აქ საკუთარი ჩანაწერი "
 "არ გააჩნია"
 
-#: src/qml/RoomSettings/Permissions.qml:249
+#: src/qml/RoomSettings/Permissions.qml:222
 #, kde-format
 msgid "Default power level to send messages"
 msgstr "ნაგულისხმები წვდომის დონე შეტყობინებების გასაგზავნად"
 
-#: src/qml/RoomSettings/Permissions.qml:250
+#: src/qml/RoomSettings/Permissions.qml:223
 #, kde-format
 msgid ""
 "This is used for all message events that do not have their own entry here"
@@ -2634,97 +2605,97 @@ msgstr ""
 "გამოიყენება ყველა შეტყობინების მობლენისთვის, რომელსაც აქ საკუთარი ჩანაწერი "
 "არ გააჩნია"
 
-#: src/qml/RoomSettings/Permissions.qml:266
+#: src/qml/RoomSettings/Permissions.qml:239
 #, kde-format
 msgid "Basic permissions"
 msgstr "ძირითადი წვდომები"
 
-#: src/qml/RoomSettings/Permissions.qml:269
+#: src/qml/RoomSettings/Permissions.qml:242
 #, kde-format
 msgid "Invite users"
 msgstr "მომხმარებლების მოწვევა"
 
-#: src/qml/RoomSettings/Permissions.qml:277
+#: src/qml/RoomSettings/Permissions.qml:250
 #, kde-format
 msgid "Kick users"
 msgstr "მომხმარებლების გაყრა"
 
-#: src/qml/RoomSettings/Permissions.qml:285
+#: src/qml/RoomSettings/Permissions.qml:258
 #, kde-format
 msgid "Ban users"
 msgstr "მომხმარებლების ბანი"
 
-#: src/qml/RoomSettings/Permissions.qml:293
+#: src/qml/RoomSettings/Permissions.qml:266
 #, kde-format
 msgid "Remove message sent by other users"
 msgstr "სხვა მომხმარებლების მიერ გამოგზავნილი შეტყობინებების წაშლა"
 
-#: src/qml/RoomSettings/Permissions.qml:309
+#: src/qml/RoomSettings/Permissions.qml:282
 #, kde-format
 msgid "Event permissions"
 msgstr "მოვლენის წვდომები"
 
-#: src/qml/RoomSettings/Permissions.qml:312
+#: src/qml/RoomSettings/Permissions.qml:285
 #, kde-format
 msgid "Change user permissions"
 msgstr "მომხმარებლის წვდომების შეცვლა"
 
-#: src/qml/RoomSettings/Permissions.qml:321
+#: src/qml/RoomSettings/Permissions.qml:294
 #, kde-format
 msgid "Change the room name"
 msgstr "ოთახის სახელის შეცვლა"
 
-#: src/qml/RoomSettings/Permissions.qml:330
+#: src/qml/RoomSettings/Permissions.qml:303
 #, kde-format
 msgid "Change the room avatar"
 msgstr "ოთახის ავატარის შეცვლა"
 
-#: src/qml/RoomSettings/Permissions.qml:339
+#: src/qml/RoomSettings/Permissions.qml:312
 #, kde-format
 msgid "Change the room canonical alias"
 msgstr "ოთახის კანონიკურ მეტსახელის შეცვლა"
 
-#: src/qml/RoomSettings/Permissions.qml:348
+#: src/qml/RoomSettings/Permissions.qml:321
 #, kde-format
 msgid "Change the room topic"
 msgstr "ოთხის თემის შეცვლა"
 
-#: src/qml/RoomSettings/Permissions.qml:357
+#: src/qml/RoomSettings/Permissions.qml:330
 #, kde-format
 msgid "Enable encryption for the room"
 msgstr "ოთახისთვის დაშიფვრის ჩართვა"
 
-#: src/qml/RoomSettings/Permissions.qml:366
+#: src/qml/RoomSettings/Permissions.qml:339
 #, kde-format
 msgid "Change the room history visibility"
 msgstr "ოთახის ისტორიის ხილვადობის შეცვლა"
 
-#: src/qml/RoomSettings/Permissions.qml:375
+#: src/qml/RoomSettings/Permissions.qml:348
 #, kde-format
 msgid "Set pinned events"
 msgstr "მიჭიკარტებული მოვლენების დაყენება"
 
-#: src/qml/RoomSettings/Permissions.qml:384
+#: src/qml/RoomSettings/Permissions.qml:357
 #, kde-format
 msgid "Upgrade the room"
 msgstr "ოთახის გაუმჯობესება"
 
-#: src/qml/RoomSettings/Permissions.qml:393
+#: src/qml/RoomSettings/Permissions.qml:366
 #, kde-format
 msgid "Set the room server access control list (ACL)"
 msgstr "ოთახის სერვერის წვდომის კონტროლის სიების დაყენება (ACL)"
 
-#: src/qml/RoomSettings/Permissions.qml:403
+#: src/qml/RoomSettings/Permissions.qml:376
 #, kde-format
 msgid "Set the children of this space"
 msgstr "ამ სივრცის შვილების დაყენება"
 
-#: src/qml/RoomSettings/Permissions.qml:412
+#: src/qml/RoomSettings/Permissions.qml:385
 #, kde-format
 msgid "Set the parent space of this room"
 msgstr "ამ ოთახის მშობელი სივრცის დაყენება"
 
-#: src/qml/RoomSettings/Permissions.qml:425
+#: src/qml/RoomSettings/Permissions.qml:398
 #, kde-format
 msgid "Edit user power level"
 msgstr "მომხმარებლის წვდომის დონის ჩასწორება"
@@ -3570,6 +3541,21 @@ msgstr "URL-ის გახსნის შეცდომა"
 #, kde-format
 msgid "Show"
 msgstr "ჩვენება"
+
+#~ msgid "Owner"
+#~ msgstr "მფლობელი"
+
+#~ msgid "Admin"
+#~ msgstr "ადმინისტრატორი"
+
+#~ msgid "Mod"
+#~ msgstr "მოდი"
+
+#~ msgid "Muted"
+#~ msgstr "ხმა გამორთული"
+
+#~ msgid "Member"
+#~ msgstr "წევრი"
 
 #~ msgid ""
 #~ "This room is encrypted. Sending encrypted messages is not yet supported."

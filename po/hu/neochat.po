@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-12 00:55+0000\n"
+"POT-Creation-Date: 2023-01-13 00:56+0000\n"
 "PO-Revision-Date: 2021-11-08 09:39+0100\n"
 "Last-Translator: Kristof Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -2558,30 +2558,6 @@ msgstr[1] "%1 tag"
 msgid "No Member Count"
 msgstr "Nincs tagszám"
 
-#: src/qml/Panel/RoomDrawer.qml:333 src/qml/RoomSettings/Permissions.qml:63
-#: src/qml/RoomSettings/Permissions.qml:199
-#, kde-format
-msgid "Owner"
-msgstr "Tulajdonos"
-
-#: src/qml/Panel/RoomDrawer.qml:335 src/qml/RoomSettings/Permissions.qml:65
-#: src/qml/RoomSettings/Permissions.qml:201
-#, kde-format
-msgid "Admin"
-msgstr "Adminisztrátor"
-
-#: src/qml/Panel/RoomDrawer.qml:337 src/qml/RoomSettings/Permissions.qml:67
-#: src/qml/RoomSettings/Permissions.qml:203
-#, kde-format
-msgid "Mod"
-msgstr "Moderátor"
-
-#: src/qml/Panel/RoomDrawer.qml:339 src/qml/RoomSettings/Permissions.qml:69
-#: src/qml/RoomSettings/Permissions.qml:205
-#, kde-format
-msgid "Muted"
-msgstr "Némítva"
-
 #: src/qml/RoomSettings/Categories.qml:15 src/qml/RoomSettings/General.qml:19
 #: src/qml/Settings/SettingsPage.qml:12
 #, kde-format
@@ -2720,7 +2696,7 @@ msgid "Select new version"
 msgstr "Új szoba megtekintése…"
 
 #: src/qml/RoomSettings/General.qml:302
-#: src/qml/RoomSettings/Permissions.qml:445
+#: src/qml/RoomSettings/Permissions.qml:418
 #: src/qml/Settings/DevicesPage.qml:186
 #, kde-format
 msgid "Confirm"
@@ -2731,150 +2707,144 @@ msgstr "Megerősítés"
 msgid "Privileged Users"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:71
-#, fuzzy, kde-format
-#| msgid "Members"
-msgid "Member"
-msgstr "Tagok"
-
-#: src/qml/RoomSettings/Permissions.qml:228
+#: src/qml/RoomSettings/Permissions.qml:201
 #, kde-format
 msgid "Default permissions"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:231
+#: src/qml/RoomSettings/Permissions.qml:204
 #, kde-format
 msgid "Default user power level"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:232
+#: src/qml/RoomSettings/Permissions.qml:205
 #, kde-format
 msgid "This is power level for all new users when joining the room"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:240
+#: src/qml/RoomSettings/Permissions.qml:213
 #, kde-format
 msgid "Default power level to set the room state"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:241
+#: src/qml/RoomSettings/Permissions.qml:214
 #, kde-format
 msgid "This is used for all state events that do not have their own entry here"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:249
+#: src/qml/RoomSettings/Permissions.qml:222
 #, kde-format
 msgid "Default power level to send messages"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:250
+#: src/qml/RoomSettings/Permissions.qml:223
 #, kde-format
 msgid ""
 "This is used for all message events that do not have their own entry here"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:266
+#: src/qml/RoomSettings/Permissions.qml:239
 #, kde-format
 msgid "Basic permissions"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:269
+#: src/qml/RoomSettings/Permissions.qml:242
 #, fuzzy, kde-format
 #| msgid "Invite a User"
 msgid "Invite users"
 msgstr "Meghívás"
 
-#: src/qml/RoomSettings/Permissions.qml:277
+#: src/qml/RoomSettings/Permissions.qml:250
 #, fuzzy, kde-format
 #| msgid "Kick this user"
 msgid "Kick users"
 msgstr "Kirúgás"
 
-#: src/qml/RoomSettings/Permissions.qml:285
+#: src/qml/RoomSettings/Permissions.qml:258
 #, fuzzy, kde-format
 #| msgid "Ban this user"
 msgid "Ban users"
 msgstr "Tiltás"
 
-#: src/qml/RoomSettings/Permissions.qml:293
+#: src/qml/RoomSettings/Permissions.qml:266
 #, fuzzy, kde-format
 #| msgid "Delete recent messages by this user"
 msgid "Remove message sent by other users"
 msgstr "A felhasználó által küldött új üzenetek törlése"
 
-#: src/qml/RoomSettings/Permissions.qml:309
+#: src/qml/RoomSettings/Permissions.qml:282
 #, kde-format
 msgid "Event permissions"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:312
+#: src/qml/RoomSettings/Permissions.qml:285
 #, kde-format
 msgid "Change user permissions"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:321
+#: src/qml/RoomSettings/Permissions.qml:294
 #, fuzzy, kde-format
 #| msgid "cleared the room name"
 msgid "Change the room name"
 msgstr "törölte a szoba nevét"
 
-#: src/qml/RoomSettings/Permissions.qml:330
+#: src/qml/RoomSettings/Permissions.qml:303
 #, fuzzy, kde-format
 #| msgid "changed the room avatar"
 msgid "Change the room avatar"
 msgstr "megváltoztatta a szoba profilképét"
 
-#: src/qml/RoomSettings/Permissions.qml:339
+#: src/qml/RoomSettings/Permissions.qml:312
 #, fuzzy, kde-format
 #| msgid "cleared the room main alias"
 msgid "Change the room canonical alias"
 msgstr "törölte a szoba fő álnevét"
 
-#: src/qml/RoomSettings/Permissions.qml:348
+#: src/qml/RoomSettings/Permissions.qml:321
 #, fuzzy, kde-format
 #| msgid "changed the room avatar"
 msgid "Change the room topic"
 msgstr "megváltoztatta a szoba profilképét"
 
-#: src/qml/RoomSettings/Permissions.qml:357
+#: src/qml/RoomSettings/Permissions.qml:330
 #, kde-format
 msgid "Enable encryption for the room"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:366
+#: src/qml/RoomSettings/Permissions.qml:339
 #, kde-format
 msgid "Change the room history visibility"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:375
+#: src/qml/RoomSettings/Permissions.qml:348
 #, fuzzy, kde-format
 #| msgid "Show leave and join events"
 msgid "Set pinned events"
 msgstr "Ki- és belépések megjelenítése"
 
-#: src/qml/RoomSettings/Permissions.qml:384
+#: src/qml/RoomSettings/Permissions.qml:357
 #, fuzzy, kde-format
 #| msgid "left the room"
 msgid "Upgrade the room"
 msgstr "elhagyta a szobát"
 
-#: src/qml/RoomSettings/Permissions.qml:393
+#: src/qml/RoomSettings/Permissions.qml:366
 #, kde-format
 msgid "Set the room server access control list (ACL)"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:403
+#: src/qml/RoomSettings/Permissions.qml:376
 #, kde-format
 msgid "Set the children of this space"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:412
+#: src/qml/RoomSettings/Permissions.qml:385
 #, fuzzy, kde-format
 #| msgid "invited %1 to the room"
 msgid "Set the parent space of this room"
 msgstr "meghívta őt a szobába: %1"
 
-#: src/qml/RoomSettings/Permissions.qml:425
+#: src/qml/RoomSettings/Permissions.qml:398
 #, kde-format
 msgid "Edit user power level"
 msgstr ""
@@ -3771,6 +3741,23 @@ msgstr ""
 #, kde-format
 msgid "Show"
 msgstr "Megjelenítés"
+
+#~ msgid "Owner"
+#~ msgstr "Tulajdonos"
+
+#~ msgid "Admin"
+#~ msgstr "Adminisztrátor"
+
+#~ msgid "Mod"
+#~ msgstr "Moderátor"
+
+#~ msgid "Muted"
+#~ msgstr "Némítva"
+
+#, fuzzy
+#~| msgid "Members"
+#~ msgid "Member"
+#~ msgstr "Tagok"
 
 #~ msgid ""
 #~ "This room is encrypted. Sending encrypted messages is not yet supported."

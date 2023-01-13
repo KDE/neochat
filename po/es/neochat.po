@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-12 00:55+0000\n"
-"PO-Revision-Date: 2023-01-06 17:29+0100\n"
+"POT-Creation-Date: 2023-01-13 00:56+0000\n"
+"PO-Revision-Date: 2023-01-13 01:06+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #: src/actionsmodel.cpp:30 src/actionsmodel.cpp:40 src/actionsmodel.cpp:50
 #: src/actionsmodel.cpp:60 src/actionsmodel.cpp:80 src/actionsmodel.cpp:100
@@ -926,6 +926,8 @@ msgid ""
 "This room is encrypted. Build libQuotient with encryption enabled to send "
 "encrypted messages."
 msgstr ""
+"Esta sala está cifrada. Compile libQuotient con el cifrado activado para "
+"enviar mensajes cifrados."
 
 #: src/qml/Component/ChatBox/ChatBar.qml:80
 #, kde-format
@@ -2454,30 +2456,6 @@ msgstr[1] "%1 miembros"
 msgid "No Member Count"
 msgstr "Sin contador de miembros"
 
-#: src/qml/Panel/RoomDrawer.qml:333 src/qml/RoomSettings/Permissions.qml:63
-#: src/qml/RoomSettings/Permissions.qml:199
-#, kde-format
-msgid "Owner"
-msgstr "Propietario"
-
-#: src/qml/Panel/RoomDrawer.qml:335 src/qml/RoomSettings/Permissions.qml:65
-#: src/qml/RoomSettings/Permissions.qml:201
-#, kde-format
-msgid "Admin"
-msgstr "Administrador"
-
-#: src/qml/Panel/RoomDrawer.qml:337 src/qml/RoomSettings/Permissions.qml:67
-#: src/qml/RoomSettings/Permissions.qml:203
-#, kde-format
-msgid "Mod"
-msgstr "Moderador"
-
-#: src/qml/Panel/RoomDrawer.qml:339 src/qml/RoomSettings/Permissions.qml:69
-#: src/qml/RoomSettings/Permissions.qml:205
-#, kde-format
-msgid "Muted"
-msgstr "Silenciado"
-
 #: src/qml/RoomSettings/Categories.qml:15 src/qml/RoomSettings/General.qml:19
 #: src/qml/Settings/SettingsPage.qml:12
 #, kde-format
@@ -2602,7 +2580,7 @@ msgid "Select new version"
 msgstr "Seleccionar nueva versión"
 
 #: src/qml/RoomSettings/General.qml:302
-#: src/qml/RoomSettings/Permissions.qml:445
+#: src/qml/RoomSettings/Permissions.qml:418
 #: src/qml/Settings/DevicesPage.qml:186
 #, kde-format
 msgid "Confirm"
@@ -2613,46 +2591,41 @@ msgstr "Confirmar"
 msgid "Privileged Users"
 msgstr "Usuarios con privilegios"
 
-#: src/qml/RoomSettings/Permissions.qml:71
-#, kde-format
-msgid "Member"
-msgstr "Miembro"
-
-#: src/qml/RoomSettings/Permissions.qml:228
+#: src/qml/RoomSettings/Permissions.qml:201
 #, kde-format
 msgid "Default permissions"
 msgstr "Permisos predeterminados"
 
-#: src/qml/RoomSettings/Permissions.qml:231
+#: src/qml/RoomSettings/Permissions.qml:204
 #, kde-format
 msgid "Default user power level"
 msgstr "Nivel de poder predeterminado del usuario"
 
-#: src/qml/RoomSettings/Permissions.qml:232
+#: src/qml/RoomSettings/Permissions.qml:205
 #, kde-format
 msgid "This is power level for all new users when joining the room"
 msgstr ""
 "Este es el nivel de poder para todos los nuevos usuarios que se unan a la "
 "sala"
 
-#: src/qml/RoomSettings/Permissions.qml:240
+#: src/qml/RoomSettings/Permissions.qml:213
 #, kde-format
 msgid "Default power level to set the room state"
 msgstr "Nivel de poder predeterminado para establecer el estado de la sala"
 
-#: src/qml/RoomSettings/Permissions.qml:241
+#: src/qml/RoomSettings/Permissions.qml:214
 #, kde-format
 msgid "This is used for all state events that do not have their own entry here"
 msgstr ""
 "Esto se usa para todos los eventos de estado que no poseen su propia entrada "
 "aquí"
 
-#: src/qml/RoomSettings/Permissions.qml:249
+#: src/qml/RoomSettings/Permissions.qml:222
 #, kde-format
 msgid "Default power level to send messages"
 msgstr "Nivel de poder predeterminado para enviar mensajes"
 
-#: src/qml/RoomSettings/Permissions.qml:250
+#: src/qml/RoomSettings/Permissions.qml:223
 #, kde-format
 msgid ""
 "This is used for all message events that do not have their own entry here"
@@ -2660,97 +2633,97 @@ msgstr ""
 "Esto se usa para todos los eventos de mensaje que no poseen su propia "
 "entrada aquí"
 
-#: src/qml/RoomSettings/Permissions.qml:266
+#: src/qml/RoomSettings/Permissions.qml:239
 #, kde-format
 msgid "Basic permissions"
 msgstr "Permisos básicos"
 
-#: src/qml/RoomSettings/Permissions.qml:269
+#: src/qml/RoomSettings/Permissions.qml:242
 #, kde-format
 msgid "Invite users"
 msgstr "Invitar usuarios"
 
-#: src/qml/RoomSettings/Permissions.qml:277
+#: src/qml/RoomSettings/Permissions.qml:250
 #, kde-format
 msgid "Kick users"
 msgstr "Expulsar usuarios"
 
-#: src/qml/RoomSettings/Permissions.qml:285
+#: src/qml/RoomSettings/Permissions.qml:258
 #, kde-format
 msgid "Ban users"
 msgstr "Inhabilitar usuarios"
 
-#: src/qml/RoomSettings/Permissions.qml:293
+#: src/qml/RoomSettings/Permissions.qml:266
 #, kde-format
 msgid "Remove message sent by other users"
 msgstr "Eliminar mensajes enviados por otros usuarios"
 
-#: src/qml/RoomSettings/Permissions.qml:309
+#: src/qml/RoomSettings/Permissions.qml:282
 #, kde-format
 msgid "Event permissions"
 msgstr "Permisos de eventos"
 
-#: src/qml/RoomSettings/Permissions.qml:312
+#: src/qml/RoomSettings/Permissions.qml:285
 #, kde-format
 msgid "Change user permissions"
 msgstr "Cambiar permisos de usuario"
 
-#: src/qml/RoomSettings/Permissions.qml:321
+#: src/qml/RoomSettings/Permissions.qml:294
 #, kde-format
 msgid "Change the room name"
 msgstr "Cambiar el nombre de la sala"
 
-#: src/qml/RoomSettings/Permissions.qml:330
+#: src/qml/RoomSettings/Permissions.qml:303
 #, kde-format
 msgid "Change the room avatar"
 msgstr "Cambiar el avatar de la sala"
 
-#: src/qml/RoomSettings/Permissions.qml:339
+#: src/qml/RoomSettings/Permissions.qml:312
 #, kde-format
 msgid "Change the room canonical alias"
 msgstr "Cambiar el alias canónico de la sala"
 
-#: src/qml/RoomSettings/Permissions.qml:348
+#: src/qml/RoomSettings/Permissions.qml:321
 #, kde-format
 msgid "Change the room topic"
 msgstr "Cambiar el tema de la sala"
 
-#: src/qml/RoomSettings/Permissions.qml:357
+#: src/qml/RoomSettings/Permissions.qml:330
 #, kde-format
 msgid "Enable encryption for the room"
 msgstr "Activar cifrado de la sala"
 
-#: src/qml/RoomSettings/Permissions.qml:366
+#: src/qml/RoomSettings/Permissions.qml:339
 #, kde-format
 msgid "Change the room history visibility"
 msgstr "Cambiar la visibilidad del historial de la sala"
 
-#: src/qml/RoomSettings/Permissions.qml:375
+#: src/qml/RoomSettings/Permissions.qml:348
 #, kde-format
 msgid "Set pinned events"
 msgstr "Definir eventos fijados"
 
-#: src/qml/RoomSettings/Permissions.qml:384
+#: src/qml/RoomSettings/Permissions.qml:357
 #, kde-format
 msgid "Upgrade the room"
 msgstr "Actualizar la sala"
 
-#: src/qml/RoomSettings/Permissions.qml:393
+#: src/qml/RoomSettings/Permissions.qml:366
 #, kde-format
 msgid "Set the room server access control list (ACL)"
 msgstr "Definir la lista de control de acceso (ACL) al servidor de la sala"
 
-#: src/qml/RoomSettings/Permissions.qml:403
+#: src/qml/RoomSettings/Permissions.qml:376
 #, kde-format
 msgid "Set the children of this space"
 msgstr "Definir los hijos de este espacio"
 
-#: src/qml/RoomSettings/Permissions.qml:412
+#: src/qml/RoomSettings/Permissions.qml:385
 #, kde-format
 msgid "Set the parent space of this room"
 msgstr "Definir el espacio padre de esta sala"
 
-#: src/qml/RoomSettings/Permissions.qml:425
+#: src/qml/RoomSettings/Permissions.qml:398
 #, kde-format
 msgid "Edit user power level"
 msgstr "Editar el nivel de poder de usuario"
@@ -3602,6 +3575,21 @@ msgstr "No se ha podido abrir la URL"
 #, kde-format
 msgid "Show"
 msgstr "Mostrar"
+
+#~ msgid "Owner"
+#~ msgstr "Propietario"
+
+#~ msgid "Admin"
+#~ msgstr "Administrador"
+
+#~ msgid "Mod"
+#~ msgstr "Moderador"
+
+#~ msgid "Muted"
+#~ msgstr "Silenciado"
+
+#~ msgid "Member"
+#~ msgstr "Miembro"
 
 #~ msgid ""
 #~ "This room is encrypted. Sending encrypted messages is not yet supported."
