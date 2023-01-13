@@ -158,11 +158,12 @@ QVector<ActionsModel::Action> actions{
                 return QString();
             }
 #ifdef QUOTIENT_07
-            if (room->currentState().get<RoomMemberEvent>(text)->membership() == Membership::Invite) {
+            const RoomMemberEvent *roomMemberEvent = room->currentState().get<RoomMemberEvent>(text);
+            if (roomMemberEvent && roomMemberEvent->membership() == Membership::Invite) {
                 Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("<user> is already invited to this room.", "%1 is already invited to this room.", text));
                 return QString();
             }
-            if (room->currentState().get<RoomMemberEvent>(text)->membership() == Membership::Ban) {
+            if (roomMemberEvent && roomMemberEvent->membership() == Membership::Ban) {
                 Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("<user> is banned from this room.", "%1 is banned from this room.", text));
                 return QString();
             }
