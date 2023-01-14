@@ -7,6 +7,7 @@
 #include <KWindowConfig>
 
 #ifdef HAVE_WINDOWSYSTEM
+#include <KStartupInfo>
 #include <KWindowSystem>
 #endif
 
@@ -39,15 +40,19 @@ void WindowController::saveGeometry()
     KWindowConfig::saveWindowSize(m_window, windowGroup);
 }
 
-void WindowController::showAndRaiseWindow(const QString &xdgActivationToken)
+void WindowController::showAndRaiseWindow(const QString &startupId)
 {
     if (!m_window->isVisible()) {
         m_window->show();
     }
 
 #ifdef HAVE_WINDOWSYSTEM
-    if (!xdgActivationToken.isEmpty()) {
-        KWindowSystem::setCurrentXdgActivationToken(xdgActivationToken);
+    if (!startupId.isEmpty()) {
+        if (KWindowSystem::isPlatformX11()) {
+            KStartupInfo::setNewStartupId(m_window, startupId.toUtf8());
+        } else if (KWindowSystem::isPlatformWayland()) {
+            KWindowSystem::setCurrentXdgActivationToken(startupId);
+        }
     }
 
     KWindowSystem::activateWindow(m_window);

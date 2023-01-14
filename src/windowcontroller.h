@@ -17,7 +17,7 @@ public:
 
     void restoreGeometry();
     void saveGeometry();
-    void showAndRaiseWindow(const QString &xdgActivationToken);
+    void showAndRaiseWindow(const QString &startupId);
 
 private:
     WindowController() = default;
