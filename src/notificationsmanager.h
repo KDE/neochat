@@ -33,6 +33,7 @@ class NotificationsManager : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(bool globalNotificationsEnabled MEMBER m_globalNotificationsEnabled WRITE setGlobalNotificationsEnabled NOTIFY globalNotificationsEnabledChanged)
+    Q_PROPERTY(bool globalNotificationsSet MEMBER m_globalNotificationsSet NOTIFY globalNotificationsSetChanged)
     Q_PROPERTY(PushNotificationAction::Action oneToOneNotificationAction MEMBER m_oneToOneNotificationAction WRITE setOneToOneNotificationAction NOTIFY
                    oneToOneNotificationActionChanged)
     Q_PROPERTY(PushNotificationAction::Action encryptedOneToOneNotificationAction MEMBER m_encryptedOneToOneNotificationAction WRITE
@@ -73,7 +74,8 @@ private:
     QMultiMap<QString, KNotification *> m_notifications;
     QHash<QString, QPointer<KNotification>> m_invitations;
 
-    bool m_globalNotificationsEnabled;
+    bool m_globalNotificationsEnabled = false;
+    bool m_globalNotificationsSet = false;
     PushNotificationAction::Action m_oneToOneNotificationAction = PushNotificationAction::Unknown;
     PushNotificationAction::Action m_encryptedOneToOneNotificationAction = PushNotificationAction::Unknown;
     PushNotificationAction::Action m_groupChatNotificationAction = PushNotificationAction::Unknown;
@@ -107,6 +109,7 @@ private Q_SLOTS:
 
 Q_SIGNALS:
     void globalNotificationsEnabledChanged(bool newState);
+    void globalNotificationsSetChanged(bool newState);
     void oneToOneNotificationActionChanged(PushNotificationAction::Action action);
     void encryptedOneToOneNotificationActionChanged(PushNotificationAction::Action action);
     void groupChatNotificationActionChanged(PushNotificationAction::Action action);

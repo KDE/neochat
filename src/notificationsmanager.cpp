@@ -55,10 +55,6 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
                                             const QString &replyEventId,
                                             bool canReply)
 {
-    if (!NeoChatConfig::self()->showNotifications()) {
-        return;
-    }
-
     QPixmap img;
     img.convertFromImage(icon);
     KNotification *notification = new KNotification("message");
@@ -103,9 +99,6 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
 
 void NotificationsManager::postInviteNotification(NeoChatRoom *room, const QString &title, const QString &sender, const QImage &icon)
 {
-    if (!NeoChatConfig::self()->showNotifications()) {
-        return;
-    }
     QPixmap img;
     img.convertFromImage(icon);
     KNotification *notification = new KNotification("invite");
@@ -284,7 +277,9 @@ void NotificationsManager::updateNotificationRules(const QString &type)
         if (overrideRule["rule_id"] == ".m.rule.master") {
             bool ruleEnabled = overrideRule["enabled"].toBool();
             m_globalNotificationsEnabled = !ruleEnabled;
-            NeoChatConfig::self()->setShowNotifications(m_globalNotificationsEnabled);
+            if (!m_globalNotificationsSet) {
+                m_globalNotificationsSet = true;
+            }
             Q_EMIT globalNotificationsEnabledChanged(m_globalNotificationsEnabled);
         }
 
