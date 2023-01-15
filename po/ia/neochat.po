@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the neochat package.
 #
-# Giovanni Sora <g.sora@tiscali.it>, 2021, 2022.
+# Giovanni Sora <g.sora@tiscali.it>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-14 16:34+0000\n"
-"PO-Revision-Date: 2022-12-21 12:30+0100\n"
+"PO-Revision-Date: 2023-01-14 23:46+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,16 +15,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #: src/actionsmodel.cpp:30 src/actionsmodel.cpp:40 src/actionsmodel.cpp:50
 #: src/actionsmodel.cpp:60 src/actionsmodel.cpp:80 src/actionsmodel.cpp:100
 #: src/actionsmodel.cpp:111 src/actionsmodel.cpp:127 src/actionsmodel.cpp:137
 #: src/actionsmodel.cpp:147
-#, fuzzy
-#| msgid "Send message"
 msgid "<message>"
-msgstr "Invia message"
+msgstr "<message>"
 
 #: src/actionsmodel.cpp:31
 msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
@@ -43,38 +41,28 @@ msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
 msgstr "Antepone  ┬──┬ ノ( ゜-゜ノ) a un message te texto plan"
 
 #: src/actionsmodel.cpp:81
-#, fuzzy
-#| msgid "Sends the given message coloured as a rainbow"
 msgid "Sends the given message colored as a rainbow"
 msgstr "Invia le date message colorate como un iris "
 
 #: src/actionsmodel.cpp:101
-#, fuzzy
-#| msgid "Sends the given emote coloured as a rainbow"
 msgid "Sends the given emote colored as a rainbow"
-msgstr "Invia le date message remote como un iris"
+msgstr "Invia le date message \"emote\" como un iris"
 
 #: src/actionsmodel.cpp:112
-#, fuzzy
-#| msgid "Sends the given message as a spoiler"
 msgid "Sends the given message as plain text"
-msgstr "Invia le message date como un spoiler (guastator)"
+msgstr "Invia le message date como texto plan"
 
 #: src/actionsmodel.cpp:128
 msgid "Sends the given message as a spoiler"
 msgstr "Invia le message date como un spoiler (guastator)"
 
 #: src/actionsmodel.cpp:138
-#, fuzzy
-#| msgid "Sends the given message as a spoiler"
 msgid "Sends the given emote"
-msgstr "Invia le message date como un spoiler (guastator)"
+msgstr "Invia le message date \"emote\""
 
 #: src/actionsmodel.cpp:148
-#, fuzzy
-#| msgid "Sends the given message as a spoiler"
 msgid "Sends the given message as a notice"
-msgstr "Invia le message date como un spoiler (guastator)"
+msgstr "Invia le message date como un nova"
 
 #: src/actionsmodel.cpp:157 src/actionsmodel.cpp:336 src/actionsmodel.cpp:364
 #: src/actionsmodel.cpp:414 src/actionsmodel.cpp:451 src/actionsmodel.cpp:485
@@ -84,11 +72,10 @@ msgid "'%1' does not look like a matrix id."
 msgstr ""
 
 #: src/actionsmodel.cpp:163
-#, fuzzy, kde-format
-#| msgid "reinvited %1 to the room"
+#, kde-format
 msgctxt "<user> is already invited to this room."
 msgid "%1 is already invited to this room."
-msgstr "reinvitate %1 al sala"
+msgstr "%1 ja es invitte a iste sala"
 
 #: src/actionsmodel.cpp:167
 #, fuzzy, kde-format
@@ -449,10 +436,10 @@ msgid "The room id you are trying to join is not valid"
 msgstr "Iste id de sala que tu es essayante a unir non es valid"
 
 #: src/emojimodel.cpp:149 src/emojimodel.cpp:207
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
-msgstr "Historia"
+msgstr "Historia o Chronologia"
 
 #: src/emojimodel.cpp:154
 #, kde-format
@@ -485,7 +472,7 @@ msgid "Activities"
 msgstr "Activitates"
 
 #: src/emojimodel.cpp:179
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "'Travel' is  a category of emoji"
 msgid "Travel"
 msgstr "Viage"
@@ -503,14 +490,13 @@ msgid "Symbols"
 msgstr "Symbolos"
 
 #: src/emojimodel.cpp:194
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "'Flags' is a category of emoji"
 msgid "Flags"
 msgstr "Bandieras (Flags)"
 
 #: src/emojimodel.cpp:213
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Personalisate"
@@ -565,7 +551,7 @@ msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
 #: src/main.cpp:155 src/main.cpp:156 src/main.cpp:157
-#, fuzzy, kde-format
+#, kde-format
 msgid "Maintainer"
 msgstr "Mantenitor"
 
@@ -1064,8 +1050,7 @@ msgid "Rotate right"
 msgstr "Rota a dextera"
 
 #: src/qml/Component/FullScreenImage.qml:146
-#, fuzzy, kde-format
-#| msgid "Save As"
+#, kde-format
 msgid "Save as"
 msgstr "Salveguarda como"
 
@@ -1296,8 +1281,7 @@ msgid "Log in to an existing account"
 msgstr ""
 
 #: src/qml/Component/UserInfo.qml:61
-#, fuzzy, kde-format
-#| msgid "Login"
+#, kde-format
 msgctxt "@title:window"
 msgid "Login"
 msgstr "Accesso de identification"
@@ -1308,14 +1292,12 @@ msgid "Edit this account"
 msgstr "Edita iste conto"
 
 #: src/qml/Component/UserInfo.qml:145 src/qml/Settings/AccountsPage.qml:36
-#, fuzzy, kde-format
-#| msgctxt "@title:menu Account detail dialog"
-#| msgid "Account detail"
+#, kde-format
 msgid "Account editor"
-msgstr "Detalio de conto"
+msgstr "Editor de conto"
 
 #: src/qml/Component/UserInfo.qml:174
-#, fuzzy, kde-format
+#, kde-format
 msgid "Switch User"
 msgstr "Commuta Usator"
 
@@ -1645,8 +1627,7 @@ msgid "Remove recent messages by this user"
 msgstr "Dele messages recente per iste usator"
 
 #: src/qml/Dialog/UserDetailDialog.qml:151
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Remove messages"
@@ -1698,11 +1679,10 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: src/qml/main.qml:402
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
-msgstr "Monsta notificationes"
+msgstr "Veification de Session"
 
 #: src/qml/main.qml:412
 #, kde-format
@@ -1869,8 +1849,7 @@ msgid "Matrix FAQ"
 msgstr "FAQ de Matrix:"
 
 #: src/qml/Menu/RoomListContextMenu.qml:26
-#, fuzzy, kde-format
-#| msgid "Open in new window"
+#, kde-format
 msgid "Open in New Window"
 msgstr "Aperi in nove fenestra"
 
@@ -1906,18 +1885,15 @@ msgstr "Marca como legite"
 
 #: src/qml/Menu/RoomListContextMenu.qml:55
 #: src/qml/Menu/SpaceListContextMenu.qml:30
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy address to clipboard"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Address to Clipboard"
 msgstr "Copia adresse a area de transferentia"
 
 #: src/qml/Menu/RoomListContextMenu.qml:65
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Notification State"
-msgstr "Monsta notificationes"
+msgstr "Stato de  notification"
 
 #: src/qml/Menu/RoomListContextMenu.qml:68
 #, kde-format
@@ -1926,7 +1902,7 @@ msgstr ""
 
 #: src/qml/Menu/RoomListContextMenu.qml:79
 #: src/qml/RoomSettings/PushNotification.qml:40
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All"
 msgstr "Omne"
@@ -1942,7 +1918,7 @@ msgstr ""
 
 #: src/qml/Menu/RoomListContextMenu.qml:101
 #: src/qml/RoomSettings/PushNotification.qml:56
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
 msgstr "De-Activate (Off)"
@@ -1950,8 +1926,7 @@ msgstr "De-Activate (Off)"
 #: src/qml/Menu/RoomListContextMenu.qml:114
 #: src/qml/Menu/RoomListContextMenu.qml:116
 #: src/qml/Menu/RoomListContextMenu.qml:183 src/qml/Panel/RoomDrawer.qml:101
-#, fuzzy, kde-format
-#| msgid "Room settings"
+#, kde-format
 msgid "Room Settings"
 msgstr "Preferentias de sala"
 
@@ -2093,8 +2068,7 @@ msgid "Copy"
 msgstr "Copia"
 
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:81
-#, fuzzy, kde-format
-#| msgid "Copy"
+#, kde-format
 msgid "Copy Link"
 msgstr "Copia Ligamine"
 
@@ -2116,16 +2090,14 @@ msgid "Event Source"
 msgstr "Fonte de evento:"
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:18
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgid "Remove Messages"
 msgstr "Remove messages"
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:18
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgid "Remove Message"
-msgstr "Edita message"
+msgstr "Remove  message"
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:22
 #, kde-format
@@ -2138,8 +2110,7 @@ msgid "Reason for removing this message"
 msgstr ""
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:34
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Remove"
@@ -2269,7 +2240,7 @@ msgid "Add new server"
 msgstr ""
 
 #: src/qml/Page/JoinRoomPage.qml:114
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "Adde Servitor"
@@ -2336,10 +2307,9 @@ msgid "No Name"
 msgstr "necun nomine"
 
 #: src/qml/Page/RoomListPage.qml:372
-#, fuzzy, kde-format
-#| msgid "Muted"
+#, kde-format
 msgid "Muted room"
-msgstr "Silentiate"
+msgstr "Sala Silentiate"
 
 #: src/qml/Page/RoomListPage.qml:399
 #, kde-format
@@ -2400,11 +2370,10 @@ msgid "React"
 msgstr "Reage"
 
 #: src/qml/Page/SearchPage.qml:17
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
-msgstr "Messages directe"
+msgstr "Cerca Messages"
 
 #: src/qml/Page/SearchPage.qml:58
 #, kde-format
@@ -2412,10 +2381,9 @@ msgid "Enter a text to start searching"
 msgstr ""
 
 #: src/qml/Page/SearchPage.qml:64
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgid "No results found"
-msgstr "Nulle salas trovat"
+msgstr "Necun resultatos trovate"
 
 #: src/qml/Page/StartChatPage.qml:38
 #, kde-format
@@ -2453,10 +2421,9 @@ msgid "No Topic"
 msgstr "Nulle topico"
 
 #: src/qml/Panel/RoomDrawer.qml:188
-#, fuzzy, kde-format
-#| msgid "Options:"
+#, kde-format
 msgid "Options"
-msgstr "Optiones:"
+msgstr "Optiones"
 
 #: src/qml/Panel/RoomDrawer.qml:196
 #, kde-format
@@ -2475,10 +2442,10 @@ msgid "Search in this room"
 msgstr "Aperi NeoChat in iste sala"
 
 #: src/qml/Panel/RoomDrawer.qml:214
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@action:title"
 msgid "Search"
-msgstr ""
+msgstr "Cerca"
 
 #: src/qml/Panel/RoomDrawer.qml:222
 #, kde-format
@@ -2533,17 +2500,15 @@ msgstr "Securitate"
 #: src/qml/RoomSettings/Categories.qml:35
 #, kde-format
 msgid "Permissions"
-msgstr ""
+msgstr "Permissiones"
 
 #: src/qml/RoomSettings/Categories.qml:45 src/qml/Settings/SettingsPage.qml:22
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Notifications"
 msgstr "Notificationes"
 
 #: src/qml/RoomSettings/General.qml:30
-#, fuzzy, kde-format
-#| msgid "Room information"
+#, kde-format
 msgid "Room Information"
 msgstr "Information de sala"
 
@@ -2553,10 +2518,9 @@ msgid "Update avatar"
 msgstr "Actualisa avatar"
 
 #: src/qml/RoomSettings/General.qml:75
-#, fuzzy, kde-format
-#| msgid "Room Name:"
+#, kde-format
 msgid "Room name:"
-msgstr "Nomine de Sala"
+msgstr "Nomine de Sala:"
 
 #: src/qml/RoomSettings/General.qml:87
 #, kde-format
@@ -2617,9 +2581,9 @@ msgid "#new_alias:server.org"
 msgstr ""
 
 #: src/qml/RoomSettings/General.qml:231
-#, fuzzy, kde-format
+#, kde-format
 msgid "Add new alias"
-msgstr "Adde nove aliases"
+msgstr "Adde nove alias"
 
 #: src/qml/RoomSettings/General.qml:254
 #, kde-format
@@ -2627,8 +2591,7 @@ msgid "This room continues another conversation."
 msgstr "Iste sala continua un altere conversation."
 
 #: src/qml/RoomSettings/General.qml:258
-#, fuzzy, kde-format
-#| msgid "See older messages..."
+#, kde-format
 msgid "See older messages…"
 msgstr "Vide messages plus vetere..."
 
@@ -2638,8 +2601,7 @@ msgid "This room has been replaced."
 msgstr "Iste sala ha essite reimplaciate."
 
 #: src/qml/RoomSettings/General.qml:273
-#, fuzzy, kde-format
-#| msgid "See new room..."
+#, kde-format
 msgid "See new room…"
 msgstr "Vide nove sala..."
 
@@ -2711,10 +2673,9 @@ msgid "Basic permissions"
 msgstr ""
 
 #: src/qml/RoomSettings/Permissions.qml:242
-#, fuzzy, kde-format
-#| msgid "Invite a User"
+#, kde-format
 msgid "Invite users"
-msgstr "Invita un usator"
+msgstr "Invita Usatores"
 
 #: src/qml/RoomSettings/Permissions.qml:250
 #, fuzzy, kde-format
@@ -2830,11 +2791,10 @@ msgid ""
 msgstr ""
 
 #: src/qml/RoomSettings/Security.qml:32
-#, fuzzy, kde-format
-#| msgid "activated End-to-End Encryption"
+#, kde-format
 msgctxt "@option:check"
 msgid "Encryption"
-msgstr "activate cryptation End-to-End"
+msgstr "Encryption"
 
 #: src/qml/RoomSettings/Security.qml:36
 #, kde-format
@@ -2978,8 +2938,7 @@ msgid "Edit Account"
 msgstr "Modifica conto"
 
 #: src/qml/Settings/AccountEditorPage.qml:30
-#, fuzzy, kde-format
-#| msgid "Room information"
+#, kde-format
 msgid "User information"
 msgstr "Information de Usator"
 
@@ -3000,9 +2959,7 @@ msgstr "Etiquetta:"
 
 #: src/qml/Settings/AccountEditorPage.qml:130
 #: src/qml/Settings/NetworkProxyPage.qml:107
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Password"
+#, kde-format
 msgid "Password"
 msgstr "Contrasigno"
 
@@ -3038,8 +2995,7 @@ msgid "Passwords do not match"
 msgstr "Le contrasigno non es equal"
 
 #: src/qml/Settings/AccountEditorPage.qml:199
-#, fuzzy, kde-format
-#| msgid "Room information"
+#, kde-format
 msgid "Server Information"
 msgstr "Information de servitor"
 
@@ -3135,20 +3091,19 @@ msgid "Show Avatar"
 msgstr "Monstra Avatar de Usator"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:330
-#, fuzzy, kde-format
+#, kde-format
 msgid "In chat"
 msgstr "In Conversation in directo"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:340
-#, fuzzy, kde-format
-#| msgid "In Sidebar"
+#, kde-format
 msgid "In sidebar"
 msgstr "In Barra leteral"
 
 #: src/qml/Settings/ColorScheme.qml:15
-#, fuzzy, kde-format
+#, kde-format
 msgid "Color theme"
-msgstr "Thema de &Color"
+msgstr "Thema de color"
 
 #: src/qml/Settings/DevicesPage.qml:14 src/qml/Settings/DevicesPage.qml:26
 #: src/qml/Settings/SettingsPage.qml:48
@@ -3157,10 +3112,9 @@ msgid "Devices"
 msgstr "Dispositivos"
 
 #: src/qml/Settings/DevicesPage.qml:86
-#, fuzzy, kde-format
-#| msgid "Edit device name"
+#, kde-format
 msgid "New device name"
-msgstr "Edita nmine de dispositivo"
+msgstr "Nove nomine de dispositivo"
 
 #: src/qml/Settings/DevicesPage.qml:95
 #, fuzzy, kde-format
@@ -3287,10 +3241,9 @@ msgid "Show deleted messages"
 msgstr "Invia message"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:138
-#, fuzzy, kde-format
-#| msgid "Rooms and private chats:"
+#, kde-format
 msgid "Rooms and private chats"
-msgstr "Salas e conversationes private:"
+msgstr "Salas e conversationes private"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:141
 #, kde-format
@@ -3303,8 +3256,7 @@ msgid "Intermixed"
 msgstr "Intermiscite"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:167
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Editor"
@@ -3315,16 +3267,14 @@ msgid "Use s/text/replacement syntax to edit your last message"
 msgstr "Usa syntaxe de s/texto/reimplaciamento per modificar tu ultime message"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:182
-#, fuzzy, kde-format
-#| msgid "Send Typing Notifications"
+#, kde-format
 msgid "Send typing notifications"
 msgstr "Invia notificationes de typar"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:199
-#, fuzzy, kde-format
-#| msgid "Settings"
+#, kde-format
 msgid "Developer Settings"
-msgstr "Preferentias"
+msgstr " de disviluppatorPreferentias"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:202
 #, kde-format
@@ -3332,8 +3282,7 @@ msgid "Enable developer tools"
 msgstr ""
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:14
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgctxt "@title:window"
 msgid "Notifications"
 msgstr "Notificationes"
@@ -3349,10 +3298,9 @@ msgid "Whether push notifications are generated by your Matrix server"
 msgstr ""
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:40
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Room Notifications"
-msgstr "Monsta notificationes"
+msgstr "Notificationes de sala"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:43
 #, kde-format
@@ -3380,9 +3328,9 @@ msgid "Room upgrade messages"
 msgstr ""
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:128
-#, fuzzy, kde-format
+#, kde-format
 msgid "@Mentions"
-msgstr "Mentiones"
+msgstr "@Mentiones"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:131
 #, fuzzy, kde-format
@@ -3408,9 +3356,9 @@ msgid "Messages containing my keywords"
 msgstr ""
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:225
-#, fuzzy, kde-format
+#, kde-format
 msgid "Keyword…"
-msgstr "Parola clave"
+msgstr "Parola clave…"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:244
 #, fuzzy, kde-format
@@ -3464,12 +3412,12 @@ msgid "Proxy Settings"
 msgstr "Preferentias de proxy"
 
 #: src/qml/Settings/NetworkProxyPage.qml:66
-#, fuzzy, kde-format
+#, kde-format
 msgid "Host"
 msgstr "Hospite"
 
 #: src/qml/Settings/NetworkProxyPage.qml:78
-#, fuzzy, kde-format
+#, kde-format
 msgid "Port"
 msgstr "Porto"
 
@@ -3485,16 +3433,14 @@ msgid "Disable notifications"
 msgstr "Monsta notificationes"
 
 #: src/qml/Settings/NotificationRuleItem.qml:65
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Enable notifications"
 msgstr "Habilita notificationes"
 
 #: src/qml/Settings/NotificationRuleItem.qml:87
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Mute notifications"
-msgstr "Monsta notificationes"
+msgstr "Silentia notificationes"
 
 #: src/qml/Settings/NotificationRuleItem.qml:87
 #, fuzzy, kde-format
@@ -3519,10 +3465,9 @@ msgid "Enable message highlights"
 msgstr ""
 
 #: src/qml/Settings/NotificationRuleItem.qml:131
-#, fuzzy, kde-format
-#| msgid "Delete word"
+#, kde-format
 msgid "Delete keyword"
-msgstr "Dele parola"
+msgstr "Dele parola clave"
 
 #: src/qml/Settings/SettingsPage.qml:17
 #, kde-format
