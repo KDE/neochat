@@ -77,7 +77,7 @@ QQC2.ToolBar {
                 topPadding: 0
                 bottomPadding: 0
 
-                placeholderText: readOnly ? i18n("This room is encrypted. Build libQuotient with encryption enabled to send encrypted messages.") : currentRoom.chatBoxEditId.length > 0 ? i18n("Edit Message") : currentRoom.usesEncryption ? i18n("Send an encrypted message…") : i18n("Send a message…")
+                placeholderText: readOnly ? i18n("This room is encrypted. Build libQuotient with encryption enabled to send encrypted messages.") : currentRoom.chatBoxEditId.length > 0 ? i18n("Edit Message") : currentRoom.usesEncryption ? i18n("Send an encrypted message…") : currentRoom.chatBoxAttachmentPath.length > 0 ? i18n("Set an attachment caption...") : i18n("Send a message…")
                 verticalAlignment: TextEdit.AlignVCenter
                 horizontalAlignment: TextEdit.AlignLeft
                 wrapMode: Text.Wrap
