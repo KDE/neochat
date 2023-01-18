@@ -369,6 +369,11 @@ void Controller::invokeLogin()
                     if (error == "Unrecognised access token") {
                         Q_EMIT errorOccured(i18n("Login Failed: Access Token invalid or revoked"));
                         logout(connection, false);
+                    } else if (error == "Connection closed") {
+                        Q_EMIT errorOccured(i18n("Login Failed: %1", error));
+                        // Failed due to network connection issue. This might happen when the homeserver is
+                        // temporary down, or the user trying to re-launch NeoChat in a network that cannot
+                        // connect to the homeserver. In this case, we don't want to do logout().
                     } else {
                         Q_EMIT errorOccured(i18n("Login Failed: %1", error));
                         logout(connection, true);
