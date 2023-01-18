@@ -184,7 +184,7 @@ public:
 private:
     NotificationsManager(QObject *parent = nullptr);
 
-    QMultiMap<QString, KNotification *> m_notifications;
+    QHash<QString, KNotification *> m_notifications;
     QHash<QString, QPointer<KNotification>> m_invitations;
 
     bool m_globalNotificationsEnabled = false;

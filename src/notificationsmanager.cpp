@@ -55,18 +55,27 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
                                             const QString &replyEventId,
                                             bool canReply)
 {
-    QPixmap img;
-    img.convertFromImage(icon);
-    KNotification *notification = new KNotification("message");
-
-    if (sender == room->displayName()) {
-        notification->setTitle(sender);
-    } else {
-        notification->setTitle(i18n("%1 (%2)", sender, room->displayName()));
+    const QString roomId = room->id();
+    KNotification *notification = m_notifications.value(roomId);
+    if (!notification) {
+        notification = new KNotification("message");
+        m_notifications.insert(roomId, notification);
+        connect(notification, &KNotification::closed, this, [this, roomId] {
+            m_notifications.remove(roomId);
+        });
     }
 
-    notification->setText(text.toHtmlEscaped());
-    notification->setPixmap(img);
+    QString entry;
+    if (sender == room->displayName()) {
+        notification->setTitle(sender);
+        entry = text.toHtmlEscaped();
+    } else {
+        notification->setTitle(room->displayName());
+        entry = i18n("%1: %2", sender, text.toHtmlEscaped());
+    }
+
+    notification->setText(entry + '\n' + notification->text());
+    notification->setPixmap(QPixmap::fromImage(icon));
 
     notification->setDefaultAction(i18n("Open NeoChat in this room"));
     connect(notification, &KNotification::defaultActivated, this, [=]() {
@@ -96,10 +105,7 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
     }
 
     notification->setHint(QStringLiteral("x-kde-origin-name"), room->localUser()->id());
-
     notification->sendEvent();
-
-    m_notifications.insert(room->id(), notification);
 }
 
 void NotificationsManager::postInviteNotification(NeoChatRoom *room, const QString &title, const QString &sender, const QImage &icon)
