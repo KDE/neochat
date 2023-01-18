@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-14 16:34+0000\n"
-"PO-Revision-Date: 2023-01-16 18:25+0100\n"
+"PO-Revision-Date: 2023-01-17 13:16+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -928,6 +928,8 @@ msgid ""
 "This room is encrypted. Build libQuotient with encryption enabled to send "
 "encrypted messages."
 msgstr ""
+"Ce salon est chiffré. Veuillez compiler « libQuotient » avec le chiffrement "
+"activé pour envoyer des messages chiffrés."
 
 #: src/qml/Component/ChatBox/ChatBar.qml:80
 #, kde-format
@@ -2619,6 +2621,8 @@ msgstr "Modification des privilèges d'accès pour ce salon."
 #, kde-format
 msgid "This is used for all state events that do not have their own entry here"
 msgstr ""
+"Ceci est utilisé pour tous les événements d'états n'ayant pas leur propre "
+"entrée ici."
 
 #: src/qml/RoomSettings/Permissions.qml:222
 #, kde-format
@@ -2630,6 +2634,8 @@ msgstr ""
 msgid ""
 "This is used for all message events that do not have their own entry here"
 msgstr ""
+"Ceci est utilisé pour tous les événements de messages n'ayant pas leur "
+"propre entrée ici."
 
 #: src/qml/RoomSettings/Permissions.qml:239
 #, kde-format
@@ -2642,16 +2648,14 @@ msgid "Invite users"
 msgstr "Inviter des utilisateurs"
 
 #: src/qml/RoomSettings/Permissions.qml:250
-#, fuzzy, kde-format
-#| msgid "Kick this user"
+#, kde-format
 msgid "Kick users"
-msgstr "Rejeter cet utilisateur"
+msgstr "Rejeter ces utilisateurs"
 
 #: src/qml/RoomSettings/Permissions.qml:258
-#, fuzzy, kde-format
-#| msgid "Ban User"
+#, kde-format
 msgid "Ban users"
-msgstr "Bannir un utilisateur"
+msgstr "Bannir des utilisateurs"
 
 #: src/qml/RoomSettings/Permissions.qml:266
 #, kde-format
@@ -2699,10 +2703,9 @@ msgid "Change the room history visibility"
 msgstr "Modifier la visibilité de l'historique du salon"
 
 #: src/qml/RoomSettings/Permissions.qml:348
-#, fuzzy, kde-format
-#| msgid "Timeline Events"
+#, kde-format
 msgid "Set pinned events"
-msgstr "Évènements de chronologie"
+msgstr "Définir des évènements bloqués"
 
 #: src/qml/RoomSettings/Permissions.qml:357
 #, kde-format
@@ -2710,10 +2713,9 @@ msgid "Upgrade the room"
 msgstr "Mettre à jour le salon"
 
 #: src/qml/RoomSettings/Permissions.qml:366
-#, fuzzy, kde-format
-#| msgid "changed the server access control lists for this room"
+#, kde-format
 msgid "Set the room server access control list (ACL)"
-msgstr "Modification des listes de contrôle d'accès au serveur pour ce salon."
+msgstr "Définir la liste de contrôle d'accès (ACL) au serveur pour ce salon."
 
 #: src/qml/RoomSettings/Permissions.qml:376
 #, kde-format
@@ -2721,10 +2723,9 @@ msgid "Set the children of this space"
 msgstr ""
 
 #: src/qml/RoomSettings/Permissions.qml:385
-#, fuzzy, kde-format
-#| msgid "Invites the user to this room"
+#, kde-format
 msgid "Set the parent space of this room"
-msgstr "Invite un utilisateur dans ce salon"
+msgstr "Définir un espace parent de ce salon"
 
 #: src/qml/RoomSettings/Permissions.qml:398
 #, kde-format
@@ -2761,12 +2762,12 @@ msgid "Enable encryption"
 msgstr "Activer le chiffrement"
 
 #: src/qml/RoomSettings/Security.qml:37
-#, fuzzy, kde-format
-#| msgid "Only enabled if the transparent chat page is enabled."
+#, kde-format
 msgctxt "option:check"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr ""
-"Activé uniquement sur la page de discussions transparentes est activée."
+"Une fois cette option activée, il est impossible de désactiver le "
+"chiffrement."
 
 #: src/qml/RoomSettings/Security.qml:54
 #, kde-format
