@@ -12,7 +12,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.6.4'
+        classpath 'com.android.tools.build:gradle:7.0.2'
     }
 }
 
@@ -73,6 +73,10 @@ android {
     defaultConfig {
         minSdkVersion qtMinSdkVersion
         targetSdkVersion qtTargetSdkVersion
+        applicationId "org.kde.neochat"
+        namespace "org.kde.neochat"
+        versionCode timestamp
+        versionName projectVersionFull
         manifestPlaceholders = [versionName: projectVersionFull, versionCode: timestamp]
     }
 
