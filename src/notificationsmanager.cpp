@@ -70,6 +70,7 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
 
     notification->setDefaultAction(i18n("Open NeoChat in this room"));
     connect(notification, &KNotification::defaultActivated, this, [=]() {
+        WindowController::instance().showAndRaiseWindow(notification->xdgActivationToken());
         if (room->localUser()->id() != Controller::instance().activeConnection()->userId()) {
 #ifdef QUOTIENT_07
             Controller::instance().setActiveConnection(Accounts.get(room->localUser()->id()));
@@ -78,7 +79,6 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
 #endif
         }
         RoomManager::instance().enterRoom(room);
-        WindowController::instance().showAndRaiseWindow(notification->xdgActivationToken());
     });
 
     if (canReply) {
@@ -108,9 +108,9 @@ void NotificationsManager::postInviteNotification(NeoChatRoom *room, const QStri
     notification->setFlags(KNotification::Persistent);
     notification->setDefaultAction(i18n("Open this invitation in NeoChat"));
     connect(notification, &KNotification::defaultActivated, this, [=]() {
+        WindowController::instance().showAndRaiseWindow(notification->xdgActivationToken());
         notification->close();
         RoomManager::instance().enterRoom(room);
-        WindowController::instance().showAndRaiseWindow(notification->xdgActivationToken());
     });
     notification->setActions({i18n("Accept Invitation"), i18n("Reject Invitation")});
     connect(notification, &KNotification::action1Activated, this, [room, notification]() {
