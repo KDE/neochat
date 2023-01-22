@@ -17,7 +17,7 @@ TextEdit {
     property bool isEmote: false
     property bool isReplyLabel: false
 
-    readonly property var linkRegex: /(href=["'])?(\b(https?):\/\/[^\s\<\>\"\'\\]+)/g
+    readonly property var linkRegex: /(href=["'])?(\b(https?):\/\/[^\s\<\>\"\'\\\?\:\)\(]+(\(.*?\))*(\?(?=[a-z])[^\s\\\)]+|$)?)/g
     property string textMessage: model.display.includes("http")
         ? model.display.replace(linkRegex, function() {
             if (arguments[0].includes("/_matrix/media/r0/download/")) {
