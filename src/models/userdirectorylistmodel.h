@@ -16,7 +16,7 @@ class Connection;
 class UserDirectoryListModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
+    Q_PROPERTY(Quotient::Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
     Q_PROPERTY(QString keyword READ keyword WRITE setKeyword NOTIFY keywordChanged)
     Q_PROPERTY(bool limited READ limited NOTIFY limitedChanged)
 

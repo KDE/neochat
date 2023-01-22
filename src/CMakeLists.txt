@@ -6,47 +6,47 @@
 add_library(neochat STATIC
     controller.cpp
     actionshandler.cpp
-    emojimodel.cpp
+    models/emojimodel.cpp
     emojitones.cpp
-    customemojimodel.cpp
+    models/customemojimodel.cpp
     clipboard.cpp
     matriximageprovider.cpp
-    messageeventmodel.cpp
-    messagefiltermodel.cpp
-    roomlistmodel.cpp
-    sortfilterspacelistmodel.cpp
+    models/messageeventmodel.cpp
+    models/messagefiltermodel.cpp
+    models/roomlistmodel.cpp
+    models/sortfilterspacelistmodel.cpp
     spacehierarchycache.cpp
     roommanager.cpp
     neochatroom.cpp
     neochatuser.cpp
-    userlistmodel.cpp
-    userfiltermodel.cpp
-    publicroomlistmodel.cpp
-    userdirectorylistmodel.cpp
-    keywordnotificationrulemodel.cpp
+    models/userlistmodel.cpp
+    models/userfiltermodel.cpp
+    models/publicroomlistmodel.cpp
+    models/userdirectorylistmodel.cpp
+    models/keywordnotificationrulemodel.cpp
     utils.cpp
     notificationsmanager.cpp
-    sortfilterroomlistmodel.cpp
+    models/sortfilterroomlistmodel.cpp
     chatdocumenthandler.cpp
-    devicesmodel.cpp
+    models/devicesmodel.cpp
     filetypesingleton.cpp
     login.cpp
     stickerevent.cpp
-    webshortcutmodel.cpp
+    models/webshortcutmodel.cpp
     blurhash.cpp
     blurhashimageprovider.cpp
     joinrulesevent.cpp
-    collapsestateproxymodel.cpp
+    models/collapsestateproxymodel.cpp
     urlhelper.cpp
     windowcontroller.cpp
     linkpreviewer.cpp
-    completionmodel.cpp
-    completionproxymodel.cpp
-    actionsmodel.cpp
-    serverlistmodel.cpp
-    statemodel.cpp
+    models/completionmodel.cpp
+    models/completionproxymodel.cpp
+    models/actionsmodel.cpp
+    models/serverlistmodel.cpp
+    models/statemodel.cpp
     filetransferpseudojob.cpp
-    searchmodel.cpp
+    models/searchmodel.cpp
 )
 
 add_executable(neochat-app

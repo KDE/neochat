@@ -13,9 +13,9 @@
 #include <KLocalizedString>
 #include <QStringBuilder>
 
-#include "actionsmodel.h"
 #include "controller.h"
-#include "customemojimodel.h"
+#include "models/actionsmodel.h"
+#include "models/customemojimodel.h"
 #include "neochatconfig.h"
 #include "neochatuser.h"
 #include "roommanager.h"

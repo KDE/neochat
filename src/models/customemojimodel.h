@@ -4,8 +4,8 @@
 #pragma once
 
 #include <QAbstractListModel>
-#include <memory>
 #include <QRegularExpression>
+#include <memory>
 
 struct CustomEmoji {
     QString name; // with :semicolons:

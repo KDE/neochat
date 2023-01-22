@@ -14,9 +14,9 @@
 #include <Sonnet/BackgroundChecker>
 #include <Sonnet/Settings>
 
-#include "actionsmodel.h"
+#include "models/actionsmodel.h"
+#include "models/roomlistmodel.h"
 #include "neochatroom.h"
-#include "roomlistmodel.h"
 
 class SyntaxHighlighter : public QSyntaxHighlighter
 {

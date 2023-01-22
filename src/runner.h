@@ -11,8 +11,8 @@
 #include <QString>
 #include <QVariantMap>
 
-#include "roomlistmodel.h"
-#include "sortfilterroomlistmodel.h"
+#include "models/roomlistmodel.h"
+#include "models/sortfilterroomlistmodel.h"
 
 // Copied from KRunner/QueryMatch
 enum MatchType {

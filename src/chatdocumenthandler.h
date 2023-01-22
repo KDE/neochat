@@ -7,8 +7,8 @@
 #include <QQuickTextDocument>
 #include <QTextCursor>
 
-#include "completionmodel.h"
-#include "userlistmodel.h"
+#include "models/completionmodel.h"
+#include "models/userlistmodel.h"
 
 class QTextDocument;
 class NeoChatRoom;
