@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-22 00:57+0000\n"
+"POT-Creation-Date: 2023-01-23 00:57+0000\n"
 "PO-Revision-Date: 2023-01-15 04:09+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -17,317 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.2.2\n"
-
-#: src/actionsmodel.cpp:30 src/actionsmodel.cpp:40 src/actionsmodel.cpp:50
-#: src/actionsmodel.cpp:60 src/actionsmodel.cpp:80 src/actionsmodel.cpp:100
-#: src/actionsmodel.cpp:111 src/actionsmodel.cpp:127 src/actionsmodel.cpp:137
-#: src/actionsmodel.cpp:147
-msgid "<message>"
-msgstr "<message>"
-
-#: src/actionsmodel.cpp:31
-msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
-msgstr "უბრალო ტექსტური შეტყობინებებისთვის ¯\\_(ツ)_/¯ -ის მიწერა"
-
-#: src/actionsmodel.cpp:41
-msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
-msgstr "უბრალო ტექსტური შეტყობინებებისთვის ( ͡° ͜ʖ ͡°) -ის მიწერა"
-
-#: src/actionsmodel.cpp:51
-msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
-msgstr "უბრალო ტექსტური შეტყობინებებისთვის (╯°□°）╯︵ ┻━┻  -ის მიწერა"
-
-#: src/actionsmodel.cpp:61
-msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
-msgstr "უბრალო ტექსტური შეტყობინებებისთვის ┬──┬ ノ( ゜-゜ノ) -ის მიწერა"
-
-#: src/actionsmodel.cpp:81
-msgid "Sends the given message colored as a rainbow"
-msgstr "მითითებული შეტყობინების ცისარტყელასავით გაფერადებულის გაგზავნა"
-
-#: src/actionsmodel.cpp:101
-msgid "Sends the given emote colored as a rainbow"
-msgstr "მიმდინარე ემოტის ცისარტყელასავით გაფერადებულის გაგზავნა"
-
-#: src/actionsmodel.cpp:112
-msgid "Sends the given message as plain text"
-msgstr "მითითებული შეტყობინების უბრალო ტექსტის სახით გაგზავნა"
-
-#: src/actionsmodel.cpp:128
-msgid "Sends the given message as a spoiler"
-msgstr "მითითებული შეტყობინების სპოილერად გაგზავნა"
-
-#: src/actionsmodel.cpp:138
-msgid "Sends the given emote"
-msgstr "მითითებული ემოტის გაგზავნა"
-
-#: src/actionsmodel.cpp:148
-msgid "Sends the given message as a notice"
-msgstr "მითითებული შეტყობინების შეტყობინების სახით გაგზავნა"
-
-#: src/actionsmodel.cpp:157 src/actionsmodel.cpp:336 src/actionsmodel.cpp:364
-#: src/actionsmodel.cpp:414 src/actionsmodel.cpp:451 src/actionsmodel.cpp:485
-#, kde-format
-msgctxt "'<text>' does not look like a matrix id."
-msgid "'%1' does not look like a matrix id."
-msgstr "\"%1\" matrix ID-ს არ ჰგავს."
-
-#: src/actionsmodel.cpp:163
-#, kde-format
-msgctxt "<user> is already invited to this room."
-msgid "%1 is already invited to this room."
-msgstr "%1 ამ ოთახში უკვე მოწვეულია."
-
-#: src/actionsmodel.cpp:167
-#, kde-format
-msgctxt "<user> is banned from this room."
-msgid "%1 is banned from this room."
-msgstr "%1 დაიბანა ამ ოთახიდან."
-
-#: src/actionsmodel.cpp:172
-#, kde-format
-msgid "You are already in this room."
-msgstr "უკვე ოთახში ბრძანდებით."
-
-#: src/actionsmodel.cpp:176
-#, kde-format
-msgctxt "<user> is already in this room."
-msgid "%1 is already in this room."
-msgstr "%1 უკვე ოთახშია."
-
-#: src/actionsmodel.cpp:180
-#, kde-format
-msgctxt "<username> was invited into this room"
-msgid "%1 was invited into this room"
-msgstr "%1 მოწვეულია ამ ოთახში"
-
-#: src/actionsmodel.cpp:185 src/actionsmodel.cpp:354 src/actionsmodel.cpp:382
-#: src/actionsmodel.cpp:473
-msgid "<user id>"
-msgstr "<მომხმარებლის id>"
-
-#: src/actionsmodel.cpp:186
-msgid "Invites the user to this room"
-msgstr "მოიწვევს მომხმარებელს ამ ოთახში"
-
-#: src/actionsmodel.cpp:195 src/actionsmodel.cpp:219 src/actionsmodel.cpp:246
-#: src/actionsmodel.cpp:278
-#, kde-format
-msgctxt "'<text>' does not look like a room id or alias."
-msgid "'%1' does not look like a room id or alias."
-msgstr "'%1' ოთახის სახელს ან მეტსახელს არ წააგავს."
-
-#: src/actionsmodel.cpp:203 src/actionsmodel.cpp:226
-#, kde-format
-msgctxt "Joining room <roomname>."
-msgid "Joining room %1."
-msgstr "შესვლა ოთახში %1."
-
-#: src/actionsmodel.cpp:209 src/actionsmodel.cpp:232
-msgid "<room alias or id>"
-msgstr "<ოთახის მეტსახელი ან id>"
-
-#: src/actionsmodel.cpp:210 src/actionsmodel.cpp:233
-msgid "Joins the given room"
-msgstr "მითითებულ ოთახში შესვლა"
-
-#: src/actionsmodel.cpp:223
-#, kde-format
-msgctxt "You are already in room <roomname>."
-msgid "You are already in room %1."
-msgstr "უკვე ოთახში ბრძანდებით: %1."
-
-#: src/actionsmodel.cpp:239 src/actionsmodel.cpp:271
-#, kde-format
-msgid "Leaving this room."
-msgstr "ოთახიდან გასვლა."
-
-#: src/actionsmodel.cpp:254 src/actionsmodel.cpp:286
-#, kde-format
-msgctxt "Leaving room <roomname>."
-msgid "Leaving room %1."
-msgstr "ოთახიდან გასვლა: %1."
-
-#: src/actionsmodel.cpp:257 src/actionsmodel.cpp:289
-#, kde-format
-msgctxt "Room <roomname> not found"
-msgid "Room %1 not found."
-msgstr "ოთახი %1 ვერ ვიპოვე."
-
-#: src/actionsmodel.cpp:264 src/actionsmodel.cpp:296
-msgid "[<room alias or id>]"
-msgstr "[<ოთახის მეტსახელი ან id>]"
-
-#: src/actionsmodel.cpp:265 src/actionsmodel.cpp:297
-msgid "Leaves the given room or this room, if there is none given"
-msgstr "მითითებული ოთახიდან, ან, თუ მითითებული არაა, მიმდინარე ოთახიდან გასვლა"
-
-#: src/actionsmodel.cpp:303 src/actionsmodel.cpp:318
-#, kde-format
-msgid "No new nickname provided, no changes will happen."
-msgstr "ახალი მეტსახელი მითითებული არაა. ცვლილებები არ განხორციელდება."
-
-#: src/actionsmodel.cpp:311 src/actionsmodel.cpp:326
-msgid "<display name>"
-msgstr "<საჩვენებელი სახელი>"
-
-#: src/actionsmodel.cpp:312
-msgid "Changes your global display name"
-msgstr "ცვლის თქვენს გლობალურად საჩვენებელ სახელს"
-
-#: src/actionsmodel.cpp:327
-msgid "Changes your display name in this room"
-msgstr "ცვლის თქვენს ამ ოთახში საჩვენებელ სახელს"
-
-#: src/actionsmodel.cpp:341
-#, kde-format
-msgctxt "<username> is already ignored."
-msgid "%1 is already ignored."
-msgstr "%1 უკვე დაიგნორებულია."
-
-#: src/actionsmodel.cpp:346
-#, kde-format
-msgctxt "<username> is now ignored"
-msgid "%1 is now ignored."
-msgstr "%1 ახლა დაიგნორებულია."
-
-#: src/actionsmodel.cpp:348 src/actionsmodel.cpp:376
-#, kde-format
-msgctxt "<username> is not a known user"
-msgid "%1 is not a known user."
-msgstr "%1 იცნობი მომხმარებელია."
-
-#: src/actionsmodel.cpp:355
-msgid "Ignores the given user"
-msgstr "მითითებული მომხმარებლის დაიგნორება"
-
-#: src/actionsmodel.cpp:370
-#, kde-format
-msgctxt "<username> is not ignored."
-msgid "%1 is not ignored."
-msgstr "%1 იგნორირებული არაა."
-
-#: src/actionsmodel.cpp:374
-#, kde-format
-msgctxt "<username> is no longer ignored."
-msgid "%1 is no longer ignored."
-msgstr "%1 იგნორირებული აღარაა."
-
-#: src/actionsmodel.cpp:383
-msgid "Unignores the given user"
-msgstr "მითითებული მომხმარებლის იგნორის მოხსნა"
-
-#: src/actionsmodel.cpp:403
-msgid "<reaction text>"
-msgstr "<რეაქციის ტექსტი>"
-
-#: src/actionsmodel.cpp:404
-msgid "React to the message with the given text"
-msgstr "მითითებული ტექსტის მქონე შეტყობინებაზე რეაქცია"
-
-#: src/actionsmodel.cpp:420
-#, kde-format
-msgctxt "<user> is already banned from this room."
-msgid "%1 is already banned from this room."
-msgstr "%1 უკვე დაბანილია ამ ოთახიდან."
-
-#: src/actionsmodel.cpp:426
-#, kde-format
-msgid "You are not allowed to ban users from this room."
-msgstr "ამ ოთახიდან მომხმარებლების დაბანვის უფლება არ გაქვთ."
-
-#: src/actionsmodel.cpp:432
-#, kde-format
-msgctxt "You are not allowed to ban <username> from this room."
-msgid "You are not allowed to ban %1 from this room."
-msgstr "ამ ოთახიდან %1-ის ბანის უფლება არ გაქვთ."
-
-#: src/actionsmodel.cpp:436
-#, kde-format
-msgctxt "<username> was banned from this room."
-msgid "%1 was banned from this room."
-msgstr "%1 დაიბანა ამ ოთახიდან."
-
-#: src/actionsmodel.cpp:441 src/actionsmodel.cpp:516
-msgid "<user id> [<reason>]"
-msgstr "<მომხმარებლის id> [<მიზეზი>]"
-
-#: src/actionsmodel.cpp:442
-msgid "Bans the given user"
-msgstr "მითითებული მომხმარებლის ბანი"
-
-#: src/actionsmodel.cpp:456
-#, kde-format
-msgid "You are not allowed to unban users from this room."
-msgstr "ამ ოთახიდან მომხმარებლებისთვის ბანის მოხსნა არ შეგიძლიათ."
-
-#: src/actionsmodel.cpp:462
-#, kde-format
-msgctxt "<user> is not banned from this room."
-msgid "%1 is not banned from this room."
-msgstr "%1 არაა დაბანილი ამ ოთახიდან."
-
-#: src/actionsmodel.cpp:467
-#, kde-format
-msgctxt "<username> was unbanned from this room."
-msgid "%1 was unbanned from this room."
-msgstr "%1 -ს ამ ოთახიდან ბანი მოეხსნა."
-
-#: src/actionsmodel.cpp:474
-msgid "Removes the ban of the given user"
-msgstr "მითითებული მომხმარებლის ბანის მოცილება"
-
-#: src/actionsmodel.cpp:489
-#, kde-format
-msgid "You cannot kick yourself from the room."
-msgstr "ოთახიდან თქვენს თავს ვერ გააგდებთ."
-
-#: src/actionsmodel.cpp:494
-#, kde-format
-msgctxt "<username> is not in this room"
-msgid "%1 is not in this room."
-msgstr "%1 ოთახში არაა."
-
-#: src/actionsmodel.cpp:501
-#, kde-format
-msgid "You are not allowed to kick users from this room."
-msgstr "ამ ოთახიდან მომხმარებლების გაყრის უფლება არ გაქვთ."
-
-#: src/actionsmodel.cpp:507
-#, kde-format
-msgctxt "You are not allowed to kick <username> from this room"
-msgid "You are not allowed to kick %1 from this room."
-msgstr "ამ ოთახიდან %1-ის გაგდების უფლება არ გაქვთ."
-
-#: src/actionsmodel.cpp:511
-#, kde-format
-msgctxt "<username> was kicked from this room."
-msgid "%1 was kicked from this room."
-msgstr "%1 გააგდეს ამ ოთახიდან."
-
-#: src/actionsmodel.cpp:517
-msgid "Removes the user from the room"
-msgstr "მომხმარებლის ამ ოთახიდან მოცილება"
-
-#: src/collapsestateproxymodel.cpp:68
-#, kde-format
-msgctxt "[user did something] n times"
-msgid " %1 time"
-msgid_plural " %1 times"
-msgstr[0] " %1 -ჯერ"
-msgstr[1] " %1 -ჯერ"
-
-#: src/collapsestateproxymodel.cpp:75
-#, kde-format
-msgctxt "[action 1], [action 2 and action 3]"
-msgid ", "
-msgstr ", "
-
-#: src/collapsestateproxymodel.cpp:78
-#, kde-format
-msgctxt "[action 1, action 2] and [action 3]"
-msgid " and "
-msgstr " და "
 
 #: src/controller.cpp:191
 #, kde-format
@@ -393,72 +82,6 @@ msgstr "ოთახის შექმნის შეცდომა: %1"
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "ოთახის ID, რომელშიც შესვლასაც ცდილობთ, არასწორია"
-
-#: src/emojimodel.cpp:149 src/emojimodel.cpp:207
-#, kde-format
-msgctxt "Previously used emojis"
-msgid "History"
-msgstr "ისტორია"
-
-#: src/emojimodel.cpp:154
-#, kde-format
-msgctxt "'Smileys' is a category of emoji"
-msgid "Smileys"
-msgstr "სიცილაკები"
-
-#: src/emojimodel.cpp:159
-#, kde-format
-msgctxt "'People' is a category of emoji"
-msgid "People"
-msgstr "ხალხი"
-
-#: src/emojimodel.cpp:164
-#, kde-format
-msgctxt "'Nature' is a category of emoji"
-msgid "Nature"
-msgstr "ბუნება"
-
-#: src/emojimodel.cpp:169
-#, kde-format
-msgctxt "'Food' is a category of emoji"
-msgid "Food"
-msgstr "საჭმელი"
-
-#: src/emojimodel.cpp:174
-#, kde-format
-msgctxt "'Activities' is a category of emoji"
-msgid "Activities"
-msgstr "ქმედებები"
-
-#: src/emojimodel.cpp:179
-#, kde-format
-msgctxt "'Travel' is  a category of emoji"
-msgid "Travel"
-msgstr "მოგზაურობა"
-
-#: src/emojimodel.cpp:184
-#, kde-format
-msgctxt "'Objects' is a category of emoji"
-msgid "Objects"
-msgstr "ობიექტები"
-
-#: src/emojimodel.cpp:189
-#, kde-format
-msgctxt "'Symbols' is a category of emoji"
-msgid "Symbols"
-msgstr "სიმბოლოები"
-
-#: src/emojimodel.cpp:194
-#, kde-format
-msgctxt "'Flags' is a category of emoji"
-msgid "Flags"
-msgstr "ალმები"
-
-#: src/emojimodel.cpp:213
-#, kde-format
-msgctxt "'Custom' is a category of emoji"
-msgid "Custom"
-msgstr "მორგებული"
 
 #: src/filetransferpseudojob.cpp:47
 #, kde-format
@@ -588,40 +211,449 @@ msgstr "მედიის ID '%1' სერვერის/მედიისID
 msgid "Image request has been cancelled"
 msgstr "გამოსახულების მოთხოვნა გაუქმდა"
 
-#: src/messageeventmodel.cpp:350 src/searchmodel.cpp:156
+#: src/models/actionsmodel.cpp:30 src/models/actionsmodel.cpp:40
+#: src/models/actionsmodel.cpp:50 src/models/actionsmodel.cpp:60
+#: src/models/actionsmodel.cpp:80 src/models/actionsmodel.cpp:100
+#: src/models/actionsmodel.cpp:111 src/models/actionsmodel.cpp:127
+#: src/models/actionsmodel.cpp:137 src/models/actionsmodel.cpp:147
+msgid "<message>"
+msgstr "<message>"
+
+#: src/models/actionsmodel.cpp:31
+msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
+msgstr "უბრალო ტექსტური შეტყობინებებისთვის ¯\\_(ツ)_/¯ -ის მიწერა"
+
+#: src/models/actionsmodel.cpp:41
+msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
+msgstr "უბრალო ტექსტური შეტყობინებებისთვის ( ͡° ͜ʖ ͡°) -ის მიწერა"
+
+#: src/models/actionsmodel.cpp:51
+msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
+msgstr "უბრალო ტექსტური შეტყობინებებისთვის (╯°□°）╯︵ ┻━┻  -ის მიწერა"
+
+#: src/models/actionsmodel.cpp:61
+msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
+msgstr "უბრალო ტექსტური შეტყობინებებისთვის ┬──┬ ノ( ゜-゜ノ) -ის მიწერა"
+
+#: src/models/actionsmodel.cpp:81
+msgid "Sends the given message colored as a rainbow"
+msgstr "მითითებული შეტყობინების ცისარტყელასავით გაფერადებულის გაგზავნა"
+
+#: src/models/actionsmodel.cpp:101
+msgid "Sends the given emote colored as a rainbow"
+msgstr "მიმდინარე ემოტის ცისარტყელასავით გაფერადებულის გაგზავნა"
+
+#: src/models/actionsmodel.cpp:112
+msgid "Sends the given message as plain text"
+msgstr "მითითებული შეტყობინების უბრალო ტექსტის სახით გაგზავნა"
+
+#: src/models/actionsmodel.cpp:128
+msgid "Sends the given message as a spoiler"
+msgstr "მითითებული შეტყობინების სპოილერად გაგზავნა"
+
+#: src/models/actionsmodel.cpp:138
+msgid "Sends the given emote"
+msgstr "მითითებული ემოტის გაგზავნა"
+
+#: src/models/actionsmodel.cpp:148
+msgid "Sends the given message as a notice"
+msgstr "მითითებული შეტყობინების შეტყობინების სახით გაგზავნა"
+
+#: src/models/actionsmodel.cpp:157 src/models/actionsmodel.cpp:336
+#: src/models/actionsmodel.cpp:364 src/models/actionsmodel.cpp:414
+#: src/models/actionsmodel.cpp:451 src/models/actionsmodel.cpp:485
+#, kde-format
+msgctxt "'<text>' does not look like a matrix id."
+msgid "'%1' does not look like a matrix id."
+msgstr "\"%1\" matrix ID-ს არ ჰგავს."
+
+#: src/models/actionsmodel.cpp:163
+#, kde-format
+msgctxt "<user> is already invited to this room."
+msgid "%1 is already invited to this room."
+msgstr "%1 ამ ოთახში უკვე მოწვეულია."
+
+#: src/models/actionsmodel.cpp:167
+#, kde-format
+msgctxt "<user> is banned from this room."
+msgid "%1 is banned from this room."
+msgstr "%1 დაიბანა ამ ოთახიდან."
+
+#: src/models/actionsmodel.cpp:172
+#, kde-format
+msgid "You are already in this room."
+msgstr "უკვე ოთახში ბრძანდებით."
+
+#: src/models/actionsmodel.cpp:176
+#, kde-format
+msgctxt "<user> is already in this room."
+msgid "%1 is already in this room."
+msgstr "%1 უკვე ოთახშია."
+
+#: src/models/actionsmodel.cpp:180
+#, kde-format
+msgctxt "<username> was invited into this room"
+msgid "%1 was invited into this room"
+msgstr "%1 მოწვეულია ამ ოთახში"
+
+#: src/models/actionsmodel.cpp:185 src/models/actionsmodel.cpp:354
+#: src/models/actionsmodel.cpp:382 src/models/actionsmodel.cpp:473
+msgid "<user id>"
+msgstr "<მომხმარებლის id>"
+
+#: src/models/actionsmodel.cpp:186
+msgid "Invites the user to this room"
+msgstr "მოიწვევს მომხმარებელს ამ ოთახში"
+
+#: src/models/actionsmodel.cpp:195 src/models/actionsmodel.cpp:219
+#: src/models/actionsmodel.cpp:246 src/models/actionsmodel.cpp:278
+#, kde-format
+msgctxt "'<text>' does not look like a room id or alias."
+msgid "'%1' does not look like a room id or alias."
+msgstr "'%1' ოთახის სახელს ან მეტსახელს არ წააგავს."
+
+#: src/models/actionsmodel.cpp:203 src/models/actionsmodel.cpp:226
+#, kde-format
+msgctxt "Joining room <roomname>."
+msgid "Joining room %1."
+msgstr "შესვლა ოთახში %1."
+
+#: src/models/actionsmodel.cpp:209 src/models/actionsmodel.cpp:232
+msgid "<room alias or id>"
+msgstr "<ოთახის მეტსახელი ან id>"
+
+#: src/models/actionsmodel.cpp:210 src/models/actionsmodel.cpp:233
+msgid "Joins the given room"
+msgstr "მითითებულ ოთახში შესვლა"
+
+#: src/models/actionsmodel.cpp:223
+#, kde-format
+msgctxt "You are already in room <roomname>."
+msgid "You are already in room %1."
+msgstr "უკვე ოთახში ბრძანდებით: %1."
+
+#: src/models/actionsmodel.cpp:239 src/models/actionsmodel.cpp:271
+#, kde-format
+msgid "Leaving this room."
+msgstr "ოთახიდან გასვლა."
+
+#: src/models/actionsmodel.cpp:254 src/models/actionsmodel.cpp:286
+#, kde-format
+msgctxt "Leaving room <roomname>."
+msgid "Leaving room %1."
+msgstr "ოთახიდან გასვლა: %1."
+
+#: src/models/actionsmodel.cpp:257 src/models/actionsmodel.cpp:289
+#, kde-format
+msgctxt "Room <roomname> not found"
+msgid "Room %1 not found."
+msgstr "ოთახი %1 ვერ ვიპოვე."
+
+#: src/models/actionsmodel.cpp:264 src/models/actionsmodel.cpp:296
+msgid "[<room alias or id>]"
+msgstr "[<ოთახის მეტსახელი ან id>]"
+
+#: src/models/actionsmodel.cpp:265 src/models/actionsmodel.cpp:297
+msgid "Leaves the given room or this room, if there is none given"
+msgstr "მითითებული ოთახიდან, ან, თუ მითითებული არაა, მიმდინარე ოთახიდან გასვლა"
+
+#: src/models/actionsmodel.cpp:303 src/models/actionsmodel.cpp:318
+#, kde-format
+msgid "No new nickname provided, no changes will happen."
+msgstr "ახალი მეტსახელი მითითებული არაა. ცვლილებები არ განხორციელდება."
+
+#: src/models/actionsmodel.cpp:311 src/models/actionsmodel.cpp:326
+msgid "<display name>"
+msgstr "<საჩვენებელი სახელი>"
+
+#: src/models/actionsmodel.cpp:312
+msgid "Changes your global display name"
+msgstr "ცვლის თქვენს გლობალურად საჩვენებელ სახელს"
+
+#: src/models/actionsmodel.cpp:327
+msgid "Changes your display name in this room"
+msgstr "ცვლის თქვენს ამ ოთახში საჩვენებელ სახელს"
+
+#: src/models/actionsmodel.cpp:341
+#, kde-format
+msgctxt "<username> is already ignored."
+msgid "%1 is already ignored."
+msgstr "%1 უკვე დაიგნორებულია."
+
+#: src/models/actionsmodel.cpp:346
+#, kde-format
+msgctxt "<username> is now ignored"
+msgid "%1 is now ignored."
+msgstr "%1 ახლა დაიგნორებულია."
+
+#: src/models/actionsmodel.cpp:348 src/models/actionsmodel.cpp:376
+#, kde-format
+msgctxt "<username> is not a known user"
+msgid "%1 is not a known user."
+msgstr "%1 იცნობი მომხმარებელია."
+
+#: src/models/actionsmodel.cpp:355
+msgid "Ignores the given user"
+msgstr "მითითებული მომხმარებლის დაიგნორება"
+
+#: src/models/actionsmodel.cpp:370
+#, kde-format
+msgctxt "<username> is not ignored."
+msgid "%1 is not ignored."
+msgstr "%1 იგნორირებული არაა."
+
+#: src/models/actionsmodel.cpp:374
+#, kde-format
+msgctxt "<username> is no longer ignored."
+msgid "%1 is no longer ignored."
+msgstr "%1 იგნორირებული აღარაა."
+
+#: src/models/actionsmodel.cpp:383
+msgid "Unignores the given user"
+msgstr "მითითებული მომხმარებლის იგნორის მოხსნა"
+
+#: src/models/actionsmodel.cpp:403
+msgid "<reaction text>"
+msgstr "<რეაქციის ტექსტი>"
+
+#: src/models/actionsmodel.cpp:404
+msgid "React to the message with the given text"
+msgstr "მითითებული ტექსტის მქონე შეტყობინებაზე რეაქცია"
+
+#: src/models/actionsmodel.cpp:420
+#, kde-format
+msgctxt "<user> is already banned from this room."
+msgid "%1 is already banned from this room."
+msgstr "%1 უკვე დაბანილია ამ ოთახიდან."
+
+#: src/models/actionsmodel.cpp:426
+#, kde-format
+msgid "You are not allowed to ban users from this room."
+msgstr "ამ ოთახიდან მომხმარებლების დაბანვის უფლება არ გაქვთ."
+
+#: src/models/actionsmodel.cpp:432
+#, kde-format
+msgctxt "You are not allowed to ban <username> from this room."
+msgid "You are not allowed to ban %1 from this room."
+msgstr "ამ ოთახიდან %1-ის ბანის უფლება არ გაქვთ."
+
+#: src/models/actionsmodel.cpp:436
+#, kde-format
+msgctxt "<username> was banned from this room."
+msgid "%1 was banned from this room."
+msgstr "%1 დაიბანა ამ ოთახიდან."
+
+#: src/models/actionsmodel.cpp:441 src/models/actionsmodel.cpp:516
+msgid "<user id> [<reason>]"
+msgstr "<მომხმარებლის id> [<მიზეზი>]"
+
+#: src/models/actionsmodel.cpp:442
+msgid "Bans the given user"
+msgstr "მითითებული მომხმარებლის ბანი"
+
+#: src/models/actionsmodel.cpp:456
+#, kde-format
+msgid "You are not allowed to unban users from this room."
+msgstr "ამ ოთახიდან მომხმარებლებისთვის ბანის მოხსნა არ შეგიძლიათ."
+
+#: src/models/actionsmodel.cpp:462
+#, kde-format
+msgctxt "<user> is not banned from this room."
+msgid "%1 is not banned from this room."
+msgstr "%1 არაა დაბანილი ამ ოთახიდან."
+
+#: src/models/actionsmodel.cpp:467
+#, kde-format
+msgctxt "<username> was unbanned from this room."
+msgid "%1 was unbanned from this room."
+msgstr "%1 -ს ამ ოთახიდან ბანი მოეხსნა."
+
+#: src/models/actionsmodel.cpp:474
+msgid "Removes the ban of the given user"
+msgstr "მითითებული მომხმარებლის ბანის მოცილება"
+
+#: src/models/actionsmodel.cpp:489
+#, kde-format
+msgid "You cannot kick yourself from the room."
+msgstr "ოთახიდან თქვენს თავს ვერ გააგდებთ."
+
+#: src/models/actionsmodel.cpp:494
+#, kde-format
+msgctxt "<username> is not in this room"
+msgid "%1 is not in this room."
+msgstr "%1 ოთახში არაა."
+
+#: src/models/actionsmodel.cpp:501
+#, kde-format
+msgid "You are not allowed to kick users from this room."
+msgstr "ამ ოთახიდან მომხმარებლების გაყრის უფლება არ გაქვთ."
+
+#: src/models/actionsmodel.cpp:507
+#, kde-format
+msgctxt "You are not allowed to kick <username> from this room"
+msgid "You are not allowed to kick %1 from this room."
+msgstr "ამ ოთახიდან %1-ის გაგდების უფლება არ გაქვთ."
+
+#: src/models/actionsmodel.cpp:511
+#, kde-format
+msgctxt "<username> was kicked from this room."
+msgid "%1 was kicked from this room."
+msgstr "%1 გააგდეს ამ ოთახიდან."
+
+#: src/models/actionsmodel.cpp:517
+msgid "Removes the user from the room"
+msgstr "მომხმარებლის ამ ოთახიდან მოცილება"
+
+#: src/models/collapsestateproxymodel.cpp:68
+#, kde-format
+msgctxt "[user did something] n times"
+msgid " %1 time"
+msgid_plural " %1 times"
+msgstr[0] " %1 -ჯერ"
+msgstr[1] " %1 -ჯერ"
+
+#: src/models/collapsestateproxymodel.cpp:75
+#, kde-format
+msgctxt "[action 1], [action 2 and action 3]"
+msgid ", "
+msgstr ", "
+
+#: src/models/collapsestateproxymodel.cpp:78
+#, kde-format
+msgctxt "[action 1, action 2] and [action 3]"
+msgid " and "
+msgstr " და "
+
+#: src/models/emojimodel.cpp:149 src/models/emojimodel.cpp:207
+#, kde-format
+msgctxt "Previously used emojis"
+msgid "History"
+msgstr "ისტორია"
+
+#: src/models/emojimodel.cpp:154
+#, kde-format
+msgctxt "'Smileys' is a category of emoji"
+msgid "Smileys"
+msgstr "სიცილაკები"
+
+#: src/models/emojimodel.cpp:159
+#, kde-format
+msgctxt "'People' is a category of emoji"
+msgid "People"
+msgstr "ხალხი"
+
+#: src/models/emojimodel.cpp:164
+#, kde-format
+msgctxt "'Nature' is a category of emoji"
+msgid "Nature"
+msgstr "ბუნება"
+
+#: src/models/emojimodel.cpp:169
+#, kde-format
+msgctxt "'Food' is a category of emoji"
+msgid "Food"
+msgstr "საჭმელი"
+
+#: src/models/emojimodel.cpp:174
+#, kde-format
+msgctxt "'Activities' is a category of emoji"
+msgid "Activities"
+msgstr "ქმედებები"
+
+#: src/models/emojimodel.cpp:179
+#, kde-format
+msgctxt "'Travel' is  a category of emoji"
+msgid "Travel"
+msgstr "მოგზაურობა"
+
+#: src/models/emojimodel.cpp:184
+#, kde-format
+msgctxt "'Objects' is a category of emoji"
+msgid "Objects"
+msgstr "ობიექტები"
+
+#: src/models/emojimodel.cpp:189
+#, kde-format
+msgctxt "'Symbols' is a category of emoji"
+msgid "Symbols"
+msgstr "სიმბოლოები"
+
+#: src/models/emojimodel.cpp:194
+#, kde-format
+msgctxt "'Flags' is a category of emoji"
+msgid "Flags"
+msgstr "ალმები"
+
+#: src/models/emojimodel.cpp:213
+#, kde-format
+msgctxt "'Custom' is a category of emoji"
+msgid "Custom"
+msgstr "მორგებული"
+
+#: src/models/messageeventmodel.cpp:350 src/models/searchmodel.cpp:156
 #, kde-format
 msgid "Today"
 msgstr "დღეს"
 
-#: src/messageeventmodel.cpp:353 src/searchmodel.cpp:159
+#: src/models/messageeventmodel.cpp:353 src/models/searchmodel.cpp:159
 #, kde-format
 msgid "Yesterday"
 msgstr "გუშინ"
 
-#: src/messageeventmodel.cpp:356 src/searchmodel.cpp:162
+#: src/models/messageeventmodel.cpp:356 src/models/searchmodel.cpp:162
 #, kde-format
 msgid "The day before yesterday"
 msgstr "გუშინწინ"
 
-#: src/messageeventmodel.cpp:458
+#: src/models/messageeventmodel.cpp:458
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[ეს შეტყობინება წაშლილია]</i>"
 
-#: src/messageeventmodel.cpp:459
+#: src/models/messageeventmodel.cpp:459
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[ეს შეტყობინება წაშლილია: %1]</i>"
 
-#: src/messageeventmodel.cpp:546
+#: src/models/messageeventmodel.cpp:546
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[ჩასწორებული]"
 
-#: src/messageeventmodel.cpp:546
+#: src/models/messageeventmodel.cpp:546
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[ჩასწორებულია: %1]"
+
+#: src/models/roomlistmodel.cpp:464
+#, kde-format
+msgid "Invited"
+msgstr "მოწვეულია"
+
+#: src/models/roomlistmodel.cpp:466
+#, kde-format
+msgid "Favorite"
+msgstr "რჩეული"
+
+#: src/models/roomlistmodel.cpp:468
+#, kde-format
+msgid "Direct Messages"
+msgstr "პირდაპირი შეტყობინებები"
+
+#: src/models/roomlistmodel.cpp:470
+#, kde-format
+msgid "Normal"
+msgstr "ნორმალური"
+
+#: src/models/roomlistmodel.cpp:472
+#, kde-format
+msgid "Low priority"
+msgstr "დაბალი პრიორიტეტი"
+
+#: src/models/roomlistmodel.cpp:474
+#, kde-format
+msgid "Spaces"
+msgstr "სივრცეები"
 
 #: src/neochatroom.cpp:491
 #, kde-format
@@ -3482,36 +3514,6 @@ msgstr "მართლწერის შემოწმების ლექ�
 #, kde-format
 msgid "Delete word"
 msgstr "სიტყვის წაშლა"
-
-#: src/roomlistmodel.cpp:464
-#, kde-format
-msgid "Invited"
-msgstr "მოწვეულია"
-
-#: src/roomlistmodel.cpp:466
-#, kde-format
-msgid "Favorite"
-msgstr "რჩეული"
-
-#: src/roomlistmodel.cpp:468
-#, kde-format
-msgid "Direct Messages"
-msgstr "პირდაპირი შეტყობინებები"
-
-#: src/roomlistmodel.cpp:470
-#, kde-format
-msgid "Normal"
-msgstr "ნორმალური"
-
-#: src/roomlistmodel.cpp:472
-#, kde-format
-msgid "Low priority"
-msgstr "დაბალი პრიორიტეტი"
-
-#: src/roomlistmodel.cpp:474
-#, kde-format
-msgid "Spaces"
-msgstr "სივრცეები"
 
 #: src/roommanager.cpp:48
 #, kde-format
