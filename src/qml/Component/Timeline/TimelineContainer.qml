@@ -87,6 +87,7 @@ ColumnLayout {
         Layout.fillWidth: true
         Layout.topMargin: showAuthor ? Kirigami.Units.largeSpacing : (Config.compactLayout ? 1 : Kirigami.Units.smallSpacing)
         Layout.leftMargin: Kirigami.Units.smallSpacing
+        Layout.rightMargin: Kirigami.Units.smallSpacing
 
         implicitHeight: Math.max(model.showAuthor ? avatar.implicitHeight : 0, bubble.height)
 
