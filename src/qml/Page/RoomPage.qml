@@ -50,6 +50,7 @@ Kirigami.ScrollablePage {
         applicationWindow().hoverLinkIndicator.text = "";
         messageListView.positionViewAtBeginning();
         hasScrolledUpBefore = false;
+        chatBox.chatBar.forceActiveFocus();
     }
 
     Connections {
@@ -137,8 +138,8 @@ Kirigami.ScrollablePage {
             switchRoomUp();
         } else if (!(event.modifiers & Qt.ControlModifier) && event.key < Qt.Key_Escape) {
             event.accepted = true;
-            chatBox.addText(event.text);
-            chatBox.focusInputField();
+            chatBox.chatBar.insertText(event.text);
+            chatBox.chatBar.forceActiveFocus();
             return;
         }
     }
@@ -349,7 +350,7 @@ Kirigami.ScrollablePage {
             visible: currentRoom && currentRoom.hasUnreadMessages && currentRoom.readMarkerLoaded
             action: Kirigami.Action {
                 onTriggered: {
-                    chatBox.focusInputField();
+                    chatBox.chatBar.forceActiveFocus();
                     messageListView.goToEvent(currentRoom.readMarkerEventId)
                 }
                 icon.name: "go-up"
@@ -373,7 +374,7 @@ Kirigami.ScrollablePage {
             visible: !messageListView.atYEnd
             action: Kirigami.Action {
                 onTriggered: {
-                    chatBox.focusInputField();
+                    chatBox.chatBar.forceActiveFocus();
                     goToLastMessage();
                     currentRoom.markAllMessagesAsRead();
                 }
@@ -519,13 +520,14 @@ Kirigami.ScrollablePage {
                     QQC2.ToolTip.visible: hovered
                     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                     icon.name: "preferences-desktop-emoticons"
+
                     onClicked: emojiDialog.open();
                     EmojiDialog {
                         id: emojiDialog
                         showQuickReaction: true
                         onChosen: {
                             page.currentRoom.toggleReaction(hoverActions.event.eventId, emoji);
-                            chatBox.focusInputField();
+                            chatBox.chatBar.forceActiveFocus();
                         }
                     }
                 }
@@ -538,7 +540,7 @@ Kirigami.ScrollablePage {
                     onClicked: {
                         currentRoom.chatBoxEditId = hoverActions.event.eventId;
                         currentRoom.chatBoxReplyId = "";
-                        chatBox.focusInputField();
+                        chatBox.chatBar.forceActiveFocus();
                     }
                 }
                 QQC2.Button {
@@ -549,7 +551,7 @@ Kirigami.ScrollablePage {
                     onClicked: {
                         currentRoom.chatBoxReplyId = hoverActions.event.eventId;
                         currentRoom.chatBoxEditId = "";
-                        chatBox.focusInputField();
+                        chatBox.chatBar.forceActiveFocus();
                     }
                 }
             }

@@ -10,108 +10,83 @@ import org.kde.kirigami 2.14 as Kirigami
 
 import org.kde.neochat 1.0
 
-Loader {
-    id: replyPane
-    property NeoChatUser user: currentRoom.chatBoxReplyUser ?? currentRoom.chatBoxEditUser
+GridLayout {
+    id: root
+    property string userName
+    property color userColor: Kirigami.Theme.highlightColor
+    property var userAvatar: ""
+    property bool isReply
+    property var text
 
-    signal replyCancelled()
+    rows: 3
+    columns: 3
+    rowSpacing: Kirigami.Units.smallSpacing
+    columnSpacing: Kirigami.Units.largeSpacing
 
-    active: visible
-    sourceComponent: QQC2.Pane {
-        id: replyPane
+    QQC2.Label {
+        id: replyLabel
+        Layout.fillWidth: true
+        Layout.alignment: Qt.AlignLeft
+        Layout.columnSpan: 3
+        topPadding: Kirigami.Units.smallSpacing
 
-        Kirigami.Theme.colorSet: Kirigami.Theme.View
+        text: isReply ? i18n("Replying to:") : i18n("Editing message:")
+    }
+    Rectangle {
+        id: verticalBorder
 
-        spacing: leftPadding
+        Layout.fillHeight: true
+        Layout.rowSpan: 2
 
-        contentItem: RowLayout {
-            Layout.fillWidth: true
-            spacing: replyPane.spacing
+        implicitWidth: Kirigami.Units.smallSpacing
+        color: userColor
+    }
+    Kirigami.Avatar {
+        id: replyAvatar
 
-            FontMetrics {
-                id: fontMetrics
-                font: textArea.font
-            }
+        implicitWidth: Kirigami.Units.iconSizes.small
+        implicitHeight: Kirigami.Units.iconSizes.small
 
-            Kirigami.Avatar {
-                id: avatar
-                Layout.alignment: textContentLayout.height > avatar.height ? Qt.AlignHCenter | Qt.AlignTop : Qt.AlignCenter
-                Layout.preferredWidth: Layout.preferredHeight
-                Layout.preferredHeight: fontMetrics.lineSpacing * 2 - fontMetrics.leading
-                source: user ? "image://mxc/" + currentRoom.getUser(user.id).avatarMediaId : ""
-                name: user ? user.displayName : ""
-                color: user ? user.color : "transparent"
-                visible: Boolean(user)
-            }
+        source: userAvatar
+        name: userName
+        color: userColor
+    }
+    QQC2.Label {
+        Layout.fillWidth: true
+        Layout.alignment: Qt.AlignLeft
 
-            ColumnLayout {
-                id: textContentLayout
-                Layout.alignment: Qt.AlignCenter
-                Layout.fillWidth: true
-                spacing: fontMetrics.leading
-                QQC2.Label {
-                    Layout.fillWidth: true
-                    textFormat: Text.StyledText
-                    elide: Text.ElideRight
-                    text: {
-                        let heading = "<b>%1</b>"
-                        let userName = user ? "<font color=\""+ user.color +"\">" + currentRoom.htmlSafeMemberName(user.id) + "</font>" : ""
-                        if (currentRoom.chatBoxEditId.length > 0) {
-                            heading = heading.arg(i18n("Editing message:")) + "<br/>"
-                        } else {
-                            heading = heading.arg(i18n("Replying to %1:", userName))
-                        }
+        color: userColor
+        text: userName
+        elide: Text.ElideRight
+    }
+    QQC2.TextArea {
+        id: textArea
 
-                        return heading
-                    }
-                }
-                //TODO edit user mentions
-                QQC2.ScrollView {
-                    Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-                    Layout.fillWidth: true
-                    Layout.maximumHeight: fontMetrics.lineSpacing * 8 - fontMetrics.leading
+        Layout.fillWidth: true
+        Layout.columnSpan: 2
 
-                    // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
-                    QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
-
-                    QQC2.TextArea {
-                        id: textArea
-                        leftPadding: 0
-                        rightPadding: 0
-                        topPadding: 0
-                        bottomPadding: 0
-                        text: "<style> a{color:" + Kirigami.Theme.linkColor + ";}.user-pill{}</style>" + (currentRoom.chatBoxEditId.length > 0 ? currentRoom.chatBoxEditMessage : currentRoom.chatBoxReplyMessage)
-                        selectByMouse: true
-                        selectByKeyboard: true
-                        readOnly: true
-                        wrapMode: QQC2.Label.Wrap
-                        textFormat: TextEdit.RichText
-                        background: Item {}
-                        HoverHandler {
-                            cursorShape: textArea.hoveredLink ? Qt.PointingHandCursor : Qt.IBeamCursor
-                        }
-                    }
-                }
-            }
-
-            QQC2.ToolButton {
-                display: QQC2.AbstractButton.IconOnly
-                action: Kirigami.Action {
-                    text: i18nc("@action:button", "Cancel reply")
-                    icon.name: "dialog-close"
-                    onTriggered: {
-                        currentRoom.chatBoxReplyId = "";
-                        currentRoom.chatBoxEditId = "";
-                    }
-                    shortcut: "Escape"
-                }
-                QQC2.ToolTip.text: text
-                QQC2.ToolTip.visible: hovered
-            }
+        leftPadding: 0
+        rightPadding: 0
+        topPadding: 0
+        bottomPadding: 0
+        text: "<style> a{color:" + Kirigami.Theme.linkColor + ";}.user-pill{}</style>" + replyTextMetrics.elidedText
+        selectByMouse: true
+        selectByKeyboard: true
+        readOnly: true
+        wrapMode: QQC2.Label.Wrap
+        textFormat: TextEdit.RichText
+        background: Item {}
+        HoverHandler {
+            cursorShape: textArea.hoveredLink ? Qt.PointingHandCursor : Qt.IBeamCursor
         }
 
-        background: Rectangle {
-            color: Kirigami.Theme.backgroundColor
+        TextMetrics {
+            id: replyTextMetrics
+
+            text: root.text
+            font: textArea.font
+            elide: Qt.ElideRight
+            elideWidth: textArea.width * 2 - Kirigami.Units.smallSpacing * 2
         }
     }
 }

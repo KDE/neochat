@@ -10,188 +10,115 @@ import org.kde.kirigami 2.15 as Kirigami
 
 import org.kde.neochat 1.0
 
-Loader {
-    id: attachmentPaneLoader
+ColumnLayout {
+    id: root
 
-    readonly property var attachmentMimetype: FileType.mimeTypeForUrl(attachmentPaneLoader.attachmentPath)
+    signal attachmentCancelled()
+
+    property string attachmentPath
+
+    readonly property var attachmentMimetype: FileType.mimeTypeForUrl(attachmentPath)
     readonly property bool hasImage: attachmentMimetype.valid && FileType.supportedImageFormats.includes(attachmentMimetype.preferredSuffix)
-    readonly property string attachmentPath: currentRoom.chatBoxAttachmentPath
     readonly property string baseFileName: attachmentPath.substring(attachmentPath.lastIndexOf('/') + 1, attachmentPath.length)
 
-    active: visible
-    sourceComponent: Component {
-        QQC2.Pane {
-            id: attachmentPane
-            Kirigami.Theme.colorSet: Kirigami.Theme.View
+    RowLayout {
+        spacing: Kirigami.Units.smallSpacing
 
-            contentItem: Item {
-                property real spacing: attachmentPane.spacing > 0 ? attachmentPane.spacing : toolBar.spacing
-                implicitWidth: Math.max(image.implicitWidth, imageBusyIndicator.implicitWidth, fileInfoLayout.implicitWidth, toolBar.implicitWidth)
-                implicitHeight: Math.max(
-                    (hasImage ? Math.max(image.preferredHeight, imageBusyIndicator.implicitHeight) + spacing : 0)
-                        + fileInfoLayout.implicitHeight,
-                    toolBar.implicitHeight
-                )
+        QQC2.Label {
+            Layout.fillWidth: true
+            Layout.alignment: Qt.AlignLeft
+            text: i18n("Attachment:")
+            horizontalAlignment: Text.AlignLeft
+            verticalAlignment: Text.AlignVCenter
+        }
+        QQC2.ToolButton {
+            id: editImageButton
+            visible: hasImage
+            icon.name: "document-edit"
+            text: i18n("Edit")
+            display: QQC2.AbstractButton.IconOnly
 
-                Image {
-                    id: image
-                    property real preferredHeight: Math.min(implicitHeight, Kirigami.Units.gridUnit * 8)
-                    height: preferredHeight
-                    anchors {
-                        horizontalCenter: parent.horizontalCenter
-                        bottom: fileInfoLayout.top
-                        bottomMargin: parent.spacing
-                    }
-                    width: Math.min(implicitWidth, attachmentPane.availableWidth)
-                    asynchronous: true
-                    cache: false // Cache is not needed. Images will rarely be shown repeatedly.
-                    smooth: height === preferredHeight && parent.height === parent.implicitHeight // Don't smooth until height animation stops
-                    source: hasImage ? attachmentPaneLoader.attachmentPath : ""
-                    visible: hasImage
-                    fillMode: Image.PreserveAspectFit
-
-                    onSourceChanged: {
-                        // Reset source size height, which affect implicitHeight
-                        sourceSize.height = -1
-                    }
-
-                    onSourceSizeChanged: {
-                        if (implicitHeight > Kirigami.Units.gridUnit * 8) {
-                            // This can save a lot of RAM when loading large images.
-                            // It also improves visual quality for large images.
-                            sourceSize.height = Kirigami.Units.gridUnit * 8
-                        }
-                    }
-
-                    Behavior on height {
-                        NumberAnimation {
-                            property: "height"
-                            duration: Kirigami.Units.shortDuration
-                            easing.type: Easing.OutCubic
-                        }
-                    }
-                }
-
-                QQC2.BusyIndicator {
-                    id: imageBusyIndicator
-                    anchors {
-                        horizontalCenter: parent.horizontalCenter
-                        top: parent.top
-                        bottom: fileInfoLayout.top
-                        bottomMargin: parent.spacing
-                    }
-                    visible: running
-                    running: image.visible && image.progress < 1
-                }
-
-                RowLayout {
-                    id: fileInfoLayout
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.verticalCenter: undefined
-                    anchors.bottom: parent.bottom
-                    spacing: parent.spacing
-
-                    Kirigami.Icon {
-                        id: mimetypeIcon
-                        implicitHeight: Kirigami.Units.fontMetrics.roundedIconSize(fileLabel.implicitHeight)
-                        implicitWidth: implicitHeight
-                        source: attachmentMimetype.iconName
-                    }
-
-                    QQC2.Label {
-                        id: fileLabel
-                        text: baseFileName
-                    }
-
-                    states: State {
-                        when: !hasImage
-                        AnchorChanges {
-                            target: fileInfoLayout
-                            anchors.bottom: undefined
-                            anchors.verticalCenter: parent.verticalCenter
-                        }
-                    }
-                }
-
-                // Using a toolbar to get a button spacing consistent with what the QQC2 style normally has
-                // Also has some accessibility info
-                QQC2.ToolBar {
-                    id: toolBar
-                    width: parent.width
-                    anchors.top: parent.top
-
-                    leftPadding: 0
-                    rightPadding: 0
-                    topPadding: 0
-                    bottomPadding: 0
-
-                    Kirigami.Theme.inherit: true
-                    Kirigami.Theme.colorSet: Kirigami.Theme.View
-
-                    contentItem: RowLayout {
-                        spacing: parent.spacing
-                        QQC2.Label {
-                            Layout.leftMargin: -attachmentPane.leftPadding
-                            Layout.topMargin: -attachmentPane.topPadding
-                            leftPadding: cancelAttachmentButton.leftPadding + 1 + attachmentPane.leftPadding
-                            rightPadding: cancelAttachmentButton.rightPadding + 1
-                            topPadding: cancelAttachmentButton.topPadding + attachmentPane.topPadding
-                            bottomPadding: cancelAttachmentButton.bottomPadding
-                            text: i18n("Attachment:")
-                            horizontalAlignment: Text.AlignLeft
-                            verticalAlignment: Text.AlignVCenter
-                            background: Kirigami.ShadowedRectangle {
-                                property real cornerRadius: cancelAttachmentButton.background.hasOwnProperty("radius") ?
-                                    Math.min(cancelAttachmentButton.background.radius, height/2) : 0
-                                corners.bottomLeftRadius: toolBar.mirrored ? cornerRadius : 0
-                                corners.bottomRightRadius: toolBar.mirrored ? 0 : cornerRadius
-                                color: Kirigami.Theme.backgroundColor
-                                opacity: 0.75
-                            }
-                        }
-                        Item {
-                            Layout.fillWidth: true
-                        }
-                        QQC2.ToolButton {
-                            id: editImageButton
-                            visible: hasImage
-                            icon.name: "document-edit"
-                            text: i18n("Edit")
-                            display: QQC2.AbstractButton.IconOnly
-
-                            Component {
-                                id: imageEditorPage
-                                ImageEditorPage {
-                                    imagePath: attachmentPaneLoader.attachmentPath
-                                }
-                            }
-                            onClicked: {
-                                let imageEditor = applicationWindow().pageStack.layers.push(imageEditorPage);
-                                imageEditor.newPathChanged.connect(function(newPath) {
-                                    applicationWindow().pageStack.layers.pop();
-                                    attachmentPaneLoader.attachmentPath = newPath;
-                                });
-                            }
-                            QQC2.ToolTip.text: text
-                            QQC2.ToolTip.visible: hovered
-                        }
-                        QQC2.ToolButton {
-                            id: cancelAttachmentButton
-                            icon.name: "dialog-close"
-                            text: i18n("Cancel sending Image")
-                            display: QQC2.AbstractButton.IconOnly
-                            onClicked: currentRoom.chatBoxAttachmentPath = "";
-                            QQC2.ToolTip.text: text
-                            QQC2.ToolTip.visible: hovered
-                        }
-                    }
-                    background: null
+            Component {
+                id: imageEditorPage
+                ImageEditorPage {
+                    imagePath: root.attachmentPath
                 }
             }
 
-            background: Rectangle {
-                color: Kirigami.Theme.backgroundColor
+            onClicked: {
+                let imageEditor = applicationWindow().pageStack.layers.push(imageEditorPage);
+                imageEditor.newPathChanged.connect(function(newPath) {
+                    applicationWindow().pageStack.layers.pop();
+                    root.attachmentPath = newPath;
+                });
             }
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+        }
+        QQC2.ToolButton {
+            id: cancelAttachmentButton
+            display: QQC2.AbstractButton.IconOnly
+            action: Kirigami.Action {
+                text: i18n("Cancel sending attachment")
+                icon.name: "dialog-close"
+                onTriggered: attachmentCancelled();
+                shortcut: "Escape"
+            }
+            QQC2.ToolTip.text: text
+            QQC2.ToolTip.visible: hovered
+        }
+    }
+
+    Image {
+        id: image
+        Layout.alignment: Qt.AlignHCenter
+
+        asynchronous: true
+        cache: false // Cache is not needed. Images will rarely be shown repeatedly.
+        source: hasImage ? root.attachmentPath : ""
+        visible: hasImage
+        fillMode: Image.PreserveAspectFit
+
+        onSourceChanged: {
+            // Reset source size height, which affect implicitHeight
+            sourceSize.height = -1
+        }
+
+        onSourceSizeChanged: {
+            if (implicitHeight > Kirigami.Units.gridUnit * 8) {
+                // This can save a lot of RAM when loading large images.
+                // It also improves visual quality for large images.
+                sourceSize.height = Kirigami.Units.gridUnit * 8
+            }
+        }
+
+        Behavior on height {
+            NumberAnimation {
+                duration: Kirigami.Units.shortDuration
+                easing.type: Easing.OutCubic
+            }
+        }
+    }
+    QQC2.BusyIndicator {
+        id: imageBusyIndicator
+
+        visible: running
+        running: image.visible && image.progress < 1
+    }
+    RowLayout {
+        id: fileInfoLayout
+        Layout.alignment: Qt.AlignHCenter
+        spacing: parent.spacing
+
+        Kirigami.Icon {
+            id: mimetypeIcon
+            implicitWidth: Kirigami.Units.iconSizes.smallMedium
+            implicitHeight: Kirigami.Units.iconSizes.smallMedium
+            source: attachmentMimetype.iconName
+        }
+        QQC2.Label {
+            id: fileLabel
+            text: baseFileName
         }
     }
 }
