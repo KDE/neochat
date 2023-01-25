@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-23 00:57+0000\n"
+"POT-Creation-Date: 2023-01-25 00:58+0000\n"
 "PO-Revision-Date: 2023-01-22 22:33+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -908,7 +908,7 @@ msgstr "Abrir o NeoChat nesta sala"
 #: src/notificationsmanager.cpp:85
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:545
+#: src/qml/Page/RoomPage.qml:547
 #, kde-format
 msgid "Reply"
 msgstr "Responder"
@@ -938,24 +938,40 @@ msgstr "Aceitar o Convite"
 msgid "Reject Invitation"
 msgstr "Rejeitar o Convite"
 
-#: src/qml/Component/ChatBox/AttachmentPane.qml:140
+#: src/qml/Component/ChatBox/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
 msgstr "Anexo:"
 
-#: src/qml/Component/ChatBox/AttachmentPane.qml:159
+#: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:533
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:535
 #, kde-format
 msgid "Edit"
 msgstr "Editar"
 
-#: src/qml/Component/ChatBox/AttachmentPane.qml:181
-#, kde-format
-msgid "Cancel sending Image"
+#: src/qml/Component/ChatBox/AttachmentPane.qml:62
+#, fuzzy, kde-format
+#| msgid "Cancel sending Image"
+msgid "Cancel sending attachment"
 msgstr "Cancelar o Envio da Imagem"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:80
+#: src/qml/Component/ChatBox/ChatBar.qml:33
+#, kde-format
+msgid "Attach an image or file"
+msgstr "Anexar uma imagem ou ficheiro"
+
+#: src/qml/Component/ChatBox/ChatBar.qml:59
+#, kde-format
+msgid "Add an Emoji"
+msgstr "Adicionar um Emoji"
+
+#: src/qml/Component/ChatBox/ChatBar.qml:79
+#, kde-format
+msgid "Send message"
+msgstr "Enviar uma mensagem"
+
+#: src/qml/Component/ChatBox/ChatBar.qml:125
 #, kde-format
 msgid ""
 "This room is encrypted. Build libQuotient with encryption enabled to send "
@@ -964,61 +980,54 @@ msgstr ""
 "Esta sala está encriptada. Compile a libQuotient com a encriptação activa "
 "para enviar mensagens encriptadas."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:80
+#: src/qml/Component/ChatBox/ChatBar.qml:125
 #, kde-format
 msgid "Edit Message"
 msgstr "Editar a Mensagem"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:80
+#: src/qml/Component/ChatBox/ChatBar.qml:125
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Enviar uma mensagem codificada…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:80
+#: src/qml/Component/ChatBox/ChatBar.qml:125
 #, kde-format
 msgid "Set an attachment caption..."
 msgstr "Definir uma legenda do anexo..."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:80
+#: src/qml/Component/ChatBox/ChatBar.qml:125
 #, kde-format
 msgid "Send a message…"
 msgstr "Enviar uma mensagem…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:170
-#, kde-format
-msgid "Attach an image or file"
-msgstr "Anexar uma imagem ou ficheiro"
-
-#: src/qml/Component/ChatBox/ChatBar.qml:202
-#, kde-format
-msgid "Add an Emoji"
-msgstr "Adicionar um Emoji"
-
-#: src/qml/Component/ChatBox/ChatBar.qml:221
-#, kde-format
-msgid "Send message"
-msgstr "Enviar uma mensagem"
-
-#: src/qml/Component/ChatBox/ChatBox.qml:45
-#, kde-format
-msgid "NeoChat is offline. Please check your network connection."
-msgstr "O NeoChat está desligado. Verifique por favor a sua ligação à rede."
-
-#: src/qml/Component/ChatBox/ReplyPane.qml:60
-#, kde-format
-msgid "Editing message:"
-msgstr "A editar a mensagem:"
-
-#: src/qml/Component/ChatBox/ReplyPane.qml:62
-#, kde-format
-msgid "Replying to %1:"
-msgstr "A responder a %1:"
-
-#: src/qml/Component/ChatBox/ReplyPane.qml:100
+#: src/qml/Component/ChatBox/ChatBar.qml:269
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Cancelar a resposta"
+
+#: src/qml/Component/ChatBox/ChatBar.qml:269
+#, fuzzy, kde-format
+#| msgid "Cancel"
+msgctxt "@action:button"
+msgid "Cancel edit"
+msgstr "Cancelar"
+
+#: src/qml/Component/ChatBox/ChatBox.qml:29
+#, kde-format
+msgid "NeoChat is offline. Please check your network connection."
+msgstr "O NeoChat está desligado. Verifique por favor a sua ligação à rede."
+
+#: src/qml/Component/ChatBox/ReplyPane.qml:33
+#, fuzzy, kde-format
+#| msgid "Replying to %1:"
+msgid "Replying to:"
+msgstr "A responder a %1:"
+
+#: src/qml/Component/ChatBox/ReplyPane.qml:33
+#, kde-format
+msgid "Editing message:"
+msgstr "A editar a mensagem:"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:77
 #, kde-format
@@ -1416,7 +1425,7 @@ msgid "Successfully verified device **%1**"
 msgstr "O dispositivo **%1** foi verificado com sucesso"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:192
+#: src/qml/Page/RoomPage.qml:193
 #, kde-format
 msgid "Accept"
 msgstr "Aceitar"
@@ -2326,42 +2335,42 @@ msgstr "Sala em silêncio"
 msgid "Configure room"
 msgstr "Configurar a sala"
 
-#: src/qml/Page/RoomPage.qml:181
+#: src/qml/Page/RoomPage.qml:182
 #, kde-format
 msgid "Accept this invitation?"
 msgstr "Deseja aceitar este convite?"
 
-#: src/qml/Page/RoomPage.qml:185
+#: src/qml/Page/RoomPage.qml:186
 #, kde-format
 msgid "Reject"
 msgstr "Rejeitar"
 
-#: src/qml/Page/RoomPage.qml:283
+#: src/qml/Page/RoomPage.qml:284
 #, kde-format
 msgid "Choose local file"
 msgstr "Escolher um ficheiro local"
 
-#: src/qml/Page/RoomPage.qml:310
+#: src/qml/Page/RoomPage.qml:311
 #, kde-format
 msgid "Clipboard image"
 msgstr "Imagem da área de transferência"
 
-#: src/qml/Page/RoomPage.qml:359
+#: src/qml/Page/RoomPage.qml:360
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Ir para a primeira mensagem não-lida"
 
-#: src/qml/Page/RoomPage.qml:384
+#: src/qml/Page/RoomPage.qml:385
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Ir para a última mensagem"
 
-#: src/qml/Page/RoomPage.qml:409
+#: src/qml/Page/RoomPage.qml:410
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Arraste os itens para aqui para os partilhar"
 
-#: src/qml/Page/RoomPage.qml:441
+#: src/qml/Page/RoomPage.qml:442
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2369,12 +2378,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 está a escrever"
 msgstr[1] "%2 estão a escrever"
 
-#: src/qml/Page/RoomPage.qml:512
+#: src/qml/Page/RoomPage.qml:513
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "Esta mensagem foi enviada a partir de um dispositivo verificado"
 
-#: src/qml/Page/RoomPage.qml:518
+#: src/qml/Page/RoomPage.qml:519
 #, kde-format
 msgid "React"
 msgstr "Reagir"

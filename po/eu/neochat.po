@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-23 00:57+0000\n"
+"POT-Creation-Date: 2023-01-25 00:58+0000\n"
 "PO-Revision-Date: 2023-01-23 07:43+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -907,7 +907,7 @@ msgstr "Ireki NeoChat gela honetan"
 #: src/notificationsmanager.cpp:85
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:545
+#: src/qml/Page/RoomPage.qml:547
 #, kde-format
 msgid "Reply"
 msgstr "Erantzun"
@@ -937,24 +937,40 @@ msgstr "Onartu gonbidapena"
 msgid "Reject Invitation"
 msgstr "Errefusatu gonbidapena"
 
-#: src/qml/Component/ChatBox/AttachmentPane.qml:140
+#: src/qml/Component/ChatBox/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
 msgstr "Eranskina:"
 
-#: src/qml/Component/ChatBox/AttachmentPane.qml:159
+#: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:533
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:535
 #, kde-format
 msgid "Edit"
 msgstr "Editatu"
 
-#: src/qml/Component/ChatBox/AttachmentPane.qml:181
-#, kde-format
-msgid "Cancel sending Image"
+#: src/qml/Component/ChatBox/AttachmentPane.qml:62
+#, fuzzy, kde-format
+#| msgid "Cancel sending Image"
+msgid "Cancel sending attachment"
 msgstr "Utzi bertan behera irudi bidalketa"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:80
+#: src/qml/Component/ChatBox/ChatBar.qml:33
+#, kde-format
+msgid "Attach an image or file"
+msgstr "Erantsi irudi edo fitxategi bat"
+
+#: src/qml/Component/ChatBox/ChatBar.qml:59
+#, kde-format
+msgid "Add an Emoji"
+msgstr "Gehitu Emoji bat"
+
+#: src/qml/Component/ChatBox/ChatBar.qml:79
+#, kde-format
+msgid "Send message"
+msgstr "Bidali mezua"
+
+#: src/qml/Component/ChatBox/ChatBar.qml:125
 #, kde-format
 msgid ""
 "This room is encrypted. Build libQuotient with encryption enabled to send "
@@ -963,61 +979,54 @@ msgstr ""
 "Gela hau zifratuta dago. Eraiki «libQuotient» zifratzea gaituta duela "
 "zifratutako mezuak bidaltzeko."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:80
+#: src/qml/Component/ChatBox/ChatBar.qml:125
 #, kde-format
 msgid "Edit Message"
 msgstr "Editatu mezua"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:80
+#: src/qml/Component/ChatBox/ChatBar.qml:125
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Bidali zifratutako mezu bat..."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:80
+#: src/qml/Component/ChatBox/ChatBar.qml:125
 #, kde-format
 msgid "Set an attachment caption..."
 msgstr "Ezarri eranskin baten epigrafea..."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:80
+#: src/qml/Component/ChatBox/ChatBar.qml:125
 #, kde-format
 msgid "Send a message…"
 msgstr "Bidali mezua bat..."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:170
-#, kde-format
-msgid "Attach an image or file"
-msgstr "Erantsi irudi edo fitxategi bat"
-
-#: src/qml/Component/ChatBox/ChatBar.qml:202
-#, kde-format
-msgid "Add an Emoji"
-msgstr "Gehitu Emoji bat"
-
-#: src/qml/Component/ChatBox/ChatBar.qml:221
-#, kde-format
-msgid "Send message"
-msgstr "Bidali mezua"
-
-#: src/qml/Component/ChatBox/ChatBox.qml:45
-#, kde-format
-msgid "NeoChat is offline. Please check your network connection."
-msgstr "NeoChat lerroz kanpo dago. Mesedez, berrikusi zure sare-konexioa."
-
-#: src/qml/Component/ChatBox/ReplyPane.qml:60
-#, kde-format
-msgid "Editing message:"
-msgstr "Mezua editatzea:"
-
-#: src/qml/Component/ChatBox/ReplyPane.qml:62
-#, kde-format
-msgid "Replying to %1:"
-msgstr "%1(e)ri erantzutea:"
-
-#: src/qml/Component/ChatBox/ReplyPane.qml:100
+#: src/qml/Component/ChatBox/ChatBar.qml:269
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Utzi erantzuna bertan behera"
+
+#: src/qml/Component/ChatBox/ChatBar.qml:269
+#, fuzzy, kde-format
+#| msgid "Cancel"
+msgctxt "@action:button"
+msgid "Cancel edit"
+msgstr "Utzi"
+
+#: src/qml/Component/ChatBox/ChatBox.qml:29
+#, kde-format
+msgid "NeoChat is offline. Please check your network connection."
+msgstr "NeoChat lerroz kanpo dago. Mesedez, berrikusi zure sare-konexioa."
+
+#: src/qml/Component/ChatBox/ReplyPane.qml:33
+#, fuzzy, kde-format
+#| msgid "Replying to %1:"
+msgid "Replying to:"
+msgstr "%1(e)ri erantzutea:"
+
+#: src/qml/Component/ChatBox/ReplyPane.qml:33
+#, kde-format
+msgid "Editing message:"
+msgstr "Mezua editatzea:"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:77
 #, kde-format
@@ -1413,7 +1422,7 @@ msgid "Successfully verified device **%1**"
 msgstr "**%1** gailuaren egiaztatze arrakastatsua"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:192
+#: src/qml/Page/RoomPage.qml:193
 #, kde-format
 msgid "Accept"
 msgstr "Onartu"
@@ -2319,42 +2328,42 @@ msgstr "Isilarazitako gela"
 msgid "Configure room"
 msgstr "Konfiguratu gela"
 
-#: src/qml/Page/RoomPage.qml:181
+#: src/qml/Page/RoomPage.qml:182
 #, kde-format
 msgid "Accept this invitation?"
 msgstr "Gonbidapen hau onartu?"
 
-#: src/qml/Page/RoomPage.qml:185
+#: src/qml/Page/RoomPage.qml:186
 #, kde-format
 msgid "Reject"
 msgstr "Errefusatu"
 
-#: src/qml/Page/RoomPage.qml:283
+#: src/qml/Page/RoomPage.qml:284
 #, kde-format
 msgid "Choose local file"
 msgstr "Hautatu tokiko fitxategia"
 
-#: src/qml/Page/RoomPage.qml:310
+#: src/qml/Page/RoomPage.qml:311
 #, kde-format
 msgid "Clipboard image"
 msgstr "Arbelako irudia"
 
-#: src/qml/Page/RoomPage.qml:359
+#: src/qml/Page/RoomPage.qml:360
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Jauzi irakurri gabeko lehenengo mezura"
 
-#: src/qml/Page/RoomPage.qml:384
+#: src/qml/Page/RoomPage.qml:385
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Jauzi azken mezura"
 
-#: src/qml/Page/RoomPage.qml:409
+#: src/qml/Page/RoomPage.qml:410
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Arrastatu elementuak hona haiek partekatzeko"
 
-#: src/qml/Page/RoomPage.qml:441
+#: src/qml/Page/RoomPage.qml:442
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2362,12 +2371,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 tekleatzen ari da"
 msgstr[1] "%2 tekleatzen ari dira"
 
-#: src/qml/Page/RoomPage.qml:512
+#: src/qml/Page/RoomPage.qml:513
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "Mezu hau egiaztatutako gailu batetik bidali da"
 
-#: src/qml/Page/RoomPage.qml:518
+#: src/qml/Page/RoomPage.qml:519
 #, kde-format
 msgid "React"
 msgstr "Erreakzioa"

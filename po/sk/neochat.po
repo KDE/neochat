@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-23 00:57+0000\n"
+"POT-Creation-Date: 2023-01-25 00:58+0000\n"
 "PO-Revision-Date: 2022-04-18 17:58+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -984,7 +984,7 @@ msgstr "Otvoriť NeoChat v tejto miestnosti"
 #: src/notificationsmanager.cpp:85
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:545
+#: src/qml/Page/RoomPage.qml:547
 #, kde-format
 msgid "Reply"
 msgstr "Odpovedať"
@@ -1017,88 +1017,98 @@ msgstr "Prijať pozvánku"
 msgid "Reject Invitation"
 msgstr "Odmietnuť"
 
-#: src/qml/Component/ChatBox/AttachmentPane.qml:140
+#: src/qml/Component/ChatBox/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
 msgstr "Príloha:"
 
-#: src/qml/Component/ChatBox/AttachmentPane.qml:159
+#: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:533
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:535
 #, kde-format
 msgid "Edit"
 msgstr "Upraviť"
 
-#: src/qml/Component/ChatBox/AttachmentPane.qml:181
-#, kde-format
-msgid "Cancel sending Image"
-msgstr ""
+#: src/qml/Component/ChatBox/AttachmentPane.qml:62
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "cleared their display name"
+msgid "Cancel sending attachment"
+msgstr "vymazali svoje zobrazované meno"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:80
+#: src/qml/Component/ChatBox/ChatBar.qml:33
+#, kde-format
+msgid "Attach an image or file"
+msgstr "Pripojiť obrázok alebo súbor"
+
+#: src/qml/Component/ChatBox/ChatBar.qml:59
+#, kde-format
+msgid "Add an Emoji"
+msgstr "Pridať emoji"
+
+#: src/qml/Component/ChatBox/ChatBar.qml:79
+#, kde-format
+msgid "Send message"
+msgstr "Odoslať správu"
+
+#: src/qml/Component/ChatBox/ChatBar.qml:125
 #, kde-format
 msgid ""
 "This room is encrypted. Build libQuotient with encryption enabled to send "
 "encrypted messages."
 msgstr ""
 
-#: src/qml/Component/ChatBox/ChatBar.qml:80
+#: src/qml/Component/ChatBox/ChatBar.qml:125
 #, kde-format
 msgid "Edit Message"
 msgstr "Upraviť správu"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:80
+#: src/qml/Component/ChatBox/ChatBar.qml:125
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgid "Send an encrypted message…"
 msgstr "Odoslať správu"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:80
+#: src/qml/Component/ChatBox/ChatBar.qml:125
 #, kde-format
 msgid "Set an attachment caption..."
 msgstr ""
 
-#: src/qml/Component/ChatBox/ChatBar.qml:80
+#: src/qml/Component/ChatBox/ChatBar.qml:125
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgid "Send a message…"
 msgstr "Odoslať správu"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:170
-#, kde-format
-msgid "Attach an image or file"
-msgstr "Pripojiť obrázok alebo súbor"
-
-#: src/qml/Component/ChatBox/ChatBar.qml:202
-#, kde-format
-msgid "Add an Emoji"
-msgstr "Pridať emoji"
-
-#: src/qml/Component/ChatBox/ChatBar.qml:221
-#, kde-format
-msgid "Send message"
-msgstr "Odoslať správu"
-
-#: src/qml/Component/ChatBox/ChatBox.qml:45
-#, kde-format
-msgid "NeoChat is offline. Please check your network connection."
-msgstr "NeoChat je offline. Skontrolujte svoje sieťové pripojenie."
-
-#: src/qml/Component/ChatBox/ReplyPane.qml:60
-#, kde-format
-msgid "Editing message:"
-msgstr "Úprava správy:"
-
-#: src/qml/Component/ChatBox/ReplyPane.qml:62
-#, kde-format
-msgid "Replying to %1:"
-msgstr "Odpoveď na %1:"
-
-#: src/qml/Component/ChatBox/ReplyPane.qml:100
+#: src/qml/Component/ChatBox/ChatBar.qml:269
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Zrušiť"
+
+#: src/qml/Component/ChatBox/ChatBar.qml:269
+#, fuzzy, kde-format
+#| msgid "Cancel"
+msgctxt "@action:button"
+msgid "Cancel edit"
+msgstr "Zrušiť"
+
+#: src/qml/Component/ChatBox/ChatBox.qml:29
+#, kde-format
+msgid "NeoChat is offline. Please check your network connection."
+msgstr "NeoChat je offline. Skontrolujte svoje sieťové pripojenie."
+
+#: src/qml/Component/ChatBox/ReplyPane.qml:33
+#, fuzzy, kde-format
+#| msgid "Replying to %1:"
+msgid "Replying to:"
+msgstr "Odpoveď na %1:"
+
+#: src/qml/Component/ChatBox/ReplyPane.qml:33
+#, kde-format
+msgid "Editing message:"
+msgstr "Úprava správy:"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:77
 #, fuzzy, kde-format
@@ -1509,7 +1519,7 @@ msgid "Successfully verified device **%1**"
 msgstr ""
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:192
+#: src/qml/Page/RoomPage.qml:193
 #, kde-format
 msgid "Accept"
 msgstr "Prijať"
@@ -2422,42 +2432,42 @@ msgstr "Stlmený"
 msgid "Configure room"
 msgstr "Nastaviť miestnosť"
 
-#: src/qml/Page/RoomPage.qml:181
+#: src/qml/Page/RoomPage.qml:182
 #, kde-format
 msgid "Accept this invitation?"
 msgstr "Prijať pozvanie?"
 
-#: src/qml/Page/RoomPage.qml:185
+#: src/qml/Page/RoomPage.qml:186
 #, kde-format
 msgid "Reject"
 msgstr "Odmietnuť"
 
-#: src/qml/Page/RoomPage.qml:283
+#: src/qml/Page/RoomPage.qml:284
 #, kde-format
 msgid "Choose local file"
 msgstr "Vybrať miestny súbor"
 
-#: src/qml/Page/RoomPage.qml:310
+#: src/qml/Page/RoomPage.qml:311
 #, kde-format
 msgid "Clipboard image"
 msgstr "Obrázok schránky"
 
-#: src/qml/Page/RoomPage.qml:359
+#: src/qml/Page/RoomPage.qml:360
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Skočiť na prvú neprečítanú správu"
 
-#: src/qml/Page/RoomPage.qml:384
+#: src/qml/Page/RoomPage.qml:385
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Prejsť na najnovšiu správu"
 
-#: src/qml/Page/RoomPage.qml:409
+#: src/qml/Page/RoomPage.qml:410
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Presuňte položky sem na zdieľanie"
 
-#: src/qml/Page/RoomPage.qml:441
+#: src/qml/Page/RoomPage.qml:442
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2466,12 +2476,12 @@ msgstr[0] "%2 píše"
 msgstr[1] "%2 píšu"
 msgstr[2] "%2 píšu"
 
-#: src/qml/Page/RoomPage.qml:512
+#: src/qml/Page/RoomPage.qml:513
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr ""
 
-#: src/qml/Page/RoomPage.qml:518
+#: src/qml/Page/RoomPage.qml:519
 #, kde-format
 msgid "React"
 msgstr "Reagovať"

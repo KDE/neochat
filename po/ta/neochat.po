@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-23 00:57+0000\n"
-"PO-Revision-Date: 2023-01-17 21:33+0530\n"
+"POT-Creation-Date: 2023-01-25 00:58+0000\n"
+"PO-Revision-Date: 2023-01-24 21:37+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -905,7 +905,7 @@ msgstr "இந்த அரங்கில் நியோச்சாட்ட�
 #: src/notificationsmanager.cpp:85
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:545
+#: src/qml/Page/RoomPage.qml:547
 #, kde-format
 msgid "Reply"
 msgstr "பதிலளி"
@@ -935,24 +935,40 @@ msgstr "அழைப்பை ஏற்"
 msgid "Reject Invitation"
 msgstr "அழைப்பை மறு"
 
-#: src/qml/Component/ChatBox/AttachmentPane.qml:140
+#: src/qml/Component/ChatBox/AttachmentPane.qml:30
 #, kde-format
 msgid "Attachment:"
 msgstr "உடனிணைப்பு:"
 
-#: src/qml/Component/ChatBox/AttachmentPane.qml:159
+#: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:533
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:535
 #, kde-format
 msgid "Edit"
 msgstr "திருத்து"
 
-#: src/qml/Component/ChatBox/AttachmentPane.qml:181
-#, kde-format
-msgid "Cancel sending Image"
+#: src/qml/Component/ChatBox/AttachmentPane.qml:62
+#, fuzzy, kde-format
+#| msgid "Cancel sending Image"
+msgid "Cancel sending attachment"
 msgstr "படத்தை அனுப்புவதை ரத்துசெய்"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:80
+#: src/qml/Component/ChatBox/ChatBar.qml:33
+#, kde-format
+msgid "Attach an image or file"
+msgstr "படம் அல்லது கோப்பை இணை"
+
+#: src/qml/Component/ChatBox/ChatBar.qml:59
+#, kde-format
+msgid "Add an Emoji"
+msgstr "முகவடியை சேர்"
+
+#: src/qml/Component/ChatBox/ChatBar.qml:79
+#, kde-format
+msgid "Send message"
+msgstr "செய்தியை அனுப்பு"
+
+#: src/qml/Component/ChatBox/ChatBar.qml:125
 #, kde-format
 msgid ""
 "This room is encrypted. Build libQuotient with encryption enabled to send "
@@ -961,61 +977,54 @@ msgstr ""
 "இவ்வரங்கு மறையாக்கம் செய்யப்பட்டுள்ளது. மறையாக்கிய செய்திகளை அனுப்ப, libQuotient தனை "
 "மறையாக்க ஆதரவுடன் இரும‍மாக்குங்கள்"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:80
+#: src/qml/Component/ChatBox/ChatBar.qml:125
 #, kde-format
 msgid "Edit Message"
 msgstr "செய்தியைத் திருத்து"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:80
+#: src/qml/Component/ChatBox/ChatBar.qml:125
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "மறையாக்கப்பட்ட செய்தியை அனுப்பு…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:80
+#: src/qml/Component/ChatBox/ChatBar.qml:125
 #, kde-format
 msgid "Set an attachment caption..."
-msgstr ""
+msgstr "உடனிணைப்புக்கான தலைப்பை அமை..."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:80
+#: src/qml/Component/ChatBox/ChatBar.qml:125
 #, kde-format
 msgid "Send a message…"
 msgstr "செய்தியை அனுப்பு…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:170
-#, kde-format
-msgid "Attach an image or file"
-msgstr "படம் அல்லது கோப்பை இணை"
-
-#: src/qml/Component/ChatBox/ChatBar.qml:202
-#, kde-format
-msgid "Add an Emoji"
-msgstr "முகவடியை சேர்"
-
-#: src/qml/Component/ChatBox/ChatBar.qml:221
-#, kde-format
-msgid "Send message"
-msgstr "செய்தியை அனுப்பு"
-
-#: src/qml/Component/ChatBox/ChatBox.qml:45
-#, kde-format
-msgid "NeoChat is offline. Please check your network connection."
-msgstr "நியோச்சாட் தொடர்பற்று உள்ளது. உங்கள் பிணைய இணைப்பை சரிபாருங்கள்."
-
-#: src/qml/Component/ChatBox/ReplyPane.qml:60
-#, kde-format
-msgid "Editing message:"
-msgstr "செய்தியைத் திருத்துகிறீர்கள்:"
-
-#: src/qml/Component/ChatBox/ReplyPane.qml:62
-#, kde-format
-msgid "Replying to %1:"
-msgstr "%1-க்கு பதிலளிக்கிறீர்கள்:"
-
-#: src/qml/Component/ChatBox/ReplyPane.qml:100
+#: src/qml/Component/ChatBox/ChatBar.qml:269
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "பதிலளிப்பதை ரத்து செய்"
+
+#: src/qml/Component/ChatBox/ChatBar.qml:269
+#, fuzzy, kde-format
+#| msgid "Cancel"
+msgctxt "@action:button"
+msgid "Cancel edit"
+msgstr "ரத்து செய்"
+
+#: src/qml/Component/ChatBox/ChatBox.qml:29
+#, kde-format
+msgid "NeoChat is offline. Please check your network connection."
+msgstr "நியோச்சாட் தொடர்பற்று உள்ளது. உங்கள் பிணைய இணைப்பை சரிபாருங்கள்."
+
+#: src/qml/Component/ChatBox/ReplyPane.qml:33
+#, fuzzy, kde-format
+#| msgid "Replying to %1:"
+msgid "Replying to:"
+msgstr "%1-க்கு பதிலளிக்கிறீர்கள்:"
+
+#: src/qml/Component/ChatBox/ReplyPane.qml:33
+#, kde-format
+msgid "Editing message:"
+msgstr "செய்தியைத் திருத்துகிறீர்கள்:"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:77
 #, kde-format
@@ -1412,7 +1421,7 @@ msgid "Successfully verified device **%1**"
 msgstr "**%1** சாதனம் வெற்றிகரமாக உறுதிப்படுத்தப்பட்டுள்ளது"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:192
+#: src/qml/Page/RoomPage.qml:193
 #, kde-format
 msgid "Accept"
 msgstr "ஏற்றுக்கொள்"
@@ -2300,42 +2309,42 @@ msgstr "அடக்கப்பட்டுள்ள அரங்கு"
 msgid "Configure room"
 msgstr "அரங்கை அமை"
 
-#: src/qml/Page/RoomPage.qml:181
+#: src/qml/Page/RoomPage.qml:182
 #, kde-format
 msgid "Accept this invitation?"
 msgstr "அழைப்பை ஏற்கிறீர்களா?"
 
-#: src/qml/Page/RoomPage.qml:185
+#: src/qml/Page/RoomPage.qml:186
 #, kde-format
 msgid "Reject"
 msgstr "மறு"
 
-#: src/qml/Page/RoomPage.qml:283
+#: src/qml/Page/RoomPage.qml:284
 #, kde-format
 msgid "Choose local file"
 msgstr "உள்ளமைக் கோப்பைத் தேர்ந்தெடு"
 
-#: src/qml/Page/RoomPage.qml:310
+#: src/qml/Page/RoomPage.qml:311
 #, kde-format
 msgid "Clipboard image"
 msgstr "பிடிப்புப்பலகைப் படம்"
 
-#: src/qml/Page/RoomPage.qml:359
+#: src/qml/Page/RoomPage.qml:360
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "படிக்காத முதல் செய்திக்குத் தாவு"
 
-#: src/qml/Page/RoomPage.qml:384
+#: src/qml/Page/RoomPage.qml:385
 #, kde-format
 msgid "Jump to latest message"
 msgstr "கடைசி செய்திக்குத் தாவு"
 
-#: src/qml/Page/RoomPage.qml:409
+#: src/qml/Page/RoomPage.qml:410
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "எதையாவது பகிர, அதை இங்கு இழுத்துப் போடுங்கள்"
 
-#: src/qml/Page/RoomPage.qml:441
+#: src/qml/Page/RoomPage.qml:442
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2343,12 +2352,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 தட்டச்சிடுகிறார்"
 msgstr[1] "%2 தட்டச்சிடுகிறார்கள்"
 
-#: src/qml/Page/RoomPage.qml:512
+#: src/qml/Page/RoomPage.qml:513
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "உறுதிப்படுத்தப்பட்டுள்ள சாதனத்திலிருந்து இச்செய்தி அனுப்பப்பட்டது"
 
-#: src/qml/Page/RoomPage.qml:518
+#: src/qml/Page/RoomPage.qml:519
 #, kde-format
 msgid "React"
 msgstr "எதிர்வினையிடு"
