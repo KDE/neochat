@@ -6,8 +6,8 @@
 
 cmake_minimum_required(VERSION 3.16)
 
-project(NeoChat)
-set(PROJECT_VERSION "22.11")
+set(PROJECT_VERSION "23.01")
+project(NeoChat VERSION ${PROJECT_VERSION})
 
 set(KF5_MIN_VERSION "5.91.0")
 set(QT_MIN_VERSION "5.15.2")
