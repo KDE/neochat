@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-25 00:58+0000\n"
-"PO-Revision-Date: 2023-01-23 06:55+0100\n"
+"PO-Revision-Date: 2023-01-26 10:39+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #: src/controller.cpp:191
@@ -949,10 +949,9 @@ msgid "Edit"
 msgstr "Uredi"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:62
-#, fuzzy, kde-format
-#| msgid "Cancel sending Image"
+#, kde-format
 msgid "Cancel sending attachment"
-msgstr "Prekliči pošiljanje slike"
+msgstr "Prekliči pošiljanje priloge"
 
 #: src/qml/Component/ChatBox/ChatBar.qml:33
 #, kde-format
@@ -1005,11 +1004,10 @@ msgid "Cancel reply"
 msgstr "Prekliči odgovor"
 
 #: src/qml/Component/ChatBox/ChatBar.qml:269
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel edit"
-msgstr "Prekliči"
+msgstr "Prekliči urejanje"
 
 #: src/qml/Component/ChatBox/ChatBox.qml:29
 #, kde-format
@@ -1017,10 +1015,9 @@ msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat je brez povezave. Preverite omrežno povezavo."
 
 #: src/qml/Component/ChatBox/ReplyPane.qml:33
-#, fuzzy, kde-format
-#| msgid "Replying to %1:"
+#, kde-format
 msgid "Replying to:"
-msgstr "Odgovarjanje na %1:"
+msgstr "Odgovarjanje:"
 
 #: src/qml/Component/ChatBox/ReplyPane.qml:33
 #, kde-format
