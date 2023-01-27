@@ -125,6 +125,8 @@ set_package_properties(KF5DocTools PROPERTIES DESCRIPTION
     TYPE OPTIONAL
 )
 
+find_package(Sqlite3)
+
 if(NOT Quotient_VERSION_MINOR GREATER 6)
     cmake_policy(SET CMP0063 OLD)
 endif()
