@@ -18,7 +18,10 @@ TimelineContainer {
     readonly property bool downloaded: progressInfo && progressInfo.completed
 
     property bool supportStreaming: true
-    readonly property int maxWidth: 1000 // TODO messageListView.width
+    readonly property var maxWidth: Kirigami.Units.gridUnit * 30
+    readonly property var maxHeight: Kirigami.Units.gridUnit * 30
+
+    readonly property var info: model.content.info
 
     onOpenContextMenu: openFileContext(model, vid)
 
@@ -36,17 +39,104 @@ TimelineContainer {
     innerObject: Video {
         id: vid
 
-        Layout.maximumWidth: videoDelegate.contentMaxWidth
-        Layout.fillWidth: true
-        Layout.maximumHeight: Kirigami.Units.gridUnit * 15
-        Layout.minimumHeight: Kirigami.Units.gridUnit * 5
+        property var videoWidth: {
+            if (videoDelegate.info && videoDelegate.info.w && videoDelegate.info.w > 0) {
+                return videoDelegate.info.w;
+            } else if (metaData.resolution && metaData.resolution.width) {
+                return metaData.resolution.width;
+            } else {
+                return videoDelegate.contentMaxWidth;
+            }
+        }
+        property var videoHeight: {
+            if (videoDelegate.info && videoDelegate.info.w && videoDelegate.info.h > 0) {
+                return videoDelegate.info.h;
+            } else if (metaData.resolution && metaData.resolution.height) {
+                return metaData.resolution.height;
+            } else {
+                // Default to a 16:9 placeholder
+                return videoDelegate.contentMaxWidth / 16 * 9;
+            }
+        }
 
-        Layout.preferredWidth: (model.content.info.w === undefined || model.content.info.w > videoDelegate.maxWidth) ? videoDelegate.maxWidth : content.info.w
-        Layout.preferredHeight: model.content.info.w === undefined ? (videoDelegate.maxWidth * 3 / 4) : (model.content.info.w > videoDelegate.maxWidth ? (model.content.info.h / model.content.info.w * videoDelegate.maxWidth) : model.content.info.h)
+        readonly property var aspectRatio: videoWidth / videoHeight
+        /**
+         * Whether the video should be limited by height or width.
+         * We need to prevent excessively tall as well as excessively wide media.
+         *
+         * @note In the case of a tie the media is width limited.
+         */
+        readonly property bool limitWidth: videoWidth >= videoHeight
 
-        loops: MediaPlayer.Infinite
+        readonly property size maxSize: {
+            if (limitWidth) {
+                let width = Math.min(videoDelegate.contentMaxWidth, videoDelegate.maxWidth);
+                let height = width / aspectRatio;
+                return Qt.size(width, height);
+            } else {
+                let height = Math.min(videoDelegate.maxHeight, videoDelegate.contentMaxWidth / aspectRatio);
+                let width = height * aspectRatio;
+                return Qt.size(width, height);
+            }
+        }
+
+        Layout.maximumWidth: maxSize.width
+        Layout.maximumHeight: maxSize.height
+
+        Layout.preferredWidth: videoWidth
+        Layout.preferredHeight: videoHeight
 
         fillMode: VideoOutput.PreserveAspectFit
+        flushMode: VideoOutput.FirstFrame
+
+        states: [
+            State {
+                name: "notDownloaded"
+                when: !model.progressInfo.completed && !model.progressInfo.active
+                PropertyChanges {
+                    target: noDownloadLabel
+                    visible: true
+                }
+                PropertyChanges {
+                    target: mediaThumbnail
+                    visible: true
+                }
+            },
+            State {
+                name: "downloading"
+                when: model.progressInfo.active && !model.progressInfo.completed
+                PropertyChanges {
+                    target: downloadBar
+                    visible: true
+                }
+            },
+            State {
+                name: "paused"
+                when: model.progressInfo.completed && (vid.playbackState === MediaPlayer.StoppedState || vid.playbackState === MediaPlayer.PausedState)
+                PropertyChanges {
+                    target: videoControls
+                    stateVisible: true
+                }
+                PropertyChanges {
+                    target: playButton
+                    icon.name: "media-playback-start"
+                    onClicked: vid.play()
+                }
+            },
+            State {
+                name: "playing"
+                when: model.progressInfo.completed && vid.playbackState === MediaPlayer.PlayingState
+                PropertyChanges {
+                    target: videoControls
+                    stateVisible: true
+                }
+                PropertyChanges {
+                    target: playButton
+                    icon.name: "media-playback-pause"
+                    onClicked: vid.pause()
+                }
+            }
+        ]
 
         onDurationChanged: {
             if (!duration) {
@@ -61,9 +151,10 @@ TimelineContainer {
         }
 
         Image {
+            id: mediaThumbnail
             anchors.fill: parent
 
-            visible: vid.playbackState == MediaPlayer.StoppedState || vid.error != MediaPlayer.NoError
+            visible: false
 
             source: model.content.thumbnailMediaId ? "image://mxc/" + model.content.thumbnailMediaId : ""
 
@@ -71,9 +162,10 @@ TimelineContainer {
         }
 
         QQC2.Label {
+            id: noDownloadLabel
             anchors.centerIn: parent
 
-            visible: vid.playbackState == MediaPlayer.StoppedState || vid.error != MediaPlayer.NoError
+            visible: false
             color: "white"
             text: i18n("Video")
             font.pixelSize: 16
@@ -88,11 +180,12 @@ TimelineContainer {
         }
 
         Rectangle {
+            id: downloadBar
             anchors.fill: parent
+            visible: false
 
-            visible: progressInfo.active && !videoDelegate.downloaded
-
-            color: "#BB000000"
+            color: Kirigami.Theme.backgroundColor
+            radius: Kirigami.Units.smallSpacing
 
             QQC2.ProgressBar {
                 anchors.centerIn: parent
@@ -102,6 +195,148 @@ TimelineContainer {
                 from: 0
                 to: progressInfo.total
                 value: progressInfo.progress
+            }
+        }
+
+        QQC2.Control {
+            id: videoControls
+            property bool stateVisible: false
+
+            anchors.bottom: vid.bottom
+            anchors.left: vid.left
+            anchors.right: vid.right
+            visible: stateVisible && (videoHoverHandler.hovered || volumePopupHoverHandler.hovered || volumeSlider.hovered || videoControlTimer.running)
+
+            contentItem: RowLayout {
+                id: controlRow
+                QQC2.ToolButton {
+                    id: playButton
+                }
+                QQC2.Slider {
+                    Layout.fillWidth: true
+                    from: 0
+                    to: vid.duration
+                    value: vid.position
+                    onMoved: vid.seek(value)
+                }
+                QQC2.Label {
+                    text: Controller.formatDuration(vid.position) + "/" + Controller.formatDuration(vid.duration)
+                }
+                QQC2.ToolButton {
+                    id: volumeButton
+                    property var unmuteVolume: vid.volume
+
+                    icon.name: vid.volume <= 0 ? "player-volume-muted" : "player-volume"
+
+                    QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                    QQC2.ToolTip.timeout: Kirigami.Units.toolTipDelay
+                    QQC2.ToolTip.text: i18nc("@action:button", "Volume")
+
+                    onClicked: {
+                        if (vid.volume > 0) {
+                            vid.volume = 0
+                        } else {
+                            if (unmuteVolume === 0) {
+                                vid.volume = 1
+                            } else {
+                                vid.volume = unmuteVolume
+                            }
+                        }
+                    }
+                    onHoveredChanged: {
+                        if (!hovered && (vid.state === "paused" || vid.state === "playing")) {
+                            videoControlTimer.restart()
+                            volumePopupTimer.restart()
+                        }
+                    }
+
+                    QQC2.Popup {
+                        id: volumePopup
+                        y: -height
+                        width: volumeButton.width
+                        visible: videoControls.stateVisible && (volumeButton.hovered || volumePopupHoverHandler.hovered || volumeSlider.hovered || volumePopupTimer.running)
+
+                        focus: true
+                        padding: Kirigami.Units.smallSpacing
+                        closePolicy: QQC2.Popup.NoAutoClose
+
+                        QQC2.Slider {
+                            id: volumeSlider
+                            anchors.centerIn: parent
+                            implicitHeight: Kirigami.Units.gridUnit * 7
+                            orientation: Qt.Vertical
+                            padding: 0
+                            from: 0
+                            to: 1
+                            value: vid.volume
+                            onMoved: {
+                                vid.volume = value
+                                volumeButton.unmuteVolume = value
+                            }
+                            onHoveredChanged: {
+                                if (!hovered && (vid.state === "paused" || vid.state === "playing")) {
+                                    videoControlTimer.restart()
+                                    volumePopupTimer.restart()
+                                }
+                            }
+                        }
+                        Timer {
+                            id: volumePopupTimer
+                            interval: 500
+                        }
+                        HoverHandler {
+                            id: volumePopupHoverHandler
+                            onHoveredChanged: {
+                                if (!hovered && (vid.state === "paused" || vid.state === "playing")) {
+                                    videoControlTimer.restart()
+                                    volumePopupTimer.restart()
+                                }
+                            }
+                        }
+                        background: Kirigami.ShadowedRectangle {
+                            radius: 4
+                            color: Kirigami.Theme.backgroundColor
+                            opacity: 0.8
+
+                            property color borderColor: Kirigami.Theme.textColor
+                            border.color: Qt.rgba(borderColor.r, borderColor.g, borderColor.b, 0.3)
+                            border.width: 1
+
+                            shadow.xOffset: 0
+                            shadow.yOffset: 4
+                            shadow.color: Qt.rgba(0, 0, 0, 0.3)
+                            shadow.size: 8
+                        }
+                    }
+                }
+            }
+            background: Kirigami.ShadowedRectangle {
+                radius: 4
+                color: Kirigami.Theme.backgroundColor
+                opacity: 0.8
+
+                property color borderColor: Kirigami.Theme.textColor
+                border.color: Qt.rgba(borderColor.r, borderColor.g, borderColor.b, 0.3)
+                border.width: 1
+
+                shadow.xOffset: 0
+                shadow.yOffset: 4
+                shadow.color: Qt.rgba(0, 0, 0, 0.3)
+                shadow.size: 8
+            }
+        }
+
+        Timer {
+            id: videoControlTimer
+            interval: 1000
+        }
+        HoverHandler {
+            id: videoHoverHandler
+            onHoveredChanged: {
+                if (!hovered && (vid.state === "paused" || vid.state === "playing")) {
+                    videoControlTimer.restart()
+                }
             }
         }
 
