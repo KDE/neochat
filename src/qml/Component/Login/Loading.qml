@@ -16,4 +16,11 @@ Kirigami.LoadingPlaceholder {
     QQC2.Label {
         text: i18n("Please wait. This might take a little while.")
     }
+
+    Connections {
+        target: Controller
+        function onInitiated() {
+            closeDialog()
+        }
+    }
 }
