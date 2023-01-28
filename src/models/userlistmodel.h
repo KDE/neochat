@@ -7,6 +7,7 @@
 
 #include <QAbstractListModel>
 #include <QObject>
+#include <QPointer>
 
 class NeoChatRoom;
 
@@ -70,7 +71,7 @@ private Q_SLOTS:
     void avatarChanged(Quotient::User *user, const Quotient::Room *context);
 
 private:
-    NeoChatRoom *m_currentRoom;
+    QPointer<NeoChatRoom> m_currentRoom;
     QList<Quotient::User *> m_users;
 
     int findUserPos(Quotient::User *user) const;
