@@ -115,7 +115,7 @@ Kirigami.ScrollablePage {
                                 action: Kirigami.Action {
                                     id: editDeviceAction
                                     text: i18n("Edit device name")
-                                    iconName: "document-edit"
+                                    icon.name: "document-edit"
                                     onTriggered: deviceDelegate.editDeviceName = true
                                 }
                                 QQC2.ToolTip {
@@ -129,7 +129,7 @@ Kirigami.ScrollablePage {
                                 action: Kirigami.Action {
                                     id: verifyDeviceAction
                                     text: i18n("Verify device")
-                                    iconName: "security-low-symbolic"
+                                    icon.name: "security-low-symbolic"
                                     onTriggered: {
                                         devices.connection.startKeyVerificationSession(devices.connection.localUserId, model.id)
                                     }
@@ -144,7 +144,7 @@ Kirigami.ScrollablePage {
                                 action: Kirigami.Action {
                                     id: logoutDeviceAction
                                     text: i18n("Logout device")
-                                    iconName: "edit-delete-remove"
+                                    icon.name: "edit-delete-remove"
                                     onTriggered: {
                                         passwordSheet.index = index
                                         passwordSheet.open()

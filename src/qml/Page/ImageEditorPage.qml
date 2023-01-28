@@ -34,14 +34,14 @@ Kirigami.Page {
         left: Kirigami.Action {
             id: undoAction
             text: i18nc("@action:button Undo modification", "Undo")
-            iconName: "edit-undo"
+            icon.name: "edit-undo"
             onTriggered: imageDoc.undo();
             visible: imageDoc.edited
         }
         main: Kirigami.Action {
             id: okAction
             text: i18nc("@action:button Accept image modification", "Accept")
-            iconName: "dialog-ok"
+            icon.name: "dialog-ok"
             onTriggered: {
                 let newPath = Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + (new Date()).getTime() + "." + imagePath.split('.').pop();
                 if (imageDoc.saveAs(newPath)) {;
@@ -121,7 +121,7 @@ Kirigami.Page {
             display: QQC2.Button.TextBesideIcon
             actions: [
                 Kirigami.Action {
-                    iconName: rootEditorView.resizing ? "dialog-cancel" : "transform-crop"
+                    icon.name: rootEditorView.resizing ? "dialog-cancel" : "transform-crop"
                     text: rootEditorView.resizing ? i18n("Cancel") : i18nc("@action:button Crop an image", "Crop");
                     onTriggered: {
                         resizeRectangle.width = editImage.paintedWidth
@@ -137,31 +137,31 @@ Kirigami.Page {
                     }
                 },
                 Kirigami.Action {
-                    iconName: "dialog-ok"
+                    icon.name: "dialog-ok"
                     visible: rootEditorView.resizing
                     text: i18nc("@action:button Crop an image", "Crop");
                     onTriggered: rootEditorView.crop();
                 },
                 Kirigami.Action {
-                    iconName: "object-rotate-left"
+                    icon.name: "object-rotate-left"
                     text: i18nc("@action:button Rotate an image to the left", "Rotate left");
                     onTriggered: imageDoc.rotate(-90);
                     visible: !rootEditorView.resizing
                 },
                 Kirigami.Action {
-                    iconName: "object-rotate-right"
+                    icon.name: "object-rotate-right"
                     text: i18nc("@action:button Rotate an image to the right", "Rotate right");
                     onTriggered: imageDoc.rotate(90);
                     visible: !rootEditorView.resizing
                 },
                 Kirigami.Action {
-                    iconName: "object-flip-vertical"
+                    icon.name: "object-flip-vertical"
                     text: i18nc("@action:button Mirror an image vertically", "Flip");
                     onTriggered: imageDoc.mirror(false, true);
                     visible: !rootEditorView.resizing
                 },
                 Kirigami.Action {
-                    iconName: "object-flip-horizontal"
+                    icon.name: "object-flip-horizontal"
                     text: i18nc("@action:button Mirror an image horizontally", "Mirror");
                     onTriggered: imageDoc.mirror(true, false);
                     visible: !rootEditorView.resizing

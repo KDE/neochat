@@ -15,7 +15,7 @@ import org.kde.kirigami 2.14 as Kirigami
  */
 Kirigami.Action {
     id: shareAction
-    iconName: "emblem-shared-symbolic"
+    icon.name: "emblem-shared-symbolic"
     text: i18n("Share")
     tooltip: i18n("Share the selected media")
 

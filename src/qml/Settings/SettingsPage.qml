@@ -35,18 +35,18 @@ Kirigami.CategorizedSettings {
         },
         Kirigami.SettingAction {
             text: i18n("Spell Checking")
-            iconName: "tools-check-spelling"
+            icon.name: "tools-check-spelling"
             page: Qt.resolvedUrl("SonnetConfigPage.qml")
             visible: Qt.platform.os !== "android"
         },
         Kirigami.SettingAction {
             text: i18n("Network Proxy")
-            iconName: "network-connect"
+            icon.name: "network-connect"
             page: Qt.resolvedUrl("NetworkProxyPage.qml")
         },
         Kirigami.SettingAction {
             text: i18n("Devices")
-            iconName: "computer"
+            icon.name: "computer"
             page: Qt.resolvedUrl("DevicesPage.qml")
         },
         Kirigami.SettingAction {
