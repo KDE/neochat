@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the neochat package.
-# Linerly <linerly@protonmail.com>, 2022.
+# Linerly <linerly@protonmail.com>, 2022, 2023.
 # Wantoyèk <wantoyek@gmail.com>, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-25 00:58+0000\n"
-"PO-Revision-Date: 2022-12-21 11:30+0700\n"
+"POT-Creation-Date: 2023-01-29 00:58+0000\n"
+"PO-Revision-Date: 2023-01-15 13:26+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
 "Language: id\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #: src/controller.cpp:191
 #, kde-format
@@ -136,7 +136,7 @@ msgstr "Carl Schwan"
 #: src/main.cpp:155 src/main.cpp:156 src/main.cpp:157
 #, kde-format
 msgid "Maintainer"
-msgstr ""
+msgstr "Pemelihara"
 
 #: src/main.cpp:156
 #, kde-format
@@ -146,7 +146,7 @@ msgstr "Tobias Fella"
 #: src/main.cpp:157
 #, kde-format
 msgid "James Graham"
-msgstr ""
+msgstr "James Graham"
 
 #: src/main.cpp:158
 #, kde-format
@@ -156,17 +156,17 @@ msgstr "Black Hat"
 #: src/main.cpp:158
 #, kde-format
 msgid "Original author of Spectral"
-msgstr ""
+msgstr "Penulis asli Spectral"
 
 #: src/main.cpp:159
 #, kde-format
 msgid "Alexey Rusakov"
-msgstr ""
+msgstr "Alexey Rusakov"
 
 #: src/main.cpp:159
 #, kde-format
 msgid "Maintainer of Quotient"
-msgstr ""
+msgstr "Pemelihara Quotient"
 
 #: src/main.cpp:160
 #, kde-format
@@ -478,7 +478,7 @@ msgstr "Menghapus cekalan pengguna"
 #: src/models/actionsmodel.cpp:489
 #, kde-format
 msgid "You cannot kick yourself from the room."
-msgstr ""
+msgstr "Anda tidak dapat mengeluarkan diri Anda dari ruangan."
 
 #: src/models/actionsmodel.cpp:494
 #, kde-format
@@ -531,43 +531,43 @@ msgstr " dan "
 #, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
-msgstr ""
+msgstr "Riwayat"
 
 #: src/models/emojimodel.cpp:154
 #, kde-format
 msgctxt "'Smileys' is a category of emoji"
 msgid "Smileys"
-msgstr ""
+msgstr "Senyuman"
 
 #: src/models/emojimodel.cpp:159
 #, kde-format
 msgctxt "'People' is a category of emoji"
 msgid "People"
-msgstr ""
+msgstr "Orang"
 
 #: src/models/emojimodel.cpp:164
 #, kde-format
 msgctxt "'Nature' is a category of emoji"
 msgid "Nature"
-msgstr ""
+msgstr "Alam"
 
 #: src/models/emojimodel.cpp:169
 #, kde-format
 msgctxt "'Food' is a category of emoji"
 msgid "Food"
-msgstr ""
+msgstr "Makanan"
 
 #: src/models/emojimodel.cpp:174
 #, kde-format
 msgctxt "'Activities' is a category of emoji"
 msgid "Activities"
-msgstr ""
+msgstr "Aktivitas"
 
 #: src/models/emojimodel.cpp:179
 #, kde-format
 msgctxt "'Travel' is  a category of emoji"
 msgid "Travel"
-msgstr ""
+msgstr "Bepergian"
 
 #: src/models/emojimodel.cpp:184
 #, kde-format
@@ -579,13 +579,13 @@ msgstr "Objek"
 #, kde-format
 msgctxt "'Symbols' is a category of emoji"
 msgid "Symbols"
-msgstr ""
+msgstr "Simbol"
 
 #: src/models/emojimodel.cpp:194
 #, kde-format
 msgctxt "'Flags' is a category of emoji"
 msgid "Flags"
-msgstr ""
+msgstr "Bendera"
 
 #: src/models/emojimodel.cpp:213
 #, kde-format
@@ -785,10 +785,9 @@ msgid "requested an invite"
 msgstr "meminta sebuah undangan"
 
 #: src/neochatroom.cpp:609
-#, fuzzy, kde-format
-#| msgid "requested an invite"
+#, kde-format
 msgid "requested an invite with reason: %1"
-msgstr "meminta sebuah undangan"
+msgstr "meminta sebuah undangan dengan alasan: %1"
 
 #: src/neochatroom.cpp:613
 #, kde-format
@@ -976,6 +975,8 @@ msgid ""
 "This room is encrypted. Build libQuotient with encryption enabled to send "
 "encrypted messages."
 msgstr ""
+"Ruangan ini terenkripsi. Bangun libQuotient dengan enkripsi diaktifkan untuk "
+"mengirim pesan terenkripsi."
 
 #: src/qml/Component/ChatBox/ChatBar.qml:125
 #, kde-format
@@ -1266,10 +1267,16 @@ msgstr "Terakhir dibaca: %1"
 msgid " (edited)"
 msgstr " (disunting)"
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:78
+#: src/qml/Component/Timeline/VideoDelegate.qml:170
 #, kde-format
 msgid "Video"
 msgstr "Video"
+
+#: src/qml/Component/Timeline/VideoDelegate.qml:234
+#, kde-format
+msgctxt "@action:button"
+msgid "Volume"
+msgstr ""
 
 #: src/qml/Component/UserInfo.qml:58 src/qml/Settings/AccountsPage.qml:83
 #, kde-format
@@ -1617,10 +1624,9 @@ msgid "Kick this user"
 msgstr "Keluarkan pengguna ini"
 
 #: src/qml/Dialog/UserDetailDialog.qml:105
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgid "Invite this user"
-msgstr "Abaikan pengguna ini"
+msgstr "Undang pengguna ini"
 
 #: src/qml/Dialog/UserDetailDialog.qml:117
 #, kde-format
@@ -1973,11 +1979,10 @@ msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "URL yang dibagi untuk gambar ini adalah <a href='%1'>%1</a>"
 
 #: src/qml/Menu/SpaceListContextMenu.qml:25
-#, fuzzy, kde-format
-#| msgid "View Source"
+#, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
-msgstr "Tampilkan Sumber"
+msgstr "Tampilkan Space"
 
 #: src/qml/Menu/SpaceListContextMenu.qml:39
 #, kde-format
@@ -1987,9 +1992,7 @@ msgstr "Pengaturan Space"
 
 #: src/qml/Menu/SpaceListContextMenu.qml:40
 #: src/qml/Menu/SpaceListContextMenu.qml:97
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Space Settings"
+#, kde-format
 msgid "Space Settings"
 msgstr "Pengaturan Space"
 
@@ -2014,7 +2017,7 @@ msgstr "Alasan mencekal pengguna ini"
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
-msgstr ""
+msgstr "Cekal"
 
 #: src/qml/Menu/Timeline/BanSheet.qml:41
 #: src/qml/Menu/Timeline/RemoveSheet.qml:47
@@ -2379,22 +2382,20 @@ msgid "React"
 msgstr "Reaksi"
 
 #: src/qml/Page/SearchPage.qml:17
-#, fuzzy, kde-format
-#| msgid "Direct Messages"
+#, kde-format
 msgctxt "@action:title"
 msgid "Search Messages"
-msgstr "Pesan Langsung"
+msgstr "Cari Pesan"
 
 #: src/qml/Page/SearchPage.qml:58
 #, kde-format
 msgid "Enter a text to start searching"
-msgstr ""
+msgstr "Masukkan teks untuk memulai mencari"
 
 #: src/qml/Page/SearchPage.qml:64
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgid "No results found"
-msgstr "Tidak ada ruangan yang ditemukan"
+msgstr "Tidak ada hasil yang ditemukan"
 
 #: src/qml/Page/StartChatPage.qml:38
 #, kde-format
@@ -2432,10 +2433,9 @@ msgid "No Topic"
 msgstr "Tidak Ada Topik"
 
 #: src/qml/Panel/RoomDrawer.qml:188
-#, fuzzy, kde-format
-#| msgid "Options:"
+#, kde-format
 msgid "Options"
-msgstr "Opsi:"
+msgstr "Opsi"
 
 #: src/qml/Panel/RoomDrawer.qml:196
 #, kde-format
@@ -2448,16 +2448,15 @@ msgid "Developer Tools"
 msgstr "Alat Pengembang"
 
 #: src/qml/Panel/RoomDrawer.qml:208
-#, fuzzy, kde-format
-#| msgid "Leaving this room."
+#, kde-format
 msgid "Search in this room"
-msgstr "Meninggalkan ruangan ini."
+msgstr "Cari di ruangan ini"
 
 #: src/qml/Panel/RoomDrawer.qml:214
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
-msgstr ""
+msgstr "Cari"
 
 #: src/qml/Panel/RoomDrawer.qml:222
 #, kde-format
@@ -2475,10 +2474,9 @@ msgid "Members"
 msgstr "Anggota"
 
 #: src/qml/Panel/RoomDrawer.qml:236
-#, fuzzy, kde-format
-#| msgid "Leaving this room."
+#, kde-format
 msgid "Search user in room"
-msgstr "Meninggalkan ruangan ini."
+msgstr "Cari pengguna di ruangan"
 
 #: src/qml/Panel/RoomDrawer.qml:250
 #, kde-format
@@ -2511,7 +2509,7 @@ msgstr "Keamanan"
 #: src/qml/RoomSettings/Categories.qml:35
 #, kde-format
 msgid "Permissions"
-msgstr ""
+msgstr "Perizinan"
 
 #: src/qml/RoomSettings/Categories.qml:45 src/qml/Settings/SettingsPage.qml:22
 #, kde-format
@@ -2546,22 +2544,19 @@ msgid "Save"
 msgstr "Simpan"
 
 #: src/qml/RoomSettings/General.qml:123
-#, fuzzy, kde-format
-#| msgid "Rooms"
+#, kde-format
 msgid "Room ID"
-msgstr "Ruangan"
+msgstr "ID Ruangan"
 
 #: src/qml/RoomSettings/General.qml:127
-#, fuzzy, kde-format
-#| msgid "Room information"
+#, kde-format
 msgid "Room version"
-msgstr "Informasi ruangan"
+msgstr "Versi ruangan"
 
 #: src/qml/RoomSettings/General.qml:133
-#, fuzzy, kde-format
-#| msgid "Explore Rooms"
+#, kde-format
 msgid "Upgrade Room"
-msgstr "Jelajahi Ruangan"
+msgstr "Tingkatkan Ruangan"
 
 #: src/qml/RoomSettings/General.qml:156
 #, kde-format
@@ -2576,7 +2571,7 @@ msgstr "TIdak ada alias kanonik yang ditetapkan"
 #: src/qml/RoomSettings/General.qml:173
 #, kde-format
 msgid "Make this alias the room's canonical alias"
-msgstr ""
+msgstr "Buat alias ini sebagai alias kanonik ruangan"
 
 #: src/qml/RoomSettings/General.qml:188
 #, kde-format
@@ -2586,13 +2581,12 @@ msgstr "Hapus alias"
 #: src/qml/RoomSettings/General.qml:214
 #, kde-format
 msgid "#new_alias:server.org"
-msgstr ""
+msgstr "#alias_baru:server.org"
 
 #: src/qml/RoomSettings/General.qml:231
-#, fuzzy, kde-format
-#| msgid "Add new server"
+#, kde-format
 msgid "Add new alias"
-msgstr "Tambahkan server baru"
+msgstr "Tambahkan alias baru"
 
 #: src/qml/RoomSettings/General.qml:254
 #, kde-format
@@ -2615,16 +2609,14 @@ msgid "See new room…"
 msgstr "Lihat ruangan baru..."
 
 #: src/qml/RoomSettings/General.qml:292
-#, fuzzy, kde-format
-#| msgid "left the room"
+#, kde-format
 msgid "Upgrade the Room"
-msgstr "keluar dari ruangan ini"
+msgstr "Tingkatkan Ruangan"
 
 #: src/qml/RoomSettings/General.qml:296
-#, fuzzy, kde-format
-#| msgid "See new room…"
+#, kde-format
 msgid "Select new version"
-msgstr "Lihat ruangan baru..."
+msgstr "Pilih versi baru"
 
 #: src/qml/RoomSettings/General.qml:302
 #: src/qml/RoomSettings/Permissions.qml:418
@@ -2636,153 +2628,143 @@ msgstr "Konfirmasi"
 #: src/qml/RoomSettings/Permissions.qml:42
 #, kde-format
 msgid "Privileged Users"
-msgstr ""
+msgstr "Pengguna Berizin"
 
 #: src/qml/RoomSettings/Permissions.qml:201
 #, kde-format
 msgid "Default permissions"
-msgstr ""
+msgstr "Perizinan bawaan"
 
 #: src/qml/RoomSettings/Permissions.qml:204
 #, kde-format
 msgid "Default user power level"
-msgstr ""
+msgstr "Tingkat daya pengguna bawaan"
 
 #: src/qml/RoomSettings/Permissions.qml:205
 #, kde-format
 msgid "This is power level for all new users when joining the room"
 msgstr ""
+"Ini adalah tingkat daya untuk semua pengguna ketika bergabung dengan ruangan"
 
 #: src/qml/RoomSettings/Permissions.qml:213
-#, fuzzy, kde-format
-#| msgctxt "'power level' means permission level"
-#| msgid "changed the power levels for this room"
+#, kde-format
 msgid "Default power level to set the room state"
-msgstr "mengubah tingkat daya untuk ruangan ini"
+msgstr "Tingkat daya bawaan untuk menetapkan keadaan ruangan"
 
 #: src/qml/RoomSettings/Permissions.qml:214
 #, kde-format
 msgid "This is used for all state events that do not have their own entry here"
 msgstr ""
+"Ini digunakan untuk semua peristiwa keadaan yang tidak memiliki entrinya "
+"sendiri di sini"
 
 #: src/qml/RoomSettings/Permissions.qml:222
 #, kde-format
 msgid "Default power level to send messages"
-msgstr ""
+msgstr "Tingkat daya bawaan untuk mengirim pesan"
 
 #: src/qml/RoomSettings/Permissions.qml:223
 #, kde-format
 msgid ""
 "This is used for all message events that do not have their own entry here"
 msgstr ""
+"Ini digunakan untuk semua peristiwa pesan yang tidak memiliki entrinya di "
+"sini"
 
 #: src/qml/RoomSettings/Permissions.qml:239
 #, kde-format
 msgid "Basic permissions"
-msgstr ""
+msgstr "Perizinan dasar"
 
 #: src/qml/RoomSettings/Permissions.qml:242
-#, fuzzy, kde-format
-#| msgid "Invite a User"
+#, kde-format
 msgid "Invite users"
-msgstr "Undang sebuah Pengguna"
+msgstr "Undang pengguna"
 
 #: src/qml/RoomSettings/Permissions.qml:250
-#, fuzzy, kde-format
-#| msgid "Kick this user"
+#, kde-format
 msgid "Kick users"
-msgstr "Keluarkan pengguna ini"
+msgstr "Keluarkan pengguna"
 
 #: src/qml/RoomSettings/Permissions.qml:258
-#, fuzzy, kde-format
-#| msgid "Ban User"
+#, kde-format
 msgid "Ban users"
-msgstr "Cekal Pengguna"
+msgstr "Cekal pengguna"
 
 #: src/qml/RoomSettings/Permissions.qml:266
-#, fuzzy, kde-format
-#| msgid "Remove recent messages by this user"
+#, kde-format
 msgid "Remove message sent by other users"
-msgstr "Hapus pesan terkini dari pengguna ini"
+msgstr "Hapus pesan dari pengguna lain"
 
 #: src/qml/RoomSettings/Permissions.qml:282
 #, kde-format
 msgid "Event permissions"
-msgstr ""
+msgstr "Perizinan peristiwa"
 
 #: src/qml/RoomSettings/Permissions.qml:285
 #, kde-format
 msgid "Change user permissions"
-msgstr ""
+msgstr "Ubah perizinan pengguna"
 
 #: src/qml/RoomSettings/Permissions.qml:294
-#, fuzzy, kde-format
-#| msgid "cleared the room name"
+#, kde-format
 msgid "Change the room name"
-msgstr "menghapus nama ruangan ini"
+msgstr "Ubah nama ruangan"
 
 #: src/qml/RoomSettings/Permissions.qml:303
-#, fuzzy, kde-format
-#| msgid "changed the room avatar"
+#, kde-format
 msgid "Change the room avatar"
-msgstr "mengubah avatar ruangan ini"
+msgstr "Ubah avatar ruangan"
 
 #: src/qml/RoomSettings/Permissions.qml:312
-#, fuzzy, kde-format
-#| msgid "cleared the room main alias"
+#, kde-format
 msgid "Change the room canonical alias"
-msgstr "menghapus alias utama ruangan ini"
+msgstr "Ubah alias kanonik ruangan"
 
 #: src/qml/RoomSettings/Permissions.qml:321
-#, fuzzy, kde-format
-#| msgid "changed the room avatar"
+#, kde-format
 msgid "Change the room topic"
-msgstr "mengubah avatar ruangan ini"
+msgstr "Ubah topik ruangan"
 
 #: src/qml/RoomSettings/Permissions.qml:330
-#, fuzzy, kde-format
-#| msgid "Enable encryption"
+#, kde-format
 msgid "Enable encryption for the room"
-msgstr "Aktifkan enkripsi"
+msgstr "Aktifkan enkripsi untuk ruangan"
 
 #: src/qml/RoomSettings/Permissions.qml:339
 #, kde-format
 msgid "Change the room history visibility"
-msgstr ""
+msgstr "Ubah keterlihatan riwayat ruangan"
 
 #: src/qml/RoomSettings/Permissions.qml:348
-#, fuzzy, kde-format
-#| msgid "Timeline Events"
+#, kde-format
 msgid "Set pinned events"
-msgstr "Peristiwa Lini Masa"
+msgstr "Tetapkan peristiwa yang disematkan"
 
 #: src/qml/RoomSettings/Permissions.qml:357
-#, fuzzy, kde-format
-#| msgid "left the room"
+#, kde-format
 msgid "Upgrade the room"
-msgstr "keluar dari ruangan ini"
+msgstr "Tingkatkan ruangan"
 
 #: src/qml/RoomSettings/Permissions.qml:366
-#, fuzzy, kde-format
-#| msgid "changed the server access control lists for this room"
+#, kde-format
 msgid "Set the room server access control list (ACL)"
-msgstr "mengubah daftar kontrol pengaksesan server untuk ruangan ini"
+msgstr "Tetapkan daftar kontrol akses server ruangan (ACL)"
 
 #: src/qml/RoomSettings/Permissions.qml:376
 #, kde-format
 msgid "Set the children of this space"
-msgstr ""
+msgstr "Tetapkan anak dari space ini"
 
 #: src/qml/RoomSettings/Permissions.qml:385
-#, fuzzy, kde-format
-#| msgid "Invites the user to this room"
+#, kde-format
 msgid "Set the parent space of this room"
-msgstr "Mengundang pengguna ke ruangan ini"
+msgstr "Tetapkan space induk dari ruangan ini"
 
 #: src/qml/RoomSettings/Permissions.qml:398
 #, kde-format
 msgid "Edit user power level"
-msgstr ""
+msgstr "Sunting tingkat daya pengguna"
 
 #: src/qml/RoomSettings/PushNotification.qml:29
 #, kde-format
@@ -2803,11 +2785,10 @@ msgstr ""
 "mengaktifkan pengaturan ini."
 
 #: src/qml/RoomSettings/Security.qml:32
-#, fuzzy, kde-format
-#| msgid "Enable encryption"
+#, kde-format
 msgctxt "@option:check"
 msgid "Encryption"
-msgstr "Aktifkan enkripsi"
+msgstr "Enkripsi"
 
 #: src/qml/RoomSettings/Security.qml:36
 #, kde-format
@@ -2815,11 +2796,10 @@ msgid "Enable encryption"
 msgstr "Aktifkan enkripsi"
 
 #: src/qml/RoomSettings/Security.qml:37
-#, fuzzy, kde-format
-#| msgid "Only enabled if the transparent chat page is enabled."
+#, kde-format
 msgctxt "option:check"
 msgid "Once enabled, encryption cannot be disabled."
-msgstr "Hanya diaktifkan jika halaman obrolan transparan diaktifkan."
+msgstr "Ketika diaktifkan, enkripsi tidak dapat dinonaktifkan."
 
 #: src/qml/RoomSettings/Security.qml:54
 #, kde-format
@@ -2853,12 +2833,14 @@ msgstr "Siapa saja yang berada di space dapat bergabung."
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
-msgstr ""
+msgstr "Ketuk"
 
 #: src/qml/RoomSettings/Security.qml:77
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
+"Orang yang tidak berada dalam ruangan harus meminta undangan untuk bergabung "
+"dengan ruangan."
 
 #: src/qml/RoomSettings/Security.qml:87
 #, kde-format
@@ -2876,19 +2858,21 @@ msgstr "Siapa saja dapat menemukan dan bergabung."
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
-msgstr ""
+msgstr "Keterlihatan riwayat pesan"
 
 #: src/qml/RoomSettings/Security.qml:107
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
-msgstr ""
+msgstr "Siapa pun"
 
 #: src/qml/RoomSettings/Security.qml:108
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr ""
+"Siapa pun, tanpa memedulikan bahwa mereka telah bergabung, dapat melihat "
+"riwayat."
 
 #: src/qml/RoomSettings/Security.qml:116
 #, kde-format
@@ -2902,12 +2886,13 @@ msgctxt "@option:check"
 msgid ""
 "All members can view the entire message history, even before they joined."
 msgstr ""
+"Semua anggota dapat melihat riwayat pesan, bahkan sebelum mereka bergabung."
 
 #: src/qml/RoomSettings/Security.qml:125
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
-msgstr ""
+msgstr "Anggota saja (sejak diundang)"
 
 #: src/qml/RoomSettings/Security.qml:126
 #, kde-format
@@ -2916,12 +2901,13 @@ msgid ""
 "New members can view the message history from the point they were invited to "
 "the room."
 msgstr ""
+"Anggota baru dapat melihat riwayat pesan sejak mereka diundang ke ruangan."
 
 #: src/qml/RoomSettings/Security.qml:134
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
-msgstr ""
+msgstr "Anggota saja (sejak bergabung)"
 
 #: src/qml/RoomSettings/Security.qml:135
 #, kde-format
@@ -2929,6 +2915,8 @@ msgctxt "@option:check"
 msgid ""
 "New members can view the message history from the point they joined the room."
 msgstr ""
+"Anggota baru dapat melihat riwayat pesan sejak mereka bergabung dengan "
+"ruangan."
 
 #: src/qml/RoomSettings/Security.qml:154
 #: src/qml/Settings/NetworkProxyPage.qml:127
@@ -2956,7 +2944,7 @@ msgstr "Informasi pengguna"
 #: src/qml/Settings/AccountEditorPage.qml:73
 #, kde-format
 msgid "Remove current avatar"
-msgstr ""
+msgstr "Hapus avatar saat ini"
 
 #: src/qml/Settings/AccountEditorPage.qml:88
 #, kde-format
@@ -3059,7 +3047,7 @@ msgstr "Kompak"
 #: src/qml/Settings/AppearanceSettingsPage.qml:207
 #, kde-format
 msgid "Use compact room list"
-msgstr ""
+msgstr "Gunakan daftar ruangan kecil"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:233
 #, kde-format
@@ -3099,7 +3087,7 @@ msgstr "Tampilkan Avatar"
 #: src/qml/Settings/AppearanceSettingsPage.qml:330
 #, kde-format
 msgid "In chat"
-msgstr ""
+msgstr "Dalam obrolan"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:340
 #, kde-format
@@ -3109,7 +3097,7 @@ msgstr "Di bilah samping"
 #: src/qml/Settings/ColorScheme.qml:15
 #, kde-format
 msgid "Color theme"
-msgstr ""
+msgstr "Tema warna"
 
 #: src/qml/Settings/DevicesPage.qml:14 src/qml/Settings/DevicesPage.qml:26
 #: src/qml/Settings/SettingsPage.qml:48
@@ -3151,6 +3139,7 @@ msgstr "Keluarkan peranti"
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
 msgstr ""
+"Silakan masuk untuk melihat perangkat yang telah masuk untuk akun Anda."
 
 #: src/qml/Settings/DevicesPage.qml:178
 #, kde-format
@@ -3186,7 +3175,7 @@ msgstr "Tambahkan Emoji..."
 #: src/qml/Settings/Emoticons.qml:113
 #, kde-format
 msgid "Images (*.png *.gif *.webp)"
-msgstr ""
+msgstr "Gambar (*.png *.gif *.webp)"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:15
 #: src/qml/Settings/NetworkProxyPage.qml:14
