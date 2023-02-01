@@ -12,8 +12,8 @@
 
 #include <qcoro/task.h>
 
-class PollHandler;
-class NeoChatUser;
+#include "neochatuser.h"
+#include "pollhandler.h"
 
 class PushNotificationState : public QObject
 {

@@ -91,6 +91,10 @@
 #include <QDBusConnection>
 #endif
 
+#ifdef Q_OS_WINDOWS
+#include <Windows.h>
+#endif
+
 using namespace Quotient;
 
 class NetworkAccessManagerFactory : public QQmlNetworkAccessManagerFactory

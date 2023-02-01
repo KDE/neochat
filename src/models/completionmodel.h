@@ -3,9 +3,8 @@
 
 #pragma once
 
+#include <QConcatenateTablesProxyModel>
 #include <QSortFilterProxyModel>
-
-#include <KConcatenateRowsProxyModel>
 
 #include "roomlistmodel.h"
 
@@ -75,6 +74,6 @@ private:
 
     UserListModel *m_userListModel;
     RoomListModel *m_roomListModel;
-    KConcatenateRowsProxyModel *m_emojiModel;
+    QConcatenateTablesProxyModel *m_emojiModel;
 };
 Q_DECLARE_METATYPE(CompletionModel::AutoCompletionType);
