@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-29 00:58+0000\n"
+"POT-Creation-Date: 2023-02-02 00:58+0000\n"
 "PO-Revision-Date: 2023-01-29 20:22+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
@@ -15,69 +15,69 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 22.12.1\n"
 
-#: src/controller.cpp:191
+#: src/controller.cpp:195
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Message chiffré"
 
-#: src/controller.cpp:251 src/controller.cpp:384
+#: src/controller.cpp:255 src/controller.cpp:388
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Erreur du réseau : %1"
 
-#: src/controller.cpp:370
+#: src/controller.cpp:374
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Échec de la connexion : jeton d'accès non valable ou révoqué"
 
-#: src/controller.cpp:373 src/controller.cpp:378 src/login.cpp:91
+#: src/controller.cpp:377 src/controller.cpp:382 src/login.cpp:91
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "La connexion a échoué : %1"
 
-#: src/controller.cpp:409
+#: src/controller.cpp:413
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Il a été impossible de trouver le jeton d'accès."
 
-#: src/controller.cpp:409
+#: src/controller.cpp:413
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Peut-être a-t-il été supprimé ?"
 
-#: src/controller.cpp:413
+#: src/controller.cpp:417
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "L'accès au trousseau de clés a été refusé."
 
-#: src/controller.cpp:413
+#: src/controller.cpp:417
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Veuillez autoriser NeoChat à lire le jeton d'accès."
 
-#: src/controller.cpp:416
+#: src/controller.cpp:420
 #, kde-format
 msgid "No keychain available."
 msgstr "Aucun trousseau de clés disponible."
 
-#: src/controller.cpp:416
+#: src/controller.cpp:420
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Veuillez installer un trousseau de clés, par exemple, KWallet ou le "
 "trousseau de clés de GNOME sous Linux."
 
-#: src/controller.cpp:419
+#: src/controller.cpp:423
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Lecture impossible du jeton d'accès"
 
-#: src/controller.cpp:636
+#: src/controller.cpp:640
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "Impossible de créer le salon : « %1 »"
 
-#: src/controller.cpp:649
+#: src/controller.cpp:653
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "L'identifiant du salon que vous essayez de rejoindre est non valable."
@@ -111,91 +111,91 @@ msgstr "Destination"
 msgid "Network Error"
 msgstr "Erreur du réseau"
 
-#: src/main.cpp:150
+#: src/main.cpp:154
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:152
+#: src/main.cpp:156
 #, kde-format
 msgid "Matrix client"
 msgstr "Client « Matrix »"
 
-#: src/main.cpp:154
+#: src/main.cpp:158
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2022 Communauté de KDE"
 
-#: src/main.cpp:155
+#: src/main.cpp:159
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:155 src/main.cpp:156 src/main.cpp:157
+#: src/main.cpp:159 src/main.cpp:160 src/main.cpp:161
 #, kde-format
 msgid "Maintainer"
 msgstr "Mainteneur"
 
-#: src/main.cpp:156
+#: src/main.cpp:160
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:157
+#: src/main.cpp:161
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:158
+#: src/main.cpp:162
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:158
+#: src/main.cpp:162
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Auteur initial de Spectral"
 
-#: src/main.cpp:159
+#: src/main.cpp:163
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:159
+#: src/main.cpp:163
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "Mainteneur de Quotient"
 
-#: src/main.cpp:160
+#: src/main.cpp:164
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Xavier Besnard"
 
-#: src/main.cpp:160
+#: src/main.cpp:164
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xavier.besnard@neuf.fr"
 
-#: src/main.cpp:164
+#: src/main.cpp:168
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr ""
 "Une bibliothèque Qt5 pour écrire des clients multi-plate-formes pour Matrix"
 
-#: src/main.cpp:167
+#: src/main.cpp:171
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (compilé en regard de %2)"
 
-#: src/main.cpp:303
+#: src/main.cpp:307
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Un client pour le protocole de communications  Matrix »"
 
-#: src/main.cpp:304
+#: src/main.cpp:308
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Prend en charge le thème d'URL « matrix : »"
