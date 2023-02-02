@@ -15,7 +15,6 @@ QQC2.ToolBar {
 
     height: content.height
 
-    property alias accountsListVisible: accounts.visible
     property var addAccount
 
     ColumnLayout {
@@ -59,7 +58,9 @@ QQC2.ToolBar {
                 subtitle: i18n("Log in to an existing account")
                 onClicked: {
                     pageStack.pushDialogLayer("qrc:/WelcomePage.qml", {}, {title: i18nc("@title:window", "Login")})
-                    userInfo.accountsListVisible = false
+                    if (switchUserButton.checked) {
+                        switchUserButton.checked = false
+                    }
                     accounts.currentIndex = Controller.activeConnectionIndex
                 }
                 Keys.onUpPressed: {
@@ -72,7 +73,7 @@ QQC2.ToolBar {
                 }
             }
 
-            visible: false
+            visible: switchUserButton.checked
             onVisibleChanged: if (visible) focus = true
             clip: true
             model: AccountRegistry
@@ -96,7 +97,9 @@ QQC2.ToolBar {
             }
 
             Keys.onReleased: if (event.key == Qt.Key_Escape) {
-                userInfo.accountsListVisible = false
+                if (switchUserButton.checked) {
+                    switchUserButton.checked = false
+                }
             }
 
             width: parent.width
@@ -116,7 +119,9 @@ QQC2.ToolBar {
 
                 onClicked: {
                     Controller.activeConnection = model.connection
-                    userInfo.accountsListVisible = false
+                    if (switchUserButton.checked) {
+                        switchUserButton.checked = false
+                    }
                 }
             }
         }
@@ -167,10 +172,9 @@ QQC2.ToolBar {
                 }
             }
             QQC2.ToolButton {
+                id: switchUserButton
                 icon.name: "system-switch-user"
-                onClicked: {
-                    userInfo.accountsListVisible = !userInfo.accountsListVisible
-                }
+                checkable: true
                 text: i18n("Switch User")
                 display: QQC2.AbstractButton.IconOnly
                 Accessible.name: text
