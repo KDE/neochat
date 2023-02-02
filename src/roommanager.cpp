@@ -8,9 +8,10 @@
 #include "neochatroom.h"
 #include <KLocalizedString>
 #include <QDesktopServices>
-#include <QStandardPaths>
-#include <qt_connection_util.h>
 #include <QQuickTextDocument>
+#include <QStandardPaths>
+#include <csapi/joining.h>
+#include <qt_connection_util.h>
 #include <user.h>
 
 #ifndef Q_OS_ANDROID
@@ -193,9 +194,15 @@ void RoomManager::visitRoom(Room *room, const QString &eventId)
 
 void RoomManager::joinRoom(Quotient::Connection *account, const QString &roomAliasOrId, const QStringList &viaServers)
 {
-    account->joinRoom(QUrl::toPercentEncoding(roomAliasOrId), viaServers);
-    connectSingleShot(account, &Quotient::Connection::newRoom, this, [this](Quotient::Room *room) {
-        enterRoom(dynamic_cast<NeoChatRoom *>(room));
+    auto job = account->joinRoom(QUrl::toPercentEncoding(roomAliasOrId), viaServers);
+    connectSingleShot(job, &Quotient::BaseJob::finished, this, [this, account](Quotient::BaseJob *finish) {
+        if (finish->status() == Quotient::BaseJob::Success) {
+            connectSingleShot(account, &Quotient::Connection::newRoom, this, [this](Quotient::Room *room) {
+                enterRoom(dynamic_cast<NeoChatRoom *>(room));
+            });
+        } else {
+            Q_EMIT warning(i18n("Failed to join room"), finish->errorString());
+        }
     });
 }
 
