@@ -49,7 +49,7 @@ TimelineContainer {
             }
         }
         property var videoHeight: {
-            if (videoDelegate.info && videoDelegate.info.w && videoDelegate.info.h > 0) {
+            if (videoDelegate.info && videoDelegate.info.h && videoDelegate.info.h > 0) {
                 return videoDelegate.info.h;
             } else if (metaData.resolution && metaData.resolution.height) {
                 return metaData.resolution.height;

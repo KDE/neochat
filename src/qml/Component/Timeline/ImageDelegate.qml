@@ -27,23 +27,24 @@ TimelineContainer {
     readonly property string mediaId: isThumbnail ? content.thumbnailMediaId : content.mediaId
 
     readonly property var maxWidth: Kirigami.Units.gridUnit * 30
+    readonly property var maxHeight: Kirigami.Units.gridUnit * 30
 
     innerObject: AnimatedImage {
         id: img
 
         property var imageWidth: {
-            if (imageDelegate.info.w > 0) {
+            if (imageDelegate.info && imageDelegate.info.w && imageDelegate.info.w > 0) {
                 return imageDelegate.info.w;
-            } else if (sourceSize.width > 0) {
+            } else if (sourceSize.width && sourceSize.width > 0) {
                 return sourceSize.width;
             } else {
                 return imageDelegate.contentMaxWidth;
             }
         }
         property var imageHeight: {
-            if (imageDelegate.info.h > 0) {
+            if (imageDelegate.info && imageDelegate.info.h && imageDelegate.info.h > 0) {
                 return imageDelegate.info.h;
-            } else if (sourceSize.height > 0) {
+            } else if (sourceSize.height && sourceSize.height > 0) {
                 return sourceSize.height;
             } else {
                 // Default to a 16:9 placeholder
@@ -51,8 +52,29 @@ TimelineContainer {
             }
         }
 
-        Layout.maximumWidth: Math.min(imageDelegate.contentMaxWidth, imageDelegate.maxWidth)
-        Layout.maximumHeight: Math.min(imageDelegate.contentMaxWidth / imageWidth * imageHeight, imageDelegate.maxWidth / imageWidth * imageHeight)
+        readonly property var aspectRatio: imageWidth / imageHeight
+        /**
+         * Whether the image should be limited by height or width.
+         * We need to prevent excessively tall as well as excessively wide media.
+         *
+         * @note In the case of a tie the media is width limited.
+         */
+        readonly property bool limitWidth: imageWidth >= imageHeight
+
+        readonly property size maxSize: {
+            if (limitWidth) {
+                let width = Math.min(imageDelegate.contentMaxWidth, imageDelegate.maxWidth);
+                let height = width / aspectRatio;
+                return Qt.size(width, height);
+            } else {
+                let height = Math.min(imageDelegate.maxHeight, imageDelegate.contentMaxWidth / aspectRatio);
+                let width = height * aspectRatio;
+                return Qt.size(width, height);
+            }
+        }
+
+        Layout.maximumWidth: maxSize.width
+        Layout.maximumHeight: maxSize.height
         Layout.preferredWidth: imageWidth
         Layout.preferredHeight: imageHeight
         source: model.mediaUrl
