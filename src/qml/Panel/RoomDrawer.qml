@@ -6,7 +6,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
-import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigami 2.20 as Kirigami
 import org.kde.kitemmodels 1.0
 
 import org.kde.neochat 1.0
@@ -149,15 +149,9 @@ Kirigami.OverlayDrawer {
                         text: room ? room.displayName : i18n("No name")
                         textFormat: Text.PlainText
                     }
-                    TextEdit {
+                    Kirigami.SelectableLabel {
                         Layout.fillWidth: true
                         textFormat: TextEdit.PlainText
-                        wrapMode: Text.WordWrap
-                        selectByMouse: true
-                        color: Kirigami.Theme.textColor
-                        selectedTextColor: Kirigami.Theme.highlightedTextColor
-                        selectionColor: Kirigami.Theme.highlightColor
-                        readOnly: true
                         text: room && room.canonicalAlias ? room.canonicalAlias : i18n("No Canonical Alias")
                     }
                 }
