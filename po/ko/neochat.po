@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:58+0000\n"
+"POT-Creation-Date: 2023-02-03 00:59+0000\n"
 "PO-Revision-Date: 2022-08-09 13:27+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -1346,53 +1346,53 @@ msgctxt "@action:button"
 msgid "Volume"
 msgstr ""
 
-#: src/qml/Component/UserInfo.qml:58 src/qml/Settings/AccountsPage.qml:83
+#: src/qml/Component/UserInfo.qml:57 src/qml/Settings/AccountsPage.qml:83
 #, fuzzy, kde-format
 #| msgid "Add an account"
 msgid "Add Account"
 msgstr "계정 추가"
 
-#: src/qml/Component/UserInfo.qml:59
+#: src/qml/Component/UserInfo.qml:58
 #, kde-format
 msgid "Log in to an existing account"
 msgstr ""
 
-#: src/qml/Component/UserInfo.qml:61
+#: src/qml/Component/UserInfo.qml:60
 #, fuzzy, kde-format
 #| msgid "Login"
 msgctxt "@title:window"
 msgid "Login"
 msgstr "로그인"
 
-#: src/qml/Component/UserInfo.qml:140
+#: src/qml/Component/UserInfo.qml:145
 #, kde-format
 msgid "Edit this account"
 msgstr "이 계정 편집"
 
-#: src/qml/Component/UserInfo.qml:145 src/qml/Settings/AccountsPage.qml:36
+#: src/qml/Component/UserInfo.qml:150 src/qml/Settings/AccountsPage.qml:36
 #, fuzzy, kde-format
 #| msgctxt "@title:menu Account detail dialog"
 #| msgid "Account detail"
 msgid "Account editor"
 msgstr "계정 정보"
 
-#: src/qml/Component/UserInfo.qml:174
+#: src/qml/Component/UserInfo.qml:178
 #, kde-format
 msgid "Switch User"
 msgstr ""
 
-#: src/qml/Component/UserInfo.qml:186 src/qml/Page/InviteUserPage.qml:42
+#: src/qml/Component/UserInfo.qml:190 src/qml/Page/InviteUserPage.qml:42
 #, kde-format
 msgid "Add"
 msgstr "추가"
 
-#: src/qml/Component/UserInfo.qml:197 src/qml/main.qml:264
+#: src/qml/Component/UserInfo.qml:201 src/qml/main.qml:264
 #: src/qml/Menu/GlobalMenu.qml:28
 #, kde-format
 msgid "Configure"
 msgstr "설정"
 
-#: src/qml/Component/UserInfo.qml:198
+#: src/qml/Component/UserInfo.qml:202
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgid "Open Settings"
@@ -3698,38 +3698,44 @@ msgstr "맞춤법 검사 사전"
 msgid "Delete word"
 msgstr "단어 삭제"
 
-#: src/roommanager.cpp:48
+#: src/roommanager.cpp:49
 #, kde-format
 msgid "Malformed or empty Matrix id"
 msgstr "잘못되었거나 빈 Matrix ID"
 
-#: src/roommanager.cpp:48
+#: src/roommanager.cpp:49
 #, kde-format
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1이(가) 올바른 Matrix 식별자가 아님"
 
-#: src/roommanager.cpp:65
+#: src/roommanager.cpp:66
 #, kde-format
 msgid "Room not found"
 msgstr "대화방을 찾을 수 없음"
 
-#: src/roommanager.cpp:65
+#: src/roommanager.cpp:66
 #, kde-format
 msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
 msgstr "대화방 목록에 %1이(가) 없습니다. 계정과 철자를 확인하십시오."
 
-#: src/roommanager.cpp:206
+#: src/roommanager.cpp:204
+#, fuzzy, kde-format
+#| msgid "%1 invited you to a room"
+msgid "Failed to join room"
+msgstr "%1 님이 대화방에 초대함"
+
+#: src/roommanager.cpp:213
 #, kde-format
 msgid "No application for the link"
 msgstr "링크에 사용할 수 있는 프로그램 없음"
 
-#: src/roommanager.cpp:206
+#: src/roommanager.cpp:213
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "운영 체제에서 링크를 열 수 있는 프로그램을 찾을 수 없습니다."
 
-#: src/roommanager.cpp:212
+#: src/roommanager.cpp:219
 #, kde-format
 msgid "Could not open URL"
 msgstr "URL을 열 수 없음"

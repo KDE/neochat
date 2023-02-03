@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:58+0000\n"
+"POT-Creation-Date: 2023-02-03 00:59+0000\n"
 "PO-Revision-Date: 2021-11-08 09:39+0100\n"
 "Last-Translator: Kristof Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1370,54 +1370,54 @@ msgctxt "@action:button"
 msgid "Volume"
 msgstr ""
 
-#: src/qml/Component/UserInfo.qml:58 src/qml/Settings/AccountsPage.qml:83
+#: src/qml/Component/UserInfo.qml:57 src/qml/Settings/AccountsPage.qml:83
 #, fuzzy, kde-format
 #| msgid "Add an account"
 msgid "Add Account"
 msgstr "Fiók hozzáadása"
 
-#: src/qml/Component/UserInfo.qml:59
+#: src/qml/Component/UserInfo.qml:58
 #, kde-format
 msgid "Log in to an existing account"
 msgstr ""
 
-#: src/qml/Component/UserInfo.qml:61
+#: src/qml/Component/UserInfo.qml:60
 #, fuzzy, kde-format
 #| msgid "Login"
 msgctxt "@title:window"
 msgid "Login"
 msgstr "Bejelentkezés"
 
-#: src/qml/Component/UserInfo.qml:140
+#: src/qml/Component/UserInfo.qml:145
 #, kde-format
 msgid "Edit this account"
 msgstr "Fiók szerkesztése"
 
-#: src/qml/Component/UserInfo.qml:145 src/qml/Settings/AccountsPage.qml:36
+#: src/qml/Component/UserInfo.qml:150 src/qml/Settings/AccountsPage.qml:36
 #, fuzzy, kde-format
 #| msgctxt "@title:menu Account detail dialog"
 #| msgid "Account detail"
 msgid "Account editor"
 msgstr "Fiók adatai"
 
-#: src/qml/Component/UserInfo.qml:174
+#: src/qml/Component/UserInfo.qml:178
 #, kde-format
 msgid "Switch User"
 msgstr ""
 
-#: src/qml/Component/UserInfo.qml:186 src/qml/Page/InviteUserPage.qml:42
+#: src/qml/Component/UserInfo.qml:190 src/qml/Page/InviteUserPage.qml:42
 #, kde-format
 msgid "Add"
 msgstr "Hozzáadás"
 
-#: src/qml/Component/UserInfo.qml:197 src/qml/main.qml:264
+#: src/qml/Component/UserInfo.qml:201 src/qml/main.qml:264
 #: src/qml/Menu/GlobalMenu.qml:28
 #, fuzzy, kde-format
 #| msgid "Configure room"
 msgid "Configure"
 msgstr "Szoba beállítása"
 
-#: src/qml/Component/UserInfo.qml:198
+#: src/qml/Component/UserInfo.qml:202
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgid "Open Settings"
@@ -3727,22 +3727,22 @@ msgstr ""
 msgid "Delete word"
 msgstr "Törlés"
 
-#: src/roommanager.cpp:48
+#: src/roommanager.cpp:49
 #, kde-format
 msgid "Malformed or empty Matrix id"
 msgstr "Rossz formátumú vagy üres Matrix ID"
 
-#: src/roommanager.cpp:48
+#: src/roommanager.cpp:49
 #, kde-format
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 nem megfelelő Matrix azonosító"
 
-#: src/roommanager.cpp:65
+#: src/roommanager.cpp:66
 #, kde-format
 msgid "Room not found"
 msgstr "A szoba nem található"
 
-#: src/roommanager.cpp:65
+#: src/roommanager.cpp:66
 #, kde-format
 msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
@@ -3750,17 +3750,23 @@ msgstr ""
 "A szoba ' %1 ' nem található a szobakönyvtárban. Ellenőrizze a helyesírást "
 "és a fiókot."
 
-#: src/roommanager.cpp:206
+#: src/roommanager.cpp:204
+#, fuzzy, kde-format
+#| msgid "invited %1 to the room"
+msgid "Failed to join room"
+msgstr "meghívta őt a szobába: %1"
+
+#: src/roommanager.cpp:213
 #, kde-format
 msgid "No application for the link"
 msgstr "Nincs megfelelő alkalmazás a linkhez"
 
-#: src/roommanager.cpp:206
+#: src/roommanager.cpp:213
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "Az operációs rendszere nem talált alkalmazást a hivatkozáshoz."
 
-#: src/roommanager.cpp:212
+#: src/roommanager.cpp:219
 #, kde-format
 msgid "Could not open URL"
 msgstr ""

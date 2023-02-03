@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:58+0000\n"
-"PO-Revision-Date: 2023-01-22 10:54+0100\n"
+"POT-Creation-Date: 2023-02-03 00:59+0000\n"
+"PO-Revision-Date: 2023-01-29 10:43+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -952,10 +952,9 @@ msgid "Edit"
 msgstr "Edita"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:62
-#, fuzzy, kde-format
-#| msgid "Cancel sending Image"
+#, kde-format
 msgid "Cancel sending attachment"
-msgstr "Cancel·la l'enviament de la imatge"
+msgstr "Cancel·la l'enviament de l'adjunt"
 
 #: src/qml/Component/ChatBox/ChatBar.qml:33
 #, kde-format
@@ -1008,11 +1007,10 @@ msgid "Cancel reply"
 msgstr "Cancel·la la resposta"
 
 #: src/qml/Component/ChatBox/ChatBar.qml:269
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel edit"
-msgstr "Cancel·la"
+msgstr "Cancel·la l'edició"
 
 #: src/qml/Component/ChatBox/ChatBox.qml:29
 #, kde-format
@@ -1022,10 +1020,9 @@ msgstr ""
 "xarxa."
 
 #: src/qml/Component/ChatBox/ReplyPane.qml:33
-#, fuzzy, kde-format
-#| msgid "Replying to %1:"
+#, kde-format
 msgid "Replying to:"
-msgstr "S'està responent a %1:"
+msgstr "En resposta a:"
 
 #: src/qml/Component/ChatBox/ReplyPane.qml:33
 #, kde-format
@@ -1282,51 +1279,51 @@ msgstr "Vídeo"
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
-msgstr ""
+msgstr "Volum"
 
-#: src/qml/Component/UserInfo.qml:58 src/qml/Settings/AccountsPage.qml:83
+#: src/qml/Component/UserInfo.qml:57 src/qml/Settings/AccountsPage.qml:83
 #, kde-format
 msgid "Add Account"
 msgstr "Afig un compte"
 
-#: src/qml/Component/UserInfo.qml:59
+#: src/qml/Component/UserInfo.qml:58
 #, kde-format
 msgid "Log in to an existing account"
 msgstr "Inicia la sessió amb un compte existent"
 
-#: src/qml/Component/UserInfo.qml:61
+#: src/qml/Component/UserInfo.qml:60
 #, kde-format
 msgctxt "@title:window"
 msgid "Login"
 msgstr "Inici de sessió"
 
-#: src/qml/Component/UserInfo.qml:140
+#: src/qml/Component/UserInfo.qml:145
 #, kde-format
 msgid "Edit this account"
 msgstr "Edita este compte"
 
-#: src/qml/Component/UserInfo.qml:145 src/qml/Settings/AccountsPage.qml:36
+#: src/qml/Component/UserInfo.qml:150 src/qml/Settings/AccountsPage.qml:36
 #, kde-format
 msgid "Account editor"
 msgstr "Editor de comptes"
 
-#: src/qml/Component/UserInfo.qml:174
+#: src/qml/Component/UserInfo.qml:178
 #, kde-format
 msgid "Switch User"
 msgstr "Canvia d'usuari"
 
-#: src/qml/Component/UserInfo.qml:186 src/qml/Page/InviteUserPage.qml:42
+#: src/qml/Component/UserInfo.qml:190 src/qml/Page/InviteUserPage.qml:42
 #, kde-format
 msgid "Add"
 msgstr "Afig"
 
-#: src/qml/Component/UserInfo.qml:197 src/qml/main.qml:264
+#: src/qml/Component/UserInfo.qml:201 src/qml/main.qml:264
 #: src/qml/Menu/GlobalMenu.qml:28
 #, kde-format
 msgid "Configure"
 msgstr "Configura"
 
-#: src/qml/Component/UserInfo.qml:198
+#: src/qml/Component/UserInfo.qml:202
 #, kde-format
 msgid "Open Settings"
 msgstr "Obri la configuració"
@@ -3566,22 +3563,22 @@ msgstr "Diccionari de verificació ortogràfica"
 msgid "Delete word"
 msgstr "Suprimix una paraula"
 
-#: src/roommanager.cpp:48
+#: src/roommanager.cpp:49
 #, kde-format
 msgid "Malformed or empty Matrix id"
 msgstr "ID de Matrix amb format incorrecte o buida"
 
-#: src/roommanager.cpp:48
+#: src/roommanager.cpp:49
 #, kde-format
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 no és cap identificador correcte de Matrix"
 
-#: src/roommanager.cpp:65
+#: src/roommanager.cpp:66
 #, kde-format
 msgid "Room not found"
 msgstr "No s'ha trobat la sala"
 
-#: src/roommanager.cpp:65
+#: src/roommanager.cpp:66
 #, kde-format
 msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
@@ -3589,17 +3586,23 @@ msgstr ""
 "No hi ha cap sala %1 en la llista de sales. Comproveu l'ortografia i el "
 "compte."
 
-#: src/roommanager.cpp:206
+#: src/roommanager.cpp:204
+#, fuzzy, kde-format
+#| msgid "Invites to a room"
+msgid "Failed to join room"
+msgstr "Convida a una sala"
+
+#: src/roommanager.cpp:213
 #, kde-format
 msgid "No application for the link"
 msgstr "No hi ha cap aplicació per a l'enllaç"
 
-#: src/roommanager.cpp:206
+#: src/roommanager.cpp:213
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "El sistema operatiu no ha pogut trobar cap aplicació per a l'enllaç."
 
-#: src/roommanager.cpp:212
+#: src/roommanager.cpp:219
 #, kde-format
 msgid "Could not open URL"
 msgstr "No s'ha pogut obrir l'URL"

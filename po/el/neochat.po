@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:58+0000\n"
+"POT-Creation-Date: 2023-02-03 00:59+0000\n"
 "PO-Revision-Date: 2023-01-06 16:47+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -1278,49 +1278,49 @@ msgctxt "@action:button"
 msgid "Volume"
 msgstr ""
 
-#: src/qml/Component/UserInfo.qml:58 src/qml/Settings/AccountsPage.qml:83
+#: src/qml/Component/UserInfo.qml:57 src/qml/Settings/AccountsPage.qml:83
 #, kde-format
 msgid "Add Account"
 msgstr "Προσθήκη λογαριασμού"
 
-#: src/qml/Component/UserInfo.qml:59
+#: src/qml/Component/UserInfo.qml:58
 #, kde-format
 msgid "Log in to an existing account"
 msgstr "Σύνδεση με υφιστάμενο λογαριασμό"
 
-#: src/qml/Component/UserInfo.qml:61
+#: src/qml/Component/UserInfo.qml:60
 #, kde-format
 msgctxt "@title:window"
 msgid "Login"
 msgstr "Σύνδεση"
 
-#: src/qml/Component/UserInfo.qml:140
+#: src/qml/Component/UserInfo.qml:145
 #, kde-format
 msgid "Edit this account"
 msgstr "Επεξεργασία αυτού του λογαριασμού"
 
-#: src/qml/Component/UserInfo.qml:145 src/qml/Settings/AccountsPage.qml:36
+#: src/qml/Component/UserInfo.qml:150 src/qml/Settings/AccountsPage.qml:36
 #, kde-format
 msgid "Account editor"
 msgstr "Συντάκτης λογαριασμού"
 
-#: src/qml/Component/UserInfo.qml:174
+#: src/qml/Component/UserInfo.qml:178
 #, kde-format
 msgid "Switch User"
 msgstr "Εναλλαγή χρήστη"
 
-#: src/qml/Component/UserInfo.qml:186 src/qml/Page/InviteUserPage.qml:42
+#: src/qml/Component/UserInfo.qml:190 src/qml/Page/InviteUserPage.qml:42
 #, kde-format
 msgid "Add"
 msgstr "Προσθήκη"
 
-#: src/qml/Component/UserInfo.qml:197 src/qml/main.qml:264
+#: src/qml/Component/UserInfo.qml:201 src/qml/main.qml:264
 #: src/qml/Menu/GlobalMenu.qml:28
 #, kde-format
 msgid "Configure"
 msgstr "Διαμόρφωση"
 
-#: src/qml/Component/UserInfo.qml:198
+#: src/qml/Component/UserInfo.qml:202
 #, kde-format
 msgid "Open Settings"
 msgstr "Άνοιγμα ρυθμίσεων"
@@ -3555,39 +3555,45 @@ msgstr "Λεξικό με ορθογραφικό έλεγχο"
 msgid "Delete word"
 msgstr "Διαγραφή λέξης"
 
-#: src/roommanager.cpp:48
+#: src/roommanager.cpp:49
 #, kde-format
 msgid "Malformed or empty Matrix id"
 msgstr "Κακοδιατυπωμένο ή κενό αναγνωριστικό Matrix"
 
-#: src/roommanager.cpp:48
+#: src/roommanager.cpp:49
 #, kde-format
 msgid "%1 is not a correct Matrix identifier"
 msgstr "Το %1 δεν είναι ένα σωστό αναγνωριστικό του Matrix"
 
-#: src/roommanager.cpp:65
+#: src/roommanager.cpp:66
 #, kde-format
 msgid "Room not found"
 msgstr "Η αίθουσα δεν βρέθηκε"
 
-#: src/roommanager.cpp:65
+#: src/roommanager.cpp:66
 #, kde-format
 msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
 msgstr ""
 "Δεν υπάρχει αίθουσα %1 στη λίστα. Έλεγξε την ορθογραφία και τον λογαριασμό."
 
-#: src/roommanager.cpp:206
+#: src/roommanager.cpp:204
+#, fuzzy, kde-format
+#| msgid "Invites to a room"
+msgid "Failed to join room"
+msgstr "Προσκαλεί σε μια αίθουσα"
+
+#: src/roommanager.cpp:213
 #, kde-format
 msgid "No application for the link"
 msgstr "Καμία εφαρμογή για τον σύνδεσμο"
 
-#: src/roommanager.cpp:206
+#: src/roommanager.cpp:213
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "Το λειτουργικό σου σύστημα δεν βρήκε εφαρμογή για τον σύνδεσμο."
 
-#: src/roommanager.cpp:212
+#: src/roommanager.cpp:219
 #, kde-format
 msgid "Could not open URL"
 msgstr "Αδυναμία ανοίγματος του URL"
