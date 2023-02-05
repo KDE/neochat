@@ -91,6 +91,8 @@ TimelineContainer {
         QQC2.ToolTip.visible: hoverHandler.hovered
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
+        paused: !applicationWindow().active
+
         HoverHandler {
             id: hoverHandler
         }
