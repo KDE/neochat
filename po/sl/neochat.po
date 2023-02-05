@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-03 00:59+0000\n"
-"PO-Revision-Date: 2023-01-30 09:05+0100\n"
+"PO-Revision-Date: 2023-02-04 08:50+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #: src/controller.cpp:195
@@ -3573,10 +3573,9 @@ msgid ""
 msgstr "Soba %1 ne obstaja na seznamu sob. Preverite črkovanje in račun."
 
 #: src/roommanager.cpp:204
-#, fuzzy, kde-format
-#| msgid "Invites to a room"
+#, kde-format
 msgid "Failed to join room"
-msgstr "Povabila v sobo"
+msgstr "Neuspela pridružitev v sobo"
 
 #: src/roommanager.cpp:213
 #, kde-format
