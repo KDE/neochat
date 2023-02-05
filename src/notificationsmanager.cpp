@@ -268,6 +268,10 @@ void NotificationsManager::updateNotificationRules(const QString &type)
         return;
     }
 
+    if (!Controller::instance().activeConnection()) {
+        return;
+    }
+
     const QJsonObject accountData = Controller::instance().activeConnection()->accountDataJson("m.push_rules");
 
     // Update override rules
