@@ -70,7 +70,12 @@ void DevicesModel::logout(int index, const QString &password)
     auto job = Controller::instance().activeConnection()->callApi<NeochatDeleteDeviceJob>(m_devices[index].deviceId);
 
     connect(job, &BaseJob::result, this, [this, job, password, index] {
-        if (job->error() != 0) {
+        auto onSuccess = [this, index]() {
+            beginRemoveRows(QModelIndex(), index, index);
+            m_devices.remove(index);
+            endRemoveRows();
+        };
+        if (job->error() != BaseJob::Success) {
             QJsonObject replyData = job->jsonData();
             QJsonObject authData;
             authData["session"] = replyData["session"];
@@ -79,11 +84,9 @@ void DevicesModel::logout(int index, const QString &password)
             QJsonObject identifier = {{"type", "m.id.user"}, {"user", Controller::instance().activeConnection()->user()->id()}};
             authData["identifier"] = identifier;
             auto *innerJob = Controller::instance().activeConnection()->callApi<NeochatDeleteDeviceJob>(m_devices[index].deviceId, authData);
-            connect(innerJob, &BaseJob::success, this, [this, index]() {
-                beginRemoveRows(QModelIndex(), index, index);
-                m_devices.remove(index);
-                endRemoveRows();
-            });
+            connect(innerJob, &BaseJob::success, this, onSuccess);
+        } else {
+            onSuccess();
         }
     });
 }
