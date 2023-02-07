@@ -160,13 +160,32 @@ Kirigami.ApplicationWindow {
 
     Component.onCompleted: {
         Controller.setBlur(pageStack, Config.blur && !Config.compactLayout);
-        if (Config.minimizeToSystemTrayOnStartup && !Kirigami.Settings.isMobile && Controller.supportSystemTray && Config.systemTray) {
-            restoreWindowGeometryConnections.enabled = true; // To restore window size and position
+        if (Config.minimizeToSystemTrayOnStartup && !Kirigami.Settings.isMobile
+            && Controller.supportSystemTray && Config.systemTray) {
+            // To restore window size and position
+            restoreWindowGeometryConnections.enabled = true;
         } else {
             visible = true;
             saveWindowGeometryConnections.enabled = true;
         }
     }
+
+    Connections {
+        id: restoreWindowGeometryConnections
+        enabled: false
+        target: root
+
+        function onVisibleChanged() {
+            if (!visible) {
+                return;
+            }
+            // Only restore window geometry for the first time
+            restoreWindowGeometryConnections.enabled = false;
+            saveWindowGeometryConnections.enabled = true;
+        }
+    }
+
+
     Connections {
         target: Config
         function onBlurChanged() {
@@ -184,7 +203,7 @@ Kirigami.ApplicationWindow {
     background: Rectangle {
         color: Config.blur && !Config.compactLayout ? Qt.rgba(Kirigami.Theme.backgroundColor.r, Kirigami.Theme.backgroundColor.g, Kirigami.Theme.backgroundColor.b, 1 - Config.transparency) : "transparent"
     }
-    
+
     Component {
         id: roomListComponent
         RoomList.Page {
@@ -256,21 +275,6 @@ Kirigami.ApplicationWindow {
             let consent = consentSheetComponent.createObject(QQC2.ApplicationWindow.overlay)
             consent.url = url
             consent.open()
-        }
-    }
-
-    Connections {
-        id: restoreWindowGeometryConnections
-        enabled: false
-        target: root
-
-        function onVisibleChanged() {
-            if (!visible) {
-                return;
-            }
-            Controller.restoreWindowGeometry(root);
-            restoreWindowGeometryConnections.enabled = false; // Only restore window geometry for the first time
-            saveWindowGeometryConnections.enabled = true;
         }
     }
 
