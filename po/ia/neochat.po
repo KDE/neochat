@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-07 00:59+0000\n"
-"PO-Revision-Date: 2023-02-01 17:59+0100\n"
+"PO-Revision-Date: 2023-02-09 23:30+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #: src/controller.cpp:195
 #, kde-format
@@ -198,10 +198,9 @@ msgid "Client for the matrix communication protocol"
 msgstr "Cliente per le protocollo de cmmmunication de matrice"
 
 #: src/main.cpp:308
-#, fuzzy, kde-format
-#| msgid "Supports appstream: url scheme"
+#, kde-format
 msgid "Supports matrix: url scheme"
-msgstr "Supporta appstream: url schema"
+msgstr "Supporta matrix: url schema"
 
 #: src/matriximageprovider.cpp:35
 #, kde-format
@@ -273,14 +272,13 @@ msgstr ""
 #, kde-format
 msgctxt "<user> is already invited to this room."
 msgid "%1 is already invited to this room."
-msgstr "%1 ja es invitte a iste sala"
+msgstr "%1 ja es invitate a iste sala"
 
 #: src/models/actionsmodel.cpp:167
-#, fuzzy, kde-format
-#| msgid "self-banned from the room"
+#, kde-format
 msgctxt "<user> is banned from this room."
 msgid "%1 is banned from this room."
-msgstr "auto excludite (self-banned9 ab le sala"
+msgstr "%1 es excludite (banned) ex iste sala"
 
 #: src/models/actionsmodel.cpp:172
 #, fuzzy, kde-format
@@ -447,11 +445,10 @@ msgid "React to the message with the given text"
 msgstr "Reage a iste message con un texto"
 
 #: src/models/actionsmodel.cpp:420
-#, fuzzy, kde-format
-#| msgid "self-banned from the room"
+#, kde-format
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
-msgstr "auto excludite (self-banned9 ab le sala"
+msgstr "%1 ja es excludite (banned) ab iste sala"
 
 #: src/models/actionsmodel.cpp:426
 #, fuzzy, kde-format
@@ -467,11 +464,10 @@ msgid "You are not allowed to ban %1 from this room."
 msgstr "Aperi NeoChat in iste sala"
 
 #: src/models/actionsmodel.cpp:436
-#, fuzzy, kde-format
-#| msgid "self-banned from the room"
+#, kde-format
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
-msgstr "auto excludite (self-banned9 ab le sala"
+msgstr "%1 esseva excludite (self-banned) ab iste sala"
 
 #: src/models/actionsmodel.cpp:441 src/models/actionsmodel.cpp:516
 msgid "<user id> [<reason>]"
@@ -490,24 +486,20 @@ msgid "You are not allowed to unban users from this room."
 msgstr "Aperi NeoChat in iste sala"
 
 #: src/models/actionsmodel.cpp:462
-#, fuzzy, kde-format
-#| msgid "self-banned from the room"
+#, kde-format
 msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
-msgstr "auto excludite (self-banned9 ab le sala"
+msgstr "%1 non es excludite (self-banned) ab iste sala"
 
 #: src/models/actionsmodel.cpp:467
-#, fuzzy, kde-format
-#| msgid "self-banned from the room"
+#, kde-format
 msgctxt "<username> was unbanned from this room."
 msgid "%1 was unbanned from this room."
-msgstr "auto excludite (self-banned9 ab le sala"
+msgstr "%1 esseva readmittite (unbanned) ab le sala."
 
 #: src/models/actionsmodel.cpp:474
-#, fuzzy
-#| msgid "Ignore this user"
 msgid "Removes the ban of the given user"
-msgstr "Ignora iste usator"
+msgstr "Il remove le interdiction del usator date"
 
 #: src/models/actionsmodel.cpp:489
 #, kde-format
@@ -515,37 +507,31 @@ msgid "You cannot kick yourself from the room."
 msgstr ""
 
 #: src/models/actionsmodel.cpp:494
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgctxt "<username> is not in this room"
 msgid "%1 is not in this room."
-msgstr "Aperi NeoChat in iste sala"
+msgstr "%1 non es in iste sala."
 
 #: src/models/actionsmodel.cpp:501
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgid "You are not allowed to kick users from this room."
-msgstr "Aperi NeoChat in iste sala"
+msgstr "Tu non es permittite calcar usatores ex iste sala."
 
 #: src/models/actionsmodel.cpp:507
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgctxt "You are not allowed to kick <username> from this room"
 msgid "You are not allowed to kick %1 from this room."
-msgstr "Aperi NeoChat in iste sala"
+msgstr "Tu non es permittite calcar %1 ex iste sala."
 
 #: src/models/actionsmodel.cpp:511
-#, fuzzy, kde-format
-#| msgid "self-banned from the room"
+#, kde-format
 msgctxt "<username> was kicked from this room."
 msgid "%1 was kicked from this room."
-msgstr "auto excludite (self-banned9 ab le sala"
+msgstr "%1 esseva colpate (kicked) ab iste sala."
 
 #: src/models/actionsmodel.cpp:517
-#, fuzzy
-#| msgid "%1 invited you to a room"
 msgid "Removes the user from the room"
-msgstr "%1 invitava te  un sala"
+msgstr "Il remove le usator ab le sala"
 
 #: src/models/collapsestateproxymodel.cpp:68
 #, kde-format
@@ -805,10 +791,9 @@ msgid "left the room"
 msgstr "lassa le sala"
 
 #: src/neochatroom.cpp:600
-#, fuzzy, kde-format
-#| msgid "banned %1 from the room: %2"
+#, kde-format
 msgid "banned %1 from the room"
-msgstr "excludite (banned) %1 ex le sala: %2"
+msgstr "excludite (banned) %1 ex le sala"
 
 #: src/neochatroom.cpp:602
 #, kde-format
@@ -818,7 +803,7 @@ msgstr "excludite (banned) %1 ex le sala: %2"
 #: src/neochatroom.cpp:605
 #, kde-format
 msgid "self-banned from the room"
-msgstr "auto excludite (self-banned9 ab le sala"
+msgstr "auto excludite (self-banned) ab le sala"
 
 #: src/neochatroom.cpp:609
 #, kde-format
@@ -1060,10 +1045,9 @@ msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat es foras de linea. Per vafor tu verifica tu connexion de rete."
 
 #: src/qml/Component/ChatBox/ReplyPane.qml:33
-#, fuzzy, kde-format
-#| msgid "Replying to %1:"
+#, kde-format
 msgid "Replying to:"
-msgstr "Respondente a %1:"
+msgstr "Respondente a:"
 
 #: src/qml/Component/ChatBox/ReplyPane.qml:33
 #, kde-format
@@ -1071,10 +1055,9 @@ msgid "Editing message:"
 msgstr "Editar message:"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:77
-#, fuzzy, kde-format
-#| msgid "Custom Emojis"
+#, kde-format
 msgid "No emojis"
-msgstr "Emojis personalisate"
+msgstr "Nulle Emojis"
 
 #: src/qml/Component/FullScreenImage.qml:80
 #, kde-format
@@ -1318,7 +1301,7 @@ msgid "Video"
 msgstr "Video"
 
 #: src/qml/Component/Timeline/VideoDelegate.qml:234
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Volume"
 msgstr "Volumine"
@@ -1366,17 +1349,15 @@ msgid "Configure"
 msgstr "Configura"
 
 #: src/qml/Component/UserInfo.qml:202
-#, fuzzy, kde-format
-#| msgid "Settings"
+#, kde-format
 msgid "Open Settings"
-msgstr "Preferentias"
+msgstr "Aperi Preferentias"
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:36
-#, fuzzy, kde-format
-#| msgid "activated End-to-End Encryption"
+#, kde-format
 msgid "Activate Encryption"
-msgstr "activate cryptation End-to-End"
+msgstr "Activa cryptation"
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:20
 #, kde-format
@@ -1650,10 +1631,9 @@ msgid "Kick this user"
 msgstr "Calca iste usator"
 
 #: src/qml/Dialog/UserDetailDialog.qml:105
-#, fuzzy, kde-format
-#| msgid "Ignore this user"
+#, kde-format
 msgid "Invite this user"
-msgstr "Ignora iste usator"
+msgstr "Invita iste usator"
 
 #: src/qml/Dialog/UserDetailDialog.qml:117
 #, kde-format
@@ -1661,11 +1641,10 @@ msgid "Ban this user"
 msgstr "Prohibi iste usator"
 
 #: src/qml/Dialog/UserDetailDialog.qml:122
-#, fuzzy, kde-format
-#| msgid "Ban this user"
+#, kde-format
 msgctxt "@title"
 msgid "Ban User"
-msgstr "Prohibi iste usator"
+msgstr "Prohibi usator"
 
 #: src/qml/Dialog/UserDetailDialog.qml:133
 #, kde-format
@@ -2487,13 +2466,12 @@ msgid "Developer Tools"
 msgstr "Instrumentos de disveloppator"
 
 #: src/qml/Panel/RoomDrawer.qml:202
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgid "Search in this room"
-msgstr "Aperi NeoChat in iste sala"
+msgstr "Cerca in iste sala"
 
 #: src/qml/Panel/RoomDrawer.qml:208
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Cerca"
@@ -2514,10 +2492,9 @@ msgid "Members"
 msgstr "Membros"
 
 #: src/qml/Panel/RoomDrawer.qml:230
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgid "Search user in room"
-msgstr "Aperi NeoChat in iste sala"
+msgstr "Cerca usator in  sala"
 
 #: src/qml/Panel/RoomDrawer.qml:244
 #, fuzzy, kde-format
@@ -2586,22 +2563,19 @@ msgid "Save"
 msgstr "Salveguarda"
 
 #: src/qml/RoomSettings/General.qml:123
-#, fuzzy, kde-format
-#| msgid "Rooms"
+#, kde-format
 msgid "Room ID"
-msgstr "Salas"
+msgstr "ID de Sala"
 
 #: src/qml/RoomSettings/General.qml:127
-#, fuzzy, kde-format
-#| msgid "Room information"
+#, kde-format
 msgid "Room version"
-msgstr "Information de sala"
+msgstr "Version de sala"
 
 #: src/qml/RoomSettings/General.qml:133
-#, fuzzy, kde-format
-#| msgid "Explore Rooms"
+#, kde-format
 msgid "Upgrade Room"
-msgstr "Explora salas"
+msgstr "Actualisa sala"
 
 #: src/qml/RoomSettings/General.qml:156
 #, kde-format
@@ -2620,11 +2594,9 @@ msgid "Make this alias the room's canonical alias"
 msgstr ""
 
 #: src/qml/RoomSettings/General.qml:188
-#, fuzzy, kde-format
-#| msgctxt "text editing menu action"
-#| msgid "Delete"
+#, kde-format
 msgid "Delete alias"
-msgstr "Dele"
+msgstr "Dele alias"
 
 #: src/qml/RoomSettings/General.qml:214
 #, kde-format
@@ -2657,16 +2629,14 @@ msgid "See new room…"
 msgstr "Vide nove sala..."
 
 #: src/qml/RoomSettings/General.qml:292
-#, fuzzy, kde-format
-#| msgid "left the room"
+#, kde-format
 msgid "Upgrade the Room"
-msgstr "lassa le sala"
+msgstr "Actualisa le sala"
 
 #: src/qml/RoomSettings/General.qml:296
-#, fuzzy, kde-format
-#| msgid "See new room..."
+#, kde-format
 msgid "Select new version"
-msgstr "Vide nove sala..."
+msgstr "Selige nove version"
 
 #: src/qml/RoomSettings/General.qml:302
 #: src/qml/RoomSettings/Permissions.qml:418
@@ -2735,16 +2705,14 @@ msgid "Kick users"
 msgstr "Calca iste usator"
 
 #: src/qml/RoomSettings/Permissions.qml:258
-#, fuzzy, kde-format
-#| msgid "Ban this user"
+#, kde-format
 msgid "Ban users"
-msgstr "Prohibi iste usator"
+msgstr "Prohibi usatores"
 
 #: src/qml/RoomSettings/Permissions.qml:266
-#, fuzzy, kde-format
-#| msgid "Delete recent messages by this user"
+#, kde-format
 msgid "Remove message sent by other users"
-msgstr "Dele messages recente per iste usator"
+msgstr "Remove messages inviate per altere usatores"
 
 #: src/qml/RoomSettings/Permissions.qml:282
 #, kde-format
@@ -2918,10 +2886,10 @@ msgid "Message history visibility"
 msgstr ""
 
 #: src/qml/RoomSettings/Security.qml:107
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
-msgstr "Quicunque:"
+msgstr "Quicunque"
 
 #: src/qml/RoomSettings/Security.qml:108
 #, kde-format
@@ -2930,11 +2898,10 @@ msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr ""
 
 #: src/qml/RoomSettings/Security.qml:116
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgctxt "@option:check"
 msgid "Members only"
-msgstr "Membros"
+msgstr "Solmente Membros"
 
 #: src/qml/RoomSettings/Security.qml:117
 #, kde-format
@@ -3084,10 +3051,9 @@ msgid "Appearance"
 msgstr "Apparentia"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:25
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgid "General theme"
-msgstr "General"
+msgstr "Thema General"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:118
 #, kde-format
@@ -3136,10 +3102,9 @@ msgid "Show links preview in the chat messages"
 msgstr ""
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:326
-#, fuzzy, kde-format
-#| msgid "Show User Avatar"
+#, kde-format
 msgid "Show Avatar"
-msgstr "Monstra Avatar de Usator"
+msgstr "Monstra Avatar"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:330
 #, kde-format
@@ -3404,7 +3369,7 @@ msgstr "Parolas clave"
 #: src/qml/Settings/GlobalNotificationsPage.qml:176
 #, kde-format
 msgid "Messages containing my keywords"
-msgstr ""
+msgstr "Messages continente mi parolas clave"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:225
 #, kde-format
@@ -3505,7 +3470,7 @@ msgctxt ""
 "As in clicking this button will switch off highlights for messages that "
 "match this rule"
 msgid "Disable message highlights"
-msgstr ""
+msgstr "Dishabilita evidentias de message"
 
 #: src/qml/Settings/NotificationRuleItem.qml:109
 #, kde-format
@@ -3513,7 +3478,7 @@ msgctxt ""
 "As in clicking this button will switch on highlights for messages that match "
 "this rule"
 msgid "Enable message highlights"
-msgstr ""
+msgstr "Habilita evidentias de message"
 
 #: src/qml/Settings/NotificationRuleItem.qml:131
 #, kde-format
@@ -3660,7 +3625,7 @@ msgstr "Tu systema operative non poteva trovar un application per le ligamine."
 #: src/roommanager.cpp:219
 #, kde-format
 msgid "Could not open URL"
-msgstr ""
+msgstr "Non pote aperir URL"
 
 #: src/trayicon.cpp:17
 #, kde-format
