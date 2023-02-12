@@ -1626,6 +1626,17 @@ void NeoChatRoom::setChatBoxText(const QString &text)
     Q_EMIT chatBoxTextChanged();
 }
 
+QString NeoChatRoom::editText() const
+{
+    return m_editText;
+}
+
+void NeoChatRoom::setEditText(const QString &text)
+{
+    m_editText = text;
+    Q_EMIT editTextChanged();
+}
+
 QString NeoChatRoom::chatBoxReplyId() const
 {
     return m_chatBoxReplyId;
@@ -1700,6 +1711,11 @@ void NeoChatRoom::setChatBoxAttachmentPath(const QString &attachmentPath)
 QVector<Mention> *NeoChatRoom::mentions()
 {
     return &m_mentions;
+}
+
+QVector<Mention> *NeoChatRoom::editMentions()
+{
+    return &m_editMentions;
 }
 
 QString NeoChatRoom::savedText() const

@@ -17,6 +17,7 @@
 #include "models/actionsmodel.h"
 #include "models/customemojimodel.h"
 #include "neochatconfig.h"
+#include "neochatroom.h"
 #include "neochatuser.h"
 #include "roommanager.h"
 
@@ -58,9 +59,9 @@ void ActionsHandler::setRoom(NeoChatRoom *room)
     Q_EMIT roomChanged();
 }
 
-void ActionsHandler::handleMessage()
+void ActionsHandler::handleNewMessage()
 {
-    checkEffects();
+    checkEffects(m_room->chatBoxText());
     if (!m_room->chatBoxAttachmentPath().isEmpty()) {
         QUrl url(m_room->chatBoxAttachmentPath());
         auto path = url.isLocalFile() ? url.toLocalFile() : url.toString();
@@ -69,13 +70,39 @@ void ActionsHandler::handleMessage()
         m_room->setChatBoxText({});
         return;
     }
-    QString handledText = m_room->chatBoxText();
 
-    std::sort(m_room->mentions()->begin(), m_room->mentions()->end(), [](const auto &a, const auto &b) -> bool {
+    QString handledText = m_room->chatBoxText();
+    handledText = handleMentions(handledText);
+    handleMessage(m_room->chatBoxText(), handledText);
+}
+
+void ActionsHandler::handleEdit()
+{
+    checkEffects(m_room->editText());
+
+    QString handledText = m_room->editText();
+    handledText = handleMentions(handledText, true);
+    handleMessage(m_room->editText(), handledText, true);
+}
+
+QString ActionsHandler::handleMentions(QString handledText, const bool &isEdit)
+{
+    if (!m_room) {
+        return QString();
+    }
+
+    QVector<Mention> *mentions;
+    if (isEdit) {
+        mentions = m_room->editMentions();
+    } else {
+        mentions = m_room->mentions();
+    }
+
+    std::sort(mentions->begin(), mentions->end(), [](const auto &a, const auto &b) -> bool {
         return a.cursor.anchor() > b.cursor.anchor();
     });
 
-    for (const auto &mention : *m_room->mentions()) {
+    for (const auto &mention : *mentions) {
         if (mention.text.isEmpty() || mention.id.isEmpty()) {
             continue;
         }
@@ -83,11 +110,16 @@ void ActionsHandler::handleMessage()
                                           mention.cursor.position() - mention.cursor.anchor(),
                                           QStringLiteral("[%1](https://matrix.to/#/%2)").arg(mention.text, mention.id));
     }
-    m_room->mentions()->clear();
+    mentions->clear();
 
+    return handledText;
+}
+
+void ActionsHandler::handleMessage(const QString &text, QString handledText, const bool &isEdit)
+{
     if (NeoChatConfig::allowQuickEdit()) {
         QRegularExpression sed("^s/([^/]*)/([^/]*)(/g)?$");
-        auto match = sed.match(m_room->chatBoxText());
+        auto match = sed.match(text);
         if (match.hasMatch()) {
             const QString regex = match.captured(1);
             const QString replacement = match.captured(2).toHtmlEscaped();
@@ -146,13 +178,13 @@ void ActionsHandler::handleMessage()
     if (handledText.length() == 0) {
         return;
     }
-    m_room->postMessage(m_room->chatBoxText(), handledText, messageType, m_room->chatBoxReplyId(), m_room->chatBoxEditId());
+
+    m_room->postMessage(text, handledText, messageType, m_room->chatBoxReplyId(), isEdit ? m_room->chatBoxEditId() : "");
 }
 
-void ActionsHandler::checkEffects()
+void ActionsHandler::checkEffects(const QString &text)
 {
     std::optional<QString> effect = std::nullopt;
-    const auto &text = m_room->chatBoxText();
     if (text.contains("\u2744")) {
         effect = QLatin1String("snowflake");
     } else if (text.contains("\u1F386")) {

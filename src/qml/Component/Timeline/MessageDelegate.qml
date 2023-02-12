@@ -21,7 +21,13 @@ TimelineContainer {
         RichLabel {
             id: label
             Layout.fillWidth: true
+            visible: currentRoom.chatBoxEditId !== model.eventId
             isEmote: messageDelegate.isEmote
+        }
+        MessageEditComponent {
+            Layout.fillWidth: true
+            messageId: model.eventId
+            visible: currentRoom.chatBoxEditId === model.eventId
         }
         Loader {
             id: linkPreviewLoader

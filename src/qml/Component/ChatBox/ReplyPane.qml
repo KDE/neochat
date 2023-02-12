@@ -15,7 +15,6 @@ GridLayout {
     property string userName
     property color userColor: Kirigami.Theme.highlightColor
     property var userAvatar: ""
-    property bool isReply
     property var text
 
     rows: 3
@@ -30,7 +29,7 @@ GridLayout {
         Layout.columnSpan: 3
         topPadding: Kirigami.Units.smallSpacing
 
-        text: isReply ? i18n("Replying to:") : i18n("Editing message:")
+        text: i18n("Replying to:")
     }
     Rectangle {
         id: verticalBorder

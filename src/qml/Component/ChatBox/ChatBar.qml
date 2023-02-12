@@ -14,9 +14,7 @@ QQC2.Control {
 
     property alias textField: textField
     property bool isReplying: currentRoom.chatBoxReplyId.length > 0
-    property bool isEditing: currentRoom.chatBoxEditId.length > 0
-    property bool replyPaneVisible: isReplying || isEditing
-    property NeoChatUser replyUser: currentRoom.chatBoxReplyUser ?? currentRoom.chatBoxEditUser
+    property NeoChatUser replyUser: currentRoom.chatBoxReplyUser
     property bool attachmentPaneVisible: currentRoom.chatBoxAttachmentPath.length > 0
 
     signal messageSent()
@@ -122,7 +120,7 @@ QQC2.Control {
             leftPadding: LayoutMirroring.enabled ? actionsRow.width : (root.width > chatBoxMaxWidth ? 0 : Kirigami.Units.largeSpacing)
             rightPadding: LayoutMirroring.enabled ? (root.width > chatBoxMaxWidth ? 0 : Kirigami.Units.largeSpacing) : actionsRow.width
 
-            placeholderText: readOnly ? i18n("This room is encrypted. Build libQuotient with encryption enabled to send encrypted messages.") : currentRoom.chatBoxEditId.length > 0 ? i18n("Edit Message") : currentRoom.usesEncryption ? i18n("Send an encrypted message…") : currentRoom.chatBoxAttachmentPath.length > 0 ? i18n("Set an attachment caption...") : i18n("Send a message…")
+            placeholderText: readOnly ? i18n("This room is encrypted. Build libQuotient with encryption enabled to send encrypted messages.") : currentRoom.usesEncryption ? i18n("Send an encrypted message…") : currentRoom.chatBoxAttachmentPath.length > 0 ? i18n("Set an attachment caption...") : i18n("Send a message…")
             verticalAlignment: TextEdit.AlignVCenter
             wrapMode: Text.Wrap
             readOnly: (currentRoom.usesEncryption && !Controller.encryptionSupported)
@@ -198,8 +196,8 @@ QQC2.Control {
                 anchors.rightMargin: root.width > chatBoxMaxWidth ? 0 : (chatBarScrollView.QQC2.ScrollBar.vertical.visible ? Kirigami.Units.largeSpacing * 3.5 : Kirigami.Units.largeSpacing)
 
                 active: visible
-                visible: root.replyPaneVisible || root.attachmentPaneVisible
-                sourceComponent: root.replyPaneVisible ? replyPane : attachmentPane
+                visible: root.isReplying || root.attachmentPaneVisible
+                sourceComponent: root.isReplying ? replyPane : attachmentPane
             }
             Component {
                 id: replyPane
@@ -207,8 +205,7 @@ QQC2.Control {
                     userName: root.replyUser ? root.replyUser.displayName : ""
                     userColor: root.replyUser ? root.replyUser.color : ""
                     userAvatar: root.replyUser ? "image://mxc/" + currentRoom.getUser(root.replyUser.id).avatarMediaId : ""
-                    isReply: root.isReplying
-                    text: isEditing ? currentRoom.chatBoxEditMessage : currentRoom.chatBoxReplyMessage
+                    text: currentRoom.chatBoxReplyMessage
                 }
             }
             Component {
@@ -263,14 +260,13 @@ QQC2.Control {
         anchors.right: parent.right
         anchors.rightMargin: (root.width - chatBoxMaxWidth) / 2 + Kirigami.Units.largeSpacing + (chatBarScrollView.QQC2.ScrollBar.vertical.visible && !(root.width > chatBoxMaxWidth) ? Kirigami.Units.largeSpacing * 2.5 : 0)
 
-        visible: root.replyPaneVisible
+        visible: root.isReplying
         display: QQC2.AbstractButton.IconOnly
         action: Kirigami.Action {
-            text: root.isReplying ? i18nc("@action:button", "Cancel reply") : i18nc("@action:button", "Cancel edit")
+            text: i18nc("@action:button", "Cancel reply")
             icon.name: "dialog-close"
             onTriggered: {
                 currentRoom.chatBoxReplyId = "";
-                currentRoom.chatBoxEditId = "";
                 currentRoom.chatBoxAttachmentPath = "";
                 root.forceActiveFocus()
             }
@@ -356,15 +352,6 @@ QQC2.Control {
         }
     }
 
-    Connections {
-        target: currentRoom
-        function onChatBoxEditIdChanged() {
-            if (currentRoom.chatBoxEditMessage.length > 0) {
-                textField.text = currentRoom.chatBoxEditMessage
-            }
-        }
-    }
-
     ChatDocumentHandler {
         id: documentHandler
         document: textField.textDocument
@@ -398,12 +385,11 @@ QQC2.Control {
     }
 
     function postMessage() {
-        actionsHandler.handleMessage();
+        actionsHandler.handleNewMessage();
         repeatTimer.stop()
         currentRoom.markAllMessagesAsRead();
         textField.clear();
         currentRoom.chatBoxReplyId = "";
-        currentRoom.chatBoxEditId = "";
         messageSent()
     }
 }

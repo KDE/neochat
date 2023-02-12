@@ -22,7 +22,7 @@ QQC2.Popup {
         connection: Controller.activeConnection
     }
 
-    required property var chatDocumentHandler
+    property var chatDocumentHandler
     Component.onCompleted: {
         chatDocumentHandler.completionModel.roomListModel = roomListModel;
     }

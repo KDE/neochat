@@ -125,6 +125,9 @@ void RoomManager::openRoomForActiveConnection()
 
 void RoomManager::enterRoom(NeoChatRoom *room)
 {
+    if (m_currentRoom && !m_currentRoom->chatBoxEditId().isEmpty()) {
+        m_currentRoom->setChatBoxEditId("");
+    }
     if (m_currentRoom && m_chatDocumentHandler) {
         // We're doing these things here because it is critical that they are switched at the same time
         m_currentRoom->setSavedText(m_chatDocumentHandler->document()->textDocument()->toPlainText());

@@ -79,6 +79,11 @@ class NeoChatRoom : public Quotient::Room
 
     // Due to problems with QTextDocument, unlike the other properties here, chatBoxText is *not* used to store the text when switching rooms
     Q_PROPERTY(QString chatBoxText READ chatBoxText WRITE setChatBoxText NOTIFY chatBoxTextChanged)
+
+    /**
+     * @brief The text for any message currently being edited in the room.
+     */
+    Q_PROPERTY(QString editText READ editText WRITE setEditText NOTIFY editTextChanged)
     Q_PROPERTY(QString chatBoxReplyId READ chatBoxReplyId WRITE setChatBoxReplyId NOTIFY chatBoxReplyIdChanged)
     Q_PROPERTY(QString chatBoxEditId READ chatBoxEditId WRITE setChatBoxEditId NOTIFY chatBoxEditIdChanged)
     Q_PROPERTY(NeoChatUser *chatBoxReplyUser READ chatBoxReplyUser NOTIFY chatBoxReplyIdChanged)
@@ -271,6 +276,9 @@ public:
     QString chatBoxText() const;
     void setChatBoxText(const QString &text);
 
+    QString editText() const;
+    void setEditText(const QString &text);
+
     QString chatBoxReplyId() const;
     void setChatBoxReplyId(const QString &replyId);
 
@@ -287,6 +295,11 @@ public:
     void setChatBoxAttachmentPath(const QString &attachmentPath);
 
     QVector<Mention> *mentions();
+
+    /**
+     * @brief Vector of mentions in the current edit text.
+     */
+    QVector<Mention> *editMentions();
 
     QString savedText() const;
     void setSavedText(const QString &savedText);
@@ -337,10 +350,12 @@ private:
     QCoro::Task<void> doUploadFile(QUrl url, QString body = QString());
 
     QString m_chatBoxText;
+    QString m_editText;
     QString m_chatBoxReplyId;
     QString m_chatBoxEditId;
     QString m_chatBoxAttachmentPath;
     QVector<Mention> m_mentions;
+    QVector<Mention> m_editMentions;
     QString m_savedText;
 #ifdef QUOTIENT_07
     QCache<QString, PollHandler> m_polls;
@@ -363,6 +378,7 @@ Q_SIGNALS:
     void pushNotificationStateChanged(PushNotificationState::State state);
     void showMessage(MessageType messageType, const QString &message);
     void chatBoxTextChanged();
+    void editTextChanged();
     void chatBoxReplyIdChanged();
     void chatBoxEditIdChanged();
     void chatBoxAttachmentPathChanged();

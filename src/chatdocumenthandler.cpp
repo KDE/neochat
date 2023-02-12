@@ -108,11 +108,16 @@ ChatDocumentHandler::ChatDocumentHandler(QObject *parent)
         static QPointer<NeoChatRoom> previousRoom = nullptr;
         if (previousRoom) {
             disconnect(previousRoom, &NeoChatRoom::chatBoxTextChanged, this, nullptr);
+            disconnect(previousRoom, &NeoChatRoom::editTextChanged, this, nullptr);
         }
         previousRoom = m_room;
         connect(m_room, &NeoChatRoom::chatBoxTextChanged, this, [this]() {
             int start = completionStartIndex();
-            m_completionModel->setText(m_room->chatBoxText().mid(start, cursorPosition() - start), m_room->chatBoxText().mid(start));
+            m_completionModel->setText(getText().mid(start, cursorPosition() - start), getText().mid(start));
+        });
+        connect(m_room, &NeoChatRoom::editTextChanged, this, [this]() {
+            int start = completionStartIndex();
+            m_completionModel->setText(getText().mid(start, cursorPosition() - start), getText().mid(start));
         });
     });
     connect(this, &ChatDocumentHandler::documentChanged, this, [this]() {
@@ -123,7 +128,7 @@ ChatDocumentHandler::ChatDocumentHandler(QObject *parent)
             return;
         }
         int start = completionStartIndex();
-        m_completionModel->setText(m_room->chatBoxText().mid(start, cursorPosition() - start), m_room->chatBoxText().mid(start));
+        m_completionModel->setText(getText().mid(start, cursorPosition() - start), getText().mid(start));
     });
 }
 
@@ -138,7 +143,7 @@ int ChatDocumentHandler::completionStartIndex() const
 #else
     const auto cursor = cursorPosition();
 #endif
-    const auto &text = m_room->chatBoxText();
+    const auto &text = getText();
     auto start = std::min(cursor, text.size()) - 1;
     while (start > -1) {
         if (text.at(start) == QLatin1Char(' ')) {
@@ -148,6 +153,20 @@ int ChatDocumentHandler::completionStartIndex() const
         start--;
     }
     return start;
+}
+
+bool ChatDocumentHandler::isEdit() const
+{
+    return m_isEdit;
+}
+
+void ChatDocumentHandler::setIsEdit(bool edit)
+{
+    if (edit == m_isEdit) {
+        return;
+    }
+    m_isEdit = edit;
+    Q_EMIT isEditChanged();
 }
 
 QQuickTextDocument *ChatDocumentHandler::document() const
@@ -204,7 +223,7 @@ void ChatDocumentHandler::complete(int index)
     if (m_completionModel->autoCompletionType() == CompletionModel::User) {
         auto name = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::Text).toString();
         auto id = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::Subtitle).toString();
-        auto text = m_room->chatBoxText();
+        auto text = getText();
         auto at = text.lastIndexOf(QLatin1Char('@'), cursorPosition() - 1);
         QTextCursor cursor(document()->textDocument());
         cursor.setPosition(at);
@@ -213,11 +232,11 @@ void ChatDocumentHandler::complete(int index)
         cursor.setPosition(at);
         cursor.setPosition(cursor.position() + name.size(), QTextCursor::KeepAnchor);
         cursor.setKeepPositionOnInsert(true);
-        m_room->mentions()->push_back({cursor, name, 0, 0, id});
+        pushMention({cursor, name, 0, 0, id});
         m_highlighter->rehighlight();
     } else if (m_completionModel->autoCompletionType() == CompletionModel::Command) {
         auto command = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::ReplacedText).toString();
-        auto text = m_room->chatBoxText();
+        auto text = getText();
         auto at = text.lastIndexOf(QLatin1Char('/'));
         QTextCursor cursor(document()->textDocument());
         cursor.setPosition(at);
@@ -225,7 +244,7 @@ void ChatDocumentHandler::complete(int index)
         cursor.insertText(QStringLiteral("/%1 ").arg(command));
     } else if (m_completionModel->autoCompletionType() == CompletionModel::Room) {
         auto alias = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::Subtitle).toString();
-        auto text = m_room->chatBoxText();
+        auto text = getText();
         auto at = text.lastIndexOf(QLatin1Char('#'), cursorPosition() - 1);
         QTextCursor cursor(document()->textDocument());
         cursor.setPosition(at);
@@ -234,11 +253,11 @@ void ChatDocumentHandler::complete(int index)
         cursor.setPosition(at);
         cursor.setPosition(cursor.position() + alias.size(), QTextCursor::KeepAnchor);
         cursor.setKeepPositionOnInsert(true);
-        m_room->mentions()->push_back({cursor, alias, 0, 0, alias});
+        pushMention({cursor, alias, 0, 0, alias});
         m_highlighter->rehighlight();
     } else if (m_completionModel->autoCompletionType() == CompletionModel::Emoji) {
         auto shortcode = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::ReplacedText).toString();
-        auto text = m_room->chatBoxText();
+        auto text = getText();
         auto at = text.lastIndexOf(QLatin1Char(':'));
         QTextCursor cursor(document()->textDocument());
         cursor.setPosition(at);
@@ -280,4 +299,28 @@ void ChatDocumentHandler::setSelectionEnd(int position)
 
     m_selectionEnd = position;
     Q_EMIT selectionEndChanged();
+}
+
+QString ChatDocumentHandler::getText() const
+{
+    if (!m_room) {
+        return QString();
+    }
+    if (m_isEdit) {
+        return m_room->editText();
+    } else {
+        return m_room->chatBoxText();
+    }
+}
+
+void ChatDocumentHandler::pushMention(const Mention mention) const
+{
+    if (!m_room) {
+        return;
+    }
+    if (m_isEdit) {
+        m_room->editMentions()->push_back(mention);
+    } else {
+        m_room->mentions()->push_back(mention);
+    }
 }

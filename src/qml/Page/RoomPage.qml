@@ -540,7 +540,6 @@ Kirigami.ScrollablePage {
                     onClicked: {
                         currentRoom.chatBoxEditId = hoverActions.event.eventId;
                         currentRoom.chatBoxReplyId = "";
-                        chatBox.chatBar.forceActiveFocus();
                     }
                 }
                 QQC2.Button {

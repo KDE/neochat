@@ -33,14 +33,22 @@ Q_SIGNALS:
 
 public Q_SLOTS:
 
-    /// \brief Post a message.
-    ///
-    /// This also interprets commands if any.
-    void handleMessage();
+    /**
+     * @brief Pre-process text and send message.
+     */
+    void handleNewMessage();
+
+    /**
+     * @brief Pre-process text and send edit.
+     */
+    void handleEdit();
 
 private:
     NeoChatRoom *m_room = nullptr;
-    void checkEffects();
+    void checkEffects(const QString &text);
+
+    QString handleMentions(QString handledText, const bool &isEdit = false);
+    void handleMessage(const QString &text, QString handledText, const bool &isEdit = false);
 };
 
 QString markdownToHTML(const QString &markdown);
