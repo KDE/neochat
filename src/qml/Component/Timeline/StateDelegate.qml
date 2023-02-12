@@ -51,6 +51,9 @@ QQC2.Control {
 
     ColumnLayout {
         id: columnLayout
+
+        property bool folded: true
+
         spacing: sectionVisible ? Kirigami.Units.largeSpacing : 0
         anchors.top: parent.top
         anchors.topMargin: sectionVisible ? 0 : Kirigami.Units.largeSpacing
@@ -63,45 +66,73 @@ QQC2.Control {
             visible: sectionVisible
             labelText: sectionVisible ? section : ""
         }
-
         RowLayout {
-            id: rowLayout
-            implicitHeight: label.contentHeight
             Layout.fillWidth: true
             Layout.leftMargin: Kirigami.Units.gridUnit * 1.5 + Kirigami.Units.smallSpacing * 1.5 + (Config.compactLayout ? Kirigami.Units.largeSpacing * 1.25 : 0)
             Layout.rightMargin: Kirigami.Units.largeSpacing
+            visible: stateEventRepeater.count !== 1
 
-            Kirigami.Avatar {
-                id: icon
-                Layout.preferredWidth: Kirigami.Units.iconSizes.small
-                Layout.preferredHeight: Kirigami.Units.iconSizes.small
+            Flow {
+                visible: columnLayout.folded
+                spacing: -Kirigami.Units.iconSizes.small / 2
+                Repeater {
+                    model: authorList
+                    delegate: Kirigami.Avatar {
+                        implicitWidth: Kirigami.Units.iconSizes.small
+                        implicitHeight: Kirigami.Units.iconSizes.small
 
-                name: author.displayName
-                source: author.avatarMediaId ? ("image://mxc/" + author.avatarMediaId) : ""
-                color: author.color
-
-                Component {
-                    id: userDetailDialog
-
-                    UserDetailDialog {}
-                }
-
-                MouseArea {
-                    anchors.fill: parent
-                    cursorShape: Qt.PointingHandCursor
-                    onClicked: userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {room: currentRoom, user: author.object, displayName: author.displayName, avatarMediaId: author.avatarMediaId, avatarUrl: author.avatarUrl}).open()
+                        name: modelData.displayName
+                        source: modelData.avatarMediaId ? ("image://mxc/" + modelData.avatarMediaId) : ""
+                        color: modelData.color
+                    }
                 }
             }
-
             QQC2.Label {
-                id: label
-                Layout.alignment: Qt.AlignVCenter
                 Layout.fillWidth: true
-                wrapMode: Text.WordWrap
+                visible: columnLayout.folded
+
+                text: aggregateDisplay
+                elide: Qt.ElideRight
                 textFormat: Text.RichText
-                text: `<style>a {text-decoration: none;}</style><a href="https://matrix.to/#/${author.id}" style="color: ${author.color}">${model.authorDisplayName}</a> ${aggregateDisplay}`
+                wrapMode: Text.WordWrap
                 onLinkActivated: RoomManager.openResource(link)
             }
+            Item {
+                Layout.fillWidth: true
+                visible: !columnLayout.folded
+            }
+            QQC2.ToolButton {
+                icon.name: (!columnLayout.folded ? "go-up" : "go-down")
+                icon.width: Kirigami.Units.iconSizes.small
+                icon.height: Kirigami.Units.iconSizes.small
+
+                onClicked: {
+                    columnLayout.toggleFolded()
+                }
+            }
+        }
+        Repeater {
+            id: stateEventRepeater
+            model: stateEvents
+            delegate: StateComponent {
+                Layout.fillWidth: true
+                Layout.leftMargin: Kirigami.Units.gridUnit * 1.5 + Kirigami.Units.smallSpacing * 1.5 + (Config.compactLayout ? Kirigami.Units.largeSpacing * 1.25 : 0)
+                Layout.rightMargin: Kirigami.Units.largeSpacing
+                visible: !columnLayout.folded || stateEventRepeater.count === 1
+
+                name: modelData.author.displayName
+                avatar: modelData.author.avatarMediaId ? ("image://mxc/" + modelData.author.avatarMediaId) : ""
+                color: modelData.author.color
+                text: `<style>a {text-decoration: none;}</style><a href="https://matrix.to/#/${modelData.author.id}" style="color: ${modelData.author.color}">${modelData.authorDisplayName}</a> ${modelData.text}`
+
+                onAvatarClicked: RoomManager.openResource("https://matrix.to/#/" + modelData.author.id)
+                onLinkClicked: RoomManager.openResource(link)
+            }
+        }
+
+        function toggleFolded() {
+            folded = !folded
+            foldedChanged()
         }
     }
 }

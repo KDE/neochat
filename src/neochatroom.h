@@ -249,6 +249,7 @@ public:
     [[nodiscard]] QString avatarMediaId() const;
 
     [[nodiscard]] QString eventToString(const Quotient::RoomEvent &evt, Qt::TextFormat format = Qt::PlainText, bool removeReply = true) const;
+    [[nodiscard]] QString eventToGenericString(const Quotient::RoomEvent &evt) const;
 
     Q_INVOKABLE [[nodiscard]] bool containsUser(const QString &userID) const;
     Q_INVOKABLE [[nodiscard]] bool isUserBanned(const QString &user) const;

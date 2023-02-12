@@ -45,6 +45,7 @@ public:
         AnnotationRole,
         UserMarkerRole,
         FormattedBodyRole,
+        GenericDisplayRole,
 
         MimeTypeRole,
         FileMimetypeIcon,

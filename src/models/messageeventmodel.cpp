@@ -67,6 +67,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[IsNameChangeRole] = "isNameChange";
     roles[IsAvatarChangeRole] = "isAvatarChange";
     roles[IsRedactedRole] = "isRedacted";
+    roles[GenericDisplayRole] = "genericDisplay";
     return roles;
 }
 
@@ -460,6 +461,14 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         }
 
         return m_currentRoom->eventToString(evt, Qt::RichText);
+    }
+
+    if (role == GenericDisplayRole) {
+        if (evt.isRedacted()) {
+            return i18n("<i>[This message was deleted]</i>");
+        }
+
+        return m_currentRoom->eventToGenericString(evt);
     }
 
     if (role == FormattedBodyRole) {

@@ -658,6 +658,135 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
         i18n("Unknown event"));
 }
 
+QString NeoChatRoom::eventToGenericString(const RoomEvent &evt) const
+{
+#ifdef QUOTIENT_07
+    return switchOnType(
+#else
+    return visit(
+#endif
+        evt,
+        [](const RoomMessageEvent &e) {
+            Q_UNUSED(e)
+            return i18n("sent a message");
+        },
+        [](const StickerEvent &e) {
+            Q_UNUSED(e)
+            return i18n("sent a sticker");
+        },
+        [](const RoomMemberEvent &e) {
+            switch (e.membership()) {
+            case MembershipType::Invite:
+                if (e.repeatsState()) {
+                    return i18n("reinvited someone to the room");
+                }
+                Q_FALLTHROUGH();
+            case MembershipType::Join: {
+                QString text{};
+                // Part 1: invites and joins
+                if (e.repeatsState()) {
+                    text = i18n("joined the room (repeated)");
+                } else if (e.changesMembership()) {
+                    text = e.membership() == MembershipType::Invite ? i18n("invited someone to the room") : i18n("joined the room");
+                }
+                if (!text.isEmpty()) {
+                    return text;
+                }
+                // Part 2: profile changes of joined members
+                if (e.isRename()) {
+                    if (e.displayName().isEmpty()) {
+                        text = i18nc("their refers to a singular user", "cleared their display name");
+                    } else {
+                        text = i18nc("their refers to a singular user", "changed their display name");
+                    }
+                }
+                if (e.isAvatarUpdate()) {
+                    if (!text.isEmpty()) {
+                        text += i18n(" and ");
+                    }
+                    if (e.avatarUrl().isEmpty()) {
+                        text += i18nc("their refers to a singular user", "cleared their avatar");
+#ifdef QUOTIENT_07
+                    } else if (!e.prevContent()->avatarUrl) {
+#else
+                    } else if (e.prevContent()->avatarUrl.isEmpty()) {
+#endif
+                        text += i18n("set an avatar");
+                    } else {
+                        text += i18nc("their refers to a singular user", "updated their avatar");
+                    }
+                }
+                if (text.isEmpty()) {
+                    text = i18nc("<user> changed nothing", "changed nothing");
+                }
+                return text;
+            }
+            case MembershipType::Leave:
+                if (e.prevContent() && e.prevContent()->membership == MembershipType::Invite) {
+                    return (e.senderId() != e.userId()) ? i18n("withdrew a user's invitation") : i18n("rejected the invitation");
+                }
+
+                if (e.prevContent() && e.prevContent()->membership == MembershipType::Ban) {
+                    return (e.senderId() != e.userId()) ? i18n("unbanned a user") : i18n("self-unbanned");
+                }
+                return (e.senderId() != e.userId()) ? i18n("put a user out of the room") : i18n("left the room");
+            case MembershipType::Ban:
+                if (e.senderId() != e.userId()) {
+                    return i18n("banned a user from the room");
+                } else {
+                    return i18n("self-banned from the room");
+                }
+            case MembershipType::Knock: {
+                return i18n("requested an invite");
+            }
+            default:;
+            }
+            return i18n("made something unknown");
+        },
+        [](const RoomCanonicalAliasEvent &e) {
+            return (e.alias().isEmpty()) ? i18n("cleared the room main alias") : i18n("set the room main alias");
+        },
+        [](const RoomNameEvent &e) {
+            return (e.name().isEmpty()) ? i18n("cleared the room name") : i18n("set the room name");
+        },
+        [](const RoomTopicEvent &e) {
+            return (e.topic().isEmpty()) ? i18n("cleared the topic") : i18n("set the topic");
+        },
+        [](const RoomAvatarEvent &) {
+            return i18n("changed the room avatar");
+        },
+        [](const EncryptionEvent &) {
+            return i18n("activated End-to-End Encryption");
+        },
+        [](const RoomCreateEvent &e) {
+            return e.isUpgrade() ? i18n("upgraded the room version") : i18n("created the room");
+        },
+        [](const RoomPowerLevelsEvent &) {
+            return i18nc("'power level' means permission level", "changed the power levels for this room");
+        },
+        [](const StateEventBase &e) {
+            if (e.matrixType() == QLatin1String("m.room.server_acl")) {
+                return i18n("changed the server access control lists for this room");
+            }
+            if (e.matrixType() == QLatin1String("im.vector.modular.widgets")) {
+                if (e.fullJson()["unsigned"]["prev_content"].toObject().isEmpty()) {
+                    return i18n("added a widget");
+                }
+                if (e.contentJson().isEmpty()) {
+                    return i18n("removed a widget");
+                }
+                return i18n("configured a widget");
+            }
+            return i18n("updated the state");
+        },
+#ifdef QUOTIENT_07
+        [](const PollStartEvent &e) {
+            return i18n("started a poll");
+        },
+#endif
+        i18n("Unknown event"));
+}
+
 void NeoChatRoom::changeAvatar(const QUrl &localFile)
 {
     const auto job = connection()->uploadFile(localFile.toLocalFile());
