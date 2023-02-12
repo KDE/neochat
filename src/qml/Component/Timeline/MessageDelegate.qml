@@ -29,14 +29,8 @@ TimelineContainer {
             messageId: model.eventId
             visible: currentRoom.chatBoxEditId === model.eventId
         }
-        Loader {
-            id: linkPreviewLoader
+        LinkPreviewDelegate {
             Layout.fillWidth: true
-            active: !currentRoom.usesEncryption && model.display && model.display.includes("http")
-            visible: Config.showLinkPreview && active
-            sourceComponent: LinkPreviewDelegate {
-                anchors.verticalCenter: parent.verticalCenter
-            }
         }
     }
 }
