@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-07 00:59+0000\n"
+"POT-Creation-Date: 2023-02-13 00:57+0000\n"
 "PO-Revision-Date: 2023-02-08 21:20+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -504,21 +504,40 @@ msgstr "%1, bu odadan kovuldu."
 msgid "Removes the user from the room"
 msgstr "Kullanıcıyı odadan kaldırır"
 
-#: src/models/collapsestateproxymodel.cpp:68
-#, kde-format
-msgctxt "[user did something] n times"
-msgid " %1 time"
-msgid_plural " %1 times"
+#: src/models/collapsestateproxymodel.cpp:70
+#, fuzzy, kde-format
+#| msgctxt "[user did something] n times"
+#| msgid " %1 time"
+#| msgid_plural " %1 times"
+msgctxt "n times"
+msgid " %1 time "
+msgid_plural " %1 times "
 msgstr[0] "%1 kez"
 msgstr[1] "%1 kez"
 
-#: src/models/collapsestateproxymodel.cpp:75
+#: src/models/collapsestateproxymodel.cpp:76
 #, kde-format
-msgctxt "[action 1], [action 2 and action 3]"
+msgctxt "n users"
+msgid " %1 user "
+msgid_plural " %1 users "
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/models/collapsestateproxymodel.cpp:86
+#, fuzzy, kde-format
+#| msgctxt "[action 1], [action 2 and action 3]"
+#| msgid ", "
+msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
 msgstr ", "
 
-#: src/models/collapsestateproxymodel.cpp:78
+#: src/models/collapsestateproxymodel.cpp:89
+#, kde-format
+msgctxt "[action 1, action 2] or [action 3]"
+msgid " or "
+msgstr ""
+
+#: src/models/collapsestateproxymodel.cpp:89
 #, kde-format
 msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
@@ -590,37 +609,37 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Özel"
 
-#: src/models/messageeventmodel.cpp:350 src/models/searchmodel.cpp:156
+#: src/models/messageeventmodel.cpp:351 src/models/searchmodel.cpp:156
 #, kde-format
 msgid "Today"
 msgstr "Bugün"
 
-#: src/models/messageeventmodel.cpp:353 src/models/searchmodel.cpp:159
+#: src/models/messageeventmodel.cpp:354 src/models/searchmodel.cpp:159
 #, kde-format
 msgid "Yesterday"
 msgstr "Dün"
 
-#: src/models/messageeventmodel.cpp:356 src/models/searchmodel.cpp:162
+#: src/models/messageeventmodel.cpp:357 src/models/searchmodel.cpp:162
 #, kde-format
 msgid "The day before yesterday"
 msgstr "dünden önceki gün"
 
-#: src/models/messageeventmodel.cpp:458
+#: src/models/messageeventmodel.cpp:459 src/models/messageeventmodel.cpp:468
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Bu ileti silindi]</i>"
 
-#: src/models/messageeventmodel.cpp:459
+#: src/models/messageeventmodel.cpp:460
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Bu ileti silindi: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:546
+#: src/models/messageeventmodel.cpp:555
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[DEĞİŞTİRİLDİ]"
 
-#: src/models/messageeventmodel.cpp:546
+#: src/models/messageeventmodel.cpp:555
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[DEĞİŞTİRİLDİ: %1]"
@@ -671,7 +690,7 @@ msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:547
+#: src/neochatroom.cpp:547 src/neochatroom.cpp:688
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "odaya katıldı (yinelendi)"
@@ -681,7 +700,7 @@ msgstr "odaya katıldı (yinelendi)"
 msgid "invited %1 to the room"
 msgstr "%1, odaya davet edildi"
 
-#: src/neochatroom.cpp:549
+#: src/neochatroom.cpp:549 src/neochatroom.cpp:690
 #, kde-format
 msgid "joined the room"
 msgstr "odaya katıldı"
@@ -691,7 +710,7 @@ msgstr "odaya katıldı"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:560
+#: src/neochatroom.cpp:560 src/neochatroom.cpp:698
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
@@ -703,29 +722,29 @@ msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "ekran adını %1 olarak değiştirdi"
 
-#: src/neochatroom.cpp:567
+#: src/neochatroom.cpp:567 src/neochatroom.cpp:705
 #, kde-format
 msgid " and "
 msgstr " ve "
 
-#: src/neochatroom.cpp:570
+#: src/neochatroom.cpp:570 src/neochatroom.cpp:708
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "avatarını sildi"
 
-#: src/neochatroom.cpp:576
+#: src/neochatroom.cpp:576 src/neochatroom.cpp:714
 #, kde-format
 msgid "set an avatar"
 msgstr "bir avatar koydu"
 
-#: src/neochatroom.cpp:578
+#: src/neochatroom.cpp:578 src/neochatroom.cpp:716
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "avatarını güncelledi"
 
-#: src/neochatroom.cpp:582
+#: src/neochatroom.cpp:582 src/neochatroom.cpp:720
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
@@ -736,7 +755,7 @@ msgstr "bir şey değiştirmedi"
 msgid "withdrew %1's invitation"
 msgstr "%1 kişisinin davetini geri çekti"
 
-#: src/neochatroom.cpp:588
+#: src/neochatroom.cpp:588 src/neochatroom.cpp:726
 #, kde-format
 msgid "rejected the invitation"
 msgstr "daveti reddetti"
@@ -746,7 +765,7 @@ msgstr "daveti reddetti"
 msgid "unbanned %1"
 msgstr "%1 kişisinin yasağını kaldırdı"
 
-#: src/neochatroom.cpp:592
+#: src/neochatroom.cpp:592 src/neochatroom.cpp:730
 #, kde-format
 msgid "self-unbanned"
 msgstr "kendi yasağını kaldırdı"
@@ -756,7 +775,7 @@ msgstr "kendi yasağını kaldırdı"
 msgid "has put %1 out of the room: %2"
 msgstr "%1 kişisini odadan dışarı çıkardı: %2"
 
-#: src/neochatroom.cpp:596
+#: src/neochatroom.cpp:596 src/neochatroom.cpp:732
 #, kde-format
 msgid "left the room"
 msgstr "odadan çıktı"
@@ -771,12 +790,12 @@ msgstr "%1 kişisini odadan yasakladı"
 msgid "banned %1 from the room: %2"
 msgstr "%1 kişisini odadan yasakladı: %2"
 
-#: src/neochatroom.cpp:605
+#: src/neochatroom.cpp:605 src/neochatroom.cpp:737
 #, kde-format
 msgid "self-banned from the room"
 msgstr "kendini yasakladı"
 
-#: src/neochatroom.cpp:609
+#: src/neochatroom.cpp:609 src/neochatroom.cpp:740
 #, kde-format
 msgid "requested an invite"
 msgstr "bir davet istedi"
@@ -786,12 +805,12 @@ msgstr "bir davet istedi"
 msgid "requested an invite with reason: %1"
 msgstr "şu nedenle bir davet istedi: %1"
 
-#: src/neochatroom.cpp:613
+#: src/neochatroom.cpp:613 src/neochatroom.cpp:744
 #, kde-format
 msgid "made something unknown"
 msgstr "bilinmeyen bir şeyler yaptı"
 
-#: src/neochatroom.cpp:616
+#: src/neochatroom.cpp:616 src/neochatroom.cpp:747
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "oda ana armasını sildi"
@@ -801,7 +820,7 @@ msgstr "oda ana armasını sildi"
 msgid "set the room main alias to: %1"
 msgstr "oda ana armasını %1 olarak ayarladı"
 
-#: src/neochatroom.cpp:619
+#: src/neochatroom.cpp:619 src/neochatroom.cpp:750
 #, kde-format
 msgid "cleared the room name"
 msgstr "oda adını sildi"
@@ -811,7 +830,7 @@ msgstr "oda adını sildi"
 msgid "set the room name to: %1"
 msgstr "oda adını %1 olarak ayarladı"
 
-#: src/neochatroom.cpp:622
+#: src/neochatroom.cpp:622 src/neochatroom.cpp:753
 #, kde-format
 msgid "cleared the topic"
 msgstr "konuyu sildi"
@@ -821,12 +840,12 @@ msgstr "konuyu sildi"
 msgid "set the topic to: %1"
 msgstr "konuyu %1 olarak ayarladı"
 
-#: src/neochatroom.cpp:625
+#: src/neochatroom.cpp:625 src/neochatroom.cpp:756
 #, kde-format
 msgid "changed the room avatar"
 msgstr "oda avatarını değiştirdi"
 
-#: src/neochatroom.cpp:628
+#: src/neochatroom.cpp:628 src/neochatroom.cpp:759
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "uçtan uca şifrelemeyi etkinleştirdi"
@@ -841,13 +860,13 @@ msgstr "odayı %1 sürümüne güncelledi"
 msgid "created the room, version %1"
 msgstr "odayı oluşturdu, %1. sürüm"
 
-#: src/neochatroom.cpp:635
+#: src/neochatroom.cpp:635 src/neochatroom.cpp:765
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "bu oda için izin düzeylerini değiştirdi"
 
-#: src/neochatroom.cpp:639
+#: src/neochatroom.cpp:639 src/neochatroom.cpp:769
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "bu oda için sunucu erişim denetim listelerini değiştirdi"
@@ -880,12 +899,129 @@ msgstr "%1 durumunu güncelledi"
 msgid "updated %1 state for %2"
 msgstr "%2 için %1 durumunu güncelledi"
 
-#: src/neochatroom.cpp:658
+#: src/neochatroom.cpp:658 src/neochatroom.cpp:787
 #, kde-format
 msgid "Unknown event"
 msgstr "Bilinmeyen olay"
 
-#: src/neochatroom.cpp:1483 src/neochatroom.cpp:1484
+#: src/neochatroom.cpp:671
+#, fuzzy, kde-format
+#| msgid "Send a message…"
+msgid "sent a message"
+msgstr "Bir ileti gönder…"
+
+#: src/neochatroom.cpp:675
+#, kde-format
+msgid "sent a sticker"
+msgstr ""
+
+#: src/neochatroom.cpp:681
+#, fuzzy, kde-format
+#| msgid "reinvited %1 to the room"
+msgid "reinvited someone to the room"
+msgstr "%1, odaya yeniden davet edildi"
+
+#: src/neochatroom.cpp:690
+#, fuzzy, kde-format
+#| msgid "invited %1 to the room"
+msgid "invited someone to the room"
+msgstr "%1, odaya davet edildi"
+
+#: src/neochatroom.cpp:700
+#, fuzzy, kde-format
+#| msgctxt "their refers to a singular user"
+#| msgid "changed their display name to %1"
+msgctxt "their refers to a singular user"
+msgid "changed their display name"
+msgstr "ekran adını %1 olarak değiştirdi"
+
+#: src/neochatroom.cpp:726
+#, fuzzy, kde-format
+#| msgid "withdrew %1's invitation"
+msgid "withdrew a user's invitation"
+msgstr "%1 kişisinin davetini geri çekti"
+
+#: src/neochatroom.cpp:730
+#, fuzzy, kde-format
+#| msgid "unbanned %1"
+msgid "unbanned a user"
+msgstr "%1 kişisinin yasağını kaldırdı"
+
+#: src/neochatroom.cpp:732
+#, fuzzy, kde-format
+#| msgid "has put %1 out of the room: %2"
+msgid "put a user out of the room"
+msgstr "%1 kişisini odadan dışarı çıkardı: %2"
+
+#: src/neochatroom.cpp:735
+#, fuzzy, kde-format
+#| msgid "banned %1 from the room"
+msgid "banned a user from the room"
+msgstr "%1 kişisini odadan yasakladı"
+
+#: src/neochatroom.cpp:747
+#, fuzzy, kde-format
+#| msgid "set the room main alias to: %1"
+msgid "set the room main alias"
+msgstr "oda ana armasını %1 olarak ayarladı"
+
+#: src/neochatroom.cpp:750
+#, fuzzy, kde-format
+#| msgid "set the room name to: %1"
+msgid "set the room name"
+msgstr "oda adını %1 olarak ayarladı"
+
+#: src/neochatroom.cpp:753
+#, fuzzy, kde-format
+#| msgid "set the topic to: %1"
+msgid "set the topic"
+msgstr "konuyu %1 olarak ayarladı"
+
+#: src/neochatroom.cpp:762
+#, fuzzy, kde-format
+#| msgid "upgraded the room to version %1"
+msgid "upgraded the room version"
+msgstr "odayı %1 sürümüne güncelledi"
+
+#: src/neochatroom.cpp:762
+#, fuzzy, kde-format
+#| msgid "left the room"
+msgid "created the room"
+msgstr "odadan çıktı"
+
+#: src/neochatroom.cpp:773
+#, fuzzy, kde-format
+#| msgctxt "[User] added <name> widget"
+#| msgid "added %1 widget"
+msgid "added a widget"
+msgstr "%1 araç takımını ekledi"
+
+#: src/neochatroom.cpp:776
+#, fuzzy, kde-format
+#| msgctxt "[User] removed <name> widget"
+#| msgid "removed %1 widget"
+msgid "removed a widget"
+msgstr "%1 araç takımını kaldırdı"
+
+#: src/neochatroom.cpp:778
+#, fuzzy, kde-format
+#| msgctxt "[User] configured <name> widget"
+#| msgid "configured %1 widget"
+msgid "configured a widget"
+msgstr "%1 araç takımını yapılandırdı"
+
+#: src/neochatroom.cpp:780
+#, fuzzy, kde-format
+#| msgid "updated %1 state"
+msgid "updated the state"
+msgstr "%1 durumunu güncelledi"
+
+#: src/neochatroom.cpp:784
+#, kde-format
+msgid "started a poll"
+msgstr ""
+
+#: src/neochatroom.cpp:1612 src/neochatroom.cpp:1613
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapor başarıyla gönderildi."
@@ -903,7 +1039,7 @@ msgstr "Bu odada NeoChat'i açın"
 #: src/notificationsmanager.cpp:85
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:547
+#: src/qml/Page/RoomPage.qml:546
 #, kde-format
 msgid "Reply"
 msgstr "Yanıtla"
@@ -950,22 +1086,22 @@ msgstr "Düzenle"
 msgid "Cancel sending attachment"
 msgstr "İlişik göndermeyi iptal et"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:33
+#: src/qml/Component/ChatBox/ChatBar.qml:31
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Bir görsel veya dosya iliştir"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:59
+#: src/qml/Component/ChatBox/ChatBar.qml:57
 #, kde-format
 msgid "Add an Emoji"
 msgstr "Bir Emoji ekle"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:79
+#: src/qml/Component/ChatBox/ChatBar.qml:77
 #, kde-format
 msgid "Send message"
 msgstr "İleti gönder"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:125
+#: src/qml/Component/ChatBox/ChatBar.qml:123
 #, kde-format
 msgid ""
 "This room is encrypted. Build libQuotient with encryption enabled to send "
@@ -974,52 +1110,36 @@ msgstr ""
 "Bu oda şifreli. Şifreli iletiler göndermek için libQuotient'i şifreleme "
 "etkinleştirilmiş olarak yapın."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:125
-#, kde-format
-msgid "Edit Message"
-msgstr "İleti Düzenle"
-
-#: src/qml/Component/ChatBox/ChatBar.qml:125
+#: src/qml/Component/ChatBox/ChatBar.qml:123
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Şifreli bir ileti gönder…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:125
+#: src/qml/Component/ChatBox/ChatBar.qml:123
 #, kde-format
 msgid "Set an attachment caption..."
 msgstr "Bir ilişik alt yazısı ekle..."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:125
+#: src/qml/Component/ChatBox/ChatBar.qml:123
 #, kde-format
 msgid "Send a message…"
 msgstr "Bir ileti gönder…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:269
+#: src/qml/Component/ChatBox/ChatBar.qml:266
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Yanıtı İptal Et"
-
-#: src/qml/Component/ChatBox/ChatBar.qml:269
-#, kde-format
-msgctxt "@action:button"
-msgid "Cancel edit"
-msgstr "Düzenlemeyi İptal Et"
 
 #: src/qml/Component/ChatBox/ChatBox.qml:29
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat, çevrimdışı. Lütfen ağ bağlantınızı denetleyin."
 
-#: src/qml/Component/ChatBox/ReplyPane.qml:33
+#: src/qml/Component/ChatBox/ReplyPane.qml:32
 #, kde-format
 msgid "Replying to:"
 msgstr "Şu kişi yanıtlanıyor:"
-
-#: src/qml/Component/ChatBox/ReplyPane.qml:33
-#, kde-format
-msgid "Editing message:"
-msgstr "İleti düzenleniyor:"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:77
 #, kde-format
@@ -1213,6 +1333,34 @@ msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
 msgid "Stop Download"
 msgstr "İndirmeyi Durdur"
+
+#: src/qml/Component/Timeline/LinkPreviewDelegate.qml:122
+#, kde-format
+msgid "Shrink preview"
+msgstr ""
+
+#: src/qml/Component/Timeline/LinkPreviewDelegate.qml:122
+#, kde-format
+msgid "Expand preview"
+msgstr ""
+
+#: src/qml/Component/Timeline/LinkPreviewDelegate.qml:145
+#, kde-format
+msgid "Loading URL preview"
+msgstr ""
+
+#: src/qml/Component/Timeline/MessageEditComponent.qml:79
+#, fuzzy, kde-format
+#| msgid "Confirm"
+msgctxt "@action:button"
+msgid "Confirm edit"
+msgstr "Onayla"
+
+#: src/qml/Component/Timeline/MessageEditComponent.qml:91
+#, kde-format
+msgctxt "@action:button"
+msgid "Cancel edit"
+msgstr "Düzenlemeyi İptal Et"
 
 #: src/qml/Component/Timeline/PollDelegate.qml:48
 #, kde-format
@@ -3558,22 +3706,22 @@ msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
 msgstr "Oda listesinde %1 diye bir oda yok. Hesabı ve yazımı denetleyin."
 
-#: src/roommanager.cpp:204
+#: src/roommanager.cpp:207
 #, kde-format
 msgid "Failed to join room"
 msgstr "Odaya katılamadı"
 
-#: src/roommanager.cpp:213
+#: src/roommanager.cpp:216
 #, kde-format
 msgid "No application for the link"
 msgstr "Bağlantı için bir uygulama yok"
 
-#: src/roommanager.cpp:213
+#: src/roommanager.cpp:216
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "İşletim sisteminiz, bu bağlantı için bir uygulama bulamadı."
 
-#: src/roommanager.cpp:219
+#: src/roommanager.cpp:222
 #, kde-format
 msgid "Could not open URL"
 msgstr "URL açılamadı"
@@ -3582,6 +3730,12 @@ msgstr "URL açılamadı"
 #, kde-format
 msgid "Show"
 msgstr "Göster"
+
+#~ msgid "Edit Message"
+#~ msgstr "İleti Düzenle"
+
+#~ msgid "Editing message:"
+#~ msgstr "İleti düzenleniyor:"
 
 #~ msgid "Owner"
 #~ msgstr "Sahip"
