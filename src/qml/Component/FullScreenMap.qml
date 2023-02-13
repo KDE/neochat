@@ -39,6 +39,14 @@ ApplicationWindow {
         zoomLevel: 15
         plugin: Plugin {
             name: "osm"
+            PluginParameter {
+                name: "osm.useragent"
+                value: Application.name + "/" + Application.version + " (kde-devel@kde.org)"
+            }
+            PluginParameter {
+                name: "osm.mapping.providersrepository.address"
+                value: "https://autoconfig.kde.org/qtlocation/"
+            }
         }
         MapCircle {
             radius: 1500 / map.zoomLevel
