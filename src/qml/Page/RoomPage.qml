@@ -26,6 +26,11 @@ Kirigami.ScrollablePage {
     /// cancel implementation.
     property bool disableCancelShortcut: false
 
+    property var editChatDocumentHandler: ChatDocumentHandler {
+        isEdit: true
+        room: currentRoom // We don't care about saving for edits so this is OK.
+    }
+
     title: currentRoom.displayName
 
     KeyNavigation.left: pageStack.get(0)

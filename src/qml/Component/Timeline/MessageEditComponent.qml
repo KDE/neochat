@@ -124,16 +124,6 @@ QQC2.TextArea {
         }
     }
 
-    ChatDocumentHandler {
-        id: documentHandler
-        isEdit: true
-        document: root.textDocument
-        cursorPosition: root.cursorPosition
-        selectionStart: root.selectionStart
-        selectionEnd: root.selectionEnd
-        room: currentRoom // We don't care about saving for edits so this is OK.
-    }
-
     TextMetrics {
         id: editTextMetrics
         text: root.text

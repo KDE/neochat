@@ -28,6 +28,14 @@ TimelineContainer {
             Layout.fillWidth: true
             messageId: model.eventId
             visible: currentRoom.chatBoxEditId === model.eventId
+            onVisibleChanged: {
+                if (visible) {
+                    editChatDocumentHandler.document = textDocument
+                    editChatDocumentHandler.cursorPosition = cursorPosition
+                    editChatDocumentHandler.selectionStart = selectionStart
+                    editChatDocumentHandler.selectionEnd = selectionEnd
+                }
+            }
         }
         LinkPreviewDelegate {
             Layout.fillWidth: true
