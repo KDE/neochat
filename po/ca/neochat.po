@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-13 00:57+0000\n"
-"PO-Revision-Date: 2023-02-03 15:18+0100\n"
+"PO-Revision-Date: 2023-02-13 11:13+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -510,28 +510,23 @@ msgid "Removes the user from the room"
 msgstr "Elimina l'usuari d'aquesta sala"
 
 #: src/models/collapsestateproxymodel.cpp:70
-#, fuzzy, kde-format
-#| msgctxt "[user did something] n times"
-#| msgid " %1 time"
-#| msgid_plural " %1 times"
+#, kde-format
 msgctxt "n times"
 msgid " %1 time "
 msgid_plural " %1 times "
-msgstr[0] " %1 vegada"
-msgstr[1] " %1 vegades"
+msgstr[0] " %1 vegada "
+msgstr[1] " %1 vegades "
 
 #: src/models/collapsestateproxymodel.cpp:76
 #, kde-format
 msgctxt "n users"
 msgid " %1 user "
 msgid_plural " %1 users "
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] " %1 usuari "
+msgstr[1] " %1 usuaris "
 
 #: src/models/collapsestateproxymodel.cpp:86
-#, fuzzy, kde-format
-#| msgctxt "[action 1], [action 2 and action 3]"
-#| msgid ", "
+#, kde-format
 msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
 msgstr ", "
@@ -540,7 +535,7 @@ msgstr ", "
 #, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
-msgstr ""
+msgstr " o "
 
 #: src/models/collapsestateproxymodel.cpp:89
 #, kde-format
@@ -911,121 +906,100 @@ msgid "Unknown event"
 msgstr "Esdeveniment desconegut"
 
 #: src/neochatroom.cpp:671
-#, fuzzy, kde-format
-#| msgid "Send a message…"
+#, kde-format
 msgid "sent a message"
-msgstr "Envia un missatge…"
+msgstr "enviat un missatge…"
 
 #: src/neochatroom.cpp:675
 #, kde-format
 msgid "sent a sticker"
-msgstr ""
+msgstr "enviat un adhesiu"
 
 #: src/neochatroom.cpp:681
-#, fuzzy, kde-format
-#| msgid "reinvited %1 to the room"
+#, kde-format
 msgid "reinvited someone to the room"
-msgstr "s'ha tornat a convidar %1 a la sala"
+msgstr "ha tornat a convidar algú a la sala"
 
 #: src/neochatroom.cpp:690
-#, fuzzy, kde-format
-#| msgid "invited %1 to the room"
+#, kde-format
 msgid "invited someone to the room"
-msgstr "s'ha convidat %1 a la sala"
+msgstr "ha convidat algú a la sala"
 
 #: src/neochatroom.cpp:700
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
+#, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name"
-msgstr "ha canviat el seu nom a mostrar a %1"
+msgstr "ha canviat el seu nom a mostrar"
 
 #: src/neochatroom.cpp:726
-#, fuzzy, kde-format
-#| msgid "withdrew %1's invitation"
+#, kde-format
 msgid "withdrew a user's invitation"
-msgstr "retira la invitació de %1"
+msgstr "retira una invitació d'usuari"
 
 #: src/neochatroom.cpp:730
-#, fuzzy, kde-format
-#| msgid "unbanned %1"
+#, kde-format
 msgid "unbanned a user"
-msgstr "s'ha desbandejat %1"
+msgstr "ha desbandejat un usuari"
 
 #: src/neochatroom.cpp:732
-#, fuzzy, kde-format
-#| msgid "has put %1 out of the room: %2"
+#, kde-format
 msgid "put a user out of the room"
-msgstr "ha posat %1 fora de la sala: %2"
+msgstr "ha posat un usuari fora de la sala"
 
 #: src/neochatroom.cpp:735
-#, fuzzy, kde-format
-#| msgid "banned %1 from the room"
+#, kde-format
 msgid "banned a user from the room"
-msgstr "s'ha bandejat %1 de la sala"
+msgstr "ha bandejat un usuari de la sala"
 
 #: src/neochatroom.cpp:747
-#, fuzzy, kde-format
-#| msgid "set the room main alias to: %1"
+#, kde-format
 msgid "set the room main alias"
-msgstr "s'ha definit l'àlies principal de la sala a: %1"
+msgstr "ha definit l'àlies principal de la sala"
 
 #: src/neochatroom.cpp:750
-#, fuzzy, kde-format
-#| msgid "set the room name to: %1"
+#, kde-format
 msgid "set the room name"
-msgstr "s'ha definit el nom de la sala a: %1"
+msgstr "ha definit el nom de la sala"
 
 #: src/neochatroom.cpp:753
-#, fuzzy, kde-format
-#| msgid "set the topic to: %1"
+#, kde-format
 msgid "set the topic"
-msgstr "s'ha definit el tema a: %1"
+msgstr "ha definit el tema"
 
 #: src/neochatroom.cpp:762
-#, fuzzy, kde-format
-#| msgid "upgraded the room to version %1"
+#, kde-format
 msgid "upgraded the room version"
-msgstr "la sala s'ha actualitzat a la versió %1"
+msgstr "ha actualitzat la versió de la sala"
 
 #: src/neochatroom.cpp:762
-#, fuzzy, kde-format
-#| msgid "left the room"
+#, kde-format
 msgid "created the room"
-msgstr "ha deixat la sala"
+msgstr "ha creat la sala"
 
 #: src/neochatroom.cpp:773
-#, fuzzy, kde-format
-#| msgctxt "[User] added <name> widget"
-#| msgid "added %1 widget"
+#, kde-format
 msgid "added a widget"
-msgstr "ha afegit el giny %1"
+msgstr "ha afegit un giny"
 
 #: src/neochatroom.cpp:776
-#, fuzzy, kde-format
-#| msgctxt "[User] removed <name> widget"
-#| msgid "removed %1 widget"
+#, kde-format
 msgid "removed a widget"
-msgstr "ha eliminat el giny %1"
+msgstr "ha eliminat un giny"
 
 #: src/neochatroom.cpp:778
-#, fuzzy, kde-format
-#| msgctxt "[User] configured <name> widget"
-#| msgid "configured %1 widget"
+#, kde-format
 msgid "configured a widget"
-msgstr "ha configurat el giny %1"
+msgstr "ha configurat un giny"
 
 #: src/neochatroom.cpp:780
-#, fuzzy, kde-format
-#| msgid "updated %1 state"
+#, kde-format
 msgid "updated the state"
-msgstr "s'ha actualitzat l'estat de %1"
+msgstr "ha actualitzat l'estat"
 
 #: src/neochatroom.cpp:784
 #, kde-format
 msgid "started a poll"
-msgstr ""
+msgstr "ha començat una enquesta"
 
 #: src/neochatroom.cpp:1612 src/neochatroom.cpp:1613
 #, kde-format
@@ -1347,24 +1321,23 @@ msgstr "Atura la baixada"
 #: src/qml/Component/Timeline/LinkPreviewDelegate.qml:122
 #, kde-format
 msgid "Shrink preview"
-msgstr ""
+msgstr "Encongeix la vista prèvia"
 
 #: src/qml/Component/Timeline/LinkPreviewDelegate.qml:122
 #, kde-format
 msgid "Expand preview"
-msgstr ""
+msgstr "Expandeix la vista prèvia"
 
 #: src/qml/Component/Timeline/LinkPreviewDelegate.qml:145
 #, kde-format
 msgid "Loading URL preview"
-msgstr ""
+msgstr "S'està carregant la vista prèvia de l'URL"
 
 #: src/qml/Component/Timeline/MessageEditComponent.qml:79
-#, fuzzy, kde-format
-#| msgid "Confirm"
+#, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
-msgstr "Confirma"
+msgstr "Confirma l'edició"
 
 #: src/qml/Component/Timeline/MessageEditComponent.qml:91
 #, kde-format
@@ -3758,9 +3731,3 @@ msgstr "No s'ha pogut obrir l'URL"
 #, kde-format
 msgid "Show"
 msgstr "Mostra"
-
-#~ msgid "Edit Message"
-#~ msgstr "Edita el missatge"
-
-#~ msgid "Editing message:"
-#~ msgstr "Missatge en edició:"
