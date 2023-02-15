@@ -145,7 +145,7 @@ void CompletionModel::updateCompletion()
         m_filterModel->setFullText(m_fullText);
         m_filterModel->setFilterText(m_text);
         m_filterModel->invalidate();
-    } else if (text().startsWith(QLatin1Char(':'))
+    } else if (text().startsWith(QLatin1Char(':')) && !text()[1].isUpper()
                && (m_fullText.indexOf(QLatin1Char(':'), 1) == -1
                    || (m_fullText.indexOf(QLatin1Char(' ')) != -1 && m_fullText.indexOf(QLatin1Char(':'), 1) > m_fullText.indexOf(QLatin1Char(' '), 1)))) {
         m_filterModel->setSourceModel(m_emojiModel);
