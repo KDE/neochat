@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-13 00:57+0000\n"
-"PO-Revision-Date: 2023-01-31 19:55+0530\n"
+"PO-Revision-Date: 2023-02-14 21:42+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #: src/controller.cpp:195
 #, kde-format
@@ -507,28 +507,23 @@ msgid "Removes the user from the room"
 msgstr "பயனரை அரங்கிலிருந்து நீக்கும்"
 
 #: src/models/collapsestateproxymodel.cpp:70
-#, fuzzy, kde-format
-#| msgctxt "[user did something] n times"
-#| msgid " %1 time"
-#| msgid_plural " %1 times"
+#, kde-format
 msgctxt "n times"
 msgid " %1 time "
 msgid_plural " %1 times "
-msgstr[0] " %1 முறை"
-msgstr[1] " %1 முறை"
+msgstr[0] " %1 முறை "
+msgstr[1] " %1 முறை "
 
 #: src/models/collapsestateproxymodel.cpp:76
 #, kde-format
 msgctxt "n users"
 msgid " %1 user "
 msgid_plural " %1 users "
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] " %1 பயனர் "
+msgstr[1] " %1 பயனர்கள்  "
 
 #: src/models/collapsestateproxymodel.cpp:86
-#, fuzzy, kde-format
-#| msgctxt "[action 1], [action 2 and action 3]"
-#| msgid ", "
+#, kde-format
 msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
 msgstr ", "
@@ -537,7 +532,7 @@ msgstr ", "
 #, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
-msgstr ""
+msgstr "அல்லது"
 
 #: src/models/collapsestateproxymodel.cpp:89
 #, kde-format
@@ -907,121 +902,100 @@ msgid "Unknown event"
 msgstr "தெரியாத நிகழ்வு"
 
 #: src/neochatroom.cpp:671
-#, fuzzy, kde-format
-#| msgid "Send a message…"
+#, kde-format
 msgid "sent a message"
-msgstr "செய்தியை அனுப்பு…"
+msgstr "செய்தியை அனுப்பினார்"
 
 #: src/neochatroom.cpp:675
 #, kde-format
 msgid "sent a sticker"
-msgstr ""
+msgstr "ஒட்டியை அனுப்பினார்"
 
 #: src/neochatroom.cpp:681
-#, fuzzy, kde-format
-#| msgid "reinvited %1 to the room"
+#, kde-format
 msgid "reinvited someone to the room"
-msgstr "%1 என்பவரை மறுபடியும் அரங்குக்கு வரவழைத்தார்"
+msgstr "ஒருவரை மறுபடியும் அரங்குக்கு வரவழைத்தார்"
 
 #: src/neochatroom.cpp:690
-#, fuzzy, kde-format
-#| msgid "invited %1 to the room"
+#, kde-format
 msgid "invited someone to the room"
-msgstr "%1 என்பவரை அரங்குக்கு வரவழைத்தார்"
+msgstr "எவரையே அரங்குக்கு வரவழைத்தார்"
 
 #: src/neochatroom.cpp:700
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
+#, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name"
-msgstr "அவருடைய காட்டப்படும் பெயரை %1 என்று மாற்றினார்"
+msgstr "தன் காட்சிப்பெயரை மாற்றினார்"
 
 #: src/neochatroom.cpp:726
-#, fuzzy, kde-format
-#| msgid "withdrew %1's invitation"
+#, kde-format
 msgid "withdrew a user's invitation"
-msgstr "%1 என்பவருக்கான அழைப்பை திரும்பப்பெற்றார்"
+msgstr "ஒருவருக்கு விடுத்த வரவழைப்பை திரும்பப்பெற்றார்"
 
 #: src/neochatroom.cpp:730
-#, fuzzy, kde-format
-#| msgid "unbanned %1"
+#, kde-format
 msgid "unbanned a user"
-msgstr "%1 மீதான தடையை நீக்கினார்"
+msgstr "ஒருவர் மீதான தடையை நீக்கினார்"
 
 #: src/neochatroom.cpp:732
-#, fuzzy, kde-format
-#| msgid "has put %1 out of the room: %2"
+#, kde-format
 msgid "put a user out of the room"
-msgstr "%1 என்பவரை அரங்குக்கு வெளியே அனுப்பிவிட்டார்: %2"
+msgstr "ஒருவரை அரங்குகிலிருந்து வெளியே அனுப்பினார்"
 
 #: src/neochatroom.cpp:735
-#, fuzzy, kde-format
-#| msgid "banned %1 from the room"
+#, kde-format
 msgid "banned a user from the room"
-msgstr "%1 என்பவரை அரங்கிலிருந்து தடை செய்தார்"
+msgstr "ஒருவரை அரங்கிலிருந்து தடை செய்தார்"
 
 #: src/neochatroom.cpp:747
-#, fuzzy, kde-format
-#| msgid "set the room main alias to: %1"
+#, kde-format
 msgid "set the room main alias"
-msgstr "அரங்கின் மாற்றுப்பெயரை %1 என்று அமைத்தார்"
+msgstr "அரங்கின் மாற்றுப்பெயரை அமைத்தார்"
 
 #: src/neochatroom.cpp:750
-#, fuzzy, kde-format
-#| msgid "set the room name to: %1"
+#, kde-format
 msgid "set the room name"
-msgstr "அரங்கின் பெயரை %1 என்று அமைத்தார்"
+msgstr "அரங்கின் பெயரை அமைத்தார்"
 
 #: src/neochatroom.cpp:753
-#, fuzzy, kde-format
-#| msgid "set the topic to: %1"
+#, kde-format
 msgid "set the topic"
-msgstr "தலைப்பை %1 என்று அமைத்தார்"
+msgstr "தலைப்பை அமைத்தார்"
 
 #: src/neochatroom.cpp:762
-#, fuzzy, kde-format
-#| msgid "upgraded the room to version %1"
+#, kde-format
 msgid "upgraded the room version"
-msgstr "அரங்கை %1 பதிப்புக்கு மேம்படுத்தினார்"
+msgstr "அரங்கின் பதிப்பை மேம்படுத்தினார்"
 
 #: src/neochatroom.cpp:762
-#, fuzzy, kde-format
-#| msgid "left the room"
+#, kde-format
 msgid "created the room"
-msgstr "அரங்கைவிட்டு வெளியேறினார்"
+msgstr "அரங்கை உருவாக்கினார்"
 
 #: src/neochatroom.cpp:773
-#, fuzzy, kde-format
-#| msgctxt "[User] added <name> widget"
-#| msgid "added %1 widget"
+#, kde-format
 msgid "added a widget"
-msgstr "%1 பலகையை சேர்த்தார்"
+msgstr "ஓர் உட்பொதிநிரலை சேர்த்தார்"
 
 #: src/neochatroom.cpp:776
-#, fuzzy, kde-format
-#| msgctxt "[User] removed <name> widget"
-#| msgid "removed %1 widget"
+#, kde-format
 msgid "removed a widget"
-msgstr "%1 பலகையை நீக்கினார்"
+msgstr "ஓர் உட்பொதிநிரலை நீக்கினார்"
 
 #: src/neochatroom.cpp:778
-#, fuzzy, kde-format
-#| msgctxt "[User] configured <name> widget"
-#| msgid "configured %1 widget"
+#, kde-format
 msgid "configured a widget"
-msgstr "%1 பலகையை அமைத்தார்"
+msgstr "ஓர் உட்பொதிநிரல் மாற்றியமைத்தார்"
 
 #: src/neochatroom.cpp:780
-#, fuzzy, kde-format
-#| msgid "updated %1 state"
+#, kde-format
 msgid "updated the state"
-msgstr "%1 நிலையை புதுப்பித்தார்"
+msgstr "நிலையை புதுப்பித்தார்"
 
 #: src/neochatroom.cpp:784
 #, kde-format
 msgid "started a poll"
-msgstr ""
+msgstr "கருத்தாய்வை துவக்கினார்"
 
 #: src/neochatroom.cpp:1612 src/neochatroom.cpp:1613
 #, kde-format
@@ -1340,24 +1314,23 @@ msgstr "பதிவிறக்கத்தை நிறுத்து"
 #: src/qml/Component/Timeline/LinkPreviewDelegate.qml:122
 #, kde-format
 msgid "Shrink preview"
-msgstr ""
+msgstr "முன்னோட்டத்தை சிறிதாக்கு"
 
 #: src/qml/Component/Timeline/LinkPreviewDelegate.qml:122
 #, kde-format
 msgid "Expand preview"
-msgstr ""
+msgstr "முன்னோட்டத்தை பெரிதாக்கு"
 
 #: src/qml/Component/Timeline/LinkPreviewDelegate.qml:145
 #, kde-format
 msgid "Loading URL preview"
-msgstr ""
+msgstr "முகவரியின் முன்னோட்டம் ஏற்றப்படுகிறது"
 
 #: src/qml/Component/Timeline/MessageEditComponent.qml:79
-#, fuzzy, kde-format
-#| msgid "Confirm"
+#, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
-msgstr "உறுதிசெய்"
+msgstr "திருத்தத்தை உறுதிசெய்"
 
 #: src/qml/Component/Timeline/MessageEditComponent.qml:91
 #, kde-format
@@ -3282,7 +3255,7 @@ msgstr "விருப்பமான முகவடிகள்"
 #: src/qml/Settings/Emoticons.qml:24
 #, kde-format
 msgid "No custom inline stickers found"
-msgstr ""
+msgstr "வரியுள்ளான தனிப்பயன் ஒட்டியேதும் கண்டுபிடிக்கப்படவில்லை"
 
 #: src/qml/Settings/Emoticons.qml:72
 #, kde-format
@@ -3690,10 +3663,9 @@ msgstr ""
 "அரங்குகளின் பட்டியலில் %1 என்று எந்த அரங்கும் இல்லை. எழுத்தாக்கம் மற்றும் கணக்கை சரிபாருங்கள்."
 
 #: src/roommanager.cpp:207
-#, fuzzy, kde-format
-#| msgid "Invites to a room"
+#, kde-format
 msgid "Failed to join room"
-msgstr "அரங்கிற்கான வரவழைப்புகள்"
+msgstr "அரங்கில் நுழைவது தோல்வியடைந்தது"
 
 #: src/roommanager.cpp:216
 #, kde-format
