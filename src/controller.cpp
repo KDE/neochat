@@ -169,7 +169,9 @@ void Controller::handleNotifications(QPointer<Quotient::Connection> connection)
             auto room = connection->room(notification["room_id"].toString());
 
             // If room exists, room is NOT active OR the application is NOT active, show notification
-            if (room && !(room->id() == RoomManager::instance().currentRoom()->id() && QGuiApplication::applicationState() == Qt::ApplicationActive)) {
+            if (room
+                && !(RoomManager::instance().currentRoom() && room->id() == RoomManager::instance().currentRoom()->id()
+                     && QGuiApplication::applicationState() == Qt::ApplicationActive)) {
                 // The room might have been deleted (for example rejected invitation).
                 auto sender = room->user(notification["event"].toObject()["sender"].toString());
 
