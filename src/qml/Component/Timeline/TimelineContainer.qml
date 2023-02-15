@@ -320,4 +320,9 @@ ColumnLayout {
 
         visible: eventType !== MessageEventModel.State && eventType !== MessageEventModel.Notice && reaction != undefined && reaction.length > 0
     }
+
+    function isVisibleInTimeline() {
+        let yoff = Math.round(y - ListView.view.contentY);
+        return (yoff + height > 0 && yoff < ListView.view.height)
+    }
 }

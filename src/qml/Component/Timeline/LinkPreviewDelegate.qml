@@ -44,6 +44,11 @@ Loader {
      */
     property var defaultHeight : Kirigami.Units.gridUnit * 3 + Kirigami.Units.smallSpacing * 2
 
+    /**
+     * @brief Whether the loading indicator should animate if visible.
+     */
+    property bool indicatorEnabled: false
+
     active: !currentRoom.usesEncryption && model.display && links && links.length > 0
     visible: Config.showLinkPreview && active
     sourceComponent: linkPreviewer.loaded ? linkPreviewComponent : loadingComponent
@@ -129,7 +134,7 @@ Loader {
     Component {
         id: loadingComponent
         RowLayout {
-            property bool hovered: false
+            id: componentRoot
             property bool truncated: false
 
             Rectangle {
@@ -137,7 +142,9 @@ Loader {
                 width: Kirigami.Units.smallSpacing
                 color: Kirigami.Theme.highlightColor
             }
-            QQC2.BusyIndicator { }
+            QQC2.BusyIndicator {
+                running: root.indicatorEnabled
+            }
             Kirigami.Heading {
                 Layout.fillWidth: true
                 Layout.minimumHeight: root.defaultHeight

@@ -31,6 +31,7 @@ TimelineContainer {
         }
         LinkPreviewDelegate {
             Layout.fillWidth: true
+            indicatorEnabled: messageDelegate.isVisibleInTimeline()
         }
     }
 }
