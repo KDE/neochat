@@ -24,10 +24,13 @@ TimelineContainer {
             visible: currentRoom.chatBoxEditId !== model.eventId
             isEmote: messageDelegate.isEmote
         }
-        MessageEditComponent {
+        Loader {
             Layout.fillWidth: true
-            messageId: model.eventId
             visible: currentRoom.chatBoxEditId === model.eventId
+            active: visible
+            sourceComponent: MessageEditComponent {
+                messageId: model.eventId
+            }
         }
         LinkPreviewDelegate {
             Layout.fillWidth: true
