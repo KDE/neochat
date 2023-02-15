@@ -41,6 +41,7 @@
 #include <csapi/content-repo.h>
 #include <csapi/logout.h>
 #include <csapi/profile.h>
+#include <jobs/downloadfilejob.h>
 #include <qt_connection_util.h>
 
 #ifdef QUOTIENT_07
@@ -609,6 +610,11 @@ void Controller::setActiveConnection(Connection *connection)
             }
             m_isOnline = true;
             Q_EMIT isOnlineChanged(true);
+        });
+        connect(connection, &Connection::requestFailed, this, [=](BaseJob *job) {
+            if (dynamic_cast<DownloadFileJob *>(job) && job->jsonData()["errcode"].toString() == "M_TOO_LARGE"_ls) {
+                RoomManager::instance().warning(i18n("File too large to download."), i18n("Contact your matrix server administrator for support."));
+            }
         });
     } else {
         NeoChatConfig::self()->setActiveConnection(QString());
