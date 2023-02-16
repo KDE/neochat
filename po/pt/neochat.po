@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-13 00:57+0000\n"
-"PO-Revision-Date: 2023-01-22 22:33+0000\n"
+"POT-Creation-Date: 2023-02-16 00:59+0000\n"
+"PO-Revision-Date: 2023-02-15 13:04+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -19,69 +19,69 @@ msgstr ""
 "X-POFile-SpellExtra: Rusakov Quotient gif webp novaalcunha libQuotient\n"
 "X-POFile-SpellExtra: push\n"
 
-#: src/controller.cpp:195
+#: src/controller.cpp:197
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Mensagem Encriptada"
 
-#: src/controller.cpp:255 src/controller.cpp:388
+#: src/controller.cpp:257 src/controller.cpp:390
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Erro de Rede: %1"
 
-#: src/controller.cpp:374
+#: src/controller.cpp:376
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Autenticação sem Sucesso: Código de Acesso inválido ou revogado"
 
-#: src/controller.cpp:377 src/controller.cpp:382 src/login.cpp:91
+#: src/controller.cpp:379 src/controller.cpp:384 src/login.cpp:91
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Autenticação sem Sucesso: %1"
 
-#: src/controller.cpp:413
+#: src/controller.cpp:415
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "O código de acesso não foi encontrado"
 
-#: src/controller.cpp:413
+#: src/controller.cpp:415
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Talvez tenha sido removido?"
 
-#: src/controller.cpp:417
+#: src/controller.cpp:419
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Foi negado o sucesso ao porta-chaves."
 
-#: src/controller.cpp:417
+#: src/controller.cpp:419
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Por favor permita ao NeoChat ler o código de acesso"
 
-#: src/controller.cpp:420
+#: src/controller.cpp:422
 #, kde-format
 msgid "No keychain available."
 msgstr "Sem sistemas de armazenamento de códigos disponíveis."
 
-#: src/controller.cpp:420
+#: src/controller.cpp:422
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Instale por favor um sistema de chaves, p.ex. o KWallet ou o Gnome Keyring "
 "no Linux"
 
-#: src/controller.cpp:423
+#: src/controller.cpp:425
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Não é possível ler o código de acesso"
 
-#: src/controller.cpp:640
+#: src/controller.cpp:642
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "Não foi possível criar a sala: \"%1\""
 
-#: src/controller.cpp:653
+#: src/controller.cpp:655
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "O ID da sala a se que está a tentar ligar não é válido"
@@ -510,28 +510,23 @@ msgid "Removes the user from the room"
 msgstr "Remove o utilizador da sala"
 
 #: src/models/collapsestateproxymodel.cpp:70
-#, fuzzy, kde-format
-#| msgctxt "[user did something] n times"
-#| msgid " %1 time"
-#| msgid_plural " %1 times"
+#, kde-format
 msgctxt "n times"
 msgid " %1 time "
 msgid_plural " %1 times "
-msgstr[0] " %1 vez"
-msgstr[1] " %1 vezes"
+msgstr[0] " %1 vez "
+msgstr[1] " %1 vezes "
 
 #: src/models/collapsestateproxymodel.cpp:76
 #, kde-format
 msgctxt "n users"
 msgid " %1 user "
 msgid_plural " %1 users "
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] " %1 utilizador "
+msgstr[1] " %1 utilizadores "
 
 #: src/models/collapsestateproxymodel.cpp:86
-#, fuzzy, kde-format
-#| msgctxt "[action 1], [action 2 and action 3]"
-#| msgid ", "
+#, kde-format
 msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
 msgstr ", "
@@ -540,7 +535,7 @@ msgstr ", "
 #, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
-msgstr ""
+msgstr " ou "
 
 #: src/models/collapsestateproxymodel.cpp:89
 #, kde-format
@@ -910,121 +905,100 @@ msgid "Unknown event"
 msgstr "Evento desconhecido"
 
 #: src/neochatroom.cpp:671
-#, fuzzy, kde-format
-#| msgid "Send a message…"
+#, kde-format
 msgid "sent a message"
-msgstr "Enviar uma mensagem…"
+msgstr "enviou uma mensagem"
 
 #: src/neochatroom.cpp:675
 #, kde-format
 msgid "sent a sticker"
-msgstr ""
+msgstr "enviou um autocolante"
 
 #: src/neochatroom.cpp:681
-#, fuzzy, kde-format
-#| msgid "reinvited %1 to the room"
+#, kde-format
 msgid "reinvited someone to the room"
-msgstr "voltou a convidar o %1 para a sala"
+msgstr "voltou a convidar alguém para a sala"
 
 #: src/neochatroom.cpp:690
-#, fuzzy, kde-format
-#| msgid "invited %1 to the room"
+#, kde-format
 msgid "invited someone to the room"
-msgstr "convidou o %1 para a sala"
+msgstr "convidou alguém para a sala"
 
 #: src/neochatroom.cpp:700
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
+#, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name"
-msgstr "mudou o seu nome visível para %1"
+msgstr "mudou o seu nome visível"
 
 #: src/neochatroom.cpp:726
-#, fuzzy, kde-format
-#| msgid "withdrew %1's invitation"
+#, kde-format
 msgid "withdrew a user's invitation"
-msgstr "retirou o convite de %1"
+msgstr "retirou o convite de um utilizador"
 
 #: src/neochatroom.cpp:730
-#, fuzzy, kde-format
-#| msgid "unbanned %1"
+#, kde-format
 msgid "unbanned a user"
-msgstr "readmitiu o %1"
+msgstr "readmitiu um utilizador"
 
 #: src/neochatroom.cpp:732
-#, fuzzy, kde-format
-#| msgid "has put %1 out of the room: %2"
+#, kde-format
 msgid "put a user out of the room"
-msgstr "expulsou o %1 da sala: %2"
+msgstr "expulsou um utilizador da sala"
 
 #: src/neochatroom.cpp:735
-#, fuzzy, kde-format
-#| msgid "banned %1 from the room"
+#, kde-format
 msgid "banned a user from the room"
-msgstr "expulsou o %1 da sala"
+msgstr "expulsou um utilizador da sala"
 
 #: src/neochatroom.cpp:747
-#, fuzzy, kde-format
-#| msgid "set the room main alias to: %1"
+#, kde-format
 msgid "set the room main alias"
-msgstr "mudou o nome principal da sala para: %1"
+msgstr "mudou o nome principal da sala"
 
 #: src/neochatroom.cpp:750
-#, fuzzy, kde-format
-#| msgid "set the room name to: %1"
+#, kde-format
 msgid "set the room name"
-msgstr "mudou o nome da sala para: %1"
+msgstr "mudou o nome da sala"
 
 #: src/neochatroom.cpp:753
-#, fuzzy, kde-format
-#| msgid "set the topic to: %1"
+#, kde-format
 msgid "set the topic"
-msgstr "mudou o tópico para: %1"
+msgstr "mudou o tópico"
 
 #: src/neochatroom.cpp:762
-#, fuzzy, kde-format
-#| msgid "upgraded the room to version %1"
+#, kde-format
 msgid "upgraded the room version"
-msgstr "actualizou a sala para a versão %1"
+msgstr "actualizou a versão da sala"
 
 #: src/neochatroom.cpp:762
-#, fuzzy, kde-format
-#| msgid "left the room"
+#, kde-format
 msgid "created the room"
-msgstr "saiu da sala"
+msgstr "criou a sala"
 
 #: src/neochatroom.cpp:773
-#, fuzzy, kde-format
-#| msgctxt "[User] added <name> widget"
-#| msgid "added %1 widget"
+#, kde-format
 msgid "added a widget"
-msgstr "adicionou o elemento %1"
+msgstr "adicionou um elemento"
 
 #: src/neochatroom.cpp:776
-#, fuzzy, kde-format
-#| msgctxt "[User] removed <name> widget"
-#| msgid "removed %1 widget"
+#, kde-format
 msgid "removed a widget"
-msgstr "removeu o elemento %1"
+msgstr "removeu um elemento"
 
 #: src/neochatroom.cpp:778
-#, fuzzy, kde-format
-#| msgctxt "[User] configured <name> widget"
-#| msgid "configured %1 widget"
+#, kde-format
 msgid "configured a widget"
-msgstr "configurou o elemento %1"
+msgstr "configurou um elemento"
 
 #: src/neochatroom.cpp:780
-#, fuzzy, kde-format
-#| msgid "updated %1 state"
+#, kde-format
 msgid "updated the state"
-msgstr "actualizou o estado de %1"
+msgstr "actualizou o estado"
 
 #: src/neochatroom.cpp:784
 #, kde-format
 msgid "started a poll"
-msgstr ""
+msgstr "iniciou uma sondagem"
 
 #: src/neochatroom.cpp:1612 src/neochatroom.cpp:1613
 #, kde-format
@@ -1087,10 +1061,9 @@ msgid "Edit"
 msgstr "Editar"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:62
-#, fuzzy, kde-format
-#| msgid "Cancel sending Image"
+#, kde-format
 msgid "Cancel sending attachment"
-msgstr "Cancelar o Envio da Imagem"
+msgstr "Cancelar o envio do anexo"
 
 #: src/qml/Component/ChatBox/ChatBar.qml:31
 #, kde-format
@@ -1143,10 +1116,9 @@ msgid "NeoChat is offline. Please check your network connection."
 msgstr "O NeoChat está desligado. Verifique por favor a sua ligação à rede."
 
 #: src/qml/Component/ChatBox/ReplyPane.qml:32
-#, fuzzy, kde-format
-#| msgid "Replying to %1:"
+#, kde-format
 msgid "Replying to:"
-msgstr "A responder a %1:"
+msgstr "A responder a:"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:77
 #, kde-format
@@ -1343,34 +1315,32 @@ msgctxt ""
 msgid "Stop Download"
 msgstr "Parar a Transferência"
 
-#: src/qml/Component/Timeline/LinkPreviewDelegate.qml:122
+#: src/qml/Component/Timeline/LinkPreviewDelegate.qml:127
 #, kde-format
 msgid "Shrink preview"
-msgstr ""
+msgstr "Fechar a antevisão"
 
-#: src/qml/Component/Timeline/LinkPreviewDelegate.qml:122
+#: src/qml/Component/Timeline/LinkPreviewDelegate.qml:127
 #, kde-format
 msgid "Expand preview"
-msgstr ""
+msgstr "Expandir a antevisão"
 
-#: src/qml/Component/Timeline/LinkPreviewDelegate.qml:145
+#: src/qml/Component/Timeline/LinkPreviewDelegate.qml:152
 #, kde-format
 msgid "Loading URL preview"
-msgstr ""
+msgstr "A carregar a antevisão do URL"
 
 #: src/qml/Component/Timeline/MessageEditComponent.qml:79
-#, fuzzy, kde-format
-#| msgid "Confirm"
+#, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
-msgstr "Confirmação"
+msgstr "Confirmar a edição"
 
 #: src/qml/Component/Timeline/MessageEditComponent.qml:91
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel edit"
-msgstr "Cancelar"
+msgstr "Cancelar a edição"
 
 #: src/qml/Component/Timeline/PollDelegate.qml:48
 #, kde-format
@@ -1427,7 +1397,7 @@ msgstr "Vídeo"
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
-msgstr ""
+msgstr "Volume"
 
 #: src/qml/Component/UserInfo.qml:57 src/qml/Settings/AccountsPage.qml:83
 #, kde-format
@@ -3727,10 +3697,9 @@ msgid ""
 msgstr "Não existe nenhuma sala %1 na lista. Verifique a ortografia e a conta."
 
 #: src/roommanager.cpp:207
-#, fuzzy, kde-format
-#| msgid "Invites to a room"
+#, kde-format
 msgid "Failed to join room"
-msgstr "Convites para uma sala"
+msgstr "Não foi possível juntar-se à sala"
 
 #: src/roommanager.cpp:216
 #, kde-format
@@ -3752,9 +3721,3 @@ msgstr "Não foi possível abrir o URL"
 #, kde-format
 msgid "Show"
 msgstr "Mostrar"
-
-#~ msgid "Edit Message"
-#~ msgstr "Editar a Mensagem"
-
-#~ msgid "Editing message:"
-#~ msgstr "A editar a mensagem:"
