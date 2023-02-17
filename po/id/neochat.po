@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-16 00:59+0000\n"
-"PO-Revision-Date: 2023-01-15 13:26+0700\n"
+"PO-Revision-Date: 2023-02-15 16:40+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
 "Language: id\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #: src/controller.cpp:197
 #, kde-format
@@ -508,10 +508,7 @@ msgid "Removes the user from the room"
 msgstr "Mengeluarkan pengguna dari ruangan ini"
 
 #: src/models/collapsestateproxymodel.cpp:70
-#, fuzzy, kde-format
-#| msgctxt "[user did something] n times"
-#| msgid " %1 time"
-#| msgid_plural " %1 times"
+#, kde-format
 msgctxt "n times"
 msgid " %1 time "
 msgid_plural " %1 times "
@@ -523,13 +520,11 @@ msgstr[1] "%1 kali"
 msgctxt "n users"
 msgid " %1 user "
 msgid_plural " %1 users "
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 pengguna"
+msgstr[1] "%1 pengguna"
 
 #: src/models/collapsestateproxymodel.cpp:86
-#, fuzzy, kde-format
-#| msgctxt "[action 1], [action 2 and action 3]"
-#| msgid ", "
+#, kde-format
 msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
 msgstr ","
@@ -538,7 +533,7 @@ msgstr ","
 #, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
-msgstr ""
+msgstr " atau "
 
 #: src/models/collapsestateproxymodel.cpp:89
 #, kde-format
@@ -908,121 +903,100 @@ msgid "Unknown event"
 msgstr "Peristiwa tidak diketahui"
 
 #: src/neochatroom.cpp:671
-#, fuzzy, kde-format
-#| msgid "Send a message…"
+#, kde-format
 msgid "sent a message"
-msgstr "Kirim pesan…"
+msgstr "mengirim pesan"
 
 #: src/neochatroom.cpp:675
 #, kde-format
 msgid "sent a sticker"
-msgstr ""
+msgstr "mengirim stiker"
 
 #: src/neochatroom.cpp:681
-#, fuzzy, kde-format
-#| msgid "reinvited %1 to the room"
+#, kde-format
 msgid "reinvited someone to the room"
-msgstr "mengundang ulang %1 ke ruangan ini"
+msgstr "mengundang ulang seseorang ke ruangan ini"
 
 #: src/neochatroom.cpp:690
-#, fuzzy, kde-format
-#| msgid "invited %1 to the room"
+#, kde-format
 msgid "invited someone to the room"
-msgstr "mengundang %1 ke ruangan ini"
+msgstr "mengundang seseorang ke ruangan ini"
 
 #: src/neochatroom.cpp:700
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
+#, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name"
-msgstr "mengubah nama tampilan ke %1"
+msgstr "mengubah nama tampilannya"
 
 #: src/neochatroom.cpp:726
-#, fuzzy, kde-format
-#| msgid "withdrew %1's invitation"
+#, kde-format
 msgid "withdrew a user's invitation"
-msgstr "membatalkan undangannya %1"
+msgstr "membatalkan undangan pengguna"
 
 #: src/neochatroom.cpp:730
-#, fuzzy, kde-format
-#| msgid "unbanned %1"
+#, kde-format
 msgid "unbanned a user"
-msgstr "menghilangkan cekalannya %1"
+msgstr "menghilangkan cekalan pengguna"
 
 #: src/neochatroom.cpp:732
-#, fuzzy, kde-format
-#| msgid "has put %1 out of the room: %2"
+#, kde-format
 msgid "put a user out of the room"
-msgstr "mengeluarkan %1 dari ruangan: %2"
+msgstr "mengeluarkan pengguna dari ruangan"
 
 #: src/neochatroom.cpp:735
-#, fuzzy, kde-format
-#| msgid "banned %1 from the room"
+#, kde-format
 msgid "banned a user from the room"
-msgstr "mencekal %1 dari ruangan"
+msgstr "mencekal pengguna dari ruangan"
 
 #: src/neochatroom.cpp:747
-#, fuzzy, kde-format
-#| msgid "set the room main alias to: %1"
+#, kde-format
 msgid "set the room main alias"
-msgstr "menetapkan alias utama ruangan ini ke: %1"
+msgstr "menetapkan alias utama ruangan ini"
 
 #: src/neochatroom.cpp:750
-#, fuzzy, kde-format
-#| msgid "set the room name to: %1"
+#, kde-format
 msgid "set the room name"
-msgstr "menetapkan nama ruangan ini ke: %1"
+msgstr "menetapkan nama ruangan ini"
 
 #: src/neochatroom.cpp:753
-#, fuzzy, kde-format
-#| msgid "set the topic to: %1"
+#, kde-format
 msgid "set the topic"
-msgstr "menetapkan topiknya ke: %1"
+msgstr "menetapkan topiknya"
 
 #: src/neochatroom.cpp:762
-#, fuzzy, kde-format
-#| msgid "upgraded the room to version %1"
+#, kde-format
 msgid "upgraded the room version"
-msgstr "meningkatkan ruangan ini ke versi %1"
+msgstr "meningkatkan versi ruangan ini"
 
 #: src/neochatroom.cpp:762
-#, fuzzy, kde-format
-#| msgid "left the room"
+#, kde-format
 msgid "created the room"
-msgstr "keluar dari ruangan ini"
+msgstr "membuat ruangan ini"
 
 #: src/neochatroom.cpp:773
-#, fuzzy, kde-format
-#| msgctxt "[User] added <name> widget"
-#| msgid "added %1 widget"
+#, kde-format
 msgid "added a widget"
-msgstr "menambahkan widget %1"
+msgstr "menambahkan widget"
 
 #: src/neochatroom.cpp:776
-#, fuzzy, kde-format
-#| msgctxt "[User] removed <name> widget"
-#| msgid "removed %1 widget"
+#, kde-format
 msgid "removed a widget"
-msgstr "menghapus widget %1"
+msgstr "menghapus widget"
 
 #: src/neochatroom.cpp:778
-#, fuzzy, kde-format
-#| msgctxt "[User] configured <name> widget"
-#| msgid "configured %1 widget"
+#, kde-format
 msgid "configured a widget"
-msgstr "mengatur widget %1"
+msgstr "mengatur widget"
 
 #: src/neochatroom.cpp:780
-#, fuzzy, kde-format
-#| msgid "updated %1 state"
+#, kde-format
 msgid "updated the state"
-msgstr "memperbarui status %1"
+msgstr "memperbarui keadaan"
 
 #: src/neochatroom.cpp:784
 #, kde-format
 msgid "started a poll"
-msgstr ""
+msgstr "memulai pemungutan suara"
 
 #: src/neochatroom.cpp:1612 src/neochatroom.cpp:1613
 #, kde-format
@@ -1085,10 +1059,9 @@ msgid "Edit"
 msgstr "Sunting"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:62
-#, fuzzy, kde-format
-#| msgid "Cancel sending Image"
+#, kde-format
 msgid "Cancel sending attachment"
-msgstr "Batalkan pengiriman Gambar"
+msgstr "Batalkan pengiriman lampiran"
 
 #: src/qml/Component/ChatBox/ChatBar.qml:31
 #, kde-format
@@ -1122,7 +1095,7 @@ msgstr "Kirim pesan terenkripsi…"
 #: src/qml/Component/ChatBox/ChatBar.qml:123
 #, kde-format
 msgid "Set an attachment caption..."
-msgstr ""
+msgstr "Atur takarir lampiran..."
 
 #: src/qml/Component/ChatBox/ChatBar.qml:123
 #, kde-format
@@ -1141,10 +1114,9 @@ msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat sedang luring. Mohon periksa koneksi jaringan Anda."
 
 #: src/qml/Component/ChatBox/ReplyPane.qml:32
-#, fuzzy, kde-format
-#| msgid "Replying to %1:"
+#, kde-format
 msgid "Replying to:"
-msgstr "Membalas ke %1:"
+msgstr "Membalas ke:"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:77
 #, kde-format
@@ -1343,31 +1315,29 @@ msgstr "Hentikan Unduhan"
 #: src/qml/Component/Timeline/LinkPreviewDelegate.qml:127
 #, kde-format
 msgid "Shrink preview"
-msgstr ""
+msgstr "Kecilkan pratinjau"
 
 #: src/qml/Component/Timeline/LinkPreviewDelegate.qml:127
 #, kde-format
 msgid "Expand preview"
-msgstr ""
+msgstr "Luaskan pratinjau"
 
 #: src/qml/Component/Timeline/LinkPreviewDelegate.qml:152
 #, kde-format
 msgid "Loading URL preview"
-msgstr ""
+msgstr "Memuat pratinjau URL"
 
 #: src/qml/Component/Timeline/MessageEditComponent.qml:79
-#, fuzzy, kde-format
-#| msgid "Confirm"
+#, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
-msgstr "Konfirmasi"
+msgstr "Konfirmasi penyuntingan"
 
 #: src/qml/Component/Timeline/MessageEditComponent.qml:91
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel edit"
-msgstr "Batal"
+msgstr "Batalkan penyuntingan"
 
 #: src/qml/Component/Timeline/PollDelegate.qml:48
 #, kde-format
@@ -1424,7 +1394,7 @@ msgstr "Video"
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
-msgstr ""
+msgstr "Volume"
 
 #: src/qml/Component/UserInfo.qml:57 src/qml/Settings/AccountsPage.qml:83
 #, kde-format
@@ -3434,7 +3404,7 @@ msgstr "Aktifkan notifikasi untuk akun ini"
 #: src/qml/Settings/GlobalNotificationsPage.qml:24
 #, kde-format
 msgid "Whether push notifications are generated by your Matrix server"
-msgstr ""
+msgstr "Ketika notifikasi dorongan dibuat oleh server Matrix Anda"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:40
 #, kde-format
@@ -3717,10 +3687,9 @@ msgid ""
 msgstr "Tidak ada ruangan %1 di daftar ruangan. Periksa ejaannya dan akunnya."
 
 #: src/roommanager.cpp:207
-#, fuzzy, kde-format
-#| msgid "Invites to a room"
+#, kde-format
 msgid "Failed to join room"
-msgstr "Mengundang ke ruangan"
+msgstr "Gagal bergabung dengan ruangan"
 
 #: src/roommanager.cpp:216
 #, kde-format
