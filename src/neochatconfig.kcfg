@@ -4,6 +4,7 @@
       xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
                           http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
   <kcfgfile name="neochatrc" />
+  <include>Kirigami/PlatformTheme</include>
   <group name="General">
     <entry name="CollapsedSections" type="IntList">
       <label>Collapsed sections in the room list</label>
@@ -101,6 +102,13 @@
     <entry name="ShowFancyEffects" type="bool">
       <label>Show Fancy Effects</label>
       <default>true</default>
+    </entry>
+    <entry name="defaultFont" type="Font">
+      <label>Default font</label>
+      <code>
+        Kirigami::PlatformTheme theme;
+      </code>
+      <default code="true">theme.defaultFont()</default>
     </entry>
   </group>
   <group name="RoomDrawer">

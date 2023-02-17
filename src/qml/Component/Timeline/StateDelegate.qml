@@ -92,6 +92,7 @@ QQC2.Control {
                 visible: columnLayout.folded
 
                 text: aggregateDisplay
+                font.pointSize: Config.defaultFont.pointSize
                 elide: Qt.ElideRight
                 textFormat: Text.RichText
                 wrapMode: Text.WordWrap

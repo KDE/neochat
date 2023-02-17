@@ -40,6 +40,7 @@ RowLayout {
         id: label
         Layout.alignment: Qt.AlignVCenter
         Layout.fillWidth: true
+        font.pointSize: Config.defaultFont.pointSize
         wrapMode: Text.WordWrap
         textFormat: Text.RichText
         onLinkActivated: linkClicked(link)

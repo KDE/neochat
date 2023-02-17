@@ -213,7 +213,10 @@ ColumnLayout {
 
                         text: visible ? author.displayName : ""
                         textFormat: Text.PlainText
-                        font.weight: Font.Bold
+                        font {
+                            weight: Font.Bold
+                            pointSize: Config.defaultFont.pointSize
+                        }
                         color: author.color
                         elide: Text.ElideRight
                         MouseArea {
@@ -234,6 +237,8 @@ ColumnLayout {
                         id: timeLabel
 
                         text: visible ? model.time.toLocaleTimeString(Qt.locale(), Locale.ShortFormat) : ""
+
+                        font.pointSize: Config.defaultFont.pointSize
                         color: Kirigami.Theme.disabledTextColor
                         QQC2.ToolTip.visible: hoverHandler.hovered
                         QQC2.ToolTip.text: model.time.toLocaleString(Qt.locale(), Locale.LongFormat)

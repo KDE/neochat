@@ -4,6 +4,7 @@
 
 import QtQuick 2.15
 import QtQuick.Controls 2.15 as QQC2
+import QtQuick.Dialogs 1.3
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.15 as Kirigami
@@ -211,18 +212,38 @@ Kirigami.ScrollablePage {
                         Config.save();
                     }
                 }
-                
+
                 MobileForm.FormDelegateSeparator { above: compactRoomListDelegate ; below: colorSchemeDelegate.item ; visible: colorSchemeDelegate.visible }
-                
+
                 Loader {
                     id: colorSchemeDelegate
                     visible: item !== null && Qt.platform.os !== "android"
                     source: "qrc:/ColorScheme.qml"
                     Layout.fillWidth: true
                 }
+
+                MobileForm.FormDelegateSeparator { below: colorSchemeDelegate.visible ? colorSchemeDelegate.item : compactRoomListDelegate; above: fontSelector }
+
+                MobileForm.FormButtonDelegate {
+                    id: fontSelector
+                    text: i18n("Font in chat")
+                    description: Config.defaultFont.family + " " + Config.defaultFont.pointSize + "pt"
+                    onClicked: fontDialog.open()
+
+                    FontDialog {
+                        id: fontDialog
+                        title: i18n("Please choose a font")
+                        font: Config.defaultFont
+                        monospacedFonts: false
+                        onAccepted: {
+                            Config.defaultFont = font;
+                            Config.save();
+                        }
+                    }
+                }
             }
         }
-        
+
         MobileForm.FormCard {
             Layout.topMargin: Kirigami.Units.largeSpacing
             Layout.fillWidth: true

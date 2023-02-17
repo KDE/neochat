@@ -80,7 +80,7 @@ a{
     color: Kirigami.Theme.textColor
     selectedTextColor: Kirigami.Theme.highlightedTextColor
     selectionColor: Kirigami.Theme.highlightColor
-    font.pointSize: model.reply === undefined && isEmoji.test(model.display) ? Kirigami.Theme.defaultFont.pointSize * 4 : Kirigami.Theme.defaultFont.pointSize
+    font.pointSize: model.reply === undefined && isEmoji.test(model.display) ? Config.defaultFont.pointSize * 4 : Config.defaultFont.pointSize
     selectByMouse: !Kirigami.Settings.isMobile
     readOnly: true
     wrapMode: Text.Wrap
