@@ -133,8 +133,10 @@ Kirigami.ScrollablePage {
 
     Keys.onPressed: {
         if (event.key === Qt.Key_PageDown && (event.modifiers & Qt.ControlModifier)) {
+            event.accepted = true;
             switchRoomDown();
         } else if (event.key === Qt.Key_PageUp && (event.modifiers & Qt.ControlModifier)) {
+            event.accepted = true;
             switchRoomUp();
         } else if (!(event.modifiers & Qt.ControlModifier) && event.key < Qt.Key_Escape) {
             event.accepted = true;
