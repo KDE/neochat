@@ -151,6 +151,7 @@ Q_SIGNALS:
     void keyVerificationAccept(const QString &commitment);
     void keyVerificationKey(const QString &sas);
     void activeConnectionIndexChanged();
+    void roomAdded(NeoChatRoom *room);
 
 public Q_SLOTS:
     void logout(Quotient::Connection *conn, bool serverSideLogout);

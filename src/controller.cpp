@@ -644,9 +644,17 @@ NeochatDeleteDeviceJob::NeochatDeleteDeviceJob(const QString &deviceId, const Om
 void Controller::createRoom(const QString &name, const QString &topic)
 {
     auto createRoomJob = m_connection->createRoom(Connection::PublishRoom, "", name, topic, QStringList());
-    Quotient::CreateRoomJob::connect(createRoomJob, &CreateRoomJob::failure, [this, createRoomJob] {
+    connect(createRoomJob, &CreateRoomJob::failure, this, [this, createRoomJob] {
         Q_EMIT errorOccured(i18n("Room creation failed: \"%1\"", createRoomJob->errorString()));
     });
+    connectSingleShot(
+        this,
+        &Controller::roomAdded,
+        this,
+        [this](NeoChatRoom *room) {
+            RoomManager::instance().enterRoom(room);
+        },
+        Qt::QueuedConnection);
 }
 
 bool Controller::isOnline() const
