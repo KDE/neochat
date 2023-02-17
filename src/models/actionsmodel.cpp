@@ -209,6 +209,40 @@ QVector<ActionsModel::Action> actions{
         kli18n("<room alias or id>"),
         kli18n("Joins the given room"),
     },
+#ifdef QUOTIENT_07
+    Action{
+        QStringLiteral("knock"),
+        [](const QString &text, NeoChatRoom *room) {
+            auto parts = text.split(QLatin1String(" "));
+            QString roomName = parts[0];
+            QRegularExpression roomRegex(QStringLiteral(R"(^[#!][^:]+:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?)"));
+            auto regexMatch = roomRegex.match(roomName);
+            if (!regexMatch.hasMatch()) {
+                Q_EMIT room->showMessage(NeoChatRoom::Error,
+                                         i18nc("'<text>' does not look like a room id or alias.", "'%1' does not look like a room id or alias.", text));
+                return QString();
+            }
+            auto targetRoom = text.startsWith(QLatin1Char('!')) ? room->connection()->room(text) : room->connection()->roomByAlias(text);
+            if (targetRoom) {
+                RoomManager::instance().enterRoom(dynamic_cast<NeoChatRoom *>(targetRoom));
+                return QString();
+            }
+            Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("Knocking room <roomname>.", "Knocking room %1.", text));
+            auto connection = Controller::instance().activeConnection();
+            const auto knownServer = roomName.mid(roomName.indexOf(":") + 1);
+            if (parts.length() >= 2) {
+                RoomManager::instance().knockRoom(connection, roomName, parts[1], QStringList{knownServer});
+            } else {
+                RoomManager::instance().knockRoom(connection, roomName, QString(), QStringList{knownServer});
+            }
+            return QString();
+        },
+        false,
+        std::nullopt,
+        kli18n("<room alias or id> [<reason>]"),
+        kli18n("Requests to join the given room"),
+    },
+#endif
     Action{
         QStringLiteral("j"),
         [](const QString &text, NeoChatRoom *room) {
