@@ -99,6 +99,7 @@ class NeoChatRoom : public Quotient::Room
      * Only returns main integer room versions (i.e. no msc room versions).
      */
     Q_PROPERTY(int maxRoomVersion READ maxRoomVersion NOTIFY maxRoomVersionChanged)
+    Q_PROPERTY(NeoChatUser *directChatRemoteUser READ directChatRemoteUser CONSTANT)
 
 public:
     enum MessageType {
@@ -330,6 +331,7 @@ public:
 #endif
 
     int maxRoomVersion() const;
+    NeoChatUser *directChatRemoteUser() const;
 
 private:
     QSet<const Quotient::RoomEvent *> highlights;

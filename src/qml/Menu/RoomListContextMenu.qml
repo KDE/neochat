@@ -52,9 +52,11 @@ Loader {
             }
 
             QQC2.MenuItem {
-                text: i18nc("@action:inmenu", "Copy Address to Clipboard")
+                text: room.isDirectChat() ? i18nc("@action:inmenu", "Copy user's Matrix ID to Clipboard") : i18nc("@action:inmenu", "Copy Address to Clipboard")
                 icon.name: "edit-copy"
-                onTriggered: if (room.canonicalAlias.length === 0) {
+                onTriggered: if (room.isDirectChat()) {
+                    Clipboard.saveText(room.directChatRemoteUser.id)
+                } else if (room.canonicalAlias.length === 0) {
                     Clipboard.saveText(room.id)
                 } else {
                     Clipboard.saveText(room.canonicalAlias)

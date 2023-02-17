@@ -1829,3 +1829,7 @@ int NeoChatRoom::maxRoomVersion() const
     }
     return maxVersion;
 }
+NeoChatUser *NeoChatRoom::directChatRemoteUser() const
+{
+    return dynamic_cast<NeoChatUser *>(connection()->directChatUsers(this)[0]);
+}
