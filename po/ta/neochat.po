@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-16 00:59+0000\n"
+"POT-Creation-Date: 2023-02-18 00:58+0000\n"
 "PO-Revision-Date: 2023-02-14 21:42+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -259,9 +259,9 @@ msgstr "விருப்பமான முகவடியை அனுப்�
 msgid "Sends the given message as a notice"
 msgstr "செய்தியை அறிக்கையாக அனுப்பும்"
 
-#: src/models/actionsmodel.cpp:157 src/models/actionsmodel.cpp:336
-#: src/models/actionsmodel.cpp:364 src/models/actionsmodel.cpp:414
-#: src/models/actionsmodel.cpp:451 src/models/actionsmodel.cpp:485
+#: src/models/actionsmodel.cpp:157 src/models/actionsmodel.cpp:370
+#: src/models/actionsmodel.cpp:398 src/models/actionsmodel.cpp:448
+#: src/models/actionsmodel.cpp:485 src/models/actionsmodel.cpp:519
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
@@ -296,8 +296,8 @@ msgctxt "<username> was invited into this room"
 msgid "%1 was invited into this room"
 msgstr "%1 இவ்வரங்குக்கு வரவழைக்கப்பட்டுள்ளார்"
 
-#: src/models/actionsmodel.cpp:185 src/models/actionsmodel.cpp:354
-#: src/models/actionsmodel.cpp:382 src/models/actionsmodel.cpp:473
+#: src/models/actionsmodel.cpp:185 src/models/actionsmodel.cpp:388
+#: src/models/actionsmodel.cpp:416 src/models/actionsmodel.cpp:507
 msgid "<user id>"
 msgstr "<பயனர் பெயர்>"
 
@@ -305,204 +305,225 @@ msgstr "<பயனர் பெயர்>"
 msgid "Invites the user to this room"
 msgstr "பயனரை இவ்வரங்குக்கு வரவழைக்கும்"
 
-#: src/models/actionsmodel.cpp:195 src/models/actionsmodel.cpp:219
-#: src/models/actionsmodel.cpp:246 src/models/actionsmodel.cpp:278
+#: src/models/actionsmodel.cpp:195 src/models/actionsmodel.cpp:222
+#: src/models/actionsmodel.cpp:253 src/models/actionsmodel.cpp:280
+#: src/models/actionsmodel.cpp:312
 #, kde-format
 msgctxt "'<text>' does not look like a room id or alias."
 msgid "'%1' does not look like a room id or alias."
 msgstr "'%1' ஓர் அரங்கின் பெயரைப் போலோ மாற்றுப்பெயரைப் போலோ தெரியவில்லை."
 
-#: src/models/actionsmodel.cpp:203 src/models/actionsmodel.cpp:226
+#: src/models/actionsmodel.cpp:203 src/models/actionsmodel.cpp:260
 #, kde-format
 msgctxt "Joining room <roomname>."
 msgid "Joining room %1."
 msgstr "%1 எனும் அரங்கில் நுழைகிறீர்கள்."
 
-#: src/models/actionsmodel.cpp:209 src/models/actionsmodel.cpp:232
+#: src/models/actionsmodel.cpp:209 src/models/actionsmodel.cpp:266
 msgid "<room alias or id>"
 msgstr "<அரங்கின் மாற்றுப்பெயர் அல்லது அடையாளம்>"
 
-#: src/models/actionsmodel.cpp:210 src/models/actionsmodel.cpp:233
+#: src/models/actionsmodel.cpp:210 src/models/actionsmodel.cpp:267
 msgid "Joins the given room"
 msgstr "உரிய அரங்கிலு நுழையும்"
 
-#: src/models/actionsmodel.cpp:223
+#: src/models/actionsmodel.cpp:230
+#, fuzzy, kde-format
+#| msgctxt "Joining room <roomname>."
+#| msgid "Joining room %1."
+msgctxt "Knocking room <roomname>."
+msgid "Knocking room %1."
+msgstr "%1 எனும் அரங்கில் நுழைகிறீர்கள்."
+
+#: src/models/actionsmodel.cpp:242
+#, fuzzy
+#| msgid "[<room alias or id>]"
+msgid "<room alias or id> [<reason>]"
+msgstr "[<அரங்கின் மாற்றுப்பெயர் அல்லது அடையாளம்>]"
+
+#: src/models/actionsmodel.cpp:243
+#, fuzzy
+#| msgid "Joins the given room"
+msgid "Requests to join the given room"
+msgstr "உரிய அரங்கிலு நுழையும்"
+
+#: src/models/actionsmodel.cpp:257
 #, kde-format
 msgctxt "You are already in room <roomname>."
 msgid "You are already in room %1."
 msgstr "%1 எனும் அரங்கில் ஏற்கனவே உள்ளீர்கள்."
 
-#: src/models/actionsmodel.cpp:239 src/models/actionsmodel.cpp:271
+#: src/models/actionsmodel.cpp:273 src/models/actionsmodel.cpp:305
 #, kde-format
 msgid "Leaving this room."
 msgstr "இவ்வரங்கிலிருந்து வெளியேறுகிறீர்கள்."
 
-#: src/models/actionsmodel.cpp:254 src/models/actionsmodel.cpp:286
+#: src/models/actionsmodel.cpp:288 src/models/actionsmodel.cpp:320
 #, kde-format
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
 msgstr "%1 எனும் அரங்கிலிருந்து வெளியேறுகிறீர்கள்."
 
-#: src/models/actionsmodel.cpp:257 src/models/actionsmodel.cpp:289
+#: src/models/actionsmodel.cpp:291 src/models/actionsmodel.cpp:323
 #, kde-format
 msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
 msgstr "%1 எனும் அரங்கை கண்டுபிடிக்க முடியவில்லை."
 
-#: src/models/actionsmodel.cpp:264 src/models/actionsmodel.cpp:296
+#: src/models/actionsmodel.cpp:298 src/models/actionsmodel.cpp:330
 msgid "[<room alias or id>]"
 msgstr "[<அரங்கின் மாற்றுப்பெயர் அல்லது அடையாளம்>]"
 
-#: src/models/actionsmodel.cpp:265 src/models/actionsmodel.cpp:297
+#: src/models/actionsmodel.cpp:299 src/models/actionsmodel.cpp:331
 msgid "Leaves the given room or this room, if there is none given"
 msgstr ""
 "குறிப்பிட்ட அரங்கிலிருந்து (எதுவும் குறிப்பிடப்படா பட்சத்தில் தற்போதைய அரங்கிலிருந்து) "
 "வெளியேறும்"
 
-#: src/models/actionsmodel.cpp:303 src/models/actionsmodel.cpp:318
+#: src/models/actionsmodel.cpp:337 src/models/actionsmodel.cpp:352
 #, kde-format
 msgid "No new nickname provided, no changes will happen."
 msgstr "புனைப்பெயர் வழங்கப்படாத‍தால் எம்மாற்றமும் நிகழாது."
 
-#: src/models/actionsmodel.cpp:311 src/models/actionsmodel.cpp:326
+#: src/models/actionsmodel.cpp:345 src/models/actionsmodel.cpp:360
 msgid "<display name>"
 msgstr "<காட்சிப்பெயர்>"
 
-#: src/models/actionsmodel.cpp:312
+#: src/models/actionsmodel.cpp:346
 msgid "Changes your global display name"
 msgstr "பொதுவான உங்கள் காட்சிப்பெயரை மாற்றும்"
 
-#: src/models/actionsmodel.cpp:327
+#: src/models/actionsmodel.cpp:361
 msgid "Changes your display name in this room"
 msgstr "இவ்வரங்கிலுள்ள உங்கள் காட்சிப்பெயரை மாற்றும்"
 
-#: src/models/actionsmodel.cpp:341
+#: src/models/actionsmodel.cpp:375
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
 msgstr "%1 ஏற்கனவே பொருட்படுத்தப்படாமல் உள்ளார்."
 
-#: src/models/actionsmodel.cpp:346
+#: src/models/actionsmodel.cpp:380
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
 msgstr "%1 இனிமேல் பொருட்படுத்தப்பட மாட்டார்."
 
-#: src/models/actionsmodel.cpp:348 src/models/actionsmodel.cpp:376
+#: src/models/actionsmodel.cpp:382 src/models/actionsmodel.cpp:410
 #, kde-format
 msgctxt "<username> is not a known user"
 msgid "%1 is not a known user."
 msgstr "%1 நமக்கு தெரிந்த பயனர் அல்ல."
 
-#: src/models/actionsmodel.cpp:355
+#: src/models/actionsmodel.cpp:389
 msgid "Ignores the given user"
 msgstr "குறிப்பிட்ட பயனரை பொருட்படுத்தப்படாதவராக அமைக்கும்"
 
-#: src/models/actionsmodel.cpp:370
+#: src/models/actionsmodel.cpp:404
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
 msgstr "%1 பொருட்படுத்தப்படாமல் இல்லை."
 
-#: src/models/actionsmodel.cpp:374
+#: src/models/actionsmodel.cpp:408
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
 msgstr "%1 இனிமேல் பொருட்படுத்தப்படுவார்."
 
-#: src/models/actionsmodel.cpp:383
+#: src/models/actionsmodel.cpp:417
 msgid "Unignores the given user"
 msgstr "குறிப்பிட்ட பயனரை பொருட்படுத்த வேண்டியவராக அமைக்கும்"
 
-#: src/models/actionsmodel.cpp:403
+#: src/models/actionsmodel.cpp:437
 msgid "<reaction text>"
 msgstr "<எதிர்வினையின் உரை>"
 
-#: src/models/actionsmodel.cpp:404
+#: src/models/actionsmodel.cpp:438
 msgid "React to the message with the given text"
 msgstr "குறிப்பிட்ட உரையுடன் செய்திக்கு எதிர்வினையிடு"
 
-#: src/models/actionsmodel.cpp:420
+#: src/models/actionsmodel.cpp:454
 #, kde-format
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
 msgstr "%1 இவ்வரங்கிலிருந்து ஏற்கனவே தடைசெய்யப்பட்டுள்ளார்."
 
-#: src/models/actionsmodel.cpp:426
+#: src/models/actionsmodel.cpp:460
 #, kde-format
 msgid "You are not allowed to ban users from this room."
 msgstr "இவ்வரங்கிலிருந்து பயனர்களை தடை செய்யும் அனுமதி உங்களிடம் இல்லை."
 
-#: src/models/actionsmodel.cpp:432
+#: src/models/actionsmodel.cpp:466
 #, kde-format
 msgctxt "You are not allowed to ban <username> from this room."
 msgid "You are not allowed to ban %1 from this room."
 msgstr "இவ்வரங்கிலிருந்து %1 என்பவரை தடை செய்யும் அனுமதி உங்களிடம் இல்லை."
 
-#: src/models/actionsmodel.cpp:436
+#: src/models/actionsmodel.cpp:470
 #, kde-format
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
 msgstr "%1 இவ்வரங்கிலிருந்து தடைசெய்யப்பட்டார்."
 
-#: src/models/actionsmodel.cpp:441 src/models/actionsmodel.cpp:516
+#: src/models/actionsmodel.cpp:475 src/models/actionsmodel.cpp:550
 msgid "<user id> [<reason>]"
 msgstr "<பயனர் பெயர்> [காரணம்]"
 
-#: src/models/actionsmodel.cpp:442
+#: src/models/actionsmodel.cpp:476
 msgid "Bans the given user"
 msgstr "குறிப்பிட்ட பயனரை தடை செய்யும்"
 
-#: src/models/actionsmodel.cpp:456
+#: src/models/actionsmodel.cpp:490
 #, kde-format
 msgid "You are not allowed to unban users from this room."
 msgstr "இவ்வரங்கில் பயனர்களின் மீதான தடையை நீக்கும் அனுமதி உங்களிடம் இல்லை."
 
-#: src/models/actionsmodel.cpp:462
+#: src/models/actionsmodel.cpp:496
 #, kde-format
 msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
 msgstr "%1 இவ்வரங்கிலிருந்து தடைசெய்யப்படவில்லை."
 
-#: src/models/actionsmodel.cpp:467
+#: src/models/actionsmodel.cpp:501
 #, kde-format
 msgctxt "<username> was unbanned from this room."
 msgid "%1 was unbanned from this room."
 msgstr "%1 மீதான இவ்வரங்கிலான தடை நீக்கப்பட்டது."
 
-#: src/models/actionsmodel.cpp:474
+#: src/models/actionsmodel.cpp:508
 msgid "Removes the ban of the given user"
 msgstr "குறிப்பிட்ட பயனர் மீதான தடையை நீக்கும்"
 
-#: src/models/actionsmodel.cpp:489
+#: src/models/actionsmodel.cpp:523
 #, kde-format
 msgid "You cannot kick yourself from the room."
 msgstr "உங்களை நீங்களே அரங்கிலிருந்து வெளியேற்ற முடியாது."
 
-#: src/models/actionsmodel.cpp:494
+#: src/models/actionsmodel.cpp:528
 #, kde-format
 msgctxt "<username> is not in this room"
 msgid "%1 is not in this room."
 msgstr "%1 இவ்வரங்கில் இல்லை."
 
-#: src/models/actionsmodel.cpp:501
+#: src/models/actionsmodel.cpp:535
 #, kde-format
 msgid "You are not allowed to kick users from this room."
 msgstr "இவ்வரங்கிலிருந்து பயனர்களை வெளியேற்றும் அனுமதி உங்களிடம் இல்லை."
 
-#: src/models/actionsmodel.cpp:507
+#: src/models/actionsmodel.cpp:541
 #, kde-format
 msgctxt "You are not allowed to kick <username> from this room"
 msgid "You are not allowed to kick %1 from this room."
 msgstr "இவ்வரங்கிலிருந்து %1 என்பவரை வெளியேற்றும் அனுமதி உங்களிடம் இல்லை."
 
-#: src/models/actionsmodel.cpp:511
+#: src/models/actionsmodel.cpp:545
 #, kde-format
 msgctxt "<username> was kicked from this room."
 msgid "%1 was kicked from this room."
 msgstr "%1 இவ்வரங்கிலிருந்து வெளியேற்றப்பட்டார்."
 
-#: src/models/actionsmodel.cpp:517
+#: src/models/actionsmodel.cpp:551
 msgid "Removes the user from the room"
 msgstr "பயனரை அரங்கிலிருந்து நீக்கும்"
 
@@ -3640,45 +3661,56 @@ msgstr "சொல் திருத்த அகரமுதலி"
 msgid "Delete word"
 msgstr "சொல்லை நீக்கு"
 
-#: src/roommanager.cpp:49
+#: src/roommanager.cpp:52
 #, kde-format
 msgid "Malformed or empty Matrix id"
 msgstr "செல்லுபடியாகாத அல்லது காலியான Matrix கணக்குப்பெயர்"
 
-#: src/roommanager.cpp:49
+#: src/roommanager.cpp:52
 #, kde-format
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 ஒரு முறையான Matrix கணக்குப்பெயர் அல்ல"
 
-#: src/roommanager.cpp:66
+#: src/roommanager.cpp:69
 #, kde-format
 msgid "Room not found"
 msgstr "அரங்கு கண்டுபிடிக்கப்படவில்லை"
 
-#: src/roommanager.cpp:66
+#: src/roommanager.cpp:69
 #, kde-format
 msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
 msgstr ""
 "அரங்குகளின் பட்டியலில் %1 என்று எந்த அரங்கும் இல்லை. எழுத்தாக்கம் மற்றும் கணக்கை சரிபாருங்கள்."
 
-#: src/roommanager.cpp:207
+#: src/roommanager.cpp:210
 #, kde-format
 msgid "Failed to join room"
 msgstr "அரங்கில் நுழைவது தோல்வியடைந்தது"
 
-#: src/roommanager.cpp:216
+#: src/roommanager.cpp:227
+#, kde-format
+msgid "You requested to join '%1'"
+msgstr ""
+
+#: src/roommanager.cpp:230
+#, fuzzy, kde-format
+#| msgid "Failed to join room"
+msgid "Failed to request joining room"
+msgstr "அரங்கில் நுழைவது தோல்வியடைந்தது"
+
+#: src/roommanager.cpp:240
 #, kde-format
 msgid "No application for the link"
 msgstr "இணைப்புக்கேற்ற செயலி இல்லை"
 
-#: src/roommanager.cpp:216
+#: src/roommanager.cpp:240
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr ""
 "இந்த இணைப்பைத் திறக்கக் கூடிய செயலியை உங்கள் இயக்குதளத்தால் கண்டுபிடிக்க முடியவில்லை."
 
-#: src/roommanager.cpp:222
+#: src/roommanager.cpp:246
 #, kde-format
 msgid "Could not open URL"
 msgstr "முகவரியைத் திறக்க முடியவில்லை"

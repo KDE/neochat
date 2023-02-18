@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-16 00:59+0000\n"
+"POT-Creation-Date: 2023-02-18 00:58+0000\n"
 "PO-Revision-Date: 2021-11-08 09:39+0100\n"
 "Last-Translator: Kristof Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -284,9 +284,9 @@ msgstr "Az üzenet spoiler-ként megjelölése"
 msgid "Sends the given message as a notice"
 msgstr "Az üzenet spoiler-ként megjelölése"
 
-#: src/models/actionsmodel.cpp:157 src/models/actionsmodel.cpp:336
-#: src/models/actionsmodel.cpp:364 src/models/actionsmodel.cpp:414
-#: src/models/actionsmodel.cpp:451 src/models/actionsmodel.cpp:485
+#: src/models/actionsmodel.cpp:157 src/models/actionsmodel.cpp:370
+#: src/models/actionsmodel.cpp:398 src/models/actionsmodel.cpp:448
+#: src/models/actionsmodel.cpp:485 src/models/actionsmodel.cpp:519
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
@@ -326,8 +326,8 @@ msgctxt "<username> was invited into this room"
 msgid "%1 was invited into this room"
 msgstr "meghívta őt a szobába: %1"
 
-#: src/models/actionsmodel.cpp:185 src/models/actionsmodel.cpp:354
-#: src/models/actionsmodel.cpp:382 src/models/actionsmodel.cpp:473
+#: src/models/actionsmodel.cpp:185 src/models/actionsmodel.cpp:388
+#: src/models/actionsmodel.cpp:416 src/models/actionsmodel.cpp:507
 #, fuzzy
 #| msgctxt "@label Parameter of a command"
 #| msgid "<user-id>"
@@ -340,238 +340,259 @@ msgstr "<felhasználóazonosító>"
 msgid "Invites the user to this room"
 msgstr "meghívta őt a szobába: %1"
 
-#: src/models/actionsmodel.cpp:195 src/models/actionsmodel.cpp:219
-#: src/models/actionsmodel.cpp:246 src/models/actionsmodel.cpp:278
+#: src/models/actionsmodel.cpp:195 src/models/actionsmodel.cpp:222
+#: src/models/actionsmodel.cpp:253 src/models/actionsmodel.cpp:280
+#: src/models/actionsmodel.cpp:312
 #, kde-format
 msgctxt "'<text>' does not look like a room id or alias."
 msgid "'%1' does not look like a room id or alias."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:203 src/models/actionsmodel.cpp:226
+#: src/models/actionsmodel.cpp:203 src/models/actionsmodel.cpp:260
 #, fuzzy, kde-format
 #| msgid "Configure room"
 msgctxt "Joining room <roomname>."
 msgid "Joining room %1."
 msgstr "Szoba beállítása"
 
-#: src/models/actionsmodel.cpp:209 src/models/actionsmodel.cpp:232
+#: src/models/actionsmodel.cpp:209 src/models/actionsmodel.cpp:266
 msgid "<room alias or id>"
 msgstr ""
 
-#: src/models/actionsmodel.cpp:210 src/models/actionsmodel.cpp:233
+#: src/models/actionsmodel.cpp:210 src/models/actionsmodel.cpp:267
 #, fuzzy
 #| msgid "joined the room"
 msgid "Joins the given room"
 msgstr "csatlakozott a szobához"
 
-#: src/models/actionsmodel.cpp:223
+#: src/models/actionsmodel.cpp:230
+#, fuzzy, kde-format
+#| msgid "Configure room"
+msgctxt "Knocking room <roomname>."
+msgid "Knocking room %1."
+msgstr "Szoba beállítása"
+
+#: src/models/actionsmodel.cpp:242
+#, fuzzy
+#| msgctxt "@label Parameter of a command"
+#| msgid "<user-id>"
+msgid "<room alias or id> [<reason>]"
+msgstr "<felhasználóazonosító>"
+
+#: src/models/actionsmodel.cpp:243
+#, fuzzy
+#| msgid "joined the room"
+msgid "Requests to join the given room"
+msgstr "csatlakozott a szobához"
+
+#: src/models/actionsmodel.cpp:257
 #, kde-format
 msgctxt "You are already in room <roomname>."
 msgid "You are already in room %1."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:239 src/models/actionsmodel.cpp:271
+#: src/models/actionsmodel.cpp:273 src/models/actionsmodel.cpp:305
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgid "Leaving this room."
 msgstr "NeoChat megnyitása ebben a szobában"
 
-#: src/models/actionsmodel.cpp:254 src/models/actionsmodel.cpp:286
+#: src/models/actionsmodel.cpp:288 src/models/actionsmodel.cpp:320
 #, fuzzy, kde-format
 #| msgid "Leave room"
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
 msgstr "Szoba elhagyása"
 
-#: src/models/actionsmodel.cpp:257 src/models/actionsmodel.cpp:289
+#: src/models/actionsmodel.cpp:291 src/models/actionsmodel.cpp:323
 #, fuzzy, kde-format
 #| msgid "Room not found"
 msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
 msgstr "A szoba nem található"
 
-#: src/models/actionsmodel.cpp:264 src/models/actionsmodel.cpp:296
+#: src/models/actionsmodel.cpp:298 src/models/actionsmodel.cpp:330
 msgid "[<room alias or id>]"
 msgstr ""
 
-#: src/models/actionsmodel.cpp:265 src/models/actionsmodel.cpp:297
+#: src/models/actionsmodel.cpp:299 src/models/actionsmodel.cpp:331
 msgid "Leaves the given room or this room, if there is none given"
 msgstr ""
 
-#: src/models/actionsmodel.cpp:303 src/models/actionsmodel.cpp:318
+#: src/models/actionsmodel.cpp:337 src/models/actionsmodel.cpp:352
 #, kde-format
 msgid "No new nickname provided, no changes will happen."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:311 src/models/actionsmodel.cpp:326
+#: src/models/actionsmodel.cpp:345 src/models/actionsmodel.cpp:360
 msgid "<display name>"
 msgstr ""
 
-#: src/models/actionsmodel.cpp:312
+#: src/models/actionsmodel.cpp:346
 #, fuzzy
 #| msgctxt "their refers to a singular user"
 #| msgid "changed their display name to %1"
 msgid "Changes your global display name"
 msgstr "megváltoztatta a megjelenített nevét erre: %1"
 
-#: src/models/actionsmodel.cpp:327
+#: src/models/actionsmodel.cpp:361
 #, fuzzy
 #| msgctxt "their refers to a singular user"
 #| msgid "changed their display name to %1"
 msgid "Changes your display name in this room"
 msgstr "megváltoztatta a megjelenített nevét erre: %1"
 
-#: src/models/actionsmodel.cpp:341
+#: src/models/actionsmodel.cpp:375
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:346
+#: src/models/actionsmodel.cpp:380
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:348 src/models/actionsmodel.cpp:376
+#: src/models/actionsmodel.cpp:382 src/models/actionsmodel.cpp:410
 #, kde-format
 msgctxt "<username> is not a known user"
 msgid "%1 is not a known user."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:355
+#: src/models/actionsmodel.cpp:389
 #, fuzzy
 #| msgid "Ignore this user"
 msgid "Ignores the given user"
 msgstr "Figyelmen kívül hagyás"
 
-#: src/models/actionsmodel.cpp:370
+#: src/models/actionsmodel.cpp:404
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:374
+#: src/models/actionsmodel.cpp:408
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:383
+#: src/models/actionsmodel.cpp:417
 #, fuzzy
 #| msgid "Unignore this user"
 msgid "Unignores the given user"
 msgstr "Figyelmen kívül hagyás feloldása"
 
-#: src/models/actionsmodel.cpp:403
+#: src/models/actionsmodel.cpp:437
 msgid "<reaction text>"
 msgstr ""
 
-#: src/models/actionsmodel.cpp:404
+#: src/models/actionsmodel.cpp:438
 #, fuzzy
 #| msgid "React to this message with a text"
 msgid "React to the message with the given text"
 msgstr "Válasz erre az üzenetre szöveggel"
 
-#: src/models/actionsmodel.cpp:420
+#: src/models/actionsmodel.cpp:454
 #, fuzzy, kde-format
 #| msgid "self-banned from the room"
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
 msgstr "kitiltotta magát a szobából"
 
-#: src/models/actionsmodel.cpp:426
+#: src/models/actionsmodel.cpp:460
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgid "You are not allowed to ban users from this room."
 msgstr "NeoChat megnyitása ebben a szobában"
 
-#: src/models/actionsmodel.cpp:432
+#: src/models/actionsmodel.cpp:466
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgctxt "You are not allowed to ban <username> from this room."
 msgid "You are not allowed to ban %1 from this room."
 msgstr "NeoChat megnyitása ebben a szobában"
 
-#: src/models/actionsmodel.cpp:436
+#: src/models/actionsmodel.cpp:470
 #, fuzzy, kde-format
 #| msgid "self-banned from the room"
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
 msgstr "kitiltotta magát a szobából"
 
-#: src/models/actionsmodel.cpp:441 src/models/actionsmodel.cpp:516
+#: src/models/actionsmodel.cpp:475 src/models/actionsmodel.cpp:550
 #, fuzzy
 #| msgctxt "@label Parameter of a command"
 #| msgid "<user-id>"
 msgid "<user id> [<reason>]"
 msgstr "<felhasználóazonosító>"
 
-#: src/models/actionsmodel.cpp:442
+#: src/models/actionsmodel.cpp:476
 #, fuzzy
 #| msgid "Ignore this user"
 msgid "Bans the given user"
 msgstr "Figyelmen kívül hagyás"
 
-#: src/models/actionsmodel.cpp:456
+#: src/models/actionsmodel.cpp:490
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgid "You are not allowed to unban users from this room."
 msgstr "NeoChat megnyitása ebben a szobában"
 
-#: src/models/actionsmodel.cpp:462
+#: src/models/actionsmodel.cpp:496
 #, fuzzy, kde-format
 #| msgid "self-banned from the room"
 msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
 msgstr "kitiltotta magát a szobából"
 
-#: src/models/actionsmodel.cpp:467
+#: src/models/actionsmodel.cpp:501
 #, fuzzy, kde-format
 #| msgid "self-banned from the room"
 msgctxt "<username> was unbanned from this room."
 msgid "%1 was unbanned from this room."
 msgstr "kitiltotta magát a szobából"
 
-#: src/models/actionsmodel.cpp:474
+#: src/models/actionsmodel.cpp:508
 #, fuzzy
 #| msgid "Ignore this user"
 msgid "Removes the ban of the given user"
 msgstr "Figyelmen kívül hagyás"
 
-#: src/models/actionsmodel.cpp:489
+#: src/models/actionsmodel.cpp:523
 #, kde-format
 msgid "You cannot kick yourself from the room."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:494
+#: src/models/actionsmodel.cpp:528
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgctxt "<username> is not in this room"
 msgid "%1 is not in this room."
 msgstr "NeoChat megnyitása ebben a szobában"
 
-#: src/models/actionsmodel.cpp:501
+#: src/models/actionsmodel.cpp:535
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgid "You are not allowed to kick users from this room."
 msgstr "NeoChat megnyitása ebben a szobában"
 
-#: src/models/actionsmodel.cpp:507
+#: src/models/actionsmodel.cpp:541
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgctxt "You are not allowed to kick <username> from this room"
 msgid "You are not allowed to kick %1 from this room."
 msgstr "NeoChat megnyitása ebben a szobában"
 
-#: src/models/actionsmodel.cpp:511
+#: src/models/actionsmodel.cpp:545
 #, fuzzy, kde-format
 #| msgid "self-banned from the room"
 msgctxt "<username> was kicked from this room."
 msgid "%1 was kicked from this room."
 msgstr "kitiltotta magát a szobából"
 
-#: src/models/actionsmodel.cpp:517
+#: src/models/actionsmodel.cpp:551
 #, fuzzy
 #| msgid "invited %1 to the room"
 msgid "Removes the user from the room"
@@ -3865,22 +3886,22 @@ msgstr ""
 msgid "Delete word"
 msgstr "Törlés"
 
-#: src/roommanager.cpp:49
+#: src/roommanager.cpp:52
 #, kde-format
 msgid "Malformed or empty Matrix id"
 msgstr "Rossz formátumú vagy üres Matrix ID"
 
-#: src/roommanager.cpp:49
+#: src/roommanager.cpp:52
 #, kde-format
 msgid "%1 is not a correct Matrix identifier"
 msgstr "%1 nem megfelelő Matrix azonosító"
 
-#: src/roommanager.cpp:66
+#: src/roommanager.cpp:69
 #, kde-format
 msgid "Room not found"
 msgstr "A szoba nem található"
 
-#: src/roommanager.cpp:66
+#: src/roommanager.cpp:69
 #, kde-format
 msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
@@ -3888,23 +3909,34 @@ msgstr ""
 "A szoba ' %1 ' nem található a szobakönyvtárban. Ellenőrizze a helyesírást "
 "és a fiókot."
 
-#: src/roommanager.cpp:207
+#: src/roommanager.cpp:210
 #, fuzzy, kde-format
 #| msgid "invited %1 to the room"
 msgid "Failed to join room"
 msgstr "meghívta őt a szobába: %1"
 
-#: src/roommanager.cpp:216
+#: src/roommanager.cpp:227
+#, kde-format
+msgid "You requested to join '%1'"
+msgstr ""
+
+#: src/roommanager.cpp:230
+#, fuzzy, kde-format
+#| msgid "invited %1 to the room"
+msgid "Failed to request joining room"
+msgstr "meghívta őt a szobába: %1"
+
+#: src/roommanager.cpp:240
 #, kde-format
 msgid "No application for the link"
 msgstr "Nincs megfelelő alkalmazás a linkhez"
 
-#: src/roommanager.cpp:216
+#: src/roommanager.cpp:240
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "Az operációs rendszere nem talált alkalmazást a hivatkozáshoz."
 
-#: src/roommanager.cpp:222
+#: src/roommanager.cpp:246
 #, kde-format
 msgid "Could not open URL"
 msgstr ""
