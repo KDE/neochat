@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-18 00:58+0000\n"
-"PO-Revision-Date: 2023-02-13 07:04+0100\n"
+"PO-Revision-Date: 2023-02-18 07:09+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -328,24 +328,18 @@ msgid "Joins the given room"
 msgstr "მითითებულ ოთახში შესვლა"
 
 #: src/models/actionsmodel.cpp:230
-#, fuzzy, kde-format
-#| msgctxt "Joining room <roomname>."
-#| msgid "Joining room %1."
+#, kde-format
 msgctxt "Knocking room <roomname>."
 msgid "Knocking room %1."
-msgstr "შესვლა ოთახში %1."
+msgstr "ვაკაკუნებ ოთახზე %1."
 
 #: src/models/actionsmodel.cpp:242
-#, fuzzy
-#| msgid "[<room alias or id>]"
 msgid "<room alias or id> [<reason>]"
-msgstr "[<ოთახის მეტსახელი ან id>]"
+msgstr "<ოთახის მეტსახელი ან id [<მიზეზი>]"
 
 #: src/models/actionsmodel.cpp:243
-#, fuzzy
-#| msgid "Joins the given room"
 msgid "Requests to join the given room"
-msgstr "მითითებულ ოთახში შესვლა"
+msgstr "მითითებულ ოთახში შესვლის მოთხოვნები"
 
 #: src/models/actionsmodel.cpp:257
 #, kde-format
@@ -3698,13 +3692,12 @@ msgstr "ოთახში შესვლის შეცდომა"
 #: src/roommanager.cpp:227
 #, kde-format
 msgid "You requested to join '%1'"
-msgstr ""
+msgstr "მოითხოვეთ '%1'-ზე შესვლა"
 
 #: src/roommanager.cpp:230
-#, fuzzy, kde-format
-#| msgid "Failed to join room"
+#, kde-format
 msgid "Failed to request joining room"
-msgstr "ოთახში შესვლის შეცდომა"
+msgstr "ოთახში შესვლის მოთხოვნის შეცდომა"
 
 #: src/roommanager.cpp:240
 #, kde-format
