@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-18 00:58+0000\n"
-"PO-Revision-Date: 2023-02-14 09:02+0100\n"
+"PO-Revision-Date: 2023-02-19 06:48+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #: src/controller.cpp:197
@@ -329,24 +329,18 @@ msgid "Joins the given room"
 msgstr "Se pridružuje dani sobi"
 
 #: src/models/actionsmodel.cpp:230
-#, fuzzy, kde-format
-#| msgctxt "Joining room <roomname>."
-#| msgid "Joining room %1."
+#, kde-format
 msgctxt "Knocking room <roomname>."
 msgid "Knocking room %1."
-msgstr "Se pridružujem sobi %1."
+msgstr "Trkam v sobo %1."
 
 #: src/models/actionsmodel.cpp:242
-#, fuzzy
-#| msgid "[<room alias or id>]"
 msgid "<room alias or id> [<reason>]"
-msgstr "[<vzdeve sobe ali določilnik>]"
+msgstr "<vzdevek sobe ali določilnik>[<razlog>]"
 
 #: src/models/actionsmodel.cpp:243
-#, fuzzy
-#| msgid "Joins the given room"
 msgid "Requests to join the given room"
-msgstr "Se pridružuje dani sobi"
+msgstr "Prošnje za pridružitev k dani sobi"
 
 #: src/models/actionsmodel.cpp:257
 #, kde-format
@@ -531,10 +525,10 @@ msgstr "Odstrani uporabnika iz te sobe"
 msgctxt "n times"
 msgid " %1 time "
 msgid_plural " %1 times "
-msgstr[0] " %1 krat"
-msgstr[1] " %1 krat"
-msgstr[2] " %1 krat"
-msgstr[3] " %1 krat"
+msgstr[0] " %1 krat "
+msgstr[1] " %1 krat "
+msgstr[2] " %1 krat "
+msgstr[3] " %1 krat "
 
 #: src/models/collapsestateproxymodel.cpp:76
 #, kde-format
@@ -3724,13 +3718,12 @@ msgstr "Neuspela pridružitev v sobo"
 #: src/roommanager.cpp:227
 #, kde-format
 msgid "You requested to join '%1'"
-msgstr ""
+msgstr "Prosili ste za pridružitev k '%1'"
 
 #: src/roommanager.cpp:230
-#, fuzzy, kde-format
-#| msgid "Failed to join room"
+#, kde-format
 msgid "Failed to request joining room"
-msgstr "Neuspela pridružitev v sobo"
+msgstr "Neuspela prošnja za pridružitev v sobo"
 
 #: src/roommanager.cpp:240
 #, kde-format
