@@ -256,6 +256,7 @@ Kirigami.OverlayDrawer {
                 id: userListSearchField
                 visible: memberSearchToggle.checked
 
+                onVisibleChanged: if (visible) forceActiveFocus()
                 Layout.fillWidth: true
                 Layout.leftMargin: Kirigami.Units.largeSpacing - 1
                 Layout.rightMargin: Kirigami.Units.largeSpacing - 1
