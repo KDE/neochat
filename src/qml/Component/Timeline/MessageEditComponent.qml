@@ -11,11 +11,13 @@ import org.kde.neochat 1.0
 QQC2.TextArea {
     id: root
 
+    property var room
+    onRoomChanged: room.chatBoxEditIdChanged.connect(updateEditText)
+
     property string messageId
 
-    Layout.fillWidth: true
-    Layout.minimumHeight: editButtons.height + topPadding + bottomPadding
-    Layout.preferredWidth: editTextMetrics.advanceWidth + rightPadding + Kirigami.Units.smallSpacing + Kirigami.Units.gridUnit
+    property var minimumHeight: editButtons.height + topPadding + bottomPadding
+    property var preferredWidth: editTextMetrics.advanceWidth + rightPadding + Kirigami.Units.smallSpacing + Kirigami.Units.gridUnit
     rightPadding: editButtons.width + editButtons.anchors.rightMargin * 2
 
     color: Kirigami.Theme.textColor
@@ -29,7 +31,7 @@ QQC2.TextArea {
         }
     }
     onTextChanged: {
-        currentRoom.editText = text
+        room.editText = text
     }
 
     Keys.onEnterPressed: {
@@ -91,21 +93,12 @@ QQC2.TextArea {
                 text: i18nc("@action:button", "Cancel edit")
                 icon.name: "dialog-close"
                 onTriggered: {
-                    currentRoom.chatBoxEditId = "";
+                    room.chatBoxEditId = "";
                 }
                 shortcut: "Escape"
             }
             QQC2.ToolTip.text: text
             QQC2.ToolTip.visible: hovered
-        }
-    }
-
-    Connections {
-        target: currentRoom
-        function onChatBoxEditIdChanged() {
-            if (currentRoom.chatBoxEditId == messageId && currentRoom.chatBoxEditMessage.length > 0) {
-                root.text = currentRoom.chatBoxEditMessage
-            }
         }
     }
 
@@ -131,7 +124,7 @@ QQC2.TextArea {
         cursorPosition: root.cursorPosition
         selectionStart: root.selectionStart
         selectionEnd: root.selectionEnd
-        room: currentRoom // We don't care about saving for edits so this is OK.
+        room: root.room // We don't care about saving for edits so this is OK.
     }
 
     TextMetrics {
@@ -142,7 +135,13 @@ QQC2.TextArea {
     function postEdit() {
         actionsHandler.handleEdit();
         root.clear();
-        currentRoom.chatBoxEditId = "";
+        room.chatBoxEditId = "";
+    }
+
+    function updateEditText() {
+        if (room.chatBoxEditId == messageId && room.chatBoxEditMessage.length > 0) {
+            root.text = room.chatBoxEditMessage
+        }
     }
 }
 

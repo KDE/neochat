@@ -26,9 +26,12 @@ TimelineContainer {
         }
         Loader {
             Layout.fillWidth: true
+            Layout.minimumHeight: item ? item.minimumHeight : -1
+            Layout.preferredWidth: item ? item.preferredWidth : -1
             visible: currentRoom.chatBoxEditId === model.eventId
             active: visible
             sourceComponent: MessageEditComponent {
+                room: currentRoom
                 messageId: model.eventId
             }
         }
