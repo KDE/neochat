@@ -134,7 +134,7 @@ Kirigami.ScrollablePage {
     function goToNextRoom() {
         do {
             listView.incrementCurrentIndex();
-        } while (!listView.currentItem.visible && listView.currentIndex === listView.count)
+        } while (!listView.currentItem.visible && listView.currentIndex !== listView.count - 1)
         listView.currentItem.action.trigger();
     }
 
