@@ -975,6 +975,9 @@ QVariant MessageEventModel::getLatestMessageFromIndex(const int baseline)
     for (auto it = timelineBottom; it != limit; ++it) {
         auto evt = it->event();
         auto e = eventCast<const RoomMessageEvent>(evt);
+        if (!e) {
+            continue;
+        }
 
         auto content = (*it)->contentJson();
 
