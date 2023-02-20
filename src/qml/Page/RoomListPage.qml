@@ -132,17 +132,25 @@ Kirigami.ScrollablePage {
     }
 
     function goToNextRoom() {
-        do {
-            listView.incrementCurrentIndex();
-        } while (!listView.currentItem.visible && listView.currentIndex !== listView.count - 1)
-        listView.currentItem.action.trigger();
+        let index = listView.currentIndex;
+        while (index++ !== listView.count - 1) {
+            if (listView.itemAtIndex(index).visible) {
+                listView.currentIndex = index;
+                listView.currentItem.action.trigger();
+                return;
+            }
+        }
     }
 
     function goToPreviousRoom() {
-        do {
-            listView.decrementCurrentIndex();
-        } while (!listView.currentItem.visible && listView.currentIndex !== 0)
-        listView.currentItem.action.trigger();
+        let index = listView.currentIndex;
+        while (index-- !== 0) {
+            if (listView.itemAtIndex(index).visible) {
+                listView.currentIndex = index;
+                listView.currentItem.action.trigger();
+                return;
+            }
+        }
     }
 
     titleDelegate: collapsedMode ? empty : searchField
