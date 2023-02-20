@@ -44,9 +44,6 @@ Kirigami.ScrollablePage {
         }
     }
 
-    signal switchRoomUp()
-    signal switchRoomDown()
-
     onCurrentRoomChanged: {
         applicationWindow().hoverLinkIndicator.text = "";
         messageListView.positionViewAtBeginning();
@@ -120,26 +117,8 @@ Kirigami.ScrollablePage {
 
     focus: true
 
-    Keys.onTabPressed: {
-        if (event.modifiers & Qt.ControlModifier) {
-            switchRoomDown();
-        }
-    }
-
-    Keys.onBacktabPressed: {
-        if (event.modifiers & Qt.ControlModifier) {
-            switchRoomUp();
-        }
-    }
-
     Keys.onPressed: {
-        if (event.key === Qt.Key_PageDown && (event.modifiers & Qt.ControlModifier)) {
-            event.accepted = true;
-            switchRoomDown();
-        } else if (event.key === Qt.Key_PageUp && (event.modifiers & Qt.ControlModifier)) {
-            event.accepted = true;
-            switchRoomUp();
-        } else if (!(event.modifiers & Qt.ControlModifier) && event.key < Qt.Key_Escape) {
+        if (!(event.modifiers & Qt.ControlModifier) && event.key < Qt.Key_Escape) {
             event.accepted = true;
             chatBox.chatBar.insertText(event.text);
             chatBox.chatBar.forceActiveFocus();

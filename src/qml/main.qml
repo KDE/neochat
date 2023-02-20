@@ -317,12 +317,16 @@ Kirigami.ApplicationWindow {
         RoomListPage {
             id: roomList
 
-            Connections {
-                target: root.roomPage
-                function onSwitchRoomUp() {
+            Shortcut {
+                sequences: ["Ctrl+PgUp", "Ctrl+Backtab"]
+                onActivated: {
                     roomList.goToPreviousRoom();
                 }
-                function onSwitchRoomDown() {
+            }
+
+            Shortcut {
+                sequences: ["Ctrl+PgDown", "Ctrl+Tab"]
+                onActivated: {
                     roomList.goToNextRoom();
                 }
             }
