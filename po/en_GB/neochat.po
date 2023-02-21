@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-18 00:58+0000\n"
+"POT-Creation-Date: 2023-02-21 00:59+0000\n"
 "PO-Revision-Date: 2022-12-31 19:10+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -17,67 +17,77 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 21.12.3\n"
 
-#: src/controller.cpp:197
+#: src/controller.cpp:198
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Encrypted Message"
 
-#: src/controller.cpp:257 src/controller.cpp:390
+#: src/controller.cpp:258 src/controller.cpp:391
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Network Error: %1"
 
-#: src/controller.cpp:376
+#: src/controller.cpp:377
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Login Failed: Access Token invalid or revoked"
 
-#: src/controller.cpp:379 src/controller.cpp:384 src/login.cpp:91
+#: src/controller.cpp:380 src/controller.cpp:385 src/login.cpp:91
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Login Failed: %1"
 
-#: src/controller.cpp:415
+#: src/controller.cpp:416
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Access token wasn't found"
 
-#: src/controller.cpp:415
+#: src/controller.cpp:416
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Maybe it was deleted?"
 
-#: src/controller.cpp:419
+#: src/controller.cpp:420
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Access to keychain was denied."
 
-#: src/controller.cpp:419
+#: src/controller.cpp:420
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Please allow NeoChat to read the access token"
 
-#: src/controller.cpp:422
+#: src/controller.cpp:423
 #, kde-format
 msgid "No keychain available."
 msgstr "No keychain available."
 
-#: src/controller.cpp:422
+#: src/controller.cpp:423
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 
-#: src/controller.cpp:425
+#: src/controller.cpp:426
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Unable to read access token"
 
-#: src/controller.cpp:642
+#: src/controller.cpp:616
+#, kde-format
+msgid "File too large to download."
+msgstr ""
+
+#: src/controller.cpp:616
+#, kde-format
+msgid "Contact your matrix server administrator for support."
+msgstr ""
+
+#: src/controller.cpp:648
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "Room creation failed: \"%1\""
 
-#: src/controller.cpp:655
+#: src/controller.cpp:661
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "The room ID you are trying to join is not valid"
@@ -663,32 +673,32 @@ msgstr "[REDACTED]"
 msgid "[REDACTED: %1]"
 msgstr "[REDACTED: %1]"
 
-#: src/models/roomlistmodel.cpp:464
+#: src/models/roomlistmodel.cpp:467
 #, kde-format
 msgid "Invited"
 msgstr "Invited"
 
-#: src/models/roomlistmodel.cpp:466
+#: src/models/roomlistmodel.cpp:469
 #, kde-format
 msgid "Favorite"
 msgstr "Favourite"
 
-#: src/models/roomlistmodel.cpp:468
+#: src/models/roomlistmodel.cpp:471
 #, kde-format
 msgid "Direct Messages"
 msgstr "Direct Messages"
 
-#: src/models/roomlistmodel.cpp:470
+#: src/models/roomlistmodel.cpp:473
 #, kde-format
 msgid "Normal"
 msgstr "Normal"
 
-#: src/models/roomlistmodel.cpp:472
+#: src/models/roomlistmodel.cpp:475
 #, kde-format
 msgid "Low priority"
 msgstr "Low priority"
 
-#: src/models/roomlistmodel.cpp:474
+#: src/models/roomlistmodel.cpp:477
 #, kde-format
 msgid "Spaces"
 msgstr "Spaces"
@@ -1058,7 +1068,7 @@ msgstr "Open NeoChat in this room"
 #: src/notificationsmanager.cpp:85
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:546
+#: src/qml/Page/RoomPage.qml:548
 #, kde-format
 msgid "Reply"
 msgstr "Reply"
@@ -1095,7 +1105,7 @@ msgstr "Attachment:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:535
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:537
 #, kde-format
 msgid "Edit"
 msgstr "Edit"
@@ -1370,14 +1380,14 @@ msgstr ""
 msgid "Loading URL preview"
 msgstr ""
 
-#: src/qml/Component/Timeline/MessageEditComponent.qml:79
+#: src/qml/Component/Timeline/MessageEditComponent.qml:81
 #, fuzzy, kde-format
 #| msgid "Confirm"
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "Confirm"
 
-#: src/qml/Component/Timeline/MessageEditComponent.qml:91
+#: src/qml/Component/Timeline/MessageEditComponent.qml:93
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action:button"
@@ -1591,7 +1601,7 @@ msgid "Successfully verified device **%1**"
 msgstr "Successfully verified device **%1**"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:193
+#: src/qml/Page/RoomPage.qml:195
 #, kde-format
 msgid "Accept"
 msgstr "Accept"
@@ -2498,42 +2508,42 @@ msgstr "Muted room"
 msgid "Configure room"
 msgstr "Configure room"
 
-#: src/qml/Page/RoomPage.qml:182
+#: src/qml/Page/RoomPage.qml:184
 #, kde-format
 msgid "Accept this invitation?"
 msgstr "Accept this invitation?"
 
-#: src/qml/Page/RoomPage.qml:186
+#: src/qml/Page/RoomPage.qml:188
 #, kde-format
 msgid "Reject"
 msgstr "Reject"
 
-#: src/qml/Page/RoomPage.qml:284
+#: src/qml/Page/RoomPage.qml:286
 #, kde-format
 msgid "Choose local file"
 msgstr "Choose local file"
 
-#: src/qml/Page/RoomPage.qml:311
+#: src/qml/Page/RoomPage.qml:313
 #, kde-format
 msgid "Clipboard image"
 msgstr "Clipboard image"
 
-#: src/qml/Page/RoomPage.qml:360
+#: src/qml/Page/RoomPage.qml:362
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Jump to first unread message"
 
-#: src/qml/Page/RoomPage.qml:385
+#: src/qml/Page/RoomPage.qml:387
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Jump to latest message"
 
-#: src/qml/Page/RoomPage.qml:410
+#: src/qml/Page/RoomPage.qml:412
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Drag items here to share them"
 
-#: src/qml/Page/RoomPage.qml:442
+#: src/qml/Page/RoomPage.qml:444
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2541,12 +2551,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 is typing"
 msgstr[1] "%2 are typing"
 
-#: src/qml/Page/RoomPage.qml:513
+#: src/qml/Page/RoomPage.qml:515
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "This message was sent from a verified device"
 
-#: src/qml/Page/RoomPage.qml:519
+#: src/qml/Page/RoomPage.qml:521
 #, kde-format
 msgid "React"
 msgstr "React"

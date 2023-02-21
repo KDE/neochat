@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-18 00:58+0000\n"
+"POT-Creation-Date: 2023-02-21 00:59+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -17,69 +17,79 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 22.04.3\n"
 
-#: src/controller.cpp:197
+#: src/controller.cpp:198
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgid "Encrypted Message"
 msgstr "İsmarıca düzəliş etmək"
 
-#: src/controller.cpp:257 src/controller.cpp:390
+#: src/controller.cpp:258 src/controller.cpp:391
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Şəbəkə xətası: %1"
 
-#: src/controller.cpp:376
+#: src/controller.cpp:377
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Giriş baş tutmadı: Giriş Tokeni səhvdir və ya ləğv edilib"
 
-#: src/controller.cpp:379 src/controller.cpp:384 src/login.cpp:91
+#: src/controller.cpp:380 src/controller.cpp:385 src/login.cpp:91
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Giriş alınmadı: %1"
 
-#: src/controller.cpp:415
+#: src/controller.cpp:416
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Giriş tokeni tapılmadı"
 
-#: src/controller.cpp:415
+#: src/controller.cpp:416
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Ola bilsin ki, o, silinib"
 
-#: src/controller.cpp:419
+#: src/controller.cpp:420
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Açarlar bağına girişə icaz. verilmir."
 
-#: src/controller.cpp:419
+#: src/controller.cpp:420
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "NeoChat'a giriş tokenini oxumağa icazə verin"
 
-#: src/controller.cpp:422
+#: src/controller.cpp:423
 #, kde-format
 msgid "No keychain available."
 msgstr "Açarlar bağı əlçatan deyil."
 
-#: src/controller.cpp:422
+#: src/controller.cpp:423
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Linix'da KWallet və ya GNOME keyring kimi açarlar bağı tətbiqini quraşdırın"
 
-#: src/controller.cpp:425
+#: src/controller.cpp:426
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Giriş nişanını oxumaq mümkün deyil"
 
-#: src/controller.cpp:642
+#: src/controller.cpp:616
+#, kde-format
+msgid "File too large to download."
+msgstr ""
+
+#: src/controller.cpp:616
+#, kde-format
+msgid "Contact your matrix server administrator for support."
+msgstr ""
+
+#: src/controller.cpp:648
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "Otaq yaradıla bilmədi: \"%1\""
 
-#: src/controller.cpp:655
+#: src/controller.cpp:661
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Qoşulmağa cəhd etdiyiniz otaq İD-si doğru deyil"
@@ -739,32 +749,32 @@ msgstr "[DÜZƏLİŞ_EDİLDİ]"
 msgid "[REDACTED: %1]"
 msgstr "[DÜZƏLİŞ_EDİLDİ: %1]"
 
-#: src/models/roomlistmodel.cpp:464
+#: src/models/roomlistmodel.cpp:467
 #, kde-format
 msgid "Invited"
 msgstr "Dəvət edildi"
 
-#: src/models/roomlistmodel.cpp:466
+#: src/models/roomlistmodel.cpp:469
 #, kde-format
 msgid "Favorite"
 msgstr "Seçilmiş"
 
-#: src/models/roomlistmodel.cpp:468
+#: src/models/roomlistmodel.cpp:471
 #, kde-format
 msgid "Direct Messages"
 msgstr "Birbaşa İsmarıclar"
 
-#: src/models/roomlistmodel.cpp:470
+#: src/models/roomlistmodel.cpp:473
 #, kde-format
 msgid "Normal"
 msgstr "Normal"
 
-#: src/models/roomlistmodel.cpp:472
+#: src/models/roomlistmodel.cpp:475
 #, kde-format
 msgid "Low priority"
 msgstr "Aşağı prioritet"
 
-#: src/models/roomlistmodel.cpp:474
+#: src/models/roomlistmodel.cpp:477
 #, kde-format
 msgid "Spaces"
 msgstr "Boşluqlar"
@@ -1137,7 +1147,7 @@ msgstr "NeoChatı bu otaqla açın"
 #: src/notificationsmanager.cpp:85
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:546
+#: src/qml/Page/RoomPage.qml:548
 #, kde-format
 msgid "Reply"
 msgstr "Cavab"
@@ -1174,7 +1184,7 @@ msgstr "Qoşma fayl:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:535
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:537
 #, kde-format
 msgid "Edit"
 msgstr "Düzəliş etmək"
@@ -1456,14 +1466,14 @@ msgstr ""
 msgid "Loading URL preview"
 msgstr ""
 
-#: src/qml/Component/Timeline/MessageEditComponent.qml:79
+#: src/qml/Component/Timeline/MessageEditComponent.qml:81
 #, fuzzy, kde-format
 #| msgid "Confirm"
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "Təsdiq etmək"
 
-#: src/qml/Component/Timeline/MessageEditComponent.qml:91
+#: src/qml/Component/Timeline/MessageEditComponent.qml:93
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action:button"
@@ -1682,7 +1692,7 @@ msgid "Successfully verified device **%1**"
 msgstr ""
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:193
+#: src/qml/Page/RoomPage.qml:195
 #, kde-format
 msgid "Accept"
 msgstr "Qəbul etmək"
@@ -2592,42 +2602,42 @@ msgstr "Səssiz"
 msgid "Configure room"
 msgstr "Otağı tənzimləmək"
 
-#: src/qml/Page/RoomPage.qml:182
+#: src/qml/Page/RoomPage.qml:184
 #, kde-format
 msgid "Accept this invitation?"
 msgstr "Bu dəvəti qəbul edirsiniz?"
 
-#: src/qml/Page/RoomPage.qml:186
+#: src/qml/Page/RoomPage.qml:188
 #, kde-format
 msgid "Reject"
 msgstr "İmtina etmək"
 
-#: src/qml/Page/RoomPage.qml:284
+#: src/qml/Page/RoomPage.qml:286
 #, kde-format
 msgid "Choose local file"
 msgstr "Yerli faylı seçin"
 
-#: src/qml/Page/RoomPage.qml:311
+#: src/qml/Page/RoomPage.qml:313
 #, kde-format
 msgid "Clipboard image"
 msgstr "Mübadilə yaddaşındakı şəkil"
 
-#: src/qml/Page/RoomPage.qml:360
+#: src/qml/Page/RoomPage.qml:362
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Birinci oxunmammış ismarıca keçin"
 
-#: src/qml/Page/RoomPage.qml:385
+#: src/qml/Page/RoomPage.qml:387
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Sonuncu ismarıca keçin"
 
-#: src/qml/Page/RoomPage.qml:410
+#: src/qml/Page/RoomPage.qml:412
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Elementi paylaşmaq üçün buraya atın"
 
-#: src/qml/Page/RoomPage.qml:442
+#: src/qml/Page/RoomPage.qml:444
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2635,12 +2645,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 yazır"
 msgstr[1] "%2 yazırlar"
 
-#: src/qml/Page/RoomPage.qml:513
+#: src/qml/Page/RoomPage.qml:515
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr ""
 
-#: src/qml/Page/RoomPage.qml:519
+#: src/qml/Page/RoomPage.qml:521
 #, kde-format
 msgid "React"
 msgstr "Reaksiya"

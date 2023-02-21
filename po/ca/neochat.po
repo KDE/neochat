@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-18 00:58+0000\n"
+"POT-Creation-Date: 2023-02-21 00:59+0000\n"
 "PO-Revision-Date: 2023-02-18 11:17+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -20,69 +20,79 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 20.12.0\n"
 
-#: src/controller.cpp:197
+#: src/controller.cpp:198
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Missatge encriptat"
 
-#: src/controller.cpp:257 src/controller.cpp:390
+#: src/controller.cpp:258 src/controller.cpp:391
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Error de la xarxa: %1"
 
-#: src/controller.cpp:376
+#: src/controller.cpp:377
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr ""
 "Ha fallat l'inici de sessió: El testimoni d'accés no és vàlid o està revocat"
 
-#: src/controller.cpp:379 src/controller.cpp:384 src/login.cpp:91
+#: src/controller.cpp:380 src/controller.cpp:385 src/login.cpp:91
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Ha fallat l'inici de la sessió: %1"
 
-#: src/controller.cpp:415
+#: src/controller.cpp:416
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "No s'ha trobat el testimoni d'accés"
 
-#: src/controller.cpp:415
+#: src/controller.cpp:416
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Potser s'ha suprimit?"
 
-#: src/controller.cpp:419
+#: src/controller.cpp:420
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "S'ha denegat l'accés al clauer."
 
-#: src/controller.cpp:419
+#: src/controller.cpp:420
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Permeteu que el NeoChat llegeixi el testimoni d'accés"
 
-#: src/controller.cpp:422
+#: src/controller.cpp:423
 #, kde-format
 msgid "No keychain available."
 msgstr "No hi ha cap clauer disponible."
 
-#: src/controller.cpp:422
+#: src/controller.cpp:423
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Instal·leu un clauer, p. ex. el KWallet o l'anell de claus del GNOME al Linux"
 
-#: src/controller.cpp:425
+#: src/controller.cpp:426
 #, kde-format
 msgid "Unable to read access token"
 msgstr "No s'ha pogut llegir el testimoni d'accés"
 
-#: src/controller.cpp:642
+#: src/controller.cpp:616
+#, kde-format
+msgid "File too large to download."
+msgstr ""
+
+#: src/controller.cpp:616
+#, kde-format
+msgid "Contact your matrix server administrator for support."
+msgstr ""
+
+#: src/controller.cpp:648
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "Ha fallat la creació de la sala: «%1»"
 
-#: src/controller.cpp:655
+#: src/controller.cpp:661
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "L'ID de la sala a la qual esteu intentant unir-vos no és vàlida"
@@ -659,32 +669,32 @@ msgstr "[REDACTAT]"
 msgid "[REDACTED: %1]"
 msgstr "[REDACTAT: %1]"
 
-#: src/models/roomlistmodel.cpp:464
+#: src/models/roomlistmodel.cpp:467
 #, kde-format
 msgid "Invited"
 msgstr "Convidat"
 
-#: src/models/roomlistmodel.cpp:466
+#: src/models/roomlistmodel.cpp:469
 #, kde-format
 msgid "Favorite"
 msgstr "Preferit"
 
-#: src/models/roomlistmodel.cpp:468
+#: src/models/roomlistmodel.cpp:471
 #, kde-format
 msgid "Direct Messages"
 msgstr "Missatges directes"
 
-#: src/models/roomlistmodel.cpp:470
+#: src/models/roomlistmodel.cpp:473
 #, kde-format
 msgid "Normal"
 msgstr "Normal"
 
-#: src/models/roomlistmodel.cpp:472
+#: src/models/roomlistmodel.cpp:475
 #, kde-format
 msgid "Low priority"
 msgstr "Prioritat baixa"
 
-#: src/models/roomlistmodel.cpp:474
+#: src/models/roomlistmodel.cpp:477
 #, kde-format
 msgid "Spaces"
 msgstr "Espais"
@@ -1034,7 +1044,7 @@ msgstr "Obre el NeoChat en aquesta sala"
 #: src/notificationsmanager.cpp:85
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:546
+#: src/qml/Page/RoomPage.qml:548
 #, kde-format
 msgid "Reply"
 msgstr "Respon"
@@ -1071,7 +1081,7 @@ msgstr "Adjunt:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:535
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:537
 #, kde-format
 msgid "Edit"
 msgstr "Edita"
@@ -1348,13 +1358,13 @@ msgstr "Expandeix la vista prèvia"
 msgid "Loading URL preview"
 msgstr "S'està carregant la vista prèvia de l'URL"
 
-#: src/qml/Component/Timeline/MessageEditComponent.qml:79
+#: src/qml/Component/Timeline/MessageEditComponent.qml:81
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "Confirma l'edició"
 
-#: src/qml/Component/Timeline/MessageEditComponent.qml:91
+#: src/qml/Component/Timeline/MessageEditComponent.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel edit"
@@ -1567,7 +1577,7 @@ msgid "Successfully verified device **%1**"
 msgstr "Dispositiu **%1** verificat correctament"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:193
+#: src/qml/Page/RoomPage.qml:195
 #, kde-format
 msgid "Accept"
 msgstr "Accepta"
@@ -2478,42 +2488,42 @@ msgstr "Sala silenciada"
 msgid "Configure room"
 msgstr "Configura la sala"
 
-#: src/qml/Page/RoomPage.qml:182
+#: src/qml/Page/RoomPage.qml:184
 #, kde-format
 msgid "Accept this invitation?"
 msgstr "Accepteu aquesta invitació?"
 
-#: src/qml/Page/RoomPage.qml:186
+#: src/qml/Page/RoomPage.qml:188
 #, kde-format
 msgid "Reject"
 msgstr "Rebutja"
 
-#: src/qml/Page/RoomPage.qml:284
+#: src/qml/Page/RoomPage.qml:286
 #, kde-format
 msgid "Choose local file"
 msgstr "Trieu un fitxer local"
 
-#: src/qml/Page/RoomPage.qml:311
+#: src/qml/Page/RoomPage.qml:313
 #, kde-format
 msgid "Clipboard image"
 msgstr "Imatge del porta-retalls"
 
-#: src/qml/Page/RoomPage.qml:360
+#: src/qml/Page/RoomPage.qml:362
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Ves al primer missatge sense llegir"
 
-#: src/qml/Page/RoomPage.qml:385
+#: src/qml/Page/RoomPage.qml:387
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Ves al darrer missatge"
 
-#: src/qml/Page/RoomPage.qml:410
+#: src/qml/Page/RoomPage.qml:412
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Arrossegueu aquí els elements per a compartir"
 
-#: src/qml/Page/RoomPage.qml:442
+#: src/qml/Page/RoomPage.qml:444
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2521,12 +2531,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 està escrivint"
 msgstr[1] "%2 estan escrivint"
 
-#: src/qml/Page/RoomPage.qml:513
+#: src/qml/Page/RoomPage.qml:515
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "El missatge s'ha enviat des d'un dispositiu verificat"
 
-#: src/qml/Page/RoomPage.qml:519
+#: src/qml/Page/RoomPage.qml:521
 #, kde-format
 msgid "React"
 msgstr "Reacciona"

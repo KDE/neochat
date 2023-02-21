@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-18 00:58+0000\n"
+"POT-Creation-Date: 2023-02-21 00:59+0000\n"
 "PO-Revision-Date: 2023-02-14 21:42+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -17,69 +17,79 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 22.12.2\n"
 
-#: src/controller.cpp:197
+#: src/controller.cpp:198
 #, kde-format
 msgid "Encrypted Message"
 msgstr "மறையாக்கப்பட்டுள்ள செய்தி"
 
-#: src/controller.cpp:257 src/controller.cpp:390
+#: src/controller.cpp:258 src/controller.cpp:391
 #, kde-format
 msgid "Network Error: %1"
 msgstr "பிணைய சிக்கல்: %1"
 
-#: src/controller.cpp:376
+#: src/controller.cpp:377
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr ""
 "நுழைவு தோல்வியடைந்தது: Access Token செல்லுபடியாகாதது அல்லது திரும்பப்பெறப்பட்டது"
 
-#: src/controller.cpp:379 src/controller.cpp:384 src/login.cpp:91
+#: src/controller.cpp:380 src/controller.cpp:385 src/login.cpp:91
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "நுழைவு தோல்வியடைந்தது: %1"
 
-#: src/controller.cpp:415
+#: src/controller.cpp:416
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "அணுகல் டோக்கன் கண்டுபிடிக்கப்படவில்லை"
 
-#: src/controller.cpp:415
+#: src/controller.cpp:416
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "நீக்கப்பட்டுள்ளதா?"
 
-#: src/controller.cpp:419
+#: src/controller.cpp:420
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "சாவிக்கொத்தை அணுக முடியவில்லை"
 
-#: src/controller.cpp:419
+#: src/controller.cpp:420
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "அணுகல் டோக்கனை படிக்க நியோச்சாட்டை அனுமதிக்கவும்"
 
-#: src/controller.cpp:422
+#: src/controller.cpp:423
 #, kde-format
 msgid "No keychain available."
 msgstr "எந்த சாவிக்கொத்தும் கிடைக்கவில்லை"
 
-#: src/controller.cpp:422
+#: src/controller.cpp:423
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "ஓர் சாவிக்கொத்து நிரலை நிறுவுங்கள், எ.கா. லினக்ஸில் KWallet அல்லது GNOME keyring."
 
-#: src/controller.cpp:425
+#: src/controller.cpp:426
 #, kde-format
 msgid "Unable to read access token"
 msgstr "அணுகல் டோக்கனை படிக்க முடியவில்லை"
 
-#: src/controller.cpp:642
+#: src/controller.cpp:616
+#, kde-format
+msgid "File too large to download."
+msgstr ""
+
+#: src/controller.cpp:616
+#, kde-format
+msgid "Contact your matrix server administrator for support."
+msgstr ""
+
+#: src/controller.cpp:648
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "அரங்கு உருவாக்கம் தோல்வியடைந்தது: %1"
 
-#: src/controller.cpp:655
+#: src/controller.cpp:661
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "நீங்கள் சேர முயற்சிக்கும் அரங்கு செல்லுபடியாகாதது"
@@ -662,32 +672,32 @@ msgstr "[தணிக்கை செய்யப்பட்டது]"
 msgid "[REDACTED: %1]"
 msgstr "[தணிக்கை செய்யப்பட்டது: %1]"
 
-#: src/models/roomlistmodel.cpp:464
+#: src/models/roomlistmodel.cpp:467
 #, kde-format
 msgid "Invited"
 msgstr "வரவழைப்புகள்"
 
-#: src/models/roomlistmodel.cpp:466
+#: src/models/roomlistmodel.cpp:469
 #, kde-format
 msgid "Favorite"
 msgstr "பிடித்தவை"
 
-#: src/models/roomlistmodel.cpp:468
+#: src/models/roomlistmodel.cpp:471
 #, kde-format
 msgid "Direct Messages"
 msgstr "நேரடி செய்திகள்"
 
-#: src/models/roomlistmodel.cpp:470
+#: src/models/roomlistmodel.cpp:473
 #, kde-format
 msgid "Normal"
 msgstr "சாதாரணமானவை"
 
-#: src/models/roomlistmodel.cpp:472
+#: src/models/roomlistmodel.cpp:475
 #, kde-format
 msgid "Low priority"
 msgstr "முக்கியமில்லாதவை"
 
-#: src/models/roomlistmodel.cpp:474
+#: src/models/roomlistmodel.cpp:477
 #, kde-format
 msgid "Spaces"
 msgstr "இடங்கள்"
@@ -1036,7 +1046,7 @@ msgstr "இந்த அரங்கில் நியோச்சாட்ட�
 #: src/notificationsmanager.cpp:85
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:546
+#: src/qml/Page/RoomPage.qml:548
 #, kde-format
 msgid "Reply"
 msgstr "பதிலளி"
@@ -1073,7 +1083,7 @@ msgstr "உடனிணைப்பு:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:535
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:537
 #, kde-format
 msgid "Edit"
 msgstr "திருத்து"
@@ -1347,13 +1357,13 @@ msgstr "முன்னோட்டத்தை பெரிதாக்கு"
 msgid "Loading URL preview"
 msgstr "முகவரியின் முன்னோட்டம் ஏற்றப்படுகிறது"
 
-#: src/qml/Component/Timeline/MessageEditComponent.qml:79
+#: src/qml/Component/Timeline/MessageEditComponent.qml:81
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "திருத்தத்தை உறுதிசெய்"
 
-#: src/qml/Component/Timeline/MessageEditComponent.qml:91
+#: src/qml/Component/Timeline/MessageEditComponent.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel edit"
@@ -1566,7 +1576,7 @@ msgid "Successfully verified device **%1**"
 msgstr "**%1** சாதனம் வெற்றிகரமாக உறுதிப்படுத்தப்பட்டுள்ளது"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:193
+#: src/qml/Page/RoomPage.qml:195
 #, kde-format
 msgid "Accept"
 msgstr "ஏற்றுக்கொள்"
@@ -2454,42 +2464,42 @@ msgstr "அடக்கப்பட்டுள்ள அரங்கு"
 msgid "Configure room"
 msgstr "அரங்கை அமை"
 
-#: src/qml/Page/RoomPage.qml:182
+#: src/qml/Page/RoomPage.qml:184
 #, kde-format
 msgid "Accept this invitation?"
 msgstr "அழைப்பை ஏற்கிறீர்களா?"
 
-#: src/qml/Page/RoomPage.qml:186
+#: src/qml/Page/RoomPage.qml:188
 #, kde-format
 msgid "Reject"
 msgstr "மறு"
 
-#: src/qml/Page/RoomPage.qml:284
+#: src/qml/Page/RoomPage.qml:286
 #, kde-format
 msgid "Choose local file"
 msgstr "உள்ளமைக் கோப்பைத் தேர்ந்தெடு"
 
-#: src/qml/Page/RoomPage.qml:311
+#: src/qml/Page/RoomPage.qml:313
 #, kde-format
 msgid "Clipboard image"
 msgstr "பிடிப்புப்பலகைப் படம்"
 
-#: src/qml/Page/RoomPage.qml:360
+#: src/qml/Page/RoomPage.qml:362
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "படிக்காத முதல் செய்திக்குத் தாவு"
 
-#: src/qml/Page/RoomPage.qml:385
+#: src/qml/Page/RoomPage.qml:387
 #, kde-format
 msgid "Jump to latest message"
 msgstr "கடைசி செய்திக்குத் தாவு"
 
-#: src/qml/Page/RoomPage.qml:410
+#: src/qml/Page/RoomPage.qml:412
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "எதையாவது பகிர, அதை இங்கு இழுத்துப் போடுங்கள்"
 
-#: src/qml/Page/RoomPage.qml:442
+#: src/qml/Page/RoomPage.qml:444
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2497,12 +2507,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 தட்டச்சிடுகிறார்"
 msgstr[1] "%2 தட்டச்சிடுகிறார்கள்"
 
-#: src/qml/Page/RoomPage.qml:513
+#: src/qml/Page/RoomPage.qml:515
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "உறுதிப்படுத்தப்பட்டுள்ள சாதனத்திலிருந்து இச்செய்தி அனுப்பப்பட்டது"
 
-#: src/qml/Page/RoomPage.qml:519
+#: src/qml/Page/RoomPage.qml:521
 #, kde-format
 msgid "React"
 msgstr "எதிர்வினையிடு"
