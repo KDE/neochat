@@ -74,7 +74,7 @@ QQC2.ToolBar {
             }
 
             visible: switchUserButton.checked
-            onVisibleChanged: if (visible) focus = true
+            onVisibleChanged: if (visible) accounts.forceActiveFocus()
             clip: true
             model: AccountRegistry
 
@@ -183,6 +183,10 @@ QQC2.ToolBar {
                 QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                 Layout.minimumWidth: Layout.preferredWidth
                 Layout.alignment: Qt.AlignRight
+                Shortcut {
+                    sequence: "Ctrl+U"
+                    onActivated: switchUserButton.toggle()
+                }
             }
             QQC2.ToolButton {
                 icon.name: "list-add"
