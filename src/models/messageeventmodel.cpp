@@ -68,6 +68,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[IsAvatarChangeRole] = "isAvatarChange";
     roles[IsRedactedRole] = "isRedacted";
     roles[GenericDisplayRole] = "genericDisplay";
+    roles[IsPendingRole] = "isPending";
     return roles;
 }
 
@@ -176,6 +177,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         });
         connect(m_currentRoom, &Room::pendingEventAdded, this, &MessageEventModel::endInsertRows);
         connect(m_currentRoom, &Room::pendingEventAboutToMerge, this, [this](RoomEvent *, int i) {
+            Q_EMIT dataChanged(index(i, 0), index(i, 0), {IsPendingRole});
             if (i == 0) {
                 return; // No need to move anything, just refresh
             }
@@ -906,6 +908,10 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
     if (role == IsRedactedRole) {
         return evt.isRedacted();
+    }
+
+    if (role == IsPendingRole) {
+        return row < m_currentRoom->pendingEvents().size();
     }
 
     return {};

@@ -73,6 +73,7 @@ public:
         IsNameChangeRole,
         IsAvatarChangeRole,
         IsRedactedRole,
+        IsPendingRole,
         LastRole, // Keep this last
     };
     Q_ENUM(EventRoles)

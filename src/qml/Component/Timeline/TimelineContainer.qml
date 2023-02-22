@@ -197,75 +197,92 @@ ColumnLayout {
                 }
             ]
 
-            contentItem: ColumnLayout {
-                id: column
-                spacing: Kirigami.Units.smallSpacing
-                RowLayout {
-                    id: rowLayout
-
+            contentItem: RowLayout {
+                Kirigami.Icon {
+                    source: "content-loading-symbolic"
+                    width: height
+                    Layout.preferredWidth: Kirigami.Units.iconSizes.small
+                    Layout.preferredHeight: Kirigami.Units.iconSizes.small
+                    visible: model.isPending && Config.showLocalMessagesOnRight
+                }
+                ColumnLayout {
+                    id: column
                     spacing: Kirigami.Units.smallSpacing
-                    visible: model.showAuthor && !isEmote
+                    RowLayout {
+                        id: rowLayout
 
-                    QQC2.Label {
-                        id: nameLabel
+                        spacing: Kirigami.Units.smallSpacing
+                        visible: model.showAuthor && !isEmote
 
-                        Layout.maximumWidth: contentMaxWidth - timeLabel.implicitWidth - rowLayout.spacing
+                        QQC2.Label {
+                            id: nameLabel
 
-                        text: visible ? author.displayName : ""
-                        textFormat: Text.PlainText
-                        font.weight: Font.Bold
-                        color: author.color
-                        elide: Text.ElideRight
-                        MouseArea {
-                            anchors.fill: parent
-                            cursorShape: Qt.PointingHandCursor
-                            onClicked: {
-                                userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {
-                                    room: currentRoom,
-                                    user: author.object,
-                                    displayName: author.displayName,
-                                    avatarMediaId: author.avatarMediaId,
-                                    avatarUrl: author.avatarUrl
-                                }).open();
+                            Layout.maximumWidth: contentMaxWidth - timeLabel.implicitWidth - rowLayout.spacing
+
+                            text: visible ? author.displayName : ""
+                            textFormat: Text.PlainText
+                            font.weight: Font.Bold
+                            color: author.color
+                            elide: Text.ElideRight
+                            MouseArea {
+                                anchors.fill: parent
+                                cursorShape: Qt.PointingHandCursor
+                                onClicked: {
+                                    userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {
+                                        room: currentRoom,
+                                        user: author.object,
+                                        displayName: author.displayName,
+                                        avatarMediaId: author.avatarMediaId,
+                                        avatarUrl: author.avatarUrl
+                                    }).open();
+                                }
+                            }
+                        }
+                        QQC2.Label {
+                            id: timeLabel
+
+                            text: visible ? model.time.toLocaleTimeString(Qt.locale(), Locale.ShortFormat) : ""
+                            color: Kirigami.Theme.disabledTextColor
+                            QQC2.ToolTip.visible: hoverHandler.hovered
+                            QQC2.ToolTip.text: model.time.toLocaleString(Qt.locale(), Locale.LongFormat)
+                            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+
+                            HoverHandler {
+                                id: hoverHandler
                             }
                         }
                     }
-                    QQC2.Label {
-                        id: timeLabel
+                    Loader {
+                        id: replyLoader
 
-                        text: visible ? model.time.toLocaleTimeString(Qt.locale(), Locale.ShortFormat) : ""
-                        color: Kirigami.Theme.disabledTextColor
-                        QQC2.ToolTip.visible: hoverHandler.hovered
-                        QQC2.ToolTip.text: model.time.toLocaleString(Qt.locale(), Locale.LongFormat)
-                        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                        Layout.maximumWidth: contentMaxWidth
 
-                        HoverHandler {
-                            id: hoverHandler
+                        active: model.reply !== undefined
+                        visible: active
+
+                        sourceComponent: ReplyComponent {
+                            name: currentRoom.htmlSafeMemberName(reply.author.id)
+                            avatar: reply.author.avatarMediaId ? ("image://mxc/" + reply.author.avatarMediaId) : ""
+                            color: reply.author.color
+                        }
+
+                        Connections {
+                            target: replyLoader.item
+                            function onReplyClicked() {
+                                replyClicked(reply.eventId)
+                            }
                         }
                     }
                 }
-                Loader {
-                    id: replyLoader
-
-                    Layout.maximumWidth: contentMaxWidth
-
-                    active: model.reply !== undefined
-                    visible: active
-
-                    sourceComponent: ReplyComponent {
-                        name: currentRoom.htmlSafeMemberName(reply.author.id)
-                        avatar: reply.author.avatarMediaId ? ("image://mxc/" + reply.author.avatarMediaId) : ""
-                        color: reply.author.color
-                    }
-
-                    Connections {
-                        target: replyLoader.item
-                        function onReplyClicked() {
-                            replyClicked(reply.eventId)
-                        }
-                    }
+                Kirigami.Icon {
+                    source: "content-loading-symbolic"
+                    width: height
+                    Layout.preferredWidth: Kirigami.Units.iconSizes.small
+                    Layout.preferredHeight: Kirigami.Units.iconSizes.small
+                    visible: model.isPending && !Config.showLocalMessagesOnRight
                 }
             }
+
 
             background: Item {
                 Kirigami.ShadowedRectangle {
