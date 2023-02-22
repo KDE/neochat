@@ -118,7 +118,19 @@ Kirigami.ScrollablePage {
     focus: true
 
     Keys.onPressed: {
-        if (!(event.modifiers & Qt.ControlModifier) && event.key < Qt.Key_Escape) {
+        if (event.key === Qt.Key_PageUp) {
+            event.accepted = true;
+            const newContentY = messageListView.contentY - messageListView.height / 2;
+            const minContentY = messageListView.originY + messageListView.topMargin;
+            messageListView.contentY = Math.max(newContentY, minContentY);
+            messageListView.returnToBounds();
+        } else if (event.key === Qt.Key_PageDown) {
+            event.accepted = true;
+            const newContentY = messageListView.contentY + messageListView.height / 2;
+            const maxContentY = messageListView.originY + messageListView.bottomMargin + messageListView.contentHeight - messageListView.height;
+            messageListView.contentY = Math.min(newContentY, maxContentY);
+            messageListView.returnToBounds();
+        } else if (!(event.modifiers & Qt.ControlModifier) && event.key < Qt.Key_Escape) {
             event.accepted = true;
             chatBox.chatBar.insertText(event.text);
             chatBox.chatBar.forceActiveFocus();
