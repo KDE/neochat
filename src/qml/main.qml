@@ -318,16 +318,30 @@ Kirigami.ApplicationWindow {
             id: roomList
 
             Shortcut {
-                sequences: ["Ctrl+PgUp", "Ctrl+Backtab"]
+                sequences: ["Ctrl+PgUp", "Ctrl+Backtab", "Alt+Up"]
                 onActivated: {
                     roomList.goToPreviousRoom();
                 }
             }
 
             Shortcut {
-                sequences: ["Ctrl+PgDown", "Ctrl+Tab"]
+                sequences: ["Ctrl+PgDown", "Ctrl+Tab", "Alt+Down"]
                 onActivated: {
                     roomList.goToNextRoom();
+                }
+            }
+
+            Shortcut {
+                sequence: "Alt+Shift+Up"
+                onActivated: {
+                    roomList.goToPreviousUnreadRoom();
+                }
+            }
+
+            Shortcut {
+                sequence: "Alt+Shift+Down"
+                onActivated: {
+                    roomList.goToNextUnreadRoom();
                 }
             }
         }

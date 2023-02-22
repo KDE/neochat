@@ -131,10 +131,10 @@ Kirigami.ScrollablePage {
         }
     }
 
-    function goToNextRoom() {
+    function goToNextRoomFiltered(condition) {
         let index = listView.currentIndex;
         while (index++ !== listView.count - 1) {
-            if (listView.itemAtIndex(index).visible) {
+            if (condition(listView.itemAtIndex(index))) {
                 listView.currentIndex = index;
                 listView.currentItem.action.trigger();
                 return;
@@ -142,15 +142,31 @@ Kirigami.ScrollablePage {
         }
     }
 
-    function goToPreviousRoom() {
+    function goToPreviousRoomFiltered(condition) {
         let index = listView.currentIndex;
         while (index-- !== 0) {
-            if (listView.itemAtIndex(index).visible) {
+            if (condition(listView.itemAtIndex(index))) {
                 listView.currentIndex = index;
                 listView.currentItem.action.trigger();
                 return;
             }
         }
+    }
+
+    function goToNextRoom() {
+        goToNextRoomFiltered((item) => item.visible);
+    }
+
+    function goToPreviousRoom() {
+        goToPreviousRoomFiltered((item) => item.visible);
+    }
+
+    function goToNextUnreadRoom() {
+        goToNextRoomFiltered((item) => (item.visible && item.hasUnread));
+    }
+
+    function goToPreviousUnreadRoom() {
+        goToPreviousRoomFiltered((item) => (item.visible && item.hasUnread));
     }
 
     titleDelegate: collapsedMode ? empty : searchField
@@ -428,6 +444,8 @@ Kirigami.ScrollablePage {
                     })
                     menu.open()
                 }
+
+                readonly property bool hasUnread: unreadCount > 0
             }
         }
     }
