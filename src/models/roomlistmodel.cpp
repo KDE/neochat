@@ -200,7 +200,11 @@ void RoomListModel::connectRoomSignals(NeoChatRoom *room)
         }
         Q_EMIT newHighlight(room->id(), lastEvent->id(), room->displayName(), sender->displayname(), room->eventToString(*lastEvent), room->avatar(128));
     });
+#ifndef QUOTIENT_07
     connect(room, &Room::notificationCountChanged, this, &RoomListModel::refreshNotificationCount);
+#else
+    connect(room, &Room::unreadStatsChanged, this, &RoomListModel::refreshNotificationCount);
+#endif
 }
 
 #ifndef QUOTIENT_07
