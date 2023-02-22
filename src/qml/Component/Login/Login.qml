@@ -53,10 +53,10 @@ LoginStep {
         onTriggered: {
             if (LoginHelper.supportsSso && LoginHelper.supportsPassword) {
                 processed("qrc:/LoginMethod.qml");
-            } else if (LoginHelper.supportsPassword) {
-                processed("qrc:/Password.qml");
-            } else {
+            } else if (LoginHelper.supportsSso) {
                 processed("qrc:/Sso.qml");
+            } else {
+                processed("qrc:/Password.qml");
             }
         }
         enabled: LoginHelper.homeserverReachable
