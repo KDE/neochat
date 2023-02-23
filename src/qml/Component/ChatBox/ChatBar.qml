@@ -185,6 +185,13 @@ QQC2.Control {
                     repeatTimer.stop()
                 }
             }
+            Keys.onShortcutOverride: {
+                // Accept the event only when there was something to cancel. Otherwise, let the event go to the RoomPage.
+                if (cancelButton.visible && event.key === Qt.Key_Escape) {
+                    cancelButton.action.trigger();
+                    event.accepted = true;
+                }
+            }
 
             Loader {
                 id: paneLoader
@@ -270,7 +277,6 @@ QQC2.Control {
                 currentRoom.chatBoxAttachmentPath = "";
                 root.forceActiveFocus()
             }
-            shortcut: "Escape"
         }
         QQC2.ToolTip.text: text
         QQC2.ToolTip.visible: hovered
