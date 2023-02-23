@@ -357,6 +357,7 @@ Kirigami.ScrollablePage {
                     messageListView.goToEvent(currentRoom.readMarkerEventId)
                 }
                 icon.name: "go-up"
+                shortcut: "Shift+PgUp"
             }
 
             QQC2.ToolTip {
