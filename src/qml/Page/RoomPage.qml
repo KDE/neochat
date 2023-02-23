@@ -77,7 +77,14 @@ Kirigami.ScrollablePage {
 
     Shortcut {
         sequence: StandardKey.Cancel
-        onActivated: applicationWindow().pageStack.get(0).forceActiveFocus()
+        onActivated: {
+            if (!messageListView.atYEnd || currentRoom.hasUnreadMessages) {
+                goToLastMessage();
+                currentRoom.markAllMessagesAsRead();
+            } else {
+                applicationWindow().pageStack.get(0).forceActiveFocus();
+            }
+        }
         enabled: !page.disableCancelShortcut
     }
 
