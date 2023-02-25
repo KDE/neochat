@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 00:58+0000\n"
-"PO-Revision-Date: 2023-02-21 05:43+0100\n"
+"POT-Creation-Date: 2023-02-25 01:00+0000\n"
+"PO-Revision-Date: 2023-02-24 05:05+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -88,7 +88,7 @@ msgstr "მხარდაჭერისთვის დაუკავში�
 msgid "Room creation failed: \"%1\""
 msgstr "ოთახის შექმნის შეცდომა: %1"
 
-#: src/controller.cpp:661
+#: src/controller.cpp:669
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "ოთახის ID, რომელშიც შესვლასაც ცდილობთ, არასწორია"
@@ -664,32 +664,32 @@ msgstr "[ჩასწორებული]"
 msgid "[REDACTED: %1]"
 msgstr "[ჩასწორებულია: %1]"
 
-#: src/models/roomlistmodel.cpp:471
+#: src/models/roomlistmodel.cpp:473
 #, kde-format
 msgid "Invited"
 msgstr "მოწვეულია"
 
-#: src/models/roomlistmodel.cpp:473
+#: src/models/roomlistmodel.cpp:475
 #, kde-format
 msgid "Favorite"
 msgstr "რჩეული"
 
-#: src/models/roomlistmodel.cpp:475
+#: src/models/roomlistmodel.cpp:477
 #, kde-format
 msgid "Direct Messages"
 msgstr "პირდაპირი შეტყობინებები"
 
-#: src/models/roomlistmodel.cpp:477
+#: src/models/roomlistmodel.cpp:479
 #, kde-format
 msgid "Normal"
 msgstr "ნორმალური"
 
-#: src/models/roomlistmodel.cpp:479
+#: src/models/roomlistmodel.cpp:481
 #, kde-format
 msgid "Low priority"
 msgstr "დაბალი პრიორიტეტი"
 
-#: src/models/roomlistmodel.cpp:481
+#: src/models/roomlistmodel.cpp:483
 #, kde-format
 msgid "Spaces"
 msgstr "სივრცეები"
@@ -2038,12 +2038,10 @@ msgid "Mark as Read"
 msgstr "მონიშნე როგორც წაკითხული"
 
 #: src/qml/Menu/RoomListContextMenu.qml:55
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Address to Clipboard"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy user's Matrix ID to Clipboard"
-msgstr "მისამართის ბუფერში კოპირება"
+msgstr "მომხმარებლის Matrix-ის ID-ის ბუფერში კოპირება"
 
 #: src/qml/Menu/RoomListContextMenu.qml:55
 #: src/qml/Menu/SpaceListContextMenu.qml:30

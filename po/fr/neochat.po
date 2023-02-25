@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-24 00:58+0000\n"
-"PO-Revision-Date: 2023-02-22 10:33+0100\n"
+"POT-Creation-Date: 2023-02-25 01:00+0000\n"
+"PO-Revision-Date: 2023-02-24 14:13+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -88,7 +88,7 @@ msgstr ""
 msgid "Room creation failed: \"%1\""
 msgstr "Impossible de créer le salon : « %1 »"
 
-#: src/controller.cpp:661
+#: src/controller.cpp:669
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "L'identifiant du salon que vous essayez de rejoindre est non valable."
@@ -669,32 +669,32 @@ msgstr "[RÉDIGÉ]"
 msgid "[REDACTED: %1]"
 msgstr "[RÉDIGÉ : %1]"
 
-#: src/models/roomlistmodel.cpp:471
+#: src/models/roomlistmodel.cpp:473
 #, kde-format
 msgid "Invited"
 msgstr "Invité"
 
-#: src/models/roomlistmodel.cpp:473
+#: src/models/roomlistmodel.cpp:475
 #, kde-format
 msgid "Favorite"
 msgstr "Préféré"
 
-#: src/models/roomlistmodel.cpp:475
+#: src/models/roomlistmodel.cpp:477
 #, kde-format
 msgid "Direct Messages"
 msgstr "Messages directs"
 
-#: src/models/roomlistmodel.cpp:477
+#: src/models/roomlistmodel.cpp:479
 #, kde-format
 msgid "Normal"
 msgstr "Normal"
 
-#: src/models/roomlistmodel.cpp:479
+#: src/models/roomlistmodel.cpp:481
 #, kde-format
 msgid "Low priority"
 msgstr "Basse priorité"
 
-#: src/models/roomlistmodel.cpp:481
+#: src/models/roomlistmodel.cpp:483
 #, kde-format
 msgid "Spaces"
 msgstr "Espaces"
@@ -2067,12 +2067,10 @@ msgid "Mark as Read"
 msgstr "Marquer comme lu"
 
 #: src/qml/Menu/RoomListContextMenu.qml:55
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Address to Clipboard"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy user's Matrix ID to Clipboard"
-msgstr "Copier une adresse dans le presse-papier"
+msgstr "Copier l'identifiant utilisateur « Matrix » dans le presse-papier"
 
 #: src/qml/Menu/RoomListContextMenu.qml:55
 #: src/qml/Menu/SpaceListContextMenu.qml:30
@@ -2825,7 +2823,7 @@ msgstr "Niveau par défaut de privilèges pour définir un état d'un salon "
 #, kde-format
 msgid "This is used for all state events that do not have their own entry here"
 msgstr ""
-"Ceci est utilisé pour tous les événements d'états n'ayant pas leur propre "
+"Ceci est utilisé pour tous les évènements d'états n'ayant pas leur propre "
 "entrée ici."
 
 #: src/qml/RoomSettings/Permissions.qml:222
@@ -2838,7 +2836,7 @@ msgstr "Niveau par défaut de privilèges pour l'envoi de messages "
 msgid ""
 "This is used for all message events that do not have their own entry here"
 msgstr ""
-"Ceci est utilisé pour tous les événements de messages n'ayant pas leur "
+"Ceci est utilisé pour tous les évènements de messages n'ayant pas leur "
 "propre entrée ici."
 
 #: src/qml/RoomSettings/Permissions.qml:239
