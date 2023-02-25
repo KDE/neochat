@@ -90,6 +90,11 @@ public:
                                        }),
                         mentions->end());
     }
+
+    QStringList suggestions(const QString &word) const
+    {
+        return checker->suggest(word);
+    }
 };
 
 ChatDocumentHandler::ChatDocumentHandler(QObject *parent)
@@ -261,6 +266,47 @@ void ChatDocumentHandler::complete(int index)
         cursor.setPosition(cursorPosition(), QTextCursor::KeepAnchor);
         cursor.insertText(shortcode);
     }
+}
+
+QStringList ChatDocumentHandler::getSuggestions(int mousePosition)
+{
+    QTextCursor cursorAtMouse(document()->textDocument());
+    cursorAtMouse.setPosition(mousePosition);
+
+    // Get the word under the (mouse-)cursor and see if it is misspelled.
+    // Don't include apostrophes at the start/end of the word in the selection.
+    QTextCursor wordSelectCursor(cursorAtMouse);
+    wordSelectCursor.clearSelection();
+    wordSelectCursor.select(QTextCursor::WordUnderCursor);
+    m_selectedWord = wordSelectCursor.selectedText();
+
+    return m_highlighter->suggestions(m_selectedWord);
+}
+
+bool ChatDocumentHandler::getActive() const
+{
+    return m_highlighter->settings.checkerEnabledByDefault();
+}
+
+bool ChatDocumentHandler::getIsWordIsMisspelled() const
+{
+    return !m_highlighter->errors.isEmpty();
+}
+
+QString ChatDocumentHandler::getWordUnderMouse() const
+{
+    return m_selectedWord;
+}
+
+void ChatDocumentHandler::replaceWord(const QString &word)
+{
+    QTextCursor cursor(document()->textDocument());
+    const auto &text = m_room->chatBoxText();
+
+    auto at = text.indexOf(m_highlighter->previousText);
+    cursor.setPosition(at);
+    cursor.setPosition(at + m_highlighter->previousText.length(), QTextCursor::KeepAnchor);
+    cursor.insertText(word);
 }
 
 CompletionModel *ChatDocumentHandler::completionModel() const

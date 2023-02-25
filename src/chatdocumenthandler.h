@@ -87,6 +87,10 @@ class ChatDocumentHandler : public QObject
      */
     Q_PROPERTY(int selectionEnd READ selectionEnd WRITE setSelectionEnd NOTIFY selectionEndChanged)
 
+    Q_PROPERTY(bool active READ getActive NOTIFY cursorPositionChanged)
+    Q_PROPERTY(bool wordIsMisspelled READ getIsWordIsMisspelled NOTIFY cursorPositionChanged)
+    Q_PROPERTY(QString wordUnderMouse READ getWordUnderMouse NOTIFY cursorPositionChanged)
+
     /**
      * @brief The current CompletionModel.
      *
@@ -133,6 +137,12 @@ public:
 
     Q_INVOKABLE void complete(int index);
 
+    Q_INVOKABLE void replaceWord(const QString &word);
+    Q_INVOKABLE QStringList getSuggestions(int mousePosition);
+    bool getActive() const;
+    bool getIsWordIsMisspelled() const;
+    QString getWordUnderMouse() const;
+
     void updateCompletions();
     CompletionModel *completionModel() const;
 
@@ -178,4 +188,6 @@ private:
     CompletionModel::AutoCompletionType m_completionType = CompletionModel::None;
 
     CompletionModel *m_completionModel = nullptr;
+
+    QString m_selectedWord;
 };

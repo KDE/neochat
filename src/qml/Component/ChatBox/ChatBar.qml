@@ -177,6 +177,18 @@ QQC2.Control {
                 interval: 5000
             }
 
+            TapHandler {
+                enabled: true
+
+                acceptedDevices: PointerDevice.Mouse | PointerDevice.Stylus
+                acceptedButtons: Qt.LeftButton | Qt.RightButton
+
+                // unfortunately, taphandler's pressed event only triggers when the press is lifted
+                // we need to use the longpress signal since it triggers when the button is first pressed
+                longPressThreshold: 0
+                onLongPressed: ContextMenu.targetClick(point, textField, documentHandler, textField.positionAt(point.position.x, point.position.y));
+            }
+
             onTextChanged: {
                 if (!repeatTimer.running && Config.typingNotifications) {
                     var textExists = text.length > 0

@@ -285,6 +285,7 @@ int main(int argc, char *argv[])
     qmlRegisterUncreatableType<NeoChatRoom>("org.kde.neochat", 1, 0, "NeoChatRoom", {});
     qmlRegisterUncreatableType<NeoChatConnection>("org.kde.neochat", 1, 0, "NeoChatConnection", {});
 
+    qmlRegisterSingletonType(QUrl("qrc:/ContextMenu.qml"), "org.kde.neochat", 1, 0, "ContextMenu");
     qRegisterMetaType<User *>("User*");
     qRegisterMetaType<User *>("const User*");
     qRegisterMetaType<User *>("const Quotient::User*");
