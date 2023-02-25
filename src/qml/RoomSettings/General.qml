@@ -121,8 +121,24 @@ Kirigami.ScrollablePage {
                     }
                 }
                 MobileForm.FormTextDelegate {
+                    id: roomIdDelegate
                     text: i18n("Room ID")
                     description: room.id
+
+                    contentItem.children: QQC2.Button {
+                        visible: roomIdDelegate.hovered
+                        text: i18n("Copy room ID to clipboard")
+                        icon.name: "edit-copy"
+                        display: QQC2.AbstractButton.IconOnly
+
+                        onClicked: {
+                            Clipboard.saveText(room.id)
+                        }
+
+                        QQC2.ToolTip.text: text
+                        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                        QQC2.ToolTip.visible: hovered
+                    }
                 }
                 MobileForm.FormTextDelegate {
                     text: i18n("Room version")
