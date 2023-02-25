@@ -115,7 +115,7 @@ QVector<ActionsModel::Action> actions{
         QStringLiteral("spoiler"),
         [](const QString &text, NeoChatRoom *room) {
             // Ideally, we would just return rainbowText and let that do the rest, but the colors don't survive markdownToHTML.
-            room->postMessage(QStringLiteral("/rainbow %1").arg(text),
+            room->postMessage(QStringLiteral("/spoiler %1").arg(text),
                               QStringLiteral("<span data-mx-spoiler>%1</span>").arg(text),
                               RoomMessageEvent::MsgType::Text,
                               room->chatBoxReplyId(),
