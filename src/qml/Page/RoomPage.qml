@@ -7,6 +7,7 @@ import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 import Qt.labs.platform 1.1 as Platform
 import Qt.labs.qmlmodels 1.0
+import QtQuick.Window 2.15
 
 import org.kde.kirigami 2.19 as Kirigami
 import org.kde.kitemmodels 1.0
@@ -326,7 +327,9 @@ Kirigami.ScrollablePage {
         Component {
             id: openFileDialog
 
-            OpenFileDialog {}
+            OpenFileDialog {
+                parentWindow: page.Window.window
+            }
         }
 
 

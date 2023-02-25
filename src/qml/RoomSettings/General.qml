@@ -5,6 +5,7 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
+import QtQuick.Window 2.15
 
 import org.kde.kirigami 2.15 as Kirigami
 import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
@@ -281,7 +282,9 @@ Kirigami.ScrollablePage {
         Component {
             id: openFileDialog
 
-            OpenFileDialog {}
+            OpenFileDialog {
+                parentWindow: root.Window.window
+            }
         }
 
         Kirigami.OverlaySheet {
