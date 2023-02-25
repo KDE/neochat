@@ -53,6 +53,11 @@ Kirigami.CategorizedSettings {
             text: i18n("About NeoChat")
             icon.name: "help-about"
             page: Qt.resolvedUrl("About.qml")
+        },
+        Kirigami.SettingAction {
+            text: i18n("About KDE")
+            icon.name: "kde"
+            page: Qt.resolvedUrl("AboutKDE.qml")
         }
     ]
 }
