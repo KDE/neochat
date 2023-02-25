@@ -24,12 +24,6 @@ QQC2.TextArea {
     verticalAlignment: TextEdit.AlignVCenter
     wrapMode: Text.Wrap
 
-    onVisibleChanged: {
-        if (visible) {
-            forceActiveFocus();
-            root.cursorPosition = root.length;
-        }
-    }
     onTextChanged: {
         room.editText = text
     }
@@ -141,6 +135,8 @@ QQC2.TextArea {
     function updateEditText() {
         if (room.chatBoxEditId == messageId && room.chatBoxEditMessage.length > 0) {
             root.text = room.chatBoxEditMessage
+            forceActiveFocus();
+            root.cursorPosition = root.length;
         }
     }
 }
