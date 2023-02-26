@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-25 01:00+0000\n"
+"POT-Creation-Date: 2023-02-26 00:58+0000\n"
 "PO-Revision-Date: 2023-02-14 21:42+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -1046,7 +1046,7 @@ msgstr "இந்த அரங்கில் நியோச்சாட்ட�
 #: src/notificationsmanager.cpp:85
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:548
+#: src/qml/Page/RoomPage.qml:551
 #, kde-format
 msgid "Reply"
 msgstr "பதிலளி"
@@ -1083,7 +1083,7 @@ msgstr "உடனிணைப்பு:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:537
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:540
 #, kde-format
 msgid "Edit"
 msgstr "திருத்து"
@@ -1357,13 +1357,13 @@ msgstr "முன்னோட்டத்தை பெரிதாக்கு"
 msgid "Loading URL preview"
 msgstr "முகவரியின் முன்னோட்டம் ஏற்றப்படுகிறது"
 
-#: src/qml/Component/Timeline/MessageEditComponent.qml:81
+#: src/qml/Component/Timeline/MessageEditComponent.qml:75
 #, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
 msgstr "திருத்தத்தை உறுதிசெய்"
 
-#: src/qml/Component/Timeline/MessageEditComponent.qml:93
+#: src/qml/Component/Timeline/MessageEditComponent.qml:87
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel edit"
@@ -1488,15 +1488,15 @@ msgstr "மறையாக்கத்தை செயல்படுத்த�
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:30
 #: src/qml/Dialog/ConfirmLogoutDialog.qml:29
 #: src/qml/Page/ImageEditorPage.qml:125
-#: src/qml/Settings/AccountEditorPage.qml:182
+#: src/qml/Settings/AccountEditorPage.qml:183
 #, kde-format
 msgid "Cancel"
 msgstr "ரத்து செய்"
 
 #: src/qml/Dialog/ConfirmLogoutDialog.qml:16
 #: src/qml/Dialog/ConfirmLogoutDialog.qml:35
-#: src/qml/Settings/AccountEditorPage.qml:230
-#: src/qml/Settings/AccountEditorPage.qml:234
+#: src/qml/Settings/AccountEditorPage.qml:231
+#: src/qml/Settings/AccountEditorPage.qml:235
 #, kde-format
 msgid "Sign out"
 msgstr "வெளியேறு"
@@ -1576,7 +1576,7 @@ msgid "Successfully verified device **%1**"
 msgstr "**%1** சாதனம் வெற்றிகரமாக உறுதிப்படுத்தப்பட்டுள்ளது"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:195
+#: src/qml/Page/RoomPage.qml:196
 #, kde-format
 msgid "Accept"
 msgstr "ஏற்றுக்கொள்"
@@ -2472,42 +2472,42 @@ msgstr "அடக்கப்பட்டுள்ள அரங்கு"
 msgid "Configure room"
 msgstr "அரங்கை அமை"
 
-#: src/qml/Page/RoomPage.qml:184
+#: src/qml/Page/RoomPage.qml:185
 #, kde-format
 msgid "Accept this invitation?"
 msgstr "அழைப்பை ஏற்கிறீர்களா?"
 
-#: src/qml/Page/RoomPage.qml:188
+#: src/qml/Page/RoomPage.qml:189
 #, kde-format
 msgid "Reject"
 msgstr "மறு"
 
-#: src/qml/Page/RoomPage.qml:286
+#: src/qml/Page/RoomPage.qml:287
 #, kde-format
 msgid "Choose local file"
 msgstr "உள்ளமைக் கோப்பைத் தேர்ந்தெடு"
 
-#: src/qml/Page/RoomPage.qml:313
+#: src/qml/Page/RoomPage.qml:314
 #, kde-format
 msgid "Clipboard image"
 msgstr "பிடிப்புப்பலகைப் படம்"
 
-#: src/qml/Page/RoomPage.qml:362
+#: src/qml/Page/RoomPage.qml:365
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "படிக்காத முதல் செய்திக்குத் தாவு"
 
-#: src/qml/Page/RoomPage.qml:387
+#: src/qml/Page/RoomPage.qml:390
 #, kde-format
 msgid "Jump to latest message"
 msgstr "கடைசி செய்திக்குத் தாவு"
 
-#: src/qml/Page/RoomPage.qml:412
+#: src/qml/Page/RoomPage.qml:415
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "எதையாவது பகிர, அதை இங்கு இழுத்துப் போடுங்கள்"
 
-#: src/qml/Page/RoomPage.qml:444
+#: src/qml/Page/RoomPage.qml:447
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2515,12 +2515,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 தட்டச்சிடுகிறார்"
 msgstr[1] "%2 தட்டச்சிடுகிறார்கள்"
 
-#: src/qml/Page/RoomPage.qml:515
+#: src/qml/Page/RoomPage.qml:518
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "உறுதிப்படுத்தப்பட்டுள்ள சாதனத்திலிருந்து இச்செய்தி அனுப்பப்பட்டது"
 
-#: src/qml/Page/RoomPage.qml:521
+#: src/qml/Page/RoomPage.qml:524
 #, kde-format
 msgid "React"
 msgstr "எதிர்வினையிடு"
@@ -2639,7 +2639,7 @@ msgstr[1] "%1 உறுப்பினர்கள்"
 msgid "No Member Count"
 msgstr "உறுப்பினர்களின் எண்ணிக்கை தெரியாதது"
 
-#: src/qml/RoomSettings/Categories.qml:15 src/qml/RoomSettings/General.qml:19
+#: src/qml/RoomSettings/Categories.qml:15 src/qml/RoomSettings/General.qml:20
 #: src/qml/Settings/SettingsPage.qml:12
 #, kde-format
 msgid "General"
@@ -2660,109 +2660,116 @@ msgstr "அனுமதிகள்"
 msgid "Notifications"
 msgstr "அறிவிப்புகள்"
 
-#: src/qml/RoomSettings/General.qml:30
+#: src/qml/RoomSettings/General.qml:31
 #, kde-format
 msgid "Room Information"
 msgstr "அரங்கின் விவரங்கள்"
 
-#: src/qml/RoomSettings/General.qml:50
+#: src/qml/RoomSettings/General.qml:51
 #, kde-format
 msgid "Update avatar"
 msgstr "சின்னத்தை மாற்று"
 
-#: src/qml/RoomSettings/General.qml:75
+#: src/qml/RoomSettings/General.qml:76
 #, kde-format
 msgid "Room name:"
 msgstr "அரங்கின் பெயர்:"
 
-#: src/qml/RoomSettings/General.qml:87
+#: src/qml/RoomSettings/General.qml:88
 #, kde-format
 msgid "Room topic:"
 msgstr "அரங்கின் தலைப்பு:"
 
-#: src/qml/RoomSettings/General.qml:109
-#: src/qml/Settings/AccountEditorPage.qml:104
-#: src/qml/Settings/AccountEditorPage.qml:169
+#: src/qml/RoomSettings/General.qml:110
+#: src/qml/Settings/AccountEditorPage.qml:105
+#: src/qml/Settings/AccountEditorPage.qml:170
 #, kde-format
 msgid "Save"
 msgstr "சேமி"
 
-#: src/qml/RoomSettings/General.qml:123
+#: src/qml/RoomSettings/General.qml:125
 #, kde-format
 msgid "Room ID"
 msgstr "அரங்கின் அடையாள எண்"
 
-#: src/qml/RoomSettings/General.qml:127
+#: src/qml/RoomSettings/General.qml:130
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Copy Address to Clipboard"
+msgid "Copy room ID to clipboard"
+msgstr "முகவரியை பிடிப்புப்பலகைக்கு நகலெடு"
+
+#: src/qml/RoomSettings/General.qml:144
 #, kde-format
 msgid "Room version"
 msgstr "அரங்கின் பதிப்பு"
 
-#: src/qml/RoomSettings/General.qml:133
+#: src/qml/RoomSettings/General.qml:150
 #, kde-format
 msgid "Upgrade Room"
 msgstr "அரங்கைப் புதுப்பி"
 
-#: src/qml/RoomSettings/General.qml:156
+#: src/qml/RoomSettings/General.qml:173
 #, kde-format
 msgid "Aliases"
 msgstr "மாற்றுப் பெயர்கள்"
 
-#: src/qml/RoomSettings/General.qml:160
+#: src/qml/RoomSettings/General.qml:177
 #, kde-format
 msgid "No canonical alias set"
 msgstr "செந்தர மாற்றுப்பெயர் அமைக்கப்படவில்லை"
 
-#: src/qml/RoomSettings/General.qml:173
+#: src/qml/RoomSettings/General.qml:190
 #, kde-format
 msgid "Make this alias the room's canonical alias"
 msgstr "இதை அரங்கின் செந்தர மாற்றுப்பெயராக்கு"
 
-#: src/qml/RoomSettings/General.qml:188
+#: src/qml/RoomSettings/General.qml:205
 #, kde-format
 msgid "Delete alias"
 msgstr "மாற்றுப்பெயரை நீக்கு"
 
-#: src/qml/RoomSettings/General.qml:214
+#: src/qml/RoomSettings/General.qml:231
 #, kde-format
 msgid "#new_alias:server.org"
 msgstr "#new_alias:server.org"
 
-#: src/qml/RoomSettings/General.qml:231
+#: src/qml/RoomSettings/General.qml:248
 #, kde-format
 msgid "Add new alias"
 msgstr "புதிய மாற்றுப்பெயரைச் சேர்"
 
-#: src/qml/RoomSettings/General.qml:254
+#: src/qml/RoomSettings/General.qml:271
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "இந்த அரங்கு இன்னொரு உரையாடலைத் தொடர்கிறது."
 
-#: src/qml/RoomSettings/General.qml:258
+#: src/qml/RoomSettings/General.qml:275
 #, kde-format
 msgid "See older messages…"
 msgstr "பழைய செய்திகளைக் காட்டு…"
 
-#: src/qml/RoomSettings/General.qml:269
+#: src/qml/RoomSettings/General.qml:286
 #, kde-format
 msgid "This room has been replaced."
 msgstr "இந்த அரங்கு மாற்றப்பட்டுள்ளது."
 
-#: src/qml/RoomSettings/General.qml:273
+#: src/qml/RoomSettings/General.qml:290
 #, kde-format
 msgid "See new room…"
 msgstr "புதிய அரங்கைக் காட்டு…"
 
-#: src/qml/RoomSettings/General.qml:292
+#: src/qml/RoomSettings/General.qml:311
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "அரங்கைப் புதுப்பி"
 
-#: src/qml/RoomSettings/General.qml:296
+#: src/qml/RoomSettings/General.qml:315
 #, kde-format
 msgid "Select new version"
 msgstr "புதிய பதிப்பைத் தேர்ந்தெடுங்கள்"
 
-#: src/qml/RoomSettings/General.qml:302
+#: src/qml/RoomSettings/General.qml:321
 #: src/qml/RoomSettings/Permissions.qml:418
 #: src/qml/Settings/DevicesPage.qml:186
 #, kde-format
@@ -3066,73 +3073,73 @@ msgctxt "@title:window"
 msgid "About NeoChat"
 msgstr "நியோச்சாட் பற்றி"
 
-#: src/qml/Settings/AccountEditorPage.qml:16
+#: src/qml/Settings/AccountEditorPage.qml:17
 #, kde-format
 msgid "Edit Account"
 msgstr "கணக்கைத் திருத்து"
 
-#: src/qml/Settings/AccountEditorPage.qml:30
+#: src/qml/Settings/AccountEditorPage.qml:31
 #, kde-format
 msgid "User information"
 msgstr "பயனரின் விவரங்கள்"
 
-#: src/qml/Settings/AccountEditorPage.qml:73
+#: src/qml/Settings/AccountEditorPage.qml:74
 #, kde-format
 msgid "Remove current avatar"
 msgstr "தற்போதைய சின்னத்தை நீக்கு"
 
-#: src/qml/Settings/AccountEditorPage.qml:88
+#: src/qml/Settings/AccountEditorPage.qml:89
 #, kde-format
 msgid "Name:"
 msgstr "பெயர்:"
 
-#: src/qml/Settings/AccountEditorPage.qml:93
+#: src/qml/Settings/AccountEditorPage.qml:94
 #, kde-format
 msgid "Label:"
 msgstr "காட்சிப்பெயர்"
 
-#: src/qml/Settings/AccountEditorPage.qml:130
+#: src/qml/Settings/AccountEditorPage.qml:131
 #: src/qml/Settings/NetworkProxyPage.qml:107
 #, kde-format
 msgid "Password"
 msgstr "கடவுச்சொல்"
 
-#: src/qml/Settings/AccountEditorPage.qml:134
+#: src/qml/Settings/AccountEditorPage.qml:135
 #, kde-format
 msgid "Your server doesn't support changing your password"
 msgstr "கடவுச்சொல்லை மாற்றுவதை உங்கள் சேவையகம் ஆதரிக்கவில்லை."
 
-#: src/qml/Settings/AccountEditorPage.qml:138
+#: src/qml/Settings/AccountEditorPage.qml:139
 #, kde-format
 msgid "Current Password:"
 msgstr "தற்போதைய கடவுச்சொல்:"
 
-#: src/qml/Settings/AccountEditorPage.qml:144
+#: src/qml/Settings/AccountEditorPage.qml:145
 #, kde-format
 msgid "New Password:"
 msgstr "புதிய கடவுச்சொல்:"
 
-#: src/qml/Settings/AccountEditorPage.qml:150
+#: src/qml/Settings/AccountEditorPage.qml:151
 #, kde-format
 msgid "Confirm new Password:"
 msgstr "புதிய கடவுச்சொல்லை உறுதி செய்க:"
 
-#: src/qml/Settings/AccountEditorPage.qml:155
+#: src/qml/Settings/AccountEditorPage.qml:156
 #, kde-format
 msgid "Passwords don't match"
 msgstr "கடவுச்சொற்கள் பொருந்தவில்லை"
 
-#: src/qml/Settings/AccountEditorPage.qml:177
+#: src/qml/Settings/AccountEditorPage.qml:178
 #, kde-format
 msgid "Passwords do not match"
 msgstr "கடவுச்சொற்கள் பொருந்தவில்லை"
 
-#: src/qml/Settings/AccountEditorPage.qml:199
+#: src/qml/Settings/AccountEditorPage.qml:200
 #, kde-format
 msgid "Server Information"
 msgstr "சேவையக விவரங்கள்"
 
-#: src/qml/Settings/AccountEditorPage.qml:202
+#: src/qml/Settings/AccountEditorPage.qml:203
 #, kde-format
 msgid "Homeserver url"
 msgstr "தாய் சேவையக முகவரி"
@@ -3285,28 +3292,28 @@ msgstr "சாதனத்தை நீக்கு"
 msgid "Password:"
 msgstr "கடவுச்சொல்:"
 
-#: src/qml/Settings/Emoticons.qml:15
+#: src/qml/Settings/Emoticons.qml:18
 #, kde-format
 msgctxt "@title:window"
 msgid "Custom Emojis"
 msgstr "விருப்பமான முகவடிகள்"
 
-#: src/qml/Settings/Emoticons.qml:24
+#: src/qml/Settings/Emoticons.qml:27
 #, kde-format
 msgid "No custom inline stickers found"
 msgstr "வரியுள்ளான தனிப்பயன் ஒட்டியேதும் கண்டுபிடிக்கப்படவில்லை"
 
-#: src/qml/Settings/Emoticons.qml:72
+#: src/qml/Settings/Emoticons.qml:75
 #, kde-format
 msgid "new_emoji_name_here"
 msgstr "புதிய_முகவடியின்_பெயர்_இங்கே"
 
-#: src/qml/Settings/Emoticons.qml:81
+#: src/qml/Settings/Emoticons.qml:84
 #, kde-format
 msgid "Add Emoji..."
 msgstr "முகவடியை சேர்..."
 
-#: src/qml/Settings/Emoticons.qml:113
+#: src/qml/Settings/Emoticons.qml:116
 #, kde-format
 msgid "Images (*.png *.gif *.webp)"
 msgstr "படங்கள் (*.png *.gif *.webp)"
