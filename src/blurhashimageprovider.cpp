@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2021 Tobias Fella <fella@posteo.de>
+// SPDX-FileCopyrightText: 2021 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: LGPL-2.0-or-later
 
 #include "blurhashimageprovider.h"

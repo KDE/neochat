@@ -1,6 +1,6 @@
 #!/bin/python
 
-# SPDX-FileCopyrightText: 2022 Tobias Fella <fella@posteo.de>
+# SPDX-FileCopyrightText: 2022 Tobias Fella <tobias.fella@kde.org>
 # SPDX-FileCopyrightText: 2022 Gary Wang <wzc782970009@gmail.com>
 # SPDX-License-Identifier: BSD-2-Clause
 

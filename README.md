@@ -1,6 +1,6 @@
 <!--
     SPDX-FileCopyrightText: 2020-2021 Carl Schwan <carlschwan@kde.org>
-    SPDX-FileCopyrightText: 2020-2021 Tobias Fella <fella@posteo.de>
+    SPDX-FileCopyrightText: 2020-2021 Tobias Fella <tobias.fella@kde.org>
     SPDX-License-Identifier: CC0-1.0
 -->
 # NeoChat

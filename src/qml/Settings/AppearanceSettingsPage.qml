@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2020 Tobias Fella <fella@posteo.de>
+// SPDX-FileCopyrightText: 2020 Tobias Fella <tobias.fella@kde.org>
 // SPDX-FileCopyrightText: 2021 Carl Schwan <carl@carlschwan.eu>
 // SPDX-License-Identifier: GPL-2.0-or-later
 

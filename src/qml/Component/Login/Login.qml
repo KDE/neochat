@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
-// SPDX-FileCopyrightText: 2020 Tobias Fella <fella@posteo.de>
+// SPDX-FileCopyrightText: 2020 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick 2.15

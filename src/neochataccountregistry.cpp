@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: Kitsune Ral <Kitsune-Ral@users.sf.net>
-// SPDX-FileCopyrightText: Tobias Fella <fella@posteo.de>
+// SPDX-FileCopyrightText: Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: LGPL-2.1-or-later
 
 #include "neochataccountregistry.h"
