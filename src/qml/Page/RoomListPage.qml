@@ -115,8 +115,6 @@ Kirigami.ScrollablePage {
         }
     }
 
-    title: i18n("Rooms")
-
     property var enteredRoom
     property bool collapsedMode: Config.roomListPageWidth < applicationWindow().minPageWidth && applicationWindow().shouldUseSidebars
 
@@ -169,23 +167,10 @@ Kirigami.ScrollablePage {
         goToPreviousRoomFiltered((item) => (item.visible && item.hasUnread));
     }
 
-    titleDelegate: collapsedMode ? empty : searchField
-
-    Component {
-        id: empty
-        Item {}
-    }
-
-    Component {
-        id: searchField
-        Kirigami.SearchField {
-            Layout.topMargin: Kirigami.Units.smallSpacing
-            Layout.bottomMargin: Kirigami.Units.smallSpacing
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            onTextChanged: sortFilterRoomListModel.filterText = text
-            KeyNavigation.tab: listView
-        }
+    titleDelegate: ExploreComponent {
+        Layout.fillWidth: true
+        desiredWidth: page.width - Kirigami.Units.largeSpacing
+        collapsed: collapsedMode
     }
 
     ListView {

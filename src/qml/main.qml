@@ -229,58 +229,6 @@ Kirigami.ApplicationWindow {
         }
     }
 
-
-    globalDrawer: Kirigami.GlobalDrawer {
-        property bool hasLayer
-        contentItem.implicitWidth: columnWidth
-        isMenu: true
-        actions: [
-            Kirigami.Action {
-                text: i18n("Explore rooms")
-                icon.name: "compass"
-                onTriggered: pushReplaceLayer("qrc:/JoinRoomPage.qml", {connection: Controller.activeConnection})
-                enabled: pageStack.layers.depth === 1 && Controller.accountCount > 0
-            },
-            Kirigami.Action {
-                text: i18n("Start a Chat")
-                icon.name: "irc-join-channel"
-                onTriggered: pushReplaceLayer("qrc:/StartChatPage.qml", {connection: Controller.activeConnection})
-                enabled: pageStack.layers.depth === 1 && Controller.accountCount > 0
-            },
-            Kirigami.Action {
-                text: i18n("Create a Room")
-                icon.name: "irc-join-channel"
-                onTriggered: {
-                    let dialog = createRoomDialog.createObject(root.overlay);
-                    dialog.open();
-                }
-                shortcut: StandardKey.New
-                enabled: pageStack.layers.currentItem.title !== i18n("Start a Chat") && Controller.accountCount > 0
-            },
-            Kirigami.Action {
-                text: i18n("Configure NeoChat...")
-                icon.name: "settings-configure"
-                onTriggered: pageStack.pushDialogLayer("qrc:/SettingsPage.qml", {}, {
-                    title: i18n("Configure")
-                })
-                enabled: pageStack.layers.depth === 1
-                shortcut: StandardKey.Preferences
-            },
-            Kirigami.Action {
-                text: i18n("Logout")
-                icon.name: "list-remove-user"
-                enabled: Controller.accountCount > 0
-                onTriggered: confirmLogoutDialog.open()
-            },
-            Kirigami.Action {
-                text: i18n("Quit")
-                icon.name: "gtk-quit"
-                shortcut: StandardKey.Quit
-                onTriggered: Qt.quit()
-            }
-        ]
-    }
-
     ConfirmLogoutDialog {
         id: confirmLogoutDialog
     }
