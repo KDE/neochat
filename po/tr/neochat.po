@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-26 00:58+0000\n"
-"PO-Revision-Date: 2023-02-23 18:23+0300\n"
+"PO-Revision-Date: 2023-02-27 01:00+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -57,7 +57,7 @@ msgstr "Anahtar zincirine erişim reddedildi."
 #: src/controller.cpp:420
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
-msgstr "Lütfen, NeoChat'in erişim jetonunu okumasına izin verin"
+msgstr "Lütfen NeoChat'in erişim jetonunu okumasına izin verin"
 
 #: src/controller.cpp:423
 #, kde-format
@@ -77,7 +77,7 @@ msgstr "Erişim jetonu okunamıyor"
 #: src/controller.cpp:616
 #, kde-format
 msgid "File too large to download."
-msgstr "Dosya indirmek için pek büyük."
+msgstr "Dosya, indirmek için pek büyük."
 
 #: src/controller.cpp:616
 #, kde-format
@@ -161,7 +161,7 @@ msgstr "James Graham"
 #: src/main.cpp:162
 #, kde-format
 msgid "Black Hat"
-msgstr "Kara Şapka"
+msgstr "Black Hat"
 
 #: src/main.cpp:162
 #, kde-format
@@ -171,7 +171,7 @@ msgstr "Spectral'in özgün yazarı"
 #: src/main.cpp:163
 #, kde-format
 msgid "Alexey Rusakov"
-msgstr "Alexey Rusakov"
+msgstr "Aleksey Rusakov"
 
 #: src/main.cpp:163
 #, kde-format
@@ -209,12 +209,12 @@ msgstr "Matrix iletişim protokolü için istemci"
 #: src/main.cpp:308
 #, kde-format
 msgid "Supports matrix: url scheme"
-msgstr "matrix: url şemasını destekler"
+msgstr "matrix: URL şemasını destekler"
 
 #: src/matriximageprovider.cpp:35
 #, kde-format
 msgid "Media id '%1' doesn't follow server/mediaId pattern"
-msgstr "Ortam kimliği '%1', sunucu/ortamkimliği dizgisini izlemiyor"
+msgstr "Ortam kimliği '%1', sunucu/ortamKimliği dizgisini izlemiyor"
 
 #: src/matriximageprovider.cpp:90
 #, kde-format
@@ -667,7 +667,7 @@ msgstr "[DEĞİŞTİRİLDİ: %1]"
 #: src/models/roomlistmodel.cpp:473
 #, kde-format
 msgid "Invited"
-msgstr "Davet Edildi"
+msgstr "Davet Edilen"
 
 #: src/models/roomlistmodel.cpp:475
 #, kde-format
@@ -1179,7 +1179,7 @@ msgstr "Kapat"
 #, kde-format
 msgctxt "@title"
 msgid "Select a Homeserver"
-msgstr "Bir Ana Sunucu Seçin"
+msgstr "Bir Ana Sunucu Seç"
 
 #: src/qml/Component/Login/Homeserver.qml:38
 #, kde-format
@@ -1206,7 +1206,7 @@ msgstr "Sürdür"
 #: src/qml/Component/Login/Loading.qml:17
 #, kde-format
 msgid "Please wait. This might take a little while."
-msgstr "Lütfen bekleyin. Bu, biraz vakit alabilir."
+msgstr "Lütfen bekleyin. Bu, biraz sürebilir."
 
 #: src/qml/Component/Login/Login.qml:19 src/qml/Component/Login/Sso.qml:15
 #, kde-format
@@ -2698,11 +2698,9 @@ msgid "Room ID"
 msgstr "Oda kimliği"
 
 #: src/qml/RoomSettings/General.qml:130
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Address to Clipboard"
+#, kde-format
 msgid "Copy room ID to clipboard"
-msgstr "Adresi Panoya Kopyala"
+msgstr "Oda kimliğini panoya kopyala"
 
 #: src/qml/RoomSettings/General.qml:144
 #, kde-format
@@ -2752,7 +2750,7 @@ msgstr "Bu oda, başka bir konuşmayı sürdürüyor."
 #: src/qml/RoomSettings/General.qml:275
 #, kde-format
 msgid "See older messages…"
-msgstr "Daha eski iletileri gör..."
+msgstr "Daha eski iletileri gör…"
 
 #: src/qml/RoomSettings/General.qml:286
 #, kde-format
@@ -2762,7 +2760,7 @@ msgstr "Bu oda, başkasıyla değiştirildi."
 #: src/qml/RoomSettings/General.qml:290
 #, kde-format
 msgid "See new room…"
-msgstr "Yeni odayı gör..."
+msgstr "Yeni odayı gör…"
 
 #: src/qml/RoomSettings/General.qml:311
 #, kde-format
@@ -3085,7 +3083,7 @@ msgstr "NeoChat Hakkında"
 #: src/qml/Settings/AccountEditorPage.qml:17
 #, kde-format
 msgid "Edit Account"
-msgstr "Hesap Düzenle"
+msgstr "Hesabı Düzenle"
 
 #: src/qml/Settings/AccountEditorPage.qml:31
 #, kde-format
@@ -3751,43 +3749,3 @@ msgstr "URL açılamadı"
 #, kde-format
 msgid "Show"
 msgstr "Göster"
-
-#~ msgid "Edit Message"
-#~ msgstr "İleti Düzenle"
-
-#~ msgid "Editing message:"
-#~ msgstr "İleti düzenleniyor:"
-
-#~ msgid "Owner"
-#~ msgstr "Sahip"
-
-#~ msgid "Admin"
-#~ msgstr "Yönetici"
-
-#~ msgid "Mod"
-#~ msgstr "Mod"
-
-#~ msgid "Muted"
-#~ msgstr "Sessize Alınmış"
-
-#~ msgid "Member"
-#~ msgstr "Üye"
-
-#~ msgid ""
-#~ "This room is encrypted. Sending encrypted messages is not yet supported."
-#~ msgstr "Bu oda şifreli. Şifreli iletiler gönderme henüz desteklenmiyor."
-
-#~ msgid "Custom"
-#~ msgstr "Özel"
-
-#~ msgid "Canonical Alias:"
-#~ msgstr "Kurallı Arma:"
-
-#~ msgid "Timeline"
-#~ msgstr "Zaman Akışı"
-
-#~ msgid "In Chat"
-#~ msgstr "Sohbette"
-
-#~ msgid "Themes"
-#~ msgstr "Temalar"
