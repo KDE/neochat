@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-26 00:58+0000\n"
+"POT-Creation-Date: 2023-02-28 00:58+0000\n"
 "PO-Revision-Date: 2023-01-06 16:47+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -1074,7 +1074,7 @@ msgstr "Άνοιγμα NeoChat σε αυτήν την αίθουσα"
 #: src/notificationsmanager.cpp:85
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:551
+#: src/qml/Page/RoomPage.qml:550
 #, kde-format
 msgid "Reply"
 msgstr "Απάντηση"
@@ -1111,7 +1111,7 @@ msgstr "Συνημμένο:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:540
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:539
 #, kde-format
 msgid "Edit"
 msgstr "Επεξεργασία"
@@ -1159,7 +1159,7 @@ msgstr ""
 msgid "Send a message…"
 msgstr "Αποστολή μηνύματος…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:266
+#: src/qml/Component/ChatBox/ChatBar.qml:273
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -1180,6 +1180,30 @@ msgstr "Απάντηση στον %1:"
 #, kde-format
 msgid "No emojis"
 msgstr "Χωρίς εμότζι"
+
+#: src/qml/Component/ExploreComponent.qml:19 src/qml/Page/RoomListPage.qml:216
+#, kde-format
+msgid "Explore rooms"
+msgstr "Εξερεύνηση αιθουσών"
+
+#: src/qml/Component/ExploreComponent.qml:26 src/qml/Menu/GlobalMenu.qml:43
+#: src/qml/Menu/GlobalMenu.qml:48 src/qml/Page/StartChatPage.qml:18
+#, kde-format
+msgid "Start a Chat"
+msgstr "Έναρξη συνομιλίας"
+
+#: src/qml/Component/ExploreComponent.qml:31
+#: src/qml/Dialog/CreateRoomDialog.qml:16
+#, kde-format
+msgid "Create a Room"
+msgstr "Δημιουργία μιας αίθουσας"
+
+#: src/qml/Component/ExploreComponent.qml:58
+#: src/qml/Component/ExploreComponent.qml:109
+#, fuzzy, kde-format
+#| msgid "Rooms and private chats"
+msgid "Create rooms and chats"
+msgstr "Αίθουσες και ιδιωτικές συνομιλίες"
 
 #: src/qml/Component/FullScreenImage.qml:80
 #, kde-format
@@ -1488,18 +1512,17 @@ msgstr "Συντάκτης λογαριασμού"
 msgid "Switch User"
 msgstr "Εναλλαγή χρήστη"
 
-#: src/qml/Component/UserInfo.qml:190 src/qml/Page/InviteUserPage.qml:42
+#: src/qml/Component/UserInfo.qml:194 src/qml/Page/InviteUserPage.qml:42
 #, kde-format
 msgid "Add"
 msgstr "Προσθήκη"
 
-#: src/qml/Component/UserInfo.qml:201 src/qml/main.qml:264
-#: src/qml/Menu/GlobalMenu.qml:28
+#: src/qml/Component/UserInfo.qml:205 src/qml/Menu/GlobalMenu.qml:28
 #, kde-format
 msgid "Configure"
 msgstr "Διαμόρφωση"
 
-#: src/qml/Component/UserInfo.qml:202
+#: src/qml/Component/UserInfo.qml:206
 #, kde-format
 msgid "Open Settings"
 msgstr "Άνοιγμα ρυθμίσεων"
@@ -1537,11 +1560,6 @@ msgstr "Αποσύνδεση"
 #, kde-format
 msgid "Are you sure you want to sign out?"
 msgstr "Θέλεις σίγουρα να αποσυνδεθείς;"
-
-#: src/qml/Dialog/CreateRoomDialog.qml:16 src/qml/main.qml:251
-#, kde-format
-msgid "Create a Room"
-msgstr "Δημιουργία μιας αίθουσας"
 
 #: src/qml/Dialog/CreateRoomDialog.qml:21
 #, kde-format
@@ -1608,7 +1626,7 @@ msgid "Successfully verified device **%1**"
 msgstr "Επιτυχημένη επαλήθευση συσκευής **%1**"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:196
+#: src/qml/Page/RoomPage.qml:194
 #, kde-format
 msgid "Accept"
 msgstr "Αποδοχή"
@@ -1853,49 +1871,23 @@ msgstr "Αντιγραφή συνδέσμου"
 msgid "Warning: %1"
 msgstr "Προειδοποίηση: %1"
 
-#: src/qml/main.qml:239 src/qml/Page/RoomListPage.qml:207
-#, kde-format
-msgid "Explore rooms"
-msgstr "Εξερεύνηση αιθουσών"
-
-#: src/qml/main.qml:245 src/qml/main.qml:258 src/qml/Menu/GlobalMenu.qml:43
-#: src/qml/Menu/GlobalMenu.qml:48 src/qml/Page/StartChatPage.qml:18
-#, kde-format
-msgid "Start a Chat"
-msgstr "Έναρξη συνομιλίας"
-
-#: src/qml/main.qml:261 src/qml/Menu/GlobalMenu.qml:23
-#, kde-format
-msgid "Configure NeoChat..."
-msgstr "Διαμόρφωση του NeoChat..."
-
-#: src/qml/main.qml:270
-#, kde-format
-msgid "Logout"
-msgstr "Αποσύνδεση"
-
-#: src/qml/main.qml:276 src/trayicon.cpp:30
-#, kde-format
-msgid "Quit"
-msgstr "Έξοδος"
-
-#: src/qml/main.qml:361
+#: src/qml/main.qml:327
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/qml/main.qml:402
+#: src/qml/main.qml:368
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Επαλήθευση συνεδρίας"
 
-#: src/qml/main.qml:412
+#: src/qml/main.qml:378
 #, kde-format
 msgid "User consent"
 msgstr "Συναίνεση χρήστη"
 
-#: src/qml/main.qml:417
+#: src/qml/main.qml:383
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -1905,17 +1897,17 @@ msgstr ""
 "πριν τον χρησιμοποιήσεις. Κάνε κλικ στο παρακάτω κουμπί για να τους "
 "διαβάσεις."
 
-#: src/qml/main.qml:422
+#: src/qml/main.qml:388
 #, kde-format
 msgid "Open"
 msgstr "Άνοιγμα"
 
-#: src/qml/main.qml:451
+#: src/qml/main.qml:417
 #, kde-format
 msgid "Start a chat"
 msgstr "Έναρξη συνομιλίας"
 
-#: src/qml/main.qml:453
+#: src/qml/main.qml:419
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Θέλεις να ξεκινήσεις συνομιλία με τον %1;"
@@ -1967,6 +1959,11 @@ msgstr "Επιλογή όλων"
 msgctxt "menu"
 msgid "NeoChat"
 msgstr "NeoChat"
+
+#: src/qml/Menu/GlobalMenu.qml:23
+#, kde-format
+msgid "Configure NeoChat..."
+msgstr "Διαμόρφωση του NeoChat..."
 
 #: src/qml/Menu/GlobalMenu.qml:24
 #, kde-format
@@ -2485,77 +2482,72 @@ msgctxt "@action:button"
 msgid "Show All Rooms"
 msgstr "Εμφάνιση όλων των αιθουσών"
 
-#: src/qml/Page/RoomListPage.qml:118
-#, kde-format
-msgid "Rooms"
-msgstr "Αίθουσες"
-
-#: src/qml/Page/RoomListPage.qml:204
+#: src/qml/Page/RoomListPage.qml:213
 #, kde-format
 msgid "No rooms found"
 msgstr "Δεν βρέθηκαν αίθουσες"
 
-#: src/qml/Page/RoomListPage.qml:204
+#: src/qml/Page/RoomListPage.qml:213
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Μπορείς να εισέλθεις σε κάποιες αίθουσες για να ξεκινήσεις"
 
-#: src/qml/Page/RoomListPage.qml:207
+#: src/qml/Page/RoomListPage.qml:216
 #, kde-format
 msgid "Search in room directory"
 msgstr "Αναζήτηση στον κατάλογο με τις αίθουσες"
 
-#: src/qml/Page/RoomListPage.qml:305 src/qml/Page/RoomListPage.qml:357
+#: src/qml/Page/RoomListPage.qml:314 src/qml/Page/RoomListPage.qml:366
 #, kde-format
 msgid "No Name"
 msgstr "Χωρίς όνομα"
 
-#: src/qml/Page/RoomListPage.qml:372
+#: src/qml/Page/RoomListPage.qml:381
 #, kde-format
 msgid "Muted room"
 msgstr "Αίθουσα σε σίγαση"
 
-#: src/qml/Page/RoomListPage.qml:399
+#: src/qml/Page/RoomListPage.qml:408
 #, kde-format
 msgid "Configure room"
 msgstr "Διαμόρφωση αίθουσας"
 
-#: src/qml/Page/RoomPage.qml:185
+#: src/qml/Page/RoomPage.qml:183
 #, kde-format
 msgid "Accept this invitation?"
 msgstr "Αποδέχεσαι αυτήν την πρόσκληση;"
 
-#: src/qml/Page/RoomPage.qml:189
+#: src/qml/Page/RoomPage.qml:187
 #, kde-format
 msgid "Reject"
 msgstr "Απόρριψη"
 
-#: src/qml/Page/RoomPage.qml:287
+#: src/qml/Page/RoomPage.qml:285
 #, kde-format
 msgid "Choose local file"
 msgstr "Επιλογή τοπικού αρχείου"
 
-#: src/qml/Page/RoomPage.qml:314
+#: src/qml/Page/RoomPage.qml:312
 #, kde-format
 msgid "Clipboard image"
 msgstr "Εικόνα πρόχειρου"
 
-#: src/qml/Page/RoomPage.qml:365
+#: src/qml/Page/RoomPage.qml:364
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Μετάβαση στο πρώτο μη αναγνωσμένο μήνυμα"
 
-#: src/qml/Page/RoomPage.qml:390
+#: src/qml/Page/RoomPage.qml:389
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Μετάβαση στο τελευταίο μήνυμα"
 
-#: src/qml/Page/RoomPage.qml:415
+#: src/qml/Page/RoomPage.qml:414
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Έλκυσε αντικείμενα εδώ για να τα μοιραστείς"
 
-#: src/qml/Page/RoomPage.qml:447
+#: src/qml/Page/RoomPage.qml:446
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2563,12 +2555,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 πληκτρολογεί"
 msgstr[1] "%2 πληκτρολογούν"
 
-#: src/qml/Page/RoomPage.qml:518
+#: src/qml/Page/RoomPage.qml:517
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "Αυτό το μήνυμα εστάλη από επιβεβαιωμένη συσκευή"
 
-#: src/qml/Page/RoomPage.qml:524
+#: src/qml/Page/RoomPage.qml:523
 #, kde-format
 msgid "React"
 msgstr "Αντίδραση"
@@ -3807,6 +3799,17 @@ msgstr "Αδυναμία ανοίγματος του URL"
 #, kde-format
 msgid "Show"
 msgstr "Εμφάνιση"
+
+#: src/trayicon.cpp:30
+#, kde-format
+msgid "Quit"
+msgstr "Έξοδος"
+
+#~ msgid "Logout"
+#~ msgstr "Αποσύνδεση"
+
+#~ msgid "Rooms"
+#~ msgstr "Αίθουσες"
 
 #~ msgid "Edit Message"
 #~ msgstr "Επεξεργασία μηνύματος"

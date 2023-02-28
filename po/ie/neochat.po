@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-26 00:58+0000\n"
+"POT-Creation-Date: 2023-02-28 00:58+0000\n"
 "PO-Revision-Date: 2022-10-28 19:18+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -1092,7 +1092,7 @@ msgstr "Aperter NeoChat in ti chambre"
 #: src/notificationsmanager.cpp:85
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:551
+#: src/qml/Page/RoomPage.qml:550
 #, kde-format
 msgid "Reply"
 msgstr "Responder"
@@ -1129,7 +1129,7 @@ msgstr "Atachament:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:540
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:539
 #, kde-format
 msgid "Edit"
 msgstr "Modificar"
@@ -1177,7 +1177,7 @@ msgstr ""
 msgid "Send a message…"
 msgstr "Ne successat inviar un missage D-Bus"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:266
+#: src/qml/Component/ChatBox/ChatBar.qml:273
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -1197,6 +1197,30 @@ msgstr "quande on responde"
 #, fuzzy, kde-format
 msgid "No emojis"
 msgstr "Converter smileys a emojis"
+
+#: src/qml/Component/ExploreComponent.qml:19 src/qml/Page/RoomListPage.qml:216
+#, kde-format
+msgid "Explore rooms"
+msgstr "Explorar chambres"
+
+#: src/qml/Component/ExploreComponent.qml:26 src/qml/Menu/GlobalMenu.qml:43
+#: src/qml/Menu/GlobalMenu.qml:48 src/qml/Page/StartChatPage.qml:18
+#, kde-format
+msgid "Start a Chat"
+msgstr "Iniciar conversation"
+
+#: src/qml/Component/ExploreComponent.qml:31
+#: src/qml/Dialog/CreateRoomDialog.qml:16
+#, kde-format
+msgid "Create a Room"
+msgstr "Crear un chambre"
+
+#: src/qml/Component/ExploreComponent.qml:58
+#: src/qml/Component/ExploreComponent.qml:109
+#, fuzzy, kde-format
+#| msgid "Rooms and private chats:"
+msgid "Create rooms and chats"
+msgstr "Chambres e privat conversationes:"
 
 #: src/qml/Component/FullScreenImage.qml:80
 #, kde-format
@@ -1506,18 +1530,17 @@ msgstr "Conto:"
 msgid "Switch User"
 msgstr ""
 
-#: src/qml/Component/UserInfo.qml:190 src/qml/Page/InviteUserPage.qml:42
+#: src/qml/Component/UserInfo.qml:194 src/qml/Page/InviteUserPage.qml:42
 #, kde-format
 msgid "Add"
 msgstr "Adjunter"
 
-#: src/qml/Component/UserInfo.qml:201 src/qml/main.qml:264
-#: src/qml/Menu/GlobalMenu.qml:28
+#: src/qml/Component/UserInfo.qml:205 src/qml/Menu/GlobalMenu.qml:28
 #, kde-format
 msgid "Configure"
 msgstr "Configurar"
 
-#: src/qml/Component/UserInfo.qml:202
+#: src/qml/Component/UserInfo.qml:206
 #, fuzzy, kde-format
 msgid "Open Settings"
 msgstr "Parametres del chambre"
@@ -1554,11 +1577,6 @@ msgstr ""
 #, kde-format
 msgid "Are you sure you want to sign out?"
 msgstr ""
-
-#: src/qml/Dialog/CreateRoomDialog.qml:16 src/qml/main.qml:251
-#, kde-format
-msgid "Create a Room"
-msgstr "Crear un chambre"
 
 #: src/qml/Dialog/CreateRoomDialog.qml:21
 #, kde-format
@@ -1623,7 +1641,7 @@ msgid "Successfully verified device **%1**"
 msgstr "Null medium in li unité por %1"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:196
+#: src/qml/Page/RoomPage.qml:194
 #, kde-format
 msgid "Accept"
 msgstr "Acceptar"
@@ -1852,66 +1870,40 @@ msgstr "Copiar"
 msgid "Warning: %1"
 msgstr "Avise: %1"
 
-#: src/qml/main.qml:239 src/qml/Page/RoomListPage.qml:207
-#, kde-format
-msgid "Explore rooms"
-msgstr "Explorar chambres"
-
-#: src/qml/main.qml:245 src/qml/main.qml:258 src/qml/Menu/GlobalMenu.qml:43
-#: src/qml/Menu/GlobalMenu.qml:48 src/qml/Page/StartChatPage.qml:18
-#, kde-format
-msgid "Start a Chat"
-msgstr "Iniciar conversation"
-
-#: src/qml/main.qml:261 src/qml/Menu/GlobalMenu.qml:23
-#, kde-format
-msgid "Configure NeoChat..."
-msgstr "Configurar NeoChat..."
-
-#: src/qml/main.qml:270
-#, kde-format
-msgid "Logout"
-msgstr "Cluder li session"
-
-#: src/qml/main.qml:276 src/trayicon.cpp:30
-#, kde-format
-msgid "Quit"
-msgstr "Surtir"
-
-#: src/qml/main.qml:361
+#: src/qml/main.qml:327
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/qml/main.qml:402
+#: src/qml/main.qml:368
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Verification del session"
 
-#: src/qml/main.qml:412
+#: src/qml/main.qml:378
 #, kde-format
 msgid "User consent"
 msgstr "Consente del usator"
 
-#: src/qml/main.qml:417
+#: src/qml/main.qml:383
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
 "being able to use it. Please click the button below to read them."
 msgstr ""
 
-#: src/qml/main.qml:422
+#: src/qml/main.qml:388
 #, kde-format
 msgid "Open"
 msgstr "Aperter"
 
-#: src/qml/main.qml:451
+#: src/qml/main.qml:417
 #, kde-format
 msgid "Start a chat"
 msgstr "Iniciar conversation"
 
-#: src/qml/main.qml:453
+#: src/qml/main.qml:419
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Esque vu vole iniciar un conversation con %1?"
@@ -1963,6 +1955,11 @@ msgstr "Select omnicos"
 msgctxt "menu"
 msgid "NeoChat"
 msgstr "NeoChat"
+
+#: src/qml/Menu/GlobalMenu.qml:23
+#, kde-format
+msgid "Configure NeoChat..."
+msgstr "Configurar NeoChat..."
 
 #: src/qml/Menu/GlobalMenu.qml:24
 #, kde-format
@@ -2489,78 +2486,73 @@ msgctxt "@action:button"
 msgid "Show All Rooms"
 msgstr "Monstrar omni chambres"
 
-#: src/qml/Page/RoomListPage.qml:118
-#, kde-format
-msgid "Rooms"
-msgstr "Chambres"
-
-#: src/qml/Page/RoomListPage.qml:204
+#: src/qml/Page/RoomListPage.qml:213
 #, fuzzy, kde-format
 msgid "No rooms found"
 msgstr "Chambres"
 
-#: src/qml/Page/RoomListPage.qml:204
+#: src/qml/Page/RoomListPage.qml:213
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr ""
 
-#: src/qml/Page/RoomListPage.qml:207
+#: src/qml/Page/RoomListPage.qml:216
 #, fuzzy, kde-format
 msgid "Search in room directory"
 msgstr "DIRECTORIA"
 
-#: src/qml/Page/RoomListPage.qml:305 src/qml/Page/RoomListPage.qml:357
+#: src/qml/Page/RoomListPage.qml:314 src/qml/Page/RoomListPage.qml:366
 #, kde-format
 msgid "No Name"
 msgstr "Sin nómine"
 
-#: src/qml/Page/RoomListPage.qml:372
+#: src/qml/Page/RoomListPage.qml:381
 #, fuzzy, kde-format
 #| msgid "Muted"
 msgid "Muted room"
 msgstr "Assurdat"
 
-#: src/qml/Page/RoomListPage.qml:399
+#: src/qml/Page/RoomListPage.qml:408
 #, fuzzy, kde-format
 msgid "Configure room"
 msgstr "Configurar"
 
-#: src/qml/Page/RoomPage.qml:185
+#: src/qml/Page/RoomPage.qml:183
 #, kde-format
 msgid "Accept this invitation?"
 msgstr "Acceptar ti invitation?"
 
-#: src/qml/Page/RoomPage.qml:189
+#: src/qml/Page/RoomPage.qml:187
 #, kde-format
 msgid "Reject"
 msgstr "Rejecter"
 
-#: src/qml/Page/RoomPage.qml:287
+#: src/qml/Page/RoomPage.qml:285
 #, kde-format
 msgid "Choose local file"
 msgstr "Selecter un local file"
 
-#: src/qml/Page/RoomPage.qml:314
+#: src/qml/Page/RoomPage.qml:312
 #, kde-format
 msgid "Clipboard image"
 msgstr "Image in li Paperiere"
 
-#: src/qml/Page/RoomPage.qml:365
+#: src/qml/Page/RoomPage.qml:364
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Ear al prim ínleet missage"
 
-#: src/qml/Page/RoomPage.qml:390
+#: src/qml/Page/RoomPage.qml:389
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Ear al ultim missage"
 
-#: src/qml/Page/RoomPage.qml:415
+#: src/qml/Page/RoomPage.qml:414
 #, kde-format
 msgid "Drag items here to share them"
 msgstr ""
 
-#: src/qml/Page/RoomPage.qml:447
+#: src/qml/Page/RoomPage.qml:446
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2568,12 +2560,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 tippa"
 msgstr[1] "%2 tippa"
 
-#: src/qml/Page/RoomPage.qml:518
+#: src/qml/Page/RoomPage.qml:517
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr ""
 
-#: src/qml/Page/RoomPage.qml:524
+#: src/qml/Page/RoomPage.qml:523
 #, kde-format
 msgid "React"
 msgstr "Reacter"
@@ -3833,6 +3825,17 @@ msgstr "Ne succesat monstrar ti-ci URL"
 #, kde-format
 msgid "Show"
 msgstr "Monstrar"
+
+#: src/trayicon.cpp:30
+#, kde-format
+msgid "Quit"
+msgstr "Surtir"
+
+#~ msgid "Logout"
+#~ msgstr "Cluder li session"
+
+#~ msgid "Rooms"
+#~ msgstr "Chambres"
 
 #, fuzzy
 #~ msgid "Edit Message"

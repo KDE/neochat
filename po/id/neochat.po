@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-26 00:58+0000\n"
+"POT-Creation-Date: 2023-02-28 00:58+0000\n"
 "PO-Revision-Date: 2023-02-15 16:40+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -1047,7 +1047,7 @@ msgstr "Buka NeoChat di ruangan ini"
 #: src/notificationsmanager.cpp:85
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:551
+#: src/qml/Page/RoomPage.qml:550
 #, kde-format
 msgid "Reply"
 msgstr "Balas"
@@ -1084,7 +1084,7 @@ msgstr "Lampiran:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:540
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:539
 #, kde-format
 msgid "Edit"
 msgstr "Sunting"
@@ -1133,7 +1133,7 @@ msgstr "Atur takarir lampiran..."
 msgid "Send a message…"
 msgstr "Kirim pesan…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:266
+#: src/qml/Component/ChatBox/ChatBar.qml:273
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -1153,6 +1153,30 @@ msgstr "Membalas ke:"
 #, kde-format
 msgid "No emojis"
 msgstr "Tidak ada emoji"
+
+#: src/qml/Component/ExploreComponent.qml:19 src/qml/Page/RoomListPage.qml:216
+#, kde-format
+msgid "Explore rooms"
+msgstr "Jelajahi ruangan"
+
+#: src/qml/Component/ExploreComponent.qml:26 src/qml/Menu/GlobalMenu.qml:43
+#: src/qml/Menu/GlobalMenu.qml:48 src/qml/Page/StartChatPage.qml:18
+#, kde-format
+msgid "Start a Chat"
+msgstr "Mulai sebuah Obrolan"
+
+#: src/qml/Component/ExploreComponent.qml:31
+#: src/qml/Dialog/CreateRoomDialog.qml:16
+#, kde-format
+msgid "Create a Room"
+msgstr "Buat sebuah Ruangan"
+
+#: src/qml/Component/ExploreComponent.qml:58
+#: src/qml/Component/ExploreComponent.qml:109
+#, fuzzy, kde-format
+#| msgid "Rooms and private chats"
+msgid "Create rooms and chats"
+msgstr "Ruangan dan obrolan privat"
 
 #: src/qml/Component/FullScreenImage.qml:80
 #, kde-format
@@ -1458,18 +1482,17 @@ msgstr "Penyunting akun"
 msgid "Switch User"
 msgstr "Ganti Pengguna"
 
-#: src/qml/Component/UserInfo.qml:190 src/qml/Page/InviteUserPage.qml:42
+#: src/qml/Component/UserInfo.qml:194 src/qml/Page/InviteUserPage.qml:42
 #, kde-format
 msgid "Add"
 msgstr "Tambahkan"
 
-#: src/qml/Component/UserInfo.qml:201 src/qml/main.qml:264
-#: src/qml/Menu/GlobalMenu.qml:28
+#: src/qml/Component/UserInfo.qml:205 src/qml/Menu/GlobalMenu.qml:28
 #, kde-format
 msgid "Configure"
 msgstr "Konfigurasikan"
 
-#: src/qml/Component/UserInfo.qml:202
+#: src/qml/Component/UserInfo.qml:206
 #, kde-format
 msgid "Open Settings"
 msgstr "Buka Pengaturan"
@@ -1506,11 +1529,6 @@ msgstr "Keluar"
 #, kde-format
 msgid "Are you sure you want to sign out?"
 msgstr "Apakah Anda yakin ingin keluar?"
-
-#: src/qml/Dialog/CreateRoomDialog.qml:16 src/qml/main.qml:251
-#, kde-format
-msgid "Create a Room"
-msgstr "Buat sebuah Ruangan"
 
 #: src/qml/Dialog/CreateRoomDialog.qml:21
 #, kde-format
@@ -1577,7 +1595,7 @@ msgid "Successfully verified device **%1**"
 msgstr "Berhasil memverifikasi peranti **%1**"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:196
+#: src/qml/Page/RoomPage.qml:194
 #, kde-format
 msgid "Accept"
 msgstr "Terima"
@@ -1819,49 +1837,23 @@ msgstr "Salin tautan"
 msgid "Warning: %1"
 msgstr "Peringatan: %1"
 
-#: src/qml/main.qml:239 src/qml/Page/RoomListPage.qml:207
-#, kde-format
-msgid "Explore rooms"
-msgstr "Jelajahi ruangan"
-
-#: src/qml/main.qml:245 src/qml/main.qml:258 src/qml/Menu/GlobalMenu.qml:43
-#: src/qml/Menu/GlobalMenu.qml:48 src/qml/Page/StartChatPage.qml:18
-#, kde-format
-msgid "Start a Chat"
-msgstr "Mulai sebuah Obrolan"
-
-#: src/qml/main.qml:261 src/qml/Menu/GlobalMenu.qml:23
-#, kde-format
-msgid "Configure NeoChat..."
-msgstr "Konfigurasi NeoChat..."
-
-#: src/qml/main.qml:270
-#, kde-format
-msgid "Logout"
-msgstr "Keluar dari Akun"
-
-#: src/qml/main.qml:276 src/trayicon.cpp:30
-#, kde-format
-msgid "Quit"
-msgstr "Keluar"
-
-#: src/qml/main.qml:361
+#: src/qml/main.qml:327
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/qml/main.qml:402
+#: src/qml/main.qml:368
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Verifikasi Sesi"
 
-#: src/qml/main.qml:412
+#: src/qml/main.qml:378
 #, kde-format
 msgid "User consent"
 msgstr "Persetujuan pengguna"
 
-#: src/qml/main.qml:417
+#: src/qml/main.qml:383
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -1870,17 +1862,17 @@ msgstr ""
 "Homeserver Anda membutuhkan Anda untuk menerima syarat dan kondisi sebelum "
 "Anda dapat menggunakannya. Mohon klik tombol di bawah untuk membacanya."
 
-#: src/qml/main.qml:422
+#: src/qml/main.qml:388
 #, kde-format
 msgid "Open"
 msgstr "Buka"
 
-#: src/qml/main.qml:451
+#: src/qml/main.qml:417
 #, kde-format
 msgid "Start a chat"
 msgstr "Mulai sebuah obrolan"
 
-#: src/qml/main.qml:453
+#: src/qml/main.qml:419
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Apakah Anda ingin memulai sebuah obrolan dengan %1?"
@@ -1932,6 +1924,11 @@ msgstr "Pilih Semua"
 msgctxt "menu"
 msgid "NeoChat"
 msgstr "NeoChat"
+
+#: src/qml/Menu/GlobalMenu.qml:23
+#, kde-format
+msgid "Configure NeoChat..."
+msgstr "Konfigurasi NeoChat..."
 
 #: src/qml/Menu/GlobalMenu.qml:24
 #, kde-format
@@ -2450,77 +2447,72 @@ msgctxt "@action:button"
 msgid "Show All Rooms"
 msgstr "Tampilkan Semua Ruangan"
 
-#: src/qml/Page/RoomListPage.qml:118
-#, kde-format
-msgid "Rooms"
-msgstr "Ruangan"
-
-#: src/qml/Page/RoomListPage.qml:204
+#: src/qml/Page/RoomListPage.qml:213
 #, kde-format
 msgid "No rooms found"
 msgstr "Tidak ada ruangan yang ditemukan"
 
-#: src/qml/Page/RoomListPage.qml:204
+#: src/qml/Page/RoomListPage.qml:213
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Bergabung ke beberapa ruangan untuk memulai"
 
-#: src/qml/Page/RoomListPage.qml:207
+#: src/qml/Page/RoomListPage.qml:216
 #, kde-format
 msgid "Search in room directory"
 msgstr "Cari di direktori ruangan"
 
-#: src/qml/Page/RoomListPage.qml:305 src/qml/Page/RoomListPage.qml:357
+#: src/qml/Page/RoomListPage.qml:314 src/qml/Page/RoomListPage.qml:366
 #, kde-format
 msgid "No Name"
 msgstr "Tidak Ada Nama"
 
-#: src/qml/Page/RoomListPage.qml:372
+#: src/qml/Page/RoomListPage.qml:381
 #, kde-format
 msgid "Muted room"
 msgstr "Ruangan dibusukan"
 
-#: src/qml/Page/RoomListPage.qml:399
+#: src/qml/Page/RoomListPage.qml:408
 #, kde-format
 msgid "Configure room"
 msgstr "Konfigurasi ruangan"
 
-#: src/qml/Page/RoomPage.qml:185
+#: src/qml/Page/RoomPage.qml:183
 #, kde-format
 msgid "Accept this invitation?"
 msgstr "Terima undangan ini?"
 
-#: src/qml/Page/RoomPage.qml:189
+#: src/qml/Page/RoomPage.qml:187
 #, kde-format
 msgid "Reject"
 msgstr "Tolak"
 
-#: src/qml/Page/RoomPage.qml:287
+#: src/qml/Page/RoomPage.qml:285
 #, kde-format
 msgid "Choose local file"
 msgstr "Pilih berkas lokal"
 
-#: src/qml/Page/RoomPage.qml:314
+#: src/qml/Page/RoomPage.qml:312
 #, kde-format
 msgid "Clipboard image"
 msgstr "Gambar papan klip"
 
-#: src/qml/Page/RoomPage.qml:365
+#: src/qml/Page/RoomPage.qml:364
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Pergi ke pesan pertama yang belum dibaca"
 
-#: src/qml/Page/RoomPage.qml:390
+#: src/qml/Page/RoomPage.qml:389
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Pergi ke pesan terkini"
 
-#: src/qml/Page/RoomPage.qml:415
+#: src/qml/Page/RoomPage.qml:414
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Seret item ke sini untuk membagikannya"
 
-#: src/qml/Page/RoomPage.qml:447
+#: src/qml/Page/RoomPage.qml:446
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2528,12 +2520,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 sedang mengetik"
 msgstr[1] "%2 sedang mengetik"
 
-#: src/qml/Page/RoomPage.qml:518
+#: src/qml/Page/RoomPage.qml:517
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "Pesan ini terkirim dari peranti yang telah diverifikasi"
 
-#: src/qml/Page/RoomPage.qml:524
+#: src/qml/Page/RoomPage.qml:523
 #, kde-format
 msgid "React"
 msgstr "Reaksi"
@@ -3768,6 +3760,17 @@ msgstr "Tidak dapat membuka URL"
 #, kde-format
 msgid "Show"
 msgstr "Tampilkan"
+
+#: src/trayicon.cpp:30
+#, kde-format
+msgid "Quit"
+msgstr "Keluar"
+
+#~ msgid "Logout"
+#~ msgstr "Keluar dari Akun"
+
+#~ msgid "Rooms"
+#~ msgstr "Ruangan"
 
 #~ msgid "Edit Message"
 #~ msgstr "Sunting Pesan"

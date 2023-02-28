@@ -8,17 +8,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-26 00:58+0000\n"
-"PO-Revision-Date: 2023-02-25 09:21+0100\n"
+"POT-Creation-Date: 2023-02-28 00:58+0000\n"
+"PO-Revision-Date: 2023-02-27 07:50+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.2.2\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #: src/controller.cpp:198
 #, kde-format
@@ -1043,7 +1043,7 @@ msgstr "Odpri Neo-chat v tej sobi"
 #: src/notificationsmanager.cpp:85
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:551
+#: src/qml/Page/RoomPage.qml:550
 #, kde-format
 msgid "Reply"
 msgstr "Odgovori"
@@ -1080,7 +1080,7 @@ msgstr "Priloga:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:540
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:539
 #, kde-format
 msgid "Edit"
 msgstr "Uredi"
@@ -1129,7 +1129,7 @@ msgstr "Nastavite napis priloge..."
 msgid "Send a message…"
 msgstr "Pošlji sporočilo…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:266
+#: src/qml/Component/ChatBox/ChatBar.qml:273
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -1149,6 +1149,30 @@ msgstr "Odgovarjanje:"
 #, kde-format
 msgid "No emojis"
 msgstr "Ni emodžijev"
+
+#: src/qml/Component/ExploreComponent.qml:19 src/qml/Page/RoomListPage.qml:216
+#, kde-format
+msgid "Explore rooms"
+msgstr "Razišči sobe"
+
+#: src/qml/Component/ExploreComponent.qml:26 src/qml/Menu/GlobalMenu.qml:43
+#: src/qml/Menu/GlobalMenu.qml:48 src/qml/Page/StartChatPage.qml:18
+#, kde-format
+msgid "Start a Chat"
+msgstr "Začni debato"
+
+#: src/qml/Component/ExploreComponent.qml:31
+#: src/qml/Dialog/CreateRoomDialog.qml:16
+#, kde-format
+msgid "Create a Room"
+msgstr "Ustvari sobo"
+
+#: src/qml/Component/ExploreComponent.qml:58
+#: src/qml/Component/ExploreComponent.qml:109
+#, fuzzy, kde-format
+#| msgid "Rooms and private chats"
+msgid "Create rooms and chats"
+msgstr "Sobe in zasebni klepeti"
 
 #: src/qml/Component/FullScreenImage.qml:80
 #, kde-format
@@ -1460,18 +1484,17 @@ msgstr "Urejevalnik računa"
 msgid "Switch User"
 msgstr "Preklopi uporabnika"
 
-#: src/qml/Component/UserInfo.qml:190 src/qml/Page/InviteUserPage.qml:42
+#: src/qml/Component/UserInfo.qml:194 src/qml/Page/InviteUserPage.qml:42
 #, kde-format
 msgid "Add"
 msgstr "Dodaj"
 
-#: src/qml/Component/UserInfo.qml:201 src/qml/main.qml:264
-#: src/qml/Menu/GlobalMenu.qml:28
+#: src/qml/Component/UserInfo.qml:205 src/qml/Menu/GlobalMenu.qml:28
 #, kde-format
 msgid "Configure"
 msgstr "Nastavi"
 
-#: src/qml/Component/UserInfo.qml:202
+#: src/qml/Component/UserInfo.qml:206
 #, kde-format
 msgid "Open Settings"
 msgstr "Odpri nastavitve"
@@ -1508,11 +1531,6 @@ msgstr "Odjavi se"
 #, kde-format
 msgid "Are you sure you want to sign out?"
 msgstr "Ali se zares želite odjaviti?"
-
-#: src/qml/Dialog/CreateRoomDialog.qml:16 src/qml/main.qml:251
-#, kde-format
-msgid "Create a Room"
-msgstr "Ustvari sobo"
 
 #: src/qml/Dialog/CreateRoomDialog.qml:21
 #, kde-format
@@ -1579,7 +1597,7 @@ msgid "Successfully verified device **%1**"
 msgstr "Uspešno verificirana naprava **%1**"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:196
+#: src/qml/Page/RoomPage.qml:194
 #, kde-format
 msgid "Accept"
 msgstr "Sprejemam"
@@ -1824,49 +1842,23 @@ msgstr "Kopiraj povezavo"
 msgid "Warning: %1"
 msgstr "Opozorilo: %1"
 
-#: src/qml/main.qml:239 src/qml/Page/RoomListPage.qml:207
-#, kde-format
-msgid "Explore rooms"
-msgstr "Razišči sobe"
-
-#: src/qml/main.qml:245 src/qml/main.qml:258 src/qml/Menu/GlobalMenu.qml:43
-#: src/qml/Menu/GlobalMenu.qml:48 src/qml/Page/StartChatPage.qml:18
-#, kde-format
-msgid "Start a Chat"
-msgstr "Začni debato"
-
-#: src/qml/main.qml:261 src/qml/Menu/GlobalMenu.qml:23
-#, kde-format
-msgid "Configure NeoChat..."
-msgstr "Nastavi NeoChat..."
-
-#: src/qml/main.qml:270
-#, kde-format
-msgid "Logout"
-msgstr "Odjavi se"
-
-#: src/qml/main.qml:276 src/trayicon.cpp:30
-#, kde-format
-msgid "Quit"
-msgstr "Zapusti"
-
-#: src/qml/main.qml:361
+#: src/qml/main.qml:327
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/qml/main.qml:402
+#: src/qml/main.qml:368
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Verifikacija seje"
 
-#: src/qml/main.qml:412
+#: src/qml/main.qml:378
 #, kde-format
 msgid "User consent"
 msgstr "Privoljenje uporabnika"
 
-#: src/qml/main.qml:417
+#: src/qml/main.qml:383
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -1875,17 +1867,17 @@ msgstr ""
 "Vaš domači strežnik zahteva, da se strinjate s pogoji njegove rabe pred "
 "dovoljenjem za uporabo. Prosimo, kliknite spodnji gumb, da jih preberete."
 
-#: src/qml/main.qml:422
+#: src/qml/main.qml:388
 #, kde-format
 msgid "Open"
 msgstr "Odpri"
 
-#: src/qml/main.qml:451
+#: src/qml/main.qml:417
 #, kde-format
 msgid "Start a chat"
 msgstr "Začni pogovor"
 
-#: src/qml/main.qml:453
+#: src/qml/main.qml:419
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Ali želite začeti pogovor s %1?"
@@ -1937,6 +1929,11 @@ msgstr "Izberi vse"
 msgctxt "menu"
 msgid "NeoChat"
 msgstr "NeoChat"
+
+#: src/qml/Menu/GlobalMenu.qml:23
+#, kde-format
+msgid "Configure NeoChat..."
+msgstr "Nastavi NeoChat..."
 
 #: src/qml/Menu/GlobalMenu.qml:24
 #, kde-format
@@ -2453,77 +2450,72 @@ msgctxt "@action:button"
 msgid "Show All Rooms"
 msgstr "Prikaži vse sobe"
 
-#: src/qml/Page/RoomListPage.qml:118
-#, kde-format
-msgid "Rooms"
-msgstr "Sobe"
-
-#: src/qml/Page/RoomListPage.qml:204
+#: src/qml/Page/RoomListPage.qml:213
 #, kde-format
 msgid "No rooms found"
 msgstr "Nobene sobe ni mogoče najti"
 
-#: src/qml/Page/RoomListPage.qml:204
+#: src/qml/Page/RoomListPage.qml:213
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Pridruži se nekaj sobam za začetek"
 
-#: src/qml/Page/RoomListPage.qml:207
+#: src/qml/Page/RoomListPage.qml:216
 #, kde-format
 msgid "Search in room directory"
 msgstr "Poišči v imeniku sob"
 
-#: src/qml/Page/RoomListPage.qml:305 src/qml/Page/RoomListPage.qml:357
+#: src/qml/Page/RoomListPage.qml:314 src/qml/Page/RoomListPage.qml:366
 #, kde-format
 msgid "No Name"
 msgstr "Ni imena"
 
-#: src/qml/Page/RoomListPage.qml:372
+#: src/qml/Page/RoomListPage.qml:381
 #, kde-format
 msgid "Muted room"
 msgstr "Utišana soba"
 
-#: src/qml/Page/RoomListPage.qml:399
+#: src/qml/Page/RoomListPage.qml:408
 #, kde-format
 msgid "Configure room"
 msgstr "Nastavi sobo"
 
-#: src/qml/Page/RoomPage.qml:185
+#: src/qml/Page/RoomPage.qml:183
 #, kde-format
 msgid "Accept this invitation?"
 msgstr "Ali sprejemate povabilo?"
 
-#: src/qml/Page/RoomPage.qml:189
+#: src/qml/Page/RoomPage.qml:187
 #, kde-format
 msgid "Reject"
 msgstr "Zavračam"
 
-#: src/qml/Page/RoomPage.qml:287
+#: src/qml/Page/RoomPage.qml:285
 #, kde-format
 msgid "Choose local file"
 msgstr "Izberi lokalno datoteko"
 
-#: src/qml/Page/RoomPage.qml:314
+#: src/qml/Page/RoomPage.qml:312
 #, kde-format
 msgid "Clipboard image"
 msgstr "Slika odložišča"
 
-#: src/qml/Page/RoomPage.qml:365
+#: src/qml/Page/RoomPage.qml:364
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Skoči na prvo neprebrano sporočilo"
 
-#: src/qml/Page/RoomPage.qml:390
+#: src/qml/Page/RoomPage.qml:389
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Skoči na nedavno sporočilo"
 
-#: src/qml/Page/RoomPage.qml:415
+#: src/qml/Page/RoomPage.qml:414
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Povleci predmete sem, da jih deliš z drugimi"
 
-#: src/qml/Page/RoomPage.qml:447
+#: src/qml/Page/RoomPage.qml:446
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2533,12 +2525,12 @@ msgstr[1] "%2 tipkata"
 msgstr[2] "%2 tipkajo"
 msgstr[3] "%2 tipka"
 
-#: src/qml/Page/RoomPage.qml:518
+#: src/qml/Page/RoomPage.qml:517
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "To sporočilo je bilo poslano iz verificirane naprave"
 
-#: src/qml/Page/RoomPage.qml:524
+#: src/qml/Page/RoomPage.qml:523
 #, kde-format
 msgid "React"
 msgstr "Reagiraj"
@@ -2713,11 +2705,9 @@ msgid "Room ID"
 msgstr "ID sobe"
 
 #: src/qml/RoomSettings/General.qml:130
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Address to Clipboard"
+#, kde-format
 msgid "Copy room ID to clipboard"
-msgstr "Kopiraj naslov na odložišče"
+msgstr "Kopiraj ID sobe na odložišče"
 
 #: src/qml/RoomSettings/General.qml:144
 #, kde-format
@@ -3767,6 +3757,17 @@ msgstr "Ni bilo mogoče odpreti URL"
 #, kde-format
 msgid "Show"
 msgstr "Prikaži"
+
+#: src/trayicon.cpp:30
+#, kde-format
+msgid "Quit"
+msgstr "Zapusti"
+
+#~ msgid "Logout"
+#~ msgstr "Odjavi se"
+
+#~ msgid "Rooms"
+#~ msgstr "Sobe"
 
 #~ msgid "Edit Message"
 #~ msgstr "Uredi sporočilo"
