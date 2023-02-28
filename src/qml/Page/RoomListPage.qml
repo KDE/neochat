@@ -15,8 +15,21 @@ import org.kde.neochat 1.0
 Kirigami.ScrollablePage {
     id: page
 
+    /**
+     * @brief The current width of the room list.
+     *
+     * @note Other objects can access the value but the private function makes sure
+     *       that only the internal members can modify it.
+     */
+    readonly property int currentWidth: _private.currentWidth
+
+    readonly property bool collapsed: Config.collapsed
+    onCollapsedChanged: if (collapsed) {
+        sortFilterRoomListModel.filterText = "";
+    }
+
     header: ColumnLayout {
-        visible: !page.collapsedMode
+        visible: !page.collapsed
         spacing: 0
 
         ListView {
@@ -116,11 +129,6 @@ Kirigami.ScrollablePage {
     }
 
     property var enteredRoom
-    property bool collapsedMode: Config.roomListPageWidth < applicationWindow().minPageWidth && applicationWindow().shouldUseSidebars
-
-    onCollapsedModeChanged: if (collapsedMode) {
-        sortFilterRoomListModel.filterText = "";
-    }
 
     Connections {
         target: RoomManager
@@ -170,7 +178,7 @@ Kirigami.ScrollablePage {
     titleDelegate: ExploreComponent {
         Layout.fillWidth: true
         desiredWidth: page.width - Kirigami.Units.largeSpacing
-        collapsed: collapsedMode
+        collapsed: page.collapsed
     }
 
     ListView {
@@ -180,7 +188,7 @@ Kirigami.ScrollablePage {
         clip: AccountRegistry.count > 1
 
         header: QQC2.ItemDelegate {
-            visible: page.collapsedMode
+            visible: page.collapsed
             action: Kirigami.Action {
                 id: enterRoomAction
                 onTriggered: quickView.item.open();
@@ -243,7 +251,7 @@ Kirigami.ScrollablePage {
         }
 
         section.property: sortFilterRoomListModel.filterText.length === 0 && !Config.mergeRoomList ? "category" : null
-        section.delegate: page.collapsedMode ? foldButton : sectionHeader
+        section.delegate: page.collapsed ? foldButton : sectionHeader
 
         Component {
             id: sectionHeader
@@ -287,7 +295,7 @@ Kirigami.ScrollablePage {
         reuseItems: true
         currentIndex: -1 // we don't want any room highlighted by default
 
-        delegate: page.collapsedMode ? collapsedModeListComponent : normalModeListComponent
+        delegate: page.collapsed ? collapsedModeListComponent : normalModeListComponent
 
         Component {
             id: collapsedModeListComponent
@@ -437,6 +445,61 @@ Kirigami.ScrollablePage {
 
     footer: UserInfo {
         width: parent.width
-        visible: !page.collapsedMode
+        visible: !page.collapsed
+    }
+
+    MouseArea {
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        parent: applicationWindow().overlay.parent
+
+        x: page.currentWidth - width / 2
+        width: Kirigami.Units.smallSpacing * 2
+        z: page.z + 1
+        enabled: RoomManager.hasOpenRoom && applicationWindow().width >= Kirigami.Units.gridUnit * 35
+        visible: enabled
+        cursorShape: Qt.SplitHCursor
+
+        property int _lastX
+
+        onPressed: mouse => {
+            _lastX = mouse.x;
+        }
+        onPositionChanged: mouse => {
+            if (_lastX == -1) {
+                return;
+            }
+            if (mouse.x > _lastX) {
+                // we moved to the right
+                if (_private.currentWidth < _private.collapseWidth && _private.currentWidth + (mouse.x - _lastX) >= _private.collapseWidth) {
+                    // Here we get back directly to a more wide mode.
+                    _private.currentWidth = _private.collapseWidth;
+                    Config.collapsed = false;
+                } else if (_private.currentWidth >= _private.collapseWidth) {
+                    // Increase page width
+                    _private.currentWidth = Math.min(_private.defaultWidth, _private.currentWidth + (mouse.x - _lastX));
+                }
+            } else if (mouse.x < _lastX) {
+                const tmpWidth = _private.currentWidth - (_lastX - mouse.x);
+                if (tmpWidth < _private.collapseWidth) {
+                    _private.currentWidth = Qt.binding(() => _private.collapsedSize + (page.contentItem.QQC2.ScrollBar.vertical.visible ? page.contentItem.QQC2.ScrollBar.vertical.width : 0));
+                    Config.collapsed = true;
+                } else {
+                    _private.currentWidth = tmpWidth;
+                }
+            }
+        }
+    }
+
+    /*
+     * Hold the modifiable currentWidth in a private object so that only internal
+     * members can modify it.
+     */
+    QtObject {
+        id: _private
+        property int currentWidth: Config.collapsed ? collapsedSize : defaultWidth
+        readonly property int defaultWidth: Kirigami.Units.gridUnit * 17
+        readonly property int collapseWidth: Kirigami.Units.gridUnit * 10
+        readonly property int collapsedSize: Kirigami.Units.gridUnit * 3 - Kirigami.Units.smallSpacing * 3
     }
 }

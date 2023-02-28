@@ -15,7 +15,7 @@ Kirigami.ApplicationWindow {
 
     property int columnWidth: Kirigami.Units.gridUnit * 13
 
-    minimumWidth: Kirigami.Units.gridUnit * 15
+    minimumWidth: Kirigami.Units.gridUnit * 20
     minimumHeight: Kirigami.Units.gridUnit * 15
 
     visible: false // Will be overridden in Component.onCompleted
@@ -163,71 +163,9 @@ Kirigami.ApplicationWindow {
         handleVisible: enabled
     }
 
-    readonly property int defaultPageWidth: Kirigami.Units.gridUnit * 17
-    readonly property int minPageWidth: Kirigami.Units.gridUnit * 10
-    readonly property int collapsedPageWidth: Kirigami.Units.gridUnit * 3 - Kirigami.Units.smallSpacing * 3 + (roomListPage.contentItem.QQC2.ScrollBar.vertical.visible ? roomListPage.contentItem.QQC2.ScrollBar.vertical.width : 0)
-    readonly property bool shouldUseSidebars: RoomManager.hasOpenRoom && (Config.roomListPageWidth > minPageWidth ? root.width >= Kirigami.Units.gridUnit * 35 : root.width > Kirigami.Units.gridUnit * 27) && roomListLoaded
-    readonly property int pageWidth: {
-        if (Config.roomListPageWidth === -1) {
-            return defaultPageWidth;
-        } else if (Config.roomListPageWidth < minPageWidth) {
-            return collapsedPageWidth;
-        } else {
-            return Config.roomListPageWidth;
-        }
-    }
-
-    pageStack.defaultColumnWidth: pageWidth
+    pageStack.defaultColumnWidth: roomListPage ? roomListPage.currentWidth : 0
     pageStack.globalToolBar.style: Kirigami.ApplicationHeaderStyle.ToolBar
     pageStack.globalToolBar.showNavigationButtons: pageStack.currentIndex > 0 ? Kirigami.ApplicationHeaderStyle.ShowBackButton : 0
-    pageStack.columnView.columnResizeMode: shouldUseSidebars ? Kirigami.ColumnView.FixedColumns : Kirigami.ColumnView.SingleColumn
-
-    MouseArea {
-        visible: root.pageStack.wideMode
-        z: 500
-
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-
-        x: root.pageStack.defaultColumnWidth - (width / 2)
-        width: 2
-
-        property int _lastX: -1
-        enabled: !Kirigami.Settings.isMobile
-
-        cursorShape: !Kirigami.Settings.isMobile ? Qt.SplitHCursor : undefined
-
-        onPressed: _lastX = mouseX
-        onReleased: Config.save();
-
-        onPositionChanged: {
-            if (_lastX == -1) {
-                return;
-            }
-
-            if (mouse.x > _lastX) {
-                // we moved to the right
-                if (Config.roomListPageWidth === root.collapsedPageWidth && root.pageWidth + (mouse.x - _lastX) >= root.minPageWidth) {
-                    // Here we get back directly to a more wide mode.
-                    Config.roomListPageWidth = root.minPageWidth;
-                    if (root.width < Kirigami.Units.gridUnit * 35) {
-                        root.width = Kirigami.Units.gridUnit * 35;
-                    }
-                } else if (Config.roomListPageWidth !== root.collapsedPageWidth) {
-                    // Increase page width
-                    Config.roomListPageWidth = Math.min(root.defaultPageWidth, root.pageWidth + (mouse.x - _lastX));
-                }
-            } else if (mouse.x < _lastX) {
-                const tmpWidth = root.pageWidth - (_lastX - mouse.x);
-
-                if (tmpWidth < root.minPageWidth) {
-                    Config.roomListPageWidth = root.collapsedPageWidth;
-                } else {
-                    Config.roomListPageWidth = tmpWidth;
-                }
-            }
-        }
-    }
 
     ConfirmLogoutDialog {
         id: confirmLogoutDialog

@@ -41,9 +41,6 @@
       <label>"Show your messages on the right</label>
       <default>true</default>
     </entry>
-    <entry name="RoomListPageWidth" type="int">
-      <default>-1</default>
-    </entry>
     <entry name="RoomDrawerWidth" type="int">
       <default>-1</default>
     </entry>
@@ -107,6 +104,10 @@
     <entry name="ShowAvatarInRoomDrawer" type="bool">
       <label>Show avatar in the room drawer</label>
       <default>true</default>
+    </entry>
+    <entry name="Collapsed" type="bool">
+      <label>Save the collapsed state of the room list</label>
+      <default>false</default>
     </entry>
   </group>
   <group name="NetworkProxy">
