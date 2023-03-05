@@ -1913,3 +1913,16 @@ QByteArray NeoChatRoom::roomAcountDataJson(const QString &eventType)
 {
     return QJsonDocument(accountData(eventType)->fullJson()).toJson();
 }
+
+QUrl NeoChatRoom::avatarForMember(NeoChatUser *user) const
+{
+#ifdef QUOTIENT_07
+    return connection()->makeMediaUrl(memberAvatarUrl(user->id()));
+#else
+    QUrl url(QStringLiteral("mxc://%1").arg(user->avatarMediaId()));
+    QUrlQuery q(url.query());
+    q.addQueryItem(QStringLiteral("user_id"), user->id());
+    url.setQuery(q);
+    return url;
+#endif
+}

@@ -754,6 +754,8 @@ public:
      */
     Q_INVOKABLE QByteArray roomAcountDataJson(const QString &eventType);
 
+    Q_INVOKABLE [[nodiscard]] QUrl avatarForMember(NeoChatUser *user) const;
+
 private:
     QSet<const Quotient::RoomEvent *> highlights;
 
