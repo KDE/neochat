@@ -571,7 +571,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == HighlightRole) {
-        return m_currentRoom->isEventHighlighted(&evt);
+        return !m_currentRoom->isDirectChat() && m_currentRoom->isEventHighlighted(&evt);
     }
 
     if (role == FileMimetypeIcon) {
