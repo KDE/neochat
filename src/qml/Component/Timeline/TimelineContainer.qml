@@ -319,6 +319,7 @@ ColumnLayout {
         }
 
         TapHandler {
+            acceptedDevices: PointerDevice.Mouse
             acceptedButtons: Qt.RightButton
             onTapped: root.openContextMenu()
         }
