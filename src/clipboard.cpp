@@ -67,3 +67,15 @@ void Clipboard::saveText(QString message)
     mineData->setText(message.replace(re, ""));
     m_clipboard->setMimeData(mineData);
 }
+
+void Clipboard::setImage(const QUrl &url)
+{
+    if (url.isLocalFile()) {
+        QImage img(url.path());
+        auto *mimeData = new QMimeData;
+        mimeData->setImageData(img);
+        if (!img.isNull()) {
+            m_clipboard->setMimeData(mimeData);
+        }
+    }
+}

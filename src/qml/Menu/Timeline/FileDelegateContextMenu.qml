@@ -56,6 +56,20 @@ MessageDelegateContextMenu {
             }
         },
         Kirigami.Action {
+            text: i18n("Copy")
+            icon.name: "edit-copy"
+            onTriggered: {
+                if(file.downloaded) {
+                    Clipboard.setImage(progressInfo.localPath)
+                } else {
+                    file.onDownloadedChanged.connect(function() {
+                        Clipboard.setImage(progressInfo.localPath)
+                    });
+                    currentRoom.downloadFile(eventId, StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId))
+                }
+            }
+        },
+        Kirigami.Action {
             visible: author.id === currentRoom.localUser.id || currentRoom.canSendState("redact")
             text: i18n("Remove")
             icon.name: "edit-delete-remove"
