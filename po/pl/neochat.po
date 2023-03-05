@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-03 00:48+0000\n"
-"PO-Revision-Date: 2023-02-12 09:39+0100\n"
+"PO-Revision-Date: 2023-03-04 09:20+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -77,12 +77,12 @@ msgstr "Nie można odczytać tokena dostępu"
 #: src/controller.cpp:616
 #, kde-format
 msgid "File too large to download."
-msgstr ""
+msgstr "Plik jest zbyt duży do pobrania."
 
 #: src/controller.cpp:616
 #, kde-format
 msgid "Contact your matrix server administrator for support."
-msgstr ""
+msgstr "Napisz do obsługi twojego serwera Matriksa z prośbą o pomoc."
 
 #: src/controller.cpp:648
 #, kde-format
@@ -338,24 +338,18 @@ msgid "Joins the given room"
 msgstr "Dołącza do danego pokoju"
 
 #: src/models/actionsmodel.cpp:230
-#, fuzzy, kde-format
-#| msgctxt "Joining room <roomname>."
-#| msgid "Joining room %1."
+#, kde-format
 msgctxt "Knocking room <roomname>."
 msgid "Knocking room %1."
-msgstr "Dołączanie do pokoju %1."
+msgstr "Pukanie do pokoju %1."
 
 #: src/models/actionsmodel.cpp:242
-#, fuzzy
-#| msgid "[<room alias or id>]"
 msgid "<room alias or id> [<reason>]"
-msgstr "[<alias lub id pokoju>]"
+msgstr "<alias lub id pokoju> [<powód>]"
 
 #: src/models/actionsmodel.cpp:243
-#, fuzzy
-#| msgid "Joins the given room"
 msgid "Requests to join the given room"
-msgstr "Dołącza do danego pokoju"
+msgstr "Prośby o dołączenie do danego pokoju"
 
 #: src/models/actionsmodel.cpp:257
 #, kde-format
@@ -536,30 +530,25 @@ msgid "Removes the user from the room"
 msgstr "Usuwa użytkownika z pokoju"
 
 #: src/models/collapsestateproxymodel.cpp:70
-#, fuzzy, kde-format
-#| msgctxt "[user did something] n times"
-#| msgid " %1 time"
-#| msgid_plural " %1 times"
+#, kde-format
 msgctxt "n times"
 msgid " %1 time "
 msgid_plural " %1 times "
-msgstr[0] " %1 raz"
-msgstr[1] " %1 razy"
-msgstr[2] " %1 razy"
+msgstr[0] " %1 raz "
+msgstr[1] " %1 razy "
+msgstr[2] " %1 razy "
 
 #: src/models/collapsestateproxymodel.cpp:76
 #, kde-format
 msgctxt "n users"
 msgid " %1 user "
 msgid_plural " %1 users "
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] " %1 użytkownik "
+msgstr[1] " %1 użytkowników "
+msgstr[2] " %1 użytkowników "
 
 #: src/models/collapsestateproxymodel.cpp:86
-#, fuzzy, kde-format
-#| msgctxt "[action 1], [action 2 and action 3]"
-#| msgid ", "
+#, kde-format
 msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
 msgstr ", "
@@ -568,7 +557,7 @@ msgstr ", "
 #, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
-msgstr ""
+msgstr " lub "
 
 #: src/models/collapsestateproxymodel.cpp:89
 #, kde-format
@@ -938,121 +927,100 @@ msgid "Unknown event"
 msgstr "Nieznane wydarzenie"
 
 #: src/neochatroom.cpp:671
-#, fuzzy, kde-format
-#| msgid "Send a message…"
+#, kde-format
 msgid "sent a message"
-msgstr "Wyślij wiadomość…"
+msgstr "wysłał(a) wiadomość"
 
 #: src/neochatroom.cpp:675
 #, kde-format
 msgid "sent a sticker"
-msgstr ""
+msgstr "wysłał(a) naklejkę"
 
 #: src/neochatroom.cpp:681
-#, fuzzy, kde-format
-#| msgid "reinvited %1 to the room"
+#, kde-format
 msgid "reinvited someone to the room"
-msgstr "zaprosił(a) ponownie %1 do pokoju"
+msgstr "zaprosił(a) ponownie kogoś do pokoju"
 
 #: src/neochatroom.cpp:690
-#, fuzzy, kde-format
-#| msgid "invited %1 to the room"
+#, kde-format
 msgid "invited someone to the room"
-msgstr "zaprosił(a) %1 do pokoju"
+msgstr "zaprosił(a) kogoś do pokoju"
 
 #: src/neochatroom.cpp:700
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
+#, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name"
-msgstr "zmienił(a) swoją wyświetlaną nazwę na %1"
+msgstr "zmienił(a) swoją nazwę wyświetlaną"
 
 #: src/neochatroom.cpp:726
-#, fuzzy, kde-format
-#| msgid "withdrew %1's invitation"
+#, kde-format
 msgid "withdrew a user's invitation"
-msgstr "wycofał(a)  zaproszenie %1"
+msgstr "wycofał(a) zaproszenie użytkownika"
 
 #: src/neochatroom.cpp:730
-#, fuzzy, kde-format
-#| msgid "unbanned %1"
+#, kde-format
 msgid "unbanned a user"
-msgstr "odbanował(a) %1"
+msgstr "odbanował(a) użytkownika"
 
 #: src/neochatroom.cpp:732
-#, fuzzy, kde-format
-#| msgid "has put %1 out of the room: %2"
+#, kde-format
 msgid "put a user out of the room"
-msgstr "umieścił %1 poza pokojem: %2"
+msgstr "umieścił(a) użytkownika poza pokojem"
 
 #: src/neochatroom.cpp:735
-#, fuzzy, kde-format
-#| msgid "banned %1 from the room"
+#, kde-format
 msgid "banned a user from the room"
-msgstr "zbanował %1 w tym pokoju"
+msgstr "zbanował(a) użytkownika w tym pokoju"
 
 #: src/neochatroom.cpp:747
-#, fuzzy, kde-format
-#| msgid "set the room main alias to: %1"
+#, kde-format
 msgid "set the room main alias"
-msgstr "ustawił(a) główny alias pokoju na: %1"
+msgstr "ustawił(a) główny alias pokoju"
 
 #: src/neochatroom.cpp:750
-#, fuzzy, kde-format
-#| msgid "set the room name to: %1"
+#, kde-format
 msgid "set the room name"
-msgstr "ustawił(a) nazwę pokoju na: %1"
+msgstr "ustawił(a) nazwę pokoju"
 
 #: src/neochatroom.cpp:753
-#, fuzzy, kde-format
-#| msgid "set the topic to: %1"
+#, kde-format
 msgid "set the topic"
-msgstr "ustawił(a) temat na: %1"
+msgstr "ustawił(a) temat"
 
 #: src/neochatroom.cpp:762
-#, fuzzy, kde-format
-#| msgid "upgraded the room to version %1"
+#, kde-format
 msgid "upgraded the room version"
-msgstr "zaktualizował(a) pokój do wersji %1"
+msgstr "uaktualnił(a) wersję pokoju"
 
 #: src/neochatroom.cpp:762
-#, fuzzy, kde-format
-#| msgid "left the room"
+#, kde-format
 msgid "created the room"
-msgstr "opuścił(a) pokój"
+msgstr "utworzył(a) pokój"
 
 #: src/neochatroom.cpp:773
-#, fuzzy, kde-format
-#| msgctxt "[User] added <name> widget"
-#| msgid "added %1 widget"
+#, kde-format
 msgid "added a widget"
-msgstr "dodał %1 element interfejsu"
+msgstr "dodał(a) element interfejsu"
 
 #: src/neochatroom.cpp:776
-#, fuzzy, kde-format
-#| msgctxt "[User] removed <name> widget"
-#| msgid "removed %1 widget"
+#, kde-format
 msgid "removed a widget"
-msgstr "usunął %1 element interfejsu"
+msgstr "usunął(ęła) element interfejsu"
 
 #: src/neochatroom.cpp:778
-#, fuzzy, kde-format
-#| msgctxt "[User] configured <name> widget"
-#| msgid "configured %1 widget"
+#, kde-format
 msgid "configured a widget"
-msgstr "ustawił %1 element interfejsu"
+msgstr "ustawił(a) element interfejsu"
 
 #: src/neochatroom.cpp:780
-#, fuzzy, kde-format
-#| msgid "updated %1 state"
+#, kde-format
 msgid "updated the state"
-msgstr "zaktualizował(a) stan %1"
+msgstr "uaktualnił(a) stan"
 
 #: src/neochatroom.cpp:784
 #, kde-format
 msgid "started a poll"
-msgstr ""
+msgstr "rozpoczął(ęła) głosowanie"
 
 #: src/neochatroom.cpp:1612 src/neochatroom.cpp:1613
 #, kde-format
@@ -1198,10 +1166,9 @@ msgstr "Stwórz pokój"
 
 #: src/qml/Component/ExploreComponent.qml:58
 #: src/qml/Component/ExploreComponent.qml:109
-#, fuzzy, kde-format
-#| msgid "Rooms and private chats"
+#, kde-format
 msgid "Create rooms and chats"
-msgstr "Pokoje i prywatne rozmowy"
+msgstr "Twórz pokoje i rozmowy"
 
 #: src/qml/Component/FullScreenImage.qml:82
 #, kde-format
@@ -1396,24 +1363,23 @@ msgstr "Zatrzymaj pobieranie"
 #: src/qml/Component/Timeline/LinkPreviewDelegate.qml:127
 #, kde-format
 msgid "Shrink preview"
-msgstr ""
+msgstr "Skurcz podgląd"
 
 #: src/qml/Component/Timeline/LinkPreviewDelegate.qml:127
 #, kde-format
 msgid "Expand preview"
-msgstr ""
+msgstr "Rozpręż podgląd"
 
 #: src/qml/Component/Timeline/LinkPreviewDelegate.qml:152
 #, kde-format
 msgid "Loading URL preview"
-msgstr ""
+msgstr "Wczytywanie podglądu adresu URL"
 
 #: src/qml/Component/Timeline/MessageEditComponent.qml:75
-#, fuzzy, kde-format
-#| msgid "Confirm"
+#, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
-msgstr "Potwierdź"
+msgstr "Potwierdź zmianę"
 
 #: src/qml/Component/Timeline/MessageEditComponent.qml:87
 #, kde-format
@@ -2078,12 +2044,10 @@ msgid "Mark as Read"
 msgstr "Oznacz jako przeczytane"
 
 #: src/qml/Menu/RoomListContextMenu.qml:55
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Address to Clipboard"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy user's Matrix ID to Clipboard"
-msgstr "Skopiuj adres do schowka"
+msgstr "Skopiuj ID użytkownika Matriksa do schowka"
 
 #: src/qml/Menu/RoomListContextMenu.qml:55
 #: src/qml/Menu/SpaceListContextMenu.qml:30
@@ -2726,11 +2690,9 @@ msgid "Room ID"
 msgstr "ID pokoju"
 
 #: src/qml/RoomSettings/General.qml:130
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Address to Clipboard"
+#, kde-format
 msgid "Copy room ID to clipboard"
-msgstr "Skopiuj adres do schowka"
+msgstr "Skopiuj ID pokoju do schowka"
 
 #: src/qml/RoomSettings/General.qml:144
 #, kde-format
@@ -3756,13 +3718,12 @@ msgstr "Nie udało się dołączyć do pokoju"
 #: src/roommanager.cpp:227
 #, kde-format
 msgid "You requested to join '%1'"
-msgstr ""
+msgstr "Poprosiłeś od dołączenie do '%1'"
 
 #: src/roommanager.cpp:230
-#, fuzzy, kde-format
-#| msgid "Failed to join room"
+#, kde-format
 msgid "Failed to request joining room"
-msgstr "Nie udało się dołączyć do pokoju"
+msgstr "Nie udało się poprosić o dołączenie do pokoju"
 
 #: src/roommanager.cpp:240
 #, kde-format
