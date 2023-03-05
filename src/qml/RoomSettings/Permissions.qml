@@ -28,9 +28,6 @@ Kirigami.ScrollablePage {
 
     ListModel {
         id: powerLevelModel
-        ListElement {text: "Member (0)"; powerLevel: 0}
-        ListElement {text: "Moderator (50)"; powerLevel: 50}
-        ListElement {text: "Admin (100)"; powerLevel: 100}
     }
 
     ColumnLayout {
@@ -67,7 +64,19 @@ Kirigami.ScrollablePage {
                                 textRole: "text"
                                 valueRole: "powerLevel"
                                 visible: room.canSendState("m.room.power_levels")
-                                Component.onCompleted: currentIndex = indexOfValue(powerLevel)
+                                Component.onCompleted: {
+                                    /**
+                                     * This is very silly but the only way to populate the model with
+                                     * translated strings. Done here because the model needs to be filled
+                                     * before the first delegate sets it's current index.
+                                     */
+                                    if (powerLevelModel.count == 0) {
+                                        powerLevelModel.append({"text":  i18n("Member (0)"), "powerLevel": 0});
+                                        powerLevelModel.append({"text":  i18n("Moderator (50)"), "powerLevel": 50});
+                                        powerLevelModel.append({"text":  i18n("Admin (100)"), "powerLevel": 100});
+                                    }
+                                    currentIndex = indexOfValue(powerLevel)
+                                }
                                 onActivated: {
                                     room.setUserPowerLevel(userId, currentValue)
                                 }
@@ -162,9 +171,12 @@ Kirigami.ScrollablePage {
                                         id: editPowerLevelAction
                                         onTriggered: {
                                             userListSearchPopup.close()
-                                            powerLevelSheet.userId = userId
-                                            powerLevelSheet.powerLevel = powerLevel
-                                            powerLevelSheet.open()
+                                            let dialog = powerLevelDialog.createObject(applicationWindow().overlay, {
+                                                room: root.room,
+                                                userId: model.userId,
+                                                powerLevel: model.powerLevel
+                                            });
+                                            dialog.open();
                                         }
                                     }
 
@@ -183,6 +195,13 @@ Kirigami.ScrollablePage {
                                         color: Kirigami.Theme.disabledTextColor
                                         textFormat: Text.PlainText
                                         wrapMode: Text.NoWrap
+                                    }
+
+                                    Component {
+                                        id: powerLevelDialog
+                                        PowerLevelDialog {
+                                            id: powerLevelDialog
+                                        }
                                     }
                                 }
                             }
@@ -389,36 +408,6 @@ Kirigami.ScrollablePage {
                     model: powerLevelModel
                     Component.onCompleted: currentIndex = indexOfValue(room.spaceChildPowerLevel)
                     onCurrentValueChanged: if(room.canSendState("m.room.power_levels")) room.spaceParentPowerLevel = currentValue
-                }
-            }
-        }
-    }
-    Kirigami.OverlaySheet {
-        id: powerLevelSheet
-        title: i18n("Edit user power level")
-
-        property var userId
-        property int powerLevel
-
-        onSheetOpenChanged: {
-            if (sheetOpen) {
-                powerLevelComboBox.currentIndex = powerLevelComboBox.indexOfValue(powerLevelSheet.powerLevel)
-            }
-        }
-        Kirigami.FormLayout {
-            QQC2.ComboBox {
-                id: powerLevelComboBox
-                focusPolicy: Qt.NoFocus // provided by parent
-                model: powerLevelModel
-                textRole: "text"
-                valueRole: "powerLevel"
-                visible: room.canSendState("m.room.power_levels")
-            }
-            QQC2.Button {
-                text: i18n("Confirm")
-                onClicked: {
-                    room.setUserPowerLevel(powerLevelSheet.userId, powerLevelComboBox.currentValue)
-                    powerLevelSheet.close()
                 }
             }
         }

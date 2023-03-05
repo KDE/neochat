@@ -1075,6 +1075,12 @@ void NeoChatRoom::setHistoryVisibility(const QString &historyVisibilityRule)
     // Not emitting historyVisibilityChanged() here, since that would override the change in the UI with the *current* value, which is not the *new* value.
 }
 
+int NeoChatRoom::getUserPowerLevel(const QString &userId) const
+{
+    auto powerLevelEvent = getCurrentState<RoomPowerLevelsEvent>();
+    return powerLevelEvent->powerLevelForUser(userId);
+}
+
 void NeoChatRoom::setUserPowerLevel(const QString &userID, const int &powerLevel)
 {
     if (joinedCount() <= 1) {

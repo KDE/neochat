@@ -140,6 +140,29 @@ Kirigami.OverlaySheet {
             }
         }
         Kirigami.BasicListItem {
+            visible: room.canSendState("m.room.power_levels")
+            action: Kirigami.Action {
+                text: i18n("Set user power level")
+                icon.name: "visibility"
+                onTriggered: {
+                    let dialog = powerLevelDialog.createObject(applicationWindow().overlay, {
+                        room: root.room,
+                        userId: root.user.id,
+                        powerLevel: root.room.getUserPowerLevel(root.user.id)
+                    });
+                    dialog.open()
+                    root.close()
+                }
+            }
+
+            Component {
+                id: powerLevelDialog
+                PowerLevelDialog {
+                    id: powerLevelDialog
+                }
+            }
+        }
+        Kirigami.BasicListItem {
             visible: user === room.localUser || room.canSendState("redact")
 
             action: Kirigami.Action {
