@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-03 00:48+0000\n"
+"POT-Creation-Date: 2023-03-06 00:48+0000\n"
 "PO-Revision-Date: 2021-11-08 09:39+0100\n"
 "Last-Translator: Kristof Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1120,7 +1120,7 @@ msgstr "frissítette a(z) %1 állapotát"
 msgid "started a poll"
 msgstr ""
 
-#: src/neochatroom.cpp:1612 src/neochatroom.cpp:1613
+#: src/neochatroom.cpp:1618 src/neochatroom.cpp:1619
 #, fuzzy, kde-format
 #| msgid "Password changed successfully"
 msgid "Report sent successfully."
@@ -1869,6 +1869,37 @@ msgstr ""
 msgid "Please choose a file"
 msgstr "Válassz egy fájlt"
 
+#: src/qml/Dialog/PowerLevelDialog.qml:14
+#, kde-format
+msgid "Edit user power level"
+msgstr ""
+
+#: src/qml/Dialog/PowerLevelDialog.qml:37
+#: src/qml/RoomSettings/Permissions.qml:74
+#, fuzzy, kde-format
+#| msgid "Members"
+msgid "Member (0)"
+msgstr "Tagok"
+
+#: src/qml/Dialog/PowerLevelDialog.qml:38
+#: src/qml/RoomSettings/Permissions.qml:75
+#, kde-format
+msgid "Moderator (50)"
+msgstr ""
+
+#: src/qml/Dialog/PowerLevelDialog.qml:39
+#: src/qml/RoomSettings/Permissions.qml:76
+#, fuzzy, kde-format
+#| msgid "Admin"
+msgid "Admin (100)"
+msgstr "Adminisztrátor"
+
+#: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:321
+#: src/qml/Settings/DevicesPage.qml:186
+#, kde-format
+msgid "Confirm"
+msgstr "Megerősítés"
+
 #: src/qml/Dialog/UserDetailDialog.qml:32
 #, kde-format
 msgctxt "@title:menu Account detail dialog"
@@ -1913,25 +1944,30 @@ msgstr "Tiltás"
 msgid "Unban this user"
 msgstr "Tiltás visszavonása"
 
-#: src/qml/Dialog/UserDetailDialog.qml:146
+#: src/qml/Dialog/UserDetailDialog.qml:145
+#, kde-format
+msgid "Set user power level"
+msgstr ""
+
+#: src/qml/Dialog/UserDetailDialog.qml:169
 #, fuzzy, kde-format
 #| msgid "Delete recent messages by this user"
 msgid "Remove recent messages by this user"
 msgstr "A felhasználó által küldött új üzenetek törlése"
 
-#: src/qml/Dialog/UserDetailDialog.qml:151
+#: src/qml/Dialog/UserDetailDialog.qml:174
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Üzenet szerkesztése"
 
-#: src/qml/Dialog/UserDetailDialog.qml:161
+#: src/qml/Dialog/UserDetailDialog.qml:184
 #, kde-format
 msgid "Open a private chat"
 msgstr "Egy privát csevegés megnyitása"
 
-#: src/qml/Dialog/UserDetailDialog.qml:171
+#: src/qml/Dialog/UserDetailDialog.qml:194
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgid "Copy link"
@@ -2310,13 +2346,19 @@ msgstr "Megnyitás külső programmal"
 msgid "Save As"
 msgstr "Mentés másként"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:60
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:59
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:55
+#, kde-format
+msgid "Copy"
+msgstr "Másolás"
+
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:74
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:46
 #, kde-format
 msgid "Remove"
 msgstr "Eltávolítás"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:64
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:78
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:50
 #, fuzzy, kde-format
 #| msgid "Edit Message"
@@ -2324,7 +2366,7 @@ msgctxt "@title"
 msgid "Remove Message"
 msgstr "Üzenet szerkesztése"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:69
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:83
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:60
 #: src/qml/Menu/Timeline/ReportSheet.qml:32
 #, kde-format
@@ -2333,7 +2375,7 @@ msgctxt ""
 msgid "Report"
 msgstr ""
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:73
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:87
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:64
 #, fuzzy, kde-format
 #| msgid "Edit Message"
@@ -2341,22 +2383,17 @@ msgctxt "@title"
 msgid "Report Message"
 msgstr "Üzenet szerkesztése"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:78
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:92
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:69
 #, kde-format
 msgid "View Source"
 msgstr "Forrás megtekintése"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:84
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:98
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:75
 #, kde-format
 msgid "Message Source"
 msgstr "Üzenet forrása"
-
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:55
-#, kde-format
-msgid "Copy"
-msgstr "Másolás"
 
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:81
 #, fuzzy, kde-format
@@ -2924,159 +2961,147 @@ msgstr "elhagyta a szobát"
 msgid "Select new version"
 msgstr "Új szoba megtekintése…"
 
-#: src/qml/RoomSettings/General.qml:321
-#: src/qml/RoomSettings/Permissions.qml:418
-#: src/qml/Settings/DevicesPage.qml:186
-#, kde-format
-msgid "Confirm"
-msgstr "Megerősítés"
-
-#: src/qml/RoomSettings/Permissions.qml:42
+#: src/qml/RoomSettings/Permissions.qml:39
 #, kde-format
 msgid "Privileged Users"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:201
+#: src/qml/RoomSettings/Permissions.qml:220
 #, kde-format
 msgid "Default permissions"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:204
+#: src/qml/RoomSettings/Permissions.qml:223
 #, kde-format
 msgid "Default user power level"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:205
+#: src/qml/RoomSettings/Permissions.qml:224
 #, kde-format
 msgid "This is power level for all new users when joining the room"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:213
+#: src/qml/RoomSettings/Permissions.qml:232
 #, kde-format
 msgid "Default power level to set the room state"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:214
+#: src/qml/RoomSettings/Permissions.qml:233
 #, kde-format
 msgid "This is used for all state events that do not have their own entry here"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:222
+#: src/qml/RoomSettings/Permissions.qml:241
 #, kde-format
 msgid "Default power level to send messages"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:223
+#: src/qml/RoomSettings/Permissions.qml:242
 #, kde-format
 msgid ""
 "This is used for all message events that do not have their own entry here"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:239
+#: src/qml/RoomSettings/Permissions.qml:258
 #, kde-format
 msgid "Basic permissions"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:242
+#: src/qml/RoomSettings/Permissions.qml:261
 #, fuzzy, kde-format
 #| msgid "Invite a User"
 msgid "Invite users"
 msgstr "Meghívás"
 
-#: src/qml/RoomSettings/Permissions.qml:250
+#: src/qml/RoomSettings/Permissions.qml:269
 #, fuzzy, kde-format
 #| msgid "Kick this user"
 msgid "Kick users"
 msgstr "Kirúgás"
 
-#: src/qml/RoomSettings/Permissions.qml:258
+#: src/qml/RoomSettings/Permissions.qml:277
 #, fuzzy, kde-format
 #| msgid "Ban this user"
 msgid "Ban users"
 msgstr "Tiltás"
 
-#: src/qml/RoomSettings/Permissions.qml:266
+#: src/qml/RoomSettings/Permissions.qml:285
 #, fuzzy, kde-format
 #| msgid "Delete recent messages by this user"
 msgid "Remove message sent by other users"
 msgstr "A felhasználó által küldött új üzenetek törlése"
 
-#: src/qml/RoomSettings/Permissions.qml:282
+#: src/qml/RoomSettings/Permissions.qml:301
 #, kde-format
 msgid "Event permissions"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:285
+#: src/qml/RoomSettings/Permissions.qml:304
 #, kde-format
 msgid "Change user permissions"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:294
+#: src/qml/RoomSettings/Permissions.qml:313
 #, fuzzy, kde-format
 #| msgid "cleared the room name"
 msgid "Change the room name"
 msgstr "törölte a szoba nevét"
 
-#: src/qml/RoomSettings/Permissions.qml:303
+#: src/qml/RoomSettings/Permissions.qml:322
 #, fuzzy, kde-format
 #| msgid "changed the room avatar"
 msgid "Change the room avatar"
 msgstr "megváltoztatta a szoba profilképét"
 
-#: src/qml/RoomSettings/Permissions.qml:312
+#: src/qml/RoomSettings/Permissions.qml:331
 #, fuzzy, kde-format
 #| msgid "cleared the room main alias"
 msgid "Change the room canonical alias"
 msgstr "törölte a szoba fő álnevét"
 
-#: src/qml/RoomSettings/Permissions.qml:321
+#: src/qml/RoomSettings/Permissions.qml:340
 #, fuzzy, kde-format
 #| msgid "changed the room avatar"
 msgid "Change the room topic"
 msgstr "megváltoztatta a szoba profilképét"
 
-#: src/qml/RoomSettings/Permissions.qml:330
+#: src/qml/RoomSettings/Permissions.qml:349
 #, kde-format
 msgid "Enable encryption for the room"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:339
+#: src/qml/RoomSettings/Permissions.qml:358
 #, kde-format
 msgid "Change the room history visibility"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:348
+#: src/qml/RoomSettings/Permissions.qml:367
 #, fuzzy, kde-format
 #| msgid "Show leave and join events"
 msgid "Set pinned events"
 msgstr "Ki- és belépések megjelenítése"
 
-#: src/qml/RoomSettings/Permissions.qml:357
+#: src/qml/RoomSettings/Permissions.qml:376
 #, fuzzy, kde-format
 #| msgid "left the room"
 msgid "Upgrade the room"
 msgstr "elhagyta a szobát"
 
-#: src/qml/RoomSettings/Permissions.qml:366
+#: src/qml/RoomSettings/Permissions.qml:385
 #, kde-format
 msgid "Set the room server access control list (ACL)"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:376
+#: src/qml/RoomSettings/Permissions.qml:395
 #, kde-format
 msgid "Set the children of this space"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:385
+#: src/qml/RoomSettings/Permissions.qml:404
 #, fuzzy, kde-format
 #| msgid "invited %1 to the room"
 msgid "Set the parent space of this room"
 msgstr "meghívta őt a szobába: %1"
-
-#: src/qml/RoomSettings/Permissions.qml:398
-#, kde-format
-msgid "Edit user power level"
-msgstr ""
 
 #: src/qml/RoomSettings/PushNotification.qml:29
 #, fuzzy, kde-format
@@ -3983,19 +4008,11 @@ msgstr "Kilépés"
 #~ msgid "Owner"
 #~ msgstr "Tulajdonos"
 
-#~ msgid "Admin"
-#~ msgstr "Adminisztrátor"
-
 #~ msgid "Mod"
 #~ msgstr "Moderátor"
 
 #~ msgid "Muted"
 #~ msgstr "Némítva"
-
-#, fuzzy
-#~| msgid "Members"
-#~ msgid "Member"
-#~ msgstr "Tagok"
 
 #~ msgid ""
 #~ "This room is encrypted. Sending encrypted messages is not yet supported."

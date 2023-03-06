@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-03 00:48+0000\n"
+"POT-Creation-Date: 2023-03-06 00:48+0000\n"
 "PO-Revision-Date: 2023-02-15 16:40+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -1029,7 +1029,7 @@ msgstr "memperbarui keadaan"
 msgid "started a poll"
 msgstr "memulai pemungutan suara"
 
-#: src/neochatroom.cpp:1612 src/neochatroom.cpp:1613
+#: src/neochatroom.cpp:1618 src/neochatroom.cpp:1619
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Laporan berhasil dikirim."
@@ -1769,6 +1769,37 @@ msgstr "Verifikasi sesi dibatalkan karena kesalahan yang tidak diketahui."
 msgid "Please choose a file"
 msgstr "Mohon pilih sebuah berkas"
 
+#: src/qml/Dialog/PowerLevelDialog.qml:14
+#, kde-format
+msgid "Edit user power level"
+msgstr "Sunting tingkat daya pengguna"
+
+#: src/qml/Dialog/PowerLevelDialog.qml:37
+#: src/qml/RoomSettings/Permissions.qml:74
+#, fuzzy, kde-format
+#| msgid "Members"
+msgid "Member (0)"
+msgstr "Anggota"
+
+#: src/qml/Dialog/PowerLevelDialog.qml:38
+#: src/qml/RoomSettings/Permissions.qml:75
+#, kde-format
+msgid "Moderator (50)"
+msgstr ""
+
+#: src/qml/Dialog/PowerLevelDialog.qml:39
+#: src/qml/RoomSettings/Permissions.qml:76
+#, fuzzy, kde-format
+#| msgid "Admin"
+msgid "Admin (100)"
+msgstr "Admin"
+
+#: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:321
+#: src/qml/Settings/DevicesPage.qml:186
+#, kde-format
+msgid "Confirm"
+msgstr "Konfirmasi"
+
 #: src/qml/Dialog/UserDetailDialog.qml:32
 #, kde-format
 msgctxt "@title:menu Account detail dialog"
@@ -1811,23 +1842,29 @@ msgstr "Cekal Pengguna"
 msgid "Unban this user"
 msgstr "Batalkan pencekalan pengguna ini"
 
-#: src/qml/Dialog/UserDetailDialog.qml:146
+#: src/qml/Dialog/UserDetailDialog.qml:145
+#, fuzzy, kde-format
+#| msgid "Edit user power level"
+msgid "Set user power level"
+msgstr "Sunting tingkat daya pengguna"
+
+#: src/qml/Dialog/UserDetailDialog.qml:169
 #, kde-format
 msgid "Remove recent messages by this user"
 msgstr "Hapus pesan terkini dari pengguna ini"
 
-#: src/qml/Dialog/UserDetailDialog.qml:151
+#: src/qml/Dialog/UserDetailDialog.qml:174
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Hapus Pesan"
 
-#: src/qml/Dialog/UserDetailDialog.qml:161
+#: src/qml/Dialog/UserDetailDialog.qml:184
 #, kde-format
 msgid "Open a private chat"
 msgstr "Buka sebuah obrolan privat"
 
-#: src/qml/Dialog/UserDetailDialog.qml:171
+#: src/qml/Dialog/UserDetailDialog.qml:194
 #, kde-format
 msgid "Copy link"
 msgstr "Salin tautan"
@@ -2191,20 +2228,26 @@ msgstr "Buka secara Eksternal"
 msgid "Save As"
 msgstr "Simpan Sebagai"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:60
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:59
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:55
+#, kde-format
+msgid "Copy"
+msgstr "Salin"
+
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:74
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:46
 #, kde-format
 msgid "Remove"
 msgstr "Hapus"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:64
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:78
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:50
 #, kde-format
 msgctxt "@title"
 msgid "Remove Message"
 msgstr "Hapus Pesan"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:69
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:83
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:60
 #: src/qml/Menu/Timeline/ReportSheet.qml:32
 #, kde-format
@@ -2213,29 +2256,24 @@ msgctxt ""
 msgid "Report"
 msgstr "Laporkan"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:73
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:87
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:64
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Laporkan Pesan"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:78
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:92
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:69
 #, kde-format
 msgid "View Source"
 msgstr "Tampilkan Sumber"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:84
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:98
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:75
 #, kde-format
 msgid "Message Source"
 msgstr "Sumber Pesan"
-
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:55
-#, kde-format
-msgid "Copy"
-msgstr "Salin"
 
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:81
 #, kde-format
@@ -2774,52 +2812,45 @@ msgstr "Tingkatkan Ruangan"
 msgid "Select new version"
 msgstr "Pilih versi baru"
 
-#: src/qml/RoomSettings/General.qml:321
-#: src/qml/RoomSettings/Permissions.qml:418
-#: src/qml/Settings/DevicesPage.qml:186
-#, kde-format
-msgid "Confirm"
-msgstr "Konfirmasi"
-
-#: src/qml/RoomSettings/Permissions.qml:42
+#: src/qml/RoomSettings/Permissions.qml:39
 #, kde-format
 msgid "Privileged Users"
 msgstr "Pengguna Berizin"
 
-#: src/qml/RoomSettings/Permissions.qml:201
+#: src/qml/RoomSettings/Permissions.qml:220
 #, kde-format
 msgid "Default permissions"
 msgstr "Perizinan bawaan"
 
-#: src/qml/RoomSettings/Permissions.qml:204
+#: src/qml/RoomSettings/Permissions.qml:223
 #, kde-format
 msgid "Default user power level"
 msgstr "Tingkat daya pengguna bawaan"
 
-#: src/qml/RoomSettings/Permissions.qml:205
+#: src/qml/RoomSettings/Permissions.qml:224
 #, kde-format
 msgid "This is power level for all new users when joining the room"
 msgstr ""
 "Ini adalah tingkat daya untuk semua pengguna ketika bergabung dengan ruangan"
 
-#: src/qml/RoomSettings/Permissions.qml:213
+#: src/qml/RoomSettings/Permissions.qml:232
 #, kde-format
 msgid "Default power level to set the room state"
 msgstr "Tingkat daya bawaan untuk menetapkan keadaan ruangan"
 
-#: src/qml/RoomSettings/Permissions.qml:214
+#: src/qml/RoomSettings/Permissions.qml:233
 #, kde-format
 msgid "This is used for all state events that do not have their own entry here"
 msgstr ""
 "Ini digunakan untuk semua peristiwa keadaan yang tidak memiliki entrinya "
 "sendiri di sini"
 
-#: src/qml/RoomSettings/Permissions.qml:222
+#: src/qml/RoomSettings/Permissions.qml:241
 #, kde-format
 msgid "Default power level to send messages"
 msgstr "Tingkat daya bawaan untuk mengirim pesan"
 
-#: src/qml/RoomSettings/Permissions.qml:223
+#: src/qml/RoomSettings/Permissions.qml:242
 #, kde-format
 msgid ""
 "This is used for all message events that do not have their own entry here"
@@ -2827,100 +2858,95 @@ msgstr ""
 "Ini digunakan untuk semua peristiwa pesan yang tidak memiliki entrinya di "
 "sini"
 
-#: src/qml/RoomSettings/Permissions.qml:239
+#: src/qml/RoomSettings/Permissions.qml:258
 #, kde-format
 msgid "Basic permissions"
 msgstr "Perizinan dasar"
 
-#: src/qml/RoomSettings/Permissions.qml:242
+#: src/qml/RoomSettings/Permissions.qml:261
 #, kde-format
 msgid "Invite users"
 msgstr "Undang pengguna"
 
-#: src/qml/RoomSettings/Permissions.qml:250
+#: src/qml/RoomSettings/Permissions.qml:269
 #, kde-format
 msgid "Kick users"
 msgstr "Keluarkan pengguna"
 
-#: src/qml/RoomSettings/Permissions.qml:258
+#: src/qml/RoomSettings/Permissions.qml:277
 #, kde-format
 msgid "Ban users"
 msgstr "Cekal pengguna"
 
-#: src/qml/RoomSettings/Permissions.qml:266
+#: src/qml/RoomSettings/Permissions.qml:285
 #, kde-format
 msgid "Remove message sent by other users"
 msgstr "Hapus pesan dari pengguna lain"
 
-#: src/qml/RoomSettings/Permissions.qml:282
+#: src/qml/RoomSettings/Permissions.qml:301
 #, kde-format
 msgid "Event permissions"
 msgstr "Perizinan peristiwa"
 
-#: src/qml/RoomSettings/Permissions.qml:285
+#: src/qml/RoomSettings/Permissions.qml:304
 #, kde-format
 msgid "Change user permissions"
 msgstr "Ubah perizinan pengguna"
 
-#: src/qml/RoomSettings/Permissions.qml:294
+#: src/qml/RoomSettings/Permissions.qml:313
 #, kde-format
 msgid "Change the room name"
 msgstr "Ubah nama ruangan"
 
-#: src/qml/RoomSettings/Permissions.qml:303
+#: src/qml/RoomSettings/Permissions.qml:322
 #, kde-format
 msgid "Change the room avatar"
 msgstr "Ubah avatar ruangan"
 
-#: src/qml/RoomSettings/Permissions.qml:312
+#: src/qml/RoomSettings/Permissions.qml:331
 #, kde-format
 msgid "Change the room canonical alias"
 msgstr "Ubah alias kanonik ruangan"
 
-#: src/qml/RoomSettings/Permissions.qml:321
+#: src/qml/RoomSettings/Permissions.qml:340
 #, kde-format
 msgid "Change the room topic"
 msgstr "Ubah topik ruangan"
 
-#: src/qml/RoomSettings/Permissions.qml:330
+#: src/qml/RoomSettings/Permissions.qml:349
 #, kde-format
 msgid "Enable encryption for the room"
 msgstr "Aktifkan enkripsi untuk ruangan"
 
-#: src/qml/RoomSettings/Permissions.qml:339
+#: src/qml/RoomSettings/Permissions.qml:358
 #, kde-format
 msgid "Change the room history visibility"
 msgstr "Ubah keterlihatan riwayat ruangan"
 
-#: src/qml/RoomSettings/Permissions.qml:348
+#: src/qml/RoomSettings/Permissions.qml:367
 #, kde-format
 msgid "Set pinned events"
 msgstr "Tetapkan peristiwa yang disematkan"
 
-#: src/qml/RoomSettings/Permissions.qml:357
+#: src/qml/RoomSettings/Permissions.qml:376
 #, kde-format
 msgid "Upgrade the room"
 msgstr "Tingkatkan ruangan"
 
-#: src/qml/RoomSettings/Permissions.qml:366
+#: src/qml/RoomSettings/Permissions.qml:385
 #, kde-format
 msgid "Set the room server access control list (ACL)"
 msgstr "Tetapkan daftar kontrol akses server ruangan (ACL)"
 
-#: src/qml/RoomSettings/Permissions.qml:376
+#: src/qml/RoomSettings/Permissions.qml:395
 #, kde-format
 msgid "Set the children of this space"
 msgstr "Tetapkan anak dari space ini"
 
-#: src/qml/RoomSettings/Permissions.qml:385
+#: src/qml/RoomSettings/Permissions.qml:404
 #, kde-format
 msgid "Set the parent space of this room"
 msgstr "Tetapkan space induk dari ruangan ini"
-
-#: src/qml/RoomSettings/Permissions.qml:398
-#, kde-format
-msgid "Edit user power level"
-msgstr "Sunting tingkat daya pengguna"
 
 #: src/qml/RoomSettings/PushNotification.qml:29
 #, kde-format
@@ -3781,19 +3807,11 @@ msgstr "Keluar"
 #~ msgid "Owner"
 #~ msgstr "Pemilik"
 
-#~ msgid "Admin"
-#~ msgstr "Admin"
-
 #~ msgid "Mod"
 #~ msgstr "Mod"
 
 #~ msgid "Muted"
 #~ msgstr "Dibisukan"
-
-#, fuzzy
-#~| msgid "Members"
-#~ msgid "Member"
-#~ msgstr "Anggota"
 
 #~ msgid ""
 #~ "This room is encrypted. Sending encrypted messages is not yet supported."

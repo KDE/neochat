@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-03 00:48+0000\n"
+"POT-Creation-Date: 2023-03-06 00:48+0000\n"
 "PO-Revision-Date: 2023-03-04 09:20+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -1022,7 +1022,7 @@ msgstr "uaktualnił(a) stan"
 msgid "started a poll"
 msgstr "rozpoczął(ęła) głosowanie"
 
-#: src/neochatroom.cpp:1612 src/neochatroom.cpp:1613
+#: src/neochatroom.cpp:1618 src/neochatroom.cpp:1619
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Pomyślnie wysłano zgłoszenie."
@@ -1761,6 +1761,37 @@ msgstr "Zaniechano sprawdzenia sesji ze względu na nieznany błąd."
 msgid "Please choose a file"
 msgstr "Wybierz plik"
 
+#: src/qml/Dialog/PowerLevelDialog.qml:14
+#, kde-format
+msgid "Edit user power level"
+msgstr "Zmień uprawnienia użytkownika"
+
+#: src/qml/Dialog/PowerLevelDialog.qml:37
+#: src/qml/RoomSettings/Permissions.qml:74
+#, fuzzy, kde-format
+#| msgid "Members"
+msgid "Member (0)"
+msgstr "Członkowie"
+
+#: src/qml/Dialog/PowerLevelDialog.qml:38
+#: src/qml/RoomSettings/Permissions.qml:75
+#, kde-format
+msgid "Moderator (50)"
+msgstr ""
+
+#: src/qml/Dialog/PowerLevelDialog.qml:39
+#: src/qml/RoomSettings/Permissions.qml:76
+#, fuzzy, kde-format
+#| msgid "Admin"
+msgid "Admin (100)"
+msgstr "Administrator"
+
+#: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:321
+#: src/qml/Settings/DevicesPage.qml:186
+#, kde-format
+msgid "Confirm"
+msgstr "Potwierdź"
+
 #: src/qml/Dialog/UserDetailDialog.qml:32
 #, kde-format
 msgctxt "@title:menu Account detail dialog"
@@ -1803,23 +1834,29 @@ msgstr "Zbanuj użytkownika"
 msgid "Unban this user"
 msgstr "Odbanuj tego użytkownika"
 
-#: src/qml/Dialog/UserDetailDialog.qml:146
+#: src/qml/Dialog/UserDetailDialog.qml:145
+#, fuzzy, kde-format
+#| msgid "Edit user power level"
+msgid "Set user power level"
+msgstr "Zmień uprawnienia użytkownika"
+
+#: src/qml/Dialog/UserDetailDialog.qml:169
 #, kde-format
 msgid "Remove recent messages by this user"
 msgstr "Usuń ostatnie wiadomości tego użytkownika"
 
-#: src/qml/Dialog/UserDetailDialog.qml:151
+#: src/qml/Dialog/UserDetailDialog.qml:174
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Usuń wiadomości"
 
-#: src/qml/Dialog/UserDetailDialog.qml:161
+#: src/qml/Dialog/UserDetailDialog.qml:184
 #, kde-format
 msgid "Open a private chat"
 msgstr "Rozpocznij prywatną rozmowę"
 
-#: src/qml/Dialog/UserDetailDialog.qml:171
+#: src/qml/Dialog/UserDetailDialog.qml:194
 #, kde-format
 msgid "Copy link"
 msgstr "Skopiuj odnośnik"
@@ -2181,20 +2218,26 @@ msgstr "Otwórz zewnętrznie"
 msgid "Save As"
 msgstr "Zapisz jako"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:60
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:59
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:55
+#, kde-format
+msgid "Copy"
+msgstr "Skopiuj"
+
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:74
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:46
 #, kde-format
 msgid "Remove"
 msgstr "Usuń"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:64
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:78
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:50
 #, kde-format
 msgctxt "@title"
 msgid "Remove Message"
 msgstr "Usuń wiadomość"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:69
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:83
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:60
 #: src/qml/Menu/Timeline/ReportSheet.qml:32
 #, kde-format
@@ -2203,29 +2246,24 @@ msgctxt ""
 msgid "Report"
 msgstr "Zgłoś"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:73
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:87
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:64
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Zgłoś wiadomość"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:78
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:92
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:69
 #, kde-format
 msgid "View Source"
 msgstr "Pokaż źródło"
 
-#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:84
+#: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:98
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:75
 #, kde-format
 msgid "Message Source"
 msgstr "Źródło wiadomości"
-
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:55
-#, kde-format
-msgid "Copy"
-msgstr "Skopiuj"
 
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:81
 #, kde-format
@@ -2764,53 +2802,46 @@ msgstr "Uaktualnij pokój"
 msgid "Select new version"
 msgstr "Wybierz nową wersję"
 
-#: src/qml/RoomSettings/General.qml:321
-#: src/qml/RoomSettings/Permissions.qml:418
-#: src/qml/Settings/DevicesPage.qml:186
-#, kde-format
-msgid "Confirm"
-msgstr "Potwierdź"
-
-#: src/qml/RoomSettings/Permissions.qml:42
+#: src/qml/RoomSettings/Permissions.qml:39
 #, kde-format
 msgid "Privileged Users"
 msgstr "Uprzywilejowani użytkownicy"
 
-#: src/qml/RoomSettings/Permissions.qml:201
+#: src/qml/RoomSettings/Permissions.qml:220
 #, kde-format
 msgid "Default permissions"
 msgstr "Domyślne uprawnienia"
 
-#: src/qml/RoomSettings/Permissions.qml:204
+#: src/qml/RoomSettings/Permissions.qml:223
 #, kde-format
 msgid "Default user power level"
 msgstr "Domyślny poziom uprawnień użytkownika"
 
-#: src/qml/RoomSettings/Permissions.qml:205
+#: src/qml/RoomSettings/Permissions.qml:224
 #, kde-format
 msgid "This is power level for all new users when joining the room"
 msgstr ""
 "Jest to poziom uprawnień dla wszystkich nowych użytkowników dołączających do "
 "pokoju"
 
-#: src/qml/RoomSettings/Permissions.qml:213
+#: src/qml/RoomSettings/Permissions.qml:232
 #, kde-format
 msgid "Default power level to set the room state"
 msgstr "Domyślny poziom uprawnień, na który ustawić pokój"
 
-#: src/qml/RoomSettings/Permissions.qml:214
+#: src/qml/RoomSettings/Permissions.qml:233
 #, kde-format
 msgid "This is used for all state events that do not have their own entry here"
 msgstr ""
 "Jest to używane do wszystkich wydarzeń stanu, które nie mają tutaj swojego "
 "wpisu"
 
-#: src/qml/RoomSettings/Permissions.qml:222
+#: src/qml/RoomSettings/Permissions.qml:241
 #, kde-format
 msgid "Default power level to send messages"
 msgstr "Domyślny poziom uprawnień do wysyłania wiadomości"
 
-#: src/qml/RoomSettings/Permissions.qml:223
+#: src/qml/RoomSettings/Permissions.qml:242
 #, kde-format
 msgid ""
 "This is used for all message events that do not have their own entry here"
@@ -2818,100 +2849,95 @@ msgstr ""
 "Jest to używane do wszystkich wydarzeń-wiadomości, które nie mają tutaj "
 "swojego wpisu"
 
-#: src/qml/RoomSettings/Permissions.qml:239
+#: src/qml/RoomSettings/Permissions.qml:258
 #, kde-format
 msgid "Basic permissions"
 msgstr "Podstawowe uprawnienia"
 
-#: src/qml/RoomSettings/Permissions.qml:242
+#: src/qml/RoomSettings/Permissions.qml:261
 #, kde-format
 msgid "Invite users"
 msgstr "Zaproś użytkowników"
 
-#: src/qml/RoomSettings/Permissions.qml:250
+#: src/qml/RoomSettings/Permissions.qml:269
 #, kde-format
 msgid "Kick users"
 msgstr "Wykop użytkowników"
 
-#: src/qml/RoomSettings/Permissions.qml:258
+#: src/qml/RoomSettings/Permissions.qml:277
 #, kde-format
 msgid "Ban users"
 msgstr "Zbanuj użytkowników"
 
-#: src/qml/RoomSettings/Permissions.qml:266
+#: src/qml/RoomSettings/Permissions.qml:285
 #, kde-format
 msgid "Remove message sent by other users"
 msgstr "Usuń wiadomości wysłane przez innych użytkowników"
 
-#: src/qml/RoomSettings/Permissions.qml:282
+#: src/qml/RoomSettings/Permissions.qml:301
 #, kde-format
 msgid "Event permissions"
 msgstr "Uprawnienia wydarzeń"
 
-#: src/qml/RoomSettings/Permissions.qml:285
+#: src/qml/RoomSettings/Permissions.qml:304
 #, kde-format
 msgid "Change user permissions"
 msgstr "Zmień uprawnienia użytkownika"
 
-#: src/qml/RoomSettings/Permissions.qml:294
+#: src/qml/RoomSettings/Permissions.qml:313
 #, kde-format
 msgid "Change the room name"
 msgstr "Zmień nazwę pokoju"
 
-#: src/qml/RoomSettings/Permissions.qml:303
+#: src/qml/RoomSettings/Permissions.qml:322
 #, kde-format
 msgid "Change the room avatar"
 msgstr "Zmień awatar pokoju"
 
-#: src/qml/RoomSettings/Permissions.qml:312
+#: src/qml/RoomSettings/Permissions.qml:331
 #, kde-format
 msgid "Change the room canonical alias"
 msgstr "Zmień alias kanoniczny pokoju"
 
-#: src/qml/RoomSettings/Permissions.qml:321
+#: src/qml/RoomSettings/Permissions.qml:340
 #, kde-format
 msgid "Change the room topic"
 msgstr "Zmień temat pokoju"
 
-#: src/qml/RoomSettings/Permissions.qml:330
+#: src/qml/RoomSettings/Permissions.qml:349
 #, kde-format
 msgid "Enable encryption for the room"
 msgstr "Włącz szyfrowanie pokoju"
 
-#: src/qml/RoomSettings/Permissions.qml:339
+#: src/qml/RoomSettings/Permissions.qml:358
 #, kde-format
 msgid "Change the room history visibility"
 msgstr "Zmień widoczność historii pokoju"
 
-#: src/qml/RoomSettings/Permissions.qml:348
+#: src/qml/RoomSettings/Permissions.qml:367
 #, kde-format
 msgid "Set pinned events"
 msgstr "Ustaw przypięte wydarzenia"
 
-#: src/qml/RoomSettings/Permissions.qml:357
+#: src/qml/RoomSettings/Permissions.qml:376
 #, kde-format
 msgid "Upgrade the room"
 msgstr "Uaktualnij pokój"
 
-#: src/qml/RoomSettings/Permissions.qml:366
+#: src/qml/RoomSettings/Permissions.qml:385
 #, kde-format
 msgid "Set the room server access control list (ACL)"
 msgstr "Ustaw listę listę sterującą dostępem do tego serwera (ACL)"
 
-#: src/qml/RoomSettings/Permissions.qml:376
+#: src/qml/RoomSettings/Permissions.qml:395
 #, kde-format
 msgid "Set the children of this space"
 msgstr "Ustaw przestrzeń podrzędną dla tej przestrzeni"
 
-#: src/qml/RoomSettings/Permissions.qml:385
+#: src/qml/RoomSettings/Permissions.qml:404
 #, kde-format
 msgid "Set the parent space of this room"
 msgstr "Ustaw przestrzeń nadrzędną dla tego pokoju"
-
-#: src/qml/RoomSettings/Permissions.qml:398
-#, kde-format
-msgid "Edit user power level"
-msgstr "Zmień uprawnienia użytkownika"
 
 #: src/qml/RoomSettings/PushNotification.qml:29
 #, kde-format
@@ -3767,19 +3793,11 @@ msgstr "Zakończ"
 #~ msgid "Owner"
 #~ msgstr "Właściciel"
 
-#~ msgid "Admin"
-#~ msgstr "Administrator"
-
 #~ msgid "Mod"
 #~ msgstr "Moderator"
 
 #~ msgid "Muted"
 #~ msgstr "Wyciszony(-a)"
-
-#, fuzzy
-#~| msgid "Members"
-#~ msgid "Member"
-#~ msgstr "Członkowie"
 
 #~ msgid ""
 #~ "This room is encrypted. Sending encrypted messages is not yet supported."
