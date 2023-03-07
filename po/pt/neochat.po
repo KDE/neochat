@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-06 00:48+0000\n"
-"PO-Revision-Date: 2023-02-15 13:04+0000\n"
+"PO-Revision-Date: 2023-03-06 15:32+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -79,12 +79,13 @@ msgstr "Não é possível ler o código de acesso"
 #: src/controller.cpp:616
 #, kde-format
 msgid "File too large to download."
-msgstr ""
+msgstr "O ficheiro é demasiado grande para ser transferido."
 
 #: src/controller.cpp:616
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
+"Contacte o administrador do seu servidor de Matrix para obter algum suporte."
 
 #: src/controller.cpp:648
 #, kde-format
@@ -341,24 +342,18 @@ msgid "Joins the given room"
 msgstr "Junta-se à sala indicada"
 
 #: src/models/actionsmodel.cpp:230
-#, fuzzy, kde-format
-#| msgctxt "Joining room <roomname>."
-#| msgid "Joining room %1."
+#, kde-format
 msgctxt "Knocking room <roomname>."
 msgid "Knocking room %1."
-msgstr "A juntar-se à sala %1."
+msgstr "A contactar a sala %1."
 
 #: src/models/actionsmodel.cpp:242
-#, fuzzy
-#| msgid "[<room alias or id>]"
 msgid "<room alias or id> [<reason>]"
-msgstr "[<ID ou alcunha da sala>]"
+msgstr "<ID ou alcunha da sala> [<razão>]"
 
 #: src/models/actionsmodel.cpp:243
-#, fuzzy
-#| msgid "Joins the given room"
 msgid "Requests to join the given room"
-msgstr "Junta-se à sala indicada"
+msgstr "Pedidos para se ligar à sala indicada"
 
 #: src/models/actionsmodel.cpp:257
 #, kde-format
@@ -1175,10 +1170,9 @@ msgstr "Criar uma Sala"
 
 #: src/qml/Component/ExploreComponent.qml:58
 #: src/qml/Component/ExploreComponent.qml:109
-#, fuzzy, kde-format
-#| msgid "Rooms and private chats"
+#, kde-format
 msgid "Create rooms and chats"
-msgstr "Salas e conversas privadas"
+msgstr "Criar salas e conversas"
 
 #: src/qml/Component/FullScreenImage.qml:82
 #, kde-format
@@ -1789,22 +1783,21 @@ msgstr "Editar o nível de permissões do utilizador"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:37
 #: src/qml/RoomSettings/Permissions.qml:74
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgid "Member (0)"
-msgstr "Membros"
+msgstr "Membro (0)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:38
 #: src/qml/RoomSettings/Permissions.qml:75
 #, kde-format
 msgid "Moderator (50)"
-msgstr ""
+msgstr "Moderador (50)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:39
 #: src/qml/RoomSettings/Permissions.qml:76
 #, kde-format
 msgid "Admin (100)"
-msgstr ""
+msgstr "Administrador (100)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:321
 #: src/qml/Settings/DevicesPage.qml:186
@@ -1855,8 +1848,7 @@ msgid "Unban this user"
 msgstr "Aceitar este utilizador"
 
 #: src/qml/Dialog/UserDetailDialog.qml:145
-#, fuzzy, kde-format
-#| msgid "Edit user power level"
+#, kde-format
 msgid "Set user power level"
 msgstr "Editar o nível de permissões do utilizador"
 
@@ -2101,12 +2093,10 @@ msgid "Mark as Read"
 msgstr "Marcar como Lido"
 
 #: src/qml/Menu/RoomListContextMenu.qml:55
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Address to Clipboard"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy user's Matrix ID to Clipboard"
-msgstr "Copiar o Endereço para a Área de Transferência"
+msgstr "Copiar o ID de Utilizador do Matrix para a Área de Transferência"
 
 #: src/qml/Menu/RoomListContextMenu.qml:55
 #: src/qml/Menu/SpaceListContextMenu.qml:30
@@ -2748,11 +2738,9 @@ msgid "Room ID"
 msgstr "ID da Sala"
 
 #: src/qml/RoomSettings/General.qml:130
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Address to Clipboard"
+#, kde-format
 msgid "Copy room ID to clipboard"
-msgstr "Copiar o Endereço para a Área de Transferência"
+msgstr "Copiar o ID da sala para a área de transferência"
 
 #: src/qml/RoomSettings/General.qml:144
 #, kde-format
@@ -3767,13 +3755,12 @@ msgstr "Não foi possível juntar-se à sala"
 #: src/roommanager.cpp:227
 #, kde-format
 msgid "You requested to join '%1'"
-msgstr ""
+msgstr "Pediu para se ligar ao '%1'"
 
 #: src/roommanager.cpp:230
-#, fuzzy, kde-format
-#| msgid "Failed to join room"
+#, kde-format
 msgid "Failed to request joining room"
-msgstr "Não foi possível juntar-se à sala"
+msgstr "Não foi possível pedir para se ligar à sala"
 
 #: src/roommanager.cpp:240
 #, kde-format
@@ -3800,9 +3787,3 @@ msgstr "Mostrar"
 #, kde-format
 msgid "Quit"
 msgstr "Sair"
-
-#~ msgid "Logout"
-#~ msgstr "Encerrar"
-
-#~ msgid "Rooms"
-#~ msgstr "Salas"
