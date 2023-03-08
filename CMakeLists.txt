@@ -63,10 +63,10 @@ set_package_properties(KF5 PROPERTIES
     PURPOSE "Basic application components"
 )
 set_package_properties(KF5Kirigami2 PROPERTIES
-    TYPE REQUIRED
-    PURPOSE "Kirigami application UI framework"
-)
-find_package(KF5KirigamiAddons 0.6 REQUIRED)
+        TYPE REQUIRED
+        PURPOSE "Kirigami application UI framework"
+        )
+find_package(KF5KirigamiAddons 0.7.2 REQUIRED)
 
 find_package(Qt${QT_MAJOR_VERSION}Keychain)
 set_package_properties(Qt${QT_MAJOR_VERSION}Keychain PROPERTIES
