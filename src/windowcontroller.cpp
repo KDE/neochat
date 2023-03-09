@@ -7,7 +7,9 @@
 #include <KWindowConfig>
 
 #ifdef HAVE_WINDOWSYSTEM
+#if HAVE_X11
 #include <KStartupInfo>
+#endif
 #include <KWindowSystem>
 #endif
 
@@ -49,7 +51,9 @@ void WindowController::showAndRaiseWindow(const QString &startupId)
 #ifdef HAVE_WINDOWSYSTEM
     if (!startupId.isEmpty()) {
         if (KWindowSystem::isPlatformX11()) {
+#if HAVE_X11
             KStartupInfo::setNewStartupId(m_window, startupId.toUtf8());
+#endif
         } else if (KWindowSystem::isPlatformWayland()) {
             KWindowSystem::setCurrentXdgActivationToken(startupId);
         }

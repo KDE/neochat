@@ -14,13 +14,13 @@ set(RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_
 
 project(NeoChat VERSION ${RELEASE_SERVICE_VERSION})
 
-set(KF5_MIN_VERSION "5.91.0")
+set(KF_MIN_VERSION "5.91.0")
 set(QT_MIN_VERSION "5.15.2")
 if (ANDROID)
     set(QT_MIN_VERSION "5.15.8")
 endif()
 
-find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
+find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake)
 
@@ -57,16 +57,16 @@ set_package_properties(Qt${QT_MAJOR_VERSION} PROPERTIES
     TYPE REQUIRED
     PURPOSE "Basic application components"
 )
-find_package(KF5 ${KF5_MIN_VERSION} COMPONENTS Kirigami2 I18n Notifications Config CoreAddons Sonnet ItemModels)
-set_package_properties(KF5 PROPERTIES
+find_package(KF${QT_MAJOR_VERSION} ${KF_MIN_VERSION} COMPONENTS Kirigami2 I18n Notifications Config CoreAddons Sonnet ItemModels)
+set_package_properties(KF${QT_MAJOR_VERSION} PROPERTIES
     TYPE REQUIRED
     PURPOSE "Basic application components"
 )
-set_package_properties(KF5Kirigami2 PROPERTIES
+set_package_properties(KF${QT_MAJOR_VERSION}Kirigami2 PROPERTIES
         TYPE REQUIRED
         PURPOSE "Kirigami application UI framework"
         )
-find_package(KF5KirigamiAddons 0.7.2 REQUIRED)
+find_package(KF${QT_MAJOR_VERSION}KirigamiAddons 0.7.2 REQUIRED)
 
 find_package(Qt${QT_MAJOR_VERSION}Keychain)
 set_package_properties(Qt${QT_MAJOR_VERSION}Keychain PROPERTIES
@@ -82,15 +82,15 @@ if(ANDROID)
     )
 else()
     find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} COMPONENTS Widgets)
-    find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS QQC2DesktopStyle ConfigWidgets KIO WindowSystem)
-    set_package_properties(KF5QQC2DesktopStyle PROPERTIES
+    find_package(KF${QT_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS QQC2DesktopStyle ConfigWidgets KIO WindowSystem)
+    set_package_properties(KF${QT_MAJOR_VERSION}QQC2DesktopStyle PROPERTIES
         TYPE RUNTIME
     )
     ecm_find_qmlmodule(org.kde.syntaxhighlighting 1.0)
 endif()
 
 if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
-    find_package(KF5DBusAddons ${KF5_MIN_VERSION} REQUIRED)
+    find_package(KF${QT_MAJOR_VERSION}DBusAddons ${KF_MIN_VERSION} REQUIRED)
 endif()
 
 find_package(Quotient 0.6)
@@ -124,8 +124,8 @@ find_package(QCoro${QT_MAJOR_VERSION} 0.4 COMPONENTS Core REQUIRED)
 
 qcoro_enable_coroutines()
 
-find_package(KF5DocTools ${KF5_MIN_VERSION})
-set_package_properties(KF5DocTools PROPERTIES DESCRIPTION
+find_package(KF${QT_MAJOR_VERSION}DocTools ${KF_MIN_VERSION})
+set_package_properties(KF${QT_MAJOR_VERSION}DocTools PROPERTIES DESCRIPTION
     "Tools to generate documentation"
     TYPE OPTIONAL
 )
@@ -155,7 +155,7 @@ if (BUILD_TESTING AND Quotient_VERSION_MINOR GREATER 6)
     add_subdirectory(autotests)
 endif()
 
-if(KF5DocTools_FOUND)
+if(KF${QT_MAJOR_VERSION}DocTools_FOUND)
     kdoctools_install(po)
     add_subdirectory(doc)
 endif()
