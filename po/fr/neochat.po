@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-06 00:48+0000\n"
-"PO-Revision-Date: 2023-03-01 06:56+0100\n"
+"POT-Creation-Date: 2023-03-09 00:46+0000\n"
+"PO-Revision-Date: 2023-03-08 14:37+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: src/controller.cpp:198
 #, kde-format
@@ -1786,23 +1786,21 @@ msgstr "Modifier le niveau d'administration de l'utilisateur"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:37
 #: src/qml/RoomSettings/Permissions.qml:74
-#, fuzzy, kde-format
-#| msgid "Member"
+#, kde-format
 msgid "Member (0)"
-msgstr "Membre"
+msgstr "Membre (0)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:38
 #: src/qml/RoomSettings/Permissions.qml:75
 #, kde-format
 msgid "Moderator (50)"
-msgstr ""
+msgstr "Modérateur (50)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:39
 #: src/qml/RoomSettings/Permissions.qml:76
-#, fuzzy, kde-format
-#| msgid "Admin"
+#, kde-format
 msgid "Admin (100)"
-msgstr "Administrateur"
+msgstr "Administrateur (100)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:321
 #: src/qml/Settings/DevicesPage.qml:186
@@ -1853,10 +1851,9 @@ msgid "Unban this user"
 msgstr "Supprimer le bannissement de cet utilisateur"
 
 #: src/qml/Dialog/UserDetailDialog.qml:145
-#, fuzzy, kde-format
-#| msgid "Edit user power level"
+#, kde-format
 msgid "Set user power level"
-msgstr "Modifier le niveau d'administration de l'utilisateur"
+msgstr "Définir le niveau des privilèges de l'utilisateur"
 
 #: src/qml/Dialog/UserDetailDialog.qml:169
 #, kde-format
@@ -3126,6 +3123,13 @@ msgctxt "@title:window"
 msgid "About NeoChat"
 msgstr "À propos de NeoChat"
 
+#: src/qml/Settings/AboutKDE.qml:7
+#, fuzzy, kde-format
+#| msgid "About"
+msgctxt "@title:window"
+msgid "About KDE"
+msgstr "À propos"
+
 #: src/qml/Settings/AccountEditorPage.qml:17
 #, kde-format
 msgid "Edit Account"
@@ -3672,6 +3676,12 @@ msgstr "Vérification de l'orthographe"
 msgid "About NeoChat"
 msgstr "À propos de NeoChat"
 
+#: src/qml/Settings/SettingsPage.qml:58
+#, fuzzy, kde-format
+#| msgid "About"
+msgid "About KDE"
+msgstr "À propos"
+
 #: src/qml/Settings/SonnetConfigPage.qml:50
 #, kde-format
 msgctxt "@window:title"
@@ -3986,9 +3996,6 @@ msgstr "Quitter"
 
 #~ msgid "Server error when joining the room \"%1\": %2"
 #~ msgstr "Erreur du serveur lors de la connexion au salon « %1 » : %2"
-
-#~ msgid "About"
-#~ msgstr "À propos"
 
 #~ msgid "@title"
 #~ msgstr "@titre"
