@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-09 00:46+0000\n"
-"PO-Revision-Date: 2023-02-14 21:42+0530\n"
+"PO-Revision-Date: 2023-03-12 16:34+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: src/controller.cpp:198
 #, kde-format
@@ -77,12 +77,12 @@ msgstr "அணுகல் டோக்கனை படிக்க முடி
 #: src/controller.cpp:616
 #, kde-format
 msgid "File too large to download."
-msgstr ""
+msgstr "கோப்பு பெரிதாக இருப்பதால் பதிவிறக்க முடியாது."
 
 #: src/controller.cpp:616
 #, kde-format
 msgid "Contact your matrix server administrator for support."
-msgstr ""
+msgstr "உதவிக்கு உங்கள் மேட்ரிக்ஸு சேவையக நிர்வாகியை தொடர்புகொள்ளுங்கள்."
 
 #: src/controller.cpp:648
 #, kde-format
@@ -193,7 +193,7 @@ msgstr "Kde-l10n-ta@kde.org"
 #: src/main.cpp:168
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
-msgstr ""
+msgstr "மேட்ரிக்ஸுக்கான பல்லியங்குதள செயலிகளை எழுத உதவும் Qt5 நிரலகம்"
 
 #: src/main.cpp:171
 #, kde-format
@@ -346,16 +346,12 @@ msgid "Knocking room %1."
 msgstr "%1 எனும் அரங்கில் நுழைகிறீர்கள்."
 
 #: src/models/actionsmodel.cpp:242
-#, fuzzy
-#| msgid "[<room alias or id>]"
 msgid "<room alias or id> [<reason>]"
-msgstr "[<அரங்கின் மாற்றுப்பெயர் அல்லது அடையாளம்>]"
+msgstr "<அரங்கின் மாற்றுப்பெயர் அல்லது அடையாளம்> [<காரணம்>]"
 
 #: src/models/actionsmodel.cpp:243
-#, fuzzy
-#| msgid "Joins the given room"
 msgid "Requests to join the given room"
-msgstr "உரிய அரங்கிலு நுழையும்"
+msgstr "குறிப்பிட்ட அரங்கினுள் நுழைய அனுமதி கோரும்"
 
 #: src/models/actionsmodel.cpp:257
 #, kde-format
@@ -1172,10 +1168,9 @@ msgstr "அரங்கை உருவாக்கு"
 
 #: src/qml/Component/ExploreComponent.qml:58
 #: src/qml/Component/ExploreComponent.qml:109
-#, fuzzy, kde-format
-#| msgid "Rooms and private chats"
+#, kde-format
 msgid "Create rooms and chats"
-msgstr "அரங்குகளும் தனிப்பட்ட உரையாடல்களும்:"
+msgstr "அரங்குகளையும் தனிப்பட்ட உரையாடல்களையும் உருவாக்கு"
 
 #: src/qml/Component/FullScreenImage.qml:82
 #, kde-format
@@ -1765,23 +1760,21 @@ msgstr "பயனர்களின் உரிமையளவை மாற்�
 
 #: src/qml/Dialog/PowerLevelDialog.qml:37
 #: src/qml/RoomSettings/Permissions.qml:74
-#, fuzzy, kde-format
-#| msgid "Member"
+#, kde-format
 msgid "Member (0)"
-msgstr "உறுப்பினர்"
+msgstr "உறுப்பினர் (0)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:38
 #: src/qml/RoomSettings/Permissions.qml:75
 #, kde-format
 msgid "Moderator (50)"
-msgstr ""
+msgstr "நடுவர் (50)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:39
 #: src/qml/RoomSettings/Permissions.qml:76
-#, fuzzy, kde-format
-#| msgid "Admin"
+#, kde-format
 msgid "Admin (100)"
-msgstr "நிர்வாகி"
+msgstr "நிர்வாகி (100)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:321
 #: src/qml/Settings/DevicesPage.qml:186
@@ -1832,10 +1825,9 @@ msgid "Unban this user"
 msgstr "இப்பயனர் மீதான தடையை நீக்கு"
 
 #: src/qml/Dialog/UserDetailDialog.qml:145
-#, fuzzy, kde-format
-#| msgid "Edit user power level"
+#, kde-format
 msgid "Set user power level"
-msgstr "பயனர்களின் உரிமையளவை மாற்றுவது"
+msgstr "பயனரின் உரிமையளவை அமை"
 
 #: src/qml/Dialog/UserDetailDialog.qml:169
 #, kde-format
@@ -1885,6 +1877,8 @@ msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
 "being able to use it. Please click the button below to read them."
 msgstr ""
+"பயன்படுத்துமுன் அதன் விதிமுறைகளை ஏற்குமாறு உங்கள் தாய் சேவையகம் உங்களை "
+"கட்டாயப்படுத்துகிறது. அவற்றைப் படிக்க கீழுள்ள பட்டனைத் தட்டுங்கள்."
 
 #: src/qml/main.qml:326
 #, kde-format
@@ -2076,12 +2070,10 @@ msgid "Mark as Read"
 msgstr "படித்ததாகக் குறி"
 
 #: src/qml/Menu/RoomListContextMenu.qml:55
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Address to Clipboard"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy user's Matrix ID to Clipboard"
-msgstr "முகவரியை பிடிப்புப்பலகைக்கு நகலெடு"
+msgstr "பயனரின் மேட்ரிக்ஸு அடையாளத்தை பிடிப்புப்பலகைக்கு நகலெடு"
 
 #: src/qml/Menu/RoomListContextMenu.qml:55
 #: src/qml/Menu/SpaceListContextMenu.qml:30
@@ -2723,11 +2715,9 @@ msgid "Room ID"
 msgstr "அரங்கின் அடையாள எண்"
 
 #: src/qml/RoomSettings/General.qml:130
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Address to Clipboard"
+#, kde-format
 msgid "Copy room ID to clipboard"
-msgstr "முகவரியை பிடிப்புப்பலகைக்கு நகலெடு"
+msgstr "அரங்கின் முகவரியை பிடிப்புப்பலகைக்கு நகலெடு"
 
 #: src/qml/RoomSettings/General.qml:144
 #, kde-format
@@ -3092,11 +3082,10 @@ msgid "About NeoChat"
 msgstr "நியோச்சாட் பற்றி"
 
 #: src/qml/Settings/AboutKDE.qml:7
-#, fuzzy, kde-format
-#| msgid "About"
+#, kde-format
 msgctxt "@title:window"
 msgid "About KDE"
-msgstr "பற்றி"
+msgstr "கே.டீ.யீ. பற்றி"
 
 #: src/qml/Settings/AccountEditorPage.qml:17
 #, kde-format
@@ -3635,10 +3624,9 @@ msgid "About NeoChat"
 msgstr "நியோச்சாட் பற்றி"
 
 #: src/qml/Settings/SettingsPage.qml:58
-#, fuzzy, kde-format
-#| msgid "About"
+#, kde-format
 msgid "About KDE"
-msgstr "பற்றி"
+msgstr "கே.டீ.யீ. பற்றி"
 
 #: src/qml/Settings/SonnetConfigPage.qml:50
 #, kde-format
@@ -3747,13 +3735,12 @@ msgstr "அரங்கில் நுழைவது தோல்வியட�
 #: src/roommanager.cpp:227
 #, kde-format
 msgid "You requested to join '%1'"
-msgstr ""
+msgstr "'%1' அரங்கில் நுழைய அனுமதி கோரினீர்கள்"
 
 #: src/roommanager.cpp:230
-#, fuzzy, kde-format
-#| msgid "Failed to join room"
+#, kde-format
 msgid "Failed to request joining room"
-msgstr "அரங்கில் நுழைவது தோல்வியடைந்தது"
+msgstr "அரங்கில் நுழைய அனுமதிகோருவது தோல்வியடைந்தது"
 
 #: src/roommanager.cpp:240
 #, kde-format
