@@ -57,6 +57,9 @@ public:
         ShowAuthorRole,
         ShowSectionRole,
 
+        ReadMarkersRole, /**< QVariantList of users at the event for read marker tracking. */
+        ReadMarkersStringRole, /**< QString with the display name and mxID of the users at the event. */
+        ShowReadMarkersRole, /**< bool with whether there are any other user read markers to be shown. */
         ReactionRole,
 
         IsEditedRole,

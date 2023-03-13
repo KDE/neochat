@@ -338,6 +338,13 @@ ColumnLayout {
 
         visible: eventType !== MessageEventModel.State && eventType !== MessageEventModel.Notice && reaction != undefined && reaction.length > 0
     }
+    AvatarFlow {
+        Layout.alignment: Qt.AlignRight
+        Layout.rightMargin: Kirigami.Units.largeSpacing
+        visible: showReadMarkers
+        model: readMarkers
+        toolTipText: readMarkersString
+    }
 
     function isVisibleInTimeline() {
         let yoff = Math.round(y - ListView.view.contentY);

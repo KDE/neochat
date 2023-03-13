@@ -134,5 +134,12 @@ QQC2.Control {
             folded = !folded
             foldedChanged()
         }
+        AvatarFlow {
+            Layout.alignment: Qt.AlignRight
+            Layout.rightMargin: Kirigami.Units.largeSpacing
+            visible: showReadMarkers
+            model: readMarkers
+            toolTipText: readMarkersString
+        }
     }
 }
