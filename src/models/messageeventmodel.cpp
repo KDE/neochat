@@ -27,7 +27,6 @@
 #include <KLocalizedString>
 
 #include "neochatuser.h"
-#include "utils.h"
 
 using namespace Quotient;
 

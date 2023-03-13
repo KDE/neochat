@@ -22,11 +22,11 @@
 #include <jobs/basejob.h>
 #include <user.h>
 
-#include "actionshandler.h"
 #include "controller.h"
 #include "neochatconfig.h"
 #include "neochatroom.h"
 #include "roommanager.h"
+#include "texthandler.h"
 #include "windowcontroller.h"
 
 using namespace Quotient;
@@ -85,7 +85,9 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
         std::unique_ptr<KNotificationReplyAction> replyAction(new KNotificationReplyAction(i18n("Reply")));
         replyAction->setPlaceholderText(i18n("Reply..."));
         connect(replyAction.get(), &KNotificationReplyAction::replied, this, [room, replyEventId](const QString &text) {
-            room->postMessage(text, markdownToHTML(text), RoomMessageEvent::MsgType::Text, replyEventId, QString());
+            TextHandler textHandler;
+            textHandler.setData(text);
+            room->postMessage(text, textHandler.handleSendText(), RoomMessageEvent::MsgType::Text, replyEventId, QString());
         });
         notification->setReplyAction(std::move(replyAction));
     }

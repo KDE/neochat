@@ -47,7 +47,7 @@
 #endif
 #include "filetransferpseudojob.h"
 #include "stickerevent.h"
-#include "utils.h"
+#include "texthandler.h"
 
 #ifndef Q_OS_ANDROID
 #include <KIO/Job>
@@ -257,10 +257,11 @@ bool NeoChatRoom::lastEventIsSpoiler() const
     return false;
 }
 
-QString NeoChatRoom::lastEventToString() const
+QString NeoChatRoom::lastEventToString(Qt::TextFormat format, bool stripNewlines) const
 {
     if (auto event = lastEvent()) {
-        return roomMembername(event->senderId()) + (event->isStateEvent() ? " " : ": ") + eventToString(*event);
+        return roomMembername(event->senderId()) + (event->isStateEvent() ? QLatin1String(" ") : QLatin1String(": "))
+            + eventToString(*event, format, stripNewlines);
     }
     return QLatin1String("");
 }
@@ -327,45 +328,6 @@ QDateTime NeoChatRoom::lastActiveTime()
 
     // no message found, take last event
     return messageEvents().rbegin()->get()->originTimestamp();
-}
-
-QString NeoChatRoom::subtitleText()
-{
-    static const QRegularExpression blockquote("(\r\n\t|\n|\r\t|)> ");
-    static const QRegularExpression heading("(\r\n\t|\n|\r\t|)\\#{1,6} ");
-    static const QRegularExpression newlines("(\r\n\t|\n|\r\t|\r\n)");
-    static const QRegularExpression bold1("(\\*\\*|__)(?=\\S)([^\\r]*\\S)\\1");
-    static const QRegularExpression bold2("(\\*|_)(?=\\S)([^\\r]*\\S)\\1");
-    static const QRegularExpression strike1("~~(.*)~~");
-    static const QRegularExpression strike2("~(.*)~");
-    static const QRegularExpression del("<del>(.*)</del>");
-    static const QRegularExpression multileLineCode("```([^```]+)```");
-    static const QRegularExpression singleLinecode("`([^`]+)`");
-    QString subtitle = lastEventToString().size() == 0 ? topic() : lastEventToString();
-
-    subtitle
-        // replace blockquote, i.e. '> text'
-        .replace(blockquote, " ")
-        // replace headings, i.e. "# text"
-        .replace(heading, " ")
-        // replace newlines
-        .replace(newlines, " ")
-        // replace '**text**' and '__text__'
-        .replace(bold1, "\\2")
-        // replace '*text*' and '_text_'
-        .replace(bold2, "\\2")
-        // replace '~~text~~'
-        .replace(strike1, "\\1")
-        // replace '~text~'
-        .replace(strike2, "\\1")
-        // replace '<del>text</del>'
-        .replace(del, "\\1")
-        // replace '```code```'
-        .replace(multileLineCode, "\\1")
-        // replace '`code`'
-        .replace(singleLinecode, "\\1");
-
-    return subtitle.size() > 0 ? subtitle : QStringLiteral(" ");
 }
 
 int NeoChatRoom::savedTopVisibleIndex() const
@@ -451,7 +413,7 @@ QString NeoChatRoom::avatarMediaId() const
     return {};
 }
 
-QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, bool removeReply) const
+QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, bool stripNewlines) const
 {
     const bool prettyPrint = (format == Qt::RichText);
 
@@ -462,53 +424,43 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
     return visit(
 #endif
         evt,
-        [this, prettyPrint, removeReply](const RoomMessageEvent &e) {
+        [this, format, stripNewlines](const RoomMessageEvent &e) {
             using namespace MessageEventContent;
 
-            // 1. prettyPrint/HTML
-            if (prettyPrint && e.hasTextContent() && e.mimeType().name() != "text/plain") {
-                auto htmlBody = static_cast<const TextContent *>(e.content())->body;
-                if (removeReply) {
-                    htmlBody.remove(utils::removeRichReplyRegex);
-                }
-                htmlBody.replace(utils::userPillRegExp, R"(<b class="user-pill">\1</b>)");
-                htmlBody.replace(utils::strikethroughRegExp, "<s>\\1</s>");
-
-                auto url = connection()->homeserver();
-                auto base = url.scheme() + QStringLiteral("://") + url.host() + (url.port() != -1 ? ':' + QString::number(url.port()) : QString());
-                htmlBody.replace(utils::mxcImageRegExp, QStringLiteral(R"(<img \1 src="%1/_matrix/media/r0/download/\2/\3" \4 > )").arg(base));
-
-                return htmlBody;
-            }
+            TextHandler textHandler;
 
             if (e.hasFileContent()) {
-                auto fileCaption = e.content()->fileInfo()->originalName.toHtmlEscaped();
+                auto fileCaption = e.content()->fileInfo()->originalName;
                 if (fileCaption.isEmpty()) {
-                    fileCaption = prettyPrint ? Quotient::prettyPrint(e.plainBody()) : e.plainBody();
+                    fileCaption = e.plainBody();
                 } else if (e.content()->fileInfo()->originalName != e.plainBody()) {
                     fileCaption = e.plainBody() + " | " + fileCaption;
                 }
-                return !fileCaption.isEmpty() ? fileCaption : i18n("a file");
+                textHandler.setData(fileCaption);
+                return !fileCaption.isEmpty() ? textHandler.handleRecievePlainText() : i18n("a file");
             }
 
-            // 2. prettyPrint/text 3. plainText/HTML 4. plainText/text
-            QString plainBody;
-            if (e.hasTextContent() && e.content() && e.mimeType().name() == "text/plain") { // 2/4
-                plainBody = static_cast<const TextContent *>(e.content())->body;
-            } else { // 3
-                plainBody = e.plainBody();
+            QString body;
+            if (e.hasTextContent() && e.content()) {
+                body = static_cast<const TextContent *>(e.content())->body;
+            } else {
+                body = e.plainBody();
             }
 
-            if (prettyPrint) {
-                if (removeReply) {
-                    plainBody.remove(utils::removeReplyRegex);
-                }
-                return Quotient::prettyPrint(plainBody);
+            textHandler.setData(body);
+
+            Qt::TextFormat inputFormat;
+            if (e.mimeType().name() == "text/plain") {
+                inputFormat = Qt::PlainText;
+            } else {
+                inputFormat = Qt::RichText;
             }
-            if (removeReply) {
-                return plainBody.remove(utils::removeReplyRegex);
+
+            if (format == Qt::RichText) {
+                return textHandler.handleRecieveRichText(inputFormat, this, &e, stripNewlines);
+            } else {
+                return textHandler.handleRecievePlainText(inputFormat, stripNewlines);
             }
-            return plainBody;
         },
         [](const StickerEvent &e) {
             return e.body();
