@@ -78,7 +78,37 @@ Kirigami.ScrollablePage {
                 }
 
                 MobileForm.FormCheckDelegate {
+                    id: showDeletedMessages
+                    text: i18n("Show deleted messages")
+                    checked: Config.showDeletedMessages
+                    enabled: !Config.isShowDeletedMessagesImmutable
+                    onToggled: {
+                        Config.showDeletedMessages = checked
+                        Config.save()
+                    }
+                }
+
+                MobileForm.FormDelegateSeparator { above: showDeletedMessages; below: showStateEvents }
+
+                MobileForm.FormCheckDelegate {
+                    id: showStateEvents
+                    text: i18n("Show state events")
+                    checked: Config.showStateEvent
+                    enabled: !Config.isShowStateEventImmutable
+                    onToggled: {
+                        Config.showStateEvent = checked
+                        Config.save()
+                    }
+                }
+
+                MobileForm.FormDelegateSeparator {
+                    visible: Config.showStateEvent
+                    above: showStateEvents
+                    below: showLeaveJoinEventDelegate }
+
+                MobileForm.FormCheckDelegate {
                     id: showLeaveJoinEventDelegate
+                    visible: Config.showStateEvent
                     text: i18n("Show leave and join events")
                     checked: Config.showLeaveJoinEvent
                     enabled: !Config.isShowLeaveJoinEventImmutable
@@ -88,10 +118,15 @@ Kirigami.ScrollablePage {
                     }
                 }
 
-                MobileForm.FormDelegateSeparator { above: showLeaveJoinEventDelegate; below: showNameDelegate }
+                MobileForm.FormDelegateSeparator {
+                    visible: Config.showStateEvent
+                    above: showLeaveJoinEventDelegate
+                    below: showNameDelegate
+                }
 
                 MobileForm.FormCheckDelegate {
                     id: showNameDelegate
+                    visible: Config.showStateEvent
                     text: i18n("Show name change events")
                     checked: Config.showRename
                     enabled: !Config.isShowRenameImmutable
@@ -101,28 +136,20 @@ Kirigami.ScrollablePage {
                     }
                 }
 
-                MobileForm.FormDelegateSeparator { above: showNameDelegate; below: showAvatarChangeDelegate }
+                MobileForm.FormDelegateSeparator {
+                    visible: Config.showStateEvent
+                    above: showNameDelegate
+                    below: showAvatarChangeDelegate
+                }
 
                 MobileForm.FormCheckDelegate {
                     id: showAvatarChangeDelegate
+                    visible: Config.showStateEvent
                     text: i18n("Show avatar update events")
                     checked: Config.showAvatarUpdate
                     enabled: !Config.isShowAvatarUpdateImmutable
                     onToggled: {
                         Config.showAvatarUpdate = checked
-                        Config.save()
-                    }
-                }
-
-                MobileForm.FormDelegateSeparator { above: showAvatarChangeDelegate; below: showDeletedMessages }
-
-                MobileForm.FormCheckDelegate {
-                    id: showDeletedMessages
-                    text: i18n("Show deleted messages")
-                    checked: Config.showDeletedMessages
-                    enabled: !Config.isShowDeletedMessagesImmutable
-                    onToggled: {
-                        Config.showDeletedMessages = checked
                         Config.save()
                     }
                 }

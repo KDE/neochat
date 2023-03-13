@@ -180,28 +180,7 @@ void RoomListModel::connectRoomSignals(NeoChatRoom *room)
 #ifndef QUOTIENT_07
     connect(room, &Room::notificationCountChanged, this, &RoomListModel::handleNotifications);
 #endif
-    connect(room, &Room::highlightCountChanged, this, [this, room] {
-        if (room->highlightCount() == 0) {
-            return;
-        }
-        if (room->timelineSize() == 0) {
-            return;
-        }
-        auto *lastEvent = room->lastEvent();
 
-        if (!lastEvent) {
-            return;
-        }
-
-        if (!lastEvent->isStateEvent()) {
-            return;
-        }
-        User *sender = room->user(lastEvent->senderId());
-        if (sender == room->localUser()) {
-            return;
-        }
-        Q_EMIT newHighlight(room->id(), lastEvent->id(), room->displayName(), sender->displayname(), room->eventToString(*lastEvent), room->avatar(128));
-    });
 #ifndef QUOTIENT_07
     connect(room, &Room::notificationCountChanged, this, &RoomListModel::refreshNotificationCount);
 #else

@@ -11,23 +11,20 @@ using namespace Quotient;
 MessageFilterModel::MessageFilterModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
+    connect(NeoChatConfig::self(), &NeoChatConfig::ShowStateEventChanged, this, [this] {
+        invalidateFilter();
+    });
     connect(NeoChatConfig::self(), &NeoChatConfig::ShowLeaveJoinEventChanged, this, [this] {
-        beginResetModel();
-        endResetModel();
+        invalidateFilter();
     });
-
     connect(NeoChatConfig::self(), &NeoChatConfig::ShowRenameChanged, this, [this] {
-        beginResetModel();
-        endResetModel();
+        invalidateFilter();
     });
-
     connect(NeoChatConfig::self(), &NeoChatConfig::ShowAvatarUpdateChanged, this, [this] {
-        beginResetModel();
-        endResetModel();
+        invalidateFilter();
     });
     connect(NeoChatConfig::self(), &NeoChatConfig::ShowDeletedMessagesChanged, this, [this] {
-        beginResetModel();
-        endResetModel();
+        invalidateFilter();
     });
 }
 
@@ -35,18 +32,11 @@ bool MessageFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sour
 {
     const QModelIndex index = sourceModel()->index(sourceRow, 0, sourceParent);
 
-    const int specialMarks = index.data(MessageEventModel::SpecialMarksRole).toInt();
-    if (index.data(MessageEventModel::IsNameChangeRole).toBool() && !NeoChatConfig::self()->showRename()) {
-        return false;
-    }
-
-    if (index.data(MessageEventModel::IsAvatarChangeRole).toBool() && !NeoChatConfig::self()->showAvatarUpdate()) {
-        return false;
-    }
     if (index.data(MessageEventModel::IsRedactedRole).toBool() && !NeoChatConfig::self()->showDeletedMessages()) {
         return false;
     }
 
+    const int specialMarks = index.data(MessageEventModel::SpecialMarksRole).toInt();
     if (specialMarks == EventStatus::Hidden || specialMarks == EventStatus::Replaced) {
         return false;
     }
@@ -54,10 +44,6 @@ bool MessageFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sour
     const auto eventType = index.data(MessageEventModel::EventTypeRole).toInt();
 
     if (eventType == MessageEventModel::Other) {
-        return false;
-    }
-
-    if (!NeoChatConfig::self()->showLeaveJoinEvent() && eventType == MessageEventModel::State) {
         return false;
     }
 

@@ -66,8 +66,6 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[VerifiedRole] = "verified";
     roles[DisplayNameForInitialsRole] = "displayNameForInitials";
     roles[AuthorDisplayNameRole] = "authorDisplayName";
-    roles[IsNameChangeRole] = "isNameChange";
-    roles[IsAvatarChangeRole] = "isAvatarChange";
     roles[IsRedactedRole] = "isRedacted";
     roles[GenericDisplayRole] = "genericDisplay";
     roles[IsPendingRole] = "isPending";
@@ -610,9 +608,17 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             return pendingIt->deliveryStatus();
         }
 
-        auto *memberEvent = timelineIt->viewAs<RoomMemberEvent>();
-        if (memberEvent) {
-            if ((memberEvent->isJoin() || memberEvent->isLeave()) && !NeoChatConfig::self()->showLeaveJoinEvent()) {
+        if (evt.isStateEvent() && !NeoChatConfig::self()->showStateEvent()) {
+            return EventStatus::Hidden;
+        }
+
+        if (auto roomMemberEvent = eventCast<const RoomMemberEvent>(&evt)) {
+            if ((roomMemberEvent->isJoin() || roomMemberEvent->isLeave()) && !NeoChatConfig::self()->showLeaveJoinEvent()) {
+                return EventStatus::Hidden;
+            } else if (roomMemberEvent->isRename() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave() && !NeoChatConfig::self()->showRename()) {
+                return EventStatus::Hidden;
+            } else if (roomMemberEvent->isAvatarUpdate() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave()
+                       && !NeoChatConfig::self()->showAvatarUpdate()) {
                 return EventStatus::Hidden;
             }
         }
@@ -958,21 +964,6 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         }
     }
 
-    if (role == IsNameChangeRole) {
-        auto roomMemberEvent = eventCast<const RoomMemberEvent>(&evt);
-        if (roomMemberEvent) {
-            return roomMemberEvent->isRename();
-        }
-        return false;
-    }
-
-    if (role == IsAvatarChangeRole) {
-        auto roomMemberEvent = eventCast<const RoomMemberEvent>(&evt);
-        if (roomMemberEvent) {
-            return roomMemberEvent->isAvatarUpdate();
-        }
-        return false;
-    }
     if (role == IsRedactedRole) {
         return evt.isRedacted();
     }
