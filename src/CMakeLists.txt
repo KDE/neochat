@@ -24,7 +24,6 @@ add_library(neochat STATIC
     models/publicroomlistmodel.cpp
     models/userdirectorylistmodel.cpp
     models/keywordnotificationrulemodel.cpp
-    utils.cpp
     notificationsmanager.cpp
     models/sortfilterroomlistmodel.cpp
     chatdocumenthandler.cpp
@@ -47,6 +46,7 @@ add_library(neochat STATIC
     models/statemodel.cpp
     filetransferpseudojob.cpp
     models/searchmodel.cpp
+    texthandler.cpp
 )
 
 add_executable(neochat-app

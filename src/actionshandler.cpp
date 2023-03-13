@@ -20,24 +20,9 @@
 #include "neochatroom.h"
 #include "neochatuser.h"
 #include "roommanager.h"
+#include "texthandler.h"
 
 using namespace Quotient;
-
-QString markdownToHTML(const QString &markdown)
-{
-    const auto str = markdown.toUtf8();
-    char *tmp_buf = cmark_markdown_to_html(str.constData(), str.size(), CMARK_OPT_HARDBREAKS | CMARK_OPT_UNSAFE);
-
-    const std::string html(tmp_buf);
-
-    free(tmp_buf);
-
-    auto result = QString::fromStdString(html).trimmed();
-
-    result.replace("<!-- raw HTML omitted -->", "");
-
-    return result;
-}
 
 ActionsHandler::ActionsHandler(QObject *parent)
     : QObject(parent)
@@ -169,7 +154,10 @@ void ActionsHandler::handleMessage(const QString &text, QString handledText, con
     }
 
     handledText = CustomEmojiModel::instance().preprocessText(handledText);
-    handledText = markdownToHTML(handledText);
+    TextHandler textHandler;
+    textHandler.setData(handledText);
+    handledText = textHandler.handleSendText();
+
     if (handledText.count("<p>") == 1 && handledText.count("</p>") == 1) {
         handledText.remove("<p>");
         handledText.remove("</p>");

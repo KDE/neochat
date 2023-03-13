@@ -136,7 +136,7 @@ void NeoChatRoomTest::initTestCase()
 void NeoChatRoomTest::subtitleTextTest()
 {
     QCOMPARE(room->timelineSize(), 1);
-    QCOMPARE(room->subtitleText(), QStringLiteral("@example:example.org: This is an example text message"));
+    QCOMPARE(room->lastEventToString(), QStringLiteral("@example:example.org: This is an example text message"));
 }
 
 void NeoChatRoomTest::eventTest()

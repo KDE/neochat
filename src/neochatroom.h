@@ -124,7 +124,7 @@ public:
     ///
     /// \see lastEvent
     /// \see lastEventIsSpoiler
-    [[nodiscard]] QString lastEventToString() const;
+    [[nodiscard]] QString lastEventToString(Qt::TextFormat format = Qt::PlainText, bool stripNewlines = false) const;
 
     /// Convenient way to check if the last event looks like it has spoilers.
     ///
@@ -136,12 +136,6 @@ public:
     ///
     /// \see lastEvent
     [[nodiscard]] QDateTime lastActiveTime();
-
-    /// Get subtitle text for room
-    ///
-    /// Fetches last event and removes markdown formatting
-    /// \see lastEventToString
-    [[nodiscard]] QString subtitleText();
 
     [[nodiscard]] bool isSpace();
 
@@ -262,7 +256,7 @@ public:
 
     [[nodiscard]] QString avatarMediaId() const;
 
-    [[nodiscard]] QString eventToString(const Quotient::RoomEvent &evt, Qt::TextFormat format = Qt::PlainText, bool removeReply = true) const;
+    [[nodiscard]] QString eventToString(const Quotient::RoomEvent &evt, Qt::TextFormat format = Qt::PlainText, bool stripNewlines = false) const;
     [[nodiscard]] QString eventToGenericString(const Quotient::RoomEvent &evt) const;
 
     Q_INVOKABLE [[nodiscard]] bool containsUser(const QString &userID) const;

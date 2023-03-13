@@ -16,25 +16,7 @@ TextEdit {
 
     property bool isEmote: false
     property bool isReplyLabel: false
-
-    readonly property var linkRegex: /(href=["'])?(\b(https?):\/\/[^\s\<\>\"\'\\\?\:\)\(]+(\(.*?\))*(\?(?=[a-z])[^\s\\\)]+|$)?)/g
-    property string textMessage: model.display.includes("http")
-        ? model.display.replace(linkRegex, function() {
-            if (arguments[0].includes("/_matrix/media/r0/download/")) {
-                return arguments[0];
-            }
-            if (arguments[1]) {
-                return arguments[0];
-            }
-            const l = arguments[2];
-            if ([".", ","].includes(l[l.length-1])) {
-                const link = l.substring(0, l.length-1);
-                const leftover = l[l.length-1];
-                return `<a href="${link}">${link}</a>${leftover}`;
-            }
-            return `<a href="${l}">${l}</a>`;
-        })
-        : model.display
+    property string textMessage: model.display
     property bool spoilerRevealed: !hasSpoiler.test(textMessage)
 
     ListView.onReused: Qt.binding(() => !hasSpoiler.test(textMessage))
@@ -46,6 +28,7 @@ TextEdit {
         Controller.forceRefreshTextDocument(contentLabel.textDocument, contentLabel)
     }
 
+    onTextChanged: console.log(text)
     text: "<style>
 table {
     width:100%;

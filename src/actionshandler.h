@@ -50,5 +50,3 @@ private:
     QString handleMentions(QString handledText, const bool &isEdit = false);
     void handleMessage(const QString &text, QString handledText, const bool &isEdit = false);
 };
-
-QString markdownToHTML(const QString &markdown);

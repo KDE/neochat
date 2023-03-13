@@ -417,7 +417,7 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
         return m_categoryVisibility.value(data(index, CategoryRole).toInt(), true);
     }
     if (role == SubtitleTextRole) {
-        return room->subtitleText();
+        return room->lastEventToString(Qt::PlainText, true);
     }
     if (role == AvatarImageRole) {
         return room->avatar(128);
