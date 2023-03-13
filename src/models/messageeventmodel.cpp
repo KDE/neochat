@@ -54,6 +54,9 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[UserMarkerRole] = "userMarker";
     roles[ShowAuthorRole] = "showAuthor";
     roles[ShowSectionRole] = "showSection";
+    roles[ReadMarkersRole] = "readMarkers";
+    roles[ReadMarkersStringRole] = "readMarkersString";
+    roles[ShowReadMarkersRole] = "showReadMarkers";
     roles[ReactionRole] = "reaction";
     roles[IsEditedRole] = "isEdited";
     roles[SourceRole] = "source";
@@ -215,6 +218,12 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
                 return;
             }
             refreshEventRoles(eventId, {ReactionRole, Qt::DisplayRole});
+        });
+        connect(m_currentRoom, &Room::changed, this, [this]() {
+            for (auto it = m_currentRoom->messageEvents().rbegin(); it != m_currentRoom->messageEvents().rend(); ++it) {
+                auto event = it->event();
+                refreshEventRoles(event->id(), {ReadMarkersRole, ReadMarkersStringRole});
+            }
         });
         connect(m_currentRoom, &Room::newFileTransfer, this, &MessageEventModel::refreshEvent);
         connect(m_currentRoom, &Room::fileTransferProgress, this, &MessageEventModel::refreshEvent);
@@ -789,6 +798,65 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         }
 
         return false;
+    }
+
+    if (role == ReadMarkersRole) {
+#ifdef QUOTIENT_07
+        auto userIds = room()->userIdsAtEvent(evt.id());
+        userIds.remove(m_currentRoom->localUser()->id());
+#else
+        auto userIds = room()->usersAtEventId(evt.id());
+        userIds.removeAll(m_currentRoom->localUser());
+#endif
+
+        QVariantList users;
+        users.reserve(userIds.size());
+        for (const auto &userId : userIds) {
+#ifdef QUOTIENT_07
+            auto user = static_cast<NeoChatUser *>(m_currentRoom->user(userId));
+#else
+            auto user = static_cast<NeoChatUser *>(userId);
+#endif
+            users += userAtEvent(user, m_currentRoom, evt);
+        }
+
+        return users;
+    }
+
+    if (role == ReadMarkersStringRole) {
+#ifdef QUOTIENT_07
+        auto userIds = room()->userIdsAtEvent(evt.id());
+        userIds.remove(m_currentRoom->localUser()->id());
+#else
+        auto userIds = room()->usersAtEventId(evt.id());
+        userIds.removeAll(m_currentRoom->localUser());
+#endif
+        /**
+         * The string ends up in the form
+         * "x users: user1DisplayName, user2DisplayName, etc."
+         */
+        QString readMarkersString = i18np("1 user: ", "%1 users: ", userIds.size());
+        for (const auto &userId : userIds) {
+#ifdef QUOTIENT_07
+            auto user = static_cast<NeoChatUser *>(m_currentRoom->user(userId));
+#else
+            auto user = static_cast<NeoChatUser *>(userId);
+#endif
+            readMarkersString += user->displayname(m_currentRoom) + i18nc("list separator", ", ");
+        }
+        readMarkersString.chop(2);
+        return readMarkersString;
+    }
+
+    if (role == ShowReadMarkersRole) {
+#ifdef QUOTIENT_07
+        auto userIds = room()->userIdsAtEvent(evt.id());
+        userIds.remove(m_currentRoom->localUser()->id());
+#else
+        auto userIds = room()->usersAtEventId(evt.id());
+        userIds.removeAll(m_currentRoom->localUser());
+#endif
+        return userIds.size() > 0;
     }
 
     if (role == ReactionRole) {
