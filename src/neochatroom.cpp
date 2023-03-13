@@ -215,7 +215,7 @@ void NeoChatRoom::sendTypingNotification(bool isTyping)
     connection()->callApi<SetTypingJob>(BackgroundRequest, localUser()->id(), id(), isTyping, 10000);
 }
 
-const RoomEvent *NeoChatRoom::lastEvent(bool ignoreStateEvent) const
+const RoomEvent *NeoChatRoom::lastEvent() const
 {
     for (auto timelineItem = messageEvents().rbegin(); timelineItem < messageEvents().rend(); timelineItem++) {
         const RoomEvent *event = timelineItem->get();
@@ -227,8 +227,21 @@ const RoomEvent *NeoChatRoom::lastEvent(bool ignoreStateEvent) const
             continue;
         }
 
-        if (event->isStateEvent()
-            && (ignoreStateEvent || !NeoChatConfig::self()->showLeaveJoinEvent() || static_cast<const StateEventBase &>(*event).repeatsState())) {
+        if (event->isStateEvent() && !NeoChatConfig::self()->showStateEvent()) {
+            continue;
+        }
+
+        if (auto roomMemberEvent = eventCast<const RoomMemberEvent>(event)) {
+            if ((roomMemberEvent->isJoin() || roomMemberEvent->isLeave()) && !NeoChatConfig::self()->showLeaveJoinEvent()) {
+                continue;
+            } else if (roomMemberEvent->isRename() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave() && !NeoChatConfig::self()->showRename()) {
+                continue;
+            } else if (roomMemberEvent->isAvatarUpdate() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave()
+                       && !NeoChatConfig::self()->showAvatarUpdate()) {
+                continue;
+            }
+        }
+        if (event->isStateEvent() && static_cast<const StateEventBase &>(*event).repeatsState()) {
             continue;
         }
 
@@ -240,6 +253,14 @@ const RoomEvent *NeoChatRoom::lastEvent(bool ignoreStateEvent) const
 
         if (connection()->isIgnored(user(event->senderId()))) {
             continue;
+        }
+
+#ifdef QUOTIENT_07
+        if (auto lastEvent = eventCast<const StateEvent>(event)) {
+#else
+        if (auto lastEvent = eventCast<const StateEventBase>(event)) {
+#endif
+            return lastEvent;
         }
 
         if (auto lastEvent = eventCast<const RoomMessageEvent>(event)) {
@@ -332,7 +353,7 @@ QDateTime NeoChatRoom::lastActiveTime()
         return QDateTime();
     }
 
-    if (auto event = lastEvent(true)) {
+    if (auto event = lastEvent()) {
         return event->originTimestamp();
     }
 
@@ -475,7 +496,7 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
         [](const StickerEvent &e) {
             return e.body();
         },
-        [this](const RoomMemberEvent &e) {
+        [this, prettyPrint](const RoomMemberEvent &e) {
             // FIXME: Rewind to the name that was at the time of this event
             auto subjectName = this->htmlSafeMemberName(e.userId());
             if (e.membership() == MembershipType::Leave) {
@@ -488,8 +509,11 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
 #endif
                 }
             }
-            subjectName = QStringLiteral("<a href=\"https://matrix.to/#/%1\" style=\"color: %2\">%3</a>")
-                              .arg(e.userId(), static_cast<NeoChatUser *>(user(e.userId()))->color().name(), subjectName);
+
+            if (prettyPrint) {
+                subjectName = QStringLiteral("<a href=\"https://matrix.to/#/%1\" style=\"color: %2\">%3</a>")
+                                  .arg(e.userId(), static_cast<NeoChatUser *>(user(e.userId()))->color().name(), subjectName);
+            }
 
             // The below code assumes senderName output in AuthorRole
             switch (e.membership()) {

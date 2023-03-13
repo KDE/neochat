@@ -116,5 +116,4 @@ Q_SIGNALS:
     void notificationCountChanged();
 
     void roomAdded(NeoChatRoom *_t1);
-    void newHighlight(const QString &_t1, const QString &_t2, const QString &_t3, const QString &_t4, const QString &_t5, const QImage &_t6);
 };

@@ -131,7 +131,7 @@ public:
     /// This function respect the showLeaveJoinEvent setting and discard
     /// other not interesting events. This function can return an empty pointer
     /// when the room is empty of RoomMessageEvent.
-    [[nodiscard]] const Quotient::RoomEvent *lastEvent(bool ignoreStateEvent = false) const;
+    [[nodiscard]] const Quotient::RoomEvent *lastEvent() const;
 
     /// Convenient way to get the last event but in a string format.
     ///
