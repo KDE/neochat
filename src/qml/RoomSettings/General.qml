@@ -263,6 +263,32 @@ Kirigami.ScrollablePage {
                 }
             }
         }
+        MobileForm.FormCard {
+            Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                spacing: 0
+                MobileForm.FormCardHeader {
+                    title: i18n("URL Previews")
+                }
+                MobileForm.FormCheckDelegate {
+                    text: i18n("Enable URL previews by default for room members")
+                    checked: room.defaultUrlPreviewState
+                    visible: room.canSendState("org.matrix.room.preview_urls")
+                    onToggled: {
+                        room.defaultUrlPreviewState = checked
+                    }
+                }
+                MobileForm.FormCheckDelegate {
+                    text: i18n("Enable URL previews")
+                    // Most users won't see the above setting so tell them the default.
+                    description: room.defaultUrlPreviewState ? i18n("URL previews are enabled by default in this room") : i18n("URL previews are disabled by default in this room")
+                    checked: room.urlPreviewEnabled
+                    onToggled: {
+                        room.urlPreviewEnabled = checked
+                    }
+                }
+            }
+        }
 
         Kirigami.InlineMessage {
             Layout.fillWidth: true

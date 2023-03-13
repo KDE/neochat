@@ -49,7 +49,7 @@ Loader {
      */
     property bool indicatorEnabled: false
 
-    active: !currentRoom.usesEncryption && model.display && links && links.length > 0
+    active: !currentRoom.usesEncryption && model.display && links && links.length > 0 && currentRoom.urlPreviewEnabled
     visible: Config.showLinkPreview && active
     sourceComponent: linkPreviewer.loaded ? linkPreviewComponent : loadingComponent
 

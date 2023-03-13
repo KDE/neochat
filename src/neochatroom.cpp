@@ -13,9 +13,11 @@
 #include <QMediaMetaData>
 #include <QMediaPlayer>
 
+#include <jobs/basejob.h>
 #include <qcoro/qcorosignal.h>
 
 #include <connection.h>
+#include <csapi/account-data.h>
 #include <csapi/directory.h>
 #include <csapi/pushrules.h>
 #include <csapi/redaction.h>
@@ -98,6 +100,14 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
         Q_EMIT canEncryptRoomChanged();
     });
     connect(connection, &Connection::capabilitiesLoaded, this, &NeoChatRoom::maxRoomVersionChanged);
+    connect(this, &Room::changed, this, [this]() {
+        Q_EMIT defaultUrlPreviewStateChanged();
+    });
+    connect(this, &Room::accountDataChanged, this, [this](QString type) {
+        if (type == "org.matrix.room.preview_urls") {
+            Q_EMIT urlPreviewEnabledChanged();
+        }
+    });
 }
 
 void NeoChatRoom::uploadFile(const QUrl &url, const QString &body)
@@ -937,7 +947,7 @@ bool NeoChatRoom::canSendState(const QString &eventType) const
     auto currentPl = plEvent->powerLevelForUser(localUser()->id());
 
 #ifndef QUOTIENT_07
-    if (eventType == "m.room.history_visibility") {
+    if (eventType == "m.room.history_visibility" || eventType == "org.matrix.room.preview_urls") {
         return false;
     } else {
         return currentPl >= pl;
@@ -1027,10 +1037,89 @@ void NeoChatRoom::setHistoryVisibility(const QString &historyVisibilityRule)
     // Not emitting historyVisibilityChanged() here, since that would override the change in the UI with the *current* value, which is not the *new* value.
 }
 
-int NeoChatRoom::getUserPowerLevel(const QString &userId) const
+bool NeoChatRoom::defaultUrlPreviewState() const
 {
-    auto powerLevelEvent = getCurrentState<RoomPowerLevelsEvent>();
-    return powerLevelEvent->powerLevelForUser(userId);
+#ifdef QUOTIENT_07
+    auto urlPreviewsDisabled = currentState().get("org.matrix.room.preview_urls");
+#else
+    auto urlPreviewsDisabled = getCurrentState("org.matrix.room.preview_urls");
+#endif
+
+    // Some rooms will not have this state event set so check for a nullptr return.
+    if (urlPreviewsDisabled != nullptr) {
+        return !urlPreviewsDisabled->contentJson()["disable"].toBool();
+    } else {
+        return false;
+    }
+}
+
+void NeoChatRoom::setDefaultUrlPreviewState(const bool &defaultUrlPreviewState)
+{
+    if (!canSendState("org.matrix.room.preview_urls")) {
+        qWarning() << "Power level too low to set the default URL preview state for the room";
+        return;
+    }
+
+    /**
+     * Note the org.matrix.room.preview_urls room state event is completely undocumented
+     * so here it is because I'm nice.
+     *
+     * Also note this is a different event to org.matrix.room.preview_urls for room
+     * account data, because even though it has the same name and content it's totally different.
+     *
+     * {
+     *  "content": {
+     *      "disable": false
+     *  },
+     *  "origin_server_ts": 1673115224071,
+     *  "sender": "@bob:kde.org",
+     *  "state_key": "",
+     *  "type": "org.matrix.room.preview_urls",
+     *  "unsigned": {
+     *      "replaces_state": "replaced_event_id",
+     *      "prev_content": {
+     *          "disable": true
+     *      },
+     *      "prev_sender": "@jeff:kde.org",
+     *      "age": 99
+     *  },
+     *  "event_id": "$event_id",
+     *  "room_id": "!room_id:kde.org"
+     * }
+     *
+     * You just have to set disable to true to disable URL previews by default.
+     */
+#ifdef QUOTIENT_07
+    setState("org.matrix.room.preview_urls", "", QJsonObject{{"disable", !defaultUrlPreviewState}});
+#else
+    qWarning() << "Quotient 0.7 required to set room default url preview setting";
+    return;
+#endif
+}
+
+bool NeoChatRoom::urlPreviewEnabled() const
+{
+    if (hasAccountData("org.matrix.room.preview_urls")) {
+        return !accountData("org.matrix.room.preview_urls")->contentJson()["disable"].toBool();
+    } else {
+        return defaultUrlPreviewState();
+    }
+}
+
+void NeoChatRoom::setUrlPreviewEnabled(const bool &urlPreviewEnabled)
+{
+    /**
+     * Once again this is undocumented and even though the name and content are the
+     * same this is a different event to the org.matrix.room.preview_urls room state event.
+     *
+     * {
+     *  "content": {
+     *      "disable": true
+     *  }
+     *  "type": "org.matrix.room.preview_urls",
+     * }
+     */
+    connection()->callApi<SetAccountDataPerRoomJob>(localUser()->id(), id(), "org.matrix.room.preview_urls", QJsonObject{{"disable", !urlPreviewEnabled}});
 }
 
 void NeoChatRoom::setUserPowerLevel(const QString &userID, const int &powerLevel)
@@ -1070,6 +1159,12 @@ void NeoChatRoom::setUserPowerLevel(const QString &userID, const int &powerLevel
         setState<RoomPowerLevelsEvent>(QJsonObject{{"type", "m.room.power_levels"}, {"state_key", ""}, {"content", powerLevelContent}});
 #endif
     }
+}
+
+int NeoChatRoom::getUserPowerLevel(const QString &userId) const
+{
+    auto powerLevelEvent = getCurrentState<RoomPowerLevelsEvent>();
+    return powerLevelEvent->powerLevelForUser(userId);
 }
 
 int NeoChatRoom::powerLevel(const QString &eventName, const bool &isStateEvent) const

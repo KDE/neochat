@@ -52,6 +52,19 @@ class NeoChatRoom : public Quotient::Room
     Q_PROPERTY(QString joinRule READ joinRule WRITE setJoinRule NOTIFY joinRuleChanged)
     Q_PROPERTY(QString historyVisibility READ historyVisibility WRITE setHistoryVisibility NOTIFY historyVisibilityChanged)
 
+    /**
+     * @brief Set the default URL preview state for room members.
+     *
+     * Assumed false if the org.matrix.room.preview_urls state message has never been
+     * set. Can only be set if the calling user has a high enough power level.
+     */
+    Q_PROPERTY(bool defaultUrlPreviewState READ defaultUrlPreviewState WRITE setDefaultUrlPreviewState NOTIFY defaultUrlPreviewStateChanged)
+
+    /**
+     * @brief Enable URL previews for the local user.
+     */
+    Q_PROPERTY(bool urlPreviewEnabled READ urlPreviewEnabled WRITE setUrlPreviewEnabled NOTIFY urlPreviewEnabledChanged)
+
     // Properties for the various permission levels for the room
     Q_PROPERTY(int defaultUserPowerLevel READ defaultUserPowerLevel WRITE setDefaultUserPowerLevel NOTIFY defaultUserPowerLevelChanged)
     Q_PROPERTY(int invitePowerLevel READ invitePowerLevel WRITE setInvitePowerLevel NOTIFY invitePowerLevelChanged)
@@ -146,6 +159,12 @@ public:
 
     [[nodiscard]] QString historyVisibility() const;
     void setHistoryVisibility(const QString &historyVisibilityRule);
+
+    [[nodiscard]] bool defaultUrlPreviewState() const;
+    void setDefaultUrlPreviewState(const bool &defaultUrlPreviewState);
+
+    [[nodiscard]] bool urlPreviewEnabled() const;
+    void setUrlPreviewEnabled(const bool &urlPreviewEnabled);
 
     /**
      * @brief Get the power level for the given user ID in the room.
@@ -389,6 +408,8 @@ Q_SIGNALS:
     void canEncryptRoomChanged();
     void joinRuleChanged();
     void historyVisibilityChanged();
+    void defaultUrlPreviewStateChanged();
+    void urlPreviewEnabledChanged();
     void maxRoomVersionChanged();
     void defaultUserPowerLevelChanged();
     void invitePowerLevelChanged();
