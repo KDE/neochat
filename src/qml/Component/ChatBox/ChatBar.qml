@@ -143,7 +143,7 @@ QQC2.Control {
             Keys.onEnterPressed: {
                 if (completionMenu.visible) {
                     completionMenu.complete()
-                } else if (event.modifiers & Qt.ShiftModifier) {
+                } else if (event.modifiers & Qt.ShiftModifier || Kirigami.Settings.isMobile) {
                     textField.insert(cursorPosition, "\n")
                 } else {
                     chatBar.postMessage();
@@ -152,7 +152,7 @@ QQC2.Control {
             Keys.onReturnPressed: {
                 if (completionMenu.visible) {
                     completionMenu.complete()
-                } else if (event.modifiers & Qt.ShiftModifier) {
+                } else if (event.modifiers & Qt.ShiftModifier || Kirigami.Settings.isMobile) {
                     textField.insert(cursorPosition, "\n")
                 } else {
                     chatBar.postMessage();
