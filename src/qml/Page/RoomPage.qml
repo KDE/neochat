@@ -48,7 +48,9 @@ Kirigami.ScrollablePage {
         applicationWindow().hoverLinkIndicator.text = "";
         messageListView.positionViewAtBeginning();
         hasScrolledUpBefore = false;
-        chatBox.chatBar.forceActiveFocus();
+        if (!Kirigami.Settings.isMobile) {
+            chatBox.chatBar.forceActiveFocus();
+        }
     }
 
     Connections {
@@ -353,7 +355,9 @@ Kirigami.ScrollablePage {
             visible: currentRoom && currentRoom.hasUnreadMessages && currentRoom.readMarkerLoaded
             action: Kirigami.Action {
                 onTriggered: {
-                    chatBox.chatBar.forceActiveFocus();
+                    if (!Kirigami.Settings.isMobile) {
+                        chatBox.chatBar.forceActiveFocus();
+                    }
                     messageListView.goToEvent(currentRoom.readMarkerEventId)
                 }
                 icon.name: "go-up"
@@ -378,7 +382,9 @@ Kirigami.ScrollablePage {
             visible: !messageListView.atYEnd
             action: Kirigami.Action {
                 onTriggered: {
-                    chatBox.chatBar.forceActiveFocus();
+                    if (!Kirigami.Settings.isMobile) {
+                        chatBox.chatBar.forceActiveFocus();
+                    }
                     goToLastMessage();
                     currentRoom.markAllMessagesAsRead();
                 }
@@ -531,7 +537,9 @@ Kirigami.ScrollablePage {
                         showQuickReaction: true
                         onChosen: {
                             page.currentRoom.toggleReaction(hoverActions.event.eventId, emoji);
-                            chatBox.chatBar.forceActiveFocus();
+                            if (!Kirigami.Settings.isMobile) {
+                                chatBox.chatBar.forceActiveFocus();
+                            }
                         }
                     }
                 }
