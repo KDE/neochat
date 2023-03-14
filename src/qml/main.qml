@@ -165,7 +165,7 @@ Kirigami.ApplicationWindow {
 
     pageStack.defaultColumnWidth: roomListPage ? roomListPage.currentWidth : 0
     pageStack.globalToolBar.style: Kirigami.ApplicationHeaderStyle.ToolBar
-    pageStack.globalToolBar.showNavigationButtons: pageStack.currentIndex > 0 ? Kirigami.ApplicationHeaderStyle.ShowBackButton : 0
+    pageStack.globalToolBar.showNavigationButtons: pageStack.currentIndex > 0 || pageStack.layers.depth > 1 ? Kirigami.ApplicationHeaderStyle.ShowBackButton : 0
 
     ConfirmLogoutDialog {
         id: confirmLogoutDialog
