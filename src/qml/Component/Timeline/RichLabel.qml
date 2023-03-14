@@ -28,7 +28,6 @@ TextEdit {
         Controller.forceRefreshTextDocument(contentLabel.textDocument, contentLabel)
     }
 
-    onTextChanged: console.log(text)
     text: "<style>
 table {
     width:100%;
