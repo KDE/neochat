@@ -144,11 +144,16 @@ QQC2.ToolBar {
                     actions.main: Kirigami.Action {
                         text: i18n("Edit this account")
                         icon.name: "document-edit"
-                        onTriggered: pageStack.pushDialogLayer(Qt.resolvedUrl('./AccountEditorPage.qml'), {
+                        onTriggered: pageStack.pushDialogLayer(Qt.resolvedUrl('qrc:/AccountEditorPage.qml'), {
                             connection: Controller.activeConnection
                         }, {
                             title: i18n("Account editor")
                         });
+                    }
+                    TapHandler {
+                        acceptedButtons: Qt.RightButton
+                        acceptedDevices: PointerDevice.Mouse
+                        onTapped: accountMenu.open()
                     }
                 }
             }
@@ -213,6 +218,11 @@ QQC2.ToolBar {
             }
             Item {
                 width: 1
+            }
+
+            AccountMenu {
+                id: accountMenu
+                y: -height
             }
         }
     }

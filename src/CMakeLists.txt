@@ -177,6 +177,7 @@ if(ANDROID)
         "visibility"
         "home"
         "preferences-desktop-notification"
+        "computer-symbolic"
     )
 else()
     target_link_libraries(neochat PUBLIC Qt::Widgets KF${QT_MAJOR_VERSION}::KIOWidgets)
