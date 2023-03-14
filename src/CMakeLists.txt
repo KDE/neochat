@@ -175,6 +175,8 @@ if(ANDROID)
         "window-new"
         "globe"
         "visibility"
+        "home"
+        "preferences-desktop-notification"
     )
 else()
     target_link_libraries(neochat PUBLIC Qt::Widgets KF${QT_MAJOR_VERSION}::KIOWidgets)
