@@ -6,10 +6,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-14 02:52+0000\n"
-"PO-Revision-Date: 2023-03-09 10:37+0100\n"
+"POT-Creation-Date: 2023-03-15 02:47+0000\n"
+"PO-Revision-Date: 2023-03-14 13:20+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
-"Language-Team: \n"
+"Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -664,19 +664,14 @@ msgid "[REDACTED: %1]"
 msgstr "[GEREDIGEERD: %1]"
 
 #: src/models/messageeventmodel.cpp:843
-#, fuzzy, kde-format
-#| msgctxt "n users"
-#| msgid " %1 user "
-#| msgid_plural " %1 users "
+#, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
-msgstr[0] " %1 gebruiker "
-msgstr[1] " %1 gebruikers "
+msgstr[0] "1 gebruiker: "
+msgstr[1] "%1 gebruikers: "
 
 #: src/models/messageeventmodel.cpp:850
-#, fuzzy, kde-format
-#| msgctxt "[action 1], [action 2 and/or action 3]"
-#| msgid ", "
+#, kde-format
 msgctxt "list separator"
 msgid ", "
 msgstr ", "
@@ -1055,7 +1050,7 @@ msgstr "NeoChat in deze room openen"
 #: src/notificationsmanager.cpp:85
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:550
+#: src/qml/Page/RoomPage.qml:558
 #, kde-format
 msgid "Reply"
 msgstr "Beantwoorden"
@@ -1092,7 +1087,7 @@ msgstr "Bijlage:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:539
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:547
 #, kde-format
 msgid "Edit"
 msgstr "Bewerken"
@@ -1605,7 +1600,7 @@ msgid "Successfully verified device **%1**"
 msgstr "Apparaat **%1** is met succes geverifieerd"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:194
+#: src/qml/Page/RoomPage.qml:196
 #, kde-format
 msgid "Accept"
 msgstr "Accepteren"
@@ -2532,42 +2527,42 @@ msgstr "Gedempte room"
 msgid "Configure room"
 msgstr "Room configureren"
 
-#: src/qml/Page/RoomPage.qml:183
+#: src/qml/Page/RoomPage.qml:185
 #, kde-format
 msgid "Accept this invitation?"
 msgstr "Deze uitnodiging accepteren?"
 
-#: src/qml/Page/RoomPage.qml:187
+#: src/qml/Page/RoomPage.qml:189
 #, kde-format
 msgid "Reject"
 msgstr "Afwijzen"
 
-#: src/qml/Page/RoomPage.qml:285
+#: src/qml/Page/RoomPage.qml:287
 #, kde-format
 msgid "Choose local file"
 msgstr "Lokaal bestand kiezen"
 
-#: src/qml/Page/RoomPage.qml:312
+#: src/qml/Page/RoomPage.qml:314
 #, kde-format
 msgid "Clipboard image"
 msgstr "Afbeelding in klembord"
 
-#: src/qml/Page/RoomPage.qml:364
+#: src/qml/Page/RoomPage.qml:368
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Naar het eerste ongelezen bericht gaan"
 
-#: src/qml/Page/RoomPage.qml:389
+#: src/qml/Page/RoomPage.qml:395
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Naar het laatste bericht gaan"
 
-#: src/qml/Page/RoomPage.qml:414
+#: src/qml/Page/RoomPage.qml:420
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Items hierheen verslepen om ze te delen"
 
-#: src/qml/Page/RoomPage.qml:446
+#: src/qml/Page/RoomPage.qml:452
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2575,12 +2570,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 is bezig met typen"
 msgstr[1] "%2 zijn bezig met het typen"
 
-#: src/qml/Page/RoomPage.qml:517
+#: src/qml/Page/RoomPage.qml:523
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "Dit bericht is verzonden van een geverifieerd apparaat"
 
-#: src/qml/Page/RoomPage.qml:523
+#: src/qml/Page/RoomPage.qml:529
 #, kde-format
 msgid "React"
 msgstr "Reageer"
@@ -2798,35 +2793,29 @@ msgid "Add new alias"
 msgstr "Nieuwe alias toevoegen"
 
 #: src/qml/RoomSettings/General.qml:271
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "URL Previews"
-msgstr "URL voorbeeld laden"
+msgstr "URL voorbeelden"
 
 #: src/qml/RoomSettings/General.qml:274
 #, kde-format
 msgid "Enable URL previews by default for room members"
-msgstr ""
+msgstr "URL voorbeelden standaard inschakelen voor roomleden"
 
 #: src/qml/RoomSettings/General.qml:282
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "Enable URL previews"
-msgstr "URL voorbeeld laden"
+msgstr "URL voorbeelden inschakelen"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are enabled by default in this room"
-msgstr "%1 in al in deze room"
+msgstr "URL voorbeelden zijn ingeschakeld voor dit room"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are disabled by default in this room"
-msgstr "%1 in al in deze room"
+msgstr "URL voorbeelden zijn uitgeschakeld voor dit room"
 
 #: src/qml/RoomSettings/General.qml:297
 #, kde-format
@@ -3451,10 +3440,9 @@ msgid "Show deleted messages"
 msgstr "Verwijderde berichten tonen"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Show avatar update events"
+#, kde-format
 msgid "Show state events"
-msgstr "Gebeurtenissen met bijwerken van avatar tonen"
+msgstr "Status van gebeurtenissen tonen"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:112
 #, kde-format

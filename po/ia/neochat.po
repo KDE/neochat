@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-14 02:52+0000\n"
-"PO-Revision-Date: 2023-02-23 15:35+0100\n"
+"POT-Creation-Date: 2023-03-15 02:47+0000\n"
+"PO-Revision-Date: 2023-03-14 22:23+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: src/controller.cpp:198
 #, kde-format
@@ -570,7 +570,7 @@ msgctxt "n times"
 msgid " %1 time "
 msgid_plural " %1 times "
 msgstr[0] "Tempore"
-msgstr[1] "%1 vices"
+msgstr[1] "; %1 vices"
 
 #: src/models/collapsestateproxymodel.cpp:76
 #, fuzzy, kde-format
@@ -592,7 +592,7 @@ msgstr ", "
 #, fuzzy, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
-msgstr " o "
+msgstr " or  "
 
 #: src/models/collapsestateproxymodel.cpp:89
 #, kde-format
@@ -1113,7 +1113,7 @@ msgstr "Aperi NeoChat in iste sala"
 #: src/notificationsmanager.cpp:85
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:550
+#: src/qml/Page/RoomPage.qml:558
 #, kde-format
 msgid "Reply"
 msgstr "Responde"
@@ -1150,7 +1150,7 @@ msgstr "Attachamento:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:539
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:547
 #, kde-format
 msgid "Edit"
 msgstr "Modifica"
@@ -1663,7 +1663,7 @@ msgid "Successfully verified device **%1**"
 msgstr ""
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:194
+#: src/qml/Page/RoomPage.qml:196
 #, kde-format
 msgid "Accept"
 msgstr "Accepta"
@@ -1828,13 +1828,13 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Members"
 msgid "Member (0)"
-msgstr "Membros"
+msgstr "%1 Member"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:38
 #: src/qml/RoomSettings/Permissions.qml:75
-#, kde-format
+#, fuzzy, kde-format
 msgid "Moderator (50)"
-msgstr ""
+msgstr "Moderator"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:39
 #: src/qml/RoomSettings/Permissions.qml:76
@@ -2573,42 +2573,42 @@ msgstr "Sala Silentiate"
 msgid "Configure room"
 msgstr "Configura sala"
 
-#: src/qml/Page/RoomPage.qml:183
+#: src/qml/Page/RoomPage.qml:185
 #, kde-format
 msgid "Accept this invitation?"
 msgstr "Tu accepta iste invitation?"
 
-#: src/qml/Page/RoomPage.qml:187
+#: src/qml/Page/RoomPage.qml:189
 #, kde-format
 msgid "Reject"
 msgstr "Rejecta"
 
-#: src/qml/Page/RoomPage.qml:285
+#: src/qml/Page/RoomPage.qml:287
 #, kde-format
 msgid "Choose local file"
 msgstr "Selige file local"
 
-#: src/qml/Page/RoomPage.qml:312
+#: src/qml/Page/RoomPage.qml:314
 #, kde-format
 msgid "Clipboard image"
 msgstr "Image de Area de transferentia"
 
-#: src/qml/Page/RoomPage.qml:364
+#: src/qml/Page/RoomPage.qml:368
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Salta al prime message non legite"
 
-#: src/qml/Page/RoomPage.qml:389
+#: src/qml/Page/RoomPage.qml:395
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Salta al ultime message"
 
-#: src/qml/Page/RoomPage.qml:414
+#: src/qml/Page/RoomPage.qml:420
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Trahe elementos hic per compartir los"
 
-#: src/qml/Page/RoomPage.qml:446
+#: src/qml/Page/RoomPage.qml:452
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2616,12 +2616,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 es typante"
 msgstr[1] "%2 es typante"
 
-#: src/qml/Page/RoomPage.qml:517
+#: src/qml/Page/RoomPage.qml:523
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr ""
 
-#: src/qml/Page/RoomPage.qml:523
+#: src/qml/Page/RoomPage.qml:529
 #, kde-format
 msgid "React"
 msgstr "Reage"
@@ -3204,7 +3204,7 @@ msgstr "A proposito de NeoChat"
 #| msgid "About"
 msgctxt "@title:window"
 msgid "About KDE"
-msgstr "A proposito"
+msgstr "A proposio de KDE"
 
 #: src/qml/Settings/AccountEditorPage.qml:17
 #, kde-format
@@ -3771,7 +3771,7 @@ msgstr "A proposito de NeoChat"
 #, fuzzy, kde-format
 #| msgid "About"
 msgid "About KDE"
-msgstr "A proposito"
+msgstr "A proposio de KDE"
 
 #: src/qml/Settings/SonnetConfigPage.qml:50
 #, fuzzy, kde-format

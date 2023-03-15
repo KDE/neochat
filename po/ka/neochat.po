@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-14 02:52+0000\n"
-"PO-Revision-Date: 2023-03-10 02:31+0100\n"
+"POT-Creation-Date: 2023-03-15 02:47+0000\n"
+"PO-Revision-Date: 2023-03-14 04:48+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -665,19 +665,14 @@ msgid "[REDACTED: %1]"
 msgstr "[ჩასწორებულია: %1]"
 
 #: src/models/messageeventmodel.cpp:843
-#, fuzzy, kde-format
-#| msgctxt "n users"
-#| msgid " %1 user "
-#| msgid_plural " %1 users "
+#, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
-msgstr[0] " %1 მომხმარებელი "
-msgstr[1] " %1 მომხმარებელი "
+msgstr[0] "1 მომხმარებელი: "
+msgstr[1] "%1 მომხმარებელი: "
 
 #: src/models/messageeventmodel.cpp:850
-#, fuzzy, kde-format
-#| msgctxt "[action 1], [action 2 and/or action 3]"
-#| msgid ", "
+#, kde-format
 msgctxt "list separator"
 msgid ", "
 msgstr ", "
@@ -1056,7 +1051,7 @@ msgstr "ამ ოთახში NeoChat-ის გახსნა"
 #: src/notificationsmanager.cpp:85
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:550
+#: src/qml/Page/RoomPage.qml:558
 #, kde-format
 msgid "Reply"
 msgstr "პასუხი"
@@ -1093,7 +1088,7 @@ msgstr "მიმაგრება:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:539
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:547
 #, kde-format
 msgid "Edit"
 msgstr "ჩასწორება"
@@ -1603,7 +1598,7 @@ msgid "Successfully verified device **%1**"
 msgstr "მოწყობილობა **%1** წარმატებით გადამოწმდა"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:194
+#: src/qml/Page/RoomPage.qml:196
 #, kde-format
 msgid "Accept"
 msgstr "დასტური"
@@ -2510,42 +2505,42 @@ msgstr "დადუმებული ოთახი"
 msgid "Configure room"
 msgstr "ოთახის მორგება"
 
-#: src/qml/Page/RoomPage.qml:183
+#: src/qml/Page/RoomPage.qml:185
 #, kde-format
 msgid "Accept this invitation?"
 msgstr "დავეთანხმო მოსაწვევს?"
 
-#: src/qml/Page/RoomPage.qml:187
+#: src/qml/Page/RoomPage.qml:189
 #, kde-format
 msgid "Reject"
 msgstr "უარყოფა"
 
-#: src/qml/Page/RoomPage.qml:285
+#: src/qml/Page/RoomPage.qml:287
 #, kde-format
 msgid "Choose local file"
 msgstr "აირჩიეთ ლოკალური ფაილი"
 
-#: src/qml/Page/RoomPage.qml:312
+#: src/qml/Page/RoomPage.qml:314
 #, kde-format
 msgid "Clipboard image"
 msgstr "ბუფერის გამოსახულება"
 
-#: src/qml/Page/RoomPage.qml:364
+#: src/qml/Page/RoomPage.qml:368
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "პირველ წაუკითხავ შეტყობინებაზე გადასვლა"
 
-#: src/qml/Page/RoomPage.qml:389
+#: src/qml/Page/RoomPage.qml:395
 #, kde-format
 msgid "Jump to latest message"
 msgstr "უახლეს შეტყობინებებზე გადასვლა"
 
-#: src/qml/Page/RoomPage.qml:414
+#: src/qml/Page/RoomPage.qml:420
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "გადმოათრიეთ საგნები აქ, მათ გასაზიარებლად"
 
-#: src/qml/Page/RoomPage.qml:446
+#: src/qml/Page/RoomPage.qml:452
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2553,12 +2548,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 კრეფს"
 msgstr[1] "%2 კრეფს"
 
-#: src/qml/Page/RoomPage.qml:517
+#: src/qml/Page/RoomPage.qml:523
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "ეს შეტყობინება შემოწმებული მოწყობილობიდანაა გამოგზავნილი"
 
-#: src/qml/Page/RoomPage.qml:523
+#: src/qml/Page/RoomPage.qml:529
 #, kde-format
 msgid "React"
 msgstr "რეაქცია"
@@ -2776,35 +2771,29 @@ msgid "Add new alias"
 msgstr "ახალი მეტსახელის დამატება"
 
 #: src/qml/RoomSettings/General.qml:271
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "URL Previews"
-msgstr "URL-ის მინიატურის ჩატვირთვა"
+msgstr "ბმულის მინიატურები"
 
 #: src/qml/RoomSettings/General.qml:274
 #, kde-format
 msgid "Enable URL previews by default for room members"
-msgstr ""
+msgstr "ოთახის წევრებისთვის ბმულების მინიატურების ნაგულისხმევად ჩართვა"
 
 #: src/qml/RoomSettings/General.qml:282
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "Enable URL previews"
-msgstr "URL-ის მინიატურის ჩატვირთვა"
+msgstr "ბმულის მინიატურების ჩართვა"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are enabled by default in this room"
-msgstr "%1 უკვე ოთახშია."
+msgstr "ამ ოთახში ბმულების ავტომატური მინიატურები ნაგულისხმებადაა ჩართული"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are disabled by default in this room"
-msgstr "%1 უკვე ოთახშია."
+msgstr "ამ ოთახში ბმულების ავტომატური მინიატურები ნაგულისხმევად გამორთულია"
 
 #: src/qml/RoomSettings/General.qml:297
 #, kde-format
@@ -3423,10 +3412,9 @@ msgid "Show deleted messages"
 msgstr "წაშლილი შეტყობინებების ჩვენება"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Show avatar update events"
+#, kde-format
 msgid "Show state events"
-msgstr "ავატარის განახლების მოვლენების ჩვენება"
+msgstr "მდგომარეობის მოვლენების ჩვენება"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:112
 #, kde-format
