@@ -48,6 +48,7 @@ public:
         Text, /*!< Anything not a tag that doesn't have special handling */
         Tag, /*!< For any generic tag that doesn't have special handling */
         TextCode, /*!< Text between code tags */
+        End, /*!< End of the input string */
     };
 
     /**
