@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-14 00:46+0000\n"
+"POT-Creation-Date: 2023-03-15 00:47+0000\n"
 "PO-Revision-Date: 2022-08-09 13:27+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -1146,7 +1146,7 @@ msgstr "이 대화방에서 NeoChat 열기"
 #: src/notificationsmanager.cpp:85
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:550
+#: src/qml/Page/RoomPage.qml:558
 #, kde-format
 msgid "Reply"
 msgstr "답장"
@@ -1183,7 +1183,7 @@ msgstr "첨부:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:539
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:547
 #, kde-format
 msgid "Edit"
 msgstr "편집"
@@ -1543,7 +1543,7 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "마지막 읽음: %1"
 
-#: src/qml/Component/Timeline/RichLabel.qml:61
+#: src/qml/Component/Timeline/RichLabel.qml:60
 #, kde-format
 msgid " (edited)"
 msgstr "(편집됨)"
@@ -1577,34 +1577,36 @@ msgctxt "@title:window"
 msgid "Login"
 msgstr "로그인"
 
-#: src/qml/Component/UserInfo.qml:145
+#: src/qml/Component/UserInfo.qml:145 src/qml/Menu/AccountMenu.qml:17
 #, kde-format
 msgid "Edit this account"
 msgstr "이 계정 편집"
 
-#: src/qml/Component/UserInfo.qml:150 src/qml/Settings/AccountsPage.qml:36
+#: src/qml/Component/UserInfo.qml:150 src/qml/Menu/AccountMenu.qml:22
+#: src/qml/Settings/AccountsPage.qml:36
 #, fuzzy, kde-format
 #| msgctxt "@title:menu Account detail dialog"
 #| msgid "Account detail"
 msgid "Account editor"
 msgstr "계정 정보"
 
-#: src/qml/Component/UserInfo.qml:178
+#: src/qml/Component/UserInfo.qml:183
 #, kde-format
 msgid "Switch User"
 msgstr ""
 
-#: src/qml/Component/UserInfo.qml:194 src/qml/Page/InviteUserPage.qml:42
+#: src/qml/Component/UserInfo.qml:199 src/qml/Page/InviteUserPage.qml:42
 #, kde-format
 msgid "Add"
 msgstr "추가"
 
-#: src/qml/Component/UserInfo.qml:205 src/qml/Menu/GlobalMenu.qml:28
+#: src/qml/Component/UserInfo.qml:210 src/qml/Menu/AccountMenu.qml:28
+#: src/qml/Menu/AccountMenu.qml:33 src/qml/Menu/GlobalMenu.qml:28
 #, kde-format
 msgid "Configure"
 msgstr "설정"
 
-#: src/qml/Component/UserInfo.qml:206
+#: src/qml/Component/UserInfo.qml:211
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgid "Open Settings"
@@ -1708,7 +1710,7 @@ msgid "Successfully verified device **%1**"
 msgstr ""
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:194
+#: src/qml/Page/RoomPage.qml:196
 #, kde-format
 msgid "Accept"
 msgstr "수락"
@@ -2013,6 +2015,23 @@ msgstr "대화 시작"
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "%1 님과 대화를 시작하시겠습니까?"
+
+#: src/qml/Menu/AccountMenu.qml:26
+#, fuzzy, kde-format
+#| msgid "Show notifications"
+msgid "Notification settings"
+msgstr "알림 표시"
+
+#: src/qml/Menu/AccountMenu.qml:31 src/qml/Settings/DevicesPage.qml:14
+#: src/qml/Settings/DevicesPage.qml:26 src/qml/Settings/SettingsPage.qml:56
+#, kde-format
+msgid "Devices"
+msgstr "장치"
+
+#: src/qml/Menu/AccountMenu.qml:36
+#, kde-format
+msgid "Logout"
+msgstr "로그아웃"
 
 #: src/qml/Menu/EditMenu.qml:17
 #, kde-format
@@ -2637,54 +2656,54 @@ msgstr "음소거됨"
 msgid "Configure room"
 msgstr "대화방 설정"
 
-#: src/qml/Page/RoomPage.qml:183
+#: src/qml/Page/RoomPage.qml:185
 #, kde-format
 msgid "Accept this invitation?"
 msgstr "이 초대를 수락하시겠습니까?"
 
-#: src/qml/Page/RoomPage.qml:187
+#: src/qml/Page/RoomPage.qml:189
 #, kde-format
 msgid "Reject"
 msgstr "거부"
 
-#: src/qml/Page/RoomPage.qml:285
+#: src/qml/Page/RoomPage.qml:287
 #, kde-format
 msgid "Choose local file"
 msgstr "로컬 파일 선택"
 
-#: src/qml/Page/RoomPage.qml:312
+#: src/qml/Page/RoomPage.qml:314
 #, kde-format
 msgid "Clipboard image"
 msgstr "클립보드의 그림"
 
-#: src/qml/Page/RoomPage.qml:364
+#: src/qml/Page/RoomPage.qml:368
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "첫 읽지 않은 메시지로 이동"
 
-#: src/qml/Page/RoomPage.qml:389
+#: src/qml/Page/RoomPage.qml:395
 #, kde-format
 msgid "Jump to latest message"
 msgstr "최신 메시지로 이동"
 
-#: src/qml/Page/RoomPage.qml:414
+#: src/qml/Page/RoomPage.qml:420
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "공유할 항목을 여기에 드래그"
 
-#: src/qml/Page/RoomPage.qml:446
+#: src/qml/Page/RoomPage.qml:452
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 님이 메시지를 입력하는 중"
 
-#: src/qml/Page/RoomPage.qml:517
+#: src/qml/Page/RoomPage.qml:523
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr ""
 
-#: src/qml/Page/RoomPage.qml:523
+#: src/qml/Page/RoomPage.qml:529
 #, kde-format
 msgid "React"
 msgstr "반응"
@@ -2809,7 +2828,7 @@ msgid "No Member Count"
 msgstr "구성원 집계 없음"
 
 #: src/qml/RoomSettings/Categories.qml:15 src/qml/RoomSettings/General.qml:20
-#: src/qml/Settings/SettingsPage.qml:12
+#: src/qml/Settings/SettingsPage.qml:13
 #, kde-format
 msgid "General"
 msgstr "일반"
@@ -2824,7 +2843,7 @@ msgstr "보안"
 msgid "Permissions"
 msgstr ""
 
-#: src/qml/RoomSettings/Categories.qml:45 src/qml/Settings/SettingsPage.qml:22
+#: src/qml/RoomSettings/Categories.qml:45 src/qml/Settings/SettingsPage.qml:25
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgid "Notifications"
@@ -3372,7 +3391,7 @@ msgid "Homeserver url"
 msgstr "홈 서버:"
 
 #: src/qml/Settings/AccountsPage.qml:15 src/qml/Settings/AccountsPage.qml:26
-#: src/qml/Settings/SettingsPage.qml:27
+#: src/qml/Settings/SettingsPage.qml:31
 #, kde-format
 msgid "Accounts"
 msgstr "계정"
@@ -3473,12 +3492,6 @@ msgstr "사이드바에서"
 #, kde-format
 msgid "Color theme"
 msgstr ""
-
-#: src/qml/Settings/DevicesPage.qml:14 src/qml/Settings/DevicesPage.qml:26
-#: src/qml/Settings/SettingsPage.qml:48
-#, kde-format
-msgid "Devices"
-msgstr "장치"
 
 #: src/qml/Settings/DevicesPage.qml:86
 #, fuzzy, kde-format
@@ -3771,7 +3784,7 @@ msgid "Call invitation"
 msgstr "초대 보내기"
 
 #: src/qml/Settings/NetworkProxyPage.qml:27
-#: src/qml/Settings/SettingsPage.qml:43
+#: src/qml/Settings/SettingsPage.qml:50
 #, fuzzy, kde-format
 #| msgid "Network Error"
 msgid "Network Proxy"
@@ -3860,28 +3873,28 @@ msgstr ""
 msgid "Delete keyword"
 msgstr "단어 삭제"
 
-#: src/qml/Settings/SettingsPage.qml:17
+#: src/qml/Settings/SettingsPage.qml:19
 #, kde-format
 msgid "Appearance"
 msgstr "모양"
 
-#: src/qml/Settings/SettingsPage.qml:32
+#: src/qml/Settings/SettingsPage.qml:37
 #, fuzzy, kde-format
 #| msgid "Custom Emoji"
 msgid "Custom Emojis"
 msgstr "사용자 정의 이모지"
 
-#: src/qml/Settings/SettingsPage.qml:37
+#: src/qml/Settings/SettingsPage.qml:43
 #, kde-format
 msgid "Spell Checking"
 msgstr "맞춤법 검사"
 
-#: src/qml/Settings/SettingsPage.qml:53
+#: src/qml/Settings/SettingsPage.qml:62
 #, kde-format
 msgid "About NeoChat"
 msgstr "NeoChat 정보"
 
-#: src/qml/Settings/SettingsPage.qml:58
+#: src/qml/Settings/SettingsPage.qml:67
 #, fuzzy, kde-format
 #| msgid "About"
 msgid "About KDE"
@@ -4027,9 +4040,6 @@ msgstr "표시"
 #, kde-format
 msgid "Quit"
 msgstr "끝내기"
-
-#~ msgid "Logout"
-#~ msgstr "로그아웃"
 
 #~ msgid "Rooms"
 #~ msgstr "대화방"

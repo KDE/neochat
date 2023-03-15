@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-14 00:46+0000\n"
+"POT-Creation-Date: 2023-03-15 00:47+0000\n"
 "PO-Revision-Date: 2023-02-28 21:04+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -1067,7 +1067,7 @@ msgstr "افتح نيوتشات في هذه الغرفة"
 #: src/notificationsmanager.cpp:85
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:550
+#: src/qml/Page/RoomPage.qml:558
 #, kde-format
 msgid "Reply"
 msgstr "ردّ"
@@ -1104,7 +1104,7 @@ msgstr "المرفق:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:539
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:547
 #, kde-format
 msgid "Edit"
 msgstr "حرّر"
@@ -1464,7 +1464,7 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "آخر قراءة: %1"
 
-#: src/qml/Component/Timeline/RichLabel.qml:61
+#: src/qml/Component/Timeline/RichLabel.qml:60
 #, kde-format
 msgid " (edited)"
 msgstr " (معدل)"
@@ -1496,32 +1496,34 @@ msgctxt "@title:window"
 msgid "Login"
 msgstr "ولوج"
 
-#: src/qml/Component/UserInfo.qml:145
+#: src/qml/Component/UserInfo.qml:145 src/qml/Menu/AccountMenu.qml:17
 #, kde-format
 msgid "Edit this account"
 msgstr "حرر هذا الحساب"
 
-#: src/qml/Component/UserInfo.qml:150 src/qml/Settings/AccountsPage.qml:36
+#: src/qml/Component/UserInfo.qml:150 src/qml/Menu/AccountMenu.qml:22
+#: src/qml/Settings/AccountsPage.qml:36
 #, kde-format
 msgid "Account editor"
 msgstr "تفاصيل الحساب"
 
-#: src/qml/Component/UserInfo.qml:178
+#: src/qml/Component/UserInfo.qml:183
 #, kde-format
 msgid "Switch User"
 msgstr "بدّل المستخدم"
 
-#: src/qml/Component/UserInfo.qml:194 src/qml/Page/InviteUserPage.qml:42
+#: src/qml/Component/UserInfo.qml:199 src/qml/Page/InviteUserPage.qml:42
 #, kde-format
 msgid "Add"
 msgstr "أضف"
 
-#: src/qml/Component/UserInfo.qml:205 src/qml/Menu/GlobalMenu.qml:28
+#: src/qml/Component/UserInfo.qml:210 src/qml/Menu/AccountMenu.qml:28
+#: src/qml/Menu/AccountMenu.qml:33 src/qml/Menu/GlobalMenu.qml:28
 #, kde-format
 msgid "Configure"
 msgstr "اضبط"
 
-#: src/qml/Component/UserInfo.qml:206
+#: src/qml/Component/UserInfo.qml:211
 #, kde-format
 msgid "Open Settings"
 msgstr "إعدادات الفتح"
@@ -1622,7 +1624,7 @@ msgid "Successfully verified device **%1**"
 msgstr "نجح في تَثَبّت من جهاز **%1**"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:194
+#: src/qml/Page/RoomPage.qml:196
 #, kde-format
 msgid "Accept"
 msgstr "اقبل"
@@ -1923,6 +1925,23 @@ msgstr "ابدأ دردشة"
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "هل ترغب في بَدء دردشة مع %1؟"
+
+#: src/qml/Menu/AccountMenu.qml:26
+#, fuzzy, kde-format
+#| msgid "Room notifications setting"
+msgid "Notification settings"
+msgstr "إعدادات إشعارات الغرفة"
+
+#: src/qml/Menu/AccountMenu.qml:31 src/qml/Settings/DevicesPage.qml:14
+#: src/qml/Settings/DevicesPage.qml:26 src/qml/Settings/SettingsPage.qml:56
+#, kde-format
+msgid "Devices"
+msgstr "الأجهزة"
+
+#: src/qml/Menu/AccountMenu.qml:36
+#, kde-format
+msgid "Logout"
+msgstr "اخرج"
 
 #: src/qml/Menu/EditMenu.qml:17
 #, kde-format
@@ -2523,42 +2542,42 @@ msgstr "غرفة مكتومة"
 msgid "Configure room"
 msgstr "اضبط الغرفة"
 
-#: src/qml/Page/RoomPage.qml:183
+#: src/qml/Page/RoomPage.qml:185
 #, kde-format
 msgid "Accept this invitation?"
 msgstr "هل تقبل هذه الدعوة؟"
 
-#: src/qml/Page/RoomPage.qml:187
+#: src/qml/Page/RoomPage.qml:189
 #, kde-format
 msgid "Reject"
 msgstr "ارفض"
 
-#: src/qml/Page/RoomPage.qml:285
+#: src/qml/Page/RoomPage.qml:287
 #, kde-format
 msgid "Choose local file"
 msgstr "اختر ملف محلي"
 
-#: src/qml/Page/RoomPage.qml:312
+#: src/qml/Page/RoomPage.qml:314
 #, kde-format
 msgid "Clipboard image"
 msgstr "صورة الحافظة"
 
-#: src/qml/Page/RoomPage.qml:364
+#: src/qml/Page/RoomPage.qml:368
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "اقفز إلى أول رسالة غير المقروءة"
 
-#: src/qml/Page/RoomPage.qml:389
+#: src/qml/Page/RoomPage.qml:395
 #, kde-format
 msgid "Jump to latest message"
 msgstr "اقفز إلى أحدث رسالة"
 
-#: src/qml/Page/RoomPage.qml:414
+#: src/qml/Page/RoomPage.qml:420
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "اسحب عناصر هنا لتشاركهم"
 
-#: src/qml/Page/RoomPage.qml:446
+#: src/qml/Page/RoomPage.qml:452
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2570,12 +2589,12 @@ msgstr[3] "‏%2 يكتبون"
 msgstr[4] "‏%2 يكتبون"
 msgstr[5] "‏%2 يكتبون"
 
-#: src/qml/Page/RoomPage.qml:517
+#: src/qml/Page/RoomPage.qml:523
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "هذه الرسالة أرسلت من جهاز متَثَبّت منه"
 
-#: src/qml/Page/RoomPage.qml:523
+#: src/qml/Page/RoomPage.qml:529
 #, kde-format
 msgid "React"
 msgstr "تفاعل"
@@ -2699,7 +2718,7 @@ msgid "No Member Count"
 msgstr "بلا عدد أعضاء"
 
 #: src/qml/RoomSettings/Categories.qml:15 src/qml/RoomSettings/General.qml:20
-#: src/qml/Settings/SettingsPage.qml:12
+#: src/qml/Settings/SettingsPage.qml:13
 #, kde-format
 msgid "General"
 msgstr "عامّ"
@@ -2714,7 +2733,7 @@ msgstr "الأمن"
 msgid "Permissions"
 msgstr "التّصاريح"
 
-#: src/qml/RoomSettings/Categories.qml:45 src/qml/Settings/SettingsPage.qml:22
+#: src/qml/RoomSettings/Categories.qml:45 src/qml/Settings/SettingsPage.qml:25
 #, kde-format
 msgid "Notifications"
 msgstr "الإشعارات"
@@ -3222,7 +3241,7 @@ msgid "Homeserver url"
 msgstr "رابط الخادم المنزل"
 
 #: src/qml/Settings/AccountsPage.qml:15 src/qml/Settings/AccountsPage.qml:26
-#: src/qml/Settings/SettingsPage.qml:27
+#: src/qml/Settings/SettingsPage.qml:31
 #, kde-format
 msgid "Accounts"
 msgstr "الحسابات"
@@ -3317,12 +3336,6 @@ msgstr "في الشريط الجانبي"
 #, kde-format
 msgid "Color theme"
 msgstr "سمة الألوان"
-
-#: src/qml/Settings/DevicesPage.qml:14 src/qml/Settings/DevicesPage.qml:26
-#: src/qml/Settings/SettingsPage.qml:48
-#, kde-format
-msgid "Devices"
-msgstr "الأجهزة"
 
 #: src/qml/Settings/DevicesPage.qml:86
 #, kde-format
@@ -3591,7 +3604,7 @@ msgid "Call invitation"
 msgstr "دعوة مكالمة"
 
 #: src/qml/Settings/NetworkProxyPage.qml:27
-#: src/qml/Settings/SettingsPage.qml:43
+#: src/qml/Settings/SettingsPage.qml:50
 #, kde-format
 msgid "Network Proxy"
 msgstr "وسيط الشّبكة"
@@ -3672,27 +3685,27 @@ msgstr "مكن إبرازات الرسالة"
 msgid "Delete keyword"
 msgstr "احذف الكلمة المفتاحية"
 
-#: src/qml/Settings/SettingsPage.qml:17
+#: src/qml/Settings/SettingsPage.qml:19
 #, kde-format
 msgid "Appearance"
 msgstr "المظهر"
 
-#: src/qml/Settings/SettingsPage.qml:32
+#: src/qml/Settings/SettingsPage.qml:37
 #, kde-format
 msgid "Custom Emojis"
 msgstr "صورة تعبيرية مخصصة"
 
-#: src/qml/Settings/SettingsPage.qml:37
+#: src/qml/Settings/SettingsPage.qml:43
 #, kde-format
 msgid "Spell Checking"
 msgstr "التدقيق الإملائي"
 
-#: src/qml/Settings/SettingsPage.qml:53
+#: src/qml/Settings/SettingsPage.qml:62
 #, kde-format
 msgid "About NeoChat"
 msgstr "عن نيوتشات"
 
-#: src/qml/Settings/SettingsPage.qml:58
+#: src/qml/Settings/SettingsPage.qml:67
 #, kde-format
 msgid "About KDE"
 msgstr ""
@@ -3834,9 +3847,6 @@ msgstr "أظهر"
 #, kde-format
 msgid "Quit"
 msgstr "أنهِ"
-
-#~ msgid "Logout"
-#~ msgstr "اخرج"
 
 #~ msgid "Rooms"
 #~ msgstr "الغرف"

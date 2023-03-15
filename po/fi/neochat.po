@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-14 00:46+0000\n"
+"POT-Creation-Date: 2023-03-15 00:47+0000\n"
 "PO-Revision-Date: 2023-03-08 23:02+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1055,7 +1055,7 @@ msgstr "Avaa NeoChat tähän huoneeseen"
 #: src/notificationsmanager.cpp:85
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:550
+#: src/qml/Page/RoomPage.qml:558
 #, kde-format
 msgid "Reply"
 msgstr "Vastaa"
@@ -1092,7 +1092,7 @@ msgstr "Liite:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:539
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:547
 #, kde-format
 msgid "Edit"
 msgstr "Muokkaa"
@@ -1442,7 +1442,7 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Viimeksi luettu: %1"
 
-#: src/qml/Component/Timeline/RichLabel.qml:61
+#: src/qml/Component/Timeline/RichLabel.qml:60
 #, kde-format
 msgid " (edited)"
 msgstr "(muokattu)"
@@ -1474,32 +1474,34 @@ msgctxt "@title:window"
 msgid "Login"
 msgstr "Kirjaudu"
 
-#: src/qml/Component/UserInfo.qml:145
+#: src/qml/Component/UserInfo.qml:145 src/qml/Menu/AccountMenu.qml:17
 #, kde-format
 msgid "Edit this account"
 msgstr "Muokkaa tätä tiliä"
 
-#: src/qml/Component/UserInfo.qml:150 src/qml/Settings/AccountsPage.qml:36
+#: src/qml/Component/UserInfo.qml:150 src/qml/Menu/AccountMenu.qml:22
+#: src/qml/Settings/AccountsPage.qml:36
 #, kde-format
 msgid "Account editor"
 msgstr "Tilimuokkain"
 
-#: src/qml/Component/UserInfo.qml:178
+#: src/qml/Component/UserInfo.qml:183
 #, kde-format
 msgid "Switch User"
 msgstr "Vaihda käyttäjää"
 
-#: src/qml/Component/UserInfo.qml:194 src/qml/Page/InviteUserPage.qml:42
+#: src/qml/Component/UserInfo.qml:199 src/qml/Page/InviteUserPage.qml:42
 #, kde-format
 msgid "Add"
 msgstr "Lisää"
 
-#: src/qml/Component/UserInfo.qml:205 src/qml/Menu/GlobalMenu.qml:28
+#: src/qml/Component/UserInfo.qml:210 src/qml/Menu/AccountMenu.qml:28
+#: src/qml/Menu/AccountMenu.qml:33 src/qml/Menu/GlobalMenu.qml:28
 #, kde-format
 msgid "Configure"
 msgstr "Asetukset"
 
-#: src/qml/Component/UserInfo.qml:206
+#: src/qml/Component/UserInfo.qml:211
 #, kde-format
 msgid "Open Settings"
 msgstr "Avaa asetukset"
@@ -1602,7 +1604,7 @@ msgid "Successfully verified device **%1**"
 msgstr "Laitteen **%1** todennus onnistui"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:194
+#: src/qml/Page/RoomPage.qml:196
 #, kde-format
 msgid "Accept"
 msgstr "Hyväksy"
@@ -1914,6 +1916,23 @@ msgstr "Aloita keskustelu"
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Haluatko käynnistää keskustelun henkilön %1 kanssa?"
+
+#: src/qml/Menu/AccountMenu.qml:26
+#, fuzzy, kde-format
+#| msgid "Room notifications setting"
+msgid "Notification settings"
+msgstr "Huoneen ilmoitusasetukset"
+
+#: src/qml/Menu/AccountMenu.qml:31 src/qml/Settings/DevicesPage.qml:14
+#: src/qml/Settings/DevicesPage.qml:26 src/qml/Settings/SettingsPage.qml:56
+#, kde-format
+msgid "Devices"
+msgstr "Laitteet"
+
+#: src/qml/Menu/AccountMenu.qml:36
+#, kde-format
+msgid "Logout"
+msgstr "Kirjaudu ulos"
 
 #: src/qml/Menu/EditMenu.qml:17
 #, kde-format
@@ -2515,42 +2534,42 @@ msgstr "Vaimennettu huone"
 msgid "Configure room"
 msgstr "Huoneen asetukset"
 
-#: src/qml/Page/RoomPage.qml:183
+#: src/qml/Page/RoomPage.qml:185
 #, kde-format
 msgid "Accept this invitation?"
 msgstr "Hyväksytäänkö kutsu?"
 
-#: src/qml/Page/RoomPage.qml:187
+#: src/qml/Page/RoomPage.qml:189
 #, kde-format
 msgid "Reject"
 msgstr "Hylkää"
 
-#: src/qml/Page/RoomPage.qml:285
+#: src/qml/Page/RoomPage.qml:287
 #, kde-format
 msgid "Choose local file"
 msgstr "Valitse paikallinen tiedosto"
 
-#: src/qml/Page/RoomPage.qml:312
+#: src/qml/Page/RoomPage.qml:314
 #, kde-format
 msgid "Clipboard image"
 msgstr "Leikepöydän kuva"
 
-#: src/qml/Page/RoomPage.qml:364
+#: src/qml/Page/RoomPage.qml:368
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Hyppää ensimmäiseen lukemattomaan viestiin"
 
-#: src/qml/Page/RoomPage.qml:389
+#: src/qml/Page/RoomPage.qml:395
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Hyppää viimeisimpään viestiin"
 
-#: src/qml/Page/RoomPage.qml:414
+#: src/qml/Page/RoomPage.qml:420
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Jaa kohteita vetämällä ne tähän"
 
-#: src/qml/Page/RoomPage.qml:446
+#: src/qml/Page/RoomPage.qml:452
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2558,12 +2577,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 kirjoittaa"
 msgstr[1] "%2 kirjoittavat"
 
-#: src/qml/Page/RoomPage.qml:517
+#: src/qml/Page/RoomPage.qml:523
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "Tämä viesti lähetettiin todennetulta laitteelta"
 
-#: src/qml/Page/RoomPage.qml:523
+#: src/qml/Page/RoomPage.qml:529
 #, kde-format
 msgid "React"
 msgstr "Reagoi"
@@ -2683,7 +2702,7 @@ msgid "No Member Count"
 msgstr "Ei jäsenmäärää"
 
 #: src/qml/RoomSettings/Categories.qml:15 src/qml/RoomSettings/General.qml:20
-#: src/qml/Settings/SettingsPage.qml:12
+#: src/qml/Settings/SettingsPage.qml:13
 #, kde-format
 msgid "General"
 msgstr "Perusasetukset"
@@ -2698,7 +2717,7 @@ msgstr "Tietoturva"
 msgid "Permissions"
 msgstr "Käyttöoikeudet"
 
-#: src/qml/RoomSettings/Categories.qml:45 src/qml/Settings/SettingsPage.qml:22
+#: src/qml/RoomSettings/Categories.qml:45 src/qml/Settings/SettingsPage.qml:25
 #, kde-format
 msgid "Notifications"
 msgstr "Ilmoitukset"
@@ -3211,7 +3230,7 @@ msgid "Homeserver url"
 msgstr "Kotipalvelimen verkko-osoite"
 
 #: src/qml/Settings/AccountsPage.qml:15 src/qml/Settings/AccountsPage.qml:26
-#: src/qml/Settings/SettingsPage.qml:27
+#: src/qml/Settings/SettingsPage.qml:31
 #, kde-format
 msgid "Accounts"
 msgstr "Tilit"
@@ -3306,12 +3325,6 @@ msgstr "Sivupaneelissa"
 #, kde-format
 msgid "Color theme"
 msgstr "Väriteema"
-
-#: src/qml/Settings/DevicesPage.qml:14 src/qml/Settings/DevicesPage.qml:26
-#: src/qml/Settings/SettingsPage.qml:48
-#, kde-format
-msgid "Devices"
-msgstr "Laitteet"
 
 # Voisi myös olla ”Uuden laitteen nimi”, englanti pahalainen ei tee eroa :P
 #: src/qml/Settings/DevicesPage.qml:86
@@ -3582,7 +3595,7 @@ msgid "Call invitation"
 msgstr "Soittokutsu"
 
 #: src/qml/Settings/NetworkProxyPage.qml:27
-#: src/qml/Settings/SettingsPage.qml:43
+#: src/qml/Settings/SettingsPage.qml:50
 #, kde-format
 msgid "Network Proxy"
 msgstr "Välityspalvelin"
@@ -3663,27 +3676,27 @@ msgstr "Käytä viestien korostusta"
 msgid "Delete keyword"
 msgstr "Poista hakusana"
 
-#: src/qml/Settings/SettingsPage.qml:17
+#: src/qml/Settings/SettingsPage.qml:19
 #, kde-format
 msgid "Appearance"
 msgstr "Ulkoasu"
 
-#: src/qml/Settings/SettingsPage.qml:32
+#: src/qml/Settings/SettingsPage.qml:37
 #, kde-format
 msgid "Custom Emojis"
 msgstr "Mukautetut emojit"
 
-#: src/qml/Settings/SettingsPage.qml:37
+#: src/qml/Settings/SettingsPage.qml:43
 #, kde-format
 msgid "Spell Checking"
 msgstr "Oikeinkirjoituksen tarkistus"
 
-#: src/qml/Settings/SettingsPage.qml:53
+#: src/qml/Settings/SettingsPage.qml:62
 #, kde-format
 msgid "About NeoChat"
 msgstr "Tietoa Neochatistä"
 
-#: src/qml/Settings/SettingsPage.qml:58
+#: src/qml/Settings/SettingsPage.qml:67
 #, fuzzy, kde-format
 #| msgid "About"
 msgid "About KDE"
@@ -3826,9 +3839,6 @@ msgstr "Näytä"
 #, kde-format
 msgid "Quit"
 msgstr "Lopeta"
-
-#~ msgid "Logout"
-#~ msgstr "Kirjaudu ulos"
 
 #~ msgid "Rooms"
 #~ msgstr "Huoneet"

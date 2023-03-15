@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-14 00:46+0000\n"
+"POT-Creation-Date: 2023-03-15 00:47+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -1162,7 +1162,7 @@ msgstr "NeoChatı bu otaqla açın"
 #: src/notificationsmanager.cpp:85
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:550
+#: src/qml/Page/RoomPage.qml:558
 #, kde-format
 msgid "Reply"
 msgstr "Cavab"
@@ -1199,7 +1199,7 @@ msgstr "Qoşma fayl:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:539
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:547
 #, kde-format
 msgid "Edit"
 msgstr "Düzəliş etmək"
@@ -1560,7 +1560,7 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Sonuncu oxuma: %1"
 
-#: src/qml/Component/Timeline/RichLabel.qml:61
+#: src/qml/Component/Timeline/RichLabel.qml:60
 #, kde-format
 msgid " (edited)"
 msgstr " (düzəliş edildi)"
@@ -1594,34 +1594,36 @@ msgctxt "@title:window"
 msgid "Login"
 msgstr "Giriş"
 
-#: src/qml/Component/UserInfo.qml:145
+#: src/qml/Component/UserInfo.qml:145 src/qml/Menu/AccountMenu.qml:17
 #, kde-format
 msgid "Edit this account"
 msgstr "Bu hesaba düzəliş edin"
 
-#: src/qml/Component/UserInfo.qml:150 src/qml/Settings/AccountsPage.qml:36
+#: src/qml/Component/UserInfo.qml:150 src/qml/Menu/AccountMenu.qml:22
+#: src/qml/Settings/AccountsPage.qml:36
 #, fuzzy, kde-format
 #| msgctxt "@title:menu Account detail dialog"
 #| msgid "Account detail"
 msgid "Account editor"
 msgstr "İstifadəçi hesabı təfərrüatları"
 
-#: src/qml/Component/UserInfo.qml:178
+#: src/qml/Component/UserInfo.qml:183
 #, kde-format
 msgid "Switch User"
 msgstr ""
 
-#: src/qml/Component/UserInfo.qml:194 src/qml/Page/InviteUserPage.qml:42
+#: src/qml/Component/UserInfo.qml:199 src/qml/Page/InviteUserPage.qml:42
 #, kde-format
 msgid "Add"
 msgstr "Əlavə etmək"
 
-#: src/qml/Component/UserInfo.qml:205 src/qml/Menu/GlobalMenu.qml:28
+#: src/qml/Component/UserInfo.qml:210 src/qml/Menu/AccountMenu.qml:28
+#: src/qml/Menu/AccountMenu.qml:33 src/qml/Menu/GlobalMenu.qml:28
 #, kde-format
 msgid "Configure"
 msgstr "Tənzimləyin"
 
-#: src/qml/Component/UserInfo.qml:206
+#: src/qml/Component/UserInfo.qml:211
 #, fuzzy, kde-format
 #| msgid "Settings"
 msgid "Open Settings"
@@ -1725,7 +1727,7 @@ msgid "Successfully verified device **%1**"
 msgstr ""
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:194
+#: src/qml/Page/RoomPage.qml:196
 #, kde-format
 msgid "Accept"
 msgstr "Qəbul etmək"
@@ -2030,6 +2032,23 @@ msgstr "Söhbətə başlayın"
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "%1 ilə söhbətə başlamaq istəyirsiniz?"
+
+#: src/qml/Menu/AccountMenu.qml:26
+#, fuzzy, kde-format
+#| msgid "Show notifications"
+msgid "Notification settings"
+msgstr "Bildirişlərdə göstərmək"
+
+#: src/qml/Menu/AccountMenu.qml:31 src/qml/Settings/DevicesPage.qml:14
+#: src/qml/Settings/DevicesPage.qml:26 src/qml/Settings/SettingsPage.qml:56
+#, kde-format
+msgid "Devices"
+msgstr "Cihazlar"
+
+#: src/qml/Menu/AccountMenu.qml:36
+#, kde-format
+msgid "Logout"
+msgstr "Çıxış"
 
 #: src/qml/Menu/EditMenu.qml:17
 #, kde-format
@@ -2654,42 +2673,42 @@ msgstr "Səssiz"
 msgid "Configure room"
 msgstr "Otağı tənzimləmək"
 
-#: src/qml/Page/RoomPage.qml:183
+#: src/qml/Page/RoomPage.qml:185
 #, kde-format
 msgid "Accept this invitation?"
 msgstr "Bu dəvəti qəbul edirsiniz?"
 
-#: src/qml/Page/RoomPage.qml:187
+#: src/qml/Page/RoomPage.qml:189
 #, kde-format
 msgid "Reject"
 msgstr "İmtina etmək"
 
-#: src/qml/Page/RoomPage.qml:285
+#: src/qml/Page/RoomPage.qml:287
 #, kde-format
 msgid "Choose local file"
 msgstr "Yerli faylı seçin"
 
-#: src/qml/Page/RoomPage.qml:312
+#: src/qml/Page/RoomPage.qml:314
 #, kde-format
 msgid "Clipboard image"
 msgstr "Mübadilə yaddaşındakı şəkil"
 
-#: src/qml/Page/RoomPage.qml:364
+#: src/qml/Page/RoomPage.qml:368
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Birinci oxunmammış ismarıca keçin"
 
-#: src/qml/Page/RoomPage.qml:389
+#: src/qml/Page/RoomPage.qml:395
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Sonuncu ismarıca keçin"
 
-#: src/qml/Page/RoomPage.qml:414
+#: src/qml/Page/RoomPage.qml:420
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Elementi paylaşmaq üçün buraya atın"
 
-#: src/qml/Page/RoomPage.qml:446
+#: src/qml/Page/RoomPage.qml:452
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2697,12 +2716,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 yazır"
 msgstr[1] "%2 yazırlar"
 
-#: src/qml/Page/RoomPage.qml:517
+#: src/qml/Page/RoomPage.qml:523
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr ""
 
-#: src/qml/Page/RoomPage.qml:523
+#: src/qml/Page/RoomPage.qml:529
 #, kde-format
 msgid "React"
 msgstr "Reaksiya"
@@ -2828,7 +2847,7 @@ msgid "No Member Count"
 msgstr "Üzv sayı yoxdur"
 
 #: src/qml/RoomSettings/Categories.qml:15 src/qml/RoomSettings/General.qml:20
-#: src/qml/Settings/SettingsPage.qml:12
+#: src/qml/Settings/SettingsPage.qml:13
 #, kde-format
 msgid "General"
 msgstr "Əsas"
@@ -2843,7 +2862,7 @@ msgstr "Təhlükəsizlik"
 msgid "Permissions"
 msgstr ""
 
-#: src/qml/RoomSettings/Categories.qml:45 src/qml/Settings/SettingsPage.qml:22
+#: src/qml/RoomSettings/Categories.qml:45 src/qml/Settings/SettingsPage.qml:25
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgid "Notifications"
@@ -3391,7 +3410,7 @@ msgid "Homeserver url"
 msgstr "Əsas server:"
 
 #: src/qml/Settings/AccountsPage.qml:15 src/qml/Settings/AccountsPage.qml:26
-#: src/qml/Settings/SettingsPage.qml:27
+#: src/qml/Settings/SettingsPage.qml:31
 #, kde-format
 msgid "Accounts"
 msgstr "İstifadəçi Hesabları"
@@ -3492,12 +3511,6 @@ msgstr "Yan paneldə"
 #, kde-format
 msgid "Color theme"
 msgstr ""
-
-#: src/qml/Settings/DevicesPage.qml:14 src/qml/Settings/DevicesPage.qml:26
-#: src/qml/Settings/SettingsPage.qml:48
-#, kde-format
-msgid "Devices"
-msgstr "Cihazlar"
 
 #: src/qml/Settings/DevicesPage.qml:86
 #, fuzzy, kde-format
@@ -3794,7 +3807,7 @@ msgid "Call invitation"
 msgstr "Dəvət göndərmək"
 
 #: src/qml/Settings/NetworkProxyPage.qml:27
-#: src/qml/Settings/SettingsPage.qml:43
+#: src/qml/Settings/SettingsPage.qml:50
 #, fuzzy, kde-format
 #| msgid "Network Error"
 msgid "Network Proxy"
@@ -3883,28 +3896,28 @@ msgstr ""
 msgid "Delete keyword"
 msgstr "Sözü silin"
 
-#: src/qml/Settings/SettingsPage.qml:17
+#: src/qml/Settings/SettingsPage.qml:19
 #, kde-format
 msgid "Appearance"
 msgstr "Xarici görünüş"
 
-#: src/qml/Settings/SettingsPage.qml:32
+#: src/qml/Settings/SettingsPage.qml:37
 #, fuzzy, kde-format
 #| msgid "Custom Emoji"
 msgid "Custom Emojis"
 msgstr "Xüsusi Emoji"
 
-#: src/qml/Settings/SettingsPage.qml:37
+#: src/qml/Settings/SettingsPage.qml:43
 #, kde-format
 msgid "Spell Checking"
 msgstr "Orfoqrafiya yoxlaması"
 
-#: src/qml/Settings/SettingsPage.qml:53
+#: src/qml/Settings/SettingsPage.qml:62
 #, kde-format
 msgid "About NeoChat"
 msgstr "NeoChat haqqında"
 
-#: src/qml/Settings/SettingsPage.qml:58
+#: src/qml/Settings/SettingsPage.qml:67
 #, fuzzy, kde-format
 #| msgid "About"
 msgid "About KDE"
@@ -4050,9 +4063,6 @@ msgstr "Göstərmək"
 #, kde-format
 msgid "Quit"
 msgstr "Çıxış"
-
-#~ msgid "Logout"
-#~ msgstr "Çıxış"
 
 #~ msgid "Rooms"
 #~ msgstr "Otaqlar"
