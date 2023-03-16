@@ -219,8 +219,12 @@ void TextHandler::next()
 
 void TextHandler::nextTokenType()
 {
-    if (m_nextTokenType == Type::Tag && getTagType() == QStringLiteral("code") && !isCloseTag()
-        && m_dataBuffer.indexOf(QStringLiteral("</code>"), m_pos) != m_pos) {
+    if (m_pos >= m_dataBuffer.length()) {
+        // This is to stop the function accessing an index outside the length of
+        // m_dataBuffer during the final loop.
+        m_nextTokenType = Type::End;
+    } else if (m_nextTokenType == Type::Tag && getTagType() == QStringLiteral("code") && !isCloseTag()
+               && m_dataBuffer.indexOf(QStringLiteral("</code>"), m_pos) != m_pos) {
         m_nextTokenType = Type::TextCode;
     } else if (m_dataBuffer[m_pos] == u'<' && m_dataBuffer[m_pos + 1] != u' ') {
         m_nextTokenType = Type::Tag;
