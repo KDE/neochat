@@ -313,14 +313,9 @@ QQC2.Control {
                 QQC2.ToolTip.text: modelData.tooltip
                 HoverHandler { id: hoverHandler }
 
-                QQC2.BusyIndicator {
-                    anchors.fill: parent
-                    leftPadding: 0
-                    rightPadding: 0
-                    topPadding: 0
-                    bottomPadding: 0
-                    visible: running
-                    running: modelData.isBusy
+                PieProgressBar {
+                    visible: modelData.isBusy
+                    progress: currentRoom.fileUploadingProgress
                 }
             }
         }
