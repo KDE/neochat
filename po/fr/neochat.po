@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-15 02:47+0000\n"
-"PO-Revision-Date: 2023-03-10 11:59+0100\n"
+"PO-Revision-Date: 2023-03-15 14:49+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -670,19 +670,14 @@ msgid "[REDACTED: %1]"
 msgstr "[RÉDIGÉ : %1]"
 
 #: src/models/messageeventmodel.cpp:843
-#, fuzzy, kde-format
-#| msgctxt "n users"
-#| msgid " %1 user "
-#| msgid_plural " %1 users "
+#, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
-msgstr[0] " utilisateur %1  "
-msgstr[1] " %1 utilisateurs "
+msgstr[0] " utilisateur %1 :"
+msgstr[1] " %1 utilisateurs :"
 
 #: src/models/messageeventmodel.cpp:850
-#, fuzzy, kde-format
-#| msgctxt "[action 1], [action 2 and/or action 3]"
-#| msgid ", "
+#, kde-format
 msgctxt "list separator"
 msgid ", "
 msgstr ", "
@@ -2805,35 +2800,29 @@ msgid "Add new alias"
 msgstr "Ajouter un nouvel alias"
 
 #: src/qml/RoomSettings/General.qml:271
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "URL Previews"
-msgstr "Chargement d'un aperçu de l'URL"
+msgstr "Aperçus des URL"
 
 #: src/qml/RoomSettings/General.qml:274
 #, kde-format
 msgid "Enable URL previews by default for room members"
-msgstr ""
+msgstr "Activer les aperçus des URL par défaut pour les membres de ce salon."
 
 #: src/qml/RoomSettings/General.qml:282
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "Enable URL previews"
-msgstr "Chargement d'un aperçu de l'URL"
+msgstr "Activer les aperçus des URL"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are enabled by default in this room"
-msgstr "%1 est déjà présent dans ce salon ."
+msgstr "Les aperçus des URL sont activés par défaut dans ce salon."
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are disabled by default in this room"
-msgstr "%1 est déjà présent dans ce salon ."
+msgstr "Les aperçus des URL sont désactivés par défaut dans ce salon."
 
 #: src/qml/RoomSettings/General.qml:297
 #, kde-format
@@ -3467,10 +3456,9 @@ msgid "Show deleted messages"
 msgstr "Afficher les messages supprimés"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Show avatar update events"
+#, kde-format
 msgid "Show state events"
-msgstr "Afficher les évènements avec modification d'avatars"
+msgstr "Afficher les évènements de modifications d'état"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:112
 #, kde-format

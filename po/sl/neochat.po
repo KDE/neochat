@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-15 02:47+0000\n"
-"PO-Revision-Date: 2023-03-10 07:32+0100\n"
+"PO-Revision-Date: 2023-03-15 07:18+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #: src/controller.cpp:198
@@ -670,21 +670,16 @@ msgid "[REDACTED: %1]"
 msgstr "[PREKRIVANJE PODATKOV: %1]"
 
 #: src/models/messageeventmodel.cpp:843
-#, fuzzy, kde-format
-#| msgctxt "n users"
-#| msgid " %1 user "
-#| msgid_plural " %1 users "
+#, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
-msgstr[0] " %1 uporabnik "
-msgstr[1] " %1 uporabnika "
-msgstr[2] " %1 uporabniki "
-msgstr[3] " %1 uporabnikov "
+msgstr[0] "%1 uporabnik: "
+msgstr[1] "%1 uporabnika: "
+msgstr[2] "%1 uporabniki: "
+msgstr[3] "%1 uporabnikov: "
 
 #: src/models/messageeventmodel.cpp:850
-#, fuzzy, kde-format
-#| msgctxt "[action 1], [action 2 and/or action 3]"
-#| msgid ", "
+#, kde-format
 msgctxt "list separator"
 msgid ", "
 msgstr ", "
@@ -2804,35 +2799,29 @@ msgid "Add new alias"
 msgstr "Dodaj novi vzdevek"
 
 #: src/qml/RoomSettings/General.qml:271
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "URL Previews"
-msgstr "Nalaganje predogleda URL"
+msgstr "Predogledi URL"
 
 #: src/qml/RoomSettings/General.qml:274
 #, kde-format
 msgid "Enable URL previews by default for room members"
-msgstr ""
+msgstr "Privzeto omogoči predoglede URL za člane sobe"
 
 #: src/qml/RoomSettings/General.qml:282
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "Enable URL previews"
-msgstr "Nalaganje predogleda URL"
+msgstr "Omogoči predoglede URL"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are enabled by default in this room"
-msgstr "%1 je že v tej sobi."
+msgstr "Predogledi URL so privzeto omogočeni v tej sobi"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are disabled by default in this room"
-msgstr "%1 je že v tej sobi."
+msgstr "Predogledi URL so privzeto onemogočeni v tej sobi"
 
 #: src/qml/RoomSettings/General.qml:297
 #, kde-format
@@ -3450,10 +3439,9 @@ msgid "Show deleted messages"
 msgstr "Prikaži zbrisana sporočila"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Show avatar update events"
+#, kde-format
 msgid "Show state events"
-msgstr "Prikaži dogodke posodobitve avatarjev"
+msgstr "Prikaži dogodke stanj"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:112
 #, kde-format
@@ -3852,6 +3840,10 @@ msgstr "Prikaži"
 #, kde-format
 msgid "Quit"
 msgstr "Zapusti"
+
+#~| msgid "Room notifications setting"
+#~ msgid "Notification settings"
+#~ msgstr "Nastavitve obvestil"
 
 #~ msgid "Logout"
 #~ msgstr "Odjavi se"

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-15 02:47+0000\n"
-"PO-Revision-Date: 2023-03-09 08:32+0200\n"
+"PO-Revision-Date: 2023-03-15 08:01+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -677,21 +677,16 @@ msgid "[REDACTED: %1]"
 msgstr "[ЗМІНЕНО: %1]"
 
 #: src/models/messageeventmodel.cpp:843
-#, fuzzy, kde-format
-#| msgctxt "n users"
-#| msgid " %1 user "
-#| msgid_plural " %1 users "
+#, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
-msgstr[0] " %1 користувач "
-msgstr[1] " %1 користувачі "
-msgstr[2] " %1 користувачів "
-msgstr[3] " %1 користувач "
+msgstr[0] "%1 користувач: "
+msgstr[1] "%1 користувачі: "
+msgstr[2] "%1 користувачів: "
+msgstr[3] "%1 користувач: "
 
 #: src/models/messageeventmodel.cpp:850
-#, fuzzy, kde-format
-#| msgctxt "[action 1], [action 2 and/or action 3]"
-#| msgid ", "
+#, kde-format
 msgctxt "list separator"
 msgid ", "
 msgstr ", "
@@ -2816,35 +2811,30 @@ msgid "Add new alias"
 msgstr "Додати новий псевдонім"
 
 #: src/qml/RoomSettings/General.qml:271
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "URL Previews"
-msgstr "Завантажуємо попередній перегляд адреси"
+msgstr "Перегляд вмісту адрес"
 
 #: src/qml/RoomSettings/General.qml:274
 #, kde-format
 msgid "Enable URL previews by default for room members"
 msgstr ""
+"Увімкнути типовий попередній перегляд вмісту адрес для учасників кімнати"
 
 #: src/qml/RoomSettings/General.qml:282
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "Enable URL previews"
-msgstr "Завантажуємо попередній перегляд адреси"
+msgstr "Увімкнути перегляд вмісту адрес"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are enabled by default in this room"
-msgstr "%1 вже перебуває у цій кімнаті."
+msgstr "У цій кімнаті типово увімкнено попередній перегляд вмісту адрес"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are disabled by default in this room"
-msgstr "%1 вже перебуває у цій кімнаті."
+msgstr "У цій кімнаті типово вимкнено попередній перегляд вмісту адрес"
 
 #: src/qml/RoomSettings/General.qml:297
 #, kde-format
@@ -3469,10 +3459,9 @@ msgid "Show deleted messages"
 msgstr "Показувати вилучені повідомлення"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Show avatar update events"
+#, kde-format
 msgid "Show state events"
-msgstr "Показувати події з оновлення аватарів"
+msgstr "Показувати події стану"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:112
 #, kde-format
