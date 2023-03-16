@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-15 00:47+0000\n"
-"PO-Revision-Date: 2023-03-10 02:31+0100\n"
+"POT-Creation-Date: 2023-03-16 01:00+0000\n"
+"PO-Revision-Date: 2023-03-15 06:28+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -665,19 +665,14 @@ msgid "[REDACTED: %1]"
 msgstr "[ჩასწორებულია: %1]"
 
 #: src/models/messageeventmodel.cpp:843
-#, fuzzy, kde-format
-#| msgctxt "n users"
-#| msgid " %1 user "
-#| msgid_plural " %1 users "
+#, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
-msgstr[0] " %1 მომხმარებელი "
+msgstr[0] " %1 მომხმარებელი: "
 msgstr[1] " %1 მომხმარებელი "
 
 #: src/models/messageeventmodel.cpp:850
-#, fuzzy, kde-format
-#| msgctxt "[action 1], [action 2 and/or action 3]"
-#| msgid ", "
+#, kde-format
 msgctxt "list separator"
 msgid ", "
 msgstr ", "
@@ -1914,10 +1909,9 @@ msgid "Do you want to start a chat with %1?"
 msgstr "გნებავთ დაიწყოთ საუბარი %1-სთან?"
 
 #: src/qml/Menu/AccountMenu.qml:26
-#, fuzzy, kde-format
-#| msgid "Room notifications setting"
+#, kde-format
 msgid "Notification settings"
-msgstr "ოთახის შეტყობინებების პარამეტრები"
+msgstr "გაფრთხილებების მორგება"
 
 #: src/qml/Menu/AccountMenu.qml:31 src/qml/Settings/DevicesPage.qml:14
 #: src/qml/Settings/DevicesPage.qml:26 src/qml/Settings/SettingsPage.qml:56
@@ -2795,35 +2789,29 @@ msgid "Add new alias"
 msgstr "ახალი მეტსახელის დამატება"
 
 #: src/qml/RoomSettings/General.qml:271
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "URL Previews"
-msgstr "URL-ის მინიატურის ჩატვირთვა"
+msgstr "ბმულის მინიატურები"
 
 #: src/qml/RoomSettings/General.qml:274
 #, kde-format
 msgid "Enable URL previews by default for room members"
-msgstr ""
+msgstr "ოთახის წევრებისთვის ბმულების მინიატურების ნაგულისხმევად ჩართვა"
 
 #: src/qml/RoomSettings/General.qml:282
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "Enable URL previews"
-msgstr "URL-ის მინიატურის ჩატვირთვა"
+msgstr "ბმულის მინიატურების ჩართვა"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are enabled by default in this room"
-msgstr "%1 უკვე ოთახშია."
+msgstr "ამ ოთახში ბმულების ავტომატური მინიატურები ნაგულისხმებადაა ჩართული"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are disabled by default in this room"
-msgstr "%1 უკვე ოთახშია."
+msgstr "ამ ოთახში ბმულების ავტომატური მინიატურები ნაგულისხმევად გამორთულია"
 
 #: src/qml/RoomSettings/General.qml:297
 #, kde-format
@@ -3436,10 +3424,9 @@ msgid "Show deleted messages"
 msgstr "წაშლილი შეტყობინებების ჩვენება"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Show avatar update events"
+#, kde-format
 msgid "Show state events"
-msgstr "ავატარის განახლების მოვლენების ჩვენება"
+msgstr "მდგომარეობის მოვლენების ჩვენება"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:112
 #, kde-format
@@ -3695,7 +3682,7 @@ msgstr "მართლწერის შემოწმება"
 msgid "About NeoChat"
 msgstr "NeoChat-ს შესახებ"
 
-#: src/qml/Settings/SettingsPage.qml:67
+#: src/qml/Settings/SettingsPage.qml:68
 #, kde-format
 msgid "About KDE"
 msgstr "KDE-ს შესახებ"
