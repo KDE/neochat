@@ -12,6 +12,7 @@ Kirigami.CategorizedSettings {
     objectName: "settingsPage"
     actions: [
         Kirigami.SettingAction {
+            actionName: "general"
             text: i18n("General")
             icon.name: "settings-configure"
             page: Qt.resolvedUrl("General.qml")
@@ -22,6 +23,7 @@ Kirigami.CategorizedSettings {
             }
         },
         Kirigami.SettingAction {
+            actionName: "security"
             text: i18n("Security")
             icon.name: "security-low"
             page: Qt.resolvedUrl("Security.qml")
@@ -32,6 +34,7 @@ Kirigami.CategorizedSettings {
             }
         },
         Kirigami.SettingAction {
+            actionName: "permissions"
             text: i18n("Permissions")
             icon.name: "visibility"
             page: Qt.resolvedUrl("Permissions.qml")
@@ -42,6 +45,7 @@ Kirigami.CategorizedSettings {
             }
         },
         Kirigami.SettingAction {
+            actionName: "notifications"
             text: i18n("Notifications")
             icon.name: "notifications"
             page: Qt.resolvedUrl("PushNotification.qml")
