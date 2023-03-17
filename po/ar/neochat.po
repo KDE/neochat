@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-16 01:00+0000\n"
-"PO-Revision-Date: 2023-02-28 21:04+0400\n"
+"POT-Creation-Date: 2023-03-17 00:57+0000\n"
+"PO-Revision-Date: 2023-03-16 09:48+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -672,23 +672,18 @@ msgid "[REDACTED: %1]"
 msgstr "[أفعال محظورة: %1]"
 
 #: src/models/messageeventmodel.cpp:843
-#, fuzzy, kde-format
-#| msgctxt "n users"
-#| msgid " %1 user "
-#| msgid_plural " %1 users "
+#, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
-msgstr[0] " %1 مستخدم "
-msgstr[1] " مستخدم واحد "
-msgstr[2] " مستخدمين "
-msgstr[3] " %1 مستخدمين "
-msgstr[4] " %1 مستخدماً "
-msgstr[5] " %1 مستخدم "
+msgstr[0] "مستخدم  واحد: "
+msgstr[1] "مستخدم  واحد: "
+msgstr[2] "مستخدمين: "
+msgstr[3] "%1 مستخدمين: "
+msgstr[4] " %1 مستخدماً: "
+msgstr[5] "%1 مستخدم: "
 
 #: src/models/messageeventmodel.cpp:850
-#, fuzzy, kde-format
-#| msgctxt "[action 1], [action 2 and/or action 3]"
-#| msgid ", "
+#, kde-format
 msgctxt "list separator"
 msgid ", "
 msgstr "، "
@@ -1788,23 +1783,21 @@ msgstr "تحرير مستوى قدرة المستخدم"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:37
 #: src/qml/RoomSettings/Permissions.qml:74
-#, fuzzy, kde-format
-#| msgid "Member"
+#, kde-format
 msgid "Member (0)"
-msgstr "عضو"
+msgstr "عضو (0)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:38
 #: src/qml/RoomSettings/Permissions.qml:75
 #, kde-format
 msgid "Moderator (50)"
-msgstr ""
+msgstr "مراقب (50)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:39
 #: src/qml/RoomSettings/Permissions.qml:76
-#, fuzzy, kde-format
-#| msgid "Admin"
+#, kde-format
 msgid "Admin (100)"
-msgstr "مدير"
+msgstr "مُشْرِف (100)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:347
 #: src/qml/Settings/DevicesPage.qml:186
@@ -1855,10 +1848,9 @@ msgid "Unban this user"
 msgstr "ألغ حظر هذا المستخدم"
 
 #: src/qml/Dialog/UserDetailDialog.qml:145
-#, fuzzy, kde-format
-#| msgid "Edit user power level"
+#, kde-format
 msgid "Set user power level"
-msgstr "تحرير مستوى قدرة المستخدم"
+msgstr "عيّن مستوى قدرة المستخدم"
 
 #: src/qml/Dialog/UserDetailDialog.qml:169
 #, kde-format
@@ -1927,10 +1919,9 @@ msgid "Do you want to start a chat with %1?"
 msgstr "هل ترغب في بَدء دردشة مع %1؟"
 
 #: src/qml/Menu/AccountMenu.qml:26
-#, fuzzy, kde-format
-#| msgid "Room notifications setting"
+#, kde-format
 msgid "Notification settings"
-msgstr "إعدادات إشعارات الغرفة"
+msgstr "إعدادات الإشعارات"
 
 #: src/qml/Menu/AccountMenu.qml:31 src/qml/Settings/DevicesPage.qml:14
 #: src/qml/Settings/DevicesPage.qml:26 src/qml/Settings/SettingsPage.qml:56
@@ -2717,23 +2708,23 @@ msgstr[5] "%1 عضو"
 msgid "No Member Count"
 msgstr "بلا عدد أعضاء"
 
-#: src/qml/RoomSettings/Categories.qml:15 src/qml/RoomSettings/General.qml:20
+#: src/qml/RoomSettings/Categories.qml:16 src/qml/RoomSettings/General.qml:20
 #: src/qml/Settings/SettingsPage.qml:13
 #, kde-format
 msgid "General"
 msgstr "عامّ"
 
-#: src/qml/RoomSettings/Categories.qml:25 src/qml/RoomSettings/Security.qml:19
+#: src/qml/RoomSettings/Categories.qml:27 src/qml/RoomSettings/Security.qml:19
 #, kde-format
 msgid "Security"
 msgstr "الأمن"
 
-#: src/qml/RoomSettings/Categories.qml:35
+#: src/qml/RoomSettings/Categories.qml:38
 #, kde-format
 msgid "Permissions"
 msgstr "التّصاريح"
 
-#: src/qml/RoomSettings/Categories.qml:45 src/qml/Settings/SettingsPage.qml:25
+#: src/qml/RoomSettings/Categories.qml:49 src/qml/Settings/SettingsPage.qml:25
 #, kde-format
 msgid "Notifications"
 msgstr "الإشعارات"
@@ -2816,35 +2807,29 @@ msgid "Add new alias"
 msgstr "أضف اسماً بديلاً جديداً"
 
 #: src/qml/RoomSettings/General.qml:271
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "URL Previews"
-msgstr "يحمل معاينة الرابط"
+msgstr "معاينة الرابط"
 
 #: src/qml/RoomSettings/General.qml:274
 #, kde-format
 msgid "Enable URL previews by default for room members"
-msgstr ""
+msgstr "مكّن معاينة الروابط بشكل مبدئي لأعضاء الغرفة"
 
 #: src/qml/RoomSettings/General.qml:282
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "Enable URL previews"
-msgstr "يحمل معاينة الرابط"
+msgstr "مكّن معاينة الرابط"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are enabled by default in this room"
-msgstr "المستخدم %1 في هذه الغرفة فعلاً."
+msgstr "مكّن معاينة الروابط بشكل مبدئي في هذه الغرفة"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are disabled by default in this room"
-msgstr "المستخدم %1 في هذه الغرفة فعلاً."
+msgstr "عطلت معاينة الروابط بشكل مبدئي في هذه الغرفة"
 
 #: src/qml/RoomSettings/General.qml:297
 #, kde-format
@@ -3167,7 +3152,7 @@ msgstr "عن نيوتشات"
 #, kde-format
 msgctxt "@title:window"
 msgid "About KDE"
-msgstr ""
+msgstr "عن كِيدِي"
 
 #: src/qml/Settings/AccountEditorPage.qml:17
 #, kde-format
@@ -3446,10 +3431,9 @@ msgid "Show deleted messages"
 msgstr "اعرض الرسائل المحذوفة"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Show avatar update events"
+#, kde-format
 msgid "Show state events"
-msgstr "أظهر أحداث تحديث الصورة الرمزية"
+msgstr "أظهر أحداث الحالة"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:112
 #, kde-format
@@ -3708,7 +3692,7 @@ msgstr "عن نيوتشات"
 #: src/qml/Settings/SettingsPage.qml:68
 #, kde-format
 msgid "About KDE"
-msgstr ""
+msgstr "عن كِيدِي"
 
 #: src/qml/Settings/SonnetConfigPage.qml:50
 #, kde-format
