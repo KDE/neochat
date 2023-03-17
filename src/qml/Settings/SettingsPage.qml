@@ -6,6 +6,10 @@ import org.kde.kirigami 2.18 as Kirigami
 import QtQuick.Layouts 1.15
 
 Kirigami.CategorizedSettings {
+    id: settingsPage
+
+    required property var connection
+
     objectName: "settingsPage"
     actions: [
         Kirigami.SettingAction {
@@ -57,6 +61,11 @@ Kirigami.CategorizedSettings {
             text: i18n("Devices")
             icon.name: "computer"
             page: Qt.resolvedUrl("DevicesPage.qml")
+            initialProperties: {
+                return {
+                    connection: settingsPage.connection
+                }
+            }
         },
         Kirigami.SettingAction {
             actionName: "aboutNeochat"

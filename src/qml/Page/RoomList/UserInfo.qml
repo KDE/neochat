@@ -214,7 +214,7 @@ QQC2.ToolBar {
             }
             QQC2.ToolButton {
                 icon.name: "settings-configure"
-                onClicked: pageStack.pushDialogLayer("qrc:/SettingsPage.qml", {}, { title: i18n("Configure") })
+                onClicked: pageStack.pushDialogLayer("qrc:/SettingsPage.qml", {connection: Controller.activeConnection}, { title: i18n("Configure") })
                 text: i18n("Open Settings")
                 display: QQC2.AbstractButton.IconOnly
                 Layout.minimumWidth: Layout.preferredWidth

@@ -64,6 +64,7 @@ add_library(neochat STATIC
     chatdocumenthandler.h
     models/devicesmodel.cpp
     models/devicesmodel.h
+    models/devicesproxymodel.cpp
     filetypesingleton.cpp
     filetypesingleton.h
     login.cpp

@@ -6,6 +6,7 @@
 #include <csapi/device_management.h>
 
 #include "controller.h"
+#include <KLocalizedString>
 #include <connection.h>
 #include <user.h>
 
@@ -14,12 +15,6 @@ using namespace Quotient;
 DevicesModel::DevicesModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    connect(&Controller::instance(), &Controller::activeConnectionChanged, this, [this]() {
-        DevicesModel::fetchDevices();
-        Q_EMIT connectionChanged();
-    });
-
-    fetchDevices();
 }
 
 void DevicesModel::fetchDevices()
@@ -30,6 +25,7 @@ void DevicesModel::fetchDevices()
             beginResetModel();
             m_devices = job->devices();
             endResetModel();
+            Q_EMIT countChanged();
         });
     }
 }
@@ -40,16 +36,33 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
         return {};
     }
 
+    const auto &device = m_devices[index.row()];
+
     switch (role) {
     case Id:
-        return m_devices[index.row()].deviceId;
+        return device.deviceId;
     case DisplayName:
-        return m_devices[index.row()].displayName;
+        return device.displayName;
     case LastIp:
-        return m_devices[index.row()].lastSeenIp;
+        return device.lastSeenIp;
     case LastTimestamp:
-        if (m_devices[index.row()].lastSeenTs)
-            return *m_devices[index.row()].lastSeenTs;
+        if (device.lastSeenTs) {
+            return *device.lastSeenTs;
+        } else {
+            return false;
+        }
+    case Type:
+        if (device.deviceId == m_connection->deviceId()) {
+            return This;
+        }
+        if (!m_connection->isKnownE2eeCapableDevice(m_connection->userId(), device.deviceId)) {
+            return Unencrypted;
+        }
+        if (m_connection->isVerifiedDevice(m_connection->userId(), device.deviceId)) {
+            return Verified;
+        } else {
+            return Unverified;
+        }
     }
     return {};
 }
@@ -62,11 +75,21 @@ int DevicesModel::rowCount(const QModelIndex &parent) const
 
 QHash<int, QByteArray> DevicesModel::roleNames() const
 {
-    return {{Id, "id"}, {DisplayName, "displayName"}, {LastIp, "lastIp"}, {LastTimestamp, "lastTimestamp"}};
+    return {
+        {Id, "id"},
+        {DisplayName, "displayName"},
+        {LastIp, "lastIp"},
+        {LastTimestamp, "lastTimestamp"},
+        {Type, "type"},
+    };
 }
 
-void DevicesModel::logout(int index, const QString &password)
+void DevicesModel::logout(const QString &deviceId, const QString &password)
 {
+    int index;
+    for (index = 0; m_devices[index].deviceId != deviceId; index++)
+        ;
+
     auto job = Controller::instance().activeConnection()->callApi<NeochatDeleteDeviceJob>(m_devices[index].deviceId);
 
     connect(job, &BaseJob::result, this, [this, job, password, index] {
@@ -74,6 +97,7 @@ void DevicesModel::logout(int index, const QString &password)
             beginRemoveRows(QModelIndex(), index, index);
             m_devices.remove(index);
             endRemoveRows();
+            Q_EMIT countChanged();
         };
         if (job->error() != BaseJob::Success) {
             QJsonObject replyData = job->jsonData();
@@ -91,8 +115,11 @@ void DevicesModel::logout(int index, const QString &password)
     });
 }
 
-void DevicesModel::setName(int index, const QString &name)
+void DevicesModel::setName(const QString &deviceId, const QString &name)
 {
+    int index;
+    for (index = 0; m_devices[index].deviceId != deviceId; index++);
+
     auto job = Controller::instance().activeConnection()->callApi<UpdateDeviceJob>(m_devices[index].deviceId, name);
     QString oldName = m_devices[index].displayName;
     beginResetModel();
@@ -107,7 +134,27 @@ void DevicesModel::setName(int index, const QString &name)
 
 Connection *DevicesModel::connection() const
 {
-    return Controller::instance().activeConnection();
+    return m_connection;
+}
+
+void DevicesModel::setConnection(Connection *connection)
+{
+    if (m_connection) {
+        disconnect(m_connection, nullptr, this, nullptr);
+    }
+    m_connection = connection;
+    Q_EMIT connectionChanged();
+    fetchDevices();
+
+    connect(m_connection, &Connection::sessionVerified, this, [this](const QString &userId, const QString &deviceId) {
+        Q_UNUSED(deviceId);
+        if (userId == Controller::instance().activeConnection()->userId()) {
+            fetchDevices();
+        }
+    });
+    connect(m_connection, &Connection::finishedQueryingKeys, this, [this]() {
+        fetchDevices();
+    });
 }
 
 #include "moc_devicesmodel.cpp"

@@ -5,6 +5,7 @@
 
 #include <QAbstractListModel>
 
+#include <QPointer>
 #include <csapi/definitions/client_device.h>
 
 namespace Quotient
@@ -28,7 +29,7 @@ class DevicesModel : public QAbstractListModel
     /**
      * @brief The current connection that the model is getting its devices from.
      */
-    Q_PROPERTY(Quotient::Connection *connection READ connection NOTIFY connectionChanged)
+    Q_PROPERTY(Quotient::Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged REQUIRED)
 
 public:
     /**
@@ -39,10 +40,17 @@ public:
         DisplayName, /**< Display name set by the user for this device. */
         LastIp, /**< The IP address where this device was last seen. */
         LastTimestamp, /**< The timestamp when this devices was last seen. */
+        Type, /**< The category to sort this device into. */
     };
     Q_ENUM(Roles)
 
-    DevicesModel(QObject *parent = nullptr);
+    enum DeviceType {
+        This,
+        Verified,
+        Unverified,
+        Unencrypted,
+    };
+    Q_ENUM(DeviceType);
 
     /**
      * @brief Get the given role value at the given index.
@@ -66,21 +74,27 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
     /**
-     * @brief Logout the device at the given index.
+     * @brief Logout the device with the given id.
      */
-    Q_INVOKABLE void logout(int index, const QString &password);
+    Q_INVOKABLE void logout(const QString &deviceId, const QString &password);
 
     /**
-     * @brief Set the display name of the device at the given index.
+     * @brief Set the display name of the device with the given id.
      */
-    Q_INVOKABLE void setName(int index, const QString &name);
+    Q_INVOKABLE void setName(const QString &deviceId, const QString &name);
 
-    Quotient::Connection *connection() const;
+    explicit DevicesModel(QObject *parent = nullptr);
+
+
+    [[nodiscard]] Quotient::Connection *connection() const;
+    void setConnection(Quotient::Connection *connection);
 
 Q_SIGNALS:
     void connectionChanged();
+    void countChanged();
 
 private:
     void fetchDevices();
     QVector<Quotient::Device> m_devices;
+    QPointer<Quotient::Connection> m_connection;
 };

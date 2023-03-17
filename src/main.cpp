@@ -49,6 +49,7 @@
 #include "models/collapsestateproxymodel.h"
 #include "models/customemojimodel.h"
 #include "models/devicesmodel.h"
+#include "models/devicesproxymodel.h"
 #include "models/emojimodel.h"
 #include "models/emoticonfiltermodel.h"
 #include "models/imagepacksmodel.h"
@@ -236,6 +237,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<SortFilterRoomListModel>("org.kde.neochat", 1, 0, "SortFilterRoomListModel");
     qmlRegisterType<SortFilterSpaceListModel>("org.kde.neochat", 1, 0, "SortFilterSpaceListModel");
     qmlRegisterType<DevicesModel>("org.kde.neochat", 1, 0, "DevicesModel");
+    qmlRegisterType<DevicesProxyModel>("org.kde.neochat", 1, 0, "DevicesProxyModel");
     qmlRegisterType<LinkPreviewer>("org.kde.neochat", 1, 0, "LinkPreviewer");
     qmlRegisterType<CompletionModel>("org.kde.neochat", 1, 0, "CompletionModel");
     qmlRegisterType<StateModel>("org.kde.neochat", 1, 0, "StateModel");

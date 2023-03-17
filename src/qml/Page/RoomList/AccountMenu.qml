@@ -26,12 +26,22 @@ QQC2.Menu {
     QQC2.MenuItem {
         text: i18n("Notification settings")
         icon.name: "notifications"
-        onTriggered: pageStack.pushDialogLayer("qrc:/SettingsPage.qml", {defaultPage: "notifications"}, { title: i18n("Configure")})
+        onTriggered: pageStack.pushDialogLayer("qrc:/SettingsPage.qml", {
+            defaultPage: "notifications",
+            connection: Controller.activeConnection,
+        }, {
+            title: i18n("Configure")
+        });
     }
     QQC2.MenuItem {
         text: i18n("Devices")
         icon.name: "computer-symbolic"
-        onTriggered: pageStack.pushDialogLayer("qrc:/SettingsPage.qml", {defaultPage: "devices"}, { title: i18n("Configure")})
+        onTriggered: pageStack.pushDialogLayer("qrc:/SettingsPage.qml", {
+            defaultPage: "devices",
+            connection: Controller.activeConnection,
+        }, {
+            title: i18n("Configure")
+        })
     }
     QQC2.MenuItem {
         text: i18n("Logout")
