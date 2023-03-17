@@ -605,6 +605,11 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 
     if (role == SpecialMarksRole) {
         if (isPending) {
+            // A pending event with an m.new_content key will be merged into the
+            // original event so don't show.
+            if (evt.contentJson().contains("m.new_content")) {
+                return EventStatus::Hidden;
+            }
             return pendingIt->deliveryStatus();
         }
 
