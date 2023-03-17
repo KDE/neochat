@@ -3,10 +3,12 @@
 
 #include "spacehierarchycache.h"
 
-#include "controller.h"
 #ifdef QUOTIENT_07
 #include <csapi/space_hierarchy.h>
 #endif
+#include <qt_connection_util.h>
+
+#include "controller.h"
 #include "neochatroom.h"
 
 using namespace Quotient;
@@ -17,6 +19,8 @@ SpaceHierarchyCache::SpaceHierarchyCache(QObject *parent)
     cacheSpaceHierarchy();
     connect(&Controller::instance(), &Controller::activeConnectionChanged, this, [this]() {
         cacheSpaceHierarchy();
+        connect(Controller::instance().activeConnection(), &Connection::joinedRoom, this, &SpaceHierarchyCache::addSpaceToHierarchy);
+        connect(Controller::instance().activeConnection(), &Connection::aboutToDeleteRoom, this, &SpaceHierarchyCache::removeSpaceFromHierarchy);
     });
 }
 
@@ -66,6 +70,24 @@ void SpaceHierarchyCache::populateSpaceHierarchy(const QString &spaceId)
         Q_EMIT spaceHierarchyChanged();
     });
 #endif
+}
+
+void SpaceHierarchyCache::addSpaceToHierarchy(Quotient::Room *room)
+{
+    connectSingleShot(room, &Quotient::Room::baseStateLoaded, this, [this, room]() {
+        const auto neoChatRoom = static_cast<NeoChatRoom *>(room);
+        if (neoChatRoom->isSpace()) {
+            populateSpaceHierarchy(neoChatRoom->id());
+        }
+    });
+}
+
+void SpaceHierarchyCache::removeSpaceFromHierarchy(Quotient::Room *room)
+{
+    const auto neoChatRoom = static_cast<NeoChatRoom *>(room);
+    if (neoChatRoom->isSpace()) {
+        m_spaceHierarchy.remove(neoChatRoom->id());
+    }
 }
 
 QVector<QString> &SpaceHierarchyCache::getRoomListForSpace(const QString &spaceId, bool updateCache)

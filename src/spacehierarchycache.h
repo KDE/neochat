@@ -8,6 +8,11 @@
 #include <QString>
 #include <QVector>
 
+namespace Quotient
+{
+class Room;
+}
+
 class SpaceHierarchyCache : public QObject
 {
     Q_OBJECT
@@ -23,6 +28,10 @@ public:
 
 Q_SIGNALS:
     void spaceHierarchyChanged();
+
+private Q_SLOTS:
+    void addSpaceToHierarchy(Quotient::Room *room);
+    void removeSpaceFromHierarchy(Quotient::Room *room);
 
 private:
     explicit SpaceHierarchyCache(QObject *parent = nullptr);
