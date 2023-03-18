@@ -139,7 +139,37 @@ QQC2.Control {
                 currentRoom.chatBoxText = text
             }
             onCursorRectangleChanged: chatBarScrollView.ensureVisible(cursorRectangle)
+            onSelectedTextChanged: {
+                if (selectedText.length > 0) {
+                    quickFormatBar.selectionStart = selectionStart
+                    quickFormatBar.selectionEnd = selectionEnd
+                    quickFormatBar.open()
+                }
+            }
 
+            QuickFormatBar {
+                id: quickFormatBar
+
+                x: textField.cursorRectangle.x
+                y: textField.cursorRectangle.y - height
+
+                onFormattingSelected: chatBar.formatText(format, selectionStart, selectionEnd)
+            }
+
+            Keys.onDeletePressed: {
+                if (selectedText.length > 0) {
+                    remove(selectionStart, selectionEnd)
+                } else {
+                    remove(cursorPosition, cursorPosition + 1)
+                }
+                if (textField.text == selectedText || textField.text.length <= 1) {
+                    currentRoom.sendTypingNotification(false)
+                    repeatTimer.stop()
+                }
+                if (quickFormatBar.visible) {
+                    quickFormatBar.close()
+                }
+            }
             Keys.onEnterPressed: {
                 if (completionMenu.visible) {
                     completionMenu.complete()
@@ -180,9 +210,14 @@ QQC2.Control {
                     completionMenu.decrementIndex()
                 } else if (event.key === Qt.Key_Down && completionMenu.visible) {
                     completionMenu.incrementIndex()
-                } else if (event.key === Qt.Key_Backspace && textField.text.length <= 1) {
-                    currentRoom.sendTypingNotification(false)
-                    repeatTimer.stop()
+                } else if (event.key === Qt.Key_Backspace) {
+                    if (textField.text == selectedText || textField.text.length <= 1) {
+                        currentRoom.sendTypingNotification(false)
+                        repeatTimer.stop()
+                    }
+                    if (quickFormatBar.visible && selectedText.length > 0) {
+                        quickFormatBar.close()
+                    }
                 }
             }
             Keys.onShortcutOverride: {
@@ -392,5 +427,48 @@ QQC2.Control {
         textField.clear();
         currentRoom.chatBoxReplyId = "";
         messageSent()
+    }
+
+    function formatText(format, selectionStart, selectionEnd) {
+        let index = textField.cursorPosition;
+
+        /*
+         * There cannot be white space at the beginning or end of the string for the
+         * formatting to work so move the sectionStart and sectionEnd markers past any whitespace.
+         */
+        let innerText = textField.text.substr(selectionStart, selectionEnd - selectionStart);
+        if (innerText.charAt(innerText.length - 1) === " ") {
+            let trimmedRightString = innerText.replace(/\s*$/,"");
+            let trimDifference = innerText.length - trimmedRightString.length;
+            selectionEnd -= trimDifference;
+        }
+        if (innerText.charAt(0) === " ") {
+            let trimmedLeftString = innerText.replace(/^\s*/,"");
+            let trimDifference = innerText.length - trimmedLeftString.length;
+            selectionStart = selectionStart + trimDifference;
+        }
+
+        let startText = textField.text.substr(0, selectionStart);
+        // Needs updating with the new selectionStart and selectionEnd with white space trimmed.
+        innerText = textField.text.substr(selectionStart, selectionEnd - selectionStart);
+        let endText = textField.text.substr(selectionEnd);
+
+        textField.text = "";
+        textField.text = startText + format.start + innerText + format.end + format.extra + endText;
+
+        /*
+         * Put the cursor where it was when the popup was opened accounting for the
+         * new markup.
+         *
+         * The exception is for a hyperlink where it is placed ready to start typing
+         * the url.
+         */
+        if (format.extra !== "") {
+            textField.cursorPosition = selectionEnd + format.start.length + format.end.length;
+        } else if (index == selectionStart) {
+            textField.cursorPosition = index;
+        } else {
+            textField.cursorPosition = index + format.start.length + format.end.length;
+        }
     }
 }
