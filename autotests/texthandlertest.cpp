@@ -326,11 +326,19 @@ void TextHandlerTest::receivePlainTextIn()
     const QString testOutputStringRich = QStringLiteral("&lt;plain text in tag bracket&gt;<br>Test link <a href=\"https://kde.org\">https://kde.org</a>.");
     QString testOutputStringPlain = QStringLiteral("<plain text in tag bracket>\nTest link https://kde.org.");
 
+    // Make sure quotes are maintained in a plain string.
+    const QString testInputString2 = QStringLiteral("last line is \"Time to switch to a new topic.\"");
+    const QString testOutputString2 = QStringLiteral("last line is \"Time to switch to a new topic.\"");
+
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
 
     QCOMPARE(testTextHandler.handleRecieveRichText(Qt::PlainText), testOutputStringRich);
     QCOMPARE(testTextHandler.handleRecievePlainText(), testOutputStringPlain);
+
+    testTextHandler.setData(testInputString2);
+    QCOMPARE(testTextHandler.handleRecieveRichText(Qt::PlainText), testOutputString2);
+    QCOMPARE(testTextHandler.handleRecievePlainText(), testOutputString2);
 }
 
 void TextHandlerTest::receiveStripNewlines()

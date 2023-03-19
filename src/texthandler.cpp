@@ -371,6 +371,7 @@ QString TextHandler::unescapeHtml(QString stringIn)
     stringIn.replace(QStringLiteral("&lt;"), QStringLiteral("<"));
     stringIn.replace(QStringLiteral("&gt;"), QStringLiteral(">"));
     stringIn.replace(QStringLiteral("&amp;"), QStringLiteral("&"));
+    stringIn.replace(QStringLiteral("&quot;"), QStringLiteral("\""));
     return stringIn;
 }
 
