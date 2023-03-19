@@ -44,7 +44,6 @@
 #include "clipboard.h"
 #include "controller.h"
 #include "filetypesingleton.h"
-#include "joinrulesevent.h"
 #include "linkpreviewer.h"
 #include "login.h"
 #include "matriximageprovider.h"
