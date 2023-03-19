@@ -29,6 +29,17 @@
             "sources": [ { "type": "git", "url": "https://invent.kde.org/libraries/kirigami-addons.git" } ]
         },
         {
+            "name": "kquickcharts",
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://invent.kde.org/frameworks/kquickcharts.git",
+                    "branch": "kf5"
+                }
+            ]
+        },
+        {
             "name": "kquickimageeditor",
             "buildsystem": "cmake-ninja",
             "sources": [
