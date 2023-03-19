@@ -13,6 +13,7 @@
 namespace TextRegex
 {
 static const QRegularExpression endTagType{QStringLiteral("(>| )")};
+static const QRegularExpression attributeData{QStringLiteral("['\"](.*?)['\"]")};
 static const QRegularExpression removeReply{QStringLiteral("> <.*?>.*?\\n\\n"), QRegularExpression::DotMatchesEverythingOption};
 static const QRegularExpression removeRichReply{QStringLiteral("<mx-reply>.*?</mx-reply>"), QRegularExpression::DotMatchesEverythingOption};
 static const QRegularExpression codePill{QStringLiteral("<pre><code[^>]*>(.*?)</code></pre>"), QRegularExpression::DotMatchesEverythingOption};

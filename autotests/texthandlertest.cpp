@@ -161,14 +161,21 @@ void TextHandlerTest::initTestCase()
 
 void TextHandlerTest::allowedAttributes()
 {
-    const QString testInputString = QStringLiteral("<p><span data-mx-spoiler><font color=#FFFFFF>Test</font><span></p>");
-    const QString testOutputString = QStringLiteral("<p><span data-mx-spoiler><font color=#FFFFFF>Test</font><span></p>");
+    const QString testInputString1 = QStringLiteral("<p><span data-mx-spoiler><font color=#FFFFFF>Test</font><span></p>");
+    const QString testOutputString1 = QStringLiteral("<p><span data-mx-spoiler><font color=#FFFFFF>Test</font><span></p>");
+    // Handle urls where the href has either single (') or double (") quotes.
+    const QString testInputString2 = QStringLiteral("<p><a href=\"https://kde.org\">link</a><a href='https://kde.org'>link</a></p>");
+    const QString testOutputString2 = QStringLiteral("<p><a href=\"https://kde.org\">link</a><a href='https://kde.org'>link</a></p>");
 
     TextHandler testTextHandler;
-    testTextHandler.setData(testInputString);
+    testTextHandler.setData(testInputString1);
 
-    QCOMPARE(testTextHandler.handleSendText(), testOutputString);
-    QCOMPARE(testTextHandler.handleRecieveRichText(), testOutputString);
+    QCOMPARE(testTextHandler.handleSendText(), testOutputString1);
+    QCOMPARE(testTextHandler.handleRecieveRichText(), testOutputString1);
+
+    testTextHandler.setData(testInputString2);
+    QCOMPARE(testTextHandler.handleSendText(), testOutputString2);
+    QCOMPARE(testTextHandler.handleRecieveRichText(), testOutputString2);
 }
 
 void TextHandlerTest::stripDisallowedTags()

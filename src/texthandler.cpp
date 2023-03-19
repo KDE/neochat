@@ -307,12 +307,13 @@ QString TextHandler::cleanAttributes(const QString &tag, const QString &tagStrin
 
             if (isAllowedAttribute(tag, getAttributeType(nextAttribute))) {
                 if (tag == QStringLiteral("img") && getAttributeType(nextAttribute) == QStringLiteral("src")) {
-                    QString attributeData = getAttributeData(nextAttribute).remove(u'"');
+                    QString attributeData = TextRegex::attributeData.match(getAttributeData(nextAttribute)).captured(1);
                     if (isAllowedLink(attributeData, true)) {
                         outputString.append(u' ' + nextAttribute);
                     }
                 } else if (tag == u'a' && getAttributeType(nextAttribute) == QStringLiteral("href")) {
-                    if (isAllowedLink(getAttributeData(nextAttribute).remove(u'"'))) {
+                    QString attributeData = TextRegex::attributeData.match(getAttributeData(nextAttribute)).captured(1);
+                    if (isAllowedLink(attributeData)) {
                         outputString.append(u' ' + nextAttribute);
                     }
                 } else if (tag == QStringLiteral("code") && getAttributeType(nextAttribute) == QStringLiteral("class")) {
