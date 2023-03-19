@@ -46,7 +46,7 @@ Kirigami.CategorizedSettings {
             visible: Qt.platform.os !== "android"
         },
         Kirigami.SettingAction {
-            actionName: "netowrkProxy"
+            actionName: "networkProxy"
             text: i18n("Network Proxy")
             icon.name: "network-connect"
             page: Qt.resolvedUrl("NetworkProxyPage.qml")
