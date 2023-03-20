@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-18 03:10+0000\n"
-"PO-Revision-Date: 2023-03-12 16:34+0530\n"
+"PO-Revision-Date: 2023-03-19 12:51+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -338,12 +338,10 @@ msgid "Joins the given room"
 msgstr "உரிய அரங்கிலு நுழையும்"
 
 #: src/models/actionsmodel.cpp:230
-#, fuzzy, kde-format
-#| msgctxt "Joining room <roomname>."
-#| msgid "Joining room %1."
+#, kde-format
 msgctxt "Knocking room <roomname>."
 msgid "Knocking room %1."
-msgstr "%1 எனும் அரங்கில் நுழைகிறீர்கள்."
+msgstr "%1 எனும் அரங்கில் நுழைய அனுமதி கோரப்படுகிறது."
 
 #: src/models/actionsmodel.cpp:242
 msgid "<room alias or id> [<reason>]"
@@ -669,19 +667,14 @@ msgid "[REDACTED: %1]"
 msgstr "[தணிக்கை செய்யப்பட்டது: %1]"
 
 #: src/models/messageeventmodel.cpp:848
-#, fuzzy, kde-format
-#| msgctxt "n users"
-#| msgid " %1 user "
-#| msgid_plural " %1 users "
+#, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
-msgstr[0] " %1 பயனர் "
-msgstr[1] " %1 பயனர்கள்  "
+msgstr[0] "1 பயனர்: "
+msgstr[1] "%1 பயனர்கள்: "
 
 #: src/models/messageeventmodel.cpp:855
-#, fuzzy, kde-format
-#| msgctxt "[action 1], [action 2 and/or action 3]"
-#| msgid ", "
+#, kde-format
 msgctxt "list separator"
 msgid ", "
 msgstr ", "
@@ -2778,35 +2771,29 @@ msgid "Add new alias"
 msgstr "புதிய மாற்றுப்பெயரைச் சேர்"
 
 #: src/qml/RoomSettings/General.qml:271
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "URL Previews"
-msgstr "முகவரியின் முன்னோட்டம் ஏற்றப்படுகிறது"
+msgstr "முகவரியின் முன்னோட்டம்"
 
 #: src/qml/RoomSettings/General.qml:274
 #, kde-format
 msgid "Enable URL previews by default for room members"
-msgstr ""
+msgstr "அரங்கிலுள்ளோருக்கு இயல்பிருப்பாக முகவரி முன்னோட்டத்தை இயக்கு"
 
 #: src/qml/RoomSettings/General.qml:282
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "Enable URL previews"
-msgstr "முகவரியின் முன்னோட்டம் ஏற்றப்படுகிறது"
+msgstr "முகவரியின் முன்னோட்டத்தை இயக்கு"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are enabled by default in this room"
-msgstr "%1 இவ்வரங்கில் ஏற்கனவே உள்ளார்."
+msgstr "இவ்வரங்கில் முகவரி முன்னோட்டம் இயல்பிருப்பாக இயக்கப்பட்டுள்ளது"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are disabled by default in this room"
-msgstr "%1 இவ்வரங்கில் ஏற்கனவே உள்ளார்."
+msgstr "இவ்வரங்கில் முகவரி முன்னோட்டம் இயல்பிருப்பாக முடக்கப்பட்டுள்ளது"
 
 #: src/qml/RoomSettings/General.qml:297
 #, kde-format
