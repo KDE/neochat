@@ -604,8 +604,12 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
         [](const RoomNameEvent &e) {
             return (e.name().isEmpty()) ? i18n("cleared the room name") : i18n("set the room name to: %1", e.name().toHtmlEscaped());
         },
-        [prettyPrint](const RoomTopicEvent &e) {
-            return (e.topic().isEmpty()) ? i18n("cleared the topic") : i18n("set the topic to: %1", prettyPrint ? Quotient::prettyPrint(e.topic()) : e.topic());
+        [prettyPrint, stripNewlines](const RoomTopicEvent &e) {
+            return (e.topic().isEmpty()) ? i18n("cleared the topic")
+                                         : i18n("set the topic to: %1",
+                                                prettyPrint         ? Quotient::prettyPrint(e.topic())
+                                                    : stripNewlines ? e.topic().replace(u'\n', u' ')
+                                                                    : e.topic());
         },
         [](const RoomAvatarEvent &) {
             return i18n("changed the room avatar");
