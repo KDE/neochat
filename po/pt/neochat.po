@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-20 00:50+0000\n"
-"PO-Revision-Date: 2023-03-06 15:32+0000\n"
+"PO-Revision-Date: 2023-03-20 13:40+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -671,19 +671,14 @@ msgid "[REDACTED: %1]"
 msgstr "[REDIGIDO: %1]"
 
 #: src/models/messageeventmodel.cpp:848
-#, fuzzy, kde-format
-#| msgctxt "n users"
-#| msgid " %1 user "
-#| msgid_plural " %1 users "
+#, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
-msgstr[0] " %1 utilizador "
-msgstr[1] " %1 utilizadores "
+msgstr[0] "1 utilizador: "
+msgstr[1] "%1 utilizadores: "
 
 #: src/models/messageeventmodel.cpp:855
-#, fuzzy, kde-format
-#| msgctxt "[action 1], [action 2 and/or action 3]"
-#| msgid ", "
+#, kde-format
 msgctxt "list separator"
 msgid ", "
 msgstr ", "
@@ -1162,32 +1157,32 @@ msgstr "O NeoChat está desligado. Verifique por favor a sua ligação à rede."
 #: src/qml/Component/ChatBox/QuickFormatBar.qml:23
 #, kde-format
 msgid "Bold"
-msgstr ""
+msgstr "Negrito"
 
 #: src/qml/Component/ChatBox/QuickFormatBar.qml:42
 #, kde-format
 msgid "Italic"
-msgstr ""
+msgstr "Itálico"
 
 #: src/qml/Component/ChatBox/QuickFormatBar.qml:61
 #, kde-format
 msgid "Strikethrough"
-msgstr ""
+msgstr "Traçado"
 
 #: src/qml/Component/ChatBox/QuickFormatBar.qml:80
 #, kde-format
 msgid "Code block"
-msgstr ""
+msgstr "Bloco de código"
 
 #: src/qml/Component/ChatBox/QuickFormatBar.qml:99
 #, kde-format
 msgid "Quote"
-msgstr ""
+msgstr "Citação"
 
 #: src/qml/Component/ChatBox/QuickFormatBar.qml:118
 #, kde-format
 msgid "Insert link"
-msgstr ""
+msgstr "Inserir uma ligação"
 
 #: src/qml/Component/ChatBox/ReplyPane.qml:32
 #, kde-format
@@ -1969,10 +1964,9 @@ msgid "Do you want to start a chat with %1?"
 msgstr "Deseja iniciar uma conversa com %1?"
 
 #: src/qml/Menu/AccountMenu.qml:26
-#, fuzzy, kde-format
-#| msgid "Room notifications setting"
+#, kde-format
 msgid "Notification settings"
-msgstr "Configuração das notificações da sala"
+msgstr "Configuração das notificações"
 
 #: src/qml/Menu/AccountMenu.qml:31 src/qml/Settings/DevicesPage.qml:14
 #: src/qml/Settings/DevicesPage.qml:26 src/qml/Settings/SettingsPage.qml:56
@@ -1981,10 +1975,9 @@ msgid "Devices"
 msgstr "Dispositivos"
 
 #: src/qml/Menu/AccountMenu.qml:36
-#, fuzzy, kde-format
-#| msgid "Logout device"
+#, kde-format
 msgid "Logout"
-msgstr "Encerrar o dispositivo"
+msgstr "Encerrar"
 
 #: src/qml/Menu/EditMenu.qml:17
 #, kde-format
@@ -2851,35 +2844,29 @@ msgid "Add new alias"
 msgstr "Adicionar uma nova alcunha"
 
 #: src/qml/RoomSettings/General.qml:271
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "URL Previews"
-msgstr "A carregar a antevisão do URL"
+msgstr "Antevisões dos URL's"
 
 #: src/qml/RoomSettings/General.qml:274
 #, kde-format
 msgid "Enable URL previews by default for room members"
-msgstr ""
+msgstr "Activar as antevisões dos URL's por omissão nos membros da sala"
 
 #: src/qml/RoomSettings/General.qml:282
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "Enable URL previews"
-msgstr "A carregar a antevisão do URL"
+msgstr "Activar as antevisões dos URL's"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are enabled by default in this room"
-msgstr "O %1 já se encontra nesta sala."
+msgstr "As antevisões dos URL's estão activas por omissão nesta sala"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are disabled by default in this room"
-msgstr "O %1 já se encontra nesta sala."
+msgstr "As antevisões dos URL's estão desactivadas por omissão nesta sala"
 
 #: src/qml/RoomSettings/General.qml:297
 #, kde-format
@@ -3495,10 +3482,9 @@ msgid "Show deleted messages"
 msgstr "Mostrar as mensagens apagadas"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Show avatar update events"
+#, kde-format
 msgid "Show state events"
-msgstr "Mostrar os eventos de actualização do avatar"
+msgstr "Mostrar os eventos de estado"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:112
 #, kde-format
