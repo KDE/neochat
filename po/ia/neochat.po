@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-18 03:10+0000\n"
-"PO-Revision-Date: 2023-03-14 22:23+0100\n"
+"PO-Revision-Date: 2023-03-20 15:53+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #: src/controller.cpp:198
 #, kde-format
@@ -155,7 +155,7 @@ msgstr "Tobias Fella"
 #: src/main.cpp:161
 #, kde-format
 msgid "James Graham"
-msgstr ""
+msgstr "James Graham"
 
 #: src/main.cpp:162
 #, kde-format
@@ -383,11 +383,10 @@ msgid "Leaving room %1."
 msgstr "Lassa sala"
 
 #: src/models/actionsmodel.cpp:291 src/models/actionsmodel.cpp:323
-#, fuzzy, kde-format
-#| msgid "Room not found"
+#, kde-format
 msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
-msgstr "Sala non trovate"
+msgstr "Sala %1 non trovate"
 
 #: src/models/actionsmodel.cpp:298 src/models/actionsmodel.cpp:330
 msgid "[<room alias or id>]"
@@ -439,10 +438,8 @@ msgid "%1 is not a known user."
 msgstr ""
 
 #: src/models/actionsmodel.cpp:389
-#, fuzzy
-#| msgid "Ignore this user"
 msgid "Ignores the given user"
-msgstr "Ignora iste usator"
+msgstr "Ignora le  usator date"
 
 #: src/models/actionsmodel.cpp:404
 #, kde-format
@@ -457,20 +454,16 @@ msgid "%1 is no longer ignored."
 msgstr ""
 
 #: src/models/actionsmodel.cpp:417
-#, fuzzy
-#| msgid "Unignore this user"
 msgid "Unignores the given user"
-msgstr "Cessa a ignorar iste usator"
+msgstr "Cessa a ignorar le  usator date"
 
 #: src/models/actionsmodel.cpp:437
 msgid "<reaction text>"
 msgstr ""
 
 #: src/models/actionsmodel.cpp:438
-#, fuzzy
-#| msgid "React to this message with a text"
 msgid "React to the message with the given text"
-msgstr "Reage a iste message con un texto"
+msgstr "Reage al message con le texto date"
 
 #: src/models/actionsmodel.cpp:454
 #, kde-format
@@ -502,10 +495,8 @@ msgid "<user id> [<reason>]"
 msgstr ""
 
 #: src/models/actionsmodel.cpp:476
-#, fuzzy
-#| msgid "Ignore this user"
 msgid "Bans the given user"
-msgstr "Ignora iste usator"
+msgstr "Ignora le usator date"
 
 #: src/models/actionsmodel.cpp:490
 #, fuzzy, kde-format
@@ -562,37 +553,32 @@ msgid "Removes the user from the room"
 msgstr "Il remove le usator ab le sala"
 
 #: src/models/collapsestateproxymodel.cpp:70
-#, fuzzy, kde-format
-#| msgctxt "[user did something] n times"
-#| msgid " %1 time"
-#| msgid_plural " %1 times"
+#, kde-format
 msgctxt "n times"
 msgid " %1 time "
 msgid_plural " %1 times "
 msgstr[0] "Tempore"
-msgstr[1] "; %1 vices"
+msgstr[1] "%1 vices "
 
 #: src/models/collapsestateproxymodel.cpp:76
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "n users"
 msgid " %1 user "
 msgid_plural " %1 users "
 msgstr[0] "Usator"
-msgstr[1] "%2 (%1 Usatores): %3"
+msgstr[1] " %1 Usatores"
 
 #: src/models/collapsestateproxymodel.cpp:86
-#, fuzzy, kde-format
-#| msgctxt "[action 1], [action 2 and action 3]"
-#| msgid ", "
+#, kde-format
 msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
 msgstr ", "
 
 #: src/models/collapsestateproxymodel.cpp:89
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
-msgstr " or  "
+msgstr " o "
 
 #: src/models/collapsestateproxymodel.cpp:89
 #, kde-format
@@ -702,16 +688,14 @@ msgid "[REDACTED: %1]"
 msgstr "[REAGITE: %1]"
 
 #: src/models/messageeventmodel.cpp:848
-#, fuzzy, kde-format
+#, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "Usator"
-msgstr[1] "%2 (%1 Usatores): %3"
+msgstr[1] "%1 Usatores:"
 
 #: src/models/messageeventmodel.cpp:855
-#, fuzzy, kde-format
-#| msgctxt "[action 1], [action 2 and action 3]"
-#| msgid ", "
+#, kde-format
 msgctxt "list separator"
 msgid ", "
 msgstr ", "
@@ -873,10 +857,9 @@ msgid "requested an invite"
 msgstr "requerite un  invitation"
 
 #: src/neochatroom.cpp:595
-#, fuzzy, kde-format
-#| msgid "requested an invite"
+#, kde-format
 msgid "requested an invite with reason: %1"
-msgstr "requerite un  invitation"
+msgstr "requerite un  invitation con motivation: %1"
 
 #: src/neochatroom.cpp:599 src/neochatroom.cpp:730
 #, kde-format
@@ -978,10 +961,9 @@ msgid "Unknown event"
 msgstr "Evento incognite"
 
 #: src/neochatroom.cpp:657
-#, fuzzy, kde-format
-#| msgid "Send a message…"
+#, kde-format
 msgid "sent a message"
-msgstr "Invia un message…"
+msgstr "Invia un message"
 
 #: src/neochatroom.cpp:661
 #, kde-format
@@ -989,105 +971,85 @@ msgid "sent a sticker"
 msgstr ""
 
 #: src/neochatroom.cpp:667
-#, fuzzy, kde-format
-#| msgid "reinvited %1 to the room"
+#, kde-format
 msgid "reinvited someone to the room"
-msgstr "reinvitate %1 al sala"
+msgstr "reinvitate alcun al sala"
 
 #: src/neochatroom.cpp:676
-#, fuzzy, kde-format
-#| msgid "invited %1 to the room"
+#, kde-format
 msgid "invited someone to the room"
-msgstr "%1 invitate  al sala"
+msgstr " invitate  alcun al sala"
 
 #: src/neochatroom.cpp:686
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
+#, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name"
-msgstr "cambiate lor nomine de monstrar a %1"
+msgstr "cambiate lor nomine de monstrar "
 
 #: src/neochatroom.cpp:712
-#, fuzzy, kde-format
-#| msgid "withdrew %1's invitation"
+#, kde-format
 msgid "withdrew a user's invitation"
-msgstr "retirate invitation de %1"
+msgstr "retirate un invitation de usator"
 
 #: src/neochatroom.cpp:716
-#, fuzzy, kde-format
-#| msgid "unbanned %1"
+#, kde-format
 msgid "unbanned a user"
-msgstr "cessate de excluder (ban) %1"
+msgstr "cessate de excluder (ban) un usator"
 
 #: src/neochatroom.cpp:718
-#, fuzzy, kde-format
-#| msgid "has put %1 out of the room: %2"
+#, kde-format
 msgid "put a user out of the room"
-msgstr "ha ponite %1 foras de sala: %2"
+msgstr "ha ponite un usator foras del sala"
 
 #: src/neochatroom.cpp:721
-#, fuzzy, kde-format
-#| msgid "banned %1 from the room"
+#, kde-format
 msgid "banned a user from the room"
-msgstr "excludite (banned) %1 ex le sala"
+msgstr "excludite (banned) un usator ex le sala"
 
 #: src/neochatroom.cpp:733
-#, fuzzy, kde-format
-#| msgid "set the room main alias to: %1"
+#, kde-format
 msgid "set the room main alias"
-msgstr "fixa le alias principal de sala a : %1"
+msgstr "fixa le alias principal de sala "
 
 #: src/neochatroom.cpp:736
-#, fuzzy, kde-format
-#| msgid "set the room name to: %1"
+#, kde-format
 msgid "set the room name"
-msgstr "fixa le nomine de sala a: %1"
+msgstr "fixa le nomine de sala"
 
 #: src/neochatroom.cpp:739
-#, fuzzy, kde-format
-#| msgid "set the topic to: %1"
+#, kde-format
 msgid "set the topic"
-msgstr "fix le topico a: %1"
+msgstr "fix le topico "
 
 #: src/neochatroom.cpp:748
-#, fuzzy, kde-format
-#| msgid "upgraded the room to version %1"
+#, kde-format
 msgid "upgraded the room version"
-msgstr "actualisate le sala a version %1"
+msgstr "actualisate le version de sala "
 
 #: src/neochatroom.cpp:748
-#, fuzzy, kde-format
-#| msgid "left the room"
+#, kde-format
 msgid "created the room"
-msgstr "lassa le sala"
+msgstr "create le sala"
 
 #: src/neochatroom.cpp:759
-#, fuzzy, kde-format
-#| msgctxt "[User] added <name> widget"
-#| msgid "added %1 widget"
+#, kde-format
 msgid "added a widget"
-msgstr "addite %1 widget"
+msgstr "addite un widget"
 
 #: src/neochatroom.cpp:762
-#, fuzzy, kde-format
-#| msgctxt "[User] removed <name> widget"
-#| msgid "removed %1 widget"
+#, kde-format
 msgid "removed a widget"
-msgstr "removite %1 widget"
+msgstr "removite un widget"
 
 #: src/neochatroom.cpp:764
-#, fuzzy, kde-format
-#| msgctxt "[User] configured <name> widget"
-#| msgid "configured %1 widget"
+#, kde-format
 msgid "configured a widget"
-msgstr "configurate %1 widget"
+msgstr "configurate un widget"
 
 #: src/neochatroom.cpp:766
-#, fuzzy, kde-format
-#| msgid "updated %1 state"
+#, kde-format
 msgid "updated the state"
-msgstr "actualisate stato %1"
+msgstr "actualisate le stato"
 
 #: src/neochatroom.cpp:770
 #, kde-format
@@ -1095,10 +1057,9 @@ msgid "started a poll"
 msgstr ""
 
 #: src/neochatroom.cpp:1689 src/neochatroom.cpp:1690
-#, fuzzy, kde-format
-#| msgid "Password changed successfully"
+#, kde-format
 msgid "Report sent successfully."
-msgstr "Contrassigno cambiava con successo"
+msgstr "Reporto inviate con successo."
 
 #: src/notificationsmanager.cpp:65
 #, kde-format
@@ -1156,11 +1117,9 @@ msgid "Edit"
 msgstr "Modifica"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:62
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
+#, kde-format
 msgid "Cancel sending attachment"
-msgstr "clarate lor nomine de monstrar"
+msgstr "Cancella invio de attachamento"
 
 #: src/qml/Component/ChatBox/ChatBar.qml:31
 #, kde-format
@@ -1200,11 +1159,10 @@ msgid "Send a message…"
 msgstr "Invia un message…"
 
 #: src/qml/Component/ChatBox/ChatBar.qml:273
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
-msgstr "Cancella"
+msgstr "Cancella responsa"
 
 #: src/qml/Component/ChatBox/ChatBox.qml:29
 #, kde-format
@@ -1240,10 +1198,9 @@ msgstr "Crea un Sala"
 
 #: src/qml/Component/ExploreComponent.qml:58
 #: src/qml/Component/ExploreComponent.qml:109
-#, fuzzy, kde-format
-#| msgid "Rooms and private chats"
+#, kde-format
 msgid "Create rooms and chats"
-msgstr "Salas e conversationes private"
+msgstr "Crea salas e conversationes"
 
 #: src/qml/Component/FullScreenImage.qml:82
 #, kde-format
@@ -1451,18 +1408,16 @@ msgid "Loading URL preview"
 msgstr ""
 
 #: src/qml/Component/Timeline/MessageEditComponent.qml:75
-#, fuzzy, kde-format
-#| msgid "Confirm"
+#, kde-format
 msgctxt "@action:button"
 msgid "Confirm edit"
-msgstr "Confirma"
+msgstr "Confirma modificar"
 
 #: src/qml/Component/Timeline/MessageEditComponent.qml:87
-#, fuzzy, kde-format
-#| msgid "Cancel"
+#, kde-format
 msgctxt "@action:button"
 msgid "Cancel edit"
-msgstr "Cancella"
+msgstr "Cancella modificar"
 
 #: src/qml/Component/Timeline/PollDelegate.qml:48
 #, kde-format
@@ -1472,10 +1427,10 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: src/qml/Component/Timeline/PollDelegate.qml:48
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
-msgstr "teminate (ended)"
+msgstr "(teminate (ended))"
 
 #: src/qml/Component/Timeline/ReactionDelegate.qml:53
 #, kde-format
@@ -1825,23 +1780,21 @@ msgstr ""
 
 #: src/qml/Dialog/PowerLevelDialog.qml:37
 #: src/qml/RoomSettings/Permissions.qml:74
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgid "Member (0)"
-msgstr "%1 Member"
+msgstr " Member (0)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:38
 #: src/qml/RoomSettings/Permissions.qml:75
-#, fuzzy, kde-format
+#, kde-format
 msgid "Moderator (50)"
-msgstr "Moderator"
+msgstr "Moderator (50)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:39
 #: src/qml/RoomSettings/Permissions.qml:76
-#, fuzzy, kde-format
-#| msgid "Admin"
+#, kde-format
 msgid "Admin (100)"
-msgstr "Admin"
+msgstr "Admin (100)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:347
 #: src/qml/Settings/DevicesPage.qml:186
@@ -1897,10 +1850,9 @@ msgid "Set user power level"
 msgstr ""
 
 #: src/qml/Dialog/UserDetailDialog.qml:169
-#, fuzzy, kde-format
-#| msgid "Delete recent messages by this user"
+#, kde-format
 msgid "Remove recent messages by this user"
-msgstr "Dele messages recente per iste usator"
+msgstr "Remove messages recente per iste usator"
 
 #: src/qml/Dialog/UserDetailDialog.qml:174
 #, kde-format
@@ -2220,25 +2172,22 @@ msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "Url compartite per imagine es <a href='%1'>%1</a>"
 
 #: src/qml/Menu/SpaceListContextMenu.qml:25
-#, fuzzy, kde-format
-#| msgid "View Source"
+#, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
-msgstr "Vider Fonte"
+msgstr "Vider Spatio"
 
 #: src/qml/Menu/SpaceListContextMenu.qml:39
-#, fuzzy, kde-format
-#| msgid "Settings"
+#, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
-msgstr "Preferentias"
+msgstr "Preferentias de Spatio"
 
 #: src/qml/Menu/SpaceListContextMenu.qml:40
 #: src/qml/Menu/SpaceListContextMenu.qml:97
-#, fuzzy, kde-format
-#| msgid "Settings"
+#, kde-format
 msgid "Space Settings"
-msgstr "Preferentias"
+msgstr "Preferentias de Spatio"
 
 #: src/qml/Menu/SpaceListContextMenu.qml:46
 #: src/qml/Menu/SpaceListContextMenu.qml:101
@@ -2346,10 +2295,9 @@ msgstr "Configura vias breve de Web..."
 
 #: src/qml/Menu/Timeline/MessageSourceSheet.qml:20
 #: src/qml/Page/DevtoolsPage.qml:29
-#, fuzzy, kde-format
-#| msgid "View Source"
+#, kde-format
 msgid "Event Source"
-msgstr "Fonte de evento:"
+msgstr "Fonte de evento"
 
 #: src/qml/Menu/Timeline/RemoveSheet.qml:18
 #, kde-format
@@ -2945,7 +2893,7 @@ msgstr ""
 #: src/qml/RoomSettings/Permissions.qml:258
 #, kde-format
 msgid "Basic permissions"
-msgstr ""
+msgstr "Permissiones basic"
 
 #: src/qml/RoomSettings/Permissions.qml:261
 #, kde-format
@@ -3019,8 +2967,7 @@ msgid "Set pinned events"
 msgstr "Monstra eventos de cambio de nomine"
 
 #: src/qml/RoomSettings/Permissions.qml:376
-#, fuzzy, kde-format
-#| msgid "left the room"
+#, kde-format
 msgid "Upgrade the room"
 msgstr "Actualisa le sala"
 
@@ -3042,10 +2989,9 @@ msgid "Set the parent space of this room"
 msgstr "%1 invitava te  un sala"
 
 #: src/qml/RoomSettings/PushNotification.qml:29
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Room notifications setting"
-msgstr "Monsta notificationes"
+msgstr "Monstra preferentias de  notificationes"
 
 #: src/qml/RoomSettings/PushNotification.qml:32
 #, kde-format
@@ -3105,11 +3051,10 @@ msgid "Anyone in a space can find and join."
 msgstr "Alcun in un spatio pote trovar e unir."
 
 #: src/qml/RoomSettings/Security.qml:76
-#, fuzzy, kde-format
-#| msgid "knocked"
+#, kde-format
 msgctxt "@option:check"
 msgid "Knock"
-msgstr "colpate (knocked9"
+msgstr "Colpa (knock)"
 
 #: src/qml/RoomSettings/Security.qml:77
 #, kde-format
@@ -3618,10 +3563,9 @@ msgid "Messages containing my display name"
 msgstr "clarate lor nomine de monstrar"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:147
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Whole room (@room) notifications"
-msgstr "Monsta notificationes"
+msgstr "Complete notificationes de sala (@room)"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:172
 #, kde-format
@@ -3705,8 +3649,7 @@ msgid "User"
 msgstr "Usator"
 
 #: src/qml/Settings/NotificationRuleItem.qml:65
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Disable notifications"
 msgstr "Dishabilita notificationes"
 
@@ -3721,10 +3664,9 @@ msgid "Mute notifications"
 msgstr "Silentia notificationes"
 
 #: src/qml/Settings/NotificationRuleItem.qml:87
-#, fuzzy, kde-format
-#| msgid "Show notifications"
+#, kde-format
 msgid "Unmute notifications"
-msgstr "Monsta notificationes"
+msgstr "De silentia notificationes"
 
 #: src/qml/Settings/NotificationRuleItem.qml:109
 #, kde-format
@@ -3768,17 +3710,15 @@ msgid "About NeoChat"
 msgstr "A proposito de NeoChat"
 
 #: src/qml/Settings/SettingsPage.qml:58
-#, fuzzy, kde-format
-#| msgid "About"
+#, kde-format
 msgid "About KDE"
 msgstr "A proposio de KDE"
 
 #: src/qml/Settings/SonnetConfigPage.qml:50
-#, fuzzy, kde-format
-#| msgid "Spell Checking"
+#, kde-format
 msgctxt "@window:title"
 msgid "Spellchecking"
-msgstr "Controlo Orthographic"
+msgstr "Facer Controlo Orthographic"
 
 #: src/qml/Settings/SonnetConfigPage.qml:94
 #, kde-format
@@ -3875,10 +3815,9 @@ msgstr ""
 "le conto."
 
 #: src/roommanager.cpp:210
-#, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
+#, kde-format
 msgid "Failed to join room"
-msgstr "%1 invitava te  un sala"
+msgstr "Falleva a unir sala"
 
 #: src/roommanager.cpp:227
 #, kde-format
@@ -3886,10 +3825,9 @@ msgid "You requested to join '%1'"
 msgstr ""
 
 #: src/roommanager.cpp:230
-#, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
+#, kde-format
 msgid "Failed to request joining room"
-msgstr "%1 invitava te  un sala"
+msgstr "Il falleva a requirer unir sala"
 
 #: src/roommanager.cpp:240
 #, kde-format
