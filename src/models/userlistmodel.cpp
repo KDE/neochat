@@ -217,6 +217,9 @@ int UserListModel::findUserPos(Quotient::User *user) const
 
 int UserListModel::findUserPos(const QString &username) const
 {
+    if (!m_currentRoom) {
+        return 0;
+    }
     return m_currentRoom->memberSorter().lowerBoundIndex(m_users, username);
 }
 
