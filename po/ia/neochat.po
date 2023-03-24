@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-18 03:10+0000\n"
-"PO-Revision-Date: 2023-03-20 15:53+0100\n"
+"POT-Creation-Date: 2023-03-24 02:39+0000\n"
+"PO-Revision-Date: 2023-03-23 11:54+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -291,24 +291,21 @@ msgid "%1 is banned from this room."
 msgstr "%1 es excludite (banned) ex iste sala"
 
 #: src/models/actionsmodel.cpp:172
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgid "You are already in this room."
-msgstr "Aperi NeoChat in iste sala"
+msgstr "Tu ja es in iste sala"
 
 #: src/models/actionsmodel.cpp:176
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgctxt "<user> is already in this room."
 msgid "%1 is already in this room."
-msgstr "Aperi NeoChat in iste sala"
+msgstr "%1 ja es in iste sala"
 
 #: src/models/actionsmodel.cpp:180
-#, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
+#, kde-format
 msgctxt "<username> was invited into this room"
 msgid "%1 was invited into this room"
-msgstr "%1 invitava te  un sala"
+msgstr "%1 esseva invitate in iste sala"
 
 #: src/models/actionsmodel.cpp:185 src/models/actionsmodel.cpp:388
 #: src/models/actionsmodel.cpp:416 src/models/actionsmodel.cpp:507
@@ -316,10 +313,8 @@ msgid "<user id>"
 msgstr ""
 
 #: src/models/actionsmodel.cpp:186
-#, fuzzy
-#| msgid "%1 invited you to a room"
 msgid "Invites the user to this room"
-msgstr "%1 invitava te  un sala"
+msgstr "Invita le usator a iste sala"
 
 #: src/models/actionsmodel.cpp:195 src/models/actionsmodel.cpp:222
 #: src/models/actionsmodel.cpp:253 src/models/actionsmodel.cpp:280
@@ -330,38 +325,32 @@ msgid "'%1' does not look like a room id or alias."
 msgstr ""
 
 #: src/models/actionsmodel.cpp:203 src/models/actionsmodel.cpp:260
-#, fuzzy, kde-format
-#| msgid "Configure room"
+#, kde-format
 msgctxt "Joining room <roomname>."
 msgid "Joining room %1."
-msgstr "Configura sala"
+msgstr "Uni sala %1"
 
 #: src/models/actionsmodel.cpp:209 src/models/actionsmodel.cpp:266
 msgid "<room alias or id>"
 msgstr ""
 
 #: src/models/actionsmodel.cpp:210 src/models/actionsmodel.cpp:267
-#, fuzzy
-#| msgid "joined the room"
 msgid "Joins the given room"
-msgstr "unite al sala"
+msgstr "Uni le date sala"
 
 #: src/models/actionsmodel.cpp:230
-#, fuzzy, kde-format
-#| msgid "Configure room"
+#, kde-format
 msgctxt "Knocking room <roomname>."
 msgid "Knocking room %1."
-msgstr "Configura sala"
+msgstr "Colpar sala %1."
 
 #: src/models/actionsmodel.cpp:242
 msgid "<room alias or id> [<reason>]"
 msgstr ""
 
 #: src/models/actionsmodel.cpp:243
-#, fuzzy
-#| msgid "joined the room"
 msgid "Requests to join the given room"
-msgstr "unite al sala"
+msgstr "Requesta a unir le date sala"
 
 #: src/models/actionsmodel.cpp:257
 #, kde-format
@@ -370,17 +359,15 @@ msgid "You are already in room %1."
 msgstr ""
 
 #: src/models/actionsmodel.cpp:273 src/models/actionsmodel.cpp:305
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgid "Leaving this room."
-msgstr "Aperi NeoChat in iste sala"
+msgstr "Lassar iste sala"
 
 #: src/models/actionsmodel.cpp:288 src/models/actionsmodel.cpp:320
-#, fuzzy, kde-format
-#| msgid "Leave room"
+#, kde-format
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
-msgstr "Lassa sala"
+msgstr "Lassar sala %1."
 
 #: src/models/actionsmodel.cpp:291 src/models/actionsmodel.cpp:323
 #, kde-format
@@ -406,18 +393,12 @@ msgid "<display name>"
 msgstr ""
 
 #: src/models/actionsmodel.cpp:346
-#, fuzzy
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
 msgid "Changes your global display name"
-msgstr "cambiate lor nomine de monstrar a %1"
+msgstr "Cambiate tu nomine de monstrar global"
 
 #: src/models/actionsmodel.cpp:361
-#, fuzzy
-#| msgctxt "their refers to a singular user"
-#| msgid "changed their display name to %1"
 msgid "Changes your display name in this room"
-msgstr "cambiate lor nomine de monstrar a %1"
+msgstr "Cambiate tu nomine de monstrar in iste sala"
 
 #: src/models/actionsmodel.cpp:375
 #, kde-format
@@ -472,17 +453,15 @@ msgid "%1 is already banned from this room."
 msgstr "%1 ja es excludite (banned) ab iste sala"
 
 #: src/models/actionsmodel.cpp:460
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgid "You are not allowed to ban users from this room."
-msgstr "Aperi NeoChat in iste sala"
+msgstr "Tu non es permittite a prohiber (bannar) usatores ab iste sala."
 
 #: src/models/actionsmodel.cpp:466
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgctxt "You are not allowed to ban <username> from this room."
 msgid "You are not allowed to ban %1 from this room."
-msgstr "Aperi NeoChat in iste sala"
+msgstr "Tu non es permittite a prohiber (bannar) %1 ab iste sala."
 
 #: src/models/actionsmodel.cpp:470
 #, kde-format
@@ -499,10 +478,9 @@ msgid "Bans the given user"
 msgstr "Ignora le usator date"
 
 #: src/models/actionsmodel.cpp:490
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgid "You are not allowed to unban users from this room."
-msgstr "Aperi NeoChat in iste sala"
+msgstr "Tu non es permittite a de-prohiber (de-bannar) usatores ab iste sala."
 
 #: src/models/actionsmodel.cpp:496
 #, kde-format
@@ -746,7 +724,7 @@ msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:533 src/neochatroom.cpp:674
+#: src/neochatroom.cpp:533 src/neochatroom.cpp:678
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "unite al sala (repetite)"
@@ -756,7 +734,7 @@ msgstr "unite al sala (repetite)"
 msgid "invited %1 to the room"
 msgstr "%1 invitate  al sala"
 
-#: src/neochatroom.cpp:535 src/neochatroom.cpp:676
+#: src/neochatroom.cpp:535 src/neochatroom.cpp:680
 #, kde-format
 msgid "joined the room"
 msgstr "unite al sala"
@@ -766,7 +744,7 @@ msgstr "unite al sala"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:546 src/neochatroom.cpp:684
+#: src/neochatroom.cpp:546 src/neochatroom.cpp:688
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
@@ -778,29 +756,29 @@ msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "cambiate lor nomine de monstrar a %1"
 
-#: src/neochatroom.cpp:553 src/neochatroom.cpp:691
+#: src/neochatroom.cpp:553 src/neochatroom.cpp:695
 #, kde-format
 msgid " and "
 msgstr "e"
 
-#: src/neochatroom.cpp:556 src/neochatroom.cpp:694
+#: src/neochatroom.cpp:556 src/neochatroom.cpp:698
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "clarate lor avatar"
 
-#: src/neochatroom.cpp:562 src/neochatroom.cpp:700
+#: src/neochatroom.cpp:562 src/neochatroom.cpp:704
 #, kde-format
 msgid "set an avatar"
 msgstr "fixa un avatar"
 
-#: src/neochatroom.cpp:564 src/neochatroom.cpp:702
+#: src/neochatroom.cpp:564 src/neochatroom.cpp:706
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "actualisate lor avatar"
 
-#: src/neochatroom.cpp:568 src/neochatroom.cpp:706
+#: src/neochatroom.cpp:568 src/neochatroom.cpp:710
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
@@ -811,7 +789,7 @@ msgstr ""
 msgid "withdrew %1's invitation"
 msgstr "retirate invitation de %1"
 
-#: src/neochatroom.cpp:574 src/neochatroom.cpp:712
+#: src/neochatroom.cpp:574 src/neochatroom.cpp:716
 #, kde-format
 msgid "rejected the invitation"
 msgstr "refusate le invitation"
@@ -821,7 +799,7 @@ msgstr "refusate le invitation"
 msgid "unbanned %1"
 msgstr "cessate de excluder (ban) %1"
 
-#: src/neochatroom.cpp:578 src/neochatroom.cpp:716
+#: src/neochatroom.cpp:578 src/neochatroom.cpp:720
 #, kde-format
 msgid "self-unbanned"
 msgstr "cessa auto exclusion (self-banned)"
@@ -831,7 +809,7 @@ msgstr "cessa auto exclusion (self-banned)"
 msgid "has put %1 out of the room: %2"
 msgstr "ha ponite %1 foras de sala: %2"
 
-#: src/neochatroom.cpp:582 src/neochatroom.cpp:718
+#: src/neochatroom.cpp:582 src/neochatroom.cpp:722
 #, kde-format
 msgid "left the room"
 msgstr "lassa le sala"
@@ -846,12 +824,12 @@ msgstr "excludite (banned) %1 ex le sala"
 msgid "banned %1 from the room: %2"
 msgstr "excludite (banned) %1 ex le sala: %2"
 
-#: src/neochatroom.cpp:591 src/neochatroom.cpp:723
+#: src/neochatroom.cpp:591 src/neochatroom.cpp:727
 #, kde-format
 msgid "self-banned from the room"
 msgstr "auto excludite (self-banned) ab le sala"
 
-#: src/neochatroom.cpp:595 src/neochatroom.cpp:726
+#: src/neochatroom.cpp:595 src/neochatroom.cpp:730
 #, kde-format
 msgid "requested an invite"
 msgstr "requerite un  invitation"
@@ -861,12 +839,12 @@ msgstr "requerite un  invitation"
 msgid "requested an invite with reason: %1"
 msgstr "requerite un  invitation con motivation: %1"
 
-#: src/neochatroom.cpp:599 src/neochatroom.cpp:730
+#: src/neochatroom.cpp:599 src/neochatroom.cpp:734
 #, kde-format
 msgid "made something unknown"
 msgstr "facite alcun cosas incognite"
 
-#: src/neochatroom.cpp:602 src/neochatroom.cpp:733
+#: src/neochatroom.cpp:602 src/neochatroom.cpp:737
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "clarate le alias principal de sala"
@@ -876,7 +854,7 @@ msgstr "clarate le alias principal de sala"
 msgid "set the room main alias to: %1"
 msgstr "fixa le alias principal de sala a : %1"
 
-#: src/neochatroom.cpp:605 src/neochatroom.cpp:736
+#: src/neochatroom.cpp:605 src/neochatroom.cpp:740
 #, kde-format
 msgid "cleared the room name"
 msgstr "clarate le nomine de sala"
@@ -886,177 +864,177 @@ msgstr "clarate le nomine de sala"
 msgid "set the room name to: %1"
 msgstr "fixa le nomine de sala a: %1"
 
-#: src/neochatroom.cpp:608 src/neochatroom.cpp:739
+#: src/neochatroom.cpp:608 src/neochatroom.cpp:743
 #, kde-format
 msgid "cleared the topic"
 msgstr "clarate le topico"
 
-#: src/neochatroom.cpp:608
+#: src/neochatroom.cpp:609
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "fix le topico a: %1"
 
-#: src/neochatroom.cpp:611 src/neochatroom.cpp:742
+#: src/neochatroom.cpp:615 src/neochatroom.cpp:746
 #, kde-format
 msgid "changed the room avatar"
-msgstr "campiate le avatr de sala"
+msgstr "cambiate le avatar de sala"
 
-#: src/neochatroom.cpp:614 src/neochatroom.cpp:745
+#: src/neochatroom.cpp:618 src/neochatroom.cpp:749
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "activate cryptation End-to-End"
 
-#: src/neochatroom.cpp:617
+#: src/neochatroom.cpp:621
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "actualisate le sala a version %1"
 
-#: src/neochatroom.cpp:618
+#: src/neochatroom.cpp:622
 #, kde-format
 msgid "created the room, version %1"
 msgstr "create le sala, version %1"
 
-#: src/neochatroom.cpp:621 src/neochatroom.cpp:751
+#: src/neochatroom.cpp:625 src/neochatroom.cpp:755
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "Cambiate le nvello de potentia per iste salc"
 
-#: src/neochatroom.cpp:625 src/neochatroom.cpp:755
+#: src/neochatroom.cpp:629 src/neochatroom.cpp:759
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "cambiate le listas de controlo de accesso de servitor per iste sala"
 
-#: src/neochatroom.cpp:629
+#: src/neochatroom.cpp:633
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "addite %1 widget"
 
-#: src/neochatroom.cpp:632
+#: src/neochatroom.cpp:636
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "removite %1 widget"
 
-#: src/neochatroom.cpp:634
+#: src/neochatroom.cpp:638
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "configurate %1 widget"
 
-#: src/neochatroom.cpp:636
+#: src/neochatroom.cpp:640
 #, kde-format
 msgid "updated %1 state"
 msgstr "actualisate stato %1"
 
-#: src/neochatroom.cpp:637
+#: src/neochatroom.cpp:641
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "actualisate stato %1 per %2"
 
-#: src/neochatroom.cpp:644 src/neochatroom.cpp:773
+#: src/neochatroom.cpp:648 src/neochatroom.cpp:777
 #, kde-format
 msgid "Unknown event"
 msgstr "Evento incognite"
 
-#: src/neochatroom.cpp:657
+#: src/neochatroom.cpp:661
 #, kde-format
 msgid "sent a message"
 msgstr "Invia un message"
 
-#: src/neochatroom.cpp:661
+#: src/neochatroom.cpp:665
 #, kde-format
 msgid "sent a sticker"
 msgstr ""
 
-#: src/neochatroom.cpp:667
+#: src/neochatroom.cpp:671
 #, kde-format
 msgid "reinvited someone to the room"
 msgstr "reinvitate alcun al sala"
 
-#: src/neochatroom.cpp:676
+#: src/neochatroom.cpp:680
 #, kde-format
 msgid "invited someone to the room"
 msgstr " invitate  alcun al sala"
 
-#: src/neochatroom.cpp:686
+#: src/neochatroom.cpp:690
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name"
 msgstr "cambiate lor nomine de monstrar "
 
-#: src/neochatroom.cpp:712
+#: src/neochatroom.cpp:716
 #, kde-format
 msgid "withdrew a user's invitation"
 msgstr "retirate un invitation de usator"
 
-#: src/neochatroom.cpp:716
+#: src/neochatroom.cpp:720
 #, kde-format
 msgid "unbanned a user"
 msgstr "cessate de excluder (ban) un usator"
 
-#: src/neochatroom.cpp:718
+#: src/neochatroom.cpp:722
 #, kde-format
 msgid "put a user out of the room"
 msgstr "ha ponite un usator foras del sala"
 
-#: src/neochatroom.cpp:721
+#: src/neochatroom.cpp:725
 #, kde-format
 msgid "banned a user from the room"
 msgstr "excludite (banned) un usator ex le sala"
 
-#: src/neochatroom.cpp:733
+#: src/neochatroom.cpp:737
 #, kde-format
 msgid "set the room main alias"
 msgstr "fixa le alias principal de sala "
 
-#: src/neochatroom.cpp:736
+#: src/neochatroom.cpp:740
 #, kde-format
 msgid "set the room name"
 msgstr "fixa le nomine de sala"
 
-#: src/neochatroom.cpp:739
+#: src/neochatroom.cpp:743
 #, kde-format
 msgid "set the topic"
 msgstr "fix le topico "
 
-#: src/neochatroom.cpp:748
+#: src/neochatroom.cpp:752
 #, kde-format
 msgid "upgraded the room version"
 msgstr "actualisate le version de sala "
 
-#: src/neochatroom.cpp:748
+#: src/neochatroom.cpp:752
 #, kde-format
 msgid "created the room"
 msgstr "create le sala"
 
-#: src/neochatroom.cpp:759
+#: src/neochatroom.cpp:763
 #, kde-format
 msgid "added a widget"
 msgstr "addite un widget"
 
-#: src/neochatroom.cpp:762
+#: src/neochatroom.cpp:766
 #, kde-format
 msgid "removed a widget"
 msgstr "removite un widget"
 
-#: src/neochatroom.cpp:764
+#: src/neochatroom.cpp:768
 #, kde-format
 msgid "configured a widget"
 msgstr "configurate un widget"
 
-#: src/neochatroom.cpp:766
+#: src/neochatroom.cpp:770
 #, kde-format
 msgid "updated the state"
 msgstr "actualisate le stato"
 
-#: src/neochatroom.cpp:770
+#: src/neochatroom.cpp:774
 #, kde-format
 msgid "started a poll"
 msgstr ""
 
-#: src/neochatroom.cpp:1689 src/neochatroom.cpp:1690
+#: src/neochatroom.cpp:1693 src/neochatroom.cpp:1694
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Reporto inviate con successo."
@@ -2091,12 +2069,10 @@ msgid "Mark as Read"
 msgstr "Marca como legite"
 
 #: src/qml/Menu/RoomListContextMenu.qml:55
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Address to Clipboard"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy user's Matrix ID to Clipboard"
-msgstr "Copia adresse a area de transferentia"
+msgstr "Copia ID de Matrix de usator a Area de Transferentia"
 
 #: src/qml/Menu/RoomListContextMenu.qml:55
 #: src/qml/Menu/SpaceListContextMenu.qml:30
@@ -2194,7 +2170,7 @@ msgstr "Preferentias de Spatio"
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
-msgstr ""
+msgstr "Lassa spatio"
 
 #: src/qml/Menu/Timeline/BanSheet.qml:16
 #, kde-format
@@ -2202,16 +2178,15 @@ msgid "Ban User"
 msgstr "Prohibi usator"
 
 #: src/qml/Menu/Timeline/BanSheet.qml:20
-#, fuzzy, kde-format
-#| msgid "Unban this user"
+#, kde-format
 msgid "Reason for banning this user"
-msgstr "Leva prohibition (unban) ab iste usator"
+msgstr "Motivation per prohiber (bannar)  iste usator"
 
 #: src/qml/Menu/Timeline/BanSheet.qml:32
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
-msgstr ""
+msgstr "Prohibi (Ban)"
 
 #: src/qml/Menu/Timeline/BanSheet.qml:41
 #: src/qml/Menu/Timeline/RemoveSheet.qml:47
@@ -2336,11 +2311,9 @@ msgid "Reason for reporting this message"
 msgstr ""
 
 #: src/qml/Page/DevtoolsPage.qml:15
-#, fuzzy, kde-format
-#| msgctxt "%1 is the room name"
-#| msgid "Room Settings - %1"
+#, kde-format
 msgid "Room State - %1"
-msgstr "Preferentias de sala -%1"
+msgstr "Stato de sala -%1"
 
 #: src/qml/Page/ImageEditorPage.qml:36
 #, kde-format
@@ -2436,18 +2409,17 @@ msgstr "Uni te"
 #: src/qml/Page/JoinRoomPage.qml:73
 #, kde-format
 msgid "Add New Server"
-msgstr ""
+msgstr "Adde nove servitor "
 
 #: src/qml/Page/JoinRoomPage.qml:74
-#, fuzzy, kde-format
-#| msgid "Homeserver:"
+#, kde-format
 msgid "Home Server"
-msgstr "Servitor de casa (Homeserver):"
+msgstr "Servitor de casa"
 
 #: src/qml/Page/JoinRoomPage.qml:83
 #, kde-format
 msgid "Add new server"
-msgstr ""
+msgstr "Adde nove servitor "
 
 #: src/qml/Page/JoinRoomPage.qml:114
 #, kde-format
@@ -2672,10 +2644,9 @@ msgid "Search user in room"
 msgstr "Cerca usator in  sala"
 
 #: src/qml/Panel/RoomDrawer.qml:244
-#, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
+#, kde-format
 msgid "Invite user to room"
-msgstr "%1 invitava te  un sala"
+msgstr "Invita  usator a sala"
 
 #: src/qml/Panel/RoomDrawer.qml:251
 #, kde-format
@@ -2743,11 +2714,9 @@ msgid "Room ID"
 msgstr "ID de Sala"
 
 #: src/qml/RoomSettings/General.qml:130
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Address to Clipboard"
+#, kde-format
 msgid "Copy room ID to clipboard"
-msgstr "Copia adresse a area de transferentia"
+msgstr "Copia ID de sala a area de transferentia"
 
 #: src/qml/RoomSettings/General.qml:144
 #, kde-format
@@ -2765,10 +2734,9 @@ msgid "Aliases"
 msgstr "Aliases"
 
 #: src/qml/RoomSettings/General.qml:177
-#, fuzzy, kde-format
-#| msgid "No Canonical Alias"
+#, kde-format
 msgid "No canonical alias set"
-msgstr "Necun Alias canonic"
+msgstr "Necun Alias canonic fixate"
 
 #: src/qml/RoomSettings/General.qml:190
 #, kde-format
@@ -2806,16 +2774,14 @@ msgid "Enable URL previews"
 msgstr ""
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgid "URL previews are enabled by default in this room"
-msgstr "Aperi NeoChat in iste sala"
+msgstr "Viste preliminar de URL es habilitate per definition in iste sala"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgid "URL previews are disabled by default in this room"
-msgstr "Aperi NeoChat in iste sala"
+msgstr "Viste preliminar de URL es dishabilitate per definition in iste sala"
 
 #: src/qml/RoomSettings/General.qml:297
 #, kde-format
@@ -2868,11 +2834,9 @@ msgid "This is power level for all new users when joining the room"
 msgstr ""
 
 #: src/qml/RoomSettings/Permissions.qml:232
-#, fuzzy, kde-format
-#| msgctxt "'power level' means permission level"
-#| msgid "changed the power levels for this room"
+#, kde-format
 msgid "Default power level to set the room state"
-msgstr "Cambiate le nvello de potentia per iste salc"
+msgstr "Nivello de potentia predefinite a fixar le stato de sala"
 
 #: src/qml/RoomSettings/Permissions.qml:233
 #, kde-format
@@ -2901,10 +2865,9 @@ msgid "Invite users"
 msgstr "Invita Usatores"
 
 #: src/qml/RoomSettings/Permissions.qml:269
-#, fuzzy, kde-format
-#| msgid "Kick this user"
+#, kde-format
 msgid "Kick users"
-msgstr "Calca iste usator"
+msgstr "Calca usatores"
 
 #: src/qml/RoomSettings/Permissions.qml:277
 #, kde-format
@@ -2927,28 +2890,24 @@ msgid "Change user permissions"
 msgstr ""
 
 #: src/qml/RoomSettings/Permissions.qml:313
-#, fuzzy, kde-format
-#| msgid "cleared the room name"
+#, kde-format
 msgid "Change the room name"
-msgstr "clarate le nomine de sala"
+msgstr "Cambiale nomine de sala"
 
 #: src/qml/RoomSettings/Permissions.qml:322
-#, fuzzy, kde-format
-#| msgid "changed the room avatar"
+#, kde-format
 msgid "Change the room avatar"
-msgstr "campiate le avatr de sala"
+msgstr "Cambia le avatar de sala"
 
 #: src/qml/RoomSettings/Permissions.qml:331
-#, fuzzy, kde-format
-#| msgid "cleared the room main alias"
+#, kde-format
 msgid "Change the room canonical alias"
-msgstr "clarate le alias principal de sala"
+msgstr "Cambia le alias canonic de sala"
 
 #: src/qml/RoomSettings/Permissions.qml:340
-#, fuzzy, kde-format
-#| msgid "changed the room avatar"
+#, kde-format
 msgid "Change the room topic"
-msgstr "campiate le avatr de sala"
+msgstr "Cambia le argumento de sala"
 
 #: src/qml/RoomSettings/Permissions.qml:349
 #, kde-format
@@ -2961,10 +2920,9 @@ msgid "Change the room history visibility"
 msgstr ""
 
 #: src/qml/RoomSettings/Permissions.qml:367
-#, fuzzy, kde-format
-#| msgid "Show name change events"
+#, kde-format
 msgid "Set pinned events"
-msgstr "Monstra eventos de cambio de nomine"
+msgstr "Fixa eventos appunctate"
 
 #: src/qml/RoomSettings/Permissions.qml:376
 #, kde-format
@@ -2972,10 +2930,9 @@ msgid "Upgrade the room"
 msgstr "Actualisa le sala"
 
 #: src/qml/RoomSettings/Permissions.qml:385
-#, fuzzy, kde-format
-#| msgid "changed the server access control lists for this room"
+#, kde-format
 msgid "Set the room server access control list (ACL)"
-msgstr "cambiate le listas de controlo de accesso de servitor per iste sala"
+msgstr "Fixa le listas de controlo de accesso de servitor (ACL)  per iste sala"
 
 #: src/qml/RoomSettings/Permissions.qml:395
 #, kde-format
@@ -2983,10 +2940,9 @@ msgid "Set the children of this space"
 msgstr ""
 
 #: src/qml/RoomSettings/Permissions.qml:404
-#, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
+#, kde-format
 msgid "Set the parent space of this room"
-msgstr "%1 invitava te  un sala"
+msgstr "Fixa lespatio genitor de iste sala"
 
 #: src/qml/RoomSettings/PushNotification.qml:29
 #, kde-format
@@ -3016,11 +2972,10 @@ msgid "Enable encryption"
 msgstr ""
 
 #: src/qml/RoomSettings/Security.qml:37
-#, fuzzy, kde-format
-#| msgid "Only enabled if the transparent chat page is enabled."
+#, kde-format
 msgctxt "option:check"
 msgid "Once enabled, encryption cannot be disabled."
-msgstr "Solmente habilitate si le pagina de chat transparente es habilitate."
+msgstr "Un vice habilitate, le cryptation non pote esser  dishabilitate."
 
 #: src/qml/RoomSettings/Security.qml:54
 #, kde-format
@@ -3145,8 +3100,7 @@ msgid "About NeoChat"
 msgstr "A proposito de NeoChat"
 
 #: src/qml/Settings/AboutKDE.qml:7
-#, fuzzy, kde-format
-#| msgid "About"
+#, kde-format
 msgctxt "@title:window"
 msgid "About KDE"
 msgstr "A proposio de KDE"
@@ -3203,10 +3157,9 @@ msgid "Confirm new Password:"
 msgstr "Confirma nove contrasigno:"
 
 #: src/qml/Settings/AccountEditorPage.qml:156
-#, fuzzy, kde-format
-#| msgid "Passwords do not match"
+#, kde-format
 msgid "Passwords don't match"
-msgstr "Le contrasigno non es equal"
+msgstr "Le contrasigno non coincide"
 
 #: src/qml/Settings/AccountEditorPage.qml:178
 #, kde-format
@@ -3219,10 +3172,9 @@ msgid "Server Information"
 msgstr "Information de servitor"
 
 #: src/qml/Settings/AccountEditorPage.qml:203
-#, fuzzy, kde-format
-#| msgid "Homeserver:"
+#, kde-format
 msgid "Homeserver url"
-msgstr "Servitor de casa (Homeserver):"
+msgstr "Url de Servitor de casa (Homeserver):"
 
 #: src/qml/Settings/AccountsPage.qml:15 src/qml/Settings/AccountsPage.qml:26
 #: src/qml/Settings/SettingsPage.qml:27
@@ -3272,10 +3224,9 @@ msgid "Use compact room list"
 msgstr ""
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:233
-#, fuzzy, kde-format
-#| msgid "Show Fancy Effects"
+#, kde-format
 msgid "Show fancy effects in chat"
-msgstr "Monstra effectos de Phantasia"
+msgstr "Monstra effectos de Phantasia in chat"
 
 #: src/qml/Settings/AppearanceSettingsPage.qml:247
 #, kde-format
@@ -3334,18 +3285,14 @@ msgid "New device name"
 msgstr "Nove nomine de dispositivo"
 
 #: src/qml/Settings/DevicesPage.qml:95
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
+#, kde-format
 msgid "Cancel editing display name"
-msgstr "clarate lor nomine de monstrar"
+msgstr "Cancella modification de nomine de monstrar"
 
 #: src/qml/Settings/DevicesPage.qml:102
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
+#, kde-format
 msgid "Confirm new display name"
-msgstr "clarate lor nomine de monstrar"
+msgstr "Confirma nove nomine de monstrar"
 
 #: src/qml/Settings/DevicesPage.qml:117
 #, kde-format
@@ -3353,10 +3300,9 @@ msgid "Edit device name"
 msgstr "Edita nmine de dispositivo"
 
 #: src/qml/Settings/DevicesPage.qml:131
-#, fuzzy, kde-format
-#| msgid "Edit device"
+#, kde-format
 msgid "Verify device"
-msgstr "Edita dispositivo"
+msgstr "Verifica dispositivo"
 
 #: src/qml/Settings/DevicesPage.qml:146
 #, kde-format
@@ -3437,16 +3383,14 @@ msgid "Timeline Events"
 msgstr ""
 
 #: src/qml/Settings/GeneralSettingsPage.qml:82
-#, fuzzy, kde-format
-#| msgid "Send message"
+#, kde-format
 msgid "Show deleted messages"
-msgstr "Invia message"
+msgstr "Monstra  messages delite"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Show avatar update events"
+#, kde-format
 msgid "Show state events"
-msgstr "Monstra eventos de actualisar de avatar"
+msgstr "Monstra eventos de stato"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:112
 #, kde-format
@@ -3556,11 +3500,9 @@ msgid "@Mentions"
 msgstr "@Mentiones"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:131
-#, fuzzy, kde-format
-#| msgctxt "their refers to a singular user"
-#| msgid "cleared their display name"
+#, kde-format
 msgid "Messages containing my display name"
-msgstr "clarate lor nomine de monstrar"
+msgstr "Messages continente mi nomine de monstrar"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:147
 #, kde-format
@@ -3583,11 +3525,9 @@ msgid "Keyword…"
 msgstr "Parola clave…"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:244
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add word"
+#, kde-format
 msgid "Add keyword"
-msgstr "Adde parola"
+msgstr "Adde parola clave"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:272
 #, kde-format
@@ -3595,23 +3535,20 @@ msgid "Invites"
 msgstr "Invitationes"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:275
-#, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
+#, kde-format
 msgid "Invites to a room"
-msgstr "%1 invitava te  un sala"
+msgstr "Invita a un sala"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:291
-#, fuzzy, kde-format
-#| msgid "Send invitation"
+#, kde-format
 msgid "Call invitation"
-msgstr "Invia invitation"
+msgstr "Appella invitation"
 
 #: src/qml/Settings/NetworkProxyPage.qml:27
 #: src/qml/Settings/SettingsPage.qml:43
-#, fuzzy, kde-format
-#| msgid "Network Error"
+#, kde-format
 msgid "Network Proxy"
-msgstr "Error de rete"
+msgstr "Proxy de rete"
 
 #: src/qml/Settings/NetworkProxyPage.qml:30
 #, kde-format
