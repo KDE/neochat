@@ -76,6 +76,11 @@ DelegateChooser {
     }
 
     DelegateChoice {
+        roleValue: MessageEventModel.Location
+        delegate: LocationDelegate {}
+    }
+
+    DelegateChoice {
         roleValue: MessageEventModel.Other
         delegate: Item {}
     }

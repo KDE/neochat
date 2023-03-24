@@ -69,6 +69,8 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[IsRedactedRole] = "isRedacted";
     roles[GenericDisplayRole] = "genericDisplay";
     roles[IsPendingRole] = "isPending";
+    roles[LatitudeRole] = "latitude";
+    roles[LongitudeRole] = "longitude";
     return roles;
 }
 
@@ -510,6 +512,8 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
                 return DelegateType::Audio;
             case MessageEventType::Video:
                 return DelegateType::Video;
+            case MessageEventType::Location:
+                return DelegateType::Location;
             default:
                 break;
             }
@@ -564,6 +568,9 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         }
 
         if (auto e = eventCast<const RoomMessageEvent>(&evt)) {
+            if(e->msgtype() == Quotient::MessageEventType::Location) {
+                return e->contentJson();
+            }
             // Cannot use e.contentJson() here because some
             // EventContent classes inject values into the copy of the
             // content JSON stored in EventContent::Base
@@ -808,6 +815,24 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         }
 
         return false;
+    }
+
+    if (role == LatitudeRole) {
+        const auto geoUri = evt.contentJson()["geo_uri"_ls].toString();
+        if (geoUri.isEmpty()) {
+            return {};
+        }
+        const auto latitude = geoUri.split(u':')[1].split(u',')[0];
+        return latitude.toFloat();
+    }
+
+    if (role == LongitudeRole) {
+        const auto geoUri = evt.contentJson()["geo_uri"_ls].toString();
+        if (geoUri.isEmpty()) {
+            return {};
+        }
+        const auto latitude = geoUri.split(u':')[1].split(u',')[1];
+        return latitude.toFloat();
     }
 
     if (role == ReadMarkersRole) {

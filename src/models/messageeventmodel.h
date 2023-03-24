@@ -26,6 +26,7 @@ public:
         Encrypted,
         ReadMarker,
         Poll,
+        Location,
         Other,
     };
     Q_ENUM(DelegateType);
@@ -75,6 +76,8 @@ public:
         AuthorDisplayNameRole,
         IsRedactedRole,
         IsPendingRole,
+        LatitudeRole,
+        LongitudeRole,
         LastRole, // Keep this last
     };
     Q_ENUM(EventRoles)
