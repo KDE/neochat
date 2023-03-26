@@ -347,6 +347,9 @@ void TextHandlerTest::receiveStripNewlines()
     const QString testInputStringRich = QStringLiteral("Test<br>many<br />new<br>lines.");
     const QString testOutputString = QStringLiteral("Test many new lines.");
 
+    const QString testInputStringPlain2 = QStringLiteral("* List\n* Items");
+    const QString testOutputString2 = QStringLiteral("List Items");
+
     TextHandler testTextHandler;
     testTextHandler.setData(testInputStringPlain);
 
@@ -354,9 +357,11 @@ void TextHandlerTest::receiveStripNewlines()
     QCOMPARE(testTextHandler.handleRecieveRichText(Qt::PlainText, nullptr, nullptr, true), testOutputString);
 
     testTextHandler.setData(testInputStringRich);
-
     QCOMPARE(testTextHandler.handleRecievePlainText(Qt::RichText, true), testOutputString);
     QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText, nullptr, nullptr, true), testOutputString);
+
+    testTextHandler.setData(testInputStringPlain2);
+    QCOMPARE(testTextHandler.handleRecievePlainText(Qt::RichText, true), testOutputString2);
 }
 
 /**
