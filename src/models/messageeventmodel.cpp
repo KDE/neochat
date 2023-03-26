@@ -822,7 +822,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         if (geoUri.isEmpty()) {
             return {};
         }
-        const auto latitude = geoUri.split(u':')[1].split(u',')[0];
+        const auto latitude = geoUri.split(u';')[0].split(u':')[1].split(u',')[0];
         return latitude.toFloat();
     }
 
@@ -831,7 +831,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         if (geoUri.isEmpty()) {
             return {};
         }
-        const auto latitude = geoUri.split(u':')[1].split(u',')[1];
+        const auto latitude = geoUri.split(u';')[0].split(u':')[1].split(u',')[1];
         return latitude.toFloat();
     }
 
