@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-24 02:39+0000\n"
-"PO-Revision-Date: 2023-03-12 09:18+0100\n"
+"PO-Revision-Date: 2023-03-25 09:38+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -667,20 +667,15 @@ msgid "[REDACTED: %1]"
 msgstr "[ZREDAGOWANO: %1]"
 
 #: src/models/messageeventmodel.cpp:848
-#, fuzzy, kde-format
-#| msgctxt "n users"
-#| msgid " %1 user "
-#| msgid_plural " %1 users "
+#, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
-msgstr[0] " %1 użytkownik "
-msgstr[1] " %1 użytkowników "
-msgstr[2] " %1 użytkowników "
+msgstr[0] "1 użytkownik: "
+msgstr[1] "%1 użytkowników: "
+msgstr[2] "%1 użytkowników: "
 
 #: src/models/messageeventmodel.cpp:855
-#, fuzzy, kde-format
-#| msgctxt "[action 1], [action 2 and/or action 3]"
-#| msgid ", "
+#, kde-format
 msgctxt "list separator"
 msgid ", "
 msgstr ", "
@@ -2796,35 +2791,29 @@ msgid "Add new alias"
 msgstr "Dodaj nowy alias"
 
 #: src/qml/RoomSettings/General.qml:271
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "URL Previews"
-msgstr "Wczytywanie podglądu adresu URL"
+msgstr "Podglądy adresów URL"
 
 #: src/qml/RoomSettings/General.qml:274
 #, kde-format
 msgid "Enable URL previews by default for room members"
-msgstr ""
+msgstr "Domyślnie włącz podglądy URL dla członków pokoju"
 
 #: src/qml/RoomSettings/General.qml:282
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "Enable URL previews"
-msgstr "Wczytywanie podglądu adresu URL"
+msgstr "Włącz podglądy adresów URL"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are enabled by default in this room"
-msgstr "%1 przebywa już w tym pokoju."
+msgstr "Podglądy URL są domyślnie włączone w tym pokoju"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are disabled by default in this room"
-msgstr "%1 przebywa już w tym pokoju."
+msgstr "Podglądy URL są domyślnie wyłączone w tym pokoju"
 
 #: src/qml/RoomSettings/General.qml:297
 #, kde-format
@@ -3445,10 +3434,9 @@ msgid "Show deleted messages"
 msgstr "Pokaż usunięte wiadomości"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Show avatar update events"
+#, kde-format
 msgid "Show state events"
-msgstr "Pokaż uaktualnienia awatarów"
+msgstr "Pokaż stany zdarzeń"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:112
 #, kde-format
