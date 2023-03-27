@@ -71,6 +71,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[IsPendingRole] = "isPending";
     roles[LatitudeRole] = "latitude";
     roles[LongitudeRole] = "longitude";
+    roles[AssetRole] = "asset";
     return roles;
 }
 
@@ -833,6 +834,14 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         }
         const auto latitude = geoUri.split(u';')[0].split(u':')[1].split(u',')[1];
         return latitude.toFloat();
+    }
+
+    if (role == AssetRole) {
+        const auto assetType = evt.contentJson()["org.matrix.msc3488.asset"].toObject()["type"].toString();
+        if (assetType.isEmpty()) {
+            return {};
+        }
+        return assetType;
     }
 
     if (role == ReadMarkersRole) {

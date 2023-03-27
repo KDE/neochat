@@ -43,14 +43,37 @@ TimelineContainer {
                 id: point
 
                 anchorPoint.x: sourceItem.width / 2
-                anchorPoint.y: sourceItem.height / 2
+                anchorPoint.y: sourceItem.height
                 coordinate: QtPositioning.coordinate(model.latitude, model.longitude)
                 autoFadeIn: false
 
                 sourceItem: Kirigami.Icon {
                     width: height
-                    height: Kirigami.Units.iconSizes.medium
-                    source: "flag-blue"
+                    height: Kirigami.Units.iconSizes.huge
+                    source: "gps"
+                    isMask: true
+                    color: Kirigami.Theme.highlightColor
+
+                    Kirigami.Icon {
+                        anchors.centerIn: parent
+                        anchors.verticalCenterOffset: -parent.height / 8
+                        visible: model.asset === "m.pin"
+                        width: height
+                        height: parent.height / 3 + 1
+                        source: "pin"
+                        isMask: true
+                        color: Kirigami.Theme.highlightColor
+                    }
+                    Kirigami.Avatar {
+                        anchors.centerIn: parent
+                        anchors.verticalCenterOffset: -parent.height / 8
+                        visible: model.asset === "m.self"
+                        width: height
+                        height: parent.height / 3 + 1
+                        name: model.author.name ?? model.author.displayName
+                        source: model.author.avatarMediaId ? ("image://mxc/" + model.author.avatarMediaId) : ""
+                        color: model.author.color
+                    }
                 }
             }
 

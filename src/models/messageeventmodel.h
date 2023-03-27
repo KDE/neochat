@@ -78,6 +78,7 @@ public:
         IsPendingRole,
         LatitudeRole,
         LongitudeRole,
+        AssetRole,
         LastRole, // Keep this last
     };
     Q_ENUM(EventRoles)
