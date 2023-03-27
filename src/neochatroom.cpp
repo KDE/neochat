@@ -468,7 +468,7 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                     fileCaption = e.plainBody() + " | " + fileCaption;
                 }
                 textHandler.setData(fileCaption);
-                return !fileCaption.isEmpty() ? textHandler.handleRecievePlainText() : i18n("a file");
+                return !fileCaption.isEmpty() ? textHandler.handleRecievePlainText(Qt::PlainText, stripNewlines) : i18n("a file");
             }
 
             QString body;

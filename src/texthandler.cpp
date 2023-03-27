@@ -151,12 +151,6 @@ QString TextHandler::handleRecievePlainText(Qt::TextFormat inputFormat, const bo
     // Strip mx-reply if present.
     m_dataBuffer.remove(TextRegex::removeRichReply);
 
-    if (stripNewlines) {
-        m_dataBuffer.replace(QStringLiteral("<br>"), QStringLiteral(" "));
-        m_dataBuffer.replace(QStringLiteral("<br />"), QStringLiteral(" "));
-        m_dataBuffer.replace(u'\n', QStringLiteral(" "));
-    }
-
     // Escaping then unescaping allows < and > to be maintained in a plain text string
     // otherwise markdownToHTML will strip what it thinks is a bad html tag entirely.
     if (inputFormat == Qt::PlainText) {
@@ -168,6 +162,14 @@ QString TextHandler::handleRecievePlainText(Qt::TextFormat inputFormat, const bo
      * arrive (e.g. in a caption body) it can then be stripped by the same code.
      */
     m_dataBuffer = markdownToHTML(m_dataBuffer);
+
+    if (stripNewlines) {
+        m_dataBuffer.replace(QStringLiteral("<br>\n"), QStringLiteral(" "));
+        m_dataBuffer.replace(QStringLiteral("<br>"), QStringLiteral(" "));
+        m_dataBuffer.replace(QStringLiteral("<br />\n"), QStringLiteral(" "));
+        m_dataBuffer.replace(QStringLiteral("<br />"), QStringLiteral(" "));
+        m_dataBuffer.replace(u'\n', QStringLiteral(" "));
+    }
 
     // Strip all tags/attributes except code blocks which will be escaped.
     QString outputString;
@@ -193,6 +195,7 @@ QString TextHandler::handleRecievePlainText(Qt::TextFormat inputFormat, const bo
         outputString = unescapeHtml(outputString);
     }
 
+    outputString = outputString.trimmed();
     return outputString;
 }
 
