@@ -35,6 +35,9 @@ class ChatDocumentHandler : public QObject
 
     Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
 
+    Q_PROPERTY(QColor mentionColor READ mentionColor WRITE setMentionColor NOTIFY mentionColorChanged);
+    Q_PROPERTY(QColor errorColor READ errorColor WRITE setErrorColor NOTIFY errorColorChanged);
+
 public:
     explicit ChatDocumentHandler(QObject *parent = nullptr);
 
@@ -60,6 +63,13 @@ public:
 
     void updateCompletions();
     CompletionModel *completionModel() const;
+
+    [[nodiscard]] QColor mentionColor() const;
+    void setMentionColor(const QColor &color);
+
+    [[nodiscard]] QColor errorColor() const;
+    void setErrorColor(const QColor &color);
+
 Q_SIGNALS:
     void isEditChanged();
     void documentChanged();
@@ -68,6 +78,8 @@ Q_SIGNALS:
     void completionModelChanged();
     void selectionStartChanged();
     void selectionEndChanged();
+    void errorColorChanged();
+    void mentionColorChanged();
 
 private:
     int completionStartIndex() const;
@@ -78,6 +90,9 @@ private:
 
     NeoChatRoom *m_room = nullptr;
     bool completionVisible = false;
+
+    QColor m_mentionColor;
+    QColor m_errorColor;
 
     int m_cursorPosition;
     int m_selectionStart;

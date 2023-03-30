@@ -324,3 +324,35 @@ void ChatDocumentHandler::pushMention(const Mention mention) const
         m_room->mentions()->push_back(mention);
     }
 }
+
+QColor ChatDocumentHandler::mentionColor() const
+{
+    return m_mentionColor;
+}
+
+void ChatDocumentHandler::setMentionColor(const QColor &color)
+{
+    if (m_mentionColor == color) {
+        return;
+    }
+    m_mentionColor = color;
+    m_highlighter->mentionFormat.setForeground(m_mentionColor);
+    m_highlighter->rehighlight();
+    Q_EMIT mentionColorChanged();
+}
+
+QColor ChatDocumentHandler::errorColor() const
+{
+    return m_errorColor;
+}
+
+void ChatDocumentHandler::setErrorColor(const QColor &color)
+{
+    if (m_errorColor == color) {
+        return;
+    }
+    m_errorColor = color;
+    m_highlighter->errorFormat.setForeground(m_errorColor);
+    m_highlighter->rehighlight();
+    Q_EMIT errorColorChanged();
+}

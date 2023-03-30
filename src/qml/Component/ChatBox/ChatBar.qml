@@ -394,6 +394,8 @@ QQC2.Control {
         cursorPosition: textField.cursorPosition
         selectionStart: textField.selectionStart
         selectionEnd: textField.selectionEnd
+        mentionColor: Kirigami.Theme.linkColor
+        errorColor: Kirigami.Theme.negativeTextColor
         Component.onCompleted: {
             RoomManager.chatDocumentHandler = documentHandler;
         }

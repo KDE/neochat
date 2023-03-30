@@ -119,6 +119,8 @@ QQC2.TextArea {
         selectionStart: root.selectionStart
         selectionEnd: root.selectionEnd
         room: root.room // We don't care about saving for edits so this is OK.
+        mentionColor: Kirigami.Theme.linkColor
+        errorColor: Kirigami.Theme.negativeTextColor
     }
 
     TextMetrics {
