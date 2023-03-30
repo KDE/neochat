@@ -154,10 +154,10 @@ void RoomListModel::doAddRoom(Room *r)
 void RoomListModel::connectRoomSignals(NeoChatRoom *room)
 {
     connect(room, &Room::displaynameChanged, this, [this, room] {
-        refresh(room);
+        refresh(room, {DisplayNameRole, NameRole});
     });
     connect(room, &Room::unreadMessagesChanged, this, [this, room] {
-        refresh(room);
+        refresh(room, {UnreadCountRole, NotificationCountRole, HighlightCountRole});
     });
     connect(room, &Room::notificationCountChanged, this, [this, room] {
         refresh(room);
@@ -172,7 +172,7 @@ void RoomListModel::connectRoomSignals(NeoChatRoom *room)
         refresh(room);
     });
     connect(room, &Room::addedMessages, this, [this, room] {
-        refresh(room, {LastEventRole, SubtitleTextRole});
+        refresh(room, {LastEventRole, SubtitleTextRole, LastActiveTimeRole});
     });
     connect(room, &Room::pendingEventMerged, this, [this, room] {
         refresh(room, {LastEventRole, SubtitleTextRole});
