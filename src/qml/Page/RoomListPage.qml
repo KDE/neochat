@@ -46,10 +46,7 @@ Kirigami.ScrollablePage {
 
             model: SortFilterSpaceListModel {
                 id: sortFilterSpaceListModel
-                sourceModel: RoomListModel {
-                    id: spaceListModel
-                    connection: Controller.activeConnection
-                }
+                sourceModel: roomListModel
             }
 
             header: QQC2.ItemDelegate {
