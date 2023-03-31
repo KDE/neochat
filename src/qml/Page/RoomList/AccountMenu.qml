@@ -8,6 +8,7 @@ import QtQuick.Layouts 1.15
 import org.kde.kirigami 2.19 as Kirigami
 
 import org.kde.neochat 1.0
+import '../Dialog' as Dialog
 
 QQC2.Menu {
     id: root
@@ -38,7 +39,7 @@ QQC2.Menu {
         onTriggered: confirmLogoutDialog.open()
     }
 
-    ConfirmLogoutDialog {
+    Dialog.ConfirmLogoutDialog {
         id: confirmLogoutDialog
     }
 }

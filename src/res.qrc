@@ -2,9 +2,21 @@
     <qresource prefix="/">
         <file alias="icons/org.kde.neochat.svg">../org.kde.neochat.svg</file>
         <file alias="icons/org.kde.neochat.tray.svg">../org.kde.neochat.tray.svg</file>
+
         <file alias="main.qml">qml/main.qml</file>
+
+        <file alias="RoomList/AccountMenu.qml">qml/Page/RoomList/AccountMenu.qml</file>
+        <file alias="RoomList/ExploreComponent.qml">qml/Page/RoomList/ExploreComponent.qml</file>
+        <file alias="RoomList/ContextMenu.qml">qml/Page/RoomList/ContextMenu.qml</file>
+        <file alias="RoomList/CollapsedRoomDelegate.qml">qml/Page/RoomList/CollapsedRoomDelegate.qml</file>
+        <file alias="RoomList/RoomDelegate.qml">qml/Page/RoomList/RoomDelegate.qml</file>
+        <file alias="RoomList/Page.qml">qml/Page/RoomList/Page.qml</file>
+        <file alias="RoomList/SpaceListContextMenu.qml">qml/Page/RoomList/SpaceListContextMenu.qml</file>
+        <file alias="RoomList/SpaceDelegate.qml">qml/Page/RoomList/SpaceDelegate.qml</file>
+        <file alias="RoomList/SpaceListView.qml">qml/Page/RoomList/SpaceListView.qml</file>
+        <file alias="RoomList/UserInfo.qml">qml/Page/RoomList/UserInfo.qml</file>
+
         <file alias="LoadingPage.qml">qml/Page/LoadingPage.qml</file>
-        <file alias="RoomListPage.qml">qml/Page/RoomListPage.qml</file>
         <file alias="RoomPage.qml">qml/Page/RoomPage.qml</file>
         <file alias="RoomWindow.qml">qml/Page/RoomWindow.qml</file>
         <file alias="JoinRoomPage.qml">qml/Page/JoinRoomPage.qml</file>
@@ -18,12 +30,10 @@
         <file alias="Categories.qml">qml/RoomSettings/Categories.qml</file>
         <file alias="Permissions.qml">qml/RoomSettings/Permissions.qml</file>
         <file alias="FullScreenImage.qml">qml/Component/FullScreenImage.qml</file>
-        <file alias="UserInfo.qml">qml/Component/UserInfo.qml</file>
         <file alias="FancyEffectsContainer.qml">qml/Component/FancyEffectsContainer.qml</file>
         <file alias="TypingPane.qml">qml/Component/TypingPane.qml</file>
         <file alias="ShimmerGradient.qml">qml/Component/ShimmerGradient.qml</file>
         <file alias="QuickSwitcher.qml">qml/Component/QuickSwitcher.qml</file>
-        <file alias="ExploreComponent.qml">qml/Component/ExploreComponent.qml</file>
         <file alias="ChatBox.qml">qml/Component/ChatBox/ChatBox.qml</file>
         <file alias="ChatBar.qml">qml/Component/ChatBox/ChatBar.qml</file>
         <file alias="AttachmentPane.qml">qml/Component/ChatBox/AttachmentPane.qml</file>
@@ -66,7 +76,7 @@
         <file alias="EmojiDialog.qml">qml/Dialog/EmojiDialog.qml</file>
         <file alias="OpenFileDialog.qml">qml/Dialog/OpenFileDialog.qml</file>
         <file alias="KeyVerificationDialog.qml">qml/Dialog/KeyVerification/KeyVerificationDialog.qml</file>
-        <file alias="ConfirmLogoutDialog.qml">qml/Dialog/ConfirmLogoutDialog.qml</file>
+        <file alias="Dialog/ConfirmLogoutDialog.qml">qml/Dialog/ConfirmLogoutDialog.qml</file>
         <file alias="PowerLevelDialog.qml">qml/Dialog/PowerLevelDialog.qml</file>
         <file alias="Message.qml">qml/Dialog/KeyVerification/Message.qml</file>
         <file alias="EmojiItem.qml">qml/Dialog/KeyVerification/EmojiItem.qml</file>
@@ -75,13 +85,10 @@
         <file alias="VerificationCanceled.qml">qml/Dialog/KeyVerification/VerificationCanceled.qml</file>
         <file alias="GlobalMenu.qml">qml/Menu/GlobalMenu.qml</file>
         <file alias="EditMenu.qml">qml/Menu/EditMenu.qml</file>
-        <file alias="AccountMenu.qml">qml/Menu/AccountMenu.qml</file>
         <file alias="MessageDelegateContextMenu.qml">qml/Menu/Timeline/MessageDelegateContextMenu.qml</file>
         <file alias="FileDelegateContextMenu.qml">qml/Menu/Timeline/FileDelegateContextMenu.qml</file>
         <file alias="MessageSourceSheet.qml">qml/Menu/Timeline/MessageSourceSheet.qml</file>
         <file alias="ReportSheet.qml">qml/Menu/Timeline/ReportSheet.qml</file>
-        <file alias="RoomListContextMenu.qml">qml/Menu/RoomListContextMenu.qml</file>
-        <file alias="SpaceListContextMenu.qml">qml/Menu/SpaceListContextMenu.qml</file>
         <file alias="glowdot.png">qml/Component/glowdot.png</file>
         <file alias="confetti.png">qml/Component/confetti.png</file>
         <file alias="SettingsPage.qml">qml/Settings/SettingsPage.qml</file>

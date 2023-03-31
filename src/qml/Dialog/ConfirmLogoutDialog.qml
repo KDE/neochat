@@ -20,8 +20,8 @@ QQC2.Dialog {
         }
     }
 
-    x: Math.round((parent.width - width) / 2)
-    y: Math.round((parent.height - height) / 2)
+    x: parent ? Math.round((parent.width - width) / 2) : 0
+    y: parent ? Math.round((parent.height - height) / 2) : 0
     modal: true
 
     footer: QQC2.DialogButtonBox {

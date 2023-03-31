@@ -9,6 +9,8 @@ import QtQuick.Layouts 1.15
 import org.kde.kirigami 2.15 as Kirigami
 
 import org.kde.neochat 1.0
+import './RoomList' as RoomList
+import './Dialog' as Dialog
 
 Kirigami.ApplicationWindow {
     id: root
@@ -24,7 +26,7 @@ Kirigami.ApplicationWindow {
     pageStack.initialPage: LoadingPage {}
     pageStack.globalToolBar.canContainHandles: true
 
-    property RoomListPage roomListPage
+    property RoomList.Page roomListPage
     property bool roomListLoaded: false
 
     property RoomPage roomPage
@@ -167,7 +169,7 @@ Kirigami.ApplicationWindow {
     pageStack.globalToolBar.style: Kirigami.ApplicationHeaderStyle.ToolBar
     pageStack.globalToolBar.showNavigationButtons: pageStack.currentIndex > 0 || pageStack.layers.depth > 1 ? Kirigami.ApplicationHeaderStyle.ShowBackButton : 0
 
-    ConfirmLogoutDialog {
+    Dialog.ConfirmLogoutDialog {
         id: confirmLogoutDialog
     }
 
@@ -200,7 +202,7 @@ Kirigami.ApplicationWindow {
     
     Component {
         id: roomListComponent
-        RoomListPage {
+        RoomList.Page {
             id: roomList
 
             Shortcut {
