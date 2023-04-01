@@ -35,6 +35,9 @@ table {
     border-collapse: collapse;
     border-style: solid;
 }
+code {
+    background-color:" + Kirigami.Theme.alternateBackgroundColor + ";
+}
 table th,
 table td {
     border: 1px solid black;
