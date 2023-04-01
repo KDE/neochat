@@ -581,37 +581,42 @@ Kirigami.ScrollablePage {
         }
     }
 
-    background: FancyEffectsContainer {
-        id: fancyEffectsContainer
-        z: 100
+    background: Rectangle {
+        color: Config.compactLayout ? Kirigami.Theme.backgroundColor : "transparent"
 
-        enabled: Config.showFancyEffects
+        FancyEffectsContainer {
+            id: fancyEffectsContainer
+            anchors.fill: parent
+            z: 100
 
-        function processFancyEffectsReason(fancyEffect) {
-            if (fancyEffect === "snowflake") {
-                fancyEffectsContainer.showSnowEffect()
-            }
-            if (fancyEffect === "fireworks") {
-                fancyEffectsContainer.showFireworksEffect()
-            }
-            if (fancyEffect === "confetti") {
-                fancyEffectsContainer.showConfettiEffect()
-            }
-        }
-
-        Connections {
             enabled: Config.showFancyEffects
-            target: messageEventModel
-            function onFancyEffectsReasonFound(fancyEffect) {
-                fancyEffectsContainer.processFancyEffectsReason(fancyEffect)
-            }
-        }
 
-        Connections {
-            enabled: Config.showFancyEffects
-            target: actionsHandler
-            function onShowEffect(fancyEffect) {
-                fancyEffectsContainer.processFancyEffectsReason(fancyEffect)
+            function processFancyEffectsReason(fancyEffect) {
+                if (fancyEffect === "snowflake") {
+                    fancyEffectsContainer.showSnowEffect()
+                }
+                if (fancyEffect === "fireworks") {
+                    fancyEffectsContainer.showFireworksEffect()
+                }
+                if (fancyEffect === "confetti") {
+                    fancyEffectsContainer.showConfettiEffect()
+                }
+            }
+
+            Connections {
+                enabled: Config.showFancyEffects
+                target: messageEventModel
+                function onFancyEffectsReasonFound(fancyEffect) {
+                    fancyEffectsContainer.processFancyEffectsReason(fancyEffect)
+                }
+            }
+
+            Connections {
+                enabled: Config.showFancyEffects
+                target: actionsHandler
+                function onShowEffect(fancyEffect) {
+                    fancyEffectsContainer.processFancyEffectsReason(fancyEffect)
+                }
             }
         }
     }

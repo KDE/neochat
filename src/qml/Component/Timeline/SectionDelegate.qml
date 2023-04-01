@@ -42,6 +42,6 @@ QQC2.ItemDelegate {
     background: Rectangle {
         color: Config.blur ? "transparent" : Kirigami.Theme.backgroundColor
         Kirigami.Theme.inherit: false
-        Kirigami.Theme.colorSet: Kirigami.Theme.Window
+        Kirigami.Theme.colorSet: Config.compactLayout ? Kirigami.Theme.View : Kirigami.Theme.Window
     }
 }
