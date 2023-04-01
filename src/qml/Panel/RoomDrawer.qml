@@ -157,24 +157,35 @@ Kirigami.OverlayDrawer {
                 }
             }
 
-            TextEdit {
+            QQC2.ScrollView {
                 Layout.leftMargin: Kirigami.Units.largeSpacing
                 Layout.rightMargin: Kirigami.Units.largeSpacing
                 Layout.fillWidth: true
-                text: room && room.topic ? room.topic.replace(replaceLinks, "<a href=\"$1\">$1</a>") : i18n("No Topic")
-                readonly property var replaceLinks: /(http[s]?:\/\/[^ \r\n]*)/g
-                textFormat: TextEdit.MarkdownText
-                wrapMode: Text.WordWrap
-                selectByMouse: true
-                color: Kirigami.Theme.textColor
-                selectedTextColor: Kirigami.Theme.highlightedTextColor
-                selectionColor: Kirigami.Theme.highlightColor
-                onLinkActivated: UrlHelper.openUrl(link)
-                readOnly: true
-                MouseArea {
-                    anchors.fill: parent
-                    acceptedButtons: Qt.NoButton
-                    cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.IBeamCursor
+                Layout.fillHeight: true
+                Layout.minimumHeight: Math.min(topicText.contentHeight, Kirigami.Units.gridUnit * 15)
+
+                // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
+                QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
+
+                QQC2.TextArea {
+                    id: topicText
+                    padding: 0
+                    text: room && room.topic ? room.topic.replace(replaceLinks, "<a href=\"$1\">$1</a>") : i18n("No Topic")
+                    readonly property var replaceLinks: /(http[s]?:\/\/[^ \r\n]*)/g
+                    textFormat: TextEdit.MarkdownText
+                    wrapMode: Text.WordWrap
+                    selectByMouse: true
+                    color: Kirigami.Theme.textColor
+                    selectedTextColor: Kirigami.Theme.highlightedTextColor
+                    selectionColor: Kirigami.Theme.highlightColor
+                    onLinkActivated: UrlHelper.openUrl(link)
+                    readOnly: true
+                    MouseArea {
+                        anchors.fill: parent
+                        acceptedButtons: Qt.NoButton
+                        cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.IBeamCursor
+                    }
+                    background: Item {}
                 }
             }
 
@@ -270,6 +281,7 @@ Kirigami.OverlayDrawer {
             QQC2.ScrollView {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
+                Layout.minimumHeight: Math.min(topicText.contentHeight, Kirigami.Units.gridUnit * 15)
 
                 // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
                 QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
