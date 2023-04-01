@@ -8,7 +8,6 @@
 #include <QMimeDatabase>
 #include <QTemporaryFile>
 #include <QTextDocument>
-#include <functional>
 
 #include <QMediaMetaData>
 #include <QMediaPlayer>
@@ -108,6 +107,34 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
             Q_EMIT urlPreviewEnabledChanged();
         }
     });
+}
+
+bool NeoChatRoom::hasFileUploading() const
+{
+    return m_hasFileUploading;
+}
+
+void NeoChatRoom::setHasFileUploading(bool value)
+{
+    if (value == m_hasFileUploading) {
+        return;
+    }
+    m_hasFileUploading = value;
+    Q_EMIT hasFileUploadingChanged();
+}
+
+int NeoChatRoom::fileUploadingProgress() const
+{
+    return m_fileUploadingProgress;
+}
+
+void NeoChatRoom::setFileUploadingProgress(int value)
+{
+    if (m_fileUploadingProgress == value) {
+        return;
+    }
+    m_fileUploadingProgress = value;
+    Q_EMIT fileUploadingProgressChanged();
 }
 
 void NeoChatRoom::uploadFile(const QUrl &url, const QString &body)
@@ -361,30 +388,6 @@ QDateTime NeoChatRoom::lastActiveTime()
     return messageEvents().rbegin()->get()->originTimestamp();
 }
 
-int NeoChatRoom::savedTopVisibleIndex() const
-{
-    return firstDisplayedMarker() == historyEdge() ? 0 : int(firstDisplayedMarker() - messageEvents().rbegin());
-}
-
-int NeoChatRoom::savedBottomVisibleIndex() const
-{
-    return lastDisplayedMarker() == historyEdge() ? 0 : int(lastDisplayedMarker() - messageEvents().rbegin());
-}
-
-void NeoChatRoom::saveViewport(int topIndex, int bottomIndex)
-{
-    if (topIndex == -1 || bottomIndex == -1 || (bottomIndex == savedBottomVisibleIndex() && (bottomIndex == 0 || topIndex == savedTopVisibleIndex()))) {
-        return;
-    }
-    if (bottomIndex == 0) {
-        setFirstDisplayedEventId({});
-        setLastDisplayedEventId({});
-        return;
-    }
-    setFirstDisplayedEvent(maxTimelineIndex() - topIndex);
-    setLastDisplayedEvent(maxTimelineIndex() - bottomIndex);
-}
-
 QVariantList NeoChatRoom::getUsers(const QString &keyword, int limit) const
 {
     const auto userList = users();
@@ -416,15 +419,6 @@ QVariantMap NeoChatRoom::getUser(const QString &userID) const
                        {QStringLiteral("displayName"), user.displayname(this)},
                        {QStringLiteral("avatarMediaId"), user.avatarMediaId(this)},
                        {QStringLiteral("color"), user.color()}};
-}
-
-QUrl NeoChatRoom::urlToMxcUrl(const QUrl &mxcUrl)
-{
-#ifdef QUOTIENT_07
-    return connection()->makeMediaUrl(mxcUrl);
-#else
-    return DownloadFileJob::makeRequestUrl(connection()->homeserver(), mxcUrl);
-#endif
 }
 
 QString NeoChatRoom::avatarMediaId() const
@@ -795,30 +789,6 @@ void NeoChatRoom::changeAvatar(const QUrl &localFile)
     }
 }
 
-void NeoChatRoom::addLocalAlias(const QString &alias)
-{
-    auto a = aliases();
-    if (a.contains(alias)) {
-        return;
-    }
-
-    a += alias;
-
-    setLocalAliases(a);
-}
-
-void NeoChatRoom::removeLocalAlias(const QString &alias)
-{
-    auto a = aliases();
-    if (!a.contains(alias)) {
-        return;
-    }
-
-    a.removeAll(alias);
-
-    setLocalAliases(a);
-}
-
 QString msgTypeToString(MessageEventType msgType)
 {
     switch (msgType) {
@@ -1003,11 +973,6 @@ bool NeoChatRoom::isInvite() const
 bool NeoChatRoom::isUserBanned(const QString &user) const
 {
     return getCurrentState<RoomMemberEvent>(user)->membership() == MembershipType::Ban;
-}
-
-QString NeoChatRoom::htmlSafeName() const
-{
-    return name().toHtmlEscaped();
 }
 
 QString NeoChatRoom::htmlSafeDisplayName() const
@@ -1490,6 +1455,11 @@ bool NeoChatRoom::isSpace()
 #else
     return false;
 #endif
+}
+
+PushNotificationState::State NeoChatRoom::pushNotificationState() const
+{
+    return m_currentPushNotificationState;
 }
 
 void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)

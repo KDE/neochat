@@ -3,14 +3,13 @@
 
 #pragma once
 
-#include <qobjectdefs.h>
 #include <room.h>
 
 #include <QCache>
 #include <QObject>
 #include <QTextCursor>
 
-#include <qcoro/task.h>
+#include <qcorotask.h>
 
 #include "neochatuser.h"
 #include "pollhandler.h"
@@ -87,8 +86,7 @@ class NeoChatRoom : public Quotient::Room
     Q_PROPERTY(int spaceParentPowerLevel READ spaceParentPowerLevel WRITE setSpaceParentPowerLevel NOTIFY spaceParentPowerLevelChanged)
 
     Q_PROPERTY(QString htmlSafeDisplayName READ htmlSafeDisplayName NOTIFY displayNameChanged)
-    Q_PROPERTY(PushNotificationState::State pushNotificationState MEMBER m_currentPushNotificationState WRITE setPushNotificationState NOTIFY
-                   pushNotificationStateChanged)
+    Q_PROPERTY(PushNotificationState::State pushNotificationState READ pushNotificationState WRITE setPushNotificationState NOTIFY pushNotificationStateChanged)
 
     // Due to problems with QTextDocument, unlike the other properties here, chatBoxText is *not* used to store the text when switching rooms
     Q_PROPERTY(QString chatBoxText READ chatBoxText WRITE setChatBoxText NOTIFY chatBoxTextChanged)
@@ -236,42 +234,16 @@ public:
     [[nodiscard]] int spaceParentPowerLevel() const;
     void setSpaceParentPowerLevel(const int &newPowerLevel);
 
-    [[nodiscard]] bool hasFileUploading() const
-    {
-        return m_hasFileUploading;
-    }
-    void setHasFileUploading(bool value)
-    {
-        if (value == m_hasFileUploading) {
-            return;
-        }
-        m_hasFileUploading = value;
-        Q_EMIT hasFileUploadingChanged();
-    }
+    [[nodiscard]] bool hasFileUploading() const;
+    void setHasFileUploading(bool value);
 
-    [[nodiscard]] int fileUploadingProgress() const
-    {
-        return m_fileUploadingProgress;
-    }
-    void setFileUploadingProgress(int value)
-    {
-        if (m_fileUploadingProgress == value) {
-            return;
-        }
-        m_fileUploadingProgress = value;
-        Q_EMIT fileUploadingProgressChanged();
-    }
+    [[nodiscard]] int fileUploadingProgress() const;
+    void setFileUploadingProgress(int value);
 
     [[nodiscard]] bool readMarkerLoaded() const;
 
-    Q_INVOKABLE [[nodiscard]] int savedTopVisibleIndex() const;
-    Q_INVOKABLE [[nodiscard]] int savedBottomVisibleIndex() const;
-    Q_INVOKABLE void saveViewport(int topIndex, int bottomIndex);
-
     Q_INVOKABLE [[nodiscard]] QVariantList getUsers(const QString &keyword, int limit = -1) const;
     Q_INVOKABLE [[nodiscard]] QVariantMap getUser(const QString &userID) const;
-
-    Q_INVOKABLE QUrl urlToMxcUrl(const QUrl &mxcUrl);
 
     [[nodiscard]] QString avatarMediaId() const;
 
@@ -286,12 +258,12 @@ public:
 
     bool isInvite() const;
 
-    Q_INVOKABLE QString htmlSafeName() const;
-    Q_INVOKABLE QString htmlSafeDisplayName() const;
+    QString htmlSafeDisplayName() const;
     Q_INVOKABLE void clearInvitationNotification();
     Q_INVOKABLE void reportEvent(const QString &eventId, const QString &reason);
 
-    Q_INVOKABLE void setPushNotificationState(PushNotificationState::State state);
+    PushNotificationState::State pushNotificationState() const;
+    void setPushNotificationState(PushNotificationState::State state);
 
     Q_INVOKABLE void download(const QString &eventId, const QUrl &localFilename = {});
 
@@ -450,8 +422,6 @@ public Q_SLOTS:
                          const QString &replyEventId = QString(),
                          const QString &relateToEventId = QString());
     void changeAvatar(const QUrl &localFile);
-    void addLocalAlias(const QString &alias);
-    void removeLocalAlias(const QString &alias);
     void toggleReaction(const QString &eventId, const QString &reaction);
     void deleteMessagesByUser(const QString &user, const QString &reason);
 };
