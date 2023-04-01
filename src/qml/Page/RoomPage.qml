@@ -263,7 +263,7 @@ Kirigami.ScrollablePage {
             anchors.leftMargin: messageListView.sectionBannerItem ? messageListView.sectionBannerItem.x : 0
             anchors.right: parent.right
 
-            maxWidth: messageListView.sectionBannerItem ? messageListView.sectionBannerItem.width - Kirigami.Units.largeSpacing * 2 : 0
+            maxWidth: Config.compactLayout ? messageListView.width : (messageListView.sectionBannerItem ? messageListView.sectionBannerItem.width - Kirigami.Units.largeSpacing * 2 : 0)
             z: 3
             visible: messageListView.sectionBannerItem != undefined && messageListView.sectionBannerItem.ListView.section != "" && !Config.blur
             labelText: messageListView.sectionBannerItem ? messageListView.sectionBannerItem.ListView.section : ""
