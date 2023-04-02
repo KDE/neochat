@@ -110,14 +110,18 @@ TimelineContainer {
         ColumnLayout {
             spacing: 0
             QQC2.Label {
+                Layout.fillWidth: true
                 text: model.display
                 wrapMode: Text.Wrap
+                elide: Text.ElideRight
             }
             QQC2.Label {
                 id: sizeLabel
-
+                Layout.fillWidth: true
                 text: Controller.formatByteSize(content.info ? content.info.size : 0)
                 opacity: 0.7
+                elide: Text.ElideRight
+                maximumLineCount: 1
             }
         }
 
