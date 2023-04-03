@@ -18,13 +18,13 @@ Kirigami.OverlaySheet {
     contentItem: Kirigami.FormLayout {
         QQC2.TextField {
             id: roomNameField
-            Kirigami.FormData.label: i18n("Room Name")
+            Kirigami.FormData.label: i18n("Room name:")
             onAccepted: roomTopicField.forceActiveFocus();
         }
 
         QQC2.TextField {
             id: roomTopicField
-            Kirigami.FormData.label: i18n("Room Topic")
+            Kirigami.FormData.label: i18n("Room topic:")
             onAccepted: okButton.forceActiveFocus();
         }
 

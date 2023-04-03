@@ -259,7 +259,7 @@ Kirigami.OverlayDrawer {
 
                 QQC2.Label {
                     Layout.alignment: Qt.AlignRight
-                    text: room ? i18np("%1 Member", "%1 Members", room.joinedCount) : i18n("No Member Count")
+                    text: room ? i18np("%1 member", "%1 members", room.joinedCount) : i18n("No member count")
                 }
             }
 
