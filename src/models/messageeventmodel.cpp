@@ -569,7 +569,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         }
 
         if (auto e = eventCast<const RoomMessageEvent>(&evt)) {
-            if(e->msgtype() == Quotient::MessageEventType::Location) {
+            if (e->msgtype() == Quotient::MessageEventType::Location) {
                 return e->contentJson();
             }
             // Cannot use e.contentJson() here because some
