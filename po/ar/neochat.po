@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-03 00:46+0000\n"
+"POT-Creation-Date: 2023-04-04 00:47+0000\n"
 "PO-Revision-Date: 2023-03-23 11:18+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -1586,15 +1586,15 @@ msgstr "اخرج"
 msgid "Are you sure you want to sign out?"
 msgstr "هل أنت متأكد أنك تريد الخروج ؟"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:21
+#: src/qml/Dialog/CreateRoomDialog.qml:21 src/qml/RoomSettings/General.qml:76
 #, kde-format
-msgid "Room Name"
+msgid "Room name:"
 msgstr "اسم الغرفة:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:27
+#: src/qml/Dialog/CreateRoomDialog.qml:27 src/qml/RoomSettings/General.qml:88
 #, kde-format
-msgid "Room Topic"
-msgstr "موضوع الغرفة"
+msgid "Room topic:"
+msgstr "موضوع الغرفة:"
 
 #: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:159
 #, kde-format
@@ -2723,9 +2723,11 @@ msgid "Invite user to room"
 msgstr "أدعُ مستخدم إلى غرفة"
 
 #: src/qml/Panel/RoomDrawer.qml:262
-#, kde-format
-msgid "%1 Member"
-msgid_plural "%1 Members"
+#, fuzzy, kde-format
+#| msgid "%1 Member"
+#| msgid_plural "%1 Members"
+msgid "%1 member"
+msgid_plural "%1 members"
 msgstr[0] "عضو"
 msgstr[1] "عضو واحد"
 msgstr[2] "عضوين"
@@ -2734,8 +2736,9 @@ msgstr[4] "%1 عضواً"
 msgstr[5] "%1 عضو"
 
 #: src/qml/Panel/RoomDrawer.qml:262
-#, kde-format
-msgid "No Member Count"
+#, fuzzy, kde-format
+#| msgid "No Member Count"
+msgid "No member count"
 msgstr "بلا عدد أعضاء"
 
 #: src/qml/RoomSettings/Categories.qml:16 src/qml/RoomSettings/General.qml:20
@@ -2768,16 +2771,6 @@ msgstr "معلومات الغرفة"
 #, kde-format
 msgid "Update avatar"
 msgstr "حدث الصورة الرمزية"
-
-#: src/qml/RoomSettings/General.qml:76
-#, kde-format
-msgid "Room name:"
-msgstr "اسم الغرفة:"
-
-#: src/qml/RoomSettings/General.qml:88
-#, kde-format
-msgid "Room topic:"
-msgstr "موضوع الغرفة:"
 
 #: src/qml/RoomSettings/General.qml:110
 #: src/qml/Settings/AccountEditorPage.qml:105
@@ -3861,6 +3854,12 @@ msgstr "أظهر"
 #, kde-format
 msgid "Quit"
 msgstr "أنهِ"
+
+#~ msgid "Room Name"
+#~ msgstr "اسم الغرفة:"
+
+#~ msgid "Room Topic"
+#~ msgstr "موضوع الغرفة"
 
 #~ msgid "Rooms"
 #~ msgstr "الغرف"

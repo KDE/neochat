@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-03 00:46+0000\n"
+"POT-Creation-Date: 2023-04-04 00:47+0000\n"
 "PO-Revision-Date: 2023-03-19 12:51+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -1567,15 +1567,15 @@ msgstr "வெளியேறு"
 msgid "Are you sure you want to sign out?"
 msgstr "கணக்கிலிருந்து உறுதியாக வெளியேற வேண்டுமா?"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:21
+#: src/qml/Dialog/CreateRoomDialog.qml:21 src/qml/RoomSettings/General.qml:76
 #, kde-format
-msgid "Room Name"
-msgstr "அரங்கின் பெயர்"
+msgid "Room name:"
+msgstr "அரங்கின் பெயர்:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:27
+#: src/qml/Dialog/CreateRoomDialog.qml:27 src/qml/RoomSettings/General.qml:88
 #, kde-format
-msgid "Room Topic"
-msgstr "அரங்கின் தலைப்பு"
+msgid "Room topic:"
+msgstr "அரங்கின் தலைப்பு:"
 
 #: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:159
 #, kde-format
@@ -2709,15 +2709,18 @@ msgid "Invite user to room"
 msgstr "பயனரை ஓர் அரங்குக்கு வரவழை"
 
 #: src/qml/Panel/RoomDrawer.qml:262
-#, kde-format
-msgid "%1 Member"
-msgid_plural "%1 Members"
+#, fuzzy, kde-format
+#| msgid "%1 Member"
+#| msgid_plural "%1 Members"
+msgid "%1 member"
+msgid_plural "%1 members"
 msgstr[0] "%1 உறுப்பினர்"
 msgstr[1] "%1 உறுப்பினர்கள்"
 
 #: src/qml/Panel/RoomDrawer.qml:262
-#, kde-format
-msgid "No Member Count"
+#, fuzzy, kde-format
+#| msgid "No Member Count"
+msgid "No member count"
 msgstr "உறுப்பினர்களின் எண்ணிக்கை தெரியாதது"
 
 #: src/qml/RoomSettings/Categories.qml:16 src/qml/RoomSettings/General.qml:20
@@ -2750,16 +2753,6 @@ msgstr "அரங்கின் விவரங்கள்"
 #, kde-format
 msgid "Update avatar"
 msgstr "சின்னத்தை மாற்று"
-
-#: src/qml/RoomSettings/General.qml:76
-#, kde-format
-msgid "Room name:"
-msgstr "அரங்கின் பெயர்:"
-
-#: src/qml/RoomSettings/General.qml:88
-#, kde-format
-msgid "Room topic:"
-msgstr "அரங்கின் தலைப்பு:"
 
 #: src/qml/RoomSettings/General.qml:110
 #: src/qml/Settings/AccountEditorPage.qml:105
@@ -3851,6 +3844,12 @@ msgstr "காட்டு"
 #, kde-format
 msgid "Quit"
 msgstr "வெளியேறு"
+
+#~ msgid "Room Name"
+#~ msgstr "அரங்கின் பெயர்"
+
+#~ msgid "Room Topic"
+#~ msgstr "அரங்கின் தலைப்பு"
 
 #~ msgid "Rooms"
 #~ msgstr "அரங்குகள்"

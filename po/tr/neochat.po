@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-03 00:46+0000\n"
+"POT-Creation-Date: 2023-04-04 00:47+0000\n"
 "PO-Revision-Date: 2023-03-19 15:07+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -1566,15 +1566,15 @@ msgstr "Oturumu Kapat"
 msgid "Are you sure you want to sign out?"
 msgstr "Oturumu kapatmak istediğinize emin misiniz?"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:21
+#: src/qml/Dialog/CreateRoomDialog.qml:21 src/qml/RoomSettings/General.qml:76
 #, kde-format
-msgid "Room Name"
-msgstr "Oda Adı"
+msgid "Room name:"
+msgstr "Oda adı:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:27
+#: src/qml/Dialog/CreateRoomDialog.qml:27 src/qml/RoomSettings/General.qml:88
 #, kde-format
-msgid "Room Topic"
-msgstr "Oda Konusu"
+msgid "Room topic:"
+msgstr "Oda konusu:"
 
 #: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:159
 #, kde-format
@@ -2720,15 +2720,18 @@ msgid "Invite user to room"
 msgstr "Kullanıcıyı odaya davet et"
 
 #: src/qml/Panel/RoomDrawer.qml:262
-#, kde-format
-msgid "%1 Member"
-msgid_plural "%1 Members"
+#, fuzzy, kde-format
+#| msgid "%1 Member"
+#| msgid_plural "%1 Members"
+msgid "%1 member"
+msgid_plural "%1 members"
 msgstr[0] "%1 Üye"
 msgstr[1] "%1 Üye"
 
 #: src/qml/Panel/RoomDrawer.qml:262
-#, kde-format
-msgid "No Member Count"
+#, fuzzy, kde-format
+#| msgid "No Member Count"
+msgid "No member count"
 msgstr "Üye Sayısı Yok"
 
 #: src/qml/RoomSettings/Categories.qml:16 src/qml/RoomSettings/General.qml:20
@@ -2761,16 +2764,6 @@ msgstr "Oda Bilgisi"
 #, kde-format
 msgid "Update avatar"
 msgstr "Avatarı güncelle"
-
-#: src/qml/RoomSettings/General.qml:76
-#, kde-format
-msgid "Room name:"
-msgstr "Oda adı:"
-
-#: src/qml/RoomSettings/General.qml:88
-#, kde-format
-msgid "Room topic:"
-msgstr "Oda konusu:"
 
 #: src/qml/RoomSettings/General.qml:110
 #: src/qml/Settings/AccountEditorPage.qml:105
@@ -3864,6 +3857,12 @@ msgstr "Göster"
 #, kde-format
 msgid "Quit"
 msgstr "Çık"
+
+#~ msgid "Room Name"
+#~ msgstr "Oda Adı"
+
+#~ msgid "Room Topic"
+#~ msgstr "Oda Konusu"
 
 #~ msgid "Rooms"
 #~ msgstr "Odalar"

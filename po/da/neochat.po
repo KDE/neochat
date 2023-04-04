@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-03 00:46+0000\n"
+"POT-Creation-Date: 2023-04-04 00:47+0000\n"
 "PO-Revision-Date: 2020-12-13 17:28+0100\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -1597,14 +1597,15 @@ msgstr ""
 msgid "Are you sure you want to sign out?"
 msgstr ""
 
-#: src/qml/Dialog/CreateRoomDialog.qml:21
-#, kde-format
-msgid "Room Name"
-msgstr "Værelsesnavn:"
+#: src/qml/Dialog/CreateRoomDialog.qml:21 src/qml/RoomSettings/General.qml:76
+#, fuzzy, kde-format
+#| msgid "Room Name:"
+msgid "Room name:"
+msgstr "Værelsesnavn::"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:27
+#: src/qml/Dialog/CreateRoomDialog.qml:27 src/qml/RoomSettings/General.qml:88
 #, kde-format
-msgid "Room Topic"
+msgid "Room topic:"
 msgstr ""
 
 #: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:159
@@ -2758,14 +2759,14 @@ msgstr ""
 
 #: src/qml/Panel/RoomDrawer.qml:262
 #, fuzzy, kde-format
-msgid "%1 Member"
-msgid_plural "%1 Members"
+msgid "%1 member"
+msgid_plural "%1 members"
 msgstr[0] "Medlem"
 msgstr[1] "Medlemmer"
 
 #: src/qml/Panel/RoomDrawer.qml:262
 #, kde-format
-msgid "No Member Count"
+msgid "No member count"
 msgstr ""
 
 #: src/qml/RoomSettings/Categories.qml:16 src/qml/RoomSettings/General.qml:20
@@ -2798,17 +2799,6 @@ msgstr "Indstillinger"
 #: src/qml/RoomSettings/General.qml:51
 #, kde-format
 msgid "Update avatar"
-msgstr ""
-
-#: src/qml/RoomSettings/General.qml:76
-#, fuzzy, kde-format
-#| msgid "Room Name:"
-msgid "Room name:"
-msgstr "Værelsesnavn::"
-
-#: src/qml/RoomSettings/General.qml:88
-#, kde-format
-msgid "Room topic:"
 msgstr ""
 
 #: src/qml/RoomSettings/General.qml:110
@@ -3918,6 +3908,9 @@ msgstr "Vis"
 #, kde-format
 msgid "Quit"
 msgstr ""
+
+#~ msgid "Room Name"
+#~ msgstr "Værelsesnavn:"
 
 #, fuzzy
 #~| msgid "Send message"

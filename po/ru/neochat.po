@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-03 00:46+0000\n"
+"POT-Creation-Date: 2023-04-04 00:47+0000\n"
 "PO-Revision-Date: 2022-12-25 23:09+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -1622,15 +1622,15 @@ msgstr "Выход из учётной записи"
 msgid "Are you sure you want to sign out?"
 msgstr "Выйти из учётной записи?"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:21
+#: src/qml/Dialog/CreateRoomDialog.qml:21 src/qml/RoomSettings/General.qml:76
 #, kde-format
-msgid "Room Name"
-msgstr "Название комнаты"
+msgid "Room name:"
+msgstr "Название комнаты:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:27
+#: src/qml/Dialog/CreateRoomDialog.qml:27 src/qml/RoomSettings/General.qml:88
 #, kde-format
-msgid "Room Topic"
-msgstr "Тема комнаты"
+msgid "Room topic:"
+msgstr "Тема комнаты:"
 
 #: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:159
 #, kde-format
@@ -2774,17 +2774,20 @@ msgid "Invite user to room"
 msgstr "Пригласить пользователя в комнату"
 
 #: src/qml/Panel/RoomDrawer.qml:262
-#, kde-format
-msgid "%1 Member"
-msgid_plural "%1 Members"
+#, fuzzy, kde-format
+#| msgid "%1 Member"
+#| msgid_plural "%1 Members"
+msgid "%1 member"
+msgid_plural "%1 members"
 msgstr[0] "%1 участник"
 msgstr[1] "%1 участника"
 msgstr[2] "%1 участников"
 msgstr[3] "%1 участник"
 
 #: src/qml/Panel/RoomDrawer.qml:262
-#, kde-format
-msgid "No Member Count"
+#, fuzzy, kde-format
+#| msgid "No Member Count"
+msgid "No member count"
 msgstr "Количество участников не подсчитывается"
 
 #: src/qml/RoomSettings/Categories.qml:16 src/qml/RoomSettings/General.qml:20
@@ -2817,16 +2820,6 @@ msgstr "Информация о комнате"
 #, kde-format
 msgid "Update avatar"
 msgstr "Изменить изображение"
-
-#: src/qml/RoomSettings/General.qml:76
-#, kde-format
-msgid "Room name:"
-msgstr "Название комнаты:"
-
-#: src/qml/RoomSettings/General.qml:88
-#, kde-format
-msgid "Room topic:"
-msgstr "Тема комнаты:"
 
 #: src/qml/RoomSettings/General.qml:110
 #: src/qml/Settings/AccountEditorPage.qml:105
@@ -3959,6 +3952,12 @@ msgstr "Показать"
 #, kde-format
 msgid "Quit"
 msgstr "Выход"
+
+#~ msgid "Room Name"
+#~ msgstr "Название комнаты"
+
+#~ msgid "Room Topic"
+#~ msgstr "Тема комнаты"
 
 #~ msgid "Rooms"
 #~ msgstr "Комнаты"

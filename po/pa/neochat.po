@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-03 00:46+0000\n"
+"POT-Creation-Date: 2023-04-04 00:47+0000\n"
 "PO-Revision-Date: 2021-12-31 11:06-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -1672,15 +1672,16 @@ msgstr ""
 msgid "Are you sure you want to sign out?"
 msgstr ""
 
-#: src/qml/Dialog/CreateRoomDialog.qml:21
-#, kde-format
-msgid "Room Name"
-msgstr "ਰੂਮ ਦਾ ਨਾਂ"
+#: src/qml/Dialog/CreateRoomDialog.qml:21 src/qml/RoomSettings/General.qml:76
+#, fuzzy, kde-format
+#| msgid "Room Name:"
+msgid "Room name:"
+msgstr "ਰੂਮ ਦਾ ਨਾਂ:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:27
+#: src/qml/Dialog/CreateRoomDialog.qml:27 src/qml/RoomSettings/General.qml:88
 #, kde-format
-msgid "Room Topic"
-msgstr "ਰੂਮ ਦਾ ਵਿਸ਼ਾ"
+msgid "Room topic:"
+msgstr "ਰੂਮ ਦਾ ਵਿਸ਼ਾ:"
 
 #: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:159
 #, kde-format
@@ -2841,15 +2842,18 @@ msgid "Invite user to room"
 msgstr "%1 ਨੇ ਤੁਹਾਨੂੰ ਰੂਮ ਲਈ ਸੱਦਾ ਦਿੱਤਾ"
 
 #: src/qml/Panel/RoomDrawer.qml:262
-#, kde-format
-msgid "%1 Member"
-msgid_plural "%1 Members"
+#, fuzzy, kde-format
+#| msgid "%1 Member"
+#| msgid_plural "%1 Members"
+msgid "%1 member"
+msgid_plural "%1 members"
 msgstr[0] "%1 ਮੈਂਬਰ"
 msgstr[1] "%1 ਮੈਂਬਰ"
 
 #: src/qml/Panel/RoomDrawer.qml:262
-#, kde-format
-msgid "No Member Count"
+#, fuzzy, kde-format
+#| msgid "No Member Count"
+msgid "No member count"
 msgstr "ਕੋਈ ਮੈਂਬਰ ਗਿਣਤੀ ਨਹੀਂ"
 
 #: src/qml/RoomSettings/Categories.qml:16 src/qml/RoomSettings/General.qml:20
@@ -2884,17 +2888,6 @@ msgstr "ਰੂਮ ਦੀ ਜਾਣਕਾਰੀ"
 #, kde-format
 msgid "Update avatar"
 msgstr "ਅਵਤਾਰ ਅੱਪਡੇਟ ਕਰੋ"
-
-#: src/qml/RoomSettings/General.qml:76
-#, fuzzy, kde-format
-#| msgid "Room Name:"
-msgid "Room name:"
-msgstr "ਰੂਮ ਦਾ ਨਾਂ:"
-
-#: src/qml/RoomSettings/General.qml:88
-#, kde-format
-msgid "Room topic:"
-msgstr "ਰੂਮ ਦਾ ਵਿਸ਼ਾ:"
 
 #: src/qml/RoomSettings/General.qml:110
 #: src/qml/Settings/AccountEditorPage.qml:105
@@ -4056,6 +4049,12 @@ msgstr "ਵੇਖਾਓ"
 #, kde-format
 msgid "Quit"
 msgstr "ਬਾਹਰ"
+
+#~ msgid "Room Name"
+#~ msgstr "ਰੂਮ ਦਾ ਨਾਂ"
+
+#~ msgid "Room Topic"
+#~ msgstr "ਰੂਮ ਦਾ ਵਿਸ਼ਾ"
 
 #~ msgid "Rooms"
 #~ msgstr "ਰੂਮ"

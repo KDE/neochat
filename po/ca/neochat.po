@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-03 00:46+0000\n"
+"POT-Creation-Date: 2023-04-04 00:47+0000\n"
 "PO-Revision-Date: 2023-03-19 09:49+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1574,15 +1574,15 @@ msgstr "Tanca la sessió"
 msgid "Are you sure you want to sign out?"
 msgstr "Segur que voleu tancar la sessió?"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:21
+#: src/qml/Dialog/CreateRoomDialog.qml:21 src/qml/RoomSettings/General.qml:76
 #, kde-format
-msgid "Room Name"
-msgstr "Nom de la sala"
+msgid "Room name:"
+msgstr "Nom de la sala:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:27
+#: src/qml/Dialog/CreateRoomDialog.qml:27 src/qml/RoomSettings/General.qml:88
 #, kde-format
-msgid "Room Topic"
-msgstr "Tema de la sala"
+msgid "Room topic:"
+msgstr "Tema de la sala:"
 
 #: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:159
 #, kde-format
@@ -2737,15 +2737,18 @@ msgid "Invite user to room"
 msgstr "Convida un usuari a la sala"
 
 #: src/qml/Panel/RoomDrawer.qml:262
-#, kde-format
-msgid "%1 Member"
-msgid_plural "%1 Members"
+#, fuzzy, kde-format
+#| msgid "%1 Member"
+#| msgid_plural "%1 Members"
+msgid "%1 member"
+msgid_plural "%1 members"
 msgstr[0] "%1 membre"
 msgstr[1] "%1 membres"
 
 #: src/qml/Panel/RoomDrawer.qml:262
-#, kde-format
-msgid "No Member Count"
+#, fuzzy, kde-format
+#| msgid "No Member Count"
+msgid "No member count"
 msgstr "No hi ha comptador de membres"
 
 #: src/qml/RoomSettings/Categories.qml:16 src/qml/RoomSettings/General.qml:20
@@ -2778,16 +2781,6 @@ msgstr "Informació de la sala"
 #, kde-format
 msgid "Update avatar"
 msgstr "Actualitza l'avatar"
-
-#: src/qml/RoomSettings/General.qml:76
-#, kde-format
-msgid "Room name:"
-msgstr "Nom de la sala:"
-
-#: src/qml/RoomSettings/General.qml:88
-#, kde-format
-msgid "Room topic:"
-msgstr "Tema de la sala:"
 
 #: src/qml/RoomSettings/General.qml:110
 #: src/qml/Settings/AccountEditorPage.qml:105
@@ -3898,3 +3891,9 @@ msgstr "Mostra"
 #, kde-format
 msgid "Quit"
 msgstr "Surt"
+
+#~ msgid "Room Name"
+#~ msgstr "Nom de la sala"
+
+#~ msgid "Room Topic"
+#~ msgstr "Tema de la sala"

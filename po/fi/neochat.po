@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-03 00:46+0000\n"
-"PO-Revision-Date: 2023-03-08 23:02+0200\n"
+"POT-Creation-Date: 2023-04-04 00:47+0000\n"
+"PO-Revision-Date: 2023-03-30 13:09+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -663,19 +663,14 @@ msgid "[REDACTED: %1]"
 msgstr "[MUOKATTU: %1]"
 
 #: src/models/messageeventmodel.cpp:882
-#, fuzzy, kde-format
-#| msgctxt "n users"
-#| msgid " %1 user "
-#| msgid_plural " %1 users "
+#, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
-msgstr[0] " 1 käyttäjä "
-msgstr[1] " %1 käyttäjää "
+msgstr[0] "1 käyttäjä: "
+msgstr[1] "%1 käyttäjää: "
 
 #: src/models/messageeventmodel.cpp:889
-#, fuzzy, kde-format
-#| msgctxt "[action 1], [action 2 and/or action 3]"
-#| msgid ", "
+#, kde-format
 msgctxt "list separator"
 msgid ", "
 msgstr ", "
@@ -1155,32 +1150,32 @@ msgstr "NeoChatillä ei ole yhteyttä. Tarkista verkkoyhteytesi."
 #: src/qml/Component/ChatBox/QuickFormatBar.qml:23
 #, kde-format
 msgid "Bold"
-msgstr ""
+msgstr "Lihavointi"
 
 #: src/qml/Component/ChatBox/QuickFormatBar.qml:42
 #, kde-format
 msgid "Italic"
-msgstr ""
+msgstr "Kursiivi"
 
 #: src/qml/Component/ChatBox/QuickFormatBar.qml:61
 #, kde-format
 msgid "Strikethrough"
-msgstr ""
+msgstr "Yliviivaus"
 
 #: src/qml/Component/ChatBox/QuickFormatBar.qml:80
 #, kde-format
 msgid "Code block"
-msgstr ""
+msgstr "Koodilohko"
 
 #: src/qml/Component/ChatBox/QuickFormatBar.qml:99
 #, kde-format
 msgid "Quote"
-msgstr ""
+msgstr "Lainaus"
 
 #: src/qml/Component/ChatBox/QuickFormatBar.qml:118
 #, kde-format
 msgid "Insert link"
-msgstr ""
+msgstr "Lisää linkki"
 
 #: src/qml/Component/ChatBox/ReplyPane.qml:32
 #, kde-format
@@ -1569,15 +1564,15 @@ msgstr "Kirjaudu ulos"
 msgid "Are you sure you want to sign out?"
 msgstr "Haluatko varmasti kirjautua ulos?"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:21
+#: src/qml/Dialog/CreateRoomDialog.qml:21 src/qml/RoomSettings/General.qml:76
 #, kde-format
-msgid "Room Name"
-msgstr "Huoneen nimi"
+msgid "Room name:"
+msgstr "Huoneen nimi:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:27
+#: src/qml/Dialog/CreateRoomDialog.qml:27 src/qml/RoomSettings/General.qml:88
 #, kde-format
-msgid "Room Topic"
-msgstr "Huoneen aihe"
+msgid "Room topic:"
+msgstr "Huoneen aihe:"
 
 #: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:159
 #, kde-format
@@ -1948,10 +1943,9 @@ msgid "Do you want to start a chat with %1?"
 msgstr "Haluatko käynnistää keskustelun henkilön %1 kanssa?"
 
 #: src/qml/Menu/AccountMenu.qml:26
-#, fuzzy, kde-format
-#| msgid "Room notifications setting"
+#, kde-format
 msgid "Notification settings"
-msgstr "Huoneen ilmoitusasetukset"
+msgstr "Ilmoitusasetukset"
 
 #: src/qml/Menu/AccountMenu.qml:31 src/qml/Settings/DevicesPage.qml:14
 #: src/qml/Settings/DevicesPage.qml:26 src/qml/Settings/SettingsPage.qml:56
@@ -2720,15 +2714,18 @@ msgid "Invite user to room"
 msgstr "Kutsu käyttäjä huoneeseen"
 
 #: src/qml/Panel/RoomDrawer.qml:262
-#, kde-format
-msgid "%1 Member"
-msgid_plural "%1 Members"
+#, fuzzy, kde-format
+#| msgid "%1 Member"
+#| msgid_plural "%1 Members"
+msgid "%1 member"
+msgid_plural "%1 members"
 msgstr[0] "%1 jäsen"
 msgstr[1] "%1 jäsentä"
 
 #: src/qml/Panel/RoomDrawer.qml:262
-#, kde-format
-msgid "No Member Count"
+#, fuzzy, kde-format
+#| msgid "No Member Count"
+msgid "No member count"
 msgstr "Ei jäsenmäärää"
 
 #: src/qml/RoomSettings/Categories.qml:16 src/qml/RoomSettings/General.qml:20
@@ -2761,16 +2758,6 @@ msgstr "Tietoa huoneesta"
 #, kde-format
 msgid "Update avatar"
 msgstr "Päivitä avatar"
-
-#: src/qml/RoomSettings/General.qml:76
-#, kde-format
-msgid "Room name:"
-msgstr "Huoneen nimi:"
-
-#: src/qml/RoomSettings/General.qml:88
-#, kde-format
-msgid "Room topic:"
-msgstr "Huoneen aihe:"
 
 #: src/qml/RoomSettings/General.qml:110
 #: src/qml/Settings/AccountEditorPage.qml:105
@@ -2830,35 +2817,30 @@ msgid "Add new alias"
 msgstr "Lisää uusi alias"
 
 #: src/qml/RoomSettings/General.qml:271
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "URL Previews"
-msgstr "Ladataan verkko-osoitteen esikatselua"
+msgstr "Verkko-osoitteen esikatselut"
 
 #: src/qml/RoomSettings/General.qml:274
 #, kde-format
 msgid "Enable URL previews by default for room members"
-msgstr ""
+msgstr "Salli huoneen jäsenille oletuksena verkko-osoitteiden esikatselu"
 
 #: src/qml/RoomSettings/General.qml:282
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "Enable URL previews"
-msgstr "Ladataan verkko-osoitteen esikatselua"
+msgstr "Käytä verkko-osoitteiden esikatselua"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are enabled by default in this room"
-msgstr "%1 on jo tässä huoneessa."
+msgstr "Verkko-osoitteiden esikatselu on jo käytössä tässä huoneessa"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are disabled by default in this room"
-msgstr "%1 on jo tässä huoneessa."
+msgstr ""
+"Verkko-osoitteiden esikatselu on tässä huoneessa oletuksena poissa käytöstä"
 
 #: src/qml/RoomSettings/General.qml:297
 #, kde-format
@@ -3182,11 +3164,10 @@ msgid "About NeoChat"
 msgstr "Tietoa Neochatistä"
 
 #: src/qml/Settings/AboutKDE.qml:7
-#, fuzzy, kde-format
-#| msgid "About"
+#, kde-format
 msgctxt "@title:window"
 msgid "About KDE"
-msgstr "Tietoa"
+msgstr "Tietoa KDE:stä"
 
 #: src/qml/Settings/AccountEditorPage.qml:17
 #, kde-format
@@ -3467,10 +3448,9 @@ msgid "Show deleted messages"
 msgstr "Näytä poistetut viestit"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Show avatar update events"
+#, kde-format
 msgid "Show state events"
-msgstr "Näytä avatarinpäivitystapahtumat"
+msgstr "Näytä tilatapahtumat"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:112
 #, kde-format
@@ -3727,10 +3707,9 @@ msgid "About NeoChat"
 msgstr "Tietoa Neochatistä"
 
 #: src/qml/Settings/SettingsPage.qml:68
-#, fuzzy, kde-format
-#| msgid "About"
+#, kde-format
 msgid "About KDE"
-msgstr "Tietoa"
+msgstr "Tietoa KDE:stä"
 
 #: src/qml/Settings/SonnetConfigPage.qml:50
 #, kde-format
@@ -3869,6 +3848,12 @@ msgstr "Näytä"
 #, kde-format
 msgid "Quit"
 msgstr "Lopeta"
+
+#~ msgid "Room Name"
+#~ msgstr "Huoneen nimi"
+
+#~ msgid "Room Topic"
+#~ msgstr "Huoneen aihe"
 
 #~ msgid "Rooms"
 #~ msgstr "Huoneet"

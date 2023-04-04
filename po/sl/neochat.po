@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-03 00:46+0000\n"
-"PO-Revision-Date: 2023-04-02 09:12+0200\n"
+"POT-Creation-Date: 2023-04-04 00:47+0000\n"
+"PO-Revision-Date: 2023-04-03 09:18+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1578,15 +1578,15 @@ msgstr "Odjavi se"
 msgid "Are you sure you want to sign out?"
 msgstr "Ali se zares želite odjaviti?"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:21
+#: src/qml/Dialog/CreateRoomDialog.qml:21 src/qml/RoomSettings/General.qml:76
 #, kde-format
-msgid "Room Name"
-msgstr "Ime sobe"
+msgid "Room name:"
+msgstr "Ime sobe:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:27
+#: src/qml/Dialog/CreateRoomDialog.qml:27 src/qml/RoomSettings/General.qml:88
 #, kde-format
-msgid "Room Topic"
-msgstr "Tema debate sobe"
+msgid "Room topic:"
+msgstr "Tema debate sobe:"
 
 #: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:159
 #, kde-format
@@ -2735,17 +2735,20 @@ msgid "Invite user to room"
 msgstr "Povabite uporabnika v sobo"
 
 #: src/qml/Panel/RoomDrawer.qml:262
-#, kde-format
-msgid "%1 Member"
-msgid_plural "%1 Members"
+#, fuzzy, kde-format
+#| msgid "%1 Member"
+#| msgid_plural "%1 Members"
+msgid "%1 member"
+msgid_plural "%1 members"
 msgstr[0] "%1 član"
 msgstr[1] "%1 člana"
 msgstr[2] "%1 člani"
 msgstr[3] "%1 članov"
 
 #: src/qml/Panel/RoomDrawer.qml:262
-#, kde-format
-msgid "No Member Count"
+#, fuzzy, kde-format
+#| msgid "No Member Count"
+msgid "No member count"
 msgstr "Ni števila članov"
 
 #: src/qml/RoomSettings/Categories.qml:16 src/qml/RoomSettings/General.qml:20
@@ -2778,16 +2781,6 @@ msgstr "Informacije o sobi"
 #, kde-format
 msgid "Update avatar"
 msgstr "Posodobil avatar"
-
-#: src/qml/RoomSettings/General.qml:76
-#, kde-format
-msgid "Room name:"
-msgstr "Ime sobe:"
-
-#: src/qml/RoomSettings/General.qml:88
-#, kde-format
-msgid "Room topic:"
-msgstr "Tema debate sobe:"
 
 #: src/qml/RoomSettings/General.qml:110
 #: src/qml/Settings/AccountEditorPage.qml:105
@@ -3882,6 +3875,12 @@ msgstr "Prikaži"
 #, kde-format
 msgid "Quit"
 msgstr "Zapusti"
+
+#~ msgid "Room Name"
+#~ msgstr "Ime sobe"
+
+#~ msgid "Room Topic"
+#~ msgstr "Tema debate sobe"
 
 #~ msgid "Rooms"
 #~ msgstr "Sobe"

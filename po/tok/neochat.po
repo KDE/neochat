@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-03 00:46+0000\n"
+"POT-Creation-Date: 2023-04-04 00:47+0000\n"
 "PO-Revision-Date: 2022-06-20 03:30+0000\n"
 "Last-Translator: Weblate Admin <admin@example.com>\n"
 "Language-Team: Toki Pona <http://weblate.blackquill.cc/projects/ante-toki-pi-"
@@ -1610,15 +1610,16 @@ msgstr ""
 msgid "Are you sure you want to sign out?"
 msgstr ""
 
-#: src/qml/Dialog/CreateRoomDialog.qml:21
-#, kde-format
-msgid "Room Name"
+#: src/qml/Dialog/CreateRoomDialog.qml:21 src/qml/RoomSettings/General.qml:76
+#, fuzzy, kde-format
+#| msgid "Room Name"
+msgid "Room name:"
 msgstr "nimi tomo"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:27
+#: src/qml/Dialog/CreateRoomDialog.qml:27 src/qml/RoomSettings/General.qml:88
 #, kde-format
-msgid "Room Topic"
-msgstr "nasin tomo"
+msgid "Room topic:"
+msgstr ""
 
 #: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:159
 #, kde-format
@@ -2756,8 +2757,8 @@ msgstr ""
 
 #: src/qml/Panel/RoomDrawer.qml:262
 #, kde-format
-msgid "%1 Member"
-msgid_plural "%1 Members"
+msgid "%1 member"
+msgid_plural "%1 members"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
@@ -2765,7 +2766,7 @@ msgstr[3] ""
 
 #: src/qml/Panel/RoomDrawer.qml:262
 #, kde-format
-msgid "No Member Count"
+msgid "No member count"
 msgstr ""
 
 #: src/qml/RoomSettings/Categories.qml:16 src/qml/RoomSettings/General.qml:20
@@ -2797,17 +2798,6 @@ msgstr ""
 #: src/qml/RoomSettings/General.qml:51
 #, kde-format
 msgid "Update avatar"
-msgstr ""
-
-#: src/qml/RoomSettings/General.qml:76
-#, fuzzy, kde-format
-#| msgid "Room Name"
-msgid "Room name:"
-msgstr "nimi tomo"
-
-#: src/qml/RoomSettings/General.qml:88
-#, kde-format
-msgid "Room topic:"
 msgstr ""
 
 #: src/qml/RoomSettings/General.qml:110
@@ -3912,6 +3902,12 @@ msgstr ""
 #, kde-format
 msgid "Quit"
 msgstr ""
+
+#~ msgid "Room Name"
+#~ msgstr "nimi tomo"
+
+#~ msgid "Room Topic"
+#~ msgstr "nasin tomo"
 
 #~ msgid "Edit Message"
 #~ msgstr "o ante e toki"
