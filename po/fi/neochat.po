@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-24 02:39+0000\n"
-"PO-Revision-Date: 2023-03-08 23:02+0200\n"
+"PO-Revision-Date: 2023-03-30 13:09+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -663,19 +663,14 @@ msgid "[REDACTED: %1]"
 msgstr "[MUOKATTU: %1]"
 
 #: src/models/messageeventmodel.cpp:848
-#, fuzzy, kde-format
-#| msgctxt "n users"
-#| msgid " %1 user "
-#| msgid_plural " %1 users "
+#, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
-msgstr[0] " 1 käyttäjä "
-msgstr[1] " %1 käyttäjää "
+msgstr[0] "1 käyttäjä: "
+msgstr[1] "%1 käyttäjää: "
 
 #: src/models/messageeventmodel.cpp:855
-#, fuzzy, kde-format
-#| msgctxt "[action 1], [action 2 and/or action 3]"
-#| msgid ", "
+#, kde-format
 msgctxt "list separator"
 msgid ", "
 msgstr ", "
@@ -2781,35 +2776,30 @@ msgid "Add new alias"
 msgstr "Lisää uusi alias"
 
 #: src/qml/RoomSettings/General.qml:271
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "URL Previews"
-msgstr "Ladataan verkko-osoitteen esikatselua"
+msgstr "Verkko-osoitteen esikatselut"
 
 #: src/qml/RoomSettings/General.qml:274
 #, kde-format
 msgid "Enable URL previews by default for room members"
-msgstr ""
+msgstr "Salli huoneen jäsenille oletuksena verkko-osoitteiden esikatselu"
 
 #: src/qml/RoomSettings/General.qml:282
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "Enable URL previews"
-msgstr "Ladataan verkko-osoitteen esikatselua"
+msgstr "Käytä verkko-osoitteiden esikatselua"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are enabled by default in this room"
-msgstr "%1 on jo tässä huoneessa."
+msgstr "Verkko-osoitteiden esikatselu on jo käytössä tässä huoneessa"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are disabled by default in this room"
-msgstr "%1 on jo tässä huoneessa."
+msgstr ""
+"Verkko-osoitteiden esikatselu on tässä huoneessa oletuksena poissa käytöstä"
 
 #: src/qml/RoomSettings/General.qml:297
 #, kde-format
@@ -3133,11 +3123,10 @@ msgid "About NeoChat"
 msgstr "Tietoa Neochatistä"
 
 #: src/qml/Settings/AboutKDE.qml:7
-#, fuzzy, kde-format
-#| msgid "About"
+#, kde-format
 msgctxt "@title:window"
 msgid "About KDE"
-msgstr "Tietoa"
+msgstr "Tietoa KDE:stä"
 
 #: src/qml/Settings/AccountEditorPage.qml:17
 #, kde-format
@@ -3424,10 +3413,9 @@ msgid "Show deleted messages"
 msgstr "Näytä poistetut viestit"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Show avatar update events"
+#, kde-format
 msgid "Show state events"
-msgstr "Näytä avatarinpäivitystapahtumat"
+msgstr "Näytä tilatapahtumat"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:112
 #, kde-format
@@ -3684,10 +3672,9 @@ msgid "About NeoChat"
 msgstr "Tietoa Neochatistä"
 
 #: src/qml/Settings/SettingsPage.qml:58
-#, fuzzy, kde-format
-#| msgid "About"
+#, kde-format
 msgid "About KDE"
-msgstr "Tietoa"
+msgstr "Tietoa KDE:stä"
 
 #: src/qml/Settings/SonnetConfigPage.qml:50
 #, kde-format
