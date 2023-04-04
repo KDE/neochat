@@ -241,6 +241,9 @@ Kirigami.OverlayDrawer {
                     QQC2.ToolTip.text: i18n("Search user in room")
                     QQC2.ToolTip.visible: hovered
                     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                    onToggled: {
+                        userListSearchField.text = "";
+                    }
                 }
 
                 QQC2.ToolButton {
