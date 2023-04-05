@@ -19,6 +19,41 @@ QStringList rainbowColors{"#ff2b00", "#ff5500", "#ff8000", "#ffaa00", "#ffd500",
                           "#00ff2b", "#00ff55", "#00ff80", "#00ffaa", "#00ffd5", "#00ffff", "#00d4ff", "#00aaff", "#007fff", "#0055ff", "#002bff", "#0000ff",
                           "#2a00ff", "#5500ff", "#7f00ff", "#aa00ff", "#d400ff", "#ff00ff", "#ff00d4", "#ff00aa", "#ff0080", "#ff0055", "#ff002b", "#ff0000"};
 
+auto leaveRoomLambda = [](const QString &text, NeoChatRoom *room) {
+    if (text.isEmpty()) {
+        Q_EMIT room->showMessage(NeoChatRoom::Info, i18n("Leaving this room."));
+        room->connection()->leaveRoom(room);
+    } else {
+        QRegularExpression roomRegex(QStringLiteral(R"(^[#!][^:]+:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?)"));
+        auto regexMatch = roomRegex.match(text);
+        if (!regexMatch.hasMatch()) {
+            Q_EMIT room->showMessage(NeoChatRoom::Error,
+                                     i18nc("'<text>' does not look like a room id or alias.", "'%1' does not look like a room id or alias.", text));
+            return QString();
+        }
+        auto leaving = room->connection()->room(text);
+        if (!leaving) {
+            leaving = room->connection()->roomByAlias(text);
+        }
+        if (leaving) {
+            Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("Leaving room <roomname>.", "Leaving room %1.", text));
+            room->connection()->leaveRoom(leaving);
+        } else {
+            Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("Room <roomname> not found", "Room %1 not found.", text));
+        }
+    }
+    return QString();
+};
+
+auto roomNickLambda = [](const QString &text, NeoChatRoom *room) {
+    if (text.isEmpty()) {
+        Q_EMIT room->showMessage(NeoChatRoom::Error, i18n("No new nickname provided, no changes will happen."));
+    } else {
+        room->connection()->user()->rename(text, room);
+    }
+    return QString();
+};
+
 QVector<ActionsModel::Action> actions{
     Action{
         QStringLiteral("shrug"),
@@ -268,31 +303,7 @@ QVector<ActionsModel::Action> actions{
     },
     Action{
         QStringLiteral("part"),
-        [](const QString &text, NeoChatRoom *room) {
-            if (text.isEmpty()) {
-                Q_EMIT room->showMessage(NeoChatRoom::Info, i18n("Leaving this room."));
-                room->connection()->leaveRoom(room);
-            } else {
-                QRegularExpression roomRegex(QStringLiteral(R"(^[#!][^:]+:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?)"));
-                auto regexMatch = roomRegex.match(text);
-                if (!regexMatch.hasMatch()) {
-                    Q_EMIT room->showMessage(NeoChatRoom::Error,
-                                             i18nc("'<text>' does not look like a room id or alias.", "'%1' does not look like a room id or alias.", text));
-                    return QString();
-                }
-                auto leaving = room->connection()->room(text);
-                if (!leaving) {
-                    leaving = room->connection()->roomByAlias(text);
-                }
-                if (leaving) {
-                    Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("Leaving room <roomname>.", "Leaving room %1.", text));
-                    room->connection()->leaveRoom(leaving);
-                } else {
-                    Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("Room <roomname> not found", "Room %1 not found.", text));
-                }
-            }
-            return QString();
-        },
+        leaveRoomLambda,
         false,
         std::nullopt,
         kli18n("[<room alias or id>]"),
@@ -300,31 +311,7 @@ QVector<ActionsModel::Action> actions{
     },
     Action{
         QStringLiteral("leave"),
-        [](const QString &text, NeoChatRoom *room) {
-            if (text.isEmpty()) {
-                Q_EMIT room->showMessage(NeoChatRoom::Info, i18n("Leaving this room."));
-                room->connection()->leaveRoom(room);
-            } else {
-                QRegularExpression roomRegex(QStringLiteral(R"(^[#!][^:]+:\w(?:\w|\.|-)*\.\w+(?::\d{1,5})?)"));
-                auto regexMatch = roomRegex.match(text);
-                if (!regexMatch.hasMatch()) {
-                    Q_EMIT room->showMessage(NeoChatRoom::Error,
-                                             i18nc("'<text>' does not look like a room id or alias.", "'%1' does not look like a room id or alias.", text));
-                    return QString();
-                }
-                auto leaving = room->connection()->room(text);
-                if (!leaving) {
-                    leaving = room->connection()->roomByAlias(text);
-                }
-                if (leaving) {
-                    Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("Leaving room <roomname>.", "Leaving room %1.", text));
-                    room->connection()->leaveRoom(leaving);
-                } else {
-                    Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("Room <roomname> not found", "Room %1 not found.", text));
-                }
-            }
-            return QString();
-        },
+        leaveRoomLambda,
         false,
         std::nullopt,
         kli18n("[<room alias or id>]"),
@@ -347,14 +334,15 @@ QVector<ActionsModel::Action> actions{
     },
     Action{
         QStringLiteral("roomnick"),
-        [](const QString &text, NeoChatRoom *room) {
-            if (text.isEmpty()) {
-                Q_EMIT room->showMessage(NeoChatRoom::Error, i18n("No new nickname provided, no changes will happen."));
-            } else {
-                room->connection()->user()->rename(text, room);
-            }
-            return QString();
-        },
+        roomNickLambda,
+        false,
+        std::nullopt,
+        kli18n("<display name>"),
+        kli18n("Changes your display name in this room"),
+    },
+    Action{
+        QStringLiteral("myroomnick"),
+        roomNickLambda,
         false,
         std::nullopt,
         kli18n("<display name>"),
