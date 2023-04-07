@@ -14,7 +14,6 @@ TextEdit {
     readonly property var isEmoji: /^(<span style='.*'>)?(\u00a9|\u00ae|[\u20D0-\u2fff]|[\u3190-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])+(<\/span>)?$/
     readonly property var hasSpoiler: /data-mx-spoiler/g
 
-    property bool isEmote: false
     property bool isReplyLabel: false
     property string textMessage: model.display
     property bool spoilerRevealed: !hasSpoiler.test(textMessage)
@@ -60,7 +59,7 @@ a{
     background: " + Kirigami.Theme.textColor + ";
 }
 " : "") + "
-</style>" + (isEmote ? "* <a href='https://matrix.to/#/" + author.id + "' style='color: " + author.color + "'>" + author.displayName + "</a> " : "") + textMessage + (isEdited && !contentLabel.isReplyLabel ? (" <span style=\"color: " + Kirigami.Theme.disabledTextColor + "\">" + "<span style='font-size: " + Kirigami.Theme.defaultFont.pixelSize +"px'>" + i18n(" (edited)") + "</span>") : "")
+</style>" + textMessage + (isEdited && !contentLabel.isReplyLabel ? (" <span style=\"color: " + Kirigami.Theme.disabledTextColor + "\">" + "<span style='font-size: " + Kirigami.Theme.defaultFont.pixelSize +"px'>" + i18n(" (edited)") + "</span>") : "")
 
     color: Kirigami.Theme.textColor
     selectedTextColor: Kirigami.Theme.highlightedTextColor

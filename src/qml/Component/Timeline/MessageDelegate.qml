@@ -13,7 +13,6 @@ import org.kde.neochat 1.0
 TimelineContainer {
     id: messageDelegate
 
-    property bool isEmote: false
     onOpenContextMenu: openMessageContext(model, label.selectedText, Controller.plainText(label.textDocument))
 
     innerObject: ColumnLayout {
@@ -22,7 +21,6 @@ TimelineContainer {
             id: label
             Layout.fillWidth: true
             visible: currentRoom.chatBoxEditId !== model.eventId
-            isEmote: messageDelegate.isEmote
         }
         Loader {
             Layout.fillWidth: true

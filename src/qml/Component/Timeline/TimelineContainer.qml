@@ -21,7 +21,6 @@ ColumnLayout {
     default property alias innerObject : column.children
 
     property Item hoverComponent: hoverActions ?? null
-    property bool isEmote: false
     property bool cardBackground: true
     property bool showUserMessageOnRight: Config.showLocalMessagesOnRight && model.author.isLocalUser && !Config.compactLayout
     property bool isHighlighted: model.isHighlighted || isTemporaryHighlighted
@@ -212,7 +211,7 @@ ColumnLayout {
                         id: rowLayout
 
                         spacing: Kirigami.Units.smallSpacing
-                        visible: model.showAuthor && !isEmote
+                        visible: model.showAuthor
 
                         QQC2.Label {
                             id: nameLabel

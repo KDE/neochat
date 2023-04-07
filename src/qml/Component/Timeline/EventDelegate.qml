@@ -20,9 +20,7 @@ DelegateChooser {
 
     DelegateChoice {
         roleValue: MessageEventModel.Emote
-        delegate: MessageDelegate {
-            isEmote: true
-        }
+        delegate: MessageDelegate {}
     }
 
     DelegateChoice {

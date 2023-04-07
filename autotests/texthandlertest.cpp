@@ -59,6 +59,7 @@ private Q_SLOTS:
     void receiveRichtextIn();
     void receiveRichMxcUrl();
     void receiveRichPlainUrl();
+    void receiveRichEmote();
 };
 
 #ifdef QUOTIENT_07
@@ -147,6 +148,22 @@ void TextHandlerTest::initTestCase()
         "type": "m.room.message",
         "unsigned": {
           "age": 1235
+        }
+      },
+      {
+        "content": {
+          "body": "/me This is an emote.",
+          "format": "org.matrix.custom.html",
+          "formatted_body": "This is an emote.",
+          "msgtype": "m.emote"
+        },
+        "event_id": "$153273582443PhrSn:example.org",
+        "origin_server_ts": 1532735824654,
+        "room_id": "!jEsUZKDJdhlrceRyVU:example.org",
+        "sender": "@example:example.org",
+        "type": "m.room.message",
+        "unsigned": {
+          "age": 1236
         }
       }
     ],
@@ -439,7 +456,7 @@ void TextHandlerTest::receiveRichMxcUrl()
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
 
-    QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText, room, room->messageEvents().back().get()), testOutputString);
+    QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText, room, room->messageEvents().at(0).get()), testOutputString);
 }
 #endif
 
@@ -496,6 +513,20 @@ void TextHandlerTest::receiveRichPlainUrl()
 
     testTextHandler.setData(testInputStringMxId);
     QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText), testOutputStringMxId);
+}
+
+// Test that user pill is add to an emote message.
+// N.B. The second message in the test timeline is marked as an emote.
+void TextHandlerTest::receiveRichEmote()
+{
+    const QString testInputString = QStringLiteral("This is an emote.");
+    const QString testOutputString =
+        QStringLiteral("* <a href=\"https://matrix.to/#/@example:example.org\" style=\"color:#000000\">@example:example.org</a> This is an emote.");
+
+    TextHandler testTextHandler;
+    testTextHandler.setData(testInputString);
+
+    QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText, room, room->messageEvents().at(1).get()), testOutputString);
 }
 
 QTEST_MAIN(TextHandlerTest)

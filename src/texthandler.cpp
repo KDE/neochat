@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QUrl>
 
+#include <events/roommessageevent.h>
 #include <util.h>
 
 #include <cmark.h>
@@ -132,6 +133,21 @@ QString TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat, const Neo
         outputString.append(nextTokenBuffer);
 
         nextTokenType();
+    }
+
+    // If the message is an emote add the user pill to the front of the message.
+    if (event != nullptr) {
+        auto e = eventCast<const Quotient::RoomMessageEvent>(event);
+        if (e->msgtype() == Quotient::MessageEventType::Emote) {
+            auto author = static_cast<NeoChatUser *>(room->user(e->senderId()));
+            QString emoteString = QStringLiteral("* <a href=\"https://matrix.to/#/") + e->senderId() + QStringLiteral("\" style=\"color:")
+                + author->color().name() + QStringLiteral("\">") + author->displayname(room) + QStringLiteral("</a> ");
+            if (outputString.startsWith(QStringLiteral("<p>"))) {
+                outputString.insert(3, emoteString);
+            } else {
+                outputString.prepend(emoteString);
+            }
+        }
     }
 
     /**
