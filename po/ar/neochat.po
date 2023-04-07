@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-06 00:47+0000\n"
-"PO-Revision-Date: 2023-03-23 11:18+0400\n"
+"PO-Revision-Date: 2023-04-06 09:41+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -2723,12 +2723,10 @@ msgid "Invite user to room"
 msgstr "أدعُ مستخدم إلى غرفة"
 
 #: src/qml/Panel/RoomDrawer.qml:265
-#, fuzzy, kde-format
-#| msgid "%1 Member"
-#| msgid_plural "%1 Members"
+#, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
-msgstr[0] "عضو"
+msgstr[0] "لا يوجد أعضاء"
 msgstr[1] "عضو واحد"
 msgstr[2] "عضوين"
 msgstr[3] "%1 أعضاء"
@@ -2736,8 +2734,7 @@ msgstr[4] "%1 عضواً"
 msgstr[5] "%1 عضو"
 
 #: src/qml/Panel/RoomDrawer.qml:265
-#, fuzzy, kde-format
-#| msgid "No Member Count"
+#, kde-format
 msgid "No member count"
 msgstr "بلا عدد أعضاء"
 
