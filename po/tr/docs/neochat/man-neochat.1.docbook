@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-<!ENTITY % English "INCLUDE">
+<!ENTITY % Turkish "INCLUDE">
 ]>
 <!--
 SPDX-FileCopyrightText: 2022 Carl Schwan <carl@carlschwan.eu>
@@ -9,77 +9,114 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 <refentry lang="&language;">
 <refentryinfo>
-<title>NeoChat User's Manual</title>
-<author><firstname>Carl</firstname><surname>Schwan</surname>
-<contrib>NeoChat man page.</contrib>
-<email>carl@carlschwan.eu</email></author>
-<date>2022-11-01</date>
-<releaseinfo>22.09</releaseinfo>
-<productname>NeoChat</productname>
+<title
+>NeoChat Kullanıcı Kılavuzu</title>
+<author
+><firstname
+>Carl</firstname
+><surname
+>Schwan</surname
+> <contrib
+>NeoChat man page.</contrib
+> <email
+>carl@carlschwan.eu</email
+></author>
+<date
+>2022-11-01</date>
+<releaseinfo
+>22.09</releaseinfo>
+<productname
+>NeoChat</productname>
 </refentryinfo>
 
 <refmeta>
   <refentrytitle>
-    <command>neochat</command>
+    <command
+>neochat</command>
   </refentrytitle>
-  <manvolnum>1</manvolnum>
+  <manvolnum
+>1</manvolnum>
 </refmeta>
 
 <refnamediv>
-  <refname>neochat</refname>
-  <refpurpose>Client for interacting with the matrix messaging protocol</refpurpose>
+  <refname
+>neochat</refname>
+  <refpurpose
+>Matrix iletileşme protokolü ile etkileşim için istemci</refpurpose>
   </refnamediv>
   <!-- body begins here -->
   <refsynopsisdiv id='synopsis'>
-  <cmdsynopsis>
-    <command>neochat</command>
-    <arg choice="opt"><replaceable>URI</replaceable></arg>
-  </cmdsynopsis>
+  <cmdsynopsis
+><command
+>neochat</command
+> <arg choice="opt"
+><replaceable
+>URI</replaceable
+></arg
+> </cmdsynopsis>
 </refsynopsisdiv>
 
 
 <refsect1 id="description">
-  <title>Description</title>
-  <para>
-    <command>neochat</command> is a chat application for the matrix protocol
-    that work on both desktop and mobile.
-  </para>
+  <title
+>Açıklama</title>
+  <para
+><command
+>neochat</command
+>, Matrix protokolü için hem masaüstünde hem de taşınabilir aygıtlarda çalışan bir sohbet uygulamasıdır. </para>
 </refsect1>
 
-<refsect1 id="options"><title>Options</title>
+<refsect1 id="options"
+><title
+>Seçenekler</title>
 <variablelist>
   <varlistentry>
-  <term><option>URI</option></term>
+  <term
+><option
+>URI</option
+></term>
   <listitem>
-    <para>
-      The matrix uri for an user or a room. e.g matrix:u/user:example.org and
-      matrix:r/root:example.org. This will makes NeoChat try to open the given
-      room or conversation.
-    </para>
+    <para
+>Bir kullanıcı veya oda için matrix URI'si; örneğin, matrix:u/kullanıcı:örnek.org ve matrix:r/kök:örnek.org. Bu, NeoChat'in verilen odayı veya konuşmayı açmayı denemesini sağlar. </para>
   </listitem>
   </varlistentry>
 </variablelist>
 </refsect1>
 
 <refsect1 id="bug">
-  <title>Reporting bugs</title>
-  <para>You can report bugs and feature requests at <ulink url="https://bugs.kde.org/enter_bug.cgi?product=NeoChat&amp;component=General">https://bugs.kde.org/enter_bug.cgi?product=NeoChat&amp;component=General</ulink></para>
+  <title
+>Hata Bildirme</title>
+  <para
+>Hataları veya özellik isteklerini <ulink url="https://bugs.kde.org/enter_bug.cgi?product=NeoChat&amp;component=General"
+>https://bugs.kde.org/enter_bug.cgi?product=NeoChat&amp;component=General</ulink
+> bağlantısından bildirebilirsiniz</para>
 </refsect1>
 
 <refsect1>
-  <title>See Also</title>
+  <title
+>Ayrıca</title>
   <simplelist>
-    <member>
-      A list of frequently asked questions about Matrix <ulink url="https://matrix.org/faq/">https://matrix.org/faq/</ulink>
-    </member>
-    <member>kf5options(7)</member>
-    <member>qt5options(7)</member>
+    <member
+>Matrix üzerine sıkça sorulan soruların bir listesi: <ulink url="https://matrix.org/faq/"
+>https://matrix.org/faq/</ulink
+> </member>
+    <member
+>kf5options(7)</member>
+    <member
+>qt5options(7)</member>
   </simplelist>
 </refsect1>
 
-<refsect1 id="copyright"><title>Copyright</title>
-<para>Copyright &copy; 2020-2022 Tobias Fella </para>
-<para>Copyright &copy; 2020-2022 Carl Schwan </para>
-<para>License: GNU General Public Version 3 or later &lt;<ulink url="https://www.gnu.org/licenses/gpl-3.0.html">https://www.gnu.org/licenses/gpl-3.0.html</ulink>&gt;</para>
+<refsect1 id="copyright"
+><title
+>Telif Hakkı</title>
+<para
+>Telif hakkı &copy; 2020-2022 Tobias Fella </para>
+<para
+>Telif hakkı &copy; 2020-2022 Carl Schwan </para>
+<para
+>Lisans: GNU Genel Kamu Lisansa, 3. sürüm veya sonrası &lt;<ulink url="https://www.gnu.org/licenses/gpl-3.0.html"
+>https://www.gnu.org/licenses/gpl-3.0.html</ulink
+>&gt;</para>
 </refsect1>
 </refentry>
