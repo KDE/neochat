@@ -57,7 +57,6 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[ReadMarkersStringRole] = "readMarkersString";
     roles[ShowReadMarkersRole] = "showReadMarkers";
     roles[ReactionRole] = "reaction";
-    roles[IsEditedRole] = "isEdited";
     roles[SourceRole] = "source";
     roles[MimeTypeRole] = "mimeType";
     roles[FormattedBodyRole] = "formattedBody";
@@ -660,14 +659,6 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         }
 
         return EventStatus::Normal;
-    }
-
-    if (role == IsEditedRole) {
-        if (auto e = eventCast<const RoomMessageEvent>(&evt)) {
-            return !e->unsignedJson().isEmpty() && e->unsignedJson().contains("m.relations")
-                && e->unsignedJson()["m.relations"].toObject().contains("m.replace");
-        }
-        return false;
     }
 
     if (role == EventIdRole) {

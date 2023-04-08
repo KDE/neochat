@@ -60,6 +60,8 @@ private Q_SLOTS:
     void receiveRichMxcUrl();
     void receiveRichPlainUrl();
     void receiveRichEmote();
+    void receiveRichEdited_data();
+    void receiveRichEdited();
 };
 
 #ifdef QUOTIENT_07
@@ -147,7 +149,7 @@ void TextHandlerTest::initTestCase()
         "sender": "@example:example.org",
         "type": "m.room.message",
         "unsigned": {
-          "age": 1235
+          "age": 1232
         }
       },
       {
@@ -163,7 +165,28 @@ void TextHandlerTest::initTestCase()
         "sender": "@example:example.org",
         "type": "m.room.message",
         "unsigned": {
-          "age": 1236
+          "age": 1231
+        }
+      },
+      {
+        "content": {
+            "body": "tested",
+            "msgtype": "m.text"
+        },
+        "event_id": "$zrCiBxBnqqTn0Z5FY78qSZAszno_w8nJJXzfBULG-3E",
+        "origin_server_ts": 1680948575928,
+        "room_id": "!jEsUZKDJdhlrceRyVU:example.org",
+        "sender": "@example:example.org",
+        "type": "m.room.message",
+        "unsigned": {
+            "age": 1747776,
+            "m.relations": {
+                "m.replace": {
+                    "event_id": "$UX0PlpyI7vYO32iHMuuYEP7ECMh4sX3XLGiB2SwM4mQ",
+                    "origin_server_ts": 1680948580992,
+                    "sender": "@example:example.org"
+                }
+            }
         }
       }
     ],
@@ -527,6 +550,29 @@ void TextHandlerTest::receiveRichEmote()
     testTextHandler.setData(testInputString);
 
     QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText, room, room->messageEvents().at(1).get()), testOutputString);
+}
+
+void TextHandlerTest::receiveRichEdited_data()
+{
+    QTest::addColumn<QString>("testInputString");
+    QTest::addColumn<QString>("testOutputString");
+
+    QTest::newRow("basic") << QStringLiteral("Edited") << QStringLiteral("Edited <span style=\"color:#000000\">(edited)</span>");
+    QTest::newRow("multiple paragraphs") << QStringLiteral("<p>Edited</p>\n<p>Edited</p>")
+                                         << QStringLiteral("<p>Edited</p>\n<p>Edited <span style=\"color:#000000\">(edited)</span></p>");
+    QTest::newRow("blockquote") << QStringLiteral("<blockquote>Edited</blockquote>")
+                                << QStringLiteral("<blockquote>Edited</blockquote><p> <span style=\"color:#000000\">(edited)</span></p>");
+}
+
+void TextHandlerTest::receiveRichEdited()
+{
+    QFETCH(QString, testInputString);
+    QFETCH(QString, testOutputString);
+
+    TextHandler testTextHandler;
+    testTextHandler.setData(testInputString);
+
+    QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText, room, room->messageEvents().at(2).get()), testOutputString);
 }
 
 QTEST_MAIN(TextHandlerTest)

@@ -63,7 +63,6 @@ public:
         ShowReadMarkersRole, /**< bool with whether there are any other user read markers to be shown. */
         ReactionRole,
 
-        IsEditedRole,
         SourceRole,
         MediaUrlRole,
         // For debugging

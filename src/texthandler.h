@@ -4,6 +4,7 @@
 #pragma once
 
 #include <QHash>
+#include <QObject>
 #include <QRegularExpression>
 #include <QString>
 #include <QStringList>
@@ -39,8 +40,10 @@ static const QRegularExpression mxId(QStringLiteral(R"((^|[][[:space:](){}`'";])
  * be present as per the matrix spec
  * (https://spec.matrix.org/v1.5/client-server-api/#mroommessage-msgtypes).
  */
-class TextHandler
+class TextHandler : public QObject
 {
+    Q_OBJECT
+
 public:
     /**
      * @brief List of token types

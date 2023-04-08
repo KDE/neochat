@@ -7,9 +7,12 @@
 #include <QUrl>
 
 #include <events/roommessageevent.h>
+#include <qstringliteral.h>
 #include <util.h>
 
 #include <cmark.h>
+
+#include <Kirigami/PlatformTheme>
 
 static const QStringList allowedTags = {
     QStringLiteral("font"),    QStringLiteral("del"),    QStringLiteral("h1"),         QStringLiteral("h2"),     QStringLiteral("h3"),    QStringLiteral("h4"),
@@ -146,6 +149,31 @@ QString TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat, const Neo
                 outputString.insert(3, emoteString);
             } else {
                 outputString.prepend(emoteString);
+            }
+        }
+    }
+
+    if (auto e = eventCast<const Quotient::RoomMessageEvent>(event)) {
+        bool isEdited =
+            !e->unsignedJson().isEmpty() && e->unsignedJson().contains("m.relations") && e->unsignedJson()["m.relations"].toObject().contains("m.replace");
+        if (isEdited) {
+            Kirigami::PlatformTheme *theme = static_cast<Kirigami::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::PlatformTheme>(this, true));
+
+            QString editTextColor;
+            if (theme != nullptr) {
+                editTextColor = theme->disabledTextColor().name();
+            } else {
+                editTextColor = QStringLiteral("#000000");
+            }
+            QString editedString = QStringLiteral(" <span style=\"color:") + editTextColor + QStringLiteral("\">(edited)</span>");
+            if (outputString.endsWith(QStringLiteral("</p>"))) {
+                outputString.insert(outputString.length() - 4, editedString);
+            } else if (outputString.endsWith(QStringLiteral("</pre>")) || outputString.endsWith(QStringLiteral("</blockquote>"))
+                       || outputString.endsWith(QStringLiteral("</table>")) || outputString.endsWith(QStringLiteral("</ol>"))
+                       || outputString.endsWith(QStringLiteral("</ul>"))) {
+                outputString.append("<p>" + editedString + "</p>");
+            } else {
+                outputString.append(editedString);
             }
         }
     }
