@@ -138,12 +138,13 @@ int ChatDocumentHandler::completionStartIndex() const
         return 0;
     }
 
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
+#if !defined(Q_OS_ANDROID) && QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     const long long cursor = cursorPosition();
 #else
     const auto cursor = cursorPosition();
 #endif
     const auto &text = getText();
+
     auto start = std::min(cursor, text.size()) - 1;
     while (start > -1) {
         if (text.at(start) == QLatin1Char(' ')) {
