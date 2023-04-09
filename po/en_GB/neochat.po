@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-08 00:47+0000\n"
-"PO-Revision-Date: 2023-03-26 14:35+0100\n"
+"POT-Creation-Date: 2023-04-09 00:47+0000\n"
+"PO-Revision-Date: 2023-04-08 11:07+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -627,49 +627,49 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Custom"
 
-#: src/models/messageeventmodel.cpp:362 src/models/searchmodel.cpp:156
+#: src/models/messageeventmodel.cpp:361 src/models/searchmodel.cpp:156
 #, kde-format
 msgid "Today"
 msgstr "Today"
 
-#: src/models/messageeventmodel.cpp:365 src/models/searchmodel.cpp:159
+#: src/models/messageeventmodel.cpp:364 src/models/searchmodel.cpp:159
 #, kde-format
 msgid "Yesterday"
 msgstr "Yesterday"
 
-#: src/models/messageeventmodel.cpp:368 src/models/searchmodel.cpp:162
+#: src/models/messageeventmodel.cpp:367 src/models/searchmodel.cpp:162
 #, kde-format
 msgid "The day before yesterday"
 msgstr "The day before yesterday"
 
-#: src/models/messageeventmodel.cpp:470 src/models/messageeventmodel.cpp:479
+#: src/models/messageeventmodel.cpp:469 src/models/messageeventmodel.cpp:478
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[This message was deleted]</i>"
 
-#: src/models/messageeventmodel.cpp:471
+#: src/models/messageeventmodel.cpp:470
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[This message was deleted: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:568
+#: src/models/messageeventmodel.cpp:567
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[REDACTED]"
 
-#: src/models/messageeventmodel.cpp:568
+#: src/models/messageeventmodel.cpp:567
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[REDACTED: %1]"
 
-#: src/models/messageeventmodel.cpp:882
+#: src/models/messageeventmodel.cpp:873
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 user: "
 msgstr[1] "%1 users: "
 
-#: src/models/messageeventmodel.cpp:889
+#: src/models/messageeventmodel.cpp:880
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -1359,8 +1359,14 @@ msgctxt "@action:button"
 msgid "Back"
 msgstr "Back"
 
+#: src/qml/Component/QuickSwitcher.qml:124 src/qml/Page/RoomListPage.qml:319
+#: src/qml/Page/RoomListPage.qml:371
+#, kde-format
+msgid "No Name"
+msgstr "No Name"
+
 #: src/qml/Component/Timeline/EncryptedDelegate.qml:15
-#: src/qml/Component/Timeline/ReplyComponent.qml:134
+#: src/qml/Component/Timeline/ReplyComponent.qml:133
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -1466,11 +1472,6 @@ msgstr[1] "%2 reacted with %3"
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Last read: %1"
-
-#: src/qml/Component/Timeline/RichLabel.qml:62
-#, kde-format
-msgid " (edited)"
-msgstr " (edited)"
 
 #: src/qml/Component/Timeline/VideoDelegate.qml:170
 #, kde-format
@@ -2552,11 +2553,6 @@ msgstr "Join some rooms to get started"
 msgid "Search in room directory"
 msgstr "Search in room directory"
 
-#: src/qml/Page/RoomListPage.qml:319 src/qml/Page/RoomListPage.qml:371
-#, kde-format
-msgid "No Name"
-msgstr "No Name"
-
 #: src/qml/Page/RoomListPage.qml:386
 #, kde-format
 msgid "Muted room"
@@ -2723,19 +2719,16 @@ msgid "Invite user to room"
 msgstr "Invite user to room"
 
 #: src/qml/Panel/RoomDrawer.qml:265
-#, fuzzy, kde-format
-#| msgid "%1 Member"
-#| msgid_plural "%1 Members"
+#, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
-msgstr[0] "%1 Member"
-msgstr[1] "%1 Members"
+msgstr[0] "%1 member"
+msgstr[1] "%1 members"
 
 #: src/qml/Panel/RoomDrawer.qml:265
-#, fuzzy, kde-format
-#| msgid "No Member Count"
+#, kde-format
 msgid "No member count"
-msgstr "No Member Count"
+msgstr "No member count"
 
 #: src/qml/RoomSettings/Categories.qml:16 src/qml/RoomSettings/General.qml:20
 #: src/qml/Settings/SettingsPage.qml:13
@@ -3858,6 +3851,9 @@ msgstr "Show"
 #, kde-format
 msgid "Quit"
 msgstr "Quit"
+
+#~ msgid " (edited)"
+#~ msgstr " (edited)"
 
 #~ msgid "Room Name"
 #~ msgstr "Room Name"

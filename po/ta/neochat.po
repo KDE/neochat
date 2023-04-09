@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-08 00:47+0000\n"
+"POT-Creation-Date: 2023-04-09 00:47+0000\n"
 "PO-Revision-Date: 2023-03-19 12:51+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -631,49 +631,49 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "விருப்பமானவை"
 
-#: src/models/messageeventmodel.cpp:362 src/models/searchmodel.cpp:156
+#: src/models/messageeventmodel.cpp:361 src/models/searchmodel.cpp:156
 #, kde-format
 msgid "Today"
 msgstr "இன்று"
 
-#: src/models/messageeventmodel.cpp:365 src/models/searchmodel.cpp:159
+#: src/models/messageeventmodel.cpp:364 src/models/searchmodel.cpp:159
 #, kde-format
 msgid "Yesterday"
 msgstr "நேற்று"
 
-#: src/models/messageeventmodel.cpp:368 src/models/searchmodel.cpp:162
+#: src/models/messageeventmodel.cpp:367 src/models/searchmodel.cpp:162
 #, kde-format
 msgid "The day before yesterday"
 msgstr "நேற்றுக்கு முந்தைய நாள்"
 
-#: src/models/messageeventmodel.cpp:470 src/models/messageeventmodel.cpp:479
+#: src/models/messageeventmodel.cpp:469 src/models/messageeventmodel.cpp:478
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[இந்த செய்தி நீக்கப்பட்டது]</i>"
 
-#: src/models/messageeventmodel.cpp:471
+#: src/models/messageeventmodel.cpp:470
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[இந்த செய்தி நீக்கப்பட்டது: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:568
+#: src/models/messageeventmodel.cpp:567
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[தணிக்கை செய்யப்பட்டது]"
 
-#: src/models/messageeventmodel.cpp:568
+#: src/models/messageeventmodel.cpp:567
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[தணிக்கை செய்யப்பட்டது: %1]"
 
-#: src/models/messageeventmodel.cpp:882
+#: src/models/messageeventmodel.cpp:873
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 பயனர்: "
 msgstr[1] "%1 பயனர்கள்: "
 
-#: src/models/messageeventmodel.cpp:889
+#: src/models/messageeventmodel.cpp:880
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -1363,8 +1363,14 @@ msgctxt "@action:button"
 msgid "Back"
 msgstr "பின்னே"
 
+#: src/qml/Component/QuickSwitcher.qml:124 src/qml/Page/RoomListPage.qml:319
+#: src/qml/Page/RoomListPage.qml:371
+#, kde-format
+msgid "No Name"
+msgstr "பெயரில்லாதது"
+
 #: src/qml/Component/Timeline/EncryptedDelegate.qml:15
-#: src/qml/Component/Timeline/ReplyComponent.qml:134
+#: src/qml/Component/Timeline/ReplyComponent.qml:133
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -1469,11 +1475,6 @@ msgstr[1] "%2 %3 என்று எதிர்வினையிட்டன�
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "கடைசியாக படித்தது: %1"
-
-#: src/qml/Component/Timeline/RichLabel.qml:62
-#, kde-format
-msgid " (edited)"
-msgstr "(திருத்தப்பட்டது)"
 
 #: src/qml/Component/Timeline/VideoDelegate.qml:170
 #, kde-format
@@ -2537,11 +2538,6 @@ msgstr "தொடங்க, சில அரங்குகளில் சே�
 #, kde-format
 msgid "Search in room directory"
 msgstr "அரங்குகளின் பட்டியலில் தேடுங்கள்"
-
-#: src/qml/Page/RoomListPage.qml:319 src/qml/Page/RoomListPage.qml:371
-#, kde-format
-msgid "No Name"
-msgstr "பெயரில்லாதது"
 
 #: src/qml/Page/RoomListPage.qml:386
 #, kde-format
@@ -3844,6 +3840,9 @@ msgstr "காட்டு"
 #, kde-format
 msgid "Quit"
 msgstr "வெளியேறு"
+
+#~ msgid " (edited)"
+#~ msgstr "(திருத்தப்பட்டது)"
 
 #~ msgid "Room Name"
 #~ msgstr "அரங்கின் பெயர்"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-08 00:47+0000\n"
+"POT-Creation-Date: 2023-04-09 00:47+0000\n"
 "PO-Revision-Date: 2022-12-20 14:10+0100\n"
 "Last-Translator: Frank Steinmetzger <dev-kde@felsenfleischer.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -648,49 +648,49 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Benutzerdefiniert"
 
-#: src/models/messageeventmodel.cpp:362 src/models/searchmodel.cpp:156
+#: src/models/messageeventmodel.cpp:361 src/models/searchmodel.cpp:156
 #, kde-format
 msgid "Today"
 msgstr "Heute"
 
-#: src/models/messageeventmodel.cpp:365 src/models/searchmodel.cpp:159
+#: src/models/messageeventmodel.cpp:364 src/models/searchmodel.cpp:159
 #, kde-format
 msgid "Yesterday"
 msgstr "Gestern"
 
-#: src/models/messageeventmodel.cpp:368 src/models/searchmodel.cpp:162
+#: src/models/messageeventmodel.cpp:367 src/models/searchmodel.cpp:162
 #, kde-format
 msgid "The day before yesterday"
 msgstr "Vorgestern"
 
-#: src/models/messageeventmodel.cpp:470 src/models/messageeventmodel.cpp:479
+#: src/models/messageeventmodel.cpp:469 src/models/messageeventmodel.cpp:478
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Diese Nachricht wurde gelöscht]</i>"
 
-#: src/models/messageeventmodel.cpp:471
+#: src/models/messageeventmodel.cpp:470
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Diese Nachricht wurde gelöscht: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:568
+#: src/models/messageeventmodel.cpp:567
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[GELÖSCHT]"
 
-#: src/models/messageeventmodel.cpp:568
+#: src/models/messageeventmodel.cpp:567
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[GELÖSCHT: %1]"
 
-#: src/models/messageeventmodel.cpp:882
+#: src/models/messageeventmodel.cpp:873
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/models/messageeventmodel.cpp:889
+#: src/models/messageeventmodel.cpp:880
 #, fuzzy, kde-format
 #| msgctxt "[action 1], [action 2 and action 3]"
 #| msgid ", "
@@ -1405,8 +1405,14 @@ msgctxt "@action:button"
 msgid "Back"
 msgstr "Zurück"
 
+#: src/qml/Component/QuickSwitcher.qml:124 src/qml/Page/RoomListPage.qml:319
+#: src/qml/Page/RoomListPage.qml:371
+#, kde-format
+msgid "No Name"
+msgstr "Unbenannt"
+
 #: src/qml/Component/Timeline/EncryptedDelegate.qml:15
-#: src/qml/Component/Timeline/ReplyComponent.qml:134
+#: src/qml/Component/Timeline/ReplyComponent.qml:133
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -1514,11 +1520,6 @@ msgstr[1] "%2 reagierten mit %3"
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Zuletzt gelesen: %1"
-
-#: src/qml/Component/Timeline/RichLabel.qml:62
-#, kde-format
-msgid " (edited)"
-msgstr " (bearbeitet)"
 
 #: src/qml/Component/Timeline/VideoDelegate.qml:170
 #, kde-format
@@ -2619,11 +2620,6 @@ msgstr "Einen Raum betreten, um zu beginnen"
 #, kde-format
 msgid "Search in room directory"
 msgstr "Raumverzeichnis durchsuchen"
-
-#: src/qml/Page/RoomListPage.qml:319 src/qml/Page/RoomListPage.qml:371
-#, kde-format
-msgid "No Name"
-msgstr "Unbenannt"
 
 #: src/qml/Page/RoomListPage.qml:386
 #, kde-format
@@ -3977,6 +3973,9 @@ msgstr "Anzeigen"
 #, kde-format
 msgid "Quit"
 msgstr "Beenden"
+
+#~ msgid " (edited)"
+#~ msgstr " (bearbeitet)"
 
 #~ msgid "Room Name"
 #~ msgstr "Raumname"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-08 00:47+0000\n"
+"POT-Creation-Date: 2023-04-09 00:47+0000\n"
 "PO-Revision-Date: 2022-09-28 16:37+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -713,49 +713,49 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Egen"
 
-#: src/models/messageeventmodel.cpp:362 src/models/searchmodel.cpp:156
+#: src/models/messageeventmodel.cpp:361 src/models/searchmodel.cpp:156
 #, kde-format
 msgid "Today"
 msgstr "Idag"
 
-#: src/models/messageeventmodel.cpp:365 src/models/searchmodel.cpp:159
+#: src/models/messageeventmodel.cpp:364 src/models/searchmodel.cpp:159
 #, kde-format
 msgid "Yesterday"
 msgstr "Igår"
 
-#: src/models/messageeventmodel.cpp:368 src/models/searchmodel.cpp:162
+#: src/models/messageeventmodel.cpp:367 src/models/searchmodel.cpp:162
 #, kde-format
 msgid "The day before yesterday"
 msgstr "Förrgår"
 
-#: src/models/messageeventmodel.cpp:470 src/models/messageeventmodel.cpp:479
+#: src/models/messageeventmodel.cpp:469 src/models/messageeventmodel.cpp:478
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Meddelandet har tagits bort]</i>"
 
-#: src/models/messageeventmodel.cpp:471
+#: src/models/messageeventmodel.cpp:470
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Meddelandet har tagits bort: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:568
+#: src/models/messageeventmodel.cpp:567
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[ÄNDRAD]"
 
-#: src/models/messageeventmodel.cpp:568
+#: src/models/messageeventmodel.cpp:567
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[ÄNDRAD: %1]"
 
-#: src/models/messageeventmodel.cpp:882
+#: src/models/messageeventmodel.cpp:873
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/models/messageeventmodel.cpp:889
+#: src/models/messageeventmodel.cpp:880
 #, fuzzy, kde-format
 #| msgctxt "[action 1], [action 2 and action 3]"
 #| msgid ", "
@@ -1480,8 +1480,14 @@ msgctxt "@action:button"
 msgid "Back"
 msgstr "Tillbaka"
 
+#: src/qml/Component/QuickSwitcher.qml:124 src/qml/Page/RoomListPage.qml:319
+#: src/qml/Page/RoomListPage.qml:371
+#, kde-format
+msgid "No Name"
+msgstr "Inget namn"
+
 #: src/qml/Component/Timeline/EncryptedDelegate.qml:15
-#: src/qml/Component/Timeline/ReplyComponent.qml:134
+#: src/qml/Component/Timeline/ReplyComponent.qml:133
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -1589,11 +1595,6 @@ msgstr[1] "%2 reagerade med %3"
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Senast läst: %1"
-
-#: src/qml/Component/Timeline/RichLabel.qml:62
-#, kde-format
-msgid " (edited)"
-msgstr " (redigerad)"
 
 #: src/qml/Component/Timeline/VideoDelegate.qml:170
 #, kde-format
@@ -2702,11 +2703,6 @@ msgstr "Gå med i några rum för att komma igång"
 #, kde-format
 msgid "Search in room directory"
 msgstr "Sök i rumkatalog"
-
-#: src/qml/Page/RoomListPage.qml:319 src/qml/Page/RoomListPage.qml:371
-#, kde-format
-msgid "No Name"
-msgstr "Inget namn"
 
 #: src/qml/Page/RoomListPage.qml:386
 #, fuzzy, kde-format
@@ -4092,6 +4088,9 @@ msgstr "Visa"
 #, kde-format
 msgid "Quit"
 msgstr "Avsluta"
+
+#~ msgid " (edited)"
+#~ msgstr " (redigerad)"
 
 #~ msgid "Room Name"
 #~ msgstr "Rummets namn"

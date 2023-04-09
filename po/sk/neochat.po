@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-08 00:47+0000\n"
+"POT-Creation-Date: 2023-04-09 00:47+0000\n"
 "PO-Revision-Date: 2022-04-18 17:58+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -718,42 +718,42 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Vlastné"
 
-#: src/models/messageeventmodel.cpp:362 src/models/searchmodel.cpp:156
+#: src/models/messageeventmodel.cpp:361 src/models/searchmodel.cpp:156
 #, kde-format
 msgid "Today"
 msgstr "Dnes"
 
-#: src/models/messageeventmodel.cpp:365 src/models/searchmodel.cpp:159
+#: src/models/messageeventmodel.cpp:364 src/models/searchmodel.cpp:159
 #, kde-format
 msgid "Yesterday"
 msgstr "Včera"
 
-#: src/models/messageeventmodel.cpp:368 src/models/searchmodel.cpp:162
+#: src/models/messageeventmodel.cpp:367 src/models/searchmodel.cpp:162
 #, kde-format
 msgid "The day before yesterday"
 msgstr "Predvčerom"
 
-#: src/models/messageeventmodel.cpp:470 src/models/messageeventmodel.cpp:479
+#: src/models/messageeventmodel.cpp:469 src/models/messageeventmodel.cpp:478
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Táto správa bola odstránená]</i>"
 
-#: src/models/messageeventmodel.cpp:471
+#: src/models/messageeventmodel.cpp:470
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Táto správa bola odstránená: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:568
+#: src/models/messageeventmodel.cpp:567
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[REVIDOVANÉ]"
 
-#: src/models/messageeventmodel.cpp:568
+#: src/models/messageeventmodel.cpp:567
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[REVIDOVANÉ: %1]"
 
-#: src/models/messageeventmodel.cpp:882
+#: src/models/messageeventmodel.cpp:873
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
@@ -761,7 +761,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/models/messageeventmodel.cpp:889
+#: src/models/messageeventmodel.cpp:880
 #, fuzzy, kde-format
 #| msgctxt "[action 1], [action 2 and action 3]"
 #| msgid ", "
@@ -1488,8 +1488,14 @@ msgctxt "@action:button"
 msgid "Back"
 msgstr "Späť"
 
+#: src/qml/Component/QuickSwitcher.qml:124 src/qml/Page/RoomListPage.qml:319
+#: src/qml/Page/RoomListPage.qml:371
+#, kde-format
+msgid "No Name"
+msgstr "Bez názvu"
+
 #: src/qml/Component/Timeline/EncryptedDelegate.qml:15
-#: src/qml/Component/Timeline/ReplyComponent.qml:134
+#: src/qml/Component/Timeline/ReplyComponent.qml:133
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -1598,11 +1604,6 @@ msgstr[2] "%2 reagovalo s %3"
 msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Naposledy prečítané: %1"
-
-#: src/qml/Component/Timeline/RichLabel.qml:62
-#, kde-format
-msgid " (edited)"
-msgstr "(upravené)"
 
 #: src/qml/Component/Timeline/VideoDelegate.qml:170
 #, kde-format
@@ -2697,11 +2698,6 @@ msgstr "Pripojte sa k niektorým miestnostiam a začnite"
 #, kde-format
 msgid "Search in room directory"
 msgstr "Vyhľadajte v adresári miestnosti"
-
-#: src/qml/Page/RoomListPage.qml:319 src/qml/Page/RoomListPage.qml:371
-#, kde-format
-msgid "No Name"
-msgstr "Bez názvu"
 
 #: src/qml/Page/RoomListPage.qml:386
 #, fuzzy, kde-format
@@ -4093,6 +4089,9 @@ msgstr "Zobraziť"
 #, kde-format
 msgid "Quit"
 msgstr "Ukončiť"
+
+#~ msgid " (edited)"
+#~ msgstr "(upravené)"
 
 #~ msgid "Room Name"
 #~ msgstr "Názov miestnosti"
