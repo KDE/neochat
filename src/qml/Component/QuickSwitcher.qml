@@ -1,115 +1,132 @@
-// SPDX-FileCopyrightText: 2021 Carson Black <uhhadd@gmail.com>
-// SPDX-License-Identifier: GPL-3.0-only
+// SPDX-FileCopyrightText: 2023 Tobias Fella <tobias.fella@kde.org>
+// SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick 2.15
-import QtQuick.Layouts 1.10
-import QtQuick.Controls 2.12 as QQC2
-import org.kde.kirigami 2.14 as Kirigami
+import QtQuick.Controls 2.15 as QQC2
+import QtQuick.Layouts 1.15
+
+import org.kde.kirigami 2.20 as Kirigami
 import org.kde.kitemmodels 1.0
+
 import org.kde.neochat 1.0
 
-QQC2.Popup {
-    id: _popup
+QQC2.Dialog {
+    id: root
+
+    parent: applicationWindow().overlay
+    width: Math.min(700, parent.width)
+    height: 400
+
+    leftPadding: 0
+    rightPadding: 0
+    bottomPadding: 0
+    topPadding: 0
+
+    anchors.centerIn: applicationWindow().overlay
+
+    Keys.forwardTo: searchField
 
     Shortcut {
         sequence: "Ctrl+K"
-        enabled: !Kirigami.Settings.hasPlatformMenuBar
-        onActivated: _popup.open()
+        onActivated: root.open()
     }
 
     onVisibleChanged: {
         if (!visible) {
             return
         }
-        quickSearch.forceActiveFocus()
-        quickSearch.text = ""
+        searchField.forceActiveFocus()
+        searchField.text = ""
+        roomList.currentIndex = 0
     }
 
-    anchors.centerIn: QQC2.Overlay.overlay
-    background: Kirigami.Card {}
-    height: 2 * Math.round(implicitHeight / 2)
-    padding: Kirigami.Units.largeSpacing * 2
-
-    contentItem: ColumnLayout {
-        spacing: Kirigami.Units.largeSpacing * 2
-
-        Kirigami.SearchField {
-            id: quickSearch
-
-            // TODO: get this broken property removed/disabled by default in Kirigami,
-            // we used to be able to expect that the text field wouldn't attempt to
-            // perform a mini-DDOS attack using signals.
-            autoAccept: false
-            /**
-             * The focus is manged by the popup and we don't want to use the standard
-             * shortcut as it could block other SearchFields from using it.
-             */
-            focusSequence: ""
-
-            Layout.preferredWidth: Kirigami.Units.gridUnit * 21 // 3 * 7 = 21, roughly 7 avatars on screen
-            Keys.onLeftPressed: cView.decrementCurrentIndex()
-            Keys.onRightPressed: cView.incrementCurrentIndex()
-            onAccepted: {
-                const item = cView.itemAtIndex(cView.currentIndex)
-
-                RoomManager.enterRoom(item.currentRoom)
-
-                _popup.close()
+    header: Kirigami.SearchField {
+        id: searchField
+        Keys.onDownPressed: {
+            roomList.forceActiveFocus()
+            if (roomList.currentIndex < roomList.count - 1) {
+                roomList.currentIndex++
+            } else {
+                roomList.currentIndex = 0
             }
         }
+        Keys.onUpPressed: {
+            if (roomList.currentIndex === 0) {
+                roomList.currentIndex = roomList.count - 1
+            } else {
+                roomList.currentIndex--
+            }
+        }
+        Keys.onEnterPressed: {
+            RoomManager.enterRoom(roomList.currentItem.currentRoom);
+            root.close();
+        }
+        Keys.onReturnPressed: {
+            RoomManager.enterRoom(roomList.currentItem.currentRoom);
+            root.close();
+        }
+    }
+
+    QQC2.ScrollView {
+        anchors.fill: parent
         ListView {
-            id: cView
+            id: roomList
 
-            orientation: Qt.Horizontal
-            spacing: Kirigami.Units.largeSpacing
-
+            currentIndex: 0
+            highlightMoveDuration: 200
+            Keys.forwardTo: searchField
+            keyNavigationEnabled: true
             model: SortFilterRoomListModel {
-                id: sortFilterRoomListModel
+                filterText: searchField.text
                 sourceModel: RoomListModel {
                     id: roomListModel
                     connection: Controller.activeConnection
                 }
-                filterText: quickSearch.text
-                roomSortOrder: SortFilterRoomListModel.LastActivity
             }
+            delegate: Kirigami.BasicListItem {
+                id: roomListItem
 
-            Layout.preferredHeight: Kirigami.Units.gridUnit * 3
-            Layout.fillWidth: true
-
-            delegate: Kirigami.Avatar {
-                id: del
-
-                implicitHeight: Kirigami.Units.gridUnit * 3
-                implicitWidth: Kirigami.Units.gridUnit * 3
-
-                required property string avatar
                 required property var currentRoom
+                required property string name
                 required property int index
+                required property int unreadCount
+                required property string subtitleText
+                required property string avatar
 
-                name: currentRoom.displayName
-
-                // When an item is hovered set the currentIndex of listview to it so that it is highlighted
-                onHoveredChanged: {
-                    if (!hovered) {
-                        return
-                    }
-                    cView.currentIndex = index
+                topPadding: Kirigami.Units.largeSpacing
+                bottomPadding: Kirigami.Units.largeSpacing
+                highlighted: roomList.currentIndex === roomListItem.index
+                focus: true
+                icon: undefined
+                onClicked: {
+                    RoomManager.enterRoom(roomListItem.currentRoom);
+                    root.close()
+                }
+                Keys.onEnterPressed: {
+                    RoomManager.enterRoom(roomListItem.currentRoom);
+                    root.close();
+                }
+                Keys.onReturnPressed: {
+                    RoomManager.enterRoom(roomListItem.currentRoom);
+                    root.close();
+                }
+                bold: roomListItem.unreadCount > 0
+                label: roomListItem.name ?? ""
+                labelItem.textFormat: Text.PlainText
+                subtitle: roomListItem.subtitleText
+                subtitleItem.textFormat: Text.PlainText
+                onPressAndHold: {
+                    createRoomListContextMenu()
                 }
 
-                actions.main: Kirigami.Action {
-                    id: enterRoomAction
-                    onTriggered: {
-                        RoomManager.enterRoom(currentRoom);
-
-                        _popup.close()
-                    }
+                leading: Kirigami.Avatar {
+                    source: roomListItem.avatar ? "image://mxc/" + roomListItem.avatar : ""
+                    name: roomListItem.name || i18n("No Name")
+                    implicitWidth: height
+                    sourceSize.width: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
+                    sourceSize.height: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
                 }
-
-                source: avatar != "" ? "image://mxc/" + avatar : ""
             }
         }
     }
-
-    modal: true
-    focus: true
 }
