@@ -33,7 +33,7 @@ using namespace Quotient;
 QHash<int, QByteArray> MessageEventModel::roleNames() const
 {
     QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
-    roles[EventTypeRole] = "eventType";
+    roles[DelegateTypeRole] = "delegateType";
     roles[MessageRole] = "message";
     roles[EventIdRole] = "eventId";
     roles[TimeRole] = "time";
@@ -45,12 +45,10 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[SpecialMarksRole] = "marks";
     roles[LongOperationRole] = "progressInfo";
     roles[FileMimetypeIcon] = "fileMimetypeIcon";
-    roles[AnnotationRole] = "annotation";
     roles[EventResolvedTypeRole] = "eventResolvedType";
     roles[IsReplyRole] = "isReply";
     roles[ReplyRole] = "reply";
     roles[ReplyIdRole] = "replyId";
-    roles[UserMarkerRole] = "userMarker";
     roles[ShowAuthorRole] = "showAuthor";
     roles[ShowSectionRole] = "showSection";
     roles[ReadMarkersRole] = "readMarkers";
@@ -76,7 +74,6 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
 
 MessageEventModel::MessageEventModel(QObject *parent)
     : QAbstractListModel(parent)
-    , m_currentRoom(nullptr)
 {
     using namespace Quotient;
     qmlRegisterAnonymousType<FileTransferInfo>("org.kde.neochat", 1);
@@ -88,6 +85,11 @@ MessageEventModel::MessageEventModel(QObject *parent)
 }
 
 MessageEventModel::~MessageEventModel() = default;
+
+NeoChatRoom *MessageEventModel::room() const
+{
+    return m_currentRoom;
+}
 
 void MessageEventModel::setRoom(NeoChatRoom *room)
 {
@@ -316,7 +318,7 @@ int MessageEventModel::refreshEventRoles(const QString &id, const QVector<int> &
             return -1;
         }
         row = int(timelineIt - m_currentRoom->messageEvents().rbegin()) + timelineBaseIndex();
-        if (data(index(row, 0), EventTypeRole).toInt() == ReadMarker || data(index(row, 0), EventTypeRole).toInt() == Other) {
+        if (data(index(row, 0), DelegateTypeRole).toInt() == ReadMarker || data(index(row, 0), DelegateTypeRole).toInt() == Other) {
             row++;
         }
     }
@@ -447,7 +449,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 
     if (m_lastReadEventIndex.row() == row) {
         switch (role) {
-        case EventTypeRole:
+        case DelegateTypeRole:
             return DelegateType::ReadMarker;
         case TimeRole: {
             const QDateTime eventDate = data(index(m_lastReadEventIndex.row() + 1, 0), TimeRole).toDateTime().toLocalTime();
@@ -499,7 +501,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         return evt.originalJson();
     }
 
-    if (role == EventTypeRole) {
+    if (role == DelegateTypeRole) {
         if (auto e = eventCast<const RoomMessageEvent>(&evt)) {
             switch (e->msgtype()) {
             case MessageEventType::Emote:
@@ -676,27 +678,9 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         }
     }
 
-    if (role == AnnotationRole) {
-        if (isPending) {
-            return pendingIt->annotation();
-        }
-    }
-
     if (role == TimeRole || role == SectionRole) {
         auto ts = isPending ? pendingIt->lastUpdated() : makeMessageTimestamp(timelineIt);
         return role == TimeRole ? QVariant(ts) : renderDate(ts);
-    }
-
-    if (role == UserMarkerRole) {
-        QVariantList variantList;
-        const auto users = m_currentRoom->usersAtEventId(evt.id());
-        for (User *user : users) {
-            if (user == m_currentRoom->localUser()) {
-                continue;
-            }
-            variantList.append(QVariant::fromValue(user));
-        }
-        return variantList;
     }
 
     if (role == IsReplyRole) {
@@ -784,7 +768,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             // While the row is removed the subsequent row indexes are not changed so we need to skip over the removed index.
             // See - https://doc.qt.io/qt-5/qabstractitemmodel.html#beginRemoveRows
             if (data(i, SpecialMarksRole) != EventStatus::Hidden && !itemData(i).empty()) {
-                return data(i, AuthorRole) != data(idx, AuthorRole) || data(i, EventTypeRole) == MessageEventModel::State
+                return data(i, AuthorRole) != data(idx, AuthorRole) || data(i, DelegateTypeRole) == MessageEventModel::State
                     || data(i, TimeRole).toDateTime().msecsTo(data(idx, TimeRole).toDateTime()) > 600000
                     || data(i, TimeRole).toDateTime().toLocalTime().date().day() != data(idx, TimeRole).toDateTime().toLocalTime().date().day();
             }
@@ -1005,7 +989,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     return {};
 }
 
-int MessageEventModel::eventIDToIndex(const QString &eventID) const
+int MessageEventModel::eventIdToRow(const QString &eventID) const
 {
     const auto it = m_currentRoom->findInTimeline(eventID);
     if (it == m_currentRoom->historyEdge()) {
@@ -1047,7 +1031,7 @@ QVariant MessageEventModel::getLastLocalUserMessageEventId()
                 targetMessage.insert("event_id", eventId);
                 targetMessage.insert("formattedBody", content["formatted_body"].toString());
                 // Need to get the message from the original eventId or body will have * on the front
-                QModelIndex idx = index(eventIDToIndex(eventId), 0);
+                QModelIndex idx = index(eventIdToRow(eventId), 0);
                 targetMessage.insert("message", idx.data(Qt::UserRole + 2));
 
                 return targetMessage;
@@ -1057,14 +1041,14 @@ QVariant MessageEventModel::getLastLocalUserMessageEventId()
     return targetMessage;
 }
 
-QVariant MessageEventModel::getLatestMessageFromIndex(const int baseline)
+QVariant MessageEventModel::getLatestMessageFromRow(const int startRow)
 {
     QVariantMap replyResponse;
-    const auto &timelineBottom = m_currentRoom->messageEvents().rbegin() + baseline;
+    const auto &timelineBottom = m_currentRoom->messageEvents().rbegin() + startRow;
 
-    // set a cap limit of baseline + 35 messages, to prevent loading a lot of messages
+    // set a cap limit of startRow + 35 messages, to prevent loading a lot of messages
     // in rooms where the user has not sent many messages
-    const auto limit = timelineBottom + std::min(baseline + 35, m_currentRoom->timelineSize());
+    const auto limit = timelineBottom + std::min(startRow + 35, m_currentRoom->timelineSize());
 
     for (auto it = timelineBottom; it != limit; ++it) {
         auto evt = it->event();
@@ -1086,7 +1070,7 @@ QVariant MessageEventModel::getLatestMessageFromIndex(const int baseline)
             }
             replyResponse.insert("event_id", eventId);
             // Need to get the message from the original eventId or body will have * on the front
-            QModelIndex idx = index(eventIDToIndex(eventId), 0);
+            QModelIndex idx = index(eventIdToRow(eventId), 0);
             replyResponse.insert("message", idx.data(Qt::UserRole + 2));
             replyResponse.insert("sender_id", QVariant::fromValue(m_currentRoom->getUser((*it)->senderId())));
             replyResponse.insert("at", -it->index());

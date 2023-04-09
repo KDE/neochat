@@ -206,7 +206,7 @@ QQC2.Control {
                 if (event.key === Qt.Key_V && event.modifiers & Qt.ControlModifier) {
                     chatBar.pasteImage();
                 } else if (event.key === Qt.Key_Up && event.modifiers & Qt.ControlModifier) {
-                    let replyEvent = messageEventModel.getLatestMessageFromIndex(0)
+                    let replyEvent = messageEventModel.getLatestMessageFromRow(0)
                     if (replyEvent && replyEvent["event_id"]) {
                         currentRoom.chatBoxReplyId = replyEvent["event_id"]
                     }

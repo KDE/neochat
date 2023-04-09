@@ -476,7 +476,7 @@ Kirigami.ScrollablePage {
             id: hoverActions
             property var event: null
             property bool userMsg: event && event.author.id === Controller.activeConnection.localUserId
-            property bool showEdit: event && (userMsg && (event.eventType === MessageEventModel.Emote || event.eventType === MessageEventModel.Message))
+            property bool showEdit: event && (userMsg && (event.delegateType === MessageEventModel.Emote || event.delegateType === MessageEventModel.Message))
             property var delegate: null
             property var bubble: null
             property var hovered: bubble && bubble.hovered
@@ -642,7 +642,7 @@ Kirigami.ScrollablePage {
     }
 
     function eventToIndex(eventID) {
-        const index = messageEventModel.eventIDToIndex(eventID)
+        const index = messageEventModel.eventIdToRow(eventID)
         if (index === -1)
             return -1
         return sortedMessageEventModel.mapFromSource(messageEventModel.index(index, 0)).row
@@ -702,7 +702,7 @@ Kirigami.ScrollablePage {
             eventId: event.eventId,
             formattedBody: event.formattedBody,
             source: event.source,
-            eventType: event.eventType,
+            eventType: event.delegateType,
             plainMessage: plainMessage,
         });
         contextMenu.open();
