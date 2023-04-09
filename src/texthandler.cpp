@@ -235,9 +235,7 @@ QString TextHandler::handleRecievePlainText(Qt::TextFormat inputFormat, const bo
 
     // Escaping then unescaping allows < and > to be maintained in a plain text string
     // otherwise markdownToHTML will strip what it thinks is a bad html tag entirely.
-    if (inputFormat == Qt::PlainText) {
-        outputString = unescapeHtml(outputString);
-    }
+    outputString = unescapeHtml(outputString);
 
     outputString = outputString.trimmed();
     return outputString;

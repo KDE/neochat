@@ -6,7 +6,7 @@
 
 #include "texthandler.h"
 
-#include <connection.h>
+#include <qnamespace.h>
 #include <quotient_common.h>
 #include <syncdata.h>
 
@@ -49,7 +49,8 @@ private Q_SLOTS:
     void receiveStripReply();
     void receivePlainTextIn();
 
-    void recieveRichInPlainOut();
+    void receiveRichInPlainOut_data();
+    void receiveRichInPlainOut();
     void receivePlainStripHtml();
     void receivePlainStripMarkup();
     void receiveStripNewlines();
@@ -349,15 +350,24 @@ void TextHandlerTest::receiveStripReply()
     QCOMPARE(testTextHandler.handleRecievePlainText(), testOutputString);
 }
 
-void TextHandlerTest::recieveRichInPlainOut()
+void TextHandlerTest::receiveRichInPlainOut_data()
 {
-    const QString testInputString = QStringLiteral("a &amp; b");
-    const QString testOutputString = QStringLiteral("a & b");
+    QTest::addColumn<QString>("testInputString");
+    QTest::addColumn<QString>("testOutputString");
+
+    QTest::newRow("ampersand") << QStringLiteral("a &amp; b") << QStringLiteral("a & b");
+    QTest::newRow("quote") << QStringLiteral("&quot;a and b&quot;") << QStringLiteral("\"a and b\"");
+}
+
+void TextHandlerTest::receiveRichInPlainOut()
+{
+    QFETCH(QString, testInputString);
+    QFETCH(QString, testOutputString);
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
 
-    QCOMPARE(testTextHandler.handleRecievePlainText(), testOutputString);
+    QCOMPARE(testTextHandler.handleRecievePlainText(Qt::RichText), testOutputString);
 }
 
 void TextHandlerTest::receivePlainTextIn()
