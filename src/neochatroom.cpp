@@ -1884,3 +1884,27 @@ NeoChatUser *NeoChatRoom::directChatRemoteUser() const
 {
     return dynamic_cast<NeoChatUser *>(connection()->directChatUsers(this)[0]);
 }
+
+void NeoChatRoom::sendLocation(float lat, float lon, const QString &description)
+{
+    QJsonObject locationContent{
+        {"uri", "geo:%1,%2"_ls.arg(QString::number(lat), QString::number(lon))},
+    };
+
+    if (!description.isEmpty()) {
+        locationContent["description"] = description;
+    }
+
+    QJsonObject content{
+        {"body", i18nc("'Lat' and 'Lon' as in Latitude and Longitude", "Lat: %1, Lon: %2", lat, lon)},
+        {"msgtype", "m.location"},
+        {"geo_uri", "geo:%1,%2"_ls.arg(QString::number(lat), QString::number(lon))},
+        {"org.matrix.msc3488.location", locationContent},
+        {"org.matrix.msc3488.asset",
+         QJsonObject{
+             {"type", "m.pin"},
+         }},
+        {"org.matrix.msc1767.text", i18nc("'Lat' and 'Lon' as in Latitude and Longitude", "Lat: %1, Lon: %2", lat, lon)},
+    };
+    postJson("m.room.message", content);
+}

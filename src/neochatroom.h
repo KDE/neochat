@@ -901,4 +901,13 @@ public Q_SLOTS:
      * This will delete all messages by that user in this room that are currently loaded.
      */
     void deleteMessagesByUser(const QString &user, const QString &reason);
+
+    /**
+     *  @brief Sends a location to a room
+     *  The event is sent in the migration format as specified in MSC3488
+     * @param lat latitude
+     * @param lon longitude
+     * @param description description for the location
+     */
+    void sendLocation(float lat, float lon, const QString &description);
 };

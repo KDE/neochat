@@ -65,8 +65,17 @@ QQC2.Control {
                     emojiDialog.open()
                 }
             }
+        },
+        Kirigami.Action {
+            id: mapButton
+            icon.name: "globe"
+            property bool isBusy: false
+            text: i18n("Send a Location")
+            displayHint: QQC2.AbstractButton.IconOnly
 
-            tooltip: text
+            onTriggered: {
+                locationChooserComponent.createObject(QQC2.ApplicationWindow.overlay, {room: currentRoom}).open()
+            }
         },
         Kirigami.Action {
             id: sendAction
@@ -472,5 +481,10 @@ QQC2.Control {
         } else {
             textField.cursorPosition = index + format.start.length + format.end.length;
         }
+    }
+
+    Component {
+        id: locationChooserComponent
+        LocationChooser {}
     }
 }
