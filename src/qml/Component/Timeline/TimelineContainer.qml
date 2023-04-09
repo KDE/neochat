@@ -305,6 +305,7 @@ ColumnLayout {
                     border.width: 1
 
                     Behavior on color {
+                        enabled: isTemporaryHighlighted
                         ColorAnimation {target: bubbleBackground; duration: Kirigami.Units.veryLongDuration; easing.type: Easing.InOutCubic}
                     }
                 }
