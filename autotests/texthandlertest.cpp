@@ -552,14 +552,16 @@ void TextHandlerTest::receiveRichPlainUrl()
 // N.B. The second message in the test timeline is marked as an emote.
 void TextHandlerTest::receiveRichEmote()
 {
+    auto event = room->messageEvents().at(1).get();
+    auto author = static_cast<NeoChatUser *>(room->user(event->senderId()));
     const QString testInputString = QStringLiteral("This is an emote.");
-    const QString testOutputString =
-        QStringLiteral("* <a href=\"https://matrix.to/#/@example:example.org\" style=\"color:#000000\">@example:example.org</a> This is an emote.");
+    const QString testOutputString = QStringLiteral("* <a href=\"https://matrix.to/#/@example:example.org\" style=\"color:") + author->color().name()
+        + QStringLiteral("\">@example:example.org</a> This is an emote.");
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
 
-    QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText, room, room->messageEvents().at(1).get()), testOutputString);
+    QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText, room, event), testOutputString);
 }
 
 void TextHandlerTest::receiveRichEdited_data()
