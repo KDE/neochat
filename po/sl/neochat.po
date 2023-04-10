@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-09 00:47+0000\n"
+"POT-Creation-Date: 2023-04-10 00:46+0000\n"
 "PO-Revision-Date: 2023-04-08 08:06+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
-"%100<=4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #: src/controller.cpp:198
@@ -634,42 +634,42 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Po meri"
 
-#: src/models/messageeventmodel.cpp:361 src/models/searchmodel.cpp:156
+#: src/models/messageeventmodel.cpp:363 src/models/searchmodel.cpp:156
 #, kde-format
 msgid "Today"
 msgstr "Danes"
 
-#: src/models/messageeventmodel.cpp:364 src/models/searchmodel.cpp:159
+#: src/models/messageeventmodel.cpp:366 src/models/searchmodel.cpp:159
 #, kde-format
 msgid "Yesterday"
 msgstr "Včeraj"
 
-#: src/models/messageeventmodel.cpp:367 src/models/searchmodel.cpp:162
+#: src/models/messageeventmodel.cpp:369 src/models/searchmodel.cpp:162
 #, kde-format
 msgid "The day before yesterday"
 msgstr "Predvčerajšnjim"
 
-#: src/models/messageeventmodel.cpp:469 src/models/messageeventmodel.cpp:478
+#: src/models/messageeventmodel.cpp:471 src/models/messageeventmodel.cpp:480
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[To sporočilo je bilo izbrisano]</i>"
 
-#: src/models/messageeventmodel.cpp:470
+#: src/models/messageeventmodel.cpp:472
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[To sporočilo je bilo izbrisano: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:567
+#: src/models/messageeventmodel.cpp:569
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[PREKRIVANJE PODATKOV]"
 
-#: src/models/messageeventmodel.cpp:567
+#: src/models/messageeventmodel.cpp:569
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[PREKRIVANJE PODATKOV: %1]"
 
-#: src/models/messageeventmodel.cpp:873
+#: src/models/messageeventmodel.cpp:857
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
@@ -678,7 +678,7 @@ msgstr[1] "%1 uporabnika: "
 msgstr[2] "%1 uporabniki: "
 msgstr[3] "%1 uporabnikov: "
 
-#: src/models/messageeventmodel.cpp:880
+#: src/models/messageeventmodel.cpp:864
 #, kde-format
 msgctxt "list separator"
 msgid ", "
