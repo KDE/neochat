@@ -39,7 +39,7 @@ QQC2.Menu {
         onTriggered: confirmLogoutDialog.open()
     }
 
-    Dialog.ConfirmLogoutDialog {
+    Dialog.ConfirmLogout {
         id: confirmLogoutDialog
     }
 }

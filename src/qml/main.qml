@@ -169,7 +169,7 @@ Kirigami.ApplicationWindow {
     pageStack.globalToolBar.style: Kirigami.ApplicationHeaderStyle.ToolBar
     pageStack.globalToolBar.showNavigationButtons: pageStack.currentIndex > 0 || pageStack.layers.depth > 1 ? Kirigami.ApplicationHeaderStyle.ShowBackButton : 0
 
-    Dialog.ConfirmLogoutDialog {
+    Dialog.ConfirmLogout {
         id: confirmLogoutDialog
     }
 
