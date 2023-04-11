@@ -125,7 +125,6 @@ set_package_properties(KF${QT_MAJOR_VERSION}DocTools PROPERTIES DESCRIPTION
     TYPE OPTIONAL
 )
 
-find_package(Sqlite3)
 
 if(ANDROID)
     find_package(Sqlite3)
