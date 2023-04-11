@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-10 00:46+0000\n"
+"POT-Creation-Date: 2023-04-11 00:48+0000\n"
 "PO-Revision-Date: 2023-04-05 06:54+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -1188,29 +1188,6 @@ msgstr "ვპასუხობ:"
 msgid "No emojis"
 msgstr "ემოჯიების გარეშე"
 
-#: src/qml/Component/ExploreComponent.qml:19 src/qml/Page/RoomListPage.qml:221
-#, kde-format
-msgid "Explore rooms"
-msgstr "ოთახების დათვალიერება"
-
-#: src/qml/Component/ExploreComponent.qml:26 src/qml/Menu/GlobalMenu.qml:43
-#: src/qml/Menu/GlobalMenu.qml:48 src/qml/Page/StartChatPage.qml:18
-#, kde-format
-msgid "Start a Chat"
-msgstr "საუბრის დაწყება"
-
-#: src/qml/Component/ExploreComponent.qml:31
-#: src/qml/Dialog/CreateRoomDialog.qml:16
-#, kde-format
-msgid "Create a Room"
-msgstr "ახალი ოთახის შექმნა"
-
-#: src/qml/Component/ExploreComponent.qml:58
-#: src/qml/Component/ExploreComponent.qml:109
-#, kde-format
-msgid "Create rooms and chats"
-msgstr "ჩატებისა და ოთახების შექმნა"
-
 #: src/qml/Component/FullScreenImage.qml:82
 #, kde-format
 msgid "Zoom in"
@@ -1361,8 +1338,9 @@ msgctxt "@action:button"
 msgid "Back"
 msgstr "უკან"
 
-#: src/qml/Component/QuickSwitcher.qml:124 src/qml/Page/RoomListPage.qml:319
-#: src/qml/Page/RoomListPage.qml:371
+#: src/qml/Component/QuickSwitcher.qml:124
+#: src/qml/Page/RoomList/CollapsedRoomDelegate.qml:37
+#: src/qml/Page/RoomList/RoomDelegate.qml:65
 #, kde-format
 msgid "No Name"
 msgstr "სახელის გარეშე"
@@ -1486,54 +1464,6 @@ msgctxt "@action:button"
 msgid "Volume"
 msgstr "ხმის სიმაღლე"
 
-#: src/qml/Component/UserInfo.qml:57 src/qml/Settings/AccountsPage.qml:83
-#, kde-format
-msgid "Add Account"
-msgstr "ანგარიშის დამატება"
-
-#: src/qml/Component/UserInfo.qml:58
-#, kde-format
-msgid "Log in to an existing account"
-msgstr "შედით არსებულ ანგარიშზე"
-
-#: src/qml/Component/UserInfo.qml:60
-#, kde-format
-msgctxt "@title:window"
-msgid "Login"
-msgstr "შესვლა"
-
-#: src/qml/Component/UserInfo.qml:145 src/qml/Menu/AccountMenu.qml:17
-#, kde-format
-msgid "Edit this account"
-msgstr "ამ ანგარიშის ჩასწორება"
-
-#: src/qml/Component/UserInfo.qml:150 src/qml/Menu/AccountMenu.qml:22
-#: src/qml/Settings/AccountsPage.qml:36
-#, kde-format
-msgid "Account editor"
-msgstr "ანგარიშების რედაქტორი"
-
-#: src/qml/Component/UserInfo.qml:183
-#, kde-format
-msgid "Switch User"
-msgstr "მომხმარებლის გადართვა"
-
-#: src/qml/Component/UserInfo.qml:199 src/qml/Page/InviteUserPage.qml:42
-#, kde-format
-msgid "Add"
-msgstr "დამატება"
-
-#: src/qml/Component/UserInfo.qml:210 src/qml/Menu/AccountMenu.qml:28
-#: src/qml/Menu/AccountMenu.qml:33 src/qml/Menu/GlobalMenu.qml:28
-#, kde-format
-msgid "Configure"
-msgstr "მორგება"
-
-#: src/qml/Component/UserInfo.qml:211
-#, kde-format
-msgid "Open Settings"
-msgstr "პარამეტრების გახსნა"
-
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:36
 #, kde-format
@@ -1547,25 +1477,29 @@ msgid ""
 msgstr "დაშიფვრის გამორთვა მისი ჩართვის შემდეგ შეუძლებელია."
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:30
-#: src/qml/Dialog/ConfirmLogoutDialog.qml:29
-#: src/qml/Page/ImageEditorPage.qml:125
+#: src/qml/Dialog/ConfirmLogout.qml:29 src/qml/Page/ImageEditorPage.qml:125
 #: src/qml/Settings/AccountEditorPage.qml:183
 #, kde-format
 msgid "Cancel"
 msgstr "გაუქმება"
 
-#: src/qml/Dialog/ConfirmLogoutDialog.qml:16
-#: src/qml/Dialog/ConfirmLogoutDialog.qml:35
+#: src/qml/Dialog/ConfirmLogout.qml:16 src/qml/Dialog/ConfirmLogout.qml:35
 #: src/qml/Settings/AccountEditorPage.qml:231
 #: src/qml/Settings/AccountEditorPage.qml:235
 #, kde-format
 msgid "Sign out"
 msgstr "გასვლა"
 
-#: src/qml/Dialog/ConfirmLogoutDialog.qml:19
+#: src/qml/Dialog/ConfirmLogout.qml:19
 #, kde-format
 msgid "Are you sure you want to sign out?"
 msgstr "დარწმუნებული ბრძანდებით, რომ გნებავთ, გახვიდეთ?"
+
+#: src/qml/Dialog/CreateRoomDialog.qml:16
+#: src/qml/Page/RoomList/ExploreComponent.qml:31
+#, kde-format
+msgid "Create a Room"
+msgstr "ახალი ოთახის შექმნა"
 
 #: src/qml/Dialog/CreateRoomDialog.qml:21 src/qml/RoomSettings/General.qml:76
 #, kde-format
@@ -1894,28 +1828,28 @@ msgstr "პირადი საუბრის გახსნა"
 msgid "Copy link"
 msgstr "ბმულის კოპირება"
 
-#: src/qml/main.qml:126
+#: src/qml/main.qml:128
 #, kde-format
 msgid "Warning: %1"
 msgstr "გაფრთხილება: %1"
 
-#: src/qml/main.qml:265
+#: src/qml/main.qml:267
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/qml/main.qml:306
+#: src/qml/main.qml:308
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "სესიის გადამოწმება"
 
-#: src/qml/main.qml:316
+#: src/qml/main.qml:318
 #, kde-format
 msgid "User consent"
 msgstr "მომხმარებლის თანხმობა"
 
-#: src/qml/main.qml:321
+#: src/qml/main.qml:323
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -1924,36 +1858,20 @@ msgstr ""
 "თქვენი სახლის სერვერის გამოყენებამდე საჭიროა მის პირობებს და ლიცენზიას "
 "დაეთანხმოთ. მის წასაკითხად ქვემოთ ღილაკს დააჭირეთ."
 
-#: src/qml/main.qml:326
+#: src/qml/main.qml:328
 #, kde-format
 msgid "Open"
 msgstr "გახსნა"
 
-#: src/qml/main.qml:355
+#: src/qml/main.qml:357
 #, kde-format
 msgid "Start a chat"
 msgstr "საუბრის დაწყება"
 
-#: src/qml/main.qml:357
+#: src/qml/main.qml:359
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "გნებავთ დაიწყოთ საუბარი %1-სთან?"
-
-#: src/qml/Menu/AccountMenu.qml:26
-#, kde-format
-msgid "Notification settings"
-msgstr "გაფრთხილებების მორგება"
-
-#: src/qml/Menu/AccountMenu.qml:31 src/qml/Settings/DevicesPage.qml:14
-#: src/qml/Settings/DevicesPage.qml:26 src/qml/Settings/SettingsPage.qml:56
-#, kde-format
-msgid "Devices"
-msgstr "მოწყობილობები"
-
-#: src/qml/Menu/AccountMenu.qml:36
-#, kde-format
-msgid "Logout"
-msgstr "გასვლა"
 
 #: src/qml/Menu/EditMenu.qml:17
 #, kde-format
@@ -2014,6 +1932,13 @@ msgctxt "menu"
 msgid "Configure NeoChat..."
 msgstr "NeoChat-ის მორგება..."
 
+#: src/qml/Menu/GlobalMenu.qml:28 src/qml/Page/RoomList/AccountMenu.qml:29
+#: src/qml/Page/RoomList/AccountMenu.qml:34
+#: src/qml/Page/RoomList/UserInfo.qml:210
+#, kde-format
+msgid "Configure"
+msgstr "მორგება"
+
 #: src/qml/Menu/GlobalMenu.qml:32
 #, kde-format
 msgctxt "menu"
@@ -2031,6 +1956,13 @@ msgstr "ფაილი"
 msgctxt "menu"
 msgid "New Private Chat…"
 msgstr "ახალი პირადი ფანჯრის გახსნა…"
+
+#: src/qml/Menu/GlobalMenu.qml:43 src/qml/Menu/GlobalMenu.qml:48
+#: src/qml/Page/RoomList/ExploreComponent.qml:26
+#: src/qml/Page/StartChatPage.qml:18
+#, kde-format
+msgid "Start a Chat"
+msgstr "საუბრის დაწყება"
 
 #: src/qml/Menu/GlobalMenu.qml:47
 #, kde-format
@@ -2094,100 +2026,6 @@ msgctxt "menu"
 msgid "Matrix FAQ"
 msgstr "Matrix -ის ხდკ"
 
-#: src/qml/Menu/RoomListContextMenu.qml:26
-#, kde-format
-msgid "Open in New Window"
-msgstr "ახალ ფანჯარაში გახსნა"
-
-#: src/qml/Menu/RoomListContextMenu.qml:37
-#: src/qml/Menu/RoomListContextMenu.qml:178
-#, kde-format
-msgid "Remove from Favourites"
-msgstr "რჩეულებიდან წაშლა"
-
-#: src/qml/Menu/RoomListContextMenu.qml:37
-#: src/qml/Menu/RoomListContextMenu.qml:178
-#, kde-format
-msgid "Add to Favourites"
-msgstr "რჩეულებში ჩამატება"
-
-#: src/qml/Menu/RoomListContextMenu.qml:43
-#: src/qml/Menu/RoomListContextMenu.qml:192
-#, kde-format
-msgid "Reprioritize"
-msgstr "პრიორიტეტის აწევა"
-
-#: src/qml/Menu/RoomListContextMenu.qml:43
-#: src/qml/Menu/RoomListContextMenu.qml:192
-#, kde-format
-msgid "Deprioritize"
-msgstr "პრიორიტეტის დაწევა"
-
-#: src/qml/Menu/RoomListContextMenu.qml:49
-#: src/qml/Menu/RoomListContextMenu.qml:199
-#, kde-format
-msgid "Mark as Read"
-msgstr "მონიშნე როგორც წაკითხული"
-
-#: src/qml/Menu/RoomListContextMenu.qml:55
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy user's Matrix ID to Clipboard"
-msgstr "მომხმარებლის Matrix-ის ID-ის ბუფერში კოპირება"
-
-#: src/qml/Menu/RoomListContextMenu.qml:55
-#: src/qml/Menu/SpaceListContextMenu.qml:30
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy Address to Clipboard"
-msgstr "მისამართის ბუფერში კოპირება"
-
-#: src/qml/Menu/RoomListContextMenu.qml:67
-#, kde-format
-msgid "Notification State"
-msgstr "გაფრთხილების მდგომარეობა"
-
-#: src/qml/Menu/RoomListContextMenu.qml:70
-#, kde-format
-msgid "Follow Global Setting"
-msgstr "გლობალური პარამეტრის მიყოლა"
-
-#: src/qml/Menu/RoomListContextMenu.qml:81
-#: src/qml/RoomSettings/PushNotification.qml:40
-#, kde-format
-msgctxt "As in 'notify for all messages'"
-msgid "All"
-msgstr "ყველა"
-
-#: src/qml/Menu/RoomListContextMenu.qml:92
-#: src/qml/RoomSettings/PushNotification.qml:48
-#, kde-format
-msgctxt ""
-"As in 'notify when the user is mentioned or the message contains a set "
-"keyword'"
-msgid "@Mentions and Keywords"
-msgstr "@ხსენებები და საკვანძო სიტყვები"
-
-#: src/qml/Menu/RoomListContextMenu.qml:103
-#: src/qml/RoomSettings/PushNotification.qml:56
-#, kde-format
-msgctxt "As in 'do not notify for any messages'"
-msgid "Off"
-msgstr "გამორთული"
-
-#: src/qml/Menu/RoomListContextMenu.qml:116
-#: src/qml/Menu/RoomListContextMenu.qml:118
-#: src/qml/Menu/RoomListContextMenu.qml:185 src/qml/Panel/RoomDrawer.qml:101
-#, kde-format
-msgid "Room Settings"
-msgstr "ოთახის მორგება"
-
-#: src/qml/Menu/RoomListContextMenu.qml:124
-#: src/qml/Menu/RoomListContextMenu.qml:205
-#, kde-format
-msgid "Leave Room"
-msgstr "ოთახიდან გასვლა"
-
 #: src/qml/Menu/ShareAction.qml:19
 #, kde-format
 msgid "Share"
@@ -2207,31 +2045,6 @@ msgstr "გაზიარების შეცდომა"
 #, kde-format
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "გამოსახულების გაზიარებული URL-ია <a href='%1'>%1</a>"
-
-#: src/qml/Menu/SpaceListContextMenu.qml:25
-#, kde-format
-msgctxt "'Space' is a matrix space"
-msgid "View Space"
-msgstr "სივრცის ნახვა"
-
-#: src/qml/Menu/SpaceListContextMenu.qml:39
-#, kde-format
-msgctxt "'Space' is a matrix space"
-msgid "Space Settings"
-msgstr "სივრცის მორგება"
-
-#: src/qml/Menu/SpaceListContextMenu.qml:40
-#: src/qml/Menu/SpaceListContextMenu.qml:97
-#, kde-format
-msgid "Space Settings"
-msgstr "სივრცის მორგება"
-
-#: src/qml/Menu/SpaceListContextMenu.qml:46
-#: src/qml/Menu/SpaceListContextMenu.qml:101
-#, kde-format
-msgctxt "'Space' is a matrix space"
-msgid "Leave Space"
-msgstr "ოთახიდან გასვლა"
 
 #: src/qml/Menu/Timeline/BanSheet.qml:16
 #, kde-format
@@ -2437,6 +2250,11 @@ msgstr "მომხმარებლის მოწვევა"
 msgid "Find a user..."
 msgstr "მომხმარებლის პოვნა..."
 
+#: src/qml/Page/InviteUserPage.qml:42 src/qml/Page/RoomList/UserInfo.qml:199
+#, kde-format
+msgid "Add"
+msgstr "დამატება"
+
 #: src/qml/Page/InviteUserPage.qml:71 src/qml/Page/StartChatPage.qml:133
 #, kde-format
 msgid "No users available"
@@ -2518,36 +2336,221 @@ msgstr "სერვერის URL"
 msgid "Joined"
 msgstr "შეერთებული"
 
-#: src/qml/Page/RoomListPage.qml:55
+#: src/qml/Page/RoomList/AccountMenu.qml:18
+#: src/qml/Page/RoomList/UserInfo.qml:145
+#, kde-format
+msgid "Edit this account"
+msgstr "ამ ანგარიშის ჩასწორება"
+
+#: src/qml/Page/RoomList/AccountMenu.qml:23
+#: src/qml/Page/RoomList/UserInfo.qml:150 src/qml/Settings/AccountsPage.qml:36
+#, kde-format
+msgid "Account editor"
+msgstr "ანგარიშების რედაქტორი"
+
+#: src/qml/Page/RoomList/AccountMenu.qml:27
+#, kde-format
+msgid "Notification settings"
+msgstr "გაფრთხილებების მორგება"
+
+#: src/qml/Page/RoomList/AccountMenu.qml:32 src/qml/Settings/DevicesPage.qml:14
+#: src/qml/Settings/DevicesPage.qml:26 src/qml/Settings/SettingsPage.qml:56
+#, kde-format
+msgid "Devices"
+msgstr "მოწყობილობები"
+
+#: src/qml/Page/RoomList/AccountMenu.qml:37
+#, kde-format
+msgid "Logout"
+msgstr "გასვლა"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:26
+#, kde-format
+msgid "Open in New Window"
+msgstr "ახალ ფანჯარაში გახსნა"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:37
+#: src/qml/Page/RoomList/ContextMenu.qml:178
+#, kde-format
+msgid "Remove from Favourites"
+msgstr "რჩეულებიდან წაშლა"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:37
+#: src/qml/Page/RoomList/ContextMenu.qml:178
+#, kde-format
+msgid "Add to Favourites"
+msgstr "რჩეულებში ჩამატება"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:43
+#: src/qml/Page/RoomList/ContextMenu.qml:192
+#, kde-format
+msgid "Reprioritize"
+msgstr "პრიორიტეტის აწევა"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:43
+#: src/qml/Page/RoomList/ContextMenu.qml:192
+#, kde-format
+msgid "Deprioritize"
+msgstr "პრიორიტეტის დაწევა"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:49
+#: src/qml/Page/RoomList/ContextMenu.qml:199
+#, kde-format
+msgid "Mark as Read"
+msgstr "მონიშნე როგორც წაკითხული"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:55
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy user's Matrix ID to Clipboard"
+msgstr "მომხმარებლის Matrix-ის ID-ის ბუფერში კოპირება"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:55
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:30
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy Address to Clipboard"
+msgstr "მისამართის ბუფერში კოპირება"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:67
+#, kde-format
+msgid "Notification State"
+msgstr "გაფრთხილების მდგომარეობა"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:70
+#, kde-format
+msgid "Follow Global Setting"
+msgstr "გლობალური პარამეტრის მიყოლა"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:81
+#: src/qml/RoomSettings/PushNotification.qml:40
+#, kde-format
+msgctxt "As in 'notify for all messages'"
+msgid "All"
+msgstr "ყველა"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:92
+#: src/qml/RoomSettings/PushNotification.qml:48
+#, kde-format
+msgctxt ""
+"As in 'notify when the user is mentioned or the message contains a set "
+"keyword'"
+msgid "@Mentions and Keywords"
+msgstr "@ხსენებები და საკვანძო სიტყვები"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:103
+#: src/qml/RoomSettings/PushNotification.qml:56
+#, kde-format
+msgctxt "As in 'do not notify for any messages'"
+msgid "Off"
+msgstr "გამორთული"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:116
+#: src/qml/Page/RoomList/ContextMenu.qml:118
+#: src/qml/Page/RoomList/ContextMenu.qml:185 src/qml/Panel/RoomDrawer.qml:101
+#, kde-format
+msgid "Room Settings"
+msgstr "ოთახის მორგება"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:124
+#: src/qml/Page/RoomList/ContextMenu.qml:205
+#, kde-format
+msgid "Leave Room"
+msgstr "ოთახიდან გასვლა"
+
+#: src/qml/Page/RoomList/ExploreComponent.qml:19
+#: src/qml/Page/RoomList/Page.qml:150
+#, kde-format
+msgid "Explore rooms"
+msgstr "ოთახების დათვალიერება"
+
+#: src/qml/Page/RoomList/ExploreComponent.qml:58
+#: src/qml/Page/RoomList/ExploreComponent.qml:109
+#, kde-format
+msgid "Create rooms and chats"
+msgstr "ჩატებისა და ოთახების შექმნა"
+
+#: src/qml/Page/RoomList/Page.qml:147
+#, kde-format
+msgid "No rooms found"
+msgstr "ოთახები ვერ ვიპოვე"
+
+#: src/qml/Page/RoomList/Page.qml:147
+#, kde-format
+msgid "Join some rooms to get started"
+msgstr "დასაწყისისთვის შეუერთდით რომელიმე ოთახს"
+
+#: src/qml/Page/RoomList/Page.qml:150
+#, kde-format
+msgid "Search in room directory"
+msgstr "ოთახების დირექტორიაში ძებნა"
+
+#: src/qml/Page/RoomList/RoomDelegate.qml:81
+#, kde-format
+msgid "Muted room"
+msgstr "დადუმებული ოთახი"
+
+#: src/qml/Page/RoomList/RoomDelegate.qml:110
+#, kde-format
+msgid "Configure room"
+msgstr "ოთახის მორგება"
+
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:25
+#, kde-format
+msgctxt "'Space' is a matrix space"
+msgid "View Space"
+msgstr "სივრცის ნახვა"
+
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:39
+#, kde-format
+msgctxt "'Space' is a matrix space"
+msgid "Space Settings"
+msgstr "სივრცის მორგება"
+
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:40
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:97
+#, kde-format
+msgid "Space Settings"
+msgstr "სივრცის მორგება"
+
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:46
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:101
+#, kde-format
+msgctxt "'Space' is a matrix space"
+msgid "Leave Space"
+msgstr "ოთახიდან გასვლა"
+
+#: src/qml/Page/RoomList/SpaceListView.qml:29
 #, kde-format
 msgctxt "@action:button"
 msgid "Show All Rooms"
 msgstr "ყველა ოთახის ჩვენება"
 
-#: src/qml/Page/RoomListPage.qml:218
+#: src/qml/Page/RoomList/UserInfo.qml:57 src/qml/Settings/AccountsPage.qml:83
 #, kde-format
-msgid "No rooms found"
-msgstr "ოთახები ვერ ვიპოვე"
+msgid "Add Account"
+msgstr "ანგარიშის დამატება"
 
-#: src/qml/Page/RoomListPage.qml:218
+#: src/qml/Page/RoomList/UserInfo.qml:58
 #, kde-format
-msgid "Join some rooms to get started"
-msgstr "დასაწყისისთვის შეუერთდით რომელიმე ოთახს"
+msgid "Log in to an existing account"
+msgstr "შედით არსებულ ანგარიშზე"
 
-#: src/qml/Page/RoomListPage.qml:221
+#: src/qml/Page/RoomList/UserInfo.qml:60
 #, kde-format
-msgid "Search in room directory"
-msgstr "ოთახების დირექტორიაში ძებნა"
+msgctxt "@title:window"
+msgid "Login"
+msgstr "შესვლა"
 
-#: src/qml/Page/RoomListPage.qml:386
+#: src/qml/Page/RoomList/UserInfo.qml:183
 #, kde-format
-msgid "Muted room"
-msgstr "დადუმებული ოთახი"
+msgid "Switch User"
+msgstr "მომხმარებლის გადართვა"
 
-#: src/qml/Page/RoomListPage.qml:413
+#: src/qml/Page/RoomList/UserInfo.qml:211
 #, kde-format
-msgid "Configure room"
-msgstr "ოთახის მორგება"
+msgid "Open Settings"
+msgstr "პარამეტრების გახსნა"
 
 #: src/qml/Page/RoomPage.qml:185
 #, kde-format

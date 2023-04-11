@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-10 00:46+0000\n"
+"POT-Creation-Date: 2023-04-11 00:48+0000\n"
 "PO-Revision-Date: 2022-09-28 16:37+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -1300,30 +1300,6 @@ msgstr "Svarar till %1:"
 msgid "No emojis"
 msgstr "Egna emoji"
 
-#: src/qml/Component/ExploreComponent.qml:19 src/qml/Page/RoomListPage.qml:221
-#, kde-format
-msgid "Explore rooms"
-msgstr "Utforska rum"
-
-#: src/qml/Component/ExploreComponent.qml:26 src/qml/Menu/GlobalMenu.qml:43
-#: src/qml/Menu/GlobalMenu.qml:48 src/qml/Page/StartChatPage.qml:18
-#, kde-format
-msgid "Start a Chat"
-msgstr "Starta en chatt"
-
-#: src/qml/Component/ExploreComponent.qml:31
-#: src/qml/Dialog/CreateRoomDialog.qml:16
-#, kde-format
-msgid "Create a Room"
-msgstr "Skapa ett rum"
-
-#: src/qml/Component/ExploreComponent.qml:58
-#: src/qml/Component/ExploreComponent.qml:109
-#, fuzzy, kde-format
-#| msgid "Rooms and private chats:"
-msgid "Create rooms and chats"
-msgstr "Rum och privata chatter:"
-
 #: src/qml/Component/FullScreenImage.qml:82
 #, fuzzy, kde-format
 #| msgid "Room Settings"
@@ -1480,8 +1456,9 @@ msgctxt "@action:button"
 msgid "Back"
 msgstr "Tillbaka"
 
-#: src/qml/Component/QuickSwitcher.qml:124 src/qml/Page/RoomListPage.qml:319
-#: src/qml/Page/RoomListPage.qml:371
+#: src/qml/Component/QuickSwitcher.qml:124
+#: src/qml/Page/RoomList/CollapsedRoomDelegate.qml:37
+#: src/qml/Page/RoomList/RoomDelegate.qml:65
 #, kde-format
 msgid "No Name"
 msgstr "Inget namn"
@@ -1607,57 +1584,6 @@ msgctxt "@action:button"
 msgid "Volume"
 msgstr ""
 
-#: src/qml/Component/UserInfo.qml:57 src/qml/Settings/AccountsPage.qml:83
-#, fuzzy, kde-format
-#| msgid "Add an account"
-msgid "Add Account"
-msgstr "Lägg till ett konto"
-
-#: src/qml/Component/UserInfo.qml:58
-#, kde-format
-msgid "Log in to an existing account"
-msgstr ""
-
-#: src/qml/Component/UserInfo.qml:60
-#, fuzzy, kde-format
-#| msgid "Login"
-msgctxt "@title:window"
-msgid "Login"
-msgstr "Logga in"
-
-#: src/qml/Component/UserInfo.qml:145 src/qml/Menu/AccountMenu.qml:17
-#, kde-format
-msgid "Edit this account"
-msgstr "Redigera kontot"
-
-#: src/qml/Component/UserInfo.qml:150 src/qml/Menu/AccountMenu.qml:22
-#: src/qml/Settings/AccountsPage.qml:36
-#, kde-format
-msgid "Account editor"
-msgstr "Kontoeditor"
-
-#: src/qml/Component/UserInfo.qml:183
-#, kde-format
-msgid "Switch User"
-msgstr ""
-
-#: src/qml/Component/UserInfo.qml:199 src/qml/Page/InviteUserPage.qml:42
-#, kde-format
-msgid "Add"
-msgstr "Lägg till"
-
-#: src/qml/Component/UserInfo.qml:210 src/qml/Menu/AccountMenu.qml:28
-#: src/qml/Menu/AccountMenu.qml:33 src/qml/Menu/GlobalMenu.qml:28
-#, kde-format
-msgid "Configure"
-msgstr "Anpassa"
-
-#: src/qml/Component/UserInfo.qml:211
-#, fuzzy, kde-format
-#| msgid "Settings"
-msgid "Open Settings"
-msgstr "Inställningar"
-
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:36
 #, fuzzy, kde-format
@@ -1672,25 +1598,29 @@ msgid ""
 msgstr ""
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:30
-#: src/qml/Dialog/ConfirmLogoutDialog.qml:29
-#: src/qml/Page/ImageEditorPage.qml:125
+#: src/qml/Dialog/ConfirmLogout.qml:29 src/qml/Page/ImageEditorPage.qml:125
 #: src/qml/Settings/AccountEditorPage.qml:183
 #, kde-format
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/qml/Dialog/ConfirmLogoutDialog.qml:16
-#: src/qml/Dialog/ConfirmLogoutDialog.qml:35
+#: src/qml/Dialog/ConfirmLogout.qml:16 src/qml/Dialog/ConfirmLogout.qml:35
 #: src/qml/Settings/AccountEditorPage.qml:231
 #: src/qml/Settings/AccountEditorPage.qml:235
 #, kde-format
 msgid "Sign out"
 msgstr ""
 
-#: src/qml/Dialog/ConfirmLogoutDialog.qml:19
+#: src/qml/Dialog/ConfirmLogout.qml:19
 #, kde-format
 msgid "Are you sure you want to sign out?"
 msgstr ""
+
+#: src/qml/Dialog/CreateRoomDialog.qml:16
+#: src/qml/Page/RoomList/ExploreComponent.qml:31
+#, kde-format
+msgid "Create a Room"
+msgstr "Skapa ett rum"
 
 #: src/qml/Dialog/CreateRoomDialog.qml:21 src/qml/RoomSettings/General.qml:76
 #, fuzzy, kde-format
@@ -2039,28 +1969,28 @@ msgstr "Starta en privat chatt"
 msgid "Copy link"
 msgstr "Kopiera"
 
-#: src/qml/main.qml:126
+#: src/qml/main.qml:128
 #, kde-format
 msgid "Warning: %1"
 msgstr "Varning: %1"
 
-#: src/qml/main.qml:265
+#: src/qml/main.qml:267
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/qml/main.qml:306
+#: src/qml/main.qml:308
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Sessionsverifikation"
 
-#: src/qml/main.qml:316
+#: src/qml/main.qml:318
 #, kde-format
 msgid "User consent"
 msgstr "Användargodkännande"
 
-#: src/qml/main.qml:321
+#: src/qml/main.qml:323
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2069,37 +1999,20 @@ msgstr ""
 "Din hemserver kräver att du godkänner dess villkor innan den kan användas. "
 "Klicka på knappen nedan för att läsa dem."
 
-#: src/qml/main.qml:326
+#: src/qml/main.qml:328
 #, kde-format
 msgid "Open"
 msgstr "Öppna"
 
-#: src/qml/main.qml:355
+#: src/qml/main.qml:357
 #, kde-format
 msgid "Start a chat"
 msgstr "Starta en chatt"
 
-#: src/qml/main.qml:357
+#: src/qml/main.qml:359
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Vill du starta en chatt med %1?"
-
-#: src/qml/Menu/AccountMenu.qml:26
-#, fuzzy, kde-format
-#| msgid "Room notifications setting:"
-msgid "Notification settings"
-msgstr "Inställning av rumsunderrättelser:"
-
-#: src/qml/Menu/AccountMenu.qml:31 src/qml/Settings/DevicesPage.qml:14
-#: src/qml/Settings/DevicesPage.qml:26 src/qml/Settings/SettingsPage.qml:56
-#, kde-format
-msgid "Devices"
-msgstr "Enheter"
-
-#: src/qml/Menu/AccountMenu.qml:36
-#, kde-format
-msgid "Logout"
-msgstr "Logga ut"
 
 #: src/qml/Menu/EditMenu.qml:17
 #, kde-format
@@ -2160,6 +2073,13 @@ msgctxt "menu"
 msgid "Configure NeoChat..."
 msgstr "Anpassa NeoChat..."
 
+#: src/qml/Menu/GlobalMenu.qml:28 src/qml/Page/RoomList/AccountMenu.qml:29
+#: src/qml/Page/RoomList/AccountMenu.qml:34
+#: src/qml/Page/RoomList/UserInfo.qml:210
+#, kde-format
+msgid "Configure"
+msgstr "Anpassa"
+
 #: src/qml/Menu/GlobalMenu.qml:32
 #, kde-format
 msgctxt "menu"
@@ -2177,6 +2097,13 @@ msgstr "Arkiv"
 msgctxt "menu"
 msgid "New Private Chat…"
 msgstr "Ny privat chatt..."
+
+#: src/qml/Menu/GlobalMenu.qml:43 src/qml/Menu/GlobalMenu.qml:48
+#: src/qml/Page/RoomList/ExploreComponent.qml:26
+#: src/qml/Page/StartChatPage.qml:18
+#, kde-format
+msgid "Start a Chat"
+msgstr "Starta en chatt"
 
 #: src/qml/Menu/GlobalMenu.qml:47
 #, kde-format
@@ -2240,102 +2167,6 @@ msgctxt "menu"
 msgid "Matrix FAQ"
 msgstr "Vanliga frågor om Matrix"
 
-#: src/qml/Menu/RoomListContextMenu.qml:26
-#, kde-format
-msgid "Open in New Window"
-msgstr "Öppna i nytt fönster"
-
-#: src/qml/Menu/RoomListContextMenu.qml:37
-#: src/qml/Menu/RoomListContextMenu.qml:178
-#, kde-format
-msgid "Remove from Favourites"
-msgstr "Ta bort från favoriter"
-
-#: src/qml/Menu/RoomListContextMenu.qml:37
-#: src/qml/Menu/RoomListContextMenu.qml:178
-#, kde-format
-msgid "Add to Favourites"
-msgstr "Lägg till i favoriter"
-
-#: src/qml/Menu/RoomListContextMenu.qml:43
-#: src/qml/Menu/RoomListContextMenu.qml:192
-#, kde-format
-msgid "Reprioritize"
-msgstr "Omprioritera"
-
-#: src/qml/Menu/RoomListContextMenu.qml:43
-#: src/qml/Menu/RoomListContextMenu.qml:192
-#, kde-format
-msgid "Deprioritize"
-msgstr "Nerprioritera"
-
-#: src/qml/Menu/RoomListContextMenu.qml:49
-#: src/qml/Menu/RoomListContextMenu.qml:199
-#, kde-format
-msgid "Mark as Read"
-msgstr "Markera som läst"
-
-#: src/qml/Menu/RoomListContextMenu.qml:55
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Address to Clipboard"
-msgctxt "@action:inmenu"
-msgid "Copy user's Matrix ID to Clipboard"
-msgstr "Kopiera adress till klippbordet"
-
-#: src/qml/Menu/RoomListContextMenu.qml:55
-#: src/qml/Menu/SpaceListContextMenu.qml:30
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy Address to Clipboard"
-msgstr "Kopiera adress till klippbordet"
-
-#: src/qml/Menu/RoomListContextMenu.qml:67
-#, kde-format
-msgid "Notification State"
-msgstr "Underrättelsetillstånd"
-
-#: src/qml/Menu/RoomListContextMenu.qml:70
-#, kde-format
-msgid "Follow Global Setting"
-msgstr "Använd global inställning"
-
-#: src/qml/Menu/RoomListContextMenu.qml:81
-#: src/qml/RoomSettings/PushNotification.qml:40
-#, kde-format
-msgctxt "As in 'notify for all messages'"
-msgid "All"
-msgstr "Alla"
-
-#: src/qml/Menu/RoomListContextMenu.qml:92
-#: src/qml/RoomSettings/PushNotification.qml:48
-#, kde-format
-msgctxt ""
-"As in 'notify when the user is mentioned or the message contains a set "
-"keyword'"
-msgid "@Mentions and Keywords"
-msgstr "@Omnämnanden och nyckelord"
-
-#: src/qml/Menu/RoomListContextMenu.qml:103
-#: src/qml/RoomSettings/PushNotification.qml:56
-#, kde-format
-msgctxt "As in 'do not notify for any messages'"
-msgid "Off"
-msgstr "Av"
-
-#: src/qml/Menu/RoomListContextMenu.qml:116
-#: src/qml/Menu/RoomListContextMenu.qml:118
-#: src/qml/Menu/RoomListContextMenu.qml:185 src/qml/Panel/RoomDrawer.qml:101
-#, kde-format
-msgid "Room Settings"
-msgstr "Rumsinställningar"
-
-#: src/qml/Menu/RoomListContextMenu.qml:124
-#: src/qml/Menu/RoomListContextMenu.qml:205
-#, kde-format
-msgid "Leave Room"
-msgstr "Lämna rum"
-
 #: src/qml/Menu/ShareAction.qml:19
 #, kde-format
 msgid "Share"
@@ -2355,34 +2186,6 @@ msgstr "Delning misslyckades"
 #, kde-format
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "Delad webbadress för bild är <a href='%1'>%1</a>"
-
-#: src/qml/Menu/SpaceListContextMenu.qml:25
-#, fuzzy, kde-format
-#| msgid "View Source"
-msgctxt "'Space' is a matrix space"
-msgid "View Space"
-msgstr "Visa källa"
-
-#: src/qml/Menu/SpaceListContextMenu.qml:39
-#, fuzzy, kde-format
-#| msgid "Settings"
-msgctxt "'Space' is a matrix space"
-msgid "Space Settings"
-msgstr "Inställningar"
-
-#: src/qml/Menu/SpaceListContextMenu.qml:40
-#: src/qml/Menu/SpaceListContextMenu.qml:97
-#, fuzzy, kde-format
-#| msgid "Settings"
-msgid "Space Settings"
-msgstr "Inställningar"
-
-#: src/qml/Menu/SpaceListContextMenu.qml:46
-#: src/qml/Menu/SpaceListContextMenu.qml:101
-#, kde-format
-msgctxt "'Space' is a matrix space"
-msgid "Leave Space"
-msgstr ""
 
 #: src/qml/Menu/Timeline/BanSheet.qml:16
 #, fuzzy, kde-format
@@ -2601,6 +2404,11 @@ msgstr "Bjud in en användare"
 msgid "Find a user..."
 msgstr "Sök efter en användare..."
 
+#: src/qml/Page/InviteUserPage.qml:42 src/qml/Page/RoomList/UserInfo.qml:199
+#, kde-format
+msgid "Add"
+msgstr "Lägg till"
+
 #: src/qml/Page/InviteUserPage.qml:71 src/qml/Page/StartChatPage.qml:133
 #, kde-format
 msgid "No users available"
@@ -2683,37 +2491,232 @@ msgstr ""
 msgid "Joined"
 msgstr "Sammanfogat"
 
-#: src/qml/Page/RoomListPage.qml:55
+#: src/qml/Page/RoomList/AccountMenu.qml:18
+#: src/qml/Page/RoomList/UserInfo.qml:145
 #, kde-format
-msgctxt "@action:button"
-msgid "Show All Rooms"
-msgstr "Visa alla rum"
+msgid "Edit this account"
+msgstr "Redigera kontot"
 
-#: src/qml/Page/RoomListPage.qml:218
+#: src/qml/Page/RoomList/AccountMenu.qml:23
+#: src/qml/Page/RoomList/UserInfo.qml:150 src/qml/Settings/AccountsPage.qml:36
+#, kde-format
+msgid "Account editor"
+msgstr "Kontoeditor"
+
+#: src/qml/Page/RoomList/AccountMenu.qml:27
+#, fuzzy, kde-format
+#| msgid "Room notifications setting:"
+msgid "Notification settings"
+msgstr "Inställning av rumsunderrättelser:"
+
+#: src/qml/Page/RoomList/AccountMenu.qml:32 src/qml/Settings/DevicesPage.qml:14
+#: src/qml/Settings/DevicesPage.qml:26 src/qml/Settings/SettingsPage.qml:56
+#, kde-format
+msgid "Devices"
+msgstr "Enheter"
+
+#: src/qml/Page/RoomList/AccountMenu.qml:37
+#, kde-format
+msgid "Logout"
+msgstr "Logga ut"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:26
+#, kde-format
+msgid "Open in New Window"
+msgstr "Öppna i nytt fönster"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:37
+#: src/qml/Page/RoomList/ContextMenu.qml:178
+#, kde-format
+msgid "Remove from Favourites"
+msgstr "Ta bort från favoriter"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:37
+#: src/qml/Page/RoomList/ContextMenu.qml:178
+#, kde-format
+msgid "Add to Favourites"
+msgstr "Lägg till i favoriter"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:43
+#: src/qml/Page/RoomList/ContextMenu.qml:192
+#, kde-format
+msgid "Reprioritize"
+msgstr "Omprioritera"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:43
+#: src/qml/Page/RoomList/ContextMenu.qml:192
+#, kde-format
+msgid "Deprioritize"
+msgstr "Nerprioritera"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:49
+#: src/qml/Page/RoomList/ContextMenu.qml:199
+#, kde-format
+msgid "Mark as Read"
+msgstr "Markera som läst"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:55
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Copy Address to Clipboard"
+msgctxt "@action:inmenu"
+msgid "Copy user's Matrix ID to Clipboard"
+msgstr "Kopiera adress till klippbordet"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:55
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:30
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy Address to Clipboard"
+msgstr "Kopiera adress till klippbordet"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:67
+#, kde-format
+msgid "Notification State"
+msgstr "Underrättelsetillstånd"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:70
+#, kde-format
+msgid "Follow Global Setting"
+msgstr "Använd global inställning"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:81
+#: src/qml/RoomSettings/PushNotification.qml:40
+#, kde-format
+msgctxt "As in 'notify for all messages'"
+msgid "All"
+msgstr "Alla"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:92
+#: src/qml/RoomSettings/PushNotification.qml:48
+#, kde-format
+msgctxt ""
+"As in 'notify when the user is mentioned or the message contains a set "
+"keyword'"
+msgid "@Mentions and Keywords"
+msgstr "@Omnämnanden och nyckelord"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:103
+#: src/qml/RoomSettings/PushNotification.qml:56
+#, kde-format
+msgctxt "As in 'do not notify for any messages'"
+msgid "Off"
+msgstr "Av"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:116
+#: src/qml/Page/RoomList/ContextMenu.qml:118
+#: src/qml/Page/RoomList/ContextMenu.qml:185 src/qml/Panel/RoomDrawer.qml:101
+#, kde-format
+msgid "Room Settings"
+msgstr "Rumsinställningar"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:124
+#: src/qml/Page/RoomList/ContextMenu.qml:205
+#, kde-format
+msgid "Leave Room"
+msgstr "Lämna rum"
+
+#: src/qml/Page/RoomList/ExploreComponent.qml:19
+#: src/qml/Page/RoomList/Page.qml:150
+#, kde-format
+msgid "Explore rooms"
+msgstr "Utforska rum"
+
+#: src/qml/Page/RoomList/ExploreComponent.qml:58
+#: src/qml/Page/RoomList/ExploreComponent.qml:109
+#, fuzzy, kde-format
+#| msgid "Rooms and private chats:"
+msgid "Create rooms and chats"
+msgstr "Rum och privata chatter:"
+
+#: src/qml/Page/RoomList/Page.qml:147
 #, kde-format
 msgid "No rooms found"
 msgstr "Inga rum hittades"
 
-#: src/qml/Page/RoomListPage.qml:218
+#: src/qml/Page/RoomList/Page.qml:147
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Gå med i några rum för att komma igång"
 
-#: src/qml/Page/RoomListPage.qml:221
+#: src/qml/Page/RoomList/Page.qml:150
 #, kde-format
 msgid "Search in room directory"
 msgstr "Sök i rumkatalog"
 
-#: src/qml/Page/RoomListPage.qml:386
+#: src/qml/Page/RoomList/RoomDelegate.qml:81
 #, fuzzy, kde-format
 #| msgid "Muted"
 msgid "Muted room"
 msgstr "Tystad"
 
-#: src/qml/Page/RoomListPage.qml:413
+#: src/qml/Page/RoomList/RoomDelegate.qml:110
 #, kde-format
 msgid "Configure room"
 msgstr "Anpassa rum"
+
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:25
+#, fuzzy, kde-format
+#| msgid "View Source"
+msgctxt "'Space' is a matrix space"
+msgid "View Space"
+msgstr "Visa källa"
+
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:39
+#, fuzzy, kde-format
+#| msgid "Settings"
+msgctxt "'Space' is a matrix space"
+msgid "Space Settings"
+msgstr "Inställningar"
+
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:40
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:97
+#, fuzzy, kde-format
+#| msgid "Settings"
+msgid "Space Settings"
+msgstr "Inställningar"
+
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:46
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:101
+#, kde-format
+msgctxt "'Space' is a matrix space"
+msgid "Leave Space"
+msgstr ""
+
+#: src/qml/Page/RoomList/SpaceListView.qml:29
+#, kde-format
+msgctxt "@action:button"
+msgid "Show All Rooms"
+msgstr "Visa alla rum"
+
+#: src/qml/Page/RoomList/UserInfo.qml:57 src/qml/Settings/AccountsPage.qml:83
+#, fuzzy, kde-format
+#| msgid "Add an account"
+msgid "Add Account"
+msgstr "Lägg till ett konto"
+
+#: src/qml/Page/RoomList/UserInfo.qml:58
+#, kde-format
+msgid "Log in to an existing account"
+msgstr ""
+
+#: src/qml/Page/RoomList/UserInfo.qml:60
+#, fuzzy, kde-format
+#| msgid "Login"
+msgctxt "@title:window"
+msgid "Login"
+msgstr "Logga in"
+
+#: src/qml/Page/RoomList/UserInfo.qml:183
+#, kde-format
+msgid "Switch User"
+msgstr ""
+
+#: src/qml/Page/RoomList/UserInfo.qml:211
+#, fuzzy, kde-format
+#| msgid "Settings"
+msgid "Open Settings"
+msgstr "Inställningar"
 
 #: src/qml/Page/RoomPage.qml:185
 #, kde-format
