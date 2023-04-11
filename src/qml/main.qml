@@ -99,10 +99,6 @@ Kirigami.ApplicationWindow {
             roomItem.forceActiveFocus();
         }
 
-        function onPushWelcomePage() {
-            // TODO
-        }
-
         function onOpenRoomInNewWindow(room) {
             const secondaryWindow = roomWindow.createObject(undefined, {currentRoom: room});
             secondaryWindow.width = root.width - pageStack.get(0).width;

@@ -91,9 +91,6 @@ Q_SIGNALS:
     /// Go to the specified event in the current room.
     void goToEvent(const QString &event);
 
-    /// Signal triggered when the pageStack should push a welcome page.
-    void pushWelcomePage();
-
     /// Signal triggered when a room need to be opened in a new window.
     void openRoomInNewWindow(NeoChatRoom *room);
 

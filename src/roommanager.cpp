@@ -121,8 +121,6 @@ void RoomManager::openRoomForActiveConnection()
         if (room) {
             enterRoom(room);
         }
-    } else {
-        Q_EMIT pushWelcomePage();
     }
 }
 
