@@ -9,7 +9,7 @@
 #include <QObject>
 #include <QTextCursor>
 
-#include <qcorotask.h>
+#include <QCoroTask>
 
 #include "neochatuser.h"
 #include "pollhandler.h"
