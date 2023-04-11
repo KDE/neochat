@@ -254,17 +254,16 @@ const RoomEvent *NeoChatRoom::lastEvent() const
             continue;
         }
 
-        if (event->isStateEvent() && !NeoChatConfig::self()->showStateEvent()) {
+        if (event->isStateEvent() && !NeoChatConfig::showStateEvent()) {
             continue;
         }
 
         if (auto roomMemberEvent = eventCast<const RoomMemberEvent>(event)) {
-            if ((roomMemberEvent->isJoin() || roomMemberEvent->isLeave()) && !NeoChatConfig::self()->showLeaveJoinEvent()) {
+            if ((roomMemberEvent->isJoin() || roomMemberEvent->isLeave()) && !NeoChatConfig::showLeaveJoinEvent()) {
                 continue;
-            } else if (roomMemberEvent->isRename() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave() && !NeoChatConfig::self()->showRename()) {
+            } else if (roomMemberEvent->isRename() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave() && !NeoChatConfig::showRename()) {
                 continue;
-            } else if (roomMemberEvent->isAvatarUpdate() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave()
-                       && !NeoChatConfig::self()->showAvatarUpdate()) {
+            } else if (roomMemberEvent->isAvatarUpdate() && !roomMemberEvent->isJoin() && !roomMemberEvent->isLeave() && !NeoChatConfig::showAvatarUpdate()) {
                 continue;
             }
         }
@@ -321,7 +320,7 @@ QString NeoChatRoom::lastEventToString(Qt::TextFormat format, bool stripNewlines
         return roomMembername(event->senderId()) + (event->isStateEvent() ? QLatin1String(" ") : QLatin1String(": "))
             + eventToString(*event, format, stripNewlines);
     }
-    return QLatin1String("");
+    return {};
 }
 
 bool NeoChatRoom::isEventHighlighted(const RoomEvent *e) const
@@ -765,6 +764,7 @@ QString NeoChatRoom::eventToGenericString(const RoomEvent &evt) const
         },
 #ifdef QUOTIENT_07
         [](const PollStartEvent &e) {
+            Q_UNUSED(e);
             return i18n("started a poll");
         },
 #endif

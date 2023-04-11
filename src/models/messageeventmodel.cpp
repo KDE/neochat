@@ -498,7 +498,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == SourceRole) {
-        return evt.originalJson();
+        return QJsonDocument(evt.fullJson()).toJson();
     }
 
     if (role == DelegateTypeRole) {
@@ -983,7 +983,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == IsPendingRole) {
-        return row < m_currentRoom->pendingEvents().size();
+        return row < static_cast<int>(m_currentRoom->pendingEvents().size());
     }
 
     return {};

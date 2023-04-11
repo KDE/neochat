@@ -25,6 +25,7 @@ void FileTransferPseudoJob::fileTransferProgress(QString id, qint64 progress, qi
 
 void FileTransferPseudoJob::fileTransferCompleted(QString id, QUrl localFile)
 {
+    Q_UNUSED(localFile);
     if (id != m_eventId) {
         return;
     }

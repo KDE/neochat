@@ -49,7 +49,7 @@ void StateModel::setRoom(NeoChatRoom *room)
     Q_EMIT roomChanged();
     beginResetModel();
     endResetModel();
-    connect(room, &NeoChatRoom::changed, this, [=] {
+    connect(room, &NeoChatRoom::changed, this, [this] {
         beginResetModel();
         endResetModel();
     });

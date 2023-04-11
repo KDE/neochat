@@ -58,7 +58,7 @@ void CustomEmojiModel::addEmoji(const QString &name, const QUrl &location)
     auto job = Controller::instance().activeConnection()->uploadFile(location.toLocalFile());
 
     if (running(job)) {
-        connect(job, &BaseJob::success, this, [this, name, job] {
+        connect(job, &BaseJob::success, this, [name, job] {
             const auto &data = Controller::instance().activeConnection()->accountData("im.ponies.user_emotes");
             auto json = data != nullptr ? data->contentJson() : QJsonObject();
             auto emojiData = json["images"].toObject();
@@ -141,6 +141,8 @@ QVariant CustomEmojiModel::data(const QModelIndex &idx, int role) const
         return QUrl(QStringLiteral("image://mxc/") + data.url.mid(6));
     case Roles::MxcUrl:
         return data.url.mid(6);
+    default:
+        return {};
     }
 
     return QVariant();

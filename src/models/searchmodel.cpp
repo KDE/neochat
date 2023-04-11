@@ -43,20 +43,27 @@ void SearchModel::search()
     }
 
     SearchJob::RoomEventsCriteria criteria{
-        m_searchText,
-        {},
-        RoomEventFilter{
-            .rooms = {m_room->id()},
-        },
-        "recent",
-        SearchJob::IncludeEventContext{3, 3, true},
-        false,
-        none,
+        .searchTerm = m_searchText,
+        .keys = {},
+        .filter =
+            RoomEventFilter{
+                .unreadThreadNotifications = none,
+                .lazyLoadMembers = true,
+                .includeRedundantMembers = false,
+                .notRooms = {},
+                .rooms = {m_room->id()},
+                .containsUrl = false,
+            },
+        .orderBy = "recent",
+        .eventContext = SearchJob::IncludeEventContext{3, 3, true},
+        .includeState = false,
+        .groupings = none,
+
     };
 
     auto job = m_connection->callApi<SearchJob>(SearchJob::Categories{criteria});
     m_job = job;
-    connect(job, &BaseJob::finished, this, [=] {
+    connect(job, &BaseJob::finished, this, [this, job] {
         beginResetModel();
         m_result = job->searchCategories().roomEvents;
         endResetModel();
@@ -116,6 +123,7 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
 
 int SearchModel::rowCount(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent);
 #ifdef QUOTIENT_07
     if (m_result.has_value()) {
         return m_result->results.size();
