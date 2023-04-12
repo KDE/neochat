@@ -14,10 +14,14 @@ public:
     static WindowController &instance();
 
     void setWindow(QWindow *window);
+    QWindow *window() const;
 
     void restoreGeometry();
     void saveGeometry();
     void showAndRaiseWindow(const QString &startupId);
+
+Q_SIGNALS:
+    void windowChanged();
 
 private:
     WindowController() = default;

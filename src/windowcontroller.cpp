@@ -24,6 +24,13 @@ WindowController &WindowController::instance()
 void WindowController::setWindow(QWindow *window)
 {
     m_window = window;
+
+    Q_EMIT windowChanged();
+}
+
+QWindow *WindowController::window() const
+{
+    return m_window;
 }
 
 void WindowController::restoreGeometry()

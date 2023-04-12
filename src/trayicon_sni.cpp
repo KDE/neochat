@@ -4,6 +4,8 @@
 #include "trayicon_sni.h"
 #include <KWindowSystem>
 
+#include "windowcontroller.h"
+
 TrayIcon::TrayIcon(QObject *parent)
     : KStatusNotifierItem(parent)
 {
@@ -12,6 +14,12 @@ TrayIcon::TrayIcon(QObject *parent)
     connect(this, &KStatusNotifierItem::activateRequested, this, [this] {
         KWindowSystem::setCurrentXdgActivationToken(providedToken());
         Q_EMIT showWindow();
+    });
+
+    connect(&WindowController::instance(), &WindowController::windowChanged, this, [this] {
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
+        setAssociatedWindow(WindowController::instance().window());
+#endif
     });
 }
 
