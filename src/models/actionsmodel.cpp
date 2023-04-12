@@ -5,7 +5,6 @@
 
 #include "controller.h"
 #include "neochatroom.h"
-#include "neochatuser.h"
 #include "roommanager.h"
 #include <events/roommemberevent.h>
 #include <events/roompowerlevelsevent.h>
