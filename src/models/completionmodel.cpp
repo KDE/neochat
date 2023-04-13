@@ -5,7 +5,6 @@
 #include <QDebug>
 
 #include "actionsmodel.h"
-#include "chatdocumenthandler.h"
 #include "completionproxymodel.h"
 #include "customemojimodel.h"
 #include "emojimodel.h"
