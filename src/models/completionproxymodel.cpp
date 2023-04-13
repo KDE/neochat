@@ -2,9 +2,8 @@
 // SPDX-License-Identifier: LGPL-2.0-or-later
 
 #include "completionproxymodel.h"
-#include <QDebug>
 
-#include "neochatroom.h"
+#include <QDebug>
 
 bool CompletionProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
 {
@@ -44,7 +43,6 @@ int CompletionProxyModel::secondaryFilterRole() const
 void CompletionProxyModel::setSecondaryFilterRole(int role)
 {
     m_secondaryFilterRole = role;
-    Q_EMIT secondaryFilterRoleChanged();
 }
 
 QString CompletionProxyModel::filterText() const
@@ -55,7 +53,6 @@ QString CompletionProxyModel::filterText() const
 void CompletionProxyModel::setFilterText(const QString &filterText)
 {
     m_filterText = filterText;
-    Q_EMIT filterTextChanged();
 }
 
 void CompletionProxyModel::setFullText(const QString &fullText)
