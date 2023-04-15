@@ -12,6 +12,11 @@ PublicRoomListModel::PublicRoomListModel(QObject *parent)
 {
 }
 
+Quotient::Connection *PublicRoomListModel::connection() const
+{
+    return m_connection;
+}
+
 void PublicRoomListModel::setConnection(Connection *conn)
 {
     if (m_connection == conn) {
@@ -47,6 +52,11 @@ void PublicRoomListModel::setConnection(Connection *conn)
     Q_EMIT hasMoreChanged();
 }
 
+QString PublicRoomListModel::server() const
+{
+    return m_server;
+}
+
 void PublicRoomListModel::setServer(const QString &value)
 {
     if (m_server == value) {
@@ -74,6 +84,11 @@ void PublicRoomListModel::setServer(const QString &value)
 
     Q_EMIT serverChanged();
     Q_EMIT hasMoreChanged();
+}
+
+QString PublicRoomListModel::keyword() const
+{
+    return m_keyword;
 }
 
 void PublicRoomListModel::setKeyword(const QString &value)
