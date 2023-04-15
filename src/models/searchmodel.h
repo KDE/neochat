@@ -17,24 +17,50 @@ class Connection;
 
 class NeoChatRoom;
 
+/**
+ * @class SearchModel
+ *
+ * This class defines the model for visualising the results of a room message search.
+ */
 class SearchModel : public QAbstractListModel
 {
     Q_OBJECT
 
+    /**
+     * @brief The text to search messages for.
+     */
     Q_PROPERTY(QString searchText READ searchText WRITE setSearchText NOTIFY searchTextChanged)
+
+    /**
+     * @brief The current connection that the model is using to search for messages.
+     */
     Q_PROPERTY(Quotient::Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
+
+    /**
+     * @brief The current room that the search is being done from.
+     */
     Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
+
+    /**
+     * @brief Whether the model is currently searching for messages.
+     */
     Q_PROPERTY(bool searching READ searching NOTIFY searchingChanged)
 
 public:
+    /**
+     * @brief Defines the model roles.
+     *
+     * Some of the roles exist only for compatibility with the MessageEventModel,
+     * since the same delegates are used.
+     */
     enum Roles {
-        DisplayRole = Qt::DisplayRole,
-        EventTypeRole,
-        ShowAuthorRole,
-        AuthorRole,
-        ShowSectionRole,
-        SectionRole,
-        TimeRole,
+        DisplayRole = Qt::DisplayRole, /**< The message string. */
+        EventTypeRole, /**< The type of the event. */
+        ShowAuthorRole, /**< Whether the author should be shown (always true). */
+        AuthorRole, /**< The author of the event. */
+        ShowSectionRole, /**< Whether the section header should be shown. */
+        SectionRole, /**< The date of the event as a string. */
+        TimeRole, /**< The timestamp for when the event was sent. */
     };
     Q_ENUM(Roles);
     SearchModel(QObject *parent = nullptr);
@@ -48,13 +74,33 @@ public:
     NeoChatRoom *room() const;
     void setRoom(NeoChatRoom *room);
 
-    Q_INVOKABLE void search();
+    bool searching() const;
 
+    /**
+     * @brief Get the given role value at the given index.
+     *
+     * @sa QAbstractItemModel::data
+     */
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+
+    /**
+     * @brief Number of rows in the model.
+     *
+     * @sa QAbstractItemModel::rowCount
+     */
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+
+    /**
+     * @brief Returns a mapping from Role enum values to role names.
+     *
+     * @sa Roles, QAbstractItemModel::roleNames()
+     */
     QHash<int, QByteArray> roleNames() const override;
 
-    bool searching() const;
+    /**
+     * @brief Start searching for messages.
+     */
+    Q_INVOKABLE void search();
 
 Q_SIGNALS:
     void searchTextChanged();
