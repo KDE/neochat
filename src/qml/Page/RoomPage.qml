@@ -41,6 +41,7 @@ Kirigami.ScrollablePage {
             } else if (page.currentRoom.isInvite) {
                 page.currentRoom.clearInvitationNotification();
             }
+            currentRoom.markAllMessagesAsRead();
         }
     }
 
@@ -51,6 +52,7 @@ Kirigami.ScrollablePage {
         if (!Kirigami.Settings.isMobile) {
             chatBox.chatBar.forceActiveFocus();
         }
+        currentRoom.markAllMessagesAsRead();
     }
 
     Connections {
