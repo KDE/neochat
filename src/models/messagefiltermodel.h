@@ -5,10 +5,21 @@
 
 #include <QSortFilterProxyModel>
 
+/**
+ * @class MessageFilterModel
+ *
+ * This model filters out any messages that should be hidden.
+ *
+ * Deleted messages are only hidden if the user hasn't set them to be shown.
+ */
 class MessageFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
     MessageFilterModel(QObject *parent = nullptr);
+
+    /**
+     * @brief Custom filter function to remove hidden messages.
+     */
     bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
 };
