@@ -69,6 +69,11 @@ RoomListModel::RoomListModel(QObject *parent)
 
 RoomListModel::~RoomListModel() = default;
 
+Quotient::Connection *RoomListModel::connection() const
+{
+    return m_connection;
+}
+
 void RoomListModel::setConnection(Connection *connection)
 {
     if (connection == m_connection) {
@@ -236,6 +241,11 @@ void RoomListModel::handleNotifications()
     });
 }
 #endif
+
+int RoomListModel::notificationCount() const
+{
+    return m_notificationCount;
+}
 
 void RoomListModel::refreshNotificationCount()
 {
@@ -440,40 +450,40 @@ QHash<int, QByteArray> RoomListModel::roleNames() const
     return roles;
 }
 
-QString RoomListModel::categoryName(int section)
+QString RoomListModel::categoryName(int category)
 {
-    switch (section) {
-    case 1:
+    switch (category) {
+    case NeoChatRoomType::Invited:
         return i18n("Invited");
-    case 2:
+    case NeoChatRoomType::Favorite:
         return i18n("Favorite");
-    case 3:
+    case NeoChatRoomType::Direct:
         return i18n("Direct Messages");
-    case 4:
+    case NeoChatRoomType::Normal:
         return i18n("Normal");
-    case 5:
+    case NeoChatRoomType::Deprioritized:
         return i18n("Low priority");
-    case 6:
+    case NeoChatRoomType::Space:
         return i18n("Spaces");
     default:
         return "Deadbeef";
     }
 }
 
-QString RoomListModel::categoryIconName(int section)
+QString RoomListModel::categoryIconName(int category)
 {
-    switch (section) {
-    case 1:
+    switch (category) {
+    case NeoChatRoomType::Invited:
         return QStringLiteral("user-invisible");
-    case 2:
+    case NeoChatRoomType::Favorite:
         return QStringLiteral("favorite");
-    case 3:
+    case NeoChatRoomType::Direct:
         return QStringLiteral("dialog-messages");
-    case 4:
+    case NeoChatRoomType::Normal:
         return QStringLiteral("group");
-    case 5:
+    case NeoChatRoomType::Deprioritized:
         return QStringLiteral("object-order-lower");
-    case 6:
+    case NeoChatRoomType::Space:
         return QStringLiteral("group");
     default:
         return QStringLiteral("tools-report-bug");
@@ -511,7 +521,7 @@ NeoChatRoom *RoomListModel::roomByAliasOrId(const QString &aliasOrId)
     return nullptr;
 }
 
-int RoomListModel::indexForRoom(NeoChatRoom *room) const
+int RoomListModel::rowForRoom(NeoChatRoom *room) const
 {
     return m_rooms.indexOf(room);
 }

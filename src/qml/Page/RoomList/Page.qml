@@ -58,7 +58,7 @@ Kirigami.ScrollablePage {
     Connections {
         target: RoomManager
         function onCurrentRoomChanged() {
-            itemSelection.setCurrentIndex(roomListModel.index(roomListModel.indexForRoom(RoomManager.currentRoom), 0), ItemSelectionModel.SelectCurrent)
+            itemSelection.setCurrentIndex(roomListModel.index(roomListModel.rowForRoom(RoomManager.currentRoom), 0), ItemSelectionModel.SelectCurrent)
         }
     }
 
