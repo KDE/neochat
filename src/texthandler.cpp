@@ -280,6 +280,9 @@ void TextHandler::nextTokenType()
 
 QString TextHandler::getTagType() const
 {
+    if (m_nextToken.isEmpty()) {
+        return QString();
+    }
     const int tagTypeStart = m_nextToken[1] == u'/' ? 2 : 1;
     const int tagTypeEnd = m_nextToken.indexOf(TextRegex::endTagType, tagTypeStart);
     return m_nextToken.mid(tagTypeStart, tagTypeEnd - tagTypeStart);
@@ -287,6 +290,9 @@ QString TextHandler::getTagType() const
 
 bool TextHandler::isCloseTag() const
 {
+    if (m_nextToken.isEmpty()) {
+        return false;
+    }
     return m_nextToken[1] == u'/';
 }
 
