@@ -55,7 +55,7 @@ public:
      */
     enum Roles {
         DisplayRole = Qt::DisplayRole, /**< The message string. */
-        EventTypeRole, /**< The type of the event. */
+        DelegateTypeRole, /**< The type of the event. */
         ShowAuthorRole, /**< Whether the author should be shown (always true). */
         AuthorRole, /**< The author of the event. */
         ShowSectionRole, /**< Whether the section header should be shown. */

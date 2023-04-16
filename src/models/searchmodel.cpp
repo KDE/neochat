@@ -135,7 +135,7 @@ int SearchModel::rowCount(const QModelIndex &parent) const
 QHash<int, QByteArray> SearchModel::roleNames() const
 {
     return {
-        {EventTypeRole, "eventType"},
+        {DelegateTypeRole, "delegateType"},
         {DisplayRole, "display"},
         {AuthorRole, "author"},
         {ShowSectionRole, "showSection"},
