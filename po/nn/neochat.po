@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-31 00:47+0000\n"
+"POT-Creation-Date: 2023-04-16 00:48+0000\n"
 "PO-Revision-Date: 2021-12-15 11:17+0100\n"
 "Last-Translator: Øystein Steffensen-Alværvik <oysteins.omsetting@protonmail."
 "com>\n"
@@ -96,25 +96,25 @@ msgstr "Feil ved romregistrering: «%1»"
 msgid "The room id you are trying to join is not valid"
 msgstr "Rom-ID-en du prøver å bruka, er ikkje gyldig"
 
-#: src/filetransferpseudojob.cpp:47
+#: src/filetransferpseudojob.cpp:48
 #, kde-format
 msgctxt "Job heading, like 'Copying'"
 msgid "Downloading"
 msgstr ""
 
-#: src/filetransferpseudojob.cpp:47
+#: src/filetransferpseudojob.cpp:48
 #, kde-format
 msgctxt "Job heading, like 'Copying'"
 msgid "Uploading"
 msgstr ""
 
-#: src/filetransferpseudojob.cpp:48
+#: src/filetransferpseudojob.cpp:49
 #, kde-format
 msgctxt "The URL being downloaded/uploaded"
 msgid "Source"
 msgstr ""
 
-#: src/filetransferpseudojob.cpp:49
+#: src/filetransferpseudojob.cpp:50
 #, kde-format
 msgctxt "The location being downloaded to"
 msgid "Destination"
@@ -223,311 +223,311 @@ msgstr "Medie-ID-en «%1» følgjer ikkje mønsteret «tenar/medie-ID»"
 msgid "Image request has been cancelled"
 msgstr "Biletførespurnaden vart avbroten"
 
-#: src/models/actionsmodel.cpp:30 src/models/actionsmodel.cpp:40
-#: src/models/actionsmodel.cpp:50 src/models/actionsmodel.cpp:60
-#: src/models/actionsmodel.cpp:80 src/models/actionsmodel.cpp:100
-#: src/models/actionsmodel.cpp:111 src/models/actionsmodel.cpp:127
-#: src/models/actionsmodel.cpp:137 src/models/actionsmodel.cpp:147
-msgid "<message>"
-msgstr ""
-
-#: src/models/actionsmodel.cpp:31
-msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
-msgstr "Legg til ¯\\_(ツ)_/¯ i starten av ei reintekstmelding"
-
-#: src/models/actionsmodel.cpp:41
-msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
-msgstr "Legg til ( ͡° ͜ʖ ͡°) i starten av ei reintekstmelding"
-
-#: src/models/actionsmodel.cpp:51
-msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
-msgstr ""
-
-#: src/models/actionsmodel.cpp:61
-msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
-msgstr ""
-
-#: src/models/actionsmodel.cpp:81
-msgid "Sends the given message colored as a rainbow"
-msgstr ""
-
-#: src/models/actionsmodel.cpp:101
-msgid "Sends the given emote colored as a rainbow"
-msgstr ""
-
-#: src/models/actionsmodel.cpp:112
-msgid "Sends the given message as plain text"
-msgstr ""
-
-#: src/models/actionsmodel.cpp:128
-msgid "Sends the given message as a spoiler"
-msgstr ""
-
-#: src/models/actionsmodel.cpp:138
-msgid "Sends the given emote"
-msgstr ""
-
-#: src/models/actionsmodel.cpp:148
-msgid "Sends the given message as a notice"
-msgstr ""
-
-#: src/models/actionsmodel.cpp:157 src/models/actionsmodel.cpp:370
-#: src/models/actionsmodel.cpp:398 src/models/actionsmodel.cpp:448
-#: src/models/actionsmodel.cpp:485 src/models/actionsmodel.cpp:519
+#: src/models/actionsmodel.cpp:23
 #, kde-format
-msgctxt "'<text>' does not look like a matrix id."
-msgid "'%1' does not look like a matrix id."
+msgid "Leaving this room."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:163
-#, kde-format
-msgctxt "<user> is already invited to this room."
-msgid "%1 is already invited to this room."
-msgstr ""
-
-#: src/models/actionsmodel.cpp:167
-#, kde-format
-msgctxt "<user> is banned from this room."
-msgid "%1 is banned from this room."
-msgstr ""
-
-#: src/models/actionsmodel.cpp:172
-#, kde-format
-msgid "You are already in this room."
-msgstr ""
-
-#: src/models/actionsmodel.cpp:176
-#, kde-format
-msgctxt "<user> is already in this room."
-msgid "%1 is already in this room."
-msgstr ""
-
-#: src/models/actionsmodel.cpp:180
-#, kde-format
-msgctxt "<username> was invited into this room"
-msgid "%1 was invited into this room"
-msgstr ""
-
-#: src/models/actionsmodel.cpp:185 src/models/actionsmodel.cpp:388
-#: src/models/actionsmodel.cpp:416 src/models/actionsmodel.cpp:507
-msgid "<user id>"
-msgstr ""
-
-#: src/models/actionsmodel.cpp:186
-msgid "Invites the user to this room"
-msgstr ""
-
-#: src/models/actionsmodel.cpp:195 src/models/actionsmodel.cpp:222
-#: src/models/actionsmodel.cpp:253 src/models/actionsmodel.cpp:280
-#: src/models/actionsmodel.cpp:312
+#: src/models/actionsmodel.cpp:30 src/models/actionsmodel.cpp:229
+#: src/models/actionsmodel.cpp:256 src/models/actionsmodel.cpp:287
 #, kde-format
 msgctxt "'<text>' does not look like a room id or alias."
 msgid "'%1' does not look like a room id or alias."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:203 src/models/actionsmodel.cpp:260
-#, kde-format
-msgctxt "Joining room <roomname>."
-msgid "Joining room %1."
-msgstr ""
-
-#: src/models/actionsmodel.cpp:209 src/models/actionsmodel.cpp:266
-msgid "<room alias or id>"
-msgstr ""
-
-#: src/models/actionsmodel.cpp:210 src/models/actionsmodel.cpp:267
-msgid "Joins the given room"
-msgstr ""
-
-#: src/models/actionsmodel.cpp:230
-#, kde-format
-msgctxt "Knocking room <roomname>."
-msgid "Knocking room %1."
-msgstr ""
-
-#: src/models/actionsmodel.cpp:242
-msgid "<room alias or id> [<reason>]"
-msgstr ""
-
-#: src/models/actionsmodel.cpp:243
-msgid "Requests to join the given room"
-msgstr ""
-
-#: src/models/actionsmodel.cpp:257
-#, kde-format
-msgctxt "You are already in room <roomname>."
-msgid "You are already in room %1."
-msgstr ""
-
-#: src/models/actionsmodel.cpp:273 src/models/actionsmodel.cpp:305
-#, kde-format
-msgid "Leaving this room."
-msgstr ""
-
-#: src/models/actionsmodel.cpp:288 src/models/actionsmodel.cpp:320
+#: src/models/actionsmodel.cpp:38
 #, kde-format
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:291 src/models/actionsmodel.cpp:323
+#: src/models/actionsmodel.cpp:41
 #, kde-format
 msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:298 src/models/actionsmodel.cpp:330
-msgid "[<room alias or id>]"
-msgstr ""
-
-#: src/models/actionsmodel.cpp:299 src/models/actionsmodel.cpp:331
-msgid "Leaves the given room or this room, if there is none given"
-msgstr ""
-
-#: src/models/actionsmodel.cpp:337 src/models/actionsmodel.cpp:352
+#: src/models/actionsmodel.cpp:49 src/models/actionsmodel.cpp:323
 #, kde-format
 msgid "No new nickname provided, no changes will happen."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:345 src/models/actionsmodel.cpp:360
+#: src/models/actionsmodel.cpp:64 src/models/actionsmodel.cpp:74
+#: src/models/actionsmodel.cpp:84 src/models/actionsmodel.cpp:94
+#: src/models/actionsmodel.cpp:114 src/models/actionsmodel.cpp:134
+#: src/models/actionsmodel.cpp:145 src/models/actionsmodel.cpp:161
+#: src/models/actionsmodel.cpp:171 src/models/actionsmodel.cpp:181
+msgid "<message>"
+msgstr ""
+
+#: src/models/actionsmodel.cpp:65
+msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
+msgstr "Legg til ¯\\_(ツ)_/¯ i starten av ei reintekstmelding"
+
+#: src/models/actionsmodel.cpp:75
+msgid "Prepends ( ͡° ͜ʖ ͡°) to a plain-text message"
+msgstr "Legg til ( ͡° ͜ʖ ͡°) i starten av ei reintekstmelding"
+
+#: src/models/actionsmodel.cpp:85
+msgid "Prepends (╯°□°）╯︵ ┻━┻ to a plain-text message"
+msgstr ""
+
+#: src/models/actionsmodel.cpp:95
+msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
+msgstr ""
+
+#: src/models/actionsmodel.cpp:115
+msgid "Sends the given message colored as a rainbow"
+msgstr ""
+
+#: src/models/actionsmodel.cpp:135
+msgid "Sends the given emote colored as a rainbow"
+msgstr ""
+
+#: src/models/actionsmodel.cpp:146
+msgid "Sends the given message as plain text"
+msgstr ""
+
+#: src/models/actionsmodel.cpp:162
+msgid "Sends the given message as a spoiler"
+msgstr ""
+
+#: src/models/actionsmodel.cpp:172
+msgid "Sends the given emote"
+msgstr ""
+
+#: src/models/actionsmodel.cpp:182
+msgid "Sends the given message as a notice"
+msgstr ""
+
+#: src/models/actionsmodel.cpp:191 src/models/actionsmodel.cpp:357
+#: src/models/actionsmodel.cpp:385 src/models/actionsmodel.cpp:435
+#: src/models/actionsmodel.cpp:472 src/models/actionsmodel.cpp:506
+#, kde-format
+msgctxt "'<text>' does not look like a matrix id."
+msgid "'%1' does not look like a matrix id."
+msgstr ""
+
+#: src/models/actionsmodel.cpp:197
+#, kde-format
+msgctxt "<user> is already invited to this room."
+msgid "%1 is already invited to this room."
+msgstr ""
+
+#: src/models/actionsmodel.cpp:201
+#, kde-format
+msgctxt "<user> is banned from this room."
+msgid "%1 is banned from this room."
+msgstr ""
+
+#: src/models/actionsmodel.cpp:206
+#, kde-format
+msgid "You are already in this room."
+msgstr ""
+
+#: src/models/actionsmodel.cpp:210
+#, kde-format
+msgctxt "<user> is already in this room."
+msgid "%1 is already in this room."
+msgstr ""
+
+#: src/models/actionsmodel.cpp:214
+#, kde-format
+msgctxt "<username> was invited into this room"
+msgid "%1 was invited into this room"
+msgstr ""
+
+#: src/models/actionsmodel.cpp:219 src/models/actionsmodel.cpp:375
+#: src/models/actionsmodel.cpp:403 src/models/actionsmodel.cpp:494
+msgid "<user id>"
+msgstr ""
+
+#: src/models/actionsmodel.cpp:220
+msgid "Invites the user to this room"
+msgstr ""
+
+#: src/models/actionsmodel.cpp:237 src/models/actionsmodel.cpp:294
+#, kde-format
+msgctxt "Joining room <roomname>."
+msgid "Joining room %1."
+msgstr ""
+
+#: src/models/actionsmodel.cpp:243 src/models/actionsmodel.cpp:300
+msgid "<room alias or id>"
+msgstr ""
+
+#: src/models/actionsmodel.cpp:244 src/models/actionsmodel.cpp:301
+msgid "Joins the given room"
+msgstr ""
+
+#: src/models/actionsmodel.cpp:264
+#, kde-format
+msgctxt "Knocking room <roomname>."
+msgid "Knocking room %1."
+msgstr ""
+
+#: src/models/actionsmodel.cpp:276
+msgid "<room alias or id> [<reason>]"
+msgstr ""
+
+#: src/models/actionsmodel.cpp:277
+msgid "Requests to join the given room"
+msgstr ""
+
+#: src/models/actionsmodel.cpp:291
+#, kde-format
+msgctxt "You are already in room <roomname>."
+msgid "You are already in room %1."
+msgstr ""
+
+#: src/models/actionsmodel.cpp:308 src/models/actionsmodel.cpp:316
+msgid "[<room alias or id>]"
+msgstr ""
+
+#: src/models/actionsmodel.cpp:309 src/models/actionsmodel.cpp:317
+msgid "Leaves the given room or this room, if there is none given"
+msgstr ""
+
+#: src/models/actionsmodel.cpp:331 src/models/actionsmodel.cpp:339
+#: src/models/actionsmodel.cpp:347
 msgid "<display name>"
 msgstr ""
 
-#: src/models/actionsmodel.cpp:346
+#: src/models/actionsmodel.cpp:332
 msgid "Changes your global display name"
 msgstr ""
 
-#: src/models/actionsmodel.cpp:361
+#: src/models/actionsmodel.cpp:340 src/models/actionsmodel.cpp:348
 msgid "Changes your display name in this room"
 msgstr ""
 
-#: src/models/actionsmodel.cpp:375
+#: src/models/actionsmodel.cpp:362
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:380
+#: src/models/actionsmodel.cpp:367
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:382 src/models/actionsmodel.cpp:410
+#: src/models/actionsmodel.cpp:369 src/models/actionsmodel.cpp:397
 #, kde-format
 msgctxt "<username> is not a known user"
 msgid "%1 is not a known user."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:389
+#: src/models/actionsmodel.cpp:376
 msgid "Ignores the given user"
 msgstr ""
 
-#: src/models/actionsmodel.cpp:404
+#: src/models/actionsmodel.cpp:391
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:408
+#: src/models/actionsmodel.cpp:395
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:417
+#: src/models/actionsmodel.cpp:404
 msgid "Unignores the given user"
 msgstr ""
 
-#: src/models/actionsmodel.cpp:437
+#: src/models/actionsmodel.cpp:424
 msgid "<reaction text>"
 msgstr ""
 
-#: src/models/actionsmodel.cpp:438
+#: src/models/actionsmodel.cpp:425
 msgid "React to the message with the given text"
 msgstr ""
 
-#: src/models/actionsmodel.cpp:454
+#: src/models/actionsmodel.cpp:441
 #, kde-format
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:460
+#: src/models/actionsmodel.cpp:447
 #, kde-format
 msgid "You are not allowed to ban users from this room."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:466
+#: src/models/actionsmodel.cpp:453
 #, kde-format
 msgctxt "You are not allowed to ban <username> from this room."
 msgid "You are not allowed to ban %1 from this room."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:470
+#: src/models/actionsmodel.cpp:457
 #, kde-format
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:475 src/models/actionsmodel.cpp:550
+#: src/models/actionsmodel.cpp:462 src/models/actionsmodel.cpp:537
 msgid "<user id> [<reason>]"
 msgstr ""
 
-#: src/models/actionsmodel.cpp:476
+#: src/models/actionsmodel.cpp:463
 msgid "Bans the given user"
 msgstr ""
 
-#: src/models/actionsmodel.cpp:490
+#: src/models/actionsmodel.cpp:477
 #, kde-format
 msgid "You are not allowed to unban users from this room."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:496
+#: src/models/actionsmodel.cpp:483
 #, kde-format
 msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:501
+#: src/models/actionsmodel.cpp:488
 #, kde-format
 msgctxt "<username> was unbanned from this room."
 msgid "%1 was unbanned from this room."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:508
+#: src/models/actionsmodel.cpp:495
 msgid "Removes the ban of the given user"
 msgstr ""
 
-#: src/models/actionsmodel.cpp:523
+#: src/models/actionsmodel.cpp:510
 #, kde-format
 msgid "You cannot kick yourself from the room."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:528
+#: src/models/actionsmodel.cpp:515
 #, kde-format
 msgctxt "<username> is not in this room"
 msgid "%1 is not in this room."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:535
+#: src/models/actionsmodel.cpp:522
 #, kde-format
 msgid "You are not allowed to kick users from this room."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:541
+#: src/models/actionsmodel.cpp:528
 #, kde-format
 msgctxt "You are not allowed to kick <username> from this room"
 msgid "You are not allowed to kick %1 from this room."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:545
+#: src/models/actionsmodel.cpp:532
 #, kde-format
 msgctxt "<username> was kicked from this room."
 msgid "%1 was kicked from this room."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:551
+#: src/models/actionsmodel.cpp:538
 msgid "Removes the user from the room"
 msgstr ""
 
@@ -631,414 +631,420 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr ""
 
-#: src/models/messageeventmodel.cpp:362 src/models/searchmodel.cpp:156
+#: src/models/messageeventmodel.cpp:363 src/models/searchmodel.cpp:164
 #, kde-format
 msgid "Today"
 msgstr "I dag"
 
-#: src/models/messageeventmodel.cpp:365 src/models/searchmodel.cpp:159
+#: src/models/messageeventmodel.cpp:366 src/models/searchmodel.cpp:167
 #, kde-format
 msgid "Yesterday"
 msgstr "I går"
 
-#: src/models/messageeventmodel.cpp:368 src/models/searchmodel.cpp:162
+#: src/models/messageeventmodel.cpp:369 src/models/searchmodel.cpp:170
 #, kde-format
 msgid "The day before yesterday"
 msgstr "I forgårs"
 
-#: src/models/messageeventmodel.cpp:470 src/models/messageeventmodel.cpp:479
+#: src/models/messageeventmodel.cpp:471 src/models/messageeventmodel.cpp:480
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Denne meldinga er sletta]</i>"
 
-#: src/models/messageeventmodel.cpp:471
+#: src/models/messageeventmodel.cpp:472
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Denne meldinga er sletta: %1]</i>"
 
 # Eller «SENSURERT»?
-#: src/models/messageeventmodel.cpp:568
+#: src/models/messageeventmodel.cpp:569
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[TREKT TILBAKE]"
 
-#: src/models/messageeventmodel.cpp:568
+#: src/models/messageeventmodel.cpp:569
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[TREKT TILBAKE: %1]"
 
-#: src/models/messageeventmodel.cpp:882
+#: src/models/messageeventmodel.cpp:857
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/models/messageeventmodel.cpp:889
+#: src/models/messageeventmodel.cpp:864
 #, kde-format
 msgctxt "list separator"
 msgid ", "
 msgstr ""
 
-#: src/models/roomlistmodel.cpp:452
+#: src/models/roomlistmodel.cpp:457
 #, kde-format
 msgid "Invited"
 msgstr "Invitert"
 
-#: src/models/roomlistmodel.cpp:454
+#: src/models/roomlistmodel.cpp:459
 #, kde-format
 msgid "Favorite"
 msgstr "Favoritt"
 
-#: src/models/roomlistmodel.cpp:456
+#: src/models/roomlistmodel.cpp:461
 #, kde-format
 msgid "Direct Messages"
 msgstr "Direktemeldingar"
 
-#: src/models/roomlistmodel.cpp:458
+#: src/models/roomlistmodel.cpp:463
 #, kde-format
 msgid "Normal"
 msgstr "Vanleg"
 
-#: src/models/roomlistmodel.cpp:460
+#: src/models/roomlistmodel.cpp:465
 #, kde-format
 msgid "Low priority"
 msgstr "Låg prioritet"
 
-#: src/models/roomlistmodel.cpp:462
+#: src/models/roomlistmodel.cpp:467
 #, kde-format
 msgid "Spaces"
 msgstr ""
 
-#: src/neochatroom.cpp:471
+#: src/neochatroom.cpp:464
 #, kde-format
 msgid "a file"
 msgstr "ei fil"
 
-#: src/neochatroom.cpp:522
+#: src/neochatroom.cpp:515
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "inviterte %1 på nytt til rommet"
 
-#: src/neochatroom.cpp:524
+#: src/neochatroom.cpp:517
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:533 src/neochatroom.cpp:678
+#: src/neochatroom.cpp:526 src/neochatroom.cpp:671
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "kom inn i rommet (på nytt)"
 
-#: src/neochatroom.cpp:535
+#: src/neochatroom.cpp:528
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "inviterte %1 til rommet"
 
-#: src/neochatroom.cpp:535 src/neochatroom.cpp:680
+#: src/neochatroom.cpp:528 src/neochatroom.cpp:673
 #, kde-format
 msgid "joined the room"
 msgstr "kom inn i rommet"
 
-#: src/neochatroom.cpp:539
+#: src/neochatroom.cpp:532
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:546 src/neochatroom.cpp:688
+#: src/neochatroom.cpp:539 src/neochatroom.cpp:681
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "fjerna visingsnamnet"
 
-#: src/neochatroom.cpp:548
+#: src/neochatroom.cpp:541
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "endra visingsnamn til %1"
 
-#: src/neochatroom.cpp:553 src/neochatroom.cpp:695
+#: src/neochatroom.cpp:546 src/neochatroom.cpp:688
 #, kde-format
 msgid " and "
 msgstr " og "
 
-#: src/neochatroom.cpp:556 src/neochatroom.cpp:698
+#: src/neochatroom.cpp:549 src/neochatroom.cpp:691
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "fjerna avataren"
 
-#: src/neochatroom.cpp:562 src/neochatroom.cpp:704
+#: src/neochatroom.cpp:555 src/neochatroom.cpp:697
 #, kde-format
 msgid "set an avatar"
 msgstr "valde ein avatar"
 
-#: src/neochatroom.cpp:564 src/neochatroom.cpp:706
+#: src/neochatroom.cpp:557 src/neochatroom.cpp:699
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "bytte avataren sin"
 
-#: src/neochatroom.cpp:568 src/neochatroom.cpp:710
+#: src/neochatroom.cpp:561 src/neochatroom.cpp:703
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr ""
 
-#: src/neochatroom.cpp:574
+#: src/neochatroom.cpp:567
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "trekte tilbake invitasjonen til %1"
 
-#: src/neochatroom.cpp:574 src/neochatroom.cpp:716
+#: src/neochatroom.cpp:567 src/neochatroom.cpp:709
 #, kde-format
 msgid "rejected the invitation"
 msgstr "avviste invitasjonen"
 
-#: src/neochatroom.cpp:578
+#: src/neochatroom.cpp:571
 #, kde-format
 msgid "unbanned %1"
 msgstr "oppheva utestenging av %1"
 
-#: src/neochatroom.cpp:578 src/neochatroom.cpp:720
+#: src/neochatroom.cpp:571 src/neochatroom.cpp:713
 #, kde-format
 msgid "self-unbanned"
 msgstr "utestengde seg sjølv"
 
-#: src/neochatroom.cpp:581
+#: src/neochatroom.cpp:574
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "fjerna %1 frå rommet: %2"
 
-#: src/neochatroom.cpp:582 src/neochatroom.cpp:722
+#: src/neochatroom.cpp:575 src/neochatroom.cpp:715
 #, kde-format
 msgid "left the room"
 msgstr "forlét rommet"
 
-#: src/neochatroom.cpp:586
+#: src/neochatroom.cpp:579
 #, kde-format
 msgid "banned %1 from the room"
 msgstr ""
 
-#: src/neochatroom.cpp:588
+#: src/neochatroom.cpp:581
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "utestengde %1 frå rommet: %2"
 
-#: src/neochatroom.cpp:591 src/neochatroom.cpp:727
+#: src/neochatroom.cpp:584 src/neochatroom.cpp:720
 #, kde-format
 msgid "self-banned from the room"
 msgstr "utestengde seg sjølv frå rommet"
 
-#: src/neochatroom.cpp:595 src/neochatroom.cpp:730
+#: src/neochatroom.cpp:588 src/neochatroom.cpp:723
 #, kde-format
 msgid "requested an invite"
 msgstr ""
 
-#: src/neochatroom.cpp:595
+#: src/neochatroom.cpp:588
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr ""
 
-#: src/neochatroom.cpp:599 src/neochatroom.cpp:734
+#: src/neochatroom.cpp:592 src/neochatroom.cpp:727
 #, kde-format
 msgid "made something unknown"
 msgstr "gjorde noko ukjend"
 
-#: src/neochatroom.cpp:602 src/neochatroom.cpp:737
+#: src/neochatroom.cpp:595 src/neochatroom.cpp:730
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "fjerna hovudaliaset til rommet"
 
-#: src/neochatroom.cpp:602
+#: src/neochatroom.cpp:595
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "bytte hovudalias for rommet til: %1"
 
-#: src/neochatroom.cpp:605 src/neochatroom.cpp:740
+#: src/neochatroom.cpp:598 src/neochatroom.cpp:733
 #, kde-format
 msgid "cleared the room name"
 msgstr "fjerna romnamnet"
 
-#: src/neochatroom.cpp:605
+#: src/neochatroom.cpp:598
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "bytte romnamnet til: %1"
 
-#: src/neochatroom.cpp:608 src/neochatroom.cpp:743
+#: src/neochatroom.cpp:601 src/neochatroom.cpp:736
 #, kde-format
 msgid "cleared the topic"
 msgstr "tømte emnefeltet"
 
-#: src/neochatroom.cpp:609
+#: src/neochatroom.cpp:602
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "bytte emnet til: %1"
 
-#: src/neochatroom.cpp:615 src/neochatroom.cpp:746
+#: src/neochatroom.cpp:608 src/neochatroom.cpp:739
 #, kde-format
 msgid "changed the room avatar"
 msgstr "bytte ut romavataren"
 
-#: src/neochatroom.cpp:618 src/neochatroom.cpp:749
+#: src/neochatroom.cpp:611 src/neochatroom.cpp:742
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "slå på ende-til-ende-kryptering"
 
-#: src/neochatroom.cpp:621
+#: src/neochatroom.cpp:614
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "oppgraderte rommet til versjon %1"
 
-#: src/neochatroom.cpp:622
+#: src/neochatroom.cpp:615
 #, kde-format
 msgid "created the room, version %1"
 msgstr "oppretta rommet, versjon %1"
 
-#: src/neochatroom.cpp:625 src/neochatroom.cpp:755
+#: src/neochatroom.cpp:618 src/neochatroom.cpp:748
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr ""
 
-#: src/neochatroom.cpp:629 src/neochatroom.cpp:759
+#: src/neochatroom.cpp:622 src/neochatroom.cpp:752
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr ""
 
-#: src/neochatroom.cpp:633
+#: src/neochatroom.cpp:626
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr ""
 
-#: src/neochatroom.cpp:636
+#: src/neochatroom.cpp:629
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr ""
 
-#: src/neochatroom.cpp:638
+#: src/neochatroom.cpp:631
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr ""
 
-#: src/neochatroom.cpp:640
+#: src/neochatroom.cpp:633
 #, kde-format
 msgid "updated %1 state"
 msgstr "oppdaterte %1-tilstand"
 
-#: src/neochatroom.cpp:641
+#: src/neochatroom.cpp:634
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "oppdaterte %1-tilstand for %2"
 
-#: src/neochatroom.cpp:648 src/neochatroom.cpp:777
+#: src/neochatroom.cpp:641 src/neochatroom.cpp:771
 #, kde-format
 msgid "Unknown event"
 msgstr "Ukjend hending"
 
-#: src/neochatroom.cpp:661
+#: src/neochatroom.cpp:654
 #, kde-format
 msgid "sent a message"
 msgstr ""
 
-#: src/neochatroom.cpp:665
+#: src/neochatroom.cpp:658
 #, kde-format
 msgid "sent a sticker"
 msgstr ""
 
-#: src/neochatroom.cpp:671
+#: src/neochatroom.cpp:664
 #, kde-format
 msgid "reinvited someone to the room"
 msgstr ""
 
-#: src/neochatroom.cpp:680
+#: src/neochatroom.cpp:673
 #, kde-format
 msgid "invited someone to the room"
 msgstr ""
 
-#: src/neochatroom.cpp:690
+#: src/neochatroom.cpp:683
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name"
 msgstr ""
 
-#: src/neochatroom.cpp:716
+#: src/neochatroom.cpp:709
 #, kde-format
 msgid "withdrew a user's invitation"
 msgstr ""
 
-#: src/neochatroom.cpp:720
+#: src/neochatroom.cpp:713
 #, kde-format
 msgid "unbanned a user"
 msgstr ""
 
-#: src/neochatroom.cpp:722
+#: src/neochatroom.cpp:715
 #, kde-format
 msgid "put a user out of the room"
 msgstr ""
 
-#: src/neochatroom.cpp:725
+#: src/neochatroom.cpp:718
 #, kde-format
 msgid "banned a user from the room"
 msgstr ""
 
-#: src/neochatroom.cpp:737
+#: src/neochatroom.cpp:730
 #, kde-format
 msgid "set the room main alias"
 msgstr ""
 
-#: src/neochatroom.cpp:740
+#: src/neochatroom.cpp:733
 #, kde-format
 msgid "set the room name"
 msgstr ""
 
-#: src/neochatroom.cpp:743
+#: src/neochatroom.cpp:736
 #, kde-format
 msgid "set the topic"
 msgstr ""
 
-#: src/neochatroom.cpp:752
+#: src/neochatroom.cpp:745
 #, kde-format
 msgid "upgraded the room version"
 msgstr ""
 
-#: src/neochatroom.cpp:752
+#: src/neochatroom.cpp:745
 #, kde-format
 msgid "created the room"
 msgstr ""
 
-#: src/neochatroom.cpp:763
+#: src/neochatroom.cpp:756
 #, kde-format
 msgid "added a widget"
 msgstr ""
 
-#: src/neochatroom.cpp:766
+#: src/neochatroom.cpp:759
 #, kde-format
 msgid "removed a widget"
 msgstr ""
 
-#: src/neochatroom.cpp:768
+#: src/neochatroom.cpp:761
 #, kde-format
 msgid "configured a widget"
 msgstr ""
 
-#: src/neochatroom.cpp:770
+#: src/neochatroom.cpp:763
 #, kde-format
 msgid "updated the state"
 msgstr ""
 
-#: src/neochatroom.cpp:774
+#: src/neochatroom.cpp:768
 #, kde-format
 msgid "started a poll"
 msgstr ""
 
-#: src/neochatroom.cpp:1693 src/neochatroom.cpp:1694
+#: src/neochatroom.cpp:1663 src/neochatroom.cpp:1664
 #, kde-format
 msgid "Report sent successfully."
+msgstr ""
+
+#: src/neochatroom.cpp:1899 src/neochatroom.cpp:1907
+#, kde-format
+msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
+msgid "Lat: %1, Lon: %2"
 msgstr ""
 
 #: src/notificationsmanager.cpp:65
@@ -1111,34 +1117,39 @@ msgstr "Legg ved bilete eller fil"
 msgid "Add an Emoji"
 msgstr "Legg til emoji"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:77
+#: src/qml/Component/ChatBox/ChatBar.qml:73
+#, kde-format
+msgid "Send a Location"
+msgstr ""
+
+#: src/qml/Component/ChatBox/ChatBar.qml:86
 #, kde-format
 msgid "Send message"
 msgstr "Send melding"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:123
+#: src/qml/Component/ChatBox/ChatBar.qml:132
 #, kde-format
 msgid ""
 "This room is encrypted. Build libQuotient with encryption enabled to send "
 "encrypted messages."
 msgstr ""
 
-#: src/qml/Component/ChatBox/ChatBar.qml:123
+#: src/qml/Component/ChatBox/ChatBar.qml:132
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr ""
 
-#: src/qml/Component/ChatBox/ChatBar.qml:123
+#: src/qml/Component/ChatBox/ChatBar.qml:132
 #, kde-format
 msgid "Set an attachment caption..."
 msgstr ""
 
-#: src/qml/Component/ChatBox/ChatBar.qml:123
+#: src/qml/Component/ChatBox/ChatBar.qml:132
 #, kde-format
 msgid "Send a message…"
 msgstr ""
 
-#: src/qml/Component/ChatBox/ChatBar.qml:308
+#: src/qml/Component/ChatBox/ChatBar.qml:317
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -1147,6 +1158,16 @@ msgstr ""
 #: src/qml/Component/ChatBox/ChatBox.qml:29
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
+msgstr ""
+
+#: src/qml/Component/ChatBox/LocationChooser.qml:20
+#, kde-format
+msgid "Choose a Location"
+msgstr ""
+
+#: src/qml/Component/ChatBox/LocationChooser.qml:25
+#, kde-format
+msgid "Send this location"
 msgstr ""
 
 #: src/qml/Component/ChatBox/QuickFormatBar.qml:23
@@ -1187,29 +1208,6 @@ msgstr ""
 #: src/qml/Component/Emoji/EmojiGrid.qml:77
 #, kde-format
 msgid "No emojis"
-msgstr ""
-
-#: src/qml/Component/ExploreComponent.qml:19 src/qml/Page/RoomListPage.qml:221
-#, kde-format
-msgid "Explore rooms"
-msgstr "Utforsk rom"
-
-#: src/qml/Component/ExploreComponent.qml:26 src/qml/Menu/GlobalMenu.qml:43
-#: src/qml/Menu/GlobalMenu.qml:48 src/qml/Page/StartChatPage.qml:18
-#, kde-format
-msgid "Start a Chat"
-msgstr "Start prat"
-
-#: src/qml/Component/ExploreComponent.qml:31
-#: src/qml/Dialog/CreateRoomDialog.qml:16
-#, kde-format
-msgid "Create a Room"
-msgstr "Opprett rom"
-
-#: src/qml/Component/ExploreComponent.qml:58
-#: src/qml/Component/ExploreComponent.qml:109
-#, kde-format
-msgid "Create rooms and chats"
 msgstr ""
 
 #: src/qml/Component/FullScreenImage.qml:82
@@ -1362,8 +1360,15 @@ msgctxt "@action:button"
 msgid "Back"
 msgstr "Tilbake"
 
+#: src/qml/Component/QuickSwitcher.qml:124
+#: src/qml/Page/RoomList/CollapsedRoomDelegate.qml:37
+#: src/qml/Page/RoomList/RoomDelegate.qml:65
+#, kde-format
+msgid "No Name"
+msgstr "Namnlaus"
+
 #: src/qml/Component/Timeline/EncryptedDelegate.qml:15
-#: src/qml/Component/Timeline/ReplyComponent.qml:134
+#: src/qml/Component/Timeline/ReplyComponent.qml:133
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -1371,7 +1376,7 @@ msgid ""
 msgstr ""
 
 #: src/qml/Component/Timeline/FileDelegate.qml:54
-#: src/qml/Component/Timeline/FileDelegate.qml:141
+#: src/qml/Component/Timeline/FileDelegate.qml:145
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
@@ -1379,7 +1384,7 @@ msgid "Download"
 msgstr ""
 
 #: src/qml/Component/Timeline/FileDelegate.qml:70
-#: src/qml/Component/Timeline/FileDelegate.qml:132
+#: src/qml/Component/Timeline/FileDelegate.qml:136
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -1468,11 +1473,6 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr ""
 
-#: src/qml/Component/Timeline/RichLabel.qml:60
-#, kde-format
-msgid " (edited)"
-msgstr ""
-
 #: src/qml/Component/Timeline/VideoDelegate.qml:170
 #, kde-format
 msgid "Video"
@@ -1482,54 +1482,6 @@ msgstr "Video"
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
-msgstr ""
-
-#: src/qml/Component/UserInfo.qml:57 src/qml/Settings/AccountsPage.qml:83
-#, kde-format
-msgid "Add Account"
-msgstr ""
-
-#: src/qml/Component/UserInfo.qml:58
-#, kde-format
-msgid "Log in to an existing account"
-msgstr ""
-
-#: src/qml/Component/UserInfo.qml:60
-#, kde-format
-msgctxt "@title:window"
-msgid "Login"
-msgstr ""
-
-#: src/qml/Component/UserInfo.qml:145 src/qml/Menu/AccountMenu.qml:17
-#, kde-format
-msgid "Edit this account"
-msgstr "Rediger kontoen"
-
-#: src/qml/Component/UserInfo.qml:150 src/qml/Menu/AccountMenu.qml:22
-#: src/qml/Settings/AccountsPage.qml:36
-#, kde-format
-msgid "Account editor"
-msgstr ""
-
-#: src/qml/Component/UserInfo.qml:183
-#, kde-format
-msgid "Switch User"
-msgstr ""
-
-#: src/qml/Component/UserInfo.qml:199 src/qml/Page/InviteUserPage.qml:42
-#, kde-format
-msgid "Add"
-msgstr "Legg til"
-
-#: src/qml/Component/UserInfo.qml:210 src/qml/Menu/AccountMenu.qml:28
-#: src/qml/Menu/AccountMenu.qml:33 src/qml/Menu/GlobalMenu.qml:28
-#, kde-format
-msgid "Configure"
-msgstr ""
-
-#: src/qml/Component/UserInfo.qml:211
-#, kde-format
-msgid "Open Settings"
 msgstr ""
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
@@ -1545,35 +1497,39 @@ msgid ""
 msgstr ""
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:30
-#: src/qml/Dialog/ConfirmLogoutDialog.qml:29
-#: src/qml/Page/ImageEditorPage.qml:125
+#: src/qml/Dialog/ConfirmLogout.qml:29 src/qml/Page/ImageEditorPage.qml:125
 #: src/qml/Settings/AccountEditorPage.qml:183
 #, kde-format
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/qml/Dialog/ConfirmLogoutDialog.qml:16
-#: src/qml/Dialog/ConfirmLogoutDialog.qml:35
+#: src/qml/Dialog/ConfirmLogout.qml:16 src/qml/Dialog/ConfirmLogout.qml:35
 #: src/qml/Settings/AccountEditorPage.qml:231
 #: src/qml/Settings/AccountEditorPage.qml:235
 #, kde-format
 msgid "Sign out"
 msgstr ""
 
-#: src/qml/Dialog/ConfirmLogoutDialog.qml:19
+#: src/qml/Dialog/ConfirmLogout.qml:19
 #, kde-format
 msgid "Are you sure you want to sign out?"
 msgstr ""
 
-#: src/qml/Dialog/CreateRoomDialog.qml:21
+#: src/qml/Dialog/CreateRoomDialog.qml:16
+#: src/qml/Page/RoomList/ExploreComponent.qml:31
 #, kde-format
-msgid "Room Name"
-msgstr "Romnamn"
+msgid "Create a Room"
+msgstr "Opprett rom"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:27
+#: src/qml/Dialog/CreateRoomDialog.qml:21 src/qml/RoomSettings/General.qml:76
 #, kde-format
-msgid "Room Topic"
-msgstr "Romemne"
+msgid "Room name:"
+msgstr ""
+
+#: src/qml/Dialog/CreateRoomDialog.qml:27 src/qml/RoomSettings/General.qml:88
+#, kde-format
+msgid "Room topic:"
+msgstr "Romemne:"
 
 #: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:159
 #, kde-format
@@ -1880,28 +1836,28 @@ msgstr "Start privat prat"
 msgid "Copy link"
 msgstr ""
 
-#: src/qml/main.qml:126
+#: src/qml/main.qml:124
 #, kde-format
 msgid "Warning: %1"
 msgstr ""
 
-#: src/qml/main.qml:265
+#: src/qml/main.qml:263
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/qml/main.qml:306
+#: src/qml/main.qml:304
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr ""
 
-#: src/qml/main.qml:316
+#: src/qml/main.qml:314
 #, kde-format
 msgid "User consent"
 msgstr "Brukar­samtykke"
 
-#: src/qml/main.qml:321
+#: src/qml/main.qml:319
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -1910,36 +1866,20 @@ msgstr ""
 "Heimetenaren krev at du godtek brukarvilkåra før du kan ta han i bruk. Trykk "
 "på knappen nedanfor for å lesa vilkåra."
 
-#: src/qml/main.qml:326
+#: src/qml/main.qml:324
 #, kde-format
 msgid "Open"
 msgstr "Opna"
 
-#: src/qml/main.qml:355
+#: src/qml/main.qml:353
 #, kde-format
 msgid "Start a chat"
 msgstr ""
 
-#: src/qml/main.qml:357
+#: src/qml/main.qml:355
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr ""
-
-#: src/qml/Menu/AccountMenu.qml:26
-#, kde-format
-msgid "Notification settings"
-msgstr ""
-
-#: src/qml/Menu/AccountMenu.qml:31 src/qml/Settings/DevicesPage.qml:14
-#: src/qml/Settings/DevicesPage.qml:26 src/qml/Settings/SettingsPage.qml:56
-#, kde-format
-msgid "Devices"
-msgstr "Einingar"
-
-#: src/qml/Menu/AccountMenu.qml:36
-#, kde-format
-msgid "Logout"
-msgstr "Logg ut"
 
 #: src/qml/Menu/EditMenu.qml:17
 #, kde-format
@@ -2000,6 +1940,13 @@ msgctxt "menu"
 msgid "Configure NeoChat..."
 msgstr ""
 
+#: src/qml/Menu/GlobalMenu.qml:28 src/qml/Page/RoomList/AccountMenu.qml:29
+#: src/qml/Page/RoomList/AccountMenu.qml:34
+#: src/qml/Page/RoomList/UserInfo.qml:210
+#, kde-format
+msgid "Configure"
+msgstr ""
+
 #: src/qml/Menu/GlobalMenu.qml:32
 #, kde-format
 msgctxt "menu"
@@ -2017,6 +1964,13 @@ msgstr ""
 msgctxt "menu"
 msgid "New Private Chat…"
 msgstr ""
+
+#: src/qml/Menu/GlobalMenu.qml:43 src/qml/Menu/GlobalMenu.qml:48
+#: src/qml/Page/RoomList/ExploreComponent.qml:26
+#: src/qml/Page/StartChatPage.qml:18
+#, kde-format
+msgid "Start a Chat"
+msgstr "Start prat"
 
 #: src/qml/Menu/GlobalMenu.qml:47
 #, kde-format
@@ -2080,100 +2034,6 @@ msgctxt "menu"
 msgid "Matrix FAQ"
 msgstr ""
 
-#: src/qml/Menu/RoomListContextMenu.qml:26
-#, kde-format
-msgid "Open in New Window"
-msgstr ""
-
-#: src/qml/Menu/RoomListContextMenu.qml:37
-#: src/qml/Menu/RoomListContextMenu.qml:178
-#, kde-format
-msgid "Remove from Favourites"
-msgstr "Fjern frå favorittar"
-
-#: src/qml/Menu/RoomListContextMenu.qml:37
-#: src/qml/Menu/RoomListContextMenu.qml:178
-#, kde-format
-msgid "Add to Favourites"
-msgstr "Legg til favorittar"
-
-#: src/qml/Menu/RoomListContextMenu.qml:43
-#: src/qml/Menu/RoomListContextMenu.qml:192
-#, kde-format
-msgid "Reprioritize"
-msgstr "Reprioriter"
-
-#: src/qml/Menu/RoomListContextMenu.qml:43
-#: src/qml/Menu/RoomListContextMenu.qml:192
-#, kde-format
-msgid "Deprioritize"
-msgstr "Nedprioriter"
-
-#: src/qml/Menu/RoomListContextMenu.qml:49
-#: src/qml/Menu/RoomListContextMenu.qml:199
-#, kde-format
-msgid "Mark as Read"
-msgstr "Merk som lesen"
-
-#: src/qml/Menu/RoomListContextMenu.qml:55
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy user's Matrix ID to Clipboard"
-msgstr ""
-
-#: src/qml/Menu/RoomListContextMenu.qml:55
-#: src/qml/Menu/SpaceListContextMenu.qml:30
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Copy Address to Clipboard"
-msgstr ""
-
-#: src/qml/Menu/RoomListContextMenu.qml:67
-#, kde-format
-msgid "Notification State"
-msgstr ""
-
-#: src/qml/Menu/RoomListContextMenu.qml:70
-#, kde-format
-msgid "Follow Global Setting"
-msgstr ""
-
-#: src/qml/Menu/RoomListContextMenu.qml:81
-#: src/qml/RoomSettings/PushNotification.qml:40
-#, kde-format
-msgctxt "As in 'notify for all messages'"
-msgid "All"
-msgstr ""
-
-#: src/qml/Menu/RoomListContextMenu.qml:92
-#: src/qml/RoomSettings/PushNotification.qml:48
-#, kde-format
-msgctxt ""
-"As in 'notify when the user is mentioned or the message contains a set "
-"keyword'"
-msgid "@Mentions and Keywords"
-msgstr ""
-
-#: src/qml/Menu/RoomListContextMenu.qml:103
-#: src/qml/RoomSettings/PushNotification.qml:56
-#, kde-format
-msgctxt "As in 'do not notify for any messages'"
-msgid "Off"
-msgstr ""
-
-#: src/qml/Menu/RoomListContextMenu.qml:116
-#: src/qml/Menu/RoomListContextMenu.qml:118
-#: src/qml/Menu/RoomListContextMenu.qml:185 src/qml/Panel/RoomDrawer.qml:101
-#, kde-format
-msgid "Room Settings"
-msgstr ""
-
-#: src/qml/Menu/RoomListContextMenu.qml:124
-#: src/qml/Menu/RoomListContextMenu.qml:205
-#, kde-format
-msgid "Leave Room"
-msgstr "Forlat rommet"
-
 #: src/qml/Menu/ShareAction.qml:19
 #, kde-format
 msgid "Share"
@@ -2192,31 +2052,6 @@ msgstr ""
 #: src/qml/Menu/ShareDialog.qml:53
 #, kde-format
 msgid "Shared url for image is <a href='%1'>%1</a>"
-msgstr ""
-
-#: src/qml/Menu/SpaceListContextMenu.qml:25
-#, kde-format
-msgctxt "'Space' is a matrix space"
-msgid "View Space"
-msgstr ""
-
-#: src/qml/Menu/SpaceListContextMenu.qml:39
-#, kde-format
-msgctxt "'Space' is a matrix space"
-msgid "Space Settings"
-msgstr ""
-
-#: src/qml/Menu/SpaceListContextMenu.qml:40
-#: src/qml/Menu/SpaceListContextMenu.qml:97
-#, kde-format
-msgid "Space Settings"
-msgstr ""
-
-#: src/qml/Menu/SpaceListContextMenu.qml:46
-#: src/qml/Menu/SpaceListContextMenu.qml:101
-#, kde-format
-msgctxt "'Space' is a matrix space"
-msgid "Leave Space"
 msgstr ""
 
 #: src/qml/Menu/Timeline/BanSheet.qml:16
@@ -2423,6 +2258,11 @@ msgstr "Inviter ein brukar"
 msgid "Find a user..."
 msgstr "Finn brukar …"
 
+#: src/qml/Page/InviteUserPage.qml:42 src/qml/Page/RoomList/UserInfo.qml:199
+#, kde-format
+msgid "Add"
+msgstr "Legg til"
+
 #: src/qml/Page/InviteUserPage.qml:71 src/qml/Page/StartChatPage.qml:133
 #, kde-format
 msgid "No users available"
@@ -2504,41 +2344,221 @@ msgstr ""
 msgid "Joined"
 msgstr "Vart med"
 
-#: src/qml/Page/RoomListPage.qml:55
+#: src/qml/Page/RoomList/AccountMenu.qml:18
+#: src/qml/Page/RoomList/UserInfo.qml:145
+#, kde-format
+msgid "Edit this account"
+msgstr "Rediger kontoen"
+
+#: src/qml/Page/RoomList/AccountMenu.qml:23
+#: src/qml/Page/RoomList/UserInfo.qml:150 src/qml/Settings/AccountsPage.qml:36
+#, kde-format
+msgid "Account editor"
+msgstr ""
+
+#: src/qml/Page/RoomList/AccountMenu.qml:27
+#, kde-format
+msgid "Notification settings"
+msgstr ""
+
+#: src/qml/Page/RoomList/AccountMenu.qml:32 src/qml/Settings/DevicesPage.qml:14
+#: src/qml/Settings/DevicesPage.qml:26 src/qml/Settings/SettingsPage.qml:56
+#, kde-format
+msgid "Devices"
+msgstr "Einingar"
+
+#: src/qml/Page/RoomList/AccountMenu.qml:37
+#, kde-format
+msgid "Logout"
+msgstr "Logg ut"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:26
+#, kde-format
+msgid "Open in New Window"
+msgstr ""
+
+#: src/qml/Page/RoomList/ContextMenu.qml:37
+#: src/qml/Page/RoomList/ContextMenu.qml:178
+#, kde-format
+msgid "Remove from Favourites"
+msgstr "Fjern frå favorittar"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:37
+#: src/qml/Page/RoomList/ContextMenu.qml:178
+#, kde-format
+msgid "Add to Favourites"
+msgstr "Legg til favorittar"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:43
+#: src/qml/Page/RoomList/ContextMenu.qml:192
+#, kde-format
+msgid "Reprioritize"
+msgstr "Reprioriter"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:43
+#: src/qml/Page/RoomList/ContextMenu.qml:192
+#, kde-format
+msgid "Deprioritize"
+msgstr "Nedprioriter"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:49
+#: src/qml/Page/RoomList/ContextMenu.qml:199
+#, kde-format
+msgid "Mark as Read"
+msgstr "Merk som lesen"
+
+#: src/qml/Page/RoomList/ContextMenu.qml:55
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy user's Matrix ID to Clipboard"
+msgstr ""
+
+#: src/qml/Page/RoomList/ContextMenu.qml:55
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:30
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Copy Address to Clipboard"
+msgstr ""
+
+#: src/qml/Page/RoomList/ContextMenu.qml:67
+#, kde-format
+msgid "Notification State"
+msgstr ""
+
+#: src/qml/Page/RoomList/ContextMenu.qml:70
+#, kde-format
+msgid "Follow Global Setting"
+msgstr ""
+
+#: src/qml/Page/RoomList/ContextMenu.qml:81
+#: src/qml/RoomSettings/PushNotification.qml:40
+#, kde-format
+msgctxt "As in 'notify for all messages'"
+msgid "All"
+msgstr ""
+
+#: src/qml/Page/RoomList/ContextMenu.qml:92
+#: src/qml/RoomSettings/PushNotification.qml:48
+#, kde-format
+msgctxt ""
+"As in 'notify when the user is mentioned or the message contains a set "
+"keyword'"
+msgid "@Mentions and Keywords"
+msgstr ""
+
+#: src/qml/Page/RoomList/ContextMenu.qml:103
+#: src/qml/RoomSettings/PushNotification.qml:56
+#, kde-format
+msgctxt "As in 'do not notify for any messages'"
+msgid "Off"
+msgstr ""
+
+#: src/qml/Page/RoomList/ContextMenu.qml:116
+#: src/qml/Page/RoomList/ContextMenu.qml:118
+#: src/qml/Page/RoomList/ContextMenu.qml:185 src/qml/Panel/RoomDrawer.qml:101
+#, kde-format
+msgid "Room Settings"
+msgstr ""
+
+#: src/qml/Page/RoomList/ContextMenu.qml:124
+#: src/qml/Page/RoomList/ContextMenu.qml:205
+#, kde-format
+msgid "Leave Room"
+msgstr "Forlat rommet"
+
+#: src/qml/Page/RoomList/ExploreComponent.qml:19
+#: src/qml/Page/RoomList/Page.qml:150
+#, kde-format
+msgid "Explore rooms"
+msgstr "Utforsk rom"
+
+#: src/qml/Page/RoomList/ExploreComponent.qml:58
+#: src/qml/Page/RoomList/ExploreComponent.qml:109
+#, kde-format
+msgid "Create rooms and chats"
+msgstr ""
+
+#: src/qml/Page/RoomList/Page.qml:147
+#, kde-format
+msgid "No rooms found"
+msgstr "Fann ingen rom"
+
+#: src/qml/Page/RoomList/Page.qml:147
+#, kde-format
+msgid "Join some rooms to get started"
+msgstr "Start ved å verta med i nokre rom"
+
+#: src/qml/Page/RoomList/Page.qml:150
+#, kde-format
+msgid "Search in room directory"
+msgstr "Søk i romkatalogen"
+
+#: src/qml/Page/RoomList/RoomDelegate.qml:81
+#, kde-format
+msgid "Muted room"
+msgstr ""
+
+#: src/qml/Page/RoomList/RoomDelegate.qml:110
+#, kde-format
+msgid "Configure room"
+msgstr "Set opp rommet"
+
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:25
+#, kde-format
+msgctxt "'Space' is a matrix space"
+msgid "View Space"
+msgstr ""
+
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:39
+#, kde-format
+msgctxt "'Space' is a matrix space"
+msgid "Space Settings"
+msgstr ""
+
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:40
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:97
+#, kde-format
+msgid "Space Settings"
+msgstr ""
+
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:46
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:101
+#, kde-format
+msgctxt "'Space' is a matrix space"
+msgid "Leave Space"
+msgstr ""
+
+#: src/qml/Page/RoomList/SpaceListView.qml:29
 #, kde-format
 msgctxt "@action:button"
 msgid "Show All Rooms"
 msgstr ""
 
-#: src/qml/Page/RoomListPage.qml:218
+#: src/qml/Page/RoomList/UserInfo.qml:57 src/qml/Settings/AccountsPage.qml:83
 #, kde-format
-msgid "No rooms found"
-msgstr "Fann ingen rom"
-
-#: src/qml/Page/RoomListPage.qml:218
-#, kde-format
-msgid "Join some rooms to get started"
-msgstr "Start ved å verta med i nokre rom"
-
-#: src/qml/Page/RoomListPage.qml:221
-#, kde-format
-msgid "Search in room directory"
-msgstr "Søk i romkatalogen"
-
-#: src/qml/Page/RoomListPage.qml:319 src/qml/Page/RoomListPage.qml:371
-#, kde-format
-msgid "No Name"
-msgstr "Namnlaus"
-
-#: src/qml/Page/RoomListPage.qml:386
-#, kde-format
-msgid "Muted room"
+msgid "Add Account"
 msgstr ""
 
-#: src/qml/Page/RoomListPage.qml:413
+#: src/qml/Page/RoomList/UserInfo.qml:58
 #, kde-format
-msgid "Configure room"
-msgstr "Set opp rommet"
+msgid "Log in to an existing account"
+msgstr ""
+
+#: src/qml/Page/RoomList/UserInfo.qml:60
+#, kde-format
+msgctxt "@title:window"
+msgid "Login"
+msgstr ""
+
+#: src/qml/Page/RoomList/UserInfo.qml:183
+#, kde-format
+msgid "Switch User"
+msgstr ""
+
+#: src/qml/Page/RoomList/UserInfo.qml:211
+#, kde-format
+msgid "Open Settings"
+msgstr ""
 
 #: src/qml/Page/RoomPage.qml:185
 #, kde-format
@@ -2639,73 +2659,73 @@ msgstr "Namnlaus"
 msgid "No Canonical Alias"
 msgstr "Manglar kanonisk alias"
 
-#: src/qml/Panel/RoomDrawer.qml:164
+#: src/qml/Panel/RoomDrawer.qml:173
 #, kde-format
 msgid "No Topic"
 msgstr "Manglar emne"
 
-#: src/qml/Panel/RoomDrawer.qml:182
+#: src/qml/Panel/RoomDrawer.qml:193
 #, kde-format
 msgid "Options"
 msgstr ""
 
-#: src/qml/Panel/RoomDrawer.qml:190
+#: src/qml/Panel/RoomDrawer.qml:201
 #, kde-format
 msgid "Open developer tools"
 msgstr ""
 
-#: src/qml/Panel/RoomDrawer.qml:194
+#: src/qml/Panel/RoomDrawer.qml:205
 #, kde-format
 msgid "Developer Tools"
 msgstr ""
 
-#: src/qml/Panel/RoomDrawer.qml:202
+#: src/qml/Panel/RoomDrawer.qml:213
 #, kde-format
 msgid "Search in this room"
 msgstr ""
 
-#: src/qml/Panel/RoomDrawer.qml:208
+#: src/qml/Panel/RoomDrawer.qml:219
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr ""
 
-#: src/qml/Panel/RoomDrawer.qml:216
+#: src/qml/Panel/RoomDrawer.qml:227
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Fjern rom frå favorittar"
 
-#: src/qml/Panel/RoomDrawer.qml:216
+#: src/qml/Panel/RoomDrawer.qml:227
 #, kde-format
 msgid "Make room favorite"
 msgstr "Gjer rom til favoritt"
 
-#: src/qml/Panel/RoomDrawer.qml:222
+#: src/qml/Panel/RoomDrawer.qml:233
 #, kde-format
 msgid "Members"
 msgstr "Medlemmar"
 
-#: src/qml/Panel/RoomDrawer.qml:230
+#: src/qml/Panel/RoomDrawer.qml:241
 #, kde-format
 msgid "Search user in room"
 msgstr ""
 
-#: src/qml/Panel/RoomDrawer.qml:244
+#: src/qml/Panel/RoomDrawer.qml:258
 #, kde-format
 msgid "Invite user to room"
 msgstr ""
 
-#: src/qml/Panel/RoomDrawer.qml:251
+#: src/qml/Panel/RoomDrawer.qml:265
 #, kde-format
-msgid "%1 Member"
-msgid_plural "%1 Members"
-msgstr[0] "%1 medlem"
-msgstr[1] "%1 medlemmar"
+msgid "%1 member"
+msgid_plural "%1 members"
+msgstr[0] ""
+msgstr[1] ""
 
-#: src/qml/Panel/RoomDrawer.qml:251
+#: src/qml/Panel/RoomDrawer.qml:265
 #, kde-format
-msgid "No Member Count"
-msgstr "Manglar medlemstal"
+msgid "No member count"
+msgstr ""
 
 #: src/qml/RoomSettings/Categories.qml:16 src/qml/RoomSettings/General.qml:20
 #: src/qml/Settings/SettingsPage.qml:13
@@ -2737,16 +2757,6 @@ msgstr ""
 #, kde-format
 msgid "Update avatar"
 msgstr ""
-
-#: src/qml/RoomSettings/General.qml:76
-#, kde-format
-msgid "Room name:"
-msgstr ""
-
-#: src/qml/RoomSettings/General.qml:88
-#, kde-format
-msgid "Room topic:"
-msgstr "Romemne:"
 
 #: src/qml/RoomSettings/General.qml:110
 #: src/qml/Settings/AccountEditorPage.qml:105
@@ -3788,32 +3798,32 @@ msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
 msgstr ""
 
-#: src/roommanager.cpp:210
+#: src/roommanager.cpp:208
 #, kde-format
 msgid "Failed to join room"
 msgstr ""
 
-#: src/roommanager.cpp:227
+#: src/roommanager.cpp:225
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr ""
 
-#: src/roommanager.cpp:230
+#: src/roommanager.cpp:228
 #, kde-format
 msgid "Failed to request joining room"
 msgstr ""
 
-#: src/roommanager.cpp:240
+#: src/roommanager.cpp:238
 #, kde-format
 msgid "No application for the link"
 msgstr ""
 
-#: src/roommanager.cpp:240
+#: src/roommanager.cpp:238
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr ""
 
-#: src/roommanager.cpp:246
+#: src/roommanager.cpp:244
 #, kde-format
 msgid "Could not open URL"
 msgstr ""
