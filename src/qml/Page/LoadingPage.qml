@@ -6,6 +6,7 @@ import QtQuick.Controls 2.12 as QQC2
 import org.kde.kirigami 2.19 as Kirigami
 
 Kirigami.Page {
+    title: i18n("Loading…")
     Kirigami.LoadingPlaceholder {
         id: loadingIndicator
         anchors.centerIn: parent
