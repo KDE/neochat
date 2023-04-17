@@ -79,7 +79,7 @@ Kirigami.Page {
                 text: i18n("Decline")
                 icon.name: "dialog-cancel"
                 onClicked: dialog.session.cancelVerification("m.user", "Declined")
-                QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.CancelRole
+                QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.RejectRole
             }
         }
     }
