@@ -42,6 +42,7 @@ class Controller : public QObject
     Q_PROPERTY(int activeConnectionIndex READ activeConnectionIndex NOTIFY activeConnectionIndexChanged)
     Q_PROPERTY(int quotientMinorVersion READ quotientMinorVersion CONSTANT)
     Q_PROPERTY(bool isFlatpak READ isFlatpak CONSTANT)
+    Q_PROPERTY(QString activeAccountLabel READ activeAccountLabel WRITE setActiveAccountLabel NOTIFY activeAccountLabelChanged)
 
 public:
     static Controller &instance();
@@ -103,6 +104,23 @@ public:
     int quotientMinorVersion() const;
     bool isFlatpak() const;
 
+    /**
+     * @brief The label for this account.
+     *
+     * Account labels are a concept Specific to NeoChat, allowing accounts to be labelled, e.g. for "Work", "Private", etc.
+     * @return The label, if it exists, otherwise an empty string
+     */
+    [[nodiscard]] QString activeAccountLabel() const;
+
+    /**
+     * @brief Set the label for this account.
+     *
+     * Set to an empty string to remove the label
+     * @sa Controller::activeAccountLabel
+     * @param label The label to use, or an empty string
+     */
+    void setActiveAccountLabel(const QString &label);
+
 private:
     explicit Controller(QObject *parent = nullptr);
 
@@ -152,6 +170,7 @@ Q_SIGNALS:
     void keyVerificationKey(const QString &sas);
     void activeConnectionIndexChanged();
     void roomAdded(NeoChatRoom *room);
+    void activeAccountLabelChanged();
 
 public Q_SLOTS:
     void logout(Quotient::Connection *conn, bool serverSideLogout);

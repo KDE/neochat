@@ -92,7 +92,7 @@ Kirigami.ScrollablePage {
                 MobileForm.FormTextFieldDelegate {
                     id: accountLabel
                     label: i18n("Label:")
-                    text: root.connection ? root.connection.localUser.accountLabel : ""
+                    text: root.connection ? Controller.activeAccountLabel : ""
                 }
                 MobileForm.AbstractFormDelegate {
                     Layout.fillWidth: true
@@ -112,8 +112,8 @@ Kirigami.ScrollablePage {
                                 if (root.connection.localUser.displayName !== name.text) {
                                     root.connection.localUser.rename(name.text);
                                 }
-                                if (root.connection.localUser.accountLabel !== accountLabel.text) {
-                                    root.connection.localUser.setAccountLabel(accountLabel.text);
+                                if (Controller.activeAccountLabel !== accountLabel.text) {
+                                    Controller.activeAccountLabel = accountLabel.text;
                                 }
                             }
                         }

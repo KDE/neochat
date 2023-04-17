@@ -168,7 +168,7 @@ QQC2.ToolBar {
                     Layout.fillWidth: true
                 }
                 QQC2.Label {
-                    text: (Controller.activeConnection.localUser.accountLabel.length > 0 ? (Controller.activeConnection.localUser.accountLabel + " ") : "") + Controller.activeConnection.localUser.id
+                    text: (Controller.activeAccountLabel.length > 0 ? (Controller.activeAccountLabel + " ") : "") + Controller.activeConnection.localUser.id
                     font.pointSize: displayNameLabel.font.pointSize * 0.8
                     opacity: 0.7
                     textFormat: Text.PlainText

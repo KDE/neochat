@@ -593,6 +593,7 @@ void Controller::setActiveConnection(Connection *connection)
     }
     if (m_connection != nullptr) {
         disconnect(m_connection, &Connection::syncError, this, nullptr);
+        disconnect(m_connection, &Connection::accountDataChanged, this, nullptr);
     }
     m_connection = connection;
     if (connection != nullptr) {
@@ -616,12 +617,18 @@ void Controller::setActiveConnection(Connection *connection)
                 RoomManager::instance().warning(i18n("File too large to download."), i18n("Contact your matrix server administrator for support."));
             }
         });
+        connect(connection, &Connection::accountDataChanged, this, [this](const QString &type) {
+            if (type == QLatin1String("org.kde.neochat.account_label")) {
+                Q_EMIT activeAccountLabelChanged();
+            }
+        });
     } else {
         NeoChatConfig::self()->setActiveConnection(QString());
     }
     NeoChatConfig::self()->save();
     Q_EMIT activeConnectionChanged();
     Q_EMIT activeConnectionIndexChanged();
+    Q_EMIT activeAccountLabelChanged();
 }
 
 void Controller::saveWindowGeometry()
@@ -808,4 +815,23 @@ bool Controller::isFlatpak() const
 #else
     return false;
 #endif
+}
+
+void Controller::setActiveAccountLabel(const QString &label)
+{
+    if (!m_connection) {
+        return;
+    }
+    QJsonObject json{
+        {"account_label", label},
+    };
+    m_connection->setAccountData("org.kde.neochat.account_label", json);
+}
+
+QString Controller::activeAccountLabel() const
+{
+    if (!m_connection) {
+        return {};
+    }
+    return m_connection->accountDataJson("org.kde.neochat.account_label")["account_label"].toString();
 }
