@@ -67,7 +67,7 @@ Kirigami.ScrollablePage {
         while (index++ !== listView.count - 1) {
             if (condition(listView.itemAtIndex(index))) {
                 listView.currentIndex = index;
-                listView.currentItem.action.trigger();
+                listView.currentItem.clicked();
                 return;
             }
         }
@@ -78,7 +78,7 @@ Kirigami.ScrollablePage {
         while (index-- !== 0) {
             if (condition(listView.itemAtIndex(index))) {
                 listView.currentIndex = index;
-                listView.currentItem.action.trigger();
+                listView.currentItem.clicked();
                 return;
             }
         }
