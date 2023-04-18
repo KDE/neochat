@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-16 00:48+0000\n"
-"PO-Revision-Date: 2023-04-04 09:09+0100\n"
+"POT-Creation-Date: 2023-04-18 00:47+0000\n"
+"PO-Revision-Date: 2023-04-17 16:01+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-POFile-IgnoreConsistency: Show\n"
 "X-POFile-SpellExtra: Emojis emojis org matrix SOCKS Graham Spectral Alexey\n"
 "X-POFile-SpellExtra: Rusakov Quotient gif webp novaalcunha libQuotient\n"
-"X-POFile-SpellExtra: push\n"
+"X-POFile-SpellExtra: push Lat Lon\n"
 
 #: src/controller.cpp:198
 #, kde-format
@@ -1048,7 +1048,7 @@ msgstr "O relatório foi enviado com sucesso."
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
-msgstr ""
+msgstr "Lat: %1, Lon: %2"
 
 #: src/notificationsmanager.cpp:65
 #, kde-format
@@ -1060,7 +1060,7 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat in this room"
 msgstr "Abrir o NeoChat nesta sala"
 
-#: src/notificationsmanager.cpp:85
+#: src/notificationsmanager.cpp:88
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
 #: src/qml/Page/RoomPage.qml:558
@@ -1068,27 +1068,27 @@ msgstr "Abrir o NeoChat nesta sala"
 msgid "Reply"
 msgstr "Responder"
 
-#: src/notificationsmanager.cpp:86
+#: src/notificationsmanager.cpp:89
 #, kde-format
 msgid "Reply..."
 msgstr "Responder..."
 
-#: src/notificationsmanager.cpp:107
+#: src/notificationsmanager.cpp:110
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 convidou-o para uma sala"
 
-#: src/notificationsmanager.cpp:111
+#: src/notificationsmanager.cpp:114
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Abrir este convite no NeoChat"
 
-#: src/notificationsmanager.cpp:117
+#: src/notificationsmanager.cpp:120
 #, kde-format
 msgid "Accept Invitation"
 msgstr "Aceitar o Convite"
 
-#: src/notificationsmanager.cpp:117
+#: src/notificationsmanager.cpp:120
 #, kde-format
 msgid "Reject Invitation"
 msgstr "Rejeitar o Convite"
@@ -1121,10 +1121,9 @@ msgid "Add an Emoji"
 msgstr "Adicionar um Emoji"
 
 #: src/qml/Component/ChatBox/ChatBar.qml:73
-#, fuzzy, kde-format
-#| msgid "Send invitation"
+#, kde-format
 msgid "Send a Location"
-msgstr "Enviar um convite"
+msgstr "Enviar a Localização"
 
 #: src/qml/Component/ChatBox/ChatBar.qml:86
 #, kde-format
@@ -1167,16 +1166,14 @@ msgid "NeoChat is offline. Please check your network connection."
 msgstr "O NeoChat está desligado. Verifique por favor a sua ligação à rede."
 
 #: src/qml/Component/ChatBox/LocationChooser.qml:20
-#, fuzzy, kde-format
-#| msgid "Choose local file"
+#, kde-format
 msgid "Choose a Location"
-msgstr "Escolher um ficheiro local"
+msgstr "Escolher uma Localização"
 
 #: src/qml/Component/ChatBox/LocationChooser.qml:25
-#, fuzzy, kde-format
-#| msgid "Send typing notifications"
+#, kde-format
 msgid "Send this location"
-msgstr "Enviar as notificações de escrita"
+msgstr "Enviar esta localização"
 
 #: src/qml/Component/ChatBox/QuickFormatBar.qml:23
 #, kde-format
@@ -3896,6 +3893,3 @@ msgstr "Mostrar"
 #, kde-format
 msgid "Quit"
 msgstr "Sair"
-
-#~ msgid " (edited)"
-#~ msgstr " (editado)"
