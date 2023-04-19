@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-18 00:47+0000\n"
-"PO-Revision-Date: 2023-02-23 20:06+0100\n"
+"POT-Creation-Date: 2023-04-19 00:50+0000\n"
+"PO-Revision-Date: 2023-04-19 00:17+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: src/controller.cpp:198
 #, kde-format
@@ -76,24 +76,24 @@ msgstr ""
 msgid "Unable to read access token"
 msgstr "Ez da sartzeko tokena irakurtzeko gai"
 
-#: src/controller.cpp:616
+#: src/controller.cpp:617
 #, kde-format
 msgid "File too large to download."
 msgstr "Fitxategia zama-jaisteko handiegia da."
 
-#: src/controller.cpp:616
+#: src/controller.cpp:617
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 "Jar zaitez zure matrix zerbitzariaren administratzailearekin harremanean "
 "euskarria lortzeko."
 
-#: src/controller.cpp:648
+#: src/controller.cpp:655
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "Gela sortzea huts egin du: «%1»"
 
-#: src/controller.cpp:669
+#: src/controller.cpp:676
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Batzen saiatzen ari zaren gelaren IDa ez da baliozkoa"
@@ -670,19 +670,14 @@ msgid "[REDACTED: %1]"
 msgstr "[ERREDAKZIOAK LANA DU: %1]"
 
 #: src/models/messageeventmodel.cpp:857
-#, fuzzy, kde-format
-#| msgctxt "n users"
-#| msgid " %1 user "
-#| msgid_plural " %1 users "
+#, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
-msgstr[0] "Erabiltzaile %1"
-msgstr[1] "%1 erabiltzaile"
+msgstr[0] "Erabiltzaile 1:"
+msgstr[1] "%1 erabiltzaile:"
 
 #: src/models/messageeventmodel.cpp:864
-#, fuzzy, kde-format
-#| msgctxt "[action 1], [action 2 and/or action 3]"
-#| msgid ", "
+#, kde-format
 msgctxt "list separator"
 msgid ", "
 msgstr ", "
@@ -1053,7 +1048,7 @@ msgstr "Txosten bidalketa arrakastatsua."
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
-msgstr ""
+msgstr "Lat: %1, Lon: %2"
 
 #: src/notificationsmanager.cpp:65
 #, kde-format
@@ -1126,10 +1121,9 @@ msgid "Add an Emoji"
 msgstr "Gehitu Emoji bat"
 
 #: src/qml/Component/ChatBox/ChatBar.qml:73
-#, fuzzy, kde-format
-#| msgid "Send invitation"
+#, kde-format
 msgid "Send a Location"
-msgstr "Bidali gonbita"
+msgstr "Bidali kokaleku bat"
 
 #: src/qml/Component/ChatBox/ChatBar.qml:86
 #, kde-format
@@ -1172,46 +1166,44 @@ msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat lerroz kanpo dago. Mesedez, berrikusi zure sare-konexioa."
 
 #: src/qml/Component/ChatBox/LocationChooser.qml:20
-#, fuzzy, kde-format
-#| msgid "Choose local file"
+#, kde-format
 msgid "Choose a Location"
-msgstr "Hautatu tokiko fitxategia"
+msgstr "Hautatu kokaleku bat"
 
 #: src/qml/Component/ChatBox/LocationChooser.qml:25
-#, fuzzy, kde-format
-#| msgid "Send typing notifications"
+#, kde-format
 msgid "Send this location"
-msgstr "Bidali tekleatze-jakinarazpenak"
+msgstr "Bidali kokaleku hori"
 
 #: src/qml/Component/ChatBox/QuickFormatBar.qml:23
 #, kde-format
 msgid "Bold"
-msgstr ""
+msgstr "Lodia"
 
 #: src/qml/Component/ChatBox/QuickFormatBar.qml:42
 #, kde-format
 msgid "Italic"
-msgstr ""
+msgstr "Etzana"
 
 #: src/qml/Component/ChatBox/QuickFormatBar.qml:61
 #, kde-format
 msgid "Strikethrough"
-msgstr ""
+msgstr "Marratua"
 
 #: src/qml/Component/ChatBox/QuickFormatBar.qml:80
 #, kde-format
 msgid "Code block"
-msgstr ""
+msgstr "Kode-blokea"
 
 #: src/qml/Component/ChatBox/QuickFormatBar.qml:99
 #, kde-format
 msgid "Quote"
-msgstr ""
+msgstr "Aipua"
 
 #: src/qml/Component/ChatBox/QuickFormatBar.qml:118
 #, kde-format
 msgid "Insert link"
-msgstr ""
+msgstr "Txertatu esteka"
 
 #: src/qml/Component/ChatBox/ReplyPane.qml:32
 #, kde-format
@@ -1785,23 +1777,21 @@ msgstr "Erabiltzailearen ahalmen maila editatzea"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:37
 #: src/qml/RoomSettings/Permissions.qml:74
-#, fuzzy, kde-format
-#| msgid "Member"
+#, kde-format
 msgid "Member (0)"
-msgstr "Partaidea"
+msgstr "Partaidea (0)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:38
 #: src/qml/RoomSettings/Permissions.qml:75
 #, kde-format
 msgid "Moderator (50)"
-msgstr ""
+msgstr "Moderatzailea (50)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:39
 #: src/qml/RoomSettings/Permissions.qml:76
-#, fuzzy, kde-format
-#| msgid "Admin"
+#, kde-format
 msgid "Admin (100)"
-msgstr "Administratzailea"
+msgstr "Administratzailea (100)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:347
 #: src/qml/Settings/DevicesPage.qml:186
@@ -1852,10 +1842,9 @@ msgid "Unban this user"
 msgstr "Erabiltzailearen debekua altxatzea"
 
 #: src/qml/Dialog/UserDetailDialog.qml:145
-#, fuzzy, kde-format
-#| msgid "Edit user power level"
+#, kde-format
 msgid "Set user power level"
-msgstr "Erabiltzailearen ahalmen maila editatzea"
+msgstr "Ezarri erabiltzailearen ahalmen maila"
 
 #: src/qml/Dialog/UserDetailDialog.qml:169
 #, kde-format
@@ -2400,10 +2389,9 @@ msgid "Account editor"
 msgstr "Kontu-editorea"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:27
-#, fuzzy, kde-format
-#| msgid "Room notifications setting"
+#, kde-format
 msgid "Notification settings"
-msgstr "Gelako jakinarazpenen ezarpena"
+msgstr "Jakinarazpen-ezarpenak"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:32 src/qml/Settings/DevicesPage.qml:14
 #: src/qml/Settings/DevicesPage.qml:26 src/qml/Settings/SettingsPage.qml:56
@@ -2518,10 +2506,9 @@ msgstr "Esploratu gelak"
 
 #: src/qml/Page/RoomList/ExploreComponent.qml:58
 #: src/qml/Page/RoomList/ExploreComponent.qml:109
-#, fuzzy, kde-format
-#| msgid "Rooms and private chats"
+#, kde-format
 msgid "Create rooms and chats"
-msgstr "Gelak eta berriketa pribatuak"
+msgstr "Gelak eta berriketak sortzea"
 
 #: src/qml/Page/RoomList/Page.qml:147
 #, kde-format
@@ -2761,17 +2748,14 @@ msgid "Invite user to room"
 msgstr "Gonbidatu erabiltzaile bat gelara"
 
 #: src/qml/Panel/RoomDrawer.qml:265
-#, fuzzy, kde-format
-#| msgid "%1 Member"
-#| msgid_plural "%1 Members"
+#, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "Partaide %1"
 msgstr[1] "%1 partaide"
 
 #: src/qml/Panel/RoomDrawer.qml:265
-#, fuzzy, kde-format
-#| msgid "No Member Count"
+#, kde-format
 msgid "No member count"
 msgstr "Ez dago partaide kopururik"
 
@@ -2819,11 +2803,9 @@ msgid "Room ID"
 msgstr "Gelaren ID"
 
 #: src/qml/RoomSettings/General.qml:130
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Address to Clipboard"
+#, kde-format
 msgid "Copy room ID to clipboard"
-msgstr "Kopiatu helbidea arbelera"
+msgstr "Kopiatu gelaren IDa arbelera"
 
 #: src/qml/RoomSettings/General.qml:144
 #, kde-format
@@ -2866,35 +2848,29 @@ msgid "Add new alias"
 msgstr "Gehitu ezizen berria"
 
 #: src/qml/RoomSettings/General.qml:271
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "URL Previews"
-msgstr "URLaren aurreikuspegia zamatzen"
+msgstr "URL aurreikuspegiak"
 
 #: src/qml/RoomSettings/General.qml:274
 #, kde-format
 msgid "Enable URL previews by default for room members"
-msgstr ""
+msgstr "Gaitu URL aurreikuspegiak, era lehenetsian, gelako partaideentzat"
 
 #: src/qml/RoomSettings/General.qml:282
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "Enable URL previews"
-msgstr "URLaren aurreikuspegia zamatzen"
+msgstr "Gaitu URL aurreikuspegiak"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are enabled by default in this room"
-msgstr "%1 dagoeneko gela honetan dago."
+msgstr "URL aurreikuspegiak gaituta daude gela honetan era lehenetsian"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are disabled by default in this room"
-msgstr "%1 dagoeneko gela honetan dago."
+msgstr "URL aurreikuspegiak ezgaituta daude gela honetan era lehenetsian"
 
 #: src/qml/RoomSettings/General.qml:297
 #, kde-format
@@ -3221,11 +3197,10 @@ msgid "About NeoChat"
 msgstr "Neochat-i buruz"
 
 #: src/qml/Settings/AboutKDE.qml:7
-#, fuzzy, kde-format
-#| msgid "About"
+#, kde-format
 msgctxt "@title:window"
 msgid "About KDE"
-msgstr "Honi buruz"
+msgstr "KDEri buruz"
 
 #: src/qml/Settings/AccountEditorPage.qml:17
 #, kde-format
@@ -3498,7 +3473,7 @@ msgstr ""
 #: src/qml/Settings/GeneralSettingsPage.qml:77
 #, kde-format
 msgid "Timeline Events"
-msgstr "Denbora-lerroko ekitaldiak"
+msgstr "Denbora-lerroko gertaerak"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:82
 #, kde-format
@@ -3506,25 +3481,24 @@ msgid "Show deleted messages"
 msgstr "Erakutsi ezabatutako mezuak"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Show avatar update events"
+#, kde-format
 msgid "Show state events"
-msgstr "Erakutsi abatara eguneratzeko gertakariak"
+msgstr "Erakutsi egoera gertaerak"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:112
 #, kde-format
 msgid "Show leave and join events"
-msgstr "Erakutsi irteera eta batze gertakariak"
+msgstr "Erakutsi irteera eta batze gertaerak"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:130
 #, kde-format
 msgid "Show name change events"
-msgstr "Erakutsi izena aldatzeko gertakariak"
+msgstr "Erakutsi izena aldatzeko gertaerak"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:148
 #, kde-format
 msgid "Show avatar update events"
-msgstr "Erakutsi abatara eguneratzeko gertakariak"
+msgstr "Erakutsi abatara eguneratzeko gertaerak"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:165
 #, kde-format
@@ -3766,10 +3740,9 @@ msgid "About NeoChat"
 msgstr "Neochat-i buruz"
 
 #: src/qml/Settings/SettingsPage.qml:68
-#, fuzzy, kde-format
-#| msgid "About"
+#, kde-format
 msgid "About KDE"
-msgstr "Honi buruz"
+msgstr "KDEri buruz"
 
 #: src/qml/Settings/SonnetConfigPage.qml:50
 #, kde-format

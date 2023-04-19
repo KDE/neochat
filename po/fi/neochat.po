@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-18 00:47+0000\n"
-"PO-Revision-Date: 2023-03-30 13:09+0300\n"
+"POT-Creation-Date: 2023-04-19 00:50+0000\n"
+"PO-Revision-Date: 2023-04-04 23:04+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -72,22 +72,22 @@ msgstr "Asenna avainrengas, esim. Linuxissa KWallet tai Gnomen avainrengas"
 msgid "Unable to read access token"
 msgstr "Saantimerkkiä ei voida lukea"
 
-#: src/controller.cpp:616
+#: src/controller.cpp:617
 #, kde-format
 msgid "File too large to download."
 msgstr "Liian iso tiedosto ladattavaksi."
 
-#: src/controller.cpp:616
+#: src/controller.cpp:617
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Tee tukipyyntö Matrix-palvelimesi ylläpitoon."
 
-#: src/controller.cpp:648
+#: src/controller.cpp:655
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "Huoneen luominen epäonnistui: ”%1”"
 
-#: src/controller.cpp:669
+#: src/controller.cpp:676
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Yrität liittyä huoneeseen, jonka tunniste ei ole kelvollinen"
@@ -1762,7 +1762,7 @@ msgstr "Valitse tiedosto"
 #: src/qml/Dialog/PowerLevelDialog.qml:14
 #, kde-format
 msgid "Edit user power level"
-msgstr ""
+msgstr "Muokkaa käyttäjän voimatasoa"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:37
 #: src/qml/RoomSettings/Permissions.qml:74
@@ -1833,7 +1833,7 @@ msgstr "Poista esto tältä käyttäjältä"
 #: src/qml/Dialog/UserDetailDialog.qml:145
 #, kde-format
 msgid "Set user power level"
-msgstr ""
+msgstr "Aseta käyttäjän voimataso"
 
 #: src/qml/Dialog/UserDetailDialog.qml:169
 #, kde-format
@@ -2908,19 +2908,17 @@ msgstr "Oletusluvat"
 #: src/qml/RoomSettings/Permissions.qml:223
 #, kde-format
 msgid "Default user power level"
-msgstr ""
+msgstr "Käyttäjän oletusvoimataso"
 
 #: src/qml/RoomSettings/Permissions.qml:224
 #, kde-format
 msgid "This is power level for all new users when joining the room"
-msgstr ""
+msgstr "Tämä on kaikkien huoneeseen liittyvien uusien käyttäjien voimataso"
 
 #: src/qml/RoomSettings/Permissions.qml:232
-#, fuzzy, kde-format
-#| msgctxt "'power level' means permission level"
-#| msgid "changed the power levels for this room"
+#, kde-format
 msgid "Default power level to set the room state"
-msgstr "muutti tämän huoneen käyttöoikeustasoja"
+msgstr "Huoneen tilan asettamisen oletusvoimataso"
 
 #: src/qml/RoomSettings/Permissions.qml:233
 #, kde-format
@@ -2931,7 +2929,7 @@ msgstr ""
 #: src/qml/RoomSettings/Permissions.qml:241
 #, kde-format
 msgid "Default power level to send messages"
-msgstr ""
+msgstr "Viestien lähettämisen oletusvoimataso"
 
 #: src/qml/RoomSettings/Permissions.qml:242
 #, kde-format
@@ -3016,15 +3014,14 @@ msgid "Upgrade the room"
 msgstr "Päivitä huone"
 
 #: src/qml/RoomSettings/Permissions.qml:385
-#, fuzzy, kde-format
-#| msgid "changed the server access control lists for this room"
+#, kde-format
 msgid "Set the room server access control list (ACL)"
-msgstr "muutti tämän huoneen palvelimen ACL-luetteloita"
+msgstr "Aseta huoneen palvelimen ACL"
 
 #: src/qml/RoomSettings/Permissions.qml:395
 #, kde-format
 msgid "Set the children of this space"
-msgstr ""
+msgstr "Aseta tämän tilan perilliset"
 
 #: src/qml/RoomSettings/Permissions.qml:404
 #, kde-format
@@ -3555,12 +3552,12 @@ msgstr "Huoneilmoitukset"
 #: src/qml/Settings/GlobalNotificationsPage.qml:43
 #, kde-format
 msgid "Messages in one-to-one chats"
-msgstr ""
+msgstr "Kahdenkeskisten keskustelujen viestit"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:57
 #, kde-format
 msgid "Encrypted messages in one-to-one chats"
-msgstr ""
+msgstr "Kahdenkeskisten keskustelujen salatut viestit"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:73
 #, kde-format
