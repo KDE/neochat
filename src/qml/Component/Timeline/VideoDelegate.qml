@@ -8,6 +8,7 @@ import QtMultimedia 5.15
 import Qt.labs.platform 1.1 as Platform
 
 import org.kde.kirigami 2.13 as Kirigami
+import org.kde.kirigamiaddons.labs.components 1.0 as Components
 
 import org.kde.neochat 1.0
 
@@ -309,6 +310,31 @@ TimelineContainer {
                             shadow.size: 8
                         }
                     }
+                }
+                QQC2.ToolButton {
+                    id: maximizeButton
+                    display: QQC2.AbstractButton.IconOnly
+
+                    action: Kirigami.Action {
+                        text: i18n("Maximize")
+                        icon.name: "view-fullscreen"
+                        onTriggered: {
+                            videoDelegate.ListView.view.interactive = false
+                            vid.pause()
+                            var popup = maximizeVideoComponent.createObject(QQC2.ApplicationWindow.overlay, {
+                                modelData: model,
+                            })
+                            popup.closed.connect(() => {
+                                videoDelegate.ListView.view.interactive = true
+                                popup.destroy()
+                            })
+                            popup.open()
+                        }
+                    }
+                }
+                Component {
+                    id: maximizeVideoComponent
+                    NeochatMaximizeComponent {}
                 }
             }
             background: Kirigami.ShadowedRectangle {

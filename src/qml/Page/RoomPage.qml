@@ -434,12 +434,6 @@ Kirigami.ScrollablePage {
         }
 
         Component {
-            id: fullScreenImage
-
-            FullScreenImage {}
-        }
-
-        Component {
             id: userDetailDialog
 
             UserDetailDialog {}

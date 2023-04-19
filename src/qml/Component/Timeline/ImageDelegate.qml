@@ -4,9 +4,10 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
-import Qt.labs.platform 1.1
+import QtQml.Models 2.15
 
 import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigamiaddons.labs.components 1.0 as Components
 
 import org.kde.neochat 1.0
 
@@ -115,37 +116,27 @@ TimelineContainer {
             }
         }
 
-        Component {
-            id: fileDialog
-
-            FileDialog {
-                fileMode: FileDialog.SaveFile
-                folder: StandardPaths.writableLocation(StandardPaths.DownloadLocation)
-                onAccepted: {
-                    currentRoom.downloadFile(eventId, file)
-                }
-            }
-        }
-
         TapHandler {
             acceptedButtons: Qt.LeftButton
             onTapped: {
                 img.QQC2.ToolTip.hide()
                 img.paused = true
-                fullScreenImage.open()
+                imageDelegate.ListView.view.interactive = false
+                var popup = maximizeImageComponent.createObject(QQC2.ApplicationWindow.overlay, {
+                    modelData: model,
+                })
+                popup.closed.connect(() => {
+                    imageDelegate.ListView.view.interactive = true
+                    img.paused = false
+                    popup.destroy()
+                })
+                popup.open()
             }
         }
 
-        FullScreenImage {
-            id: fullScreenImage
-            filename: eventId
-            source: mediaUrl
-            blurhash: model.content.info["xyz.amorgan.blurhash"]
-            imageWidth: content.info.w
-            imageHeight: content.info.h
-            modelData: model
-
-            onClosed: img.paused = false
+        Component {
+            id: maximizeImageComponent
+            NeochatMaximizeComponent {}
         }
 
         function downloadAndOpen() {
