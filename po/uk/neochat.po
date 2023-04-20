@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-19 00:50+0000\n"
+"POT-Creation-Date: 2023-04-20 00:48+0000\n"
 "PO-Revision-Date: 2023-04-16 08:58+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -1071,7 +1071,7 @@ msgstr "Відкрити NeoChat у цій кімнаті"
 #: src/notificationsmanager.cpp:88
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:558
+#: src/qml/Page/RoomPage.qml:552
 #, kde-format
 msgid "Reply"
 msgstr "Відповісти"
@@ -1108,7 +1108,7 @@ msgstr "Долучення:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:547
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:541
 #, kde-format
 msgid "Edit"
 msgstr "Змінити"
@@ -1225,36 +1225,6 @@ msgstr "Відповідаємо:"
 msgid "No emojis"
 msgstr "Без емодзі"
 
-#: src/qml/Component/FullScreenImage.qml:82
-#, kde-format
-msgid "Zoom in"
-msgstr "Збільшити"
-
-#: src/qml/Component/FullScreenImage.qml:101
-#, kde-format
-msgid "Zoom out"
-msgstr "Зменшити"
-
-#: src/qml/Component/FullScreenImage.qml:120
-#, kde-format
-msgid "Rotate left"
-msgstr "Обернути ліворуч"
-
-#: src/qml/Component/FullScreenImage.qml:134
-#, kde-format
-msgid "Rotate right"
-msgstr "Обернути праворуч"
-
-#: src/qml/Component/FullScreenImage.qml:148
-#, kde-format
-msgid "Save as"
-msgstr "Зберегти як"
-
-#: src/qml/Component/FullScreenImage.qml:166
-#, kde-format
-msgid "Close"
-msgstr "Закрити"
-
 #: src/qml/Component/Login/Homeserver.qml:18
 #, kde-format
 msgctxt "@title"
@@ -1305,6 +1275,7 @@ msgid "Matrix ID:"
 msgstr "Ідентифікатор Matrix:"
 
 #: src/qml/Component/Login/Login.qml:52 src/qml/Component/Login/Sso.qml:45
+#: src/qml/Page/LoadingPage.qml:9
 #, kde-format
 msgid "Loading…"
 msgstr "Завантаження…"
@@ -1496,16 +1467,21 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Востаннє прочитано: %1"
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:170
+#: src/qml/Component/Timeline/VideoDelegate.qml:171
 #, kde-format
 msgid "Video"
 msgstr "Відео"
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:234
+#: src/qml/Component/Timeline/VideoDelegate.qml:235
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
 msgstr "Гучність"
+
+#: src/qml/Component/Timeline/VideoDelegate.qml:319
+#, kde-format
+msgid "Maximize"
+msgstr ""
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:36
@@ -2644,7 +2620,7 @@ msgstr "Перейти до останнього повідомлення"
 msgid "Drag items here to share them"
 msgstr "Перетягніть пункти сюди, щоб оприлюднити їх"
 
-#: src/qml/Page/RoomPage.qml:452
+#: src/qml/Page/RoomPage.qml:446
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2654,12 +2630,12 @@ msgstr[1] "%2 вводять текст…"
 msgstr[2] "%2 вводять текст…"
 msgstr[3] "%2 вводить текст…"
 
-#: src/qml/Page/RoomPage.qml:523
+#: src/qml/Page/RoomPage.qml:517
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "Це повідомлення було надіслано із перевіреного пристрою"
 
-#: src/qml/Page/RoomPage.qml:529
+#: src/qml/Page/RoomPage.qml:523
 #, kde-format
 msgid "React"
 msgstr "Реагувати"
@@ -3917,6 +3893,24 @@ msgstr "Показати"
 #, kde-format
 msgid "Quit"
 msgstr "Вийти"
+
+#~ msgid "Zoom in"
+#~ msgstr "Збільшити"
+
+#~ msgid "Zoom out"
+#~ msgstr "Зменшити"
+
+#~ msgid "Rotate left"
+#~ msgstr "Обернути ліворуч"
+
+#~ msgid "Rotate right"
+#~ msgstr "Обернути праворуч"
+
+#~ msgid "Save as"
+#~ msgstr "Зберегти як"
+
+#~ msgid "Close"
+#~ msgstr "Закрити"
 
 #~ msgid " (edited)"
 #~ msgstr " (змінено)"

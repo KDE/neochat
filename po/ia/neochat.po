@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-19 00:50+0000\n"
-"PO-Revision-Date: 2023-04-14 23:16+0200\n"
+"POT-Creation-Date: 2023-04-20 00:48+0000\n"
+"PO-Revision-Date: 2023-04-19 21:56+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -1058,7 +1058,7 @@ msgstr "Aperi NeoChat in iste sala"
 #: src/notificationsmanager.cpp:88
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:558
+#: src/qml/Page/RoomPage.qml:552
 #, kde-format
 msgid "Reply"
 msgstr "Responde"
@@ -1095,7 +1095,7 @@ msgstr "Attachamento:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:547
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:541
 #, kde-format
 msgid "Edit"
 msgstr "Modifica"
@@ -1116,10 +1116,9 @@ msgid "Add an Emoji"
 msgstr "Adde un Emoji"
 
 #: src/qml/Component/ChatBox/ChatBar.qml:73
-#, fuzzy, kde-format
-#| msgid "Send invitation"
+#, kde-format
 msgid "Send a Location"
-msgstr "Invia invitation"
+msgstr "Invia un location"
 
 #: src/qml/Component/ChatBox/ChatBar.qml:86
 #, kde-format
@@ -1160,16 +1159,14 @@ msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat es foras de linea. Per vafor tu verifica tu connexion de rete."
 
 #: src/qml/Component/ChatBox/LocationChooser.qml:20
-#, fuzzy, kde-format
-#| msgid "Choose local file"
+#, kde-format
 msgid "Choose a Location"
-msgstr "Selige file local"
+msgstr "Selige un Location"
 
 #: src/qml/Component/ChatBox/LocationChooser.qml:25
-#, fuzzy, kde-format
-#| msgid "Send typing notifications"
+#, kde-format
 msgid "Send this location"
-msgstr "Invia notificationes de typar"
+msgstr "Invia iste location"
 
 #: src/qml/Component/ChatBox/QuickFormatBar.qml:23
 #, kde-format
@@ -1210,36 +1207,6 @@ msgstr "Respondente a:"
 #, kde-format
 msgid "No emojis"
 msgstr "Nulle Emojis"
-
-#: src/qml/Component/FullScreenImage.qml:82
-#, kde-format
-msgid "Zoom in"
-msgstr "Zoom in (aggrandi)"
-
-#: src/qml/Component/FullScreenImage.qml:101
-#, kde-format
-msgid "Zoom out"
-msgstr "Zoom out (diminue)"
-
-#: src/qml/Component/FullScreenImage.qml:120
-#, kde-format
-msgid "Rotate left"
-msgstr "Rota a sinistra"
-
-#: src/qml/Component/FullScreenImage.qml:134
-#, kde-format
-msgid "Rotate right"
-msgstr "Rota a dextera"
-
-#: src/qml/Component/FullScreenImage.qml:148
-#, kde-format
-msgid "Save as"
-msgstr "Salveguarda como"
-
-#: src/qml/Component/FullScreenImage.qml:166
-#, kde-format
-msgid "Close"
-msgstr "Claude"
 
 #: src/qml/Component/Login/Homeserver.qml:18
 #, kde-format
@@ -1291,6 +1258,7 @@ msgid "Matrix ID:"
 msgstr "ID de Matrix:"
 
 #: src/qml/Component/Login/Login.qml:52 src/qml/Component/Login/Sso.qml:45
+#: src/qml/Page/LoadingPage.qml:9
 #, kde-format
 msgid "Loading…"
 msgstr "Cargante..."
@@ -1476,16 +1444,21 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Ultime legite: %1"
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:170
+#: src/qml/Component/Timeline/VideoDelegate.qml:171
 #, kde-format
 msgid "Video"
 msgstr "Video"
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:234
+#: src/qml/Component/Timeline/VideoDelegate.qml:235
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
 msgstr "Volumine"
+
+#: src/qml/Component/Timeline/VideoDelegate.qml:319
+#, kde-format
+msgid "Maximize"
+msgstr ""
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:36
@@ -2536,7 +2509,7 @@ msgstr "Lassa spatio"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show All Rooms"
-msgstr ""
+msgstr "Monstra omne Salas"
 
 #: src/qml/Page/RoomList/UserInfo.qml:57 src/qml/Settings/AccountsPage.qml:83
 #, kde-format
@@ -2599,7 +2572,7 @@ msgstr "Salta al ultime message"
 msgid "Drag items here to share them"
 msgstr "Trahe elementos hic per compartir los"
 
-#: src/qml/Page/RoomPage.qml:452
+#: src/qml/Page/RoomPage.qml:446
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2607,12 +2580,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 es typante"
 msgstr[1] "%2 es typante"
 
-#: src/qml/Page/RoomPage.qml:523
+#: src/qml/Page/RoomPage.qml:517
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr ""
 
-#: src/qml/Page/RoomPage.qml:529
+#: src/qml/Page/RoomPage.qml:523
 #, kde-format
 msgid "React"
 msgstr "Reage"
@@ -2822,7 +2795,7 @@ msgstr "Adde nove alias"
 #: src/qml/RoomSettings/General.qml:271
 #, kde-format
 msgid "URL Previews"
-msgstr ""
+msgstr "Vistas preliminar de URL"
 
 #: src/qml/RoomSettings/General.qml:274
 #, kde-format
@@ -3403,7 +3376,7 @@ msgstr "Adde Emoji..."
 #: src/qml/Settings/Emoticons.qml:116
 #, kde-format
 msgid "Images (*.png *.gif *.webp)"
-msgstr ""
+msgstr "Imagines (*.png *.gif *.webp)"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:15
 #: src/qml/Settings/NetworkProxyPage.qml:14
@@ -3435,7 +3408,7 @@ msgstr ""
 #: src/qml/Settings/GeneralSettingsPage.qml:77
 #, kde-format
 msgid "Timeline Events"
-msgstr ""
+msgstr "Eventos de chronologia"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:82
 #, kde-format
@@ -3845,6 +3818,24 @@ msgstr "Monstra "
 #, kde-format
 msgid "Quit"
 msgstr "Quita"
+
+#~ msgid "Zoom in"
+#~ msgstr "Zoom in (aggrandi)"
+
+#~ msgid "Zoom out"
+#~ msgstr "Zoom out (diminue)"
+
+#~ msgid "Rotate left"
+#~ msgstr "Rota a sinistra"
+
+#~ msgid "Rotate right"
+#~ msgstr "Rota a dextera"
+
+#~ msgid "Save as"
+#~ msgstr "Salveguarda como"
+
+#~ msgid "Close"
+#~ msgstr "Claude"
 
 #~ msgid " (edited)"
 #~ msgstr "(edited)"

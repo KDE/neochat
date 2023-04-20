@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-19 00:50+0000\n"
+"POT-Creation-Date: 2023-04-20 00:48+0000\n"
 "PO-Revision-Date: 2023-04-16 10:49+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1063,7 +1063,7 @@ msgstr "Obri NeoChat en esta sala"
 #: src/notificationsmanager.cpp:88
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:558
+#: src/qml/Page/RoomPage.qml:552
 #, kde-format
 msgid "Reply"
 msgstr "Respon"
@@ -1100,7 +1100,7 @@ msgstr "Adjunt:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:547
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:541
 #, kde-format
 msgid "Edit"
 msgstr "Edita"
@@ -1217,36 +1217,6 @@ msgstr "En resposta a:"
 msgid "No emojis"
 msgstr "Sense emojis"
 
-#: src/qml/Component/FullScreenImage.qml:82
-#, kde-format
-msgid "Zoom in"
-msgstr "Amplia"
-
-#: src/qml/Component/FullScreenImage.qml:101
-#, kde-format
-msgid "Zoom out"
-msgstr "Reduïx"
-
-#: src/qml/Component/FullScreenImage.qml:120
-#, kde-format
-msgid "Rotate left"
-msgstr "Gira a l'esquerra"
-
-#: src/qml/Component/FullScreenImage.qml:134
-#, kde-format
-msgid "Rotate right"
-msgstr "Gira a la dreta"
-
-#: src/qml/Component/FullScreenImage.qml:148
-#, kde-format
-msgid "Save as"
-msgstr "Anomena i guarda"
-
-#: src/qml/Component/FullScreenImage.qml:166
-#, kde-format
-msgid "Close"
-msgstr "Tanca"
-
 #: src/qml/Component/Login/Homeserver.qml:18
 #, kde-format
 msgctxt "@title"
@@ -1297,6 +1267,7 @@ msgid "Matrix ID:"
 msgstr "ID de Matrix:"
 
 #: src/qml/Component/Login/Login.qml:52 src/qml/Component/Login/Sso.qml:45
+#: src/qml/Page/LoadingPage.qml:9
 #, kde-format
 msgid "Loading…"
 msgstr "S'està carregant…"
@@ -1482,16 +1453,21 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Última lectura: %1"
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:170
+#: src/qml/Component/Timeline/VideoDelegate.qml:171
 #, kde-format
 msgid "Video"
 msgstr "Vídeo"
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:234
+#: src/qml/Component/Timeline/VideoDelegate.qml:235
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
 msgstr "Volum"
+
+#: src/qml/Component/Timeline/VideoDelegate.qml:319
+#, kde-format
+msgid "Maximize"
+msgstr ""
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:36
@@ -2636,7 +2612,7 @@ msgstr "Ves al últim missatge"
 msgid "Drag items here to share them"
 msgstr "Arrossegueu ací els elements per a compartir"
 
-#: src/qml/Page/RoomPage.qml:452
+#: src/qml/Page/RoomPage.qml:446
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2644,12 +2620,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 està escrivint"
 msgstr[1] "%2 estan escrivint"
 
-#: src/qml/Page/RoomPage.qml:523
+#: src/qml/Page/RoomPage.qml:517
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "El missatge s'ha enviat des d'un dispositiu verificat"
 
-#: src/qml/Page/RoomPage.qml:529
+#: src/qml/Page/RoomPage.qml:523
 #, kde-format
 msgid "React"
 msgstr "Reacciona"
@@ -3908,3 +3884,21 @@ msgstr "Mostra"
 #, kde-format
 msgid "Quit"
 msgstr "Ix"
+
+#~ msgid "Zoom in"
+#~ msgstr "Amplia"
+
+#~ msgid "Zoom out"
+#~ msgstr "Reduïx"
+
+#~ msgid "Rotate left"
+#~ msgstr "Gira a l'esquerra"
+
+#~ msgid "Rotate right"
+#~ msgstr "Gira a la dreta"
+
+#~ msgid "Save as"
+#~ msgstr "Anomena i guarda"
+
+#~ msgid "Close"
+#~ msgstr "Tanca"

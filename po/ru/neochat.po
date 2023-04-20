@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-19 00:50+0000\n"
+"POT-Creation-Date: 2023-04-20 00:48+0000\n"
 "PO-Revision-Date: 2022-12-25 23:09+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -1103,7 +1103,7 @@ msgstr "Открыть эту комнату в NeoChat"
 #: src/notificationsmanager.cpp:88
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:558
+#: src/qml/Page/RoomPage.qml:552
 #, kde-format
 msgid "Reply"
 msgstr "Ответить"
@@ -1140,7 +1140,7 @@ msgstr "Вложение:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:547
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:541
 #, kde-format
 msgid "Edit"
 msgstr "Изменить"
@@ -1259,36 +1259,6 @@ msgstr "Вы отвечаете на сообщение %1:"
 msgid "No emojis"
 msgstr "Не найдено ни одного эмодзи"
 
-#: src/qml/Component/FullScreenImage.qml:82
-#, kde-format
-msgid "Zoom in"
-msgstr "Увеличить масштаб"
-
-#: src/qml/Component/FullScreenImage.qml:101
-#, kde-format
-msgid "Zoom out"
-msgstr "Уменьшить масштаб"
-
-#: src/qml/Component/FullScreenImage.qml:120
-#, kde-format
-msgid "Rotate left"
-msgstr "Повернуть влево"
-
-#: src/qml/Component/FullScreenImage.qml:134
-#, kde-format
-msgid "Rotate right"
-msgstr "Повернуть вправо"
-
-#: src/qml/Component/FullScreenImage.qml:148
-#, kde-format
-msgid "Save as"
-msgstr "Сохранить как"
-
-#: src/qml/Component/FullScreenImage.qml:166
-#, kde-format
-msgid "Close"
-msgstr "Закрыть"
-
 #: src/qml/Component/Login/Homeserver.qml:18
 #, kde-format
 msgctxt "@title"
@@ -1339,6 +1309,7 @@ msgid "Matrix ID:"
 msgstr "Matrix ID:"
 
 #: src/qml/Component/Login/Login.qml:52 src/qml/Component/Login/Sso.qml:45
+#: src/qml/Page/LoadingPage.qml:9
 #, kde-format
 msgid "Loading…"
 msgstr "Загрузка..."
@@ -1532,15 +1503,20 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Последнее сообщение прочитано: %1"
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:170
+#: src/qml/Component/Timeline/VideoDelegate.qml:171
 #, kde-format
 msgid "Video"
 msgstr "Видео"
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:234
+#: src/qml/Component/Timeline/VideoDelegate.qml:235
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
+msgstr ""
+
+#: src/qml/Component/Timeline/VideoDelegate.qml:319
+#, kde-format
+msgid "Maximize"
 msgstr ""
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
@@ -2672,7 +2648,7 @@ msgstr "Перейти к последнему сообщению"
 msgid "Drag items here to share them"
 msgstr "Чтобы опубликовать файла, перетащите их сюда"
 
-#: src/qml/Page/RoomPage.qml:452
+#: src/qml/Page/RoomPage.qml:446
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2682,12 +2658,12 @@ msgstr[1] "%2 набирают сообщение"
 msgstr[2] "%2 набирают сообщение"
 msgstr[3] "%2 набирает сообщение"
 
-#: src/qml/Page/RoomPage.qml:523
+#: src/qml/Page/RoomPage.qml:517
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "Это сообщение было отправлено с проверенного устройства"
 
-#: src/qml/Page/RoomPage.qml:529
+#: src/qml/Page/RoomPage.qml:523
 #, kde-format
 msgid "React"
 msgstr "Реакция"
@@ -3975,6 +3951,24 @@ msgstr "Показать"
 #, kde-format
 msgid "Quit"
 msgstr "Выход"
+
+#~ msgid "Zoom in"
+#~ msgstr "Увеличить масштаб"
+
+#~ msgid "Zoom out"
+#~ msgstr "Уменьшить масштаб"
+
+#~ msgid "Rotate left"
+#~ msgstr "Повернуть влево"
+
+#~ msgid "Rotate right"
+#~ msgstr "Повернуть вправо"
+
+#~ msgid "Save as"
+#~ msgstr "Сохранить как"
+
+#~ msgid "Close"
+#~ msgstr "Закрыть"
 
 #~ msgid " (edited)"
 #~ msgstr " (изменено)"

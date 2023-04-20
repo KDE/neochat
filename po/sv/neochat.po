@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-19 00:50+0000\n"
+"POT-Creation-Date: 2023-04-20 00:48+0000\n"
 "PO-Revision-Date: 2022-09-28 16:37+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -1166,7 +1166,7 @@ msgstr "Öppna NeoChat för rummet"
 #: src/notificationsmanager.cpp:88
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:558
+#: src/qml/Page/RoomPage.qml:552
 #, kde-format
 msgid "Reply"
 msgstr "Svara"
@@ -1203,7 +1203,7 @@ msgstr "Bilaga:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:547
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:541
 #, kde-format
 msgid "Edit"
 msgstr "Redigera"
@@ -1324,42 +1324,6 @@ msgstr "Svarar till %1:"
 msgid "No emojis"
 msgstr "Egna emoji"
 
-#: src/qml/Component/FullScreenImage.qml:82
-#, fuzzy, kde-format
-#| msgid "Room Settings"
-msgid "Zoom in"
-msgstr "Rumsinställningar"
-
-#: src/qml/Component/FullScreenImage.qml:101
-#, kde-format
-msgid "Zoom out"
-msgstr ""
-
-#: src/qml/Component/FullScreenImage.qml:120
-#, fuzzy, kde-format
-#| msgctxt "@action:button Rotate an image to the left"
-#| msgid "Rotate left"
-msgid "Rotate left"
-msgstr "Rotera åt vänster"
-
-#: src/qml/Component/FullScreenImage.qml:134
-#, fuzzy, kde-format
-#| msgctxt "@action:button Rotate an image to the right"
-#| msgid "Rotate right"
-msgid "Rotate right"
-msgstr "Rotera åt höger"
-
-#: src/qml/Component/FullScreenImage.qml:148
-#, fuzzy, kde-format
-#| msgid "Save As"
-msgid "Save as"
-msgstr "Spara som"
-
-#: src/qml/Component/FullScreenImage.qml:166
-#, kde-format
-msgid "Close"
-msgstr "Stäng"
-
 #: src/qml/Component/Login/Homeserver.qml:18
 #, kde-format
 msgctxt "@title"
@@ -1410,6 +1374,7 @@ msgid "Matrix ID:"
 msgstr "Matrix-identifierare"
 
 #: src/qml/Component/Login/Login.qml:52 src/qml/Component/Login/Sso.qml:45
+#: src/qml/Page/LoadingPage.qml:9
 #, kde-format
 msgid "Loading…"
 msgstr "Läser in…"
@@ -1597,15 +1562,20 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Senast läst: %1"
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:170
+#: src/qml/Component/Timeline/VideoDelegate.qml:171
 #, kde-format
 msgid "Video"
 msgstr "Video"
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:234
+#: src/qml/Component/Timeline/VideoDelegate.qml:235
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
+msgstr ""
+
+#: src/qml/Component/Timeline/VideoDelegate.qml:319
+#, kde-format
+msgid "Maximize"
 msgstr ""
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
@@ -2777,7 +2747,7 @@ msgstr "Gå till sista meddelande"
 msgid "Drag items here to share them"
 msgstr "Dra objekt hit för att dela dem"
 
-#: src/qml/Page/RoomPage.qml:452
+#: src/qml/Page/RoomPage.qml:446
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2785,12 +2755,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 skriver"
 msgstr[1] "%2 skriver"
 
-#: src/qml/Page/RoomPage.qml:523
+#: src/qml/Page/RoomPage.qml:517
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "Meddelandet skickades från en verifierad enhet"
 
-#: src/qml/Page/RoomPage.qml:529
+#: src/qml/Page/RoomPage.qml:523
 #, kde-format
 msgid "React"
 msgstr "Reagera"
@@ -4115,6 +4085,31 @@ msgstr "Visa"
 #, kde-format
 msgid "Quit"
 msgstr "Avsluta"
+
+#, fuzzy
+#~| msgid "Room Settings"
+#~ msgid "Zoom in"
+#~ msgstr "Rumsinställningar"
+
+#, fuzzy
+#~| msgctxt "@action:button Rotate an image to the left"
+#~| msgid "Rotate left"
+#~ msgid "Rotate left"
+#~ msgstr "Rotera åt vänster"
+
+#, fuzzy
+#~| msgctxt "@action:button Rotate an image to the right"
+#~| msgid "Rotate right"
+#~ msgid "Rotate right"
+#~ msgstr "Rotera åt höger"
+
+#, fuzzy
+#~| msgid "Save As"
+#~ msgid "Save as"
+#~ msgstr "Spara som"
+
+#~ msgid "Close"
+#~ msgstr "Stäng"
 
 #~ msgid " (edited)"
 #~ msgstr " (redigerad)"
