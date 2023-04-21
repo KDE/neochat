@@ -5,6 +5,14 @@
 
 #include <QSortFilterProxyModel>
 
+/**
+ * @class SortFilterSpaceListModel
+ *
+ * This model sorts and filters the space list.
+ *
+ * The spaces are sorted by their matrix ID. The filter only shows space rooms,
+ * but filters out upgraded spaces.
+ */
 class SortFilterSpaceListModel : public QSortFilterProxyModel
 {
     Q_OBJECT
@@ -12,13 +20,18 @@ class SortFilterSpaceListModel : public QSortFilterProxyModel
 public:
     explicit SortFilterSpaceListModel(QObject *parent = nullptr);
 
-    [[nodiscard]] QString activeSpaceId() const;
-
+protected:
+    /**
+     * @brief Returns true if the value of source_left is less than source_right.
+     *
+     * @sa QSortFilterProxyModel::lessThan
+     */
     [[nodiscard]] bool lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const override;
 
-Q_SIGNALS:
-    void activeSpaceIdChanged(QString &activeSpaceId);
-
-protected:
+    /**
+     * @brief Whether a row should be shown out or not.
+     *
+     * @sa QSortFilterProxyModel::filterAcceptsRow
+     */
     [[nodiscard]] bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 };
