@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-16 00:48+0000\n"
+"POT-Creation-Date: 2023-04-20 00:48+0000\n"
 "PO-Revision-Date: 2021-12-15 11:17+0100\n"
 "Last-Translator: Øystein Steffensen-Alværvik <oysteins.omsetting@protonmail."
 "com>\n"
@@ -76,22 +76,22 @@ msgstr ""
 msgid "Unable to read access token"
 msgstr ""
 
-#: src/controller.cpp:616
+#: src/controller.cpp:617
 #, kde-format
 msgid "File too large to download."
 msgstr ""
 
-#: src/controller.cpp:616
+#: src/controller.cpp:617
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 
-#: src/controller.cpp:648
+#: src/controller.cpp:655
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "Feil ved romregistrering: «%1»"
 
-#: src/controller.cpp:669
+#: src/controller.cpp:676
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Rom-ID-en du prøver å bruka, er ikkje gyldig"
@@ -1057,35 +1057,35 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat in this room"
 msgstr "Opna NeoChat i dette rommet"
 
-#: src/notificationsmanager.cpp:85
+#: src/notificationsmanager.cpp:88
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:558
+#: src/qml/Page/RoomPage.qml:552
 #, kde-format
 msgid "Reply"
 msgstr "Svar"
 
-#: src/notificationsmanager.cpp:86
+#: src/notificationsmanager.cpp:89
 #, kde-format
 msgid "Reply..."
 msgstr "Svar …"
 
-#: src/notificationsmanager.cpp:107
+#: src/notificationsmanager.cpp:110
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr ""
 
-#: src/notificationsmanager.cpp:111
+#: src/notificationsmanager.cpp:114
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr ""
 
-#: src/notificationsmanager.cpp:117
+#: src/notificationsmanager.cpp:120
 #, kde-format
 msgid "Accept Invitation"
 msgstr ""
 
-#: src/notificationsmanager.cpp:117
+#: src/notificationsmanager.cpp:120
 #, kde-format
 msgid "Reject Invitation"
 msgstr ""
@@ -1097,7 +1097,7 @@ msgstr "Vedlegg:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:547
+#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:541
 #, kde-format
 msgid "Edit"
 msgstr "Rediger"
@@ -1210,36 +1210,6 @@ msgstr ""
 msgid "No emojis"
 msgstr ""
 
-#: src/qml/Component/FullScreenImage.qml:82
-#, kde-format
-msgid "Zoom in"
-msgstr ""
-
-#: src/qml/Component/FullScreenImage.qml:101
-#, kde-format
-msgid "Zoom out"
-msgstr ""
-
-#: src/qml/Component/FullScreenImage.qml:120
-#, kde-format
-msgid "Rotate left"
-msgstr ""
-
-#: src/qml/Component/FullScreenImage.qml:134
-#, kde-format
-msgid "Rotate right"
-msgstr ""
-
-#: src/qml/Component/FullScreenImage.qml:148
-#, kde-format
-msgid "Save as"
-msgstr ""
-
-#: src/qml/Component/FullScreenImage.qml:166
-#, kde-format
-msgid "Close"
-msgstr "Lukk"
-
 #: src/qml/Component/Login/Homeserver.qml:18
 #, kde-format
 msgctxt "@title"
@@ -1290,6 +1260,7 @@ msgid "Matrix ID:"
 msgstr "Matrix-ID:"
 
 #: src/qml/Component/Login/Login.qml:52 src/qml/Component/Login/Sso.qml:45
+#: src/qml/Page/LoadingPage.qml:9
 #, kde-format
 msgid "Loading…"
 msgstr ""
@@ -1473,15 +1444,20 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr ""
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:170
+#: src/qml/Component/Timeline/VideoDelegate.qml:171
 #, kde-format
 msgid "Video"
 msgstr "Video"
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:234
+#: src/qml/Component/Timeline/VideoDelegate.qml:235
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
+msgstr ""
+
+#: src/qml/Component/Timeline/VideoDelegate.qml:319
+#, kde-format
+msgid "Maximize"
 msgstr ""
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
@@ -2595,7 +2571,7 @@ msgstr "Gå til nyaste melding"
 msgid "Drag items here to share them"
 msgstr "Dra element her for å dela dei"
 
-#: src/qml/Page/RoomPage.qml:452
+#: src/qml/Page/RoomPage.qml:446
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2603,12 +2579,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 skriv"
 msgstr[1] "%2 skriv"
 
-#: src/qml/Page/RoomPage.qml:523
+#: src/qml/Page/RoomPage.qml:517
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr ""
 
-#: src/qml/Page/RoomPage.qml:529
+#: src/qml/Page/RoomPage.qml:523
 #, kde-format
 msgid "React"
 msgstr "Reager"
