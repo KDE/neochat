@@ -34,6 +34,7 @@ Kirigami.BasicListItem {
     bottomPadding: Kirigami.Units.largeSpacing
 
     visible: root.categoryVisible || root.filterText.length > 0 || Config.mergeRoomList
+    tooltipVisible: false
     highlighted: ListView.view.currentIndex === index
     focus: true
     icon: undefined
