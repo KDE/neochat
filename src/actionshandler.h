@@ -12,13 +12,31 @@
 class CustomEmojiModel;
 class NeoChatRoom;
 
-/// \brief Handles user interactions with NeoChat (joining room, creating room,
-/// sending message). Account management is handled by Controller.
+/**
+ * @class ActionsHandler
+ *
+ * This class handles chat messages ready for posting to a room.
+ *
+ * Everything that needs to be done to prepare the message for posting in a room
+ * including:
+ *  - File handling
+ *  - User mentions
+ *  - Quick edits
+ *  - Chat actions
+ *  - Custom emojis
+ *
+ * @note A chat action is a message starting with /, resulting in something other
+ *       than a normal message being sent (e.g. /me, /join).
+ *
+ * @sa ActionsModel, NeoChatRoom
+ */
 class ActionsHandler : public QObject
 {
     Q_OBJECT
 
-    /// \brief The room that messages will be sent to.
+    /**
+     * @brief The room that messages will be sent to.
+     */
     Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
 
 public:

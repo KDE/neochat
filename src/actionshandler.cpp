@@ -3,8 +3,6 @@
 
 #include "actionshandler.h"
 
-#include "controller.h"
-
 #include <csapi/joining.h>
 #include <events/roommemberevent.h>
 
@@ -13,13 +11,10 @@
 #include <KLocalizedString>
 #include <QStringBuilder>
 
-#include "controller.h"
 #include "models/actionsmodel.h"
 #include "models/customemojimodel.h"
 #include "neochatconfig.h"
 #include "neochatroom.h"
-#include "neochatuser.h"
-#include "roommanager.h"
 #include "texthandler.h"
 
 using namespace Quotient;
