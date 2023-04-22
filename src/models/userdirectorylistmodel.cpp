@@ -13,6 +13,11 @@ UserDirectoryListModel::UserDirectoryListModel(QObject *parent)
 {
 }
 
+Quotient::Connection *UserDirectoryListModel::connection() const
+{
+    return m_connection;
+}
+
 void UserDirectoryListModel::setConnection(Connection *conn)
 {
     if (m_connection == conn) {
@@ -42,6 +47,11 @@ void UserDirectoryListModel::setConnection(Connection *conn)
     Q_EMIT limitedChanged();
 }
 
+QString UserDirectoryListModel::keyword() const
+{
+    return m_keyword;
+}
+
 void UserDirectoryListModel::setKeyword(const QString &value)
 {
     if (m_keyword == value) {
@@ -60,6 +70,11 @@ void UserDirectoryListModel::setKeyword(const QString &value)
 
     Q_EMIT keywordChanged();
     Q_EMIT limitedChanged();
+}
+
+bool UserDirectoryListModel::limited() const
+{
+    return m_limited;
 }
 
 void UserDirectoryListModel::search(int count)
