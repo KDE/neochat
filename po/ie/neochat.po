@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-20 00:48+0000\n"
+"POT-Creation-Date: 2023-04-23 00:49+0000\n"
 "PO-Revision-Date: 2022-10-28 19:18+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -3229,7 +3229,6 @@ msgstr ""
 
 #: src/qml/RoomSettings/Security.qml:154
 #: src/qml/Settings/NetworkProxyPage.qml:127
-#: src/qml/Settings/SonnetConfigPage.qml:326
 #, kde-format
 msgid "Apply"
 msgstr "Applicar"
@@ -3814,77 +3813,92 @@ msgstr "Pri NeoChat"
 msgid "About KDE"
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:50
-#, kde-format
-msgctxt "@window:title"
+#: src/qml/Settings/SonnetConfigPage.qml:28
+#, fuzzy, kde-format
+#| msgctxt "@window:title"
+#| msgid "Spellchecking"
 msgid "Spellchecking"
 msgstr "Control de ortografie"
 
-#: src/qml/Settings/SonnetConfigPage.qml:94
-#, kde-format
-msgid "Selected default language:"
-msgstr "Selecter li predefinit lingue:"
-
-#: src/qml/Settings/SonnetConfigPage.qml:105
-#, kde-format
-msgid "Open Personal Dictionary"
-msgstr "Aperter li personal dictionarium"
-
-#: src/qml/Settings/SonnetConfigPage.qml:124
-#, kde-format
-msgid "Options:"
-msgstr "Optiones:"
-
-#: src/qml/Settings/SonnetConfigPage.qml:126
+#: src/qml/Settings/SonnetConfigPage.qml:34
 #, kde-format
 msgid "Enable automatic spell checking"
 msgstr "Automatic control de ortografia"
 
-#: src/qml/Settings/SonnetConfigPage.qml:137
+#: src/qml/Settings/SonnetConfigPage.qml:46
 #, kde-format
 msgid "Ignore uppercase words"
 msgstr "Ignorar paroles in majuscules"
 
-#: src/qml/Settings/SonnetConfigPage.qml:148
+#: src/qml/Settings/SonnetConfigPage.qml:58
 #, kde-format
 msgid "Ignore hyphenated words"
 msgstr "Unir separat paroles"
 
-#: src/qml/Settings/SonnetConfigPage.qml:160
+#: src/qml/Settings/SonnetConfigPage.qml:70
 #, kde-format
 msgid "Detect language automatically"
 msgstr "Automaticmen reconosser li lingue"
 
-#: src/qml/Settings/SonnetConfigPage.qml:172
+#: src/qml/Settings/SonnetConfigPage.qml:81
 #, kde-format
-msgid "Spell checking languages"
+msgid "Selected default language:"
+msgstr "Selecter li predefinit lingue:"
+
+#: src/qml/Settings/SonnetConfigPage.qml:82
+#, kde-format
+msgid "None"
+msgstr ""
+
+#: src/qml/Settings/SonnetConfigPage.qml:101
+#, fuzzy, kde-format
+#| msgid "Spell checking languages"
+msgid "Additional spell checking languages"
 msgstr "Lingues del control de ortografia"
 
-#: src/qml/Settings/SonnetConfigPage.qml:180
+#: src/qml/Settings/SonnetConfigPage.qml:102
 #, kde-format
 msgid ""
 "%1 will provide spell checking and suggestions for the languages listed here "
 "when autodetection is enabled."
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:226
+#: src/qml/Settings/SonnetConfigPage.qml:114
+#, kde-format
+msgid "Open Personal Dictionary"
+msgstr "Aperter li personal dictionarium"
+
+#: src/qml/Settings/SonnetConfigPage.qml:125
+#, fuzzy, kde-format
+#| msgid "Spell checking languages"
+msgctxt "@title:window"
+msgid "Spell checking languages"
+msgstr "Lingues del control de ortografia"
+
+#: src/qml/Settings/SonnetConfigPage.qml:134
+#: src/qml/Settings/SonnetConfigPage.qml:144
+#, fuzzy, kde-format
+#| msgid "Selected default language:"
+msgid "Default Language"
+msgstr "Selecter li predefinit lingue:"
+
+#: src/qml/Settings/SonnetConfigPage.qml:156
+#, kde-format
+msgid "Spell checking dictionary"
+msgstr "Dictionarium ortografic"
+
+#: src/qml/Settings/SonnetConfigPage.qml:163
 #, kde-format
 msgid "Add a new word to your personal dictionary…"
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:229
+#: src/qml/Settings/SonnetConfigPage.qml:166
 #, kde-format
 msgctxt "@action:button"
 msgid "Add word"
 msgstr "Adjunter un parol"
 
-#: src/qml/Settings/SonnetConfigPage.qml:248
-#, kde-format
-msgid "Spell checking dictionary"
-msgstr "Dictionarium ortografic"
-
-#: src/qml/Settings/SonnetConfigPage.qml:278
-#: src/qml/Settings/SonnetConfigPage.qml:309
+#: src/qml/Settings/SonnetConfigPage.qml:193
 #, kde-format
 msgid "Delete word"
 msgstr "Remover li parol"
@@ -3949,6 +3963,9 @@ msgstr "Monstrar"
 #, kde-format
 msgid "Quit"
 msgstr "Surtir"
+
+#~ msgid "Options:"
+#~ msgstr "Optiones:"
 
 #~ msgid "Zoom in"
 #~ msgstr "Agrandar"

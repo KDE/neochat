@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-20 00:48+0000\n"
+"POT-Creation-Date: 2023-04-23 00:49+0000\n"
 "PO-Revision-Date: 2023-02-15 16:40+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -3192,7 +3192,6 @@ msgstr ""
 
 #: src/qml/RoomSettings/Security.qml:154
 #: src/qml/Settings/NetworkProxyPage.qml:127
-#: src/qml/Settings/SonnetConfigPage.qml:326
 #, kde-format
 msgid "Apply"
 msgstr "Terapkan"
@@ -3753,53 +3752,50 @@ msgstr "Tentang NeoChat"
 msgid "About KDE"
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:50
-#, kde-format
-msgctxt "@window:title"
+#: src/qml/Settings/SonnetConfigPage.qml:28
+#, fuzzy, kde-format
+#| msgctxt "@window:title"
+#| msgid "Spellchecking"
 msgid "Spellchecking"
 msgstr "Pemeriksa Ejaan"
 
-#: src/qml/Settings/SonnetConfigPage.qml:94
-#, kde-format
-msgid "Selected default language:"
-msgstr "Bahasa bawaan yang dipilih:"
-
-#: src/qml/Settings/SonnetConfigPage.qml:105
-#, kde-format
-msgid "Open Personal Dictionary"
-msgstr "Buka Kamus Personal"
-
-#: src/qml/Settings/SonnetConfigPage.qml:124
-#, kde-format
-msgid "Options:"
-msgstr "Opsi:"
-
-#: src/qml/Settings/SonnetConfigPage.qml:126
+#: src/qml/Settings/SonnetConfigPage.qml:34
 #, kde-format
 msgid "Enable automatic spell checking"
 msgstr "Aktifkan pemeriksa ejaan otomatis"
 
-#: src/qml/Settings/SonnetConfigPage.qml:137
+#: src/qml/Settings/SonnetConfigPage.qml:46
 #, kde-format
 msgid "Ignore uppercase words"
 msgstr "Abaikan kata huruf besar"
 
-#: src/qml/Settings/SonnetConfigPage.qml:148
+#: src/qml/Settings/SonnetConfigPage.qml:58
 #, kde-format
 msgid "Ignore hyphenated words"
 msgstr "Abaikan kata yang ditulis dengan tanda penghubung"
 
-#: src/qml/Settings/SonnetConfigPage.qml:160
+#: src/qml/Settings/SonnetConfigPage.qml:70
 #, kde-format
 msgid "Detect language automatically"
 msgstr "Deteksi bahasa secara otomatis"
 
-#: src/qml/Settings/SonnetConfigPage.qml:172
+#: src/qml/Settings/SonnetConfigPage.qml:81
 #, kde-format
-msgid "Spell checking languages"
+msgid "Selected default language:"
+msgstr "Bahasa bawaan yang dipilih:"
+
+#: src/qml/Settings/SonnetConfigPage.qml:82
+#, kde-format
+msgid "None"
+msgstr ""
+
+#: src/qml/Settings/SonnetConfigPage.qml:101
+#, fuzzy, kde-format
+#| msgid "Spell checking languages"
+msgid "Additional spell checking languages"
 msgstr "Bahasa pemeriksa ejaan"
 
-#: src/qml/Settings/SonnetConfigPage.qml:180
+#: src/qml/Settings/SonnetConfigPage.qml:102
 #, kde-format
 msgid ""
 "%1 will provide spell checking and suggestions for the languages listed here "
@@ -3808,24 +3804,42 @@ msgstr ""
 "%1 akan menyediakan pemeriksa ejaan dan saran untuk bahasa yang didaftarkan "
 "di sini ketika pendeteksian otomatis diaktifkan."
 
-#: src/qml/Settings/SonnetConfigPage.qml:226
+#: src/qml/Settings/SonnetConfigPage.qml:114
+#, kde-format
+msgid "Open Personal Dictionary"
+msgstr "Buka Kamus Personal"
+
+#: src/qml/Settings/SonnetConfigPage.qml:125
+#, fuzzy, kde-format
+#| msgid "Spell checking languages"
+msgctxt "@title:window"
+msgid "Spell checking languages"
+msgstr "Bahasa pemeriksa ejaan"
+
+#: src/qml/Settings/SonnetConfigPage.qml:134
+#: src/qml/Settings/SonnetConfigPage.qml:144
+#, fuzzy, kde-format
+#| msgid "Selected default language:"
+msgid "Default Language"
+msgstr "Bahasa bawaan yang dipilih:"
+
+#: src/qml/Settings/SonnetConfigPage.qml:156
+#, kde-format
+msgid "Spell checking dictionary"
+msgstr "Kamus pemeriksa ejaan"
+
+#: src/qml/Settings/SonnetConfigPage.qml:163
 #, kde-format
 msgid "Add a new word to your personal dictionary…"
 msgstr "Tambahkan sebuah kata baru ke kamus personal Anda..."
 
-#: src/qml/Settings/SonnetConfigPage.qml:229
+#: src/qml/Settings/SonnetConfigPage.qml:166
 #, kde-format
 msgctxt "@action:button"
 msgid "Add word"
 msgstr "Tambahkan kata"
 
-#: src/qml/Settings/SonnetConfigPage.qml:248
-#, kde-format
-msgid "Spell checking dictionary"
-msgstr "Kamus pemeriksa ejaan"
-
-#: src/qml/Settings/SonnetConfigPage.qml:278
-#: src/qml/Settings/SonnetConfigPage.qml:309
+#: src/qml/Settings/SonnetConfigPage.qml:193
 #, kde-format
 msgid "Delete word"
 msgstr "Hapus kata"
@@ -3892,6 +3906,9 @@ msgstr "Tampilkan"
 #, kde-format
 msgid "Quit"
 msgstr "Keluar"
+
+#~ msgid "Options:"
+#~ msgstr "Opsi:"
 
 #~ msgid "Zoom in"
 #~ msgstr "Perbesar"

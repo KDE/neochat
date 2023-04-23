@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-20 00:48+0000\n"
+"POT-Creation-Date: 2023-04-23 00:49+0000\n"
 "PO-Revision-Date: 2023-04-21 07:25+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -3145,7 +3145,6 @@ msgstr ""
 
 #: src/qml/RoomSettings/Security.qml:154
 #: src/qml/Settings/NetworkProxyPage.qml:127
-#: src/qml/Settings/SonnetConfigPage.qml:326
 #, kde-format
 msgid "Apply"
 msgstr "გამოყენება"
@@ -3703,53 +3702,50 @@ msgstr "NeoChat-ს შესახებ"
 msgid "About KDE"
 msgstr "KDE-ს შესახებ"
 
-#: src/qml/Settings/SonnetConfigPage.qml:50
-#, kde-format
-msgctxt "@window:title"
+#: src/qml/Settings/SonnetConfigPage.qml:28
+#, fuzzy, kde-format
+#| msgctxt "@window:title"
+#| msgid "Spellchecking"
 msgid "Spellchecking"
 msgstr "მართლწერის შემოწმება"
 
-#: src/qml/Settings/SonnetConfigPage.qml:94
-#, kde-format
-msgid "Selected default language:"
-msgstr "აირჩიეთ ნაგულისხმები ენა:"
-
-#: src/qml/Settings/SonnetConfigPage.qml:105
-#, kde-format
-msgid "Open Personal Dictionary"
-msgstr "პირადი ლექსიკონის გახსნა"
-
-#: src/qml/Settings/SonnetConfigPage.qml:124
-#, kde-format
-msgid "Options:"
-msgstr "პარამეტრები:"
-
-#: src/qml/Settings/SonnetConfigPage.qml:126
+#: src/qml/Settings/SonnetConfigPage.qml:34
 #, kde-format
 msgid "Enable automatic spell checking"
 msgstr "მართლწერის ავტომატური შემოწმების ჩართვა"
 
-#: src/qml/Settings/SonnetConfigPage.qml:137
+#: src/qml/Settings/SonnetConfigPage.qml:46
 #, kde-format
 msgid "Ignore uppercase words"
 msgstr "ზედა რეგისტრის მქონე სიტყვების გამოტოვება"
 
-#: src/qml/Settings/SonnetConfigPage.qml:148
+#: src/qml/Settings/SonnetConfigPage.qml:58
 #, kde-format
 msgid "Ignore hyphenated words"
 msgstr "გამოტოვების მქონე სიტყვების იგნორი"
 
-#: src/qml/Settings/SonnetConfigPage.qml:160
+#: src/qml/Settings/SonnetConfigPage.qml:70
 #, kde-format
 msgid "Detect language automatically"
 msgstr "ენების ავტომატური გამოცნობა"
 
-#: src/qml/Settings/SonnetConfigPage.qml:172
+#: src/qml/Settings/SonnetConfigPage.qml:81
 #, kde-format
-msgid "Spell checking languages"
+msgid "Selected default language:"
+msgstr "აირჩიეთ ნაგულისხმები ენა:"
+
+#: src/qml/Settings/SonnetConfigPage.qml:82
+#, kde-format
+msgid "None"
+msgstr ""
+
+#: src/qml/Settings/SonnetConfigPage.qml:101
+#, fuzzy, kde-format
+#| msgid "Spell checking languages"
+msgid "Additional spell checking languages"
 msgstr "მართლწერის შემოწმების ენები"
 
-#: src/qml/Settings/SonnetConfigPage.qml:180
+#: src/qml/Settings/SonnetConfigPage.qml:102
 #, kde-format
 msgid ""
 "%1 will provide spell checking and suggestions for the languages listed here "
@@ -3758,24 +3754,42 @@ msgstr ""
 "%1 წარმოგიდგენთ მართლწერის შემოწმებისა და მინიშნებებს აქ ჩამოთვლილი "
 "ენებისთვის, როცა ავტომატური არჩევა ჩართულია."
 
-#: src/qml/Settings/SonnetConfigPage.qml:226
+#: src/qml/Settings/SonnetConfigPage.qml:114
+#, kde-format
+msgid "Open Personal Dictionary"
+msgstr "პირადი ლექსიკონის გახსნა"
+
+#: src/qml/Settings/SonnetConfigPage.qml:125
+#, fuzzy, kde-format
+#| msgid "Spell checking languages"
+msgctxt "@title:window"
+msgid "Spell checking languages"
+msgstr "მართლწერის შემოწმების ენები"
+
+#: src/qml/Settings/SonnetConfigPage.qml:134
+#: src/qml/Settings/SonnetConfigPage.qml:144
+#, fuzzy, kde-format
+#| msgid "Selected default language:"
+msgid "Default Language"
+msgstr "აირჩიეთ ნაგულისხმები ენა:"
+
+#: src/qml/Settings/SonnetConfigPage.qml:156
+#, kde-format
+msgid "Spell checking dictionary"
+msgstr "მართლწერის შემოწმების ლექსიკონი"
+
+#: src/qml/Settings/SonnetConfigPage.qml:163
 #, kde-format
 msgid "Add a new word to your personal dictionary…"
 msgstr "დაამატეთ ახალი სიტყვა თქვენს პირად ლექსიკონში…"
 
-#: src/qml/Settings/SonnetConfigPage.qml:229
+#: src/qml/Settings/SonnetConfigPage.qml:166
 #, kde-format
 msgctxt "@action:button"
 msgid "Add word"
 msgstr "სიტყვის დამატება"
 
-#: src/qml/Settings/SonnetConfigPage.qml:248
-#, kde-format
-msgid "Spell checking dictionary"
-msgstr "მართლწერის შემოწმების ლექსიკონი"
-
-#: src/qml/Settings/SonnetConfigPage.qml:278
-#: src/qml/Settings/SonnetConfigPage.qml:309
+#: src/qml/Settings/SonnetConfigPage.qml:193
 #, kde-format
 msgid "Delete word"
 msgstr "სიტყვის წაშლა"
@@ -3840,6 +3854,9 @@ msgstr "ჩვენება"
 #, kde-format
 msgid "Quit"
 msgstr "დატოვება"
+
+#~ msgid "Options:"
+#~ msgstr "პარამეტრები:"
 
 #~ msgid "Zoom in"
 #~ msgstr "გადიდება"

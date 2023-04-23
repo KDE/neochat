@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-20 00:48+0000\n"
+"POT-Creation-Date: 2023-04-23 00:49+0000\n"
 "PO-Revision-Date: 2023-04-05 10:09+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -3188,7 +3188,6 @@ msgstr ""
 
 #: src/qml/RoomSettings/Security.qml:154
 #: src/qml/Settings/NetworkProxyPage.qml:127
-#: src/qml/Settings/SonnetConfigPage.qml:326
 #, kde-format
 msgid "Apply"
 msgstr "Applica"
@@ -3750,53 +3749,50 @@ msgstr "Informazioni su Neochat"
 msgid "About KDE"
 msgstr "Informazioni su KDE"
 
-#: src/qml/Settings/SonnetConfigPage.qml:50
-#, kde-format
-msgctxt "@window:title"
+#: src/qml/Settings/SonnetConfigPage.qml:28
+#, fuzzy, kde-format
+#| msgctxt "@window:title"
+#| msgid "Spellchecking"
 msgid "Spellchecking"
 msgstr "Controllo ortografico"
 
-#: src/qml/Settings/SonnetConfigPage.qml:94
-#, kde-format
-msgid "Selected default language:"
-msgstr "Seleziona la lingua predefinita:"
-
-#: src/qml/Settings/SonnetConfigPage.qml:105
-#, kde-format
-msgid "Open Personal Dictionary"
-msgstr "Apri il dizionario personale"
-
-#: src/qml/Settings/SonnetConfigPage.qml:124
-#, kde-format
-msgid "Options:"
-msgstr "Opzioni:"
-
-#: src/qml/Settings/SonnetConfigPage.qml:126
+#: src/qml/Settings/SonnetConfigPage.qml:34
 #, kde-format
 msgid "Enable automatic spell checking"
 msgstr "Abilita il controllo ortografico automatico"
 
-#: src/qml/Settings/SonnetConfigPage.qml:137
+#: src/qml/Settings/SonnetConfigPage.qml:46
 #, kde-format
 msgid "Ignore uppercase words"
 msgstr "Salta le parole tutte maiuscole"
 
-#: src/qml/Settings/SonnetConfigPage.qml:148
+#: src/qml/Settings/SonnetConfigPage.qml:58
 #, kde-format
 msgid "Ignore hyphenated words"
 msgstr "Ignora le parole con trattino"
 
-#: src/qml/Settings/SonnetConfigPage.qml:160
+#: src/qml/Settings/SonnetConfigPage.qml:70
 #, kde-format
 msgid "Detect language automatically"
 msgstr "Rileva automaticamente la lingua"
 
-#: src/qml/Settings/SonnetConfigPage.qml:172
+#: src/qml/Settings/SonnetConfigPage.qml:81
 #, kde-format
-msgid "Spell checking languages"
+msgid "Selected default language:"
+msgstr "Seleziona la lingua predefinita:"
+
+#: src/qml/Settings/SonnetConfigPage.qml:82
+#, kde-format
+msgid "None"
+msgstr ""
+
+#: src/qml/Settings/SonnetConfigPage.qml:101
+#, fuzzy, kde-format
+#| msgid "Spell checking languages"
+msgid "Additional spell checking languages"
 msgstr "Lingue del controllo ortografico"
 
-#: src/qml/Settings/SonnetConfigPage.qml:180
+#: src/qml/Settings/SonnetConfigPage.qml:102
 #, kde-format
 msgid ""
 "%1 will provide spell checking and suggestions for the languages listed here "
@@ -3805,24 +3801,42 @@ msgstr ""
 "%1 fornirà il controllo ortografico e i suggerimenti per le lingue elencate "
 "qui quando il rilevamento automatico è abilitato."
 
-#: src/qml/Settings/SonnetConfigPage.qml:226
+#: src/qml/Settings/SonnetConfigPage.qml:114
+#, kde-format
+msgid "Open Personal Dictionary"
+msgstr "Apri il dizionario personale"
+
+#: src/qml/Settings/SonnetConfigPage.qml:125
+#, fuzzy, kde-format
+#| msgid "Spell checking languages"
+msgctxt "@title:window"
+msgid "Spell checking languages"
+msgstr "Lingue del controllo ortografico"
+
+#: src/qml/Settings/SonnetConfigPage.qml:134
+#: src/qml/Settings/SonnetConfigPage.qml:144
+#, fuzzy, kde-format
+#| msgid "Selected default language:"
+msgid "Default Language"
+msgstr "Seleziona la lingua predefinita:"
+
+#: src/qml/Settings/SonnetConfigPage.qml:156
+#, kde-format
+msgid "Spell checking dictionary"
+msgstr "Dizionario del controllo ortografico"
+
+#: src/qml/Settings/SonnetConfigPage.qml:163
 #, kde-format
 msgid "Add a new word to your personal dictionary…"
 msgstr "Aggiungi una nuova parola al tuo dizionario personale…"
 
-#: src/qml/Settings/SonnetConfigPage.qml:229
+#: src/qml/Settings/SonnetConfigPage.qml:166
 #, kde-format
 msgctxt "@action:button"
 msgid "Add word"
 msgstr "Aggiungi la parola"
 
-#: src/qml/Settings/SonnetConfigPage.qml:248
-#, kde-format
-msgid "Spell checking dictionary"
-msgstr "Dizionario del controllo ortografico"
-
-#: src/qml/Settings/SonnetConfigPage.qml:278
-#: src/qml/Settings/SonnetConfigPage.qml:309
+#: src/qml/Settings/SonnetConfigPage.qml:193
 #, kde-format
 msgid "Delete word"
 msgstr "Elimina la parola"
@@ -3891,6 +3905,9 @@ msgstr "Mostra"
 #, kde-format
 msgid "Quit"
 msgstr "Esci"
+
+#~ msgid "Options:"
+#~ msgstr "Opzioni:"
 
 #~ msgid "Zoom in"
 #~ msgstr "Ingrandisci"

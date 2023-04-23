@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-20 00:48+0000\n"
+"POT-Creation-Date: 2023-04-23 00:49+0000\n"
 "PO-Revision-Date: 2023-04-20 08:54+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -3190,7 +3190,6 @@ msgstr ""
 
 #: src/qml/RoomSettings/Security.qml:154
 #: src/qml/Settings/NetworkProxyPage.qml:127
-#: src/qml/Settings/SonnetConfigPage.qml:326
 #, kde-format
 msgid "Apply"
 msgstr "Застосувати"
@@ -3752,53 +3751,50 @@ msgstr "Про NeoChat"
 msgid "About KDE"
 msgstr "Про KDE"
 
-#: src/qml/Settings/SonnetConfigPage.qml:50
-#, kde-format
-msgctxt "@window:title"
+#: src/qml/Settings/SonnetConfigPage.qml:28
+#, fuzzy, kde-format
+#| msgctxt "@window:title"
+#| msgid "Spellchecking"
 msgid "Spellchecking"
 msgstr "Перевірка правопису"
 
-#: src/qml/Settings/SonnetConfigPage.qml:94
-#, kde-format
-msgid "Selected default language:"
-msgstr "Вибрана типова мова:"
-
-#: src/qml/Settings/SonnetConfigPage.qml:105
-#, kde-format
-msgid "Open Personal Dictionary"
-msgstr "Відкрити особистий словник"
-
-#: src/qml/Settings/SonnetConfigPage.qml:124
-#, kde-format
-msgid "Options:"
-msgstr "Параметри:"
-
-#: src/qml/Settings/SonnetConfigPage.qml:126
+#: src/qml/Settings/SonnetConfigPage.qml:34
 #, kde-format
 msgid "Enable automatic spell checking"
 msgstr "Увімкнути автоматичну перевірку правопису"
 
-#: src/qml/Settings/SonnetConfigPage.qml:137
+#: src/qml/Settings/SonnetConfigPage.qml:46
 #, kde-format
 msgid "Ignore uppercase words"
 msgstr "Ігнорувати слова великими літерами"
 
-#: src/qml/Settings/SonnetConfigPage.qml:148
+#: src/qml/Settings/SonnetConfigPage.qml:58
 #, kde-format
 msgid "Ignore hyphenated words"
 msgstr "Ігнорувати слова з дефісами"
 
-#: src/qml/Settings/SonnetConfigPage.qml:160
+#: src/qml/Settings/SonnetConfigPage.qml:70
 #, kde-format
 msgid "Detect language automatically"
 msgstr "Визначати мову автоматично"
 
-#: src/qml/Settings/SonnetConfigPage.qml:172
+#: src/qml/Settings/SonnetConfigPage.qml:81
 #, kde-format
-msgid "Spell checking languages"
+msgid "Selected default language:"
+msgstr "Вибрана типова мова:"
+
+#: src/qml/Settings/SonnetConfigPage.qml:82
+#, kde-format
+msgid "None"
+msgstr ""
+
+#: src/qml/Settings/SonnetConfigPage.qml:101
+#, fuzzy, kde-format
+#| msgid "Spell checking languages"
+msgid "Additional spell checking languages"
 msgstr "Мови перевірки правопису"
 
-#: src/qml/Settings/SonnetConfigPage.qml:180
+#: src/qml/Settings/SonnetConfigPage.qml:102
 #, kde-format
 msgid ""
 "%1 will provide spell checking and suggestions for the languages listed here "
@@ -3807,24 +3803,42 @@ msgstr ""
 "Якщо буде увімкнено автоматичне визначення мови, %1 надаватиме послуги "
 "перевірки правопису та пропозиції для мов з цього списку."
 
-#: src/qml/Settings/SonnetConfigPage.qml:226
+#: src/qml/Settings/SonnetConfigPage.qml:114
+#, kde-format
+msgid "Open Personal Dictionary"
+msgstr "Відкрити особистий словник"
+
+#: src/qml/Settings/SonnetConfigPage.qml:125
+#, fuzzy, kde-format
+#| msgid "Spell checking languages"
+msgctxt "@title:window"
+msgid "Spell checking languages"
+msgstr "Мови перевірки правопису"
+
+#: src/qml/Settings/SonnetConfigPage.qml:134
+#: src/qml/Settings/SonnetConfigPage.qml:144
+#, fuzzy, kde-format
+#| msgid "Selected default language:"
+msgid "Default Language"
+msgstr "Вибрана типова мова:"
+
+#: src/qml/Settings/SonnetConfigPage.qml:156
+#, kde-format
+msgid "Spell checking dictionary"
+msgstr "Словник для перевірки правопису"
+
+#: src/qml/Settings/SonnetConfigPage.qml:163
 #, kde-format
 msgid "Add a new word to your personal dictionary…"
 msgstr "Додати нове слово до вашого особистого словника."
 
-#: src/qml/Settings/SonnetConfigPage.qml:229
+#: src/qml/Settings/SonnetConfigPage.qml:166
 #, kde-format
 msgctxt "@action:button"
 msgid "Add word"
 msgstr "Додати слово"
 
-#: src/qml/Settings/SonnetConfigPage.qml:248
-#, kde-format
-msgid "Spell checking dictionary"
-msgstr "Словник для перевірки правопису"
-
-#: src/qml/Settings/SonnetConfigPage.qml:278
-#: src/qml/Settings/SonnetConfigPage.qml:309
+#: src/qml/Settings/SonnetConfigPage.qml:193
 #, kde-format
 msgid "Delete word"
 msgstr "Вилучити слово"
@@ -3893,6 +3907,9 @@ msgstr "Показати"
 #, kde-format
 msgid "Quit"
 msgstr "Вийти"
+
+#~ msgid "Options:"
+#~ msgstr "Параметри:"
 
 #~ msgid "Zoom in"
 #~ msgstr "Збільшити"
