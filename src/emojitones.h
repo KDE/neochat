@@ -5,6 +5,13 @@
 
 #include <QVariant>
 
+/**
+ * @class EmojiTones
+ *
+ * This class provides a _tones variable with the available emoji tones to EmojiModel.
+ *
+ * @sa EmojiModel
+ */
 class EmojiTones
 {
 private:
