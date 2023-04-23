@@ -5,17 +5,18 @@
 #include "messageeventmodel_logging.h"
 
 #include "neochatconfig.h"
-#include <connection.h>
-#include <events/reactionevent.h>
-#include <events/redactionevent.h>
-#include <events/roomavatarevent.h>
-#include <events/roommemberevent.h>
-#include <events/simplestateevents.h>
-#include <qt_connection_util.h>
-#include <user.h>
+
+#include <Quotient/connection.h>
+#include <Quotient/csapi/rooms.h>
+#include <Quotient/events/reactionevent.h>
+#include <Quotient/events/redactionevent.h>
+#include <Quotient/events/roomavatarevent.h>
+#include <Quotient/events/roommemberevent.h>
+#include <Quotient/events/simplestateevents.h>
+#include <Quotient/user.h>
 
 #include "events/pollevent.h"
-#include "events/stickerevent.h"
+#include <Quotient/events/stickerevent.h>
 
 #include <QDebug>
 #include <QGuiApplication>

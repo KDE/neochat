@@ -5,7 +5,7 @@
 
 #include <QObject>
 
-#include <user.h>
+#include <Quotient/user.h>
 
 /**
  * @class NeoChatUser

@@ -28,10 +28,11 @@
 
 #include "neochat-version.h"
 
-#include <accountregistry.h>
-#include <networkaccessmanager.h>
-#include <room.h>
-#include <util.h>
+#include <Quotient/keyverificationsession.h>
+#include <Quotient/accountregistry.h>
+#include <Quotient/networkaccessmanager.h>
+#include <Quotient/room.h>
+#include <Quotient/util.h>
 
 #include "actionshandler.h"
 #include "blurhashimageprovider.h"
@@ -81,7 +82,7 @@
 #include "spacehierarchycache.h"
 #include "urlhelper.h"
 #include "windowcontroller.h"
-#include <keyverificationsession.h>
+
 #ifdef HAVE_COLORSCHEME
 #include "colorschemer.h"
 #endif

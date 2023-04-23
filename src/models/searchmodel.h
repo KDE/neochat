@@ -6,7 +6,7 @@
 #include <QAbstractListModel>
 #include <QString>
 
-#include <csapi/search.h>
+#include <Quotient/csapi/search.h>
 
 namespace Quotient
 {

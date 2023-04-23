@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 
 #include "roommanager.h"
+
 #include "controller.h"
 #include "neochatconfig.h"
 #include "neochatroom.h"
@@ -10,10 +11,11 @@
 #include <QDesktopServices>
 #include <QQuickTextDocument>
 #include <QStandardPaths>
-#include <csapi/joining.h>
-#include <csapi/knocking.h>
-#include <qt_connection_util.h>
-#include <user.h>
+
+#include <Quotient/csapi/joining.h>
+#include <Quotient/csapi/knocking.h>
+#include <Quotient/qt_connection_util.h>
+#include <Quotient/user.h>
 
 #ifndef Q_OS_ANDROID
 #include <KIO/OpenUrlJob>

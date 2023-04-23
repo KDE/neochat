@@ -13,7 +13,7 @@
 #include <KLocalizedString>
 
 #include "controller.h"
-#include <connection.h>
+#include <Quotient/connection.h>
 
 using namespace Quotient;
 

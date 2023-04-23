@@ -6,7 +6,7 @@
 #include <QAbstractListModel>
 #include <QObject>
 
-#include <csapi/users.h>
+#include <Quotient/csapi/users.h>
 
 namespace Quotient
 {

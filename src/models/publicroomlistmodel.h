@@ -6,7 +6,7 @@
 #include <QAbstractListModel>
 #include <QObject>
 
-#include <csapi/list_public_rooms.h>
+#include <Quotient/csapi/list_public_rooms.h>
 
 namespace Quotient
 {

@@ -4,8 +4,8 @@
 #pragma once
 
 #include <QVector>
-#include <events/eventcontent.h>
-#include <events/stateevent.h>
+#include <Quotient/events/eventcontent.h>
+#include <Quotient/events/stateevent.h>
 
 namespace Quotient
 {

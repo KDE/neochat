@@ -5,7 +5,7 @@
 
 #include <QObject>
 
-#include <events/roommessageevent.h>
+#include <Quotient/events/roommessageevent.h>
 
 #include "neochatroom.h"
 

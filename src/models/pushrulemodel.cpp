@@ -5,12 +5,11 @@
 
 #include <QDebug>
 
-#include <connection.h>
-#include <converters.h>
-#include <csapi/definitions/push_ruleset.h>
-#include <csapi/pushrules.h>
-#include <jobs/basejob.h>
-#include <qobjectdefs.h>
+#include <Quotient/connection.h>
+#include <Quotient/converters.h>
+#include <Quotient/csapi/definitions/push_ruleset.h>
+#include <Quotient/csapi/pushrules.h>
+#include <Quotient/jobs/basejob.h>
 
 #include "controller.h"
 #include "neochatconfig.h"

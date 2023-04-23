@@ -3,8 +3,8 @@
 
 #include "userdirectorylistmodel.h"
 
-#include <connection.h>
-#include <room.h>
+#include <Quotient/connection.h>
+#include <Quotient/room.h>
 
 using namespace Quotient;
 

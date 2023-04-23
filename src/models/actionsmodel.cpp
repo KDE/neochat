@@ -6,8 +6,8 @@
 #include "controller.h"
 #include "neochatroom.h"
 #include "roommanager.h"
-#include <events/roommemberevent.h>
-#include <events/roompowerlevelsevent.h>
+#include <Quotient/events/roommemberevent.h>
+#include <Quotient/events/roompowerlevelsevent.h>
 
 #include <KLocalizedString>
 

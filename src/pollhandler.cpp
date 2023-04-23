@@ -2,12 +2,15 @@
 // SPDX-License-Identifier: LGPL-2.0-or-later
 
 #include "pollhandler.h"
+
 #include "events/pollevent.h"
 #include "neochatroom.h"
+
+#include <Quotient/csapi/relations.h>
+#include <Quotient/events/roompowerlevelsevent.h>
+#include <Quotient/user.h>
+
 #include <algorithm>
-#include <csapi/relations.h>
-#include <events/roompowerlevelsevent.h>
-#include <user.h>
 
 using namespace Quotient;
 

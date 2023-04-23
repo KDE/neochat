@@ -3,8 +3,7 @@
 
 #pragma once
 
-#include <events/eventcontent.h>
-#include <events/roomevent.h>
+#include <Quotient/events/roomevent.h>
 
 namespace Quotient
 {

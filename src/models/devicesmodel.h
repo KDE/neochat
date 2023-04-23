@@ -4,9 +4,9 @@
 #pragma once
 
 #include <QAbstractListModel>
-
 #include <QPointer>
-#include <csapi/definitions/client_device.h>
+
+#include <Quotient/csapi/definitions/client_device.h>
 
 namespace Quotient
 {

@@ -5,7 +5,7 @@
 
 #include <QAbstractListModel>
 
-#include <csapi/definitions/push_rule.h>
+#include <Quotient/csapi/definitions/push_rule.h>
 
 #include "notificationsmanager.h"
 

@@ -5,7 +5,7 @@
 
 #include "controller.h"
 
-#include <connection.h>
+#include <Quotient/connection.h>
 
 #include <QDebug>
 

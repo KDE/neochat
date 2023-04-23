@@ -9,10 +9,9 @@
 #include "controller.h"
 #include "emojimodel.h"
 
-#include <connection.h>
-#include <csapi/account-data.h>
-#include <csapi/content-repo.h>
-#include <events/eventcontent.h>
+#include <Quotient/connection.h>
+#include <Quotient/csapi/account-data.h>
+#include <Quotient/csapi/content-repo.h>
 
 using namespace Quotient;
 

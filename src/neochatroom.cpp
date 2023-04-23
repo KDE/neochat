@@ -12,35 +12,33 @@
 #include <QMediaMetaData>
 #include <QMediaPlayer>
 
-#include <jobs/basejob.h>
+#include <Quotient/jobs/basejob.h>
 #include <qcoro/qcorosignal.h>
 
-#include <connection.h>
-#include <csapi/account-data.h>
-#include <csapi/directory.h>
-#include <csapi/event_context.h>
-#include <csapi/pushrules.h>
-#include <csapi/redaction.h>
-#include <csapi/report_content.h>
-#include <csapi/room_state.h>
-#include <csapi/rooms.h>
-#include <csapi/typing.h>
-#include <events/encryptionevent.h>
-#include <events/reactionevent.h>
-#include <events/redactionevent.h>
-#include <events/roomavatarevent.h>
-#include <events/roomcanonicalaliasevent.h>
-#include <events/roommemberevent.h>
-#include <events/roompowerlevelsevent.h>
-#include <events/simplestateevents.h>
-#include <jobs/downloadfilejob.h>
-
-#include <qt_connection_util.h>
+#include <Quotient/connection.h>
+#include <Quotient/csapi/account-data.h>
+#include <Quotient/csapi/directory.h>
+#include <Quotient/csapi/pushrules.h>
+#include <Quotient/csapi/redaction.h>
+#include <Quotient/csapi/report_content.h>
+#include <Quotient/csapi/room_state.h>
+#include <Quotient/csapi/rooms.h>
+#include <Quotient/csapi/typing.h>
+#include <Quotient/events/encryptionevent.h>
+#include <Quotient/events/reactionevent.h>
+#include <Quotient/events/redactionevent.h>
+#include <Quotient/events/roomavatarevent.h>
+#include <Quotient/events/roomcanonicalaliasevent.h>
+#include <Quotient/events/roommemberevent.h>
+#include <Quotient/events/roompowerlevelsevent.h>
+#include <Quotient/events/simplestateevents.h>
+#include <Quotient/events/stickerevent.h>
+#include <Quotient/jobs/downloadfilejob.h>
+#include <Quotient/qt_connection_util.h>
 
 #include "controller.h"
 #include "events/joinrulesevent.h"
 #include "events/pollevent.h"
-#include "events/stickerevent.h"
 #include "filetransferpseudojob.h"
 #include "neochatconfig.h"
 #include "notificationsmanager.h"

@@ -3,7 +3,7 @@
 
 #include "accountemoticonmodel.h"
 
-#include <csapi/content-repo.h>
+#include <Quotient/csapi/content-repo.h>
 #include <qcoro/qcorosignal.h>
 
 using namespace Quotient;

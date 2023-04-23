@@ -11,11 +11,11 @@
 #include <KNotification>
 #include <KNotificationReplyAction>
 
-#include <accountregistry.h>
-
-#include <connection.h>
-#include <csapi/pushrules.h>
-#include <user.h>
+#include <Quotient/accountregistry.h>
+#include <Quotient/connection.h>
+#include <Quotient/csapi/pushrules.h>
+#include <Quotient/jobs/basejob.h>
+#include <Quotient/user.h>
 
 #include "controller.h"
 #include "neochatconfig.h"

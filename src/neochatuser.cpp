@@ -7,7 +7,7 @@
 #include <QJsonObject>
 #include <QPalette>
 
-#include <connection.h>
+#include <Quotient/connection.h>
 
 using namespace Quotient;
 

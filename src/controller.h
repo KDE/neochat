@@ -9,8 +9,8 @@
 
 #include <KFormat>
 
-#include <jobs/basejob.h>
-#include <settings.h>
+#include <Quotient/jobs/basejob.h>
+#include <Quotient/settings.h>
 
 class NeoChatRoom;
 class NeoChatUser;

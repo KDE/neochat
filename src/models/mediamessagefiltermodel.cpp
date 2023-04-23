@@ -3,7 +3,7 @@
 
 #include "mediamessagefiltermodel.h"
 #include "models/messageeventmodel.h"
-#include <room.h>
+#include <Quotient/room.h>
 
 MediaMessageFilterModel::MediaMessageFilterModel(QObject *parent)
     : QSortFilterProxyModel(parent)

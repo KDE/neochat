@@ -3,12 +3,13 @@
 
 #include "devicesmodel.h"
 
-#include <csapi/device_management.h>
-
 #include "controller.h"
+
 #include <KLocalizedString>
-#include <connection.h>
-#include <user.h>
+
+#include <Quotient/csapi/device_management.h>
+#include <Quotient/connection.h>
+#include <Quotient/user.h>
 
 using namespace Quotient;
 

@@ -9,7 +9,7 @@
 
 #include "neochatroom.h"
 
-#include <events/roommessageevent.h>
+#include <Quotient/events/roommessageevent.h>
 
 class LocationsModel : public QAbstractListModel
 {

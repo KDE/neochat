@@ -3,8 +3,8 @@
 
 #include "actionshandler.h"
 
-#include <csapi/joining.h>
-#include <events/roommemberevent.h>
+#include <Quotient/csapi/joining.h>
+#include <Quotient/events/roommemberevent.h>
 
 #include <cmark.h>
 

@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include <csapi/list_public_rooms.h>
+#include <Quotient/csapi/list_public_rooms.h>
 
 #include <QAbstractListModel>
 #include <QPointer>

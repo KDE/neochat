@@ -7,9 +7,9 @@
 
 #include "neochatroom.h"
 
-#include <connection.h>
-#include <quotient_common.h>
-#include <syncdata.h>
+#include <Quotient/connection.h>
+#include <Quotient/quotient_common.h>
+#include <Quotient/syncdata.h>
 
 using namespace Quotient;
 

@@ -6,7 +6,7 @@
 
 #include <QQuickAsyncImageProvider>
 
-#include <jobs/mediathumbnailjob.h>
+#include <Quotient/jobs/mediathumbnailjob.h>
 
 #include <QReadWriteLock>
 

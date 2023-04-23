@@ -6,7 +6,7 @@
 #include <KConfig>
 #include <KConfigGroup>
 #include <QObject>
-#include <uriresolver.h>
+#include <Quotient/uriresolver.h>
 
 #include "chatdocumenthandler.h"
 

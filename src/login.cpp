@@ -3,10 +3,9 @@
 
 #include "login.h"
 
-#include <accountregistry.h>
-
-#include <connection.h>
-#include <qt_connection_util.h>
+#include <Quotient/accountregistry.h>
+#include <Quotient/connection.h>
+#include <Quotient/qt_connection_util.h>
 
 #include "controller.h"
 

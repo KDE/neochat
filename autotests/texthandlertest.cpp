@@ -6,9 +6,9 @@
 
 #include "texthandler.h"
 
+#include <Quotient/quotient_common.h>
+#include <Quotient/syncdata.h>
 #include <qnamespace.h>
-#include <quotient_common.h>
-#include <syncdata.h>
 
 using namespace Quotient;
 

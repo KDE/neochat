@@ -5,10 +5,11 @@
 
 #include <QDebug>
 #include <QUrl>
-
 #include <QStringLiteral>
-#include <events/roommessageevent.h>
-#include <util.h>
+
+#include <Quotient/events/roommessageevent.h>
+#include <Quotient/util.h>
+#include <qstringliteral.h>
 
 #include <cmark.h>
 

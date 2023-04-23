@@ -3,8 +3,8 @@
 
 #include "userlistmodel.h"
 
-#include <connection.h>
-#include <events/roompowerlevelsevent.h>
+#include <Quotient/connection.h>
+#include <Quotient/events/roompowerlevelsevent.h>
 
 #include "neochatroom.h"
 

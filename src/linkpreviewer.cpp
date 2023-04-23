@@ -3,8 +3,10 @@
 
 #include "linkpreviewer.h"
 
-#include <connection.h>
-#include <csapi/content-repo.h>
+#include "controller.h"
+
+#include <Quotient/connection.h>
+#include <Quotient/csapi/content-repo.h>
 
 #include "neochatroom.h"
 

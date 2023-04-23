@@ -8,7 +8,8 @@
 #include "neochatroom.h"
 #include "roommanager.h"
 #include "spacehierarchycache.h"
-#include "user.h"
+
+#include <Quotient/user.h>
 
 #include <QDebug>
 #if QT_VERSION < QT_VERSION_CHECK(6, 6, 0)

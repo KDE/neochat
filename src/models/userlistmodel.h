@@ -3,6 +3,8 @@
 
 #pragma once
 
+#include <Quotient/room.h>
+
 #include <QAbstractListModel>
 #include <QObject>
 #include <QPointer>

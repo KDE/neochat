@@ -31,16 +31,15 @@
 
 #include <signal.h>
 
-#include "accountregistry.h"
-
-#include <connection.h>
-#include <csapi/content-repo.h>
-#include <csapi/logout.h>
-#include <csapi/profile.h>
-#include <jobs/downloadfilejob.h>
-#include <qt_connection_util.h>
-
-#include <eventstats.h>
+#include <Quotient/accountregistry.h>
+#include <Quotient/connection.h>
+#include <Quotient/csapi/content-repo.h>
+#include <Quotient/csapi/logout.h>
+#include <Quotient/csapi/profile.h>
+#include <Quotient/jobs/downloadfilejob.h>
+#include <Quotient/qt_connection_util.h>
+#include <Quotient/csapi/notifications.h>
+#include <Quotient/eventstats.h>
 
 #include "neochatconfig.h"
 #include "neochatroom.h"

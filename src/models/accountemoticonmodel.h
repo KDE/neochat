@@ -4,12 +4,14 @@
 #pragma once
 
 #include "events/imagepackevent.h"
+
 #include <QAbstractListModel>
 #include <QCoroTask>
 #include <QObject>
 #include <QPointer>
 #include <QVector>
-#include <connection.h>
+
+#include <Quotient/connection.h>
 
 class ImagePacksModel;
 

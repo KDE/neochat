@@ -9,8 +9,8 @@
 #include <QObject>
 #include <QPointer>
 #include <QString>
-#include <csapi/notifications.h>
-#include <jobs/basejob.h>
+#include <Quotient/csapi/notifications.h>
+#include <Quotient/jobs/basejob.h>
 
 namespace Quotient
 {

@@ -2,12 +2,16 @@
 // SPDX-License-Identifier: LGPL-2.0-or-later
 
 #include "searchmodel.h"
-#include "events/stickerevent.h"
+
 #include "messageeventmodel.h"
 #include "neochatroom.h"
 #include "neochatuser.h"
+#include <Quotient/events/stickerevent.h>
+
 #include <KLocalizedString>
-#include <connection.h>
+
+#include <Quotient/connection.h>
+#include <Quotient/csapi/search.h>
 
 using namespace Quotient;
 

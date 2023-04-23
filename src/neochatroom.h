@@ -3,8 +3,7 @@
 
 #pragma once
 
-#include <qobjectdefs.h>
-#include <room.h>
+#include <Quotient/room.h>
 
 #include <QCache>
 #include <QObject>

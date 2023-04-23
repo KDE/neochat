@@ -5,7 +5,7 @@
 
 #include <KLazyLocalizedString>
 #include <QAbstractListModel>
-#include <events/roommessageevent.h>
+#include <Quotient/events/roommessageevent.h>
 
 class NeoChatRoom;
 

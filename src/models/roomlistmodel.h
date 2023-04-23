@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include <events/roomevent.h>
+#include <Quotient/events/roomevent.h>
 
 #include <QAbstractListModel>
 
