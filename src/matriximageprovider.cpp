@@ -98,18 +98,6 @@ void ThumbnailResponse::prepareResult()
     Q_EMIT finished();
 }
 
-void ThumbnailResponse::doCancel()
-{
-    if (!Controller::instance().activeConnection()) {
-        return;
-    }
-    // Runs in the main thread, not QML thread
-    if (job) {
-        Q_ASSERT(QThread::currentThread() == job->thread());
-        job->abandon();
-    }
-}
-
 QQuickTextureFactory *ThumbnailResponse::textureFactory() const
 {
     QReadLocker _(&lock);
@@ -120,11 +108,6 @@ QString ThumbnailResponse::errorString() const
 {
     QReadLocker _(&lock);
     return errorStr;
-}
-
-void ThumbnailResponse::cancel()
-{
-    QMetaObject::invokeMethod(this, &ThumbnailResponse::doCancel, Qt::QueuedConnection);
 }
 
 QQuickImageResponse *MatrixImageProvider::requestImageResponse(const QString &id, const QSize &requestedSize)

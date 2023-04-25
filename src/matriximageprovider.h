@@ -25,7 +25,6 @@ public:
 private Q_SLOTS:
     void startRequest();
     void prepareResult();
-    void doCancel();
 
 private:
     const QString mediaId;
@@ -39,7 +38,6 @@ private:
 
     QQuickTextureFactory *textureFactory() const override;
     QString errorString() const override;
-    void cancel() override;
 };
 
 class MatrixImageProvider : public QQuickAsyncImageProvider
