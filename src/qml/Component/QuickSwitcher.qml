@@ -24,7 +24,6 @@ QQC2.Dialog {
 
     anchors.centerIn: applicationWindow().overlay
 
-    Keys.forwardTo: searchField
 
     Shortcut {
         sequence: "Ctrl+K"
@@ -69,6 +68,9 @@ QQC2.Dialog {
 
     QQC2.ScrollView {
         anchors.fill: parent
+
+        Keys.forwardTo: searchField
+
         ListView {
             id: roomList
 
