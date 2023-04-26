@@ -28,94 +28,204 @@ namespace QKeychain
 class ReadPasswordJob;
 }
 
+/**
+ * @class Controller
+ *
+ * A singleton class designed to help manage the application.
+ *
+ * There are also a bunch of helper functions that currently don't fit anywhere
+ * else.
+ */
 class Controller : public QObject
 {
     Q_OBJECT
+
+    /**
+     * @brief The number of logged in accounts.
+     */
     Q_PROPERTY(int accountCount READ accountCount NOTIFY accountCountChanged)
+
+    /**
+     * @brief The current connection for the rest of NeoChat to use.
+     */
     Q_PROPERTY(Quotient::Connection *activeConnection READ activeConnection WRITE setActiveConnection NOTIFY activeConnectionChanged)
-    Q_PROPERTY(bool supportSystemTray READ supportSystemTray CONSTANT)
-    Q_PROPERTY(bool hasWindowSystem READ hasWindowSystem CONSTANT)
-    Q_PROPERTY(bool isOnline READ isOnline NOTIFY isOnlineChanged)
-    Q_PROPERTY(bool encryptionSupported READ encryptionSupported CONSTANT)
+
+    /**
+     * @brief The row number in the accounts directory of the active connection.
+     */
     Q_PROPERTY(int activeConnectionIndex READ activeConnectionIndex NOTIFY activeConnectionIndexChanged)
-    Q_PROPERTY(int quotientMinorVersion READ quotientMinorVersion CONSTANT)
-    Q_PROPERTY(bool isFlatpak READ isFlatpak CONSTANT)
+
+    /**
+     * @brief The account label for the active account.
+     *
+     * Account labels are a concept specific to NeoChat, allowing accounts to be
+     * labelled, e.g. for "Work", "Private", etc.
+     *
+     * Set to an empty string to remove the label.
+     */
     Q_PROPERTY(QString activeAccountLabel READ activeAccountLabel WRITE setActiveAccountLabel NOTIFY activeAccountLabelChanged)
 
+    /**
+     * @brief Whether the OS NeoChat is running on supports sytem tray icons.
+     */
+    Q_PROPERTY(bool supportSystemTray READ supportSystemTray CONSTANT)
+
+    /**
+     * @brief Whether KWindowSystem specific features are available.
+     */
+    Q_PROPERTY(bool hasWindowSystem READ hasWindowSystem CONSTANT)
+
+    /**
+     * @brief Whether NeoChat is currently able to connect to the server.
+     */
+    Q_PROPERTY(bool isOnline READ isOnline NOTIFY isOnlineChanged)
+
+    /**
+     * @brief Whether the ecryption support has been enabled.
+     */
+    Q_PROPERTY(bool encryptionSupported READ encryptionSupported CONSTANT)
+
+    /**
+     * @brief The current minor version number of libQuotient being used.
+     *
+     * This is the only way to gate NeoChat features by libQuotient version in QML.
+     *
+     * @note No major version because libQuotient doesn't have any; All are 0.x.
+     */
+    Q_PROPERTY(int quotientMinorVersion READ quotientMinorVersion CONSTANT)
+
+    /**
+     * @brief Whether NeoChat is running as a flatpak.
+     *
+     * This is the only way to gate NeoChat features in flatpaks in QML.
+     */
+    Q_PROPERTY(bool isFlatpak READ isFlatpak CONSTANT)
+
 public:
+    /**
+     * @brief Defines the status after an attempt to change the password on an account.
+     */
+    enum PasswordStatus {
+        Success, /**< The password was successfully changed. */
+        Wrong, /**< The current password entered was wrong. */
+        Other, /**< An unknown problem occurred. */
+    };
+    Q_ENUM(PasswordStatus);
+
     static Controller &instance();
+
+    [[nodiscard]] int accountCount() const;
 
     void setActiveConnection(Quotient::Connection *connection);
     [[nodiscard]] Quotient::Connection *activeConnection() const;
 
+    /**
+     * @brief Add a new connection to the account registry.
+     */
     void addConnection(Quotient::Connection *c);
+
+    /**
+     * @brief Drop a connection from the account registry.
+     */
     void dropConnection(Quotient::Connection *c);
-
-    Q_INVOKABLE void changePassword(Quotient::Connection *connection, const QString &currentPassword, const QString &newPassword);
-
-    Q_INVOKABLE bool setAvatar(Quotient::Connection *connection, const QUrl &avatarSource);
-
-    [[nodiscard]] int accountCount() const;
-
-    [[nodiscard]] bool supportSystemTray() const;
-
-    bool saveAccessTokenToKeyChain(const Quotient::AccountSettings &account, const QByteArray &accessToken);
 
     int activeConnectionIndex() const;
 
-    enum PasswordStatus {
-        Success,
-        Wrong,
-        Other,
-    };
-    Q_ENUM(PasswordStatus);
+    [[nodiscard]] QString activeAccountLabel() const;
+    void setActiveAccountLabel(const QString &label);
 
-    /// \brief Create new room for a group chat.
+    /**
+     * @brief Save an access token to the keychain for the given account.
+     */
+    bool saveAccessTokenToKeyChain(const Quotient::AccountSettings &account, const QByteArray &accessToken);
+
+    /**
+     * @brief Change the password for an account.
+     *
+     * The function emits a passwordStatus signal with a PasswordStatus value when
+     * complete.
+     *
+     * @sa PasswordStatus, passwordStatus
+     */
+    Q_INVOKABLE void changePassword(Quotient::Connection *connection, const QString &currentPassword, const QString &newPassword);
+
+    /**
+     * @brief Change the avatar for an account.
+     */
+    Q_INVOKABLE bool setAvatar(Quotient::Connection *connection, const QUrl &avatarSource);
+
+    /**
+     * @brief Create new room for a group chat.
+     */
     Q_INVOKABLE void createRoom(const QString &name, const QString &topic);
 
-    /// \brief Join a room.
+    /**
+     * @brief Join a room.
+     */
     Q_INVOKABLE void joinRoom(const QString &alias);
+
+    /**
+     * @brief Join a direct chat with the given user.
+     *
+     * If a direct chat with the user doesn't exist one is created and then joined.
+     */
+    Q_INVOKABLE void openOrCreateDirectChat(NeoChatUser *user);
+
+    [[nodiscard]] bool supportSystemTray() const;
+
+    /**
+     * @brief Set the background blur status of the given item.
+     */
+    Q_INVOKABLE void setBlur(QQuickItem *item, bool blur);
 
     bool isOnline() const;
 
-    Q_INVOKABLE QString formatDuration(quint64 msecs, KFormat::DurationFormatOptions options = KFormat::DefaultDuration) const;
-    Q_INVOKABLE QString formatByteSize(double size, int precision = 1) const;
-
-    Q_INVOKABLE void openOrCreateDirectChat(NeoChatUser *user);
-
-    Q_INVOKABLE void setBlur(QQuickItem *item, bool blur);
-    Q_INVOKABLE QString plainText(QQuickTextDocument *document) const;
     bool encryptionSupported() const;
 
-    Q_INVOKABLE void forceRefreshTextDocument(QQuickTextDocument *textDocument, QQuickItem *item);
-
+    /**
+     * @brief Sets the QNetworkProxy for the application.
+     *
+     * @sa QNetworkProxy::setApplicationProxy
+     */
     Q_INVOKABLE void setApplicationProxy();
 
     int quotientMinorVersion() const;
+
     bool isFlatpak() const;
 
     /**
-     * @brief The label for this account.
+     * @brief Return a string for the input timestamp.
      *
-     * Account labels are a concept Specific to NeoChat, allowing accounts to be labelled, e.g. for "Work", "Private", etc.
-     * @return The label, if it exists, otherwise an empty string
+     * The output format depends on the KFormat::DurationFormatOptions chosen.
+     *
+     * @sa KFormat::DurationFormatOptions
      */
-    [[nodiscard]] QString activeAccountLabel() const;
+    Q_INVOKABLE QString formatDuration(quint64 msecs, KFormat::DurationFormatOptions options = KFormat::DefaultDuration) const;
 
     /**
-     * @brief Set the label for this account.
-     *
-     * Set to an empty string to remove the label
-     * @sa Controller::activeAccountLabel
-     * @param label The label to use, or an empty string
+     * @brief Return a human readable string for a given input number of bytes.
      */
-    void setActiveAccountLabel(const QString &label);
+    Q_INVOKABLE QString formatByteSize(double size, int precision = 1) const;
+
+    /**
+     * @brief Return a plain text representation of the text in a given QQuickTextDocument.
+     *
+     * TODO: This is only used in messageDelegate to get the plain text of a message.
+     *       This should be changed to a role in messageeventmodel via texthandler.
+     */
+    Q_INVOKABLE QString plainText(QQuickTextDocument *document) const;
+
+    /**
+     * @brief Force a QQuickTextDocument to refresh when images are loaded.
+     *
+     * HACK: This is a workaround for QTBUG 93281.
+     */
+    Q_INVOKABLE void forceRefreshTextDocument(QQuickTextDocument *textDocument, QQuickItem *item);
 
 private:
     explicit Controller(QObject *parent = nullptr);
 
     QPointer<Quotient::Connection> m_connection;
-    bool m_busy = false;
     TrayIcon *m_trayIcon = nullptr;
 
     QKeychain::ReadPasswordJob *loadAccessTokenFromKeyChain(const Quotient::AccountSettings &account);
@@ -136,7 +246,6 @@ private Q_SLOTS:
     void setQuitOnLastWindowClosed();
 
 Q_SIGNALS:
-    void busyChanged();
     /// Error occurred because of user inputs
     void errorOccured(const QString &error);
 
