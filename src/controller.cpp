@@ -73,24 +73,8 @@ Controller::Controller(QObject *parent)
     setApplicationProxy();
 
 #ifndef Q_OS_ANDROID
-    if (NeoChatConfig::self()->systemTray()) {
-        m_trayIcon = new TrayIcon(this);
-        m_trayIcon->show();
-        connect(m_trayIcon, &TrayIcon::showWindow, this, &Controller::showWindow);
-        QGuiApplication::setQuitOnLastWindowClosed(false);
-    }
-    connect(NeoChatConfig::self(), &NeoChatConfig::SystemTrayChanged, this, [this]() {
-        if (NeoChatConfig::self()->systemTray()) {
-            m_trayIcon = new TrayIcon(this);
-            m_trayIcon->show();
-            connect(m_trayIcon, &TrayIcon::showWindow, this, &Controller::showWindow);
-        } else {
-            disconnect(m_trayIcon, &TrayIcon::showWindow, this, &Controller::showWindow);
-            delete m_trayIcon;
-            m_trayIcon = nullptr;
-        }
-        QGuiApplication::setQuitOnLastWindowClosed(!NeoChatConfig::self()->systemTray());
-    });
+    setQuitOnLastWindowClosed();
+    connect(NeoChatConfig::self(), &NeoChatConfig::SystemTrayChanged, this, &Controller::setQuitOnLastWindowClosed);
 #endif
 
     QTimer::singleShot(0, this, [this] {
@@ -228,38 +212,6 @@ void Controller::showWindow()
     WindowController::instance().showAndRaiseWindow(QString());
 }
 
-void Controller::loginWithAccessToken(const QString &serverAddr, const QString &user, const QString &token, const QString &deviceName)
-{
-    if (user.isEmpty() || token.isEmpty()) {
-        return;
-    }
-
-    QUrl serverUrl(serverAddr);
-
-    auto conn = new Connection();
-    if (serverUrl.isValid()) {
-        conn->setHomeserver(serverUrl);
-    }
-
-    connect(conn, &Connection::connected, this, [this, conn, deviceName] {
-        AccountSettings account(conn->userId());
-        account.setKeepLoggedIn(true);
-        account.setHomeserver(conn->homeserver());
-        account.setDeviceId(conn->deviceId());
-        account.setDeviceName(deviceName);
-        if (!saveAccessTokenToKeyChain(account, conn->accessToken())) {
-            qWarning() << "Couldn't save access token";
-        }
-        account.sync();
-        addConnection(conn);
-        setActiveConnection(conn);
-    });
-    connect(conn, &Connection::networkError, this, [this](QString error, const QString &, int, int) {
-        Q_EMIT errorOccured(i18n("Network Error: %1", error));
-    });
-    conn->assumeIdentity(user, token, deviceName);
-}
-
 void Controller::logout(Connection *conn, bool serverSideLogout)
 {
     if (!conn) {
@@ -302,8 +254,6 @@ void Controller::addConnection(Connection *c)
     c->setLazyLoading(true);
 
     connect(c, &Connection::syncDone, this, [this, c] {
-        setBusy(false);
-
         Q_EMIT syncDone();
 
         c->sync(30000);
@@ -318,8 +268,6 @@ void Controller::addConnection(Connection *c)
             Q_EMIT userConsentRequired(job->errorUrl());
         }
     });
-
-    setBusy(true);
 
     c->sync();
 
@@ -551,31 +499,22 @@ int Controller::accountCount() const
     return AccountRegistry::instance().count();
 }
 
-bool Controller::quitOnLastWindowClosed()
+void Controller::setQuitOnLastWindowClosed()
 {
-    return QGuiApplication::quitOnLastWindowClosed();
-}
-
-void Controller::setQuitOnLastWindowClosed(bool value)
-{
-    if (quitOnLastWindowClosed() != value) {
-        QGuiApplication::setQuitOnLastWindowClosed(value);
-        Q_EMIT quitOnLastWindowClosedChanged();
+#ifndef Q_OS_ANDROID
+    if (NeoChatConfig::self()->systemTray()) {
+        m_trayIcon = new TrayIcon(this);
+        m_trayIcon->show();
+        connect(m_trayIcon, &TrayIcon::showWindow, this, &Controller::showWindow);
+    } else {
+        disconnect(m_trayIcon, &TrayIcon::showWindow, this, &Controller::showWindow);
+        delete m_trayIcon;
+        m_trayIcon = nullptr;
     }
-}
-
-bool Controller::busy() const
-{
-    return m_busy;
-}
-
-void Controller::setBusy(bool busy)
-{
-    if (m_busy == busy) {
-        return;
-    }
-    m_busy = busy;
-    Q_EMIT busyChanged();
+    QGuiApplication::setQuitOnLastWindowClosed(!NeoChatConfig::self()->systemTray());
+#else
+    return;
+#endif
 }
 
 Connection *Controller::activeConnection() const

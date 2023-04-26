@@ -32,9 +32,7 @@ class Controller : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(int accountCount READ accountCount NOTIFY accountCountChanged)
-    Q_PROPERTY(bool quitOnLastWindowClosed READ quitOnLastWindowClosed WRITE setQuitOnLastWindowClosed NOTIFY quitOnLastWindowClosedChanged)
     Q_PROPERTY(Quotient::Connection *activeConnection READ activeConnection WRITE setActiveConnection NOTIFY activeConnectionChanged)
-    Q_PROPERTY(bool busy READ busy WRITE setBusy NOTIFY busyChanged)
     Q_PROPERTY(bool supportSystemTray READ supportSystemTray CONSTANT)
     Q_PROPERTY(bool hasWindowSystem READ hasWindowSystem CONSTANT)
     Q_PROPERTY(bool isOnline READ isOnline NOTIFY isOnlineChanged)
@@ -53,19 +51,11 @@ public:
     void addConnection(Quotient::Connection *c);
     void dropConnection(Quotient::Connection *c);
 
-    Q_INVOKABLE void loginWithAccessToken(const QString &, const QString &, const QString &, const QString &);
-
     Q_INVOKABLE void changePassword(Quotient::Connection *connection, const QString &currentPassword, const QString &newPassword);
 
     Q_INVOKABLE bool setAvatar(Quotient::Connection *connection, const QUrl &avatarSource);
 
     [[nodiscard]] int accountCount() const;
-
-    [[nodiscard]] static bool quitOnLastWindowClosed();
-    void setQuitOnLastWindowClosed(bool value);
-
-    [[nodiscard]] bool busy() const;
-    void setBusy(bool busy);
 
     [[nodiscard]] bool supportSystemTray() const;
 
@@ -143,6 +133,7 @@ private:
 private Q_SLOTS:
     void invokeLogin();
     void showWindow();
+    void setQuitOnLastWindowClosed();
 
 Q_SIGNALS:
     void busyChanged();
