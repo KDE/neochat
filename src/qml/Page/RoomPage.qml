@@ -676,13 +676,13 @@ Kirigami.ScrollablePage {
     function openFileContext(event, file) {
         const contextMenu = fileDelegateContextMenu.createObject(page, {
             author: event.author,
-            message: event.message,
+            message: event.plainText,
             eventId: event.eventId,
             source: event.source,
             file: file,
             mimeType: event.mimeType,
             progressInfo: event.progressInfo,
-            plainMessage: event.message,
+            plainMessage: event.plainText,
         });
         contextMenu.open();
     }
