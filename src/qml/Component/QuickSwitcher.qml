@@ -64,6 +64,7 @@ QQC2.Dialog {
             RoomManager.enterRoom(roomList.currentItem.currentRoom);
             root.close();
         }
+        focusSequence: ""
     }
 
     QQC2.ScrollView {
