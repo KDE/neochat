@@ -383,4 +383,11 @@ Kirigami.ApplicationWindow {
              color: Kirigami.Theme.backgroundColor
         }
     }
+
+    Shortcut {
+        sequence: "Ctrl+Shift+,"
+        onActivated: {
+            pageStack.pushDialogLayer("qrc:/SettingsPage.qml")
+        }
+    }
 }
