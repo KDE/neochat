@@ -58,7 +58,7 @@ public:
      */
     enum EventRoles {
         DelegateTypeRole = Qt::UserRole + 1, /**< The delegate type of the message. */
-        MessageRole, /**< Plain text representation of the message. */
+        PlainText, /**< Plain text representation of the message. */
         EventIdRole, /**< The matrix event ID of the event. */
         TimeRole, /**< The timestamp for when the event was sent. */
         SectionRole, /**< The date of the event as a string. */

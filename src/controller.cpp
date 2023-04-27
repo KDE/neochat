@@ -670,11 +670,6 @@ bool Controller::hasWindowSystem() const
 #endif
 }
 
-QString Controller::plainText(QQuickTextDocument *document) const
-{
-    return document->textDocument()->toPlainText();
-}
-
 bool Controller::encryptionSupported() const
 {
 #ifdef QUOTIENT_07

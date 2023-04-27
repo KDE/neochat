@@ -79,11 +79,11 @@ TimelineContainer {
 
             TapHandler {
                 acceptedButtons: Qt.LeftButton
-                onLongPressed: openMessageContext(model, "", model.message)
+                onLongPressed: openMessageContext(model, "", model.plainText)
             }
             TapHandler {
                 acceptedButtons: Qt.RightButton
-                onTapped: openMessageContext(model, "", model.message)
+                onTapped: openMessageContext(model, "", model.plainText)
             }
         }
     }

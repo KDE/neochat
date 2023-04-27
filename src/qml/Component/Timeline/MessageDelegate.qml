@@ -13,7 +13,7 @@ import org.kde.neochat 1.0
 TimelineContainer {
     id: messageDelegate
 
-    onOpenContextMenu: openMessageContext(model, label.selectedText, Controller.plainText(label.textDocument))
+    onOpenContextMenu: openMessageContext(model, label.selectedText, model.plainText)
 
     innerObject: ColumnLayout {
         Layout.maximumWidth: messageDelegate.contentMaxWidth

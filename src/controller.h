@@ -208,14 +208,6 @@ public:
     Q_INVOKABLE QString formatByteSize(double size, int precision = 1) const;
 
     /**
-     * @brief Return a plain text representation of the text in a given QQuickTextDocument.
-     *
-     * TODO: This is only used in messageDelegate to get the plain text of a message.
-     *       This should be changed to a role in messageeventmodel via texthandler.
-     */
-    Q_INVOKABLE QString plainText(QQuickTextDocument *document) const;
-
-    /**
      * @brief Force a QQuickTextDocument to refresh when images are loaded.
      *
      * HACK: This is a workaround for QTBUG 93281.

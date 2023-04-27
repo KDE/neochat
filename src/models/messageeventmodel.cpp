@@ -34,7 +34,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
 {
     QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
     roles[DelegateTypeRole] = "delegateType";
-    roles[MessageRole] = "message";
+    roles[PlainText] = "plainText";
     roles[EventIdRole] = "eventId";
     roles[TimeRole] = "time";
     roles[SectionRole] = "section";
@@ -493,7 +493,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         return {};
     }
 
-    if (role == MessageRole) {
+    if (role == PlainText) {
         return m_currentRoom->eventToString(evt);
     }
 
