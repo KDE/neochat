@@ -59,6 +59,8 @@ private Q_SLOTS:
     void receiveRichtextIn();
     void receiveRichMxcUrl();
     void receiveRichPlainUrl();
+
+    void receiveLineSeparator();
 };
 
 #ifdef QUOTIENT_07
@@ -496,6 +498,14 @@ void TextHandlerTest::receiveRichPlainUrl()
 
     testTextHandler.setData(testInputStringMxId);
     QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText), testOutputStringMxId);
+}
+
+void TextHandlerTest::receiveLineSeparator()
+{
+    auto text = QStringLiteral("foo\u2028bar");
+    TextHandler textHandler;
+    textHandler.setData(text);
+    QCOMPARE(textHandler.handleRecievePlainText(Qt::PlainText, true), QStringLiteral("foo bar"));
 }
 
 QTEST_MAIN(TextHandlerTest)
