@@ -161,7 +161,7 @@ private:
 
     QQuickTextDocument *m_document;
 
-    NeoChatRoom *m_room = nullptr;
+    QPointer<NeoChatRoom> m_room;
     bool completionVisible = false;
 
     QColor m_mentionColor;
