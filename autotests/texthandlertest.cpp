@@ -63,6 +63,7 @@ private Q_SLOTS:
     void receiveRichEmote();
     void receiveRichEdited_data();
     void receiveRichEdited();
+    void receiveLineSeparator();
 };
 
 #ifdef QUOTIENT_07
@@ -585,6 +586,14 @@ void TextHandlerTest::receiveRichEdited()
     testTextHandler.setData(testInputString);
 
     QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText, room, room->messageEvents().at(2).get()), testOutputString);
+}
+
+void TextHandlerTest::receiveLineSeparator()
+{
+    auto text = QStringLiteral("foo\u2028bar");
+    TextHandler textHandler;
+    textHandler.setData(text);
+    QCOMPARE(textHandler.handleRecievePlainText(Qt::PlainText, true), QStringLiteral("foo bar"));
 }
 
 QTEST_MAIN(TextHandlerTest)

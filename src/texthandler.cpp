@@ -213,6 +213,7 @@ QString TextHandler::handleRecievePlainText(Qt::TextFormat inputFormat, const bo
         m_dataBuffer.replace(QStringLiteral("<br />\n"), QStringLiteral(" "));
         m_dataBuffer.replace(QStringLiteral("<br />"), QStringLiteral(" "));
         m_dataBuffer.replace(u'\n', QStringLiteral(" "));
+        m_dataBuffer.replace(u'\u2028', " ");
     }
 
     // Strip all tags/attributes except code blocks which will be escaped.
