@@ -231,7 +231,15 @@
     <content_attribute id="social-chat">intense</content_attribute>
   </content_rating>
   <releases>
-    <release version="23.04.0" date="2023-04-20"/>
+    <release version="23.04.0" date="2023-04-20">
+      <artifacts>
+        <artifact type="binary" platform="x86_64-windows-msvc">
+          <location>https://download.kde.org/stable/release-service/23.04.0/windows/neochat-23.04.0-512-windows-cl-msvc2019-x86_64.exe</location>
+          <checksum type="sha256">85e17fdd9b128bfdd171a93b11f7a95febeff0a00df9261df11f6ff67637686d</checksum>
+          <size type="download">58032464</size>
+        </artifact>
+      </artifacts>
+    </release>
     <release version="23.01" date="2023-01-30">
       <url>https://plasma-mobile.org/2023/01/30/january-blog-post/</url>
       <description>
