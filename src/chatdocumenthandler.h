@@ -76,7 +76,7 @@ private:
 
     QQuickTextDocument *m_document;
 
-    NeoChatRoom *m_room = nullptr;
+    QPointer<NeoChatRoom> m_room;
     bool completionVisible = false;
 
     int m_cursorPosition;
