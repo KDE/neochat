@@ -26,9 +26,8 @@ public:
      * @brief Defines the model roles.
      */
     enum Roles {
-        TypeRole, /**< The type of the state event. */
+        TypeRole = 0, /**< The type of the state event. */
         StateKeyRole, /**< The state key of the state event. */
-        SourceRole, /**< The full event source JSON. */
     };
     Q_ENUM(Roles);
 
@@ -57,10 +56,25 @@ public:
      * @sa Roles, QAbstractItemModel::roleNames()
      */
     QHash<int, QByteArray> roleNames() const override;
+    /**
+     * @brief Get the full JSON for an event.
+     *
+     * This is used to avoid having the model hold all the JSON data. The JSON for
+     * a single item is only ever shown, no need to access simultaneously.
+     */
+    Q_INVOKABLE QByteArray stateEventJson(const QModelIndex &index);
 
 Q_SIGNALS:
     void roomChanged();
 
 private:
     NeoChatRoom *m_room = nullptr;
+
+    /**
+     * @brief The room state events in a QList.
+     *
+     * This is done for performance, accessing all the data from the parent QHash
+     * was slower.
+     */
+    QList<std::pair<QString, QString>> m_stateEvents;
 };

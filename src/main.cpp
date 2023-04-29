@@ -71,6 +71,7 @@
 #ifdef QUOTIENT_07
 #include "pollhandler.h"
 #endif
+#include "models/statefiltermodel.h"
 #include "roommanager.h"
 #include "spacehierarchycache.h"
 #include "urlhelper.h"
@@ -234,6 +235,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<LinkPreviewer>("org.kde.neochat", 1, 0, "LinkPreviewer");
     qmlRegisterType<CompletionModel>("org.kde.neochat", 1, 0, "CompletionModel");
     qmlRegisterType<StateModel>("org.kde.neochat", 1, 0, "StateModel");
+    qmlRegisterType<StateFilterModel>("org.kde.neochat", 1, 0, "StateFilterModel");
     qmlRegisterType<SearchModel>("org.kde.neochat", 1, 0, "SearchModel");
 #ifdef QUOTIENT_07
     qmlRegisterType<PollHandler>("org.kde.neochat", 1, 0, "PollHandler");

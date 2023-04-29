@@ -1908,3 +1908,8 @@ void NeoChatRoom::sendLocation(float lat, float lon, const QString &description)
     };
     postJson("m.room.message", content);
 }
+
+QByteArray NeoChatRoom::roomAcountDataJson(const QString &eventType)
+{
+    return QJsonDocument(accountData(eventType)->fullJson()).toJson();
+}

@@ -769,3 +769,19 @@ QString Controller::activeAccountLabel() const
     }
     return m_connection->accountDataJson("org.kde.neochat.account_label")["account_label"].toString();
 }
+
+QVariantList Controller::getSupportedRoomVersions(Quotient::Connection *connection)
+{
+    auto roomVersions = connection->availableRoomVersions();
+
+    QVariantList supportedRoomVersions;
+    for (const Quotient::Connection::SupportedRoomVersion &v : roomVersions) {
+        QVariantMap roomVersionMap;
+        roomVersionMap.insert("id", v.id);
+        roomVersionMap.insert("status", v.status);
+        roomVersionMap.insert("isStable", v.isStable());
+        supportedRoomVersions.append(roomVersionMap);
+    }
+
+    return supportedRoomVersions;
+}

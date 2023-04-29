@@ -44,6 +44,7 @@ add_library(neochat STATIC
     models/actionsmodel.cpp
     models/serverlistmodel.cpp
     models/statemodel.cpp
+    models/statefiltermodel.cpp
     filetransferpseudojob.cpp
     models/searchmodel.cpp
     texthandler.cpp

@@ -749,6 +749,11 @@ public:
     Q_INVOKABLE PollHandler *poll(const QString &eventId);
 #endif
 
+    /**
+     * @brief Get the full Json data for a given room account data event.
+     */
+    Q_INVOKABLE QByteArray roomAcountDataJson(const QString &eventType);
+
 private:
     QSet<const Quotient::RoomEvent *> highlights;
 

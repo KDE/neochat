@@ -214,6 +214,8 @@ public:
      */
     Q_INVOKABLE void forceRefreshTextDocument(QQuickTextDocument *textDocument, QQuickItem *item);
 
+    Q_INVOKABLE QVariantList getSupportedRoomVersions(Quotient::Connection *connection);
+
 private:
     explicit Controller(QObject *parent = nullptr);
 
