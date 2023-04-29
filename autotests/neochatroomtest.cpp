@@ -144,5 +144,5 @@ void NeoChatRoomTest::eventTest()
     QCOMPARE(room->timelineSize(), 1);
 }
 
-QTEST_MAIN(NeoChatRoomTest)
+QTEST_GUILESS_MAIN(NeoChatRoomTest)
 #include "neochatroomtest.moc"

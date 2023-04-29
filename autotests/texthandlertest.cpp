@@ -596,5 +596,5 @@ void TextHandlerTest::receiveLineSeparator()
     QCOMPARE(textHandler.handleRecievePlainText(Qt::PlainText, true), QStringLiteral("foo bar"));
 }
 
-QTEST_MAIN(TextHandlerTest)
+QTEST_GUILESS_MAIN(TextHandlerTest)
 #include "texthandlertest.moc"
