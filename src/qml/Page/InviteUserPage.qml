@@ -49,9 +49,6 @@ Kirigami.ScrollablePage {
     }
 
     ListView {
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-
         id: userDictListView
 
         clip: true
@@ -71,60 +68,38 @@ Kirigami.ScrollablePage {
             text: i18n("No users available")
         }
 
-        delegate: Kirigami.AbstractListItem {
+        delegate: Kirigami.BasicListItem {
             id: delegate
             property bool inRoom: room && room.containsUser(userID)
 
-            topPadding: Kirigami.Units.largeSpacing
-            bottomPadding: Kirigami.Units.largeSpacing
+            label: model.name
+            subtitle: model.userID
 
-            contentItem: RowLayout {
-                Kirigami.Avatar {
-                    Layout.preferredWidth: height
-                    Layout.fillHeight: true
+            leading: Kirigami.Avatar {
+                implicitWidth: height
+                source: model.avatar ? ("image://mxc/" + model.avatar) : ""
+                name: model.name
+            }
+            trailing: QQC2.ToolButton {
+                id: inviteButton
+                icon.name: "document-send"
+                text: i18n("Send invitation")
+                checkable: true
+                checked: inRoom
+                opacity: inRoom ? 0.5 : 1
 
-                    source: model.avatar ? ("image://mxc/" + model.avatar) : ""
-                    name: model.name
-                }
-
-                ColumnLayout {
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-
-                    spacing: 0
-
-                    Kirigami.Heading {
-                        Layout.fillWidth: true
-                        Layout.fillHeight: true
-                        level: 3
-
-                        text: name
-                        textFormat: Text.PlainText
-                        elide: Text.ElideRight
-                        wrapMode: Text.NoWrap
-                    }
-
-                    QQC2.Label {
-                        Layout.fillWidth: true
-                        Layout.fillHeight: true
-
-                        text: userID
-                        textFormat: Text.PlainText
-                        elide: Text.ElideRight
-                        wrapMode: Text.NoWrap
-                    }
-                }
-
-                QQC2.ToolButton {
-                    visible: !inRoom
-                    icon.name: "document-send"
-                    text: i18n("Send invitation")
-
-                    onClicked: {
-                        room.inviteToRoom(userID);
+                onToggled: {
+                    if (inRoom) {
+                        checked = true
+                    } else {
+                        room.inviteToRoom(model.userID);
                         applicationWindow().pageStack.layers.pop();
                     }
                 }
+
+                QQC2.ToolTip.text: !inRoom ? text : i18n("User is either already a member or has been invited")
+                QQC2.ToolTip.visible: inviteButton.hovered
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
             }
         }
     }

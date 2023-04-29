@@ -920,6 +920,9 @@ void NeoChatRoom::toggleReaction(const QString &eventId, const QString &reaction
 
 bool NeoChatRoom::containsUser(const QString &userID) const
 {
+#ifdef QUOTIENT_07
+    return memberState(userID) != Membership::Leave;
+#else
     auto u = Room::user(userID);
 
     if (!u) {
@@ -927,6 +930,7 @@ bool NeoChatRoom::containsUser(const QString &userID) const
     }
 
     return Room::memberJoinState(u) != JoinState::Leave;
+#endif
 }
 
 bool NeoChatRoom::canSendEvent(const QString &eventType) const
