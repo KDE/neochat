@@ -92,7 +92,7 @@ ColumnLayout {
 
         Component.onCompleted: {
             if (model.isReply && model.reply === undefined) {
-                messageEventModel.loadReply(sortedMessageEventModel.mapToSource(sortedMessageEventModel.index(model.index, 0)))
+                messageEventModel.loadReply(sortedMessageEventModel.mapToSource(collapseStateProxyModel.mapToSource(collapseStateProxyModel.index(model.index, 0))))
             }
         }
 
