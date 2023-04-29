@@ -105,11 +105,6 @@ QQC2.Control {
 
         property var textFieldHeight: textField.height
 
-        property var visualLeftPadding: (root.width - chatBoxMaxWidth) / 2 - (root.width > chatBoxMaxWidth ? Kirigami.Units.largeSpacing : 0)
-        property var visualRightPadding: (root.width - chatBoxMaxWidth) / 2 + (root.width > chatBoxMaxWidth ? Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing : 0)
-        leftPadding: LayoutMirroring.enabled ? visualRightPadding : visualLeftPadding
-        rightPadding: LayoutMirroring.enabled ? visualLeftPadding : visualRightPadding
-
         // HACK: This is to stop the ScrollBar flickering on and off as the height is increased
         QQC2.ScrollBar.vertical.policy: chatBarHeightAnimation.running && implicitHeight <= height ? QQC2.ScrollBar.AlwaysOff : QQC2.ScrollBar.AsNeeded
 
@@ -121,13 +116,14 @@ QQC2.Control {
             }
         }
 
-        QQC2.TextArea{
+        QQC2.TextArea {
             id: textField
 
+            x: Math.round((root.width - chatBoxMaxWidth) / 2) - (root.width > chatBoxMaxWidth ? Kirigami.Units.largeSpacing * 1.5 : 0)
             topPadding: Kirigami.Units.largeSpacing + (paneLoader.visible ? paneLoader.height : 0)
             bottomPadding: Kirigami.Units.largeSpacing
-            leftPadding: LayoutMirroring.enabled ? actionsRow.width : (root.width > chatBoxMaxWidth ? 0 : Kirigami.Units.largeSpacing)
-            rightPadding: LayoutMirroring.enabled ? (root.width > chatBoxMaxWidth ? 0 : Kirigami.Units.largeSpacing) : actionsRow.width
+            leftPadding: LayoutMirroring.enabled ? actionsRow.width : Kirigami.Units.largeSpacing
+            rightPadding: LayoutMirroring.enabled ? Kirigami.Units.largeSpacing : actionsRow.width
 
             placeholderText: readOnly ? i18n("This room is encrypted. Build libQuotient with encryption enabled to send encrypted messages.") : currentRoom.usesEncryption ? i18n("Send an encrypted message…") : currentRoom.chatBoxAttachmentPath.length > 0 ? i18n("Set an attachment caption...") : i18n("Send a message…")
             verticalAlignment: TextEdit.AlignVCenter
