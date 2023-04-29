@@ -507,9 +507,11 @@ void Controller::setQuitOnLastWindowClosed()
         m_trayIcon->show();
         connect(m_trayIcon, &TrayIcon::showWindow, this, &Controller::showWindow);
     } else {
-        disconnect(m_trayIcon, &TrayIcon::showWindow, this, &Controller::showWindow);
-        delete m_trayIcon;
-        m_trayIcon = nullptr;
+        if (m_trayIcon) {
+            disconnect(m_trayIcon, &TrayIcon::showWindow, this, &Controller::showWindow);
+            delete m_trayIcon;
+            m_trayIcon = nullptr;
+        }
     }
     QGuiApplication::setQuitOnLastWindowClosed(!NeoChatConfig::self()->systemTray());
 #else
