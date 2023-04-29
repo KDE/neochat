@@ -7,7 +7,6 @@
 #include <events/roompowerlevelsevent.h>
 
 #include "neochatroom.h"
-#include "neochatuser.h"
 
 using namespace Quotient;
 
@@ -23,40 +22,20 @@ void UserListModel::setRoom(NeoChatRoom *room)
         return;
     }
 
-    beginResetModel();
     if (m_currentRoom) {
         m_currentRoom->disconnect(this);
-        //    m_currentRoom->connection()->disconnect(this);
-        for (User *user : std::as_const(m_users)) {
-            user->disconnect(this);
-        }
-        m_users.clear();
     }
     m_currentRoom = room;
+
     if (m_currentRoom) {
         connect(m_currentRoom, &Room::userAdded, this, &UserListModel::userAdded);
         connect(m_currentRoom, &Room::userRemoved, this, &UserListModel::userRemoved);
         connect(m_currentRoom, &Room::memberAboutToRename, this, &UserListModel::userRemoved);
         connect(m_currentRoom, &Room::memberRenamed, this, &UserListModel::userAdded);
-        connect(m_currentRoom, &Room::changed, this, &UserListModel::refreshAll);
-        {
-            m_users = m_currentRoom->users();
-            std::sort(m_users.begin(), m_users.end(), room->memberSorter());
-        }
-        for (User *user : std::as_const(m_users)) {
-#ifdef QUOTIENT_07
-            connect(user, &User::defaultAvatarChanged, this, [this, user]() {
-                avatarChanged(user, m_currentRoom);
-            });
-#else
-            connect(user, &User::avatarChanged, this, &UserListModel::avatarChanged);
-#endif
-        }
-        connect(m_currentRoom->connection(), &Connection::loggedOut, this, [this]() {
-            setRoom(nullptr);
-        });
+        connect(m_currentRoom, &Room::changed, this, &UserListModel::refreshAllUsers);
     }
-    endResetModel();
+
+    refreshAllUsers();
     Q_EMIT roomChanged();
 }
 
@@ -80,7 +59,9 @@ QVariant UserListModel::data(const QModelIndex &index, int role) const
     }
 
     if (index.row() >= m_users.count()) {
-        return QStringLiteral("DEADBEEF");
+        qDebug() << "UserListModel, something's wrong: index.row() >= "
+                    "users.count()";
+        return {};
     }
     auto user = m_users.at(index.row());
     if (role == NameRole) {
@@ -133,7 +114,6 @@ int UserListModel::rowCount(const QModelIndex &parent) const
     if (parent.isValid()) {
         return 0;
     }
-
     return m_users.count();
 }
 
@@ -145,10 +125,12 @@ void UserListModel::userAdded(Quotient::User *user)
     endInsertRows();
 #ifdef QUOTIENT_07
     connect(user, &User::defaultAvatarChanged, this, [this, user]() {
-        avatarChanged(user, m_currentRoom);
+        refreshUser(user, {AvatarRole});
     });
 #else
-    connect(user, &Quotient::User::avatarChanged, this, &UserListModel::avatarChanged);
+    connect(user, &Quotient::User::avatarChanged, this, [this, user]() {
+        refreshUser(user, {AvatarRole});
+    });
 #endif
 }
 
@@ -165,7 +147,7 @@ void UserListModel::userRemoved(Quotient::User *user)
     }
 }
 
-void UserListModel::refresh(Quotient::User *user, const QVector<int> &roles)
+void UserListModel::refreshUser(Quotient::User *user, const QVector<int> &roles)
 {
     auto pos = findUserPos(user);
     if (pos != m_users.size()) {
@@ -175,7 +157,7 @@ void UserListModel::refresh(Quotient::User *user, const QVector<int> &roles)
     }
 }
 
-void UserListModel::refreshAll()
+void UserListModel::refreshAllUsers()
 {
     beginResetModel();
     for (User *user : std::as_const(m_users)) {
@@ -183,17 +165,18 @@ void UserListModel::refreshAll()
     }
     m_users.clear();
 
-    {
-        m_users = m_currentRoom->users();
-        std::sort(m_users.begin(), m_users.end(), m_currentRoom->memberSorter());
-    }
+    m_users = m_currentRoom->users();
+    std::sort(m_users.begin(), m_users.end(), m_currentRoom->memberSorter());
+
     for (User *user : std::as_const(m_users)) {
 #ifdef QUOTIENT_07
         connect(user, &User::defaultAvatarChanged, this, [this, user]() {
-            avatarChanged(user, m_currentRoom);
+            refreshUser(user, {AvatarRole});
         });
 #else
-        connect(user, &User::avatarChanged, this, &UserListModel::avatarChanged);
+        connect(user, &User::avatarChanged, this, [this, user]() {
+            refreshUser(user, {AvatarRole});
+        });
 #endif
     }
     connect(m_currentRoom->connection(), &Connection::loggedOut, this, [this]() {
@@ -201,13 +184,6 @@ void UserListModel::refreshAll()
     });
     endResetModel();
     Q_EMIT usersRefreshed();
-}
-
-void UserListModel::avatarChanged(Quotient::User *user, const Quotient::Room *context)
-{
-    if (context == m_currentRoom) {
-        refresh(user, {AvatarRole});
-    }
 }
 
 int UserListModel::findUserPos(Quotient::User *user) const
