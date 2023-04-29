@@ -228,7 +228,7 @@ Kirigami.ScrollablePage {
         }
 
         onAtYEndChanged: if (atYEnd && hasScrolledUpBefore) {
-            if (QQC2.ApplicationWindow.window && (QQC2.ApplicationWindow.window.visibility !== QQC2.ApplicationWindow.Hidden)) {
+            if (QQC2.ApplicationWindow.window && (QQC2.ApplicationWindow.window.visibility !== QQC2.ApplicationWindow.Hidden) && messageListView.count > 0) {
                 currentRoom.markAllMessagesAsRead();
             }
             hasScrolledUpBefore = false;
