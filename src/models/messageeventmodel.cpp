@@ -314,7 +314,6 @@ int MessageEventModel::refreshEventRoles(const QString &id, const QVector<int> &
     } else {
         const auto timelineIt = m_currentRoom->findInTimeline(id);
         if (timelineIt == m_currentRoom->historyEdge()) {
-            qWarning() << "Trying to refresh inexistent event:" << id;
             return -1;
         }
         row = int(timelineIt - m_currentRoom->messageEvents().rbegin()) + timelineBaseIndex();
