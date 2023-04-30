@@ -7,9 +7,20 @@
 
 #include <user.h>
 
+/**
+ * @class NeoChatUser
+ *
+ * A class inherited from Quotient::User to add a user color function.
+ *
+ * @sa Quotient::User
+ */
 class NeoChatUser : public Quotient::User
 {
     Q_OBJECT
+
+    /**
+     * @brief The color to use for the user.
+     */
     Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged)
 public:
     NeoChatUser(QString userId, Quotient::Connection *connection);
