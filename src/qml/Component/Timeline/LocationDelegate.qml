@@ -71,7 +71,7 @@ TimelineContainer {
                         width: height
                         height: parent.height / 3 + 1
                         name: model.author.name ?? model.author.displayName
-                        source: model.author.avatarMediaId ? ("image://mxc/" + model.author.avatarMediaId) : ""
+                        source: model.author.avatarSource
                         color: model.author.color
                     }
                 }

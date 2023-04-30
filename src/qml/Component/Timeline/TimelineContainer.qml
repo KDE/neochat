@@ -135,7 +135,7 @@ ColumnLayout {
                 Config.showAvatarInTimeline &&
                 (Config.compactLayout || !showUserMessageOnRight)
             name: model.author.name ?? model.author.displayName
-            source: visible && model.author.avatarMediaId ? ("image://mxc/" + model.author.avatarMediaId) : ""
+            source: model.author.avatarSource
             color: model.author.color
 
             MouseArea {
@@ -144,9 +144,7 @@ ColumnLayout {
                     userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {
                         room: currentRoom,
                         user: author.object,
-                        displayName: author.displayName,
-                        avatarMediaId: author.avatarMediaId,
-                        avatarUrl: author.avatarUrl
+                        displayName: author.displayName
                     }).open();
                 }
                 cursorShape: Qt.PointingHandCursor
@@ -231,8 +229,7 @@ ColumnLayout {
                                         room: currentRoom,
                                         user: author.object,
                                         displayName: author.displayName,
-                                        avatarMediaId: author.avatarMediaId,
-                                        avatarUrl: author.avatarUrl
+                                        avatarSource: author.avatarSource
                                     }).open();
                                 }
                             }
@@ -260,9 +257,9 @@ ColumnLayout {
                         visible: active
 
                         sourceComponent: ReplyComponent {
-                            name: currentRoom.htmlSafeMemberName(reply.author.id)
-                            avatar: reply.author.avatarMediaId ? ("image://mxc/" + reply.author.avatarMediaId) : ""
-                            color: reply.author.color
+                            name: currentRoom.htmlSafeMemberName(model.replyAuthor.id)
+                            avatar: model.replyAuthor.avatarSource
+                            color: model.replyAuthor.color
                         }
 
                         Connections {

@@ -82,7 +82,7 @@ QQC2.Control {
                         implicitHeight: Kirigami.Units.iconSizes.small
 
                         name: modelData.displayName
-                        source: modelData.avatarMediaId ? ("image://mxc/" + modelData.avatarMediaId) : ""
+                        source: modelData.avatarSource
                         color: modelData.color
                     }
                 }
@@ -121,7 +121,7 @@ QQC2.Control {
                 visible: !columnLayout.folded || stateEventRepeater.count === 1
 
                 name: modelData.author.displayName
-                avatar: modelData.author.avatarMediaId ? ("image://mxc/" + modelData.author.avatarMediaId) : ""
+                avatar: modelData.author.avatarSource
                 color: modelData.author.color
                 text: `<style>a {text-decoration: none;}</style><a href="https://matrix.to/#/${modelData.author.id}" style="color: ${modelData.author.color}">${modelData.authorDisplayName}</a> ${modelData.text}`
 

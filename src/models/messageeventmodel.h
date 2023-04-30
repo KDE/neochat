@@ -75,6 +75,7 @@ public:
         FileMimetypeIcon, /**< The icon name for the mime type of a file. */
 
         IsReplyRole, /**< Is the message a reply to another event. */
+        ReplyAuthor, /**< The author of the event that was replied to. */
         ReplyRole, /**< The content data of the message that was replied to. */
         ReplyIdRole, /**< The matrix ID of the message that was replied to. */
 
@@ -191,6 +192,8 @@ private:
     void refreshEventRoles(int row, const QVector<int> &roles = {});
     int refreshEventRoles(const QString &eventId, const QVector<int> &roles = {});
     void moveReadMarker(const QString &toEventId);
+
+    const Quotient::RoomEvent *getReplyForEvent(const Quotient::RoomEvent &event) const;
 
     std::vector<Quotient::event_ptr_tt<Quotient::RoomEvent>> m_extraEvents;
 

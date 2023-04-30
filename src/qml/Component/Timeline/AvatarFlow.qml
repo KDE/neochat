@@ -21,7 +21,7 @@ Flow {
             implicitHeight: avatarSize
 
             name: modelData.displayName
-            source: modelData.avatarMediaId ? ("image://mxc/" + modelData.avatarMediaId) : ""
+            source: modelData.avatarSource
             color: modelData.color
         }
     }

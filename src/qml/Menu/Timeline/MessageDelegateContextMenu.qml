@@ -226,7 +226,7 @@ Loader {
                         spacing: Kirigami.Units.largeSpacing
                         Kirigami.Avatar {
                             id: avatar
-                            source: author.avatarMediaId ? ("image://mxc/" + author.avatarMediaId) : ""
+                            source: author.avatarSource
                             Layout.preferredWidth: Kirigami.Units.gridUnit * 3
                             Layout.preferredHeight: Kirigami.Units.gridUnit * 3
                             Layout.alignment: Qt.AlignTop

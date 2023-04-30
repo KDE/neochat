@@ -47,6 +47,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[FileMimetypeIcon] = "fileMimetypeIcon";
     roles[EventResolvedTypeRole] = "eventResolvedType";
     roles[IsReplyRole] = "isReply";
+    roles[ReplyAuthor] = "replyAuthor";
     roles[ReplyRole] = "reply";
     roles[ReplyIdRole] = "replyId";
     roles[ShowAuthorRole] = "showAuthor";
@@ -421,12 +422,24 @@ void MessageEventModel::fetchMore(const QModelIndex &parent)
     }
 }
 
-inline QVariantMap userAtEvent(NeoChatUser *user, NeoChatRoom *room, const RoomEvent &evt)
+static const QVariantMap emptyUser = {
+    {"isLocalUser", false},
+    {"id", QString()},
+    {"avatarSource", QUrl()},
+    {"avatarMediaId", QString()},
+    {"avatarUrl", QString()},
+    {"displayName", QString()},
+    {"display", QString()},
+    {"color", QColor()},
+    {"object", QVariant()},
+};
+
+inline QVariantMap userInContext(NeoChatUser *user, NeoChatRoom *room)
 {
-    Q_UNUSED(evt)
     return QVariantMap{
         {"isLocalUser", user->id() == room->localUser()->id()},
         {"id", user->id()},
+        {"avatarSource", room->avatarForMember(user)},
         {"avatarMediaId", user->avatarMediaId(room)},
         {"avatarUrl", user->avatarUrl(room)},
         {"displayName", user->displayname(room)},
@@ -551,7 +564,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 
     if (role == AuthorRole) {
         auto author = static_cast<NeoChatUser *>(isPending ? m_currentRoom->localUser() : m_currentRoom->user(evt.senderId()));
-        return userAtEvent(author, m_currentRoom, evt);
+        return userInContext(author, m_currentRoom);
     }
 
     if (role == ContentTypeRole) {
@@ -690,21 +703,19 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         return evt.contentJson()["m.relates_to"].toObject()["m.in_reply_to"].toObject()["event_id"].toString();
     }
 
-    if (role == ReplyRole) {
-        const QString &replyEventId = evt.contentJson()["m.relates_to"].toObject()["m.in_reply_to"].toObject()["event_id"].toString();
-        if (replyEventId.isEmpty()) {
-            return {};
-        };
-        const auto replyIt = m_currentRoom->findInTimeline(replyEventId);
-        const RoomEvent *replyPtr = replyIt != m_currentRoom->historyEdge() ? &**replyIt : nullptr;
-        if (!replyPtr) {
-            for (const auto &e : m_extraEvents) {
-                if (e->id() == replyEventId) {
-                    replyPtr = e.get();
-                    break;
-                }
-            }
+    if (role == ReplyAuthor) {
+        auto replyPtr = getReplyForEvent(evt);
+
+        if (replyPtr) {
+            auto replyUser = static_cast<NeoChatUser *>(m_currentRoom->user(replyPtr->senderId()));
+            return userInContext(replyUser, m_currentRoom);
+        } else {
+            return emptyUser;
         }
+    }
+
+    if (role == ReplyRole) {
+        auto replyPtr = getReplyForEvent(evt);
         if (!replyPtr) {
             return {};
         }
@@ -753,11 +764,12 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             content = QVariant::fromValue(e->image().originalJson);
         }
 
-        return QVariantMap{{"eventId", replyEventId},
-                           {"display", m_currentRoom->eventToString(*replyPtr, Qt::RichText)},
-                           {"content", content},
-                           {"type", type},
-                           {"author", userAtEvent(static_cast<NeoChatUser *>(m_currentRoom->user(replyPtr->senderId())), m_currentRoom, evt)}};
+        return QVariantMap{
+            {"eventId", replyPtr->id()},
+            {"display", m_currentRoom->eventToString(*replyPtr, Qt::RichText)},
+            {"content", content},
+            {"type", type},
+        };
     }
 
     if (role == ShowAuthorRole) {
@@ -835,7 +847,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 #else
             auto user = static_cast<NeoChatUser *>(userId);
 #endif
-            users += userAtEvent(user, m_currentRoom, evt);
+            users += userInContext(user, m_currentRoom);
         }
 
         return users;
@@ -901,7 +913,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         while (i != reactions.constEnd()) {
             QVariantList authors;
             for (auto author : i.value()) {
-                authors.append(userAtEvent(author, m_currentRoom, evt));
+                authors.append(userInContext(author, m_currentRoom));
             }
             bool hasLocalUser = i.value().contains(static_cast<NeoChatUser *>(m_currentRoom->localUser()));
             res.append(QVariantMap{{"reaction", i.key()}, {"count", i.value().count()}, {"authors", authors}, {"hasLocalUser", hasLocalUser}});
@@ -1087,4 +1099,24 @@ void MessageEventModel::loadReply(const QModelIndex &index)
         m_extraEvents.push_back(fromJson<event_ptr_tt<RoomEvent>>(job->jsonData()));
         Q_EMIT dataChanged(persistentIndex, persistentIndex, {ReplyRole});
     });
+}
+
+const RoomEvent *MessageEventModel::getReplyForEvent(const RoomEvent &event) const
+{
+    const QString &replyEventId = event.contentJson()["m.relates_to"].toObject()["m.in_reply_to"].toObject()["event_id"].toString();
+    if (replyEventId.isEmpty()) {
+        return {};
+    };
+
+    const auto replyIt = m_currentRoom->findInTimeline(replyEventId);
+    const RoomEvent *replyPtr = replyIt != m_currentRoom->historyEdge() ? &**replyIt : nullptr;
+    if (!replyPtr) {
+        for (const auto &e : m_extraEvents) {
+            if (e->id() == replyEventId) {
+                replyPtr = e.get();
+                break;
+            }
+        }
+    }
+    return replyPtr;
 }

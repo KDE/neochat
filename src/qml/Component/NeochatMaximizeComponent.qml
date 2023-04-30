@@ -35,7 +35,7 @@ Components.AlbumMaximizeComponent {
             implicitHeight: Kirigami.Units.iconSizes.medium
 
             name: modelData.author.name ?? modelData.author.displayName
-            source: modelData.author.avatarMediaId ? ("image://mxc/" + modelData.author.avatarMediaId) : ""
+            source: modelData.author.avatarSource
             color: modelData.author.color
         }
         ColumnLayout {

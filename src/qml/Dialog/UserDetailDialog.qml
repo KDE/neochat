@@ -19,7 +19,7 @@ Kirigami.OverlaySheet {
     property var user
 
     property string displayName: user.displayName
-    readonly property string avatar: room.avatarForMember(user)
+    readonly property url avatar: room.avatarForMember(user)
 
     parent: applicationWindow().overlay
 
@@ -45,7 +45,7 @@ Kirigami.OverlaySheet {
                 Layout.preferredHeight: Kirigami.Units.iconSizes.huge
 
                 name: displayName
-                source: avatar ?? ""
+                source: avatar
                 color: user.color
             }
 

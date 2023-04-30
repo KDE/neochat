@@ -14,7 +14,7 @@ GridLayout {
     id: root
     property string userName
     property color userColor: Kirigami.Theme.highlightColor
-    property var userAvatar: ""
+    property url userAvatar: ""
     property var text
 
     rows: 3

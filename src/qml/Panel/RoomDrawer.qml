@@ -258,7 +258,7 @@ Kirigami.OverlayDrawer {
                             implicitWidth: height
                             sourceSize.height: Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 2.5
                             sourceSize.width: Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 2.5
-                            source: avatar ? ("image://mxc/" + avatar) : ""
+                            source: avatar
                             name: model.userId
                         }
 
