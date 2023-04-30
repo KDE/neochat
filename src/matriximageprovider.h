@@ -15,6 +15,13 @@ namespace Quotient
 class Connection;
 }
 
+/**
+ * @class ThumbnailResponse
+ *
+ * A QQuickImageResponse for an mxc image.
+ *
+ * @sa QQuickImageResponse
+ */
 class ThumbnailResponse : public QQuickImageResponse
 {
     Q_OBJECT
@@ -40,8 +47,20 @@ private:
     QString errorString() const override;
 };
 
+/**
+ * @class MatrixImageProvider
+ *
+ * A QQuickAsyncImageProvider for mxc images.
+ *
+ * @sa QQuickAsyncImageProvider
+ */
 class MatrixImageProvider : public QQuickAsyncImageProvider
 {
 public:
+    /**
+     * @brief Return a job to provide the image with the given ID.
+     *
+     * @sa QQuickAsyncImageProvider::requestImageResponse
+     */
     QQuickImageResponse *requestImageResponse(const QString &id, const QSize &requestedSize) override;
 };
