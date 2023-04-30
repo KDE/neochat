@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-20 00:48+0000\n"
+"POT-Creation-Date: 2023-04-28 00:48+0000\n"
 "PO-Revision-Date: 2021-12-15 11:17+0100\n"
 "Last-Translator: Øystein Steffensen-Alværvik <oysteins.omsetting@protonmail."
 "com>\n"
@@ -21,77 +21,77 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: src/controller.cpp:198
+#: src/controller.cpp:182
 #, kde-format
 msgid "Encrypted Message"
 msgstr ""
 
-#: src/controller.cpp:258 src/controller.cpp:391
-#, kde-format
-msgid "Network Error: %1"
-msgstr ""
-
-#: src/controller.cpp:377
+#: src/controller.cpp:325
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr ""
 
-#: src/controller.cpp:380 src/controller.cpp:385 src/login.cpp:91
+#: src/controller.cpp:328 src/controller.cpp:333 src/login.cpp:91
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Feil ved innlogging: %1"
 
-#: src/controller.cpp:416
+#: src/controller.cpp:339
+#, kde-format
+msgid "Network Error: %1"
+msgstr ""
+
+#: src/controller.cpp:364
 #, kde-format
 msgid "Access token wasn't found"
 msgstr ""
 
-#: src/controller.cpp:416
+#: src/controller.cpp:364
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr ""
 
-#: src/controller.cpp:420
+#: src/controller.cpp:368
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr ""
 
-#: src/controller.cpp:420
+#: src/controller.cpp:368
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr ""
 
-#: src/controller.cpp:423
+#: src/controller.cpp:371
 #, kde-format
 msgid "No keychain available."
 msgstr ""
 
-#: src/controller.cpp:423
+#: src/controller.cpp:371
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 
-#: src/controller.cpp:426
+#: src/controller.cpp:374
 #, kde-format
 msgid "Unable to read access token"
 msgstr ""
 
-#: src/controller.cpp:617
+#: src/controller.cpp:556
 #, kde-format
 msgid "File too large to download."
 msgstr ""
 
-#: src/controller.cpp:617
+#: src/controller.cpp:556
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 
-#: src/controller.cpp:655
+#: src/controller.cpp:594
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "Feil ved romregistrering: «%1»"
 
-#: src/controller.cpp:676
+#: src/controller.cpp:615
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Rom-ID-en du prøver å bruka, er ikkje gyldig"
@@ -1331,7 +1331,7 @@ msgctxt "@action:button"
 msgid "Back"
 msgstr "Tilbake"
 
-#: src/qml/Component/QuickSwitcher.qml:124
+#: src/qml/Component/QuickSwitcher.qml:127
 #: src/qml/Page/RoomList/CollapsedRoomDelegate.qml:37
 #: src/qml/Page/RoomList/RoomDelegate.qml:65
 #, kde-format
@@ -3121,7 +3121,6 @@ msgstr ""
 
 #: src/qml/RoomSettings/Security.qml:154
 #: src/qml/Settings/NetworkProxyPage.qml:127
-#: src/qml/Settings/SonnetConfigPage.qml:326
 #, kde-format
 msgid "Apply"
 msgstr ""
@@ -3678,77 +3677,87 @@ msgstr "Om Neochat"
 msgid "About KDE"
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:50
+#: src/qml/Settings/SonnetConfigPage.qml:28
 #, kde-format
-msgctxt "@window:title"
 msgid "Spellchecking"
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:94
-#, kde-format
-msgid "Selected default language:"
-msgstr ""
-
-#: src/qml/Settings/SonnetConfigPage.qml:105
-#, kde-format
-msgid "Open Personal Dictionary"
-msgstr ""
-
-#: src/qml/Settings/SonnetConfigPage.qml:124
-#, kde-format
-msgid "Options:"
-msgstr ""
-
-#: src/qml/Settings/SonnetConfigPage.qml:126
+#: src/qml/Settings/SonnetConfigPage.qml:34
 #, kde-format
 msgid "Enable automatic spell checking"
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:137
+#: src/qml/Settings/SonnetConfigPage.qml:46
 #, kde-format
 msgid "Ignore uppercase words"
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:148
+#: src/qml/Settings/SonnetConfigPage.qml:58
 #, kde-format
 msgid "Ignore hyphenated words"
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:160
+#: src/qml/Settings/SonnetConfigPage.qml:70
 #, kde-format
 msgid "Detect language automatically"
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:172
+#: src/qml/Settings/SonnetConfigPage.qml:81
 #, kde-format
-msgid "Spell checking languages"
+msgid "Selected default language:"
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:180
+#: src/qml/Settings/SonnetConfigPage.qml:82
+#, kde-format
+msgid "None"
+msgstr ""
+
+#: src/qml/Settings/SonnetConfigPage.qml:101
+#, kde-format
+msgid "Additional spell checking languages"
+msgstr ""
+
+#: src/qml/Settings/SonnetConfigPage.qml:102
 #, kde-format
 msgid ""
 "%1 will provide spell checking and suggestions for the languages listed here "
 "when autodetection is enabled."
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:226
+#: src/qml/Settings/SonnetConfigPage.qml:114
+#, kde-format
+msgid "Open Personal Dictionary"
+msgstr ""
+
+#: src/qml/Settings/SonnetConfigPage.qml:125
+#, kde-format
+msgctxt "@title:window"
+msgid "Spell checking languages"
+msgstr ""
+
+#: src/qml/Settings/SonnetConfigPage.qml:134
+#: src/qml/Settings/SonnetConfigPage.qml:144
+#, kde-format
+msgid "Default Language"
+msgstr ""
+
+#: src/qml/Settings/SonnetConfigPage.qml:156
+#, kde-format
+msgid "Spell checking dictionary"
+msgstr ""
+
+#: src/qml/Settings/SonnetConfigPage.qml:163
 #, kde-format
 msgid "Add a new word to your personal dictionary…"
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:229
+#: src/qml/Settings/SonnetConfigPage.qml:166
 #, kde-format
 msgctxt "@action:button"
 msgid "Add word"
 msgstr ""
 
-#: src/qml/Settings/SonnetConfigPage.qml:248
-#, kde-format
-msgid "Spell checking dictionary"
-msgstr ""
-
-#: src/qml/Settings/SonnetConfigPage.qml:278
-#: src/qml/Settings/SonnetConfigPage.qml:309
+#: src/qml/Settings/SonnetConfigPage.qml:193
 #, kde-format
 msgid "Delete word"
 msgstr ""
