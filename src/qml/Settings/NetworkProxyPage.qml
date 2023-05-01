@@ -70,27 +70,17 @@ Kirigami.ScrollablePage {
                         proxyConfigChanged = true
                     }
                 }
-                // we probably still need a FormSpinBoxDelegate
-                MobileForm.AbstractFormDelegate {
-                    Layout.fillWidth: true
-                    contentItem: RowLayout {
-                        QQC2.Label {
-                            text: i18n("Port")
-                            Layout.fillWidth: true
-                        }
-                        QQC2.SpinBox {
-                            id: portField
-                            value: Config.proxyPort
-                            from: 0
-                            to: 65536
-                            validator: IntValidator {bottom: portField.from; top: portField.to}
-                            textFromValue: function(value, locale) {
-                                return value // it will add a thousands separator if we don't do this, not sure why
-                            }
-                            onValueChanged: {
-                                proxyConfigChanged = true
-                            }
-                        }
+                MobileForm.FormSpinBoxDelegate {
+                    id: portField
+                    label: i18n("Port")
+                    value: Config.proxyPort
+                    from: 0
+                    to: 65536
+                    textFromValue: function(value, locale) {
+                        return value // it will add a thousands separator if we don't do this, not sure why
+                    }
+                    onValueChanged: {
+                        proxyConfigChanged = true
                     }
                 }
                 MobileForm.FormTextFieldDelegate {
