@@ -14,6 +14,11 @@ Loader {
     id: root
 
     /**
+     * @brief The room that the component is created in.
+     */
+    property var room
+
+    /**
      * @brief Get a list of hyperlinks in the text.
      *
      * User links i.e. anything starting with https://matrix.to are ignored.
@@ -33,6 +38,7 @@ Loader {
     }
     LinkPreviewer {
         id: linkPreviewer
+        room: root.room
         url: root.links && root.links.length > 0 ? root.links[0] : ""
     }
 
@@ -76,7 +82,7 @@ Loader {
                     visible: linkPreviewer.imageSource
                     Layout.maximumHeight: root.defaultHeight
                     Layout.maximumWidth: root.defaultHeight
-                    source: linkPreviewer.imageSource.replace("mxc://", "image://mxc/")
+                    source: linkPreviewer.imageSource
                     fillMode: Image.PreserveAspectFit
                 }
                 ColumnLayout {
