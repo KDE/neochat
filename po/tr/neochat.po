@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-30 00:48+0000\n"
-"PO-Revision-Date: 2023-04-23 11:35+0300\n"
+"POT-Creation-Date: 2023-05-01 00:52+0000\n"
+"PO-Revision-Date: 2023-04-30 13:30+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -629,49 +629,49 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Özel"
 
-#: src/models/messageeventmodel.cpp:362 src/models/searchmodel.cpp:164
+#: src/models/messageeventmodel.cpp:363 src/models/searchmodel.cpp:164
 #, kde-format
 msgid "Today"
 msgstr "Bugün"
 
-#: src/models/messageeventmodel.cpp:365 src/models/searchmodel.cpp:167
+#: src/models/messageeventmodel.cpp:366 src/models/searchmodel.cpp:167
 #, kde-format
 msgid "Yesterday"
 msgstr "Dün"
 
-#: src/models/messageeventmodel.cpp:368 src/models/searchmodel.cpp:170
+#: src/models/messageeventmodel.cpp:369 src/models/searchmodel.cpp:170
 #, kde-format
 msgid "The day before yesterday"
 msgstr "dünden önceki gün"
 
-#: src/models/messageeventmodel.cpp:470 src/models/messageeventmodel.cpp:479
+#: src/models/messageeventmodel.cpp:483 src/models/messageeventmodel.cpp:492
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Bu ileti silindi]</i>"
 
-#: src/models/messageeventmodel.cpp:471
+#: src/models/messageeventmodel.cpp:484
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Bu ileti silindi: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:568
+#: src/models/messageeventmodel.cpp:581
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[DEĞİŞTİRİLDİ]"
 
-#: src/models/messageeventmodel.cpp:568
+#: src/models/messageeventmodel.cpp:581
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[DEĞİŞTİRİLDİ: %1]"
 
-#: src/models/messageeventmodel.cpp:856
+#: src/models/messageeventmodel.cpp:868
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "%1 kullanıcı: "
 msgstr[1] "%1 kullanıcı: "
 
-#: src/models/messageeventmodel.cpp:863
+#: src/models/messageeventmodel.cpp:875
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -1205,27 +1205,24 @@ msgid "Replying to:"
 msgstr "Şu kişi yanıtlanıyor:"
 
 #: src/qml/Component/Devtools/RoomData.qml:20
-#, fuzzy, kde-format
-#| msgid "Rooms"
+#, kde-format
 msgid "Room"
-msgstr "Odalar"
+msgstr "Oda"
 
 #: src/qml/Component/Devtools/RoomData.qml:31
-#, fuzzy, kde-format
-#| msgid "Show name change events"
+#, kde-format
 msgid "Show m.room.member events"
-msgstr "Ad değişikliği olaylarını göster"
+msgstr "m.room.member olaylarını göster"
 
 #: src/qml/Component/Devtools/RoomData.qml:43
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgid "Show room account data"
-msgstr "Oda bulunamadı"
+msgstr "Oda hesap bilgisini göster"
 
 #: src/qml/Component/Devtools/RoomData.qml:54
 #, kde-format
 msgid "Room Account Data for %1 - %2"
-msgstr ""
+msgstr "%1 - %2 için Oda Hesap Bilgisi"
 
 #: src/qml/Component/Devtools/RoomData.qml:64
 #: src/qml/Component/Devtools/RoomData.qml:106
@@ -1235,33 +1232,29 @@ msgid "Event Source"
 msgstr "Olay Kaynağı"
 
 #: src/qml/Component/Devtools/RoomData.qml:78
-#, fuzzy, kde-format
-#| msgid "Room State - %1"
+#, kde-format
 msgid "Room State for %1"
-msgstr "Oda Durumu - %1"
+msgstr "%1 için Oda Durumu"
 
 #: src/qml/Component/Devtools/ServerData.qml:20
 #, kde-format
 msgid "Server Capabilities"
-msgstr ""
+msgstr "Sunucu Yetenekleri"
 
 #: src/qml/Component/Devtools/ServerData.qml:23
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
+#, kde-format
 msgid "Can change password"
-msgstr "Yeni parolayı onayla:"
+msgstr "Parolayı değiştirebilir"
 
 #: src/qml/Component/Devtools/ServerData.qml:33
-#, fuzzy, kde-format
-#| msgid "Default permissions"
+#, kde-format
 msgid "Default Room Version"
-msgstr "Öntanımlı izinler"
+msgstr "Öntanımlı Oda Sürümü"
 
 #: src/qml/Component/Devtools/ServerData.qml:45
-#, fuzzy, kde-format
-#| msgid "Room version"
+#, kde-format
 msgid "Available Room Versions"
-msgstr "Oda sürümü"
+msgstr "Kullanılabilir Oda Sürümleri"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:77
 #, kde-format
@@ -2329,7 +2322,7 @@ msgstr "Davet gönder"
 #: src/qml/Page/InviteUserPage.qml:100
 #, kde-format
 msgid "User is either already a member or has been invited"
-msgstr ""
+msgstr "Kullanıcı halihazırda bir üye veya davet edilmiş"
 
 #: src/qml/Page/JoinRoomPage.qml:21
 #, kde-format

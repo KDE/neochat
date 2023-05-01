@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-30 00:48+0000\n"
-"PO-Revision-Date: 2023-04-23 08:46+0300\n"
+"POT-Creation-Date: 2023-05-01 00:52+0000\n"
+"PO-Revision-Date: 2023-04-30 09:59+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -641,42 +641,42 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Нетипова"
 
-#: src/models/messageeventmodel.cpp:362 src/models/searchmodel.cpp:164
+#: src/models/messageeventmodel.cpp:363 src/models/searchmodel.cpp:164
 #, kde-format
 msgid "Today"
 msgstr "Сьогодні"
 
-#: src/models/messageeventmodel.cpp:365 src/models/searchmodel.cpp:167
+#: src/models/messageeventmodel.cpp:366 src/models/searchmodel.cpp:167
 #, kde-format
 msgid "Yesterday"
 msgstr "Вчора"
 
-#: src/models/messageeventmodel.cpp:368 src/models/searchmodel.cpp:170
+#: src/models/messageeventmodel.cpp:369 src/models/searchmodel.cpp:170
 #, kde-format
 msgid "The day before yesterday"
 msgstr "Позавчора"
 
-#: src/models/messageeventmodel.cpp:470 src/models/messageeventmodel.cpp:479
+#: src/models/messageeventmodel.cpp:483 src/models/messageeventmodel.cpp:492
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Це повідомлення було вилучено]</i>"
 
-#: src/models/messageeventmodel.cpp:471
+#: src/models/messageeventmodel.cpp:484
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Це повідомлення було вилучено: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:568
+#: src/models/messageeventmodel.cpp:581
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[ЗМІНЕНО]"
 
-#: src/models/messageeventmodel.cpp:568
+#: src/models/messageeventmodel.cpp:581
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[ЗМІНЕНО: %1]"
 
-#: src/models/messageeventmodel.cpp:856
+#: src/models/messageeventmodel.cpp:868
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
@@ -685,7 +685,7 @@ msgstr[1] "%1 користувачі: "
 msgstr[2] "%1 користувачів: "
 msgstr[3] "%1 користувач: "
 
-#: src/models/messageeventmodel.cpp:863
+#: src/models/messageeventmodel.cpp:875
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -1221,27 +1221,24 @@ msgid "Replying to:"
 msgstr "Відповідаємо:"
 
 #: src/qml/Component/Devtools/RoomData.qml:20
-#, fuzzy, kde-format
-#| msgid "Rooms"
+#, kde-format
 msgid "Room"
-msgstr "Кімнати"
+msgstr "Кімната"
 
 #: src/qml/Component/Devtools/RoomData.qml:31
-#, fuzzy, kde-format
-#| msgid "Show name change events"
+#, kde-format
 msgid "Show m.room.member events"
-msgstr "Показувати події зі зміни імені"
+msgstr "Показати події m.room.member"
 
 #: src/qml/Component/Devtools/RoomData.qml:43
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgid "Show room account data"
-msgstr "Не знайдено кімнат"
+msgstr "Показати дані облікового запису кімнати"
 
 #: src/qml/Component/Devtools/RoomData.qml:54
 #, kde-format
 msgid "Room Account Data for %1 - %2"
-msgstr ""
+msgstr "Дані облікового запису кімнати для %1 – %2"
 
 #: src/qml/Component/Devtools/RoomData.qml:64
 #: src/qml/Component/Devtools/RoomData.qml:106
@@ -1251,33 +1248,29 @@ msgid "Event Source"
 msgstr "Джерело подій"
 
 #: src/qml/Component/Devtools/RoomData.qml:78
-#, fuzzy, kde-format
-#| msgid "Room State - %1"
+#, kde-format
 msgid "Room State for %1"
-msgstr "Стан кімнати — %1"
+msgstr "Стан кімнати для %1"
 
 #: src/qml/Component/Devtools/ServerData.qml:20
 #, kde-format
 msgid "Server Capabilities"
-msgstr ""
+msgstr "Можливості сервера"
 
 #: src/qml/Component/Devtools/ServerData.qml:23
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
+#, kde-format
 msgid "Can change password"
-msgstr "Підтвердження нового пароля:"
+msgstr "Може змінювати пароль"
 
 #: src/qml/Component/Devtools/ServerData.qml:33
-#, fuzzy, kde-format
-#| msgid "Default permissions"
+#, kde-format
 msgid "Default Room Version"
-msgstr "Типові права доступу"
+msgstr "Типова версія кімнати"
 
 #: src/qml/Component/Devtools/ServerData.qml:45
-#, fuzzy, kde-format
-#| msgid "Room version"
+#, kde-format
 msgid "Available Room Versions"
-msgstr "Версія кімнати"
+msgstr "Доступні версії кімнати"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:77
 #, kde-format
@@ -2354,7 +2347,7 @@ msgstr "Надіслати запрошення"
 #: src/qml/Page/InviteUserPage.qml:100
 #, kde-format
 msgid "User is either already a member or has been invited"
-msgstr ""
+msgstr "Користувач або вже є учасником або його вже запрошено"
 
 #: src/qml/Page/JoinRoomPage.qml:21
 #, kde-format

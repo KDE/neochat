@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-30 00:48+0000\n"
-"PO-Revision-Date: 2023-04-23 14:35+0200\n"
+"POT-Creation-Date: 2023-05-01 00:52+0000\n"
+"PO-Revision-Date: 2023-04-30 18:41+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.0\n"
 
 #: src/controller.cpp:182
 #, kde-format
@@ -628,49 +628,49 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Aangepast"
 
-#: src/models/messageeventmodel.cpp:362 src/models/searchmodel.cpp:164
+#: src/models/messageeventmodel.cpp:363 src/models/searchmodel.cpp:164
 #, kde-format
 msgid "Today"
 msgstr "Vandaag"
 
-#: src/models/messageeventmodel.cpp:365 src/models/searchmodel.cpp:167
+#: src/models/messageeventmodel.cpp:366 src/models/searchmodel.cpp:167
 #, kde-format
 msgid "Yesterday"
 msgstr "Gisteren"
 
-#: src/models/messageeventmodel.cpp:368 src/models/searchmodel.cpp:170
+#: src/models/messageeventmodel.cpp:369 src/models/searchmodel.cpp:170
 #, kde-format
 msgid "The day before yesterday"
 msgstr "Eergisteren"
 
-#: src/models/messageeventmodel.cpp:470 src/models/messageeventmodel.cpp:479
+#: src/models/messageeventmodel.cpp:483 src/models/messageeventmodel.cpp:492
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Dit bericht is verwijderd]</i>"
 
-#: src/models/messageeventmodel.cpp:471
+#: src/models/messageeventmodel.cpp:484
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Dit bericht is verwijderd: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:568
+#: src/models/messageeventmodel.cpp:581
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[GEREDIGEERD]"
 
-#: src/models/messageeventmodel.cpp:568
+#: src/models/messageeventmodel.cpp:581
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[GEREDIGEERD: %1]"
 
-#: src/models/messageeventmodel.cpp:856
+#: src/models/messageeventmodel.cpp:868
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 gebruiker: "
 msgstr[1] "%1 gebruikers "
 
-#: src/models/messageeventmodel.cpp:863
+#: src/models/messageeventmodel.cpp:875
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -1204,27 +1204,24 @@ msgid "Replying to:"
 msgstr "Beantwoorden aan:"
 
 #: src/qml/Component/Devtools/RoomData.qml:20
-#, fuzzy, kde-format
-#| msgid "Rooms"
+#, kde-format
 msgid "Room"
-msgstr "Rooms"
+msgstr "Kamer"
 
 #: src/qml/Component/Devtools/RoomData.qml:31
-#, fuzzy, kde-format
-#| msgid "Show name change events"
+#, kde-format
 msgid "Show m.room.member events"
-msgstr "Gebeurtenissen met wijziging van naam tonen"
+msgstr "M.room.leden-gebeurtenissen tonen"
 
 #: src/qml/Component/Devtools/RoomData.qml:43
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgid "Show room account data"
-msgstr "Geen rooms gevonden"
+msgstr "Roomaccountgegevens tonen"
 
 #: src/qml/Component/Devtools/RoomData.qml:54
 #, kde-format
 msgid "Room Account Data for %1 - %2"
-msgstr ""
+msgstr "Roomaccountgegevens voor %1 - %2"
 
 #: src/qml/Component/Devtools/RoomData.qml:64
 #: src/qml/Component/Devtools/RoomData.qml:106
@@ -1234,33 +1231,29 @@ msgid "Event Source"
 msgstr "Gebeurtenisbron"
 
 #: src/qml/Component/Devtools/RoomData.qml:78
-#, fuzzy, kde-format
-#| msgid "Room State - %1"
+#, kde-format
 msgid "Room State for %1"
-msgstr "Roomstatus - %1"
+msgstr "Roomstatus voor %1"
 
 #: src/qml/Component/Devtools/ServerData.qml:20
 #, kde-format
 msgid "Server Capabilities"
-msgstr ""
+msgstr "Mogelijkheden van de server"
 
 #: src/qml/Component/Devtools/ServerData.qml:23
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
+#, kde-format
 msgid "Can change password"
-msgstr "Nieuw wachtwoord bevestigen:"
+msgstr "Kan wachtwoord wijzigen"
 
 #: src/qml/Component/Devtools/ServerData.qml:33
-#, fuzzy, kde-format
-#| msgid "Default permissions"
+#, kde-format
 msgid "Default Room Version"
-msgstr "Standaard rechten"
+msgstr "Standaard versie van room"
 
 #: src/qml/Component/Devtools/ServerData.qml:45
-#, fuzzy, kde-format
-#| msgid "Room version"
+#, kde-format
 msgid "Available Room Versions"
-msgstr "Versie van room"
+msgstr "Beschikbare versies van room"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:77
 #, kde-format
@@ -2340,7 +2333,7 @@ msgstr "Uitnodiging versturen"
 #: src/qml/Page/InviteUserPage.qml:100
 #, kde-format
 msgid "User is either already a member or has been invited"
-msgstr ""
+msgstr "Gebruiker is of al een lid of is uitgenodigd"
 
 #: src/qml/Page/JoinRoomPage.qml:21
 #, kde-format

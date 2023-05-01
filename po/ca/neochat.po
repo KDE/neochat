@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-30 00:48+0000\n"
-"PO-Revision-Date: 2023-04-23 10:04+0200\n"
+"POT-Creation-Date: 2023-05-01 00:52+0000\n"
+"PO-Revision-Date: 2023-04-30 11:18+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -634,49 +634,49 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Personalitzats"
 
-#: src/models/messageeventmodel.cpp:362 src/models/searchmodel.cpp:164
+#: src/models/messageeventmodel.cpp:363 src/models/searchmodel.cpp:164
 #, kde-format
 msgid "Today"
 msgstr "Avui"
 
-#: src/models/messageeventmodel.cpp:365 src/models/searchmodel.cpp:167
+#: src/models/messageeventmodel.cpp:366 src/models/searchmodel.cpp:167
 #, kde-format
 msgid "Yesterday"
 msgstr "Ahir"
 
-#: src/models/messageeventmodel.cpp:368 src/models/searchmodel.cpp:170
+#: src/models/messageeventmodel.cpp:369 src/models/searchmodel.cpp:170
 #, kde-format
 msgid "The day before yesterday"
 msgstr "Abans-d'ahir"
 
-#: src/models/messageeventmodel.cpp:470 src/models/messageeventmodel.cpp:479
+#: src/models/messageeventmodel.cpp:483 src/models/messageeventmodel.cpp:492
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Aquest missatge s'ha suprimit]</i>"
 
-#: src/models/messageeventmodel.cpp:471
+#: src/models/messageeventmodel.cpp:484
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Aquest missatge s'ha suprimit: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:568
+#: src/models/messageeventmodel.cpp:581
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[REDACTAT]"
 
-#: src/models/messageeventmodel.cpp:568
+#: src/models/messageeventmodel.cpp:581
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[REDACTAT: %1]"
 
-#: src/models/messageeventmodel.cpp:856
+#: src/models/messageeventmodel.cpp:868
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "%1 usuari: "
 msgstr[1] "%1 usuaris: "
 
-#: src/models/messageeventmodel.cpp:863
+#: src/models/messageeventmodel.cpp:875
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -1213,27 +1213,24 @@ msgid "Replying to:"
 msgstr "En resposta a:"
 
 #: src/qml/Component/Devtools/RoomData.qml:20
-#, fuzzy, kde-format
-#| msgid "Room ID"
+#, kde-format
 msgid "Room"
-msgstr "ID de la sala"
+msgstr "Sala"
 
 #: src/qml/Component/Devtools/RoomData.qml:31
-#, fuzzy, kde-format
-#| msgid "Show name change events"
+#, kde-format
 msgid "Show m.room.member events"
-msgstr "Mostra els esdeveniments de canvi de nom"
+msgstr "Mostra els esdeveniments de «m.room.member»"
 
 #: src/qml/Component/Devtools/RoomData.qml:43
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgid "Show room account data"
-msgstr "No s'ha trobat cap sala"
+msgstr "Mostra les dades de comptatge de la sala"
 
 #: src/qml/Component/Devtools/RoomData.qml:54
 #, kde-format
 msgid "Room Account Data for %1 - %2"
-msgstr ""
+msgstr "Dades de comptatge de la sala per a %1 - %2"
 
 #: src/qml/Component/Devtools/RoomData.qml:64
 #: src/qml/Component/Devtools/RoomData.qml:106
@@ -1243,33 +1240,29 @@ msgid "Event Source"
 msgstr "Codi font de l'esdeveniment"
 
 #: src/qml/Component/Devtools/RoomData.qml:78
-#, fuzzy, kde-format
-#| msgid "Room State - %1"
+#, kde-format
 msgid "Room State for %1"
-msgstr "Estat de la sala - %1"
+msgstr "Estat de la sala per a %1"
 
 #: src/qml/Component/Devtools/ServerData.qml:20
 #, kde-format
 msgid "Server Capabilities"
-msgstr ""
+msgstr "Capacitats del servidor"
 
 #: src/qml/Component/Devtools/ServerData.qml:23
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
+#, kde-format
 msgid "Can change password"
-msgstr "Confirma la contrasenya nova:"
+msgstr "Pot canviar la contrasenya"
 
 #: src/qml/Component/Devtools/ServerData.qml:33
-#, fuzzy, kde-format
-#| msgid "Default permissions"
+#, kde-format
 msgid "Default Room Version"
-msgstr "Permisos predeterminats"
+msgstr "Versió predeterminada de la sala"
 
 #: src/qml/Component/Devtools/ServerData.qml:45
-#, fuzzy, kde-format
-#| msgid "Room version"
+#, kde-format
 msgid "Available Room Versions"
-msgstr "Versió de la sala"
+msgstr "Versions disponibles de la sala"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:77
 #, kde-format
@@ -2346,7 +2339,7 @@ msgstr "Envia una invitació"
 #: src/qml/Page/InviteUserPage.qml:100
 #, kde-format
 msgid "User is either already a member or has been invited"
-msgstr ""
+msgstr "L'usuari ja és membre o ha estat convidat"
 
 #: src/qml/Page/JoinRoomPage.qml:21
 #, kde-format

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-30 00:48+0000\n"
-"PO-Revision-Date: 2023-04-27 10:44+0200\n"
+"POT-Creation-Date: 2023-05-01 00:52+0000\n"
+"PO-Revision-Date: 2023-04-30 21:42+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 23.04.0\n"
 
 #: src/controller.cpp:182
 #, kde-format
@@ -630,49 +630,49 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Personalisate"
 
-#: src/models/messageeventmodel.cpp:362 src/models/searchmodel.cpp:164
+#: src/models/messageeventmodel.cpp:363 src/models/searchmodel.cpp:164
 #, kde-format
 msgid "Today"
 msgstr "Hodie"
 
-#: src/models/messageeventmodel.cpp:365 src/models/searchmodel.cpp:167
+#: src/models/messageeventmodel.cpp:366 src/models/searchmodel.cpp:167
 #, kde-format
 msgid "Yesterday"
 msgstr "Heri"
 
-#: src/models/messageeventmodel.cpp:368 src/models/searchmodel.cpp:170
+#: src/models/messageeventmodel.cpp:369 src/models/searchmodel.cpp:170
 #, kde-format
 msgid "The day before yesterday"
 msgstr "Le die ante heri"
 
-#: src/models/messageeventmodel.cpp:470 src/models/messageeventmodel.cpp:479
+#: src/models/messageeventmodel.cpp:483 src/models/messageeventmodel.cpp:492
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Iste message ha essite delite]</i>"
 
-#: src/models/messageeventmodel.cpp:471
+#: src/models/messageeventmodel.cpp:484
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Iste message esseva delite: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:568
+#: src/models/messageeventmodel.cpp:581
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[REAGITE]"
 
-#: src/models/messageeventmodel.cpp:568
+#: src/models/messageeventmodel.cpp:581
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[REAGITE: %1]"
 
-#: src/models/messageeventmodel.cpp:856
+#: src/models/messageeventmodel.cpp:868
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 Usator: "
 msgstr[1] "%1 Usatores:"
 
-#: src/models/messageeventmodel.cpp:863
+#: src/models/messageeventmodel.cpp:875
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -1204,22 +1204,19 @@ msgid "Replying to:"
 msgstr "Respondente a:"
 
 #: src/qml/Component/Devtools/RoomData.qml:20
-#, fuzzy, kde-format
-#| msgid "Rooms"
+#, kde-format
 msgid "Room"
-msgstr "Salas"
+msgstr "Sala"
 
 #: src/qml/Component/Devtools/RoomData.qml:31
-#, fuzzy, kde-format
-#| msgid "Show name change events"
+#, kde-format
 msgid "Show m.room.member events"
-msgstr "Monstra eventos de cambio de nomine"
+msgstr "Monstra eventos de m.room.member"
 
 #: src/qml/Component/Devtools/RoomData.qml:43
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgid "Show room account data"
-msgstr "Nulle salas trovat"
+msgstr "Monstra datos de conto de sala"
 
 #: src/qml/Component/Devtools/RoomData.qml:54
 #, kde-format
@@ -1234,33 +1231,29 @@ msgid "Event Source"
 msgstr "Fonte de evento"
 
 #: src/qml/Component/Devtools/RoomData.qml:78
-#, fuzzy, kde-format
-#| msgid "Room State - %1"
+#, kde-format
 msgid "Room State for %1"
-msgstr "Stato de sala -%1"
+msgstr "Stato de sala  per %1"
 
 #: src/qml/Component/Devtools/ServerData.qml:20
 #, kde-format
 msgid "Server Capabilities"
-msgstr ""
+msgstr "Capacitates de servitor"
 
 #: src/qml/Component/Devtools/ServerData.qml:23
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
+#, kde-format
 msgid "Can change password"
-msgstr "Confirma nove contrasigno:"
+msgstr "Pote cambiar contrasigno:"
 
 #: src/qml/Component/Devtools/ServerData.qml:33
-#, fuzzy, kde-format
-#| msgid "Room version"
+#, kde-format
 msgid "Default Room Version"
-msgstr "Version de sala"
+msgstr "Version de sala predefinite"
 
 #: src/qml/Component/Devtools/ServerData.qml:45
-#, fuzzy, kde-format
-#| msgid "Room version"
+#, kde-format
 msgid "Available Room Versions"
-msgstr "Version de sala"
+msgstr "Version de sala disponibile"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:77
 #, kde-format
@@ -3552,22 +3545,22 @@ msgstr "Notificationes de sala"
 #: src/qml/Settings/GlobalNotificationsPage.qml:43
 #, kde-format
 msgid "Messages in one-to-one chats"
-msgstr ""
+msgstr "Messages in conversationes un a un"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:57
 #, kde-format
 msgid "Encrypted messages in one-to-one chats"
-msgstr ""
+msgstr "Messages cryptate in conversationes un a un"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:73
 #, kde-format
 msgid "Messages in group chats"
-msgstr ""
+msgstr "Messages in conversationes de gruppo"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:87
 #, kde-format
 msgid "Messages in encrypted group chats"
-msgstr ""
+msgstr "Messges in convesationes de gruppo cryptate"
 
 #: src/qml/Settings/GlobalNotificationsPage.qml:103
 #, kde-format
