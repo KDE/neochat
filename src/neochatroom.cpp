@@ -1921,7 +1921,11 @@ QByteArray NeoChatRoom::roomAcountDataJson(const QString &eventType)
 QUrl NeoChatRoom::avatarForMember(NeoChatUser *user) const
 {
 #ifdef QUOTIENT_07
-    auto avatar = connection()->makeMediaUrl(memberAvatarUrl(user->id()));
+    const auto &url = memberAvatarUrl(user->id());
+    if (url.isEmpty()) {
+        return {};
+    }
+    auto avatar = connection()->makeMediaUrl(url);
     if (avatar.isValid() && avatar.scheme() == QStringLiteral("mxc")) {
         return avatar;
     } else {
