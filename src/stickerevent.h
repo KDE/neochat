@@ -8,9 +8,17 @@
 
 namespace Quotient
 {
-/// Sticker messages are specialised image messages that are displayed without
-/// controls (e.g. no "download" link, or light-box view on click, as would be
-/// displayed for for m.image events).
+/**
+ * @class StickerEvent
+ *
+ * Class to define a sticker event.
+ *
+ * Sticker messages are specialised image messages that are displayed without
+ * controls (e.g. no "download" link, or light-box view on click, as would be
+ * displayed for for m.image events).
+ *
+ * @sa Quotient::RoomEvent
+ */
 class StickerEvent : public RoomEvent
 {
 public:
@@ -22,18 +30,22 @@ public:
 
     explicit StickerEvent(const QJsonObject &obj);
 
-    /// \brief A textual representation or associated description of the
-    /// sticker image.
-    ///
-    /// This could be the alt text of the original image, or a message to
-    /// accompany and further describe the sticker.
+    /**
+     * @brief A textual representation or associated description of the sticker image.
+     *
+     * This could be the alt text of the original image, or a message to accompany
+     * and further describe the sticker.
+     */
     QString body() const;
 
-    /// \brief Metadata about the image referred to in url including a
-    /// thumbnail representation.
+    /**
+     * @brief Metadata about the image referred to in url including a thumbnail representation.
+     */
     const EventContent::ImageContent &image() const;
 
-    /// \brief The URL to the sticker image. This must be a valid mxc:// URI.
+    /**
+     * @brief The URL to the sticker image. This must be a valid mxc:// URI.
+     */
     QUrl url() const;
 
 private:
