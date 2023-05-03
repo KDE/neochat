@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-02 00:48+0000\n"
-"PO-Revision-Date: 2023-04-26 07:50+0200\n"
+"PO-Revision-Date: 2023-05-02 11:26+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #: src/controller.cpp:182
@@ -1212,27 +1212,24 @@ msgid "Replying to:"
 msgstr "Odgovarjanje:"
 
 #: src/qml/Component/Devtools/RoomData.qml:20
-#, fuzzy, kde-format
-#| msgid "Rooms"
+#, kde-format
 msgid "Room"
-msgstr "Sobe"
+msgstr "Soba"
 
 #: src/qml/Component/Devtools/RoomData.qml:31
-#, fuzzy, kde-format
-#| msgid "Show name change events"
+#, kde-format
 msgid "Show m.room.member events"
-msgstr "Prikaži dogodke spremembe imen"
+msgstr "Prikaži dogodke m.room.member"
 
 #: src/qml/Component/Devtools/RoomData.qml:43
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgid "Show room account data"
-msgstr "Nobene sobe ni mogoče najti"
+msgstr "Pokaži podatke o računu sobe"
 
 #: src/qml/Component/Devtools/RoomData.qml:54
 #, kde-format
 msgid "Room Account Data for %1 - %2"
-msgstr ""
+msgstr "Podatki o računu sobe za %1 - %2"
 
 #: src/qml/Component/Devtools/RoomData.qml:64
 #: src/qml/Component/Devtools/RoomData.qml:106
@@ -1242,33 +1239,29 @@ msgid "Event Source"
 msgstr "Vir dogodka"
 
 #: src/qml/Component/Devtools/RoomData.qml:78
-#, fuzzy, kde-format
-#| msgid "Room State - %1"
+#, kde-format
 msgid "Room State for %1"
-msgstr "Stanje sobe  - %1"
+msgstr "Stanje sobe za %1"
 
 #: src/qml/Component/Devtools/ServerData.qml:20
 #, kde-format
 msgid "Server Capabilities"
-msgstr ""
+msgstr "Zmogljivosti strežnika"
 
 #: src/qml/Component/Devtools/ServerData.qml:23
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
+#, kde-format
 msgid "Can change password"
-msgstr "Potrdi novo geslo:"
+msgstr "Lahko spremeni geslo"
 
 #: src/qml/Component/Devtools/ServerData.qml:33
-#, fuzzy, kde-format
-#| msgid "Default permissions"
+#, kde-format
 msgid "Default Room Version"
-msgstr "Privzeta dovoljenja"
+msgstr "Privzeta različica sobe"
 
 #: src/qml/Component/Devtools/ServerData.qml:45
-#, fuzzy, kde-format
-#| msgid "Room version"
+#, kde-format
 msgid "Available Room Versions"
-msgstr "Različica sobe"
+msgstr "Razpoložljive različice sobe"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:77
 #, kde-format
@@ -2342,7 +2335,7 @@ msgstr "Pošlji povabilo"
 #: src/qml/Page/InviteUserPage.qml:100
 #, kde-format
 msgid "User is either already a member or has been invited"
-msgstr ""
+msgstr "Uporabnik je ali že član ali je bil povabljen"
 
 #: src/qml/Page/JoinRoomPage.qml:21
 #, kde-format
