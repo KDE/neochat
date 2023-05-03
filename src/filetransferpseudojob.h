@@ -6,6 +6,13 @@
 #include <KJob>
 #include <QString>
 
+/**
+ * @class FileTransferPseudoJob
+ *
+ * A class inherited from KJob to track a file download.
+ *
+ * @sa KJob
+ */
 class FileTransferPseudoJob : public KJob
 {
 public:
@@ -15,10 +22,25 @@ public:
     };
     Q_ENUM(Operation);
     FileTransferPseudoJob(Operation operation, const QString &srcDest, const QString &path);
+
+    /**
+     * @brief Set the current number of bytes transferred.
+     */
     void fileTransferProgress(QString id, qint64 progress, qint64 total);
+
+    /**
+     * @brief Set the file transfer as complete.
+     */
     void fileTransferCompleted(QString id, QUrl localFile);
+
+    /**
+     * @brief Set the file transfer as failed.
+     */
     void fileTransferFailed(QString id, QString errorMessage = {});
 
+    /**
+     * @brief Start the file transfer.
+     */
     void start() override;
 
 private:
