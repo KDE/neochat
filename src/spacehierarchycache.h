@@ -13,6 +13,13 @@ namespace Quotient
 class Room;
 }
 
+/**
+ * @class SpaceHierarchyCache
+ *
+ * A class to store the child spaces for each space.
+ *
+ * Spaces are cached on startup or when the user enters a new space.
+ */
 class SpaceHierarchyCache : public QObject
 {
     Q_OBJECT
@@ -24,6 +31,9 @@ public:
         return _instance;
     }
 
+    /**
+     * @brief Return the list of child rooms for the given space ID.
+     */
     [[nodiscard]] QVector<QString> &getRoomListForSpace(const QString &spaceId, bool updateCache);
 
 Q_SIGNALS:
