@@ -40,16 +40,16 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[SectionRole] = "section";
     roles[AuthorRole] = "author";
     roles[ContentRole] = "content";
-    roles[ContentTypeRole] = "contentType";
     roles[HighlightRole] = "isHighlighted";
     roles[SpecialMarksRole] = "marks";
     roles[LongOperationRole] = "progressInfo";
-    roles[FileMimetypeIcon] = "fileMimetypeIcon";
     roles[EventResolvedTypeRole] = "eventResolvedType";
+    roles[MediaInfoRole] = "mediaInfo";
     roles[IsReplyRole] = "isReply";
     roles[ReplyAuthor] = "replyAuthor";
     roles[ReplyRole] = "reply";
     roles[ReplyIdRole] = "replyId";
+    roles[ReplyMediaInfoRole] = "replyMediaInfo";
     roles[ShowAuthorRole] = "showAuthor";
     roles[ShowSectionRole] = "showSection";
     roles[ReadMarkersRole] = "readMarkers";
@@ -60,7 +60,6 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[MimeTypeRole] = "mimeType";
     roles[FormattedBodyRole] = "formattedBody";
     roles[AuthorIdRole] = "authorId";
-    roles[MediaUrlRole] = "mediaUrl";
     roles[VerifiedRole] = "verified";
     roles[DisplayNameForInitialsRole] = "displayNameForInitials";
     roles[AuthorDisplayNameRole] = "authorDisplayName";
@@ -567,14 +566,6 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         return userInContext(author, m_currentRoom);
     }
 
-    if (role == ContentTypeRole) {
-        if (auto e = eventCast<const RoomMessageEvent>(&evt)) {
-            const auto &contentType = e->mimeType().name();
-            return contentType == "text/plain" ? QStringLiteral("text/html") : contentType;
-        }
-        return QStringLiteral("text/plain");
-    }
-
     if (role == ContentRole) {
         if (evt.isRedacted()) {
             auto reason = evt.redactedBecause()->reason();
@@ -599,15 +590,6 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 
     if (role == HighlightRole) {
         return !m_currentRoom->isDirectChat() && m_currentRoom->isEventHighlighted(&evt);
-    }
-
-    if (role == FileMimetypeIcon) {
-        auto e = eventCast<const RoomMessageEvent>(&evt);
-        if (!e || !e->hasFileContent()) {
-            return QVariant();
-        }
-
-        return e->content()->fileInfo()->mimeType.iconName();
     }
 
     if (role == MimeTypeRole) {
@@ -695,6 +677,10 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         return role == TimeRole ? QVariant(ts) : renderDate(ts);
     }
 
+    if (role == MediaInfoRole) {
+        return getMediaInfoForEvent(evt);
+    }
+
     if (role == IsReplyRole) {
         return !evt.contentJson()["m.relates_to"].toObject()["m.in_reply_to"].toObject()["event_id"].toString().isEmpty();
     }
@@ -712,6 +698,14 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         } else {
             return emptyUser;
         }
+    }
+
+    if (role == ReplyMediaInfoRole) {
+        auto replyPtr = getReplyForEvent(evt);
+        if (!replyPtr) {
+            return {};
+        }
+        return getMediaInfoForEvent(*replyPtr);
     }
 
     if (role == ReplyRole) {
@@ -752,22 +746,8 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             type = DelegateType::Other;
         }
 
-        QVariant content;
-        if (auto e = eventCast<const RoomMessageEvent>(replyPtr)) {
-            // Cannot use e.contentJson() here because some
-            // EventContent classes inject values into the copy of the
-            // content JSON stored in EventContent::Base
-            content = e->hasFileContent() ? QVariant::fromValue(e->content()->originalJson) : QVariant();
-        };
-
-        if (auto e = eventCast<const StickerEvent>(replyPtr)) {
-            content = QVariant::fromValue(e->image().originalJson);
-        }
-
         return QVariantMap{
-            {"eventId", replyPtr->id()},
             {"display", m_currentRoom->eventToString(*replyPtr, Qt::RichText)},
-            {"content", content},
             {"type", type},
         };
     }
@@ -924,38 +904,6 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
     if (role == AuthorIdRole) {
         return evt.senderId();
-    }
-
-    if (role == MediaUrlRole) {
-#ifdef QUOTIENT_07
-        if (auto e = eventCast<const RoomMessageEvent>(&evt)) {
-            if (!e->hasFileContent()) {
-                return QVariant();
-            }
-            if (e->content()->originalJson.contains(QStringLiteral("file")) && e->content()->originalJson["file"].toObject().contains(QStringLiteral("url"))) {
-                return m_currentRoom->makeMediaUrl(e->id(), e->content()->originalJson["file"]["url"].toString());
-            }
-            if (e->content()->originalJson.contains(QStringLiteral("url"))) {
-                return m_currentRoom->makeMediaUrl(e->id(), e->content()->originalJson["url"].toString());
-            }
-        }
-
-        // Requires https://github.com/quotient-im/libQuotient/pull/570
-        // if (auto e = eventCast<const StickerEvent>(&evt)) {
-        //     return m_currentRoom->makeMediaUrl(e->id(), e->url());
-        // }
-#endif
-
-        // Construct link in the same form as urlToDownload as that function doesn't work for stickers
-        if (auto e = eventCast<const StickerEvent>(&evt)) {
-            auto url = QUrl(m_currentRoom->connection()->homeserver().toString() + "/_matrix/media/r0/download/" + e->url().toString().remove("mxc://"));
-            QUrlQuery q(url.query());
-            q.addQueryItem("allow_remote", "true");
-            url.setQuery(q);
-            return url;
-        }
-
-        return m_currentRoom->urlToDownload(evt.id());
     }
 
     if (role == VerifiedRole) {
@@ -1119,4 +1067,105 @@ const RoomEvent *MessageEventModel::getReplyForEvent(const RoomEvent &event) con
         }
     }
     return replyPtr;
+}
+
+QVariantMap MessageEventModel::getMediaInfoForEvent(const RoomEvent &event) const
+{
+    QVariantMap mediaInfo;
+
+    QString eventId = event.id();
+
+    // Get the file info for the event.
+    const EventContent::FileInfo *fileInfo;
+#ifdef QUOTIENT_07
+    if (event.is<RoomMessageEvent>()) {
+        auto roomMessageEvent = eventCast<const RoomMessageEvent>(&event);
+#else
+    if (auto roomMessageEvent = eventCast<const RoomMessageEvent>(&event)) {
+#endif
+        if (!roomMessageEvent->hasFileContent()) {
+            return {};
+        }
+        fileInfo = roomMessageEvent->content()->fileInfo();
+#ifdef QUOTIENT_07
+    } else if (event.is<StickerEvent>()) {
+        auto stickerEvent = eventCast<const StickerEvent>(&event);
+#else
+    } else if (auto stickerEvent = eventCast<const StickerEvent>(&event)) {
+#endif
+        fileInfo = &stickerEvent->image();
+    } else {
+        return {};
+    }
+
+    return getMediaInfoFromFileInfo(fileInfo, eventId);
+}
+
+QVariantMap MessageEventModel::getMediaInfoFromFileInfo(const EventContent::FileInfo *fileInfo, const QString &eventId, bool isThumbnail) const
+{
+    QVariantMap mediaInfo;
+
+    // Get the mxc URL for the media.
+#ifdef QUOTIENT_07
+    QUrl source = m_currentRoom->makeMediaUrl(eventId, fileInfo->url());
+
+    if (source.isValid() && source.scheme() == QStringLiteral("mxc")) {
+        mediaInfo["source"] = source;
+    } else {
+        mediaInfo["source"] = QUrl();
+    }
+#else
+    auto url = QUrl(m_currentRoom->connection()->homeserver().toString() + "/_matrix/media/r0/download/" + fileInfo->url.toString().remove("mxc://"));
+    QUrlQuery q(url.query());
+    q.addQueryItem("allow_remote", "true");
+    url.setQuery(q);
+    mediaInfo["source"] = url;
+#endif
+
+    auto mimeType = fileInfo->mimeType;
+    // Add the MIME type for the media if available.
+    mediaInfo["mimeType"] = mimeType.name();
+
+    // Add the MIME type icon if available.
+    mediaInfo["mimeIcon"] = mimeType.iconName();
+
+    // Add media size if available.
+    mediaInfo["size"] = fileInfo->payloadSize;
+
+    // Add parameter depending on media type.
+    if (mimeType.name().contains(QStringLiteral("image"))) {
+        if (auto castInfo = static_cast<const EventContent::ImageContent *>(fileInfo)) {
+            mediaInfo["width"] = castInfo->imageSize.width();
+            mediaInfo["height"] = castInfo->imageSize.height();
+
+            if (!isThumbnail) {
+                mediaInfo["thumbnailInfo"] = getMediaInfoFromFileInfo(castInfo->thumbnailInfo(), eventId, true);
+            }
+
+            QString blurhash = castInfo->originalInfoJson["xyz.amorgan.blurhash"].toString();
+            if (blurhash.isEmpty()) {
+                mediaInfo["blurhash"] = QUrl();
+            } else {
+                mediaInfo["blurhash"] = QUrl("image://blurhash/" + blurhash);
+            }
+        }
+    }
+    if (mimeType.name().contains(QStringLiteral("video"))) {
+        if (auto castInfo = static_cast<const EventContent::VideoContent *>(fileInfo)) {
+            mediaInfo["width"] = castInfo->imageSize.width();
+            mediaInfo["height"] = castInfo->imageSize.height();
+            mediaInfo["duration"] = castInfo->duration;
+
+            if (!isThumbnail) {
+                mediaInfo["thumbnailInfo"] = getMediaInfoFromFileInfo(castInfo->thumbnailInfo(), eventId, true);
+            }
+        }
+    }
+    if (mimeType.name().contains(QStringLiteral("audio"))) {
+        if (auto castInfo = static_cast<const EventContent::AudioContent *>(fileInfo)) {
+            mediaInfo["duration"] = castInfo->duration;
+        }
+    }
+
+    return mediaInfo;
 }

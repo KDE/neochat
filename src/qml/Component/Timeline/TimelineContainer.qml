@@ -253,13 +253,14 @@ ColumnLayout {
 
                         Layout.maximumWidth: contentMaxWidth
 
-                        active: model.reply !== undefined
+                        active: model.isReply
                         visible: active
 
                         sourceComponent: ReplyComponent {
                             name: currentRoom.htmlSafeMemberName(model.replyAuthor.id)
                             avatar: model.replyAuthor.avatarSource
                             color: model.replyAuthor.color
+                            mediaInfo: model.replyMediaInfo
                         }
 
                         Connections {

@@ -18,9 +18,9 @@ Components.AlbumMaximizeComponent {
 
     property list<Components.AlbumModelItem> items: [
         Components.AlbumModelItem {
-            type: root.modelData.delegateType === MessageEventModel.Image ? Components.AlbumModelItem.Image : Components.AlbumModelItem.Video
-            source: root.modelData.delegateType === MessageEventModel.Video ? modelData.progressInfo.localPath : modelData.mediaUrl
-            tempSource: modelData.content.info["xyz.amorgan.blurhash"] ? ("image://blurhash/" + modelData.content.info["xyz.amorgan.blurhash"]) : ""
+            type: root.modelData.delegateType === MessageEventModel.Image || root.modelData.delegateType === MessageEventModel.Sticker ? Components.AlbumModelItem.Image : Components.AlbumModelItem.Video
+            source: root.modelData.delegateType === MessageEventModel.Video ? modelData.progressInfo.localPath : modelData.mediaInfo.source
+            tempSource: modelData.mediaInfo.blurhash
             caption: modelData.display
         }
     ]

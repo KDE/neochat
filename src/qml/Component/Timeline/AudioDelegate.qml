@@ -94,7 +94,7 @@ TimelineContainer {
             visible: false
             Layout.fillWidth: true
             from: 0
-            to: model.content.info.size
+            to: model.mediaInfo.size
             value: model.progressInfo.progress
         }
         RowLayout {

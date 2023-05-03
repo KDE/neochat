@@ -22,8 +22,6 @@ TimelineContainer {
     readonly property var maxWidth: Kirigami.Units.gridUnit * 30
     readonly property var maxHeight: Kirigami.Units.gridUnit * 30
 
-    readonly property var info: model.content.info
-
     onOpenContextMenu: openFileContext(model, vid)
 
     onDownloadedChanged: {
@@ -41,8 +39,8 @@ TimelineContainer {
         id: vid
 
         property var videoWidth: {
-            if (videoDelegate.info && videoDelegate.info.w && videoDelegate.info.w > 0) {
-                return videoDelegate.info.w;
+            if (model.mediaInfo.width > 0) {
+                return model.mediaInfo.width;
             } else if (metaData.resolution && metaData.resolution.width) {
                 return metaData.resolution.width;
             } else {
@@ -50,8 +48,8 @@ TimelineContainer {
             }
         }
         property var videoHeight: {
-            if (videoDelegate.info && videoDelegate.info.h && videoDelegate.info.h > 0) {
-                return videoDelegate.info.h;
+            if (model.mediaInfo.height > 0) {
+                return model.mediaInfo.height;
             } else if (metaData.resolution && metaData.resolution.height) {
                 return metaData.resolution.height;
             } else {
@@ -154,11 +152,9 @@ TimelineContainer {
         Image {
             id: mediaThumbnail
             anchors.fill: parent
-
             visible: false
 
-            source: model.content.thumbnailMediaId ? "image://mxc/" + model.content.thumbnailMediaId : ""
-
+            source: model.mediaInfo.thumbnailInfo.source
             fillMode: Image.PreserveAspectFit
         }
 

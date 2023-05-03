@@ -103,7 +103,7 @@ TimelineContainer {
         ]
 
         Kirigami.Icon {
-            source: model.fileMimetypeIcon
+            source: model.mediaInfo.mimeIcon
             fallback: "unknown"
         }
 
@@ -118,7 +118,7 @@ TimelineContainer {
             QQC2.Label {
                 id: sizeLabel
                 Layout.fillWidth: true
-                text: Controller.formatByteSize(content.info ? content.info.size : 0)
+                text: Controller.formatByteSize(model.mediaInfo.size)
                 opacity: 0.7
                 elide: Text.ElideRight
                 maximumLineCount: 1

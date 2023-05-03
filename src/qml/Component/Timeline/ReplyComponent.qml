@@ -18,6 +18,7 @@ Item {
     property var name
     property alias avatar: replyAvatar.source
     property var color
+    property var mediaInfo
 
     implicitWidth: mainLayout.implicitWidth
     implicitHeight: mainLayout.implicitHeight
@@ -61,6 +62,7 @@ Item {
             id: loader
 
             Layout.fillWidth: true
+            Layout.maximumHeight: loader.item && (reply.type == MessageEventModel.Image || reply.type == MessageEventModel.Sticker) ? loader.item.height : -1
             Layout.columnSpan: 2
 
             sourceComponent: {
@@ -112,19 +114,35 @@ Item {
         id: imageComponent
         Image {
             id: image
-            readonly property var content: reply.content
-            readonly property bool isThumbnail: !(content.info.thumbnail_info == null || content.thumbnailMediaId == null)
-            readonly property var info: content.info
-            readonly property string mediaId: isThumbnail ? content.thumbnailMediaId : content.mediaId
-            source: "image://mxc/" + mediaId
+
+            property var imageWidth: {
+                if (replyComponent.mediaInfo.width > 0) {
+                    return replyComponent.mediaInfo.width;
+                } else {
+                    return sourceSize.width;
+                }
+            }
+            property var imageHeight: {
+                if (replyComponent.mediaInfo.height > 0) {
+                    return replyComponent.mediaInfo.height;
+                } else {
+                    return sourceSize.height;
+                }
+            }
+
+            readonly property var aspectRatio: imageWidth / imageHeight
+
+            height: width / aspectRatio
+            fillMode: Image.PreserveAspectFit
+            source: mediaInfo.source
         }
     }
     Component {
         id: mimeComponent
         MimeComponent {
-            mimeIconSource: reply.content.info.mimetype.replace("/", "-")
+            mimeIconSource: replyComponent.mediaInfo.mimeIcon
             label: reply.display
-            subLabel: reply.type === MessageEventModel.File ? Controller.formatByteSize(reply.content.info ? reply.content.info.size : 0) : Controller.formatDuration(reply.content.info.duration)
+            subLabel: reply.type === MessageEventModel.File ? Controller.formatByteSize(replyComponent.mediaInfo.size) : Controller.formatDuration(replyComponent.mediaInfo.duration)
         }
     }
     Component {

@@ -16,16 +16,8 @@ TimelineContainer {
 
     onOpenContextMenu: openFileContext(model, imageDelegate)
 
-    property var content: model.content
-    readonly property bool isAnimated: contentType === "image/gif"
-
     property bool openOnFinished: false
     readonly property bool downloaded: progressInfo && progressInfo.completed
-
-    readonly property bool isThumbnail: !(content.info.thumbnail_info == null || content.thumbnailMediaId == null)
-    //    readonly property var info: isThumbnail ? content.info.thumbnail_info : content.info
-    readonly property var info: content.info
-    readonly property string mediaId: isThumbnail ? content.thumbnailMediaId : content.mediaId
 
     readonly property var maxWidth: Kirigami.Units.gridUnit * 30
     readonly property var maxHeight: Kirigami.Units.gridUnit * 30
@@ -34,8 +26,8 @@ TimelineContainer {
         id: img
 
         property var imageWidth: {
-            if (imageDelegate.info && imageDelegate.info.w && imageDelegate.info.w > 0) {
-                return imageDelegate.info.w;
+            if (model.mediaInfo.width > 0) {
+                return model.mediaInfo.width;
             } else if (sourceSize.width && sourceSize.width > 0) {
                 return sourceSize.width;
             } else {
@@ -43,8 +35,8 @@ TimelineContainer {
             }
         }
         property var imageHeight: {
-            if (imageDelegate.info && imageDelegate.info.h && imageDelegate.info.h > 0) {
-                return imageDelegate.info.h;
+            if (model.mediaInfo.height > 0) {
+                return model.mediaInfo.height;
             } else if (sourceSize.height && sourceSize.height > 0) {
                 return sourceSize.height;
             } else {
@@ -78,11 +70,11 @@ TimelineContainer {
         Layout.maximumHeight: maxSize.height
         Layout.preferredWidth: imageWidth
         Layout.preferredHeight: imageHeight
-        source: model.mediaUrl
+        source: model.mediaInfo.source
 
         Image {
             anchors.fill: parent
-            source: content.info["xyz.amorgan.blurhash"] ? ("image://blurhash/" + content.info["xyz.amorgan.blurhash"]) : ""
+            source: model.mediaInfo.blurhash
             visible: parent.status !== Image.Ready
         }
 

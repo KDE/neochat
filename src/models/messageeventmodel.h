@@ -64,20 +64,20 @@ public:
         SectionRole, /**< The date of the event as a string. */
         AuthorRole, /**< The author of the event. */
         ContentRole, /**< The full message content. */
-        ContentTypeRole, /**< The content mime type. */
         HighlightRole, /**< Whether the event should be highlighted. */
         SpecialMarksRole, /**< Whether the event is hidden or not. */
         LongOperationRole, /**< Progress info when downloading files. */
         FormattedBodyRole, /**< The formatted body of a rich message. */
         GenericDisplayRole, /**< A generic string based upon the message type. */
 
+        MediaInfoRole, /**< The media info for the event. */
         MimeTypeRole, /**< The mime type of the message's file or media. */
-        FileMimetypeIcon, /**< The icon name for the mime type of a file. */
 
         IsReplyRole, /**< Is the message a reply to another event. */
         ReplyAuthor, /**< The author of the event that was replied to. */
-        ReplyRole, /**< The content data of the message that was replied to. */
         ReplyIdRole, /**< The matrix ID of the message that was replied to. */
+        ReplyMediaInfoRole, /**< The media info of the message that was replied to. */
+        ReplyRole, /**< The content data of the message that was replied to. */
 
         ShowAuthorRole, /**< Whether the author's name should be shown. */
         ShowSectionRole, /**< Whether the section header should be shown. */
@@ -87,7 +87,6 @@ public:
         ShowReadMarkersRole, /**< Whether there are any other user read markers to be shown. */
         ReactionRole, /**< List of reactions to this event. */
         SourceRole, /**< The full message source JSON. */
-        MediaUrlRole, /**< The source URL for any media in the message. */
 
         // For debugging
         EventResolvedTypeRole, /**< The event type the message. */
@@ -194,6 +193,8 @@ private:
     void moveReadMarker(const QString &toEventId);
 
     const Quotient::RoomEvent *getReplyForEvent(const Quotient::RoomEvent &event) const;
+    QVariantMap getMediaInfoForEvent(const Quotient::RoomEvent &event) const;
+    QVariantMap getMediaInfoFromFileInfo(const Quotient::EventContent::FileInfo *fileInfo, const QString &eventId, bool isThumbnail = false) const;
 
     std::vector<Quotient::event_ptr_tt<Quotient::RoomEvent>> m_extraEvents;
 
