@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "imagepackevent.h"
+#include "events/imagepackevent.h"
 #include "neochatroom.h"
 #include <QAbstractListModel>
 #include <QObject>

@@ -14,9 +14,9 @@
 #include <user.h>
 
 #ifdef QUOTIENT_07
-#include "pollevent.h"
+#include "events/pollevent.h"
 #endif
-#include "stickerevent.h"
+#include "events/stickerevent.h"
 
 #include <QDebug>
 #include <QGuiApplication>

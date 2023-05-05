@@ -8,7 +8,7 @@ using namespace Quotient;
 
 ImagePackEventContent::ImagePackEventContent(const QJsonObject &json)
 {
-    if(json.contains(QStringLiteral("pack"))) {
+    if (json.contains(QStringLiteral("pack"))) {
         pack = ImagePackEventContent::Pack{
             fromJson<Omittable<QString>>(json["pack"].toObject()["display_name"]),
 #ifdef QUOTIENT_07
@@ -49,6 +49,7 @@ ImagePackEventContent::ImagePackEventContent(const QJsonObject &json)
     }
 }
 
-void ImagePackEventContent::fillJson(QJsonObject* o) const {
+void ImagePackEventContent::fillJson(QJsonObject *o) const
+{
     // TODO
 }

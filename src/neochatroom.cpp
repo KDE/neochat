@@ -38,16 +38,16 @@
 #include <qt_connection_util.h>
 
 #include "controller.h"
-#include "joinrulesevent.h"
+#include "events/joinrulesevent.h"
 #include "neochatconfig.h"
 #include "neochatuser.h"
 #include "notificationsmanager.h"
 #ifdef QUOTIENT_07
-#include "pollevent.h"
+#include "events/pollevent.h"
 #include "pollhandler.h"
 #endif
+#include "events/stickerevent.h"
 #include "filetransferpseudojob.h"
-#include "stickerevent.h"
 #include "texthandler.h"
 
 #ifndef Q_OS_ANDROID

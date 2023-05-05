@@ -30,11 +30,9 @@ add_library(neochat STATIC
     models/devicesmodel.cpp
     filetypesingleton.cpp
     login.cpp
-    stickerevent.cpp
     models/webshortcutmodel.cpp
     blurhash.cpp
     blurhashimageprovider.cpp
-    joinrulesevent.cpp
     models/collapsestateproxymodel.cpp
     urlhelper.cpp
     windowcontroller.cpp
@@ -49,9 +47,11 @@ add_library(neochat STATIC
     models/searchmodel.cpp
     texthandler.cpp
     logger.cpp
-    imagepackevent.cpp
     stickermodel.cpp
     imagepacksmodel.cpp
+    events/imagepackevent.cpp
+    events/joinrulesevent.cpp
+    events/stickerevent.cpp
 )
 
 add_executable(neochat-app
@@ -67,7 +67,7 @@ target_link_libraries(neochat-app PRIVATE
 
 if(Quotient_VERSION_MINOR GREATER 6)
     target_compile_definitions(neochat PUBLIC QUOTIENT_07)
-    target_sources(neochat PRIVATE pollevent.cpp pollhandler.cpp)
+    target_sources(neochat PRIVATE events/pollevent.cpp pollhandler.cpp)
 else()
     target_compile_definitions(neochat PUBLIC QUOTIENT_VERSION=\"${Quotient_VERSION}\")
     target_sources(neochat PRIVATE neochataccountregistry.cpp)

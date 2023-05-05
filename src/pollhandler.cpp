@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: LGPL-2.0-or-later
 
 #include "pollhandler.h"
+#include "events/pollevent.h"
 #include "neochatroom.h"
-#include "pollevent.h"
 #include <algorithm>
 #include <csapi/relations.h>
 #include <events/roompowerlevelsevent.h>

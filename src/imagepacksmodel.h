@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "imagepackevent.h"
+#include "events/imagepackevent.h"
 #include <QAbstractListModel>
 #include <QPointer>
 #include <QVector>

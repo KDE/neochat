@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: LGPL-2.0-or-later
 
 #include "imagepacksmodel.h"
-#include "imagepackevent.h"
 #include "neochatroom.h"
 
 #include <KLocalizedString>
