@@ -7,6 +7,13 @@
 
 namespace Quotient
 {
+/**
+ * @class JoinRulesEvent
+ *
+ * Class to define a join rule state event.
+ *
+ * @sa Quotient::StateEvent
+ */
 #ifdef QUOTIENT_07
 class JoinRulesEvent : public StateEvent
 #else
@@ -29,7 +36,20 @@ public:
     {
     }
 
+    /**
+     * @brief The join rule for the room.
+     *
+     * see https://spec.matrix.org/latest/client-server-api/#mroomjoin_rules for
+     * the available join rules for a room.
+     */
     QString joinRule() const;
+
+    /**
+     * @brief The allow rule for restricted rooms.
+     *
+     * see https://spec.matrix.org/latest/client-server-api/#mroomjoin_rules for
+     * full details on allow rules.
+     */
     QJsonArray allow() const;
 };
 REGISTER_EVENT_TYPE(JoinRulesEvent)
