@@ -49,6 +49,11 @@ Kirigami.CategorizedSettings {
             text: i18n("Notifications")
             icon.name: "notifications"
             page: Qt.resolvedUrl("PushNotification.qml")
+            initialProperties: {
+                return {
+                    room: root.room
+                }
+            }
         }
     ]
 }
