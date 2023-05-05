@@ -16,8 +16,10 @@ QQC2.ScrollView {
     required property bool withCustom
     readonly property var searchCategory: withCustom ? EmojiModel.Search : EmojiModel.SearchNoCustom
     required property QtObject header
+    property bool stickers: false
 
     signal chosen(string unicode)
+    signal stickerChosen(int index)
 
     onActiveFocusChanged: if (activeFocus) {
         emojis.forceActiveFocus()
@@ -48,15 +50,19 @@ QQC2.ScrollView {
         delegate: EmojiDelegate {
             id: emojiDelegate
             checked: emojis.currentIndex === model.index
-            emoji: modelData.unicode
-            name: modelData.shortName
+            emoji: !!modelData ? modelData.unicode : model.url
+            name: !!modelData ? modelData.shortName : model.body
 
             width: emojis.cellWidth
             height: emojis.cellHeight
 
+            isImage: emojiGrid.stickers
             Keys.onEnterPressed: clicked()
             Keys.onReturnPressed: clicked()
             onClicked: {
+                if (emojiGrid.stickers) {
+                    emojiGrid.stickerChosen(model.index)
+                }
                 emojiGrid.chosen(modelData.isCustom ? modelData.shortName : modelData.unicode)
                 EmojiModel.emojiUsed(modelData)
             }
@@ -69,7 +75,7 @@ QQC2.ScrollView {
                 tones.open()
                 tones.forceActiveFocus()
             }
-            showTones: EmojiModel.tones(modelData.shortName).length > 0
+            showTones: !!modelData && EmojiModel.tones(modelData.shortName).length > 0
         }
 
         Kirigami.PlaceholderMessage {

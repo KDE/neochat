@@ -54,7 +54,7 @@ QQC2.Control {
             property bool isBusy: false
 
             icon.name: "smiley"
-            text: i18n("Add an Emoji")
+            text: i18n("Emojis & Stickers")
             displayHint: Kirigami.DisplayHint.IconOnly
             checkable: true
 
@@ -367,7 +367,7 @@ QQC2.Control {
 
     EmojiDialog {
         id: emojiDialog
-        x: parent.width - implicitWidth
+        x: parent.width - width
         y: -implicitHeight // - Kirigami.Units.smallSpacing
 
         modal: false

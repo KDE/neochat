@@ -24,14 +24,44 @@ ColumnLayout {
     readonly property int categoryIconSize: Math.round(Kirigami.Units.gridUnit * 2.5)
     readonly property var currentCategory: currentEmojiModel[categories.currentIndex].category
     readonly property alias categoryCount: categories.count
+    property int selectedType: 0
 
     signal chosen(string emoji)
 
     onActiveFocusChanged: if (activeFocus) {
-        searchField.forceActiveFocus()
+        searchField.forceActiveFocus();
     }
 
     spacing: 0
+
+    RowLayout {
+        Layout.fillWidth: true
+        Layout.preferredHeight: root.categoryIconSize
+
+        Item {
+            Layout.preferredHeight: 1
+            Layout.fillWidth: true
+        }
+
+        CategoryIcon {
+            id: emojis
+            source: "smiley"
+            text: i18n("Emojis")
+            t: 0
+        }
+
+        CategoryIcon {
+            id: stickers
+            source: "stickers"
+            text: i18n("Stickers")
+            t: 1
+        }
+
+        Item {
+            Layout.preferredHeight: 1
+            Layout.fillWidth: true
+        }
+    }
 
     QQC2.ScrollView {
         Layout.fillWidth: true
@@ -46,6 +76,7 @@ ColumnLayout {
 
             Keys.onReturnPressed: if (emojiGrid.count > 0) emojiGrid.focus = true
             Keys.onEnterPressed: if (emojiGrid.count > 0) emojiGrid.focus = true
+
             KeyNavigation.down: emojiGrid.count > 0 ? emojiGrid : categories
             KeyNavigation.tab: emojiGrid.count > 0 ? emojiGrid : categories
 
@@ -54,22 +85,10 @@ ColumnLayout {
             Keys.forwardTo: searchField
             interactive: width !== contentWidth
 
-            model: root.currentEmojiModel
+            model: root.selectedType === 0 ? root.currentEmojiModel : stickerPackModel
             Component.onCompleted: categories.forceActiveFocus()
 
-            delegate: EmojiDelegate {
-                width: root.categoryIconSize
-                height: width
-
-                checked: categories.currentIndex === model.index
-                emoji: modelData.emoji
-                name: modelData.name
-
-                onClicked: {
-                    categories.currentIndex = index
-                    categories.focus = true
-                }
-            }
+            delegate: root.selectedType === 0 ? emojiDelegate : stickerDelegate
         }
     }
 
@@ -82,6 +101,7 @@ ColumnLayout {
         id: searchField
         Layout.margins: Kirigami.Units.smallSpacing
         Layout.fillWidth: true
+        visible: selectedType === 0
 
         /**
          * The focus is manged by the parent and we don't want to use the standard
@@ -93,13 +113,15 @@ ColumnLayout {
     EmojiGrid {
         id: emojiGrid
         targetIconSize: root.currentCategory === EmojiModel.Custom ? Kirigami.Units.gridUnit * 3 : root.categoryIconSize  // Custom emojis are bigger
-        model: searchField.text.length === 0 ? EmojiModel.emojis(root.currentCategory) : (root.includeCustom ? EmojiModel.filterModel(searchField.text, false) : EmojiModel.filterModelNoCustom(searchField.text, false))
+        model: root.selectedType === 1 ? stickerModel : searchField.text.length === 0 ? EmojiModel.emojis(root.currentCategory) : (root.includeCustom ? EmojiModel.filterModel(searchField.text, false) : EmojiModel.filterModelNoCustom(searchField.text, false))
         Layout.fillWidth: true
         Layout.fillHeight: true
         withCustom: root.includeCustom
         onChosen: root.chosen(unicode)
         header: categories
         Keys.forwardTo: searchField
+        stickers: root.selectedType === 1
+        onStickerChosen: stickerModel.postSticker(index)
     }
 
     Kirigami.Separator {
@@ -130,6 +152,88 @@ ColumnLayout {
             }
 
             orientation: Qt.Horizontal
+        }
+    }
+
+    ImagePacksModel {
+        id: stickerPackModel
+        room: currentRoom
+        showStickers: true
+        showEmoticons: false
+    }
+
+    StickerModel {
+        id: stickerModel
+        model: stickerPackModel
+        packIndex: 0
+        room: currentRoom
+    }
+
+    Component {
+        id: emojiDelegate
+        EmojiDelegate {
+            width: root.categoryIconSize
+            height: width
+            checked: categories.currentIndex === model.index
+            emoji: modelData ? modelData.emoji : ""
+            name: modelData ? modelData.name : ""
+            onClicked: {
+                categories.currentIndex = index;
+                categories.focus = true;
+            }
+        }
+    }
+
+    Component {
+        id: stickerDelegate
+        EmojiDelegate {
+            width: root.categoryIconSize
+            height: width
+            emoji: model.avatarUrl ?? ""
+            isImage: true
+            name: model.displayName ?? ""
+            onClicked: stickerModel.packIndex = model.index
+            checked: stickerModel.packIndex === model.index
+        }
+    }
+
+    component CategoryIcon : Kirigami.Icon {
+        id: categoryIcons
+
+        readonly property bool checked: root.selectedType === t
+        required property int t
+        required property string text
+
+        Layout.preferredWidth: root.categoryIconSize
+        Layout.preferredHeight: root.categoryIconSize
+
+        QQC2.ToolTip.text: text
+        QQC2.ToolTip.visible: categoryIconsMouseArea.containsMouse
+        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+
+        MouseArea {
+            id: categoryIconsMouseArea
+
+            hoverEnabled: true
+            anchors.fill: parent
+            onClicked: root.selectedType = t
+        }
+
+        Rectangle {
+            color: categoryIcons.checked ? Kirigami.Theme.highlightColor : "transparent"
+            radius: Kirigami.Units.smallSpacing
+            z: -1
+            anchors {
+                fill: parent
+                margins: Kirigami.Units.smallSpacing
+            }
+
+            Rectangle {
+                radius: Kirigami.Units.smallSpacing
+                anchors.fill: parent
+                color: Kirigami.Theme.highlightColor
+                opacity: categoryIconsMouseArea.containsMouse && !categoryIconsMouseArea.pressed ? 0.2 : 0
+            }
         }
     }
 }

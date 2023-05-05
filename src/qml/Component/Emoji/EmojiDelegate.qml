@@ -11,6 +11,7 @@ QQC2.ItemDelegate {
     property string name
     property string emoji
     property bool showTones: false
+    property bool isImage: false
 
     QQC2.ToolTip.text: emojiDelegate.name
     QQC2.ToolTip.visible: hovered && emojiDelegate.name !== ""
@@ -23,7 +24,7 @@ QQC2.ItemDelegate {
     contentItem: Item {
         Kirigami.Heading {
             anchors.fill: parent
-            visible: !emojiDelegate.emoji.startsWith("image")
+            visible: !emojiDelegate.emoji.startsWith("image") && !emojiDelegate.isImage
             text: emojiDelegate.emoji
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
@@ -40,7 +41,7 @@ QQC2.ItemDelegate {
         }
         Image {
             anchors.fill: parent
-            visible: emojiDelegate.emoji.startsWith("image")
+            visible: emojiDelegate.emoji.startsWith("image") || emojiDelegate.isImage
             source: visible ? emojiDelegate.emoji : ""
         }
     }

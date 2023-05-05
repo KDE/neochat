@@ -44,6 +44,7 @@
 #include "clipboard.h"
 #include "controller.h"
 #include "filetypesingleton.h"
+#include "imagepacksmodel.h"
 #include "linkpreviewer.h"
 #include "logger.h"
 #include "login.h"
@@ -75,6 +76,7 @@
 #include "models/statefiltermodel.h"
 #include "roommanager.h"
 #include "spacehierarchycache.h"
+#include "stickermodel.h"
 #include "urlhelper.h"
 #include "windowcontroller.h"
 #ifdef QUOTIENT_07
@@ -244,6 +246,8 @@ int main(int argc, char *argv[])
     qmlRegisterType<PollHandler>("org.kde.neochat", 1, 0, "PollHandler");
 #endif
     qmlRegisterType<KeywordNotificationRuleModel>("org.kde.neochat", 1, 0, "KeywordNotificationRuleModel");
+    qmlRegisterType<StickerModel>("org.kde.neochat", 1, 0, "StickerModel");
+    qmlRegisterType<ImagePacksModel>("org.kde.neochat", 1, 0, "ImagePacksModel");
     qmlRegisterUncreatableType<RoomMessageEvent>("org.kde.neochat", 1, 0, "RoomMessageEvent", "ENUM");
     qmlRegisterUncreatableType<PushNotificationState>("org.kde.neochat", 1, 0, "PushNotificationState", "ENUM");
     qmlRegisterUncreatableType<PushNotificationAction>("org.kde.neochat", 1, 0, "PushNotificationAction", "ENUM");

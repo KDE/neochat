@@ -49,6 +49,9 @@ add_library(neochat STATIC
     models/searchmodel.cpp
     texthandler.cpp
     logger.cpp
+    imagepackevent.cpp
+    stickermodel.cpp
+    imagepacksmodel.cpp
 )
 
 add_executable(neochat-app
