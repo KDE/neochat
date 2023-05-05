@@ -6,6 +6,11 @@
 #include <QObject>
 #include <QWindow>
 
+/**
+ * @class WindowController
+ *
+ * A singleton class to help manage the NeoChat window.
+ */
 class WindowController : public QObject
 {
     Q_OBJECT
@@ -13,14 +18,35 @@ class WindowController : public QObject
 public:
     static WindowController &instance();
 
+    /**
+     * @brief Set the window that the will be managed.
+     */
     void setWindow(QWindow *window);
+
+    /**
+     * @brief Get the window that the will be managed.
+     */
     QWindow *window() const;
 
+    /**
+     * @brief Restore any saved window geometry if available.
+     */
     void restoreGeometry();
+
+    /**
+     * @brief Save the current window geometry.
+     */
     void saveGeometry();
+
+    /**
+     * @brief Show the window and raise to the top.
+     */
     void showAndRaiseWindow(const QString &startupId);
 
 Q_SIGNALS:
+    /**
+     * @brief Triggered if the managed window is changed.
+     */
     void windowChanged();
 
 private:
