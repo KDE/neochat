@@ -45,6 +45,7 @@
 #include "controller.h"
 #include "filetypesingleton.h"
 #include "linkpreviewer.h"
+#include "logger.h"
 #include "login.h"
 #include "matriximageprovider.h"
 #include "models/collapsestateproxymodel.h"
@@ -179,6 +180,8 @@ int main(int argc, char *argv[])
 
     KAboutData::setApplicationData(about);
     QGuiApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("org.kde.neochat")));
+
+    initLogging();
 
 #ifdef NEOCHAT_FLATPAK
     // Copy over the included FontConfig configuration to the

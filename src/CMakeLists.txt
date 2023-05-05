@@ -48,6 +48,7 @@ add_library(neochat STATIC
     filetransferpseudojob.cpp
     models/searchmodel.cpp
     texthandler.cpp
+    logger.cpp
 )
 
 add_executable(neochat-app
