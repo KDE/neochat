@@ -54,6 +54,13 @@ add_library(neochat STATIC
     events/stickerevent.cpp
 )
 
+ecm_qt_declare_logging_category(neochat
+    HEADER "messageeventmodel_logging.h"
+    IDENTIFIER "MessageEvent"
+    CATEGORY_NAME "org.kde.neochat.messageeventmodel"
+    DEFAULT_SEVERITY Info
+)
+
 add_executable(neochat-app
     main.cpp
     res.qrc

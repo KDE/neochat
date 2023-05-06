@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 #include "messageeventmodel.h"
+#include "messageeventmodel_logging.h"
 
 #include "neochatconfig.h"
 #include <connection.h>
@@ -242,7 +243,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             beginResetModel();
             endResetModel();
         });
-        qDebug() << "Connected to room" << room->id() << "as" << room->localUser()->id();
+        qCDebug(MessageEvent) << "Connected to room" << room->id() << "as" << room->localUser()->id();
     } else {
         lastReadEventId.clear();
     }
@@ -357,7 +358,7 @@ QDateTime MessageEventModel::makeMessageTimestamp(const Quotient::Room::rev_iter
     };
 
     // What kind of room is that?..
-    qCritical() << "No valid timestamps in the room timeline!";
+    qCCritical(MessageEvent) << "No valid timestamps in the room timeline!";
     return {};
 }
 
@@ -459,6 +460,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     const auto row = idx.row();
 
     if (!m_currentRoom || row < 0 || row >= int(m_currentRoom->pendingEvents().size()) + m_currentRoom->timelineSize()) {
+        qCWarning(MessageEvent) << "Accessing index out of bounds";
         return {};
     };
 
@@ -951,6 +953,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         return row < static_cast<int>(m_currentRoom->pendingEvents().size());
     }
 
+    qCWarning(MessageEvent) << "Unknown role" << role;
     return {};
 }
 
