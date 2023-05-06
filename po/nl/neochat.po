@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-04 00:47+0000\n"
+"POT-Creation-Date: 2023-05-06 00:47+0000\n"
 "PO-Revision-Date: 2023-04-30 18:41+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -117,95 +117,101 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Bestemming"
 
+#: src/imagepacksmodel.cpp:68
+#, fuzzy, kde-format
+#| msgid "sent a sticker"
+msgid "Own Stickers"
+msgstr "verzend een sticker"
+
 #: src/login.cpp:86 src/login.cpp:97
 #, kde-format
 msgid "Network Error"
 msgstr "Netwerkfout"
 
-#: src/main.cpp:154
+#: src/main.cpp:157
 #, kde-format
 msgid "NeoChat"
 msgstr "Neochat"
 
-#: src/main.cpp:156
+#: src/main.cpp:159
 #, kde-format
 msgid "Matrix client"
 msgstr "Matrix-client"
 
-#: src/main.cpp:158
+#: src/main.cpp:161
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2022 KDE-gemeenschap"
 
-#: src/main.cpp:159
+#: src/main.cpp:162
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:159 src/main.cpp:160 src/main.cpp:161
+#: src/main.cpp:162 src/main.cpp:163 src/main.cpp:164
 #, kde-format
 msgid "Maintainer"
 msgstr "Onderhouder"
 
-#: src/main.cpp:160
+#: src/main.cpp:163
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:161
+#: src/main.cpp:164
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:162
+#: src/main.cpp:165
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:162
+#: src/main.cpp:165
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Oorspronkelijke auteur van Spectral"
 
-#: src/main.cpp:163
+#: src/main.cpp:166
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:163
+#: src/main.cpp:166
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "Onderhouder van Quotient"
 
-#: src/main.cpp:164
+#: src/main.cpp:167
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Freek de Kruijf - 2020 t/m 2022"
 
-#: src/main.cpp:164
+#: src/main.cpp:167
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "freekdekruijf@kde.nl"
 
-#: src/main.cpp:168
+#: src/main.cpp:171
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr "Een Qt5 bibliotheek om cross-platform clients voor Matrix te schrijven"
 
-#: src/main.cpp:171
+#: src/main.cpp:174
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (gebouwd tegen %2)"
 
-#: src/main.cpp:307
+#: src/main.cpp:314
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Client voor het matrix communicatieprotocol"
 
-#: src/main.cpp:308
+#: src/main.cpp:315
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Ondersteunt matrix: url schema"
@@ -1110,8 +1116,8 @@ msgstr "Een afbeelding of bestand bijvoegen"
 
 #: src/qml/Component/ChatBox/ChatBar.qml:57
 #, kde-format
-msgid "Add an Emoji"
-msgstr "Een emoji toevoegen"
+msgid "Emojis & Stickers"
+msgstr ""
 
 #: src/qml/Component/ChatBox/ChatBar.qml:73
 #, kde-format
@@ -1123,7 +1129,7 @@ msgstr "Een locatie verzenden"
 msgid "Send message"
 msgstr "Bericht verzenden"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:132
+#: src/qml/Component/ChatBox/ChatBar.qml:128
 #, kde-format
 msgid ""
 "This room is encrypted. Build libQuotient with encryption enabled to send "
@@ -1132,22 +1138,22 @@ msgstr ""
 "Deze room is versleuteld. Bouw libQuotient met versleuteling ingeschakeld en "
 "verzend versleutelde berichten."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:132
+#: src/qml/Component/ChatBox/ChatBar.qml:128
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Een versleuteld bericht verzenden…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:132
+#: src/qml/Component/ChatBox/ChatBar.qml:128
 #, kde-format
 msgid "Set an attachment caption..."
 msgstr "Stel een opschrift voor de bijlage in..."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:132
+#: src/qml/Component/ChatBox/ChatBar.qml:128
 #, kde-format
 msgid "Send a message…"
 msgstr "Een bericht verzenden…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:317
+#: src/qml/Component/ChatBox/ChatBar.qml:313
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -1255,10 +1261,21 @@ msgstr "Standaard versie van room"
 msgid "Available Room Versions"
 msgstr "Beschikbare versies van room"
 
-#: src/qml/Component/Emoji/EmojiGrid.qml:77
+#: src/qml/Component/Emoji/EmojiGrid.qml:83
 #, kde-format
 msgid "No emojis"
 msgstr "Geen emoji's"
+
+#: src/qml/Component/Emoji/EmojiPicker.qml:49
+#, fuzzy, kde-format
+#| msgid "No emojis"
+msgid "Emojis"
+msgstr "Geen emoji's"
+
+#: src/qml/Component/Emoji/EmojiPicker.qml:56
+#, kde-format
+msgid "Stickers"
+msgstr ""
 
 #: src/qml/Component/Login/Homeserver.qml:18
 #, kde-format
@@ -3926,6 +3943,9 @@ msgstr "Tonen"
 #, kde-format
 msgid "Quit"
 msgstr "Afsluiten"
+
+#~ msgid "Add an Emoji"
+#~ msgstr "Een emoji toevoegen"
 
 #~ msgid "Options:"
 #~ msgstr "Opties:"

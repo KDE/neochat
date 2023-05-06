@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-04 00:47+0000\n"
+"POT-Creation-Date: 2023-05-06 00:47+0000\n"
 "PO-Revision-Date: 2023-04-30 21:14+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -118,95 +118,101 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "சேருமிடம்"
 
+#: src/imagepacksmodel.cpp:68
+#, fuzzy, kde-format
+#| msgid "sent a sticker"
+msgid "Own Stickers"
+msgstr "ஒட்டியை அனுப்பினார்"
+
 #: src/login.cpp:86 src/login.cpp:97
 #, kde-format
 msgid "Network Error"
 msgstr "பிணைய சிக்கல்"
 
-#: src/main.cpp:154
+#: src/main.cpp:157
 #, kde-format
 msgid "NeoChat"
 msgstr "நியோச்சாட்"
 
-#: src/main.cpp:156
+#: src/main.cpp:159
 #, kde-format
 msgid "Matrix client"
 msgstr "Matrix வாங்கி"
 
-#: src/main.cpp:158
+#: src/main.cpp:161
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
 msgstr "© 2018-2020 பிளாக் ஹாட், 2020-2022 கே.டீ.யீ. சமூகம்"
 
-#: src/main.cpp:159
+#: src/main.cpp:162
 #, kde-format
 msgid "Carl Schwan"
 msgstr "கார்ல் ஷுவான்"
 
-#: src/main.cpp:159 src/main.cpp:160 src/main.cpp:161
+#: src/main.cpp:162 src/main.cpp:163 src/main.cpp:164
 #, kde-format
 msgid "Maintainer"
 msgstr "பராமரிப்பாளர்"
 
-#: src/main.cpp:160
+#: src/main.cpp:163
 #, kde-format
 msgid "Tobias Fella"
 msgstr "டோபியாஸ் ஃபெல்லா"
 
-#: src/main.cpp:161
+#: src/main.cpp:164
 #, kde-format
 msgid "James Graham"
 msgstr "ஜேம்சு கிரஹாம்"
 
-#: src/main.cpp:162
+#: src/main.cpp:165
 #, kde-format
 msgid "Black Hat"
 msgstr "பிளாக் ஹாட்"
 
-#: src/main.cpp:162
+#: src/main.cpp:165
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Spectral-ஐ முதலில் இயற்றியவர்"
 
-#: src/main.cpp:163
+#: src/main.cpp:166
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "அலெக்செய் ருசாக்கொவ்"
 
-#: src/main.cpp:163
+#: src/main.cpp:166
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "Quotient-இன் பராமரிப்பாளர்"
 
-#: src/main.cpp:164
+#: src/main.cpp:167
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "கோ. கிஷோர்"
 
-#: src/main.cpp:164
+#: src/main.cpp:167
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Kde-l10n-ta@kde.org"
 
-#: src/main.cpp:168
+#: src/main.cpp:171
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr "மேட்ரிக்ஸுக்கான பல்லியங்குதள செயலிகளை எழுத உதவும் Qt5 நிரலகம்"
 
-#: src/main.cpp:171
+#: src/main.cpp:174
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (%2 கொண்டு தொகுக்கப்பட்டது)"
 
-#: src/main.cpp:307
+#: src/main.cpp:314
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Matrix தொடர்பு நெறிமுறைக்கான வாங்கி"
 
-#: src/main.cpp:308
+#: src/main.cpp:315
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "matrix: முகவரி திட்டமுறையை ஆதரிக்கும்"
@@ -1113,8 +1119,8 @@ msgstr "படம் அல்லது கோப்பை இணை"
 
 #: src/qml/Component/ChatBox/ChatBar.qml:57
 #, kde-format
-msgid "Add an Emoji"
-msgstr "முகவடியை சேர்"
+msgid "Emojis & Stickers"
+msgstr ""
 
 #: src/qml/Component/ChatBox/ChatBar.qml:73
 #, kde-format
@@ -1126,7 +1132,7 @@ msgstr "இடத்தை அனுப்பு"
 msgid "Send message"
 msgstr "செய்தியை அனுப்பு"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:132
+#: src/qml/Component/ChatBox/ChatBar.qml:128
 #, kde-format
 msgid ""
 "This room is encrypted. Build libQuotient with encryption enabled to send "
@@ -1135,22 +1141,22 @@ msgstr ""
 "இவ்வரங்கு மறையாக்கம் செய்யப்பட்டுள்ளது. மறையாக்கிய செய்திகளை அனுப்ப, libQuotient தனை "
 "மறையாக்க ஆதரவுடன் இரும‍மாக்குங்கள்"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:132
+#: src/qml/Component/ChatBox/ChatBar.qml:128
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "மறையாக்கப்பட்ட செய்தியை அனுப்பு…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:132
+#: src/qml/Component/ChatBox/ChatBar.qml:128
 #, kde-format
 msgid "Set an attachment caption..."
 msgstr "உடனிணைப்புக்கான தலைப்பை அமை..."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:132
+#: src/qml/Component/ChatBox/ChatBar.qml:128
 #, kde-format
 msgid "Send a message…"
 msgstr "செய்தியை அனுப்பு…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:317
+#: src/qml/Component/ChatBox/ChatBar.qml:313
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -1258,10 +1264,21 @@ msgstr "அரங்கின் இயல்பிருப்பு பதி�
 msgid "Available Room Versions"
 msgstr "அரங்கின் கிடைக்கும் பதிப்புகள்"
 
-#: src/qml/Component/Emoji/EmojiGrid.qml:77
+#: src/qml/Component/Emoji/EmojiGrid.qml:83
 #, kde-format
 msgid "No emojis"
 msgstr "முகவடிகள் இல்லை"
+
+#: src/qml/Component/Emoji/EmojiPicker.qml:49
+#, fuzzy, kde-format
+#| msgid "No emojis"
+msgid "Emojis"
+msgstr "முகவடிகள் இல்லை"
+
+#: src/qml/Component/Emoji/EmojiPicker.qml:56
+#, kde-format
+msgid "Stickers"
+msgstr ""
 
 #: src/qml/Component/Login/Homeserver.qml:18
 #, kde-format
@@ -3891,6 +3908,9 @@ msgstr "காட்டு"
 #, kde-format
 msgid "Quit"
 msgstr "வெளியேறு"
+
+#~ msgid "Add an Emoji"
+#~ msgstr "முகவடியை சேர்"
 
 #~ msgid "Options:"
 #~ msgstr "விருப்பங்கள்:"
