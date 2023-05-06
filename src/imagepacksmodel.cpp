@@ -83,10 +83,13 @@ void ImagePacksModel::setRoom(NeoChatRoom *room)
             const auto &stickerRoom = m_room->connection()->room(roomId);
             for (const auto &packKey : packs.keys()) {
 #ifdef QUOTIENT_07
-                const auto packContent = stickerRoom->currentState().get<ImagePackEvent>(packKey)->content();
-                if (!packContent.pack->usage || (packContent.pack->usage->contains("emoticon") && showEmoticons())
-                    || (packContent.pack->usage->contains("sticker") && showStickers())) {
-                    m_events += packContent;
+                const auto &pack = stickerRoom->currentState().get<ImagePackEvent>(packKey);
+                if (pack) {
+                    const auto packContent = pack->content();
+                    if (!packContent.pack->usage || (packContent.pack->usage->contains("emoticon") && showEmoticons())
+                        || (packContent.pack->usage->contains("sticker") && showStickers())) {
+                        m_events += packContent;
+                    }
                 }
 #endif
             }
