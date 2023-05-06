@@ -14,7 +14,13 @@
 #include "models/roomlistmodel.h"
 #include "models/sortfilterroomlistmodel.h"
 
-// Copied from KRunner/QueryMatch
+/**
+ * The type of match. Value is important here as it is used for sorting
+ *
+ * Copied from KRunner/QueryMatch
+ *
+ * @sa KRunner/QueryMatch
+ */
 enum MatchType {
     NoMatch = 0, /**< Null match */
     CompletionMatch = 10, /**< Possible completion for the data of the query */
@@ -148,6 +154,13 @@ Q_DECLARE_METATYPE(RemoteAction)
 Q_DECLARE_METATYPE(RemoteActions)
 Q_DECLARE_METATYPE(RemoteImage)
 
+/**
+ * @class Runner
+ *
+ * A class to define the NeoChat KRunner plugin.
+ *
+ * @sa KRunner
+ */
 class Runner : public QObject, protected QDBusContext
 {
     Q_OBJECT
@@ -155,8 +168,21 @@ class Runner : public QObject, protected QDBusContext
 public:
     Runner();
 
+    /**
+     * @brief Return a list of KRunner actions.
+     *
+     * @note It's always empty; nothing is broken.
+     */
     Q_SCRIPTABLE RemoteActions Actions();
+
+    /**
+     * @brief Return a list of room matches for a search.
+     */
     Q_SCRIPTABLE RemoteMatches Match(const QString &searchTerm);
+
+    /**
+     * @brief Handle action calls.
+     */
     Q_SCRIPTABLE void Run(const QString &id, const QString &actionId);
 
 private:
