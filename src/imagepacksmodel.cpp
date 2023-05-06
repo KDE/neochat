@@ -63,13 +63,15 @@ void ImagePacksModel::setRoom(NeoChatRoom *room)
 
     // TODO listen to account data changing
     // TODO listen to packs changing
-    auto json = m_room->connection()->accountData("im.ponies.user_emotes"_ls)->contentJson();
-    json["pack"] = QJsonObject{
-        {"display_name", i18n("Own Stickers")},
-    };
-    const auto &content = ImagePackEventContent(json);
-    if (!content.images.isEmpty()) {
-        m_events += ImagePackEventContent(json);
+    if (m_room->connection()->hasAccountData("im.ponies.user_emotes"_ls)) {
+        auto json = m_room->connection()->accountData("im.ponies.user_emotes"_ls)->contentJson();
+        json["pack"] = QJsonObject{
+            {"display_name", i18n("Own Stickers")},
+        };
+        const auto &content = ImagePackEventContent(json);
+        if (!content.images.isEmpty()) {
+            m_events += ImagePackEventContent(json);
+        }
     }
     const auto &accountData = m_room->connection()->accountData("im.ponies.emote_rooms"_ls);
     if (accountData) {
