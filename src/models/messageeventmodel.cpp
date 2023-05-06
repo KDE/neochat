@@ -953,7 +953,6 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         return row < static_cast<int>(m_currentRoom->pendingEvents().size());
     }
 
-    qCWarning(MessageEvent) << "Unknown role" << role;
     return {};
 }
 
