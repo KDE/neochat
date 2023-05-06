@@ -115,15 +115,6 @@ Kirigami.ApplicationWindow {
                 user: user,
             }).open();
         }
-
-        function onWarning(title, message) {
-            if (RoomManager.currentRoom) {
-                const roomItem = pageStack.get(pageStack.depth - 1);
-                roomItem.warning(title, message);
-            } else {
-                showPassiveNotification(i18n("Warning: %1", message));
-            }
-        }
     }
 
     function pushReplaceLayer(page, args) {

@@ -150,16 +150,20 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
                     }
                 }
             }
+            m_initialized = true;
             beginInsertRows({}, timelineBaseIndex(), timelineBaseIndex() + int(events.size()) - 1);
         });
         connect(m_currentRoom, &Room::aboutToAddHistoricalMessages, this, [this](RoomEventsRange events) {
             if (rowCount() > 0) {
                 rowBelowInserted = rowCount() - 1; // See #312
             }
+            m_initialized = true;
             beginInsertRows({}, rowCount(), rowCount() + int(events.size()) - 1);
         });
         connect(m_currentRoom, &Room::addedMessages, this, [this](int lowest, int biggest) {
-            endInsertRows();
+            if (m_initialized) {
+                endInsertRows();
+            }
             if (!m_lastReadEventIndex.isValid()) {
                 // no read marker, so see if we need to create one.
 #ifdef QUOTIENT_07
@@ -177,6 +181,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             }
         });
         connect(m_currentRoom, &Room::pendingEventAboutToAdd, this, [this] {
+            m_initialized = true;
             beginInsertRows({}, 0, 0);
         });
         connect(m_currentRoom, &Room::pendingEventAdded, this, &MessageEventModel::endInsertRows);
@@ -279,6 +284,7 @@ void MessageEventModel::moveReadMarker(const QString &toEventId)
         // need to be displayed.
         if (newRow > timelineBaseIndex()) {
             // The user didn't read all the messages yet.
+            m_initialized = true;
             beginInsertRows({}, newRow, newRow);
             m_lastReadEventIndex = QPersistentModelIndex(index(newRow, 0));
             endInsertRows();

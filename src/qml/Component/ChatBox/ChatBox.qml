@@ -21,6 +21,9 @@ ColumnLayout {
 
     spacing: 0
 
+    Kirigami.Theme.colorSet: Kirigami.Theme.View
+    Kirigami.Theme.inherit: false
+
     Kirigami.InlineMessage {
         Layout.fillWidth: true
         Layout.leftMargin: 1 // So we can see the border

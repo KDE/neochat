@@ -197,6 +197,8 @@ private:
     QVariantMap getMediaInfoFromFileInfo(const Quotient::EventContent::FileInfo *fileInfo, const QString &eventId, bool isThumbnail = false) const;
 
     std::vector<Quotient::event_ptr_tt<Quotient::RoomEvent>> m_extraEvents;
+    // Hack to ensure that we don't call endInsertRows when we haven't called beginInsertRows
+    bool m_initialized = false;
 
 Q_SIGNALS:
     void roomChanged();

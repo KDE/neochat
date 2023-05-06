@@ -144,6 +144,10 @@ void RoomManager::enterRoom(NeoChatRoom *room)
         Q_EMIT replaceRoom(m_currentRoom, QString());
     }
 
+    if (room && room->timelineSize() == 0) {
+        room->getPreviousContent(20);
+    }
+
     // Save last open room
     m_lastRoomConfig.writeEntry(Controller::instance().activeConnection()->userId(), room->id());
 }

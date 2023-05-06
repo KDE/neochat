@@ -15,8 +15,8 @@ QQC2.Control {
     readonly property bool sectionVisible: model.showSection
 
     // extraWidth defines how the delegate can grow after the listView gets very wide
-    readonly property int extraWidth: messageListView.width >= Kirigami.Units.gridUnit * 46 ? Math.min((messageListView.width - Kirigami.Units.gridUnit * 46), Kirigami.Units.gridUnit * 20) : 0
-    readonly property int delegateMaxWidth: Config.compactLayout ? messageListView.width: Math.min(messageListView.width, Kirigami.Units.gridUnit * 40 + extraWidth)
+    readonly property int extraWidth: parent ? (parent.width >= Kirigami.Units.gridUnit * 46 ? Math.min((parent.width - Kirigami.Units.gridUnit * 46), Kirigami.Units.gridUnit * 20) : 0) : 0
+    readonly property int delegateMaxWidth: parent ? (Config.compactLayout ? parent.width: Math.min(parent.width, Kirigami.Units.gridUnit * 40 + extraWidth)) : 0
 
     width: delegateMaxWidth
 

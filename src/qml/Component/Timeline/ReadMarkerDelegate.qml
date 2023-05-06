@@ -17,8 +17,8 @@ QQC2.ItemDelegate {
     topPadding: Kirigami.Units.largeSpacing * 2
 
     // extraWidth defines how the delegate can grow after the listView gets very wide
-    readonly property int extraWidth: messageListView.width >= Kirigami.Units.gridUnit * 46 ? Math.min((messageListView.width - Kirigami.Units.gridUnit * 46), Kirigami.Units.gridUnit * 20) : 0
-    readonly property int delegateMaxWidth: Config.compactLayout ? messageListView.width - Kirigami.Units.largeSpacing * 2 : Math.min(messageListView.width - Kirigami.Units.largeSpacing * 2, Kirigami.Units.gridUnit * 40 + extraWidth)
+    readonly property int extraWidth: parent ? (parent.width >= Kirigami.Units.gridUnit * 46 ? Math.min((parent.width - Kirigami.Units.gridUnit * 46), Kirigami.Units.gridUnit * 20) : 0) : 0
+    readonly property int delegateMaxWidth: parent ? (Config.compactLayout ? parent.width - Kirigami.Units.largeSpacing * 2 : Math.min(parent.width - Kirigami.Units.largeSpacing * 2, Kirigami.Units.gridUnit * 40 + extraWidth)) : 0
 
     property bool isTemporaryHighlighted: false
 
@@ -78,6 +78,8 @@ QQC2.ItemDelegate {
                 return Kirigami.Theme.backgroundColor
             }
         }
+        Kirigami.Theme.inherit: false
+        Kirigami.Theme.colorSet: Kirigami.Theme.View
         opacity: readMarkerDelegate.isTemporaryHighlighted ? 1 : 0.6
         radius: Kirigami.Units.smallSpacing
         shadow.size: Kirigami.Units.smallSpacing
