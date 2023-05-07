@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-06 00:47+0000\n"
+"POT-Creation-Date: 2023-05-07 00:50+0000\n"
 "PO-Revision-Date: 2023-04-27 15:01+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -645,42 +645,42 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Пользовательские"
 
-#: src/models/messageeventmodel.cpp:362 src/models/searchmodel.cpp:164
+#: src/models/messageeventmodel.cpp:369 src/models/searchmodel.cpp:164
 #, kde-format
 msgid "Today"
 msgstr "Сегодня"
 
-#: src/models/messageeventmodel.cpp:365 src/models/searchmodel.cpp:167
+#: src/models/messageeventmodel.cpp:372 src/models/searchmodel.cpp:167
 #, kde-format
 msgid "Yesterday"
 msgstr "Вчера"
 
-#: src/models/messageeventmodel.cpp:368 src/models/searchmodel.cpp:170
+#: src/models/messageeventmodel.cpp:375 src/models/searchmodel.cpp:170
 #, kde-format
 msgid "The day before yesterday"
 msgstr "Позавчера"
 
-#: src/models/messageeventmodel.cpp:482 src/models/messageeventmodel.cpp:491
+#: src/models/messageeventmodel.cpp:490 src/models/messageeventmodel.cpp:499
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Это сообщение было удалено]</i>"
 
-#: src/models/messageeventmodel.cpp:483
+#: src/models/messageeventmodel.cpp:491
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Cообщение было удалено: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:572
+#: src/models/messageeventmodel.cpp:580
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[ОТРЕДАКТИРОВАНО]"
 
-#: src/models/messageeventmodel.cpp:572
+#: src/models/messageeventmodel.cpp:580
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[ОТРЕДАКТИРОВАНО: %1]"
 
-#: src/models/messageeventmodel.cpp:848
+#: src/models/messageeventmodel.cpp:856
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
@@ -689,7 +689,7 @@ msgstr[1] "%1 пользователя: "
 msgstr[2] "%1 пользователей: "
 msgstr[3] "1 пользователь: "
 
-#: src/models/messageeventmodel.cpp:855
+#: src/models/messageeventmodel.cpp:863
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -1072,10 +1072,9 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat in this room"
 msgstr "Открыть эту комнату в NeoChat"
 
-#: src/notificationsmanager.cpp:88
+#: src/notificationsmanager.cpp:88 src/qml/Component/TimelineView.qml:383
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:552
 #, kde-format
 msgid "Reply"
 msgstr "Ответить"
@@ -1111,8 +1110,9 @@ msgid "Attachment:"
 msgstr "Вложение:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
+#: src/qml/Component/TimelineView.qml:372
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:541
+#: src/qml/Page/ImageEditorPage.qml:20
 #, kde-format
 msgid "Edit"
 msgstr "Изменить"
@@ -1172,7 +1172,7 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Отменить ответ"
 
-#: src/qml/Component/ChatBox/ChatBox.qml:29
+#: src/qml/Component/ChatBox/ChatBox.qml:32
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr ""
@@ -1297,6 +1297,22 @@ msgstr "Не найдено ни одного эмодзи"
 #, kde-format
 msgid "Stickers"
 msgstr ""
+
+#: src/qml/Component/InvitationView.qml:17
+#, kde-format
+msgid "Accept this invitation?"
+msgstr "Принять приглашение?"
+
+#: src/qml/Component/InvitationView.qml:21
+#, kde-format
+msgid "Reject"
+msgstr "Отклонить"
+
+#: src/qml/Component/InvitationView.qml:28
+#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
+#, kde-format
+msgid "Accept"
+msgstr "Принять"
 
 #: src/qml/Component/Login/Homeserver.qml:18
 #, kde-format
@@ -1508,13 +1524,13 @@ msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(Завершено)"
 
-#: src/qml/Component/Timeline/ReactionDelegate.qml:53
+#: src/qml/Component/Timeline/ReactionDelegate.qml:55
 #, kde-format
 msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " и "
 
-#: src/qml/Component/Timeline/ReactionDelegate.qml:59
+#: src/qml/Component/Timeline/ReactionDelegate.qml:61
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
@@ -1524,7 +1540,7 @@ msgstr[1] " и ещё %1"
 msgstr[2] " и ещё %1"
 msgstr[3] " и ещё %1"
 
-#: src/qml/Component/Timeline/ReactionDelegate.qml:62
+#: src/qml/Component/Timeline/ReactionDelegate.qml:64
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
@@ -1555,6 +1571,51 @@ msgstr "Громкость"
 #, kde-format
 msgid "Maximize"
 msgstr ""
+
+#: src/qml/Component/TimelineView.qml:122
+#, kde-format
+msgid "Choose local file"
+msgstr "Выберите файл на компьютере"
+
+#: src/qml/Component/TimelineView.qml:150
+#, kde-format
+msgid "Clipboard image"
+msgstr "Изображение из буфера обмена"
+
+#: src/qml/Component/TimelineView.qml:198
+#, kde-format
+msgid "Jump to first unread message"
+msgstr "Перейти к первому непрочитанному сообщению"
+
+#: src/qml/Component/TimelineView.qml:221
+#, kde-format
+msgid "Jump to latest message"
+msgstr "Перейти к последнему сообщению"
+
+#: src/qml/Component/TimelineView.qml:247
+#, kde-format
+msgid "Drag items here to share them"
+msgstr "Чтобы опубликовать файла, перетащите их сюда"
+
+#: src/qml/Component/TimelineView.qml:273
+#, kde-format
+msgctxt "Message displayed when some users are typing"
+msgid "%2 is typing"
+msgid_plural "%2 are typing"
+msgstr[0] "%2 набирают сообщение"
+msgstr[1] "%2 набирают сообщение"
+msgstr[2] "%2 набирают сообщение"
+msgstr[3] "%2 набирает сообщение"
+
+#: src/qml/Component/TimelineView.qml:347
+#, kde-format
+msgid "This message was sent from a verified device"
+msgstr "Это сообщение было отправлено с проверенного устройства"
+
+#: src/qml/Component/TimelineView.qml:353
+#, kde-format
+msgid "React"
+msgstr "Реакция"
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:36
@@ -1656,12 +1717,6 @@ msgstr "Сравните набор значков на обоих устрой�
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "Устройство **%1** успешно проверено."
-
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:196
-#, kde-format
-msgid "Accept"
-msgstr "Принять"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:79
 #, kde-format
@@ -1915,28 +1970,23 @@ msgstr "Открыть личный чат"
 msgid "Copy link"
 msgstr "Копировать ссылку"
 
-#: src/qml/main.qml:124
-#, kde-format
-msgid "Warning: %1"
-msgstr "Предупреждение: %1"
-
-#: src/qml/main.qml:263
+#: src/qml/main.qml:254
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/qml/main.qml:304
+#: src/qml/main.qml:295
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Проверка сеанса"
 
-#: src/qml/main.qml:314
+#: src/qml/main.qml:305
 #, kde-format
 msgid "User consent"
 msgstr "Согласие пользователя"
 
-#: src/qml/main.qml:319
+#: src/qml/main.qml:310
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -1946,17 +1996,17 @@ msgstr ""
 "условиями, прежде чем сможете его использовать. Нажмите на кнопку, "
 "расположенную ниже, ниже, чтобы прочитать их."
 
-#: src/qml/main.qml:324
+#: src/qml/main.qml:315
 #, kde-format
 msgid "Open"
 msgstr "Открыть"
 
-#: src/qml/main.qml:353
+#: src/qml/main.qml:344
 #, kde-format
 msgid "Start a chat"
 msgstr "Начать общение"
 
-#: src/qml/main.qml:355
+#: src/qml/main.qml:346
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Начать чат с %1?"
@@ -2640,61 +2690,6 @@ msgstr "Сменить учётную запись"
 #, kde-format
 msgid "Open Settings"
 msgstr "Настроить"
-
-#: src/qml/Page/RoomPage.qml:185
-#, kde-format
-msgid "Accept this invitation?"
-msgstr "Принять приглашение?"
-
-#: src/qml/Page/RoomPage.qml:189
-#, kde-format
-msgid "Reject"
-msgstr "Отклонить"
-
-#: src/qml/Page/RoomPage.qml:287
-#, kde-format
-msgid "Choose local file"
-msgstr "Выберите файл на компьютере"
-
-#: src/qml/Page/RoomPage.qml:314
-#, kde-format
-msgid "Clipboard image"
-msgstr "Изображение из буфера обмена"
-
-#: src/qml/Page/RoomPage.qml:368
-#, kde-format
-msgid "Jump to first unread message"
-msgstr "Перейти к первому непрочитанному сообщению"
-
-#: src/qml/Page/RoomPage.qml:395
-#, kde-format
-msgid "Jump to latest message"
-msgstr "Перейти к последнему сообщению"
-
-#: src/qml/Page/RoomPage.qml:420
-#, kde-format
-msgid "Drag items here to share them"
-msgstr "Чтобы опубликовать файла, перетащите их сюда"
-
-#: src/qml/Page/RoomPage.qml:446
-#, kde-format
-msgctxt "Message displayed when some users are typing"
-msgid "%2 is typing"
-msgid_plural "%2 are typing"
-msgstr[0] "%2 набирают сообщение"
-msgstr[1] "%2 набирают сообщение"
-msgstr[2] "%2 набирают сообщение"
-msgstr[3] "%2 набирает сообщение"
-
-#: src/qml/Page/RoomPage.qml:517
-#, kde-format
-msgid "This message was sent from a verified device"
-msgstr "Это сообщение было отправлено с проверенного устройства"
-
-#: src/qml/Page/RoomPage.qml:523
-#, kde-format
-msgid "React"
-msgstr "Реакция"
 
 #: src/qml/Page/SearchPage.qml:17
 #, kde-format
@@ -3919,32 +3914,32 @@ msgid ""
 msgstr ""
 "В списке комнат нет комнаты «%1». Проверьте орфографию и учётную запись."
 
-#: src/roommanager.cpp:208
+#: src/roommanager.cpp:212
 #, kde-format
 msgid "Failed to join room"
 msgstr "Не удалось присоединиться к комнате"
 
-#: src/roommanager.cpp:225
+#: src/roommanager.cpp:229
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Вы отправили запрос на присоединение к «%1»"
 
-#: src/roommanager.cpp:228
+#: src/roommanager.cpp:232
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Не удалось отправить запрос на присоединение к комнате"
 
-#: src/roommanager.cpp:238
+#: src/roommanager.cpp:242
 #, kde-format
 msgid "No application for the link"
 msgstr "Отсутствует приложение, позволяющее открыть эту ссылку"
 
-#: src/roommanager.cpp:238
+#: src/roommanager.cpp:242
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "Системе не удалось найти приложение, позволяющее открыть ссылку."
 
-#: src/roommanager.cpp:244
+#: src/roommanager.cpp:248
 #, kde-format
 msgid "Could not open URL"
 msgstr "Не удалось открыть адрес"
@@ -3958,6 +3953,9 @@ msgstr "Показать"
 #, kde-format
 msgid "Quit"
 msgstr "Выход"
+
+#~ msgid "Warning: %1"
+#~ msgstr "Предупреждение: %1"
 
 #~ msgid "Add an Emoji"
 #~ msgstr "Эмодзи"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-06 00:47+0000\n"
+"POT-Creation-Date: 2023-05-07 00:50+0000\n"
 "PO-Revision-Date: 2023-05-02 06:48+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -635,49 +635,49 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "მორგებული"
 
-#: src/models/messageeventmodel.cpp:362 src/models/searchmodel.cpp:164
+#: src/models/messageeventmodel.cpp:369 src/models/searchmodel.cpp:164
 #, kde-format
 msgid "Today"
 msgstr "დღეს"
 
-#: src/models/messageeventmodel.cpp:365 src/models/searchmodel.cpp:167
+#: src/models/messageeventmodel.cpp:372 src/models/searchmodel.cpp:167
 #, kde-format
 msgid "Yesterday"
 msgstr "გუშინ"
 
-#: src/models/messageeventmodel.cpp:368 src/models/searchmodel.cpp:170
+#: src/models/messageeventmodel.cpp:375 src/models/searchmodel.cpp:170
 #, kde-format
 msgid "The day before yesterday"
 msgstr "გუშინწინ"
 
-#: src/models/messageeventmodel.cpp:482 src/models/messageeventmodel.cpp:491
+#: src/models/messageeventmodel.cpp:490 src/models/messageeventmodel.cpp:499
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[ეს შეტყობინება წაშლილია]</i>"
 
-#: src/models/messageeventmodel.cpp:483
+#: src/models/messageeventmodel.cpp:491
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[ეს შეტყობინება წაშლილია: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:572
+#: src/models/messageeventmodel.cpp:580
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[ჩასწორებული]"
 
-#: src/models/messageeventmodel.cpp:572
+#: src/models/messageeventmodel.cpp:580
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[ჩასწორებულია: %1]"
 
-#: src/models/messageeventmodel.cpp:848
+#: src/models/messageeventmodel.cpp:856
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 მომხმარებელი: "
 msgstr[1] "%1 მომხმარებელი: "
 
-#: src/models/messageeventmodel.cpp:855
+#: src/models/messageeventmodel.cpp:863
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -1060,10 +1060,9 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat in this room"
 msgstr "ამ ოთახში NeoChat-ის გახსნა"
 
-#: src/notificationsmanager.cpp:88
+#: src/notificationsmanager.cpp:88 src/qml/Component/TimelineView.qml:383
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:552
 #, kde-format
 msgid "Reply"
 msgstr "პასუხი"
@@ -1099,8 +1098,9 @@ msgid "Attachment:"
 msgstr "მიმაგრება:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
+#: src/qml/Component/TimelineView.qml:372
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:541
+#: src/qml/Page/ImageEditorPage.qml:20
 #, kde-format
 msgid "Edit"
 msgstr "ჩასწორება"
@@ -1160,7 +1160,7 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "პასუხის გაუქმება"
 
-#: src/qml/Component/ChatBox/ChatBox.qml:29
+#: src/qml/Component/ChatBox/ChatBox.qml:32
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat გათიშულია. შეამოწმეთ ინტერნეტკავშირი."
@@ -1277,6 +1277,22 @@ msgstr "ემოჯიების გარეშე"
 #, kde-format
 msgid "Stickers"
 msgstr ""
+
+#: src/qml/Component/InvitationView.qml:17
+#, kde-format
+msgid "Accept this invitation?"
+msgstr "დავეთანხმო მოსაწვევს?"
+
+#: src/qml/Component/InvitationView.qml:21
+#, kde-format
+msgid "Reject"
+msgstr "უარყოფა"
+
+#: src/qml/Component/InvitationView.qml:28
+#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
+#, kde-format
+msgid "Accept"
+msgstr "დასტური"
 
 #: src/qml/Component/Login/Homeserver.qml:18
 #, kde-format
@@ -1486,13 +1502,13 @@ msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(დასრულდა)"
 
-#: src/qml/Component/Timeline/ReactionDelegate.qml:53
+#: src/qml/Component/Timeline/ReactionDelegate.qml:55
 #, kde-format
 msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " და "
 
-#: src/qml/Component/Timeline/ReactionDelegate.qml:59
+#: src/qml/Component/Timeline/ReactionDelegate.qml:61
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
@@ -1500,7 +1516,7 @@ msgid_plural " and %1 others"
 msgstr[0] " და კიდევ %1"
 msgstr[1] " და კიდევ %1"
 
-#: src/qml/Component/Timeline/ReactionDelegate.qml:62
+#: src/qml/Component/Timeline/ReactionDelegate.qml:64
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
@@ -1529,6 +1545,49 @@ msgstr "ხმის სიმაღლე"
 #, kde-format
 msgid "Maximize"
 msgstr "გადიდება"
+
+#: src/qml/Component/TimelineView.qml:122
+#, kde-format
+msgid "Choose local file"
+msgstr "აირჩიეთ ლოკალური ფაილი"
+
+#: src/qml/Component/TimelineView.qml:150
+#, kde-format
+msgid "Clipboard image"
+msgstr "ბუფერის გამოსახულება"
+
+#: src/qml/Component/TimelineView.qml:198
+#, kde-format
+msgid "Jump to first unread message"
+msgstr "პირველ წაუკითხავ შეტყობინებაზე გადასვლა"
+
+#: src/qml/Component/TimelineView.qml:221
+#, kde-format
+msgid "Jump to latest message"
+msgstr "უახლეს შეტყობინებებზე გადასვლა"
+
+#: src/qml/Component/TimelineView.qml:247
+#, kde-format
+msgid "Drag items here to share them"
+msgstr "გადმოათრიეთ საგნები აქ, მათ გასაზიარებლად"
+
+#: src/qml/Component/TimelineView.qml:273
+#, kde-format
+msgctxt "Message displayed when some users are typing"
+msgid "%2 is typing"
+msgid_plural "%2 are typing"
+msgstr[0] "%2 კრეფს"
+msgstr[1] "%2 კრეფს"
+
+#: src/qml/Component/TimelineView.qml:347
+#, kde-format
+msgid "This message was sent from a verified device"
+msgstr "ეს შეტყობინება შემოწმებული მოწყობილობიდანაა გამოგზავნილი"
+
+#: src/qml/Component/TimelineView.qml:353
+#, kde-format
+msgid "React"
+msgstr "რეაქცია"
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:36
@@ -1629,12 +1688,6 @@ msgstr "შეადარეთ ემოჯიების სეტი ორ
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "მოწყობილობა **%1** წარმატებით გადამოწმდა"
-
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:196
-#, kde-format
-msgid "Accept"
-msgstr "დასტური"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:79
 #, kde-format
@@ -1894,28 +1947,23 @@ msgstr "პირადი საუბრის გახსნა"
 msgid "Copy link"
 msgstr "ბმულის კოპირება"
 
-#: src/qml/main.qml:124
-#, kde-format
-msgid "Warning: %1"
-msgstr "გაფრთხილება: %1"
-
-#: src/qml/main.qml:263
+#: src/qml/main.qml:254
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/qml/main.qml:304
+#: src/qml/main.qml:295
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "სესიის გადამოწმება"
 
-#: src/qml/main.qml:314
+#: src/qml/main.qml:305
 #, kde-format
 msgid "User consent"
 msgstr "მომხმარებლის თანხმობა"
 
-#: src/qml/main.qml:319
+#: src/qml/main.qml:310
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -1924,17 +1972,17 @@ msgstr ""
 "თქვენი სახლის სერვერის გამოყენებამდე საჭიროა მის პირობებს და ლიცენზიას "
 "დაეთანხმოთ. მის წასაკითხად ქვემოთ ღილაკს დააჭირეთ."
 
-#: src/qml/main.qml:324
+#: src/qml/main.qml:315
 #, kde-format
 msgid "Open"
 msgstr "გახსნა"
 
-#: src/qml/main.qml:353
+#: src/qml/main.qml:344
 #, kde-format
 msgid "Start a chat"
 msgstr "საუბრის დაწყება"
 
-#: src/qml/main.qml:355
+#: src/qml/main.qml:346
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "გნებავთ დაიწყოთ საუბარი %1-სთან?"
@@ -2616,59 +2664,6 @@ msgstr "მომხმარებლის გადართვა"
 #, kde-format
 msgid "Open Settings"
 msgstr "პარამეტრების გახსნა"
-
-#: src/qml/Page/RoomPage.qml:185
-#, kde-format
-msgid "Accept this invitation?"
-msgstr "დავეთანხმო მოსაწვევს?"
-
-#: src/qml/Page/RoomPage.qml:189
-#, kde-format
-msgid "Reject"
-msgstr "უარყოფა"
-
-#: src/qml/Page/RoomPage.qml:287
-#, kde-format
-msgid "Choose local file"
-msgstr "აირჩიეთ ლოკალური ფაილი"
-
-#: src/qml/Page/RoomPage.qml:314
-#, kde-format
-msgid "Clipboard image"
-msgstr "ბუფერის გამოსახულება"
-
-#: src/qml/Page/RoomPage.qml:368
-#, kde-format
-msgid "Jump to first unread message"
-msgstr "პირველ წაუკითხავ შეტყობინებაზე გადასვლა"
-
-#: src/qml/Page/RoomPage.qml:395
-#, kde-format
-msgid "Jump to latest message"
-msgstr "უახლეს შეტყობინებებზე გადასვლა"
-
-#: src/qml/Page/RoomPage.qml:420
-#, kde-format
-msgid "Drag items here to share them"
-msgstr "გადმოათრიეთ საგნები აქ, მათ გასაზიარებლად"
-
-#: src/qml/Page/RoomPage.qml:446
-#, kde-format
-msgctxt "Message displayed when some users are typing"
-msgid "%2 is typing"
-msgid_plural "%2 are typing"
-msgstr[0] "%2 კრეფს"
-msgstr[1] "%2 კრეფს"
-
-#: src/qml/Page/RoomPage.qml:517
-#, kde-format
-msgid "This message was sent from a verified device"
-msgstr "ეს შეტყობინება შემოწმებული მოწყობილობიდანაა გამოგზავნილი"
-
-#: src/qml/Page/RoomPage.qml:523
-#, kde-format
-msgid "React"
-msgstr "რეაქცია"
 
 #: src/qml/Page/SearchPage.qml:17
 #, kde-format
@@ -3873,32 +3868,32 @@ msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
 msgstr "ოთახების სიაში ოთახი %1 არ არსებობს. შეამოწმეთ მართლწერა და ანგარიში."
 
-#: src/roommanager.cpp:208
+#: src/roommanager.cpp:212
 #, kde-format
 msgid "Failed to join room"
 msgstr "ოთახში შესვლის შეცდომა"
 
-#: src/roommanager.cpp:225
+#: src/roommanager.cpp:229
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "მოითხოვეთ '%1'-ზე შესვლა"
 
-#: src/roommanager.cpp:228
+#: src/roommanager.cpp:232
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "ოთახში შესვლის მოთხოვნის შეცდომა"
 
-#: src/roommanager.cpp:238
+#: src/roommanager.cpp:242
 #, kde-format
 msgid "No application for the link"
 msgstr "ბმულისთვის აპლიკაცია არ არსებობს"
 
-#: src/roommanager.cpp:238
+#: src/roommanager.cpp:242
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "თქვენმა ოპერაციულმა სისტემამ ბმულისთვის აპლიკაცია ვერ იპოვა."
 
-#: src/roommanager.cpp:244
+#: src/roommanager.cpp:248
 #, kde-format
 msgid "Could not open URL"
 msgstr "URL-ის გახსნის შეცდომა"
@@ -3912,6 +3907,9 @@ msgstr "ჩვენება"
 #, kde-format
 msgid "Quit"
 msgstr "დატოვება"
+
+#~ msgid "Warning: %1"
+#~ msgstr "გაფრთხილება: %1"
 
 #~ msgid "Add an Emoji"
 #~ msgstr "ემოჯის დამატება"

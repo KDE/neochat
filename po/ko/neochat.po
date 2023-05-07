@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-06 00:47+0000\n"
+"POT-Creation-Date: 2023-05-07 00:50+0000\n"
 "PO-Revision-Date: 2022-08-09 13:27+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -702,48 +702,48 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "사용자 정의"
 
-#: src/models/messageeventmodel.cpp:362 src/models/searchmodel.cpp:164
+#: src/models/messageeventmodel.cpp:369 src/models/searchmodel.cpp:164
 #, kde-format
 msgid "Today"
 msgstr "오늘"
 
-#: src/models/messageeventmodel.cpp:365 src/models/searchmodel.cpp:167
+#: src/models/messageeventmodel.cpp:372 src/models/searchmodel.cpp:167
 #, kde-format
 msgid "Yesterday"
 msgstr "어제"
 
-#: src/models/messageeventmodel.cpp:368 src/models/searchmodel.cpp:170
+#: src/models/messageeventmodel.cpp:375 src/models/searchmodel.cpp:170
 #, kde-format
 msgid "The day before yesterday"
 msgstr "그저께"
 
-#: src/models/messageeventmodel.cpp:482 src/models/messageeventmodel.cpp:491
+#: src/models/messageeventmodel.cpp:490 src/models/messageeventmodel.cpp:499
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[이 메시지가 삭제됨]</i>"
 
-#: src/models/messageeventmodel.cpp:483
+#: src/models/messageeventmodel.cpp:491
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[이 메시지가 삭제됨: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:572
+#: src/models/messageeventmodel.cpp:580
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[검열됨]"
 
-#: src/models/messageeventmodel.cpp:572
+#: src/models/messageeventmodel.cpp:580
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[검열됨: %1]"
 
-#: src/models/messageeventmodel.cpp:848
+#: src/models/messageeventmodel.cpp:856
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] ""
 
-#: src/models/messageeventmodel.cpp:855
+#: src/models/messageeventmodel.cpp:863
 #, fuzzy, kde-format
 #| msgctxt "[action 1], [action 2 and action 3]"
 #| msgid ", "
@@ -1154,10 +1154,9 @@ msgstr "%1(%2)"
 msgid "Open NeoChat in this room"
 msgstr "이 대화방에서 NeoChat 열기"
 
-#: src/notificationsmanager.cpp:88
+#: src/notificationsmanager.cpp:88 src/qml/Component/TimelineView.qml:383
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:552
 #, kde-format
 msgid "Reply"
 msgstr "답장"
@@ -1193,8 +1192,9 @@ msgid "Attachment:"
 msgstr "첨부:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
+#: src/qml/Component/TimelineView.qml:372
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:541
+#: src/qml/Page/ImageEditorPage.qml:20
 #, kde-format
 msgid "Edit"
 msgstr "편집"
@@ -1256,7 +1256,7 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "취소"
 
-#: src/qml/Component/ChatBox/ChatBox.qml:29
+#: src/qml/Component/ChatBox/ChatBox.qml:32
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat이 오프라인입니다. 네트워크 연결 상태를 확인하십시오."
@@ -1386,6 +1386,22 @@ msgstr "사용자 정의 이모지"
 #, kde-format
 msgid "Stickers"
 msgstr ""
+
+#: src/qml/Component/InvitationView.qml:17
+#, kde-format
+msgid "Accept this invitation?"
+msgstr "이 초대를 수락하시겠습니까?"
+
+#: src/qml/Component/InvitationView.qml:21
+#, kde-format
+msgid "Reject"
+msgstr "거부"
+
+#: src/qml/Component/InvitationView.qml:28
+#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
+#, kde-format
+msgid "Accept"
+msgstr "수락"
 
 #: src/qml/Component/Login/Homeserver.qml:18
 #, kde-format
@@ -1596,20 +1612,20 @@ msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr ""
 
-#: src/qml/Component/Timeline/ReactionDelegate.qml:53
+#: src/qml/Component/Timeline/ReactionDelegate.qml:55
 #, kde-format
 msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " 및 "
 
-#: src/qml/Component/Timeline/ReactionDelegate.qml:59
+#: src/qml/Component/Timeline/ReactionDelegate.qml:61
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
 msgid_plural " and %1 others"
 msgstr[0] " 및 %1명 더"
 
-#: src/qml/Component/Timeline/ReactionDelegate.qml:62
+#: src/qml/Component/Timeline/ReactionDelegate.qml:64
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
@@ -1637,6 +1653,48 @@ msgstr ""
 #, kde-format
 msgid "Maximize"
 msgstr ""
+
+#: src/qml/Component/TimelineView.qml:122
+#, kde-format
+msgid "Choose local file"
+msgstr "로컬 파일 선택"
+
+#: src/qml/Component/TimelineView.qml:150
+#, kde-format
+msgid "Clipboard image"
+msgstr "클립보드의 그림"
+
+#: src/qml/Component/TimelineView.qml:198
+#, kde-format
+msgid "Jump to first unread message"
+msgstr "첫 읽지 않은 메시지로 이동"
+
+#: src/qml/Component/TimelineView.qml:221
+#, kde-format
+msgid "Jump to latest message"
+msgstr "최신 메시지로 이동"
+
+#: src/qml/Component/TimelineView.qml:247
+#, kde-format
+msgid "Drag items here to share them"
+msgstr "공유할 항목을 여기에 드래그"
+
+#: src/qml/Component/TimelineView.qml:273
+#, kde-format
+msgctxt "Message displayed when some users are typing"
+msgid "%2 is typing"
+msgid_plural "%2 are typing"
+msgstr[0] "%2 님이 메시지를 입력하는 중"
+
+#: src/qml/Component/TimelineView.qml:347
+#, kde-format
+msgid "This message was sent from a verified device"
+msgstr ""
+
+#: src/qml/Component/TimelineView.qml:353
+#, kde-format
+msgid "React"
+msgstr "반응"
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:36
@@ -1739,12 +1797,6 @@ msgstr ""
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr ""
-
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:196
-#, kde-format
-msgid "Accept"
-msgstr "수락"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:79
 #, fuzzy, kde-format
@@ -2001,29 +2053,24 @@ msgstr "개인 대화 열기"
 msgid "Copy link"
 msgstr "복사"
 
-#: src/qml/main.qml:124
-#, kde-format
-msgid "Warning: %1"
-msgstr "경고: %1"
-
-#: src/qml/main.qml:263
+#: src/qml/main.qml:254
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/qml/main.qml:304
+#: src/qml/main.qml:295
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "알림 표시"
 
-#: src/qml/main.qml:314
+#: src/qml/main.qml:305
 #, kde-format
 msgid "User consent"
 msgstr "사용자 동의"
 
-#: src/qml/main.qml:319
+#: src/qml/main.qml:310
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2032,17 +2079,17 @@ msgstr ""
 "홈 서버를 사용하기 전에 사용 조건에 동의해야 합니다. 아래 단추를 클릭하여 읽"
 "으십시오."
 
-#: src/qml/main.qml:324
+#: src/qml/main.qml:315
 #, kde-format
 msgid "Open"
 msgstr "열기"
 
-#: src/qml/main.qml:353
+#: src/qml/main.qml:344
 #, kde-format
 msgid "Start a chat"
 msgstr "대화 시작"
 
-#: src/qml/main.qml:355
+#: src/qml/main.qml:346
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "%1 님과 대화를 시작하시겠습니까?"
@@ -2752,58 +2799,6 @@ msgstr ""
 #| msgid "Settings"
 msgid "Open Settings"
 msgstr "설정"
-
-#: src/qml/Page/RoomPage.qml:185
-#, kde-format
-msgid "Accept this invitation?"
-msgstr "이 초대를 수락하시겠습니까?"
-
-#: src/qml/Page/RoomPage.qml:189
-#, kde-format
-msgid "Reject"
-msgstr "거부"
-
-#: src/qml/Page/RoomPage.qml:287
-#, kde-format
-msgid "Choose local file"
-msgstr "로컬 파일 선택"
-
-#: src/qml/Page/RoomPage.qml:314
-#, kde-format
-msgid "Clipboard image"
-msgstr "클립보드의 그림"
-
-#: src/qml/Page/RoomPage.qml:368
-#, kde-format
-msgid "Jump to first unread message"
-msgstr "첫 읽지 않은 메시지로 이동"
-
-#: src/qml/Page/RoomPage.qml:395
-#, kde-format
-msgid "Jump to latest message"
-msgstr "최신 메시지로 이동"
-
-#: src/qml/Page/RoomPage.qml:420
-#, kde-format
-msgid "Drag items here to share them"
-msgstr "공유할 항목을 여기에 드래그"
-
-#: src/qml/Page/RoomPage.qml:446
-#, kde-format
-msgctxt "Message displayed when some users are typing"
-msgid "%2 is typing"
-msgid_plural "%2 are typing"
-msgstr[0] "%2 님이 메시지를 입력하는 중"
-
-#: src/qml/Page/RoomPage.qml:517
-#, kde-format
-msgid "This message was sent from a verified device"
-msgstr ""
-
-#: src/qml/Page/RoomPage.qml:523
-#, kde-format
-msgid "React"
-msgstr "반응"
 
 #: src/qml/Page/SearchPage.qml:17
 #, fuzzy, kde-format
@@ -4095,34 +4090,34 @@ msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
 msgstr "대화방 목록에 %1이(가) 없습니다. 계정과 철자를 확인하십시오."
 
-#: src/roommanager.cpp:208
+#: src/roommanager.cpp:212
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgid "Failed to join room"
 msgstr "%1 님이 대화방에 초대함"
 
-#: src/roommanager.cpp:225
+#: src/roommanager.cpp:229
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr ""
 
-#: src/roommanager.cpp:228
+#: src/roommanager.cpp:232
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgid "Failed to request joining room"
 msgstr "%1 님이 대화방에 초대함"
 
-#: src/roommanager.cpp:238
+#: src/roommanager.cpp:242
 #, kde-format
 msgid "No application for the link"
 msgstr "링크에 사용할 수 있는 프로그램 없음"
 
-#: src/roommanager.cpp:238
+#: src/roommanager.cpp:242
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "운영 체제에서 링크를 열 수 있는 프로그램을 찾을 수 없습니다."
 
-#: src/roommanager.cpp:244
+#: src/roommanager.cpp:248
 #, kde-format
 msgid "Could not open URL"
 msgstr "URL을 열 수 없음"
@@ -4136,6 +4131,9 @@ msgstr "표시"
 #, kde-format
 msgid "Quit"
 msgstr "끝내기"
+
+#~ msgid "Warning: %1"
+#~ msgstr "경고: %1"
 
 #~ msgid "Add an Emoji"
 #~ msgstr "이모지 추가"

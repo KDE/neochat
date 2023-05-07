@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-06 00:47+0000\n"
-"PO-Revision-Date: 2023-04-30 13:30+0300\n"
+"POT-Creation-Date: 2023-05-07 00:50+0000\n"
+"PO-Revision-Date: 2023-05-06 10:40+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -119,10 +119,9 @@ msgid "Destination"
 msgstr "Hedef"
 
 #: src/imagepacksmodel.cpp:68
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgid "Own Stickers"
-msgstr "bir yapışkan gönderdi"
+msgstr "Yapışkanlarımız"
 
 #: src/login.cpp:86 src/login.cpp:97
 #, kde-format
@@ -635,49 +634,49 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Özel"
 
-#: src/models/messageeventmodel.cpp:362 src/models/searchmodel.cpp:164
+#: src/models/messageeventmodel.cpp:369 src/models/searchmodel.cpp:164
 #, kde-format
 msgid "Today"
 msgstr "Bugün"
 
-#: src/models/messageeventmodel.cpp:365 src/models/searchmodel.cpp:167
+#: src/models/messageeventmodel.cpp:372 src/models/searchmodel.cpp:167
 #, kde-format
 msgid "Yesterday"
 msgstr "Dün"
 
-#: src/models/messageeventmodel.cpp:368 src/models/searchmodel.cpp:170
+#: src/models/messageeventmodel.cpp:375 src/models/searchmodel.cpp:170
 #, kde-format
 msgid "The day before yesterday"
 msgstr "dünden önceki gün"
 
-#: src/models/messageeventmodel.cpp:482 src/models/messageeventmodel.cpp:491
+#: src/models/messageeventmodel.cpp:490 src/models/messageeventmodel.cpp:499
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Bu ileti silindi]</i>"
 
-#: src/models/messageeventmodel.cpp:483
+#: src/models/messageeventmodel.cpp:491
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Bu ileti silindi: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:572
+#: src/models/messageeventmodel.cpp:580
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[DEĞİŞTİRİLDİ]"
 
-#: src/models/messageeventmodel.cpp:572
+#: src/models/messageeventmodel.cpp:580
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[DEĞİŞTİRİLDİ: %1]"
 
-#: src/models/messageeventmodel.cpp:848
+#: src/models/messageeventmodel.cpp:856
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "%1 kullanıcı: "
 msgstr[1] "%1 kullanıcı: "
 
-#: src/models/messageeventmodel.cpp:855
+#: src/models/messageeventmodel.cpp:863
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -1060,10 +1059,9 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat in this room"
 msgstr "Bu odada NeoChat'i açın"
 
-#: src/notificationsmanager.cpp:88
+#: src/notificationsmanager.cpp:88 src/qml/Component/TimelineView.qml:383
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:552
 #, kde-format
 msgid "Reply"
 msgstr "Yanıtla"
@@ -1099,8 +1097,9 @@ msgid "Attachment:"
 msgstr "İlişik:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
+#: src/qml/Component/TimelineView.qml:372
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:541
+#: src/qml/Page/ImageEditorPage.qml:20
 #, kde-format
 msgid "Edit"
 msgstr "Düzenle"
@@ -1118,7 +1117,7 @@ msgstr "Bir görsel veya dosya iliştir"
 #: src/qml/Component/ChatBox/ChatBar.qml:57
 #, kde-format
 msgid "Emojis & Stickers"
-msgstr ""
+msgstr "Emojiler ve Yapışkanlar"
 
 #: src/qml/Component/ChatBox/ChatBar.qml:73
 #, kde-format
@@ -1160,7 +1159,7 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Yanıtı İptal Et"
 
-#: src/qml/Component/ChatBox/ChatBox.qml:29
+#: src/qml/Component/ChatBox/ChatBox.qml:32
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat, çevrimdışı. Lütfen ağ bağlantınızı denetleyin."
@@ -1268,15 +1267,30 @@ msgid "No emojis"
 msgstr "Emoji yok"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:49
-#, fuzzy, kde-format
-#| msgid "No emojis"
+#, kde-format
 msgid "Emojis"
-msgstr "Emoji yok"
+msgstr "Emojiler"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:56
 #, kde-format
 msgid "Stickers"
-msgstr ""
+msgstr "Yapışkanlar"
+
+#: src/qml/Component/InvitationView.qml:17
+#, kde-format
+msgid "Accept this invitation?"
+msgstr "Bu davet kabul edilsin mi?"
+
+#: src/qml/Component/InvitationView.qml:21
+#, kde-format
+msgid "Reject"
+msgstr "Reddet"
+
+#: src/qml/Component/InvitationView.qml:28
+#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
+#, kde-format
+msgid "Accept"
+msgstr "Kabul Et"
 
 #: src/qml/Component/Login/Homeserver.qml:18
 #, kde-format
@@ -1484,13 +1498,13 @@ msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(Bitti)"
 
-#: src/qml/Component/Timeline/ReactionDelegate.qml:53
+#: src/qml/Component/Timeline/ReactionDelegate.qml:55
 #, kde-format
 msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " ve"
 
-#: src/qml/Component/Timeline/ReactionDelegate.qml:59
+#: src/qml/Component/Timeline/ReactionDelegate.qml:61
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
@@ -1498,7 +1512,7 @@ msgid_plural " and %1 others"
 msgstr[0] " ve %1 başkası"
 msgstr[1] " ve %1 başkası"
 
-#: src/qml/Component/Timeline/ReactionDelegate.qml:62
+#: src/qml/Component/Timeline/ReactionDelegate.qml:64
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
@@ -1527,6 +1541,49 @@ msgstr "Ses Düzeyi"
 #, kde-format
 msgid "Maximize"
 msgstr "Son Ses"
+
+#: src/qml/Component/TimelineView.qml:122
+#, kde-format
+msgid "Choose local file"
+msgstr "Yerel dosya seçin"
+
+#: src/qml/Component/TimelineView.qml:150
+#, kde-format
+msgid "Clipboard image"
+msgstr "Pano görseli"
+
+#: src/qml/Component/TimelineView.qml:198
+#, kde-format
+msgid "Jump to first unread message"
+msgstr "İlk okunmamış iletiye atla"
+
+#: src/qml/Component/TimelineView.qml:221
+#, kde-format
+msgid "Jump to latest message"
+msgstr "En son iletiye atla"
+
+#: src/qml/Component/TimelineView.qml:247
+#, kde-format
+msgid "Drag items here to share them"
+msgstr "Onları paylaşmak için ögeleri buraya sürükleyin"
+
+#: src/qml/Component/TimelineView.qml:273
+#, kde-format
+msgctxt "Message displayed when some users are typing"
+msgid "%2 is typing"
+msgid_plural "%2 are typing"
+msgstr[0] "%2 yazıyor"
+msgstr[1] "%2 yazıyor"
+
+#: src/qml/Component/TimelineView.qml:347
+#, kde-format
+msgid "This message was sent from a verified device"
+msgstr "Bu ileti, doğrulanan bir aygıttan gönderildi"
+
+#: src/qml/Component/TimelineView.qml:353
+#, kde-format
+msgid "React"
+msgstr "Tepki"
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:36
@@ -1629,12 +1686,6 @@ msgstr "Her iki aygıttaki bir emoji kümesini karşılaştırın"
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "**%1** aygıtı başarıyla doğrulandı"
-
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:196
-#, kde-format
-msgid "Accept"
-msgstr "Kabul Et"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:79
 #, kde-format
@@ -1905,28 +1956,23 @@ msgstr "Özel bir sohbet aç"
 msgid "Copy link"
 msgstr "Bağlantıyı kopyala"
 
-#: src/qml/main.qml:124
-#, kde-format
-msgid "Warning: %1"
-msgstr "Uyarı: %1"
-
-#: src/qml/main.qml:263
+#: src/qml/main.qml:254
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/qml/main.qml:304
+#: src/qml/main.qml:295
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Oturum Doğrulama"
 
-#: src/qml/main.qml:314
+#: src/qml/main.qml:305
 #, kde-format
 msgid "User consent"
 msgstr "Kullanıcı onayı"
 
-#: src/qml/main.qml:319
+#: src/qml/main.qml:310
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -1935,17 +1981,17 @@ msgstr ""
 "Ana sunucunuz, kullanım öncesinde kullanım koşullarını kabul etmenizi "
 "gerektiriyor. Okumak için aşağıdaki düğmeye tıklayın."
 
-#: src/qml/main.qml:324
+#: src/qml/main.qml:315
 #, kde-format
 msgid "Open"
 msgstr "Aç"
 
-#: src/qml/main.qml:353
+#: src/qml/main.qml:344
 #, kde-format
 msgid "Start a chat"
 msgstr "Bir sohbet başlat"
 
-#: src/qml/main.qml:355
+#: src/qml/main.qml:346
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "%1 ile bir sohbet başlatmak istiyor musunuz?"
@@ -2627,59 +2673,6 @@ msgstr "Kullanıcı Değiştir"
 #, kde-format
 msgid "Open Settings"
 msgstr "Ayarları Aç"
-
-#: src/qml/Page/RoomPage.qml:185
-#, kde-format
-msgid "Accept this invitation?"
-msgstr "Bu davet kabul edilsin mi?"
-
-#: src/qml/Page/RoomPage.qml:189
-#, kde-format
-msgid "Reject"
-msgstr "Reddet"
-
-#: src/qml/Page/RoomPage.qml:287
-#, kde-format
-msgid "Choose local file"
-msgstr "Yerel dosya seçin"
-
-#: src/qml/Page/RoomPage.qml:314
-#, kde-format
-msgid "Clipboard image"
-msgstr "Pano görseli"
-
-#: src/qml/Page/RoomPage.qml:368
-#, kde-format
-msgid "Jump to first unread message"
-msgstr "İlk okunmamış iletiye atla"
-
-#: src/qml/Page/RoomPage.qml:395
-#, kde-format
-msgid "Jump to latest message"
-msgstr "En son iletiye atla"
-
-#: src/qml/Page/RoomPage.qml:420
-#, kde-format
-msgid "Drag items here to share them"
-msgstr "Onları paylaşmak için ögeleri buraya sürükleyin"
-
-#: src/qml/Page/RoomPage.qml:446
-#, kde-format
-msgctxt "Message displayed when some users are typing"
-msgid "%2 is typing"
-msgid_plural "%2 are typing"
-msgstr[0] "%2 yazıyor"
-msgstr[1] "%2 yazıyor"
-
-#: src/qml/Page/RoomPage.qml:517
-#, kde-format
-msgid "This message was sent from a verified device"
-msgstr "Bu ileti, doğrulanan bir aygıttan gönderildi"
-
-#: src/qml/Page/RoomPage.qml:523
-#, kde-format
-msgid "React"
-msgstr "Tepki"
 
 #: src/qml/Page/SearchPage.qml:17
 #, kde-format
@@ -3883,32 +3876,32 @@ msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
 msgstr "Oda listesinde %1 diye bir oda yok. Hesabı ve yazımı denetleyin."
 
-#: src/roommanager.cpp:208
+#: src/roommanager.cpp:212
 #, kde-format
 msgid "Failed to join room"
 msgstr "Odaya katılamadı"
 
-#: src/roommanager.cpp:225
+#: src/roommanager.cpp:229
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "'%1' odasına katılmak istediniz"
 
-#: src/roommanager.cpp:228
+#: src/roommanager.cpp:232
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Odaya katılma istenemedi"
 
-#: src/roommanager.cpp:238
+#: src/roommanager.cpp:242
 #, kde-format
 msgid "No application for the link"
 msgstr "Bağlantı için bir uygulama yok"
 
-#: src/roommanager.cpp:238
+#: src/roommanager.cpp:242
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "İşletim sisteminiz, bu bağlantı için bir uygulama bulamadı."
 
-#: src/roommanager.cpp:244
+#: src/roommanager.cpp:248
 #, kde-format
 msgid "Could not open URL"
 msgstr "URL açılamadı"
@@ -3922,6 +3915,9 @@ msgstr "Göster"
 #, kde-format
 msgid "Quit"
 msgstr "Çık"
+
+#~ msgid "Warning: %1"
+#~ msgstr "Uyarı: %1"
 
 #~ msgid "Add an Emoji"
 #~ msgstr "Bir Emoji ekle"

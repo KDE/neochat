@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-06 00:47+0000\n"
-"PO-Revision-Date: 2023-05-02 10:50+0100\n"
+"POT-Creation-Date: 2023-05-07 00:50+0000\n"
+"PO-Revision-Date: 2023-05-06 11:49+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -122,10 +122,9 @@ msgid "Destination"
 msgstr "Destino"
 
 #: src/imagepacksmodel.cpp:68
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgid "Own Stickers"
-msgstr "enviou um autocolante"
+msgstr "Próprios Autocolantes"
 
 #: src/login.cpp:86 src/login.cpp:97
 #, kde-format
@@ -641,49 +640,49 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Personalizados"
 
-#: src/models/messageeventmodel.cpp:362 src/models/searchmodel.cpp:164
+#: src/models/messageeventmodel.cpp:369 src/models/searchmodel.cpp:164
 #, kde-format
 msgid "Today"
 msgstr "Hoje"
 
-#: src/models/messageeventmodel.cpp:365 src/models/searchmodel.cpp:167
+#: src/models/messageeventmodel.cpp:372 src/models/searchmodel.cpp:167
 #, kde-format
 msgid "Yesterday"
 msgstr "Ontem"
 
-#: src/models/messageeventmodel.cpp:368 src/models/searchmodel.cpp:170
+#: src/models/messageeventmodel.cpp:375 src/models/searchmodel.cpp:170
 #, kde-format
 msgid "The day before yesterday"
 msgstr "O dia antes de ontem"
 
-#: src/models/messageeventmodel.cpp:482 src/models/messageeventmodel.cpp:491
+#: src/models/messageeventmodel.cpp:490 src/models/messageeventmodel.cpp:499
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Esta mensagem foi removida]</i>"
 
-#: src/models/messageeventmodel.cpp:483
+#: src/models/messageeventmodel.cpp:491
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Esta mensagem foi removida: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:572
+#: src/models/messageeventmodel.cpp:580
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[REDIGIDO]"
 
-#: src/models/messageeventmodel.cpp:572
+#: src/models/messageeventmodel.cpp:580
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[REDIGIDO: %1]"
 
-#: src/models/messageeventmodel.cpp:848
+#: src/models/messageeventmodel.cpp:856
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 utilizador: "
 msgstr[1] "%1 utilizadores: "
 
-#: src/models/messageeventmodel.cpp:855
+#: src/models/messageeventmodel.cpp:863
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -1066,10 +1065,9 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat in this room"
 msgstr "Abrir o NeoChat nesta sala"
 
-#: src/notificationsmanager.cpp:88
+#: src/notificationsmanager.cpp:88 src/qml/Component/TimelineView.qml:383
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
-#: src/qml/Page/RoomPage.qml:552
 #, kde-format
 msgid "Reply"
 msgstr "Responder"
@@ -1105,8 +1103,9 @@ msgid "Attachment:"
 msgstr "Anexo:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
+#: src/qml/Component/TimelineView.qml:372
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
-#: src/qml/Page/ImageEditorPage.qml:20 src/qml/Page/RoomPage.qml:541
+#: src/qml/Page/ImageEditorPage.qml:20
 #, kde-format
 msgid "Edit"
 msgstr "Editar"
@@ -1124,7 +1123,7 @@ msgstr "Anexar uma imagem ou ficheiro"
 #: src/qml/Component/ChatBox/ChatBar.qml:57
 #, kde-format
 msgid "Emojis & Stickers"
-msgstr ""
+msgstr "Emojis & Autocolantes"
 
 #: src/qml/Component/ChatBox/ChatBar.qml:73
 #, kde-format
@@ -1166,7 +1165,7 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Cancelar a resposta"
 
-#: src/qml/Component/ChatBox/ChatBox.qml:29
+#: src/qml/Component/ChatBox/ChatBox.qml:32
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "O NeoChat está desligado. Verifique por favor a sua ligação à rede."
@@ -1274,15 +1273,30 @@ msgid "No emojis"
 msgstr "Sem emojis"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:49
-#, fuzzy, kde-format
-#| msgid "No emojis"
+#, kde-format
 msgid "Emojis"
-msgstr "Sem emojis"
+msgstr "Emojis"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:56
 #, kde-format
 msgid "Stickers"
-msgstr ""
+msgstr "Autocolantes"
+
+#: src/qml/Component/InvitationView.qml:17
+#, kde-format
+msgid "Accept this invitation?"
+msgstr "Deseja aceitar este convite?"
+
+#: src/qml/Component/InvitationView.qml:21
+#, kde-format
+msgid "Reject"
+msgstr "Rejeitar"
+
+#: src/qml/Component/InvitationView.qml:28
+#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
+#, kde-format
+msgid "Accept"
+msgstr "Aceitar"
 
 #: src/qml/Component/Login/Homeserver.qml:18
 #, kde-format
@@ -1492,13 +1506,13 @@ msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(Terminada)"
 
-#: src/qml/Component/Timeline/ReactionDelegate.qml:53
+#: src/qml/Component/Timeline/ReactionDelegate.qml:55
 #, kde-format
 msgctxt "Separate the usernames of users"
 msgid " and "
 msgstr " e "
 
-#: src/qml/Component/Timeline/ReactionDelegate.qml:59
+#: src/qml/Component/Timeline/ReactionDelegate.qml:61
 #, kde-format
 msgctxt "%1 is the number of other users"
 msgid " and %1 other"
@@ -1506,7 +1520,7 @@ msgid_plural " and %1 others"
 msgstr[0] "e mais %1"
 msgstr[1] "e mais %1"
 
-#: src/qml/Component/Timeline/ReactionDelegate.qml:62
+#: src/qml/Component/Timeline/ReactionDelegate.qml:64
 #, kde-format
 msgctxt "%2 is the users who reacted and %3 the emoji that was given"
 msgid "%2 reacted with %3"
@@ -1535,6 +1549,49 @@ msgstr "Volume"
 #, kde-format
 msgid "Maximize"
 msgstr "Maximizar"
+
+#: src/qml/Component/TimelineView.qml:122
+#, kde-format
+msgid "Choose local file"
+msgstr "Escolher um ficheiro local"
+
+#: src/qml/Component/TimelineView.qml:150
+#, kde-format
+msgid "Clipboard image"
+msgstr "Imagem da área de transferência"
+
+#: src/qml/Component/TimelineView.qml:198
+#, kde-format
+msgid "Jump to first unread message"
+msgstr "Ir para a primeira mensagem não-lida"
+
+#: src/qml/Component/TimelineView.qml:221
+#, kde-format
+msgid "Jump to latest message"
+msgstr "Ir para a última mensagem"
+
+#: src/qml/Component/TimelineView.qml:247
+#, kde-format
+msgid "Drag items here to share them"
+msgstr "Arraste os itens para aqui para os partilhar"
+
+#: src/qml/Component/TimelineView.qml:273
+#, kde-format
+msgctxt "Message displayed when some users are typing"
+msgid "%2 is typing"
+msgid_plural "%2 are typing"
+msgstr[0] "%2 está a escrever"
+msgstr[1] "%2 estão a escrever"
+
+#: src/qml/Component/TimelineView.qml:347
+#, kde-format
+msgid "This message was sent from a verified device"
+msgstr "Esta mensagem foi enviada a partir de um dispositivo verificado"
+
+#: src/qml/Component/TimelineView.qml:353
+#, kde-format
+msgid "React"
+msgstr "Reagir"
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:36
@@ -1636,12 +1693,6 @@ msgstr "Comparar um conjunto de emojis em ambos os dispositivos"
 #, kde-format
 msgid "Successfully verified device **%1**"
 msgstr "O dispositivo **%1** foi verificado com sucesso"
-
-#: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:73
-#: src/qml/Page/RoomPage.qml:196
-#, kde-format
-msgid "Accept"
-msgstr "Aceitar"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:79
 #, kde-format
@@ -1919,28 +1970,23 @@ msgstr "Abrir uma conversa privada"
 msgid "Copy link"
 msgstr "Copiar a ligação"
 
-#: src/qml/main.qml:124
-#, kde-format
-msgid "Warning: %1"
-msgstr "Aviso: %1"
-
-#: src/qml/main.qml:263
+#: src/qml/main.qml:254
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/qml/main.qml:304
+#: src/qml/main.qml:295
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Verificação da Sessão"
 
-#: src/qml/main.qml:314
+#: src/qml/main.qml:305
 #, kde-format
 msgid "User consent"
 msgstr "Consentimento do utilizador"
 
-#: src/qml/main.qml:319
+#: src/qml/main.qml:310
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -1949,17 +1995,17 @@ msgstr ""
 "O seu servidor caseiro obriga a que concorde com os seus termos e condições "
 "antes de o poder usar. Por favor carregue no botão abaixo para os ler."
 
-#: src/qml/main.qml:324
+#: src/qml/main.qml:315
 #, kde-format
 msgid "Open"
 msgstr "Abrir"
 
-#: src/qml/main.qml:353
+#: src/qml/main.qml:344
 #, kde-format
 msgid "Start a chat"
 msgstr "Iniciar uma conversa"
 
-#: src/qml/main.qml:355
+#: src/qml/main.qml:346
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Deseja iniciar uma conversa com %1?"
@@ -2641,59 +2687,6 @@ msgstr "Mudar de Utilizador"
 #, kde-format
 msgid "Open Settings"
 msgstr "Abrir a Configuração"
-
-#: src/qml/Page/RoomPage.qml:185
-#, kde-format
-msgid "Accept this invitation?"
-msgstr "Deseja aceitar este convite?"
-
-#: src/qml/Page/RoomPage.qml:189
-#, kde-format
-msgid "Reject"
-msgstr "Rejeitar"
-
-#: src/qml/Page/RoomPage.qml:287
-#, kde-format
-msgid "Choose local file"
-msgstr "Escolher um ficheiro local"
-
-#: src/qml/Page/RoomPage.qml:314
-#, kde-format
-msgid "Clipboard image"
-msgstr "Imagem da área de transferência"
-
-#: src/qml/Page/RoomPage.qml:368
-#, kde-format
-msgid "Jump to first unread message"
-msgstr "Ir para a primeira mensagem não-lida"
-
-#: src/qml/Page/RoomPage.qml:395
-#, kde-format
-msgid "Jump to latest message"
-msgstr "Ir para a última mensagem"
-
-#: src/qml/Page/RoomPage.qml:420
-#, kde-format
-msgid "Drag items here to share them"
-msgstr "Arraste os itens para aqui para os partilhar"
-
-#: src/qml/Page/RoomPage.qml:446
-#, kde-format
-msgctxt "Message displayed when some users are typing"
-msgid "%2 is typing"
-msgid_plural "%2 are typing"
-msgstr[0] "%2 está a escrever"
-msgstr[1] "%2 estão a escrever"
-
-#: src/qml/Page/RoomPage.qml:517
-#, kde-format
-msgid "This message was sent from a verified device"
-msgstr "Esta mensagem foi enviada a partir de um dispositivo verificado"
-
-#: src/qml/Page/RoomPage.qml:523
-#, kde-format
-msgid "React"
-msgstr "Reagir"
 
 #: src/qml/Page/SearchPage.qml:17
 #, kde-format
@@ -3901,33 +3894,33 @@ msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
 msgstr "Não existe nenhuma sala %1 na lista. Verifique a ortografia e a conta."
 
-#: src/roommanager.cpp:208
+#: src/roommanager.cpp:212
 #, kde-format
 msgid "Failed to join room"
 msgstr "Não foi possível juntar-se à sala"
 
-#: src/roommanager.cpp:225
+#: src/roommanager.cpp:229
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Pediu para se ligar ao '%1'"
 
-#: src/roommanager.cpp:228
+#: src/roommanager.cpp:232
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Não foi possível pedir para se ligar à sala"
 
-#: src/roommanager.cpp:238
+#: src/roommanager.cpp:242
 #, kde-format
 msgid "No application for the link"
 msgstr "Sem aplicação para a ligação"
 
-#: src/roommanager.cpp:238
+#: src/roommanager.cpp:242
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr ""
 "Não foi possível ao sistema operativo encontrar uma aplicação para a ligação."
 
-#: src/roommanager.cpp:244
+#: src/roommanager.cpp:248
 #, kde-format
 msgid "Could not open URL"
 msgstr "Não foi possível abrir o URL"
@@ -3942,5 +3935,5 @@ msgstr "Mostrar"
 msgid "Quit"
 msgstr "Sair"
 
-#~ msgid "Add an Emoji"
-#~ msgstr "Adicionar um Emoji"
+#~ msgid "Warning: %1"
+#~ msgstr "Aviso: %1"
