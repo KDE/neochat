@@ -3,7 +3,7 @@
 
 #include "stickermodel.h"
 
-#include "imagepacksmodel.h"
+#include "models/imagepacksmodel.h"
 
 using namespace Quotient;
 

@@ -42,7 +42,12 @@ QVariant ImagePacksModel::data(const QModelIndex &index, int role) const
 
 QHash<int, QByteArray> ImagePacksModel::roleNames() const
 {
-    return {{DisplayNameRole, "displayName"}, {AvatarUrlRole, "avatarUrl"}, {AttributionRole, "attribution"}, {IdRole, "id"},};
+    return {
+        {DisplayNameRole, "displayName"},
+        {AvatarUrlRole, "avatarUrl"},
+        {AttributionRole, "attribution"},
+        {IdRole, "id"},
+    };
 }
 
 NeoChatRoom *ImagePacksModel::room() const
