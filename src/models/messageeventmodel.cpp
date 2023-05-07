@@ -1115,12 +1115,16 @@ QVariantMap MessageEventModel::getMediaInfoFromFileInfo(const EventContent::File
 
     // Get the mxc URL for the media.
 #ifdef QUOTIENT_07
-    QUrl source = m_currentRoom->makeMediaUrl(eventId, fileInfo->url());
-
-    if (source.isValid() && source.scheme() == QStringLiteral("mxc")) {
-        mediaInfo["source"] = source;
-    } else {
+    if (!fileInfo->url().isValid() || eventId.isEmpty()) {
         mediaInfo["source"] = QUrl();
+    } else {
+        QUrl source = m_currentRoom->makeMediaUrl(eventId, fileInfo->url());
+
+        if (source.isValid() && source.scheme() == QStringLiteral("mxc")) {
+            mediaInfo["source"] = source;
+        } else {
+            mediaInfo["source"] = QUrl();
+        }
     }
 #else
     auto url = QUrl(m_currentRoom->connection()->homeserver().toString() + "/_matrix/media/r0/download/" + fileInfo->url.toString().remove("mxc://"));
