@@ -9,7 +9,8 @@ using namespace Quotient;
 
 StickerModel::StickerModel(QObject *parent)
     : QAbstractListModel(parent)
-{}
+{
+}
 
 int StickerModel::rowCount(const QModelIndex &index) const
 {

@@ -47,7 +47,7 @@ add_library(neochat STATIC
     models/searchmodel.cpp
     texthandler.cpp
     logger.cpp
-    stickermodel.cpp
+    models/stickermodel.cpp
     models/imagepacksmodel.cpp
     events/imagepackevent.cpp
     events/joinrulesevent.cpp

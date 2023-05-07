@@ -74,9 +74,9 @@
 #include "pollhandler.h"
 #endif
 #include "models/statefiltermodel.h"
+#include "models/stickermodel.h"
 #include "roommanager.h"
 #include "spacehierarchycache.h"
-#include "stickermodel.h"
 #include "urlhelper.h"
 #include "windowcontroller.h"
 #ifdef QUOTIENT_07
