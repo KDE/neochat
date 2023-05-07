@@ -33,7 +33,9 @@
 #include <events/simplestateevents.h>
 #include <jobs/downloadfilejob.h>
 #ifndef QUOTIENT_07
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <joinstate.h>
+#endif
 #endif
 #include <qt_connection_util.h>
 

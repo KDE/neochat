@@ -5,7 +5,7 @@ enable_testing()
 
 ecm_add_test(
     neochatroomtest.cpp
-    LINK_LIBRARIES neochat Qt::Test Quotient
+    LINK_LIBRARIES neochat Qt::Test
     TEST_NAME neochatroomtest
 )
 

@@ -72,11 +72,11 @@ target_link_libraries(neochat-app PRIVATE
     neochat
 )
 
-if(Quotient_VERSION_MINOR GREATER 6)
+if(Quotient${QUOTIENT_SUFFIX}_VERSION_MINOR GREATER 6)
     target_compile_definitions(neochat PUBLIC QUOTIENT_07)
     target_sources(neochat PRIVATE events/pollevent.cpp pollhandler.cpp)
 else()
-    target_compile_definitions(neochat PUBLIC QUOTIENT_VERSION=\"${Quotient_VERSION}\")
+    target_compile_definitions(neochat PUBLIC QUOTIENT_VERSION=\"${Quotient${QUOTIENT_SUFFIX}_VERSION}\")
     target_sources(neochat PRIVATE neochataccountregistry.cpp)
 endif()
 
@@ -106,7 +106,7 @@ else()
 endif()
 
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR})
-target_link_libraries(neochat PUBLIC Qt::Core Qt::Quick Qt::Qml Qt::Gui Qt::Multimedia Qt::Network Qt::QuickControls2 KF${QT_MAJOR_VERSION}::I18n KF${QT_MAJOR_VERSION}::Kirigami2 KF${QT_MAJOR_VERSION}::Notifications KF${QT_MAJOR_VERSION}::ConfigCore KF${QT_MAJOR_VERSION}::ConfigGui KF${QT_MAJOR_VERSION}::CoreAddons KF${QT_MAJOR_VERSION}::SonnetCore  KF${QT_MAJOR_VERSION}::ItemModels Quotient cmark::cmark ${QTKEYCHAIN_LIBRARIES} QCoro::Core)
+target_link_libraries(neochat PUBLIC Qt::Core Qt::Quick Qt::Qml Qt::Gui Qt::Multimedia Qt::Network Qt::QuickControls2 KF${QT_MAJOR_VERSION}::I18n KF${QT_MAJOR_VERSION}::Kirigami2 KF${QT_MAJOR_VERSION}::Notifications KF${QT_MAJOR_VERSION}::ConfigCore KF${QT_MAJOR_VERSION}::ConfigGui KF${QT_MAJOR_VERSION}::CoreAddons KF${QT_MAJOR_VERSION}::SonnetCore  KF${QT_MAJOR_VERSION}::ItemModels Quotient${QUOTIENT_SUFFIX} cmark::cmark ${QTKEYCHAIN_LIBRARIES} QCoro::Core)
 kconfig_add_kcfg_files(neochat GENERATE_MOC neochatconfig.kcfgc)
 
 if(NEOCHAT_FLATPAK)

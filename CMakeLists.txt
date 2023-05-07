@@ -94,8 +94,12 @@ if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
     find_package(KF${QT_MAJOR_VERSION}DBusAddons ${KF_MIN_VERSION} REQUIRED)
 endif()
 
-find_package(Quotient 0.6)
-set_package_properties(Quotient PROPERTIES
+if(QT_MAJOR_VERSION STREQUAL "6" AND NOT ANDROID AND NOT WIN32)
+    set(QUOTIENT_SUFFIX "Qt6")
+endif()
+
+find_package(Quotient${QUOTIENT_SUFFIX} 0.6)
+set_package_properties(Quotient${QUOTIENT_SUFFIX} PROPERTIES
     TYPE REQUIRED
     DESCRIPTION "Qt wrapper around Matrix API"
     URL "https://github.com/quotient-im/libQuotient/"
@@ -132,7 +136,7 @@ set_package_properties(KF${QT_MAJOR_VERSION}DocTools PROPERTIES DESCRIPTION
     TYPE OPTIONAL
 )
 
-if(NOT Quotient_VERSION_MINOR GREATER 6)
+if(NOT Quotient${QUOTIENT_SUFFIX}_VERSION_MINOR GREATER 6)
     cmake_policy(SET CMP0063 OLD)
 endif()
 
@@ -151,7 +155,7 @@ install(FILES org.kde.neochat.tray.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/h
 add_definitions(-DQT_NO_FOREACH)
 
 add_subdirectory(src)
-if (BUILD_TESTING AND Quotient_VERSION_MINOR GREATER 6)
+if (BUILD_TESTING AND Quotient${QUOTIENT_SUFFIX}_VERSION_MINOR GREATER 6)
     find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} NO_MODULE COMPONENTS Test)
     add_subdirectory(autotests)
 endif()
