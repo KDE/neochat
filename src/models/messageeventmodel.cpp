@@ -460,7 +460,6 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     const auto row = idx.row();
 
     if (!m_currentRoom || row < 0 || row >= int(m_currentRoom->pendingEvents().size()) + m_currentRoom->timelineSize()) {
-        qCWarning(MessageEvent) << "Accessing index out of bounds";
         return {};
     };
 

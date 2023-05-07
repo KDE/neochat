@@ -348,4 +348,34 @@ ColumnLayout {
         let yoff = Math.round(y - ListView.view.contentY);
         return (yoff + height > 0 && yoff < ListView.view.height)
     }
+
+    /// Open message context dialog for file and videos
+    function openFileContext(event, file) {
+        const contextMenu = fileDelegateContextMenu.createObject(root, {
+            author: event.author,
+            message: event.plainText,
+            eventId: event.eventId,
+            source: event.source,
+            file: file,
+            mimeType: event.mimeType,
+            progressInfo: event.progressInfo,
+            plainMessage: event.plainText,
+        });
+        contextMenu.open();
+    }
+
+    /// Open context menu for normal message
+    function openMessageContext(event, selectedText, plainMessage) {
+        const contextMenu = messageDelegateContextMenu.createObject(root, {
+            selectedText: selectedText,
+            author: event.author,
+            message: event.plainText,
+            eventId: event.eventId,
+            formattedBody: event.formattedBody,
+            source: event.source,
+            eventType: event.eventType,
+            plainMessage: event.plainText,
+        });
+        contextMenu.open();
+    }
 }

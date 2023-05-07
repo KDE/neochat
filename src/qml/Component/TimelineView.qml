@@ -19,6 +19,8 @@ QQC2.ScrollView {
     readonly property bool isLoaded: root.width * root.height > 10
     readonly property bool atYEnd: messageListView.atYEnd
 
+    signal focusChatBox()
+
     ListView {
         id: messageListView
         readonly property int largestVisibleIndex: count > 0 ? indexAt(contentX + (width / 2), contentY + height - 1) : -1
@@ -33,6 +35,7 @@ QQC2.ScrollView {
         verticalLayoutDirection: ListView.BottomToTop
         highlightMoveDuration: 500
         clip: true
+        bottomMargin: Kirigami.Units.largeSpacing
 
         model: !isLoaded ? undefined : collapseStateProxyModel
 
@@ -186,7 +189,7 @@ QQC2.ScrollView {
             action: Kirigami.Action {
                 onTriggered: {
                     if (!Kirigami.Settings.isMobile) {
-                        chatBox.chatBar.forceActiveFocus();
+                        root.focusChatBox();
                     }
                     messageListView.goToEvent(root.currentRoom.readMarkerEventId)
                 }
@@ -298,7 +301,7 @@ QQC2.ScrollView {
             id: hoverActions
             property var event: null
             property bool userMsg: event && event.author.id === Controller.activeConnection.localUserId
-            property bool showEdit: event && (userMsg && (event.eventType === MessageEventModel.Emote || event.eventType === MessageEventModel.Message))
+            property bool showEdit: event && userMsg && (event.delegateType === MessageEventModel.Emote || event.delegateType === MessageEventModel.Message)
             property var delegate: null
             property var bubble: null
             property var hovered: bubble && bubble.hovered
@@ -363,7 +366,7 @@ QQC2.ScrollView {
                         onChosen: {
                             root.currentRoom.toggleReaction(hoverActions.event.eventId, emoji);
                             if (!Kirigami.Settings.isMobile) {
-                                chatBox.chatBar.forceActiveFocus();
+                                root.focusChatBox();
                             }
                         }
                     }
@@ -387,18 +390,14 @@ QQC2.ScrollView {
                     onClicked: {
                         root.currentRoom.chatBoxReplyId = hoverActions.event.eventId;
                         root.currentRoom.chatBoxEditId = "";
-                        chatBox.chatBar.forceActiveFocus();
+                        root.focusChatBox();
                     }
                 }
             }
         }
 
-        // hover actions on a delegate, activated in TimelineContainer.qml
-        Connections {
-            target: root.parent.flickable ?? null
-                enabled : hoverActions.visible
-
-            function onContentYChanged() {
+        onContentYChanged: {
+            if (hoverActions.updateFunction) {
                 hoverActions.updateFunction();
             }
         }
@@ -478,7 +477,7 @@ QQC2.ScrollView {
         }
 
         function eventToIndex(eventID) {
-            const index = messageEventModel.eventIDToIndex(eventID)
+            const index = messageEventModel.eventIdToRow(eventID)
             if (index === -1)
                 return -1
             return sortedMessageEventModel.mapFromSource(messageEventModel.index(index, 0)).row
@@ -513,36 +512,6 @@ QQC2.ScrollView {
                 root.currentRoom.markAllMessagesAsRead()
             }
         }
-
-        /// Open message context dialog for file and videos
-        function openFileContext(event, file) {
-            const contextMenu = fileDelegateContextMenu.createObject(root, {
-                author: event.author,
-                message: event.message,
-                eventId: event.eventId,
-                source: event.source,
-                file: file,
-                mimeType: event.mimeType,
-                progressInfo: event.progressInfo,
-                plainMessage: event.message,
-            });
-            contextMenu.open();
-        }
-
-        /// Open context menu for normal message
-        function openMessageContext(event, selectedText, plainMessage) {
-            const contextMenu = messageDelegateContextMenu.createObject(root, {
-                selectedText: selectedText,
-                author: event.author,
-                message: event.display,
-                eventId: event.eventId,
-                formattedBody: event.formattedBody,
-                source: event.source,
-                eventType: event.eventType,
-                plainMessage: plainMessage,
-            });
-            contextMenu.open();
-        }
     }
 
     function goToLastMessage() {
@@ -561,5 +530,9 @@ QQC2.ScrollView {
         const maxContentY = messageListView.originY + messageListView.bottomMargin + messageListView.contentHeight - messageListView.height;
         messageListView.contentY = Math.min(newContentY, maxContentY);
         messageListView.returnToBounds();
+    }
+
+    function positionViewAtBeginning() {
+        messageListView.positionViewAtBeginning()
     }
 }

@@ -5,6 +5,7 @@
 import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as QQC2
+import QtQuick.Window 2.15
 
 import org.kde.kirigami 2.18 as Kirigami
 import org.kde.neochat 1.0
@@ -482,5 +483,13 @@ QQC2.Control {
     Component {
         id: locationChooserComponent
         LocationChooser {}
+    }
+
+    Component {
+        id: openFileDialog
+
+        OpenFileDialog {
+            parentWindow: Window.window
+        }
     }
 }

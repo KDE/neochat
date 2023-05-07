@@ -37,8 +37,8 @@ Kirigami.Page {
         applicationWindow().hoverLinkIndicator.text = "";
         timelineViewLoader.item.positionViewAtBeginning();
         hasScrolledUpBefore = false;
-        if (!Kirigami.Settings.isMobile) {
-            chatBox.chatBar.forceActiveFocus();
+        if (!Kirigami.Settings.isMobile && chatBoxLoader.item) {
+            chatBoxLoader.item.chatBar.forceActiveFocus();
         }
     }
 
@@ -59,6 +59,11 @@ Kirigami.Page {
         sourceComponent: TimelineView {
             id: timelineView
             currentRoom: root.currentRoom
+            onFocusChatBox: {
+                if (chatBoxLoader.item) {
+                    chatBoxLoader.item.chatBar.forceActiveFocus()
+                }
+            }
         }
     }
 
