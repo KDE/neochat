@@ -29,9 +29,7 @@ LoginStep {
             Kirigami.FormData.label: i18n("Matrix ID:")
             placeholderText: "@user:matrix.org"
             onTextChanged: {
-                if (acceptableInput) {
-                    LoginHelper.matrixId = text
-                }
+                LoginHelper.matrixId = text
             }
 
             Component.onCompleted: {
@@ -41,15 +39,11 @@ LoginStep {
             Keys.onReturnPressed: {
                 login.action.trigger()
             }
-
-            validator: RegularExpressionValidator {
-                regularExpression: /^\@?[a-zA-Z0-9\._=\-/]+\:[a-zA-Z0-9\-]+(\.[a-zA-Z0-9\-]+)*(\:[0-9]+)?$/
-            }
         }
     }
 
     action: Kirigami.Action {
-        text: LoginHelper.testing && matrixIdField.acceptableInput ? (LoginHelper.isLoggedIn ? i18n("Already logged in") : i18n("Loading…")) : i18nc("@action:button", "Continue")
+        text: LoginHelper.isLoggedIn ? i18n("Already logged in") : (LoginHelper.testing && matrixIdField.acceptableInput) ?  i18n("Loading…") : i18nc("@action:button", "Continue")
         onTriggered: {
             if (LoginHelper.supportsSso && LoginHelper.supportsPassword) {
                 processed("qrc:/LoginMethod.qml");

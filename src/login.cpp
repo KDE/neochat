@@ -38,6 +38,10 @@ void Login::init()
 
     connect(this, &Login::matrixIdChanged, this, [this]() {
         setHomeserverReachable(false);
+        QRegularExpression validator("^\\@?[a-zA-Z0-9\\._=\\-/]+\\:[a-zA-Z0-9\\-]+(\\.[a-zA-Z0-9\\-]+)*(\\:[0-9]+)?$");
+        if (!validator.match(m_matrixId).hasMatch()) {
+            return;
+        }
 
         if (m_matrixId == "@") {
             return;
