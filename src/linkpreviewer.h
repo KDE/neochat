@@ -19,12 +19,6 @@ class NeoChatRoom;
 class LinkPreviewer : public QObject
 {
     Q_OBJECT
-
-    /**
-     * @brief The current room that the URL is from.
-     */
-    Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
-
     /**
      * @brief The URL to get the preview for.
      */
@@ -51,10 +45,7 @@ class LinkPreviewer : public QObject
     Q_PROPERTY(QUrl imageSource READ imageSource NOTIFY imageSourceChanged)
 
 public:
-    explicit LinkPreviewer(QObject *parent = nullptr);
-
-    [[nodiscard]] NeoChatRoom *room() const;
-    void setRoom(NeoChatRoom *room);
+    explicit LinkPreviewer(QObject *parent = nullptr, NeoChatRoom *room = nullptr, QUrl url = {});
 
     [[nodiscard]] QUrl url() const;
     void setUrl(QUrl);
@@ -67,16 +58,18 @@ private:
     NeoChatRoom *m_currentRoom = nullptr;
 
     bool m_loaded;
-    QString m_title;
-    QString m_description;
-    QUrl m_imageSource;
+    QString m_title = QString();
+    QString m_description = QString();
+    QUrl m_imageSource = QUrl();
     QUrl m_url;
 
+    void loadUrlPreview();
+
 Q_SIGNALS:
-    void roomChanged();
     void loadedChanged();
     void titleChanged();
     void descriptionChanged();
     void imageSourceChanged();
     void urlChanged();
 };
+Q_DECLARE_METATYPE(LinkPreviewer *)

@@ -64,6 +64,11 @@ private Q_SLOTS:
     void receiveRichEdited_data();
     void receiveRichEdited();
     void receiveLineSeparator();
+
+    void linkPreviewsMatch_data();
+    void linkPreviewsMatch();
+    void linkPreviewsReject_data();
+    void linkPreviewsReject();
 };
 
 #ifdef QUOTIENT_07
@@ -594,6 +599,53 @@ void TextHandlerTest::receiveLineSeparator()
     TextHandler textHandler;
     textHandler.setData(text);
     QCOMPARE(textHandler.handleRecievePlainText(Qt::PlainText, true), QStringLiteral("foo bar"));
+}
+
+void TextHandlerTest::linkPreviewsMatch_data()
+{
+    QTest::addColumn<QString>("testInputString");
+    QTest::addColumn<QList<QUrl>>("testOutputLinks");
+
+    QTest::newRow("plainHttps") << QStringLiteral("https://kde.org") << QList<QUrl>({QUrl("https://kde.org")});
+    QTest::newRow("richHttps") << QStringLiteral("<a href=\"https://kde.org\">Rich Link</a>") << QList<QUrl>({QUrl("https://kde.org")});
+    QTest::newRow("plainWww") << QStringLiteral("www.example.org") << QList<QUrl>({QUrl("www.example.org")});
+    QTest::newRow("multipleHttps") << QStringLiteral("https://kde.org www.example.org")
+                                   << QList<QUrl>({
+                                          QUrl("https://kde.org"),
+                                          QUrl("www.example.org"),
+                                      });
+}
+
+void TextHandlerTest::linkPreviewsMatch()
+{
+    QFETCH(QString, testInputString);
+    QFETCH(QList<QUrl>, testOutputLinks);
+
+    TextHandler testTextHandler;
+    testTextHandler.setData(testInputString);
+
+    QCOMPARE(testTextHandler.getLinkPreviews(), testOutputLinks);
+}
+
+void TextHandlerTest::linkPreviewsReject_data()
+{
+    QTest::addColumn<QString>("testInputString");
+    QTest::addColumn<QList<QUrl>>("testOutputLinks");
+
+    QTest::newRow("mxc") << QStringLiteral("mxc://example.org/SEsfnsuifSDFSSEF") << QList<QUrl>();
+    QTest::newRow("matrixTo") << QStringLiteral("https://matrix.to/#/@alice:example.org") << QList<QUrl>();
+    QTest::newRow("noSpace") << QStringLiteral("testhttps://kde.org") << QList<QUrl>();
+}
+
+void TextHandlerTest::linkPreviewsReject()
+{
+    QFETCH(QString, testInputString);
+    QFETCH(QList<QUrl>, testOutputLinks);
+
+    TextHandler testTextHandler;
+    testTextHandler.setData(testInputString);
+
+    QCOMPARE(testTextHandler.getLinkPreviews(), testOutputLinks);
 }
 
 QTEST_GUILESS_MAIN(TextHandlerTest)

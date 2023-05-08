@@ -10,24 +10,13 @@
 
 using namespace Quotient;
 
-LinkPreviewer::LinkPreviewer(QObject *parent)
+LinkPreviewer::LinkPreviewer(QObject *parent, NeoChatRoom *room, QUrl url)
     : QObject(parent)
+    , m_currentRoom(room)
     , m_loaded(false)
+    , m_url(url)
 {
-}
-
-NeoChatRoom *LinkPreviewer::room() const
-{
-    return m_currentRoom;
-}
-
-void LinkPreviewer::setRoom(NeoChatRoom *room)
-{
-    if (room == m_currentRoom) {
-        return;
-    }
-    m_currentRoom = room;
-    Q_EMIT roomChanged();
+    loadUrlPreview();
 }
 
 bool LinkPreviewer::loaded() const
@@ -57,12 +46,18 @@ QUrl LinkPreviewer::url() const
 
 void LinkPreviewer::setUrl(QUrl url)
 {
-    if (url.scheme() == QStringLiteral("https")) {
+    if (url != m_url) {
+        m_url = url;
+        urlChanged();
+        loadUrlPreview();
+    }
+}
+
+void LinkPreviewer::loadUrlPreview()
+{
+    if (m_url.scheme() == QStringLiteral("https")) {
         m_loaded = false;
         Q_EMIT loadedChanged();
-
-        m_url = url;
-        Q_EMIT urlChanged();
 
         auto conn = m_currentRoom->connection();
         GetUrlPreviewJob *job = conn->callApi<GetUrlPreviewJob>(m_url.toString());

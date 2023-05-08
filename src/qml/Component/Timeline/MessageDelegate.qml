@@ -35,7 +35,8 @@ TimelineContainer {
         }
         LinkPreviewDelegate {
             Layout.fillWidth: true
-            room: currentRoom
+            active: !currentRoom.usesEncryption && currentRoom.urlPreviewEnabled && Config.showLinkPreview && model.showLinkPreview
+            linkPreviewer: model.linkPreview
             indicatorEnabled: messageDelegate.isVisibleInTimeline()
         }
     }

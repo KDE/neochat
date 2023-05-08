@@ -5,6 +5,7 @@
 
 #include <QAbstractListModel>
 
+#include "linkpreviewer.h"
 #include "neochatroom.h"
 
 /**
@@ -69,6 +70,9 @@ public:
         LongOperationRole, /**< Progress info when downloading files. */
         FormattedBodyRole, /**< The formatted body of a rich message. */
         GenericDisplayRole, /**< A generic string based upon the message type. */
+
+        ShowLinkPreviewRole, /**< Whether a link preview should be shown. */
+        LinkPreviewRole, /**< The link preview details. */
 
         MediaInfoRole, /**< The media info for the event. */
         MimeTypeRole, /**< The mime type of the message's file or media. */
@@ -180,6 +184,8 @@ private:
     int rowBelowInserted = -1;
     bool movingEvent = false;
 
+    QMap<QString, LinkPreviewer *> m_linkPreviewers;
+
     [[nodiscard]] int timelineBaseIndex() const;
     [[nodiscard]] QDateTime makeMessageTimestamp(const Quotient::Room::rev_iter_t &baseIt) const;
     [[nodiscard]] static QString renderDate(const QDateTime &timestamp);
@@ -195,6 +201,7 @@ private:
     const Quotient::RoomEvent *getReplyForEvent(const Quotient::RoomEvent &event) const;
     QVariantMap getMediaInfoForEvent(const Quotient::RoomEvent &event) const;
     QVariantMap getMediaInfoFromFileInfo(const Quotient::EventContent::FileInfo *fileInfo, const QString &eventId, bool isThumbnail = false) const;
+    void createLinkPreviewerForEvent(const Quotient::RoomMessageEvent *event);
 
     std::vector<Quotient::event_ptr_tt<Quotient::RoomEvent>> m_extraEvents;
     // Hack to ensure that we don't call endInsertRows when we haven't called beginInsertRows

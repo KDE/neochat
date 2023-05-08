@@ -14,33 +14,16 @@ Loader {
     id: root
 
     /**
-     * @brief The room that the component is created in.
-     */
-    property var room
-
-    /**
-     * @brief Get a list of hyperlinks in the text.
+     * @brief The link preview properties.
      *
-     * User links i.e. anything starting with https://matrix.to are ignored.
+     * This is a list or object containing the following:
+     *  - url - The URL being previewed.
+     *  - loaded - Whether the URL preview has been loaded.
+     *  - title - the title of the URL preview.
+     *  - description - the description of the URL preview.
+     *  - imageSource - a source URL for the preview image.
      */
-    property var links: {
-        let matches = model.display.match(/\bhttps?:\/\/[^\s\<\>\"\']+/g)
-        if (matches && matches.length > 0) {
-            // don't show previews for room links or user mentions or custom emojis
-            return matches.filter(link => !(
-                link.includes("https://matrix.to") || link.includes("/_matrix/media/r0/download/")
-            ))
-            // remove ending fullstops and commas
-            .map(link => (link.length && [".", ","].includes(link[link.length-1])) ? link.substring(0, link.length-1) : link)
-        }
-        return []
-
-    }
-    LinkPreviewer {
-        id: linkPreviewer
-        room: root.room
-        url: root.links && root.links.length > 0 ? root.links[0] : ""
-    }
+    property var linkPreviewer
 
     /**
      * @brief Standard height for the link preview.
@@ -55,8 +38,7 @@ Loader {
      */
     property bool indicatorEnabled: false
 
-    active: !currentRoom.usesEncryption && model.display && links && links.length > 0 && currentRoom.urlPreviewEnabled
-    visible: Config.showLinkPreview && active
+    visible: active
     sourceComponent: linkPreviewer.loaded ? linkPreviewComponent : loadingComponent
 
     Component {
@@ -95,16 +77,16 @@ Loader {
                         wrapMode: Text.Wrap
                         textFormat: Text.RichText
                         text: "<style>
-    a {
-        text-decoration: none;
-    }
-    </style>
-                        <a href=\"" + root.links[0] + "\">" + (maximizeButton.checked ? linkPreviewer.title : titleTextMetrics.elidedText).replace("&ndash;", "—") + "</a>"
+                            a {
+                                text-decoration: none;
+                            }
+                            </style>
+                            <a href=\"" + root.linkPreviewer.url + "\">" + (maximizeButton.checked ? root.linkPreviewer.title : titleTextMetrics.elidedText).replace("&ndash;", "—") + "</a>"
                         onLinkActivated: RoomManager.openResource(link)
 
                         TextMetrics {
                             id: titleTextMetrics
-                            text: linkPreviewer.title
+                            text: root.linkPreviewer.title
                             font: linkPreviewTitle.font
                             elide: Text.ElideRight
                             elideWidth: (linkPreviewTitle.width - Kirigami.Units.largeSpacing * 2.5) * 3

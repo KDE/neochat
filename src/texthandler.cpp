@@ -430,7 +430,21 @@ QString TextHandler::unescapeHtml(QString stringIn)
 QString TextHandler::linkifyUrls(QString stringIn)
 {
     stringIn = stringIn.replace(TextRegex::mxId, QStringLiteral(R"(\1<a href="https://matrix.to/#/\2">\2</a>)"));
-    stringIn.replace(TextRegex::fullUrl, QStringLiteral(R"(<a href="\1">\1</a>)"));
+    stringIn.replace(TextRegex::plainUrl, QStringLiteral(R"(<a href="\1">\1</a>)"));
     stringIn = stringIn.replace(TextRegex::emailAddress, QStringLiteral(R"(<a href="mailto:\2">\1\2</a>)"));
     return stringIn;
+}
+
+QList<QUrl> TextHandler::getLinkPreviews()
+{
+    auto data = m_data.remove(TextRegex::removeRichReply);
+    auto linksMatch = TextRegex::url.globalMatch(data);
+    QList<QUrl> links;
+    while (linksMatch.hasNext()) {
+        auto link = linksMatch.next().captured();
+        if (!link.contains(QStringLiteral("matrix.to"))) {
+            links += QUrl(link);
+        }
+    }
+    return links;
 }

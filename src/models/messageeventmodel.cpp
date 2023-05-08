@@ -28,6 +28,7 @@
 #include <KLocalizedString>
 
 #include "neochatuser.h"
+#include "texthandler.h"
 
 using namespace Quotient;
 
@@ -45,6 +46,8 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[SpecialMarksRole] = "marks";
     roles[LongOperationRole] = "progressInfo";
     roles[EventResolvedTypeRole] = "eventResolvedType";
+    roles[ShowLinkPreviewRole] = "showLinkPreview";
+    roles[LinkPreviewRole] = "linkPreview";
     roles[MediaInfoRole] = "mediaInfo";
     roles[IsReplyRole] = "isReply";
     roles[ReplyAuthor] = "replyAuthor";
@@ -101,12 +104,20 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
     beginResetModel();
     if (m_currentRoom) {
         m_currentRoom->disconnect(this);
+        m_linkPreviewers.clear();
     }
 
     m_currentRoom = room;
     if (room) {
         m_lastReadEventIndex = QPersistentModelIndex(QModelIndex());
         room->setDisplayed();
+
+        for (auto event = m_currentRoom->messageEvents().begin(); event != m_currentRoom->messageEvents().end(); ++event) {
+            if (auto e = &*event->viewAs<RoomMessageEvent>()) {
+                createLinkPreviewerForEvent(e);
+            }
+        }
+
         if (m_currentRoom->timelineSize() < 10 && !room->allHistoryLoaded()) {
             room->getPreviousContent(50);
         }
@@ -118,10 +129,12 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
 
         using namespace Quotient;
         connect(m_currentRoom, &Room::aboutToAddNewMessages, this, [this](RoomEventsRange events) {
-            if (NeoChatConfig::self()->showFancyEffects()) {
-                for (auto &event : events) {
-                    RoomMessageEvent *message = dynamic_cast<RoomMessageEvent *>(event.get());
-                    if (message) {
+            for (auto &&event : events) {
+                const RoomMessageEvent *message = dynamic_cast<RoomMessageEvent *>(event.get());
+                if (message != nullptr) {
+                    createLinkPreviewerForEvent(message);
+
+                    if (NeoChatConfig::self()->showFancyEffects()) {
                         QString planBody = message->plainBody();
                         // snowflake
                         const QString snowlakeEmoji = QString::fromUtf8("\xE2\x9D\x84");
@@ -155,6 +168,12 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             beginInsertRows({}, timelineBaseIndex(), timelineBaseIndex() + int(events.size()) - 1);
         });
         connect(m_currentRoom, &Room::aboutToAddHistoricalMessages, this, [this](RoomEventsRange events) {
+            for (auto &event : events) {
+                RoomMessageEvent *message = dynamic_cast<RoomMessageEvent *>(event.get());
+                if (message) {
+                    createLinkPreviewerForEvent(message);
+                }
+            }
             if (rowCount() > 0) {
                 rowBelowInserted = rowCount() - 1; // See #312
             }
@@ -455,6 +474,8 @@ inline QVariantMap userInContext(NeoChatUser *user, NeoChatRoom *room)
     };
 }
 
+static LinkPreviewer *emptyLinkPreview = new LinkPreviewer;
+
 QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 {
     const auto row = idx.row();
@@ -682,6 +703,18 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     if (role == TimeRole || role == SectionRole) {
         auto ts = isPending ? pendingIt->lastUpdated() : makeMessageTimestamp(timelineIt);
         return role == TimeRole ? QVariant(ts) : renderDate(ts);
+    }
+
+    if (role == ShowLinkPreviewRole) {
+        return m_linkPreviewers.contains(evt.id());
+    }
+
+    if (role == LinkPreviewRole) {
+        if (m_linkPreviewers.contains(evt.id())) {
+            return QVariant::fromValue<LinkPreviewer *>(m_linkPreviewers[evt.id()]);
+        } else {
+            return QVariant::fromValue<LinkPreviewer *>(emptyLinkPreview);
+        }
     }
 
     if (role == MediaInfoRole) {
@@ -1196,4 +1229,30 @@ QVariantMap MessageEventModel::getMediaInfoFromFileInfo(const EventContent::File
     }
 
     return mediaInfo;
+}
+
+void MessageEventModel::createLinkPreviewerForEvent(const Quotient::RoomMessageEvent *event)
+{
+    if (m_linkPreviewers.contains(event->id())) {
+        return;
+    } else {
+        QString text;
+        if (event->hasTextContent()) {
+            auto textContent = static_cast<const EventContent::TextContent *>(event->content());
+            if (textContent) {
+                text = textContent->body;
+            } else {
+                text = event->plainBody();
+            }
+        } else {
+            text = event->plainBody();
+        }
+        TextHandler textHandler;
+        textHandler.setData(text);
+
+        QList<QUrl> links = textHandler.getLinkPreviews();
+        if (links.size() > 0) {
+            m_linkPreviewers[event->id()] = new LinkPreviewer(nullptr, m_currentRoom, links.size() > 0 ? links[0] : QUrl());
+        }
+    }
 }
