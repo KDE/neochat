@@ -154,7 +154,7 @@ TimelineContainer {
             anchors.fill: parent
             visible: false
 
-            source: model.mediaInfo.thumbnailInfo.source
+            source: model.mediaInfo.tempInfo.source
             fillMode: Image.PreserveAspectFit
         }
 

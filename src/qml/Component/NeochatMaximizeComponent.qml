@@ -20,7 +20,7 @@ Components.AlbumMaximizeComponent {
         Components.AlbumModelItem {
             type: root.modelData.delegateType === MessageEventModel.Image || root.modelData.delegateType === MessageEventModel.Sticker ? Components.AlbumModelItem.Image : Components.AlbumModelItem.Video
             source: root.modelData.delegateType === MessageEventModel.Video ? modelData.progressInfo.localPath : modelData.mediaInfo.source
-            tempSource: modelData.mediaInfo.blurhash
+            tempSource: modelData.mediaInfo.tempInfo.source
             caption: modelData.display
         }
     ]

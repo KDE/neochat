@@ -1150,14 +1150,19 @@ QVariantMap MessageEventModel::getMediaInfoFromFileInfo(const EventContent::File
             mediaInfo["height"] = castInfo->imageSize.height();
 
             if (!isThumbnail) {
-                mediaInfo["thumbnailInfo"] = getMediaInfoFromFileInfo(castInfo->thumbnailInfo(), eventId, true);
-            }
-
-            QString blurhash = castInfo->originalInfoJson["xyz.amorgan.blurhash"].toString();
-            if (blurhash.isEmpty()) {
-                mediaInfo["blurhash"] = QUrl();
-            } else {
-                mediaInfo["blurhash"] = QUrl("image://blurhash/" + blurhash);
+                QVariantMap tempInfo;
+                auto thumbnailInfo = getMediaInfoFromFileInfo(castInfo->thumbnailInfo(), eventId, true);
+                if (thumbnailInfo["source"].toUrl().scheme() == "mxc") {
+                    tempInfo = thumbnailInfo;
+                } else {
+                    QString blurhash = castInfo->originalInfoJson["xyz.amorgan.blurhash"].toString();
+                    if (blurhash.isEmpty()) {
+                        tempInfo["source"] = QUrl();
+                    } else {
+                        tempInfo["source"] = QUrl("image://blurhash/" + blurhash);
+                    }
+                }
+                mediaInfo["tempInfo"] = tempInfo;
             }
         }
     }
@@ -1168,7 +1173,19 @@ QVariantMap MessageEventModel::getMediaInfoFromFileInfo(const EventContent::File
             mediaInfo["duration"] = castInfo->duration;
 
             if (!isThumbnail) {
-                mediaInfo["thumbnailInfo"] = getMediaInfoFromFileInfo(castInfo->thumbnailInfo(), eventId, true);
+                QVariantMap tempInfo;
+                auto thumbnailInfo = getMediaInfoFromFileInfo(castInfo->thumbnailInfo(), eventId, true);
+                if (thumbnailInfo["source"].toUrl().scheme() == "mxc") {
+                    tempInfo = thumbnailInfo;
+                } else {
+                    QString blurhash = castInfo->originalInfoJson["xyz.amorgan.blurhash"].toString();
+                    if (blurhash.isEmpty()) {
+                        tempInfo["source"] = QUrl();
+                    } else {
+                        tempInfo["source"] = QUrl("image://blurhash/" + blurhash);
+                    }
+                }
+                mediaInfo["tempInfo"] = tempInfo;
             }
         }
     }

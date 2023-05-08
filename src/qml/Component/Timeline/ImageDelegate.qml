@@ -74,7 +74,7 @@ TimelineContainer {
 
         Image {
             anchors.fill: parent
-            source: model.mediaInfo.blurhash
+            source: model.mediaInfo.tempInfo.source
             visible: parent.status !== Image.Ready
         }
 
