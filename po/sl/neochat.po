@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-07 00:50+0000\n"
-"PO-Revision-Date: 2023-05-02 11:26+0200\n"
+"POT-Creation-Date: 2023-05-08 00:46+0000\n"
+"PO-Revision-Date: 2023-05-07 08:39+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #: src/controller.cpp:182
@@ -118,12 +118,6 @@ msgstr "Vir"
 msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Cilj"
-
-#: src/imagepacksmodel.cpp:68
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
-msgid "Own Stickers"
-msgstr "je poslal nalepko"
 
 #: src/login.cpp:86 src/login.cpp:97
 #, kde-format
@@ -640,6 +634,11 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Po meri"
 
+#: src/models/imagepacksmodel.cpp:73
+#, kde-format
+msgid "Own Stickers"
+msgstr "Lastne nalepke"
+
 #: src/models/messageeventmodel.cpp:369 src/models/searchmodel.cpp:164
 #, kde-format
 msgid "Today"
@@ -655,27 +654,27 @@ msgstr "Včeraj"
 msgid "The day before yesterday"
 msgstr "Predvčerajšnjim"
 
-#: src/models/messageeventmodel.cpp:490 src/models/messageeventmodel.cpp:499
+#: src/models/messageeventmodel.cpp:489 src/models/messageeventmodel.cpp:498
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[To sporočilo je bilo izbrisano]</i>"
 
-#: src/models/messageeventmodel.cpp:491
+#: src/models/messageeventmodel.cpp:490
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[To sporočilo je bilo izbrisano: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:580
+#: src/models/messageeventmodel.cpp:579
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[PREKRIVANJE PODATKOV]"
 
-#: src/models/messageeventmodel.cpp:580
+#: src/models/messageeventmodel.cpp:579
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[PREKRIVANJE PODATKOV: %1]"
 
-#: src/models/messageeventmodel.cpp:856
+#: src/models/messageeventmodel.cpp:855
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
@@ -684,7 +683,7 @@ msgstr[1] "%1 uporabnika: "
 msgstr[2] "%1 uporabniki: "
 msgstr[3] "%1 uporabnikov: "
 
-#: src/models/messageeventmodel.cpp:863
+#: src/models/messageeventmodel.cpp:862
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -720,338 +719,338 @@ msgstr "Nizka prednost"
 msgid "Spaces"
 msgstr "Presledki"
 
-#: src/neochatroom.cpp:464
+#: src/neochatroom.cpp:466
 #, kde-format
 msgid "a file"
 msgstr "datoteka"
 
-#: src/neochatroom.cpp:515
+#: src/neochatroom.cpp:517
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "ponovno povabljen %1 v sobo"
 
-#: src/neochatroom.cpp:517
+#: src/neochatroom.cpp:519
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:526 src/neochatroom.cpp:671
+#: src/neochatroom.cpp:528 src/neochatroom.cpp:673
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "se je pridružil v sobi (ponovno)"
 
-#: src/neochatroom.cpp:528
+#: src/neochatroom.cpp:530
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "povabljen %1 v sobo"
 
-#: src/neochatroom.cpp:528 src/neochatroom.cpp:673
+#: src/neochatroom.cpp:530 src/neochatroom.cpp:675
 #, kde-format
 msgid "joined the room"
 msgstr "se je pridružil v sobi"
 
-#: src/neochatroom.cpp:532
+#: src/neochatroom.cpp:534
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:539 src/neochatroom.cpp:681
+#: src/neochatroom.cpp:541 src/neochatroom.cpp:683
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "je očistil njihovo ime prikaza"
 
-#: src/neochatroom.cpp:541
+#: src/neochatroom.cpp:543
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "je spremenil ime prikaza na %1"
 
-#: src/neochatroom.cpp:546 src/neochatroom.cpp:688
+#: src/neochatroom.cpp:548 src/neochatroom.cpp:690
 #, kde-format
 msgid " and "
 msgstr " in "
 
-#: src/neochatroom.cpp:549 src/neochatroom.cpp:691
+#: src/neochatroom.cpp:551 src/neochatroom.cpp:693
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "je očistil njihov avatar"
 
-#: src/neochatroom.cpp:555 src/neochatroom.cpp:697
+#: src/neochatroom.cpp:557 src/neochatroom.cpp:699
 #, kde-format
 msgid "set an avatar"
 msgstr "nastavi avatarja"
 
-#: src/neochatroom.cpp:557 src/neochatroom.cpp:699
+#: src/neochatroom.cpp:559 src/neochatroom.cpp:701
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "posodobil njihov avatar"
 
-#: src/neochatroom.cpp:561 src/neochatroom.cpp:703
+#: src/neochatroom.cpp:563 src/neochatroom.cpp:705
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "nič ni spremenjenega"
 
-#: src/neochatroom.cpp:567
+#: src/neochatroom.cpp:569
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "je umaknil povabilo %1"
 
-#: src/neochatroom.cpp:567 src/neochatroom.cpp:709
+#: src/neochatroom.cpp:569 src/neochatroom.cpp:711
 #, kde-format
 msgid "rejected the invitation"
 msgstr "zavrnil povabilo"
 
-#: src/neochatroom.cpp:571
+#: src/neochatroom.cpp:573
 #, kde-format
 msgid "unbanned %1"
 msgstr "brez prepovedi %1"
 
-#: src/neochatroom.cpp:571 src/neochatroom.cpp:713
+#: src/neochatroom.cpp:573 src/neochatroom.cpp:715
 #, kde-format
 msgid "self-unbanned"
 msgstr "sama rešena prepovedi"
 
-#: src/neochatroom.cpp:574
+#: src/neochatroom.cpp:576
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "je postavil %1 ven iz sobe: %2"
 
-#: src/neochatroom.cpp:575 src/neochatroom.cpp:715
+#: src/neochatroom.cpp:577 src/neochatroom.cpp:717
 #, kde-format
 msgid "left the room"
 msgstr "je zapustil sobo"
 
-#: src/neochatroom.cpp:579
+#: src/neochatroom.cpp:581
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "prepovedan %1 iz sobe"
 
-#: src/neochatroom.cpp:581
+#: src/neochatroom.cpp:583
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "je prepovedal %1 v sobo: %2"
 
-#: src/neochatroom.cpp:584 src/neochatroom.cpp:720
+#: src/neochatroom.cpp:586 src/neochatroom.cpp:722
 #, kde-format
 msgid "self-banned from the room"
 msgstr "samo-prepovedano iz sobe"
 
-#: src/neochatroom.cpp:588 src/neochatroom.cpp:723
+#: src/neochatroom.cpp:590 src/neochatroom.cpp:725
 #, kde-format
 msgid "requested an invite"
 msgstr "je zahteval povabilo"
 
-#: src/neochatroom.cpp:588
+#: src/neochatroom.cpp:590
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "je zahteval povabilo z razlogom: %1"
 
-#: src/neochatroom.cpp:592 src/neochatroom.cpp:727
+#: src/neochatroom.cpp:594 src/neochatroom.cpp:729
 #, kde-format
 msgid "made something unknown"
 msgstr "je naredil nekaj neznanega"
 
-#: src/neochatroom.cpp:595 src/neochatroom.cpp:730
+#: src/neochatroom.cpp:597 src/neochatroom.cpp:732
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "je očistil glavni vzdevek sobe"
 
-#: src/neochatroom.cpp:595
+#: src/neochatroom.cpp:597
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "nastavi vzdevek sobe na: %1"
 
-#: src/neochatroom.cpp:598 src/neochatroom.cpp:733
+#: src/neochatroom.cpp:600 src/neochatroom.cpp:735
 #, kde-format
 msgid "cleared the room name"
 msgstr "je obrisal ime sobe"
 
-#: src/neochatroom.cpp:598
+#: src/neochatroom.cpp:600
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "je nastavil ime sobe na: %1"
 
-#: src/neochatroom.cpp:601 src/neochatroom.cpp:736
+#: src/neochatroom.cpp:603 src/neochatroom.cpp:738
 #, kde-format
 msgid "cleared the topic"
 msgstr "je očistil temo debate"
 
-#: src/neochatroom.cpp:602
+#: src/neochatroom.cpp:604
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "je nastavil temo debate na: %1"
 
-#: src/neochatroom.cpp:608 src/neochatroom.cpp:739
+#: src/neochatroom.cpp:610 src/neochatroom.cpp:741
 #, kde-format
 msgid "changed the room avatar"
 msgstr "je spremenil avatar sobe"
 
-#: src/neochatroom.cpp:611 src/neochatroom.cpp:742
+#: src/neochatroom.cpp:613 src/neochatroom.cpp:744
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "je aktiviral šifriranje od točke do točke"
 
-#: src/neochatroom.cpp:614
+#: src/neochatroom.cpp:616
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "je nadgradil sobo na verzijo %1"
 
-#: src/neochatroom.cpp:615
+#: src/neochatroom.cpp:617
 #, kde-format
 msgid "created the room, version %1"
 msgstr "je ustvaril sobo verzije %1"
 
-#: src/neochatroom.cpp:618 src/neochatroom.cpp:748
+#: src/neochatroom.cpp:620 src/neochatroom.cpp:750
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "spremenil ravni moči za to sobo"
 
-#: src/neochatroom.cpp:622 src/neochatroom.cpp:752
+#: src/neochatroom.cpp:624 src/neochatroom.cpp:754
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "spremenil sezname za nadzor dostopa do strežnika za to sobo"
 
-#: src/neochatroom.cpp:626
+#: src/neochatroom.cpp:628
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "dodan gradnik %1"
 
-#: src/neochatroom.cpp:629
+#: src/neochatroom.cpp:631
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "odstranjen gradnik %1"
 
-#: src/neochatroom.cpp:631
+#: src/neochatroom.cpp:633
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "nastavljen gradnik %1"
 
-#: src/neochatroom.cpp:633
+#: src/neochatroom.cpp:635
 #, kde-format
 msgid "updated %1 state"
 msgstr "je posodobil stanje %1"
 
-#: src/neochatroom.cpp:634
+#: src/neochatroom.cpp:636
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "je posodobil stanje %1 za %2"
 
-#: src/neochatroom.cpp:641 src/neochatroom.cpp:771
+#: src/neochatroom.cpp:643 src/neochatroom.cpp:773
 #, kde-format
 msgid "Unknown event"
 msgstr "Neznan dogodek"
 
-#: src/neochatroom.cpp:654
+#: src/neochatroom.cpp:656
 #, kde-format
 msgid "sent a message"
 msgstr "je poslal sporočilo"
 
-#: src/neochatroom.cpp:658
+#: src/neochatroom.cpp:660
 #, kde-format
 msgid "sent a sticker"
 msgstr "je poslal nalepko"
 
-#: src/neochatroom.cpp:664
+#: src/neochatroom.cpp:666
 #, kde-format
 msgid "reinvited someone to the room"
 msgstr "je ponovno povabil nekoga v sobo"
 
-#: src/neochatroom.cpp:673
+#: src/neochatroom.cpp:675
 #, kde-format
 msgid "invited someone to the room"
 msgstr "je povabil nekoga v sobo"
 
-#: src/neochatroom.cpp:683
+#: src/neochatroom.cpp:685
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name"
 msgstr "je spremenil njihovo ime prikaza"
 
-#: src/neochatroom.cpp:709
+#: src/neochatroom.cpp:711
 #, kde-format
 msgid "withdrew a user's invitation"
 msgstr "je umaknil povabilo"
 
-#: src/neochatroom.cpp:713
+#: src/neochatroom.cpp:715
 #, kde-format
 msgid "unbanned a user"
 msgstr "je umaknil prepoved uporabnika"
 
-#: src/neochatroom.cpp:715
+#: src/neochatroom.cpp:717
 #, kde-format
 msgid "put a user out of the room"
 msgstr "je postavil uporabnika iz sobe"
 
-#: src/neochatroom.cpp:718
+#: src/neochatroom.cpp:720
 #, kde-format
 msgid "banned a user from the room"
 msgstr "je prepovedal uporabniku v sobo"
 
-#: src/neochatroom.cpp:730
+#: src/neochatroom.cpp:732
 #, kde-format
 msgid "set the room main alias"
 msgstr "je nastavil vzdevek sobe"
 
-#: src/neochatroom.cpp:733
+#: src/neochatroom.cpp:735
 #, kde-format
 msgid "set the room name"
 msgstr "je nastavil ime sobe"
 
-#: src/neochatroom.cpp:736
+#: src/neochatroom.cpp:738
 #, kde-format
 msgid "set the topic"
 msgstr "je nastavil temo debate"
 
-#: src/neochatroom.cpp:745
+#: src/neochatroom.cpp:747
 #, kde-format
 msgid "upgraded the room version"
 msgstr "je nadgradil različico sobe"
 
-#: src/neochatroom.cpp:745
+#: src/neochatroom.cpp:747
 #, kde-format
 msgid "created the room"
 msgstr "je ustvaril sobo"
 
-#: src/neochatroom.cpp:756
+#: src/neochatroom.cpp:758
 #, kde-format
 msgid "added a widget"
 msgstr "je dodaj gradnik"
 
-#: src/neochatroom.cpp:759
+#: src/neochatroom.cpp:761
 #, kde-format
 msgid "removed a widget"
 msgstr "je odstranil gradnik"
 
-#: src/neochatroom.cpp:761
+#: src/neochatroom.cpp:763
 #, kde-format
 msgid "configured a widget"
 msgstr "je nastavil gradnik"
 
-#: src/neochatroom.cpp:763
+#: src/neochatroom.cpp:765
 #, kde-format
 msgid "updated the state"
 msgstr "je posodobil stanje"
 
-#: src/neochatroom.cpp:768
+#: src/neochatroom.cpp:770
 #, kde-format
 msgid "started a poll"
 msgstr "je začel glasovanje"
 
-#: src/neochatroom.cpp:1667 src/neochatroom.cpp:1668
+#: src/neochatroom.cpp:1669 src/neochatroom.cpp:1670
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Poročilo uspešno poslano."
 
-#: src/neochatroom.cpp:1903 src/neochatroom.cpp:1911
+#: src/neochatroom.cpp:1905 src/neochatroom.cpp:1913
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1067,7 +1066,7 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat in this room"
 msgstr "Odpri Neo-chat v tej sobi"
 
-#: src/notificationsmanager.cpp:88 src/qml/Component/TimelineView.qml:383
+#: src/notificationsmanager.cpp:88 src/qml/Component/TimelineView.qml:386
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
 #, kde-format
@@ -1105,7 +1104,7 @@ msgid "Attachment:"
 msgstr "Priloga:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
-#: src/qml/Component/TimelineView.qml:372
+#: src/qml/Component/TimelineView.qml:375
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
 #: src/qml/Page/ImageEditorPage.qml:20
 #, kde-format
@@ -1117,27 +1116,27 @@ msgstr "Uredi"
 msgid "Cancel sending attachment"
 msgstr "Prekliči pošiljanje priloge"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:31
+#: src/qml/Component/ChatBox/ChatBar.qml:32
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Priloži sliko ali datoteko"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:57
+#: src/qml/Component/ChatBox/ChatBar.qml:58
 #, kde-format
 msgid "Emojis & Stickers"
-msgstr ""
+msgstr "Čustvenčki in nalepke"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:73
+#: src/qml/Component/ChatBox/ChatBar.qml:74
 #, kde-format
 msgid "Send a Location"
 msgstr "Pošlji lokacijo"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:86
+#: src/qml/Component/ChatBox/ChatBar.qml:87
 #, kde-format
 msgid "Send message"
 msgstr "Pošlji sporočilo"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:128
+#: src/qml/Component/ChatBox/ChatBar.qml:129
 #, kde-format
 msgid ""
 "This room is encrypted. Build libQuotient with encryption enabled to send "
@@ -1146,22 +1145,22 @@ msgstr ""
 "Ta soba je šifrirana. Izgradite libQuotient z omogočenim šifriranjem za "
 "pošiljanje šifriranih sporočil."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:128
+#: src/qml/Component/ChatBox/ChatBar.qml:129
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Pošlji šifrirano sporočilo…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:128
+#: src/qml/Component/ChatBox/ChatBar.qml:129
 #, kde-format
 msgid "Set an attachment caption..."
 msgstr "Nastavite napis priloge..."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:128
+#: src/qml/Component/ChatBox/ChatBar.qml:129
 #, kde-format
 msgid "Send a message…"
 msgstr "Pošlji sporočilo…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:313
+#: src/qml/Component/ChatBox/ChatBar.qml:314
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -1275,15 +1274,14 @@ msgid "No emojis"
 msgstr "Ni emodžijev"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:49
-#, fuzzy, kde-format
-#| msgid "No emojis"
+#, kde-format
 msgid "Emojis"
-msgstr "Ni emodžijev"
+msgstr "Čustvenčki"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:56
 #, kde-format
 msgid "Stickers"
-msgstr ""
+msgstr "Nalepke"
 
 #: src/qml/Component/InvitationView.qml:17
 #, kde-format
@@ -1558,32 +1556,32 @@ msgstr "Glasnost"
 msgid "Maximize"
 msgstr "Razpni"
 
-#: src/qml/Component/TimelineView.qml:122
+#: src/qml/Component/TimelineView.qml:125
 #, kde-format
 msgid "Choose local file"
 msgstr "Izberi lokalno datoteko"
 
-#: src/qml/Component/TimelineView.qml:150
+#: src/qml/Component/TimelineView.qml:153
 #, kde-format
 msgid "Clipboard image"
 msgstr "Slika odložišča"
 
-#: src/qml/Component/TimelineView.qml:198
+#: src/qml/Component/TimelineView.qml:201
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Skoči na prvo neprebrano sporočilo"
 
-#: src/qml/Component/TimelineView.qml:221
+#: src/qml/Component/TimelineView.qml:224
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Skoči na nedavno sporočilo"
 
-#: src/qml/Component/TimelineView.qml:247
+#: src/qml/Component/TimelineView.qml:250
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Povleci predmete sem, da jih deliš z drugimi"
 
-#: src/qml/Component/TimelineView.qml:273
+#: src/qml/Component/TimelineView.qml:276
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -1593,12 +1591,12 @@ msgstr[1] "%2 tipkata"
 msgstr[2] "%2 tipkajo"
 msgstr[3] "%2 tipka"
 
-#: src/qml/Component/TimelineView.qml:347
+#: src/qml/Component/TimelineView.qml:350
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "To sporočilo je bilo poslano iz verificirane naprave"
 
-#: src/qml/Component/TimelineView.qml:353
+#: src/qml/Component/TimelineView.qml:356
 #, kde-format
 msgid "React"
 msgstr "Reagiraj"

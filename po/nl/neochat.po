@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-07 00:50+0000\n"
+"POT-Creation-Date: 2023-05-08 00:46+0000\n"
 "PO-Revision-Date: 2023-05-06 12:38+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -116,11 +116,6 @@ msgstr "Bron"
 msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Bestemming"
-
-#: src/imagepacksmodel.cpp:68
-#, kde-format
-msgid "Own Stickers"
-msgstr "Eigen stickers"
 
 #: src/login.cpp:86 src/login.cpp:97
 #, kde-format
@@ -633,6 +628,11 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Aangepast"
 
+#: src/models/imagepacksmodel.cpp:73
+#, kde-format
+msgid "Own Stickers"
+msgstr "Eigen stickers"
+
 #: src/models/messageeventmodel.cpp:369 src/models/searchmodel.cpp:164
 #, kde-format
 msgid "Today"
@@ -648,34 +648,34 @@ msgstr "Gisteren"
 msgid "The day before yesterday"
 msgstr "Eergisteren"
 
-#: src/models/messageeventmodel.cpp:490 src/models/messageeventmodel.cpp:499
+#: src/models/messageeventmodel.cpp:489 src/models/messageeventmodel.cpp:498
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Dit bericht is verwijderd]</i>"
 
-#: src/models/messageeventmodel.cpp:491
+#: src/models/messageeventmodel.cpp:490
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Dit bericht is verwijderd: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:580
+#: src/models/messageeventmodel.cpp:579
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[GEREDIGEERD]"
 
-#: src/models/messageeventmodel.cpp:580
+#: src/models/messageeventmodel.cpp:579
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[GEREDIGEERD: %1]"
 
-#: src/models/messageeventmodel.cpp:856
+#: src/models/messageeventmodel.cpp:855
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 gebruiker: "
 msgstr[1] "%1 gebruikers "
 
-#: src/models/messageeventmodel.cpp:863
+#: src/models/messageeventmodel.cpp:862
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -711,338 +711,338 @@ msgstr "Lage prioriteit"
 msgid "Spaces"
 msgstr "Spaties"
 
-#: src/neochatroom.cpp:464
+#: src/neochatroom.cpp:466
 #, kde-format
 msgid "a file"
 msgstr "een bestand"
 
-#: src/neochatroom.cpp:515
+#: src/neochatroom.cpp:517
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "%1 opnieuw uitgenodigd naar de room"
 
-#: src/neochatroom.cpp:517
+#: src/neochatroom.cpp:519
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:526 src/neochatroom.cpp:671
+#: src/neochatroom.cpp:528 src/neochatroom.cpp:673
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "doet mee met de room (herhaald)"
 
-#: src/neochatroom.cpp:528
+#: src/neochatroom.cpp:530
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "%1 uitgenodigd naar de room"
 
-#: src/neochatroom.cpp:528 src/neochatroom.cpp:673
+#: src/neochatroom.cpp:530 src/neochatroom.cpp:675
 #, kde-format
 msgid "joined the room"
 msgstr "doet mee met de room"
 
-#: src/neochatroom.cpp:532
+#: src/neochatroom.cpp:534
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:539 src/neochatroom.cpp:681
+#: src/neochatroom.cpp:541 src/neochatroom.cpp:683
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "heeft zijn/haar schermnaam gewist"
 
-#: src/neochatroom.cpp:541
+#: src/neochatroom.cpp:543
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "heeft zijn/haar schermnaam gewijzigd naar %1"
 
-#: src/neochatroom.cpp:546 src/neochatroom.cpp:688
+#: src/neochatroom.cpp:548 src/neochatroom.cpp:690
 #, kde-format
 msgid " and "
 msgstr " en "
 
-#: src/neochatroom.cpp:549 src/neochatroom.cpp:691
+#: src/neochatroom.cpp:551 src/neochatroom.cpp:693
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "heeft zijn/haar avatar gewist"
 
-#: src/neochatroom.cpp:555 src/neochatroom.cpp:697
+#: src/neochatroom.cpp:557 src/neochatroom.cpp:699
 #, kde-format
 msgid "set an avatar"
 msgstr "hebben een avatar ingesteld"
 
-#: src/neochatroom.cpp:557 src/neochatroom.cpp:699
+#: src/neochatroom.cpp:559 src/neochatroom.cpp:701
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "heeft zijn/haar avatar bijgewerkt"
 
-#: src/neochatroom.cpp:561 src/neochatroom.cpp:703
+#: src/neochatroom.cpp:563 src/neochatroom.cpp:705
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "niet gewijzigd"
 
-#: src/neochatroom.cpp:567
+#: src/neochatroom.cpp:569
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "uitnodiging van %1 ingetrokken"
 
-#: src/neochatroom.cpp:567 src/neochatroom.cpp:709
+#: src/neochatroom.cpp:569 src/neochatroom.cpp:711
 #, kde-format
 msgid "rejected the invitation"
 msgstr "de uitnodiging afgewezen"
 
-#: src/neochatroom.cpp:571
+#: src/neochatroom.cpp:573
 #, kde-format
 msgid "unbanned %1"
 msgstr "verbanning van %1 ongedaan gemaakt"
 
-#: src/neochatroom.cpp:571 src/neochatroom.cpp:713
+#: src/neochatroom.cpp:573 src/neochatroom.cpp:715
 #, kde-format
 msgid "self-unbanned"
 msgstr "zelf verbanning ongedaan gemaakt"
 
-#: src/neochatroom.cpp:574
+#: src/neochatroom.cpp:576
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "heeft %1 uit de room gezet: %2"
 
-#: src/neochatroom.cpp:575 src/neochatroom.cpp:715
+#: src/neochatroom.cpp:577 src/neochatroom.cpp:717
 #, kde-format
 msgid "left the room"
 msgstr "heeft de room verlaten"
 
-#: src/neochatroom.cpp:579
+#: src/neochatroom.cpp:581
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "%1 verbannen uit de room"
 
-#: src/neochatroom.cpp:581
+#: src/neochatroom.cpp:583
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "%1 verbannen uit de room: %2"
 
-#: src/neochatroom.cpp:584 src/neochatroom.cpp:720
+#: src/neochatroom.cpp:586 src/neochatroom.cpp:722
 #, kde-format
 msgid "self-banned from the room"
 msgstr "zelf verbannen uit de room"
 
-#: src/neochatroom.cpp:588 src/neochatroom.cpp:723
+#: src/neochatroom.cpp:590 src/neochatroom.cpp:725
 #, kde-format
 msgid "requested an invite"
 msgstr "om een uitnodiging verzocht"
 
-#: src/neochatroom.cpp:588
+#: src/neochatroom.cpp:590
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "heeft om een uitnodiging verzocht met reden: %1"
 
-#: src/neochatroom.cpp:592 src/neochatroom.cpp:727
+#: src/neochatroom.cpp:594 src/neochatroom.cpp:729
 #, kde-format
 msgid "made something unknown"
 msgstr "iets onbekend gemaakt"
 
-#: src/neochatroom.cpp:595 src/neochatroom.cpp:730
+#: src/neochatroom.cpp:597 src/neochatroom.cpp:732
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "hoofdalias van de room gewist"
 
-#: src/neochatroom.cpp:595
+#: src/neochatroom.cpp:597
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "hoofdalias van de room ingesteld op: %1"
 
-#: src/neochatroom.cpp:598 src/neochatroom.cpp:733
+#: src/neochatroom.cpp:600 src/neochatroom.cpp:735
 #, kde-format
 msgid "cleared the room name"
 msgstr "naam van de room gewist"
 
-#: src/neochatroom.cpp:598
+#: src/neochatroom.cpp:600
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "naam van de room ingesteld op: %1"
 
-#: src/neochatroom.cpp:601 src/neochatroom.cpp:736
+#: src/neochatroom.cpp:603 src/neochatroom.cpp:738
 #, kde-format
 msgid "cleared the topic"
 msgstr "het onderwerp gewist"
 
-#: src/neochatroom.cpp:602
+#: src/neochatroom.cpp:604
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "het onderwerp instellen op: %1"
 
-#: src/neochatroom.cpp:608 src/neochatroom.cpp:739
+#: src/neochatroom.cpp:610 src/neochatroom.cpp:741
 #, kde-format
 msgid "changed the room avatar"
 msgstr "room-avatar tonen is gewijzigd"
 
-#: src/neochatroom.cpp:611 src/neochatroom.cpp:742
+#: src/neochatroom.cpp:613 src/neochatroom.cpp:744
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "Eind-tot-eind versleuteling geactiveerd"
 
-#: src/neochatroom.cpp:614
+#: src/neochatroom.cpp:616
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "de room bijgewerkt tot versie %1"
 
-#: src/neochatroom.cpp:615
+#: src/neochatroom.cpp:617
 #, kde-format
 msgid "created the room, version %1"
 msgstr "de room aangemaakt, versie %1"
 
-#: src/neochatroom.cpp:618 src/neochatroom.cpp:748
+#: src/neochatroom.cpp:620 src/neochatroom.cpp:750
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "de energieniveaus voor deze room zijn gewijzigd"
 
-#: src/neochatroom.cpp:622 src/neochatroom.cpp:752
+#: src/neochatroom.cpp:624 src/neochatroom.cpp:754
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "de toegangscontrolelijst voor deze room is gewijzigd"
 
-#: src/neochatroom.cpp:626
+#: src/neochatroom.cpp:628
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "%1 widget toegevoegd"
 
-#: src/neochatroom.cpp:629
+#: src/neochatroom.cpp:631
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "%1 widget verwijderd"
 
-#: src/neochatroom.cpp:631
+#: src/neochatroom.cpp:633
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "%1 widget geconfigureerd"
 
-#: src/neochatroom.cpp:633
+#: src/neochatroom.cpp:635
 #, kde-format
 msgid "updated %1 state"
 msgstr "%1 status bijgewerkt"
 
-#: src/neochatroom.cpp:634
+#: src/neochatroom.cpp:636
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "%1 status bijgewerkt voor %2"
 
-#: src/neochatroom.cpp:641 src/neochatroom.cpp:771
+#: src/neochatroom.cpp:643 src/neochatroom.cpp:773
 #, kde-format
 msgid "Unknown event"
 msgstr "Onbekende gebeurtenis"
 
-#: src/neochatroom.cpp:654
+#: src/neochatroom.cpp:656
 #, kde-format
 msgid "sent a message"
 msgstr "verzend een bericht"
 
-#: src/neochatroom.cpp:658
+#: src/neochatroom.cpp:660
 #, kde-format
 msgid "sent a sticker"
 msgstr "verzend een sticker"
 
-#: src/neochatroom.cpp:664
+#: src/neochatroom.cpp:666
 #, kde-format
 msgid "reinvited someone to the room"
 msgstr "heeft iemand opnieuw uitgenodigd in de room"
 
-#: src/neochatroom.cpp:673
+#: src/neochatroom.cpp:675
 #, kde-format
 msgid "invited someone to the room"
 msgstr "heeft iemand uitgenodigd in de room"
 
-#: src/neochatroom.cpp:683
+#: src/neochatroom.cpp:685
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name"
 msgstr "heeft hun schermnaam gewijzigd"
 
-#: src/neochatroom.cpp:709
+#: src/neochatroom.cpp:711
 #, kde-format
 msgid "withdrew a user's invitation"
 msgstr "heeft uitnodiging van een gebruiker ingetrokken"
 
-#: src/neochatroom.cpp:713
+#: src/neochatroom.cpp:715
 #, kde-format
 msgid "unbanned a user"
 msgstr "heeft verbanning van een gebruiker ongedaan gemaakt"
 
-#: src/neochatroom.cpp:715
+#: src/neochatroom.cpp:717
 #, kde-format
 msgid "put a user out of the room"
 msgstr "heeft een gebruiker uit de room gezet"
 
-#: src/neochatroom.cpp:718
+#: src/neochatroom.cpp:720
 #, kde-format
 msgid "banned a user from the room"
 msgstr "heeft een gebruiker verbannen uit de room"
 
-#: src/neochatroom.cpp:730
+#: src/neochatroom.cpp:732
 #, kde-format
 msgid "set the room main alias"
 msgstr "hoofdalias van de room ingesteld"
 
-#: src/neochatroom.cpp:733
+#: src/neochatroom.cpp:735
 #, kde-format
 msgid "set the room name"
 msgstr "naam van de room ingesteld"
 
-#: src/neochatroom.cpp:736
+#: src/neochatroom.cpp:738
 #, kde-format
 msgid "set the topic"
 msgstr "het onderwerp ingesteld"
 
-#: src/neochatroom.cpp:745
+#: src/neochatroom.cpp:747
 #, kde-format
 msgid "upgraded the room version"
 msgstr "heeft de versie van de room opgewaardeerd"
 
-#: src/neochatroom.cpp:745
+#: src/neochatroom.cpp:747
 #, kde-format
 msgid "created the room"
 msgstr "heeft de room aangemaakt"
 
-#: src/neochatroom.cpp:756
+#: src/neochatroom.cpp:758
 #, kde-format
 msgid "added a widget"
 msgstr "heeft een widget toegevoegd"
 
-#: src/neochatroom.cpp:759
+#: src/neochatroom.cpp:761
 #, kde-format
 msgid "removed a widget"
 msgstr "heeft een widget verwijderd"
 
-#: src/neochatroom.cpp:761
+#: src/neochatroom.cpp:763
 #, kde-format
 msgid "configured a widget"
 msgstr "heeft een widget geconfigureerd"
 
-#: src/neochatroom.cpp:763
+#: src/neochatroom.cpp:765
 #, kde-format
 msgid "updated the state"
 msgstr "heeft de status bijgewerkt"
 
-#: src/neochatroom.cpp:768
+#: src/neochatroom.cpp:770
 #, kde-format
 msgid "started a poll"
 msgstr "heeft een raadpleging (poll) gestart"
 
-#: src/neochatroom.cpp:1667 src/neochatroom.cpp:1668
+#: src/neochatroom.cpp:1669 src/neochatroom.cpp:1670
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapport met succes verzonden."
 
-#: src/neochatroom.cpp:1903 src/neochatroom.cpp:1911
+#: src/neochatroom.cpp:1905 src/neochatroom.cpp:1913
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1058,7 +1058,7 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat in this room"
 msgstr "NeoChat in deze room openen"
 
-#: src/notificationsmanager.cpp:88 src/qml/Component/TimelineView.qml:383
+#: src/notificationsmanager.cpp:88 src/qml/Component/TimelineView.qml:386
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
 #, kde-format
@@ -1096,7 +1096,7 @@ msgid "Attachment:"
 msgstr "Bijlage:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
-#: src/qml/Component/TimelineView.qml:372
+#: src/qml/Component/TimelineView.qml:375
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
 #: src/qml/Page/ImageEditorPage.qml:20
 #, kde-format
@@ -1108,27 +1108,27 @@ msgstr "Bewerken"
 msgid "Cancel sending attachment"
 msgstr "Verzenden van bijlage annuleren"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:31
+#: src/qml/Component/ChatBox/ChatBar.qml:32
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Een afbeelding of bestand bijvoegen"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:57
+#: src/qml/Component/ChatBox/ChatBar.qml:58
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emoji's & stickers"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:73
+#: src/qml/Component/ChatBox/ChatBar.qml:74
 #, kde-format
 msgid "Send a Location"
 msgstr "Een locatie verzenden"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:86
+#: src/qml/Component/ChatBox/ChatBar.qml:87
 #, kde-format
 msgid "Send message"
 msgstr "Bericht verzenden"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:128
+#: src/qml/Component/ChatBox/ChatBar.qml:129
 #, kde-format
 msgid ""
 "This room is encrypted. Build libQuotient with encryption enabled to send "
@@ -1137,22 +1137,22 @@ msgstr ""
 "Deze room is versleuteld. Bouw libQuotient met versleuteling ingeschakeld en "
 "verzend versleutelde berichten."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:128
+#: src/qml/Component/ChatBox/ChatBar.qml:129
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Een versleuteld bericht verzenden…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:128
+#: src/qml/Component/ChatBox/ChatBar.qml:129
 #, kde-format
 msgid "Set an attachment caption..."
 msgstr "Stel een opschrift voor de bijlage in..."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:128
+#: src/qml/Component/ChatBox/ChatBar.qml:129
 #, kde-format
 msgid "Send a message…"
 msgstr "Een bericht verzenden…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:313
+#: src/qml/Component/ChatBox/ChatBar.qml:314
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -1543,32 +1543,32 @@ msgstr "Volume"
 msgid "Maximize"
 msgstr "Maximaliseren"
 
-#: src/qml/Component/TimelineView.qml:122
+#: src/qml/Component/TimelineView.qml:125
 #, kde-format
 msgid "Choose local file"
 msgstr "Lokaal bestand kiezen"
 
-#: src/qml/Component/TimelineView.qml:150
+#: src/qml/Component/TimelineView.qml:153
 #, kde-format
 msgid "Clipboard image"
 msgstr "Afbeelding in klembord"
 
-#: src/qml/Component/TimelineView.qml:198
+#: src/qml/Component/TimelineView.qml:201
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Naar het eerste ongelezen bericht gaan"
 
-#: src/qml/Component/TimelineView.qml:221
+#: src/qml/Component/TimelineView.qml:224
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Naar het laatste bericht gaan"
 
-#: src/qml/Component/TimelineView.qml:247
+#: src/qml/Component/TimelineView.qml:250
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Items hierheen verslepen om ze te delen"
 
-#: src/qml/Component/TimelineView.qml:273
+#: src/qml/Component/TimelineView.qml:276
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -1576,12 +1576,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 is bezig met typen"
 msgstr[1] "%2 zijn bezig met het typen"
 
-#: src/qml/Component/TimelineView.qml:347
+#: src/qml/Component/TimelineView.qml:350
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "Dit bericht is verzonden van een geverifieerd apparaat"
 
-#: src/qml/Component/TimelineView.qml:353
+#: src/qml/Component/TimelineView.qml:356
 #, kde-format
 msgid "React"
 msgstr "Reageer"

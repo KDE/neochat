@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-07 00:50+0000\n"
-"PO-Revision-Date: 2023-04-30 21:14+0530\n"
+"POT-Creation-Date: 2023-05-08 00:46+0000\n"
+"PO-Revision-Date: 2023-05-07 14:29+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -117,12 +117,6 @@ msgstr "மூலம்"
 msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "சேருமிடம்"
-
-#: src/imagepacksmodel.cpp:68
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
-msgid "Own Stickers"
-msgstr "ஒட்டியை அனுப்பினார்"
 
 #: src/login.cpp:86 src/login.cpp:97
 #, kde-format
@@ -637,6 +631,11 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "விருப்பமானவை"
 
+#: src/models/imagepacksmodel.cpp:73
+#, kde-format
+msgid "Own Stickers"
+msgstr "என் ஒட்டிகள்"
+
 #: src/models/messageeventmodel.cpp:369 src/models/searchmodel.cpp:164
 #, kde-format
 msgid "Today"
@@ -652,34 +651,34 @@ msgstr "நேற்று"
 msgid "The day before yesterday"
 msgstr "நேற்றுக்கு முந்தைய நாள்"
 
-#: src/models/messageeventmodel.cpp:490 src/models/messageeventmodel.cpp:499
+#: src/models/messageeventmodel.cpp:489 src/models/messageeventmodel.cpp:498
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[இந்த செய்தி நீக்கப்பட்டது]</i>"
 
-#: src/models/messageeventmodel.cpp:491
+#: src/models/messageeventmodel.cpp:490
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[இந்த செய்தி நீக்கப்பட்டது: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:580
+#: src/models/messageeventmodel.cpp:579
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[தணிக்கை செய்யப்பட்டது]"
 
-#: src/models/messageeventmodel.cpp:580
+#: src/models/messageeventmodel.cpp:579
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[தணிக்கை செய்யப்பட்டது: %1]"
 
-#: src/models/messageeventmodel.cpp:856
+#: src/models/messageeventmodel.cpp:855
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 பயனர்: "
 msgstr[1] "%1 பயனர்கள்: "
 
-#: src/models/messageeventmodel.cpp:863
+#: src/models/messageeventmodel.cpp:862
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -715,338 +714,338 @@ msgstr "முக்கியமில்லாதவை"
 msgid "Spaces"
 msgstr "இடங்கள்"
 
-#: src/neochatroom.cpp:464
+#: src/neochatroom.cpp:466
 #, kde-format
 msgid "a file"
 msgstr "ஒரு கோப்பு"
 
-#: src/neochatroom.cpp:515
+#: src/neochatroom.cpp:517
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "%1 என்பவரை மறுபடியும் அரங்குக்கு வரவழைத்தார்"
 
-#: src/neochatroom.cpp:517
+#: src/neochatroom.cpp:519
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:526 src/neochatroom.cpp:671
+#: src/neochatroom.cpp:528 src/neochatroom.cpp:673
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "அரங்கில் சேர்ந்தார் (மறுபடியும்)"
 
-#: src/neochatroom.cpp:528
+#: src/neochatroom.cpp:530
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "%1 என்பவரை அரங்குக்கு வரவழைத்தார்"
 
-#: src/neochatroom.cpp:528 src/neochatroom.cpp:673
+#: src/neochatroom.cpp:530 src/neochatroom.cpp:675
 #, kde-format
 msgid "joined the room"
 msgstr "அரங்கில் சேர்ந்தார்"
 
-#: src/neochatroom.cpp:532
+#: src/neochatroom.cpp:534
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:539 src/neochatroom.cpp:681
+#: src/neochatroom.cpp:541 src/neochatroom.cpp:683
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "அவருடைய காட்டப்படும் பெயரை காலியாக்கினார்"
 
-#: src/neochatroom.cpp:541
+#: src/neochatroom.cpp:543
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "அவருடைய காட்டப்படும் பெயரை %1 என்று மாற்றினார்"
 
-#: src/neochatroom.cpp:546 src/neochatroom.cpp:688
+#: src/neochatroom.cpp:548 src/neochatroom.cpp:690
 #, kde-format
 msgid " and "
 msgstr " மற்றும் "
 
-#: src/neochatroom.cpp:549 src/neochatroom.cpp:691
+#: src/neochatroom.cpp:551 src/neochatroom.cpp:693
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "அவருடைய சின்னத்தை காலியாக்கினார்"
 
-#: src/neochatroom.cpp:555 src/neochatroom.cpp:697
+#: src/neochatroom.cpp:557 src/neochatroom.cpp:699
 #, kde-format
 msgid "set an avatar"
 msgstr "ஒரு சின்னத்தை அமைத்தார்"
 
-#: src/neochatroom.cpp:557 src/neochatroom.cpp:699
+#: src/neochatroom.cpp:559 src/neochatroom.cpp:701
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "அவருடைய சின்னத்தை மாற்றினார்"
 
-#: src/neochatroom.cpp:561 src/neochatroom.cpp:703
+#: src/neochatroom.cpp:563 src/neochatroom.cpp:705
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "எதையும் மாற்றவில்லை"
 
-#: src/neochatroom.cpp:567
+#: src/neochatroom.cpp:569
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "%1 என்பவருக்கான அழைப்பை திரும்பப்பெற்றார்"
 
-#: src/neochatroom.cpp:567 src/neochatroom.cpp:709
+#: src/neochatroom.cpp:569 src/neochatroom.cpp:711
 #, kde-format
 msgid "rejected the invitation"
 msgstr "அழைப்பை மறுத்தார்"
 
-#: src/neochatroom.cpp:571
+#: src/neochatroom.cpp:573
 #, kde-format
 msgid "unbanned %1"
 msgstr "%1 மீதான தடையை நீக்கினார்"
 
-#: src/neochatroom.cpp:571 src/neochatroom.cpp:713
+#: src/neochatroom.cpp:573 src/neochatroom.cpp:715
 #, kde-format
 msgid "self-unbanned"
 msgstr "தன்மேல் உள்ள தடையை நீக்கினார்"
 
-#: src/neochatroom.cpp:574
+#: src/neochatroom.cpp:576
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "%1 என்பவரை அரங்குக்கு வெளியே அனுப்பிவிட்டார்: %2"
 
-#: src/neochatroom.cpp:575 src/neochatroom.cpp:715
+#: src/neochatroom.cpp:577 src/neochatroom.cpp:717
 #, kde-format
 msgid "left the room"
 msgstr "அரங்கைவிட்டு வெளியேறினார்"
 
-#: src/neochatroom.cpp:579
+#: src/neochatroom.cpp:581
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "%1 என்பவரை அரங்கிலிருந்து தடை செய்தார்"
 
-#: src/neochatroom.cpp:581
+#: src/neochatroom.cpp:583
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "%1 என்பவரை அரங்கிலிருந்து தடை செய்தார்: %2"
 
-#: src/neochatroom.cpp:584 src/neochatroom.cpp:720
+#: src/neochatroom.cpp:586 src/neochatroom.cpp:722
 #, kde-format
 msgid "self-banned from the room"
 msgstr "தன்னை அரங்கிலிருந்து தடை செய்தார்"
 
-#: src/neochatroom.cpp:588 src/neochatroom.cpp:723
+#: src/neochatroom.cpp:590 src/neochatroom.cpp:725
 #, kde-format
 msgid "requested an invite"
 msgstr "வரவழைப்பு கோரினார்"
 
-#: src/neochatroom.cpp:588
+#: src/neochatroom.cpp:590
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "இக்காரணங்காட்டி வரவழைப்பு கோரினார்: %1"
 
-#: src/neochatroom.cpp:592 src/neochatroom.cpp:727
+#: src/neochatroom.cpp:594 src/neochatroom.cpp:729
 #, kde-format
 msgid "made something unknown"
 msgstr "எதையோ தெரியாதவாறு செய்தார்"
 
-#: src/neochatroom.cpp:595 src/neochatroom.cpp:730
+#: src/neochatroom.cpp:597 src/neochatroom.cpp:732
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "அரங்கின் பிரதான மாற்றுப்பெயரை காலியாக்கினார்"
 
-#: src/neochatroom.cpp:595
+#: src/neochatroom.cpp:597
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "அரங்கின் மாற்றுப்பெயரை %1 என்று அமைத்தார்"
 
-#: src/neochatroom.cpp:598 src/neochatroom.cpp:733
+#: src/neochatroom.cpp:600 src/neochatroom.cpp:735
 #, kde-format
 msgid "cleared the room name"
 msgstr "அரங்கின் பெயரை காலியாக்கினார்"
 
-#: src/neochatroom.cpp:598
+#: src/neochatroom.cpp:600
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "அரங்கின் பெயரை %1 என்று அமைத்தார்"
 
-#: src/neochatroom.cpp:601 src/neochatroom.cpp:736
+#: src/neochatroom.cpp:603 src/neochatroom.cpp:738
 #, kde-format
 msgid "cleared the topic"
 msgstr "தலைப்பை காலியாக்கினார்"
 
-#: src/neochatroom.cpp:602
+#: src/neochatroom.cpp:604
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "தலைப்பை %1 என்று அமைத்தார்"
 
-#: src/neochatroom.cpp:608 src/neochatroom.cpp:739
+#: src/neochatroom.cpp:610 src/neochatroom.cpp:741
 #, kde-format
 msgid "changed the room avatar"
 msgstr "அரங்கின் சின்னத்தை மாற்றினார்"
 
-#: src/neochatroom.cpp:611 src/neochatroom.cpp:742
+#: src/neochatroom.cpp:613 src/neochatroom.cpp:744
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "தொடக்கத்திலிருந்து முடிவுவரை மறையாக்கம் பயன்படுத்தப்படுவதை இயக்கியுள்ளார்"
 
-#: src/neochatroom.cpp:614
+#: src/neochatroom.cpp:616
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "அரங்கை %1 பதிப்புக்கு மேம்படுத்தினார்"
 
-#: src/neochatroom.cpp:615
+#: src/neochatroom.cpp:617
 #, kde-format
 msgid "created the room, version %1"
 msgstr "அரங்கை உருவாக்கினார், பதிப்பு %1"
 
-#: src/neochatroom.cpp:618 src/neochatroom.cpp:748
+#: src/neochatroom.cpp:620 src/neochatroom.cpp:750
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "இந்த அரங்கிற்கான அனுமதிகளை மாற்றினார்"
 
-#: src/neochatroom.cpp:622 src/neochatroom.cpp:752
+#: src/neochatroom.cpp:624 src/neochatroom.cpp:754
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "இந்த அரங்கிற்கான சேவையக அணுகல் கட்டுப்பாட்டு பட்டியலை மாற்றியுள்ளார்"
 
-#: src/neochatroom.cpp:626
+#: src/neochatroom.cpp:628
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "%1 பலகையை சேர்த்தார்"
 
-#: src/neochatroom.cpp:629
+#: src/neochatroom.cpp:631
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "%1 பலகையை நீக்கினார்"
 
-#: src/neochatroom.cpp:631
+#: src/neochatroom.cpp:633
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "%1 பலகையை அமைத்தார்"
 
-#: src/neochatroom.cpp:633
+#: src/neochatroom.cpp:635
 #, kde-format
 msgid "updated %1 state"
 msgstr "%1 நிலையை புதுப்பித்தார்"
 
-#: src/neochatroom.cpp:634
+#: src/neochatroom.cpp:636
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "%2 என்பதற்கு %1 நிலையை புதுப்பித்தார்"
 
-#: src/neochatroom.cpp:641 src/neochatroom.cpp:771
+#: src/neochatroom.cpp:643 src/neochatroom.cpp:773
 #, kde-format
 msgid "Unknown event"
 msgstr "தெரியாத நிகழ்வு"
 
-#: src/neochatroom.cpp:654
+#: src/neochatroom.cpp:656
 #, kde-format
 msgid "sent a message"
 msgstr "செய்தியை அனுப்பினார்"
 
-#: src/neochatroom.cpp:658
+#: src/neochatroom.cpp:660
 #, kde-format
 msgid "sent a sticker"
 msgstr "ஒட்டியை அனுப்பினார்"
 
-#: src/neochatroom.cpp:664
+#: src/neochatroom.cpp:666
 #, kde-format
 msgid "reinvited someone to the room"
 msgstr "ஒருவரை மறுபடியும் அரங்குக்கு வரவழைத்தார்"
 
-#: src/neochatroom.cpp:673
+#: src/neochatroom.cpp:675
 #, kde-format
 msgid "invited someone to the room"
 msgstr "எவரையே அரங்குக்கு வரவழைத்தார்"
 
-#: src/neochatroom.cpp:683
+#: src/neochatroom.cpp:685
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name"
 msgstr "தன் காட்சிப்பெயரை மாற்றினார்"
 
-#: src/neochatroom.cpp:709
+#: src/neochatroom.cpp:711
 #, kde-format
 msgid "withdrew a user's invitation"
 msgstr "ஒருவருக்கு விடுத்த வரவழைப்பை திரும்பப்பெற்றார்"
 
-#: src/neochatroom.cpp:713
+#: src/neochatroom.cpp:715
 #, kde-format
 msgid "unbanned a user"
 msgstr "ஒருவர் மீதான தடையை நீக்கினார்"
 
-#: src/neochatroom.cpp:715
+#: src/neochatroom.cpp:717
 #, kde-format
 msgid "put a user out of the room"
 msgstr "ஒருவரை அரங்குகிலிருந்து வெளியே அனுப்பினார்"
 
-#: src/neochatroom.cpp:718
+#: src/neochatroom.cpp:720
 #, kde-format
 msgid "banned a user from the room"
 msgstr "ஒருவரை அரங்கிலிருந்து தடை செய்தார்"
 
-#: src/neochatroom.cpp:730
+#: src/neochatroom.cpp:732
 #, kde-format
 msgid "set the room main alias"
 msgstr "அரங்கின் மாற்றுப்பெயரை அமைத்தார்"
 
-#: src/neochatroom.cpp:733
+#: src/neochatroom.cpp:735
 #, kde-format
 msgid "set the room name"
 msgstr "அரங்கின் பெயரை அமைத்தார்"
 
-#: src/neochatroom.cpp:736
+#: src/neochatroom.cpp:738
 #, kde-format
 msgid "set the topic"
 msgstr "தலைப்பை அமைத்தார்"
 
-#: src/neochatroom.cpp:745
+#: src/neochatroom.cpp:747
 #, kde-format
 msgid "upgraded the room version"
 msgstr "அரங்கின் பதிப்பை மேம்படுத்தினார்"
 
-#: src/neochatroom.cpp:745
+#: src/neochatroom.cpp:747
 #, kde-format
 msgid "created the room"
 msgstr "அரங்கை உருவாக்கினார்"
 
-#: src/neochatroom.cpp:756
+#: src/neochatroom.cpp:758
 #, kde-format
 msgid "added a widget"
 msgstr "ஓர் உட்பொதிநிரலை சேர்த்தார்"
 
-#: src/neochatroom.cpp:759
+#: src/neochatroom.cpp:761
 #, kde-format
 msgid "removed a widget"
 msgstr "ஓர் உட்பொதிநிரலை நீக்கினார்"
 
-#: src/neochatroom.cpp:761
+#: src/neochatroom.cpp:763
 #, kde-format
 msgid "configured a widget"
 msgstr "ஓர் உட்பொதிநிரல் மாற்றியமைத்தார்"
 
-#: src/neochatroom.cpp:763
+#: src/neochatroom.cpp:765
 #, kde-format
 msgid "updated the state"
 msgstr "நிலையை புதுப்பித்தார்"
 
-#: src/neochatroom.cpp:768
+#: src/neochatroom.cpp:770
 #, kde-format
 msgid "started a poll"
 msgstr "கருத்தாய்வை துவக்கினார்"
 
-#: src/neochatroom.cpp:1667 src/neochatroom.cpp:1668
+#: src/neochatroom.cpp:1669 src/neochatroom.cpp:1670
 #, kde-format
 msgid "Report sent successfully."
 msgstr "புகார் வெற்றிகரமாக அனுப்பப்பட்டுள்ளது."
 
-#: src/neochatroom.cpp:1903 src/neochatroom.cpp:1911
+#: src/neochatroom.cpp:1905 src/neochatroom.cpp:1913
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1062,7 +1061,7 @@ msgstr "%1 (%2)"
 msgid "Open NeoChat in this room"
 msgstr "இந்த அரங்கில் நியோச்சாட்டை திற"
 
-#: src/notificationsmanager.cpp:88 src/qml/Component/TimelineView.qml:383
+#: src/notificationsmanager.cpp:88 src/qml/Component/TimelineView.qml:386
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
 #, kde-format
@@ -1100,7 +1099,7 @@ msgid "Attachment:"
 msgstr "உடனிணைப்பு:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
-#: src/qml/Component/TimelineView.qml:372
+#: src/qml/Component/TimelineView.qml:375
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
 #: src/qml/Page/ImageEditorPage.qml:20
 #, kde-format
@@ -1112,27 +1111,27 @@ msgstr "திருத்து"
 msgid "Cancel sending attachment"
 msgstr "உடனிணைப்பை அனுப்புவதை ரத்துசெய்"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:31
+#: src/qml/Component/ChatBox/ChatBar.qml:32
 #, kde-format
 msgid "Attach an image or file"
 msgstr "படம் அல்லது கோப்பை இணை"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:57
+#: src/qml/Component/ChatBox/ChatBar.qml:58
 #, kde-format
 msgid "Emojis & Stickers"
-msgstr ""
+msgstr "முகவடிகளும் ஒட்டிகளும்"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:73
+#: src/qml/Component/ChatBox/ChatBar.qml:74
 #, kde-format
 msgid "Send a Location"
 msgstr "இடத்தை அனுப்பு"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:86
+#: src/qml/Component/ChatBox/ChatBar.qml:87
 #, kde-format
 msgid "Send message"
 msgstr "செய்தியை அனுப்பு"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:128
+#: src/qml/Component/ChatBox/ChatBar.qml:129
 #, kde-format
 msgid ""
 "This room is encrypted. Build libQuotient with encryption enabled to send "
@@ -1141,22 +1140,22 @@ msgstr ""
 "இவ்வரங்கு மறையாக்கம் செய்யப்பட்டுள்ளது. மறையாக்கிய செய்திகளை அனுப்ப, libQuotient தனை "
 "மறையாக்க ஆதரவுடன் இரும‍மாக்குங்கள்"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:128
+#: src/qml/Component/ChatBox/ChatBar.qml:129
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "மறையாக்கப்பட்ட செய்தியை அனுப்பு…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:128
+#: src/qml/Component/ChatBox/ChatBar.qml:129
 #, kde-format
 msgid "Set an attachment caption..."
 msgstr "உடனிணைப்புக்கான தலைப்பை அமை..."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:128
+#: src/qml/Component/ChatBox/ChatBar.qml:129
 #, kde-format
 msgid "Send a message…"
 msgstr "செய்தியை அனுப்பு…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:313
+#: src/qml/Component/ChatBox/ChatBar.qml:314
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -1228,9 +1227,9 @@ msgid "Show room account data"
 msgstr "அரங்கு கணக்கு விவரங்களை காட்டு"
 
 #: src/qml/Component/Devtools/RoomData.qml:54
-#, fuzzy, kde-format
+#, kde-format
 msgid "Room Account Data for %1 - %2"
-msgstr "%1-க்கான அரங்கு கணக்கு விவரங்கள் - %2"
+msgstr "%1- %2 என்பதற்கான அரங்கு கணக்கு விவரங்கள்"
 
 #: src/qml/Component/Devtools/RoomData.qml:64
 #: src/qml/Component/Devtools/RoomData.qml:106
@@ -1270,15 +1269,14 @@ msgid "No emojis"
 msgstr "முகவடிகள் இல்லை"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:49
-#, fuzzy, kde-format
-#| msgid "No emojis"
+#, kde-format
 msgid "Emojis"
-msgstr "முகவடிகள் இல்லை"
+msgstr "முகவடிகள்"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:56
 #, kde-format
 msgid "Stickers"
-msgstr ""
+msgstr "ஒட்டிகள்"
 
 #: src/qml/Component/InvitationView.qml:17
 #, kde-format
@@ -1547,32 +1545,32 @@ msgstr "ஒலியளவு"
 msgid "Maximize"
 msgstr "அதிகபட்ச பெரிதாக்கு"
 
-#: src/qml/Component/TimelineView.qml:122
+#: src/qml/Component/TimelineView.qml:125
 #, kde-format
 msgid "Choose local file"
 msgstr "உள்ளமைக் கோப்பைத் தேர்ந்தெடு"
 
-#: src/qml/Component/TimelineView.qml:150
+#: src/qml/Component/TimelineView.qml:153
 #, kde-format
 msgid "Clipboard image"
 msgstr "பிடிப்புப்பலகைப் படம்"
 
-#: src/qml/Component/TimelineView.qml:198
+#: src/qml/Component/TimelineView.qml:201
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "படிக்காத முதல் செய்திக்குத் தாவு"
 
-#: src/qml/Component/TimelineView.qml:221
+#: src/qml/Component/TimelineView.qml:224
 #, kde-format
 msgid "Jump to latest message"
 msgstr "கடைசி செய்திக்குத் தாவு"
 
-#: src/qml/Component/TimelineView.qml:247
+#: src/qml/Component/TimelineView.qml:250
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "எதையாவது பகிர, அதை இங்கு இழுத்துப் போடுங்கள்"
 
-#: src/qml/Component/TimelineView.qml:273
+#: src/qml/Component/TimelineView.qml:276
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -1580,12 +1578,12 @@ msgid_plural "%2 are typing"
 msgstr[0] "%2 தட்டச்சிடுகிறார்"
 msgstr[1] "%2 தட்டச்சிடுகிறார்கள்"
 
-#: src/qml/Component/TimelineView.qml:347
+#: src/qml/Component/TimelineView.qml:350
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "உறுதிப்படுத்தப்பட்டுள்ள சாதனத்திலிருந்து இச்செய்தி அனுப்பப்பட்டது"
 
-#: src/qml/Component/TimelineView.qml:353
+#: src/qml/Component/TimelineView.qml:356
 #, kde-format
 msgid "React"
 msgstr "எதிர்வினையிடு"
