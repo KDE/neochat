@@ -16,9 +16,16 @@
 class SortFilterSpaceListModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    /**
+     * @brief The number of spaces in the model.
+     */
+    Q_PROPERTY(int count READ rowCount NOTIFY countChanged)
 
 public:
     explicit SortFilterSpaceListModel(QObject *parent = nullptr);
+
+Q_SIGNALS:
+    void countChanged();
 
 protected:
     /**

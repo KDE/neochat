@@ -13,8 +13,9 @@ import org.kde.kitemmodels 1.0
 import org.kde.neochat 1.0
 
 import './' as RoomList
+import '../' as NeoChat
 
-Kirigami.ScrollablePage {
+Kirigami.Page {
     id: root
 
     /**
@@ -23,7 +24,8 @@ Kirigami.ScrollablePage {
      * @note Other objects can access the value but the private function makes sure
      *       that only the internal members can modify it.
      */
-    readonly property int currentWidth: _private.currentWidth
+    readonly property int currentWidth: _private.currentWidth + spaceListWidth
+    readonly property alias spaceListWidth: spaceDrawer.width
 
     readonly property RoomListModel roomListModel: RoomListModel {
         connection: Controller.activeConnection
@@ -35,24 +37,6 @@ Kirigami.ScrollablePage {
 
     onCollapsedChanged: if (collapsed) {
         sortFilterRoomListModel.filterText = "";
-    }
-
-    header: ColumnLayout {
-        visible: !root.collapsed
-        spacing: 0
-
-        RoomList.SpaceListView {
-            roomListModel: root.roomListModel
-        }
-
-        Kirigami.Separator {
-            Layout.fillWidth: true
-        }
-
-        Component {
-            id: spaceListContextMenu
-            SpaceListContextMenu {}
-        }
     }
 
     Connections {
@@ -106,135 +90,158 @@ Kirigami.ScrollablePage {
         collapsed: root.collapsed
     }
 
-    ListView {
-        id: listView
+    padding: 0
 
-        activeFocusOnTab: true
-        clip: AccountRegistry.count > 1
+    RowLayout {
+        anchors.fill: parent
+        spacing: 1
 
-        header: QQC2.ItemDelegate {
-            width: visible ? ListView.view.width : 0
-            height: visible ? Kirigami.Units.gridUnit * 2 : 0
-
-            visible: root.collapsed
-
-            topPadding: Kirigami.Units.largeSpacing
-            leftPadding: Kirigami.Units.largeSpacing
-            rightPadding: Kirigami.Units.largeSpacing
-            bottomPadding: Kirigami.Units.largeSpacing
-
-            onClicked: quickView.item.open();
-
-            Kirigami.Icon {
-                anchors.centerIn: parent
-                width: Kirigami.Units.iconSizes.smallMedium
-                height: Kirigami.Units.iconSizes.smallMedium
-                source: "search"
-            }
-
-            Kirigami.Separator {
-                width: parent.width
-                anchors.bottom: parent.bottom
-            }
+        NeoChat.SpaceDrawer {
+            id: spaceDrawer
+            Layout.preferredWidth: spaceDrawer.enabled ? Kirigami.Units.gridUnit * 3 : 0
+            Layout.fillHeight: true
         }
 
-        Layout.fillWidth: true
+        QQC2.ScrollView {
+            id: scrollView
+            Layout.fillWidth: true
+            Layout.fillHeight: true
 
-        Kirigami.PlaceholderMessage {
-            anchors.centerIn: parent
-            width: parent.width - (Kirigami.Units.largeSpacing * 4)
-            visible: listView.count == 0
-            text: sortFilterRoomListModel.filterText.length > 0 ? i18n("No rooms found") : i18n("Join some rooms to get started")
-            helpfulAction: Kirigami.Action {
-                icon.name: sortFilterRoomListModel.filterText.length > 0 ? "search" : "list-add"
-                text: sortFilterRoomListModel.filterText.length > 0 ? i18n("Search in room directory") : i18n("Explore rooms")
-                onTriggered: pageStack.layers.push("qrc:/JoinRoomPage.qml", {
-                    connection: Controller.activeConnection,
-                    keyword: sortFilterRoomListModel.filterText
-                })
+            background: Rectangle {
+                color: Kirigami.Theme.backgroundColor
+                Kirigami.Theme.colorSet: Kirigami.Theme.View
             }
-        }
 
-        ItemSelectionModel {
-            id: itemSelection
-            model: root.roomListModel
-            onCurrentChanged: listView.currentIndex = sortFilterRoomListModel.mapFromSource(current).row
-        }
+            ListView {
+                id: listView
 
-        model: SortFilterRoomListModel {
-            id: sortFilterRoomListModel
+                activeFocusOnTab: true
+                clip: AccountRegistry.count > 1
 
-            sourceModel: root.roomListModel
-            roomSortOrder: Config.mergeRoomList ? SortFilterRoomListModel.LastActivity : SortFilterRoomListModel.Categories
-            onLayoutChanged: {
-                listView.currentIndex = sortFilterRoomListModel.mapFromSource(itemSelection.currentIndex).row
-            }
-        }
+                header: QQC2.ItemDelegate {
+                    width: visible ? ListView.view.width : 0
+                    height: visible ? Kirigami.Units.gridUnit * 2 : 0
 
-        section.property: sortFilterRoomListModel.filterText.length === 0 && !Config.mergeRoomList ? "category" : null
-        section.delegate: root.collapsed ? foldButton : sectionHeader
+                    visible: root.collapsed
 
-        Component {
-            id: sectionHeader
-            Kirigami.ListSectionHeader {
-                height: implicitHeight
-                label: roomListModel.categoryName(section)
-                action: Kirigami.Action {
-                    onTriggered: roomListModel.setCategoryVisible(section, !roomListModel.categoryVisible(section))
-                }
-                contentItem.children: QQC2.ToolButton {
-                    icon {
-                        name: roomListModel.categoryVisible(section) ? "go-up" : "go-down"
-                        width: Kirigami.Units.iconSizes.small
-                        height: Kirigami.Units.iconSizes.small
-                    }
+                    topPadding: Kirigami.Units.largeSpacing
+                    leftPadding: Kirigami.Units.largeSpacing
+                    rightPadding: Kirigami.Units.largeSpacing
+                    bottomPadding: Kirigami.Units.largeSpacing
 
-                    onClicked: roomListModel.setCategoryVisible(section, !roomListModel.categoryVisible(section))
-                }
-            }
-        }
-        Component {
-            id: foldButton
-            Item {
-                width: ListView.view.width
-                height: visible ? width : 0
-                QQC2.ToolButton {
-                    id: button
-                    anchors.centerIn: parent
+                    onClicked: quickView.item.open();
 
-                    icon {
-                        name: hovered ? (roomListModel.categoryVisible(section) ? "go-up" : "go-down") : roomListModel.categoryIconName(section)
+                    Kirigami.Icon {
+                        anchors.centerIn: parent
                         width: Kirigami.Units.iconSizes.smallMedium
                         height: Kirigami.Units.iconSizes.smallMedium
+                        source: "search"
                     }
 
-                    onClicked: roomListModel.setCategoryVisible(section, !roomListModel.categoryVisible(section))
-
-                    QQC2.ToolTip.text: roomListModel.categoryName(section)
-                    QQC2.ToolTip.visible: hovered
-                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                    Kirigami.Separator {
+                        width: parent.width
+                        anchors.bottom: parent.bottom
+                    }
                 }
-            }
-        }
 
-        reuseItems: true
-        currentIndex: -1 // we don't want any room highlighted by default
+                Kirigami.PlaceholderMessage {
+                    anchors.centerIn: parent
+                    width: parent.width - (Kirigami.Units.largeSpacing * 4)
+                    visible: listView.count == 0
+                    text: sortFilterRoomListModel.filterText.length > 0 ? i18n("No rooms found") : i18n("Join some rooms to get started")
+                    helpfulAction: Kirigami.Action {
+                        icon.name: sortFilterRoomListModel.filterText.length > 0 ? "search" : "list-add"
+                        text: sortFilterRoomListModel.filterText.length > 0 ? i18n("Search in room directory") : i18n("Explore rooms")
+                        onTriggered: pageStack.layers.push("qrc:/JoinRoomPage.qml", {
+                            connection: Controller.activeConnection,
+                            keyword: sortFilterRoomListModel.filterText
+                        })
+                    }
+                }
 
-        delegate: root.collapsed ? collapsedModeListComponent : normalModeListComponent
+                ItemSelectionModel {
+                    id: itemSelection
+                    model: root.roomListModel
+                    onCurrentChanged: listView.currentIndex = sortFilterRoomListModel.mapFromSource(current).row
+                }
 
-        Component {
-            id: collapsedModeListComponent
+                model: SortFilterRoomListModel {
+                    id: sortFilterRoomListModel
 
-            RoomList.CollapsedRoomDelegate {
-                filterText: sortFilterRoomListModel.filterText
-            }
-        }
+                    sourceModel: root.roomListModel
+                    roomSortOrder: Config.mergeRoomList ? SortFilterRoomListModel.LastActivity : SortFilterRoomListModel.Categories
+                    onLayoutChanged: {
+                        listView.currentIndex = sortFilterRoomListModel.mapFromSource(itemSelection.currentIndex).row
+                    }
+                    activeSpaceId: spaceDrawer.selectedSpaceId
+                }
 
-        Component {
-            id: normalModeListComponent
+                section.property: sortFilterRoomListModel.filterText.length === 0 && !Config.mergeRoomList ? "category" : null
+                section.delegate: root.collapsed ? foldButton : sectionHeader
 
-            RoomList.RoomDelegate {
-                filterText: sortFilterRoomListModel.filterText
+                Component {
+                    id: sectionHeader
+                    Kirigami.ListSectionHeader {
+                        height: implicitHeight
+                        label: roomListModel.categoryName(section)
+                        action: Kirigami.Action {
+                            onTriggered: roomListModel.setCategoryVisible(section, !roomListModel.categoryVisible(section))
+                        }
+                        contentItem.children: QQC2.ToolButton {
+                            icon {
+                                name: roomListModel.categoryVisible(section) ? "go-up" : "go-down"
+                                width: Kirigami.Units.iconSizes.small
+                                height: Kirigami.Units.iconSizes.small
+                            }
+
+                            onClicked: roomListModel.setCategoryVisible(section, !roomListModel.categoryVisible(section))
+                        }
+                    }
+                }
+                Component {
+                    id: foldButton
+                    Item {
+                        width: ListView.view.width
+                        height: visible ? width : 0
+                        QQC2.ToolButton {
+                            id: button
+                            anchors.centerIn: parent
+
+                            icon {
+                                name: hovered ? (roomListModel.categoryVisible(section) ? "go-up" : "go-down") : roomListModel.categoryIconName(section)
+                                width: Kirigami.Units.iconSizes.smallMedium
+                                height: Kirigami.Units.iconSizes.smallMedium
+                            }
+
+                            onClicked: roomListModel.setCategoryVisible(section, !roomListModel.categoryVisible(section))
+
+                            QQC2.ToolTip.text: roomListModel.categoryName(section)
+                            QQC2.ToolTip.visible: hovered
+                            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                        }
+                    }
+                }
+
+                reuseItems: true
+                currentIndex: -1 // we don't want any room highlighted by default
+
+                delegate: root.collapsed ? collapsedModeListComponent : normalModeListComponent
+
+                Component {
+                    id: collapsedModeListComponent
+
+                    RoomList.CollapsedRoomDelegate {
+                        filterText: sortFilterRoomListModel.filterText
+                    }
+                }
+
+                Component {
+                    id: normalModeListComponent
+
+                    RoomList.RoomDelegate {
+                        filterText: sortFilterRoomListModel.filterText
+                    }
+                }
             }
         }
     }
@@ -269,7 +276,7 @@ Kirigami.ScrollablePage {
                 // we moved to the right
                 if (_private.currentWidth < _private.collapseWidth && _private.currentWidth + (mouse.x - _lastX) >= _private.collapseWidth) {
                     // Here we get back directly to a more wide mode.
-                    _private.currentWidth = _private.collapseWidth;
+                    _private.currentWidth = _private.defaultWidth;
                     Config.collapsed = false;
                 } else if (_private.currentWidth >= _private.collapseWidth) {
                     // Increase page width
@@ -278,7 +285,7 @@ Kirigami.ScrollablePage {
             } else if (mouse.x < _lastX) {
                 const tmpWidth = _private.currentWidth - (_lastX - mouse.x);
                 if (tmpWidth < _private.collapseWidth) {
-                    _private.currentWidth = Qt.binding(() => _private.collapsedSize + (root.contentItem.QQC2.ScrollBar.vertical.visible ? root.contentItem.QQC2.ScrollBar.vertical.width : 0));
+                    _private.currentWidth = Qt.binding(() => _private.collapsedSize);
                     Config.collapsed = true;
                 } else {
                     _private.currentWidth = tmpWidth;
@@ -296,6 +303,6 @@ Kirigami.ScrollablePage {
         property int currentWidth: Config.collapsed ? collapsedSize : defaultWidth
         readonly property int defaultWidth: Kirigami.Units.gridUnit * 17
         readonly property int collapseWidth: Kirigami.Units.gridUnit * 10
-        readonly property int collapsedSize: Kirigami.Units.gridUnit * 3 - Kirigami.Units.smallSpacing * 3
+        readonly property int collapsedSize: Kirigami.Units.gridUnit * 3 - Kirigami.Units.smallSpacing * 3 + (scrollView.QQC2.ScrollBar.vertical.visible ? scrollView.QQC2.ScrollBar.vertical.width : 0)
     }
 }

@@ -11,13 +11,24 @@ SortFilterSpaceListModel::SortFilterSpaceListModel(QObject *parent)
     setSortRole(RoomListModel::IdRole);
     sort(0);
     invalidateFilter();
+    connect(this, &QAbstractProxyModel::sourceModelChanged, this, [this]() {
+        connect(sourceModel(), &QAbstractListModel::dataChanged, this, [this](const QModelIndex &, const QModelIndex &, QVector<int> roles) {
+            if (roles.contains(RoomListModel::IsChildSpaceRole)) {
+                invalidate();
+            }
+            countChanged();
+        });
+        invalidate();
+        Q_EMIT countChanged();
+    });
 }
 
 bool SortFilterSpaceListModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
     Q_UNUSED(source_parent);
     return sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::IsSpaceRole).toBool()
-        && sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::JoinStateRole).toString() != "upgraded";
+        && sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::JoinStateRole).toString() != "upgraded"
+        && !sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::IsChildSpaceRole).toBool();
 }
 
 bool SortFilterSpaceListModel::lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const

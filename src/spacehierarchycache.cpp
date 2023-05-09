@@ -32,13 +32,13 @@ void SpaceHierarchyCache::cacheSpaceHierarchy()
         return;
     }
 
-    const auto roomList = connection->allRooms();
+    const auto &roomList = connection->allRooms();
     for (const auto &room : roomList) {
         const auto neoChatRoom = static_cast<NeoChatRoom *>(room);
         if (neoChatRoom->isSpace()) {
             populateSpaceHierarchy(neoChatRoom->id());
         } else {
-            connect(neoChatRoom, &Room::baseStateLoaded, neoChatRoom, [this, neoChatRoom]() {
+            connectSingleShot(neoChatRoom, &Room::baseStateLoaded, neoChatRoom, [this, neoChatRoom]() {
                 if (neoChatRoom->isSpace()) {
                     populateSpaceHierarchy(neoChatRoom->id());
                 }
@@ -55,7 +55,7 @@ void SpaceHierarchyCache::populateSpaceHierarchy(const QString &spaceId)
         return;
     }
 #ifdef QUOTIENT_07
-    GetSpaceHierarchyJob *job = connection->callApi<GetSpaceHierarchyJob>(spaceId);
+    auto job = connection->callApi<GetSpaceHierarchyJob>(spaceId);
 
     connect(job, &BaseJob::success, this, [this, job, spaceId]() {
         const auto rooms = job->rooms();
@@ -64,7 +64,6 @@ void SpaceHierarchyCache::populateSpaceHierarchy(const QString &spaceId)
             for (const auto &state : rooms[i].childrenState) {
                 roomList.push_back(state->stateKey());
             }
-            roomList.push_back(rooms.at(i).roomId);
         }
         m_spaceHierarchy.insert(spaceId, roomList);
         Q_EMIT spaceHierarchyChanged();
@@ -96,4 +95,15 @@ QVector<QString> &SpaceHierarchyCache::getRoomListForSpace(const QString &spaceI
         populateSpaceHierarchy(spaceId);
     }
     return m_spaceHierarchy[spaceId];
+}
+
+bool SpaceHierarchyCache::isChildSpace(const QString &spaceId) const
+{
+    const auto childrens = m_spaceHierarchy.values();
+    for (const auto &children : childrens) {
+        if (children.contains(spaceId)) {
+            return true;
+        }
+    }
+    return false;
 }

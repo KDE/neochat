@@ -7,6 +7,7 @@
 #include "neochatconfig.h"
 #include "neochatroom.h"
 #include "roommanager.h"
+#include "spacehierarchycache.h"
 #include "user.h"
 
 #include <QDebug>
@@ -64,6 +65,9 @@ RoomListModel::RoomListModel(QObject *parent)
 #else
         qGuiApp->setBadgeNumber(m_notificationCount);
 #endif // QT_VERSION_CHECK(6, 6, 0)
+    });
+    connect(&SpaceHierarchyCache::instance(), &SpaceHierarchyCache::spaceHierarchyChanged, this, [this]() {
+        Q_EMIT dataChanged(index(0, 0), index(rowCount(), 0), {IsChildSpaceRole});
     });
 }
 
@@ -412,6 +416,9 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
     if (role == IsSpaceRole) {
         return room->isSpace();
     }
+    if (role == IsChildSpaceRole) {
+        return SpaceHierarchyCache::instance().isChildSpace(room->id());
+    }
 
     return QVariant();
 }
@@ -447,6 +454,7 @@ QHash<int, QByteArray> RoomListModel::roleNames() const
     roles[SubtitleTextRole] = "subtitleText";
     roles[IsSpaceRole] = "isSpace";
     roles[IdRole] = "id";
+    roles[IsChildSpaceRole] = "isChildSpace";
     return roles;
 }
 

@@ -36,6 +36,11 @@ public:
      */
     [[nodiscard]] QVector<QString> &getRoomListForSpace(const QString &spaceId, bool updateCache);
 
+    /**
+     * @brief Returns whether the space is a child space of any other space.
+     */
+    [[nodiscard]] bool isChildSpace(const QString &spaceId) const;
+
 Q_SIGNALS:
     void spaceHierarchyChanged();
 

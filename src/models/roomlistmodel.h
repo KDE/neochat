@@ -76,6 +76,7 @@ public:
         AvatarImageRole, /**< The room avatar as an image. */
         IdRole, /**< The room matrix ID. */
         IsSpaceRole, /**< Whether the room is a space. */
+        IsChildSpaceRole, /**< Whether this space is a child of a different space. */
     };
     Q_ENUM(EventRoles)
 
