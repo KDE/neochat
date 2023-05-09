@@ -41,6 +41,7 @@
         {
             "name": "olm",
             "buildsystem": "cmake-ninja",
+            "config-opts": [ "-DOLM_TESTS=OFF" ],
             "sources": [
                 {
                     "type": "git",
@@ -102,6 +103,7 @@
         {
             "name": "libQuotient",
             "buildsystem": "cmake-ninja",
+            "config-opts": [ "-DBUILD_TESTING=OFF" ],
             "sources": [
                 {
                     "type": "git",
@@ -117,6 +119,7 @@
         {
             "name": "cmark",
             "buildsystem": "cmake-ninja",
+            "config-opts": [ "-DCMARK_TESTS=OFF" ],
             "sources": [
                 {
                     "type": "git",
@@ -133,6 +136,7 @@
         {
             "name": "qcoro",
             "buildsystem": "cmake-ninja",
+            "config-opts": [ "-DQCORO_BUILD_EXAMPLES=OFF", "-DBUILD_TESTING=OFF" ],
             "sources": [
                 {
                     "type": "archive",
