@@ -62,11 +62,11 @@ Item {
             id: loader
 
             Layout.fillWidth: true
-            Layout.maximumHeight: loader.item && (reply.type == MessageEventModel.Image || reply.type == MessageEventModel.Sticker) ? loader.item.height : -1
+            Layout.maximumHeight: loader.item && (model.reply.type == MessageEventModel.Image || model.reply.type == MessageEventModel.Sticker) ? loader.item.height : -1
             Layout.columnSpan: 2
 
             sourceComponent: {
-                switch (reply.type) {
+                switch (model.reply.type) {
                     case MessageEventModel.Image:
                     case MessageEventModel.Sticker:
                         return imageComponent;
@@ -96,7 +96,7 @@ Item {
     Component {
         id: textComponent
         RichLabel {
-            textMessage: reply.display
+            textMessage: model.reply.display
             textFormat: Text.RichText
 
             HoverHandler {
@@ -141,8 +141,8 @@ Item {
         id: mimeComponent
         MimeComponent {
             mimeIconSource: replyComponent.mediaInfo.mimeIcon
-            label: reply.display
-            subLabel: reply.type === MessageEventModel.File ? Controller.formatByteSize(replyComponent.mediaInfo.size) : Controller.formatDuration(replyComponent.mediaInfo.duration)
+            label: model.reply.display
+            subLabel: model.reply.type === MessageEventModel.File ? Controller.formatByteSize(replyComponent.mediaInfo.size) : Controller.formatDuration(replyComponent.mediaInfo.duration)
         }
     }
     Component {
