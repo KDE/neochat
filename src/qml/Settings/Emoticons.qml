@@ -54,7 +54,7 @@ Kirigami.ScrollablePage {
             trailing: QQC2.ToolButton {
                 width: height
                 icon.name: "delete"
-                onClicked: emojiModel.removeEmoji(del.name)
+                onClicked: CustomEmojiModel.removeEmoji(del.name)
             }
         }
     }

@@ -2,12 +2,17 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "customemojimodel.h"
+
+#include <QImage>
+#include <QMimeDatabase>
+
 #include "controller.h"
 #include "emojimodel.h"
 
 #include <connection.h>
 #include <csapi/account-data.h>
 #include <csapi/content-repo.h>
+#include <events/eventcontent.h>
 
 using namespace Quotient;
 
@@ -58,17 +63,31 @@ void CustomEmojiModel::addEmoji(const QString &name, const QUrl &location)
     auto job = Controller::instance().activeConnection()->uploadFile(location.toLocalFile());
 
     if (running(job)) {
-        connect(job, &BaseJob::success, this, [name, job] {
+        connect(job, &BaseJob::success, this, [name, location, job] {
             const auto &data = Controller::instance().activeConnection()->accountData("im.ponies.user_emotes");
             auto json = data != nullptr ? data->contentJson() : QJsonObject();
             auto emojiData = json["images"].toObject();
-            emojiData[QStringLiteral("%1").arg(name)] = QJsonObject({
+
+            QString url;
 #ifdef QUOTIENT_07
-                {QStringLiteral("url"), job->contentUri().toString()}
+            url = job->contentUri().toString();
 #else
-          {QStringLiteral("url"), job->contentUri()}
+            url = job->contentUri();
 #endif
+
+            QImage image(location.toLocalFile());
+            QJsonObject imageInfo;
+            imageInfo["w"] = image.width();
+            imageInfo["h"] = image.height();
+            imageInfo["mimetype"] = QMimeDatabase().mimeTypeForFile(location.toLocalFile()).name();
+            imageInfo["size"] = image.sizeInBytes();
+
+            emojiData[QStringLiteral("%1").arg(name)] = QJsonObject({
+                {QStringLiteral("url"), url},
+                {QStringLiteral("info"), imageInfo},
+                {QStringLiteral("body"), location.fileName()},
             });
+
             json["images"] = emojiData;
             Controller::instance().activeConnection()->setAccountData("im.ponies.user_emotes", json);
         });
