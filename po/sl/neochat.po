@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-09 00:48+0000\n"
+"POT-Creation-Date: 2023-05-10 00:47+0000\n"
 "PO-Revision-Date: 2023-05-07 08:39+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -689,32 +689,32 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/models/roomlistmodel.cpp:457
+#: src/models/roomlistmodel.cpp:465
 #, kde-format
 msgid "Invited"
 msgstr "Povabljen"
 
-#: src/models/roomlistmodel.cpp:459
+#: src/models/roomlistmodel.cpp:467
 #, kde-format
 msgid "Favorite"
 msgstr "Priljubljen"
 
-#: src/models/roomlistmodel.cpp:461
+#: src/models/roomlistmodel.cpp:469
 #, kde-format
 msgid "Direct Messages"
 msgstr "Neposredna sporočila"
 
-#: src/models/roomlistmodel.cpp:463
+#: src/models/roomlistmodel.cpp:471
 #, kde-format
 msgid "Normal"
 msgstr "Normalno"
 
-#: src/models/roomlistmodel.cpp:465
+#: src/models/roomlistmodel.cpp:473
 #, kde-format
 msgid "Low priority"
 msgstr "Nizka prednost"
 
-#: src/models/roomlistmodel.cpp:467
+#: src/models/roomlistmodel.cpp:475
 #, kde-format
 msgid "Spaces"
 msgstr "Presledki"
@@ -2596,7 +2596,7 @@ msgid "Leave Room"
 msgstr "Zapusti sobo"
 
 #: src/qml/Page/RoomList/ExploreComponent.qml:19
-#: src/qml/Page/RoomList/Page.qml:150
+#: src/qml/Page/RoomList/Page.qml:154
 #, kde-format
 msgid "Explore rooms"
 msgstr "Razišči sobe"
@@ -2607,17 +2607,17 @@ msgstr "Razišči sobe"
 msgid "Create rooms and chats"
 msgstr "Ustvari sobe in klepete"
 
-#: src/qml/Page/RoomList/Page.qml:147
+#: src/qml/Page/RoomList/Page.qml:151
 #, kde-format
 msgid "No rooms found"
 msgstr "Nobene sobe ni mogoče najti"
 
-#: src/qml/Page/RoomList/Page.qml:147
+#: src/qml/Page/RoomList/Page.qml:151
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Pridruži se nekaj sobam za začetek"
 
-#: src/qml/Page/RoomList/Page.qml:150
+#: src/qml/Page/RoomList/Page.qml:154
 #, kde-format
 msgid "Search in room directory"
 msgstr "Poišči v imeniku sob"
@@ -2631,6 +2631,13 @@ msgstr "Utišana soba"
 #, kde-format
 msgid "Configure room"
 msgstr "Nastavi sobo"
+
+#: src/qml/Page/RoomList/SpaceDrawer.qml:63
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Show All Rooms"
+msgid "All Rooms"
+msgstr "Prikaži vse sobe"
 
 #: src/qml/Page/RoomList/SpaceListContextMenu.qml:25
 #, kde-format
@@ -2656,12 +2663,6 @@ msgstr "Nastavitve prostora"
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "Zapusti prostor"
-
-#: src/qml/Page/RoomList/SpaceListView.qml:29
-#, kde-format
-msgctxt "@action:button"
-msgid "Show All Rooms"
-msgstr "Prikaži vse sobe"
 
 #: src/qml/Page/RoomList/UserInfo.qml:57 src/qml/Settings/AccountsPage.qml:83
 #, kde-format

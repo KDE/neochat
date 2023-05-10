@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-09 00:48+0000\n"
-"PO-Revision-Date: 2023-04-30 21:42+0200\n"
+"POT-Creation-Date: 2023-05-10 00:47+0000\n"
+"PO-Revision-Date: 2023-05-09 11:43+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.0\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #: src/controller.cpp:182
 #, kde-format
@@ -683,32 +683,32 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/models/roomlistmodel.cpp:457
+#: src/models/roomlistmodel.cpp:465
 #, kde-format
 msgid "Invited"
 msgstr "Invitate"
 
-#: src/models/roomlistmodel.cpp:459
+#: src/models/roomlistmodel.cpp:467
 #, kde-format
 msgid "Favorite"
 msgstr "Favorito"
 
-#: src/models/roomlistmodel.cpp:461
+#: src/models/roomlistmodel.cpp:469
 #, kde-format
 msgid "Direct Messages"
 msgstr "Messages directe"
 
-#: src/models/roomlistmodel.cpp:463
+#: src/models/roomlistmodel.cpp:471
 #, kde-format
 msgid "Normal"
 msgstr "Normal"
 
-#: src/models/roomlistmodel.cpp:465
+#: src/models/roomlistmodel.cpp:473
 #, kde-format
 msgid "Low priority"
 msgstr "Basse prioritate"
 
-#: src/models/roomlistmodel.cpp:467
+#: src/models/roomlistmodel.cpp:475
 #, kde-format
 msgid "Spaces"
 msgstr "Spatios"
@@ -1266,10 +1266,9 @@ msgid "No emojis"
 msgstr "Nulle Emojis"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:49
-#, fuzzy, kde-format
-#| msgid "No emojis"
+#, kde-format
 msgid "Emojis"
-msgstr "Nulle Emojis"
+msgstr "Emojis"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:56
 #, kde-format
@@ -2559,7 +2558,7 @@ msgid "Leave Room"
 msgstr "Lassa sala"
 
 #: src/qml/Page/RoomList/ExploreComponent.qml:19
-#: src/qml/Page/RoomList/Page.qml:150
+#: src/qml/Page/RoomList/Page.qml:154
 #, kde-format
 msgid "Explore rooms"
 msgstr "Explora salas"
@@ -2570,17 +2569,17 @@ msgstr "Explora salas"
 msgid "Create rooms and chats"
 msgstr "Crea salas e conversationes"
 
-#: src/qml/Page/RoomList/Page.qml:147
+#: src/qml/Page/RoomList/Page.qml:151
 #, kde-format
 msgid "No rooms found"
 msgstr "Nulle salas trovat"
 
-#: src/qml/Page/RoomList/Page.qml:147
+#: src/qml/Page/RoomList/Page.qml:151
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Uni alcun salas per initiar"
 
-#: src/qml/Page/RoomList/Page.qml:150
+#: src/qml/Page/RoomList/Page.qml:154
 #, kde-format
 msgid "Search in room directory"
 msgstr "cerca in directorio de sala"
@@ -2594,6 +2593,13 @@ msgstr "Sala Silentiate"
 #, kde-format
 msgid "Configure room"
 msgstr "Configura sala"
+
+#: src/qml/Page/RoomList/SpaceDrawer.qml:63
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Show All Rooms"
+msgid "All Rooms"
+msgstr "Monstra omne Salas"
 
 #: src/qml/Page/RoomList/SpaceListContextMenu.qml:25
 #, kde-format
@@ -2619,12 +2625,6 @@ msgstr "Preferentias de Spatio"
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "Lassa spatio"
-
-#: src/qml/Page/RoomList/SpaceListView.qml:29
-#, kde-format
-msgctxt "@action:button"
-msgid "Show All Rooms"
-msgstr "Monstra omne Salas"
 
 #: src/qml/Page/RoomList/UserInfo.qml:57 src/qml/Settings/AccountsPage.qml:83
 #, kde-format

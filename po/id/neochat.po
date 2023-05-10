@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-09 00:48+0000\n"
+"POT-Creation-Date: 2023-05-10 00:47+0000\n"
 "PO-Revision-Date: 2023-02-15 16:40+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -697,32 +697,32 @@ msgctxt "list separator"
 msgid ", "
 msgstr ","
 
-#: src/models/roomlistmodel.cpp:457
+#: src/models/roomlistmodel.cpp:465
 #, kde-format
 msgid "Invited"
 msgstr "Diundang"
 
-#: src/models/roomlistmodel.cpp:459
+#: src/models/roomlistmodel.cpp:467
 #, kde-format
 msgid "Favorite"
 msgstr "Favorit"
 
-#: src/models/roomlistmodel.cpp:461
+#: src/models/roomlistmodel.cpp:469
 #, kde-format
 msgid "Direct Messages"
 msgstr "Pesan Langsung"
 
-#: src/models/roomlistmodel.cpp:463
+#: src/models/roomlistmodel.cpp:471
 #, kde-format
 msgid "Normal"
 msgstr "Normal"
 
-#: src/models/roomlistmodel.cpp:465
+#: src/models/roomlistmodel.cpp:473
 #, kde-format
 msgid "Low priority"
 msgstr "Prioritas rendah"
 
-#: src/models/roomlistmodel.cpp:467
+#: src/models/roomlistmodel.cpp:475
 #, kde-format
 msgid "Spaces"
 msgstr "Space"
@@ -2610,7 +2610,7 @@ msgid "Leave Room"
 msgstr "Tinggalkan Ruangan"
 
 #: src/qml/Page/RoomList/ExploreComponent.qml:19
-#: src/qml/Page/RoomList/Page.qml:150
+#: src/qml/Page/RoomList/Page.qml:154
 #, kde-format
 msgid "Explore rooms"
 msgstr "Jelajahi ruangan"
@@ -2622,17 +2622,17 @@ msgstr "Jelajahi ruangan"
 msgid "Create rooms and chats"
 msgstr "Ruangan dan obrolan privat"
 
-#: src/qml/Page/RoomList/Page.qml:147
+#: src/qml/Page/RoomList/Page.qml:151
 #, kde-format
 msgid "No rooms found"
 msgstr "Tidak ada ruangan yang ditemukan"
 
-#: src/qml/Page/RoomList/Page.qml:147
+#: src/qml/Page/RoomList/Page.qml:151
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Bergabung ke beberapa ruangan untuk memulai"
 
-#: src/qml/Page/RoomList/Page.qml:150
+#: src/qml/Page/RoomList/Page.qml:154
 #, kde-format
 msgid "Search in room directory"
 msgstr "Cari di direktori ruangan"
@@ -2646,6 +2646,13 @@ msgstr "Ruangan dibusukan"
 #, kde-format
 msgid "Configure room"
 msgstr "Konfigurasi ruangan"
+
+#: src/qml/Page/RoomList/SpaceDrawer.qml:63
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Show All Rooms"
+msgid "All Rooms"
+msgstr "Tampilkan Semua Ruangan"
 
 #: src/qml/Page/RoomList/SpaceListContextMenu.qml:25
 #, kde-format
@@ -2671,12 +2678,6 @@ msgstr "Pengaturan Space"
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "Tinggalkan Space"
-
-#: src/qml/Page/RoomList/SpaceListView.qml:29
-#, kde-format
-msgctxt "@action:button"
-msgid "Show All Rooms"
-msgstr "Tampilkan Semua Ruangan"
 
 #: src/qml/Page/RoomList/UserInfo.qml:57 src/qml/Settings/AccountsPage.qml:83
 #, kde-format

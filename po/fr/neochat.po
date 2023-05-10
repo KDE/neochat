@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-09 00:48+0000\n"
+"POT-Creation-Date: 2023-05-10 00:47+0000\n"
 "PO-Revision-Date: 2023-05-05 20:48+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
@@ -688,32 +688,32 @@ msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/models/roomlistmodel.cpp:457
+#: src/models/roomlistmodel.cpp:465
 #, kde-format
 msgid "Invited"
 msgstr "Invité"
 
-#: src/models/roomlistmodel.cpp:459
+#: src/models/roomlistmodel.cpp:467
 #, kde-format
 msgid "Favorite"
 msgstr "Préféré"
 
-#: src/models/roomlistmodel.cpp:461
+#: src/models/roomlistmodel.cpp:469
 #, kde-format
 msgid "Direct Messages"
 msgstr "Messages directs"
 
-#: src/models/roomlistmodel.cpp:463
+#: src/models/roomlistmodel.cpp:471
 #, kde-format
 msgid "Normal"
 msgstr "Normal"
 
-#: src/models/roomlistmodel.cpp:465
+#: src/models/roomlistmodel.cpp:473
 #, kde-format
 msgid "Low priority"
 msgstr "Basse priorité"
 
-#: src/models/roomlistmodel.cpp:467
+#: src/models/roomlistmodel.cpp:475
 #, kde-format
 msgid "Spaces"
 msgstr "Espaces"
@@ -2601,7 +2601,7 @@ msgid "Leave Room"
 msgstr "Quitter un salon"
 
 #: src/qml/Page/RoomList/ExploreComponent.qml:19
-#: src/qml/Page/RoomList/Page.qml:150
+#: src/qml/Page/RoomList/Page.qml:154
 #, kde-format
 msgid "Explore rooms"
 msgstr "Explorer les salons"
@@ -2612,17 +2612,17 @@ msgstr "Explorer les salons"
 msgid "Create rooms and chats"
 msgstr "Créer des salons et des fils de discussions"
 
-#: src/qml/Page/RoomList/Page.qml:147
+#: src/qml/Page/RoomList/Page.qml:151
 #, kde-format
 msgid "No rooms found"
 msgstr "Aucun salon n'a été trouvé."
 
-#: src/qml/Page/RoomList/Page.qml:147
+#: src/qml/Page/RoomList/Page.qml:151
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Rejoindre certains salons pour vous lancer."
 
-#: src/qml/Page/RoomList/Page.qml:150
+#: src/qml/Page/RoomList/Page.qml:154
 #, kde-format
 msgid "Search in room directory"
 msgstr "Rechercher dans le dossier des salons"
@@ -2636,6 +2636,13 @@ msgstr "Salon en pause"
 #, kde-format
 msgid "Configure room"
 msgstr "Configurer un salon"
+
+#: src/qml/Page/RoomList/SpaceDrawer.qml:63
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Show All Rooms"
+msgid "All Rooms"
+msgstr "Afficher tous les salons"
 
 #: src/qml/Page/RoomList/SpaceListContextMenu.qml:25
 #, kde-format
@@ -2661,12 +2668,6 @@ msgstr "Configuration des espacements"
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "Laisser un espace"
-
-#: src/qml/Page/RoomList/SpaceListView.qml:29
-#, kde-format
-msgctxt "@action:button"
-msgid "Show All Rooms"
-msgstr "Afficher tous les salons"
 
 #: src/qml/Page/RoomList/UserInfo.qml:57 src/qml/Settings/AccountsPage.qml:83
 #, kde-format
