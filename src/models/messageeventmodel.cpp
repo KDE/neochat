@@ -1085,7 +1085,7 @@ void MessageEventModel::loadReply(const QModelIndex &index)
     QPersistentModelIndex persistentIndex(index);
     connect(job, &BaseJob::success, this, [this, job, persistentIndex] {
         m_extraEvents.push_back(fromJson<event_ptr_tt<RoomEvent>>(job->jsonData()));
-        Q_EMIT dataChanged(persistentIndex, persistentIndex, {ReplyRole});
+        Q_EMIT dataChanged(persistentIndex, persistentIndex, {ReplyRole, ReplyMediaInfoRole, ReplyAuthor});
     });
 }
 
