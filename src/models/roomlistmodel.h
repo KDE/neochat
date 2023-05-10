@@ -64,7 +64,6 @@ public:
         CanonicalAliasRole, /**< The room canonical alias. */
         TopicRole, /**< The room topic. */
         CategoryRole, /**< The room category, e.g favourite. */
-        UnreadCountRole, /**< The number of unread messages in the room. */
         NotificationCountRole, /**< The number of notifications in the room. */
         HighlightCountRole, /**< The number of highlighted messages in the room. */
         LastEventRole, /**< Text for the last event in the room. */

@@ -17,7 +17,6 @@ Kirigami.BasicListItem {
     id: root
 
     required property int index
-    required property int unreadCount
     required property int notificationCount
     required property int highlightCount
     required property var currentRoom
@@ -28,7 +27,7 @@ Kirigami.BasicListItem {
 
     required property string name
 
-    readonly property bool hasUnread: unreadCount > 0
+    readonly property bool hasNotifications: notificationCount > 0
 
     topPadding: Kirigami.Units.largeSpacing
     bottomPadding: Kirigami.Units.largeSpacing
@@ -37,7 +36,7 @@ Kirigami.BasicListItem {
     highlighted: ListView.view.currentIndex === index
     focus: true
     icon: undefined
-    bold: root.unreadCount > 0
+    bold: root.hasNotifications
 
     label: root.name ?? ""
     labelItem.textFormat: Text.PlainText
@@ -77,14 +76,14 @@ Kirigami.BasicListItem {
             enabled: false
             implicitWidth: Kirigami.Units.iconSizes.smallMedium
             implicitHeight: Kirigami.Units.iconSizes.smallMedium
-            visible: currentRoom.pushNotificationState === PushNotificationState.Mute && !configButton.visible && unreadCount <= 0
+            visible: currentRoom.pushNotificationState === PushNotificationState.Mute && !configButton.visible && !hasNotifications
             Accessible.name: i18n("Muted room")
             Layout.rightMargin: Kirigami.Units.smallSpacing
         }
         QQC2.Label {
             id: notificationCountLabel
-            text: notificationCount > 0 ? notificationCount : "●"
-            visible: unreadCount > 0
+            text: notificationCount
+            visible: hasNotifications
             color: Kirigami.Theme.textColor
             horizontalAlignment: Text.AlignHCenter
             background: Rectangle {

@@ -161,7 +161,7 @@ void RoomListModel::connectRoomSignals(NeoChatRoom *room)
         refresh(room, {DisplayNameRole, NameRole});
     });
     connect(room, &Room::unreadMessagesChanged, this, [this, room] {
-        refresh(room, {UnreadCountRole, NotificationCountRole, HighlightCountRole});
+        refresh(room, {NotificationCountRole, HighlightCountRole});
     });
     connect(room, &Room::notificationCountChanged, this, [this, room] {
         refresh(room);
@@ -374,9 +374,6 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
         }
         return NeoChatRoomType::Normal;
     }
-    if (role == UnreadCountRole) {
-        return room->unreadCount();
-    }
     if (role == NotificationCountRole) {
         return room->notificationCount();
     }
@@ -443,7 +440,6 @@ QHash<int, QByteArray> RoomListModel::roleNames() const
     roles[CanonicalAliasRole] = "canonicalAlias";
     roles[TopicRole] = "topic";
     roles[CategoryRole] = "category";
-    roles[UnreadCountRole] = "unreadCount";
     roles[NotificationCountRole] = "notificationCount";
     roles[HighlightCountRole] = "highlightCount";
     roles[LastEventRole] = "lastEvent";
