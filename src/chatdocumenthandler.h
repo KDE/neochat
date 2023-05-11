@@ -157,7 +157,7 @@ Q_SIGNALS:
 private:
     int completionStartIndex() const;
 
-    bool m_isEdit;
+    bool m_isEdit = false;
 
     QQuickTextDocument *m_document;
 
