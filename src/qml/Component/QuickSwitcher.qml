@@ -92,7 +92,7 @@ QQC2.Dialog {
                 required property var currentRoom
                 required property string name
                 required property int index
-                required property int unreadCount
+                required property int notificationCount
                 required property string subtitleText
                 required property string avatar
 
@@ -113,7 +113,7 @@ QQC2.Dialog {
                     RoomManager.enterRoom(roomListItem.currentRoom);
                     root.close();
                 }
-                bold: roomListItem.unreadCount > 0
+                bold: roomListItem.notificationCount > 0
                 label: roomListItem.name ?? ""
                 labelItem.textFormat: Text.PlainText
                 subtitle: roomListItem.subtitleText
