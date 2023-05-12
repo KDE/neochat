@@ -25,7 +25,8 @@ public:
     enum Roles {
         AggregateDisplayRole = MessageEventModel::LastRole + 1, /**< Single line aggregation of all the state events. */
         StateEventsRole, /**< List of state events in the aggregated state. */
-        AuthorListRole, /**< List of unique authors of the aggregated state event. */
+        AuthorListRole, /**< List of the first 5 unique authors of the aggregated state event. */
+        ExcessAuthorsRole, /**< The number of unique authors beyond the first 5. */
     };
 
     /**
@@ -67,7 +68,12 @@ private:
     [[nodiscard]] QVariantList stateEventsList(int row) const;
 
     /**
-     * @brief List of unique authors for the aggregate state events starting at row.
+     * @brief List of the first 5 unique authors for the aggregate state events starting at row.
      */
     [[nodiscard]] QVariantList authorList(int row) const;
+
+    /**
+     * @brief The number of unique authors beyond the first 5 for the aggregate state events starting at row.
+     */
+    [[nodiscard]] QString excessAuthors(int row) const;
 };

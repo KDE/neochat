@@ -24,6 +24,8 @@ QVariant CollapseStateProxyModel::data(const QModelIndex &index, int role) const
         return stateEventsList(mapToSource(index).row());
     } else if (role == AuthorListRole) {
         return authorList(mapToSource(index).row());
+    } else if (role == ExcessAuthorsRole) {
+        return excessAuthors(mapToSource(index).row());
     }
     return sourceModel()->data(mapToSource(index), role);
 }
@@ -34,6 +36,7 @@ QHash<int, QByteArray> CollapseStateProxyModel::roleNames() const
     roles[AggregateDisplayRole] = "aggregateDisplay";
     roles[StateEventsRole] = "stateEvents";
     roles[AuthorListRole] = "authorList";
+    roles[ExcessAuthorsRole] = "excessAuthors";
     return roles;
 }
 
@@ -130,5 +133,39 @@ QVariantList CollapseStateProxyModel::authorList(int sourceRow) const
             break;
         }
     }
+
+    if (uniqueAuthors.count() > 5) {
+        uniqueAuthors = uniqueAuthors.mid(0, 5);
+    }
     return uniqueAuthors;
+}
+
+QString CollapseStateProxyModel::excessAuthors(int row) const
+{
+    QVariantList uniqueAuthors;
+    for (int i = row; i >= 0; i--) {
+        QVariant nextAvatar = sourceModel()->data(sourceModel()->index(i, 0), MessageEventModel::AuthorRole);
+        if (!uniqueAuthors.contains(nextAvatar)) {
+            uniqueAuthors.append(nextAvatar);
+        }
+        if (sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::DelegateTypeRole)
+                != MessageEventModel::DelegateType::State // If it's not a state event
+            || sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::ShowSectionRole).toBool() // or the section needs to be visible
+        ) {
+            break;
+        }
+    }
+
+    int excessAuthors;
+    if (uniqueAuthors.count() > 5) {
+        excessAuthors = uniqueAuthors.count() - 5;
+    } else {
+        excessAuthors = 0;
+    }
+    QString excessAuthorsString;
+    if (excessAuthors == 0) {
+        return QString();
+    } else {
+        return QStringLiteral("+ %1").arg(excessAuthors);
+    }
 }

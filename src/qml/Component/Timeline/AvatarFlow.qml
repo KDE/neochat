@@ -12,17 +12,44 @@ Flow {
     property var avatarSize: Kirigami.Units.iconSizes.small
     property alias model: avatarFlowRepeater.model
     property string toolTipText
+    property alias excessAvatars: excessAvatarsLabel.text
 
     spacing: -avatarSize / 2
     Repeater {
         id: avatarFlowRepeater
         delegate: Kirigami.Avatar {
+            topInset: Kirigami.Units.smallSpacing / 2
+            topPadding: Kirigami.Units.smallSpacing / 2
             implicitWidth: avatarSize
-            implicitHeight: avatarSize
+            implicitHeight: avatarSize + Kirigami.Units.smallSpacing / 2
 
             name: modelData.displayName
             source: modelData.avatarSource
             color: modelData.color
+        }
+    }
+    QQC2.Label {
+        id: excessAvatarsLabel
+        visible: text !== ""
+        color: Kirigami.Theme.textColor
+        horizontalAlignment: Text.AlignHCenter
+        background: Kirigami.ShadowedRectangle {
+            color: Kirigami.Theme.backgroundColor
+            Kirigami.Theme.inherit: false
+            Kirigami.Theme.colorSet: Kirigami.Theme.View
+            radius: height / 2
+            shadow.size: Kirigami.Units.smallSpacing
+            shadow.color: Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.10)
+            border.color: Kirigami.ColorUtils.tintWithAlpha(color, Kirigami.Theme.textColor, 0.15)
+            border.width: 1
+        }
+
+        height: Kirigami.Units.iconSizes.small + Kirigami.Units.smallSpacing
+        width: Math.max(excessAvatarsTextMetrics.advanceWidth + Kirigami.Units.smallSpacing * 2, height)
+
+        TextMetrics {
+            id: excessAvatarsTextMetrics
+            text: excessAvatarsLabel.text
         }
     }
 

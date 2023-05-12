@@ -57,6 +57,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[ShowAuthorRole] = "showAuthor";
     roles[ShowSectionRole] = "showSection";
     roles[ReadMarkersRole] = "readMarkers";
+    roles[ExcessReadMarkersRole] = "excessReadMarkers";
     roles[ReadMarkersStringRole] = "readMarkersString";
     roles[ShowReadMarkersRole] = "showReadMarkers";
     roles[ReactionRole] = "reaction";
@@ -248,7 +249,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         connect(m_currentRoom, &Room::changed, this, [this]() {
             for (auto it = m_currentRoom->messageEvents().rbegin(); it != m_currentRoom->messageEvents().rend(); ++it) {
                 auto event = it->event();
-                refreshEventRoles(event->id(), {ReadMarkersRole, ReadMarkersStringRole});
+                refreshEventRoles(event->id(), {ReadMarkersRole, ReadMarkersStringRole, ExcessReadMarkersRole});
             }
         });
         connect(m_currentRoom, &Room::newFileTransfer, this, &MessageEventModel::refreshEvent);
@@ -852,8 +853,13 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 
     if (role == ReadMarkersRole) {
 #ifdef QUOTIENT_07
-        auto userIds = room()->userIdsAtEvent(evt.id());
-        userIds.remove(m_currentRoom->localUser()->id());
+        auto userIds_temp = room()->userIdsAtEvent(evt.id());
+        userIds_temp.remove(m_currentRoom->localUser()->id());
+
+        auto userIds = userIds_temp.values();
+        if (userIds.count() > 5) {
+            userIds = userIds.mid(0, 5);
+        }
 #else
         auto userIds = room()->usersAtEventId(evt.id());
         userIds.removeAll(m_currentRoom->localUser());
@@ -871,6 +877,22 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         }
 
         return users;
+    }
+
+    if (role == ExcessReadMarkersRole) {
+#ifdef QUOTIENT_07
+        auto userIds = room()->userIdsAtEvent(evt.id());
+        userIds.remove(m_currentRoom->localUser()->id());
+#else
+        auto userIds = room()->usersAtEventId(evt.id());
+        userIds.removeAll(m_currentRoom->localUser());
+#endif
+
+        if (userIds.count() > 5) {
+            return QStringLiteral("+ ") + QString::number(userIds.count() - 5);
+        } else {
+            return QString();
+        }
     }
 
     if (role == ReadMarkersStringRole) {

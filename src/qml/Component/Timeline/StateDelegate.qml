@@ -78,12 +78,39 @@ QQC2.Control {
                 Repeater {
                     model: authorList
                     delegate: Kirigami.Avatar {
+                        topInset: Kirigami.Units.smallSpacing / 2
+                        topPadding: Kirigami.Units.smallSpacing / 2
                         implicitWidth: Kirigami.Units.iconSizes.small
-                        implicitHeight: Kirigami.Units.iconSizes.small
+                        implicitHeight: Kirigami.Units.iconSizes.small + Kirigami.Units.smallSpacing / 2
 
                         name: modelData.displayName
                         source: modelData.avatarSource
                         color: modelData.color
+                    }
+                }
+                QQC2.Label {
+                    id: excessAuthorsLabel
+                    text: model.excessAuthors
+                    visible: model.excessAuthors !== ""
+                    color: Kirigami.Theme.textColor
+                    horizontalAlignment: Text.AlignHCenter
+                    background: Kirigami.ShadowedRectangle {
+                        color: Kirigami.Theme.backgroundColor
+                        Kirigami.Theme.inherit: false
+                        Kirigami.Theme.colorSet: Kirigami.Theme.View
+                        radius: height / 2
+                        shadow.size: Kirigami.Units.smallSpacing
+                        shadow.color: Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.10)
+                        border.color: Kirigami.ColorUtils.tintWithAlpha(color, Kirigami.Theme.textColor, 0.15)
+                        border.width: 1
+                    }
+
+                    height: Kirigami.Units.iconSizes.small + Kirigami.Units.smallSpacing
+                    width: Math.max(excessAuthorsTextMetrics.advanceWidth + Kirigami.Units.smallSpacing * 2, height)
+
+                    TextMetrics {
+                        id: excessAuthorsTextMetrics
+                        text: excessAuthorsLabel.text
                     }
                 }
             }
@@ -140,6 +167,7 @@ QQC2.Control {
             visible: showReadMarkers
             model: readMarkers
             toolTipText: readMarkersString
+            excessAvatars: excessReadMarkers
         }
     }
 }

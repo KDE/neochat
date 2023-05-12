@@ -342,6 +342,7 @@ ColumnLayout {
         visible: showReadMarkers
         model: readMarkers
         toolTipText: readMarkersString
+        excessAvatars: excessReadMarkers
     }
 
     function isVisibleInTimeline() {

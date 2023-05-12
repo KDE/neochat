@@ -86,7 +86,8 @@ public:
         ShowAuthorRole, /**< Whether the author's name should be shown. */
         ShowSectionRole, /**< Whether the section header should be shown. */
 
-        ReadMarkersRole, /**< Other users at the event for read marker tracking. */
+        ReadMarkersRole, /**< The first 5 other users at the event for read marker tracking. */
+        ExcessReadMarkersRole, /**< The number of other users at the event after the first 5. */
         ReadMarkersStringRole, /**< String with the display name and mxID of the users at the event. */
         ShowReadMarkersRole, /**< Whether there are any other user read markers to be shown. */
         ReactionRole, /**< List of reactions to this event. */
