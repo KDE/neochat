@@ -137,20 +137,20 @@ void Controller::handleNotifications(QPointer<Quotient::Connection> connection)
         if (!initial.contains(connection->user()->id())) {
             initial.append(connection->user()->id());
             for (const auto &n : notifications) {
-                oldNotifications += n.toObject()["event"].toObject()["event_id"].toString();
+                oldNotifications += n["event"]["event_id"].toString();
             }
             return;
         }
         for (const auto &n : notifications) {
-            const auto notification = n.toObject();
+            const auto &notification = n.toObject();
             if (notification["read"].toBool()) {
-                oldNotifications.removeOne(notification["event"].toObject()["event_id"].toString());
+                oldNotifications.removeOne(notification["event"]["event_id"].toString());
                 continue;
             }
-            if (oldNotifications.contains(notification["event"].toObject()["event_id"].toString())) {
+            if (oldNotifications.contains(notification["event"]["event_id"].toString())) {
                 continue;
             }
-            oldNotifications += notification["event"].toObject()["event_id"].toString();
+            oldNotifications += notification["event"]["event_id"].toString();
             auto room = connection->room(notification["room_id"].toString());
 
             // If room exists, room is NOT active OR the application is NOT active, show notification
@@ -158,25 +158,20 @@ void Controller::handleNotifications(QPointer<Quotient::Connection> connection)
                 && !(RoomManager::instance().currentRoom() && room->id() == RoomManager::instance().currentRoom()->id()
                      && QGuiApplication::applicationState() == Qt::ApplicationActive)) {
                 // The room might have been deleted (for example rejected invitation).
-                auto sender = room->user(notification["event"].toObject()["sender"].toString());
+                auto sender = room->user(notification["event"]["sender"].toString());
 
                 QString body;
 
-                if (notification["event"].toObject()["type"].toString() == "org.matrix.msc3381.poll.start") {
-                    body = notification["event"]
-                               .toObject()["content"]
-                               .toObject()["org.matrix.msc3381.poll.start"]
-                               .toObject()["question"]
-                               .toObject()["body"]
-                               .toString();
+                if (notification["event"]["type"].toString() == "org.matrix.msc3381.poll.start") {
+                    body = notification["event"]["content"]["org.matrix.msc3381.poll.start"]["question"]["body"].toString();
                 } else {
-                    body = notification["event"].toObject()["content"].toObject()["body"].toString();
+                    body = notification["event"]["content"]["body"].toString();
                 }
 
                 if (notification["event"]["type"] == "m.room.encrypted") {
 #ifdef Quotient_E2EE_ENABLED
-                    auto decrypted = connection->decryptNotification(notification);
-                    body = decrypted["content"].toObject()["body"].toString();
+                    const auto decrypted = connection->decryptNotification(notification);
+                    body = decrypted["content"]["body"].toString();
 #endif
                     if (body.isEmpty()) {
                         body = i18n("Encrypted Message");
