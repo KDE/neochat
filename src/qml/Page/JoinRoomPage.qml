@@ -207,7 +207,7 @@ Kirigami.ScrollablePage {
                     Layout.preferredHeight: Kirigami.Units.gridUnit * 2
 
                     source: model.avatar ? ("image://mxc/" + model.avatar) : ""
-                    name: name
+                    name: model.name
                 }
                 ColumnLayout {
                     Layout.fillWidth: true
