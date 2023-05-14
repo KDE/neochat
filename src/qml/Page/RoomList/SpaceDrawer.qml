@@ -82,7 +82,7 @@ QQC2.Control {
                             Layout.preferredHeight: width
                             display: Kirigami.NavigationTabButton.IconOnly
                             text: model.name
-                            source: "image://mxc/" + model.avatar
+                            source: model.avatar ? ("image://mxc/" + model.avatar) : ""
                             name: model.name
                             onClicked: root.selectedSpaceId = model.id
                             QQC2.ToolTip.visible: hovered
