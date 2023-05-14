@@ -18,7 +18,7 @@ ColumnLayout {
             spacing: 0
             MobileForm.FormComboBoxDelegate {
                 text: i18n("Room")
-                textRole: "name"
+                textRole: "displayName"
                 valueRole: "id"
                 model: RoomListModel {
                     id: roomListModel

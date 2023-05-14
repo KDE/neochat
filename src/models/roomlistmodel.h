@@ -58,8 +58,7 @@ public:
      * @brief Defines the model roles.
      */
     enum EventRoles {
-        NameRole = Qt::UserRole + 1, /**< The name of the room. */
-        DisplayNameRole, /**< The display name of the room. */
+        DisplayNameRole = Qt::DisplayRole, /**< The display name of the room. */
         AvatarRole, /**< The source URL for the room's avatar. */
         CanonicalAliasRole, /**< The room canonical alias. */
         TopicRole, /**< The room topic. */

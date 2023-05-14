@@ -20,7 +20,7 @@ QQC2.ItemDelegate {
     required property bool categoryVisible
     required property string filterText
     required property string avatar
-    required property string name
+    required property string displayName
 
     topPadding: Kirigami.Units.largeSpacing
     leftPadding: Kirigami.Units.largeSpacing
@@ -34,7 +34,7 @@ QQC2.ItemDelegate {
 
     contentItem: Kirigami.Avatar {
         source: root.avatar ? `image://mxc/${root.avatar}` : ""
-        name: root.name || i18n("No Name")
+        name: root.displayName
 
         sourceSize {
             width: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
@@ -48,6 +48,6 @@ QQC2.ItemDelegate {
     Keys.onReturnPressed: RoomManager.enterRoom(root.currentRoom)
 
     QQC2.ToolTip.visible: text.length > 0 && hovered
-    QQC2.ToolTip.text: root.name ?? ""
+    QQC2.ToolTip.text: root.displayName ?? ""
     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 }

@@ -158,7 +158,7 @@ void RoomListModel::doAddRoom(Room *r)
 void RoomListModel::connectRoomSignals(NeoChatRoom *room)
 {
     connect(room, &Room::displaynameChanged, this, [this, room] {
-        refresh(room, {DisplayNameRole, NameRole});
+        refresh(room, {DisplayNameRole});
     });
     connect(room, &Room::unreadMessagesChanged, this, [this, room] {
         refresh(room, {NotificationCountRole, HighlightCountRole});
@@ -333,9 +333,6 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
         return QVariant();
     }
     NeoChatRoom *room = m_rooms.at(index.row());
-    if (role == NameRole) {
-        return !room->name().isEmpty() ? room->name() : room->displayName();
-    }
     if (role == DisplayNameRole) {
         return room->displayName();
     }
@@ -434,7 +431,6 @@ void RoomListModel::refresh(NeoChatRoom *room, const QVector<int> &roles)
 QHash<int, QByteArray> RoomListModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
-    roles[NameRole] = "name";
     roles[DisplayNameRole] = "displayName";
     roles[AvatarRole] = "avatar";
     roles[CanonicalAliasRole] = "canonicalAlias";

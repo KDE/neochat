@@ -21,7 +21,7 @@ void SortFilterRoomListModel::setRoomSortOrder(SortFilterRoomListModel::RoomSort
     m_sortOrder = sortOrder;
     Q_EMIT roomSortOrderChanged();
     if (sortOrder == SortFilterRoomListModel::Alphabetical) {
-        setSortRole(RoomListModel::NameRole);
+        setSortRole(RoomListModel::DisplayNameRole);
     } else if (sortOrder == SortFilterRoomListModel::LastActivity) {
         setSortRole(RoomListModel::LastActiveTimeRole);
     }
@@ -78,7 +78,8 @@ bool SortFilterRoomListModel::filterAcceptsRow(int source_row, const QModelIndex
 {
     Q_UNUSED(source_parent);
 
-    bool acceptRoom = sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::NameRole).toString().contains(m_filterText, Qt::CaseInsensitive)
+    bool acceptRoom =
+        sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::DisplayNameRole).toString().contains(m_filterText, Qt::CaseInsensitive)
         && sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::JoinStateRole).toString() != "upgraded"
         && sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::IsSpaceRole).toBool() == false;
 

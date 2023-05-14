@@ -90,7 +90,7 @@ QQC2.Dialog {
                 id: roomListItem
 
                 required property var currentRoom
-                required property string name
+                required property string displayName
                 required property int index
                 required property int notificationCount
                 required property string subtitleText
@@ -114,7 +114,7 @@ QQC2.Dialog {
                     root.close();
                 }
                 bold: roomListItem.notificationCount > 0
-                label: roomListItem.name ?? ""
+                label: roomListItem.displayName ?? ""
                 labelItem.textFormat: Text.PlainText
                 subtitle: roomListItem.subtitleText
                 subtitleItem.textFormat: Text.PlainText
@@ -124,7 +124,7 @@ QQC2.Dialog {
 
                 leading: Kirigami.Avatar {
                     source: roomListItem.avatar ? "image://mxc/" + roomListItem.avatar : ""
-                    name: roomListItem.name || i18n("No Name")
+                    name: roomListItem.displayName
                     implicitWidth: height
                     sourceSize.width: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
                     sourceSize.height: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2

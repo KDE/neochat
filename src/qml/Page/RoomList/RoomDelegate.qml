@@ -25,7 +25,7 @@ Kirigami.BasicListItem {
     required property string avatar
     required property string subtitleText
 
-    required property string name
+    required property string displayName
 
     readonly property bool hasNotifications: notificationCount > 0
 
@@ -38,7 +38,7 @@ Kirigami.BasicListItem {
     icon: undefined
     bold: root.hasNotifications
 
-    label: root.name ?? ""
+    label: root.displayName
     labelItem.textFormat: Text.PlainText
 
     subtitle: root.subtitleText
@@ -61,7 +61,7 @@ Kirigami.BasicListItem {
 
     leading: Kirigami.Avatar {
         source: root.avatar ? `image://mxc/${root.avatar}` : ""
-        name: root.name || i18n("No Name")
+        name: root.displayName
         implicitWidth: visible ? height : 0
         visible: Config.showAvatarInRoomDrawer
         sourceSize {
