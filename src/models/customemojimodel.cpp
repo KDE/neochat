@@ -86,6 +86,7 @@ void CustomEmojiModel::addEmoji(const QString &name, const QUrl &location)
                 {QStringLiteral("url"), url},
                 {QStringLiteral("info"), imageInfo},
                 {QStringLiteral("body"), location.fileName()},
+                {"usage"_ls, "emoticon"_ls},
             });
 
             json["images"] = emojiData;

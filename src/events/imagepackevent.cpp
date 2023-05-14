@@ -51,5 +51,42 @@ ImagePackEventContent::ImagePackEventContent(const QJsonObject &json)
 
 void ImagePackEventContent::fillJson(QJsonObject *o) const
 {
-    // TODO
+    if (pack) {
+        QJsonObject packJson;
+        if (pack->displayName) {
+            packJson["display_name"] = *pack->displayName;
+        }
+        if (pack->usage) {
+            QJsonArray usageJson;
+            for (const auto &usage : *pack->usage) {
+                usageJson += usage;
+            }
+            packJson["usage"] = usageJson;
+        }
+        if (pack->avatarUrl) {
+            packJson["avatar_url"] = pack->avatarUrl->toString();
+        }
+        if (pack->attribution) {
+            packJson["attribution"] = *pack->attribution;
+        }
+        (*o)["pack"_ls] = packJson;
+    }
+
+    QJsonObject imagesJson;
+    for (const auto &image : images) {
+        QJsonObject imageJson;
+        imageJson["url"] = image.url.toString();
+        if (image.body) {
+            imageJson["body"] = *image.body;
+        }
+        if (image.usage) {
+            QJsonArray usageJson;
+            for (const auto &usage : *image.usage) {
+                usageJson += usage;
+            }
+            imageJson["usage"] = usageJson;
+        }
+        imagesJson[image.shortcode] = imageJson;
+    }
+    (*o)["images"_ls] = imagesJson;
 }

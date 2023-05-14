@@ -48,10 +48,12 @@
 #include "logger.h"
 #include "login.h"
 #include "matriximageprovider.h"
+#include "models/accountstickermodel.h"
 #include "models/collapsestateproxymodel.h"
 #include "models/customemojimodel.h"
 #include "models/devicesmodel.h"
 #include "models/emojimodel.h"
+#include "models/emoticonfiltermodel.h"
 #include "models/imagepacksmodel.h"
 #include "models/keywordnotificationrulemodel.h"
 #include "models/messageeventmodel.h"
@@ -248,6 +250,8 @@ int main(int argc, char *argv[])
     qmlRegisterType<KeywordNotificationRuleModel>("org.kde.neochat", 1, 0, "KeywordNotificationRuleModel");
     qmlRegisterType<StickerModel>("org.kde.neochat", 1, 0, "StickerModel");
     qmlRegisterType<ImagePacksModel>("org.kde.neochat", 1, 0, "ImagePacksModel");
+    qmlRegisterType<AccountStickerModel>("org.kde.neochat", 1, 0, "AccountStickerModel");
+    qmlRegisterType<EmoticonFilterModel>("org.kde.neochat", 1, 0, "EmoticonFilterModel");
     qmlRegisterUncreatableType<RoomMessageEvent>("org.kde.neochat", 1, 0, "RoomMessageEvent", "ENUM");
     qmlRegisterUncreatableType<PushNotificationState>("org.kde.neochat", 1, 0, "PushNotificationState", "ENUM");
     qmlRegisterUncreatableType<PushNotificationAction>("org.kde.neochat", 1, 0, "PushNotificationAction", "ENUM");

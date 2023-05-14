@@ -51,14 +51,11 @@ void StickerModel::setModel(ImagePacksModel *model)
         disconnect(m_model, nullptr, this, nullptr);
     }
     connect(model, &ImagePacksModel::roomChanged, this, [this]() {
-        beginResetModel();
-        m_images = m_model->images(m_index);
-        endResetModel();
+        reloadImages();
     });
-    beginResetModel();
+    connect(model, &ImagePacksModel::imagesLoaded, this, &StickerModel::reloadImages);
     m_model = model;
-    m_images = m_model->images(m_index);
-    endResetModel();
+    reloadImages();
     Q_EMIT modelChanged();
 }
 
@@ -68,13 +65,18 @@ int StickerModel::packIndex() const
 }
 void StickerModel::setPackIndex(int index)
 {
-    beginResetModel();
     m_index = index;
+    Q_EMIT packIndexChanged();
+    reloadImages();
+}
+
+void StickerModel::reloadImages()
+{
+    beginResetModel();
     if (m_model) {
         m_images = m_model->images(m_index);
     }
     endResetModel();
-    Q_EMIT packIndexChanged();
 }
 
 NeoChatRoom *StickerModel::room() const
@@ -84,6 +86,9 @@ NeoChatRoom *StickerModel::room() const
 
 void StickerModel::setRoom(NeoChatRoom *room)
 {
+    if (room) {
+        disconnect(room->connection(), nullptr, this, nullptr);
+    }
     m_room = room;
     Q_EMIT roomChanged();
 }

@@ -20,7 +20,11 @@ int ImagePacksModel::rowCount(const QModelIndex &index) const
 
 QVariant ImagePacksModel::data(const QModelIndex &index, int role) const
 {
-    const auto &event = m_events[index.row()];
+    const auto row = index.row();
+    if (row < 0 || row >= m_events.size()) {
+        return {};
+    }
+    const auto &event = m_events[row];
     if (role == DisplayNameRole) {
         if (event.pack->displayName) {
             return *event.pack->displayName;
@@ -59,14 +63,24 @@ void ImagePacksModel::setRoom(NeoChatRoom *room)
 {
     if (m_room) {
         disconnect(m_room, nullptr, this, nullptr);
+        disconnect(m_room->connection(), nullptr, this, nullptr);
     }
     m_room = room;
 
+    connect(m_room->connection(), &Connection::accountDataChanged, this, [this](const QString &type) {
+        if (type == "im.ponies.user_emotes"_ls) {
+            reloadImages();
+        }
+    });
+    // TODO listen to packs changing
+    reloadImages();
+    Q_EMIT roomChanged();
+}
+
+void ImagePacksModel::reloadImages()
+{
     beginResetModel();
     m_events.clear();
-
-    // TODO listen to account data changing
-    // TODO listen to packs changing
     if (m_room->connection()->hasAccountData("im.ponies.user_emotes"_ls)) {
         auto json = m_room->connection()->accountData("im.ponies.user_emotes"_ls)->contentJson();
         json["pack"] = QJsonObject{
@@ -110,8 +124,8 @@ void ImagePacksModel::setRoom(NeoChatRoom *room)
         }
     }
 #endif
+    Q_EMIT imagesLoaded();
     endResetModel();
-    Q_EMIT roomChanged();
 }
 
 bool ImagePacksModel::showStickers() const

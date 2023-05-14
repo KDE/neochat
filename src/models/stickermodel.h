@@ -98,4 +98,5 @@ private:
     int m_index = 0;
     QVector<Quotient::ImagePackEventContent::ImagePackImage> m_images;
     NeoChatRoom *m_room;
+    void reloadImages();
 };

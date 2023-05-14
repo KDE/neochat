@@ -39,6 +39,12 @@ Kirigami.CategorizedSettings {
             page: Qt.resolvedUrl("Emoticons.qml")
         },
         Kirigami.SettingAction {
+            actionName: "stickers"
+            text: i18n("Stickers")
+            icon.name: "stickers"
+            page: Qt.resolvedUrl("StickersPage.qml")
+        },
+        Kirigami.SettingAction {
             actionName: "spellChecking"
             text: i18n("Spell Checking")
             icon.name: "tools-check-spelling"

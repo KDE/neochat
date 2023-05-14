@@ -90,10 +90,12 @@ Q_SIGNALS:
     void roomChanged();
     void showStickersChanged();
     void showEmoticonsChanged();
+    void imagesLoaded();
 
 private:
     QPointer<NeoChatRoom> m_room;
     QVector<Quotient::ImagePackEventContent> m_events;
     bool m_showStickers = true;
     bool m_showEmoticons = true;
+    void reloadImages();
 };
