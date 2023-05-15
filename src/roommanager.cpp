@@ -131,9 +131,13 @@ void RoomManager::enterRoom(NeoChatRoom *room)
     }
     if (m_currentRoom && m_chatDocumentHandler) {
         // We're doing these things here because it is critical that they are switched at the same time
-        m_currentRoom->setSavedText(m_chatDocumentHandler->document()->textDocument()->toPlainText());
-        m_chatDocumentHandler->setRoom(room);
-        m_chatDocumentHandler->document()->textDocument()->setPlainText(room->savedText());
+        if (m_chatDocumentHandler->document()) {
+            m_currentRoom->setSavedText(m_chatDocumentHandler->document()->textDocument()->toPlainText());
+            m_chatDocumentHandler->setRoom(room);
+            m_chatDocumentHandler->document()->textDocument()->setPlainText(room->savedText());
+        } else {
+            m_chatDocumentHandler->setRoom(room);
+        }
     }
     m_lastCurrentRoom = std::exchange(m_currentRoom, room);
     Q_EMIT currentRoomChanged();

@@ -159,7 +159,7 @@ private:
 
     bool m_isEdit = false;
 
-    QQuickTextDocument *m_document;
+    QPointer<QQuickTextDocument> m_document;
 
     QPointer<NeoChatRoom> m_room;
     bool completionVisible = false;

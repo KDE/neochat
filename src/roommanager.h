@@ -234,5 +234,5 @@ private:
     QString m_arg;
     KConfig m_config;
     KConfigGroup m_lastRoomConfig;
-    ChatDocumentHandler *m_chatDocumentHandler;
+    QPointer<ChatDocumentHandler> m_chatDocumentHandler;
 };
