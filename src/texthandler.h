@@ -111,7 +111,7 @@ private:
 
     QString m_dataBuffer;
     int m_pos;
-    Type m_nextTokenType;
+    Type m_nextTokenType = Text;
     QString m_nextToken;
 
     void next();
