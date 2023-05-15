@@ -74,7 +74,7 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
         entry = i18n("%1: %2", sender, text.toHtmlEscaped());
     }
 
-    notification->setText(entry + '\n' + notification->text());
+    notification->setText(notification->text() + '\n' + entry);
     notification->setPixmap(QPixmap::fromImage(icon));
 
     notification->setDefaultAction(i18n("Open NeoChat in this room"));
