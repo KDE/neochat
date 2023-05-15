@@ -144,7 +144,6 @@ void Controller::handleNotifications(QPointer<Quotient::Connection> connection)
         for (const auto &n : notifications) {
             const auto notification = n.toObject();
             if (notification["read"].toBool()) {
-                oldNotifications.removeOne(notification["event"].toObject()["event_id"].toString());
                 continue;
             }
             if (oldNotifications.contains(notification["event"].toObject()["event_id"].toString())) {
