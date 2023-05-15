@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-13 00:47+0000\n"
+"POT-Creation-Date: 2023-05-15 00:47+0000\n"
 "PO-Revision-Date: 2023-05-05 19:31+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -126,92 +126,92 @@ msgstr "Ziel"
 msgid "Network Error"
 msgstr "Netzwerkfehler"
 
-#: src/main.cpp:157
+#: src/main.cpp:159
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:159
+#: src/main.cpp:161
 #, kde-format
 msgid "Matrix client"
 msgstr "Matrix-Programm"
 
-#: src/main.cpp:161
+#: src/main.cpp:163
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
 msgstr "Copyright © 2018-2020 Black Hat, 2020-2022 KDE-Gemeinschaft"
 
-#: src/main.cpp:162
+#: src/main.cpp:164
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:162 src/main.cpp:163 src/main.cpp:164
+#: src/main.cpp:164 src/main.cpp:165 src/main.cpp:166
 #, kde-format
 msgid "Maintainer"
 msgstr "Betreuer"
 
-#: src/main.cpp:163
+#: src/main.cpp:165
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:164
+#: src/main.cpp:166
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:165
+#: src/main.cpp:167
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:165
+#: src/main.cpp:167
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Ursprünglicher Autor von Spectral"
 
-#: src/main.cpp:166
+#: src/main.cpp:168
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:166
+#: src/main.cpp:168
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "Betreuer von Quotient"
 
-#: src/main.cpp:167
+#: src/main.cpp:169
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Deutsches KDE-Übersetzerteam, Alois Spitzbart"
 
-#: src/main.cpp:167
+#: src/main.cpp:169
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde-i18n-de@kde.org, spitz234@hotmail.com"
 
-#: src/main.cpp:171
+#: src/main.cpp:173
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr ""
 "Eine Qt5-Bibliothek zum Schreiben von plattformübergreifenden Programmen für "
 "Matrix"
 
-#: src/main.cpp:174
+#: src/main.cpp:176
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (für %2 kompiliert)"
 
-#: src/main.cpp:314
+#: src/main.cpp:318
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Programm für das Matrix-Protokoll"
 
-#: src/main.cpp:315
+#: src/main.cpp:319
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Unterstützt das Adressschema matrix:"
@@ -641,7 +641,7 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Benutzerdefiniert"
 
-#: src/models/imagepacksmodel.cpp:73
+#: src/models/imagepacksmodel.cpp:87
 #, fuzzy, kde-format
 #| msgid "sent a sticker"
 msgid "Own Stickers"
@@ -1292,6 +1292,8 @@ msgid "Emojis"
 msgstr "Keine Emoji"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:56
+#: src/qml/Settings/SettingsPage.qml:43 src/qml/Settings/StickersPage.qml:14
+#: src/qml/Settings/StickersPage.qml:25
 #, kde-format
 msgid "Stickers"
 msgstr ""
@@ -2513,7 +2515,7 @@ msgid "Notification settings"
 msgstr "Benachrichtigungseinstellungen"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:32 src/qml/Settings/DevicesPage.qml:14
-#: src/qml/Settings/DevicesPage.qml:26 src/qml/Settings/SettingsPage.qml:56
+#: src/qml/Settings/DevicesPage.qml:26 src/qml/Settings/SettingsPage.qml:62
 #, kde-format
 msgid "Devices"
 msgstr "Geräte"
@@ -2857,6 +2859,7 @@ msgstr "Avatar aktualisieren"
 #: src/qml/RoomSettings/General.qml:110
 #: src/qml/Settings/AccountEditorPage.qml:105
 #: src/qml/Settings/AccountEditorPage.qml:170
+#: src/qml/Settings/StickerEditorPage.qml:117
 #, kde-format
 msgid "Save"
 msgstr "Speichern"
@@ -3723,7 +3726,7 @@ msgid "Call invitation"
 msgstr "Einladung zu einem Anruf"
 
 #: src/qml/Settings/NetworkProxyPage.qml:27
-#: src/qml/Settings/SettingsPage.qml:50
+#: src/qml/Settings/SettingsPage.qml:56
 #, kde-format
 msgid "Network Proxy"
 msgstr "Netzwerk-Proxy"
@@ -3814,17 +3817,17 @@ msgstr "Erscheinungsbild"
 msgid "Custom Emojis"
 msgstr "Benutzerdefinierte Emoji"
 
-#: src/qml/Settings/SettingsPage.qml:43
+#: src/qml/Settings/SettingsPage.qml:49
 #, kde-format
 msgid "Spell Checking"
 msgstr "Rechtschreibprüfung"
 
-#: src/qml/Settings/SettingsPage.qml:62
+#: src/qml/Settings/SettingsPage.qml:68
 #, kde-format
 msgid "About NeoChat"
 msgstr "Über NeoChat"
 
-#: src/qml/Settings/SettingsPage.qml:68
+#: src/qml/Settings/SettingsPage.qml:74
 #, kde-format
 msgid "About KDE"
 msgstr "Über KDE"
@@ -3915,6 +3918,65 @@ msgstr "Wort hinzufügen"
 #, kde-format
 msgid "Delete word"
 msgstr "Wort löschen"
+
+#: src/qml/Settings/StickerEditorPage.qml:29
+#: src/qml/Settings/StickersPage.qml:104
+#, fuzzy, kde-format
+#| msgid "sent a sticker"
+msgctxt "@title"
+msgid "Add Sticker"
+msgstr "hat einen Sticker gesendet"
+
+#: src/qml/Settings/StickerEditorPage.qml:29
+#: src/qml/Settings/StickersPage.qml:55
+#, fuzzy, kde-format
+#| msgid "Edit device"
+msgctxt "@title"
+msgid "Edit Sticker"
+msgstr "Gerät bearbeiten"
+
+#: src/qml/Settings/StickerEditorPage.qml:38
+#, fuzzy, kde-format
+#| msgid "sent a sticker"
+msgid "Sticker"
+msgstr "hat einen Sticker gesendet"
+
+#: src/qml/Settings/StickerEditorPage.qml:67
+#, fuzzy, kde-format
+#| msgid "Change the room name"
+msgid "Change Image"
+msgstr "Raumnamen ändern"
+
+#: src/qml/Settings/StickerEditorPage.qml:67
+#, kde-format
+msgid "Set Image"
+msgstr ""
+
+#: src/qml/Settings/StickerEditorPage.qml:107
+#, kde-format
+msgid "Shortcode:"
+msgstr ""
+
+#: src/qml/Settings/StickerEditorPage.qml:112
+#, fuzzy, kde-format
+#| msgctxt "The location being downloaded to"
+#| msgid "Destination"
+msgid "Description:"
+msgstr "Ziel"
+
+#: src/qml/Settings/StickersPage.qml:73
+#, fuzzy, kde-format
+#| msgctxt "The location being downloaded to"
+#| msgid "Destination"
+msgctxt "As in 'This sticker has no description'"
+msgid "No Description"
+msgstr "Ziel"
+
+#: src/qml/Settings/StickersPage.qml:113
+#, fuzzy, kde-format
+#| msgid "sent a sticker"
+msgid "Add Sticker"
+msgstr "hat einen Sticker gesendet"
 
 #: src/roommanager.cpp:52
 #, kde-format
@@ -4083,9 +4145,6 @@ msgstr "Beenden"
 
 #~ msgid "React to this message with a text"
 #~ msgstr "Reagieren Sie auf diese Meldung mit einem Text"
-
-#~ msgid "Edit device"
-#~ msgstr "Gerät bearbeiten"
 
 #~ msgid "Avatar:"
 #~ msgstr "Avatar:"
