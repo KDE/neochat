@@ -774,6 +774,8 @@ private:
     QCoro::Task<void> doDeleteMessagesByUser(const QString &user, QString reason);
     QCoro::Task<void> doUploadFile(QUrl url, QString body = QString());
 
+    std::unique_ptr<Quotient::RoomEvent> m_cachedEvent;
+
     QString m_chatBoxText;
     QString m_editText;
     QString m_chatBoxReplyId;
@@ -789,6 +791,8 @@ private:
 private Q_SLOTS:
     void countChanged();
     void updatePushNotificationState(QString type);
+
+    void cacheLastEvent();
 
 Q_SIGNALS:
     void cachedInputChanged();

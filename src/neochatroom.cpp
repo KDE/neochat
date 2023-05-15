@@ -52,6 +52,8 @@
 #include "filetransferpseudojob.h"
 #include "texthandler.h"
 
+#include <KConfig>
+#include <KConfigGroup>
 #ifndef Q_OS_ANDROID
 #include <KIO/Job>
 #endif
@@ -72,6 +74,22 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
     });
 
     connect(this, &Room::aboutToAddHistoricalMessages, this, &NeoChatRoom::readMarkerLoadedChanged);
+
+    // Load cached event if available.
+    KConfig dataResource("data", KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
+    KConfigGroup eventCacheGroup(&dataResource, "EventCache");
+
+    if (eventCacheGroup.hasKey(id())) {
+        auto eventJson = QJsonDocument::fromJson(eventCacheGroup.readEntry(id(), QByteArray())).object();
+        if (!eventJson.isEmpty()) {
+            auto event = loadEvent<RoomEvent>(eventJson);
+
+            if (event != nullptr) {
+                m_cachedEvent = std::move(event);
+            }
+        }
+    }
+    connect(this, &Room::addedMessages, this, &NeoChatRoom::cacheLastEvent);
 
     connect(this, &Quotient::Room::eventsHistoryJobChanged, this, &NeoChatRoom::lastActiveTimeChanged);
 
@@ -300,7 +318,30 @@ const RoomEvent *NeoChatRoom::lastEvent() const
         }
 #endif
     }
+
+    if (m_cachedEvent != nullptr) {
+        return std::to_address(m_cachedEvent);
+    }
+
     return nullptr;
+}
+
+void NeoChatRoom::cacheLastEvent()
+{
+    auto event = lastEvent();
+    if (event != nullptr) {
+        KConfig dataResource("data", KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
+        KConfigGroup eventCacheGroup(&dataResource, "EventCache");
+
+        auto eventJson = QJsonDocument(event->fullJson()).toJson();
+        eventCacheGroup.writeEntry(id(), eventJson);
+
+        auto uniqueEvent = loadEvent<RoomEvent>(event->fullJson());
+
+        if (event != nullptr) {
+            m_cachedEvent = std::move(uniqueEvent);
+        }
+    }
 }
 
 bool NeoChatRoom::lastEventIsSpoiler() const
@@ -378,6 +419,9 @@ void NeoChatRoom::countChanged()
 QDateTime NeoChatRoom::lastActiveTime()
 {
     if (timelineSize() == 0) {
+        if (m_cachedEvent != nullptr) {
+            return m_cachedEvent->originTimestamp();
+        }
         return QDateTime();
     }
 
