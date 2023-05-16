@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-15 00:47+0000\n"
+"POT-Creation-Date: 2023-05-16 00:47+0000\n"
 "PO-Revision-Date: 2023-05-09 22:36+0200\n"
 "Last-Translator: K. Áron <aronkvh@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -18,82 +18,82 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.0.1\n"
 
-#: src/controller.cpp:182
+#: src/controller.cpp:181
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Titkosított üzenet"
 
-#: src/controller.cpp:325
+#: src/controller.cpp:324
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr ""
 "Sikertelen bejelentkezés: A hozzáférést biztosító token érvénytelen vagy "
 "visszavonták"
 
-#: src/controller.cpp:328 src/controller.cpp:333 src/login.cpp:91
+#: src/controller.cpp:327 src/controller.cpp:332 src/login.cpp:91
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Sikertelen bejelentkezés: %1"
 
-#: src/controller.cpp:339
+#: src/controller.cpp:338
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Hálózati hiba: %1"
 
-#: src/controller.cpp:364
+#: src/controller.cpp:363
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "A hozzáférési token  nem található"
 
-#: src/controller.cpp:364
+#: src/controller.cpp:363
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Lehet, hogy kitörölték?"
 
-#: src/controller.cpp:368
+#: src/controller.cpp:367
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "A kulcstartóhoz való hozzáférés megtagadva."
 
-#: src/controller.cpp:368
+#: src/controller.cpp:367
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Kérjük, adj hozzáférést a NeoChat-nek a tokenhez"
 
-#: src/controller.cpp:371
+#: src/controller.cpp:370
 #, kde-format
 msgid "No keychain available."
 msgstr "Nincs elérhető kulcstartó."
 
-#: src/controller.cpp:371
+#: src/controller.cpp:370
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Kérjük, telepíts egy kulcstartót Linuxon: pl. a KWallet-et vagy a GNOME "
 "Keyring-et"
 
-#: src/controller.cpp:374
+#: src/controller.cpp:373
 #, kde-format
 msgid "Unable to read access token"
 msgstr "A hozzáférési token olvasása nem sikerült"
 
-#: src/controller.cpp:558
+#: src/controller.cpp:557
 #, kde-format
 msgid "File too large to download."
 msgstr "A fájl túl nagy a letöltéshez."
 
-#: src/controller.cpp:558
+#: src/controller.cpp:557
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 "Segítségért vedd fel a kapcsolatot a Matrix szervered rendszergazdájával."
 
-#: src/controller.cpp:596
+#: src/controller.cpp:595
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "A szoba létrehozása nem sikerült: „%1”"
 
-#: src/controller.cpp:617
+#: src/controller.cpp:616
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "A szobaazonosító, amelyhez csatlakozni szeretne, érvénytelen"
@@ -717,381 +717,381 @@ msgstr "Alacsony prioritás"
 msgid "Spaces"
 msgstr "Terek"
 
-#: src/neochatroom.cpp:466
+#: src/neochatroom.cpp:510
 #, kde-format
 msgid "a file"
 msgstr "egy fájl"
 
-#: src/neochatroom.cpp:517
+#: src/neochatroom.cpp:561
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "újra meghívta őt a szobába: %1"
 
-#: src/neochatroom.cpp:519
+#: src/neochatroom.cpp:563
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:528 src/neochatroom.cpp:673
+#: src/neochatroom.cpp:572 src/neochatroom.cpp:717
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "csatlakozott a szobához (ismét)"
 
-#: src/neochatroom.cpp:530
+#: src/neochatroom.cpp:574
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "meghívta őt a szobába: %1"
 
-#: src/neochatroom.cpp:530 src/neochatroom.cpp:675
+#: src/neochatroom.cpp:574 src/neochatroom.cpp:719
 #, kde-format
 msgid "joined the room"
 msgstr "csatlakozott a szobához"
 
-#: src/neochatroom.cpp:534
+#: src/neochatroom.cpp:578
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:541 src/neochatroom.cpp:683
+#: src/neochatroom.cpp:585 src/neochatroom.cpp:727
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "törölte a megjelenített nevét"
 
-#: src/neochatroom.cpp:543
+#: src/neochatroom.cpp:587
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "megváltoztatta a megjelenített nevét erre: %1"
 
-#: src/neochatroom.cpp:548 src/neochatroom.cpp:690
+#: src/neochatroom.cpp:592 src/neochatroom.cpp:734
 #, kde-format
 msgid " and "
 msgstr " és "
 
-#: src/neochatroom.cpp:551 src/neochatroom.cpp:693
+#: src/neochatroom.cpp:595 src/neochatroom.cpp:737
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "törölte a profilképét"
 
-#: src/neochatroom.cpp:557 src/neochatroom.cpp:699
+#: src/neochatroom.cpp:601 src/neochatroom.cpp:743
 #, kde-format
 msgid "set an avatar"
 msgstr "beállított egy profilképet"
 
-#: src/neochatroom.cpp:559 src/neochatroom.cpp:701
+#: src/neochatroom.cpp:603 src/neochatroom.cpp:745
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "frissítette a profilképét"
 
-#: src/neochatroom.cpp:563 src/neochatroom.cpp:705
+#: src/neochatroom.cpp:607 src/neochatroom.cpp:749
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "nem változtatott meg semmit"
 
-#: src/neochatroom.cpp:569
+#: src/neochatroom.cpp:613
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "visszavonta %1 meghívását"
 
-#: src/neochatroom.cpp:569 src/neochatroom.cpp:711
+#: src/neochatroom.cpp:613 src/neochatroom.cpp:755
 #, kde-format
 msgid "rejected the invitation"
 msgstr "elutasította a meghívást"
 
-#: src/neochatroom.cpp:573
+#: src/neochatroom.cpp:617
 #, kde-format
 msgid "unbanned %1"
 msgstr "feloldotta %1 tiltását"
 
-#: src/neochatroom.cpp:573 src/neochatroom.cpp:715
+#: src/neochatroom.cpp:617 src/neochatroom.cpp:759
 #, kde-format
 msgid "self-unbanned"
 msgstr "feloldotta a saját tiltását"
 
-#: src/neochatroom.cpp:576
+#: src/neochatroom.cpp:620
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "kirakta a szobából őt: %1. Ok: %2"
 
-#: src/neochatroom.cpp:577 src/neochatroom.cpp:717
+#: src/neochatroom.cpp:621 src/neochatroom.cpp:761
 #, kde-format
 msgid "left the room"
 msgstr "elhagyta a szobát"
 
-#: src/neochatroom.cpp:581
+#: src/neochatroom.cpp:625
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "kitiltotta a szobából őt: %1"
 
-#: src/neochatroom.cpp:583
+#: src/neochatroom.cpp:627
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "kitiltotta a szobából őt: %1. Ok: %2"
 
-#: src/neochatroom.cpp:586 src/neochatroom.cpp:722
+#: src/neochatroom.cpp:630 src/neochatroom.cpp:766
 #, kde-format
 msgid "self-banned from the room"
 msgstr "kitiltotta magát a szobából"
 
-#: src/neochatroom.cpp:590 src/neochatroom.cpp:725
+#: src/neochatroom.cpp:634 src/neochatroom.cpp:769
 #, kde-format
 msgid "requested an invite"
 msgstr "elutasított egy meghívást"
 
-#: src/neochatroom.cpp:590
+#: src/neochatroom.cpp:634
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "meghívást kért, ezzel az indokkal: %1"
 
-#: src/neochatroom.cpp:594 src/neochatroom.cpp:729
+#: src/neochatroom.cpp:638 src/neochatroom.cpp:773
 #, kde-format
 msgid "made something unknown"
 msgstr "valami ismeretlent csinált"
 
-#: src/neochatroom.cpp:597 src/neochatroom.cpp:732
+#: src/neochatroom.cpp:641 src/neochatroom.cpp:776
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "törölte a szoba fő álnevét"
 
-#: src/neochatroom.cpp:597
+#: src/neochatroom.cpp:641
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "beállította a szoba fő álnevét erre: %1"
 
-#: src/neochatroom.cpp:600 src/neochatroom.cpp:735
+#: src/neochatroom.cpp:644 src/neochatroom.cpp:779
 #, kde-format
 msgid "cleared the room name"
 msgstr "törölte a szoba nevét"
 
-#: src/neochatroom.cpp:600
+#: src/neochatroom.cpp:644
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "beállította a szoba nevét erre: %1"
 
-#: src/neochatroom.cpp:603 src/neochatroom.cpp:738
+#: src/neochatroom.cpp:647 src/neochatroom.cpp:782
 #, kde-format
 msgid "cleared the topic"
 msgstr "törölte a témát"
 
-#: src/neochatroom.cpp:604
+#: src/neochatroom.cpp:648
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "beállította a témát erre: %1"
 
-#: src/neochatroom.cpp:610 src/neochatroom.cpp:741
+#: src/neochatroom.cpp:654 src/neochatroom.cpp:785
 #, kde-format
 msgid "changed the room avatar"
 msgstr "megváltoztatta a szoba profilképét"
 
-#: src/neochatroom.cpp:613 src/neochatroom.cpp:744
+#: src/neochatroom.cpp:657 src/neochatroom.cpp:788
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "bekapcsolta a végpontok közötti titkosítást"
 
-#: src/neochatroom.cpp:616
+#: src/neochatroom.cpp:660
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "frissítette a szoba verzióját erre: %1"
 
-#: src/neochatroom.cpp:617
+#: src/neochatroom.cpp:661
 #, kde-format
 msgid "created the room, version %1"
 msgstr "létrehozta a szobát, a verzió: %1"
 
-#: src/neochatroom.cpp:620 src/neochatroom.cpp:750
+#: src/neochatroom.cpp:664 src/neochatroom.cpp:794
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "megváltoztatta az engedélyeket"
 
-#: src/neochatroom.cpp:624 src/neochatroom.cpp:754
+#: src/neochatroom.cpp:668 src/neochatroom.cpp:798
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "megváltoztatta a szoba szerverhozzáférési listáit"
 
-#: src/neochatroom.cpp:628
+#: src/neochatroom.cpp:672
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "hozzáadta a(z) %1 widgetet"
 
-#: src/neochatroom.cpp:631
+#: src/neochatroom.cpp:675
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "etávolította a(z) %1 widgetet"
 
-#: src/neochatroom.cpp:633
+#: src/neochatroom.cpp:677
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "beállította a(z) %1 widgetet"
 
-#: src/neochatroom.cpp:635
+#: src/neochatroom.cpp:679
 #, kde-format
 msgid "updated %1 state"
 msgstr "frissítette a(z) %1 állapotát"
 
-#: src/neochatroom.cpp:636
+#: src/neochatroom.cpp:680
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "frissítette a(z) %1 állapotát erre: %2"
 
-#: src/neochatroom.cpp:643 src/neochatroom.cpp:773
+#: src/neochatroom.cpp:687 src/neochatroom.cpp:817
 #, kde-format
 msgid "Unknown event"
 msgstr "Ismeretlen esemény"
 
-#: src/neochatroom.cpp:656
+#: src/neochatroom.cpp:700
 #, kde-format
 msgid "sent a message"
 msgstr "üzenetet küldött"
 
-#: src/neochatroom.cpp:660
+#: src/neochatroom.cpp:704
 #, kde-format
 msgid "sent a sticker"
 msgstr "matricát küldött"
 
-#: src/neochatroom.cpp:666
+#: src/neochatroom.cpp:710
 #, kde-format
 msgid "reinvited someone to the room"
 msgstr "újra meghívott valakit a szobába"
 
-#: src/neochatroom.cpp:675
+#: src/neochatroom.cpp:719
 #, kde-format
 msgid "invited someone to the room"
 msgstr "meghívott valakit a szobába"
 
-#: src/neochatroom.cpp:685
+#: src/neochatroom.cpp:729
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name"
 msgstr "megváltoztatta a megjelenített nevét"
 
-#: src/neochatroom.cpp:711
+#: src/neochatroom.cpp:755
 #, kde-format
 msgid "withdrew a user's invitation"
 msgstr "visszavonta egy felhasználó meghívását"
 
-#: src/neochatroom.cpp:715
+#: src/neochatroom.cpp:759
 #, kde-format
 msgid "unbanned a user"
 msgstr "feloldotta egy felhasználó tiltását"
 
-#: src/neochatroom.cpp:717
+#: src/neochatroom.cpp:761
 #, kde-format
 msgid "put a user out of the room"
 msgstr "kitett valakit a szobából"
 
-#: src/neochatroom.cpp:720
+#: src/neochatroom.cpp:764
 #, kde-format
 msgid "banned a user from the room"
 msgstr "kitiltotta egy felhasználót a szobából"
 
-#: src/neochatroom.cpp:732
+#: src/neochatroom.cpp:776
 #, kde-format
 msgid "set the room main alias"
 msgstr "beállította a szoba fő álnevét"
 
-#: src/neochatroom.cpp:735
+#: src/neochatroom.cpp:779
 #, kde-format
 msgid "set the room name"
 msgstr "beállította a szoba nevét"
 
-#: src/neochatroom.cpp:738
+#: src/neochatroom.cpp:782
 #, kde-format
 msgid "set the topic"
 msgstr "beállította a témát"
 
-#: src/neochatroom.cpp:747
+#: src/neochatroom.cpp:791
 #, kde-format
 msgid "upgraded the room version"
 msgstr "frissítette a szoba verzióját"
 
-#: src/neochatroom.cpp:747
+#: src/neochatroom.cpp:791
 #, kde-format
 msgid "created the room"
 msgstr "létrehozta a szobát"
 
-#: src/neochatroom.cpp:758
+#: src/neochatroom.cpp:802
 #, kde-format
 msgid "added a widget"
 msgstr "hozzáadott egy widgetet"
 
-#: src/neochatroom.cpp:761
+#: src/neochatroom.cpp:805
 #, kde-format
 msgid "removed a widget"
 msgstr "eltávolított egy widgetet"
 
-#: src/neochatroom.cpp:763
+#: src/neochatroom.cpp:807
 #, kde-format
 msgid "configured a widget"
 msgstr "beállított egy widgetet"
 
-#: src/neochatroom.cpp:765
+#: src/neochatroom.cpp:809
 #, kde-format
 msgid "updated the state"
 msgstr "frissítette az állapotot"
 
-#: src/neochatroom.cpp:770
+#: src/neochatroom.cpp:814
 #, kde-format
 msgid "started a poll"
 msgstr "szavazást indított"
 
-#: src/neochatroom.cpp:1669 src/neochatroom.cpp:1670
+#: src/neochatroom.cpp:1713 src/neochatroom.cpp:1714
 #, kde-format
 msgid "Report sent successfully."
 msgstr "A jelentést sikeresen elküldte."
 
-#: src/neochatroom.cpp:1905 src/neochatroom.cpp:1913
+#: src/neochatroom.cpp:1949 src/neochatroom.cpp:1957
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Hossz.: %1, Szél.: %2"
 
-#: src/notificationsmanager.cpp:65
+#: src/notificationsmanager.cpp:74 src/qml/main.qml:254
 #, kde-format
-msgid "%1 (%2)"
-msgstr "%1 (%2)"
+msgid "%1: %2"
+msgstr "%1: %2"
 
-#: src/notificationsmanager.cpp:71
+#: src/notificationsmanager.cpp:80
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "NeoChat megnyitása ebben a szobában"
 
-#: src/notificationsmanager.cpp:88 src/qml/Component/TimelineView.qml:386
+#: src/notificationsmanager.cpp:97 src/qml/Component/TimelineView.qml:386
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
 #, kde-format
 msgid "Reply"
 msgstr "Válasz"
 
-#: src/notificationsmanager.cpp:89
+#: src/notificationsmanager.cpp:98
 #, kde-format
 msgid "Reply..."
 msgstr "Válasz..."
 
-#: src/notificationsmanager.cpp:110
+#: src/notificationsmanager.cpp:116
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 meghívott egy szobába"
 
-#: src/notificationsmanager.cpp:114
+#: src/notificationsmanager.cpp:120
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "A meghívás megnyitása a NeoChatban"
 
-#: src/notificationsmanager.cpp:120
+#: src/notificationsmanager.cpp:126
 #, kde-format
 msgid "Accept Invitation"
 msgstr "A meghívás elfogadása"
 
-#: src/notificationsmanager.cpp:120
+#: src/notificationsmanager.cpp:126
 #, kde-format
 msgid "Reject Invitation"
 msgstr "Elutasítás"
@@ -1965,11 +1965,6 @@ msgstr "Egy privát csevegés megnyitása"
 #, kde-format
 msgid "Copy link"
 msgstr "Link másolása"
-
-#: src/qml/main.qml:254
-#, kde-format
-msgid "%1: %2"
-msgstr "%1: %2"
 
 #: src/qml/main.qml:295
 #, kde-format
@@ -3997,6 +3992,9 @@ msgstr "Megjelenítés"
 #, kde-format
 msgid "Quit"
 msgstr "Kilépés"
+
+#~ msgid "%1 (%2)"
+#~ msgstr "%1 (%2)"
 
 #~ msgid "Warning: %1"
 #~ msgstr "Figyelmeztetés: %1"
