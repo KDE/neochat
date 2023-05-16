@@ -334,7 +334,10 @@ ColumnLayout {
         Layout.leftMargin: showUserMessageOnRight ? 0 : bubble.x + bubble.anchors.leftMargin
         Layout.rightMargin: showUserMessageOnRight ? Kirigami.Units.largeSpacing : 0
 
-        visible: delegateType !== MessageEventModel.State && delegateType !== MessageEventModel.Notice && reaction != undefined && reaction.length > 0
+        visible: showReactions
+        model: reaction
+
+        onReactionClicked: (reaction) => currentRoom.toggleReaction(eventId, reaction)
     }
     AvatarFlow {
         Layout.alignment: Qt.AlignRight

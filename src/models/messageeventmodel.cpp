@@ -27,6 +27,7 @@
 #include <KFormat>
 #include <KLocalizedString>
 
+#include "models/reactionmodel.h"
 #include "neochatuser.h"
 #include "texthandler.h"
 
@@ -61,6 +62,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[ReadMarkersStringRole] = "readMarkersString";
     roles[ShowReadMarkersRole] = "showReadMarkers";
     roles[ReactionRole] = "reaction";
+    roles[ShowReactionsRole] = "showReactions";
     roles[SourceRole] = "source";
     roles[MimeTypeRole] = "mimeType";
     roles[FormattedBodyRole] = "formattedBody";
@@ -106,6 +108,8 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
     if (m_currentRoom) {
         m_currentRoom->disconnect(this);
         m_linkPreviewers.clear();
+        qDeleteAll(m_reactionModels);
+        m_reactionModels.clear();
     }
 
     m_currentRoom = room;
@@ -116,6 +120,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         for (auto event = m_currentRoom->messageEvents().begin(); event != m_currentRoom->messageEvents().end(); ++event) {
             if (auto e = &*event->viewAs<RoomMessageEvent>()) {
                 createLinkPreviewerForEvent(e);
+                createReactionModelForEvent(e);
             }
         }
 
@@ -134,6 +139,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
                 const RoomMessageEvent *message = dynamic_cast<RoomMessageEvent *>(event.get());
                 if (message != nullptr) {
                     createLinkPreviewerForEvent(message);
+                    createReactionModelForEvent(message);
 
                     if (NeoChatConfig::self()->showFancyEffects()) {
                         QString planBody = message->plainBody();
@@ -173,6 +179,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
                 RoomMessageEvent *message = dynamic_cast<RoomMessageEvent *>(event.get());
                 if (message) {
                     createLinkPreviewerForEvent(message);
+                    createReactionModelForEvent(message);
                 }
             }
             if (rowCount() > 0) {
@@ -244,7 +251,11 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             if (eventId.isEmpty()) { // How did we get here?
                 return;
             }
-            refreshEventRoles(eventId, {ReactionRole, Qt::DisplayRole});
+            const auto eventIt = m_currentRoom->findInTimeline(eventId);
+            if (eventIt != m_currentRoom->historyEdge()) {
+                createReactionModelForEvent(static_cast<const RoomMessageEvent *>(&**eventIt));
+            }
+            refreshEventRoles(eventId, {ReactionRole, ShowReactionsRole, Qt::DisplayRole});
         });
         connect(m_currentRoom, &Room::changed, this, [this]() {
             for (auto it = m_currentRoom->messageEvents().rbegin(); it != m_currentRoom->messageEvents().rend(); ++it) {
@@ -932,38 +943,17 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == ReactionRole) {
-        const auto &annotations = m_currentRoom->relatedEvents(evt, EventRelation::Annotation());
-        if (annotations.isEmpty()) {
-            return {};
-        };
-        QMap<QString, QList<NeoChatUser *>> reactions = {};
-        for (const auto &a : annotations) {
-            if (a->isRedacted()) { // Just in case?
-                continue;
-            }
-            if (auto e = eventCast<const ReactionEvent>(a)) {
-                reactions[e->relation().key].append(static_cast<NeoChatUser *>(m_currentRoom->user(e->senderId())));
-            }
+        if (m_reactionModels.contains(evt.id())) {
+            return QVariant::fromValue<ReactionModel *>(m_reactionModels[evt.id()]);
+        } else {
+            return QVariantList();
         }
-
-        if (reactions.isEmpty()) {
-            return {};
-        }
-
-        QVariantList res = {};
-        auto i = reactions.constBegin();
-        while (i != reactions.constEnd()) {
-            QVariantList authors;
-            for (auto author : i.value()) {
-                authors.append(userInContext(author, m_currentRoom));
-            }
-            bool hasLocalUser = i.value().contains(static_cast<NeoChatUser *>(m_currentRoom->localUser()));
-            res.append(QVariantMap{{"reaction", i.key()}, {"count", i.value().count()}, {"authors", authors}, {"hasLocalUser", hasLocalUser}});
-            ++i;
-        }
-
-        return res;
     }
+
+    if (role == ShowReactionsRole) {
+        return m_reactionModels.contains(evt.id());
+    }
+
     if (role == AuthorIdRole) {
         return evt.senderId();
     }
@@ -1275,6 +1265,63 @@ void MessageEventModel::createLinkPreviewerForEvent(const Quotient::RoomMessageE
         QList<QUrl> links = textHandler.getLinkPreviews();
         if (links.size() > 0) {
             m_linkPreviewers[event->id()] = new LinkPreviewer(nullptr, m_currentRoom, links.size() > 0 ? links[0] : QUrl());
+        }
+    }
+}
+
+void MessageEventModel::createReactionModelForEvent(const Quotient::RoomMessageEvent *event)
+{
+    if (event == nullptr) {
+        return;
+    }
+    auto eventId = event->id();
+    const auto &annotations = m_currentRoom->relatedEvents(eventId, EventRelation::Annotation());
+    if (annotations.isEmpty()) {
+        if (m_reactionModels.contains(eventId)) {
+            delete m_reactionModels[eventId];
+            m_reactionModels.remove(eventId);
+        }
+        return;
+    };
+
+    QMap<QString, QList<NeoChatUser *>> reactions = {};
+    for (const auto &a : annotations) {
+        if (a->isRedacted()) { // Just in case?
+            continue;
+        }
+        if (const auto &e = eventCast<const ReactionEvent>(a)) {
+            reactions[e->relation().key].append(static_cast<NeoChatUser *>(m_currentRoom->user(e->senderId())));
+        }
+    }
+
+    if (reactions.isEmpty()) {
+        if (m_reactionModels.contains(eventId)) {
+            delete m_reactionModels[eventId];
+            m_reactionModels.remove(eventId);
+        }
+        return;
+    }
+
+    QList<ReactionModel::Reaction> res;
+    auto i = reactions.constBegin();
+    while (i != reactions.constEnd()) {
+        QVariantList authors;
+        for (const auto &author : i.value()) {
+            authors.append(userInContext(author, m_currentRoom));
+        }
+
+        res.append(ReactionModel::Reaction{i.key(), authors});
+        ++i;
+    }
+
+    if (m_reactionModels.contains(eventId)) {
+        m_reactionModels[eventId]->setReactions(res);
+    } else if (res.size() > 0) {
+        m_reactionModels[eventId] = new ReactionModel(this, res, static_cast<NeoChatUser *>(m_currentRoom->localUser()));
+    } else {
+        if (m_reactionModels.contains(eventId)) {
+            delete m_reactionModels[eventId];
+            m_reactionModels.remove(eventId);
         }
     }
 }

@@ -59,6 +59,7 @@
 #include "models/messageeventmodel.h"
 #include "models/messagefiltermodel.h"
 #include "models/publicroomlistmodel.h"
+#include "models/reactionmodel.h"
 #include "models/roomlistmodel.h"
 #include "models/searchmodel.h"
 #include "models/serverlistmodel.h"
@@ -230,6 +231,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<KWebShortcutModel>("org.kde.neochat", 1, 0, "WebShortcutModel");
     qmlRegisterType<UserListModel>("org.kde.neochat", 1, 0, "UserListModel");
     qmlRegisterType<MessageEventModel>("org.kde.neochat", 1, 0, "MessageEventModel");
+    qmlRegisterType<ReactionModel>("org.kde.neochat", 1, 0, "ReactionModel");
     qmlRegisterType<CollapseStateProxyModel>("org.kde.neochat", 1, 0, "CollapseStateProxyModel");
     qmlRegisterType<MessageFilterModel>("org.kde.neochat", 1, 0, "MessageFilterModel");
     qmlRegisterType<UserFilterModel>("org.kde.neochat", 1, 0, "UserFilterModel");

@@ -8,6 +8,8 @@
 #include "linkpreviewer.h"
 #include "neochatroom.h"
 
+class ReactionModel;
+
 /**
  * @class MessageEventModel
  *
@@ -90,7 +92,8 @@ public:
         ExcessReadMarkersRole, /**< The number of other users at the event after the first 5. */
         ReadMarkersStringRole, /**< String with the display name and mxID of the users at the event. */
         ShowReadMarkersRole, /**< Whether there are any other user read markers to be shown. */
-        ReactionRole, /**< List of reactions to this event. */
+        ReactionRole, /**< List model for this event. */
+        ShowReactionsRole, /**< Whether there are any reactions to be shown. */
         SourceRole, /**< The full message source JSON. */
 
         // For debugging
@@ -186,6 +189,7 @@ private:
     bool movingEvent = false;
 
     QMap<QString, LinkPreviewer *> m_linkPreviewers;
+    QMap<QString, ReactionModel *> m_reactionModels;
 
     [[nodiscard]] int timelineBaseIndex() const;
     [[nodiscard]] QDateTime makeMessageTimestamp(const Quotient::Room::rev_iter_t &baseIt) const;
@@ -203,6 +207,7 @@ private:
     QVariantMap getMediaInfoForEvent(const Quotient::RoomEvent &event) const;
     QVariantMap getMediaInfoFromFileInfo(const Quotient::EventContent::FileInfo *fileInfo, const QString &eventId, bool isThumbnail = false) const;
     void createLinkPreviewerForEvent(const Quotient::RoomMessageEvent *event);
+    void createReactionModelForEvent(const Quotient::RoomMessageEvent *event);
 
     std::vector<Quotient::event_ptr_tt<Quotient::RoomEvent>> m_extraEvents;
     // Hack to ensure that we don't call endInsertRows when we haven't called beginInsertRows
