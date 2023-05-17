@@ -116,7 +116,7 @@ Controller::Controller(QObject *parent)
     connect(&AccountRegistry::instance(), &AccountRegistry::accountCountChanged, this, [this]() {
         if (AccountRegistry::instance().size() > oldAccountCount) {
             auto connection = AccountRegistry::instance().accounts()[AccountRegistry::instance().size() - 1];
-            connect(connection, &Connection::syncDone, this, [this]() {
+            connect(connection, &Connection::syncDone, this, [this, connection]() {
                 handleNotifications(connection);
             });
         }
