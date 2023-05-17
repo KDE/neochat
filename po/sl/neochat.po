@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-16 00:47+0000\n"
+"POT-Creation-Date: 2023-05-17 00:47+0000\n"
 "PO-Revision-Date: 2023-05-15 08:59+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
-"%100<=4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #: src/controller.cpp:181
@@ -124,90 +124,90 @@ msgstr "Cilj"
 msgid "Network Error"
 msgstr "Napaka omrežja"
 
-#: src/main.cpp:159
+#: src/main.cpp:160
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:161
+#: src/main.cpp:162
 #, kde-format
 msgid "Matrix client"
 msgstr "Matrixov odjemalec"
 
-#: src/main.cpp:163
+#: src/main.cpp:164
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2022 skupnost KDE"
 
-#: src/main.cpp:164
+#: src/main.cpp:165
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:164 src/main.cpp:165 src/main.cpp:166
+#: src/main.cpp:165 src/main.cpp:166 src/main.cpp:167
 #, kde-format
 msgid "Maintainer"
 msgstr "Vzdrževalec"
 
-#: src/main.cpp:165
+#: src/main.cpp:166
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:166
+#: src/main.cpp:167
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:167
+#: src/main.cpp:168
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:167
+#: src/main.cpp:168
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Izvorni avtor programa Spectral"
 
-#: src/main.cpp:168
+#: src/main.cpp:169
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:168
+#: src/main.cpp:169
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "Vzdrževalec programa Quotient"
 
-#: src/main.cpp:169
+#: src/main.cpp:170
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Matjaž Jeran,Martin Srebotnjak"
 
-#: src/main.cpp:169
+#: src/main.cpp:170
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "matjaz.jeran@amis.net,miles@filmsi.net"
 
-#: src/main.cpp:173
+#: src/main.cpp:174
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr "Knjižnica Qt5 za pisanje odjemalcev za več platform za Matrix"
 
-#: src/main.cpp:176
+#: src/main.cpp:177
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (zgrajeno na %2)"
 
-#: src/main.cpp:318
+#: src/main.cpp:320
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Odjemalec za komunikacijski protokol matrix"
 
-#: src/main.cpp:319
+#: src/main.cpp:321
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Podpira matriko: shema url"
@@ -639,42 +639,42 @@ msgstr "Po meri"
 msgid "Own Stickers"
 msgstr "Lastne nalepke"
 
-#: src/models/messageeventmodel.cpp:389 src/models/searchmodel.cpp:164
+#: src/models/messageeventmodel.cpp:400 src/models/searchmodel.cpp:164
 #, kde-format
 msgid "Today"
 msgstr "Danes"
 
-#: src/models/messageeventmodel.cpp:392 src/models/searchmodel.cpp:167
+#: src/models/messageeventmodel.cpp:403 src/models/searchmodel.cpp:167
 #, kde-format
 msgid "Yesterday"
 msgstr "Včeraj"
 
-#: src/models/messageeventmodel.cpp:395 src/models/searchmodel.cpp:170
+#: src/models/messageeventmodel.cpp:406 src/models/searchmodel.cpp:170
 #, kde-format
 msgid "The day before yesterday"
 msgstr "Predvčerajšnjim"
 
-#: src/models/messageeventmodel.cpp:511 src/models/messageeventmodel.cpp:520
+#: src/models/messageeventmodel.cpp:522 src/models/messageeventmodel.cpp:531
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[To sporočilo je bilo izbrisano]</i>"
 
-#: src/models/messageeventmodel.cpp:512
+#: src/models/messageeventmodel.cpp:523
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[To sporočilo je bilo izbrisano: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:601
+#: src/models/messageeventmodel.cpp:612
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[PREKRIVANJE PODATKOV]"
 
-#: src/models/messageeventmodel.cpp:601
+#: src/models/messageeventmodel.cpp:612
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[PREKRIVANJE PODATKOV: %1]"
 
-#: src/models/messageeventmodel.cpp:910
+#: src/models/messageeventmodel.cpp:921
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
@@ -683,38 +683,64 @@ msgstr[1] "%1 uporabnika: "
 msgstr[2] "%1 uporabniki: "
 msgstr[3] "%1 uporabnikov: "
 
-#: src/models/messageeventmodel.cpp:917
+#: src/models/messageeventmodel.cpp:928
 #, kde-format
 msgctxt "list separator"
 msgid ", "
 msgstr ", "
 
-#: src/models/roomlistmodel.cpp:461
+#: src/models/reactionmodel.cpp:52
+#, kde-format
+msgctxt "Separate the usernames of users"
+msgid " and "
+msgstr " in "
+
+#: src/models/reactionmodel.cpp:59
+#, kde-format
+msgctxt "%1 is the number of other users"
+msgid " and %1 other"
+msgid_plural " and %1 others"
+msgstr[0] " in %1 ostal"
+msgstr[1] " in %1 ostala"
+msgstr[2] " in %1 ostali"
+msgstr[3] " in %1 ostalih"
+
+#: src/models/reactionmodel.cpp:63
+#, kde-format
+msgctxt "%2 is the users who reacted and %3 the emoji that was given"
+msgid "%2 reacted with %3"
+msgid_plural "%2 reacted with %3"
+msgstr[0] "%2 je reagiral z %3"
+msgstr[1] "%2 sta reagirala z %3"
+msgstr[2] "%2 so reagirali z %3"
+msgstr[3] "%2 je reagiralo z %3"
+
+#: src/models/roomlistmodel.cpp:457
 #, kde-format
 msgid "Invited"
 msgstr "Povabljen"
 
-#: src/models/roomlistmodel.cpp:463
+#: src/models/roomlistmodel.cpp:459
 #, kde-format
 msgid "Favorite"
 msgstr "Priljubljen"
 
-#: src/models/roomlistmodel.cpp:465
+#: src/models/roomlistmodel.cpp:461
 #, kde-format
 msgid "Direct Messages"
 msgstr "Neposredna sporočila"
 
-#: src/models/roomlistmodel.cpp:467
+#: src/models/roomlistmodel.cpp:463
 #, kde-format
 msgid "Normal"
 msgstr "Normalno"
 
-#: src/models/roomlistmodel.cpp:469
+#: src/models/roomlistmodel.cpp:465
 #, kde-format
 msgid "Low priority"
 msgstr "Nizka prednost"
 
-#: src/models/roomlistmodel.cpp:471
+#: src/models/roomlistmodel.cpp:467
 #, kde-format
 msgid "Spaces"
 msgstr "Presledki"
@@ -1422,13 +1448,6 @@ msgctxt "@action:button"
 msgid "Back"
 msgstr "Nazaj"
 
-#: src/qml/Component/QuickSwitcher.qml:127
-#: src/qml/Page/RoomList/CollapsedRoomDelegate.qml:37
-#: src/qml/Page/RoomList/RoomDelegate.qml:64
-#, kde-format
-msgid "No Name"
-msgstr "Ni imena"
-
 #: src/qml/Component/Timeline/EncryptedDelegate.qml:15
 #: src/qml/Component/Timeline/ReplyComponent.qml:151
 #, kde-format
@@ -1509,32 +1528,6 @@ msgstr[3] "Glede na glasove %1 uporabnikov"
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
 msgstr "(Končano)"
-
-#: src/qml/Component/Timeline/ReactionDelegate.qml:55
-#, kde-format
-msgctxt "Separate the usernames of users"
-msgid " and "
-msgstr " in "
-
-#: src/qml/Component/Timeline/ReactionDelegate.qml:61
-#, kde-format
-msgctxt "%1 is the number of other users"
-msgid " and %1 other"
-msgid_plural " and %1 others"
-msgstr[0] " in %1 ostal"
-msgstr[1] " in %1 ostala"
-msgstr[2] " in %1 ostali"
-msgstr[3] " in %1 ostalih"
-
-#: src/qml/Component/Timeline/ReactionDelegate.qml:64
-#, kde-format
-msgctxt "%2 is the users who reacted and %3 the emoji that was given"
-msgid "%2 reacted with %3"
-msgid_plural "%2 reacted with %3"
-msgstr[0] "%2 je reagiral z %3"
-msgstr[1] "%2 sta reagirala z %3"
-msgstr[2] "%2 so reagirali z %3"
-msgstr[3] "%2 je reagiralo z %3"
 
 #: src/qml/Component/Timeline/ReadMarkerDelegate.qml:69
 #, kde-format
@@ -3941,32 +3934,32 @@ msgid ""
 "There's no room %1 in the room list. Check the spelling and the account."
 msgstr "Soba %1 ne obstaja na seznamu sob. Preverite črkovanje in račun."
 
-#: src/roommanager.cpp:212
+#: src/roommanager.cpp:216
 #, kde-format
 msgid "Failed to join room"
 msgstr "Neuspela pridružitev v sobo"
 
-#: src/roommanager.cpp:229
+#: src/roommanager.cpp:233
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr "Prosili ste za pridružitev k '%1'"
 
-#: src/roommanager.cpp:232
+#: src/roommanager.cpp:236
 #, kde-format
 msgid "Failed to request joining room"
 msgstr "Neuspela prošnja za pridružitev v sobo"
 
-#: src/roommanager.cpp:242
+#: src/roommanager.cpp:246
 #, kde-format
 msgid "No application for the link"
 msgstr "Ni aplikacije za povezavo"
 
-#: src/roommanager.cpp:242
+#: src/roommanager.cpp:246
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "Vaš operacijski sistem ni mogel najti aplikacije za povezavo."
 
-#: src/roommanager.cpp:248
+#: src/roommanager.cpp:252
 #, kde-format
 msgid "Could not open URL"
 msgstr "Ni bilo mogoče odpreti URL"
@@ -3980,6 +3973,9 @@ msgstr "Prikaži"
 #, kde-format
 msgid "Quit"
 msgstr "Zapusti"
+
+#~ msgid "No Name"
+#~ msgstr "Ni imena"
 
 #~ msgid "%1 (%2)"
 #~ msgstr "%1 (%2)"
