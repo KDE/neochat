@@ -111,7 +111,6 @@ public:
     Q_ENUM(EventRoles)
 
     explicit MessageEventModel(QObject *parent = nullptr);
-    ~MessageEventModel() override;
 
     [[nodiscard]] NeoChatRoom *room() const;
     void setRoom(NeoChatRoom *room);

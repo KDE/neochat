@@ -85,8 +85,6 @@ MessageEventModel::MessageEventModel(QObject *parent)
     });
 }
 
-MessageEventModel::~MessageEventModel() = default;
-
 NeoChatRoom *MessageEventModel::room() const
 {
     return m_currentRoom;
