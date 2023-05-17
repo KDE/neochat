@@ -165,12 +165,14 @@ ColumnLayout {
 
     Component {
         id: emojiDelegate
-        EmojiDelegate {
+        Kirigami.NavigationTabButton {
             width: root.categoryIconSize
             height: width
             checked: categories.currentIndex === model.index
-            emoji: modelData ? modelData.emoji : ""
-            name: modelData ? modelData.name : ""
+            text: modelData ? modelData.emoji : ""
+            QQC2.ToolTip.text: modelData ? modelData.name : ""
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+            QQC2.ToolTip.visible: hovered
             onClicked: {
                 categories.currentIndex = index;
                 categories.focus = true;
@@ -180,14 +182,17 @@ ColumnLayout {
 
     Component {
         id: stickerDelegate
-        EmojiDelegate {
+        Kirigami.NavigationTabButton {
             width: root.categoryIconSize
             height: width
-            emoji: model.avatarUrl ?? ""
-            isImage: true
-            name: model.displayName ?? ""
-            onClicked: stickerModel.packIndex = model.index
             checked: stickerModel.packIndex === model.index
+            contentItem: Image {
+                source: model.avatarUrl
+            }
+            QQC2.ToolTip.text: model.name
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+            QQC2.ToolTip.visible: hovered && !!model.name
+            onClicked: stickerModel.packIndex = model.index
         }
     }
 }
