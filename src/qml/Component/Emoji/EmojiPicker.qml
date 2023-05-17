@@ -4,7 +4,7 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
-import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigami 2.20 as Kirigami
 import org.kde.neochat 1.0
 
 ColumnLayout {
@@ -34,33 +34,27 @@ ColumnLayout {
 
     spacing: 0
 
-    RowLayout {
+    Kirigami.NavigationTabBar {
+        id: types
         Layout.fillWidth: true
-        Layout.preferredHeight: root.categoryIconSize
+        Kirigami.Theme.colorSet: Kirigami.Theme.View
 
-        Item {
-            Layout.preferredHeight: 1
-            Layout.fillWidth: true
-        }
-
-        CategoryIcon {
-            id: emojis
-            source: "smiley"
-            text: i18n("Emojis")
-            t: 0
-        }
-
-        CategoryIcon {
-            id: stickers
-            source: "stickers"
-            text: i18n("Stickers")
-            t: 1
-        }
-
-        Item {
-            Layout.preferredHeight: 1
-            Layout.fillWidth: true
-        }
+        background: null
+        actions: [
+            Kirigami.Action {
+                id: emojis
+                icon.name: "smiley"
+                text: i18n("Emojis")
+                checked: true
+                onTriggered: root.selectedType = 0
+            },
+            Kirigami.Action {
+                id: stickers
+                icon.name: "stickers"
+                text: i18n("Stickers")
+                onTriggered: root.selectedType = 1
+            }
+        ]
     }
 
     QQC2.ScrollView {
@@ -194,46 +188,6 @@ ColumnLayout {
             name: model.displayName ?? ""
             onClicked: stickerModel.packIndex = model.index
             checked: stickerModel.packIndex === model.index
-        }
-    }
-
-    component CategoryIcon : Kirigami.Icon {
-        id: categoryIcons
-
-        readonly property bool checked: root.selectedType === t
-        required property int t
-        required property string text
-
-        Layout.preferredWidth: root.categoryIconSize
-        Layout.preferredHeight: root.categoryIconSize
-
-        QQC2.ToolTip.text: text
-        QQC2.ToolTip.visible: categoryIconsMouseArea.containsMouse
-        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-
-        MouseArea {
-            id: categoryIconsMouseArea
-
-            hoverEnabled: true
-            anchors.fill: parent
-            onClicked: root.selectedType = t
-        }
-
-        Rectangle {
-            color: categoryIcons.checked ? Kirigami.Theme.highlightColor : "transparent"
-            radius: Kirigami.Units.smallSpacing
-            z: -1
-            anchors {
-                fill: parent
-                margins: Kirigami.Units.smallSpacing
-            }
-
-            Rectangle {
-                radius: Kirigami.Units.smallSpacing
-                anchors.fill: parent
-                color: Kirigami.Theme.highlightColor
-                opacity: categoryIconsMouseArea.containsMouse && !categoryIconsMouseArea.pressed ? 0.2 : 0
-            }
         }
     }
 }
