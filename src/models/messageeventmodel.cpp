@@ -125,7 +125,6 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         lastReadEventId = room->readMarkerEventId();
 #endif
 
-        using namespace Quotient;
         connect(m_currentRoom, &Room::aboutToAddNewMessages, this, [this](RoomEventsRange events) {
             for (auto &&event : events) {
                 const RoomMessageEvent *message = dynamic_cast<RoomMessageEvent *>(event.get());
