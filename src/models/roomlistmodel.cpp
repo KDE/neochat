@@ -281,7 +281,7 @@ void RoomListModel::updateRoom(Room *room, Room *prev)
     }
     // Ok, we're through with pre-checks, now for the real thing.
     auto newRoom = static_cast<NeoChatRoom *>(room);
-    const auto it = std::find_if(m_rooms.begin(), m_rooms.end(), [=](const NeoChatRoom *r) {
+    const auto it = std::find_if(m_rooms.begin(), m_rooms.end(), [prev, newRoom](const NeoChatRoom *r) {
         return r == prev || r == newRoom;
     });
     if (it != m_rooms.end()) {

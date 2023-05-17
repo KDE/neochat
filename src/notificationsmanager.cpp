@@ -78,7 +78,7 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
     notification->setPixmap(QPixmap::fromImage(icon));
 
     notification->setDefaultAction(i18n("Open NeoChat in this room"));
-    connect(notification, &KNotification::defaultActivated, this, [=]() {
+    connect(notification, &KNotification::defaultActivated, this, [notification, room]() {
         WindowController::instance().showAndRaiseWindow(notification->xdgActivationToken());
         if (!room) {
             return;
@@ -118,7 +118,7 @@ void NotificationsManager::postInviteNotification(NeoChatRoom *room, const QStri
     notification->setPixmap(img);
     notification->setFlags(KNotification::Persistent);
     notification->setDefaultAction(i18n("Open this invitation in NeoChat"));
-    connect(notification, &KNotification::defaultActivated, this, [=]() {
+    connect(notification, &KNotification::defaultActivated, this, [notification, room]() {
         WindowController::instance().showAndRaiseWindow(notification->xdgActivationToken());
         notification->close();
         RoomManager::instance().enterRoom(room);

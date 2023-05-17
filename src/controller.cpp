@@ -113,10 +113,10 @@ Controller::Controller(QObject *parent)
 
 #ifdef QUOTIENT_07
     static int oldAccountCount = 0;
-    connect(&AccountRegistry::instance(), &AccountRegistry::accountCountChanged, this, [=]() {
+    connect(&AccountRegistry::instance(), &AccountRegistry::accountCountChanged, this, [this]() {
         if (AccountRegistry::instance().size() > oldAccountCount) {
             auto connection = AccountRegistry::instance().accounts()[AccountRegistry::instance().size() - 1];
-            connect(connection, &Connection::syncDone, this, [=]() {
+            connect(connection, &Connection::syncDone, this, [this]() {
                 handleNotifications(connection);
             });
         }
@@ -552,7 +552,7 @@ void Controller::setActiveConnection(Connection *connection)
             m_isOnline = true;
             Q_EMIT isOnlineChanged(true);
         });
-        connect(connection, &Connection::requestFailed, this, [=](BaseJob *job) {
+        connect(connection, &Connection::requestFailed, this, [](BaseJob *job) {
             if (dynamic_cast<DownloadFileJob *>(job) && job->jsonData()["errcode"].toString() == "M_TOO_LARGE"_ls) {
                 RoomManager::instance().warning(i18n("File too large to download."), i18n("Contact your matrix server administrator for support."));
             }
