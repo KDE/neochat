@@ -45,7 +45,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[ContentRole] = "content";
     roles[HighlightRole] = "isHighlighted";
     roles[SpecialMarksRole] = "marks";
-    roles[LongOperationRole] = "progressInfo";
+    roles[ProgressInfoRole] = "progressInfo";
     roles[ShowLinkPreviewRole] = "showLinkPreview";
     roles[LinkPreviewRole] = "linkPreview";
     roles[MediaInfoRole] = "mediaInfo";
@@ -696,7 +696,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         return !evt.id().isEmpty() ? evt.id() : evt.transactionId();
     }
 
-    if (role == LongOperationRole) {
+    if (role == ProgressInfoRole) {
         if (auto e = eventCast<const RoomMessageEvent>(&evt)) {
             if (e->hasFileContent()) {
                 return QVariant::fromValue(m_currentRoom->fileTransferInfo(e->id()));

@@ -69,7 +69,7 @@ public:
         ContentRole, /**< The full message content. */
         HighlightRole, /**< Whether the event should be highlighted. */
         SpecialMarksRole, /**< Whether the event is hidden or not. */
-        LongOperationRole, /**< Progress info when downloading files. */
+        ProgressInfoRole, /**< Progress info when downloading files. */
         FormattedBodyRole, /**< The formatted body of a rich message. */
         GenericDisplayRole, /**< A generic string based upon the message type. */
 
