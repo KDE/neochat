@@ -86,7 +86,6 @@ ColumnLayout {
             selectionColor: Kirigami.Theme.highlightColor
             onLinkActivated: UrlHelper.openUrl(link)
             readOnly: true
-            width: parent.width
             MouseArea {
                 anchors.fill: parent
                 acceptedButtons: Qt.NoButton
