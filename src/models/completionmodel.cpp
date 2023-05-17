@@ -54,7 +54,7 @@ QVariant CompletionModel::data(const QModelIndex &index, int role) const
     auto filterIndex = m_filterModel->index(index.row(), 0);
     if (m_autoCompletionType == User) {
         if (role == Text) {
-            return m_filterModel->data(filterIndex, UserListModel::NameRole);
+            return m_filterModel->data(filterIndex, UserListModel::DisplayNameRole);
         }
         if (role == Subtitle) {
             return m_filterModel->data(filterIndex, UserListModel::UserIdRole);
@@ -123,7 +123,7 @@ void CompletionModel::updateCompletion()
     if (text().startsWith(QLatin1Char('@'))) {
         m_filterModel->setSourceModel(m_userListModel);
         m_filterModel->setFilterRole(UserListModel::UserIdRole);
-        m_filterModel->setSecondaryFilterRole(UserListModel::NameRole);
+        m_filterModel->setSecondaryFilterRole(UserListModel::DisplayNameRole);
         m_filterModel->setFullText(m_fullText);
         m_filterModel->setFilterText(m_text);
         m_autoCompletionType = User;

@@ -11,7 +11,7 @@ bool UserFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceP
     if (m_filterText.length() < 1) {
         return false;
     }
-    return sourceModel()->data(sourceModel()->index(sourceRow, 0), UserListModel::NameRole).toString().contains(m_filterText, Qt::CaseInsensitive)
+    return sourceModel()->data(sourceModel()->index(sourceRow, 0), UserListModel::DisplayNameRole).toString().contains(m_filterText, Qt::CaseInsensitive)
         || sourceModel()->data(sourceModel()->index(sourceRow, 0), UserListModel::UserIdRole).toString().contains(m_filterText, Qt::CaseInsensitive);
 }
 

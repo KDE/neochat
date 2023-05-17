@@ -64,7 +64,7 @@ QVariant UserListModel::data(const QModelIndex &index, int role) const
         return {};
     }
     auto user = m_users.at(index.row());
-    if (role == NameRole) {
+    if (role == DisplayNameRole) {
         return user->displayname(m_currentRoom);
     }
     if (role == UserIdRole) {
@@ -204,7 +204,7 @@ QHash<int, QByteArray> UserListModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
 
-    roles[NameRole] = "name";
+    roles[DisplayNameRole] = "name";
     roles[UserIdRole] = "userId";
     roles[AvatarRole] = "avatar";
     roles[ObjectRole] = "user";

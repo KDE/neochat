@@ -38,7 +38,7 @@ public:
      * @brief Defines the model roles.
      */
     enum EventRoles {
-        NameRole = Qt::UserRole + 1, /**< The user's display name in the current room. */
+        DisplayNameRole = Qt::DisplayRole, /**< The user's display name in the current room. */
         UserIdRole, /**< Matrix ID of the user. */
         AvatarRole, /**< The source URL for the user's avatar in the current room. */
         ObjectRole, /**< The QObject for the user. */
@@ -61,7 +61,7 @@ public:
      *
      * @sa QAbstractItemModel::data
      */
-    [[nodiscard]] QVariant data(const QModelIndex &index, int role = NameRole) const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
     /**
      * @brief Number of rows in the model.
