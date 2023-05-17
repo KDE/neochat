@@ -161,7 +161,7 @@ int main(int argc, char *argv[])
                      QStringLiteral(NEOCHAT_VERSION_STRING),
                      i18n("Matrix client"),
                      KAboutLicense::GPL_V3,
-                     i18n("© 2018-2020 Black Hat, 2020-2022 KDE Community"));
+                     i18n("© 2018-2020 Black Hat, 2020-2023 KDE Community"));
     about.addAuthor(i18n("Carl Schwan"), i18n("Maintainer"), QStringLiteral("carl@carlschwan.eu"), QStringLiteral("https://carlschwan.eu"));
     about.addAuthor(i18n("Tobias Fella"), i18n("Maintainer"), QStringLiteral("tobias.fella@kde.org"), QStringLiteral("https://tobiasfella.de"));
     about.addAuthor(i18n("James Graham"), i18n("Maintainer"), QStringLiteral("james.h.graham@protonmail.com"));
