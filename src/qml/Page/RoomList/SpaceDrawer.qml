@@ -76,6 +76,7 @@ QQC2.Control {
                             }
                         }
                         onCountChanged: root.enabled = count > 0
+                        Component.onCompleted: root.enabled = count > 0
 
                         delegate: AvatarTabButton {
                             Layout.fillWidth: true
