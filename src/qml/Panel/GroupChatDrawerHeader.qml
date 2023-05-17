@@ -22,7 +22,7 @@ ColumnLayout {
             Layout.preferredHeight: Kirigami.Units.gridUnit * 3.5
 
             name: room ? room.displayName : ""
-            source: room ? ("image://mxc/" +  room.avatarMediaId) : ""
+            source: room && room.avatarMediaId ? ("image://mxc/" +  room.avatarMediaId) : ""
 
             Rectangle {
                 visible: room.usesEncryption
