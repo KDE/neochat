@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include <KFormat>
 #include <QAbstractListModel>
 
 #include "linkpreviewer.h"
@@ -184,13 +185,13 @@ private:
     QPersistentModelIndex m_lastReadEventIndex;
     int rowBelowInserted = -1;
     bool movingEvent = false;
+    KFormat m_format;
 
     QMap<QString, LinkPreviewer *> m_linkPreviewers;
     QMap<QString, ReactionModel *> m_reactionModels;
 
     [[nodiscard]] int timelineBaseIndex() const;
     [[nodiscard]] QDateTime makeMessageTimestamp(const Quotient::Room::rev_iter_t &baseIt) const;
-    [[nodiscard]] static QString renderDate(const QDateTime &timestamp);
 
     bool canFetchMore(const QModelIndex &parent) const override;
     void fetchMore(const QModelIndex &parent) override;

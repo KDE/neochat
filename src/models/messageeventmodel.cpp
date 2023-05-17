@@ -384,25 +384,6 @@ QDateTime MessageEventModel::makeMessageTimestamp(const Quotient::Room::rev_iter
     return {};
 }
 
-QString MessageEventModel::renderDate(const QDateTime &timestamp)
-{
-    auto date = timestamp.toLocalTime().date();
-    if (date == QDate::currentDate()) {
-        return i18n("Today");
-    }
-    if (date == QDate::currentDate().addDays(-1)) {
-        return i18n("Yesterday");
-    }
-    if (date == QDate::currentDate().addDays(-2)) {
-        return i18n("The day before yesterday");
-    }
-    if (date > QDate::currentDate().addDays(-7)) {
-        return date.toString("dddd");
-    }
-
-    return QLocale::system().toString(date, QLocale::ShortFormat);
-}
-
 void MessageEventModel::refreshLastUserEvents(int baseTimelineRow)
 {
     if (!m_currentRoom || m_currentRoom->timelineSize() <= baseTimelineRow) {
@@ -701,7 +682,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 
     if (role == TimeRole || role == SectionRole) {
         auto ts = isPending ? pendingIt->lastUpdated() : makeMessageTimestamp(timelineIt);
-        return role == TimeRole ? QVariant(ts) : renderDate(ts);
+        return role == TimeRole ? QVariant(ts) : m_format.formatRelativeDate(ts.toLocalTime().date(), QLocale::ShortFormat);
     }
 
     if (role == ShowLinkPreviewRole) {
