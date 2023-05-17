@@ -46,7 +46,6 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[HighlightRole] = "isHighlighted";
     roles[SpecialMarksRole] = "marks";
     roles[LongOperationRole] = "progressInfo";
-    roles[EventResolvedTypeRole] = "eventResolvedType";
     roles[ShowLinkPreviewRole] = "showLinkPreview";
     roles[LinkPreviewRole] = "linkPreview";
     roles[MediaInfoRole] = "mediaInfo";
@@ -595,10 +594,6 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 #endif
 
         return DelegateType::Other;
-    }
-
-    if (role == EventResolvedTypeRole) {
-        return EventTypeRegistry::getMatrixType(evt.type());
     }
 
     if (role == AuthorRole) {

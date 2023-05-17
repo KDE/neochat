@@ -96,8 +96,6 @@ public:
         ShowReactionsRole, /**< Whether there are any reactions to be shown. */
         SourceRole, /**< The full message source JSON. */
 
-        // For debugging
-        EventResolvedTypeRole, /**< The event type the message. */
         AuthorIdRole, /**< Matrix ID of the message author. */
 
         VerifiedRole, /**< Whether an encrypted message is sent in a verified session. */
