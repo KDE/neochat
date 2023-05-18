@@ -28,6 +28,7 @@ Kirigami.ScrollablePage {
     header: RowLayout {
         Kirigami.SearchField {
             id: searchField
+            focus: true
             Layout.topMargin: Kirigami.Units.smallSpacing
             Layout.leftMargin: Kirigami.Units.smallSpacing
             Layout.fillWidth: true
