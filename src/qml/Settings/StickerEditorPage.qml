@@ -119,16 +119,16 @@ Kirigami.ScrollablePage {
                     enabled: !root.newSticker || (image.source && shortcode.text && description.text)
                     onClicked: {
                         if (root.newSticker) {
-                            model.addSticker(image.source, shortcode.text, description.text)
+                            model.addEmoticon(image.source, shortcode.text, description.text, "sticker")
                         } else {
                             if (description.text !== root.description) {
-                                root.model.setStickerBody(proxyModel.mapToSource(proxyModel.index(model.index, 0)).row, description.text)
+                                root.model.setEmoticonBody(proxyModel.mapToSource(proxyModel.index(model.index, 0)).row, description.text)
                             }
                             if (shortcode.text !== root.shortcode) {
-                                root.model.setStickerShortcode(proxyModel.mapToSource(proxyModel.index(model.index, 0)).row, shortcode.text)
+                                root.model.setEmoticonShortcode(proxyModel.mapToSource(proxyModel.index(model.index, 0)).row, shortcode.text)
                             }
                             if (image.source + "" !== root.url) {
-                                root.model.setStickerImage(proxyModel.mapToSource(proxyModel.index(model.index, 0)).row, image.source)
+                                root.model.setEmoticonImage(proxyModel.mapToSource(proxyModel.index(model.index, 0)).row, image.source)
                             }
                         }
                         root.closeDialog()

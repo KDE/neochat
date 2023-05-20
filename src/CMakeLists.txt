@@ -15,7 +15,7 @@ add_library(neochat STATIC
     models/messagefiltermodel.cpp
     models/roomlistmodel.cpp
     models/sortfilterspacelistmodel.cpp
-    models/accountstickermodel.cpp
+    models/accountemoticonmodel.cpp
     spacehierarchycache.cpp
     roommanager.cpp
     neochatroom.cpp

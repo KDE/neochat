@@ -30,7 +30,7 @@ Kirigami.ScrollablePage {
                     Repeater {
                         model: EmoticonFilterModel {
                             id: emoticonFilterModel
-                            sourceModel: AccountStickerModel {
+                            sourceModel: AccountEmoticonModel {
                                 id: stickerModel
                                 connection: Controller.activeConnection
                             }
@@ -84,7 +84,7 @@ Kirigami.ScrollablePage {
                                 anchors.right: parent.right
                                 anchors.margins: Kirigami.Units.smallSpacing
                                 z: 2
-                                onClicked: stickerModel.deleteSticker(emoticonFilterModel.mapToSource(emoticonFilterModel.index(model.index, 0)).row)
+                                onClicked: stickerModel.deleteEmoticon(emoticonFilterModel.mapToSource(emoticonFilterModel.index(model.index, 0)).row)
                             }
                         }
                     }

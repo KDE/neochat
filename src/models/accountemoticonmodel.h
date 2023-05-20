@@ -14,30 +14,30 @@
 class ImagePacksModel;
 
 /**
- * @class AccountStickerModel
+ * @class AccountEmoticonModel
  *
- * This class defines the model for visualising the account stickers.
+ * This class defines the model for visualising the account stickers and emojis.
  *
  * This is based upon the im.ponies.user_emotes spec (MSC2545).
  */
-class AccountStickerModel : public QAbstractListModel
+class AccountEmoticonModel : public QAbstractListModel
 {
     Q_OBJECT
     /**
-     * @brief The connection to get stickers from.
+     * @brief The connection to get emoticons from.
      */
     Q_PROPERTY(Quotient::Connection *connection READ connection WRITE setConnection NOTIFY connectionChanged)
 
 public:
     enum Roles {
-        UrlRole = Qt::UserRole + 1, /**< The URL for the sticker. */
-        ShortCodeRole, /**< The shortcode for the sticker. */
-        BodyRole, //**< A textual description of the sticker */
+        UrlRole = Qt::UserRole + 1, /**< The URL for the emoticon. */
+        ShortCodeRole, /**< The shortcode for the emoticon. */
+        BodyRole, //**< A textual description of the emoticon */
         IsStickerRole, //**< Whether this emoticon is a sticker */
         IsEmojiRole, //**< Whether this emoticon is an emoji */
     };
 
-    explicit AccountStickerModel(QObject *parent = nullptr);
+    explicit AccountEmoticonModel(QObject *parent = nullptr);
 
     /**
      * @brief Number of rows in the model.
@@ -64,29 +64,29 @@ public:
     void setConnection(Quotient::Connection *connection);
 
     /**
-     * @brief Deletes the sticker at the given index.
+     * @brief Deletes the emoticon at the given index.
      */
-    Q_INVOKABLE void deleteSticker(int index);
+    Q_INVOKABLE void deleteEmoticon(int index);
 
     /**
-     * @brief Changes the description for the sticker at the given index.
+     * @brief Changes the description for the emoticon at the given index.
      */
-    Q_INVOKABLE void setStickerBody(int index, const QString &text);
+    Q_INVOKABLE void setEmoticonBody(int index, const QString &text);
 
     /**
-     * @brief Changes the shortcode for the sticker at the given index.
+     * @brief Changes the shortcode for the emoticon at the given index.
      */
-    Q_INVOKABLE void setStickerShortcode(int index, const QString &shortCode);
+    Q_INVOKABLE void setEmoticonShortcode(int index, const QString &shortCode);
 
     /**
-     * @brief Changes the image for the sticker at the given index.
+     * @brief Changes the image for the emoticon at the given index.
      */
-    Q_INVOKABLE void setStickerImage(int index, const QUrl &source);
+    Q_INVOKABLE void setEmoticonImage(int index, const QUrl &source);
 
     /**
-     * @brief Adds a sticker with the given parameters.
+     * @brief Add an emoticon with the given parameters.
      */
-    Q_INVOKABLE void addSticker(const QUrl &source, const QString &shortcode, const QString &description);
+    Q_INVOKABLE void addEmoticon(const QUrl &source, const QString &shortcode, const QString &description, const QString &type);
 
 Q_SIGNALS:
     void connectionChanged();
@@ -94,8 +94,8 @@ Q_SIGNALS:
 private:
     std::optional<Quotient::ImagePackEventContent> m_images;
     QPointer<Quotient::Connection> m_connection;
-    QCoro::Task<void> doSetStickerImage(int index, QUrl source);
-    QCoro::Task<void> doAddSticker(QUrl source, QString shortcode, QString description);
+    QCoro::Task<void> doSetEmoticonImage(int index, QUrl source);
+    QCoro::Task<void> doAddEmoticon(QUrl source, QString shortcode, QString description, QString type);
 
-    void reloadStickers();
+    void reloadEmoticons();
 };
