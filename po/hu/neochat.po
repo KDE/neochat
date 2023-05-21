@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-20 00:45+0000\n"
+"POT-Creation-Date: 2023-05-21 00:45+0000\n"
 "PO-Revision-Date: 2023-05-09 22:36+0200\n"
 "Last-Translator: K. Áron <aronkvh@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -640,49 +640,34 @@ msgstr "Egyedi"
 msgid "Own Stickers"
 msgstr "Saját emojik"
 
-#: src/models/messageeventmodel.cpp:400 src/models/searchmodel.cpp:164
-#, kde-format
-msgid "Today"
-msgstr "Ma"
-
-#: src/models/messageeventmodel.cpp:403 src/models/searchmodel.cpp:167
-#, kde-format
-msgid "Yesterday"
-msgstr "Tegnap"
-
-#: src/models/messageeventmodel.cpp:406 src/models/searchmodel.cpp:170
-#, kde-format
-msgid "The day before yesterday"
-msgstr "Tegnapelőtt"
-
-#: src/models/messageeventmodel.cpp:522 src/models/messageeventmodel.cpp:531
+#: src/models/messageeventmodel.cpp:495 src/models/messageeventmodel.cpp:504
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Törölt üzenet]</i>"
 
-#: src/models/messageeventmodel.cpp:523
+#: src/models/messageeventmodel.cpp:496
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Törölt üzenet: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:612
+#: src/models/messageeventmodel.cpp:581
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[KITAKARVA]"
 
-#: src/models/messageeventmodel.cpp:612
+#: src/models/messageeventmodel.cpp:581
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[KITAKARVA: %1]"
 
-#: src/models/messageeventmodel.cpp:921
+#: src/models/messageeventmodel.cpp:890
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 felhasználó: "
 msgstr[1] "%1 felhasználó: "
 
-#: src/models/messageeventmodel.cpp:928
+#: src/models/messageeventmodel.cpp:897
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -739,6 +724,21 @@ msgstr "Alacsony prioritás"
 #, kde-format
 msgid "Spaces"
 msgstr "Terek"
+
+#: src/models/searchmodel.cpp:164
+#, kde-format
+msgid "Today"
+msgstr "Ma"
+
+#: src/models/searchmodel.cpp:167
+#, kde-format
+msgid "Yesterday"
+msgstr "Tegnap"
+
+#: src/models/searchmodel.cpp:170
+#, kde-format
+msgid "The day before yesterday"
+msgstr "Tegnapelőtt"
 
 #: src/neochatroom.cpp:512
 #, kde-format

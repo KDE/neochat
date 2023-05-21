@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-20 00:45+0000\n"
+"POT-Creation-Date: 2023-05-21 00:45+0000\n"
 "PO-Revision-Date: 2023-04-22 21:58+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -641,49 +641,34 @@ msgstr "Neurrira"
 msgid "Own Stickers"
 msgstr "eranskailu bat bidali du"
 
-#: src/models/messageeventmodel.cpp:400 src/models/searchmodel.cpp:164
-#, kde-format
-msgid "Today"
-msgstr "Gaur"
-
-#: src/models/messageeventmodel.cpp:403 src/models/searchmodel.cpp:167
-#, kde-format
-msgid "Yesterday"
-msgstr "Atzo"
-
-#: src/models/messageeventmodel.cpp:406 src/models/searchmodel.cpp:170
-#, kde-format
-msgid "The day before yesterday"
-msgstr "Herenegun"
-
-#: src/models/messageeventmodel.cpp:522 src/models/messageeventmodel.cpp:531
+#: src/models/messageeventmodel.cpp:495 src/models/messageeventmodel.cpp:504
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Mezu hau ezabatu egin da]</i>"
 
-#: src/models/messageeventmodel.cpp:523
+#: src/models/messageeventmodel.cpp:496
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Mezu hau ezabatu egin da: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:612
+#: src/models/messageeventmodel.cpp:581
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[ERREDAKZIO LANA DU]"
 
-#: src/models/messageeventmodel.cpp:612
+#: src/models/messageeventmodel.cpp:581
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[ERREDAKZIOAK LANA DU: %1]"
 
-#: src/models/messageeventmodel.cpp:921
+#: src/models/messageeventmodel.cpp:890
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "Erabiltzaile 1:"
 msgstr[1] "%1 erabiltzaile:"
 
-#: src/models/messageeventmodel.cpp:928
+#: src/models/messageeventmodel.cpp:897
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -740,6 +725,21 @@ msgstr "Lehentasun txikia"
 #, kde-format
 msgid "Spaces"
 msgstr "Tokiak"
+
+#: src/models/searchmodel.cpp:164
+#, kde-format
+msgid "Today"
+msgstr "Gaur"
+
+#: src/models/searchmodel.cpp:167
+#, kde-format
+msgid "Yesterday"
+msgstr "Atzo"
+
+#: src/models/searchmodel.cpp:170
+#, kde-format
+msgid "The day before yesterday"
+msgstr "Herenegun"
 
 #: src/neochatroom.cpp:512
 #, kde-format

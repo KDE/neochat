@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-20 00:45+0000\n"
+"POT-Creation-Date: 2023-05-21 00:45+0000\n"
 "PO-Revision-Date: 2023-01-06 16:47+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -649,49 +649,34 @@ msgstr "Προσαρμοσμένο"
 msgid "Own Stickers"
 msgstr ""
 
-#: src/models/messageeventmodel.cpp:400 src/models/searchmodel.cpp:164
-#, kde-format
-msgid "Today"
-msgstr "Σήμερα"
-
-#: src/models/messageeventmodel.cpp:403 src/models/searchmodel.cpp:167
-#, kde-format
-msgid "Yesterday"
-msgstr "Χθες"
-
-#: src/models/messageeventmodel.cpp:406 src/models/searchmodel.cpp:170
-#, kde-format
-msgid "The day before yesterday"
-msgstr "Προχθές"
-
-#: src/models/messageeventmodel.cpp:522 src/models/messageeventmodel.cpp:531
+#: src/models/messageeventmodel.cpp:495 src/models/messageeventmodel.cpp:504
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Αυτό το μήνυμα διαγράφηκε]</i>"
 
-#: src/models/messageeventmodel.cpp:523
+#: src/models/messageeventmodel.cpp:496
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Αυτό το μήνυμα διαγράφηκε: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:612
+#: src/models/messageeventmodel.cpp:581
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[ΔΙΑΓΡΑΜΜΕΝΟ]"
 
-#: src/models/messageeventmodel.cpp:612
+#: src/models/messageeventmodel.cpp:581
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[ΔΙΑΓΡΑΜΜΕΝΟ: %1]"
 
-#: src/models/messageeventmodel.cpp:921
+#: src/models/messageeventmodel.cpp:890
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/models/messageeventmodel.cpp:928
+#: src/models/messageeventmodel.cpp:897
 #, fuzzy, kde-format
 #| msgctxt "[action 1], [action 2 and action 3]"
 #| msgid ", "
@@ -750,6 +735,21 @@ msgstr "Χαμηλή προτεραιότητα"
 #, kde-format
 msgid "Spaces"
 msgstr "Χώροι"
+
+#: src/models/searchmodel.cpp:164
+#, kde-format
+msgid "Today"
+msgstr "Σήμερα"
+
+#: src/models/searchmodel.cpp:167
+#, kde-format
+msgid "Yesterday"
+msgstr "Χθες"
+
+#: src/models/searchmodel.cpp:170
+#, kde-format
+msgid "The day before yesterday"
+msgstr "Προχθές"
 
 #: src/neochatroom.cpp:512
 #, kde-format

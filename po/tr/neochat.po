@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-20 00:45+0000\n"
+"POT-Creation-Date: 2023-05-21 00:45+0000\n"
 "PO-Revision-Date: 2023-05-18 12:10+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -634,49 +634,34 @@ msgstr "Özel"
 msgid "Own Stickers"
 msgstr "Yapışkanlarımız"
 
-#: src/models/messageeventmodel.cpp:400 src/models/searchmodel.cpp:164
-#, kde-format
-msgid "Today"
-msgstr "Bugün"
-
-#: src/models/messageeventmodel.cpp:403 src/models/searchmodel.cpp:167
-#, kde-format
-msgid "Yesterday"
-msgstr "Dün"
-
-#: src/models/messageeventmodel.cpp:406 src/models/searchmodel.cpp:170
-#, kde-format
-msgid "The day before yesterday"
-msgstr "dünden önceki gün"
-
-#: src/models/messageeventmodel.cpp:522 src/models/messageeventmodel.cpp:531
+#: src/models/messageeventmodel.cpp:495 src/models/messageeventmodel.cpp:504
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Bu ileti silindi]</i>"
 
-#: src/models/messageeventmodel.cpp:523
+#: src/models/messageeventmodel.cpp:496
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Bu ileti silindi: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:612
+#: src/models/messageeventmodel.cpp:581
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[DEĞİŞTİRİLDİ]"
 
-#: src/models/messageeventmodel.cpp:612
+#: src/models/messageeventmodel.cpp:581
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[DEĞİŞTİRİLDİ: %1]"
 
-#: src/models/messageeventmodel.cpp:921
+#: src/models/messageeventmodel.cpp:890
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "%1 kullanıcı: "
 msgstr[1] "%1 kullanıcı: "
 
-#: src/models/messageeventmodel.cpp:928
+#: src/models/messageeventmodel.cpp:897
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -733,6 +718,21 @@ msgstr "Düşük öncelik"
 #, kde-format
 msgid "Spaces"
 msgstr "Alanlar"
+
+#: src/models/searchmodel.cpp:164
+#, kde-format
+msgid "Today"
+msgstr "Bugün"
+
+#: src/models/searchmodel.cpp:167
+#, kde-format
+msgid "Yesterday"
+msgstr "Dün"
+
+#: src/models/searchmodel.cpp:170
+#, kde-format
+msgid "The day before yesterday"
+msgstr "dünden önceki gün"
 
 #: src/neochatroom.cpp:512
 #, kde-format
