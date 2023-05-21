@@ -22,6 +22,8 @@ Components.AlbumMaximizeComponent {
             source: root.modelData.delegateType === MessageEventModel.Video ? modelData.progressInfo.localPath : modelData.mediaInfo.source
             tempSource: modelData.mediaInfo.tempInfo.source
             caption: modelData.display
+            sourceWidth: modelData.mediaInfo.width
+            sourceHeight: modelData.mediaInfo.height
         }
     ]
 
