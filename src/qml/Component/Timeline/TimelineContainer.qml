@@ -12,6 +12,19 @@ import org.kde.neochat 1.0
 ColumnLayout {
     id: root
 
+    property string eventId: model.eventId
+
+    property var author: model.author
+
+    property int delegateType: model.delegateType
+
+    property bool verified: model.verified
+
+    readonly property real bubbleX: bubble.x + bubble.anchors.leftMargin
+    readonly property alias bubbleY: mainContainer.y
+    readonly property alias bubbleWidth: bubble.width
+    readonly property alias hovered: bubble.hovered
+
     signal openContextMenu
     signal openExternally()
     signal replyClicked(string eventID)
@@ -99,21 +112,7 @@ ColumnLayout {
         // show hover actions
         onHoveredChanged: {
             if (hovered && !Kirigami.Settings.isMobile) {
-                updateHoverComponent();
-            }
-        }
-
-
-        // Show hover actions by updating the global hover component to this delegate
-        function updateHoverComponent() {
-            if (!hoverComponent) {
-                return;
-            }
-            if (hovered && !Kirigami.Settings.isMobile) {
-                hoverComponent.delegate = root
-                hoverComponent.bubble = bubble
-                hoverComponent.event = model
-                hoverComponent.updateFunction = updateHoverComponent;
+                root.setHoverActionsToDelegate()
             }
         }
 
@@ -280,7 +279,6 @@ ColumnLayout {
                 }
             }
 
-
             background: Item {
                 Kirigami.ShadowedRectangle {
                     id: bubbleBackground
@@ -381,5 +379,9 @@ ColumnLayout {
             plainMessage: event.plainText,
         });
         contextMenu.open();
+    }
+
+    function setHoverActionsToDelegate() {
+        ListView.view.setHoverActionsToDelegate(root)
     }
 }

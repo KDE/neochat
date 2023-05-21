@@ -297,108 +297,39 @@ QQC2.ScrollView {
             itemAtIndex(index).isTemporaryHighlighted = true
         }
 
-        Item {
+        HoverActions {
             id: hoverActions
-            property var event: null
-            property bool userMsg: event && event.author.id === Controller.activeConnection.localUserId
-            property bool showEdit: event && userMsg && (event.delegateType === MessageEventModel.Emote || event.delegateType === MessageEventModel.Message)
+
             property var delegate: null
-            property var bubble: null
-            property var hovered: bubble && bubble.hovered
-            property var visibleDelayed: (hovered || hoverHandler.hovered) && !Kirigami.Settings.isMobile
-            property var updateFunction
-            onVisibleDelayedChanged: if (visibleDelayed) {
-                visible = true;
-            } else {
-                // HACK: delay disapearing by 200ms, otherwise this can create some glitches
-                // See https://invent.kde.org/network/neochat/-/issues/333
-                hoverActionsTimer.restart();
+
+            x: delegate ? delegate.x + delegate.bubbleX : 0
+            y: delegate ? delegate.mapToItem(parent, 0, 0).y + delegate.bubbleY - height + Kirigami.Units.smallSpacing : 0
+            width: delegate.bubbleWidth
+
+            showActions: delegate && delegate.hovered
+            verified: delegate && delegate.verified
+            editable: delegate && delegate.author.isLocalUser && (delegate.delegateType === MessageEventModel.Emote || delegate.delegateType === MessageEventModel.Message)
+
+            onReactClicked: (emoji) => {
+                root.currentRoom.toggleReaction(delegate.eventId, emoji);
+                if (!Kirigami.Settings.isMobile) {
+                    root.focusChatBox();
+                }
             }
-            Timer {
-                id: hoverActionsTimer
-                interval: 200
-                onTriggered: hoverActions.visible = hoverActions.visibleDelayed
-                ;
+            onEditClicked: {
+                root.currentRoom.chatBoxEditId = delegate.eventId;
+                root.currentRoom.chatBoxReplyId = "";
             }
-
-            property int childOffset: userMsg && Config.showLocalMessagesOnRight && !Config.compactLayout ? (bubble ? bubble.width : 0) - childWidth : Math.max((bubble ? bubble.width : 0) - childWidth, 0)
-            x: delegate && bubble ? (delegate.x + bubble.x + Kirigami.Units.largeSpacing + childOffset - (Config.compactLayout ? Kirigami.Units.gridUnit * 3 : 0) - (userMsg && !Config.compactLayout ? Kirigami.Units.gridUnit : 0)) : 0
-            y: bubble ? bubble.mapToItem(parent, 0, 0).y - hoverActions.childHeight + Kirigami.Units.smallSpacing : 0
-            ;
-
-            visible: false
-
-            property alias childWidth: hoverActionsRow.width
-            property alias childHeight: hoverActionsRow.height
-
-            RowLayout {
-                id: hoverActionsRow
-                z: 4
-                spacing: 0
-                HoverHandler {
-                    id: hoverHandler
-                    margin: Kirigami.Units.smallSpacing
-                }
-                Kirigami.Icon {
-                    source: "security-high"
-                    width: height
-                    height: parent.height
-                    visible: hoverActions.event ? hoverActions.event.verified : false
-                    HoverHandler {
-                        id: hover
-                    }
-                    QQC2.ToolTip.text: i18n("This message was sent from a verified device")
-                    QQC2.ToolTip.visible: hover.hovered
-                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-                }
-
-                QQC2.Button {
-                    QQC2.ToolTip.text: i18n("React")
-                    QQC2.ToolTip.visible: hovered
-                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-                    icon.name: "preferences-desktop-emoticons"
-
-                    onClicked: emojiDialog.open()
-                    ;
-                    EmojiDialog {
-                        id: emojiDialog
-                        showQuickReaction: true
-                        onChosen: {
-                            root.currentRoom.toggleReaction(hoverActions.event.eventId, emoji);
-                            if (!Kirigami.Settings.isMobile) {
-                                root.focusChatBox();
-                            }
-                        }
-                    }
-                }
-                QQC2.Button {
-                    QQC2.ToolTip.text: i18n("Edit")
-                    QQC2.ToolTip.visible: hovered
-                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-                    visible: hoverActions.showEdit
-                    icon.name: "document-edit"
-                    onClicked: {
-                        root.currentRoom.chatBoxEditId = hoverActions.event.eventId;
-                        root.currentRoom.chatBoxReplyId = "";
-                    }
-                }
-                QQC2.Button {
-                    QQC2.ToolTip.text: i18n("Reply")
-                    QQC2.ToolTip.visible: hovered
-                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-                    icon.name: "mail-replied-symbolic"
-                    onClicked: {
-                        root.currentRoom.chatBoxReplyId = hoverActions.event.eventId;
-                        root.currentRoom.chatBoxEditId = "";
-                        root.focusChatBox();
-                    }
-                }
+            onReplyClicked: {
+                root.currentRoom.chatBoxReplyId = delegate.eventId;
+                root.currentRoom.chatBoxEditId = "";
+                root.focusChatBox();
             }
         }
 
         onContentYChanged: {
-            if (hoverActions.updateFunction) {
-                hoverActions.updateFunction();
+            if (hoverActions.delegate) {
+                hoverActions.delegate.setHoverActionsToDelegate();
             }
         }
 
@@ -511,6 +442,10 @@ QQC2.ScrollView {
             if (readMarkerRow >= 0 && readMarkerRow < firstVisibleIndex() && messageListView.atYEnd) {
                 root.currentRoom.markAllMessagesAsRead()
             }
+        }
+
+        function setHoverActionsToDelegate(delegate) {
+            hoverActions.delegate = delegate
         }
     }
 
