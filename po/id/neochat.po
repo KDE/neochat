@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-21 00:45+0000\n"
-"PO-Revision-Date: 2023-02-15 16:40+0700\n"
+"POT-Creation-Date: 2023-05-22 00:47+0000\n"
+"PO-Revision-Date: 2023-05-19 10:51+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
 "Language: id\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Poedit 3.3.1\n"
 
 #: src/controller.cpp:181
 #, kde-format
@@ -77,12 +77,12 @@ msgstr "Tidak dapat membaca token pengaksesan"
 #: src/controller.cpp:557
 #, kde-format
 msgid "File too large to download."
-msgstr ""
+msgstr "Berkas terlalu besar untuk diunduh."
 
 #: src/controller.cpp:557
 #, kde-format
 msgid "Contact your matrix server administrator for support."
-msgstr ""
+msgstr "Hubungi administrator server Matrix Anda untuk dukungan."
 
 #: src/controller.cpp:595
 #, kde-format
@@ -134,10 +134,9 @@ msgid "Matrix client"
 msgstr "Klien Matrix"
 
 #: src/main.cpp:164
-#, fuzzy, kde-format
-#| msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
+#, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
-msgstr "© 2018-2020 Black Hat, 2020-2022 Komunitas KDE"
+msgstr "© 2018-2020 Black Hat, 2020-2023 Komunitas KDE"
 
 #: src/main.cpp:165
 #, kde-format
@@ -238,7 +237,7 @@ msgstr "'%1' sepertinya bukan ID ruangan atau alias."
 #, kde-format
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
-msgstr "Meninggalkan dari ruangan %1"
+msgstr "Meninggalkan dari ruangan %1."
 
 #: src/models/actionsmodel.cpp:41
 #, kde-format
@@ -322,7 +321,7 @@ msgstr "%1 dicekal dari ruangan ini."
 #: src/models/actionsmodel.cpp:206
 #, kde-format
 msgid "You are already in this room."
-msgstr "Anda sudah ada di ruangan ini"
+msgstr "Anda sudah ada di ruangan ini."
 
 #: src/models/actionsmodel.cpp:210
 #, kde-format
@@ -360,22 +359,16 @@ msgid "Joins the given room"
 msgstr "Bergabung ke ruangan yang ditetapkan"
 
 #: src/models/actionsmodel.cpp:264
-#, fuzzy, kde-format
-#| msgctxt "Joining room <roomname>."
-#| msgid "Joining room %1."
+#, kde-format
 msgctxt "Knocking room <roomname>."
 msgid "Knocking room %1."
 msgstr "Bergabung ke ruangan %1."
 
 #: src/models/actionsmodel.cpp:276
-#, fuzzy
-#| msgid "[<room alias or id>]"
 msgid "<room alias or id> [<reason>]"
 msgstr "[<alias ruangan atau id>]"
 
 #: src/models/actionsmodel.cpp:277
-#, fuzzy
-#| msgid "Joins the given room"
 msgid "Requests to join the given room"
 msgstr "Bergabung ke ruangan yang ditetapkan"
 
@@ -544,7 +537,7 @@ msgstr "Mengeluarkan pengguna dari ruangan ini"
 msgctxt "n times"
 msgid " %1 time "
 msgid_plural " %1 times "
-msgstr[0] "%1 kali"
+msgstr[0] " %1 kali "
 msgstr[1] "%1 kali"
 
 #: src/models/collapsestateproxymodel.cpp:79
@@ -552,14 +545,14 @@ msgstr[1] "%1 kali"
 msgctxt "n users"
 msgid " %1 user "
 msgid_plural " %1 users "
-msgstr[0] "%1 pengguna"
+msgstr[0] " %1 pengguna "
 msgstr[1] "%1 pengguna"
 
 #: src/models/collapsestateproxymodel.cpp:89
 #, kde-format
 msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
-msgstr ","
+msgstr ", "
 
 #: src/models/collapsestateproxymodel.cpp:92
 #, kde-format
@@ -640,10 +633,9 @@ msgid "Custom"
 msgstr "Kustom"
 
 #: src/models/imagepacksmodel.cpp:87
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgid "Own Stickers"
-msgstr "mengirim stiker"
+msgstr "Stiker Sendiri"
 
 #: src/models/messageeventmodel.cpp:495 src/models/messageeventmodel.cpp:504
 #, kde-format
@@ -666,22 +658,17 @@ msgid "[REDACTED: %1]"
 msgstr "[DIHAPUS: %1]"
 
 #: src/models/messageeventmodel.cpp:890
-#, fuzzy, kde-format
-#| msgctxt "n users"
-#| msgid " %1 user "
-#| msgid_plural " %1 users "
+#, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
-msgstr[0] "%1 pengguna"
+msgstr[0] "%1 pengguna: "
 msgstr[1] "%1 pengguna"
 
 #: src/models/messageeventmodel.cpp:897
-#, fuzzy, kde-format
-#| msgctxt "[action 1], [action 2 and/or action 3]"
-#| msgid ", "
+#, kde-format
 msgctxt "list separator"
 msgid ", "
-msgstr ","
+msgstr ", "
 
 #: src/models/reactionmodel.cpp:52
 #, kde-format
@@ -1085,7 +1072,7 @@ msgstr "Laporan berhasil dikirim."
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
-msgstr ""
+msgstr "Lintang: %1, Bujur: %2"
 
 #: src/notificationsmanager.cpp:74 src/qml/main.qml:254
 #, kde-format
@@ -1097,7 +1084,7 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Buka NeoChat di ruangan ini"
 
-#: src/notificationsmanager.cpp:97 src/qml/Component/TimelineView.qml:386
+#: src/notificationsmanager.cpp:97 src/qml/Component/HoverActions.qml:103
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
 #, kde-format
@@ -1135,7 +1122,7 @@ msgid "Attachment:"
 msgstr "Lampiran:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
-#: src/qml/Component/TimelineView.qml:375
+#: src/qml/Component/HoverActions.qml:97
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
 #: src/qml/Page/ImageEditorPage.qml:20
 #, kde-format
@@ -1155,13 +1142,12 @@ msgstr "Lampirkan sebuah gambar atau berkas"
 #: src/qml/Component/ChatBox/ChatBar.qml:58
 #, kde-format
 msgid "Emojis & Stickers"
-msgstr ""
+msgstr "Emoji & Stiker"
 
 #: src/qml/Component/ChatBox/ChatBar.qml:74
-#, fuzzy, kde-format
-#| msgid "Send invitation"
+#, kde-format
 msgid "Send a Location"
-msgstr "Kirim undangan"
+msgstr "Kirim Lokasi"
 
 #: src/qml/Component/ChatBox/ChatBar.qml:87
 #, kde-format
@@ -1204,46 +1190,44 @@ msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat sedang luring. Mohon periksa koneksi jaringan Anda."
 
 #: src/qml/Component/ChatBox/LocationChooser.qml:20
-#, fuzzy, kde-format
-#| msgid "Choose local file"
+#, kde-format
 msgid "Choose a Location"
-msgstr "Pilih berkas lokal"
+msgstr "Pilih Lokasi"
 
 #: src/qml/Component/ChatBox/LocationChooser.qml:25
-#, fuzzy, kde-format
-#| msgid "Send typing notifications"
+#, kde-format
 msgid "Send this location"
-msgstr "Kirim notifikasi pengetikan"
+msgstr "Kirim lokasi ini"
 
 #: src/qml/Component/ChatBox/QuickFormatBar.qml:23
 #, kde-format
 msgid "Bold"
-msgstr ""
+msgstr "Tebal"
 
 #: src/qml/Component/ChatBox/QuickFormatBar.qml:42
 #, kde-format
 msgid "Italic"
-msgstr ""
+msgstr "Miring"
 
 #: src/qml/Component/ChatBox/QuickFormatBar.qml:61
 #, kde-format
 msgid "Strikethrough"
-msgstr ""
+msgstr "Coret"
 
 #: src/qml/Component/ChatBox/QuickFormatBar.qml:80
 #, kde-format
 msgid "Code block"
-msgstr ""
+msgstr "Blok kode"
 
 #: src/qml/Component/ChatBox/QuickFormatBar.qml:99
 #, kde-format
 msgid "Quote"
-msgstr ""
+msgstr "Kutip"
 
 #: src/qml/Component/ChatBox/QuickFormatBar.qml:118
 #, kde-format
 msgid "Insert link"
-msgstr ""
+msgstr "Masukkan tautan"
 
 #: src/qml/Component/ChatBox/ReplyPane.qml:32
 #, kde-format
@@ -1251,27 +1235,24 @@ msgid "Replying to:"
 msgstr "Membalas ke:"
 
 #: src/qml/Component/Devtools/RoomData.qml:20
-#, fuzzy, kde-format
-#| msgid "Rooms"
+#, kde-format
 msgid "Room"
 msgstr "Ruangan"
 
 #: src/qml/Component/Devtools/RoomData.qml:31
-#, fuzzy, kde-format
-#| msgid "Show name change events"
+#, kde-format
 msgid "Show m.room.member events"
-msgstr "Tampilkan peristiwa perubahan nama"
+msgstr "Tampilkan peristiwa m.room.member"
 
 #: src/qml/Component/Devtools/RoomData.qml:43
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgid "Show room account data"
-msgstr "Tidak ada ruangan yang ditemukan"
+msgstr "Tampilkan data akun ruangan"
 
 #: src/qml/Component/Devtools/RoomData.qml:54
 #, kde-format
 msgid "Room Account Data for %1 - %2"
-msgstr ""
+msgstr "Data Akun Ruangan untuk %1 - %2"
 
 #: src/qml/Component/Devtools/RoomData.qml:64
 #: src/qml/Component/Devtools/RoomData.qml:106
@@ -1281,33 +1262,29 @@ msgid "Event Source"
 msgstr "Sumber Peristiwa"
 
 #: src/qml/Component/Devtools/RoomData.qml:78
-#, fuzzy, kde-format
-#| msgid "Room State - %1"
+#, kde-format
 msgid "Room State for %1"
-msgstr "Keadaan Ruangan - %1"
+msgstr "Keadaan Ruangan untuk %1"
 
 #: src/qml/Component/Devtools/ServerData.qml:20
 #, kde-format
 msgid "Server Capabilities"
-msgstr ""
+msgstr "Kemampuan Server"
 
 #: src/qml/Component/Devtools/ServerData.qml:23
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
+#, kde-format
 msgid "Can change password"
-msgstr "Konfirmasi Kata Sandi baru:"
+msgstr "Dapat mengubah kata sandi"
 
 #: src/qml/Component/Devtools/ServerData.qml:33
-#, fuzzy, kde-format
-#| msgid "Default permissions"
+#, kde-format
 msgid "Default Room Version"
-msgstr "Perizinan bawaan"
+msgstr "Versi Ruangan Bawaan"
 
 #: src/qml/Component/Devtools/ServerData.qml:45
-#, fuzzy, kde-format
-#| msgid "Room version"
+#, kde-format
 msgid "Available Room Versions"
-msgstr "Versi ruangan"
+msgstr "Versi Ruangan yang Tersedia"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:83
 #, kde-format
@@ -1315,17 +1292,26 @@ msgid "No emojis"
 msgstr "Tidak ada emoji"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:47
-#, fuzzy, kde-format
-#| msgid "No emojis"
+#, kde-format
 msgid "Emojis"
-msgstr "Tidak ada emoji"
+msgstr "Emoji"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:54
 #: src/qml/Settings/SettingsPage.qml:43 src/qml/Settings/StickersPage.qml:14
 #: src/qml/Settings/StickersPage.qml:25
 #, kde-format
 msgid "Stickers"
-msgstr ""
+msgstr "Stiker"
+
+#: src/qml/Component/HoverActions.qml:79
+#, kde-format
+msgid "This message was sent from a verified device"
+msgstr "Pesan ini terkirim dari peranti yang telah diverifikasi"
+
+#: src/qml/Component/HoverActions.qml:92
+#, kde-format
+msgid "React"
+msgstr "Reaksi"
 
 #: src/qml/Component/InvitationView.qml:17
 #, kde-format
@@ -1563,7 +1549,7 @@ msgstr "Volume"
 #: src/qml/Component/Timeline/VideoDelegate.qml:315
 #, kde-format
 msgid "Maximize"
-msgstr ""
+msgstr "Maksimalkan"
 
 #: src/qml/Component/TimelineView.qml:125
 #, kde-format
@@ -1597,16 +1583,6 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 sedang mengetik"
 msgstr[1] "%2 sedang mengetik"
-
-#: src/qml/Component/TimelineView.qml:350
-#, kde-format
-msgid "This message was sent from a verified device"
-msgstr "Pesan ini terkirim dari peranti yang telah diverifikasi"
-
-#: src/qml/Component/TimelineView.qml:356
-#, kde-format
-msgid "React"
-msgstr "Reaksi"
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:36
@@ -1885,23 +1861,21 @@ msgstr "Sunting tingkat daya pengguna"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:37
 #: src/qml/RoomSettings/Permissions.qml:74
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgid "Member (0)"
-msgstr "Anggota"
+msgstr "Anggota (0)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:38
 #: src/qml/RoomSettings/Permissions.qml:75
 #, kde-format
 msgid "Moderator (50)"
-msgstr ""
+msgstr "Moderator (50)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:39
 #: src/qml/RoomSettings/Permissions.qml:76
-#, fuzzy, kde-format
-#| msgid "Admin"
+#, kde-format
 msgid "Admin (100)"
-msgstr "Admin"
+msgstr "Admin (100)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:347
 #: src/qml/Settings/DevicesPage.qml:186
@@ -1952,10 +1926,9 @@ msgid "Unban this user"
 msgstr "Batalkan pencekalan pengguna ini"
 
 #: src/qml/Dialog/UserDetailDialog.qml:144
-#, fuzzy, kde-format
-#| msgid "Edit user power level"
+#, kde-format
 msgid "Set user power level"
-msgstr "Sunting tingkat daya pengguna"
+msgstr "Tetapkan tingkat daya pengguna"
 
 #: src/qml/Dialog/UserDetailDialog.qml:168
 #, kde-format
@@ -2402,7 +2375,7 @@ msgstr "Kirim undangan"
 #: src/qml/Page/InviteUserPage.qml:100
 #, kde-format
 msgid "User is either already a member or has been invited"
-msgstr ""
+msgstr "Pengguna sudah menjadi anggota atau telah diundang"
 
 #: src/qml/Page/JoinRoomPage.qml:21
 #, kde-format
@@ -2488,10 +2461,9 @@ msgid "Account editor"
 msgstr "Penyunting akun"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:27
-#, fuzzy, kde-format
-#| msgid "Room notifications setting"
+#, kde-format
 msgid "Notification settings"
-msgstr "Pengaturan notifikasi ruangan"
+msgstr "Pengaturan notifikasi"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:32 src/qml/Settings/DevicesPage.qml:14
 #: src/qml/Settings/DevicesPage.qml:26 src/qml/Settings/SettingsPage.qml:62
@@ -2540,12 +2512,10 @@ msgid "Mark as Read"
 msgstr "Tandai sebagai Dibaca"
 
 #: src/qml/Page/RoomList/ContextMenu.qml:55
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Address to Clipboard"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy user's Matrix ID to Clipboard"
-msgstr "Salin Alamat ke Papan Klip"
+msgstr "Salin ID Matrix pengguna ke papan klip"
 
 #: src/qml/Page/RoomList/ContextMenu.qml:55
 #: src/qml/Page/RoomList/SpaceListContextMenu.qml:30
@@ -2608,10 +2578,9 @@ msgstr "Jelajahi ruangan"
 
 #: src/qml/Page/RoomList/ExploreComponent.qml:58
 #: src/qml/Page/RoomList/ExploreComponent.qml:109
-#, fuzzy, kde-format
-#| msgid "Rooms and private chats"
+#, kde-format
 msgid "Create rooms and chats"
-msgstr "Ruangan dan obrolan privat"
+msgstr "Buat ruangan dan percakapan"
 
 #: src/qml/Page/RoomList/Page.qml:151
 #, kde-format
@@ -2639,11 +2608,9 @@ msgid "Configure room"
 msgstr "Konfigurasi ruangan"
 
 #: src/qml/Page/RoomList/SpaceDrawer.qml:63
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show All Rooms"
+#, kde-format
 msgid "All Rooms"
-msgstr "Tampilkan Semua Ruangan"
+msgstr "Semua Ruangan"
 
 #: src/qml/Page/RoomList/SpaceListContextMenu.qml:25
 #, kde-format
@@ -2794,19 +2761,16 @@ msgid "Invite user to room"
 msgstr "Undang pengguna ke ruangan"
 
 #: src/qml/Panel/RoomDrawer.qml:189
-#, fuzzy, kde-format
-#| msgid "%1 Member"
-#| msgid_plural "%1 Members"
+#, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
-msgstr[0] "%1 Anggota"
+msgstr[0] "%1 anggota"
 msgstr[1] "%1 Anggota"
 
 #: src/qml/Panel/RoomDrawer.qml:189
-#, fuzzy, kde-format
-#| msgid "No Member Count"
+#, kde-format
 msgid "No member count"
-msgstr "Tidak Ada Hitungan Anggota"
+msgstr "Tidak ada hitungan anggota"
 
 #: src/qml/RoomSettings/Categories.qml:16 src/qml/RoomSettings/General.qml:20
 #: src/qml/Settings/SettingsPage.qml:13
@@ -2853,11 +2817,9 @@ msgid "Room ID"
 msgstr "ID Ruangan"
 
 #: src/qml/RoomSettings/General.qml:130
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Address to Clipboard"
+#, kde-format
 msgid "Copy room ID to clipboard"
-msgstr "Salin Alamat ke Papan Klip"
+msgstr "Salin ID ruangan ke papan klip"
 
 #: src/qml/RoomSettings/General.qml:144
 #, kde-format
@@ -2900,35 +2862,29 @@ msgid "Add new alias"
 msgstr "Tambahkan alias baru"
 
 #: src/qml/RoomSettings/General.qml:271
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "URL Previews"
-msgstr "Memuat pratinjau URL"
+msgstr "Pratinjau URL"
 
 #: src/qml/RoomSettings/General.qml:274
 #, kde-format
 msgid "Enable URL previews by default for room members"
-msgstr ""
+msgstr "Aktifkan pratinjau URL secara bawaan untuk anggota ruangan"
 
 #: src/qml/RoomSettings/General.qml:282
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "Enable URL previews"
-msgstr "Memuat pratinjau URL"
+msgstr "Aktifkan pratinjau URL"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are enabled by default in this room"
-msgstr "%1 sudah ada di ruangan ini."
+msgstr "Pratinjau URL telah diaktifkan secara bawaan dalam ruangan ini"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are disabled by default in this room"
-msgstr "%1 sudah ada di ruangan ini."
+msgstr "Pratinjau URL telah dinonaktifkan secara bawaan dalam ruangan ini"
 
 #: src/qml/RoomSettings/General.qml:297
 #, kde-format
@@ -3264,7 +3220,7 @@ msgstr "Tentang NeoChat"
 #, kde-format
 msgctxt "@title:window"
 msgid "About KDE"
-msgstr ""
+msgstr "Tentang KDE"
 
 #: src/qml/Settings/AccountEditorPage.qml:17
 #, kde-format
@@ -3546,10 +3502,9 @@ msgid "Show deleted messages"
 msgstr "Tampilkan pesan terhapus"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Show avatar update events"
+#, kde-format
 msgid "Show state events"
-msgstr "Tampilkan peristiwa pembaruan avatar"
+msgstr "Tampilkan peristiwa keadaan"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:112
 #, kde-format
@@ -3808,12 +3763,10 @@ msgstr "Tentang NeoChat"
 #: src/qml/Settings/SettingsPage.qml:74
 #, kde-format
 msgid "About KDE"
-msgstr ""
+msgstr "Tentang KDE"
 
 #: src/qml/Settings/SonnetConfigPage.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@window:title"
-#| msgid "Spellchecking"
+#, kde-format
 msgid "Spellchecking"
 msgstr "Pemeriksa Ejaan"
 
@@ -3845,13 +3798,12 @@ msgstr "Bahasa bawaan yang dipilih:"
 #: src/qml/Settings/SonnetConfigPage.qml:82
 #, kde-format
 msgid "None"
-msgstr ""
+msgstr "Tidak ada"
 
 #: src/qml/Settings/SonnetConfigPage.qml:101
-#, fuzzy, kde-format
-#| msgid "Spell checking languages"
+#, kde-format
 msgid "Additional spell checking languages"
-msgstr "Bahasa pemeriksa ejaan"
+msgstr "Bahasa pemeriksa ejaan tambahan"
 
 #: src/qml/Settings/SonnetConfigPage.qml:102
 #, kde-format
@@ -3868,18 +3820,16 @@ msgid "Open Personal Dictionary"
 msgstr "Buka Kamus Personal"
 
 #: src/qml/Settings/SonnetConfigPage.qml:125
-#, fuzzy, kde-format
-#| msgid "Spell checking languages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Spell checking languages"
 msgstr "Bahasa pemeriksa ejaan"
 
 #: src/qml/Settings/SonnetConfigPage.qml:134
 #: src/qml/Settings/SonnetConfigPage.qml:144
-#, fuzzy, kde-format
-#| msgid "Selected default language:"
+#, kde-format
 msgid "Default Language"
-msgstr "Bahasa bawaan yang dipilih:"
+msgstr "Bahasa Bawaan"
 
 #: src/qml/Settings/SonnetConfigPage.qml:156
 #, kde-format
@@ -3904,62 +3854,53 @@ msgstr "Hapus kata"
 
 #: src/qml/Settings/StickerEditorPage.qml:29
 #: src/qml/Settings/StickersPage.qml:104
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgctxt "@title"
 msgid "Add Sticker"
-msgstr "mengirim stiker"
+msgstr "Tambahkan Stiker"
 
 #: src/qml/Settings/StickerEditorPage.qml:29
 #: src/qml/Settings/StickersPage.qml:55
-#, fuzzy, kde-format
-#| msgid "Edit device"
+#, kde-format
 msgctxt "@title"
 msgid "Edit Sticker"
-msgstr "Edit peranti"
+msgstr "Sunting Stiker"
 
 #: src/qml/Settings/StickerEditorPage.qml:38
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgid "Sticker"
-msgstr "mengirim stiker"
+msgstr "Stiker"
 
 #: src/qml/Settings/StickerEditorPage.qml:67
-#, fuzzy, kde-format
-#| msgid "Change the room name"
+#, kde-format
 msgid "Change Image"
-msgstr "Ubah nama ruangan"
+msgstr "Ubah Gambar"
 
 #: src/qml/Settings/StickerEditorPage.qml:67
 #, kde-format
 msgid "Set Image"
-msgstr ""
+msgstr "Tetapkan Gambar"
 
 #: src/qml/Settings/StickerEditorPage.qml:107
 #, kde-format
 msgid "Shortcode:"
-msgstr ""
+msgstr "Kode pendek:"
 
 #: src/qml/Settings/StickerEditorPage.qml:112
-#, fuzzy, kde-format
-#| msgctxt "The location being downloaded to"
-#| msgid "Destination"
+#, kde-format
 msgid "Description:"
-msgstr "Tujuan"
+msgstr "Deskripsi:"
 
 #: src/qml/Settings/StickersPage.qml:73
-#, fuzzy, kde-format
-#| msgctxt "The location being downloaded to"
-#| msgid "Destination"
+#, kde-format
 msgctxt "As in 'This sticker has no description'"
 msgid "No Description"
-msgstr "Tujuan"
+msgstr "Tidak ada deskripsi"
 
 #: src/qml/Settings/StickersPage.qml:113
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgid "Add Sticker"
-msgstr "mengirim stiker"
+msgstr "Tambahkan Stiker"
 
 #: src/roommanager.cpp:52
 #, kde-format
@@ -3990,13 +3931,12 @@ msgstr "Gagal bergabung dengan ruangan"
 #: src/roommanager.cpp:233
 #, kde-format
 msgid "You requested to join '%1'"
-msgstr ""
+msgstr "Anda meminta untuk bergabung ke '%1'"
 
 #: src/roommanager.cpp:236
-#, fuzzy, kde-format
-#| msgid "Failed to join room"
+#, kde-format
 msgid "Failed to request joining room"
-msgstr "Gagal bergabung dengan ruangan"
+msgstr "Gagal meminta bergabung ke ruangan"
 
 #: src/roommanager.cpp:246
 #, kde-format

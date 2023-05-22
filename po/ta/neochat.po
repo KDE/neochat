@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-21 00:45+0000\n"
-"PO-Revision-Date: 2023-05-14 15:20+0530\n"
+"POT-Creation-Date: 2023-05-22 00:47+0000\n"
+"PO-Revision-Date: 2023-05-21 14:58+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -134,10 +134,9 @@ msgid "Matrix client"
 msgstr "Matrix வாங்கி"
 
 #: src/main.cpp:164
-#, fuzzy, kde-format
-#| msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
+#, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
-msgstr "© 2018-2020 பிளாக் ஹாட், 2020-2022 கே.டீ.யீ. சமூகம்"
+msgstr "© 2018-2020 பிளாக் ஹாட், 2020-2023 கே.டீ.யீ. சமூகம்"
 
 #: src/main.cpp:165
 #, kde-format
@@ -1084,7 +1083,7 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "இந்த அரங்கில் நியோச்சாட்டை திற"
 
-#: src/notificationsmanager.cpp:97 src/qml/Component/TimelineView.qml:386
+#: src/notificationsmanager.cpp:97 src/qml/Component/HoverActions.qml:103
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
 #, kde-format
@@ -1122,7 +1121,7 @@ msgid "Attachment:"
 msgstr "உடனிணைப்பு:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
-#: src/qml/Component/TimelineView.qml:375
+#: src/qml/Component/HoverActions.qml:97
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
 #: src/qml/Page/ImageEditorPage.qml:20
 #, kde-format
@@ -1302,6 +1301,16 @@ msgstr "முகவடிகள்"
 #, kde-format
 msgid "Stickers"
 msgstr "ஒட்டிகள்"
+
+#: src/qml/Component/HoverActions.qml:79
+#, kde-format
+msgid "This message was sent from a verified device"
+msgstr "உறுதிப்படுத்தப்பட்டுள்ள சாதனத்திலிருந்து இச்செய்தி அனுப்பப்பட்டது"
+
+#: src/qml/Component/HoverActions.qml:92
+#, kde-format
+msgid "React"
+msgstr "எதிர்வினையிடு"
 
 #: src/qml/Component/InvitationView.qml:17
 #, kde-format
@@ -1573,16 +1582,6 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 தட்டச்சிடுகிறார்"
 msgstr[1] "%2 தட்டச்சிடுகிறார்கள்"
-
-#: src/qml/Component/TimelineView.qml:350
-#, kde-format
-msgid "This message was sent from a verified device"
-msgstr "உறுதிப்படுத்தப்பட்டுள்ள சாதனத்திலிருந்து இச்செய்தி அனுப்பப்பட்டது"
-
-#: src/qml/Component/TimelineView.qml:356
-#, kde-format
-msgid "React"
-msgstr "எதிர்வினையிடு"
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:36
@@ -3832,62 +3831,53 @@ msgstr "சொல்லை நீக்கு"
 
 #: src/qml/Settings/StickerEditorPage.qml:29
 #: src/qml/Settings/StickersPage.qml:104
-#, fuzzy, kde-format
-#| msgid "Stickers"
+#, kde-format
 msgctxt "@title"
 msgid "Add Sticker"
-msgstr "ஒட்டிகள்"
+msgstr "ஒட்டியை சேர்ப்பது"
 
 #: src/qml/Settings/StickerEditorPage.qml:29
 #: src/qml/Settings/StickersPage.qml:55
-#, fuzzy, kde-format
-#| msgid "Stickers"
+#, kde-format
 msgctxt "@title"
 msgid "Edit Sticker"
-msgstr "ஒட்டிகள்"
+msgstr "ஒட்டியை திருத்துவது"
 
 #: src/qml/Settings/StickerEditorPage.qml:38
-#, fuzzy, kde-format
-#| msgid "Stickers"
+#, kde-format
 msgid "Sticker"
-msgstr "ஒட்டிகள்"
+msgstr "ஒட்டி"
 
 #: src/qml/Settings/StickerEditorPage.qml:67
-#, fuzzy, kde-format
-#| msgid "Change the room name"
+#, kde-format
 msgid "Change Image"
-msgstr "அரங்கின் பெயரை மாற்றுவது"
+msgstr "படத்தை மாற்று"
 
 #: src/qml/Settings/StickerEditorPage.qml:67
 #, kde-format
 msgid "Set Image"
-msgstr ""
+msgstr "படத்தை அமை"
 
 #: src/qml/Settings/StickerEditorPage.qml:107
 #, kde-format
 msgid "Shortcode:"
-msgstr ""
+msgstr "குறுகுறி:"
 
 #: src/qml/Settings/StickerEditorPage.qml:112
-#, fuzzy, kde-format
-#| msgctxt "The location being downloaded to"
-#| msgid "Destination"
+#, kde-format
 msgid "Description:"
-msgstr "சேருமிடம்"
+msgstr "விவரணம்:"
 
 #: src/qml/Settings/StickersPage.qml:73
-#, fuzzy, kde-format
-#| msgctxt "The location being downloaded to"
-#| msgid "Destination"
+#, kde-format
 msgctxt "As in 'This sticker has no description'"
 msgid "No Description"
-msgstr "சேருமிடம்"
+msgstr "விவரணம் இல்லை"
 
 #: src/qml/Settings/StickersPage.qml:113
-#, fuzzy, kde-format
-#| msgid "Stickers"
+#, kde-format
 msgid "Add Sticker"
-msgstr "ஒட்டிகள்"
+msgstr "ஒட்டியை சேர்"
 
 #: src/roommanager.cpp:52
 #, kde-format

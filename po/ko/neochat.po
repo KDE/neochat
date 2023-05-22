@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-21 00:45+0000\n"
+"POT-Creation-Date: 2023-05-22 00:47+0000\n"
 "PO-Revision-Date: 2022-08-09 13:27+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -1175,7 +1175,7 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "이 대화방에서 NeoChat 열기"
 
-#: src/notificationsmanager.cpp:97 src/qml/Component/TimelineView.qml:386
+#: src/notificationsmanager.cpp:97 src/qml/Component/HoverActions.qml:103
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
 #, kde-format
@@ -1213,7 +1213,7 @@ msgid "Attachment:"
 msgstr "첨부:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
-#: src/qml/Component/TimelineView.qml:375
+#: src/qml/Component/HoverActions.qml:97
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
 #: src/qml/Page/ImageEditorPage.qml:20
 #, kde-format
@@ -1409,6 +1409,16 @@ msgstr "사용자 정의 이모지"
 #, kde-format
 msgid "Stickers"
 msgstr ""
+
+#: src/qml/Component/HoverActions.qml:79
+#, kde-format
+msgid "This message was sent from a verified device"
+msgstr ""
+
+#: src/qml/Component/HoverActions.qml:92
+#, kde-format
+msgid "React"
+msgstr "반응"
 
 #: src/qml/Component/InvitationView.qml:17
 #, kde-format
@@ -1681,16 +1691,6 @@ msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 님이 메시지를 입력하는 중"
-
-#: src/qml/Component/TimelineView.qml:350
-#, kde-format
-msgid "This message was sent from a verified device"
-msgstr ""
-
-#: src/qml/Component/TimelineView.qml:356
-#, kde-format
-msgid "React"
-msgstr "반응"
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:36

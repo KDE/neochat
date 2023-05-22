@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-21 00:45+0000\n"
+"POT-Creation-Date: 2023-05-22 00:47+0000\n"
 "PO-Revision-Date: 2023-04-27 15:01+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -1099,7 +1099,7 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Открыть эту комнату в NeoChat"
 
-#: src/notificationsmanager.cpp:97 src/qml/Component/TimelineView.qml:386
+#: src/notificationsmanager.cpp:97 src/qml/Component/HoverActions.qml:103
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
 #, kde-format
@@ -1137,7 +1137,7 @@ msgid "Attachment:"
 msgstr "Вложение:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
-#: src/qml/Component/TimelineView.qml:375
+#: src/qml/Component/HoverActions.qml:97
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
 #: src/qml/Page/ImageEditorPage.qml:20
 #, kde-format
@@ -1326,6 +1326,16 @@ msgstr "Не найдено ни одного эмодзи"
 #, kde-format
 msgid "Stickers"
 msgstr ""
+
+#: src/qml/Component/HoverActions.qml:79
+#, kde-format
+msgid "This message was sent from a verified device"
+msgstr "Это сообщение было отправлено с проверенного устройства"
+
+#: src/qml/Component/HoverActions.qml:92
+#, kde-format
+msgid "React"
+msgstr "Реакция"
 
 #: src/qml/Component/InvitationView.qml:17
 #, kde-format
@@ -1602,16 +1612,6 @@ msgstr[0] "%2 набирают сообщение"
 msgstr[1] "%2 набирают сообщение"
 msgstr[2] "%2 набирают сообщение"
 msgstr[3] "%2 набирает сообщение"
-
-#: src/qml/Component/TimelineView.qml:350
-#, kde-format
-msgid "This message was sent from a verified device"
-msgstr "Это сообщение было отправлено с проверенного устройства"
-
-#: src/qml/Component/TimelineView.qml:356
-#, kde-format
-msgid "React"
-msgstr "Реакция"
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:36

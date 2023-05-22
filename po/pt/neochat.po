@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-20 00:45+0000\n"
+"POT-Creation-Date: 2023-05-22 00:47+0000\n"
 "PO-Revision-Date: 2023-05-18 15:52+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -640,49 +640,34 @@ msgstr "Personalizados"
 msgid "Own Stickers"
 msgstr "Próprios Autocolantes"
 
-#: src/models/messageeventmodel.cpp:400 src/models/searchmodel.cpp:164
-#, kde-format
-msgid "Today"
-msgstr "Hoje"
-
-#: src/models/messageeventmodel.cpp:403 src/models/searchmodel.cpp:167
-#, kde-format
-msgid "Yesterday"
-msgstr "Ontem"
-
-#: src/models/messageeventmodel.cpp:406 src/models/searchmodel.cpp:170
-#, kde-format
-msgid "The day before yesterday"
-msgstr "O dia antes de ontem"
-
-#: src/models/messageeventmodel.cpp:522 src/models/messageeventmodel.cpp:531
+#: src/models/messageeventmodel.cpp:495 src/models/messageeventmodel.cpp:504
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Esta mensagem foi removida]</i>"
 
-#: src/models/messageeventmodel.cpp:523
+#: src/models/messageeventmodel.cpp:496
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Esta mensagem foi removida: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:612
+#: src/models/messageeventmodel.cpp:581
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[REDIGIDO]"
 
-#: src/models/messageeventmodel.cpp:612
+#: src/models/messageeventmodel.cpp:581
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[REDIGIDO: %1]"
 
-#: src/models/messageeventmodel.cpp:921
+#: src/models/messageeventmodel.cpp:890
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 utilizador: "
 msgstr[1] "%1 utilizadores: "
 
-#: src/models/messageeventmodel.cpp:928
+#: src/models/messageeventmodel.cpp:897
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -739,6 +724,21 @@ msgstr "Prioridade baixa"
 #, kde-format
 msgid "Spaces"
 msgstr "Espaços"
+
+#: src/models/searchmodel.cpp:164
+#, kde-format
+msgid "Today"
+msgstr "Hoje"
+
+#: src/models/searchmodel.cpp:167
+#, kde-format
+msgid "Yesterday"
+msgstr "Ontem"
+
+#: src/models/searchmodel.cpp:170
+#, kde-format
+msgid "The day before yesterday"
+msgstr "O dia antes de ontem"
 
 #: src/neochatroom.cpp:512
 #, kde-format
@@ -1087,7 +1087,7 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Abrir o NeoChat nesta sala"
 
-#: src/notificationsmanager.cpp:97 src/qml/Component/TimelineView.qml:386
+#: src/notificationsmanager.cpp:97 src/qml/Component/HoverActions.qml:103
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
 #, kde-format
@@ -1125,7 +1125,7 @@ msgid "Attachment:"
 msgstr "Anexo:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
-#: src/qml/Component/TimelineView.qml:375
+#: src/qml/Component/HoverActions.qml:97
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
 #: src/qml/Page/ImageEditorPage.qml:20
 #, kde-format
@@ -1305,6 +1305,16 @@ msgstr "Emojis"
 #, kde-format
 msgid "Stickers"
 msgstr "Autocolantes"
+
+#: src/qml/Component/HoverActions.qml:79
+#, kde-format
+msgid "This message was sent from a verified device"
+msgstr "Esta mensagem foi enviada a partir de um dispositivo verificado"
+
+#: src/qml/Component/HoverActions.qml:92
+#, kde-format
+msgid "React"
+msgstr "Reagir"
 
 #: src/qml/Component/InvitationView.qml:17
 #, kde-format
@@ -1577,16 +1587,6 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 está a escrever"
 msgstr[1] "%2 estão a escrever"
-
-#: src/qml/Component/TimelineView.qml:350
-#, kde-format
-msgid "This message was sent from a verified device"
-msgstr "Esta mensagem foi enviada a partir de um dispositivo verificado"
-
-#: src/qml/Component/TimelineView.qml:356
-#, kde-format
-msgid "React"
-msgstr "Reagir"
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:36

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-21 00:45+0000\n"
+"POT-Creation-Date: 2023-05-22 00:47+0000\n"
 "PO-Revision-Date: 2023-05-18 20:02+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -1095,7 +1095,7 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "NeoChat in diesem Raum öffnen"
 
-#: src/notificationsmanager.cpp:97 src/qml/Component/TimelineView.qml:386
+#: src/notificationsmanager.cpp:97 src/qml/Component/HoverActions.qml:103
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
 #, kde-format
@@ -1133,7 +1133,7 @@ msgid "Attachment:"
 msgstr "Anhang:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
-#: src/qml/Component/TimelineView.qml:375
+#: src/qml/Component/HoverActions.qml:97
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
 #: src/qml/Page/ImageEditorPage.qml:20
 #, kde-format
@@ -1319,6 +1319,16 @@ msgstr "Keine Emoji"
 #, kde-format
 msgid "Stickers"
 msgstr ""
+
+#: src/qml/Component/HoverActions.qml:79
+#, kde-format
+msgid "This message was sent from a verified device"
+msgstr "Diese Nachricht wurde von einem verifizierten Gerät gesendet"
+
+#: src/qml/Component/HoverActions.qml:92
+#, kde-format
+msgid "React"
+msgstr "Reagieren"
 
 #: src/qml/Component/InvitationView.qml:17
 #, kde-format
@@ -1591,16 +1601,6 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 schreibt gerade"
 msgstr[1] "%2 schreiben gerade"
-
-#: src/qml/Component/TimelineView.qml:350
-#, kde-format
-msgid "This message was sent from a verified device"
-msgstr "Diese Nachricht wurde von einem verifizierten Gerät gesendet"
-
-#: src/qml/Component/TimelineView.qml:356
-#, kde-format
-msgid "React"
-msgstr "Reagieren"
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:36

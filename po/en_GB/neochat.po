@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-21 00:45+0000\n"
-"PO-Revision-Date: 2023-05-06 15:45+0100\n"
+"POT-Creation-Date: 2023-05-22 00:47+0000\n"
+"PO-Revision-Date: 2023-05-21 15:04+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -132,10 +132,9 @@ msgid "Matrix client"
 msgstr "Matrix client"
 
 #: src/main.cpp:164
-#, fuzzy, kde-format
-#| msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
+#, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
-msgstr "© 2018-2020 Black Hat, 2020-2022 KDE Community"
+msgstr "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 
 #: src/main.cpp:165
 #, kde-format
@@ -1080,7 +1079,7 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Open NeoChat in this room"
 
-#: src/notificationsmanager.cpp:97 src/qml/Component/TimelineView.qml:386
+#: src/notificationsmanager.cpp:97 src/qml/Component/HoverActions.qml:103
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
 #, kde-format
@@ -1118,7 +1117,7 @@ msgid "Attachment:"
 msgstr "Attachment:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
-#: src/qml/Component/TimelineView.qml:375
+#: src/qml/Component/HoverActions.qml:97
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
 #: src/qml/Page/ImageEditorPage.qml:20
 #, kde-format
@@ -1298,6 +1297,16 @@ msgstr "Emojis"
 #, kde-format
 msgid "Stickers"
 msgstr "Stickers"
+
+#: src/qml/Component/HoverActions.qml:79
+#, kde-format
+msgid "This message was sent from a verified device"
+msgstr "This message was sent from a verified device"
+
+#: src/qml/Component/HoverActions.qml:92
+#, kde-format
+msgid "React"
+msgstr "React"
 
 #: src/qml/Component/InvitationView.qml:17
 #, kde-format
@@ -1570,16 +1579,6 @@ msgid "%2 is typing"
 msgid_plural "%2 are typing"
 msgstr[0] "%2 is typing"
 msgstr[1] "%2 are typing"
-
-#: src/qml/Component/TimelineView.qml:350
-#, kde-format
-msgid "This message was sent from a verified device"
-msgstr "This message was sent from a verified device"
-
-#: src/qml/Component/TimelineView.qml:356
-#, kde-format
-msgid "React"
-msgstr "React"
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:36
@@ -2612,11 +2611,9 @@ msgid "Configure room"
 msgstr "Configure room"
 
 #: src/qml/Page/RoomList/SpaceDrawer.qml:63
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show All Rooms"
+#, kde-format
 msgid "All Rooms"
-msgstr "Show All Rooms"
+msgstr "All Rooms"
 
 #: src/qml/Page/RoomList/SpaceListContextMenu.qml:25
 #, kde-format
@@ -3850,62 +3847,53 @@ msgstr "Delete word"
 
 #: src/qml/Settings/StickerEditorPage.qml:29
 #: src/qml/Settings/StickersPage.qml:104
-#, fuzzy, kde-format
-#| msgid "Stickers"
+#, kde-format
 msgctxt "@title"
 msgid "Add Sticker"
-msgstr "Stickers"
+msgstr "Add Sticker"
 
 #: src/qml/Settings/StickerEditorPage.qml:29
 #: src/qml/Settings/StickersPage.qml:55
-#, fuzzy, kde-format
-#| msgid "Stickers"
+#, kde-format
 msgctxt "@title"
 msgid "Edit Sticker"
-msgstr "Stickers"
+msgstr "Edit Sticker"
 
 #: src/qml/Settings/StickerEditorPage.qml:38
-#, fuzzy, kde-format
-#| msgid "Stickers"
+#, kde-format
 msgid "Sticker"
-msgstr "Stickers"
+msgstr "Sticker"
 
 #: src/qml/Settings/StickerEditorPage.qml:67
-#, fuzzy, kde-format
-#| msgid "Change the room name"
+#, kde-format
 msgid "Change Image"
-msgstr "Change the room name"
+msgstr "Change Image"
 
 #: src/qml/Settings/StickerEditorPage.qml:67
 #, kde-format
 msgid "Set Image"
-msgstr ""
+msgstr "Set Image"
 
 #: src/qml/Settings/StickerEditorPage.qml:107
 #, kde-format
 msgid "Shortcode:"
-msgstr ""
+msgstr "Shortcode:"
 
 #: src/qml/Settings/StickerEditorPage.qml:112
-#, fuzzy, kde-format
-#| msgctxt "The location being downloaded to"
-#| msgid "Destination"
+#, kde-format
 msgid "Description:"
-msgstr "Destination"
+msgstr "Description:"
 
 #: src/qml/Settings/StickersPage.qml:73
-#, fuzzy, kde-format
-#| msgctxt "The location being downloaded to"
-#| msgid "Destination"
+#, kde-format
 msgctxt "As in 'This sticker has no description'"
 msgid "No Description"
-msgstr "Destination"
+msgstr "No Description"
 
 #: src/qml/Settings/StickersPage.qml:113
-#, fuzzy, kde-format
-#| msgid "Stickers"
+#, kde-format
 msgid "Add Sticker"
-msgstr "Stickers"
+msgstr "Add Sticker"
 
 #: src/roommanager.cpp:52
 #, kde-format

@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-21 00:45+0000\n"
-"PO-Revision-Date: 2023-05-15 08:59+0200\n"
+"POT-Creation-Date: 2023-05-22 00:47+0000\n"
+"PO-Revision-Date: 2023-05-21 23:39+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #: src/controller.cpp:181
@@ -135,10 +135,9 @@ msgid "Matrix client"
 msgstr "Matrixov odjemalec"
 
 #: src/main.cpp:164
-#, fuzzy, kde-format
-#| msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
+#, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
-msgstr "© 2018-2020 Black Hat, 2020-2022 skupnost KDE"
+msgstr "© 2018-2020 Black Hat, 2020-2023 skupnost KDE"
 
 #: src/main.cpp:165
 #, kde-format
@@ -1093,7 +1092,7 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Odpri Neo-chat v tej sobi"
 
-#: src/notificationsmanager.cpp:97 src/qml/Component/TimelineView.qml:386
+#: src/notificationsmanager.cpp:97 src/qml/Component/HoverActions.qml:103
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
 #, kde-format
@@ -1131,7 +1130,7 @@ msgid "Attachment:"
 msgstr "Priloga:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
-#: src/qml/Component/TimelineView.qml:375
+#: src/qml/Component/HoverActions.qml:97
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
 #: src/qml/Page/ImageEditorPage.qml:20
 #, kde-format
@@ -1311,6 +1310,16 @@ msgstr "Čustvenčki"
 #, kde-format
 msgid "Stickers"
 msgstr "Nalepke"
+
+#: src/qml/Component/HoverActions.qml:79
+#, kde-format
+msgid "This message was sent from a verified device"
+msgstr "To sporočilo je bilo poslano iz verificirane naprave"
+
+#: src/qml/Component/HoverActions.qml:92
+#, kde-format
+msgid "React"
+msgstr "Reagiraj"
 
 #: src/qml/Component/InvitationView.qml:17
 #, kde-format
@@ -1586,16 +1595,6 @@ msgstr[0] "%2 tipka"
 msgstr[1] "%2 tipkata"
 msgstr[2] "%2 tipkajo"
 msgstr[3] "%2 tipka"
-
-#: src/qml/Component/TimelineView.qml:350
-#, kde-format
-msgid "This message was sent from a verified device"
-msgstr "To sporočilo je bilo poslano iz verificirane naprave"
-
-#: src/qml/Component/TimelineView.qml:356
-#, kde-format
-msgid "React"
-msgstr "Reagiraj"
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:17
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:36
