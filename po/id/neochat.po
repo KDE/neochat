@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-20 02:32+0000\n"
-"PO-Revision-Date: 2023-02-15 16:40+0700\n"
+"PO-Revision-Date: 2023-05-19 10:51+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
 "Language: id\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Poedit 3.3.1\n"
 
 #: src/controller.cpp:198
 #, kde-format
@@ -77,12 +77,12 @@ msgstr "Tidak dapat membaca token pengaksesan"
 #: src/controller.cpp:616
 #, kde-format
 msgid "File too large to download."
-msgstr ""
+msgstr "Berkas terlalu besar untuk diunduh."
 
 #: src/controller.cpp:616
 #, kde-format
 msgid "Contact your matrix server administrator for support."
-msgstr ""
+msgstr "Hubungi administrator server Matrix Anda untuk dukungan."
 
 #: src/controller.cpp:648
 #, kde-format
@@ -292,7 +292,7 @@ msgstr "%1 dicekal dari ruangan ini."
 #: src/models/actionsmodel.cpp:172
 #, kde-format
 msgid "You are already in this room."
-msgstr "Anda sudah ada di ruangan ini"
+msgstr "Anda sudah ada di ruangan ini."
 
 #: src/models/actionsmodel.cpp:176
 #, kde-format
@@ -338,22 +338,16 @@ msgid "Joins the given room"
 msgstr "Bergabung ke ruangan yang ditetapkan"
 
 #: src/models/actionsmodel.cpp:230
-#, fuzzy, kde-format
-#| msgctxt "Joining room <roomname>."
-#| msgid "Joining room %1."
+#, kde-format
 msgctxt "Knocking room <roomname>."
 msgid "Knocking room %1."
 msgstr "Bergabung ke ruangan %1."
 
 #: src/models/actionsmodel.cpp:242
-#, fuzzy
-#| msgid "[<room alias or id>]"
 msgid "<room alias or id> [<reason>]"
 msgstr "[<alias ruangan atau id>]"
 
 #: src/models/actionsmodel.cpp:243
-#, fuzzy
-#| msgid "Joins the given room"
 msgid "Requests to join the given room"
 msgstr "Bergabung ke ruangan yang ditetapkan"
 
@@ -372,7 +366,7 @@ msgstr "Meninggalkan ruangan ini."
 #, kde-format
 msgctxt "Leaving room <roomname>."
 msgid "Leaving room %1."
-msgstr "Meninggalkan dari ruangan %1"
+msgstr "Meninggalkan dari ruangan %1."
 
 #: src/models/actionsmodel.cpp:291 src/models/actionsmodel.cpp:323
 #, kde-format
@@ -543,7 +537,7 @@ msgstr "Mengeluarkan pengguna dari ruangan ini"
 msgctxt "n times"
 msgid " %1 time "
 msgid_plural " %1 times "
-msgstr[0] "%1 kali"
+msgstr[0] " %1 kali "
 msgstr[1] "%1 kali"
 
 #: src/models/collapsestateproxymodel.cpp:76
@@ -551,14 +545,14 @@ msgstr[1] "%1 kali"
 msgctxt "n users"
 msgid " %1 user "
 msgid_plural " %1 users "
-msgstr[0] "%1 pengguna"
+msgstr[0] " %1 pengguna "
 msgstr[1] "%1 pengguna"
 
 #: src/models/collapsestateproxymodel.cpp:86
 #, kde-format
 msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
-msgstr ","
+msgstr ", "
 
 #: src/models/collapsestateproxymodel.cpp:89
 #, kde-format
@@ -674,22 +668,17 @@ msgid "[REDACTED: %1]"
 msgstr "[DIHAPUS: %1]"
 
 #: src/models/messageeventmodel.cpp:848
-#, fuzzy, kde-format
-#| msgctxt "n users"
-#| msgid " %1 user "
-#| msgid_plural " %1 users "
+#, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
-msgstr[0] "%1 pengguna"
+msgstr[0] "%1 pengguna: "
 msgstr[1] "%1 pengguna"
 
 #: src/models/messageeventmodel.cpp:855
-#, fuzzy, kde-format
-#| msgctxt "[action 1], [action 2 and/or action 3]"
-#| msgid ", "
+#, kde-format
 msgctxt "list separator"
 msgid ", "
-msgstr ","
+msgstr ", "
 
 #: src/models/roomlistmodel.cpp:452
 #, kde-format
@@ -1191,10 +1180,9 @@ msgstr "Buat sebuah Ruangan"
 
 #: src/qml/Component/ExploreComponent.qml:58
 #: src/qml/Component/ExploreComponent.qml:109
-#, fuzzy, kde-format
-#| msgid "Rooms and private chats"
+#, kde-format
 msgid "Create rooms and chats"
-msgstr "Ruangan dan obrolan privat"
+msgstr "Buat ruangan dan percakapan"
 
 #: src/qml/Component/FullScreenImage.qml:82
 #, kde-format
@@ -1795,23 +1783,21 @@ msgstr "Sunting tingkat daya pengguna"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:37
 #: src/qml/RoomSettings/Permissions.qml:74
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgid "Member (0)"
-msgstr "Anggota"
+msgstr "Anggota (0)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:38
 #: src/qml/RoomSettings/Permissions.qml:75
 #, kde-format
 msgid "Moderator (50)"
-msgstr ""
+msgstr "Moderator (50)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:39
 #: src/qml/RoomSettings/Permissions.qml:76
-#, fuzzy, kde-format
-#| msgid "Admin"
+#, kde-format
 msgid "Admin (100)"
-msgstr "Admin"
+msgstr "Admin (100)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:347
 #: src/qml/Settings/DevicesPage.qml:186
@@ -1862,10 +1848,9 @@ msgid "Unban this user"
 msgstr "Batalkan pencekalan pengguna ini"
 
 #: src/qml/Dialog/UserDetailDialog.qml:145
-#, fuzzy, kde-format
-#| msgid "Edit user power level"
+#, kde-format
 msgid "Set user power level"
-msgstr "Sunting tingkat daya pengguna"
+msgstr "Tetapkan tingkat daya pengguna"
 
 #: src/qml/Dialog/UserDetailDialog.qml:169
 #, kde-format
@@ -2108,12 +2093,10 @@ msgid "Mark as Read"
 msgstr "Tandai sebagai Dibaca"
 
 #: src/qml/Menu/RoomListContextMenu.qml:55
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Address to Clipboard"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy user's Matrix ID to Clipboard"
-msgstr "Salin Alamat ke Papan Klip"
+msgstr "Salin ID Matrix pengguna ke papan klip"
 
 #: src/qml/Menu/RoomListContextMenu.qml:55
 #: src/qml/Menu/SpaceListContextMenu.qml:30
@@ -2755,11 +2738,9 @@ msgid "Room ID"
 msgstr "ID Ruangan"
 
 #: src/qml/RoomSettings/General.qml:130
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Copy Address to Clipboard"
+#, kde-format
 msgid "Copy room ID to clipboard"
-msgstr "Salin Alamat ke Papan Klip"
+msgstr "Salin ID ruangan ke papan klip"
 
 #: src/qml/RoomSettings/General.qml:144
 #, kde-format
@@ -2802,35 +2783,29 @@ msgid "Add new alias"
 msgstr "Tambahkan alias baru"
 
 #: src/qml/RoomSettings/General.qml:271
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "URL Previews"
-msgstr "Memuat pratinjau URL"
+msgstr "Pratinjau URL"
 
 #: src/qml/RoomSettings/General.qml:274
 #, kde-format
 msgid "Enable URL previews by default for room members"
-msgstr ""
+msgstr "Aktifkan pratinjau URL secara bawaan untuk anggota ruangan"
 
 #: src/qml/RoomSettings/General.qml:282
-#, fuzzy, kde-format
-#| msgid "Loading URL preview"
+#, kde-format
 msgid "Enable URL previews"
-msgstr "Memuat pratinjau URL"
+msgstr "Aktifkan pratinjau URL"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are enabled by default in this room"
-msgstr "%1 sudah ada di ruangan ini."
+msgstr "Pratinjau URL telah diaktifkan secara bawaan dalam ruangan ini"
 
 #: src/qml/RoomSettings/General.qml:284
-#, fuzzy, kde-format
-#| msgctxt "<user> is already in this room."
-#| msgid "%1 is already in this room."
+#, kde-format
 msgid "URL previews are disabled by default in this room"
-msgstr "%1 sudah ada di ruangan ini."
+msgstr "Pratinjau URL telah dinonaktifkan secara bawaan dalam ruangan ini"
 
 #: src/qml/RoomSettings/General.qml:297
 #, kde-format
@@ -3167,7 +3142,7 @@ msgstr "Tentang NeoChat"
 #, kde-format
 msgctxt "@title:window"
 msgid "About KDE"
-msgstr ""
+msgstr "Tentang KDE"
 
 #: src/qml/Settings/AccountEditorPage.qml:17
 #, kde-format
@@ -3455,10 +3430,9 @@ msgid "Show deleted messages"
 msgstr "Tampilkan pesan terhapus"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:95
-#, fuzzy, kde-format
-#| msgid "Show avatar update events"
+#, kde-format
 msgid "Show state events"
-msgstr "Tampilkan peristiwa pembaruan avatar"
+msgstr "Tampilkan peristiwa keadaan"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:112
 #, kde-format
@@ -3717,7 +3691,7 @@ msgstr "Tentang NeoChat"
 #: src/qml/Settings/SettingsPage.qml:58
 #, kde-format
 msgid "About KDE"
-msgstr ""
+msgstr "Tentang KDE"
 
 #: src/qml/Settings/SonnetConfigPage.qml:50
 #, kde-format
@@ -3825,13 +3799,12 @@ msgstr "Gagal bergabung dengan ruangan"
 #: src/roommanager.cpp:227
 #, kde-format
 msgid "You requested to join '%1'"
-msgstr ""
+msgstr "Anda meminta untuk bergabung ke '%1'"
 
 #: src/roommanager.cpp:230
-#, fuzzy, kde-format
-#| msgid "Failed to join room"
+#, kde-format
 msgid "Failed to request joining room"
-msgstr "Gagal bergabung dengan ruangan"
+msgstr "Gagal meminta bergabung ke ruangan"
 
 #: src/roommanager.cpp:240
 #, kde-format
