@@ -109,18 +109,22 @@ Controller::Controller(QObject *parent)
     }
 #endif
 
+#ifdef QUOTIENT_07
+    connect(&Accounts, &AccountRegistry::accountCountChanged, this, &Controller::activeConnectionIndexChanged);
+#else
     connect(&AccountRegistry::instance(), &AccountRegistry::accountCountChanged, this, &Controller::activeConnectionIndexChanged);
+#endif
 
 #ifdef QUOTIENT_07
     static int oldAccountCount = 0;
-    connect(&AccountRegistry::instance(), &AccountRegistry::accountCountChanged, this, [this]() {
-        if (AccountRegistry::instance().size() > oldAccountCount) {
-            auto connection = AccountRegistry::instance().accounts()[AccountRegistry::instance().size() - 1];
+    connect(&Accounts, &AccountRegistry::accountCountChanged, this, [this]() {
+        if (Accounts.size() > oldAccountCount) {
+            auto connection = Accounts.accounts()[Accounts.size() - 1];
             connect(connection, &Connection::syncDone, this, [this, connection]() {
                 handleNotifications(connection);
             });
         }
-        oldAccountCount = AccountRegistry::instance().size();
+        oldAccountCount = Accounts.size();
     });
 #endif
 }
@@ -228,10 +232,18 @@ void Controller::logout(Connection *conn, bool serverSideLogout)
     job.start();
     loop.exec();
 
+#ifdef QUOTIENT_07
+    if (Accounts.count() > 1) {
+#else
     if (AccountRegistry::instance().count() > 1) {
+#endif
         // Only set the connection if the the account being logged out is currently active
         if (conn == activeConnection()) {
+#ifdef QUOTIENT_07
+            setActiveConnection(Accounts.accounts()[0]);
+#else
             setActiveConnection(AccountRegistry::instance().accounts()[0]);
+#endif
         }
     } else {
         setActiveConnection(nullptr);
@@ -495,7 +507,11 @@ NeochatChangePasswordJob::NeochatChangePasswordJob(const QString &newPassword, b
 
 int Controller::accountCount() const
 {
+#ifdef QUOTIENT_07
+    return Accounts.count();
+#else
     return AccountRegistry::instance().count();
+#endif
 }
 
 void Controller::setQuitOnLastWindowClosed()
