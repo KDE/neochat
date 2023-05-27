@@ -203,15 +203,9 @@ QQC2.Control {
                 if (event.key === Qt.Key_V && event.modifiers & Qt.ControlModifier) {
                     chatBar.pasteImage();
                 } else if (event.key === Qt.Key_Up && event.modifiers & Qt.ControlModifier) {
-                    let replyEvent = messageEventModel.getLatestMessageFromRow(0)
-                    if (replyEvent && replyEvent["event_id"]) {
-                        currentRoom.chatBoxReplyId = replyEvent["event_id"]
-                    }
+                    currentRoom.replyLastMessage();
                 } else if (event.key === Qt.Key_Up && textField.text.length === 0) {
-                    let editEvent = messageEventModel.getLastLocalUserMessageEventId()
-                    if (editEvent) {
-                        currentRoom.chatBoxEditId = editEvent["event_id"]
-                    }
+                    currentRoom.editLastMessage();
                 } else if (event.key === Qt.Key_Up && completionMenu.visible) {
                     completionMenu.decrementIndex()
                 } else if (event.key === Qt.Key_Down && completionMenu.visible) {

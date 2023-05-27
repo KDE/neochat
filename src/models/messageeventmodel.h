@@ -143,31 +143,6 @@ public:
     Q_INVOKABLE [[nodiscard]] int eventIdToRow(const QString &eventID) const;
 
     /**
-     * @brief Get the last message sent by the local user.
-     *
-     * @note This checks a maximum of the previous 35 message for performance reasons.
-     *
-     * @return a QVariantMap for the event with the following parameters:
-     *  - eventId - The event ID.
-     *  - formattedBody - The message text formatted as Qt::RichText.
-     *  - message - The message text formatted as Qt::PlainText.
-     */
-    Q_INVOKABLE [[nodiscard]] QVariant getLastLocalUserMessageEventId();
-
-    /**
-     * @brief Get the last message sent earlier than the given row.
-     *
-     * @note This checks a maximum of the previous 35 message for performance reasons.
-     *
-     * @return a QVariantMap for the event with the following parameters:
-     *  - eventId - The event ID.
-     *  - message - The message text formatted as Qt::PlainText.
-     *  - sender_id - The matrix ID of the sender.
-     *  - at - The QModelIndex of the message.
-     */
-    Q_INVOKABLE [[nodiscard]] QVariant getLatestMessageFromRow(const int startRow);
-
-    /**
      * @brief Load the event that the item at the given index replied to.
      *
      * This is used to ensure that the reply data is available when the message that

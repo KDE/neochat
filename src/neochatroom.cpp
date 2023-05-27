@@ -1831,6 +1831,73 @@ void NeoChatRoom::setSavedText(const QString &savedText)
     m_savedText = savedText;
 }
 
+void NeoChatRoom::replyLastMessage()
+{
+    const auto &timelineBottom = messageEvents().rbegin();
+
+    // set a cap limit of startRow + 35 messages, to prevent loading a lot of messages
+    // in rooms where the user has not sent many messages
+    const auto limit = timelineBottom + std::min(35, timelineSize());
+
+    for (auto it = timelineBottom; it != limit; ++it) {
+        auto evt = it->event();
+        auto e = eventCast<const RoomMessageEvent>(evt);
+        if (!e) {
+            continue;
+        }
+
+        auto content = (*it)->contentJson();
+
+        if (e->msgtype() != MessageEventType::Unknown) {
+            QString eventId;
+            if (content.contains("m.new_content")) {
+                // The message has been edited so we have to return the id of the original message instead of the replacement
+                eventId = content["m.relates_to"].toObject()["event_id"].toString();
+            } else {
+                // For any message that isn't an edit return the id of the current message
+                eventId = (*it)->id();
+            }
+            setChatBoxReplyId(eventId);
+            return;
+        }
+    }
+}
+
+void NeoChatRoom::editLastMessage()
+{
+    const auto &timelineBottom = messageEvents().rbegin();
+
+    // set a cap limit of 35 messages, to prevent loading a lot of messages
+    // in rooms where the user has not sent many messages
+    const auto limit = timelineBottom + std::min(35, timelineSize());
+
+    for (auto it = timelineBottom; it != limit; ++it) {
+        auto evt = it->event();
+        auto e = eventCast<const RoomMessageEvent>(evt);
+        if (!e) {
+            continue;
+        }
+
+        // check if the current message's sender's id is same as the user's id
+        if ((*it)->senderId() == localUser()->id()) {
+            auto content = (*it)->contentJson();
+
+            if (e->msgtype() != MessageEventType::Unknown) {
+                QString eventId;
+                if (content.contains("m.new_content")) {
+                    // The message has been edited so we have to return the id of the original message instead of the replacement
+                    eventId = content["m.relates_to"].toObject()["event_id"].toString();
+                } else {
+                    // For any message that isn't an edit return the id of the current message
+                    eventId = (*it)->id();
+                }
+                setChatBoxEditId(eventId);
+                return;
+            }
+        }
+    }
+}
+
 bool NeoChatRoom::canEncryptRoom() const
 {
 #ifdef QUOTIENT_07

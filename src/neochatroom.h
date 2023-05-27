@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include <qobjectdefs.h>
 #include <room.h>
 
 #include <QCache>
@@ -734,6 +735,20 @@ public:
      * @brief Save the chatbox text for the room.
      */
     void setSavedText(const QString &savedText);
+
+    /**
+     * @brief Reply to the last message sent in the timeline.
+     *
+     * @note This checks a maximum of the previous 35 message for performance reasons.
+     */
+    Q_INVOKABLE void replyLastMessage();
+
+    /**
+     * @brief Edit the last message sent by the local user.
+     *
+     * @note This checks a maximum of the previous 35 message for performance reasons.
+     */
+    Q_INVOKABLE void editLastMessage();
 
 #ifdef QUOTIENT_07
     /**
