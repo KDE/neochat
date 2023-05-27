@@ -8,13 +8,35 @@ import QtQuick.Layouts 1.15
 import org.kde.neochat 1.0
 import org.kde.kirigami 2.15 as Kirigami
 
+/**
+ * @brief A component to show the rich display text of text message.
+ */
 TextEdit {
-    id: contentLabel
+    id: root
 
+    /**
+     * @brief The rich text message to display.
+     */
+    property string textMessage
+
+    /**
+     * @brief Whether this message is replying to another.
+     */
+    property bool isReply
+
+    /**
+     * @brief Regex for detecting a message with a single emoji.
+     */
     readonly property var isEmoji: /^(<span style='.*'>)?(\u00a9|\u00ae|[\u20D0-\u2fff]|[\u3190-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])+(<\/span>)?$/
+
+    /**
+     * @brief Regex for detecting a message with a spoiler.
+     */
     readonly property var hasSpoiler: /data-mx-spoiler/g
 
-    property string textMessage: model.display
+    /**
+     * @brief Whether a spoiler should be revealed.
+     */
     property bool spoilerRevealed: !hasSpoiler.test(textMessage)
 
     ListView.onReused: Qt.binding(() => !hasSpoiler.test(textMessage))
@@ -23,7 +45,7 @@ TextEdit {
 
     // Work around QTBUG 93281
     Component.onCompleted: if (text.includes("<img")) {
-        Controller.forceRefreshTextDocument(contentLabel.textDocument, contentLabel)
+        Controller.forceRefreshTextDocument(root.textDocument, root)
     }
 
     text: "<style>
@@ -63,7 +85,7 @@ a{
     color: Kirigami.Theme.textColor
     selectedTextColor: Kirigami.Theme.highlightedTextColor
     selectionColor: Kirigami.Theme.highlightColor
-    font.pointSize: model.reply === undefined && isEmoji.test(model.display) ? Kirigami.Theme.defaultFont.pointSize * 4 : Kirigami.Theme.defaultFont.pointSize
+    font.pointSize: !root.isReply && isEmoji.test(textMessage) ? Kirigami.Theme.defaultFont.pointSize * 4 : Kirigami.Theme.defaultFont.pointSize
     selectByMouse: !Kirigami.Settings.isMobile
     readOnly: true
     wrapMode: Text.Wrap

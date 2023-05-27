@@ -10,34 +10,63 @@ import org.kde.kirigami 2.15 as Kirigami
 
 import org.kde.neochat 1.0
 
+/**
+ * @brief A timeline delegate for an text message.
+ *
+ * @inherit TimelineContainer
+ */
 TimelineContainer {
-    id: messageDelegate
+    id: root
 
-    onOpenContextMenu: openMessageContext(model, label.selectedText, model.plainText)
+    /**
+     * @brief The link preview properties.
+     *
+     * This is a list or object containing the following:
+     *  - url - The URL being previewed.
+     *  - loaded - Whether the URL preview has been loaded.
+     *  - title - the title of the URL preview.
+     *  - description - the description of the URL preview.
+     *  - imageSource - a source URL for the preview image.
+     *
+     * @note An empty link previewer should be passed if there are no links to
+     *       preview.
+     */
+    required property var linkPreview
+
+    /**
+     * @brief Whether there are any links to preview.
+     */
+    required property bool showLinkPreview
+
+    onOpenContextMenu: openMessageContext(label.selectedText)
 
     innerObject: ColumnLayout {
-        Layout.maximumWidth: messageDelegate.contentMaxWidth
+        Layout.maximumWidth: root.contentMaxWidth
         RichLabel {
             id: label
             Layout.fillWidth: true
-            visible: currentRoom.chatBoxEditId !== model.eventId
+            visible: currentRoom.chatBoxEditId !== root.eventId
+
+            isReply: root.isReply
+
+            textMessage: root.display
         }
         Loader {
             Layout.fillWidth: true
             Layout.minimumHeight: item ? item.minimumHeight : -1
             Layout.preferredWidth: item ? item.preferredWidth : -1
-            visible: currentRoom.chatBoxEditId === model.eventId
+            visible: currentRoom.chatBoxEditId === root.eventId
             active: visible
             sourceComponent: MessageEditComponent {
                 room: currentRoom
-                messageId: model.eventId
+                messageId: root.eventId
             }
         }
         LinkPreviewDelegate {
             Layout.fillWidth: true
-            active: !currentRoom.usesEncryption && currentRoom.urlPreviewEnabled && Config.showLinkPreview && model.showLinkPreview
-            linkPreviewer: model.linkPreview
-            indicatorEnabled: messageDelegate.isVisibleInTimeline()
+            active: !currentRoom.usesEncryption && currentRoom.urlPreviewEnabled && Config.showLinkPreview && root.showLinkPreview
+            linkPreviewer: root.linkPreview
+            indicatorEnabled: root.isVisibleInTimeline()
         }
     }
 }

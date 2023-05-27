@@ -11,18 +11,41 @@ import org.kde.kirigami 2.15 as Kirigami
 
 import org.kde.neochat 1.0
 
+/**
+ * @brief A timeline delegate for a location message.
+ *
+ * @inherit TimelineContainer
+ */
 TimelineContainer {
-    id: locationDelegate
+    id: root
+
+    /**
+     * @brief The latitude of the location marker in the message.
+     */
+    required property real latitude
+
+    /**
+     * @brief The longitude of the location marker in the message.
+     */
+    required property real longitude
+
+    /**
+     * @brief What type of marker the location message is.
+     *
+     * The main options are m.pin for a general location or m.self for a pin to show
+     * a user's location.
+     */
+    required property string asset
 
     ColumnLayout {
-        Layout.maximumWidth: locationDelegate.contentMaxWidth
-        Layout.preferredWidth: locationDelegate.contentMaxWidth
+        Layout.maximumWidth: root.contentMaxWidth
+        Layout.preferredWidth: root.contentMaxWidth
         Map {
             id: map
             Layout.fillWidth: true
-            Layout.preferredHeight: locationDelegate.contentMaxWidth / 16 * 9
+            Layout.preferredHeight: root.contentMaxWidth / 16 * 9
 
-            center: QtPositioning.coordinate(model.latitude, model.longitude)
+            center: QtPositioning.coordinate(root.latitude, root.longitude)
             zoomLevel: 15
             plugin: Plugin {
                 name: "osm"
@@ -44,7 +67,7 @@ TimelineContainer {
 
                 anchorPoint.x: sourceItem.width / 2
                 anchorPoint.y: sourceItem.height
-                coordinate: QtPositioning.coordinate(model.latitude, model.longitude)
+                coordinate: QtPositioning.coordinate(rot.latitude, root.longitude)
                 autoFadeIn: false
 
                 sourceItem: Kirigami.Icon {
@@ -67,23 +90,23 @@ TimelineContainer {
                     Kirigami.Avatar {
                         anchors.centerIn: parent
                         anchors.verticalCenterOffset: -parent.height / 8
-                        visible: model.asset === "m.self"
+                        visible: root.asset === "m.self"
                         width: height
                         height: parent.height / 3 + 1
-                        name: model.author.name ?? model.author.displayName
-                        source: model.author.avatarSource
-                        color: model.author.color
+                        name: root.author.name ?? root.author.displayName
+                        source: root.author.avatarSource
+                        color: root.author.color
                     }
                 }
             }
 
             TapHandler {
                 acceptedButtons: Qt.LeftButton
-                onLongPressed: openMessageContext(model, "", model.plainText)
+                onLongPressed: openMessageContext("")
             }
             TapHandler {
                 acceptedButtons: Qt.RightButton
-                onTapped: openMessageContext(model, "", model.plainText)
+                onTapped: openMessageContext("")
             }
         }
     }

@@ -12,21 +12,59 @@ import org.kde.kirigamiaddons.labs.components 1.0 as Components
 
 import org.kde.neochat 1.0
 
+/**
+ * @brief A timeline delegate for a video message.
+ *
+ * @inherit TimelineContainer
+ */
 TimelineContainer {
-    id: videoDelegate
+    id: root
 
+    /**
+     * @brief The media info for the event.
+     *
+     * This should consist of the following:
+     *  - source - The mxc URL for the media.
+     *  - mimeType - The MIME type of the media (should be video/xxx for this delegate).
+     *  - mimeIcon - The MIME icon name (should be video-xxx).
+     *  - size - The file size in bytes.
+     *  - duration - The length in seconds of the audio media.
+     *  - width - The width in pixels of the audio media.
+     *  - height - The height in pixels of the audio media.
+     *  - tempInfo - mediaInfo (with the same properties as this except no tempInfo) for a temporary image while the file downloads.
+     */
+    required property var mediaInfo
+
+    /**
+     * @brief Whether the media has been downloaded.
+     */
+    readonly property bool downloaded: root.progressInfo && root.progressInfo.completed
+
+    /**
+     * @brief Whether the video should be played when downloaded.
+     */
     property bool playOnFinished: false
-    readonly property bool downloaded: progressInfo && progressInfo.completed
 
+    /**
+     * @brief Whether the video can be streamed.
+     */
     property bool supportStreaming: true
+
+    /**
+     * @brief The maximum width of the image.
+     */
     readonly property var maxWidth: Kirigami.Units.gridUnit * 30
+
+    /**
+     * @brief The maximum height of the image.
+     */
     readonly property var maxHeight: Kirigami.Units.gridUnit * 30
 
-    onOpenContextMenu: openFileContext(model, vid)
+    onOpenContextMenu: openFileContext(vid)
 
     onDownloadedChanged: {
         if (downloaded) {
-            vid.source = progressInfo.localPath
+            vid.source = root.progressInfo.localPath
         }
 
         if (downloaded && playOnFinished) {
@@ -39,22 +77,22 @@ TimelineContainer {
         id: vid
 
         property var videoWidth: {
-            if (model.mediaInfo.width > 0) {
-                return model.mediaInfo.width;
+            if (root.mediaInfo.width > 0) {
+                return root.mediaInfo.width;
             } else if (metaData.resolution && metaData.resolution.width) {
                 return metaData.resolution.width;
             } else {
-                return videoDelegate.contentMaxWidth;
+                return root.contentMaxWidth;
             }
         }
         property var videoHeight: {
-            if (model.mediaInfo.height > 0) {
-                return model.mediaInfo.height;
+            if (root.mediaInfo.height > 0) {
+                return root.mediaInfo.height;
             } else if (metaData.resolution && metaData.resolution.height) {
                 return metaData.resolution.height;
             } else {
                 // Default to a 16:9 placeholder
-                return videoDelegate.contentMaxWidth / 16 * 9;
+                return root.contentMaxWidth / 16 * 9;
             }
         }
 
@@ -69,11 +107,11 @@ TimelineContainer {
 
         readonly property size maxSize: {
             if (limitWidth) {
-                let width = Math.min(videoDelegate.contentMaxWidth, videoDelegate.maxWidth);
+                let width = Math.min(root.contentMaxWidth, root.maxWidth);
                 let height = width / aspectRatio;
                 return Qt.size(width, height);
             } else {
-                let height = Math.min(videoDelegate.maxHeight, videoDelegate.contentMaxWidth / aspectRatio);
+                let height = Math.min(root.maxHeight, root.contentMaxWidth / aspectRatio);
                 let width = height * aspectRatio;
                 return Qt.size(width, height);
             }
@@ -91,7 +129,7 @@ TimelineContainer {
         states: [
             State {
                 name: "notDownloaded"
-                when: !model.progressInfo.completed && !model.progressInfo.active
+                when: !root.progressInfo.completed && !root.progressInfo.active
                 PropertyChanges {
                     target: noDownloadLabel
                     visible: true
@@ -103,7 +141,7 @@ TimelineContainer {
             },
             State {
                 name: "downloading"
-                when: model.progressInfo.active && !model.progressInfo.completed
+                when: root.progressInfo.active && !root.progressInfo.completed
                 PropertyChanges {
                     target: downloadBar
                     visible: true
@@ -111,7 +149,7 @@ TimelineContainer {
             },
             State {
                 name: "paused"
-                when: model.progressInfo.completed && (vid.playbackState === MediaPlayer.StoppedState || vid.playbackState === MediaPlayer.PausedState)
+                when: root.progressInfo.completed && (vid.playbackState === MediaPlayer.StoppedState || vid.playbackState === MediaPlayer.PausedState)
                 PropertyChanges {
                     target: videoControls
                     stateVisible: true
@@ -124,7 +162,7 @@ TimelineContainer {
             },
             State {
                 name: "playing"
-                when: model.progressInfo.completed && vid.playbackState === MediaPlayer.PlayingState
+                when: root.progressInfo.completed && vid.playbackState === MediaPlayer.PlayingState
                 PropertyChanges {
                     target: videoControls
                     stateVisible: true
@@ -154,7 +192,7 @@ TimelineContainer {
             anchors.fill: parent
             visible: false
 
-            source: model.mediaInfo.tempInfo.source
+            source: root.mediaInfo.tempInfo.source
             fillMode: Image.PreserveAspectFit
         }
 
@@ -190,8 +228,8 @@ TimelineContainer {
                 width: parent.width * 0.8
 
                 from: 0
-                to: progressInfo.total
-                value: progressInfo.progress
+                to: root.progressInfo.total
+                value: root.progressInfo.progress
             }
         }
 
@@ -315,13 +353,22 @@ TimelineContainer {
                         text: i18n("Maximize")
                         icon.name: "view-fullscreen"
                         onTriggered: {
-                            videoDelegate.ListView.view.interactive = false
+                            root.ListView.view.interactive = false
                             vid.pause()
                             var popup = maximizeVideoComponent.createObject(QQC2.ApplicationWindow.overlay, {
-                                modelData: model,
+                                eventId: root.eventId,
+                                time: root.time,
+                                author: root.author,
+                                delegateType: root.delegateType,
+                                plainText: root.plainText,
+                                caption: root.display,
+                                mediaInfo: root.mediaInfo,
+                                progressInfo: root.progressInfo,
+                                mimeType: root.mimeType,
+                                source: root.source
                             })
                             popup.closed.connect(() => {
-                                videoDelegate.ListView.view.interactive = true
+                                root.ListView.view.interactive = true
                                 popup.destroy()
                             })
                             popup.open()
@@ -364,14 +411,14 @@ TimelineContainer {
 
         TapHandler {
             acceptedButtons: Qt.LeftButton
-            onTapped: if (vid.supportStreaming || progressInfo.completed) {
+            onTapped: if (vid.supportStreaming || root.progressInfo.completed) {
                 if (vid.playbackState == MediaPlayer.PlayingState) {
                     vid.pause()
                 } else {
                     vid.play()
                 }
             } else {
-                videoDelegate.downloadAndPlay()
+                root.downloadAndPlay()
             }
         }
     }
@@ -381,7 +428,7 @@ TimelineContainer {
             playSavedFile()
         } else {
             playOnFinished = true
-            currentRoom.downloadFile(eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId))
+            currentRoom.downloadFile(root.eventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + root.eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(root.eventId))
         }
     }
 

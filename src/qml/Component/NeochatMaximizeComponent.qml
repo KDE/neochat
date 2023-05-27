@@ -14,16 +14,34 @@ import org.kde.neochat 1.0
 Components.AlbumMaximizeComponent {
     id: root
 
-    property var modelData
+    required property string eventId
+
+    required property var time
+
+    required property var author
+
+    required property int delegateType
+
+    required property string plainText
+
+    required property string caption
+
+    required property var mediaInfo
+
+    required property var progressInfo
+
+    required property var mimeType
+
+    required property var source
 
     property list<Components.AlbumModelItem> items: [
         Components.AlbumModelItem {
-            type: root.modelData.delegateType === MessageEventModel.Image || root.modelData.delegateType === MessageEventModel.Sticker ? Components.AlbumModelItem.Image : Components.AlbumModelItem.Video
-            source: root.modelData.delegateType === MessageEventModel.Video ? modelData.progressInfo.localPath : modelData.mediaInfo.source
-            tempSource: modelData.mediaInfo.tempInfo.source
-            caption: modelData.display
-            sourceWidth: modelData.mediaInfo.width
-            sourceHeight: modelData.mediaInfo.height
+            type: root.delegateType === MessageEventModel.Image || root.delegateType === MessageEventModel.Sticker ? Components.AlbumModelItem.Image : Components.AlbumModelItem.Video
+            source: root.delegateType === MessageEventModel.Video ? root.progressInfo.localPath : root.mediaInfo.source
+            tempSource: root.mediaInfo.tempInfo.source
+            caption: root.caption
+            sourceWidth: root.mediaInfo.width
+            sourceHeight: root.mediaInfo.height
         }
     ]
 
@@ -36,22 +54,22 @@ Components.AlbumMaximizeComponent {
             implicitWidth: Kirigami.Units.iconSizes.medium
             implicitHeight: Kirigami.Units.iconSizes.medium
 
-            name: modelData.author.name ?? modelData.author.displayName
-            source: modelData.author.avatarSource
-            color: modelData.author.color
+            name: root.author.name ?? root.author.displayName
+            source: root.author.avatarSource
+            color: root.author.color
         }
         ColumnLayout {
             spacing: 0
             QQC2.Label {
                 id: userLabel
-                text: modelData.author.name ?? modelData.author.displayName
-                color: modelData.author.color
+                text: root.author.name ?? root.author.displayName
+                color: root.author.color
                 font.weight: Font.Bold
                 elide: Text.ElideRight
             }
             QQC2.Label {
                 id: dateTimeLabel
-                text: modelData.time.toLocaleString(Qt.locale(), Locale.ShortFormat)
+                text: root.time.toLocaleString(Qt.locale(), Locale.ShortFormat)
                 color: Kirigami.Theme.disabledTextColor
                 elide: Text.ElideRight
             }
@@ -59,14 +77,14 @@ Components.AlbumMaximizeComponent {
     }
     onItemRightClicked: {
         const contextMenu = fileDelegateContextMenu.createObject(parent, {
-            author: modelData.author,
-            message: modelData.plainText,
-            eventId: modelData.eventId,
-            source: modelData.source,
+            author: root.author,
+            message: root.plainText,
+            eventId: root.eventId,
+            source: root.source,
             file: parent,
-            mimeType: modelData.mimeType,
-            progressInfo: modelData.progressInfo,
-            plainMessage: modelData.plainText,
+            mimeType: root.mimeType,
+            progressInfo: root.progressInfo,
+            plainMessage: root.plainText,
         });
         contextMenu.closeFullscreen.connect(root.close)
         contextMenu.open();
@@ -74,7 +92,7 @@ Components.AlbumMaximizeComponent {
     onSaveItem: {
         var dialog = saveAsDialog.createObject(QQC2.ApplicationWindow.overlay)
         dialog.open()
-        dialog.currentFile = dialog.folder + "/" + currentRoom.fileNameToDownload(modelData.eventId)
+        dialog.currentFile = dialog.folder + "/" + currentRoom.fileNameToDownload(root.eventId)
     }
 
     Component {
@@ -88,7 +106,7 @@ Components.AlbumMaximizeComponent {
                 if (!currentFile) {
                     return;
                 }
-                currentRoom.downloadFile(eventId, currentFile)
+                currentRoom.downloadFile(rooteventId, currentFile)
             }
         }
     }

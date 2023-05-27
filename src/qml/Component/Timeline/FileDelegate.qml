@@ -10,37 +10,60 @@ import org.kde.kirigami 2.15 as Kirigami
 
 import org.kde.neochat 1.0
 
+/**
+ * @brief A timeline delegate for an file message.
+ *
+ * @inherit TimelineContainer
+ */
 TimelineContainer {
-    id: fileDelegate
+    id: root
 
-    onOpenContextMenu: openFileContext(model, fileDelegate)
+    /**
+     * @brief The media info for the event.
+     *
+     * This should consist of the following:
+     *  - source - The mxc URL for the media.
+     *  - mimeType - The MIME type of the media.
+     *  - mimeIcon - The MIME icon name.
+     *  - size - The file size in bytes.
+     */
+    required property var mediaInfo
 
-    readonly property bool downloaded: progressInfo && progressInfo.completed
+    /**
+     * @brief Whether the media has been downloaded.
+     */
+    readonly property bool downloaded: root.progressInfo && root.progressInfo.completed
+
+    /**
+     * @brief Whether the file should be automatically opened when downloaded.
+     */
     property bool autoOpenFile: false
 
     onDownloadedChanged: if (autoOpenFile) {
         openSavedFile();
     }
 
+    onOpenContextMenu: openFileContext(root)
+
     function saveFileAs() {
         const dialog = fileDialog.createObject(QQC2.ApplicationWindow.overlay)
         dialog.open()
-        dialog.currentFile = dialog.folder + "/" + currentRoom.fileNameToDownload(eventId)
+        dialog.currentFile = dialog.folder + "/" + currentRoom.fileNameToDownload(root.eventId)
     }
 
     function openSavedFile() {
-        UrlHelper.openUrl(progressInfo.localPath);
+        UrlHelper.openUrl(root.progressInfo.localPath);
     }
 
     innerObject: RowLayout {
-        Layout.maximumWidth: Math.min(fileDelegate.contentMaxWidth, implicitWidth)
+        Layout.maximumWidth: Math.min(root.contentMaxWidth, implicitWidth)
 
         spacing: Kirigami.Units.largeSpacing
 
         states: [
             State {
                 name: "downloadedInstant"
-                when: progressInfo.completed && autoOpenFile
+                when: root.progressInfo.completed && autoOpenFile
 
                 PropertyChanges {
                     target: openButton
@@ -57,7 +80,7 @@ TimelineContainer {
             },
             State {
                 name: "downloaded"
-                when: progressInfo.completed && !autoOpenFile
+                when: root.progressInfo.completed && !autoOpenFile
 
                 PropertyChanges {
                     target: openButton
@@ -73,7 +96,7 @@ TimelineContainer {
             },
             State {
                 name: "downloading"
-                when: progressInfo.active
+                when: root.progressInfo.active
 
                 PropertyChanges {
                     target: openButton
@@ -82,13 +105,13 @@ TimelineContainer {
 
                 PropertyChanges {
                     target: sizeLabel
-                    text: i18nc("file download progress", "%1 / %2", Controller.formatByteSize(progressInfo.progress), Controller.formatByteSize(progressInfo.total))
+                    text: i18nc("file download progress", "%1 / %2", Controller.formatByteSize(root.progressInfo.progress), Controller.formatByteSize(root.progressInfo.total))
                 }
                 PropertyChanges {
                     target: downloadButton
                     icon.name: "media-playback-stop"
                     QQC2.ToolTip.text: i18nc("tooltip for a button on a message; stops downloading the message's file", "Stop Download")
-                    onClicked: currentRoom.cancelFileTransfer(eventId)
+                    onClicked: currentRoom.cancelFileTransfer(root.eventId)
                 }
             },
             State {
@@ -97,13 +120,13 @@ TimelineContainer {
 
                 PropertyChanges {
                     target: downloadButton
-                    onClicked: fileDelegate.saveFileAs()
+                    onClicked: root.saveFileAs()
                 }
             }
         ]
 
         Kirigami.Icon {
-            source: model.mediaInfo.mimeIcon
+            source: root.mediaInfo.mimeIcon
             fallback: "unknown"
         }
 
@@ -111,14 +134,14 @@ TimelineContainer {
             spacing: 0
             QQC2.Label {
                 Layout.fillWidth: true
-                text: model.display
+                text: root.display
                 wrapMode: Text.Wrap
                 elide: Text.ElideRight
             }
             QQC2.Label {
                 id: sizeLabel
                 Layout.fillWidth: true
-                text: Controller.formatByteSize(model.mediaInfo.size)
+                text: Controller.formatByteSize(root.mediaInfo.size)
                 opacity: 0.7
                 elide: Text.ElideRight
                 maximumLineCount: 1
@@ -130,7 +153,7 @@ TimelineContainer {
             icon.name: "document-open"
             onClicked: {
                 autoOpenFile = true;
-                currentRoom.downloadTempFile(eventId);
+                currentRoom.downloadTempFile(root.eventId);
             }
 
             QQC2.ToolTip.text: i18nc("tooltip for a button on a message; offers ability to open its downloaded file with an appropriate application", "Open File")
@@ -157,9 +180,9 @@ TimelineContainer {
                     Config.lastSaveDirectory = folder
                     Config.save()
                     if (autoOpenFile) {
-                        UrlHelper.copyTo(progressInfo.localPath, file)
+                        UrlHelper.copyTo(root.progressInfo.localPath, file)
                     } else {
-                        currentRoom.download(eventId, file);
+                        currentRoom.download(root.eventId, file);
                     }
                 }
             }

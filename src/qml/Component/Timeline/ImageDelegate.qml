@@ -11,37 +11,70 @@ import org.kde.kirigamiaddons.labs.components 1.0 as Components
 
 import org.kde.neochat 1.0
 
+/**
+ * @brief A timeline delegate for an image message.
+ *
+ * @inherit TimelineContainer
+ */
 TimelineContainer {
-    id: imageDelegate
+    id: root
 
-    onOpenContextMenu: openFileContext(model, imageDelegate)
+    /**
+     * @brief The media info for the event.
+     *
+     * This should consist of the following:
+     *  - source - The mxc URL for the media.
+     *  - mimeType - The MIME type of the media (should be image/xxx for this delegate).
+     *  - mimeIcon - The MIME icon name (should be image-xxx).
+     *  - size - The file size in bytes.
+     *  - width - The width in pixels of the audio media.
+     *  - height - The height in pixels of the audio media.
+     *  - tempInfo - mediaInfo (with the same properties as this except no tempInfo) for a temporary image while the file downloads.
+     */
+    required property var mediaInfo
 
+    /**
+     * @brief Whether the media has been downloaded.
+     */
+    readonly property bool downloaded: root.progressInfo && root.progressInfo.completed
+
+    /**
+     * @brief Whether the image should be automatically opened when downloaded.
+     */
     property bool openOnFinished: false
-    readonly property bool downloaded: progressInfo && progressInfo.completed
 
+    /**
+     * @brief The maximum width of the image.
+     */
     readonly property var maxWidth: Kirigami.Units.gridUnit * 30
+
+    /**
+     * @brief The maximum height of the image.
+     */
     readonly property var maxHeight: Kirigami.Units.gridUnit * 30
+
+    onOpenContextMenu: openFileContext(root)
 
     innerObject: AnimatedImage {
         id: img
 
         property var imageWidth: {
-            if (model.mediaInfo.width > 0) {
-                return model.mediaInfo.width;
+            if (root.mediaInfo.width > 0) {
+                return root.mediaInfo.width;
             } else if (sourceSize.width && sourceSize.width > 0) {
                 return sourceSize.width;
             } else {
-                return imageDelegate.contentMaxWidth;
+                return root.contentMaxWidth;
             }
         }
         property var imageHeight: {
-            if (model.mediaInfo.height > 0) {
-                return model.mediaInfo.height;
+            if (root.mediaInfo.height > 0) {
+                return root.mediaInfo.height;
             } else if (sourceSize.height && sourceSize.height > 0) {
                 return sourceSize.height;
             } else {
                 // Default to a 16:9 placeholder
-                return imageDelegate.contentMaxWidth / 16 * 9;
+                return root.contentMaxWidth / 16 * 9;
             }
         }
 
@@ -56,11 +89,11 @@ TimelineContainer {
 
         readonly property size maxSize: {
             if (limitWidth) {
-                let width = Math.min(imageDelegate.contentMaxWidth, imageDelegate.maxWidth);
+                let width = Math.min(root.contentMaxWidth, root.maxWidth);
                 let height = width / aspectRatio;
                 return Qt.size(width, height);
             } else {
-                let height = Math.min(imageDelegate.maxHeight, imageDelegate.contentMaxWidth / aspectRatio);
+                let height = Math.min(root.maxHeight, root.contentMaxWidth / aspectRatio);
                 let width = height * aspectRatio;
                 return Qt.size(width, height);
             }
@@ -70,17 +103,17 @@ TimelineContainer {
         Layout.maximumHeight: maxSize.height
         Layout.preferredWidth: imageWidth
         Layout.preferredHeight: imageHeight
-        source: model.mediaInfo.source
+        source: root.mediaInfo.source
 
         Image {
             anchors.fill: parent
-            source: model.mediaInfo.tempInfo.source
+            source: root.mediaInfo.tempInfo.source
             visible: parent.status !== Image.Ready
         }
 
         fillMode: Image.PreserveAspectFit
 
-        QQC2.ToolTip.text: model.display
+        QQC2.ToolTip.text: root.display
         QQC2.ToolTip.visible: hoverHandler.hovered
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
@@ -93,7 +126,7 @@ TimelineContainer {
         Rectangle {
             anchors.fill: parent
 
-            visible: progressInfo.active && !downloaded
+            visible: root.progressInfo.active && !downloaded
 
             color: "#BB000000"
 
@@ -103,8 +136,8 @@ TimelineContainer {
                 width: parent.width * 0.8
 
                 from: 0
-                to: progressInfo.total
-                value: progressInfo.progress
+                to: root.progressInfo.total
+                value: root.progressInfo.progress
             }
         }
 
@@ -113,12 +146,21 @@ TimelineContainer {
             onTapped: {
                 img.QQC2.ToolTip.hide()
                 img.paused = true
-                imageDelegate.ListView.view.interactive = false
+                root.ListView.view.interactive = false
                 var popup = maximizeImageComponent.createObject(QQC2.ApplicationWindow.overlay, {
-                    modelData: model,
+                    eventId: root.eventId,
+                    time: root.time,
+                    author: root.author,
+                    delegateType: root.delegateType,
+                    plainText: root.plainText,
+                    caption: root.display,
+                    mediaInfo: root.mediaInfo,
+                    progressInfo: root.progressInfo,
+                    mimeType: root.mimeType,
+                    source: root.source
                 })
                 popup.closed.connect(() => {
-                    imageDelegate.ListView.view.interactive = true
+                    root.ListView.view.interactive = true
                     img.paused = false
                     popup.destroy()
                 })
@@ -136,13 +178,13 @@ TimelineContainer {
                 openSavedFile()
             } else {
                 openOnFinished = true
-                currentRoom.downloadFile(eventId, StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(eventId))
+                currentRoom.downloadFile(root.eventId, StandardPaths.writableLocation(StandardPaths.CacheLocation) + "/" + root.eventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(root.eventId))
             }
         }
 
         function openSavedFile() {
-            if (UrlHelper.openUrl(progressInfo.localPath)) return;
-            if (UrlHelper.openUrl(progressInfo.localDir)) return;
+            if (UrlHelper.openUrl(root.progressInfo.localPath)) return;
+            if (UrlHelper.openUrl(root.progressInfo.localDir)) return;
         }
     }
 }

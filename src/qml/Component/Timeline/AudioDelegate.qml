@@ -10,38 +10,58 @@ import org.kde.kirigami 2.15 as Kirigami
 
 import org.kde.neochat 1.0
 
+/**
+ * @brief A timeline delegate for an audio message.
+ *
+ * @inherit TimelineContainer
+ */
 TimelineContainer {
-    id: audioDelegate
+    id: root
 
-    onOpenContextMenu: openFileContext(model, audioDelegate)
+    /**
+     * @brief The media info for the event.
+     *
+     * This should consist of the following:
+     *  - source - The mxc URL for the media.
+     *  - mimeType - The MIME type of the media (should be audio/xxx for this delegate).
+     *  - mimeIcon - The MIME icon name (should be audio-xxx).
+     *  - size - The file size in bytes.
+     *  - duration - The length in seconds of the audio media.
+     */
+    required property var mediaInfo
 
-    readonly property bool downloaded: model.progressInfo && model.progressInfo.completed
+    /**
+     * @brief Whether the media has been downloaded.
+     */
+    readonly property bool downloaded: root.progressInfo && root.progressInfo.completed
     onDownloadedChanged: audio.play()
+
+    onOpenContextMenu: openFileContext(root)
 
     innerObject: ColumnLayout {
         Layout.fillWidth: true
-        Layout.maximumWidth: audioDelegate.contentMaxWidth
+        Layout.maximumWidth: root.contentMaxWidth
 
         Audio {
             id: audio
-            source: model.progressInfo.localPath
+            source: root.progressInfo.localPath
             autoLoad: false
         }
 
         states: [
             State {
                 name: "notDownloaded"
-                when: !model.progressInfo.completed && !model.progressInfo.active
+                when: !root.progressInfo.completed && !root.progressInfo.active
 
                 PropertyChanges {
                     target: playButton
                     icon.name: "media-playback-start"
-                    onClicked: currentRoom.downloadFile(model.eventId)
+                    onClicked: currentRoom.downloadFile(root.eventId)
                 }
             },
             State {
                 name: "downloading"
-                when: model.progressInfo.active && !model.progressInfo.completed
+                when: root.progressInfo.active && !root.progressInfo.completed
                 PropertyChanges {
                     target: downloadBar
                     visible: true
@@ -50,13 +70,13 @@ TimelineContainer {
                     target: playButton
                     icon.name: "media-playback-stop"
                     onClicked: {
-                        currentRoom.cancelFileTransfer(model.eventId)
+                        currentRoom.cancelFileTransfer(root.eventId)
                     }
                 }
             },
             State {
                 name: "paused"
-                when: model.progressInfo.completed && (audio.playbackState === Audio.StoppedState || audio.playbackState === Audio.PausedState)
+                when: root.progressInfo.completed && (audio.playbackState === Audio.StoppedState || audio.playbackState === Audio.PausedState)
                 PropertyChanges {
                     target: playButton
                     icon.name: "media-playback-start"
@@ -67,7 +87,7 @@ TimelineContainer {
             },
             State {
                 name: "playing"
-                when: model.progressInfo.completed && audio.playbackState === Audio.PlayingState
+                when: root.progressInfo.completed && audio.playbackState === Audio.PlayingState
 
                 PropertyChanges {
                     target: playButton
@@ -84,7 +104,7 @@ TimelineContainer {
                 id: playButton
             }
             QQC2.Label {
-                text: model.display
+                text: root.display
                 wrapMode: Text.Wrap
                 Layout.fillWidth: true
             }
@@ -94,8 +114,8 @@ TimelineContainer {
             visible: false
             Layout.fillWidth: true
             from: 0
-            to: model.mediaInfo.size
-            value: model.progressInfo.progress
+            to: root.mediaInfo.size
+            value: root.progressInfo.progress
         }
         RowLayout {
             visible: audio.hasAudio
@@ -109,7 +129,7 @@ TimelineContainer {
             }
 
             QQC2.Label {
-                visible: audioDelegate.contentMaxWidth > Kirigami.Units.gridUnit * 12
+                visible: root.contentMaxWidth > Kirigami.Units.gridUnit * 12
 
                 text: Controller.formatDuration(audio.position) + "/" + Controller.formatDuration(audio.duration)
             }
@@ -117,7 +137,7 @@ TimelineContainer {
         QQC2.Label {
             Layout.alignment: Qt.AlignRight
             Layout.rightMargin: Kirigami.Units.smallSpacing
-            visible: audio.hasAudio && audioDelegate.contentMaxWidth < Kirigami.Units.gridUnit * 12
+            visible: audio.hasAudio && root.contentMaxWidth < Kirigami.Units.gridUnit * 12
 
             text: Controller.formatDuration(audio.position) + "/" + Controller.formatDuration(audio.duration)
         }

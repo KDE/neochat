@@ -10,15 +10,66 @@ import org.kde.kirigami 2.15 as Kirigami
 
 import org.kde.neochat 1.0
 
+/**
+ * @brief A component to show a message that has been replied to.
+ *
+ * Similar to the main timeline delegate a reply delegate is chosen based on the type
+ * of message being replied to. The main difference is that not all messages can be
+ * show in their original form and are instead visualised with a MIME type delegate
+ * e.g. Videos.
+ */
 Item {
-    id: replyComponent
+    id: root
 
+    /**
+     * @brief The reply author.
+     *
+     * This should consist of the following:
+     *  - id - The matrix ID of the reply author.
+     *  - isLocalUser - Whether the reply author is the local user.
+     *  - avatarSource - The mxc URL for the reply author's avatar in the current room.
+     *  - avatarMediaId - The media ID of the reply author's avatar.
+     *  - avatarUrl - The mxc URL for the reply author's avatar.
+     *  - displayName - The display name of the reply author.
+     *  - display - The name of the reply author.
+     *  - color - The color for the reply author.
+     *  - object - The NeoChatUser object for the reply author.
+     *
+     * @sa NeoChatUser
+     */
+    required property var author
+
+    /**
+     * @brief The delegate type of the reply message.
+     */
+    required property int type
+
+    /**
+     * @brief The display text of the message.
+     */
+    required property string display
+
+    /**
+     * @brief The media info for the reply event.
+     *
+     * This could be an image, audio, video or file.
+     *
+     * This should consist of the following:
+     *  - source - The mxc URL for the media.
+     *  - mimeType - The MIME type of the media.
+     *  - mimeIcon - The MIME icon name.
+     *  - size - The file size in bytes.
+     *  - duration - The length in seconds of the audio media (audio/video only).
+     *  - width - The width in pixels of the audio media (image/video only).
+     *  - height - The height in pixels of the audio media (image/video only).
+     *  - tempInfo - mediaInfo (with the same properties as this except no tempInfo) for a temporary image while the file downloads (image/video only).
+     */
+    required property var mediaInfo
+
+    /**
+     * @brief The reply has been clicked.
+     */
     signal replyClicked()
-
-    property var name
-    property alias avatar: replyAvatar.source
-    property var color
-    property var mediaInfo
 
     implicitWidth: mainLayout.implicitWidth
     implicitHeight: mainLayout.implicitHeight
@@ -40,7 +91,7 @@ Item {
             Layout.rowSpan: 2
 
             implicitWidth: Kirigami.Units.smallSpacing
-            color: replyComponent.color
+            color: root.author.color
         }
         Kirigami.Avatar {
             id: replyAvatar
@@ -48,25 +99,26 @@ Item {
             implicitWidth: Kirigami.Units.iconSizes.small
             implicitHeight: Kirigami.Units.iconSizes.small
 
-            name: replyComponent.name || ""
-            color: replyComponent.color
+            source: root.author.avatarSource
+            name: root.author.displayName || ""
+            color: root.author.color
         }
         QQC2.Label {
             Layout.fillWidth: true
 
-            color: replyComponent.color
-            text: replyComponent.name
+            color: root.author.color
+            text: root.author.displayName
             elide: Text.ElideRight
         }
         Loader {
             id: loader
 
             Layout.fillWidth: true
-            Layout.maximumHeight: loader.item && (model.reply.type == MessageEventModel.Image || model.reply.type == MessageEventModel.Sticker) ? loader.item.height : -1
+            Layout.maximumHeight: loader.item && (root.type == MessageEventModel.Image || root.type == MessageEventModel.Sticker) ? loader.item.height : -1
             Layout.columnSpan: 2
 
             sourceComponent: {
-                switch (model.reply.type) {
+                switch (root.type) {
                     case MessageEventModel.Image:
                     case MessageEventModel.Sticker:
                         return imageComponent;
@@ -89,14 +141,14 @@ Item {
         }
         TapHandler {
             acceptedButtons: Qt.LeftButton
-            onTapped: replyComponent.replyClicked()
+            onTapped: root.replyClicked()
         }
     }
 
     Component {
         id: textComponent
         RichLabel {
-            textMessage: model.reply.display
+            textMessage: root.display
             textFormat: Text.RichText
 
             HoverHandler {
@@ -106,7 +158,7 @@ Item {
             TapHandler {
                 enabled: !hoveredLink
                 acceptedButtons: Qt.LeftButton
-                onTapped: replyComponent.replyClicked()
+                onTapped: root.replyClicked()
             }
         }
     }
@@ -116,15 +168,15 @@ Item {
             id: image
 
             property var imageWidth: {
-                if (replyComponent.mediaInfo.width > 0) {
-                    return replyComponent.mediaInfo.width;
+                if (root.mediaInfo.width > 0) {
+                    return root.mediaInfo.width;
                 } else {
                     return sourceSize.width;
                 }
             }
             property var imageHeight: {
-                if (replyComponent.mediaInfo.height > 0) {
-                    return replyComponent.mediaInfo.height;
+                if (root.mediaInfo.height > 0) {
+                    return root.mediaInfo.height;
                 } else {
                     return sourceSize.height;
                 }
@@ -134,15 +186,15 @@ Item {
 
             height: width / aspectRatio
             fillMode: Image.PreserveAspectFit
-            source: mediaInfo.source
+            source: root.mediaInfo.source
         }
     }
     Component {
         id: mimeComponent
         MimeComponent {
-            mimeIconSource: replyComponent.mediaInfo.mimeIcon
-            label: model.reply.display
-            subLabel: model.reply.type === MessageEventModel.File ? Controller.formatByteSize(replyComponent.mediaInfo.size) : Controller.formatDuration(replyComponent.mediaInfo.duration)
+            mimeIconSource: root.mediaInfo.mimeIcon
+            label: root.display
+            subLabel: root.type === MessageEventModel.File ? Controller.formatByteSize(root.mediaInfo.size) : Controller.formatDuration(root.mediaInfo.duration)
         }
     }
     Component {

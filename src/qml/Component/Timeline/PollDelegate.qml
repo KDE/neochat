@@ -10,25 +10,40 @@ import org.kde.kirigami 2.15 as Kirigami
 
 import org.kde.neochat 1.0
 
+/**
+ * @brief A timeline delegate for a poll message.
+ *
+ * @inherit TimelineContainer
+ */
 TimelineContainer {
-    id: pollDelegate
+    id: root
 
-    readonly property var data: model
-    property var pollHandler: currentRoom.poll(model.eventId)
+    /**
+     * @brief The matrix message content.
+     */
+    required property var content
+
+    /**
+     * @brief The poll handler for this poll.
+     *
+     * This contains the required information like what the question, answers and
+     * current number of votes for each is.
+     */
+    property var pollHandler: currentRoom.poll(root.eventId)
 
     innerObject: ColumnLayout {
         Label {
             id: questionLabel
-            text: pollDelegate.data.content["org.matrix.msc3381.poll.start"]["question"]["body"]
+            text: root.content["org.matrix.msc3381.poll.start"]["question"]["body"]
         }
         Repeater {
-            model: pollDelegate.data.content["org.matrix.msc3381.poll.start"]["answers"]
+            model: root.content["org.matrix.msc3381.poll.start"]["answers"]
             delegate: RowLayout {
-                width: pollDelegate.innerObject.width
+                width: root.innerObject.width
                 CheckBox {
-                    checked: pollDelegate.pollHandler.answers[currentRoom.localUser.id] ? pollDelegate.pollHandler.answers[currentRoom.localUser.id].includes(modelData["id"]) : false
-                    onClicked: pollDelegate.pollHandler.sendPollAnswer(pollDelegate.data.eventId, modelData["id"])
-                    enabled: !pollDelegate.pollHandler.hasEnded
+                    checked: root.pollHandler.answers[currentRoom.localUser.id] ? root.pollHandler.answers[currentRoom.localUser.id].includes(modelData["id"]) : false
+                    onClicked: root.pollHandler.sendPollAnswer(root.eventId, modelData["id"])
+                    enabled: !root.pollHandler.hasEnded
                 }
                 Label {
                     text: modelData["org.matrix.msc1767.text"]
@@ -37,15 +52,15 @@ TimelineContainer {
                     Layout.fillWidth: true
                 }
                 Label {
-                    visible: pollDelegate.data.content["org.matrix.msc3381.poll.start"]["kind"] == "org.matrix.msc3381.poll.disclosed" || pollHandler.hasEnded
+                    visible: root.content["org.matrix.msc3381.poll.start"]["kind"] == "org.matrix.msc3381.poll.disclosed" || pollHandler.hasEnded
                     Layout.preferredWidth: contentWidth
-                    text: pollDelegate.pollHandler.counts[modelData["id"]] ?? "0"
+                    text: root.pollHandler.counts[modelData["id"]] ?? "0"
                 }
             }
         }
         Label {
-            visible: pollDelegate.data.content["org.matrix.msc3381.poll.start"]["kind"] == "org.matrix.msc3381.poll.disclosed" || pollDelegate.pollHandler.hasEnded
-            text: i18np("Based on votes by %1 user", "Based on votes by %1 users", pollDelegate.pollHandler.answerCount) + (pollDelegate.pollHandler.hasEnded ? (" " + i18nc("as in 'this vote has ended'", "(Ended)")) : "")
+            visible: root.content["org.matrix.msc3381.poll.start"]["kind"] == "org.matrix.msc3381.poll.disclosed" || root.pollHandler.hasEnded
+            text: i18np("Based on votes by %1 user", "Based on votes by %1 users", root.pollHandler.answerCount) + (root.pollHandler.hasEnded ? (" " + i18nc("as in 'this vote has ended'", "(Ended)")) : "")
             font.pointSize: questionLabel.font.pointSize * 0.8
         }
     }
