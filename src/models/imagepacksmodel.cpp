@@ -102,12 +102,13 @@ void ImagePacksModel::reloadImages()
             const auto &stickerRoom = m_room->connection()->room(roomId);
             for (const auto &packKey : packs.keys()) {
 #ifdef QUOTIENT_07
-                const auto &pack = stickerRoom->currentState().get<ImagePackEvent>(packKey);
-                if (pack) {
+                if (const auto &pack = stickerRoom->currentState().get<ImagePackEvent>(packKey)) {
                     const auto packContent = pack->content();
-                    if (!packContent.pack->usage || (packContent.pack->usage->contains("emoticon") && showEmoticons())
-                        || (packContent.pack->usage->contains("sticker") && showStickers())) {
-                        m_events += packContent;
+                    if (packContent.pack.has_value()) {
+                        if (!packContent.pack->usage || (packContent.pack->usage->contains("emoticon") && showEmoticons())
+                            || (packContent.pack->usage->contains("sticker") && showStickers())) {
+                            m_events += packContent;
+                        }
                     }
                 }
 #endif
@@ -118,9 +119,11 @@ void ImagePacksModel::reloadImages()
     auto events = m_room->currentState().eventsOfType("im.ponies.room_emotes");
     for (const auto &event : events) {
         auto packContent = eventCast<const ImagePackEvent>(event)->content();
-        if (!packContent.pack->usage || (packContent.pack->usage->contains("emoticon") && showEmoticons())
-            || (packContent.pack->usage->contains("sticker") && showStickers())) {
-            m_events += packContent;
+        if (packContent.pack.has_value()) {
+            if (!packContent.pack->usage || (packContent.pack->usage->contains("emoticon") && showEmoticons())
+                || (packContent.pack->usage->contains("sticker") && showStickers())) {
+                m_events += packContent;
+            }
         }
     }
 #endif
