@@ -125,6 +125,11 @@ ColumnLayout {
     required property bool showReadMarkers
 
     /**
+     * @brief The matrix ID of the reply event.
+     */
+    required property var replyId
+
+    /**
      * @brief The reply author.
      *
      * This should consist of the following:
@@ -508,7 +513,7 @@ ColumnLayout {
                         Connections {
                             target: replyLoader.item
                             function onReplyClicked() {
-                                replyClicked(root.reply.eventId)
+                                replyClicked(root.replyId)
                             }
                         }
                     }
