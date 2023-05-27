@@ -15,7 +15,6 @@ QQC2.Control {
 
     property alias textField: textField
     property bool isReplying: currentRoom.chatBoxReplyId.length > 0
-    property NeoChatUser replyUser: currentRoom.chatBoxReplyUser
     property bool attachmentPaneVisible: currentRoom.chatBoxAttachmentPath.length > 0
 
     signal messageSent()
@@ -244,9 +243,9 @@ QQC2.Control {
             Component {
                 id: replyPane
                 ReplyPane {
-                    userName: root.replyUser ? root.replyUser.displayName : ""
-                    userColor: root.replyUser ? root.replyUser.color : ""
-                    userAvatar: root.replyUser ? "image://mxc/" + currentRoom.getUser(root.replyUser.id).avatarMediaId : ""
+                    userName: currentRoom.chatBoxReplyUser.displayName
+                    userColor: currentRoom.chatBoxReplyUser.color
+                    userAvatar: currentRoom.chatBoxReplyUser.avatarSource
                     text: currentRoom.chatBoxReplyMessage
                 }
             }

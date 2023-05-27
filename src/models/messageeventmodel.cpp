@@ -431,33 +431,6 @@ void MessageEventModel::fetchMore(const QModelIndex &parent)
     }
 }
 
-static const QVariantMap emptyUser = {
-    {"isLocalUser", false},
-    {"id", QString()},
-    {"avatarSource", QUrl()},
-    {"avatarMediaId", QString()},
-    {"avatarUrl", QString()},
-    {"displayName", QString()},
-    {"display", QString()},
-    {"color", QColor()},
-    {"object", QVariant()},
-};
-
-inline QVariantMap userInContext(NeoChatUser *user, NeoChatRoom *room)
-{
-    return QVariantMap{
-        {"isLocalUser", user->id() == room->localUser()->id()},
-        {"id", user->id()},
-        {"avatarSource", room->avatarForMember(user)},
-        {"avatarMediaId", user->avatarMediaId(room)},
-        {"avatarUrl", user->avatarUrl(room)},
-        {"displayName", user->displayname(room)},
-        {"display", user->name()},
-        {"color", user->color()},
-        {"object", QVariant::fromValue(user)},
-    };
-}
-
 static LinkPreviewer *emptyLinkPreview = new LinkPreviewer;
 
 QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
@@ -572,7 +545,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 
     if (role == AuthorRole) {
         auto author = static_cast<NeoChatUser *>(isPending ? m_currentRoom->localUser() : m_currentRoom->user(evt.senderId()));
-        return userInContext(author, m_currentRoom);
+        return m_currentRoom->getUser(author);
     }
 
     if (role == ContentRole) {
@@ -715,9 +688,9 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 
         if (replyPtr) {
             auto replyUser = static_cast<NeoChatUser *>(m_currentRoom->user(replyPtr->senderId()));
-            return userInContext(replyUser, m_currentRoom);
+            return m_currentRoom->getUser(replyUser);
         } else {
-            return emptyUser;
+            return m_currentRoom->getUser(nullptr);
         }
     }
 
@@ -853,7 +826,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 #else
             auto user = static_cast<NeoChatUser *>(userId);
 #endif
-            users += userInContext(user, m_currentRoom);
+            users += m_currentRoom->getUser(user);
         }
 
         return users;
@@ -1195,7 +1168,7 @@ void MessageEventModel::createReactionModelForEvent(const Quotient::RoomMessageE
     while (i != reactions.constEnd()) {
         QVariantList authors;
         for (const auto &author : i.value()) {
-            authors.append(userInContext(author, m_currentRoom));
+            authors.append(m_currentRoom->getUser(author));
         }
 
         res.append(ReactionModel::Reaction{i.key(), authors});

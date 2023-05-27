@@ -381,7 +381,7 @@ ColumnLayout {
             visible: root.showAuthor &&
                 Config.showAvatarInTimeline &&
                 (Config.compactLayout || !showUserMessageOnRight)
-            name: root.author.name ?? root.author.displayName
+            name: root.author.displayName
             source: root.author.avatarSource
             color: root.author.color
 

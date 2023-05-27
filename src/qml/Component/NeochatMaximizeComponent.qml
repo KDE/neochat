@@ -54,7 +54,7 @@ Components.AlbumMaximizeComponent {
             implicitWidth: Kirigami.Units.iconSizes.medium
             implicitHeight: Kirigami.Units.iconSizes.medium
 
-            name: root.author.name ?? root.author.displayName
+            name: root.author.displayName
             source: root.author.avatarSource
             color: root.author.color
         }
@@ -62,7 +62,7 @@ Components.AlbumMaximizeComponent {
             spacing: 0
             QQC2.Label {
                 id: userLabel
-                text: root.author.name ?? root.author.displayName
+                text: root.author.displayName
                 color: root.author.color
                 font.weight: Font.Bold
                 elide: Text.ElideRight

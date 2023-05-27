@@ -459,13 +459,38 @@ QVariantList NeoChatRoom::getUsers(const QString &keyword, int limit) const
     return matchedList;
 }
 
+// An empty user is useful for returning as a model value to avoid properties being undefined.
+static const QVariantMap emptyUser = {
+    {"isLocalUser", false},
+    {"id", QString()},
+    {"displayName", QString()},
+    {"avatarSource", QUrl()},
+    {"avatarMediaId", QString()},
+    {"color", QColor()},
+    {"object", QVariant()},
+};
+
 QVariantMap NeoChatRoom::getUser(const QString &userID) const
 {
-    NeoChatUser user(userID, connection());
-    return QVariantMap{{QStringLiteral("id"), user.id()},
-                       {QStringLiteral("displayName"), user.displayname(this)},
-                       {QStringLiteral("avatarMediaId"), user.avatarMediaId(this)},
-                       {QStringLiteral("color"), user.color()}};
+    NeoChatUser *userObject = static_cast<NeoChatUser *>(user(userID));
+    return getUser(userObject);
+}
+
+QVariantMap NeoChatRoom::getUser(NeoChatUser *user) const
+{
+    if (user == nullptr) {
+        return emptyUser;
+    }
+
+    return QVariantMap{
+        {QStringLiteral("isLocalUser"), user->id() == localUser()->id()},
+        {QStringLiteral("id"), user->id()},
+        {QStringLiteral("displayName"), user->displayname(this)},
+        {QStringLiteral("avatarSource"), avatarForMember(user)},
+        {QStringLiteral("avatarMediaId"), user->avatarMediaId(this)},
+        {QStringLiteral("color"), user->color()},
+        {QStringLiteral("object"), QVariant::fromValue(user)},
+    };
 }
 
 QString NeoChatRoom::avatarMediaId() const
@@ -1768,12 +1793,12 @@ void NeoChatRoom::setChatBoxEditId(const QString &editId)
     Q_EMIT chatBoxEditIdChanged();
 }
 
-NeoChatUser *NeoChatRoom::chatBoxReplyUser() const
+QVariantMap NeoChatRoom::chatBoxReplyUser() const
 {
     if (m_chatBoxReplyId.isEmpty()) {
-        return nullptr;
+        return emptyUser;
     }
-    return static_cast<NeoChatUser *>(user((*findInTimeline(m_chatBoxReplyId))->senderId()));
+    return getUser(static_cast<NeoChatUser *>(user((*findInTimeline(m_chatBoxReplyId))->senderId())));
 }
 
 QString NeoChatRoom::chatBoxReplyMessage() const
@@ -1784,12 +1809,12 @@ QString NeoChatRoom::chatBoxReplyMessage() const
     return eventToString(*static_cast<const RoomMessageEvent *>(&**findInTimeline(m_chatBoxReplyId)));
 }
 
-NeoChatUser *NeoChatRoom::chatBoxEditUser() const
+QVariantMap NeoChatRoom::chatBoxEditUser() const
 {
     if (m_chatBoxEditId.isEmpty()) {
-        return nullptr;
+        return emptyUser;
     }
-    return static_cast<NeoChatUser *>(user((*findInTimeline(m_chatBoxEditId))->senderId()));
+    return getUser(static_cast<NeoChatUser *>(user((*findInTimeline(m_chatBoxEditId))->senderId())));
 }
 
 QString NeoChatRoom::chatBoxEditMessage() const

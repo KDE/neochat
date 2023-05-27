@@ -315,11 +315,26 @@ class NeoChatRoom : public Quotient::Room
     Q_PROPERTY(QString chatBoxEditId READ chatBoxEditId WRITE setChatBoxEditId NOTIFY chatBoxEditIdChanged)
 
     /**
-     * @brief Get the user object for the message being replied to.
+     * @brief Get the user for the message being replied to.
      *
-     * Returns a nullptr if not replying to a message.
+     * This is different to getting a NeoChatUser object or Quotient::User object
+     * as neither of those can provide details like the displayName or avatarMediaId
+     * without the room context as these can vary from room to room.
+     *
+     * Returns an empty user if not replying to a message.
+     *
+     * The user QVariantMap has the following properties:
+     *  - isLocalUser - Whether the user is the local user.
+     *  - id - The matrix ID of the user.
+     *  - displayName - Display name in the context of this room.
+     *  - avatarSource - The mxc URL for the user's avatar in the current room.
+     *  - avatarMediaId - Avatar id in the context of this room.
+     *  - color - Color for the user.
+     *  - object - The NeoChatUser object for the user.
+     *
+     * @sa getUser, Quotient::User, NeoChatUser
      */
-    Q_PROPERTY(NeoChatUser *chatBoxReplyUser READ chatBoxReplyUser NOTIFY chatBoxReplyIdChanged)
+    Q_PROPERTY(QVariantMap chatBoxReplyUser READ chatBoxReplyUser NOTIFY chatBoxReplyIdChanged)
 
     /**
      * @brief The content of the message being replied to.
@@ -329,11 +344,26 @@ class NeoChatRoom : public Quotient::Room
     Q_PROPERTY(QString chatBoxReplyMessage READ chatBoxReplyMessage NOTIFY chatBoxReplyIdChanged)
 
     /**
-     * @brief Get the user object for the message being edited.
+     * @brief Get the user for the message being edited.
      *
-     * Returns a nullptr if not editing a message.
+     * This is different to getting a NeoChatUser object or Quotient::User object
+     * as neither of those can provide details like the displayName or avatarMediaId
+     * without the room context as these can vary from room to room.
+     *
+     * Returns an empty user if not replying to a message.
+     *
+     * The user QVariantMap has the following properties:
+     *  - isLocalUser - Whether the user is the local user.
+     *  - id - The matrix ID of the user.
+     *  - displayName - Display name in the context of this room.
+     *  - avatarSource - The mxc URL for the user's avatar in the current room.
+     *  - avatarMediaId - Avatar id in the context of this room.
+     *  - color - Color for the user.
+     *  - object - The NeoChatUser object for the user.
+     *
+     * @sa getUser, Quotient::User, NeoChatUser
      */
-    Q_PROPERTY(NeoChatUser *chatBoxEditUser READ chatBoxEditUser NOTIFY chatBoxEditIdChanged)
+    Q_PROPERTY(QVariantMap chatBoxEditUser READ chatBoxEditUser NOTIFY chatBoxEditIdChanged)
 
     /**
      * @brief The content of the message being edited.
@@ -390,17 +420,49 @@ public:
      * without the room context as these can vary from room to room. This function
      * provides the room context and outputs the result as QVariantMap.
      *
+     * Can be called with an empty QString to return an empty user, which is a useful return
+     * from models to avoid undefined properties.
+     *
      * @param userID the ID of the user to output.
      *
      * @return a QVariantMap for the user with the following properties:
-     *  - id - User ID.
+     *  - isLocalUser - Whether the user is the local user.
+     *  - id - The matrix ID of the user.
      *  - displayName - Display name in the context of this room.
+     *  - avatarSource - The mxc URL for the user's avatar in the current room.
      *  - avatarMediaId - Avatar id in the context of this room.
      *  - color - Color for the user.
+     *  - object - The NeoChatUser object for the user.
      *
      * @sa Quotient::User, NeoChatUser
      */
     Q_INVOKABLE [[nodiscard]] QVariantMap getUser(const QString &userID) const;
+
+    /**
+     * @brief Get a user in the context of this room.
+     *
+     * This is different to getting a NeoChatUser object or Quotient::User object
+     * as neither of those can provide details like the displayName or avatarMediaId
+     * without the room context as these can vary from room to room. This function
+     * provides the room context and outputs the result as QVariantMap.
+     *
+     * Can be called with a nullptr to return an empty user, which is a useful return
+     * from models to avoid undefined properties.
+     *
+     * @param user the user to output.
+     *
+     * @return a QVariantMap for the user with the following properties:
+     *  - isLocalUser - Whether the user is the local user.
+     *  - id - The matrix ID of the user.
+     *  - displayName - Display name in the context of this room.
+     *  - avatarSource - The mxc URL for the user's avatar in the current room.
+     *  - avatarMediaId - Avatar id in the context of this room.
+     *  - color - Color for the user.
+     *  - object - The NeoChatUser object for the user.
+     *
+     * @sa Quotient::User, NeoChatUser
+     */
+    Q_INVOKABLE [[nodiscard]] QVariantMap getUser(NeoChatUser *user) const;
 
     [[nodiscard]] QVariantList getUsersTyping() const;
 
@@ -704,13 +766,13 @@ public:
     QString chatBoxReplyId() const;
     void setChatBoxReplyId(const QString &replyId);
 
-    NeoChatUser *chatBoxReplyUser() const;
+    QVariantMap chatBoxReplyUser() const;
     QString chatBoxReplyMessage() const;
 
     QString chatBoxEditId() const;
     void setChatBoxEditId(const QString &editId);
 
-    NeoChatUser *chatBoxEditUser() const;
+    QVariantMap chatBoxEditUser() const;
     QString chatBoxEditMessage() const;
 
     QString chatBoxAttachmentPath() const;

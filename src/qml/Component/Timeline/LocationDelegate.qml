@@ -93,7 +93,7 @@ TimelineContainer {
                         visible: root.asset === "m.self"
                         width: height
                         height: parent.height / 3 + 1
-                        name: root.author.name ?? root.author.displayName
+                        name: root.author.displayName
                         source: root.author.avatarSource
                         color: root.author.color
                     }

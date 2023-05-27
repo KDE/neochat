@@ -100,7 +100,7 @@ Item {
             implicitHeight: Kirigami.Units.iconSizes.small
 
             source: root.author.avatarSource
-            name: root.author.displayName || ""
+            name: root.author.displayName
             color: root.author.color
         }
         QQC2.Label {
