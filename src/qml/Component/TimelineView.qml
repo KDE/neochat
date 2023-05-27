@@ -35,6 +35,7 @@ QQC2.ScrollView {
         verticalLayoutDirection: ListView.BottomToTop
         highlightMoveDuration: 500
         clip: true
+        interactive: Kirigami.Settings.isMobile
         bottomMargin: Kirigami.Units.largeSpacing + Math.round(Kirigami.Theme.defaultFont.pointSize * 2)
 
         model: !isLoaded ? undefined : collapseStateProxyModel
