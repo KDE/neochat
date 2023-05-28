@@ -866,7 +866,6 @@ private:
 #endif
 
 private Q_SLOTS:
-    void countChanged();
     void updatePushNotificationState(QString type);
 
     void cacheLastEvent();
