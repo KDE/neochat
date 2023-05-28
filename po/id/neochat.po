@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-22 00:47+0000\n"
+"POT-Creation-Date: 2023-05-28 00:47+0000\n"
 "PO-Revision-Date: 2023-05-19 10:51+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -18,78 +18,78 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.3.1\n"
 
-#: src/controller.cpp:181
+#: src/controller.cpp:185
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Pesan Terenkripsi"
 
-#: src/controller.cpp:324
+#: src/controller.cpp:336
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Pemasukan Gagal: Token Pengaksesan tidak absah atau dicabut"
 
-#: src/controller.cpp:327 src/controller.cpp:332 src/login.cpp:91
+#: src/controller.cpp:339 src/controller.cpp:344 src/login.cpp:95
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Pemasukan Gagal: %1"
 
-#: src/controller.cpp:338
+#: src/controller.cpp:350
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Kesalahan Jaringan: %1"
 
-#: src/controller.cpp:363
+#: src/controller.cpp:375
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Token pengaksesan tidak ditemukan"
 
-#: src/controller.cpp:363
+#: src/controller.cpp:375
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Mungkin terhapus?"
 
-#: src/controller.cpp:367
+#: src/controller.cpp:379
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Akses ke rantai kunci ditolak."
 
-#: src/controller.cpp:367
+#: src/controller.cpp:379
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Mohon izinkan NeoChat untuk membaca token pengaksesan"
 
-#: src/controller.cpp:370
+#: src/controller.cpp:382
 #, kde-format
 msgid "No keychain available."
 msgstr "Tidak ada keychain yang tersedia."
 
-#: src/controller.cpp:370
+#: src/controller.cpp:382
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Mohon instal sebuah rantai kunci, seperti KWallet atau GNOME Keyring di Linux"
 
-#: src/controller.cpp:373
+#: src/controller.cpp:385
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Tidak dapat membaca token pengaksesan"
 
-#: src/controller.cpp:557
+#: src/controller.cpp:573
 #, kde-format
 msgid "File too large to download."
 msgstr "Berkas terlalu besar untuk diunduh."
 
-#: src/controller.cpp:557
+#: src/controller.cpp:573
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Hubungi administrator server Matrix Anda untuk dukungan."
 
-#: src/controller.cpp:595
+#: src/controller.cpp:611
 #, kde-format
 msgid "Room creation failed: \"%1\""
 msgstr "Pembuatan ruangan gagal: \"%1\""
 
-#: src/controller.cpp:616
+#: src/controller.cpp:632
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "ID ruangan yang Anda coba bergabung tidak absah"
@@ -118,7 +118,7 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Tujuan"
 
-#: src/login.cpp:86 src/login.cpp:97
+#: src/login.cpp:90 src/login.cpp:101
 #, kde-format
 msgid "Network Error"
 msgstr "Kesalahan Jaringan"
@@ -637,34 +637,34 @@ msgstr "Kustom"
 msgid "Own Stickers"
 msgstr "Stiker Sendiri"
 
-#: src/models/messageeventmodel.cpp:495 src/models/messageeventmodel.cpp:504
+#: src/models/messageeventmodel.cpp:468 src/models/messageeventmodel.cpp:477
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Pesan ini telah dihapus]</i>"
 
-#: src/models/messageeventmodel.cpp:496
+#: src/models/messageeventmodel.cpp:469
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Pesan ini telah dihapus: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:581
+#: src/models/messageeventmodel.cpp:554
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[DIHAPUS]"
 
-#: src/models/messageeventmodel.cpp:581
+#: src/models/messageeventmodel.cpp:554
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[DIHAPUS: %1]"
 
-#: src/models/messageeventmodel.cpp:890
+#: src/models/messageeventmodel.cpp:863
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "%1 pengguna: "
 msgstr[1] "%1 pengguna"
 
-#: src/models/messageeventmodel.cpp:897
+#: src/models/messageeventmodel.cpp:870
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -737,338 +737,338 @@ msgstr "Kemarin"
 msgid "The day before yesterday"
 msgstr "Kemarin lusa"
 
-#: src/neochatroom.cpp:512
+#: src/neochatroom.cpp:537
 #, kde-format
 msgid "a file"
 msgstr "sebuah berkas"
 
-#: src/neochatroom.cpp:563
+#: src/neochatroom.cpp:588
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "mengundang ulang %1 ke ruangan ini"
 
-#: src/neochatroom.cpp:565
+#: src/neochatroom.cpp:590
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:574 src/neochatroom.cpp:719
+#: src/neochatroom.cpp:599 src/neochatroom.cpp:744
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "bergabung ke ruangan ini (lagi)"
 
-#: src/neochatroom.cpp:576
+#: src/neochatroom.cpp:601
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "mengundang %1 ke ruangan ini"
 
-#: src/neochatroom.cpp:576 src/neochatroom.cpp:721
+#: src/neochatroom.cpp:601 src/neochatroom.cpp:746
 #, kde-format
 msgid "joined the room"
 msgstr "bergabung ke ruangan ini"
 
-#: src/neochatroom.cpp:580
+#: src/neochatroom.cpp:605
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:587 src/neochatroom.cpp:729
+#: src/neochatroom.cpp:612 src/neochatroom.cpp:754
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "menghapus nama tampilannya"
 
-#: src/neochatroom.cpp:589
+#: src/neochatroom.cpp:614
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "mengubah nama tampilan ke %1"
 
-#: src/neochatroom.cpp:594 src/neochatroom.cpp:736
+#: src/neochatroom.cpp:619 src/neochatroom.cpp:761
 #, kde-format
 msgid " and "
 msgstr " dan "
 
-#: src/neochatroom.cpp:597 src/neochatroom.cpp:739
+#: src/neochatroom.cpp:622 src/neochatroom.cpp:764
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "menghapus avatarnya"
 
-#: src/neochatroom.cpp:603 src/neochatroom.cpp:745
+#: src/neochatroom.cpp:628 src/neochatroom.cpp:770
 #, kde-format
 msgid "set an avatar"
 msgstr "menetapkan sebuah avatar"
 
-#: src/neochatroom.cpp:605 src/neochatroom.cpp:747
+#: src/neochatroom.cpp:630 src/neochatroom.cpp:772
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "memperbarui avatarnya"
 
-#: src/neochatroom.cpp:609 src/neochatroom.cpp:751
+#: src/neochatroom.cpp:634 src/neochatroom.cpp:776
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "tidak mengubah apa pun"
 
-#: src/neochatroom.cpp:615
+#: src/neochatroom.cpp:640
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "membatalkan undangannya %1"
 
-#: src/neochatroom.cpp:615 src/neochatroom.cpp:757
+#: src/neochatroom.cpp:640 src/neochatroom.cpp:782
 #, kde-format
 msgid "rejected the invitation"
 msgstr "menolak undangannya"
 
-#: src/neochatroom.cpp:619
+#: src/neochatroom.cpp:644
 #, kde-format
 msgid "unbanned %1"
 msgstr "menghilangkan cekalannya %1"
 
-#: src/neochatroom.cpp:619 src/neochatroom.cpp:761
+#: src/neochatroom.cpp:644 src/neochatroom.cpp:786
 #, kde-format
 msgid "self-unbanned"
 msgstr "menghilangkan cekalannya sendiri"
 
-#: src/neochatroom.cpp:622
+#: src/neochatroom.cpp:647
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "mengeluarkan %1 dari ruangan: %2"
 
-#: src/neochatroom.cpp:623 src/neochatroom.cpp:763
+#: src/neochatroom.cpp:648 src/neochatroom.cpp:788
 #, kde-format
 msgid "left the room"
 msgstr "keluar dari ruangan ini"
 
-#: src/neochatroom.cpp:627
+#: src/neochatroom.cpp:652
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "mencekal %1 dari ruangan"
 
-#: src/neochatroom.cpp:629
+#: src/neochatroom.cpp:654
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "mencekal %1 dari ruangan ini: %2"
 
-#: src/neochatroom.cpp:632 src/neochatroom.cpp:768
+#: src/neochatroom.cpp:657 src/neochatroom.cpp:793
 #, kde-format
 msgid "self-banned from the room"
 msgstr "mencekal dirinya dari ruangan ini"
 
-#: src/neochatroom.cpp:636 src/neochatroom.cpp:771
+#: src/neochatroom.cpp:661 src/neochatroom.cpp:796
 #, kde-format
 msgid "requested an invite"
 msgstr "meminta sebuah undangan"
 
-#: src/neochatroom.cpp:636
+#: src/neochatroom.cpp:661
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "meminta sebuah undangan dengan alasan: %1"
 
-#: src/neochatroom.cpp:640 src/neochatroom.cpp:775
+#: src/neochatroom.cpp:665 src/neochatroom.cpp:800
 #, kde-format
 msgid "made something unknown"
 msgstr "membuat sebuah hal yang tidak diketahui"
 
-#: src/neochatroom.cpp:643 src/neochatroom.cpp:778
+#: src/neochatroom.cpp:668 src/neochatroom.cpp:803
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "menghapus alias utama ruangan ini"
 
-#: src/neochatroom.cpp:643
+#: src/neochatroom.cpp:668
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "menetapkan alias utama ruangan ini ke: %1"
 
-#: src/neochatroom.cpp:646 src/neochatroom.cpp:781
+#: src/neochatroom.cpp:671 src/neochatroom.cpp:806
 #, kde-format
 msgid "cleared the room name"
 msgstr "menghapus nama ruangan ini"
 
-#: src/neochatroom.cpp:646
+#: src/neochatroom.cpp:671
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "menetapkan nama ruangan ini ke: %1"
 
-#: src/neochatroom.cpp:649 src/neochatroom.cpp:784
+#: src/neochatroom.cpp:674 src/neochatroom.cpp:809
 #, kde-format
 msgid "cleared the topic"
 msgstr "menghapus topiknya"
 
-#: src/neochatroom.cpp:650
+#: src/neochatroom.cpp:675
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "menetapkan topiknya ke: %1"
 
-#: src/neochatroom.cpp:656 src/neochatroom.cpp:787
+#: src/neochatroom.cpp:681 src/neochatroom.cpp:812
 #, kde-format
 msgid "changed the room avatar"
 msgstr "mengubah avatar ruangan ini"
 
-#: src/neochatroom.cpp:659 src/neochatroom.cpp:790
+#: src/neochatroom.cpp:684 src/neochatroom.cpp:815
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "diaktifkan Enkripsi Ujung ke Ujung"
 
-#: src/neochatroom.cpp:662
+#: src/neochatroom.cpp:687
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "meningkatkan ruangan ini ke versi %1"
 
-#: src/neochatroom.cpp:663
+#: src/neochatroom.cpp:688
 #, kde-format
 msgid "created the room, version %1"
 msgstr "membuat ruangan ini, versi %1"
 
-#: src/neochatroom.cpp:666 src/neochatroom.cpp:796
+#: src/neochatroom.cpp:691 src/neochatroom.cpp:821
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "mengubah tingkat daya untuk ruangan ini"
 
-#: src/neochatroom.cpp:670 src/neochatroom.cpp:800
+#: src/neochatroom.cpp:695 src/neochatroom.cpp:825
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "mengubah daftar kontrol pengaksesan server untuk ruangan ini"
 
-#: src/neochatroom.cpp:674
+#: src/neochatroom.cpp:699
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "menambahkan widget %1"
 
-#: src/neochatroom.cpp:677
+#: src/neochatroom.cpp:702
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "menghapus widget %1"
 
-#: src/neochatroom.cpp:679
+#: src/neochatroom.cpp:704
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "mengatur widget %1"
 
-#: src/neochatroom.cpp:681
+#: src/neochatroom.cpp:706
 #, kde-format
 msgid "updated %1 state"
 msgstr "memperbarui status %1"
 
-#: src/neochatroom.cpp:682
+#: src/neochatroom.cpp:707
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "memperbarui status %1 untuk %2"
 
-#: src/neochatroom.cpp:689 src/neochatroom.cpp:819
+#: src/neochatroom.cpp:714 src/neochatroom.cpp:844
 #, kde-format
 msgid "Unknown event"
 msgstr "Peristiwa tidak diketahui"
 
-#: src/neochatroom.cpp:702
+#: src/neochatroom.cpp:727
 #, kde-format
 msgid "sent a message"
 msgstr "mengirim pesan"
 
-#: src/neochatroom.cpp:706
+#: src/neochatroom.cpp:731
 #, kde-format
 msgid "sent a sticker"
 msgstr "mengirim stiker"
 
-#: src/neochatroom.cpp:712
+#: src/neochatroom.cpp:737
 #, kde-format
 msgid "reinvited someone to the room"
 msgstr "mengundang ulang seseorang ke ruangan ini"
 
-#: src/neochatroom.cpp:721
+#: src/neochatroom.cpp:746
 #, kde-format
 msgid "invited someone to the room"
 msgstr "mengundang seseorang ke ruangan ini"
 
-#: src/neochatroom.cpp:731
+#: src/neochatroom.cpp:756
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name"
 msgstr "mengubah nama tampilannya"
 
-#: src/neochatroom.cpp:757
+#: src/neochatroom.cpp:782
 #, kde-format
 msgid "withdrew a user's invitation"
 msgstr "membatalkan undangan pengguna"
 
-#: src/neochatroom.cpp:761
+#: src/neochatroom.cpp:786
 #, kde-format
 msgid "unbanned a user"
 msgstr "menghilangkan cekalan pengguna"
 
-#: src/neochatroom.cpp:763
+#: src/neochatroom.cpp:788
 #, kde-format
 msgid "put a user out of the room"
 msgstr "mengeluarkan pengguna dari ruangan"
 
-#: src/neochatroom.cpp:766
+#: src/neochatroom.cpp:791
 #, kde-format
 msgid "banned a user from the room"
 msgstr "mencekal pengguna dari ruangan"
 
-#: src/neochatroom.cpp:778
+#: src/neochatroom.cpp:803
 #, kde-format
 msgid "set the room main alias"
 msgstr "menetapkan alias utama ruangan ini"
 
-#: src/neochatroom.cpp:781
+#: src/neochatroom.cpp:806
 #, kde-format
 msgid "set the room name"
 msgstr "menetapkan nama ruangan ini"
 
-#: src/neochatroom.cpp:784
+#: src/neochatroom.cpp:809
 #, kde-format
 msgid "set the topic"
 msgstr "menetapkan topiknya"
 
-#: src/neochatroom.cpp:793
+#: src/neochatroom.cpp:818
 #, kde-format
 msgid "upgraded the room version"
 msgstr "meningkatkan versi ruangan ini"
 
-#: src/neochatroom.cpp:793
+#: src/neochatroom.cpp:818
 #, kde-format
 msgid "created the room"
 msgstr "membuat ruangan ini"
 
-#: src/neochatroom.cpp:804
+#: src/neochatroom.cpp:829
 #, kde-format
 msgid "added a widget"
 msgstr "menambahkan widget"
 
-#: src/neochatroom.cpp:807
+#: src/neochatroom.cpp:832
 #, kde-format
 msgid "removed a widget"
 msgstr "menghapus widget"
 
-#: src/neochatroom.cpp:809
+#: src/neochatroom.cpp:834
 #, kde-format
 msgid "configured a widget"
 msgstr "mengatur widget"
 
-#: src/neochatroom.cpp:811
+#: src/neochatroom.cpp:836
 #, kde-format
 msgid "updated the state"
 msgstr "memperbarui keadaan"
 
-#: src/neochatroom.cpp:816
+#: src/neochatroom.cpp:841
 #, kde-format
 msgid "started a poll"
 msgstr "memulai pemungutan suara"
 
-#: src/neochatroom.cpp:1715 src/neochatroom.cpp:1716
+#: src/neochatroom.cpp:1740 src/neochatroom.cpp:1741
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Laporan berhasil dikirim."
 
-#: src/neochatroom.cpp:1951 src/neochatroom.cpp:1959
+#: src/neochatroom.cpp:2043 src/neochatroom.cpp:2051
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1134,27 +1134,27 @@ msgstr "Sunting"
 msgid "Cancel sending attachment"
 msgstr "Batalkan pengiriman lampiran"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:32
+#: src/qml/Component/ChatBox/ChatBar.qml:31
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Lampirkan sebuah gambar atau berkas"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:58
+#: src/qml/Component/ChatBox/ChatBar.qml:57
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emoji & Stiker"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:74
+#: src/qml/Component/ChatBox/ChatBar.qml:73
 #, kde-format
 msgid "Send a Location"
 msgstr "Kirim Lokasi"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:87
+#: src/qml/Component/ChatBox/ChatBar.qml:86
 #, kde-format
 msgid "Send message"
 msgstr "Kirim pesan"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:129
+#: src/qml/Component/ChatBox/ChatBar.qml:128
 #, kde-format
 msgid ""
 "This room is encrypted. Build libQuotient with encryption enabled to send "
@@ -1163,22 +1163,22 @@ msgstr ""
 "Ruangan ini terenkripsi. Bangun libQuotient dengan enkripsi diaktifkan untuk "
 "mengirim pesan terenkripsi."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:129
+#: src/qml/Component/ChatBox/ChatBar.qml:128
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Kirim pesan terenkripsi…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:129
+#: src/qml/Component/ChatBox/ChatBar.qml:128
 #, kde-format
 msgid "Set an attachment caption..."
 msgstr "Atur takarir lampiran..."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:129
+#: src/qml/Component/ChatBox/ChatBar.qml:128
 #, kde-format
 msgid "Send a message…"
 msgstr "Kirim pesan…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:314
+#: src/qml/Component/ChatBox/ChatBar.qml:307
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -1450,8 +1450,8 @@ msgctxt "@action:button"
 msgid "Back"
 msgstr "Kembali"
 
-#: src/qml/Component/Timeline/EncryptedDelegate.qml:15
-#: src/qml/Component/Timeline/ReplyComponent.qml:151
+#: src/qml/Component/Timeline/EncryptedDelegate.qml:20
+#: src/qml/Component/Timeline/ReplyComponent.qml:203
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -1459,16 +1459,16 @@ msgid ""
 msgstr ""
 "Pesan ini terenkripsi dan pengirim belum membagikan kuncinya ke peranti ini."
 
-#: src/qml/Component/Timeline/FileDelegate.qml:54
-#: src/qml/Component/Timeline/FileDelegate.qml:145
+#: src/qml/Component/Timeline/FileDelegate.qml:77
+#: src/qml/Component/Timeline/FileDelegate.qml:168
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to download its file"
 msgid "Download"
 msgstr "Unduh"
 
-#: src/qml/Component/Timeline/FileDelegate.qml:70
-#: src/qml/Component/Timeline/FileDelegate.qml:136
+#: src/qml/Component/Timeline/FileDelegate.qml:93
+#: src/qml/Component/Timeline/FileDelegate.qml:159
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; offers ability to open its downloaded "
@@ -1476,13 +1476,13 @@ msgctxt ""
 msgid "Open File"
 msgstr "Buka Berkas"
 
-#: src/qml/Component/Timeline/FileDelegate.qml:85
+#: src/qml/Component/Timeline/FileDelegate.qml:108
 #, kde-format
 msgctxt "file download progress"
 msgid "%1 / %2"
 msgstr "%1 / %2"
 
-#: src/qml/Component/Timeline/FileDelegate.qml:90
+#: src/qml/Component/Timeline/FileDelegate.qml:113
 #, kde-format
 msgctxt ""
 "tooltip for a button on a message; stops downloading the message's file"
@@ -1516,14 +1516,14 @@ msgctxt "@action:button"
 msgid "Cancel edit"
 msgstr "Batalkan penyuntingan"
 
-#: src/qml/Component/Timeline/PollDelegate.qml:48
+#: src/qml/Component/Timeline/PollDelegate.qml:63
 #, kde-format
 msgid "Based on votes by %1 user"
 msgid_plural "Based on votes by %1 users"
 msgstr[0] "Berdasarkan pemungutan suara dari %1 pengguna"
 msgstr[1] "Berdasarkan pemungutan suara dari %1 pengguna"
 
-#: src/qml/Component/Timeline/PollDelegate.qml:48
+#: src/qml/Component/Timeline/PollDelegate.qml:63
 #, kde-format
 msgctxt "as in 'this vote has ended'"
 msgid "(Ended)"
@@ -1535,48 +1535,48 @@ msgctxt "Relative time since the room was last read"
 msgid "Last read: %1"
 msgstr "Terakhir dibaca: %1"
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:167
+#: src/qml/Component/Timeline/VideoDelegate.qml:205
 #, kde-format
 msgid "Video"
 msgstr "Video"
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:231
+#: src/qml/Component/Timeline/VideoDelegate.qml:269
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
 msgstr "Volume"
 
-#: src/qml/Component/Timeline/VideoDelegate.qml:315
+#: src/qml/Component/Timeline/VideoDelegate.qml:353
 #, kde-format
 msgid "Maximize"
 msgstr "Maksimalkan"
 
-#: src/qml/Component/TimelineView.qml:125
+#: src/qml/Component/TimelineView.qml:126
 #, kde-format
 msgid "Choose local file"
 msgstr "Pilih berkas lokal"
 
-#: src/qml/Component/TimelineView.qml:153
+#: src/qml/Component/TimelineView.qml:154
 #, kde-format
 msgid "Clipboard image"
 msgstr "Gambar papan klip"
 
-#: src/qml/Component/TimelineView.qml:201
+#: src/qml/Component/TimelineView.qml:202
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Pergi ke pesan pertama yang belum dibaca"
 
-#: src/qml/Component/TimelineView.qml:224
+#: src/qml/Component/TimelineView.qml:225
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Pergi ke pesan terkini"
 
-#: src/qml/Component/TimelineView.qml:250
+#: src/qml/Component/TimelineView.qml:251
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Seret item ke sini untuk membagikannya"
 
-#: src/qml/Component/TimelineView.qml:276
+#: src/qml/Component/TimelineView.qml:277
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
