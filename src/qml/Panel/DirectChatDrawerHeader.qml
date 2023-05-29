@@ -46,7 +46,7 @@ ColumnLayout {
             onTriggered: {
                 const popup = userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {
                     room: room,
-                    user: room.directChatRemoteUser,
+                    user: room.getUser(room.directChatRemoteUser.id),
                 })
                 popup.closed.connect(function() {
                     userListItem.highlighted = false

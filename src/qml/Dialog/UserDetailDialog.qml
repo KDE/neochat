@@ -18,9 +18,6 @@ Kirigami.OverlaySheet {
     property var room
     property var user
 
-    property string displayName: user.displayName
-    readonly property url avatar: room.avatarForMember(user)
-
     parent: applicationWindow().overlay
 
     leftPadding: Kirigami.Units.smallSpacing
@@ -44,9 +41,9 @@ Kirigami.OverlaySheet {
                 Layout.preferredWidth: Kirigami.Units.iconSizes.huge
                 Layout.preferredHeight: Kirigami.Units.iconSizes.huge
 
-                name: displayName
-                source: avatar
-                color: user.color
+                name: root.user.displayName
+                source: root.user.avatarSource
+                color: root.user.color
             }
 
             ColumnLayout {
@@ -59,12 +56,12 @@ Kirigami.OverlaySheet {
 
                     elide: Text.ElideRight
                     wrapMode: Text.NoWrap
-                    text: room.htmlSafeMemberName(user.id)
+                    text: user.displayName
                 }
 
                 Kirigami.SelectableLabel {
                     textFormat: TextEdit.PlainText
-                    text: user.id
+                    text: root.user.id
                 }
             }
         }
@@ -74,50 +71,50 @@ Kirigami.OverlaySheet {
         }
 
         Kirigami.BasicListItem {
-            visible: user !== room.localUser
+            visible: !root.user.isLocalUser
             action: Kirigami.Action {
-                text: room.connection.isIgnored(user) ? i18n("Unignore this user") : i18n("Ignore this user")
+                text: room.connection.isIgnored(root.user.object) ? i18n("Unignore this user") : i18n("Ignore this user")
                 icon.name: "im-invisible-user"
                 onTriggered: {
                     root.close()
-                    room.connection.isIgnored(user) ? room.connection.removeFromIgnoredUsers(user) : room.connection.addToIgnoredUsers(user)
+                    room.connection.isIgnored(root.user.object) ? room.connection.removeFromIgnoredUsers(root.user.object) : room.connection.addToIgnoredUsers(root.user.object)
                 }
             }
         }
         Kirigami.BasicListItem {
-            visible: user !== room.localUser && room.canSendState("kick") && room.containsUser(user.id)
+            visible: !root.user.isLocalUser && room.canSendState("kick") && room.containsUser(root.user.id)
 
             action: Kirigami.Action {
                 text: i18n("Kick this user")
                 icon.name: "im-kick-user"
                 onTriggered: {
-                    room.kickMember(user.id)
+                    room.kickMember(root.user.id)
                     root.close()
                 }
             }
         }
         Kirigami.BasicListItem {
-            visible: user !== room.localUser && room.canSendState("invite") && !room.containsUser(user.id)
+            visible: !root.user.isLocalUser && room.canSendState("invite") && !room.containsUser(root.user.id)
 
             action: Kirigami.Action {
-                enabled: !room.isUserBanned(user.id)
+                enabled: !room.isUserBanned(root.user.id)
                 text: i18n("Invite this user")
                 icon.name: "list-add-user"
                 onTriggered: {
-                    room.inviteToRoom(user.id)
+                    room.inviteToRoom(root.user.id)
                     root.close()
                 }
             }
         }
         Kirigami.BasicListItem {
-            visible: user !== room.localUser && room.canSendState("ban") && !room.isUserBanned(user.id)
+            visible: !root.user.isLocalUser && room.canSendState("ban") && !room.isUserBanned(root.user.id)
 
             action: Kirigami.Action {
                 text: i18n("Ban this user")
                 icon.name: "im-ban-user"
                 icon.color: Kirigami.Theme.negativeTextColor
                 onTriggered: {
-                    applicationWindow().pageStack.pushDialogLayer("qrc:/BanSheet.qml", {room: room, userId: user.id}, {
+                    applicationWindow().pageStack.pushDialogLayer("qrc:/BanSheet.qml", {room: root.room, userId: root.user.id}, {
                         title: i18nc("@title", "Ban User"),
                         width: Kirigami.Units.gridUnit * 25
                     })
@@ -126,14 +123,14 @@ Kirigami.OverlaySheet {
             }
         }
         Kirigami.BasicListItem {
-            visible: user !== room.localUser && room.canSendState("ban") && room.isUserBanned(user.id)
+            visible: !root.user.isLocalUser && room.canSendState("ban") && room.isUserBanned(root.user.id)
 
             action: Kirigami.Action {
                 text: i18n("Unban this user")
                 icon.name: "im-irc"
                 icon.color: Kirigami.Theme.negativeTextColor
                 onTriggered: {
-                    room.unban(user.id)
+                    room.unban(root.user.id)
                     root.close()
                 }
             }
@@ -162,14 +159,14 @@ Kirigami.OverlaySheet {
             }
         }
         Kirigami.BasicListItem {
-            visible: user === room.localUser || room.canSendState("redact")
+            visible: root.user.isLocalUser || room.canSendState("redact")
 
             action: Kirigami.Action {
                 text: i18n("Remove recent messages by this user")
                 icon.name: "delete"
                 icon.color: Kirigami.Theme.negativeTextColor
                 onTriggered: {
-                    applicationWindow().pageStack.pushDialogLayer("qrc:/RemoveSheet.qml", {room: root.room, userId: user.id}, {
+                    applicationWindow().pageStack.pushDialogLayer("qrc:/RemoveSheet.qml", {room: root.room, userId: root.user.id}, {
                         title: i18nc("@title", "Remove Messages"),
                         width: Kirigami.Units.gridUnit * 25
                     })
@@ -178,12 +175,12 @@ Kirigami.OverlaySheet {
             }
         }
         Kirigami.BasicListItem {
-            visible: user !== room.localUser
+            visible: !root.user.isLocalUser
             action: Kirigami.Action {
                 text: i18n("Open a private chat")
                 icon.name: "document-send"
                 onTriggered: {
-                    Controller.openOrCreateDirectChat(user);
+                    Controller.openOrCreateDirectChat(root.user.object);
                     root.close()
                 }
             }
@@ -193,7 +190,7 @@ Kirigami.OverlaySheet {
                 text: i18n("Copy link")
                 icon.name: "username-copy"
                 onTriggered: {
-                    Clipboard.saveText("https://matrix.to/#/" + user.id)
+                    Clipboard.saveText("https://matrix.to/#/" + root.user.id)
                 }
             }
         }

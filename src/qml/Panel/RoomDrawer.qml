@@ -243,7 +243,7 @@ Kirigami.OverlayDrawer {
                         onClicked: {
                             const popup = userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {
                                 room: room,
-                                user: user, displayName: name,
+                                user: room.getUser(user.id)
                             })
                             popup.closed.connect(function() {
                                 userListItem.highlighted = false

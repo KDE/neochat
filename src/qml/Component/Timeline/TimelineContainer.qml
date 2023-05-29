@@ -390,8 +390,7 @@ ColumnLayout {
                 onClicked: {
                     userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {
                         room: currentRoom,
-                        user: root.author.object,
-                        displayName: root.author.displayName
+                        user: root.author
                     }).open();
                 }
                 cursorShape: Qt.PointingHandCursor
@@ -474,9 +473,7 @@ ColumnLayout {
                                 onClicked: {
                                     userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {
                                         room: currentRoom,
-                                        user: root.author.object,
-                                        displayName: root.author.displayName,
-                                        avatarSource: root.author.avatarSource
+                                        user: root.author
                                     }).open();
                                 }
                             }

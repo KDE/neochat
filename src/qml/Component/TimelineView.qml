@@ -398,7 +398,7 @@ QQC2.ScrollView {
         function showUserDetail(user) {
             userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {
                 room: root.currentRoom,
-                user: user,
+                user: root.currentRoom.getUser(user.id),
             }).open();
         }
 
