@@ -80,11 +80,6 @@ ColumnLayout {
     required property string plainText
 
     /**
-     * @brief The formatted body of the message.
-     */
-    required property string formattedBody
-
-    /**
      * @brief The date of the event as a string.
      */
     required property string section
@@ -600,13 +595,12 @@ ColumnLayout {
     function openFileContext(file) {
         const contextMenu = fileDelegateContextMenu.createObject(root, {
             author: root.author,
-            message: root.plainText,
             eventId: root.eventId,
             source: root.source,
             file: file,
             mimeType: root.mimeType,
             progressInfo: root.progressInfo,
-            plainMessage: root.plainText,
+            plainText: root.plainText,
         });
         contextMenu.open();
     }
@@ -616,12 +610,10 @@ ColumnLayout {
         const contextMenu = messageDelegateContextMenu.createObject(root, {
             selectedText: selectedText,
             author: root.author,
-            message: root.plainText,
             eventId: root.eventId,
-            formattedBody: root.formattedBody,
             source: root.source,
             eventType: root.delegateType,
-            plainMessage: root.plainText,
+            plainText: root.plainText,
         });
         contextMenu.open();
     }

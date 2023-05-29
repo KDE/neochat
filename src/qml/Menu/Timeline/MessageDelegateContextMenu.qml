@@ -13,13 +13,11 @@ Loader {
     id: loadRoot
 
     required property var author
-    required property string message
     required property string eventId
     property var eventType
-    property string formattedBody: ""
     required property string source
     property string selectedText: ""
-    required property string plainMessage
+    required property string plainText
 
     property list<Kirigami.Action> nestedActions
 
@@ -54,7 +52,7 @@ Loader {
         Kirigami.Action {
             text: i18n("Copy")
             icon.name: "edit-copy"
-            onTriggered: Clipboard.saveText(loadRoot.selectedText === "" ? loadRoot.plainMessage : loadRoot.selectedText)
+            onTriggered: Clipboard.saveText(loadRoot.selectedText === "" ? loadRoot.plainText : loadRoot.selectedText)
         },
         Kirigami.Action {
             text: i18nc("@action:button 'Report' as in 'Report this event to the administrators'", "Report")
@@ -136,7 +134,7 @@ Loader {
                 Instantiator {
                     model: WebShortcutModel {
                         id: webshortcutmodel
-                        selectedText: loadRoot.selectedText ? loadRoot.selectedText : loadRoot.plainMessage
+                        selectedText: loadRoot.selectedText ? loadRoot.selectedText : loadRoot.plainText
                         onOpenUrl: RoomManager.visitNonMatrix(url)
                     }
                     delegate: QQC2.MenuItem {
@@ -240,7 +238,7 @@ Loader {
                                 wrapMode: Text.WordWrap
                             }
                             QQC2.Label {
-                                text: message
+                                text: plainText
                                 Layout.fillWidth: true
                                 wrapMode: Text.WordWrap
 

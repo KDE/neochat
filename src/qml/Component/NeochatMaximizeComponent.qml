@@ -78,13 +78,12 @@ Components.AlbumMaximizeComponent {
     onItemRightClicked: {
         const contextMenu = fileDelegateContextMenu.createObject(parent, {
             author: root.author,
-            message: root.plainText,
             eventId: root.eventId,
             source: root.source,
             file: parent,
             mimeType: root.mimeType,
             progressInfo: root.progressInfo,
-            plainMessage: root.plainText,
+            plainText: root.plainText,
         });
         contextMenu.closeFullscreen.connect(root.close)
         contextMenu.open();

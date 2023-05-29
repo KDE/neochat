@@ -71,7 +71,6 @@ public:
         HighlightRole, /**< Whether the event should be highlighted. */
         SpecialMarksRole, /**< Whether the event is hidden or not. */
         ProgressInfoRole, /**< Progress info when downloading files. */
-        FormattedBodyRole, /**< The formatted body of a rich message. */
         GenericDisplayRole, /**< A generic string based upon the message type. */
 
         ShowLinkPreviewRole, /**< Whether a link preview should be shown. */

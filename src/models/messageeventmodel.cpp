@@ -63,7 +63,6 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[ShowReactionsRole] = "showReactions";
     roles[SourceRole] = "source";
     roles[MimeTypeRole] = "mimeType";
-    roles[FormattedBodyRole] = "formattedBody";
     roles[AuthorIdRole] = "authorId";
     roles[VerifiedRole] = "verified";
     roles[DisplayNameForInitialsRole] = "displayNameForInitials";
@@ -478,16 +477,6 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         }
 
         return m_currentRoom->eventToGenericString(evt);
-    }
-
-    if (role == FormattedBodyRole) {
-        if (auto e = eventCast<const RoomMessageEvent>(&evt)) {
-            if (e->hasTextContent() && e->mimeType().name() != "text/plain") {
-                return static_cast<const Quotient::EventContent::TextContent *>(e->content())->body;
-            }
-        }
-
-        return {};
     }
 
     if (role == PlainText) {
