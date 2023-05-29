@@ -258,7 +258,9 @@ void Controller::addConnection(Connection *c)
 {
     Q_ASSERT_X(c, __FUNCTION__, "Attempt to add a null connection");
 
-#ifndef QUOTIENT_07
+#ifdef QUOTIENT_07
+    Accounts.add(c);
+#else
     AccountRegistry::instance().add(c);
 #endif
 
