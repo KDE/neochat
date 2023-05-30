@@ -92,6 +92,7 @@ ColumnLayout {
                 cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.IBeamCursor
             }
             background: Item {}
+            Component.onCompleted: EmojiFixer.addTextDocument(topicText.textDocument)
         }
     }
 

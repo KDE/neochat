@@ -14,6 +14,7 @@
 #include <Sonnet/BackgroundChecker>
 #include <Sonnet/Settings>
 
+#include "emojifixer.h"
 #include "neochatroom.h"
 
 class SyntaxHighlighter : public QSyntaxHighlighter
@@ -183,6 +184,8 @@ void ChatDocumentHandler::setDocument(QQuickTextDocument *document)
         m_document->textDocument()->disconnect(this);
     }
     m_document = document;
+    static EmojiFixer emojiFixer;
+    emojiFixer.addTextDocument(document);
     Q_EMIT documentChanged();
 }
 

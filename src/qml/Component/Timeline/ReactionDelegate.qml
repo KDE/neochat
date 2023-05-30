@@ -6,6 +6,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15 as QQC2
 
 import org.kde.kirigami 2.15 as Kirigami
+import org.kde.neochat 1.0
 
 Flow {
     id: root
@@ -28,15 +29,18 @@ Flow {
         id: reactionRepeater
         model: root.model
 
-        delegate: QQC2.AbstractButton {
+        delegate: QQC2.Control {
             width: Math.max(reactionTextMetrics.advanceWidth + Kirigami.Units.smallSpacing * 4, height)
 
-            contentItem: QQC2.Label {
+            contentItem: TextEdit {
                 id: reactionLabel
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 text: model.text
-
+                readOnly: true
+                Component.onCompleted: EmojiFixer.addTextDocument(reactionLabel.textDocument)
+                color: Kirigami.Theme.textColor
+                selectByMouse: false
                 TextMetrics {
                     id: reactionTextMetrics
                     text: reactionLabel.text
@@ -56,12 +60,16 @@ Flow {
                 border.width: 1
             }
 
-            onClicked: reactionClicked(model.reaction)
+            MouseArea {
+                anchors.fill: parent
+                onClicked: reactionClicked(model.reaction)
+                hoverEnabled: true
+            }
 
-            hoverEnabled: true
 
             QQC2.ToolTip.visible: hovered
             QQC2.ToolTip.text: model.toolTip
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
         }
     }
 }

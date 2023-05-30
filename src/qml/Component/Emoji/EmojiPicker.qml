@@ -165,7 +165,7 @@ ColumnLayout {
 
     Component {
         id: emojiDelegate
-        Kirigami.NavigationTabButton {
+        NeoChatTabButton {
             width: root.categoryIconSize
             height: width
             checked: categories.currentIndex === model.index

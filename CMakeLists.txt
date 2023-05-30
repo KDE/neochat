@@ -44,10 +44,6 @@ if (NOT ANDROID)
     include(KDEClangFormat)
 endif()
 
-if(NEOCHAT_FLATPAK)
-    include(cmake/Flatpak.cmake)
-endif()
-
 ecm_setup_version(${PROJECT_VERSION}
     VARIABLE_PREFIX NEOCHAT
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/neochat-version.h
@@ -73,6 +69,13 @@ find_package(Qt${QT_MAJOR_VERSION}Keychain)
 set_package_properties(Qt${QT_MAJOR_VERSION}Keychain PROPERTIES
     TYPE REQUIRED
     PURPOSE "Secure storage of account secrets"
+)
+
+
+find_package(ICU 61.0 COMPONENTS uc)
+set_package_properties(ICU PROPERTIES
+    TYPE REQUIRED
+    PURPOSE "Unicode library"
 )
 
 if(ANDROID)

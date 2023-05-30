@@ -88,6 +88,7 @@
 #ifdef HAVE_COLORSCHEME
 #include "colorschemer.h"
 #endif
+#include "emojifixer.h"
 #include "models/completionmodel.h"
 #include "models/statemodel.h"
 #include "neochatuser.h"
@@ -188,12 +189,6 @@ int main(int argc, char *argv[])
 
     initLogging();
 
-#ifdef NEOCHAT_FLATPAK
-    // Copy over the included FontConfig configuration to the
-    // app's config dir:
-    QFile::copy("/app/etc/fonts/conf.d/99-noto-mono-color-emoji.conf", "/var/config/fontconfig/conf.d/99-noto-mono-color-emoji.conf");
-#endif
-
     Clipboard clipboard;
     auto config = NeoChatConfig::self();
     FileTypeSingleton fileTypeSingleton;
@@ -246,6 +241,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<StateModel>("org.kde.neochat", 1, 0, "StateModel");
     qmlRegisterType<StateFilterModel>("org.kde.neochat", 1, 0, "StateFilterModel");
     qmlRegisterType<SearchModel>("org.kde.neochat", 1, 0, "SearchModel");
+    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "EmojiFixer", new EmojiFixer);
 #ifdef QUOTIENT_07
     qmlRegisterType<PollHandler>("org.kde.neochat", 1, 0, "PollHandler");
 #endif

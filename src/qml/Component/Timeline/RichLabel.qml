@@ -43,9 +43,12 @@ TextEdit {
 
     persistentSelection: true
 
-    // Work around QTBUG 93281
-    Component.onCompleted: if (text.includes("<img")) {
-        Controller.forceRefreshTextDocument(root.textDocument, root)
+    Component.onCompleted: {
+        EmojiFixer.addTextDocument(root.textDocument)
+        // Work around QTBUG 93281
+        if (text.includes("<img")) {
+            Controller.forceRefreshTextDocument(root.textDocument, root)
+        }
     }
 
     text: "<style>
