@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-29 00:47+0000\n"
+"POT-Creation-Date: 2023-05-30 00:46+0000\n"
 "PO-Revision-Date: 2023-05-18 06:26+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -646,27 +646,27 @@ msgstr "Нетипова"
 msgid "Own Stickers"
 msgstr "Власні наліпки"
 
-#: src/models/messageeventmodel.cpp:468 src/models/messageeventmodel.cpp:477
+#: src/models/messageeventmodel.cpp:467 src/models/messageeventmodel.cpp:476
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Це повідомлення було вилучено]</i>"
 
-#: src/models/messageeventmodel.cpp:469
+#: src/models/messageeventmodel.cpp:468
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Це повідомлення було вилучено: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:554
+#: src/models/messageeventmodel.cpp:543
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[ЗМІНЕНО]"
 
-#: src/models/messageeventmodel.cpp:554
+#: src/models/messageeventmodel.cpp:543
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[ЗМІНЕНО: %1]"
 
-#: src/models/messageeventmodel.cpp:863
+#: src/models/messageeventmodel.cpp:852
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
@@ -675,7 +675,7 @@ msgstr[1] "%1 користувачі: "
 msgstr[2] "%1 користувачів: "
 msgstr[3] "%1 користувач: "
 
-#: src/models/messageeventmodel.cpp:870
+#: src/models/messageeventmodel.cpp:859
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -1101,7 +1101,7 @@ msgstr "Відкрити NeoChat у цій кімнаті"
 
 #: src/notificationsmanager.cpp:97 src/qml/Component/HoverActions.qml:103
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:35
 #, kde-format
 msgid "Reply"
 msgstr "Відповісти"
@@ -1138,7 +1138,7 @@ msgstr "Долучення:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Component/HoverActions.qml:97
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:26
 #: src/qml/Page/ImageEditorPage.qml:20
 #, kde-format
 msgid "Edit"
@@ -1909,70 +1909,70 @@ msgstr "Адміністратор (100)"
 msgid "Confirm"
 msgstr "Підтвердити"
 
-#: src/qml/Dialog/UserDetailDialog.qml:31
+#: src/qml/Dialog/UserDetailDialog.qml:28
 #, kde-format
 msgctxt "@title:menu Account detail dialog"
 msgid "Account detail"
 msgstr "Параметри облікового запису"
 
-#: src/qml/Dialog/UserDetailDialog.qml:79
+#: src/qml/Dialog/UserDetailDialog.qml:76
 #, kde-format
 msgid "Unignore this user"
 msgstr "Скасувати ігнорування цього користувача"
 
-#: src/qml/Dialog/UserDetailDialog.qml:79
+#: src/qml/Dialog/UserDetailDialog.qml:76
 #, kde-format
 msgid "Ignore this user"
 msgstr "Ігнорувати цього користувача"
 
-#: src/qml/Dialog/UserDetailDialog.qml:91
+#: src/qml/Dialog/UserDetailDialog.qml:88
 #, kde-format
 msgid "Kick this user"
 msgstr "Викинути цього користувача"
 
-#: src/qml/Dialog/UserDetailDialog.qml:104
+#: src/qml/Dialog/UserDetailDialog.qml:101
 #, kde-format
 msgid "Invite this user"
 msgstr "Запросити цього користувача"
 
-#: src/qml/Dialog/UserDetailDialog.qml:116
+#: src/qml/Dialog/UserDetailDialog.qml:113
 #, kde-format
 msgid "Ban this user"
 msgstr "Заблокувати цього користувача"
 
-#: src/qml/Dialog/UserDetailDialog.qml:121
+#: src/qml/Dialog/UserDetailDialog.qml:118
 #, kde-format
 msgctxt "@title"
 msgid "Ban User"
 msgstr "Заблокувати користувача"
 
-#: src/qml/Dialog/UserDetailDialog.qml:132
+#: src/qml/Dialog/UserDetailDialog.qml:129
 #, kde-format
 msgid "Unban this user"
 msgstr "Розблокувати цього користувача"
 
-#: src/qml/Dialog/UserDetailDialog.qml:144
+#: src/qml/Dialog/UserDetailDialog.qml:141
 #, kde-format
 msgid "Set user power level"
 msgstr "Встановити рівень можливостей користувача"
 
-#: src/qml/Dialog/UserDetailDialog.qml:168
+#: src/qml/Dialog/UserDetailDialog.qml:165
 #, kde-format
 msgid "Remove recent messages by this user"
 msgstr "Вилучити нещодавні повідомлення від цього користувача"
 
-#: src/qml/Dialog/UserDetailDialog.qml:173
+#: src/qml/Dialog/UserDetailDialog.qml:170
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Вилучення повідомлень"
 
-#: src/qml/Dialog/UserDetailDialog.qml:183
+#: src/qml/Dialog/UserDetailDialog.qml:180
 #, kde-format
 msgid "Open a private chat"
 msgstr "Відкрити особисте спілкування"
 
-#: src/qml/Dialog/UserDetailDialog.qml:193
+#: src/qml/Dialog/UserDetailDialog.qml:190
 #, kde-format
 msgid "Copy link"
 msgstr "Копіювати посилання"
@@ -2221,26 +2221,26 @@ msgid "Save As"
 msgstr "Зберегти як"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:59
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:55
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:53
 #, kde-format
 msgid "Copy"
 msgstr "Копіювати"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:74
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:46
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:44
 #, kde-format
 msgid "Remove"
 msgstr "Вилучити"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:78
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:50
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:48
 #, kde-format
 msgctxt "@title"
 msgid "Remove Message"
 msgstr "Вилучення повідомлення"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:83
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:60
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:58
 #: src/qml/Menu/Timeline/ReportSheet.qml:32
 #, kde-format
 msgctxt ""
@@ -2249,35 +2249,35 @@ msgid "Report"
 msgstr "Поскаржитися"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:87
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:64
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:62
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Поскаржитися на повідомлення"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:92
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:69
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:67
 #, kde-format
 msgid "View Source"
 msgstr "Переглянути джерело"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:98
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:75
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:73
 #, kde-format
 msgid "Message Source"
 msgstr "Джерело повідомлення"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:81
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:79
 #, kde-format
 msgid "Copy Link"
 msgstr "Копіювати посилання"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:130
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:128
 #, kde-format
 msgid "Search for '%1'"
 msgstr "Пошук «%1»"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:151
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:149
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "Налаштувати вебскорочення…"
