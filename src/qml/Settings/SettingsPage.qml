@@ -33,17 +33,12 @@ Kirigami.CategorizedSettings {
             page: Qt.resolvedUrl("AccountsPage.qml")
         },
         Kirigami.SettingAction {
-            actionName: "customEmojis"
-            text: i18n("Custom Emojis")
+            actionName: "emoticons"
+            text: i18n("Stickers & Emojis")
             icon.name: "preferences-desktop-emoticons"
-            page: Qt.resolvedUrl("Emoticons.qml")
+            page: Qt.resolvedUrl("EmoticonsPage.qml")
         },
-        Kirigami.SettingAction {
-            actionName: "stickers"
-            text: i18n("Stickers")
-            icon.name: "stickers"
-            page: Qt.resolvedUrl("StickersPage.qml")
-        },
+
         Kirigami.SettingAction {
             actionName: "spellChecking"
             text: i18n("Spell Checking")

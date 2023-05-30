@@ -21,12 +21,14 @@ Kirigami.ScrollablePage {
     required property string shortcode
     required property var model
     required property var proxyModel
-    property bool newSticker: false
+    property bool newEmoticon: false
+    required property var emoticonType
 
     leftPadding: 0
     rightPadding: 0
 
-    title: newSticker ? i18nc("@title", "Add Sticker") : i18nc("@title", "Edit Sticker")
+    title: emoticonType === EmoticonFormCard.Stickers ? (newEmoticon ? i18nc("@title", "Add Sticker") : i18nc("@title", "Edit Sticker"))
+            : (newEmoticon ? i18nc("@title", "Add Emoji") : i18nc("@title", "Edit Emoji"))
 
     ColumnLayout {
         MobileForm.FormCard {
@@ -35,7 +37,7 @@ Kirigami.ScrollablePage {
             contentItem: ColumnLayout {
                 spacing: 0
                 MobileForm.FormCardHeader {
-                    title: i18n("Sticker")
+                    title: emoticonType === EmoticonFormCard.Stickers ? i18n("Sticker") : i18n("Emoji")
                 }
                 MobileForm.AbstractFormDelegate {
                     Layout.fillWidth: true
@@ -54,7 +56,7 @@ Kirigami.ScrollablePage {
                             height: Kirigami.Units.gridUnit * 4
 
                             Kirigami.Icon {
-                                source: "stickers"
+                                source: emoticonType === EmoticonFormCard.Stickers ? "stickers" : "preferences-desktop-emoticons"
                                 anchors.fill: parent
                                 visible: parent.status !== Image.Ready
                             }
@@ -116,10 +118,10 @@ Kirigami.ScrollablePage {
                     id: save
                     text: i18n("Save")
                     icon.name: "document-save"
-                    enabled: !root.newSticker || (image.source && shortcode.text && description.text)
+                    enabled: !root.newEmoticon || (image.source && shortcode.text && description.text)
                     onClicked: {
-                        if (root.newSticker) {
-                            model.addEmoticon(image.source, shortcode.text, description.text, "sticker")
+                        if (root.newEmoticon) {
+                            model.addEmoticon(image.source, shortcode.text, description.text, emoticonType === EmoticonFormCard.Stickers ? "sticker" : "emoticon")
                         } else {
                             if (description.text !== root.description) {
                                 root.model.setEmoticonBody(proxyModel.mapToSource(proxyModel.index(model.index, 0)).row, description.text)
