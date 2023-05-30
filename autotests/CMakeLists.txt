@@ -14,3 +14,9 @@ ecm_add_test(
     LINK_LIBRARIES neochat Qt::Test
     TEST_NAME texthandlertest
 )
+
+ecm_add_test(
+    delegatesizehelpertest.cpp
+    LINK_LIBRARIES neochat Qt::Test
+    TEST_NAME delegatesizehelpertest
+)

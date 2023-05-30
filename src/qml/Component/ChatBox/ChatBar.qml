@@ -119,7 +119,7 @@ QQC2.Control {
         QQC2.TextArea {
             id: textField
 
-            x: Math.round((root.width - chatBoxMaxWidth) / 2) - (root.width > chatBoxMaxWidth ? Kirigami.Units.largeSpacing * 1.5 : 0)
+            x: Math.round((root.width - chatBarSizeHelper.currentWidth) / 2) - (root.width > chatBarSizeHelper.currentWidth + Kirigami.Units.largeSpacing * 2.5 ? Kirigami.Units.largeSpacing * 1.5 : 0)
             topPadding: Kirigami.Units.largeSpacing + (paneLoader.visible ? paneLoader.height : 0)
             bottomPadding: Kirigami.Units.largeSpacing
             leftPadding: LayoutMirroring.enabled ? actionsRow.width : Kirigami.Units.largeSpacing
@@ -232,9 +232,9 @@ QQC2.Control {
 
                 anchors.top: parent.top
                 anchors.left: parent.left
-                anchors.leftMargin: root.width > chatBoxMaxWidth ? 0 : Kirigami.Units.largeSpacing
+                anchors.leftMargin: Kirigami.Units.largeSpacing
                 anchors.right: parent.right
-                anchors.rightMargin: root.width > chatBoxMaxWidth ? 0 : (chatBarScrollView.QQC2.ScrollBar.vertical.visible ? Kirigami.Units.largeSpacing * 3.5 : Kirigami.Units.largeSpacing)
+                anchors.rightMargin: root.width > chatBarSizeHelper.currentWidth ? 0 : (chatBarScrollView.QQC2.ScrollBar.vertical.visible ? Kirigami.Units.largeSpacing * 3.5 : Kirigami.Units.largeSpacing)
 
                 active: visible
                 visible: root.isReplying || root.attachmentPaneVisible
@@ -299,7 +299,7 @@ QQC2.Control {
         id: cancelButton
         anchors.top: parent.top
         anchors.right: parent.right
-        anchors.rightMargin: (root.width - chatBoxMaxWidth) / 2 + Kirigami.Units.largeSpacing + (chatBarScrollView.QQC2.ScrollBar.vertical.visible && !(root.width > chatBoxMaxWidth) ? Kirigami.Units.largeSpacing * 2.5 : 0)
+        anchors.rightMargin: (root.width - chatBarSizeHelper.currentWidth) / 2 + Kirigami.Units.largeSpacing + (chatBarScrollView.QQC2.ScrollBar.vertical.visible && !(root.width > chatBarSizeHelper.currentWidth) ? Kirigami.Units.largeSpacing * 2.5 : 0)
 
         visible: root.isReplying
         display: QQC2.AbstractButton.IconOnly
@@ -320,7 +320,7 @@ QQC2.Control {
         padding: Kirigami.Units.smallSpacing
         spacing: Kirigami.Units.smallSpacing
         anchors.right: parent.right
-        property var requiredMargin: (root.width - chatBoxMaxWidth) / 2 + Kirigami.Units.largeSpacing + (chatBarScrollView.QQC2.ScrollBar.vertical.visible && !(root.width > chatBoxMaxWidth) ? Kirigami.Units.largeSpacing * 2.5 : 0)
+        property var requiredMargin: (root.width - chatBarSizeHelper.currentWidth) / 2 + Kirigami.Units.largeSpacing + (chatBarScrollView.QQC2.ScrollBar.vertical.visible && !(root.width > chatBarSizeHelper.currentWidth) ? Kirigami.Units.largeSpacing * 2.5 : 0)
         anchors.leftMargin: layoutDirection === Qt.RightToLeft ? requiredMargin : 0
         anchors.rightMargin: layoutDirection === Qt.RightToLeft ? 0 : requiredMargin
         anchors.bottom: parent.bottom
@@ -398,6 +398,17 @@ QQC2.Control {
         Component.onCompleted: {
             RoomManager.chatDocumentHandler = documentHandler;
         }
+    }
+
+    DelegateSizeHelper {
+        id: chatBarSizeHelper
+        startBreakpoint: Kirigami.Units.gridUnit * 46
+        endBreakpoint: Kirigami.Units.gridUnit * 66
+        startPercentWidth: 100
+        endPercentWidth: Config.compactLayout ? 100 : 85
+        maxWidth: Config.compactLayout ? -1 : Kirigami.Units.gridUnit * 60
+
+        parentWidth: root.width
     }
 
     function forceActiveFocus() {

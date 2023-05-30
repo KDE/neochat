@@ -55,6 +55,7 @@ add_library(neochat STATIC
     events/joinrulesevent.cpp
     events/stickerevent.cpp
     models/reactionmodel.cpp
+    delegatesizehelper.cpp
 )
 
 ecm_qt_declare_logging_category(neochat

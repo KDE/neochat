@@ -14,11 +14,7 @@ QQC2.Control {
 
     readonly property bool sectionVisible: model.showSection
 
-    // extraWidth defines how the delegate can grow after the listView gets very wide
-    readonly property int extraWidth: parent ? (parent.width >= Kirigami.Units.gridUnit * 46 ? Math.min((parent.width - Kirigami.Units.gridUnit * 46), Kirigami.Units.gridUnit * 20) : 0) : 0
-    readonly property int delegateMaxWidth: parent ? (Config.compactLayout ? parent.width: Math.min(parent.width, Kirigami.Units.gridUnit * 40 + extraWidth)) : 0
-
-    width: delegateMaxWidth
+    width: stateDelegateSizeHelper.currentWidth
 
     state: Config.compactLayout ? "alignLeft" : "alignCenter"
     // Align left when in compact mode and center when using bubbles
@@ -169,5 +165,16 @@ QQC2.Control {
             toolTipText: readMarkersString
             excessAvatars: excessReadMarkers
         }
+    }
+
+    DelegateSizeHelper {
+        id: stateDelegateSizeHelper
+        startBreakpoint: Kirigami.Units.gridUnit * 46
+        endBreakpoint: Kirigami.Units.gridUnit * 66
+        startPercentWidth: 100
+        endPercentWidth: Config.compactLayout ? 100 : 85
+        maxWidth: Config.compactLayout ? -1 : Kirigami.Units.gridUnit * 60
+
+        parentWidth: stateDelegate.parent ? stateDelegate.parent.width : 0
     }
 }

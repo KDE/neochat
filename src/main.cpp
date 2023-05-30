@@ -43,6 +43,7 @@
 #include "chatdocumenthandler.h"
 #include "clipboard.h"
 #include "controller.h"
+#include "delegatesizehelper.h"
 #include "filetypesingleton.h"
 #include "linkpreviewer.h"
 #include "logger.h"
@@ -254,6 +255,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<ImagePacksModel>("org.kde.neochat", 1, 0, "ImagePacksModel");
     qmlRegisterType<AccountEmoticonModel>("org.kde.neochat", 1, 0, "AccountEmoticonModel");
     qmlRegisterType<EmoticonFilterModel>("org.kde.neochat", 1, 0, "EmoticonFilterModel");
+    qmlRegisterType<DelegateSizeHelper>("org.kde.neochat", 1, 0, "DelegateSizeHelper");
     qmlRegisterUncreatableType<RoomMessageEvent>("org.kde.neochat", 1, 0, "RoomMessageEvent", "ENUM");
     qmlRegisterUncreatableType<PushNotificationState>("org.kde.neochat", 1, 0, "PushNotificationState", "ENUM");
     qmlRegisterUncreatableType<PushNotificationAction>("org.kde.neochat", 1, 0, "PushNotificationAction", "ENUM");

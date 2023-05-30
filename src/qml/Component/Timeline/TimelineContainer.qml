@@ -66,7 +66,6 @@ ColumnLayout {
 
     /**
      * @brief The delegate type of the message.
-     */
     required property int delegateType
 
     /**
@@ -290,15 +289,9 @@ ColumnLayout {
         onTriggered: isTemporaryHighlighted = false
     }
 
-    // TODO: make these private
-    // The bubble and delegate widths are allowed to grow once the ListView gets beyond a certain size
-    // extraWidth defines this as the excess after a certain ListView width, capped to a max value
-    readonly property int extraWidth: parent ? (parent.width >= Kirigami.Units.gridUnit * 46 ? Math.min((parent.width - Kirigami.Units.gridUnit * 46), Kirigami.Units.gridUnit * 20) : 0) : 0
-    readonly property int bubbleMaxWidth: Kirigami.Units.gridUnit * 20 + extraWidth * 0.5
-    readonly property int delegateWidth: parent ? (Config.compactLayout ? parent.width - Kirigami.Units.smallSpacing - (ListView.view.width >= Kirigami.Units.gridUnit * 20 ? Kirigami.Units.gridUnit * 2 + Kirigami.Units.largeSpacing : 0) : Math.min(parent.width, Kirigami.Units.gridUnit * 40 + extraWidth)) : 0
-    readonly property int contentMaxWidth: Config.compactLayout ? width - (Config.showAvatarInTimeline ? Kirigami.Units.gridUnit * 2 : 0) - Kirigami.Units.largeSpacing * 4 : Math.min(width - Kirigami.Units.gridUnit * 2 - Kirigami.Units.largeSpacing * 6, bubbleMaxWidth)
+    readonly property int contentMaxWidth: bubbleSizeHelper.currentWidth
 
-    width: delegateWidth
+    width: parent ? timelineDelegateSizeHelper.currentWidth : 0
     spacing: Kirigami.Units.smallSpacing
 
     state: Config.compactLayout ? "alignLeft" : "alignCenter"
@@ -567,7 +560,7 @@ ColumnLayout {
     }
 
     ReactionDelegate {
-        Layout.maximumWidth: delegateWidth - Kirigami.Units.largeSpacing * 2
+        Layout.maximumWidth: root.width - Kirigami.Units.largeSpacing * 2
         Layout.alignment: showUserMessageOnRight ? Qt.AlignRight : Qt.AlignLeft
         Layout.leftMargin: showUserMessageOnRight ? 0 : bubble.x + bubble.anchors.leftMargin
         Layout.rightMargin: showUserMessageOnRight ? Kirigami.Units.largeSpacing : 0
@@ -620,5 +613,25 @@ ColumnLayout {
 
     function setHoverActionsToDelegate() {
         ListView.view.setHoverActionsToDelegate(root)
+    }
+
+    DelegateSizeHelper {
+        id: timelineDelegateSizeHelper
+        startBreakpoint: Kirigami.Units.gridUnit * 46
+        endBreakpoint: Kirigami.Units.gridUnit * 66
+        startPercentWidth: 100
+        endPercentWidth: Config.compactLayout ? 100 : 85
+        maxWidth: Config.compactLayout ? -1 : Kirigami.Units.gridUnit * 60
+
+        parentWidth: root.parent ? root.parent.width - (Config.compactLayout && root.ListView.view.width >= Kirigami.Units.gridUnit * 20 ? Kirigami.Units.gridUnit * 2 + Kirigami.Units.largeSpacing : 0) : 0
+    }
+    DelegateSizeHelper {
+        id: bubbleSizeHelper
+        startBreakpoint: Kirigami.Units.gridUnit * 25
+        endBreakpoint: Kirigami.Units.gridUnit * 40
+        startPercentWidth: Config.compactLayout ? 100 : 90
+        endPercentWidth: Config.compactLayout ? 100 : 60
+
+        parentWidth: mainContainer.availableWidth - (Config.showAvatarInTimeline ? avatar.width + bubble.anchors.leftMargin : 0)
     }
 }

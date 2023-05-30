@@ -16,9 +16,6 @@ ColumnLayout {
 
     property alias chatBar: chatBar
 
-    readonly property int extraWidth: width >= Kirigami.Units.gridUnit * 47 ? Math.min((width - Kirigami.Units.gridUnit * 47), Kirigami.Units.gridUnit * 20) : 0
-    readonly property int chatBoxMaxWidth: Config.compactLayout ? width : Math.min(width, Kirigami.Units.gridUnit * 39 + extraWidth)
-
     spacing: 0
 
     Kirigami.Theme.colorSet: Kirigami.Theme.View
