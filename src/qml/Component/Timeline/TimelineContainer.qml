@@ -66,6 +66,7 @@ ColumnLayout {
 
     /**
      * @brief The delegate type of the message.
+     */
     required property int delegateType
 
     /**
