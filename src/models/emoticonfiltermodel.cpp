@@ -12,6 +12,7 @@ EmoticonFilterModel::EmoticonFilterModel(QObject *parent)
 
 bool EmoticonFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
 {
+    Q_UNUSED(sourceParent);
     auto stickerUsage = sourceModel()->data(sourceModel()->index(sourceRow, 0), AccountEmoticonModel::IsStickerRole).toBool();
     auto emojiUsage = sourceModel()->data(sourceModel()->index(sourceRow, 0), AccountEmoticonModel::IsEmojiRole).toBool();
     return (stickerUsage && m_showStickers) || (emojiUsage && m_showEmojis);
