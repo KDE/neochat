@@ -46,4 +46,6 @@ Q_SIGNALS:
 private:
     bool m_showStickers = false;
     bool m_showEmojis = false;
+    int m_stickerRole = 0;
+    int m_emojiRole = 0;
 };

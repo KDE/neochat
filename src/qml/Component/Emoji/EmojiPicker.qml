@@ -107,7 +107,7 @@ ColumnLayout {
     EmojiGrid {
         id: emojiGrid
         targetIconSize: root.currentCategory === EmojiModel.Custom ? Kirigami.Units.gridUnit * 3 : root.categoryIconSize  // Custom emojis are bigger
-        model: root.selectedType === 1 ? stickerModel : searchField.text.length === 0 ? EmojiModel.emojis(root.currentCategory) : (root.includeCustom ? EmojiModel.filterModel(searchField.text, false) : EmojiModel.filterModelNoCustom(searchField.text, false))
+        model: root.selectedType === 1 ? emoticonFilterModel : searchField.text.length === 0 ? EmojiModel.emojis(root.currentCategory) : (root.includeCustom ? EmojiModel.filterModel(searchField.text, false) : EmojiModel.filterModelNoCustom(searchField.text, false))
         Layout.fillWidth: true
         Layout.fillHeight: true
         withCustom: root.includeCustom
@@ -115,7 +115,7 @@ ColumnLayout {
         header: categories
         Keys.forwardTo: searchField
         stickers: root.selectedType === 1
-        onStickerChosen: stickerModel.postSticker(index)
+        onStickerChosen: stickerModel.postSticker(emoticonFilterModel.mapToSource(emoticonFilterModel.index(index, 0)).row)
     }
 
     Kirigami.Separator {
@@ -161,6 +161,12 @@ ColumnLayout {
         model: stickerPackModel
         packIndex: 0
         room: currentRoom
+    }
+
+    EmoticonFilterModel {
+        id: emoticonFilterModel
+        sourceModel: stickerModel
+        showStickers: true
     }
 
     Component {

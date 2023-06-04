@@ -14,21 +14,34 @@ StickerModel::StickerModel(QObject *parent)
 
 int StickerModel::rowCount(const QModelIndex &index) const
 {
+    Q_UNUSED(index);
     return m_images.size();
 }
 QVariant StickerModel::data(const QModelIndex &index, int role) const
 {
     const auto &row = index.row();
     const auto &image = m_images[row];
-    if (role == Url) {
+    if (role == UrlRole) {
 #ifdef QUOTIENT_07
         return m_room->connection()->makeMediaUrl(image.url);
 #endif
     }
-    if (role == Body) {
+    if (role == BodyRole) {
         if (image.body) {
             return *image.body;
         }
+    }
+    if (role == IsStickerRole) {
+        if (image.usage) {
+            return image.usage->isEmpty() || image.usage->contains("sticker"_ls);
+        }
+        return true;
+    }
+    if (role == IsEmojiRole) {
+        if (image.usage) {
+            return image.usage->isEmpty() || image.usage->contains("emoticon"_ls);
+        }
+        return true;
     }
     return {};
 }
@@ -36,8 +49,10 @@ QVariant StickerModel::data(const QModelIndex &index, int role) const
 QHash<int, QByteArray> StickerModel::roleNames() const
 {
     return {
-        {StickerModel::Url, "url"},
-        {StickerModel::Body, "body"},
+        {UrlRole, "url"},
+        {BodyRole, "body"},
+        {IsStickerRole, "isSticker"},
+        {IsEmojiRole, "isEmoji"},
     };
 }
 ImagePacksModel *StickerModel::model() const

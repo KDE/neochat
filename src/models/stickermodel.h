@@ -47,8 +47,10 @@ public:
      * @brief Defines the model roles.
      */
     enum Roles {
-        Url = Qt::UserRole + 1, /**< The source mxc URL for the image. */
-        Body, /**< The image caption, if any. */
+        UrlRole = Qt::UserRole + 1, /**< The source mxc URL for the image. */
+        BodyRole, /**< The image caption, if any. */
+        IsStickerRole, /**< Whether this emoticon is a sticker. */
+        IsEmojiRole, /**< Whether this emoticon is an emoji. */
     };
 
     explicit StickerModel(QObject *parent = nullptr);

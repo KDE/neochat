@@ -15,6 +15,7 @@ ImagePacksModel::ImagePacksModel(QObject *parent)
 
 int ImagePacksModel::rowCount(const QModelIndex &index) const
 {
+    Q_UNUSED(index);
     return m_events.count();
 }
 
@@ -81,16 +82,20 @@ void ImagePacksModel::reloadImages()
 {
     beginResetModel();
     m_events.clear();
+
+    // Load emoticons from the account data
     if (m_room->connection()->hasAccountData("im.ponies.user_emotes"_ls)) {
         auto json = m_room->connection()->accountData("im.ponies.user_emotes"_ls)->contentJson();
         json["pack"] = QJsonObject{
-            {"display_name", i18n("Own Stickers")},
+            {"display_name", m_showStickers ? i18nc("As in 'The user's own Stickers'", "Own Stickers") : i18nc("As in 'The user's own emojis", "Own Emojis")},
         };
         const auto &content = ImagePackEventContent(json);
         if (!content.images.isEmpty()) {
             m_events += ImagePackEventContent(json);
         }
     }
+
+    // Load emoticons from the saved rooms
     const auto &accountData = m_room->connection()->accountData("im.ponies.emote_rooms"_ls);
     if (accountData) {
         const auto &rooms = accountData->contentJson()["rooms"_ls].toObject();
@@ -104,11 +109,10 @@ void ImagePacksModel::reloadImages()
 #ifdef QUOTIENT_07
                 if (const auto &pack = stickerRoom->currentState().get<ImagePackEvent>(packKey)) {
                     const auto packContent = pack->content();
-                    if (packContent.pack.has_value()) {
-                        if (!packContent.pack->usage || (packContent.pack->usage->contains("emoticon") && showEmoticons())
-                            || (packContent.pack->usage->contains("sticker") && showStickers())) {
-                            m_events += packContent;
-                        }
+                    if ((!packContent.pack || !packContent.pack->usage || (packContent.pack->usage->contains("emoticon") && showEmoticons())
+                         || (packContent.pack->usage->contains("sticker") && showStickers()))
+                        && !packContent.images.isEmpty()) {
+                        m_events += packContent;
                     }
                 }
 #endif
@@ -116,6 +120,8 @@ void ImagePacksModel::reloadImages()
         }
     }
 #ifdef QUOTIENT_07
+
+    // Load emoticons from the current room
     auto events = m_room->currentState().eventsOfType("im.ponies.room_emotes");
     for (const auto &event : events) {
         auto packContent = eventCast<const ImagePackEvent>(event)->content();
