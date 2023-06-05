@@ -45,7 +45,6 @@
 #include <qt_connection_util.h>
 
 #ifdef QUOTIENT_07
-#include <csapi/notifications.h>
 #include <eventstats.h>
 #endif
 
@@ -120,89 +119,14 @@ Controller::Controller(QObject *parent)
     connect(&Accounts, &AccountRegistry::accountCountChanged, this, [this]() {
         if (Accounts.size() > oldAccountCount) {
             auto connection = Accounts.accounts()[Accounts.size() - 1];
-            connect(connection, &Connection::syncDone, this, [this, connection]() {
-                handleNotifications(connection);
+            connect(connection, &Connection::syncDone, this, [connection]() {
+                NotificationsManager::instance().handleNotifications(connection);
             });
         }
         oldAccountCount = Accounts.size();
     });
 #endif
 }
-
-#ifdef QUOTIENT_07
-void Controller::handleNotifications(QPointer<Quotient::Connection> connection)
-{
-    static QStringList initial;
-    static QStringList oldNotifications;
-    auto job = connection->callApi<GetNotificationsJob>();
-
-    connect(job, &BaseJob::success, this, [job, connection]() {
-        const auto notifications = job->jsonData()["notifications"].toArray();
-        if (!initial.contains(connection->user()->id())) {
-            initial.append(connection->user()->id());
-            for (const auto &n : notifications) {
-                oldNotifications += n.toObject()["event"].toObject()["event_id"].toString();
-            }
-            return;
-        }
-        for (const auto &n : notifications) {
-            const auto notification = n.toObject();
-            if (notification["read"].toBool()) {
-                continue;
-            }
-            if (oldNotifications.contains(notification["event"].toObject()["event_id"].toString())) {
-                continue;
-            }
-            oldNotifications += notification["event"].toObject()["event_id"].toString();
-            auto room = connection->room(notification["room_id"].toString());
-
-            // If room exists, room is NOT active OR the application is NOT active, show notification
-            if (room
-                && !(RoomManager::instance().currentRoom() && room->id() == RoomManager::instance().currentRoom()->id()
-                     && QGuiApplication::applicationState() == Qt::ApplicationActive)) {
-                // The room might have been deleted (for example rejected invitation).
-                auto sender = room->user(notification["event"].toObject()["sender"].toString());
-
-                QString body;
-
-                if (notification["event"].toObject()["type"].toString() == "org.matrix.msc3381.poll.start") {
-                    body = notification["event"]
-                               .toObject()["content"]
-                               .toObject()["org.matrix.msc3381.poll.start"]
-                               .toObject()["question"]
-                               .toObject()["body"]
-                               .toString();
-                } else {
-                    body = notification["event"].toObject()["content"].toObject()["body"].toString();
-                }
-
-                if (notification["event"]["type"] == "m.room.encrypted") {
-#ifdef Quotient_E2EE_ENABLED
-                    auto decrypted = connection->decryptNotification(notification);
-                    body = decrypted["content"].toObject()["body"].toString();
-#endif
-                    if (body.isEmpty()) {
-                        body = i18n("Encrypted Message");
-                    }
-                }
-
-                QImage avatar_image;
-                if (!sender->avatarUrl(room).isEmpty()) {
-                    avatar_image = sender->avatar(128, room);
-                } else {
-                    avatar_image = room->avatar(128);
-                }
-                NotificationsManager::instance().postNotification(dynamic_cast<NeoChatRoom *>(room),
-                                                                  sender->displayname(room),
-                                                                  body,
-                                                                  avatar_image,
-                                                                  notification["event"].toObject()["event_id"].toString(),
-                                                                  true);
-            }
-        }
-    });
-}
-#endif
 
 Controller &Controller::instance()
 {

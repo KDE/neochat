@@ -230,9 +230,6 @@ private:
     QMap<Quotient::Room *, int> m_notificationCounts;
 
     bool hasWindowSystem() const;
-#ifdef QUOTIENT_07
-    void handleNotifications(QPointer<Quotient::Connection> connection);
-#endif
 
 private Q_SLOTS:
     void invokeLogin();

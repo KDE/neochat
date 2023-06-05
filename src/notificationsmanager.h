@@ -4,11 +4,18 @@
 #pragma once
 
 #include <QImage>
+#include <QJsonObject>
 #include <QMap>
 #include <QObject>
 #include <QPointer>
 #include <QString>
-#include <QJsonObject>
+#include <csapi/notifications.h>
+#include <jobs/basejob.h>
+
+namespace Quotient
+{
+class Connection;
+}
 
 class KNotification;
 class NeoChatRoom;
@@ -181,8 +188,22 @@ public:
      */
     QVector<QVariant> getKeywordNotificationActions();
 
+#ifdef QUOTIENT_07
+    /**
+     * @brief Handle the notifications for the given connection.
+     */
+    void handleNotifications(QPointer<Quotient::Connection> connection);
+#endif
+
 private:
     NotificationsManager(QObject *parent = nullptr);
+
+    QHash<QString, qint64> m_initialTimestamp;
+    QHash<QString, QStringList> m_oldNotifications;
+
+    QStringList m_connActiveJob;
+
+    bool shouldPostNotification(QPointer<Quotient::Connection> connection, const QJsonValue &notification);
 
     QHash<QString, KNotification *> m_notifications;
     QHash<QString, QPointer<KNotification>> m_invitations;
@@ -218,6 +239,8 @@ private:
     QVector<QVariant> toActions(PushNotificationAction::Action action, const QString &sound = "default");
 
 private Q_SLOTS:
+    void processNotificationJob(QPointer<Quotient::Connection> connection, Quotient::GetNotificationsJob *job, bool initialization);
+
     void updateNotificationRules(const QString &type);
 
 Q_SIGNALS:
