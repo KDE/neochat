@@ -38,7 +38,7 @@ Kirigami.ScrollablePage {
 
                         contentItem: RowLayout {
                             Kirigami.Avatar {
-                                name: model.connection.localUser.displayName ?? model.connection.localUser.id
+                                name: model.connection.localUser.displayName
                                 source: model.connection.localUser.avatarMediaId ? ("image://mxc/" + model.connection.localUser.avatarMediaId) : ""
 
                                 Layout.rightMargin: Kirigami.Units.largeSpacing
