@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-31 00:48+0000\n"
+"POT-Creation-Date: 2023-06-05 00:47+0000\n"
 "PO-Revision-Date: 2022-09-28 16:37+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -85,11 +85,12 @@ msgid "Contact your matrix server administrator for support."
 msgstr ""
 
 #: src/controller.cpp:613
-#, kde-format
-msgid "Room creation failed: \"%1\""
+#, fuzzy, kde-format
+#| msgid "Room creation failed: \"%1\""
+msgid "Room creation failed: %1"
 msgstr "Misslyckades skapa rum: \"%1\""
 
-#: src/controller.cpp:634
+#: src/controller.cpp:627
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Identifikationen för rummet som du försöker gå med i är inte giltig"
@@ -1414,14 +1415,16 @@ msgid "No emojis"
 msgstr "Egna emoji"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:47
+#: src/qml/Settings/EmoticonFormCard.qml:28
+#: src/qml/Settings/EmoticonsPage.qml:16
 #, fuzzy, kde-format
 #| msgid "Custom Emojis"
 msgid "Emojis"
 msgstr "Egna emoji"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:54
-#: src/qml/Settings/SettingsPage.qml:43 src/qml/Settings/StickersPage.qml:14
-#: src/qml/Settings/StickersPage.qml:25
+#: src/qml/Settings/EmoticonFormCard.qml:28
+#: src/qml/Settings/EmoticonsPage.qml:16
 #, kde-format
 msgid "Stickers"
 msgstr ""
@@ -2616,7 +2619,7 @@ msgid "Notification settings"
 msgstr "Inställning av rumsunderrättelser:"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:32 src/qml/Settings/DevicesPage.qml:14
-#: src/qml/Settings/DevicesPage.qml:26 src/qml/Settings/SettingsPage.qml:62
+#: src/qml/Settings/DevicesPage.qml:26 src/qml/Settings/SettingsPage.qml:57
 #, kde-format
 msgid "Devices"
 msgstr "Enheter"
@@ -2977,7 +2980,7 @@ msgstr "uppdaterade avatar"
 #: src/qml/RoomSettings/General.qml:110
 #: src/qml/Settings/AccountEditorPage.qml:105
 #: src/qml/Settings/AccountEditorPage.qml:170
-#: src/qml/Settings/StickerEditorPage.qml:117
+#: src/qml/Settings/EmoticonEditorPage.qml:119
 #, kde-format
 msgid "Save"
 msgstr "Spara"
@@ -3644,31 +3647,91 @@ msgstr "Ta bort enhet"
 msgid "Password:"
 msgstr "Lösenord:"
 
-#: src/qml/Settings/Emoticons.qml:18
-#, kde-format
-msgctxt "@title:window"
-msgid "Custom Emojis"
-msgstr "Egna emoji"
+#: src/qml/Settings/EmoticonEditorPage.qml:30
+#: src/qml/Settings/EmoticonFormCard.qml:59
+#, fuzzy, kde-format
+#| msgid "Edit device"
+msgctxt "@title"
+msgid "Edit Sticker"
+msgstr "Redigera enhet"
 
-#: src/qml/Settings/Emoticons.qml:27
-#, kde-format
-msgid "No custom inline stickers found"
-msgstr "Inga egna klistermärken på plats hittades"
+#: src/qml/Settings/EmoticonEditorPage.qml:30
+#: src/qml/Settings/EmoticonFormCard.qml:109
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add word"
+msgctxt "@title"
+msgid "Add Sticker"
+msgstr "Lägg till ord"
 
-#: src/qml/Settings/Emoticons.qml:75
-#, kde-format
-msgid "new_emoji_name_here"
-msgstr "nytt_namn_på_emoji_här"
-
-#: src/qml/Settings/Emoticons.qml:84
-#, kde-format
-msgid "Add Emoji..."
+#: src/qml/Settings/EmoticonEditorPage.qml:31
+#: src/qml/Settings/EmoticonFormCard.qml:59
+#, fuzzy, kde-format
+#| msgid "Add Emoji..."
+msgctxt "@title"
+msgid "Edit Emoji"
 msgstr "Lägg till emoji..."
 
-#: src/qml/Settings/Emoticons.qml:116
+#: src/qml/Settings/EmoticonEditorPage.qml:31
+#: src/qml/Settings/EmoticonFormCard.qml:109
+#, fuzzy, kde-format
+#| msgid "Add Emoji..."
+msgctxt "@title"
+msgid "Add Emoji"
+msgstr "Lägg till emoji..."
+
+#: src/qml/Settings/EmoticonEditorPage.qml:40
 #, kde-format
-msgid "Images (*.png *.gif *.webp)"
+msgid "Sticker"
 msgstr ""
+
+#: src/qml/Settings/EmoticonEditorPage.qml:40
+#, fuzzy, kde-format
+#| msgid "Custom Emojis"
+msgid "Emoji"
+msgstr "Egna emoji"
+
+#: src/qml/Settings/EmoticonEditorPage.qml:69
+#, fuzzy, kde-format
+#| msgid "cleared the room name"
+msgid "Change Image"
+msgstr "tog bort rummets namn"
+
+#: src/qml/Settings/EmoticonEditorPage.qml:69
+#, kde-format
+msgid "Set Image"
+msgstr ""
+
+#: src/qml/Settings/EmoticonEditorPage.qml:109
+#, kde-format
+msgid "Shortcode:"
+msgstr ""
+
+#: src/qml/Settings/EmoticonEditorPage.qml:114
+#, fuzzy, kde-format
+#| msgid "Send invitation"
+msgid "Description:"
+msgstr "Skicka inbjudan"
+
+#: src/qml/Settings/EmoticonFormCard.qml:77
+#, fuzzy, kde-format
+#| msgid "Send invitation"
+msgctxt "As in 'This sticker/emoji has no description'"
+msgid "No Description"
+msgstr "Skicka inbjudan"
+
+#: src/qml/Settings/EmoticonFormCard.qml:118
+#, fuzzy, kde-format
+#| msgid "Add Emoji..."
+msgid "Add Emoji"
+msgstr "Lägg till emoji..."
+
+#: src/qml/Settings/EmoticonFormCard.qml:118
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add word"
+msgid "Add Sticker"
+msgstr "Lägg till ord"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:15
 #: src/qml/Settings/NetworkProxyPage.qml:14
@@ -3884,7 +3947,7 @@ msgid "Call invitation"
 msgstr "Skicka inbjudan"
 
 #: src/qml/Settings/NetworkProxyPage.qml:27
-#: src/qml/Settings/SettingsPage.qml:56
+#: src/qml/Settings/SettingsPage.qml:51
 #, fuzzy, kde-format
 #| msgid "Network Error"
 msgid "Network Proxy"
@@ -3980,20 +4043,20 @@ msgstr "Utseende"
 
 #: src/qml/Settings/SettingsPage.qml:37
 #, kde-format
-msgid "Custom Emojis"
-msgstr "Egna emoji"
+msgid "Stickers & Emojis"
+msgstr ""
 
-#: src/qml/Settings/SettingsPage.qml:49
+#: src/qml/Settings/SettingsPage.qml:44
 #, kde-format
 msgid "Spell Checking"
 msgstr "Stavningskontroll"
 
-#: src/qml/Settings/SettingsPage.qml:68
+#: src/qml/Settings/SettingsPage.qml:63
 #, kde-format
 msgid "About NeoChat"
 msgstr "Om NeoChat"
 
-#: src/qml/Settings/SettingsPage.qml:74
+#: src/qml/Settings/SettingsPage.qml:69
 #, fuzzy, kde-format
 #| msgid "About"
 msgid "About KDE"
@@ -4091,64 +4154,6 @@ msgstr "Lägg till ord"
 msgid "Delete word"
 msgstr "Ta bort ord"
 
-#: src/qml/Settings/StickerEditorPage.qml:29
-#: src/qml/Settings/StickersPage.qml:104
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add word"
-msgctxt "@title"
-msgid "Add Sticker"
-msgstr "Lägg till ord"
-
-#: src/qml/Settings/StickerEditorPage.qml:29
-#: src/qml/Settings/StickersPage.qml:55
-#, fuzzy, kde-format
-#| msgid "Edit device"
-msgctxt "@title"
-msgid "Edit Sticker"
-msgstr "Redigera enhet"
-
-#: src/qml/Settings/StickerEditorPage.qml:38
-#, kde-format
-msgid "Sticker"
-msgstr ""
-
-#: src/qml/Settings/StickerEditorPage.qml:67
-#, fuzzy, kde-format
-#| msgid "cleared the room name"
-msgid "Change Image"
-msgstr "tog bort rummets namn"
-
-#: src/qml/Settings/StickerEditorPage.qml:67
-#, kde-format
-msgid "Set Image"
-msgstr ""
-
-#: src/qml/Settings/StickerEditorPage.qml:107
-#, kde-format
-msgid "Shortcode:"
-msgstr ""
-
-#: src/qml/Settings/StickerEditorPage.qml:112
-#, fuzzy, kde-format
-#| msgid "Send invitation"
-msgid "Description:"
-msgstr "Skicka inbjudan"
-
-#: src/qml/Settings/StickersPage.qml:73
-#, fuzzy, kde-format
-#| msgid "Send invitation"
-msgctxt "As in 'This sticker has no description'"
-msgid "No Description"
-msgstr "Skicka inbjudan"
-
-#: src/qml/Settings/StickersPage.qml:113
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add word"
-msgid "Add Sticker"
-msgstr "Lägg till ord"
-
 #: src/roommanager.cpp:52
 #, kde-format
 msgid "Malformed or empty Matrix id"
@@ -4213,6 +4218,19 @@ msgstr "Visa"
 #, kde-format
 msgid "Quit"
 msgstr "Avsluta"
+
+#~ msgctxt "@title:window"
+#~ msgid "Custom Emojis"
+#~ msgstr "Egna emoji"
+
+#~ msgid "No custom inline stickers found"
+#~ msgstr "Inga egna klistermärken på plats hittades"
+
+#~ msgid "new_emoji_name_here"
+#~ msgstr "nytt_namn_på_emoji_här"
+
+#~ msgid "Custom Emojis"
+#~ msgstr "Egna emoji"
 
 #~ msgid "No Name"
 #~ msgstr "Inget namn"

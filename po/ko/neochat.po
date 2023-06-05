@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-31 00:48+0000\n"
+"POT-Creation-Date: 2023-06-05 00:47+0000\n"
 "PO-Revision-Date: 2022-08-09 13:27+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -84,11 +84,12 @@ msgid "Contact your matrix server administrator for support."
 msgstr ""
 
 #: src/controller.cpp:613
-#, kde-format
-msgid "Room creation failed: \"%1\""
+#, fuzzy, kde-format
+#| msgid "Room creation failed: \"%1\""
+msgid "Room creation failed: %1"
 msgstr "대화방 생성 실패: \"%1\""
 
-#: src/controller.cpp:634
+#: src/controller.cpp:627
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "입장하려는 대화방의 ID가 잘못됨"
@@ -1398,14 +1399,16 @@ msgid "No emojis"
 msgstr "사용자 정의 이모지"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:47
+#: src/qml/Settings/EmoticonFormCard.qml:28
+#: src/qml/Settings/EmoticonsPage.qml:16
 #, fuzzy, kde-format
 #| msgid "Custom Emoji"
 msgid "Emojis"
 msgstr "사용자 정의 이모지"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:54
-#: src/qml/Settings/SettingsPage.qml:43 src/qml/Settings/StickersPage.qml:14
-#: src/qml/Settings/StickersPage.qml:25
+#: src/qml/Settings/EmoticonFormCard.qml:28
+#: src/qml/Settings/EmoticonsPage.qml:16
 #, kde-format
 msgid "Stickers"
 msgstr ""
@@ -2578,7 +2581,7 @@ msgid "Notification settings"
 msgstr "알림 표시"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:32 src/qml/Settings/DevicesPage.qml:14
-#: src/qml/Settings/DevicesPage.qml:26 src/qml/Settings/SettingsPage.qml:62
+#: src/qml/Settings/DevicesPage.qml:26 src/qml/Settings/SettingsPage.qml:57
 #, kde-format
 msgid "Devices"
 msgstr "장치"
@@ -2944,7 +2947,7 @@ msgstr "아바타 업데이트"
 #: src/qml/RoomSettings/General.qml:110
 #: src/qml/Settings/AccountEditorPage.qml:105
 #: src/qml/Settings/AccountEditorPage.qml:170
-#: src/qml/Settings/StickerEditorPage.qml:117
+#: src/qml/Settings/EmoticonEditorPage.qml:119
 #, kde-format
 msgid "Save"
 msgstr "저장"
@@ -3614,32 +3617,91 @@ msgstr "장치 삭제"
 msgid "Password:"
 msgstr "암호:"
 
-#: src/qml/Settings/Emoticons.qml:18
+#: src/qml/Settings/EmoticonEditorPage.qml:30
+#: src/qml/Settings/EmoticonFormCard.qml:59
 #, fuzzy, kde-format
-#| msgid "Custom Emoji"
-msgctxt "@title:window"
-msgid "Custom Emojis"
-msgstr "사용자 정의 이모지"
+#| msgid "Edit device"
+msgctxt "@title"
+msgid "Edit Sticker"
+msgstr "장치 편집"
 
-#: src/qml/Settings/Emoticons.qml:27
-#, kde-format
-msgid "No custom inline stickers found"
-msgstr "사용자 정의 인라인 스티커를 찾을 수 없음"
+#: src/qml/Settings/EmoticonEditorPage.qml:30
+#: src/qml/Settings/EmoticonFormCard.qml:109
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add word"
+msgctxt "@title"
+msgid "Add Sticker"
+msgstr "단어 추가"
 
-#: src/qml/Settings/Emoticons.qml:75
-#, kde-format
-msgid "new_emoji_name_here"
-msgstr "새_이모지_이름_입력"
-
-#: src/qml/Settings/Emoticons.qml:84
-#, kde-format
-msgid "Add Emoji..."
+#: src/qml/Settings/EmoticonEditorPage.qml:31
+#: src/qml/Settings/EmoticonFormCard.qml:59
+#, fuzzy, kde-format
+#| msgid "Add Emoji..."
+msgctxt "@title"
+msgid "Edit Emoji"
 msgstr "이모지 추가..."
 
-#: src/qml/Settings/Emoticons.qml:116
+#: src/qml/Settings/EmoticonEditorPage.qml:31
+#: src/qml/Settings/EmoticonFormCard.qml:109
+#, fuzzy, kde-format
+#| msgid "Add Emoji..."
+msgctxt "@title"
+msgid "Add Emoji"
+msgstr "이모지 추가..."
+
+#: src/qml/Settings/EmoticonEditorPage.qml:40
 #, kde-format
-msgid "Images (*.png *.gif *.webp)"
+msgid "Sticker"
 msgstr ""
+
+#: src/qml/Settings/EmoticonEditorPage.qml:40
+#, fuzzy, kde-format
+#| msgid "Custom Emoji"
+msgid "Emoji"
+msgstr "사용자 정의 이모지"
+
+#: src/qml/Settings/EmoticonEditorPage.qml:69
+#, fuzzy, kde-format
+#| msgid "cleared the room name"
+msgid "Change Image"
+msgstr "님이 대화방 이름을 지움"
+
+#: src/qml/Settings/EmoticonEditorPage.qml:69
+#, kde-format
+msgid "Set Image"
+msgstr ""
+
+#: src/qml/Settings/EmoticonEditorPage.qml:109
+#, kde-format
+msgid "Shortcode:"
+msgstr ""
+
+#: src/qml/Settings/EmoticonEditorPage.qml:114
+#, fuzzy, kde-format
+#| msgid "Send invitation"
+msgid "Description:"
+msgstr "초대 보내기"
+
+#: src/qml/Settings/EmoticonFormCard.qml:77
+#, fuzzy, kde-format
+#| msgid "Send invitation"
+msgctxt "As in 'This sticker/emoji has no description'"
+msgid "No Description"
+msgstr "초대 보내기"
+
+#: src/qml/Settings/EmoticonFormCard.qml:118
+#, fuzzy, kde-format
+#| msgid "Add Emoji..."
+msgid "Add Emoji"
+msgstr "이모지 추가..."
+
+#: src/qml/Settings/EmoticonFormCard.qml:118
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add word"
+msgid "Add Sticker"
+msgstr "단어 추가"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:15
 #: src/qml/Settings/NetworkProxyPage.qml:14
@@ -3854,7 +3916,7 @@ msgid "Call invitation"
 msgstr "초대 보내기"
 
 #: src/qml/Settings/NetworkProxyPage.qml:27
-#: src/qml/Settings/SettingsPage.qml:56
+#: src/qml/Settings/SettingsPage.qml:51
 #, fuzzy, kde-format
 #| msgid "Network Error"
 msgid "Network Proxy"
@@ -3949,22 +4011,21 @@ msgid "Appearance"
 msgstr "모양"
 
 #: src/qml/Settings/SettingsPage.qml:37
-#, fuzzy, kde-format
-#| msgid "Custom Emoji"
-msgid "Custom Emojis"
-msgstr "사용자 정의 이모지"
+#, kde-format
+msgid "Stickers & Emojis"
+msgstr ""
 
-#: src/qml/Settings/SettingsPage.qml:49
+#: src/qml/Settings/SettingsPage.qml:44
 #, kde-format
 msgid "Spell Checking"
 msgstr "맞춤법 검사"
 
-#: src/qml/Settings/SettingsPage.qml:68
+#: src/qml/Settings/SettingsPage.qml:63
 #, kde-format
 msgid "About NeoChat"
 msgstr "NeoChat 정보"
 
-#: src/qml/Settings/SettingsPage.qml:74
+#: src/qml/Settings/SettingsPage.qml:69
 #, fuzzy, kde-format
 #| msgid "About"
 msgid "About KDE"
@@ -4061,64 +4122,6 @@ msgstr "단어 추가"
 msgid "Delete word"
 msgstr "단어 삭제"
 
-#: src/qml/Settings/StickerEditorPage.qml:29
-#: src/qml/Settings/StickersPage.qml:104
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add word"
-msgctxt "@title"
-msgid "Add Sticker"
-msgstr "단어 추가"
-
-#: src/qml/Settings/StickerEditorPage.qml:29
-#: src/qml/Settings/StickersPage.qml:55
-#, fuzzy, kde-format
-#| msgid "Edit device"
-msgctxt "@title"
-msgid "Edit Sticker"
-msgstr "장치 편집"
-
-#: src/qml/Settings/StickerEditorPage.qml:38
-#, kde-format
-msgid "Sticker"
-msgstr ""
-
-#: src/qml/Settings/StickerEditorPage.qml:67
-#, fuzzy, kde-format
-#| msgid "cleared the room name"
-msgid "Change Image"
-msgstr "님이 대화방 이름을 지움"
-
-#: src/qml/Settings/StickerEditorPage.qml:67
-#, kde-format
-msgid "Set Image"
-msgstr ""
-
-#: src/qml/Settings/StickerEditorPage.qml:107
-#, kde-format
-msgid "Shortcode:"
-msgstr ""
-
-#: src/qml/Settings/StickerEditorPage.qml:112
-#, fuzzy, kde-format
-#| msgid "Send invitation"
-msgid "Description:"
-msgstr "초대 보내기"
-
-#: src/qml/Settings/StickersPage.qml:73
-#, fuzzy, kde-format
-#| msgid "Send invitation"
-msgctxt "As in 'This sticker has no description'"
-msgid "No Description"
-msgstr "초대 보내기"
-
-#: src/qml/Settings/StickersPage.qml:113
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add word"
-msgid "Add Sticker"
-msgstr "단어 추가"
-
 #: src/roommanager.cpp:52
 #, kde-format
 msgid "Malformed or empty Matrix id"
@@ -4181,6 +4184,23 @@ msgstr "표시"
 #, kde-format
 msgid "Quit"
 msgstr "끝내기"
+
+#, fuzzy
+#~| msgid "Custom Emoji"
+#~ msgctxt "@title:window"
+#~ msgid "Custom Emojis"
+#~ msgstr "사용자 정의 이모지"
+
+#~ msgid "No custom inline stickers found"
+#~ msgstr "사용자 정의 인라인 스티커를 찾을 수 없음"
+
+#~ msgid "new_emoji_name_here"
+#~ msgstr "새_이모지_이름_입력"
+
+#, fuzzy
+#~| msgid "Custom Emoji"
+#~ msgid "Custom Emojis"
+#~ msgstr "사용자 정의 이모지"
 
 #~ msgid "No Name"
 #~ msgstr "이름 없음"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-31 00:48+0000\n"
+"POT-Creation-Date: 2023-06-05 00:47+0000\n"
 "PO-Revision-Date: 2023-05-20 12:52+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -84,11 +84,12 @@ msgid "Contact your matrix server administrator for support."
 msgstr "راسل مدير خادوم ماتركس للدعم."
 
 #: src/controller.cpp:613
-#, kde-format
-msgid "Room creation failed: \"%1\""
+#, fuzzy, kde-format
+#| msgid "Room creation failed: \"%1\""
+msgid "Room creation failed: %1"
 msgstr "فشل إنشاء غرفة: \"%1\""
 
-#: src/controller.cpp:634
+#: src/controller.cpp:627
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "رقم التعريفي للغرفة التي تحاول الانضمام إليها غير صحيح"
@@ -1307,13 +1308,15 @@ msgid "No emojis"
 msgstr "لا يوجد صورة تعبيرية"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:47
+#: src/qml/Settings/EmoticonFormCard.qml:28
+#: src/qml/Settings/EmoticonsPage.qml:16
 #, kde-format
 msgid "Emojis"
 msgstr "الصورة التعبيرية"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:54
-#: src/qml/Settings/SettingsPage.qml:43 src/qml/Settings/StickersPage.qml:14
-#: src/qml/Settings/StickersPage.qml:25
+#: src/qml/Settings/EmoticonFormCard.qml:28
+#: src/qml/Settings/EmoticonsPage.qml:16
 #, kde-format
 msgid "Stickers"
 msgstr "الملصقات"
@@ -2469,7 +2472,7 @@ msgid "Notification settings"
 msgstr "إعدادات الإشعارات"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:32 src/qml/Settings/DevicesPage.qml:14
-#: src/qml/Settings/DevicesPage.qml:26 src/qml/Settings/SettingsPage.qml:62
+#: src/qml/Settings/DevicesPage.qml:26 src/qml/Settings/SettingsPage.qml:57
 #, kde-format
 msgid "Devices"
 msgstr "الأجهزة"
@@ -2813,7 +2816,7 @@ msgstr "حدث الصورة الرمزية"
 #: src/qml/RoomSettings/General.qml:110
 #: src/qml/Settings/AccountEditorPage.qml:105
 #: src/qml/Settings/AccountEditorPage.qml:170
-#: src/qml/Settings/StickerEditorPage.qml:117
+#: src/qml/Settings/EmoticonEditorPage.qml:119
 #, kde-format
 msgid "Save"
 msgstr "احفظ"
@@ -3428,31 +3431,85 @@ msgstr "أزل الجهاز"
 msgid "Password:"
 msgstr "كلمة السر:"
 
-#: src/qml/Settings/Emoticons.qml:18
+#: src/qml/Settings/EmoticonEditorPage.qml:30
+#: src/qml/Settings/EmoticonFormCard.qml:59
 #, kde-format
-msgctxt "@title:window"
-msgid "Custom Emojis"
-msgstr "صورة تعبيرية مخصصة"
+msgctxt "@title"
+msgid "Edit Sticker"
+msgstr "حرر ملصقاً"
 
-#: src/qml/Settings/Emoticons.qml:27
+#: src/qml/Settings/EmoticonEditorPage.qml:30
+#: src/qml/Settings/EmoticonFormCard.qml:109
 #, kde-format
-msgid "No custom inline stickers found"
-msgstr "لم يتم العثور على ملصقات مضمنة مخصصة"
+msgctxt "@title"
+msgid "Add Sticker"
+msgstr "أضف ملصقاً"
 
-#: src/qml/Settings/Emoticons.qml:75
-#, kde-format
-msgid "new_emoji_name_here"
-msgstr "رسم_تعبيري_جديد_هنا"
-
-#: src/qml/Settings/Emoticons.qml:84
-#, kde-format
-msgid "Add Emoji..."
+#: src/qml/Settings/EmoticonEditorPage.qml:31
+#: src/qml/Settings/EmoticonFormCard.qml:59
+#, fuzzy, kde-format
+#| msgid "Add Emoji..."
+msgctxt "@title"
+msgid "Edit Emoji"
 msgstr "أضف صورة تعبيرية…"
 
-#: src/qml/Settings/Emoticons.qml:116
+#: src/qml/Settings/EmoticonEditorPage.qml:31
+#: src/qml/Settings/EmoticonFormCard.qml:109
+#, fuzzy, kde-format
+#| msgid "Add Emoji..."
+msgctxt "@title"
+msgid "Add Emoji"
+msgstr "أضف صورة تعبيرية…"
+
+#: src/qml/Settings/EmoticonEditorPage.qml:40
 #, kde-format
-msgid "Images (*.png *.gif *.webp)"
-msgstr "صور (*.png *.gif *.webp)"
+msgid "Sticker"
+msgstr "ملصق"
+
+#: src/qml/Settings/EmoticonEditorPage.qml:40
+#, fuzzy, kde-format
+#| msgid "Emojis"
+msgid "Emoji"
+msgstr "الصورة التعبيرية"
+
+#: src/qml/Settings/EmoticonEditorPage.qml:69
+#, kde-format
+msgid "Change Image"
+msgstr "غير الصورة"
+
+#: src/qml/Settings/EmoticonEditorPage.qml:69
+#, kde-format
+msgid "Set Image"
+msgstr "عيّن صورة"
+
+#: src/qml/Settings/EmoticonEditorPage.qml:109
+#, kde-format
+msgid "Shortcode:"
+msgstr "الرمز القصير:"
+
+#: src/qml/Settings/EmoticonEditorPage.qml:114
+#, kde-format
+msgid "Description:"
+msgstr "الوصف:"
+
+#: src/qml/Settings/EmoticonFormCard.qml:77
+#, fuzzy, kde-format
+#| msgctxt "As in 'This sticker has no description'"
+#| msgid "No Description"
+msgctxt "As in 'This sticker/emoji has no description'"
+msgid "No Description"
+msgstr "لا يوجد وصف"
+
+#: src/qml/Settings/EmoticonFormCard.qml:118
+#, fuzzy, kde-format
+#| msgid "Add Emoji..."
+msgid "Add Emoji"
+msgstr "أضف صورة تعبيرية…"
+
+#: src/qml/Settings/EmoticonFormCard.qml:118
+#, kde-format
+msgid "Add Sticker"
+msgstr "أضف ملصقاً"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:15
 #: src/qml/Settings/NetworkProxyPage.qml:14
@@ -3649,7 +3706,7 @@ msgid "Call invitation"
 msgstr "دعوة مكالمة"
 
 #: src/qml/Settings/NetworkProxyPage.qml:27
-#: src/qml/Settings/SettingsPage.qml:56
+#: src/qml/Settings/SettingsPage.qml:51
 #, kde-format
 msgid "Network Proxy"
 msgstr "وسيط الشّبكة"
@@ -3736,21 +3793,22 @@ msgid "Appearance"
 msgstr "المظهر"
 
 #: src/qml/Settings/SettingsPage.qml:37
-#, kde-format
-msgid "Custom Emojis"
-msgstr "صورة تعبيرية مخصصة"
+#, fuzzy, kde-format
+#| msgid "Stickers"
+msgid "Stickers & Emojis"
+msgstr "الملصقات"
 
-#: src/qml/Settings/SettingsPage.qml:49
+#: src/qml/Settings/SettingsPage.qml:44
 #, kde-format
 msgid "Spell Checking"
 msgstr "التدقيق الإملائي"
 
-#: src/qml/Settings/SettingsPage.qml:68
+#: src/qml/Settings/SettingsPage.qml:63
 #, kde-format
 msgid "About NeoChat"
 msgstr "عن نيوتشات"
 
-#: src/qml/Settings/SettingsPage.qml:74
+#: src/qml/Settings/SettingsPage.qml:69
 #, kde-format
 msgid "About KDE"
 msgstr "عن كِيدِي"
@@ -3842,56 +3900,6 @@ msgstr "أضِف كلمة"
 msgid "Delete word"
 msgstr "احذف كلمة"
 
-#: src/qml/Settings/StickerEditorPage.qml:29
-#: src/qml/Settings/StickersPage.qml:104
-#, kde-format
-msgctxt "@title"
-msgid "Add Sticker"
-msgstr "أضف ملصقاً"
-
-#: src/qml/Settings/StickerEditorPage.qml:29
-#: src/qml/Settings/StickersPage.qml:55
-#, kde-format
-msgctxt "@title"
-msgid "Edit Sticker"
-msgstr "حرر ملصقاً"
-
-#: src/qml/Settings/StickerEditorPage.qml:38
-#, kde-format
-msgid "Sticker"
-msgstr "ملصق"
-
-#: src/qml/Settings/StickerEditorPage.qml:67
-#, kde-format
-msgid "Change Image"
-msgstr "غير الصورة"
-
-#: src/qml/Settings/StickerEditorPage.qml:67
-#, kde-format
-msgid "Set Image"
-msgstr "عيّن صورة"
-
-#: src/qml/Settings/StickerEditorPage.qml:107
-#, kde-format
-msgid "Shortcode:"
-msgstr "الرمز القصير:"
-
-#: src/qml/Settings/StickerEditorPage.qml:112
-#, kde-format
-msgid "Description:"
-msgstr "الوصف:"
-
-#: src/qml/Settings/StickersPage.qml:73
-#, kde-format
-msgctxt "As in 'This sticker has no description'"
-msgid "No Description"
-msgstr "لا يوجد وصف"
-
-#: src/qml/Settings/StickersPage.qml:113
-#, kde-format
-msgid "Add Sticker"
-msgstr "أضف ملصقاً"
-
 #: src/roommanager.cpp:52
 #, kde-format
 msgid "Malformed or empty Matrix id"
@@ -3952,6 +3960,22 @@ msgstr "أظهر"
 #, kde-format
 msgid "Quit"
 msgstr "أنهِ"
+
+#~ msgctxt "@title:window"
+#~ msgid "Custom Emojis"
+#~ msgstr "صورة تعبيرية مخصصة"
+
+#~ msgid "No custom inline stickers found"
+#~ msgstr "لم يتم العثور على ملصقات مضمنة مخصصة"
+
+#~ msgid "new_emoji_name_here"
+#~ msgstr "رسم_تعبيري_جديد_هنا"
+
+#~ msgid "Images (*.png *.gif *.webp)"
+#~ msgstr "صور (*.png *.gif *.webp)"
+
+#~ msgid "Custom Emojis"
+#~ msgstr "صورة تعبيرية مخصصة"
 
 #~ msgid "No Name"
 #~ msgstr "بلا اسم"

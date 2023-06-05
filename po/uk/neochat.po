@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-31 00:48+0000\n"
+"POT-Creation-Date: 2023-06-05 00:47+0000\n"
 "PO-Revision-Date: 2023-05-18 06:26+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -89,11 +89,12 @@ msgstr ""
 "Зв'яжіться із адміністратором вашого сервера matrix, щоб отримати допомогу."
 
 #: src/controller.cpp:613
-#, kde-format
-msgid "Room creation failed: \"%1\""
+#, fuzzy, kde-format
+#| msgid "Room creation failed: \"%1\""
+msgid "Room creation failed: %1"
 msgstr "Не вдалося створити кімнату: «%1»"
 
-#: src/controller.cpp:634
+#: src/controller.cpp:627
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Ідентифікатор кімнати, до якої ви хочете приєднатися, є некоректним"
@@ -1309,13 +1310,15 @@ msgid "No emojis"
 msgstr "Без емодзі"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:47
+#: src/qml/Settings/EmoticonFormCard.qml:28
+#: src/qml/Settings/EmoticonsPage.qml:16
 #, kde-format
 msgid "Emojis"
 msgstr "Емоційки"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:54
-#: src/qml/Settings/SettingsPage.qml:43 src/qml/Settings/StickersPage.qml:14
-#: src/qml/Settings/StickersPage.qml:25
+#: src/qml/Settings/EmoticonFormCard.qml:28
+#: src/qml/Settings/EmoticonsPage.qml:16
 #, kde-format
 msgid "Stickers"
 msgstr "Наліпки"
@@ -2493,7 +2496,7 @@ msgid "Notification settings"
 msgstr "Параметри сповіщень"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:32 src/qml/Settings/DevicesPage.qml:14
-#: src/qml/Settings/DevicesPage.qml:26 src/qml/Settings/SettingsPage.qml:62
+#: src/qml/Settings/DevicesPage.qml:26 src/qml/Settings/SettingsPage.qml:57
 #, kde-format
 msgid "Devices"
 msgstr "Пристрої"
@@ -2835,7 +2838,7 @@ msgstr "Оновити аватар"
 #: src/qml/RoomSettings/General.qml:110
 #: src/qml/Settings/AccountEditorPage.qml:105
 #: src/qml/Settings/AccountEditorPage.qml:170
-#: src/qml/Settings/StickerEditorPage.qml:117
+#: src/qml/Settings/EmoticonEditorPage.qml:119
 #, kde-format
 msgid "Save"
 msgstr "Зберегти"
@@ -3467,31 +3470,85 @@ msgstr "Вилучити пристрій"
 msgid "Password:"
 msgstr "Пароль:"
 
-#: src/qml/Settings/Emoticons.qml:18
+#: src/qml/Settings/EmoticonEditorPage.qml:30
+#: src/qml/Settings/EmoticonFormCard.qml:59
 #, kde-format
-msgctxt "@title:window"
-msgid "Custom Emojis"
-msgstr "Нетипові емодзі"
+msgctxt "@title"
+msgid "Edit Sticker"
+msgstr "Редагування наліпки"
 
-#: src/qml/Settings/Emoticons.qml:27
+#: src/qml/Settings/EmoticonEditorPage.qml:30
+#: src/qml/Settings/EmoticonFormCard.qml:109
 #, kde-format
-msgid "No custom inline stickers found"
-msgstr "Нетипових вбудованих стікерів не знайдено"
+msgctxt "@title"
+msgid "Add Sticker"
+msgstr "Додавання наліпки"
 
-#: src/qml/Settings/Emoticons.qml:75
-#, kde-format
-msgid "new_emoji_name_here"
-msgstr "тут_має_бути_назва_нової_емодзі"
-
-#: src/qml/Settings/Emoticons.qml:84
-#, kde-format
-msgid "Add Emoji..."
+#: src/qml/Settings/EmoticonEditorPage.qml:31
+#: src/qml/Settings/EmoticonFormCard.qml:59
+#, fuzzy, kde-format
+#| msgid "Add Emoji..."
+msgctxt "@title"
+msgid "Edit Emoji"
 msgstr "Додати емодзі…"
 
-#: src/qml/Settings/Emoticons.qml:116
+#: src/qml/Settings/EmoticonEditorPage.qml:31
+#: src/qml/Settings/EmoticonFormCard.qml:109
+#, fuzzy, kde-format
+#| msgid "Add Emoji..."
+msgctxt "@title"
+msgid "Add Emoji"
+msgstr "Додати емодзі…"
+
+#: src/qml/Settings/EmoticonEditorPage.qml:40
 #, kde-format
-msgid "Images (*.png *.gif *.webp)"
-msgstr "зображення (*.png *.gif *.webp)"
+msgid "Sticker"
+msgstr "Наліпка"
+
+#: src/qml/Settings/EmoticonEditorPage.qml:40
+#, fuzzy, kde-format
+#| msgid "Emojis"
+msgid "Emoji"
+msgstr "Емоційки"
+
+#: src/qml/Settings/EmoticonEditorPage.qml:69
+#, kde-format
+msgid "Change Image"
+msgstr "Змінити зображення"
+
+#: src/qml/Settings/EmoticonEditorPage.qml:69
+#, kde-format
+msgid "Set Image"
+msgstr "Встановити зображення"
+
+#: src/qml/Settings/EmoticonEditorPage.qml:109
+#, kde-format
+msgid "Shortcode:"
+msgstr "Короткий код:"
+
+#: src/qml/Settings/EmoticonEditorPage.qml:114
+#, kde-format
+msgid "Description:"
+msgstr "Опис:"
+
+#: src/qml/Settings/EmoticonFormCard.qml:77
+#, fuzzy, kde-format
+#| msgctxt "As in 'This sticker has no description'"
+#| msgid "No Description"
+msgctxt "As in 'This sticker/emoji has no description'"
+msgid "No Description"
+msgstr "Немає опису"
+
+#: src/qml/Settings/EmoticonFormCard.qml:118
+#, fuzzy, kde-format
+#| msgid "Add Emoji..."
+msgid "Add Emoji"
+msgstr "Додати емодзі…"
+
+#: src/qml/Settings/EmoticonFormCard.qml:118
+#, kde-format
+msgid "Add Sticker"
+msgstr "Додати наліпку"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:15
 #: src/qml/Settings/NetworkProxyPage.qml:14
@@ -3691,7 +3748,7 @@ msgid "Call invitation"
 msgstr "Запрошення до дзвінка"
 
 #: src/qml/Settings/NetworkProxyPage.qml:27
-#: src/qml/Settings/SettingsPage.qml:56
+#: src/qml/Settings/SettingsPage.qml:51
 #, kde-format
 msgid "Network Proxy"
 msgstr "Проксі-сервер мережі"
@@ -3778,21 +3835,22 @@ msgid "Appearance"
 msgstr "Вигляд"
 
 #: src/qml/Settings/SettingsPage.qml:37
-#, kde-format
-msgid "Custom Emojis"
-msgstr "Нетипові емодзі"
+#, fuzzy, kde-format
+#| msgid "Stickers"
+msgid "Stickers & Emojis"
+msgstr "Наліпки"
 
-#: src/qml/Settings/SettingsPage.qml:49
+#: src/qml/Settings/SettingsPage.qml:44
 #, kde-format
 msgid "Spell Checking"
 msgstr "Перевірка правопису"
 
-#: src/qml/Settings/SettingsPage.qml:68
+#: src/qml/Settings/SettingsPage.qml:63
 #, kde-format
 msgid "About NeoChat"
 msgstr "Про NeoChat"
 
-#: src/qml/Settings/SettingsPage.qml:74
+#: src/qml/Settings/SettingsPage.qml:69
 #, kde-format
 msgid "About KDE"
 msgstr "Про KDE"
@@ -3884,56 +3942,6 @@ msgstr "Додати слово"
 msgid "Delete word"
 msgstr "Вилучити слово"
 
-#: src/qml/Settings/StickerEditorPage.qml:29
-#: src/qml/Settings/StickersPage.qml:104
-#, kde-format
-msgctxt "@title"
-msgid "Add Sticker"
-msgstr "Додавання наліпки"
-
-#: src/qml/Settings/StickerEditorPage.qml:29
-#: src/qml/Settings/StickersPage.qml:55
-#, kde-format
-msgctxt "@title"
-msgid "Edit Sticker"
-msgstr "Редагування наліпки"
-
-#: src/qml/Settings/StickerEditorPage.qml:38
-#, kde-format
-msgid "Sticker"
-msgstr "Наліпка"
-
-#: src/qml/Settings/StickerEditorPage.qml:67
-#, kde-format
-msgid "Change Image"
-msgstr "Змінити зображення"
-
-#: src/qml/Settings/StickerEditorPage.qml:67
-#, kde-format
-msgid "Set Image"
-msgstr "Встановити зображення"
-
-#: src/qml/Settings/StickerEditorPage.qml:107
-#, kde-format
-msgid "Shortcode:"
-msgstr "Короткий код:"
-
-#: src/qml/Settings/StickerEditorPage.qml:112
-#, kde-format
-msgid "Description:"
-msgstr "Опис:"
-
-#: src/qml/Settings/StickersPage.qml:73
-#, kde-format
-msgctxt "As in 'This sticker has no description'"
-msgid "No Description"
-msgstr "Немає опису"
-
-#: src/qml/Settings/StickersPage.qml:113
-#, kde-format
-msgid "Add Sticker"
-msgstr "Додати наліпку"
-
 #: src/roommanager.cpp:52
 #, kde-format
 msgid "Malformed or empty Matrix id"
@@ -3998,6 +4006,22 @@ msgstr "Показати"
 #, kde-format
 msgid "Quit"
 msgstr "Вийти"
+
+#~ msgctxt "@title:window"
+#~ msgid "Custom Emojis"
+#~ msgstr "Нетипові емодзі"
+
+#~ msgid "No custom inline stickers found"
+#~ msgstr "Нетипових вбудованих стікерів не знайдено"
+
+#~ msgid "new_emoji_name_here"
+#~ msgstr "тут_має_бути_назва_нової_емодзі"
+
+#~ msgid "Images (*.png *.gif *.webp)"
+#~ msgstr "зображення (*.png *.gif *.webp)"
+
+#~ msgid "Custom Emojis"
+#~ msgstr "Нетипові емодзі"
 
 #~ msgid "No Name"
 #~ msgstr "Без назви"
