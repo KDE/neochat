@@ -95,6 +95,7 @@ Kirigami.Page {
         sourceComponent: ChatBox {
             id: chatBox
             width: parent.width
+            currentRoom: currentRoom
             onMessageSent: {
                 if (!timelineViewLoader.item.atYEnd) {
                     timelineViewLoader.item.goToLastMessage();

@@ -9,12 +9,43 @@ import QtQuick.Layouts 1.15
 import org.kde.kirigami 2.15 as Kirigami
 import org.kde.neochat 1.0
 
+/**
+ * @brief A component for typing and sending chat messages.
+ *
+ * This is designed to go to the bottom of the timeline and provides all the functionality
+ * required for the user to send messages to the room.
+ *
+ * This includes support for the following message types:
+ *  - text
+ *  - media (video, image, file)
+ *  - emojis/stickers
+ *  - location
+ *
+ * In addition when replying this component supports showing the message that is being
+ * replied to.
+ *
+ * @note The main role of this component is to layout the elements. The main functionality
+ *       is handled by ChatBar
+ *
+ * @sa ChatBar
+ */
 ColumnLayout {
     id: chatBox
 
-    signal messageSent()
+    /**
+     * @brief The current room that user is viewing.
+     */
+    property var currentRoom
 
+    /**
+     * @brief The chatBar object
+     */
     property alias chatBar: chatBar
+
+    /**
+     * @brief A message has been sent from the chat bar.
+     */
+    signal messageSent()
 
     spacing: 0
 
@@ -43,6 +74,8 @@ ColumnLayout {
         Layout.minimumHeight: implicitHeight + Kirigami.Units.largeSpacing
         // lineSpacing is height+leading, so subtract leading once since leading only exists between lines.
         Layout.maximumHeight: chatBarFontMetrics.lineSpacing * 8 - chatBarFontMetrics.leading + textField.topPadding + textField.bottomPadding
+
+        currentRoom: root.currentRoom
 
         FontMetrics {
             id: chatBarFontMetrics

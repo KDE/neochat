@@ -10,15 +10,47 @@ import QtQuick.Window 2.15
 import org.kde.kirigami 2.18 as Kirigami
 import org.kde.neochat 1.0
 
+/**
+ * @brief The component which handles the message sending.
+ *
+ * The ChatBox deals with laying out the visual elements with the ChatBar handling
+ * the core functionality of displaying the current message composition before sending.
+ *
+ * This includes support for the following message types:
+ *  - text
+ *  - media (video, image, file)
+ *  - emojis/stickers
+ *  - location
+ *
+ * In addition, when replying, this component supports showing the message that is being
+ * replied to.
+ *
+ * @note There is no edit functionality here this, is handled inline by the timeline
+ *       text delegate.
+ *
+ * @sa ChatBox
+ */
 QQC2.Control {
     id: root
 
+    /**
+     * @brief The current room that user is viewing.
+     */
+    property var currentRoom
+
+    /**
+     * @brief The QQC2.TextArea object.
+     *
+     * @sa QQC2.TextArea
+     */
     property alias textField: textField
-    property bool isReplying: currentRoom.chatBoxReplyId.length > 0
-    property bool attachmentPaneVisible: currentRoom.chatBoxAttachmentPath.length > 0
 
-    signal messageSent()
-
+    /**
+     * @brief The list of actions in the ChatBar.
+     *
+     * Each of these will be visualised in the ChatBar so new actions can be added
+     * by appending to this list.
+     */
     property list<Kirigami.Action> actions : [
         Kirigami.Action {
             id: attachmentAction
@@ -94,6 +126,11 @@ QQC2.Control {
             tooltip: text
         }
     ]
+
+    /**
+     * @brief A message has been sent from the chat bar.
+     */
+    signal messageSent()
 
     leftPadding: 0
     rightPadding: 0
@@ -237,8 +274,8 @@ QQC2.Control {
                 anchors.rightMargin: root.width > chatBarSizeHelper.currentWidth ? 0 : (chatBarScrollView.QQC2.ScrollBar.vertical.visible ? Kirigami.Units.largeSpacing * 3.5 : Kirigami.Units.largeSpacing)
 
                 active: visible
-                visible: root.isReplying || root.attachmentPaneVisible
-                sourceComponent: root.isReplying ? replyPane : attachmentPane
+                visible: root.currentRoom.chatBoxReplyId.length > 0 || root.currentRoom.chatBoxAttachmentPath.length > 0
+                sourceComponent: root.currentRoom.chatBoxReplyId.length > 0 ? replyPane : attachmentPane
             }
             Component {
                 id: replyPane
@@ -301,7 +338,7 @@ QQC2.Control {
         anchors.right: parent.right
         anchors.rightMargin: (root.width - chatBarSizeHelper.currentWidth) / 2 + Kirigami.Units.largeSpacing + (chatBarScrollView.QQC2.ScrollBar.vertical.visible && !(root.width > chatBarSizeHelper.currentWidth) ? Kirigami.Units.largeSpacing * 2.5 : 0)
 
-        visible: root.isReplying
+        visible: root.currentRoom.chatBoxReplyId.length > 0
         display: QQC2.AbstractButton.IconOnly
         action: Kirigami.Action {
             text: i18nc("@action:button", "Cancel reply")
