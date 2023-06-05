@@ -41,7 +41,7 @@ Kirigami.ScrollablePage {
                             id: avatar
                             Layout.alignment: Qt.AlignRight
                             source: root.connection && root.connection.localUser.avatarMediaId ? ("image://mxc/" + root.connection.localUser.avatarMediaId) : ""
-                            name: root.connection.localUser.displayName ?? root.connection.localUser.id
+                            name: root.connection.localUser.displayName
 
                             MouseArea {
                                 id: mouseArea
