@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-05 00:47+0000\n"
+"POT-Creation-Date: 2023-06-06 00:47+0000\n"
 "PO-Revision-Date: 2022-04-18 17:58+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -16,81 +16,75 @@ msgstr ""
 "X-Generator: Lokalize 21.12.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: src/controller.cpp:185
-#, fuzzy, kde-format
-#| msgid "Edit Message"
-msgid "Encrypted Message"
-msgstr "Upraviť správu"
-
-#: src/controller.cpp:338
+#: src/controller.cpp:262
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Prihlásenie zlyhalo: Prístupový token je neplatný alebo odvolaný"
 
-#: src/controller.cpp:341 src/controller.cpp:346 src/login.cpp:95
+#: src/controller.cpp:265 src/controller.cpp:270 src/login.cpp:95
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Prihlásenie zlyhalo: %1"
 
-#: src/controller.cpp:352
+#: src/controller.cpp:276
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Chyba siete: %1"
 
-#: src/controller.cpp:377
+#: src/controller.cpp:301
 #, fuzzy, kde-format
 #| msgid "Access Token (Optional)"
 msgid "Access token wasn't found"
 msgstr "Prístupový token (voliteľný)"
 
-#: src/controller.cpp:377
+#: src/controller.cpp:301
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr ""
 
-#: src/controller.cpp:381
+#: src/controller.cpp:305
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr ""
 
-#: src/controller.cpp:381
+#: src/controller.cpp:305
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr ""
 
-#: src/controller.cpp:384
+#: src/controller.cpp:308
 #, fuzzy, kde-format
 #| msgid "No users available"
 msgid "No keychain available."
 msgstr "Nie sú k dispozícii žiadni používatelia"
 
-#: src/controller.cpp:384
+#: src/controller.cpp:308
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 
-#: src/controller.cpp:387
+#: src/controller.cpp:311
 #, kde-format
 msgid "Unable to read access token"
 msgstr ""
 
-#: src/controller.cpp:575
+#: src/controller.cpp:499
 #, kde-format
 msgid "File too large to download."
 msgstr ""
 
-#: src/controller.cpp:575
+#: src/controller.cpp:499
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 
-#: src/controller.cpp:613
+#: src/controller.cpp:537
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Room creation failed: %1"
 msgstr "Vytvorenie miestnosti zlyhalo: \"%1\""
 
-#: src/controller.cpp:627
+#: src/controller.cpp:551
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Miestnosť, do ktorej sa pokúšate pripojiť, je neplatná"
@@ -1186,46 +1180,52 @@ msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr ""
 
-#: src/notificationsmanager.cpp:74 src/qml/main.qml:254
+#: src/notificationsmanager.cpp:144
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgid "Encrypted Message"
+msgstr "Upraviť správu"
+
+#: src/notificationsmanager.cpp:217 src/qml/main.qml:254
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/notificationsmanager.cpp:80
+#: src/notificationsmanager.cpp:223
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Otvoriť NeoChat v tejto miestnosti"
 
-#: src/notificationsmanager.cpp:97 src/qml/Component/HoverActions.qml:103
+#: src/notificationsmanager.cpp:240 src/qml/Component/HoverActions.qml:103
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:35
 #, kde-format
 msgid "Reply"
 msgstr "Odpovedať"
 
-#: src/notificationsmanager.cpp:98
+#: src/notificationsmanager.cpp:241
 #, kde-format
 msgid "Reply..."
 msgstr "Odpovedať..."
 
-#: src/notificationsmanager.cpp:116
+#: src/notificationsmanager.cpp:259
 #, fuzzy, kde-format
 #| msgid "invited %1 to the room"
 msgid "%1 invited you to a room"
 msgstr "pozval %1 do miestnosti"
 
-#: src/notificationsmanager.cpp:120
+#: src/notificationsmanager.cpp:263
 #, fuzzy, kde-format
 #| msgid "Open a private chat"
 msgid "Open this invitation in NeoChat"
 msgstr "Otvoriť súkromný chat"
 
-#: src/notificationsmanager.cpp:126
+#: src/notificationsmanager.cpp:269
 #, kde-format
 msgid "Accept Invitation"
 msgstr "Prijať pozvánku"
 
-#: src/notificationsmanager.cpp:126
+#: src/notificationsmanager.cpp:269
 #, fuzzy, kde-format
 #| msgid "Reject"
 msgid "Reject Invitation"
@@ -1251,59 +1251,59 @@ msgstr "Upraviť"
 msgid "Cancel sending attachment"
 msgstr "vymazali svoje zobrazované meno"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:31
+#: src/qml/Component/ChatBox/ChatBar.qml:63
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Pripojiť obrázok alebo súbor"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:57
+#: src/qml/Component/ChatBox/ChatBar.qml:89
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr ""
 
-#: src/qml/Component/ChatBox/ChatBar.qml:73
+#: src/qml/Component/ChatBox/ChatBar.qml:105
 #, fuzzy, kde-format
 #| msgid "Send invitation"
 msgid "Send a Location"
 msgstr "Odoslať pozvanie"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:86
+#: src/qml/Component/ChatBox/ChatBar.qml:118
 #, kde-format
 msgid "Send message"
 msgstr "Odoslať správu"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:128
+#: src/qml/Component/ChatBox/ChatBar.qml:165
 #, kde-format
 msgid ""
 "This room is encrypted. Build libQuotient with encryption enabled to send "
 "encrypted messages."
 msgstr ""
 
-#: src/qml/Component/ChatBox/ChatBar.qml:128
+#: src/qml/Component/ChatBox/ChatBar.qml:165
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgid "Send an encrypted message…"
 msgstr "Odoslať správu"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:128
+#: src/qml/Component/ChatBox/ChatBar.qml:165
 #, kde-format
 msgid "Set an attachment caption..."
 msgstr ""
 
-#: src/qml/Component/ChatBox/ChatBar.qml:128
+#: src/qml/Component/ChatBox/ChatBar.qml:165
 #, fuzzy, kde-format
 #| msgid "Send message"
 msgid "Send a message…"
 msgstr "Odoslať správu"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:307
+#: src/qml/Component/ChatBox/ChatBar.qml:344
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Zrušiť"
 
-#: src/qml/Component/ChatBox/ChatBox.qml:29
+#: src/qml/Component/ChatBox/ChatBox.qml:60
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat je offline. Skontrolujte svoje sieťové pripojenie."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-05 00:47+0000\n"
+"POT-Creation-Date: 2023-06-06 00:47+0000\n"
 "PO-Revision-Date: 2022-08-09 13:27+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -17,79 +17,73 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 21.12.3\n"
 
-#: src/controller.cpp:185
-#, fuzzy, kde-format
-#| msgid "Edit Message"
-msgid "Encrypted Message"
-msgstr "메시지 편집"
-
-#: src/controller.cpp:338
+#: src/controller.cpp:262
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "로그인 실패: 접근 토큰이 잘못되었거나 취소됨"
 
-#: src/controller.cpp:341 src/controller.cpp:346 src/login.cpp:95
+#: src/controller.cpp:265 src/controller.cpp:270 src/login.cpp:95
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "로그인 실패: %1"
 
-#: src/controller.cpp:352
+#: src/controller.cpp:276
 #, kde-format
 msgid "Network Error: %1"
 msgstr "네트워크 오류: %1"
 
-#: src/controller.cpp:377
+#: src/controller.cpp:301
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "접근 토큰을 찾을 수 없음"
 
-#: src/controller.cpp:377
+#: src/controller.cpp:301
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "삭제되었을 수도 있습니다."
 
-#: src/controller.cpp:381
+#: src/controller.cpp:305
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "키 체인 접근이 거부되었습니다."
 
-#: src/controller.cpp:381
+#: src/controller.cpp:305
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "NeoChat에서 접근 토큰 사용을 허용하십시오"
 
-#: src/controller.cpp:384
+#: src/controller.cpp:308
 #, kde-format
 msgid "No keychain available."
 msgstr "키 체인을 사용할 수 없습니다."
 
-#: src/controller.cpp:384
+#: src/controller.cpp:308
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr "키 체인을 설치하십시오. 리눅스라면 KWallet, 그놈 키 모음 등이 있습니다"
 
-#: src/controller.cpp:387
+#: src/controller.cpp:311
 #, kde-format
 msgid "Unable to read access token"
 msgstr "접근 토큰을 읽을 수 없음"
 
-#: src/controller.cpp:575
+#: src/controller.cpp:499
 #, kde-format
 msgid "File too large to download."
 msgstr ""
 
-#: src/controller.cpp:575
+#: src/controller.cpp:499
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 
-#: src/controller.cpp:613
+#: src/controller.cpp:537
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Room creation failed: %1"
 msgstr "대화방 생성 실패: \"%1\""
 
-#: src/controller.cpp:627
+#: src/controller.cpp:551
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "입장하려는 대화방의 ID가 잘못됨"
@@ -1166,44 +1160,50 @@ msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr ""
 
-#: src/notificationsmanager.cpp:74 src/qml/main.qml:254
+#: src/notificationsmanager.cpp:144
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgid "Encrypted Message"
+msgstr "메시지 편집"
+
+#: src/notificationsmanager.cpp:217 src/qml/main.qml:254
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/notificationsmanager.cpp:80
+#: src/notificationsmanager.cpp:223
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "이 대화방에서 NeoChat 열기"
 
-#: src/notificationsmanager.cpp:97 src/qml/Component/HoverActions.qml:103
+#: src/notificationsmanager.cpp:240 src/qml/Component/HoverActions.qml:103
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:35
 #, kde-format
 msgid "Reply"
 msgstr "답장"
 
-#: src/notificationsmanager.cpp:98
+#: src/notificationsmanager.cpp:241
 #, kde-format
 msgid "Reply..."
 msgstr "답장..."
 
-#: src/notificationsmanager.cpp:116
+#: src/notificationsmanager.cpp:259
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 님이 대화방에 초대함"
 
-#: src/notificationsmanager.cpp:120
+#: src/notificationsmanager.cpp:263
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "NeoChat에서 이 초대장 열기"
 
-#: src/notificationsmanager.cpp:126
+#: src/notificationsmanager.cpp:269
 #, kde-format
 msgid "Accept Invitation"
 msgstr "초대장 수락"
 
-#: src/notificationsmanager.cpp:126
+#: src/notificationsmanager.cpp:269
 #, kde-format
 msgid "Reject Invitation"
 msgstr "초대장 거절"
@@ -1228,57 +1228,57 @@ msgstr "편집"
 msgid "Cancel sending attachment"
 msgstr "님이 표시 이름을 지움"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:31
+#: src/qml/Component/ChatBox/ChatBar.qml:63
 #, kde-format
 msgid "Attach an image or file"
 msgstr "그림이나 파일 첨부"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:57
+#: src/qml/Component/ChatBox/ChatBar.qml:89
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr ""
 
-#: src/qml/Component/ChatBox/ChatBar.qml:73
+#: src/qml/Component/ChatBox/ChatBar.qml:105
 #, fuzzy, kde-format
 #| msgid "Send invitation"
 msgid "Send a Location"
 msgstr "초대 보내기"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:86
+#: src/qml/Component/ChatBox/ChatBar.qml:118
 #, kde-format
 msgid "Send message"
 msgstr "메시지 보내기"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:128
+#: src/qml/Component/ChatBox/ChatBar.qml:165
 #, kde-format
 msgid ""
 "This room is encrypted. Build libQuotient with encryption enabled to send "
 "encrypted messages."
 msgstr ""
 
-#: src/qml/Component/ChatBox/ChatBar.qml:128
+#: src/qml/Component/ChatBox/ChatBar.qml:165
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "암호화된 메시지 보내기…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:128
+#: src/qml/Component/ChatBox/ChatBar.qml:165
 #, kde-format
 msgid "Set an attachment caption..."
 msgstr ""
 
-#: src/qml/Component/ChatBox/ChatBar.qml:128
+#: src/qml/Component/ChatBox/ChatBar.qml:165
 #, kde-format
 msgid "Send a message…"
 msgstr "메시지 보내기…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:307
+#: src/qml/Component/ChatBox/ChatBar.qml:344
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "취소"
 
-#: src/qml/Component/ChatBox/ChatBox.qml:29
+#: src/qml/Component/ChatBox/ChatBox.qml:60
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat이 오프라인입니다. 네트워크 연결 상태를 확인하십시오."

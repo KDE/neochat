@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-05 00:47+0000\n"
+"POT-Creation-Date: 2023-06-06 00:47+0000\n"
 "PO-Revision-Date: 2022-09-28 16:37+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -17,80 +17,74 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 20.08.1\n"
 
-#: src/controller.cpp:185
-#, fuzzy, kde-format
-#| msgid "Edit Message"
-msgid "Encrypted Message"
-msgstr "Redigera meddelande"
-
-#: src/controller.cpp:338
+#: src/controller.cpp:262
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Inloggning misslyckades: Åtkomstsymbol ogiltig eller återkallad"
 
-#: src/controller.cpp:341 src/controller.cpp:346 src/login.cpp:95
+#: src/controller.cpp:265 src/controller.cpp:270 src/login.cpp:95
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Inloggning misslyckades: %1"
 
-#: src/controller.cpp:352
+#: src/controller.cpp:276
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Nätverksfel: %1"
 
-#: src/controller.cpp:377
+#: src/controller.cpp:301
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Åtkomstsymbol hittades inte"
 
-#: src/controller.cpp:377
+#: src/controller.cpp:301
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Kanske har den tagits bort?"
 
-#: src/controller.cpp:381
+#: src/controller.cpp:305
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Åtkomst till nyckelkedja nekades."
 
-#: src/controller.cpp:381
+#: src/controller.cpp:305
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Ge NeoChat tillåtelse att läsa åtkomstsymbolen"
 
-#: src/controller.cpp:384
+#: src/controller.cpp:308
 #, kde-format
 msgid "No keychain available."
 msgstr "Ingen nyckelkedja tillgänglig."
 
-#: src/controller.cpp:384
+#: src/controller.cpp:308
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Installera en nyckelkedja, t.ex. plånboken eller GNOME-nyckelring på Linux"
 
-#: src/controller.cpp:387
+#: src/controller.cpp:311
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Kan inte läsa åtkomstsymbol"
 
-#: src/controller.cpp:575
+#: src/controller.cpp:499
 #, kde-format
 msgid "File too large to download."
 msgstr ""
 
-#: src/controller.cpp:575
+#: src/controller.cpp:499
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 
-#: src/controller.cpp:613
+#: src/controller.cpp:537
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Room creation failed: %1"
 msgstr "Misslyckades skapa rum: \"%1\""
 
-#: src/controller.cpp:627
+#: src/controller.cpp:551
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Identifikationen för rummet som du försöker gå med i är inte giltig"
@@ -1182,44 +1176,50 @@ msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr ""
 
-#: src/notificationsmanager.cpp:74 src/qml/main.qml:254
+#: src/notificationsmanager.cpp:144
+#, fuzzy, kde-format
+#| msgid "Edit Message"
+msgid "Encrypted Message"
+msgstr "Redigera meddelande"
+
+#: src/notificationsmanager.cpp:217 src/qml/main.qml:254
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/notificationsmanager.cpp:80
+#: src/notificationsmanager.cpp:223
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Öppna NeoChat för rummet"
 
-#: src/notificationsmanager.cpp:97 src/qml/Component/HoverActions.qml:103
+#: src/notificationsmanager.cpp:240 src/qml/Component/HoverActions.qml:103
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:35
 #, kde-format
 msgid "Reply"
 msgstr "Svara"
 
-#: src/notificationsmanager.cpp:98
+#: src/notificationsmanager.cpp:241
 #, kde-format
 msgid "Reply..."
 msgstr "Svara..."
 
-#: src/notificationsmanager.cpp:116
+#: src/notificationsmanager.cpp:259
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 bjöd in dig till ett rum"
 
-#: src/notificationsmanager.cpp:120
+#: src/notificationsmanager.cpp:263
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Öppna inbjudan i NeoChat"
 
-#: src/notificationsmanager.cpp:126
+#: src/notificationsmanager.cpp:269
 #, kde-format
 msgid "Accept Invitation"
 msgstr "Acceptera inbjudan"
 
-#: src/notificationsmanager.cpp:126
+#: src/notificationsmanager.cpp:269
 #, kde-format
 msgid "Reject Invitation"
 msgstr "Avslå inbjudan"
@@ -1244,57 +1244,57 @@ msgstr "Redigera"
 msgid "Cancel sending attachment"
 msgstr "tog bort sitt visningsnamn"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:31
+#: src/qml/Component/ChatBox/ChatBar.qml:63
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Lägg till en bild eller fil"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:57
+#: src/qml/Component/ChatBox/ChatBar.qml:89
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr ""
 
-#: src/qml/Component/ChatBox/ChatBar.qml:73
+#: src/qml/Component/ChatBox/ChatBar.qml:105
 #, fuzzy, kde-format
 #| msgid "Send invitation"
 msgid "Send a Location"
 msgstr "Skicka inbjudan"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:86
+#: src/qml/Component/ChatBox/ChatBar.qml:118
 #, kde-format
 msgid "Send message"
 msgstr "Skicka meddelande"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:128
+#: src/qml/Component/ChatBox/ChatBar.qml:165
 #, kde-format
 msgid ""
 "This room is encrypted. Build libQuotient with encryption enabled to send "
 "encrypted messages."
 msgstr ""
 
-#: src/qml/Component/ChatBox/ChatBar.qml:128
+#: src/qml/Component/ChatBox/ChatBar.qml:165
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Skicka ett krypterat meddelande…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:128
+#: src/qml/Component/ChatBox/ChatBar.qml:165
 #, kde-format
 msgid "Set an attachment caption..."
 msgstr ""
 
-#: src/qml/Component/ChatBox/ChatBar.qml:128
+#: src/qml/Component/ChatBox/ChatBar.qml:165
 #, kde-format
 msgid "Send a message…"
 msgstr "Skicka ett meddelande…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:307
+#: src/qml/Component/ChatBox/ChatBar.qml:344
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Avbryt"
 
-#: src/qml/Component/ChatBox/ChatBox.qml:29
+#: src/qml/Component/ChatBox/ChatBox.qml:60
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat är nedkopplat. Kontrollera nätverksanslutningen."

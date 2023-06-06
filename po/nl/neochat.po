@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-05 00:47+0000\n"
-"PO-Revision-Date: 2023-05-18 11:51+0200\n"
+"POT-Creation-Date: 2023-06-06 00:47+0000\n"
+"PO-Revision-Date: 2023-06-05 11:24+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -17,79 +17,73 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 23.04.1\n"
 
-#: src/controller.cpp:185
-#, kde-format
-msgid "Encrypted Message"
-msgstr "Versleuteld bericht"
-
-#: src/controller.cpp:338
+#: src/controller.cpp:262
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Aanmelden is mislukt: toegangstoken ongeldig of ingetrokken"
 
-#: src/controller.cpp:341 src/controller.cpp:346 src/login.cpp:95
+#: src/controller.cpp:265 src/controller.cpp:270 src/login.cpp:95
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Aanmelden mislukt: %1"
 
-#: src/controller.cpp:352
+#: src/controller.cpp:276
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Netwerkfout: %1"
 
-#: src/controller.cpp:377
+#: src/controller.cpp:301
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Toegangstoken is niet gevonden"
 
-#: src/controller.cpp:377
+#: src/controller.cpp:301
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Misschien is het verwijderd?"
 
-#: src/controller.cpp:381
+#: src/controller.cpp:305
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Toegang tot sleutelring is geweigerd."
 
-#: src/controller.cpp:381
+#: src/controller.cpp:305
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "laat NeoChat het toegangstoken lezen"
 
-#: src/controller.cpp:384
+#: src/controller.cpp:308
 #, kde-format
 msgid "No keychain available."
 msgstr "Geen sleutelring beschikbaar"
 
-#: src/controller.cpp:384
+#: src/controller.cpp:308
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Installeer een sleutelring, bijv. KWallet of GNOME sleutelring op Linux"
 
-#: src/controller.cpp:387
+#: src/controller.cpp:311
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Lezen van toegangstoken lukt niet"
 
-#: src/controller.cpp:575
+#: src/controller.cpp:499
 #, kde-format
 msgid "File too large to download."
 msgstr "Bestand is te groot om te downloaden."
 
-#: src/controller.cpp:575
+#: src/controller.cpp:499
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Neem contact op met uw matrix-serverbeheerder voor ondersteuning."
 
-#: src/controller.cpp:613
-#, fuzzy, kde-format
-#| msgid "Room creation failed: \"%1\""
+#: src/controller.cpp:537
+#, kde-format
 msgid "Room creation failed: %1"
-msgstr "Aanmaken van room is mislukt: \"%1\""
+msgstr "Aanmaken van room is mislukt: %1"
 
-#: src/controller.cpp:627
+#: src/controller.cpp:551
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Het room-id waaraan u mee wilt doen is niet geldig"
@@ -1071,44 +1065,49 @@ msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Bte: %1, Lte: %2"
 
-#: src/notificationsmanager.cpp:74 src/qml/main.qml:254
+#: src/notificationsmanager.cpp:144
+#, kde-format
+msgid "Encrypted Message"
+msgstr "Versleuteld bericht"
+
+#: src/notificationsmanager.cpp:217 src/qml/main.qml:254
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/notificationsmanager.cpp:80
+#: src/notificationsmanager.cpp:223
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "NeoChat in deze room openen"
 
-#: src/notificationsmanager.cpp:97 src/qml/Component/HoverActions.qml:103
+#: src/notificationsmanager.cpp:240 src/qml/Component/HoverActions.qml:103
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:35
 #, kde-format
 msgid "Reply"
 msgstr "Beantwoorden"
 
-#: src/notificationsmanager.cpp:98
+#: src/notificationsmanager.cpp:241
 #, kde-format
 msgid "Reply..."
 msgstr "Beantwoorden..."
 
-#: src/notificationsmanager.cpp:116
+#: src/notificationsmanager.cpp:259
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 heeft u uitgenodigd naar de room"
 
-#: src/notificationsmanager.cpp:120
+#: src/notificationsmanager.cpp:263
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Deze uitnodiging in NeoChat openen"
 
-#: src/notificationsmanager.cpp:126
+#: src/notificationsmanager.cpp:269
 #, kde-format
 msgid "Accept Invitation"
 msgstr "Uitnodiging accepteren"
 
-#: src/notificationsmanager.cpp:126
+#: src/notificationsmanager.cpp:269
 #, kde-format
 msgid "Reject Invitation"
 msgstr "Uitnodiging afwijzen"
@@ -1131,27 +1130,27 @@ msgstr "Bewerken"
 msgid "Cancel sending attachment"
 msgstr "Verzenden van bijlage annuleren"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:31
+#: src/qml/Component/ChatBox/ChatBar.qml:63
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Een afbeelding of bestand bijvoegen"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:57
+#: src/qml/Component/ChatBox/ChatBar.qml:89
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emoji's & stickers"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:73
+#: src/qml/Component/ChatBox/ChatBar.qml:105
 #, kde-format
 msgid "Send a Location"
 msgstr "Een locatie verzenden"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:86
+#: src/qml/Component/ChatBox/ChatBar.qml:118
 #, kde-format
 msgid "Send message"
 msgstr "Bericht verzenden"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:128
+#: src/qml/Component/ChatBox/ChatBar.qml:165
 #, kde-format
 msgid ""
 "This room is encrypted. Build libQuotient with encryption enabled to send "
@@ -1160,28 +1159,28 @@ msgstr ""
 "Deze room is versleuteld. Bouw libQuotient met versleuteling ingeschakeld en "
 "verzend versleutelde berichten."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:128
+#: src/qml/Component/ChatBox/ChatBar.qml:165
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Een versleuteld bericht verzenden…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:128
+#: src/qml/Component/ChatBox/ChatBar.qml:165
 #, kde-format
 msgid "Set an attachment caption..."
 msgstr "Stel een opschrift voor de bijlage in..."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:128
+#: src/qml/Component/ChatBox/ChatBar.qml:165
 #, kde-format
 msgid "Send a message…"
 msgstr "Een bericht verzenden…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:307
+#: src/qml/Component/ChatBox/ChatBar.qml:344
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Antwoord annuleren"
 
-#: src/qml/Component/ChatBox/ChatBox.qml:29
+#: src/qml/Component/ChatBox/ChatBox.qml:60
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat is offline. Controleer uw netwerkverbinding."
@@ -3466,19 +3465,17 @@ msgstr "Sticker toevoegen"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:31
 #: src/qml/Settings/EmoticonFormCard.qml:59
-#, fuzzy, kde-format
-#| msgid "Add Emoji..."
+#, kde-format
 msgctxt "@title"
 msgid "Edit Emoji"
-msgstr "Emoji toevoegen..."
+msgstr "Emoji bewerken"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:31
 #: src/qml/Settings/EmoticonFormCard.qml:109
-#, fuzzy, kde-format
-#| msgid "Add Emoji..."
+#, kde-format
 msgctxt "@title"
 msgid "Add Emoji"
-msgstr "Emoji toevoegen..."
+msgstr "Emoji toevoegen"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:40
 #, kde-format
@@ -3486,10 +3483,9 @@ msgid "Sticker"
 msgstr "Sticker"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:40
-#, fuzzy, kde-format
-#| msgid "Emojis"
+#, kde-format
 msgid "Emoji"
-msgstr "Emoji's"
+msgstr "Emoji"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:69
 #, kde-format
@@ -3512,18 +3508,15 @@ msgid "Description:"
 msgstr "Beschrijving:"
 
 #: src/qml/Settings/EmoticonFormCard.qml:77
-#, fuzzy, kde-format
-#| msgctxt "As in 'This sticker has no description'"
-#| msgid "No Description"
+#, kde-format
 msgctxt "As in 'This sticker/emoji has no description'"
 msgid "No Description"
 msgstr "Geen beschrijving"
 
 #: src/qml/Settings/EmoticonFormCard.qml:118
-#, fuzzy, kde-format
-#| msgid "Add Emoji..."
+#, kde-format
 msgid "Add Emoji"
-msgstr "Emoji toevoegen..."
+msgstr "Emoji toevoegen"
 
 #: src/qml/Settings/EmoticonFormCard.qml:118
 #, kde-format
@@ -3815,10 +3808,9 @@ msgid "Appearance"
 msgstr "Uiterlijk"
 
 #: src/qml/Settings/SettingsPage.qml:37
-#, fuzzy, kde-format
-#| msgid "Stickers"
+#, kde-format
 msgid "Stickers & Emojis"
-msgstr "Stickers"
+msgstr "Stickers & Emoji's"
 
 #: src/qml/Settings/SettingsPage.qml:44
 #, kde-format
