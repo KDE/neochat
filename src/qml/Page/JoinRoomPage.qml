@@ -28,7 +28,7 @@ Kirigami.ScrollablePage {
             Kirigami.SearchField {
                 id: identifierField
                 property bool isRoomAlias: text.match(/#(.+):(.+)/g)
-                property var room: isRoomAlias ? connection.roomByAlias(text) : null
+                property NeoChatRoom room: isRoomAlias ? connection.roomByAlias(text) : null
                 property bool isJoined: room != null
 
                 Layout.fillWidth: true

@@ -35,7 +35,7 @@ ColumnLayout {
     /**
      * @brief The current room that user is viewing.
      */
-    property var currentRoom
+    property NeoChatRoom currentRoom
 
     /**
      * @brief The chatBar object

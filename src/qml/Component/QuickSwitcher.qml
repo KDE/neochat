@@ -89,7 +89,7 @@ QQC2.Dialog {
             delegate: Kirigami.BasicListItem {
                 id: roomListItem
 
-                required property var currentRoom
+                required property NeoChatRoom currentRoom
                 required property string displayName
                 required property int index
                 required property int notificationCount

@@ -16,7 +16,7 @@ Kirigami.Page {
     id: root
 
     /// Not readonly because of the separate window view.
-    property var currentRoom: RoomManager.currentRoom
+    property NeoChatRoom currentRoom: RoomManager.currentRoom
     property bool loading: !root.currentRoom || (root.currentRoom.timelineSize === 0 && !root.currentRoom.allHistoryLoaded)
     /// Used to determine if scrolling to the bottom should mark the message as unread
     property bool hasScrolledUpBefore: false;

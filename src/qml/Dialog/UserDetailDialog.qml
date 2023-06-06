@@ -15,7 +15,7 @@ Kirigami.OverlaySheet {
 
     signal closed()
 
-    property var room
+    property NeoChatRoom room
     property var user
 
     parent: applicationWindow().overlay

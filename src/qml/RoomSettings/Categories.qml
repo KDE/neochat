@@ -7,7 +7,7 @@ import QtQuick.Layouts 1.15
 
 Kirigami.CategorizedSettings {
     id: root
-    property var room
+    property NeoChatRoom room
 
     objectName: "settingsPage"
     actions: [

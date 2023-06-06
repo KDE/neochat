@@ -13,7 +13,7 @@ Kirigami.OverlaySheet {
     id: root
     title: i18n("Edit user power level")
 
-    property var room
+    property NeoChatRoom room
     property var userId
     property int powerLevel
 

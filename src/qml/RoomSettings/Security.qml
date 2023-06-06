@@ -13,7 +13,7 @@ import org.kde.neochat 1.0
 Kirigami.ScrollablePage {
     id: root
 
-    property var room
+    property NeoChatRoom room
     property string needUpgradeRoom: i18n("You need to upgrade this room to a newer version to enable this setting.")
 
     title: i18n("Security")

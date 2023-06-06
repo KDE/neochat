@@ -13,7 +13,7 @@ import org.kde.neochat 1.0
 
 Kirigami.OverlayDrawer {
     id: roomDrawer
-    readonly property var room: RoomManager.currentRoom
+    readonly property NeoChatRoom room: RoomManager.currentRoom
 
     width: actualWidth
 

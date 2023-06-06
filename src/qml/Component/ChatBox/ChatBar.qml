@@ -36,7 +36,7 @@ QQC2.Control {
     /**
      * @brief The current room that user is viewing.
      */
-    property var currentRoom
+    property NeoChatRoom currentRoom
 
     /**
      * @brief The QQC2.TextArea object.

@@ -15,7 +15,7 @@ import org.kde.neochat 1.0
 
 QQC2.ScrollView {
     id: root
-    required property var currentRoom
+    required property NeoChatRoom currentRoom
     readonly property bool isLoaded: root.width * root.height > 10
     readonly property bool atYEnd: messageListView.atYEnd
 

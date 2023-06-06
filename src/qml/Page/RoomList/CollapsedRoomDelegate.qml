@@ -16,7 +16,7 @@ import './' as RoomList
 QQC2.ItemDelegate {
     id: root
 
-    required property var currentRoom
+    required property NeoChatRoom currentRoom
     required property bool categoryVisible
     required property string filterText
     required property string avatar

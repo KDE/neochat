@@ -10,7 +10,7 @@ import org.kde.kirigami 2.20 as Kirigami
 Kirigami.Page {
     id: reportSheet
 
-    property var room
+    property NeoChatRoom room
     property string eventId
 
     title: i18n("Report Message")

@@ -261,6 +261,7 @@ int main(int argc, char *argv[])
     qmlRegisterUncreatableType<PushNotificationAction>("org.kde.neochat", 1, 0, "PushNotificationAction", "ENUM");
     qmlRegisterUncreatableType<NeoChatRoomType>("org.kde.neochat", 1, 0, "NeoChatRoomType", "ENUM");
     qmlRegisterUncreatableType<NeoChatUser>("org.kde.neochat", 1, 0, "NeoChatUser", {});
+    qmlRegisterUncreatableType<NeoChatRoom>("org.kde.neochat", 1, 0, "NeoChatRoom", {});
 
     qRegisterMetaType<User *>("User*");
     qRegisterMetaType<User *>("const User*");

@@ -14,7 +14,7 @@ import org.kde.neochat 1.0
 Kirigami.ScrollablePage {
     id: root
 
-    property var room
+    property NeoChatRoom room
 
     title: i18nc('@title:window', 'Permissions')
 

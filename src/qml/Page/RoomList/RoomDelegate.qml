@@ -19,7 +19,7 @@ Kirigami.BasicListItem {
     required property int index
     required property int notificationCount
     required property int highlightCount
-    required property var currentRoom
+    required property NeoChatRoom currentRoom
     required property bool categoryVisible
     required property string filterText
     required property string avatar

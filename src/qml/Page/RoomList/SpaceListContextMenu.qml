@@ -15,7 +15,7 @@ import org.kde.neochat 1.0
  */
 Loader {
     id: root
-    property var room
+    property NeoChatRoom room
     signal closed()
 
     Component {

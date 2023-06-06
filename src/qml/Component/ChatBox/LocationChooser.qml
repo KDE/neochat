@@ -11,10 +11,12 @@ import org.kde.kirigamiaddons.labs.components 1.0 as Components
 
 import org.kde.kirigami 2.15 as Kirigami
 
+import org.kde.neochat 1.0
+
 Components.AbstractMaximizeComponent {
     id: root
 
-    required property var room
+    required property NeoChatRoom room
     property var location
 
     title: i18n("Choose a Location")

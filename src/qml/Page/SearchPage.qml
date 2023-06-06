@@ -12,7 +12,7 @@ import org.kde.neochat 1.0
 Kirigami.ScrollablePage {
     id: searchPage
 
-    property var currentRoom
+    property NeoChatRoom currentRoom
 
     title: i18nc("@action:title", "Search Messages")
 

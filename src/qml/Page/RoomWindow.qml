@@ -7,9 +7,11 @@ import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.15 as Kirigami
 
+import org.kde.neochat 1.0
+
 Kirigami.ApplicationWindow {
     id: window
-    required property var currentRoom
+    required property NeoChatRoom currentRoom
     minimumWidth: Kirigami.Units.gridUnit * 10
     minimumHeight: Kirigami.Units.gridUnit * 15
 

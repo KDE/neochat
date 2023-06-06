@@ -10,7 +10,7 @@ import org.kde.kirigami 2.15 as Kirigami
 QQC2.Dialog {
     id: confirmEncryptionDialog
 
-    property var room
+    property NeoChatRoom room
 
     ColumnLayout {
         Kirigami.Heading {

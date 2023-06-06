@@ -10,7 +10,7 @@ import org.kde.kirigami 2.20 as Kirigami
 Kirigami.Page {
     id: banSheet
 
-    property var room
+    property NeoChatRoom room
     property string userId
 
     title: i18n("Ban User")

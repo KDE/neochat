@@ -12,7 +12,7 @@ import org.kde.neochat 1.0
 Kirigami.PlaceholderMessage {
     id: root
 
-    required property var currentRoom
+    required property NeoChatRoom currentRoom
 
     text: i18n("Accept this invitation?")
     RowLayout {

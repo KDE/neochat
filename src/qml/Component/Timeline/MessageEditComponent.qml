@@ -11,7 +11,7 @@ import org.kde.neochat 1.0
 QQC2.TextArea {
     id: root
 
-    property var room
+    property NeoChatRoom room
     onRoomChanged: room.chatBoxEditIdChanged.connect(updateEditText)
 
     property string messageId
