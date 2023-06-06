@@ -341,15 +341,9 @@ bool Controller::saveAccessTokenToKeyChain(const AccountSettings &account, const
 void Controller::changeAvatar(Connection *conn, const QUrl &localFile)
 {
     auto job = conn->uploadFile(localFile.toLocalFile());
-#ifdef QUOTIENT_07
-    if (isJobPending(job)) {
-#else
-    if (isJobRunning(job)) {
-#endif
-        connect(job, &BaseJob::success, this, [conn, job] {
-            conn->callApi<SetAvatarUrlJob>(conn->userId(), job->contentUri());
-        });
-    }
+    connect(job, &BaseJob::success, this, [conn, job] {
+        conn->callApi<SetAvatarUrlJob>(conn->userId(), job->contentUri());
+    });
 }
 
 void Controller::markAllMessagesAsRead(Connection *conn)

@@ -16,12 +16,6 @@
 
 using namespace Quotient;
 
-#ifdef QUOTIENT_07
-#define running isJobPending
-#else
-#define running isJobRunning
-#endif
-
 void CustomEmojiModel::fetchEmojis()
 {
     if (!Controller::instance().activeConnection()) {
@@ -62,37 +56,35 @@ void CustomEmojiModel::addEmoji(const QString &name, const QUrl &location)
 
     auto job = Controller::instance().activeConnection()->uploadFile(location.toLocalFile());
 
-    if (running(job)) {
-        connect(job, &BaseJob::success, this, [name, location, job] {
-            const auto &data = Controller::instance().activeConnection()->accountData("im.ponies.user_emotes");
-            auto json = data != nullptr ? data->contentJson() : QJsonObject();
-            auto emojiData = json["images"].toObject();
+    connect(job, &BaseJob::success, this, [name, location, job] {
+        const auto &data = Controller::instance().activeConnection()->accountData("im.ponies.user_emotes");
+        auto json = data != nullptr ? data->contentJson() : QJsonObject();
+        auto emojiData = json["images"].toObject();
 
-            QString url;
+        QString url;
 #ifdef QUOTIENT_07
-            url = job->contentUri().toString();
+        url = job->contentUri().toString();
 #else
-            url = job->contentUri();
+        url = job->contentUri();
 #endif
 
-            QImage image(location.toLocalFile());
-            QJsonObject imageInfo;
-            imageInfo["w"] = image.width();
-            imageInfo["h"] = image.height();
-            imageInfo["mimetype"] = QMimeDatabase().mimeTypeForFile(location.toLocalFile()).name();
-            imageInfo["size"] = image.sizeInBytes();
+        QImage image(location.toLocalFile());
+        QJsonObject imageInfo;
+        imageInfo["w"] = image.width();
+        imageInfo["h"] = image.height();
+        imageInfo["mimetype"] = QMimeDatabase().mimeTypeForFile(location.toLocalFile()).name();
+        imageInfo["size"] = image.sizeInBytes();
 
-            emojiData[QStringLiteral("%1").arg(name)] = QJsonObject({
-                {QStringLiteral("url"), url},
-                {QStringLiteral("info"), imageInfo},
-                {QStringLiteral("body"), location.fileName()},
-                {"usage"_ls, "emoticon"_ls},
-            });
-
-            json["images"] = emojiData;
-            Controller::instance().activeConnection()->setAccountData("im.ponies.user_emotes", json);
+        emojiData[QStringLiteral("%1").arg(name)] = QJsonObject({
+            {QStringLiteral("url"), url},
+            {QStringLiteral("info"), imageInfo},
+            {QStringLiteral("body"), location.fileName()},
+            {"usage"_ls, "emoticon"_ls},
         });
-    }
+
+        json["images"] = emojiData;
+        Controller::instance().activeConnection()->setAccountData("im.ponies.user_emotes", json);
+    });
 }
 
 void CustomEmojiModel::removeEmoji(const QString &name)
