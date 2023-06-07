@@ -67,7 +67,7 @@ TimelineContainer {
 
                 anchorPoint.x: sourceItem.width / 2
                 anchorPoint.y: sourceItem.height
-                coordinate: QtPositioning.coordinate(rot.latitude, root.longitude)
+                coordinate: QtPositioning.coordinate(root.latitude, root.longitude)
                 autoFadeIn: false
 
                 sourceItem: Kirigami.Icon {
