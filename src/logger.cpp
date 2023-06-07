@@ -131,22 +131,33 @@ public:
         }
         auto filePath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QDir::separator() + appName;
 
-        QFileInfo infoOld(filePath + QLatin1String(".old"));
-        if (infoOld.exists()) {
-            QFile fileOld(infoOld.absoluteFilePath());
-            const bool success = fileOld.remove();
-            if (!success) {
-                qFatal("Cannot remove old log file '%s': %s", qUtf8Printable(fileOld.fileName()), qUtf8Printable(fileOld.errorString()));
+        QDir dir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QDir::separator());
+        auto entryList = dir.entryList({appName + QStringLiteral(".*")});
+        std::sort(entryList.begin(), entryList.end(), [](const auto &left, const auto &right) {
+            return left > right;
+        });
+        for (const auto &entry : entryList) {
+            bool ok = false;
+            const auto index = entry.split(".").last().toInt(&ok);
+            if (!ok) {
+                continue;
             }
-        }
-
-        QFileInfo info(filePath);
-        if (info.exists()) {
-            QFile file(info.absoluteFilePath());
-            const QString oldName = filePath + QLatin1String(".old");
-            const bool success = file.copy(oldName);
-            if (!success) {
-                qFatal("Cannot rename log file '%s' to '%s': %s", qUtf8Printable(file.fileName()), qUtf8Printable(oldName), qUtf8Printable(file.errorString()));
+            QFileInfo info(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QDir::separator() + entry);
+            if (info.exists()) {
+                QFile file(info.absoluteFilePath());
+                if (index > 50) {
+                    file.remove();
+                }
+                const QString newName = filePath + QStringLiteral(".%1").arg(index + 1);
+                const bool success = file.copy(newName);
+                if (success) {
+                    file.remove();
+                } else {
+                    qFatal("Cannot rename log file '%s' to '%s': %s",
+                           qUtf8Printable(file.fileName()),
+                           qUtf8Printable(newName),
+                           qUtf8Printable(file.errorString()));
+                }
             }
         }
 
@@ -154,7 +165,7 @@ public:
         if (!finfo.absoluteDir().exists()) {
             QDir().mkpath(finfo.absolutePath());
         }
-        file.setFileName(filePath);
+        file.setFileName(filePath + QStringLiteral(".0"));
         file.open(QIODevice::WriteOnly | QIODevice::Unbuffered);
     }
 
