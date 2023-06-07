@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-06 00:47+0000\n"
-"PO-Revision-Date: 2023-04-05 11:32+0200\n"
+"POT-Creation-Date: 2023-06-07 00:47+0000\n"
+"PO-Revision-Date: 2023-06-05 13:18+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #: src/controller.cpp:262
 #, kde-format
@@ -67,23 +67,22 @@ msgstr ""
 msgid "Unable to read access token"
 msgstr ""
 
-#: src/controller.cpp:499
+#: src/controller.cpp:493
 #, kde-format
 msgid "File too large to download."
 msgstr "Soubor je pro stažení příliš velký."
 
-#: src/controller.cpp:499
+#: src/controller.cpp:493
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Pomoc hledejte u správce serveru matrix."
 
-#: src/controller.cpp:537
-#, fuzzy, kde-format
-#| msgid "Login Failed: %1"
+#: src/controller.cpp:531
+#, kde-format
 msgid "Room creation failed: %1"
-msgstr "Přihlášení selhalo: %1"
+msgstr "Vytvoření místnosti selhalo: %1"
 
-#: src/controller.cpp:551
+#: src/controller.cpp:545
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr ""
@@ -130,7 +129,7 @@ msgstr "Klient protokolu Matrix"
 #: src/main.cpp:165
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
-msgstr ""
+msgstr "© 2018-2020 Black Hat, 2020-2023 Komunita KDE"
 
 #: src/main.cpp:166
 #, kde-format
@@ -237,7 +236,7 @@ msgstr ""
 #, kde-format
 msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
-msgstr ""
+msgstr "Místnost %1 nenalezena."
 
 #: src/models/actionsmodel.cpp:49 src/models/actionsmodel.cpp:323
 #, kde-format
@@ -626,10 +625,9 @@ msgid "Custom"
 msgstr "Vlastní"
 
 #: src/models/imagepacksmodel.cpp:87
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgid "Own Stickers"
-msgstr "poslal(a) nálepku"
+msgstr "Vlastní nálepky"
 
 #: src/models/messageeventmodel.cpp:467 src/models/messageeventmodel.cpp:476
 #, kde-format
@@ -1069,7 +1067,7 @@ msgstr "Hlášení bylo úspěšně odesláno."
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
-msgstr ""
+msgstr "Šíř.: %1, Dél.: %2"
 
 #: src/notificationsmanager.cpp:144
 #, kde-format
@@ -1149,7 +1147,7 @@ msgstr ""
 #: src/qml/Component/ChatBox/ChatBar.qml:105
 #, kde-format
 msgid "Send a Location"
-msgstr ""
+msgstr "Poslat polohu"
 
 #: src/qml/Component/ChatBox/ChatBar.qml:118
 #, kde-format
@@ -1192,12 +1190,12 @@ msgstr "NeoChat je offline. Prosím, zkontrolujte internetové připojení."
 #: src/qml/Component/ChatBox/LocationChooser.qml:20
 #, kde-format
 msgid "Choose a Location"
-msgstr ""
+msgstr "Vyberte polohu"
 
 #: src/qml/Component/ChatBox/LocationChooser.qml:25
 #, kde-format
 msgid "Send this location"
-msgstr ""
+msgstr "Poslat tuto polohu"
 
 #: src/qml/Component/ChatBox/QuickFormatBar.qml:23
 #, kde-format
@@ -1237,23 +1235,22 @@ msgstr "Odpovídáte:"
 #: src/qml/Component/Devtools/RoomData.qml:20
 #, kde-format
 msgid "Room"
-msgstr ""
+msgstr "Pokoj"
 
 #: src/qml/Component/Devtools/RoomData.qml:31
-#, fuzzy, kde-format
-#| msgid "Show state events"
+#, kde-format
 msgid "Show m.room.member events"
-msgstr "Zobrazit stav událostí"
+msgstr ""
 
 #: src/qml/Component/Devtools/RoomData.qml:43
 #, kde-format
 msgid "Show room account data"
-msgstr ""
+msgstr "Zadejte data účtu pokoje"
 
 #: src/qml/Component/Devtools/RoomData.qml:54
 #, kde-format
 msgid "Room Account Data for %1 - %2"
-msgstr ""
+msgstr "Data účtu pokoje pro %1 - %2"
 
 #: src/qml/Component/Devtools/RoomData.qml:64
 #: src/qml/Component/Devtools/RoomData.qml:106
@@ -1265,27 +1262,27 @@ msgstr ""
 #: src/qml/Component/Devtools/RoomData.qml:78
 #, kde-format
 msgid "Room State for %1"
-msgstr ""
+msgstr "Stav pokoje pro %1"
 
 #: src/qml/Component/Devtools/ServerData.qml:20
 #, kde-format
 msgid "Server Capabilities"
-msgstr ""
+msgstr "Možnosti serveru"
 
 #: src/qml/Component/Devtools/ServerData.qml:23
 #, kde-format
 msgid "Can change password"
-msgstr ""
+msgstr "Heslo lze změnit"
 
 #: src/qml/Component/Devtools/ServerData.qml:33
 #, kde-format
 msgid "Default Room Version"
-msgstr ""
+msgstr "Výchozí verze místnosti"
 
 #: src/qml/Component/Devtools/ServerData.qml:45
 #, kde-format
 msgid "Available Room Versions"
-msgstr ""
+msgstr "Dostupné verze místnosti"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:83
 #, kde-format
@@ -1295,17 +1292,16 @@ msgstr ""
 #: src/qml/Component/Emoji/EmojiPicker.qml:47
 #: src/qml/Settings/EmoticonFormCard.qml:28
 #: src/qml/Settings/EmoticonsPage.qml:16
-#, fuzzy, kde-format
-#| msgid "Custom Emojis"
+#, kde-format
 msgid "Emojis"
-msgstr "Vlastní emotikon"
+msgstr "Emotikony"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:54
 #: src/qml/Settings/EmoticonFormCard.qml:28
 #: src/qml/Settings/EmoticonsPage.qml:16
 #, kde-format
 msgid "Stickers"
-msgstr ""
+msgstr "Nálepky"
 
 #: src/qml/Component/HoverActions.qml:79
 #, kde-format
@@ -1548,12 +1544,12 @@ msgstr "Video"
 #, kde-format
 msgctxt "@action:button"
 msgid "Volume"
-msgstr ""
+msgstr "Hlasitost"
 
 #: src/qml/Component/Timeline/VideoDelegate.qml:353
 #, kde-format
 msgid "Maximize"
-msgstr ""
+msgstr "Maximalizovat"
 
 #: src/qml/Component/TimelineView.qml:126
 #, kde-format
@@ -2465,13 +2461,13 @@ msgstr "Otevřít v novém okně"
 #: src/qml/Page/RoomList/ContextMenu.qml:178
 #, kde-format
 msgid "Remove from Favourites"
-msgstr ""
+msgstr "Odstranit z oblíbených"
 
 #: src/qml/Page/RoomList/ContextMenu.qml:37
 #: src/qml/Page/RoomList/ContextMenu.qml:178
 #, kde-format
 msgid "Add to Favourites"
-msgstr ""
+msgstr "Přidat k oblíbeným"
 
 #: src/qml/Page/RoomList/ContextMenu.qml:43
 #: src/qml/Page/RoomList/ContextMenu.qml:192
@@ -2590,7 +2586,7 @@ msgstr ""
 #: src/qml/Page/RoomList/SpaceDrawer.qml:63
 #, kde-format
 msgid "All Rooms"
-msgstr ""
+msgstr "Všechny místnosti"
 
 #: src/qml/Page/RoomList/SpaceListContextMenu.qml:25
 #, kde-format
@@ -3377,7 +3373,7 @@ msgstr ""
 #: src/qml/Settings/DevicesPage.qml:117
 #, kde-format
 msgid "Edit device name"
-msgstr ""
+msgstr "Upravit název zařízení"
 
 #: src/qml/Settings/DevicesPage.qml:131
 #, kde-format
@@ -3406,89 +3402,77 @@ msgstr "Heslo:"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:30
 #: src/qml/Settings/EmoticonFormCard.qml:59
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgctxt "@title"
 msgid "Edit Sticker"
-msgstr "poslal(a) nálepku"
+msgstr "Upravit nálepku"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:30
 #: src/qml/Settings/EmoticonFormCard.qml:109
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgctxt "@title"
 msgid "Add Sticker"
-msgstr "poslal(a) nálepku"
+msgstr "Přidat nálepku"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:31
 #: src/qml/Settings/EmoticonFormCard.qml:59
-#, fuzzy, kde-format
-#| msgid "Add Emoji..."
+#, kde-format
 msgctxt "@title"
 msgid "Edit Emoji"
-msgstr "Přidat emotikon..."
+msgstr "Upravit emotikon"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:31
 #: src/qml/Settings/EmoticonFormCard.qml:109
-#, fuzzy, kde-format
-#| msgid "Add Emoji..."
+#, kde-format
 msgctxt "@title"
 msgid "Add Emoji"
-msgstr "Přidat emotikon..."
+msgstr "Přidat emotikon"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:40
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgid "Sticker"
-msgstr "poslal(a) nálepku"
+msgstr "Nálepka"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:40
-#, fuzzy, kde-format
-#| msgid "Custom Emojis"
+#, kde-format
 msgid "Emoji"
-msgstr "Vlastní emotikon"
+msgstr "Emotikon"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:69
 #, kde-format
 msgid "Change Image"
-msgstr ""
+msgstr "Změnit obrázek"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:69
 #, kde-format
 msgid "Set Image"
-msgstr ""
+msgstr "Nastavit obrázek"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:109
 #, kde-format
 msgid "Shortcode:"
-msgstr ""
+msgstr "Zkratka:"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:114
-#, fuzzy, kde-format
-#| msgctxt "The location being downloaded to"
-#| msgid "Destination"
+#, kde-format
 msgid "Description:"
-msgstr "Cíl"
+msgstr "Popis:"
 
 #: src/qml/Settings/EmoticonFormCard.qml:77
-#, fuzzy, kde-format
-#| msgctxt "The location being downloaded to"
-#| msgid "Destination"
+#, kde-format
 msgctxt "As in 'This sticker/emoji has no description'"
 msgid "No Description"
-msgstr "Cíl"
+msgstr "Žádný popis"
 
 #: src/qml/Settings/EmoticonFormCard.qml:118
-#, fuzzy, kde-format
-#| msgid "Add Emoji..."
+#, kde-format
 msgid "Add Emoji"
-msgstr "Přidat emotikon..."
+msgstr "Přidat emotikon"
 
 #: src/qml/Settings/EmoticonFormCard.qml:118
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgid "Add Sticker"
-msgstr "poslal(a) nálepku"
+msgstr "Přidat nálepku"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:15
 #: src/qml/Settings/NetworkProxyPage.qml:14
@@ -3576,7 +3560,7 @@ msgstr ""
 #: src/qml/Settings/GeneralSettingsPage.qml:209
 #, kde-format
 msgid "Send typing notifications"
-msgstr ""
+msgstr "Posílat oznamování o psaní"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:226
 #, kde-format
@@ -3738,7 +3722,7 @@ msgstr "Povolit upozornění"
 #: src/qml/Settings/NotificationRuleItem.qml:87
 #, kde-format
 msgid "Mute notifications"
-msgstr ""
+msgstr "Ztlumit oznámení"
 
 #: src/qml/Settings/NotificationRuleItem.qml:87
 #, kde-format
@@ -3792,9 +3776,7 @@ msgid "About KDE"
 msgstr "O prostředí KDE"
 
 #: src/qml/Settings/SonnetConfigPage.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@window:title"
-#| msgid "Spellchecking"
+#, kde-format
 msgid "Spellchecking"
 msgstr "Kontrola pravopisu"
 
@@ -3816,22 +3798,23 @@ msgstr ""
 #: src/qml/Settings/SonnetConfigPage.qml:70
 #, kde-format
 msgid "Detect language automatically"
-msgstr ""
+msgstr "Automaticky detekovat jazyk"
 
 #: src/qml/Settings/SonnetConfigPage.qml:81
 #, kde-format
 msgid "Selected default language:"
-msgstr ""
+msgstr "Vybraný výchozí jazyk:"
 
+# žádné parametry funkce v inspektoru funkcí
 #: src/qml/Settings/SonnetConfigPage.qml:82
 #, kde-format
 msgid "None"
-msgstr ""
+msgstr "Nic"
 
 #: src/qml/Settings/SonnetConfigPage.qml:101
 #, kde-format
 msgid "Additional spell checking languages"
-msgstr ""
+msgstr "Další jazyky pro kontrolu pravopisu"
 
 #: src/qml/Settings/SonnetConfigPage.qml:102
 #, kde-format
@@ -3843,21 +3826,19 @@ msgstr ""
 #: src/qml/Settings/SonnetConfigPage.qml:114
 #, kde-format
 msgid "Open Personal Dictionary"
-msgstr ""
+msgstr "Otevřít osobní slovník"
 
 #: src/qml/Settings/SonnetConfigPage.qml:125
-#, fuzzy, kde-format
-#| msgctxt "@window:title"
-#| msgid "Spellchecking"
+#, kde-format
 msgctxt "@title:window"
 msgid "Spell checking languages"
-msgstr "Kontrola pravopisu"
+msgstr "Jazyky pro kontrolu pravopisu"
 
 #: src/qml/Settings/SonnetConfigPage.qml:134
 #: src/qml/Settings/SonnetConfigPage.qml:144
 #, kde-format
 msgid "Default Language"
-msgstr ""
+msgstr "Výchozí jazyk"
 
 #: src/qml/Settings/SonnetConfigPage.qml:156
 #, kde-format
@@ -3940,40 +3921,3 @@ msgstr "Zobrazit"
 #, kde-format
 msgid "Quit"
 msgstr "Ukončit"
-
-#~ msgctxt "@title:window"
-#~ msgid "Custom Emojis"
-#~ msgstr "Vlastní emotikony"
-
-#~ msgid "Custom Emojis"
-#~ msgstr "Vlastní emotikon"
-
-#~ msgid "No Name"
-#~ msgstr "Bez názvu"
-
-#~ msgid "%1 (%2)"
-#~ msgstr "%1 (%2)"
-
-#~ msgid "Warning: %1"
-#~ msgstr "Varování: %1"
-
-#~ msgid "Options:"
-#~ msgstr "Volby:"
-
-#~ msgid "Zoom in"
-#~ msgstr "Přiblížit"
-
-#~ msgid "Zoom out"
-#~ msgstr "Oddálit"
-
-#~ msgid "Rotate left"
-#~ msgstr "Otočit doleva"
-
-#~ msgid "Rotate right"
-#~ msgstr "Otočit doprava"
-
-#~ msgid "Save as"
-#~ msgstr "Uložit jako"
-
-#~ msgid "Close"
-#~ msgstr "Zavřít"
