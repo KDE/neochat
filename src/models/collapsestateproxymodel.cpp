@@ -11,8 +11,9 @@ bool CollapseStateProxyModel::filterAcceptsRow(int source_row, const QModelIndex
     Q_UNUSED(source_parent);
     return sourceModel()->data(sourceModel()->index(source_row, 0), MessageEventModel::DelegateTypeRole)
         != MessageEventModel::DelegateType::State // If this is not a state, show it
-        || sourceModel()->data(sourceModel()->index(source_row + 1, 0), MessageEventModel::DelegateTypeRole)
-        != MessageEventModel::DelegateType::State // If this is the first state in a block, show it. TODO hidden events?
+        || (source_row < sourceModel()->rowCount() - 1
+            && sourceModel()->data(sourceModel()->index(source_row + 1, 0), MessageEventModel::DelegateTypeRole)
+                != MessageEventModel::DelegateType::State) // If this is the first state in a block, show it. TODO hidden events?
         || sourceModel()->data(sourceModel()->index(source_row, 0), MessageEventModel::ShowSectionRole).toBool(); // If it's a new day, show it
 }
 
