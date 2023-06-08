@@ -80,7 +80,7 @@ QQC2.ScrollView {
 
         Kirigami.PlaceholderMessage {
             anchors.centerIn: parent
-            text: i18n("No emojis")
+            text: emojiGrid.stickers ? i18n("No stickers") : i18n("No emojis")
             visible: emojis.count === 0
         }
     }
