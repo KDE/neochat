@@ -1,28 +1,27 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the neochat package.
 #
-# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2021, 2022.
+# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2021, 2022, 2023.
 # Thiago Masato Costa Sueto <herzenschein@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-20 02:32+0000\n"
-"PO-Revision-Date: 2022-08-19 15:06-0300\n"
+"PO-Revision-Date: 2023-06-07 13:33-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
-"Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
+"Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: src/controller.cpp:198
-#, fuzzy, kde-format
-#| msgid "Edit Message"
+#, kde-format
 msgid "Encrypted Message"
-msgstr "Editar mensagem"
+msgstr "Mensagem criptografada"
 
 #: src/controller.cpp:258 src/controller.cpp:391
 #, kde-format
@@ -95,34 +94,28 @@ msgid "The room id you are trying to join is not valid"
 msgstr "O id da sala em que você está tentando entrar não é válido"
 
 #: src/filetransferpseudojob.cpp:47
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "tooltip for a button on a message; offers ability to download its file"
-#| msgid "Download"
+#, kde-format
 msgctxt "Job heading, like 'Copying'"
 msgid "Downloading"
-msgstr "Baixar"
+msgstr "Baixando"
 
 #: src/filetransferpseudojob.cpp:47
-#, fuzzy, kde-format
-#| msgid "Loading…"
+#, kde-format
 msgctxt "Job heading, like 'Copying'"
 msgid "Uploading"
-msgstr "Carregando..."
+msgstr "Enviando"
 
 #: src/filetransferpseudojob.cpp:48
-#, fuzzy, kde-format
-#| msgid "View Source"
+#, kde-format
 msgctxt "The URL being downloaded/uploaded"
 msgid "Source"
-msgstr "Exibir origem"
+msgstr "Origem"
 
 #: src/filetransferpseudojob.cpp:49
-#, fuzzy, kde-format
-#| msgid "Send invitation"
+#, kde-format
 msgctxt "The location being downloaded to"
 msgid "Destination"
-msgstr "Enviar convite"
+msgstr "Destino"
 
 #: src/login.cpp:86 src/login.cpp:97
 #, kde-format
@@ -152,7 +145,7 @@ msgstr "Carl Schwan"
 #: src/main.cpp:159 src/main.cpp:160 src/main.cpp:161
 #, kde-format
 msgid "Maintainer"
-msgstr ""
+msgstr "Mantenedor"
 
 #: src/main.cpp:160
 #, kde-format
@@ -162,7 +155,7 @@ msgstr "Tobias Fella"
 #: src/main.cpp:161
 #, kde-format
 msgid "James Graham"
-msgstr ""
+msgstr "James Graham"
 
 #: src/main.cpp:162
 #, kde-format
@@ -172,17 +165,17 @@ msgstr "Black Hat"
 #: src/main.cpp:162
 #, kde-format
 msgid "Original author of Spectral"
-msgstr ""
+msgstr "Autor original do Spectral"
 
 #: src/main.cpp:163
 #, kde-format
 msgid "Alexey Rusakov"
-msgstr ""
+msgstr "Alexey Rusakov"
 
 #: src/main.cpp:163
 #, kde-format
 msgid "Maintainer of Quotient"
-msgstr ""
+msgstr "Mantenedor do Quotient"
 
 #: src/main.cpp:164
 #, kde-format
@@ -206,7 +199,7 @@ msgstr ""
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
-msgstr ""
+msgstr "%1 (compilado com %2)"
 
 #: src/main.cpp:307
 #, kde-format
@@ -234,11 +227,8 @@ msgstr "A solicitação de imagem foi cancelada"
 #: src/models/actionsmodel.cpp:80 src/models/actionsmodel.cpp:100
 #: src/models/actionsmodel.cpp:111 src/models/actionsmodel.cpp:127
 #: src/models/actionsmodel.cpp:137 src/models/actionsmodel.cpp:147
-#, fuzzy
-#| msgctxt "@label Parameter of a command"
-#| msgid "<message>"
 msgid "<message>"
-msgstr "<message>"
+msgstr "<mensagem>"
 
 #: src/models/actionsmodel.cpp:31
 msgid "Prepends ¯\\_(ツ)_/¯ to a plain-text message"
@@ -257,14 +247,10 @@ msgid "Prepends ┬──┬ ノ( ゜-゜ノ) to a plain-text message"
 msgstr "Prefixa ┬──┬ ノ( ゜-゜ノ)  em uma mensagem de texto simples"
 
 #: src/models/actionsmodel.cpp:81
-#, fuzzy
-#| msgid "Sends the given message coloured as a rainbow"
 msgid "Sends the given message colored as a rainbow"
 msgstr "Envia a mensagem colorida como arco-íris"
 
 #: src/models/actionsmodel.cpp:101
-#, fuzzy
-#| msgid "Sends the given emote coloured as a rainbow"
 msgid "Sends the given emote colored as a rainbow"
 msgstr "Envia o emote colorido como arco-íris"
 
@@ -299,52 +285,42 @@ msgid "'%1' does not look like a matrix id."
 msgstr ""
 
 #: src/models/actionsmodel.cpp:163
-#, fuzzy, kde-format
-#| msgid "reinvited %1 to the room"
+#, kde-format
 msgctxt "<user> is already invited to this room."
 msgid "%1 is already invited to this room."
-msgstr "%1 foi convidado para a sala novamente"
+msgstr "%1 já foi convidado para esta sala."
 
 #: src/models/actionsmodel.cpp:167
-#, fuzzy, kde-format
-#| msgid "self-banned from the room"
+#, kde-format
 msgctxt "<user> is banned from this room."
 msgid "%1 is banned from this room."
-msgstr "baniu a si mesmo da sala"
+msgstr "%1 está banido desta sala."
 
 #: src/models/actionsmodel.cpp:172
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgid "You are already in this room."
-msgstr "Abrir o NeoChat nesta sala"
+msgstr "Você já está nesta sala."
 
 #: src/models/actionsmodel.cpp:176
-#, fuzzy, kde-format
-#| msgid "Open NeoChat in this room"
+#, kde-format
 msgctxt "<user> is already in this room."
 msgid "%1 is already in this room."
-msgstr "Abrir o NeoChat nesta sala"
+msgstr "%1 já está nesta sala."
 
 #: src/models/actionsmodel.cpp:180
-#, fuzzy, kde-format
-#| msgid "%1 invited you to a room"
+#, kde-format
 msgctxt "<username> was invited into this room"
 msgid "%1 was invited into this room"
-msgstr "%1 convidou você para uma sala"
+msgstr "%1 foi convidado para uma sala"
 
 #: src/models/actionsmodel.cpp:185 src/models/actionsmodel.cpp:388
 #: src/models/actionsmodel.cpp:416 src/models/actionsmodel.cpp:507
-#, fuzzy
-#| msgctxt "@label Parameter of a command"
-#| msgid "<user-id>"
 msgid "<user id>"
-msgstr "<user-id>"
+msgstr "<ID do usuário>"
 
 #: src/models/actionsmodel.cpp:186
-#, fuzzy
-#| msgid "%1 invited you to a room"
 msgid "Invites the user to this room"
-msgstr "%1 convidou você para uma sala"
+msgstr "Convidar o usuário para uma sala"
 
 #: src/models/actionsmodel.cpp:195 src/models/actionsmodel.cpp:222
 #: src/models/actionsmodel.cpp:253 src/models/actionsmodel.cpp:280
