@@ -434,7 +434,9 @@ static LinkPreviewer *emptyLinkPreview = new LinkPreviewer;
 
 QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
 {
-    Q_ASSERT(checkIndex(idx, QAbstractItemModel::CheckIndexOption::IndexIsValid));
+    if (!checkIndex(idx, QAbstractItemModel::CheckIndexOption::IndexIsValid)) {
+        return {};
+    }
     const auto row = idx.row();
 
     if (!m_currentRoom || row < 0 || row >= int(m_currentRoom->pendingEvents().size()) + m_currentRoom->timelineSize()) {
