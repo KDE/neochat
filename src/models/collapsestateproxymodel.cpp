@@ -50,10 +50,11 @@ QString CollapseStateProxyModel::aggregateEventToString(int sourceRow) const
         if (!uniqueAuthors.contains(nextAuthor)) {
             uniqueAuthors.append(nextAuthor);
         }
-        if (sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::DelegateTypeRole)
-                != MessageEventModel::DelegateType::State // If it's not a state event
-            || sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::ShowSectionRole).toBool() // or the section needs to be visible
-        ) {
+        if (i > 0
+            && (sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::DelegateTypeRole)
+                    != MessageEventModel::DelegateType::State // If it's not a state event
+                || sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::ShowSectionRole).toBool() // or the section needs to be visible
+                )) {
             break;
         }
     }
@@ -108,10 +109,11 @@ QVariantList CollapseStateProxyModel::stateEventsList(int sourceRow) const
             {"text", sourceModel()->data(sourceModel()->index(i, 0), Qt::DisplayRole).toString()},
         };
         stateEvents.append(nextState);
-        if (sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::DelegateTypeRole)
-                != MessageEventModel::DelegateType::State // If it's not a state event
-            || sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::ShowSectionRole).toBool() // or the section needs to be visible
-        ) {
+        if (i > 0
+            && (sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::DelegateTypeRole)
+                    != MessageEventModel::DelegateType::State // If it's not a state event
+                || sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::ShowSectionRole).toBool() // or the section needs to be visible
+                )) {
             break;
         }
     }
@@ -126,10 +128,11 @@ QVariantList CollapseStateProxyModel::authorList(int sourceRow) const
         if (!uniqueAuthors.contains(nextAvatar)) {
             uniqueAuthors.append(nextAvatar);
         }
-        if (sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::DelegateTypeRole)
-                != MessageEventModel::DelegateType::State // If it's not a state event
-            || sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::ShowSectionRole).toBool() // or the section needs to be visible
-        ) {
+        if (i > 0
+            && (sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::DelegateTypeRole)
+                    != MessageEventModel::DelegateType::State // If it's not a state event
+                || sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::ShowSectionRole).toBool() // or the section needs to be visible
+                )) {
             break;
         }
     }
@@ -148,10 +151,11 @@ QString CollapseStateProxyModel::excessAuthors(int row) const
         if (!uniqueAuthors.contains(nextAvatar)) {
             uniqueAuthors.append(nextAvatar);
         }
-        if (sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::DelegateTypeRole)
-                != MessageEventModel::DelegateType::State // If it's not a state event
-            || sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::ShowSectionRole).toBool() // or the section needs to be visible
-        ) {
+        if (i > 0
+            && (sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::DelegateTypeRole)
+                    != MessageEventModel::DelegateType::State // If it's not a state event
+                || sourceModel()->data(sourceModel()->index(i - 1, 0), MessageEventModel::ShowSectionRole).toBool() // or the section needs to be visible
+                )) {
             break;
         }
     }
