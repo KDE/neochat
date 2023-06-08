@@ -134,7 +134,9 @@ public:
         QDir dir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QDir::separator());
         auto entryList = dir.entryList({appName + QStringLiteral(".*")});
         std::sort(entryList.begin(), entryList.end(), [](const auto &left, const auto &right) {
-            return left > right;
+            auto leftIndex = left.split(".").last().toInt();
+            auto rightIndex = right.split(".").last().toInt();
+            return leftIndex > rightIndex;
         });
         for (const auto &entry : entryList) {
             bool ok = false;
