@@ -47,18 +47,8 @@ TimelineContainer {
 
             center: QtPositioning.coordinate(root.latitude, root.longitude)
             zoomLevel: 15
-            plugin: Plugin {
-                name: "osm"
-                PluginParameter {
-                    name: "osm.useragent"
-                    value: Application.name + "/" + Application.version + " (kde-devel@kde.org)"
-                }
-                PluginParameter {
-                    name: "osm.mapping.providersrepository.address"
-                    value: "https://autoconfig.kde.org/qtlocation/"
-                }
-            }
 
+            plugin: OsmLocationPlugin.plugin
             onCopyrightLinkActivated: Qt.openUrlExternally(link)
 
 

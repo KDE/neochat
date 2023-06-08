@@ -283,6 +283,7 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonType("org.kde.neochat", 1, 0, "About", [](QQmlEngine *engine, QJSEngine *) -> QJSValue {
         return engine->toScriptValue(KAboutData::applicationData());
     });
+    qmlRegisterSingletonType(QUrl("qrc:/OsmLocationPlugin.qml"), "org.kde.neochat", 1, 0, "OsmLocationPlugin");
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     qRegisterMetaTypeStreamOperators<Emoji>();
