@@ -96,10 +96,10 @@ void AccountEmoticonModel::setConnection(Connection *connection)
 
 void AccountEmoticonModel::reloadEmoticons()
 {
-    if (!m_connection->hasAccountData("im.ponies.user_emotes"_ls)) {
-        return;
+    QJsonObject json;
+    if (m_connection->hasAccountData("im.ponies.user_emotes"_ls)) {
+        json = m_connection->accountData("im.ponies.user_emotes"_ls)->contentJson();
     }
-    auto json = m_connection->accountData("im.ponies.user_emotes"_ls)->contentJson();
     const auto &content = ImagePackEventContent(json);
     beginResetModel();
     m_images = content;
