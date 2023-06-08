@@ -24,17 +24,25 @@ QQC2.ToolBar {
     }
     property Kirigami.Action chatAction: Kirigami.Action {
         text: i18n("Start a Chat")
-        icon.name: "irc-join-channel"
+        icon.name: "list-add-user"
         onTriggered: applicationWindow().pushReplaceLayer("qrc:/StartChatPage.qml", {connection: Controller.activeConnection})
     }
     property Kirigami.Action roomAction: Kirigami.Action {
         text: i18n("Create a Room")
-        icon.name: "irc-join-channel"
+        icon.name: "system-users"
         onTriggered: {
             let dialog = createRoomDialog.createObject(root.overlay);
             dialog.open();
         }
         shortcut: StandardKey.New
+    }
+    property Kirigami.Action spaceAction: Kirigami.Action {
+        text: i18n("Create a Space")
+        icon.name: "list-add"
+        onTriggered: {
+            let dialog = createSpaceDialog.createObject(root.overlay);
+            dialog.open()
+        }
     }
 
     padding: 0
@@ -86,6 +94,9 @@ QQC2.ToolBar {
             QQC2.MenuItem {
                 action: roomAction
             }
+            QQC2.MenuItem {
+                action: spaceAction
+            }
         }
     }
     Component {
@@ -116,6 +127,11 @@ QQC2.ToolBar {
                 Kirigami.BasicListItem {
                     implicitHeight: Kirigami.Units.gridUnit * 3
                     action: chatAction
+                    onClicked: menuRoot.close()
+                }
+                Kirigami.BasicListItem {
+                    implicitHeight: Kirigami.Units.gridUnit * 3
+                    action: roomAction
                     onClicked: menuRoot.close()
                 }
                 Kirigami.BasicListItem {

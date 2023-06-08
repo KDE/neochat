@@ -324,6 +324,11 @@ Kirigami.ApplicationWindow {
     }
 
     Component {
+        id: createSpaceDialog
+        CreateSpaceDialog {}
+    }
+
+    Component {
         id: roomWindow
         RoomWindow {}
     }

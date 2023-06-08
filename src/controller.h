@@ -160,6 +160,11 @@ public:
     Q_INVOKABLE void createRoom(const QString &name, const QString &topic);
 
     /**
+     * @brief Create new space.
+     */
+    Q_INVOKABLE void createSpace(const QString &name, const QString &topic);
+
+    /**
      * @brief Join a room.
      */
     Q_INVOKABLE void joinRoom(const QString &alias);
