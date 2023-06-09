@@ -8,24 +8,46 @@ import org.kde.kirigami as Kirigami
 QQC2.ItemDelegate {
     id: root
 
-    property string name
-    property string emoji
+    property string toolTip
     property bool showTones: false
-    property bool isImage: false
 
-    QQC2.ToolTip.text: root.name
-    QQC2.ToolTip.visible: hovered && root.name !== ""
+    QQC2.ToolTip.text: root.toolTip
+    QQC2.ToolTip.visible: hovered && root.toolTip !== ""
     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-    leftInset: Kirigami.Units.smallSpacing
-    topInset: Kirigami.Units.smallSpacing
-    rightInset: Kirigami.Units.smallSpacing
-    bottomInset: Kirigami.Units.smallSpacing
+
+    readonly property color __pressedColor: Qt.alpha(Kirigami.Theme.highlightColor, 0.3)
+    readonly property color __hoverSelectColor: Qt.alpha(Kirigami.Theme.highlightColor, 0.2)
+    readonly property color __checkedBorderColor: Qt.alpha(Kirigami.Theme.highlightColor, 0.7)
+    readonly property color __pressedBorderColor: Qt.alpha(Kirigami.Theme.highlightColor, 0.9)
+
+    background: Rectangle {
+        Kirigami.Theme.colorSet: Kirigami.Theme.Button
+        Kirigami.Theme.inherit: false
+
+        implicitHeight: Kirigami.Units.gridUnit * 3 + Kirigami.Units.smallSpacing * 2
+
+        color: "transparent"
+
+        Rectangle {
+            width: parent.width - Kirigami.Units.largeSpacing
+            height: parent.height - Kirigami.Units.largeSpacing
+            anchors.centerIn: parent
+
+            radius: Kirigami.Units.cornerRadius
+            color: root.down ? root.__pressedColor : (root.checked || root.hovered ? root.__hoverSelectColor : "transparent")
+
+            border.color: root.checked ? root.__checkedBorderColor : (root.down ? root.__pressedBorderColor : color)
+            border.width: 1
+
+            Behavior on color { ColorAnimation { duration: Kirigami.Units.shortDuration } }
+            Behavior on border.color { ColorAnimation { duration: Kirigami.Units.shortDuration } }
+        }
+    }
 
     contentItem: Item {
         Kirigami.Heading {
             anchors.fill: parent
-            visible: !root.emoji.startsWith("mxc") && !root.isImage
-            text: root.emoji
+            text: root.text
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             font.family: "emoji"
@@ -38,23 +60,6 @@ QQC2.ItemDelegate {
                 anchors.right: parent.right
                 visible: root.showTones
             }
-        }
-        Image {
-            anchors.fill: parent
-            visible: root.emoji.startsWith("mxc") || root.isImage
-            source: visible ? root.emoji : ""
-        }
-    }
-
-    background: Rectangle {
-        color: root.checked ? Kirigami.Theme.highlightColor : Kirigami.Theme.backgroundColor
-        radius: Kirigami.Units.cornerRadius
-
-        Rectangle {
-            radius: Kirigami.Units.cornerRadius
-            anchors.fill: parent
-            color: Kirigami.Theme.highlightColor
-            opacity: root.hovered && !root.pressed ? 0.2 : 0
         }
     }
 }

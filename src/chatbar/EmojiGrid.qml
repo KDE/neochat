@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2022 Tobias Fella
+// SPDX-FileCopyrightText: 2022 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick
@@ -9,12 +9,8 @@ import org.kde.neochat
 QQC2.ScrollView {
     id: root
 
-    property alias model: emojis.model
-    property alias count: emojis.count
-    required property int targetIconSize
-    readonly property int emojisPerRow: emojis.width / targetIconSize
-    required property bool withCustom
-    readonly property var searchCategory: withCustom ? EmojiModel.Search : EmojiModel.SearchNoCustom
+    required property var model
+    readonly property int emojisPerRow: emojis.width / Kirigami.Units.iconSizes.large
     required property QtObject header
     property bool stickers: false
 
@@ -41,7 +37,29 @@ QQC2.ScrollView {
         onModelChanged: currentIndex = -1
 
         cellWidth: emojis.width / root.emojisPerRow
-        cellHeight: root.targetIconSize
+        cellHeight: Kirigami.Units.iconSizes.large
+
+        model: ImageContentFilterModel {
+            sourceModel: searchField.text.length > 0 ? emojiSearchModel
+                : emoticonPickerCategoryHeader.currentCategory === "history" ? recentImageContentProxyModel
+                : imageContentModel
+            stickers: emoticonPickerTypeHeader.selectedType === EmojiPickerTypeHeader.EmoticonType.Sticker
+            emojis: emoticonPickerTypeHeader.selectedType === EmojiPickerTypeHeader.EmoticonType.Emoji
+        }
+
+        ImageContentModel {
+            id: imageContentModel
+            category: emoticonPickerCategoryHeader.currentCategory
+        }
+
+        RecentImageContentProxyModel {
+            id: recentImageContentProxyModel
+        }
+
+        ImageContentSearchModel {
+            id: emojiSearchModel
+            searchText: searchField.text
+        }
 
         KeyNavigation.up: root.header
 
@@ -49,14 +67,14 @@ QQC2.ScrollView {
 
         delegate: EmojiDelegate {
             id: emojiDelegate
+
+            text: model.text
             checked: emojis.currentIndex === model.index
-            emoji: !!modelData ? modelData.unicode : model.url
-            name: !!modelData ? modelData.shortName : model.body
+            toolTip: model.displayName
 
             width: emojis.cellWidth
             height: emojis.cellHeight
 
-            isImage: root.stickers
             Keys.onEnterPressed: clicked()
             Keys.onReturnPressed: clicked()
             onClicked: {
@@ -68,7 +86,7 @@ QQC2.ScrollView {
             }
             Keys.onSpacePressed: pressAndHold()
             onPressAndHold: {
-                if (EmojiModel.tones(modelData.shortName).length === 0) {
+                if (EmojiModel.tones(model.displayName).length === 0) {
                     return;
                 }
                 let tones = tonesPopupComponent.createObject(emojiDelegate, {
@@ -79,7 +97,7 @@ QQC2.ScrollView {
                 tones.open();
                 tones.forceActiveFocus();
             }
-            showTones: !!modelData && EmojiModel.tones(modelData.shortName).length > 0
+            showTones: false // TODO EmojiModel.tones(emojiDelegate.displayName).length > 0
         }
 
         Kirigami.PlaceholderMessage {

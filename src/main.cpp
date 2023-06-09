@@ -62,6 +62,8 @@
 #include "fakerunner.h"
 #endif
 
+#include "imagecontentmanager.h"
+
 #ifdef Q_OS_WINDOWS
 #include <Windows.h>
 #endif
