@@ -132,6 +132,7 @@ void ActionsHandler::handleMessage(const QString &text, QString handledText, Cha
         }
     }
 
+    // TODO handledText = CustomEmojiModel::instance().preprocessText(handledText);
     TextHandler textHandler;
     textHandler.setData(handledText);
     handledText = textHandler.handleSendText();

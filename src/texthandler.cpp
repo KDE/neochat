@@ -18,7 +18,6 @@
 
 #include "messagecomponenttype.h"
 #include "messagecontentmodel.h"
-#include "models/customemojimodel.h"
 #include "utils.h"
 
 static const QStringList allowedTags = {
@@ -76,7 +75,7 @@ QString TextHandler::handleSendText()
         switch (m_nextTokenType) {
         case Text:
             nextTokenBuffer = escapeHtml(nextTokenBuffer);
-            nextTokenBuffer = CustomEmojiModel::instance().preprocessText(nextTokenBuffer);
+            // nextTokenBuffer = CustomEmojiModel::instance().preprocessText(nextTokenBuffer);
             break;
         case TextCode:
             nextTokenBuffer = escapeHtml(nextTokenBuffer);
