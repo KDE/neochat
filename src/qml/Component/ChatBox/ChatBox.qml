@@ -38,14 +38,18 @@ ColumnLayout {
     property NeoChatRoom currentRoom
 
     /**
-     * @brief The chatBar object
-     */
-    property alias chatBar: chatBar
-
-    /**
      * @brief A message has been sent from the chat bar.
      */
     signal messageSent()
+
+    /**
+     * @brief Insert the given text into the ChatBar.
+     *
+     * The text is inserted at the current cursor location.
+     */
+    function insertText(text) {
+        chatBar.insertText(text)
+    }
 
     spacing: 0
 
@@ -86,4 +90,6 @@ ColumnLayout {
             chatBox.messageSent();
         }
     }
+
+    onActiveFocusChanged: chatBar.forceActiveFocus()
 }

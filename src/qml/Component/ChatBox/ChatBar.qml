@@ -195,7 +195,7 @@ QQC2.Control {
                 x: textField.cursorRectangle.x
                 y: textField.cursorRectangle.y - height
 
-                onFormattingSelected: chatBar.formatText(format, selectionStart, selectionEnd)
+                onFormattingSelected: root.formatText(format, selectionStart, selectionEnd)
             }
 
             Keys.onDeletePressed: {
@@ -218,7 +218,7 @@ QQC2.Control {
                 } else if (event.modifiers & Qt.ShiftModifier || Kirigami.Settings.isMobile) {
                     textField.insert(cursorPosition, "\n")
                 } else {
-                    chatBar.postMessage();
+                    root.postMessage();
                 }
             }
             Keys.onReturnPressed: {
@@ -227,7 +227,7 @@ QQC2.Control {
                 } else if (event.modifiers & Qt.ShiftModifier || Kirigami.Settings.isMobile) {
                     textField.insert(cursorPosition, "\n")
                 } else {
-                    chatBar.postMessage();
+                    root.postMessage();
                 }
             }
             Keys.onTabPressed: {
@@ -237,7 +237,7 @@ QQC2.Control {
             }
             Keys.onPressed: {
                 if (event.key === Qt.Key_V && event.modifiers & Qt.ControlModifier) {
-                    chatBar.pasteImage();
+                    root.pasteImage();
                 } else if (event.key === Qt.Key_Up && event.modifiers & Qt.ControlModifier) {
                     currentRoom.replyLastMessage();
                 } else if (event.key === Qt.Key_Up && textField.text.length === 0) {

@@ -38,7 +38,7 @@ Kirigami.Page {
         timelineViewLoader.item.positionViewAtBeginning();
         hasScrolledUpBefore = false;
         if (!Kirigami.Settings.isMobile && chatBoxLoader.item) {
-            chatBoxLoader.item.chatBar.forceActiveFocus();
+            chatBoxLoader.item.forceActiveFocus();
         }
     }
 
@@ -61,7 +61,7 @@ Kirigami.Page {
             currentRoom: root.currentRoom
             onFocusChatBox: {
                 if (chatBoxLoader.item) {
-                    chatBoxLoader.item.chatBar.forceActiveFocus()
+                    chatBoxLoader.item.forceActiveFocus()
                 }
             }
         }
@@ -151,8 +151,8 @@ Kirigami.Page {
     Keys.onPressed: {
         if (!(event.modifiers & Qt.ControlModifier) && event.key < Qt.Key_Escape) {
             event.accepted = true;
-            chatBoxLoader.item.chatBar.insertText(event.text);
-            chatBoxLoader.item.chatBar.forceActiveFocus();
+            chatBoxLoader.item.insertText(event.text);
+            chatBoxLoader.item.forceActiveFocus();
             return;
         } else if (event.key === Qt.Key_PageUp) {
             event.accepted = true;
