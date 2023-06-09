@@ -6,8 +6,7 @@
 
 #include "actionsmodel.h"
 #include "completionproxymodel.h"
-#include "customemojimodel.h"
-#include "emojimodel.h"
+// #include "emojimodel.h"
 #include "neochatroom.h"
 #include "roommanager.h"
 #include "userlistmodel.h"
@@ -16,11 +15,13 @@ CompletionModel::CompletionModel(QObject *parent)
     : QAbstractListModel(parent)
     , m_filterModel(new CompletionProxyModel())
     , m_userListModel(RoomManager::instance().userListModel())
-    , m_emojiModel(new QConcatenateTablesProxyModel(this))
+//, m_emojiModel(new QConcatenateTablesProxyModel(this))
 {
     connect(this, &CompletionModel::textChanged, this, &CompletionModel::updateCompletion);
-    m_emojiModel->addSourceModel(&CustomEmojiModel::instance());
-    m_emojiModel->addSourceModel(&EmojiModel::instance());
+    connect(this, &CompletionModel::roomChanged, this, [this]() {
+        m_userListModel->setRoom(m_room);
+    });
+    // TODO m_emojiModel->addSourceModel(&EmojiModel::instance());
 }
 
 QString CompletionModel::text() const
@@ -88,20 +89,20 @@ QVariant CompletionModel::data(const QModelIndex &index, int role) const
             return m_filterModel->data(filterIndex, RoomListModel::AvatarRole).toString();
         }
     }
-    if (m_autoCompletionType == Emoji) {
-        if (role == DisplayNameRole) {
-            return m_filterModel->data(filterIndex, CustomEmojiModel::DisplayRole);
-        }
-        if (role == IconNameRole) {
-            return m_filterModel->data(filterIndex, CustomEmojiModel::MxcUrl);
-        }
-        if (role == ReplacedTextRole) {
-            return m_filterModel->data(filterIndex, CustomEmojiModel::ReplacedTextRole);
-        }
-        if (role == SubtitleRole) {
-            return m_filterModel->data(filterIndex, EmojiModel::DescriptionRole);
-        }
-    }
+    // if (m_autoCompletionType == Emoji) {
+    //     if (role == DisplayNameRole) {
+    //         return m_filterModel->data(filterIndex, CustomEmojiModel::DisplayRole);
+    //     }
+    //     if (role == IconNameRole) {
+    //         return m_filterModel->data(filterIndex, CustomEmojiModel::MxcUrl);
+    //     }
+    //     if (role == ReplacedTextRole) {
+    //         return m_filterModel->data(filterIndex, CustomEmojiModel::ReplacedTextRole);
+    //     }
+    //     if (role == SubtitleRole) {
+    //         // TODO return m_filterModel->data(filterIndex, EmojiModel::DescriptionRole);
+    //     }
+    // }
 
     return {};
 }
@@ -147,8 +148,8 @@ void CompletionModel::updateCompletion()
                    || (m_fullText.indexOf(QLatin1Char(' ')) != -1 && m_fullText.indexOf(QLatin1Char(':'), 1) > m_fullText.indexOf(QLatin1Char(' '), 1)))) {
         m_filterModel->setSourceModel(m_emojiModel);
         m_autoCompletionType = Emoji;
-        m_filterModel->setFilterRole(CustomEmojiModel::Name);
-        m_filterModel->setSecondaryFilterRole(EmojiModel::DescriptionRole);
+        // m_filterModel->setFilterRole(CustomEmojiModel::Name);
+        //  TODO m_filterModel->setSecondaryFilterRole(EmojiModel::DescriptionRole);
         m_filterModel->setFullText(m_fullText);
         m_filterModel->setFilterText(m_text);
         m_filterModel->invalidate();

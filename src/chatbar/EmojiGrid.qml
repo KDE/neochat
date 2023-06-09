@@ -1,20 +1,17 @@
-// SPDX-FileCopyrightText: 2022 Tobias Fella
+// SPDX-FileCopyrightText: 2024 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
+
 import org.kde.neochat
+import org.kde.textaddons.emoticons
 
 QQC2.ScrollView {
     id: root
 
-    property alias model: emojis.model
-    property alias count: emojis.count
-    required property int targetIconSize
-    readonly property int emojisPerRow: emojis.width / targetIconSize
-    required property bool withCustom
-    readonly property var searchCategory: withCustom ? EmojiModel.Search : EmojiModel.SearchNoCustom
+    readonly property int emojisPerRow: emojis.width / Kirigami.Units.iconSizes.large
     required property QtObject header
     property bool stickers: false
 
@@ -24,6 +21,8 @@ QQC2.ScrollView {
     onActiveFocusChanged: if (activeFocus) {
         emojis.forceActiveFocus();
     }
+
+    width: Kirigami.Units.gridUnit * 24
 
     GridView {
         id: emojis
@@ -41,7 +40,9 @@ QQC2.ScrollView {
         onModelChanged: currentIndex = -1
 
         cellWidth: emojis.width / root.emojisPerRow
-        cellHeight: root.targetIconSize
+        cellHeight: Kirigami.Units.iconSizes.large
+
+        model: EmojiModelManager.emojiModel
 
         KeyNavigation.up: root.header
 
@@ -49,50 +50,49 @@ QQC2.ScrollView {
 
         delegate: EmojiDelegate {
             id: emojiDelegate
-            checked: emojis.currentIndex === model.index
-            emoji: !!modelData ? modelData.unicode : model.url
-            name: !!modelData ? modelData.shortName : model.body
+
+            required property string unicode
+            required property string identifier
+            required property int index
+
+            text: emojiDelegate.unicode
+            toolTip: emojiDelegate.identifier
+            checked: emojis.currentIndex === emojiDelegate.index
 
             width: emojis.cellWidth
             height: emojis.cellHeight
 
-            isImage: root.stickers
             Keys.onEnterPressed: clicked()
             Keys.onReturnPressed: clicked()
-            onClicked: {
-                if (root.stickers) {
-                    root.stickerChosen(model.index);
-                }
-                root.chosen(modelData.isCustom ? modelData.shortName : modelData.unicode);
-                EmojiModel.emojiUsed(modelData);
-            }
-            Keys.onSpacePressed: pressAndHold()
-            onPressAndHold: {
-                if (EmojiModel.tones(modelData.shortName).length === 0) {
-                    return;
-                }
-                let tones = tonesPopupComponent.createObject(emojiDelegate, {
-                    shortName: modelData.shortName,
-                    unicode: modelData.unicode,
-                    categoryIconSize: root.targetIconSize
-                });
-                tones.open();
-                tones.forceActiveFocus();
-            }
-            showTones: !!modelData && EmojiModel.tones(modelData.shortName).length > 0
+            // onClicked: {
+            //     if (root.stickers) {
+            //         root.stickerChosen(model.index);
+            //     }
+            //     root.chosen(modelData.isCustom ? modelData.shortName : modelData.unicode);
+            //     EmojiModel.emojiUsed(modelData);
+            // }
+            // Keys.onSpacePressed: pressAndHold()
+            // onPressAndHold: {
+            //     if (!showTones) {
+            //         return;
+            //     }
+            //     let tones = Qt.createComponent("org.kde.neochat", "EmojiTonesPicker").createObject(emojiDelegate, {
+            //         shortName: modelData.shortName,
+            //         unicode: modelData.unicode,
+            //         categoryIconSize: root.targetIconSize,
+            //         onChosen: root.chosen(emoji => root.chosen(emoji))
+            //     });
+            //     tones.open();
+            //     tones.forceActiveFocus();
+            // }
+            // showTones: model.hasTones
         }
 
         Kirigami.PlaceholderMessage {
             anchors.centerIn: parent
             icon.name: root.stickers ? "stickers" : "preferences-desktop-emoticons"
-            text: root.stickers ? i18n("No stickers") : i18n("No emojis")
+            text: root.stickers ? i18nc("@info", "No stickers") : i18nc("@info", "No emojis")
             visible: emojis.count === 0
-        }
-    }
-    Component {
-        id: tonesPopupComponent
-        EmojiTonesPicker {
-            onChosen: root.chosen(emoji)
         }
     }
 }
