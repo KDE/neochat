@@ -11,7 +11,6 @@
 #include <qnamespace.h>
 
 #include "enums/messagecomponenttype.h"
-#include "models/customemojimodel.h"
 #include "neochatconnection.h"
 
 #include "testutils.h"
@@ -77,7 +76,6 @@ void TextHandlerTest::initTestCase()
                                                          QJsonObject{{"body"_ls, "Test custom emoji"_ls},
                                                                      {"url"_ls, "mxc://example.org/test"_ls},
                                                                      {"usage"_ls, QJsonArray{"emoticon"_ls}}}}}}});
-    CustomEmojiModel::instance().setConnection(static_cast<NeoChatConnection *>(connection));
 
     room = new TestUtils::TestRoom(connection, QStringLiteral("#myroom:kde.org"), QLatin1String("test-texthandler-sync.json"));
 }

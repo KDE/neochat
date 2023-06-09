@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2022 Tobias Fella <tobias.fella@kde.org>
+// SPDX-FileCopyrightText: 2024 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick
@@ -54,8 +54,8 @@ QQC2.Popup {
         delegate: EmojiDelegate {
             id: emojiDelegate
             checked: tonesList.currentIndex === model.index
-            emoji: modelData.unicode
-            name: modelData.shortName
+            text: modelData.unicode
+            toolTip: modelData.shortName
 
             width: root.categoryIconSize
             height: width

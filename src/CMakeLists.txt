@@ -10,12 +10,6 @@ endif()
 add_library(neochat STATIC
     controller.cpp
     controller.h
-    models/emojimodel.cpp
-    models/emojimodel.h
-    emojitones.cpp
-    emojitones.h
-    models/customemojimodel.cpp
-    models/customemojimodel.h
     clipboard.cpp
     clipboard.h
     models/messageeventmodel.cpp
@@ -26,8 +20,6 @@ add_library(neochat STATIC
     models/roomlistmodel.h
     models/sortfilterspacelistmodel.cpp
     models/sortfilterspacelistmodel.h
-    models/accountemoticonmodel.cpp
-    models/accountemoticonmodel.h
     spacehierarchycache.cpp
     spacehierarchycache.h
     roommanager.cpp
@@ -50,8 +42,6 @@ add_library(neochat STATIC
     models/userdirectorylistmodel.h
     models/pushrulemodel.cpp
     models/pushrulemodel.h
-    models/emoticonfiltermodel.cpp
-    models/emoticonfiltermodel.h
     notificationsmanager.cpp
     notificationsmanager.h
     models/sortfilterroomlistmodel.cpp
@@ -101,10 +91,6 @@ add_library(neochat STATIC
     texthandler.h
     logger.cpp
     logger.h
-    models/stickermodel.cpp
-    models/stickermodel.h
-    models/imagepacksmodel.cpp
-    models/imagepacksmodel.h
     events/imagepackevent.cpp
     events/imagepackevent.h
     events/joinrulesevent.cpp
@@ -194,6 +180,32 @@ add_library(neochat STATIC
     models/threadmodel.h
     enums/messagetype.h
     messagecomponent.h
+    imagecontentmanager.h
+    imagecontentmanager.cpp
+    models/imagecontentmodel.cpp
+    models/imagecontentmodel.h
+    models/emojipacksmodel.cpp
+    models/emojipacksmodel.h
+    models/accountimagepackmodel.cpp
+    models/accountimagepackmodel.h
+    models/historyimagepackmodel.cpp
+    models/historyimagepackmodel.h
+    models/imagepacksproxymodel.cpp
+    models/imagepacksproxymodel.h
+    models/imagepacksmodel.cpp
+    models/imagepacksmodel.h
+    models/recentimagecontentmodel.h
+    models/recentimagecontentmodel.cpp
+    models/recentimagecontentproxymodel.h
+    models/recentimagecontentproxymodel.cpp
+    models/allimagecontentmodel.h
+    models/allimagecontentmodel.cpp
+    models/roomimagepacksmodel.h
+    models/roomimagepacksmodel.cpp
+    models/imagepackroomsmodel.h
+    models/imagepackroomsmodel.cpp
+    models/imagecontentfiltermodel.h
+    models/imagecontentfiltermodel.cpp
 )
 
 set_source_files_properties(qml/OsmLocationPlugin.qml PROPERTIES
@@ -282,6 +294,9 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         qml/ConfirmLeaveDialog.qml
         qml/CodeMaximizeComponent.qml
         qml/EditStateDialog.qml
+        qml/EmojiPickerTypeHeader.qml
+        qml/EmojiPickerPackHeader.qml
+        qml/QuickReaction.qml
         qml/ConsentDialog.qml
         qml/AskDirectChatConfirmation.qml
         qml/HoverLinkIndicator.qml
@@ -296,6 +311,12 @@ ecm_add_qml_module(neochat URI org.kde.neochat GENERATE_PLUGIN_SOURCE
         org.kde.neochat.devtools
         org.kde.neochat.login
         org.kde.neochat.chatbar
+)
+
+qt_add_resources(neochat "emoji"
+    PREFIX "/"
+    FILES
+        data/emojis.json
 )
 
 add_subdirectory(settings)

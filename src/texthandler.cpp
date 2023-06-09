@@ -18,7 +18,6 @@
 #include <Kirigami/Platform/PlatformTheme>
 
 #include "messagecomponenttype.h"
-#include "models/customemojimodel.h"
 #include "utils.h"
 
 using namespace Qt::StringLiterals;
@@ -81,7 +80,7 @@ QString TextHandler::handleSendText()
         switch (m_nextTokenType) {
         case Text:
             nextTokenBuffer = escapeHtml(nextTokenBuffer);
-            nextTokenBuffer = CustomEmojiModel::instance().preprocessText(nextTokenBuffer);
+            //TODO: nextTokenBuffer = CustomEmojiModel::instance().preprocessText(nextTokenBuffer);
             break;
         case TextCode:
             nextTokenBuffer = escapeHtml(nextTokenBuffer);
