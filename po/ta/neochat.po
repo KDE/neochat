@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-07 00:47+0000\n"
+"POT-Creation-Date: 2023-06-09 00:48+0000\n"
 "PO-Revision-Date: 2023-05-21 14:58+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -23,7 +23,7 @@ msgid "Login Failed: Access Token invalid or revoked"
 msgstr ""
 "நுழைவு தோல்வியடைந்தது: Access Token செல்லுபடியாகாதது அல்லது திரும்பப்பெறப்பட்டது"
 
-#: src/controller.cpp:265 src/controller.cpp:270 src/login.cpp:95
+#: src/controller.cpp:265 src/controller.cpp:270 src/login.cpp:99
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "நுழைவு தோல்வியடைந்தது: %1"
@@ -85,7 +85,13 @@ msgstr "உதவிக்கு உங்கள் மேட்ரிக்ஸ�
 msgid "Room creation failed: %1"
 msgstr "அரங்கு உருவாக்கம் தோல்வியடைந்தது: %1"
 
-#: src/controller.cpp:545
+#: src/controller.cpp:552
+#, fuzzy, kde-format
+#| msgid "Room creation failed: \"%1\""
+msgid "Space creation failed: %1"
+msgstr "அரங்கு உருவாக்கம் தோல்வியடைந்தது: %1"
+
+#: src/controller.cpp:566
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "நீங்கள் சேர முயற்சிக்கும் அரங்கு செல்லுபடியாகாதது"
@@ -114,7 +120,7 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "சேருமிடம்"
 
-#: src/login.cpp:90 src/login.cpp:101
+#: src/login.cpp:94 src/login.cpp:105
 #, kde-format
 msgid "Network Error"
 msgstr "பிணைய சிக்கல்"
@@ -197,12 +203,12 @@ msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (%2 கொண்டு தொகுக்கப்பட்டது)"
 
-#: src/main.cpp:322
+#: src/main.cpp:323
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Matrix தொடர்பு நெறிமுறைக்கான வாங்கி"
 
-#: src/main.cpp:323
+#: src/main.cpp:324
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "matrix: முகவரி திட்டமுறையை ஆதரிக்கும்"
@@ -527,7 +533,7 @@ msgstr "%1 இவ்வரங்கிலிருந்து வெளிய�
 msgid "Removes the user from the room"
 msgstr "பயனரை அரங்கிலிருந்து நீக்கும்"
 
-#: src/models/collapsestateproxymodel.cpp:73
+#: src/models/collapsestateproxymodel.cpp:75
 #, kde-format
 msgctxt "n times"
 msgid " %1 time "
@@ -535,7 +541,7 @@ msgid_plural " %1 times "
 msgstr[0] " %1 முறை "
 msgstr[1] " %1 முறை "
 
-#: src/models/collapsestateproxymodel.cpp:79
+#: src/models/collapsestateproxymodel.cpp:81
 #, kde-format
 msgctxt "n users"
 msgid " %1 user "
@@ -543,19 +549,19 @@ msgid_plural " %1 users "
 msgstr[0] " %1 பயனர் "
 msgstr[1] " %1 பயனர்கள்  "
 
-#: src/models/collapsestateproxymodel.cpp:89
+#: src/models/collapsestateproxymodel.cpp:91
 #, kde-format
 msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
 msgstr ", "
 
-#: src/models/collapsestateproxymodel.cpp:92
+#: src/models/collapsestateproxymodel.cpp:94
 #, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
 msgstr "அல்லது"
 
-#: src/models/collapsestateproxymodel.cpp:92
+#: src/models/collapsestateproxymodel.cpp:94
 #, kde-format
 msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
@@ -627,39 +633,48 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "விருப்பமானவை"
 
-#: src/models/imagepacksmodel.cpp:87
-#, kde-format
+#: src/models/imagepacksmodel.cpp:90
+#, fuzzy, kde-format
+#| msgid "Own Stickers"
+msgctxt "As in 'The user's own Stickers'"
 msgid "Own Stickers"
 msgstr "என் ஒட்டிகள்"
 
-#: src/models/messageeventmodel.cpp:467 src/models/messageeventmodel.cpp:476
+#: src/models/imagepacksmodel.cpp:90
+#, fuzzy, kde-format
+#| msgid "Emojis"
+msgctxt "As in 'The user's own emojis"
+msgid "Own Emojis"
+msgstr "முகவடிகள்"
+
+#: src/models/messageeventmodel.cpp:469 src/models/messageeventmodel.cpp:478
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[இந்த செய்தி நீக்கப்பட்டது]</i>"
 
-#: src/models/messageeventmodel.cpp:468
+#: src/models/messageeventmodel.cpp:470
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[இந்த செய்தி நீக்கப்பட்டது: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:543
+#: src/models/messageeventmodel.cpp:545
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[தணிக்கை செய்யப்பட்டது]"
 
-#: src/models/messageeventmodel.cpp:543
+#: src/models/messageeventmodel.cpp:545
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[தணிக்கை செய்யப்பட்டது: %1]"
 
-#: src/models/messageeventmodel.cpp:852
+#: src/models/messageeventmodel.cpp:854
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 பயனர்: "
 msgstr[1] "%1 பயனர்கள்: "
 
-#: src/models/messageeventmodel.cpp:859
+#: src/models/messageeventmodel.cpp:861
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -1189,12 +1204,12 @@ msgstr "பதிலளிப்பதை ரத்து செய்"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "நியோச்சாட் தொடர்பற்று உள்ளது. உங்கள் பிணைய இணைப்பை சரிபாருங்கள்."
 
-#: src/qml/Component/ChatBox/LocationChooser.qml:20
+#: src/qml/Component/ChatBox/LocationChooser.qml:22
 #, kde-format
 msgid "Choose a Location"
 msgstr "இடத்தை தேர்வு செய்"
 
-#: src/qml/Component/ChatBox/LocationChooser.qml:25
+#: src/qml/Component/ChatBox/LocationChooser.qml:27
 #, kde-format
 msgid "Send this location"
 msgstr "இவ்விடத்தை அனுப்பு"
@@ -1287,6 +1302,12 @@ msgid "Available Room Versions"
 msgstr "அரங்கின் கிடைக்கும் பதிப்புகள்"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:83
+#, fuzzy, kde-format
+#| msgid "Stickers"
+msgid "No stickers"
+msgstr "ஒட்டிகள்"
+
+#: src/qml/Component/Emoji/EmojiGrid.qml:83
 #, kde-format
 msgid "No emojis"
 msgstr "முகவடிகள் இல்லை"
@@ -1353,7 +1374,7 @@ msgid "Url:"
 msgstr "முகவரி:"
 
 #: src/qml/Component/Login/Homeserver.qml:57
-#: src/qml/Component/Login/Login.qml:52
+#: src/qml/Component/Login/Login.qml:46
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -1380,13 +1401,13 @@ msgstr "உங்கள் Matrix கணக்கின் பெயரை உ�
 msgid "Matrix ID:"
 msgstr "Matrix கணக்குப்பெயர்:"
 
-#: src/qml/Component/Login/Login.qml:52 src/qml/Component/Login/Sso.qml:45
+#: src/qml/Component/Login/Login.qml:46 src/qml/Component/Login/Sso.qml:45
 #: src/qml/Page/LoadingPage.qml:9
 #, kde-format
 msgid "Loading…"
 msgstr "ஏற்றப்படுகிறது…"
 
-#: src/qml/Component/Login/Login.qml:52
+#: src/qml/Component/Login/Login.qml:46
 #, kde-format
 msgid "Already logged in"
 msgstr "ஏற்கனவே நுழைந்துள்ளீர்கள்"
@@ -1638,6 +1659,41 @@ msgstr "அரங்கின் தலைப்பு:"
 msgctxt "@action:button"
 msgid "Ok"
 msgstr "சரி"
+
+#: src/qml/Dialog/CreateSpaceDialog.qml:15
+#: src/qml/Page/RoomList/ExploreComponent.qml:40
+#, fuzzy, kde-format
+#| msgctxt "'Space' is a matrix space"
+#| msgid "Leave Space"
+msgid "Create a Space"
+msgstr "இடத்திலிருந்து வெளியேறு"
+
+#: src/qml/Dialog/CreateSpaceDialog.qml:23
+#, fuzzy, kde-format
+#| msgctxt "'Space' is a matrix space"
+#| msgid "Leave Space"
+msgctxt "@title"
+msgid "Create a Space"
+msgstr "இடத்திலிருந்து வெளியேறு"
+
+#: src/qml/Dialog/CreateSpaceDialog.qml:27
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Space members"
+msgid "Space name"
+msgstr "இடத்தின் உறுப்பினர்கள்"
+
+#: src/qml/Dialog/CreateSpaceDialog.qml:31
+#, kde-format
+msgid "Space topic (optional)"
+msgstr ""
+
+#: src/qml/Dialog/CreateSpaceDialog.qml:34
+#, fuzzy, kde-format
+#| msgctxt "'Space' is a matrix space"
+#| msgid "Leave Space"
+msgid "Create space"
+msgstr "இடத்திலிருந்து வெளியேறு"
 
 #: src/qml/Dialog/KeyVerification/EmojiSas.qml:23
 #, kde-format
@@ -1968,12 +2024,12 @@ msgstr ""
 msgid "Open"
 msgstr "திற"
 
-#: src/qml/main.qml:344
+#: src/qml/main.qml:349
 #, kde-format
 msgid "Start a chat"
 msgstr "உரையாடலைத் துவக்கு"
 
-#: src/qml/main.qml:346
+#: src/qml/main.qml:351
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "உறுதியாக %1 என்பவருடன் உரையாடலைத் துவக்க வேண்டுமா?"
@@ -2568,8 +2624,8 @@ msgstr "அரங்கிலிருந்து வெளியேறு"
 msgid "Explore rooms"
 msgstr "அரங்குகளை உலாவுங்கள்"
 
-#: src/qml/Page/RoomList/ExploreComponent.qml:58
-#: src/qml/Page/RoomList/ExploreComponent.qml:109
+#: src/qml/Page/RoomList/ExploreComponent.qml:66
+#: src/qml/Page/RoomList/ExploreComponent.qml:120
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "அரங்குகளையும் தனிப்பட்ட உரையாடல்களையும் உருவாக்கு"

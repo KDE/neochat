@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-07 00:47+0000\n"
+"POT-Creation-Date: 2023-06-09 00:48+0000\n"
 "PO-Revision-Date: 2022-09-28 16:37+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Inloggning misslyckades: Åtkomstsymbol ogiltig eller återkallad"
 
-#: src/controller.cpp:265 src/controller.cpp:270 src/login.cpp:95
+#: src/controller.cpp:265 src/controller.cpp:270 src/login.cpp:99
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Inloggning misslyckades: %1"
@@ -84,7 +84,13 @@ msgstr ""
 msgid "Room creation failed: %1"
 msgstr "Misslyckades skapa rum: \"%1\""
 
-#: src/controller.cpp:545
+#: src/controller.cpp:552
+#, fuzzy, kde-format
+#| msgid "Room creation failed: \"%1\""
+msgid "Space creation failed: %1"
+msgstr "Misslyckades skapa rum: \"%1\""
+
+#: src/controller.cpp:566
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Identifikationen för rummet som du försöker gå med i är inte giltig"
@@ -119,7 +125,7 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Skicka inbjudan"
 
-#: src/login.cpp:90 src/login.cpp:101
+#: src/login.cpp:94 src/login.cpp:105
 #, kde-format
 msgid "Network Error"
 msgstr "Nätverksfel"
@@ -203,12 +209,12 @@ msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr ""
 
-#: src/main.cpp:322
+#: src/main.cpp:323
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Klient för kommunikationsprotokollet Matrix"
 
-#: src/main.cpp:323
+#: src/main.cpp:324
 #, fuzzy, kde-format
 #| msgid "Supports appstream: url scheme"
 msgid "Supports matrix: url scheme"
@@ -602,7 +608,7 @@ msgstr "bannlyste sig själv från rummet"
 msgid "Removes the user from the room"
 msgstr "Bjöd in användare till ett rum"
 
-#: src/models/collapsestateproxymodel.cpp:73
+#: src/models/collapsestateproxymodel.cpp:75
 #, fuzzy, kde-format
 #| msgctxt "[user did something] n times"
 #| msgid " %1 time"
@@ -613,7 +619,7 @@ msgid_plural " %1 times "
 msgstr[0] "%1 tid"
 msgstr[1] "%1 tider"
 
-#: src/models/collapsestateproxymodel.cpp:79
+#: src/models/collapsestateproxymodel.cpp:81
 #, kde-format
 msgctxt "n users"
 msgid " %1 user "
@@ -621,7 +627,7 @@ msgid_plural " %1 users "
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/models/collapsestateproxymodel.cpp:89
+#: src/models/collapsestateproxymodel.cpp:91
 #, fuzzy, kde-format
 #| msgctxt "[action 1], [action 2 and action 3]"
 #| msgid ", "
@@ -629,13 +635,13 @@ msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
 msgstr ", "
 
-#: src/models/collapsestateproxymodel.cpp:92
+#: src/models/collapsestateproxymodel.cpp:94
 #, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
 msgstr ""
 
-#: src/models/collapsestateproxymodel.cpp:92
+#: src/models/collapsestateproxymodel.cpp:94
 #, kde-format
 msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
@@ -709,39 +715,49 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Egen"
 
-#: src/models/imagepacksmodel.cpp:87
-#, kde-format
+#: src/models/imagepacksmodel.cpp:90
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add word"
+msgctxt "As in 'The user's own Stickers'"
 msgid "Own Stickers"
-msgstr ""
+msgstr "Lägg till ord"
 
-#: src/models/messageeventmodel.cpp:467 src/models/messageeventmodel.cpp:476
+#: src/models/imagepacksmodel.cpp:90
+#, fuzzy, kde-format
+#| msgid "Custom Emojis"
+msgctxt "As in 'The user's own emojis"
+msgid "Own Emojis"
+msgstr "Egna emoji"
+
+#: src/models/messageeventmodel.cpp:469 src/models/messageeventmodel.cpp:478
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Meddelandet har tagits bort]</i>"
 
-#: src/models/messageeventmodel.cpp:468
+#: src/models/messageeventmodel.cpp:470
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Meddelandet har tagits bort: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:543
+#: src/models/messageeventmodel.cpp:545
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[ÄNDRAD]"
 
-#: src/models/messageeventmodel.cpp:543
+#: src/models/messageeventmodel.cpp:545
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[ÄNDRAD: %1]"
 
-#: src/models/messageeventmodel.cpp:852
+#: src/models/messageeventmodel.cpp:854
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/models/messageeventmodel.cpp:859
+#: src/models/messageeventmodel.cpp:861
 #, fuzzy, kde-format
 #| msgctxt "[action 1], [action 2 and action 3]"
 #| msgid ", "
@@ -1299,13 +1315,13 @@ msgstr "Avbryt"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat är nedkopplat. Kontrollera nätverksanslutningen."
 
-#: src/qml/Component/ChatBox/LocationChooser.qml:20
+#: src/qml/Component/ChatBox/LocationChooser.qml:22
 #, fuzzy, kde-format
 #| msgid "Choose local file"
 msgid "Choose a Location"
 msgstr "Välj lokal fil"
 
-#: src/qml/Component/ChatBox/LocationChooser.qml:25
+#: src/qml/Component/ChatBox/LocationChooser.qml:27
 #, fuzzy, kde-format
 #| msgid "Send Typing Notifications"
 msgid "Send this location"
@@ -1410,6 +1426,13 @@ msgstr "Rumsinformation"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:83
 #, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add word"
+msgid "No stickers"
+msgstr "Lägg till ord"
+
+#: src/qml/Component/Emoji/EmojiGrid.qml:83
+#, fuzzy, kde-format
 #| msgid "Custom Emojis"
 msgid "No emojis"
 msgstr "Egna emoji"
@@ -1477,7 +1500,7 @@ msgid "Url:"
 msgstr "Webbadress:"
 
 #: src/qml/Component/Login/Homeserver.qml:57
-#: src/qml/Component/Login/Login.qml:52
+#: src/qml/Component/Login/Login.qml:46
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -1504,13 +1527,13 @@ msgstr "Ange Matrix-identifierare"
 msgid "Matrix ID:"
 msgstr "Matrix-identifierare"
 
-#: src/qml/Component/Login/Login.qml:52 src/qml/Component/Login/Sso.qml:45
+#: src/qml/Component/Login/Login.qml:46 src/qml/Component/Login/Sso.qml:45
 #: src/qml/Page/LoadingPage.qml:9
 #, kde-format
 msgid "Loading…"
 msgstr "Läser in…"
 
-#: src/qml/Component/Login/Login.qml:52
+#: src/qml/Component/Login/Login.qml:46
 #, kde-format
 msgid "Already logged in"
 msgstr ""
@@ -1767,6 +1790,38 @@ msgstr "Rummets ämne:"
 msgctxt "@action:button"
 msgid "Ok"
 msgstr "Ok"
+
+#: src/qml/Dialog/CreateSpaceDialog.qml:15
+#: src/qml/Page/RoomList/ExploreComponent.qml:40
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgid "Create a Space"
+msgstr "Skapa ett rum"
+
+#: src/qml/Dialog/CreateSpaceDialog.qml:23
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@title"
+msgid "Create a Space"
+msgstr "Skapa ett rum"
+
+#: src/qml/Dialog/CreateSpaceDialog.qml:27
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Space members"
+msgid "Space name"
+msgstr "Rymdmedlemmar"
+
+#: src/qml/Dialog/CreateSpaceDialog.qml:31
+#, kde-format
+msgid "Space topic (optional)"
+msgstr ""
+
+#: src/qml/Dialog/CreateSpaceDialog.qml:34
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgid "Create space"
+msgstr "Skapa ett rum"
 
 #: src/qml/Dialog/KeyVerification/EmojiSas.qml:23
 #, kde-format
@@ -2117,12 +2172,12 @@ msgstr ""
 msgid "Open"
 msgstr "Öppna"
 
-#: src/qml/main.qml:344
+#: src/qml/main.qml:349
 #, kde-format
 msgid "Start a chat"
 msgstr "Starta en chatt"
 
-#: src/qml/main.qml:346
+#: src/qml/main.qml:351
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Vill du starta en chatt med %1?"
@@ -2731,8 +2786,8 @@ msgstr "Lämna rum"
 msgid "Explore rooms"
 msgstr "Utforska rum"
 
-#: src/qml/Page/RoomList/ExploreComponent.qml:58
-#: src/qml/Page/RoomList/ExploreComponent.qml:109
+#: src/qml/Page/RoomList/ExploreComponent.qml:66
+#: src/qml/Page/RoomList/ExploreComponent.qml:120
 #, fuzzy, kde-format
 #| msgid "Rooms and private chats:"
 msgid "Create rooms and chats"

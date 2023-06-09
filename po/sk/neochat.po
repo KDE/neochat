@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-07 00:47+0000\n"
+"POT-Creation-Date: 2023-06-09 00:48+0000\n"
 "PO-Revision-Date: 2022-04-18 17:58+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Prihlásenie zlyhalo: Prístupový token je neplatný alebo odvolaný"
 
-#: src/controller.cpp:265 src/controller.cpp:270 src/login.cpp:95
+#: src/controller.cpp:265 src/controller.cpp:270 src/login.cpp:99
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Prihlásenie zlyhalo: %1"
@@ -84,7 +84,13 @@ msgstr ""
 msgid "Room creation failed: %1"
 msgstr "Vytvorenie miestnosti zlyhalo: \"%1\""
 
-#: src/controller.cpp:545
+#: src/controller.cpp:552
+#, fuzzy, kde-format
+#| msgid "Room creation failed: \"%1\""
+msgid "Space creation failed: %1"
+msgstr "Vytvorenie miestnosti zlyhalo: \"%1\""
+
+#: src/controller.cpp:566
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Miestnosť, do ktorej sa pokúšate pripojiť, je neplatná"
@@ -119,7 +125,7 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Odoslať pozvanie"
 
-#: src/login.cpp:90 src/login.cpp:101
+#: src/login.cpp:94 src/login.cpp:105
 #, kde-format
 msgid "Network Error"
 msgstr "Chyba siete"
@@ -203,12 +209,12 @@ msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr ""
 
-#: src/main.cpp:322
+#: src/main.cpp:323
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Klient pre komunikačný protokol matrix"
 
-#: src/main.cpp:323
+#: src/main.cpp:324
 #, fuzzy, kde-format
 #| msgid "Supports appstream: url scheme"
 msgid "Supports matrix: url scheme"
@@ -604,7 +610,7 @@ msgstr "zakázal %1 z miestnosti: %2"
 msgid "Removes the user from the room"
 msgstr "pozval %1 do miestnosti"
 
-#: src/models/collapsestateproxymodel.cpp:73
+#: src/models/collapsestateproxymodel.cpp:75
 #, fuzzy, kde-format
 #| msgctxt "[user did something] n times"
 #| msgid " %1 time"
@@ -616,7 +622,7 @@ msgstr[0] " %1 krát"
 msgstr[1] " %1 krát"
 msgstr[2] " %1 krát"
 
-#: src/models/collapsestateproxymodel.cpp:79
+#: src/models/collapsestateproxymodel.cpp:81
 #, kde-format
 msgctxt "n users"
 msgid " %1 user "
@@ -625,7 +631,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/models/collapsestateproxymodel.cpp:89
+#: src/models/collapsestateproxymodel.cpp:91
 #, fuzzy, kde-format
 #| msgctxt "[action 1], [action 2 and action 3]"
 #| msgid ", "
@@ -633,13 +639,13 @@ msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
 msgstr ", "
 
-#: src/models/collapsestateproxymodel.cpp:92
+#: src/models/collapsestateproxymodel.cpp:94
 #, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
 msgstr ""
 
-#: src/models/collapsestateproxymodel.cpp:92
+#: src/models/collapsestateproxymodel.cpp:94
 #, kde-format
 msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
@@ -713,32 +719,41 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Vlastné"
 
-#: src/models/imagepacksmodel.cpp:87
-#, kde-format
+#: src/models/imagepacksmodel.cpp:90
+#, fuzzy, kde-format
+#| msgid "Edit device"
+msgctxt "As in 'The user's own Stickers'"
 msgid "Own Stickers"
-msgstr ""
+msgstr "Upraviť zariadenie"
 
-#: src/models/messageeventmodel.cpp:467 src/models/messageeventmodel.cpp:476
+#: src/models/imagepacksmodel.cpp:90
+#, fuzzy, kde-format
+#| msgid "Custom"
+msgctxt "As in 'The user's own emojis"
+msgid "Own Emojis"
+msgstr "Vlastné"
+
+#: src/models/messageeventmodel.cpp:469 src/models/messageeventmodel.cpp:478
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Táto správa bola odstránená]</i>"
 
-#: src/models/messageeventmodel.cpp:468
+#: src/models/messageeventmodel.cpp:470
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Táto správa bola odstránená: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:543
+#: src/models/messageeventmodel.cpp:545
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[REVIDOVANÉ]"
 
-#: src/models/messageeventmodel.cpp:543
+#: src/models/messageeventmodel.cpp:545
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[REVIDOVANÉ: %1]"
 
-#: src/models/messageeventmodel.cpp:852
+#: src/models/messageeventmodel.cpp:854
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
@@ -746,7 +761,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/models/messageeventmodel.cpp:859
+#: src/models/messageeventmodel.cpp:861
 #, fuzzy, kde-format
 #| msgctxt "[action 1], [action 2 and action 3]"
 #| msgid ", "
@@ -1308,13 +1323,13 @@ msgstr "Zrušiť"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat je offline. Skontrolujte svoje sieťové pripojenie."
 
-#: src/qml/Component/ChatBox/LocationChooser.qml:20
+#: src/qml/Component/ChatBox/LocationChooser.qml:22
 #, fuzzy, kde-format
 #| msgid "Choose local file"
 msgid "Choose a Location"
 msgstr "Vybrať miestny súbor"
 
-#: src/qml/Component/ChatBox/LocationChooser.qml:25
+#: src/qml/Component/ChatBox/LocationChooser.qml:27
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgid "Send this location"
@@ -1419,6 +1434,12 @@ msgstr "Informácie o miestnosti"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:83
 #, fuzzy, kde-format
+#| msgid "Edit device"
+msgid "No stickers"
+msgstr "Upraviť zariadenie"
+
+#: src/qml/Component/Emoji/EmojiGrid.qml:83
+#, fuzzy, kde-format
 #| msgid "Custom"
 msgid "No emojis"
 msgstr "Vlastné"
@@ -1486,7 +1507,7 @@ msgid "Url:"
 msgstr "Url:"
 
 #: src/qml/Component/Login/Homeserver.qml:57
-#: src/qml/Component/Login/Login.qml:52
+#: src/qml/Component/Login/Login.qml:46
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -1513,13 +1534,13 @@ msgstr "Zadajte svoje Matrix ID"
 msgid "Matrix ID:"
 msgstr "Matrix ID:"
 
-#: src/qml/Component/Login/Login.qml:52 src/qml/Component/Login/Sso.qml:45
+#: src/qml/Component/Login/Login.qml:46 src/qml/Component/Login/Sso.qml:45
 #: src/qml/Page/LoadingPage.qml:9
 #, kde-format
 msgid "Loading…"
 msgstr "Načítava sa…"
 
-#: src/qml/Component/Login/Login.qml:52
+#: src/qml/Component/Login/Login.qml:46
 #, kde-format
 msgid "Already logged in"
 msgstr ""
@@ -1776,6 +1797,37 @@ msgstr "Téma miestnosti:"
 msgctxt "@action:button"
 msgid "Ok"
 msgstr "Ok"
+
+#: src/qml/Dialog/CreateSpaceDialog.qml:15
+#: src/qml/Page/RoomList/ExploreComponent.qml:40
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgid "Create a Space"
+msgstr "Vytvoriť miestnosť"
+
+#: src/qml/Dialog/CreateSpaceDialog.qml:23
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgctxt "@title"
+msgid "Create a Space"
+msgstr "Vytvoriť miestnosť"
+
+#: src/qml/Dialog/CreateSpaceDialog.qml:27
+#, fuzzy, kde-format
+#| msgid "Members"
+msgid "Space name"
+msgstr "Členovia"
+
+#: src/qml/Dialog/CreateSpaceDialog.qml:31
+#, kde-format
+msgid "Space topic (optional)"
+msgstr ""
+
+#: src/qml/Dialog/CreateSpaceDialog.qml:34
+#, fuzzy, kde-format
+#| msgid "Create a Room"
+msgid "Create space"
+msgstr "Vytvoriť miestnosť"
 
 #: src/qml/Dialog/KeyVerification/EmojiSas.qml:23
 #, kde-format
@@ -2105,12 +2157,12 @@ msgstr ""
 msgid "Open"
 msgstr "Otvoriť"
 
-#: src/qml/main.qml:344
+#: src/qml/main.qml:349
 #, kde-format
 msgid "Start a chat"
 msgstr "Začať rozhovor"
 
-#: src/qml/main.qml:346
+#: src/qml/main.qml:351
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Chcete začať rozhovor s %1?"
@@ -2726,8 +2778,8 @@ msgstr "Opustiť miestnosť"
 msgid "Explore rooms"
 msgstr "Prehliadať miestnosti"
 
-#: src/qml/Page/RoomList/ExploreComponent.qml:58
-#: src/qml/Page/RoomList/ExploreComponent.qml:109
+#: src/qml/Page/RoomList/ExploreComponent.qml:66
+#: src/qml/Page/RoomList/ExploreComponent.qml:120
 #, fuzzy, kde-format
 #| msgid "Rooms and private chats:"
 msgid "Create rooms and chats"

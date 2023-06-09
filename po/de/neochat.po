@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-07 00:47+0000\n"
+"POT-Creation-Date: 2023-06-09 00:48+0000\n"
 "PO-Revision-Date: 2023-06-05 13:08+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Anmeldung fehlgeschlagen: Zugangs-Token ist ungültig oder widerrufen"
 
-#: src/controller.cpp:265 src/controller.cpp:270 src/login.cpp:95
+#: src/controller.cpp:265 src/controller.cpp:270 src/login.cpp:99
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Anmeldung fehlgeschlagen: %1"
@@ -87,7 +87,13 @@ msgstr ""
 msgid "Room creation failed: %1"
 msgstr "Erstellen des Raums ist fehlgeschlagen: %1"
 
-#: src/controller.cpp:545
+#: src/controller.cpp:552
+#, fuzzy, kde-format
+#| msgid "Room creation failed: %1"
+msgid "Space creation failed: %1"
+msgstr "Erstellen des Raums ist fehlgeschlagen: %1"
+
+#: src/controller.cpp:566
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Die Kennung des Raums, den Sie betreten möchten, ist nicht gültig"
@@ -116,7 +122,7 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Ziel"
 
-#: src/login.cpp:90 src/login.cpp:101
+#: src/login.cpp:94 src/login.cpp:105
 #, kde-format
 msgid "Network Error"
 msgstr "Netzwerkfehler"
@@ -201,12 +207,12 @@ msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (für %2 kompiliert)"
 
-#: src/main.cpp:322
+#: src/main.cpp:323
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Programm für das Matrix-Protokoll"
 
-#: src/main.cpp:323
+#: src/main.cpp:324
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Unterstützt das Adressschema matrix:"
@@ -536,7 +542,7 @@ msgstr "%1 wurde aus dem Raum geworfen."
 msgid "Removes the user from the room"
 msgstr "Den Benutzer aus dem Raum entfernen"
 
-#: src/models/collapsestateproxymodel.cpp:73
+#: src/models/collapsestateproxymodel.cpp:75
 #, kde-format
 msgctxt "n times"
 msgid " %1 time "
@@ -544,7 +550,7 @@ msgid_plural " %1 times "
 msgstr[0] "%1 Mal"
 msgstr[1] "%1 Mal"
 
-#: src/models/collapsestateproxymodel.cpp:79
+#: src/models/collapsestateproxymodel.cpp:81
 #, kde-format
 msgctxt "n users"
 msgid " %1 user "
@@ -552,19 +558,19 @@ msgid_plural " %1 users "
 msgstr[0] " %1 Benutzer "
 msgstr[1] " %1 Benutzer "
 
-#: src/models/collapsestateproxymodel.cpp:89
+#: src/models/collapsestateproxymodel.cpp:91
 #, kde-format
 msgctxt "[action 1], [action 2 and/or action 3]"
 msgid ", "
 msgstr ", "
 
-#: src/models/collapsestateproxymodel.cpp:92
+#: src/models/collapsestateproxymodel.cpp:94
 #, kde-format
 msgctxt "[action 1, action 2] or [action 3]"
 msgid " or "
 msgstr " oder "
 
-#: src/models/collapsestateproxymodel.cpp:92
+#: src/models/collapsestateproxymodel.cpp:94
 #, kde-format
 msgctxt "[action 1, action 2] and [action 3]"
 msgid " and "
@@ -636,40 +642,48 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Benutzerdefiniert"
 
-#: src/models/imagepacksmodel.cpp:87
+#: src/models/imagepacksmodel.cpp:90
 #, fuzzy, kde-format
 #| msgid "sent a sticker"
+msgctxt "As in 'The user's own Stickers'"
 msgid "Own Stickers"
 msgstr "hat einen Sticker gesendet"
 
-#: src/models/messageeventmodel.cpp:467 src/models/messageeventmodel.cpp:476
+#: src/models/imagepacksmodel.cpp:90
+#, fuzzy, kde-format
+#| msgid "Emojis"
+msgctxt "As in 'The user's own emojis"
+msgid "Own Emojis"
+msgstr "Emojis"
+
+#: src/models/messageeventmodel.cpp:469 src/models/messageeventmodel.cpp:478
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Diese Nachricht wurde gelöscht]</i>"
 
-#: src/models/messageeventmodel.cpp:468
+#: src/models/messageeventmodel.cpp:470
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Diese Nachricht wurde gelöscht: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:543
+#: src/models/messageeventmodel.cpp:545
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[GELÖSCHT]"
 
-#: src/models/messageeventmodel.cpp:543
+#: src/models/messageeventmodel.cpp:545
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[GELÖSCHT: %1]"
 
-#: src/models/messageeventmodel.cpp:852
+#: src/models/messageeventmodel.cpp:854
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 Benutzer: "
 msgstr[1] "%1 Benutzer: "
 
-#: src/models/messageeventmodel.cpp:859
+#: src/models/messageeventmodel.cpp:861
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -1198,12 +1212,12 @@ msgstr "Antwort abbrechen"
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat ist offline. Bitte überprüfen Sie Ihre Netzwerkverbindung."
 
-#: src/qml/Component/ChatBox/LocationChooser.qml:20
+#: src/qml/Component/ChatBox/LocationChooser.qml:22
 #, kde-format
 msgid "Choose a Location"
 msgstr "Standort auswählen"
 
-#: src/qml/Component/ChatBox/LocationChooser.qml:25
+#: src/qml/Component/ChatBox/LocationChooser.qml:27
 #, kde-format
 msgid "Send this location"
 msgstr "Diesen Standort senden"
@@ -1298,6 +1312,12 @@ msgid "Available Room Versions"
 msgstr "Verfügbare Raum-Versionen"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:83
+#, fuzzy, kde-format
+#| msgid "Stickers"
+msgid "No stickers"
+msgstr "Sticker"
+
+#: src/qml/Component/Emoji/EmojiGrid.qml:83
 #, kde-format
 msgid "No emojis"
 msgstr "Keine Emoji"
@@ -1364,7 +1384,7 @@ msgid "Url:"
 msgstr "Url:"
 
 #: src/qml/Component/Login/Homeserver.qml:57
-#: src/qml/Component/Login/Login.qml:52
+#: src/qml/Component/Login/Login.qml:46
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -1391,13 +1411,13 @@ msgstr "Geben Sie Ihre Matrix-ID ein"
 msgid "Matrix ID:"
 msgstr "Matrix-ID:"
 
-#: src/qml/Component/Login/Login.qml:52 src/qml/Component/Login/Sso.qml:45
+#: src/qml/Component/Login/Login.qml:46 src/qml/Component/Login/Sso.qml:45
 #: src/qml/Page/LoadingPage.qml:9
 #, kde-format
 msgid "Loading…"
 msgstr "Wird geladen ..."
 
-#: src/qml/Component/Login/Login.qml:52
+#: src/qml/Component/Login/Login.qml:46
 #, kde-format
 msgid "Already logged in"
 msgstr "Bereits angemeldet"
@@ -1652,6 +1672,41 @@ msgstr "Thema des Raumes:"
 msgctxt "@action:button"
 msgid "Ok"
 msgstr "OK"
+
+#: src/qml/Dialog/CreateSpaceDialog.qml:15
+#: src/qml/Page/RoomList/ExploreComponent.qml:40
+#, fuzzy, kde-format
+#| msgctxt "'Space' is a matrix space"
+#| msgid "Leave Space"
+msgid "Create a Space"
+msgstr "Space verlassen"
+
+#: src/qml/Dialog/CreateSpaceDialog.qml:23
+#, fuzzy, kde-format
+#| msgctxt "'Space' is a matrix space"
+#| msgid "Leave Space"
+msgctxt "@title"
+msgid "Create a Space"
+msgstr "Space verlassen"
+
+#: src/qml/Dialog/CreateSpaceDialog.qml:27
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Space members"
+msgid "Space name"
+msgstr "Space-Mitglieder"
+
+#: src/qml/Dialog/CreateSpaceDialog.qml:31
+#, kde-format
+msgid "Space topic (optional)"
+msgstr ""
+
+#: src/qml/Dialog/CreateSpaceDialog.qml:34
+#, fuzzy, kde-format
+#| msgctxt "'Space' is a matrix space"
+#| msgid "Leave Space"
+msgid "Create space"
+msgstr "Space verlassen"
 
 #: src/qml/Dialog/KeyVerification/EmojiSas.qml:23
 #, kde-format
@@ -2008,12 +2063,12 @@ msgstr ""
 msgid "Open"
 msgstr "Öffnen"
 
-#: src/qml/main.qml:344
+#: src/qml/main.qml:349
 #, kde-format
 msgid "Start a chat"
 msgstr "Einen Chat starten"
 
-#: src/qml/main.qml:346
+#: src/qml/main.qml:351
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Möchten Sie einen Chat mit %1 beginnen?"
@@ -2611,8 +2666,8 @@ msgstr "Raum verlassen"
 msgid "Explore rooms"
 msgstr "Räume erkunden"
 
-#: src/qml/Page/RoomList/ExploreComponent.qml:58
-#: src/qml/Page/RoomList/ExploreComponent.qml:109
+#: src/qml/Page/RoomList/ExploreComponent.qml:66
+#: src/qml/Page/RoomList/ExploreComponent.qml:120
 #, kde-format
 msgid "Create rooms and chats"
 msgstr "Räume und Unterhaltungen erstellen"
