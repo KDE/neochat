@@ -49,7 +49,6 @@ Kirigami.ApplicationWindow {
     }
 
     onConnectionChanged: {
-        CustomEmojiModel.connection = root.connection
         MatrixImageProvider.connection = root.connection
         RoomManager.connection = root.connection
         SpaceHierarchyCache.connection = root.connection
@@ -215,7 +214,6 @@ Kirigami.ApplicationWindow {
     }
 
     Component.onCompleted: {
-        CustomEmojiModel.connection = root.connection
         MatrixImageProvider.connection = root.connection
         RoomManager.connection = root.connection
         SpaceHierarchyCache.connection = root.connection

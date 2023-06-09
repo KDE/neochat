@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2022 Tobias Fella <tobias.fella@kde.org>
+// SPDX-FileCopyrightText: 2022-2023 Tobias Fella <tobias.fella@kde.org>
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 import QtQuick
@@ -15,79 +15,30 @@ ColumnLayout {
      */
     property NeoChatRoom currentRoom
 
-    property bool includeCustom: false
-    property bool showQuickReaction: false
-
-    readonly property var currentEmojiModel: {
-        if (includeCustom) {
-            EmojiModel.categoriesWithCustom
-        } else {
-            EmojiModel.categories
-        }
-    }
-
-    readonly property int categoryIconSize: Math.round(Kirigami.Units.gridUnit * 2.5)
-    readonly property var currentCategory: currentEmojiModel[categories.currentIndex].category
-    readonly property alias categoryCount: categories.count
-    property int selectedType: 0
-
     signal chosen(string emoji)
+
+    spacing: 0
 
     onActiveFocusChanged: if (activeFocus) {
         searchField.forceActiveFocus();
     }
 
-    spacing: 0
+    EmojiPickerTypeHeader {
+        id: emoticonPickerTypeHeader
 
-    Kirigami.NavigationTabBar {
-        id: types
         Layout.fillWidth: true
-        Kirigami.Theme.colorSet: Kirigami.Theme.View
-
-        background: null
-        actions: [
-            Kirigami.Action {
-                id: emojis
-                icon.name: "smiley"
-                text: i18n("Emojis")
-                checked: true
-                onTriggered: root.selectedType = 0
-            },
-            Kirigami.Action {
-                id: stickers
-                icon.name: "stickers"
-                text: i18n("Stickers")
-                onTriggered: root.selectedType = 1
-            }
-        ]
+        onSelectedTypeChanged: emoticonPickerCategoryHeader.currentIndex = 0
     }
 
-    QQC2.ScrollView {
+    EmojiPickerPackHeader {
+        id: emoticonPickerCategoryHeader
+
         Layout.fillWidth: true
-        Layout.preferredHeight: root.categoryIconSize + QQC2.ScrollBar.horizontal.height
-        QQC2.ScrollBar.horizontal.height: QQC2.ScrollBar.horizontal.visible ? QQC2.ScrollBar.horizontal.implicitHeight : 0
 
-        ListView {
-            id: categories
-            clip: true
-            focus: true
-            orientation: ListView.Horizontal
-
-            Keys.onReturnPressed: if (emojiGrid.count > 0) emojiGrid.focus = true
-            Keys.onEnterPressed: if (emojiGrid.count > 0) emojiGrid.focus = true
-
-            KeyNavigation.down: emojiGrid.count > 0 ? emojiGrid : categories
-            KeyNavigation.tab: emojiGrid.count > 0 ? emojiGrid : categories
-
-            keyNavigationEnabled: true
-            keyNavigationWraps: true
-            Keys.forwardTo: searchField
-            interactive: width !== contentWidth
-
-            model: root.selectedType === 0 ? root.currentEmojiModel : stickerPackModel
-            Component.onCompleted: categories.forceActiveFocus()
-
-            delegate: root.selectedType === 0 ? emojiDelegate : stickerDelegate
+        model: ImagePacksProxyModel {
+            currentRoom: root.currentRoom
+            stickers: emoticonPickerTypeHeader.selectedType === EmojiPickerTypeHeader.EmoticonType.Sticker
+            emojis: emoticonPickerTypeHeader.selectedType === EmojiPickerTypeHeader.EmoticonType.Emoji
         }
     }
 
@@ -100,111 +51,52 @@ ColumnLayout {
         id: searchField
         Layout.margins: Kirigami.Units.smallSpacing
         Layout.fillWidth: true
-        visible: selectedType === 0
 
-        /**
-         * The focus is manged by the parent and we don't want to use the standard
-         * shortcut as it could block other SearchFields from using it.
-         */
         focusSequence: ""
     }
 
     EmojiGrid {
         id: emojiGrid
-        targetIconSize: root.currentCategory === EmojiModel.Custom ? Kirigami.Units.gridUnit * 3 : root.categoryIconSize  // Custom emojis are bigger
-        model: root.selectedType === 1 ? emoticonFilterModel : searchField.text.length === 0 ? EmojiModel.emojis(root.currentCategory) : (root.includeCustom ? EmojiModel.filterModel(searchField.text, false) : EmojiModel.filterModelNoCustom(searchField.text, false))
+        model: ImageContentFilterModel {
+            id: imageContentFilterModel
+            sourceModel: searchField.text.length > 0 ? emojiSearchModel
+                : emoticonPickerCategoryHeader.currentCategory === "history" ? recentImageContentProxyModel
+                : imageContentModel
+            stickers: emoticonPickerTypeHeader.selectedType === EmojiPickerTypeHeader.EmoticonType.Sticker
+            emojis: emoticonPickerTypeHeader.selectedType === EmojiPickerTypeHeader.EmoticonType.Emoji
+        }
         Layout.fillWidth: true
         Layout.fillHeight: true
-        withCustom: root.includeCustom
         onChosen: unicode => root.chosen(unicode)
-        header: categories
+        header: emoticonPickerCategoryHeader
         Keys.forwardTo: searchField
-        stickers: root.selectedType === 1
+        stickers: emoticonPickerTypeHeader.selectedType === EmojiPickerTypeHeader.EmoticonType.Sticker
         onStickerChosen: stickerModel.postSticker(emoticonFilterModel.mapToSource(emoticonFilterModel.index(index, 0)).row)
     }
 
+    ImageContentModel {
+        id: imageContentModel
+        category: emoticonPickerCategoryHeader.currentCategory
+    }
+
     Kirigami.Separator {
-        visible: showQuickReaction
         Layout.fillWidth: true
         Layout.preferredHeight: 1
     }
 
-    QQC2.ScrollView {
-        visible: showQuickReaction
+    QuickReaction {
+        id: quickReaction
+        onChosen: root.chosen(text)
         Layout.fillWidth: true
-        Layout.preferredHeight: root.categoryIconSize + QQC2.ScrollBar.horizontal.height
-        QQC2.ScrollBar.horizontal.height: QQC2.ScrollBar.horizontal.visible ? QQC2.ScrollBar.horizontal.implicitHeight : 0
-
-        ListView {
-            id: quickReactions
-            Layout.fillWidth: true
-
-            model: ["👍", "👎", "😄", "🎉", "😕", "❤", "🚀", "👀"]
-
-            delegate: EmojiDelegate {
-                emoji: modelData
-
-                height: root.categoryIconSize
-                width: height
-
-                onClicked: root.chosen(modelData)
-            }
-
-            orientation: Qt.Horizontal
-        }
     }
 
-    ImagePacksModel {
-        id: stickerPackModel
-        room: root.currentRoom
-        showStickers: true
-        showEmoticons: false
+    RecentImageContentProxyModel {
+        id: recentImageContentProxyModel
     }
 
-    StickerModel {
-        id: stickerModel
-        model: stickerPackModel
-        packIndex: 0
-        room: root.currentRoom
-    }
-
-    EmoticonFilterModel {
-        id: emoticonFilterModel
-        sourceModel: stickerModel
-        showStickers: true
-    }
-
-    Component {
-        id: emojiDelegate
-        Kirigami.NavigationTabButton {
-            width: root.categoryIconSize
-            height: width
-            checked: categories.currentIndex === model.index
-            text: modelData ? modelData.emoji : ""
-            QQC2.ToolTip.text: modelData ? modelData.name : ""
-            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-            QQC2.ToolTip.visible: hovered
-            onClicked: {
-                categories.currentIndex = index;
-                categories.focus = true;
-            }
-        }
-    }
-
-    Component {
-        id: stickerDelegate
-        Kirigami.NavigationTabButton {
-            width: root.categoryIconSize
-            height: width
-            checked: stickerModel.packIndex === model.index
-            contentItem: Image {
-                source: model.avatarUrl
-            }
-            QQC2.ToolTip.text: model.name
-            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-            QQC2.ToolTip.visible: hovered && !!model.name
-            onClicked: stickerModel.packIndex = model.index
-        }
+    ImageContentSearchModel {
+        id: emojiSearchModel
+        searchText: searchField.text
     }
 
     function clearSearchField() {

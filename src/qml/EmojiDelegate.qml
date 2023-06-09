@@ -8,14 +8,13 @@ import org.kde.kirigami as Kirigami
 QQC2.ItemDelegate {
     id: root
 
-    property string name
-    property string emoji
+    property string toolTip
     property bool showTones: false
-    property bool isImage: false
 
-    QQC2.ToolTip.text: root.name
-    QQC2.ToolTip.visible: hovered && root.name !== ""
+    QQC2.ToolTip.text: root.toolTip
+    QQC2.ToolTip.visible: hovered && root.toolTip !== ""
     QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+
     leftInset: Kirigami.Units.smallSpacing
     topInset: Kirigami.Units.smallSpacing
     rightInset: Kirigami.Units.smallSpacing
@@ -24,8 +23,7 @@ QQC2.ItemDelegate {
     contentItem: Item {
         Kirigami.Heading {
             anchors.fill: parent
-            visible: !root.emoji.startsWith("image") && !root.isImage
-            text: root.emoji
+            text: root.text
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
             font.family: "emoji"
@@ -38,11 +36,6 @@ QQC2.ItemDelegate {
                 anchors.right: parent.right
                 visible: root.showTones
             }
-        }
-        Image {
-            anchors.fill: parent
-            visible: root.emoji.startsWith("image") || root.isImage
-            source: visible ? root.emoji : ""
         }
     }
 

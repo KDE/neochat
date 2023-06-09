@@ -16,9 +16,7 @@ QQC2.Popup {
      */
     property NeoChatRoom currentRoom
 
-    property bool includeCustom: false
     property bool closeOnChosen: true
-    property bool showQuickReaction: false
 
     signal chosen(string emoji)
 
@@ -60,16 +58,19 @@ QQC2.Popup {
     padding: 2
 
     implicitHeight: Kirigami.Units.gridUnit * 20 + 2 * padding
-    width: Math.min(contentItem.categoryIconSize * 11 + 2 * padding, QQC2.Overlay.overlay.width)
+    width: Math.min(contentItem.implicitWidth + 2 * padding, QQC2.Overlay.overlay.width)
+
     contentItem: EmojiPicker {
         id: emojiPicker
         height: 400
         currentRoom: root.currentRoom
-        includeCustom: root.includeCustom
-        showQuickReaction: root.showQuickReaction
         onChosen: emoji => {
+        onChosen: {
             root.chosen(emoji)
-            if (root.closeOnChosen) root.close()
+            ImageContentManager.emojiUsed(emoji)
+            if (root.closeOnChosen)
+                root.close()
+            }
         }
     }
 }

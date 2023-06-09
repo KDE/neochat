@@ -489,9 +489,7 @@ QQC2.Control {
         y: -implicitHeight
 
         modal: false
-        includeCustom: true
         closeOnChosen: false
-
         currentRoom: root.currentRoom
 
         onChosen: emoji => insertText(emoji)

@@ -8,12 +8,6 @@ add_library(neochat STATIC
     controller.h
     actionshandler.cpp
     actionshandler.h
-    models/emojimodel.cpp
-    models/emojimodel.h
-    emojitones.cpp
-    emojitones.h
-    models/customemojimodel.cpp
-    models/customemojimodel.h
     clipboard.cpp
     clipboard.h
     matriximageprovider.cpp
@@ -50,8 +44,6 @@ add_library(neochat STATIC
     models/userdirectorylistmodel.h
     models/pushrulemodel.cpp
     models/pushrulemodel.h
-    models/emoticonfiltermodel.cpp
-    models/emoticonfiltermodel.h
     notificationsmanager.cpp
     notificationsmanager.h
     models/sortfilterroomlistmodel.cpp
@@ -99,10 +91,6 @@ add_library(neochat STATIC
     texthandler.h
     logger.cpp
     logger.h
-    models/stickermodel.cpp
-    models/stickermodel.h
-    models/imagepacksmodel.cpp
-    models/imagepacksmodel.h
     events/imagepackevent.cpp
     events/imagepackevent.h
     events/joinrulesevent.cpp
@@ -148,6 +136,34 @@ add_library(neochat STATIC
     models/itinerarymodel.h
     proxycontroller.cpp
     proxycontroller.h
+    imagecontentmanager.h
+    imagecontentmanager.cpp
+    models/imagecontentmodel.cpp
+    models/imagecontentmodel.h
+    models/emojipacksmodel.cpp
+    models/emojipacksmodel.h
+    models/accountimagepackmodel.cpp
+    models/accountimagepackmodel.h
+    models/historyimagepackmodel.cpp
+    models/historyimagepackmodel.h
+    models/imagepacksproxymodel.cpp
+    models/imagepacksproxymodel.h
+    models/imagepacksmodel.cpp
+    models/imagepacksmodel.h
+    models/recentimagecontentmodel.h
+    models/recentimagecontentmodel.cpp
+    models/recentimagecontentproxymodel.h
+    models/recentimagecontentproxymodel.cpp
+    models/allimagecontentmodel.h
+    models/allimagecontentmodel.cpp
+    models/imagecontentsearchmodel.h
+    models/imagecontentsearchmodel.cpp
+    models/roomimagepacksmodel.h
+    models/roomimagepacksmodel.cpp
+    models/imagepackroomsmodel.h
+    models/imagepackroomsmodel.cpp
+    models/imagecontentfiltermodel.h
+    models/imagecontentfiltermodel.cpp
 )
 
 qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
@@ -302,6 +318,9 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/NotificationsView.qml
         qml/LoadingDelegate.qml
         qml/TimelineEndDelegate.qml
+        qml/EmojiPickerTypeHeader.qml
+        qml/EmojiPickerPackHeader.qml
+        qml/QuickReaction.qml
     RESOURCES
         qml/confetti.png
         qml/glowdot.png
