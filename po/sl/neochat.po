@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-09 00:48+0000\n"
-"PO-Revision-Date: 2023-06-05 07:02+0200\n"
+"POT-Creation-Date: 2023-06-10 00:48+0000\n"
+"PO-Revision-Date: 2023-06-09 08:30+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.3.1\n"
 
 #: src/controller.cpp:262
@@ -86,10 +86,9 @@ msgid "Room creation failed: %1"
 msgstr "Ustvarjanje sobe ni uspelo: %1"
 
 #: src/controller.cpp:552
-#, fuzzy, kde-format
-#| msgid "Room creation failed: %1"
+#, kde-format
 msgid "Space creation failed: %1"
-msgstr "Ustvarjanje sobe ni uspelo: %1"
+msgstr "Ustvarjanje prostora ni uspelo: %1"
 
 #: src/controller.cpp:566
 #, kde-format
@@ -203,12 +202,12 @@ msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (zgrajeno na %2)"
 
-#: src/main.cpp:323
+#: src/main.cpp:324
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Odjemalec za komunikacijski protokol matrix"
 
-#: src/main.cpp:324
+#: src/main.cpp:325
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Podpira matriko: shema url"
@@ -636,18 +635,16 @@ msgid "Custom"
 msgstr "Po meri"
 
 #: src/models/imagepacksmodel.cpp:90
-#, fuzzy, kde-format
-#| msgid "Own Stickers"
+#, kde-format
 msgctxt "As in 'The user's own Stickers'"
 msgid "Own Stickers"
 msgstr "Lastne nalepke"
 
 #: src/models/imagepacksmodel.cpp:90
-#, fuzzy, kde-format
-#| msgid "Emojis"
+#, kde-format
 msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
-msgstr "Čustvenčki"
+msgstr "Lastni čustvenčki"
 
 #: src/models/messageeventmodel.cpp:469 src/models/messageeventmodel.cpp:478
 #, kde-format
@@ -1207,7 +1204,7 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Prekliči odgovor"
 
-#: src/qml/Component/ChatBox/ChatBox.qml:60
+#: src/qml/Component/ChatBox/ChatBox.qml:64
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "NeoChat je brez povezave. Preverite omrežno povezavo."
@@ -1310,10 +1307,9 @@ msgid "Available Room Versions"
 msgstr "Razpoložljive različice sobe"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:83
-#, fuzzy, kde-format
-#| msgid "Stickers"
+#, kde-format
 msgid "No stickers"
-msgstr "Nalepke"
+msgstr "Ni nalepk"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:83
 #, kde-format
@@ -1674,38 +1670,30 @@ msgstr "V redu"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:15
 #: src/qml/Page/RoomList/ExploreComponent.qml:40
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgid "Create a Space"
-msgstr "Zapusti prostor"
+msgstr "Ustvari prostor"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:23
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgctxt "@title"
 msgid "Create a Space"
-msgstr "Zapusti prostor"
+msgstr "Ustvari prostor"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:27
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Space members"
+#, kde-format
 msgid "Space name"
-msgstr "Člani prostora"
+msgstr "Ime prostora"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:31
 #, kde-format
 msgid "Space topic (optional)"
-msgstr ""
+msgstr "Tema prostora (neobvezno)"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:34
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgid "Create space"
-msgstr "Zapusti prostor"
+msgstr "Ustvari prostor"
 
 #: src/qml/Dialog/KeyVerification/EmojiSas.qml:23
 #, kde-format
