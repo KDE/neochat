@@ -342,7 +342,7 @@ ColumnLayout {
 
         Component.onCompleted: {
             if (root.isReply && root.reply === undefined) {
-                messageEventModel.loadReply(sortedMessageEventModel.mapToSource(collapseStateProxyModel.mapToSource(collapseStateProxyModel.index(root.index, 0))))
+                currentRoom.loadReply(root.eventId, root.replyId)
             }
         }
 
@@ -613,7 +613,9 @@ ColumnLayout {
     }
 
     function setHoverActionsToDelegate() {
-        ListView.view.setHoverActionsToDelegate(root)
+        if (ListView.view.setHoverActionsToDelegate) {
+            ListView.view.setHoverActionsToDelegate(root)
+        }
     }
 
     DelegateSizeHelper {

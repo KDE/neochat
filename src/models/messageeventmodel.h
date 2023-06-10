@@ -141,14 +141,6 @@ public:
      */
     Q_INVOKABLE [[nodiscard]] int eventIdToRow(const QString &eventID) const;
 
-    /**
-     * @brief Load the event that the item at the given index replied to.
-     *
-     * This is used to ensure that the reply data is available when the message that
-     * was replied to is outside the currently loaded timeline.
-     */
-    Q_INVOKABLE void loadReply(const QModelIndex &index);
-
 private Q_SLOTS:
     int refreshEvent(const QString &eventId);
     void refreshRow(int row);
@@ -175,13 +167,10 @@ private:
     int refreshEventRoles(const QString &eventId, const QVector<int> &roles = {});
     void moveReadMarker(const QString &toEventId);
 
-    const Quotient::RoomEvent *getReplyForEvent(const Quotient::RoomEvent &event) const;
     QVariantMap getMediaInfoForEvent(const Quotient::RoomEvent &event) const;
     QVariantMap getMediaInfoFromFileInfo(const Quotient::EventContent::FileInfo *fileInfo, const QString &eventId, bool isThumbnail = false) const;
     void createLinkPreviewerForEvent(const Quotient::RoomMessageEvent *event);
     void createReactionModelForEvent(const Quotient::RoomMessageEvent *event);
-
-    std::vector<Quotient::event_ptr_tt<Quotient::RoomEvent>> m_extraEvents;
     // Hack to ensure that we don't call endInsertRows when we haven't called beginInsertRows
     bool m_initialized = false;
 

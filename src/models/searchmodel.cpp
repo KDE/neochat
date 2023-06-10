@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: LGPL-2.0-or-later
 
 #include "searchmodel.h"
+#include "events/stickerevent.h"
 #include "messageeventmodel.h"
 #include "neochatroom.h"
 #include "neochatuser.h"
@@ -96,16 +97,7 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
     case ShowAuthorRole:
         return true;
     case AuthorRole:
-        return QVariantMap{
-            {"isLocalUser", event.senderId() == m_room->localUser()->id()},
-            {"id", event.senderId()},
-            {"avatarMediaId", m_connection->user(event.senderId())->avatarMediaId(m_room)},
-            {"avatarUrl", m_connection->user(event.senderId())->avatarUrl(m_room)},
-            {"displayName", m_connection->user(event.senderId())->displayname(m_room)},
-            {"display", m_connection->user(event.senderId())->name()},
-            {"color", dynamic_cast<NeoChatUser *>(m_connection->user(event.senderId()))->color()},
-            {"object", QVariant::fromValue(m_connection->user(event.senderId()))},
-        };
+        return m_room->getUser(event.senderId());
     case ShowSectionRole:
         if (row == 0) {
             return true;
@@ -115,6 +107,72 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
         return renderDate(event.originTimestamp());
     case TimeRole:
         return event.originTimestamp();
+    case ShowReactionsRole:
+        return false;
+    case ShowReadMarkersRole:
+        return false;
+    case ReplyAuthorRole:
+        if (const auto &replyPtr = m_room->getReplyForEvent(event)) {
+            return m_room->getUser(static_cast<NeoChatUser *>(m_room->user(replyPtr->senderId())));
+        } else {
+            return m_room->getUser(nullptr);
+        }
+    case ReplyRole:
+        if (role == ReplyRole) {
+            auto replyPtr = m_room->getReplyForEvent(event);
+            if (!replyPtr) {
+                return {};
+            }
+
+            MessageEventModel::DelegateType type;
+            if (auto e = eventCast<const RoomMessageEvent>(replyPtr)) {
+                switch (e->msgtype()) {
+                case MessageEventType::Emote:
+                    type = MessageEventModel::DelegateType::Emote;
+                    break;
+                case MessageEventType::Notice:
+                    type = MessageEventModel::DelegateType::Notice;
+                    break;
+                case MessageEventType::Image:
+                    type = MessageEventModel::DelegateType::Image;
+                    break;
+                case MessageEventType::Audio:
+                    type = MessageEventModel::DelegateType::Audio;
+                    break;
+                case MessageEventType::Video:
+                    type = MessageEventModel::DelegateType::Video;
+                    break;
+                default:
+                    if (e->hasFileContent()) {
+                        type = MessageEventModel::DelegateType::File;
+                        break;
+                    }
+                    type = MessageEventModel::DelegateType::Message;
+                }
+
+            } else if (is<const StickerEvent>(*replyPtr)) {
+                type = MessageEventModel::DelegateType::Sticker;
+            } else {
+                type = MessageEventModel::DelegateType::Other;
+            }
+
+            return QVariantMap{
+                {"display", m_room->eventToString(*replyPtr, Qt::RichText)},
+                {"type", type},
+            };
+        }
+    case IsPendingRole:
+        return false;
+    case ShowLinkPreviewRole:
+        return false;
+    case IsReplyRole:
+        return !event.contentJson()["m.relates_to"].toObject()["m.in_reply_to"].toObject()["event_id"].toString().isEmpty();
+    case HighlightRole:
+        return !m_room->isDirectChat() && m_room->isEventHighlighted(&event);
+    case EventIdRole:
+        return event.id();
+    case ReplyIdRole:
+        return event.contentJson()["m.relates_to"].toObject()["m.in_reply_to"].toObject()["event_id"].toString();
     }
     return MessageEventModel::DelegateType::Message;
 #endif
@@ -142,6 +200,27 @@ QHash<int, QByteArray> SearchModel::roleNames() const
         {SectionRole, "section"},
         {TimeRole, "time"},
         {ShowAuthorRole, "showAuthor"},
+        {EventIdRole, "eventId"},
+        {ExcessReadMarkersRole, "excessReadMarkers"},
+        {HighlightRole, "isHighlighted"},
+        {ReadMarkersString, "readMarkersString"},
+        {PlainTextRole, "plainText"},
+        {VerifiedRole, "verified"},
+        {ReplyAuthorRole, "replyAuthor"},
+        {ProgressInfoRole, "progressInfo"},
+        {IsReplyRole, "isReply"},
+        {ShowReactionsRole, "showReactions"},
+        {ReplyRole, "reply"},
+        {ReactionRole, "reaction"},
+        {ReplyMediaInfoRole, "replyMediaInfo"},
+        {ReadMarkersRole, "readMarkers"},
+        {IsPendingRole, "isPending"},
+        {ShowReadMarkersRole, "showReadMarkers"},
+        {ReplyIdRole, "replyId"},
+        {MimeTypeRole, "mimeType"},
+        {ShowLinkPreviewRole, "showLinkPreview"},
+        {LinkPreviewRole, "linkPreview"},
+        {SourceRole, "source"},
     };
 }
 
@@ -152,8 +231,26 @@ NeoChatRoom *SearchModel::room() const
 
 void SearchModel::setRoom(NeoChatRoom *room)
 {
+    if (m_room) {
+        disconnect(m_room, nullptr, this, nullptr);
+    }
     m_room = room;
     Q_EMIT roomChanged();
+
+#ifdef QUOTIENT_07
+    connect(m_room, &NeoChatRoom::replyLoaded, this, [this](const auto &eventId, const auto &replyId) {
+        Q_UNUSED(replyId);
+        const auto &results = m_result->results;
+        auto it = std::find_if(results.begin(), results.end(), [eventId](const auto &event) {
+            return event.result->id() == eventId;
+        });
+        if (it == results.end()) {
+            return;
+        }
+        auto row = it - results.begin();
+        Q_EMIT dataChanged(index(row, 0), index(row, 0), {ReplyRole, ReplyMediaInfoRole, ReplyAuthorRole});
+    });
+#endif
 }
 
 // TODO deduplicate with messageeventmodel

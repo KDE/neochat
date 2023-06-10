@@ -18,10 +18,12 @@
 #include <connection.h>
 #include <csapi/account-data.h>
 #include <csapi/directory.h>
+#include <csapi/event_context.h>
 #include <csapi/pushrules.h>
 #include <csapi/redaction.h>
 #include <csapi/report_content.h>
 #include <csapi/room_state.h>
+#include <csapi/rooms.h>
 #include <csapi/typing.h>
 #include <events/encryptionevent.h>
 #include <events/reactionevent.h>
@@ -32,6 +34,7 @@
 #include <events/roompowerlevelsevent.h>
 #include <events/simplestateevents.h>
 #include <jobs/downloadfilejob.h>
+
 #ifndef QUOTIENT_07
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <joinstate.h>
@@ -2068,4 +2071,33 @@ QUrl NeoChatRoom::avatarForMember(NeoChatUser *user) const
     url.setQuery(q);
     return url;
 #endif
+}
+
+const RoomEvent *NeoChatRoom::getReplyForEvent(const RoomEvent &event) const
+{
+    const QString &replyEventId = event.contentJson()["m.relates_to"].toObject()["m.in_reply_to"].toObject()["event_id"].toString();
+    if (replyEventId.isEmpty()) {
+        return {};
+    };
+
+    const auto replyIt = findInTimeline(replyEventId);
+    const RoomEvent *replyPtr = replyIt != historyEdge() ? &**replyIt : nullptr;
+    if (!replyPtr) {
+        for (const auto &e : m_extraEvents) {
+            if (e->id() == replyEventId) {
+                replyPtr = e.get();
+                break;
+            }
+        }
+    }
+    return replyPtr;
+}
+
+void NeoChatRoom::loadReply(const QString &eventId, const QString &replyId)
+{
+    auto job = connection()->callApi<GetOneRoomEventJob>(id(), replyId);
+    connect(job, &BaseJob::success, this, [this, job, eventId, replyId] {
+        m_extraEvents.push_back(fromJson<event_ptr_tt<RoomEvent>>(job->jsonData()));
+        Q_EMIT replyLoaded(eventId, replyId);
+    });
 }

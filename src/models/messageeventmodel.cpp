@@ -6,12 +6,12 @@
 
 #include "neochatconfig.h"
 #include <connection.h>
-#include <csapi/rooms.h>
 #include <events/reactionevent.h>
 #include <events/redactionevent.h>
 #include <events/roomavatarevent.h>
 #include <events/roommemberevent.h>
 #include <events/simplestateevents.h>
+#include <qt_connection_util.h>
 #include <user.h>
 
 #ifdef QUOTIENT_07
@@ -123,6 +123,14 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
 #else
         lastReadEventId = room->readMarkerEventId();
 #endif
+        connect(m_currentRoom, &NeoChatRoom::replyLoaded, this, [this](const auto &eventId, const auto &replyId) {
+            Q_UNUSED(replyId);
+            auto row = eventIdToRow(eventId);
+            if (row == -1) {
+                return;
+            }
+            Q_EMIT dataChanged(index(row, 0), index(row, 0), {ReplyRole, ReplyMediaInfoRole, ReplyAuthor});
+        });
 
         connect(m_currentRoom, &Room::aboutToAddNewMessages, this, [this](RoomEventsRange events) {
             for (auto &&event : events) {
@@ -675,7 +683,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == ReplyAuthor) {
-        auto replyPtr = getReplyForEvent(evt);
+        auto replyPtr = m_currentRoom->getReplyForEvent(evt);
 
         if (replyPtr) {
             auto replyUser = static_cast<NeoChatUser *>(m_currentRoom->user(replyPtr->senderId()));
@@ -686,7 +694,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == ReplyMediaInfoRole) {
-        auto replyPtr = getReplyForEvent(evt);
+        auto replyPtr = m_currentRoom->getReplyForEvent(evt);
         if (!replyPtr) {
             return {};
         }
@@ -694,7 +702,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == ReplyRole) {
-        auto replyPtr = getReplyForEvent(evt);
+        auto replyPtr = m_currentRoom->getReplyForEvent(evt);
         if (!replyPtr) {
             return {};
         }
@@ -941,36 +949,6 @@ int MessageEventModel::eventIdToRow(const QString &eventID) const
         return -1;
     }
     return it - m_currentRoom->messageEvents().rbegin() + timelineBaseIndex();
-}
-
-void MessageEventModel::loadReply(const QModelIndex &index)
-{
-    auto job = m_currentRoom->connection()->callApi<GetOneRoomEventJob>(m_currentRoom->id(), data(index, ReplyIdRole).toString());
-    QPersistentModelIndex persistentIndex(index);
-    connect(job, &BaseJob::success, this, [this, job, persistentIndex] {
-        m_extraEvents.push_back(fromJson<event_ptr_tt<RoomEvent>>(job->jsonData()));
-        Q_EMIT dataChanged(persistentIndex, persistentIndex, {ReplyRole, ReplyMediaInfoRole, ReplyAuthor});
-    });
-}
-
-const RoomEvent *MessageEventModel::getReplyForEvent(const RoomEvent &event) const
-{
-    const QString &replyEventId = event.contentJson()["m.relates_to"].toObject()["m.in_reply_to"].toObject()["event_id"].toString();
-    if (replyEventId.isEmpty()) {
-        return {};
-    };
-
-    const auto replyIt = m_currentRoom->findInTimeline(replyEventId);
-    const RoomEvent *replyPtr = replyIt != m_currentRoom->historyEdge() ? &**replyIt : nullptr;
-    if (!replyPtr) {
-        for (const auto &e : m_extraEvents) {
-            if (e->id() == replyEventId) {
-                replyPtr = e.get();
-                break;
-            }
-        }
-    }
-    return replyPtr;
 }
 
 QVariantMap MessageEventModel::getMediaInfoForEvent(const RoomEvent &event) const

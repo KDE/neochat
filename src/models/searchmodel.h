@@ -50,17 +50,40 @@ public:
     /**
      * @brief Defines the model roles.
      *
+     * For documentation of the roles, see MessageEventModel.
+     *
      * Some of the roles exist only for compatibility with the MessageEventModel,
      * since the same delegates are used.
      */
     enum Roles {
-        DisplayRole = Qt::DisplayRole, /**< The message string. */
-        DelegateTypeRole, /**< The type of the event. */
-        ShowAuthorRole, /**< Whether the author should be shown (always true). */
-        AuthorRole, /**< The author of the event. */
-        ShowSectionRole, /**< Whether the section header should be shown. */
-        SectionRole, /**< The date of the event as a string. */
-        TimeRole, /**< The timestamp for when the event was sent. */
+        DisplayRole = Qt::DisplayRole,
+        DelegateTypeRole,
+        ShowAuthorRole,
+        AuthorRole,
+        ShowSectionRole,
+        SectionRole,
+        TimeRole,
+        EventIdRole,
+        ExcessReadMarkersRole,
+        HighlightRole,
+        ReadMarkersString,
+        PlainTextRole,
+        VerifiedRole,
+        ReplyAuthorRole,
+        ProgressInfoRole,
+        IsReplyRole,
+        ShowReactionsRole,
+        ReplyRole,
+        ReactionRole,
+        ReplyMediaInfoRole,
+        ReadMarkersRole,
+        IsPendingRole,
+        ShowReadMarkersRole,
+        ReplyIdRole,
+        MimeTypeRole,
+        ShowLinkPreviewRole,
+        LinkPreviewRole,
+        SourceRole,
     };
     Q_ENUM(Roles);
     SearchModel(QObject *parent = nullptr);
