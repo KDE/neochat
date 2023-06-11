@@ -70,7 +70,7 @@ TimelineContainer {
                     Kirigami.Icon {
                         anchors.centerIn: parent
                         anchors.verticalCenterOffset: -parent.height / 8
-                        visible: model.asset === "m.pin"
+                        visible: root.asset === "m.pin"
                         width: height
                         height: parent.height / 3 + 1
                         source: "pin"
