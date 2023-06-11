@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 00:48+0000\n"
+"POT-Creation-Date: 2023-06-11 00:47+0000\n"
 "PO-Revision-Date: 2023-04-20 12:39+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -644,34 +644,34 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Ei emojeja"
 
-#: src/models/messageeventmodel.cpp:469 src/models/messageeventmodel.cpp:478
+#: src/models/messageeventmodel.cpp:477 src/models/messageeventmodel.cpp:486
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Tämä viesti on poistettu]</i>"
 
-#: src/models/messageeventmodel.cpp:470
+#: src/models/messageeventmodel.cpp:478
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Tämä viesti on poistettu: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:545
+#: src/models/messageeventmodel.cpp:553
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[MUOKATTU]"
 
-#: src/models/messageeventmodel.cpp:545
+#: src/models/messageeventmodel.cpp:553
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[MUOKATTU: %1]"
 
-#: src/models/messageeventmodel.cpp:854
+#: src/models/messageeventmodel.cpp:862
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 käyttäjä: "
 msgstr[1] "%1 käyttäjää: "
 
-#: src/models/messageeventmodel.cpp:861
+#: src/models/messageeventmodel.cpp:869
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -729,354 +729,354 @@ msgstr "Vähäinen etusijaisuus"
 msgid "Spaces"
 msgstr "Välilyönnit"
 
-#: src/models/searchmodel.cpp:164
+#: src/models/searchmodel.cpp:261
 #, kde-format
 msgid "Today"
 msgstr "Tänään"
 
-#: src/models/searchmodel.cpp:167
+#: src/models/searchmodel.cpp:264
 #, kde-format
 msgid "Yesterday"
 msgstr "Eilen"
 
-#: src/models/searchmodel.cpp:170
+#: src/models/searchmodel.cpp:267
 #, kde-format
 msgid "The day before yesterday"
 msgstr "Toissapäivänä"
 
-#: src/neochatroom.cpp:527
+#: src/neochatroom.cpp:530
 #, kde-format
 msgid "a file"
 msgstr "tiedosto"
 
-#: src/neochatroom.cpp:578
+#: src/neochatroom.cpp:581
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "kutsui henkilön %1 uudelleen huoneeseen"
 
-#: src/neochatroom.cpp:580
+#: src/neochatroom.cpp:583
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:589 src/neochatroom.cpp:734
+#: src/neochatroom.cpp:592 src/neochatroom.cpp:737
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "liittyi huoneeseen (toisto)"
 
-#: src/neochatroom.cpp:591
+#: src/neochatroom.cpp:594
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "kutsui huoneeseen henkilön %1"
 
-#: src/neochatroom.cpp:591 src/neochatroom.cpp:736
+#: src/neochatroom.cpp:594 src/neochatroom.cpp:739
 #, kde-format
 msgid "joined the room"
 msgstr "liittyi huoneeseen"
 
-#: src/neochatroom.cpp:595
+#: src/neochatroom.cpp:598
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:602 src/neochatroom.cpp:744
+#: src/neochatroom.cpp:605 src/neochatroom.cpp:747
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "tyhjensi näyttönimensä"
 
-#: src/neochatroom.cpp:604
+#: src/neochatroom.cpp:607
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "vaihtoi näyttönimekseen %1"
 
-#: src/neochatroom.cpp:609 src/neochatroom.cpp:751
+#: src/neochatroom.cpp:612 src/neochatroom.cpp:754
 #, kde-format
 msgid " and "
 msgstr " ja "
 
-#: src/neochatroom.cpp:612 src/neochatroom.cpp:754
+#: src/neochatroom.cpp:615 src/neochatroom.cpp:757
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "tyhjensi avatarinsa"
 
-#: src/neochatroom.cpp:618 src/neochatroom.cpp:760
+#: src/neochatroom.cpp:621 src/neochatroom.cpp:763
 #, kde-format
 msgid "set an avatar"
 msgstr "asetti avatarin"
 
-#: src/neochatroom.cpp:620 src/neochatroom.cpp:762
+#: src/neochatroom.cpp:623 src/neochatroom.cpp:765
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "päivitti avatarinsa"
 
-#: src/neochatroom.cpp:624 src/neochatroom.cpp:766
+#: src/neochatroom.cpp:627 src/neochatroom.cpp:769
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "ei muuttanut mitään"
 
-#: src/neochatroom.cpp:630
+#: src/neochatroom.cpp:633
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "peruutti henkilön %1 kutsun"
 
-#: src/neochatroom.cpp:630 src/neochatroom.cpp:772
+#: src/neochatroom.cpp:633 src/neochatroom.cpp:775
 #, kde-format
 msgid "rejected the invitation"
 msgstr "hylkäsi kutsun"
 
-#: src/neochatroom.cpp:634
+#: src/neochatroom.cpp:637
 #, kde-format
 msgid "unbanned %1"
 msgstr "perui käyttäjän %1 eston"
 
-#: src/neochatroom.cpp:634 src/neochatroom.cpp:776
+#: src/neochatroom.cpp:637 src/neochatroom.cpp:779
 #, kde-format
 msgid "self-unbanned"
 msgstr "perui itsensä eston"
 
-#: src/neochatroom.cpp:637
+#: src/neochatroom.cpp:640
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "poisti henkilön %1 huoneesta %2"
 
-#: src/neochatroom.cpp:638 src/neochatroom.cpp:778
+#: src/neochatroom.cpp:641 src/neochatroom.cpp:781
 #, kde-format
 msgid "left the room"
 msgstr "poistui huoneesta"
 
-#: src/neochatroom.cpp:642
+#: src/neochatroom.cpp:645
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "torjui käyttäjän %1 huoneesta"
 
-#: src/neochatroom.cpp:644
+#: src/neochatroom.cpp:647
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "esti henkilön %1 pääsemästä huoneeseen %2"
 
-#: src/neochatroom.cpp:647 src/neochatroom.cpp:783
+#: src/neochatroom.cpp:650 src/neochatroom.cpp:786
 #, kde-format
 msgid "self-banned from the room"
 msgstr "esti itsensä pääsemästä huoneeseen"
 
-#: src/neochatroom.cpp:651 src/neochatroom.cpp:786
+#: src/neochatroom.cpp:654 src/neochatroom.cpp:789
 #, kde-format
 msgid "requested an invite"
 msgstr "pyysi kutsua"
 
-#: src/neochatroom.cpp:651
+#: src/neochatroom.cpp:654
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "pyysi kutsua, koska: %1"
 
-#: src/neochatroom.cpp:655 src/neochatroom.cpp:790
+#: src/neochatroom.cpp:658 src/neochatroom.cpp:793
 #, kde-format
 msgid "made something unknown"
 msgstr "teki jotakin tuntematonta"
 
-#: src/neochatroom.cpp:658 src/neochatroom.cpp:793
+#: src/neochatroom.cpp:661 src/neochatroom.cpp:796
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "tyhjensi huoneen pääaliaksen"
 
-#: src/neochatroom.cpp:658
+#: src/neochatroom.cpp:661
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "asetti huoneen pääaliakseksi %1"
 
-#: src/neochatroom.cpp:661 src/neochatroom.cpp:796
+#: src/neochatroom.cpp:664 src/neochatroom.cpp:799
 #, kde-format
 msgid "cleared the room name"
 msgstr "tyhjensi huoneen nimen"
 
-#: src/neochatroom.cpp:661
+#: src/neochatroom.cpp:664
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "asetti huoneen nimeksi %1"
 
-#: src/neochatroom.cpp:664 src/neochatroom.cpp:799
+#: src/neochatroom.cpp:667 src/neochatroom.cpp:802
 #, kde-format
 msgid "cleared the topic"
 msgstr "tyhjensi aiheen"
 
-#: src/neochatroom.cpp:665
+#: src/neochatroom.cpp:668
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "asetti aiheeksi %1"
 
-#: src/neochatroom.cpp:671 src/neochatroom.cpp:802
+#: src/neochatroom.cpp:674 src/neochatroom.cpp:805
 #, kde-format
 msgid "changed the room avatar"
 msgstr "vaihtoi huoneen avatarin"
 
-#: src/neochatroom.cpp:674 src/neochatroom.cpp:805
+#: src/neochatroom.cpp:677 src/neochatroom.cpp:808
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "aktivoi alusta loppuun -salauksen"
 
-#: src/neochatroom.cpp:677
+#: src/neochatroom.cpp:680
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "päivitti huoneen versioon %1"
 
-#: src/neochatroom.cpp:678
+#: src/neochatroom.cpp:681
 #, kde-format
 msgid "created the room, version %1"
 msgstr "loi huoneen, versio %1"
 
-#: src/neochatroom.cpp:681 src/neochatroom.cpp:811
+#: src/neochatroom.cpp:684 src/neochatroom.cpp:814
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "muutti tämän huoneen käyttöoikeustasoja"
 
-#: src/neochatroom.cpp:685 src/neochatroom.cpp:815
+#: src/neochatroom.cpp:688 src/neochatroom.cpp:818
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "muutti tämän huoneen palvelimen ACL-luetteloita"
 
-#: src/neochatroom.cpp:689
+#: src/neochatroom.cpp:692
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "lisäsi %1-sovelman"
 
-#: src/neochatroom.cpp:692
+#: src/neochatroom.cpp:695
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "poisti %1-sovelman"
 
-#: src/neochatroom.cpp:694
+#: src/neochatroom.cpp:697
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "muutti %1-sovelman asetuksia"
 
-#: src/neochatroom.cpp:696
+#: src/neochatroom.cpp:699
 #, kde-format
 msgid "updated %1 state"
 msgstr "päivitti %1-tilansa"
 
-#: src/neochatroom.cpp:697
+#: src/neochatroom.cpp:700
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "päivitti käyttäjän %2 %1-tilan"
 
-#: src/neochatroom.cpp:704 src/neochatroom.cpp:834
+#: src/neochatroom.cpp:707 src/neochatroom.cpp:837
 #, kde-format
 msgid "Unknown event"
 msgstr "Tuntematon tapahtuma"
 
-#: src/neochatroom.cpp:717
+#: src/neochatroom.cpp:720
 #, kde-format
 msgid "sent a message"
 msgstr "lähetti viestin"
 
-#: src/neochatroom.cpp:721
+#: src/neochatroom.cpp:724
 #, kde-format
 msgid "sent a sticker"
 msgstr "lähetti tarran"
 
-#: src/neochatroom.cpp:727
+#: src/neochatroom.cpp:730
 #, kde-format
 msgid "reinvited someone to the room"
 msgstr "kutsui jonkun huoneeseen uudestaan"
 
-#: src/neochatroom.cpp:736
+#: src/neochatroom.cpp:739
 #, kde-format
 msgid "invited someone to the room"
 msgstr "kutsui jonkun huoneeseen"
 
-#: src/neochatroom.cpp:746
+#: src/neochatroom.cpp:749
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name"
 msgstr "vaihtoi näyttönimeään"
 
-#: src/neochatroom.cpp:772
+#: src/neochatroom.cpp:775
 #, kde-format
 msgid "withdrew a user's invitation"
 msgstr "perui käyttäjän kutsun"
 
-#: src/neochatroom.cpp:776
+#: src/neochatroom.cpp:779
 #, kde-format
 msgid "unbanned a user"
 msgstr "perui käyttäjän eston"
 
-#: src/neochatroom.cpp:778
+#: src/neochatroom.cpp:781
 #, kde-format
 msgid "put a user out of the room"
 msgstr "poisti henkilön huoneesta"
 
-#: src/neochatroom.cpp:781
+#: src/neochatroom.cpp:784
 #, kde-format
 msgid "banned a user from the room"
 msgstr "esti käyttäjän huoneesta"
 
 # Nämä set…-alkuiset oletan imperfekteiksi imperatiivien sijaan, koska ympärillä on muita (banned, upgraded jne.)
-#: src/neochatroom.cpp:793
+#: src/neochatroom.cpp:796
 #, kde-format
 msgid "set the room main alias"
 msgstr "asetti huoneen pääaliaksen"
 
-#: src/neochatroom.cpp:796
+#: src/neochatroom.cpp:799
 #, kde-format
 msgid "set the room name"
 msgstr "asetti huoneen nimen"
 
-#: src/neochatroom.cpp:799
+#: src/neochatroom.cpp:802
 #, kde-format
 msgid "set the topic"
 msgstr "asetti aiheen"
 
-#: src/neochatroom.cpp:808
+#: src/neochatroom.cpp:811
 #, kde-format
 msgid "upgraded the room version"
 msgstr "päivitti huoneen version"
 
-#: src/neochatroom.cpp:808
+#: src/neochatroom.cpp:811
 #, kde-format
 msgid "created the room"
 msgstr "loi huoneen"
 
-#: src/neochatroom.cpp:819
+#: src/neochatroom.cpp:822
 #, kde-format
 msgid "added a widget"
 msgstr "lisäsi sovelman"
 
-#: src/neochatroom.cpp:822
+#: src/neochatroom.cpp:825
 #, kde-format
 msgid "removed a widget"
 msgstr "poisti sovelman"
 
-#: src/neochatroom.cpp:824
+#: src/neochatroom.cpp:827
 #, kde-format
 msgid "configured a widget"
 msgstr "määritti sovelman"
 
-#: src/neochatroom.cpp:826
+#: src/neochatroom.cpp:829
 #, kde-format
 msgid "updated the state"
 msgstr "päivitti tilan"
 
-#: src/neochatroom.cpp:831
+#: src/neochatroom.cpp:834
 #, kde-format
 msgid "started a poll"
 msgstr "aloitti kyselyn"
 
-#: src/neochatroom.cpp:1730 src/neochatroom.cpp:1731
+#: src/neochatroom.cpp:1733 src/neochatroom.cpp:1734
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Ilmoituksen lähettäminen onnistui."
 
-#: src/neochatroom.cpp:2033 src/neochatroom.cpp:2041
+#: src/neochatroom.cpp:2036 src/neochatroom.cpp:2044
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"

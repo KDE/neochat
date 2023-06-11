@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 00:48+0000\n"
-"PO-Revision-Date: 2023-06-06 06:34+0200\n"
+"POT-Creation-Date: 2023-06-11 00:47+0000\n"
+"PO-Revision-Date: 2023-06-10 06:34+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -84,10 +84,9 @@ msgid "Room creation failed: %1"
 msgstr "ოთახის შექმნის შეცდომა: %1"
 
 #: src/controller.cpp:552
-#, fuzzy, kde-format
-#| msgid "Room creation failed: %1"
+#, kde-format
 msgid "Space creation failed: %1"
-msgstr "ოთახის შექმნის შეცდომა: %1"
+msgstr "სივრცის შექმნის შეცდომა: %1"
 
 #: src/controller.cpp:566
 #, kde-format
@@ -631,47 +630,45 @@ msgid "Custom"
 msgstr "მორგებული"
 
 #: src/models/imagepacksmodel.cpp:90
-#, fuzzy, kde-format
-#| msgid "Own Stickers"
+#, kde-format
 msgctxt "As in 'The user's own Stickers'"
 msgid "Own Stickers"
 msgstr "საკუთარი სტიკერები"
 
 #: src/models/imagepacksmodel.cpp:90
-#, fuzzy, kde-format
-#| msgid "Emojis"
+#, kde-format
 msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
-msgstr "ემოჯიები"
+msgstr "საკუთარი ემოჯიები"
 
-#: src/models/messageeventmodel.cpp:469 src/models/messageeventmodel.cpp:478
+#: src/models/messageeventmodel.cpp:477 src/models/messageeventmodel.cpp:486
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[ეს შეტყობინება წაშლილია]</i>"
 
-#: src/models/messageeventmodel.cpp:470
+#: src/models/messageeventmodel.cpp:478
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[ეს შეტყობინება წაშლილია: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:545
+#: src/models/messageeventmodel.cpp:553
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[ჩასწორებული]"
 
-#: src/models/messageeventmodel.cpp:545
+#: src/models/messageeventmodel.cpp:553
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[ჩასწორებულია: %1]"
 
-#: src/models/messageeventmodel.cpp:854
+#: src/models/messageeventmodel.cpp:862
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 მომხმარებელი: "
 msgstr[1] "%1 მომხმარებელი: "
 
-#: src/models/messageeventmodel.cpp:861
+#: src/models/messageeventmodel.cpp:869
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -729,353 +726,353 @@ msgstr "დაბალი პრიორიტეტი"
 msgid "Spaces"
 msgstr "სივრცეები"
 
-#: src/models/searchmodel.cpp:164
+#: src/models/searchmodel.cpp:261
 #, kde-format
 msgid "Today"
 msgstr "დღეს"
 
-#: src/models/searchmodel.cpp:167
+#: src/models/searchmodel.cpp:264
 #, kde-format
 msgid "Yesterday"
 msgstr "გუშინ"
 
-#: src/models/searchmodel.cpp:170
+#: src/models/searchmodel.cpp:267
 #, kde-format
 msgid "The day before yesterday"
 msgstr "გუშინწინ"
 
-#: src/neochatroom.cpp:527
+#: src/neochatroom.cpp:530
 #, kde-format
 msgid "a file"
 msgstr "ფაილი"
 
-#: src/neochatroom.cpp:578
+#: src/neochatroom.cpp:581
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "%1 ოთახში კიდევ მოიწვიეთ"
 
-#: src/neochatroom.cpp:580
+#: src/neochatroom.cpp:583
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:589 src/neochatroom.cpp:734
+#: src/neochatroom.cpp:592 src/neochatroom.cpp:737
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "შეუერთდა ოთახს (გამეორებით)"
 
-#: src/neochatroom.cpp:591
+#: src/neochatroom.cpp:594
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "%1 მოწვეულია ოთახში"
 
-#: src/neochatroom.cpp:591 src/neochatroom.cpp:736
+#: src/neochatroom.cpp:594 src/neochatroom.cpp:739
 #, kde-format
 msgid "joined the room"
 msgstr "შეუერთდა ოთახს"
 
-#: src/neochatroom.cpp:595
+#: src/neochatroom.cpp:598
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:602 src/neochatroom.cpp:744
+#: src/neochatroom.cpp:605 src/neochatroom.cpp:747
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "გაასუფთავა მისი საჩვენებელი სახელი"
 
-#: src/neochatroom.cpp:604
+#: src/neochatroom.cpp:607
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "შეცვალა საჩვენებელი სახელი %1-ზე"
 
-#: src/neochatroom.cpp:609 src/neochatroom.cpp:751
+#: src/neochatroom.cpp:612 src/neochatroom.cpp:754
 #, kde-format
 msgid " and "
 msgstr " და "
 
-#: src/neochatroom.cpp:612 src/neochatroom.cpp:754
+#: src/neochatroom.cpp:615 src/neochatroom.cpp:757
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "გაასუფთავა თავისი ავატარი"
 
-#: src/neochatroom.cpp:618 src/neochatroom.cpp:760
+#: src/neochatroom.cpp:621 src/neochatroom.cpp:763
 #, kde-format
 msgid "set an avatar"
 msgstr "ავატარის დაყენება"
 
-#: src/neochatroom.cpp:620 src/neochatroom.cpp:762
+#: src/neochatroom.cpp:623 src/neochatroom.cpp:765
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "განაახლა თავისი ავატარი"
 
-#: src/neochatroom.cpp:624 src/neochatroom.cpp:766
+#: src/neochatroom.cpp:627 src/neochatroom.cpp:769
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "არაფერი შეცვლილა"
 
-#: src/neochatroom.cpp:630
+#: src/neochatroom.cpp:633
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "%1'-ის მოსაწვევი გაუქმდა"
 
-#: src/neochatroom.cpp:630 src/neochatroom.cpp:772
+#: src/neochatroom.cpp:633 src/neochatroom.cpp:775
 #, kde-format
 msgid "rejected the invitation"
 msgstr "უარი მოსაწვევზე"
 
-#: src/neochatroom.cpp:634
+#: src/neochatroom.cpp:637
 #, kde-format
 msgid "unbanned %1"
 msgstr "ბანი მოხსნილია %1"
 
-#: src/neochatroom.cpp:634 src/neochatroom.cpp:776
+#: src/neochatroom.cpp:637 src/neochatroom.cpp:779
 #, kde-format
 msgid "self-unbanned"
 msgstr "თვით-განბლოკილი"
 
-#: src/neochatroom.cpp:637
+#: src/neochatroom.cpp:640
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "გადადო %1 ოთახის გარეთ გადადო: %2"
 
-#: src/neochatroom.cpp:638 src/neochatroom.cpp:778
+#: src/neochatroom.cpp:641 src/neochatroom.cpp:781
 #, kde-format
 msgid "left the room"
 msgstr "გავდა ოთახიდან"
 
-#: src/neochatroom.cpp:642
+#: src/neochatroom.cpp:645
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "%1 დაიბანა ამ ოთახიდან"
 
-#: src/neochatroom.cpp:644
+#: src/neochatroom.cpp:647
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "დაბანა %1 ოთახიდან: %2"
 
-#: src/neochatroom.cpp:647 src/neochatroom.cpp:783
+#: src/neochatroom.cpp:650 src/neochatroom.cpp:786
 #, kde-format
 msgid "self-banned from the room"
 msgstr "ოთახიდან თავი დაიბანეთ"
 
-#: src/neochatroom.cpp:651 src/neochatroom.cpp:786
+#: src/neochatroom.cpp:654 src/neochatroom.cpp:789
 #, kde-format
 msgid "requested an invite"
 msgstr "მოითხოვა მოწვევა"
 
-#: src/neochatroom.cpp:651
+#: src/neochatroom.cpp:654
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "მოწვევა მოთხოვნილია მიზეზით: %1"
 
-#: src/neochatroom.cpp:655 src/neochatroom.cpp:790
+#: src/neochatroom.cpp:658 src/neochatroom.cpp:793
 #, kde-format
 msgid "made something unknown"
 msgstr "რაღაც უცნობი ქნა"
 
-#: src/neochatroom.cpp:658 src/neochatroom.cpp:793
+#: src/neochatroom.cpp:661 src/neochatroom.cpp:796
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "ოთახის მთავარი მეტსახელი გასუფთავებულია"
 
-#: src/neochatroom.cpp:658
+#: src/neochatroom.cpp:661
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "დააყენა ოთახის მთავარი მეტსახელი: %1"
 
-#: src/neochatroom.cpp:661 src/neochatroom.cpp:796
+#: src/neochatroom.cpp:664 src/neochatroom.cpp:799
 #, kde-format
 msgid "cleared the room name"
 msgstr "გაასუფთავა ოთახის სახელი"
 
-#: src/neochatroom.cpp:661
+#: src/neochatroom.cpp:664
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "ოთახის მეტსახელი დაყენებულია: %1"
 
-#: src/neochatroom.cpp:664 src/neochatroom.cpp:799
+#: src/neochatroom.cpp:667 src/neochatroom.cpp:802
 #, kde-format
 msgid "cleared the topic"
 msgstr "გაასუფთავა სათაური"
 
-#: src/neochatroom.cpp:665
+#: src/neochatroom.cpp:668
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "თემა დააყენა: %1"
 
-#: src/neochatroom.cpp:671 src/neochatroom.cpp:802
+#: src/neochatroom.cpp:674 src/neochatroom.cpp:805
 #, kde-format
 msgid "changed the room avatar"
 msgstr "შეცვალა ოთახის ავატარი"
 
-#: src/neochatroom.cpp:674 src/neochatroom.cpp:805
+#: src/neochatroom.cpp:677 src/neochatroom.cpp:808
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "გაააქტიურა გამჭოლი დაშიფვრა"
 
-#: src/neochatroom.cpp:677
+#: src/neochatroom.cpp:680
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "ოთახის ვერსია განაახლა %1-მდე"
 
-#: src/neochatroom.cpp:678
+#: src/neochatroom.cpp:681
 #, kde-format
 msgid "created the room, version %1"
 msgstr "შექნა ოთახი, ვერსია %1"
 
-#: src/neochatroom.cpp:681 src/neochatroom.cpp:811
+#: src/neochatroom.cpp:684 src/neochatroom.cpp:814
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "ამ ოთახზე წვდომის უფლებები შეიცვლა"
 
-#: src/neochatroom.cpp:685 src/neochatroom.cpp:815
+#: src/neochatroom.cpp:688 src/neochatroom.cpp:818
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "ამ ოთახისთვის სერვერის წვდომის კონტროლის სიები შეიცვალა"
 
-#: src/neochatroom.cpp:689
+#: src/neochatroom.cpp:692
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "დაამატა ვიჯეტი %1"
 
-#: src/neochatroom.cpp:692
+#: src/neochatroom.cpp:695
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "წაშალა ვიჯეტი %1"
 
-#: src/neochatroom.cpp:694
+#: src/neochatroom.cpp:697
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "მოირგო ვიჯეტი %1"
 
-#: src/neochatroom.cpp:696
+#: src/neochatroom.cpp:699
 #, kde-format
 msgid "updated %1 state"
 msgstr "განაახლა %1-ის მდგომარეობა"
 
-#: src/neochatroom.cpp:697
+#: src/neochatroom.cpp:700
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "განაახლა %1-ის მდგომარეობა %2-სთვის"
 
-#: src/neochatroom.cpp:704 src/neochatroom.cpp:834
+#: src/neochatroom.cpp:707 src/neochatroom.cpp:837
 #, kde-format
 msgid "Unknown event"
 msgstr "უცნობი მოვლენა"
 
-#: src/neochatroom.cpp:717
+#: src/neochatroom.cpp:720
 #, kde-format
 msgid "sent a message"
 msgstr "გააგზავნა შეტყობინება"
 
-#: src/neochatroom.cpp:721
+#: src/neochatroom.cpp:724
 #, kde-format
 msgid "sent a sticker"
 msgstr "სტიკერი გაგზავნილია"
 
-#: src/neochatroom.cpp:727
+#: src/neochatroom.cpp:730
 #, kde-format
 msgid "reinvited someone to the room"
 msgstr "ვიღაც ოთახში თავიდან მოიწვია"
 
-#: src/neochatroom.cpp:736
+#: src/neochatroom.cpp:739
 #, kde-format
 msgid "invited someone to the room"
 msgstr "მოიწვია ოთახში"
 
-#: src/neochatroom.cpp:746
+#: src/neochatroom.cpp:749
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name"
 msgstr "შეცვალა საჩვენებელი სახელი"
 
-#: src/neochatroom.cpp:772
+#: src/neochatroom.cpp:775
 #, kde-format
 msgid "withdrew a user's invitation"
 msgstr "გააუქმა მომხმარებლის მოსაწვევი"
 
-#: src/neochatroom.cpp:776
+#: src/neochatroom.cpp:779
 #, kde-format
 msgid "unbanned a user"
 msgstr "მომხმარებელს ბანი მოხსნა"
 
-#: src/neochatroom.cpp:778
+#: src/neochatroom.cpp:781
 #, kde-format
 msgid "put a user out of the room"
 msgstr "მომხმარებელი ოთახიდან გასვა"
 
-#: src/neochatroom.cpp:781
+#: src/neochatroom.cpp:784
 #, kde-format
 msgid "banned a user from the room"
 msgstr "დაბანა მომხმარებელი ოთახიდან"
 
-#: src/neochatroom.cpp:793
+#: src/neochatroom.cpp:796
 #, kde-format
 msgid "set the room main alias"
 msgstr "დააყენა ოთახის მთავარი მეტსახელი"
 
-#: src/neochatroom.cpp:796
+#: src/neochatroom.cpp:799
 #, kde-format
 msgid "set the room name"
 msgstr "ოთახის მეტსახელი დაყენებულია"
 
-#: src/neochatroom.cpp:799
+#: src/neochatroom.cpp:802
 #, kde-format
 msgid "set the topic"
 msgstr "თემა დააყენა"
 
-#: src/neochatroom.cpp:808
+#: src/neochatroom.cpp:811
 #, kde-format
 msgid "upgraded the room version"
 msgstr "ოთახის ვერსია განაახლა"
 
-#: src/neochatroom.cpp:808
+#: src/neochatroom.cpp:811
 #, kde-format
 msgid "created the room"
 msgstr "შექმნა ოთახი"
 
-#: src/neochatroom.cpp:819
+#: src/neochatroom.cpp:822
 #, kde-format
 msgid "added a widget"
 msgstr "დაამატა ვიჯეტი"
 
-#: src/neochatroom.cpp:822
+#: src/neochatroom.cpp:825
 #, kde-format
 msgid "removed a widget"
 msgstr "წაშალა ვიჯეტი"
 
-#: src/neochatroom.cpp:824
+#: src/neochatroom.cpp:827
 #, kde-format
 msgid "configured a widget"
 msgstr "მოირგო ვიჯეტი"
 
-#: src/neochatroom.cpp:826
+#: src/neochatroom.cpp:829
 #, kde-format
 msgid "updated the state"
 msgstr "განაახლა მდგომარეობა"
 
-#: src/neochatroom.cpp:831
+#: src/neochatroom.cpp:834
 #, kde-format
 msgid "started a poll"
 msgstr "დაიწყო გამოკითხვა"
 
-#: src/neochatroom.cpp:1730 src/neochatroom.cpp:1731
+#: src/neochatroom.cpp:1733 src/neochatroom.cpp:1734
 #, kde-format
 msgid "Report sent successfully."
 msgstr "ანგარიში წარმატებით გაიგზავნა."
 
-#: src/neochatroom.cpp:2033 src/neochatroom.cpp:2041
+#: src/neochatroom.cpp:2036 src/neochatroom.cpp:2044
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1299,10 +1296,9 @@ msgid "Available Room Versions"
 msgstr "ხელმისაწვდომი ოთახის ვერსიები"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:83
-#, fuzzy, kde-format
-#| msgid "Stickers"
+#, kde-format
 msgid "No stickers"
-msgstr "სტიკერები"
+msgstr "სტიკერების გარეშე"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:83
 #, kde-format
@@ -1660,38 +1656,30 @@ msgstr "Ok"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:15
 #: src/qml/Page/RoomList/ExploreComponent.qml:40
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgid "Create a Space"
-msgstr "ოთახიდან გასვლა"
+msgstr "სივრცის შექმნა"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:23
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgctxt "@title"
 msgid "Create a Space"
-msgstr "ოთახიდან გასვლა"
+msgstr "სივრცის შექმნა"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:27
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Space members"
+#, kde-format
 msgid "Space name"
-msgstr "სივრცის წევრები"
+msgstr "სივრცის სახელი"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:31
 #, kde-format
 msgid "Space topic (optional)"
-msgstr ""
+msgstr "სივრცის თემა (არასავალდებულო)"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:34
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgid "Create space"
-msgstr "ოთახიდან გასვლა"
+msgstr "სივრცის შექმნა"
 
 #: src/qml/Dialog/KeyVerification/EmojiSas.qml:23
 #, kde-format

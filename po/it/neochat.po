@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-10 00:48+0000\n"
-"PO-Revision-Date: 2023-05-18 18:24+0200\n"
+"POT-Creation-Date: 2023-06-11 00:47+0000\n"
+"PO-Revision-Date: 2023-06-09 15:52+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.04.2\n"
 
 #: src/controller.cpp:262
 #, kde-format
@@ -79,16 +79,14 @@ msgid "Contact your matrix server administrator for support."
 msgstr "Contatta l'amministratore del server Matrix per assistenza."
 
 #: src/controller.cpp:531
-#, fuzzy, kde-format
-#| msgid "Room creation failed: \"%1\""
+#, kde-format
 msgid "Room creation failed: %1"
-msgstr "Creazione della stanza non riuscita: «%1»"
+msgstr "Creazione della stanza non riuscita: %1"
 
 #: src/controller.cpp:552
-#, fuzzy, kde-format
-#| msgid "Room creation failed: \"%1\""
+#, kde-format
 msgid "Space creation failed: %1"
-msgstr "Creazione della stanza non riuscita: «%1»"
+msgstr "Creazione dello spazio non riuscita: %1"
 
 #: src/controller.cpp:566
 #, kde-format
@@ -634,47 +632,45 @@ msgid "Custom"
 msgstr "Personalizzati"
 
 #: src/models/imagepacksmodel.cpp:90
-#, fuzzy, kde-format
-#| msgid "Own Stickers"
+#, kde-format
 msgctxt "As in 'The user's own Stickers'"
 msgid "Own Stickers"
 msgstr "I propri adesivi"
 
 #: src/models/imagepacksmodel.cpp:90
-#, fuzzy, kde-format
-#| msgid "Emojis"
+#, kde-format
 msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
-msgstr "Emoji"
+msgstr "I propri emoji"
 
-#: src/models/messageeventmodel.cpp:469 src/models/messageeventmodel.cpp:478
+#: src/models/messageeventmodel.cpp:477 src/models/messageeventmodel.cpp:486
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Questo messaggio è stato eliminato]</i>"
 
-#: src/models/messageeventmodel.cpp:470
+#: src/models/messageeventmodel.cpp:478
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Questo messaggio è stato eliminato: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:545
+#: src/models/messageeventmodel.cpp:553
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[REDATTO]"
 
-#: src/models/messageeventmodel.cpp:545
+#: src/models/messageeventmodel.cpp:553
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[REDATTO: %1]"
 
-#: src/models/messageeventmodel.cpp:854
+#: src/models/messageeventmodel.cpp:862
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 utente: "
 msgstr[1] "%1 utenti: "
 
-#: src/models/messageeventmodel.cpp:861
+#: src/models/messageeventmodel.cpp:869
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -732,353 +728,353 @@ msgstr "Bassa priorità"
 msgid "Spaces"
 msgstr "Spazi"
 
-#: src/models/searchmodel.cpp:164
+#: src/models/searchmodel.cpp:261
 #, kde-format
 msgid "Today"
 msgstr "Oggi"
 
-#: src/models/searchmodel.cpp:167
+#: src/models/searchmodel.cpp:264
 #, kde-format
 msgid "Yesterday"
 msgstr "Ieri"
 
-#: src/models/searchmodel.cpp:170
+#: src/models/searchmodel.cpp:267
 #, kde-format
 msgid "The day before yesterday"
 msgstr "L'altro ieri"
 
-#: src/neochatroom.cpp:527
+#: src/neochatroom.cpp:530
 #, kde-format
 msgid "a file"
 msgstr "un file"
 
-#: src/neochatroom.cpp:578
+#: src/neochatroom.cpp:581
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "ha invitato nuovamente %1 alla stanza"
 
-#: src/neochatroom.cpp:580
+#: src/neochatroom.cpp:583
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:589 src/neochatroom.cpp:734
+#: src/neochatroom.cpp:592 src/neochatroom.cpp:737
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "è entrato nella stanza (ripetuto)"
 
-#: src/neochatroom.cpp:591
+#: src/neochatroom.cpp:594
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "ha invitato %1 alla stanza"
 
-#: src/neochatroom.cpp:591 src/neochatroom.cpp:736
+#: src/neochatroom.cpp:594 src/neochatroom.cpp:739
 #, kde-format
 msgid "joined the room"
 msgstr "è entrato nella stanza"
 
-#: src/neochatroom.cpp:595
+#: src/neochatroom.cpp:598
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:602 src/neochatroom.cpp:744
+#: src/neochatroom.cpp:605 src/neochatroom.cpp:747
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "ha cancellato il suo nome visualizzato"
 
-#: src/neochatroom.cpp:604
+#: src/neochatroom.cpp:607
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "ha cambiato il suo nome visualizzato in %1"
 
-#: src/neochatroom.cpp:609 src/neochatroom.cpp:751
+#: src/neochatroom.cpp:612 src/neochatroom.cpp:754
 #, kde-format
 msgid " and "
 msgstr " e "
 
-#: src/neochatroom.cpp:612 src/neochatroom.cpp:754
+#: src/neochatroom.cpp:615 src/neochatroom.cpp:757
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "ha cancellato il suo avatar"
 
-#: src/neochatroom.cpp:618 src/neochatroom.cpp:760
+#: src/neochatroom.cpp:621 src/neochatroom.cpp:763
 #, kde-format
 msgid "set an avatar"
 msgstr "ha impostato un avatar"
 
-#: src/neochatroom.cpp:620 src/neochatroom.cpp:762
+#: src/neochatroom.cpp:623 src/neochatroom.cpp:765
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "ha aggiornato il suo avatar"
 
-#: src/neochatroom.cpp:624 src/neochatroom.cpp:766
+#: src/neochatroom.cpp:627 src/neochatroom.cpp:769
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "nessuna modifica"
 
-#: src/neochatroom.cpp:630
+#: src/neochatroom.cpp:633
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "ha ritirato l'invito di %1"
 
-#: src/neochatroom.cpp:630 src/neochatroom.cpp:772
+#: src/neochatroom.cpp:633 src/neochatroom.cpp:775
 #, kde-format
 msgid "rejected the invitation"
 msgstr "ha rifiutato l'invito"
 
-#: src/neochatroom.cpp:634
+#: src/neochatroom.cpp:637
 #, kde-format
 msgid "unbanned %1"
 msgstr "ha rimosso il bando per %1"
 
-#: src/neochatroom.cpp:634 src/neochatroom.cpp:776
+#: src/neochatroom.cpp:637 src/neochatroom.cpp:779
 #, kde-format
 msgid "self-unbanned"
 msgstr "ha rimosso il bando da se stesso"
 
-#: src/neochatroom.cpp:637
+#: src/neochatroom.cpp:640
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "ha espulso %1 dalla stanza: %2"
 
-#: src/neochatroom.cpp:638 src/neochatroom.cpp:778
+#: src/neochatroom.cpp:641 src/neochatroom.cpp:781
 #, kde-format
 msgid "left the room"
 msgstr "ha abbandonato la stanza"
 
-#: src/neochatroom.cpp:642
+#: src/neochatroom.cpp:645
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "ha bandito %1 dalla stanza"
 
-#: src/neochatroom.cpp:644
+#: src/neochatroom.cpp:647
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "ha bandito %1 dalla stanza: %2"
 
-#: src/neochatroom.cpp:647 src/neochatroom.cpp:783
+#: src/neochatroom.cpp:650 src/neochatroom.cpp:786
 #, kde-format
 msgid "self-banned from the room"
 msgstr "auto-bandito dalla stanza"
 
-#: src/neochatroom.cpp:651 src/neochatroom.cpp:786
+#: src/neochatroom.cpp:654 src/neochatroom.cpp:789
 #, kde-format
 msgid "requested an invite"
 msgstr "ha richiesto un invito"
 
-#: src/neochatroom.cpp:651
+#: src/neochatroom.cpp:654
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "ha richiesto un invito con motivo: %1"
 
-#: src/neochatroom.cpp:655 src/neochatroom.cpp:790
+#: src/neochatroom.cpp:658 src/neochatroom.cpp:793
 #, kde-format
 msgid "made something unknown"
 msgstr "ha fatto qualcosa di sconosciuto"
 
-#: src/neochatroom.cpp:658 src/neochatroom.cpp:793
+#: src/neochatroom.cpp:661 src/neochatroom.cpp:796
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "ha cancellato l'alias principale della stanza"
 
-#: src/neochatroom.cpp:658
+#: src/neochatroom.cpp:661
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "ha impostato l'alias principale della stanza a: %1"
 
-#: src/neochatroom.cpp:661 src/neochatroom.cpp:796
+#: src/neochatroom.cpp:664 src/neochatroom.cpp:799
 #, kde-format
 msgid "cleared the room name"
 msgstr "ha cancellato il nome della stanza"
 
-#: src/neochatroom.cpp:661
+#: src/neochatroom.cpp:664
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "ha impostato il nome della stanza a: %1"
 
-#: src/neochatroom.cpp:664 src/neochatroom.cpp:799
+#: src/neochatroom.cpp:667 src/neochatroom.cpp:802
 #, kde-format
 msgid "cleared the topic"
 msgstr "ha cancellato l'argomento"
 
-#: src/neochatroom.cpp:665
+#: src/neochatroom.cpp:668
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "ha impostato l'argomento a: %1"
 
-#: src/neochatroom.cpp:671 src/neochatroom.cpp:802
+#: src/neochatroom.cpp:674 src/neochatroom.cpp:805
 #, kde-format
 msgid "changed the room avatar"
 msgstr "ha cambiato l'avatar della stanza"
 
-#: src/neochatroom.cpp:674 src/neochatroom.cpp:805
+#: src/neochatroom.cpp:677 src/neochatroom.cpp:808
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "ha attivato la cifratura End-to-End"
 
-#: src/neochatroom.cpp:677
+#: src/neochatroom.cpp:680
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "ha aggiornato la stanza alla versione %1"
 
-#: src/neochatroom.cpp:678
+#: src/neochatroom.cpp:681
 #, kde-format
 msgid "created the room, version %1"
 msgstr "ha creato la stanza, versione %1"
 
-#: src/neochatroom.cpp:681 src/neochatroom.cpp:811
+#: src/neochatroom.cpp:684 src/neochatroom.cpp:814
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "ha modificato i livelli di potenza per questa stanza"
 
-#: src/neochatroom.cpp:685 src/neochatroom.cpp:815
+#: src/neochatroom.cpp:688 src/neochatroom.cpp:818
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "ha modificato la lista di controllo degli accessi per questa stanza"
 
-#: src/neochatroom.cpp:689
+#: src/neochatroom.cpp:692
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "aggiunto %1 oggetto"
 
-#: src/neochatroom.cpp:692
+#: src/neochatroom.cpp:695
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "rimosso %1 oggetto"
 
-#: src/neochatroom.cpp:694
+#: src/neochatroom.cpp:697
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "configurato %1 oggetto"
 
-#: src/neochatroom.cpp:696
+#: src/neochatroom.cpp:699
 #, kde-format
 msgid "updated %1 state"
 msgstr "ha aggiornato lo stato di %1"
 
-#: src/neochatroom.cpp:697
+#: src/neochatroom.cpp:700
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "ha aggiornato lo stato di %1 per %2"
 
-#: src/neochatroom.cpp:704 src/neochatroom.cpp:834
+#: src/neochatroom.cpp:707 src/neochatroom.cpp:837
 #, kde-format
 msgid "Unknown event"
 msgstr "Evento sconosciuto"
 
-#: src/neochatroom.cpp:717
+#: src/neochatroom.cpp:720
 #, kde-format
 msgid "sent a message"
 msgstr "ha inviato un messaggio"
 
-#: src/neochatroom.cpp:721
+#: src/neochatroom.cpp:724
 #, kde-format
 msgid "sent a sticker"
 msgstr "ha inviato un adesivo"
 
-#: src/neochatroom.cpp:727
+#: src/neochatroom.cpp:730
 #, kde-format
 msgid "reinvited someone to the room"
 msgstr "ha invitato nuovamente qualcuno alla stanza"
 
-#: src/neochatroom.cpp:736
+#: src/neochatroom.cpp:739
 #, kde-format
 msgid "invited someone to the room"
 msgstr "ha invitato qualcuno alla stanza"
 
-#: src/neochatroom.cpp:746
+#: src/neochatroom.cpp:749
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name"
 msgstr "ha cambiato il suo nome visualizzato"
 
-#: src/neochatroom.cpp:772
+#: src/neochatroom.cpp:775
 #, kde-format
 msgid "withdrew a user's invitation"
 msgstr "ha ritirato l'invito di utente"
 
-#: src/neochatroom.cpp:776
+#: src/neochatroom.cpp:779
 #, kde-format
 msgid "unbanned a user"
 msgstr "ha rimosso il bando per un utente"
 
-#: src/neochatroom.cpp:778
+#: src/neochatroom.cpp:781
 #, kde-format
 msgid "put a user out of the room"
 msgstr "ha espulso un utente dalla stanza"
 
-#: src/neochatroom.cpp:781
+#: src/neochatroom.cpp:784
 #, kde-format
 msgid "banned a user from the room"
 msgstr "ha bandito un utente dalla stanza"
 
-#: src/neochatroom.cpp:793
+#: src/neochatroom.cpp:796
 #, kde-format
 msgid "set the room main alias"
 msgstr "ha impostato l'alias principale della stanza"
 
-#: src/neochatroom.cpp:796
+#: src/neochatroom.cpp:799
 #, kde-format
 msgid "set the room name"
 msgstr "ha impostato il nome della stanza"
 
-#: src/neochatroom.cpp:799
+#: src/neochatroom.cpp:802
 #, kde-format
 msgid "set the topic"
 msgstr "ha impostato l'argomento"
 
-#: src/neochatroom.cpp:808
+#: src/neochatroom.cpp:811
 #, kde-format
 msgid "upgraded the room version"
 msgstr "ha aggiornato la versione della stanza"
 
-#: src/neochatroom.cpp:808
+#: src/neochatroom.cpp:811
 #, kde-format
 msgid "created the room"
 msgstr "ha creato la stanza"
 
-#: src/neochatroom.cpp:819
+#: src/neochatroom.cpp:822
 #, kde-format
 msgid "added a widget"
 msgstr "ha aggiunto un oggetto"
 
-#: src/neochatroom.cpp:822
+#: src/neochatroom.cpp:825
 #, kde-format
 msgid "removed a widget"
 msgstr "ha rimosso un oggetto"
 
-#: src/neochatroom.cpp:824
+#: src/neochatroom.cpp:827
 #, kde-format
 msgid "configured a widget"
 msgstr "ha configurato un oggetto"
 
-#: src/neochatroom.cpp:826
+#: src/neochatroom.cpp:829
 #, kde-format
 msgid "updated the state"
 msgstr "ha aggiornato lo stato"
 
-#: src/neochatroom.cpp:831
+#: src/neochatroom.cpp:834
 #, kde-format
 msgid "started a poll"
 msgstr "ha avviato un sondaggio"
 
-#: src/neochatroom.cpp:1730 src/neochatroom.cpp:1731
+#: src/neochatroom.cpp:1733 src/neochatroom.cpp:1734
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Segnalazione inviata correttamente."
 
-#: src/neochatroom.cpp:2033 src/neochatroom.cpp:2041
+#: src/neochatroom.cpp:2036 src/neochatroom.cpp:2044
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1302,10 +1298,9 @@ msgid "Available Room Versions"
 msgstr "Versioni disponibili delle stanze"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:83
-#, fuzzy, kde-format
-#| msgid "Stickers"
+#, kde-format
 msgid "No stickers"
-msgstr "Adesivi"
+msgstr "Nessun adesivo"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:83
 #, kde-format
@@ -1664,38 +1659,30 @@ msgstr "Ok"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:15
 #: src/qml/Page/RoomList/ExploreComponent.qml:40
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgid "Create a Space"
-msgstr "Abbandona spazio"
+msgstr "Crea uno spazio"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:23
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgctxt "@title"
 msgid "Create a Space"
-msgstr "Abbandona spazio"
+msgstr "Crea uno spazio"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:27
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Space members"
+#, kde-format
 msgid "Space name"
-msgstr "Membri dello spazio"
+msgstr "Nome dello spazio"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:31
 #, kde-format
 msgid "Space topic (optional)"
-msgstr ""
+msgstr "Argomento dello spazio (facoltativo)"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:34
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgid "Create space"
-msgstr "Abbandona spazio"
+msgstr "Crea spazio"
 
 #: src/qml/Dialog/KeyVerification/EmojiSas.qml:23
 #, kde-format
@@ -1738,7 +1725,7 @@ msgstr "In attesa che l'altra parte verifichi."
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:54
 #, kde-format
 msgid "Compare a set of emoji on both devices"
-msgstr "Confronta un set di emoji su entrambi i dispositivi"
+msgstr "Confronta un insieme di emoji su entrambi i dispositivi"
 
 #: src/qml/Dialog/KeyVerification/KeyVerificationDialog.qml:62
 #, kde-format
@@ -3537,19 +3524,17 @@ msgstr "Aggiungi adesivo"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:31
 #: src/qml/Settings/EmoticonFormCard.qml:59
-#, fuzzy, kde-format
-#| msgid "Add Emoji..."
+#, kde-format
 msgctxt "@title"
 msgid "Edit Emoji"
-msgstr "Aggiungi Emoji..."
+msgstr "Modifica emoji"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:31
 #: src/qml/Settings/EmoticonFormCard.qml:109
-#, fuzzy, kde-format
-#| msgid "Add Emoji..."
+#, kde-format
 msgctxt "@title"
 msgid "Add Emoji"
-msgstr "Aggiungi Emoji..."
+msgstr "Aggiungi emoji"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:40
 #, kde-format
@@ -3557,8 +3542,7 @@ msgid "Sticker"
 msgstr "Adesivo"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:40
-#, fuzzy, kde-format
-#| msgid "Emojis"
+#, kde-format
 msgid "Emoji"
 msgstr "Emoji"
 
@@ -3583,18 +3567,15 @@ msgid "Description:"
 msgstr "Descrizione:"
 
 #: src/qml/Settings/EmoticonFormCard.qml:77
-#, fuzzy, kde-format
-#| msgctxt "As in 'This sticker has no description'"
-#| msgid "No Description"
+#, kde-format
 msgctxt "As in 'This sticker/emoji has no description'"
 msgid "No Description"
 msgstr "Nessuna descrizione"
 
 #: src/qml/Settings/EmoticonFormCard.qml:118
-#, fuzzy, kde-format
-#| msgid "Add Emoji..."
+#, kde-format
 msgid "Add Emoji"
-msgstr "Aggiungi Emoji..."
+msgstr "Aggiungi emoji"
 
 #: src/qml/Settings/EmoticonFormCard.qml:118
 #, kde-format
@@ -3886,10 +3867,9 @@ msgid "Appearance"
 msgstr "Aspetto"
 
 #: src/qml/Settings/SettingsPage.qml:37
-#, fuzzy, kde-format
-#| msgid "Stickers"
+#, kde-format
 msgid "Stickers & Emojis"
-msgstr "Adesivi"
+msgstr "Adesivi ed emoji"
 
 #: src/qml/Settings/SettingsPage.qml:44
 #, kde-format
