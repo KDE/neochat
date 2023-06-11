@@ -11,7 +11,9 @@ import org.kde.kirigami 2.15 as Kirigami
 import org.kde.neochat 1.0
 
 DelegateChooser {
+    id: root
     role: "delegateType"
+    property var room
 
     DelegateChoice {
         roleValue: MessageEventModel.State
@@ -76,6 +78,12 @@ DelegateChooser {
     DelegateChoice {
         roleValue: MessageEventModel.Location
         delegate: LocationDelegate {}
+    }
+    DelegateChoice {
+        roleValue: MessageEventModel.LiveLocation
+        delegate: LiveLocationDelegate {
+            room: root.room
+        }
     }
 
     DelegateChoice {

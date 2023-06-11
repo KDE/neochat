@@ -525,6 +525,9 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             return DelegateType::Sticker;
         }
         if (evt.isStateEvent()) {
+            if (evt.matrixType() == "org.matrix.msc3672.beacon_info"_ls) {
+                return DelegateType::LiveLocation;
+            }
             return DelegateType::State;
         }
         if (is<const EncryptedEvent>(evt)) {
@@ -632,6 +635,11 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         }
 
         if (m_currentRoom->connection()->isIgnored(m_currentRoom->user(evt.senderId()))) {
+            return EventStatus::Hidden;
+        }
+
+        // hide ending live location beacons
+        if (evt.isStateEvent() && evt.matrixType() == "org.matrix.msc3672.beacon_info"_ls && !evt.contentJson()["live"_ls].toBool()) {
             return EventStatus::Hidden;
         }
 
