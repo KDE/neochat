@@ -103,7 +103,6 @@
         {
             "name": "libQuotient",
             "buildsystem": "cmake-ninja",
-            "config-opts": [ "-DBUILD_TESTING=OFF" ],
             "sources": [
                 {
                     "type": "git",
@@ -113,7 +112,8 @@
                 }
             ],
             "config-opts": [
-                "-DQuotient_ENABLE_E2EE=ON"
+                "-DQuotient_ENABLE_E2EE=ON",
+                "-DBUILD_TESTING=OFF"
             ]
         },
         {
