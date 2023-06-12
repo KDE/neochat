@@ -43,18 +43,18 @@ void SearchModel::search()
         m_job = nullptr;
     }
 
+    RoomEventFilter filter;
+    filter.unreadThreadNotifications = none;
+    filter.lazyLoadMembers = true;
+    filter.includeRedundantMembers = false;
+    filter.notRooms = QStringList();
+    filter.rooms = QStringList{m_room->id()};
+    filter.containsUrl = false;
+
     SearchJob::RoomEventsCriteria criteria{
         .searchTerm = m_searchText,
         .keys = {},
-        .filter =
-            RoomEventFilter{
-                .unreadThreadNotifications = none,
-                .lazyLoadMembers = true,
-                .includeRedundantMembers = false,
-                .notRooms = {},
-                .rooms = {m_room->id()},
-                .containsUrl = false,
-            },
+        .filter = filter,
         .orderBy = "recent",
         .eventContext = SearchJob::IncludeEventContext{3, 3, true},
         .includeState = false,
