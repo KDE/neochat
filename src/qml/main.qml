@@ -259,8 +259,9 @@ Kirigami.ApplicationWindow {
         }
 
         function onUserConsentRequired(url) {
-            consentSheet.url = url
-            consentSheet.open()
+            let consent = consentSheetComponent.createObject(QQC2.ApplicationWindow.overlay)
+            consent.url = url
+            consent.open()
         }
     }
 
@@ -301,23 +302,26 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    Kirigami.OverlaySheet {
-        id: consentSheet
+    Component {
+        id: consentSheetComponent
+        Kirigami.OverlaySheet {
+            id: consentSheet
 
-        property string url: ""
+            property string url: ""
 
-        title: i18n("User consent")
+            title: i18n("User consent")
 
-        QQC2.Label {
-            id: label
+            QQC2.Label {
+                id: label
 
-            text: i18n("Your homeserver requires you to agree to its terms and conditions before being able to use it. Please click the button below to read them.")
-            wrapMode: Text.WordWrap
-            width: parent.width
-        }
-        footer: QQC2.Button {
-            text: i18n("Open")
-            onClicked: UrlHelper.openUrl(consentSheet.url)
+                text: i18n("Your homeserver requires you to agree to its terms and conditions before being able to use it. Please click the button below to read them.")
+                wrapMode: Text.WordWrap
+                width: parent.width
+            }
+            footer: QQC2.Button {
+                text: i18n("Open")
+                onClicked: UrlHelper.openUrl(consentSheet.url)
+            }
         }
     }
 
