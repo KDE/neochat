@@ -149,6 +149,7 @@ public:
                 QFile file(info.absoluteFilePath());
                 if (index > 50) {
                     file.remove();
+                    continue;
                 }
                 const QString newName = filePath + QStringLiteral(".%1").arg(index + 1);
                 const bool success = file.copy(newName);
