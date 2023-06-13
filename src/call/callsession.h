@@ -53,23 +53,19 @@ public:
     Q_PROPERTY(bool muted READ muted WRITE setMuted NOTIFY mutedChanged)
 
     // For outgoing calls
-    static CallSession *startCall(bool sendVideo, const QStringList &turnUris, QObject *parent = nullptr);
+    static CallSession *startCall(const QStringList &turnUris, QObject *parent = nullptr);
     void acceptAnswer(const QString &sdp, const QVector<Candidate> &candidates, const QString &parent);
 
     // For incoming calls
-    static CallSession *acceptCall(bool sendVideo,
-                                   const QString &sdp,
-                                   const QVector<Candidate> &candidates,
-                                   const QStringList &turnUris,
-                                   const QString &userId,
-                                   QObject *parent = nullptr);
+    static CallSession *
+    acceptCall(const QString &sdp, const QVector<Candidate> &candidates, const QStringList &turnUris, const QString &userId, QObject *parent = nullptr);
 
     void end();
 
     void renegotiateOffer(const QString &offer, const QString &userId);
     void setTurnServers(QStringList servers);
 
-    QStringList missingPlugins(bool video) const;
+    QStringList missingPlugins() const;
 
     CallSession::State state() const;
 
@@ -93,12 +89,12 @@ Q_SIGNALS:
 
 private:
     CallSession(QObject *parent = nullptr);
-    void acceptOffer(bool sendVideo, const QString &sdp, const QVector<Candidate> remoteCandidates, const QString &userId);
-    void createCall(bool sendVideo);
+    void acceptOffer(const QString &sdp, const QVector<Candidate> remoteCandidates, const QString &userId);
+    void createCall();
 
     void setRemoteDescription(GstWebRTCSessionDescription *remote, const QString &userId, GstPromise *promise = nullptr);
-    void startPipeline(bool sendVideo);
-    void createPipeline(bool sendVideo);
+    void startPipeline();
+    void createPipeline();
     bool addVideoPipeline();
 
     void setState(CallSession::State state);

@@ -74,7 +74,7 @@ public:
 
     void handleCallEvent(NeoChatRoom *room, const RoomEvent *event);
 
-    Q_INVOKABLE void startCall(NeoChatRoom *room, bool camera);
+    Q_INVOKABLE void startCall(NeoChatRoom *room);
     Q_INVOKABLE void acceptCall();
     Q_INVOKABLE void hangupCall();
     Q_INVOKABLE void ignoreCall();

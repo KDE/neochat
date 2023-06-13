@@ -509,7 +509,7 @@ void CallSession::renegotiateOffer(const QString &_offer, const QString &userId)
     g_signal_emit_by_name(webrtcbin, "create-answer", nullptr, promise);
 }
 
-void CallSession::acceptOffer(bool sendVideo, const QString &sdp, const QVector<Candidate> remoteCandidates, const QString &userId)
+void CallSession::acceptOffer(const QString &sdp, const QVector<Candidate> remoteCandidates, const QString &userId)
 {
     Q_ASSERT(!sdp.isEmpty());
     Q_ASSERT(!remoteCandidates.isEmpty());
@@ -539,7 +539,7 @@ void CallSession::acceptOffer(bool sendVideo, const QString &sdp, const QVector<
         gst_webrtc_session_description_free(offer);
         return;
     }
-    startPipeline(sendVideo);
+    startPipeline();
 
     QThread::msleep(1000); // ?
 
@@ -550,14 +550,14 @@ void CallSession::acceptOffer(bool sendVideo, const QString &sdp, const QVector<
     gst_webrtc_session_description_free(offer);
 }
 
-void CallSession::createCall(bool sendVideo)
+void CallSession::createCall()
 {
     qCDebug(voip) << "Creating call";
     m_isOffering = true;
-    startPipeline(sendVideo);
+    startPipeline();
 }
 
-void CallSession::startPipeline(bool sendVideo)
+void CallSession::startPipeline()
 {
     qCDebug(voip) << "Starting Pipeline";
     if (m_state != CallSession::DISCONNECTED) {
@@ -566,7 +566,7 @@ void CallSession::startPipeline(bool sendVideo)
     m_state = CallSession::INITIATING;
     Q_EMIT stateChanged();
 
-    createPipeline(sendVideo);
+    createPipeline();
 
     auto webrtcbin = binGetByName(m_pipe, "webrtcbin");
     Q_ASSERT(webrtcbin);
@@ -633,7 +633,7 @@ void CallSession::end()
     }
 }
 
-void CallSession::createPipeline(bool sendVideo)
+void CallSession::createPipeline()
 {
     qCWarning(voip) << "Creating Pipeline";
     auto device = AudioSources::instance().currentDevice();
@@ -677,9 +677,9 @@ void CallSession::createPipeline(bool sendVideo)
         return;
     }
 
-    if (sendVideo) {
-        addVideoPipeline();
-    }
+    // if (sendVideo) {
+    // TODO where?    addVideoPipeline();
+    // }
 }
 
 void CallSession::toggleCamera()
@@ -822,7 +822,7 @@ void CallSession::acceptCandidates(const QVector<Candidate> &candidates)
     }
 }
 
-QStringList CallSession::missingPlugins(bool video) const
+QStringList CallSession::missingPlugins() const
 {
     GstRegistry *registry = gst_registry_get();
     static const QVector<QString> videoPlugins = {
@@ -847,7 +847,7 @@ QStringList CallSession::missingPlugins(bool video) const
         QStringLiteral("webrtc"),
     };
     QStringList missingPlugins;
-    for (const auto &pluginName : video ? videoPlugins + audioPlugins : audioPlugins) {
+    for (const auto &pluginName : videoPlugins + audioPlugins) {
         auto plugin = gst_registry_find_plugin(registry, pluginName.toLatin1().data());
         if (!plugin) {
             missingPlugins << pluginName;
@@ -883,25 +883,21 @@ bool CallSession::muted() const
     return muted;
 }
 
-CallSession *CallSession::acceptCall(bool sendVideo,
-                                     const QString &sdp,
-                                     const QVector<Candidate> &candidates,
-                                     const QStringList &turnUris,
-                                     const QString &userId,
-                                     QObject *parent)
+CallSession *
+CallSession::acceptCall(const QString &sdp, const QVector<Candidate> &candidates, const QStringList &turnUris, const QString &userId, QObject *parent)
 {
     auto instance = new CallSession(parent);
     instance->setTurnServers(turnUris);
-    instance->acceptOffer(sendVideo, sdp, candidates, userId);
+    instance->acceptOffer(sdp, candidates, userId);
     return instance;
 }
 
-CallSession *CallSession::startCall(bool sendVideo, const QStringList &turnUris, QObject *parent)
+CallSession *CallSession::startCall(const QStringList &turnUris, QObject *parent)
 {
     auto instance = new CallSession(parent);
 
     instance->setTurnServers(turnUris);
-    instance->createCall(sendVideo);
+    instance->createCall();
     return instance;
 }
 

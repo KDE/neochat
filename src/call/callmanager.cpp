@@ -277,9 +277,7 @@ void CallManager::acceptCall()
     updateTurnServers();
     // TODO wait until candidates are here
 
-    // TODO make video configurable
-    //  change true to false if you don't have a camera
-    m_session = CallSession::acceptCall(true, m_incomingSdp, m_incomingCandidates, m_cachedTurnUris, m_remoteUser->id(), this);
+    m_session = CallSession::acceptCall(m_incomingSdp, m_incomingCandidates, m_cachedTurnUris, m_remoteUser->id(), this);
     m_participants->clear();
     connect(m_session, &CallSession::stateChanged, this, [this] {
         Q_EMIT stateChanged();
@@ -350,7 +348,7 @@ void CallManager::ignoreCall()
     setRemoteUser(nullptr);
 }
 
-void CallManager::startCall(NeoChatRoom *room, bool sendVideo)
+void CallManager::startCall(NeoChatRoom *room)
 {
     if (m_session) {
         // Don't start calls if there already is one
@@ -363,7 +361,7 @@ void CallManager::startCall(NeoChatRoom *room, bool sendVideo)
         return;
     }
 
-    auto missingPlugins = m_session->missingPlugins(sendVideo);
+    auto missingPlugins = m_session->missingPlugins();
     if (!missingPlugins.isEmpty()) {
         qCCritical(voip) << "Missing GStreamer plugins:" << missingPlugins;
         Q_EMIT Controller::instance().errorOccured("Missing GStreamer plugins.");
@@ -377,6 +375,7 @@ void CallManager::startCall(NeoChatRoom *room, bool sendVideo)
     updateTurnServers();
 
     setCallId(generateCallId());
+    setPartyId(generatePartyId());
 
     for (const auto &user : m_room->users()) {
         auto participant = new CallParticipant(m_session);
@@ -384,7 +383,7 @@ void CallManager::startCall(NeoChatRoom *room, bool sendVideo)
         m_participants->addParticipant(participant);
     }
 
-    m_session = CallSession::startCall(sendVideo, m_cachedTurnUris, this);
+    m_session = CallSession::startCall(m_cachedTurnUris, this);
     setGlobalState(OUTGOING);
     connect(m_session, &CallSession::stateChanged, this, [this] {
         Q_EMIT stateChanged();
@@ -393,7 +392,6 @@ void CallManager::startCall(NeoChatRoom *room, bool sendVideo)
         }
     });
 
-    qWarning() << "waiting for createoffer";
     connectSingleShot(m_session, &CallSession::offerCreated, this, [this](const QString &_sdp, const QVector<Candidate> &candidates) {
         const auto &[uuids, sdp] = mangleSdp(_sdp);
         QVector<std::pair<QString, QString>> msidToPurpose;
@@ -415,10 +413,11 @@ void CallManager::startCall(NeoChatRoom *room, bool sendVideo)
             msidToPurpose += {uuid, "m.usermedia"}; // TODO
         }
         QJsonObject json{
-            {QStringLiteral("lifetime"), 6000},
+            {QStringLiteral("lifetime"), 60000},
             {QStringLiteral("version"), 1},
             {QStringLiteral("description"), QJsonObject{{QStringLiteral("type"), QStringLiteral("answer")}, {QStringLiteral("sdp"), _sdp}}},
-            {QStringLiteral("party_id"), "todopartyid"},
+            {QStringLiteral("party_id"), m_partyId},
+            {QStringLiteral("call_id"), m_callId},
         };
         QJsonObject metadata;
         for (const auto &[stream, purpose] : msidToPurpose) {
@@ -608,7 +607,7 @@ QString CallManager::partyId() const
 
 bool CallManager::checkPlugins() const
 {
-    auto missingPlugins = m_session->missingPlugins(true);
+    auto missingPlugins = m_session->missingPlugins();
     if (!missingPlugins.isEmpty()) {
         qCCritical(voip) << "Missing GStreamer plugins:" << missingPlugins;
         Q_EMIT Controller::instance().errorOccured("Missing GStreamer plugins.");
