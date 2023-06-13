@@ -65,7 +65,7 @@ public:
     void renegotiateOffer(const QString &offer, const QString &userId);
     void setTurnServers(QStringList servers);
 
-    QStringList missingPlugins() const;
+    static QStringList missingPlugins();
 
     CallSession::State state() const;
 

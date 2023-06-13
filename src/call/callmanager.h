@@ -134,7 +134,7 @@ private:
     bool init();
 
     bool m_initialised = false;
-    CallSession *m_session = nullptr;
+    QPointer<CallSession> m_session = nullptr;
 
     void setLifetime(int lifetime);
     void setRoom(NeoChatRoom *room);

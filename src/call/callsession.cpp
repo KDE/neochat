@@ -247,6 +247,7 @@ void onGetStats(GstPromise *promise, gpointer)
     }
 }
 
+// TODO port to QTimer?
 gboolean testPacketLoss(gpointer)
 {
     if (!keyFrameRequestData.pipe) {
@@ -408,7 +409,6 @@ void iceGatheringStateChanged(GstElement *webrtc, GParamSpec *pspec, gpointer us
 
     GstWebRTCICEGatheringState newState;
     g_object_get(webrtc, "ice-gathering-state", &newState, nullptr);
-    qWarning() << "ICEGATHERINSTCHANGED" << newState;
     if (newState == GST_WEBRTC_ICE_GATHERING_STATE_COMPLETE) {
         qCWarning(voip) << "GstWebRTCICEGatheringState -> Complete";
         if (instance->m_isOffering) {
@@ -618,10 +618,10 @@ void CallSession::end()
 {
     qCDebug(voip) << "Ending Call";
     if (m_pipe) {
-        // TODO: This seems to block forever; I don't see significant problem with not doing it...
-        // gst_element_set_state(m_pipe, GST_STATE_NULL);
+        gst_element_set_state(m_pipe, GST_STATE_NULL);
         gst_object_unref(m_pipe);
         m_pipe = nullptr;
+        keyFrameRequestData.pipe = nullptr;
         if (m_busWatchId) {
             g_source_remove(m_busWatchId);
             m_busWatchId = 0;
@@ -822,7 +822,7 @@ void CallSession::acceptCandidates(const QVector<Candidate> &candidates)
     }
 }
 
-QStringList CallSession::missingPlugins() const
+QStringList CallSession::missingPlugins()
 {
     GstRegistry *registry = gst_registry_get();
     static const QVector<QString> videoPlugins = {

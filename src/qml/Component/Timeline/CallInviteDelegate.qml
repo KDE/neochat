@@ -9,6 +9,8 @@ import org.kde.kirigami 2.15 as Kirigami
 import org.kde.neochat 1.0
 
 TimelineContainer {
+    id: root
+
     width: ListView.view.width
 
     innerObject: QQC2.Control {
@@ -16,7 +18,7 @@ TimelineContainer {
         padding: Kirigami.Units.gridUnit*2
 
         contentItem: QQC2.Label {
-            text: model.author.isLocalUser ? i18n("Outgoing Call") : i18n("Incoming Call")
+            text: root.author.isLocalUser ? i18n("Outgoing Call") : i18n("Incoming Call")
         }
     }
 }

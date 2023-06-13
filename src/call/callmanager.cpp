@@ -254,7 +254,6 @@ void CallManager::handleHangup(NeoChatRoom *room, const Quotient::CallHangupEven
     if (m_session) {
         m_session->end();
         delete m_session;
-        m_session = nullptr;
     }
     setGlobalState(IDLE);
     Q_EMIT callEnded();
@@ -279,14 +278,14 @@ void CallManager::acceptCall()
 
     m_session = CallSession::acceptCall(m_incomingSdp, m_incomingCandidates, m_cachedTurnUris, m_remoteUser->id(), this);
     m_participants->clear();
-    connect(m_session, &CallSession::stateChanged, this, [this] {
+    connect(m_session.data(), &CallSession::stateChanged, this, [this] {
         Q_EMIT stateChanged();
         if (state() == CallSession::ICEFAILED) {
             Q_EMIT callEnded();
         }
     }); // TODO refactor away?
     m_incomingCandidates.clear();
-    connectSingleShot(m_session, &CallSession::answerCreated, this, [this](const QString &_sdp, const QVector<Candidate> &candidates) {
+    connectSingleShot(m_session.data(), &CallSession::answerCreated, this, [this](const QString &_sdp, const QVector<Candidate> &candidates) {
         const auto &[uuids, sdp] = mangleSdp(_sdp);
         QVector<std::pair<QString, QString>> msidToPurpose;
         for (const auto &uuid : uuids) {
@@ -361,7 +360,7 @@ void CallManager::startCall(NeoChatRoom *room)
         return;
     }
 
-    auto missingPlugins = m_session->missingPlugins();
+    auto missingPlugins = CallSession::missingPlugins();
     if (!missingPlugins.isEmpty()) {
         qCCritical(voip) << "Missing GStreamer plugins:" << missingPlugins;
         Q_EMIT Controller::instance().errorOccured("Missing GStreamer plugins.");
@@ -377,6 +376,7 @@ void CallManager::startCall(NeoChatRoom *room)
     setCallId(generateCallId());
     setPartyId(generatePartyId());
 
+    m_participants->clear();
     for (const auto &user : m_room->users()) {
         auto participant = new CallParticipant(m_session);
         participant->m_user = dynamic_cast<NeoChatUser *>(user);
@@ -392,7 +392,7 @@ void CallManager::startCall(NeoChatRoom *room)
         }
     });
 
-    connectSingleShot(m_session, &CallSession::offerCreated, this, [this](const QString &_sdp, const QVector<Candidate> &candidates) {
+    connectSingleShot(m_session.data(), &CallSession::offerCreated, this, [this](const QString &_sdp, const QVector<Candidate> &candidates) {
         const auto &[uuids, sdp] = mangleSdp(_sdp);
         QVector<std::pair<QString, QString>> msidToPurpose;
         for (const auto &uuid : uuids) {
