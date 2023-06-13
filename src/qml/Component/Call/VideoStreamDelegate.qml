@@ -34,7 +34,11 @@ Rectangle {
             Layout.preferredHeight: parent.height
             Layout.preferredWidth: parent.width
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-            onActiveChanged: if (active) model.object.initCamera(camera)
+            onActiveChanged: {
+                if (active) {
+                    model.object.initCamera(camera)
+                }
+            }
             Component.onCompleted: if (active) model.object.initCamera(camera)
             GstGLVideoItem {
                 id: camera
@@ -55,7 +59,7 @@ Rectangle {
                 height: parent.height
 
                 Component.onCompleted: {
-                    //model.object.initCamera(this)
+                    model.object.initCamera(this)
                 }
             }
         }

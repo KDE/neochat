@@ -62,7 +62,7 @@ public:
 
     void end();
 
-    void renegotiateOffer(const QString &offer, const QString &userId);
+    void renegotiateOffer(const QString &offer, const QString &userId, bool answer);
     void setTurnServers(QStringList servers);
 
     static QStringList missingPlugins();
@@ -85,7 +85,7 @@ Q_SIGNALS:
     void mutedChanged();
     void newVideoStream(VideoStream *stream);
 
-    void renegotiate(QString sdp);
+    void renegotiate(QString sdp, const QString &type);
 
 private:
     CallSession(QObject *parent = nullptr);

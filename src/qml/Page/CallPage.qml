@@ -84,8 +84,8 @@ Kirigami.Page {
                 }
             }
             CallPageButton {
-                text: checked ? i18n("Enable Camera") : i18n("Disable Camera")
-                icon.name: checked ? "camera-off" : "camera-on"
+                text: checked ? i18n("Disable Camera") : i18n("Enable Camera")
+                icon.name: checked ? "camera-on" : "camera-off"
                 checkable: true
                 onToggled: CallManager.toggleCamera()
             }

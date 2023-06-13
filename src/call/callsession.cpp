@@ -84,6 +84,7 @@ void setLocalDescription(GstPromise *promise, gpointer user_data)
 {
     INSTANCE
     qCDebug(voip) << "Setting local description";
+    qWarning() << "SETTING LOCAL DESCRIPTION";
     const GstStructure *reply = gst_promise_get_reply(promise);
     gboolean isAnswer = gst_structure_id_has_field(reply, g_quark_from_string("answer"));
     GstWebRTCSessionDescription *gstsdp = nullptr;
@@ -95,7 +96,8 @@ void setLocalDescription(GstPromise *promise, gpointer user_data)
     gchar *sdp = gst_sdp_message_as_text(gstsdp->sdp);
     if (!instance->m_localSdp.isEmpty()) {
         // This is a renegotiation
-        Q_EMIT instance->renegotiate(QString(sdp));
+        qWarning() << "emitting renegotiate";
+        Q_EMIT instance->renegotiate(QString(sdp), isAnswer ? QStringLiteral("answer") : QStringLiteral("offer"));
     }
     instance->m_localSdp = QString(sdp);
     g_free(sdp);
@@ -195,9 +197,10 @@ void iceConnectionStateChanged(GstElement *webrtc, GParamSpec *pspec, gpointer u
     case GST_WEBRTC_ICE_CONNECTION_STATE_FAILED:
         instance->setState(CallSession::ICEFAILED);
         break;
+    case GST_WEBRTC_ICE_CONNECTION_STATE_CONNECTED:
+        instance->setState(CallSession::CONNECTED);
     case GST_WEBRTC_ICE_CONNECTION_STATE_COMPLETED:
     case GST_WEBRTC_ICE_CONNECTION_STATE_DISCONNECTED:
-    case GST_WEBRTC_ICE_CONNECTION_STATE_CONNECTED:
     case GST_WEBRTC_ICE_CONNECTION_STATE_CLOSED:
     default:
         break;
@@ -263,6 +266,8 @@ gboolean testPacketLoss(gpointer)
 
 GstElement *newVideoSinkChain(GstElement *pipe, QQuickItem *quickItem)
 {
+    Q_ASSERT(pipe);
+    Q_ASSERT(quickItem);
     qCWarning(voip) << "Creating Video Sink Chain";
     auto queue = createElement("queue", pipe);
     auto compositor = createElement("compositor", pipe);
@@ -496,17 +501,20 @@ void CallSession::setRemoteDescription(GstWebRTCSessionDescription *remote, cons
     g_signal_emit_by_name(webrtcbin, "set-remote-description", remote, promise);
 }
 
-void CallSession::renegotiateOffer(const QString &_offer, const QString &userId)
+void CallSession::renegotiateOffer(const QString &_offer, const QString &userId, bool answer)
 {
-    GstWebRTCSessionDescription *offer = parseSDP(_offer, GST_WEBRTC_SDP_TYPE_OFFER);
-    if (!offer) {
+    GstWebRTCSessionDescription *sdp = parseSDP(_offer, answer ? GST_WEBRTC_SDP_TYPE_ANSWER : GST_WEBRTC_SDP_TYPE_OFFER);
+    if (!sdp) {
         Q_ASSERT(false);
     }
     GstElement *webrtcbin = binGetByName(m_pipe, "webrtcbin");
 
-    setRemoteDescription(offer, userId);
-    GstPromise *promise = gst_promise_new_with_change_func(setLocalDescription, this, nullptr);
-    g_signal_emit_by_name(webrtcbin, "create-answer", nullptr, promise);
+    setRemoteDescription(sdp, userId);
+    qWarning() << "answer:" << answer;
+    if (!answer) {
+        GstPromise *promise = gst_promise_new_with_change_func(setLocalDescription, this, nullptr);
+        g_signal_emit_by_name(webrtcbin, "create-answer", nullptr, promise);
+    }
 }
 
 void CallSession::acceptOffer(const QString &sdp, const QVector<Candidate> remoteCandidates, const QString &userId)
@@ -676,18 +684,16 @@ void CallSession::createPipeline()
         // TODO propagate errors up and end call
         return;
     }
-
-    // if (sendVideo) {
-    // TODO where?    addVideoPipeline();
-    // }
 }
 
 void CallSession::toggleCamera()
 {
-    g_object_set(m_inputSelector, "active-pad", m_inactivePad, nullptr);
-    auto _tmp = m_inactivePad;
-    m_inactivePad = m_activePad;
-    m_activePad = _tmp;
+    // TODO do this only once
+    static bool inited = false;
+    if (!inited) {
+        addVideoPipeline();
+        inited = true;
+    }
 }
 
 bool CallSession::addVideoPipeline()
@@ -712,19 +718,7 @@ bool CallSession::addVideoPipeline()
     g_object_set(camerafilter, "caps", caps, nullptr);
     gst_caps_unref(caps);
 
-    auto videotestsrc = createElement("videotestsrc", m_pipe);
-    m_inputSelector = createElement("input-selector", m_pipe);
-    g_object_set(m_inputSelector, "sync-mode", 1, nullptr);
-
-    m_inactivePad = gst_element_request_pad_simple(m_inputSelector, "sink_%u");
-    gst_pad_link(gst_element_get_static_pad(videotestsrc, "src"), m_inactivePad);
-
-    auto selectorSrc = gst_element_get_static_pad(m_inputSelector, "src");
-    gst_pad_link(selectorSrc, gst_element_get_static_pad(videoconvert, "sink"));
-
-    m_activePad = gst_element_request_pad_simple(m_inputSelector, "sink_%u");
-    gst_pad_link(gst_element_get_static_pad(camera, "src"), m_activePad);
-    g_object_set(m_inputSelector, "active-pad", m_activePad, nullptr);
+    gst_element_link(camera, videoconvert);
 
     if (!gst_element_link_many(videoconvert, camerafilter, nullptr)) {
         qCWarning(voip) << "Failed to link camera elements";
@@ -765,6 +759,8 @@ bool CallSession::addVideoPipeline()
         gst_object_unref(webrtcbin);
         return false;
     }
+    auto promise = gst_promise_new_with_change_func(setLocalDescription, this, nullptr);
+    g_signal_emit_by_name(webrtcbin, "create-offer", nullptr, promise);
 
     gst_object_unref(webrtcbin);
 
@@ -790,6 +786,7 @@ bool CallSession::addVideoPipeline()
 
     connectSingleShot(participant, &CallParticipant::initialized, this, [=](QQuickItem *item) {
         gst_pad_unlink(newpad, fakepad);
+        Q_ASSERT(item);
 
         auto queue = newVideoSinkChain(m_pipe, item);
         Q_ASSERT(queue);
@@ -801,6 +798,7 @@ bool CallSession::addVideoPipeline()
         Q_ASSERT(ok);
         g_object_set(selector, "active-pad", selectorSrc, nullptr);
         gst_object_unref(queuepad);
+        GST_DEBUG_BIN_TO_DOT_FILE(GST_BIN(m_pipe), GST_DEBUG_GRAPH_SHOW_ALL, "foo");
     });
     return true;
 }

@@ -203,8 +203,9 @@ void CallManager::handleNegotiate(NeoChatRoom *room, const Quotient::CallNegotia
         qCDebug(voip) << "Ignoring negotiate for unknown user id" << event->senderId() << ". Remote user id is" << m_remoteUser->id();
         return;
     }
+    // TODO DUPLICATES FFS
     m_session->setMetadata(event->contentJson()["org.matrix.msc3077.sdp_stream_metadata"].toObject());
-    m_session->renegotiateOffer(event->sdp(), m_remoteUser->id());
+    m_session->renegotiateOffer(event->sdp(), m_remoteUser->id(), event->contentJson()["description"]["type"] == QStringLiteral("answer"));
 }
 
 void CallManager::ring(int lifetime)
@@ -406,7 +407,7 @@ void CallManager::startCall(NeoChatRoom *room)
         m_room->postJson("m.call.candidates", c);
     });
 
-    connect(m_session, &CallSession::renegotiate, this, [this](const QString &sdp) {
+    connect(m_session, &CallSession::renegotiate, this, [this](const QString &sdp, const QString &type) {
         QVector<std::pair<QString, QString>> msidToPurpose;
         const auto &[uuids, _sdp] = mangleSdp(sdp);
         for (const auto &uuid : uuids) {
@@ -415,7 +416,7 @@ void CallManager::startCall(NeoChatRoom *room)
         QJsonObject json{
             {QStringLiteral("lifetime"), 60000},
             {QStringLiteral("version"), 1},
-            {QStringLiteral("description"), QJsonObject{{QStringLiteral("type"), QStringLiteral("answer")}, {QStringLiteral("sdp"), _sdp}}},
+            {QStringLiteral("description"), QJsonObject{{QStringLiteral("type"), type}, {QStringLiteral("sdp"), _sdp}}}, // AAAAA
             {QStringLiteral("party_id"), m_partyId},
             {QStringLiteral("call_id"), m_callId},
         };
@@ -425,6 +426,7 @@ void CallManager::startCall(NeoChatRoom *room)
             metadata[stream] = purpose;
         }
         json["org.matrix.msc3077.sdp_stream_metadata"] = metadata;
+        qWarning() << json;
         m_room->postJson("m.call.negotiate", json);
     });
 }
