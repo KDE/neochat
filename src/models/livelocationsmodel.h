@@ -8,6 +8,7 @@
 
 #include <QAbstractListModel>
 #include <QPointer>
+#include <QRectF>
 
 namespace Quotient
 {
@@ -36,6 +37,9 @@ class LiveLocationsModel : public QAbstractListModel
      */
     Q_PROPERTY(QString eventId MEMBER m_eventId NOTIFY eventIdChanged)
 
+    /** Bounding box of all live location beacons covered by this model. */
+    Q_PROPERTY(QRectF boundingBox READ boundingBox NOTIFY boundingBoxChanged)
+
 public:
     explicit LiveLocationsModel(QObject *parent = nullptr);
 
@@ -52,9 +56,12 @@ public:
     QVariant data(const QModelIndex &index, int roleName) const override;
     QHash<int, QByteArray> roleNames() const override;
 
+    QRectF boundingBox() const;
+
 Q_SIGNALS:
     void roomChanged();
     void eventIdChanged();
+    void boundingBoxChanged();
 
 private:
     void addEvent(const Quotient::RoomEvent *event);

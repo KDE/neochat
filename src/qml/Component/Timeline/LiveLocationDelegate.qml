@@ -34,8 +34,8 @@ TimelineContainer {
             Layout.fillWidth: true
             Layout.preferredHeight: root.contentMaxWidth / 16 * 9
 
-            // center: QtPositioning.coordinate(root.latitude, root.longitude)
-            // zoomLevel: 15
+            center: QtPositioning.coordinate(liveLocationModel.boundingBox.y, liveLocationModel.boundingBox.x)
+            zoomLevel: 15
 
             plugin: OsmLocationPlugin.plugin
             onCopyrightLinkActivated: Qt.openUrlExternally(link)

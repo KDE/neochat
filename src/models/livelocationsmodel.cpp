@@ -38,6 +38,9 @@ LiveLocationsModel::LiveLocationsModel(QObject *parent)
             });
         },
         Qt::QueuedConnection); // deferred so we are sure the eventId filter is set
+
+    connect(this, &LiveLocationsModel::dataChanged, this, &LiveLocationsModel::boundingBoxChanged);
+    connect(this, &LiveLocationsModel::rowsInserted, this, &LiveLocationsModel::boundingBoxChanged);
 }
 
 int LiveLocationsModel::rowCount(const QModelIndex &parent) const
@@ -99,6 +102,21 @@ QHash<int, QByteArray> LiveLocationsModel::roleNames() const
     r.insert(AuthorRole, "author");
     r.insert(IsLiveRole, "isLive");
     return r;
+}
+
+QRectF LiveLocationsModel::boundingBox() const
+{
+    QRectF bbox(QPointF(180.0, 90.0), QPointF(-180.0, -90.0));
+    for (auto i = 0; i < rowCount(); ++i) {
+        const auto lat = data(index(i, 0), LatitudeRole).toDouble();
+        const auto lon = data(index(i, 0), LongitudeRole).toDouble();
+
+        bbox.setLeft(std::min(bbox.left(), lon));
+        bbox.setRight(std::max(bbox.right(), lon));
+        bbox.setTop(std::min(bbox.top(), lat));
+        bbox.setBottom(std::max(bbox.bottom(), lat));
+    }
+    return bbox;
 }
 
 void LiveLocationsModel::addEvent(const Quotient::RoomEvent *event)
