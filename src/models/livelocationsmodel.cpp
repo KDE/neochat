@@ -76,8 +76,15 @@ QVariant LiveLocationsModel::data(const QModelIndex &index, int roleName) const
         return data.beaconInfo["org.matrix.msc3488.asset"_ls].toObject()["type"].toString();
     case AuthorRole:
         return m_room->getUser(data.senderId);
-    case IsLiveRole:
-        return data.beaconInfo["live"_ls].toBool();
+    case IsLiveRole: {
+        if (!data.beaconInfo["live"_ls].toBool()) {
+            return false;
+        }
+        // TODO Qt6: port to toInteger(), timestamps are in ms since epoch, ie. 64 bit values
+        const auto lastTs = std::max(data.beaconInfo.value("org.matrix.msc3488.ts"_ls).toDouble(), data.beacon.value("org.matrix.msc3488.ts"_ls).toDouble());
+        const auto timeout = data.beaconInfo.value("timeout"_ls).toDouble(600000);
+        return lastTs + timeout >= QDateTime::currentDateTime().toMSecsSinceEpoch();
+    }
     }
 
     return {};
