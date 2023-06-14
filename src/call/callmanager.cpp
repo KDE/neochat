@@ -423,10 +423,9 @@ void CallManager::startCall(NeoChatRoom *room)
         QJsonObject metadata;
         for (const auto &[stream, purpose] : msidToPurpose) {
             QJsonObject data = {{"purpose", purpose}};
-            metadata[stream] = purpose;
+            metadata[stream] = data;
         }
         json["org.matrix.msc3077.sdp_stream_metadata"] = metadata;
-        qWarning() << json;
         m_room->postJson("m.call.negotiate", json);
     });
 }

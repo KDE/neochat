@@ -84,7 +84,6 @@ void setLocalDescription(GstPromise *promise, gpointer user_data)
 {
     INSTANCE
     qCDebug(voip) << "Setting local description";
-    qWarning() << "SETTING LOCAL DESCRIPTION";
     const GstStructure *reply = gst_promise_get_reply(promise);
     gboolean isAnswer = gst_structure_id_has_field(reply, g_quark_from_string("answer"));
     GstWebRTCSessionDescription *gstsdp = nullptr;
@@ -782,9 +781,7 @@ bool CallSession::addVideoPipeline()
     auto user = dynamic_cast<NeoChatUser *>(manager->room()->localUser());
     participants->setHasCamera(user, true);
 
-    auto participant = participants->callParticipantForUser(user);
-
-    connectSingleShot(participant, &CallParticipant::initialized, this, [=](QQuickItem *item) {
+    connectSingleShot(participants->callParticipantForUser(user), &CallParticipant::initialized, this, [=](QQuickItem *item) {
         gst_pad_unlink(newpad, fakepad);
         Q_ASSERT(item);
 
@@ -798,6 +795,8 @@ bool CallSession::addVideoPipeline()
         Q_ASSERT(ok);
         g_object_set(selector, "active-pad", selectorSrc, nullptr);
         gst_object_unref(queuepad);
+        gst_element_set_state(m_pipe, GST_STATE_READY); // TODO experimental
+        gst_element_set_state(m_pipe, GST_STATE_PLAYING); // TODO experimental
         GST_DEBUG_BIN_TO_DOT_FILE(GST_BIN(m_pipe), GST_DEBUG_GRAPH_SHOW_ALL, "foo");
     });
     return true;
