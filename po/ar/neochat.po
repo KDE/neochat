@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-11 00:47+0000\n"
-"PO-Revision-Date: 2023-06-08 10:55+0400\n"
+"PO-Revision-Date: 2023-06-15 09:40+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -84,10 +84,9 @@ msgid "Room creation failed: %1"
 msgstr "فشل إنشاء غرفة: %1"
 
 #: src/controller.cpp:552
-#, fuzzy, kde-format
-#| msgid "Room creation failed: %1"
+#, kde-format
 msgid "Space creation failed: %1"
-msgstr "فشل إنشاء غرفة: %1"
+msgstr "فشل إنشاء فضاء: %1"
 
 #: src/controller.cpp:566
 #, kde-format
@@ -638,18 +637,16 @@ msgid "Custom"
 msgstr "مخصّص"
 
 #: src/models/imagepacksmodel.cpp:90
-#, fuzzy, kde-format
-#| msgid "Own Stickers"
+#, kde-format
 msgctxt "As in 'The user's own Stickers'"
 msgid "Own Stickers"
 msgstr "ملصقاتك"
 
 #: src/models/imagepacksmodel.cpp:90
-#, fuzzy, kde-format
-#| msgid "Emojis"
+#, kde-format
 msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
-msgstr "الصورة التعبيرية"
+msgstr "صورك التعبيرية"
 
 #: src/models/messageeventmodel.cpp:477 src/models/messageeventmodel.cpp:486
 #, kde-format
@@ -1317,10 +1314,9 @@ msgid "Available Room Versions"
 msgstr "إصدارات الغرفة المتوفرة"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:83
-#, fuzzy, kde-format
-#| msgid "Stickers"
+#, kde-format
 msgid "No stickers"
-msgstr "الملصقات"
+msgstr "لا يوجد ملصقات"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:83
 #, kde-format
@@ -1684,38 +1680,30 @@ msgstr "حسنًا"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:15
 #: src/qml/Page/RoomList/ExploreComponent.qml:40
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgid "Create a Space"
-msgstr "اترك الفضاء"
+msgstr "أنشئ فضاء"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:23
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgctxt "@title"
 msgid "Create a Space"
-msgstr "اترك الفضاء"
+msgstr "أنشئ فضاء"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:27
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Space members"
+#, kde-format
 msgid "Space name"
-msgstr "أعضاء الفضاء"
+msgstr "اسم الفضاء"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:31
 #, kde-format
 msgid "Space topic (optional)"
-msgstr ""
+msgstr "موضوع الفضاء (اختياري)"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:34
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgid "Create space"
-msgstr "اترك الفضاء"
+msgstr "أنشئ فضاء"
 
 #: src/qml/Dialog/KeyVerification/EmojiSas.qml:23
 #, kde-format
