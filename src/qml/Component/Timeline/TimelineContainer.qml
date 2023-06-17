@@ -526,21 +526,20 @@ ColumnLayout {
                         return Kirigami.Theme.backgroundColor
                     }
                     radius: Kirigami.Units.smallSpacing
-                    shadow.size: Kirigami.Units.smallSpacing
-                    shadow.color: root.showHighlight ? Qt.rgba(0.0, 0.0, 0.0, 0.10) : Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.10)
-                    border.color: Kirigami.ColorUtils.tintWithAlpha(color, Kirigami.Theme.textColor, 0.15)
-                    border.width: 1
+                    shadow {
+                        size:  Kirigami.Units.smallSpacing
+                        color: root.isHighlighted ? Qt.rgba(0.0, 0.0, 0.0, 0.10) : Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.10)
+                    }
 
                     Behavior on color {
-                        enabled: isTemporaryHighlighted
-                        ColorAnimation {target: bubbleBackground; duration: Kirigami.Units.veryLongDuration; easing.type: Easing.InOutCubic}
+                        ColorAnimation { duration: Kirigami.Units.shortDuration }
                     }
                 }
             }
         }
 
         background: Rectangle {
-            visible: mainContainer.hovered
+            visible: mainContainer.hovered && Config.compactLayout
             color: Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.15)
             radius: Kirigami.Units.smallSpacing
         }
