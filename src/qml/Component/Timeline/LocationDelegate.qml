@@ -36,6 +36,7 @@ TimelineContainer {
      * a user's location.
      */
     required property string asset
+    required property var content
 
     ColumnLayout {
         Layout.maximumWidth: root.contentMaxWidth
@@ -92,12 +93,20 @@ TimelineContainer {
 
             TapHandler {
                 acceptedButtons: Qt.LeftButton
+                onTapped: {
+                    let map = fullScreenMap.createObject(parent, {content: root.content});
+                    map.open()
+                }
                 onLongPressed: openMessageContext("")
             }
             TapHandler {
                 acceptedButtons: Qt.RightButton
                 onTapped: openMessageContext("")
             }
+        }
+        Component {
+            id: fullScreenMap
+            FullScreenMap { }
         }
     }
 }

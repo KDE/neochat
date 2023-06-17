@@ -57,6 +57,7 @@ add_library(neochat STATIC
     models/reactionmodel.cpp
     delegatesizehelper.cpp
     models/livelocationsmodel.cpp
+    models/locationsmodel.cpp
 )
 
 ecm_qt_declare_logging_category(neochat
