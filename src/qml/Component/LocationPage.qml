@@ -31,5 +31,12 @@ Kirigami.Page {
                 isLive: true
             }
         }
+
+        MapItemView {
+            model: LiveLocationsModel {
+                room: locationsPage.room
+            }
+            delegate: LocationMapItem {}
+        }
     }
 }
