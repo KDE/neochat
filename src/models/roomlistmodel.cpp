@@ -338,7 +338,7 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
     if (role == AvatarImageRole) {
         return room->avatar(128);
     }
-    if (role == IdRole) {
+    if (role == RoomIdRole) {
         return room->id();
     }
     if (role == IsSpaceRole) {
@@ -379,7 +379,7 @@ QHash<int, QByteArray> RoomListModel::roleNames() const
     roles[CategoryVisibleRole] = "categoryVisible";
     roles[SubtitleTextRole] = "subtitleText";
     roles[IsSpaceRole] = "isSpace";
-    roles[IdRole] = "id";
+    roles[RoomIdRole] = "roomId";
     roles[IsChildSpaceRole] = "isChildSpace";
     return roles;
 }

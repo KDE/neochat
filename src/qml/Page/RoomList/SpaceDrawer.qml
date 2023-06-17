@@ -7,6 +7,7 @@ import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.20 as Kirigami
+import org.kde.kirigamiaddons.delegates 1.0 as Delegates
 
 import '.'
 import org.kde.neochat 1.0
@@ -15,11 +16,7 @@ QQC2.Control {
     id: root
 
     readonly property real pinnedWidth: Kirigami.Units.gridUnit * 6
-    readonly property int buttonDisplayMode: Kirigami.NavigationTabButton.IconOnly
     property bool drawerEnabled: true
-
-    Kirigami.Theme.colorSet: Kirigami.Theme.Window
-    Kirigami.Theme.inherit: false
 
     leftPadding: 0
     rightPadding: 0
@@ -27,12 +24,6 @@ QQC2.Control {
     bottomPadding: 0
 
     property string selectedSpaceId
-
-    background: Rectangle {
-        color: Kirigami.Theme.backgroundColor
-        Kirigami.Theme.colorSet: Kirigami.Theme.View
-        Kirigami.Theme.inherit: false
-    }
 
     contentItem: Loader {
         id: sidebarColumn
@@ -56,17 +47,23 @@ QQC2.Control {
                     width: scrollView.width
                     spacing: 0
 
-                    Kirigami.NavigationTabButton {
+                    AvatarTabButton {
+                        id: allRoomButton
+
                         Layout.fillWidth: true
-                        Layout.preferredHeight: width
-                        display: Kirigami.NavigationTabButton.IconOnly
+                        Layout.preferredHeight: width - Kirigami.Units.smallSpacing
+                        Layout.maximumHeight: width - Kirigami.Units.smallSpacing
+                        Layout.topMargin: Kirigami.Units.smallSpacing
+
                         text: i18n("All Rooms")
-                        icon.name: "globe"
-                        checked: true
+                        source: "globe"
+
+                        contentItem: Kirigami.Icon {
+                            source: "globe"
+                        }
+
+                        checked: root.selectedSpaceId === ""
                         onClicked: root.selectedSpaceId = ""
-                        QQC2.ToolTip.visible: hovered
-                        QQC2.ToolTip.text: text
-                        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                     }
 
                     Repeater {
@@ -79,23 +76,23 @@ QQC2.Control {
                         Component.onCompleted: root.enabled = count > 0
 
                         delegate: AvatarTabButton {
-                            Layout.fillWidth: true
-                            Layout.preferredHeight: width
-                            display: Kirigami.NavigationTabButton.IconOnly
-                            text: model.displayName
-                            source: model.avatar ? ("image://mxc/" + model.avatar) : ""
-                            name: model.displayName
-                            onClicked: root.selectedSpaceId = model.id
-                            QQC2.ToolTip.visible: hovered
-                            QQC2.ToolTip.text: text
-                            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-                            onPressAndHold: root.createContextMenu(model.currentRoom)
+                            id: spaceDelegate
 
-                            TapHandler {
-                                acceptedButtons: Qt.RightButton
-                                acceptedDevices: PointerDevice.Mouse
-                                onTapped: root.createContextMenu(model.currentRoom)
-                            }
+                            required property string displayName
+                            required property string avatar
+                            required property string roomId
+                            required property var currentRoom
+
+                            Layout.fillWidth: true
+                            Layout.preferredHeight: width - Kirigami.Units.smallSpacing
+                            Layout.maximumHeight: width - Kirigami.Units.smallSpacing
+
+                            text: displayName
+                            source: avatar ? ("image://mxc/" + avatar) : ""
+
+                            onClicked: root.selectedSpaceId = roomId
+                            checked: root.selectedSpaceId === roomId
+                            onContextMenuRequested: root.createContextMenu(currentRoom)
                         }
                     }
                 }

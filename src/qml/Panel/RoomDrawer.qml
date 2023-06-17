@@ -7,6 +7,7 @@ import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.20 as Kirigami
+import org.kde.kirigamiaddons.delegates 1.0 as Delegates
 import org.kde.kitemmodels 1.0
 
 import org.kde.neochat 1.0
@@ -120,7 +121,7 @@ Kirigami.OverlayDrawer {
 
                         property alias userListSearchField: userListSearchField
 
-                        spacing: Kirigami.Units.largeSpacing
+                        spacing: 0
                         width: userListView.width
 
                         Loader {
@@ -136,25 +137,32 @@ Kirigami.OverlayDrawer {
                         Kirigami.ListSectionHeader {
                             label: i18n("Options")
                             activeFocusOnTab: false
+
+                            Layout.fillWidth: true
                         }
 
-                        Kirigami.BasicListItem {
+                        Delegates.RoundedItemDelegate {
                             id: devtoolsButton
 
-                            icon: "tools"
+                            icon.name: "tools"
                             text: i18n("Open developer tools")
                             visible: Config.developerTools
+
+                            Layout.fillWidth: true
 
                             onClicked: {
                                 applicationWindow().pageStack.layers.push("qrc:/DevtoolsPage.qml", {room: room}, {title: i18n("Developer Tools")})
                                 roomDrawer.close();
                             }
                         }
-                        Kirigami.BasicListItem {
+
+                        Delegates.RoundedItemDelegate {
                             id: searchButton
 
-                            icon: "search"
+                            icon.name: "search"
                             text: i18n("Search in this room")
+
+                            Layout.fillWidth: true
 
                             onClicked: {
                                 pageStack.pushDialogLayer("qrc:/SearchPage.qml", {
@@ -164,19 +172,22 @@ Kirigami.OverlayDrawer {
                                 })
                             }
                         }
-                        Kirigami.BasicListItem {
+
+                        Delegates.RoundedItemDelegate {
                             id: favouriteButton
 
-                            icon: room && room.isFavourite ? "rating" : "rating-unrated"
+                            icon.name: room && room.isFavourite ? "rating" : "rating-unrated"
                             text: room && room.isFavourite ? i18n("Remove room from favorites") : i18n("Make room favorite")
 
                             onClicked: room.isFavourite ? room.removeTag("m.favourite") : room.addTag("m.favourite", 1.0)
+
+                            Layout.fillWidth: true
                         }
 
-                        Kirigami.BasicListItem {
+                        Delegates.RoundedItemDelegate {
                             id: locationsButton
 
-                            icon: "map-flat"
+                            icon.name: "map-flat"
                             text: i18n("Show locations for this room")
 
                             onClicked: pageStack.pushDialogLayer("qrc:/LocationsPage.qml", {
@@ -184,6 +195,8 @@ Kirigami.OverlayDrawer {
                             }, {
                                 title: i18nc("Locations on a map", "Locations")
                             })
+
+                            Layout.fillWidth: true
                         }
 
                         Kirigami.ListSectionHeader {
@@ -191,6 +204,8 @@ Kirigami.OverlayDrawer {
                             activeFocusOnTab: false
                             spacing: 0
                             visible: !room.isDirectChat()
+
+                            Layout.fillWidth: true
 
                             QQC2.ToolButton {
                                 id: memberSearchToggle
@@ -258,44 +273,62 @@ Kirigami.OverlayDrawer {
                     clip: true
                     activeFocusOnTab: true
 
-                    delegate: Kirigami.BasicListItem {
-                        id: userListItem
+                    delegate: Delegates.RoundedItemDelegate {
+                        id: userDelegate
+
+                        required property string name
+                        required property string userId
+                        required property string avatar
+                        required property int powerLevel
+                        required property string powerLevelString
 
                         implicitHeight: Kirigami.Units.gridUnit * 2
-                        leftPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
 
-                        label: name
-                        labelItem.textFormat: Text.PlainText
+                        text: name
 
                         onClicked: {
+                            userDelegate.highlighted = true;
                             const popup = userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {
                                 room: room,
-                                user: room.getUser(user.id)
-                            })
-                            popup.closed.connect(function() {
-                                userListItem.highlighted = false
-                            })
+                                user: room.getUser(userDelegate.userId)
+                            });
+                            popup.closed.connect(() => {
+                                userDelegate.highlighted = false;
+                            });
                             if (roomDrawer.modal) {
-                                roomDrawer.close()
+                                roomDrawer.close();
                             }
-                            popup.open()
+                            popup.open();
                         }
 
-                        leading: Kirigami.Avatar {
-                            implicitWidth: height
-                            sourceSize.height: Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 2.5
-                            sourceSize.width: Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 2.5
-                            source: avatar
-                            name: model.userId
-                        }
+                        contentItem: RowLayout {
+                            Kirigami.Avatar {
+                                implicitWidth: height
+                                sourceSize {
+                                    height: Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 2.5
+                                    width: Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 2.5
+                                }
+                                source: userDelegate.avatar
+                                name: userDelegate.userId
 
-                        trailing: QQC2.Label {
-                            visible: powerLevel > 0
+                                Layout.fillHeight: true
+                            }
 
-                            text: powerLevelString
-                            color: Kirigami.Theme.disabledTextColor
-                            textFormat: Text.PlainText
-                            wrapMode: Text.NoWrap
+                            QQC2.Label {
+                                text: userDelegate.name
+                                textFormat: Text.PlainText
+                                elide: Text.ElideRight
+
+                                Layout.fillWidth: true
+                            }
+
+                            QQC2.Label {
+                                visible: userDelegate.powerLevel > 0
+
+                                text: userDelegate.powerLevelString
+                                color: Kirigami.Theme.disabledTextColor
+                                textFormat: Text.PlainText
+                            }
                         }
                     }
                 }

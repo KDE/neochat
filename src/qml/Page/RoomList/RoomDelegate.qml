@@ -7,13 +7,14 @@ import QtQuick.Layouts 1.15
 import QtQml.Models 2.15
 
 import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigamiaddons.delegates 1.0 as Delegates
 import org.kde.kitemmodels 1.0
 
 import org.kde.neochat 1.0
 
 import './' as RoomList
 
-Kirigami.BasicListItem {
+Delegates.RoundedItemDelegate {
     id: root
 
     required property int index
@@ -29,23 +30,9 @@ Kirigami.BasicListItem {
 
     readonly property bool hasNotifications: notificationCount > 0
 
-    topPadding: Kirigami.Units.largeSpacing
-    bottomPadding: Kirigami.Units.largeSpacing
+    height: visible ? implicitHeight : 0
 
     visible: root.categoryVisible || root.filterText.length > 0 || Config.mergeRoomList
-    highlighted: ListView.view.currentIndex === index
-    focus: true
-    icon: undefined
-    @BASICLISTITEM_BOLD@: root.hasNotifications
-
-    label: root.displayName
-    labelItem.textFormat: Text.PlainText
-
-    subtitle: root.subtitleText
-    subtitleItem {
-        textFormat: Text.PlainText
-        visible: !Config.compactRoomList
-    }
 
     onClicked: RoomManager.enterRoom(root.currentRoom)
     onPressAndHold: createRoomListContextMenu()
@@ -59,18 +46,54 @@ Kirigami.BasicListItem {
         onTapped: createRoomListContextMenu()
     }
 
-    leading: Kirigami.Avatar {
-        source: root.avatar ? "image://mxc/" +  root.avatar : ""
-        name: root.displayName
-        implicitWidth: visible ? height : 0
-        visible: Config.showAvatarInRoomDrawer
-        sourceSize {
-            width: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
-            height: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
-        }
-    }
+    contentItem: RowLayout {
+        Kirigami.Avatar {
+            source: root.avatar ? "image://mxc/" +  root.avatar : ""
+            name: root.displayName
+            implicitWidth: visible ? height : 0
+            implicitHeight: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
+            visible: Config.showAvatarInRoomDrawer
+            sourceSize {
+                width: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
+                height: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
+            }
 
-    trailing: RowLayout {
+            Layout.topMargin: Kirigami.Units.largeSpacing / 2
+            Layout.bottomMargin: Kirigami.Units.largeSpacing / 2
+        }
+
+        ColumnLayout {
+            spacing: 0
+
+            Layout.fillWidth: true
+            Layout.alignment: Qt.AlignVCenter
+
+            QQC2.Label {
+                id: label
+
+                text: root.displayName
+                elide: Text.ElideRight
+                font.weight: root.hasNotifications ? Font.Bold : Font.Normal
+
+                Layout.fillWidth: true
+                Layout.alignment: subtitle.visible ? Qt.AlignLeft | Qt.AlignBottom : Qt.AlignLeft | Qt.AlignVCenter
+            }
+
+            QQC2.Label {
+                id: subtitle
+
+                text: root.subtitleText
+                elide: Text.ElideRight
+                font: Kirigami.Theme.smallFont
+                opacity: root.hasNotifications ? 0.9 : 0.7
+                visible: !Config.compactRoomList
+                textFormat: Text.PlainText
+
+                Layout.fillWidth: true
+                Layout.alignment: visible ? Qt.AlignLeft | Qt.AlignTop : Qt.AlignLeft | Qt.AlignVCenter
+            }
+        }
+
         Kirigami.Icon {
             source: "notifications-disabled"
             enabled: false
@@ -80,10 +103,12 @@ Kirigami.BasicListItem {
             Accessible.name: i18n("Muted room")
             Layout.rightMargin: Kirigami.Units.smallSpacing
         }
+
         QQC2.Label {
             id: notificationCountLabel
-            text: notificationCount
-            visible: hasNotifications
+
+            text: root.notificationCount
+            visible: root.hasNotifications
             color: Kirigami.Theme.textColor
             horizontalAlignment: Text.AlignHCenter
             background: Rectangle {
@@ -103,6 +128,7 @@ Kirigami.BasicListItem {
                 text: notificationCountLabel.text
             }
         }
+
         QQC2.Button {
             id: configButton
             visible: root.hovered && !Kirigami.Settings.isMobile && !Config.compactRoomList

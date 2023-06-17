@@ -308,7 +308,7 @@ QQC2.ScrollView {
 
             x: delegate ? delegate.x + delegate.bubbleX : 0
             y: delegate ? delegate.mapToItem(parent, 0, 0).y + delegate.bubbleY - height + Kirigami.Units.smallSpacing : 0
-            width: delegate.bubbleWidth
+            width: delegate ? delegate.bubbleWidth : Kirigami.Units.gridUnit * 4
 
             showActions: delegate && delegate.hovered
             verified: delegate && delegate.verified

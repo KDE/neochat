@@ -61,7 +61,7 @@ RemoteMatches Runner::Match(const QString &searchTerm)
         const QString name = m_model.data(m_model.index(i, 0), RoomListModel::DisplayNameRole).toString();
 
         match.iconName = QStringLiteral("org.kde.neochat");
-        match.id = m_model.data(m_model.index(i, 0), RoomListModel::IdRole).toString();
+        match.id = m_model.data(m_model.index(i, 0), RoomListModel::RoomIdRole).toString();
         match.text = name;
         match.relevance = 1;
         const RemoteImage remoteImage = serializeImage(m_model.data(m_model.index(i, 0), RoomListModel::AvatarImageRole).value<QImage>());
