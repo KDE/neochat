@@ -50,10 +50,10 @@ Flow {
                 Kirigami.Theme.inherit: false
                 Kirigami.Theme.colorSet: Kirigami.Theme.View
                 radius: height / 2
-                shadow.size: Kirigami.Units.smallSpacing
-                shadow.color: !model.hasLocalUser ? Qt.rgba(0.0, 0.0, 0.0, 0.10) : Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.10)
-                border.color: Kirigami.ColorUtils.tintWithAlpha(color, Kirigami.Theme.textColor, 0.15)
-                border.width: 1
+                shadow {
+                    size: Kirigami.Units.smallSpacing
+                    color: !model.hasLocalUser ? Qt.rgba(0.0, 0.0, 0.0, 0.10) : Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.10)
+                }
             }
 
             onClicked: reactionClicked(model.reaction)
