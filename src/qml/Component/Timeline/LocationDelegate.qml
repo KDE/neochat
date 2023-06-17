@@ -36,7 +36,6 @@ TimelineContainer {
      * a user's location.
      */
     required property string asset
-    required property var content
 
     ColumnLayout {
         Layout.maximumWidth: root.contentMaxWidth
@@ -63,7 +62,7 @@ TimelineContainer {
             TapHandler {
                 acceptedButtons: Qt.LeftButton
                 onTapped: {
-                    let map = fullScreenMap.createObject(parent, {content: root.content});
+                    let map = fullScreenMap.createObject(parent, {latitude: root.latitude, longitude: root.longitude, asset: root.asset, author: root.author});
                     map.open()
                 }
                 onLongPressed: openMessageContext("")

@@ -27,22 +27,8 @@ Kirigami.Page {
             model: LocationsModel {
                 room: locationsPage.room
             }
-            delegate: MapQuickItem {
-                id: point
-
-                required property var longitude
-                required property var latitude
-                required property string text
-                anchorPoint.x: icon.width / 2
-                anchorPoint.y: icon.height / 2
-                coordinate: QtPositioning.coordinate(point.latitude, point.longitude)
-                autoFadeIn: false
-                sourceItem: Kirigami.Icon {
-                    id: icon
-                    width: height
-                    height: Kirigami.Units.iconSizes.medium
-                    source: "flag-blue"
-                }
+            delegate: LocationMapItem {
+                isLive: true
             }
         }
     }

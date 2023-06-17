@@ -11,7 +11,10 @@ import org.kde.kirigami 2.15 as Kirigami
 ApplicationWindow {
     id: root
 
-    required property var content
+    required property real latitude
+    required property real longitude
+    required property string asset
+    required property var author
 
     flags: Qt.FramelessWindowHint | Qt.WA_TranslucentBackground
     visibility: Qt.WindowFullScreen
@@ -32,20 +35,15 @@ ApplicationWindow {
     Map {
         id: map
         anchors.fill: parent
-        property string latlong: root.content.geo_uri.split(':')[1]
-        property string latitude: latlong.split(',')[0]
-        property string longitude: latlong.split(',')[1]
-        center: QtPositioning.coordinate(latitude, longitude)
+        center: QtPositioning.coordinate(root.latitude, root.longitude)
         zoomLevel: 15
         plugin: OsmLocationPlugin.plugin
-        MapCircle {
-            radius: 1500 / map.zoomLevel
-            color: Kirigami.Theme.highlightColor
-            border.color: Kirigami.Theme.linkColor
-            border.width: Kirigami.Units.devicePixelRatio * 2
-            smooth: true
-            opacity: 0.25
-            center: QtPositioning.coordinate(map.latitude, map.longitude)
+        LocationMapItem {
+            latitude: root.latitude
+            longitude: root.longitude
+            asset: root.asset
+            author: root.author
+            isLive: true
         }
         onCopyrightLinkActivated: {
             Qt.openUrlExternally(link)
