@@ -54,7 +54,7 @@ void LocationsModel::addLocation(const RoomMessageEvent *event)
         .eventId = event->id(),
         .latitude = latitude,
         .longitude = longitude,
-        .text = event->contentJson()["body"].toString(),
+        .content = event->contentJson(),
         .author = dynamic_cast<NeoChatUser *>(m_room->user(event->senderId())),
     };
     endInsertRows();
@@ -80,6 +80,8 @@ QHash<int, QByteArray> LocationsModel::roleNames() const
         {LongitudeRole, "longitude"},
         {LatitudeRole, "latitude"},
         {TextRole, "text"},
+        {AssetRole, "asset"},
+        {AuthorRole, "author"},
     };
 }
 
@@ -91,7 +93,11 @@ QVariant LocationsModel::data(const QModelIndex &index, int roleName) const
     } else if (roleName == LatitudeRole) {
         return m_locations[row].latitude;
     } else if (roleName == TextRole) {
-        return m_locations[row].text;
+        return m_locations[row].content["body"_ls].toString();
+    } else if (roleName == AssetRole) {
+        return m_locations[row].content["org.matrix.msc3488.asset"_ls].toObject()["type"_ls].toString();
+    } else if (roleName == AuthorRole) {
+        return m_room->getUser(m_locations[row].author);
     }
     return {};
 }

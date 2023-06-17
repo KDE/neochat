@@ -19,6 +19,8 @@ public:
         TextRole = Qt::DisplayRole,
         LongitudeRole,
         LatitudeRole,
+        AssetRole,
+        AuthorRole,
     };
     Q_ENUM(Roles)
     Q_PROPERTY(NeoChatRoom *room READ room WRITE setRoom NOTIFY roomChanged)
@@ -42,7 +44,7 @@ private:
         QString eventId;
         float latitude;
         float longitude;
-        QString text;
+        QJsonObject content;
         NeoChatUser *author;
     };
     QList<LocationData> m_locations;
