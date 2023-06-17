@@ -72,7 +72,7 @@ public:
         CategoryVisibleRole, /**< If the room's category is visible. */
         SubtitleTextRole, /**< The text to show as the room subtitle. */
         AvatarImageRole, /**< The room avatar as an image. */
-        IdRole, /**< The room matrix ID. */
+        RoomIdRole, /**< The room matrix ID. */
         IsSpaceRole, /**< Whether the room is a space. */
         IsChildSpaceRole, /**< Whether this space is a child of a different space. */
     };

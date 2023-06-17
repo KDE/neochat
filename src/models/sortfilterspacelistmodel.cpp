@@ -8,7 +8,7 @@
 SortFilterSpaceListModel::SortFilterSpaceListModel(QObject *parent)
     : QSortFilterProxyModel{parent}
 {
-    setSortRole(RoomListModel::IdRole);
+    setSortRole(RoomListModel::RoomIdRole);
     sort(0);
     invalidateFilter();
     connect(this, &QAbstractProxyModel::sourceModelChanged, this, [this]() {
@@ -33,8 +33,8 @@ bool SortFilterSpaceListModel::filterAcceptsRow(int source_row, const QModelInde
 
 bool SortFilterSpaceListModel::lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const
 {
-    const auto idLeft = sourceModel()->data(source_left, RoomListModel::IdRole).toString();
-    const auto idRight = sourceModel()->data(source_right, RoomListModel::IdRole).toString();
+    const auto idLeft = sourceModel()->data(source_left, RoomListModel::RoomIdRole).toString();
+    const auto idRight = sourceModel()->data(source_right, RoomListModel::RoomIdRole).toString();
     return idLeft < idRight;
 }
 
