@@ -9,7 +9,7 @@ import org.kde.kirigami 2.15 as Kirigami
 
 import org.kde.neochat 1.0
 
-QQC2.ToolBar {
+RowLayout {
     id: root
 
     property var desiredWidth
@@ -45,40 +45,37 @@ QQC2.ToolBar {
         }
     }
 
-    padding: 0
+    Kirigami.SearchField {
+        Layout.topMargin: Kirigami.Units.smallSpacing
+        Layout.bottomMargin: Kirigami.Units.smallSpacing
+        Layout.fillWidth: true
+        Layout.preferredWidth: root.desiredWidth ? root.desiredWidth - menuButton.width - root.spacing : -1
+        visible: !root.collapsed
+        onTextChanged: sortFilterRoomListModel.filterText = text
+        KeyNavigation.tab: listView
+    }
 
-    RowLayout {
-        id: row
-        Kirigami.SearchField {
-            Layout.topMargin: Kirigami.Units.smallSpacing
-            Layout.bottomMargin: Kirigami.Units.smallSpacing
-            Layout.fillWidth: true
-            Layout.preferredWidth: root.desiredWidth ? root.desiredWidth - menuButton.width - row.spacing : -1
-            visible: !root.collapsed
-            onTextChanged: sortFilterRoomListModel.filterText = text
-            KeyNavigation.tab: listView
-        }
-        QQC2.ToolButton {
-            id: menuButton
-            display: QQC2.AbstractButton.IconOnly
-            checkable: true
-            action: Kirigami.Action {
-                text: i18n("Create rooms and chats")
-                icon.name: "irc-join-channel"
-                onTriggered: {
-                    if (Kirigami.isMobile) {
-                        let menu = mobileMenu.createObject();
-                        menu.open();
-                    } else {
-                        let menu = desktopMenu.createObject(menuButton, {y: menuButton.height});
-                        menu.closed.connect(menuButton.toggle)
-                        menu.open();
-                    }
+    QQC2.ToolButton {
+        id: menuButton
+        display: QQC2.AbstractButton.IconOnly
+        checkable: true
+        action: Kirigami.Action {
+            text: i18n("Create rooms and chats")
+            icon.name: "irc-join-channel"
+            onTriggered: {
+                if (Kirigami.isMobile) {
+                    let menu = mobileMenu.createObject();
+                    menu.open();
+                } else {
+                    let menu = desktopMenu.createObject(menuButton, {y: menuButton.height});
+                    menu.closed.connect(menuButton.toggle)
+                    menu.open();
                 }
             }
-            QQC2.ToolTip {
-                text: parent.text
-            }
+        }
+
+        QQC2.ToolTip {
+            text: parent.text
         }
     }
 
