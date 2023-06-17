@@ -45,6 +45,7 @@ public:
         PowerLevelRole, /**< The user's power level in the current room. */
         PowerLevelStringRole, /**< The name of the user's power level in the current room. */
     };
+    Q_ENUM(EventRoles)
 
     UserListModel(QObject *parent = nullptr);
 

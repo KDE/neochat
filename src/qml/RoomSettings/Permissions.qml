@@ -44,7 +44,7 @@ Kirigami.ScrollablePage {
                         sortRole: "powerLevel"
                         sortOrder: Qt.DescendingOrder
                         filterRowCallback: function(source_row, source_parent) {
-                            let powerLevelRole = sourceModel.data(sourceModel.index(source_row, 0, source_parent), Qt.UserRole + 5)
+                            let powerLevelRole = sourceModel.data(sourceModel.index(source_row, 0, source_parent), UserListModel.PowerLevelRole)
                             return powerLevelRole > 0;
                         }
                     }
