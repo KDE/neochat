@@ -42,40 +42,7 @@ TimelineContainer {
 
             MapItemView {
                 model: liveLocationModel
-                delegate: MapQuickItem {
-                    anchorPoint.x: sourceItem.width / 2
-                    anchorPoint.y: sourceItem.height
-                    coordinate: QtPositioning.coordinate(model.latitude, model.longitude)
-                    autoFadeIn: false
-                    sourceItem: Kirigami.Icon {
-                        width: height
-                        height: Kirigami.Units.iconSizes.huge
-                        source: "gps"
-                        isMask: true
-                        color: model.isLive ? Kirigami.Theme.highlightColor : Kirigami.Theme.disabledTextColor
-
-                        Kirigami.Icon {
-                            anchors.centerIn: parent
-                            anchors.verticalCenterOffset: -parent.height / 8
-                            visible: model.asset === "m.pin"
-                            width: height
-                            height: parent.height / 3 + 1
-                            source: "pin"
-                            isMask: true
-                            color: parent.color
-                        }
-                        Kirigami.Avatar {
-                            anchors.centerIn: parent
-                            anchors.verticalCenterOffset: -parent.height / 8
-                            visible: model.asset === "m.self"
-                            width: height
-                            height: parent.height / 3 + 1
-                            name: model.author.displayName
-                            source: model.author.avatarSource
-                            color: model.author.color
-                        }
-                    }
-                }
+                delegate: LocationMapItem {}
             }
 
             TapHandler {

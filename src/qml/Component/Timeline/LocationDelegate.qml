@@ -52,43 +52,12 @@ TimelineContainer {
             plugin: OsmLocationPlugin.plugin
             onCopyrightLinkActivated: Qt.openUrlExternally(link)
 
-
-            MapQuickItem {
-                id: point
-
-                anchorPoint.x: sourceItem.width / 2
-                anchorPoint.y: sourceItem.height
-                coordinate: QtPositioning.coordinate(root.latitude, root.longitude)
-                autoFadeIn: false
-
-                sourceItem: Kirigami.Icon {
-                    width: height
-                    height: Kirigami.Units.iconSizes.huge
-                    source: "gps"
-                    isMask: true
-                    color: Kirigami.Theme.highlightColor
-
-                    Kirigami.Icon {
-                        anchors.centerIn: parent
-                        anchors.verticalCenterOffset: -parent.height / 8
-                        visible: root.asset === "m.pin"
-                        width: height
-                        height: parent.height / 3 + 1
-                        source: "pin"
-                        isMask: true
-                        color: Kirigami.Theme.highlightColor
-                    }
-                    Kirigami.Avatar {
-                        anchors.centerIn: parent
-                        anchors.verticalCenterOffset: -parent.height / 8
-                        visible: root.asset === "m.self"
-                        width: height
-                        height: parent.height / 3 + 1
-                        name: root.author.displayName
-                        source: root.author.avatarSource
-                        color: root.author.color
-                    }
-                }
+            LocationMapItem {
+                latitude: root.latitude
+                longitude: root.longitude
+                asset: root.asset
+                author: root.author
+                isLive: true
             }
 
             TapHandler {
