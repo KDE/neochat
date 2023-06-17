@@ -17,19 +17,26 @@ Kirigami.ApplicationWindow {
 
     property int columnWidth: Kirigami.Units.gridUnit * 13
 
+    property RoomList.Page roomListPage
+    property bool roomListLoaded: false
+
+    property RoomPage roomPage
+
     minimumWidth: Kirigami.Units.gridUnit * 20
     minimumHeight: Kirigami.Units.gridUnit * 15
 
     visible: false // Will be overridden in Component.onCompleted
     wideScreen: width > columnWidth * 5
 
-    pageStack.initialPage: LoadingPage {}
-    pageStack.globalToolBar.canContainHandles: true
-
-    property RoomList.Page roomListPage
-    property bool roomListLoaded: false
-
-    property RoomPage roomPage
+    pageStack {
+        initialPage: LoadingPage {}
+        globalToolBar.canContainHandles: true
+        defaultColumnWidth: roomListPage ? roomListPage.currentWidth : 0
+        globalToolBar {
+            style: Kirigami.ApplicationHeaderStyle.ToolBar
+            showNavigationButtons: pageStack.currentIndex > 0 || pageStack.layers.depth > 1 ? Kirigami.ApplicationHeaderStyle.ShowBackButton : 0
+        }
+    }
 
     Connections {
         target: root.quitAction
@@ -151,10 +158,6 @@ Kirigami.ApplicationWindow {
         enabled: RoomManager.hasOpenRoom && pageStack.layers.depth < 2 && pageStack.depth < 3 && (pageStack.visibleItems.length > 1 || pageStack.currentIndex > 0)
         handleVisible: enabled
     }
-
-    pageStack.defaultColumnWidth: roomListPage ? roomListPage.currentWidth : 0
-    pageStack.globalToolBar.style: Kirigami.ApplicationHeaderStyle.ToolBar
-    pageStack.globalToolBar.showNavigationButtons: pageStack.currentIndex > 0 || pageStack.layers.depth > 1 ? Kirigami.ApplicationHeaderStyle.ShowBackButton : 0
 
     Dialog.ConfirmLogout {
         id: confirmLogoutDialog
