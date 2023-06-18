@@ -41,6 +41,8 @@ LocationsModel::LocationsModel(QObject *parent)
             }
         });
     });
+
+    connect(this, &LocationsModel::rowsInserted, this, &LocationsModel::boundingBoxChanged);
 }
 
 void LocationsModel::addLocation(const RoomMessageEvent *event)
@@ -109,4 +111,19 @@ QVariant LocationsModel::data(const QModelIndex &index, int roleName) const
 int LocationsModel::rowCount(const QModelIndex &parent) const
 {
     return m_locations.size();
+}
+
+QRectF LocationsModel::boundingBox() const
+{
+    QRectF bbox(QPointF(180.0, 90.0), QPointF(-180.0, -90.0));
+    for (auto i = 0; i < rowCount(); ++i) {
+        const auto lat = data(index(i, 0), LatitudeRole).toDouble();
+        const auto lon = data(index(i, 0), LongitudeRole).toDouble();
+
+        bbox.setLeft(std::min(bbox.left(), lon));
+        bbox.setRight(std::max(bbox.right(), lon));
+        bbox.setTop(std::min(bbox.top(), lat));
+        bbox.setBottom(std::max(bbox.bottom(), lat));
+    }
+    return bbox;
 }
