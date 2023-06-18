@@ -46,6 +46,7 @@
 #include "delegatesizehelper.h"
 #include "filetypesingleton.h"
 #include "linkpreviewer.h"
+#include "locationhelper.h"
 #include "logger.h"
 #include "login.h"
 #include "matriximageprovider.h"
@@ -288,6 +289,9 @@ int main(int argc, char *argv[])
         return engine->toScriptValue(KAboutData::applicationData());
     });
     qmlRegisterSingletonType(QUrl("qrc:/OsmLocationPlugin.qml"), "org.kde.neochat", 1, 0, "OsmLocationPlugin");
+    qmlRegisterSingletonType("org.kde.neochat", 1, 0, "LocationHelper", [](QQmlEngine *engine, QJSEngine *) -> QJSValue {
+        return engine->toScriptValue(LocationHelper());
+    });
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     qRegisterMetaTypeStreamOperators<Emoji>();

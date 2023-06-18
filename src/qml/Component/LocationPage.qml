@@ -23,8 +23,15 @@ Kirigami.Page {
         anchors.fill: parent
         plugin: OsmLocationPlugin.plugin
 
+        center: {
+            let c = LocationHelper.center(LocationHelper.unite(locationsModel.boundingBox, liveLocationsModel.boundingBox));
+            return QtPositioning.coordinate(c.y, c.x);
+        }
+        zoomLevel: LocationHelper.zoomToFit(LocationHelper.unite(locationsModel.boundingBox, liveLocationsModel.boundingBox), map.width, map.height)
+
         MapItemView {
             model: LocationsModel {
+                id: locationsModel
                 room: locationsPage.room
             }
             delegate: LocationMapItem {
@@ -34,6 +41,7 @@ Kirigami.Page {
 
         MapItemView {
             model: LiveLocationsModel {
+                id: liveLocationsModel
                 room: locationsPage.room
             }
             delegate: LocationMapItem {}
