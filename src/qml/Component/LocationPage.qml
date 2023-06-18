@@ -46,5 +46,11 @@ Kirigami.Page {
             }
             delegate: LocationMapItem {}
         }
+
+        Kirigami.PlaceholderMessage {
+            text: i18n("There are no locations shared in this room.")
+            visible: map.mapItems.length === 0
+            anchors.centerIn: parent
+        }
     }
 }
