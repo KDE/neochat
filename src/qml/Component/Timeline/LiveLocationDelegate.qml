@@ -47,12 +47,20 @@ TimelineContainer {
 
             TapHandler {
                 acceptedButtons: Qt.LeftButton
+                onTapped: {
+                    let map = fullScreenMap.createObject(parent, {liveLocationModel: liveLocationModel});
+                    map.open()
+                }
                 onLongPressed: openMessageContext("")
             }
             TapHandler {
                 acceptedButtons: Qt.RightButton
                 onTapped: openMessageContext("")
             }
+        }
+        Component {
+            id: fullScreenMap
+            FullScreenMap {}
         }
     }
 }

@@ -11,10 +11,11 @@ import org.kde.kirigami 2.15 as Kirigami
 ApplicationWindow {
     id: root
 
-    required property real latitude
-    required property real longitude
-    required property string asset
-    required property var author
+    property real latitude: NaN
+    property real longitude: NaN
+    property string asset
+    property var author
+    property QtObject liveLocationModel: null
 
     flags: Qt.FramelessWindowHint | Qt.WA_TranslucentBackground
     visibility: Qt.WindowFullScreen
@@ -35,7 +36,8 @@ ApplicationWindow {
     Map {
         id: map
         anchors.fill: parent
-        center: QtPositioning.coordinate(root.latitude, root.longitude)
+        center: root.liveLocationModel ?  QtPositioning.coordinate(root.liveLocationModel.boundingBox.y, root.liveLocationModel.boundingBox.x)
+            : QtPositioning.coordinate(root.latitude, root.longitude)
         zoomLevel: 15
         plugin: OsmLocationPlugin.plugin
         LocationMapItem {
@@ -44,6 +46,11 @@ ApplicationWindow {
             asset: root.asset
             author: root.author
             isLive: true
+            visible: !isNaN(root.latitude) && !isNaN(root.longitude)
+        }
+        MapItemView {
+            model: root.liveLocationModel
+            delegate: LocationMapItem {}
         }
         onCopyrightLinkActivated: {
             Qt.openUrlExternally(link)
