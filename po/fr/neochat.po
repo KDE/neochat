@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-19 00:49+0000\n"
+"POT-Creation-Date: 2023-06-24 00:50+0000\n"
 "PO-Revision-Date: 2023-06-07 09:43+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -123,91 +123,91 @@ msgstr "Destination"
 msgid "Network Error"
 msgstr "Erreur du réseau"
 
-#: src/main.cpp:162
+#: src/main.cpp:164
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:164
+#: src/main.cpp:166
 #, kde-format
 msgid "Matrix client"
 msgstr "Client « Matrix »"
 
-#: src/main.cpp:166
+#: src/main.cpp:168
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 msgstr "© 2018-2020 Black Hat 2020-2023 Communauté de KDE"
 
-#: src/main.cpp:167
+#: src/main.cpp:169
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:167 src/main.cpp:168 src/main.cpp:169
+#: src/main.cpp:169 src/main.cpp:170 src/main.cpp:171
 #, kde-format
 msgid "Maintainer"
 msgstr "Mainteneur"
 
-#: src/main.cpp:168
+#: src/main.cpp:170
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:169
+#: src/main.cpp:171
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:170
+#: src/main.cpp:172
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:170
+#: src/main.cpp:172
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Auteur initial de Spectral"
 
-#: src/main.cpp:171
+#: src/main.cpp:173
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:171
+#: src/main.cpp:173
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "Mainteneur de Quotient"
 
-#: src/main.cpp:172
+#: src/main.cpp:174
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Xavier Besnard"
 
-#: src/main.cpp:172
+#: src/main.cpp:174
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xavier.besnard@neuf.fr"
 
-#: src/main.cpp:176
+#: src/main.cpp:178
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr ""
 "Une bibliothèque Qt5 pour écrire des clients multi-plate-formes pour Matrix"
 
-#: src/main.cpp:179
+#: src/main.cpp:181
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (compilé en regard de %2)"
 
-#: src/main.cpp:326
+#: src/main.cpp:332
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Un client pour le protocole de communications  Matrix »"
 
-#: src/main.cpp:327
+#: src/main.cpp:333
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Prend en charge le thème d'URL « matrix : »"
@@ -1328,6 +1328,17 @@ msgstr "Émoticônes"
 msgid "Stickers"
 msgstr "Étiquettes auto-collantes"
 
+#: src/qml/Component/FullScreenMap.qml:23
+#, fuzzy, kde-format
+#| msgid "Send a Location"
+msgid "View Location"
+msgstr "Envoyer un emplacement"
+
+#: src/qml/Component/FullScreenMap.qml:64
+#, kde-format
+msgid "Close"
+msgstr "Fermer"
+
 #: src/qml/Component/HoverActions.qml:79
 #, kde-format
 msgid "This message was sent from a verified device"
@@ -1353,6 +1364,19 @@ msgstr "Rejeter"
 #, kde-format
 msgid "Accept"
 msgstr "Accepter"
+
+#: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:155
+#, fuzzy, kde-format
+#| msgid "Notifications"
+msgctxt "Locations on a map"
+msgid "Locations"
+msgstr "Notifications"
+
+#: src/qml/Component/LocationPage.qml:51
+#, fuzzy, kde-format
+#| msgid "You are already in this room."
+msgid "There are no locations shared in this room."
+msgstr "Vous êtes déjà dans ce salon."
 
 #: src/qml/Component/Login/Homeserver.qml:18
 #, kde-format
@@ -2812,38 +2836,44 @@ msgid "Search"
 msgstr "Rechercher"
 
 #: src/qml/Panel/RoomDrawer.qml:150
+#, fuzzy, kde-format
+#| msgid "Search in this room"
+msgid "Show locations for this room"
+msgstr "Rechercher dans ce salon"
+
+#: src/qml/Panel/RoomDrawer.qml:162
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Supprimer le salon des signets"
 
-#: src/qml/Panel/RoomDrawer.qml:150
+#: src/qml/Panel/RoomDrawer.qml:162
 #, kde-format
 msgid "Make room favorite"
 msgstr "Ajouter le salon comme signet"
 
-#: src/qml/Panel/RoomDrawer.qml:156
+#: src/qml/Panel/RoomDrawer.qml:168
 #, kde-format
 msgid "Members"
 msgstr "Membres"
 
-#: src/qml/Panel/RoomDrawer.qml:165
+#: src/qml/Panel/RoomDrawer.qml:177
 #, kde-format
 msgid "Search user in room"
 msgstr "Rechercher un utilisateur dans un salon"
 
-#: src/qml/Panel/RoomDrawer.qml:182
+#: src/qml/Panel/RoomDrawer.qml:194
 #, kde-format
 msgid "Invite user to room"
 msgstr "Inviter des utilisateurs dans un salon"
 
-#: src/qml/Panel/RoomDrawer.qml:189
+#: src/qml/Panel/RoomDrawer.qml:201
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "Membre %1"
 msgstr[1] "%1 membres"
 
-#: src/qml/Panel/RoomDrawer.qml:189
+#: src/qml/Panel/RoomDrawer.qml:201
 #, kde-format
 msgid "No member count"
 msgstr "Aucun numéro de membre"
@@ -4098,9 +4128,6 @@ msgstr "Quitter"
 
 #~ msgid "Save as"
 #~ msgstr "Enregistrer sous"
-
-#~ msgid "Close"
-#~ msgstr "Fermer"
 
 #~ msgid " (edited)"
 #~ msgstr " (modifié)"

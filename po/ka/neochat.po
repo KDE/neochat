@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-19 00:49+0000\n"
+"POT-Creation-Date: 2023-06-24 00:50+0000\n"
 "PO-Revision-Date: 2023-06-10 06:34+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -122,91 +122,91 @@ msgstr "დანიშნულება"
 msgid "Network Error"
 msgstr "ქსელის შეცდომა"
 
-#: src/main.cpp:162
+#: src/main.cpp:164
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:164
+#: src/main.cpp:166
 #, kde-format
 msgid "Matrix client"
 msgstr "Matrix -ის კლიენტი"
 
-#: src/main.cpp:166
+#: src/main.cpp:168
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 msgstr ""
 "© 2018-2020 Black Hat, 2020-2023 KDE -ის საზოგადოება, ყველა უფლება დაცულია"
 
-#: src/main.cpp:167
+#: src/main.cpp:169
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:167 src/main.cpp:168 src/main.cpp:169
+#: src/main.cpp:169 src/main.cpp:170 src/main.cpp:171
 #, kde-format
 msgid "Maintainer"
 msgstr "წამყვანი პროგრამისტი"
 
-#: src/main.cpp:168
+#: src/main.cpp:170
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:169
+#: src/main.cpp:171
 #, kde-format
 msgid "James Graham"
 msgstr "ჯეიმს გრეჰემი"
 
-#: src/main.cpp:170
+#: src/main.cpp:172
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:170
+#: src/main.cpp:172
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Spectral- ის ორიგინალური ავტორი"
 
-#: src/main.cpp:171
+#: src/main.cpp:173
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "ალექსეი რუსაკოვი"
 
-#: src/main.cpp:171
+#: src/main.cpp:173
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "კოვოტიენტის პროგრამისტი"
 
-#: src/main.cpp:172
+#: src/main.cpp:174
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Temuri Doghonadze"
 
-#: src/main.cpp:172
+#: src/main.cpp:174
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Temuri.doghonadze@gmail.com"
 
-#: src/main.cpp:176
+#: src/main.cpp:178
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr "Qt5 ბიბლიოთეკა Matrix-ისთვის კლიენტების დასაწერად"
 
-#: src/main.cpp:179
+#: src/main.cpp:181
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (აგებულია %2-ით)"
 
-#: src/main.cpp:326
+#: src/main.cpp:332
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "კლიენტი Matrix-ის კომუნიკაციის პროტოკოლისთვის"
 
-#: src/main.cpp:327
+#: src/main.cpp:333
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Matrix-ის მხარდჭერა: ბმული სქემა"
@@ -1319,6 +1319,17 @@ msgstr "ემოჯიები"
 msgid "Stickers"
 msgstr "სტიკერები"
 
+#: src/qml/Component/FullScreenMap.qml:23
+#, fuzzy, kde-format
+#| msgid "Send a Location"
+msgid "View Location"
+msgstr "მდებარეობის გაგზავნა"
+
+#: src/qml/Component/FullScreenMap.qml:64
+#, kde-format
+msgid "Close"
+msgstr "დახურვა"
+
 #: src/qml/Component/HoverActions.qml:79
 #, kde-format
 msgid "This message was sent from a verified device"
@@ -1344,6 +1355,19 @@ msgstr "უარყოფა"
 #, kde-format
 msgid "Accept"
 msgstr "დასტური"
+
+#: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:155
+#, fuzzy, kde-format
+#| msgid "Notifications"
+msgctxt "Locations on a map"
+msgid "Locations"
+msgstr "გაფრთხილებები"
+
+#: src/qml/Component/LocationPage.qml:51
+#, fuzzy, kde-format
+#| msgid "You are already in this room."
+msgid "There are no locations shared in this room."
+msgstr "უკვე ოთახში ბრძანდებით."
 
 #: src/qml/Component/Login/Homeserver.qml:18
 #, kde-format
@@ -2771,38 +2795,44 @@ msgid "Search"
 msgstr "ძებნა"
 
 #: src/qml/Panel/RoomDrawer.qml:150
+#, fuzzy, kde-format
+#| msgid "Search in this room"
+msgid "Show locations for this room"
+msgstr "ამ ოთახში ძებნა"
+
+#: src/qml/Panel/RoomDrawer.qml:162
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "ოთახის რჩეულებიდან წაშლა"
 
-#: src/qml/Panel/RoomDrawer.qml:150
+#: src/qml/Panel/RoomDrawer.qml:162
 #, kde-format
 msgid "Make room favorite"
 msgstr "ოთახის რჩეულად მონიშვნა"
 
-#: src/qml/Panel/RoomDrawer.qml:156
+#: src/qml/Panel/RoomDrawer.qml:168
 #, kde-format
 msgid "Members"
 msgstr "წევრები"
 
-#: src/qml/Panel/RoomDrawer.qml:165
+#: src/qml/Panel/RoomDrawer.qml:177
 #, kde-format
 msgid "Search user in room"
 msgstr "ოთახში მომხმარებლის ძებნა"
 
-#: src/qml/Panel/RoomDrawer.qml:182
+#: src/qml/Panel/RoomDrawer.qml:194
 #, kde-format
 msgid "Invite user to room"
 msgstr "მომხმარებლის ოთახში მოწვევა"
 
-#: src/qml/Panel/RoomDrawer.qml:189
+#: src/qml/Panel/RoomDrawer.qml:201
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 წევრი"
 msgstr[1] "%1 წევრი"
 
-#: src/qml/Panel/RoomDrawer.qml:189
+#: src/qml/Panel/RoomDrawer.qml:201
 #, kde-format
 msgid "No member count"
 msgstr "წევრების რაოდენობის გარეშე"
@@ -4035,9 +4065,6 @@ msgstr "დატოვება"
 
 #~ msgid "Save as"
 #~ msgstr "შენახვა, როგორც"
-
-#~ msgid "Close"
-#~ msgstr "დახურვა"
 
 #~ msgid " (edited)"
 #~ msgstr " (ჩასწორებულია)"
