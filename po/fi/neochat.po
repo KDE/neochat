@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-24 00:50+0000\n"
-"PO-Revision-Date: 2023-04-20 12:39+0300\n"
+"PO-Revision-Date: 2023-06-02 20:04+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #: src/controller.cpp:262
 #, kde-format
@@ -134,10 +134,9 @@ msgid "Matrix client"
 msgstr "Matrix-asiakas"
 
 #: src/main.cpp:168
-#, fuzzy, kde-format
-#| msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
+#, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
-msgstr "© 2018–2020 Black Hat, 2020–2022 KDE-yhteisö"
+msgstr "© 2018–2020 Black Hat, 2020–2023 KDE-yhteisö"
 
 #: src/main.cpp:169
 #, kde-format
@@ -1155,7 +1154,7 @@ msgstr "Liitä kuva tai tiedosto"
 #: src/qml/Component/ChatBox/ChatBar.qml:89
 #, kde-format
 msgid "Emojis & Stickers"
-msgstr ""
+msgstr "Emojit ja tarrat"
 
 #: src/qml/Component/ChatBox/ChatBar.qml:105
 #, kde-format
@@ -1248,10 +1247,9 @@ msgid "Replying to:"
 msgstr "Vastataan:"
 
 #: src/qml/Component/Devtools/RoomData.qml:20
-#, fuzzy, kde-format
-#| msgid "Rooms"
+#, kde-format
 msgid "Room"
-msgstr "Huoneet"
+msgstr "Huone"
 
 #: src/qml/Component/Devtools/RoomData.qml:31
 #, fuzzy, kde-format
@@ -1260,15 +1258,14 @@ msgid "Show m.room.member events"
 msgstr "Näytä nimenvaihtotapahtumat"
 
 #: src/qml/Component/Devtools/RoomData.qml:43
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgid "Show room account data"
-msgstr "Huoneita ei löytynyt"
+msgstr "Näytä huoneen tilitiedot"
 
 #: src/qml/Component/Devtools/RoomData.qml:54
 #, kde-format
 msgid "Room Account Data for %1 - %2"
-msgstr ""
+msgstr "Huoneen tilitiedot: %1 – %2"
 
 #: src/qml/Component/Devtools/RoomData.qml:64
 #: src/qml/Component/Devtools/RoomData.qml:106
@@ -1278,33 +1275,29 @@ msgid "Event Source"
 msgstr "Tapahtumalähde"
 
 #: src/qml/Component/Devtools/RoomData.qml:78
-#, fuzzy, kde-format
-#| msgid "Room State - %1"
+#, kde-format
 msgid "Room State for %1"
 msgstr "Huoneen tila – %1"
 
 #: src/qml/Component/Devtools/ServerData.qml:20
 #, kde-format
 msgid "Server Capabilities"
-msgstr ""
+msgstr "Palvelimen ominaisuudet"
 
 #: src/qml/Component/Devtools/ServerData.qml:23
-#, fuzzy, kde-format
-#| msgid "Confirm new Password:"
+#, kde-format
 msgid "Can change password"
-msgstr "Vahvista uusi salasana:"
+msgstr "Voi vaihtaa salasanansa"
 
 #: src/qml/Component/Devtools/ServerData.qml:33
-#, fuzzy, kde-format
-#| msgid "Default permissions"
+#, kde-format
 msgid "Default Room Version"
-msgstr "Oletusluvat"
+msgstr "Huoneen oletusversio"
 
 #: src/qml/Component/Devtools/ServerData.qml:45
-#, fuzzy, kde-format
-#| msgid "Room version"
+#, kde-format
 msgid "Available Room Versions"
-msgstr "Huoneen versio"
+msgstr "Huoneen saatavilla olevat versiot"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:83
 #, fuzzy, kde-format
@@ -1320,17 +1313,16 @@ msgstr "Ei emojeja"
 #: src/qml/Component/Emoji/EmojiPicker.qml:47
 #: src/qml/Settings/EmoticonFormCard.qml:28
 #: src/qml/Settings/EmoticonsPage.qml:16
-#, fuzzy, kde-format
-#| msgid "No emojis"
+#, kde-format
 msgid "Emojis"
-msgstr "Ei emojeja"
+msgstr "Emojit"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:54
 #: src/qml/Settings/EmoticonFormCard.qml:28
 #: src/qml/Settings/EmoticonsPage.qml:16
 #, kde-format
 msgid "Stickers"
-msgstr ""
+msgstr "Tarrat"
 
 #: src/qml/Component/FullScreenMap.qml:23
 #, fuzzy, kde-format
@@ -1602,7 +1594,7 @@ msgstr "Äänenvoimakkuus"
 #: src/qml/Component/Timeline/VideoDelegate.qml:353
 #, kde-format
 msgid "Maximize"
-msgstr ""
+msgstr "Suurenna"
 
 #: src/qml/Component/TimelineView.qml:126
 #, kde-format
@@ -2461,7 +2453,7 @@ msgstr "Lähetä kutsu"
 #: src/qml/Page/InviteUserPage.qml:100
 #, kde-format
 msgid "User is either already a member or has been invited"
-msgstr ""
+msgstr "Käyttäjä joko on jo jäsen tai on kutsuttu jäseneksi"
 
 #: src/qml/Page/JoinRoomPage.qml:21
 #, kde-format
@@ -2694,11 +2686,9 @@ msgid "Configure room"
 msgstr "Huoneen asetukset"
 
 #: src/qml/Page/RoomList/SpaceDrawer.qml:63
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Show All Rooms"
+#, kde-format
 msgid "All Rooms"
-msgstr "Näytä kaikki huoneet"
+msgstr "Kaikki huoneet"
 
 #: src/qml/Page/RoomList/SpaceListContextMenu.qml:25
 #, kde-format
@@ -3520,19 +3510,17 @@ msgstr "Salasana:"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:30
 #: src/qml/Settings/EmoticonFormCard.qml:59
-#, fuzzy, kde-format
-#| msgid "Edit device"
+#, kde-format
 msgctxt "@title"
 msgid "Edit Sticker"
-msgstr "Muokkaa laitetta"
+msgstr "Muokkaa tarraa"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:30
 #: src/qml/Settings/EmoticonFormCard.qml:109
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgctxt "@title"
 msgid "Add Sticker"
-msgstr "lähetti tarran"
+msgstr "Lisää tarra"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:31
 #: src/qml/Settings/EmoticonFormCard.qml:59
@@ -3551,10 +3539,9 @@ msgid "Add Emoji"
 msgstr "Lisää emoji…"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:40
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgid "Sticker"
-msgstr "lähetti tarran"
+msgstr "Tarra"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:40
 #, fuzzy, kde-format
@@ -3563,27 +3550,24 @@ msgid "Emoji"
 msgstr "Ei emojeja"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:69
-#, fuzzy, kde-format
-#| msgid "Change the room name"
+#, kde-format
 msgid "Change Image"
-msgstr "Muuta huoneen nimeä"
+msgstr "Vaihda kuva"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:69
 #, kde-format
 msgid "Set Image"
-msgstr ""
+msgstr "Aseta kuva"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:109
 #, kde-format
 msgid "Shortcode:"
-msgstr ""
+msgstr "Lyhytkoodi:"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:114
-#, fuzzy, kde-format
-#| msgctxt "The location being downloaded to"
-#| msgid "Destination"
+#, kde-format
 msgid "Description:"
-msgstr "Kohde"
+msgstr "Kuvaus:"
 
 #: src/qml/Settings/EmoticonFormCard.qml:77
 #, fuzzy, kde-format
@@ -3600,10 +3584,9 @@ msgid "Add Emoji"
 msgstr "Lisää emoji…"
 
 #: src/qml/Settings/EmoticonFormCard.qml:118
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgid "Add Sticker"
-msgstr "lähetti tarran"
+msgstr "Lisää tarra"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:15
 #: src/qml/Settings/NetworkProxyPage.qml:14
@@ -3908,9 +3891,7 @@ msgid "About KDE"
 msgstr "Tietoa KDE:stä"
 
 #: src/qml/Settings/SonnetConfigPage.qml:28
-#, fuzzy, kde-format
-#| msgctxt "@window:title"
-#| msgid "Spellchecking"
+#, kde-format
 msgid "Spellchecking"
 msgstr "Oikeinkirjoituksen tarkistus"
 
@@ -3942,13 +3923,12 @@ msgstr "Valittu oletuskieli:"
 #: src/qml/Settings/SonnetConfigPage.qml:82
 #, kde-format
 msgid "None"
-msgstr ""
+msgstr "Ei mitään"
 
 #: src/qml/Settings/SonnetConfigPage.qml:101
-#, fuzzy, kde-format
-#| msgid "Spell checking languages"
+#, kde-format
 msgid "Additional spell checking languages"
-msgstr "Oikeinkirjoituksen tarkistuksen kielet"
+msgstr "Oikeinkirjoituksen tarkistuksen lisäkielet"
 
 #: src/qml/Settings/SonnetConfigPage.qml:102
 #, kde-format
@@ -3965,18 +3945,16 @@ msgid "Open Personal Dictionary"
 msgstr "Avaa henkilökohtainen sanasto"
 
 #: src/qml/Settings/SonnetConfigPage.qml:125
-#, fuzzy, kde-format
-#| msgid "Spell checking languages"
+#, kde-format
 msgctxt "@title:window"
 msgid "Spell checking languages"
 msgstr "Oikeinkirjoituksen tarkistuksen kielet"
 
 #: src/qml/Settings/SonnetConfigPage.qml:134
 #: src/qml/Settings/SonnetConfigPage.qml:144
-#, fuzzy, kde-format
-#| msgid "Selected default language:"
+#, kde-format
 msgid "Default Language"
-msgstr "Valittu oletuskieli:"
+msgstr "Oletuskieli"
 
 #: src/qml/Settings/SonnetConfigPage.qml:156
 #, kde-format
