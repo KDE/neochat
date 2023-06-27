@@ -76,5 +76,10 @@ TimelineContainer {
             id: fullScreenMap
             FullScreenMap { }
         }
+
+        RichLabel {
+            textMessage: root.display
+            visible: root.display !== ""
+        }
     }
 }

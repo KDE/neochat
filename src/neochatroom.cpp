@@ -696,6 +696,9 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                 }
                 return i18nc("[User] configured <name> widget", "configured %1 widget", e.contentJson()["name"].toString());
             }
+            if (e.matrixType() == "org.matrix.msc3672.beacon_info"_ls) {
+                return e.contentJson()["description"_ls].toString();
+            }
             return e.stateKey().isEmpty() ? i18n("updated %1 state", e.matrixType())
                                           : i18n("updated %1 state for %2", e.matrixType(), e.stateKey().toHtmlEscaped());
         },
