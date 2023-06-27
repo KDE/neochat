@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-24 00:50+0000\n"
-"PO-Revision-Date: 2023-06-07 09:43+0200\n"
+"PO-Revision-Date: 2023-06-25 15:44+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.2\n"
 
 #: src/controller.cpp:262
 #, kde-format
@@ -84,10 +84,9 @@ msgid "Room creation failed: %1"
 msgstr "Impossible de créer le salon : %1"
 
 #: src/controller.cpp:552
-#, fuzzy, kde-format
-#| msgid "Room creation failed: %1"
+#, kde-format
 msgid "Space creation failed: %1"
-msgstr "Impossible de créer le salon : %1"
+msgstr "Impossible de créer un espace : %1"
 
 #: src/controller.cpp:566
 #, kde-format
@@ -636,18 +635,16 @@ msgid "Custom"
 msgstr "Personnalisé"
 
 #: src/models/imagepacksmodel.cpp:90
-#, fuzzy, kde-format
-#| msgid "Own Stickers"
+#, kde-format
 msgctxt "As in 'The user's own Stickers'"
 msgid "Own Stickers"
-msgstr "Émoticônes personnelles"
+msgstr "Notes auto-collantes personnelles"
 
 #: src/models/imagepacksmodel.cpp:90
-#, fuzzy, kde-format
-#| msgid "Emojis"
+#, kde-format
 msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
-msgstr "Émoticônes"
+msgstr "Émoticônes personnelles"
 
 #: src/models/messageeventmodel.cpp:477 src/models/messageeventmodel.cpp:486
 #, kde-format
@@ -1304,10 +1301,9 @@ msgid "Available Room Versions"
 msgstr "Versions disponibles du salon"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:83
-#, fuzzy, kde-format
-#| msgid "Stickers"
+#, kde-format
 msgid "No stickers"
-msgstr "Étiquettes auto-collantes"
+msgstr "Aucune étiquette auto-collante"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:83
 #, kde-format
@@ -1329,10 +1325,9 @@ msgid "Stickers"
 msgstr "Étiquettes auto-collantes"
 
 #: src/qml/Component/FullScreenMap.qml:23
-#, fuzzy, kde-format
-#| msgid "Send a Location"
+#, kde-format
 msgid "View Location"
-msgstr "Envoyer un emplacement"
+msgstr "Afficher un emplacement"
 
 #: src/qml/Component/FullScreenMap.qml:64
 #, kde-format
@@ -1366,17 +1361,15 @@ msgid "Accept"
 msgstr "Accepter"
 
 #: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:155
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
-msgstr "Notifications"
+msgstr "Emplacements"
 
 #: src/qml/Component/LocationPage.qml:51
-#, fuzzy, kde-format
-#| msgid "You are already in this room."
+#, kde-format
 msgid "There are no locations shared in this room."
-msgstr "Vous êtes déjà dans ce salon."
+msgstr "Il n'y a aucun emplacement partagé dans ce salon."
 
 #: src/qml/Component/Login/Homeserver.qml:18
 #, kde-format
@@ -1691,38 +1684,30 @@ msgstr "Ok"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:15
 #: src/qml/Page/RoomList/ExploreComponent.qml:40
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgid "Create a Space"
-msgstr "Laisser un espace"
+msgstr "Créer un espace"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:23
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgctxt "@title"
 msgid "Create a Space"
-msgstr "Laisser un espace"
+msgstr "Créer un espace"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:27
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Space members"
+#, kde-format
 msgid "Space name"
-msgstr "Espacer les membres"
+msgstr "Nom de l'espace"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:31
 #, kde-format
 msgid "Space topic (optional)"
-msgstr ""
+msgstr "Sujet de l'espace (Optionnel)"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:34
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgid "Create space"
-msgstr "Laisser un espace"
+msgstr "Créer un espace"
 
 #: src/qml/Dialog/KeyVerification/EmojiSas.qml:23
 #, kde-format
@@ -2836,10 +2821,9 @@ msgid "Search"
 msgstr "Rechercher"
 
 #: src/qml/Panel/RoomDrawer.qml:150
-#, fuzzy, kde-format
-#| msgid "Search in this room"
+#, kde-format
 msgid "Show locations for this room"
-msgstr "Rechercher dans ce salon"
+msgstr "Afficher des emplacements dans ce salon"
 
 #: src/qml/Panel/RoomDrawer.qml:162
 #, kde-format
