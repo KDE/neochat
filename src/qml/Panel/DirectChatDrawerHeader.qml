@@ -48,7 +48,7 @@ ColumnLayout {
                     room: room,
                     user: room.getUser(room.directChatRemoteUser.id),
                 })
-                popup.closed.connect(function() {
+                popup.closed.connect(() => {
                     userListItem.highlighted = false
                 })
                 if (roomDrawer.modal) {
@@ -61,7 +61,6 @@ ColumnLayout {
 
     Kirigami.Heading {
         Layout.fillWidth: true
-        level: 1
         type: Kirigami.Heading.Type.Primary
         wrapMode: QQC2.Label.Wrap
         text: room.displayName

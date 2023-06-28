@@ -11,7 +11,9 @@ import org.kde.neochat 1.0
 
 ColumnLayout {
     id: root
+
     Layout.fillWidth: true
+
     RowLayout {
         Layout.fillWidth: true
         Layout.leftMargin: Kirigami.Units.largeSpacing
@@ -30,8 +32,11 @@ ColumnLayout {
 
                 width: Kirigami.Units.gridUnit
                 height: Kirigami.Units.gridUnit
-                anchors.bottom: parent.bottom
-                anchors.right: parent.right
+
+                anchors {
+                    bottom: parent.bottom
+                    right: parent.right
+                }
 
                 radius: Math.round(width / 2)
 
@@ -49,12 +54,12 @@ ColumnLayout {
 
             Kirigami.Heading {
                 Layout.fillWidth: true
-                level: 1
                 type: Kirigami.Heading.Type.Primary
                 wrapMode: QQC2.Label.Wrap
                 text: room ? room.displayName : i18n("No name")
                 textFormat: Text.PlainText
             }
+
             Kirigami.SelectableLabel {
                 Layout.fillWidth: true
                 textFormat: TextEdit.PlainText
@@ -63,36 +68,15 @@ ColumnLayout {
         }
     }
 
-    QQC2.ScrollView {
+    Kirigami.SelectableLabel {
+        Layout.fillWidth: true
         Layout.leftMargin: Kirigami.Units.largeSpacing
         Layout.rightMargin: Kirigami.Units.largeSpacing
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-        Layout.maximumHeight: Math.min(topicText.contentHeight, Kirigami.Units.gridUnit * 15)
 
-        // HACK: Hide unnecessary horizontal scrollbar (https://bugreports.qt.io/browse/QTBUG-83890)
-        QQC2.ScrollBar.horizontal.policy: QQC2.ScrollBar.AlwaysOff
-
-        QQC2.TextArea {
-            id: topicText
-            padding: 0
-            text: room && room.topic ? room.topic.replace(replaceLinks, "<a href=\"$1\">$1</a>") : i18n("No Topic")
-            readonly property var replaceLinks: /(http[s]?:\/\/[^ \r\n]*)/g
-            textFormat: TextEdit.MarkdownText
-            wrapMode: Text.Wrap
-            selectByMouse: true
-            color: Kirigami.Theme.textColor
-            selectedTextColor: Kirigami.Theme.highlightedTextColor
-            selectionColor: Kirigami.Theme.highlightColor
-            onLinkActivated: UrlHelper.openUrl(link)
-            readOnly: true
-            MouseArea {
-                anchors.fill: parent
-                acceptedButtons: Qt.NoButton
-                cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.IBeamCursor
-            }
-            background: Item {}
-        }
+        text: room && room.topic ? room.topic.replace(replaceLinks, "<a href=\"$1\">$1</a>") : i18n("No Topic")
+        readonly property var replaceLinks: /(http[s]?:\/\/[^ \r\n]*)/g
+        textFormat: TextEdit.MarkdownText
+        wrapMode: Text.Wrap
+        onLinkActivated: UrlHelper.openUrl(link)
     }
-
 }
