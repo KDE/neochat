@@ -75,7 +75,7 @@ ColumnLayout {
         visible: currentRoom.canSendEvent("m.room.message")
 
         Layout.fillWidth: true
-        Layout.minimumHeight: implicitHeight + Kirigami.Units.largeSpacing
+        Layout.minimumHeight: Math.max(Kirigami.Units.gridUnit * 2, implicitHeight + Kirigami.Units.largeSpacing)
         // lineSpacing is height+leading, so subtract leading once since leading only exists between lines.
         Layout.maximumHeight: chatBarFontMetrics.lineSpacing * 8 - chatBarFontMetrics.leading + textField.topPadding + textField.bottomPadding
 

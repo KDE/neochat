@@ -13,13 +13,10 @@ QQC2.ToolBar {
 
     padding: 0
 
-    height: content.height
-
     property var addAccount
 
-    ColumnLayout {
+    contentItem: ColumnLayout {
         id: content
-        width: parent.width
 
         spacing: 0
 
@@ -107,7 +104,12 @@ QQC2.ToolBar {
             delegate: Kirigami.BasicListItem {
                 leftPadding: topPadding
                 leading: Kirigami.Avatar {
-                    width: height
+                    implicitWidth: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
+                    implicitHeight: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
+                    sourceSize {
+                        width: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
+                        height: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
+                    }
                     source: model.connection.localUser.avatarMediaId ? ("image://mxc/" + model.connection.localUser.avatarMediaId) : ""
                     name: model.connection.localUser.displayName ?? model.connection.localUser.id
                 }
@@ -131,32 +133,37 @@ QQC2.ToolBar {
         }
 
         RowLayout {
-            Layout.preferredHeight: Kirigami.Units.gridUnit * 3
-            Item {
-                Layout.fillHeight: true
-                Layout.preferredWidth: height
-                Kirigami.Avatar {
-                    readonly property string mediaId: Controller.activeConnection.localUser.avatarMediaId
-                    anchors.fill: parent
-                    anchors.margins: Kirigami.Units.smallSpacing
-                    source: mediaId ? ("image://mxc/" + mediaId) : ""
-                    name: Controller.activeConnection.localUser.displayName ?? Controller.activeConnection.localUser.id
-                    actions.main: Kirigami.Action {
-                        text: i18n("Edit this account")
-                        icon.name: "document-edit"
-                        onTriggered: pageStack.pushDialogLayer(Qt.resolvedUrl('qrc:/AccountEditorPage.qml'), {
-                            connection: Controller.activeConnection
-                        }, {
-                            title: i18n("Account editor")
-                        });
-                    }
-                    TapHandler {
-                        acceptedButtons: Qt.RightButton
-                        acceptedDevices: PointerDevice.Mouse
-                        onTapped: accountMenu.open()
-                    }
+            spacing: Kirigami.Units.largeSpacing
+
+            Layout.topMargin: Kirigami.Units.smallSpacing
+            Layout.bottomMargin: Kirigami.Units.smallSpacing
+            Layout.minimumHeight: Kirigami.Units.gridUnit * 2 - 2 // HACK: -2 here is to ensure the ChatBox and the UserInfo have the same height
+
+            Kirigami.Avatar {
+                readonly property string mediaId: Controller.activeConnection.localUser.avatarMediaId
+
+                Layout.preferredWidth: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
+                Layout.preferredHeight: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
+                Layout.leftMargin: Kirigami.Units.largeSpacing
+
+                source: mediaId ? ("image://mxc/" + mediaId) : ""
+                name: Controller.activeConnection.localUser.displayName ?? Controller.activeConnection.localUser.id
+                actions.main: Kirigami.Action {
+                    text: i18n("Edit this account")
+                    icon.name: "document-edit"
+                    onTriggered: pageStack.pushDialogLayer(Qt.resolvedUrl('qrc:/AccountEditorPage.qml'), {
+                        connection: Controller.activeConnection
+                    }, {
+                        title: i18n("Account editor")
+                    });
+                }
+                TapHandler {
+                    acceptedButtons: Qt.RightButton
+                    acceptedDevices: PointerDevice.Mouse
+                    onTapped: accountMenu.open()
                 }
             }
+
             ColumnLayout {
                 Layout.fillWidth: true
                 spacing: 0
@@ -212,9 +219,10 @@ QQC2.ToolBar {
                 display: QQC2.AbstractButton.IconOnly
                 Layout.minimumWidth: Layout.preferredWidth
                 Layout.alignment: Qt.AlignRight
-                QQC2.ToolTip {
-                    text: parent.text
-                }
+                Layout.rightMargin: Kirigami.Units.largeSpacing
+                QQC2.ToolTip.text: parent.text
+                QQC2.ToolTip.visible: hovered
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
             }
             Item {
                 width: 1
