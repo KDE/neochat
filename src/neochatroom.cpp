@@ -63,8 +63,6 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
     : Room(connection, std::move(roomId), joinState)
 {
     connect(connection, &Connection::accountDataChanged, this, &NeoChatRoom::updatePushNotificationState);
-    connect(this, &NeoChatRoom::notificationCountChanged, this, &NeoChatRoom::countChanged);
-    connect(this, &NeoChatRoom::highlightCountChanged, this, &NeoChatRoom::countChanged);
     connect(this, &Room::fileTransferCompleted, this, [this] {
         setFileUploadingProgress(0);
         setHasFileUploading(false);
@@ -336,14 +334,6 @@ void NeoChatRoom::onRedaction(const RoomEvent &prevEvent, const RoomEvent & /*af
         if (auto relatedEventId = e->relation().eventId; !relatedEventId.isEmpty()) {
             Q_EMIT updatedEvent(relatedEventId);
         }
-    }
-}
-
-void NeoChatRoom::countChanged()
-{
-    if (displayed() && !hasUnreadMessages()) {
-        resetNotificationCount();
-        resetHighlightCount();
     }
 }
 

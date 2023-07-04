@@ -249,6 +249,8 @@ Kirigami.ApplicationWindow {
         target: Controller
 
         function onInitiated() {
+            console.warn("INITIATED")
+            console.warn(Controller.accountCount)
             if (Controller.accountCount === 0) {
                 pageStack.replace("qrc:/WelcomePage.qml", {});
             } else if (!roomListLoaded) {
