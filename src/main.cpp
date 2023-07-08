@@ -60,6 +60,7 @@
 #include "models/keywordnotificationrulemodel.h"
 #include "models/livelocationsmodel.h"
 #include "models/locationsmodel.h"
+#include "models/mediamessagefiltermodel.h"
 #include "models/messageeventmodel.h"
 #include "models/messagefiltermodel.h"
 #include "models/publicroomlistmodel.h"
@@ -237,6 +238,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<MessageEventModel>("org.kde.neochat", 1, 0, "MessageEventModel");
     qmlRegisterType<ReactionModel>("org.kde.neochat", 1, 0, "ReactionModel");
     qmlRegisterType<CollapseStateProxyModel>("org.kde.neochat", 1, 0, "CollapseStateProxyModel");
+    qmlRegisterType<MediaMessageFilterModel>("org.kde.neochat", 1, 0, "MediaMessageFilterModel");
     qmlRegisterType<MessageFilterModel>("org.kde.neochat", 1, 0, "MessageFilterModel");
     qmlRegisterType<UserFilterModel>("org.kde.neochat", 1, 0, "UserFilterModel");
     qmlRegisterType<PublicRoomListModel>("org.kde.neochat", 1, 0, "PublicRoomListModel");

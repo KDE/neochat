@@ -40,14 +40,16 @@ QQC2.ScrollView {
 
         model: !isLoaded ? undefined : collapseStateProxyModel
 
+        MessageEventModel {
+            id: messageEventModel
+            room: root.currentRoom
+        }
+
         CollapseStateProxyModel {
             id: collapseStateProxyModel
             sourceModel: MessageFilterModel {
                 id: sortedMessageEventModel
-                sourceModel: MessageEventModel {
-                    id: messageEventModel
-                    room: root.currentRoom
-                }
+                sourceModel: messageEventModel
             }
         }
 
@@ -395,6 +397,28 @@ QQC2.ScrollView {
             }
         }
 
+        MediaMessageFilterModel {
+            id: mediaMessageFilterModel
+            sourceModel: collapseStateProxyModel
+        }
+
+        Component {
+            id: maximizeComponent
+            NeochatMaximizeComponent {
+                model: mediaMessageFilterModel
+            }
+        }
+
+        function showMaximizedMedia(index) {
+            var popup = maximizeComponent.createObject(QQC2.ApplicationWindow.overlay, {
+                    initialIndex: index === -1 ? -1 : mediaMessageFilterModel.getRowForSourceItem(index)
+                })
+                popup.closed.connect(() => {
+                    messageListView.interactive = true
+                    popup.destroy()
+                })
+                popup.open()
+        }
 
         function showUserDetail(user) {
             userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {

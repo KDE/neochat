@@ -27,6 +27,7 @@ public:
         StateEventsRole, /**< List of state events in the aggregated state. */
         AuthorListRole, /**< List of the first 5 unique authors of the aggregated state event. */
         ExcessAuthorsRole, /**< The number of unique authors beyond the first 5. */
+        LastRole, // Keep this last
     };
 
     /**

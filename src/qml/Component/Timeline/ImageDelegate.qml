@@ -147,30 +147,8 @@ TimelineContainer {
                 img.QQC2.ToolTip.hide()
                 img.paused = true
                 root.ListView.view.interactive = false
-                var popup = maximizeImageComponent.createObject(QQC2.ApplicationWindow.overlay, {
-                    eventId: root.eventId,
-                    time: root.time,
-                    author: root.author,
-                    delegateType: root.delegateType,
-                    plainText: root.plainText,
-                    caption: root.display,
-                    mediaInfo: root.mediaInfo,
-                    progressInfo: root.progressInfo,
-                    mimeType: root.mimeType,
-                    source: root.source
-                })
-                popup.closed.connect(() => {
-                    root.ListView.view.interactive = true
-                    img.paused = false
-                    popup.destroy()
-                })
-                popup.open()
+                root.ListView.view.showMaximizedMedia(root.index)
             }
-        }
-
-        Component {
-            id: maximizeImageComponent
-            NeochatMaximizeComponent {}
         }
 
         function downloadAndOpen() {

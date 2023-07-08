@@ -4,7 +4,7 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
-import Qt.labs.platform 1.1
+import Qt.labs.platform 1.1 as Platform
 
 import org.kde.kirigami 2.13 as Kirigami
 import org.kde.kirigamiaddons.labs.components 1.0 as Components
@@ -14,39 +14,46 @@ import org.kde.neochat 1.0
 Components.AlbumMaximizeComponent {
     id: root
 
-    required property string eventId
+    readonly property string currentEventId: model.data(model.index(content.currentIndex, 0), MessageEventModel.EventIdRole)
 
-    required property var time
+    readonly property var currentAuthor: model.data(model.index(content.currentIndex, 0), MessageEventModel.AuthorRole)
 
-    required property var author
+    readonly property var currentTime: model.data(model.index(content.currentIndex, 0), MessageEventModel.TimeRole)
 
-    required property int delegateType
+    readonly property string currentPlainText: model.data(model.index(content.currentIndex, 0), MessageEventModel.PlainText)
 
-    required property string plainText
+    readonly property var currentMimeType: model.data(model.index(content.currentIndex, 0), MessageEventModel.MimeTypeRole)
 
-    required property string caption
+    readonly property var currentProgressInfo: model.data(model.index(content.currentIndex, 0), MessageEventModel.ProgressInfoRole)
 
-    required property var mediaInfo
+    readonly property var currentJsonSource: model.data(model.index(content.currentIndex, 0), MessageEventModel.SourceRole)
 
-    required property var progressInfo
+    autoLoad: false
 
-    required property var mimeType
-
-    required property var source
-
-    property list<Components.AlbumModelItem> items: [
-        Components.AlbumModelItem {
-            type: root.delegateType === MessageEventModel.Image || root.delegateType === MessageEventModel.Sticker ? Components.AlbumModelItem.Image : Components.AlbumModelItem.Video
-            source: root.delegateType === MessageEventModel.Video ? root.progressInfo.localPath : root.mediaInfo.source
-            tempSource: root.mediaInfo.tempInfo.source
-            caption: root.caption
-            sourceWidth: root.mediaInfo.width
-            sourceHeight: root.mediaInfo.height
+    downloadAction: Components.DownloadAction {
+        id: downloadAction
+        onTriggered: {
+            currentRoom.downloadFile(root.currentEventId, Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/" + root.currentEventId.replace(":", "_").replace("/", "_").replace("+", "_") + currentRoom.fileNameToDownload(root.currentEventId))
         }
-    ]
+    }
 
-    model: items
-    initialIndex: 0
+    Connections {
+        target: currentRoom
+
+        function onFileTransferProgress(id, progress, total) {
+            if (id == root.currentEventId) {
+                downloadAction.progress = progress / total * 100.0
+            }
+        }
+    }
+
+    Connections {
+        target: content
+
+        function onCurrentIndexChanged() {
+            downloadAction.progress = currentProgressInfo.progress / currentProgressInfo.total * 100.0
+        }
+    }
 
     leading: RowLayout {
         Kirigami.Avatar {
@@ -54,22 +61,23 @@ Components.AlbumMaximizeComponent {
             implicitWidth: Kirigami.Units.iconSizes.medium
             implicitHeight: Kirigami.Units.iconSizes.medium
 
-            name: root.author.displayName
-            source: root.author.avatarSource
-            color: root.author.color
+            name: root.currentAuthor.name ?? root.currentAuthor.displayName
+            source: root.currentAuthor.avatarSource
+            color: root.currentAuthor.color
         }
         ColumnLayout {
             spacing: 0
             QQC2.Label {
                 id: userLabel
-                text: root.author.displayName
-                color: root.author.color
+
+                text: root.currentAuthor.name ?? root.currentAuthor.displayName
+                color: root.currentAuthor.color
                 font.weight: Font.Bold
                 elide: Text.ElideRight
             }
             QQC2.Label {
                 id: dateTimeLabel
-                text: root.time.toLocaleString(Qt.locale(), Locale.ShortFormat)
+                text: root.currentTime.toLocaleString(Qt.locale(), Locale.ShortFormat)
                 color: Kirigami.Theme.disabledTextColor
                 elide: Text.ElideRight
             }
@@ -77,13 +85,13 @@ Components.AlbumMaximizeComponent {
     }
     onItemRightClicked: {
         const contextMenu = fileDelegateContextMenu.createObject(parent, {
-            author: root.author,
-            eventId: root.eventId,
-            source: root.source,
+            author: root.currentAuthor,
+            eventId: root.currentEventId,
+            source: root.currentJsonSource,
             file: parent,
-            mimeType: root.mimeType,
-            progressInfo: root.progressInfo,
-            plainText: root.plainText,
+            mimeType: root.currentMimeType,
+            progressInfo: root.currentProgressInfo,
+            plainMessage: root.currentPlainText
         });
         contextMenu.closeFullscreen.connect(root.close)
         contextMenu.open();
@@ -91,12 +99,12 @@ Components.AlbumMaximizeComponent {
     onSaveItem: {
         var dialog = saveAsDialog.createObject(QQC2.ApplicationWindow.overlay)
         dialog.open()
-        dialog.currentFile = dialog.folder + "/" + currentRoom.fileNameToDownload(root.eventId)
+        dialog.currentFile = dialog.folder + "/" + currentRoom.fileNameToDownload(root.currentEventId)
     }
 
     Component {
         id: saveAsDialog
-        FileDialog {
+        Platform.FileDialog {
             fileMode: FileDialog.SaveFile
             folder: root.saveFolder
             onAccepted: {

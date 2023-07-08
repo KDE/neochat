@@ -203,7 +203,7 @@ ColumnLayout {
     /**
      * @brief The full message source JSON.
      */
-    required property var source
+    required property var jsonSource
 
     /**
      * @brief The x position of the message bubble.
@@ -590,7 +590,7 @@ ColumnLayout {
         const contextMenu = fileDelegateContextMenu.createObject(root, {
             author: root.author,
             eventId: root.eventId,
-            source: root.source,
+            source: root.jsonSource,
             file: file,
             mimeType: root.mimeType,
             progressInfo: root.progressInfo,
@@ -605,7 +605,7 @@ ColumnLayout {
             selectedText: selectedText,
             author: root.author,
             eventId: root.eventId,
-            source: root.source,
+            source: root.jsonSource,
             eventType: root.delegateType,
             plainText: root.plainText,
         });

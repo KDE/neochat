@@ -61,7 +61,7 @@ QHash<int, QByteArray> MessageEventModel::roleNames() const
     roles[ShowReadMarkersRole] = "showReadMarkers";
     roles[ReactionRole] = "reaction";
     roles[ShowReactionsRole] = "showReactions";
-    roles[SourceRole] = "source";
+    roles[SourceRole] = "jsonSource";
     roles[MimeTypeRole] = "mimeType";
     roles[AuthorIdRole] = "authorId";
     roles[VerifiedRole] = "verified";

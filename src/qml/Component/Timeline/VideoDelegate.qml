@@ -355,29 +355,9 @@ TimelineContainer {
                         onTriggered: {
                             root.ListView.view.interactive = false
                             vid.pause()
-                            var popup = maximizeVideoComponent.createObject(QQC2.ApplicationWindow.overlay, {
-                                eventId: root.eventId,
-                                time: root.time,
-                                author: root.author,
-                                delegateType: root.delegateType,
-                                plainText: root.plainText,
-                                caption: root.display,
-                                mediaInfo: root.mediaInfo,
-                                progressInfo: root.progressInfo,
-                                mimeType: root.mimeType,
-                                source: root.source
-                            })
-                            popup.closed.connect(() => {
-                                root.ListView.view.interactive = true
-                                popup.destroy()
-                            })
-                            popup.open()
+                            root.ListView.view.showMaximizedMedia(root.index)
                         }
                     }
-                }
-                Component {
-                    id: maximizeVideoComponent
-                    NeochatMaximizeComponent {}
                 }
             }
             background: Kirigami.ShadowedRectangle {
