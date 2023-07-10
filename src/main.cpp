@@ -57,13 +57,13 @@
 #include "models/emojimodel.h"
 #include "models/emoticonfiltermodel.h"
 #include "models/imagepacksmodel.h"
-#include "models/keywordnotificationrulemodel.h"
 #include "models/livelocationsmodel.h"
 #include "models/locationsmodel.h"
 #include "models/mediamessagefiltermodel.h"
 #include "models/messageeventmodel.h"
 #include "models/messagefiltermodel.h"
 #include "models/publicroomlistmodel.h"
+#include "models/pushrulemodel.h"
 #include "models/reactionmodel.h"
 #include "models/roomlistmodel.h"
 #include "models/searchmodel.h"
@@ -257,13 +257,15 @@ int main(int argc, char *argv[])
 #ifdef QUOTIENT_07
     qmlRegisterType<PollHandler>("org.kde.neochat", 1, 0, "PollHandler");
 #endif
-    qmlRegisterType<KeywordNotificationRuleModel>("org.kde.neochat", 1, 0, "KeywordNotificationRuleModel");
+    qmlRegisterType<PushRuleModel>("org.kde.neochat", 1, 0, "PushRuleModel");
     qmlRegisterType<StickerModel>("org.kde.neochat", 1, 0, "StickerModel");
     qmlRegisterType<ImagePacksModel>("org.kde.neochat", 1, 0, "ImagePacksModel");
     qmlRegisterType<AccountEmoticonModel>("org.kde.neochat", 1, 0, "AccountEmoticonModel");
     qmlRegisterType<EmoticonFilterModel>("org.kde.neochat", 1, 0, "EmoticonFilterModel");
     qmlRegisterType<DelegateSizeHelper>("org.kde.neochat", 1, 0, "DelegateSizeHelper");
     qmlRegisterUncreatableType<RoomMessageEvent>("org.kde.neochat", 1, 0, "RoomMessageEvent", "ENUM");
+    qmlRegisterUncreatableType<PushNotificationKind>("org.kde.neochat", 1, 0, "PushNotificationKind", "ENUM");
+    qmlRegisterUncreatableType<PushNotificationSection>("org.kde.neochat", 1, 0, "PushNotificationSection", "ENUM");
     qmlRegisterUncreatableType<PushNotificationState>("org.kde.neochat", 1, 0, "PushNotificationState", "ENUM");
     qmlRegisterUncreatableType<PushNotificationAction>("org.kde.neochat", 1, 0, "PushNotificationAction", "ENUM");
     qmlRegisterUncreatableType<NeoChatRoomType>("org.kde.neochat", 1, 0, "NeoChatRoomType", "ENUM");

@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 #include "controller.h"
+#include "models/pushrulemodel.h"
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <qt5keychain/keychain.h>
@@ -126,6 +127,10 @@ Controller::Controller(QObject *parent)
         oldAccountCount = Accounts.size();
     });
 #endif
+
+    QTimer::singleShot(0, this, [this] {
+        m_pushRuleModel = new PushRuleModel;
+    });
 }
 
 Controller &Controller::instance()
@@ -505,6 +510,11 @@ void Controller::setActiveConnection(Connection *connection)
     Q_EMIT activeConnectionChanged();
     Q_EMIT activeConnectionIndexChanged();
     Q_EMIT activeAccountLabelChanged();
+}
+
+PushRuleModel *Controller::pushRuleModel() const
+{
+    return m_pushRuleModel;
 }
 
 void Controller::saveWindowGeometry()

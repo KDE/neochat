@@ -4,7 +4,7 @@
 
 #include "livelocationsmodel.h"
 
-#include <Quotient/events/roommessageevent.h>
+#include <events/roommessageevent.h>
 
 #include <QDebug>
 

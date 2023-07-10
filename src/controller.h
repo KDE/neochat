@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include "models/pushrulemodel.h"
 #include <QObject>
 #include <QQuickItem>
 
@@ -49,6 +50,11 @@ class Controller : public QObject
      * @brief The current connection for the rest of NeoChat to use.
      */
     Q_PROPERTY(Quotient::Connection *activeConnection READ activeConnection WRITE setActiveConnection NOTIFY activeConnectionChanged)
+
+    /**
+     * @brief The PushRuleModel that has the active connection's push rules.
+     */
+    Q_PROPERTY(PushRuleModel *pushRuleModel READ pushRuleModel CONSTANT)
 
     /**
      * @brief The row number in the accounts directory of the active connection.
@@ -118,6 +124,8 @@ public:
 
     void setActiveConnection(Quotient::Connection *connection);
     [[nodiscard]] Quotient::Connection *activeConnection() const;
+
+    [[nodiscard]] PushRuleModel *pushRuleModel() const;
 
     /**
      * @brief Add a new connection to the account registry.
@@ -235,6 +243,8 @@ private:
     QMap<Quotient::Room *, int> m_notificationCounts;
 
     bool hasWindowSystem() const;
+
+    QPointer<PushRuleModel> m_pushRuleModel;
 
 private Q_SLOTS:
     void invokeLogin();

@@ -24,7 +24,7 @@ add_library(neochat STATIC
     models/userfiltermodel.cpp
     models/publicroomlistmodel.cpp
     models/userdirectorylistmodel.cpp
-    models/keywordnotificationrulemodel.cpp
+    models/pushrulemodel.cpp
     models/emoticonfiltermodel.cpp
     notificationsmanager.cpp
     models/sortfilterroomlistmodel.cpp

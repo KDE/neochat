@@ -11,19 +11,25 @@ import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 import org.kde.neochat 1.0
 
 MobileForm.AbstractFormDelegate {
-    id: notificationRuleItem
+    id: root
 
-    property var notificationAction: PushNotificationAction.Unkown
-    property bool notificationsOn: false
-    property bool notificationsOnModifiable: true
-    property bool noisyOn: false
-    property bool noisyModifiable: true
-    property bool highlightOn: false
-    property bool highlightable: false
-    property bool deleteItem: false
-    property bool deletable: false
+    required property string id
+    required property string name
+    required property int ruleAction
+    required property bool highlightable
+    required property bool deletable
+
+    readonly property bool notificationsOn: isNotificationRuleOn(ruleAction)
+    readonly property bool notificationsOnModifiable: !deletable
+    readonly property bool highlightOn: isNotificationRuleHighlight(ruleAction)
+
+    signal actionChanged(int action)
+    signal deleteRule()
 
     Layout.fillWidth: true
+    enabled: ruleAction !== PushNotificationAction.Unknown
+
+    text: name
 
     onClicked: {
         notificationAction = nextNotificationRuleAction(notificationAction)
@@ -42,8 +48,8 @@ MobileForm.AbstractFormDelegate {
             background: Rectangle {
                 visible: notificationsOn
                 Kirigami.Theme.colorSet: Kirigami.Theme.Button
-                color: highlightOn ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.disabledTextColor
-                opacity: highlightOn ? 1 : 0.3
+                color: highlightOn && highlightable ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.disabledTextColor
+                opacity: highlightOn && highlightable ? 1 : 0.3
                 radius: height / 2
             }
         }
@@ -51,7 +57,7 @@ MobileForm.AbstractFormDelegate {
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignVCenter
 
-            text: notificationRuleItem.text
+            text: root.text
             elide: Text.ElideRight
             wrapMode: Text.Wrap
             maximumLineCount: 2
@@ -67,13 +73,13 @@ MobileForm.AbstractFormDelegate {
                 icon.name: checked ? "notifications" : "notifications-disabled"
                 display: QQC2.AbstractButton.IconOnly
 
-                visible: notificationRuleItem.notificationsOnModifiable
+                visible: root.notificationsOnModifiable
                 checkable: true
-                checked: notificationRuleItem.notificationsOn
-                enabled: notificationRuleItem.enabled
+                checked: root.notificationsOn
+                enabled: root.enabled
                 down: checked
                 onToggled: {
-                    notificationRuleItem.notificationAction = notificationRuleItem.notifcationRuleAction()
+                    root.actionChanged(root.notifcationRuleAction())
                 }
 
                 QQC2.ToolTip {
@@ -89,13 +95,12 @@ MobileForm.AbstractFormDelegate {
                 icon.name: checked ? "audio-volume-high" : "audio-volume-muted"
                 display: QQC2.AbstractButton.IconOnly
 
-                visible: notificationRuleItem.noisyModifiable
                 checkable: true
-                checked: notificationRuleItem.noisyOn
-                enabled: (onButton.checked || !notificationRuleItem.notificationsOnModifiable) && notificationRuleItem.enabled
+                checked: isNotificationRuleNoisy(root.ruleAction)
+                enabled: (onButton.checked || !root.notificationsOnModifiable) && root.enabled
                 down: checked
                 onToggled: {
-                    notificationRuleItem.notificationAction = notificationRuleItem.notifcationRuleAction()
+                    root.actionChanged(root.notifcationRuleAction())
                 }
 
                 QQC2.ToolTip {
@@ -111,13 +116,13 @@ MobileForm.AbstractFormDelegate {
                 icon.name: "draw-highlight"
                 display: QQC2.AbstractButton.IconOnly
 
-                visible: notificationRuleItem.highlightable
+                visible: root.highlightable
                 checkable: true
-                checked: notificationRuleItem.highlightOn
-                enabled: (onButton.checked || !notificationRuleItem.notificationsOnModifiable) && notificationRuleItem.enabled
+                checked: root.highlightOn
+                enabled: (onButton.checked || !root.notificationsOnModifiable) && root.enabled
                 down: checked
                 onToggled: {
-                    notificationRuleItem.notificationAction = notificationRuleItem.notifcationRuleAction()
+                    root.actionChanged(root.notifcationRuleAction())
                 }
 
                 QQC2.ToolTip {
@@ -131,10 +136,10 @@ MobileForm.AbstractFormDelegate {
                 Accessible.name: i18n("Delete keyword")
                 icon.name: "edit-delete-remove"
 
-                visible: notificationRuleItem.deletable
+                visible: root.deletable
 
                 onClicked: {
-                    notificationRuleItem.deleteItem = !notificationRuleItem.deleteItem
+                    root.deleteRule()
                 }
             }
         }
@@ -142,11 +147,11 @@ MobileForm.AbstractFormDelegate {
 
     function notifcationRuleAction() {
         if (onButton.checked) {
-            if (noisyButton.checked && highlightButton.checked) {
+            if (noisyButton.checked && highlightButton.checked && root.highlightable) {
                 return PushNotificationAction.NoisyHighlight
             } else if (noisyButton.checked) {
                 return PushNotificationAction.Noisy
-            } else if (highlightButton.checked) {
+            } else if (highlightButton.checked && root.highlightable) {
                 return PushNotificationAction.Highlight
             } else {
                 return PushNotificationAction.On
@@ -166,17 +171,34 @@ MobileForm.AbstractFormDelegate {
         }
 
         while (!finished) {
-            if (action == PushNotificationAction.Off && !notificationRuleItem.notificationsOnModifiable) {
+            if (action == PushNotificationAction.Off && !root.notificationsOnModifiable) {
                 action = PushNotificationAction.On
-            } else if (action == PushNotificationAction.Noisy && !notificationRuleItem.noisyModifiable) {
+            } else if (action == PushNotificationAction.Noisy) {
                 action = PushNotificationAction.Highlight
-            } else if (action == PushNotificationAction.Highlight && !notificationRuleItem.highlightable) {
+            } else if (action == PushNotificationAction.Highlight && !root.highlightable) {
                 action = PushNotificationAction.Off
             } else {
                 finished = true
             }
         }
 
-        return action
+        actionChanged(action)
+    }
+
+    function isNotificationRuleOn(action) {
+        return action == PushNotificationAction.On ||
+            action == PushNotificationAction.Noisy ||
+            action == PushNotificationAction.Highlight ||
+            action == PushNotificationAction.NoisyHighlight
+    }
+
+    function isNotificationRuleNoisy(action) {
+        return action == PushNotificationAction.Noisy ||
+            action == PushNotificationAction.NoisyHighlight
+    }
+
+    function isNotificationRuleHighlight(action) {
+        return action == PushNotificationAction.Highlight ||
+            action == PushNotificationAction.NoisyHighlight
     }
 }
