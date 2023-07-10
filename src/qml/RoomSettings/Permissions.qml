@@ -17,7 +17,7 @@ Kirigami.ScrollablePage {
     property NeoChatRoom room
 
     title: i18nc('@title:window', 'Permissions')
-
+    topPadding: 0
     leftPadding: 0
     rightPadding: 0
 
@@ -31,13 +31,15 @@ Kirigami.ScrollablePage {
     }
 
     ColumnLayout {
+        spacing: 0
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            title: i18n("Privileged Users")
+        }
         MobileForm.FormCard {
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: 0
-                MobileForm.FormCardHeader {
-                    title: i18n("Privileged Users")
-                }
                 Repeater {
                     model: KSortFilterProxyModel {
                         sourceModel: userListModel
@@ -210,15 +212,17 @@ Kirigami.ScrollablePage {
                 }
             }
         }
+
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            visible: room.canSendState("m.room.power_levels")
+            title: i18n("Default permissions")
+        }
         MobileForm.FormCard {
             Layout.fillWidth: true
-            Layout.topMargin: Kirigami.Units.largeSpacing
             visible: room.canSendState("m.room.power_levels")
             contentItem: ColumnLayout {
                 spacing: 0
-                MobileForm.FormCardHeader {
-                    title: i18n("Default permissions")
-                }
                 MobileForm.FormComboBoxDelegate {
                     text: i18n("Default user power level")
                     description: i18n("This is power level for all new users when joining the room")
@@ -248,15 +252,17 @@ Kirigami.ScrollablePage {
                 }
             }
         }
+
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            visible: room.canSendState("m.room.power_levels")
+            title: i18n("Basic permissions")
+        }
         MobileForm.FormCard {
             Layout.fillWidth: true
-            Layout.topMargin: Kirigami.Units.largeSpacing
             visible: room.canSendState("m.room.power_levels")
             contentItem: ColumnLayout {
                 spacing: 0
-                MobileForm.FormCardHeader {
-                    title: i18n("Basic permissions")
-                }
                 MobileForm.FormComboBoxDelegate {
                     text: i18n("Invite users")
                     textRole: "text"
@@ -291,15 +297,17 @@ Kirigami.ScrollablePage {
                 }
             }
         }
+
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            visible: room.canSendState("m.room.power_levels")
+            title: i18n("Event permissions")
+        }
         MobileForm.FormCard {
             Layout.fillWidth: true
-            Layout.topMargin: Kirigami.Units.largeSpacing
             visible: room.canSendState("m.room.power_levels")
             contentItem: ColumnLayout {
                 spacing: 0
-                MobileForm.FormCardHeader {
-                    title: i18n("Event permissions")
-                }
                 MobileForm.FormComboBoxDelegate {
                     text: i18n("Change user permissions")
                     description: "m.room.power_levels"

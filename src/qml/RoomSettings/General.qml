@@ -18,18 +18,19 @@ Kirigami.ScrollablePage {
     property NeoChatRoom room
 
     title: i18n("General")
-
+    topPadding: 0
     leftPadding: 0
     rightPadding: 0
-
     ColumnLayout {
+        spacing: 0
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            title: i18n("Room Information")
+        }
         MobileForm.FormCard {
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: 0
-                MobileForm.FormCardHeader {
-                    title: i18n("Room Information")
-                }
                 MobileForm.AbstractFormDelegate {
                     Layout.fillWidth: true
                     background: Item {}
@@ -165,13 +166,15 @@ Kirigami.ScrollablePage {
                 }
             }
         }
+
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            title: i18n("Aliases")
+        }
         MobileForm.FormCard {
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: 0
-                MobileForm.FormCardHeader {
-                    title: i18n("Aliases")
-                }
                 MobileForm.FormTextDelegate {
                     visible: room.aliases.length <= 0
                     text: i18n("No canonical alias set")
@@ -263,13 +266,15 @@ Kirigami.ScrollablePage {
                 }
             }
         }
+
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            title: i18n("URL Previews")
+        }
         MobileForm.FormCard {
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: 0
-                MobileForm.FormCardHeader {
-                    title: i18n("URL Previews")
-                }
                 MobileForm.FormCheckDelegate {
                     text: i18n("Enable URL previews by default for room members")
                     checked: room.defaultUrlPreviewState

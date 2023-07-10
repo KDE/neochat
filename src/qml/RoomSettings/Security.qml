@@ -17,20 +17,20 @@ Kirigami.ScrollablePage {
     property string needUpgradeRoom: i18n("You need to upgrade this room to a newer version to enable this setting.")
 
     title: i18n("Security")
-
+    topPadding: 0
     leftPadding: 0
     rightPadding: 0
-
     ColumnLayout {
+        spacing: 0
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            title: i18nc("@option:check", "Encryption")
+        }
         MobileForm.FormCard {
             visible: Controller.encryptionSupported
-            Layout.topMargin: Kirigami.Units.largeSpacing
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: 0
-                MobileForm.FormCardHeader {
-                    title: i18nc("@option:check", "Encryption")
-                }
                 MobileForm.FormSwitchDelegate {
                     id: enableEncryptionSwitch
                     text: i18n("Enable encryption")
@@ -45,14 +45,14 @@ Kirigami.ScrollablePage {
             }
         }
 
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            title: i18nc("@option:check", "Access")
+        }
         MobileForm.FormCard {
-            Layout.topMargin: Kirigami.Units.largeSpacing
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: 0
-                MobileForm.FormCardHeader {
-                    title: i18nc("@option:check", "Access")
-                }
                 MobileForm.FormRadioDelegate {
                     text: i18nc("@option:check", "Private (invite only)")
                     description: i18n("Only invited people can join.")
@@ -95,14 +95,14 @@ Kirigami.ScrollablePage {
             }
         }
 
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            title: i18nc("@option:check", "Message history visibility")
+        }
         MobileForm.FormCard {
-            Layout.topMargin: Kirigami.Units.largeSpacing
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: 0
-                MobileForm.FormCardHeader {
-                    title: i18nc("@option:check", "Message history visibility")
-                }
                 MobileForm.FormRadioDelegate {
                     text: i18nc("@option:check", "Anyone")
                     description: i18nc("@option:check", "Anyone, regardless of whether they have joined, can view history.")

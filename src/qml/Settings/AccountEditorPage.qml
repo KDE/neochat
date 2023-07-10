@@ -19,17 +19,19 @@ Kirigami.ScrollablePage {
 
     readonly property bool compact: width > Kirigami.Units.gridUnit * 30 ? 2 : 1
 
+    topPadding: 0
     leftPadding: 0
     rightPadding: 0
     ColumnLayout {
+        spacing: 0
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            title: i18n("User information")
+        }
         MobileForm.FormCard {
-            Layout.topMargin: Kirigami.Units.largeSpacing
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: 0
-                MobileForm.FormCardHeader {
-                    title: i18n("User information")
-                }
                 MobileForm.AbstractFormDelegate {
                     Layout.fillWidth: true
                     background: Item {}
@@ -122,14 +124,14 @@ Kirigami.ScrollablePage {
             }
         }
 
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            title: i18n("Password")
+        }
         MobileForm.FormCard {
-            Layout.topMargin: Kirigami.Units.largeSpacing
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: 0
-                MobileForm.FormCardHeader {
-                    title: i18n("Password")
-                }
                 MobileForm.FormTextDelegate {
                     visible: root.connection !== undefined && root.connection.canChangePassword === false
                     text: i18n("Your server doesn't support changing your password")
@@ -191,14 +193,14 @@ Kirigami.ScrollablePage {
             }
         }
 
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            title: i18n("Server Information")
+        }
         MobileForm.FormCard {
-            Layout.topMargin: Kirigami.Units.largeSpacing
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: 0
-                MobileForm.FormCardHeader {
-                    title: i18n("Server Information")
-                }
                 MobileForm.FormTextDelegate {
                     text: i18n("Homeserver url")
                     description: root.connection.homeserver
@@ -222,14 +224,14 @@ Kirigami.ScrollablePage {
             }
         }
 
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            title: i18n("Sign out")
+        }
         MobileForm.FormCard {
-            Layout.topMargin: Kirigami.Units.largeSpacing
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: 0
-                MobileForm.FormCardHeader {
-                    title: i18n("Sign out")
-                }
                 MobileForm.FormButtonDelegate {
                     Layout.fillWidth: true
                     text: i18n("Sign out")

@@ -14,12 +14,22 @@ Kirigami.ScrollablePage {
     id: root
 
     title: emoticonType === EmoticonFormCard.Emojis ? i18n("Emojis") : i18n("Stickers")
+    topPadding: 0
     leftPadding: 0
     rightPadding: 0
 
     ColumnLayout {
+        spacing: 0
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            title: i18n("Emojis")
+        }
         EmoticonFormCard {
             emoticonType: EmoticonFormCard.Emojis
+        }
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            title: i18n("Stickers")
         }
         EmoticonFormCard {
             emoticonType: EmoticonFormCard.Stickers

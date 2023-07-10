@@ -20,13 +20,9 @@ MobileForm.FormCard {
 
     property var emoticonType
 
-    Layout.topMargin: Kirigami.Units.largeSpacing
     Layout.fillWidth: true
     contentItem: ColumnLayout {
         spacing: 0
-        MobileForm.FormCardHeader {
-            title: emoticonFormCard.emoticonType === EmoticonFormCard.Emojis ? i18n("Emojis") : i18n("Stickers")
-        }
         Flow {
             id: stickerFlow
             Layout.fillWidth: true

@@ -17,19 +17,19 @@ Kirigami.ScrollablePage {
     property NeoChatRoom room
 
     title: i18nc('@title:window', 'Notifications')
-
+    topPadding: 0
     leftPadding: 0
     rightPadding: 0
-
     ColumnLayout {
+        spacing: 0
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            title: i18n("Room notifications setting")
+        }
         MobileForm.FormCard {
-            Layout.topMargin: Kirigami.Units.largeSpacing
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: 0
-                MobileForm.FormCardHeader {
-                    title: i18n("Room notifications setting")
-                }
                 MobileForm.FormRadioDelegate {
                     text: i18n("Follow global setting")
                     checked: room.pushNotificationState === PushNotificationState.Default

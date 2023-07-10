@@ -13,19 +13,20 @@ import org.kde.neochat 1.0
 
 Kirigami.ScrollablePage {
     title: i18n("Accounts")
+    topPadding: 0
     leftPadding: 0
     rightPadding: 0
 
     ColumnLayout {
+        spacing: 0
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            title: i18n("Accounts")
+        }
         MobileForm.FormCard {
-            Layout.topMargin: Kirigami.Units.largeSpacing
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: 0
-                MobileForm.FormCardHeader {
-                    title: i18n("Accounts")
-                }
-
                 Repeater {
                     model: AccountRegistry
                     delegate: MobileForm.AbstractFormDelegate {

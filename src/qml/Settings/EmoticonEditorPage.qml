@@ -24,6 +24,7 @@ Kirigami.ScrollablePage {
     property bool newEmoticon: false
     required property var emoticonType
 
+    topPadding: 0
     leftPadding: 0
     rightPadding: 0
 
@@ -31,14 +32,15 @@ Kirigami.ScrollablePage {
             : (newEmoticon ? i18nc("@title", "Add Emoji") : i18nc("@title", "Edit Emoji"))
 
     ColumnLayout {
+        spacing: 0
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            title: emoticonType === EmoticonFormCard.Stickers ? i18n("Sticker") : i18n("Emoji")
+        }
         MobileForm.FormCard {
-            Layout.topMargin: Kirigami.Units.largeSpacing
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: 0
-                MobileForm.FormCardHeader {
-                    title: emoticonType === EmoticonFormCard.Stickers ? i18n("Sticker") : i18n("Emoji")
-                }
                 MobileForm.AbstractFormDelegate {
                     Layout.fillWidth: true
                     background: Item {}

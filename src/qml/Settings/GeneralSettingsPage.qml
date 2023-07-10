@@ -13,18 +13,20 @@ import org.kde.neochat 1.0
 
 Kirigami.ScrollablePage {
     title: i18nc("@title:window", "General")
+    topPadding: 0
     leftPadding: 0
     rightPadding: 0
     ColumnLayout {
+        spacing: 0
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            title: i18n("General settings")
+            visible: Qt.platform.os !== "android"
+        }
         MobileForm.FormCard {
-            Layout.topMargin: Kirigami.Units.largeSpacing
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: 0
-                MobileForm.FormCardHeader {
-                    title: i18n("General settings")
-                    visible: Qt.platform.os !== "android"
-                }
 
                 MobileForm.FormCheckDelegate {
                     id: closeDelegate
@@ -67,15 +69,14 @@ Kirigami.ScrollablePage {
                 }
             }
         }
-
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            title: i18n("Timeline Events")
+        }
         MobileForm.FormCard {
-            Layout.topMargin: Kirigami.Units.largeSpacing
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: 0
-                MobileForm.FormCardHeader {
-                    title: i18n("Timeline Events")
-                }
 
                 MobileForm.FormCheckDelegate {
                     id: showDeletedMessages
@@ -155,15 +156,14 @@ Kirigami.ScrollablePage {
                 }
             }
         }
-
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            title: i18n("Rooms and private chats")
+        }
         MobileForm.FormCard {
-            Layout.topMargin: Kirigami.Units.largeSpacing
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: 0
-                MobileForm.FormCardHeader {
-                    title: i18n("Rooms and private chats")
-                }
                 MobileForm.FormRadioDelegate {
                     text: i18n("Separated")
                     checked: !Config.mergeRoomList
@@ -184,15 +184,14 @@ Kirigami.ScrollablePage {
                 }
             }
         }
-
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            title: i18nc("Chat Editor", "Editor")
+        }
         MobileForm.FormCard {
-            Layout.topMargin: Kirigami.Units.largeSpacing
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: 0
-                MobileForm.FormCardHeader {
-                    title: i18nc("Chat Editor", "Editor")
-                }
                 MobileForm.FormCheckDelegate {
                     id: quickEditCheckbox
                     text: i18n("Use s/text/replacement syntax to edit your last message")
@@ -216,15 +215,14 @@ Kirigami.ScrollablePage {
                 }
             }
         }
-
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            title: i18n("Developer Settings")
+        }
         MobileForm.FormCard {
-            Layout.topMargin: Kirigami.Units.largeSpacing
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: 0
-                MobileForm.FormCardHeader {
-                    title: i18n("Developer Settings")
-                }
                 MobileForm.FormCheckDelegate {
                     text: i18n("Enable developer tools")
                     checked: Config.developerTools

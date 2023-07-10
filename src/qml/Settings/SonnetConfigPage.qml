@@ -11,23 +11,26 @@ import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
 Kirigami.ScrollablePage {
     id: page
+    topPadding: 0
+    leftPadding: 0
+    rightPadding: 0
 
     ColumnLayout {
+        spacing: 0
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            title: i18n("Spellchecking")
+        }
         MobileForm.FormCard {
             id: card
             Sonnet.Settings {
                 id: settings
             }
 
-            Layout.topMargin: Kirigami.Units.largeSpacing
             Layout.fillWidth: true
 
             contentItem: ColumnLayout {
                 spacing: 0
-                MobileForm.FormCardHeader {
-                    title: i18n("Spellchecking")
-                }
-
                 MobileForm.FormCheckDelegate {
                     id: enable
                     checked: settings.checkerEnabledByDefault

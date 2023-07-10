@@ -12,19 +12,20 @@ import org.kde.neochat 1.0
 
 Kirigami.ScrollablePage {
     title: i18n("Devices")
-
+    topPadding: 0
     leftPadding: 0
     rightPadding: 0
-
     ColumnLayout {
+        spacing: 0
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            title: i18n("Devices")
+        }
         MobileForm.FormCard {
             Layout.fillWidth: true
 
             contentItem: ColumnLayout {
                 spacing: 0
-                MobileForm.FormCardHeader {
-                    title: i18n("Devices")
-                }
                 MobileForm.AbstractFormDelegate {
                     Layout.fillWidth: true
                     visible: Controller.activeConnection && deviceRepeater.count === 0 // We can assume 0 means loading since there is at least one device

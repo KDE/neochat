@@ -13,18 +13,19 @@ import org.kde.neochat 1.0
 
 Kirigami.ScrollablePage {
     title: i18nc("@title:window", "Appearance")
+    topPadding: 0
     leftPadding: 0
     rightPadding: 0
     ColumnLayout {
+        spacing: 0
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            title: i18n("General theme")
+        }
         MobileForm.FormCard {
-            Layout.topMargin: Kirigami.Units.largeSpacing
             Layout.fillWidth: true
             contentItem: ColumnLayout {
             spacing: 0
-                MobileForm.FormCardHeader {
-                    title: i18n("General theme")
-                }
-
                 MobileForm.AbstractFormDelegate {
                     id: timelineModeSetting
                     Layout.fillWidth: true
@@ -316,16 +317,14 @@ Kirigami.ScrollablePage {
             }
         }
         
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            title: i18n("Show Avatar")
+        }
         MobileForm.FormCard {
-            Layout.topMargin: Kirigami.Units.largeSpacing
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: 0
-                
-                MobileForm.FormCardHeader {
-                    title: i18n("Show Avatar")
-                }
-                
                 MobileForm.FormCheckDelegate {
                     text: i18n("In chat")
                     checked: Config.showAvatarInTimeline
