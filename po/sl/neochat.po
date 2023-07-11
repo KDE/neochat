@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-10 00:47+0000\n"
+"POT-Creation-Date: 2023-07-11 00:47+0000\n"
 "PO-Revision-Date: 2023-06-24 07:31+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -20,77 +20,77 @@ msgstr ""
 "%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.3.1\n"
 
-#: src/controller.cpp:262
+#: src/controller.cpp:267
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Neuspela prijava: Žeton za dostop je neveljaven ali preklican"
 
-#: src/controller.cpp:265 src/controller.cpp:270 src/login.cpp:99
+#: src/controller.cpp:270 src/controller.cpp:275 src/login.cpp:99
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Prijava je spodletela: %1"
 
-#: src/controller.cpp:276
+#: src/controller.cpp:281
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Napaka omrežja: %1"
 
-#: src/controller.cpp:301
+#: src/controller.cpp:306
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Žetona za dostop ni bilo mogoče najti"
 
-#: src/controller.cpp:301
+#: src/controller.cpp:306
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Ali je bil mogoče izbrisan?"
 
-#: src/controller.cpp:305
+#: src/controller.cpp:310
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Dostop do verige ključev je bil zavrnjen."
 
-#: src/controller.cpp:305
+#: src/controller.cpp:310
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Dovolite, da NeoChat prebere žeton za dostop"
 
-#: src/controller.cpp:308
+#: src/controller.cpp:313
 #, kde-format
 msgid "No keychain available."
 msgstr "Nobene verige ključev ni na voljo."
 
-#: src/controller.cpp:308
+#: src/controller.cpp:313
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr "Namestite verigo ključev, npr. KWallet ali GNOME Keyring v Linux"
 
-#: src/controller.cpp:311
+#: src/controller.cpp:316
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Žetona za dostop ni mogoče prebrati"
 
-#: src/controller.cpp:493
+#: src/controller.cpp:498
 #, kde-format
 msgid "File too large to download."
 msgstr "Datoteka je prevelika za prenos."
 
-#: src/controller.cpp:493
+#: src/controller.cpp:498
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr "Stopite v stik za podporo z vašim skrbnikom matrixa."
 
-#: src/controller.cpp:531
+#: src/controller.cpp:541
 #, kde-format
 msgid "Room creation failed: %1"
 msgstr "Ustvarjanje sobe ni uspelo: %1"
 
-#: src/controller.cpp:552
+#: src/controller.cpp:562
 #, kde-format
 msgid "Space creation failed: %1"
 msgstr "Ustvarjanje prostora ni uspelo: %1"
 
-#: src/controller.cpp:566
+#: src/controller.cpp:576
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Identifikacija sobe, kamor se poskušate pridružiti, ni veljavna"
@@ -202,12 +202,12 @@ msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (zgrajeno na %2)"
 
-#: src/main.cpp:334
+#: src/main.cpp:336
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Odjemalec za komunikacijski protokol matrix"
 
-#: src/main.cpp:335
+#: src/main.cpp:337
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Podpira matriko: shema url"
@@ -1089,49 +1089,49 @@ msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Širina: %1, Dolžina: %2"
 
-#: src/notificationsmanager.cpp:144
+#: src/notificationsmanager.cpp:138
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Šifrirano sporočilo"
 
-#: src/notificationsmanager.cpp:217 src/qml/main.qml:257
+#: src/notificationsmanager.cpp:211 src/qml/main.qml:257
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/notificationsmanager.cpp:223
+#: src/notificationsmanager.cpp:217
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Odpri Neo-chat v tej sobi"
 
-#: src/notificationsmanager.cpp:240 src/qml/Component/HoverActions.qml:103
+#: src/notificationsmanager.cpp:234 src/qml/Component/HoverActions.qml:103
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:35
 #, kde-format
 msgid "Reply"
 msgstr "Odgovori"
 
-#: src/notificationsmanager.cpp:241
+#: src/notificationsmanager.cpp:235
 #, kde-format
 msgid "Reply..."
 msgstr "Odgovori..."
 
-#: src/notificationsmanager.cpp:259
+#: src/notificationsmanager.cpp:253
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 vas je povabil v sobo"
 
-#: src/notificationsmanager.cpp:263
+#: src/notificationsmanager.cpp:257
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Odprite to povabilo v NeoChat"
 
-#: src/notificationsmanager.cpp:269
+#: src/notificationsmanager.cpp:263
 #, kde-format
 msgid "Accept Invitation"
 msgstr "Sprejmi povabilo"
 
-#: src/notificationsmanager.cpp:269
+#: src/notificationsmanager.cpp:263
 #, kde-format
 msgid "Reject Invitation"
 msgstr "Zavrnil povabilo"
@@ -1317,15 +1317,13 @@ msgid "No emojis"
 msgstr "Ni emodžijev"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:47
-#: src/qml/Settings/EmoticonFormCard.qml:28
-#: src/qml/Settings/EmoticonsPage.qml:16
+#: src/qml/Settings/EmoticonsPage.qml:16 src/qml/Settings/EmoticonsPage.qml:25
 #, kde-format
 msgid "Emojis"
 msgstr "Čustvenčki"
 
 #: src/qml/Component/Emoji/EmojiPicker.qml:54
-#: src/qml/Settings/EmoticonFormCard.qml:28
-#: src/qml/Settings/EmoticonsPage.qml:16
+#: src/qml/Settings/EmoticonsPage.qml:16 src/qml/Settings/EmoticonsPage.qml:32
 #, kde-format
 msgid "Stickers"
 msgstr "Nalepke"
@@ -1650,14 +1648,14 @@ msgstr "Ne bo mogoče deaktivirati šifriranja, potem ko je omogočeno."
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:32
 #: src/qml/Dialog/ConfirmLogout.qml:29 src/qml/Page/ImageEditorPage.qml:125
-#: src/qml/Settings/AccountEditorPage.qml:183
+#: src/qml/Settings/AccountEditorPage.qml:185
 #, kde-format
 msgid "Cancel"
 msgstr "Prekliči"
 
 #: src/qml/Dialog/ConfirmLogout.qml:16 src/qml/Dialog/ConfirmLogout.qml:35
-#: src/qml/Settings/AccountEditorPage.qml:231
-#: src/qml/Settings/AccountEditorPage.qml:235
+#: src/qml/Settings/AccountEditorPage.qml:229
+#: src/qml/Settings/AccountEditorPage.qml:237
 #, kde-format
 msgid "Sign out"
 msgstr "Odjavi se"
@@ -1673,12 +1671,12 @@ msgstr "Ali se zares želite odjaviti?"
 msgid "Create a Room"
 msgstr "Ustvari sobo"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:21 src/qml/RoomSettings/General.qml:76
+#: src/qml/Dialog/CreateRoomDialog.qml:21 src/qml/RoomSettings/General.qml:77
 #, kde-format
 msgid "Room name:"
 msgstr "Ime sobe:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:27 src/qml/RoomSettings/General.qml:88
+#: src/qml/Dialog/CreateRoomDialog.qml:27 src/qml/RoomSettings/General.qml:89
 #, kde-format
 msgid "Room topic:"
 msgstr "Tema debate sobe:"
@@ -1942,25 +1940,25 @@ msgid "Edit user power level"
 msgstr "Uredi raven moči uporabnika"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:37
-#: src/qml/RoomSettings/Permissions.qml:74
+#: src/qml/RoomSettings/Permissions.qml:76
 #, kde-format
 msgid "Member (0)"
 msgstr "Član (0)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:38
-#: src/qml/RoomSettings/Permissions.qml:75
+#: src/qml/RoomSettings/Permissions.qml:77
 #, kde-format
 msgid "Moderator (50)"
 msgstr "Moderator (50)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:39
-#: src/qml/RoomSettings/Permissions.qml:76
+#: src/qml/RoomSettings/Permissions.qml:78
 #, kde-format
 msgid "Admin (100)"
 msgstr "Skrbnik (100)"
 
-#: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:347
-#: src/qml/Settings/DevicesPage.qml:186
+#: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:352
+#: src/qml/Settings/DevicesPage.qml:187
 #, kde-format
 msgid "Confirm"
 msgstr "Potrdi"
@@ -2537,7 +2535,7 @@ msgid "Edit this account"
 msgstr "Uredi ta račun"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:23
-#: src/qml/Page/RoomList/UserInfo.qml:157 src/qml/Settings/AccountsPage.qml:36
+#: src/qml/Page/RoomList/UserInfo.qml:157 src/qml/Settings/AccountsPage.qml:37
 #, kde-format
 msgid "Account editor"
 msgstr "Urejevalnik računa"
@@ -2548,7 +2546,7 @@ msgid "Notification settings"
 msgstr "Nastavitve obvestil"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:32 src/qml/Settings/DevicesPage.qml:14
-#: src/qml/Settings/DevicesPage.qml:26 src/qml/Settings/SettingsPage.qml:57
+#: src/qml/Settings/DevicesPage.qml:22 src/qml/Settings/SettingsPage.qml:57
 #, kde-format
 msgid "Devices"
 msgstr "Naprave"
@@ -2617,14 +2615,14 @@ msgid "Follow Global Setting"
 msgstr "Sledi globalni nastavitvi"
 
 #: src/qml/Page/RoomList/ContextMenu.qml:81
-#: src/qml/RoomSettings/PushNotification.qml:40
+#: src/qml/RoomSettings/PushNotification.qml:42
 #, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All"
 msgstr "Vse"
 
 #: src/qml/Page/RoomList/ContextMenu.qml:92
-#: src/qml/RoomSettings/PushNotification.qml:48
+#: src/qml/RoomSettings/PushNotification.qml:50
 #, kde-format
 msgctxt ""
 "As in 'notify when the user is mentioned or the message contains a set "
@@ -2633,7 +2631,7 @@ msgid "@Mentions and Keywords"
 msgstr "@Omembe in ključne besede"
 
 #: src/qml/Page/RoomList/ContextMenu.qml:103
-#: src/qml/RoomSettings/PushNotification.qml:56
+#: src/qml/RoomSettings/PushNotification.qml:58
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
@@ -2719,7 +2717,7 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "Zapusti prostor"
 
-#: src/qml/Page/RoomList/UserInfo.qml:54 src/qml/Settings/AccountsPage.qml:83
+#: src/qml/Page/RoomList/UserInfo.qml:54 src/qml/Settings/AccountsPage.qml:84
 #, kde-format
 msgid "Add Account"
 msgstr "Dodaj račun"
@@ -2882,270 +2880,288 @@ msgstr "Dovoljenja"
 msgid "Notifications"
 msgstr "Obvestila"
 
-#: src/qml/RoomSettings/General.qml:31
+#: src/qml/RoomSettings/General.qml:28
 #, kde-format
 msgid "Room Information"
 msgstr "Informacije o sobi"
 
-#: src/qml/RoomSettings/General.qml:51
+#: src/qml/RoomSettings/General.qml:52
 #, kde-format
 msgid "Update avatar"
 msgstr "Posodobil avatar"
 
-#: src/qml/RoomSettings/General.qml:110
-#: src/qml/Settings/AccountEditorPage.qml:105
-#: src/qml/Settings/AccountEditorPage.qml:170
-#: src/qml/Settings/EmoticonEditorPage.qml:119
+#: src/qml/RoomSettings/General.qml:111
+#: src/qml/Settings/AccountEditorPage.qml:107
+#: src/qml/Settings/AccountEditorPage.qml:172
+#: src/qml/Settings/EmoticonEditorPage.qml:121
 #, kde-format
 msgid "Save"
 msgstr "Shrani"
 
-#: src/qml/RoomSettings/General.qml:125
+#: src/qml/RoomSettings/General.qml:126
 #, kde-format
 msgid "Room ID"
 msgstr "ID sobe"
 
-#: src/qml/RoomSettings/General.qml:130
+#: src/qml/RoomSettings/General.qml:131
 #, kde-format
 msgid "Copy room ID to clipboard"
 msgstr "Kopiraj ID sobe na odložišče"
 
-#: src/qml/RoomSettings/General.qml:144
+#: src/qml/RoomSettings/General.qml:145
 #, kde-format
 msgid "Room version"
 msgstr "Različica sobe"
 
-#: src/qml/RoomSettings/General.qml:150
+#: src/qml/RoomSettings/General.qml:151
 #, kde-format
 msgid "Upgrade Room"
 msgstr "Nadgradi sobo"
 
-#: src/qml/RoomSettings/General.qml:173
+#: src/qml/RoomSettings/General.qml:172
 #, kde-format
 msgid "Aliases"
 msgstr "Vzdevki"
 
-#: src/qml/RoomSettings/General.qml:177
+#: src/qml/RoomSettings/General.qml:180
 #, kde-format
 msgid "No canonical alias set"
 msgstr "Ni nastavljenega kanoničnega vzdevka"
 
-#: src/qml/RoomSettings/General.qml:190
+#: src/qml/RoomSettings/General.qml:193
 #, kde-format
 msgid "Make this alias the room's canonical alias"
 msgstr "Nastavi ta vzdevek kot kanonični vzdevek sobe"
 
-#: src/qml/RoomSettings/General.qml:205
+#: src/qml/RoomSettings/General.qml:208
 #, kde-format
 msgid "Delete alias"
 msgstr "Zbriši vzdevek"
 
-#: src/qml/RoomSettings/General.qml:231
+#: src/qml/RoomSettings/General.qml:234
 #, kde-format
 msgid "#new_alias:server.org"
 msgstr "#new_alias:server.org"
 
-#: src/qml/RoomSettings/General.qml:248
+#: src/qml/RoomSettings/General.qml:251
 #, kde-format
 msgid "Add new alias"
 msgstr "Dodaj novi vzdevek"
 
-#: src/qml/RoomSettings/General.qml:271
+#: src/qml/RoomSettings/General.qml:272
 #, kde-format
 msgid "URL Previews"
 msgstr "Predogledi URL"
 
-#: src/qml/RoomSettings/General.qml:274
+#: src/qml/RoomSettings/General.qml:279
 #, kde-format
 msgid "Enable URL previews by default for room members"
 msgstr "Privzeto omogoči predoglede URL za člane sobe"
 
-#: src/qml/RoomSettings/General.qml:282
+#: src/qml/RoomSettings/General.qml:287
 #, kde-format
 msgid "Enable URL previews"
 msgstr "Omogoči predoglede URL"
 
-#: src/qml/RoomSettings/General.qml:284
+#: src/qml/RoomSettings/General.qml:289
 #, kde-format
 msgid "URL previews are enabled by default in this room"
 msgstr "Predogledi URL so privzeto omogočeni v tej sobi"
 
-#: src/qml/RoomSettings/General.qml:284
+#: src/qml/RoomSettings/General.qml:289
 #, kde-format
 msgid "URL previews are disabled by default in this room"
 msgstr "Predogledi URL so privzeto onemogočeni v tej sobi"
 
-#: src/qml/RoomSettings/General.qml:297
+#: src/qml/RoomSettings/General.qml:302
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "Ta soba nadaljuje z drugo debato."
 
-#: src/qml/RoomSettings/General.qml:301
+#: src/qml/RoomSettings/General.qml:306
 #, kde-format
 msgid "See older messages…"
 msgstr "Poglej starejša sporočila…"
 
-#: src/qml/RoomSettings/General.qml:312
+#: src/qml/RoomSettings/General.qml:317
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Ta soba je bila zamenjana."
 
-#: src/qml/RoomSettings/General.qml:316
+#: src/qml/RoomSettings/General.qml:321
 #, kde-format
 msgid "See new room…"
 msgstr "Poglej novo sobo…"
 
-#: src/qml/RoomSettings/General.qml:337
+#: src/qml/RoomSettings/General.qml:342
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "Nadgradi sobo"
 
-#: src/qml/RoomSettings/General.qml:341
+#: src/qml/RoomSettings/General.qml:346
 #, kde-format
 msgid "Select new version"
 msgstr "Izberi novo različico"
 
-#: src/qml/RoomSettings/Permissions.qml:39
+#: src/qml/RoomSettings/Permissions.qml:37
 #, kde-format
 msgid "Privileged Users"
 msgstr "Uporabniki s prednostjo"
 
-#: src/qml/RoomSettings/Permissions.qml:220
+#: src/qml/RoomSettings/Permissions.qml:219
 #, kde-format
 msgid "Default permissions"
 msgstr "Privzeta dovoljenja"
 
-#: src/qml/RoomSettings/Permissions.qml:223
+#: src/qml/RoomSettings/Permissions.qml:227
 #, kde-format
 msgid "Default user power level"
 msgstr "Raven moči privzetega uporabnika"
 
-#: src/qml/RoomSettings/Permissions.qml:224
+#: src/qml/RoomSettings/Permissions.qml:228
 #, kde-format
 msgid "This is power level for all new users when joining the room"
 msgstr "To je raven moči za vse nove uporabnike, ko se pridružijo v sobi"
 
-#: src/qml/RoomSettings/Permissions.qml:232
+#: src/qml/RoomSettings/Permissions.qml:236
 #, kde-format
 msgid "Default power level to set the room state"
 msgstr "Privzeta raven moči nastavitev te sobe"
 
-#: src/qml/RoomSettings/Permissions.qml:233
+#: src/qml/RoomSettings/Permissions.qml:237
 #, kde-format
 msgid "This is used for all state events that do not have their own entry here"
 msgstr "To je uporabljeno za vse dogodke, ki nimajo lastnega vnosa tukaj"
 
-#: src/qml/RoomSettings/Permissions.qml:241
+#: src/qml/RoomSettings/Permissions.qml:245
 #, kde-format
 msgid "Default power level to send messages"
 msgstr "Privzeta raven moči za pošiljanje sporočil"
 
-#: src/qml/RoomSettings/Permissions.qml:242
+#: src/qml/RoomSettings/Permissions.qml:246
 #, kde-format
 msgid ""
 "This is used for all message events that do not have their own entry here"
 msgstr ""
 "To je uporabljeno za vse sporočilne dogodke, ki nimajo lastnega vnosa tukaj"
 
-#: src/qml/RoomSettings/Permissions.qml:258
+#: src/qml/RoomSettings/Permissions.qml:259
 #, kde-format
 msgid "Basic permissions"
 msgstr "Osnovna dovoljenja"
 
-#: src/qml/RoomSettings/Permissions.qml:261
+#: src/qml/RoomSettings/Permissions.qml:267
 #, kde-format
 msgid "Invite users"
 msgstr "Povabi uporabnike"
 
-#: src/qml/RoomSettings/Permissions.qml:269
+#: src/qml/RoomSettings/Permissions.qml:275
 #, kde-format
 msgid "Kick users"
 msgstr "Brcni uporabnike"
 
-#: src/qml/RoomSettings/Permissions.qml:277
+#: src/qml/RoomSettings/Permissions.qml:283
 #, kde-format
 msgid "Ban users"
 msgstr "Prepovej uporabnike"
 
-#: src/qml/RoomSettings/Permissions.qml:285
+#: src/qml/RoomSettings/Permissions.qml:291
 #, kde-format
 msgid "Remove message sent by other users"
 msgstr "Odstrani sporočilo poslano od drugih uporabnikov"
 
-#: src/qml/RoomSettings/Permissions.qml:301
+#: src/qml/RoomSettings/Permissions.qml:304
 #, kde-format
 msgid "Event permissions"
 msgstr "Dovoljenja dogodkov"
 
-#: src/qml/RoomSettings/Permissions.qml:304
+#: src/qml/RoomSettings/Permissions.qml:312
 #, kde-format
 msgid "Change user permissions"
 msgstr "Spremeni dovoljenja uporabnika"
 
-#: src/qml/RoomSettings/Permissions.qml:313
+#: src/qml/RoomSettings/Permissions.qml:321
 #, kde-format
 msgid "Change the room name"
 msgstr "Spremeni ime sobe"
 
-#: src/qml/RoomSettings/Permissions.qml:322
+#: src/qml/RoomSettings/Permissions.qml:330
 #, kde-format
 msgid "Change the room avatar"
 msgstr "Spremeni avatarja sobe"
 
-#: src/qml/RoomSettings/Permissions.qml:331
+#: src/qml/RoomSettings/Permissions.qml:339
 #, kde-format
 msgid "Change the room canonical alias"
 msgstr "Spremeni kanonični vzdevek sobe"
 
-#: src/qml/RoomSettings/Permissions.qml:340
+#: src/qml/RoomSettings/Permissions.qml:348
 #, kde-format
 msgid "Change the room topic"
 msgstr "Spremeni temo sobe"
 
-#: src/qml/RoomSettings/Permissions.qml:349
+#: src/qml/RoomSettings/Permissions.qml:357
 #, kde-format
 msgid "Enable encryption for the room"
 msgstr "Omogoči šifriranje za sobo"
 
-#: src/qml/RoomSettings/Permissions.qml:358
+#: src/qml/RoomSettings/Permissions.qml:366
 #, kde-format
 msgid "Change the room history visibility"
 msgstr "Spremeni vidnost zgodovine sporočil"
 
-#: src/qml/RoomSettings/Permissions.qml:367
+#: src/qml/RoomSettings/Permissions.qml:375
 #, kde-format
 msgid "Set pinned events"
 msgstr "Nastavi fiksirane dogodke"
 
-#: src/qml/RoomSettings/Permissions.qml:376
+#: src/qml/RoomSettings/Permissions.qml:384
 #, kde-format
 msgid "Upgrade the room"
 msgstr "Nadgradi sobo"
 
-#: src/qml/RoomSettings/Permissions.qml:385
+#: src/qml/RoomSettings/Permissions.qml:393
 #, kde-format
 msgid "Set the room server access control list (ACL)"
 msgstr "Nastavi seznam nadzora dostopa do strežnika za to sobo"
 
-#: src/qml/RoomSettings/Permissions.qml:395
+#: src/qml/RoomSettings/Permissions.qml:403
 #, kde-format
 msgid "Set the children of this space"
 msgstr "Nastavi otroke tega prostora"
 
-#: src/qml/RoomSettings/Permissions.qml:404
+#: src/qml/RoomSettings/Permissions.qml:412
 #, kde-format
 msgid "Set the parent space of this room"
 msgstr "Nastavi starševski prostor te sobe"
 
-#: src/qml/RoomSettings/PushNotification.qml:29
+#: src/qml/RoomSettings/PushNotification.qml:27
 #, kde-format
 msgid "Room notifications setting"
 msgstr "Nastavitve sobnih obvestil"
 
-#: src/qml/RoomSettings/PushNotification.qml:32
+#: src/qml/RoomSettings/PushNotification.qml:34
 #, kde-format
 msgid "Follow global setting"
 msgstr "Sledi globalni nastavitvi"
+
+#: src/qml/RoomSettings/PushNotification.qml:75
+#: src/qml/Settings/GlobalNotificationsPage.qml:89
+#, kde-format
+msgid "Keywords"
+msgstr "Ključne besede"
+
+#: src/qml/RoomSettings/PushNotification.qml:99
+#: src/qml/Settings/GlobalNotificationsPage.qml:117
+#, kde-format
+msgid "Keyword…"
+msgstr "Ključna beseda…"
+
+#: src/qml/RoomSettings/PushNotification.qml:118
+#: src/qml/Settings/GlobalNotificationsPage.qml:136
+#, kde-format
+msgid "Add keyword"
+msgstr "Dodaj ključno besedo"
 
 #: src/qml/RoomSettings/Security.qml:17
 #, kde-format
@@ -3154,7 +3170,7 @@ msgid ""
 msgstr ""
 "Da bi omogočili to nastavitev, morate posodobiti to sobo na novo različico."
 
-#: src/qml/RoomSettings/Security.qml:32
+#: src/qml/RoomSettings/Security.qml:27
 #, kde-format
 msgctxt "@option:check"
 msgid "Encryption"
@@ -3171,7 +3187,7 @@ msgctxt "option:check"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr "Ko je enkrat omogočeno, šifriranja ni več mogoče onemogočiti."
 
-#: src/qml/RoomSettings/Security.qml:54
+#: src/qml/RoomSettings/Security.qml:50
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
@@ -3224,7 +3240,7 @@ msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "Kdorkoli lahko najde in se pridruži."
 
-#: src/qml/RoomSettings/Security.qml:104
+#: src/qml/RoomSettings/Security.qml:100
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
@@ -3289,7 +3305,7 @@ msgstr ""
 "sobi."
 
 #: src/qml/RoomSettings/Security.qml:154
-#: src/qml/Settings/NetworkProxyPage.qml:117
+#: src/qml/Settings/NetworkProxyPage.qml:119
 #, kde-format
 msgid "Apply"
 msgstr "Uveljavi"
@@ -3311,89 +3327,89 @@ msgstr "O KDE"
 msgid "Edit Account"
 msgstr "Uredi račun"
 
-#: src/qml/Settings/AccountEditorPage.qml:31
+#: src/qml/Settings/AccountEditorPage.qml:29
 #, kde-format
 msgid "User information"
 msgstr "Informacije o uporabniku"
 
-#: src/qml/Settings/AccountEditorPage.qml:74
+#: src/qml/Settings/AccountEditorPage.qml:76
 #, kde-format
 msgid "Remove current avatar"
 msgstr "Odstrani trenutnega avatarja"
 
-#: src/qml/Settings/AccountEditorPage.qml:89
+#: src/qml/Settings/AccountEditorPage.qml:91
 #, kde-format
 msgid "Name:"
 msgstr "Ime:"
 
-#: src/qml/Settings/AccountEditorPage.qml:94
+#: src/qml/Settings/AccountEditorPage.qml:96
 #, kde-format
 msgid "Label:"
 msgstr "Oznaka:"
 
-#: src/qml/Settings/AccountEditorPage.qml:131
-#: src/qml/Settings/NetworkProxyPage.qml:97
+#: src/qml/Settings/AccountEditorPage.qml:129
+#: src/qml/Settings/NetworkProxyPage.qml:99
 #, kde-format
 msgid "Password"
 msgstr "Geslo"
 
-#: src/qml/Settings/AccountEditorPage.qml:135
+#: src/qml/Settings/AccountEditorPage.qml:137
 #, kde-format
 msgid "Your server doesn't support changing your password"
 msgstr "Vaš  strežnik ne podpira spremembe vašega gesla"
 
-#: src/qml/Settings/AccountEditorPage.qml:139
+#: src/qml/Settings/AccountEditorPage.qml:141
 #, kde-format
 msgid "Current Password:"
 msgstr "Trenutno geslo:"
 
-#: src/qml/Settings/AccountEditorPage.qml:145
+#: src/qml/Settings/AccountEditorPage.qml:147
 #, kde-format
 msgid "New Password:"
 msgstr "Novo geslo:"
 
-#: src/qml/Settings/AccountEditorPage.qml:151
+#: src/qml/Settings/AccountEditorPage.qml:153
 #, kde-format
 msgid "Confirm new Password:"
 msgstr "Potrdi novo geslo:"
 
-#: src/qml/Settings/AccountEditorPage.qml:156
+#: src/qml/Settings/AccountEditorPage.qml:158
 #, kde-format
 msgid "Passwords don't match"
 msgstr "Gesli se ne ujemata"
 
-#: src/qml/Settings/AccountEditorPage.qml:178
+#: src/qml/Settings/AccountEditorPage.qml:180
 #, kde-format
 msgid "Passwords do not match"
 msgstr "Gesli se ne ujemata"
 
-#: src/qml/Settings/AccountEditorPage.qml:200
+#: src/qml/Settings/AccountEditorPage.qml:198
 #, kde-format
 msgid "Server Information"
 msgstr "Informacije o strežniku"
 
-#: src/qml/Settings/AccountEditorPage.qml:203
+#: src/qml/Settings/AccountEditorPage.qml:205
 #, kde-format
 msgid "Homeserver url"
 msgstr "Url domačega strežnika"
 
-#: src/qml/Settings/AccountsPage.qml:15 src/qml/Settings/AccountsPage.qml:26
+#: src/qml/Settings/AccountsPage.qml:15 src/qml/Settings/AccountsPage.qml:24
 #: src/qml/Settings/SettingsPage.qml:31
 #, kde-format
 msgid "Accounts"
 msgstr "Računi"
 
-#: src/qml/Settings/AccountsPage.qml:100
+#: src/qml/Settings/AccountsPage.qml:101
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Uspešno zamenjano geslo"
 
-#: src/qml/Settings/AccountsPage.qml:102
+#: src/qml/Settings/AccountsPage.qml:103
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Vneseno napačno geslo"
 
-#: src/qml/Settings/AccountsPage.qml:104
+#: src/qml/Settings/AccountsPage.qml:105
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Neznana težava ob poskusu zamenjave gesla"
@@ -3404,67 +3420,67 @@ msgctxt "@title:window"
 msgid "Appearance"
 msgstr "Videz"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:25
+#: src/qml/Settings/AppearanceSettingsPage.qml:23
 #, kde-format
 msgid "General theme"
 msgstr "Splošna tema"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:118
+#: src/qml/Settings/AppearanceSettingsPage.qml:119
 #, kde-format
 msgid "Bubbles"
 msgstr "Mehurčki"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:187
+#: src/qml/Settings/AppearanceSettingsPage.qml:188
 #, kde-format
 msgid "Compact"
 msgstr "Strnjeno"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:207
+#: src/qml/Settings/AppearanceSettingsPage.qml:208
 #, kde-format
 msgid "Use compact room list"
 msgstr "Uporabi kompaktni seznam sob"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:233
+#: src/qml/Settings/AppearanceSettingsPage.qml:234
 #, kde-format
 msgid "Show fancy effects in chat"
 msgstr "Prikaži zapletene učinke v klepetu"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:247
+#: src/qml/Settings/AppearanceSettingsPage.qml:248
 #, kde-format
 msgid "Use transparent chat page"
 msgstr "Uporabi prosojno stran za klepet"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:266
+#: src/qml/Settings/AppearanceSettingsPage.qml:267
 #, kde-format
 msgid "Transparency"
 msgstr "Prosojnost"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:283
+#: src/qml/Settings/AppearanceSettingsPage.qml:284
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr "Omogočeno je le, če je omogočena prosojna stran za klepet."
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:296
+#: src/qml/Settings/AppearanceSettingsPage.qml:297
 #, kde-format
 msgid "Show your messages on the right"
 msgstr "Pokaži sporočila na desni strani"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:309
+#: src/qml/Settings/AppearanceSettingsPage.qml:310
 #, kde-format
 msgid "Show links preview in the chat messages"
 msgstr "Prikaži predoglede povezav v sporočilih klepeta"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:326
+#: src/qml/Settings/AppearanceSettingsPage.qml:322
 #, kde-format
 msgid "Show Avatar"
 msgstr "Prikaži avatarja"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:330
+#: src/qml/Settings/AppearanceSettingsPage.qml:329
 #, kde-format
 msgid "In chat"
 msgstr "V klepetu"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:340
+#: src/qml/Settings/AppearanceSettingsPage.qml:339
 #, kde-format
 msgid "In sidebar"
 msgstr "V stranski vrstici"
@@ -3474,121 +3490,121 @@ msgstr "V stranski vrstici"
 msgid "Color theme"
 msgstr "Barvna tema"
 
-#: src/qml/Settings/DevicesPage.qml:86
+#: src/qml/Settings/DevicesPage.qml:87
 #, kde-format
 msgid "New device name"
 msgstr "Novo ime naprave"
 
-#: src/qml/Settings/DevicesPage.qml:95
+#: src/qml/Settings/DevicesPage.qml:96
 #, kde-format
 msgid "Cancel editing display name"
 msgstr "Prekliči urejanje imena prikaza"
 
-#: src/qml/Settings/DevicesPage.qml:102
+#: src/qml/Settings/DevicesPage.qml:103
 #, kde-format
 msgid "Confirm new display name"
 msgstr "Potrdi novo ime prikaza"
 
-#: src/qml/Settings/DevicesPage.qml:117
+#: src/qml/Settings/DevicesPage.qml:118
 #, kde-format
 msgid "Edit device name"
 msgstr "Uredi ime naprave"
 
-#: src/qml/Settings/DevicesPage.qml:131
+#: src/qml/Settings/DevicesPage.qml:132
 #, kde-format
 msgid "Verify device"
 msgstr "Verificiraj napravo"
 
-#: src/qml/Settings/DevicesPage.qml:146
+#: src/qml/Settings/DevicesPage.qml:147
 #, kde-format
 msgid "Logout device"
 msgstr "Odjavi napravo"
 
-#: src/qml/Settings/DevicesPage.qml:167
+#: src/qml/Settings/DevicesPage.qml:168
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
 msgstr "Prijavite se, da lahko vidite prijavljene naprave na vašem računu."
 
-#: src/qml/Settings/DevicesPage.qml:178
+#: src/qml/Settings/DevicesPage.qml:179
 #, kde-format
 msgid "Remove device"
 msgstr "Odstrani napravo"
 
-#: src/qml/Settings/DevicesPage.qml:182
+#: src/qml/Settings/DevicesPage.qml:183
 #, kde-format
 msgid "Password:"
 msgstr "Geslo:"
 
-#: src/qml/Settings/EmoticonEditorPage.qml:30
-#: src/qml/Settings/EmoticonFormCard.qml:59
+#: src/qml/Settings/EmoticonEditorPage.qml:31
+#: src/qml/Settings/EmoticonFormCard.qml:55
 #, kde-format
 msgctxt "@title"
 msgid "Edit Sticker"
 msgstr "Uredi nalepko"
 
-#: src/qml/Settings/EmoticonEditorPage.qml:30
-#: src/qml/Settings/EmoticonFormCard.qml:109
+#: src/qml/Settings/EmoticonEditorPage.qml:31
+#: src/qml/Settings/EmoticonFormCard.qml:105
 #, kde-format
 msgctxt "@title"
 msgid "Add Sticker"
 msgstr "Dodaj nalepko"
 
-#: src/qml/Settings/EmoticonEditorPage.qml:31
-#: src/qml/Settings/EmoticonFormCard.qml:59
+#: src/qml/Settings/EmoticonEditorPage.qml:32
+#: src/qml/Settings/EmoticonFormCard.qml:55
 #, kde-format
 msgctxt "@title"
 msgid "Edit Emoji"
 msgstr "Dodaj čustvenčka"
 
-#: src/qml/Settings/EmoticonEditorPage.qml:31
-#: src/qml/Settings/EmoticonFormCard.qml:109
+#: src/qml/Settings/EmoticonEditorPage.qml:32
+#: src/qml/Settings/EmoticonFormCard.qml:105
 #, kde-format
 msgctxt "@title"
 msgid "Add Emoji"
 msgstr "Dodaj čustvenčka"
 
-#: src/qml/Settings/EmoticonEditorPage.qml:40
+#: src/qml/Settings/EmoticonEditorPage.qml:38
 #, kde-format
 msgid "Sticker"
 msgstr "Nalepka"
 
-#: src/qml/Settings/EmoticonEditorPage.qml:40
+#: src/qml/Settings/EmoticonEditorPage.qml:38
 #, kde-format
 msgid "Emoji"
 msgstr "Čustvenček"
 
-#: src/qml/Settings/EmoticonEditorPage.qml:69
+#: src/qml/Settings/EmoticonEditorPage.qml:71
 #, kde-format
 msgid "Change Image"
 msgstr "Spremeni sliko"
 
-#: src/qml/Settings/EmoticonEditorPage.qml:69
+#: src/qml/Settings/EmoticonEditorPage.qml:71
 #, kde-format
 msgid "Set Image"
 msgstr "Nastavi sliko"
 
-#: src/qml/Settings/EmoticonEditorPage.qml:109
+#: src/qml/Settings/EmoticonEditorPage.qml:111
 #, kde-format
 msgid "Shortcode:"
 msgstr "Kratka koda:"
 
-#: src/qml/Settings/EmoticonEditorPage.qml:114
+#: src/qml/Settings/EmoticonEditorPage.qml:116
 #, kde-format
 msgid "Description:"
 msgstr "Opis:"
 
-#: src/qml/Settings/EmoticonFormCard.qml:77
+#: src/qml/Settings/EmoticonFormCard.qml:73
 #, kde-format
 msgctxt "As in 'This sticker/emoji has no description'"
 msgid "No Description"
 msgstr "Ni opisa"
 
-#: src/qml/Settings/EmoticonFormCard.qml:118
+#: src/qml/Settings/EmoticonFormCard.qml:114
 #, kde-format
 msgid "Add Emoji"
 msgstr "Dodaj čustvenčka"
 
-#: src/qml/Settings/EmoticonFormCard.qml:118
+#: src/qml/Settings/EmoticonFormCard.qml:114
 #, kde-format
 msgid "Add Sticker"
 msgstr "Dodaj nalepko"
@@ -3600,58 +3616,58 @@ msgctxt "@title:window"
 msgid "General"
 msgstr "Splošno"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:25
+#: src/qml/Settings/GeneralSettingsPage.qml:23
 #, kde-format
 msgid "General settings"
 msgstr "Splošne nastavitve"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:31
+#: src/qml/Settings/GeneralSettingsPage.qml:33
 #, kde-format
 msgid "Close to system tray"
 msgstr "Zapri na sistemski pladenj"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:45
+#: src/qml/Settings/GeneralSettingsPage.qml:47
 #, kde-format
 msgid "Minimize to system tray on startup"
 msgstr "Pomanjšaj na sistemski pladenj ob zagonu"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:59
+#: src/qml/Settings/GeneralSettingsPage.qml:61
 #, kde-format
 msgid "Automatically hide/unhide the room information when resizing the window"
 msgstr ""
 "Samodejno skrij/razkrij informacije o sobi ob spreminjanju velikosti okna"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:77
+#: src/qml/Settings/GeneralSettingsPage.qml:74
 #, kde-format
 msgid "Timeline Events"
 msgstr "Dogodki na časovnici"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:82
+#: src/qml/Settings/GeneralSettingsPage.qml:83
 #, kde-format
 msgid "Show deleted messages"
 msgstr "Prikaži zbrisana sporočila"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:95
+#: src/qml/Settings/GeneralSettingsPage.qml:96
 #, kde-format
 msgid "Show state events"
 msgstr "Prikaži dogodke stanj"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:112
+#: src/qml/Settings/GeneralSettingsPage.qml:113
 #, kde-format
 msgid "Show leave and join events"
 msgstr "Prikaži dogodke odhodov in prihodov"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:130
+#: src/qml/Settings/GeneralSettingsPage.qml:131
 #, kde-format
 msgid "Show name change events"
 msgstr "Prikaži dogodke spremembe imen"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:148
+#: src/qml/Settings/GeneralSettingsPage.qml:149
 #, kde-format
 msgid "Show avatar update events"
 msgstr "Prikaži dogodke posodobitve avatarjev"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:165
+#: src/qml/Settings/GeneralSettingsPage.qml:161
 #, kde-format
 msgid "Rooms and private chats"
 msgstr "Sobe in zasebni klepeti"
@@ -3666,191 +3682,126 @@ msgstr "Ločeno"
 msgid "Intermixed"
 msgstr "Zmešano"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:194
+#: src/qml/Settings/GeneralSettingsPage.qml:189
 #, kde-format
 msgctxt "Chat Editor"
 msgid "Editor"
 msgstr "Urejevalnik"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:198
+#: src/qml/Settings/GeneralSettingsPage.qml:197
 #, kde-format
 msgid "Use s/text/replacement syntax to edit your last message"
 msgstr ""
 "Uporabi skladnjo s/besedilo/zamenjava za urejanje vašega zadnjega sporočila"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:209
+#: src/qml/Settings/GeneralSettingsPage.qml:208
 #, kde-format
 msgid "Send typing notifications"
 msgstr "Pošlji besedilna obvestila"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:226
+#: src/qml/Settings/GeneralSettingsPage.qml:220
 #, kde-format
 msgid "Developer Settings"
 msgstr "Nastavitve razvoja"
 
-#: src/qml/Settings/GeneralSettingsPage.qml:229
+#: src/qml/Settings/GeneralSettingsPage.qml:227
 #, kde-format
 msgid "Enable developer tools"
 msgstr "Omogoči razvojna orodja"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:14
+#: src/qml/Settings/GlobalNotificationsPage.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Notifications"
 msgstr "Obvestila"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:23
+#: src/qml/Settings/GlobalNotificationsPage.qml:30
 #, kde-format
 msgid "Enable notifications for this account"
 msgstr "Omogoči obvestila za ta račun"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:24
+#: src/qml/Settings/GlobalNotificationsPage.qml:31
 #, kde-format
 msgid "Whether push notifications are generated by your Matrix server"
 msgstr "Ali so potisna obvestila ustvarjena na vašem strežniku Matrix"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:40
+#: src/qml/Settings/GlobalNotificationsPage.qml:42
 #, kde-format
 msgid "Room Notifications"
 msgstr "Obvestila sobe"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:43
-#, kde-format
-msgid "Messages in one-to-one chats"
-msgstr "Sporočila v klepetih iz oči v oči"
-
-#: src/qml/Settings/GlobalNotificationsPage.qml:57
-#, kde-format
-msgid "Encrypted messages in one-to-one chats"
-msgstr "Šifrirana sporočila pri klepetih iz oči v oči"
-
-#: src/qml/Settings/GlobalNotificationsPage.qml:73
-#, kde-format
-msgid "Messages in group chats"
-msgstr "Sporočila v skupinskih klepetih"
-
-#: src/qml/Settings/GlobalNotificationsPage.qml:87
-#, kde-format
-msgid "Messages in encrypted group chats"
-msgstr "Sporočila v šifriranih skupinskih klepetih"
-
-#: src/qml/Settings/GlobalNotificationsPage.qml:103
-#, kde-format
-msgid "Room upgrade messages"
-msgstr "Sporočila o posodabljanju sob"
-
-#: src/qml/Settings/GlobalNotificationsPage.qml:128
+#: src/qml/Settings/GlobalNotificationsPage.qml:66
 #, kde-format
 msgid "@Mentions"
 msgstr "@Omembe"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:131
-#, kde-format
-msgid "Messages containing my display name"
-msgstr "Sporočila, ki vsebujejo moje prikaza"
-
-#: src/qml/Settings/GlobalNotificationsPage.qml:147
-#, kde-format
-msgid "Whole room (@room) notifications"
-msgstr "Obvestila za celotno sobo (@room)"
-
-#: src/qml/Settings/GlobalNotificationsPage.qml:172
-#, kde-format
-msgid "Keywords"
-msgstr "Ključne besede"
-
-#: src/qml/Settings/GlobalNotificationsPage.qml:176
-#, kde-format
-msgid "Messages containing my keywords"
-msgstr "Sporočila, ki vsebujejo moje ključne besede"
-
-#: src/qml/Settings/GlobalNotificationsPage.qml:225
-#, kde-format
-msgid "Keyword…"
-msgstr "Ključna beseda…"
-
-#: src/qml/Settings/GlobalNotificationsPage.qml:244
-#, kde-format
-msgid "Add keyword"
-msgstr "Dodaj ključno besedo"
-
-#: src/qml/Settings/GlobalNotificationsPage.qml:272
+#: src/qml/Settings/GlobalNotificationsPage.qml:159
 #, kde-format
 msgid "Invites"
 msgstr "Povabila"
 
-#: src/qml/Settings/GlobalNotificationsPage.qml:275
-#, kde-format
-msgid "Invites to a room"
-msgstr "Povabila v sobo"
-
-#: src/qml/Settings/GlobalNotificationsPage.qml:291
-#, kde-format
-msgid "Call invitation"
-msgstr "Pošlji povabilo"
-
-#: src/qml/Settings/NetworkProxyPage.qml:27
+#: src/qml/Settings/NetworkProxyPage.qml:25
 #: src/qml/Settings/SettingsPage.qml:51
 #, kde-format
 msgid "Network Proxy"
 msgstr "Omrežni posrednik"
 
-#: src/qml/Settings/NetworkProxyPage.qml:30
+#: src/qml/Settings/NetworkProxyPage.qml:32
 #, kde-format
 msgid "System Default"
 msgstr "Sistemsko privzeto"
 
-#: src/qml/Settings/NetworkProxyPage.qml:38
+#: src/qml/Settings/NetworkProxyPage.qml:40
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: src/qml/Settings/NetworkProxyPage.qml:46
+#: src/qml/Settings/NetworkProxyPage.qml:48
 #, kde-format
 msgid "Socks5"
 msgstr "Socks5"
 
-#: src/qml/Settings/NetworkProxyPage.qml:62
+#: src/qml/Settings/NetworkProxyPage.qml:60
 #, kde-format
 msgid "Proxy Settings"
 msgstr "Nastavitve posrednika"
 
-#: src/qml/Settings/NetworkProxyPage.qml:66
+#: src/qml/Settings/NetworkProxyPage.qml:68
 #, kde-format
 msgid "Host"
 msgstr "Gostitelj"
 
-#: src/qml/Settings/NetworkProxyPage.qml:75
+#: src/qml/Settings/NetworkProxyPage.qml:77
 #, kde-format
 msgid "Port"
 msgstr "Vrata"
 
-#: src/qml/Settings/NetworkProxyPage.qml:88
+#: src/qml/Settings/NetworkProxyPage.qml:90
 #, kde-format
 msgid "User"
 msgstr "Uporabnik"
 
-#: src/qml/Settings/NotificationRuleItem.qml:65
+#: src/qml/Settings/NotificationRuleItem.qml:71
 #, kde-format
 msgid "Disable notifications"
 msgstr "Onemogoči obveščanje"
 
-#: src/qml/Settings/NotificationRuleItem.qml:65
+#: src/qml/Settings/NotificationRuleItem.qml:71
 #, kde-format
 msgid "Enable notifications"
 msgstr "Omogoči obveščanje"
 
-#: src/qml/Settings/NotificationRuleItem.qml:87
+#: src/qml/Settings/NotificationRuleItem.qml:93
 #, kde-format
 msgid "Mute notifications"
 msgstr "Utišaj obvestila"
 
-#: src/qml/Settings/NotificationRuleItem.qml:87
+#: src/qml/Settings/NotificationRuleItem.qml:93
 #, kde-format
 msgid "Unmute notifications"
 msgstr "Dovoli zvočna obvestila"
 
-#: src/qml/Settings/NotificationRuleItem.qml:109
+#: src/qml/Settings/NotificationRuleItem.qml:114
 #, kde-format
 msgctxt ""
 "As in clicking this button will switch off highlights for messages that "
@@ -3858,7 +3809,7 @@ msgctxt ""
 msgid "Disable message highlights"
 msgstr "Onemogoči osvetljevanje obvestil"
 
-#: src/qml/Settings/NotificationRuleItem.qml:109
+#: src/qml/Settings/NotificationRuleItem.qml:114
 #, kde-format
 msgctxt ""
 "As in clicking this button will switch on highlights for messages that match "
@@ -3866,7 +3817,7 @@ msgctxt ""
 msgid "Enable message highlights"
 msgstr "Omogoči osvetljevanje obvestil"
 
-#: src/qml/Settings/NotificationRuleItem.qml:131
+#: src/qml/Settings/NotificationRuleItem.qml:136
 #, kde-format
 msgid "Delete keyword"
 msgstr "Izbriši ključno besedo"
@@ -3896,47 +3847,47 @@ msgstr "O programu NeoChat"
 msgid "About KDE"
 msgstr "O KDE"
 
-#: src/qml/Settings/SonnetConfigPage.qml:28
+#: src/qml/Settings/SonnetConfigPage.qml:22
 #, kde-format
 msgid "Spellchecking"
 msgstr "Preverjanje črkovanja"
 
-#: src/qml/Settings/SonnetConfigPage.qml:34
+#: src/qml/Settings/SonnetConfigPage.qml:37
 #, kde-format
 msgid "Enable automatic spell checking"
 msgstr "Omogoči samodejno preverjanje črkovanja"
 
-#: src/qml/Settings/SonnetConfigPage.qml:46
+#: src/qml/Settings/SonnetConfigPage.qml:49
 #, kde-format
 msgid "Ignore uppercase words"
 msgstr "Prezri besede z velikimi črkami"
 
-#: src/qml/Settings/SonnetConfigPage.qml:58
+#: src/qml/Settings/SonnetConfigPage.qml:61
 #, kde-format
 msgid "Ignore hyphenated words"
 msgstr "Prezri besede z vezaji"
 
-#: src/qml/Settings/SonnetConfigPage.qml:70
+#: src/qml/Settings/SonnetConfigPage.qml:73
 #, kde-format
 msgid "Detect language automatically"
 msgstr "Samodejno zaznaj jezik"
 
-#: src/qml/Settings/SonnetConfigPage.qml:81
+#: src/qml/Settings/SonnetConfigPage.qml:84
 #, kde-format
 msgid "Selected default language:"
 msgstr "Izbrani privzeti jezik:"
 
-#: src/qml/Settings/SonnetConfigPage.qml:82
+#: src/qml/Settings/SonnetConfigPage.qml:85
 #, kde-format
 msgid "None"
 msgstr "Noben"
 
-#: src/qml/Settings/SonnetConfigPage.qml:101
+#: src/qml/Settings/SonnetConfigPage.qml:104
 #, kde-format
 msgid "Additional spell checking languages"
 msgstr "Dodatni jeziki s preverjanjem črkovanja"
 
-#: src/qml/Settings/SonnetConfigPage.qml:102
+#: src/qml/Settings/SonnetConfigPage.qml:105
 #, kde-format
 msgid ""
 "%1 will provide spell checking and suggestions for the languages listed here "
@@ -3945,40 +3896,40 @@ msgstr ""
 "%1 bo zagotavljal preverjanje črkovanja in predloge za jezike, navedene tu, "
 "če je omogočeno samodejno zaznavanje."
 
-#: src/qml/Settings/SonnetConfigPage.qml:114
+#: src/qml/Settings/SonnetConfigPage.qml:117
 #, kde-format
 msgid "Open Personal Dictionary"
 msgstr "Odpri osebni slovar"
 
-#: src/qml/Settings/SonnetConfigPage.qml:125
+#: src/qml/Settings/SonnetConfigPage.qml:128
 #, kde-format
 msgctxt "@title:window"
 msgid "Spell checking languages"
 msgstr "Jeziki s preverjanjem črkovanja"
 
-#: src/qml/Settings/SonnetConfigPage.qml:134
-#: src/qml/Settings/SonnetConfigPage.qml:144
+#: src/qml/Settings/SonnetConfigPage.qml:137
+#: src/qml/Settings/SonnetConfigPage.qml:147
 #, kde-format
 msgid "Default Language"
 msgstr "Privzeti jezik"
 
-#: src/qml/Settings/SonnetConfigPage.qml:156
+#: src/qml/Settings/SonnetConfigPage.qml:159
 #, kde-format
 msgid "Spell checking dictionary"
 msgstr "Slovar preverjanja črkovanja"
 
-#: src/qml/Settings/SonnetConfigPage.qml:163
+#: src/qml/Settings/SonnetConfigPage.qml:166
 #, kde-format
 msgid "Add a new word to your personal dictionary…"
 msgstr "Dodaj novo besedo v osebni slovar…"
 
-#: src/qml/Settings/SonnetConfigPage.qml:166
+#: src/qml/Settings/SonnetConfigPage.qml:169
 #, kde-format
 msgctxt "@action:button"
 msgid "Add word"
 msgstr "Dodaj besedo"
 
-#: src/qml/Settings/SonnetConfigPage.qml:193
+#: src/qml/Settings/SonnetConfigPage.qml:196
 #, kde-format
 msgid "Delete word"
 msgstr "Izbriši besedo"
@@ -4043,6 +3994,36 @@ msgstr "Prikaži"
 #, kde-format
 msgid "Quit"
 msgstr "Zapusti"
+
+#~ msgid "Messages in one-to-one chats"
+#~ msgstr "Sporočila v klepetih iz oči v oči"
+
+#~ msgid "Encrypted messages in one-to-one chats"
+#~ msgstr "Šifrirana sporočila pri klepetih iz oči v oči"
+
+#~ msgid "Messages in group chats"
+#~ msgstr "Sporočila v skupinskih klepetih"
+
+#~ msgid "Messages in encrypted group chats"
+#~ msgstr "Sporočila v šifriranih skupinskih klepetih"
+
+#~ msgid "Room upgrade messages"
+#~ msgstr "Sporočila o posodabljanju sob"
+
+#~ msgid "Messages containing my display name"
+#~ msgstr "Sporočila, ki vsebujejo moje prikaza"
+
+#~ msgid "Whole room (@room) notifications"
+#~ msgstr "Obvestila za celotno sobo (@room)"
+
+#~ msgid "Messages containing my keywords"
+#~ msgstr "Sporočila, ki vsebujejo moje ključne besede"
+
+#~ msgid "Invites to a room"
+#~ msgstr "Povabila v sobo"
+
+#~ msgid "Call invitation"
+#~ msgstr "Pošlji povabilo"
 
 #~ msgctxt "@title:window"
 #~ msgid "Custom Emojis"
