@@ -138,7 +138,7 @@ Kirigami.OverlayDrawer {
                         Kirigami.BasicListItem {
                             id: devtoolsButton
 
-                            icon: "tools"
+                            icon.name: "tools"
                             text: i18n("Open developer tools")
                             visible: Config.developerTools
 
@@ -150,7 +150,7 @@ Kirigami.OverlayDrawer {
                         Kirigami.BasicListItem {
                             id: searchButton
 
-                            icon: "search"
+                            icon.name: "search"
                             text: i18n("Search in this room")
 
                             onClicked: {
@@ -173,7 +173,7 @@ Kirigami.OverlayDrawer {
                         Kirigami.BasicListItem {
                             id: locationsButton
 
-                            icon: "map-flat"
+                            icon.name: "map-flat"
                             text: i18n("Show locations for this room")
 
                             onClicked: pageStack.pushDialogLayer("qrc:/LocationsPage.qml", {

@@ -50,7 +50,7 @@ QQC2.ToolBar {
                     }
                 }
                 Component.onCompleted: userInfo.addAccount = this
-                icon: "list-add"
+                icon.name: "list-add"
                 text: i18n("Add Account")
                 subtitle: i18n("Log in to an existing account")
                 onClicked: {
