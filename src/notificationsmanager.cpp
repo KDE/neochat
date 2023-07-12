@@ -18,9 +18,7 @@
 #endif
 
 #include <connection.h>
-#include <csapi/notifications.h>
 #include <csapi/pushrules.h>
-#include <jobs/basejob.h>
 #include <user.h>
 
 #include "controller.h"

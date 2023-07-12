@@ -23,7 +23,6 @@
 #include <QGuiApplication>
 #include <QTimeZone>
 
-#include <KFormat>
 #include <KLocalizedString>
 
 #include "models/reactionmodel.h"

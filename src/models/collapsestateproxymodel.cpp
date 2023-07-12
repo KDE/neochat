@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: LGPL-2.0-or-later
 
 #include "collapsestateproxymodel.h"
-#include "messageeventmodel.h"
 
 #include <KLocalizedString>
 

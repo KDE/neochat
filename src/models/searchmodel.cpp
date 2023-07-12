@@ -10,7 +10,6 @@
 #include <connection.h>
 
 #ifdef QUOTIENT_07
-#include <csapi/search.h>
 #endif
 
 using namespace Quotient;

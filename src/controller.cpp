@@ -3,7 +3,6 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 #include "controller.h"
-#include "models/pushrulemodel.h"
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <qt5keychain/keychain.h>

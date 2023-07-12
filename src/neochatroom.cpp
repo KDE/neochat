@@ -45,11 +45,9 @@
 #include "controller.h"
 #include "events/joinrulesevent.h"
 #include "neochatconfig.h"
-#include "neochatuser.h"
 #include "notificationsmanager.h"
 #ifdef QUOTIENT_07
 #include "events/pollevent.h"
-#include "pollhandler.h"
 #endif
 #include "events/stickerevent.h"
 #include "filetransferpseudojob.h"

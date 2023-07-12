@@ -14,7 +14,6 @@
 #include "models/actionsmodel.h"
 #include "models/customemojimodel.h"
 #include "neochatconfig.h"
-#include "neochatroom.h"
 #include "texthandler.h"
 
 using namespace Quotient;

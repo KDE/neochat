@@ -14,7 +14,6 @@
 
 #include "controller.h"
 #include "neochatconfig.h"
-#include "notificationsmanager.h"
 
 // Alternate name text for default rules.
 static const QHash<QString, QString> defaultRuleNames = {

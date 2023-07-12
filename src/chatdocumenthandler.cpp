@@ -14,8 +14,6 @@
 #include <Sonnet/BackgroundChecker>
 #include <Sonnet/Settings>
 
-#include "neochatroom.h"
-
 class SyntaxHighlighter : public QSyntaxHighlighter
 {
 public:
