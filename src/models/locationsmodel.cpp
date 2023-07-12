@@ -8,7 +8,7 @@ using namespace Quotient;
 LocationsModel::LocationsModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    connect(this, &LocationsModel::roomChanged, this, [=]() {
+    connect(this, &LocationsModel::roomChanged, this, [this]() {
         for (const auto &event : m_room->messageEvents()) {
             if (!is<RoomMessageEvent>(*event)) {
                 continue;
@@ -18,7 +18,7 @@ LocationsModel::LocationsModel(QObject *parent)
                 addLocation(eventCast<const RoomMessageEvent>(&e));
             }
         }
-        connect(m_room, &NeoChatRoom::aboutToAddHistoricalMessages, this, [=](const auto &events) {
+        connect(m_room, &NeoChatRoom::aboutToAddHistoricalMessages, this, [this](const auto &events) {
             for (const auto &event : events) {
                 if (!is<RoomMessageEvent>(*event)) {
                     continue;
@@ -29,7 +29,7 @@ LocationsModel::LocationsModel(QObject *parent)
                 }
             }
         });
-        connect(m_room, &NeoChatRoom::aboutToAddNewMessages, this, [=](const auto &events) {
+        connect(m_room, &NeoChatRoom::aboutToAddNewMessages, this, [this](const auto &events) {
             for (const auto &event : events) {
                 if (!is<RoomMessageEvent>(*event)) {
                     continue;
