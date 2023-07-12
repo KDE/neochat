@@ -6,9 +6,11 @@ import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.20 as Kirigami
+import org.kde.kirigamiaddons.delegates 1.0 as Delegates
 import org.kde.kitemmodels 1.0
 
 import org.kde.neochat 1.0
+import './RoomList' as RoomList
 
 QQC2.Dialog {
     id: root
@@ -86,48 +88,23 @@ QQC2.Dialog {
                     connection: Controller.activeConnection
                 }
             }
-            delegate: Kirigami.BasicListItem {
-                id: roomListItem
 
-                required property NeoChatRoom currentRoom
-                required property string displayName
-                required property int index
-                required property int notificationCount
-                required property string subtitleText
-                required property string avatar
+            delegate: RoomList.RoomDelegate {
+                filterText: searchField.text
 
-                topPadding: Kirigami.Units.largeSpacing
-                bottomPadding: Kirigami.Units.largeSpacing
-                highlighted: roomList.currentIndex === roomListItem.index
-                focus: true
-                icon: undefined
                 onClicked: {
-                    RoomManager.enterRoom(roomListItem.currentRoom);
+                    RoomManager.enterRoom(currentRoom);
                     root.close()
                 }
+
                 Keys.onEnterPressed: {
-                    RoomManager.enterRoom(roomListItem.currentRoom);
+                    RoomManager.enterRoom(currentRoom);
                     root.close();
-                }
-                Keys.onReturnPressed: {
-                    RoomManager.enterRoom(roomListItem.currentRoom);
-                    root.close();
-                }
-                @BASICLISTITEM_BOLD@: roomListItem.notificationCount > 0
-                label: roomListItem.displayName ?? ""
-                labelItem.textFormat: Text.PlainText
-                subtitle: roomListItem.subtitleText
-                subtitleItem.textFormat: Text.PlainText
-                onPressAndHold: {
-                    createRoomListContextMenu()
                 }
 
-                leading: Kirigami.Avatar {
-                    source: roomListItem.avatar ? "image://mxc/" + roomListItem.avatar : ""
-                    name: roomListItem.displayName
-                    implicitWidth: height
-                    sourceSize.width: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
-                    sourceSize.height: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
+                Keys.onReturnPressed: {
+                    RoomManager.enterRoom(currentRoom);
+                    root.close();
                 }
             }
         }

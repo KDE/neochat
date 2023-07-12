@@ -240,6 +240,15 @@ Kirigami.Page {
 
                     RoomList.RoomDelegate {
                         filterText: sortFilterRoomListModel.filterText
+
+                        height: visible ? implicitHeight : 0
+
+                        visible: categoryVisible || filterText.length > 0 || Config.mergeRoomList
+
+                        onClicked: RoomManager.enterRoom(currentRoom)
+
+                        Keys.onEnterPressed: RoomManager.enterRoom(currentRoom)
+                        Keys.onReturnPressed: RoomManager.enterRoom(currentRoom)
                     }
                 }
             }
