@@ -178,3 +178,9 @@ file(GLOB_RECURSE ALL_SOURCE_FILES *.cpp *.h *.qml)
 # Fixes the test by excluding this directory
 list(FILTER ALL_SOURCE_FILES EXCLUDE REGEX [[_(install|build)/.*]])
 ecm_check_outbound_license(LICENSES GPL-3.0-only FILES ${ALL_SOURCE_FILES})
+
+ecm_qt_install_logging_categories(
+        EXPORT NEOCHAT
+        FILE neochat.categories
+        DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
+        )

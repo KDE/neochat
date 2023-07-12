@@ -66,7 +66,9 @@ ecm_qt_declare_logging_category(neochat
     HEADER "messageeventmodel_logging.h"
     IDENTIFIER "MessageEvent"
     CATEGORY_NAME "org.kde.neochat.messageeventmodel"
+    DESCRIPTION "Neochat: messageeventmodel"
     DEFAULT_SEVERITY Info
+    EXPORT NEOCHAT
 )
 
 add_executable(neochat-app
