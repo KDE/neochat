@@ -61,7 +61,7 @@ public:
         CompletionType, /**< The completion type (always "action" for this model). */
         Parameters, /**< The input parameters expected by the action. */
     };
-    Q_ENUM(Roles);
+    Q_ENUM(Roles)
 
     /**
      * @brief Get the given role value at the given index.

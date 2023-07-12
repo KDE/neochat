@@ -29,7 +29,7 @@ public:
         TypeRole = 0, /**< The type of the state event. */
         StateKeyRole, /**< The state key of the state event. */
     };
-    Q_ENUM(Roles);
+    Q_ENUM(Roles)
 
     explicit StateModel(QObject *parent = nullptr);
 

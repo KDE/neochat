@@ -32,7 +32,7 @@ public:
         Sender, /**< These rules configure notification behaviour for messages from a specific Matrix user ID. */
         Underride, /**< These are identical to override rules, but have a lower priority than content, room and sender rules. */
     };
-    Q_ENUM(Kind);
+    Q_ENUM(Kind)
 
     /**
      * @brief Translate the Kind enum value to a human readable string.
@@ -92,7 +92,7 @@ public:
          */
         Undefined,
     };
-    Q_ENUM(Section);
+    Q_ENUM(Section)
 
     /**
      * @brief Translate the Section enum value to a human readable string.

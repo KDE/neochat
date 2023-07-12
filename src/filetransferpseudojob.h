@@ -20,7 +20,7 @@ public:
         Download,
         Upload,
     };
-    Q_ENUM(Operation);
+    Q_ENUM(Operation)
     FileTransferPseudoJob(Operation operation, const QString &srcDest, const QString &path);
 
     /**

@@ -56,7 +56,7 @@ public:
         LiveLocation, /**< The initial event of a shared live location (i.e., the place where this is supposed to be shown in the timeline). */
         Other, /**< Anything that cannot be classified as another type. */
     };
-    Q_ENUM(DelegateType);
+    Q_ENUM(DelegateType)
 
     /**
      * @brief Defines the model roles.

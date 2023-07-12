@@ -116,7 +116,7 @@ public:
         Wrong, /**< The current password entered was wrong. */
         Other, /**< An unknown problem occurred. */
     };
-    Q_ENUM(PasswordStatus);
+    Q_ENUM(PasswordStatus)
 
     static Controller &instance();
 

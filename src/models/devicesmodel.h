@@ -40,7 +40,7 @@ public:
         LastIp, /**< The IP address where this device was last seen. */
         LastTimestamp, /**< The timestamp when this devices was last seen. */
     };
-    Q_ENUM(Roles);
+    Q_ENUM(Roles)
 
     DevicesModel(QObject *parent = nullptr);
 

@@ -95,7 +95,7 @@ public:
         ReplacedTextRole = 52, /**< The text to replace the short name with (i.e. the unicode character). */
         DescriptionRole = 53, /**< The long description of an emoji. */
     };
-    Q_ENUM(RoleNames);
+    Q_ENUM(RoleNames)
 
     /**
      * @brief Defines the potential categories an emoji can be placed in.

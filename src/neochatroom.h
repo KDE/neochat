@@ -30,7 +30,7 @@ public:
         MentionKeyword, /**< Notifications only for local user mentions and keywords. */
         All, /**< Notifications for all messages. */
     };
-    Q_ENUM(State);
+    Q_ENUM(State)
 };
 
 /**
@@ -386,7 +386,7 @@ public:
         Info, /**< Info message, typically highlight color. */
         Error, /**< Error message, typically red. */
     };
-    Q_ENUM(MessageType);
+    Q_ENUM(MessageType)
 
     explicit NeoChatRoom(Quotient::Connection *connection, QString roomId, Quotient::JoinState joinState = {});
 

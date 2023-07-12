@@ -47,7 +47,7 @@ public:
         AttributionRole, /**< The attribution for the pack author(s). */
         IdRole, /**< The ID of the image pack. */
     };
-    Q_ENUM(Roles);
+    Q_ENUM(Roles)
 
     explicit ImagePacksModel(QObject *parent = nullptr);
 

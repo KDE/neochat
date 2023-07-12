@@ -85,7 +85,7 @@ public:
         LinkPreviewRole,
         SourceRole,
     };
-    Q_ENUM(Roles);
+    Q_ENUM(Roles)
     explicit SearchModel(QObject *parent = nullptr);
 
     QString searchText() const;

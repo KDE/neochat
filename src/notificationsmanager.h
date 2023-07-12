@@ -36,7 +36,7 @@ public:
         Highlight, /**< Push notifications are on, also the event should be highlighted in chat. */
         NoisyHighlight, /**< Push notifications are on, also trigger a notification sound and highlight in chat. */
     };
-    Q_ENUM(Action);
+    Q_ENUM(Action)
 };
 
 /**

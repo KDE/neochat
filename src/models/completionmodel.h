@@ -69,7 +69,7 @@ public:
         Icon, /**< The icon to show. */
         ReplacedText, /**< The text to replace the input text with for the completion. */
     };
-    Q_ENUM(Roles);
+    Q_ENUM(Roles)
 
     CompletionModel(QObject *parent = nullptr);
 

@@ -41,7 +41,7 @@ public:
         ReplacedTextRole = 52, /**< The name of the emoji. For compatibility with EmojiModel. */
         DescriptionRole = 53, /**< Invalid, reserved. For compatibility with EmojiModel. */
     };
-    Q_ENUM(Roles);
+    Q_ENUM(Roles)
 
     static CustomEmojiModel &instance()
     {
