@@ -14,7 +14,7 @@ FileTransferPseudoJob::FileTransferPseudoJob(Operation operation, const QString 
 {
 }
 
-void FileTransferPseudoJob::fileTransferProgress(QString id, qint64 progress, qint64 total)
+void FileTransferPseudoJob::fileTransferProgress(const QString &id, qint64 progress, qint64 total)
 {
     if (id != m_eventId) {
         return;
@@ -23,7 +23,7 @@ void FileTransferPseudoJob::fileTransferProgress(QString id, qint64 progress, qi
     setTotalAmount(Unit::Bytes, total);
 }
 
-void FileTransferPseudoJob::fileTransferCompleted(QString id, QUrl localFile)
+void FileTransferPseudoJob::fileTransferCompleted(const QString &id, const QUrl &localFile)
 {
     Q_UNUSED(localFile);
     if (id != m_eventId) {
@@ -32,7 +32,7 @@ void FileTransferPseudoJob::fileTransferCompleted(QString id, QUrl localFile)
     emitResult();
 }
 
-void FileTransferPseudoJob::fileTransferFailed(QString id, QString errorMessage)
+void FileTransferPseudoJob::fileTransferFailed(const QString &id, const QString &errorMessage)
 {
     if (id != m_eventId) {
         return;

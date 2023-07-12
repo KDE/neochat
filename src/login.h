@@ -112,7 +112,7 @@ Q_SIGNALS:
     void loginFlowsChanged();
     void ssoUrlChanged();
     void connected();
-    void errorOccured(QString message);
+    void errorOccured(const QString &message);
     void testingChanged();
     void isLoggingInChanged();
     void isLoggedInChanged();

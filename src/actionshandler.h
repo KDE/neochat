@@ -47,7 +47,7 @@ public:
 
 Q_SIGNALS:
     void roomChanged();
-    void showEffect(QString effect);
+    void showEffect(const QString &effect);
 
 public Q_SLOTS:
 

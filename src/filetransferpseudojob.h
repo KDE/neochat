@@ -26,17 +26,17 @@ public:
     /**
      * @brief Set the current number of bytes transferred.
      */
-    void fileTransferProgress(QString id, qint64 progress, qint64 total);
+    void fileTransferProgress(const QString &id, qint64 progress, qint64 total);
 
     /**
      * @brief Set the file transfer as complete.
      */
-    void fileTransferCompleted(QString id, QUrl localFile);
+    void fileTransferCompleted(const QString &id, const QUrl &localFile);
 
     /**
      * @brief Set the file transfer as failed.
      */
-    void fileTransferFailed(QString id, QString errorMessage = {});
+    void fileTransferFailed(const QString &id, const QString &errorMessage = {});
 
     /**
      * @brief Start the file transfer.
