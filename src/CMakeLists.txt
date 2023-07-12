@@ -5,61 +5,117 @@
 
 add_library(neochat STATIC
     controller.cpp
+    controller.h
     actionshandler.cpp
+    actionshandler.h
     models/emojimodel.cpp
+    models/emojimodel.h
     emojitones.cpp
+    emojitones.h
     models/customemojimodel.cpp
+    models/customemojimodel.h
     clipboard.cpp
+    clipboard.h
     matriximageprovider.cpp
+    matriximageprovider.h
     models/messageeventmodel.cpp
+    models/messageeventmodel.h
     models/messagefiltermodel.cpp
+    models/messagefiltermodel.h
     models/roomlistmodel.cpp
+    models/roomlistmodel.h
     models/sortfilterspacelistmodel.cpp
+    models/sortfilterspacelistmodel.h
     models/accountemoticonmodel.cpp
+    models/accountemoticonmodel.h
     spacehierarchycache.cpp
+    spacehierarchycache.h
     roommanager.cpp
+    roommanager.h
     neochatroom.cpp
+    neochatroom.h
     neochatuser.cpp
+    neochatuser.h
     models/userlistmodel.cpp
+    models/userlistmodel.h
     models/userfiltermodel.cpp
+    models/userfiltermodel.h
     models/publicroomlistmodel.cpp
+    models/publicroomlistmodel.h
     models/userdirectorylistmodel.cpp
+    models/userdirectorylistmodel.h
     models/pushrulemodel.cpp
+    models/pushrulemodel.h
     models/emoticonfiltermodel.cpp
+    models/emoticonfiltermodel.h
     notificationsmanager.cpp
+    notificationsmanager.h
     models/sortfilterroomlistmodel.cpp
+    models/sortfilterroomlistmodel.h
     chatdocumenthandler.cpp
+    chatdocumenthandler.h
     models/devicesmodel.cpp
+    models/devicesmodel.h
     filetypesingleton.cpp
+    filetypesingleton.h
     login.cpp
+    login.h
     models/webshortcutmodel.cpp
+    models/webshortcutmodel.h
     blurhash.cpp
+    blurhash.h
     blurhashimageprovider.cpp
+    blurhashimageprovider.h
     models/collapsestateproxymodel.cpp
+    models/collapsestateproxymodel.h
     models/mediamessagefiltermodel.cpp
+    models/mediamessagefiltermodel.h
     urlhelper.cpp
+    urlhelper.h
     windowcontroller.cpp
+    windowcontroller.h
     linkpreviewer.cpp
+    linkpreviewer.h
     models/completionmodel.cpp
+    models/completionmodel.h
     models/completionproxymodel.cpp
+    models/completionproxymodel.h
     models/actionsmodel.cpp
+    models/actionsmodel.h
     models/serverlistmodel.cpp
+    models/serverlistmodel.h
     models/statemodel.cpp
+    models/statemodel.h
     models/statefiltermodel.cpp
+    models/statefiltermodel.h
     filetransferpseudojob.cpp
+    filetransferpseudojob.h
     models/searchmodel.cpp
+    models/searchmodel.h
     texthandler.cpp
+    texthandler.h
     logger.cpp
+    logger.h
     models/stickermodel.cpp
+    models/stickermodel.h
     models/imagepacksmodel.cpp
+    models/imagepacksmodel.h
     events/imagepackevent.cpp
+    events/imagepackevent.h
     events/joinrulesevent.cpp
+    events/joinrulesevent.h
     events/stickerevent.cpp
+    events/stickerevent.h
     models/reactionmodel.cpp
+    models/reactionmodel.h
     delegatesizehelper.cpp
+    delegatesizehelper.h
     models/livelocationsmodel.cpp
+    models/livelocationsmodel.h
     models/locationsmodel.cpp
+    models/locationsmodel.h
     locationhelper.cpp
+    locationhelper.h
 )
 
 ecm_qt_declare_logging_category(neochat
@@ -95,11 +151,11 @@ ecm_add_app_icon(NEOCHAT_ICON ICONS ${CMAKE_SOURCE_DIR}/128-logo.png)
 target_sources(neochat-app PRIVATE ${NEOCHAT_ICON})
 
 if(NOT ANDROID)
-    target_sources(neochat PRIVATE colorschemer.cpp)
+    target_sources(neochat PRIVATE colorschemer.cpp colorschemer.h)
     if (NOT WIN32 AND NOT APPLE)
-        target_sources(neochat PRIVATE trayicon_sni.cpp)
+        target_sources(neochat PRIVATE trayicon_sni.cpp trayicon_sni.h)
     else()
-        target_sources(neochat PRIVATE trayicon.cpp)
+        target_sources(neochat PRIVATE trayicon.cpp trayicon.h)
     endif()
     target_link_libraries(neochat PUBLIC KF${QT_MAJOR_VERSION}::ConfigWidgets KF${QT_MAJOR_VERSION}::WindowSystem)
     target_compile_definitions(neochat PUBLIC -DHAVE_COLORSCHEME)
