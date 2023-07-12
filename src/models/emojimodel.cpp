@@ -216,3 +216,5 @@ QVariantList EmojiModel::categoriesWithCustom() const
     ;
     return cats;
 }
+
+#include "moc_emojimodel.cpp"

@@ -39,3 +39,5 @@ void NeoChatUser::polishColor()
     // https://github.com/quotient-im/libQuotient/wiki/User-color-coding-standard-draft-proposal
     setColor(QColor::fromHslF(hueF(), 1, -0.7 * lightness + 0.9, 1));
 }
+
+#include "moc_neochatuser.cpp"

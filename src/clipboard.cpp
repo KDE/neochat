@@ -79,3 +79,5 @@ void Clipboard::setImage(const QUrl &url)
         }
     }
 }
+
+#include "moc_clipboard.cpp"

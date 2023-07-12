@@ -151,3 +151,5 @@ QHash<int, QByteArray> ServerListModel::roleNames() const
         {IsDeletableRole, QByteArrayLiteral("isDeletable")},
     };
 }
+
+#include "moc_serverlistmodel.cpp"

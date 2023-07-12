@@ -208,3 +208,5 @@ QVariantList CustomEmojiModel::filterModel(const QString &filter)
     }
     return results;
 }
+
+#include "moc_customemojimodel.cpp"

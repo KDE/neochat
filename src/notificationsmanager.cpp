@@ -294,3 +294,5 @@ void NotificationsManager::clearInvitationNotification(const QString &roomId)
         m_invitations[roomId]->close();
     }
 }
+
+#include "moc_notificationsmanager.cpp"

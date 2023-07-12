@@ -103,3 +103,5 @@ Connection *AccountRegistry::get(const QString &userId)
     }
     return nullptr;
 }
+
+#include "moc_neochataccountregistry.cpp"

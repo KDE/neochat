@@ -183,3 +183,5 @@ void ActionsHandler::checkEffects(const QString &text)
         Q_EMIT showEffect(*effect);
     }
 }
+
+#include "moc_actionshandler.cpp"

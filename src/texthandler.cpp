@@ -448,3 +448,5 @@ QList<QUrl> TextHandler::getLinkPreviews()
     }
     return links;
 }
+
+#include "moc_texthandler.cpp"

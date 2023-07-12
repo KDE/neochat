@@ -44,3 +44,5 @@ QString ColorSchemer::nameForIndex(int index) const
 {
     return c->model()->data(c->model()->index(index, 0), Qt::DisplayRole).toString();
 }
+
+#include "moc_colorschemer.cpp"

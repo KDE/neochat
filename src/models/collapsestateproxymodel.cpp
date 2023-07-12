@@ -174,3 +174,5 @@ QString CollapseStateProxyModel::excessAuthors(int row) const
         return QStringLiteral("+ %1").arg(excessAuthors);
     }
 }
+
+#include "moc_collapsestateproxymodel.cpp"

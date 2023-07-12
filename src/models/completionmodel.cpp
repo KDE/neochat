@@ -193,3 +193,5 @@ void CompletionModel::setRoomListModel(RoomListModel *roomListModel)
     m_roomListModel = roomListModel;
     Q_EMIT roomListModelChanged();
 }
+
+#include "moc_completionmodel.cpp"

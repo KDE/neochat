@@ -94,3 +94,5 @@ void Runner::Run(const QString &id, const QString &actionId)
 
     WindowController::instance().showAndRaiseWindow(QString());
 }
+
+#include "moc_runner.cpp"

@@ -525,3 +525,5 @@ int RoomListModel::rowForRoom(NeoChatRoom *room) const
 {
     return m_rooms.indexOf(room);
 }
+
+#include "moc_roomlistmodel.cpp"

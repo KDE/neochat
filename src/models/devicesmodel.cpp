@@ -109,3 +109,5 @@ Connection *DevicesModel::connection() const
 {
     return Controller::instance().activeConnection();
 }
+
+#include "moc_devicesmodel.cpp"

@@ -169,3 +169,5 @@ void LiveLocationsModel::updateLocationData(LiveLocationData &&data)
 
     Q_EMIT dataChanged(idx, idx);
 }
+
+#include "moc_livelocationsmodel.cpp"

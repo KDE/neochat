@@ -213,3 +213,5 @@ QHash<int, QByteArray> UserListModel::roleNames() const
 
     return roles;
 }
+
+#include "moc_userlistmodel.cpp"

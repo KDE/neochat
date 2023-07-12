@@ -59,3 +59,5 @@ void CompletionProxyModel::setFullText(const QString &fullText)
 {
     m_fullText = fullText;
 }
+
+#include "moc_completionproxymodel.cpp"

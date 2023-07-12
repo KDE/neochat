@@ -49,3 +49,5 @@ bool MessageFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sour
 
     return true;
 }
+
+#include "moc_messagefiltermodel.cpp"

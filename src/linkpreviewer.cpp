@@ -89,3 +89,5 @@ void LinkPreviewer::loadUrlPreview()
         });
     }
 }
+
+#include "moc_linkpreviewer.cpp"

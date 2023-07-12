@@ -108,3 +108,5 @@ QHash<int, QByteArray> ReactionModel::roleNames() const
         {HasLocalUser, "hasLocalUser"},
     };
 }
+
+#include "moc_reactionmodel.cpp"

@@ -163,3 +163,5 @@ int PollHandler::answerCount() const
 {
     return m_answers.size();
 }
+
+#include "moc_pollhandler.cpp"

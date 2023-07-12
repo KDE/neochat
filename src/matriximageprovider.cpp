@@ -114,3 +114,5 @@ QQuickImageResponse *MatrixImageProvider::requestImageResponse(const QString &id
 {
     return new ThumbnailResponse(id, requestedSize);
 }
+
+#include "moc_matriximageprovider.cpp"

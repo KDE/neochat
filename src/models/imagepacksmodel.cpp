@@ -165,3 +165,5 @@ QVector<Quotient::ImagePackEventContent::ImagePackImage> ImagePacksModel::images
     }
     return m_events[index].images;
 }
+
+#include "moc_imagepacksmodel.cpp"

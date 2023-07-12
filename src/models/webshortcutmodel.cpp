@@ -129,3 +129,5 @@ void KWebShortcutModel::configureWebShortcuts()
     job->exec();
 #endif
 }
+
+#include "moc_webshortcutmodel.cpp"

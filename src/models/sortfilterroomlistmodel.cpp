@@ -103,3 +103,5 @@ void SortFilterRoomListModel::setActiveSpaceId(const QString &spaceId)
     Q_EMIT activeSpaceIdChanged();
     invalidate();
 }
+
+#include "moc_sortfilterroomlistmodel.cpp"

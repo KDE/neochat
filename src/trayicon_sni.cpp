@@ -32,3 +32,5 @@ void TrayIcon::hide()
 {
     setStatus(Passive);
 }
+
+#include "moc_trayicon_sni.cpp"

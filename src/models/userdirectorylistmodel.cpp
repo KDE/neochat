@@ -194,3 +194,5 @@ int UserDirectoryListModel::rowCount(const QModelIndex &parent) const
 
     return users.count();
 }
+
+#include "moc_userdirectorylistmodel.cpp"

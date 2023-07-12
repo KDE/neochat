@@ -26,3 +26,5 @@ void UserFilterModel::setFilterText(const QString &filterText)
     Q_EMIT filterTextChanged();
     invalidateFilter();
 }
+
+#include "moc_userfiltermodel.cpp"

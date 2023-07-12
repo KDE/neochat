@@ -107,3 +107,5 @@ bool SpaceHierarchyCache::isChildSpace(const QString &spaceId) const
     }
     return false;
 }
+
+#include "moc_spacehierarchycache.cpp"

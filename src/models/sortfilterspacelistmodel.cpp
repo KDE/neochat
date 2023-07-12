@@ -37,3 +37,5 @@ bool SortFilterSpaceListModel::lessThan(const QModelIndex &source_left, const QM
     const auto idRight = sourceModel()->data(source_right, RoomListModel::IdRole).toString();
     return idLeft < idRight;
 }
+
+#include "moc_sortfilterspacelistmodel.cpp"

@@ -69,3 +69,5 @@ void WindowController::showAndRaiseWindow(const QString &startupId)
     KWindowSystem::activateWindow(m_window);
 #endif
 }
+
+#include "moc_windowcontroller.cpp"

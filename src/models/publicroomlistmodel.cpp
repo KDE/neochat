@@ -260,3 +260,5 @@ bool PublicRoomListModel::hasMore() const
 {
     return !(attempted && nextBatch.isEmpty());
 }
+
+#include "moc_publicroomlistmodel.cpp"

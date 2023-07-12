@@ -42,3 +42,5 @@ float LocationHelper::zoomToFit(const QRectF &r, float mapWidth, float mapHeight
 
     return std::clamp(z, 5.0, 18.0);
 }
+
+#include "moc_locationhelper.cpp"

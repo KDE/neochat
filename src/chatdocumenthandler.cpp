@@ -355,3 +355,5 @@ void ChatDocumentHandler::setErrorColor(const QColor &color)
     m_highlighter->rehighlight();
     Q_EMIT errorColorChanged();
 }
+
+#include "moc_chatdocumenthandler.cpp"

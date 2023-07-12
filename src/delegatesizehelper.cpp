@@ -151,3 +151,5 @@ qreal DelegateSizeHelper::currentWidth() const
         return std::ceil(std::min(absoluteWidth, m_maxWidth));
     }
 }
+
+#include "moc_delegatesizehelper.cpp"

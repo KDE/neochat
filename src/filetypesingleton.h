@@ -5,6 +5,7 @@
 
 #pragma once
 
+#include <QFileInfo>
 #include <QMimeDatabase>
 #include <QObject>
 #include <qqml.h>

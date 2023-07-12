@@ -291,3 +291,5 @@ void RoomManager::setChatDocumentHandler(ChatDocumentHandler *handler)
     m_chatDocumentHandler->setRoom(m_currentRoom);
     Q_EMIT chatDocumentHandlerChanged();
 }
+
+#include "moc_roommanager.cpp"

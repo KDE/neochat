@@ -127,3 +127,5 @@ QRectF LocationsModel::boundingBox() const
     }
     return bbox;
 }
+
+#include "moc_locationsmodel.cpp"

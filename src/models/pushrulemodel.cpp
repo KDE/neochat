@@ -443,3 +443,5 @@ QVector<QVariant> PushRuleModel::actionToVariant(PushNotificationAction::Action 
 
     return actions;
 }
+
+#include "moc_pushrulemodel.cpp"

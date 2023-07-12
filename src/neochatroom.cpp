@@ -2104,3 +2104,5 @@ void NeoChatRoom::loadReply(const QString &eventId, const QString &replyId)
         Q_EMIT replyLoaded(eventId, replyId);
     });
 }
+
+#include "moc_neochatroom.cpp"

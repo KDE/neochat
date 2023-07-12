@@ -77,3 +77,5 @@ int MediaMessageFilterModel::getRowForSourceItem(int sourceRow) const
 {
     return mapFromSource(sourceModel()->index(sourceRow, 0)).row();
 }
+
+#include "moc_mediamessagefiltermodel.cpp"

@@ -176,3 +176,5 @@ void AccountEmoticonModel::addEmoticon(const QUrl &source, const QString &shortc
 {
     doAddEmoticon(source, shortcode, description, type);
 }
+
+#include "moc_accountemoticonmodel.cpp"

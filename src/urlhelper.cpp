@@ -29,3 +29,5 @@ void UrlHelper::copyTo(const QUrl &origin, const QUrl &destination)
     QFile originFile(origin.toLocalFile());
     originFile.copy(destination.toLocalFile());
 }
+
+#include "moc_urlhelper.cpp"

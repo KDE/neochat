@@ -207,3 +207,5 @@ bool Login::isLoggedIn() const
 {
     return m_isLoggedIn;
 }
+
+#include "moc_login.cpp"

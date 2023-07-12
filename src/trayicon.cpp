@@ -35,3 +35,5 @@ TrayIcon::TrayIcon(QObject *parent)
 
     setContextMenu(menu);
 }
+
+#include "moc_trayicon.cpp"

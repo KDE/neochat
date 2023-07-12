@@ -1163,3 +1163,5 @@ void MessageEventModel::createReactionModelForEvent(const Quotient::RoomMessageE
         }
     }
 }
+
+#include "moc_messageeventmodel.cpp"

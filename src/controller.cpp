@@ -746,3 +746,5 @@ QVariantList Controller::getSupportedRoomVersions(Quotient::Connection *connecti
 
     return supportedRoomVersions;
 }
+
+#include "moc_controller.cpp"

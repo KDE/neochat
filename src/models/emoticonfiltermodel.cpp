@@ -53,3 +53,5 @@ void EmoticonFilterModel::setShowEmojis(bool showEmojis)
     endResetModel();
     Q_EMIT showEmojisChanged();
 }
+
+#include "moc_emoticonfiltermodel.cpp"

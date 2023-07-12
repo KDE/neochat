@@ -283,3 +283,5 @@ void SearchModel::setSearching(bool searching)
     m_searching = searching;
     Q_EMIT searchingChanged();
 }
+
+#include "moc_searchmodel.cpp"

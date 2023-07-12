@@ -127,3 +127,5 @@ void StickerModel::postSticker(int index)
     };
     m_room->postJson("m.sticker", content);
 }
+
+#include "moc_stickermodel.cpp"

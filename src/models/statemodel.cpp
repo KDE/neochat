@@ -70,3 +70,5 @@ QByteArray StateModel::stateEventJson(const QModelIndex &index)
     return {};
 #endif
 }
+
+#include "moc_statemodel.cpp"

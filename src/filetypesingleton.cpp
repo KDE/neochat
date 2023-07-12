@@ -112,3 +112,5 @@ QStringList FileTypeSingleton::supportedAnimatedImageFormats() const
     Q_D(const FileTypeSingleton);
     return d->supportedAnimatedImageFormats;
 }
+
+#include "moc_filetypesingleton.cpp"

@@ -30,3 +30,5 @@ void StateFilterModel::removeStateEventTypeFiltered(const QString &stateEventTyp
         invalidateFilter();
     }
 }
+
+#include "moc_statefiltermodel.cpp"
