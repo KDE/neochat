@@ -30,15 +30,7 @@ Delegates.RoundedItemDelegate {
 
     readonly property bool hasNotifications: notificationCount > 0
 
-    height: visible ? implicitHeight : 0
-
-    visible: root.categoryVisible || root.filterText.length > 0 || Config.mergeRoomList
-
-    onClicked: RoomManager.enterRoom(root.currentRoom)
     onPressAndHold: createRoomListContextMenu()
-
-    Keys.onEnterPressed: RoomManager.enterRoom(root.currentRoom)
-    Keys.onReturnPressed: RoomManager.enterRoom(root.currentRoom)
 
     TapHandler {
         acceptedButtons: Qt.RightButton
