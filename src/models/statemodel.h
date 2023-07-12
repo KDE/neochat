@@ -31,7 +31,7 @@ public:
     };
     Q_ENUM(Roles);
 
-    StateModel(QObject *parent = nullptr);
+    explicit StateModel(QObject *parent = nullptr);
 
     NeoChatRoom *room() const;
     void setRoom(NeoChatRoom *room);

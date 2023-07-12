@@ -86,7 +86,7 @@ public:
         SourceRole,
     };
     Q_ENUM(Roles);
-    SearchModel(QObject *parent = nullptr);
+    explicit SearchModel(QObject *parent = nullptr);
 
     QString searchText() const;
     void setSearchText(const QString &searchText);

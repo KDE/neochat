@@ -16,7 +16,7 @@ class TrayIcon : public KStatusNotifierItem
 {
     Q_OBJECT
 public:
-    TrayIcon(QObject *parent = nullptr);
+    explicit TrayIcon(QObject *parent = nullptr);
 
     /**
      * @brief Show the tray icon.

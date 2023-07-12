@@ -53,7 +53,7 @@ public:
         DirectChatsRole, /**< A list of direct chat matrix IDs with the user. */
     };
 
-    UserDirectoryListModel(QObject *parent = nullptr);
+    explicit UserDirectoryListModel(QObject *parent = nullptr);
 
     [[nodiscard]] Quotient::Connection *connection() const;
     void setConnection(Quotient::Connection *conn);

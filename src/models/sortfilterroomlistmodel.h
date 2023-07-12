@@ -53,7 +53,7 @@ public:
     };
     Q_ENUM(RoomSortOrder)
 
-    SortFilterRoomListModel(QObject *parent = nullptr);
+    explicit SortFilterRoomListModel(QObject *parent = nullptr);
 
     void setRoomSortOrder(RoomSortOrder sortOrder);
     [[nodiscard]] RoomSortOrder roomSortOrder() const;

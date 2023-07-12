@@ -85,7 +85,7 @@ public:
 #endif
 
 private:
-    NotificationsManager(QObject *parent = nullptr);
+    explicit NotificationsManager(QObject *parent = nullptr);
 
     QHash<QString, qint64> m_initialTimestamp;
     QHash<QString, QStringList> m_oldNotifications;

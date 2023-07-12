@@ -77,7 +77,7 @@ class DelegateSizeHelper : public QObject
     Q_PROPERTY(qreal currentWidth READ currentWidth NOTIFY currentWidthChanged)
 
 public:
-    DelegateSizeHelper(QObject *parent = nullptr);
+    explicit DelegateSizeHelper(QObject *parent = nullptr);
 
     qreal parentWidth() const;
     void setParentWidth(qreal parentWidth);

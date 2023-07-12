@@ -47,7 +47,7 @@ public:
     };
     Q_ENUM(EventRoles)
 
-    UserListModel(QObject *parent = nullptr);
+    explicit UserListModel(QObject *parent = nullptr);
 
     [[nodiscard]] NeoChatRoom *room() const;
     void setRoom(NeoChatRoom *room);

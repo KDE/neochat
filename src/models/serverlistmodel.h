@@ -46,7 +46,7 @@ public:
         IsDeletableRole, /**< Whether the item can be deleted from the model. */
     };
 
-    ServerListModel(QObject *parent = nullptr);
+    explicit ServerListModel(QObject *parent = nullptr);
 
     /**
      * @brief Get the given role value at the given index.

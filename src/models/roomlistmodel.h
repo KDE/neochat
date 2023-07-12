@@ -78,7 +78,7 @@ public:
     };
     Q_ENUM(EventRoles)
 
-    RoomListModel(QObject *parent = nullptr);
+    explicit RoomListModel(QObject *parent = nullptr);
     ~RoomListModel() override;
 
     [[nodiscard]] Quotient::Connection *connection() const;
