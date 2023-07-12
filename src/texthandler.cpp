@@ -6,8 +6,8 @@
 #include <QDebug>
 #include <QUrl>
 
+#include <QStringLiteral>
 #include <events/roommessageevent.h>
-#include <qstringliteral.h>
 #include <util.h>
 
 #include <cmark.h>
