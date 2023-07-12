@@ -36,7 +36,7 @@ Kirigami.BasicListItem {
     highlighted: ListView.view.currentIndex === index
     focus: true
     icon: undefined
-    bold: root.hasNotifications
+    @BASICLISTITEM_BOLD@: root.hasNotifications
 
     label: root.displayName
     labelItem.textFormat: Text.PlainText

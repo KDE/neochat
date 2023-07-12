@@ -195,8 +195,7 @@ Kirigami.OverlaySheet {
             }
         }
     }
-
-    onSheetOpenChanged: {
+    @OVERLAYSHEET_OPEN@: {
         if (!sheetOpen) {
             closed()
         }

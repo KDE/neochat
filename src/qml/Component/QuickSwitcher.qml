@@ -113,7 +113,7 @@ QQC2.Dialog {
                     RoomManager.enterRoom(roomListItem.currentRoom);
                     root.close();
                 }
-                bold: roomListItem.notificationCount > 0
+                @BASICLISTITEM_BOLD@: roomListItem.notificationCount > 0
                 label: roomListItem.displayName ?? ""
                 labelItem.textFormat: Text.PlainText
                 subtitle: roomListItem.subtitleText

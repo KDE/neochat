@@ -48,6 +48,19 @@ if(NEOCHAT_FLATPAK)
     include(cmake/Flatpak.cmake)
 endif()
 
+if(QT_MAJOR_VERSION STREQUAL "6")
+    set(BASICLISTITEM_BOLD "font.bold")
+    set(OVERLAYSHEET_OPEN "onOpened")
+    set(QTQUICK_MODULE_QML_VERSION "")
+    set(QTLOCATION_MODULE_QML_VERSION "")
+else()
+    set(BASICLISTITEM_BOLD "bold")
+    set(OVERLAYSHEET_OPEN "onSheetOpenChanged")
+    set(QTQUICK_MODULE_QML_VERSION "2.15")
+    set(QTLOCATION_MODULE_QML_VERSION "5.15")
+endif()
+
+
 ecm_setup_version(${PROJECT_VERSION}
     VARIABLE_PREFIX NEOCHAT
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/neochat-version.h
