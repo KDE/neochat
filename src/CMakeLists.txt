@@ -7,6 +7,8 @@ configure_file(qml/Page/RoomList/RoomDelegate.qml ${CMAKE_CURRENT_BINARY_DIR}/qm
 configure_file(qml/Component/QuickSwitcher.qml ${CMAKE_CURRENT_BINARY_DIR}/qml/Component/QuickSwitcher.qml)
 configure_file(qml/Dialog/UserDetailDialog.qml ${CMAKE_CURRENT_BINARY_DIR}/qml/Dialog/UserDetailDialog.qml)
 configure_file(qml/Dialog/PowerLevelDialog.qml ${CMAKE_CURRENT_BINARY_DIR}/qml/Dialog/PowerLevelDialog.qml)
+configure_file(qml/Component/Timeline/AudioDelegate.qml ${CMAKE_CURRENT_BINARY_DIR}/qml/Component/Timeline/AudioDelegate.qml)
+configure_file(qml/Component/Timeline/VideoDelegate.qml ${CMAKE_CURRENT_BINARY_DIR}/qml/Component/Timeline/VideoDelegate.qml)
 configure_file(qml/Component/Timeline/OsmLocationPlugin.qml ${CMAKE_CURRENT_BINARY_DIR}/qml/Component/Timeline/OsmLocationPlugin.qml)
 
 configure_file(res.qrc ${CMAKE_CURRENT_SOURCE_DIR}/res.generated.qrc)
