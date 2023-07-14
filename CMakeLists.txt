@@ -111,7 +111,7 @@ if(QT_MAJOR_VERSION STREQUAL "6" AND NOT ANDROID AND NOT WIN32)
     set(QUOTIENT_SUFFIX "Qt6")
 endif()
 
-find_package(Quotient${QUOTIENT_SUFFIX} 0.6)
+find_package(Quotient${QUOTIENT_SUFFIX} 0.7)
 set_package_properties(Quotient${QUOTIENT_SUFFIX} PROPERTIES
     TYPE REQUIRED
     DESCRIPTION "Qt wrapper around Matrix API"
