@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-13 00:49+0000\n"
-"PO-Revision-Date: 2023-06-02 20:04+0300\n"
+"PO-Revision-Date: 2023-07-04 21:33+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: src/controller.cpp:266
 #, kde-format
@@ -78,16 +78,14 @@ msgid "Contact your matrix server administrator for support."
 msgstr "Tee tukipyyntö Matrix-palvelimesi ylläpitoon."
 
 #: src/controller.cpp:540
-#, fuzzy, kde-format
-#| msgid "Room creation failed: \"%1\""
+#, kde-format
 msgid "Room creation failed: %1"
-msgstr "Huoneen luominen epäonnistui: ”%1”"
+msgstr "Huoneen luominen epäonnistui: %1"
 
 #: src/controller.cpp:561
-#, fuzzy, kde-format
-#| msgid "Room creation failed: \"%1\""
+#, kde-format
 msgid "Space creation failed: %1"
-msgstr "Huoneen luominen epäonnistui: ”%1”"
+msgstr "Tilan luominen epäonnistui: %1"
 
 #: src/controller.cpp:575
 #, kde-format
@@ -630,18 +628,16 @@ msgid "Custom"
 msgstr "Mukautettu"
 
 #: src/models/imagepacksmodel.cpp:90
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgctxt "As in 'The user's own Stickers'"
 msgid "Own Stickers"
-msgstr "lähetti tarran"
+msgstr "Omat tarrat"
 
 #: src/models/imagepacksmodel.cpp:90
-#, fuzzy, kde-format
-#| msgid "No emojis"
+#, kde-format
 msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
-msgstr "Ei emojeja"
+msgstr "Omat emojit"
 
 #: src/models/messageeventmodel.cpp:476 src/models/messageeventmodel.cpp:485
 #, kde-format
@@ -1252,10 +1248,9 @@ msgid "Room"
 msgstr "Huone"
 
 #: src/qml/Component/Devtools/RoomData.qml:31
-#, fuzzy, kde-format
-#| msgid "Show name change events"
+#, kde-format
 msgid "Show m.room.member events"
-msgstr "Näytä nimenvaihtotapahtumat"
+msgstr "Näytä m.huone.jäsen-tapahtumat"
 
 #: src/qml/Component/Devtools/RoomData.qml:43
 #, kde-format
@@ -1300,10 +1295,9 @@ msgid "Available Room Versions"
 msgstr "Huoneen saatavilla olevat versiot"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:83
-#, fuzzy, kde-format
-#| msgid "sent a sticker"
+#, kde-format
 msgid "No stickers"
-msgstr "lähetti tarran"
+msgstr "Ei tarroja"
 
 #: src/qml/Component/Emoji/EmojiGrid.qml:83
 #, kde-format
@@ -1323,10 +1317,9 @@ msgid "Stickers"
 msgstr "Tarrat"
 
 #: src/qml/Component/FullScreenMap.qml:23
-#, fuzzy, kde-format
-#| msgid "Send a Location"
+#, kde-format
 msgid "View Location"
-msgstr "Lähetä sijainti"
+msgstr "Näytä sijainti"
 
 #: src/qml/Component/FullScreenMap.qml:64
 #, kde-format
@@ -1360,17 +1353,15 @@ msgid "Accept"
 msgstr "Hyväksy"
 
 #: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:182
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
-msgstr "Ilmoitukset"
+msgstr "Sijainnit"
 
 #: src/qml/Component/LocationPage.qml:51
-#, fuzzy, kde-format
-#| msgid "You are already in this room."
+#, kde-format
 msgid "There are no locations shared in this room."
-msgstr "Olet jo tässä huoneessa."
+msgstr "Tässä huoneessa ei ole jaettuja sijainteja."
 
 #: src/qml/Component/Login/Homeserver.qml:18
 #, kde-format
@@ -1682,38 +1673,30 @@ msgstr "OK"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:15
 #: src/qml/Page/RoomList/ExploreComponent.qml:40
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgid "Create a Space"
-msgstr "Poistu tilasta"
+msgstr "Luo tila"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:23
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgctxt "@title"
 msgid "Create a Space"
-msgstr "Poistu tilasta"
+msgstr "Luo tila"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:27
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Space members"
+#, kde-format
 msgid "Space name"
-msgstr "Tilan jäsenet"
+msgstr "Tilan nimi"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:31
 #, kde-format
 msgid "Space topic (optional)"
-msgstr ""
+msgstr "Tilan aihe (valinnainen)"
 
 #: src/qml/Dialog/CreateSpaceDialog.qml:34
-#, fuzzy, kde-format
-#| msgctxt "'Space' is a matrix space"
-#| msgid "Leave Space"
+#, kde-format
 msgid "Create space"
-msgstr "Poistu tilasta"
+msgstr "Luo tila"
 
 #: src/qml/Dialog/KeyVerification/EmojiSas.qml:23
 #, kde-format
@@ -2822,10 +2805,9 @@ msgid "Make room favorite"
 msgstr "Merkitse huone suosikiksi"
 
 #: src/qml/Panel/RoomDrawer.qml:177
-#, fuzzy, kde-format
-#| msgid "Search in this room"
+#, kde-format
 msgid "Show locations for this room"
-msgstr "Etsi tästä huoneesta"
+msgstr "Näytä sijainnit tälle huoneelle"
 
 #: src/qml/Panel/RoomDrawer.qml:187
 #, kde-format
@@ -3540,19 +3522,17 @@ msgstr "Lisää tarra"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:32
 #: src/qml/Settings/EmoticonFormCard.qml:55
-#, fuzzy, kde-format
-#| msgid "Add Emoji..."
+#, kde-format
 msgctxt "@title"
 msgid "Edit Emoji"
-msgstr "Lisää emoji…"
+msgstr "Muokkaa emojia"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:32
 #: src/qml/Settings/EmoticonFormCard.qml:105
-#, fuzzy, kde-format
-#| msgid "Add Emoji..."
+#, kde-format
 msgctxt "@title"
 msgid "Add Emoji"
-msgstr "Lisää emoji…"
+msgstr "Lisää emoji"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:38
 #, kde-format
@@ -3560,10 +3540,9 @@ msgid "Sticker"
 msgstr "Tarra"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:38
-#, fuzzy, kde-format
-#| msgid "No emojis"
+#, kde-format
 msgid "Emoji"
-msgstr "Ei emojeja"
+msgstr "Emoji"
 
 #: src/qml/Settings/EmoticonEditorPage.qml:71
 #, kde-format
@@ -3586,18 +3565,15 @@ msgid "Description:"
 msgstr "Kuvaus:"
 
 #: src/qml/Settings/EmoticonFormCard.qml:73
-#, fuzzy, kde-format
-#| msgctxt "The location being downloaded to"
-#| msgid "Destination"
+#, kde-format
 msgctxt "As in 'This sticker/emoji has no description'"
 msgid "No Description"
-msgstr "Kohde"
+msgstr "Ei kuvausta"
 
 #: src/qml/Settings/EmoticonFormCard.qml:114
-#, fuzzy, kde-format
-#| msgid "Add Emoji..."
+#, kde-format
 msgid "Add Emoji"
-msgstr "Lisää emoji…"
+msgstr "Lisää emoji"
 
 #: src/qml/Settings/EmoticonFormCard.qml:114
 #, kde-format
@@ -3824,7 +3800,7 @@ msgstr "Ulkoasu"
 #: src/qml/Settings/SettingsPage.qml:37
 #, kde-format
 msgid "Stickers & Emojis"
-msgstr ""
+msgstr "Tarrat ja emojit"
 
 #: src/qml/Settings/SettingsPage.qml:44
 #, kde-format
