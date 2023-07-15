@@ -55,7 +55,11 @@ TimelineContainer {
 
     onOpenContextMenu: openFileContext(root)
 
+    Accessible.name: "Image from " + author.displayName
+    Accessible.role: Accessible.Graphic
+
     innerObject: AnimatedImage {
+        Accessible.ignored: true
         id: img
 
         property var imageWidth: {

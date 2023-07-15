@@ -181,6 +181,8 @@ QQC2.ScrollView {
         QQC2.RoundButton {
             id: goReadMarkerFab
 
+            Accessible.name: i18n("Jump to first unread message")
+
             anchors.right: parent.right
             anchors.top: parent.top
             anchors.topMargin: Kirigami.Units.largeSpacing
@@ -202,10 +204,12 @@ QQC2.ScrollView {
             }
 
             QQC2.ToolTip {
+                Accessible.ignored: true
                 text: i18n("Jump to first unread message")
             }
         }
         QQC2.RoundButton {
+            Accessible.name: i18n("Jump to latest message")
             id: goMarkAsReadFab
             anchors.right: parent.right
             anchors.bottom: parent.bottom
@@ -225,6 +229,7 @@ QQC2.ScrollView {
             }
 
             QQC2.ToolTip {
+                Accessible.ignored: true
                 text: i18n("Jump to latest message")
             }
         }

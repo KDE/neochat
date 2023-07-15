@@ -40,7 +40,11 @@ TimelineContainer {
 
     onOpenContextMenu: openMessageContext(label.selectedText)
 
+    Accessible.role: Accessible.StaticText
+    Accessible.name: author.displayName + " " + root.display
+
     innerObject: ColumnLayout {
+        Accessible.ignored: true
         Layout.maximumWidth: root.contentMaxWidth
         RichLabel {
             id: label

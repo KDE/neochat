@@ -323,6 +323,7 @@ ColumnLayout {
     ]
 
     SectionDelegate {
+        Accessible.ignored: true
         id: sectionDelegate
 
         Layout.fillWidth: true
@@ -331,6 +332,7 @@ ColumnLayout {
     }
 
     QQC2.ItemDelegate {
+        Accessible.ignored: true
         id: mainContainer
 
         Layout.fillWidth: true
@@ -354,6 +356,7 @@ ColumnLayout {
         }
 
         Kirigami.Avatar {
+            Accessible.ignored: true
             id: avatar
             width: visible || Config.showAvatarInTimeline ? Kirigami.Units.gridUnit * 2 + Kirigami.Units.smallSpacing * 2 : 0
             height: width
@@ -430,6 +433,7 @@ ColumnLayout {
             ]
 
             contentItem: RowLayout {
+                Accessible.ignored: true
                 Kirigami.Icon {
                     source: "content-loading-symbolic"
                     width: height
@@ -561,6 +565,7 @@ ColumnLayout {
     }
 
     ReactionDelegate {
+        Accessible.ignored: true
         Layout.maximumWidth: root.width - Kirigami.Units.largeSpacing * 2
         Layout.alignment: showUserMessageOnRight ? Qt.AlignRight : Qt.AlignLeft
         Layout.leftMargin: showUserMessageOnRight ? 0 : bubble.x + bubble.anchors.leftMargin
@@ -572,6 +577,7 @@ ColumnLayout {
         onReactionClicked: (reaction) => currentRoom.toggleReaction(root.eventId, reaction)
     }
     AvatarFlow {
+        Accessible.ignored: true
         Layout.alignment: Qt.AlignRight
         Layout.rightMargin: Kirigami.Units.largeSpacing
         visible: root.showReadMarkers
