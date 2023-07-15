@@ -112,8 +112,6 @@ add_library(neochat STATIC
     events/imagepackevent.h
     events/joinrulesevent.cpp
     events/joinrulesevent.h
-    events/stickerevent.cpp
-    events/stickerevent.h
     models/reactionmodel.cpp
     models/reactionmodel.h
     delegatesizehelper.cpp
@@ -124,6 +122,8 @@ add_library(neochat STATIC
     models/locationsmodel.h
     locationhelper.cpp
     locationhelper.h
+    events/pollevent.cpp
+    pollhandler.cpp
 )
 
 ecm_qt_declare_logging_category(neochat
@@ -145,14 +145,6 @@ target_include_directories(neochat-app PRIVATE ${CMAKE_BINARY_DIR})
 target_link_libraries(neochat-app PRIVATE
     neochat
 )
-
-if(Quotient${QUOTIENT_SUFFIX}_VERSION_MINOR GREATER 6)
-    target_compile_definitions(neochat PUBLIC QUOTIENT_07)
-    target_sources(neochat PRIVATE events/pollevent.cpp pollhandler.cpp)
-else()
-    target_compile_definitions(neochat PUBLIC QUOTIENT_VERSION=\"${Quotient${QUOTIENT_SUFFIX}_VERSION}\")
-    target_sources(neochat PRIVATE neochataccountregistry.cpp)
-endif()
 
 ecm_add_app_icon(NEOCHAT_ICON ICONS ${CMAKE_SOURCE_DIR}/128-logo.png)
 

@@ -31,11 +31,7 @@
 
 #include <signal.h>
 
-#ifdef QUOTIENT_07
 #include "accountregistry.h"
-#else
-#include "neochataccountregistry.h"
-#endif
 
 #include <connection.h>
 #include <csapi/content-repo.h>
@@ -44,9 +40,7 @@
 #include <jobs/downloadfilejob.h>
 #include <qt_connection_util.h>
 
-#ifdef QUOTIENT_07
 #include <eventstats.h>
-#endif
 
 #include "neochatconfig.h"
 #include "neochatroom.h"
@@ -108,13 +102,8 @@ Controller::Controller(QObject *parent)
     }
 #endif
 
-#ifdef QUOTIENT_07
     connect(&Accounts, &AccountRegistry::accountCountChanged, this, &Controller::activeConnectionIndexChanged);
-#else
-    connect(&AccountRegistry::instance(), &AccountRegistry::accountCountChanged, this, &Controller::activeConnectionIndexChanged);
-#endif
 
-#ifdef QUOTIENT_07
     static int oldAccountCount = 0;
     connect(&Accounts, &AccountRegistry::accountCountChanged, this, [this]() {
         if (Accounts.size() > oldAccountCount) {
@@ -125,7 +114,6 @@ Controller::Controller(QObject *parent)
         }
         oldAccountCount = Accounts.size();
     });
-#endif
 
     QTimer::singleShot(0, this, [this] {
         m_pushRuleModel = new PushRuleModel;
@@ -160,18 +148,10 @@ void Controller::logout(Connection *conn, bool serverSideLogout)
     job.start();
     loop.exec();
 
-#ifdef QUOTIENT_07
     if (Accounts.count() > 1) {
-#else
-    if (AccountRegistry::instance().count() > 1) {
-#endif
         // Only set the connection if the the account being logged out is currently active
         if (conn == activeConnection()) {
-#ifdef QUOTIENT_07
             setActiveConnection(Accounts.accounts()[0]);
-#else
-            setActiveConnection(AccountRegistry::instance().accounts()[0]);
-#endif
         }
     } else {
         setActiveConnection(nullptr);
@@ -186,11 +166,7 @@ void Controller::addConnection(Connection *c)
 {
     Q_ASSERT_X(c, __FUNCTION__, "Attempt to add a null connection");
 
-#ifdef QUOTIENT_07
     Accounts.add(c);
-#else
-    AccountRegistry::instance().add(c);
-#endif
 
     c->setLazyLoading(true);
 
@@ -220,15 +196,8 @@ void Controller::dropConnection(Connection *c)
 {
     Q_ASSERT_X(c, __FUNCTION__, "Attempt to drop a null connection");
 
-#ifndef QUOTIENT_07
-    AccountRegistry::instance().drop(c);
-#endif
-
     Q_EMIT connectionDropped(c);
     Q_EMIT accountCountChanged();
-#ifndef QUOTIENT_07
-    c->deleteLater();
-#endif
 }
 
 void Controller::invokeLogin()
@@ -401,11 +370,7 @@ bool Controller::setAvatar(Connection *connection, const QUrl &avatarSource)
     User *localUser = connection->user();
     QString decoded = avatarSource.path();
     if (decoded.isEmpty()) {
-#ifdef QUOTIENT_07
         connection->callApi<SetAvatarUrlJob>(localUser->id(), avatarSource);
-#else
-        connection->callApi<SetAvatarUrlJob>(localUser->id(), QString());
-#endif
         return true;
     }
     if (QImageReader(decoded).read().isNull()) {
@@ -416,11 +381,7 @@ bool Controller::setAvatar(Connection *connection, const QUrl &avatarSource)
 }
 
 NeochatChangePasswordJob::NeochatChangePasswordJob(const QString &newPassword, bool logoutDevices, const Omittable<QJsonObject> &auth)
-#ifdef QUOTIENT_07
     : BaseJob(HttpVerb::Post, QStringLiteral("ChangePasswordJob"), "/_matrix/client/r0/account/password")
-#else
-    : BaseJob(HttpVerb::Post, QStringLiteral("ChangePasswordJob"), QStringLiteral("/_matrix/client/r0/account/password"))
-#endif
 {
     QJsonObject _data;
     addParam<>(_data, QStringLiteral("new_password"), newPassword);
@@ -431,11 +392,7 @@ NeochatChangePasswordJob::NeochatChangePasswordJob(const QString &newPassword, b
 
 int Controller::accountCount() const
 {
-#ifdef QUOTIENT_07
     return Accounts.count();
-#else
-    return AccountRegistry::instance().count();
-#endif
 }
 
 void Controller::setQuitOnLastWindowClosed()
@@ -522,11 +479,7 @@ void Controller::saveWindowGeometry()
 }
 
 NeochatDeleteDeviceJob::NeochatDeleteDeviceJob(const QString &deviceId, const Omittable<QJsonObject> &auth)
-#ifdef QUOTIENT_07
     : Quotient::BaseJob(HttpVerb::Delete, QStringLiteral("DeleteDeviceJob"), QStringLiteral("/_matrix/client/r0/devices/%1").arg(deviceId).toLatin1())
-#else
-    : Quotient::BaseJob(HttpVerb::Delete, QStringLiteral("DeleteDeviceJob"), QStringLiteral("/_matrix/client/r0/devices/%1").arg(deviceId))
-#endif
 {
     QJsonObject _data;
     addParam<IfNotEmpty>(_data, QStringLiteral("auth"), auth);
@@ -632,11 +585,7 @@ bool Controller::hasWindowSystem() const
 
 bool Controller::encryptionSupported() const
 {
-#ifdef QUOTIENT_07
     return Quotient::encryptionSupported();
-#else
-    return false;
-#endif
 }
 
 void Controller::forceRefreshTextDocument(QQuickTextDocument *textDocument, QQuickItem *item)
@@ -677,29 +626,16 @@ void Controller::setApplicationProxy()
 
 int Controller::activeConnectionIndex() const
 {
-#ifdef QUOTIENT_07
     auto result = std::find_if(Accounts.accounts().begin(), Accounts.accounts().end(), [this](const auto &it) {
         return it == m_connection;
     });
     return result - Accounts.accounts().begin();
-#else
-    for (int i = 0; i < AccountRegistry::instance().rowCount(); i++) {
-        if (AccountRegistry::instance().data(AccountRegistry::instance().index(i, 0), AccountRegistry::UserIdRole).toString() == m_connection->userId()) {
-            return i;
-        }
-    }
-    return 0;
-#endif
 }
 
 int Controller::quotientMinorVersion() const
 {
-// TODO libQuotient 0.7: Replace with version function from libQuotient
-#ifdef QUOTIENT_07
+    // TODO libQuotient 0.7: Replace with version function from libQuotient
     return 7;
-#else
-    return 6;
-#endif
 }
 
 bool Controller::isFlatpak() const

@@ -77,12 +77,10 @@ public:
      */
     void clearInvitationNotification(const QString &roomId);
 
-#ifdef QUOTIENT_07
     /**
      * @brief Handle the notifications for the given connection.
      */
     void handleNotifications(QPointer<Quotient::Connection> connection);
-#endif
 
 private:
     explicit NotificationsManager(QObject *parent = nullptr);

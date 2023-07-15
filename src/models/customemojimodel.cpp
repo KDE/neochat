@@ -62,11 +62,7 @@ void CustomEmojiModel::addEmoji(const QString &name, const QUrl &location)
         auto emojiData = json["images"].toObject();
 
         QString url;
-#ifdef QUOTIENT_07
         url = job->contentUri().toString();
-#else
-        url = job->contentUri();
-#endif
 
         QImage image(location.toLocalFile());
         QJsonObject imageInfo;

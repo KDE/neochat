@@ -100,18 +100,10 @@ QString TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat, const Neo
         QRegularExpressionMatchIterator i = TextRegex::mxcImage.globalMatch(m_dataBuffer);
         while (i.hasNext()) {
             const QRegularExpressionMatch match = i.next();
-#ifdef QUOTIENT_07
             const QUrl mediaUrl = room->makeMediaUrl(event->id(), QUrl(QStringLiteral("mxc://") + match.captured(2) + u'/' + match.captured(3)));
             m_dataBuffer.replace(match.captured(0),
                                  QStringLiteral("<img ") + match.captured(1) + QStringLiteral("src=\"") + mediaUrl.toString() + u'"' + match.captured(4)
                                      + u'>');
-#else
-            auto url = room->connection()->homeserver();
-            auto base = url.scheme() + QStringLiteral("://") + url.host() + (url.port() != -1 ? ':' + QString::number(url.port()) : QString());
-            m_dataBuffer.replace(match.captured(0),
-                                 QStringLiteral("<img ") + match.captured(1) + QStringLiteral("src=\"") + base + QStringLiteral("/_matrix/media/r0/download/")
-                                     + match.captured(2) + u'/' + match.captured(3) + u'"' + match.captured(4) + u'>');
-#endif
         }
     }
 
@@ -330,11 +322,7 @@ bool TextHandler::isAllowedLink(const QString &link, bool isImg)
     const QUrl linkUrl = QUrl(link);
 
     if (isImg) {
-#ifdef QUOTIENT_07
         return !linkUrl.isRelative() && linkUrl.scheme() == "mxc";
-#else
-        return !linkUrl.isRelative() && (linkUrl.scheme() == "mxc" || linkUrl.scheme() == "https");
-#endif
     } else {
         return !linkUrl.isRelative() && allowedLinkSchemes.contains(linkUrl.scheme());
     }

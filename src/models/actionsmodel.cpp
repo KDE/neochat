@@ -191,7 +191,6 @@ QVector<ActionsModel::Action> actions{
                 Q_EMIT room->showMessage(NeoChatRoom::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
                 return QString();
             }
-#ifdef QUOTIENT_07
             const RoomMemberEvent *roomMemberEvent = room->currentState().get<RoomMemberEvent>(text);
             if (roomMemberEvent && roomMemberEvent->membership() == Membership::Invite) {
                 Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("<user> is already invited to this room.", "%1 is already invited to this room.", text));
@@ -201,7 +200,6 @@ QVector<ActionsModel::Action> actions{
                 Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("<user> is banned from this room.", "%1 is banned from this room.", text));
                 return QString();
             }
-#endif
             if (room->localUser()->id() == text) {
                 Q_EMIT room->showMessage(NeoChatRoom::Positive, i18n("You are already in this room."));
                 return QString();
@@ -243,7 +241,6 @@ QVector<ActionsModel::Action> actions{
         kli18n("<room alias or id>"),
         kli18n("Joins the given room"),
     },
-#ifdef QUOTIENT_07
     Action{
         QStringLiteral("knock"),
         [](const QString &text, NeoChatRoom *room) {
@@ -276,7 +273,6 @@ QVector<ActionsModel::Action> actions{
         kli18n("<room alias or id> [<reason>]"),
         kli18n("Requests to join the given room"),
     },
-#endif
     Action{
         QStringLiteral("j"),
         [](const QString &text, NeoChatRoom *room) {
@@ -435,13 +431,11 @@ QVector<ActionsModel::Action> actions{
                 Q_EMIT room->showMessage(NeoChatRoom::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
                 return QString();
             }
-#ifdef QUOTIENT_07
             auto state = room->currentState().get<RoomMemberEvent>(parts[0]);
             if (state && state->membership() == Membership::Ban) {
                 Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("<user> is already banned from this room.", "%1 is already banned from this room.", text));
                 return QString();
             }
-#endif
             auto plEvent = room->getCurrentState<RoomPowerLevelsEvent>();
             if (plEvent->ban() > plEvent->powerLevelForUser(room->localUser()->id())) {
                 Q_EMIT room->showMessage(NeoChatRoom::Error, i18n("You are not allowed to ban users from this room."));
@@ -477,13 +471,11 @@ QVector<ActionsModel::Action> actions{
                 Q_EMIT room->showMessage(NeoChatRoom::Error, i18n("You are not allowed to unban users from this room."));
                 return QString();
             }
-#ifdef QUOTIENT_07
             auto state = room->currentState().get<RoomMemberEvent>(text);
             if (state && state->membership() != Membership::Ban) {
                 Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("<user> is not banned from this room.", "%1 is not banned from this room.", text));
                 return QString();
             }
-#endif
             room->unban(text);
             Q_EMIT room->showMessage(NeoChatRoom::Positive, i18nc("<username> was unbanned from this room.", "%1 was unbanned from this room.", text));
 
@@ -510,12 +502,10 @@ QVector<ActionsModel::Action> actions{
                 Q_EMIT room->showMessage(NeoChatRoom::Error, i18n("You cannot kick yourself from the room."));
                 return QString();
             }
-#ifdef QUOTIENT_07
             if (!room->isMember(parts[0])) {
                 Q_EMIT room->showMessage(NeoChatRoom::Error, i18nc("<username> is not in this room", "%1 is not in this room.", parts[0]));
                 return QString();
             }
-#endif
             auto plEvent = room->getCurrentState<RoomPowerLevelsEvent>();
             auto kick = plEvent->kick();
             if (plEvent->powerLevelForUser(room->localUser()->id()) < kick) {

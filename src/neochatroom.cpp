@@ -35,22 +35,15 @@
 #include <events/simplestateevents.h>
 #include <jobs/downloadfilejob.h>
 
-#ifndef QUOTIENT_07
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <joinstate.h>
-#endif
-#endif
 #include <qt_connection_util.h>
 
 #include "controller.h"
 #include "events/joinrulesevent.h"
-#include "neochatconfig.h"
-#include "notificationsmanager.h"
-#ifdef QUOTIENT_07
 #include "events/pollevent.h"
-#endif
 #include "events/stickerevent.h"
 #include "filetransferpseudojob.h"
+#include "neochatconfig.h"
+#include "notificationsmanager.h"
 #include "texthandler.h"
 
 #include <KConfig>
@@ -195,17 +188,9 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body)
     } else {
         content = new EventContent::FileContent(url, fileInfo.size(), mime, fileInfo.fileName());
     }
-#ifdef QUOTIENT_07
     QString txnId = postFile(body.isEmpty() ? url.fileName() : body, content);
-#else
-    QString txnId = postFile(body.isEmpty() ? url.fileName() : body, url, false);
-#endif
     setHasFileUploading(true);
-#ifdef QUOTIENT_07
     connect(this, &Room::fileTransferCompleted, [this, txnId](const QString &id, FileSourceInfo) {
-#else
-    connect(this, &Room::fileTransferCompleted, [this, txnId](const QString &id, const QUrl & /*localFile*/, const QUrl & /*mxcUrl*/) {
-#endif
         if (id == txnId) {
             setFileUploadingProgress(0);
             setHasFileUploading(false);
@@ -302,22 +287,16 @@ const RoomEvent *NeoChatRoom::lastEvent() const
             continue;
         }
 
-#ifdef QUOTIENT_07
         if (auto lastEvent = eventCast<const StateEvent>(event)) {
-#else
-        if (auto lastEvent = eventCast<const StateEventBase>(event)) {
-#endif
             return lastEvent;
         }
 
         if (auto lastEvent = eventCast<const RoomMessageEvent>(event)) {
             return lastEvent;
         }
-#ifdef QUOTIENT_07
         if (auto lastEvent = eventCast<const PollStartEvent>(event)) {
             return lastEvent;
         }
-#endif
     }
 
     if (m_cachedEvent != nullptr) {
@@ -506,11 +485,7 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
     const bool prettyPrint = (format == Qt::RichText);
 
     using namespace Quotient;
-#ifdef QUOTIENT_07
     return switchOnType(
-#else
-    return visit(
-#endif
         evt,
         [this, format, stripNewlines](const RoomMessageEvent &e) {
             using namespace MessageEventContent;
@@ -557,13 +532,8 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
             // FIXME: Rewind to the name that was at the time of this event
             auto subjectName = this->htmlSafeMemberName(e.userId());
             if (e.membership() == MembershipType::Leave) {
-#ifdef QUOTIENT_07
                 if (e.prevContent() && e.prevContent()->displayName) {
                     subjectName = sanitized(*e.prevContent()->displayName).toHtmlEscaped();
-#else
-                if (e.prevContent() && e.prevContent()->displayName.isEmpty()) {
-                    subjectName = sanitized(e.prevContent()->displayName).toHtmlEscaped();
-#endif
                 }
             }
 
@@ -611,11 +581,7 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                     }
                     if (e.avatarUrl().isEmpty()) {
                         text += i18nc("their refers to a singular user", "cleared their avatar");
-#ifdef QUOTIENT_07
                     } else if (!e.prevContent()->avatarUrl) {
-#else
-                    } else if (e.prevContent()->avatarUrl.isEmpty()) {
-#endif
                         text += i18n("set an avatar");
                     } else {
                         text += i18nc("their refers to a singular user", "updated their avatar");
@@ -700,21 +666,15 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
             return e.stateKey().isEmpty() ? i18n("updated %1 state", e.matrixType())
                                           : i18n("updated %1 state for %2", e.matrixType(), e.stateKey().toHtmlEscaped());
         },
-#ifdef QUOTIENT_07
         [](const PollStartEvent &e) {
             return e.question();
         },
-#endif
         i18n("Unknown event"));
 }
 
 QString NeoChatRoom::eventToGenericString(const RoomEvent &evt) const
 {
-#ifdef QUOTIENT_07
     return switchOnType(
-#else
-    return visit(
-#endif
         evt,
         [](const RoomMessageEvent &e) {
             Q_UNUSED(e)
@@ -756,11 +716,7 @@ QString NeoChatRoom::eventToGenericString(const RoomEvent &evt) const
                     }
                     if (e.avatarUrl().isEmpty()) {
                         text += i18nc("their refers to a singular user", "cleared their avatar");
-#ifdef QUOTIENT_07
                     } else if (!e.prevContent()->avatarUrl) {
-#else
-                    } else if (e.prevContent()->avatarUrl.isEmpty()) {
-#endif
                         text += i18n("set an avatar");
                     } else {
                         text += i18nc("their refers to a singular user", "updated their avatar");
@@ -829,29 +785,19 @@ QString NeoChatRoom::eventToGenericString(const RoomEvent &evt) const
             }
             return i18n("updated the state");
         },
-#ifdef QUOTIENT_07
         [](const PollStartEvent &e) {
             Q_UNUSED(e);
             return i18n("started a poll");
         },
-#endif
         i18n("Unknown event"));
 }
 
 void NeoChatRoom::changeAvatar(const QUrl &localFile)
 {
     const auto job = connection()->uploadFile(localFile.toLocalFile());
-#ifdef QUOTIENT_07
     if (isJobPending(job)) {
-#else
-    if (isJobRunning(job)) {
-#endif
         connect(job, &BaseJob::success, this, [this, job] {
-#ifdef QUOTIENT_07
             connection()->callApi<SetRoomStateWithKeyJob>(id(), "m.room.avatar", QString(), QJsonObject{{"url", job->contentUri().toString()}});
-#else
-            connection()->callApi<SetRoomStateWithKeyJob>(id(), "m.room.avatar", QString(), QJsonObject{{"url", job->contentUri()}});
-#endif
         });
     }
 }
@@ -987,17 +933,7 @@ void NeoChatRoom::toggleReaction(const QString &eventId, const QString &reaction
 
 bool NeoChatRoom::containsUser(const QString &userID) const
 {
-#ifdef QUOTIENT_07
     return memberState(userID) != Membership::Leave;
-#else
-    auto u = Room::user(userID);
-
-    if (!u) {
-        return false;
-    }
-
-    return Room::memberJoinState(u) != JoinState::Leave;
-#endif
 }
 
 bool NeoChatRoom::canSendEvent(const QString &eventType) const
@@ -1015,24 +951,12 @@ bool NeoChatRoom::canSendState(const QString &eventType) const
     auto pl = plEvent->powerLevelForState(eventType);
     auto currentPl = plEvent->powerLevelForUser(localUser()->id());
 
-#ifndef QUOTIENT_07
-    if (eventType == "m.room.history_visibility" || eventType == "org.matrix.room.preview_urls") {
-        return false;
-    } else {
-        return currentPl >= pl;
-    }
-#else
     return currentPl >= pl;
-#endif
 }
 
 bool NeoChatRoom::readMarkerLoaded() const
 {
-#ifdef QUOTIENT_07
     const auto it = findInTimeline(lastFullyReadEventId());
-#else
-    const auto it = findInTimeline(readMarkerEventId());
-#endif
     return it != historyEdge();
 }
 
@@ -1067,21 +991,13 @@ void NeoChatRoom::setJoinRule(const QString &joinRule)
         qWarning() << "Power level too low to set join rules";
         return;
     }
-#ifdef QUOTIENT_07
     setState("m.room.join_rules", "", QJsonObject{{"join_rule", joinRule}});
-#else
-    setState<JoinRulesEvent>(QJsonObject{{"type", "m.room.join_rules"}, {"state_key", ""}, {"content", QJsonObject{{"join_rule", joinRule}}}});
-#endif
     // Not emitting joinRuleChanged() here, since that would override the change in the UI with the *current* value, which is not the *new* value.
 }
 
 QString NeoChatRoom::historyVisibility() const
 {
-#ifdef QUOTIENT_07
     return currentState().get("m.room.history_visibility")->contentJson()["history_visibility"_ls].toString();
-#else
-    return getCurrentState("m.room.history_visibility")->contentJson()["history_visibility"_ls].toString();
-#endif
 }
 
 void NeoChatRoom::setHistoryVisibility(const QString &historyVisibilityRule)
@@ -1091,23 +1007,13 @@ void NeoChatRoom::setHistoryVisibility(const QString &historyVisibilityRule)
         return;
     }
 
-#ifdef QUOTIENT_07
     setState("m.room.history_visibility", "", QJsonObject{{"history_visibility", historyVisibilityRule}});
-#else
-    qWarning() << "Quotient 0.7 required to set history visibility";
-    return;
-#endif
-
     // Not emitting historyVisibilityChanged() here, since that would override the change in the UI with the *current* value, which is not the *new* value.
 }
 
 bool NeoChatRoom::defaultUrlPreviewState() const
 {
-#ifdef QUOTIENT_07
     auto urlPreviewsDisabled = currentState().get("org.matrix.room.preview_urls");
-#else
-    auto urlPreviewsDisabled = getCurrentState("org.matrix.room.preview_urls");
-#endif
 
     // Some rooms will not have this state event set so check for a nullptr return.
     if (urlPreviewsDisabled != nullptr) {
@@ -1153,12 +1059,7 @@ void NeoChatRoom::setDefaultUrlPreviewState(const bool &defaultUrlPreviewState)
      *
      * You just have to set disable to true to disable URL previews by default.
      */
-#ifdef QUOTIENT_07
     setState("org.matrix.room.preview_urls", "", QJsonObject{{"disable", !defaultUrlPreviewState}});
-#else
-    qWarning() << "Quotient 0.7 required to set room default url preview setting";
-    return;
-#endif
 }
 
 bool NeoChatRoom::urlPreviewEnabled() const
@@ -1196,32 +1097,20 @@ void NeoChatRoom::setUserPowerLevel(const QString &userID, const int &powerLevel
         qWarning() << "Power level too low to set user power levels";
         return;
     }
-#ifdef QUOTIENT_07
     if (!isMember(userID)) {
-#else
-    if (memberJoinState(user(userID)) == JoinState::Join) {
-#endif
         qWarning() << "User is not a member of this room so power level cannot be set";
         return;
     }
     int clampPowerLevel = std::clamp(powerLevel, 0, 100);
 
-#ifdef QUOTIENT_07
     auto powerLevelContent = currentState().get("m.room.power_levels")->contentJson();
-#else
-    auto powerLevelContent = getCurrentState<RoomPowerLevelsEvent>()->contentJson();
-#endif
     auto powerLevelUserOverrides = powerLevelContent["users"].toObject();
 
     if (powerLevelUserOverrides[userID] != clampPowerLevel) {
         powerLevelUserOverrides[userID] = clampPowerLevel;
         powerLevelContent["users"] = powerLevelUserOverrides;
 
-#ifdef QUOTIENT_07
         setState("m.room.power_levels", "", powerLevelContent);
-#else
-        setState<RoomPowerLevelsEvent>(QJsonObject{{"type", "m.room.power_levels"}, {"state_key", ""}, {"content", powerLevelContent}});
-#endif
     }
 }
 
@@ -1233,11 +1122,7 @@ int NeoChatRoom::getUserPowerLevel(const QString &userId) const
 
 int NeoChatRoom::powerLevel(const QString &eventName, const bool &isStateEvent) const
 {
-#ifdef QUOTIENT_07
     const auto powerLevelEvent = currentState().get<RoomPowerLevelsEvent>();
-#else
-    const auto powerLevelEvent = getCurrentState<RoomPowerLevelsEvent>();
-#endif
     if (eventName == "ban") {
         return powerLevelEvent->ban();
     } else if (eventName == "kick") {
@@ -1261,11 +1146,7 @@ int NeoChatRoom::powerLevel(const QString &eventName, const bool &isStateEvent) 
 
 void NeoChatRoom::setPowerLevel(const QString &eventName, const int &newPowerLevel, const bool &isStateEvent)
 {
-#ifdef QUOTIENT_07
     auto powerLevelContent = currentState().get("m.room.power_levels")->contentJson();
-#else
-    auto powerLevelContent = getCurrentState<RoomPowerLevelsEvent>()->contentJson();
-#endif
     int clampPowerLevel = std::clamp(newPowerLevel, 0, 100);
     int powerLevel = 0;
 
@@ -1294,11 +1175,7 @@ void NeoChatRoom::setPowerLevel(const QString &eventName, const int &newPowerLev
         }
     }
 
-#ifdef QUOTIENT_07
     setState("m.room.power_levels", "", powerLevelContent);
-#else
-    setState<RoomPowerLevelsEvent>(QJsonObject{{"type", "m.room.power_levels"}, {"state_key", ""}, {"content", powerLevelContent}});
-#endif
 }
 
 int NeoChatRoom::defaultUserPowerLevel() const
@@ -1521,11 +1398,7 @@ bool NeoChatRoom::isSpace()
         return false;
     }
 
-#ifdef QUOTIENT_07
     return creationEvent->roomType() == RoomType::Space;
-#else
-    return false;
-#endif
 }
 
 PushNotificationState::State NeoChatRoom::pushNotificationState() const
@@ -1919,15 +1792,12 @@ void NeoChatRoom::editLastMessage()
 
 bool NeoChatRoom::canEncryptRoom() const
 {
-#ifdef QUOTIENT_07
 #ifdef Quotient_E2EE_ENABLED
     return !usesEncryption() && canSendState("m.room.encryption");
-#endif
 #endif
     return false;
 }
 
-#ifdef QUOTIENT_07
 PollHandler *NeoChatRoom::poll(const QString &eventId)
 {
     if (!m_polls.contains(eventId)) {
@@ -1938,7 +1808,6 @@ PollHandler *NeoChatRoom::poll(const QString &eventId)
     }
     return m_polls[eventId];
 }
-#endif
 
 bool NeoChatRoom::downloadTempFile(const QString &eventId)
 {
@@ -2054,7 +1923,6 @@ QByteArray NeoChatRoom::roomAcountDataJson(const QString &eventType)
 
 QUrl NeoChatRoom::avatarForMember(NeoChatUser *user) const
 {
-#ifdef QUOTIENT_07
     const auto &url = memberAvatarUrl(user->id());
     if (url.isEmpty()) {
         return {};
@@ -2065,13 +1933,6 @@ QUrl NeoChatRoom::avatarForMember(NeoChatUser *user) const
     } else {
         return QUrl();
     }
-#else
-    QUrl url(QStringLiteral("mxc://%1").arg(user->avatarMediaId()));
-    QUrlQuery q(url.query());
-    q.addQueryItem(QStringLiteral("user_id"), user->id());
-    url.setQuery(q);
-    return url;
-#endif
 }
 
 const RoomEvent *NeoChatRoom::getReplyForEvent(const RoomEvent &event) const

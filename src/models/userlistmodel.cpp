@@ -82,11 +82,7 @@ QVariant UserListModel::data(const QModelIndex &index, int role) const
         return pl->powerLevelForUser(user->id());
     }
     if (role == PowerLevelStringRole) {
-#ifdef QUOTIENT_07
         auto pl = m_currentRoom->currentState().get<RoomPowerLevelsEvent>();
-#else
-        auto pl = m_currentRoom->getCurrentState<RoomPowerLevelsEvent>();
-#endif
         // User might not in the room yet, in this case pl can be nullptr.
         // e.g. When invited but user not accepted or denied the invitation.
         if (!pl) {
@@ -124,15 +120,9 @@ void UserListModel::userAdded(Quotient::User *user)
     beginInsertRows(QModelIndex(), pos, pos);
     m_users.insert(pos, user);
     endInsertRows();
-#ifdef QUOTIENT_07
     connect(user, &User::defaultAvatarChanged, this, [this, user]() {
         refreshUser(user, {AvatarRole});
     });
-#else
-    connect(user, &Quotient::User::avatarChanged, this, [this, user]() {
-        refreshUser(user, {AvatarRole});
-    });
-#endif
 }
 
 void UserListModel::userRemoved(Quotient::User *user)
@@ -170,15 +160,9 @@ void UserListModel::refreshAllUsers()
     std::sort(m_users.begin(), m_users.end(), m_currentRoom->memberSorter());
 
     for (User *user : std::as_const(m_users)) {
-#ifdef QUOTIENT_07
         connect(user, &User::defaultAvatarChanged, this, [this, user]() {
             refreshUser(user, {AvatarRole});
         });
-#else
-        connect(user, &User::avatarChanged, this, [this, user]() {
-            refreshUser(user, {AvatarRole});
-        });
-#endif
     }
     connect(m_currentRoom->connection(), &Connection::loggedOut, this, [this]() {
         setRoom(nullptr);

@@ -69,14 +69,7 @@ void LinkPreviewer::loadUrlPreview()
 
             auto imageUrl = QUrl(json["og:image"].toString());
             if (imageUrl.isValid() && imageUrl.scheme() == QStringLiteral("mxc")) {
-#ifdef QUOTIENT_07
                 m_imageSource = conn->makeMediaUrl(imageUrl);
-#else
-                QUrlQuery q(imageUrl.query());
-                q.addQueryItem(QStringLiteral("user_id"), conn->userId());
-                imageUrl.setQuery(q);
-                m_imageSource = imageUrl;
-#endif
             } else {
                 m_imageSource = QUrl();
             }

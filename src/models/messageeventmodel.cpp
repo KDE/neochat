@@ -14,9 +14,7 @@
 #include <qt_connection_util.h>
 #include <user.h>
 
-#ifdef QUOTIENT_07
 #include "events/pollevent.h"
-#endif
 #include "events/stickerevent.h"
 
 #include <QDebug>
@@ -117,11 +115,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         if (m_currentRoom->timelineSize() < 10 && !room->allHistoryLoaded()) {
             room->getPreviousContent(50);
         }
-#ifdef QUOTIENT_07
         lastReadEventId = room->lastFullyReadEventId();
-#else
-        lastReadEventId = room->readMarkerEventId();
-#endif
         connect(m_currentRoom, &NeoChatRoom::replyLoaded, this, [this](const auto &eventId, const auto &replyId) {
             Q_UNUSED(replyId);
             auto row = eventIdToRow(eventId);
@@ -191,11 +185,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             }
             if (!m_lastReadEventIndex.isValid()) {
                 // no read marker, so see if we need to create one.
-#ifdef QUOTIENT_07
                 moveReadMarker(m_currentRoom->lastFullyReadEventId());
-#else
-                moveReadMarker(m_currentRoom->readMarkerEventId());
-#endif
             }
             if (biggest < m_currentRoom->maxTimelineIndex()) {
                 auto rowBelowInserted = m_currentRoom->maxTimelineIndex() - biggest + timelineBaseIndex() - 1;
@@ -264,9 +254,6 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
         connect(m_currentRoom, &Room::fileTransferProgress, this, &MessageEventModel::refreshEvent);
         connect(m_currentRoom, &Room::fileTransferCompleted, this, &MessageEventModel::refreshEvent);
         connect(m_currentRoom, &Room::fileTransferFailed, this, &MessageEventModel::refreshEvent);
-#ifndef QUOTIENT_07
-        connect(m_currentRoom, &Room::fileTransferCancelled, this, &MessageEventModel::refreshEvent);
-#endif
         connect(m_currentRoom->connection(), &Connection::ignoredUsersListChanged, this, [this] {
             beginResetModel();
             endResetModel();
@@ -532,14 +519,12 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         if (is<const EncryptedEvent>(evt)) {
             return DelegateType::Encrypted;
         }
-#ifdef QUOTIENT_07
         if (is<PollStartEvent>(evt)) {
             if (evt.isRedacted()) {
                 return DelegateType::Message;
             }
             return DelegateType::Poll;
         }
-#endif
 
         return DelegateType::Other;
     }
@@ -811,7 +796,6 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == ReadMarkersRole) {
-#ifdef QUOTIENT_07
         auto userIds_temp = room()->userIdsAtEvent(evt.id());
         userIds_temp.remove(m_currentRoom->localUser()->id());
 
@@ -819,19 +803,11 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         if (userIds.count() > 5) {
             userIds = userIds.mid(0, 5);
         }
-#else
-        auto userIds = room()->usersAtEventId(evt.id());
-        userIds.removeAll(m_currentRoom->localUser());
-#endif
 
         QVariantList users;
         users.reserve(userIds.size());
         for (const auto &userId : userIds) {
-#ifdef QUOTIENT_07
             auto user = static_cast<NeoChatUser *>(m_currentRoom->user(userId));
-#else
-            auto user = static_cast<NeoChatUser *>(userId);
-#endif
             users += m_currentRoom->getUser(user);
         }
 
@@ -839,13 +815,8 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == ExcessReadMarkersRole) {
-#ifdef QUOTIENT_07
         auto userIds = room()->userIdsAtEvent(evt.id());
         userIds.remove(m_currentRoom->localUser()->id());
-#else
-        auto userIds = room()->usersAtEventId(evt.id());
-        userIds.removeAll(m_currentRoom->localUser());
-#endif
 
         if (userIds.count() > 5) {
             return QStringLiteral("+ ") + QString::number(userIds.count() - 5);
@@ -855,24 +826,16 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == ReadMarkersStringRole) {
-#ifdef QUOTIENT_07
         auto userIds = room()->userIdsAtEvent(evt.id());
         userIds.remove(m_currentRoom->localUser()->id());
-#else
-        auto userIds = room()->usersAtEventId(evt.id());
-        userIds.removeAll(m_currentRoom->localUser());
-#endif
+
         /**
          * The string ends up in the form
          * "x users: user1DisplayName, user2DisplayName, etc."
          */
         QString readMarkersString = i18np("1 user: ", "%1 users: ", userIds.size());
         for (const auto &userId : userIds) {
-#ifdef QUOTIENT_07
             auto user = static_cast<NeoChatUser *>(m_currentRoom->user(userId));
-#else
-            auto user = static_cast<NeoChatUser *>(userId);
-#endif
             readMarkersString += user->displayname(m_currentRoom) + i18nc("list separator", ", ");
         }
         readMarkersString.chop(2);
@@ -880,13 +843,8 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == ShowReadMarkersRole) {
-#ifdef QUOTIENT_07
         auto userIds = room()->userIdsAtEvent(evt.id());
         userIds.remove(m_currentRoom->localUser()->id());
-#else
-        auto userIds = room()->usersAtEventId(evt.id());
-        userIds.removeAll(m_currentRoom->localUser());
-#endif
         return userIds.size() > 0;
     }
 
@@ -907,14 +865,12 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == VerifiedRole) {
-#ifdef QUOTIENT_07
 #ifdef Quotient_E2EE_ENABLED
         if (evt.originalEvent()) {
             auto encrypted = dynamic_cast<const EncryptedEvent *>(evt.originalEvent());
             Q_ASSERT(encrypted);
             return m_currentRoom->connection()->isVerifiedSession(encrypted->sessionId().toLatin1());
         }
-#endif
 #endif
         return false;
     }
@@ -966,22 +922,14 @@ QVariantMap MessageEventModel::getMediaInfoForEvent(const RoomEvent &event) cons
 
     // Get the file info for the event.
     const EventContent::FileInfo *fileInfo;
-#ifdef QUOTIENT_07
     if (event.is<RoomMessageEvent>()) {
         auto roomMessageEvent = eventCast<const RoomMessageEvent>(&event);
-#else
-    if (auto roomMessageEvent = eventCast<const RoomMessageEvent>(&event)) {
-#endif
         if (!roomMessageEvent->hasFileContent()) {
             return {};
         }
         fileInfo = roomMessageEvent->content()->fileInfo();
-#ifdef QUOTIENT_07
     } else if (event.is<StickerEvent>()) {
         auto stickerEvent = eventCast<const StickerEvent>(&event);
-#else
-    } else if (auto stickerEvent = eventCast<const StickerEvent>(&event)) {
-#endif
         fileInfo = &stickerEvent->image();
     } else {
         return {};
@@ -995,7 +943,6 @@ QVariantMap MessageEventModel::getMediaInfoFromFileInfo(const EventContent::File
     QVariantMap mediaInfo;
 
     // Get the mxc URL for the media.
-#ifdef QUOTIENT_07
     if (!fileInfo->url().isValid() || eventId.isEmpty()) {
         mediaInfo["source"] = QUrl();
     } else {
@@ -1007,13 +954,6 @@ QVariantMap MessageEventModel::getMediaInfoFromFileInfo(const EventContent::File
             mediaInfo["source"] = QUrl();
         }
     }
-#else
-    auto url = QUrl(m_currentRoom->connection()->homeserver().toString() + "/_matrix/media/r0/download/" + fileInfo->url.toString().remove("mxc://"));
-    QUrlQuery q(url.query());
-    q.addQueryItem("allow_remote", "true");
-    url.setQuery(q);
-    mediaInfo["source"] = url;
-#endif
 
     auto mimeType = fileInfo->mimeType;
     // Add the MIME type for the media if available.

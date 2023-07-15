@@ -133,8 +133,6 @@ public:
      */
     Q_INVOKABLE bool visitNonMatrix(const QUrl &url) override;
 
-    // TODO: it need also override in the feature?
-#ifdef QUOTIENT_07
     /**
      * @brief Knock a room.
      *
@@ -142,7 +140,6 @@ public:
      * knocking on rooms.
      */
     void knockRoom(Quotient::Connection *account, const QString &roomAliasOrId, const QString &reason, const QStringList &viaServers);
-#endif
 
     /**
      * @brief Open the given resource.

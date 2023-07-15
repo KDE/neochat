@@ -592,16 +592,6 @@ public:
 
     QString htmlSafeDisplayName() const;
 
-#ifndef QUOTIENT_07
-    /**
-     * @brief Get a display name for the user with html escaped.
-     */
-    Q_INVOKABLE QString htmlSafeMemberName(const QString &userId) const
-    {
-        return safeMemberName(userId).toHtmlEscaped();
-    }
-#endif
-
     /**
      * @brief Get subtitle text for room
      *
@@ -812,7 +802,6 @@ public:
      */
     Q_INVOKABLE void editLastMessage();
 
-#ifdef QUOTIENT_07
     /**
      * @brief Get a PollHandler object for the given event Id.
      *
@@ -824,7 +813,6 @@ public:
      * @sa PollHandler
      */
     Q_INVOKABLE PollHandler *poll(const QString &eventId);
-#endif
 
     /**
      * @brief Get the full Json data for a given room account data event.
@@ -873,9 +861,7 @@ private:
     QVector<Mention> m_mentions;
     QVector<Mention> m_editMentions;
     QString m_savedText;
-#ifdef QUOTIENT_07
     QCache<QString, PollHandler> m_polls;
-#endif
     std::vector<Quotient::event_ptr_tt<Quotient::RoomEvent>> m_extraEvents;
 
 private Q_SLOTS:

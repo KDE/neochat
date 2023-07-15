@@ -95,11 +95,7 @@ void ServerListModel::checkServer(const QString &url)
     KConfigGroup serverGroup(&dataResource, "Servers");
 
     if (!serverGroup.hasKey(url)) {
-#ifdef QUOTIENT_07
         if (Quotient::isJobPending(m_checkServerJob)) {
-#else
-        if (Quotient::isJobRunning(m_checkServerJob)) {
-#endif
             m_checkServerJob->abandon();
         }
 

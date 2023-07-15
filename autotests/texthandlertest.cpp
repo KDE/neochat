@@ -71,7 +71,6 @@ private Q_SLOTS:
     void linkPreviewsReject();
 };
 
-#ifdef QUOTIENT_07
 void TextHandlerTest::initTestCase()
 {
     connection = Connection::makeMockConnection(QStringLiteral("@bob:kde.org"));
@@ -204,7 +203,6 @@ void TextHandlerTest::initTestCase()
     SyncRoomData roomData(QStringLiteral("@bob:kde.org"), JoinState::Join, json.object());
     room->update(std::move(roomData));
 }
-#endif
 
 void TextHandlerTest::allowedAttributes()
 {
@@ -479,7 +477,6 @@ void TextHandlerTest::receiveRichtextIn()
     QCOMPARE(testTextHandler.handleRecieveRichText(), testOutputString);
 }
 
-#ifdef QUOTIENT_07
 void TextHandlerTest::receiveRichMxcUrl()
 {
     const QString testInputString = QStringLiteral(
@@ -497,7 +494,6 @@ void TextHandlerTest::receiveRichMxcUrl()
 
     QCOMPARE(testTextHandler.handleRecieveRichText(Qt::RichText, room, room->messageEvents().at(0).get()), testOutputString);
 }
-#endif
 
 /**
  * For when your rich input string has a plain text url left in.

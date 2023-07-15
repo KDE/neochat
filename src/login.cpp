@@ -3,11 +3,7 @@
 
 #include "login.h"
 
-#ifdef QUOTIENT_07
 #include <accountregistry.h>
-#else
-#include "neochataccountregistry.h"
-#endif
 
 #include <connection.h>
 #include <qt_connection_util.h>
@@ -47,11 +43,7 @@ void Login::init()
             return;
         }
 
-#ifdef QUOTIENT_07
         m_isLoggedIn = Accounts.isLoggedIn(m_matrixId);
-#else
-        m_isLoggedIn = AccountRegistry::instance().isLoggedIn(m_matrixId);
-#endif
         Q_EMIT isLoggedInChanged();
         if (m_isLoggedIn) {
             return;

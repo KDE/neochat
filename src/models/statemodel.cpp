@@ -14,7 +14,6 @@ QHash<int, QByteArray> StateModel::roleNames() const
 }
 QVariant StateModel::data(const QModelIndex &index, int role) const
 {
-#ifdef QUOTIENT_07
     auto row = index.row();
     switch (role) {
     case TypeRole:
@@ -22,18 +21,13 @@ QVariant StateModel::data(const QModelIndex &index, int role) const
     case StateKeyRole:
         return m_stateEvents[row].second;
     }
-#endif
     return {};
 }
 
 int StateModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-#ifdef QUOTIENT_07
     return m_room->currentState().events().size();
-#else
-    return 0;
-#endif
 }
 
 NeoChatRoom *StateModel::room() const
@@ -47,16 +41,12 @@ void StateModel::setRoom(NeoChatRoom *room)
     Q_EMIT roomChanged();
     beginResetModel();
     m_stateEvents.clear();
-#ifdef QUOTIENT_07
     m_stateEvents = m_room->currentState().events().keys();
-#endif
     endResetModel();
     connect(room, &NeoChatRoom::changed, this, [this] {
         beginResetModel();
         m_stateEvents.clear();
-#ifdef QUOTIENT_07
         m_stateEvents = m_room->currentState().events().keys();
-#endif
         endResetModel();
     });
 }
@@ -64,11 +54,7 @@ void StateModel::setRoom(NeoChatRoom *room)
 QByteArray StateModel::stateEventJson(const QModelIndex &index)
 {
     auto row = index.row();
-#ifdef QUOTIENT_07
     return QJsonDocument(m_room->currentState().events()[m_stateEvents[row]]->fullJson()).toJson();
-#else
-    return {};
-#endif
 }
 
 #include "moc_statemodel.cpp"

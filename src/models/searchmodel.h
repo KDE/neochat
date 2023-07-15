@@ -6,9 +6,7 @@
 #include <QAbstractListModel>
 #include <QString>
 
-#ifdef QUOTIENT_07
 #include <csapi/search.h>
-#endif
 
 namespace Quotient
 {
@@ -137,10 +135,8 @@ private:
     QString m_searchText;
     Quotient::Connection *m_connection = nullptr;
     NeoChatRoom *m_room = nullptr;
-#ifdef QUOTIENT_07
     Quotient::Omittable<Quotient::SearchJob::ResultRoomEvents> m_result = Quotient::none;
     Quotient::SearchJob *m_job = nullptr;
-#endif
     bool m_searching = false;
 };
 

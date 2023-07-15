@@ -33,13 +33,9 @@ QVariant ImagePacksModel::data(const QModelIndex &index, int role) const
     }
     if (role == AvatarUrlRole) {
         if (event.pack->avatarUrl) {
-#ifdef QUOTIENT_07
             return m_room->connection()->makeMediaUrl(*event.pack->avatarUrl);
-#endif
         } else if (!event.images.empty()) {
-#ifdef QUOTIENT_07
             return m_room->connection()->makeMediaUrl(event.images[0].url);
-#endif
         }
     }
     return {};
@@ -106,7 +102,6 @@ void ImagePacksModel::reloadImages()
             auto packs = rooms[roomId].toObject();
             const auto &stickerRoom = m_room->connection()->room(roomId);
             for (const auto &packKey : packs.keys()) {
-#ifdef QUOTIENT_07
                 if (const auto &pack = stickerRoom->currentState().get<ImagePackEvent>(packKey)) {
                     const auto packContent = pack->content();
                     if ((!packContent.pack || !packContent.pack->usage || (packContent.pack->usage->contains("emoticon") && showEmoticons())
@@ -115,11 +110,9 @@ void ImagePacksModel::reloadImages()
                         m_events += packContent;
                     }
                 }
-#endif
             }
         }
     }
-#ifdef QUOTIENT_07
 
     // Load emoticons from the current room
     auto events = m_room->currentState().eventsOfType("im.ponies.room_emotes");
@@ -132,7 +125,6 @@ void ImagePacksModel::reloadImages()
             }
         }
     }
-#endif
     Q_EMIT imagesLoaded();
     endResetModel();
 }

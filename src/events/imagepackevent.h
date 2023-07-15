@@ -83,23 +83,11 @@ public:
  *
  * @sa Quotient::StateEvent, ImagePackEventContent
  */
-#ifdef QUOTIENT_07
 class ImagePackEvent : public KeyedStateEventBase<ImagePackEvent, ImagePackEventContent>
-#else
-class ImagePackEvent : public StateEvent<ImagePackEventContent>
-#endif
 {
 public:
-#ifdef QUOTIENT_07
     QUO_EVENT(ImagePackEvent, "im.ponies.room_emotes")
     using KeyedStateEventBase::KeyedStateEventBase;
-#else
-    DEFINE_EVENT_TYPEID("im.ponies.room_emotes", ImagePackEvent)
-    explicit ImagePackEvent(const QJsonObject &obj)
-        : StateEvent(typeId(), obj)
-    {
-    }
-#endif
 };
 
 REGISTER_EVENT_TYPE(ImagePackEvent)

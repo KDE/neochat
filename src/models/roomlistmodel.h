@@ -166,9 +166,6 @@ private:
     QString m_activeSpaceId = "";
 
     void connectRoomSignals(NeoChatRoom *room);
-#ifndef QUOTIENT_07
-    void handleNotifications();
-#endif
 
 Q_SIGNALS:
     void connectionChanged();

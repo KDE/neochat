@@ -22,9 +22,7 @@ QVariant StickerModel::data(const QModelIndex &index, int role) const
     const auto &row = index.row();
     const auto &image = m_images[row];
     if (role == UrlRole) {
-#ifdef QUOTIENT_07
         return m_room->connection()->makeMediaUrl(image.url);
-#endif
     }
     if (role == BodyRole) {
         if (image.body) {

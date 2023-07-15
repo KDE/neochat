@@ -11,11 +11,7 @@ ImagePackEventContent::ImagePackEventContent(const QJsonObject &json)
     if (json.contains(QStringLiteral("pack"))) {
         pack = ImagePackEventContent::Pack{
             fromJson<Omittable<QString>>(json["pack"].toObject()["display_name"]),
-#ifdef QUOTIENT_07
             fromJson<Omittable<QUrl>>(json["pack"].toObject()["avatar_url"]),
-#else
-            QUrl(),
-#endif
             fromJson<Omittable<QStringList>>(json["pack"].toObject()["usage"]),
             fromJson<Omittable<QString>>(json["pack"].toObject()["attribution"]),
         };
@@ -27,21 +23,13 @@ ImagePackEventContent::ImagePackEventContent(const QJsonObject &json)
     for (const auto &k : keys) {
         Omittable<EventContent::ImageInfo> info;
         if (json["images"][k].toObject().contains(QStringLiteral("info"))) {
-#ifdef QUOTIENT_07
             info = EventContent::ImageInfo(QUrl(json["images"][k]["url"].toString()), json["images"][k]["info"].toObject(), k);
-#else
-            info = EventContent::ImageInfo(QUrl(json["images"][k]["url"].toString()), json["images"][k].toObject(), k);
-#endif
         } else {
             info = none;
         }
         images += ImagePackImage{
             k,
-#ifdef QUOTIENT_07
             fromJson<QUrl>(json["images"][k]["url"].toString()),
-#else
-            QUrl(),
-#endif
             fromJson<Omittable<QString>>(json["images"][k]["body"]),
             info,
             fromJson<Omittable<QStringList>>(json["images"][k]["usage"]),

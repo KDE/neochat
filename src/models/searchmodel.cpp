@@ -9,9 +9,6 @@
 #include <KLocalizedString>
 #include <connection.h>
 
-#ifdef QUOTIENT_07
-#endif
-
 using namespace Quotient;
 
 // TODO search only in the current room
@@ -34,7 +31,6 @@ void SearchModel::setSearchText(const QString &searchText)
 
 void SearchModel::search()
 {
-#ifdef QUOTIENT_07
     Q_ASSERT(m_connection);
     setSearching(true);
     if (m_job) {
@@ -71,7 +67,6 @@ void SearchModel::search()
         m_job = nullptr;
         // TODO error handling
     });
-#endif
 }
 
 Connection *SearchModel::connection() const
@@ -87,7 +82,6 @@ void SearchModel::setConnection(Connection *connection)
 
 QVariant SearchModel::data(const QModelIndex &index, int role) const
 {
-#ifdef QUOTIENT_07
     auto row = index.row();
     const auto &event = *m_result->results[row].result;
     switch (role) {
@@ -174,18 +168,14 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
         return event.contentJson()["m.relates_to"].toObject()["m.in_reply_to"].toObject()["event_id"].toString();
     }
     return MessageEventModel::DelegateType::Message;
-#endif
-    return {};
 }
 
 int SearchModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-#ifdef QUOTIENT_07
     if (m_result.has_value()) {
         return m_result->results.size();
     }
-#endif
     return 0;
 }
 
@@ -236,7 +226,6 @@ void SearchModel::setRoom(NeoChatRoom *room)
     m_room = room;
     Q_EMIT roomChanged();
 
-#ifdef QUOTIENT_07
     connect(m_room, &NeoChatRoom::replyLoaded, this, [this](const auto &eventId, const auto &replyId) {
         Q_UNUSED(replyId);
         const auto &results = m_result->results;
@@ -249,7 +238,6 @@ void SearchModel::setRoom(NeoChatRoom *room)
         auto row = it - results.begin();
         Q_EMIT dataChanged(index(row, 0), index(row, 0), {ReplyRole, ReplyMediaInfoRole, ReplyAuthorRole});
     });
-#endif
 }
 
 // TODO deduplicate with messageeventmodel

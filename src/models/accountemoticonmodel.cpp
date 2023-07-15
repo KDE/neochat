@@ -27,11 +27,7 @@ QVariant AccountEmoticonModel::data(const QModelIndex &index, int role) const
     const auto &row = index.row();
     const auto &image = m_images->images[row];
     if (role == UrlRole) {
-#ifdef QUOTIENT_07
         return m_connection->makeMediaUrl(image.url);
-#else
-        return QUrl();
-#endif
     }
     if (role == BodyRole) {
         if (image.body) {
@@ -142,11 +138,7 @@ QCoro::Task<void> AccountEmoticonModel::doSetEmoticonImage(int index, QUrl sourc
     if (job->error() != BaseJob::NoError) {
         co_return;
     }
-#ifdef QUOTIENT_07
     m_images->images[index].url = job->contentUri().toString();
-#else
-    m_images->images[index].url = job->contentUri();
-#endif
     m_images->images[index].info = none;
     QJsonObject data;
     m_images->fillJson(&data);

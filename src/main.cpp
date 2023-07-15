@@ -28,12 +28,7 @@
 
 #include "neochat-version.h"
 
-#ifdef QUOTIENT_07
 #include <accountregistry.h>
-#else
-#include "neochataccountregistry.h"
-#endif
-
 #include <networkaccessmanager.h>
 #include <room.h>
 #include <util.h>
@@ -70,6 +65,8 @@
 #include "models/serverlistmodel.h"
 #include "models/sortfilterroomlistmodel.h"
 #include "models/sortfilterspacelistmodel.h"
+#include "models/statefiltermodel.h"
+#include "models/stickermodel.h"
 #include "models/userdirectorylistmodel.h"
 #include "models/userfiltermodel.h"
 #include "models/userlistmodel.h"
@@ -78,18 +75,12 @@
 #include "neochatroom.h"
 #include "neochatuser.h"
 #include "notificationsmanager.h"
-#ifdef QUOTIENT_07
 #include "pollhandler.h"
-#endif
-#include "models/statefiltermodel.h"
-#include "models/stickermodel.h"
 #include "roommanager.h"
 #include "spacehierarchycache.h"
 #include "urlhelper.h"
 #include "windowcontroller.h"
-#ifdef QUOTIENT_07
 #include <keyverificationsession.h>
-#endif
 #ifdef HAVE_COLORSCHEME
 #include "colorschemer.h"
 #endif
@@ -179,14 +170,10 @@ int main(int argc, char *argv[])
 
     about.addComponent(QStringLiteral("libQuotient"),
                        i18n("A Qt5 library to write cross-platform clients for Matrix"),
-#ifdef QUOTIENT_07
                        i18nc("<version number> (built against <possibly different version number>)",
                              "%1 (built against %2)",
                              Quotient::versionString(),
                              QStringLiteral(Quotient_VERSION_STRING)),
-#else
-                       QStringLiteral(QUOTIENT_VERSION),
-#endif
                        QStringLiteral("https://github.com/quotient-im/libquotient"),
                        KAboutLicense::LGPL_V2_1);
 
@@ -229,11 +216,7 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "LoginHelper", login);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "UrlHelper", &urlHelper);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "EmojiModel", &EmojiModel::instance());
-#ifdef QUOTIENT_07
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "AccountRegistry", &Quotient::Accounts);
-#else
-    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "AccountRegistry", &Quotient::AccountRegistry::instance());
-#endif
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "SpaceHierarchyCache", &SpaceHierarchyCache::instance());
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "CustomEmojiModel", &CustomEmojiModel::instance());
     qmlRegisterType<ActionsHandler>("org.kde.neochat", 1, 0, "ActionsHandler");
@@ -260,9 +243,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<SearchModel>("org.kde.neochat", 1, 0, "SearchModel");
     qmlRegisterType<LiveLocationsModel>("org.kde.neochat", 1, 0, "LiveLocationsModel");
     qmlRegisterType<LocationsModel>("org.kde.neochat", 1, 0, "LocationsModel");
-#ifdef QUOTIENT_07
     qmlRegisterType<PollHandler>("org.kde.neochat", 1, 0, "PollHandler");
-#endif
     qmlRegisterType<PushRuleModel>("org.kde.neochat", 1, 0, "PushRuleModel");
     qmlRegisterType<StickerModel>("org.kde.neochat", 1, 0, "StickerModel");
     qmlRegisterType<ImagePacksModel>("org.kde.neochat", 1, 0, "ImagePacksModel");
@@ -288,12 +269,10 @@ int main(int argc, char *argv[])
     qRegisterMetaType<NeoChatUser *>("NeoChatUser*");
     qRegisterMetaType<GetRoomEventsJob *>("GetRoomEventsJob*");
     qRegisterMetaType<QMimeType>("QMimeType");
-#ifdef QUOTIENT_07
 #ifdef Quotient_E2EE_ENABLED
     qRegisterMetaType<KeyVerificationSession *>("KeyVerificationSession*");
     qmlRegisterUncreatableType<KeyVerificationSession>("org.kde.neochat", 1, 0, "KeyVerificationSession", {});
     qRegisterMetaType<QVector<EmojiEntry>>("QVector<EmojiEntry>");
-#endif
 #endif
     qmlRegisterSingletonType("org.kde.neochat", 1, 0, "About", [](QQmlEngine *engine, QJSEngine *) -> QJSValue {
         return engine->toScriptValue(KAboutData::applicationData());

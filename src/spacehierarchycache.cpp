@@ -3,9 +3,7 @@
 
 #include "spacehierarchycache.h"
 
-#ifdef QUOTIENT_07
 #include <csapi/space_hierarchy.h>
-#endif
 #include <qt_connection_util.h>
 
 #include "controller.h"
@@ -26,7 +24,6 @@ SpaceHierarchyCache::SpaceHierarchyCache(QObject *parent)
 
 void SpaceHierarchyCache::cacheSpaceHierarchy()
 {
-#ifdef QUOTIENT_07
     auto connection = Controller::instance().activeConnection();
     if (!connection) {
         return;
@@ -45,7 +42,6 @@ void SpaceHierarchyCache::cacheSpaceHierarchy()
             });
         }
     }
-#endif
 }
 
 void SpaceHierarchyCache::populateSpaceHierarchy(const QString &spaceId)
@@ -54,7 +50,6 @@ void SpaceHierarchyCache::populateSpaceHierarchy(const QString &spaceId)
     if (!connection) {
         return;
     }
-#ifdef QUOTIENT_07
     auto job = connection->callApi<GetSpaceHierarchyJob>(spaceId);
 
     connect(job, &BaseJob::success, this, [this, job, spaceId]() {
@@ -68,7 +63,6 @@ void SpaceHierarchyCache::populateSpaceHierarchy(const QString &spaceId)
         m_spaceHierarchy.insert(spaceId, roomList);
         Q_EMIT spaceHierarchyChanged();
     });
-#endif
 }
 
 void SpaceHierarchyCache::addSpaceToHierarchy(Quotient::Room *room)

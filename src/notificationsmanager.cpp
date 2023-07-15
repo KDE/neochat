@@ -11,11 +11,7 @@
 #include <KNotification>
 #include <KNotificationReplyAction>
 
-#ifdef QUOTIENT_07
 #include <accountregistry.h>
-#else
-#include "neochataccountregistry.h"
-#endif
 
 #include <connection.h>
 #include <csapi/pushrules.h>
@@ -41,7 +37,6 @@ NotificationsManager::NotificationsManager(QObject *parent)
 {
 }
 
-#ifdef QUOTIENT_07
 void NotificationsManager::handleNotifications(QPointer<Connection> connection)
 {
     if (!m_connActiveJob.contains(connection->user()->id())) {
@@ -53,7 +48,6 @@ void NotificationsManager::handleNotifications(QPointer<Connection> connection)
         });
     }
 }
-#endif
 
 void NotificationsManager::processNotificationJob(QPointer<Quotient::Connection> connection, Quotient::GetNotificationsJob *job, bool initialization)
 {
@@ -219,11 +213,7 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
             return;
         }
         if (room->localUser()->id() != Controller::instance().activeConnection()->userId()) {
-#ifdef QUOTIENT_07
             Controller::instance().setActiveConnection(Accounts.get(room->localUser()->id()));
-#else
-            Controller::instance().setActiveConnection(AccountRegistry::instance().get(room->localUser()->id()));
-#endif
         }
         RoomManager::instance().enterRoom(room);
     });
