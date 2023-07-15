@@ -218,7 +218,7 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "LoginHelper", login);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "UrlHelper", &urlHelper);
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "EmojiModel", &EmojiModel::instance());
-    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "AccountRegistry", &Quotient::Accounts);
+    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "AccountRegistry", &Controller::instance().accounts());
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "SpaceHierarchyCache", &SpaceHierarchyCache::instance());
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "CustomEmojiModel", &CustomEmojiModel::instance());
     qmlRegisterType<ActionsHandler>("org.kde.neochat", 1, 0, "ActionsHandler");

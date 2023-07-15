@@ -42,7 +42,7 @@ void Login::init()
             return;
         }
 
-        m_isLoggedIn = Accounts.isLoggedIn(m_matrixId);
+        m_isLoggedIn = Controller::instance().accounts().isLoggedIn(m_matrixId);
         Q_EMIT isLoggedInChanged();
         if (m_isLoggedIn) {
             return;

@@ -9,6 +9,7 @@
 
 #include <KFormat>
 
+#include <Quotient/accountregistry.h>
 #include <Quotient/jobs/basejob.h>
 #include <Quotient/settings.h>
 
@@ -229,6 +230,8 @@ public:
 
     Q_INVOKABLE QVariantList getSupportedRoomVersions(Quotient::Connection *connection);
 
+    Quotient::AccountRegistry &accounts();
+
 private:
     explicit Controller(QObject *parent = nullptr);
 
@@ -245,6 +248,7 @@ private:
     bool hasWindowSystem() const;
 
     QPointer<PushRuleModel> m_pushRuleModel;
+    Quotient::AccountRegistry m_accountRegistry;
 
 private Q_SLOTS:
     void invokeLogin();

@@ -212,7 +212,7 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
             return;
         }
         if (room->localUser()->id() != Controller::instance().activeConnection()->userId()) {
-            Controller::instance().setActiveConnection(Accounts.get(room->localUser()->id()));
+            Controller::instance().setActiveConnection(Controller::instance().accounts().get(room->localUser()->id()));
         }
         RoomManager::instance().enterRoom(room);
     });

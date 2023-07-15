@@ -101,17 +101,17 @@ Controller::Controller(QObject *parent)
     }
 #endif
 
-    connect(&Accounts, &AccountRegistry::accountCountChanged, this, &Controller::activeConnectionIndexChanged);
+    connect(&m_accountRegistry, &AccountRegistry::accountCountChanged, this, &Controller::activeConnectionIndexChanged);
 
     static int oldAccountCount = 0;
-    connect(&Accounts, &AccountRegistry::accountCountChanged, this, [this]() {
-        if (Accounts.size() > oldAccountCount) {
-            auto connection = Accounts.accounts()[Accounts.size() - 1];
+    connect(&m_accountRegistry, &AccountRegistry::accountCountChanged, this, [this]() {
+        if (m_accountRegistry.size() > oldAccountCount) {
+            auto connection = m_accountRegistry.accounts()[m_accountRegistry.size() - 1];
             connect(connection, &Connection::syncDone, this, [connection]() {
                 NotificationsManager::instance().handleNotifications(connection);
             });
         }
-        oldAccountCount = Accounts.size();
+        oldAccountCount = m_accountRegistry.size();
     });
 
     QTimer::singleShot(0, this, [this] {
@@ -147,10 +147,10 @@ void Controller::logout(Connection *conn, bool serverSideLogout)
     job.start();
     loop.exec();
 
-    if (Accounts.count() > 1) {
+    if (m_accountRegistry.count() > 1) {
         // Only set the connection if the the account being logged out is currently active
         if (conn == activeConnection()) {
-            setActiveConnection(Accounts.accounts()[0]);
+            setActiveConnection(m_accountRegistry.accounts()[0]);
         }
     } else {
         setActiveConnection(nullptr);
@@ -165,7 +165,7 @@ void Controller::addConnection(Connection *c)
 {
     Q_ASSERT_X(c, __FUNCTION__, "Attempt to add a null connection");
 
-    Accounts.add(c);
+    m_accountRegistry.add(c);
 
     c->setLazyLoading(true);
 
@@ -391,7 +391,7 @@ NeochatChangePasswordJob::NeochatChangePasswordJob(const QString &newPassword, b
 
 int Controller::accountCount() const
 {
-    return Accounts.count();
+    return m_accountRegistry.count();
 }
 
 void Controller::setQuitOnLastWindowClosed()
@@ -625,10 +625,10 @@ void Controller::setApplicationProxy()
 
 int Controller::activeConnectionIndex() const
 {
-    auto result = std::find_if(Accounts.accounts().begin(), Accounts.accounts().end(), [this](const auto &it) {
+    auto result = std::find_if(m_accountRegistry.accounts().begin(), m_accountRegistry.accounts().end(), [this](const auto &it) {
         return it == m_connection;
     });
-    return result - Accounts.accounts().begin();
+    return result - m_accountRegistry.accounts().begin();
 }
 
 int Controller::quotientMinorVersion() const
@@ -679,6 +679,11 @@ QVariantList Controller::getSupportedRoomVersions(Quotient::Connection *connecti
     }
 
     return supportedRoomVersions;
+}
+
+AccountRegistry &Controller::accounts()
+{
+    return m_accountRegistry;
 }
 
 #include "moc_controller.cpp"
