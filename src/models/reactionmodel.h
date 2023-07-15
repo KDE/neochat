@@ -36,7 +36,7 @@ public:
         HasLocalUser, /**< Whether the local user is in the list of authors. */
     };
 
-    ReactionModel(QObject *parent = nullptr, QList<Reaction> reactions = {}, NeoChatUser *localUser = nullptr);
+    explicit ReactionModel(QObject *parent = nullptr, QList<Reaction> reactions = {}, NeoChatUser *localUser = nullptr);
 
     /**
      * @brief Get the given role value at the given index.

@@ -26,7 +26,7 @@ class ThumbnailResponse : public QQuickImageResponse
 {
     Q_OBJECT
 public:
-    ThumbnailResponse(QString mediaId, QSize requestedSize);
+    explicit ThumbnailResponse(QString mediaId, QSize requestedSize);
     ~ThumbnailResponse() override = default;
 
 private Q_SLOTS:

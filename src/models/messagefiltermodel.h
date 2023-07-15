@@ -16,7 +16,7 @@ class MessageFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    MessageFilterModel(QObject *parent = nullptr);
+    explicit MessageFilterModel(QObject *parent = nullptr);
 
     /**
      * @brief Custom filter function to remove hidden messages.

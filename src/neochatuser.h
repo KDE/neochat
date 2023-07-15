@@ -23,7 +23,7 @@ class NeoChatUser : public Quotient::User
      */
     Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged)
 public:
-    NeoChatUser(QString userId, Quotient::Connection *connection);
+    explicit NeoChatUser(QString userId, Quotient::Connection *connection);
 
 public Q_SLOTS:
     QColor color();

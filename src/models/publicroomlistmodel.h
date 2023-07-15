@@ -64,7 +64,7 @@ public:
         IsJoinedRole, /**< Whether the local user has joined the room. */
     };
 
-    PublicRoomListModel(QObject *parent = nullptr);
+    explicit PublicRoomListModel(QObject *parent = nullptr);
 
     /**
      * @brief Get the given role value at the given index.

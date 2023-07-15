@@ -31,7 +31,7 @@ public:
     };
     Q_ENUM(Roles)
 
-    MediaMessageFilterModel(QObject *parent = nullptr);
+    explicit MediaMessageFilterModel(QObject *parent = nullptr);
 
     /**
      * @brief Custom filter to show only image and video messages.

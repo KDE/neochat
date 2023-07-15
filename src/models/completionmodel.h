@@ -71,7 +71,7 @@ public:
     };
     Q_ENUM(Roles)
 
-    CompletionModel(QObject *parent = nullptr);
+    explicit CompletionModel(QObject *parent = nullptr);
 
     /**
      * @brief Get the given role value at the given index.

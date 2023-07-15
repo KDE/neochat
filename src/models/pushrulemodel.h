@@ -172,7 +172,7 @@ public:
     };
     Q_ENUM(EventRoles)
 
-    PushRuleModel(QObject *parent = nullptr);
+    explicit PushRuleModel(QObject *parent = nullptr);
 
     [[nodiscard]] PushNotificationAction::Action defaultState() const;
     void setDefaultState(PushNotificationAction::Action defaultState);
