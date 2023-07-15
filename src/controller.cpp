@@ -180,7 +180,7 @@ void Controller::addConnection(Connection *c)
     });
 
     connect(c, &Connection::requestFailed, this, [this](BaseJob *job) {
-        if (job->error() == BaseJob::UserConsentRequiredError) {
+        if (job->error() == BaseJob::UserConsentRequired) {
             Q_EMIT userConsentRequired(job->errorUrl());
         }
     });
@@ -247,7 +247,7 @@ void Controller::invokeLogin()
                 connect(connection, &Connection::networkError, this, [this](const QString &error, const QString &, int, int) {
                     Q_EMIT errorOccured(i18n("Network Error: %1", error));
                 });
-                connection->assumeIdentity(account.userId(), accessToken, account.deviceId());
+                connection->assumeIdentity(account.userId(), accessToken);
             });
         }
     }
@@ -263,7 +263,7 @@ QKeychain::ReadPasswordJob *Controller::loadAccessTokenFromKeyChain(const Accoun
     job->setKey(account.userId());
 
     // Handling of errors
-    connect(job, &QKeychain::Job::finished, this, [this, &account, job]() {
+    connect(job, &QKeychain::Job::finished, this, [this, job]() {
         if (job->error() == QKeychain::Error::NoError) {
             return;
         }

@@ -97,7 +97,9 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
         if (this->joinState() != JoinState::Invite) {
             return;
         }
-        const QString senderId = getCurrentState<RoomMemberEvent>(localUser()->id())->senderId();
+        auto roomMemberEvent = currentState().get<RoomMemberEvent>(localUser()->id());
+        Q_ASSERT(roomMemberEvent);
+        const QString senderId = roomMemberEvent->senderId();
         QImage avatar_image;
         if (!user(senderId)->avatarUrl(this).isEmpty()) {
             avatar_image = user(senderId)->avatar(128, this);
@@ -271,7 +273,7 @@ const RoomEvent *NeoChatRoom::lastEvent() const
                 continue;
             }
         }
-        if (event->isStateEvent() && static_cast<const StateEventBase &>(*event).repeatsState()) {
+        if (event->isStateEvent() && static_cast<const StateEvent &>(*event).repeatsState()) {
             continue;
         }
 
@@ -338,7 +340,7 @@ bool NeoChatRoom::lastEventIsSpoiler() const
 QString NeoChatRoom::lastEventToString(Qt::TextFormat format, bool stripNewlines) const
 {
     if (auto event = lastEvent()) {
-        return roomMembername(event->senderId()) + (event->isStateEvent() ? QLatin1String(" ") : QLatin1String(": "))
+        return safeMemberName(event->senderId()) + (event->isStateEvent() ? QLatin1String(" ") : QLatin1String(": "))
             + eventToString(*event, format, stripNewlines);
     }
     return {};
@@ -357,7 +359,7 @@ void NeoChatRoom::checkForHighlights(const Quotient::TimelineItem &ti)
     }
     if (auto *e = ti.viewAs<RoomMessageEvent>()) {
         const auto &text = e->plainBody();
-        if (text.contains(localUserId) || text.contains(roomMembername(localUserId))) {
+        if (text.contains(localUserId) || text.contains(safeMemberName(localUserId))) {
             highlights.insert(e);
         }
     }
@@ -380,7 +382,7 @@ void NeoChatRoom::onAddHistoricalTimelineEvents(rev_iter_t from)
 void NeoChatRoom::onRedaction(const RoomEvent &prevEvent, const RoomEvent & /*after*/)
 {
     if (const auto &e = eventCast<const ReactionEvent>(&prevEvent)) {
-        if (auto relatedEventId = e->relation().eventId; !relatedEventId.isEmpty()) {
+        if (auto relatedEventId = e->eventId(); !relatedEventId.isEmpty()) {
             Q_EMIT updatedEvent(relatedEventId);
         }
     }
@@ -529,7 +531,7 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
         [this, prettyPrint](const RoomMemberEvent &e) {
             // FIXME: Rewind to the name that was at the time of this event
             auto subjectName = this->htmlSafeMemberName(e.userId());
-            if (e.membership() == MembershipType::Leave) {
+            if (e.membership() == Membership::Leave) {
                 if (e.prevContent() && e.prevContent()->displayName) {
                     subjectName = sanitized(*e.prevContent()->displayName).toHtmlEscaped();
                 }
@@ -542,7 +544,7 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
 
             // The below code assumes senderName output in AuthorRole
             switch (e.membership()) {
-            case MembershipType::Invite:
+            case Membership::Invite:
                 if (e.repeatsState()) {
                     auto text = i18n("reinvited %1 to the room", subjectName);
                     if (!e.reason().isEmpty()) {
@@ -551,13 +553,13 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                     return text;
                 }
                 Q_FALLTHROUGH();
-            case MembershipType::Join: {
+            case Membership::Join: {
                 QString text{};
                 // Part 1: invites and joins
                 if (e.repeatsState()) {
                     text = i18n("joined the room (repeated)");
                 } else if (e.changesMembership()) {
-                    text = e.membership() == MembershipType::Invite ? i18n("invited %1 to the room", subjectName) : i18n("joined the room");
+                    text = e.membership() == Membership::Invite ? i18n("invited %1 to the room", subjectName) : i18n("joined the room");
                 }
                 if (!text.isEmpty()) {
                     if (!e.reason().isEmpty()) {
@@ -567,17 +569,17 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                 }
                 // Part 2: profile changes of joined members
                 if (e.isRename()) {
-                    if (e.displayName().isEmpty()) {
+                    if (!e.newDisplayName()) {
                         text = i18nc("their refers to a singular user", "cleared their display name");
                     } else {
-                        text = i18nc("their refers to a singular user", "changed their display name to %1", e.displayName().toHtmlEscaped());
+                        text = i18nc("their refers to a singular user", "changed their display name to %1", e.newDisplayName()->toHtmlEscaped());
                     }
                 }
                 if (e.isAvatarUpdate()) {
                     if (!text.isEmpty()) {
                         text += i18n(" and ");
                     }
-                    if (e.avatarUrl().isEmpty()) {
+                    if (!e.newAvatarUrl()) {
                         text += i18nc("their refers to a singular user", "cleared their avatar");
                     } else if (!e.prevContent()->avatarUrl) {
                         text += i18n("set an avatar");
@@ -590,18 +592,18 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                 }
                 return text;
             }
-            case MembershipType::Leave:
-                if (e.prevContent() && e.prevContent()->membership == MembershipType::Invite) {
+            case Membership::Leave:
+                if (e.prevContent() && e.prevContent()->membership == Membership::Invite) {
                     return (e.senderId() != e.userId()) ? i18n("withdrew %1's invitation", subjectName) : i18n("rejected the invitation");
                 }
 
-                if (e.prevContent() && e.prevContent()->membership == MembershipType::Ban) {
+                if (e.prevContent() && e.prevContent()->membership == Membership::Ban) {
                     return (e.senderId() != e.userId()) ? i18n("unbanned %1", subjectName) : i18n("self-unbanned");
                 }
                 return (e.senderId() != e.userId())
                     ? i18n("has put %1 out of the room: %2", subjectName, e.contentJson()["reason"_ls].toString().toHtmlEscaped())
                     : i18n("left the room");
-            case MembershipType::Ban:
+            case Membership::Ban:
                 if (e.senderId() != e.userId()) {
                     if (e.reason().isEmpty()) {
                         return i18n("banned %1 from the room", subjectName);
@@ -611,7 +613,7 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                 } else {
                     return i18n("self-banned from the room");
                 }
-            case MembershipType::Knock: {
+            case Membership::Knock: {
                 QString reason(e.contentJson()["reason"_ls].toString().toHtmlEscaped());
                 return reason.isEmpty() ? i18n("requested an invite") : i18n("requested an invite with reason: %1", reason);
             }
@@ -645,7 +647,7 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
         [](const RoomPowerLevelsEvent &) {
             return i18nc("'power level' means permission level", "changed the power levels for this room");
         },
-        [](const StateEventBase &e) {
+        [](const StateEvent &e) {
             if (e.matrixType() == QLatin1String("m.room.server_acl")) {
                 return i18n("changed the server access control lists for this room");
             }
@@ -684,25 +686,25 @@ QString NeoChatRoom::eventToGenericString(const RoomEvent &evt) const
         },
         [](const RoomMemberEvent &e) {
             switch (e.membership()) {
-            case MembershipType::Invite:
+            case Membership::Invite:
                 if (e.repeatsState()) {
                     return i18n("reinvited someone to the room");
                 }
                 Q_FALLTHROUGH();
-            case MembershipType::Join: {
+            case Membership::Join: {
                 QString text{};
                 // Part 1: invites and joins
                 if (e.repeatsState()) {
                     text = i18n("joined the room (repeated)");
                 } else if (e.changesMembership()) {
-                    text = e.membership() == MembershipType::Invite ? i18n("invited someone to the room") : i18n("joined the room");
+                    text = e.membership() == Membership::Invite ? i18n("invited someone to the room") : i18n("joined the room");
                 }
                 if (!text.isEmpty()) {
                     return text;
                 }
                 // Part 2: profile changes of joined members
                 if (e.isRename()) {
-                    if (e.displayName().isEmpty()) {
+                    if (!e.newDisplayName()) {
                         text = i18nc("their refers to a singular user", "cleared their display name");
                     } else {
                         text = i18nc("their refers to a singular user", "changed their display name");
@@ -712,7 +714,7 @@ QString NeoChatRoom::eventToGenericString(const RoomEvent &evt) const
                     if (!text.isEmpty()) {
                         text += i18n(" and ");
                     }
-                    if (e.avatarUrl().isEmpty()) {
+                    if (!e.newAvatarUrl()) {
                         text += i18nc("their refers to a singular user", "cleared their avatar");
                     } else if (!e.prevContent()->avatarUrl) {
                         text += i18n("set an avatar");
@@ -725,22 +727,22 @@ QString NeoChatRoom::eventToGenericString(const RoomEvent &evt) const
                 }
                 return text;
             }
-            case MembershipType::Leave:
-                if (e.prevContent() && e.prevContent()->membership == MembershipType::Invite) {
+            case Membership::Leave:
+                if (e.prevContent() && e.prevContent()->membership == Membership::Invite) {
                     return (e.senderId() != e.userId()) ? i18n("withdrew a user's invitation") : i18n("rejected the invitation");
                 }
 
-                if (e.prevContent() && e.prevContent()->membership == MembershipType::Ban) {
+                if (e.prevContent() && e.prevContent()->membership == Membership::Ban) {
                     return (e.senderId() != e.userId()) ? i18n("unbanned a user") : i18n("self-unbanned");
                 }
                 return (e.senderId() != e.userId()) ? i18n("put a user out of the room") : i18n("left the room");
-            case MembershipType::Ban:
+            case Membership::Ban:
                 if (e.senderId() != e.userId()) {
                     return i18n("banned a user from the room");
                 } else {
                     return i18n("self-banned from the room");
                 }
-            case MembershipType::Knock: {
+            case Membership::Knock: {
                 return i18n("requested an invite");
             }
             default:;
@@ -768,7 +770,7 @@ QString NeoChatRoom::eventToGenericString(const RoomEvent &evt) const
         [](const RoomPowerLevelsEvent &) {
             return i18nc("'power level' means permission level", "changed the power levels for this room");
         },
-        [](const StateEventBase &e) {
+        [](const StateEvent &e) {
             if (e.matrixType() == QLatin1String("m.room.server_acl")) {
                 return i18n("changed the server access control lists for this room");
             }
@@ -904,11 +906,11 @@ void NeoChatRoom::toggleReaction(const QString &eventId, const QString &reaction
 
     QStringList redactEventIds; // What if there are multiple reaction events?
 
-    const auto &annotations = relatedEvents(evt, EventRelation::Annotation());
+    const auto &annotations = relatedEvents(evt, EventRelation::AnnotationType);
     if (!annotations.isEmpty()) {
         for (const auto &a : annotations) {
             if (auto e = eventCast<const ReactionEvent>(a)) {
-                if (e->relation().key != reaction) {
+                if (e->key() != reaction) {
                     continue;
                 }
 
@@ -936,7 +938,10 @@ bool NeoChatRoom::containsUser(const QString &userID) const
 
 bool NeoChatRoom::canSendEvent(const QString &eventType) const
 {
-    auto plEvent = getCurrentState<RoomPowerLevelsEvent>();
+    auto plEvent = currentState().get<RoomPowerLevelsEvent>();
+    if (!plEvent) {
+        return false;
+    }
     auto pl = plEvent->powerLevelForEvent(eventType);
     auto currentPl = plEvent->powerLevelForUser(localUser()->id());
 
@@ -945,7 +950,10 @@ bool NeoChatRoom::canSendEvent(const QString &eventType) const
 
 bool NeoChatRoom::canSendState(const QString &eventType) const
 {
-    auto plEvent = getCurrentState<RoomPowerLevelsEvent>();
+    auto plEvent = currentState().get<RoomPowerLevelsEvent>();
+    if (!plEvent) {
+        return false;
+    }
     auto pl = plEvent->powerLevelForState(eventType);
     auto currentPl = plEvent->powerLevelForUser(localUser()->id());
 
@@ -965,7 +973,11 @@ bool NeoChatRoom::isInvite() const
 
 bool NeoChatRoom::isUserBanned(const QString &user) const
 {
-    return getCurrentState<RoomMemberEvent>(user)->membership() == MembershipType::Ban;
+    auto roomMemberEvent = currentState().get<RoomMemberEvent>(user);
+    if (!roomMemberEvent) {
+        return false;
+    }
+    return roomMemberEvent->membership() == Membership::Ban;
 }
 
 QString NeoChatRoom::htmlSafeDisplayName() const
@@ -980,7 +992,11 @@ void NeoChatRoom::deleteMessagesByUser(const QString &user, const QString &reaso
 
 QString NeoChatRoom::joinRule() const
 {
-    return getCurrentState<JoinRulesEvent>()->joinRule();
+    auto joinRulesEvent = currentState().get<JoinRulesEvent>();
+    if (joinRulesEvent) {
+        return {};
+    }
+    return joinRulesEvent->joinRule();
 }
 
 void NeoChatRoom::setJoinRule(const QString &joinRule)
@@ -1114,7 +1130,10 @@ void NeoChatRoom::setUserPowerLevel(const QString &userID, const int &powerLevel
 
 int NeoChatRoom::getUserPowerLevel(const QString &userId) const
 {
-    auto powerLevelEvent = getCurrentState<RoomPowerLevelsEvent>();
+    auto powerLevelEvent = currentState().get<RoomPowerLevelsEvent>();
+    if (!powerLevelEvent) {
+        return 0;
+    }
     return powerLevelEvent->powerLevelForUser(userId);
 }
 

@@ -37,9 +37,12 @@ void PollHandler::setRoom(NeoChatRoom *room)
     connect(room, &NeoChatRoom::aboutToAddNewMessages, this, [this](Quotient::RoomEventsRange events) {
         for (const auto &event : events) {
             if (event->is<PollEndEvent>()) {
-                auto pl = m_room->getCurrentState<RoomPowerLevelsEvent>();
-                auto userPl = pl->powerLevelForUser(event->senderId());
-                if (event->senderId() == (*m_room->findInTimeline(m_pollStartEventId))->senderId() || userPl >= pl->redact()) {
+                auto plEvent = m_room->currentState().get<RoomPowerLevelsEvent>();
+                if (!plEvent) {
+                    continue;
+                }
+                auto userPl = plEvent->powerLevelForUser(event->senderId());
+                if (event->senderId() == (*m_room->findInTimeline(m_pollStartEventId))->senderId() || userPl >= plEvent->redact()) {
                     m_hasEnded = true;
                     m_endedTimestamp = event->originTimestamp();
                     Q_EMIT hasEndedChanged();
@@ -78,9 +81,12 @@ void PollHandler::checkLoadRelations()
     connect(job, &BaseJob::success, this, [this, job]() {
         for (const auto &event : job->chunk()) {
             if (event->is<PollEndEvent>()) {
-                auto pl = m_room->getCurrentState<RoomPowerLevelsEvent>();
-                auto userPl = pl->powerLevelForUser(event->senderId());
-                if (event->senderId() == (*m_room->findInTimeline(m_pollStartEventId))->senderId() || userPl >= pl->redact()) {
+                auto plEvent = m_room->currentState().get<RoomPowerLevelsEvent>();
+                if (!plEvent) {
+                    continue;
+                }
+                auto userPl = plEvent->powerLevelForUser(event->senderId());
+                if (event->senderId() == (*m_room->findInTimeline(m_pollStartEventId))->senderId() || userPl >= plEvent->redact()) {
                     m_hasEnded = true;
                     m_endedTimestamp = event->originTimestamp();
                     Q_EMIT hasEndedChanged();

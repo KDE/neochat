@@ -228,7 +228,7 @@ void MessageEventModel::setRoom(NeoChatRoom *room)
             beginRemoveRows({}, i, i);
         });
         connect(m_currentRoom, &Room::pendingEventDiscarded, this, &MessageEventModel::endRemoveRows);
-        connect(m_currentRoom, &Room::readMarkerMoved, this, [this](const QString &fromEventId, const QString &toEventId) {
+        connect(m_currentRoom, &Room::fullyReadMarkerMoved, this, [this](const QString &fromEventId, const QString &toEventId) {
             Q_UNUSED(fromEventId);
             moveReadMarker(toEventId);
         });
@@ -609,7 +609,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             return EventStatus::Hidden;
         }
 
-        if (evt.isStateEvent() && static_cast<const StateEventBase &>(evt).repeatsState()) {
+        if (evt.isStateEvent() && static_cast<const StateEvent &>(evt).repeatsState()) {
             return EventStatus::Hidden;
         }
 
@@ -1053,7 +1053,7 @@ void MessageEventModel::createReactionModelForEvent(const Quotient::RoomMessageE
         return;
     }
     auto eventId = event->id();
-    const auto &annotations = m_currentRoom->relatedEvents(eventId, EventRelation::Annotation());
+    const auto &annotations = m_currentRoom->relatedEvents(eventId, EventRelation::AnnotationType);
     if (annotations.isEmpty()) {
         if (m_reactionModels.contains(eventId)) {
             delete m_reactionModels[eventId];
@@ -1068,7 +1068,7 @@ void MessageEventModel::createReactionModelForEvent(const Quotient::RoomMessageE
             continue;
         }
         if (const auto &e = eventCast<const ReactionEvent>(a)) {
-            reactions[e->relation().key].append(static_cast<NeoChatUser *>(m_currentRoom->user(e->senderId())));
+            reactions[e->key()].append(static_cast<NeoChatUser *>(m_currentRoom->user(e->senderId())));
         }
     }
 

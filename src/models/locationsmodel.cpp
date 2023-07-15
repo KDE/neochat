@@ -110,6 +110,7 @@ QVariant LocationsModel::data(const QModelIndex &index, int roleName) const
 
 int LocationsModel::rowCount(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent);
     return m_locations.size();
 }
 

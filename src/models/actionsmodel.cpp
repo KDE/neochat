@@ -436,7 +436,10 @@ QVector<ActionsModel::Action> actions{
                 Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("<user> is already banned from this room.", "%1 is already banned from this room.", text));
                 return QString();
             }
-            auto plEvent = room->getCurrentState<RoomPowerLevelsEvent>();
+            auto plEvent = room->currentState().get<RoomPowerLevelsEvent>();
+            if (!plEvent) {
+                return QString();
+            }
             if (plEvent->ban() > plEvent->powerLevelForUser(room->localUser()->id())) {
                 Q_EMIT room->showMessage(NeoChatRoom::Error, i18n("You are not allowed to ban users from this room."));
                 return QString();
@@ -466,7 +469,10 @@ QVector<ActionsModel::Action> actions{
                 Q_EMIT room->showMessage(NeoChatRoom::Error, i18nc("'<text>' does not look like a matrix id.", "'%1' does not look like a matrix id.", text));
                 return QString();
             }
-            auto plEvent = room->getCurrentState<RoomPowerLevelsEvent>();
+            auto plEvent = room->currentState().get<RoomPowerLevelsEvent>();
+            if (!plEvent) {
+                return QString();
+            }
             if (plEvent->ban() > plEvent->powerLevelForUser(room->localUser()->id())) {
                 Q_EMIT room->showMessage(NeoChatRoom::Error, i18n("You are not allowed to unban users from this room."));
                 return QString();
@@ -506,7 +512,10 @@ QVector<ActionsModel::Action> actions{
                 Q_EMIT room->showMessage(NeoChatRoom::Error, i18nc("<username> is not in this room", "%1 is not in this room.", parts[0]));
                 return QString();
             }
-            auto plEvent = room->getCurrentState<RoomPowerLevelsEvent>();
+            auto plEvent = room->currentState().get<RoomPowerLevelsEvent>();
+            if (!plEvent) {
+                return QString();
+            }
             auto kick = plEvent->kick();
             if (plEvent->powerLevelForUser(room->localUser()->id()) < kick) {
                 Q_EMIT room->showMessage(NeoChatRoom::Error, i18n("You are not allowed to kick users from this room."));

@@ -78,8 +78,11 @@ QVariant UserListModel::data(const QModelIndex &index, int role) const
         return QVariant::fromValue(user);
     }
     if (role == PowerLevelRole) {
-        auto pl = m_currentRoom->getCurrentState<RoomPowerLevelsEvent>();
-        return pl->powerLevelForUser(user->id());
+        auto plEvent = m_currentRoom->currentState().get<RoomPowerLevelsEvent>();
+        if (!plEvent) {
+            return 0;
+        }
+        return plEvent->powerLevelForUser(user->id());
     }
     if (role == PowerLevelStringRole) {
         auto pl = m_currentRoom->currentState().get<RoomPowerLevelsEvent>();
