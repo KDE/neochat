@@ -14,7 +14,6 @@
 #include <Quotient/accountregistry.h>
 #include <Quotient/connection.h>
 #include <Quotient/csapi/pushrules.h>
-#include <Quotient/jobs/basejob.h>
 #include <Quotient/user.h>
 
 #include "controller.h"

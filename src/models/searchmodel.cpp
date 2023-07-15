@@ -11,7 +11,6 @@
 #include <KLocalizedString>
 
 #include <Quotient/connection.h>
-#include <Quotient/csapi/search.h>
 
 using namespace Quotient;
 
