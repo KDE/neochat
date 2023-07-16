@@ -175,10 +175,9 @@ install(FILES org.kde.neochat.tray.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/h
 add_definitions(-DQT_NO_FOREACH)
 
 add_subdirectory(src)
-if (BUILD_TESTING AND Quotient${QUOTIENT_SUFFIX}_VERSION_MINOR GREATER 6)
-    find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} NO_MODULE COMPONENTS Test)
-    add_subdirectory(autotests)
-endif()
+
+find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} NO_MODULE COMPONENTS Test)
+add_subdirectory(autotests)
 
 if(KF${QT_MAJOR_VERSION}DocTools_FOUND)
     kdoctools_install(po)
