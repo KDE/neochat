@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-13 00:49+0000\n"
+"POT-Creation-Date: 2023-07-16 00:48+0000\n"
 "PO-Revision-Date: 2023-01-06 16:47+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -17,81 +17,81 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 21.12.3\n"
 
-#: src/controller.cpp:266
+#: src/controller.cpp:234
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Αποτυχία σύνδεσης: μη έγκυρο ενδεικτικό πρόσβασης ή έχει ανακληθεί"
 
-#: src/controller.cpp:269 src/controller.cpp:274 src/login.cpp:99
+#: src/controller.cpp:237 src/controller.cpp:242 src/login.cpp:90
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Αποτυχία σύνδεσης: %1"
 
-#: src/controller.cpp:280
+#: src/controller.cpp:248
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Σφάλμα δικτύου: %1"
 
-#: src/controller.cpp:305
+#: src/controller.cpp:273
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Το ενδεικτικό πρόσβασης δεν βρέθηκε"
 
-#: src/controller.cpp:305
+#: src/controller.cpp:273
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Ίσως να έχει διαγραφεί;"
 
-#: src/controller.cpp:309
+#: src/controller.cpp:277
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Άρνηση πρόσβασης στα κλειδιά."
 
-#: src/controller.cpp:309
+#: src/controller.cpp:277
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Επίτρεψε στο NeoChat να διαβάσει το ενδεικτικό πρόσβασης"
 
-#: src/controller.cpp:312
+#: src/controller.cpp:280
 #, kde-format
 msgid "No keychain available."
 msgstr "Καμία διαθέσιμη αλυσίδα κλειδιών."
 
-#: src/controller.cpp:312
+#: src/controller.cpp:280
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Εγκατέστησε μια αλυσίδα κλειδιών. π.χ. το KWallet ή το GNOME keyring στο "
 "Linux"
 
-#: src/controller.cpp:315
+#: src/controller.cpp:283
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Αδυναμία ανάγνωσης του ενδεικτικού πρόσβασης"
 
-#: src/controller.cpp:497
+#: src/controller.cpp:453
 #, kde-format
 msgid "File too large to download."
 msgstr ""
 
-#: src/controller.cpp:497
+#: src/controller.cpp:453
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 
-#: src/controller.cpp:540
+#: src/controller.cpp:492
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Room creation failed: %1"
 msgstr "Αποτυχία δημιουργίας αίθουσας: «%1»"
 
-#: src/controller.cpp:561
+#: src/controller.cpp:513
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "Αποτυχία δημιουργίας αίθουσας: «%1»"
 
-#: src/controller.cpp:575
+#: src/controller.cpp:527
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Προσπάθεια εισόδου με μη έγκυρο αναγνωριστικό αίθουσας"
@@ -120,98 +120,98 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Προορισμός"
 
-#: src/login.cpp:94 src/login.cpp:105
+#: src/login.cpp:85 src/login.cpp:96
 #, kde-format
 msgid "Network Error"
 msgstr "Σφάλμα δικτύου"
 
-#: src/main.cpp:167
+#: src/main.cpp:160
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:169
+#: src/main.cpp:162
 #, kde-format
 msgid "Matrix client"
 msgstr "Πελάτης του Matrix"
 
-#: src/main.cpp:171
+#: src/main.cpp:164
 #, fuzzy, kde-format
 #| msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2022 KDE Community"
 
-#: src/main.cpp:172
+#: src/main.cpp:165
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:172 src/main.cpp:173 src/main.cpp:174
+#: src/main.cpp:165 src/main.cpp:166 src/main.cpp:167
 #, kde-format
 msgid "Maintainer"
 msgstr "Συντηρητής"
 
-#: src/main.cpp:173
+#: src/main.cpp:166
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:174
+#: src/main.cpp:167
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:175
+#: src/main.cpp:168
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:175
+#: src/main.cpp:168
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Αρχικός συγγραφέας του Spectral"
 
-#: src/main.cpp:176
+#: src/main.cpp:169
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:176
+#: src/main.cpp:169
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "Συντηρητής του Quotient"
 
-#: src/main.cpp:177
+#: src/main.cpp:170
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Stelios"
 
-#: src/main.cpp:177
+#: src/main.cpp:170
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sstavra@gmail.com"
 
-#: src/main.cpp:181
+#: src/main.cpp:174
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr ""
 "Μια βιβλιοθήκη Qt5 για τη συγγραφή πελατών ανεξάρτητων από πλατφόρμες για το "
 "Matrix"
 
-#: src/main.cpp:184
+#: src/main.cpp:176
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (κατασκευάστηκε με τη %2)"
 
-#: src/main.cpp:342
+#: src/main.cpp:324
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Πελάτης για το πρωτόκολλο επικοινωνίας Matrix"
 
-#: src/main.cpp:343
+#: src/main.cpp:325
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Υποστηρίζει το matrix: url σχήμα"
@@ -232,8 +232,8 @@ msgstr "Το αίτημα εικόνας ακυρώθηκε"
 msgid "Leaving this room."
 msgstr "Εξέρχεται από αυτήν την αίθουσα."
 
-#: src/models/actionsmodel.cpp:30 src/models/actionsmodel.cpp:229
-#: src/models/actionsmodel.cpp:256 src/models/actionsmodel.cpp:287
+#: src/models/actionsmodel.cpp:30 src/models/actionsmodel.cpp:227
+#: src/models/actionsmodel.cpp:253 src/models/actionsmodel.cpp:283
 #, kde-format
 msgctxt "'<text>' does not look like a room id or alias."
 msgid "'%1' does not look like a room id or alias."
@@ -251,7 +251,7 @@ msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
 msgstr "Η αίθουσα %1 δεν βρέθηκε."
 
-#: src/models/actionsmodel.cpp:49 src/models/actionsmodel.cpp:323
+#: src/models/actionsmodel.cpp:49 src/models/actionsmodel.cpp:319
 #, kde-format
 msgid "No new nickname provided, no changes will happen."
 msgstr "Δεν δόθηκε ψευδώνυμο, δεν θα γίνουν αλλαγές."
@@ -304,67 +304,67 @@ msgstr "Στέλνει το δοσμένο συναίσθημα"
 msgid "Sends the given message as a notice"
 msgstr "Στέλνει το δοσμένο μήνυμα ως σημείωση"
 
-#: src/models/actionsmodel.cpp:191 src/models/actionsmodel.cpp:357
-#: src/models/actionsmodel.cpp:385 src/models/actionsmodel.cpp:435
-#: src/models/actionsmodel.cpp:472 src/models/actionsmodel.cpp:506
+#: src/models/actionsmodel.cpp:191 src/models/actionsmodel.cpp:353
+#: src/models/actionsmodel.cpp:381 src/models/actionsmodel.cpp:431
+#: src/models/actionsmodel.cpp:469 src/models/actionsmodel.cpp:504
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
 msgstr "Το '%1' δεν μοιάζει με αναγνωριστικό του matrix."
 
-#: src/models/actionsmodel.cpp:197
+#: src/models/actionsmodel.cpp:196
 #, kde-format
 msgctxt "<user> is already invited to this room."
 msgid "%1 is already invited to this room."
 msgstr "%1 έχει ήδη προσκληθεί σε αυτήν την αίθουσα."
 
-#: src/models/actionsmodel.cpp:201
+#: src/models/actionsmodel.cpp:200
 #, kde-format
 msgctxt "<user> is banned from this room."
 msgid "%1 is banned from this room."
 msgstr "%1 έχει αποκλειστεί από αυτήν την αίθουσα."
 
-#: src/models/actionsmodel.cpp:206
+#: src/models/actionsmodel.cpp:204
 #, kde-format
 msgid "You are already in this room."
 msgstr "Είσαι ήδη σε αυτήν την αίθουσα."
 
-#: src/models/actionsmodel.cpp:210
+#: src/models/actionsmodel.cpp:208
 #, kde-format
 msgctxt "<user> is already in this room."
 msgid "%1 is already in this room."
 msgstr "%1 είναι ήδη σε αυτήν την αίθουσα."
 
-#: src/models/actionsmodel.cpp:214
+#: src/models/actionsmodel.cpp:212
 #, kde-format
 msgctxt "<username> was invited into this room"
 msgid "%1 was invited into this room"
 msgstr "%1 είχε προσκληθεί σε αυτήν την αίθουσα"
 
-#: src/models/actionsmodel.cpp:219 src/models/actionsmodel.cpp:375
-#: src/models/actionsmodel.cpp:403 src/models/actionsmodel.cpp:494
+#: src/models/actionsmodel.cpp:217 src/models/actionsmodel.cpp:371
+#: src/models/actionsmodel.cpp:399 src/models/actionsmodel.cpp:492
 msgid "<user id>"
 msgstr "<user id>"
 
-#: src/models/actionsmodel.cpp:220
+#: src/models/actionsmodel.cpp:218
 msgid "Invites the user to this room"
 msgstr "Προσκαλεί τον χρήστη σε αυτήν την αίθουσα"
 
-#: src/models/actionsmodel.cpp:237 src/models/actionsmodel.cpp:294
+#: src/models/actionsmodel.cpp:235 src/models/actionsmodel.cpp:290
 #, kde-format
 msgctxt "Joining room <roomname>."
 msgid "Joining room %1."
 msgstr "Είσοδος στην αίθουσα %1."
 
-#: src/models/actionsmodel.cpp:243 src/models/actionsmodel.cpp:300
+#: src/models/actionsmodel.cpp:241 src/models/actionsmodel.cpp:296
 msgid "<room alias or id>"
 msgstr "<ψευδώνυμο ή αναγνωριστικό αίθουσας>"
 
-#: src/models/actionsmodel.cpp:244 src/models/actionsmodel.cpp:301
+#: src/models/actionsmodel.cpp:242 src/models/actionsmodel.cpp:297
 msgid "Joins the given room"
 msgstr "Εισέρχεται στη δοσμένη αίθουσα"
 
-#: src/models/actionsmodel.cpp:264
+#: src/models/actionsmodel.cpp:261
 #, fuzzy, kde-format
 #| msgctxt "Joining room <roomname>."
 #| msgid "Joining room %1."
@@ -372,119 +372,119 @@ msgctxt "Knocking room <roomname>."
 msgid "Knocking room %1."
 msgstr "Είσοδος στην αίθουσα %1."
 
-#: src/models/actionsmodel.cpp:276
+#: src/models/actionsmodel.cpp:273
 #, fuzzy
 #| msgid "[<room alias or id>]"
 msgid "<room alias or id> [<reason>]"
 msgstr "[<room alias or id>]"
 
-#: src/models/actionsmodel.cpp:277
+#: src/models/actionsmodel.cpp:274
 #, fuzzy
 #| msgid "Joins the given room"
 msgid "Requests to join the given room"
 msgstr "Εισέρχεται στη δοσμένη αίθουσα"
 
-#: src/models/actionsmodel.cpp:291
+#: src/models/actionsmodel.cpp:287
 #, kde-format
 msgctxt "You are already in room <roomname>."
 msgid "You are already in room %1."
 msgstr "Είσαι ήδη στην αίθουσα %1."
 
-#: src/models/actionsmodel.cpp:308 src/models/actionsmodel.cpp:316
+#: src/models/actionsmodel.cpp:304 src/models/actionsmodel.cpp:312
 msgid "[<room alias or id>]"
 msgstr "[<room alias or id>]"
 
-#: src/models/actionsmodel.cpp:309 src/models/actionsmodel.cpp:317
+#: src/models/actionsmodel.cpp:305 src/models/actionsmodel.cpp:313
 msgid "Leaves the given room or this room, if there is none given"
 msgstr "Εξέρχεται από τη δοσμένη αίθουσα ή από αυτήν, αν δεν έχει δοθεί καμία"
 
-#: src/models/actionsmodel.cpp:331 src/models/actionsmodel.cpp:339
-#: src/models/actionsmodel.cpp:347
+#: src/models/actionsmodel.cpp:327 src/models/actionsmodel.cpp:335
+#: src/models/actionsmodel.cpp:343
 msgid "<display name>"
 msgstr "<όνομα όπως εμφανίζεται>"
 
-#: src/models/actionsmodel.cpp:332
+#: src/models/actionsmodel.cpp:328
 msgid "Changes your global display name"
 msgstr "Αλλάζει το μοναδικό σου όνομα όπως εμφανίζεται"
 
-#: src/models/actionsmodel.cpp:340 src/models/actionsmodel.cpp:348
+#: src/models/actionsmodel.cpp:336 src/models/actionsmodel.cpp:344
 msgid "Changes your display name in this room"
 msgstr "Αλλάζει το όνομά σου όπως εμφανίζεται σε αυτήν την αίθουσα"
 
-#: src/models/actionsmodel.cpp:362
+#: src/models/actionsmodel.cpp:358
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
 msgstr "Το %1 έχει ήδη αγνοηθεί."
 
-#: src/models/actionsmodel.cpp:367
+#: src/models/actionsmodel.cpp:363
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
 msgstr "Το %1 τώρα παραλείπεται."
 
-#: src/models/actionsmodel.cpp:369 src/models/actionsmodel.cpp:397
+#: src/models/actionsmodel.cpp:365 src/models/actionsmodel.cpp:393
 #, kde-format
 msgctxt "<username> is not a known user"
 msgid "%1 is not a known user."
 msgstr "%1 δεν είναι γνωστός χρήστης."
 
-#: src/models/actionsmodel.cpp:376
+#: src/models/actionsmodel.cpp:372
 msgid "Ignores the given user"
 msgstr "Αγνοεί τον δοσμένο χρήστη"
 
-#: src/models/actionsmodel.cpp:391
+#: src/models/actionsmodel.cpp:387
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
 msgstr "%1 δεν παραλείπεται."
 
-#: src/models/actionsmodel.cpp:395
+#: src/models/actionsmodel.cpp:391
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
 msgstr "%1 δεν παραλείπεται πλέον."
 
-#: src/models/actionsmodel.cpp:404
+#: src/models/actionsmodel.cpp:400
 msgid "Unignores the given user"
 msgstr "Αναιρεί την παράλειψη του δοσμένου χρήστη"
 
-#: src/models/actionsmodel.cpp:424
+#: src/models/actionsmodel.cpp:420
 msgid "<reaction text>"
 msgstr "<κείμενο αντίδρασης>"
 
-#: src/models/actionsmodel.cpp:425
+#: src/models/actionsmodel.cpp:421
 msgid "React to the message with the given text"
 msgstr "Αντιδρά στο μήνυμα με το δοσμένο κείμενο"
 
-#: src/models/actionsmodel.cpp:441
+#: src/models/actionsmodel.cpp:436
 #, kde-format
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
 msgstr "%1 έχει ήδη αποκλειστεί από αυτήν την αίθουσα."
 
-#: src/models/actionsmodel.cpp:447
+#: src/models/actionsmodel.cpp:444
 #, kde-format
 msgid "You are not allowed to ban users from this room."
 msgstr "Δεν επιτρέπεται να αποκλείσεις χρήστες από αυτήν την αίθουσα."
 
-#: src/models/actionsmodel.cpp:453
+#: src/models/actionsmodel.cpp:450
 #, kde-format
 msgctxt "You are not allowed to ban <username> from this room."
 msgid "You are not allowed to ban %1 from this room."
 msgstr "Δεν επιτρέπεται να αποκλείσεις τον χρήστη %1 από αυτήν την αίθουσα."
 
-#: src/models/actionsmodel.cpp:457
+#: src/models/actionsmodel.cpp:454
 #, kde-format
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
 msgstr "%1 είχε αποκλειστεί από αυτήν την αίθουσα."
 
-#: src/models/actionsmodel.cpp:462 src/models/actionsmodel.cpp:537
+#: src/models/actionsmodel.cpp:459 src/models/actionsmodel.cpp:536
 msgid "<user id> [<reason>]"
 msgstr "<user id> [<reason>]"
 
-#: src/models/actionsmodel.cpp:463
+#: src/models/actionsmodel.cpp:460
 msgid "Bans the given user"
 msgstr "Αποκλείει τον δοσμένο χρήστη"
 
@@ -493,51 +493,51 @@ msgstr "Αποκλείει τον δοσμένο χρήστη"
 msgid "You are not allowed to unban users from this room."
 msgstr "Δεν μπορείς να αναιρέσεις τον αποκλεισμό χρηστών σε αυτήν την αίθουσα."
 
-#: src/models/actionsmodel.cpp:483
+#: src/models/actionsmodel.cpp:482
 #, kde-format
 msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
 msgstr "%1 δεν έχει αποκλειστεί από αυτήν την αίθουσα."
 
-#: src/models/actionsmodel.cpp:488
+#: src/models/actionsmodel.cpp:486
 #, kde-format
 msgctxt "<username> was unbanned from this room."
 msgid "%1 was unbanned from this room."
 msgstr "Αναιρέθηκε ο αποκλεισμός του %1 από αυτήν την αίθουσα."
 
-#: src/models/actionsmodel.cpp:495
+#: src/models/actionsmodel.cpp:493
 msgid "Removes the ban of the given user"
 msgstr "Αναιρεί τον αποκλεισμό του δοσμένου χρήστη"
 
-#: src/models/actionsmodel.cpp:510
+#: src/models/actionsmodel.cpp:508
 #, kde-format
 msgid "You cannot kick yourself from the room."
 msgstr "Δεν μπορείς να διώξεις τον εαυτό σου από την αίθουσα."
 
-#: src/models/actionsmodel.cpp:515
+#: src/models/actionsmodel.cpp:512
 #, kde-format
 msgctxt "<username> is not in this room"
 msgid "%1 is not in this room."
 msgstr "%1 δεν βρίσκεται σε αυτήν την αίθουσα."
 
-#: src/models/actionsmodel.cpp:522
+#: src/models/actionsmodel.cpp:521
 #, kde-format
 msgid "You are not allowed to kick users from this room."
 msgstr "Δεν επιτρέπεται να διώξεις χρήστες από αυτήν την αίθουσα."
 
-#: src/models/actionsmodel.cpp:528
+#: src/models/actionsmodel.cpp:527
 #, kde-format
 msgctxt "You are not allowed to kick <username> from this room"
 msgid "You are not allowed to kick %1 from this room."
 msgstr "Δεν επιτρέπεται να διώξεις τον %1 από αυτήν την αίθουσα."
 
-#: src/models/actionsmodel.cpp:532
+#: src/models/actionsmodel.cpp:531
 #, kde-format
 msgctxt "<username> was kicked from this room."
 msgid "%1 was kicked from this room."
 msgstr "%1 εκδιώχθη από αυτήν την αίθουσα."
 
-#: src/models/actionsmodel.cpp:538
+#: src/models/actionsmodel.cpp:537
 msgid "Removes the user from the room"
 msgstr "Αφαιρεί τον χρήστη από την αίθουσα"
 
@@ -646,48 +646,48 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Προσαρμοσμένο"
 
-#: src/models/imagepacksmodel.cpp:90
+#: src/models/imagepacksmodel.cpp:86
 #, fuzzy, kde-format
 #| msgid "Add keyword"
 msgctxt "As in 'The user's own Stickers'"
 msgid "Own Stickers"
 msgstr "Προσθήκη λέξης κλειδιού"
 
-#: src/models/imagepacksmodel.cpp:90
+#: src/models/imagepacksmodel.cpp:86
 #, fuzzy, kde-format
 #| msgid "No emojis"
 msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Χωρίς εμότζι"
 
-#: src/models/messageeventmodel.cpp:476 src/models/messageeventmodel.cpp:485
+#: src/models/messageeventmodel.cpp:464 src/models/messageeventmodel.cpp:473
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Αυτό το μήνυμα διαγράφηκε]</i>"
 
-#: src/models/messageeventmodel.cpp:477
+#: src/models/messageeventmodel.cpp:465
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Αυτό το μήνυμα διαγράφηκε: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:555
+#: src/models/messageeventmodel.cpp:541
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[ΔΙΑΓΡΑΜΜΕΝΟ]"
 
-#: src/models/messageeventmodel.cpp:555
+#: src/models/messageeventmodel.cpp:541
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[ΔΙΑΓΡΑΜΜΕΝΟ: %1]"
 
-#: src/models/messageeventmodel.cpp:869
+#: src/models/messageeventmodel.cpp:837
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/models/messageeventmodel.cpp:876
+#: src/models/messageeventmodel.cpp:840
 #, fuzzy, kde-format
 #| msgctxt "[action 1], [action 2 and action 3]"
 #| msgid ", "
@@ -717,306 +717,306 @@ msgid_plural "%2 reacted with %3"
 msgstr[0] "%2 αντέδρασε με %3"
 msgstr[1] "%2 αντέδρασαν με %3"
 
-#: src/models/roomlistmodel.cpp:457
+#: src/models/roomlistmodel.cpp:391
 #, kde-format
 msgid "Invited"
 msgstr "Προσκλήθηκε"
 
-#: src/models/roomlistmodel.cpp:459
+#: src/models/roomlistmodel.cpp:393
 #, kde-format
 msgid "Favorite"
 msgstr "Προτιμώμενο"
 
-#: src/models/roomlistmodel.cpp:461
+#: src/models/roomlistmodel.cpp:395
 #, kde-format
 msgid "Direct Messages"
 msgstr "Άμεσα μηνύματα"
 
-#: src/models/roomlistmodel.cpp:463
+#: src/models/roomlistmodel.cpp:397
 #, kde-format
 msgid "Normal"
 msgstr "Κανονική"
 
-#: src/models/roomlistmodel.cpp:465
+#: src/models/roomlistmodel.cpp:399
 #, kde-format
 msgid "Low priority"
 msgstr "Χαμηλή προτεραιότητα"
 
-#: src/models/roomlistmodel.cpp:467
+#: src/models/roomlistmodel.cpp:401
 #, kde-format
 msgid "Spaces"
 msgstr "Χώροι"
 
-#: src/models/searchmodel.cpp:260
+#: src/models/searchmodel.cpp:251
 #, kde-format
 msgid "Today"
 msgstr "Σήμερα"
 
-#: src/models/searchmodel.cpp:263
+#: src/models/searchmodel.cpp:254
 #, kde-format
 msgid "Yesterday"
 msgstr "Χθες"
 
-#: src/models/searchmodel.cpp:266
+#: src/models/searchmodel.cpp:257
 #, kde-format
 msgid "The day before yesterday"
 msgstr "Προχθές"
 
-#: src/neochatroom.cpp:528
+#: src/neochatroom.cpp:503
 #, kde-format
 msgid "a file"
 msgstr "ένα αρχείο"
 
-#: src/neochatroom.cpp:579
+#: src/neochatroom.cpp:549
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "επαναπροσκλήθηκε %1 στην αίθουσα"
 
-#: src/neochatroom.cpp:581
+#: src/neochatroom.cpp:551
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:590 src/neochatroom.cpp:738
+#: src/neochatroom.cpp:560 src/neochatroom.cpp:698
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "εισήλθε στην αίθουσα (επαναληπτικά)"
 
-#: src/neochatroom.cpp:592
+#: src/neochatroom.cpp:562
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "προσκλήθηκε %1 στην αίθουσα"
 
-#: src/neochatroom.cpp:592 src/neochatroom.cpp:740
+#: src/neochatroom.cpp:562 src/neochatroom.cpp:700
 #, kde-format
 msgid "joined the room"
 msgstr "εισήλθε στην αίθουσα"
 
-#: src/neochatroom.cpp:596
+#: src/neochatroom.cpp:566
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:603 src/neochatroom.cpp:748
+#: src/neochatroom.cpp:573 src/neochatroom.cpp:708
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "καθάρισε το όνομά του όπως εμφανίζεται"
 
-#: src/neochatroom.cpp:605
+#: src/neochatroom.cpp:575
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "άλλαξε το όνομά του όπως εμφανίζεται σε %1"
 
-#: src/neochatroom.cpp:610 src/neochatroom.cpp:755
+#: src/neochatroom.cpp:580 src/neochatroom.cpp:715
 #, kde-format
 msgid " and "
 msgstr " και "
 
-#: src/neochatroom.cpp:613 src/neochatroom.cpp:758
+#: src/neochatroom.cpp:583 src/neochatroom.cpp:718
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "καθάρισε το δικό του avatar"
 
-#: src/neochatroom.cpp:619 src/neochatroom.cpp:764
+#: src/neochatroom.cpp:585 src/neochatroom.cpp:720
 #, kde-format
 msgid "set an avatar"
 msgstr "ρύθμιση avatar"
 
-#: src/neochatroom.cpp:621 src/neochatroom.cpp:766
+#: src/neochatroom.cpp:587 src/neochatroom.cpp:722
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "ενημέρωσε το δικό του avatar"
 
-#: src/neochatroom.cpp:625 src/neochatroom.cpp:770
+#: src/neochatroom.cpp:591 src/neochatroom.cpp:726
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr "δεν άλλαξε τίποτε"
 
-#: src/neochatroom.cpp:631
+#: src/neochatroom.cpp:597
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "απόσυρε την πρόσκληση για %1"
 
-#: src/neochatroom.cpp:631 src/neochatroom.cpp:776
+#: src/neochatroom.cpp:597 src/neochatroom.cpp:732
 #, kde-format
 msgid "rejected the invitation"
 msgstr "απόρριψε την πρόσκληση"
 
-#: src/neochatroom.cpp:635
+#: src/neochatroom.cpp:601
 #, kde-format
 msgid "unbanned %1"
 msgstr "αναιρέθηκε ο αποκλεισμός για %1"
 
-#: src/neochatroom.cpp:635 src/neochatroom.cpp:780
+#: src/neochatroom.cpp:601 src/neochatroom.cpp:736
 #, kde-format
 msgid "self-unbanned"
 msgstr "αυτοαναίρεση αποκλεισμού"
 
-#: src/neochatroom.cpp:638
+#: src/neochatroom.cpp:604
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "έχει θέσει %1 εκτός αιθούσης: %2"
 
-#: src/neochatroom.cpp:639 src/neochatroom.cpp:782
+#: src/neochatroom.cpp:605 src/neochatroom.cpp:738
 #, kde-format
 msgid "left the room"
 msgstr "έφυγε από την αίθουσα"
 
-#: src/neochatroom.cpp:643
+#: src/neochatroom.cpp:609
 #, kde-format
 msgid "banned %1 from the room"
 msgstr "αποκλείστηκε %1 από την αίθουσα"
 
-#: src/neochatroom.cpp:645
+#: src/neochatroom.cpp:611
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "αποκλείστηκε %1 από την αίθουσα: %2"
 
-#: src/neochatroom.cpp:648 src/neochatroom.cpp:787
+#: src/neochatroom.cpp:614 src/neochatroom.cpp:743
 #, kde-format
 msgid "self-banned from the room"
 msgstr "αυτο-αποκλείστηκε από την αίθουσα"
 
-#: src/neochatroom.cpp:652 src/neochatroom.cpp:790
+#: src/neochatroom.cpp:618 src/neochatroom.cpp:746
 #, kde-format
 msgid "requested an invite"
 msgstr "αιτήθηκε μια πρόσκληση"
 
-#: src/neochatroom.cpp:652
+#: src/neochatroom.cpp:618
 #, kde-format
 msgid "requested an invite with reason: %1"
 msgstr "αιτήθηκε μια πρόσκληση με αιτιολόγηση: %1"
 
-#: src/neochatroom.cpp:656 src/neochatroom.cpp:794
+#: src/neochatroom.cpp:622 src/neochatroom.cpp:750
 #, kde-format
 msgid "made something unknown"
 msgstr "έκανε κάτι άγνωστο"
 
-#: src/neochatroom.cpp:659 src/neochatroom.cpp:797
+#: src/neochatroom.cpp:625 src/neochatroom.cpp:753
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "καθάρισε το κύριο συνώνυμο της αίθουσας"
 
-#: src/neochatroom.cpp:659
+#: src/neochatroom.cpp:625
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "ρύθμιση του κύριου συνώνυμου της αίθουσας σε: %1"
 
-#: src/neochatroom.cpp:662 src/neochatroom.cpp:800
+#: src/neochatroom.cpp:628 src/neochatroom.cpp:756
 #, kde-format
 msgid "cleared the room name"
 msgstr "καθάρισε το όνομα της αίθουσας"
 
-#: src/neochatroom.cpp:662
+#: src/neochatroom.cpp:628
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "ρύθμιση του ονόματος της αίθουσας σε: %1"
 
-#: src/neochatroom.cpp:665 src/neochatroom.cpp:803
+#: src/neochatroom.cpp:631 src/neochatroom.cpp:759
 #, kde-format
 msgid "cleared the topic"
 msgstr "καθάρισε το θέμα"
 
-#: src/neochatroom.cpp:666
+#: src/neochatroom.cpp:632
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "ρύθμιση του θέματος σε: %1"
 
-#: src/neochatroom.cpp:672 src/neochatroom.cpp:806
+#: src/neochatroom.cpp:638 src/neochatroom.cpp:762
 #, kde-format
 msgid "changed the room avatar"
 msgstr "άλλαξε το avatar της αίθουσας"
 
-#: src/neochatroom.cpp:675 src/neochatroom.cpp:809
+#: src/neochatroom.cpp:641 src/neochatroom.cpp:765
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "ενεργοποιήθηκε κρυπτογράφηση στα άκρα"
 
-#: src/neochatroom.cpp:678
+#: src/neochatroom.cpp:644
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "αναβαθμίστηκε η αίθουσα σε έκδοση %1"
 
-#: src/neochatroom.cpp:679
+#: src/neochatroom.cpp:645
 #, kde-format
 msgid "created the room, version %1"
 msgstr "δημιουργήθηκε η αίθουσα, έκδοση %1"
 
-#: src/neochatroom.cpp:682 src/neochatroom.cpp:815
+#: src/neochatroom.cpp:648 src/neochatroom.cpp:771
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "άλλαξαν τα επίπεδα δικαιωμάτων για αυτήν την αίθουσα"
 
-#: src/neochatroom.cpp:686 src/neochatroom.cpp:819
+#: src/neochatroom.cpp:652 src/neochatroom.cpp:775
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr ""
 "άλλαξαν οι λίστες ελέγχου πρόσβασης στον εξυπηρετητή για αυτήν την αίθουσα"
 
-#: src/neochatroom.cpp:690
+#: src/neochatroom.cpp:656
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "προστέθηκε %1 γραφικό συστατικό"
 
-#: src/neochatroom.cpp:693
+#: src/neochatroom.cpp:659
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "αφαιρέθηκε %1 γραφικό συστατικό"
 
-#: src/neochatroom.cpp:695
+#: src/neochatroom.cpp:661
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "διαμορφώθηκε %1 γραφικό συστατικό"
 
-#: src/neochatroom.cpp:700
+#: src/neochatroom.cpp:666
 #, kde-format
 msgid "updated %1 state"
 msgstr "ενημερώθηκε %1 κατάσταση"
 
-#: src/neochatroom.cpp:701
+#: src/neochatroom.cpp:667
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "ενημερώθηκε %1 κατάσταση για το %2"
 
-#: src/neochatroom.cpp:708 src/neochatroom.cpp:838
+#: src/neochatroom.cpp:672 src/neochatroom.cpp:792
 #, kde-format
 msgid "Unknown event"
 msgstr "Άγνωστο γεγονός"
 
-#: src/neochatroom.cpp:721
+#: src/neochatroom.cpp:681
 #, fuzzy, kde-format
 #| msgid "Send a message…"
 msgid "sent a message"
 msgstr "Αποστολή μηνύματος…"
 
-#: src/neochatroom.cpp:725
+#: src/neochatroom.cpp:685
 #, kde-format
 msgid "sent a sticker"
 msgstr ""
 
-#: src/neochatroom.cpp:731
+#: src/neochatroom.cpp:691
 #, fuzzy, kde-format
 #| msgid "reinvited %1 to the room"
 msgid "reinvited someone to the room"
 msgstr "επαναπροσκλήθηκε %1 στην αίθουσα"
 
-#: src/neochatroom.cpp:740
+#: src/neochatroom.cpp:700
 #, fuzzy, kde-format
 #| msgid "invited %1 to the room"
 msgid "invited someone to the room"
 msgstr "προσκλήθηκε %1 στην αίθουσα"
 
-#: src/neochatroom.cpp:750
+#: src/neochatroom.cpp:710
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "changed their display name to %1"
@@ -1024,146 +1024,146 @@ msgctxt "their refers to a singular user"
 msgid "changed their display name"
 msgstr "άλλαξε το όνομά του όπως εμφανίζεται σε %1"
 
-#: src/neochatroom.cpp:776
+#: src/neochatroom.cpp:732
 #, fuzzy, kde-format
 #| msgid "withdrew %1's invitation"
 msgid "withdrew a user's invitation"
 msgstr "απόσυρε την πρόσκληση για %1"
 
-#: src/neochatroom.cpp:780
+#: src/neochatroom.cpp:736
 #, fuzzy, kde-format
 #| msgid "unbanned %1"
 msgid "unbanned a user"
 msgstr "αναιρέθηκε ο αποκλεισμός για %1"
 
-#: src/neochatroom.cpp:782
+#: src/neochatroom.cpp:738
 #, fuzzy, kde-format
 #| msgid "has put %1 out of the room: %2"
 msgid "put a user out of the room"
 msgstr "έχει θέσει %1 εκτός αιθούσης: %2"
 
-#: src/neochatroom.cpp:785
+#: src/neochatroom.cpp:741
 #, fuzzy, kde-format
 #| msgid "banned %1 from the room"
 msgid "banned a user from the room"
 msgstr "αποκλείστηκε %1 από την αίθουσα"
 
-#: src/neochatroom.cpp:797
+#: src/neochatroom.cpp:753
 #, fuzzy, kde-format
 #| msgid "set the room main alias to: %1"
 msgid "set the room main alias"
 msgstr "ρύθμιση του κύριου συνώνυμου της αίθουσας σε: %1"
 
-#: src/neochatroom.cpp:800
+#: src/neochatroom.cpp:756
 #, fuzzy, kde-format
 #| msgid "set the room name to: %1"
 msgid "set the room name"
 msgstr "ρύθμιση του ονόματος της αίθουσας σε: %1"
 
-#: src/neochatroom.cpp:803
+#: src/neochatroom.cpp:759
 #, fuzzy, kde-format
 #| msgid "set the topic to: %1"
 msgid "set the topic"
 msgstr "ρύθμιση του θέματος σε: %1"
 
-#: src/neochatroom.cpp:812
+#: src/neochatroom.cpp:768
 #, fuzzy, kde-format
 #| msgid "upgraded the room to version %1"
 msgid "upgraded the room version"
 msgstr "αναβαθμίστηκε η αίθουσα σε έκδοση %1"
 
-#: src/neochatroom.cpp:812
+#: src/neochatroom.cpp:768
 #, fuzzy, kde-format
 #| msgid "left the room"
 msgid "created the room"
 msgstr "έφυγε από την αίθουσα"
 
-#: src/neochatroom.cpp:823
+#: src/neochatroom.cpp:779
 #, fuzzy, kde-format
 #| msgctxt "[User] added <name> widget"
 #| msgid "added %1 widget"
 msgid "added a widget"
 msgstr "προστέθηκε %1 γραφικό συστατικό"
 
-#: src/neochatroom.cpp:826
+#: src/neochatroom.cpp:782
 #, fuzzy, kde-format
 #| msgctxt "[User] removed <name> widget"
 #| msgid "removed %1 widget"
 msgid "removed a widget"
 msgstr "αφαιρέθηκε %1 γραφικό συστατικό"
 
-#: src/neochatroom.cpp:828
+#: src/neochatroom.cpp:784
 #, fuzzy, kde-format
 #| msgctxt "[User] configured <name> widget"
 #| msgid "configured %1 widget"
 msgid "configured a widget"
 msgstr "διαμορφώθηκε %1 γραφικό συστατικό"
 
-#: src/neochatroom.cpp:830
+#: src/neochatroom.cpp:786
 #, fuzzy, kde-format
 #| msgid "updated %1 state"
 msgid "updated the state"
 msgstr "ενημερώθηκε %1 κατάσταση"
 
-#: src/neochatroom.cpp:835
+#: src/neochatroom.cpp:790
 #, kde-format
 msgid "started a poll"
 msgstr ""
 
-#: src/neochatroom.cpp:1734 src/neochatroom.cpp:1735
+#: src/neochatroom.cpp:1624 src/neochatroom.cpp:1625
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Η αναφορά εστάλη με επιτυχία."
 
-#: src/neochatroom.cpp:2037 src/neochatroom.cpp:2045
+#: src/neochatroom.cpp:1923 src/neochatroom.cpp:1931
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr ""
 
-#: src/notificationsmanager.cpp:136
+#: src/notificationsmanager.cpp:129
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Κρυπτογραφημένο μήνυμα"
 
-#: src/notificationsmanager.cpp:209 src/qml/main.qml:257
+#: src/notificationsmanager.cpp:202 src/qml/main.qml:258
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/notificationsmanager.cpp:215
+#: src/notificationsmanager.cpp:208
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Άνοιγμα NeoChat σε αυτήν την αίθουσα"
 
-#: src/notificationsmanager.cpp:232 src/qml/Component/HoverActions.qml:103
+#: src/notificationsmanager.cpp:221 src/qml/Component/HoverActions.qml:103
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:35
 #, kde-format
 msgid "Reply"
 msgstr "Απάντηση"
 
-#: src/notificationsmanager.cpp:233
+#: src/notificationsmanager.cpp:222
 #, kde-format
 msgid "Reply..."
 msgstr "Απάντηση..."
 
-#: src/notificationsmanager.cpp:251
+#: src/notificationsmanager.cpp:240
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 σε προσκάλεσε σε μία αίθουσα"
 
-#: src/notificationsmanager.cpp:255
+#: src/notificationsmanager.cpp:244
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Άνοιγμα αυτής της πρόσκλησης στο NeoChat"
 
-#: src/notificationsmanager.cpp:261
+#: src/notificationsmanager.cpp:250
 #, kde-format
 msgid "Accept Invitation"
 msgstr "Αποδοχή πρόσκλησης"
 
-#: src/notificationsmanager.cpp:261
+#: src/notificationsmanager.cpp:250
 #, kde-format
 msgid "Reject Invitation"
 msgstr "Απόρριψη πρόσκλησης"
@@ -2015,7 +2015,7 @@ msgid "Admin (100)"
 msgstr "Διαχειριστής"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:352
-#: src/qml/Settings/DevicesPage.qml:187
+#: src/qml/Settings/DevicesPage.qml:77
 #, kde-format
 msgid "Confirm"
 msgstr "Επιβεβαίωση"
@@ -2089,18 +2089,18 @@ msgstr "Άνοιγμα ιδιωτικής συνομιλίας"
 msgid "Copy link"
 msgstr "Αντιγραφή συνδέσμου"
 
-#: src/qml/main.qml:298
+#: src/qml/main.qml:300
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Επαλήθευση συνεδρίας"
 
-#: src/qml/main.qml:308
+#: src/qml/main.qml:312
 #, kde-format
 msgid "User consent"
 msgstr "Συναίνεση χρήστη"
 
-#: src/qml/main.qml:313
+#: src/qml/main.qml:317
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2110,17 +2110,17 @@ msgstr ""
 "πριν τον χρησιμοποιήσεις. Κάνε κλικ στο παρακάτω κουμπί για να τους "
 "διαβάσεις."
 
-#: src/qml/main.qml:318
+#: src/qml/main.qml:322
 #, kde-format
 msgid "Open"
 msgstr "Άνοιγμα"
 
-#: src/qml/main.qml:352
+#: src/qml/main.qml:357
 #, kde-format
 msgid "Start a chat"
 msgstr "Έναρξη συνομιλίας"
 
-#: src/qml/main.qml:354
+#: src/qml/main.qml:359
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Θέλεις να ξεκινήσεις συνομιλία με τον %1;"
@@ -2184,8 +2184,8 @@ msgctxt "menu"
 msgid "Configure NeoChat..."
 msgstr "Διαμόρφωση του NeoChat..."
 
-#: src/qml/Menu/GlobalMenu.qml:28 src/qml/Page/RoomList/AccountMenu.qml:29
-#: src/qml/Page/RoomList/AccountMenu.qml:34
+#: src/qml/Menu/GlobalMenu.qml:28 src/qml/Page/RoomList/AccountMenu.qml:33
+#: src/qml/Page/RoomList/AccountMenu.qml:43
 #: src/qml/Page/RoomList/UserInfo.qml:217
 #, kde-format
 msgid "Configure"
@@ -2605,13 +2605,13 @@ msgstr "Συντάκτης λογαριασμού"
 msgid "Notification settings"
 msgstr "Ρύθμιση ειδοποιήσεων της αίθουσας"
 
-#: src/qml/Page/RoomList/AccountMenu.qml:32 src/qml/Settings/DevicesPage.qml:14
-#: src/qml/Settings/DevicesPage.qml:22 src/qml/Settings/SettingsPage.qml:57
+#: src/qml/Page/RoomList/AccountMenu.qml:37 src/qml/Settings/DevicesPage.qml:15
+#: src/qml/Settings/SettingsPage.qml:61
 #, kde-format
 msgid "Devices"
 msgstr "Συσκευές"
 
-#: src/qml/Page/RoomList/AccountMenu.qml:37
+#: src/qml/Page/RoomList/AccountMenu.qml:47
 #, kde-format
 msgid "Logout"
 msgstr "Αποσύνδεση"
@@ -2927,7 +2927,7 @@ msgid "No member count"
 msgstr "Δεν καταμετρήθηκαν μέλη"
 
 #: src/qml/RoomSettings/Categories.qml:18 src/qml/RoomSettings/General.qml:20
-#: src/qml/Settings/SettingsPage.qml:13
+#: src/qml/Settings/SettingsPage.qml:17
 #, kde-format
 msgid "General"
 msgstr "Γενικά"
@@ -2942,7 +2942,7 @@ msgstr "Ασφάλεια"
 msgid "Permissions"
 msgstr "Δικαιώματα"
 
-#: src/qml/RoomSettings/Categories.qml:51 src/qml/Settings/SettingsPage.qml:25
+#: src/qml/RoomSettings/Categories.qml:51 src/qml/Settings/SettingsPage.qml:29
 #, kde-format
 msgid "Notifications"
 msgstr "Ειδοποιήσεις"
@@ -3474,7 +3474,7 @@ msgid "Homeserver url"
 msgstr "Url εξυπηρετητή"
 
 #: src/qml/Settings/AccountsPage.qml:15 src/qml/Settings/AccountsPage.qml:24
-#: src/qml/Settings/SettingsPage.qml:31
+#: src/qml/Settings/SettingsPage.qml:35
 #, kde-format
 msgid "Accounts"
 msgstr "Λογαριασμοί"
@@ -3570,47 +3570,70 @@ msgstr "Στην πλευρική μπάρα"
 msgid "Color theme"
 msgstr "Θέμα χρώματος"
 
-#: src/qml/Settings/DevicesPage.qml:87
+#: src/qml/Settings/DeviceDelegate.qml:61
 #, kde-format
 msgid "New device name"
 msgstr "Νέο όνομα συσκευής"
 
-#: src/qml/Settings/DevicesPage.qml:96
+#: src/qml/Settings/DeviceDelegate.qml:70
 #, kde-format
 msgid "Cancel editing display name"
 msgstr "Ακύρωση επεξεργασίας του ονόματος όπως εμφανίζεται"
 
-#: src/qml/Settings/DevicesPage.qml:103
+#: src/qml/Settings/DeviceDelegate.qml:77
 #, kde-format
 msgid "Confirm new display name"
 msgstr "Επιβεβαίωση νέου ονόματος"
 
-#: src/qml/Settings/DevicesPage.qml:118
+#: src/qml/Settings/DeviceDelegate.qml:92
 #, kde-format
 msgid "Edit device name"
 msgstr "Επεξεργασία ονόματος συσκευής"
 
-#: src/qml/Settings/DevicesPage.qml:132
+#: src/qml/Settings/DeviceDelegate.qml:106
 #, kde-format
 msgid "Verify device"
 msgstr "Επαλήθευση συσκευής"
 
-#: src/qml/Settings/DevicesPage.qml:147
+#: src/qml/Settings/DeviceDelegate.qml:121
 #, kde-format
 msgid "Logout device"
 msgstr "Αποσύνδεση από συσκευή"
 
-#: src/qml/Settings/DevicesPage.qml:168
+#: src/qml/Settings/DevicesPage.qml:28
+#, fuzzy, kde-format
+#| msgid "Devices"
+msgid "This Device"
+msgstr "Συσκευές"
+
+#: src/qml/Settings/DevicesPage.qml:33
+#, fuzzy, kde-format
+#| msgid "Verify device"
+msgid "Verified Devices"
+msgstr "Επαλήθευση συσκευής"
+
+#: src/qml/Settings/DevicesPage.qml:38
+#, fuzzy, kde-format
+#| msgid "Verify device"
+msgid "Unverified Devices"
+msgstr "Επαλήθευση συσκευής"
+
+#: src/qml/Settings/DevicesPage.qml:43
+#, kde-format
+msgid "Devices without Encryption Support"
+msgstr ""
+
+#: src/qml/Settings/DevicesPage.qml:58
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
 msgstr "Συνδέσου για να δεις τις εγγεγραμμένες συσκευές για το λογαριασμό σου."
 
-#: src/qml/Settings/DevicesPage.qml:179
+#: src/qml/Settings/DevicesPage.qml:69
 #, kde-format
 msgid "Remove device"
 msgstr "Αφαίρεση συσκευής"
 
-#: src/qml/Settings/DevicesPage.qml:183
+#: src/qml/Settings/DevicesPage.qml:73
 #, kde-format
 msgid "Password:"
 msgstr "Κωδικός πρόσβασης:"
@@ -3835,7 +3858,7 @@ msgid "Invites"
 msgstr "Προσκαλεί"
 
 #: src/qml/Settings/NetworkProxyPage.qml:25
-#: src/qml/Settings/SettingsPage.qml:51
+#: src/qml/Settings/SettingsPage.qml:55
 #, kde-format
 msgid "Network Proxy"
 msgstr "Διαμεσολαβητής δικτύου"
@@ -3916,27 +3939,27 @@ msgstr "Ενεργοποίηση τονισμού μηνυμάτων"
 msgid "Delete keyword"
 msgstr "Διαγραφή λέξης κλειδιού"
 
-#: src/qml/Settings/SettingsPage.qml:19
+#: src/qml/Settings/SettingsPage.qml:23
 #, kde-format
 msgid "Appearance"
 msgstr "Εμφάνιση"
 
-#: src/qml/Settings/SettingsPage.qml:37
+#: src/qml/Settings/SettingsPage.qml:41
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr ""
 
-#: src/qml/Settings/SettingsPage.qml:44
+#: src/qml/Settings/SettingsPage.qml:48
 #, kde-format
 msgid "Spell Checking"
 msgstr "Ορθογραφικός έλεγχος"
 
-#: src/qml/Settings/SettingsPage.qml:63
+#: src/qml/Settings/SettingsPage.qml:72
 #, kde-format
 msgid "About NeoChat"
 msgstr "Σχετικά με το NeoChat"
 
-#: src/qml/Settings/SettingsPage.qml:69
+#: src/qml/Settings/SettingsPage.qml:78
 #, kde-format
 msgid "About KDE"
 msgstr ""
@@ -4055,34 +4078,34 @@ msgid ""
 msgstr ""
 "Δεν υπάρχει αίθουσα %1 στη λίστα. Έλεγξε την ορθογραφία και τον λογαριασμό."
 
-#: src/roommanager.cpp:216
+#: src/roommanager.cpp:212
 #, fuzzy, kde-format
 #| msgid "Invites to a room"
 msgid "Failed to join room"
 msgstr "Προσκαλεί σε μια αίθουσα"
 
-#: src/roommanager.cpp:233
+#: src/roommanager.cpp:227
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr ""
 
-#: src/roommanager.cpp:236
+#: src/roommanager.cpp:230
 #, fuzzy, kde-format
 #| msgid "Invites to a room"
 msgid "Failed to request joining room"
 msgstr "Προσκαλεί σε μια αίθουσα"
 
-#: src/roommanager.cpp:246
+#: src/roommanager.cpp:239
 #, kde-format
 msgid "No application for the link"
 msgstr "Καμία εφαρμογή για τον σύνδεσμο"
 
-#: src/roommanager.cpp:246
+#: src/roommanager.cpp:239
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "Το λειτουργικό σου σύστημα δεν βρήκε εφαρμογή για τον σύνδεσμο."
 
-#: src/roommanager.cpp:252
+#: src/roommanager.cpp:245
 #, kde-format
 msgid "Could not open URL"
 msgstr "Αδυναμία ανοίγματος του URL"

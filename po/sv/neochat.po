@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-13 00:49+0000\n"
+"POT-Creation-Date: 2023-07-16 00:48+0000\n"
 "PO-Revision-Date: 2022-09-28 16:37+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -17,80 +17,80 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 20.08.1\n"
 
-#: src/controller.cpp:266
+#: src/controller.cpp:234
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr "Inloggning misslyckades: Åtkomstsymbol ogiltig eller återkallad"
 
-#: src/controller.cpp:269 src/controller.cpp:274 src/login.cpp:99
+#: src/controller.cpp:237 src/controller.cpp:242 src/login.cpp:90
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "Inloggning misslyckades: %1"
 
-#: src/controller.cpp:280
+#: src/controller.cpp:248
 #, kde-format
 msgid "Network Error: %1"
 msgstr "Nätverksfel: %1"
 
-#: src/controller.cpp:305
+#: src/controller.cpp:273
 #, kde-format
 msgid "Access token wasn't found"
 msgstr "Åtkomstsymbol hittades inte"
 
-#: src/controller.cpp:305
+#: src/controller.cpp:273
 #, kde-format
 msgid "Maybe it was deleted?"
 msgstr "Kanske har den tagits bort?"
 
-#: src/controller.cpp:309
+#: src/controller.cpp:277
 #, kde-format
 msgid "Access to keychain was denied."
 msgstr "Åtkomst till nyckelkedja nekades."
 
-#: src/controller.cpp:309
+#: src/controller.cpp:277
 #, kde-format
 msgid "Please allow NeoChat to read the access token"
 msgstr "Ge NeoChat tillåtelse att läsa åtkomstsymbolen"
 
-#: src/controller.cpp:312
+#: src/controller.cpp:280
 #, kde-format
 msgid "No keychain available."
 msgstr "Ingen nyckelkedja tillgänglig."
 
-#: src/controller.cpp:312
+#: src/controller.cpp:280
 #, kde-format
 msgid "Please install a keychain, e.g. KWallet or GNOME keyring on Linux"
 msgstr ""
 "Installera en nyckelkedja, t.ex. plånboken eller GNOME-nyckelring på Linux"
 
-#: src/controller.cpp:315
+#: src/controller.cpp:283
 #, kde-format
 msgid "Unable to read access token"
 msgstr "Kan inte läsa åtkomstsymbol"
 
-#: src/controller.cpp:497
+#: src/controller.cpp:453
 #, kde-format
 msgid "File too large to download."
 msgstr ""
 
-#: src/controller.cpp:497
+#: src/controller.cpp:453
 #, kde-format
 msgid "Contact your matrix server administrator for support."
 msgstr ""
 
-#: src/controller.cpp:540
+#: src/controller.cpp:492
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Room creation failed: %1"
 msgstr "Misslyckades skapa rum: \"%1\""
 
-#: src/controller.cpp:561
+#: src/controller.cpp:513
 #, fuzzy, kde-format
 #| msgid "Room creation failed: \"%1\""
 msgid "Space creation failed: %1"
 msgstr "Misslyckades skapa rum: \"%1\""
 
-#: src/controller.cpp:575
+#: src/controller.cpp:527
 #, kde-format
 msgid "The room id you are trying to join is not valid"
 msgstr "Identifikationen för rummet som du försöker gå med i är inte giltig"
@@ -125,96 +125,96 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "Skicka inbjudan"
 
-#: src/login.cpp:94 src/login.cpp:105
+#: src/login.cpp:85 src/login.cpp:96
 #, kde-format
 msgid "Network Error"
 msgstr "Nätverksfel"
 
-#: src/main.cpp:167
+#: src/main.cpp:160
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:169
+#: src/main.cpp:162
 #, kde-format
 msgid "Matrix client"
 msgstr "Matrix-klient"
 
-#: src/main.cpp:171
+#: src/main.cpp:164
 #, fuzzy, kde-format
 #| msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2022 KDE-gemenskapen"
 
-#: src/main.cpp:172
+#: src/main.cpp:165
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:172 src/main.cpp:173 src/main.cpp:174
+#: src/main.cpp:165 src/main.cpp:166 src/main.cpp:167
 #, kde-format
 msgid "Maintainer"
 msgstr ""
 
-#: src/main.cpp:173
+#: src/main.cpp:166
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:174
+#: src/main.cpp:167
 #, kde-format
 msgid "James Graham"
 msgstr ""
 
-#: src/main.cpp:175
+#: src/main.cpp:168
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:175
+#: src/main.cpp:168
 #, kde-format
 msgid "Original author of Spectral"
 msgstr ""
 
-#: src/main.cpp:176
+#: src/main.cpp:169
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr ""
 
-#: src/main.cpp:176
+#: src/main.cpp:169
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr ""
 
-#: src/main.cpp:177
+#: src/main.cpp:170
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Stefan Asserhäll"
 
-#: src/main.cpp:177
+#: src/main.cpp:170
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "stefan.asserhall@bredband.net"
 
-#: src/main.cpp:181
+#: src/main.cpp:174
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr "Att Qt5-bibliotek för att skriva Matrix-klienter för flera plattformar"
 
-#: src/main.cpp:184
+#: src/main.cpp:176
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr ""
 
-#: src/main.cpp:342
+#: src/main.cpp:324
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Klient för kommunikationsprotokollet Matrix"
 
-#: src/main.cpp:343
+#: src/main.cpp:325
 #, fuzzy, kde-format
 #| msgid "Supports appstream: url scheme"
 msgid "Supports matrix: url scheme"
@@ -236,8 +236,8 @@ msgstr "Bildbegäran har avbrutits"
 msgid "Leaving this room."
 msgstr "Öppna NeoChat för rummet"
 
-#: src/models/actionsmodel.cpp:30 src/models/actionsmodel.cpp:229
-#: src/models/actionsmodel.cpp:256 src/models/actionsmodel.cpp:287
+#: src/models/actionsmodel.cpp:30 src/models/actionsmodel.cpp:227
+#: src/models/actionsmodel.cpp:253 src/models/actionsmodel.cpp:283
 #, kde-format
 msgctxt "'<text>' does not look like a room id or alias."
 msgid "'%1' does not look like a room id or alias."
@@ -257,7 +257,7 @@ msgctxt "Room <roomname> not found"
 msgid "Room %1 not found."
 msgstr "Rummet hittades inte"
 
-#: src/models/actionsmodel.cpp:49 src/models/actionsmodel.cpp:323
+#: src/models/actionsmodel.cpp:49 src/models/actionsmodel.cpp:319
 #, kde-format
 msgid "No new nickname provided, no changes will happen."
 msgstr ""
@@ -323,222 +323,222 @@ msgstr "Skickar angivet meddelande som en spoiler"
 msgid "Sends the given message as a notice"
 msgstr "Skickar angivet meddelande som en spoiler"
 
-#: src/models/actionsmodel.cpp:191 src/models/actionsmodel.cpp:357
-#: src/models/actionsmodel.cpp:385 src/models/actionsmodel.cpp:435
-#: src/models/actionsmodel.cpp:472 src/models/actionsmodel.cpp:506
+#: src/models/actionsmodel.cpp:191 src/models/actionsmodel.cpp:353
+#: src/models/actionsmodel.cpp:381 src/models/actionsmodel.cpp:431
+#: src/models/actionsmodel.cpp:469 src/models/actionsmodel.cpp:504
 #, kde-format
 msgctxt "'<text>' does not look like a matrix id."
 msgid "'%1' does not look like a matrix id."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:197
+#: src/models/actionsmodel.cpp:196
 #, fuzzy, kde-format
 #| msgid "reinvited %1 to the room"
 msgctxt "<user> is already invited to this room."
 msgid "%1 is already invited to this room."
 msgstr "bjöd in %1 till rummet igen"
 
-#: src/models/actionsmodel.cpp:201
+#: src/models/actionsmodel.cpp:200
 #, fuzzy, kde-format
 #| msgid "self-banned from the room"
 msgctxt "<user> is banned from this room."
 msgid "%1 is banned from this room."
 msgstr "bannlyste sig själv från rummet"
 
-#: src/models/actionsmodel.cpp:206
+#: src/models/actionsmodel.cpp:204
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgid "You are already in this room."
 msgstr "Öppna NeoChat för rummet"
 
-#: src/models/actionsmodel.cpp:210
+#: src/models/actionsmodel.cpp:208
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgctxt "<user> is already in this room."
 msgid "%1 is already in this room."
 msgstr "Öppna NeoChat för rummet"
 
-#: src/models/actionsmodel.cpp:214
+#: src/models/actionsmodel.cpp:212
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgctxt "<username> was invited into this room"
 msgid "%1 was invited into this room"
 msgstr "%1 bjöd in dig till ett rum"
 
-#: src/models/actionsmodel.cpp:219 src/models/actionsmodel.cpp:375
-#: src/models/actionsmodel.cpp:403 src/models/actionsmodel.cpp:494
+#: src/models/actionsmodel.cpp:217 src/models/actionsmodel.cpp:371
+#: src/models/actionsmodel.cpp:399 src/models/actionsmodel.cpp:492
 #, fuzzy
 #| msgctxt "@label Parameter of a command"
 #| msgid "<user-id>"
 msgid "<user id>"
 msgstr "<användaridentifikation>"
 
-#: src/models/actionsmodel.cpp:220
+#: src/models/actionsmodel.cpp:218
 #, fuzzy
 #| msgid "Invite user to room"
 msgid "Invites the user to this room"
 msgstr "Bjöd in användare till ett rum"
 
-#: src/models/actionsmodel.cpp:237 src/models/actionsmodel.cpp:294
+#: src/models/actionsmodel.cpp:235 src/models/actionsmodel.cpp:290
 #, fuzzy, kde-format
 #| msgid "Configure room"
 msgctxt "Joining room <roomname>."
 msgid "Joining room %1."
 msgstr "Anpassa rum"
 
-#: src/models/actionsmodel.cpp:243 src/models/actionsmodel.cpp:300
+#: src/models/actionsmodel.cpp:241 src/models/actionsmodel.cpp:296
 msgid "<room alias or id>"
 msgstr ""
 
-#: src/models/actionsmodel.cpp:244 src/models/actionsmodel.cpp:301
+#: src/models/actionsmodel.cpp:242 src/models/actionsmodel.cpp:297
 #, fuzzy
 #| msgid "joined the room"
 msgid "Joins the given room"
 msgstr "gick med i rummet"
 
-#: src/models/actionsmodel.cpp:264
+#: src/models/actionsmodel.cpp:261
 #, fuzzy, kde-format
 #| msgid "Configure room"
 msgctxt "Knocking room <roomname>."
 msgid "Knocking room %1."
 msgstr "Anpassa rum"
 
-#: src/models/actionsmodel.cpp:276
+#: src/models/actionsmodel.cpp:273
 #, fuzzy
 #| msgctxt "@label Parameter of a command"
 #| msgid "<user-id>"
 msgid "<room alias or id> [<reason>]"
 msgstr "<användaridentifikation>"
 
-#: src/models/actionsmodel.cpp:277
+#: src/models/actionsmodel.cpp:274
 #, fuzzy
 #| msgid "joined the room"
 msgid "Requests to join the given room"
 msgstr "gick med i rummet"
 
-#: src/models/actionsmodel.cpp:291
+#: src/models/actionsmodel.cpp:287
 #, kde-format
 msgctxt "You are already in room <roomname>."
 msgid "You are already in room %1."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:308 src/models/actionsmodel.cpp:316
+#: src/models/actionsmodel.cpp:304 src/models/actionsmodel.cpp:312
 msgid "[<room alias or id>]"
 msgstr ""
 
-#: src/models/actionsmodel.cpp:309 src/models/actionsmodel.cpp:317
+#: src/models/actionsmodel.cpp:305 src/models/actionsmodel.cpp:313
 msgid "Leaves the given room or this room, if there is none given"
 msgstr ""
 
-#: src/models/actionsmodel.cpp:331 src/models/actionsmodel.cpp:339
-#: src/models/actionsmodel.cpp:347
+#: src/models/actionsmodel.cpp:327 src/models/actionsmodel.cpp:335
+#: src/models/actionsmodel.cpp:343
 msgid "<display name>"
 msgstr ""
 
-#: src/models/actionsmodel.cpp:332
+#: src/models/actionsmodel.cpp:328
 #, fuzzy
 #| msgctxt "their refers to a singular user"
 #| msgid "changed their display name to %1"
 msgid "Changes your global display name"
 msgstr "ändrade sitt visningsnamn till %1"
 
-#: src/models/actionsmodel.cpp:340 src/models/actionsmodel.cpp:348
+#: src/models/actionsmodel.cpp:336 src/models/actionsmodel.cpp:344
 #, fuzzy
 #| msgctxt "their refers to a singular user"
 #| msgid "changed their display name to %1"
 msgid "Changes your display name in this room"
 msgstr "ändrade sitt visningsnamn till %1"
 
-#: src/models/actionsmodel.cpp:362
+#: src/models/actionsmodel.cpp:358
 #, kde-format
 msgctxt "<username> is already ignored."
 msgid "%1 is already ignored."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:367
+#: src/models/actionsmodel.cpp:363
 #, kde-format
 msgctxt "<username> is now ignored"
 msgid "%1 is now ignored."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:369 src/models/actionsmodel.cpp:397
+#: src/models/actionsmodel.cpp:365 src/models/actionsmodel.cpp:393
 #, kde-format
 msgctxt "<username> is not a known user"
 msgid "%1 is not a known user."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:376
+#: src/models/actionsmodel.cpp:372
 #, fuzzy
 #| msgid "Ignore this user"
 msgid "Ignores the given user"
 msgstr "Ignorera användaren"
 
-#: src/models/actionsmodel.cpp:391
+#: src/models/actionsmodel.cpp:387
 #, kde-format
 msgctxt "<username> is not ignored."
 msgid "%1 is not ignored."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:395
+#: src/models/actionsmodel.cpp:391
 #, kde-format
 msgctxt "<username> is no longer ignored."
 msgid "%1 is no longer ignored."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:404
+#: src/models/actionsmodel.cpp:400
 #, fuzzy
 #| msgid "Unignore this user"
 msgid "Unignores the given user"
 msgstr "Sluta ignorera användaren"
 
-#: src/models/actionsmodel.cpp:424
+#: src/models/actionsmodel.cpp:420
 #, fuzzy
 #| msgctxt "@label Parameter of a command"
 #| msgid "<reaction text>"
 msgid "<reaction text>"
 msgstr "<reaktionstext>"
 
-#: src/models/actionsmodel.cpp:425
+#: src/models/actionsmodel.cpp:421
 #, fuzzy
 #| msgid "React to this message with a text"
 msgid "React to the message with the given text"
 msgstr "Reagera på meddelandet med en text"
 
-#: src/models/actionsmodel.cpp:441
+#: src/models/actionsmodel.cpp:436
 #, fuzzy, kde-format
 #| msgid "self-banned from the room"
 msgctxt "<user> is already banned from this room."
 msgid "%1 is already banned from this room."
 msgstr "bannlyste sig själv från rummet"
 
-#: src/models/actionsmodel.cpp:447
+#: src/models/actionsmodel.cpp:444
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgid "You are not allowed to ban users from this room."
 msgstr "Öppna NeoChat för rummet"
 
-#: src/models/actionsmodel.cpp:453
+#: src/models/actionsmodel.cpp:450
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgctxt "You are not allowed to ban <username> from this room."
 msgid "You are not allowed to ban %1 from this room."
 msgstr "Öppna NeoChat för rummet"
 
-#: src/models/actionsmodel.cpp:457
+#: src/models/actionsmodel.cpp:454
 #, fuzzy, kde-format
 #| msgid "self-banned from the room"
 msgctxt "<username> was banned from this room."
 msgid "%1 was banned from this room."
 msgstr "bannlyste sig själv från rummet"
 
-#: src/models/actionsmodel.cpp:462 src/models/actionsmodel.cpp:537
+#: src/models/actionsmodel.cpp:459 src/models/actionsmodel.cpp:536
 #, fuzzy
 #| msgctxt "@label Parameter of a command"
 #| msgid "<user-id>"
 msgid "<user id> [<reason>]"
 msgstr "<användaridentifikation>"
 
-#: src/models/actionsmodel.cpp:463
+#: src/models/actionsmodel.cpp:460
 #, fuzzy
 #| msgid "Ignore this user"
 msgid "Bans the given user"
@@ -550,59 +550,59 @@ msgstr "Ignorera användaren"
 msgid "You are not allowed to unban users from this room."
 msgstr "Öppna NeoChat för rummet"
 
-#: src/models/actionsmodel.cpp:483
+#: src/models/actionsmodel.cpp:482
 #, fuzzy, kde-format
 #| msgid "self-banned from the room"
 msgctxt "<user> is not banned from this room."
 msgid "%1 is not banned from this room."
 msgstr "bannlyste sig själv från rummet"
 
-#: src/models/actionsmodel.cpp:488
+#: src/models/actionsmodel.cpp:486
 #, fuzzy, kde-format
 #| msgid "self-banned from the room"
 msgctxt "<username> was unbanned from this room."
 msgid "%1 was unbanned from this room."
 msgstr "bannlyste sig själv från rummet"
 
-#: src/models/actionsmodel.cpp:495
+#: src/models/actionsmodel.cpp:493
 #, fuzzy
 #| msgid "Ignore this user"
 msgid "Removes the ban of the given user"
 msgstr "Ignorera användaren"
 
-#: src/models/actionsmodel.cpp:510
+#: src/models/actionsmodel.cpp:508
 #, kde-format
 msgid "You cannot kick yourself from the room."
 msgstr ""
 
-#: src/models/actionsmodel.cpp:515
+#: src/models/actionsmodel.cpp:512
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgctxt "<username> is not in this room"
 msgid "%1 is not in this room."
 msgstr "Öppna NeoChat för rummet"
 
-#: src/models/actionsmodel.cpp:522
+#: src/models/actionsmodel.cpp:521
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgid "You are not allowed to kick users from this room."
 msgstr "Öppna NeoChat för rummet"
 
-#: src/models/actionsmodel.cpp:528
+#: src/models/actionsmodel.cpp:527
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgctxt "You are not allowed to kick <username> from this room"
 msgid "You are not allowed to kick %1 from this room."
 msgstr "Öppna NeoChat för rummet"
 
-#: src/models/actionsmodel.cpp:532
+#: src/models/actionsmodel.cpp:531
 #, fuzzy, kde-format
 #| msgid "self-banned from the room"
 msgctxt "<username> was kicked from this room."
 msgid "%1 was kicked from this room."
 msgstr "bannlyste sig själv från rummet"
 
-#: src/models/actionsmodel.cpp:538
+#: src/models/actionsmodel.cpp:537
 #, fuzzy
 #| msgid "Invite user to room"
 msgid "Removes the user from the room"
@@ -715,7 +715,7 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Egen"
 
-#: src/models/imagepacksmodel.cpp:90
+#: src/models/imagepacksmodel.cpp:86
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Add word"
@@ -723,41 +723,41 @@ msgctxt "As in 'The user's own Stickers'"
 msgid "Own Stickers"
 msgstr "Lägg till ord"
 
-#: src/models/imagepacksmodel.cpp:90
+#: src/models/imagepacksmodel.cpp:86
 #, fuzzy, kde-format
 #| msgid "Custom Emojis"
 msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Egna emoji"
 
-#: src/models/messageeventmodel.cpp:476 src/models/messageeventmodel.cpp:485
+#: src/models/messageeventmodel.cpp:464 src/models/messageeventmodel.cpp:473
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Meddelandet har tagits bort]</i>"
 
-#: src/models/messageeventmodel.cpp:477
+#: src/models/messageeventmodel.cpp:465
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Meddelandet har tagits bort: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:555
+#: src/models/messageeventmodel.cpp:541
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[ÄNDRAD]"
 
-#: src/models/messageeventmodel.cpp:555
+#: src/models/messageeventmodel.cpp:541
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[ÄNDRAD: %1]"
 
-#: src/models/messageeventmodel.cpp:869
+#: src/models/messageeventmodel.cpp:837
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/models/messageeventmodel.cpp:876
+#: src/models/messageeventmodel.cpp:840
 #, fuzzy, kde-format
 #| msgctxt "[action 1], [action 2 and action 3]"
 #| msgid ", "
@@ -787,307 +787,307 @@ msgid_plural "%2 reacted with %3"
 msgstr[0] "%2 reagerade med %3"
 msgstr[1] "%2 reagerade med %3"
 
-#: src/models/roomlistmodel.cpp:457
+#: src/models/roomlistmodel.cpp:391
 #, kde-format
 msgid "Invited"
 msgstr "Inbjuden"
 
-#: src/models/roomlistmodel.cpp:459
+#: src/models/roomlistmodel.cpp:393
 #, kde-format
 msgid "Favorite"
 msgstr "Favorit"
 
-#: src/models/roomlistmodel.cpp:461
+#: src/models/roomlistmodel.cpp:395
 #, kde-format
 msgid "Direct Messages"
 msgstr "Direktmeddelanden"
 
-#: src/models/roomlistmodel.cpp:463
+#: src/models/roomlistmodel.cpp:397
 #, kde-format
 msgid "Normal"
 msgstr "Normal"
 
-#: src/models/roomlistmodel.cpp:465
+#: src/models/roomlistmodel.cpp:399
 #, kde-format
 msgid "Low priority"
 msgstr "Låg prioritet"
 
-#: src/models/roomlistmodel.cpp:467
+#: src/models/roomlistmodel.cpp:401
 #, kde-format
 msgid "Spaces"
 msgstr "Rymder"
 
-#: src/models/searchmodel.cpp:260
+#: src/models/searchmodel.cpp:251
 #, kde-format
 msgid "Today"
 msgstr "Idag"
 
-#: src/models/searchmodel.cpp:263
+#: src/models/searchmodel.cpp:254
 #, kde-format
 msgid "Yesterday"
 msgstr "Igår"
 
-#: src/models/searchmodel.cpp:266
+#: src/models/searchmodel.cpp:257
 #, kde-format
 msgid "The day before yesterday"
 msgstr "Förrgår"
 
-#: src/neochatroom.cpp:528
+#: src/neochatroom.cpp:503
 #, kde-format
 msgid "a file"
 msgstr "en fil"
 
-#: src/neochatroom.cpp:579
+#: src/neochatroom.cpp:549
 #, kde-format
 msgid "reinvited %1 to the room"
 msgstr "bjöd in %1 till rummet igen"
 
-#: src/neochatroom.cpp:581
+#: src/neochatroom.cpp:551
 #, kde-format
 msgctxt "Optional reason for an invitation"
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:590 src/neochatroom.cpp:738
+#: src/neochatroom.cpp:560 src/neochatroom.cpp:698
 #, kde-format
 msgid "joined the room (repeated)"
 msgstr "gick med i rummet (upprepat)"
 
-#: src/neochatroom.cpp:592
+#: src/neochatroom.cpp:562
 #, kde-format
 msgid "invited %1 to the room"
 msgstr "bjöd in %1 till rummet"
 
-#: src/neochatroom.cpp:592 src/neochatroom.cpp:740
+#: src/neochatroom.cpp:562 src/neochatroom.cpp:700
 #, kde-format
 msgid "joined the room"
 msgstr "gick med i rummet"
 
-#: src/neochatroom.cpp:596
+#: src/neochatroom.cpp:566
 #, kde-format
 msgid ": %1"
 msgstr ": %1"
 
-#: src/neochatroom.cpp:603 src/neochatroom.cpp:748
+#: src/neochatroom.cpp:573 src/neochatroom.cpp:708
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their display name"
 msgstr "tog bort sitt visningsnamn"
 
-#: src/neochatroom.cpp:605
+#: src/neochatroom.cpp:575
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "changed their display name to %1"
 msgstr "ändrade sitt visningsnamn till %1"
 
-#: src/neochatroom.cpp:610 src/neochatroom.cpp:755
+#: src/neochatroom.cpp:580 src/neochatroom.cpp:715
 #, kde-format
 msgid " and "
 msgstr " och "
 
-#: src/neochatroom.cpp:613 src/neochatroom.cpp:758
+#: src/neochatroom.cpp:583 src/neochatroom.cpp:718
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "cleared their avatar"
 msgstr "tog bort sin avatar"
 
-#: src/neochatroom.cpp:619 src/neochatroom.cpp:764
+#: src/neochatroom.cpp:585 src/neochatroom.cpp:720
 #, kde-format
 msgid "set an avatar"
 msgstr "tilldela en avatar"
 
-#: src/neochatroom.cpp:621 src/neochatroom.cpp:766
+#: src/neochatroom.cpp:587 src/neochatroom.cpp:722
 #, kde-format
 msgctxt "their refers to a singular user"
 msgid "updated their avatar"
 msgstr "uppdaterade sin avatar"
 
-#: src/neochatroom.cpp:625 src/neochatroom.cpp:770
+#: src/neochatroom.cpp:591 src/neochatroom.cpp:726
 #, kde-format
 msgctxt "<user> changed nothing"
 msgid "changed nothing"
 msgstr ""
 
-#: src/neochatroom.cpp:631
+#: src/neochatroom.cpp:597
 #, kde-format
 msgid "withdrew %1's invitation"
 msgstr "drog tillbaka inbjudan av %1"
 
-#: src/neochatroom.cpp:631 src/neochatroom.cpp:776
+#: src/neochatroom.cpp:597 src/neochatroom.cpp:732
 #, kde-format
 msgid "rejected the invitation"
 msgstr "nekade till inbjudan"
 
-#: src/neochatroom.cpp:635
+#: src/neochatroom.cpp:601
 #, kde-format
 msgid "unbanned %1"
 msgstr "tog bort bannlysning av %1"
 
-#: src/neochatroom.cpp:635 src/neochatroom.cpp:780
+#: src/neochatroom.cpp:601 src/neochatroom.cpp:736
 #, kde-format
 msgid "self-unbanned"
 msgstr "tog bort bannlysning av sig själv"
 
-#: src/neochatroom.cpp:638
+#: src/neochatroom.cpp:604
 #, kde-format
 msgid "has put %1 out of the room: %2"
 msgstr "har flyttat %1 utanför rummet: %2"
 
-#: src/neochatroom.cpp:639 src/neochatroom.cpp:782
+#: src/neochatroom.cpp:605 src/neochatroom.cpp:738
 #, kde-format
 msgid "left the room"
 msgstr "lämnade rummet"
 
-#: src/neochatroom.cpp:643
+#: src/neochatroom.cpp:609
 #, fuzzy, kde-format
 #| msgid "banned %1 from the room: %2"
 msgid "banned %1 from the room"
 msgstr "bannlyste %1 från rummet: %2"
 
-#: src/neochatroom.cpp:645
+#: src/neochatroom.cpp:611
 #, kde-format
 msgid "banned %1 from the room: %2"
 msgstr "bannlyste %1 från rummet: %2"
 
-#: src/neochatroom.cpp:648 src/neochatroom.cpp:787
+#: src/neochatroom.cpp:614 src/neochatroom.cpp:743
 #, kde-format
 msgid "self-banned from the room"
 msgstr "bannlyste sig själv från rummet"
 
-#: src/neochatroom.cpp:652 src/neochatroom.cpp:790
+#: src/neochatroom.cpp:618 src/neochatroom.cpp:746
 #, kde-format
 msgid "requested an invite"
 msgstr "frågade efter en inbjudan"
 
-#: src/neochatroom.cpp:652
+#: src/neochatroom.cpp:618
 #, fuzzy, kde-format
 #| msgid "requested an invite"
 msgid "requested an invite with reason: %1"
 msgstr "frågade efter en inbjudan"
 
-#: src/neochatroom.cpp:656 src/neochatroom.cpp:794
+#: src/neochatroom.cpp:622 src/neochatroom.cpp:750
 #, kde-format
 msgid "made something unknown"
 msgstr "gjorde någonting okänt"
 
-#: src/neochatroom.cpp:659 src/neochatroom.cpp:797
+#: src/neochatroom.cpp:625 src/neochatroom.cpp:753
 #, kde-format
 msgid "cleared the room main alias"
 msgstr "tog bort rummets huvudalias"
 
-#: src/neochatroom.cpp:659
+#: src/neochatroom.cpp:625
 #, kde-format
 msgid "set the room main alias to: %1"
 msgstr "ställde in rummets huvudalias till: %1"
 
-#: src/neochatroom.cpp:662 src/neochatroom.cpp:800
+#: src/neochatroom.cpp:628 src/neochatroom.cpp:756
 #, kde-format
 msgid "cleared the room name"
 msgstr "tog bort rummets namn"
 
-#: src/neochatroom.cpp:662
+#: src/neochatroom.cpp:628
 #, kde-format
 msgid "set the room name to: %1"
 msgstr "ställ in rummets namn till: %1"
 
-#: src/neochatroom.cpp:665 src/neochatroom.cpp:803
+#: src/neochatroom.cpp:631 src/neochatroom.cpp:759
 #, kde-format
 msgid "cleared the topic"
 msgstr "tog bort ämnet"
 
-#: src/neochatroom.cpp:666
+#: src/neochatroom.cpp:632
 #, kde-format
 msgid "set the topic to: %1"
 msgstr "ställ in ämnet till: %1"
 
-#: src/neochatroom.cpp:672 src/neochatroom.cpp:806
+#: src/neochatroom.cpp:638 src/neochatroom.cpp:762
 #, kde-format
 msgid "changed the room avatar"
 msgstr "ändrade rummets avatar"
 
-#: src/neochatroom.cpp:675 src/neochatroom.cpp:809
+#: src/neochatroom.cpp:641 src/neochatroom.cpp:765
 #, kde-format
 msgid "activated End-to-End Encryption"
 msgstr "aktiverade kryptering hela vägen"
 
-#: src/neochatroom.cpp:678
+#: src/neochatroom.cpp:644
 #, kde-format
 msgid "upgraded the room to version %1"
 msgstr "uppgraderade rummet till version %1"
 
-#: src/neochatroom.cpp:679
+#: src/neochatroom.cpp:645
 #, kde-format
 msgid "created the room, version %1"
 msgstr "skapade rummet, version %1"
 
-#: src/neochatroom.cpp:682 src/neochatroom.cpp:815
+#: src/neochatroom.cpp:648 src/neochatroom.cpp:771
 #, kde-format
 msgctxt "'power level' means permission level"
 msgid "changed the power levels for this room"
 msgstr "ändrade rummets effektnivåer"
 
-#: src/neochatroom.cpp:686 src/neochatroom.cpp:819
+#: src/neochatroom.cpp:652 src/neochatroom.cpp:775
 #, kde-format
 msgid "changed the server access control lists for this room"
 msgstr "ändrade serverns åtkomstkontrollista för rummet"
 
-#: src/neochatroom.cpp:690
+#: src/neochatroom.cpp:656
 #, kde-format
 msgctxt "[User] added <name> widget"
 msgid "added %1 widget"
 msgstr "lade till grafisk komponent %1"
 
-#: src/neochatroom.cpp:693
+#: src/neochatroom.cpp:659
 #, kde-format
 msgctxt "[User] removed <name> widget"
 msgid "removed %1 widget"
 msgstr "tog bort grafisk komponent %1"
 
-#: src/neochatroom.cpp:695
+#: src/neochatroom.cpp:661
 #, kde-format
 msgctxt "[User] configured <name> widget"
 msgid "configured %1 widget"
 msgstr "ställde in grafisk komponent %1"
 
-#: src/neochatroom.cpp:700
+#: src/neochatroom.cpp:666
 #, kde-format
 msgid "updated %1 state"
 msgstr "uppdaterade tillstånd %1"
 
-#: src/neochatroom.cpp:701
+#: src/neochatroom.cpp:667
 #, kde-format
 msgid "updated %1 state for %2"
 msgstr "uppdaterade tillstånd %1 för %2"
 
-#: src/neochatroom.cpp:708 src/neochatroom.cpp:838
+#: src/neochatroom.cpp:672 src/neochatroom.cpp:792
 #, kde-format
 msgid "Unknown event"
 msgstr "Okänd händelse"
 
-#: src/neochatroom.cpp:721
+#: src/neochatroom.cpp:681
 #, fuzzy, kde-format
 #| msgid "Send a message…"
 msgid "sent a message"
 msgstr "Skicka ett meddelande…"
 
-#: src/neochatroom.cpp:725
+#: src/neochatroom.cpp:685
 #, kde-format
 msgid "sent a sticker"
 msgstr ""
 
-#: src/neochatroom.cpp:731
+#: src/neochatroom.cpp:691
 #, fuzzy, kde-format
 #| msgid "reinvited %1 to the room"
 msgid "reinvited someone to the room"
 msgstr "bjöd in %1 till rummet igen"
 
-#: src/neochatroom.cpp:740
+#: src/neochatroom.cpp:700
 #, fuzzy, kde-format
 #| msgid "invited %1 to the room"
 msgid "invited someone to the room"
 msgstr "bjöd in %1 till rummet"
 
-#: src/neochatroom.cpp:750
+#: src/neochatroom.cpp:710
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "changed their display name to %1"
@@ -1095,147 +1095,147 @@ msgctxt "their refers to a singular user"
 msgid "changed their display name"
 msgstr "ändrade sitt visningsnamn till %1"
 
-#: src/neochatroom.cpp:776
+#: src/neochatroom.cpp:732
 #, fuzzy, kde-format
 #| msgid "withdrew %1's invitation"
 msgid "withdrew a user's invitation"
 msgstr "drog tillbaka inbjudan av %1"
 
-#: src/neochatroom.cpp:780
+#: src/neochatroom.cpp:736
 #, fuzzy, kde-format
 #| msgid "unbanned %1"
 msgid "unbanned a user"
 msgstr "tog bort bannlysning av %1"
 
-#: src/neochatroom.cpp:782
+#: src/neochatroom.cpp:738
 #, fuzzy, kde-format
 #| msgid "has put %1 out of the room: %2"
 msgid "put a user out of the room"
 msgstr "har flyttat %1 utanför rummet: %2"
 
-#: src/neochatroom.cpp:785
+#: src/neochatroom.cpp:741
 #, fuzzy, kde-format
 #| msgid "banned %1 from the room: %2"
 msgid "banned a user from the room"
 msgstr "bannlyste %1 från rummet: %2"
 
-#: src/neochatroom.cpp:797
+#: src/neochatroom.cpp:753
 #, fuzzy, kde-format
 #| msgid "set the room main alias to: %1"
 msgid "set the room main alias"
 msgstr "ställde in rummets huvudalias till: %1"
 
-#: src/neochatroom.cpp:800
+#: src/neochatroom.cpp:756
 #, fuzzy, kde-format
 #| msgid "set the room name to: %1"
 msgid "set the room name"
 msgstr "ställ in rummets namn till: %1"
 
-#: src/neochatroom.cpp:803
+#: src/neochatroom.cpp:759
 #, fuzzy, kde-format
 #| msgid "set the topic to: %1"
 msgid "set the topic"
 msgstr "ställ in ämnet till: %1"
 
-#: src/neochatroom.cpp:812
+#: src/neochatroom.cpp:768
 #, fuzzy, kde-format
 #| msgid "upgraded the room to version %1"
 msgid "upgraded the room version"
 msgstr "uppgraderade rummet till version %1"
 
-#: src/neochatroom.cpp:812
+#: src/neochatroom.cpp:768
 #, fuzzy, kde-format
 #| msgid "left the room"
 msgid "created the room"
 msgstr "lämnade rummet"
 
-#: src/neochatroom.cpp:823
+#: src/neochatroom.cpp:779
 #, fuzzy, kde-format
 #| msgctxt "[User] added <name> widget"
 #| msgid "added %1 widget"
 msgid "added a widget"
 msgstr "lade till grafisk komponent %1"
 
-#: src/neochatroom.cpp:826
+#: src/neochatroom.cpp:782
 #, fuzzy, kde-format
 #| msgctxt "[User] removed <name> widget"
 #| msgid "removed %1 widget"
 msgid "removed a widget"
 msgstr "tog bort grafisk komponent %1"
 
-#: src/neochatroom.cpp:828
+#: src/neochatroom.cpp:784
 #, fuzzy, kde-format
 #| msgctxt "[User] configured <name> widget"
 #| msgid "configured %1 widget"
 msgid "configured a widget"
 msgstr "ställde in grafisk komponent %1"
 
-#: src/neochatroom.cpp:830
+#: src/neochatroom.cpp:786
 #, fuzzy, kde-format
 #| msgid "updated %1 state"
 msgid "updated the state"
 msgstr "uppdaterade tillstånd %1"
 
-#: src/neochatroom.cpp:835
+#: src/neochatroom.cpp:790
 #, kde-format
 msgid "started a poll"
 msgstr ""
 
-#: src/neochatroom.cpp:1734 src/neochatroom.cpp:1735
+#: src/neochatroom.cpp:1624 src/neochatroom.cpp:1625
 #, kde-format
 msgid "Report sent successfully."
 msgstr "Rapport skickades med lyckat resultat."
 
-#: src/neochatroom.cpp:2037 src/neochatroom.cpp:2045
+#: src/neochatroom.cpp:1923 src/neochatroom.cpp:1931
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr ""
 
-#: src/notificationsmanager.cpp:136
+#: src/notificationsmanager.cpp:129
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgid "Encrypted Message"
 msgstr "Redigera meddelande"
 
-#: src/notificationsmanager.cpp:209 src/qml/main.qml:257
+#: src/notificationsmanager.cpp:202 src/qml/main.qml:258
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/notificationsmanager.cpp:215
+#: src/notificationsmanager.cpp:208
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Öppna NeoChat för rummet"
 
-#: src/notificationsmanager.cpp:232 src/qml/Component/HoverActions.qml:103
+#: src/notificationsmanager.cpp:221 src/qml/Component/HoverActions.qml:103
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:35
 #, kde-format
 msgid "Reply"
 msgstr "Svara"
 
-#: src/notificationsmanager.cpp:233
+#: src/notificationsmanager.cpp:222
 #, kde-format
 msgid "Reply..."
 msgstr "Svara..."
 
-#: src/notificationsmanager.cpp:251
+#: src/notificationsmanager.cpp:240
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 bjöd in dig till ett rum"
 
-#: src/notificationsmanager.cpp:255
+#: src/notificationsmanager.cpp:244
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Öppna inbjudan i NeoChat"
 
-#: src/notificationsmanager.cpp:261
+#: src/notificationsmanager.cpp:250
 #, kde-format
 msgid "Accept Invitation"
 msgstr "Acceptera inbjudan"
 
-#: src/notificationsmanager.cpp:261
+#: src/notificationsmanager.cpp:250
 #, kde-format
 msgid "Reject Invitation"
 msgstr "Avslå inbjudan"
@@ -2090,7 +2090,7 @@ msgid "Admin (100)"
 msgstr "Administratör"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:352
-#: src/qml/Settings/DevicesPage.qml:187
+#: src/qml/Settings/DevicesPage.qml:77
 #, kde-format
 msgid "Confirm"
 msgstr "Bekräfta"
@@ -2169,18 +2169,18 @@ msgstr "Starta en privat chatt"
 msgid "Copy link"
 msgstr "Kopiera"
 
-#: src/qml/main.qml:298
+#: src/qml/main.qml:300
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Sessionsverifikation"
 
-#: src/qml/main.qml:308
+#: src/qml/main.qml:312
 #, kde-format
 msgid "User consent"
 msgstr "Användargodkännande"
 
-#: src/qml/main.qml:313
+#: src/qml/main.qml:317
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2189,17 +2189,17 @@ msgstr ""
 "Din hemserver kräver att du godkänner dess villkor innan den kan användas. "
 "Klicka på knappen nedan för att läsa dem."
 
-#: src/qml/main.qml:318
+#: src/qml/main.qml:322
 #, kde-format
 msgid "Open"
 msgstr "Öppna"
 
-#: src/qml/main.qml:352
+#: src/qml/main.qml:357
 #, kde-format
 msgid "Start a chat"
 msgstr "Starta en chatt"
 
-#: src/qml/main.qml:354
+#: src/qml/main.qml:359
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Vill du starta en chatt med %1?"
@@ -2263,8 +2263,8 @@ msgctxt "menu"
 msgid "Configure NeoChat..."
 msgstr "Anpassa NeoChat..."
 
-#: src/qml/Menu/GlobalMenu.qml:28 src/qml/Page/RoomList/AccountMenu.qml:29
-#: src/qml/Page/RoomList/AccountMenu.qml:34
+#: src/qml/Menu/GlobalMenu.qml:28 src/qml/Page/RoomList/AccountMenu.qml:33
+#: src/qml/Page/RoomList/AccountMenu.qml:43
 #: src/qml/Page/RoomList/UserInfo.qml:217
 #, kde-format
 msgid "Configure"
@@ -2695,13 +2695,13 @@ msgstr "Kontoeditor"
 msgid "Notification settings"
 msgstr "Inställning av rumsunderrättelser:"
 
-#: src/qml/Page/RoomList/AccountMenu.qml:32 src/qml/Settings/DevicesPage.qml:14
-#: src/qml/Settings/DevicesPage.qml:22 src/qml/Settings/SettingsPage.qml:57
+#: src/qml/Page/RoomList/AccountMenu.qml:37 src/qml/Settings/DevicesPage.qml:15
+#: src/qml/Settings/SettingsPage.qml:61
 #, kde-format
 msgid "Devices"
 msgstr "Enheter"
 
-#: src/qml/Page/RoomList/AccountMenu.qml:37
+#: src/qml/Page/RoomList/AccountMenu.qml:47
 #, kde-format
 msgid "Logout"
 msgstr "Logga ut"
@@ -3029,7 +3029,7 @@ msgid "No member count"
 msgstr "Ingen medlemsräkning"
 
 #: src/qml/RoomSettings/Categories.qml:18 src/qml/RoomSettings/General.qml:20
-#: src/qml/Settings/SettingsPage.qml:13
+#: src/qml/Settings/SettingsPage.qml:17
 #, kde-format
 msgid "General"
 msgstr "Allmänt"
@@ -3044,7 +3044,7 @@ msgstr "Säkerhet"
 msgid "Permissions"
 msgstr ""
 
-#: src/qml/RoomSettings/Categories.qml:51 src/qml/Settings/SettingsPage.qml:25
+#: src/qml/RoomSettings/Categories.qml:51 src/qml/Settings/SettingsPage.qml:29
 #, kde-format
 msgid "Notifications"
 msgstr "Underrättelser"
@@ -3599,7 +3599,7 @@ msgid "Homeserver url"
 msgstr "Hemserver:"
 
 #: src/qml/Settings/AccountsPage.qml:15 src/qml/Settings/AccountsPage.qml:24
-#: src/qml/Settings/SettingsPage.qml:31
+#: src/qml/Settings/SettingsPage.qml:35
 #, kde-format
 msgid "Accounts"
 msgstr "Konton"
@@ -3700,52 +3700,75 @@ msgstr "I sidorad"
 msgid "Color theme"
 msgstr ""
 
-#: src/qml/Settings/DevicesPage.qml:87
+#: src/qml/Settings/DeviceDelegate.qml:61
 #, fuzzy, kde-format
 #| msgid "Edit device name"
 msgid "New device name"
 msgstr "Redigera enhetsnamn"
 
-#: src/qml/Settings/DevicesPage.qml:96
+#: src/qml/Settings/DeviceDelegate.qml:70
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "cleared their display name"
 msgid "Cancel editing display name"
 msgstr "tog bort sitt visningsnamn"
 
-#: src/qml/Settings/DevicesPage.qml:103
+#: src/qml/Settings/DeviceDelegate.qml:77
 #, fuzzy, kde-format
 #| msgctxt "their refers to a singular user"
 #| msgid "cleared their display name"
 msgid "Confirm new display name"
 msgstr "tog bort sitt visningsnamn"
 
-#: src/qml/Settings/DevicesPage.qml:118
+#: src/qml/Settings/DeviceDelegate.qml:92
 #, kde-format
 msgid "Edit device name"
 msgstr "Redigera enhetsnamn"
 
-#: src/qml/Settings/DevicesPage.qml:132
+#: src/qml/Settings/DeviceDelegate.qml:106
 #, kde-format
 msgid "Verify device"
 msgstr "Verifiera enhet"
 
-#: src/qml/Settings/DevicesPage.qml:147
+#: src/qml/Settings/DeviceDelegate.qml:121
 #, kde-format
 msgid "Logout device"
 msgstr "Logga ut från enhet"
 
-#: src/qml/Settings/DevicesPage.qml:168
+#: src/qml/Settings/DevicesPage.qml:28
+#, fuzzy, kde-format
+#| msgid "Devices"
+msgid "This Device"
+msgstr "Enheter"
+
+#: src/qml/Settings/DevicesPage.qml:33
+#, fuzzy, kde-format
+#| msgid "Verify device"
+msgid "Verified Devices"
+msgstr "Verifiera enhet"
+
+#: src/qml/Settings/DevicesPage.qml:38
+#, fuzzy, kde-format
+#| msgid "Verify device"
+msgid "Unverified Devices"
+msgstr "Verifiera enhet"
+
+#: src/qml/Settings/DevicesPage.qml:43
+#, kde-format
+msgid "Devices without Encryption Support"
+msgstr ""
+
+#: src/qml/Settings/DevicesPage.qml:58
 #, kde-format
 msgid "Please login to view the signed-in devices for your account."
 msgstr ""
 
-#: src/qml/Settings/DevicesPage.qml:179
+#: src/qml/Settings/DevicesPage.qml:69
 #, kde-format
 msgid "Remove device"
 msgstr "Ta bort enhet"
 
-#: src/qml/Settings/DevicesPage.qml:183
+#: src/qml/Settings/DevicesPage.qml:73
 #, kde-format
 msgid "Password:"
 msgstr "Lösenord:"
@@ -3978,7 +4001,7 @@ msgid "Invites"
 msgstr "Bjud in"
 
 #: src/qml/Settings/NetworkProxyPage.qml:25
-#: src/qml/Settings/SettingsPage.qml:51
+#: src/qml/Settings/SettingsPage.qml:55
 #, fuzzy, kde-format
 #| msgid "Network Error"
 msgid "Network Proxy"
@@ -4067,27 +4090,27 @@ msgstr ""
 msgid "Delete keyword"
 msgstr "Ta bort ord"
 
-#: src/qml/Settings/SettingsPage.qml:19
+#: src/qml/Settings/SettingsPage.qml:23
 #, kde-format
 msgid "Appearance"
 msgstr "Utseende"
 
-#: src/qml/Settings/SettingsPage.qml:37
+#: src/qml/Settings/SettingsPage.qml:41
 #, kde-format
 msgid "Stickers & Emojis"
 msgstr ""
 
-#: src/qml/Settings/SettingsPage.qml:44
+#: src/qml/Settings/SettingsPage.qml:48
 #, kde-format
 msgid "Spell Checking"
 msgstr "Stavningskontroll"
 
-#: src/qml/Settings/SettingsPage.qml:63
+#: src/qml/Settings/SettingsPage.qml:72
 #, kde-format
 msgid "About NeoChat"
 msgstr "Om NeoChat"
 
-#: src/qml/Settings/SettingsPage.qml:69
+#: src/qml/Settings/SettingsPage.qml:78
 #, fuzzy, kde-format
 #| msgid "About"
 msgid "About KDE"
@@ -4208,34 +4231,34 @@ msgstr ""
 "Det finns inget rum som heter %1 i listan över rum. Kontrollera stavningen "
 "och kontot."
 
-#: src/roommanager.cpp:216
+#: src/roommanager.cpp:212
 #, fuzzy, kde-format
 #| msgid "Invite user to room"
 msgid "Failed to join room"
 msgstr "Bjöd in användare till ett rum"
 
-#: src/roommanager.cpp:233
+#: src/roommanager.cpp:227
 #, kde-format
 msgid "You requested to join '%1'"
 msgstr ""
 
-#: src/roommanager.cpp:236
+#: src/roommanager.cpp:230
 #, fuzzy, kde-format
 #| msgid "Invite user to room"
 msgid "Failed to request joining room"
 msgstr "Bjöd in användare till ett rum"
 
-#: src/roommanager.cpp:246
+#: src/roommanager.cpp:239
 #, kde-format
 msgid "No application for the link"
 msgstr "Inget program för länken"
 
-#: src/roommanager.cpp:246
+#: src/roommanager.cpp:239
 #, kde-format
 msgid "Your operating system could not find an application for the link."
 msgstr "Ditt operativsystem kunde inte hitta något program för länken."
 
-#: src/roommanager.cpp:252
+#: src/roommanager.cpp:245
 #, kde-format
 msgid "Could not open URL"
 msgstr "Kunde inte öppna  webbadress"
