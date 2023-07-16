@@ -26,3 +26,5 @@ DevicesProxyModel::DevicesProxyModel(QObject *parent)
     setSortRole(DevicesModel::LastTimestamp);
     sort(0, Qt::DescendingOrder);
 }
+
+#include "moc_devicesproxymodel.cpp"

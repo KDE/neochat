@@ -108,3 +108,5 @@ QHash<int, QByteArray> KeywordNotificationRuleModel::roleNames() const
 {
     return {{NameRole, QByteArrayLiteral("name")}};
 }
+
+#include "moc_keywordnotificationrulemodel.cpp"
