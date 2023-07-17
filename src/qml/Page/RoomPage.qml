@@ -177,4 +177,8 @@ Kirigami.Page {
         root.header.contentItem.type =  Kirigami.MessageType.Warning;
         root.header.visible = true;
     }
+
+    function showUserDetail(user) {
+        timelineViewLoader.item.showUserDetail(user)
+    }
 }

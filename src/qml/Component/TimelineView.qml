@@ -420,13 +420,6 @@ QQC2.ScrollView {
                 popup.open()
         }
 
-        function showUserDetail(user) {
-            userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {
-                room: root.currentRoom,
-                user: root.currentRoom.getUser(user.id),
-            }).open();
-        }
-
         function goToLastMessage() {
             root.currentRoom.markAllMessagesAsRead()
             // scroll to the very end, i.e to messageListView.YEnd
@@ -495,5 +488,12 @@ QQC2.ScrollView {
 
     function positionViewAtBeginning() {
         messageListView.positionViewAtBeginning()
+    }
+
+    function showUserDetail(user) {
+        userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {
+            room: root.currentRoom,
+            user: root.currentRoom.getUser(user.id),
+        }).open();
     }
 }
