@@ -519,14 +519,12 @@ ColumnLayout {
                     visible: cardBackground && !Config.compactLayout
                     anchors.fill: parent
                     Kirigami.Theme.colorSet: Kirigami.Theme.View
-                    color: {
-                        if (root.author.isLocalUser) {
-                            return Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.15)
-                        } else if (root.showHighlight) {
-                            return Kirigami.Theme.positiveBackgroundColor
-                        } else {
-                            return Kirigami.Theme.backgroundColor
-                        }
+                    color:  if (root.author.isLocalUser) {
+                        return Kirigami.ColorUtils.tintWithAlpha(Kirigami.Theme.backgroundColor, Kirigami.Theme.highlightColor, 0.15)
+                    } else if (root.showHighlight) {
+                        return Kirigami.Theme.positiveBackgroundColor
+                    } else {
+                        return Kirigami.Theme.backgroundColor
                     }
                     radius: Kirigami.Units.smallSpacing
                     shadow.size: Kirigami.Units.smallSpacing
