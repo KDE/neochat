@@ -60,7 +60,7 @@ Kirigami.BasicListItem {
     }
 
     leading: Kirigami.Avatar {
-        source: root.avatar ? `image://mxc/${root.avatar}` : ""
+        source: root.avatar ? "image://mxc/" +  root.avatar : ""
         name: root.displayName
         implicitWidth: visible ? height : 0
         visible: Config.showAvatarInRoomDrawer
