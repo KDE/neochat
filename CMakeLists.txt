@@ -160,10 +160,6 @@ set_package_properties(KF${QT_MAJOR_VERSION}DocTools PROPERTIES DESCRIPTION
     TYPE OPTIONAL
 )
 
-if(NOT Quotient${QUOTIENT_SUFFIX}_VERSION_MINOR GREATER 6)
-    cmake_policy(SET CMP0063 OLD)
-endif()
-
 if(ANDROID)
     find_package(Sqlite3)
     configure_file(${CMAKE_CURRENT_SOURCE_DIR}/android/version.gradle.in ${CMAKE_BINARY_DIR}/version.gradle)
