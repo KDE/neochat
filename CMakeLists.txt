@@ -102,8 +102,7 @@ set_package_properties(QuotientQt6 PROPERTIES
     PURPOSE "Talk with matrix server"
 )
 
-# The android part is just for CI. We do NOT support any builds without E2EE
-if (NOT TARGET Olm::Olm AND NOT ANDROID)
+if (NOT TARGET Olm::Olm)
     message(FATAL_ERROR "NeoChat requires Quotient with the E2EE feature enabled")
 endif()
 
