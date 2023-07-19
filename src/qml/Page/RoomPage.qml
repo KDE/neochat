@@ -7,6 +7,7 @@ import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 import QtQuick.Window 2.15
 
+import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
 import org.kde.kirigami 2.19 as Kirigami
 import org.kde.kitemmodels 1.0
 
@@ -42,14 +43,9 @@ Kirigami.Page {
         }
     }
 
-    header: QQC2.Control {
-        height: visible ? implicitHeight : 0
+    header: KirigamiComponents.Banner {
+        showCloseButton: true
         visible: false
-        padding: Kirigami.Units.smallSpacing
-        contentItem: Kirigami.InlineMessage {
-            showCloseButton: true
-            visible: true
-        }
     }
 
     Loader {
@@ -166,15 +162,15 @@ Kirigami.Page {
     Connections {
         target: currentRoom
         function onShowMessage(messageType, message) {
-            root.header.contentItem.text = message;
-            root.header.contentItem.type = messageType === ActionsHandler.Error ? Kirigami.MessageType.Error : messageType === ActionsHandler.Positive ? Kirigami.MessageType.Positive : Kirigami.MessageType.Information;
+            root.header.text = message;
+            root.headertype = messageType === ActionsHandler.Error ? Kirigami.MessageType.Error : messageType === ActionsHandler.Positive ? Kirigami.MessageType.Positive : Kirigami.MessageType.Information;
             root.header.visible = true;
         }
     }
 
     function warning(title, message) {
-        root.header.contentItem.text = `${title}<br />${message}`;
-        root.header.contentItem.type =  Kirigami.MessageType.Warning;
+        root.header.text = `${title}<br />${message}`;
+        root.header.type =  Kirigami.MessageType.Warning;
         root.header.visible = true;
     }
 
