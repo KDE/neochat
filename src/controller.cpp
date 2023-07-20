@@ -42,6 +42,8 @@
 #include "trayicon_sni.h"
 #endif
 
+bool testMode = false;
+
 using namespace Quotient;
 
 Controller::Controller(QObject *parent)
@@ -56,9 +58,19 @@ Controller::Controller(QObject *parent)
     connect(NeoChatConfig::self(), &NeoChatConfig::SystemTrayChanged, this, &Controller::setQuitOnLastWindowClosed);
 #endif
 
-    QTimer::singleShot(0, this, [this] {
-        invokeLogin();
-    });
+    if (!testMode) {
+        QTimer::singleShot(0, this, [this] {
+            invokeLogin();
+        });
+    } else {
+        auto c = new NeoChatConnection(this);
+        c->assumeIdentity(QStringLiteral("@user:localhost:1234"), QStringLiteral("token_1234"));
+        connect(c, &Connection::connected, this, [c, this]() {
+            m_accountRegistry.add(c);
+            c->syncLoop();
+            Q_EMIT initiated();
+        });
+    }
 
     QObject::connect(QGuiApplication::instance(), &QCoreApplication::aboutToQuit, QGuiApplication::instance(), [this] {
         delete m_trayIcon;
@@ -434,3 +446,8 @@ AccountRegistry &Controller::accounts()
 }
 
 #include "moc_controller.cpp"
+
+void Controller::setTestMode(bool test)
+{
+    testMode = test;
+}

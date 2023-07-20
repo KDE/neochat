@@ -29,7 +29,7 @@ Kirigami.Dialog {
     standardButtons: Kirigami.Dialog.NoButton
 
     width: Math.min(applicationWindow().width, Kirigami.Units.gridUnit * 24)
-    title: i18nc("@title:menu Account detail dialog", "Account detail")
+    title: i18nc("@title:menu Account details dialog", "Account Details")
 
     contentItem: ColumnLayout {
         spacing: 0

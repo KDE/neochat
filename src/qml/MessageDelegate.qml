@@ -7,7 +7,7 @@ import QtQuick.Layouts
 import Qt.labs.qmlmodels
 
 import org.kde.kirigami as Kirigami
-import org.kde.kirigamiaddons.labs.components as KirigamiComponents
+import org.kde.kirigamiaddons.components as KirigamiComponents
 
 import org.kde.neochat
 import org.kde.neochat.config
@@ -337,7 +337,7 @@ TimelineDelegate {
                 }
             }
 
-            KirigamiComponents.Avatar {
+            KirigamiComponents.AvatarButton {
                 id: avatar
                 width: visible || Config.showAvatarInTimeline ? Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2: 0
                 height: width
@@ -355,13 +355,7 @@ TimelineDelegate {
                 source: root.author.avatarSource
                 color: root.author.color
 
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        RoomManager.visitUser(root.author.object, "mention")
-                    }
-                    cursorShape: Qt.PointingHandCursor
-                }
+                onClicked: RoomManager.visitUser(root.author.object, "mention")
             }
             Bubble {
                 id: bubble

@@ -176,6 +176,10 @@ int main(int argc, char *argv[])
     parser.addPositionalArgument(QStringLiteral("urls"), i18n("Supports matrix: url scheme"));
     parser.addOption(QCommandLineOption("ignore-ssl-errors"_ls, i18n("Ignore all SSL Errors, e.g., unsigned certificates.")));
 
+    QCommandLineOption testOption("test"_ls, i18n("Only used for autotests"));
+    testOption.setFlags(QCommandLineOption::HiddenFromHelp);
+    parser.addOption(testOption);
+
 #ifdef HAVE_KUNIFIEDPUSH
     QCommandLineOption dbusActivatedOption(QStringLiteral("dbus-activated"), i18n("Internal usage only."));
     dbusActivatedOption.setFlags(QCommandLineOption::Flag::HiddenFromHelp);
@@ -185,6 +189,7 @@ int main(int argc, char *argv[])
     about.setupCommandLine(&parser);
     parser.process(app);
     about.processCommandLine(&parser);
+    Controller::setTestMode(parser.isSet("test"_ls));
 
 #ifdef HAVE_KUNIFIEDPUSH
     if (parser.isSet(dbusActivatedOption)) {

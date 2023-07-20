@@ -131,6 +131,8 @@ public:
 
     Quotient::AccountRegistry &accounts();
 
+    static void setTestMode(bool testMode);
+
 private:
     explicit Controller(QObject *parent = nullptr);
 

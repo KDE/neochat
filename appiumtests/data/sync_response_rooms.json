@@ -1,0 +1,50 @@
+{
+    "next_batch": "batch1234",
+    "rooms": {
+        "join": {
+            "!room_id_1234:localhost:1234": {
+                "state": {
+                    "events": [
+                        {
+                            "type": "m.room.member",
+                            "state_key": "@user:localhost:1234",
+                            "sender": "@user:localhost:1234",
+                            "origin_server_ts": 1432735824653,
+                            "event_id": "$event_id_1234_0:localhost:1234",
+                            "room_id": "!room_id_1234:localhost:1234",
+                            "content": {
+                                "avatar_url": "",
+                                "displayname": "A Display Name",
+                                "membership": "join",
+                                "reason": "Nothing"
+                            },
+                            "unsigned": {
+                                "age": 1234
+                            }
+                        }
+                    ]
+                },
+                "timeline": {
+                    "events": [
+                        {
+                            "type": "m.room.message",
+                            "sender": "@user:localhost:1234",
+                            "origin_server_ts": 1432735824653,
+                            "event_id": "$event_id_1234_1:localhost:1234",
+                            "room_id": "!room_id_1234:localhost:1234",
+                            "content": {
+                                "body": "This is a message",
+                                "format": "org.matrix.custom.html",
+                                "formatted_body": "<a href=\"https://matrix.to/#/@user:localhost:1234\">User</a>:",
+                                "msgtype": "m.text"
+                            },
+                            "unsigned": {
+                                "age": 1234
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

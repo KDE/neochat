@@ -139,20 +139,17 @@ QQC2.Control {
         RowLayout {
             Layout.maximumWidth: root.maxContentWidth
             visible: root.showAuthor
-            QQC2.Label {
+            QQC2.AbstractButton {
                 Layout.fillWidth: true
-                text: root.author.displayName
-                color: root.author.color
-                textFormat: Text.PlainText
-                font.weight: Font.Bold
-                elide: Text.ElideRight
-
-                TapHandler {
-                    onTapped: RoomManager.visitUser(root.author.object, "mention")
+                contentItem: QQC2.Label {
+                    text: root.author.displayName
+                    color: root.author.color
+                    textFormat: Text.PlainText
+                    font.weight: Font.Bold
+                    elide: Text.ElideRight
                 }
-                HoverHandler {
-                    cursorShape: Qt.PointingHandCursor
-                }
+                Accessible.name: contentItem.text
+                onClicked: RoomManager.visitUser(root.author.object, "mention")
             }
             QQC2.Label {
                 text: root.timeString
