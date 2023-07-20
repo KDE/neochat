@@ -28,6 +28,7 @@ LoginStep {
             id: matrixIdField
             Kirigami.FormData.label: i18n("Matrix ID:")
             placeholderText: "@user:matrix.org"
+            Accessible.name: i18n("Matrix ID")
             onTextChanged: {
                 LoginHelper.matrixId = text
             }

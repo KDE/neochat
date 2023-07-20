@@ -38,6 +38,7 @@ LoginStep {
             id: passwordField
             onTextChanged: LoginHelper.password = text
             enabled: !LoginHelper.isLoggingIn
+            Accessible.name: i18n("Password")
 
             Component.onCompleted: {
                 passwordField.forceActiveFocus()

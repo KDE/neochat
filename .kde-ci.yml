@@ -58,5 +58,9 @@ Dependencies:
   'require':
     'frameworks/kdbusaddons': '@latest-kf6'
 
+- 'on': ['Linux/Qt6', 'Linux/Qt5']
+  'require':
+    'sdk/selenium-webdriver-at-spi': '@latest-kf6'
+
 Options:
   require-passing-tests-on: [ 'Linux/Qt5', 'FreeBSD', 'Windows' ]

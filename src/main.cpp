@@ -4,6 +4,7 @@
 #include <QCommandLineParser>
 #include <QIcon>
 #include <QNetworkProxyFactory>
+#include <QObject>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQmlNetworkAccessManagerFactory>
@@ -323,10 +324,17 @@ int main(int argc, char *argv[])
     QCommandLineParser parser;
     parser.setApplicationDescription(i18n("Client for the matrix communication protocol"));
     parser.addPositionalArgument(QStringLiteral("urls"), i18n("Supports matrix: url scheme"));
+    parser.addOption(QCommandLineOption("ignore-ssl-errors", i18n("Ignore all SSL Errors, e.g., unsigned certificates.")));
 
     about.setupCommandLine(&parser);
     parser.process(app);
     about.processCommandLine(&parser);
+
+    if (parser.isSet("ignore-ssl-errors")) {
+        QObject::connect(NetworkAccessManager::instance(), &QNetworkAccessManager::sslErrors, NetworkAccessManager::instance(), [](QNetworkReply *reply) {
+            reply->ignoreSslErrors();
+        });
+    }
 
     engine.addImageProvider(QLatin1String("mxc"), new MatrixImageProvider);
     engine.addImageProvider(QLatin1String("blurhash"), new BlurhashImageProvider);

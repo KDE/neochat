@@ -176,8 +176,11 @@ add_definitions(-DQT_NO_FOREACH)
 
 add_subdirectory(src)
 
-find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} NO_MODULE COMPONENTS Test)
-add_subdirectory(autotests)
+if (BUILD_TESTING)
+    find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} NO_MODULE COMPONENTS Test)
+    add_subdirectory(autotests)
+    add_subdirectory(appiumtests)
+endif()
 
 if(KF${QT_MAJOR_VERSION}DocTools_FOUND)
     kdoctools_install(po)
