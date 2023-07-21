@@ -486,7 +486,7 @@ ColumnLayout {
 
                         Layout.maximumWidth: contentMaxWidth
 
-                        active: root.isReply
+                        active: root.isReply && root.reply
                         visible: active
 
                         sourceComponent: ReplyComponent {
