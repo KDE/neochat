@@ -6,6 +6,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 import org.kde.kirigami 2.20 as Kirigami
+import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
 
 import org.kde.neochat 1.0
 
@@ -19,9 +20,9 @@ ColumnLayout {
         Layout.leftMargin: Kirigami.Units.largeSpacing
         spacing: Kirigami.Units.largeSpacing
 
-        Kirigami.Avatar {
-            Layout.preferredWidth: Kirigami.Units.gridUnit * 3.5
-            Layout.preferredHeight: Kirigami.Units.gridUnit * 3.5
+        KirigamiComponents.Avatar {
+            Layout.preferredWidth: Kirigami.Units.iconSizes.large
+            Layout.preferredHeight: Kirigami.Units.iconSizes.large
 
             name: room ? room.displayName : ""
             source: room && room.avatarMediaId ? ("image://mxc/" +  room.avatarMediaId) : ""
@@ -47,6 +48,7 @@ ColumnLayout {
             }
         }
 
+
         ColumnLayout {
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignVCenter
@@ -54,14 +56,13 @@ ColumnLayout {
 
             Kirigami.Heading {
                 Layout.fillWidth: true
-                type: Kirigami.Heading.Type.Primary
-                wrapMode: QQC2.Label.Wrap
                 text: room ? room.displayName : i18n("No name")
                 textFormat: Text.PlainText
             }
 
             Kirigami.SelectableLabel {
                 Layout.fillWidth: true
+                font: Kirigami.Theme.smallFont
                 textFormat: TextEdit.PlainText
                 text: room && room.canonicalAlias ? room.canonicalAlias : i18n("No Canonical Alias")
             }

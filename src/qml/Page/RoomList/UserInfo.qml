@@ -5,6 +5,8 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 import org.kde.kirigami 2.20 as Kirigami
+import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
+import org.kde.kirigamiaddons.delegates 1.0 as Delegates
 
 import org.kde.neochat 1.0
 
@@ -27,34 +29,28 @@ QQC2.ToolBar {
 
             header: Kirigami.Separator {}
 
-            footer: Kirigami.BasicListItem {
+            footer: Delegates.RoundedItemDelegate {
+                id: addButton
                 width: parent.width
-                highlighted: focus
-                background: Rectangle {
-                    id: background
-                    color: addAccount.backgroundColor
-
-                    Rectangle {
-                        anchors.fill: parent
-                        visible: !Kirigami.Settings.tabletMode && addAccount.hoverEnabled
-                        color: addAccount.activeBackgroundColor
-                        opacity: {
-                            if ((addAccount.highlighted || addAccount.ListView.isCurrentItem) && !addAccount.pressed) {
-                                return .6
-                            } else if (addAccount.hovered && !addAccount.pressed) {
-                                return .3
-                            } else {
-                                return 0
-                            }
-                        }
-                    }
-                }
+                highlighted: focus || (addAccount.highlighted || addAccount.ListView.isCurrentItem) && !addAccount.pressed
                 Component.onCompleted: userInfo.addAccount = this
-                icon: "list-add"
+                icon {
+                    name: "list-add"
+                    width: Kirigami.Units.iconSizes.smallMedium
+                    height: Kirigami.Units.iconSizes.smallMedium
+                }
                 text: i18n("Add Account")
-                subtitle: i18n("Log in to an existing account")
+                contentItem: Delegates.SubtitleContentItem {
+                    itemDelegate: parent
+                    subtitle: i18n("Log in to an existing account")
+                    labelItem.textFormat: Text.PlainText
+                    subtitleItem.textFormat: Text.PlainText
+                }
+
                 onClicked: {
-                    pageStack.pushDialogLayer("qrc:/WelcomePage.qml", {}, {title: i18nc("@title:window", "Login")})
+                    pageStack.pushDialogLayer("qrc:/WelcomePage.qml", {}, {
+                        title: i18nc("@title:window", "Login"),
+                    });
                     if (switchUserButton.checked) {
                         switchUserButton.checked = false
                     }
@@ -101,26 +97,36 @@ QQC2.ToolBar {
 
             width: parent.width
             Layout.preferredHeight: contentHeight
-            delegate: Kirigami.BasicListItem {
-                leftPadding: topPadding
-                leading: Kirigami.Avatar {
-                    implicitWidth: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
-                    implicitHeight: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
-                    sourceSize {
-                        width: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
-                        height: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
-                    }
-                    source: model.connection.localUser.avatarMediaId ? ("image://mxc/" + model.connection.localUser.avatarMediaId) : ""
-                    name: model.connection.localUser.displayName ?? model.connection.localUser.id
-                }
+            delegate: Delegates.RoundedItemDelegate {
+                id: userDelegate
+
+                required property var connection
+
                 width: parent.width
-                text: model.connection.localUser.displayName
-                labelItem.textFormat: Text.PlainText
-                subtitleItem.textFormat: Text.PlainText
-                subtitle: model.connection.localUser.id
+                text: connection.localUser.displayName
+
+                contentItem: RowLayout {
+                    KirigamiComponents.Avatar {
+                        implicitWidth: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
+                        implicitHeight: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
+                        sourceSize {
+                            width: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
+                            height: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
+                        }
+                        source: userDelegate.connection.localUser.avatarMediaId ? ("image://mxc/" + userDelegate.connection.localUser.avatarMediaId) : ""
+                        name: userDelegate.connection.localUser.displayName ?? userDelegate.connection.localUser.id
+                    }
+
+                    Delegates.SubtitleContentItem {
+                        itemDelegate: userDelegate
+                        subtitle: userDelegate.connection.localUser.id
+                        labelItem.textFormat: Text.PlainText
+                        subtitleItem.textFormat: Text.PlainText
+                    }
+                }
 
                 onClicked: {
-                    Controller.activeConnection = model.connection
+                    Controller.activeConnection = userDelegate.connection
                     if (switchUserButton.checked) {
                         switchUserButton.checked = false
                     }
@@ -139,28 +145,30 @@ QQC2.ToolBar {
             Layout.bottomMargin: Kirigami.Units.smallSpacing
             Layout.minimumHeight: Kirigami.Units.gridUnit * 2 - 2 // HACK: -2 here is to ensure the ChatBox and the UserInfo have the same height
 
-            Kirigami.Avatar {
-                readonly property string mediaId: Controller.activeConnection.localUser.avatarMediaId
-
+            QQC2.AbstractButton {
                 Layout.preferredWidth: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
                 Layout.preferredHeight: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
                 Layout.leftMargin: Kirigami.Units.largeSpacing
 
-                source: mediaId ? ("image://mxc/" + mediaId) : ""
-                name: Controller.activeConnection.localUser.displayName ?? Controller.activeConnection.localUser.id
-                actions.main: Kirigami.Action {
-                    text: i18n("Edit this account")
-                    icon.name: "document-edit"
-                    onTriggered: pageStack.pushDialogLayer(Qt.resolvedUrl('qrc:/AccountEditorPage.qml'), {
-                        connection: Controller.activeConnection
-                    }, {
-                        title: i18n("Account editor")
-                    });
-                }
                 TapHandler {
                     acceptedButtons: Qt.RightButton
                     acceptedDevices: PointerDevice.Mouse
                     onTapped: accountMenu.open()
+                }
+
+                text: i18n("Edit this account")
+
+                onClicked: pageStack.pushDialogLayer(Qt.resolvedUrl('qrc:/AccountEditorPage.qml'), {
+                    connection: Controller.activeConnection
+                }, {
+                    title: i18n("Account editor")
+                });
+
+                contentItem: KirigamiComponents.Avatar {
+                    readonly property string mediaId: Controller.activeConnection.localUser.avatarMediaId
+
+                    source: mediaId ? ("image://mxc/" + mediaId) : ""
+                    name: Controller.activeConnection.localUser.displayName ?? Controller.activeConnection.localUser.id
                 }
             }
 

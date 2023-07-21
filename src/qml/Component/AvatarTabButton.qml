@@ -8,6 +8,7 @@ import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Templates 2.15 as T
 import org.kde.kirigami 2.20 as Kirigami
 import org.kde.kirigamiaddons.delegates 1.0 as Delegates
+import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
 
 Delegates.RoundedItemDelegate {
     id: root
@@ -30,7 +31,7 @@ Delegates.RoundedItemDelegate {
         onTapped: root.contextMenuRequested()
     }
 
-    contentItem: Kirigami.Avatar {
+    contentItem: KirigamiComponents.Avatar {
         source: root.source
         name: root.text
     }

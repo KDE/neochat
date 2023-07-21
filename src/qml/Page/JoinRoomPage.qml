@@ -8,6 +8,7 @@ import QtQuick.Layouts 1.15
 import Qt.labs.qmlmodels 1.0
 
 import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
 
 import org.kde.neochat 1.0
 
@@ -202,7 +203,7 @@ Kirigami.ScrollablePage {
                 applicationWindow().pageStack.layers.pop();
             }
             contentItem: RowLayout {
-                Kirigami.Avatar {
+                KirigamiComponents.Avatar {
                     Layout.preferredWidth: Kirigami.Units.gridUnit * 2
                     Layout.preferredHeight: Kirigami.Units.gridUnit * 2
 

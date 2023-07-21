@@ -8,6 +8,7 @@ import QtQml.Models 2.15
 
 import org.kde.kirigami 2.15 as Kirigami
 import org.kde.kirigamiaddons.delegates 1.0 as Delegates
+import org.kde.kirigamiaddons.labs.components 1.0 as Components
 import org.kde.kitemmodels 1.0
 
 import org.kde.neochat 1.0
@@ -39,7 +40,7 @@ Delegates.RoundedItemDelegate {
     }
 
     contentItem: RowLayout {
-        Kirigami.Avatar {
+        Components.Avatar {
             source: root.avatar ? "image://mxc/" +  root.avatar : ""
             name: root.displayName
             implicitWidth: visible ? height : 0

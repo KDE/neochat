@@ -6,6 +6,8 @@ import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigamiaddons.delegates 1.0 as Delegates
+import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
 
 import org.kde.neochat 1.0
 
@@ -68,38 +70,51 @@ Kirigami.ScrollablePage {
             text: i18n("No users available")
         }
 
-        delegate: Kirigami.BasicListItem {
+        delegate: Delegates.RoundedItemDelegate {
             id: delegate
+
+            required property string userID
+            required property string name
+            required property string avatar
+
             property bool inRoom: room && room.containsUser(userID)
 
-            label: model.name
-            subtitle: model.userID
+            text: name
 
-            leading: Kirigami.Avatar {
-                implicitWidth: height
-                source: model.avatar ? ("image://mxc/" + model.avatar) : ""
-                name: model.name
-            }
-            trailing: QQC2.ToolButton {
-                id: inviteButton
-                icon.name: "document-send"
-                text: i18n("Send invitation")
-                checkable: true
-                checked: inRoom
-                opacity: inRoom ? 0.5 : 1
-
-                onToggled: {
-                    if (inRoom) {
-                        checked = true
-                    } else {
-                        room.inviteToRoom(model.userID);
-                        applicationWindow().pageStack.layers.pop();
-                    }
+            contentItem: RowLayout {
+                KirigamiComponents.Avatar {
+                    Layout.preferredWidth: Kirigami.Units.iconSizes.medium
+                    Layout.preferredHeight: Kirigami.Units.iconSizes.medium
+                    source: delegate.avatar ? ("image://mxc/" + delegate.avatar) : ""
+                    name: delegate.name
                 }
 
-                QQC2.ToolTip.text: !inRoom ? text : i18n("User is either already a member or has been invited")
-                QQC2.ToolTip.visible: inviteButton.hovered
-                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                Delegates.SubtitleContentItem {
+                    itemDelegate: delegate
+                    subtitle: delegate.userID
+                }
+
+                QQC2.ToolButton {
+                    id: inviteButton
+                    icon.name: "document-send"
+                    text: i18n("Send invitation")
+                    checkable: true
+                    checked: inRoom
+                    opacity: inRoom ? 0.5 : 1
+
+                    onToggled: {
+                        if (inRoom) {
+                            checked = true
+                        } else {
+                            room.inviteToRoom(delegate.userID);
+                            applicationWindow().pageStack.layers.pop();
+                        }
+                    }
+
+                    QQC2.ToolTip.text: !inRoom ? text : i18n("User is either already a member or has been invited")
+                    QQC2.ToolTip.visible: inviteButton.hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                }
             }
         }
     }

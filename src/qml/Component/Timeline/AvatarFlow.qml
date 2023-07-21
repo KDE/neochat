@@ -5,6 +5,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15 as QQC2
 
 import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
 
 Flow {
     id: root
@@ -17,11 +18,11 @@ Flow {
     spacing: -avatarSize / 2
     Repeater {
         id: avatarFlowRepeater
-        delegate: Kirigami.Avatar {
-            topInset: Kirigami.Units.smallSpacing / 2
-            topPadding: Kirigami.Units.smallSpacing / 2
-            implicitWidth: avatarSize
-            implicitHeight: avatarSize + Kirigami.Units.smallSpacing / 2
+        delegate: KirigamiComponents.Avatar {
+            required property var modelData
+
+            implicitWidth: root.avatarSize
+            implicitHeight: root.avatarSize
 
             name: modelData.displayName
             source: modelData.avatarSource

@@ -8,6 +8,8 @@ import QtQuick.Controls 2.15 as QQC2
 import Qt.labs.qmlmodels 1.0
 
 import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigamiaddons.delegates 1.0 as Delegates
+import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
 
 import org.kde.neochat 1.0
 
@@ -43,6 +45,7 @@ QQC2.Popup {
     rightPadding: 0
     topPadding: 0
     bottomPadding: 0
+
     implicitHeight: Math.min(completions.contentHeight, Kirigami.Units.gridUnit * 10)
 
     contentItem: ListView {
@@ -53,23 +56,35 @@ QQC2.Popup {
         currentIndex: 0
         keyNavigationWraps: true
         highlightMoveDuration: 100
-        delegate: Kirigami.BasicListItem {
-            text: model.text
-            subtitle: model.subtitle ?? ""
-            labelItem.textFormat: Text.PlainText
-            subtitleItem.textFormat: Text.PlainText
-            leading: RowLayout {
-                Kirigami.Avatar {
-                    visible: model.icon !== "invalid"
-                    Layout.preferredWidth: height
-                    Layout.fillHeight: true
-                    source: model.icon === "invalid" ? "" : ("image://mxc/" + model.icon)
-                    name: model.text
+        delegate: Delegates.RoundedItemDelegate {
+            id: completionDelegate
+
+            required property int index
+            required property string displayName
+            required property string subtitle
+            required property string iconName
+
+            text: displayName
+
+            contentItem: RowLayout {
+                KirigamiComponents.Avatar {
+                    visible: completionDelegate.iconName !== "invalid"
+                    Layout.preferredWidth: Kirigami.Units.iconSizes.medium
+                    Layout.preferredHeight: Kirigami.Units.iconSizes.medium
+                    source: completionDelegate.iconName === "invalid" ? "" : ("image://" + completionDelegate.iconName)
+                    name: completionDelegate.text
+                }
+                Delegates.SubtitleContentItem {
+                    itemDelegate: completionDelegate
+                    labelItem.textFormat: Text.PlainText
+                    subtitle: completionDelegate.subtitle ?? ""
+                    subtitleItem.textFormat: Text.PlainText
                 }
             }
-            onClicked: completionMenu.chatDocumentHandler.complete(model.index)
+            onClicked: completionMenu.chatDocumentHandler.complete(completionDelegate.index)
         }
     }
+
     background: Rectangle {
         color: Kirigami.Theme.backgroundColor
     }

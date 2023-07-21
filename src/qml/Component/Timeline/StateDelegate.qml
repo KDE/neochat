@@ -6,6 +6,7 @@ import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
 
 import org.kde.neochat 1.0
 
@@ -71,34 +72,61 @@ QQC2.Control {
             Flow {
                 visible: columnLayout.folded
                 spacing: -Kirigami.Units.iconSizes.small / 2
+
                 Repeater {
                     model: authorList
-                    delegate: Kirigami.Avatar {
-                        topInset: Kirigami.Units.smallSpacing / 2
-                        topPadding: Kirigami.Units.smallSpacing / 2
+                    delegate: Item {
+                        id: avatarDelegate
+
+                        required property var modelData
+
                         implicitWidth: Kirigami.Units.iconSizes.small
                         implicitHeight: Kirigami.Units.iconSizes.small + Kirigami.Units.smallSpacing / 2
 
-                        name: modelData.displayName
-                        source: modelData.avatarSource
-                        color: modelData.color
+                        KirigamiComponents.Avatar {
+                            y: Kirigami.Units.smallSpacing / 2
+
+                            implicitWidth: Kirigami.Units.iconSizes.small
+                            implicitHeight: Kirigami.Units.iconSizes.small
+
+                            name: parent.modelData.displayName
+                            source: parent.modelData.avatarSource
+                            color: parent.modelData.color
+
+                            Rectangle {
+                                radius: height
+                                height: 4
+                                width: 4
+                                color: avatarDelegate.modelData.color
+                                anchors.centerIn: parent
+                            }
+                        }
                     }
                 }
+
                 QQC2.Label {
                     id: excessAuthorsLabel
+
                     text: model.excessAuthors
                     visible: model.excessAuthors !== ""
                     color: Kirigami.Theme.textColor
                     horizontalAlignment: Text.AlignHCenter
                     background: Kirigami.ShadowedRectangle {
-                        color: Kirigami.Theme.backgroundColor
                         Kirigami.Theme.inherit: false
                         Kirigami.Theme.colorSet: Kirigami.Theme.View
+
+                        color: Kirigami.Theme.backgroundColor
                         radius: height / 2
-                        shadow.size: Kirigami.Units.smallSpacing
-                        shadow.color: Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.10)
-                        border.color: Kirigami.ColorUtils.tintWithAlpha(color, Kirigami.Theme.textColor, 0.15)
-                        border.width: 1
+
+                        shadow {
+                            size: Kirigami.Units.smallSpacing
+                            color: Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.10)
+                        }
+
+                        border {
+                            color: Kirigami.ColorUtils.tintWithAlpha(color, Kirigami.Theme.textColor, 0.15)
+                            width: 1
+                        }
                     }
 
                     height: Kirigami.Units.iconSizes.small + Kirigami.Units.smallSpacing
@@ -125,13 +153,13 @@ QQC2.Control {
                 visible: !columnLayout.folded
             }
             QQC2.ToolButton {
-                icon.name: (!columnLayout.folded ? "go-up" : "go-down")
-                icon.width: Kirigami.Units.iconSizes.small
-                icon.height: Kirigami.Units.iconSizes.small
-
-                onClicked: {
-                    columnLayout.toggleFolded()
+                icon {
+                    name: (!columnLayout.folded ? "go-up" : "go-down")
+                    width: Kirigami.Units.iconSizes.small
+                    height: Kirigami.Units.iconSizes.small
                 }
+
+                onClicked: columnLayout.toggleFolded()
             }
         }
         Repeater {
