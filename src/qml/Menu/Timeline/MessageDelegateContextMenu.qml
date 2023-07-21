@@ -6,6 +6,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
 
 import org.kde.neochat 1.0
 
@@ -222,11 +223,11 @@ Loader {
                         Layout.fillWidth: true
                         Layout.margins: Kirigami.Units.largeSpacing
                         spacing: Kirigami.Units.largeSpacing
-                        Kirigami.Avatar {
+                        KirigamiComponents.Avatar {
                             id: avatar
                             source: author.avatarSource
-                            Layout.preferredWidth: Kirigami.Units.gridUnit * 3
-                            Layout.preferredHeight: Kirigami.Units.gridUnit * 3
+                            Layout.preferredWidth: Kirigami.Units.gridUnit * 2
+                            Layout.preferredHeight: Kirigami.Units.gridUnit * 2
                             Layout.alignment: Qt.AlignTop
                         }
                         ColumnLayout {

@@ -7,6 +7,7 @@ import QtQuick.Layouts 1.15
 import QtQml.Models 2.15
 
 import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
 import org.kde.kitemmodels 1.0
 
 import org.kde.neochat 1.0
@@ -32,7 +33,7 @@ QQC2.ItemDelegate {
 
     visible: root.categoryVisible || filterText.length > 0 || Config.mergeRoomList
 
-    contentItem: Kirigami.Avatar {
+    contentItem: KirigamiComponents.Avatar {
         source: root.avatar ? `image://mxc/${root.avatar}` : ""
         name: root.displayName
 

@@ -6,6 +6,7 @@ import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
 
 import org.kde.neochat 1.0
 
@@ -353,15 +354,10 @@ ColumnLayout {
             }
         }
 
-        Kirigami.Avatar {
+        KirigamiComponents.Avatar {
             id: avatar
-            width: visible || Config.showAvatarInTimeline ? Kirigami.Units.gridUnit * 2 + Kirigami.Units.smallSpacing * 2 : 0
+            width: visible || Config.showAvatarInTimeline ? Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2: 0
             height: width
-            padding: Kirigami.Units.smallSpacing
-            topInset: Kirigami.Units.smallSpacing
-            bottomInset: Kirigami.Units.smallSpacing
-            leftInset: Kirigami.Units.smallSpacing
-            rightInset: Kirigami.Units.smallSpacing
             anchors {
                 left: parent.left
                 leftMargin: Kirigami.Units.smallSpacing

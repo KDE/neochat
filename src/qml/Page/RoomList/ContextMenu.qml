@@ -7,6 +7,7 @@ import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.19 as Kirigami
+import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
 
 import org.kde.neochat 1.0
 
@@ -157,7 +158,7 @@ Loader {
                     Layout.fillWidth: true
                     Layout.margins: Kirigami.Units.largeSpacing
                     spacing: Kirigami.Units.largeSpacing
-                    Kirigami.Avatar {
+                    KirigamiComponents.Avatar {
                         id: avatar
                         source: room.avatarMediaId ? ("image://mxc/" + room.avatarMediaId) : ""
                         name: room.displayName

@@ -9,6 +9,7 @@ import QtLocation 5.15
 import QtPositioning 5.15
 
 import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
 
 import org.kde.neochat 1.0
 
@@ -44,7 +45,7 @@ MapQuickItem {
             isMask: true
             color: parent.color
         }
-        Kirigami.Avatar {
+        KirigamiComponents.Avatar {
             anchors.centerIn: parent
             anchors.verticalCenterOffset: -parent.height / 8
             visible: root.asset === "m.self"
