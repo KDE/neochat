@@ -7,6 +7,8 @@ import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigamiaddons.delegates 1.0 as Delegates
+import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
 
 import org.kde.neochat 1.0
 
@@ -60,69 +62,68 @@ Kirigami.ScrollablePage {
             keyword: identifierField.text
         }
 
-        delegate: Kirigami.AbstractListItem {
-            width: userDictListView.width
+        delegate: Delegates.RoundedItemDelegate {
+            id: delegate
+
+            required property string userID
+            required property string avatar
+            required property string name
+            required property var directChats
+
+            text: name
+
             contentItem: RowLayout {
-                spacing: Kirigami.Units.largeSpacing
-
-                Kirigami.Avatar {
-                    Layout.preferredWidth: height
-                    Layout.fillHeight: true
-
-                    source: model.avatar ? ("image://mxc/" + model.avatar) : ""
-                    name: model.name
+                KirigamiComponents.Avatar {
+                    Layout.preferredWidth: Kirigami.Units.iconSizes.medium
+                    Layout.preferredHeight: Kirigami.Units.iconSizes.medium
+                    source: delegate.avatar ? ("image://mxc/" + delegate.avatar) : ""
+                    name: delegate.name
                 }
 
-                ColumnLayout {
+                Delegates.SubtitleContentItem {
+                    itemDelegate: delegate
+                    subtitle: delegate.userID
                     Layout.fillWidth: true
-                    Layout.fillHeight: true
-
-                    spacing: 0
-
-                    Kirigami.Heading {
-                        Layout.fillWidth: true
-                        Layout.fillHeight: true
-
-                        text: name
-                        textFormat: Text.PlainText
-                        elide: Text.ElideRight
-                        wrapMode: Text.NoWrap
-                    }
-
-                    QQC2.Label {
-                        Layout.fillWidth: true
-                        Layout.fillHeight: true
-
-                        text: userID
-                        textFormat: Text.PlainText
-                        elide: Text.ElideRight
-                        wrapMode: Text.NoWrap
-                    }
                 }
 
                 QQC2.Button {
                     id: joinChatButton
-                    Layout.alignment: Qt.AlignRight
-                    visible: directChats && directChats.length > 0
+
+                    visible: delegate.directChats && delegate.directChats.length > 0
+                    text: i18n("Join existing chat")
+                    display: QQC2.Button.IconOnly
 
                     icon.name: "document-send"
                     onClicked: {
-                        connection.requestDirectChat(userID);
+                        connection.requestDirectChat(delegate.userID);
                         applicationWindow().pageStack.layers.pop();
                     }
+
+                    Layout.alignment: Qt.AlignRight
+
+                    QQC2.ToolTip.text: text
+                    QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                 }
 
                 QQC2.Button {
-                    Layout.alignment: Qt.AlignRight
                     icon.name: "irc-join-channel"
                     // We wants to make sure an user can't start more than one
                     // chat with someone.
                     visible: !joinChatButton.visible
+                    text: i18n("Create new chat")
+                    display: QQC2.Button.IconOnly
 
                     onClicked: {
-                        connection.requestDirectChat(userID);
+                        connection.requestDirectChat(delegate.userID);
                         applicationWindow().pageStack.layers.pop();
                     }
+
+                    Layout.alignment: Qt.AlignRight
+
+                    QQC2.ToolTip.text: text
+                    QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                 }
             }
         }

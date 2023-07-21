@@ -144,7 +144,7 @@ QVariant UserDirectoryListModel::data(const QModelIndex &index, int role) const
         auto avatarUrl = user.avatarUrl;
 
         if (avatarUrl.isEmpty()) {
-            return "";
+            return QString();
         }
         return avatarUrl.url().remove(0, 6);
     }
@@ -153,7 +153,7 @@ QVariant UserDirectoryListModel::data(const QModelIndex &index, int role) const
     }
     if (role == DirectChatsRole) {
         if (!m_connection) {
-            return {};
+            return QStringList();
         };
 
         auto userObj = m_connection->user(user.userId);
@@ -165,6 +165,8 @@ QVariant UserDirectoryListModel::data(const QModelIndex &index, int role) const
                 return QVariant::fromValue(directChatsForUser);
             }
         }
+
+        return QStringList();
     }
 
     return {};
