@@ -1941,7 +1941,7 @@ QByteArray NeoChatRoom::roomAcountDataJson(const QString &eventType)
 QUrl NeoChatRoom::avatarForMember(NeoChatUser *user) const
 {
     const auto &url = memberAvatarUrl(user->id());
-    if (url.isEmpty()) {
+    if (url.isEmpty() || url.scheme() != "mxc"_ls) {
         return {};
     }
     auto avatar = connection()->makeMediaUrl(url);
