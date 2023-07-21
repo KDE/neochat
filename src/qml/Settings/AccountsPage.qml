@@ -8,6 +8,7 @@ import Qt.labs.platform 1.1
 
 import org.kde.kirigami 2.19 as Kirigami
 import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
 
 import org.kde.neochat 1.0
 
@@ -38,7 +39,7 @@ Kirigami.ScrollablePage {
                         })
 
                         contentItem: RowLayout {
-                            Kirigami.Avatar {
+                            KirigamiComponents.Avatar {
                                 name: model.connection.localUser.displayName
                                 source: model.connection.localUser.avatarMediaId ? ("image://mxc/" + model.connection.localUser.avatarMediaId) : ""
 

@@ -10,6 +10,7 @@ import QtQuick.Window 2.15
 
 import org.kde.kirigami 2.15 as Kirigami
 import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
 import org.kde.neochat 1.0
 
 Kirigami.ScrollablePage {
@@ -24,6 +25,62 @@ Kirigami.ScrollablePage {
     rightPadding: 0
     ColumnLayout {
         spacing: 0
+
+        QQC2.RoundButton {
+            property var fileDialog: null;
+
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+            Layout.topMargin: Kirigami.Units.largeSpacing
+
+            // Square button
+            implicitWidth: Kirigami.Units.gridUnit * 5
+            implicitHeight: implicitWidth
+
+            padding: 0
+
+            contentItem: KirigamiComponents.Avatar {
+                id: avatar
+                source: root.connection && root.connection.localUser.avatarMediaId ? ("image://mxc/" + root.connection.localUser.avatarMediaId) : ""
+                name: root.connection.localUser.displayName
+            }
+
+            onClicked: {
+                if (fileDialog != null) {
+                    return;
+                }
+
+                fileDialog = openFileDialog.createObject(QQC2.ApplicationWindow.Overlay)
+                fileDialog.chosen.connect(function(receivedSource) {
+                    mouseArea.fileDialog = null;
+                    if (!receivedSource) {
+                        return;
+                    }
+                    parent.source = receivedSource;
+                });
+                fileDialog.onRejected.connect(function() {
+                    mouseArea.fileDialog = null;
+                });
+                fileDialog.open();
+            }
+
+            QQC2.Button {
+                anchors {
+                    bottom: parent.bottom
+                    right: parent.right
+                }
+                visible: avatar.source.toString().length !== 0
+                icon.name: "edit-clear"
+                text: i18n("Remove current avatar")
+                display: QQC2.AbstractButton.IconOnly
+
+                onClicked: avatar.source = ""
+
+                QQC2.ToolTip.text: text
+                QQC2.ToolTip.visible: hovered
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+            }
+        }
+
         MobileForm.FormHeader {
             Layout.fillWidth: true
             title: i18n("User information")
@@ -32,73 +89,22 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: 0
-                MobileForm.AbstractFormDelegate {
-                    Layout.fillWidth: true
-                    background: Item {}
-                    contentItem: RowLayout {
-                        Item {
-                            Layout.fillWidth: true
-                        }
-                        Kirigami.Avatar {
-                            id: avatar
-                            Layout.alignment: Qt.AlignRight
-                            source: root.connection && root.connection.localUser.avatarMediaId ? ("image://mxc/" + root.connection.localUser.avatarMediaId) : ""
-                            name: root.connection.localUser.displayName
-
-                            MouseArea {
-                                id: mouseArea
-                                anchors.fill: parent
-                                property var fileDialog: null;
-                                onClicked: {
-                                    if (fileDialog != null) {
-                                        return;
-                                    }
-
-                                    fileDialog = openFileDialog.createObject(QQC2.ApplicationWindow.Overlay)
-                                    fileDialog.chosen.connect(function(receivedSource) {
-                                        mouseArea.fileDialog = null;
-                                        if (!receivedSource) {
-                                            return;
-                                        }
-                                        parent.source = receivedSource;
-                                    });
-                                    fileDialog.onRejected.connect(function() {
-                                        mouseArea.fileDialog = null;
-                                    });
-                                    fileDialog.open();
-                                }
-                            }
-                        }
-                        QQC2.Button {
-                            Layout.alignment: Qt.AlignLeft
-                            visible: avatar.source.toString().length !== 0
-                            icon.name: "edit-clear"
-                            text: i18n("Remove current avatar")
-                            display: QQC2.AbstractButton.IconOnly
-
-                            onClicked: avatar.source = ""
-
-                            QQC2.ToolTip.text: text
-                            QQC2.ToolTip.visible: hovered
-                        }
-                        Item {
-                            Layout.fillWidth: true
-                        }
-                    }
-                }
                 MobileForm.FormTextFieldDelegate {
                     id: name
                     label: i18n("Name:")
                     text: root.connection ? root.connection.localUser.displayName : ""
                 }
+                MobileForm.FormDelegateSeparator {}
                 MobileForm.FormTextFieldDelegate {
                     id: accountLabel
                     label: i18n("Label:")
                     text: root.connection ? Controller.activeAccountLabel : ""
                 }
+                MobileForm.FormDelegateSeparator {}
                 MobileForm.AbstractFormDelegate {
                     Layout.fillWidth: true
-                    background: Item {}
+                    background: null
+                    padding: Kirigami.Units.smallSpacing
                     contentItem: RowLayout {
                         Item {
                             Layout.fillWidth: true
@@ -136,18 +142,21 @@ Kirigami.ScrollablePage {
                     visible: root.connection !== undefined && root.connection.canChangePassword === false
                     text: i18n("Your server doesn't support changing your password")
                 }
+                MobileForm.FormDelegateSeparator { visible: root.connection !== undefined && root.connection.canChangePassword === false }
                 MobileForm.FormTextFieldDelegate {
                     id: currentPassword
                     label: i18n("Current Password:")
                     enabled: root.connection !== undefined && root.connection.canChangePassword !== false
                     echoMode: TextInput.Password
                 }
+                MobileForm.FormDelegateSeparator {}
                 MobileForm.FormTextFieldDelegate {
                     id: newPassword
                     label: i18n("New Password:")
                     enabled: root.connection !== undefined && root.connection.canChangePassword !== false
                     echoMode: TextInput.Password
                 }
+                MobileForm.FormDelegateSeparator {}
                 MobileForm.FormTextFieldDelegate {
                     id: confirmPassword
                     label: i18n("Confirm new Password:")
@@ -161,9 +170,10 @@ Kirigami.ScrollablePage {
                         confirmPassword.statusMessage = '';
                     }
                 }
+                MobileForm.FormDelegateSeparator {}
                 MobileForm.AbstractFormDelegate {
                     Layout.fillWidth: true
-                    background: Item {}
+                    background: null
                     contentItem: RowLayout {
                         Item {
                             Layout.fillWidth: true

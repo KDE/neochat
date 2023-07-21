@@ -9,6 +9,7 @@ import QtQuick.Window 2.15
 
 import org.kde.kirigami 2.15 as Kirigami
 import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
 
 import org.kde.neochat 1.0
 
@@ -38,11 +39,13 @@ Kirigami.ScrollablePage {
                         Item {
                             Layout.fillWidth: true
                         }
-                        Kirigami.Avatar {
+                        KirigamiComponents.Avatar {
                             id: avatar
                             Layout.alignment: Qt.AlignRight
                             name: room.name
                             source: room.avatarMediaId ? ("image://mxc/" + room.avatarMediaId) : ""
+                            implicitWidth: Kirigami.Units.iconSizes.medium
+                            implicitHeight: Kirigami.Units.iconSizes.medium
                         }
                         QQC2.Button {
                             Layout.alignment: Qt.AlignLeft

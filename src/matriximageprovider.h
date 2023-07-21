@@ -34,7 +34,7 @@ private Q_SLOTS:
     void prepareResult();
 
 private:
-    const QString mediaId;
+    QString mediaId;
     QSize requestedSize;
     const QString localFile;
     Quotient::MediaThumbnailJob *job = nullptr;

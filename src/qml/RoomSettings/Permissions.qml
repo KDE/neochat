@@ -7,6 +7,8 @@ import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.15 as Kirigami
 import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.delegates 1.0 as Delegates
+import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
 import org.kde.kitemmodels 1.0
 
 import org.kde.neochat 1.0
@@ -93,17 +95,19 @@ Kirigami.ScrollablePage {
                     visible: room.canSendState("m.room.power_levels")
 
                     contentItem: Kirigami.SearchField {
-                            id: userListSearchField
-                            Layout.fillWidth: true
-                            autoAccept: false
+                        id: userListSearchField
 
-                            Keys.onUpPressed: userListView.decrementCurrentIndex()
-                            Keys.onDownPressed: userListView.incrementCurrentIndex()
+                        autoAccept: false
 
-                            onAccepted: {
-                                let currentUser = userListView.itemAtIndex(userListView.currentIndex);
-                                currentUser.action.trigger();
-                            }
+                        Layout.fillWidth: true
+
+                        Keys.onUpPressed: userListView.decrementCurrentIndex()
+                        Keys.onDownPressed: userListView.incrementCurrentIndex()
+
+                        onAccepted: {
+                            let currentUser = userListView.itemAtIndex(userListView.currentIndex);
+                            currentUser.action.trigger();
+                        }
                     }
                     QQC2.Popup {
                         id: userListSearchPopup
@@ -119,21 +123,31 @@ Kirigami.ScrollablePage {
                             return Math.max(Math.min(filterContentHeight, maxHeight), minHeight);
                         }
                         padding: Kirigami.Units.smallSpacing
+                        leftPadding: Kirigami.Units.smallSpacing / 2
+                        rightPadding: Kirigami.Units.smallSpacing / 2
                         modal: false
                         onClosed: userListSearchField.text = ""
 
                         background: Kirigami.ShadowedRectangle {
+                            property color borderColor: Kirigami.Theme.textColor
+
+                            Kirigami.Theme.colorSet: Kirigami.Theme.View
+                            Kirigami.Theme.inherit: false
+
                             radius: 4
                             color: Kirigami.Theme.backgroundColor
 
-                            property color borderColor: Kirigami.Theme.textColor
-                            border.color: Qt.rgba(borderColor.r, borderColor.g, borderColor.b, 0.3)
-                            border.width: 1
+                            border {
+                                color: Qt.rgba(borderColor.r, borderColor.g, borderColor.b, 0.3)
+                                width: 1
+                            }
 
-                            shadow.xOffset: 0
-                            shadow.yOffset: 4
-                            shadow.color: Qt.rgba(0, 0, 0, 0.3)
-                            shadow.size: 8
+                            shadow {
+                                xOffset: 0
+                                yOffset: 4
+                                color: Qt.rgba(0, 0, 0, 0.3)
+                                size: 8
+                            }
                         }
 
                         contentItem: QQC2.ScrollView {
@@ -158,16 +172,42 @@ Kirigami.ScrollablePage {
                                     }
                                 }
 
-                                delegate: Kirigami.BasicListItem {
+                                delegate: Delegates.RoundedItemDelegate {
                                     id: userListItem
 
-                                    implicitHeight: Kirigami.Units.gridUnit * 2
-                                    leftPadding: Kirigami.Units.largeSpacing + Kirigami.Units.smallSpacing
+                                    required property string userId
+                                    required property string avatar
+                                    required property string name
+                                    required property int powerLevel
+                                    required property string powerLevelString
 
-                                    label: name
-                                    labelItem.textFormat: Text.PlainText
-                                    subtitle: userId
-                                    subtitleItem.textFormat: Text.PlainText
+                                    text: name
+
+                                    contentItem: RowLayout {
+                                        KirigamiComponents.Avatar {
+                                            Layout.preferredWidth: Kirigami.Units.iconSizes.medium
+                                            Layout.preferredHeight: Kirigami.Units.iconSizes.medium
+                                            source: userListItem.avatar ? ("image://" + userListItem.avatar) : ""
+                                            name: userListItem.name
+                                        }
+
+                                        Delegates.SubtitleContentItem {
+                                            itemDelegate: userListItem
+                                            subtitle: userListItem.userId
+                                            labelItem.textFormat: Text.PlainText
+                                            subtitleItem.textFormat: Text.PlainText
+                                            Layout.fillWidth: true
+                                        }
+
+                                        QQC2.Label {
+                                            visible: userListItem.powerLevel > 0
+
+                                            text: userListItem.powerLevelString
+                                            color: Kirigami.Theme.disabledTextColor
+                                            textFormat: Text.PlainText
+                                            wrapMode: Text.NoWrap
+                                        }
+                                    }
 
                                     action: Kirigami.Action {
                                         id: editPowerLevelAction
@@ -175,28 +215,11 @@ Kirigami.ScrollablePage {
                                             userListSearchPopup.close()
                                             let dialog = powerLevelDialog.createObject(applicationWindow().overlay, {
                                                 room: root.room,
-                                                userId: model.userId,
-                                                powerLevel: model.powerLevel
+                                                userId: userListItem.userId,
+                                                powerLevel: userListItem.powerLevel
                                             });
                                             dialog.open();
                                         }
-                                    }
-
-                                    leading: Kirigami.Avatar {
-                                        implicitWidth: height
-                                        sourceSize.height: Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 2.5
-                                        sourceSize.width: Kirigami.Units.gridUnit + Kirigami.Units.smallSpacing * 2.5
-                                        source: avatar ? ("image://mxc/" + avatar) : ""
-                                        name: model.userId
-                                    }
-
-                                    trailing: QQC2.Label {
-                                        visible: powerLevel > 0
-
-                                        text: powerLevelString
-                                        color: Kirigami.Theme.disabledTextColor
-                                        textFormat: Text.PlainText
-                                        wrapMode: Text.NoWrap
                                     }
 
                                     Component {
