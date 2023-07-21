@@ -56,7 +56,7 @@ Components.AlbumMaximizeComponent {
     }
 
     leading: RowLayout {
-        Kirigami.Avatar {
+        Components.Avatar {
             id: userAvatar
             implicitWidth: Kirigami.Units.iconSizes.medium
             implicitHeight: Kirigami.Units.iconSizes.medium

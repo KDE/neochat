@@ -8,6 +8,7 @@ import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.15 as Kirigami
 import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
 
 import org.kde.neochat 1.0
 
@@ -42,7 +43,7 @@ Kirigami.ScrollablePage {
                             innerObject: [
                                 RowLayout {
                                     Layout.fillWidth: true
-                                    Kirigami.Avatar {
+                                    KirigamiComponents.Avatar {
                                         color: "#4a5bcc"
                                         Layout.alignment: Qt.AlignTop
                                         visible: Config.showAvatarInTimeline
@@ -79,7 +80,7 @@ Kirigami.ScrollablePage {
                                 },
                                 RowLayout {
                                     Layout.fillWidth: true
-                                    Kirigami.Avatar {
+                                    KirigamiComponents.Avatar {
                                         color: "#9f244b"
                                         Layout.alignment: Qt.AlignTop
                                         visible: Config.showAvatarInTimeline
@@ -132,7 +133,7 @@ Kirigami.ScrollablePage {
                             innerObject: [
                                 RowLayout {
                                     Layout.fillWidth: true
-                                    Kirigami.Avatar {
+                                    KirigamiComponents.Avatar {
                                         color: "#4a5bcc"
                                         Layout.alignment: Qt.AlignTop
                                         visible: Config.showAvatarInTimeline
@@ -159,7 +160,7 @@ Kirigami.ScrollablePage {
                                 },
                                 RowLayout {
                                     Layout.fillWidth: true
-                                    Kirigami.Avatar {
+                                    KirigamiComponents.Avatar {
                                         color: "#9f244b"
                                         Layout.alignment: Qt.AlignTop
                                         visible: Config.showAvatarInTimeline

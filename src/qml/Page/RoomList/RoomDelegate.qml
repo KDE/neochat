@@ -40,19 +40,17 @@ Delegates.RoundedItemDelegate {
     }
 
     contentItem: RowLayout {
+        spacing: Kirigami.Units.largeSpacing
+
         Components.Avatar {
             source: root.avatar ? "image://mxc/" +  root.avatar : ""
             name: root.displayName
-            implicitWidth: visible ? height : 0
-            implicitHeight: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
             visible: Config.showAvatarInRoomDrawer
-            sourceSize {
-                width: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
-                height: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
-            }
+            implicitHeight: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
+            implicitWidth: visible ? implicitHeight : 0
 
-            Layout.topMargin: Kirigami.Units.largeSpacing / 2
-            Layout.bottomMargin: Kirigami.Units.largeSpacing / 2
+            Layout.fillHeight: true
+            Layout.preferredWidth: height
         }
 
         ColumnLayout {

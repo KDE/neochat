@@ -32,10 +32,16 @@ ThumbnailResponse::ThumbnailResponse(QString id, QSize size)
         requestedSize.setWidth(100);
     }
     if (mediaId.count('/') != 1) {
-        errorStr = i18n("Media id '%1' doesn't follow server/mediaId pattern", mediaId);
-        Q_EMIT finished();
-        return;
+        if (mediaId.startsWith(QLatin1Char('/'))) {
+            mediaId = mediaId.mid(1);
+        } else {
+            errorStr = i18n("Media id '%1' doesn't follow server/mediaId pattern", mediaId);
+            Q_EMIT finished();
+            return;
+        }
     }
+
+    mediaId = mediaId.split(QLatin1Char('?'))[0];
 
     QImage cachedImage;
     if (cachedImage.load(localFile)) {

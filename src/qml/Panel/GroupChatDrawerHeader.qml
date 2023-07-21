@@ -18,6 +18,9 @@ ColumnLayout {
     RowLayout {
         Layout.fillWidth: true
         Layout.leftMargin: Kirigami.Units.largeSpacing
+        Layout.topMargin: Kirigami.Units.largeSpacing
+        Layout.bottomMargin: Kirigami.Units.largeSpacing
+
         spacing: Kirigami.Units.largeSpacing
 
         KirigamiComponents.Avatar {
