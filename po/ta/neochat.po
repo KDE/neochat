@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-20 00:49+0000\n"
+"POT-Creation-Date: 2023-07-21 00:50+0000\n"
 "PO-Revision-Date: 2023-07-16 14:19+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -123,93 +123,98 @@ msgstr "சேருமிடம்"
 msgid "Network Error"
 msgstr "பிணைய சிக்கல்"
 
-#: src/main.cpp:160
+#: src/main.cpp:161
 #, kde-format
 msgid "NeoChat"
 msgstr "நியோச்சாட்"
 
-#: src/main.cpp:162
+#: src/main.cpp:163
 #, kde-format
 msgid "Matrix client"
 msgstr "Matrix வாங்கி"
 
-#: src/main.cpp:164
+#: src/main.cpp:165
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 msgstr "© 2018-2020 பிளாக் ஹாட், 2020-2023 கே.டீ.யீ. சமூகம்"
 
-#: src/main.cpp:165
+#: src/main.cpp:166
 #, kde-format
 msgid "Carl Schwan"
 msgstr "கார்ல் ஷுவான்"
 
-#: src/main.cpp:165 src/main.cpp:166 src/main.cpp:167
+#: src/main.cpp:166 src/main.cpp:167 src/main.cpp:168
 #, kde-format
 msgid "Maintainer"
 msgstr "பராமரிப்பாளர்"
 
-#: src/main.cpp:166
+#: src/main.cpp:167
 #, kde-format
 msgid "Tobias Fella"
 msgstr "டோபியாஸ் ஃபெல்லா"
 
-#: src/main.cpp:167
+#: src/main.cpp:168
 #, kde-format
 msgid "James Graham"
 msgstr "ஜேம்சு கிரஹாம்"
 
-#: src/main.cpp:168
+#: src/main.cpp:169
 #, kde-format
 msgid "Black Hat"
 msgstr "பிளாக் ஹாட்"
 
-#: src/main.cpp:168
+#: src/main.cpp:169
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Spectral-ஐ முதலில் இயற்றியவர்"
 
-#: src/main.cpp:169
+#: src/main.cpp:170
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "அலெக்செய் ருசாக்கொவ்"
 
-#: src/main.cpp:169
+#: src/main.cpp:170
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "Quotient-இன் பராமரிப்பாளர்"
 
-#: src/main.cpp:170
+#: src/main.cpp:171
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "கோ. கிஷோர்"
 
-#: src/main.cpp:170
+#: src/main.cpp:171
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Kde-l10n-ta@kde.org"
 
-#: src/main.cpp:174
+#: src/main.cpp:175
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr "மேட்ரிக்ஸுக்கான பல்லியங்குதள செயலிகளை எழுத உதவும் Qt5 நிரலகம்"
 
-#: src/main.cpp:176
+#: src/main.cpp:177
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (%2 கொண்டு தொகுக்கப்பட்டது)"
 
-#: src/main.cpp:324
+#: src/main.cpp:325
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Matrix தொடர்பு நெறிமுறைக்கான வாங்கி"
 
-#: src/main.cpp:325
+#: src/main.cpp:326
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "matrix: முகவரி திட்டமுறையை ஆதரிக்கும்"
+
+#: src/main.cpp:327
+#, kde-format
+msgid "Ignore all SSL Errors, e.g., unsigned certificates."
+msgstr ""
 
 #: src/matriximageprovider.cpp:35
 #, kde-format
@@ -1355,7 +1360,7 @@ msgstr "மறு"
 msgid "Accept"
 msgstr "ஏற்றுக்கொள்"
 
-#: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:182
+#: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:193
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -1388,7 +1393,7 @@ msgid "Url:"
 msgstr "முகவரி:"
 
 #: src/qml/Component/Login/Homeserver.qml:57
-#: src/qml/Component/Login/Login.qml:46
+#: src/qml/Component/Login/Login.qml:47
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -1415,13 +1420,19 @@ msgstr "உங்கள் Matrix கணக்கின் பெயரை உ�
 msgid "Matrix ID:"
 msgstr "Matrix கணக்குப்பெயர்:"
 
-#: src/qml/Component/Login/Login.qml:46 src/qml/Component/Login/Sso.qml:45
+#: src/qml/Component/Login/Login.qml:31
+#, fuzzy, kde-format
+#| msgid "Matrix ID:"
+msgid "Matrix ID"
+msgstr "Matrix கணக்குப்பெயர்:"
+
+#: src/qml/Component/Login/Login.qml:47 src/qml/Component/Login/Sso.qml:45
 #: src/qml/Page/LoadingPage.qml:9
 #, kde-format
 msgid "Loading…"
 msgstr "ஏற்றப்படுகிறது…"
 
-#: src/qml/Component/Login/Login.qml:46
+#: src/qml/Component/Login/Login.qml:47
 #, kde-format
 msgid "Already logged in"
 msgstr "ஏற்கனவே நுழைந்துள்ளீர்கள்"
@@ -1475,6 +1486,13 @@ msgstr "உங்கள் கடவுச்சொல்லை உள்ளி�
 msgctxt "@action:button"
 msgid "Login"
 msgstr "நுழை"
+
+#: src/qml/Component/Login/Password.qml:41
+#: src/qml/Settings/AccountEditorPage.qml:129
+#: src/qml/Settings/NetworkProxyPage.qml:99
+#, kde-format
+msgid "Password"
+msgstr "கடவுச்சொல்"
 
 #: src/qml/Component/Login/Sso.qml:23
 #, kde-format
@@ -2345,7 +2363,7 @@ msgstr "செய்தியைப் பற்றி புகாரளி"
 msgid "Reason for reporting this message"
 msgstr "இச்செய்தியைப்பற்றி புகாரளிப்பதற்கான காரணம்"
 
-#: src/qml/Page/DevtoolsPage.qml:17 src/qml/Panel/RoomDrawer.qml:146
+#: src/qml/Page/DevtoolsPage.qml:17 src/qml/Panel/RoomDrawer.qml:151
 #, kde-format
 msgid "Developer Tools"
 msgstr "நிரலாக்க கருவிகள்"
@@ -2613,7 +2631,7 @@ msgstr "முடக்கு"
 
 #: src/qml/Page/RoomList/ContextMenu.qml:116
 #: src/qml/Page/RoomList/ContextMenu.qml:118
-#: src/qml/Page/RoomList/ContextMenu.qml:185 src/qml/Panel/RoomDrawer.qml:99
+#: src/qml/Page/RoomList/ContextMenu.qml:185 src/qml/Panel/RoomDrawer.qml:100
 #, kde-format
 msgid "Room Settings"
 msgstr "அரங்கின் அமைப்புகள்"
@@ -2651,17 +2669,17 @@ msgstr "தொடங்க, சில அரங்குகளில் சே�
 msgid "Search in room directory"
 msgstr "அரங்குகளின் பட்டியலில் தேடுங்கள்"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:80
+#: src/qml/Page/RoomList/RoomDelegate.qml:95
 #, kde-format
 msgid "Muted room"
 msgstr "அடக்கப்பட்டுள்ள அரங்கு"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:109
+#: src/qml/Page/RoomList/RoomDelegate.qml:127
 #, kde-format
 msgid "Configure room"
 msgstr "அரங்கை அமை"
 
-#: src/qml/Page/RoomList/SpaceDrawer.qml:63
+#: src/qml/Page/RoomList/SpaceDrawer.qml:58
 #, kde-format
 msgid "All Rooms"
 msgstr "அனைத்து அரங்குகள்"
@@ -2758,75 +2776,75 @@ msgstr "செந்தர மாற்றுப்பெயர் இல்ல�
 msgid "No Topic"
 msgstr "தலைப்பு இல்லை"
 
-#: src/qml/Panel/RoomDrawer.qml:89
+#: src/qml/Panel/RoomDrawer.qml:90
 #, kde-format
 msgid "Room information"
 msgstr "அரங்கின் விவரங்கள்"
 
-#: src/qml/Panel/RoomDrawer.qml:96
+#: src/qml/Panel/RoomDrawer.qml:97
 #, kde-format
 msgid "Room settings"
 msgstr "அரங்கின் அமைப்புகள்"
 
-#: src/qml/Panel/RoomDrawer.qml:134
+#: src/qml/Panel/RoomDrawer.qml:135
 #, kde-format
 msgid "Options"
 msgstr "விருப்பங்கள்"
 
-#: src/qml/Panel/RoomDrawer.qml:142
+#: src/qml/Panel/RoomDrawer.qml:145
 #, kde-format
 msgid "Open developer tools"
 msgstr "நிரலாக்க கருவிகளைத் திற"
 
-#: src/qml/Panel/RoomDrawer.qml:154
+#: src/qml/Panel/RoomDrawer.qml:160
 #, kde-format
 msgid "Search in this room"
 msgstr "இவ்வரங்கில் தேடு"
 
-#: src/qml/Panel/RoomDrawer.qml:160
+#: src/qml/Panel/RoomDrawer.qml:168
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "தேடல்"
 
-#: src/qml/Panel/RoomDrawer.qml:168
+#: src/qml/Panel/RoomDrawer.qml:177
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "பிடித்தவற்றிலிருந்து அரங்கை நீக்கு"
 
-#: src/qml/Panel/RoomDrawer.qml:168
+#: src/qml/Panel/RoomDrawer.qml:177
 #, kde-format
 msgid "Make room favorite"
 msgstr "அரங்கைப் பிடித்ததாகக் குறி"
 
-#: src/qml/Panel/RoomDrawer.qml:177
+#: src/qml/Panel/RoomDrawer.qml:188
 #, kde-format
 msgid "Show locations for this room"
 msgstr "இவ்வரங்கிலுள்ள இருப்பிடங்களைக் காட்டு"
 
-#: src/qml/Panel/RoomDrawer.qml:187
+#: src/qml/Panel/RoomDrawer.qml:200
 #, kde-format
 msgid "Members"
 msgstr "உறுப்பினர்கள்"
 
-#: src/qml/Panel/RoomDrawer.qml:196
+#: src/qml/Panel/RoomDrawer.qml:211
 #, kde-format
 msgid "Search user in room"
 msgstr "அரங்கில் பயனரை கண்டுபிடி"
 
-#: src/qml/Panel/RoomDrawer.qml:213
+#: src/qml/Panel/RoomDrawer.qml:228
 #, kde-format
 msgid "Invite user to room"
 msgstr "பயனரை ஓர் அரங்குக்கு வரவழை"
 
-#: src/qml/Panel/RoomDrawer.qml:220
+#: src/qml/Panel/RoomDrawer.qml:235
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 உறுப்பினர்"
 msgstr[1] "%1 உறுப்பினர்கள்"
 
-#: src/qml/Panel/RoomDrawer.qml:220
+#: src/qml/Panel/RoomDrawer.qml:235
 #, kde-format
 msgid "No member count"
 msgstr "உறுப்பினர்களின் எண்ணிக்கை தெரியாதது"
@@ -3314,12 +3332,6 @@ msgstr "பெயர்:"
 #, kde-format
 msgid "Label:"
 msgstr "காட்சிப்பெயர்"
-
-#: src/qml/Settings/AccountEditorPage.qml:129
-#: src/qml/Settings/NetworkProxyPage.qml:99
-#, kde-format
-msgid "Password"
-msgstr "கடவுச்சொல்"
 
 #: src/qml/Settings/AccountEditorPage.qml:137
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-20 00:49+0000\n"
+"POT-Creation-Date: 2023-07-21 00:50+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -130,96 +130,101 @@ msgstr "Dəvət göndərmək"
 msgid "Network Error"
 msgstr "Şəbəkə xətası"
 
-#: src/main.cpp:160
+#: src/main.cpp:161
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:162
+#: src/main.cpp:163
 #, kde-format
 msgid "Matrix client"
 msgstr "Matrix müştərisi"
 
-#: src/main.cpp:164
+#: src/main.cpp:165
 #, fuzzy, kde-format
 #| msgid "© 2018-2020 Black Hat, 2020-2022 KDE Community"
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2022 KDE Cəmiyyəti"
 
-#: src/main.cpp:165
+#: src/main.cpp:166
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:165 src/main.cpp:166 src/main.cpp:167
+#: src/main.cpp:166 src/main.cpp:167 src/main.cpp:168
 #, kde-format
 msgid "Maintainer"
 msgstr ""
 
-#: src/main.cpp:166
+#: src/main.cpp:167
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:167
+#: src/main.cpp:168
 #, kde-format
 msgid "James Graham"
 msgstr ""
 
-#: src/main.cpp:168
+#: src/main.cpp:169
 #, kde-format
 msgid "Black Hat"
 msgstr "Qarapapaq"
 
-#: src/main.cpp:168
+#: src/main.cpp:169
 #, kde-format
 msgid "Original author of Spectral"
 msgstr ""
 
-#: src/main.cpp:169
+#: src/main.cpp:170
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr ""
 
-#: src/main.cpp:169
+#: src/main.cpp:170
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr ""
 
-#: src/main.cpp:170
+#: src/main.cpp:171
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Xəyyam Qocayev"
 
-#: src/main.cpp:170
+#: src/main.cpp:171
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xxmn77@gmail.com"
 
-#: src/main.cpp:174
+#: src/main.cpp:175
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr ""
 "Matrix üçün platformalararası müştərilər yazmaq üçün bir Qt5 kitabxanası"
 
-#: src/main.cpp:176
+#: src/main.cpp:177
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr ""
 
-#: src/main.cpp:324
+#: src/main.cpp:325
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Matrix kommunikasiya protokolu üçün müştəri"
 
-#: src/main.cpp:325
+#: src/main.cpp:326
 #, fuzzy, kde-format
 #| msgid "Supports appstream: url scheme"
 msgid "Supports matrix: url scheme"
 msgstr "Appstream dəstəklənir: URL sxemi"
+
+#: src/main.cpp:327
+#, kde-format
+msgid "Ignore all SSL Errors, e.g., unsigned certificates."
+msgstr ""
 
 #: src/matriximageprovider.cpp:35
 #, kde-format
@@ -1489,7 +1494,7 @@ msgstr "İmtina etmək"
 msgid "Accept"
 msgstr "Qəbul etmək"
 
-#: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:182
+#: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:193
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgctxt "Locations on a map"
@@ -1524,7 +1529,7 @@ msgid "Url:"
 msgstr "URL:"
 
 #: src/qml/Component/Login/Homeserver.qml:57
-#: src/qml/Component/Login/Login.qml:46
+#: src/qml/Component/Login/Login.qml:47
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -1551,13 +1556,19 @@ msgstr "Matrix İD-zi daxil edin"
 msgid "Matrix ID:"
 msgstr "Matrix ID:"
 
-#: src/qml/Component/Login/Login.qml:46 src/qml/Component/Login/Sso.qml:45
+#: src/qml/Component/Login/Login.qml:31
+#, fuzzy, kde-format
+#| msgid "Matrix ID:"
+msgid "Matrix ID"
+msgstr "Matrix ID:"
+
+#: src/qml/Component/Login/Login.qml:47 src/qml/Component/Login/Sso.qml:45
 #: src/qml/Page/LoadingPage.qml:9
 #, kde-format
 msgid "Loading…"
 msgstr "Yüklənir..."
 
-#: src/qml/Component/Login/Login.qml:46
+#: src/qml/Component/Login/Login.qml:47
 #, kde-format
 msgid "Already logged in"
 msgstr ""
@@ -1611,6 +1622,15 @@ msgstr "Şifrənizi daxil edin"
 msgctxt "@action:button"
 msgid "Login"
 msgstr "Giriş"
+
+#: src/qml/Component/Login/Password.qml:41
+#: src/qml/Settings/AccountEditorPage.qml:129
+#: src/qml/Settings/NetworkProxyPage.qml:99
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Password"
+msgid "Password"
+msgstr "Şifrə"
 
 #: src/qml/Component/Login/Sso.qml:23
 #, kde-format
@@ -2497,7 +2517,7 @@ msgstr "İsmarıca düzəliş etmək"
 msgid "Reason for reporting this message"
 msgstr ""
 
-#: src/qml/Page/DevtoolsPage.qml:17 src/qml/Panel/RoomDrawer.qml:146
+#: src/qml/Page/DevtoolsPage.qml:17 src/qml/Panel/RoomDrawer.qml:151
 #, kde-format
 msgid "Developer Tools"
 msgstr ""
@@ -2775,7 +2795,7 @@ msgstr ""
 
 #: src/qml/Page/RoomList/ContextMenu.qml:116
 #: src/qml/Page/RoomList/ContextMenu.qml:118
-#: src/qml/Page/RoomList/ContextMenu.qml:185 src/qml/Panel/RoomDrawer.qml:99
+#: src/qml/Page/RoomList/ContextMenu.qml:185 src/qml/Panel/RoomDrawer.qml:100
 #, fuzzy, kde-format
 #| msgid "Room settings"
 msgid "Room Settings"
@@ -2815,18 +2835,18 @@ msgstr "Başlamaq üçün bəzi otaqlara qoşulun"
 msgid "Search in room directory"
 msgstr "Otaq kataloqunda axtarın"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:80
+#: src/qml/Page/RoomList/RoomDelegate.qml:95
 #, fuzzy, kde-format
 #| msgid "Muted"
 msgid "Muted room"
 msgstr "Səssiz"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:109
+#: src/qml/Page/RoomList/RoomDelegate.qml:127
 #, kde-format
 msgid "Configure room"
 msgstr "Otağı tənzimləmək"
 
-#: src/qml/Page/RoomList/SpaceDrawer.qml:63
+#: src/qml/Page/RoomList/SpaceDrawer.qml:58
 #, fuzzy, kde-format
 #| msgid "Explore Rooms"
 msgid "All Rooms"
@@ -2932,73 +2952,73 @@ msgstr "Rəsmi adı yoxdur"
 msgid "No Topic"
 msgstr "Mövzu yoxdur"
 
-#: src/qml/Panel/RoomDrawer.qml:89
+#: src/qml/Panel/RoomDrawer.qml:90
 #, kde-format
 msgid "Room information"
 msgstr "Otaq haqqında"
 
-#: src/qml/Panel/RoomDrawer.qml:96
+#: src/qml/Panel/RoomDrawer.qml:97
 #, kde-format
 msgid "Room settings"
 msgstr "Otaq ayarları"
 
-#: src/qml/Panel/RoomDrawer.qml:134
+#: src/qml/Panel/RoomDrawer.qml:135
 #, fuzzy, kde-format
 #| msgid "Options:"
 msgid "Options"
 msgstr "Seçimlər:"
 
-#: src/qml/Panel/RoomDrawer.qml:142
+#: src/qml/Panel/RoomDrawer.qml:145
 #, kde-format
 msgid "Open developer tools"
 msgstr ""
 
-#: src/qml/Panel/RoomDrawer.qml:154
+#: src/qml/Panel/RoomDrawer.qml:160
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgid "Search in this room"
 msgstr "NeoChatı bu otaqla açın"
 
-#: src/qml/Panel/RoomDrawer.qml:160
+#: src/qml/Panel/RoomDrawer.qml:168
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr ""
 
-#: src/qml/Panel/RoomDrawer.qml:168
+#: src/qml/Panel/RoomDrawer.qml:177
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Otağı seçilmişlərdən silin"
 
-#: src/qml/Panel/RoomDrawer.qml:168
+#: src/qml/Panel/RoomDrawer.qml:177
 #, kde-format
 msgid "Make room favorite"
 msgstr "Otağı seçilmiş edin"
 
-#: src/qml/Panel/RoomDrawer.qml:177
+#: src/qml/Panel/RoomDrawer.qml:188
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgid "Show locations for this room"
 msgstr "NeoChatı bu otaqla açın"
 
-#: src/qml/Panel/RoomDrawer.qml:187
+#: src/qml/Panel/RoomDrawer.qml:200
 #, kde-format
 msgid "Members"
 msgstr "Üzvlər"
 
-#: src/qml/Panel/RoomDrawer.qml:196
+#: src/qml/Panel/RoomDrawer.qml:211
 #, fuzzy, kde-format
 #| msgid "Open NeoChat in this room"
 msgid "Search user in room"
 msgstr "NeoChatı bu otaqla açın"
 
-#: src/qml/Panel/RoomDrawer.qml:213
+#: src/qml/Panel/RoomDrawer.qml:228
 #, fuzzy, kde-format
 #| msgid "%1 invited you to a room"
 msgid "Invite user to room"
 msgstr "%1,sizi otağa dəvət etdi"
 
-#: src/qml/Panel/RoomDrawer.qml:220
+#: src/qml/Panel/RoomDrawer.qml:235
 #, fuzzy, kde-format
 #| msgid "%1 Member"
 #| msgid_plural "%1 Members"
@@ -3007,7 +3027,7 @@ msgid_plural "%1 members"
 msgstr[0] "%1 Üzv"
 msgstr[1] "%1 Üzvlər"
 
-#: src/qml/Panel/RoomDrawer.qml:220
+#: src/qml/Panel/RoomDrawer.qml:235
 #, fuzzy, kde-format
 #| msgid "No Member Count"
 msgid "No member count"
@@ -3533,14 +3553,6 @@ msgstr "Ad:"
 #, kde-format
 msgid "Label:"
 msgstr "Yarlıq:"
-
-#: src/qml/Settings/AccountEditorPage.qml:129
-#: src/qml/Settings/NetworkProxyPage.qml:99
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Password"
-msgid "Password"
-msgstr "Şifrə"
 
 #: src/qml/Settings/AccountEditorPage.qml:137
 #, kde-format

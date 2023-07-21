@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-20 00:49+0000\n"
+"POT-Creation-Date: 2023-07-21 00:50+0000\n"
 "PO-Revision-Date: 2023-07-16 16:43+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -122,93 +122,98 @@ msgstr "Bestemming"
 msgid "Network Error"
 msgstr "Netwerkfout"
 
-#: src/main.cpp:160
+#: src/main.cpp:161
 #, kde-format
 msgid "NeoChat"
 msgstr "Neochat"
 
-#: src/main.cpp:162
+#: src/main.cpp:163
 #, kde-format
 msgid "Matrix client"
 msgstr "Matrix-client"
 
-#: src/main.cpp:164
+#: src/main.cpp:165
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 msgstr "© 2018-2020 Black Hat, 2020-2023 KDE-gemeenschap"
 
-#: src/main.cpp:165
+#: src/main.cpp:166
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:165 src/main.cpp:166 src/main.cpp:167
+#: src/main.cpp:166 src/main.cpp:167 src/main.cpp:168
 #, kde-format
 msgid "Maintainer"
 msgstr "Onderhouder"
 
-#: src/main.cpp:166
+#: src/main.cpp:167
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:167
+#: src/main.cpp:168
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:168
+#: src/main.cpp:169
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:168
+#: src/main.cpp:169
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Oorspronkelijke auteur van Spectral"
 
-#: src/main.cpp:169
+#: src/main.cpp:170
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:169
+#: src/main.cpp:170
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "Onderhouder van Quotient"
 
-#: src/main.cpp:170
+#: src/main.cpp:171
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Freek de Kruijf - 2020 t/m 2022"
 
-#: src/main.cpp:170
+#: src/main.cpp:171
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "freekdekruijf@kde.nl"
 
-#: src/main.cpp:174
+#: src/main.cpp:175
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr "Een Qt5 bibliotheek om cross-platform clients voor Matrix te schrijven"
 
-#: src/main.cpp:176
+#: src/main.cpp:177
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (gebouwd tegen %2)"
 
-#: src/main.cpp:324
+#: src/main.cpp:325
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Client voor het matrix communicatieprotocol"
 
-#: src/main.cpp:325
+#: src/main.cpp:326
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Ondersteunt matrix: url schema"
+
+#: src/main.cpp:327
+#, kde-format
+msgid "Ignore all SSL Errors, e.g., unsigned certificates."
+msgstr ""
 
 #: src/matriximageprovider.cpp:35
 #, kde-format
@@ -1352,7 +1357,7 @@ msgstr "Afwijzen"
 msgid "Accept"
 msgstr "Accepteren"
 
-#: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:182
+#: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:193
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -1385,7 +1390,7 @@ msgid "Url:"
 msgstr "Url:"
 
 #: src/qml/Component/Login/Homeserver.qml:57
-#: src/qml/Component/Login/Login.qml:46
+#: src/qml/Component/Login/Login.qml:47
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -1412,13 +1417,19 @@ msgstr "Uw Matrix-id invoeren"
 msgid "Matrix ID:"
 msgstr "Matrix-ID:"
 
-#: src/qml/Component/Login/Login.qml:46 src/qml/Component/Login/Sso.qml:45
+#: src/qml/Component/Login/Login.qml:31
+#, fuzzy, kde-format
+#| msgid "Matrix ID:"
+msgid "Matrix ID"
+msgstr "Matrix-ID:"
+
+#: src/qml/Component/Login/Login.qml:47 src/qml/Component/Login/Sso.qml:45
 #: src/qml/Page/LoadingPage.qml:9
 #, kde-format
 msgid "Loading…"
 msgstr "Laden…"
 
-#: src/qml/Component/Login/Login.qml:46
+#: src/qml/Component/Login/Login.qml:47
 #, kde-format
 msgid "Already logged in"
 msgstr "Al aangemeld"
@@ -1472,6 +1483,13 @@ msgstr "Uw wachtwoord invoeren"
 msgctxt "@action:button"
 msgid "Login"
 msgstr "Aanmelden"
+
+#: src/qml/Component/Login/Password.qml:41
+#: src/qml/Settings/AccountEditorPage.qml:129
+#: src/qml/Settings/NetworkProxyPage.qml:99
+#, kde-format
+msgid "Password"
+msgstr "Wachtwoord"
 
 #: src/qml/Component/Login/Sso.qml:23
 #, kde-format
@@ -2367,7 +2385,7 @@ msgstr "Bericht rapporteren"
 msgid "Reason for reporting this message"
 msgstr "Reden om dit bericht te rapporteren"
 
-#: src/qml/Page/DevtoolsPage.qml:17 src/qml/Panel/RoomDrawer.qml:146
+#: src/qml/Page/DevtoolsPage.qml:17 src/qml/Panel/RoomDrawer.qml:151
 #, kde-format
 msgid "Developer Tools"
 msgstr "Hulpmiddelen voor ontwikkelaars"
@@ -2635,7 +2653,7 @@ msgstr "Uit"
 
 #: src/qml/Page/RoomList/ContextMenu.qml:116
 #: src/qml/Page/RoomList/ContextMenu.qml:118
-#: src/qml/Page/RoomList/ContextMenu.qml:185 src/qml/Panel/RoomDrawer.qml:99
+#: src/qml/Page/RoomList/ContextMenu.qml:185 src/qml/Panel/RoomDrawer.qml:100
 #, kde-format
 msgid "Room Settings"
 msgstr "Room-instellingen"
@@ -2673,17 +2691,17 @@ msgstr "Doe mee met sommige rooms om te beginnen"
 msgid "Search in room directory"
 msgstr "In map van room zoeken"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:80
+#: src/qml/Page/RoomList/RoomDelegate.qml:95
 #, kde-format
 msgid "Muted room"
 msgstr "Gedempte room"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:109
+#: src/qml/Page/RoomList/RoomDelegate.qml:127
 #, kde-format
 msgid "Configure room"
 msgstr "Room configureren"
 
-#: src/qml/Page/RoomList/SpaceDrawer.qml:63
+#: src/qml/Page/RoomList/SpaceDrawer.qml:58
 #, kde-format
 msgid "All Rooms"
 msgstr "Alle rooms"
@@ -2780,75 +2798,75 @@ msgstr "Geen canonieke alias"
 msgid "No Topic"
 msgstr "Geen onderwerp"
 
-#: src/qml/Panel/RoomDrawer.qml:89
+#: src/qml/Panel/RoomDrawer.qml:90
 #, kde-format
 msgid "Room information"
 msgstr "Informatie over room"
 
-#: src/qml/Panel/RoomDrawer.qml:96
+#: src/qml/Panel/RoomDrawer.qml:97
 #, kde-format
 msgid "Room settings"
 msgstr "Roominstellingen"
 
-#: src/qml/Panel/RoomDrawer.qml:134
+#: src/qml/Panel/RoomDrawer.qml:135
 #, kde-format
 msgid "Options"
 msgstr "Opties"
 
-#: src/qml/Panel/RoomDrawer.qml:142
+#: src/qml/Panel/RoomDrawer.qml:145
 #, kde-format
 msgid "Open developer tools"
 msgstr "Hulpmiddelen voor ontwikkelaars openen"
 
-#: src/qml/Panel/RoomDrawer.qml:154
+#: src/qml/Panel/RoomDrawer.qml:160
 #, kde-format
 msgid "Search in this room"
 msgstr "In deze room zoeken"
 
-#: src/qml/Panel/RoomDrawer.qml:160
+#: src/qml/Panel/RoomDrawer.qml:168
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Zoeken"
 
-#: src/qml/Panel/RoomDrawer.qml:168
+#: src/qml/Panel/RoomDrawer.qml:177
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Room uit favorieten verwijderen"
 
-#: src/qml/Panel/RoomDrawer.qml:168
+#: src/qml/Panel/RoomDrawer.qml:177
 #, kde-format
 msgid "Make room favorite"
 msgstr "Room als favoriet instellen"
 
-#: src/qml/Panel/RoomDrawer.qml:177
+#: src/qml/Panel/RoomDrawer.qml:188
 #, kde-format
 msgid "Show locations for this room"
 msgstr "Locaties in deze room tonen"
 
-#: src/qml/Panel/RoomDrawer.qml:187
+#: src/qml/Panel/RoomDrawer.qml:200
 #, kde-format
 msgid "Members"
 msgstr "Leden"
 
-#: src/qml/Panel/RoomDrawer.qml:196
+#: src/qml/Panel/RoomDrawer.qml:211
 #, kde-format
 msgid "Search user in room"
 msgstr "Gebruiker in room zoeken"
 
-#: src/qml/Panel/RoomDrawer.qml:213
+#: src/qml/Panel/RoomDrawer.qml:228
 #, kde-format
 msgid "Invite user to room"
 msgstr "Gebruiker uitnodigen in room"
 
-#: src/qml/Panel/RoomDrawer.qml:220
+#: src/qml/Panel/RoomDrawer.qml:235
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 lid"
 msgstr[1] "%1 leden"
 
-#: src/qml/Panel/RoomDrawer.qml:220
+#: src/qml/Panel/RoomDrawer.qml:235
 #, kde-format
 msgid "No member count"
 msgstr "Geen aantal leden"
@@ -3346,12 +3364,6 @@ msgstr "Naam:"
 #, kde-format
 msgid "Label:"
 msgstr "Label:"
-
-#: src/qml/Settings/AccountEditorPage.qml:129
-#: src/qml/Settings/NetworkProxyPage.qml:99
-#, kde-format
-msgid "Password"
-msgstr "Wachtwoord"
 
 #: src/qml/Settings/AccountEditorPage.qml:137
 #, kde-format

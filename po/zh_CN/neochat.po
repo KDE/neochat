@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-20 00:49+0000\n"
+"POT-Creation-Date: 2023-07-21 00:50+0000\n"
 "PO-Revision-Date: 2023-07-18 11:12\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -123,62 +123,62 @@ msgstr ""
 msgid "Network Error"
 msgstr "网络错误"
 
-#: src/main.cpp:160
+#: src/main.cpp:161
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:162
+#: src/main.cpp:163
 #, kde-format
 msgid "Matrix client"
 msgstr "Matrix 客户端"
 
-#: src/main.cpp:164
+#: src/main.cpp:165
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 msgstr ""
 
-#: src/main.cpp:165
+#: src/main.cpp:166
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:165 src/main.cpp:166 src/main.cpp:167
+#: src/main.cpp:166 src/main.cpp:167 src/main.cpp:168
 #, kde-format
 msgid "Maintainer"
 msgstr "维护人员"
 
-#: src/main.cpp:166
+#: src/main.cpp:167
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:167
+#: src/main.cpp:168
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:168
+#: src/main.cpp:169
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:168
+#: src/main.cpp:169
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Spectral 的原作者"
 
-#: src/main.cpp:169
+#: src/main.cpp:170
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:169
+#: src/main.cpp:170
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "Quotient 的维护人员"
 
-#: src/main.cpp:170
+#: src/main.cpp:171
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
@@ -186,7 +186,7 @@ msgstr ""
 "KDE China (中国), Guo Yunhe (郭云鹤), Yang Boyuan (杨博远), Coelacanthus, "
 "Tyson Tan (钛山), Gary Wang"
 
-#: src/main.cpp:170
+#: src/main.cpp:171
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -194,26 +194,31 @@ msgstr ""
 "kde-china@kde.org, i@guoyunhe.me, 073plan@gmail.com, coelacanthus@kde.org, "
 "tysontan@tysontan.com, git@blumia.net"
 
-#: src/main.cpp:174
+#: src/main.cpp:175
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr "一个用于编写跨平台 Matrix 客户端的 Qt5 库"
 
-#: src/main.cpp:176
+#: src/main.cpp:177
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (使用 %2 构建)"
 
-#: src/main.cpp:324
+#: src/main.cpp:325
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Matrix 通信协议客户端"
 
-#: src/main.cpp:325
+#: src/main.cpp:326
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "支持 matrix: URL 协议"
+
+#: src/main.cpp:327
+#, kde-format
+msgid "Ignore all SSL Errors, e.g., unsigned certificates."
+msgstr ""
 
 #: src/matriximageprovider.cpp:35
 #, kde-format
@@ -1350,7 +1355,7 @@ msgstr "拒绝"
 msgid "Accept"
 msgstr "接受"
 
-#: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:182
+#: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:193
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -1383,7 +1388,7 @@ msgid "Url:"
 msgstr "链接："
 
 #: src/qml/Component/Login/Homeserver.qml:57
-#: src/qml/Component/Login/Login.qml:46
+#: src/qml/Component/Login/Login.qml:47
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
@@ -1410,13 +1415,19 @@ msgstr "输入您的 Matrix ID"
 msgid "Matrix ID:"
 msgstr "Matrix ID:"
 
-#: src/qml/Component/Login/Login.qml:46 src/qml/Component/Login/Sso.qml:45
+#: src/qml/Component/Login/Login.qml:31
+#, fuzzy, kde-format
+#| msgid "Matrix ID:"
+msgid "Matrix ID"
+msgstr "Matrix ID:"
+
+#: src/qml/Component/Login/Login.qml:47 src/qml/Component/Login/Sso.qml:45
 #: src/qml/Page/LoadingPage.qml:9
 #, kde-format
 msgid "Loading…"
 msgstr "加载中…"
 
-#: src/qml/Component/Login/Login.qml:46
+#: src/qml/Component/Login/Login.qml:47
 #, kde-format
 msgid "Already logged in"
 msgstr ""
@@ -1470,6 +1481,13 @@ msgstr "请输入您的密码"
 msgctxt "@action:button"
 msgid "Login"
 msgstr "登录"
+
+#: src/qml/Component/Login/Password.qml:41
+#: src/qml/Settings/AccountEditorPage.qml:129
+#: src/qml/Settings/NetworkProxyPage.qml:99
+#, kde-format
+msgid "Password"
+msgstr "密码"
 
 #: src/qml/Component/Login/Sso.qml:23
 #, kde-format
@@ -2326,7 +2344,7 @@ msgstr ""
 msgid "Reason for reporting this message"
 msgstr ""
 
-#: src/qml/Page/DevtoolsPage.qml:17 src/qml/Panel/RoomDrawer.qml:146
+#: src/qml/Page/DevtoolsPage.qml:17 src/qml/Panel/RoomDrawer.qml:151
 #, kde-format
 msgid "Developer Tools"
 msgstr "开发者工具"
@@ -2592,7 +2610,7 @@ msgstr "关闭"
 
 #: src/qml/Page/RoomList/ContextMenu.qml:116
 #: src/qml/Page/RoomList/ContextMenu.qml:118
-#: src/qml/Page/RoomList/ContextMenu.qml:185 src/qml/Panel/RoomDrawer.qml:99
+#: src/qml/Page/RoomList/ContextMenu.qml:185 src/qml/Panel/RoomDrawer.qml:100
 #, kde-format
 msgid "Room Settings"
 msgstr "聊天室设置"
@@ -2630,17 +2648,17 @@ msgstr "加入聊天室，开启畅聊"
 msgid "Search in room directory"
 msgstr "在聊天室目录中搜索"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:80
+#: src/qml/Page/RoomList/RoomDelegate.qml:95
 #, kde-format
 msgid "Muted room"
 msgstr "已静音的聊天室"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:109
+#: src/qml/Page/RoomList/RoomDelegate.qml:127
 #, kde-format
 msgid "Configure room"
 msgstr "配置聊天室"
 
-#: src/qml/Page/RoomList/SpaceDrawer.qml:63
+#: src/qml/Page/RoomList/SpaceDrawer.qml:58
 #, kde-format
 msgid "All Rooms"
 msgstr ""
@@ -2737,74 +2755,74 @@ msgstr ""
 msgid "No Topic"
 msgstr "无话题"
 
-#: src/qml/Panel/RoomDrawer.qml:89
+#: src/qml/Panel/RoomDrawer.qml:90
 #, kde-format
 msgid "Room information"
 msgstr "聊天室信息"
 
-#: src/qml/Panel/RoomDrawer.qml:96
+#: src/qml/Panel/RoomDrawer.qml:97
 #, kde-format
 msgid "Room settings"
 msgstr "聊天室设置"
 
-#: src/qml/Panel/RoomDrawer.qml:134
+#: src/qml/Panel/RoomDrawer.qml:135
 #, kde-format
 msgid "Options"
 msgstr "选项"
 
-#: src/qml/Panel/RoomDrawer.qml:142
+#: src/qml/Panel/RoomDrawer.qml:145
 #, kde-format
 msgid "Open developer tools"
 msgstr "打开开发者工具"
 
-#: src/qml/Panel/RoomDrawer.qml:154
+#: src/qml/Panel/RoomDrawer.qml:160
 #, kde-format
 msgid "Search in this room"
 msgstr "在此聊天室中搜索"
 
-#: src/qml/Panel/RoomDrawer.qml:160
+#: src/qml/Panel/RoomDrawer.qml:168
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "搜索"
 
-#: src/qml/Panel/RoomDrawer.qml:168
+#: src/qml/Panel/RoomDrawer.qml:177
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "从收藏夹中移除聊天室"
 
-#: src/qml/Panel/RoomDrawer.qml:168
+#: src/qml/Panel/RoomDrawer.qml:177
 #, kde-format
 msgid "Make room favorite"
 msgstr "收藏聊天室"
 
-#: src/qml/Panel/RoomDrawer.qml:177
+#: src/qml/Panel/RoomDrawer.qml:188
 #, kde-format
 msgid "Show locations for this room"
 msgstr ""
 
-#: src/qml/Panel/RoomDrawer.qml:187
+#: src/qml/Panel/RoomDrawer.qml:200
 #, kde-format
 msgid "Members"
 msgstr "成员"
 
-#: src/qml/Panel/RoomDrawer.qml:196
+#: src/qml/Panel/RoomDrawer.qml:211
 #, kde-format
 msgid "Search user in room"
 msgstr ""
 
-#: src/qml/Panel/RoomDrawer.qml:213
+#: src/qml/Panel/RoomDrawer.qml:228
 #, kde-format
 msgid "Invite user to room"
 msgstr "邀请用户到聊天室"
 
-#: src/qml/Panel/RoomDrawer.qml:220
+#: src/qml/Panel/RoomDrawer.qml:235
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] ""
 
-#: src/qml/Panel/RoomDrawer.qml:220
+#: src/qml/Panel/RoomDrawer.qml:235
 #, kde-format
 msgid "No member count"
 msgstr ""
@@ -3286,12 +3304,6 @@ msgstr "名称："
 #, kde-format
 msgid "Label:"
 msgstr ""
-
-#: src/qml/Settings/AccountEditorPage.qml:129
-#: src/qml/Settings/NetworkProxyPage.qml:99
-#, kde-format
-msgid "Password"
-msgstr "密码"
 
 #: src/qml/Settings/AccountEditorPage.qml:137
 #, kde-format
