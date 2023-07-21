@@ -73,7 +73,7 @@ Kirigami.OverlayDrawer {
         active: roomDrawer.drawerOpen
 
         sourceComponent: ColumnLayout {
-            readonly property string userSearchText: userListView.headerItem.userListSearchField.text
+            readonly property string userSearchText: userListView.headerItem ? userListView.headerItem.userListSearchField.text : ''
             property alias highlightedUser: userListView.currentIndex
 
             spacing: 0
@@ -128,6 +128,9 @@ Kirigami.OverlayDrawer {
                             Layout.fillWidth: true
                             Layout.topMargin: Kirigami.Units.smallSpacing
                             sourceComponent: room.isDirectChat() ? directChatDrawerHeader : groupChatDrawerHeader
+                            onItemChanged: if (item) {
+                                userListView.positionViewAtBeginning();
+                            }
                         }
 
                         Kirigami.ListSectionHeader {
