@@ -105,6 +105,10 @@ TimelineContainer {
         Layout.preferredHeight: imageHeight
         source: root.mediaInfo.source
 
+        Drag.active: dragHandler.active
+        Drag.dragType: Drag.Automatic
+        Drag.supportedActions: Qt.CopyAction
+
         Image {
             anchors.fill: parent
             source: root.mediaInfo.tempInfo.source
@@ -138,6 +142,28 @@ TimelineContainer {
                 from: 0
                 to: root.progressInfo.total
                 value: root.progressInfo.progress
+            }
+        }
+
+        Item {
+            anchors.fill: parent
+
+            DragHandler {
+                id: dragHandler
+                enabled: img.status === Image.Ready
+
+                onActiveChanged: {
+                    if (active) {
+                        img.grabToImage((result) => {
+                            img.Drag.mimeData = {
+                                "image/png": result.image,
+                            };
+                            img.Drag.active = dragHandler.active;
+                        });
+                    } else {
+                        img.Drag.active = false;
+                    }
+                }
             }
         }
 
