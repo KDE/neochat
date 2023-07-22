@@ -56,15 +56,6 @@ ColumnLayout {
     Kirigami.Theme.colorSet: Kirigami.Theme.View
     Kirigami.Theme.inherit: false
 
-    Kirigami.InlineMessage {
-        Layout.fillWidth: true
-        Layout.leftMargin: 1 // So we can see the border
-        Layout.rightMargin: 1 // So we can see the border
-
-        text: i18n("NeoChat is offline. Please check your network connection.")
-        visible: !Controller.isOnline
-    }
-
     Kirigami.Separator {
         Layout.fillWidth: true
     }
