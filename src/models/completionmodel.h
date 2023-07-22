@@ -64,10 +64,10 @@ public:
      * @brief Defines the model roles.
      */
     enum Roles {
-        Text = Qt::DisplayRole, /**< The main text to show. */
-        Subtitle, /**< The subtitle text to show. */
-        Icon, /**< The icon to show. */
-        ReplacedText, /**< The text to replace the input text with for the completion. */
+        DisplayNameRole = Qt::DisplayRole, /**< The main text to show. */
+        SubtitleRole, /**< The subtitle text to show. */
+        IconNameRole, /**< The icon to show. */
+        ReplacedTextRole, /**< The text to replace the input text with for the completion. */
     };
     Q_ENUM(Roles)
 
