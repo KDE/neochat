@@ -43,7 +43,22 @@ Kirigami.Page {
         }
     }
 
+    Connections {
+        target: Controller
+        function onIsOnlineChanged() {
+            if (true || !Controller.isOnline) {
+                banner.text = i18n("NeoChat is offline. Please check your network connection.");
+                banner.visible = true;
+                banner.type = Kirigami.MessageType.Error;
+            } else {
+                banner.visible = false;
+            }
+        }
+    }
+
     header: KirigamiComponents.Banner {
+        id: banner
+
         showCloseButton: true
         visible: false
     }
@@ -162,16 +177,16 @@ Kirigami.Page {
     Connections {
         target: currentRoom
         function onShowMessage(messageType, message) {
-            root.header.text = message;
-            root.headertype = messageType === ActionsHandler.Error ? Kirigami.MessageType.Error : messageType === ActionsHandler.Positive ? Kirigami.MessageType.Positive : Kirigami.MessageType.Information;
-            root.header.visible = true;
+            banner.text = message;
+            banner.type = messageType === ActionsHandler.Error ? Kirigami.MessageType.Error : messageType === ActionsHandler.Positive ? Kirigami.MessageType.Positive : Kirigami.MessageType.Information;
+            banner.visible = true;
         }
     }
 
     function warning(title, message) {
-        root.header.text = `${title}<br />${message}`;
-        root.header.type =  Kirigami.MessageType.Warning;
-        root.header.visible = true;
+        banner.text = `${title}<br />${message}`;
+        banner.type =  Kirigami.MessageType.Warning;
+        banner.visible = true;
     }
 
     function showUserDetail(user) {
