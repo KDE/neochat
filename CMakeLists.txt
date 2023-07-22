@@ -93,12 +93,6 @@ set_package_properties(KF${QT_MAJOR_VERSION}Kirigami2 PROPERTIES
         )
 find_package(KF${QT_MAJOR_VERSION}KirigamiAddons 0.7.2 REQUIRED)
 
-find_package(Qt${QT_MAJOR_VERSION}Keychain)
-set_package_properties(Qt${QT_MAJOR_VERSION}Keychain PROPERTIES
-    TYPE REQUIRED
-    PURPOSE "Secure storage of account secrets"
-)
-
 if(ANDROID)
     find_package(OpenSSL)
     set_package_properties(OpenSSL PROPERTIES
