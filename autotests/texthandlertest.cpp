@@ -4,10 +4,12 @@
 #include <QObject>
 #include <QTest>
 
+#include "neochatuser.h"
 #include "texthandler.h"
 
 #include <Quotient/quotient_common.h>
 #include <Quotient/syncdata.h>
+#include <Quotient/user.h>
 #include <qnamespace.h>
 
 using namespace Quotient;
@@ -555,9 +557,9 @@ void TextHandlerTest::receiveRichPlainUrl()
 void TextHandlerTest::receiveRichEmote()
 {
     auto event = room->messageEvents().at(1).get();
-    auto author = static_cast<NeoChatUser *>(room->user(event->senderId()));
+    auto author = new NeoChatUser(event->senderId(), connection);
     const QString testInputString = QStringLiteral("This is an emote.");
-    const QString testOutputString = QStringLiteral("* <a href=\"https://matrix.to/#/@example:example.org\" style=\"color:") + author->color().name()
+    const QString testOutputString = QStringLiteral("* <a href=\"https://matrix.to/#/@example:example.org\" style=\"color:#000000")
         + QStringLiteral("\">@example:example.org</a> This is an emote.");
 
     TextHandler testTextHandler;
@@ -644,5 +646,5 @@ void TextHandlerTest::linkPreviewsReject()
     QCOMPARE(testTextHandler.getLinkPreviews(), testOutputLinks);
 }
 
-QTEST_GUILESS_MAIN(TextHandlerTest)
+QTEST_MAIN(TextHandlerTest)
 #include "texthandlertest.moc"
