@@ -53,54 +53,54 @@ QVariant CompletionModel::data(const QModelIndex &index, int role) const
     }
     auto filterIndex = m_filterModel->index(index.row(), 0);
     if (m_autoCompletionType == User) {
-        if (role == Text) {
+        if (role == DisplayNameRole) {
             return m_filterModel->data(filterIndex, UserListModel::DisplayNameRole);
         }
-        if (role == Subtitle) {
+        if (role == SubtitleRole) {
             return m_filterModel->data(filterIndex, UserListModel::UserIdRole);
         }
-        if (role == Icon) {
+        if (role == IconNameRole) {
             return m_filterModel->data(filterIndex, UserListModel::AvatarRole);
         }
     }
 
     if (m_autoCompletionType == Command) {
-        if (role == Text) {
+        if (role == DisplayNameRole) {
             return m_filterModel->data(filterIndex, ActionsModel::Prefix).toString() + QStringLiteral(" ")
                 + m_filterModel->data(filterIndex, ActionsModel::Parameters).toString();
         }
-        if (role == Subtitle) {
+        if (role == SubtitleRole) {
             return m_filterModel->data(filterIndex, ActionsModel::Description);
         }
-        if (role == Icon) {
+        if (role == IconNameRole) {
             return QStringLiteral("invalid");
         }
-        if (role == ReplacedText) {
+        if (role == ReplacedTextRole) {
             return m_filterModel->data(filterIndex, ActionsModel::Prefix);
         }
     }
     if (m_autoCompletionType == Room) {
-        if (role == Text) {
+        if (role == DisplayNameRole) {
             return m_filterModel->data(filterIndex, RoomListModel::DisplayNameRole);
         }
-        if (role == Subtitle) {
+        if (role == SubtitleRole) {
             return m_filterModel->data(filterIndex, RoomListModel::CanonicalAliasRole);
         }
-        if (role == Icon) {
+        if (role == IconNameRole) {
             return m_filterModel->data(filterIndex, RoomListModel::AvatarRole);
         }
     }
     if (m_autoCompletionType == Emoji) {
-        if (role == Text) {
+        if (role == DisplayNameRole) {
             return m_filterModel->data(filterIndex, CustomEmojiModel::DisplayRole);
         }
-        if (role == Icon) {
+        if (role == IconNameRole) {
             return m_filterModel->data(filterIndex, CustomEmojiModel::MxcUrl);
         }
-        if (role == ReplacedText) {
+        if (role == ReplacedTextRole) {
             return m_filterModel->data(filterIndex, CustomEmojiModel::ReplacedTextRole);
         }
-        if (role == Subtitle) {
+        if (role == SubtitleRole) {
             return m_filterModel->data(filterIndex, EmojiModel::DescriptionRole);
         }
     }
@@ -111,10 +111,10 @@ QVariant CompletionModel::data(const QModelIndex &index, int role) const
 QHash<int, QByteArray> CompletionModel::roleNames() const
 {
     return {
-        {Text, "text"},
-        {Subtitle, "subtitle"},
-        {Icon, "icon"},
-        {ReplacedText, "replacedText"},
+        {DisplayNameRole, "displayName"},
+        {SubtitleRole, "subtitle"},
+        {IconNameRole, "iconName"},
+        {ReplacedTextRole, "replacedText"},
     };
 }
 

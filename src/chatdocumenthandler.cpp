@@ -218,8 +218,8 @@ void ChatDocumentHandler::setRoom(NeoChatRoom *room)
 void ChatDocumentHandler::complete(int index)
 {
     if (m_completionModel->autoCompletionType() == CompletionModel::User) {
-        auto name = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::Text).toString();
-        auto id = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::Subtitle).toString();
+        auto name = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::DisplayNameRole).toString();
+        auto id = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::SubtitleRole).toString();
         auto text = getText();
         auto at = text.lastIndexOf(QLatin1Char('@'), cursorPosition() - 1);
         QTextCursor cursor(document()->textDocument());
@@ -232,7 +232,7 @@ void ChatDocumentHandler::complete(int index)
         pushMention({cursor, name, 0, 0, id});
         m_highlighter->rehighlight();
     } else if (m_completionModel->autoCompletionType() == CompletionModel::Command) {
-        auto command = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::ReplacedText).toString();
+        auto command = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::ReplacedTextRole).toString();
         auto text = getText();
         auto at = text.lastIndexOf(QLatin1Char('/'));
         QTextCursor cursor(document()->textDocument());
@@ -240,7 +240,7 @@ void ChatDocumentHandler::complete(int index)
         cursor.setPosition(cursorPosition(), QTextCursor::KeepAnchor);
         cursor.insertText(QStringLiteral("/%1 ").arg(command));
     } else if (m_completionModel->autoCompletionType() == CompletionModel::Room) {
-        auto alias = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::Subtitle).toString();
+        auto alias = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::SubtitleRole).toString();
         auto text = getText();
         auto at = text.lastIndexOf(QLatin1Char('#'), cursorPosition() - 1);
         QTextCursor cursor(document()->textDocument());
@@ -253,7 +253,7 @@ void ChatDocumentHandler::complete(int index)
         pushMention({cursor, alias, 0, 0, alias});
         m_highlighter->rehighlight();
     } else if (m_completionModel->autoCompletionType() == CompletionModel::Emoji) {
-        auto shortcode = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::ReplacedText).toString();
+        auto shortcode = m_completionModel->data(m_completionModel->index(index, 0), CompletionModel::ReplacedTextRole).toString();
         auto text = getText();
         auto at = text.lastIndexOf(QLatin1Char(':'));
         QTextCursor cursor(document()->textDocument());
