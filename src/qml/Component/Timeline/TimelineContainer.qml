@@ -361,6 +361,8 @@ ColumnLayout {
             anchors {
                 left: parent.left
                 leftMargin: Kirigami.Units.smallSpacing
+                top: parent.top
+                topMargin: Kirigami.Units.smallSpacing
             }
 
             visible: root.showAuthor &&
@@ -391,7 +393,8 @@ ColumnLayout {
             hoverEnabled: true
 
             anchors {
-                leftMargin: Kirigami.Units.smallSpacing
+                left: avatar.right
+                leftMargin: Kirigami.Units.largeSpacing
                 rightMargin: Kirigami.Units.largeSpacing
             }
             // HACK: anchoring didn't reset anchors.right when switching from parent.right to undefined reliably
