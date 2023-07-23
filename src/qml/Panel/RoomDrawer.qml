@@ -80,6 +80,10 @@ Kirigami.OverlayDrawer {
 
             spacing: 0
 
+            function clearSearch() {
+                userListView.headerItem.userListSearchField.text = ""
+            }
+
             QQC2.ToolBar {
                 Layout.fillWidth: true
 
@@ -339,7 +343,7 @@ Kirigami.OverlayDrawer {
 
     onRoomChanged: {
         if (loader.active) {
-            loader.item.userSearchText = ""
+            loader.item.clearSearch()
             loader.item.highlightedUser = -1
         }
         if (room == null) {
