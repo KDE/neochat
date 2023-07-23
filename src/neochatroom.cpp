@@ -993,7 +993,7 @@ void NeoChatRoom::deleteMessagesByUser(const QString &user, const QString &reaso
 QString NeoChatRoom::joinRule() const
 {
     auto joinRulesEvent = currentState().get<JoinRulesEvent>();
-    if (joinRulesEvent) {
+    if (!joinRulesEvent) {
         return {};
     }
     return joinRulesEvent->joinRule();
