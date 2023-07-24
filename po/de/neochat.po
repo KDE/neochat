@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-20 02:45+0000\n"
+"POT-Creation-Date: 2023-07-24 10:09+0000\n"
 "PO-Revision-Date: 2023-06-05 13:08+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -217,12 +217,12 @@ msgstr "Programm für das Matrix-Protokoll"
 msgid "Supports matrix: url scheme"
 msgstr "Unterstützt das Adressschema matrix:"
 
-#: src/matriximageprovider.cpp:35
+#: src/matriximageprovider.cpp:38
 #, kde-format
 msgid "Media id '%1' doesn't follow server/mediaId pattern"
 msgstr "Medien-ID „%1“ folgt nicht dem Server/mediaId-Muster"
 
-#: src/matriximageprovider.cpp:90
+#: src/matriximageprovider.cpp:96
 #, kde-format
 msgid "Image request has been cancelled"
 msgstr "Bildanfrage wurde zurückgezogen"
@@ -1111,7 +1111,7 @@ msgstr "NeoChat in diesem Raum öffnen"
 
 #: src/notificationsmanager.cpp:221 src/qml/Component/HoverActions.qml:103
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:35
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:36
 #, kde-format
 msgid "Reply"
 msgstr "Antworten"
@@ -1148,7 +1148,7 @@ msgstr "Anhang:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Component/HoverActions.qml:97
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:26
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:27
 #: src/qml/Page/ImageEditorPage.qml:21
 #, kde-format
 msgid "Edit"
@@ -1207,11 +1207,6 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Antwort abbrechen"
 
-#: src/qml/Component/ChatBox/ChatBox.qml:64
-#, kde-format
-msgid "NeoChat is offline. Please check your network connection."
-msgstr "NeoChat ist offline. Bitte überprüfen Sie Ihre Netzwerkverbindung."
-
 #: src/qml/Component/ChatBox/LocationChooser.qml:22
 #, kde-format
 msgid "Choose a Location"
@@ -1252,7 +1247,7 @@ msgstr "Zitat"
 msgid "Insert link"
 msgstr "Verknüpfung einfügen"
 
-#: src/qml/Component/ChatBox/ReplyPane.qml:32
+#: src/qml/Component/ChatBox/ReplyPane.qml:33
 #, kde-format
 msgid "Replying to:"
 msgstr "Antwort an:"
@@ -1371,7 +1366,7 @@ msgstr "Ablehnen"
 msgid "Accept"
 msgstr "Annehmen"
 
-#: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:182
+#: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:201
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgctxt "Locations on a map"
@@ -1506,7 +1501,7 @@ msgid "Back"
 msgstr "Zurück"
 
 #: src/qml/Component/Timeline/EncryptedDelegate.qml:20
-#: src/qml/Component/Timeline/ReplyComponent.qml:203
+#: src/qml/Component/Timeline/ReplyComponent.qml:204
 #, kde-format
 msgid ""
 "This message is encrypted and the sender has not shared the key with this "
@@ -1656,14 +1651,14 @@ msgstr ""
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:32
 #: src/qml/Dialog/ConfirmLogout.qml:29 src/qml/Page/ImageEditorPage.qml:126
-#: src/qml/Settings/AccountEditorPage.qml:185
+#: src/qml/Settings/AccountEditorPage.qml:195
 #, kde-format
 msgid "Cancel"
 msgstr "Abbrechen"
 
 #: src/qml/Dialog/ConfirmLogout.qml:16 src/qml/Dialog/ConfirmLogout.qml:35
-#: src/qml/Settings/AccountEditorPage.qml:229
-#: src/qml/Settings/AccountEditorPage.qml:237
+#: src/qml/Settings/AccountEditorPage.qml:239
+#: src/qml/Settings/AccountEditorPage.qml:247
 #, kde-format
 msgid "Sign out"
 msgstr "Abmelden"
@@ -1679,17 +1674,17 @@ msgstr "Möchten Sie sich wirklich abmelden?"
 msgid "Create a Room"
 msgstr "Raum erstellen"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:21 src/qml/RoomSettings/General.qml:77
+#: src/qml/Dialog/CreateRoomDialog.qml:21 src/qml/RoomSettings/General.qml:80
 #, kde-format
 msgid "Room name:"
 msgstr "Raumname:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:27 src/qml/RoomSettings/General.qml:89
+#: src/qml/Dialog/CreateRoomDialog.qml:27 src/qml/RoomSettings/General.qml:92
 #, kde-format
 msgid "Room topic:"
 msgstr "Thema des Raumes:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:159
+#: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:160
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -1969,93 +1964,93 @@ msgid "Edit user power level"
 msgstr ""
 
 #: src/qml/Dialog/PowerLevelDialog.qml:37
-#: src/qml/RoomSettings/Permissions.qml:76
+#: src/qml/RoomSettings/Permissions.qml:78
 #, kde-format
 msgid "Member (0)"
 msgstr "Mitglied (0)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:38
-#: src/qml/RoomSettings/Permissions.qml:77
+#: src/qml/RoomSettings/Permissions.qml:79
 #, kde-format
 msgid "Moderator (50)"
 msgstr "Moderator (50)"
 
 #: src/qml/Dialog/PowerLevelDialog.qml:39
-#: src/qml/RoomSettings/Permissions.qml:78
+#: src/qml/RoomSettings/Permissions.qml:80
 #, kde-format
 msgid "Admin (100)"
 msgstr "Admin (100)"
 
-#: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:352
+#: src/qml/Dialog/PowerLevelDialog.qml:43 src/qml/RoomSettings/General.qml:355
 #: src/qml/Settings/DevicesPage.qml:77
 #, kde-format
 msgid "Confirm"
 msgstr "Bestätigen"
 
-#: src/qml/Dialog/UserDetailDialog.qml:28
+#: src/qml/Dialog/UserDetailDialog.qml:29
 #, kde-format
 msgctxt "@title:menu Account detail dialog"
 msgid "Account detail"
 msgstr "Kontodetail"
 
-#: src/qml/Dialog/UserDetailDialog.qml:76
+#: src/qml/Dialog/UserDetailDialog.qml:77
 #, kde-format
 msgid "Unignore this user"
 msgstr "Diesen Benutzer nicht mehr ignorieren"
 
-#: src/qml/Dialog/UserDetailDialog.qml:76
+#: src/qml/Dialog/UserDetailDialog.qml:77
 #, kde-format
 msgid "Ignore this user"
 msgstr "Diesen Benutzer ignorieren"
 
-#: src/qml/Dialog/UserDetailDialog.qml:88
+#: src/qml/Dialog/UserDetailDialog.qml:89
 #, kde-format
 msgid "Kick this user"
 msgstr "Diesen Benutzer rauswerfen"
 
-#: src/qml/Dialog/UserDetailDialog.qml:101
+#: src/qml/Dialog/UserDetailDialog.qml:102
 #, kde-format
 msgid "Invite this user"
 msgstr "Diesen Benutzer einladen"
 
-#: src/qml/Dialog/UserDetailDialog.qml:113
+#: src/qml/Dialog/UserDetailDialog.qml:114
 #, kde-format
 msgid "Ban this user"
 msgstr "Diesen Benutzer verbannen"
 
-#: src/qml/Dialog/UserDetailDialog.qml:118
+#: src/qml/Dialog/UserDetailDialog.qml:119
 #, kde-format
 msgctxt "@title"
 msgid "Ban User"
 msgstr "Benutzer verbannen"
 
-#: src/qml/Dialog/UserDetailDialog.qml:129
+#: src/qml/Dialog/UserDetailDialog.qml:130
 #, kde-format
 msgid "Unban this user"
 msgstr "Verbannung dieses Benutzers aufheben"
 
-#: src/qml/Dialog/UserDetailDialog.qml:141
+#: src/qml/Dialog/UserDetailDialog.qml:142
 #, kde-format
 msgid "Set user power level"
 msgstr ""
 
-#: src/qml/Dialog/UserDetailDialog.qml:165
+#: src/qml/Dialog/UserDetailDialog.qml:166
 #, kde-format
 msgid "Remove recent messages by this user"
 msgstr "Kürzliche Nachrichten dieses Benutzers löschen"
 
-#: src/qml/Dialog/UserDetailDialog.qml:170
+#: src/qml/Dialog/UserDetailDialog.qml:171
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Nachrichten löschen"
 
-#: src/qml/Dialog/UserDetailDialog.qml:180
+#: src/qml/Dialog/UserDetailDialog.qml:181
 #, kde-format
 msgid "Open a private chat"
 msgstr "Privaten Chat öffnen"
 
-#: src/qml/Dialog/UserDetailDialog.qml:190
+#: src/qml/Dialog/UserDetailDialog.qml:191
 #, kde-format
 msgid "Copy link"
 msgstr "Verknüpfung kopieren"
@@ -2156,7 +2151,7 @@ msgstr "NeoChat einrichten ..."
 
 #: src/qml/Menu/GlobalMenu.qml:28 src/qml/Page/RoomList/AccountMenu.qml:33
 #: src/qml/Page/RoomList/AccountMenu.qml:43
-#: src/qml/Page/RoomList/UserInfo.qml:217
+#: src/qml/Page/RoomList/UserInfo.qml:225
 #, kde-format
 msgid "Configure"
 msgstr "Einrichten"
@@ -2181,7 +2176,7 @@ msgstr "Neuer privater Chat ..."
 
 #: src/qml/Menu/GlobalMenu.qml:43 src/qml/Menu/GlobalMenu.qml:48
 #: src/qml/Page/RoomList/ExploreComponent.qml:26
-#: src/qml/Page/StartChatPage.qml:18
+#: src/qml/Page/StartChatPage.qml:20
 #, kde-format
 msgid "Start a Chat"
 msgstr "Einen Chat starten"
@@ -2286,7 +2281,7 @@ msgstr "Verbannen"
 
 #: src/qml/Menu/Timeline/BanSheet.qml:41
 #: src/qml/Menu/Timeline/RemoveSheet.qml:49
-#: src/qml/Menu/Timeline/ReportSheet.qml:41 src/qml/Page/InviteUserPage.qml:22
+#: src/qml/Menu/Timeline/ReportSheet.qml:41 src/qml/Page/InviteUserPage.qml:24
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
@@ -2303,26 +2298,26 @@ msgid "Save As"
 msgstr "Speichern unter"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:59
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:53
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:54
 #, kde-format
 msgid "Copy"
 msgstr "Kopieren"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:74
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:44
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:45
 #, kde-format
 msgid "Remove"
 msgstr "Entfernen"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:78
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:48
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:49
 #, kde-format
 msgctxt "@title"
 msgid "Remove Message"
 msgstr "Nachricht löschen"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:83
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:58
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:59
 #: src/qml/Menu/Timeline/ReportSheet.qml:32
 #, kde-format
 msgctxt ""
@@ -2331,35 +2326,35 @@ msgid "Report"
 msgstr "Melden"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:87
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:62
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:63
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "Nachricht melden"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:92
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:67
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:68
 #, kde-format
 msgid "View Source"
 msgstr "Quelltext anzeigen"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:98
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:73
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:74
 #, kde-format
 msgid "Message Source"
 msgstr "Nachrichten-Quelltext"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:79
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:80
 #, kde-format
 msgid "Copy Link"
 msgstr "Verknüpfung kopieren"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:128
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:129
 #, kde-format
 msgid "Search for '%1'"
 msgstr "Suchen nach „%1“"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:149
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:150
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "Web-Kurzbefehle festlegen ..."
@@ -2400,7 +2395,7 @@ msgstr "Nachricht melden"
 msgid "Reason for reporting this message"
 msgstr "Grund für das Melden der Nachricht"
 
-#: src/qml/Page/DevtoolsPage.qml:17 src/qml/Panel/RoomDrawer.qml:146
+#: src/qml/Page/DevtoolsPage.qml:17 src/qml/Panel/RoomDrawer.qml:159
 #, kde-format
 msgid "Developer Tools"
 msgstr "Entwicklungswerkzeuge"
@@ -2456,116 +2451,116 @@ msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
 msgstr "Waagerecht spiegeln"
 
-#: src/qml/Page/InviteUserPage.qml:17
+#: src/qml/Page/InviteUserPage.qml:19
 #, kde-format
 msgid "Invite a User"
 msgstr "Einen Benutzer einladen"
 
-#: src/qml/Page/InviteUserPage.qml:35 src/qml/Page/StartChatPage.qml:30
+#: src/qml/Page/InviteUserPage.qml:37 src/qml/Page/StartChatPage.qml:32
 #, kde-format
 msgid "Find a user..."
 msgstr "Einen Benutzer suchen ..."
 
-#: src/qml/Page/InviteUserPage.qml:42 src/qml/Page/RoomList/UserInfo.qml:206
+#: src/qml/Page/InviteUserPage.qml:44 src/qml/Page/RoomList/UserInfo.qml:214
 #, kde-format
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: src/qml/Page/InviteUserPage.qml:68 src/qml/Page/StartChatPage.qml:133
+#: src/qml/Page/InviteUserPage.qml:70 src/qml/Page/StartChatPage.qml:134
 #, kde-format
 msgid "No users available"
 msgstr "Keine Benutzer verfügbar"
 
-#: src/qml/Page/InviteUserPage.qml:86
+#: src/qml/Page/InviteUserPage.qml:100
 #, kde-format
 msgid "Send invitation"
 msgstr "Einladung versenden"
 
-#: src/qml/Page/InviteUserPage.qml:100
+#: src/qml/Page/InviteUserPage.qml:114
 #, kde-format
 msgid "User is either already a member or has been invited"
 msgstr ""
 
-#: src/qml/Page/JoinRoomPage.qml:21
+#: src/qml/Page/JoinRoomPage.qml:22
 #, kde-format
 msgid "Explore Rooms"
 msgstr "Räume erkunden"
 
-#: src/qml/Page/JoinRoomPage.qml:36
+#: src/qml/Page/JoinRoomPage.qml:37
 #, kde-format
 msgid "Find a room..."
 msgstr "Einen Raum suchen ..."
 
-#: src/qml/Page/JoinRoomPage.qml:44
+#: src/qml/Page/JoinRoomPage.qml:45
 #, kde-format
 msgid "View"
 msgstr "Ansicht"
 
-#: src/qml/Page/JoinRoomPage.qml:44
+#: src/qml/Page/JoinRoomPage.qml:45
 #, kde-format
 msgid "Join"
 msgstr "Betreten"
 
-#: src/qml/Page/JoinRoomPage.qml:73
+#: src/qml/Page/JoinRoomPage.qml:74
 #, kde-format
 msgid "Add New Server"
 msgstr "Neuen Server hinzufügen"
 
-#: src/qml/Page/JoinRoomPage.qml:74
+#: src/qml/Page/JoinRoomPage.qml:75
 #, kde-format
 msgid "Home Server"
 msgstr "Heimserver"
 
-#: src/qml/Page/JoinRoomPage.qml:83
+#: src/qml/Page/JoinRoomPage.qml:84
 #, kde-format
 msgid "Add new server"
 msgstr "Neuen Server hinzufügen"
 
-#: src/qml/Page/JoinRoomPage.qml:114
+#: src/qml/Page/JoinRoomPage.qml:115
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "Server hinzufügen"
 
-#: src/qml/Page/JoinRoomPage.qml:127
+#: src/qml/Page/JoinRoomPage.qml:128
 #, kde-format
 msgid "Valid server entered"
 msgstr "Gültiger Server eingegeben"
 
-#: src/qml/Page/JoinRoomPage.qml:127
+#: src/qml/Page/JoinRoomPage.qml:128
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr ""
 "Der Server kann nicht aufgelöst werden oder ist bereits hinzugefügt worden"
 
-#: src/qml/Page/JoinRoomPage.qml:127
+#: src/qml/Page/JoinRoomPage.qml:128
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "Der eingegebene Text ist keine gültige URL"
 
-#: src/qml/Page/JoinRoomPage.qml:127
+#: src/qml/Page/JoinRoomPage.qml:128
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr "Server-URL eingeben, z. B. kde.org"
 
-#: src/qml/Page/JoinRoomPage.qml:135
+#: src/qml/Page/JoinRoomPage.qml:136
 #, kde-format
 msgid "Server URL"
 msgstr "Server-URL"
 
-#: src/qml/Page/JoinRoomPage.qml:227
+#: src/qml/Page/JoinRoomPage.qml:228
 #, kde-format
 msgid "Joined"
 msgstr "Betreten"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:18
-#: src/qml/Page/RoomList/UserInfo.qml:152
+#: src/qml/Page/RoomList/UserInfo.qml:159
 #, kde-format
 msgid "Edit this account"
 msgstr "Dieses Konto bearbeiten"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:23
-#: src/qml/Page/RoomList/UserInfo.qml:157 src/qml/Settings/AccountsPage.qml:37
+#: src/qml/Page/RoomList/UserInfo.qml:164 src/qml/Settings/AccountsPage.qml:38
 #, kde-format
 msgid "Account editor"
 msgstr "Kontodetails"
@@ -2586,42 +2581,42 @@ msgstr "Geräte"
 msgid "Logout"
 msgstr "Abmelden"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:26
+#: src/qml/Page/RoomList/ContextMenu.qml:27
 #, kde-format
 msgid "Open in New Window"
 msgstr "In neuem Fenster öffnen"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:37
-#: src/qml/Page/RoomList/ContextMenu.qml:178
+#: src/qml/Page/RoomList/ContextMenu.qml:38
+#: src/qml/Page/RoomList/ContextMenu.qml:179
 #, kde-format
 msgid "Remove from Favourites"
 msgstr "Aus Favoriten entfernen"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:37
-#: src/qml/Page/RoomList/ContextMenu.qml:178
+#: src/qml/Page/RoomList/ContextMenu.qml:38
+#: src/qml/Page/RoomList/ContextMenu.qml:179
 #, kde-format
 msgid "Add to Favourites"
 msgstr "Zu Favoriten hinzufügen"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:43
-#: src/qml/Page/RoomList/ContextMenu.qml:192
+#: src/qml/Page/RoomList/ContextMenu.qml:44
+#: src/qml/Page/RoomList/ContextMenu.qml:193
 #, kde-format
 msgid "Reprioritize"
 msgstr "Repriorisieren"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:43
-#: src/qml/Page/RoomList/ContextMenu.qml:192
+#: src/qml/Page/RoomList/ContextMenu.qml:44
+#: src/qml/Page/RoomList/ContextMenu.qml:193
 #, kde-format
 msgid "Deprioritize"
 msgstr "Priorität verringern"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:49
-#: src/qml/Page/RoomList/ContextMenu.qml:199
+#: src/qml/Page/RoomList/ContextMenu.qml:50
+#: src/qml/Page/RoomList/ContextMenu.qml:200
 #, kde-format
 msgid "Mark as Read"
 msgstr "Als gelesen markieren"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:55
+#: src/qml/Page/RoomList/ContextMenu.qml:56
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Copy Address to Clipboard"
@@ -2629,31 +2624,31 @@ msgctxt "@action:inmenu"
 msgid "Copy user's Matrix ID to Clipboard"
 msgstr "Adresse in die Zwischenablage kopieren"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:55
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:30
+#: src/qml/Page/RoomList/ContextMenu.qml:56
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:31
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Address to Clipboard"
 msgstr "Adresse in die Zwischenablage kopieren"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:67
+#: src/qml/Page/RoomList/ContextMenu.qml:68
 #, kde-format
 msgid "Notification State"
 msgstr "Benachrichtigungsstatus"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:70
+#: src/qml/Page/RoomList/ContextMenu.qml:71
 #, kde-format
 msgid "Follow Global Setting"
 msgstr "Globale Einstellung befolgen"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:81
+#: src/qml/Page/RoomList/ContextMenu.qml:82
 #: src/qml/RoomSettings/PushNotification.qml:42
 #, kde-format
 msgctxt "As in 'notify for all messages'"
 msgid "All"
 msgstr "Alle"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:92
+#: src/qml/Page/RoomList/ContextMenu.qml:93
 #: src/qml/RoomSettings/PushNotification.qml:50
 #, kde-format
 msgctxt ""
@@ -2662,22 +2657,22 @@ msgctxt ""
 msgid "@Mentions and Keywords"
 msgstr "@Erwähnungen und Schlüsselwörter"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:103
+#: src/qml/Page/RoomList/ContextMenu.qml:104
 #: src/qml/RoomSettings/PushNotification.qml:58
 #, kde-format
 msgctxt "As in 'do not notify for any messages'"
 msgid "Off"
 msgstr "Aus"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:116
-#: src/qml/Page/RoomList/ContextMenu.qml:118
-#: src/qml/Page/RoomList/ContextMenu.qml:185 src/qml/Panel/RoomDrawer.qml:99
+#: src/qml/Page/RoomList/ContextMenu.qml:117
+#: src/qml/Page/RoomList/ContextMenu.qml:119
+#: src/qml/Page/RoomList/ContextMenu.qml:186 src/qml/Panel/RoomDrawer.qml:105
 #, kde-format
 msgid "Room Settings"
 msgstr "Raum-Einstellungen"
 
-#: src/qml/Page/RoomList/ContextMenu.qml:124
-#: src/qml/Page/RoomList/ContextMenu.qml:205
+#: src/qml/Page/RoomList/ContextMenu.qml:125
+#: src/qml/Page/RoomList/ContextMenu.qml:206
 #, kde-format
 msgid "Leave Room"
 msgstr "Raum verlassen"
@@ -2709,71 +2704,76 @@ msgstr "Einen Raum betreten, um zu beginnen"
 msgid "Search in room directory"
 msgstr "Raumverzeichnis durchsuchen"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:80
+#: src/qml/Page/RoomList/RoomDelegate.qml:94
 #, kde-format
 msgid "Muted room"
 msgstr "Stummgeschaltet"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:109
+#: src/qml/Page/RoomList/RoomDelegate.qml:126
 #, kde-format
 msgid "Configure room"
 msgstr "Raum konfigurieren"
 
-#: src/qml/Page/RoomList/SpaceDrawer.qml:63
+#: src/qml/Page/RoomList/SpaceDrawer.qml:58
 #, kde-format
 msgid "All Rooms"
 msgstr "Alle Räume"
 
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:25
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:26
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "Space anzeigen"
 
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:39
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:40
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
 msgstr "Space-Einstellungen"
 
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:40
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:97
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:41
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:98
 #, kde-format
 msgid "Space Settings"
 msgstr "Space-Einstellungen"
 
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:46
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:101
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:47
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:102
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "Space verlassen"
 
-#: src/qml/Page/RoomList/UserInfo.qml:54 src/qml/Settings/AccountsPage.qml:84
+#: src/qml/Page/RoomList/UserInfo.qml:42 src/qml/Settings/AccountsPage.qml:85
 #, kde-format
 msgid "Add Account"
 msgstr "Konto hinzufügen"
 
-#: src/qml/Page/RoomList/UserInfo.qml:55
+#: src/qml/Page/RoomList/UserInfo.qml:45
 #, kde-format
 msgid "Log in to an existing account"
 msgstr "Mit bestehendem Konto anmelden"
 
-#: src/qml/Page/RoomList/UserInfo.qml:57
+#: src/qml/Page/RoomList/UserInfo.qml:52
 #, kde-format
 msgctxt "@title:window"
 msgid "Login"
 msgstr "Anmeldung"
 
-#: src/qml/Page/RoomList/UserInfo.qml:190
+#: src/qml/Page/RoomList/UserInfo.qml:198
 #, kde-format
 msgid "Switch User"
 msgstr "Benutzer wechseln"
 
-#: src/qml/Page/RoomList/UserInfo.qml:218
+#: src/qml/Page/RoomList/UserInfo.qml:226
 #, kde-format
 msgid "Open Settings"
 msgstr "Einstellungen öffnen"
+
+#: src/qml/Page/RoomPage.qml:50
+#, kde-format
+msgid "NeoChat is offline. Please check your network connection."
+msgstr "NeoChat ist offline. Bitte überprüfen Sie Ihre Netzwerkverbindung."
 
 #: src/qml/Page/SearchPage.qml:17
 #, kde-format
@@ -2791,106 +2791,118 @@ msgstr "Geben Sie einen Text ein, um mit der Suche zu beginnen"
 msgid "No results found"
 msgstr "Keine Ergebnisse gefunden"
 
-#: src/qml/Page/StartChatPage.qml:38
+#: src/qml/Page/StartChatPage.qml:40
 #, kde-format
 msgid "Chat"
 msgstr "Chat"
+
+#: src/qml/Page/StartChatPage.qml:93
+#, fuzzy, kde-format
+#| msgid "Log in to an existing account"
+msgid "Join existing chat"
+msgstr "Mit bestehendem Konto anmelden"
+
+#: src/qml/Page/StartChatPage.qml:114
+#, fuzzy, kde-format
+#| msgid "Create rooms and chats"
+msgid "Create new chat"
+msgstr "Räume und Unterhaltungen erstellen"
 
 #: src/qml/Page/WelcomePage.qml:56
 #, kde-format
 msgid "Welcome to Matrix"
 msgstr "Willkommen bei Matrix"
 
-#: src/qml/Panel/GroupChatDrawerHeader.qml:59
+#: src/qml/Panel/GroupChatDrawerHeader.qml:62
 #, kde-format
 msgid "No name"
 msgstr "Kein Name"
 
-#: src/qml/Panel/GroupChatDrawerHeader.qml:66
+#: src/qml/Panel/GroupChatDrawerHeader.qml:70
 #, kde-format
 msgid "No Canonical Alias"
 msgstr "Keine Hauptadresse"
 
-#: src/qml/Panel/GroupChatDrawerHeader.qml:76
+#: src/qml/Panel/GroupChatDrawerHeader.qml:80
 #, kde-format
 msgid "No Topic"
 msgstr "Kein Thema"
 
-#: src/qml/Panel/RoomDrawer.qml:89
+#: src/qml/Panel/RoomDrawer.qml:95
 #, kde-format
 msgid "Room information"
 msgstr "Raum-Informationen"
 
-#: src/qml/Panel/RoomDrawer.qml:96
+#: src/qml/Panel/RoomDrawer.qml:102
 #, kde-format
 msgid "Room settings"
 msgstr "Raum-Einstellungen"
 
-#: src/qml/Panel/RoomDrawer.qml:134
+#: src/qml/Panel/RoomDrawer.qml:143
 #, kde-format
 msgid "Options"
 msgstr "Einstellungen"
 
-#: src/qml/Panel/RoomDrawer.qml:142
+#: src/qml/Panel/RoomDrawer.qml:153
 #, kde-format
 msgid "Open developer tools"
 msgstr "Entwicklungswerkzeuge öffnen"
 
-#: src/qml/Panel/RoomDrawer.qml:154
+#: src/qml/Panel/RoomDrawer.qml:168
 #, kde-format
 msgid "Search in this room"
 msgstr "In diesem Raum suchen"
 
-#: src/qml/Panel/RoomDrawer.qml:160
+#: src/qml/Panel/RoomDrawer.qml:176
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Suchen"
 
-#: src/qml/Panel/RoomDrawer.qml:168
+#: src/qml/Panel/RoomDrawer.qml:185
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Raum aus Favoriten entfernen"
 
-#: src/qml/Panel/RoomDrawer.qml:168
+#: src/qml/Panel/RoomDrawer.qml:185
 #, kde-format
 msgid "Make room favorite"
 msgstr "Raum zu Favoriten hinzufügen"
 
-#: src/qml/Panel/RoomDrawer.qml:177
+#: src/qml/Panel/RoomDrawer.qml:196
 #, fuzzy, kde-format
 #| msgid "Search in this room"
 msgid "Show locations for this room"
 msgstr "In diesem Raum suchen"
 
-#: src/qml/Panel/RoomDrawer.qml:187
+#: src/qml/Panel/RoomDrawer.qml:208
 #, kde-format
 msgid "Members"
 msgstr "Mitglieder"
 
-#: src/qml/Panel/RoomDrawer.qml:196
+#: src/qml/Panel/RoomDrawer.qml:219
 #, kde-format
 msgid "Search user in room"
 msgstr "Benutzer in Raum suchen"
 
-#: src/qml/Panel/RoomDrawer.qml:213
+#: src/qml/Panel/RoomDrawer.qml:236
 #, kde-format
 msgid "Invite user to room"
 msgstr "Einen Benutzer in den Raum einladen"
 
-#: src/qml/Panel/RoomDrawer.qml:220
+#: src/qml/Panel/RoomDrawer.qml:243
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 Mitglied"
 msgstr[1] "%1 Mitglieder"
 
-#: src/qml/Panel/RoomDrawer.qml:220
+#: src/qml/Panel/RoomDrawer.qml:243
 #, kde-format
 msgid "No member count"
 msgstr "Keine Mitgliederanzahl"
 
-#: src/qml/RoomSettings/Categories.qml:18 src/qml/RoomSettings/General.qml:20
+#: src/qml/RoomSettings/Categories.qml:18 src/qml/RoomSettings/General.qml:21
 #: src/qml/Settings/SettingsPage.qml:17
 #, kde-format
 msgid "General"
@@ -2911,269 +2923,269 @@ msgstr "Berechtigungen"
 msgid "Notifications"
 msgstr "Benachrichtigungen"
 
-#: src/qml/RoomSettings/General.qml:28
+#: src/qml/RoomSettings/General.qml:29
 #, kde-format
 msgid "Room Information"
 msgstr "Raum-Informationen"
 
-#: src/qml/RoomSettings/General.qml:52
+#: src/qml/RoomSettings/General.qml:55
 #, kde-format
 msgid "Update avatar"
 msgstr "Avatar aktualisieren"
 
-#: src/qml/RoomSettings/General.qml:111
-#: src/qml/Settings/AccountEditorPage.qml:107
-#: src/qml/Settings/AccountEditorPage.qml:172
+#: src/qml/RoomSettings/General.qml:114
+#: src/qml/Settings/AccountEditorPage.qml:113
+#: src/qml/Settings/AccountEditorPage.qml:182
 #: src/qml/Settings/EmoticonEditorPage.qml:121
 #, kde-format
 msgid "Save"
 msgstr "Speichern"
 
-#: src/qml/RoomSettings/General.qml:126
+#: src/qml/RoomSettings/General.qml:129
 #, kde-format
 msgid "Room ID"
 msgstr "Raumkennung"
 
-#: src/qml/RoomSettings/General.qml:131
+#: src/qml/RoomSettings/General.qml:134
 #, kde-format
 msgid "Copy room ID to clipboard"
 msgstr "Raumkennung in die Zwischenablage kopieren"
 
-#: src/qml/RoomSettings/General.qml:145
+#: src/qml/RoomSettings/General.qml:148
 #, kde-format
 msgid "Room version"
 msgstr "Raum-Version"
 
-#: src/qml/RoomSettings/General.qml:151
+#: src/qml/RoomSettings/General.qml:154
 #, kde-format
 msgid "Upgrade Room"
 msgstr "Raum aktualisieren"
 
-#: src/qml/RoomSettings/General.qml:172
+#: src/qml/RoomSettings/General.qml:175
 #, kde-format
 msgid "Aliases"
 msgstr "Aliasse"
 
-#: src/qml/RoomSettings/General.qml:180
+#: src/qml/RoomSettings/General.qml:183
 #, kde-format
 msgid "No canonical alias set"
 msgstr "Keine Hauptadresse gesetzt"
 
-#: src/qml/RoomSettings/General.qml:193
+#: src/qml/RoomSettings/General.qml:196
 #, kde-format
 msgid "Make this alias the room's canonical alias"
 msgstr "Diesen Alias zur Hauptadresse des Raumes machen"
 
-#: src/qml/RoomSettings/General.qml:208
+#: src/qml/RoomSettings/General.qml:211
 #, kde-format
 msgid "Delete alias"
 msgstr "Alias löschen"
 
-#: src/qml/RoomSettings/General.qml:234
+#: src/qml/RoomSettings/General.qml:237
 #, kde-format
 msgid "#new_alias:server.org"
 msgstr "#neuer_alias:server.org"
 
-#: src/qml/RoomSettings/General.qml:251
+#: src/qml/RoomSettings/General.qml:254
 #, kde-format
 msgid "Add new alias"
 msgstr "Neuen Alias hinzufügen"
 
-#: src/qml/RoomSettings/General.qml:272
+#: src/qml/RoomSettings/General.qml:275
 #, kde-format
 msgid "URL Previews"
 msgstr "Adressvorschauen"
 
-#: src/qml/RoomSettings/General.qml:279
+#: src/qml/RoomSettings/General.qml:282
 #, kde-format
 msgid "Enable URL previews by default for room members"
 msgstr ""
 
-#: src/qml/RoomSettings/General.qml:287
+#: src/qml/RoomSettings/General.qml:290
 #, kde-format
 msgid "Enable URL previews"
 msgstr "Adressvorschauen aktivieren"
 
-#: src/qml/RoomSettings/General.qml:289
+#: src/qml/RoomSettings/General.qml:292
 #, fuzzy, kde-format
 #| msgctxt "<user> is already in this room."
 #| msgid "%1 is already in this room."
 msgid "URL previews are enabled by default in this room"
 msgstr "%1 ist bereits in dem Raum."
 
-#: src/qml/RoomSettings/General.qml:289
+#: src/qml/RoomSettings/General.qml:292
 #, fuzzy, kde-format
 #| msgctxt "<user> is already in this room."
 #| msgid "%1 is already in this room."
 msgid "URL previews are disabled by default in this room"
 msgstr "%1 ist bereits in dem Raum."
 
-#: src/qml/RoomSettings/General.qml:302
+#: src/qml/RoomSettings/General.qml:305
 #, kde-format
 msgid "This room continues another conversation."
 msgstr "Dieser Raum setzt eine andere Unterhaltung fort."
 
-#: src/qml/RoomSettings/General.qml:306
+#: src/qml/RoomSettings/General.qml:309
 #, kde-format
 msgid "See older messages…"
 msgstr "Siehe ältere Nachrichten ..."
 
-#: src/qml/RoomSettings/General.qml:317
+#: src/qml/RoomSettings/General.qml:320
 #, kde-format
 msgid "This room has been replaced."
 msgstr "Dieser Raum wurde ersetzt."
 
-#: src/qml/RoomSettings/General.qml:321
+#: src/qml/RoomSettings/General.qml:324
 #, kde-format
 msgid "See new room…"
 msgstr "Siehe neuen Raum ..."
 
-#: src/qml/RoomSettings/General.qml:342
+#: src/qml/RoomSettings/General.qml:345
 #, kde-format
 msgid "Upgrade the Room"
 msgstr "Den Raum aktualisieren"
 
-#: src/qml/RoomSettings/General.qml:346
+#: src/qml/RoomSettings/General.qml:349
 #, kde-format
 msgid "Select new version"
 msgstr "Neue Version auswählen"
 
-#: src/qml/RoomSettings/Permissions.qml:37
+#: src/qml/RoomSettings/Permissions.qml:39
 #, kde-format
 msgid "Privileged Users"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:219
+#: src/qml/RoomSettings/Permissions.qml:242
 #, kde-format
 msgid "Default permissions"
 msgstr "Standard-Berechtigungen"
 
-#: src/qml/RoomSettings/Permissions.qml:227
+#: src/qml/RoomSettings/Permissions.qml:250
 #, kde-format
 msgid "Default user power level"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:228
+#: src/qml/RoomSettings/Permissions.qml:251
 #, kde-format
 msgid "This is power level for all new users when joining the room"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:236
+#: src/qml/RoomSettings/Permissions.qml:259
 #, fuzzy, kde-format
 #| msgctxt "'power level' means permission level"
 #| msgid "changed the power levels for this room"
 msgid "Default power level to set the room state"
 msgstr "Die Berechtigungsstufen des Raumes wurden geändert"
 
-#: src/qml/RoomSettings/Permissions.qml:237
+#: src/qml/RoomSettings/Permissions.qml:260
 #, kde-format
 msgid "This is used for all state events that do not have their own entry here"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:245
+#: src/qml/RoomSettings/Permissions.qml:268
 #, kde-format
 msgid "Default power level to send messages"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:246
+#: src/qml/RoomSettings/Permissions.qml:269
 #, kde-format
 msgid ""
 "This is used for all message events that do not have their own entry here"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:259
+#: src/qml/RoomSettings/Permissions.qml:282
 #, kde-format
 msgid "Basic permissions"
 msgstr "Einfache Berechtigungen"
 
-#: src/qml/RoomSettings/Permissions.qml:267
+#: src/qml/RoomSettings/Permissions.qml:290
 #, kde-format
 msgid "Invite users"
 msgstr "Benutzer einladen"
 
-#: src/qml/RoomSettings/Permissions.qml:275
+#: src/qml/RoomSettings/Permissions.qml:298
 #, kde-format
 msgid "Kick users"
 msgstr "Benutzer rauswerfen"
 
-#: src/qml/RoomSettings/Permissions.qml:283
+#: src/qml/RoomSettings/Permissions.qml:306
 #, kde-format
 msgid "Ban users"
 msgstr "Benutzer verbannen"
 
-#: src/qml/RoomSettings/Permissions.qml:291
+#: src/qml/RoomSettings/Permissions.qml:314
 #, fuzzy, kde-format
 #| msgid "Remove recent messages by this user"
 msgid "Remove message sent by other users"
 msgstr "Kürzliche Nachrichten dieses Benutzers löschen"
 
-#: src/qml/RoomSettings/Permissions.qml:304
+#: src/qml/RoomSettings/Permissions.qml:327
 #, kde-format
 msgid "Event permissions"
 msgstr "Ereignisberechtigungen"
 
-#: src/qml/RoomSettings/Permissions.qml:312
+#: src/qml/RoomSettings/Permissions.qml:335
 #, kde-format
 msgid "Change user permissions"
 msgstr "Benutzer-Berechtigungen ändern"
 
-#: src/qml/RoomSettings/Permissions.qml:321
+#: src/qml/RoomSettings/Permissions.qml:344
 #, kde-format
 msgid "Change the room name"
 msgstr "Raumnamen ändern"
 
-#: src/qml/RoomSettings/Permissions.qml:330
+#: src/qml/RoomSettings/Permissions.qml:353
 #, kde-format
 msgid "Change the room avatar"
 msgstr "Raumbild ändern"
 
-#: src/qml/RoomSettings/Permissions.qml:339
+#: src/qml/RoomSettings/Permissions.qml:362
 #, fuzzy, kde-format
 #| msgid "Make this alias the room's canonical alias"
 msgid "Change the room canonical alias"
 msgstr "Diesen Alias zur Hauptadresse des Raumes machen"
 
-#: src/qml/RoomSettings/Permissions.qml:348
+#: src/qml/RoomSettings/Permissions.qml:371
 #, fuzzy, kde-format
 #| msgid "changed the room avatar"
 msgid "Change the room topic"
 msgstr "hat das Raumbild geändert"
 
-#: src/qml/RoomSettings/Permissions.qml:357
+#: src/qml/RoomSettings/Permissions.qml:380
 #, kde-format
 msgid "Enable encryption for the room"
 msgstr "Verschlüsselung für diesen Raum aktivieren"
 
-#: src/qml/RoomSettings/Permissions.qml:366
+#: src/qml/RoomSettings/Permissions.qml:389
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Message history visibility"
 msgid "Change the room history visibility"
 msgstr "Sichtbarkeit des Nachrichtenverlaufs"
 
-#: src/qml/RoomSettings/Permissions.qml:375
+#: src/qml/RoomSettings/Permissions.qml:398
 #, fuzzy, kde-format
 #| msgid "Timeline Events"
 msgid "Set pinned events"
 msgstr "Zeitleisten-Ereignisse"
 
-#: src/qml/RoomSettings/Permissions.qml:384
+#: src/qml/RoomSettings/Permissions.qml:407
 #, kde-format
 msgid "Upgrade the room"
 msgstr "Den Raum aktualisieren"
 
-#: src/qml/RoomSettings/Permissions.qml:393
+#: src/qml/RoomSettings/Permissions.qml:416
 #, fuzzy, kde-format
 #| msgid "changed the server access control lists for this room"
 msgid "Set the room server access control list (ACL)"
 msgstr "hat die Server-Zugangskontrollliste für diesen Raum geändert"
 
-#: src/qml/RoomSettings/Permissions.qml:403
+#: src/qml/RoomSettings/Permissions.qml:426
 #, kde-format
 msgid "Set the children of this space"
 msgstr ""
 
-#: src/qml/RoomSettings/Permissions.qml:412
+#: src/qml/RoomSettings/Permissions.qml:435
 #, fuzzy, kde-format
 #| msgid "Invites the user to this room"
 msgid "Set the parent space of this room"
@@ -3369,165 +3381,165 @@ msgctxt "@title:window"
 msgid "About KDE"
 msgstr "Über KDE"
 
-#: src/qml/Settings/AccountEditorPage.qml:17
+#: src/qml/Settings/AccountEditorPage.qml:18
 #, kde-format
 msgid "Edit Account"
 msgstr "Konto bearbeiten"
 
-#: src/qml/Settings/AccountEditorPage.qml:29
-#, kde-format
-msgid "User information"
-msgstr "Nutzer-Informationen"
-
-#: src/qml/Settings/AccountEditorPage.qml:76
+#: src/qml/Settings/AccountEditorPage.qml:73
 #, kde-format
 msgid "Remove current avatar"
 msgstr "Aktuellen Avatar löschen"
 
-#: src/qml/Settings/AccountEditorPage.qml:91
+#: src/qml/Settings/AccountEditorPage.qml:86
+#, kde-format
+msgid "User information"
+msgstr "Nutzer-Informationen"
+
+#: src/qml/Settings/AccountEditorPage.qml:94
 #, kde-format
 msgid "Name:"
 msgstr "Name:"
 
-#: src/qml/Settings/AccountEditorPage.qml:96
+#: src/qml/Settings/AccountEditorPage.qml:100
 #, kde-format
 msgid "Label:"
 msgstr "Beschriftung:"
 
-#: src/qml/Settings/AccountEditorPage.qml:129
+#: src/qml/Settings/AccountEditorPage.qml:135
 #: src/qml/Settings/NetworkProxyPage.qml:99
 #, kde-format
 msgid "Password"
 msgstr "Passwort"
 
-#: src/qml/Settings/AccountEditorPage.qml:137
+#: src/qml/Settings/AccountEditorPage.qml:143
 #, kde-format
 msgid "Your server doesn't support changing your password"
 msgstr "Ihr Server unterstützt das Ändern Ihres Passworts nicht."
 
-#: src/qml/Settings/AccountEditorPage.qml:141
+#: src/qml/Settings/AccountEditorPage.qml:148
 #, kde-format
 msgid "Current Password:"
 msgstr "Aktuelles Passwort:"
 
-#: src/qml/Settings/AccountEditorPage.qml:147
+#: src/qml/Settings/AccountEditorPage.qml:155
 #, kde-format
 msgid "New Password:"
 msgstr "Neues Passwort:"
 
-#: src/qml/Settings/AccountEditorPage.qml:153
+#: src/qml/Settings/AccountEditorPage.qml:162
 #, kde-format
 msgid "Confirm new Password:"
 msgstr "Passwort bestätigen:"
 
-#: src/qml/Settings/AccountEditorPage.qml:158
+#: src/qml/Settings/AccountEditorPage.qml:167
 #, kde-format
 msgid "Passwords don't match"
 msgstr "Die Passwörter stimmen nicht überein"
 
-#: src/qml/Settings/AccountEditorPage.qml:180
+#: src/qml/Settings/AccountEditorPage.qml:190
 #, kde-format
 msgid "Passwords do not match"
 msgstr "Die Passwörter stimmen nicht überein"
 
-#: src/qml/Settings/AccountEditorPage.qml:198
+#: src/qml/Settings/AccountEditorPage.qml:208
 #, kde-format
 msgid "Server Information"
 msgstr "Server-Informationen"
 
-#: src/qml/Settings/AccountEditorPage.qml:205
+#: src/qml/Settings/AccountEditorPage.qml:215
 #, kde-format
 msgid "Homeserver url"
 msgstr "Heimserver-URL:"
 
-#: src/qml/Settings/AccountsPage.qml:15 src/qml/Settings/AccountsPage.qml:24
+#: src/qml/Settings/AccountsPage.qml:16 src/qml/Settings/AccountsPage.qml:25
 #: src/qml/Settings/SettingsPage.qml:35
 #, kde-format
 msgid "Accounts"
 msgstr "Konten"
 
-#: src/qml/Settings/AccountsPage.qml:101
+#: src/qml/Settings/AccountsPage.qml:102
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Das Passwort wurde erfolgreich geändert"
 
-#: src/qml/Settings/AccountsPage.qml:103
+#: src/qml/Settings/AccountsPage.qml:104
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Falsches Passwort eingegeben"
 
-#: src/qml/Settings/AccountsPage.qml:105
+#: src/qml/Settings/AccountsPage.qml:106
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Unbekanntes Problem beim Ändern des Passworts aufgetreten"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:15
+#: src/qml/Settings/AppearanceSettingsPage.qml:16
 #, kde-format
 msgctxt "@title:window"
 msgid "Appearance"
 msgstr "Erscheinungsbild"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:23
+#: src/qml/Settings/AppearanceSettingsPage.qml:24
 #, kde-format
 msgid "General theme"
 msgstr "Allgemeines Design"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:119
+#: src/qml/Settings/AppearanceSettingsPage.qml:120
 #, kde-format
 msgid "Bubbles"
 msgstr "Blasen"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:188
+#: src/qml/Settings/AppearanceSettingsPage.qml:189
 #, kde-format
 msgid "Compact"
 msgstr "Kompakt"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:208
+#: src/qml/Settings/AppearanceSettingsPage.qml:209
 #, kde-format
 msgid "Use compact room list"
 msgstr "Kompakte Raumliste verwenden"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:234
+#: src/qml/Settings/AppearanceSettingsPage.qml:235
 #, kde-format
 msgid "Show fancy effects in chat"
 msgstr "Ausgefallene Effekte anzeigen"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:248
+#: src/qml/Settings/AppearanceSettingsPage.qml:249
 #, kde-format
 msgid "Use transparent chat page"
 msgstr "Transparente Chat-Seite verwenden"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:267
+#: src/qml/Settings/AppearanceSettingsPage.qml:268
 #, kde-format
 msgid "Transparency"
 msgstr "Transparenz"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:284
+#: src/qml/Settings/AppearanceSettingsPage.qml:285
 #, kde-format
 msgid "Only enabled if the transparent chat page is enabled."
 msgstr "Nur verfügbar, wenn „Transparente Chat-Seite“ aktiviert ist."
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:297
+#: src/qml/Settings/AppearanceSettingsPage.qml:298
 #, kde-format
 msgid "Show your messages on the right"
 msgstr "Ihre Nachrichten rechts anzeigen"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:310
+#: src/qml/Settings/AppearanceSettingsPage.qml:311
 #, kde-format
 msgid "Show links preview in the chat messages"
 msgstr "Vorschau von Verknüpfungen in Chat-Nachrichten anzeigen"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:322
+#: src/qml/Settings/AppearanceSettingsPage.qml:323
 #, kde-format
 msgid "Show Avatar"
 msgstr "Avatar anzeigen"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:329
+#: src/qml/Settings/AppearanceSettingsPage.qml:330
 #, kde-format
 msgid "In chat"
 msgstr "Im Chat"
 
-#: src/qml/Settings/AppearanceSettingsPage.qml:339
+#: src/qml/Settings/AppearanceSettingsPage.qml:340
 #, kde-format
 msgid "In sidebar"
 msgstr "In der Seitenleiste"
