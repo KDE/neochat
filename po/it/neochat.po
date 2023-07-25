@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 07:34+0000\n"
+"POT-Creation-Date: 2023-07-25 00:45+0000\n"
 "PO-Revision-Date: 2023-06-24 20:56+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -1200,11 +1200,6 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Annulla la risposta"
 
-#: src/qml/Component/ChatBox/ChatBox.qml:64
-#, kde-format
-msgid "NeoChat is offline. Please check your network connection."
-msgstr "NeoChat non è in linea. Controlla la tua connessione alla rete."
-
 #: src/qml/Component/ChatBox/LocationChooser.qml:22
 #, kde-format
 msgid "Choose a Location"
@@ -1360,7 +1355,7 @@ msgstr "Rifiuta"
 msgid "Accept"
 msgstr "Accetta"
 
-#: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:197
+#: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:201
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -2390,7 +2385,7 @@ msgstr "Messaggio della segnalazione"
 msgid "Reason for reporting this message"
 msgstr "Motivo della segnalazione di questo messaggio"
 
-#: src/qml/Page/DevtoolsPage.qml:17 src/qml/Panel/RoomDrawer.qml:155
+#: src/qml/Page/DevtoolsPage.qml:17 src/qml/Panel/RoomDrawer.qml:159
 #, kde-format
 msgid "Developer Tools"
 msgstr "Strumenti di sviluppo"
@@ -2658,7 +2653,7 @@ msgstr "Spento"
 
 #: src/qml/Page/RoomList/ContextMenu.qml:117
 #: src/qml/Page/RoomList/ContextMenu.qml:119
-#: src/qml/Page/RoomList/ContextMenu.qml:186 src/qml/Panel/RoomDrawer.qml:101
+#: src/qml/Page/RoomList/ContextMenu.qml:186 src/qml/Panel/RoomDrawer.qml:105
 #, kde-format
 msgid "Room Settings"
 msgstr "Impostazioni della stanza"
@@ -2762,6 +2757,11 @@ msgstr "Cambia utente"
 msgid "Open Settings"
 msgstr "Apri le impostazioni"
 
+#: src/qml/Page/RoomPage.qml:50
+#, kde-format
+msgid "NeoChat is offline. Please check your network connection."
+msgstr "NeoChat non è in linea. Controlla la tua connessione alla rete."
+
 #: src/qml/Page/SearchPage.qml:17
 #, kde-format
 msgctxt "@action:title"
@@ -2815,75 +2815,75 @@ msgstr "Nessun alias canonico"
 msgid "No Topic"
 msgstr "Nessun argomento"
 
-#: src/qml/Panel/RoomDrawer.qml:91
+#: src/qml/Panel/RoomDrawer.qml:95
 #, kde-format
 msgid "Room information"
 msgstr "Informazioni della stanza"
 
-#: src/qml/Panel/RoomDrawer.qml:98
+#: src/qml/Panel/RoomDrawer.qml:102
 #, kde-format
 msgid "Room settings"
 msgstr "Impostazioni della stanza"
 
-#: src/qml/Panel/RoomDrawer.qml:139
+#: src/qml/Panel/RoomDrawer.qml:143
 #, kde-format
 msgid "Options"
 msgstr "Opzioni"
 
-#: src/qml/Panel/RoomDrawer.qml:149
+#: src/qml/Panel/RoomDrawer.qml:153
 #, kde-format
 msgid "Open developer tools"
 msgstr "Apri gli strumenti per sviluppatori"
 
-#: src/qml/Panel/RoomDrawer.qml:164
+#: src/qml/Panel/RoomDrawer.qml:168
 #, kde-format
 msgid "Search in this room"
 msgstr "Cerca in questa stanza"
 
-#: src/qml/Panel/RoomDrawer.qml:172
+#: src/qml/Panel/RoomDrawer.qml:176
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Cerca"
 
-#: src/qml/Panel/RoomDrawer.qml:181
+#: src/qml/Panel/RoomDrawer.qml:185
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Rimuovi la stanza dai preferiti"
 
-#: src/qml/Panel/RoomDrawer.qml:181
+#: src/qml/Panel/RoomDrawer.qml:185
 #, kde-format
 msgid "Make room favorite"
 msgstr "Rendi preferita la stanza"
 
-#: src/qml/Panel/RoomDrawer.qml:192
+#: src/qml/Panel/RoomDrawer.qml:196
 #, kde-format
 msgid "Show locations for this room"
 msgstr "Mostra le posizioni per questa stanza"
 
-#: src/qml/Panel/RoomDrawer.qml:204
+#: src/qml/Panel/RoomDrawer.qml:208
 #, kde-format
 msgid "Members"
 msgstr "Membri"
 
-#: src/qml/Panel/RoomDrawer.qml:215
+#: src/qml/Panel/RoomDrawer.qml:219
 #, kde-format
 msgid "Search user in room"
 msgstr "Cerca l'utente nella stanza"
 
-#: src/qml/Panel/RoomDrawer.qml:232
+#: src/qml/Panel/RoomDrawer.qml:236
 #, kde-format
 msgid "Invite user to room"
 msgstr "Invita utente alla stanza"
 
-#: src/qml/Panel/RoomDrawer.qml:239
+#: src/qml/Panel/RoomDrawer.qml:243
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 membro"
 msgstr[1] "%1 membri"
 
-#: src/qml/Panel/RoomDrawer.qml:239
+#: src/qml/Panel/RoomDrawer.qml:243
 #, kde-format
 msgid "No member count"
 msgstr "Nessun conteggio dei membri"

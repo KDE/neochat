@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 07:34+0000\n"
+"POT-Creation-Date: 2023-07-25 00:45+0000\n"
 "PO-Revision-Date: 2023-01-06 16:47+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -1241,11 +1241,6 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Ακύρωση απάντησης"
 
-#: src/qml/Component/ChatBox/ChatBox.qml:64
-#, kde-format
-msgid "NeoChat is offline. Please check your network connection."
-msgstr "Το NeoChat είναι εκτός σύνδεσης. Έλεγξε τη σύνδεση του δικτύου σου."
-
 #: src/qml/Component/ChatBox/LocationChooser.qml:22
 #, fuzzy, kde-format
 #| msgid "Choose local file"
@@ -1414,7 +1409,7 @@ msgstr "Απόρριψη"
 msgid "Accept"
 msgstr "Αποδοχή"
 
-#: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:197
+#: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:201
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgctxt "Locations on a map"
@@ -2448,7 +2443,7 @@ msgstr "Αναφορά μηνύματος"
 msgid "Reason for reporting this message"
 msgstr "Αιτία αναφοράς αυτού του μηνύματος"
 
-#: src/qml/Page/DevtoolsPage.qml:17 src/qml/Panel/RoomDrawer.qml:155
+#: src/qml/Page/DevtoolsPage.qml:17 src/qml/Panel/RoomDrawer.qml:159
 #, kde-format
 msgid "Developer Tools"
 msgstr "Εργαλεία προγραμματιστή"
@@ -2719,7 +2714,7 @@ msgstr "Κανένα"
 
 #: src/qml/Page/RoomList/ContextMenu.qml:117
 #: src/qml/Page/RoomList/ContextMenu.qml:119
-#: src/qml/Page/RoomList/ContextMenu.qml:186 src/qml/Panel/RoomDrawer.qml:101
+#: src/qml/Page/RoomList/ContextMenu.qml:186 src/qml/Panel/RoomDrawer.qml:105
 #, kde-format
 msgid "Room Settings"
 msgstr "Ρυθμίσεις αίθουσας"
@@ -2826,6 +2821,11 @@ msgstr "Εναλλαγή χρήστη"
 msgid "Open Settings"
 msgstr "Άνοιγμα ρυθμίσεων"
 
+#: src/qml/Page/RoomPage.qml:50
+#, kde-format
+msgid "NeoChat is offline. Please check your network connection."
+msgstr "Το NeoChat είναι εκτός σύνδεσης. Έλεγξε τη σύνδεση του δικτύου σου."
+
 #: src/qml/Page/SearchPage.qml:17
 #, kde-format
 msgctxt "@action:title"
@@ -2879,69 +2879,69 @@ msgstr "Χωρίς κανονικό συνώνυμο"
 msgid "No Topic"
 msgstr "Χωρίς θέμα"
 
-#: src/qml/Panel/RoomDrawer.qml:91
+#: src/qml/Panel/RoomDrawer.qml:95
 #, kde-format
 msgid "Room information"
 msgstr "Πληροφορίες αίθουσας"
 
-#: src/qml/Panel/RoomDrawer.qml:98
+#: src/qml/Panel/RoomDrawer.qml:102
 #, kde-format
 msgid "Room settings"
 msgstr "Ρυθμίσεις αίθουσας"
 
-#: src/qml/Panel/RoomDrawer.qml:139
+#: src/qml/Panel/RoomDrawer.qml:143
 #, kde-format
 msgid "Options"
 msgstr "Επιλογές"
 
-#: src/qml/Panel/RoomDrawer.qml:149
+#: src/qml/Panel/RoomDrawer.qml:153
 #, kde-format
 msgid "Open developer tools"
 msgstr "Άνοιγμα εργαλείων προγραμματιστή"
 
-#: src/qml/Panel/RoomDrawer.qml:164
+#: src/qml/Panel/RoomDrawer.qml:168
 #, kde-format
 msgid "Search in this room"
 msgstr "Αναζήτηση σε αυτήν την αίθουσα"
 
-#: src/qml/Panel/RoomDrawer.qml:172
+#: src/qml/Panel/RoomDrawer.qml:176
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Αναζήτηση"
 
-#: src/qml/Panel/RoomDrawer.qml:181
+#: src/qml/Panel/RoomDrawer.qml:185
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Αφαίρεση αίθουσας από τις προτιμώμενες"
 
-#: src/qml/Panel/RoomDrawer.qml:181
+#: src/qml/Panel/RoomDrawer.qml:185
 #, kde-format
 msgid "Make room favorite"
 msgstr "Να γίνει η αίθουσα προτιμώμενη"
 
-#: src/qml/Panel/RoomDrawer.qml:192
+#: src/qml/Panel/RoomDrawer.qml:196
 #, fuzzy, kde-format
 #| msgid "Search in this room"
 msgid "Show locations for this room"
 msgstr "Αναζήτηση σε αυτήν την αίθουσα"
 
-#: src/qml/Panel/RoomDrawer.qml:204
+#: src/qml/Panel/RoomDrawer.qml:208
 #, kde-format
 msgid "Members"
 msgstr "Μέλη"
 
-#: src/qml/Panel/RoomDrawer.qml:215
+#: src/qml/Panel/RoomDrawer.qml:219
 #, kde-format
 msgid "Search user in room"
 msgstr "Αναζήτηση χρήστη στην αίθουσα"
 
-#: src/qml/Panel/RoomDrawer.qml:232
+#: src/qml/Panel/RoomDrawer.qml:236
 #, kde-format
 msgid "Invite user to room"
 msgstr "Πρόσκληση χρήστη στην αίθουσα"
 
-#: src/qml/Panel/RoomDrawer.qml:239
+#: src/qml/Panel/RoomDrawer.qml:243
 #, fuzzy, kde-format
 #| msgid "%1 Member"
 #| msgid_plural "%1 Members"
@@ -2950,7 +2950,7 @@ msgid_plural "%1 members"
 msgstr[0] "%1 μέλος"
 msgstr[1] "%1 μέλη"
 
-#: src/qml/Panel/RoomDrawer.qml:239
+#: src/qml/Panel/RoomDrawer.qml:243
 #, fuzzy, kde-format
 #| msgid "No Member Count"
 msgid "No member count"

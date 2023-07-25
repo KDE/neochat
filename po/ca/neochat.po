@@ -9,16 +9,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 07:34+0000\n"
-"PO-Revision-Date: 2023-07-23 20:13+0200\n"
-"Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
+"POT-Creation-Date: 2023-07-25 00:45+0000\n"
+"PO-Revision-Date: 2023-07-24 20:03+0300\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.07.70\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: src/controller.cpp:234
 #, kde-format
@@ -1204,13 +1204,6 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Cancel·la la resposta"
 
-#: src/qml/Component/ChatBox/ChatBox.qml:64
-#, kde-format
-msgid "NeoChat is offline. Please check your network connection."
-msgstr ""
-"El NeoChat està en fora de línia. Comproveu l'estat de la vostra connexió de "
-"xarxa."
-
 #: src/qml/Component/ChatBox/LocationChooser.qml:22
 #, kde-format
 msgid "Choose a Location"
@@ -1366,7 +1359,7 @@ msgstr "Rebutja"
 msgid "Accept"
 msgstr "Accepta"
 
-#: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:197
+#: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:201
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -2390,7 +2383,7 @@ msgstr "Informa del missatge"
 msgid "Reason for reporting this message"
 msgstr "Motiu per a informar d'aquest missatge"
 
-#: src/qml/Page/DevtoolsPage.qml:17 src/qml/Panel/RoomDrawer.qml:155
+#: src/qml/Page/DevtoolsPage.qml:17 src/qml/Panel/RoomDrawer.qml:159
 #, kde-format
 msgid "Developer Tools"
 msgstr "Eines de desenvolupament"
@@ -2658,7 +2651,7 @@ msgstr "Desactivades"
 
 #: src/qml/Page/RoomList/ContextMenu.qml:117
 #: src/qml/Page/RoomList/ContextMenu.qml:119
-#: src/qml/Page/RoomList/ContextMenu.qml:186 src/qml/Panel/RoomDrawer.qml:101
+#: src/qml/Page/RoomList/ContextMenu.qml:186 src/qml/Panel/RoomDrawer.qml:105
 #, kde-format
 msgid "Room Settings"
 msgstr "Configuració de la sala"
@@ -2762,6 +2755,13 @@ msgstr "Commuta d'usuari"
 msgid "Open Settings"
 msgstr "Obre la configuració"
 
+#: src/qml/Page/RoomPage.qml:50
+#, kde-format
+msgid "NeoChat is offline. Please check your network connection."
+msgstr ""
+"El NeoChat està en fora de línia. Comproveu l'estat de la vostra connexió de "
+"xarxa."
+
 #: src/qml/Page/SearchPage.qml:17
 #, kde-format
 msgctxt "@action:title"
@@ -2784,16 +2784,14 @@ msgid "Chat"
 msgstr "Xat"
 
 #: src/qml/Page/StartChatPage.qml:93
-#, fuzzy, kde-format
-#| msgid "Log in to an existing account"
+#, kde-format
 msgid "Join existing chat"
-msgstr "Inicia la sessió amb un compte existent"
+msgstr "Uneix-te a un xat existent"
 
 #: src/qml/Page/StartChatPage.qml:114
-#, fuzzy, kde-format
-#| msgid "Create rooms and chats"
+#, kde-format
 msgid "Create new chat"
-msgstr "Crea sales i xats"
+msgstr "Crea un xat nou"
 
 #: src/qml/Page/WelcomePage.qml:56
 #, kde-format
@@ -2815,75 +2813,75 @@ msgstr "Sense àlies canònic"
 msgid "No Topic"
 msgstr "Sense tema"
 
-#: src/qml/Panel/RoomDrawer.qml:91
+#: src/qml/Panel/RoomDrawer.qml:95
 #, kde-format
 msgid "Room information"
 msgstr "Informació de la sala"
 
-#: src/qml/Panel/RoomDrawer.qml:98
+#: src/qml/Panel/RoomDrawer.qml:102
 #, kde-format
 msgid "Room settings"
 msgstr "Configuració de la sala"
 
-#: src/qml/Panel/RoomDrawer.qml:139
+#: src/qml/Panel/RoomDrawer.qml:143
 #, kde-format
 msgid "Options"
 msgstr "Opcions"
 
-#: src/qml/Panel/RoomDrawer.qml:149
+#: src/qml/Panel/RoomDrawer.qml:153
 #, kde-format
 msgid "Open developer tools"
 msgstr "Obre les eines de desenvolupament"
 
-#: src/qml/Panel/RoomDrawer.qml:164
+#: src/qml/Panel/RoomDrawer.qml:168
 #, kde-format
 msgid "Search in this room"
 msgstr "Cerca en aquesta sala"
 
-#: src/qml/Panel/RoomDrawer.qml:172
+#: src/qml/Panel/RoomDrawer.qml:176
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Cerca"
 
-#: src/qml/Panel/RoomDrawer.qml:181
+#: src/qml/Panel/RoomDrawer.qml:185
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Elimina la sala de les preferides"
 
-#: src/qml/Panel/RoomDrawer.qml:181
+#: src/qml/Panel/RoomDrawer.qml:185
 #, kde-format
 msgid "Make room favorite"
 msgstr "Fes preferida la sala"
 
-#: src/qml/Panel/RoomDrawer.qml:192
+#: src/qml/Panel/RoomDrawer.qml:196
 #, kde-format
 msgid "Show locations for this room"
 msgstr "Mostra les ubicacions per a aquesta sala"
 
-#: src/qml/Panel/RoomDrawer.qml:204
+#: src/qml/Panel/RoomDrawer.qml:208
 #, kde-format
 msgid "Members"
 msgstr "Membres"
 
-#: src/qml/Panel/RoomDrawer.qml:215
+#: src/qml/Panel/RoomDrawer.qml:219
 #, kde-format
 msgid "Search user in room"
 msgstr "Cerca un usuari en aquesta sala"
 
-#: src/qml/Panel/RoomDrawer.qml:232
+#: src/qml/Panel/RoomDrawer.qml:236
 #, kde-format
 msgid "Invite user to room"
 msgstr "Convida un usuari a la sala"
 
-#: src/qml/Panel/RoomDrawer.qml:239
+#: src/qml/Panel/RoomDrawer.qml:243
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 membre"
 msgstr[1] "%1 membres"
 
-#: src/qml/Panel/RoomDrawer.qml:239
+#: src/qml/Panel/RoomDrawer.qml:243
 #, kde-format
 msgid "No member count"
 msgstr "No hi ha comptador de membres"
@@ -4053,33 +4051,3 @@ msgstr "Mostra"
 #, kde-format
 msgid "Quit"
 msgstr "Surt"
-
-#~ msgid "Messages in one-to-one chats"
-#~ msgstr "Missatges en xats d'un a un"
-
-#~ msgid "Encrypted messages in one-to-one chats"
-#~ msgstr "Missatges encriptats en xats d'un a un"
-
-#~ msgid "Messages in group chats"
-#~ msgstr "Missatges en xats de grups"
-
-#~ msgid "Messages in encrypted group chats"
-#~ msgstr "Missatges en xats de grups encriptats"
-
-#~ msgid "Room upgrade messages"
-#~ msgstr "Missatges d'actualització de sala"
-
-#~ msgid "Messages containing my display name"
-#~ msgstr "Missatges que continguin el meu nom a mostrar"
-
-#~ msgid "Whole room (@room) notifications"
-#~ msgstr "Notificacions a tota la sala (@sala)"
-
-#~ msgid "Messages containing my keywords"
-#~ msgstr "Missatges que continguin les meves paraules clau"
-
-#~ msgid "Invites to a room"
-#~ msgstr "Invitacions a una sala"
-
-#~ msgid "Call invitation"
-#~ msgstr "Invitació de trucada"

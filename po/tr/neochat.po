@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 07:34+0000\n"
-"PO-Revision-Date: 2023-07-22 12:21+0300\n"
+"POT-Creation-Date: 2023-07-25 00:45+0000\n"
+"PO-Revision-Date: 2023-07-24 14:10+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -22,17 +22,17 @@ msgstr ""
 #, kde-format
 msgid "Login Failed: Access Token invalid or revoked"
 msgstr ""
-"Oturum Açma Başarısız: Erişim jetonu geçersiz veya yürürlükten kaldırılmış"
+"Oturum açma başarısız: Erişim jetonu geçersiz veya yürürlükten kaldırılmış"
 
 #: src/controller.cpp:237 src/controller.cpp:242 src/login.cpp:90
 #, kde-format
 msgid "Login Failed: %1"
-msgstr "Oturum Açma Başarısız: %1"
+msgstr "Oturum açma başarısız: %1"
 
 #: src/controller.cpp:248
 #, kde-format
 msgid "Network Error: %1"
-msgstr "Ağ Hatası: %1"
+msgstr "Ağ hatası: %1"
 
 #: src/controller.cpp:273
 #, kde-format
@@ -1198,11 +1198,6 @@ msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Yanıtı İptal Et"
 
-#: src/qml/Component/ChatBox/ChatBox.qml:64
-#, kde-format
-msgid "NeoChat is offline. Please check your network connection."
-msgstr "NeoChat, çevrimdışı. Lütfen ağ bağlantınızı denetleyin."
-
 #: src/qml/Component/ChatBox/LocationChooser.qml:22
 #, kde-format
 msgid "Choose a Location"
@@ -1358,7 +1353,7 @@ msgstr "Reddet"
 msgid "Accept"
 msgstr "Kabul Et"
 
-#: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:197
+#: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:201
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -2373,7 +2368,7 @@ msgstr "İletiyi Bildir"
 msgid "Reason for reporting this message"
 msgstr "Bu iletiyi bildirme nedeni"
 
-#: src/qml/Page/DevtoolsPage.qml:17 src/qml/Panel/RoomDrawer.qml:155
+#: src/qml/Page/DevtoolsPage.qml:17 src/qml/Panel/RoomDrawer.qml:159
 #, kde-format
 msgid "Developer Tools"
 msgstr "Geliştirici Araçları"
@@ -2641,7 +2636,7 @@ msgstr "Kapalı"
 
 #: src/qml/Page/RoomList/ContextMenu.qml:117
 #: src/qml/Page/RoomList/ContextMenu.qml:119
-#: src/qml/Page/RoomList/ContextMenu.qml:186 src/qml/Panel/RoomDrawer.qml:101
+#: src/qml/Page/RoomList/ContextMenu.qml:186 src/qml/Panel/RoomDrawer.qml:105
 #, kde-format
 msgid "Room Settings"
 msgstr "Oda Ayarları"
@@ -2745,6 +2740,11 @@ msgstr "Kullanıcı Değiştir"
 msgid "Open Settings"
 msgstr "Ayarları Aç"
 
+#: src/qml/Page/RoomPage.qml:50
+#, kde-format
+msgid "NeoChat is offline. Please check your network connection."
+msgstr "NeoChat, çevrimdışı. Lütfen ağ bağlantınızı denetleyin."
+
 #: src/qml/Page/SearchPage.qml:17
 #, kde-format
 msgctxt "@action:title"
@@ -2767,16 +2767,14 @@ msgid "Chat"
 msgstr "Sohbet"
 
 #: src/qml/Page/StartChatPage.qml:93
-#, fuzzy, kde-format
-#| msgid "Log in to an existing account"
+#, kde-format
 msgid "Join existing chat"
-msgstr "Var olan bir hesaba oturum aç"
+msgstr "Var olan sohbete katıl"
 
 #: src/qml/Page/StartChatPage.qml:114
-#, fuzzy, kde-format
-#| msgid "Create rooms and chats"
+#, kde-format
 msgid "Create new chat"
-msgstr "Odalar ve sohbetler oluştur"
+msgstr "Yeni sohbet oluştur"
 
 #: src/qml/Page/WelcomePage.qml:56
 #, kde-format
@@ -2798,75 +2796,75 @@ msgstr "Resmi Arma Yok"
 msgid "No Topic"
 msgstr "Konu Yok"
 
-#: src/qml/Panel/RoomDrawer.qml:91
+#: src/qml/Panel/RoomDrawer.qml:95
 #, kde-format
 msgid "Room information"
 msgstr "Oda bilgisi"
 
-#: src/qml/Panel/RoomDrawer.qml:98
+#: src/qml/Panel/RoomDrawer.qml:102
 #, kde-format
 msgid "Room settings"
 msgstr "Oda ayarları"
 
-#: src/qml/Panel/RoomDrawer.qml:139
+#: src/qml/Panel/RoomDrawer.qml:143
 #, kde-format
 msgid "Options"
 msgstr "Seçenekler"
 
-#: src/qml/Panel/RoomDrawer.qml:149
+#: src/qml/Panel/RoomDrawer.qml:153
 #, kde-format
 msgid "Open developer tools"
 msgstr "Geliştirici araçlarını aç"
 
-#: src/qml/Panel/RoomDrawer.qml:164
+#: src/qml/Panel/RoomDrawer.qml:168
 #, kde-format
 msgid "Search in this room"
 msgstr "Bu odada ara"
 
-#: src/qml/Panel/RoomDrawer.qml:172
+#: src/qml/Panel/RoomDrawer.qml:176
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Ara"
 
-#: src/qml/Panel/RoomDrawer.qml:181
+#: src/qml/Panel/RoomDrawer.qml:185
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Odayı sık kullanılanlardan kaldır"
 
-#: src/qml/Panel/RoomDrawer.qml:181
+#: src/qml/Panel/RoomDrawer.qml:185
 #, kde-format
 msgid "Make room favorite"
 msgstr "Odayı sık kullanılanlara ekle"
 
-#: src/qml/Panel/RoomDrawer.qml:192
+#: src/qml/Panel/RoomDrawer.qml:196
 #, kde-format
 msgid "Show locations for this room"
 msgstr "Bu oda için olan konumları göster"
 
-#: src/qml/Panel/RoomDrawer.qml:204
+#: src/qml/Panel/RoomDrawer.qml:208
 #, kde-format
 msgid "Members"
 msgstr "Üyeler"
 
-#: src/qml/Panel/RoomDrawer.qml:215
+#: src/qml/Panel/RoomDrawer.qml:219
 #, kde-format
 msgid "Search user in room"
 msgstr "Kullanıcıyı odada ara"
 
-#: src/qml/Panel/RoomDrawer.qml:232
+#: src/qml/Panel/RoomDrawer.qml:236
 #, kde-format
 msgid "Invite user to room"
 msgstr "Kullanıcıyı odaya davet et"
 
-#: src/qml/Panel/RoomDrawer.qml:239
+#: src/qml/Panel/RoomDrawer.qml:243
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 üye"
 msgstr[1] "%1 üye"
 
-#: src/qml/Panel/RoomDrawer.qml:239
+#: src/qml/Panel/RoomDrawer.qml:243
 #, kde-format
 msgid "No member count"
 msgstr "Üye sayısı yok"
