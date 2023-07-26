@@ -11,6 +11,7 @@
 #include <KNotification>
 #include <KNotificationReplyAction>
 
+#include <QPainter>
 #include <Quotient/accountregistry.h>
 #include <Quotient/connection.h>
 #include <Quotient/csapi/pushrules.h>
@@ -203,7 +204,7 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
     }
 
     notification->setText(notification->text() + '\n' + entry);
-    notification->setPixmap(QPixmap::fromImage(icon));
+    notification->setPixmap(createNotificationImage(icon, room));
 
     notification->setDefaultAction(i18n("Open NeoChat in this room"));
     connect(notification, &KNotification::defaultActivated, this, [notification, room]() {
@@ -239,7 +240,7 @@ void NotificationsManager::postInviteNotification(NeoChatRoom *room, const QStri
     KNotification *notification = new KNotification("invite");
     notification->setText(i18n("%1 invited you to a room", sender));
     notification->setTitle(title);
-    notification->setPixmap(img);
+    notification->setPixmap(createNotificationImage(icon, nullptr));
     notification->setFlags(KNotification::Persistent);
     notification->setDefaultAction(i18n("Open this invitation in NeoChat"));
     connect(notification, &KNotification::defaultActivated, this, [notification, room]() {
@@ -280,6 +281,35 @@ void NotificationsManager::clearInvitationNotification(const QString &roomId)
     if (m_invitations.contains(roomId)) {
         m_invitations[roomId]->close();
     }
+}
+
+QPixmap NotificationsManager::createNotificationImage(const QImage &icon, NeoChatRoom *room)
+{
+    // Handle avatars that are lopsided in one dimension
+    const int biggestDimension = std::max(icon.width(), icon.height());
+    const QRect imageRect{0, 0, biggestDimension, biggestDimension};
+
+    QImage roundedImage(imageRect.size(), QImage::Format_ARGB32);
+    roundedImage.fill(Qt::transparent);
+
+    QPainter painter(&roundedImage);
+    painter.setRenderHint(QPainter::Antialiasing);
+
+    QBrush brush(icon.scaledToHeight(biggestDimension));
+    painter.setBrush(brush);
+    painter.drawRoundedRect(imageRect, imageRect.width(), imageRect.height());
+
+    if (room != nullptr) {
+        const QImage roomAvatar = room->avatar(imageRect.width(), imageRect.height());
+        if (icon != roomAvatar) {
+            const QRect lowerQuarter{imageRect.center(), imageRect.size() / 2};
+
+            painter.setBrush(roomAvatar.scaled(lowerQuarter.size()));
+            painter.drawRoundedRect(lowerQuarter, lowerQuarter.width(), lowerQuarter.height());
+        }
+    }
+
+    return QPixmap::fromImage(roundedImage);
 }
 
 #include "moc_notificationsmanager.cpp"
