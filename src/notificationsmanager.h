@@ -97,4 +97,7 @@ private:
 
 private Q_SLOTS:
     void processNotificationJob(QPointer<Quotient::Connection> connection, Quotient::GetNotificationsJob *job, bool initialization);
+
+private:
+    QPixmap createNotificationImage(const QImage &icon, NeoChatRoom *room);
 };
