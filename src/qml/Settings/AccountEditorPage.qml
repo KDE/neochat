@@ -51,11 +51,10 @@ Kirigami.ScrollablePage {
 
                 fileDialog = openFileDialog.createObject(QQC2.ApplicationWindow.Overlay)
                 fileDialog.chosen.connect(function(receivedSource) {
-                    mouseArea.fileDialog = null;
                     if (!receivedSource) {
                         return;
                     }
-                    parent.source = receivedSource;
+                    avatar.source = receivedSource;
                 });
                 fileDialog.onRejected.connect(function() {
                     mouseArea.fileDialog = null;
