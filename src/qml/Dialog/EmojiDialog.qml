@@ -43,6 +43,7 @@ QQC2.Popup {
 
     modal: true
     focus: true
+    clip: false
     closePolicy: QQC2.Popup.CloseOnEscape | QQC2.Popup.CloseOnPressOutsideParent
     margins: 0
     padding: 2

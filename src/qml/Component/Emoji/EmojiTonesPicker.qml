@@ -26,6 +26,7 @@ QQC2.Popup {
     padding: 2
     modal: true
     dim: true
+    clip: false
     onOpened: x = Math.min(parent.mapFromGlobal(QQC2.Overlay.overlay.width - tones.width, 0).x, -(width - parent.width) / 2)
     background: Kirigami.ShadowedRectangle {
         color: Kirigami.Theme.backgroundColor
