@@ -30,11 +30,16 @@ QQC2.Popup {
     onOpened: x = Math.min(parent.mapFromGlobal(QQC2.Overlay.overlay.width - tones.width, 0).x, -(width - parent.width) / 2)
     background: Kirigami.ShadowedRectangle {
         color: Kirigami.Theme.backgroundColor
-        radius: Kirigami.Units.smallSpacing
-        shadow.size: Kirigami.Units.smallSpacing
-        shadow.color: Qt.rgba(0.0, 0.0, 0.0, 0.10)
-        border.color: Kirigami.ColorUtils.tintWithAlpha(color, Kirigami.Theme.textColor, 0.15)
-        border.width: 1
+        radius: Kirigami.Units.mediumSpacing
+        shadow {
+            size: Kirigami.Units.largeSpacing
+            color: Qt.rgba(0.0, 0.0, 0.0, 0.3)
+            yOffset: 2
+        }
+        border {
+            color: Kirigami.ColorUtils.tintWithAlpha(color, Kirigami.Theme.textColor, 0.15)
+            width: 1
+        }
     }
 
     ListView {
