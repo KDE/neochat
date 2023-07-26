@@ -67,6 +67,23 @@ Kirigami.ScrollablePage {
                     bottom: parent.bottom
                     right: parent.right
                 }
+                visible: avatar.source.toString().length === 0
+                icon.name: "cloud-upload"
+                text: i18n("Upload new avatar")
+                display: QQC2.AbstractButton.IconOnly
+
+                onClicked: parent.onClicked()
+
+                QQC2.ToolTip.text: text
+                QQC2.ToolTip.visible: hovered
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+            }
+
+            QQC2.Button {
+                anchors {
+                    bottom: parent.bottom
+                    right: parent.right
+                }
                 visible: avatar.source.toString().length !== 0
                 icon.name: "edit-clear"
                 text: i18n("Remove current avatar")
