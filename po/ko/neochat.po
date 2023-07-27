@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-25 00:45+0000\n"
+"POT-Creation-Date: 2023-07-27 00:46+0000\n"
 "PO-Revision-Date: 2023-07-25 23:22+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -1145,50 +1145,50 @@ msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr ""
 
-#: src/notificationsmanager.cpp:129
+#: src/notificationsmanager.cpp:130
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgid "Encrypted Message"
 msgstr "메시지 편집"
 
-#: src/notificationsmanager.cpp:202 src/qml/main.qml:258
+#: src/notificationsmanager.cpp:203 src/qml/main.qml:258
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/notificationsmanager.cpp:208
+#: src/notificationsmanager.cpp:209
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "이 대화방에서 NeoChat 열기"
 
-#: src/notificationsmanager.cpp:221 src/qml/Component/HoverActions.qml:103
+#: src/notificationsmanager.cpp:222 src/qml/Component/HoverActions.qml:103
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:36
 #, kde-format
 msgid "Reply"
 msgstr "답장"
 
-#: src/notificationsmanager.cpp:222
+#: src/notificationsmanager.cpp:223
 #, kde-format
 msgid "Reply..."
 msgstr "답장..."
 
-#: src/notificationsmanager.cpp:240
+#: src/notificationsmanager.cpp:241
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 님이 대화방에 초대함"
 
-#: src/notificationsmanager.cpp:244
+#: src/notificationsmanager.cpp:245
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "NeoChat에서 이 초대장 열기"
 
-#: src/notificationsmanager.cpp:250
+#: src/notificationsmanager.cpp:251
 #, kde-format
 msgid "Accept Invitation"
 msgstr "초대장 수락"
 
-#: src/notificationsmanager.cpp:250
+#: src/notificationsmanager.cpp:251
 #, kde-format
 msgid "Reject Invitation"
 msgstr "초대장 거절"
@@ -1563,7 +1563,7 @@ msgid "Login"
 msgstr "로그인"
 
 #: src/qml/Component/Login/Password.qml:41
-#: src/qml/Settings/AccountEditorPage.qml:135
+#: src/qml/Settings/AccountEditorPage.qml:151
 #: src/qml/Settings/NetworkProxyPage.qml:99
 #, kde-format
 msgid "Password"
@@ -1730,14 +1730,14 @@ msgstr ""
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:32
 #: src/qml/Dialog/ConfirmLogout.qml:29 src/qml/Page/ImageEditorPage.qml:126
-#: src/qml/Settings/AccountEditorPage.qml:195
+#: src/qml/Settings/AccountEditorPage.qml:211
 #, kde-format
 msgid "Cancel"
 msgstr "취소"
 
 #: src/qml/Dialog/ConfirmLogout.qml:16 src/qml/Dialog/ConfirmLogout.qml:35
-#: src/qml/Settings/AccountEditorPage.qml:239
-#: src/qml/Settings/AccountEditorPage.qml:247
+#: src/qml/Settings/AccountEditorPage.qml:255
+#: src/qml/Settings/AccountEditorPage.qml:263
 #, kde-format
 msgid "Sign out"
 msgstr ""
@@ -3013,8 +3013,8 @@ msgid "Update avatar"
 msgstr "아바타 업데이트"
 
 #: src/qml/RoomSettings/General.qml:114
-#: src/qml/Settings/AccountEditorPage.qml:113
-#: src/qml/Settings/AccountEditorPage.qml:182
+#: src/qml/Settings/AccountEditorPage.qml:129
+#: src/qml/Settings/AccountEditorPage.qml:198
 #: src/qml/Settings/EmoticonEditorPage.qml:121
 #, kde-format
 msgid "Save"
@@ -3473,64 +3473,70 @@ msgstr "KDE 정보"
 msgid "Edit Account"
 msgstr "계정 편집"
 
-#: src/qml/Settings/AccountEditorPage.qml:73
+#: src/qml/Settings/AccountEditorPage.qml:72
+#, fuzzy, kde-format
+#| msgid "Update avatar"
+msgid "Upload new avatar"
+msgstr "아바타 업데이트"
+
+#: src/qml/Settings/AccountEditorPage.qml:89
 #, kde-format
 msgid "Remove current avatar"
 msgstr ""
 
-#: src/qml/Settings/AccountEditorPage.qml:86
+#: src/qml/Settings/AccountEditorPage.qml:102
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgid "User information"
 msgstr "대화방 정보"
 
-#: src/qml/Settings/AccountEditorPage.qml:94
+#: src/qml/Settings/AccountEditorPage.qml:110
 #, kde-format
 msgid "Name:"
 msgstr "이름:"
 
-#: src/qml/Settings/AccountEditorPage.qml:100
+#: src/qml/Settings/AccountEditorPage.qml:116
 #, kde-format
 msgid "Label:"
 msgstr "이름표:"
 
-#: src/qml/Settings/AccountEditorPage.qml:143
+#: src/qml/Settings/AccountEditorPage.qml:159
 #, kde-format
 msgid "Your server doesn't support changing your password"
 msgstr ""
 
-#: src/qml/Settings/AccountEditorPage.qml:148
+#: src/qml/Settings/AccountEditorPage.qml:164
 #, kde-format
 msgid "Current Password:"
 msgstr "현재 암호:"
 
-#: src/qml/Settings/AccountEditorPage.qml:155
+#: src/qml/Settings/AccountEditorPage.qml:171
 #, kde-format
 msgid "New Password:"
 msgstr "새 암호:"
 
-#: src/qml/Settings/AccountEditorPage.qml:162
+#: src/qml/Settings/AccountEditorPage.qml:178
 #, kde-format
 msgid "Confirm new Password:"
 msgstr "새 암호 확인:"
 
-#: src/qml/Settings/AccountEditorPage.qml:167
+#: src/qml/Settings/AccountEditorPage.qml:183
 #, fuzzy, kde-format
 #| msgid "Passwords do not match"
 msgid "Passwords don't match"
 msgstr "암호가 일치하지 않음"
 
-#: src/qml/Settings/AccountEditorPage.qml:190
+#: src/qml/Settings/AccountEditorPage.qml:206
 #, kde-format
 msgid "Passwords do not match"
 msgstr "암호가 일치하지 않음"
 
-#: src/qml/Settings/AccountEditorPage.qml:208
+#: src/qml/Settings/AccountEditorPage.qml:224
 #, kde-format
 msgid "Server Information"
 msgstr "서버 정보"
 
-#: src/qml/Settings/AccountEditorPage.qml:215
+#: src/qml/Settings/AccountEditorPage.qml:231
 #, fuzzy, kde-format
 #| msgid "Homeserver:"
 msgid "Homeserver url"

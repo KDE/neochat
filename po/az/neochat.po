@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-25 00:45+0000\n"
+"POT-Creation-Date: 2023-07-27 00:46+0000\n"
 "PO-Revision-Date: 2022-07-22 12:13+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -1199,50 +1199,50 @@ msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr ""
 
-#: src/notificationsmanager.cpp:129
+#: src/notificationsmanager.cpp:130
 #, fuzzy, kde-format
 #| msgid "Edit Message"
 msgid "Encrypted Message"
 msgstr "İsmarıca düzəliş etmək"
 
-#: src/notificationsmanager.cpp:202 src/qml/main.qml:258
+#: src/notificationsmanager.cpp:203 src/qml/main.qml:258
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/notificationsmanager.cpp:208
+#: src/notificationsmanager.cpp:209
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "NeoChatı bu otaqla açın"
 
-#: src/notificationsmanager.cpp:221 src/qml/Component/HoverActions.qml:103
+#: src/notificationsmanager.cpp:222 src/qml/Component/HoverActions.qml:103
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:36
 #, kde-format
 msgid "Reply"
 msgstr "Cavab"
 
-#: src/notificationsmanager.cpp:222
+#: src/notificationsmanager.cpp:223
 #, kde-format
 msgid "Reply..."
 msgstr "Cavab..."
 
-#: src/notificationsmanager.cpp:240
+#: src/notificationsmanager.cpp:241
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1,sizi otağa dəvət etdi"
 
-#: src/notificationsmanager.cpp:244
+#: src/notificationsmanager.cpp:245
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Bu dəvəti NeoChat-da açın"
 
-#: src/notificationsmanager.cpp:250
+#: src/notificationsmanager.cpp:251
 #, kde-format
 msgid "Accept Invitation"
 msgstr "Dəvəti qəbul edin"
 
-#: src/notificationsmanager.cpp:250
+#: src/notificationsmanager.cpp:251
 #, kde-format
 msgid "Reject Invitation"
 msgstr "Dəvəti qəbul etməyin"
@@ -1619,7 +1619,7 @@ msgid "Login"
 msgstr "Giriş"
 
 #: src/qml/Component/Login/Password.qml:41
-#: src/qml/Settings/AccountEditorPage.qml:135
+#: src/qml/Settings/AccountEditorPage.qml:151
 #: src/qml/Settings/NetworkProxyPage.qml:99
 #, fuzzy, kde-format
 #| msgctxt "@title"
@@ -1788,14 +1788,14 @@ msgstr ""
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:32
 #: src/qml/Dialog/ConfirmLogout.qml:29 src/qml/Page/ImageEditorPage.qml:126
-#: src/qml/Settings/AccountEditorPage.qml:195
+#: src/qml/Settings/AccountEditorPage.qml:211
 #, kde-format
 msgid "Cancel"
 msgstr "İmtina"
 
 #: src/qml/Dialog/ConfirmLogout.qml:16 src/qml/Dialog/ConfirmLogout.qml:35
-#: src/qml/Settings/AccountEditorPage.qml:239
-#: src/qml/Settings/AccountEditorPage.qml:247
+#: src/qml/Settings/AccountEditorPage.qml:255
+#: src/qml/Settings/AccountEditorPage.qml:263
 #, kde-format
 msgid "Sign out"
 msgstr ""
@@ -3078,8 +3078,8 @@ msgid "Update avatar"
 msgstr "Avatarı yeniləyin"
 
 #: src/qml/RoomSettings/General.qml:114
-#: src/qml/Settings/AccountEditorPage.qml:113
-#: src/qml/Settings/AccountEditorPage.qml:182
+#: src/qml/Settings/AccountEditorPage.qml:129
+#: src/qml/Settings/AccountEditorPage.qml:198
 #: src/qml/Settings/EmoticonEditorPage.qml:121
 #, kde-format
 msgid "Save"
@@ -3544,65 +3544,71 @@ msgstr "Haqqında"
 msgid "Edit Account"
 msgstr "Hesaba düzəliş etmək"
 
-#: src/qml/Settings/AccountEditorPage.qml:73
+#: src/qml/Settings/AccountEditorPage.qml:72
+#, fuzzy, kde-format
+#| msgid "Update avatar"
+msgid "Upload new avatar"
+msgstr "Avatarı yeniləyin"
+
+#: src/qml/Settings/AccountEditorPage.qml:89
 #, kde-format
 msgid "Remove current avatar"
 msgstr ""
 
-#: src/qml/Settings/AccountEditorPage.qml:86
+#: src/qml/Settings/AccountEditorPage.qml:102
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgid "User information"
 msgstr "Otaq haqqında"
 
-#: src/qml/Settings/AccountEditorPage.qml:94
+#: src/qml/Settings/AccountEditorPage.qml:110
 #, kde-format
 msgid "Name:"
 msgstr "Ad:"
 
-#: src/qml/Settings/AccountEditorPage.qml:100
+#: src/qml/Settings/AccountEditorPage.qml:116
 #, kde-format
 msgid "Label:"
 msgstr "Yarlıq:"
 
-#: src/qml/Settings/AccountEditorPage.qml:143
+#: src/qml/Settings/AccountEditorPage.qml:159
 #, kde-format
 msgid "Your server doesn't support changing your password"
 msgstr ""
 
-#: src/qml/Settings/AccountEditorPage.qml:148
+#: src/qml/Settings/AccountEditorPage.qml:164
 #, kde-format
 msgid "Current Password:"
 msgstr "Cari şifrə:"
 
-#: src/qml/Settings/AccountEditorPage.qml:155
+#: src/qml/Settings/AccountEditorPage.qml:171
 #, kde-format
 msgid "New Password:"
 msgstr "Yeni şifrə:"
 
-#: src/qml/Settings/AccountEditorPage.qml:162
+#: src/qml/Settings/AccountEditorPage.qml:178
 #, kde-format
 msgid "Confirm new Password:"
 msgstr "Yeni şifrənin təsdiqi:"
 
-#: src/qml/Settings/AccountEditorPage.qml:167
+#: src/qml/Settings/AccountEditorPage.qml:183
 #, fuzzy, kde-format
 #| msgid "Passwords do not match"
 msgid "Passwords don't match"
 msgstr "Şifrələr oxşar deyil"
 
-#: src/qml/Settings/AccountEditorPage.qml:190
+#: src/qml/Settings/AccountEditorPage.qml:206
 #, kde-format
 msgid "Passwords do not match"
 msgstr "Şifrələr oxşar deyil"
 
-#: src/qml/Settings/AccountEditorPage.qml:208
+#: src/qml/Settings/AccountEditorPage.qml:224
 #, fuzzy, kde-format
 #| msgid "Room information"
 msgid "Server Information"
 msgstr "Otaq haqqında"
 
-#: src/qml/Settings/AccountEditorPage.qml:215
+#: src/qml/Settings/AccountEditorPage.qml:231
 #, fuzzy, kde-format
 #| msgid "Homeserver:"
 msgid "Homeserver url"
