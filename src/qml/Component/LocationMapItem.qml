@@ -24,11 +24,14 @@ MapQuickItem {
 
     required property bool isLive
 
+    required property real heading
+
     anchorPoint.x: sourceItem.width / 2
     anchorPoint.y: sourceItem.height
     coordinate: QtPositioning.coordinate(root.latitude, root.longitude)
     autoFadeIn: false
     sourceItem: Kirigami.Icon {
+        id: mainIcon
         width: height
         height: Kirigami.Units.iconSizes.huge
         source: "gps"
@@ -54,6 +57,20 @@ MapQuickItem {
             name: root.author.displayName
             source: root.author.avatarSource
             color: root.author.color
+        }
+
+        Kirigami.Icon {
+            id: headingIcon
+            source: "go-up-symbolic"
+            color: parent.color
+            visible: !isNaN(root.heading) && root.isLive
+            anchors.bottom: mainIcon.top
+            anchors.horizontalCenter: mainIcon.horizontalCenter
+            transform: Rotation {
+                origin.x: headingIcon.width/2
+                origin.y: headingIcon.height + mainIcon.height/2
+                angle: root.heading
+            }
         }
     }
 }

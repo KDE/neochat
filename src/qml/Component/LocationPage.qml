@@ -36,6 +36,7 @@ Kirigami.Page {
             }
             delegate: LocationMapItem {
                 isLive: true
+                heading: NaN
             }
         }
 

@@ -49,6 +49,7 @@ public:
         AssetRole, /**< Type of location event, e.g. self pin of the user location. */
         AuthorRole, /**< The author of the event. */
         IsLiveRole, /**< Boolean that indicates whether a live location beacon is still live. */
+        HeadingRole, /**< Heading in degree (not part of any MSC yet, using an Itinerary extension). */
     };
     Q_ENUM(Roles)
 

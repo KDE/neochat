@@ -46,6 +46,7 @@ ApplicationWindow {
             asset: root.asset
             author: root.author
             isLive: true
+            heading: NaN
             visible: !isNaN(root.latitude) && !isNaN(root.longitude)
         }
         MapItemView {

@@ -8,6 +8,8 @@
 
 #include <QDebug>
 
+#include <cmath>
+
 using namespace Quotient;
 
 bool operator<(const LiveLocationData &lhs, const LiveLocationData &rhs)
@@ -88,6 +90,11 @@ QVariant LiveLocationsModel::data(const QModelIndex &index, int roleName) const
         const auto timeout = data.beaconInfo.value("timeout"_ls).toDouble(600000);
         return lastTs + timeout >= QDateTime::currentDateTime().toMSecsSinceEpoch();
     }
+    case HeadingRole: {
+        bool success = false;
+        const auto heading = data.beacon["org.matrix.msc3488.location"_ls].toObject()["org.kde.itinerary.heading"_ls].toString().toDouble(&success);
+        return success ? heading : NAN;
+    }
     }
 
     return {};
@@ -101,6 +108,7 @@ QHash<int, QByteArray> LiveLocationsModel::roleNames() const
     r.insert(AssetRole, "asset");
     r.insert(AuthorRole, "author");
     r.insert(IsLiveRole, "isLive");
+    r.insert(HeadingRole, "heading");
     return r;
 }
 

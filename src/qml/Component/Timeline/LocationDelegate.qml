@@ -57,6 +57,7 @@ TimelineContainer {
                 asset: root.asset
                 author: root.author
                 isLive: true
+                heading: NaN
             }
 
             TapHandler {
