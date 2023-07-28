@@ -185,7 +185,9 @@ int main(int argc, char *argv[])
     initLogging();
 
 #if Quotient_VERSION_MINOR == 8
+#ifdef Quotient_E2EE_ENABLED
     Connection::setEncryptionDefault(true);
+#endif
 #endif
 
 #ifdef NEOCHAT_FLATPAK

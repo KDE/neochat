@@ -56,6 +56,7 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
         if (device.deviceId == m_connection->deviceId()) {
             return This;
         }
+#ifdef Quotient_E2EE_ENABLED
         if (!m_connection->isKnownE2eeCapableDevice(m_connection->userId(), device.deviceId)) {
             return Unencrypted;
         }
@@ -64,6 +65,9 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
         } else {
             return Unverified;
         }
+#else
+        return Unverified;
+#endif
     }
     return {};
 }
@@ -147,6 +151,7 @@ void DevicesModel::setConnection(Connection *connection)
     Q_EMIT connectionChanged();
     fetchDevices();
 
+#ifdef Quotient_E2EE_ENABLED
     connect(m_connection, &Connection::sessionVerified, this, [this](const QString &userId, const QString &deviceId) {
         Q_UNUSED(deviceId);
         if (userId == Controller::instance().activeConnection()->userId()) {
@@ -156,6 +161,7 @@ void DevicesModel::setConnection(Connection *connection)
     connect(m_connection, &Connection::finishedQueryingKeys, this, [this]() {
         fetchDevices();
     });
+#endif
 }
 
 #include "moc_devicesmodel.cpp"
