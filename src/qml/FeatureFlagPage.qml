@@ -23,5 +23,11 @@ FormCard.FormCardPage {
 
             onToggled: Config.threads = checked
         }
+        FormCard.FormCheckDelegate {
+            text: i18nc("@option:check Enable the matrix 'secret backup' feature", "Secret Backup")
+            checked: Config.secretBackup
+
+            onToggled: Config.secretBackup = checked
+        }
     }
 }

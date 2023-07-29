@@ -377,6 +377,14 @@ AccountRegistry &Controller::accounts()
     return m_accountRegistry;
 }
 
+QString Controller::loadFileContent(const QString &path) const
+{
+    QUrl url(path);
+    QFile file(url.isLocalFile() ? url.toLocalFile() : url.toString());
+    file.open(QFile::ReadOnly);
+    return QString::fromLatin1(file.readAll());
+}
+
 #include "moc_controller.cpp"
 
 void Controller::setTestMode(bool test)
@@ -392,4 +400,13 @@ void Controller::removeConnection(const QString &userId)
         Q_EMIT accountsLoadingChanged();
         SettingsGroup("Accounts"_ls).remove(userId);
     }
+}
+
+bool Controller::ssssSupported() const
+{
+#if __has_include("Quotient/e2ee/sssshandler.h")
+    return true;
+#else
+    return false;
+#endif
 }

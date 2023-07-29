@@ -63,6 +63,15 @@ QQC2.Menu {
         })
     }
     QQC2.MenuItem {
+        text: i18nc("@action:inmenu", "Open Secret Backup")
+        icon.name: "unlock"
+        visible: Config.secretBackup
+        onTriggered: pageStack.pushDialogLayer(Qt.createComponent('org.kde.neochat', 'UnlockSSSSDialog.qml'), {}, {
+            title: i18nc("@title:window", "Open Key Backup")
+        })
+        enabled: Controller.ssssSupported
+    }
+    QQC2.MenuItem {
         text: i18n("Logout")
         icon.name: "list-remove-user"
         onTriggered: confirmLogoutDialogComponent.createObject(applicationWindow().overlay).open()

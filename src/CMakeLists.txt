@@ -309,6 +309,7 @@ qt_add_qml_module(neochat URI org.kde.neochat NO_PLUGIN
         qml/IgnoredUsersDialog.qml
         qml/AccountData.qml
         qml/StateKeys.qml
+        qml/UnlockSSSSDialog.qml
     RESOURCES
         qml/confetti.png
         qml/glowdot.png
