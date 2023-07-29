@@ -81,7 +81,7 @@ QString CollapseStateProxyModel::aggregateEventToString(int sourceRow) const
                                                       : QStringLiteral("<a href=\"https://matrix.to/#/%1\" style=\"color: %2\">%3</a> ")
                                                             .arg(uniqueAuthors[0].toMap()["id"].toString(),
                                                                  uniqueAuthors[0].toMap()["color"].toString(),
-                                                                 uniqueAuthors[0].toMap()["displayName"].toString());
+                                                                 uniqueAuthors[0].toMap()["displayName"].toString().toHtmlEscaped());
         text += userText;
         text += chunks.takeFirst();
 
