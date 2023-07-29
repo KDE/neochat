@@ -30,7 +30,7 @@ Kirigami.ScrollablePage {
 
                 MobileForm.FormCheckDelegate {
                     id: closeDelegate
-                    text: i18n("Close to system tray")
+                    text: i18n("Show in System Tray")
                     checked: Config.systemTray
                     visible: Controller.supportSystemTray
                     enabled: !Config.isSystemTrayImmutable
