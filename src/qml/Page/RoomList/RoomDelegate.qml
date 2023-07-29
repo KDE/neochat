@@ -46,7 +46,7 @@ Delegates.RoundedItemDelegate {
             source: root.avatar ? "image://mxc/" +  root.avatar : ""
             name: root.displayName
             visible: Config.showAvatarInRoomDrawer
-            implicitHeight: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing * 2
+            implicitHeight: Kirigami.Units.gridUnit + (Config.compactRoomList ? 0 : Kirigami.Units.largeSpacing * 2)
             implicitWidth: visible ? implicitHeight : 0
 
             Layout.fillHeight: true
