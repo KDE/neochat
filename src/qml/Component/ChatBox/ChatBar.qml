@@ -167,6 +167,8 @@ QQC2.Control {
             wrapMode: Text.Wrap
             readOnly: (currentRoom.usesEncryption && !Controller.encryptionSupported)
 
+            Accessible.description: placeholderText
+
             Timer {
                 id: repeatTimer
                 interval: 5000
