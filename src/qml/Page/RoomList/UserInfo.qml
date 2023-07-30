@@ -146,23 +146,33 @@ QQC2.ToolBar {
             Layout.minimumHeight: Kirigami.Units.gridUnit * 2 - 2 // HACK: -2 here is to ensure the ChatBox and the UserInfo have the same height
 
             QQC2.AbstractButton {
+                id: accountButton
+
                 Layout.preferredWidth: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
                 Layout.preferredHeight: Kirigami.Units.gridUnit + Kirigami.Units.largeSpacing
                 Layout.leftMargin: Kirigami.Units.largeSpacing
 
                 TapHandler {
-                    acceptedButtons: Qt.RightButton
-                    acceptedDevices: PointerDevice.Mouse
-                    onTapped: accountMenu.open()
+                    acceptedButtons: Qt.RightButton | Qt.LeftButton
+                   acceptedDevices: PointerDevice.Mouse
+                    onTapped: (eventPoint, button) => {
+                        // TODO Qt6 remove
+                        if (!button) {
+                            button = eventPoint.event.button;
+                        }
+                        if (button == Qt.RightButton) {
+                            accountMenu.open();
+                        } else {
+                            pageStack.pushDialogLayer(Qt.resolvedUrl('qrc:/AccountEditorPage.qml'), {
+                                connection: Controller.activeConnection
+                            }, {
+                                title: i18n("Account editor")
+                            });
+                        }
+                    }
                 }
 
                 text: i18n("Edit this account")
-
-                onClicked: pageStack.pushDialogLayer(Qt.resolvedUrl('qrc:/AccountEditorPage.qml'), {
-                    connection: Controller.activeConnection
-                }, {
-                    title: i18n("Account editor")
-                });
 
                 contentItem: KirigamiComponents.Avatar {
                     readonly property string mediaId: Controller.activeConnection.localUser.avatarMediaId
