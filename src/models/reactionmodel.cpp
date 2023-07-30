@@ -7,9 +7,9 @@
 
 #include <KLocalizedString>
 
-#include "neochatuser.h"
+#include <Quotient/user.h>
 
-ReactionModel::ReactionModel(QObject *parent, QList<Reaction> reactions, NeoChatUser *localUser)
+ReactionModel::ReactionModel(QObject *parent, QList<Reaction> reactions, Quotient::User *localUser)
     : QAbstractListModel(parent)
     , m_localUser(localUser)
 {

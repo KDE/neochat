@@ -10,9 +10,14 @@
 #include <QTextCursor>
 
 #include <QCoroTask>
+#include <Quotient/user.h>
 
-#include "neochatuser.h"
 #include "pollhandler.h"
+
+namespace Quotient
+{
+class User;
+}
 
 class PushNotificationState : public QObject
 {
@@ -64,7 +69,7 @@ class NeoChatRoom : public Quotient::Room
      *
      * The list does not include the local user.
      *
-     * This is different to getting a list of NeoChatUser objects or Quotient::User objects
+     * This is different to getting a list of Quotient::User objects
      * as neither of those can provide details like the displayName or avatarMediaId
      * without the room context as these can vary from room to room. This function
      * provides the room context and puts the result as a list of QVariantMap objects.
@@ -76,7 +81,7 @@ class NeoChatRoom : public Quotient::Room
      *  - displayName - Display name in the context of this room.
      *  - display - Name in the context of this room.
      *
-     * @sa Quotient::User, NeoChatUser
+     * @sa Quotient::User
      */
     Q_PROPERTY(QVariantList usersTyping READ getUsersTyping NOTIFY typingChanged)
 
@@ -119,7 +124,7 @@ class NeoChatRoom : public Quotient::Room
     /**
      * @brief Get a user object for the other person in a direct chat.
      */
-    Q_PROPERTY(NeoChatUser *directChatRemoteUser READ directChatRemoteUser CONSTANT)
+    Q_PROPERTY(Quotient::User *directChatRemoteUser READ directChatRemoteUser CONSTANT)
 
     /**
      * @brief If the room is a space.
@@ -316,7 +321,7 @@ class NeoChatRoom : public Quotient::Room
     /**
      * @brief Get the user for the message being replied to.
      *
-     * This is different to getting a NeoChatUser object or Quotient::User object
+     * This is different to getting a Quotient::User object
      * as neither of those can provide details like the displayName or avatarMediaId
      * without the room context as these can vary from room to room.
      *
@@ -329,9 +334,9 @@ class NeoChatRoom : public Quotient::Room
      *  - avatarSource - The mxc URL for the user's avatar in the current room.
      *  - avatarMediaId - Avatar id in the context of this room.
      *  - color - Color for the user.
-     *  - object - The NeoChatUser object for the user.
+     *  - object - The Quotient::User object for the user.
      *
-     * @sa getUser, Quotient::User, NeoChatUser
+     * @sa getUser, Quotient::User
      */
     Q_PROPERTY(QVariantMap chatBoxReplyUser READ chatBoxReplyUser NOTIFY chatBoxReplyIdChanged)
 
@@ -345,7 +350,7 @@ class NeoChatRoom : public Quotient::Room
     /**
      * @brief Get the user for the message being edited.
      *
-     * This is different to getting a NeoChatUser object or Quotient::User object
+     * This is different to getting a Quotient::User object
      * as neither of those can provide details like the displayName or avatarMediaId
      * without the room context as these can vary from room to room.
      *
@@ -358,9 +363,9 @@ class NeoChatRoom : public Quotient::Room
      *  - avatarSource - The mxc URL for the user's avatar in the current room.
      *  - avatarMediaId - Avatar id in the context of this room.
      *  - color - Color for the user.
-     *  - object - The NeoChatUser object for the user.
+     *  - object - The Quotient::User object for the user.
      *
-     * @sa getUser, Quotient::User, NeoChatUser
+     * @sa getUser, Quotient::User
      */
     Q_PROPERTY(QVariantMap chatBoxEditUser READ chatBoxEditUser NOTIFY chatBoxEditIdChanged)
 
@@ -392,7 +397,7 @@ public:
     /**
      * @brief Get a list of users in the context of this room.
      *
-     * This is different to getting a list of NeoChatUser objects or Quotient::User objects
+     * This is different to getting a list of Quotient::User objects
      * as neither of those can provide details like the displayName or avatarMediaId
      * without the room context as these can vary from room to room. This function
      * provides the room context and returns the result as a list of QVariantMap objects.
@@ -407,14 +412,14 @@ public:
      *  - avatarMediaId - Avatar id in the context of this room.
      *  - color - Color for the user.
      *
-     * @sa Quotient::User, NeoChatUser
+     * @sa Quotient::User
      */
     Q_INVOKABLE [[nodiscard]] QVariantList getUsers(const QString &keyword, int limit = -1) const;
 
     /**
      * @brief Get a user in the context of this room.
      *
-     * This is different to getting a NeoChatUser object or Quotient::User object
+     * This is different to getting a Quotient::User object
      * as neither of those can provide details like the displayName or avatarMediaId
      * without the room context as these can vary from room to room. This function
      * provides the room context and outputs the result as QVariantMap.
@@ -431,16 +436,16 @@ public:
      *  - avatarSource - The mxc URL for the user's avatar in the current room.
      *  - avatarMediaId - Avatar id in the context of this room.
      *  - color - Color for the user.
-     *  - object - The NeoChatUser object for the user.
+     *  - object - The Quotient::User object for the user.
      *
-     * @sa Quotient::User, NeoChatUser
+     * @sa Quotient::User
      */
     Q_INVOKABLE [[nodiscard]] QVariantMap getUser(const QString &userID) const;
 
     /**
      * @brief Get a user in the context of this room.
      *
-     * This is different to getting a NeoChatUser object or Quotient::User object
+     * This is different to getting a Quotient::User object
      * as neither of those can provide details like the displayName or avatarMediaId
      * without the room context as these can vary from room to room. This function
      * provides the room context and outputs the result as QVariantMap.
@@ -457,11 +462,11 @@ public:
      *  - avatarSource - The mxc URL for the user's avatar in the current room.
      *  - avatarMediaId - Avatar id in the context of this room.
      *  - color - Color for the user.
-     *  - object - The NeoChatUser object for the user.
+     *  - object - The Quotient::User object for the user.
      *
-     * @sa Quotient::User, NeoChatUser
+     * @sa Quotient::User
      */
-    Q_INVOKABLE [[nodiscard]] QVariantMap getUser(NeoChatUser *user) const;
+    Q_INVOKABLE [[nodiscard]] QVariantMap getUser(Quotient::User *user) const;
 
     [[nodiscard]] QVariantList getUsersTyping() const;
 
@@ -602,7 +607,7 @@ public:
 
     [[nodiscard]] QString avatarMediaId() const;
 
-    NeoChatUser *directChatRemoteUser() const;
+    Quotient::User *directChatRemoteUser() const;
 
     [[nodiscard]] bool isSpace();
 
@@ -818,7 +823,7 @@ public:
      */
     Q_INVOKABLE QByteArray roomAcountDataJson(const QString &eventType);
 
-    Q_INVOKABLE [[nodiscard]] QUrl avatarForMember(NeoChatUser *user) const;
+    Q_INVOKABLE [[nodiscard]] QUrl avatarForMember(Quotient::User *user) const;
 
     /**
      * @brief Returns the event that is being replied to. This includes events that were manually loaded using NeoChatRoom::loadReply.

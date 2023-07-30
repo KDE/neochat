@@ -4,8 +4,9 @@
 #include "texthandler.h"
 
 #include <QDebug>
-#include <QUrl>
+#include <QGuiApplication>
 #include <QStringLiteral>
+#include <QUrl>
 
 #include <Quotient/events/roommessageevent.h>
 #include <Quotient/util.h>
@@ -76,6 +77,13 @@ QString TextHandler::handleSendText()
     return outputString;
 }
 
+static QColor polishColor(qreal hueF)
+{
+    const auto lightness = static_cast<QGuiApplication *>(QGuiApplication::instance())->palette().color(QPalette::Active, QPalette::Window).lightnessF();
+    // https://github.com/quotient-im/libQuotient/wiki/User-color-coding-standard-draft-proposal
+    return QColor::fromHslF(hueF, 1, -0.7 * lightness + 0.9, 1);
+}
+
 QString TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat, const NeoChatRoom *room, const Quotient::RoomEvent *event, bool stripNewlines)
 {
     m_pos = 0;
@@ -135,9 +143,9 @@ QString TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat, const Neo
     if (event != nullptr) {
         auto e = eventCast<const Quotient::RoomMessageEvent>(event);
         if (e->msgtype() == Quotient::MessageEventType::Emote) {
-            auto author = static_cast<NeoChatUser *>(room->user(e->senderId()));
+            auto author = room->user(e->senderId());
             QString emoteString = QStringLiteral("* <a href=\"https://matrix.to/#/") + e->senderId() + QStringLiteral("\" style=\"color:")
-                + author->color().name() + QStringLiteral("\">") + author->displayname(room) + QStringLiteral("</a> ");
+                + polishColor(author->hueF()).name() + QStringLiteral("\">") + author->displayname(room) + QStringLiteral("</a> ");
             if (outputString.startsWith(QStringLiteral("<p>"))) {
                 outputString.insert(3, emoteString);
             } else {

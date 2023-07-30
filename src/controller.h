@@ -12,9 +12,9 @@
 #include <Quotient/accountregistry.h>
 #include <Quotient/jobs/basejob.h>
 #include <Quotient/settings.h>
+#include <Quotient/user.h>
 
 class NeoChatRoom;
-class NeoChatUser;
 class TrayIcon;
 class QWindow;
 class QQuickTextDocument;
@@ -23,6 +23,7 @@ namespace Quotient
 {
 class Connection;
 class Room;
+class User;
 }
 
 namespace QKeychain
@@ -183,7 +184,7 @@ public:
      *
      * If a direct chat with the user doesn't exist one is created and then joined.
      */
-    Q_INVOKABLE void openOrCreateDirectChat(NeoChatUser *user);
+    Q_INVOKABLE void openOrCreateDirectChat(Quotient::User *user);
 
     [[nodiscard]] bool supportSystemTray() const;
 

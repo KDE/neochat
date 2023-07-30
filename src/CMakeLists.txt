@@ -44,8 +44,6 @@ add_library(neochat STATIC
     roommanager.h
     neochatroom.cpp
     neochatroom.h
-    neochatuser.cpp
-    neochatuser.h
     models/userlistmodel.cpp
     models/userlistmodel.h
     models/userfiltermodel.cpp

@@ -29,10 +29,11 @@
 
 #include "neochat-version.h"
 
-#include <Quotient/keyverificationsession.h>
 #include <Quotient/accountregistry.h>
+#include <Quotient/keyverificationsession.h>
 #include <Quotient/networkaccessmanager.h>
 #include <Quotient/room.h>
+#include <Quotient/user.h>
 #include <Quotient/util.h>
 
 #include "actionshandler.h"
@@ -76,7 +77,6 @@
 #include "models/webshortcutmodel.h"
 #include "neochatconfig.h"
 #include "neochatroom.h"
-#include "neochatuser.h"
 #include "notificationsmanager.h"
 #include "pollhandler.h"
 #include "roommanager.h"
@@ -89,7 +89,6 @@
 #endif
 #include "models/completionmodel.h"
 #include "models/statemodel.h"
-#include "neochatuser.h"
 
 #ifdef HAVE_RUNNER
 #include "runner.h"
@@ -260,7 +259,7 @@ int main(int argc, char *argv[])
     qmlRegisterUncreatableType<PushNotificationState>("org.kde.neochat", 1, 0, "PushNotificationState", "ENUM");
     qmlRegisterUncreatableType<PushNotificationAction>("org.kde.neochat", 1, 0, "PushNotificationAction", "ENUM");
     qmlRegisterUncreatableType<NeoChatRoomType>("org.kde.neochat", 1, 0, "NeoChatRoomType", "ENUM");
-    qmlRegisterUncreatableType<NeoChatUser>("org.kde.neochat", 1, 0, "NeoChatUser", {});
+    qmlRegisterUncreatableType<User>("org.kde.neochat", 1, 0, "User", {});
     qmlRegisterUncreatableType<NeoChatRoom>("org.kde.neochat", 1, 0, "NeoChatRoom", {});
 
     qRegisterMetaType<User *>("User*");
@@ -270,7 +269,7 @@ int main(int argc, char *argv[])
     qRegisterMetaType<Connection *>("Connection*");
     qRegisterMetaType<MessageEventType>("MessageEventType");
     qRegisterMetaType<NeoChatRoom *>("NeoChatRoom*");
-    qRegisterMetaType<NeoChatUser *>("NeoChatUser*");
+    qRegisterMetaType<User *>("User*");
     qRegisterMetaType<GetRoomEventsJob *>("GetRoomEventsJob*");
     qRegisterMetaType<QMimeType>("QMimeType");
 #ifdef Quotient_E2EE_ENABLED

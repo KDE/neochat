@@ -34,9 +34,9 @@ Item {
      *  - displayName - The display name of the reply author.
      *  - display - The name of the reply author.
      *  - color - The color for the reply author.
-     *  - object - The NeoChatUser object for the reply author.
+     *  - object - The Quotient::User object for the reply author.
      *
-     * @sa NeoChatUser
+     * @sa Quotient::User
      */
     required property var author
 

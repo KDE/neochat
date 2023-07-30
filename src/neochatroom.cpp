@@ -4,8 +4,10 @@
 #include "neochatroom.h"
 
 #include <QFileInfo>
+#include <QGuiApplication>
 #include <QMetaObject>
 #include <QMimeDatabase>
+#include <QPalette>
 #include <QTemporaryFile>
 #include <QTextDocument>
 
@@ -13,6 +15,7 @@
 #include <QMediaPlayer>
 
 #include <Quotient/jobs/basejob.h>
+#include <Quotient/user.h>
 #include <qcoro/qcorosignal.h>
 
 #include <Quotient/connection.h>
@@ -405,6 +408,13 @@ QDateTime NeoChatRoom::lastActiveTime()
     return messageEvents().rbegin()->get()->originTimestamp();
 }
 
+static QColor polishColor(qreal hueF)
+{
+    const auto lightness = static_cast<QGuiApplication *>(QGuiApplication::instance())->palette().color(QPalette::Active, QPalette::Window).lightnessF();
+    // https://github.com/quotient-im/libQuotient/wiki/User-color-coding-standard-draft-proposal
+    return QColor::fromHslF(hueF, 1, -0.7 * lightness + 0.9, 1);
+}
+
 QVariantList NeoChatRoom::getUsers(const QString &keyword, int limit) const
 {
     const auto userList = users();
@@ -412,11 +422,11 @@ QVariantList NeoChatRoom::getUsers(const QString &keyword, int limit) const
     int count = 0;
     for (const auto u : userList) {
         if (u->displayname(this).contains(keyword, Qt::CaseInsensitive)) {
-            NeoChatUser user(u->id(), u->connection());
+            Quotient::User user(u->id(), u->connection());
             QVariantMap userVariant{{QStringLiteral("id"), user.id()},
                                     {QStringLiteral("displayName"), user.displayname(this)},
                                     {QStringLiteral("avatarMediaId"), user.avatarMediaId(this)},
-                                    {QStringLiteral("color"), user.color()}};
+                                    {QStringLiteral("color"), polishColor(user.hueF())}};
 
             matchedList.append(QVariant::fromValue(userVariant));
             count++;
@@ -442,11 +452,10 @@ static const QVariantMap emptyUser = {
 
 QVariantMap NeoChatRoom::getUser(const QString &userID) const
 {
-    NeoChatUser *userObject = static_cast<NeoChatUser *>(user(userID));
-    return getUser(userObject);
+    return getUser(user(userID));
 }
 
-QVariantMap NeoChatRoom::getUser(NeoChatUser *user) const
+QVariantMap NeoChatRoom::getUser(User *user) const
 {
     if (user == nullptr) {
         return emptyUser;
@@ -458,7 +467,7 @@ QVariantMap NeoChatRoom::getUser(NeoChatUser *user) const
         {QStringLiteral("displayName"), user->displayname(this)},
         {QStringLiteral("avatarSource"), avatarForMember(user)},
         {QStringLiteral("avatarMediaId"), user->avatarMediaId(this)},
-        {QStringLiteral("color"), user->color()},
+        {QStringLiteral("color"), polishColor(user->hueF())},
         {QStringLiteral("object"), QVariant::fromValue(user)},
     };
 }
@@ -539,7 +548,7 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
 
             if (prettyPrint) {
                 subjectName = QStringLiteral("<a href=\"https://matrix.to/#/%1\" style=\"color: %2\">%3</a>")
-                                  .arg(e.userId(), static_cast<NeoChatUser *>(user(e.userId()))->color().name(), subjectName);
+                                  .arg(e.userId(), polishColor(user(e.userId())->hueF()).name(), subjectName);
             }
 
             // The below code assumes senderName output in AuthorRole
@@ -1682,7 +1691,7 @@ QVariantMap NeoChatRoom::chatBoxReplyUser() const
     if (m_chatBoxReplyId.isEmpty()) {
         return emptyUser;
     }
-    return getUser(static_cast<NeoChatUser *>(user((*findInTimeline(m_chatBoxReplyId))->senderId())));
+    return getUser(user((*findInTimeline(m_chatBoxReplyId))->senderId()));
 }
 
 QString NeoChatRoom::chatBoxReplyMessage() const
@@ -1698,7 +1707,7 @@ QVariantMap NeoChatRoom::chatBoxEditUser() const
     if (m_chatBoxEditId.isEmpty()) {
         return emptyUser;
     }
-    return getUser(static_cast<NeoChatUser *>(user((*findInTimeline(m_chatBoxEditId))->senderId())));
+    return getUser(user((*findInTimeline(m_chatBoxEditId))->senderId()));
 }
 
 QString NeoChatRoom::chatBoxEditMessage() const
@@ -1904,9 +1913,10 @@ int NeoChatRoom::maxRoomVersion() const
     }
     return maxVersion;
 }
-NeoChatUser *NeoChatRoom::directChatRemoteUser() const
+
+Quotient::User *NeoChatRoom::directChatRemoteUser() const
 {
-    return dynamic_cast<NeoChatUser *>(connection()->directChatUsers(this)[0]);
+    return connection()->directChatUsers(this)[0];
 }
 
 void NeoChatRoom::sendLocation(float lat, float lon, const QString &description)
@@ -1938,7 +1948,7 @@ QByteArray NeoChatRoom::roomAcountDataJson(const QString &eventType)
     return QJsonDocument(accountData(eventType)->fullJson()).toJson();
 }
 
-QUrl NeoChatRoom::avatarForMember(NeoChatUser *user) const
+QUrl NeoChatRoom::avatarForMember(Quotient::User *user) const
 {
     const auto &url = memberAvatarUrl(user->id());
     if (url.isEmpty() || url.scheme() != "mxc"_ls) {

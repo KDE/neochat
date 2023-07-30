@@ -35,15 +35,15 @@
 #include <Quotient/connection.h>
 #include <Quotient/csapi/content-repo.h>
 #include <Quotient/csapi/logout.h>
+#include <Quotient/csapi/notifications.h>
 #include <Quotient/csapi/profile.h>
+#include <Quotient/eventstats.h>
 #include <Quotient/jobs/downloadfilejob.h>
 #include <Quotient/qt_connection_util.h>
-#include <Quotient/csapi/notifications.h>
-#include <Quotient/eventstats.h>
+#include <Quotient/user.h>
 
 #include "neochatconfig.h"
 #include "neochatroom.h"
-#include "neochatuser.h"
 #include "notificationsmanager.h"
 #include "roommanager.h"
 #include "windowcontroller.h"
@@ -60,7 +60,7 @@ Controller::Controller(QObject *parent)
     : QObject(parent)
 {
     Connection::setRoomType<NeoChatRoom>();
-    Connection::setUserType<NeoChatUser>();
+    Connection::setUserType<User>();
 
     setApplicationProxy();
 
@@ -532,7 +532,7 @@ void Controller::joinRoom(const QString &alias)
     RoomManager::instance().joinRoom(m_connection, alias, QStringList{knownServer});
 }
 
-void Controller::openOrCreateDirectChat(NeoChatUser *user)
+void Controller::openOrCreateDirectChat(User *user)
 {
     const auto existing = activeConnection()->directChats();
 

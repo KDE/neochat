@@ -71,6 +71,13 @@ private Q_SLOTS:
     void linkPreviewsReject();
 };
 
+static QColor polishColor(qreal hueF)
+{
+    const auto lightness = static_cast<QGuiApplication *>(QGuiApplication::instance())->palette().color(QPalette::Active, QPalette::Window).lightnessF();
+    // https://github.com/quotient-im/libQuotient/wiki/User-color-coding-standard-draft-proposal
+    return QColor::fromHslF(hueF, 1, -0.7 * lightness + 0.9, 1);
+}
+
 void TextHandlerTest::initTestCase()
 {
     connection = Connection::makeMockConnection(QStringLiteral("@bob:kde.org"));
@@ -555,10 +562,10 @@ void TextHandlerTest::receiveRichPlainUrl()
 void TextHandlerTest::receiveRichEmote()
 {
     auto event = room->messageEvents().at(1).get();
-    auto author = static_cast<NeoChatUser *>(room->user(event->senderId()));
+    auto author = room->user(event->senderId());
     const QString testInputString = QStringLiteral("This is an emote.");
-    const QString testOutputString = QStringLiteral("* <a href=\"https://matrix.to/#/@example:example.org\" style=\"color:") + author->color().name()
-        + QStringLiteral("\">@example:example.org</a> This is an emote.");
+    const QString testOutputString = QStringLiteral("* <a href=\"https://matrix.to/#/@example:example.org\" style=\"color:")
+        + polishColor(author->hueF()).name() + QStringLiteral("\">@example:example.org</a> This is an emote.");
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);
@@ -644,5 +651,5 @@ void TextHandlerTest::linkPreviewsReject()
     QCOMPARE(testTextHandler.getLinkPreviews(), testOutputLinks);
 }
 
-QTEST_GUILESS_MAIN(TextHandlerTest)
+QTEST_MAIN(TextHandlerTest)
 #include "texthandlertest.moc"

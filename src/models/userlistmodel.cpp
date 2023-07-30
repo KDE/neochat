@@ -71,8 +71,7 @@ QVariant UserListModel::data(const QModelIndex &index, int role) const
         return user->id();
     }
     if (role == AvatarRole) {
-        auto neoChatUser = static_cast<NeoChatUser *>(user);
-        return m_currentRoom->avatarForMember(neoChatUser);
+        return m_currentRoom->avatarForMember(user);
     }
     if (role == ObjectRole) {
         return QVariant::fromValue(user);

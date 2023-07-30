@@ -5,7 +5,6 @@
 
 #include "messageeventmodel.h"
 #include "neochatroom.h"
-#include "neochatuser.h"
 #include <Quotient/events/stickerevent.h>
 
 #include <KLocalizedString>
@@ -109,7 +108,7 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
         return false;
     case ReplyAuthorRole:
         if (const auto &replyPtr = m_room->getReplyForEvent(event)) {
-            return m_room->getUser(static_cast<NeoChatUser *>(m_room->user(replyPtr->senderId())));
+            return m_room->getUser(m_room->user(replyPtr->senderId()));
         } else {
             return m_room->getUser(nullptr);
         }

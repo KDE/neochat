@@ -25,7 +25,6 @@
 #include <KLocalizedString>
 
 #include "models/reactionmodel.h"
-#include "neochatuser.h"
 #include "texthandler.h"
 
 using namespace Quotient;
@@ -531,7 +530,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == AuthorRole) {
-        auto author = static_cast<NeoChatUser *>(isPending ? m_currentRoom->localUser() : m_currentRoom->user(evt.senderId()));
+        auto author = isPending ? m_currentRoom->localUser() : m_currentRoom->user(evt.senderId());
         return m_currentRoom->getUser(author);
     }
 
@@ -679,7 +678,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         auto replyPtr = m_currentRoom->getReplyForEvent(evt);
 
         if (replyPtr) {
-            auto replyUser = static_cast<NeoChatUser *>(m_currentRoom->user(replyPtr->senderId()));
+            auto replyUser = m_currentRoom->user(replyPtr->senderId());
             return m_currentRoom->getUser(replyUser);
         } else {
             return m_currentRoom->getUser(nullptr);
@@ -808,7 +807,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         QVariantList users;
         users.reserve(userIds.size());
         for (const auto &userId : userIds) {
-            auto user = static_cast<NeoChatUser *>(m_currentRoom->user(userId));
+            auto user = m_currentRoom->user(userId);
             users += m_currentRoom->getUser(user);
         }
 
@@ -836,7 +835,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
          */
         QString readMarkersString = i18np("1 user: ", "%1 users: ", userIds.size());
         for (const auto &userId : userIds) {
-            auto user = static_cast<NeoChatUser *>(m_currentRoom->user(userId));
+            auto user = m_currentRoom->user(userId);
             readMarkersString += user->displayname(m_currentRoom) + i18nc("list separator", ", ");
         }
         readMarkersString.chop(2);
@@ -877,7 +876,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == DisplayNameForInitialsRole) {
-        auto user = static_cast<NeoChatUser *>(isPending ? m_currentRoom->localUser() : m_currentRoom->user(evt.senderId()));
+        auto user = isPending ? m_currentRoom->localUser() : m_currentRoom->user(evt.senderId());
         return user->displayname(m_currentRoom).remove(QStringLiteral(" (%1)").arg(user->id()));
     }
 
@@ -889,7 +888,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
             }
             return previousDisplayName;
         } else {
-            auto author = static_cast<NeoChatUser *>(isPending ? m_currentRoom->localUser() : m_currentRoom->user(evt.senderId()));
+            auto author = isPending ? m_currentRoom->localUser() : m_currentRoom->user(evt.senderId());
             return m_currentRoom->htmlSafeMemberName(author->id());
         }
     }
@@ -1062,13 +1061,13 @@ void MessageEventModel::createReactionModelForEvent(const Quotient::RoomMessageE
         return;
     };
 
-    QMap<QString, QList<NeoChatUser *>> reactions = {};
+    QMap<QString, QList<Quotient::User *>> reactions = {};
     for (const auto &a : annotations) {
         if (a->isRedacted()) { // Just in case?
             continue;
         }
         if (const auto &e = eventCast<const ReactionEvent>(a)) {
-            reactions[e->key()].append(static_cast<NeoChatUser *>(m_currentRoom->user(e->senderId())));
+            reactions[e->key()].append(m_currentRoom->user(e->senderId()));
         }
     }
 
@@ -1095,7 +1094,7 @@ void MessageEventModel::createReactionModelForEvent(const Quotient::RoomMessageE
     if (m_reactionModels.contains(eventId)) {
         m_reactionModels[eventId]->setReactions(res);
     } else if (res.size() > 0) {
-        m_reactionModels[eventId] = new ReactionModel(this, res, static_cast<NeoChatUser *>(m_currentRoom->localUser()));
+        m_reactionModels[eventId] = new ReactionModel(this, res, m_currentRoom->localUser());
     } else {
         if (m_reactionModels.contains(eventId)) {
             delete m_reactionModels[eventId];

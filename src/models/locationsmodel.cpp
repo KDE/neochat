@@ -61,7 +61,7 @@ void LocationsModel::addLocation(const RoomMessageEvent *event)
         .latitude = latitude,
         .longitude = longitude,
         .content = event->contentJson(),
-        .author = dynamic_cast<NeoChatUser *>(m_room->user(event->senderId())),
+        .author = m_room->user(event->senderId()),
     };
     endInsertRows();
 }

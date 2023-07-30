@@ -5,7 +5,10 @@
 
 #include <QAbstractListModel>
 
-class NeoChatUser;
+namespace Quotient
+{
+class User;
+}
 
 /**
  * @class ReactionModel
@@ -36,7 +39,7 @@ public:
         HasLocalUser, /**< Whether the local user is in the list of authors. */
     };
 
-    explicit ReactionModel(QObject *parent = nullptr, QList<Reaction> reactions = {}, NeoChatUser *localUser = nullptr);
+    explicit ReactionModel(QObject *parent = nullptr, QList<Reaction> reactions = {}, Quotient::User *localUser = nullptr);
 
     /**
      * @brief Get the given role value at the given index.
@@ -67,6 +70,6 @@ public:
 private:
     QList<Reaction> m_reactions;
 
-    NeoChatUser *m_localUser;
+    Quotient::User *m_localUser;
 };
 Q_DECLARE_METATYPE(ReactionModel *)
