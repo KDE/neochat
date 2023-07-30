@@ -193,6 +193,12 @@ Kirigami.Page {
                                 width: Kirigami.Units.iconSizes.small
                                 height: Kirigami.Units.iconSizes.small
                             }
+                            text: roomListModel.categoryVisible(section) ? i18nc("Collapse <section name>", "Collapse %1", roomListModel.categoryName(section)) : i18nc("Expand <section name", "Expand %1", roomListModel.categoryName(section))
+                            display: QQC2.Button.IconOnly
+
+                            QQC2.ToolTip.text: text
+                            QQC2.ToolTip.visible: hovered
+                            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
                             onClicked: roomListModel.setCategoryVisible(section, !roomListModel.categoryVisible(section))
                         }
