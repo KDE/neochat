@@ -12,7 +12,6 @@
 #include <Quotient/accountregistry.h>
 #include <Quotient/jobs/basejob.h>
 #include <Quotient/settings.h>
-#include <Quotient/user.h>
 
 class NeoChatRoom;
 class TrayIcon;
