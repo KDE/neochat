@@ -31,6 +31,8 @@ Delegates.RoundedItemDelegate {
 
     readonly property bool hasNotifications: notificationCount > 0
 
+    Accessible.name: root.displayName
+
     onPressAndHold: createRoomListContextMenu()
 
     TapHandler {
