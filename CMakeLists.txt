@@ -124,6 +124,11 @@ set_package_properties(Quotient${QUOTIENT_SUFFIX} PROPERTIES
     PURPOSE "Talk with matrix server"
 )
 
+if (NOT TARGET Olm::Olm)
+    message(FATAL_ERROR "NeoChat requires Quotient with the E2EE feature enabled")
+endif()
+
+
 find_package(cmark)
 set_package_properties(cmark PROPERTIES
     TYPE REQUIRED
