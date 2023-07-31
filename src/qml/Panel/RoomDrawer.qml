@@ -156,8 +156,7 @@ Kirigami.OverlayDrawer {
                             Layout.fillWidth: true
 
                             onClicked: {
-                                applicationWindow().pageStack.layers.push("qrc:/DevtoolsPage.qml", {room: room}, {title: i18n("Developer Tools")})
-                                roomDrawer.close();
+                                applicationWindow().pageStack.pushDialogLayer("qrc:/DevtoolsPage.qml", {room: room}, {title: i18n("Developer Tools")})
                             }
                         }
 
@@ -229,8 +228,7 @@ Kirigami.OverlayDrawer {
                                 icon.name: "list-add-user"
 
                                 onClicked: {
-                                    applicationWindow().pageStack.layers.push("qrc:/InviteUserPage.qml", {room: roomDrawer.room})
-                                    roomDrawer.close();
+                                    applicationWindow().pageStack.pushDialogLayer("qrc:/InviteUserPage.qml", {room: roomDrawer.room}, {title: i18nc("@title", "Invite a User")})
                                 }
 
                                 QQC2.ToolTip.text: i18n("Invite user to room")
