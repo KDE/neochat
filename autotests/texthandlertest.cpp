@@ -10,6 +10,8 @@
 #include <Quotient/syncdata.h>
 #include <qnamespace.h>
 
+#include "utils.h"
+
 using namespace Quotient;
 
 class TestRoom : public NeoChatRoom
@@ -70,13 +72,6 @@ private Q_SLOTS:
     void linkPreviewsReject_data();
     void linkPreviewsReject();
 };
-
-static QColor polishColor(qreal hueF)
-{
-    const auto lightness = static_cast<QGuiApplication *>(QGuiApplication::instance())->palette().color(QPalette::Active, QPalette::Window).lightnessF();
-    // https://github.com/quotient-im/libQuotient/wiki/User-color-coding-standard-draft-proposal
-    return QColor::fromHslF(hueF, 1, -0.7 * lightness + 0.9, 1);
-}
 
 void TextHandlerTest::initTestCase()
 {
@@ -565,7 +560,7 @@ void TextHandlerTest::receiveRichEmote()
     auto author = room->user(event->senderId());
     const QString testInputString = QStringLiteral("This is an emote.");
     const QString testOutputString = QStringLiteral("* <a href=\"https://matrix.to/#/@example:example.org\" style=\"color:")
-        + polishColor(author->hueF()).name() + QStringLiteral("\">@example:example.org</a> This is an emote.");
+        + Utils::getUserColor(author->hueF()).name() + QStringLiteral("\">@example:example.org</a> This is an emote.");
 
     TextHandler testTextHandler;
     testTextHandler.setData(testInputString);

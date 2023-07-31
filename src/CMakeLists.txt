@@ -125,6 +125,7 @@ add_library(neochat STATIC
     locationhelper.h
     events/pollevent.cpp
     pollhandler.cpp
+    utils.h
 )
 
 ecm_qt_declare_logging_category(neochat

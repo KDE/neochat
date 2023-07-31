@@ -46,6 +46,7 @@
 #include "neochatconfig.h"
 #include "notificationsmanager.h"
 #include "texthandler.h"
+#include "utils.h"
 
 #include <KConfig>
 #include <KConfigGroup>
@@ -408,13 +409,6 @@ QDateTime NeoChatRoom::lastActiveTime()
     return messageEvents().rbegin()->get()->originTimestamp();
 }
 
-static QColor polishColor(qreal hueF)
-{
-    const auto lightness = static_cast<QGuiApplication *>(QGuiApplication::instance())->palette().color(QPalette::Active, QPalette::Window).lightnessF();
-    // https://github.com/quotient-im/libQuotient/wiki/User-color-coding-standard-draft-proposal
-    return QColor::fromHslF(hueF, 1, -0.7 * lightness + 0.9, 1);
-}
-
 QVariantList NeoChatRoom::getUsers(const QString &keyword, int limit) const
 {
     const auto userList = users();
@@ -426,7 +420,7 @@ QVariantList NeoChatRoom::getUsers(const QString &keyword, int limit) const
             QVariantMap userVariant{{QStringLiteral("id"), user.id()},
                                     {QStringLiteral("displayName"), user.displayname(this)},
                                     {QStringLiteral("avatarMediaId"), user.avatarMediaId(this)},
-                                    {QStringLiteral("color"), polishColor(user.hueF())}};
+                                    {QStringLiteral("color"), Utils::getUserColor(user.hueF())}};
 
             matchedList.append(QVariant::fromValue(userVariant));
             count++;
@@ -467,7 +461,7 @@ QVariantMap NeoChatRoom::getUser(User *user) const
         {QStringLiteral("displayName"), user->displayname(this)},
         {QStringLiteral("avatarSource"), avatarForMember(user)},
         {QStringLiteral("avatarMediaId"), user->avatarMediaId(this)},
-        {QStringLiteral("color"), polishColor(user->hueF())},
+        {QStringLiteral("color"), Utils::getUserColor(user->hueF())},
         {QStringLiteral("object"), QVariant::fromValue(user)},
     };
 }
@@ -548,7 +542,7 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
 
             if (prettyPrint) {
                 subjectName = QStringLiteral("<a href=\"https://matrix.to/#/%1\" style=\"color: %2\">%3</a>")
-                                  .arg(e.userId(), polishColor(user(e.userId())->hueF()).name(), subjectName);
+                                  .arg(e.userId(), Utils::getUserColor(user(e.userId())->hueF()).name(), subjectName);
             }
 
             // The below code assumes senderName output in AuthorRole

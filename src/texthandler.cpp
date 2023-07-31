@@ -16,6 +16,8 @@
 
 #include <Kirigami/PlatformTheme>
 
+#include "utils.h"
+
 static const QStringList allowedTags = {
     QStringLiteral("font"),    QStringLiteral("del"),    QStringLiteral("h1"),         QStringLiteral("h2"),     QStringLiteral("h3"),    QStringLiteral("h4"),
     QStringLiteral("h5"),      QStringLiteral("h6"),     QStringLiteral("blockquote"), QStringLiteral("p"),      QStringLiteral("a"),     QStringLiteral("ul"),
@@ -75,13 +77,6 @@ QString TextHandler::handleSendText()
         nextTokenType();
     }
     return outputString;
-}
-
-static QColor polishColor(qreal hueF)
-{
-    const auto lightness = static_cast<QGuiApplication *>(QGuiApplication::instance())->palette().color(QPalette::Active, QPalette::Window).lightnessF();
-    // https://github.com/quotient-im/libQuotient/wiki/User-color-coding-standard-draft-proposal
-    return QColor::fromHslF(hueF, 1, -0.7 * lightness + 0.9, 1);
 }
 
 QString TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat, const NeoChatRoom *room, const Quotient::RoomEvent *event, bool stripNewlines)
@@ -145,7 +140,7 @@ QString TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat, const Neo
         if (e->msgtype() == Quotient::MessageEventType::Emote) {
             auto author = room->user(e->senderId());
             QString emoteString = QStringLiteral("* <a href=\"https://matrix.to/#/") + e->senderId() + QStringLiteral("\" style=\"color:")
-                + polishColor(author->hueF()).name() + QStringLiteral("\">") + author->displayname(room) + QStringLiteral("</a> ");
+                + Utils::getUserColor(author->hueF()).name() + QStringLiteral("\">") + author->displayname(room) + QStringLiteral("</a> ");
             if (outputString.startsWith(QStringLiteral("<p>"))) {
                 outputString.insert(3, emoteString);
             } else {
