@@ -646,5 +646,5 @@ void TextHandlerTest::linkPreviewsReject()
     QCOMPARE(testTextHandler.getLinkPreviews(), testOutputLinks);
 }
 
-QTEST_APPLESS_MAIN(TextHandlerTest)
+QTEST_MAIN(TextHandlerTest)
 #include "texthandlertest.moc"
