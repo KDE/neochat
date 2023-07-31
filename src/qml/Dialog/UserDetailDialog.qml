@@ -11,7 +11,7 @@ import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
 
 import org.kde.neochat 1.0
 
-Kirigami.OverlaySheet {
+Kirigami.Dialog {
     id: root
 
     signal closed()
@@ -26,6 +26,9 @@ Kirigami.OverlaySheet {
     topPadding: 0
     bottomPadding: 0
 
+    standardButtons: Kirigami.Dialog.NoButton
+
+    width: Math.min(applicationWindow().width, Kirigami.Units.gridUnit * 24)
     title: i18nc("@title:menu Account detail dialog", "Account detail")
 
     contentItem: ColumnLayout {
@@ -194,11 +197,6 @@ Kirigami.OverlaySheet {
                     Clipboard.saveText("https://matrix.to/#/" + root.user.id)
                 }
             }
-        }
-    }
-    @OVERLAYSHEET_OPEN@: {
-        if (!sheetOpen) {
-            closed()
         }
     }
 }
