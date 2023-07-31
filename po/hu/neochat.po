@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-30 00:45+0000\n"
+"POT-Creation-Date: 2023-07-31 00:47+0000\n"
 "PO-Revision-Date: 2023-05-09 22:36+0200\n"
 "Last-Translator: K. Áron <aronkvh@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1202,7 +1202,7 @@ msgstr "Csatolmányleírás küldése"
 msgid "Send a message…"
 msgstr "Üzenet küldése..."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:344
+#: src/qml/Component/ChatBox/ChatBar.qml:346
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -2699,12 +2699,25 @@ msgstr "Csatlakozz néhány szobához kezdésként"
 msgid "Search in room directory"
 msgstr "Keresés a szobakönyvtárban"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:94
+#: src/qml/Page/RoomList/Page.qml:196
+#, kde-format
+msgctxt "Collapse <section name>"
+msgid "Collapse %1"
+msgstr ""
+
+#: src/qml/Page/RoomList/Page.qml:196
+#, fuzzy, kde-format
+#| msgid "Expand preview"
+msgctxt "Expand <section name"
+msgid "Expand %1"
+msgstr "Az előnézet nagyítása"
+
+#: src/qml/Page/RoomList/RoomDelegate.qml:96
 #, kde-format
 msgid "Muted room"
 msgstr "Némított szoba"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:126
+#: src/qml/Page/RoomList/RoomDelegate.qml:128
 #, kde-format
 msgid "Configure room"
 msgstr "Szoba beállítása"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-30 00:45+0000\n"
+"POT-Creation-Date: 2023-07-31 00:47+0000\n"
 "PO-Revision-Date: 2021-12-31 11:06-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -1285,7 +1285,7 @@ msgstr ""
 msgid "Send a message…"
 msgstr "ਸੁਨੇਹਾ ਭੇਜੋ"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:344
+#: src/qml/Component/ChatBox/ChatBar.qml:346
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action:button"
@@ -2803,13 +2803,26 @@ msgstr "ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਕੁਝ ਰੂਮ ਜੁਆਇੰਨ ਕ
 msgid "Search in room directory"
 msgstr "ਰੂਮ ਦੀ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਖੋਜੋ"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:94
+#: src/qml/Page/RoomList/Page.qml:196
+#, kde-format
+msgctxt "Collapse <section name>"
+msgid "Collapse %1"
+msgstr ""
+
+#: src/qml/Page/RoomList/Page.qml:196
+#, fuzzy, kde-format
+#| msgid "unbanned %1"
+msgctxt "Expand <section name"
+msgid "Expand %1"
+msgstr "%1 ਪਾਬੰਦੀ ਹਟਾਈ"
+
+#: src/qml/Page/RoomList/RoomDelegate.qml:96
 #, fuzzy, kde-format
 #| msgid "Muted"
 msgid "Muted room"
 msgstr "ਮੌਨ ਕੀਤਾ"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:126
+#: src/qml/Page/RoomList/RoomDelegate.qml:128
 #, kde-format
 msgid "Configure room"
 msgstr "ਰੂਮ ਦੀ ਸੰਰਚਨਾ"

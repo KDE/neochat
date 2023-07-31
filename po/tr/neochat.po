@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-30 00:45+0000\n"
-"PO-Revision-Date: 2023-07-27 14:08+0300\n"
+"POT-Creation-Date: 2023-07-31 00:47+0000\n"
+"PO-Revision-Date: 2023-07-30 21:41+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.07.70\n"
+"X-Generator: Lokalize 23.11.70\n"
 
 #: src/controller.cpp:234
 #, kde-format
@@ -1192,7 +1192,7 @@ msgstr "Bir ek alt yazısı ekle..."
 msgid "Send a message…"
 msgstr "Bir ileti gönder…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:344
+#: src/qml/Component/ChatBox/ChatBar.qml:346
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -2674,12 +2674,25 @@ msgstr "Başlamak için odalara katılın"
 msgid "Search in room directory"
 msgstr "Oda dizininde ara"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:94
+#: src/qml/Page/RoomList/Page.qml:196
+#, kde-format
+msgctxt "Collapse <section name>"
+msgid "Collapse %1"
+msgstr ""
+
+#: src/qml/Page/RoomList/Page.qml:196
+#, fuzzy, kde-format
+#| msgid "Expand preview"
+msgctxt "Expand <section name"
+msgid "Expand %1"
+msgstr "Önizlemeyi genişlet"
+
+#: src/qml/Page/RoomList/RoomDelegate.qml:96
 #, kde-format
 msgid "Muted room"
 msgstr "Sessize alınmış oda"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:126
+#: src/qml/Page/RoomList/RoomDelegate.qml:128
 #, kde-format
 msgid "Configure room"
 msgstr "Odayı yapılandır"
@@ -3651,10 +3664,9 @@ msgid "General settings"
 msgstr "Genel ayarlar"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:33
-#, fuzzy, kde-format
-#| msgid "Close to system tray"
+#, kde-format
 msgid "Show in System Tray"
-msgstr "Sistem tepsisine kapat"
+msgstr "Sistem tepsisinde göster"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:47
 #, kde-format

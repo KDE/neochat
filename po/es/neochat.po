@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-30 00:45+0000\n"
-"PO-Revision-Date: 2023-07-25 00:53+0200\n"
+"POT-Creation-Date: 2023-07-31 00:47+0000\n"
+"PO-Revision-Date: 2023-07-30 19:47+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -1197,7 +1197,7 @@ msgstr "Definir un subtítulo de adjunto..."
 msgid "Send a message…"
 msgstr "Enviar un mensaje..."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:344
+#: src/qml/Component/ChatBox/ChatBar.qml:346
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -2690,12 +2690,25 @@ msgstr "Únase a algunas salas para empezar"
 msgid "Search in room directory"
 msgstr "Buscar en el directorio de la sala"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:94
+#: src/qml/Page/RoomList/Page.qml:196
+#, kde-format
+msgctxt "Collapse <section name>"
+msgid "Collapse %1"
+msgstr ""
+
+#: src/qml/Page/RoomList/Page.qml:196
+#, fuzzy, kde-format
+#| msgid "Expand preview"
+msgctxt "Expand <section name"
+msgid "Expand %1"
+msgstr "Expandir vista previa"
+
+#: src/qml/Page/RoomList/RoomDelegate.qml:96
 #, kde-format
 msgid "Muted room"
 msgstr "Sala silenciada"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:126
+#: src/qml/Page/RoomList/RoomDelegate.qml:128
 #, kde-format
 msgid "Configure room"
 msgstr "Configurar la sala"
@@ -3366,10 +3379,9 @@ msgid "Edit Account"
 msgstr "Editar cuenta"
 
 #: src/qml/Settings/AccountEditorPage.qml:72
-#, fuzzy, kde-format
-#| msgid "Update avatar"
+#, kde-format
 msgid "Upload new avatar"
-msgstr "Actualizar el avatar"
+msgstr "Enviar nuevo avatar"
 
 #: src/qml/Settings/AccountEditorPage.qml:89
 #, kde-format
@@ -3680,10 +3692,9 @@ msgid "General settings"
 msgstr "Preferencias generales"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:33
-#, fuzzy, kde-format
-#| msgid "Close to system tray"
+#, kde-format
 msgid "Show in System Tray"
-msgstr "Minimizar a la bandeja del sistema"
+msgstr "Mostrar en la bandeja del sistema"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:47
 #, kde-format

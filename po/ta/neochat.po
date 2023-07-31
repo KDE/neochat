@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-30 00:45+0000\n"
-"PO-Revision-Date: 2023-07-16 14:19+0530\n"
+"POT-Creation-Date: 2023-07-31 00:47+0000\n"
+"PO-Revision-Date: 2023-07-30 14:27+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -214,7 +214,7 @@ msgstr "matrix: முகவரி திட்டமுறையை ஆதர�
 #: src/main.cpp:327
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
-msgstr ""
+msgstr "அனைத்து SSL சிக்கல்களையும் பொருட்படுத்தாதே (எ.கா. கையொப்பமிடா சான்றிதழ்கள்)."
 
 #: src/matriximageprovider.cpp:38
 #, kde-format
@@ -1194,7 +1194,7 @@ msgstr "உடனிணைப்புக்கான தலைப்பை அ�
 msgid "Send a message…"
 msgstr "செய்தியை அனுப்பு…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:344
+#: src/qml/Component/ChatBox/ChatBar.qml:346
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -1416,10 +1416,9 @@ msgid "Matrix ID:"
 msgstr "Matrix கணக்குப்பெயர்:"
 
 #: src/qml/Component/Login/Login.qml:31
-#, fuzzy, kde-format
-#| msgid "Matrix ID:"
+#, kde-format
 msgid "Matrix ID"
-msgstr "Matrix கணக்குப்பெயர்:"
+msgstr "Matrix கணக்குப்பெயர்"
 
 #: src/qml/Component/Login/Login.qml:47 src/qml/Component/Login/Sso.qml:45
 #: src/qml/Page/LoadingPage.qml:9
@@ -2664,12 +2663,25 @@ msgstr "தொடங்க, சில அரங்குகளில் சே�
 msgid "Search in room directory"
 msgstr "அரங்குகளின் பட்டியலில் தேடுங்கள்"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:94
+#: src/qml/Page/RoomList/Page.qml:196
+#, kde-format
+msgctxt "Collapse <section name>"
+msgid "Collapse %1"
+msgstr ""
+
+#: src/qml/Page/RoomList/Page.qml:196
+#, fuzzy, kde-format
+#| msgid "Expand preview"
+msgctxt "Expand <section name"
+msgid "Expand %1"
+msgstr "முன்னோட்டத்தை பெரிதாக்கு"
+
+#: src/qml/Page/RoomList/RoomDelegate.qml:96
 #, kde-format
 msgid "Muted room"
 msgstr "அடக்கப்பட்டுள்ள அரங்கு"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:126
+#: src/qml/Page/RoomList/RoomDelegate.qml:128
 #, kde-format
 msgid "Configure room"
 msgstr "அரங்கை அமை"
@@ -2757,16 +2769,14 @@ msgid "Chat"
 msgstr "உரையாடல்"
 
 #: src/qml/Page/StartChatPage.qml:93
-#, fuzzy, kde-format
-#| msgid "Log in to an existing account"
+#, kde-format
 msgid "Join existing chat"
-msgstr "ஏற்கனவேயுள்ள கணக்கில் நுழை"
+msgstr "ஏற்கனவேயுள்ள உரையாடலில் நுழை"
 
 #: src/qml/Page/StartChatPage.qml:114
-#, fuzzy, kde-format
-#| msgid "Create rooms and chats"
+#, kde-format
 msgid "Create new chat"
-msgstr "அரங்குகளையும் தனிப்பட்ட உரையாடல்களையும் உருவாக்கு"
+msgstr "புதிய உரையாடலை உருவாக்கு"
 
 #: src/qml/Page/WelcomePage.qml:56
 #, kde-format
@@ -3326,10 +3336,9 @@ msgid "Edit Account"
 msgstr "கணக்கைத் திருத்து"
 
 #: src/qml/Settings/AccountEditorPage.qml:72
-#, fuzzy, kde-format
-#| msgid "Update avatar"
+#, kde-format
 msgid "Upload new avatar"
-msgstr "சின்னத்தை மாற்று"
+msgstr "புதிய சின்னத்தை பதிவேற்று"
 
 #: src/qml/Settings/AccountEditorPage.qml:89
 #, kde-format
@@ -3640,10 +3649,9 @@ msgid "General settings"
 msgstr "பொதுவான அமைப்புகள்"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:33
-#, fuzzy, kde-format
-#| msgid "Close to system tray"
+#, kde-format
 msgid "Show in System Tray"
-msgstr "மூடும்போது சாதனத் தட்டில் வைத்திரு"
+msgstr "கணினித் தட்டில் காட்டு"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:47
 #, kde-format

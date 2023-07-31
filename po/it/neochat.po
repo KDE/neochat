@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-30 00:45+0000\n"
+"POT-Creation-Date: 2023-07-31 00:47+0000\n"
 "PO-Revision-Date: 2023-07-28 09:11+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -1194,7 +1194,7 @@ msgstr "Imposta una didascalia per l'allegato..."
 msgid "Send a message…"
 msgstr "Invia un messaggio…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:344
+#: src/qml/Component/ChatBox/ChatBar.qml:346
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -2690,12 +2690,25 @@ msgstr "Entra in qualche stanza per iniziare"
 msgid "Search in room directory"
 msgstr "Cerca nella cartella delle stanze"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:94
+#: src/qml/Page/RoomList/Page.qml:196
+#, kde-format
+msgctxt "Collapse <section name>"
+msgid "Collapse %1"
+msgstr ""
+
+#: src/qml/Page/RoomList/Page.qml:196
+#, fuzzy, kde-format
+#| msgid "Expand preview"
+msgctxt "Expand <section name"
+msgid "Expand %1"
+msgstr "Espandi l'anteprima"
+
+#: src/qml/Page/RoomList/RoomDelegate.qml:96
 #, kde-format
 msgid "Muted room"
 msgstr "Stanza silenziata"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:126
+#: src/qml/Page/RoomList/RoomDelegate.qml:128
 #, kde-format
 msgid "Configure room"
 msgstr "Configura la stanza"

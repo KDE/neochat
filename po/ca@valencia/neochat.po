@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-30 00:45+0000\n"
-"PO-Revision-Date: 2023-07-24 20:03+0300\n"
+"POT-Creation-Date: 2023-07-31 00:47+0000\n"
+"PO-Revision-Date: 2023-07-30 11:04+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1197,7 +1197,7 @@ msgstr "Establir un títol d'adjunt..."
 msgid "Send a message…"
 msgstr "Envia un missatge…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:344
+#: src/qml/Component/ChatBox/ChatBar.qml:346
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -2688,12 +2688,25 @@ msgstr "Uniu-vos a diverses sales per a començar"
 msgid "Search in room directory"
 msgstr "Busca en el directori de sales"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:94
+#: src/qml/Page/RoomList/Page.qml:196
+#, kde-format
+msgctxt "Collapse <section name>"
+msgid "Collapse %1"
+msgstr ""
+
+#: src/qml/Page/RoomList/Page.qml:196
+#, fuzzy, kde-format
+#| msgid "Expand preview"
+msgctxt "Expand <section name"
+msgid "Expand %1"
+msgstr "Expandix la vista prèvia"
+
+#: src/qml/Page/RoomList/RoomDelegate.qml:96
 #, kde-format
 msgid "Muted room"
 msgstr "Sala silenciada"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:126
+#: src/qml/Page/RoomList/RoomDelegate.qml:128
 #, kde-format
 msgid "Configure room"
 msgstr "Configura la sala"
@@ -3365,10 +3378,9 @@ msgid "Edit Account"
 msgstr "Edita el compte"
 
 #: src/qml/Settings/AccountEditorPage.qml:72
-#, fuzzy, kde-format
-#| msgid "Update avatar"
+#, kde-format
 msgid "Upload new avatar"
-msgstr "Actualitza l'avatar"
+msgstr "Puja un avatar nou"
 
 #: src/qml/Settings/AccountEditorPage.qml:89
 #, kde-format
@@ -3681,10 +3693,9 @@ msgid "General settings"
 msgstr "Configuració general"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:33
-#, fuzzy, kde-format
-#| msgid "Close to system tray"
+#, kde-format
 msgid "Show in System Tray"
-msgstr "Tanca a la safata del sistema"
+msgstr "Mostra en la safata del sistema"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:47
 #, kde-format

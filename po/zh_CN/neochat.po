@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-30 00:45+0000\n"
-"PO-Revision-Date: 2023-07-23 12:29\n"
+"POT-Creation-Date: 2023-07-31 00:47+0000\n"
+"PO-Revision-Date: 2023-07-30 07:10\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -1189,7 +1189,7 @@ msgstr ""
 msgid "Send a message…"
 msgstr "发送一条消息..."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:344
+#: src/qml/Component/ChatBox/ChatBar.qml:346
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -2642,12 +2642,25 @@ msgstr "加入聊天室，开启畅聊"
 msgid "Search in room directory"
 msgstr "在聊天室目录中搜索"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:94
+#: src/qml/Page/RoomList/Page.qml:196
+#, kde-format
+msgctxt "Collapse <section name>"
+msgid "Collapse %1"
+msgstr ""
+
+#: src/qml/Page/RoomList/Page.qml:196
+#, fuzzy, kde-format
+#| msgid "unbanned %1"
+msgctxt "Expand <section name"
+msgid "Expand %1"
+msgstr "取消封禁 %1"
+
+#: src/qml/Page/RoomList/RoomDelegate.qml:96
 #, kde-format
 msgid "Muted room"
 msgstr "已静音的聊天室"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:126
+#: src/qml/Page/RoomList/RoomDelegate.qml:128
 #, kde-format
 msgid "Configure room"
 msgstr "配置聊天室"
@@ -2735,10 +2748,9 @@ msgid "Chat"
 msgstr "聊天"
 
 #: src/qml/Page/StartChatPage.qml:93
-#, fuzzy, kde-format
-#| msgid "Log in to an existing account"
+#, kde-format
 msgid "Join existing chat"
-msgstr "使用现有账户登录"
+msgstr ""
 
 #: src/qml/Page/StartChatPage.qml:114
 #, kde-format
@@ -3296,10 +3308,9 @@ msgid "Edit Account"
 msgstr "编辑账户"
 
 #: src/qml/Settings/AccountEditorPage.qml:72
-#, fuzzy, kde-format
-#| msgid "Update avatar"
+#, kde-format
 msgid "Upload new avatar"
-msgstr "更新头像"
+msgstr ""
 
 #: src/qml/Settings/AccountEditorPage.qml:89
 #, kde-format
