@@ -77,7 +77,7 @@ MessageEventModel::MessageEventModel(QObject *parent)
     : QAbstractListModel(parent)
 {
     connect(static_cast<QGuiApplication *>(QGuiApplication::instance()), &QGuiApplication::paletteChanged, this, [this] {
-        Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole, ReplyRole});
+        Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole, ReplyAuthor, ReadMarkersRole});
     });
 }
 

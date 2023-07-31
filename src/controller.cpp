@@ -60,7 +60,6 @@ Controller::Controller(QObject *parent)
     : QObject(parent)
 {
     Connection::setRoomType<NeoChatRoom>();
-    Connection::setUserType<User>();
 
     setApplicationProxy();
 

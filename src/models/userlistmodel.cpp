@@ -3,6 +3,8 @@
 
 #include "userlistmodel.h"
 
+#include <QGuiApplication>
+
 #include <Quotient/connection.h>
 #include <Quotient/events/roompowerlevelsevent.h>
 
@@ -14,6 +16,9 @@ UserListModel::UserListModel(QObject *parent)
     : QAbstractListModel(parent)
     , m_currentRoom(nullptr)
 {
+    connect(static_cast<QGuiApplication *>(QGuiApplication::instance()), &QGuiApplication::paletteChanged, this, [this]() {
+        refreshAllUsers();
+    });
 }
 
 void UserListModel::setRoom(NeoChatRoom *room)

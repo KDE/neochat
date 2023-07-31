@@ -5,11 +5,13 @@
 
 #include "messageeventmodel.h"
 #include "neochatroom.h"
+
+#include <QGuiApplication>
+
+#include <Quotient/connection.h>
 #include <Quotient/events/stickerevent.h>
 
 #include <KLocalizedString>
-
-#include <Quotient/connection.h>
 
 using namespace Quotient;
 
@@ -18,6 +20,9 @@ using namespace Quotient;
 SearchModel::SearchModel(QObject *parent)
     : QAbstractListModel(parent)
 {
+    connect(static_cast<QGuiApplication *>(QGuiApplication::instance()), &QGuiApplication::paletteChanged, this, [this] {
+        Q_EMIT dataChanged(index(0, 0), index(rowCount() - 1, 0), {AuthorRole, ReadMarkersRole});
+    });
 }
 
 QString SearchModel::searchText() const
