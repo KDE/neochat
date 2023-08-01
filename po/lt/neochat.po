@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-31 00:47+0000\n"
+"POT-Creation-Date: 2023-08-01 00:46+0000\n"
 "PO-Revision-Date: 2023-02-25 01:00+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -1325,7 +1325,7 @@ msgstr ""
 msgid "View Location"
 msgstr ""
 
-#: src/qml/Component/FullScreenMap.qml:64
+#: src/qml/Component/FullScreenMap.qml:65
 #, kde-format
 msgid "Close"
 msgstr ""
@@ -1356,13 +1356,13 @@ msgstr ""
 msgid "Accept"
 msgstr ""
 
-#: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:201
+#: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:200
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
 msgstr ""
 
-#: src/qml/Component/LocationPage.qml:51
+#: src/qml/Component/LocationPage.qml:52
 #, kde-format
 msgid "There are no locations shared in this room."
 msgstr ""
@@ -2102,7 +2102,7 @@ msgstr ""
 
 #: src/qml/Menu/GlobalMenu.qml:28 src/qml/Page/RoomList/AccountMenu.qml:33
 #: src/qml/Page/RoomList/AccountMenu.qml:43
-#: src/qml/Page/RoomList/UserInfo.qml:225
+#: src/qml/Page/RoomList/UserInfo.qml:235
 #, kde-format
 msgid "Configure"
 msgstr ""
@@ -2410,7 +2410,7 @@ msgstr ""
 msgid "Find a user..."
 msgstr ""
 
-#: src/qml/Page/InviteUserPage.qml:44 src/qml/Page/RoomList/UserInfo.qml:214
+#: src/qml/Page/InviteUserPage.qml:44 src/qml/Page/RoomList/UserInfo.qml:224
 #, kde-format
 msgid "Add"
 msgstr ""
@@ -2502,13 +2502,13 @@ msgid "Joined"
 msgstr ""
 
 #: src/qml/Page/RoomList/AccountMenu.qml:18
-#: src/qml/Page/RoomList/UserInfo.qml:159
+#: src/qml/Page/RoomList/UserInfo.qml:175
 #, kde-format
 msgid "Edit this account"
 msgstr ""
 
 #: src/qml/Page/RoomList/AccountMenu.qml:23
-#: src/qml/Page/RoomList/UserInfo.qml:164 src/qml/Settings/AccountsPage.qml:38
+#: src/qml/Page/RoomList/UserInfo.qml:169 src/qml/Settings/AccountsPage.qml:38
 #, kde-format
 msgid "Account editor"
 msgstr ""
@@ -2718,12 +2718,12 @@ msgctxt "@title:window"
 msgid "Login"
 msgstr ""
 
-#: src/qml/Page/RoomList/UserInfo.qml:198
+#: src/qml/Page/RoomList/UserInfo.qml:208
 #, kde-format
 msgid "Switch User"
 msgstr ""
 
-#: src/qml/Page/RoomList/UserInfo.qml:226
+#: src/qml/Page/RoomList/UserInfo.qml:236
 #, kde-format
 msgid "Open Settings"
 msgstr ""
@@ -2804,48 +2804,54 @@ msgstr ""
 msgid "Open developer tools"
 msgstr ""
 
-#: src/qml/Panel/RoomDrawer.qml:168
+#: src/qml/Panel/RoomDrawer.qml:167
 #, kde-format
 msgid "Search in this room"
 msgstr ""
 
-#: src/qml/Panel/RoomDrawer.qml:176
+#: src/qml/Panel/RoomDrawer.qml:175
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr ""
 
-#: src/qml/Panel/RoomDrawer.qml:185
+#: src/qml/Panel/RoomDrawer.qml:184
 #, kde-format
 msgid "Remove room from favorites"
 msgstr ""
 
-#: src/qml/Panel/RoomDrawer.qml:185
+#: src/qml/Panel/RoomDrawer.qml:184
 #, kde-format
 msgid "Make room favorite"
 msgstr ""
 
-#: src/qml/Panel/RoomDrawer.qml:196
+#: src/qml/Panel/RoomDrawer.qml:195
 #, kde-format
 msgid "Show locations for this room"
 msgstr ""
 
-#: src/qml/Panel/RoomDrawer.qml:208
+#: src/qml/Panel/RoomDrawer.qml:207
 #, kde-format
 msgid "Members"
 msgstr ""
 
-#: src/qml/Panel/RoomDrawer.qml:219
+#: src/qml/Panel/RoomDrawer.qml:218
 #, kde-format
 msgid "Search user in room"
 msgstr ""
 
-#: src/qml/Panel/RoomDrawer.qml:236
+#: src/qml/Panel/RoomDrawer.qml:231
+#, kde-format
+msgctxt "@title"
+msgid "Invite a User"
+msgstr ""
+
+#: src/qml/Panel/RoomDrawer.qml:234
 #, kde-format
 msgid "Invite user to room"
 msgstr ""
 
-#: src/qml/Panel/RoomDrawer.qml:243
+#: src/qml/Panel/RoomDrawer.qml:241
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
@@ -2854,7 +2860,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: src/qml/Panel/RoomDrawer.qml:243
+#: src/qml/Panel/RoomDrawer.qml:241
 #, kde-format
 msgid "No member count"
 msgstr ""

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-31 00:47+0000\n"
-"PO-Revision-Date: 2023-07-30 11:04+0200\n"
+"POT-Creation-Date: 2023-08-01 00:46+0000\n"
+"PO-Revision-Date: 2023-07-31 11:04+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1327,7 +1327,7 @@ msgstr "Adhesius"
 msgid "View Location"
 msgstr "Visualitza l'emplaçament"
 
-#: src/qml/Component/FullScreenMap.qml:64
+#: src/qml/Component/FullScreenMap.qml:65
 #, kde-format
 msgid "Close"
 msgstr "Tanca"
@@ -1358,13 +1358,13 @@ msgstr "Rebutja"
 msgid "Accept"
 msgstr "Accepta"
 
-#: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:201
+#: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:200
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
 msgstr "Ubicacions"
 
-#: src/qml/Component/LocationPage.qml:51
+#: src/qml/Component/LocationPage.qml:52
 #, kde-format
 msgid "There are no locations shared in this room."
 msgstr "No hi ha ubicacions compartides en esta sala."
@@ -2138,7 +2138,7 @@ msgstr "Configura NeoChat..."
 
 #: src/qml/Menu/GlobalMenu.qml:28 src/qml/Page/RoomList/AccountMenu.qml:33
 #: src/qml/Page/RoomList/AccountMenu.qml:43
-#: src/qml/Page/RoomList/UserInfo.qml:225
+#: src/qml/Page/RoomList/UserInfo.qml:235
 #, kde-format
 msgid "Configure"
 msgstr "Configura"
@@ -2448,7 +2448,7 @@ msgstr "Convida un usuari"
 msgid "Find a user..."
 msgstr "Busca un usuari..."
 
-#: src/qml/Page/InviteUserPage.qml:44 src/qml/Page/RoomList/UserInfo.qml:214
+#: src/qml/Page/InviteUserPage.qml:44 src/qml/Page/RoomList/UserInfo.qml:224
 #, kde-format
 msgid "Add"
 msgstr "Afig"
@@ -2540,13 +2540,13 @@ msgid "Joined"
 msgstr "Vos heu unit"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:18
-#: src/qml/Page/RoomList/UserInfo.qml:159
+#: src/qml/Page/RoomList/UserInfo.qml:175
 #, kde-format
 msgid "Edit this account"
 msgstr "Edita este compte"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:23
-#: src/qml/Page/RoomList/UserInfo.qml:164 src/qml/Settings/AccountsPage.qml:38
+#: src/qml/Page/RoomList/UserInfo.qml:169 src/qml/Settings/AccountsPage.qml:38
 #, kde-format
 msgid "Account editor"
 msgstr "Editor de comptes"
@@ -2692,14 +2692,13 @@ msgstr "Busca en el directori de sales"
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
-msgstr ""
+msgstr "Reduïx %1"
 
 #: src/qml/Page/RoomList/Page.qml:196
-#, fuzzy, kde-format
-#| msgid "Expand preview"
+#, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
-msgstr "Expandix la vista prèvia"
+msgstr "Expandix %1"
 
 #: src/qml/Page/RoomList/RoomDelegate.qml:96
 #, kde-format
@@ -2757,12 +2756,12 @@ msgctxt "@title:window"
 msgid "Login"
 msgstr "Inici de sessió"
 
-#: src/qml/Page/RoomList/UserInfo.qml:198
+#: src/qml/Page/RoomList/UserInfo.qml:208
 #, kde-format
 msgid "Switch User"
 msgstr "Canvia d'usuari"
 
-#: src/qml/Page/RoomList/UserInfo.qml:226
+#: src/qml/Page/RoomList/UserInfo.qml:236
 #, kde-format
 msgid "Open Settings"
 msgstr "Obri la configuració"
@@ -2845,55 +2844,62 @@ msgstr "Opcions"
 msgid "Open developer tools"
 msgstr "Obri les eines de desenvolupament"
 
-#: src/qml/Panel/RoomDrawer.qml:168
+#: src/qml/Panel/RoomDrawer.qml:167
 #, kde-format
 msgid "Search in this room"
 msgstr "Busca en esta sala"
 
-#: src/qml/Panel/RoomDrawer.qml:176
+#: src/qml/Panel/RoomDrawer.qml:175
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Busca"
 
-#: src/qml/Panel/RoomDrawer.qml:185
+#: src/qml/Panel/RoomDrawer.qml:184
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Elimina la sala de les preferides"
 
-#: src/qml/Panel/RoomDrawer.qml:185
+#: src/qml/Panel/RoomDrawer.qml:184
 #, kde-format
 msgid "Make room favorite"
 msgstr "Fes preferida la sala"
 
-#: src/qml/Panel/RoomDrawer.qml:196
+#: src/qml/Panel/RoomDrawer.qml:195
 #, kde-format
 msgid "Show locations for this room"
 msgstr "Mostra les ubicacions per a esta sala"
 
-#: src/qml/Panel/RoomDrawer.qml:208
+#: src/qml/Panel/RoomDrawer.qml:207
 #, kde-format
 msgid "Members"
 msgstr "Membres"
 
-#: src/qml/Panel/RoomDrawer.qml:219
+#: src/qml/Panel/RoomDrawer.qml:218
 #, kde-format
 msgid "Search user in room"
 msgstr "Busca un usuari en esta sala"
 
-#: src/qml/Panel/RoomDrawer.qml:236
+#: src/qml/Panel/RoomDrawer.qml:231
+#, fuzzy, kde-format
+#| msgid "Invite a User"
+msgctxt "@title"
+msgid "Invite a User"
+msgstr "Convida un usuari"
+
+#: src/qml/Panel/RoomDrawer.qml:234
 #, kde-format
 msgid "Invite user to room"
 msgstr "Convida un usuari a la sala"
 
-#: src/qml/Panel/RoomDrawer.qml:243
+#: src/qml/Panel/RoomDrawer.qml:241
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 membre"
 msgstr[1] "%1 membres"
 
-#: src/qml/Panel/RoomDrawer.qml:243
+#: src/qml/Panel/RoomDrawer.qml:241
 #, kde-format
 msgid "No member count"
 msgstr "No hi ha comptador de membres"

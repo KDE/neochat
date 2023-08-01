@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-31 00:47+0000\n"
-"PO-Revision-Date: 2023-07-28 10:01+0200\n"
+"POT-Creation-Date: 2023-08-01 00:46+0000\n"
+"PO-Revision-Date: 2023-07-31 06:32+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1322,7 +1322,7 @@ msgstr "სტიკერები"
 msgid "View Location"
 msgstr "მდებარეობის ნახვა"
 
-#: src/qml/Component/FullScreenMap.qml:64
+#: src/qml/Component/FullScreenMap.qml:65
 #, kde-format
 msgid "Close"
 msgstr "დახურვა"
@@ -1353,13 +1353,13 @@ msgstr "უარყოფა"
 msgid "Accept"
 msgstr "დასტური"
 
-#: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:201
+#: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:200
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
 msgstr "მდებარეობები"
 
-#: src/qml/Component/LocationPage.qml:51
+#: src/qml/Component/LocationPage.qml:52
 #, kde-format
 msgid "There are no locations shared in this room."
 msgstr "ამ ოთახში მდებარეობები გაზიარებული არაა."
@@ -2113,7 +2113,7 @@ msgstr "NeoChat-ის მორგება..."
 
 #: src/qml/Menu/GlobalMenu.qml:28 src/qml/Page/RoomList/AccountMenu.qml:33
 #: src/qml/Page/RoomList/AccountMenu.qml:43
-#: src/qml/Page/RoomList/UserInfo.qml:225
+#: src/qml/Page/RoomList/UserInfo.qml:235
 #, kde-format
 msgid "Configure"
 msgstr "მორგება"
@@ -2423,7 +2423,7 @@ msgstr "მომხმარებლის მოწვევა"
 msgid "Find a user..."
 msgstr "მომხმარებლის პოვნა..."
 
-#: src/qml/Page/InviteUserPage.qml:44 src/qml/Page/RoomList/UserInfo.qml:214
+#: src/qml/Page/InviteUserPage.qml:44 src/qml/Page/RoomList/UserInfo.qml:224
 #, kde-format
 msgid "Add"
 msgstr "დამატება"
@@ -2515,13 +2515,13 @@ msgid "Joined"
 msgstr "შეერთებული"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:18
-#: src/qml/Page/RoomList/UserInfo.qml:159
+#: src/qml/Page/RoomList/UserInfo.qml:175
 #, kde-format
 msgid "Edit this account"
 msgstr "ამ ანგარიშის ჩასწორება"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:23
-#: src/qml/Page/RoomList/UserInfo.qml:164 src/qml/Settings/AccountsPage.qml:38
+#: src/qml/Page/RoomList/UserInfo.qml:169 src/qml/Settings/AccountsPage.qml:38
 #, kde-format
 msgid "Account editor"
 msgstr "ანგარიშების რედაქტორი"
@@ -2667,14 +2667,13 @@ msgstr "ოთახების დირექტორიაში ძებ�
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
-msgstr ""
+msgstr "%1-ის ჩაკეცვა"
 
 #: src/qml/Page/RoomList/Page.qml:196
-#, fuzzy, kde-format
-#| msgid "Expand preview"
+#, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
-msgstr "მინიატურის გაფართოება"
+msgstr "%1-ის ამოკეცვა"
 
 #: src/qml/Page/RoomList/RoomDelegate.qml:96
 #, kde-format
@@ -2732,12 +2731,12 @@ msgctxt "@title:window"
 msgid "Login"
 msgstr "შესვლა"
 
-#: src/qml/Page/RoomList/UserInfo.qml:198
+#: src/qml/Page/RoomList/UserInfo.qml:208
 #, kde-format
 msgid "Switch User"
 msgstr "მომხმარებლის გადართვა"
 
-#: src/qml/Page/RoomList/UserInfo.qml:226
+#: src/qml/Page/RoomList/UserInfo.qml:236
 #, kde-format
 msgid "Open Settings"
 msgstr "პარამეტრების გახსნა"
@@ -2818,55 +2817,62 @@ msgstr "პარამეტრები"
 msgid "Open developer tools"
 msgstr "პროგრამისტის ხელსაწყოების გახსნა"
 
-#: src/qml/Panel/RoomDrawer.qml:168
+#: src/qml/Panel/RoomDrawer.qml:167
 #, kde-format
 msgid "Search in this room"
 msgstr "ამ ოთახში ძებნა"
 
-#: src/qml/Panel/RoomDrawer.qml:176
+#: src/qml/Panel/RoomDrawer.qml:175
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "ძებნა"
 
-#: src/qml/Panel/RoomDrawer.qml:185
+#: src/qml/Panel/RoomDrawer.qml:184
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "ოთახის რჩეულებიდან წაშლა"
 
-#: src/qml/Panel/RoomDrawer.qml:185
+#: src/qml/Panel/RoomDrawer.qml:184
 #, kde-format
 msgid "Make room favorite"
 msgstr "ოთახის რჩეულად მონიშვნა"
 
-#: src/qml/Panel/RoomDrawer.qml:196
+#: src/qml/Panel/RoomDrawer.qml:195
 #, kde-format
 msgid "Show locations for this room"
 msgstr "ამ ოთახისთვის მდებარეობების ჩვენება"
 
-#: src/qml/Panel/RoomDrawer.qml:208
+#: src/qml/Panel/RoomDrawer.qml:207
 #, kde-format
 msgid "Members"
 msgstr "წევრები"
 
-#: src/qml/Panel/RoomDrawer.qml:219
+#: src/qml/Panel/RoomDrawer.qml:218
 #, kde-format
 msgid "Search user in room"
 msgstr "ოთახში მომხმარებლის ძებნა"
 
-#: src/qml/Panel/RoomDrawer.qml:236
+#: src/qml/Panel/RoomDrawer.qml:231
+#, fuzzy, kde-format
+#| msgid "Invite a User"
+msgctxt "@title"
+msgid "Invite a User"
+msgstr "მომხმარებლის მოწვევა"
+
+#: src/qml/Panel/RoomDrawer.qml:234
 #, kde-format
 msgid "Invite user to room"
 msgstr "მომხმარებლის ოთახში მოწვევა"
 
-#: src/qml/Panel/RoomDrawer.qml:243
+#: src/qml/Panel/RoomDrawer.qml:241
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 წევრი"
 msgstr[1] "%1 წევრი"
 
-#: src/qml/Panel/RoomDrawer.qml:243
+#: src/qml/Panel/RoomDrawer.qml:241
 #, kde-format
 msgid "No member count"
 msgstr "წევრების რაოდენობის გარეშე"
@@ -3655,10 +3661,9 @@ msgid "General settings"
 msgstr "ზოგადი პარამეტრები"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:33
-#, fuzzy, kde-format
-#| msgid "Close to system tray"
+#, kde-format
 msgid "Show in System Tray"
-msgstr "სისტემური პანელის ხატულაში ჩახურვა"
+msgstr "სისტემის კუთხეში ჩვენება"
 
 #: src/qml/Settings/GeneralSettingsPage.qml:47
 #, kde-format
