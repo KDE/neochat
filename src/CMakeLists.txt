@@ -10,6 +10,7 @@ configure_file(qml/Dialog/PowerLevelDialog.qml ${CMAKE_CURRENT_BINARY_DIR}/qml/D
 configure_file(qml/Component/Timeline/AudioDelegate.qml ${CMAKE_CURRENT_BINARY_DIR}/qml/Component/Timeline/AudioDelegate.qml)
 configure_file(qml/Component/Timeline/VideoDelegate.qml ${CMAKE_CURRENT_BINARY_DIR}/qml/Component/Timeline/VideoDelegate.qml)
 configure_file(qml/Component/Timeline/OsmLocationPlugin.qml ${CMAKE_CURRENT_BINARY_DIR}/qml/Component/Timeline/OsmLocationPlugin.qml)
+configure_file(qml/Component/NeochatMaximizeComponent.qml ${CMAKE_CURRENT_BINARY_DIR}/qml/Component/NeochatMaximizeComponent.qml)
 
 configure_file(res.qrc ${CMAKE_CURRENT_SOURCE_DIR}/res.generated.qrc)
 

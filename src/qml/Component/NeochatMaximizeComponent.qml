@@ -28,7 +28,7 @@ Components.AlbumMaximizeComponent {
 
     readonly property var currentJsonSource: model.data(model.index(content.currentIndex, 0), MessageEventModel.SourceRole)
 
-    autoLoad: false
+    @QTMULTIMEDIA_AUDIO_AUTOLOAD@
 
     downloadAction: Components.DownloadAction {
         id: downloadAction
