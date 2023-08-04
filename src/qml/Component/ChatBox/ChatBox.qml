@@ -30,7 +30,7 @@ import org.kde.neochat 1.0
  * @sa ChatBar
  */
 ColumnLayout {
-    id: chatBox
+    id: root
 
     /**
      * @brief The current room that user is viewing.
@@ -63,7 +63,7 @@ ColumnLayout {
     ChatBar {
         id: chatBar
 
-        visible: currentRoom.canSendEvent("m.room.message")
+        visible: root.currentRoom.canSendEvent("m.room.message")
 
         Layout.fillWidth: true
         Layout.minimumHeight: Math.max(Kirigami.Units.gridUnit * 2, implicitHeight + Kirigami.Units.largeSpacing)
@@ -78,7 +78,7 @@ ColumnLayout {
         }
 
         onMessageSent: {
-            chatBox.messageSent();
+            root.messageSent();
         }
     }
 
