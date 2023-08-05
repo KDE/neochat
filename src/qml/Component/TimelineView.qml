@@ -16,8 +16,18 @@ import org.kde.neochat 1.0
 QQC2.ScrollView {
     id: root
     required property NeoChatRoom currentRoom
-    readonly property bool isLoaded: root.width * root.height > 10
+    onCurrentRoomChanged: {
+        roomChanging = true;
+        applicationWindow().hoverLinkIndicator.text = "";
+        messageListView.positionViewAtBeginning();
+        hasScrolledUpBefore = false;
+        roomChanging = true;
+    }
+    property bool roomChanging: false
     readonly property bool atYEnd: messageListView.atYEnd
+
+    /// Used to determine if scrolling to the bottom should mark the message as unread
+    property bool hasScrolledUpBefore: false;
 
     signal focusChatBox()
 
@@ -38,7 +48,7 @@ QQC2.ScrollView {
         interactive: Kirigami.Settings.isMobile
         bottomMargin: Kirigami.Units.largeSpacing + Math.round(Kirigami.Theme.defaultFont.pointSize * 2)
 
-        model: !isLoaded ? undefined : collapseStateProxyModel
+        model: collapseStateProxyModel
 
         MessageEventModel {
             id: messageEventModel
@@ -70,13 +80,15 @@ QQC2.ScrollView {
             messageEventModel.fetchMore(messageEventModel.index(0, 0));
         }
 
-        onAtYEndChanged: if (atYEnd && hasScrolledUpBefore) {
-            if (QQC2.ApplicationWindow.window && (QQC2.ApplicationWindow.window.visibility !== QQC2.ApplicationWindow.Hidden)) {
-                root.currentRoom.markAllMessagesAsRead();
+        onAtYEndChanged: if (!root.roomChanging) {
+            if (atYEnd && root.hasScrolledUpBefore) {
+                if (QQC2.ApplicationWindow.window && (QQC2.ApplicationWindow.window.visibility !== QQC2.ApplicationWindow.Hidden)) {
+                    root.currentRoom.markAllMessagesAsRead();
+                }
+                root.hasScrolledUpBefore = false;
+            } else if (!atYEnd) {
+                root.hasScrolledUpBefore = true;
             }
-            hasScrolledUpBefore = false;
-        } else if (!atYEnd) {
-            hasScrolledUpBefore = true;
         }
 
         // Not rendered because the sections are part of the TimelineContainer.qml, this is only so that items have the section property available for use by sectionBanner.

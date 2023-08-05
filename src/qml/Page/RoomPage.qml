@@ -19,8 +19,6 @@ Kirigami.Page {
     /// Not readonly because of the separate window view.
     property NeoChatRoom currentRoom: RoomManager.currentRoom
     property bool loading: !root.currentRoom || (root.currentRoom.timelineSize === 0 && !root.currentRoom.allHistoryLoaded)
-    /// Used to determine if scrolling to the bottom should mark the message as unread
-    property bool hasScrolledUpBefore: false;
 
     /// Disable cancel shortcut. Used by the separate window since it provides its own cancel implementation.
     property bool disableCancelShortcut: false
@@ -32,12 +30,6 @@ Kirigami.Page {
     KeyNavigation.left: pageStack.get(0)
 
     onCurrentRoomChanged: {
-        if (!timelineViewLoader.item) {
-            return
-        }
-        applicationWindow().hoverLinkIndicator.text = "";
-        timelineViewLoader.item.positionViewAtBeginning();
-        hasScrolledUpBefore = false;
         if (!Kirigami.Settings.isMobile && chatBoxLoader.item) {
             chatBoxLoader.item.forceActiveFocus();
         }
