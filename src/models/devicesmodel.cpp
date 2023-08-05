@@ -5,6 +5,9 @@
 
 #include "controller.h"
 
+#include <QDateTime>
+#include <QLocale>
+
 #include <KLocalizedString>
 
 #include <Quotient/csapi/device_management.h>
@@ -52,6 +55,12 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
         } else {
             return false;
         }
+    case TimestampString:
+        if (device.lastSeenTs) {
+            return QDateTime::fromMSecsSinceEpoch(*device.lastSeenTs).toString(QLocale().dateTimeFormat(QLocale::ShortFormat));
+        } else {
+            return false;
+        }
     case Type:
         if (device.deviceId == m_connection->deviceId()) {
             return This;
@@ -85,6 +94,7 @@ QHash<int, QByteArray> DevicesModel::roleNames() const
         {DisplayName, "displayName"},
         {LastIp, "lastIp"},
         {LastTimestamp, "lastTimestamp"},
+        {TimestampString, "timestamp"},
         {Type, "type"},
     };
 }
