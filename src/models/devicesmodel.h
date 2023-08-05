@@ -40,6 +40,7 @@ public:
         DisplayName, /**< Display name set by the user for this device. */
         LastIp, /**< The IP address where this device was last seen. */
         LastTimestamp, /**< The timestamp when this devices was last seen. */
+        TimestampString, /**< String for the timestamp when this devices was last seen. */
         Type, /**< The category to sort this device into. */
     };
     Q_ENUM(Roles)

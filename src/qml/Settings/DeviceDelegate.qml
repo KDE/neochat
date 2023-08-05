@@ -15,7 +15,7 @@ MobileForm.AbstractFormDelegate {
     id: deviceDelegate
 
     required property string id
-    required property int lastTimestamp
+    required property string timestamp
     required property string displayName
 
     property bool editDeviceName: false
@@ -49,7 +49,7 @@ MobileForm.AbstractFormDelegate {
 
             QQC2.Label {
                 Layout.fillWidth: true
-                text: deviceDelegate.id + ", Last activity: " +  (new Date(deviceDelegate.lastTimestamp)).toLocaleString(Qt.locale(), Locale.ShortFormat)
+                text: i18nc("@label", "%1, Last activity: %2", deviceDelegate.id, deviceDelegate.timestamp)
                 color: Kirigami.Theme.disabledTextColor
                 font: Kirigami.Theme.smallFont
                 elide: Text.ElideRight
