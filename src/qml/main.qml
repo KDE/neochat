@@ -242,7 +242,6 @@ Kirigami.ApplicationWindow {
 
         function onInitiated() {
             if (Controller.accountCount === 0) {
-                console.warn("9")
                 pageStack.replace("qrc:/WelcomePage.qml", {});
             } else if (!roomListLoaded) {
                 pageStack.replace(roomListComponent, {
