@@ -25,7 +25,7 @@ Kirigami.Page {
     /// Disable cancel shortcut. Used by the separate window since it provides its own cancel implementation.
     property bool disableCancelShortcut: false
 
-    title: currentRoom.displayName
+    title: root.currentRoom.displayName
     focus: true
     padding: 0
 
@@ -66,7 +66,7 @@ Kirigami.Page {
     Loader {
         id: timelineViewLoader
         anchors.fill: parent
-        active: currentRoom && !currentRoom.isInvite && !root.loading
+        active: root.currentRoom && !root.currentRoom.isInvite && !root.loading
         sourceComponent: TimelineView {
             id: timelineView
             currentRoom: root.currentRoom
@@ -80,7 +80,7 @@ Kirigami.Page {
 
     Loader {
         id: invitationLoader
-        active: currentRoom && currentRoom.isInvite
+        active: root.currentRoom && root.currentRoom.isInvite
         anchors.centerIn: parent
         sourceComponent: InvitationView {
             currentRoom: root.currentRoom
@@ -106,7 +106,7 @@ Kirigami.Page {
         sourceComponent: ChatBox {
             id: chatBox
             width: parent.width
-            currentRoom: currentRoom
+            currentRoom: root.currentRoom
             onMessageSent: {
                 if (!timelineViewLoader.item.atYEnd) {
                     timelineViewLoader.item.goToLastMessage();
@@ -140,9 +140,9 @@ Kirigami.Page {
     Shortcut {
         sequence: StandardKey.Cancel
         onActivated: {
-            if (!timelineViewLoader.item.atYEnd || currentRoom.hasUnreadMessages) {
+            if (!timelineViewLoader.item.atYEnd || root.currentRoom.hasUnreadMessages) {
                 goToLastMessage();
-                currentRoom.markAllMessagesAsRead();
+                root.currentRoom.markAllMessagesAsRead();
             } else {
                 applicationWindow().pageStack.get(0).forceActiveFocus();
             }

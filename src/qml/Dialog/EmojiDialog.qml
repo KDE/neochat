@@ -11,6 +11,11 @@ import org.kde.neochat 1.0
 QQC2.Popup {
     id: emojiPopup
 
+    /**
+     * @brief The current room that user is viewing.
+     */
+    property NeoChatRoom currentRoom
+
     property bool includeCustom: false
     property bool closeOnChosen: true
     property bool showQuickReaction: false
@@ -52,6 +57,7 @@ QQC2.Popup {
     contentItem: EmojiPicker {
         id: emojiPicker
         height: 400
+        currentRoom: root.currentRoom
         includeCustom: emojiPopup.includeCustom
         showQuickReaction: emojiPopup.showQuickReaction
         onChosen: {

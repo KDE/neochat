@@ -35,7 +35,7 @@ ColumnLayout {
     /**
      * @brief The current room that user is viewing.
      */
-    property NeoChatRoom currentRoom
+    required property NeoChatRoom currentRoom
 
     /**
      * @brief A message has been sent from the chat bar.

@@ -10,6 +10,11 @@ import org.kde.neochat 1.0
 ColumnLayout {
     id: root
 
+    /**
+     * @brief The current room that user is viewing.
+     */
+    property NeoChatRoom currentRoom
+
     property bool includeCustom: false
     property bool showQuickReaction: false
 
@@ -151,7 +156,7 @@ ColumnLayout {
 
     ImagePacksModel {
         id: stickerPackModel
-        room: currentRoom
+        room: root.currentRoom
         showStickers: true
         showEmoticons: false
     }
@@ -160,7 +165,7 @@ ColumnLayout {
         id: stickerModel
         model: stickerPackModel
         packIndex: 0
-        room: currentRoom
+        room: root.currentRoom
     }
 
     EmoticonFilterModel {

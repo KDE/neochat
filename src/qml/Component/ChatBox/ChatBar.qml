@@ -36,7 +36,7 @@ QQC2.Control {
     /**
      * @brief The current room that user is viewing.
      */
-    property NeoChatRoom currentRoom
+    required property NeoChatRoom currentRoom
 
     /**
      * @brief The QQC2.TextArea object.
@@ -55,10 +55,10 @@ QQC2.Control {
         Kirigami.Action {
             id: attachmentAction
 
-            property bool isBusy: currentRoom && currentRoom.hasFileUploading
+            property bool isBusy: root.currentRoom && root.currentRoom.hasFileUploading
 
             // Matrix does not allow sending attachments in replies
-            visible: currentRoom.chatBoxReplyId.length === 0  && currentRoom.chatBoxAttachmentPath.length === 0
+            visible: root.currentRoom.chatBoxReplyId.length === 0  && root.currentRoom.chatBoxAttachmentPath.length === 0
             icon.name: "mail-attachment"
             text: i18n("Attach an image or file")
             displayHint: Kirigami.DisplayHint.IconOnly
@@ -72,7 +72,7 @@ QQC2.Control {
                         if (!path) {
                             return;
                         }
-                        currentRoom.chatBoxAttachmentPath = path;
+                        root.currentRoom.chatBoxAttachmentPath = path;
                     })
                     fileDialog.open()
                 }
@@ -106,7 +106,7 @@ QQC2.Control {
             displayHint: QQC2.AbstractButton.IconOnly
 
             onTriggered: {
-                locationChooserComponent.createObject(QQC2.ApplicationWindow.overlay, {room: currentRoom}).open()
+                locationChooserComponent.createObject(QQC2.ApplicationWindow.overlay, {room: root.currentRoom}).open()
             }
         },
         Kirigami.Action {
@@ -162,10 +162,10 @@ QQC2.Control {
             leftPadding: LayoutMirroring.enabled ? actionsRow.width : Kirigami.Units.largeSpacing
             rightPadding: LayoutMirroring.enabled ? Kirigami.Units.largeSpacing : actionsRow.width + x * 2 + Kirigami.Units.largeSpacing * 2
 
-            placeholderText: readOnly ? i18n("This room is encrypted. Build libQuotient with encryption enabled to send encrypted messages.") : currentRoom.usesEncryption ? i18n("Send an encrypted message…") : currentRoom.chatBoxAttachmentPath.length > 0 ? i18n("Set an attachment caption...") : i18n("Send a message…")
+            placeholderText: readOnly ? i18n("This room is encrypted. Build libQuotient with encryption enabled to send encrypted messages.") : root.currentRoom.usesEncryption ? i18n("Send an encrypted message…") : root.currentRoom.chatBoxAttachmentPath.length > 0 ? i18n("Set an attachment caption...") : i18n("Send a message…")
             verticalAlignment: TextEdit.AlignVCenter
             wrapMode: Text.Wrap
-            readOnly: (currentRoom.usesEncryption && !Controller.encryptionSupported)
+            readOnly: (root.currentRoom.usesEncryption && !Controller.encryptionSupported)
 
             Accessible.description: placeholderText
 
@@ -177,10 +177,10 @@ QQC2.Control {
             onTextChanged: {
                 if (!repeatTimer.running && Config.typingNotifications) {
                     var textExists = text.length > 0
-                    currentRoom.sendTypingNotification(textExists)
+                    root.currentRoom.sendTypingNotification(textExists)
                     textExists ? repeatTimer.start() : repeatTimer.stop()
                 }
-                currentRoom.chatBoxText = text
+                root.currentRoom.chatBoxText = text
             }
             onCursorRectangleChanged: chatBarScrollView.ensureVisible(cursorRectangle)
             onSelectedTextChanged: {
@@ -207,7 +207,7 @@ QQC2.Control {
                     remove(cursorPosition, cursorPosition + 1)
                 }
                 if (textField.text == selectedText || textField.text.length <= 1) {
-                    currentRoom.sendTypingNotification(false)
+                    root.currentRoom.sendTypingNotification(false)
                     repeatTimer.stop()
                 }
                 if (quickFormatBar.visible) {
@@ -241,16 +241,16 @@ QQC2.Control {
                 if (event.key === Qt.Key_V && event.modifiers & Qt.ControlModifier) {
                     root.pasteImage();
                 } else if (event.key === Qt.Key_Up && event.modifiers & Qt.ControlModifier) {
-                    currentRoom.replyLastMessage();
+                    root.currentRoom.replyLastMessage();
                 } else if (event.key === Qt.Key_Up && textField.text.length === 0) {
-                    currentRoom.editLastMessage();
+                    root.currentRoom.editLastMessage();
                 } else if (event.key === Qt.Key_Up && completionMenu.visible) {
                     completionMenu.decrementIndex()
                 } else if (event.key === Qt.Key_Down && completionMenu.visible) {
                     completionMenu.incrementIndex()
                 } else if (event.key === Qt.Key_Backspace) {
                     if (textField.text == selectedText || textField.text.length <= 1) {
-                        currentRoom.sendTypingNotification(false)
+                        root.currentRoom.sendTypingNotification(false)
                         repeatTimer.stop()
                     }
                     if (quickFormatBar.visible && selectedText.length > 0) {
@@ -282,19 +282,19 @@ QQC2.Control {
             Component {
                 id: replyPane
                 ReplyPane {
-                    userName: currentRoom.chatBoxReplyUser.displayName
-                    userColor: currentRoom.chatBoxReplyUser.color
-                    userAvatar: currentRoom.chatBoxReplyUser.avatarSource
-                    text: currentRoom.chatBoxReplyMessage
+                    userName: root.currentRoom.chatBoxReplyUser.displayName
+                    userColor: root.currentRoom.chatBoxReplyUser.color
+                    userAvatar: root.currentRoom.chatBoxReplyUser.avatarSource
+                    text: root.currentRoom.chatBoxReplyMessage
                 }
             }
             Component {
                 id: attachmentPane
                 AttachmentPane {
-                    attachmentPath: currentRoom.chatBoxAttachmentPath
+                    attachmentPath: root.currentRoom.chatBoxAttachmentPath
 
                     onAttachmentCancelled: {
-                        currentRoom.chatBoxAttachmentPath = "";
+                        root.currentRoom.chatBoxAttachmentPath = "";
                         root.forceActiveFocus()
                     }
                 }
@@ -346,8 +346,8 @@ QQC2.Control {
             text: i18nc("@action:button", "Cancel reply")
             icon.name: "dialog-close"
             onTriggered: {
-                currentRoom.chatBoxReplyId = "";
-                currentRoom.chatBoxAttachmentPath = "";
+                root.currentRoom.chatBoxReplyId = "";
+                root.currentRoom.chatBoxAttachmentPath = "";
                 root.forceActiveFocus()
             }
         }
@@ -388,7 +388,7 @@ QQC2.Control {
 
                 PieProgressBar {
                     visible: modelData.isBusy
-                    progress: currentRoom.fileUploadingProgress
+                    progress: root.currentRoom.fileUploadingProgress
                 }
             }
         }
@@ -402,6 +402,8 @@ QQC2.Control {
         modal: false
         includeCustom: true
         closeOnChosen: false
+
+        currentRoom: root.currentRoom
 
         onChosen: insertText(emoji)
         onClosed: if (emojiButton.checked) emojiButton.checked = false
@@ -468,15 +470,15 @@ QQC2.Control {
         if (localPath.length === 0) {
             return;
         }
-        currentRoom.chatBoxAttachmentPath = localPath
+        root.currentRoom.chatBoxAttachmentPath = localPath
     }
 
     function postMessage() {
         actionsHandler.handleNewMessage();
         repeatTimer.stop()
-        currentRoom.markAllMessagesAsRead();
+        root.currentRoom.markAllMessagesAsRead();
         textField.clear();
-        currentRoom.chatBoxReplyId = "";
+        root.currentRoom.chatBoxReplyId = "";
         messageSent()
     }
 

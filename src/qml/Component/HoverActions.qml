@@ -6,6 +6,7 @@ import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.15 as Kirigami
+import org.kde.neochat 1.0
 
 /**
  * @brief A component that provides a set of actions when a message is hovered in the timeline.
@@ -15,6 +16,11 @@ import org.kde.kirigami 2.15 as Kirigami
  */
 QQC2.Control {
     id: root
+
+    /**
+     * @brief The current room that user is viewing.
+     */
+    required property NeoChatRoom currentRoom
 
     /**
      * @brief Whether the actions should be shown.
@@ -108,6 +114,7 @@ QQC2.Control {
 
             EmojiDialog {
                 id: emojiDialog
+                currentRoom: root.currentRoom
                 showQuickReaction: true
                 onChosen: (emoji) => root.reactClicked(emoji)
             }
