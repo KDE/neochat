@@ -3,17 +3,18 @@
 
 import QtQuick 2.15
 import org.kde.kirigami 2.18 as Kirigami
+import org.kde.kirigamiaddons.settings 1.0 as KirigamiSettings
 import QtQuick.Layouts 1.15
 
 import org.kde.neochat 1.0
 
-Kirigami.CategorizedSettings {
+KirigamiSettings.CategorizedSettings {
     id: root
     property NeoChatRoom room
 
     objectName: "settingsPage"
     actions: [
-        Kirigami.SettingAction {
+        KirigamiSettings.SettingAction {
             actionName: "general"
             text: i18n("General")
             icon.name: "settings-configure"
@@ -24,7 +25,7 @@ Kirigami.CategorizedSettings {
                 }
             }
         },
-        Kirigami.SettingAction {
+        KirigamiSettings.SettingAction {
             actionName: "security"
             text: i18n("Security")
             icon.name: "security-low"
@@ -35,7 +36,7 @@ Kirigami.CategorizedSettings {
                 }
             }
         },
-        Kirigami.SettingAction {
+        KirigamiSettings.SettingAction {
             actionName: "permissions"
             text: i18n("Permissions")
             icon.name: "visibility"
@@ -46,7 +47,7 @@ Kirigami.CategorizedSettings {
                 }
             }
         },
-        Kirigami.SettingAction {
+        KirigamiSettings.SettingAction {
             actionName: "notifications"
             text: i18n("Notifications")
             icon.name: "notifications"
