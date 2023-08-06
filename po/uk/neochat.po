@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-04 00:46+0000\n"
+"POT-Creation-Date: 2023-08-06 00:46+0000\n"
 "PO-Revision-Date: 2023-08-01 09:40+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -1106,7 +1106,7 @@ msgstr "Шир: %1, Довг: %2"
 msgid "Encrypted Message"
 msgstr "Зашифроване повідомлення"
 
-#: src/notificationsmanager.cpp:203 src/qml/main.qml:258
+#: src/notificationsmanager.cpp:203 src/qml/main.qml:257
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1116,7 +1116,7 @@ msgstr "%1: %2"
 msgid "Open NeoChat in this room"
 msgstr "Відкрити NeoChat у цій кімнаті"
 
-#: src/notificationsmanager.cpp:222 src/qml/Component/HoverActions.qml:103
+#: src/notificationsmanager.cpp:222 src/qml/Component/HoverActions.qml:109
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:36
 #, kde-format
@@ -1154,7 +1154,7 @@ msgid "Attachment:"
 msgstr "Долучення:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
-#: src/qml/Component/HoverActions.qml:97
+#: src/qml/Component/HoverActions.qml:103
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:27
 #: src/qml/Page/ImageEditorPage.qml:21
 #, kde-format
@@ -1323,13 +1323,13 @@ msgstr "Немає наліпок"
 msgid "No emojis"
 msgstr "Без емодзі"
 
-#: src/qml/Component/Emoji/EmojiPicker.qml:47
+#: src/qml/Component/Emoji/EmojiPicker.qml:52
 #: src/qml/Settings/EmoticonsPage.qml:16 src/qml/Settings/EmoticonsPage.qml:25
 #, kde-format
 msgid "Emojis"
 msgstr "Емоційки"
 
-#: src/qml/Component/Emoji/EmojiPicker.qml:54
+#: src/qml/Component/Emoji/EmojiPicker.qml:59
 #: src/qml/Settings/EmoticonsPage.qml:16 src/qml/Settings/EmoticonsPage.qml:32
 #, kde-format
 msgid "Stickers"
@@ -1345,12 +1345,12 @@ msgstr "Надіслати дані місця"
 msgid "Close"
 msgstr "Закрити"
 
-#: src/qml/Component/HoverActions.qml:79
+#: src/qml/Component/HoverActions.qml:85
 #, kde-format
 msgid "This message was sent from a verified device"
 msgstr "Це повідомлення було надіслано із перевіреного пристрою"
 
-#: src/qml/Component/HoverActions.qml:92
+#: src/qml/Component/HoverActions.qml:98
 #, kde-format
 msgid "React"
 msgstr "Реагувати"
@@ -1619,32 +1619,32 @@ msgstr "Гучність"
 msgid "Maximize"
 msgstr "Максимізувати"
 
-#: src/qml/Component/TimelineView.qml:128
+#: src/qml/Component/TimelineView.qml:140
 #, kde-format
 msgid "Choose local file"
 msgstr "Виберіть локальний файл"
 
-#: src/qml/Component/TimelineView.qml:156
+#: src/qml/Component/TimelineView.qml:168
 #, kde-format
 msgid "Clipboard image"
 msgstr "Зображення з буфера"
 
-#: src/qml/Component/TimelineView.qml:205
+#: src/qml/Component/TimelineView.qml:217
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Перейти до першого непрочитаного повідомлення"
 
-#: src/qml/Component/TimelineView.qml:228
+#: src/qml/Component/TimelineView.qml:240
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Перейти до останнього повідомлення"
 
-#: src/qml/Component/TimelineView.qml:254
+#: src/qml/Component/TimelineView.qml:266
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Перетягніть пункти сюди, щоб оприлюднити їх"
 
-#: src/qml/Component/TimelineView.qml:280
+#: src/qml/Component/TimelineView.qml:292
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2052,18 +2052,18 @@ msgstr "Відкрити особисте спілкування"
 msgid "Copy link"
 msgstr "Копіювати посилання"
 
-#: src/qml/main.qml:300
+#: src/qml/main.qml:299
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Перевірка сеансу"
 
-#: src/qml/main.qml:312
+#: src/qml/main.qml:311
 #, kde-format
 msgid "User consent"
 msgstr "Згода користувача"
 
-#: src/qml/main.qml:317
+#: src/qml/main.qml:316
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2073,17 +2073,17 @@ msgstr ""
 "використання. Будь ласка, натисніть розташовану нижче кнопку для того, щоб "
 "ознайомитися з ними."
 
-#: src/qml/main.qml:322
+#: src/qml/main.qml:321
 #, kde-format
 msgid "Open"
 msgstr "Відкрити"
 
-#: src/qml/main.qml:357
+#: src/qml/main.qml:356
 #, kde-format
 msgid "Start a chat"
 msgstr "Почати спілкування"
 
-#: src/qml/main.qml:359
+#: src/qml/main.qml:358
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Хочете розпочати спілкування з %1?"
@@ -2777,7 +2777,7 @@ msgstr "Змінити користувача"
 msgid "Open Settings"
 msgstr "Відкрити налаштування"
 
-#: src/qml/Page/RoomPage.qml:50
+#: src/qml/Page/RoomPage.qml:42
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr ""
@@ -3551,6 +3551,12 @@ msgstr "На бічній панелі"
 #, kde-format
 msgid "Color theme"
 msgstr "Тема кольорів"
+
+#: src/qml/Settings/DeviceDelegate.qml:52
+#, kde-format
+msgctxt "@label"
+msgid "%1, Last activity: %2"
+msgstr ""
 
 #: src/qml/Settings/DeviceDelegate.qml:61
 #, kde-format
