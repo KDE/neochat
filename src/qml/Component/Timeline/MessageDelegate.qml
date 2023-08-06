@@ -50,6 +50,12 @@ TimelineContainer {
             isReply: root.isReply
 
             textMessage: root.display
+
+            TapHandler {
+                enabled: !label.hoveredLink
+                acceptedButtons: Qt.LeftButton
+                onLongPressed: root.openContextMenu()
+            }
         }
         Loader {
             Layout.fillWidth: true
