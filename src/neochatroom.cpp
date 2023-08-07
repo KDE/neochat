@@ -1812,10 +1812,7 @@ void NeoChatRoom::editLastMessage()
 
 bool NeoChatRoom::canEncryptRoom() const
 {
-#ifdef Quotient_E2EE_ENABLED
     return !usesEncryption() && canSendState("m.room.encryption");
-#endif
-    return false;
 }
 
 PollHandler *NeoChatRoom::poll(const QString &eventId)

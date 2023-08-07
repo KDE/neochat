@@ -162,10 +162,9 @@ QQC2.Control {
             leftPadding: LayoutMirroring.enabled ? actionsRow.width : Kirigami.Units.largeSpacing
             rightPadding: LayoutMirroring.enabled ? Kirigami.Units.largeSpacing : actionsRow.width + x * 2 + Kirigami.Units.largeSpacing * 2
 
-            placeholderText: readOnly ? i18n("This room is encrypted. Build libQuotient with encryption enabled to send encrypted messages.") : root.currentRoom.usesEncryption ? i18n("Send an encrypted message…") : root.currentRoom.chatBoxAttachmentPath.length > 0 ? i18n("Set an attachment caption...") : i18n("Send a message…")
+            placeholderText: root.currentRoom.usesEncryption ? i18n("Send an encrypted message…") : root.currentRoom.chatBoxAttachmentPath.length > 0 ? i18n("Set an attachment caption...") : i18n("Send a message…")
             verticalAlignment: TextEdit.AlignVCenter
             wrapMode: Text.Wrap
-            readOnly: (root.currentRoom.usesEncryption && !Controller.encryptionSupported)
 
             Accessible.description: placeholderText
 

@@ -865,13 +865,11 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == VerifiedRole) {
-#ifdef Quotient_E2EE_ENABLED
         if (evt.originalEvent()) {
             auto encrypted = dynamic_cast<const EncryptedEvent *>(evt.originalEvent());
             Q_ASSERT(encrypted);
             return m_currentRoom->connection()->isVerifiedSession(encrypted->sessionId().toLatin1());
         }
-#endif
         return false;
     }
 

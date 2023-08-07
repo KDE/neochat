@@ -27,7 +27,6 @@ Kirigami.ScrollablePage {
             title: i18nc("@option:check", "Encryption")
         }
         MobileForm.FormCard {
-            visible: Controller.encryptionSupported
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: 0

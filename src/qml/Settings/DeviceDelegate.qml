@@ -100,7 +100,7 @@ MobileForm.AbstractFormDelegate {
         }
         QQC2.ToolButton {
             display: QQC2.AbstractButton.IconOnly
-            visible: Controller.encryptionSupported && deviceDelegate.showVerifyButton
+            visible: deviceDelegate.showVerifyButton
             action: Kirigami.Action {
                 id: verifyDeviceAction
                 text: i18n("Verify device")

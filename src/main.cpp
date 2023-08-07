@@ -272,11 +272,9 @@ int main(int argc, char *argv[])
     qRegisterMetaType<User *>("User*");
     qRegisterMetaType<GetRoomEventsJob *>("GetRoomEventsJob*");
     qRegisterMetaType<QMimeType>("QMimeType");
-#ifdef Quotient_E2EE_ENABLED
     qRegisterMetaType<KeyVerificationSession *>("KeyVerificationSession*");
     qmlRegisterUncreatableType<KeyVerificationSession>("org.kde.neochat", 1, 0, "KeyVerificationSession", {});
     qRegisterMetaType<QVector<EmojiEntry>>("QVector<EmojiEntry>");
-#endif
     qmlRegisterSingletonType("org.kde.neochat", 1, 0, "About", [](QQmlEngine *engine, QJSEngine *) -> QJSValue {
         return engine->toScriptValue(KAboutData::applicationData());
     });

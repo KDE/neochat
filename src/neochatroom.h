@@ -186,9 +186,6 @@ class NeoChatRoom : public Quotient::Room
     /**
      * @brief Whether the local user can encrypt the room.
      *
-     * Requires libQuotient 0.7 compiled with the Quotient_E2EE_ENABLED parameter to
-     * be able to return true.
-     *
      * A local user can encrypt a room if they have permission to send the m.room.encryption
      * state event.
      *

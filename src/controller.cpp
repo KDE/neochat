@@ -581,11 +581,6 @@ bool Controller::hasWindowSystem() const
 #endif
 }
 
-bool Controller::encryptionSupported() const
-{
-    return Quotient::encryptionSupported();
-}
-
 void Controller::forceRefreshTextDocument(QQuickTextDocument *textDocument, QQuickItem *item)
 {
     // HACK: Workaround bug QTBUG 93281

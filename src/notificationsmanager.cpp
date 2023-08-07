@@ -122,10 +122,8 @@ void NotificationsManager::processNotificationJob(QPointer<Quotient::Connection>
             }
 
             if (notification["event"]["type"] == "m.room.encrypted") {
-#ifdef Quotient_E2EE_ENABLED
                 auto decrypted = connection->decryptNotification(notification);
                 body = decrypted["content"].toObject()["body"].toString();
-#endif
                 if (body.isEmpty()) {
                     body = i18n("Encrypted Message");
                 }

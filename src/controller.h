@@ -88,11 +88,6 @@ class Controller : public QObject
     Q_PROPERTY(bool isOnline READ isOnline NOTIFY isOnlineChanged)
 
     /**
-     * @brief Whether the ecryption support has been enabled.
-     */
-    Q_PROPERTY(bool encryptionSupported READ encryptionSupported CONSTANT)
-
-    /**
      * @brief The current minor version number of libQuotient being used.
      *
      * This is the only way to gate NeoChat features by libQuotient version in QML.
@@ -193,8 +188,6 @@ public:
     Q_INVOKABLE void setBlur(QQuickItem *item, bool blur);
 
     bool isOnline() const;
-
-    bool encryptionSupported() const;
 
     /**
      * @brief Sets the QNetworkProxy for the application.
