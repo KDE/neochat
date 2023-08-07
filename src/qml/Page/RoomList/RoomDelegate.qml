@@ -65,6 +65,7 @@ Delegates.RoundedItemDelegate {
                 text: root.displayName
                 elide: Text.ElideRight
                 font.weight: root.hasNotifications ? Font.Bold : Font.Normal
+                textFormat: Text.PlainText
 
                 Layout.fillWidth: true
                 Layout.alignment: subtitle.visible ? Qt.AlignLeft | Qt.AlignBottom : Qt.AlignLeft | Qt.AlignVCenter
