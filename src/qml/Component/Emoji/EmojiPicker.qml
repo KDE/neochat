@@ -17,6 +17,7 @@ ColumnLayout {
 
     property bool includeCustom: false
     property bool showQuickReaction: false
+    property NeoChatRoom currentRoom
 
     readonly property var currentEmojiModel: {
         if (includeCustom) {
