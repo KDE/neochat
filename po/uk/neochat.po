@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 00:46+0000\n"
+"POT-Creation-Date: 2023-08-08 00:46+0000\n"
 "PO-Revision-Date: 2023-08-06 08:32+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -207,17 +207,17 @@ msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (зібрано з %2)"
 
-#: src/main.cpp:324
+#: src/main.cpp:322
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Клієнт для протоколу обміну даними matrix"
 
-#: src/main.cpp:325
+#: src/main.cpp:323
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Передбачає підтримку схеми адрес matrix:"
 
-#: src/main.cpp:326
+#: src/main.cpp:324
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Ігнорувати усі помилки SSL, наприклад непідписані сертифікати."
@@ -1095,55 +1095,55 @@ msgstr "почав голосування"
 msgid "Report sent successfully."
 msgstr "Скаргу успішно надіслано."
 
-#: src/neochatroom.cpp:1927 src/neochatroom.cpp:1935
+#: src/neochatroom.cpp:1924 src/neochatroom.cpp:1932
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Шир: %1, Довг: %2"
 
-#: src/notificationsmanager.cpp:130
+#: src/notificationsmanager.cpp:128
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Зашифроване повідомлення"
 
-#: src/notificationsmanager.cpp:203 src/qml/main.qml:257
+#: src/notificationsmanager.cpp:201 src/qml/main.qml:257
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/notificationsmanager.cpp:209
+#: src/notificationsmanager.cpp:207
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Відкрити NeoChat у цій кімнаті"
 
-#: src/notificationsmanager.cpp:222 src/qml/Component/HoverActions.qml:109
+#: src/notificationsmanager.cpp:220 src/qml/Component/HoverActions.qml:109
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:36
 #, kde-format
 msgid "Reply"
 msgstr "Відповісти"
 
-#: src/notificationsmanager.cpp:223
+#: src/notificationsmanager.cpp:221
 #, kde-format
 msgid "Reply..."
 msgstr "Відповісти…"
 
-#: src/notificationsmanager.cpp:241
+#: src/notificationsmanager.cpp:239
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "Вас запрошено до кімнати %1"
 
-#: src/notificationsmanager.cpp:245
+#: src/notificationsmanager.cpp:243
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Відкрити це запрошення у NeoChat"
 
-#: src/notificationsmanager.cpp:251
+#: src/notificationsmanager.cpp:249
 #, kde-format
 msgid "Accept Invitation"
 msgstr "Прийняти запрошення"
 
-#: src/notificationsmanager.cpp:251
+#: src/notificationsmanager.cpp:249
 #, kde-format
 msgid "Reject Invitation"
 msgstr "Відкинути запрошення"
@@ -1188,15 +1188,6 @@ msgstr "Надіслати повідомлення"
 
 #: src/qml/Component/ChatBox/ChatBar.qml:165
 #, kde-format
-msgid ""
-"This room is encrypted. Build libQuotient with encryption enabled to send "
-"encrypted messages."
-msgstr ""
-"Повідомлення у цій кімнаті зашифровано. Зберіть libQuotient з підтримкою "
-"шифрування, щоб надсилати зашифровані повідомлення."
-
-#: src/qml/Component/ChatBox/ChatBar.qml:165
-#, kde-format
 msgid "Send an encrypted message…"
 msgstr "Надіслати шифроване повідомлення…"
 
@@ -1210,7 +1201,7 @@ msgstr "Встановити підпис до долучення…"
 msgid "Send a message…"
 msgstr "Надіслати повідомлення…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:346
+#: src/qml/Component/ChatBox/ChatBar.qml:345
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -2052,18 +2043,18 @@ msgstr "Відкрити особисте спілкування"
 msgid "Copy link"
 msgstr "Копіювати посилання"
 
-#: src/qml/main.qml:299
+#: src/qml/main.qml:297
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Перевірка сеансу"
 
-#: src/qml/main.qml:311
+#: src/qml/main.qml:309
 #, kde-format
 msgid "User consent"
 msgstr "Згода користувача"
 
-#: src/qml/main.qml:316
+#: src/qml/main.qml:314
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2073,17 +2064,17 @@ msgstr ""
 "використання. Будь ласка, натисніть розташовану нижче кнопку для того, щоб "
 "ознайомитися з ними."
 
-#: src/qml/main.qml:321
+#: src/qml/main.qml:319
 #, kde-format
 msgid "Open"
 msgstr "Відкрити"
 
-#: src/qml/main.qml:356
+#: src/qml/main.qml:354
 #, kde-format
 msgid "Start a chat"
 msgstr "Почати спілкування"
 
-#: src/qml/main.qml:358
+#: src/qml/main.qml:356
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Хочете розпочати спілкування з %1?"
@@ -2711,12 +2702,12 @@ msgctxt "Expand <section name"
 msgid "Expand %1"
 msgstr "Розгорнути %1"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:96
+#: src/qml/Page/RoomList/RoomDelegate.qml:97
 #, kde-format
 msgid "Muted room"
 msgstr "Кімната із вимкненим спілкуванням"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:128
+#: src/qml/Page/RoomList/RoomDelegate.qml:129
 #, kde-format
 msgid "Configure room"
 msgstr "Налаштувати кімнату"
@@ -3238,82 +3229,82 @@ msgctxt "@option:check"
 msgid "Encryption"
 msgstr "Шифрування"
 
-#: src/qml/RoomSettings/Security.qml:36
+#: src/qml/RoomSettings/Security.qml:35
 #, kde-format
 msgid "Enable encryption"
 msgstr "Увімкнути шифрування"
 
-#: src/qml/RoomSettings/Security.qml:37
+#: src/qml/RoomSettings/Security.qml:36
 #, kde-format
 msgctxt "option:check"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr "Після вмикання шифрування вже не можна буде вимкнути."
 
-#: src/qml/RoomSettings/Security.qml:50
+#: src/qml/RoomSettings/Security.qml:49
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr "Доступ"
 
-#: src/qml/RoomSettings/Security.qml:57
+#: src/qml/RoomSettings/Security.qml:56
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "Приватне (лише за запрошенням)"
 
-#: src/qml/RoomSettings/Security.qml:58
+#: src/qml/RoomSettings/Security.qml:57
 #, kde-format
 msgid "Only invited people can join."
 msgstr "Долучатися можуть лише запрошені."
 
-#: src/qml/RoomSettings/Security.qml:66
+#: src/qml/RoomSettings/Security.qml:65
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "Учасники простору"
 
-#: src/qml/RoomSettings/Security.qml:67
+#: src/qml/RoomSettings/Security.qml:66
 #, kde-format
 msgid "Anyone in a space can find and join."
 msgstr "Будь-хто у просторі може шукати і долучатися."
 
-#: src/qml/RoomSettings/Security.qml:76
+#: src/qml/RoomSettings/Security.qml:75
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "Постукати"
 
-#: src/qml/RoomSettings/Security.qml:77
+#: src/qml/RoomSettings/Security.qml:76
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
 "Ті, кого немає у кімнаті, мають надіслати запити щодо запрошення до кімнати."
 
-#: src/qml/RoomSettings/Security.qml:87
+#: src/qml/RoomSettings/Security.qml:86
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "Загальне"
 
-#: src/qml/RoomSettings/Security.qml:88
+#: src/qml/RoomSettings/Security.qml:87
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "Будь-хто може шукати і долучатися."
 
-#: src/qml/RoomSettings/Security.qml:100
+#: src/qml/RoomSettings/Security.qml:99
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr "Видимість журналу повідомлень"
 
-#: src/qml/RoomSettings/Security.qml:107
+#: src/qml/RoomSettings/Security.qml:106
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr "Будь-хто"
 
-#: src/qml/RoomSettings/Security.qml:108
+#: src/qml/RoomSettings/Security.qml:107
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
@@ -3321,13 +3312,13 @@ msgstr ""
 "Будь-хто, незалежно від того, чи долучилися вони до кімнати, може "
 "переглядати журнал."
 
-#: src/qml/RoomSettings/Security.qml:116
+#: src/qml/RoomSettings/Security.qml:115
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "Лише учасники"
 
-#: src/qml/RoomSettings/Security.qml:117
+#: src/qml/RoomSettings/Security.qml:116
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -3336,13 +3327,13 @@ msgstr ""
 "Усі учасники можуть переглядати увесь журнал повідомлень, навіть до "
 "долучення."
 
-#: src/qml/RoomSettings/Security.qml:125
+#: src/qml/RoomSettings/Security.qml:124
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr "Лише учасники (з моменту запрошення)"
 
-#: src/qml/RoomSettings/Security.qml:126
+#: src/qml/RoomSettings/Security.qml:125
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -3352,13 +3343,13 @@ msgstr ""
 "Нові учасники можуть переглядати журнал повідомлень з моменту, коли їх "
 "запрошено до кімнати."
 
-#: src/qml/RoomSettings/Security.qml:134
+#: src/qml/RoomSettings/Security.qml:133
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr "Лише учасники (з моменту долучення)"
 
-#: src/qml/RoomSettings/Security.qml:135
+#: src/qml/RoomSettings/Security.qml:134
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -3367,7 +3358,7 @@ msgstr ""
 "Нові учасники можуть переглядати журнал повідомлень з моменту долучення до "
 "кімнати."
 
-#: src/qml/RoomSettings/Security.qml:154
+#: src/qml/RoomSettings/Security.qml:153
 #: src/qml/Settings/NetworkProxyPage.qml:119
 #, kde-format
 msgid "Apply"
@@ -4089,6 +4080,13 @@ msgstr "Показати"
 #, kde-format
 msgid "Quit"
 msgstr "Вийти"
+
+#~ msgid ""
+#~ "This room is encrypted. Build libQuotient with encryption enabled to send "
+#~ "encrypted messages."
+#~ msgstr ""
+#~ "Повідомлення у цій кімнаті зашифровано. Зберіть libQuotient з підтримкою "
+#~ "шифрування, щоб надсилати зашифровані повідомлення."
 
 #~ msgid "Messages in one-to-one chats"
 #~ msgstr "Повідомлення у спілкуванні один на один"

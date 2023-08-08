@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 00:46+0000\n"
+"POT-Creation-Date: 2023-08-08 00:46+0000\n"
 "PO-Revision-Date: 2023-08-01 14:28+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -205,17 +205,17 @@ msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (compilado con %2)"
 
-#: src/main.cpp:324
+#: src/main.cpp:322
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Cliente para el protocolo de comunicaciones Matrix"
 
-#: src/main.cpp:325
+#: src/main.cpp:323
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Permite el esquema de URL «matrix:»"
 
-#: src/main.cpp:326
+#: src/main.cpp:324
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr ""
@@ -1082,55 +1082,55 @@ msgstr "ha iniciado una encuesta"
 msgid "Report sent successfully."
 msgstr "La denuncia se ha enviado correctamente."
 
-#: src/neochatroom.cpp:1927 src/neochatroom.cpp:1935
+#: src/neochatroom.cpp:1924 src/neochatroom.cpp:1932
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
 msgstr "Lat: %1, Lon: %2"
 
-#: src/notificationsmanager.cpp:130
+#: src/notificationsmanager.cpp:128
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Mensaje cifrado"
 
-#: src/notificationsmanager.cpp:203 src/qml/main.qml:257
+#: src/notificationsmanager.cpp:201 src/qml/main.qml:257
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: src/notificationsmanager.cpp:209
+#: src/notificationsmanager.cpp:207
 #, kde-format
 msgid "Open NeoChat in this room"
 msgstr "Abrir NeoChat en esta sala"
 
-#: src/notificationsmanager.cpp:222 src/qml/Component/HoverActions.qml:109
+#: src/notificationsmanager.cpp:220 src/qml/Component/HoverActions.qml:109
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:36
 #, kde-format
 msgid "Reply"
 msgstr "Responder"
 
-#: src/notificationsmanager.cpp:223
+#: src/notificationsmanager.cpp:221
 #, kde-format
 msgid "Reply..."
 msgstr "Responder..."
 
-#: src/notificationsmanager.cpp:241
+#: src/notificationsmanager.cpp:239
 #, kde-format
 msgid "%1 invited you to a room"
 msgstr "%1 le ha invitado a una sala"
 
-#: src/notificationsmanager.cpp:245
+#: src/notificationsmanager.cpp:243
 #, kde-format
 msgid "Open this invitation in NeoChat"
 msgstr "Abrir esta invitación en NeoChat"
 
-#: src/notificationsmanager.cpp:251
+#: src/notificationsmanager.cpp:249
 #, kde-format
 msgid "Accept Invitation"
 msgstr "Aceptar la invitación"
 
-#: src/notificationsmanager.cpp:251
+#: src/notificationsmanager.cpp:249
 #, kde-format
 msgid "Reject Invitation"
 msgstr "Rechazar la invitación"
@@ -1175,15 +1175,6 @@ msgstr "Enviar mensaje"
 
 #: src/qml/Component/ChatBox/ChatBar.qml:165
 #, kde-format
-msgid ""
-"This room is encrypted. Build libQuotient with encryption enabled to send "
-"encrypted messages."
-msgstr ""
-"Esta sala está cifrada. Compile libQuotient con el cifrado activado para "
-"enviar mensajes cifrados."
-
-#: src/qml/Component/ChatBox/ChatBar.qml:165
-#, kde-format
 msgid "Send an encrypted message…"
 msgstr "Enviar un mensaje cifrado..."
 
@@ -1197,7 +1188,7 @@ msgstr "Definir un subtítulo de adjunto..."
 msgid "Send a message…"
 msgstr "Enviar un mensaje..."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:346
+#: src/qml/Component/ChatBox/ChatBar.qml:345
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
@@ -2044,18 +2035,18 @@ msgstr "Abrir un chat privado"
 msgid "Copy link"
 msgstr "Copiar enlace"
 
-#: src/qml/main.qml:299
+#: src/qml/main.qml:297
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Verificación de la sesión"
 
-#: src/qml/main.qml:311
+#: src/qml/main.qml:309
 #, kde-format
 msgid "User consent"
 msgstr "Consentimiento del usuario"
 
-#: src/qml/main.qml:316
+#: src/qml/main.qml:314
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2064,17 +2055,17 @@ msgstr ""
 "Su servidor doméstico necesita que esté de acuerdo con sus términos y "
 "condiciones antes de que pueda usarlo. Pulse el botón inferior para leerlos."
 
-#: src/qml/main.qml:321
+#: src/qml/main.qml:319
 #, kde-format
 msgid "Open"
 msgstr "Abrir"
 
-#: src/qml/main.qml:356
+#: src/qml/main.qml:354
 #, kde-format
 msgid "Start a chat"
 msgstr "Iniciar un chat"
 
-#: src/qml/main.qml:358
+#: src/qml/main.qml:356
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "¿Desea iniciar un chat con %1?"
@@ -2702,12 +2693,12 @@ msgctxt "Expand <section name"
 msgid "Expand %1"
 msgstr "Expandir %1"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:96
+#: src/qml/Page/RoomList/RoomDelegate.qml:97
 #, kde-format
 msgid "Muted room"
 msgstr "Sala silenciada"
 
-#: src/qml/Page/RoomList/RoomDelegate.qml:128
+#: src/qml/Page/RoomList/RoomDelegate.qml:129
 #, kde-format
 msgid "Configure room"
 msgstr "Configurar la sala"
@@ -3231,96 +3222,96 @@ msgctxt "@option:check"
 msgid "Encryption"
 msgstr "Cifrado"
 
-#: src/qml/RoomSettings/Security.qml:36
+#: src/qml/RoomSettings/Security.qml:35
 #, kde-format
 msgid "Enable encryption"
 msgstr "Activar cifrado"
 
-#: src/qml/RoomSettings/Security.qml:37
+#: src/qml/RoomSettings/Security.qml:36
 #, kde-format
 msgctxt "option:check"
 msgid "Once enabled, encryption cannot be disabled."
 msgstr "Una vez activado, el cifrado no se puede desactivar."
 
-#: src/qml/RoomSettings/Security.qml:50
+#: src/qml/RoomSettings/Security.qml:49
 #, kde-format
 msgctxt "@option:check"
 msgid "Access"
 msgstr "Acceso"
 
-#: src/qml/RoomSettings/Security.qml:57
+#: src/qml/RoomSettings/Security.qml:56
 #, kde-format
 msgctxt "@option:check"
 msgid "Private (invite only)"
 msgstr "Privado (solo con invitación)"
 
-#: src/qml/RoomSettings/Security.qml:58
+#: src/qml/RoomSettings/Security.qml:57
 #, kde-format
 msgid "Only invited people can join."
 msgstr "Solo se pueden unir personas con invitación."
 
-#: src/qml/RoomSettings/Security.qml:66
+#: src/qml/RoomSettings/Security.qml:65
 #, kde-format
 msgctxt "@option:check"
 msgid "Space members"
 msgstr "Miembros del espacio"
 
-#: src/qml/RoomSettings/Security.qml:67
+#: src/qml/RoomSettings/Security.qml:66
 #, kde-format
 msgid "Anyone in a space can find and join."
 msgstr "Puede encontrarla y unirse cualquiera de un espacio."
 
-#: src/qml/RoomSettings/Security.qml:76
+#: src/qml/RoomSettings/Security.qml:75
 #, kde-format
 msgctxt "@option:check"
 msgid "Knock"
 msgstr "Llamar"
 
-#: src/qml/RoomSettings/Security.qml:77
+#: src/qml/RoomSettings/Security.qml:76
 #, kde-format
 msgid "People not in the room need to request an invite to join the room."
 msgstr ""
 "Las personas que no estén en la sala deben solicitar una invitación para "
 "unirse a la sala."
 
-#: src/qml/RoomSettings/Security.qml:87
+#: src/qml/RoomSettings/Security.qml:86
 #, kde-format
 msgctxt "@option:check"
 msgid "Public"
 msgstr "Pública"
 
-#: src/qml/RoomSettings/Security.qml:88
+#: src/qml/RoomSettings/Security.qml:87
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone can find and join."
 msgstr "Cualquiera puede encontrarla y unirse."
 
-#: src/qml/RoomSettings/Security.qml:100
+#: src/qml/RoomSettings/Security.qml:99
 #, kde-format
 msgctxt "@option:check"
 msgid "Message history visibility"
 msgstr "Visibilidad del historial de mensajes"
 
-#: src/qml/RoomSettings/Security.qml:107
+#: src/qml/RoomSettings/Security.qml:106
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone"
 msgstr "Cualquiera"
 
-#: src/qml/RoomSettings/Security.qml:108
+#: src/qml/RoomSettings/Security.qml:107
 #, kde-format
 msgctxt "@option:check"
 msgid "Anyone, regardless of whether they have joined, can view history."
 msgstr ""
 "Cualquiera, independientemente de si se ha unido, puede ver el historial."
 
-#: src/qml/RoomSettings/Security.qml:116
+#: src/qml/RoomSettings/Security.qml:115
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only"
 msgstr "Solo miembros"
 
-#: src/qml/RoomSettings/Security.qml:117
+#: src/qml/RoomSettings/Security.qml:116
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -3329,13 +3320,13 @@ msgstr ""
 "Todos los miembros pueden ver el historial de mensajes completo, incluso "
 "antes de unirse."
 
-#: src/qml/RoomSettings/Security.qml:125
+#: src/qml/RoomSettings/Security.qml:124
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since invite)"
 msgstr "Solo miembros (desde la invitación)"
 
-#: src/qml/RoomSettings/Security.qml:126
+#: src/qml/RoomSettings/Security.qml:125
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -3345,13 +3336,13 @@ msgstr ""
 "Los nuevos miembros pueden ver el historial de mensajes desde el momento en "
 "que fueron invitados a la sala."
 
-#: src/qml/RoomSettings/Security.qml:134
+#: src/qml/RoomSettings/Security.qml:133
 #, kde-format
 msgctxt "@option:check"
 msgid "Members only (since joining)"
 msgstr "Solo miembros (desde su unión)"
 
-#: src/qml/RoomSettings/Security.qml:135
+#: src/qml/RoomSettings/Security.qml:134
 #, kde-format
 msgctxt "@option:check"
 msgid ""
@@ -3360,7 +3351,7 @@ msgstr ""
 "Los nuevos miembros pueden ver el historial de mensajes desde el momento en "
 "que se unieron a la sala."
 
-#: src/qml/RoomSettings/Security.qml:154
+#: src/qml/RoomSettings/Security.qml:153
 #: src/qml/Settings/NetworkProxyPage.qml:119
 #, kde-format
 msgid "Apply"
@@ -4078,6 +4069,13 @@ msgstr "Mostrar"
 #, kde-format
 msgid "Quit"
 msgstr "Salir"
+
+#~ msgid ""
+#~ "This room is encrypted. Build libQuotient with encryption enabled to send "
+#~ "encrypted messages."
+#~ msgstr ""
+#~ "Esta sala está cifrada. Compile libQuotient con el cifrado activado para "
+#~ "enviar mensajes cifrados."
 
 #~ msgid "Messages in one-to-one chats"
 #~ msgstr "Mensajes en chats uno-a-uno"
