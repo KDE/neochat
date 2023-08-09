@@ -85,16 +85,17 @@ QQC2.Control {
 
             property bool isBusy: false
 
+            visible: !Kirigami.Settings.isMobile
             icon.name: "smiley"
             text: i18n("Emojis & Stickers")
             displayHint: Kirigami.DisplayHint.IconOnly
             checkable: true
 
             onTriggered: {
-                if (emojiDialog.visible) {
-                    emojiDialog.close()
+                if (emojiDialog.item.visible) {
+                    emojiDialog.item.close()
                 } else {
-                    emojiDialog.open()
+                    emojiDialog.item.open()
                 }
             }
         },
@@ -393,19 +394,22 @@ QQC2.Control {
         }
     }
 
-    EmojiDialog {
+    Loader {
         id: emojiDialog
-        x: parent.width - width
-        y: -implicitHeight // - Kirigami.Units.smallSpacing
+        active: !Kirigami.Settings.isMobile
+        sourceComponent: EmojiDialog {
+            x: root.width - width
+            y: -implicitHeight // - Kirigami.Units.smallSpacing
 
-        modal: false
-        includeCustom: true
-        closeOnChosen: false
+            modal: false
+            includeCustom: true
+            closeOnChosen: false
 
-        currentRoom: root.currentRoom
+            currentRoom: root.currentRoom
 
-        onChosen: insertText(emoji)
-        onClosed: if (emojiButton.checked) emojiButton.checked = false
+            onChosen: insertText(emoji)
+            onClosed: if (emojiAction.checked) emojiAction.checked = false
+        }
     }
 
     background: Rectangle {
