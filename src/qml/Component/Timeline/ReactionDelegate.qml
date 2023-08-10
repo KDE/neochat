@@ -26,7 +26,6 @@ Flow {
 
     Repeater {
         id: reactionRepeater
-        model: root.model
 
         delegate: QQC2.AbstractButton {
             width: Math.max(reactionTextMetrics.advanceWidth + Kirigami.Units.smallSpacing * 4, height)
