@@ -4,6 +4,12 @@
 #include "reactionmodel.h"
 
 #include <QDebug>
+#ifdef HAVE_ICU
+#include <QTextBoundaryFinder>
+#include <QTextCharFormat>
+#include <unicode/uchar.h>
+#include <unicode/urename.h>
+#endif
 
 #include <KLocalizedString>
 
@@ -29,11 +35,38 @@ QVariant ReactionModel::data(const QModelIndex &index, int role) const
 
     const auto &reaction = m_reactions.at(index.row());
 
-    if (role == TextRole) {
+    const auto isEmoji = [](const QString &text) {
+#ifdef HAVE_ICU
+        QTextBoundaryFinder finder(QTextBoundaryFinder::Grapheme, text);
+        int from = 0;
+        while (finder.toNextBoundary() != -1) {
+            auto to = finder.position();
+            if (text[from].isSpace()) {
+                from = to;
+                continue;
+            }
+
+            auto first = text.mid(from, to - from).toUcs4()[0];
+            if (!u_hasBinaryProperty(first, UCHAR_EMOJI_PRESENTATION)) {
+                return false;
+            }
+            from = to;
+        }
+        return true;
+#else
+        return false;
+#endif
+    };
+
+    const auto reactionText = isEmoji(reaction.reaction)
+        ? QStringLiteral("<span style=\"font-family: 'emoji';\">") + reaction.reaction + QStringLiteral("</span>")
+        : reaction.reaction;
+
+    if (role == TextContentRole) {
         if (reaction.authors.count() > 1) {
-            return QStringLiteral("%1  %2").arg(reaction.reaction, QString::number(reaction.authors.count()));
+            return QStringLiteral("%1  %2").arg(reactionText, QString::number(reaction.authors.count()));
         } else {
-            return reaction.reaction;
+            return reactionText;
         }
     }
 
@@ -64,7 +97,7 @@ QVariant ReactionModel::data(const QModelIndex &index, int role) const
                       "%2 reacted with %3",
                       reaction.authors.count(),
                       text,
-                      reaction.reaction);
+                      reactionText);
         return text;
     }
 
@@ -101,7 +134,7 @@ void ReactionModel::setReactions(QList<Reaction> reactions)
 QHash<int, QByteArray> ReactionModel::roleNames() const
 {
     return {
-        {TextRole, "text"},
+        {TextContentRole, "textContent"},
         {ReactionRole, "reaction"},
         {ToolTipRole, "toolTip"},
         {AuthorsRole, "authors"},

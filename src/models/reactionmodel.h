@@ -34,7 +34,7 @@ public:
      * @brief Defines the model roles.
      */
     enum Roles {
-        TextRole = Qt::DisplayRole, /**< The text to show in the reaction. */
+        TextContentRole = Qt::DisplayRole, /**< The text to show in the reaction. */
         ReactionRole, /**< The reaction emoji. */
         ToolTipRole, /**< The tool tip to show for the reaction. */
         AuthorsRole, /**< The list of authors who sent the given reaction. */

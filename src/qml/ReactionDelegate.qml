@@ -28,39 +28,45 @@ Flow {
         id: reactionRepeater
 
         delegate: QQC2.AbstractButton {
-            width: Math.max(reactionTextMetrics.advanceWidth + Kirigami.Units.smallSpacing * 4, height)
+            id: reactionDelegate
+
+            required property string textContent
+            required property string reaction
+            required property string toolTip
+            required property bool hasLocalUser
+
+            width: Math.max(contentItem.implicitWidth + leftPadding + rightPadding, height)
+            height: Math.round(Kirigami.Units.gridUnit * 1.5)
 
             contentItem: QQC2.Label {
                 id: reactionLabel
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                text: model.text
-
-                TextMetrics {
-                    id: reactionTextMetrics
-                    text: reactionLabel.text
-                }
+                text: reactionDelegate.textContent
+                background: null
+                wrapMode: TextEdit.NoWrap
+                textFormat: Text.RichText
             }
 
             padding: Kirigami.Units.smallSpacing
 
             background: Kirigami.ShadowedRectangle {
-                color: model.hasLocalUser ? Kirigami.Theme.positiveBackgroundColor : Kirigami.Theme.backgroundColor
+                color: reactionDelegate.hasLocalUser ? Kirigami.Theme.positiveBackgroundColor : Kirigami.Theme.backgroundColor
                 Kirigami.Theme.inherit: false
                 Kirigami.Theme.colorSet: Kirigami.Theme.View
                 radius: height / 2
                 shadow {
                     size: Kirigami.Units.smallSpacing
-                    color: !model.hasLocalUser ? Qt.rgba(0.0, 0.0, 0.0, 0.10) : Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.10)
+                    color: !reactionDelegate.hasLocalUser ? Qt.rgba(0.0, 0.0, 0.0, 0.10) : Qt.rgba(Kirigami.Theme.textColor.r, Kirigami.Theme.textColor.g, Kirigami.Theme.textColor.b, 0.10)
                 }
             }
 
-            onClicked: reactionClicked(model.reaction)
+            onClicked: reactionClicked(reactionDelegate.reaction)
 
             hoverEnabled: true
 
             QQC2.ToolTip.visible: hovered
-            QQC2.ToolTip.text: model.toolTip
+            QQC2.ToolTip.text: reactionDelegate.toolTip
         }
     }
 }

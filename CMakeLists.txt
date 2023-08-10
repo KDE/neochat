@@ -63,9 +63,9 @@ set_package_properties(KF6 PROPERTIES
     PURPOSE "Basic application components"
 )
 set_package_properties(KF6Kirigami2 PROPERTIES
-        TYPE REQUIRED
-        PURPOSE "Kirigami application UI framework"
-        )
+    TYPE REQUIRED
+    PURPOSE "Kirigami application UI framework"
+)
 find_package(KF6KirigamiAddons 0.7.2 REQUIRED)
 
 if(ANDROID)
@@ -81,6 +81,12 @@ else()
         TYPE RUNTIME
     )
     ecm_find_qmlmodule(org.kde.syntaxhighlighting 1.0)
+
+    find_package(ICU 61.0 COMPONENTS uc)
+    set_package_properties(ICU PROPERTIES
+        TYPE REQUIRED
+        PURPOSE "Unicode library"
+    )
 endif()
 
 if (NOT ANDROID AND NOT WIN32 AND NOT APPLE)
