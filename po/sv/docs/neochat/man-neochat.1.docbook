@@ -1,0 +1,122 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Swedish "INCLUDE">
+]>
+<!--
+SPDX-FileCopyrightText: 2022 Carl Schwan <carl@carlschwan.eu>
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
+<refentry lang="&language;">
+<refentryinfo>
+<title
+>NeoChat användarmanual</title>
+<author
+><firstname
+>Carl</firstname
+><surname
+>Schwan</surname
+> <contrib
+>NeoChat manualsida.</contrib
+> <email
+>carl@carlschwan.eu</email
+></author>
+<date
+>2022-11-01</date>
+<releaseinfo
+>22.09</releaseinfo>
+<productname
+>NeoChat</productname>
+</refentryinfo>
+
+<refmeta>
+  <refentrytitle>
+    <command
+>neochat</command>
+  </refentrytitle>
+  <manvolnum
+>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+  <refname
+>neochat</refname>
+  <refpurpose
+>Klient för att interagera med meddelandeprotokollet matrix</refpurpose>
+  </refnamediv>
+  <!-- body begins here -->
+  <refsynopsisdiv id='synopsis'>
+  <cmdsynopsis
+><command
+>neochat</command
+> <arg choice="opt"
+><replaceable
+>URI</replaceable
+></arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+
+<refsect1 id="description">
+  <title
+>Beskrivning</title>
+  <para
+><command
+>neochat</command
+> är ett chattprogram för protokollet matrix som fungerar både på skrivbord och mobil. </para>
+</refsect1>
+
+<refsect1 id="options"
+><title
+>Väljare</title>
+<variablelist>
+  <varlistentry>
+  <term
+><option
+>URI</option
+></term>
+  <listitem>
+    <para
+>Matrix webbadress för en användare eller ett rum, t.ex. matrix:u/användare:exempel.org. Det gör att NeoChat försöker öppna det angivna rummet eller konversationen. </para>
+  </listitem>
+  </varlistentry>
+</variablelist>
+</refsect1>
+
+<refsect1 id="bug">
+  <title
+>Rapportera fel</title>
+  <para
+>Rapportera fel och funktionsönskemål på <ulink url="https://bugs.kde.org/enter_bug.cgi?product=NeoChat&amp;component=General"
+>https://bugs.kde.org/enter_bug.cgi?product=NeoChat&amp;component=General</ulink
+></para>
+</refsect1>
+
+<refsect1>
+  <title
+>Se också</title>
+  <simplelist>
+    <member
+>En lista över vanliga frågor om Matrix <ulink url="https://matrix.org/faq/"
+>https://matrix.org/faq/</ulink
+> </member>
+    <member
+>kf5options(7)</member>
+    <member
+>qt5options(7)</member>
+  </simplelist>
+</refsect1>
+
+<refsect1 id="copyright"
+><title
+>Copyright</title>
+<para
+>Copyright &copy; 2020-2022 Tobias Fella </para>
+<para
+>Copyright &copy; 2020-2022 Carl Schwan </para>
+<para
+>Licens: GNU General Public Version 3 eller senare &lt;<ulink url="https://wwwgnuorg/licenses/gpl-html"
+>http://www.gnu.org/licenses/gpl-3.0.html</ulink
+>&gt;</para>
+</refsect1>
+</refentry>
