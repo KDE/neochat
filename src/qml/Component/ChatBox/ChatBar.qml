@@ -237,9 +237,9 @@ QQC2.Control {
                     completionMenu.complete()
                 }
             }
-            Keys.onPressed: {
+            Keys.onPressed: (event) => {
                 if (event.key === Qt.Key_V && event.modifiers & Qt.ControlModifier) {
-                    root.pasteImage();
+                    event.accepted = root.pasteImage();
                 } else if (event.key === Qt.Key_Up && event.modifiers & Qt.ControlModifier) {
                     currentRoom.replyLastMessage();
                 } else if (event.key === Qt.Key_Up && textField.text.length === 0) {
@@ -467,9 +467,10 @@ QQC2.Control {
     function pasteImage() {
         let localPath = Clipboard.saveImage();
         if (localPath.length === 0) {
-            return;
+            return false;
         }
-        currentRoom.chatBoxAttachmentPath = localPath
+        root.currentRoom.chatBoxAttachmentPath = localPath;
+        return true;
     }
 
     function postMessage() {
