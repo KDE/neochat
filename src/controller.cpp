@@ -625,12 +625,6 @@ int Controller::activeConnectionIndex() const
     return result - m_accountRegistry.accounts().begin();
 }
 
-int Controller::quotientMinorVersion() const
-{
-    // TODO libQuotient 0.7: Replace with version function from libQuotient
-    return 7;
-}
-
 bool Controller::isFlatpak() const
 {
 #ifdef NEOCHAT_FLATPAK

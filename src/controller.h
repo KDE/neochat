@@ -88,15 +88,6 @@ class Controller : public QObject
     Q_PROPERTY(bool isOnline READ isOnline NOTIFY isOnlineChanged)
 
     /**
-     * @brief The current minor version number of libQuotient being used.
-     *
-     * This is the only way to gate NeoChat features by libQuotient version in QML.
-     *
-     * @note No major version because libQuotient doesn't have any; All are 0.x.
-     */
-    Q_PROPERTY(int quotientMinorVersion READ quotientMinorVersion CONSTANT)
-
-    /**
      * @brief Whether NeoChat is running as a flatpak.
      *
      * This is the only way to gate NeoChat features in flatpaks in QML.
@@ -195,8 +186,6 @@ public:
      * @sa QNetworkProxy::setApplicationProxy
      */
     Q_INVOKABLE void setApplicationProxy();
-
-    int quotientMinorVersion() const;
 
     bool isFlatpak() const;
 
