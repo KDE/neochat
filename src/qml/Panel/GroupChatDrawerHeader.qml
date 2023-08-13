@@ -61,6 +61,7 @@ ColumnLayout {
                 Layout.fillWidth: true
                 text: room ? room.displayName : i18n("No name")
                 textFormat: Text.PlainText
+                wrapMode: Text.Wrap
             }
 
             Kirigami.SelectableLabel {
