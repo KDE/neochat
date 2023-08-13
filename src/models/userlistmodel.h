@@ -55,11 +55,6 @@ public:
     void setRoom(NeoChatRoom *room);
 
     /**
-     * @brief The user at the given index of the model.
-     */
-    [[nodiscard]] Quotient::User *userAt(QModelIndex index) const;
-
-    /**
      * @brief Get the given role value at the given index.
      *
      * @sa QAbstractItemModel::data
@@ -85,15 +80,12 @@ Q_SIGNALS:
     void usersRefreshed();
 
 private Q_SLOTS:
-    void userAdded(Quotient::User *user);
-    void userRemoved(Quotient::User *user);
-    void refreshUser(Quotient::User *user, const QVector<int> &roles = {});
+    void memberAdded(QString memberId);
+    void memberUpdated(QString memberId);
+    void memberRemoved(QString memberId);
     void refreshAllUsers();
 
 private:
     QPointer<NeoChatRoom> m_currentRoom;
-    QList<Quotient::User *> m_users;
-
-    int findUserPos(Quotient::User *user) const;
-    [[nodiscard]] int findUserPos(const QString &username) const;
+    QList<QSharedPointer<Quotient::RoomMember>> m_members;
 };

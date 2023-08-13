@@ -33,11 +33,9 @@ void UserListModel::setRoom(NeoChatRoom *room)
     m_currentRoom = room;
 
     if (m_currentRoom) {
-        connect(m_currentRoom, &Room::userAdded, this, &UserListModel::userAdded);
-        connect(m_currentRoom, &Room::userRemoved, this, &UserListModel::userRemoved);
-        connect(m_currentRoom, &Room::memberAboutToRename, this, &UserListModel::userRemoved);
-        connect(m_currentRoom, &Room::memberRenamed, this, &UserListModel::userAdded);
-        connect(m_currentRoom, &Room::changed, this, &UserListModel::refreshAllUsers);
+        connect(m_currentRoom, &Room::memberAdded, this, &UserListModel::memberAdded);
+        connect(m_currentRoom, &Room::memberRemoved, this, &UserListModel::memberRemoved);
+        connect(m_currentRoom, &Room::memberUpdated, this, &UserListModel::memberUpdated);
     }
 
     refreshAllUsers();
@@ -49,37 +47,29 @@ NeoChatRoom *UserListModel::room() const
     return m_currentRoom;
 }
 
-Quotient::User *UserListModel::userAt(QModelIndex index) const
-{
-    if (index.row() < 0 || index.row() >= m_users.size()) {
-        return nullptr;
-    }
-    return m_users.at(index.row());
-}
-
 QVariant UserListModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid()) {
         return QVariant();
     }
 
-    if (index.row() >= m_users.count()) {
+    if (index.row() >= rowCount()) {
         qDebug() << "UserListModel, something's wrong: index.row() >= "
                     "users.count()";
         return {};
     }
-    auto user = m_users.at(index.row());
+    auto user = m_members.at(index.row());
     if (role == DisplayNameRole) {
-        return user->displayname(m_currentRoom);
+        return user->displayName();
     }
     if (role == UserIdRole) {
         return user->id();
     }
     if (role == AvatarRole) {
-        return m_currentRoom->avatarForMember(user);
+        return user->avatarUrl();
     }
     if (role == ObjectRole) {
-        return QVariant::fromValue(user);
+        return QVariant::fromValue<RoomMember *>(user.get());
     }
     if (role == PowerLevelRole) {
         auto plEvent = m_currentRoom->currentState().get<RoomPowerLevelsEvent>();
@@ -118,77 +108,52 @@ int UserListModel::rowCount(const QModelIndex &parent) const
     if (parent.isValid()) {
         return 0;
     }
-    return m_users.count();
+    return m_members.count();
 }
 
-void UserListModel::userAdded(Quotient::User *user)
+void UserListModel::memberAdded(QString memberId)
 {
-    auto pos = findUserPos(user);
-    beginInsertRows(QModelIndex(), pos, pos);
-    m_users.insert(pos, user);
+    if (m_currentRoom->memberIds().contains(memberId)) {
+        return;
+    }
+    beginInsertRows(QModelIndex(), m_currentRoom->memberIds().size(), m_currentRoom->memberIds().size());
     endInsertRows();
-    connect(user, &User::defaultAvatarChanged, this, [this, user]() {
-        refreshUser(user, {AvatarRole});
-    });
 }
 
-void UserListModel::userRemoved(Quotient::User *user)
+void UserListModel::memberUpdated(QString memberId)
 {
-    auto pos = findUserPos(user);
-    if (pos != m_users.size()) {
-        beginRemoveRows(QModelIndex(), pos, pos);
-        m_users.removeAt(pos);
-        endRemoveRows();
-        user->disconnect(this);
-    } else {
-        qWarning() << "Trying to remove a room member not in the user list";
+    if (!m_currentRoom->memberIds().contains(memberId)) {
+        return;
+    }
+    auto row = m_currentRoom->memberIds().indexOf(memberId);
+    if (row >= 0 && row < m_currentRoom->memberIds().size()) {
+        Q_EMIT dataChanged(index(row), index(row));
     }
 }
 
-void UserListModel::refreshUser(Quotient::User *user, const QVector<int> &roles)
+void UserListModel::memberRemoved(QString memberId)
 {
-    auto pos = findUserPos(user);
-    if (pos != m_users.size()) {
-        Q_EMIT dataChanged(index(pos), index(pos), roles);
-    } else {
-        qWarning() << "Trying to access a room member not in the user list";
+    if (!m_currentRoom->memberIds().contains(memberId)) {
+        return;
+    }
+    auto row = m_currentRoom->memberIds().indexOf(memberId);
+    if (row >= 0 && row < m_currentRoom->memberIds().size()) {
+        beginRemoveRows(QModelIndex(), row, row);
+        endRemoveRows();
     }
 }
 
 void UserListModel::refreshAllUsers()
 {
     beginResetModel();
-    for (User *user : std::as_const(m_users)) {
-        user->disconnect(this);
-    }
-    m_users.clear();
+    m_members.clear();
+    m_members = m_currentRoom->members();
 
-    m_users = m_currentRoom->users();
-    std::sort(m_users.begin(), m_users.end(), m_currentRoom->memberSorter());
-
-    for (User *user : std::as_const(m_users)) {
-        connect(user, &User::defaultAvatarChanged, this, [this, user]() {
-            refreshUser(user, {AvatarRole});
-        });
-    }
     connect(m_currentRoom->connection(), &Connection::loggedOut, this, [this]() {
         setRoom(nullptr);
     });
     endResetModel();
     Q_EMIT usersRefreshed();
-}
-
-int UserListModel::findUserPos(Quotient::User *user) const
-{
-    return findUserPos(m_currentRoom->safeMemberName(user->id()));
-}
-
-int UserListModel::findUserPos(const QString &username) const
-{
-    if (!m_currentRoom) {
-        return 0;
-    }
-    return m_currentRoom->memberSorter().lowerBoundIndex(m_users, username);
 }
 
 QHash<int, QByteArray> UserListModel::roleNames() const

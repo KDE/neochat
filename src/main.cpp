@@ -265,6 +265,7 @@ int main(int argc, char *argv[])
     qRegisterMetaType<User *>("User*");
     qRegisterMetaType<User *>("const User*");
     qRegisterMetaType<User *>("const Quotient::User*");
+    qRegisterMetaType<RoomMember *>("RoomMember*");
     qRegisterMetaType<Room *>("Room*");
     qRegisterMetaType<Connection *>("Connection*");
     qRegisterMetaType<MessageEventType>("MessageEventType");
