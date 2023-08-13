@@ -26,8 +26,7 @@ QVariant StateModel::data(const QModelIndex &index, int role) const
 
 int StateModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent);
-    return m_room->currentState().events().size();
+    return !m_room || parent.isValid() ? 0 : m_room->currentState().events().size();
 }
 
 NeoChatRoom *StateModel::room() const
@@ -37,8 +36,12 @@ NeoChatRoom *StateModel::room() const
 
 void StateModel::setRoom(NeoChatRoom *room)
 {
+    if (m_room == room) {
+        return;
+    }
     m_room = room;
     Q_EMIT roomChanged();
+
     beginResetModel();
     m_stateEvents.clear();
     m_stateEvents = m_room->currentState().events().keys();
