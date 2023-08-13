@@ -97,6 +97,7 @@ QQC2.Control {
                     emojiDialog.open()
                 }
             }
+            tooltip: text
         },
         Kirigami.Action {
             id: mapButton
@@ -108,6 +109,7 @@ QQC2.Control {
             onTriggered: {
                 locationChooserComponent.createObject(QQC2.ApplicationWindow.overlay, {room: currentRoom}).open()
             }
+            tooltip: text
         },
         Kirigami.Action {
             id: sendAction
@@ -382,6 +384,7 @@ QQC2.Control {
 
                 QQC2.ToolTip.visible: modelData.tooltip !== "" && hoverHandler.hovered
                 QQC2.ToolTip.text: modelData.tooltip
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                 HoverHandler { id: hoverHandler }
 
                 PieProgressBar {
