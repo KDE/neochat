@@ -28,6 +28,8 @@ Delegates.RoundedItemDelegate {
     TapHandler {
         acceptedButtons: Qt.RightButton
         acceptedDevices: PointerDevice.Mouse
+        grabPermissions: PointerHandler.TakeOverForbidden
+        gesturePolicy: TapHandler.WithinBounds
         onTapped: root.contextMenuRequested()
     }
 
