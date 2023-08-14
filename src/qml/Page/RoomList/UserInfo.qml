@@ -95,7 +95,7 @@ QQC2.ToolBar {
                 }
             }
 
-            width: parent.width
+            Layout.fillWidth: true
             Layout.preferredHeight: contentHeight
             delegate: Delegates.RoundedItemDelegate {
                 id: userDelegate
