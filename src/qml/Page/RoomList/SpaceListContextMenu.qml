@@ -24,11 +24,13 @@ Loader {
         QQC2.Menu {
             QQC2.MenuItem {
                 text: i18nc("'Space' is a matrix space", "View Space")
+                icon.name: "expand"
                 onTriggered: RoomManager.enterRoom(room);
             }
 
             QQC2.MenuItem {
                 text: i18nc("@action:inmenu", "Copy Address to Clipboard")
+                icon.name: "edit-copy"
                 onTriggered: if (room.canonicalAlias.length === 0) {
                     Clipboard.saveText(room.id)
                 } else {
@@ -38,6 +40,7 @@ Loader {
 
             QQC2.MenuItem {
                 text: i18nc("'Space' is a matrix space", "Space Settings")
+                icon.name: 'settings-configure'
                 onTriggered: QQC2.ApplicationWindow.window.pageStack.pushDialogLayer('qrc:/Categories.qml', {room: room}, { title: i18n("Space Settings") })
             }
 
@@ -45,6 +48,7 @@ Loader {
 
             QQC2.MenuItem {
                 text: i18nc("'Space' is a matrix space", "Leave Space")
+                icon.name: "go-previous"
                 onTriggered: RoomManager.leaveRoom(room)
             }
 
