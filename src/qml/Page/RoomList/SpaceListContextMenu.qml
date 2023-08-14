@@ -54,7 +54,7 @@ Loader {
 
             onClosed: {
                 root.closed()
-                destroy()
+                regularMenu.destroy()
             }
         }
     }
