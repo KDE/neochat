@@ -292,6 +292,7 @@ QPixmap NotificationsManager::createNotificationImage(const QImage &icon, NeoCha
 
     QPainter painter(&roundedImage);
     painter.setRenderHint(QPainter::SmoothPixmapTransform);
+    painter.setPen(Qt::NoPen);
 
     // Fill background for transparent avatars
     painter.setBrush(Qt::white);
