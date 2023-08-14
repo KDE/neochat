@@ -291,7 +291,11 @@ QPixmap NotificationsManager::createNotificationImage(const QImage &icon, NeoCha
     roundedImage.fill(Qt::transparent);
 
     QPainter painter(&roundedImage);
-    painter.setRenderHint(QPainter::Antialiasing);
+    painter.setRenderHint(QPainter::SmoothPixmapTransform);
+
+    // Fill background for transparent avatars
+    painter.setBrush(Qt::white);
+    painter.drawRoundedRect(imageRect, imageRect.width(), imageRect.height());
 
     QBrush brush(icon.scaledToHeight(biggestDimension));
     painter.setBrush(brush);
@@ -301,6 +305,9 @@ QPixmap NotificationsManager::createNotificationImage(const QImage &icon, NeoCha
         const QImage roomAvatar = room->avatar(imageRect.width(), imageRect.height());
         if (icon != roomAvatar) {
             const QRect lowerQuarter{imageRect.center(), imageRect.size() / 2};
+
+            painter.setBrush(Qt::white);
+            painter.drawRoundedRect(lowerQuarter, lowerQuarter.width(), lowerQuarter.height());
 
             painter.setBrush(roomAvatar.scaled(lowerQuarter.size()));
             painter.drawRoundedRect(lowerQuarter, lowerQuarter.width(), lowerQuarter.height());
