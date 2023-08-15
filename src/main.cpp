@@ -3,6 +3,7 @@
 
 #include <QCommandLineParser>
 #include <QIcon>
+#include <QNetworkDiskCache>
 #include <QNetworkProxyFactory>
 #include <QObject>
 #include <QQmlApplicationEngine>
@@ -105,7 +106,17 @@ class NetworkAccessManagerFactory : public QQmlNetworkAccessManagerFactory
 {
     QNetworkAccessManager *create(QObject *) override
     {
-        return NetworkAccessManager::instance();
+        auto nam = NetworkAccessManager::instance();
+        nam->setRedirectPolicy(QNetworkRequest::NoLessSafeRedirectPolicy);
+
+        nam->enableStrictTransportSecurityStore(true, QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1String("/hsts/"));
+        nam->setStrictTransportSecurityEnabled(true);
+
+        auto namDiskCache = new QNetworkDiskCache(nam);
+        namDiskCache->setCacheDirectory(QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1String("/nam/"));
+        nam->setCache(namDiskCache);
+
+        return nam;
     }
 };
 
