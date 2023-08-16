@@ -93,6 +93,10 @@ set_package_properties(KF${QT_MAJOR_VERSION}Kirigami2 PROPERTIES
         )
 find_package(KF${QT_MAJOR_VERSION}KirigamiAddons 0.7.2 REQUIRED)
 
+if(QT_MAJOR_VERSION STREQUAL "6")
+    find_package(KF6StatusNotifierItem ${KF_MIN_VERSION} REQUIRED)
+endif()
+
 if(ANDROID)
     find_package(OpenSSL)
     set_package_properties(OpenSSL PROPERTIES
