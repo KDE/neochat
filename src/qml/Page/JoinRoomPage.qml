@@ -25,6 +25,14 @@ Kirigami.ScrollablePage {
 
     header: QQC2.Control {
         padding: Kirigami.Units.largeSpacing
+
+        background: Rectangle {
+            Kirigami.Theme.colorSet: Kirigami.Theme.Window
+            Kirigami.Theme.inherit: false
+
+            color: Kirigami.Theme.backgroundColor
+        }
+
         contentItem: RowLayout {
             Kirigami.SearchField {
                 id: identifierField
@@ -171,6 +179,15 @@ Kirigami.ScrollablePage {
                     }
                 }
 
+            }
+        }
+
+        Kirigami.Separator {
+            z: 999
+            anchors {
+                left: parent.left
+                right: parent.right
+                top: parent.bottom
             }
         }
     }
