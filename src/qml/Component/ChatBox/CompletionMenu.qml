@@ -71,7 +71,7 @@ QQC2.Popup {
                     visible: completionDelegate.iconName !== "invalid"
                     Layout.preferredWidth: Kirigami.Units.iconSizes.medium
                     Layout.preferredHeight: Kirigami.Units.iconSizes.medium
-                    source: completionDelegate.iconName === "invalid" ? "" : ("image://" + completionDelegate.iconName)
+                    source: completionDelegate.iconName === "invalid" ? "" : completionDelegate.iconName
                     name: completionDelegate.text
                 }
                 Delegates.SubtitleContentItem {
