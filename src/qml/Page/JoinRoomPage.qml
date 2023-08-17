@@ -7,7 +7,7 @@ import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 import Qt.labs.qmlmodels 1.0
 
-import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigami 2.19 as Kirigami
 import org.kde.kirigamiaddons.labs.components 1.0 as KirigamiComponents
 
 import org.kde.neochat 1.0
@@ -254,6 +254,26 @@ Kirigami.ScrollablePage {
                     }
                 }
             }
+        }
+
+        footer: RowLayout {
+            width: parent.width
+
+            QQC2.ProgressBar {
+                visible: publicRoomsListView.model.loading && publicRoomsListView.count !== 0
+                indeterminate: true
+                padding: Kirigami.Units.largeSpacing * 2
+                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                Layout.topMargin: Kirigami.Units.largeSpacing
+                Layout.bottomMargin: Kirigami.Units.largeSpacing
+                Layout.leftMargin: Kirigami.Units.largeSpacing
+                Layout.rightMargin: Kirigami.Units.largeSpacing
+            }
+        }
+
+        Kirigami.LoadingPlaceholder {
+            anchors.centerIn: parent
+            visible: publicRoomsListView.model.loading && publicRoomsListView.count === 0
         }
     }
 }

@@ -41,6 +41,7 @@ void PublicRoomListModel::setConnection(Connection *conn)
     if (job) {
         job->abandon();
         job = nullptr;
+        Q_EMIT loadingChanged();
     }
 
     if (m_connection) {
@@ -70,12 +71,14 @@ void PublicRoomListModel::setServer(const QString &value)
     nextBatch = "";
     attempted = false;
     rooms.clear();
+    Q_EMIT loadingChanged();
 
     endResetModel();
 
     if (job) {
         job->abandon();
         job = nullptr;
+        Q_EMIT loadingChanged();
     }
 
     if (m_connection) {
@@ -110,6 +113,7 @@ void PublicRoomListModel::setKeyword(const QString &value)
     if (job) {
         job->abandon();
         job = nullptr;
+        Q_EMIT loadingChanged();
     }
 
     if (m_connection) {
@@ -133,6 +137,7 @@ void PublicRoomListModel::next(int count)
     }
 
     job = m_connection->callApi<QueryPublicRoomsJob>(m_server, count, nextBatch, QueryPublicRoomsJob::Filter{m_keyword, {}});
+    Q_EMIT loadingChanged();
 
     connect(job, &BaseJob::finished, this, [this] {
         attempted = true;
@@ -150,6 +155,7 @@ void PublicRoomListModel::next(int count)
         }
 
         this->job = nullptr;
+        Q_EMIT loadingChanged();
     });
 }
 
@@ -251,6 +257,11 @@ int PublicRoomListModel::rowCount(const QModelIndex &parent) const
 bool PublicRoomListModel::hasMore() const
 {
     return !(attempted && nextBatch.isEmpty());
+}
+
+bool PublicRoomListModel::loading() const
+{
+    return (job != nullptr) || isJobPending(job);
 }
 
 #include "moc_publicroomlistmodel.cpp"

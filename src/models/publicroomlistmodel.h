@@ -48,6 +48,11 @@ class PublicRoomListModel : public QAbstractListModel
      */
     Q_PROPERTY(bool hasMore READ hasMore NOTIFY hasMoreChanged)
 
+    /**
+     * @biref Whether the model is still loading.
+     */
+    Q_PROPERTY(bool loading READ loading NOTIFY loadingChanged)
+
 public:
     /**
      * @brief Defines the model roles.
@@ -98,6 +103,8 @@ public:
 
     [[nodiscard]] bool hasMore() const;
 
+    [[nodiscard]] bool loading() const;
+
     /**
      * @brief Load the next set of rooms.
      *
@@ -111,6 +118,7 @@ private:
     QString m_keyword;
 
     bool attempted = false;
+    bool m_loading = false;
     QString nextBatch;
 
     QVector<Quotient::PublicRoomsChunk> rooms;
@@ -122,4 +130,5 @@ Q_SIGNALS:
     void serverChanged();
     void keywordChanged();
     void hasMoreChanged();
+    void loadingChanged();
 };
