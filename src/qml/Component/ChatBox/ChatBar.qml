@@ -6,6 +6,7 @@ import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Window 2.15
+import Qt.labs.platform 1.1 as Platform
 
 import org.kde.kirigami 2.18 as Kirigami
 import org.kde.neochat 1.0
@@ -535,6 +536,61 @@ QQC2.Control {
     Component {
         id: locationChooserComponent
         LocationChooser {}
+    }
+
+    QQC2.Popup {
+        anchors.centerIn: parent
+
+        id: attachDialog
+
+        padding: 16
+
+        contentItem: RowLayout {
+            QQC2.ToolButton {
+                Layout.preferredWidth: 160
+                Layout.fillHeight: true
+
+                icon.name: 'mail-attachment'
+
+                text: i18n("Choose local file")
+
+                onClicked: {
+                    attachDialog.close()
+
+                    var fileDialog = openFileDialog.createObject(QQC2.ApplicationWindow.overlay)
+
+                    fileDialog.chosen.connect(function (path) {
+                        if (!path) {
+                            return;
+                        }
+                        root.currentRoom.chatBoxAttachmentPath = path;
+                    })
+
+                    fileDialog.open()
+                }
+            }
+
+            Kirigami.Separator {
+            }
+
+            QQC2.ToolButton {
+                Layout.preferredWidth: 160
+                Layout.fillHeight: true
+
+                padding: 16
+
+                icon.name: 'insert-image'
+                text: i18n("Clipboard image")
+                onClicked: {
+                    const localPath = Platform.StandardPaths.writableLocation(Platform.StandardPaths.CacheLocation) + "/screenshots/" + (new Date()).getTime() + ".png"
+                    if (!Clipboard.saveImage(localPath)) {
+                        return;
+                    }
+                    root.currentRoom.chatBoxAttachmentPath = localPath;
+                    attachDialog.close();
+                }
+            }
+        }
     }
 
     Component {
