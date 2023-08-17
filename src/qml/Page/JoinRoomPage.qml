@@ -292,5 +292,11 @@ Kirigami.ScrollablePage {
             anchors.centerIn: parent
             visible: publicRoomsListView.model.loading && publicRoomsListView.count === 0
         }
+
+        Kirigami.PlaceholderMessage {
+            anchors.centerIn: parent
+            visible: !publicRoomsListView.model.loading && publicRoomsListView.count === 0
+            text: i18nc("@info:label", "No rooms found")
+        }
     }
 }
