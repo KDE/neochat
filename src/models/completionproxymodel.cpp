@@ -11,6 +11,11 @@ bool CompletionProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &so
     if (m_filterText.isEmpty()) {
         return false;
     }
+
+    if (sourceModel()->data(sourceModel()->index(sourceRow, 0), filterRole()).toString().isEmpty()) {
+        return false;
+    }
+
     return (sourceModel()->data(sourceModel()->index(sourceRow, 0), filterRole()).toString().startsWith(m_filterText, Qt::CaseInsensitive)
             && !m_fullText.startsWith(sourceModel()->data(sourceModel()->index(sourceRow, 0), filterRole()).toString()))
         || (m_secondaryFilterRole != -1
