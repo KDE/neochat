@@ -85,7 +85,11 @@ Kirigami.ScrollablePage {
                                 id: confirmLogoutDialogComponent
                                 Dialog.ConfirmLogout {
                                     connection: model.connection
-                                    onAccepted: page.Window.window.close()
+                                    onAccepted: {
+                                        if (Controller.accountCount === 1) {
+                                            page.Window.window.close()
+                                        }
+                                    }
                                 }
                             }
 
