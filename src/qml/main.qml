@@ -159,10 +159,6 @@ Kirigami.ApplicationWindow {
         handleVisible: enabled
     }
 
-    Dialog.ConfirmLogout {
-        id: confirmLogoutDialog
-    }
-
     Component.onCompleted: {
         Controller.setBlur(pageStack, Config.blur && !Config.compactLayout);
         if (Config.minimizeToSystemTrayOnStartup && !Kirigami.Settings.isMobile && Controller.supportSystemTray && Config.systemTray) {
