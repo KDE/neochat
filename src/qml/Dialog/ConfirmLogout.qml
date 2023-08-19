@@ -11,6 +11,8 @@ import org.kde.neochat 1.0
 QQC2.Dialog {
     id: root
 
+    property var connection
+
     ColumnLayout {
         Kirigami.Heading {
             text: i18n("Sign out")
@@ -35,7 +37,7 @@ QQC2.Dialog {
             text: i18n("Sign out")
             QQC2.DialogButtonBox.buttonRole: QQC2.DialogButtonBox.AcceptRole
             onClicked: {
-                Controller.logout(Controller.activeConnection, true);
+                Controller.logout(root.connection, true);
                 root.close();
             }
         }
