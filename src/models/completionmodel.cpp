@@ -87,7 +87,8 @@ QVariant CompletionModel::data(const QModelIndex &index, int role) const
             return m_filterModel->data(filterIndex, RoomListModel::CanonicalAliasRole);
         }
         if (role == IconNameRole) {
-            return QStringLiteral("image://mxc//%1").arg(m_filterModel->data(filterIndex, RoomListModel::AvatarRole).toString());
+            return QStringLiteral("mxc://%1")
+                .arg(m_roomListModel->connection()->makeMediaUrl(m_filterModel->data(filterIndex, RoomListModel::AvatarRole).toUrl()).toString());
         }
     }
     if (m_autoCompletionType == Emoji) {
