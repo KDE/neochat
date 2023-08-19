@@ -39,6 +39,7 @@ QQC2.Dialog {
             onClicked: {
                 Controller.logout(root.connection, true);
                 root.close();
+                root.accepted();
             }
         }
     }
