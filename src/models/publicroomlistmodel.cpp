@@ -261,7 +261,7 @@ bool PublicRoomListModel::hasMore() const
 
 bool PublicRoomListModel::loading() const
 {
-    return (job != nullptr) || isJobPending(job);
+    return job != nullptr;
 }
 
 #include "moc_publicroomlistmodel.cpp"
