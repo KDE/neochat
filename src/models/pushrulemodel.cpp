@@ -69,8 +69,10 @@ PushRuleModel::PushRuleModel(QObject *parent)
 
 void PushRuleModel::controllerConnectionChanged()
 {
-    connect(Controller::instance().activeConnection(), &Quotient::Connection::accountDataChanged, this, &PushRuleModel::updateNotificationRules);
-    updateNotificationRules("m.push_rules");
+    if (Controller::instance().activeConnection()) {
+        connect(Controller::instance().activeConnection(), &Quotient::Connection::accountDataChanged, this, &PushRuleModel::updateNotificationRules);
+        updateNotificationRules("m.push_rules");
+    }
 }
 
 void PushRuleModel::updateNotificationRules(const QString &type)
