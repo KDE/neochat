@@ -40,7 +40,7 @@ Message {
             case KeyVerificationSession.KEY_MISMATCH:
                 return i18n("The session verification was canceled because the keys are incorrect.");
             case KeyVerificationSession.REMOTE_KEY_MISMATCH:
-                return i18n("The remote party canceled the session verification because the keys are incorrect.");
+                return i18n("The remote party canceled the session verification because the keys are incorrect.\n\n**Please log out and log back in, your session is broken/corrupt.**");
             case KeyVerificationSession.USER_MISMATCH:
                 return i18n("The session verification was canceled because it verifies an unexpected user.");
             case KeyVerificationSession.REMOTE_USER_MISMATCH:
