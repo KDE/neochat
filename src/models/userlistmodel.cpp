@@ -163,17 +163,19 @@ void UserListModel::refreshAllUsers()
     }
     m_users.clear();
 
-    m_users = m_currentRoom->users();
-    std::sort(m_users.begin(), m_users.end(), m_currentRoom->memberSorter());
+    if (m_currentRoom != nullptr) {
+        m_users = m_currentRoom->users();
+        std::sort(m_users.begin(), m_users.end(), m_currentRoom->memberSorter());
 
-    for (User *user : std::as_const(m_users)) {
-        connect(user, &User::defaultAvatarChanged, this, [this, user]() {
-            refreshUser(user, {AvatarRole});
+        for (User *user : std::as_const(m_users)) {
+            connect(user, &User::defaultAvatarChanged, this, [this, user]() {
+                refreshUser(user, {AvatarRole});
+            });
+        }
+        connect(m_currentRoom->connection(), &Connection::loggedOut, this, [this]() {
+            setRoom(nullptr);
         });
     }
-    connect(m_currentRoom->connection(), &Connection::loggedOut, this, [this]() {
-        setRoom(nullptr);
-    });
     endResetModel();
     Q_EMIT usersRefreshed();
 }
