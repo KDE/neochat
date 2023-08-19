@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 import QtQuick 2.15
+import QtQuick.Window 2.15
 import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 import QtQml.Models 2.15
@@ -55,14 +56,12 @@ TimelineContainer {
 
     onOpenContextMenu: openFileContext(root)
 
-    innerObject: AnimatedImage {
-        id: img
+    innerObject: Item {
+        id: imageContainer
 
         property var imageWidth: {
             if (root.mediaInfo.width > 0) {
                 return root.mediaInfo.width;
-            } else if (sourceSize.width && sourceSize.width > 0) {
-                return sourceSize.width;
             } else {
                 return root.contentMaxWidth;
             }
@@ -70,8 +69,6 @@ TimelineContainer {
         property var imageHeight: {
             if (root.mediaInfo.height > 0) {
                 return root.mediaInfo.height;
-            } else if (sourceSize.height && sourceSize.height > 0) {
-                return sourceSize.height;
             } else {
                 // Default to a 16:9 placeholder
                 return root.contentMaxWidth / 16 * 9;
@@ -103,21 +100,48 @@ TimelineContainer {
         Layout.maximumHeight: maxSize.height
         Layout.preferredWidth: imageWidth
         Layout.preferredHeight: imageHeight
-        source: root.mediaInfo.source
+
+        property var imageItem: root.mediaInfo.animated ? animatedImageLoader.item : imageLoader.item
+
+        Loader {
+            id: imageLoader
+
+            anchors.fill: parent
+
+            active: !root.mediaInfo.animated
+            sourceComponent: Image {
+                source: root.mediaInfo.source
+                sourceSize.width: imageContainer.maxSize.width * Screen.devicePixelRatio
+                sourceSize.height: imageContainer.maxSize.height * Screen.devicePixelRatio
+
+                fillMode: Image.PreserveAspectFit
+            }
+        }
+
+        Loader {
+            id: animatedImageLoader
+
+            anchors.fill: parent
+
+            active: root.mediaInfo.animated
+            sourceComponent: AnimatedImage {
+                source: root.mediaInfo.source
+
+                fillMode: Image.PreserveAspectFit
+
+                paused: !applicationWindow().active
+            }
+        }
 
         Image {
             anchors.fill: parent
             source: root.mediaInfo.tempInfo.source
-            visible: parent.status !== Image.Ready
+            visible: imageContainer.imageItem.status !== Image.Ready
         }
-
-        fillMode: Image.PreserveAspectFit
 
         QQC2.ToolTip.text: root.display
         QQC2.ToolTip.visible: hoverHandler.hovered
         QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-
-        paused: !applicationWindow().active
 
         HoverHandler {
             id: hoverHandler
@@ -126,7 +150,7 @@ TimelineContainer {
         Rectangle {
             anchors.fill: parent
 
-            visible: root.progressInfo.active && !downloaded
+            visible: (root.progressInfo.active && !downloaded) || imageContainer.imageItem.status !== Image.Ready
 
             color: "#BB000000"
 
@@ -144,8 +168,10 @@ TimelineContainer {
         TapHandler {
             acceptedButtons: Qt.LeftButton
             onTapped: {
-                img.QQC2.ToolTip.hide()
-                img.paused = true
+                imageContainer.QQC2.ToolTip.hide()
+                if (root.mediaInfo.animated) {
+                    imageContainer.imageItem.paused = true
+                }
                 root.ListView.view.interactive = false
                 root.ListView.view.showMaximizedMedia(root.index)
             }

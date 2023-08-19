@@ -20,6 +20,7 @@
 
 #include <QDebug>
 #include <QGuiApplication>
+#include <QMovie>
 #include <QTimeZone>
 
 #include <KLocalizedString>
@@ -968,6 +969,9 @@ QVariantMap MessageEventModel::getMediaInfoFromFileInfo(const EventContent::File
         if (auto castInfo = static_cast<const EventContent::ImageContent *>(fileInfo)) {
             mediaInfo["width"] = castInfo->imageSize.width();
             mediaInfo["height"] = castInfo->imageSize.height();
+
+            // TODO: Images in certain formats (e.g. WebP) will be erroneously marked as animated, even if they are static.
+            mediaInfo["animated"] = QMovie::supportedFormats().contains(mimeType.preferredSuffix().toUtf8());
 
             if (!isThumbnail) {
                 QVariantMap tempInfo;
