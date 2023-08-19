@@ -24,5 +24,6 @@ Column {
     QQC2.Label {
         text: root.text
         textFormat: Text.MarkdownText
+        horizontalAlignment: Text.AlignHCenter
     }
 }
