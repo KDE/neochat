@@ -180,7 +180,11 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body)
     EventContent::TypedBase *content;
     if (mime.name().startsWith("image/"_ls)) {
         QImage image(url.toLocalFile());
-        content = new EventContent::ImageContent(url, fileInfo.size(), mime, image.size(), fileInfo.fileName());
+
+        QImage rgbImage = image.convertToFormat(QImage::Format_RGB888);
+        const QString blurhash = QString::fromStdString(blurhash::encode(rgbImage.bits(), image.width(), image.height(), 4, 3));
+
+        content = new EventContent::ImageContent(url, fileInfo.size(), mime, image.size(), fileInfo.fileName(), blurhash);
     } else if (mime.name().startsWith("audio/"_ls)) {
         content = new EventContent::AudioContent(url, fileInfo.size(), mime, fileInfo.fileName());
     } else if (mime.name().startsWith("video/"_ls)) {
