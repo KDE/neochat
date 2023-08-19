@@ -249,28 +249,6 @@ Kirigami.ScrollablePage {
                 }*/
             }
         }
-
-        MobileForm.FormHeader {
-            Layout.fillWidth: true
-            title: i18n("Sign out")
-        }
-        MobileForm.FormCard {
-            Layout.fillWidth: true
-            contentItem: ColumnLayout {
-                spacing: 0
-                MobileForm.FormButtonDelegate {
-                    Layout.fillWidth: true
-                    text: i18n("Sign out")
-                    onClicked: {
-                        Controller.logout(root.connection, true);
-                        root.closeDialog();
-                        if (Controller.accountCount === 1) {
-                            pageStack.layers.pop();
-                        }
-                    }
-                }
-            }
-        }
     }
     Component {
         id: openFileDialog

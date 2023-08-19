@@ -51,6 +51,8 @@ QQC2.Menu {
 
     Component {
         id: confirmLogoutDialogComponent
-        Dialog.ConfirmLogout {}
+        Dialog.ConfirmLogout {
+            connection: Controller.activeConnection
+        }
     }
 }
