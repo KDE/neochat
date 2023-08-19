@@ -1,26 +1,25 @@
-// SPDX-FileCopyrightText: 2021 Tobias Fella <tobias.fella@kde.org>
+// SPDX-FileCopyrightText: 2021 Tobias Fella <fella@posteo.de>
 // SPDX-License-Identifier: LGPL-2.0-or-later
 
 #pragma once
 
-#include <QQuickImageProvider>
+#include <QQuickAsyncImageProvider>
+#include <QThreadPool>
 
-/**
- * @class BlurhashImageProvider
- *
- * A QQuickImageProvider for blurhashes.
- *
- * @sa QQuickImageProvider
- */
-class BlurhashImageProvider : public QQuickImageProvider
+class AsyncImageResponse : public QQuickImageResponse
 {
 public:
-    BlurhashImageProvider();
+    AsyncImageResponse(const QString &id, const QSize &requestedSize, QThreadPool *pool);
+    void handleDone(QImage image);
+    QQuickTextureFactory *textureFactory() const override;
+    QImage m_image;
+};
 
-    /**
-     * @brief Return an image for a given ID.
-     *
-     * @sa QQuickImageProvider::requestImage
-     */
-    QImage requestImage(const QString &id, QSize *size, const QSize &requestedSize) override;
+class BlurhashImageProvider : public QQuickAsyncImageProvider
+{
+public:
+    QQuickImageResponse *requestImageResponse(const QString &id, const QSize &requestedSize) override;
+
+private:
+    QThreadPool pool;
 };
