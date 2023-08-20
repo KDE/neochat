@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-17 00:46+0000\n"
+"POT-Creation-Date: 2023-08-20 00:46+0000\n"
 "PO-Revision-Date: 2023-08-13 00:43+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -651,34 +651,34 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Emojis propios"
 
-#: src/models/messageeventmodel.cpp:463 src/models/messageeventmodel.cpp:472
+#: src/models/messageeventmodel.cpp:464 src/models/messageeventmodel.cpp:473
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Este mensaje ha sido borrado]</i>"
 
-#: src/models/messageeventmodel.cpp:464
+#: src/models/messageeventmodel.cpp:465
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Este mensaje ha sido borrado: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:540
+#: src/models/messageeventmodel.cpp:541
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[CORREGIDO]"
 
-#: src/models/messageeventmodel.cpp:540
+#: src/models/messageeventmodel.cpp:541
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[CORREGIDO: %1]"
 
-#: src/models/messageeventmodel.cpp:836
+#: src/models/messageeventmodel.cpp:837
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 usuario: "
 msgstr[1] "%1 usuarios: "
 
-#: src/models/messageeventmodel.cpp:839
+#: src/models/messageeventmodel.cpp:840
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -1153,46 +1153,56 @@ msgstr "Editar"
 msgid "Cancel sending attachment"
 msgstr "Cancelar envío del adjunto"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:63
+#: src/qml/Component/ChatBox/ChatBar.qml:64
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Adjuntar una imagen o un archivo"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:90
+#: src/qml/Component/ChatBox/ChatBar.qml:91
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emojis y pegatinas"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:107
+#: src/qml/Component/ChatBox/ChatBar.qml:108
 #, kde-format
 msgid "Send a Location"
 msgstr "Enviar una ubicación"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:121
+#: src/qml/Component/ChatBox/ChatBar.qml:122
 #, kde-format
 msgid "Send message"
 msgstr "Enviar mensaje"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:168
+#: src/qml/Component/ChatBox/ChatBar.qml:169
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Enviar un mensaje cifrado..."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:168
+#: src/qml/Component/ChatBox/ChatBar.qml:169
 #, kde-format
 msgid "Set an attachment caption..."
 msgstr "Definir un subtítulo de adjunto..."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:168
+#: src/qml/Component/ChatBox/ChatBar.qml:169
 #, kde-format
 msgid "Send a message…"
 msgstr "Enviar un mensaje..."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:348
+#: src/qml/Component/ChatBox/ChatBar.qml:349
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Cancelar respuesta"
+
+#: src/qml/Component/ChatBox/ChatBar.qml:555
+#, kde-format
+msgid "Choose local file"
+msgstr "Escoger archivo local"
+
+#: src/qml/Component/ChatBox/ChatBar.qml:583
+#, kde-format
+msgid "Clipboard image"
+msgstr "Imagen del portapapeles"
 
 #: src/qml/Component/ChatBox/LocationChooser.qml:22
 #, kde-format
@@ -1595,32 +1605,22 @@ msgstr "Volumen"
 msgid "Maximize"
 msgstr "Maximizar"
 
-#: src/qml/Component/TimelineView.qml:140
-#, kde-format
-msgid "Choose local file"
-msgstr "Escoger archivo local"
-
-#: src/qml/Component/TimelineView.qml:168
-#, kde-format
-msgid "Clipboard image"
-msgstr "Imagen del portapapeles"
-
-#: src/qml/Component/TimelineView.qml:217
+#: src/qml/Component/TimelineView.qml:153
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Saltar al primer mensaje sin leer"
 
-#: src/qml/Component/TimelineView.qml:240
+#: src/qml/Component/TimelineView.qml:176
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Saltar al último mensaje"
 
-#: src/qml/Component/TimelineView.qml:266
+#: src/qml/Component/TimelineView.qml:202
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Arrastre elementos aquí para compartirlos"
 
-#: src/qml/Component/TimelineView.qml:292
+#: src/qml/Component/TimelineView.qml:228
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -1675,7 +1675,7 @@ msgstr "Nombre de la sala:"
 msgid "Room topic:"
 msgstr "Tema de la sala:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:160
+#: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:168
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -2466,71 +2466,78 @@ msgstr "El usuario ya es miembro o ha sido invitado"
 msgid "Explore Rooms"
 msgstr "Explorar salas"
 
-#: src/qml/Page/JoinRoomPage.qml:37
+#: src/qml/Page/JoinRoomPage.qml:45
 #, kde-format
 msgid "Find a room..."
 msgstr "Encontrar una sala..."
 
-#: src/qml/Page/JoinRoomPage.qml:45
+#: src/qml/Page/JoinRoomPage.qml:53
 #, kde-format
 msgid "View"
 msgstr "Ver"
 
-#: src/qml/Page/JoinRoomPage.qml:45
+#: src/qml/Page/JoinRoomPage.qml:53
 #, kde-format
 msgid "Join"
 msgstr "Unirse"
 
-#: src/qml/Page/JoinRoomPage.qml:74
+#: src/qml/Page/JoinRoomPage.qml:82
 #, kde-format
 msgid "Add New Server"
 msgstr "Añadir nuevo servidor"
 
-#: src/qml/Page/JoinRoomPage.qml:75
+#: src/qml/Page/JoinRoomPage.qml:83
 #, kde-format
 msgid "Home Server"
 msgstr "Servidor doméstico"
 
-#: src/qml/Page/JoinRoomPage.qml:84
+#: src/qml/Page/JoinRoomPage.qml:92
 #, kde-format
 msgid "Add new server"
 msgstr "Añadir nuevo servidor"
 
-#: src/qml/Page/JoinRoomPage.qml:115
+#: src/qml/Page/JoinRoomPage.qml:123
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "Añadir servidor"
 
-#: src/qml/Page/JoinRoomPage.qml:128
+#: src/qml/Page/JoinRoomPage.qml:136
 #, kde-format
 msgid "Valid server entered"
 msgstr "Se ha introducido un servidor correcto"
 
-#: src/qml/Page/JoinRoomPage.qml:128
+#: src/qml/Page/JoinRoomPage.qml:136
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "No se puede resolver este servidor o ya se ha añadido antes"
 
-#: src/qml/Page/JoinRoomPage.qml:128
+#: src/qml/Page/JoinRoomPage.qml:136
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "El texto introducido no es una URL válida"
 
-#: src/qml/Page/JoinRoomPage.qml:128
+#: src/qml/Page/JoinRoomPage.qml:136
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr "Introduzca URL del servidor (por ejemplo, kde.org)"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:144
 #, kde-format
 msgid "Server URL"
 msgstr "URL del servidor"
 
-#: src/qml/Page/JoinRoomPage.qml:228
+#: src/qml/Page/JoinRoomPage.qml:245
 #, kde-format
 msgid "Joined"
 msgstr "Unido"
+
+#: src/qml/Page/JoinRoomPage.qml:299
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@info:label"
+msgid "No rooms found"
+msgstr "No se ha encontrado ninguna sala"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:18
 #: src/qml/Page/RoomList/UserInfo.qml:175

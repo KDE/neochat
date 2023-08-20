@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-17 00:46+0000\n"
+"POT-Creation-Date: 2023-08-20 00:46+0000\n"
 "PO-Revision-Date: 2023-08-08 06:57+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -646,34 +646,34 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "საკუთარი ემოჯიები"
 
-#: src/models/messageeventmodel.cpp:463 src/models/messageeventmodel.cpp:472
+#: src/models/messageeventmodel.cpp:464 src/models/messageeventmodel.cpp:473
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[ეს შეტყობინება წაშლილია]</i>"
 
-#: src/models/messageeventmodel.cpp:464
+#: src/models/messageeventmodel.cpp:465
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[ეს შეტყობინება წაშლილია: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:540
+#: src/models/messageeventmodel.cpp:541
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[ჩასწორებული]"
 
-#: src/models/messageeventmodel.cpp:540
+#: src/models/messageeventmodel.cpp:541
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[ჩასწორებულია: %1]"
 
-#: src/models/messageeventmodel.cpp:836
+#: src/models/messageeventmodel.cpp:837
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 მომხმარებელი: "
 msgstr[1] "%1 მომხმარებელი: "
 
-#: src/models/messageeventmodel.cpp:839
+#: src/models/messageeventmodel.cpp:840
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -1148,46 +1148,56 @@ msgstr "ჩასწორება"
 msgid "Cancel sending attachment"
 msgstr "მიმაგრებული ფაილის გაგზავნის გაუქმება"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:63
+#: src/qml/Component/ChatBox/ChatBar.qml:64
 #, kde-format
 msgid "Attach an image or file"
 msgstr "გამოსახულების ან ფაილის მიბმა"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:90
+#: src/qml/Component/ChatBox/ChatBar.qml:91
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "ემოჯიები და სტიკერები"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:107
+#: src/qml/Component/ChatBox/ChatBar.qml:108
 #, kde-format
 msgid "Send a Location"
 msgstr "მდებარეობის გაგზავნა"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:121
+#: src/qml/Component/ChatBox/ChatBar.qml:122
 #, kde-format
 msgid "Send message"
 msgstr "შეტყობინების გაგზავნა"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:168
+#: src/qml/Component/ChatBox/ChatBar.qml:169
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "დაშიფრული შეტყობინების გაგზავნა…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:168
+#: src/qml/Component/ChatBox/ChatBar.qml:169
 #, kde-format
 msgid "Set an attachment caption..."
 msgstr "მიმაგრებული ფაილების წარწერის დაყენება..."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:168
+#: src/qml/Component/ChatBox/ChatBar.qml:169
 #, kde-format
 msgid "Send a message…"
 msgstr "შეტყობინების გაგზავნა…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:348
+#: src/qml/Component/ChatBox/ChatBar.qml:349
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "პასუხის გაუქმება"
+
+#: src/qml/Component/ChatBox/ChatBar.qml:555
+#, kde-format
+msgid "Choose local file"
+msgstr "აირჩიეთ ლოკალური ფაილი"
+
+#: src/qml/Component/ChatBox/ChatBar.qml:583
+#, kde-format
+msgid "Clipboard image"
+msgstr "ბუფერის გამოსახულება"
 
 #: src/qml/Component/ChatBox/LocationChooser.qml:22
 #, kde-format
@@ -1590,32 +1600,22 @@ msgstr "ხმის სიმაღლე"
 msgid "Maximize"
 msgstr "გადიდება"
 
-#: src/qml/Component/TimelineView.qml:140
-#, kde-format
-msgid "Choose local file"
-msgstr "აირჩიეთ ლოკალური ფაილი"
-
-#: src/qml/Component/TimelineView.qml:168
-#, kde-format
-msgid "Clipboard image"
-msgstr "ბუფერის გამოსახულება"
-
-#: src/qml/Component/TimelineView.qml:217
+#: src/qml/Component/TimelineView.qml:153
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "პირველ წაუკითხავ შეტყობინებაზე გადასვლა"
 
-#: src/qml/Component/TimelineView.qml:240
+#: src/qml/Component/TimelineView.qml:176
 #, kde-format
 msgid "Jump to latest message"
 msgstr "უახლეს შეტყობინებებზე გადასვლა"
 
-#: src/qml/Component/TimelineView.qml:266
+#: src/qml/Component/TimelineView.qml:202
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "გადმოათრიეთ საგნები აქ, მათ გასაზიარებლად"
 
-#: src/qml/Component/TimelineView.qml:292
+#: src/qml/Component/TimelineView.qml:228
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -1670,7 +1670,7 @@ msgstr "ოთახის სახელი:"
 msgid "Room topic:"
 msgstr "ოთახის თემა:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:160
+#: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:168
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -2439,71 +2439,78 @@ msgstr "მომხმარებელი ან უკვე წევრი
 msgid "Explore Rooms"
 msgstr "ოთახების დათვალიერება"
 
-#: src/qml/Page/JoinRoomPage.qml:37
+#: src/qml/Page/JoinRoomPage.qml:45
 #, kde-format
 msgid "Find a room..."
 msgstr "ოთახის პოვნა..."
 
-#: src/qml/Page/JoinRoomPage.qml:45
+#: src/qml/Page/JoinRoomPage.qml:53
 #, kde-format
 msgid "View"
 msgstr "ნახვა"
 
-#: src/qml/Page/JoinRoomPage.qml:45
+#: src/qml/Page/JoinRoomPage.qml:53
 #, kde-format
 msgid "Join"
 msgstr "შეერთება"
 
-#: src/qml/Page/JoinRoomPage.qml:74
+#: src/qml/Page/JoinRoomPage.qml:82
 #, kde-format
 msgid "Add New Server"
 msgstr "ახალი სერვერის დამატება"
 
-#: src/qml/Page/JoinRoomPage.qml:75
+#: src/qml/Page/JoinRoomPage.qml:83
 #, kde-format
 msgid "Home Server"
 msgstr "სახლის სერვერი"
 
-#: src/qml/Page/JoinRoomPage.qml:84
+#: src/qml/Page/JoinRoomPage.qml:92
 #, kde-format
 msgid "Add new server"
 msgstr "ახალი სერვერის დამატება"
 
-#: src/qml/Page/JoinRoomPage.qml:115
+#: src/qml/Page/JoinRoomPage.qml:123
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "სერვერის დამატება"
 
-#: src/qml/Page/JoinRoomPage.qml:128
+#: src/qml/Page/JoinRoomPage.qml:136
 #, kde-format
 msgid "Valid server entered"
 msgstr "შეყვანილი სერვერი სწორია"
 
-#: src/qml/Page/JoinRoomPage.qml:128
+#: src/qml/Page/JoinRoomPage.qml:136
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "სერვერის ამოხსნა შეუძლებელია ან ის უკვე დამატებულია"
 
-#: src/qml/Page/JoinRoomPage.qml:128
+#: src/qml/Page/JoinRoomPage.qml:136
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "შეყვანილი ტექსტი სწორ URL-ს არ წარმოადგენს"
 
-#: src/qml/Page/JoinRoomPage.qml:128
+#: src/qml/Page/JoinRoomPage.qml:136
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr "შეიყვანეთ სერვერის URL. მაგ: kde.org"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:144
 #, kde-format
 msgid "Server URL"
 msgstr "სერვერის URL"
 
-#: src/qml/Page/JoinRoomPage.qml:228
+#: src/qml/Page/JoinRoomPage.qml:245
 #, kde-format
 msgid "Joined"
 msgstr "შეერთებული"
+
+#: src/qml/Page/JoinRoomPage.qml:299
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@info:label"
+msgid "No rooms found"
+msgstr "ოთახები ვერ ვიპოვე"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:18
 #: src/qml/Page/RoomList/UserInfo.qml:175

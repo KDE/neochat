@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-17 00:46+0000\n"
+"POT-Creation-Date: 2023-08-20 00:46+0000\n"
 "PO-Revision-Date: 2023-08-06 14:11+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -648,34 +648,34 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "சொந்த முகவடிகள்"
 
-#: src/models/messageeventmodel.cpp:463 src/models/messageeventmodel.cpp:472
+#: src/models/messageeventmodel.cpp:464 src/models/messageeventmodel.cpp:473
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[இந்த செய்தி நீக்கப்பட்டது]</i>"
 
-#: src/models/messageeventmodel.cpp:464
+#: src/models/messageeventmodel.cpp:465
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[இந்த செய்தி நீக்கப்பட்டது: %1]</i>"
 
-#: src/models/messageeventmodel.cpp:540
+#: src/models/messageeventmodel.cpp:541
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[தணிக்கை செய்யப்பட்டது]"
 
-#: src/models/messageeventmodel.cpp:540
+#: src/models/messageeventmodel.cpp:541
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[தணிக்கை செய்யப்பட்டது: %1]"
 
-#: src/models/messageeventmodel.cpp:836
+#: src/models/messageeventmodel.cpp:837
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 பயனர்: "
 msgstr[1] "%1 பயனர்கள்: "
 
-#: src/models/messageeventmodel.cpp:839
+#: src/models/messageeventmodel.cpp:840
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -1150,46 +1150,56 @@ msgstr "திருத்து"
 msgid "Cancel sending attachment"
 msgstr "உடனிணைப்பை அனுப்புவதை ரத்துசெய்"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:63
+#: src/qml/Component/ChatBox/ChatBar.qml:64
 #, kde-format
 msgid "Attach an image or file"
 msgstr "படம் அல்லது கோப்பை இணை"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:90
+#: src/qml/Component/ChatBox/ChatBar.qml:91
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "முகவடிகளும் ஒட்டிகளும்"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:107
+#: src/qml/Component/ChatBox/ChatBar.qml:108
 #, kde-format
 msgid "Send a Location"
 msgstr "இடத்தை அனுப்பு"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:121
+#: src/qml/Component/ChatBox/ChatBar.qml:122
 #, kde-format
 msgid "Send message"
 msgstr "செய்தியை அனுப்பு"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:168
+#: src/qml/Component/ChatBox/ChatBar.qml:169
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "மறையாக்கப்பட்ட செய்தியை அனுப்பு…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:168
+#: src/qml/Component/ChatBox/ChatBar.qml:169
 #, kde-format
 msgid "Set an attachment caption..."
 msgstr "உடனிணைப்புக்கான தலைப்பை அமை..."
 
-#: src/qml/Component/ChatBox/ChatBar.qml:168
+#: src/qml/Component/ChatBox/ChatBar.qml:169
 #, kde-format
 msgid "Send a message…"
 msgstr "செய்தியை அனுப்பு…"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:348
+#: src/qml/Component/ChatBox/ChatBar.qml:349
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "பதிலளிப்பதை ரத்து செய்"
+
+#: src/qml/Component/ChatBox/ChatBar.qml:555
+#, kde-format
+msgid "Choose local file"
+msgstr "உள்ளமைக் கோப்பைத் தேர்ந்தெடு"
+
+#: src/qml/Component/ChatBox/ChatBar.qml:583
+#, kde-format
+msgid "Clipboard image"
+msgstr "பிடிப்புப்பலகைப் படம்"
 
 #: src/qml/Component/ChatBox/LocationChooser.qml:22
 #, kde-format
@@ -1591,32 +1601,22 @@ msgstr "ஒலியளவு"
 msgid "Maximize"
 msgstr "அதிகபட்ச பெரிதாக்கு"
 
-#: src/qml/Component/TimelineView.qml:140
-#, kde-format
-msgid "Choose local file"
-msgstr "உள்ளமைக் கோப்பைத் தேர்ந்தெடு"
-
-#: src/qml/Component/TimelineView.qml:168
-#, kde-format
-msgid "Clipboard image"
-msgstr "பிடிப்புப்பலகைப் படம்"
-
-#: src/qml/Component/TimelineView.qml:217
+#: src/qml/Component/TimelineView.qml:153
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "படிக்காத முதல் செய்திக்குத் தாவு"
 
-#: src/qml/Component/TimelineView.qml:240
+#: src/qml/Component/TimelineView.qml:176
 #, kde-format
 msgid "Jump to latest message"
 msgstr "கடைசி செய்திக்குத் தாவு"
 
-#: src/qml/Component/TimelineView.qml:266
+#: src/qml/Component/TimelineView.qml:202
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "எதையாவது பகிர, அதை இங்கு இழுத்துப் போடுங்கள்"
 
-#: src/qml/Component/TimelineView.qml:292
+#: src/qml/Component/TimelineView.qml:228
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -1671,7 +1671,7 @@ msgstr "அரங்கின் பெயர்:"
 msgid "Room topic:"
 msgstr "அரங்கின் தலைப்பு:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:160
+#: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:168
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -2439,71 +2439,78 @@ msgstr "பயனர் ஏற்கனவே இவ்வரங்குக்�
 msgid "Explore Rooms"
 msgstr "அரங்குகளை உலாவு"
 
-#: src/qml/Page/JoinRoomPage.qml:37
+#: src/qml/Page/JoinRoomPage.qml:45
 #, kde-format
 msgid "Find a room..."
 msgstr "அரங்கைத் தேடு..."
 
-#: src/qml/Page/JoinRoomPage.qml:45
+#: src/qml/Page/JoinRoomPage.qml:53
 #, kde-format
 msgid "View"
 msgstr "பார்"
 
-#: src/qml/Page/JoinRoomPage.qml:45
+#: src/qml/Page/JoinRoomPage.qml:53
 #, kde-format
 msgid "Join"
 msgstr "சேர்"
 
-#: src/qml/Page/JoinRoomPage.qml:74
+#: src/qml/Page/JoinRoomPage.qml:82
 #, kde-format
 msgid "Add New Server"
 msgstr "புதிய சேவையகத்தை சேர்"
 
-#: src/qml/Page/JoinRoomPage.qml:75
+#: src/qml/Page/JoinRoomPage.qml:83
 #, kde-format
 msgid "Home Server"
 msgstr "தாய் சேவையகம்"
 
-#: src/qml/Page/JoinRoomPage.qml:84
+#: src/qml/Page/JoinRoomPage.qml:92
 #, kde-format
 msgid "Add new server"
 msgstr "புதிய சேவையகத்தை சேர்"
 
-#: src/qml/Page/JoinRoomPage.qml:115
+#: src/qml/Page/JoinRoomPage.qml:123
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "சேவையகத்தைச் சேர்ப்பது"
 
-#: src/qml/Page/JoinRoomPage.qml:128
+#: src/qml/Page/JoinRoomPage.qml:136
 #, kde-format
 msgid "Valid server entered"
 msgstr "செல்லுபடியாகும் சேவையகம் உள்ளிடப்பட்டது"
 
-#: src/qml/Page/JoinRoomPage.qml:128
+#: src/qml/Page/JoinRoomPage.qml:136
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "இச்சேவையகத்தைக் கண்டறிய முடியவில்லை, அல்லது இது ஏற்கனவே சேர்க்கப்பட்டுள்ளது"
 
-#: src/qml/Page/JoinRoomPage.qml:128
+#: src/qml/Page/JoinRoomPage.qml:136
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "உள்ளிட்ட உரை ஓர் முறையான முகவரி அல்ல"
 
-#: src/qml/Page/JoinRoomPage.qml:128
+#: src/qml/Page/JoinRoomPage.qml:136
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr "சேவையகத்தின் முகவரியை உள்ளிடவும், எ.கா. kde.org"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:144
 #, kde-format
 msgid "Server URL"
 msgstr "சேவையக முகவரி"
 
-#: src/qml/Page/JoinRoomPage.qml:228
+#: src/qml/Page/JoinRoomPage.qml:245
 #, kde-format
 msgid "Joined"
 msgstr "சேர்ந்தவை"
+
+#: src/qml/Page/JoinRoomPage.qml:299
+#, fuzzy, kde-format
+#| msgid "No rooms found"
+msgctxt "@info:label"
+msgid "No rooms found"
+msgstr "எந்த அரங்குகளும் கிடைக்கவில்லை"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:18
 #: src/qml/Page/RoomList/UserInfo.qml:175
