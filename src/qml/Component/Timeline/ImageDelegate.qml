@@ -103,6 +103,9 @@ TimelineContainer {
 
         property var imageItem: root.mediaInfo.animated ? animatedImageLoader.item : imageLoader.item
 
+        implicitWidth: root.mediaInfo.animated ? animatedImageLoader.width : imageLoader.width
+        implicitHeight: root.mediaInfo.animated ? animatedImageLoader.height : imageLoader.height
+
         Loader {
             id: imageLoader
 
