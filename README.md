@@ -9,7 +9,7 @@
 
 A Qt/QML based Matrix client.
 
-<a href='https://matrix.org'><img src='https://matrix.org/docs/projects/images/made-for-matrix.png' alt='Made for Matrix' height=64 target=_blank /></a>
+<a href='https://matrix.org'><img src='https://matrix.org/docs/legacy/made-for-matrix.png' alt='Made for Matrix' height=64 target=_blank /></a>
 <a href='https://flathub.org/apps/details/org.kde.neochat'><img width='190px' alt='Download on Flathub' src='https://flathub.org/assets/badges/flathub-badge-i-en.png'/></a>
 
 ## Introduction
