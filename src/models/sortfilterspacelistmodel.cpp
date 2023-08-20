@@ -27,7 +27,7 @@ bool SortFilterSpaceListModel::filterAcceptsRow(int source_row, const QModelInde
 {
     Q_UNUSED(source_parent);
     return sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::IsSpaceRole).toBool()
-        && sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::JoinStateRole).toString() != "upgraded"
+        && sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::JoinStateRole).toString() != QStringLiteral("upgraded")
         && !sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::IsChildSpaceRole).toBool();
 }
 

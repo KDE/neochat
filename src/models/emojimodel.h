@@ -33,7 +33,7 @@ struct Emoji {
     {
         arch >> object.unicode;
         arch >> object.shortName;
-        object.isCustom = object.unicode.startsWith("image://");
+        object.isCustom = object.unicode.startsWith(QStringLiteral("image://"));
         return arch;
     }
 

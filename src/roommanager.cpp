@@ -25,9 +25,9 @@ RoomManager::RoomManager(QObject *parent)
     : QObject(parent)
     , m_currentRoom(nullptr)
     , m_lastCurrentRoom(nullptr)
-    , m_config(KConfig("data", KConfig::SimpleConfig, QStandardPaths::AppDataLocation))
+    , m_config(KConfig(QStringLiteral("data"), KConfig::SimpleConfig, QStandardPaths::AppDataLocation))
 {
-    m_lastRoomConfig = m_config.group("LastOpenRoom");
+    m_lastRoomConfig = m_config.group(QStringLiteral("LastOpenRoom"));
 }
 
 RoomManager::~RoomManager()
@@ -127,7 +127,7 @@ void RoomManager::openRoomForActiveConnection()
 void RoomManager::enterRoom(NeoChatRoom *room)
 {
     if (m_currentRoom && !m_currentRoom->chatBoxEditId().isEmpty()) {
-        m_currentRoom->setChatBoxEditId("");
+        m_currentRoom->setChatBoxEditId({});
     }
     if (m_currentRoom && m_chatDocumentHandler) {
         // We're doing these things here because it is critical that they are switched at the same time
@@ -164,13 +164,13 @@ void RoomManager::openWindow(NeoChatRoom *room)
 
 UriResolveResult RoomManager::visitUser(User *user, const QString &action)
 {
-    if (action == "mention" || action.isEmpty()) {
+    if (action == "mention"_ls || action.isEmpty()) {
         // send it has QVariantMap because the properties in the
         user->load();
         Q_EMIT showUserDetail(user);
-    } else if (action == "_interactive") {
+    } else if (action == "_interactive"_ls) {
         user->requestDirectChat();
-    } else if (action == "chat") {
+    } else if (action == "chat"_ls) {
         user->load();
         Q_EMIT askDirectChatConfirmation(user);
     } else {
@@ -202,7 +202,7 @@ void RoomManager::visitRoom(Room *room, const QString &eventId)
 
 void RoomManager::joinRoom(Quotient::Connection *account, const QString &roomAliasOrId, const QStringList &viaServers)
 {
-    auto job = account->joinRoom(QUrl::toPercentEncoding(roomAliasOrId), viaServers);
+    auto job = account->joinRoom(QString::fromLatin1(QUrl::toPercentEncoding(roomAliasOrId)), viaServers);
     connectSingleShot(job, &Quotient::BaseJob::finished, this, [this, account](Quotient::BaseJob *finish) {
         if (finish->status() == Quotient::BaseJob::Success) {
             connectSingleShot(account, &Quotient::Connection::newRoom, this, [this](Quotient::Room *room) {

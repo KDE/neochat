@@ -25,7 +25,7 @@ QVariant MediaMessageFilterModel::data(const QModelIndex &index, int role) const
 {
     if (role == SourceRole) {
         if (mapToSource(index).data(MessageEventModel::DelegateTypeRole).toInt() == MessageEventModel::DelegateType::Image) {
-            return mapToSource(index).data(MessageEventModel::MediaInfoRole).toMap()["source"].toUrl();
+            return mapToSource(index).data(MessageEventModel::MediaInfoRole).toMap()[QStringLiteral("source")].toUrl();
         } else if (mapToSource(index).data(MessageEventModel::DelegateTypeRole).toInt() == MessageEventModel::DelegateType::Video) {
             auto progressInfo = mapToSource(index).data(MessageEventModel::ProgressInfoRole).value<Quotient::FileTransferInfo>();
 
@@ -39,7 +39,7 @@ QVariant MediaMessageFilterModel::data(const QModelIndex &index, int role) const
         }
     }
     if (role == TempSourceRole) {
-        return mapToSource(index).data(MessageEventModel::MediaInfoRole).toMap()["tempInfo"].toMap()["source"].toUrl();
+        return mapToSource(index).data(MessageEventModel::MediaInfoRole).toMap()[QStringLiteral("tempInfo")].toMap()[QStringLiteral("source")].toUrl();
     }
     if (role == TypeRole) {
         if (mapToSource(index).data(MessageEventModel::DelegateTypeRole).toInt() == MessageEventModel::DelegateType::Image) {
@@ -52,10 +52,10 @@ QVariant MediaMessageFilterModel::data(const QModelIndex &index, int role) const
         return mapToSource(index).data(Qt::DisplayRole);
     }
     if (role == SourceWidthRole) {
-        return mapToSource(index).data(MessageEventModel::MediaInfoRole).toMap()["width"].toFloat();
+        return mapToSource(index).data(MessageEventModel::MediaInfoRole).toMap()[QStringLiteral("width")].toFloat();
     }
     if (role == SourceHeightRole) {
-        return mapToSource(index).data(MessageEventModel::MediaInfoRole).toMap()["height"].toFloat();
+        return mapToSource(index).data(MessageEventModel::MediaInfoRole).toMap()[QStringLiteral("height")].toFloat();
     }
 
     return sourceModel()->data(mapToSource(index), role);

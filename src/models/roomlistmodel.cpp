@@ -40,19 +40,19 @@ RoomListModel::RoomListModel(QObject *parent)
 #if QT_VERSION < QT_VERSION_CHECK(6, 6, 0)
 #ifndef Q_OS_ANDROID
         // copied from Telegram desktop
-        const auto launcherUrl = "application://org.kde.neochat.desktop";
+        const auto launcherUrl = "application://org.kde.neochat.desktop"_ls;
         // Gnome requires that count is a 64bit integer
         const qint64 counterSlice = std::min(m_notificationCount, 9999);
         QVariantMap dbusUnityProperties;
 
         if (counterSlice > 0) {
-            dbusUnityProperties["count"] = counterSlice;
-            dbusUnityProperties["count-visible"] = true;
+            dbusUnityProperties["count"_ls] = counterSlice;
+            dbusUnityProperties["count-visible"_ls] = true;
         } else {
-            dbusUnityProperties["count-visible"] = false;
+            dbusUnityProperties["count-visible"_ls] = false;
         }
 
-        auto signal = QDBusMessage::createSignal("/com/canonical/unity/launcherentry/neochat", "com.canonical.Unity.LauncherEntry", "Update");
+        auto signal = QDBusMessage::createSignal("/com/canonical/unity/launcherentry/neochat"_ls, "com.canonical.Unity.LauncherEntry"_ls, "Update"_ls);
 
         signal.setArguments({launcherUrl, dbusUnityProperties});
 
@@ -297,9 +297,9 @@ QVariant RoomListModel::data(const QModelIndex &index, int role) const
             return NeoChatRoomType::Normal;
         }
         QJsonObject contentJson = creationEvent->contentJson();
-        QJsonObject::const_iterator typeIter = contentJson.find("type");
+        QJsonObject::const_iterator typeIter = contentJson.find("type"_ls);
         if (typeIter != contentJson.end()) {
-            if (typeIter.value().toString() == "m.space") {
+            if (typeIter.value().toString() == "m.space"_ls) {
                 return NeoChatRoomType::Space;
             }
         }
@@ -400,7 +400,7 @@ QString RoomListModel::categoryName(int category)
     case NeoChatRoomType::Space:
         return i18n("Spaces");
     default:
-        return "Deadbeef";
+        return {};
     }
 }
 

@@ -62,7 +62,7 @@ void KWebShortcutModel::setSelectedText(const QString &selectedText)
     }
 
     QString searchText = selectedText;
-    searchText = searchText.replace('\n', ' ').replace('\r', ' ').simplified();
+    searchText = searchText.replace(QLatin1Char('\n'), QLatin1Char(' ')).replace(QLatin1Char('\r'), QLatin1Char(' ')).simplified();
     if (searchText.isEmpty()) {
         endResetModel();
         return;
@@ -115,7 +115,7 @@ void KWebShortcutModel::trigger(const QString &data)
 #ifdef HAVE_KIO
     KUriFilterData filterData(data);
     if (KUriFilter::self()->filterSearchUri(filterData, KUriFilter::WebShortcutFilter)) {
-        Q_EMIT openUrl(filterData.uri().url());
+        Q_EMIT openUrl(filterData.uri());
     }
 #else
     Q_UNUSED(data);
@@ -125,7 +125,7 @@ void KWebShortcutModel::trigger(const QString &data)
 void KWebShortcutModel::configureWebShortcuts()
 {
 #ifdef HAVE_KIO
-    auto job = new KIO::CommandLauncherJob("kcmshell5", QStringList() << "webshortcuts", this);
+    auto job = new KIO::CommandLauncherJob(QStringLiteral("kcmshell5"), QStringList() << QStringLiteral("webshortcuts"), this);
     job->exec();
 #endif
 }

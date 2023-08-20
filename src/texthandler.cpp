@@ -150,8 +150,8 @@ QString TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat, const Neo
     }
 
     if (auto e = eventCast<const Quotient::RoomMessageEvent>(event)) {
-        bool isEdited =
-            !e->unsignedJson().isEmpty() && e->unsignedJson().contains("m.relations") && e->unsignedJson()["m.relations"].toObject().contains("m.replace");
+        bool isEdited = !e->unsignedJson().isEmpty() && e->unsignedJson().contains(QStringLiteral("m.relations"))
+            && e->unsignedJson()[QStringLiteral("m.relations")].toObject().contains(QStringLiteral("m.replace"));
         if (isEdited) {
             Kirigami::PlatformTheme *theme = static_cast<Kirigami::PlatformTheme *>(qmlAttachedPropertiesObject<Kirigami::PlatformTheme>(this, true));
 
@@ -167,7 +167,7 @@ QString TextHandler::handleRecieveRichText(Qt::TextFormat inputFormat, const Neo
             } else if (outputString.endsWith(QStringLiteral("</pre>")) || outputString.endsWith(QStringLiteral("</blockquote>"))
                        || outputString.endsWith(QStringLiteral("</table>")) || outputString.endsWith(QStringLiteral("</ol>"))
                        || outputString.endsWith(QStringLiteral("</ul>"))) {
-                outputString.append("<p>" + editedString + "</p>");
+                outputString.append(QStringLiteral("<p>%1</p>").arg(editedString));
             } else {
                 outputString.append(editedString);
             }
@@ -209,7 +209,7 @@ QString TextHandler::handleRecievePlainText(Qt::TextFormat inputFormat, const bo
         m_dataBuffer.replace(QStringLiteral("<br />\n"), QStringLiteral(" "));
         m_dataBuffer.replace(QStringLiteral("<br />"), QStringLiteral(" "));
         m_dataBuffer.replace(u'\n', QStringLiteral(" "));
-        m_dataBuffer.replace(u'\u2028', " ");
+        m_dataBuffer.replace(u'\u2028', QStringLiteral(" "));
     }
 
     // Strip all tags/attributes except code blocks which will be escaped.
@@ -326,7 +326,7 @@ bool TextHandler::isAllowedLink(const QString &link, bool isImg)
     const QUrl linkUrl = QUrl(link);
 
     if (isImg) {
-        return !linkUrl.isRelative() && linkUrl.scheme() == "mxc";
+        return !linkUrl.isRelative() && linkUrl.scheme() == QStringLiteral("mxc");
     } else {
         return !linkUrl.isRelative() && allowedLinkSchemes.contains(linkUrl.scheme());
     }

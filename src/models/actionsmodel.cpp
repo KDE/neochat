@@ -14,9 +14,10 @@
 using Action = ActionsModel::Action;
 using namespace Quotient;
 
-QStringList rainbowColors{"#ff2b00", "#ff5500", "#ff8000", "#ffaa00", "#ffd500", "#ffff00", "#d4ff00", "#aaff00", "#80ff00", "#55ff00", "#2bff00", "#00ff00",
-                          "#00ff2b", "#00ff55", "#00ff80", "#00ffaa", "#00ffd5", "#00ffff", "#00d4ff", "#00aaff", "#007fff", "#0055ff", "#002bff", "#0000ff",
-                          "#2a00ff", "#5500ff", "#7f00ff", "#aa00ff", "#d400ff", "#ff00ff", "#ff00d4", "#ff00aa", "#ff0080", "#ff0055", "#ff002b", "#ff0000"};
+QStringList rainbowColors{"#ff2b00"_ls, "#ff5500"_ls, "#ff8000"_ls, "#ffaa00"_ls, "#ffd500"_ls, "#ffff00"_ls, "#d4ff00"_ls, "#aaff00"_ls, "#80ff00"_ls,
+                          "#55ff00"_ls, "#2bff00"_ls, "#00ff00"_ls, "#00ff2b"_ls, "#00ff55"_ls, "#00ff80"_ls, "#00ffaa"_ls, "#00ffd5"_ls, "#00ffff"_ls,
+                          "#00d4ff"_ls, "#00aaff"_ls, "#007fff"_ls, "#0055ff"_ls, "#002bff"_ls, "#0000ff"_ls, "#2a00ff"_ls, "#5500ff"_ls, "#7f00ff"_ls,
+                          "#aa00ff"_ls, "#d400ff"_ls, "#ff00ff"_ls, "#ff00d4"_ls, "#ff00aa"_ls, "#ff0080"_ls, "#ff0055"_ls, "#ff002b"_ls, "#ff0000"_ls};
 
 auto leaveRoomLambda = [](const QString &text, NeoChatRoom *room) {
     if (text.isEmpty()) {
@@ -260,7 +261,7 @@ QVector<ActionsModel::Action> actions{
             }
             Q_EMIT room->showMessage(NeoChatRoom::Info, i18nc("Knocking room <roomname>.", "Knocking room %1.", text));
             auto connection = Controller::instance().activeConnection();
-            const auto knownServer = roomName.mid(roomName.indexOf(":") + 1);
+            const auto knownServer = roomName.mid(roomName.indexOf(":"_ls) + 1);
             if (parts.length() >= 2) {
                 RoomManager::instance().knockRoom(connection, roomName, parts[1], QStringList{knownServer});
             } else {
@@ -450,7 +451,7 @@ QVector<ActionsModel::Action> actions{
                     i18nc("You are not allowed to ban <username> from this room.", "You are not allowed to ban %1 from this room.", parts[0]));
                 return QString();
             }
-            room->ban(parts[0], parts.size() > 1 ? parts.mid(1).join(" ") : QString());
+            room->ban(parts[0], parts.size() > 1 ? parts.mid(1).join(QLatin1Char(' ')) : QString());
             Q_EMIT room->showMessage(NeoChatRoom::Positive, i18nc("<username> was banned from this room.", "%1 was banned from this room.", parts[0]));
             return QString();
         },
@@ -527,7 +528,7 @@ QVector<ActionsModel::Action> actions{
                     i18nc("You are not allowed to kick <username> from this room", "You are not allowed to kick %1 from this room.", parts[0]));
                 return QString();
             }
-            room->kickMember(parts[0], parts.size() > 1 ? parts.mid(1).join(" ") : QString());
+            room->kickMember(parts[0], parts.size() > 1 ? parts.mid(1).join(QLatin1Char(' ')) : QString());
             Q_EMIT room->showMessage(NeoChatRoom::Positive, i18nc("<username> was kicked from this room.", "%1 was kicked from this room.", parts[0]));
             return QString();
         },

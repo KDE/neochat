@@ -33,12 +33,12 @@ void Login::init()
 
     connect(this, &Login::matrixIdChanged, this, [this]() {
         setHomeserverReachable(false);
-        QRegularExpression validator("^\\@?[a-zA-Z0-9\\._=\\-/]+\\:[a-zA-Z0-9\\-]+(\\.[a-zA-Z0-9\\-]+)*(\\:[0-9]+)?$");
+        QRegularExpression validator(QStringLiteral("^\\@?[a-zA-Z0-9\\._=\\-/]+\\:[a-zA-Z0-9\\-]+(\\.[a-zA-Z0-9\\-]+)*(\\:[0-9]+)?$"));
         if (!validator.match(m_matrixId).hasMatch()) {
             return;
         }
 
-        if (m_matrixId == "@") {
+        if (m_matrixId == QLatin1Char('@')) {
             return;
         }
 
@@ -120,8 +120,8 @@ QString Login::matrixId() const
 void Login::setMatrixId(const QString &matrixId)
 {
     m_matrixId = matrixId;
-    if (!m_matrixId.startsWith('@')) {
-        m_matrixId.prepend('@');
+    if (!m_matrixId.startsWith(QLatin1Char('@'))) {
+        m_matrixId.prepend(QLatin1Char('@'));
     }
     Q_EMIT matrixIdChanged();
 }
@@ -155,7 +155,7 @@ void Login::login()
 
     // Some servers do not have a .well_known file. So we login via the username part from the mxid,
     // rather than with the full mxid, as that would lead to an invalid user.
-    auto username = m_matrixId.mid(1, m_matrixId.indexOf(":") - 1);
+    auto username = m_matrixId.mid(1, m_matrixId.indexOf(QLatin1Char(':')) - 1);
     m_connection->loginWithPassword(username, m_password, m_deviceName, QString());
 }
 

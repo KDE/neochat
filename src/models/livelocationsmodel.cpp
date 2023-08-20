@@ -78,7 +78,7 @@ QVariant LiveLocationsModel::data(const QModelIndex &index, int roleName) const
         return longitude.toFloat();
     }
     case AssetRole:
-        return data.beaconInfo["org.matrix.msc3488.asset"_ls].toObject()["type"].toString();
+        return data.beaconInfo["org.matrix.msc3488.asset"_ls].toObject()["type"_ls].toString();
     case AuthorRole:
         return m_room->getUser(data.senderId);
     case IsLiveRole: {
@@ -129,7 +129,7 @@ QRectF LiveLocationsModel::boundingBox() const
 
 void LiveLocationsModel::addEvent(const Quotient::RoomEvent *event)
 {
-    if (event->isStateEvent() && event->matrixType() == "org.matrix.msc3672.beacon_info") {
+    if (event->isStateEvent() && event->matrixType() == "org.matrix.msc3672.beacon_info"_ls) {
         LiveLocationData data;
         data.senderId = event->senderId();
         data.beaconInfo = event->contentJson();

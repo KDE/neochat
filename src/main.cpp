@@ -143,7 +143,7 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
     QQuickStyle::setStyle(QStringLiteral("org.kde.breeze"));
 #else
-    QIcon::setFallbackThemeName("breeze");
+    QIcon::setFallbackThemeName("breeze"_ls);
     QApplication app(argc, argv);
     // Default to org.kde.desktop style unless the user forces another style
     if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
@@ -165,7 +165,7 @@ int main(int argc, char *argv[])
 #endif
     KLocalizedString::setApplicationDomain("neochat");
 
-    QGuiApplication::setOrganizationName("KDE");
+    QGuiApplication::setOrganizationName("KDE"_ls);
 
     KAboutData about(QStringLiteral("neochat"),
                      i18n("NeoChat"),
@@ -202,7 +202,8 @@ int main(int argc, char *argv[])
 #ifdef NEOCHAT_FLATPAK
     // Copy over the included FontConfig configuration to the
     // app's config dir:
-    QFile::copy("/app/etc/fonts/conf.d/99-noto-mono-color-emoji.conf", "/var/config/fontconfig/conf.d/99-noto-mono-color-emoji.conf");
+    QFile::copy(QStringLiteral("/app/etc/fonts/conf.d/99-noto-mono-color-emoji.conf"),
+                QStringLiteral("/var/config/fontconfig/conf.d/99-noto-mono-color-emoji.conf"));
 #endif
 
     Clipboard clipboard;
@@ -264,12 +265,12 @@ int main(int argc, char *argv[])
     qmlRegisterType<AccountEmoticonModel>("org.kde.neochat", 1, 0, "AccountEmoticonModel");
     qmlRegisterType<EmoticonFilterModel>("org.kde.neochat", 1, 0, "EmoticonFilterModel");
     qmlRegisterType<DelegateSizeHelper>("org.kde.neochat", 1, 0, "DelegateSizeHelper");
-    qmlRegisterUncreatableType<RoomMessageEvent>("org.kde.neochat", 1, 0, "RoomMessageEvent", "ENUM");
-    qmlRegisterUncreatableType<PushNotificationKind>("org.kde.neochat", 1, 0, "PushNotificationKind", "ENUM");
-    qmlRegisterUncreatableType<PushNotificationSection>("org.kde.neochat", 1, 0, "PushNotificationSection", "ENUM");
-    qmlRegisterUncreatableType<PushNotificationState>("org.kde.neochat", 1, 0, "PushNotificationState", "ENUM");
-    qmlRegisterUncreatableType<PushNotificationAction>("org.kde.neochat", 1, 0, "PushNotificationAction", "ENUM");
-    qmlRegisterUncreatableType<NeoChatRoomType>("org.kde.neochat", 1, 0, "NeoChatRoomType", "ENUM");
+    qmlRegisterUncreatableType<RoomMessageEvent>("org.kde.neochat", 1, 0, "RoomMessageEvent", "ENUM"_ls);
+    qmlRegisterUncreatableType<PushNotificationKind>("org.kde.neochat", 1, 0, "PushNotificationKind", "ENUM"_ls);
+    qmlRegisterUncreatableType<PushNotificationSection>("org.kde.neochat", 1, 0, "PushNotificationSection", "ENUM"_ls);
+    qmlRegisterUncreatableType<PushNotificationState>("org.kde.neochat", 1, 0, "PushNotificationState", "ENUM"_ls);
+    qmlRegisterUncreatableType<PushNotificationAction>("org.kde.neochat", 1, 0, "PushNotificationAction", "ENUM"_ls);
+    qmlRegisterUncreatableType<NeoChatRoomType>("org.kde.neochat", 1, 0, "NeoChatRoomType", "ENUM"_ls);
     qmlRegisterUncreatableType<User>("org.kde.neochat", 1, 0, "User", {});
     qmlRegisterUncreatableType<NeoChatRoom>("org.kde.neochat", 1, 0, "NeoChatRoom", {});
 
@@ -289,7 +290,7 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonType("org.kde.neochat", 1, 0, "About", [](QQmlEngine *engine, QJSEngine *) -> QJSValue {
         return engine->toScriptValue(KAboutData::applicationData());
     });
-    qmlRegisterSingletonType(QUrl("qrc:/OsmLocationPlugin.qml"), "org.kde.neochat", 1, 0, "OsmLocationPlugin");
+    qmlRegisterSingletonType(QUrl("qrc:/OsmLocationPlugin.qml"_ls), "org.kde.neochat", 1, 0, "OsmLocationPlugin");
     qmlRegisterSingletonType("org.kde.neochat", 1, 0, "LocationHelper", [](QQmlEngine *engine, QJSEngine *) -> QJSValue {
         return engine->toScriptValue(LocationHelper());
     });
@@ -332,13 +333,13 @@ int main(int argc, char *argv[])
     QCommandLineParser parser;
     parser.setApplicationDescription(i18n("Client for the matrix communication protocol"));
     parser.addPositionalArgument(QStringLiteral("urls"), i18n("Supports matrix: url scheme"));
-    parser.addOption(QCommandLineOption("ignore-ssl-errors", i18n("Ignore all SSL Errors, e.g., unsigned certificates.")));
+    parser.addOption(QCommandLineOption("ignore-ssl-errors"_ls, i18n("Ignore all SSL Errors, e.g., unsigned certificates.")));
 
     about.setupCommandLine(&parser);
     parser.process(app);
     about.processCommandLine(&parser);
 
-    if (parser.isSet("ignore-ssl-errors")) {
+    if (parser.isSet("ignore-ssl-errors"_ls)) {
         QObject::connect(NetworkAccessManager::instance(), &QNetworkAccessManager::sslErrors, NetworkAccessManager::instance(), [](QNetworkReply *reply) {
             reply->ignoreSslErrors();
         });
@@ -358,7 +359,7 @@ int main(int argc, char *argv[])
 
 #ifdef HAVE_RUNNER
     Runner runner;
-    QDBusConnection::sessionBus().registerObject("/RoomRunner", &runner, QDBusConnection::ExportScriptableContents);
+    QDBusConnection::sessionBus().registerObject("/RoomRunner"_ls, &runner, QDBusConnection::ExportScriptableContents);
 #endif
 
     QWindow *window = windowFromEngine(&engine);

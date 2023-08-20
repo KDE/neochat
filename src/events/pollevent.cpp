@@ -12,12 +12,12 @@ PollStartEvent::PollStartEvent(const QJsonObject &obj)
 
 int PollStartEvent::maxSelections() const
 {
-    return contentJson()["org.matrix.msc3381.poll.start"]["max_selections"].toInt();
+    return contentJson()["org.matrix.msc3381.poll.start"_ls]["max_selections"_ls].toInt();
 }
 
 QString PollStartEvent::question() const
 {
-    return contentJson()["org.matrix.msc3381.poll.start"]["question"]["body"].toString();
+    return contentJson()["org.matrix.msc3381.poll.start"_ls]["question"_ls]["body"_ls].toString();
 }
 
 PollResponseEvent::PollResponseEvent(const QJsonObject &obj)
@@ -32,7 +32,7 @@ PollEndEvent::PollEndEvent(const QJsonObject &obj)
 
 PollResponseEvent::PollResponseEvent(const QString &pollStartEventId, QStringList responses)
     : RoomEvent(basicJson(TypeId,
-                          {{"org.matrix.msc3381.poll.response", QJsonObject{{"answers", QJsonArray::fromStringList(responses)}}},
-                           {"m.relates_to", QJsonObject{{"rel_type", "m.reference"}, {"event_id", pollStartEventId}}}}))
+                          {{"org.matrix.msc3381.poll.response"_ls, QJsonObject{{"answers"_ls, QJsonArray::fromStringList(responses)}}},
+                           {"m.relates_to"_ls, QJsonObject{{"rel_type"_ls, "m.reference"_ls}, {"event_id"_ls, pollStartEventId}}}}))
 {
 }

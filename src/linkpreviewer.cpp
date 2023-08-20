@@ -62,14 +62,14 @@ void LinkPreviewer::loadUrlPreview()
         Q_EMIT loadedChanged();
 
         auto conn = m_currentRoom->connection();
-        GetUrlPreviewJob *job = conn->callApi<GetUrlPreviewJob>(m_url.toString());
+        GetUrlPreviewJob *job = conn->callApi<GetUrlPreviewJob>(m_url);
 
         connect(job, &BaseJob::success, this, [this, job, conn]() {
             const auto json = job->jsonData();
-            m_title = json["og:title"].toString().trimmed();
-            m_description = json["og:description"].toString().trimmed().replace("\n", " ");
+            m_title = json["og:title"_ls].toString().trimmed();
+            m_description = json["og:description"_ls].toString().trimmed().replace("\n"_ls, " "_ls);
 
-            auto imageUrl = QUrl(json["og:image"].toString());
+            auto imageUrl = QUrl(json["og:image"_ls].toString());
             if (imageUrl.isValid() && imageUrl.scheme() == QStringLiteral("mxc")) {
                 m_imageSource = conn->makeMediaUrl(imageUrl);
             } else {

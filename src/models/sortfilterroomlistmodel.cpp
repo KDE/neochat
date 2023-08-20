@@ -80,7 +80,7 @@ bool SortFilterRoomListModel::filterAcceptsRow(int source_row, const QModelIndex
 
     bool acceptRoom =
         sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::DisplayNameRole).toString().contains(m_filterText, Qt::CaseInsensitive)
-        && sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::JoinStateRole).toString() != "upgraded"
+        && sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::JoinStateRole).toString() != QStringLiteral("upgraded")
         && sourceModel()->data(sourceModel()->index(source_row, 0), RoomListModel::IsSpaceRole).toBool() == false;
 
     if (m_activeSpaceId.isEmpty()) {

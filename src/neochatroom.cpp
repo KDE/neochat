@@ -70,8 +70,8 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
     connect(this, &Room::aboutToAddHistoricalMessages, this, &NeoChatRoom::readMarkerLoadedChanged);
 
     // Load cached event if available.
-    KConfig dataResource("data", KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
-    KConfigGroup eventCacheGroup(&dataResource, "EventCache");
+    KConfig dataResource("data"_ls, KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
+    KConfigGroup eventCacheGroup(&dataResource, "EventCache"_ls);
 
     if (eventCacheGroup.hasKey(id())) {
         auto eventJson = QJsonDocument::fromJson(eventCacheGroup.readEntry(id(), QByteArray())).object();
@@ -121,7 +121,7 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
         Q_EMIT defaultUrlPreviewStateChanged();
     });
     connect(this, &Room::accountDataChanged, this, [this](QString type) {
-        if (type == "org.matrix.room.preview_urls") {
+        if (type == "org.matrix.room.preview_urls"_ls) {
             Q_EMIT urlPreviewEnabledChanged();
         }
     });
@@ -167,15 +167,15 @@ QCoro::Task<void> NeoChatRoom::doUploadFile(QUrl url, QString body)
     }
 
     auto mime = QMimeDatabase().mimeTypeForUrl(url);
-    url.setScheme("file");
+    url.setScheme("file"_ls);
     QFileInfo fileInfo(url.isLocalFile() ? url.toLocalFile() : url.toString());
     EventContent::TypedBase *content;
-    if (mime.name().startsWith("image/")) {
+    if (mime.name().startsWith("image/"_ls)) {
         QImage image(url.toLocalFile());
         content = new EventContent::ImageContent(url, fileInfo.size(), mime, image.size(), fileInfo.fileName());
-    } else if (mime.name().startsWith("audio/")) {
+    } else if (mime.name().startsWith("audio/"_ls)) {
         content = new EventContent::AudioContent(url, fileInfo.size(), mime, fileInfo.fileName());
-    } else if (mime.name().startsWith("video/")) {
+    } else if (mime.name().startsWith("video/"_ls)) {
         QMediaPlayer player;
 #if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
         player.setSource(url);
@@ -238,10 +238,10 @@ QVariantList NeoChatRoom::getUsersTyping() const
     QVariantList userVariants;
     for (User *user : users) {
         userVariants.append(QVariantMap{
-            {"id", user->id()},
-            {"avatarMediaId", user->avatarMediaId(this)},
-            {"displayName", user->displayname(this)},
-            {"display", user->name()},
+            {"id"_ls, user->id()},
+            {"avatarMediaId"_ls, user->avatarMediaId(this)},
+            {"displayName"_ls, user->displayname(this)},
+            {"display"_ls, user->name()},
         });
     }
     return userVariants;
@@ -314,8 +314,8 @@ void NeoChatRoom::cacheLastEvent()
 {
     auto event = lastEvent();
     if (event != nullptr) {
-        KConfig dataResource("data", KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
-        KConfigGroup eventCacheGroup(&dataResource, "EventCache");
+        KConfig dataResource("data"_ls, KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
+        KConfigGroup eventCacheGroup(&dataResource, "EventCache"_ls);
 
         auto eventJson = QJsonDocument(event->fullJson()).toJson();
         eventCacheGroup.writeEntry(id(), eventJson);
@@ -332,9 +332,9 @@ bool NeoChatRoom::lastEventIsSpoiler() const
 {
     if (auto event = lastEvent()) {
         if (auto e = eventCast<const RoomMessageEvent>(event)) {
-            if (e->hasTextContent() && e->content() && e->mimeType().name() == "text/html") {
+            if (e->hasTextContent() && e->content() && e->mimeType().name() == "text/html"_ls) {
                 auto htmlBody = static_cast<const Quotient::EventContent::TextContent *>(e->content())->body;
-                return htmlBody.contains("data-mx-spoiler");
+                return htmlBody.contains("data-mx-spoiler"_ls);
             }
         }
     }
@@ -435,13 +435,13 @@ QVariantList NeoChatRoom::getUsers(const QString &keyword, int limit) const
 
 // An empty user is useful for returning as a model value to avoid properties being undefined.
 static const QVariantMap emptyUser = {
-    {"isLocalUser", false},
-    {"id", QString()},
-    {"displayName", QString()},
-    {"avatarSource", QUrl()},
-    {"avatarMediaId", QString()},
-    {"color", QColor()},
-    {"object", QVariant()},
+    {"isLocalUser"_ls, false},
+    {"id"_ls, QString()},
+    {"displayName"_ls, QString()},
+    {"avatarSource"_ls, QUrl()},
+    {"avatarMediaId"_ls, QString()},
+    {"color"_ls, QColor()},
+    {"object"_ls, QVariant()},
 };
 
 QVariantMap NeoChatRoom::getUser(const QString &userID) const
@@ -500,7 +500,7 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                 if (fileCaption.isEmpty()) {
                     fileCaption = e.plainBody();
                 } else if (e.content()->fileInfo()->originalName != e.plainBody()) {
-                    fileCaption = e.plainBody() + " | " + fileCaption;
+                    fileCaption = e.plainBody() + " | "_ls + fileCaption;
                 }
                 textHandler.setData(fileCaption);
                 return !fileCaption.isEmpty() ? textHandler.handleRecievePlainText(Qt::PlainText, stripNewlines) : i18n("a file");
@@ -516,7 +516,7 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
             textHandler.setData(body);
 
             Qt::TextFormat inputFormat;
-            if (e.mimeType().name() == "text/plain") {
+            if (e.mimeType().name() == "text/plain"_ls) {
                 inputFormat = Qt::PlainText;
             } else {
                 inputFormat = Qt::RichText;
@@ -644,8 +644,8 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
             return i18n("activated End-to-End Encryption");
         },
         [](const RoomCreateEvent &e) {
-            return e.isUpgrade() ? i18n("upgraded the room to version %1", e.version().isEmpty() ? "1" : e.version().toHtmlEscaped())
-                                 : i18n("created the room, version %1", e.version().isEmpty() ? "1" : e.version().toHtmlEscaped());
+            return e.isUpgrade() ? i18n("upgraded the room to version %1", e.version().isEmpty() ? "1"_ls : e.version().toHtmlEscaped())
+                                 : i18n("created the room, version %1", e.version().isEmpty() ? "1"_ls : e.version().toHtmlEscaped());
         },
         [](const RoomPowerLevelsEvent &) {
             return i18nc("'power level' means permission level", "changed the power levels for this room");
@@ -655,13 +655,13 @@ QString NeoChatRoom::eventToString(const RoomEvent &evt, Qt::TextFormat format, 
                 return i18n("changed the server access control lists for this room");
             }
             if (e.matrixType() == QLatin1String("im.vector.modular.widgets")) {
-                if (e.fullJson()["unsigned"]["prev_content"].toObject().isEmpty()) {
-                    return i18nc("[User] added <name> widget", "added %1 widget", e.contentJson()["name"].toString());
+                if (e.fullJson()["unsigned"_ls]["prev_content"_ls].toObject().isEmpty()) {
+                    return i18nc("[User] added <name> widget", "added %1 widget", e.contentJson()["name"_ls].toString());
                 }
                 if (e.contentJson().isEmpty()) {
-                    return i18nc("[User] removed <name> widget", "removed %1 widget", e.fullJson()["unsigned"]["prev_content"]["name"].toString());
+                    return i18nc("[User] removed <name> widget", "removed %1 widget", e.fullJson()["unsigned"_ls]["prev_content"_ls]["name"_ls].toString());
                 }
-                return i18nc("[User] configured <name> widget", "configured %1 widget", e.contentJson()["name"].toString());
+                return i18nc("[User] configured <name> widget", "configured %1 widget", e.contentJson()["name"_ls].toString());
             }
             if (e.matrixType() == "org.matrix.msc3672.beacon_info"_ls) {
                 return e.contentJson()["description"_ls].toString();
@@ -778,7 +778,7 @@ QString NeoChatRoom::eventToGenericString(const RoomEvent &evt) const
                 return i18n("changed the server access control lists for this room");
             }
             if (e.matrixType() == QLatin1String("im.vector.modular.widgets")) {
-                if (e.fullJson()["unsigned"]["prev_content"].toObject().isEmpty()) {
+                if (e.fullJson()["unsigned"_ls]["prev_content"_ls].toObject().isEmpty()) {
                     return i18n("added a widget");
                 }
                 if (e.contentJson().isEmpty()) {
@@ -800,7 +800,7 @@ void NeoChatRoom::changeAvatar(const QUrl &localFile)
     const auto job = connection()->uploadFile(localFile.toLocalFile());
     if (isJobPending(job)) {
         connect(job, &BaseJob::success, this, [this, job] {
-            connection()->callApi<SetRoomStateWithKeyJob>(id(), "m.room.avatar", QString(), QJsonObject{{"url", job->contentUri().toString()}});
+            connection()->callApi<SetRoomStateWithKeyJob>(id(), "m.room.avatar"_ls, QString(), QJsonObject{{"url"_ls, job->contentUri().toString()}});
         });
     }
 }
@@ -809,23 +809,23 @@ QString msgTypeToString(MessageEventType msgType)
 {
     switch (msgType) {
     case MessageEventType::Text:
-        return "m.text";
+        return "m.text"_ls;
     case MessageEventType::File:
-        return "m.file";
+        return "m.file"_ls;
     case MessageEventType::Audio:
-        return "m.audio";
+        return "m.audio"_ls;
     case MessageEventType::Emote:
-        return "m.emote";
+        return "m.emote"_ls;
     case MessageEventType::Image:
-        return "m.image";
+        return "m.image"_ls;
     case MessageEventType::Video:
-        return "m.video";
+        return "m.video"_ls;
     case MessageEventType::Notice:
-        return "m.notice";
+        return "m.notice"_ls;
     case MessageEventType::Location:
-        return "m.location";
+        return "m.location"_ls;
     default:
-        return "m.text";
+        return "m.text"_ls;
     }
 }
 
@@ -845,15 +845,16 @@ void NeoChatRoom::postHtmlMessage(const QString &text, const QString &html, Mess
 
     if (isEdit) {
         QJsonObject json{
-            {"type", "m.room.message"},
-            {"msgtype", msgTypeToString(type)},
-            {"body", "* " + text},
-            {"format", "org.matrix.custom.html"},
-            {"formatted_body", html},
-            {"m.new_content", QJsonObject{{"body", text}, {"msgtype", msgTypeToString(type)}, {"format", "org.matrix.custom.html"}, {"formatted_body", html}}},
-            {"m.relates_to", QJsonObject{{"rel_type", "m.replace"}, {"event_id", relateToEventId}}}};
+            {"type"_ls, "m.room.message"_ls},
+            {"msgtype"_ls, msgTypeToString(type)},
+            {"body"_ls, "* %1"_ls.arg(text)},
+            {"format"_ls, "org.matrix.custom.html"_ls},
+            {"formatted_body"_ls, html},
+            {"m.new_content"_ls,
+             QJsonObject{{"body"_ls, text}, {"msgtype"_ls, msgTypeToString(type)}, {"format"_ls, "org.matrix.custom.html"_ls}, {"formatted_body"_ls, html}}},
+            {"m.relates_to"_ls, QJsonObject{{"rel_type"_ls, "m.replace"_ls}, {"event_id"_ls, relateToEventId}}}};
 
-        postJson("m.room.message", json);
+        postJson("m.room.message"_ls, json);
         return;
     }
 
@@ -862,31 +863,25 @@ void NeoChatRoom::postHtmlMessage(const QString &text, const QString &html, Mess
 
         // clang-format off
         QJsonObject json{
-          {"msgtype", msgTypeToString(type)},
-          {"body", "> <" + replyEvt.senderId() + "> " + eventToString(replyEvt) + "\n\n" + text},
-          {"format", "org.matrix.custom.html"},
-          {"m.relates_to",
+          {"msgtype"_ls, msgTypeToString(type)},
+          {"body"_ls, "> <%1> \n\n%3"_ls.arg(replyEvt.senderId(), eventToString(replyEvt), text)},
+          {"format"_ls, "org.matrix.custom.html"_ls},
+          {"m.relates_to"_ls,
             QJsonObject {
-              {"m.in_reply_to",
+              {"m.in_reply_to"_ls,
                 QJsonObject {
-                  {"event_id", replyEventId}
+                  {"event_id"_ls, replyEventId}
                 }
               }
             }
           },
-          {"formatted_body",
-            "<mx-reply><blockquote><a href=\"https://matrix.to/#/" +
-            id() + "/" +
-            replyEventId +
-            "\">In reply to</a> <a href=\"https://matrix.to/#/" +
-            replyEvt.senderId() + "\">" + replyEvt.senderId() +
-            "</a><br>" + eventToString(replyEvt, Qt::RichText) +
-            "</blockquote></mx-reply>" + html
+          {"formatted_body"_ls,
+              "<mx-reply><blockquote><a href=\"https://matrix.to/#/%1/%2\">In reply to</a> <a href=\"https://matrix.to/#/%3\">%4</a><br>%5</blockquote></mx-reply>"_ls.arg(id(), replyEventId, replyEvt.senderId(), replyEvt.senderId(), eventToString(replyEvt, Qt::RichText))
           }
         };
         // clang-format on
 
-        postJson("m.room.message", json);
+        postJson("m.room.message"_ls, json);
 
         return;
     }
@@ -1004,37 +999,37 @@ QString NeoChatRoom::joinRule() const
 
 void NeoChatRoom::setJoinRule(const QString &joinRule)
 {
-    if (!canSendState("m.room.join_rules")) {
+    if (!canSendState("m.room.join_rules"_ls)) {
         qWarning() << "Power level too low to set join rules";
         return;
     }
-    setState("m.room.join_rules", "", QJsonObject{{"join_rule", joinRule}});
+    setState("m.room.join_rules"_ls, {}, QJsonObject{{"join_rule"_ls, joinRule}});
     // Not emitting joinRuleChanged() here, since that would override the change in the UI with the *current* value, which is not the *new* value.
 }
 
 QString NeoChatRoom::historyVisibility() const
 {
-    return currentState().get("m.room.history_visibility")->contentJson()["history_visibility"_ls].toString();
+    return currentState().get("m.room.history_visibility"_ls)->contentJson()["history_visibility"_ls].toString();
 }
 
 void NeoChatRoom::setHistoryVisibility(const QString &historyVisibilityRule)
 {
-    if (!canSendState("m.room.history_visibility")) {
+    if (!canSendState("m.room.history_visibility"_ls)) {
         qWarning() << "Power level too low to set history visibility";
         return;
     }
 
-    setState("m.room.history_visibility", "", QJsonObject{{"history_visibility", historyVisibilityRule}});
+    setState("m.room.history_visibility"_ls, {}, QJsonObject{{"history_visibility"_ls, historyVisibilityRule}});
     // Not emitting historyVisibilityChanged() here, since that would override the change in the UI with the *current* value, which is not the *new* value.
 }
 
 bool NeoChatRoom::defaultUrlPreviewState() const
 {
-    auto urlPreviewsDisabled = currentState().get("org.matrix.room.preview_urls");
+    auto urlPreviewsDisabled = currentState().get("org.matrix.room.preview_urls"_ls);
 
     // Some rooms will not have this state event set so check for a nullptr return.
     if (urlPreviewsDisabled != nullptr) {
-        return !urlPreviewsDisabled->contentJson()["disable"].toBool();
+        return !urlPreviewsDisabled->contentJson()["disable"_ls].toBool();
     } else {
         return false;
     }
@@ -1042,7 +1037,7 @@ bool NeoChatRoom::defaultUrlPreviewState() const
 
 void NeoChatRoom::setDefaultUrlPreviewState(const bool &defaultUrlPreviewState)
 {
-    if (!canSendState("org.matrix.room.preview_urls")) {
+    if (!canSendState("org.matrix.room.preview_urls"_ls)) {
         qWarning() << "Power level too low to set the default URL preview state for the room";
         return;
     }
@@ -1076,13 +1071,13 @@ void NeoChatRoom::setDefaultUrlPreviewState(const bool &defaultUrlPreviewState)
      *
      * You just have to set disable to true to disable URL previews by default.
      */
-    setState("org.matrix.room.preview_urls", "", QJsonObject{{"disable", !defaultUrlPreviewState}});
+    setState("org.matrix.room.preview_urls"_ls, {}, QJsonObject{{"disable"_ls, !defaultUrlPreviewState}});
 }
 
 bool NeoChatRoom::urlPreviewEnabled() const
 {
-    if (hasAccountData("org.matrix.room.preview_urls")) {
-        return !accountData("org.matrix.room.preview_urls")->contentJson()["disable"].toBool();
+    if (hasAccountData("org.matrix.room.preview_urls"_ls)) {
+        return !accountData("org.matrix.room.preview_urls"_ls)->contentJson()["disable"_ls].toBool();
     } else {
         return defaultUrlPreviewState();
     }
@@ -1101,7 +1096,10 @@ void NeoChatRoom::setUrlPreviewEnabled(const bool &urlPreviewEnabled)
      *  "type": "org.matrix.room.preview_urls",
      * }
      */
-    connection()->callApi<SetAccountDataPerRoomJob>(localUser()->id(), id(), "org.matrix.room.preview_urls", QJsonObject{{"disable", !urlPreviewEnabled}});
+    connection()->callApi<SetAccountDataPerRoomJob>(localUser()->id(),
+                                                    id(),
+                                                    "org.matrix.room.preview_urls"_ls,
+                                                    QJsonObject{{"disable"_ls, !urlPreviewEnabled}});
 }
 
 void NeoChatRoom::setUserPowerLevel(const QString &userID, const int &powerLevel)
@@ -1110,7 +1108,7 @@ void NeoChatRoom::setUserPowerLevel(const QString &userID, const int &powerLevel
         qWarning() << "Cannot modify the power level of the only user";
         return;
     }
-    if (!canSendState("m.room.power_levels")) {
+    if (!canSendState("m.room.power_levels"_ls)) {
         qWarning() << "Power level too low to set user power levels";
         return;
     }
@@ -1120,14 +1118,14 @@ void NeoChatRoom::setUserPowerLevel(const QString &userID, const int &powerLevel
     }
     int clampPowerLevel = std::clamp(powerLevel, 0, 100);
 
-    auto powerLevelContent = currentState().get("m.room.power_levels")->contentJson();
-    auto powerLevelUserOverrides = powerLevelContent["users"].toObject();
+    auto powerLevelContent = currentState().get("m.room.power_levels"_ls)->contentJson();
+    auto powerLevelUserOverrides = powerLevelContent["users"_ls].toObject();
 
     if (powerLevelUserOverrides[userID] != clampPowerLevel) {
         powerLevelUserOverrides[userID] = clampPowerLevel;
-        powerLevelContent["users"] = powerLevelUserOverrides;
+        powerLevelContent["users"_ls] = powerLevelUserOverrides;
 
-        setState("m.room.power_levels", "", powerLevelContent);
+        setState("m.room.power_levels"_ls, {}, powerLevelContent);
     }
 }
 
@@ -1143,19 +1141,19 @@ int NeoChatRoom::getUserPowerLevel(const QString &userId) const
 int NeoChatRoom::powerLevel(const QString &eventName, const bool &isStateEvent) const
 {
     const auto powerLevelEvent = currentState().get<RoomPowerLevelsEvent>();
-    if (eventName == "ban") {
+    if (eventName == "ban"_ls) {
         return powerLevelEvent->ban();
-    } else if (eventName == "kick") {
+    } else if (eventName == "kick"_ls) {
         return powerLevelEvent->kick();
-    } else if (eventName == "invite") {
+    } else if (eventName == "invite"_ls) {
         return powerLevelEvent->invite();
-    } else if (eventName == "redact") {
+    } else if (eventName == "redact"_ls) {
         return powerLevelEvent->redact();
-    } else if (eventName == "users_default") {
+    } else if (eventName == "users_default"_ls) {
         return powerLevelEvent->usersDefault();
-    } else if (eventName == "state_default") {
+    } else if (eventName == "state_default"_ls) {
         return powerLevelEvent->stateDefault();
-    } else if (eventName == "events_default") {
+    } else if (eventName == "events_default"_ls) {
         return powerLevelEvent->eventsDefault();
     } else if (isStateEvent) {
         return powerLevelEvent->powerLevelForState(eventName);
@@ -1166,7 +1164,7 @@ int NeoChatRoom::powerLevel(const QString &eventName, const bool &isStateEvent) 
 
 void NeoChatRoom::setPowerLevel(const QString &eventName, const int &newPowerLevel, const bool &isStateEvent)
 {
-    auto powerLevelContent = currentState().get("m.room.power_levels")->contentJson();
+    auto powerLevelContent = currentState().get("m.room.power_levels"_ls)->contentJson();
     int clampPowerLevel = std::clamp(newPowerLevel, 0, 100);
     int powerLevel = 0;
 
@@ -1177,215 +1175,215 @@ void NeoChatRoom::setPowerLevel(const QString &eventName, const int &newPowerLev
             powerLevelContent[eventName] = clampPowerLevel;
         }
     } else {
-        auto eventPowerLevels = powerLevelContent["events"].toObject();
+        auto eventPowerLevels = powerLevelContent["events"_ls].toObject();
 
         if (eventPowerLevels.contains(eventName)) {
             powerLevel = eventPowerLevels[eventName].toInt();
         } else {
             if (isStateEvent) {
-                powerLevel = powerLevelContent["state_default"].toInt();
+                powerLevel = powerLevelContent["state_default"_ls].toInt();
             } else {
-                powerLevel = powerLevelContent["events_default"].toInt();
+                powerLevel = powerLevelContent["events_default"_ls].toInt();
             }
         }
 
         if (powerLevel != clampPowerLevel) {
             eventPowerLevels[eventName] = clampPowerLevel;
-            powerLevelContent["events"] = eventPowerLevels;
+            powerLevelContent["events"_ls] = eventPowerLevels;
         }
     }
 
-    setState("m.room.power_levels", "", powerLevelContent);
+    setState("m.room.power_levels"_ls, {}, powerLevelContent);
 }
 
 int NeoChatRoom::defaultUserPowerLevel() const
 {
-    return powerLevel("users_default");
+    return powerLevel("users_default"_ls);
 }
 
 void NeoChatRoom::setDefaultUserPowerLevel(const int &newPowerLevel)
 {
-    setPowerLevel("users_default", newPowerLevel);
+    setPowerLevel("users_default"_ls, newPowerLevel);
 }
 
 int NeoChatRoom::invitePowerLevel() const
 {
-    return powerLevel("invite");
+    return powerLevel("invite"_ls);
 }
 
 void NeoChatRoom::setInvitePowerLevel(const int &newPowerLevel)
 {
-    setPowerLevel("invite", newPowerLevel);
+    setPowerLevel("invite"_ls, newPowerLevel);
 }
 
 int NeoChatRoom::kickPowerLevel() const
 {
-    return powerLevel("kick");
+    return powerLevel("kick"_ls);
 }
 
 void NeoChatRoom::setKickPowerLevel(const int &newPowerLevel)
 {
-    setPowerLevel("kick", newPowerLevel);
+    setPowerLevel("kick"_ls, newPowerLevel);
 }
 
 int NeoChatRoom::banPowerLevel() const
 {
-    return powerLevel("ban");
+    return powerLevel("ban"_ls);
 }
 
 void NeoChatRoom::setBanPowerLevel(const int &newPowerLevel)
 {
-    setPowerLevel("ban", newPowerLevel);
+    setPowerLevel("ban"_ls, newPowerLevel);
 }
 
 int NeoChatRoom::redactPowerLevel() const
 {
-    return powerLevel("redact");
+    return powerLevel("redact"_ls);
 }
 
 void NeoChatRoom::setRedactPowerLevel(const int &newPowerLevel)
 {
-    setPowerLevel("redact", newPowerLevel);
+    setPowerLevel("redact"_ls, newPowerLevel);
 }
 
 int NeoChatRoom::statePowerLevel() const
 {
-    return powerLevel("state_default");
+    return powerLevel("state_default"_ls);
 }
 
 void NeoChatRoom::setStatePowerLevel(const int &newPowerLevel)
 {
-    setPowerLevel("state_default", newPowerLevel);
+    setPowerLevel("state_default"_ls, newPowerLevel);
 }
 
 int NeoChatRoom::defaultEventPowerLevel() const
 {
-    return powerLevel("events_default");
+    return powerLevel("events_default"_ls);
 }
 
 void NeoChatRoom::setDefaultEventPowerLevel(const int &newPowerLevel)
 {
-    setPowerLevel("events_default", newPowerLevel);
+    setPowerLevel("events_default"_ls, newPowerLevel);
 }
 
 int NeoChatRoom::powerLevelPowerLevel() const
 {
-    return powerLevel("m.room.power_levels", true);
+    return powerLevel("m.room.power_levels"_ls, true);
 }
 
 void NeoChatRoom::setPowerLevelPowerLevel(const int &newPowerLevel)
 {
-    setPowerLevel("m.room.power_levels", newPowerLevel, true);
+    setPowerLevel("m.room.power_levels"_ls, newPowerLevel, true);
 }
 
 int NeoChatRoom::namePowerLevel() const
 {
-    return powerLevel("m.room.name", true);
+    return powerLevel("m.room.name"_ls, true);
 }
 
 void NeoChatRoom::setNamePowerLevel(const int &newPowerLevel)
 {
-    setPowerLevel("m.room.name", newPowerLevel, true);
+    setPowerLevel("m.room.name"_ls, newPowerLevel, true);
 }
 
 int NeoChatRoom::avatarPowerLevel() const
 {
-    return powerLevel("m.room.avatar", true);
+    return powerLevel("m.room.avatar"_ls, true);
 }
 
 void NeoChatRoom::setAvatarPowerLevel(const int &newPowerLevel)
 {
-    setPowerLevel("m.room.avatar", newPowerLevel, true);
+    setPowerLevel("m.room.avatar"_ls, newPowerLevel, true);
 }
 
 int NeoChatRoom::canonicalAliasPowerLevel() const
 {
-    return powerLevel("m.room.canonical_alias", true);
+    return powerLevel("m.room.canonical_alias"_ls, true);
 }
 
 void NeoChatRoom::setCanonicalAliasPowerLevel(const int &newPowerLevel)
 {
-    setPowerLevel("m.room.canonical_alias", newPowerLevel, true);
+    setPowerLevel("m.room.canonical_alias"_ls, newPowerLevel, true);
 }
 
 int NeoChatRoom::topicPowerLevel() const
 {
-    return powerLevel("m.room.topic", true);
+    return powerLevel("m.room.topic"_ls, true);
 }
 
 void NeoChatRoom::setTopicPowerLevel(const int &newPowerLevel)
 {
-    setPowerLevel("m.room.topic", newPowerLevel, true);
+    setPowerLevel("m.room.topic"_ls, newPowerLevel, true);
 }
 
 int NeoChatRoom::encryptionPowerLevel() const
 {
-    return powerLevel("m.room.encryption", true);
+    return powerLevel("m.room.encryption"_ls, true);
 }
 
 void NeoChatRoom::setEncryptionPowerLevel(const int &newPowerLevel)
 {
-    setPowerLevel("m.room.encryption", newPowerLevel, true);
+    setPowerLevel("m.room.encryption"_ls, newPowerLevel, true);
 }
 
 int NeoChatRoom::historyVisibilityPowerLevel() const
 {
-    return powerLevel("m.room.history_visibility", true);
+    return powerLevel("m.room.history_visibility"_ls, true);
 }
 
 void NeoChatRoom::setHistoryVisibilityPowerLevel(const int &newPowerLevel)
 {
-    setPowerLevel("m.room.history_visibility", newPowerLevel, true);
+    setPowerLevel("m.room.history_visibility"_ls, newPowerLevel, true);
 }
 
 int NeoChatRoom::pinnedEventsPowerLevel() const
 {
-    return powerLevel("m.room.pinned_events", true);
+    return powerLevel("m.room.pinned_events"_ls, true);
 }
 
 void NeoChatRoom::setPinnedEventsPowerLevel(const int &newPowerLevel)
 {
-    setPowerLevel("m.room.pinned_events", newPowerLevel, true);
+    setPowerLevel("m.room.pinned_events"_ls, newPowerLevel, true);
 }
 
 int NeoChatRoom::tombstonePowerLevel() const
 {
-    return powerLevel("m.room.tombstone", true);
+    return powerLevel("m.room.tombstone"_ls, true);
 }
 
 void NeoChatRoom::setTombstonePowerLevel(const int &newPowerLevel)
 {
-    setPowerLevel("m.room.tombstone", newPowerLevel, true);
+    setPowerLevel("m.room.tombstone"_ls, newPowerLevel, true);
 }
 
 int NeoChatRoom::serverAclPowerLevel() const
 {
-    return powerLevel("m.room.server_acl", true);
+    return powerLevel("m.room.server_acl"_ls, true);
 }
 
 void NeoChatRoom::setServerAclPowerLevel(const int &newPowerLevel)
 {
-    setPowerLevel("m.room.server_acl", newPowerLevel, true);
+    setPowerLevel("m.room.server_acl"_ls, newPowerLevel, true);
 }
 
 int NeoChatRoom::spaceChildPowerLevel() const
 {
-    return powerLevel("m.space.child", true);
+    return powerLevel("m.space.child"_ls, true);
 }
 
 void NeoChatRoom::setSpaceChildPowerLevel(const int &newPowerLevel)
 {
-    setPowerLevel("m.space.child", newPowerLevel, true);
+    setPowerLevel("m.space.child"_ls, newPowerLevel, true);
 }
 
 int NeoChatRoom::spaceParentPowerLevel() const
 {
-    return powerLevel("m.space.parent", true);
+    return powerLevel("m.space.parent"_ls, true);
 }
 
 void NeoChatRoom::setSpaceParentPowerLevel(const int &newPowerLevel)
 {
-    setPowerLevel("m.space.parent", newPowerLevel, true);
+    setPowerLevel("m.space.parent"_ls, newPowerLevel, true);
 }
 
 QCoro::Task<void> NeoChatRoom::doDeleteMessagesByUser(const QString &user, QString reason)
@@ -1397,7 +1395,7 @@ QCoro::Task<void> NeoChatRoom::doDeleteMessagesByUser(const QString &user, QStri
         }
     }
     for (const auto &e : events) {
-        auto job = connection()->callApi<RedactEventJob>(id(), QUrl::toPercentEncoding(e), connection()->generateTxnId(), reason);
+        auto job = connection()->callApi<RedactEventJob>(id(), QString::fromLatin1(QUrl::toPercentEncoding(e)), connection()->generateTxnId(), reason);
         co_await qCoro(job, &BaseJob::finished);
         if (job->error() != BaseJob::Success) {
             qWarning() << "Error: \"" << job->error() << "\" while deleting messages. Aborting";
@@ -1448,26 +1446,26 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
      * Note to prevent race conditions any rule that is going ot be overridden later is not removed.
      * If the default push notification state is chosen any exisiting rule needs to be removed.
      */
-    QJsonObject accountData = connection()->accountDataJson("m.push_rules");
+    QJsonObject accountData = connection()->accountDataJson("m.push_rules"_ls);
 
     // For default and mute check for a room rule and remove if found.
     if (state == PushNotificationState::Default || state == PushNotificationState::Mute) {
-        QJsonArray roomRuleArray = accountData["global"].toObject()["room"].toArray();
+        QJsonArray roomRuleArray = accountData["global"_ls].toObject()["room"_ls].toArray();
         for (const auto &i : roomRuleArray) {
             QJsonObject roomRule = i.toObject();
-            if (roomRule["rule_id"] == id()) {
-                Controller::instance().activeConnection()->callApi<DeletePushRuleJob>("global", "room", id());
+            if (roomRule["rule_id"_ls] == id()) {
+                Controller::instance().activeConnection()->callApi<DeletePushRuleJob>("global"_ls, "room"_ls, id());
             }
         }
     }
 
     // For default, all and @mentions and keywords check for an override rule and remove if found.
     if (state == PushNotificationState::Default || state == PushNotificationState::All || state == PushNotificationState::MentionKeyword) {
-        QJsonArray overrideRuleArray = accountData["global"].toObject()["override"].toArray();
+        QJsonArray overrideRuleArray = accountData["global"_ls].toObject()["override"_ls].toArray();
         for (const auto &i : overrideRuleArray) {
             QJsonObject overrideRule = i.toObject();
-            if (overrideRule["rule_id"] == id()) {
-                Controller::instance().activeConnection()->callApi<DeletePushRuleJob>("global", "override", id());
+            if (overrideRule["rule_id"_ls] == id()) {
+                Controller::instance().activeConnection()->callApi<DeletePushRuleJob>("global"_ls, "override"_ls, id());
             }
         }
     }
@@ -1483,7 +1481,7 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
          *      "don't_notify"
          * ]
          */
-        const QVector<QVariant> actions = {"dont_notify"};
+        const QVector<QVariant> actions = {"dont_notify"_ls};
         /**
          * Setup the push condition to get all events for the current room
          * see https://spec.matrix.org/v1.3/client-server-api/#conditions-1
@@ -1497,15 +1495,17 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
          * ]
          */
         PushCondition pushCondition;
-        pushCondition.kind = "event_match";
-        pushCondition.key = "room_id";
+        pushCondition.kind = "event_match"_ls;
+        pushCondition.key = "room_id"_ls;
         pushCondition.pattern = id();
         const QVector<PushCondition> conditions = {pushCondition};
 
         // Add new override rule and make sure it's enabled
-        auto job = Controller::instance().activeConnection()->callApi<SetPushRuleJob>("global", "override", id(), actions, "", "", conditions, "");
+        auto job = Controller::instance()
+                       .activeConnection()
+                       ->callApi<SetPushRuleJob>("global"_ls, "override"_ls, id(), actions, QString(), QString(), conditions, QString());
         connect(job, &BaseJob::success, this, [this]() {
-            auto enableJob = Controller::instance().activeConnection()->callApi<SetPushRuleEnabledJob>("global", "override", id(), true);
+            auto enableJob = Controller::instance().activeConnection()->callApi<SetPushRuleEnabledJob>("global"_ls, "override"_ls, id(), true);
             connect(enableJob, &BaseJob::success, this, [this]() {
                 m_pushNotificationStateUpdating = false;
             });
@@ -1525,13 +1525,15 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
          *      "don't_notify"
          * ]
          */
-        const QVector<QVariant> actions = {"dont_notify"};
+        const QVector<QVariant> actions = {"dont_notify"_ls};
         // No conditions for a room rule
         const QVector<PushCondition> conditions;
 
-        auto setJob = Controller::instance().activeConnection()->callApi<SetPushRuleJob>("global", "room", id(), actions, "", "", conditions, "");
+        auto setJob = Controller::instance()
+                          .activeConnection()
+                          ->callApi<SetPushRuleJob>("global"_ls, "room"_ls, id(), actions, QString(), QString(), conditions, QString());
         connect(setJob, &BaseJob::success, this, [this]() {
-            auto enableJob = Controller::instance().activeConnection()->callApi<SetPushRuleEnabledJob>("global", "room", id(), true);
+            auto enableJob = Controller::instance().activeConnection()->callApi<SetPushRuleEnabledJob>("global"_ls, "room"_ls, id(), true);
             connect(enableJob, &BaseJob::success, this, [this]() {
                 m_pushNotificationStateUpdating = false;
             });
@@ -1553,16 +1555,18 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
          * ]
          */
         QJsonObject tweaks;
-        tweaks.insert("set_tweak", "sound");
-        tweaks.insert("value", "default");
-        const QVector<QVariant> actions = {"notify", tweaks};
+        tweaks.insert("set_tweak"_ls, "sound"_ls);
+        tweaks.insert("value"_ls, "default"_ls);
+        const QVector<QVariant> actions = {"notify"_ls, tweaks};
         // No conditions for a room rule
         const QVector<PushCondition> conditions;
 
         // Add new room rule and make sure enabled
-        auto setJob = Controller::instance().activeConnection()->callApi<SetPushRuleJob>("global", "room", id(), actions, "", "", conditions, "");
+        auto setJob = Controller::instance()
+                          .activeConnection()
+                          ->callApi<SetPushRuleJob>("global"_ls, "room"_ls, id(), actions, QString(), QString(), conditions, QString());
         connect(setJob, &BaseJob::success, this, [this]() {
-            auto enableJob = Controller::instance().activeConnection()->callApi<SetPushRuleEnabledJob>("global", "room", id(), true);
+            auto enableJob = Controller::instance().activeConnection()->callApi<SetPushRuleEnabledJob>("global"_ls, "room"_ls, id(), true);
             connect(enableJob, &BaseJob::success, this, [this]() {
                 m_pushNotificationStateUpdating = false;
             });
@@ -1576,23 +1580,23 @@ void NeoChatRoom::setPushNotificationState(PushNotificationState::State state)
 
 void NeoChatRoom::updatePushNotificationState(QString type)
 {
-    if (type != "m.push_rules" || m_pushNotificationStateUpdating) {
+    if (type != "m.push_rules"_ls || m_pushNotificationStateUpdating) {
         return;
     }
 
-    QJsonObject accountData = connection()->accountDataJson("m.push_rules");
+    QJsonObject accountData = connection()->accountDataJson("m.push_rules"_ls);
 
     // First look for a room rule with the room id
-    QJsonArray roomRuleArray = accountData["global"].toObject()["room"].toArray();
+    QJsonArray roomRuleArray = accountData["global"_ls].toObject()["room"_ls].toArray();
     for (const auto &i : roomRuleArray) {
         QJsonObject roomRule = i.toObject();
-        if (roomRule["rule_id"] == id()) {
-            QString notifyAction = roomRule["actions"].toArray()[0].toString();
-            if (notifyAction == "notify") {
+        if (roomRule["rule_id"_ls] == id()) {
+            QString notifyAction = roomRule["actions"_ls].toArray()[0].toString();
+            if (notifyAction == "notify"_ls) {
                 m_currentPushNotificationState = PushNotificationState::All;
                 Q_EMIT pushNotificationStateChanged(m_currentPushNotificationState);
                 return;
-            } else if (notifyAction == "dont_notify") {
+            } else if (notifyAction == "dont_notify"_ls) {
                 m_currentPushNotificationState = PushNotificationState::MentionKeyword;
                 Q_EMIT pushNotificationStateChanged(m_currentPushNotificationState);
                 return;
@@ -1601,12 +1605,12 @@ void NeoChatRoom::updatePushNotificationState(QString type)
     }
 
     // Check for an override rule with the room id
-    QJsonArray overrideRuleArray = accountData["global"].toObject()["override"].toArray();
+    QJsonArray overrideRuleArray = accountData["global"_ls].toObject()["override"_ls].toArray();
     for (const auto &i : overrideRuleArray) {
         QJsonObject overrideRule = i.toObject();
-        if (overrideRule["rule_id"] == id()) {
-            QString notifyAction = overrideRule["actions"].toArray()[0].toString();
-            if (notifyAction == "dont_notify") {
+        if (overrideRule["rule_id"_ls] == id()) {
+            QString notifyAction = overrideRule["actions"_ls].toArray()[0].toString();
+            if (notifyAction == "dont_notify"_ls) {
                 m_currentPushNotificationState = PushNotificationState::Mute;
                 Q_EMIT pushNotificationStateChanged(m_currentPushNotificationState);
                 return;
@@ -1762,9 +1766,9 @@ void NeoChatRoom::replyLastMessage()
 
         if (e->msgtype() != MessageEventType::Unknown) {
             QString eventId;
-            if (content.contains("m.new_content")) {
+            if (content.contains("m.new_content"_ls)) {
                 // The message has been edited so we have to return the id of the original message instead of the replacement
-                eventId = content["m.relates_to"].toObject()["event_id"].toString();
+                eventId = content["m.relates_to"_ls].toObject()["event_id"_ls].toString();
             } else {
                 // For any message that isn't an edit return the id of the current message
                 eventId = (*it)->id();
@@ -1796,9 +1800,9 @@ void NeoChatRoom::editLastMessage()
 
             if (e->msgtype() != MessageEventType::Unknown) {
                 QString eventId;
-                if (content.contains("m.new_content")) {
+                if (content.contains("m.new_content"_ls)) {
                     // The message has been edited so we have to return the id of the original message instead of the replacement
-                    eventId = content["m.relates_to"].toObject()["event_id"].toString();
+                    eventId = content["m.relates_to"_ls].toObject()["event_id"_ls].toString();
                 } else {
                     // For any message that isn't an edit return the id of the current message
                     eventId = (*it)->id();
@@ -1812,7 +1816,7 @@ void NeoChatRoom::editLastMessage()
 
 bool NeoChatRoom::canEncryptRoom() const
 {
-    return !usesEncryption() && canSendState("m.room.encryption");
+    return !usesEncryption() && canSendState("m.room.encryption"_ls);
 }
 
 PollHandler *NeoChatRoom::poll(const QString &eventId)
@@ -1913,25 +1917,25 @@ Quotient::User *NeoChatRoom::directChatRemoteUser() const
 void NeoChatRoom::sendLocation(float lat, float lon, const QString &description)
 {
     QJsonObject locationContent{
-        {"uri", "geo:%1,%2"_ls.arg(QString::number(lat), QString::number(lon))},
+        {"uri"_ls, "geo:%1,%2"_ls.arg(QString::number(lat), QString::number(lon))},
     };
 
     if (!description.isEmpty()) {
-        locationContent["description"] = description;
+        locationContent["description"_ls] = description;
     }
 
     QJsonObject content{
-        {"body", i18nc("'Lat' and 'Lon' as in Latitude and Longitude", "Lat: %1, Lon: %2", lat, lon)},
-        {"msgtype", "m.location"},
-        {"geo_uri", "geo:%1,%2"_ls.arg(QString::number(lat), QString::number(lon))},
-        {"org.matrix.msc3488.location", locationContent},
-        {"org.matrix.msc3488.asset",
+        {"body"_ls, i18nc("'Lat' and 'Lon' as in Latitude and Longitude", "Lat: %1, Lon: %2", lat, lon)},
+        {"msgtype"_ls, "m.location"_ls},
+        {"geo_uri"_ls, "geo:%1,%2"_ls.arg(QString::number(lat), QString::number(lon))},
+        {"org.matrix.msc3488.location"_ls, locationContent},
+        {"org.matrix.msc3488.asset"_ls,
          QJsonObject{
-             {"type", "m.pin"},
+             {"type"_ls, "m.pin"_ls},
          }},
-        {"org.matrix.msc1767.text", i18nc("'Lat' and 'Lon' as in Latitude and Longitude", "Lat: %1, Lon: %2", lat, lon)},
+        {"org.matrix.msc1767.text"_ls, i18nc("'Lat' and 'Lon' as in Latitude and Longitude", "Lat: %1, Lon: %2", lat, lon)},
     };
-    postJson("m.room.message", content);
+    postJson("m.room.message"_ls, content);
 }
 
 QByteArray NeoChatRoom::roomAcountDataJson(const QString &eventType)
@@ -1955,7 +1959,7 @@ QUrl NeoChatRoom::avatarForMember(Quotient::User *user) const
 
 const RoomEvent *NeoChatRoom::getReplyForEvent(const RoomEvent &event) const
 {
-    const QString &replyEventId = event.contentJson()["m.relates_to"].toObject()["m.in_reply_to"].toObject()["event_id"].toString();
+    const QString &replyEventId = event.contentJson()["m.relates_to"_ls].toObject()["m.in_reply_to"_ls].toObject()["event_id"_ls].toString();
     if (replyEventId.isEmpty()) {
         return {};
     };

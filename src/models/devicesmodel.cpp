@@ -113,11 +113,11 @@ void DevicesModel::logout(const QString &deviceId, const QString &password)
         if (job->error() != BaseJob::Success) {
             QJsonObject replyData = job->jsonData();
             QJsonObject authData;
-            authData["session"] = replyData["session"];
-            authData["password"] = password;
-            authData["type"] = "m.login.password";
-            QJsonObject identifier = {{"type", "m.id.user"}, {"user", Controller::instance().activeConnection()->user()->id()}};
-            authData["identifier"] = identifier;
+            authData["session"_ls] = replyData["session"_ls];
+            authData["password"_ls] = password;
+            authData["type"_ls] = "m.login.password"_ls;
+            QJsonObject identifier = {{"type"_ls, "m.id.user"_ls}, {"user"_ls, Controller::instance().activeConnection()->user()->id()}};
+            authData["identifier"_ls] = identifier;
             auto *innerJob = Controller::instance().activeConnection()->callApi<NeochatDeleteDeviceJob>(m_devices[index].deviceId, authData);
             connect(innerJob, &BaseJob::success, this, onSuccess);
         } else {

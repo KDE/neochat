@@ -12,7 +12,7 @@
 TrayIcon::TrayIcon(QObject *parent)
     : QSystemTrayIcon(parent)
 {
-    setIcon(QIcon(":/icons/org.kde.neochat.tray.svg"));
+    setIcon(QIcon(QStringLiteral(":/icons/org.kde.neochat.tray.svg")));
     QMenu *menu = new QMenu();
     auto viewAction_ = new QAction(i18n("Show"), parent);
 
@@ -28,7 +28,7 @@ TrayIcon::TrayIcon(QObject *parent)
     menu->addSeparator();
 
     auto quitAction = new QAction(i18n("Quit"), parent);
-    quitAction->setIcon(QIcon::fromTheme("application-exit"));
+    quitAction->setIcon(QIcon::fromTheme(QStringLiteral("application-exit")));
     connect(quitAction, &QAction::triggered, QCoreApplication::instance(), QCoreApplication::quit);
 
     menu->addAction(quitAction);

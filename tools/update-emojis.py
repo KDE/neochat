@@ -95,7 +95,7 @@ for line in response.text.split("\n"):
         emoji_qvariant = 'QVariant::fromValue(Emoji{' + emoji_args + '})'
 
         if is_skin_tone:
-            tones_file.write("{\"" + description.split(":")[0] + "\", " + emoji_qvariant + "},\n")
+            tones_file.write("{QStringLiteral(\"" + description.split(":")[0] + "\"), " + emoji_qvariant + "},\n")
             continue
         file.write("_emojis[" + group + "].append(" + emoji_qvariant + ");\n")
 file.close()

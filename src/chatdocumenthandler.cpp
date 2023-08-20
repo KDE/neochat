@@ -225,7 +225,7 @@ void ChatDocumentHandler::complete(int index)
         QTextCursor cursor(document()->textDocument());
         cursor.setPosition(at);
         cursor.setPosition(cursorPosition(), QTextCursor::KeepAnchor);
-        cursor.insertText(name % " ");
+        cursor.insertText(name + QStringLiteral(" "));
         cursor.setPosition(at);
         cursor.setPosition(cursor.position() + name.size(), QTextCursor::KeepAnchor);
         cursor.setKeepPositionOnInsert(true);
@@ -246,7 +246,7 @@ void ChatDocumentHandler::complete(int index)
         QTextCursor cursor(document()->textDocument());
         cursor.setPosition(at);
         cursor.setPosition(cursorPosition(), QTextCursor::KeepAnchor);
-        cursor.insertText(alias % " ");
+        cursor.insertText(alias + QStringLiteral(" "));
         cursor.setPosition(at);
         cursor.setPosition(cursor.position() + alias.size(), QTextCursor::KeepAnchor);
         cursor.setKeepPositionOnInsert(true);

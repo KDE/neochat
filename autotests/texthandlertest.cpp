@@ -604,13 +604,13 @@ void TextHandlerTest::linkPreviewsMatch_data()
     QTest::addColumn<QString>("testInputString");
     QTest::addColumn<QList<QUrl>>("testOutputLinks");
 
-    QTest::newRow("plainHttps") << QStringLiteral("https://kde.org") << QList<QUrl>({QUrl("https://kde.org")});
-    QTest::newRow("richHttps") << QStringLiteral("<a href=\"https://kde.org\">Rich Link</a>") << QList<QUrl>({QUrl("https://kde.org")});
-    QTest::newRow("plainWww") << QStringLiteral("www.example.org") << QList<QUrl>({QUrl("www.example.org")});
+    QTest::newRow("plainHttps") << QStringLiteral("https://kde.org") << QList<QUrl>({QUrl("https://kde.org"_ls)});
+    QTest::newRow("richHttps") << QStringLiteral("<a href=\"https://kde.org\">Rich Link</a>") << QList<QUrl>({QUrl("https://kde.org"_ls)});
+    QTest::newRow("plainWww") << QStringLiteral("www.example.org") << QList<QUrl>({QUrl("www.example.org"_ls)});
     QTest::newRow("multipleHttps") << QStringLiteral("https://kde.org www.example.org")
                                    << QList<QUrl>({
-                                          QUrl("https://kde.org"),
-                                          QUrl("www.example.org"),
+                                          QUrl("https://kde.org"_ls),
+                                          QUrl("www.example.org"_ls),
                                       });
 }
 

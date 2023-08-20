@@ -15,7 +15,7 @@ LocationsModel::LocationsModel(QObject *parent)
             if (!is<RoomMessageEvent>(*event)) {
                 continue;
             }
-            if (event->contentJson()["msgtype"] == "m.location") {
+            if (event->contentJson()["msgtype"_ls] == "m.location"_ls) {
                 const auto &e = *event;
                 addLocation(eventCast<const RoomMessageEvent>(&e));
             }
@@ -25,7 +25,7 @@ LocationsModel::LocationsModel(QObject *parent)
                 if (!is<RoomMessageEvent>(*event)) {
                     continue;
                 }
-                if (event->contentJson()["msgtype"] == "m.location") {
+                if (event->contentJson()["msgtype"_ls] == "m.location"_ls) {
                     const auto &e = *event;
                     addLocation(eventCast<const RoomMessageEvent>(&e));
                 }
@@ -36,7 +36,7 @@ LocationsModel::LocationsModel(QObject *parent)
                 if (!is<RoomMessageEvent>(*event)) {
                     continue;
                 }
-                if (event->contentJson()["msgtype"] == "m.location") {
+                if (event->contentJson()["msgtype"_ls] == "m.location"_ls) {
                     const auto &e = *event;
                     addLocation(eventCast<const RoomMessageEvent>(&e));
                 }
@@ -53,7 +53,7 @@ LocationsModel::LocationsModel(QObject *parent)
 
 void LocationsModel::addLocation(const RoomMessageEvent *event)
 {
-    const auto uri = event->contentJson()["org.matrix.msc3488.location"]["uri"].toString();
+    const auto uri = event->contentJson()["org.matrix.msc3488.location"_ls]["uri"_ls].toString();
     const auto parts = uri.mid(4).split(QLatin1Char(','));
     if (parts.size() < 2) {
         qWarning() << "invalid geo: URI" << uri;

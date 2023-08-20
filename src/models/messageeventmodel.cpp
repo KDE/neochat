@@ -579,7 +579,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         if (isPending) {
             // A pending event with an m.new_content key will be merged into the
             // original event so don't show.
-            if (evt.contentJson().contains("m.new_content")) {
+            if (evt.contentJson().contains("m.new_content"_ls)) {
                 return EventStatus::Hidden;
             }
             return pendingIt->deliveryStatus();
@@ -668,11 +668,11 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == IsReplyRole) {
-        return !evt.contentJson()["m.relates_to"].toObject()["m.in_reply_to"].toObject()["event_id"].toString().isEmpty();
+        return !evt.contentJson()["m.relates_to"_ls].toObject()["m.in_reply_to"_ls].toObject()["event_id"_ls].toString().isEmpty();
     }
 
     if (role == ReplyIdRole) {
-        return evt.contentJson()["m.relates_to"].toObject()["m.in_reply_to"].toObject()["event_id"].toString();
+        return evt.contentJson()["m.relates_to"_ls].toObject()["m.in_reply_to"_ls].toObject()["event_id"_ls].toString();
     }
 
     if (role == ReplyAuthor) {
@@ -733,8 +733,8 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         }
 
         return QVariantMap{
-            {"display", m_currentRoom->eventToString(*replyPtr, Qt::RichText)},
-            {"type", type},
+            {"display"_ls, m_currentRoom->eventToString(*replyPtr, Qt::RichText)},
+            {"type"_ls, type},
         };
     }
 
@@ -789,7 +789,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == AssetRole) {
-        const auto assetType = evt.contentJson()["org.matrix.msc3488.asset"].toObject()["type"].toString();
+        const auto assetType = evt.contentJson()["org.matrix.msc3488.asset"_ls].toObject()["type"_ls].toString();
         if (assetType.isEmpty()) {
             return {};
         }
@@ -820,7 +820,7 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
         userIds.remove(m_currentRoom->localUser()->id());
 
         if (userIds.count() > 5) {
-            return QStringLiteral("+ ") + QString::number(userIds.count() - 5);
+            return QStringLiteral("+ %1").arg(userIds.count() - 5);
         } else {
             return QString();
         }
@@ -880,8 +880,8 @@ QVariant MessageEventModel::data(const QModelIndex &idx, int role) const
     }
 
     if (role == AuthorDisplayNameRole) {
-        if (is<RoomMemberEvent>(evt) && !evt.unsignedJson()["prev_content"]["displayname"].isNull() && evt.stateKey() == evt.senderId()) {
-            auto previousDisplayName = evt.unsignedJson()["prev_content"]["displayname"].toString().toHtmlEscaped();
+        if (is<RoomMemberEvent>(evt) && !evt.unsignedJson()["prev_content"_ls]["displayname"_ls].isNull() && evt.stateKey() == evt.senderId()) {
+            auto previousDisplayName = evt.unsignedJson()["prev_content"_ls]["displayname"_ls].toString().toHtmlEscaped();
             if (previousDisplayName.isEmpty()) {
                 previousDisplayName = evt.senderId();
             }
@@ -943,79 +943,79 @@ QVariantMap MessageEventModel::getMediaInfoFromFileInfo(const EventContent::File
 
     // Get the mxc URL for the media.
     if (!fileInfo->url().isValid() || eventId.isEmpty()) {
-        mediaInfo["source"] = QUrl();
+        mediaInfo["source"_ls] = QUrl();
     } else {
         QUrl source = m_currentRoom->makeMediaUrl(eventId, fileInfo->url());
 
         if (source.isValid() && source.scheme() == QStringLiteral("mxc")) {
-            mediaInfo["source"] = source;
+            mediaInfo["source"_ls] = source;
         } else {
-            mediaInfo["source"] = QUrl();
+            mediaInfo["source"_ls] = QUrl();
         }
     }
 
     auto mimeType = fileInfo->mimeType;
     // Add the MIME type for the media if available.
-    mediaInfo["mimeType"] = mimeType.name();
+    mediaInfo["mimeType"_ls] = mimeType.name();
 
     // Add the MIME type icon if available.
-    mediaInfo["mimeIcon"] = mimeType.iconName();
+    mediaInfo["mimeIcon"_ls] = mimeType.iconName();
 
     // Add media size if available.
-    mediaInfo["size"] = fileInfo->payloadSize;
+    mediaInfo["size"_ls] = fileInfo->payloadSize;
 
     // Add parameter depending on media type.
     if (mimeType.name().contains(QStringLiteral("image"))) {
         if (auto castInfo = static_cast<const EventContent::ImageContent *>(fileInfo)) {
-            mediaInfo["width"] = castInfo->imageSize.width();
-            mediaInfo["height"] = castInfo->imageSize.height();
+            mediaInfo["width"_ls] = castInfo->imageSize.width();
+            mediaInfo["height"_ls] = castInfo->imageSize.height();
 
             // TODO: Images in certain formats (e.g. WebP) will be erroneously marked as animated, even if they are static.
-            mediaInfo["animated"] = QMovie::supportedFormats().contains(mimeType.preferredSuffix().toUtf8());
+            mediaInfo["animated"_ls] = QMovie::supportedFormats().contains(mimeType.preferredSuffix().toUtf8());
 
             if (!isThumbnail) {
                 QVariantMap tempInfo;
                 auto thumbnailInfo = getMediaInfoFromFileInfo(castInfo->thumbnailInfo(), eventId, true);
-                if (thumbnailInfo["source"].toUrl().scheme() == "mxc") {
+                if (thumbnailInfo["source"_ls].toUrl().scheme() == "mxc"_ls) {
                     tempInfo = thumbnailInfo;
                 } else {
-                    QString blurhash = castInfo->originalInfoJson["xyz.amorgan.blurhash"].toString();
+                    QString blurhash = castInfo->originalInfoJson["xyz.amorgan.blurhash"_ls].toString();
                     if (blurhash.isEmpty()) {
-                        tempInfo["source"] = QUrl();
+                        tempInfo["source"_ls] = QUrl();
                     } else {
-                        tempInfo["source"] = QUrl("image://blurhash/" + blurhash);
+                        tempInfo["source"_ls] = QUrl("image://blurhash/"_ls + blurhash);
                     }
                 }
-                mediaInfo["tempInfo"] = tempInfo;
+                mediaInfo["tempInfo"_ls] = tempInfo;
             }
         }
     }
     if (mimeType.name().contains(QStringLiteral("video"))) {
         if (auto castInfo = static_cast<const EventContent::VideoContent *>(fileInfo)) {
-            mediaInfo["width"] = castInfo->imageSize.width();
-            mediaInfo["height"] = castInfo->imageSize.height();
-            mediaInfo["duration"] = castInfo->duration;
+            mediaInfo["width"_ls] = castInfo->imageSize.width();
+            mediaInfo["height"_ls] = castInfo->imageSize.height();
+            mediaInfo["duration"_ls] = castInfo->duration;
 
             if (!isThumbnail) {
                 QVariantMap tempInfo;
                 auto thumbnailInfo = getMediaInfoFromFileInfo(castInfo->thumbnailInfo(), eventId, true);
-                if (thumbnailInfo["source"].toUrl().scheme() == "mxc") {
+                if (thumbnailInfo["source"_ls].toUrl().scheme() == "mxc"_ls) {
                     tempInfo = thumbnailInfo;
                 } else {
-                    QString blurhash = castInfo->originalInfoJson["xyz.amorgan.blurhash"].toString();
+                    QString blurhash = castInfo->originalInfoJson["xyz.amorgan.blurhash"_ls].toString();
                     if (blurhash.isEmpty()) {
-                        tempInfo["source"] = QUrl();
+                        tempInfo["source"_ls] = QUrl();
                     } else {
-                        tempInfo["source"] = QUrl("image://blurhash/" + blurhash);
+                        tempInfo["source"_ls] = QUrl("image://blurhash/"_ls + blurhash);
                     }
                 }
-                mediaInfo["tempInfo"] = tempInfo;
+                mediaInfo["tempInfo"_ls] = tempInfo;
             }
         }
     }
     if (mimeType.name().contains(QStringLiteral("audio"))) {
         if (auto castInfo = static_cast<const EventContent::AudioContent *>(fileInfo)) {
-            mediaInfo["duration"] = castInfo->duration;
+            mediaInfo["duration"_ls] = castInfo->duration;
         }
     }
 

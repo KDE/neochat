@@ -163,7 +163,7 @@ private:
     QMap<int, bool> m_categoryVisibility;
 
     int m_notificationCount = 0;
-    QString m_activeSpaceId = "";
+    QString m_activeSpaceId;
 
     void connectRoomSignals(NeoChatRoom *room);
 

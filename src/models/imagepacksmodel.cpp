@@ -82,8 +82,9 @@ void ImagePacksModel::reloadImages()
     // Load emoticons from the account data
     if (m_room->connection()->hasAccountData("im.ponies.user_emotes"_ls)) {
         auto json = m_room->connection()->accountData("im.ponies.user_emotes"_ls)->contentJson();
-        json["pack"] = QJsonObject{
-            {"display_name", m_showStickers ? i18nc("As in 'The user's own Stickers'", "Own Stickers") : i18nc("As in 'The user's own emojis", "Own Emojis")},
+        json["pack"_ls] = QJsonObject{
+            {"display_name"_ls,
+             m_showStickers ? i18nc("As in 'The user's own Stickers'", "Own Stickers") : i18nc("As in 'The user's own emojis", "Own Emojis")},
         };
         const auto &content = ImagePackEventContent(json);
         if (!content.images.isEmpty()) {
@@ -104,8 +105,8 @@ void ImagePacksModel::reloadImages()
             for (const auto &packKey : packs.keys()) {
                 if (const auto &pack = stickerRoom->currentState().get<ImagePackEvent>(packKey)) {
                     const auto packContent = pack->content();
-                    if ((!packContent.pack || !packContent.pack->usage || (packContent.pack->usage->contains("emoticon") && showEmoticons())
-                         || (packContent.pack->usage->contains("sticker") && showStickers()))
+                    if ((!packContent.pack || !packContent.pack->usage || (packContent.pack->usage->contains("emoticon"_ls) && showEmoticons())
+                         || (packContent.pack->usage->contains("sticker"_ls) && showStickers()))
                         && !packContent.images.isEmpty()) {
                         m_events += packContent;
                     }
@@ -115,12 +116,12 @@ void ImagePacksModel::reloadImages()
     }
 
     // Load emoticons from the current room
-    auto events = m_room->currentState().eventsOfType("im.ponies.room_emotes");
+    auto events = m_room->currentState().eventsOfType("im.ponies.room_emotes"_ls);
     for (const auto &event : events) {
         auto packContent = eventCast<const ImagePackEvent>(event)->content();
         if (packContent.pack.has_value()) {
-            if (!packContent.pack->usage || (packContent.pack->usage->contains("emoticon") && showEmoticons())
-                || (packContent.pack->usage->contains("sticker") && showStickers())) {
+            if (!packContent.pack->usage || (packContent.pack->usage->contains("emoticon"_ls) && showEmoticons())
+                || (packContent.pack->usage->contains("sticker"_ls) && showStickers())) {
                 m_events += packContent;
             }
         }

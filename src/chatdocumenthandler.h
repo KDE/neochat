@@ -104,12 +104,12 @@ class ChatDocumentHandler : public QObject
     /**
      * @brief The color to highlight user mentions.
      */
-    Q_PROPERTY(QColor mentionColor READ mentionColor WRITE setMentionColor NOTIFY mentionColorChanged);
+    Q_PROPERTY(QColor mentionColor READ mentionColor WRITE setMentionColor NOTIFY mentionColorChanged)
 
     /**
      * @brief The color to highlight spelling errors.
      */
-    Q_PROPERTY(QColor errorColor READ errorColor WRITE setErrorColor NOTIFY errorColorChanged);
+    Q_PROPERTY(QColor errorColor READ errorColor WRITE setErrorColor NOTIFY errorColorChanged)
 
 public:
     explicit ChatDocumentHandler(QObject *parent = nullptr);

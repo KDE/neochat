@@ -105,7 +105,7 @@ void PollHandler::handleAnswer(const QJsonObject &content, const QString &sender
         m_answerTimestamps[sender] = timestamp;
         m_answers[sender] = {};
         int i = 0;
-        for (const auto &answer : content["org.matrix.msc3381.poll.response"]["answers"].toArray()) {
+        for (const auto &answer : content["org.matrix.msc3381.poll.response"_ls]["answers"_ls].toArray()) {
             auto array = m_answers[sender].toArray();
             array.insert(0, answer);
             m_answers[sender] = array;

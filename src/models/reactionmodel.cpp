@@ -31,7 +31,7 @@ QVariant ReactionModel::data(const QModelIndex &index, int role) const
 
     if (role == TextRole) {
         if (reaction.authors.count() > 1) {
-            return reaction.reaction + QStringLiteral("  %1").arg(reaction.authors.count());
+            return QStringLiteral("%1  %2").arg(reaction.reaction, reaction.authors.count());
         } else {
             return reaction.reaction;
         }
@@ -52,7 +52,7 @@ QVariant ReactionModel::data(const QModelIndex &index, int role) const
                     text += i18nc("Separate the usernames of users", " and ");
                 }
             }
-            text += reaction.authors.at(i).toMap()["displayName"].toString();
+            text += reaction.authors.at(i).toMap()[QStringLiteral("displayName")].toString();
         }
 
         if (reaction.authors.count() > 3) {
@@ -74,7 +74,7 @@ QVariant ReactionModel::data(const QModelIndex &index, int role) const
 
     if (role == HasLocalUser) {
         for (auto author : reaction.authors) {
-            if (author.toMap()["id"] == m_localUser->id()) {
+            if (author.toMap()[QStringLiteral("id")] == m_localUser->id()) {
                 return true;
             }
         }

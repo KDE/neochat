@@ -66,8 +66,8 @@ QVariant CompletionModel::data(const QModelIndex &index, int role) const
 
     if (m_autoCompletionType == Command) {
         if (role == DisplayNameRole) {
-            return m_filterModel->data(filterIndex, ActionsModel::Prefix).toString() + QStringLiteral(" ")
-                + m_filterModel->data(filterIndex, ActionsModel::Parameters).toString();
+            return QStringLiteral("%1 %2").arg(m_filterModel->data(filterIndex, ActionsModel::Prefix).toString(),
+                                               m_filterModel->data(filterIndex, ActionsModel::Parameters).toString());
         }
         if (role == SubtitleRole) {
             return m_filterModel->data(filterIndex, ActionsModel::Description);

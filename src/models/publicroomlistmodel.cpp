@@ -25,7 +25,7 @@ void PublicRoomListModel::setConnection(Connection *conn)
 
     beginResetModel();
 
-    nextBatch = "";
+    nextBatch = QString();
     attempted = false;
     rooms.clear();
     m_server.clear();
@@ -68,7 +68,7 @@ void PublicRoomListModel::setServer(const QString &value)
 
     beginResetModel();
 
-    nextBatch = "";
+    nextBatch = QString();
     attempted = false;
     rooms.clear();
     Q_EMIT loadingChanged();
@@ -104,7 +104,7 @@ void PublicRoomListModel::setKeyword(const QString &value)
 
     beginResetModel();
 
-    nextBatch = "";
+    nextBatch = QString();
     attempted = false;
     rooms.clear();
 
@@ -192,7 +192,7 @@ QVariant PublicRoomListModel::data(const QModelIndex &index, int role) const
         auto avatarUrl = room.avatarUrl;
 
         if (avatarUrl.isEmpty()) {
-            return "";
+            return {};
         }
         return avatarUrl.url().remove(0, 6);
     }

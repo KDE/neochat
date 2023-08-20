@@ -236,6 +236,6 @@ private:
     void setNotificationRuleEnabled(const QString &kind, const QString &ruleId, bool enabled);
     void setNotificationRuleActions(const QString &kind, const QString &ruleId, PushNotificationAction::Action action);
     PushNotificationAction::Action variantToAction(const QVector<QVariant> &actions, bool enabled);
-    QVector<QVariant> actionToVariant(PushNotificationAction::Action action, const QString &sound = "default");
+    QVector<QVariant> actionToVariant(PushNotificationAction::Action action, const QString &sound = QStringLiteral("default"));
 };
 Q_DECLARE_METATYPE(PushRuleModel *)

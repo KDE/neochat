@@ -15,8 +15,8 @@
 ServerListModel::ServerListModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-    KConfig dataResource("data", KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
-    KConfigGroup serverGroup(&dataResource, "Servers");
+    KConfig dataResource(QStringLiteral("data"), KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
+    KConfigGroup serverGroup(&dataResource, QStringLiteral("Servers"));
 
     QString domain = Controller::instance().activeConnection()->domain();
 
@@ -91,8 +91,8 @@ int ServerListModel::rowCount(const QModelIndex &parent) const
 
 void ServerListModel::checkServer(const QString &url)
 {
-    KConfig dataResource("data", KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
-    KConfigGroup serverGroup(&dataResource, "Servers");
+    KConfig dataResource(QStringLiteral("data"), KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
+    KConfigGroup serverGroup(&dataResource, QStringLiteral("Servers"));
 
     if (!serverGroup.hasKey(url)) {
         if (Quotient::isJobPending(m_checkServerJob)) {
@@ -108,8 +108,8 @@ void ServerListModel::checkServer(const QString &url)
 
 void ServerListModel::addServer(const QString &url)
 {
-    KConfig dataResource("data", KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
-    KConfigGroup serverGroup(&dataResource, "Servers");
+    KConfig dataResource(QStringLiteral("data"), KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
+    KConfigGroup serverGroup(&dataResource, QStringLiteral("Servers"));
 
     if (!serverGroup.hasKey(url)) {
         Server newServer = Server{
@@ -129,8 +129,8 @@ void ServerListModel::addServer(const QString &url)
 
 void ServerListModel::removeServerAtIndex(int row)
 {
-    KConfig dataResource("data", KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
-    KConfigGroup serverGroup(&dataResource, "Servers");
+    KConfig dataResource(QStringLiteral("data"), KConfig::SimpleConfig, QStandardPaths::AppDataLocation);
+    KConfigGroup serverGroup(&dataResource, QStringLiteral("Servers"));
     serverGroup.deleteEntry(data(index(row), UrlRole).toString());
 
     beginRemoveRows(QModelIndex(), row, row);

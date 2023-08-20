@@ -75,13 +75,13 @@ QString CollapseStateProxyModel::aggregateEventToString(int sourceRow) const
             }
         }
         chunks.removeDuplicates();
-        QString text = "<style>a {text-decoration: none;}</style>"; // There can be links in the event text so make sure all are styled.
+        QString text = QStringLiteral("<style>a {text-decoration: none;}</style>"); // There can be links in the event text so make sure all are styled.
         // The author text is either "n users" if > 1 user or the matrix.to link to a single user.
         QString userText = uniqueAuthors.length() > 1 ? i18ncp("n users", " %1 user ", " %1 users ", uniqueAuthors.length())
                                                       : QStringLiteral("<a href=\"https://matrix.to/#/%1\" style=\"color: %2\">%3</a> ")
-                                                            .arg(uniqueAuthors[0].toMap()["id"].toString(),
-                                                                 uniqueAuthors[0].toMap()["color"].toString(),
-                                                                 uniqueAuthors[0].toMap()["displayName"].toString().toHtmlEscaped());
+                                                            .arg(uniqueAuthors[0].toMap()[QStringLiteral("id")].toString(),
+                                                                 uniqueAuthors[0].toMap()[QStringLiteral("color")].toString(),
+                                                                 uniqueAuthors[0].toMap()[QStringLiteral("displayName")].toString().toHtmlEscaped());
         text += userText;
         text += chunks.takeFirst();
 
@@ -104,9 +104,9 @@ QVariantList CollapseStateProxyModel::stateEventsList(int sourceRow) const
     QVariantList stateEvents;
     for (int i = sourceRow; i >= 0; i--) {
         auto nextState = QVariantMap{
-            {"author", sourceModel()->data(sourceModel()->index(i, 0), MessageEventModel::AuthorRole)},
-            {"authorDisplayName", sourceModel()->data(sourceModel()->index(i, 0), MessageEventModel::AuthorDisplayNameRole).toString()},
-            {"text", sourceModel()->data(sourceModel()->index(i, 0), Qt::DisplayRole).toString()},
+            {QStringLiteral("author"), sourceModel()->data(sourceModel()->index(i, 0), MessageEventModel::AuthorRole)},
+            {QStringLiteral("authorDisplayName"), sourceModel()->data(sourceModel()->index(i, 0), MessageEventModel::AuthorDisplayNameRole).toString()},
+            {QStringLiteral("text"), sourceModel()->data(sourceModel()->index(i, 0), Qt::DisplayRole).toString()},
         };
         stateEvents.append(nextState);
         if (i > 0

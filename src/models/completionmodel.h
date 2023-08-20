@@ -40,12 +40,12 @@ class CompletionModel : public QAbstractListModel
      *
      * @sa AutoCompletionType
      */
-    Q_PROPERTY(AutoCompletionType autoCompletionType READ autoCompletionType NOTIFY autoCompletionTypeChanged);
+    Q_PROPERTY(AutoCompletionType autoCompletionType READ autoCompletionType NOTIFY autoCompletionTypeChanged)
 
     /**
      * @brief The RoomListModel to be used for room completions.
      */
-    Q_PROPERTY(RoomListModel *roomListModel READ roomListModel WRITE setRoomListModel NOTIFY roomListModelChanged);
+    Q_PROPERTY(RoomListModel *roomListModel READ roomListModel WRITE setRoomListModel NOTIFY roomListModelChanged)
 
 public:
     /**

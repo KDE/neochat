@@ -112,10 +112,10 @@ void StickerModel::postSticker(int index)
     const auto &body = image.body ? *image.body : QString();
     QJsonObject infoJson;
     if (image.info) {
-        infoJson["w"] = image.info->imageSize.width();
-        infoJson["h"] = image.info->imageSize.height();
-        infoJson["mimetype"] = image.info->mimeType.name();
-        infoJson["size"] = image.info->payloadSize;
+        infoJson["w"_ls] = image.info->imageSize.width();
+        infoJson["h"_ls] = image.info->imageSize.height();
+        infoJson["mimetype"_ls] = image.info->mimeType.name();
+        infoJson["size"_ls] = image.info->payloadSize;
         // TODO thumbnail
     }
     QJsonObject content{
@@ -123,7 +123,7 @@ void StickerModel::postSticker(int index)
         {"url"_ls, image.url.toString()},
         {"info"_ls, infoJson},
     };
-    m_room->postJson("m.sticker", content);
+    m_room->postJson("m.sticker"_ls, content);
 }
 
 #include "moc_stickermodel.cpp"

@@ -138,7 +138,7 @@ QCoro::Task<void> AccountEmoticonModel::doSetEmoticonImage(int index, QUrl sourc
     if (job->error() != BaseJob::NoError) {
         co_return;
     }
-    m_images->images[index].url = job->contentUri().toString();
+    m_images->images[index].url = job->contentUri();
     m_images->images[index].info = none;
     QJsonObject data;
     m_images->fillJson(&data);

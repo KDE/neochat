@@ -44,7 +44,7 @@ void ActionsHandler::handleNewMessage()
     if (!m_room->chatBoxAttachmentPath().isEmpty()) {
         QUrl url(m_room->chatBoxAttachmentPath());
         auto path = url.isLocalFile() ? url.toLocalFile() : url.toString();
-        m_room->uploadFile(path, m_room->chatBoxText().isEmpty() ? path.mid(path.lastIndexOf('/') + 1) : m_room->chatBoxText());
+        m_room->uploadFile(QUrl(path), m_room->chatBoxText().isEmpty() ? path.mid(path.lastIndexOf(u'/') + 1) : m_room->chatBoxText());
         m_room->setChatBoxAttachmentPath({});
         m_room->setChatBoxText({});
         return;
@@ -97,7 +97,7 @@ QString ActionsHandler::handleMentions(QString handledText, const bool &isEdit)
 void ActionsHandler::handleMessage(const QString &text, QString handledText, const bool &isEdit)
 {
     if (NeoChatConfig::allowQuickEdit()) {
-        QRegularExpression sed("^s/([^/]*)/([^/]*)(/g)?$");
+        QRegularExpression sed(QStringLiteral("^s/([^/]*)/([^/]*)(/g)?$"));
         auto match = sed.match(text);
         if (match.hasMatch()) {
             const QString regex = match.captured(1);
@@ -113,13 +113,13 @@ void ActionsHandler::handleMessage(const QString &text, QString handledText, con
                         } else {
                             originalString = event->plainBody();
                         }
-                        if (flags == "/g") {
-                            m_room->postHtmlMessage(handledText, originalString.replace(regex, replacement), event->msgtype(), "", event->id());
+                        if (flags == "/g"_ls) {
+                            m_room->postHtmlMessage(handledText, originalString.replace(regex, replacement), event->msgtype(), {}, event->id());
                         } else {
                             m_room->postHtmlMessage(handledText,
                                                     originalString.replace(originalString.indexOf(regex), regex.size(), replacement),
                                                     event->msgtype(),
-                                                    "",
+                                                    {},
                                                     event->id());
                         }
                         return;
@@ -133,7 +133,7 @@ void ActionsHandler::handleMessage(const QString &text, QString handledText, con
     if (handledText.startsWith(QLatin1Char('/'))) {
         for (const auto &action : ActionsModel::instance().allActions()) {
             if (handledText.indexOf(action.prefix) == 1
-                && (handledText.indexOf(" ") == action.prefix.length() + 1 || handledText.length() == action.prefix.length() + 1)) {
+                && (handledText.indexOf(" "_ls) == action.prefix.length() + 1 || handledText.length() == action.prefix.length() + 1)) {
                 handledText = action.handle(handledText.mid(action.prefix.length() + 1).trimmed(), m_room);
                 if (action.messageType.has_value()) {
                     messageType = *action.messageType;
@@ -152,30 +152,30 @@ void ActionsHandler::handleMessage(const QString &text, QString handledText, con
     textHandler.setData(handledText);
     handledText = textHandler.handleSendText();
 
-    if (handledText.count("<p>") == 1 && handledText.count("</p>") == 1) {
-        handledText.remove("<p>");
-        handledText.remove("</p>");
+    if (handledText.count("<p>"_ls) == 1 && handledText.count("</p>"_ls) == 1) {
+        handledText.remove("<p>"_ls);
+        handledText.remove("</p>"_ls);
     }
 
     if (handledText.length() == 0) {
         return;
     }
 
-    m_room->postMessage(text, handledText, messageType, m_room->chatBoxReplyId(), isEdit ? m_room->chatBoxEditId() : "");
+    m_room->postMessage(text, handledText, messageType, m_room->chatBoxReplyId(), isEdit ? m_room->chatBoxEditId() : QString());
 }
 
 void ActionsHandler::checkEffects(const QString &text)
 {
     std::optional<QString> effect = std::nullopt;
-    if (text.contains("\u2744")) {
+    if (text.contains(QStringLiteral("\u2744"))) {
         effect = QLatin1String("snowflake");
-    } else if (text.contains("\u1F386")) {
+    } else if (text.contains(QStringLiteral("\u1F386"))) {
         effect = QLatin1String("fireworks");
-    } else if (text.contains("\u2F387")) {
+    } else if (text.contains(QStringLiteral("\u2F387"))) {
         effect = QLatin1String("fireworks");
-    } else if (text.contains("\u1F389")) {
+    } else if (text.contains(QStringLiteral("\u1F389"))) {
         effect = QLatin1String("confetti");
-    } else if (text.contains("\u1F38A")) {
+    } else if (text.contains(QStringLiteral("\u1F38A"))) {
         effect = QLatin1String("confetti");
     }
     if (effect.has_value()) {

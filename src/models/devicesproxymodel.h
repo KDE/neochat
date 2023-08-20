@@ -8,7 +8,7 @@
 class DevicesProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
-    Q_PROPERTY(int type READ type WRITE setType NOTIFY typeChanged);
+    Q_PROPERTY(int type READ type WRITE setType NOTIFY typeChanged)
 
 public:
     DevicesProxyModel(QObject *parent = nullptr);

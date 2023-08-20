@@ -71,18 +71,18 @@ void PushRuleModel::controllerConnectionChanged()
 {
     if (Controller::instance().activeConnection()) {
         connect(Controller::instance().activeConnection(), &Quotient::Connection::accountDataChanged, this, &PushRuleModel::updateNotificationRules);
-        updateNotificationRules("m.push_rules");
+        updateNotificationRules(QStringLiteral("m.push_rules"));
     }
 }
 
 void PushRuleModel::updateNotificationRules(const QString &type)
 {
-    if (type != "m.push_rules") {
+    if (type != QStringLiteral("m.push_rules")) {
         return;
     }
 
-    const QJsonObject ruleDataJson = Controller::instance().activeConnection()->accountDataJson("m.push_rules");
-    const Quotient::PushRuleset ruleData = Quotient::fromJson<Quotient::PushRuleset>(ruleDataJson["global"].toObject());
+    const QJsonObject ruleDataJson = Controller::instance().activeConnection()->accountDataJson(QStringLiteral("m.push_rules"));
+    const Quotient::PushRuleset ruleData = Quotient::fromJson<Quotient::PushRuleset>(ruleDataJson[QStringLiteral("global")].toObject());
 
     beginResetModel();
     m_rules.clear();
@@ -203,7 +203,7 @@ bool PushRuleModel::globalNotificationsEnabled() const
 
 void PushRuleModel::setGlobalNotificationsEnabled(bool enabled)
 {
-    setNotificationRuleEnabled("override", ".m.rule.master", !enabled);
+    setNotificationRuleEnabled(QStringLiteral("override"), QStringLiteral(".m.rule.master"), !enabled);
 }
 
 bool PushRuleModel::globalNotificationsSet() const
@@ -304,26 +304,26 @@ void PushRuleModel::addKeyword(const QString &keyword, const QString &roomId)
         kind = PushNotificationKind::Override;
 
         Quotient::PushCondition roomCondition;
-        roomCondition.kind = "event_match";
-        roomCondition.key = "room_id";
+        roomCondition.kind = QStringLiteral("event_match");
+        roomCondition.key = QStringLiteral("room_id");
         roomCondition.pattern = roomId;
         pushConditions.append(roomCondition);
 
         Quotient::PushCondition keywordCondition;
-        keywordCondition.kind = "event_match";
-        keywordCondition.key = "content.body";
+        keywordCondition.kind = QStringLiteral("event_match");
+        keywordCondition.key = QStringLiteral("content.body");
         keywordCondition.pattern = keyword;
         pushConditions.append(keywordCondition);
     }
 
-    auto job = Controller::instance().activeConnection()->callApi<Quotient::SetPushRuleJob>("global",
+    auto job = Controller::instance().activeConnection()->callApi<Quotient::SetPushRuleJob>(QLatin1String("global"),
                                                                                             PushNotificationKind::kindString(kind),
                                                                                             keyword,
                                                                                             actions,
-                                                                                            QLatin1String(""),
-                                                                                            QLatin1String(""),
+                                                                                            QString(),
+                                                                                            QString(),
                                                                                             pushConditions,
-                                                                                            roomId.isEmpty() ? keyword : QLatin1String(""));
+                                                                                            roomId.isEmpty() ? keyword : QString());
     connect(job, &Quotient::BaseJob::failure, this, [job, keyword]() {
         qWarning() << QLatin1String("Unable to set push rule for keyword %1: ").arg(keyword) << job->errorString();
     });
@@ -342,7 +342,7 @@ void PushRuleModel::removeKeyword(const QString &keyword)
     }
 
     auto kind = PushNotificationKind::kindString(m_rules[index].kind);
-    auto job = Controller::instance().activeConnection()->callApi<Quotient::DeletePushRuleJob>("global", kind, m_rules[index].id);
+    auto job = Controller::instance().activeConnection()->callApi<Quotient::DeletePushRuleJob>(QStringLiteral("global"), kind, m_rules[index].id);
     connect(job, &Quotient::BaseJob::failure, this, [this, job, index]() {
         qWarning() << QLatin1String("Unable to remove push rule for keyword %1: ").arg(m_rules[index].id) << job->errorString();
     });
@@ -350,10 +350,10 @@ void PushRuleModel::removeKeyword(const QString &keyword)
 
 void PushRuleModel::setNotificationRuleEnabled(const QString &kind, const QString &ruleId, bool enabled)
 {
-    auto job = Controller::instance().activeConnection()->callApi<Quotient::IsPushRuleEnabledJob>("global", kind, ruleId);
+    auto job = Controller::instance().activeConnection()->callApi<Quotient::IsPushRuleEnabledJob>(QStringLiteral("global"), kind, ruleId);
     connect(job, &Quotient::BaseJob::success, this, [job, kind, ruleId, enabled]() {
         if (job->enabled() != enabled) {
-            Controller::instance().activeConnection()->callApi<Quotient::SetPushRuleEnabledJob>("global", kind, ruleId, enabled);
+            Controller::instance().activeConnection()->callApi<Quotient::SetPushRuleEnabledJob>(QStringLiteral("global"), kind, ruleId, enabled);
         }
     });
 }
@@ -361,13 +361,13 @@ void PushRuleModel::setNotificationRuleEnabled(const QString &kind, const QStrin
 void PushRuleModel::setNotificationRuleActions(const QString &kind, const QString &ruleId, PushNotificationAction::Action action)
 {
     QVector<QVariant> actions;
-    if (ruleId == ".m.rule.call") {
-        actions = actionToVariant(action, "ring");
+    if (ruleId == QStringLiteral(".m.rule.call")) {
+        actions = actionToVariant(action, QStringLiteral("ring"));
     } else {
         actions = actionToVariant(action);
     }
 
-    Controller::instance().activeConnection()->callApi<Quotient::SetPushRuleActionsJob>("global", kind, ruleId, actions);
+    Controller::instance().activeConnection()->callApi<Quotient::SetPushRuleActionsJob>(QStringLiteral("global"), kind, ruleId, actions);
 }
 
 PushNotificationAction::Action PushRuleModel::variantToAction(const QVector<QVariant> &actions, bool enabled)
@@ -385,10 +385,10 @@ PushNotificationAction::Action PushRuleModel::variantToAction(const QVector<QVar
         }
 
         QJsonObject action = i.toJsonObject();
-        if (action["set_tweak"].toString() == "sound") {
+        if (action[QStringLiteral("set_tweak")].toString() == QStringLiteral("sound")) {
             isNoisy = true;
-        } else if (action["set_tweak"].toString() == "highlight") {
-            if (action["value"].toString() != "false") {
+        } else if (action[QStringLiteral("set_tweak")].toString() == QStringLiteral("highlight")) {
+            if (action[QStringLiteral("value")].toString() != QStringLiteral("false")) {
                 highlightEnabled = true;
             }
         }
@@ -425,19 +425,19 @@ QVector<QVariant> PushRuleModel::actionToVariant(PushNotificationAction::Action 
     QVector<QVariant> actions;
 
     if (action != PushNotificationAction::Off) {
-        actions.append("notify");
+        actions.append(QStringLiteral("notify"));
     } else {
-        actions.append("dont_notify");
+        actions.append(QStringLiteral("dont_notify"));
     }
     if (action == PushNotificationAction::Noisy || action == PushNotificationAction::NoisyHighlight) {
         QJsonObject soundTweak;
-        soundTweak.insert("set_tweak", "sound");
-        soundTweak.insert("value", sound);
+        soundTweak.insert(QStringLiteral("set_tweak"), QStringLiteral("sound"));
+        soundTweak.insert(QStringLiteral("value"), sound);
         actions.append(soundTweak);
     }
     if (action == PushNotificationAction::Highlight || action == PushNotificationAction::NoisyHighlight) {
         QJsonObject highlightTweak;
-        highlightTweak.insert("set_tweak", "highlight");
+        highlightTweak.insert(QStringLiteral("set_tweak"), QStringLiteral("highlight"));
         actions.append(highlightTweak);
     }
 

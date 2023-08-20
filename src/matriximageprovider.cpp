@@ -25,13 +25,13 @@ ThumbnailResponse::ThumbnailResponse(QString id, QSize size)
                          mediaId,
                          QString::number(requestedSize.width()),
                          QString::number(requestedSize.height())))
-    , errorStr("Image request hasn't started")
+    , errorStr("Image request hasn't started"_ls)
 {
     if (requestedSize.isEmpty()) {
         requestedSize.setHeight(100);
         requestedSize.setWidth(100);
     }
-    if (mediaId.count('/') != 1) {
+    if (mediaId.count(QLatin1Char('/')) != 1) {
         if (mediaId.startsWith(QLatin1Char('/'))) {
             mediaId = mediaId.mid(1);
         } else {

@@ -57,7 +57,7 @@ void SearchModel::search()
         .searchTerm = m_searchText,
         .keys = {},
         .filter = filter,
-        .orderBy = "recent",
+        .orderBy = "recent"_ls,
         .eventContext = SearchJob::IncludeEventContext{3, 3, true},
         .includeState = false,
         .groupings = none,
@@ -157,8 +157,8 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
             }
 
             return QVariantMap{
-                {"display", m_room->eventToString(*replyPtr, Qt::RichText)},
-                {"type", type},
+                {"display"_ls, m_room->eventToString(*replyPtr, Qt::RichText)},
+                {"type"_ls, type},
             };
         }
     case IsPendingRole:
@@ -166,13 +166,13 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
     case ShowLinkPreviewRole:
         return false;
     case IsReplyRole:
-        return !event.contentJson()["m.relates_to"].toObject()["m.in_reply_to"].toObject()["event_id"].toString().isEmpty();
+        return !event.contentJson()["m.relates_to"_ls].toObject()["m.in_reply_to"_ls].toObject()["event_id"_ls].toString().isEmpty();
     case HighlightRole:
         return !m_room->isDirectChat() && m_room->isEventHighlighted(&event);
     case EventIdRole:
         return event.id();
     case ReplyIdRole:
-        return event.contentJson()["m.relates_to"].toObject()["m.in_reply_to"].toObject()["event_id"].toString();
+        return event.contentJson()["m.relates_to"_ls].toObject()["m.in_reply_to"_ls].toObject()["event_id"_ls].toString();
     }
     return MessageEventModel::DelegateType::Message;
 }
@@ -261,7 +261,7 @@ QString renderDate(const QDateTime &timestamp)
         return i18n("The day before yesterday");
     }
     if (date > QDate::currentDate().addDays(-7)) {
-        return date.toString("dddd");
+        return date.toString("dddd"_ls);
     }
 
     return QLocale::system().toString(date, QLocale::ShortFormat);
