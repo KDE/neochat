@@ -864,7 +864,7 @@ void NeoChatRoom::postHtmlMessage(const QString &text, const QString &html, Mess
         // clang-format off
         QJsonObject json{
           {"msgtype"_ls, msgTypeToString(type)},
-          {"body"_ls, "> <%1> \n\n%3"_ls.arg(replyEvt.senderId(), eventToString(replyEvt), text)},
+          {"body"_ls, "> <%1> %2\n\n%3"_ls.arg(replyEvt.senderId(), eventToString(replyEvt), text)},
           {"format"_ls, "org.matrix.custom.html"_ls},
           {"m.relates_to"_ls,
             QJsonObject {
@@ -876,7 +876,7 @@ void NeoChatRoom::postHtmlMessage(const QString &text, const QString &html, Mess
             }
           },
           {"formatted_body"_ls,
-              "<mx-reply><blockquote><a href=\"https://matrix.to/#/%1/%2\">In reply to</a> <a href=\"https://matrix.to/#/%3\">%4</a><br>%5</blockquote></mx-reply>"_ls.arg(id(), replyEventId, replyEvt.senderId(), replyEvt.senderId(), eventToString(replyEvt, Qt::RichText))
+              "<mx-reply><blockquote><a href=\"https://matrix.to/#/%1/%2\">In reply to</a> <a href=\"https://matrix.to/#/%3\">%4</a><br>%5</blockquote></mx-reply>%6"_ls.arg(id(), replyEventId, replyEvt.senderId(), replyEvt.senderId(), eventToString(replyEvt, Qt::RichText), html)
           }
         };
         // clang-format on
