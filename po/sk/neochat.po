@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-20 00:46+0000\n"
+"POT-Creation-Date: 2023-08-21 00:46+0000\n"
 "PO-Revision-Date: 2022-04-18 17:58+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1206,7 +1206,7 @@ msgstr ""
 msgid "Encrypted Message"
 msgstr "Upraviť správu"
 
-#: src/notificationsmanager.cpp:201 src/qml/main.qml:257
+#: src/notificationsmanager.cpp:201 src/qml/main.qml:253
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1787,20 +1787,18 @@ msgid ""
 msgstr ""
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:32
-#: src/qml/Dialog/ConfirmLogout.qml:29 src/qml/Page/ImageEditorPage.qml:126
+#: src/qml/Dialog/ConfirmLogout.qml:31 src/qml/Page/ImageEditorPage.qml:126
 #: src/qml/Settings/AccountEditorPage.qml:211
 #, kde-format
 msgid "Cancel"
 msgstr "Zrušiť"
 
-#: src/qml/Dialog/ConfirmLogout.qml:16 src/qml/Dialog/ConfirmLogout.qml:35
-#: src/qml/Settings/AccountEditorPage.qml:255
-#: src/qml/Settings/AccountEditorPage.qml:263
+#: src/qml/Dialog/ConfirmLogout.qml:18 src/qml/Dialog/ConfirmLogout.qml:37
 #, kde-format
 msgid "Sign out"
 msgstr ""
 
-#: src/qml/Dialog/ConfirmLogout.qml:19
+#: src/qml/Dialog/ConfirmLogout.qml:21
 #, kde-format
 msgid "Are you sure you want to sign out?"
 msgstr ""
@@ -2160,19 +2158,19 @@ msgstr "Otvoriť súkromný chat"
 msgid "Copy link"
 msgstr "Kopírovať"
 
-#: src/qml/main.qml:297
+#: src/qml/main.qml:293
 #, fuzzy, kde-format
 #| msgid "Show notifications"
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Zobraziť upozornenia"
 
-#: src/qml/main.qml:309
+#: src/qml/main.qml:305
 #, kde-format
 msgid "User consent"
 msgstr "Používateľský súhlas"
 
-#: src/qml/main.qml:314
+#: src/qml/main.qml:310
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2182,17 +2180,17 @@ msgstr ""
 "zmluvnými podmienkami. Ak si ich chcete prečítať, kliknite na tlačidlo "
 "nižšie."
 
-#: src/qml/main.qml:319
+#: src/qml/main.qml:315
 #, kde-format
 msgid "Open"
 msgstr "Otvoriť"
 
-#: src/qml/main.qml:354
+#: src/qml/main.qml:350
 #, kde-format
 msgid "Start a chat"
 msgstr "Začať rozhovor"
 
-#: src/qml/main.qml:356
+#: src/qml/main.qml:352
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Chcete začať rozhovor s %1?"
@@ -2688,7 +2686,7 @@ msgid "Edit this account"
 msgstr "Upraviť tento účet"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:23
-#: src/qml/Page/RoomList/UserInfo.qml:169 src/qml/Settings/AccountsPage.qml:38
+#: src/qml/Page/RoomList/UserInfo.qml:169 src/qml/Settings/AccountsPage.qml:42
 #, fuzzy, kde-format
 #| msgctxt "@title:menu Account detail dialog"
 #| msgid "Account detail"
@@ -2708,6 +2706,7 @@ msgid "Devices"
 msgstr "Zariadenia"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:47
+#: src/qml/Settings/AccountsPage.qml:79
 #, kde-format
 msgid "Logout"
 msgstr "Odhlásenie"
@@ -2895,7 +2894,7 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr ""
 
-#: src/qml/Page/RoomList/UserInfo.qml:42 src/qml/Settings/AccountsPage.qml:85
+#: src/qml/Page/RoomList/UserInfo.qml:42 src/qml/Settings/AccountsPage.qml:107
 #, fuzzy, kde-format
 #| msgid "Add an account"
 msgid "Add Account"
@@ -3638,23 +3637,23 @@ msgstr "Informácie o miestnosti"
 msgid "Homeserver url"
 msgstr "Domáci server:"
 
-#: src/qml/Settings/AccountsPage.qml:16 src/qml/Settings/AccountsPage.qml:25
+#: src/qml/Settings/AccountsPage.qml:20 src/qml/Settings/AccountsPage.qml:29
 #: src/qml/Settings/SettingsPage.qml:36
 #, kde-format
 msgid "Accounts"
 msgstr "Kontá"
 
-#: src/qml/Settings/AccountsPage.qml:102
+#: src/qml/Settings/AccountsPage.qml:124
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Heslo úspešne zmenené"
 
-#: src/qml/Settings/AccountsPage.qml:104
+#: src/qml/Settings/AccountsPage.qml:126
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Zadané nesprávne heslo"
 
-#: src/qml/Settings/AccountsPage.qml:106
+#: src/qml/Settings/AccountsPage.qml:128
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Neznámy problém pri pokuse o zmenu hesla"

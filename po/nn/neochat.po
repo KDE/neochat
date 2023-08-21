@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-15 00:45+0000\n"
+"POT-Creation-Date: 2023-08-20 00:46+0000\n"
 "PO-Revision-Date: 2023-08-10 18:43+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -124,95 +124,95 @@ msgstr "Mål"
 msgid "Network Error"
 msgstr "Nettverksfeil"
 
-#: src/main.cpp:160
+#: src/main.cpp:171
 #, kde-format
 msgid "NeoChat"
 msgstr "NeoChat"
 
-#: src/main.cpp:162
+#: src/main.cpp:173
 #, kde-format
 msgid "Matrix client"
 msgstr "Matrix-klient"
 
-#: src/main.cpp:164
+#: src/main.cpp:175
 #, kde-format
 msgid "© 2018-2020 Black Hat, 2020-2023 KDE Community"
 msgstr "© 2018–2020 Black Hat, © 2020–2023 KDE-fellesskapet"
 
-#: src/main.cpp:165
+#: src/main.cpp:176
 #, kde-format
 msgid "Carl Schwan"
 msgstr "Carl Schwan"
 
-#: src/main.cpp:165 src/main.cpp:166 src/main.cpp:167
+#: src/main.cpp:176 src/main.cpp:177 src/main.cpp:178
 #, kde-format
 msgid "Maintainer"
 msgstr "Vedlikehaldar"
 
-#: src/main.cpp:166
+#: src/main.cpp:177
 #, kde-format
 msgid "Tobias Fella"
 msgstr "Tobias Fella"
 
-#: src/main.cpp:167
+#: src/main.cpp:178
 #, kde-format
 msgid "James Graham"
 msgstr "James Graham"
 
-#: src/main.cpp:168
+#: src/main.cpp:179
 #, kde-format
 msgid "Black Hat"
 msgstr "Black Hat"
 
-#: src/main.cpp:168
+#: src/main.cpp:179
 #, kde-format
 msgid "Original author of Spectral"
 msgstr "Opphavleg utviklar av Spectral"
 
-#: src/main.cpp:169
+#: src/main.cpp:180
 #, kde-format
 msgid "Alexey Rusakov"
 msgstr "Alexey Rusakov"
 
-#: src/main.cpp:169
+#: src/main.cpp:180
 #, kde-format
 msgid "Maintainer of Quotient"
 msgstr "Vedlikehaldar av Quotient"
 
-#: src/main.cpp:170
+#: src/main.cpp:181
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Karl Ove Hufthammer"
 
-#: src/main.cpp:170
+#: src/main.cpp:181
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "karl@huftis.org"
 
-#: src/main.cpp:174
+#: src/main.cpp:185
 #, kde-format
 msgid "A Qt5 library to write cross-platform clients for Matrix"
 msgstr "Eit Qt5-bibliotek for utvikling av kryssplattform-klientar for Matrix"
 
-#: src/main.cpp:176
+#: src/main.cpp:187
 #, kde-format
 msgctxt "<version number> (built against <possibly different version number>)"
 msgid "%1 (built against %2)"
 msgstr "%1 (bygd mot %2)"
 
-#: src/main.cpp:322
+#: src/main.cpp:333
 #, kde-format
 msgid "Client for the matrix communication protocol"
 msgstr "Lynmeldings­klient for Matrix-protokollen"
 
-#: src/main.cpp:323
+#: src/main.cpp:334
 #, kde-format
 msgid "Supports matrix: url scheme"
 msgstr "Støttar «matrix:»-adresser"
 
-#: src/main.cpp:324
+#: src/main.cpp:335
 #, kde-format
 msgid "Ignore all SSL Errors, e.g., unsigned certificates."
 msgstr "Ignorer alle SSL-feil, for eksempel usignerte sertifikat."
@@ -648,35 +648,35 @@ msgctxt "As in 'The user's own emojis"
 msgid "Own Emojis"
 msgstr "Eigne emojiar"
 
-#: src/models/messageeventmodel.cpp:463 src/models/messageeventmodel.cpp:472
+#: src/models/messageeventmodel.cpp:464 src/models/messageeventmodel.cpp:473
 #, kde-format
 msgid "<i>[This message was deleted]</i>"
 msgstr "<i>[Denne meldinga er sletta]</i>"
 
-#: src/models/messageeventmodel.cpp:464
+#: src/models/messageeventmodel.cpp:465
 #, kde-format
 msgid "<i>[This message was deleted: %1]</i>"
 msgstr "<i>[Denne meldinga er sletta: %1]</i>"
 
 # Eller «SENSURERT»?
-#: src/models/messageeventmodel.cpp:540
+#: src/models/messageeventmodel.cpp:541
 #, kde-format
 msgid "[REDACTED]"
 msgstr "[TREKT TILBAKE]"
 
-#: src/models/messageeventmodel.cpp:540
+#: src/models/messageeventmodel.cpp:541
 #, kde-format
 msgid "[REDACTED: %1]"
 msgstr "[TREKT TILBAKE: %1]"
 
-#: src/models/messageeventmodel.cpp:836
+#: src/models/messageeventmodel.cpp:837
 #, kde-format
 msgid "1 user: "
 msgid_plural "%1 users: "
 msgstr[0] "1 brukar: "
 msgstr[1] "%1 brukarar: "
 
-#: src/models/messageeventmodel.cpp:839
+#: src/models/messageeventmodel.cpp:840
 #, kde-format
 msgctxt "list separator"
 msgid ", "
@@ -1155,47 +1155,57 @@ msgstr "Rediger"
 msgid "Cancel sending attachment"
 msgstr "Avbryt sending av vedlegg"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:63
+#: src/qml/Component/ChatBox/ChatBar.qml:64
 #, kde-format
 msgid "Attach an image or file"
 msgstr "Legg ved bilete eller fil"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:90
+#: src/qml/Component/ChatBox/ChatBar.qml:91
 #, kde-format
 msgid "Emojis & Stickers"
 msgstr "Emojiar og klistremerke"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:107
+#: src/qml/Component/ChatBox/ChatBar.qml:108
 #, kde-format
 msgid "Send a Location"
 msgstr "Send geografisk posisjon"
 
 # Namn på «send»-knappen i skrivefeltet.
-#: src/qml/Component/ChatBox/ChatBar.qml:121
+#: src/qml/Component/ChatBox/ChatBar.qml:122
 #, kde-format
 msgid "Send message"
 msgstr "Send meldinga"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:168
+#: src/qml/Component/ChatBox/ChatBar.qml:169
 #, kde-format
 msgid "Send an encrypted message…"
 msgstr "Send ei kryptert melding …"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:168
+#: src/qml/Component/ChatBox/ChatBar.qml:169
 #, kde-format
 msgid "Set an attachment caption..."
 msgstr "Vel vedleggstekst …"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:168
+#: src/qml/Component/ChatBox/ChatBar.qml:169
 #, kde-format
 msgid "Send a message…"
 msgstr "Send ei melding …"
 
-#: src/qml/Component/ChatBox/ChatBar.qml:348
+#: src/qml/Component/ChatBox/ChatBar.qml:349
 #, kde-format
 msgctxt "@action:button"
 msgid "Cancel reply"
 msgstr "Avbryt svar"
+
+#: src/qml/Component/ChatBox/ChatBar.qml:555
+#, kde-format
+msgid "Choose local file"
+msgstr "Vel lokal fil"
+
+#: src/qml/Component/ChatBox/ChatBar.qml:583
+#, kde-format
+msgid "Clipboard image"
+msgstr "Utklippstavle-bilete"
 
 #: src/qml/Component/ChatBox/LocationChooser.qml:22
 #, kde-format
@@ -1598,32 +1608,22 @@ msgstr "Lydstyrke"
 msgid "Maximize"
 msgstr "Maksimer"
 
-#: src/qml/Component/TimelineView.qml:140
-#, kde-format
-msgid "Choose local file"
-msgstr "Vel lokal fil"
-
-#: src/qml/Component/TimelineView.qml:168
-#, kde-format
-msgid "Clipboard image"
-msgstr "Utklippstavle-bilete"
-
-#: src/qml/Component/TimelineView.qml:217
+#: src/qml/Component/TimelineView.qml:153
 #, kde-format
 msgid "Jump to first unread message"
 msgstr "Gå til første ulesne melding"
 
-#: src/qml/Component/TimelineView.qml:240
+#: src/qml/Component/TimelineView.qml:176
 #, kde-format
 msgid "Jump to latest message"
 msgstr "Gå til nyaste melding"
 
-#: src/qml/Component/TimelineView.qml:266
+#: src/qml/Component/TimelineView.qml:202
 #, kde-format
 msgid "Drag items here to share them"
 msgstr "Dra element her for å dela dei"
 
-#: src/qml/Component/TimelineView.qml:292
+#: src/qml/Component/TimelineView.qml:228
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -1678,7 +1678,7 @@ msgstr "Namn på rommet:"
 msgid "Room topic:"
 msgstr "Emne for rommet:"
 
-#: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:160
+#: src/qml/Dialog/CreateRoomDialog.qml:34 src/qml/Page/JoinRoomPage.qml:168
 #, kde-format
 msgctxt "@action:button"
 msgid "Ok"
@@ -2451,71 +2451,77 @@ msgstr "Brukaren er alt medlem eller invitert"
 msgid "Explore Rooms"
 msgstr "Utforsk rom"
 
-#: src/qml/Page/JoinRoomPage.qml:37
+#: src/qml/Page/JoinRoomPage.qml:45
 #, kde-format
 msgid "Find a room..."
 msgstr "Finn eit rom …"
 
-#: src/qml/Page/JoinRoomPage.qml:45
+#: src/qml/Page/JoinRoomPage.qml:53
 #, kde-format
 msgid "View"
 msgstr "Vis"
 
-#: src/qml/Page/JoinRoomPage.qml:45
+#: src/qml/Page/JoinRoomPage.qml:53
 #, kde-format
 msgid "Join"
 msgstr "Vert med"
 
-#: src/qml/Page/JoinRoomPage.qml:74
+#: src/qml/Page/JoinRoomPage.qml:82
 #, kde-format
 msgid "Add New Server"
 msgstr "Legg til ny tenar"
 
-#: src/qml/Page/JoinRoomPage.qml:75
+#: src/qml/Page/JoinRoomPage.qml:83
 #, kde-format
 msgid "Home Server"
 msgstr "Heimetenar"
 
-#: src/qml/Page/JoinRoomPage.qml:84
+#: src/qml/Page/JoinRoomPage.qml:92
 #, kde-format
 msgid "Add new server"
 msgstr "Legg til ny tenar"
 
-#: src/qml/Page/JoinRoomPage.qml:115
+#: src/qml/Page/JoinRoomPage.qml:123
 #, kde-format
 msgctxt "@title:window"
 msgid "Add server"
 msgstr "Legg tenar"
 
-#: src/qml/Page/JoinRoomPage.qml:128
+#: src/qml/Page/JoinRoomPage.qml:136
 #, kde-format
 msgid "Valid server entered"
 msgstr "Gyldig tenar"
 
-#: src/qml/Page/JoinRoomPage.qml:128
+#: src/qml/Page/JoinRoomPage.qml:136
 #, kde-format
 msgid "This server cannot be resolved or has already been added"
 msgstr "Fann ikkje adressa til tenaren, eller så er han alt lagd til"
 
-#: src/qml/Page/JoinRoomPage.qml:128
+#: src/qml/Page/JoinRoomPage.qml:136
 #, kde-format
 msgid "The entered text is not a valid url"
 msgstr "Oppgjeven tekst er ikkje ei gyldig adresse"
 
-#: src/qml/Page/JoinRoomPage.qml:128
+#: src/qml/Page/JoinRoomPage.qml:136
 #, kde-format
 msgid "Enter server url e.g. kde.org"
 msgstr "Skriv inn adressa til tenaren, eks. kde.org"
 
-#: src/qml/Page/JoinRoomPage.qml:136
+#: src/qml/Page/JoinRoomPage.qml:144
 #, kde-format
 msgid "Server URL"
 msgstr "Tenaradresse"
 
-#: src/qml/Page/JoinRoomPage.qml:228
+#: src/qml/Page/JoinRoomPage.qml:245
 #, kde-format
 msgid "Joined"
 msgstr "Vart med"
+
+#: src/qml/Page/JoinRoomPage.qml:299
+#, kde-format
+msgctxt "@info:label"
+msgid "No rooms found"
+msgstr ""
 
 #: src/qml/Page/RoomList/AccountMenu.qml:18
 #: src/qml/Page/RoomList/UserInfo.qml:175
@@ -2588,7 +2594,7 @@ msgid "Copy user's Matrix ID to Clipboard"
 msgstr "Kopier Matrix-ID-en til brukaren til utklippstavla"
 
 #: src/qml/Page/RoomList/ContextMenu.qml:56
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:31
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:32
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Copy Address to Clipboard"
@@ -2700,20 +2706,20 @@ msgctxt "'Space' is a matrix space"
 msgid "View Space"
 msgstr "Vis område"
 
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:40
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:42
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Space Settings"
 msgstr "Område­innstillingar"
 
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:41
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:98
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:44
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:102
 #, kde-format
 msgid "Space Settings"
 msgstr "Område­innstillingar"
 
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:47
-#: src/qml/Page/RoomList/SpaceListContextMenu.qml:102
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:50
+#: src/qml/Page/RoomList/SpaceListContextMenu.qml:106
 #, kde-format
 msgctxt "'Space' is a matrix space"
 msgid "Leave Space"

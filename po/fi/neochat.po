@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-20 00:46+0000\n"
+"POT-Creation-Date: 2023-08-21 00:46+0000\n"
 "PO-Revision-Date: 2023-07-27 15:56+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1087,7 +1087,7 @@ msgstr "Lev: %1, pit: %2"
 msgid "Encrypted Message"
 msgstr "Salattu viesti"
 
-#: src/notificationsmanager.cpp:201 src/qml/main.qml:257
+#: src/notificationsmanager.cpp:201 src/qml/main.qml:253
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1634,20 +1634,18 @@ msgid ""
 msgstr "Salausta ei voi passivoida, kun se on otettu käyttöön."
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:32
-#: src/qml/Dialog/ConfirmLogout.qml:29 src/qml/Page/ImageEditorPage.qml:126
+#: src/qml/Dialog/ConfirmLogout.qml:31 src/qml/Page/ImageEditorPage.qml:126
 #: src/qml/Settings/AccountEditorPage.qml:211
 #, kde-format
 msgid "Cancel"
 msgstr "Peru"
 
-#: src/qml/Dialog/ConfirmLogout.qml:16 src/qml/Dialog/ConfirmLogout.qml:35
-#: src/qml/Settings/AccountEditorPage.qml:255
-#: src/qml/Settings/AccountEditorPage.qml:263
+#: src/qml/Dialog/ConfirmLogout.qml:18 src/qml/Dialog/ConfirmLogout.qml:37
 #, kde-format
 msgid "Sign out"
 msgstr "Kirjaudu ulos"
 
-#: src/qml/Dialog/ConfirmLogout.qml:19
+#: src/qml/Dialog/ConfirmLogout.qml:21
 #, kde-format
 msgid "Are you sure you want to sign out?"
 msgstr "Haluatko varmasti kirjautua ulos?"
@@ -2012,18 +2010,18 @@ msgstr "Avaa yksityiskeskustelu"
 msgid "Copy link"
 msgstr "Kopioi linkki"
 
-#: src/qml/main.qml:297
+#: src/qml/main.qml:293
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Istunnon todennus"
 
-#: src/qml/main.qml:309
+#: src/qml/main.qml:305
 #, kde-format
 msgid "User consent"
 msgstr "Käyttäjän suostumus"
 
-#: src/qml/main.qml:314
+#: src/qml/main.qml:310
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2032,17 +2030,17 @@ msgstr ""
 "Kotipalvelimesi vaatii sinua hyväksymään käyttöehdot ennen kuin voit käyttää "
 "sitä. Lue ehdot napsauttamalla alla olevaa painiketta."
 
-#: src/qml/main.qml:319
+#: src/qml/main.qml:315
 #, kde-format
 msgid "Open"
 msgstr "Avaa"
 
-#: src/qml/main.qml:354
+#: src/qml/main.qml:350
 #, kde-format
 msgid "Start a chat"
 msgstr "Aloita keskustelu"
 
-#: src/qml/main.qml:356
+#: src/qml/main.qml:352
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Haluatko käynnistää keskustelun henkilön %1 kanssa?"
@@ -2524,7 +2522,7 @@ msgid "Edit this account"
 msgstr "Muokkaa tätä tiliä"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:23
-#: src/qml/Page/RoomList/UserInfo.qml:169 src/qml/Settings/AccountsPage.qml:38
+#: src/qml/Page/RoomList/UserInfo.qml:169 src/qml/Settings/AccountsPage.qml:42
 #, kde-format
 msgid "Account editor"
 msgstr "Tilimuokkain"
@@ -2541,6 +2539,7 @@ msgid "Devices"
 msgstr "Laitteet"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:47
+#: src/qml/Settings/AccountsPage.qml:79
 #, kde-format
 msgid "Logout"
 msgstr "Kirjaudu ulos"
@@ -2719,7 +2718,7 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "Poistu tilasta"
 
-#: src/qml/Page/RoomList/UserInfo.qml:42 src/qml/Settings/AccountsPage.qml:85
+#: src/qml/Page/RoomList/UserInfo.qml:42 src/qml/Settings/AccountsPage.qml:107
 #, kde-format
 msgid "Add Account"
 msgstr "Lisää tili"
@@ -3408,23 +3407,23 @@ msgstr "Palvelintiedot"
 msgid "Homeserver url"
 msgstr "Kotipalvelimen verkko-osoite"
 
-#: src/qml/Settings/AccountsPage.qml:16 src/qml/Settings/AccountsPage.qml:25
+#: src/qml/Settings/AccountsPage.qml:20 src/qml/Settings/AccountsPage.qml:29
 #: src/qml/Settings/SettingsPage.qml:36
 #, kde-format
 msgid "Accounts"
 msgstr "Tilit"
 
-#: src/qml/Settings/AccountsPage.qml:102
+#: src/qml/Settings/AccountsPage.qml:124
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Salasanan vaihto onnistui"
 
-#: src/qml/Settings/AccountsPage.qml:104
+#: src/qml/Settings/AccountsPage.qml:126
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Annettiin väärä salasana"
 
-#: src/qml/Settings/AccountsPage.qml:106
+#: src/qml/Settings/AccountsPage.qml:128
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Tuntematon ongelma yritettäessä vaihtaa salasanaa"

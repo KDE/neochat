@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-20 00:46+0000\n"
-"PO-Revision-Date: 2023-08-07 17:47+0300\n"
+"POT-Creation-Date: 2023-08-21 00:46+0000\n"
+"PO-Revision-Date: 2023-08-20 11:45+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1088,7 +1088,7 @@ msgstr "Enlem: %1, Boylam: %2"
 msgid "Encrypted Message"
 msgstr "Şifreli İleti"
 
-#: src/notificationsmanager.cpp:201 src/qml/main.qml:257
+#: src/notificationsmanager.cpp:201 src/qml/main.qml:253
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1636,20 +1636,18 @@ msgstr ""
 "olmayacak."
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:32
-#: src/qml/Dialog/ConfirmLogout.qml:29 src/qml/Page/ImageEditorPage.qml:126
+#: src/qml/Dialog/ConfirmLogout.qml:31 src/qml/Page/ImageEditorPage.qml:126
 #: src/qml/Settings/AccountEditorPage.qml:211
 #, kde-format
 msgid "Cancel"
 msgstr "İptal"
 
-#: src/qml/Dialog/ConfirmLogout.qml:16 src/qml/Dialog/ConfirmLogout.qml:35
-#: src/qml/Settings/AccountEditorPage.qml:255
-#: src/qml/Settings/AccountEditorPage.qml:263
+#: src/qml/Dialog/ConfirmLogout.qml:18 src/qml/Dialog/ConfirmLogout.qml:37
 #, kde-format
 msgid "Sign out"
 msgstr "Oturumu Kapat"
 
-#: src/qml/Dialog/ConfirmLogout.qml:19
+#: src/qml/Dialog/ConfirmLogout.qml:21
 #, kde-format
 msgid "Are you sure you want to sign out?"
 msgstr "Oturumu kapatmak istediğinize emin misiniz?"
@@ -2019,18 +2017,18 @@ msgstr "Özel bir sohbet aç"
 msgid "Copy link"
 msgstr "Bağlantıyı kopyala"
 
-#: src/qml/main.qml:297
+#: src/qml/main.qml:293
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Oturum Doğrulama"
 
-#: src/qml/main.qml:309
+#: src/qml/main.qml:305
 #, kde-format
 msgid "User consent"
 msgstr "Kullanıcı onayı"
 
-#: src/qml/main.qml:314
+#: src/qml/main.qml:310
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2039,17 +2037,17 @@ msgstr ""
 "Ana sunucunuz, kullanım öncesinde kullanım koşullarını kabul etmenizi "
 "gerektiriyor. Okumak için aşağıdaki düğmeye tıklayın."
 
-#: src/qml/main.qml:319
+#: src/qml/main.qml:315
 #, kde-format
 msgid "Open"
 msgstr "Aç"
 
-#: src/qml/main.qml:354
+#: src/qml/main.qml:350
 #, kde-format
 msgid "Start a chat"
 msgstr "Bir sohbet başlat"
 
-#: src/qml/main.qml:356
+#: src/qml/main.qml:352
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "%1 ile bir sohbet başlatmak istiyor musunuz?"
@@ -2517,8 +2515,7 @@ msgid "Joined"
 msgstr "Katılınan"
 
 #: src/qml/Page/JoinRoomPage.qml:299
-#, fuzzy, kde-format
-#| msgid "No rooms found"
+#, kde-format
 msgctxt "@info:label"
 msgid "No rooms found"
 msgstr "Oda bulunamadı"
@@ -2530,7 +2527,7 @@ msgid "Edit this account"
 msgstr "Bu hesabı düzenle"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:23
-#: src/qml/Page/RoomList/UserInfo.qml:169 src/qml/Settings/AccountsPage.qml:38
+#: src/qml/Page/RoomList/UserInfo.qml:169 src/qml/Settings/AccountsPage.qml:42
 #, kde-format
 msgid "Account editor"
 msgstr "Hesap düzenleyici"
@@ -2547,6 +2544,7 @@ msgid "Devices"
 msgstr "Aygıtlar"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:47
+#: src/qml/Settings/AccountsPage.qml:79
 #, kde-format
 msgid "Logout"
 msgstr "Oturumu Kapat"
@@ -2724,7 +2722,7 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "Alandan Ayrıl"
 
-#: src/qml/Page/RoomList/UserInfo.qml:42 src/qml/Settings/AccountsPage.qml:85
+#: src/qml/Page/RoomList/UserInfo.qml:42 src/qml/Settings/AccountsPage.qml:107
 #, kde-format
 msgid "Add Account"
 msgstr "Hesap Ekle"
@@ -3418,23 +3416,23 @@ msgstr "Sunucu Bilgisi"
 msgid "Homeserver url"
 msgstr "Ana Sunucu URL'si"
 
-#: src/qml/Settings/AccountsPage.qml:16 src/qml/Settings/AccountsPage.qml:25
+#: src/qml/Settings/AccountsPage.qml:20 src/qml/Settings/AccountsPage.qml:29
 #: src/qml/Settings/SettingsPage.qml:36
 #, kde-format
 msgid "Accounts"
 msgstr "Hesaplar"
 
-#: src/qml/Settings/AccountsPage.qml:102
+#: src/qml/Settings/AccountsPage.qml:124
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Parola başarıyla değiştirildi"
 
-#: src/qml/Settings/AccountsPage.qml:104
+#: src/qml/Settings/AccountsPage.qml:126
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Yanlış parola girildi"
 
-#: src/qml/Settings/AccountsPage.qml:106
+#: src/qml/Settings/AccountsPage.qml:128
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Parolayı değiştirmeye çalışırken bilinmeyen sorun"
