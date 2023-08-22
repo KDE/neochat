@@ -204,8 +204,8 @@ void NotificationsManager::postNotification(NeoChatRoom *room,
     notification->setText(notification->text() + QLatin1Char('\n') + entry);
     notification->setPixmap(createNotificationImage(icon, room));
 
-    notification->setDefaultAction(i18n("Open NeoChat in this room"));
-    connect(notification, &KNotification::defaultActivated, this, [notification, room]() {
+    auto defaultAction = notification->addDefaultAction(i18n("Open NeoChat in this room"));
+    connect(defaultAction, &KNotificationAction::activated, this, [notification, room]() {
         WindowController::instance().showAndRaiseWindow(notification->xdgActivationToken());
         if (!room) {
             return;
@@ -240,28 +240,31 @@ void NotificationsManager::postInviteNotification(NeoChatRoom *room, const QStri
     notification->setTitle(title);
     notification->setPixmap(createNotificationImage(icon, nullptr));
     notification->setFlags(KNotification::Persistent);
-    notification->setDefaultAction(i18n("Open this invitation in NeoChat"));
-    connect(notification, &KNotification::defaultActivated, this, [notification, room]() {
+    auto defaultAction = notification->addDefaultAction(i18n("Open this invitation in NeoChat"));
+    connect(defaultAction, &KNotificationAction::activated, this, [notification, room]() {
         WindowController::instance().showAndRaiseWindow(notification->xdgActivationToken());
         notification->close();
         RoomManager::instance().enterRoom(room);
     });
-    notification->setActions({i18nc("@action:button The thing being accepted is an invitation to chat", "Accept"), i18nc("@action:button The thing being rejected is an invitation to chat", "Reject"), i18nc("@action:button The thing being rejected is an invitation to chat", "Reject and Ignore User")});
-    connect(notification, &KNotification::action1Activated, this, [room, notification]() {
+
+    const auto acceptAction = notification->addAction(i18nc("@action:button The thing being accepted is an invitation to chat", "Accept"));
+    const auto rejectAction = notification->addAction(i18nc("@action:button The thing being rejected is an invitation to chat", "Reject"));
+    const auto rejectAndIgnoreAction = notification->addAction(i18nc("@action:button The thing being rejected is an invitation to chat", "Reject and Ignore User"));
+    connect(acceptAction, &KNotificationAction::activated, this, [room, notification]() {
         if (!room) {
             return;
         }
         room->acceptInvitation();
         notification->close();
     });
-    connect(notification, &KNotification::action2Activated, this, [room, notification]() {
+    connect(rejectAction, &KNotificationAction::activated, this, [room, notification]() {
         if (!room) {
             return;
         }
         RoomManager::instance().leaveRoom(room);
         notification->close();
     });
-    connect(notification, &KNotification::action3Activated, this, [room, notification]() {
+    connect(rejectAndIgnoreAction, &KNotificationAction::activated, this, [room, notification]() {
         if (!room) {
             return;
         }
