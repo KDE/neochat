@@ -234,7 +234,7 @@ private:
 
 private Q_SLOTS:
     void invokeLogin();
-    void showWindow();
+    void toggleWindow();
     void setQuitOnLastWindowClosed();
 
 Q_SIGNALS:

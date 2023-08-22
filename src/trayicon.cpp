@@ -16,10 +16,10 @@ TrayIcon::TrayIcon(QObject *parent)
     QMenu *menu = new QMenu();
     auto viewAction_ = new QAction(i18n("Show"), parent);
 
-    connect(viewAction_, &QAction::triggered, this, &TrayIcon::showWindow);
+    connect(viewAction_, &QAction::triggered, this, &TrayIcon::toggleWindow);
     connect(this, &QSystemTrayIcon::activated, this, [this](QSystemTrayIcon::ActivationReason reason) {
         if (reason == QSystemTrayIcon::Trigger) {
-            Q_EMIT showWindow();
+            Q_EMIT toggleWindow();
         }
     });
 

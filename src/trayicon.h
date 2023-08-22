@@ -24,7 +24,7 @@ public:
 
 Q_SIGNALS:
     /**
-     * @brief Triggered when the system tray icon is clicked to request NeoChat be shown.
+     * @brief Triggered when the system tray icon is clicked to request NeoChat be shown or hidden.
      */
-    void showWindow();
+    void toggleWindow();
 };

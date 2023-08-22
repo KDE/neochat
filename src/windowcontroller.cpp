@@ -53,6 +53,7 @@ void WindowController::showAndRaiseWindow(const QString &startupId)
 {
     if (!m_window->isVisible()) {
         m_window->show();
+        restoreGeometry();
     }
 
 #ifdef HAVE_WINDOWSYSTEM
