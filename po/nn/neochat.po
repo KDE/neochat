@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-20 00:46+0000\n"
+"POT-Creation-Date: 2023-08-21 00:46+0000\n"
 "PO-Revision-Date: 2023-08-10 18:43+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -1095,7 +1095,7 @@ msgstr "Breiddegr.: %1 – lengdegr.: %2"
 msgid "Encrypted Message"
 msgstr "Kryptert melding"
 
-#: src/notificationsmanager.cpp:201 src/qml/main.qml:257
+#: src/notificationsmanager.cpp:201 src/qml/main.qml:253
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1644,20 +1644,18 @@ msgid ""
 msgstr "Det er ikkje mogleg å slå av krypteringa etter at ho er slått på."
 
 #: src/qml/Dialog/ConfirmEncryptionDialog.qml:32
-#: src/qml/Dialog/ConfirmLogout.qml:29 src/qml/Page/ImageEditorPage.qml:126
+#: src/qml/Dialog/ConfirmLogout.qml:31 src/qml/Page/ImageEditorPage.qml:126
 #: src/qml/Settings/AccountEditorPage.qml:211
 #, kde-format
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/qml/Dialog/ConfirmLogout.qml:16 src/qml/Dialog/ConfirmLogout.qml:35
-#: src/qml/Settings/AccountEditorPage.qml:255
-#: src/qml/Settings/AccountEditorPage.qml:263
+#: src/qml/Dialog/ConfirmLogout.qml:18 src/qml/Dialog/ConfirmLogout.qml:37
 #, kde-format
 msgid "Sign out"
 msgstr "Logg ut"
 
-#: src/qml/Dialog/ConfirmLogout.qml:19
+#: src/qml/Dialog/ConfirmLogout.qml:21
 #, kde-format
 msgid "Are you sure you want to sign out?"
 msgstr "Er du sikker på at du vil logga ut?"
@@ -2020,18 +2018,18 @@ msgstr "Start privat prat"
 msgid "Copy link"
 msgstr "Kopier lenkje"
 
-#: src/qml/main.qml:297
+#: src/qml/main.qml:293
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Øktstadfesting"
 
-#: src/qml/main.qml:309
+#: src/qml/main.qml:305
 #, kde-format
 msgid "User consent"
 msgstr "Brukar­samtykke"
 
-#: src/qml/main.qml:314
+#: src/qml/main.qml:310
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2040,17 +2038,17 @@ msgstr ""
 "Heimetenaren krev at du godtek brukarvilkåra før du kan ta han i bruk. Trykk "
 "på knappen nedanfor for å lesa vilkåra."
 
-#: src/qml/main.qml:319
+#: src/qml/main.qml:315
 #, kde-format
 msgid "Open"
 msgstr "Opna"
 
-#: src/qml/main.qml:354
+#: src/qml/main.qml:350
 #, kde-format
 msgid "Start a chat"
 msgstr "Start prat"
 
-#: src/qml/main.qml:356
+#: src/qml/main.qml:352
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Vil du starta ein prat med %1?"
@@ -2530,7 +2528,7 @@ msgid "Edit this account"
 msgstr "Rediger kontoen"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:23
-#: src/qml/Page/RoomList/UserInfo.qml:169 src/qml/Settings/AccountsPage.qml:38
+#: src/qml/Page/RoomList/UserInfo.qml:169 src/qml/Settings/AccountsPage.qml:42
 #, kde-format
 msgid "Account editor"
 msgstr "Konto­redigering"
@@ -2547,6 +2545,7 @@ msgid "Devices"
 msgstr "Einingar"
 
 #: src/qml/Page/RoomList/AccountMenu.qml:47
+#: src/qml/Settings/AccountsPage.qml:79
 #, kde-format
 msgid "Logout"
 msgstr "Logg ut"
@@ -2725,7 +2724,7 @@ msgctxt "'Space' is a matrix space"
 msgid "Leave Space"
 msgstr "Forlat område"
 
-#: src/qml/Page/RoomList/UserInfo.qml:42 src/qml/Settings/AccountsPage.qml:85
+#: src/qml/Page/RoomList/UserInfo.qml:42 src/qml/Settings/AccountsPage.qml:107
 #, kde-format
 msgid "Add Account"
 msgstr "Legg til konto"
@@ -3428,23 +3427,23 @@ msgstr "Tenarinformasjon"
 msgid "Homeserver url"
 msgstr "Adresse til heimetenar"
 
-#: src/qml/Settings/AccountsPage.qml:16 src/qml/Settings/AccountsPage.qml:25
+#: src/qml/Settings/AccountsPage.qml:20 src/qml/Settings/AccountsPage.qml:29
 #: src/qml/Settings/SettingsPage.qml:36
 #, kde-format
 msgid "Accounts"
 msgstr "Kontoar"
 
-#: src/qml/Settings/AccountsPage.qml:102
+#: src/qml/Settings/AccountsPage.qml:124
 #, kde-format
 msgid "Password changed successfully"
 msgstr "Passordet er no endra"
 
-#: src/qml/Settings/AccountsPage.qml:104
+#: src/qml/Settings/AccountsPage.qml:126
 #, kde-format
 msgid "Wrong password entered"
 msgstr "Du skreiv inn feil passord"
 
-#: src/qml/Settings/AccountsPage.qml:106
+#: src/qml/Settings/AccountsPage.qml:128
 #, kde-format
 msgid "Unknown problem while trying to change password"
 msgstr "Ukjent problem ved endring av passord"
