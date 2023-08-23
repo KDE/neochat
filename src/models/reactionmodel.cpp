@@ -31,7 +31,7 @@ QVariant ReactionModel::data(const QModelIndex &index, int role) const
 
     if (role == TextRole) {
         if (reaction.authors.count() > 1) {
-            return QStringLiteral("%1  %2").arg(reaction.reaction, reaction.authors.count());
+            return QStringLiteral("%1  %2").arg(reaction.reaction, QString::number(reaction.authors.count()));
         } else {
             return reaction.reaction;
         }
