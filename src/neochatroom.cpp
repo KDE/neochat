@@ -111,7 +111,7 @@ NeoChatRoom::NeoChatRoom(Connection *connection, QString roomId, JoinState joinS
             qWarning() << "using this room's avatar";
             avatar_image = avatar(128);
         }
-        NotificationsManager::instance().postInviteNotification(this, htmlSafeDisplayName(), htmlSafeMemberName(senderId), avatar_image);
+        NotificationsManager::instance().postInviteNotification(this, displayNameForHtml(), htmlSafeMemberName(senderId), avatar_image);
     });
     connect(this, &Room::changed, this, [this] {
         Q_EMIT canEncryptRoomChanged();
@@ -976,11 +976,6 @@ bool NeoChatRoom::isUserBanned(const QString &user) const
         return false;
     }
     return roomMemberEvent->membership() == Membership::Ban;
-}
-
-QString NeoChatRoom::htmlSafeDisplayName() const
-{
-    return displayName().toHtmlEscaped();
 }
 
 void NeoChatRoom::deleteMessagesByUser(const QString &user, const QString &reason)

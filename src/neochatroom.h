@@ -112,11 +112,6 @@ class NeoChatRoom : public Quotient::Room
     Q_PROPERTY(bool readMarkerLoaded READ readMarkerLoaded NOTIFY readMarkerLoadedChanged)
 
     /**
-     * @brief Display name with any html special characters escaped.
-     */
-    Q_PROPERTY(QString htmlSafeDisplayName READ htmlSafeDisplayName NOTIFY displayNameChanged)
-
-    /**
      * @brief The avatar image to be used for the room.
      */
     Q_PROPERTY(QString avatarMediaId READ avatarMediaId NOTIFY avatarChanged STORED false)
@@ -590,8 +585,6 @@ public:
     Q_INVOKABLE void reportEvent(const QString &eventId, const QString &reason);
 
     [[nodiscard]] bool readMarkerLoaded() const;
-
-    QString htmlSafeDisplayName() const;
 
     /**
      * @brief Get subtitle text for room
