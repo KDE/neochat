@@ -17,10 +17,10 @@ QQC2.ScrollView {
     required property NeoChatRoom currentRoom
     onCurrentRoomChanged: {
         roomChanging = true;
+        roomChangingTimer.restart()
         applicationWindow().hoverLinkIndicator.text = "";
         messageListView.positionViewAtBeginning();
         hasScrolledUpBefore = false;
-        roomChanging = true;
     }
     property bool roomChanging: false
     readonly property bool atYEnd: messageListView.atYEnd
@@ -79,6 +79,13 @@ QQC2.ScrollView {
             messageEventModel.fetchMore(messageEventModel.index(0, 0));
         }
 
+        Timer {
+            id: roomChangingTimer
+            interval: 1000
+            onTriggered: {
+                root.roomChanging = false
+            }
+        }
         onAtYEndChanged: if (!root.roomChanging) {
             if (atYEnd && root.hasScrolledUpBefore) {
                 if (QQC2.ApplicationWindow.window && (QQC2.ApplicationWindow.window.visibility !== QQC2.ApplicationWindow.Hidden)) {
