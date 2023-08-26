@@ -8,6 +8,7 @@
 #include <Quotient/connection.h>
 #include <Quotient/csapi/content-repo.h>
 
+#include "neochatconfig.h"
 #include "neochatroom.h"
 
 using namespace Quotient;
@@ -19,6 +20,10 @@ LinkPreviewer::LinkPreviewer(QObject *parent, NeoChatRoom *room, const QUrl &url
     , m_url(url)
 {
     loadUrlPreview();
+    if (m_currentRoom) {
+        connect(m_currentRoom, &NeoChatRoom::urlPreviewEnabledChanged, this, &LinkPreviewer::loadUrlPreview);
+    }
+    connect(NeoChatConfig::self(), &NeoChatConfig::ShowLinkPreviewChanged, this, &LinkPreviewer::loadUrlPreview);
 }
 
 bool LinkPreviewer::loaded() const
@@ -57,6 +62,9 @@ void LinkPreviewer::setUrl(QUrl url)
 
 void LinkPreviewer::loadUrlPreview()
 {
+    if (!m_currentRoom || !NeoChatConfig::showLinkPreview() || !m_currentRoom->urlPreviewEnabled()) {
+        return;
+    }
     if (m_url.scheme() == QStringLiteral("https")) {
         m_loaded = false;
         Q_EMIT loadedChanged();
