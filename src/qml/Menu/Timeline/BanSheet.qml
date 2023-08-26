@@ -7,6 +7,8 @@ import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.20 as Kirigami
 
+import org.kde.neochat 1.0
+
 Kirigami.Page {
     id: banSheet
 
