@@ -124,7 +124,7 @@ int DelegateSizeHelper::calculateCurrentPercentageWidth() const
     int maxPercentWidth = endPercentBigger ? m_endPercentWidth : m_startPercentWidth;
     int minPercentWidth = endPercentBigger ? m_startPercentWidth : m_endPercentWidth;
 
-    int calcPercentWidth = std::ceil(m * m_parentWidth + c);
+    int calcPercentWidth = std::round(m * m_parentWidth + c);
     return std::clamp(calcPercentWidth, minPercentWidth, maxPercentWidth);
 }
 
@@ -146,9 +146,9 @@ qreal DelegateSizeHelper::currentWidth() const
 
     qreal absoluteWidth = m_parentWidth * percentWidth * 0.01;
     if (m_maxWidth < 0.0) {
-        return std::ceil(absoluteWidth);
+        return std::round(absoluteWidth);
     } else {
-        return std::ceil(std::min(absoluteWidth, m_maxWidth));
+        return std::round(std::min(absoluteWidth, m_maxWidth));
     }
 }
 
