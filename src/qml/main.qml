@@ -132,6 +132,10 @@ Kirigami.ApplicationWindow {
         }
     }
 
+    function openRoomDrawer() {
+        pageStack.push("qrc:/RoomDrawerPage.qml")
+    }
+
     contextDrawer: RoomDrawer {
         id: contextDrawer
 
@@ -147,7 +151,7 @@ Kirigami.ApplicationWindow {
             }
         }
 
-        modal: !root.wideScreen || !enabled
+        modal: (!root.wideScreen || !enabled)
         onEnabledChanged: drawerOpen = enabled && !modal
         onModalChanged: {
             if (Config.autoRoomInfoDrawer) {
@@ -155,7 +159,7 @@ Kirigami.ApplicationWindow {
                 dim = false
             }
         }
-        enabled: RoomManager.hasOpenRoom && pageStack.layers.depth < 2 && pageStack.depth < 3 && (pageStack.visibleItems.length > 1 || pageStack.currentIndex > 0)
+        enabled: RoomManager.hasOpenRoom && pageStack.layers.depth < 2 && pageStack.depth < 3 && (pageStack.visibleItems.length > 1 || pageStack.currentIndex > 0) && !Kirigami.Settings.isMobile && root.pageStack.wideMode
         handleVisible: enabled
     }
 

@@ -27,6 +27,14 @@ Kirigami.Page {
     focus: true
     padding: 0
 
+    actions {
+        main: Kirigami.Action {
+            visible: Kirigami.Settings.isMobile || !applicationWindow().pageStack.wideMode
+            icon.name: "view-right-new"
+            onTriggered: applicationWindow().openRoomDrawer()
+        }
+    }
+
     KeyNavigation.left: pageStack.get(0)
 
     onCurrentRoomChanged: {
