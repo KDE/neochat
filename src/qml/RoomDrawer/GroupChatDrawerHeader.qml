@@ -68,7 +68,8 @@ ColumnLayout {
                 Layout.fillWidth: true
                 font: Kirigami.Theme.smallFont
                 textFormat: TextEdit.PlainText
-                text: room && room.canonicalAlias ? room.canonicalAlias : i18n("No Canonical Alias")
+                visible: room && room.canonicalAlias
+                text: room && room.canonicalAlias ? room.canonicalAlias : ""
             }
         }
     }
