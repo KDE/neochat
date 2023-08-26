@@ -58,6 +58,7 @@ Kirigami.OverlaySheet {
                     elide: Text.ElideRight
                     wrapMode: Text.NoWrap
                     text: user.displayName
+                    textFormat: Text.PlainText
                 }
 
                 Kirigami.SelectableLabel {
