@@ -91,7 +91,7 @@ Components.AlbumMaximizeComponent {
             file: parent,
             mimeType: root.currentMimeType,
             progressInfo: root.currentProgressInfo,
-            plainMessage: root.currentPlainText
+            plainText: root.currentPlainText
         });
         contextMenu.closeFullscreen.connect(root.close)
         contextMenu.open();
