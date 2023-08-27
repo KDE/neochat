@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-26 00:46+0000\n"
+"POT-Creation-Date: 2023-08-27 00:46+0000\n"
 "PO-Revision-Date: 2023-06-24 10:17+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -1094,7 +1094,7 @@ msgstr "Lat: %1, Lon: %2"
 msgid "Encrypted Message"
 msgstr "Mensagem Encriptada"
 
-#: src/notificationsmanager.cpp:201 src/qml/main.qml:253
+#: src/notificationsmanager.cpp:201 src/qml/main.qml:257
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1360,7 +1360,8 @@ msgstr "Rejeitar"
 msgid "Accept"
 msgstr "Aceitar"
 
-#: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:200
+#: src/qml/Component/LocationPage.qml:17
+#: src/qml/RoomDrawer/RoomInformation.qml:116
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -1970,80 +1971,80 @@ msgctxt "@title:menu Account detail dialog"
 msgid "Account detail"
 msgstr "Detalhe da conta"
 
-#: src/qml/Dialog/UserDetailDialog.qml:80
+#: src/qml/Dialog/UserDetailDialog.qml:81
 #, kde-format
 msgid "Unignore this user"
 msgstr "Reactivar este utilizador"
 
-#: src/qml/Dialog/UserDetailDialog.qml:80
+#: src/qml/Dialog/UserDetailDialog.qml:81
 #, kde-format
 msgid "Ignore this user"
 msgstr "Ignorar este utilizador"
 
-#: src/qml/Dialog/UserDetailDialog.qml:92
+#: src/qml/Dialog/UserDetailDialog.qml:93
 #, kde-format
 msgid "Kick this user"
 msgstr "Expulsar este utilizador"
 
-#: src/qml/Dialog/UserDetailDialog.qml:105
+#: src/qml/Dialog/UserDetailDialog.qml:106
 #, kde-format
 msgid "Invite this user"
 msgstr "Convidar este utilizador"
 
-#: src/qml/Dialog/UserDetailDialog.qml:117
+#: src/qml/Dialog/UserDetailDialog.qml:118
 #, kde-format
 msgid "Ban this user"
 msgstr "Banir este utilizador"
 
-#: src/qml/Dialog/UserDetailDialog.qml:122
+#: src/qml/Dialog/UserDetailDialog.qml:123
 #, kde-format
 msgctxt "@title"
 msgid "Ban User"
 msgstr "Banir o Utilizador"
 
-#: src/qml/Dialog/UserDetailDialog.qml:133
+#: src/qml/Dialog/UserDetailDialog.qml:134
 #, kde-format
 msgid "Unban this user"
 msgstr "Aceitar este utilizador"
 
-#: src/qml/Dialog/UserDetailDialog.qml:145
+#: src/qml/Dialog/UserDetailDialog.qml:146
 #, kde-format
 msgid "Set user power level"
 msgstr "Editar o nível de permissões do utilizador"
 
-#: src/qml/Dialog/UserDetailDialog.qml:169
+#: src/qml/Dialog/UserDetailDialog.qml:170
 #, kde-format
 msgid "Remove recent messages by this user"
 msgstr "Remover as mensagens recentes deste utilizador"
 
-#: src/qml/Dialog/UserDetailDialog.qml:174
+#: src/qml/Dialog/UserDetailDialog.qml:175
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Remover as Mensagens"
 
-#: src/qml/Dialog/UserDetailDialog.qml:184
+#: src/qml/Dialog/UserDetailDialog.qml:185
 #, kde-format
 msgid "Open a private chat"
 msgstr "Abrir uma conversa privada"
 
-#: src/qml/Dialog/UserDetailDialog.qml:194
+#: src/qml/Dialog/UserDetailDialog.qml:195
 #, kde-format
 msgid "Copy link"
 msgstr "Copiar a ligação"
 
-#: src/qml/main.qml:293
+#: src/qml/main.qml:297
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Verificação da Sessão"
 
-#: src/qml/main.qml:305
+#: src/qml/main.qml:309
 #, kde-format
 msgid "User consent"
 msgstr "Consentimento do utilizador"
 
-#: src/qml/main.qml:310
+#: src/qml/main.qml:314
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2052,17 +2053,17 @@ msgstr ""
 "O seu servidor caseiro obriga a que concorde com os seus termos e condições "
 "antes de o poder usar. Por favor carregue no botão abaixo para os ler."
 
-#: src/qml/main.qml:315
+#: src/qml/main.qml:319
 #, kde-format
 msgid "Open"
 msgstr "Abrir"
 
-#: src/qml/main.qml:350
+#: src/qml/main.qml:354
 #, kde-format
 msgid "Start a chat"
 msgstr "Iniciar uma conversa"
 
-#: src/qml/main.qml:352
+#: src/qml/main.qml:356
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Deseja iniciar uma conversa com %1?"
@@ -2240,25 +2241,25 @@ msgstr "A partilha falhou"
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "O URL partilhado da imagem é <a href='%1'>%1</a>"
 
-#: src/qml/Menu/Timeline/BanSheet.qml:16
+#: src/qml/Menu/Timeline/BanSheet.qml:18
 #, kde-format
 msgid "Ban User"
 msgstr "Banir o Utilizador"
 
-#: src/qml/Menu/Timeline/BanSheet.qml:20
+#: src/qml/Menu/Timeline/BanSheet.qml:22
 #, kde-format
 msgid "Reason for banning this user"
 msgstr "Razão para banir este utilizador"
 
-#: src/qml/Menu/Timeline/BanSheet.qml:32
+#: src/qml/Menu/Timeline/BanSheet.qml:34
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr "Banir"
 
-#: src/qml/Menu/Timeline/BanSheet.qml:41
+#: src/qml/Menu/Timeline/BanSheet.qml:43
 #: src/qml/Menu/Timeline/RemoveSheet.qml:49
-#: src/qml/Menu/Timeline/ReportSheet.qml:41 src/qml/Page/InviteUserPage.qml:24
+#: src/qml/Menu/Timeline/ReportSheet.qml:43 src/qml/Page/InviteUserPage.qml:24
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
@@ -2295,7 +2296,7 @@ msgstr "Remover a Mensagem"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:83
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:59
-#: src/qml/Menu/Timeline/ReportSheet.qml:32
+#: src/qml/Menu/Timeline/ReportSheet.qml:34
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -2362,17 +2363,17 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Remover"
 
-#: src/qml/Menu/Timeline/ReportSheet.qml:16
+#: src/qml/Menu/Timeline/ReportSheet.qml:18
 #, kde-format
 msgid "Report Message"
 msgstr "Mensagem de Relatório"
 
-#: src/qml/Menu/Timeline/ReportSheet.qml:20
+#: src/qml/Menu/Timeline/ReportSheet.qml:22
 #, kde-format
 msgid "Reason for reporting this message"
 msgstr "Razão para comunicar esta mensagem"
 
-#: src/qml/Page/DevtoolsPage.qml:17 src/qml/Panel/RoomDrawer.qml:159
+#: src/qml/Page/DevtoolsPage.qml:17 src/qml/RoomDrawer/RoomInformation.qml:75
 #, kde-format
 msgid "Developer Tools"
 msgstr "Ferramentas de Desenvolvimento"
@@ -2648,7 +2649,9 @@ msgstr "Desligado"
 
 #: src/qml/Page/RoomList/ContextMenu.qml:117
 #: src/qml/Page/RoomList/ContextMenu.qml:119
-#: src/qml/Page/RoomList/ContextMenu.qml:186 src/qml/Panel/RoomDrawer.qml:105
+#: src/qml/Page/RoomList/ContextMenu.qml:186
+#: src/qml/RoomDrawer/RoomDrawer.qml:98
+#: src/qml/RoomDrawer/RoomDrawerPage.qml:37
 #, kde-format
 msgid "Room Settings"
 msgstr "Configuração da Sala"
@@ -2660,7 +2663,7 @@ msgid "Leave Room"
 msgstr "Sair da Sala"
 
 #: src/qml/Page/RoomList/ExploreComponent.qml:19
-#: src/qml/Page/RoomList/Page.qml:154
+#: src/qml/Page/RoomList/Page.qml:153
 #, kde-format
 msgid "Explore rooms"
 msgstr "Explorar as salas"
@@ -2671,28 +2674,28 @@ msgstr "Explorar as salas"
 msgid "Create rooms and chats"
 msgstr "Criar salas e conversas"
 
-#: src/qml/Page/RoomList/Page.qml:151
+#: src/qml/Page/RoomList/Page.qml:150
 #, kde-format
 msgid "No rooms found"
 msgstr "Não foram encontradas salas"
 
-#: src/qml/Page/RoomList/Page.qml:151
+#: src/qml/Page/RoomList/Page.qml:150
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Junte-se a algumas salas para começar"
 
-#: src/qml/Page/RoomList/Page.qml:154
+#: src/qml/Page/RoomList/Page.qml:153
 #, kde-format
 msgid "Search in room directory"
 msgstr "Procurar na lista de salas"
 
-#: src/qml/Page/RoomList/Page.qml:196
+#: src/qml/Page/RoomList/Page.qml:195
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr ""
 
-#: src/qml/Page/RoomList/Page.qml:196
+#: src/qml/Page/RoomList/Page.qml:195
 #, fuzzy, kde-format
 #| msgid "Expand preview"
 msgctxt "Expand <section name"
@@ -2765,7 +2768,7 @@ msgstr "Mudar de Utilizador"
 msgid "Open Settings"
 msgstr "Abrir a Configuração"
 
-#: src/qml/Page/RoomPage.qml:42
+#: src/qml/Page/RoomPage.qml:50
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr "O NeoChat está desligado. Verifique por favor a sua ligação à rede."
@@ -2808,97 +2811,104 @@ msgstr "Criar salas e conversas"
 msgid "Welcome to Matrix"
 msgstr "Bem-vindo ao Matrix"
 
-#: src/qml/Panel/GroupChatDrawerHeader.qml:62
+#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:62
 #, kde-format
 msgid "No name"
 msgstr "Sem nome"
 
-#: src/qml/Panel/GroupChatDrawerHeader.qml:71
+#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:71
 #, kde-format
 msgid "No Canonical Alias"
 msgstr "Sem Código Canónico"
 
-#: src/qml/Panel/GroupChatDrawerHeader.qml:81
+#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:81
 #, kde-format
 msgid "No Topic"
 msgstr "Sem Tópico"
 
-#: src/qml/Panel/RoomDrawer.qml:95
+#: src/qml/RoomDrawer/RoomDrawer.qml:88
 #, kde-format
 msgid "Room information"
 msgstr "Informação da sala"
 
-#: src/qml/Panel/RoomDrawer.qml:102
+#: src/qml/RoomDrawer/RoomDrawer.qml:95
 #, kde-format
 msgid "Room settings"
 msgstr "Configuração da sala"
 
-#: src/qml/Panel/RoomDrawer.qml:143
+#: src/qml/RoomDrawer/RoomInformation.qml:38
+#, fuzzy, kde-format
+#| msgid "Room information"
+msgctxt "@action:title"
+msgid "Room information"
+msgstr "Informação da sala"
+
+#: src/qml/RoomDrawer/RoomInformation.qml:59
 #, kde-format
 msgid "Options"
 msgstr "Opções"
 
-#: src/qml/Panel/RoomDrawer.qml:153
+#: src/qml/RoomDrawer/RoomInformation.qml:69
 #, kde-format
 msgid "Open developer tools"
 msgstr "Abrir as ferramentas de desenvolvimento"
 
-#: src/qml/Panel/RoomDrawer.qml:167
+#: src/qml/RoomDrawer/RoomInformation.qml:83
 #, kde-format
 msgid "Search in this room"
 msgstr "Procurar nesta sala"
 
-#: src/qml/Panel/RoomDrawer.qml:175
+#: src/qml/RoomDrawer/RoomInformation.qml:91
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Procurar"
 
-#: src/qml/Panel/RoomDrawer.qml:184
+#: src/qml/RoomDrawer/RoomInformation.qml:100
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Remover a sala dos favoritos"
 
-#: src/qml/Panel/RoomDrawer.qml:184
+#: src/qml/RoomDrawer/RoomInformation.qml:100
 #, kde-format
 msgid "Make room favorite"
 msgstr "Adicionar a sala aos favoritos"
 
-#: src/qml/Panel/RoomDrawer.qml:195
+#: src/qml/RoomDrawer/RoomInformation.qml:111
 #, kde-format
 msgid "Show locations for this room"
 msgstr "Mostrar as localizações desta sala"
 
-#: src/qml/Panel/RoomDrawer.qml:207
+#: src/qml/RoomDrawer/RoomInformation.qml:123
 #, kde-format
 msgid "Members"
 msgstr "Membros"
 
-#: src/qml/Panel/RoomDrawer.qml:218
+#: src/qml/RoomDrawer/RoomInformation.qml:134
 #, kde-format
 msgid "Search user in room"
 msgstr "Procurar um utilizador nesta sala"
 
-#: src/qml/Panel/RoomDrawer.qml:231
+#: src/qml/RoomDrawer/RoomInformation.qml:147
 #, fuzzy, kde-format
 #| msgid "Invite a User"
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Convidar um Utilizador"
 
-#: src/qml/Panel/RoomDrawer.qml:234
+#: src/qml/RoomDrawer/RoomInformation.qml:150
 #, kde-format
 msgid "Invite user to room"
 msgstr "Convidar o utilizador para a sala"
 
-#: src/qml/Panel/RoomDrawer.qml:241
+#: src/qml/RoomDrawer/RoomInformation.qml:157
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
 msgstr[0] "%1 membro"
 msgstr[1] "%1 membros"
 
-#: src/qml/Panel/RoomDrawer.qml:241
+#: src/qml/RoomDrawer/RoomInformation.qml:157
 #, kde-format
 msgid "No member count"
 msgstr "Sem número de membros"

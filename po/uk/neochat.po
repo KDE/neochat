@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-26 00:46+0000\n"
+"POT-Creation-Date: 2023-08-27 00:46+0000\n"
 "PO-Revision-Date: 2023-08-20 09:55+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -1106,7 +1106,7 @@ msgstr "Шир: %1, Довг: %2"
 msgid "Encrypted Message"
 msgstr "Зашифроване повідомлення"
 
-#: src/notificationsmanager.cpp:201 src/qml/main.qml:253
+#: src/notificationsmanager.cpp:201 src/qml/main.qml:257
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1372,7 +1372,8 @@ msgstr "Відкинути"
 msgid "Accept"
 msgstr "Прийняти"
 
-#: src/qml/Component/LocationPage.qml:17 src/qml/Panel/RoomDrawer.qml:200
+#: src/qml/Component/LocationPage.qml:17
+#: src/qml/RoomDrawer/RoomInformation.qml:116
 #, kde-format
 msgctxt "Locations on a map"
 msgid "Locations"
@@ -1979,80 +1980,80 @@ msgctxt "@title:menu Account detail dialog"
 msgid "Account detail"
 msgstr "Параметри облікового запису"
 
-#: src/qml/Dialog/UserDetailDialog.qml:80
+#: src/qml/Dialog/UserDetailDialog.qml:81
 #, kde-format
 msgid "Unignore this user"
 msgstr "Скасувати ігнорування цього користувача"
 
-#: src/qml/Dialog/UserDetailDialog.qml:80
+#: src/qml/Dialog/UserDetailDialog.qml:81
 #, kde-format
 msgid "Ignore this user"
 msgstr "Ігнорувати цього користувача"
 
-#: src/qml/Dialog/UserDetailDialog.qml:92
+#: src/qml/Dialog/UserDetailDialog.qml:93
 #, kde-format
 msgid "Kick this user"
 msgstr "Викинути цього користувача"
 
-#: src/qml/Dialog/UserDetailDialog.qml:105
+#: src/qml/Dialog/UserDetailDialog.qml:106
 #, kde-format
 msgid "Invite this user"
 msgstr "Запросити цього користувача"
 
-#: src/qml/Dialog/UserDetailDialog.qml:117
+#: src/qml/Dialog/UserDetailDialog.qml:118
 #, kde-format
 msgid "Ban this user"
 msgstr "Заблокувати цього користувача"
 
-#: src/qml/Dialog/UserDetailDialog.qml:122
+#: src/qml/Dialog/UserDetailDialog.qml:123
 #, kde-format
 msgctxt "@title"
 msgid "Ban User"
 msgstr "Заблокувати користувача"
 
-#: src/qml/Dialog/UserDetailDialog.qml:133
+#: src/qml/Dialog/UserDetailDialog.qml:134
 #, kde-format
 msgid "Unban this user"
 msgstr "Розблокувати цього користувача"
 
-#: src/qml/Dialog/UserDetailDialog.qml:145
+#: src/qml/Dialog/UserDetailDialog.qml:146
 #, kde-format
 msgid "Set user power level"
 msgstr "Встановити рівень можливостей користувача"
 
-#: src/qml/Dialog/UserDetailDialog.qml:169
+#: src/qml/Dialog/UserDetailDialog.qml:170
 #, kde-format
 msgid "Remove recent messages by this user"
 msgstr "Вилучити нещодавні повідомлення від цього користувача"
 
-#: src/qml/Dialog/UserDetailDialog.qml:174
+#: src/qml/Dialog/UserDetailDialog.qml:175
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Вилучення повідомлень"
 
-#: src/qml/Dialog/UserDetailDialog.qml:184
+#: src/qml/Dialog/UserDetailDialog.qml:185
 #, kde-format
 msgid "Open a private chat"
 msgstr "Відкрити особисте спілкування"
 
-#: src/qml/Dialog/UserDetailDialog.qml:194
+#: src/qml/Dialog/UserDetailDialog.qml:195
 #, kde-format
 msgid "Copy link"
 msgstr "Копіювати посилання"
 
-#: src/qml/main.qml:293
+#: src/qml/main.qml:297
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "Перевірка сеансу"
 
-#: src/qml/main.qml:305
+#: src/qml/main.qml:309
 #, kde-format
 msgid "User consent"
 msgstr "Згода користувача"
 
-#: src/qml/main.qml:310
+#: src/qml/main.qml:314
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2062,17 +2063,17 @@ msgstr ""
 "використання. Будь ласка, натисніть розташовану нижче кнопку для того, щоб "
 "ознайомитися з ними."
 
-#: src/qml/main.qml:315
+#: src/qml/main.qml:319
 #, kde-format
 msgid "Open"
 msgstr "Відкрити"
 
-#: src/qml/main.qml:350
+#: src/qml/main.qml:354
 #, kde-format
 msgid "Start a chat"
 msgstr "Почати спілкування"
 
-#: src/qml/main.qml:352
+#: src/qml/main.qml:356
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Хочете розпочати спілкування з %1?"
@@ -2250,25 +2251,25 @@ msgstr "Не вдалося оприлюднити"
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "Адресою поширення для зображення є <a href='%1'>%1</a>"
 
-#: src/qml/Menu/Timeline/BanSheet.qml:16
+#: src/qml/Menu/Timeline/BanSheet.qml:18
 #, kde-format
 msgid "Ban User"
 msgstr "Заблокувати користувача"
 
-#: src/qml/Menu/Timeline/BanSheet.qml:20
+#: src/qml/Menu/Timeline/BanSheet.qml:22
 #, kde-format
 msgid "Reason for banning this user"
 msgstr "Причина блокування цього користувача"
 
-#: src/qml/Menu/Timeline/BanSheet.qml:32
+#: src/qml/Menu/Timeline/BanSheet.qml:34
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr "Заблокувати"
 
-#: src/qml/Menu/Timeline/BanSheet.qml:41
+#: src/qml/Menu/Timeline/BanSheet.qml:43
 #: src/qml/Menu/Timeline/RemoveSheet.qml:49
-#: src/qml/Menu/Timeline/ReportSheet.qml:41 src/qml/Page/InviteUserPage.qml:24
+#: src/qml/Menu/Timeline/ReportSheet.qml:43 src/qml/Page/InviteUserPage.qml:24
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
@@ -2305,7 +2306,7 @@ msgstr "Вилучення повідомлення"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:83
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:59
-#: src/qml/Menu/Timeline/ReportSheet.qml:32
+#: src/qml/Menu/Timeline/ReportSheet.qml:34
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -2372,17 +2373,17 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Вилучити"
 
-#: src/qml/Menu/Timeline/ReportSheet.qml:16
+#: src/qml/Menu/Timeline/ReportSheet.qml:18
 #, kde-format
 msgid "Report Message"
 msgstr "Поскаржитися на повідомлення"
 
-#: src/qml/Menu/Timeline/ReportSheet.qml:20
+#: src/qml/Menu/Timeline/ReportSheet.qml:22
 #, kde-format
 msgid "Reason for reporting this message"
 msgstr "Причина скарги на це повідомлення"
 
-#: src/qml/Page/DevtoolsPage.qml:17 src/qml/Panel/RoomDrawer.qml:159
+#: src/qml/Page/DevtoolsPage.qml:17 src/qml/RoomDrawer/RoomInformation.qml:75
 #, kde-format
 msgid "Developer Tools"
 msgstr "Інструменти розробника"
@@ -2657,7 +2658,9 @@ msgstr "Вимкнено"
 
 #: src/qml/Page/RoomList/ContextMenu.qml:117
 #: src/qml/Page/RoomList/ContextMenu.qml:119
-#: src/qml/Page/RoomList/ContextMenu.qml:186 src/qml/Panel/RoomDrawer.qml:105
+#: src/qml/Page/RoomList/ContextMenu.qml:186
+#: src/qml/RoomDrawer/RoomDrawer.qml:98
+#: src/qml/RoomDrawer/RoomDrawerPage.qml:37
 #, kde-format
 msgid "Room Settings"
 msgstr "Параметри кімнати"
@@ -2669,7 +2672,7 @@ msgid "Leave Room"
 msgstr "Полишити кімнату"
 
 #: src/qml/Page/RoomList/ExploreComponent.qml:19
-#: src/qml/Page/RoomList/Page.qml:154
+#: src/qml/Page/RoomList/Page.qml:153
 #, kde-format
 msgid "Explore rooms"
 msgstr "Ознайомитися з кімнатами"
@@ -2680,28 +2683,28 @@ msgstr "Ознайомитися з кімнатами"
 msgid "Create rooms and chats"
 msgstr "Створити кімнати і спілкування"
 
-#: src/qml/Page/RoomList/Page.qml:151
+#: src/qml/Page/RoomList/Page.qml:150
 #, kde-format
 msgid "No rooms found"
 msgstr "Не знайдено кімнат"
 
-#: src/qml/Page/RoomList/Page.qml:151
+#: src/qml/Page/RoomList/Page.qml:150
 #, kde-format
 msgid "Join some rooms to get started"
 msgstr "Спочатку, приєднайтеся до кімнат"
 
-#: src/qml/Page/RoomList/Page.qml:154
+#: src/qml/Page/RoomList/Page.qml:153
 #, kde-format
 msgid "Search in room directory"
 msgstr "Шукати у каталозі кімнат"
 
-#: src/qml/Page/RoomList/Page.qml:196
+#: src/qml/Page/RoomList/Page.qml:195
 #, kde-format
 msgctxt "Collapse <section name>"
 msgid "Collapse %1"
 msgstr "Згорнути %1"
 
-#: src/qml/Page/RoomList/Page.qml:196
+#: src/qml/Page/RoomList/Page.qml:195
 #, kde-format
 msgctxt "Expand <section name"
 msgid "Expand %1"
@@ -2773,7 +2776,7 @@ msgstr "Змінити користувача"
 msgid "Open Settings"
 msgstr "Відкрити налаштування"
 
-#: src/qml/Page/RoomPage.qml:42
+#: src/qml/Page/RoomPage.qml:50
 #, kde-format
 msgid "NeoChat is offline. Please check your network connection."
 msgstr ""
@@ -2816,89 +2819,96 @@ msgstr "Створити обговорення"
 msgid "Welcome to Matrix"
 msgstr "Вітаємо у Matrix"
 
-#: src/qml/Panel/GroupChatDrawerHeader.qml:62
+#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:62
 #, kde-format
 msgid "No name"
 msgstr "Без назви"
 
-#: src/qml/Panel/GroupChatDrawerHeader.qml:71
+#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:71
 #, kde-format
 msgid "No Canonical Alias"
 msgstr "Немає канонічного варіанта назви"
 
-#: src/qml/Panel/GroupChatDrawerHeader.qml:81
+#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:81
 #, kde-format
 msgid "No Topic"
 msgstr "Немає теми"
 
-#: src/qml/Panel/RoomDrawer.qml:95
+#: src/qml/RoomDrawer/RoomDrawer.qml:88
 #, kde-format
 msgid "Room information"
 msgstr "Відомості щодо кімнати"
 
-#: src/qml/Panel/RoomDrawer.qml:102
+#: src/qml/RoomDrawer/RoomDrawer.qml:95
 #, kde-format
 msgid "Room settings"
 msgstr "Параметри кімнати"
 
-#: src/qml/Panel/RoomDrawer.qml:143
+#: src/qml/RoomDrawer/RoomInformation.qml:38
+#, fuzzy, kde-format
+#| msgid "Room information"
+msgctxt "@action:title"
+msgid "Room information"
+msgstr "Відомості щодо кімнати"
+
+#: src/qml/RoomDrawer/RoomInformation.qml:59
 #, kde-format
 msgid "Options"
 msgstr "Параметри"
 
-#: src/qml/Panel/RoomDrawer.qml:153
+#: src/qml/RoomDrawer/RoomInformation.qml:69
 #, kde-format
 msgid "Open developer tools"
 msgstr "Відкрити інструменти розробника"
 
-#: src/qml/Panel/RoomDrawer.qml:167
+#: src/qml/RoomDrawer/RoomInformation.qml:83
 #, kde-format
 msgid "Search in this room"
 msgstr "Шукати у цій кімнаті"
 
-#: src/qml/Panel/RoomDrawer.qml:175
+#: src/qml/RoomDrawer/RoomInformation.qml:91
 #, kde-format
 msgctxt "@action:title"
 msgid "Search"
 msgstr "Пошук"
 
-#: src/qml/Panel/RoomDrawer.qml:184
+#: src/qml/RoomDrawer/RoomInformation.qml:100
 #, kde-format
 msgid "Remove room from favorites"
 msgstr "Вилучити кімнату з улюблених"
 
-#: src/qml/Panel/RoomDrawer.qml:184
+#: src/qml/RoomDrawer/RoomInformation.qml:100
 #, kde-format
 msgid "Make room favorite"
 msgstr "Зробити кімнату улюбленою"
 
-#: src/qml/Panel/RoomDrawer.qml:195
+#: src/qml/RoomDrawer/RoomInformation.qml:111
 #, kde-format
 msgid "Show locations for this room"
 msgstr "Показувати місця перебування для цієї кімнати"
 
-#: src/qml/Panel/RoomDrawer.qml:207
+#: src/qml/RoomDrawer/RoomInformation.qml:123
 #, kde-format
 msgid "Members"
 msgstr "Учасники"
 
-#: src/qml/Panel/RoomDrawer.qml:218
+#: src/qml/RoomDrawer/RoomInformation.qml:134
 #, kde-format
 msgid "Search user in room"
 msgstr "Шукати користувача у кімнаті"
 
-#: src/qml/Panel/RoomDrawer.qml:231
+#: src/qml/RoomDrawer/RoomInformation.qml:147
 #, kde-format
 msgctxt "@title"
 msgid "Invite a User"
 msgstr "Запрошення користувача"
 
-#: src/qml/Panel/RoomDrawer.qml:234
+#: src/qml/RoomDrawer/RoomInformation.qml:150
 #, kde-format
 msgid "Invite user to room"
 msgstr "Запросити користувача до кімнати"
 
-#: src/qml/Panel/RoomDrawer.qml:241
+#: src/qml/RoomDrawer/RoomInformation.qml:157
 #, kde-format
 msgid "%1 member"
 msgid_plural "%1 members"
@@ -2907,7 +2917,7 @@ msgstr[1] "%1 учасники"
 msgstr[2] "%1 учасників"
 msgstr[3] "%1 учасник"
 
-#: src/qml/Panel/RoomDrawer.qml:241
+#: src/qml/RoomDrawer/RoomInformation.qml:157
 #, kde-format
 msgid "No member count"
 msgstr "Немає лічильника учасників"
