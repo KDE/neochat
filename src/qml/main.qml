@@ -112,11 +112,6 @@ Kirigami.ApplicationWindow {
             secondaryWindow.show();
         }
 
-        function onShowUserDetail(user) {
-            const roomItem = pageStack.get(pageStack.depth - 1);
-            roomItem.showUserDetail(user);
-        }
-
         function onAskDirectChatConfirmation(user) {
             askDirectChatConfirmationComponent.createObject(QQC2.ApplicationWindow.overlay, {
                 user: user,
@@ -336,11 +331,6 @@ Kirigami.ApplicationWindow {
     Component {
         id: roomWindow
         RoomWindow {}
-    }
-
-    Component {
-        id: userDialog
-        UserDetailDialog {}
     }
 
     Component {

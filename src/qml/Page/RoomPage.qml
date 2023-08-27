@@ -189,7 +189,22 @@ Kirigami.Page {
         banner.visible = true;
     }
 
+    Connections {
+        target: RoomManager
+        function onShowUserDetail(user) {
+            root.showUserDetail(user)
+        }
+    }
+
     function showUserDetail(user) {
-        timelineViewLoader.item.showUserDetail(user)
+        userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {
+            room: root.currentRoom,
+            user: root.currentRoom.getUser(user.id),
+        }).open();
+    }
+
+    Component {
+        id: userDetailDialog
+        UserDetailDialog {}
     }
 }
