@@ -28,8 +28,6 @@ Components.AlbumMaximizeComponent {
 
     readonly property var currentJsonSource: model.data(model.index(content.currentIndex, 0), MessageEventModel.SourceRole)
 
-    autoLoad: false
-
     downloadAction: Components.DownloadAction {
         id: downloadAction
         onTriggered: {
