@@ -388,7 +388,7 @@ Kirigami.ApplicationWindow {
     Shortcut {
         sequence: "Ctrl+Shift+,"
         onActivated: {
-            pageStack.pushDialogLayer("qrc:/SettingsPage.qml")
+            pageStack.pushDialogLayer("qrc:/SettingsPage.qml", {connection: Controller.activeConnection}, { title: i18n("Configure") })
         }
     }
 }
