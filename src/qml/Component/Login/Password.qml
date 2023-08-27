@@ -33,7 +33,7 @@ LoginStep {
         statusMessage: LoginHelper.isInvalidPassword ? i18n("Invalid username or password") : ""
 
         Keys.onReturnPressed: {
-            root.action.trigger()
+            root.nextAction.trigger()
         }
     }
 
