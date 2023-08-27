@@ -30,7 +30,7 @@ LoginStep {
         }
 
         Keys.onReturnPressed: {
-            root.action.trigger()
+            root.nextAction.trigger()
         }
     }
 

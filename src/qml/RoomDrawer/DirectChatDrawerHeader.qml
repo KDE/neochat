@@ -26,17 +26,7 @@ ColumnLayout {
         Layout.alignment: Qt.AlignHCenter
 
         onClicked: {
-            const popup = userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {
-                room: room,
-                user: room.getUser(room.directChatRemoteUser.id),
-            })
-            popup.closed.connect(() => {
-                userListItem.highlighted = false
-            })
-            if (roomDrawer.modal) {
-                roomDrawer.close()
-            }
-            popup.open()
+            RoomManager.visitUser(room.getUser(room.directChatRemoteUser.id).object, "mention")
         }
 
         contentItem: KirigamiComponents.Avatar {

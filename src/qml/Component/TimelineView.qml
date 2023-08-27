@@ -222,12 +222,6 @@ QQC2.ScrollView {
             FileDelegateContextMenu {}
         }
 
-        Component {
-            id: userDetailDialog
-
-            UserDetailDialog {}
-        }
-
         TypingPane {
             id: typingPane
             visible: root.currentRoom && root.currentRoom.usersTyping.length > 0
@@ -444,12 +438,5 @@ QQC2.ScrollView {
 
     function positionViewAtBeginning() {
         messageListView.positionViewAtBeginning()
-    }
-
-    function showUserDetail(user) {
-        userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {
-            room: root.currentRoom,
-            user: root.currentRoom.getUser(user.id),
-        }).open();
     }
 }

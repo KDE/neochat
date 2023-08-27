@@ -207,14 +207,7 @@ ListView {
 
         onClicked: {
             userDelegate.highlighted = true;
-            const popup = userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {
-                room: root.room,
-                user: root.room.getUser(userDelegate.userId)
-            });
-            popup.closed.connect(() => {
-                userDelegate.highlighted = false;
-            });
-            popup.open();
+            RoomManager.visitUser(room.getUser(userDelegate.userId).object, "mention")
         }
 
         contentItem: RowLayout {
@@ -256,11 +249,6 @@ ListView {
     Component {
         id: directChatDrawerHeader
         DirectChatDrawerHeader {}
-    }
-
-    Component {
-        id: userDetailDialog
-        UserDetailDialog {}
     }
 
     onRoomChanged: {

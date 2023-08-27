@@ -94,7 +94,7 @@ public:
      *
      * @sa Quotient::UriResolverBase::visitUser(), Quotient::UriResolverBase::visitResource()
      */
-    UriResolveResult visitUser(User *user, const QString &action) override;
+    Q_INVOKABLE UriResolveResult visitUser(User *user, const QString &action) override;
 
     /**
      * @brief Visit a room.

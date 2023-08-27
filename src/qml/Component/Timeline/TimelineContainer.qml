@@ -375,10 +375,7 @@ ColumnLayout {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {
-                        room: currentRoom,
-                        user: root.author
-                    }).open();
+                    RoomManager.visitUser(root.author.object, "mention")
                 }
                 cursorShape: Qt.PointingHandCursor
             }
@@ -459,10 +456,7 @@ ColumnLayout {
                                 anchors.fill: parent
                                 cursorShape: Qt.PointingHandCursor
                                 onClicked: {
-                                    userDetailDialog.createObject(QQC2.ApplicationWindow.overlay, {
-                                        room: currentRoom,
-                                        user: root.author
-                                    }).open();
+                                    RoomManager.visitUser(root.author.object, "mention")
                                 }
                             }
                         }
