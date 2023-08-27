@@ -40,7 +40,7 @@ RowLayout {
         text: i18n("Create a Space")
         icon.name: "list-add"
         onTriggered: {
-            let dialog = createSpaceDialog.createObject(root.overlay);
+            let dialog = createSpaceDialog.createObject(applicationWindow().overlay);
             dialog.open()
         }
     }
