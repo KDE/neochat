@@ -6,25 +6,12 @@ import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigamiaddons.formcard 1.0 as FormCard
 
 import org.kde.neochat 1.0
 
 LoginStep {
-    id: password
-
-    title: i18nc("@title", "Password")
-    message: i18n("Enter your password")
-    showContinueButton: true
-    showBackButton: true
-    previousUrl: LoginHelper.isLoggingIn ? "" : LoginHelper.supportsSso ? "qrc:/LoginMethod.qml" : "qrc:/Login.qml"
-
-    action: Kirigami.Action {
-        text: i18nc("@action:button", "Login")
-        enabled: passwordField.text.length > 0 && !LoginHelper.isLoggingIn
-        onTriggered: {
-            LoginHelper.login();
-        }
-    }
+    id: root
 
     Connections {
         target: LoginHelper
@@ -33,20 +20,32 @@ LoginStep {
         }
     }
 
-    Kirigami.FormLayout {
-        Kirigami.PasswordField {
-            id: passwordField
-            onTextChanged: LoginHelper.password = text
-            enabled: !LoginHelper.isLoggingIn
-            Accessible.name: i18n("Password")
+    onActiveFocusChanged: if(activeFocus) passwordField.forceActiveFocus()
 
-            Component.onCompleted: {
-                passwordField.forceActiveFocus()
-            }
+    FormCard.FormTextFieldDelegate {
+        id: passwordField
 
-            Keys.onReturnPressed: {
-                password.action.trigger()
-            }
+        label: i18n("Password:")
+        onTextChanged: LoginHelper.password = text
+        enabled: !LoginHelper.isLoggingIn
+        echoMode: TextInput.Password
+        Accessible.name: i18n("Password")
+        statusMessage: LoginHelper.isInvalidPassword ? i18n("Invalid username or password") : ""
+
+        Keys.onReturnPressed: {
+            root.action.trigger()
         }
+    }
+
+    nextAction: Kirigami.Action {
+        text: i18nc("@action:button", "Login")
+        enabled: passwordField.text.length > 0 && !LoginHelper.isLoggingIn
+        onTriggered: {
+            root.clearError()
+            LoginHelper.login();
+        }
+    }
+    previousAction: Kirigami.Action {
+        onTriggered: processed("qrc:/Login.qml")
     }
 }

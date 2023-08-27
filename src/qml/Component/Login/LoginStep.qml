@@ -7,21 +7,25 @@ import QtQuick.Layouts 1.14
 
 /// Step for the login/registration flow
 ColumnLayout {
+    id: root
 
-    property string title: i18n("Welcome")
-    property string message: i18n("Welcome")
-    property bool showContinueButton: false
-    property bool showBackButton: false
-    property bool acceptable: false
-    property string previousUrl: ""
+    /// Set to true if the login step does not have any controls. This will ensure that the focus remains on the "continue" button
+    property bool noControls: false
 
     /// Process this module, this is called by the continue button.
     /// Should call \sa processed when it finish successfully.
-    property QQC2.Action action: null
+    property QQC2.Action nextAction: null
+
+    /// Go to the previous module. This is called by the "go back" button.
+    /// If no "go back" button should be shown, this should be null.
+    property QQC2.Action previousAction: null
 
     /// Called when switching to the next step.
     signal processed(url nextUrl)
 
+    /// Show a message in a banner at the top of the page.
     signal showMessage(string message)
+
+    signal clearError()
 
 }

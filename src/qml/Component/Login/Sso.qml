@@ -6,47 +6,38 @@ import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.12 as Kirigami
+import org.kde.kirigamiaddons.formcard 1.0 as FormCard
 
 import org.kde.neochat 1.0
 
 LoginStep {
     id: root
 
-    title: i18nc("@title", "Login")
-    message: i18n("Login with single sign-on")
+    noControls: true
 
-    Kirigami.FormLayout {
-        Connections {
-            target: LoginHelper
-            function onSsoUrlChanged() {
-                UrlHelper.openUrl(LoginHelper.ssoUrl)
-                root.showMessage(i18n("Complete the authentication steps in your browser"))
-                loginButton.enabled = true
-                loginButton.text = i18n("Login")
-            }
-            function onConnected() {
-                processed("qrc:/Loading.qml")
-            }
+    Component.onCompleted: LoginHelper.loginWithSso()
+
+    Connections {
+        target: LoginHelper
+        function onSsoUrlChanged() {
+            UrlHelper.openUrl(LoginHelper.ssoUrl)
         }
-        RowLayout {
-            QQC2.Button {
-                text: i18nc("@action:button", "Back")
-
-                onClicked: {
-                    module.source = "qrc:/Login.qml"
-                }
-            }
-            QQC2.Button {
-                id: loginButton
-                text: i18n("Login")
-                onClicked: {
-                    LoginHelper.loginWithSso()
-                    loginButton.enabled = false
-                    loginButton.text = i18n("Loading…")
-                }
-                Component.onCompleted: forceActiveFocus()
-                Keys.onReturnPressed: clicked()
-            }
+        function onConnected() {
+            processed("qrc:/Loading.qml")
         }
     }
+
+    FormCard.FormTextDelegate {
+        text: i18n("Continue the login process in your browser.")
+    }
+
+    previousAction: Kirigami.Action {
+        onTriggered: processed("qrc:/Login.qml")
+    }
+
+    nextAction: Kirigami.Action {
+        text: i18nc("@action:button", "Re-open SSO URL")
+        onTriggered: UrlHelper.openUrl(LoginHelper.ssoUrl)
+    }
 }
+

@@ -73,6 +73,11 @@ class Login : public QObject
      */
     Q_PROPERTY(bool isLoggedIn READ isLoggedIn NOTIFY isLoggedInChanged)
 
+    /**
+     * @brief Whether the password (or the username) is invalid.
+     */
+    Q_PROPERTY(bool isInvalidPassword READ isInvalidPassword NOTIFY isInvalidPasswordChanged)
+
 public:
     explicit Login(QObject *parent = nullptr);
 
@@ -100,6 +105,9 @@ public:
 
     bool isLoggedIn() const;
 
+    bool isInvalidPassword() const;
+    void setInvalidPassword(bool invalid);
+
     Q_INVOKABLE void login();
     Q_INVOKABLE void loginWithSso();
 
@@ -116,6 +124,7 @@ Q_SIGNALS:
     void testingChanged();
     void isLoggingInChanged();
     void isLoggedInChanged();
+    void isInvalidPasswordChanged();
 
 private:
     void setHomeserverReachable(bool reachable);
@@ -131,4 +140,5 @@ private:
     bool m_testing = false;
     bool m_isLoggingIn = false;
     bool m_isLoggedIn = false;
+    bool m_invalidPassword = false;
 };

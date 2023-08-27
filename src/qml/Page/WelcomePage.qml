@@ -6,15 +6,16 @@ import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigamiaddons.formcard 1.0 as FormCard
 
 import org.kde.neochat 1.0
 
-Kirigami.ScrollablePage {
-    id: welcomePage
+FormCard.FormCardPage {
+    id: root
 
     property alias currentStep: module.item
 
-    title: module.item.title ?? i18n("Welcome")
+    title: i18n("Welcome")
 
     header: QQC2.Control {
         contentItem: Kirigami.InlineMessage {
@@ -25,79 +26,90 @@ Kirigami.ScrollablePage {
         }
     }
 
-    Component.onCompleted: LoginHelper.init()
+    FormCard.FormCard {
+        id: contentCard
 
-    Connections {
-        target: LoginHelper
-        function onErrorOccured(message) {
-            headerMessage.text = message;
-            headerMessage.visible = true;
-            headerMessage.type = Kirigami.MessageType.Error;
+        FormCard.AbstractFormDelegate {
+            contentItem: Kirigami.Icon {
+                source: "org.kde.neochat"
+                Layout.fillWidth: true
+                Layout.preferredHeight: Kirigami.Units.gridUnit * 16
+            }
+            background: Item {}
+            onActiveFocusChanged: if (activeFocus) module.item.forceActiveFocus()
         }
-    }
 
-    Connections {
-        target: Controller
-        function onInitiated() {
-            pageStack.layers.pop();
+        FormCard.FormTextDelegate {
+            id: welcomeMessage
+            text: AccountRegistry.accountCount > 0 ? i18n("Log in to a different account.") : i18n("Welcome to NeoChat! Continue by logging in.")
         }
-    }
 
-    ColumnLayout {
-        Kirigami.Icon {
-            source: "org.kde.neochat"
-            Layout.fillWidth: true
-            Layout.preferredHeight: Kirigami.Units.gridUnit * 16
-        }
-        QQC2.Label {
-            Layout.fillWidth: true
-            horizontalAlignment: Text.AlignHCenter
-            font.pixelSize: 25
-            text: module.item.message ?? module.item.title ?? i18n("Welcome to Matrix")
+        FormCard.FormDelegateSeparator {
+            above: welcomeMessage
         }
 
         Loader {
             id: module
-            Layout.alignment: Qt.AlignHCenter
+            Layout.fillWidth: true
             source: "qrc:/Login.qml"
-            onSourceChanged: {
-                headerMessage.visible = false
-                headerMessage.text = ""
-            }
-        }
-        RowLayout {
-            Layout.alignment: Qt.AlignHCenter
 
-            QQC2.Button {
-                text: i18nc("@action:button", "Back")
+            Connections {
+                target: currentStep
 
-                enabled: welcomePage.currentStep.previousUrl !== ""
-                visible: welcomePage.currentStep.showBackButton
-                Layout.alignment: Qt.AlignHCenter
-                onClicked: {
-                    module.source = welcomePage.currentStep.previousUrl
+                function onProcessed(nextUrl) {
+                    module.source = nextUrl;
+                    headerMessage.text = "";
+                    headerMessage.visible = false;
+                    if (!module.item.noControls) {
+                        module.item.forceActiveFocus()
+                    } else {
+                        continueButton.forceActiveFocus()
+                    }
+                }
+                function onShowMessage(message) {
+                    headerMessage.text = message;
+                    headerMessage.visible = true;
+                    headerMessage.type = Kirigami.MessageType.Information;
+                }
+                function onClearError() {
+                    headerMessage.text = "";
+                    headerMessage.visible = false;
                 }
             }
-
-            QQC2.Button {
-                id: continueButton
-                enabled: welcomePage.currentStep.acceptable
-                visible: welcomePage.currentStep.showContinueButton
-                action: welcomePage.currentStep.action
+            Connections {
+                target: LoginHelper
+                function onErrorOccured(message) {
+                    headerMessage.text = message;
+                    headerMessage.visible = message.length > 0;
+                    headerMessage.type = Kirigami.MessageType.Error;
+                }
             }
         }
 
-        Connections {
-            target: currentStep
-
-            function onProcessed(nextUrl) {
-                module.source = nextUrl;
-            }
-            function onShowMessage(message) {
-                headerMessage.text = message;
-                headerMessage.visible = true;
-                headerMessage.type = Kirigami.MessageType.Information;
-            }
+        FormCard.FormDelegateSeparator {
+            below: continueButton
         }
+
+        FormCard.FormButtonDelegate {
+            id: continueButton
+            text: root.currentStep.nextAction ? root.currentStep.nextAction.text : i18nc("@action:button", "Continue")
+            visible: root.currentStep.nextAction
+            onClicked: root.currentStep.nextAction.trigger()
+            icon.name: "arrow-right"
+            enabled: root.currentStep.nextAction ? root.currentStep.nextAction.enabled : false
+        }
+
+        FormCard.FormButtonDelegate {
+            text: i18nc("@action:button", "Go back")
+            visible: root.currentStep.previousAction
+            onClicked: root.currentStep.previousAction.trigger()
+            icon.name: "arrow-left"
+            enabled: root.currentStep.previousAction ? root.currentStep.previousAction.enabled : false
+        }
+    }
+
+    Component.onCompleted: {
+        LoginHelper.init()
+        module.item.forceActiveFocus()
     }
 }

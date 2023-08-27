@@ -87,7 +87,11 @@ void Login::init()
         Q_EMIT isLoggingInChanged();
     });
     connect(m_connection, &Connection::loginError, this, [this](QString error, const QString &) {
-        Q_EMIT errorOccured(i18n("Login Failed: %1", error));
+        if (error == QStringLiteral("Invalid username or password")) {
+            setInvalidPassword(true);
+        } else {
+            Q_EMIT errorOccured(i18n("Login Failed: %1", error));
+        }
         m_isLoggingIn = false;
         Q_EMIT isLoggingInChanged();
     });
@@ -133,6 +137,7 @@ QString Login::password() const
 
 void Login::setPassword(const QString &password)
 {
+    setInvalidPassword(false);
     m_password = password;
     Q_EMIT passwordChanged();
 }
@@ -197,6 +202,17 @@ bool Login::isLoggingIn() const
 bool Login::isLoggedIn() const
 {
     return m_isLoggedIn;
+}
+
+void Login::setInvalidPassword(bool invalid)
+{
+    m_invalidPassword = invalid;
+    Q_EMIT isInvalidPasswordChanged();
+}
+
+bool Login::isInvalidPassword() const
+{
+    return m_invalidPassword;
 }
 
 #include "moc_login.cpp"

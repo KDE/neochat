@@ -7,43 +7,34 @@ import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigamiaddons.formcard 1.0 as FormCard
 
 import org.kde.neochat 1.0
 
 LoginStep {
-    id: login
+    id: root
 
-    showContinueButton: true
-    showBackButton: false
-
-    title: i18nc("@title", "Login")
-    message: i18n("Enter your Matrix ID")
+    onActiveFocusChanged: if (activeFocus) matrixIdField.forceActiveFocus()
 
     Component.onCompleted: {
         LoginHelper.matrixId = ""
     }
 
-    Kirigami.FormLayout {
-        QQC2.TextField {
-            id: matrixIdField
-            Kirigami.FormData.label: i18n("Matrix ID:")
-            placeholderText: "@user:matrix.org"
-            Accessible.name: i18n("Matrix ID")
-            onTextChanged: {
-                LoginHelper.matrixId = text
-            }
+    FormCard.FormTextFieldDelegate {
+        id: matrixIdField
+        label: i18n("Matrix ID:")
+        placeholderText: "@user:example.org"
+        Accessible.name: i18n("Matrix ID")
+        onTextChanged: {
+            LoginHelper.matrixId = text
+        }
 
-            Component.onCompleted: {
-                matrixIdField.forceActiveFocus()
-            }
-
-            Keys.onReturnPressed: {
-                login.action.trigger()
-            }
+        Keys.onReturnPressed: {
+            root.action.trigger()
         }
     }
 
-    action: Kirigami.Action {
+    nextAction: Kirigami.Action {
         text: LoginHelper.isLoggedIn ? i18n("Already logged in") : (LoginHelper.testing && matrixIdField.acceptableInput) ?  i18n("Loading…") : i18nc("@action:button", "Continue")
         onTriggered: {
             if (LoginHelper.supportsSso && LoginHelper.supportsPassword) {
@@ -56,4 +47,10 @@ LoginStep {
         }
         enabled: LoginHelper.homeserverReachable
     }
+    // TODO: enable once we have registration
+    // previousAction: Kirigami.Action {
+    //     onTriggered: {
+    //         root.processed("qrc:/Login.qml")
+    //     }
+    // }
 }

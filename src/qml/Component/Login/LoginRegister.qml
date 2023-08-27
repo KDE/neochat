@@ -6,25 +6,22 @@ import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 
 import org.kde.kirigami 2.15 as Kirigami
+import org.kde.kirigamiaddons.formcard 1.0 as FormCard
 
 import org.kde.neochat 1.0
 
 LoginStep {
-    id: loginRegister
+    id: root
 
-    Layout.alignment: Qt.AlignHCenter
+    Layout.fillWidth: true
 
-    QQC2.Button {
-        Layout.alignment: Qt.AlignHCenter
-        text: i18n("Login")
-        Layout.preferredWidth: Kirigami.Units.gridUnit * 12
-        onClicked: processed("qrc:/Login.qml")
+    FormCard.FormButtonDelegate {
+        text: i18nc("@action:button", "Login")
+        onClicked: root.processed("qrc:/Login.qml")
     }
 
-    QQC2.Button {
-        Layout.alignment: Qt.AlignHCenter
-        text: i18n("Register")
-        Layout.preferredWidth: Kirigami.Units.gridUnit * 12
-        onClicked: processed("qrc:/Homeserver.qml")
+    FormCard.FormButtonDelegate {
+        text: i18nc("@action:button", "Register")
+        onClicked: root.processed("qrc:/Homeserver.qml")
     }
 }
