@@ -72,7 +72,12 @@ QQC2.Control {
                                 connection: Controller.activeConnection
                             }
                         }
-                        onCountChanged: root.enabled = count > 0
+                        onCountChanged: {
+                            root.enabled = count > 0
+                            if (!Controller.activeConnection.room(root.selectedSpaceId)) {
+                                root.selectedSpaceId = ""
+                            }
+                        }
                         Component.onCompleted: root.enabled = count > 0
 
                         delegate: AvatarTabButton {
