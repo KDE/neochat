@@ -122,10 +122,10 @@ Kirigami.ScrollablePage {
 
                     title: i18nc("@title:window", "Add server")
 
-                    onSheetOpenChanged: if (!serverUrlField.isValidServer && !sheetOpen) {
+                    onOpened: if (!serverUrlField.isValidServer && !opened) {
                             serverField.currentIndex = 0
                             server = serverField.currentValue
-                        } else if (sheetOpen) {
+                        } else if (opened) {
                             serverUrlField.forceActiveFocus()
                         }
 

@@ -31,12 +31,12 @@ Kirigami.ScrollablePage {
 
     title: roomInformation.title
 
-    actions {
-        main: Kirigami.Action {
+    actions: [
+        Kirigami.Action {
             icon.name: "settings-configure"
             onTriggered: applicationWindow().pageStack.pushDialogLayer('qrc:/Categories.qml', {room: root.room}, { title: i18n("Room Settings") })
         }
-    }
+    ]
 
     RoomInformation {
         id: roomInformation
