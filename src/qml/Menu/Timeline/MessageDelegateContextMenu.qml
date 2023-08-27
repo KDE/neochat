@@ -19,6 +19,7 @@ Loader {
     required property string source
     property string selectedText: ""
     required property string plainText
+    property string htmlText: undefined
 
     property list<Kirigami.Action> nestedActions
 
@@ -38,6 +39,20 @@ Loader {
             onTriggered: {
                 currentRoom.chatBoxReplyId = eventId;
                 currentRoom.chatBoxEditId = "";
+            }
+        },
+        Kirigami.Action {
+            text: i18nc("@action:inmenu As in 'Forward this message'", "Forward")
+            icon.name: "mail-forward-symbolic"
+            onTriggered: {
+                let page = applicationWindow().pageStack.pushDialogLayer("qrc:/ChooseRoomDialog.qml", {}, {
+                    title: i18nc("@title", "Forward Message"),
+                    width: Kirigami.Units.gridUnit * 25
+                })
+                page.chosen.connect(function(targetRoomId) {
+                    Controller.activeConnection.room(targetRoomId).postHtmlMessage(loadRoot.plainText, loadRoot.htmlText ? loadRoot.htmlText : loadRoot.plainText)
+                    page.closeDialog()
+                })
             }
         },
         Kirigami.Action {
