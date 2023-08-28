@@ -47,10 +47,9 @@ LoginStep {
         }
         enabled: LoginHelper.homeserverReachable
     }
-    // TODO: enable once we have registration
-    // previousAction: Kirigami.Action {
-    //     onTriggered: {
-    //         root.processed("qrc:/Login.qml")
-    //     }
-    // }
+    previousAction: Kirigami.Action {
+        onTriggered: {
+            root.processed("qrc:/LoginRegister.qml")
+        }
+    }
 }

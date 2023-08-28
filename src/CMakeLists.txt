@@ -125,6 +125,7 @@ add_library(neochat STATIC
     events/pollevent.cpp
     pollhandler.cpp
     utils.h
+    registration.cpp
 )
 
 ecm_qt_declare_logging_category(neochat
@@ -140,6 +141,11 @@ add_executable(neochat-app
     main.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/res.generated.qrc
 )
+
+if(TARGET Qt::WebView)
+    target_link_libraries(neochat-app PUBLIC Qt::WebView)
+    target_compile_definitions(neochat-app PUBLIC -DHAVE_WEBVIEW)
+endif()
 
 target_include_directories(neochat-app PRIVATE ${CMAKE_BINARY_DIR})
 
@@ -177,6 +183,7 @@ endif()
 
 target_include_directories(neochat PRIVATE ${CMAKE_BINARY_DIR})
 target_link_libraries(neochat PUBLIC Qt::Core Qt::Quick Qt::Qml Qt::Gui Qt::Multimedia Qt::Network Qt::QuickControls2 KF${QT_MAJOR_VERSION}::I18n KF${QT_MAJOR_VERSION}::Kirigami2 KF${QT_MAJOR_VERSION}::Notifications KF${QT_MAJOR_VERSION}::ConfigCore KF${QT_MAJOR_VERSION}::ConfigGui KF${QT_MAJOR_VERSION}::CoreAddons KF${QT_MAJOR_VERSION}::SonnetCore  KF${QT_MAJOR_VERSION}::ItemModels Quotient${QUOTIENT_SUFFIX} cmark::cmark QCoro::Core)
+
 kconfig_add_kcfg_files(neochat GENERATE_MOC neochatconfig.kcfgc)
 
 if(NEOCHAT_FLATPAK)

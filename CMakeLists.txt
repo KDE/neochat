@@ -77,7 +77,7 @@ ecm_setup_version(${PROJECT_VERSION}
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/neochat-version.h
 )
 
-find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} NO_MODULE COMPONENTS Core Quick Gui QuickControls2 Multimedia Svg)
+find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} NO_MODULE COMPONENTS Core Quick Gui QuickControls2 Multimedia Svg WebView)
 set_package_properties(Qt${QT_MAJOR_VERSION} PROPERTIES
     TYPE REQUIRED
     PURPOSE "Basic application components"

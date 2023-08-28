@@ -41,7 +41,7 @@ FormCard.FormCardPage {
 
         FormCard.FormTextDelegate {
             id: welcomeMessage
-            text: AccountRegistry.accountCount > 0 ? i18n("Log in to a different account.") : i18n("Welcome to NeoChat! Continue by logging in.")
+            text: AccountRegistry.accountCount > 0 ? i18n("Log in to a different account or create a new account.") : i18n("Welcome to NeoChat! Continue by logging in or creating a new account.")
         }
 
         FormCard.FormDelegateSeparator {
@@ -51,9 +51,10 @@ FormCard.FormCardPage {
         Loader {
             id: module
             Layout.fillWidth: true
-            source: "qrc:/Login.qml"
+            source: "qrc:/LoginRegister.qml"
 
             Connections {
+                id: stepConnections
                 target: currentStep
 
                 function onProcessed(nextUrl) {
@@ -77,6 +78,23 @@ FormCard.FormCardPage {
                 }
             }
             Connections {
+                target: Registration
+                function onNextStepChanged() {
+                    if (Registration.nextStep === "m.login.recaptcha") {
+                        stepConnections.onProcessed("qrc:/Captcha.qml")
+                    }
+                    if (Registration.nextStep === "m.login.terms") {
+                        stepConnections.onProcessed("qrc:/Terms.qml")
+                    }
+                    if (Registration.nextStep === "m.login.email.identity") {
+                        stepConnections.onProcessed("qrc:/Email.qml")
+                    }
+                    if (Registration.nextStep === "loading") {
+                        stepConnections.onProcessed("qrc:/Loading.qml")
+                    }
+                }
+            }
+            Connections {
                 target: LoginHelper
                 function onErrorOccured(message) {
                     headerMessage.text = message;
@@ -92,7 +110,7 @@ FormCard.FormCardPage {
 
         FormCard.FormButtonDelegate {
             id: continueButton
-            text: root.currentStep.nextAction ? root.currentStep.nextAction.text : i18nc("@action:button", "Continue")
+            text: root.currentStep.nextAction && root.currentStep.nextAction.text ? root.currentStep.nextAction.text : i18nc("@action:button", "Continue")
             visible: root.currentStep.nextAction
             onClicked: root.currentStep.nextAction.trigger()
             icon.name: "arrow-right"
@@ -111,5 +129,8 @@ FormCard.FormCardPage {
     Component.onCompleted: {
         LoginHelper.init()
         module.item.forceActiveFocus()
+        Registration.username = ""
+        Registration.password = ""
+        Registration.email = ""
     }
 }
