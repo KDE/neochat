@@ -177,13 +177,13 @@ TimelineContainer {
 
         onDurationChanged: {
             if (!duration) {
-                vid.supportStreaming = false;
+                root.supportStreaming = false;
             }
         }
 
         onErrorChanged: {
             if (error != MediaPlayer.NoError) {
-                vid.supportStreaming = false;
+                root.supportStreaming = false;
             }
         }
 
@@ -391,7 +391,7 @@ TimelineContainer {
 
         TapHandler {
             acceptedButtons: Qt.LeftButton
-            onTapped: if (vid.supportStreaming || root.progressInfo.completed) {
+            onTapped: if (root.supportStreaming || root.progressInfo.completed) {
                 if (vid.playbackState == MediaPlayer.PlayingState) {
                     vid.pause()
                 } else {
