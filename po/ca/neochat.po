@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-17 02:25+0000\n"
+"POT-Creation-Date: 2023-08-28 03:11+0000\n"
 "PO-Revision-Date: 2023-08-06 10:40+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1964,64 +1964,64 @@ msgctxt "@title:menu Account detail dialog"
 msgid "Account detail"
 msgstr "Detall del compte"
 
-#: src/qml/Dialog/UserDetailDialog.qml:77
+#: src/qml/Dialog/UserDetailDialog.qml:78
 #, kde-format
 msgid "Unignore this user"
 msgstr "No ignoris aquest usuari"
 
-#: src/qml/Dialog/UserDetailDialog.qml:77
+#: src/qml/Dialog/UserDetailDialog.qml:78
 #, kde-format
 msgid "Ignore this user"
 msgstr "Ignora aquest usuari"
 
-#: src/qml/Dialog/UserDetailDialog.qml:89
+#: src/qml/Dialog/UserDetailDialog.qml:90
 #, kde-format
 msgid "Kick this user"
 msgstr "Expulsa aquest usuari"
 
-#: src/qml/Dialog/UserDetailDialog.qml:102
+#: src/qml/Dialog/UserDetailDialog.qml:103
 #, kde-format
 msgid "Invite this user"
 msgstr "Convida aquest usuari"
 
-#: src/qml/Dialog/UserDetailDialog.qml:114
+#: src/qml/Dialog/UserDetailDialog.qml:115
 #, kde-format
 msgid "Ban this user"
 msgstr "Bandeja aquest usuari"
 
-#: src/qml/Dialog/UserDetailDialog.qml:119
+#: src/qml/Dialog/UserDetailDialog.qml:120
 #, kde-format
 msgctxt "@title"
 msgid "Ban User"
 msgstr "Bandeja l'usuari"
 
-#: src/qml/Dialog/UserDetailDialog.qml:130
+#: src/qml/Dialog/UserDetailDialog.qml:131
 #, kde-format
 msgid "Unban this user"
 msgstr "Desbandeja aquest usuari"
 
-#: src/qml/Dialog/UserDetailDialog.qml:142
+#: src/qml/Dialog/UserDetailDialog.qml:143
 #, kde-format
 msgid "Set user power level"
 msgstr "Estableix el nivell de permisos d'usuari"
 
-#: src/qml/Dialog/UserDetailDialog.qml:166
+#: src/qml/Dialog/UserDetailDialog.qml:167
 #, kde-format
 msgid "Remove recent messages by this user"
 msgstr "Elimina els missatges recents d'aquest usuari"
 
-#: src/qml/Dialog/UserDetailDialog.qml:171
+#: src/qml/Dialog/UserDetailDialog.qml:172
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Eliminació de missatges"
 
-#: src/qml/Dialog/UserDetailDialog.qml:181
+#: src/qml/Dialog/UserDetailDialog.qml:182
 #, kde-format
 msgid "Open a private chat"
 msgstr "Obre en un xat privat"
 
-#: src/qml/Dialog/UserDetailDialog.qml:191
+#: src/qml/Dialog/UserDetailDialog.qml:192
 #, kde-format
 msgid "Copy link"
 msgstr "Copia l'enllaç"
@@ -2060,6 +2060,14 @@ msgstr "Inicia un xat"
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Voleu iniciar un xat amb %1?"
+
+#: src/qml/main.qml:393 src/qml/Menu/GlobalMenu.qml:30
+#: src/qml/Page/RoomList/AccountMenu.qml:33
+#: src/qml/Page/RoomList/AccountMenu.qml:43
+#: src/qml/Page/RoomList/UserInfo.qml:235
+#, kde-format
+msgid "Configure"
+msgstr "Configura"
 
 #: src/qml/Menu/EditMenu.qml:17
 #, kde-format
@@ -2120,63 +2128,56 @@ msgctxt "menu"
 msgid "Configure NeoChat..."
 msgstr "Configura el NeoChat..."
 
-#: src/qml/Menu/GlobalMenu.qml:28 src/qml/Page/RoomList/AccountMenu.qml:33
-#: src/qml/Page/RoomList/AccountMenu.qml:43
-#: src/qml/Page/RoomList/UserInfo.qml:235
-#, kde-format
-msgid "Configure"
-msgstr "Configura"
-
-#: src/qml/Menu/GlobalMenu.qml:32
+#: src/qml/Menu/GlobalMenu.qml:34
 #, kde-format
 msgctxt "menu"
 msgid "Quit NeoChat"
 msgstr "Surt del NeoChat"
 
-#: src/qml/Menu/GlobalMenu.qml:39
+#: src/qml/Menu/GlobalMenu.qml:41
 #, kde-format
 msgctxt "menu"
 msgid "File"
 msgstr "Fitxer"
 
-#: src/qml/Menu/GlobalMenu.qml:42
+#: src/qml/Menu/GlobalMenu.qml:44
 #, kde-format
 msgctxt "menu"
 msgid "New Private Chat…"
 msgstr "Xat privat nou…"
 
-#: src/qml/Menu/GlobalMenu.qml:43 src/qml/Menu/GlobalMenu.qml:48
+#: src/qml/Menu/GlobalMenu.qml:45 src/qml/Menu/GlobalMenu.qml:50
 #: src/qml/Page/RoomList/ExploreComponent.qml:26
 #: src/qml/Page/StartChatPage.qml:20
 #, kde-format
 msgid "Start a Chat"
 msgstr "Inicia un xat"
 
-#: src/qml/Menu/GlobalMenu.qml:47
+#: src/qml/Menu/GlobalMenu.qml:49
 #, kde-format
 msgctxt "menu"
 msgid "New Group…"
 msgstr "Grup nou…"
 
-#: src/qml/Menu/GlobalMenu.qml:56
+#: src/qml/Menu/GlobalMenu.qml:58
 #, kde-format
 msgctxt "menu"
 msgid "Browse Chats…"
 msgstr "Navega pels xats…"
 
-#: src/qml/Menu/GlobalMenu.qml:61
+#: src/qml/Menu/GlobalMenu.qml:63
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "Edita"
 
-#: src/qml/Menu/GlobalMenu.qml:65
+#: src/qml/Menu/GlobalMenu.qml:67
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "Vista"
 
-#: src/qml/Menu/GlobalMenu.qml:68
+#: src/qml/Menu/GlobalMenu.qml:70
 #, kde-format
 msgctxt ""
 "menu item that opens a UI element called the 'Quick Switcher', which offers "
@@ -2184,31 +2185,31 @@ msgctxt ""
 msgid "Open Quick Switcher"
 msgstr "Obre el commutador ràpid"
 
-#: src/qml/Menu/GlobalMenu.qml:74
+#: src/qml/Menu/GlobalMenu.qml:76
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "Finestra"
 
-#: src/qml/Menu/GlobalMenu.qml:81
+#: src/qml/Menu/GlobalMenu.qml:83
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "Surt de pantalla completa"
 
-#: src/qml/Menu/GlobalMenu.qml:81
+#: src/qml/Menu/GlobalMenu.qml:83
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "Entra a pantalla completa"
 
-#: src/qml/Menu/GlobalMenu.qml:87
+#: src/qml/Menu/GlobalMenu.qml:89
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "Ajuda"
 
-#: src/qml/Menu/GlobalMenu.qml:90
+#: src/qml/Menu/GlobalMenu.qml:92
 #, kde-format
 msgctxt "menu"
 msgid "Matrix FAQ"
@@ -2234,25 +2235,25 @@ msgstr "Ha fallat la compartició"
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "L'URL compartit per a la imatge és <a href='%1'>%1</a>"
 
-#: src/qml/Menu/Timeline/BanSheet.qml:16
+#: src/qml/Menu/Timeline/BanSheet.qml:18
 #, kde-format
 msgid "Ban User"
 msgstr "Bandeja l'usuari"
 
-#: src/qml/Menu/Timeline/BanSheet.qml:20
+#: src/qml/Menu/Timeline/BanSheet.qml:22
 #, kde-format
 msgid "Reason for banning this user"
 msgstr "Motiu per bandejar aquest usuari"
 
-#: src/qml/Menu/Timeline/BanSheet.qml:32
+#: src/qml/Menu/Timeline/BanSheet.qml:34
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr "Bandeja"
 
-#: src/qml/Menu/Timeline/BanSheet.qml:41
+#: src/qml/Menu/Timeline/BanSheet.qml:43
 #: src/qml/Menu/Timeline/RemoveSheet.qml:49
-#: src/qml/Menu/Timeline/ReportSheet.qml:41 src/qml/Page/InviteUserPage.qml:24
+#: src/qml/Menu/Timeline/ReportSheet.qml:43 src/qml/Page/InviteUserPage.qml:24
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
@@ -2289,7 +2290,7 @@ msgstr "Eliminació d'un missatge"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:83
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:59
-#: src/qml/Menu/Timeline/ReportSheet.qml:32
+#: src/qml/Menu/Timeline/ReportSheet.qml:34
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -2356,12 +2357,12 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Elimina"
 
-#: src/qml/Menu/Timeline/ReportSheet.qml:16
+#: src/qml/Menu/Timeline/ReportSheet.qml:18
 #, kde-format
 msgid "Report Message"
 msgstr "Informa del missatge"
 
-#: src/qml/Menu/Timeline/ReportSheet.qml:20
+#: src/qml/Menu/Timeline/ReportSheet.qml:22
 #, kde-format
 msgid "Reason for reporting this message"
 msgstr "Motiu per a informar d'aquest missatge"

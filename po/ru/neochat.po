@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-17 02:25+0000\n"
+"POT-Creation-Date: 2023-08-28 03:11+0000\n"
 "PO-Revision-Date: 2023-04-27 15:01+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -1977,64 +1977,64 @@ msgctxt "@title:menu Account detail dialog"
 msgid "Account detail"
 msgstr "Информация о учётной записи"
 
-#: src/qml/Dialog/UserDetailDialog.qml:77
+#: src/qml/Dialog/UserDetailDialog.qml:78
 #, kde-format
 msgid "Unignore this user"
 msgstr "Перестать игнорировать этого пользователя"
 
-#: src/qml/Dialog/UserDetailDialog.qml:77
+#: src/qml/Dialog/UserDetailDialog.qml:78
 #, kde-format
 msgid "Ignore this user"
 msgstr "Игнорировать этого пользователя"
 
-#: src/qml/Dialog/UserDetailDialog.qml:89
+#: src/qml/Dialog/UserDetailDialog.qml:90
 #, kde-format
 msgid "Kick this user"
 msgstr "Выгнать этого пользователя"
 
-#: src/qml/Dialog/UserDetailDialog.qml:102
+#: src/qml/Dialog/UserDetailDialog.qml:103
 #, kde-format
 msgid "Invite this user"
 msgstr "Пригласить этого пользователя"
 
-#: src/qml/Dialog/UserDetailDialog.qml:114
+#: src/qml/Dialog/UserDetailDialog.qml:115
 #, kde-format
 msgid "Ban this user"
 msgstr "Заблокировать этого пользователя"
 
-#: src/qml/Dialog/UserDetailDialog.qml:119
+#: src/qml/Dialog/UserDetailDialog.qml:120
 #, kde-format
 msgctxt "@title"
 msgid "Ban User"
 msgstr "Блокирование пользователя"
 
-#: src/qml/Dialog/UserDetailDialog.qml:130
+#: src/qml/Dialog/UserDetailDialog.qml:131
 #, kde-format
 msgid "Unban this user"
 msgstr "Разблокировать этого пользователя"
 
-#: src/qml/Dialog/UserDetailDialog.qml:142
+#: src/qml/Dialog/UserDetailDialog.qml:143
 #, kde-format
 msgid "Set user power level"
 msgstr "Установить уровень возможностей пользователя"
 
-#: src/qml/Dialog/UserDetailDialog.qml:166
+#: src/qml/Dialog/UserDetailDialog.qml:167
 #, kde-format
 msgid "Remove recent messages by this user"
 msgstr "Удалить последние сообщения этого пользователя"
 
-#: src/qml/Dialog/UserDetailDialog.qml:171
+#: src/qml/Dialog/UserDetailDialog.qml:172
 #, kde-format
 msgctxt "@title"
 msgid "Remove Messages"
 msgstr "Удаление сообщений"
 
-#: src/qml/Dialog/UserDetailDialog.qml:181
+#: src/qml/Dialog/UserDetailDialog.qml:182
 #, kde-format
 msgid "Open a private chat"
 msgstr "Открыть личный чат"
 
-#: src/qml/Dialog/UserDetailDialog.qml:191
+#: src/qml/Dialog/UserDetailDialog.qml:192
 #, kde-format
 msgid "Copy link"
 msgstr "Копировать ссылку"
@@ -2074,6 +2074,14 @@ msgstr "Начать общение"
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "Начать чат с %1?"
+
+#: src/qml/main.qml:393 src/qml/Menu/GlobalMenu.qml:30
+#: src/qml/Page/RoomList/AccountMenu.qml:33
+#: src/qml/Page/RoomList/AccountMenu.qml:43
+#: src/qml/Page/RoomList/UserInfo.qml:235
+#, kde-format
+msgid "Configure"
+msgstr "Параметры"
 
 #: src/qml/Menu/EditMenu.qml:17
 #, kde-format
@@ -2134,63 +2142,56 @@ msgctxt "menu"
 msgid "Configure NeoChat..."
 msgstr "Настроить NeoChat…"
 
-#: src/qml/Menu/GlobalMenu.qml:28 src/qml/Page/RoomList/AccountMenu.qml:33
-#: src/qml/Page/RoomList/AccountMenu.qml:43
-#: src/qml/Page/RoomList/UserInfo.qml:235
-#, kde-format
-msgid "Configure"
-msgstr "Параметры"
-
-#: src/qml/Menu/GlobalMenu.qml:32
+#: src/qml/Menu/GlobalMenu.qml:34
 #, kde-format
 msgctxt "menu"
 msgid "Quit NeoChat"
 msgstr "Выйти из NeoChat"
 
-#: src/qml/Menu/GlobalMenu.qml:39
+#: src/qml/Menu/GlobalMenu.qml:41
 #, kde-format
 msgctxt "menu"
 msgid "File"
 msgstr "Файл"
 
-#: src/qml/Menu/GlobalMenu.qml:42
+#: src/qml/Menu/GlobalMenu.qml:44
 #, kde-format
 msgctxt "menu"
 msgid "New Private Chat…"
 msgstr "Новый личный чат…"
 
-#: src/qml/Menu/GlobalMenu.qml:43 src/qml/Menu/GlobalMenu.qml:48
+#: src/qml/Menu/GlobalMenu.qml:45 src/qml/Menu/GlobalMenu.qml:50
 #: src/qml/Page/RoomList/ExploreComponent.qml:26
 #: src/qml/Page/StartChatPage.qml:20
 #, kde-format
 msgid "Start a Chat"
 msgstr "Начать чат"
 
-#: src/qml/Menu/GlobalMenu.qml:47
+#: src/qml/Menu/GlobalMenu.qml:49
 #, kde-format
 msgctxt "menu"
 msgid "New Group…"
 msgstr "Создать группу…"
 
-#: src/qml/Menu/GlobalMenu.qml:56
+#: src/qml/Menu/GlobalMenu.qml:58
 #, kde-format
 msgctxt "menu"
 msgid "Browse Chats…"
 msgstr "Обзор чатов…"
 
-#: src/qml/Menu/GlobalMenu.qml:61
+#: src/qml/Menu/GlobalMenu.qml:63
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "Изменить"
 
-#: src/qml/Menu/GlobalMenu.qml:65
+#: src/qml/Menu/GlobalMenu.qml:67
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "Вид"
 
-#: src/qml/Menu/GlobalMenu.qml:68
+#: src/qml/Menu/GlobalMenu.qml:70
 #, kde-format
 msgctxt ""
 "menu item that opens a UI element called the 'Quick Switcher', which offers "
@@ -2198,31 +2199,31 @@ msgctxt ""
 msgid "Open Quick Switcher"
 msgstr "Открыть диалог быстрого переключения"
 
-#: src/qml/Menu/GlobalMenu.qml:74
+#: src/qml/Menu/GlobalMenu.qml:76
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "Окно"
 
-#: src/qml/Menu/GlobalMenu.qml:81
+#: src/qml/Menu/GlobalMenu.qml:83
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "Выйти из полноэкранного режима"
 
-#: src/qml/Menu/GlobalMenu.qml:81
+#: src/qml/Menu/GlobalMenu.qml:83
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "Полноэкранный режим"
 
-#: src/qml/Menu/GlobalMenu.qml:87
+#: src/qml/Menu/GlobalMenu.qml:89
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "Справка"
 
-#: src/qml/Menu/GlobalMenu.qml:90
+#: src/qml/Menu/GlobalMenu.qml:92
 #, kde-format
 msgctxt "menu"
 msgid "Matrix FAQ"
@@ -2248,25 +2249,25 @@ msgstr "Ошибка публикации"
 msgid "Shared url for image is <a href='%1'>%1</a>"
 msgstr "Ссылка общего доступа для изображения: <a href='%1'>%1</a>"
 
-#: src/qml/Menu/Timeline/BanSheet.qml:16
+#: src/qml/Menu/Timeline/BanSheet.qml:18
 #, kde-format
 msgid "Ban User"
 msgstr "Заблокировать пользователя"
 
-#: src/qml/Menu/Timeline/BanSheet.qml:20
+#: src/qml/Menu/Timeline/BanSheet.qml:22
 #, kde-format
 msgid "Reason for banning this user"
 msgstr "Причина для блокировки этого пользователя"
 
-#: src/qml/Menu/Timeline/BanSheet.qml:32
+#: src/qml/Menu/Timeline/BanSheet.qml:34
 #, kde-format
 msgctxt "@action:button 'Ban' as in 'Ban this user'"
 msgid "Ban"
 msgstr "Заблокировать"
 
-#: src/qml/Menu/Timeline/BanSheet.qml:41
+#: src/qml/Menu/Timeline/BanSheet.qml:43
 #: src/qml/Menu/Timeline/RemoveSheet.qml:49
-#: src/qml/Menu/Timeline/ReportSheet.qml:41 src/qml/Page/InviteUserPage.qml:24
+#: src/qml/Menu/Timeline/ReportSheet.qml:43 src/qml/Page/InviteUserPage.qml:24
 #, kde-format
 msgctxt "@action"
 msgid "Cancel"
@@ -2303,7 +2304,7 @@ msgstr "Удаление сообщения"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:83
 #: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:59
-#: src/qml/Menu/Timeline/ReportSheet.qml:32
+#: src/qml/Menu/Timeline/ReportSheet.qml:34
 #, kde-format
 msgctxt ""
 "@action:button 'Report' as in 'Report this event to the administrators'"
@@ -2370,12 +2371,12 @@ msgctxt "@action:button 'Remove' as in 'Remove this message'"
 msgid "Remove"
 msgstr "Удалить"
 
-#: src/qml/Menu/Timeline/ReportSheet.qml:16
+#: src/qml/Menu/Timeline/ReportSheet.qml:18
 #, kde-format
 msgid "Report Message"
 msgstr "Жалоба на сообщение"
 
-#: src/qml/Menu/Timeline/ReportSheet.qml:20
+#: src/qml/Menu/Timeline/ReportSheet.qml:22
 #, kde-format
 msgid "Reason for reporting this message"
 msgstr "Причина жалобы на это сообщение"
