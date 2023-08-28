@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: neochat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-27 00:46+0000\n"
+"POT-Creation-Date: 2023-08-28 00:46+0000\n"
 "PO-Revision-Date: 2023-08-20 15:12+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -23,7 +23,7 @@ msgid "Login Failed: Access Token invalid or revoked"
 msgstr ""
 "நுழைவு தோல்வியடைந்தது: Access Token செல்லுபடியாகாதது அல்லது திரும்பப்பெறப்பட்டது"
 
-#: src/controller.cpp:248 src/controller.cpp:253 src/login.cpp:90
+#: src/controller.cpp:248 src/controller.cpp:253 src/login.cpp:93
 #, kde-format
 msgid "Login Failed: %1"
 msgstr "நுழைவு தோல்வியடைந்தது: %1"
@@ -118,7 +118,7 @@ msgctxt "The location being downloaded to"
 msgid "Destination"
 msgstr "சேருமிடம்"
 
-#: src/login.cpp:85 src/login.cpp:96
+#: src/login.cpp:85 src/login.cpp:100
 #, kde-format
 msgid "Network Error"
 msgstr "பிணைய சிக்கல்"
@@ -1074,12 +1074,12 @@ msgstr "நிலையை புதுப்பித்தார்"
 msgid "started a poll"
 msgstr "கருத்தாய்வை துவக்கினார்"
 
-#: src/neochatroom.cpp:1631 src/neochatroom.cpp:1632
+#: src/neochatroom.cpp:1626 src/neochatroom.cpp:1627
 #, kde-format
 msgid "Report sent successfully."
 msgstr "புகார் வெற்றிகரமாக அனுப்பப்பட்டுள்ளது."
 
-#: src/neochatroom.cpp:1928 src/neochatroom.cpp:1936
+#: src/neochatroom.cpp:1923 src/neochatroom.cpp:1931
 #, kde-format
 msgctxt "'Lat' and 'Lon' as in Latitude and Longitude"
 msgid "Lat: %1, Lon: %2"
@@ -1090,7 +1090,7 @@ msgstr "அட்ச: %1, தீர்க்க: %2"
 msgid "Encrypted Message"
 msgstr "மறையாக்கப்பட்டுள்ள செய்தி"
 
-#: src/notificationsmanager.cpp:201 src/qml/main.qml:257
+#: src/notificationsmanager.cpp:201 src/qml/main.qml:252
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -1102,7 +1102,7 @@ msgstr "இந்த அரங்கில் நியோச்சாட்ட�
 
 #: src/notificationsmanager.cpp:220 src/qml/Component/HoverActions.qml:109
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:50
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:36
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:37
 #, kde-format
 msgid "Reply"
 msgstr "பதிலளி"
@@ -1139,7 +1139,7 @@ msgstr "உடனிணைப்பு:"
 
 #: src/qml/Component/ChatBox/AttachmentPane.qml:38
 #: src/qml/Component/HoverActions.qml:103
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:27
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:28
 #: src/qml/Page/ImageEditorPage.qml:21
 #, kde-format
 msgid "Edit"
@@ -1390,116 +1390,94 @@ msgid "Url:"
 msgstr "முகவரி:"
 
 #: src/qml/Component/Login/Homeserver.qml:57
-#: src/qml/Component/Login/Login.qml:47
+#: src/qml/Component/Login/Login.qml:38 src/qml/Page/WelcomePage.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue"
 msgstr "தொடர்"
 
-#: src/qml/Component/Login/Loading.qml:17
+#: src/qml/Component/Login/Loading.qml:16
 #, kde-format
 msgid "Please wait. This might take a little while."
 msgstr "காத்திருங்கள். இதற்கு கொஞ்சம் நேரமாகலாம்."
 
-#: src/qml/Component/Login/Login.qml:19 src/qml/Component/Login/Sso.qml:15
-#, kde-format
-msgctxt "@title"
-msgid "Login"
-msgstr "நுழைவு"
-
-#: src/qml/Component/Login/Login.qml:20
-#, kde-format
-msgid "Enter your Matrix ID"
-msgstr "உங்கள் Matrix கணக்கின் பெயரை உள்ளிடுங்கள்"
-
-#: src/qml/Component/Login/Login.qml:29
+#: src/qml/Component/Login/Login.qml:25
 #, kde-format
 msgid "Matrix ID:"
 msgstr "Matrix கணக்குப்பெயர்:"
 
-#: src/qml/Component/Login/Login.qml:31
+#: src/qml/Component/Login/Login.qml:27
 #, kde-format
 msgid "Matrix ID"
 msgstr "Matrix கணக்குப்பெயர்"
 
-#: src/qml/Component/Login/Login.qml:47 src/qml/Component/Login/Sso.qml:45
-#: src/qml/Page/LoadingPage.qml:9
+#: src/qml/Component/Login/Login.qml:38 src/qml/Page/LoadingPage.qml:9
 #, kde-format
 msgid "Loading…"
 msgstr "ஏற்றப்படுகிறது…"
 
-#: src/qml/Component/Login/Login.qml:47
+#: src/qml/Component/Login/Login.qml:38
 #, kde-format
 msgid "Already logged in"
 msgstr "ஏற்கனவே நுழைந்துள்ளீர்கள்"
 
-#: src/qml/Component/Login/LoginMethod.qml:14
-#, kde-format
-msgid "Login Methods"
-msgstr "நுழையும் முறைகள்"
-
 #: src/qml/Component/Login/LoginMethod.qml:20
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Login with password"
+msgctxt "@action:button"
 msgid "Login with password"
 msgstr "கடவுச்சொல்லுடன் நுழைவு"
 
-#: src/qml/Component/Login/LoginMethod.qml:27
-#: src/qml/Component/Login/Sso.qml:16
-#, kde-format
+#: src/qml/Component/Login/LoginMethod.qml:26
+#, fuzzy, kde-format
+#| msgid "Login with single sign-on"
+msgctxt "@action:button"
 msgid "Login with single sign-on"
 msgstr "single sign-on கொண்டு நுழைவு"
 
 #: src/qml/Component/Login/LoginRegister.qml:19
-#: src/qml/Component/Login/Sso.qml:25 src/qml/Component/Login/Sso.qml:41
-#, kde-format
-msgid "Login"
-msgstr "நுழை"
-
-#: src/qml/Component/Login/LoginRegister.qml:26
-#, kde-format
-msgid "Register"
-msgstr "பதிவு செய்"
-
-#: src/qml/Component/Login/LoginStep.qml:11
-#: src/qml/Component/Login/LoginStep.qml:12 src/qml/Page/WelcomePage.qml:17
-#, kde-format
-msgid "Welcome"
-msgstr "நல்வரவு"
-
-#: src/qml/Component/Login/Password.qml:15
-#, kde-format
-msgctxt "@title"
-msgid "Password"
-msgstr "கடவுச்சொல்"
-
-#: src/qml/Component/Login/Password.qml:16
-#, kde-format
-msgid "Enter your password"
-msgstr "உங்கள் கடவுச்சொல்லை உள்ளிடுங்கள்"
-
-#: src/qml/Component/Login/Password.qml:22
+#: src/qml/Component/Login/Password.qml:41
 #, kde-format
 msgctxt "@action:button"
 msgid "Login"
 msgstr "நுழை"
 
-#: src/qml/Component/Login/Password.qml:41
+#: src/qml/Component/Login/LoginRegister.qml:24
+#, fuzzy, kde-format
+#| msgid "Register"
+msgctxt "@action:button"
+msgid "Register"
+msgstr "பதிவு செய்"
+
+#: src/qml/Component/Login/Password.qml:28 src/qml/Settings/DevicesPage.qml:73
+#, kde-format
+msgid "Password:"
+msgstr "கடவுச்சொல்:"
+
+#: src/qml/Component/Login/Password.qml:32
 #: src/qml/Settings/AccountEditorPage.qml:151
 #: src/qml/Settings/NetworkProxyPage.qml:99
 #, kde-format
 msgid "Password"
 msgstr "கடவுச்சொல்"
 
-#: src/qml/Component/Login/Sso.qml:23
-#, kde-format
-msgid "Complete the authentication steps in your browser"
+#: src/qml/Component/Login/Password.qml:33
+#, fuzzy, kde-format
+#| msgid "Enter your password"
+msgid "Invalid username or password"
+msgstr "உங்கள் கடவுச்சொல்லை உள்ளிடுங்கள்"
+
+#: src/qml/Component/Login/Sso.qml:31
+#, fuzzy, kde-format
+#| msgid "Complete the authentication steps in your browser"
+msgid "Continue the login process in your browser."
 msgstr "உங்கள் உலாவியில் உறுதிப்பாட்டை தொடருங்கள்"
 
-#: src/qml/Component/Login/Sso.qml:33 src/qml/Page/WelcomePage.qml:72
+#: src/qml/Component/Login/Sso.qml:39
 #, kde-format
 msgctxt "@action:button"
-msgid "Back"
-msgstr "பின்னே"
+msgid "Re-open SSO URL"
+msgstr ""
 
 #: src/qml/Component/Timeline/EncryptedDelegate.qml:20
 #: src/qml/Component/Timeline/ReplyComponent.qml:204
@@ -1617,7 +1595,7 @@ msgstr "கடைசி செய்திக்குத் தாவு"
 msgid "Drag items here to share them"
 msgstr "எதையாவது பகிர, அதை இங்கு இழுத்துப் போடுங்கள்"
 
-#: src/qml/Component/TimelineView.qml:235
+#: src/qml/Component/TimelineView.qml:229
 #, kde-format
 msgctxt "Message displayed when some users are typing"
 msgid "%2 is typing"
@@ -2007,18 +1985,18 @@ msgstr "தனிப்பட்ட உரையாடலைத் துவக�
 msgid "Copy link"
 msgstr "இணைப்பை நகலெடு"
 
-#: src/qml/main.qml:297
+#: src/qml/main.qml:292
 #, kde-format
 msgctxt "@title:window"
 msgid "Session Verification"
 msgstr "அமர்வு உறுதிப்பாடு"
 
-#: src/qml/main.qml:309
+#: src/qml/main.qml:304
 #, kde-format
 msgid "User consent"
 msgstr "பயனர் ஒப்புதல்"
 
-#: src/qml/main.qml:314
+#: src/qml/main.qml:309
 #, kde-format
 msgid ""
 "Your homeserver requires you to agree to its terms and conditions before "
@@ -2027,20 +2005,28 @@ msgstr ""
 "பயன்படுத்துமுன் அதன் விதிமுறைகளை ஏற்குமாறு உங்கள் தாய் சேவையகம் உங்களை "
 "கட்டாயப்படுத்துகிறது. அவற்றைப் படிக்க கீழுள்ள பட்டனைத் தட்டுங்கள்."
 
-#: src/qml/main.qml:319
+#: src/qml/main.qml:314
 #, kde-format
 msgid "Open"
 msgstr "திற"
 
-#: src/qml/main.qml:354
+#: src/qml/main.qml:344
 #, kde-format
 msgid "Start a chat"
 msgstr "உரையாடலைத் துவக்கு"
 
-#: src/qml/main.qml:356
+#: src/qml/main.qml:346
 #, kde-format
 msgid "Do you want to start a chat with %1?"
 msgstr "உறுதியாக %1 என்பவருடன் உரையாடலைத் துவக்க வேண்டுமா?"
+
+#: src/qml/main.qml:381 src/qml/Menu/GlobalMenu.qml:30
+#: src/qml/Page/RoomList/AccountMenu.qml:33
+#: src/qml/Page/RoomList/AccountMenu.qml:43
+#: src/qml/Page/RoomList/UserInfo.qml:235
+#, kde-format
+msgid "Configure"
+msgstr "அமை"
 
 #: src/qml/Menu/EditMenu.qml:17
 #, kde-format
@@ -2101,63 +2087,56 @@ msgctxt "menu"
 msgid "Configure NeoChat..."
 msgstr "நியோச்சாட்டை அமை..."
 
-#: src/qml/Menu/GlobalMenu.qml:28 src/qml/Page/RoomList/AccountMenu.qml:33
-#: src/qml/Page/RoomList/AccountMenu.qml:43
-#: src/qml/Page/RoomList/UserInfo.qml:235
-#, kde-format
-msgid "Configure"
-msgstr "அமை"
-
-#: src/qml/Menu/GlobalMenu.qml:32
+#: src/qml/Menu/GlobalMenu.qml:34
 #, kde-format
 msgctxt "menu"
 msgid "Quit NeoChat"
 msgstr "நியோச்சாட்டிலிருந்து வெளியேறு"
 
-#: src/qml/Menu/GlobalMenu.qml:39
+#: src/qml/Menu/GlobalMenu.qml:41
 #, kde-format
 msgctxt "menu"
 msgid "File"
 msgstr "கோப்பு"
 
-#: src/qml/Menu/GlobalMenu.qml:42
+#: src/qml/Menu/GlobalMenu.qml:44
 #, kde-format
 msgctxt "menu"
 msgid "New Private Chat…"
 msgstr "புதிய தனிப்பட்ட உரையாடல்…"
 
-#: src/qml/Menu/GlobalMenu.qml:43 src/qml/Menu/GlobalMenu.qml:48
+#: src/qml/Menu/GlobalMenu.qml:45 src/qml/Menu/GlobalMenu.qml:50
 #: src/qml/Page/RoomList/ExploreComponent.qml:26
 #: src/qml/Page/StartChatPage.qml:20
 #, kde-format
 msgid "Start a Chat"
 msgstr "உரையாடலைத் துவக்கு"
 
-#: src/qml/Menu/GlobalMenu.qml:47
+#: src/qml/Menu/GlobalMenu.qml:49
 #, kde-format
 msgctxt "menu"
 msgid "New Group…"
 msgstr "புதிய குழு…"
 
-#: src/qml/Menu/GlobalMenu.qml:56
+#: src/qml/Menu/GlobalMenu.qml:58
 #, kde-format
 msgctxt "menu"
 msgid "Browse Chats…"
 msgstr "உரையாடல்களில் உலாவு…"
 
-#: src/qml/Menu/GlobalMenu.qml:61
+#: src/qml/Menu/GlobalMenu.qml:63
 #, kde-format
 msgctxt "menu"
 msgid "Edit"
 msgstr "திருத்து"
 
-#: src/qml/Menu/GlobalMenu.qml:65
+#: src/qml/Menu/GlobalMenu.qml:67
 #, kde-format
 msgctxt "menu"
 msgid "View"
 msgstr "பார்வை"
 
-#: src/qml/Menu/GlobalMenu.qml:68
+#: src/qml/Menu/GlobalMenu.qml:70
 #, kde-format
 msgctxt ""
 "menu item that opens a UI element called the 'Quick Switcher', which offers "
@@ -2165,31 +2144,31 @@ msgctxt ""
 msgid "Open Quick Switcher"
 msgstr "விரை மாற்றியை திற"
 
-#: src/qml/Menu/GlobalMenu.qml:74
+#: src/qml/Menu/GlobalMenu.qml:76
 #, kde-format
 msgctxt "menu"
 msgid "Window"
 msgstr "சாளரம்"
 
-#: src/qml/Menu/GlobalMenu.qml:81
+#: src/qml/Menu/GlobalMenu.qml:83
 #, kde-format
 msgctxt "menu"
 msgid "Exit Full Screen"
 msgstr "முழுத்திரையிலிருந்து வெளியேறு"
 
-#: src/qml/Menu/GlobalMenu.qml:81
+#: src/qml/Menu/GlobalMenu.qml:83
 #, kde-format
 msgctxt "menu"
 msgid "Enter Full Screen"
 msgstr "முழுத்திரை முறையில் நுழை"
 
-#: src/qml/Menu/GlobalMenu.qml:87
+#: src/qml/Menu/GlobalMenu.qml:89
 #, kde-format
 msgctxt "menu"
 msgid "Help"
 msgstr "உதவி"
 
-#: src/qml/Menu/GlobalMenu.qml:90
+#: src/qml/Menu/GlobalMenu.qml:92
 #, kde-format
 msgctxt "menu"
 msgid "Matrix FAQ"
@@ -2250,26 +2229,26 @@ msgid "Save As"
 msgstr "இவ்வாறு சேமி"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:59
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:54
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:69
 #, kde-format
 msgid "Copy"
 msgstr "நகலெடு"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:74
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:45
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:60
 #, kde-format
 msgid "Remove"
 msgstr "நீக்கு"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:78
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:49
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:64
 #, kde-format
 msgctxt "@title"
 msgid "Remove Message"
 msgstr "செய்தியை நீக்குவது"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:83
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:59
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:74
 #: src/qml/Menu/Timeline/ReportSheet.qml:34
 #, kde-format
 msgctxt ""
@@ -2278,35 +2257,49 @@ msgid "Report"
 msgstr "புகாரளி"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:87
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:63
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:78
 #, kde-format
 msgctxt "@title"
 msgid "Report Message"
 msgstr "செய்தியைப் பற்றி புகாரளித்தல்"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:92
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:68
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:83
 #, kde-format
 msgid "View Source"
 msgstr "மூலத்தைப் பார்"
 
 #: src/qml/Menu/Timeline/FileDelegateContextMenu.qml:98
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:74
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:89
 #, kde-format
 msgid "Message Source"
 msgstr "செய்தியின் மூலம்"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:80
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:45
+#, kde-format
+msgctxt "@action:inmenu As in 'Forward this message'"
+msgid "Forward"
+msgstr ""
+
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:49
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Report Message"
+msgctxt "@title"
+msgid "Forward Message"
+msgstr "செய்தியைப் பற்றி புகாரளித்தல்"
+
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:95
 #, kde-format
 msgid "Copy Link"
 msgstr "இணைப்பை நகலெடு"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:129
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:144
 #, kde-format
 msgid "Search for '%1'"
 msgstr "'%1' என்பதை தேடு"
 
-#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:150
+#: src/qml/Menu/Timeline/MessageDelegateContextMenu.qml:165
 #, kde-format
 msgid "Configure Web Shortcuts..."
 msgstr "இணைய சுருக்குவழிகளை அமை..."
@@ -2346,6 +2339,13 @@ msgstr "செய்தியைப் பற்றி புகாரளி"
 #, kde-format
 msgid "Reason for reporting this message"
 msgstr "இச்செய்தியைப்பற்றி புகாரளிப்பதற்கான காரணம்"
+
+#: src/qml/Page/ChooseRoomDialog.qml:16
+#, fuzzy, kde-format
+#| msgid "Choose a Location"
+msgctxt "@title"
+msgid "Choose a Room"
+msgstr "இடத்தை தேர்வு செய்"
 
 #: src/qml/Page/DevtoolsPage.qml:17 src/qml/RoomDrawer/RoomInformation.qml:75
 #, kde-format
@@ -2776,22 +2776,34 @@ msgstr "ஏற்கனவேயுள்ள உரையாடலில் ந�
 msgid "Create new chat"
 msgstr "புதிய உரையாடலை உருவாக்கு"
 
-#: src/qml/Page/WelcomePage.qml:56
+#: src/qml/Page/WelcomePage.qml:18
 #, kde-format
-msgid "Welcome to Matrix"
-msgstr "Matrix-க்கு நல்வரவு"
+msgid "Welcome"
+msgstr "நல்வரவு"
+
+#: src/qml/Page/WelcomePage.qml:44
+#, fuzzy, kde-format
+#| msgid "Log in to an existing account"
+msgid "Log in to a different account."
+msgstr "ஏற்கனவேயுள்ள கணக்கில் நுழை"
+
+#: src/qml/Page/WelcomePage.qml:44
+#, kde-format
+msgid "Welcome to NeoChat! Continue by logging in."
+msgstr ""
+
+#: src/qml/Page/WelcomePage.qml:103
+#, kde-format
+msgctxt "@action:button"
+msgid "Go back"
+msgstr ""
 
 #: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:62
 #, kde-format
 msgid "No name"
 msgstr "பெயரில்லாதது"
 
-#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:71
-#, kde-format
-msgid "No Canonical Alias"
-msgstr "செந்தர மாற்றுப்பெயர் இல்லை"
-
-#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:81
+#: src/qml/RoomDrawer/GroupChatDrawerHeader.qml:82
 #, kde-format
 msgid "No Topic"
 msgstr "தலைப்பு இல்லை"
@@ -3574,11 +3586,6 @@ msgstr "உங்கள் கணக்கிலுள்ள சாதனங்�
 msgid "Remove device"
 msgstr "சாதனத்தை நீக்கு"
 
-#: src/qml/Settings/DevicesPage.qml:73
-#, kde-format
-msgid "Password:"
-msgstr "கடவுச்சொல்:"
-
 #: src/qml/Settings/EmoticonEditorPage.qml:31
 #: src/qml/Settings/EmoticonFormCard.qml:55
 #, kde-format
@@ -4038,6 +4045,33 @@ msgstr "காட்டு"
 #, kde-format
 msgid "Quit"
 msgstr "வெளியேறு"
+
+#~ msgctxt "@title"
+#~ msgid "Login"
+#~ msgstr "நுழைவு"
+
+#~ msgid "Enter your Matrix ID"
+#~ msgstr "உங்கள் Matrix கணக்கின் பெயரை உள்ளிடுங்கள்"
+
+#~ msgid "Login Methods"
+#~ msgstr "நுழையும் முறைகள்"
+
+#~ msgid "Login"
+#~ msgstr "நுழை"
+
+#~ msgctxt "@title"
+#~ msgid "Password"
+#~ msgstr "கடவுச்சொல்"
+
+#~ msgctxt "@action:button"
+#~ msgid "Back"
+#~ msgstr "பின்னே"
+
+#~ msgid "Welcome to Matrix"
+#~ msgstr "Matrix-க்கு நல்வரவு"
+
+#~ msgid "No Canonical Alias"
+#~ msgstr "செந்தர மாற்றுப்பெயர் இல்லை"
 
 #~ msgid ""
 #~ "This room is encrypted. Build libQuotient with encryption enabled to send "

@@ -18,6 +18,10 @@
 #include <QApplication>
 #endif
 
+#ifdef HAVE_WEBVIEW
+#include <QtWebView>
+#endif
+
 #include <KAboutData>
 #ifdef HAVE_KDBUSADDONS
 #include <KDBusService>
@@ -95,6 +99,7 @@
 #include "runner.h"
 #include <QDBusConnection>
 #endif
+#include "registration.h"
 
 #ifdef Q_OS_WINDOWS
 #include <Windows.h>
@@ -138,6 +143,10 @@ int main(int argc, char *argv[])
 #endif
 
     QNetworkProxyFactory::setUseSystemConfiguration(true);
+
+#ifdef HAVE_WEBVIEW
+    QtWebView::initialize();
+#endif
 
 #ifdef Q_OS_ANDROID
     QGuiApplication app(argc, argv);
@@ -233,6 +242,7 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "AccountRegistry", &Controller::instance().accounts());
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "SpaceHierarchyCache", &SpaceHierarchyCache::instance());
     qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "CustomEmojiModel", &CustomEmojiModel::instance());
+    qmlRegisterSingletonInstance("org.kde.neochat", 1, 0, "Registration", &Registration::instance());
     qmlRegisterType<ActionsHandler>("org.kde.neochat", 1, 0, "ActionsHandler");
     qmlRegisterType<ChatDocumentHandler>("org.kde.neochat", 1, 0, "ChatDocumentHandler");
     qmlRegisterType<RoomListModel>("org.kde.neochat", 1, 0, "RoomListModel");

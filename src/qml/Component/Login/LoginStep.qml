@@ -26,6 +26,6 @@ ColumnLayout {
     /// Show a message in a banner at the top of the page.
     signal showMessage(string message)
 
+    /// Clears any error messages currently being shown
     signal clearError()
-
 }
