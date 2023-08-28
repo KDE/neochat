@@ -47,19 +47,16 @@ QQC2.ScrollView {
         interactive: Kirigami.Settings.isMobile
         bottomMargin: Kirigami.Units.largeSpacing + Math.round(Kirigami.Theme.defaultFont.pointSize * 2)
 
-        model: collapseStateProxyModel
+        model: sortedMessageEventModel
 
         MessageEventModel {
             id: messageEventModel
             room: root.currentRoom
         }
 
-        CollapseStateProxyModel {
-            id: collapseStateProxyModel
-            sourceModel: MessageFilterModel {
-                id: sortedMessageEventModel
-                sourceModel: messageEventModel
-            }
+        MessageFilterModel {
+            id: sortedMessageEventModel
+            sourceModel: messageEventModel
         }
 
         Timer {
@@ -349,7 +346,7 @@ QQC2.ScrollView {
 
         MediaMessageFilterModel {
             id: mediaMessageFilterModel
-            sourceModel: collapseStateProxyModel
+            sourceModel: sortedMessageEventModel
         }
 
         Component {

@@ -54,7 +54,6 @@
 #include "login.h"
 #include "matriximageprovider.h"
 #include "models/accountemoticonmodel.h"
-#include "models/collapsestateproxymodel.h"
 #include "models/customemojimodel.h"
 #include "models/devicesmodel.h"
 #include "models/devicesproxymodel.h"
@@ -250,7 +249,6 @@ int main(int argc, char *argv[])
     qmlRegisterType<UserListModel>("org.kde.neochat", 1, 0, "UserListModel");
     qmlRegisterType<MessageEventModel>("org.kde.neochat", 1, 0, "MessageEventModel");
     qmlRegisterType<ReactionModel>("org.kde.neochat", 1, 0, "ReactionModel");
-    qmlRegisterType<CollapseStateProxyModel>("org.kde.neochat", 1, 0, "CollapseStateProxyModel");
     qmlRegisterType<MediaMessageFilterModel>("org.kde.neochat", 1, 0, "MediaMessageFilterModel");
     qmlRegisterType<MessageFilterModel>("org.kde.neochat", 1, 0, "MessageFilterModel");
     qmlRegisterType<UserFilterModel>("org.kde.neochat", 1, 0, "UserFilterModel");

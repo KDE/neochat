@@ -5,7 +5,7 @@
 
 #include <QSortFilterProxyModel>
 
-#include "models/collapsestateproxymodel.h"
+#include "models/messagefiltermodel.h"
 
 /**
  * @class MediaMessageFilterModel
@@ -22,7 +22,7 @@ public:
      * @brief Defines the model roles.
      */
     enum Roles {
-        SourceRole = CollapseStateProxyModel::LastRole + 1, /**< The mxc source URL for the item. */
+        SourceRole = MessageFilterModel::LastRole + 1, /**< The mxc source URL for the item. */
         TempSourceRole, /**< Source for the temporary content (either blurhash or mxc URL). */
         TypeRole, /**< The type of the media (image or video). */
         CaptionRole, /**< The caption for the item. */
