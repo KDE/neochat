@@ -132,3 +132,24 @@ QString NeoChatConnection::label() const
 {
     return accountDataJson("org.kde.neochat.account_label"_ls)["account_label"_ls].toString();
 }
+
+void NeoChatConnection::deactivateAccount(const QString &password)
+{
+    auto job = callApi<NeoChatDeactivateAccountJob>();
+    connect(job, &BaseJob::result, this, [this, job, password] {
+        if (job->error() == 103) {
+            QJsonObject replyData = job->jsonData();
+            QJsonObject authData;
+            authData["session"_ls] = replyData["session"_ls];
+            authData["password"_ls] = password;
+            authData["type"_ls] = "m.login.password"_ls;
+            authData["user"_ls] = user()->id();
+            QJsonObject identifier = {{"type"_ls, "m.id.user"_ls}, {"user"_ls, user()->id()}};
+            authData["identifier"_ls] = identifier;
+            auto innerJob = callApi<NeoChatDeactivateAccountJob>(authData);
+            connect(innerJob, &BaseJob::success, this, [this]() {
+                logout(false);
+            });
+        }
+    });
+}

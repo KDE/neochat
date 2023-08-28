@@ -307,6 +307,14 @@ NeochatChangePasswordJob::NeochatChangePasswordJob(const QString &newPassword, b
     setRequestData(_data);
 }
 
+NeoChatDeactivateAccountJob::NeoChatDeactivateAccountJob(const Quotient::Omittable<QJsonObject> &auth)
+    : BaseJob(HttpVerb::Post, QStringLiteral("DisableDeviceJob"), "_matrix/client/v3/account/deactivate")
+{
+    QJsonObject data;
+    addParam<IfNotEmpty>(data, QStringLiteral("auth"), auth);
+    setRequestData(data);
+}
+
 int Controller::accountCount() const
 {
     return m_accountRegistry.count();

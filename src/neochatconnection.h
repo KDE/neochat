@@ -46,6 +46,8 @@ public:
     [[nodiscard]] QString label() const;
     void setLabel(const QString &label);
 
+    Q_INVOKABLE void deactivateAccount(const QString &password);
+
 Q_SIGNALS:
     void labelChanged();
 };

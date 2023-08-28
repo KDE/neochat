@@ -249,6 +249,21 @@ Kirigami.ScrollablePage {
                 }*/
             }
         }
+        MobileForm.FormHeader {
+            Layout.fillWidth: true
+            title: i18nc("@title", "Account Management")
+        }
+        MobileForm.FormCard {
+            Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                spacing: 0
+                MobileForm.FormButtonDelegate {
+                    id: deactivateAccountButton
+                    text: i18n("Deactivate Account")
+                    onClicked: pageStack.pushDialogLayer("qrc:/ConfirmDeactivateAccountDialog.qml", {connection: root.connection}, {title: i18nc("@title", "Confirm Deactivating Account")})
+                }
+            }
+        }
     }
     Component {
         id: openFileDialog

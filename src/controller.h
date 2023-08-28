@@ -249,3 +249,9 @@ class NeochatDeleteDeviceJob : public Quotient::BaseJob
 public:
     explicit NeochatDeleteDeviceJob(const QString &deviceId, const Quotient::Omittable<QJsonObject> &auth = Quotient::none);
 };
+
+class NeoChatDeactivateAccountJob : public Quotient::BaseJob
+{
+public:
+    explicit NeoChatDeactivateAccountJob(const Quotient::Omittable<QJsonObject> &auth = Quotient::none);
+};
